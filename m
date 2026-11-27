@@ -1,112 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795779755;
-	b=3ojYO3dc11cyAmv9IwgkN7C2nfo/YaMpZ9oLlxRkVzHhWkpj+mX+QJdSC3tGdAOgDjD/
-	 HXfe+JKgLYgaC6GvGpIwFFyhC0PEfOJOwJ6HO9zGGYV5FF1KJ6ZCDbudteJDgc5fHOAMe
-	 CE8YdAZl9Wc5ilJ/rJ/7ZJAxs9zliyd6KDaGFUB4uNsHpVLg8g9JmGdFz64YEyqYhHtVA
-	 pAvvCFDgwoKnK4/ICiFGM/09f2EcKEEBRgb2tfbHtYrpf2RghYKBMVJvsELHEYh081jYu
-	 zINklNAwyBXHAqjjlWfTzpGPzuIrn4ivkfWaEJfOxMnJyjM+W0emzigSQnsc7AqCA+A==
+	t=1795779757;
+	b=BREQE9MOGe/1gEJVSvYmQkURSzQLp5zZKjTz/MhrhCO02x5U5bFSy9Srk/Go5d4hObVr
+	 NTcSFcmTCyYm9FRorMTOw1ojKX8/PKx+8/eV+xSpqhBf9Ea7Gbmzc4a7bv1tbd9zIY6nm
+	 yR+Yuq46HTZ8WChU8CctJbscWRnJWYQf9rx9Qpv43xpawg5xTMvsN4YwLZUPs7kHfiuGb
+	 f8B6I2E05enBpDrYuUbNggw0z0ksQ8U14PW49KmBc51CnmLeDMxjslf9q/CXvL02PUu90
+	 rTXgK5ai3/DbTHHtlOZC1E1547Sj83BWC5LOI518ESmWE8wjpYnSpzNH177nsIlvjvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795779755;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795779757;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
-	 Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=NyDUwgrh6wWbTckiN+W3o/gquXyln8i4quGDrjK+rpw=;
-	b=FSpAY2Qwz2UfRJx2gfx+jp2IyWZOT22NIYcoDP0FS+uyKJ2Hf+88bHWx9lHGl+Tjrur4
-	 EJKjZcBOoymeJGjBIVAVL67T20urgcSF4GY7j1iEfQjI99JWQrrE/4eMx8gPaHSECRetY
-	 C4wYqUXe7+WBYmp7R5fc5cOLRXe6NM8QBs6cVj1BZt+04XNLTeBUB3WCcOmwFJ8r0pFsp
-	 /J6d5FUlGpWPf5J+K4ddMZtiTBl18S/DIsDbx3iJJFT/MdOh9U+Vf2kL8WZThi1I22gUz
-	 ds2wSHiLN7RDQJGyus0r0dQubHnZ3rmY3cqwSY6F35agXBhZtYBgoEgTAp9NRDaTPfw==
+	bh=uGFkSr0D3dGgZgMuqCO9paKpAWb6eQRCIZMkdTJXxQY=;
+	b=h0nj4xyiW3ue5UrD7PRrWFWBb2AfoMVg6td7Qa138z1bDM0x7mGgJCXInbl2vW4Y/nlZ
+	 Ng9h42C/voAiQKfVWBm7/EJLJ6YyAZ/kpkrnX3jfgJsgHB/oslT/zKRHlD2cS2OxEwA5n
+	 gQimutkuBnah40ckWLnMEDog9FXACxoPtDuz7UatY5XGTI292utDASMILt21xipoRzGxJ
+	 +R6XEawUJHdevqlHucmeLSWKhq6Oa1SiXqI6AJnqDe/P3/DR35IGuPhk1nW+RliXFdY2L
+	 xn+dQHv6aXvnZ9G7GHAgNPbPf1gMDSDgXy4gRT2vyWdibX8kq/Ag83hsw7oDY5/4QPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="Z7cl/HqJ";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iJdW2Dau;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="Lamcc/54";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LgTFteEk;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74D0D606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:42:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74D0D606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BEA7606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:42:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BEA7606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Z7cl/HqJ;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iJdW2Dau
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARAp0Gv1961818
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:42:35 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Lamcc/54;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LgTFteEk
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApP2O1560711
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:42:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=NyDUwgrh6wWbTckiN+W3o/
-	gquXyln8i4quGDrjK+rpw=; b=Z7cl/HqJCSj8mduH7FEaRvabZFow0DwkuHHlFM
-	Y1HTH92Y2f8dWljTKMZdM85PZqr9NzRL4y/4I1dAbCZSftgz1Okll7kZ2YpJTk6V
-	xnr7lOznw/qUiiD2EK4nazWGiSfVUIMKQGZlseipztNWCkSQoXJYTicPgmh62dzD
-	wSwbcM7RfoSNob+JeC9sqRP93XHlpUs4X+TrniKWrC85pSiCiKjBPa/I06//1W9e
-	ZsY9q/ZxWG5Fkihoprslzzwngxc3/TU/Gs9ujo0FK8TjlOTVM92gZ1NgZdKrC3mS
-	3wsqud8j18MaLe6HonMQF1TqkMeR4d9mHhyjuS09wYspUqzg==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	uGFkSr0D3dGgZgMuqCO9paKpAWb6eQRCIZMkdTJXxQY=; b=Lamcc/54wQL/K9js
+	UF2d4S5in0GGP537bI3vJQmVEuSPleY/AXkJ6HPgHrEBLJ8R/GggrD9T7jPimiJl
+	2BI3lILBADjtpNJ029FUeH2PcFcHtIcB01IcyymmDXAtADkKeXQ+wDOajodGM1Ou
+	PCIoNkkW1C4lLsziZeOcEvtLJ/DbM5gN0U7ogGmQHXTTDowzIk9+gBbLe7OCiTsp
+	MKRis3n2n5D8cmjj77mFOqGwH7cc+d8DBmX/EazTq3Kz9YyfhRaM0ZRS9saZS4iD
+	oOVsaznfnRN+8kB1Gz+zKw0yWQzFd7QrjocqBmKaCjRV96bfUaAK17VTYfF4WQqT
+	rtqBfQ==
 Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u4htugf-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u55tsc3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:42:34 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-949b0d3232fso1098798785a.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:42:34 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:42:36 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f2005ce21so1230142985a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:42:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795779754; x=1796384554; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=NyDUwgrh6wWbTckiN+W3o/gquXyln8i4quGDrjK+rpw=;
-        b=iJdW2Dau1eHiyIzITJ7HUvaLcQ28wTyzNyE1D63lhphhNREEg2oc9nQwdqs1mDoTga
-         gccZjtt0T42BhYTW37/sLPDr5vXet1YJNenuZP0gNQOHhw4BDHL6a+YUW3uytxdz81m9
-         s++bVTeBzjfF4JDMGUEh3U1V/zTlAXhfEHNSaJjZAgr7KZS21ysGdkl84aDc73OzrXYj
-         oEYmrXRXp+Pg6poS8WfEUba8K8Wc6bvt6ZhDlBl2dVagBKaL4N3opWF/cezo3UDdRj/E
-         QXskifGj5ezGG+XgLFeWH267SlIaM5iPMN9LIq6QSeMJX1geRh9C2VMuoBX2fTa85YTg
-         U0mw==
+        d=oss.qualcomm.com; s=google; t=1795779756; x=1796384556; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uGFkSr0D3dGgZgMuqCO9paKpAWb6eQRCIZMkdTJXxQY=;
+        b=LgTFteEkVBTh1eHOKwRXsGlS5wsUwGQOKFHhwptttWKedu0iZCzQWwPxhKvqAIOrbC
+         u+UANxURAOKUvfxVJ3zZA4ijBYNb3hJoQuwIedQHJ3Gv+MNECprrUPOdh0+wTBdoL5Ou
+         UTTZ5C9Y32F4gV+OvOCYgL97ETYzCR/xkLQj/s95aEIIiIU7xEyGMCxZj5krKf+NCdBk
+         2oC1i99xzPV4xR9EPJ9OYKcG8spFcDxIuPLM8Op+380UcUpCGyUUH1zffUf7fowdTbnh
+         SLMU+It4t0jjPQn0JCSQD8qqxwH1/4o+9cl8XNTYFV49y5wTzCScVeyxrR5mS3I+cFoH
+         wOWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795779754; x=1796384554;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=NyDUwgrh6wWbTckiN+W3o/gquXyln8i4quGDrjK+rpw=;
-        b=s7rdDBjUpv3kfZwVDMwG/F9mpHdrvWso77wfKA3ewBfi1uLA3NTnP4T3838MibBLhF
-         1/UM9Ur2FAlMx3kubOfyuAUx+YZZ4pcbBFwRb+ZISWmIuqdHPUuG3XVvbaTOmB6VA0P7
-         2YL1oAzZhQ7+KGU+WW0qTGsDCsh2789NWHyNdHeMTjGlcinGgilyLc6OKpXpR0B8mxQq
-         Ne+wPV/zbtllp/hw44bgatEJuE6O/ptNjHixiqg37mTQxNWTrnw9Bv/HgLFYGcJcuSA9
-         mDOofwvtAczVUh02XXmBBoYiPuuO50Gn8At2CFP4YkOffF78UPoAzQf/L+73NEaEPNOv
-         x0ug==
-X-Forwarded-Encrypted: i=1; AL+hErHSx1lUYSZ++XvRxJqBVBvR+i4oxGquMvizAYhvYSqcfbRcJE/gCENoo7FZUfvKL4SD1bZr7RrdyWogblM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+c/abATwsWmrErH2Cw7D+LuGcw0KglAT4tvTOFW18q16nI51fj
-	xedxZhHFV0cXwvu484MUS16N4OPCj1GgnkBsyXl6tGRahQo/rrP6Ml8kLbYXo47ss30mCiQkkjM
-	IaKW9K1fbOg3qhdswQ2tXKvGhJJez9rdSiJbQ3KJTOYM6sEVu1/Vr4ejhqqfMTWFXyGU=
-X-Gm-Gg: AZFdTZdkk4clq5dPkA3V0MH0kdX5cFwjI7BIjSaPL/GXTyjy3cHwv6Bkt60+BZ8YkSk
-	252eTrPUSKpG0fAKWEyquhlyivLiR0apOK3iaxuSAIMyZJfVXUXkoaKhS9Z4FZV6GhASsAU1kxZ
-	TeMd/cngFVf1sn+h3FyOG94SPYFS891AhSwkAIuaiE3lO9nA7youvXjsJXaNGWfavP4fCZ8eeqw
-	3Mtkj1ToHYfPJ6E6vo7Zo2HA+NHP8AE7dAnP7WoivikFGtfVb9Ci3ejsI5wKkZIURxbHWLAasTn
-	lKggVkr45nQIXX69SbIQwxo+ZteoqY1QGJZviClxcFm5g2Wl5zapMpHj2ItrSz/PhS9UJ7f/uQy
-	PHma1XuLOjOz7gCHHA//PwEEdY/Q8qUJHFue0sa0HafDZkQiDZhuyECEXSIbb/txAW87CYgW2Ri
-	EA68iE8K5Eqgqi+98A3LA//drANATXqk9TeAjbzRSUbANoptZM/23K/ZkpUR8yqOo=
-X-Received: by 2002:a05:620a:c42:b0:949:5c62:e77e with SMTP id af79cd13be357-949ba9c6de4mr4265140685a.14.1795779753775;
-        Fri, 27 Nov 2026 03:42:33 -0800 (PST)
-X-Received: by 2002:a05:620a:c42:b0:949:5c62:e77e with SMTP id af79cd13be357-949ba9c6de4mr4265136985a.14.1795779753306;
-        Fri, 27 Nov 2026 03:42:33 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795779756; x=1796384556;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uGFkSr0D3dGgZgMuqCO9paKpAWb6eQRCIZMkdTJXxQY=;
+        b=CvvxNm45UuM062UFkav7qu2MntFE5HuxGxMxGgQNNtetff25G+kj57lVl9rMj6DdQ3
+         vUusjxAbPJi0FfAIdGx18edFGfGrw3Sgtf7ajnvMHiBeiusN75eUllC+aiIm3rwP6Frm
+         5C0ysA055eOu9QGjr1ATrhTxm6t46DgK1GQekYjbXXYCtXqRtJiMFp2hrf5PxGYi+uoJ
+         df8xwY+h741VEkGNB+6NqPOPz2XdsuHAWGF12T2bdUI2LnQ7gCtNgTTWuEqI6kG/oa5N
+         c7pahbfk4Vvzadi3hXhGtWmDppoZ3eBZqVWuez8dzMeFpqLKmWreauQJeOKNVne/L3dS
+         kKYA==
+X-Forwarded-Encrypted: i=1; AL+hErHoOY7ukgMO9buExKJZRDE30TYZ9sfgBhgm/z02ttTf5dttpNCsaPM5AcN3tjMjHLLEmmxR5B+DFbxG9l8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xPTKVigH6/54TOpiz3vc7yUDGHdqHkgBNPTySibPMGH4csI3x
+	AoMWL2/iacnoG9aE3eBx1UUTrR+3+csgfL2TiYiJQYJJDhK71gC4wxPxFjdFmRdq+/KUksyBEI2
+	KkVLg1+i7PdpD0Hq1KDoey+O3FotcujAWBXVUEm+ZEkJrZeFKLNSCbX+8aZmoLCEXvnw=
+X-Gm-Gg: AZFdTZfXug5WKoze+bzs767dEy+N//p5A9gXkz7mZvXs+mNV7a9UB17zoWGcfjD4kg3
+	AqhCfMgbWTj4xscN83nJ2z/Fs/QYG23qd0rwcp3uCgxghQIkBhX7t5rMnb4sdxdjRaH/kXZ04wu
+	G3XutUNBQOVmPpEC8D1ZZIu5CYF5IjcsCs0pI1I8AvXPp63iViK/0JZFeR4ATyi2L1Ac1HXWKfQ
+	8G68QChMIvrM7iuJJRqj+zyojiWR48qoqlhukP1wagMHednoicTKWB17jxMQBHiHiA/hDf8jZFt
+	xwhhwDDXu9AQXtfMfDCwtRQzdXzPU/69XNlgV9/3My8HejBAF7wqoCm1AbDDn/j064o4m0JdG3G
+	Jr1qqeaU/K6IDoLvj6ky+NHCEr5RRQZxV/MRfYoNnhIW5+b0ogu+4skLhKdXIKWcaKGdMM6ZDan
+	aL3x6JEiZDFgEjiK6KZSEhXUnbmAjlp87mE8TmD5iqvHjpSk9LXmKSt+oEOE22nb0=
+X-Received: by 2002:a05:620a:2a05:b0:93e:942f:b8b1 with SMTP id af79cd13be357-949bab0eb61mr4514401185a.64.1795779755676;
+        Fri, 27 Nov 2026 03:42:35 -0800 (PST)
+X-Received: by 2002:a05:620a:2a05:b0:93e:942f:b8b1 with SMTP id af79cd13be357-949bab0eb61mr4514394885a.64.1795779755103;
+        Fri, 27 Nov 2026 03:42:35 -0800 (PST)
 Received: from brgl-qcom.local (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm56457254f8f.21.2026.11.27.03.42.31
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm56457254f8f.21.2026.11.27.03.42.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 03:42:32 -0800 (PST)
+        Fri, 27 Nov 2026 03:42:34 -0800 (PST)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH 0/2] interconnect: qcom: add interconnect drivers for
- Qualcomm Seca
-Date: Fri, 27 Nov 2026 12:42:28 +0100
-Message-Id: <20261127-seca-interconnects-v1-0-a31bf9b36ac4@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 12:42:29 +0100
+Subject: [PATCH 1/2] dt-bindings: interconnect: qcom: document the RPMh
+ Network-On-Chip interconnect for Seca
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,10 +119,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKRsCWsC/x3MMQqAMAxA0atIZgtthVS9ijiUGjVLlEZEkN7d4
- viG/19QykwKY/NCppuVD6lwbQNpj7KR4aUavPXonA9GKUXDclFOhwilS00/OG8DIsbOQg3PTCs
- //3SaS/kAYkpvNGQAAAA=
-X-Change-ID: 20261127-seca-interconnects-891207666a30
+Message-Id: <20261127-seca-interconnects-v1-1-a31bf9b36ac4@oss.qualcomm.com>
+References: <20261127-seca-interconnects-v1-0-a31bf9b36ac4@oss.qualcomm.com>
+In-Reply-To: <20261127-seca-interconnects-v1-0-a31bf9b36ac4@oss.qualcomm.com>
 To: Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -131,72 +131,407 @@ Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
         Tyler Baker <tyler.baker@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1033;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10396;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=T5L/ehKajD3lC8IkBxCGBFiU3AnyDbdankjiDTN/CUQ=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBrCWynaNU4v9gsq42PA5w0vDEQ9Pux/2f/2KROY
- 1Y4njgT/AGJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCawlspwAKCRAFnS7L/zaE
- w9jED/44rFltmRX3o1MM89yXJkc0vId5h6c56ucCmoOZc8fXZxq9v2dbxdYhF7TBEaT/R9yOpmu
- nj10ikKCqGJs/wD6SHZlf7QEr/viB9qTGrklYu5TVoRr18/EqdHxiFStFUm4Mro/MprTo67ngQl
- Obyjy59Ir41JmgXLDZ+0LoYNi6+ahFoQS54/KXWMAdI3MwFHsaCVtXwMDpeucSJOiBQ+JDLojzF
- k5zNR8h5uunisaHi/FfBPvUBSsgc+y7dodqK3+vl71RWLvyYq7qAbRqsFOQ822nT63aiU0lTS2I
- VqqqcSmy1SGn/Jqkv9/Pw1+HmUhG/YsSHPdsHwGamJWmWkMsDTU1noaDmcX15rqSfpqmBHtSRd5
- dCBVueY3m1FTfwRTw9UQFsRE/5Zn4y6oS/qSWt5xoP3whiPBUiBTYU6wi/efENORYfE+YaHFBKQ
- MDohUi0SIE6+n008gXszRiHSKKmlEF0OfPVeMzOV3djHoLFuiu5AwmweySE0vkYqsM1GFnytr2h
- eDvAxPCIPw055CdwPXgNh7qw2z0CL33zktKrbngnGlLtNsT3WIwPaB+ks1mjLYTvpXCGOitmJtQ
- 86KyNaELdGt25Y2Uf88A38W69/i9Qm5pFEZrxUKCENFfVLdn6A0vPReghY9K3nFJAPeTwUcWfy2
- YGuUfJdxZ91+YrQ==
+ bh=tuwZG5zIa9MymVCxB+cLK/+IndGpDinZ8qo4Jty2D8c=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBrCWynvJAF7jvgeIXWq06VzFwEQXGBzfN+eoO8S
+ fZqUjnYvIKJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCawlspwAKCRAFnS7L/zaE
+ w4ELEACikjOUZPpILjD0meqzJiYbTPHGrGpME6hSQOz+3tIccBMknZr68RSWCWm436Ueh1i1huU
+ iFmvkgSmopqeomujbgvo76tkR228HuI+o3ZSj41eJo7Au28RHPRUG1IezsLHrVfPjvZEsvcEsJw
+ UgwV6yIBsvUGPmXn8CASpB1fVfYv7S2NNylurBVfpuEQu1htOTkZNnPC7gfle2825P7dgdmDzbL
+ 5zxj+zOoqsP4+EiPIK9rj81b1XpUw09JzJxNBhEL+ieSIe/6TUPPY4gAtRuvfd8ovEolnEZG0l9
+ 9fXiS4R9RvPq/o7NzNiHUYUOh1Dg3kQLKZiHJhpy/YUh+I0H2RgVCiuz3PjozJ48WI/0fCTEd87
+ M5Qu8GPUgWoxtbGmCqN8buomETk72xUk4qYtnjpSiRBo9wbDkdwr+iF37hKyrm5iZpH3VAsY8dd
+ 7iZis101Jj/yFjktuuiVExhiCg4HJeb7EaziHtjwa13AfkeQZvEMXukpfE68MZUWvg6sqG/pLFW
+ PdjC2uoS7cXiC1cKGlwDOkXHurJcJXZ70ReLR+vcNqEgk/nCPMyVKl3CVjp2pY8lLbW6LAv433r
+ Vh3Jrc/PMxpmYu35k2OCAPa2bgsT/30+Hg+y2YN52VimhkKOpMcalorzw2otnB+EKc6eRJrgg5y
+ pah1vZMVWWHNihg==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfX06ByYDWiQK0a
- vSd6lDKcMI1OXUumaMUdGn9RXArJjGMOuGzIjwmFFLNpZA/7IcssZaOok6IwnC2D5BGXq9in09o
- X9cGIZyIEcWM+95+lyZMbfNGmt344/w=
-X-Proofpoint-GUID: qHpBap5XK1hf2C9itiJwi_rZ1IZU-nFj
-X-Proofpoint-ORIG-GUID: qHpBap5XK1hf2C9itiJwi_rZ1IZU-nFj
-X-Authority-Analysis: v=2.4 cv=M9fYuCws c=1 sm=1 tr=0 ts=6b096caa cx=c_pps
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfX5nhb8B92A7i5
+ n8aQ3L5FYy6DFKGM+8sXRgldPujJNCl8uon4fwJuO+Ga5zraT+3TviteCjHhIfJSBIt/WFeMO5j
+ gdB4CJnC5R1M/rEKPGTcqXF/ARIq4VU=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfX0cnPWKG63/Kv
+ sr6zQ5/hcY5wF3GunDUsVNlMCPzxpppKFbdcRIEokm/8T+hHTG4WPzASKMIA4478aoub2fdrL2x
+ hlAFwD+CFF7N1SqEJ6INuRuJGqeGxvT/8XTdNKHOgRRMbZo3wEq19EkbbhuO8S0e5A7hhawV80x
+ lnAQ3WXeyCgvBCHX/DZEmp19CGpsiXJuLtrqufgob+t7wVslCPSv5tgtOVHpZfZXKCusNbF21xs
+ Oh8rSjxPex+qghMAjxiY68rKSZYxUaKcHCeM8b5wwd15vX2b11P5mpyFXFN15o8plYPttkfcDfv
+ E2UXrO3cw3Nb+elq4FE7G6LsEIY3/ubo3dD2rJfjvBMIAfHF8L3chLD6i4QfREXn+A6MMIyvRVg
+ DKWW1tmbb5R4tsBYfdBafaXDzIJQn1ECL2/SxIziUMZqB1BIHVj1YqbmrDpSFimscqtzuvNYo7H
+ RyyGHhcj9UfAuPtGPRw==
+X-Proofpoint-ORIG-GUID: G0UztfLSQ98vDf6JLbBpx24JKi2ILl3R
+X-Authority-Analysis: v=2.4 cv=Z795j3RA c=1 sm=1 tr=0 ts=6b096cac cx=c_pps
  a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
- a=0vBr5WPP46mkPm4xHpsA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0NiBTYWx0ZWRfX4UydDoUHOyhJ
- 7wQD5rKvNuUp4xMOnswQl1T8k76O0Mgd5zi3jvg5Lwd+6qo/tfJyvKphIHzTR+Cxh1+mE+j4WEu
- lxKrz25v6laCpcM75nrRveVDeF5tASJqiaBuA/uWFqvN0++uS4Kg/SCxTMA/TASbok0+FnXvkMc
- MaGhCeeHevisSzwUd9/70s6sG3tNXOuEfrsUcEd9UsQP73nWR50vuo+h84J8ECpQ9gfmfp/XuD/
- 1yejzfv/68vogAsJ/9keFCZytbRunjSNNcFcad7xNqEtlQuQ5DpK6mAqWqomHlNzykAqg+wk/cT
- QI9taPF8TPHTGI5MGEaoBpXTzBzx7u3DHsrb9Dj7grXuki9OZuy/6Cu4Azpg+Qx/fhrmjoexgBt
- 6MPY3RQz8gNYOypby+oIY681tr7qJOX1iVoZJ/deTFr15cPN9hs/chbL3MK7vWWgvFmpcloLGxZ
- wlWF9Ly7gShj0qzbG6Q==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=gEfo2CItAAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=0rS-6sZIjqaa7SBlqhgA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-GUID: G0UztfLSQ98vDf6JLbBpx24JKi2ILl3R
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0 malwarescore=0
- spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
+ phishscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270046
 
-Qualcomm Seca is an automotive SoC with 12 Oryon CPU cores that's a
-slightly less powerful cousin of the Nord SoC.
+Document the RPMh Network-On-Chip Interconnect of the Qualcomm Seca
+platform.
 
-Add the interconnect driver along with bindings documenting the hardware.
-
+Co-developed-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
+Signed-off-by: Tyler Baker <tyler.baker@oss.qualcomm.com>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
-Bartosz Golaszewski (2):
-      dt-bindings: interconnect: qcom: document the RPMh Network-On-Chip interconnect for Seca
-      interconnect: qcom: add the Seca interconnect provider driver
+ .../bindings/interconnect/qcom,seca-rpmh.yaml      | 141 +++++++++++++++
+ include/dt-bindings/interconnect/qcom,seca-rpmh.h  | 191 +++++++++++++++++++++
+ 2 files changed, 332 insertions(+)
 
- .../bindings/interconnect/qcom,seca-rpmh.yaml      |  141 ++
- drivers/interconnect/qcom/Kconfig                  |   11 +
- drivers/interconnect/qcom/Makefile                 |    2 +
- drivers/interconnect/qcom/seca.c                   | 2335 ++++++++++++++++++++
- include/dt-bindings/interconnect/qcom,seca-rpmh.h  |  191 ++
- 5 files changed, 2680 insertions(+)
----
-base-commit: a9c48428cbd8d96b26f92631d0db6f8519c5fcc5
-change-id: 20261127-seca-interconnects-891207666a30
+diff --git a/Documentation/devicetree/bindings/interconnect/qcom,seca-rpmh.yaml b/Documentation/devicetree/bindings/interconnect/qcom,seca-rpmh.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..d655624833890607600cf768d03bc2d1b6947ae1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interconnect/qcom,seca-rpmh.yaml
+@@ -0,0 +1,141 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interconnect/qcom,seca-rpmh.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm RPMh Network-On-Chip Interconnect on Seca SoCs
++
++maintainers:
++  - Bartosz Golaszewski <brgl@kernel.org>
++
++description: |
++  RPMh interconnect providers support system bandwidth requirements through
++  RPMh hardware accelerators known as Bus Clock Manager (BCM). The provider is
++  able to communicate with the BCM through the Resource State Coordinator (RSC)
++  associated with each execution environment. Provider nodes must point to at
++  least one RPMh device child node pertaining to their RSC and each provider
++  can map to multiple RPMh resources.
++
++  See also: include/dt-bindings/interconnect/qcom,seca-rpmh.h
++
++properties:
++  compatible:
++    enum:
++      - qcom,seca-aggre1-noc
++      - qcom,seca-aggre1-noc-tile
++      - qcom,seca-aggre2-noc
++      - qcom,seca-aggre2-noc-tile
++      - qcom,seca-clk-virt
++      - qcom,seca-cnoc-cfg
++      - qcom,seca-cnoc-main
++      - qcom,seca-hpass-ag-noc
++      - qcom,seca-hscnoc
++      - qcom,seca-mc-virt
++      - qcom,seca-mmss-noc-hf
++      - qcom,seca-mmss-noc-sf
++      - qcom,seca-nsp-data-noc-0
++      - qcom,seca-nsp-data-noc-1
++      - qcom,seca-pcie-cfg
++      - qcom,seca-pcie-data-inbound
++      - qcom,seca-pcie-data-outbound
++      - qcom,seca-system-noc
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    minItems: 1
++    maxItems: 3
++
++required:
++  - compatible
++
++allOf:
++  - $ref: qcom,rpmh-common.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - qcom,seca-clk-virt
++              - qcom,seca-mc-virt
++    then:
++      properties:
++        reg: false
++    else:
++      required:
++        - reg
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - qcom,seca-aggre1-noc
++    then:
++      properties:
++        clocks:
++          items:
++            - description: aggre USB2 AXI clock
++            - description: aggre USB3 PRIM AXI clock
++            - description: aggre USB3 SEC AXI clock
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - qcom,seca-aggre1-noc-tile
++    then:
++      properties:
++        clocks:
++          items:
++            - description: aggre UFS 0 PHY AXI clock
++            - description: aggre UFS 1 PHY AXI clock
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - qcom,seca-aggre2-noc
++    then:
++      properties:
++        clocks:
++          items:
++            - description: RPMH CC IPA clock
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - qcom,seca-aggre1-noc
++              - qcom,seca-aggre1-noc-tile
++              - qcom,seca-aggre2-noc
++    then:
++      required:
++        - clocks
++    else:
++      properties:
++        clocks: false
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    clk_virt: interconnect-clk-virt {
++      compatible = "qcom,seca-clk-virt";
++      #interconnect-cells = <2>;
++      qcom,bcm-voters = <&apps_bcm_voter>;
++    };
++
++    aggre1_noc_tile: interconnect@1720000 {
++      compatible = "qcom,seca-aggre1-noc-tile";
++      reg = <0x01720000 0x23400>;
++      #interconnect-cells = <2>;
++      qcom,bcm-voters = <&apps_bcm_voter>;
++      clocks = <&nw_gcc_aggre_noc_ufs_0_phy_axi_clk>,
++               <&nw_gcc_aggre_noc_ufs_1_phy_axi_clk>;
++    };
+diff --git a/include/dt-bindings/interconnect/qcom,seca-rpmh.h b/include/dt-bindings/interconnect/qcom,seca-rpmh.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..d72b5d385269e4b576aa3f04b6a112ea237ef08e
+--- /dev/null
++++ b/include/dt-bindings/interconnect/qcom,seca-rpmh.h
+@@ -0,0 +1,191 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef __DT_BINDINGS_INTERCONNECT_QCOM_SECA_H
++#define __DT_BINDINGS_INTERCONNECT_QCOM_SECA_H
++
++#define MASTER_QUP_2				0
++#define MASTER_CRYPTO_CORE0			1
++#define MASTER_CRYPTO_CORE1			2
++#define MASTER_CRYPTO_CORE2			3
++#define MASTER_SDCC_4				4
++#define MASTER_USB2				5
++#define MASTER_USB3_0				6
++#define MASTER_USB3_1				7
++#define SLAVE_A1NOC_SNOC			8
++
++#define MASTER_QSPI_0				0
++#define MASTER_QUP_0				1
++#define MASTER_QUP_1				2
++#define MASTER_QUP_3				3
++#define MASTER_UFS_MEM				4
++#define SLAVE_A1NOC_HSCNOC			5
++
++#define MASTER_IPA				0
++#define MASTER_SOCCP_AGGR_NOC			1
++#define MASTER_QDSS_ETR				2
++#define MASTER_QDSS_ETR_1			3
++#define SLAVE_A2NOC_SNOC			4
++
++#define MASTER_EMAC_0				0
++#define MASTER_EMAC_1				1
++#define SLAVE_A2NOC_HSCNOC			2
++
++#define MASTER_QUP_CORE_0			0
++#define MASTER_QUP_CORE_1			1
++#define MASTER_QUP_CORE_2			2
++#define MASTER_QUP_CORE_3			3
++#define SLAVE_QUP_CORE_0			4
++#define SLAVE_QUP_CORE_1			5
++#define SLAVE_QUP_CORE_2			6
++#define SLAVE_QUP_CORE_3			7
++
++#define MASTER_CNOC_CFG				0
++#define SLAVE_PS_ETH_0				1
++#define SLAVE_PS_ETH_1				2
++#define SLAVE_SHS_SERVER			3
++#define SLAVE_AHB2PHY_0				4
++#define SLAVE_AHB2PHY_1				5
++#define SLAVE_AHB2PHY_3				6
++#define SLAVE_AHB2PHY_ETH_0			7
++#define SLAVE_AHB2PHY_ETH_1			8
++#define SLAVE_CAMERA_CFG			9
++#define SLAVE_CLK_CTL				10
++#define SLAVE_CRYPTO_0_CFG			11
++#define SLAVE_CRYPTO_1_CFG			12
++#define SLAVE_CRYPTO_2_CFG			13
++#define SLAVE_DISPLAY_1_CFG			14
++#define SLAVE_DISPLAY_CFG			15
++#define SLAVE_DPRX0				16
++#define SLAVE_EVA_CFG				17
++#define SLAVE_GFX3D_CFG				18
++#define SLAVE_I2C				19
++#define SLAVE_IMEM_CFG				20
++#define SLAVE_MCW_PCIE				21
++#define SLAVE_MM_RSCC				22
++#define SLAVE_NE_CLK_CTL			23
++#define SLAVE_NSPSS0_CFG			24
++#define SLAVE_NSPSS1_CFG			25
++#define SLAVE_NW_CLK_CTL			26
++#define SLAVE_PRNG				27
++#define SLAVE_QDSS_CFG				28
++#define SLAVE_QSPI_0				29
++#define SLAVE_QUP_0				30
++#define SLAVE_QUP_3				31
++#define SLAVE_QUP_1				32
++#define SLAVE_QUP_2				33
++#define SLAVE_SAFEDMA_CFG			34
++#define SLAVE_SDCC_4				35
++#define SLAVE_SE_CLK_CTL			36
++#define SLAVE_TCSR				37
++#define SLAVE_TLMM				38
++#define SLAVE_TSC_CFG				39
++#define SLAVE_UFS_MEM_CFG			40
++#define SLAVE_USB2				41
++#define SLAVE_USB3_0				42
++#define SLAVE_USB3_1				43
++#define SLAVE_VENUS_CFG				44
++#define SLAVE_COMPUTENOC_CFG			45
++#define SLAVE_PCIE_NOC_CFG			46
++#define SLAVE_QTC_CFG				47
++#define SLAVE_QDSS_STM				48
++#define SLAVE_SYS_TCU0_CFG			49
++#define SLAVE_SYS_TCU1_CFG			50
++#define SLAVE_SYS_TCU2_CFG			51
++
++#define MASTER_MM_RSCC				0
++#define MASTER_HSCNOC_CNOC			1
++#define SLAVE_AOSS				2
++#define SLAVE_HBCU				3
++#define SLAVE_IPA_CFG				4
++#define SLAVE_IPC_ROUTER_CFG			5
++#define SLAVE_SOCCP				6
++#define SLAVE_TME_CFG				7
++#define SLAVE_PCIE_DMA				8
++#define SLAVE_CNOC_CFG				9
++#define SLAVE_DDRSS_CFG				10
++#define SLAVE_IMEM				11
++
++#define MASTER_HPASS_PROC_0			0
++#define MASTER_HPASS_PROC_1			1
++#define MASTER_HPASS_PROC_2			2
++#define SLAVE_HPASS_AGNOC_AUDIO			3
++
++#define MASTER_GPU_TCU				0
++#define MASTER_QTC_TCU				1
++#define MASTER_SYS_TCU_0			2
++#define MASTER_SYS_TCU_1			3
++#define MASTER_SYS_TCU_2			4
++#define MASTER_APPSS_PROC			5
++#define MASTER_A1NOC_TILE_HSCNOC		6
++#define MASTER_A2NOC_TILE_HSCNOC		7
++#define MASTER_GFX3D				8
++#define MASTER_HPASS_AUDIO_HSCNOC		9
++#define MASTER_MNOC_HF_MEM_NOC			10
++#define MASTER_MNOC_SF_MEM_NOC			11
++#define MASTER_NSP0_HSCNOC			12
++#define MASTER_NSP1_HSCNOC			13
++#define MASTER_ANOC_PCIE_GEM_NOC		14
++#define MASTER_SNOC_SF_MEM_NOC			15
++#define MASTER_GIC				16
++#define SLAVE_HSCNOC_CNOC			17
++#define SLAVE_LLCC				18
++#define SLAVE_MEM_NOC_PCIE_SNOC			19
++
++#define MASTER_LLCC				0
++#define SLAVE_EBI1				1
++
++#define MASTER_CAMNOC_HF			0
++#define MASTER_DPRX0				1
++#define MASTER_MDP0				2
++#define MASTER_MDP1				3
++#define SLAVE_MNOC_HF_MEM_NOC			4
++
++#define MASTER_CAMNOC_NRT_ICP_SF		0
++#define MASTER_CAMNOC_RT_CDM_SF			1
++#define MASTER_CAMNOC_SF			2
++#define MASTER_VIDEO_CV_PROC			3
++#define MASTER_VIDEO_EVA			4
++#define MASTER_VIDEO_MVP0			5
++#define MASTER_VIDEO_V_PROC			6
++#define SLAVE_MNOC_SF_MEM_NOC			7
++
++#define MASTER_NSP0_PROC			0
++#define SLAVE_NSP0_HSC_NOC			1
++
++#define MASTER_NSP1_PROC			0
++#define SLAVE_NSP1_HSC_NOC			1
++
++#define MASTER_PCIE_NOC_CFG			0
++#define SLAVE_PCIE_AHB2PHY_CFG			1
++#define SLAVE_PCIE_CFG_0			2
++#define SLAVE_PCIE_CFG_1			3
++#define SLAVE_PCIE_CFG_2			4
++#define SLAVE_PCIE_CFG_3			5
++#define SLAVE_PCIE_DMA_0_CFG			6
++
++#define MASTER_PCIE_DMA_0			0
++#define MASTER_PCIE_0				1
++#define MASTER_PCIE_1				2
++#define MASTER_PCIE_2				3
++#define MASTER_PCIE_3				4
++#define SLAVE_PCIE_HSCNOC			5
++#define SLAVE_PCIE_OBNOC_DMA			6
++
++#define MASTER_CNOC_PCIE_DMA			0
++#define MASTER_ANOC_PCIE_HSCNOC			1
++#define MASTER_PCIE_IBNOC_DMA			2
++#define SLAVE_PCIE_DMA_0			3
++#define SLAVE_PCIE_0				4
++#define SLAVE_PCIE_1				5
++#define SLAVE_PCIE_2				6
++#define SLAVE_PCIE_3				7
++
++#define MASTER_A1NOC_SNOC			0
++#define MASTER_A2NOC_SNOC			1
++#define MASTER_SAFE_DMA				2
++#define SLAVE_SNOC_HSCNOC_SF			3
++
++#endif
 
-Best regards,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+2.47.3
 
