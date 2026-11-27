@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795786357;
-	b=z2oYBnWrbK7hsJRpTFKLCP2XUwaFXO49sExvUES0zlDAR8h6+M4brmnBx/AuUj7n4IrP
-	 HWx9NDz1/Bn1ATHMt5+H5IGdH2gnjvuTHs7Ya2PVVbjw7udGsHS68JYtSnIwbQsoZyyXr
-	 w70HBd3b0JFccEULigX7dTeTBtASGOiBOecA3PtOTmtF3VlXf6bcqJrocdBnzTD9kWH4j
-	 0UqT4FrfKS+IQ6q5zMjtBK+7TPOj6x/Fq5HP+Gu9sPfTwj7u3gDikk9HqCFeNIDXnFPW8
-	 Zs7RqKGluyv0AmO4Sccc4VHL6UO0QBZnjtFE5jnHJjMhKqk5FSN3SN7Z0OyQKfs5cpw==
+	t=1795786364;
+	b=E8lbUYlayJAPT2jFKXhxTL72vzi1OTDnK1wbVzFB8+06TGur+ETDcQDEcHGyH8uIM/H4
+	 2YglOBPE+Z2eztA9o3eKVe3Cz8m+AqOUUJJcsIov0tvbdz4+CfaMm7pQ4hNMFkAl8hOMr
+	 RkUOPGoYb1DPxPGM3QZeq1JLhP18pfzqWcIzT+7t2zafit0hetDHh+DKz3qCe1PLHwwIX
+	 WTsmKv0iGDiv3k1f+aFGp91uU3SfjRHGmO1DNUo7Y+o7oA838ThIb4g7cM9dLwhCgRvfv
+	 mOGL5PlZygfakHgrE0o39VQ5RWa8jCbVqByZGFSqpeZ3EKtKgK6HZ8GVvTaVvHr7s6w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786357;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786364;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=iSWbOSSEBtmBz4BmAl68bnywHwYp2BFmFo07moHtBKk=;
-	b=2ezF83Yra95/bZKSDhLw6pJsLQXYTHkf+UcIHAUFtaiSDZzDr7VsqxjDx8v37nNuZF8m
-	 5o2QXCtzOXRyorw1QvzCtd/AQ3GZQO48eVIB5dct14rqwkKzS7zw1sVUXOJQluHBSYKJu
-	 oU1iac4bBzRqEowhg+D2WdoYXLeNAvbxC+0iJ1bm0gqE8XUXdJUHMwuiiKTtWYUJ0NKtX
-	 Zb/gZF7yMLPlq+N35CniQET0DkBDreGahs0MNV/YP884fSnJOnJoDq19a6txgMUwGSwHi
-	 PQelcYnj2JKOwa1Q7EDh7WQaiA/YGkeEixMZTgOPG0mdwVwHCrjF/+XBbVmYxifN7MQ==
+	bh=nJV6/fOOgnjHQ1NwB6EWRzn4p9LxctW86QJThrCN/W8=;
+	b=S3xJIP9xf62itnFWsy0ecY6/riH7GusbfbxpMNjZW/3NA2AiVBA/h4D2Elx9Q23QgQqy
+	 eXuLEv2yd23Wgd5dzOxHkjNxX+hPM8l4oxmm76o7Ekj36xFeAkFEJdqvmlf4g3HzvpfXQ
+	 b30HraytLFwbCsV+TSww3w5uQ/RVwcHl4GlzblLPHyxKXTCRHH3qfdCtpqDnK+b/vSgId
+	 J4wzmq+Wz40lD5yjCfq1+xYYRYGKHvYmzwfJ0OQiXEkxN7k1j/sEdifEFkiEFPl7Co3SN
+	 iaAXPPJ1wVRCbZs9Z7hRi2bTOZWXsfeere8Ri66nxR+zqQK3F1U2UEAFtKzCvdSTVOw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kb6z2o0X;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CSPbUgrs;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B1C606A323;
-	Fri, 27 Nov 2026 13:32:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A18A606A32A;
+	Fri, 27 Nov 2026 13:32:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kb6z2o0X
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CSPbUgrs
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795786356;
-	b=GhV1CNUjUf0B7B4evmbIhgoe+d26XZlIQ8k8NEAoUjtvR3RVZzTcbg7SmMfeIgsYGk57
-	 d+oj89FyDyJksTXzswHXNDwOEV8ykyCQDKFuoaGRfKH8KnTcb/5G7DSo+HfaRkWwQMKiG
-	 YbrOafvQmfPL4ZqHvvNksZpaYsSOxeG6s/C7YTw6TCVBr5+hFYp38nlt7ixgoA6Xdv+qQ
-	 gtUEXeq9TyhEQWWnrSAjdkvxyiup0++bElRLA74pheUERaQSDqxkNA+D0mBStRyRLDPQD
-	 FuIYK1H3xtgfZX7hpnHROVRIXmZwinB79RbmrMWeyMRMtX6qDu1YiAjp7CwhDxVUbBQ==
+	t=1795786363;
+	b=f+trlzr+UaU5WA6+qDt/YIah9ECIP9r325Lp7gjBW4YA+bYqUFqZ5M9HJDU7r3Hubnbd
+	 q6ZRLPD50ZPzII9AM0qbbWp1f2WLNae8Xny/4D1nKCyzefqQRcrvqAIi07sYPL9YyiiDp
+	 LbGG+77MLP5NhUy5ciAioA7qlyGkPpMtOuoraIw+rqn8vIPQNc1IogLbyVwm8/+b5V9gb
+	 JKwbwK38Sr/lUS3Ps/No5KDIYroTANOtjCun0By2059cnRga0dDgY8991DGY6412k894+
+	 F7eerQRwGvpdeOd/e1PFOyhwth+frLn4HP1G3o7KEpje9TwPQe2UB8UaoYmNqTyERew==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795786356;
+	c=relaxed/relaxed; t=1795786363;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=iSWbOSSEBtmBz4BmAl68bnywHwYp2BFmFo07moHtBKk=;
-	b=PzjDpxkOJBAda5auLx77/9qPZekAzH7lHcHZf/EmeIVmPwWd5KAclPaywxwRZrnu9mOg
-	 CxX0cfkMa4SCQcLUwFtv7UExbriFxmGxZfoCYCEG7lnJC1gT5syTKK3kLBEBXsQklfXd0
-	 tDdgq3YAMejapoVN/FW02Pv/7AsN4bq1Uglm8tX+ZVKlLnNbPENzFBLRrtl17eRVTJDjj
-	 yyGeSSvVy+MefEX68fOgpCJ3g/MYj8tyG2k43ACW0c6RTqN0T1ADmYlYOg6lcPTX8+oMX
-	 X26PKppGsE+cfCDznqRwo3K5nO1PCjGyj2FbdGxkQ5EsaKn6zCNRUK5iAYw1MqSTpzg==
+	bh=nJV6/fOOgnjHQ1NwB6EWRzn4p9LxctW86QJThrCN/W8=;
+	b=y0jCsvhaV9mrFLvfJY2/VLH+QiPtc7FzntnSqtRUeM3XBY4ihEql+cqTsJTYXsZlfBE6
+	 tck2OX0ddfGkUFalyLAik3f86SIJate2oS+9ZC+fRvXvX9B/BVZwbD5+j4mXt8h12ebQD
+	 piCdJeAlIJWLDKLVi8qPWpfELjE2fD4KrnYXZeriSPLImq7zT6wtjB8e98n94WB7wBHCw
+	 QILLYRcAwLn+n7BFDb/cxmcfVJfFiykrfqj8DmKcHl8QM7/HjfIpvvZPwP998oFkWgS+j
+	 Jr0RrJ9K/208cIG8t6MRg36zO1bFmIMjotdB7wG8pCsqAAwE1yvx6/tTD9xwn2QhgzA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C44031F008A0;
+	by smtp.kernel.org (Postfix) with ESMTPS id E2A6E1F00923;
 	Fri, 27 Nov 2026 13:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795786356;
-	bh=iSWbOSSEBtmBz4BmAl68bnywHwYp2BFmFo07moHtBKk=;
+	s=k20260515; t=1795786363;
+	bh=nJV6/fOOgnjHQ1NwB6EWRzn4p9LxctW86QJThrCN/W8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=kb6z2o0X+UYJESY5gKTbTWhme5+GPbxqCoNhA5NcMItAMTetFULozSVr0cmo5c3MF
-	 AXhK6QBrGj+hajol2txWhLvU5tANPx0TdHok5XtFPDKrtQI21AmMQYre9/5ILIYNAl
-	 77IxspBJjAIjKPIg9ipAyxrtLLr5YANpccfC6Lsttr8plnU05ykFYvuAAmCrNt42Hd
-	 H7lfYVYt+/9lXhlp2jL5RIXr9emrrPmyHFUwIpGr8pXVGG50YdPxjEE3eXbQLlwGdZ
-	 Sl3nyhvms4ZywXNQ2OejK7uCNw53qA898RzzwOAEgbkLm+0Jj5JMeaF2n0exQu9k3t
-	 YOo0Y26oEepmA==
+	b=CSPbUgrsUPMu91caEizG/DMUkb25J1WJPhwa98W4fIkT0vit0x107eU37RW2X9D9C
+	 I5YNxKQ0tAXUfJIP1cgvsYIk/lZ0dWrQ3/a6L5F/yNKD3nhEC751V+yFTtKJ/lC5rM
+	 71beMpRnFhojlrUFL/7nfYppnNPkIe9HCd0AUxc43KSP8yvL2J19MS7EBp6jojnIZE
+	 2tU+fqpA9PSIIzb5GqAR6sYHhu1UbwNf/PTkH/0ywKsvMEOsUuDPnRv8ZfY9H2tUWK
+	 awctz86ZuCXoILGFx4+o/7/XyDIy5nSswNxt9qs/B0E4fgDxXs0mP44ogp4OO/8BsO
+	 XEIw8AQrat7AQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4E42F4B80C;
+	by lkml.kernel.org (Postfix) with ESMTP id 6DC1D4B810;
 	Fri, 27 Nov 2026 13:32:32 +0000 (UTC)
 From: Keguang Zhang via B4 Relay <devnull+keguang.zhang.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 21:32:24 +0800
-Subject: [PATCH RESEND v4 2/3] pwm: loongson: Reset the counters before
- enabling PWM
+Date: Fri, 27 Nov 2026 21:32:25 +0800
+Subject: [PATCH RESEND v4 3/3] pwm: loongson: Use field helpers for period
+ validation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,62 +84,70 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-pwm-loongson-fix-v4-2-607f325b74d4@gmail.com>
+Message-Id: <20261127-pwm-loongson-fix-v4-3-607f325b74d4@gmail.com>
 References: <20261127-pwm-loongson-fix-v4-0-607f325b74d4@gmail.com>
 In-Reply-To: <20261127-pwm-loongson-fix-v4-0-607f325b74d4@gmail.com>
 To: Binbin Zhou <zhoubinbin@loongson.cn>, 
  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
 Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
  "Imported from f20260920-pwm-loongson-fix-v4-0-41b36b3c6497"@gmail.com, 
- Keguang Zhang <keguang.zhang@gmail.com>, stable@vger.kernel.org
+ Keguang Zhang <keguang.zhang@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795786349; l=1375;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795786349; l=1574;
  i=keguang.zhang@gmail.com; s=20231129; h=from:subject:message-id;
- bh=nEffXoAuY0LXvNjn27LU1Ds6mcGSPElXiuPjP4r7awA=;
- b=ZB6/mPRpggxjXqpMw+PQxxBcr7XBNTXFyP0f5LOwzzfn8+/KTNrnXSx27T4SoWr60ydsrGBSd
- lbdpV78SKvJCROA1kEtfRv87GHevahMN77XE4zJZGexQS+OIhvnZZHq
+ bh=dw6b52g9dClE8N8lKTN5RhDZ6+WGuUSpcSRiL+WUkiM=;
+ b=HjhaJuQ2+PE91tNSjPT0IAc9Lb7ik2E4CZ4uOg3zWjd6Djh2DPbTdfoFpMh92oXetLYhe0quc
+ dvWhxRcrWqRA2szbzXX7Q9DZJYuz0qQ5ia3g4/ipH/TCriDim+e6FLd
 X-Developer-Key: i=keguang.zhang@gmail.com; a=ed25519;
  pk=FMKGj/JgKll/MgClpNZ3frIIogsh5e5r8CeW2mr+WLs=
 X-Endpoint-Received: by B4 Relay for keguang.zhang@gmail.com/20231129 with
  auth_id=102
 X-Original-From: Keguang Zhang <keguang.zhang@gmail.com>
 Reply-To: keguang.zhang@gmail.com
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
 From: Keguang Zhang <keguang.zhang@gmail.com>
 
-The PWM controller may retain its initial hardware state when the driver
-binds. Reset the counters before enabling to ensure that the PWM starts
-from a known state.
+Use FIELD_FIT() to validate the calculated period value and FIELD_MAX()
+to get the maximum value allowed by the 32-bit period field.
 
-Fixes: 2b62c89448dd ("pwm: Add Loongson PWM controller support")
-Fixes: 0de9b836a3bc ("pwm: loongson: Reload PWM configuration through counter reset")
-Cc: stable@vger.kernel.org
-Suggested-by: Uwe Kleine-König <ukleinek@kernel.org>
 Signed-off-by: Keguang Zhang <keguang.zhang@gmail.com>
 ---
- drivers/pwm/pwm-loongson.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/pwm/pwm-loongson.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pwm/pwm-loongson.c b/drivers/pwm/pwm-loongson.c
-index 0ec773fba813..6f609fd0b90b 100644
+index 6f609fd0b90b..33367c7473a3 100644
 --- a/drivers/pwm/pwm-loongson.c
 +++ b/drivers/pwm/pwm-loongson.c
-@@ -110,6 +110,14 @@ static int pwm_loongson_enable(struct pwm_chip *chip, struct pwm_device *pwm)
- 	struct pwm_loongson_ddata *ddata = to_pwm_loongson_ddata(chip);
+@@ -22,6 +22,7 @@
+  */
  
- 	val = pwm_loongson_readl(ddata, LOONGSON_PWM_REG_CTRL);
+ #include <linux/acpi.h>
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/device.h>
+ #include <linux/init.h>
+@@ -37,6 +38,8 @@
+ #define LOONGSON_PWM_REG_PERIOD		0x8 /* Pulse Period Buffer Register */
+ #define LOONGSON_PWM_REG_CTRL		0xc /* Control Register */
+ 
++#define LOONGSON_PWM_PERIOD_MASK	GENMASK(31, 0)
 +
-+	/*
-+	 * Ensure that the values of LOW and PERIOD are sampled into
-+	 * the shadow register when the hardware starts running.
-+	 */
-+	if (!(val & LOONGSON_PWM_CTRL_REG_RST))
-+		pwm_loongson_writel(ddata, val | LOONGSON_PWM_CTRL_REG_RST, LOONGSON_PWM_REG_CTRL);
-+
- 	val &= ~LOONGSON_PWM_CTRL_REG_RST;
- 	val |= LOONGSON_PWM_CTRL_REG_EN;
- 	pwm_loongson_writel(ddata, val, LOONGSON_PWM_REG_CTRL);
+ /* Control register bits */
+ #define LOONGSON_PWM_CTRL_REG_EN	BIT(0)  /* Counter Enable Bit */
+ #define LOONGSON_PWM_CTRL_REG_OE	BIT(3)  /* Pulse Output Enable Control Bit, Valid Low */
+@@ -133,8 +136,8 @@ static int pwm_loongson_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 
+ 	/* period = period_ns * ddata->clk_rate / NSEC_PER_SEC */
+ 	period = mul_u64_u64_div_u64(period_ns, ddata->clk_rate, NSEC_PER_SEC);
+-	if (period > U32_MAX)
+-		period = U32_MAX;
++	if (!FIELD_FIT(LOONGSON_PWM_PERIOD_MASK, period))
++		period = FIELD_MAX(LOONGSON_PWM_PERIOD_MASK);
+ 
+ 	/* duty = duty_ns * ddata->clk_rate / NSEC_PER_SEC */
+ 	duty = mul_u64_u64_div_u64_roundup(duty_ns, ddata->clk_rate, NSEC_PER_SEC);
 
 -- 
 2.53.0
