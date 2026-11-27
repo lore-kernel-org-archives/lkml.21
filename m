@@ -1,112 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786303;
-	b=mHyegOv3jNGrP38E9uj50l9EpSkfW+nlpvSP30XGi8lGcK5R/yfqoWJy141CV52ftrC7
-	 hqbWMRSIk9X3HRkn8Gkemadrl5isS/6zoofafsTUVRajc8f5eL6n4FpM7aA8lcg/YxCvQ
-	 fORHckBypsuVjrnKAhffOCPOwo6mNskAuCfT3DMRoxEqZXtSWZ5F/gK0HKRKrYWFXhweW
-	 a7PHwV2sBBJ/jpZ7ae+aSAAPklpk4suMqVuBXLlUBUkPJche+qP2D7pAa5IzMKXg1/U6P
-	 38FWrosHW9nTsuRbw50CbRWpOOjRRT+joQxId3bVJJSaFOfdTlZIysbMsu6BYzYBKgA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786303;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=;
-	b=UfaXsBWDFbKjdbBOgwha113yOkf/ajTIpTpkFX62RY2cMg9yII/daUKqcg6NfFKbU2hi
-	 ZUV2rFzboWQlBwShavQyEg18jIt5Aqfw7syXy4rF2VkZU45lqRi+YfCgcLn0KnZGDuROe
-	 dJoLcm8bjmrN9B9+6Mt7Vdnmb1Py13bPFzodYtivtkAO/bMJsVxZMkrWh9KPBcjdg0hda
-	 3Md9osyCOLN3aFkxWDbMpc+AxFCifGeUw5wKBmU+I/1VPxtZSa/RRY4vFq41JKMwiuzVV
-	 zkdaCOznhpsa3CxrkdQg+mUg9Q3L2/z6UY5Cn/Mkg7dA7VBKJCUF4fnfGoRn5MrqN6w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=evH8njkL;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Klei1wBo;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795786357;
+	b=z2oYBnWrbK7hsJRpTFKLCP2XUwaFXO49sExvUES0zlDAR8h6+M4brmnBx/AuUj7n4IrP
+	 HWx9NDz1/Bn1ATHMt5+H5IGdH2gnjvuTHs7Ya2PVVbjw7udGsHS68JYtSnIwbQsoZyyXr
+	 w70HBd3b0JFccEULigX7dTeTBtASGOiBOecA3PtOTmtF3VlXf6bcqJrocdBnzTD9kWH4j
+	 0UqT4FrfKS+IQ6q5zMjtBK+7TPOj6x/Fq5HP+Gu9sPfTwj7u3gDikk9HqCFeNIDXnFPW8
+	 Zs7RqKGluyv0AmO4Sccc4VHL6UO0QBZnjtFE5jnHJjMhKqk5FSN3SN7Z0OyQKfs5cpw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786357;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=iSWbOSSEBtmBz4BmAl68bnywHwYp2BFmFo07moHtBKk=;
+	b=2ezF83Yra95/bZKSDhLw6pJsLQXYTHkf+UcIHAUFtaiSDZzDr7VsqxjDx8v37nNuZF8m
+	 5o2QXCtzOXRyorw1QvzCtd/AQ3GZQO48eVIB5dct14rqwkKzS7zw1sVUXOJQluHBSYKJu
+	 oU1iac4bBzRqEowhg+D2WdoYXLeNAvbxC+0iJ1bm0gqE8XUXdJUHMwuiiKTtWYUJ0NKtX
+	 Zb/gZF7yMLPlq+N35CniQET0DkBDreGahs0MNV/YP884fSnJOnJoDq19a6txgMUwGSwHi
+	 PQelcYnj2JKOwa1Q7EDh7WQaiA/YGkeEixMZTgOPG0mdwVwHCrjF/+XBbVmYxifN7MQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kb6z2o0X;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B1C606A323;
+	Fri, 27 Nov 2026 13:32:36 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kb6z2o0X
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795786356;
+	b=GhV1CNUjUf0B7B4evmbIhgoe+d26XZlIQ8k8NEAoUjtvR3RVZzTcbg7SmMfeIgsYGk57
+	 d+oj89FyDyJksTXzswHXNDwOEV8ykyCQDKFuoaGRfKH8KnTcb/5G7DSo+HfaRkWwQMKiG
+	 YbrOafvQmfPL4ZqHvvNksZpaYsSOxeG6s/C7YTw6TCVBr5+hFYp38nlt7ixgoA6Xdv+qQ
+	 gtUEXeq9TyhEQWWnrSAjdkvxyiup0++bElRLA74pheUERaQSDqxkNA+D0mBStRyRLDPQD
+	 FuIYK1H3xtgfZX7hpnHROVRIXmZwinB79RbmrMWeyMRMtX6qDu1YiAjp7CwhDxVUbBQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795786356;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=iSWbOSSEBtmBz4BmAl68bnywHwYp2BFmFo07moHtBKk=;
+	b=PzjDpxkOJBAda5auLx77/9qPZekAzH7lHcHZf/EmeIVmPwWd5KAclPaywxwRZrnu9mOg
+	 CxX0cfkMa4SCQcLUwFtv7UExbriFxmGxZfoCYCEG7lnJC1gT5syTKK3kLBEBXsQklfXd0
+	 tDdgq3YAMejapoVN/FW02Pv/7AsN4bq1Uglm8tX+ZVKlLnNbPENzFBLRrtl17eRVTJDjj
+	 yyGeSSvVy+MefEX68fOgpCJ3g/MYj8tyG2k43ACW0c6RTqN0T1ADmYlYOg6lcPTX8+oMX
+	 X26PKppGsE+cfCDznqRwo3K5nO1PCjGyj2FbdGxkQ5EsaKn6zCNRUK5iAYw1MqSTpzg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54DA2606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54DA2606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=evH8njkL;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Klei1wBo
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARChHOa3150649
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=; b=evH8njkL/TLzgNau
-	KHzfI8iNVD1HdH3UOaNX994fNRKQqHHPUQ13YPOoMUuxFpkUhGSvvMyY5Jq+529A
-	Xti2KksoHv3nDG9PnOnUSD1Oom3GwQAKqeddfQEzixm8vMW+W2AGScO6ZyG+aU0p
-	k8jAgFRbhtrd/8VD8l7Z7HltCT+CXaaSRD/p/DCTgSdZVvvUjr+2zLuZJR4T6r9k
-	umS3LHcbCJ683Z6woHLB4Yniy2cyWYLAHQi/rM42ucvj/n0PpHTYsf/OQ84y/XDG
-	BsxLKvh8ll29YwoQWnXVaMrLI8Ih1cmcmjChWGLO14VSkj4Rz2jQCCMXwja6sCCS
-	EJpcyw==
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf93qs9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:42 +0000 (GMT)
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b55f4f3bb8so4844568c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:31:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795786302; x=1796391102; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=;
-        b=Klei1wBoKGZ8Ivh01hemdBW/PrNYRdfKTuraEU6fSvXSF4ZxipSQe2YuLmOb9Qlg7T
-         tmJPfohF5ntitehP6RJjIu1r/5x5C41G6Z3UbKWku+1LXZjDV6D7fszIRz7B29TLooAF
-         N+QAahCkUEdHmL3krzVELef6FxORJFXVIrubuOrTDoKs2qC6jrW1SZfnE37cwnuPuzSf
-         okJJPgAtd6QFr3ISPNQJlsXLEyXEEolR/l7Uegg55m7kkES02fZQ3f0aB0DkQ4tGpng9
-         ri2zW6Bc/7ddHRDceLOBCGn9TMjKOG3I8moEkgx3htN0FatpPYgRyfh5/fUcpuVhQIE9
-         gSSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795786302; x=1796391102;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=;
-        b=pgJfeqtYoIVxzWa61CeQX/U17eZs62NnOTbrx9B/HMKwIEt4dVsfPy1QHbYAhUTUgu
-         fbDQCC/KxvrIvlDgrRKAMNo4bJhGwgF8+fHtp0H5FV3cvbCDtJgC3eWmdkYivDC6x+gs
-         +xQXTDvuDfGQjS951aUeY6iNMcB4ngBJxxeKbUtQ3dg27d+OrGhtIQGkeCRGMnoZ7Xdu
-         vfhIB6AhaTQtaDGgLPM2wG0uNeGBjXlcocXZoUIPuCyCRPqhdR9uET2iehYDyMZJg5gm
-         5WBC4fc/YyJnuKWeW6i7INb3mazZuxRaXuNrQg6YGV6uwVY7EfGbz8EbONI9vzJ2u0HS
-         jJNg==
-X-Forwarded-Encrypted: i=1; AL+hErEM8ClERJDEFX/brWtplBmo1oX/MxpK52/oTaiTotQcX/75u9AomXmFIROMrL7f+jLrPzvBCb0V9jyIGZE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fa/2WCuqVjyr2jMF3kBYFLv6Yve2Lr+RukqdUDIk2Luhvksbf
-	IU0ZMaR8y86wR+u4m9LsQ+iUlNkjI24TcIoWwMO/PLUiqJKC1bM21B1ilUfNxuyX4AEuDLsyXqw
-	LoxOGQotQI/m/FjES93AySYFDIDWXG8gVfj5N4gt4OV5iIIdAYPVXVUYlfBQDvqtO+sU=
-X-Gm-Gg: AZFdTZcaM60HVsI3kjwd7tLvKNQPXc8acNKNy58HD5EsUH2/DMeg0NpoIn2pA9MFqxC
-	wmLedlrtJd8r4pXbi47LR9PV8wd7JCy1Mue1whnsxh1ohqi6ixnBmaUqJiFgft49dyMDQDU7hlj
-	0Q0L3S3oqdAtvoK1sQDQXVuoppP00mJKsDVM+zItQ1AQodqwkw5YZZ1+wOlmcubck1HcG/ZeT9e
-	KP0d7BCVeO8ihszuGRkQTke9jFmay23Pd3wxfPCtX6wWhvqqv7ImZV9d/oa2w+SwaOWUVl5bwhL
-	CTpNPC5c8D/DFpWN4jAatqTv5nFbE6dgfMlWJ0i+Yu4cyLugQ50QB0MtElgkIaoBglcRFAA+b2b
-	+J8fGLYku1VHOaJ/CCSYS5hKUULrI9RQUJPDuUmULKbay5uKZS9TQ3UOCzgRGfxIQlSARezcVhg
-	lRQ1vfCA==
-X-Received: by 2002:a05:7022:e981:b0:1b4:caae:3324 with SMTP id a92af1059eb24-1b5568ac1d5mr30974316c88.21.1795786301670;
-        Fri, 27 Nov 2026 05:31:41 -0800 (PST)
-X-Received: by 2002:a05:7022:e981:b0:1b4:caae:3324 with SMTP id a92af1059eb24-1b5568ac1d5mr30974289c88.21.1795786301163;
-        Fri, 27 Nov 2026 05:31:41 -0800 (PST)
-Received: from [10.206.111.23] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm43708473eec.18.2026.11.27.05.31.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 05:31:40 -0800 (PST)
-Message-ID: <c1a5a27d-5b59-41f9-976e-68a7961e9936@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 19:01:33 +0530
+	by smtp.kernel.org (Postfix) with ESMTPS id C44031F008A0;
+	Fri, 27 Nov 2026 13:32:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795786356;
+	bh=iSWbOSSEBtmBz4BmAl68bnywHwYp2BFmFo07moHtBKk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=kb6z2o0X+UYJESY5gKTbTWhme5+GPbxqCoNhA5NcMItAMTetFULozSVr0cmo5c3MF
+	 AXhK6QBrGj+hajol2txWhLvU5tANPx0TdHok5XtFPDKrtQI21AmMQYre9/5ILIYNAl
+	 77IxspBJjAIjKPIg9ipAyxrtLLr5YANpccfC6Lsttr8plnU05ykFYvuAAmCrNt42Hd
+	 H7lfYVYt+/9lXhlp2jL5RIXr9emrrPmyHFUwIpGr8pXVGG50YdPxjEE3eXbQLlwGdZ
+	 Sl3nyhvms4ZywXNQ2OejK7uCNw53qA898RzzwOAEgbkLm+0Jj5JMeaF2n0exQu9k3t
+	 YOo0Y26oEepmA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 4E42F4B80C;
+	Fri, 27 Nov 2026 13:32:32 +0000 (UTC)
+From: Keguang Zhang via B4 Relay <devnull+keguang.zhang.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 21:32:24 +0800
+Subject: [PATCH RESEND v4 2/3] pwm: loongson: Reset the counters before
+ enabling PWM
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,76 +83,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] media: iris: allow larger capture buffer pools on
- HFI gen2
-To: Xilin Wu <sophon@radxa.com>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>, dragon@radxa.com,
-        Chris Obbard <chris.obbard@oss.qualcomm.com>,
-        Deepak Sikri <sikrid@qti.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Loic Minier <loic.minier@oss.qualcomm.com>,
-        Jason Pettit <jason.pettit@oss.qualcomm.com>
-References: <20261127-iris-va-fixes-v2-0-385e8636c22d@radxa.com>
- <20261127-iris-va-fixes-v2-2-385e8636c22d@radxa.com>
-Content-Language: en-US
-From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <20261127-iris-va-fixes-v2-2-385e8636c22d@radxa.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: M2ks2vncPMiOJnUJ5LIbbBe8ehgI5Y8S
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MyBTYWx0ZWRfXxCo92fvgT2O3
- lwfsyd2jJO6mmmiFuHHLBCq4EJMeuC7iWodhexvlUMjVJzkCdAmfDRjyREDAdPJZP0n+XxoRTZD
- 1t3I+s1ZVaAh116zVipYAZVrWkMV+58cdzxJUhl/rS7E6WeYPkyLEY3GI9sCJtHYyAKUatPeLi4
- mXuovXWlaASMddfqMR3pqmuwsdraiB+kRvtoG8rMgPWze2z30DklIjC7PEDVn4tprcCeZD1I8qB
- vRM9sW6IGu7Kbif0pdT6+g1GSpsmYr16KjKmjGwronePYcxzSZjLuE5BApNukAPnjygn3omFhXs
- isMktJLLHQWmgIKe9VqnDRWF6Ql7yuAfBgMaOXthLfeOabJ3rpTXgt6QhKNQ7tiyAvPB55s9aIl
- isMTy1iD5QlmEMZABhOrmYDtzNphMpR/aGvO/dfEQKr24mOe549yhsxoy19tnH0AE5yqrJN1q/+
- 991QRWG2WM4sKYKzUwA==
-X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b09863e cx=c_pps
- a=SvEPeNj+VMjHSW//kvnxuw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=ksxQWNrZAAAA:8 a=EUspDBNiAAAA:8 a=jXj6vGqe9ollWG7NQzIA:9 a=QEXdDO2ut3YA:10
- a=Kq8ClHjjuc5pcCNDwlU0:22 a=l7WU34MJF0Z5EO9KEJC3:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MyBTYWx0ZWRfX8utdsEjpAfJV
- 44ufqXH242OCi8vTzjVzKbUxhJw6bp2OdzuNSwyTtN1dO/xBkoILguBED/yAbyB9H+4hN4/6sDe
- lmUSrNEbycITlYjwYa0B3ykm5zvtYJA=
-X-Proofpoint-GUID: M2ks2vncPMiOJnUJ5LIbbBe8ehgI5Y8S
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
- suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270053
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-pwm-loongson-fix-v4-2-607f325b74d4@gmail.com>
+References: <20261127-pwm-loongson-fix-v4-0-607f325b74d4@gmail.com>
+In-Reply-To: <20261127-pwm-loongson-fix-v4-0-607f325b74d4@gmail.com>
+To: Binbin Zhou <zhoubinbin@loongson.cn>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ "Imported from f20260920-pwm-loongson-fix-v4-0-41b36b3c6497"@gmail.com, 
+ Keguang Zhang <keguang.zhang@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795786349; l=1375;
+ i=keguang.zhang@gmail.com; s=20231129; h=from:subject:message-id;
+ bh=nEffXoAuY0LXvNjn27LU1Ds6mcGSPElXiuPjP4r7awA=;
+ b=ZB6/mPRpggxjXqpMw+PQxxBcr7XBNTXFyP0f5LOwzzfn8+/KTNrnXSx27T4SoWr60ydsrGBSd
+ lbdpV78SKvJCROA1kEtfRv87GHevahMN77XE4zJZGexQS+OIhvnZZHq
+X-Developer-Key: i=keguang.zhang@gmail.com; a=ed25519;
+ pk=FMKGj/JgKll/MgClpNZ3frIIogsh5e5r8CeW2mr+WLs=
+X-Endpoint-Received: by B4 Relay for keguang.zhang@gmail.com/20231129 with
+ auth_id=102
+X-Original-From: Keguang Zhang <keguang.zhang@gmail.com>
+Reply-To: keguang.zhang@gmail.com
+Content-Transfer-Encoding: 8bit
+
+From: Keguang Zhang <keguang.zhang@gmail.com>
+
+The PWM controller may retain its initial hardware state when the driver
+binds. Reset the counters before enabling to ensure that the PWM starts
+from a known state.
+
+Fixes: 2b62c89448dd ("pwm: Add Loongson PWM controller support")
+Fixes: 0de9b836a3bc ("pwm: loongson: Reload PWM configuration through counter reset")
+Cc: stable@vger.kernel.org
+Suggested-by: Uwe Kleine-König <ukleinek@kernel.org>
+Signed-off-by: Keguang Zhang <keguang.zhang@gmail.com>
+---
+ drivers/pwm/pwm-loongson.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/pwm/pwm-loongson.c b/drivers/pwm/pwm-loongson.c
+index 0ec773fba813..6f609fd0b90b 100644
+--- a/drivers/pwm/pwm-loongson.c
++++ b/drivers/pwm/pwm-loongson.c
+@@ -110,6 +110,14 @@ static int pwm_loongson_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+ 	struct pwm_loongson_ddata *ddata = to_pwm_loongson_ddata(chip);
+ 
+ 	val = pwm_loongson_readl(ddata, LOONGSON_PWM_REG_CTRL);
++
++	/*
++	 * Ensure that the values of LOW and PERIOD are sampled into
++	 * the shadow register when the hardware starts running.
++	 */
++	if (!(val & LOONGSON_PWM_CTRL_REG_RST))
++		pwm_loongson_writel(ddata, val | LOONGSON_PWM_CTRL_REG_RST, LOONGSON_PWM_REG_CTRL);
++
+ 	val &= ~LOONGSON_PWM_CTRL_REG_RST;
+ 	val |= LOONGSON_PWM_CTRL_REG_EN;
+ 	pwm_loongson_writel(ddata, val, LOONGSON_PWM_REG_CTRL);
+
+-- 
+2.53.0
 
 
-On 11/27/2026 5:10 PM, Xilin Wu wrote:
-> vb2 limits a queue to 32 buffers unless the driver sets
-> max_num_buffers. Clients with deep decode pipelines, such as VLC with
-> frame threading, can need more CAPTURE buffers than that.
-> 
-> HFI gen2 firmware takes the number of host buffers for each port
-> through HFI_PROP_BUFFER_HOST_MAX_COUNT. The encoder caps set it for
-> both ports, while the decoder caps only set it for the bitstream port.
-> 
-> Add OUTPUT_BUF_HOST_MAX_COUNT to the HFI gen2 decoder caps, and size
-> the CAPTURE queue from that capability when the platform provides it.
-> Platforms without it, such as HFI gen1, keep the vb2 default.
-> 
-> Signed-off-by: Xilin Wu<sophon@radxa.com>
-> ---
->   drivers/media/platform/qcom/iris/iris_hfi_gen2.c | 30 ++++++++++++++++++++++++
->   drivers/media/platform/qcom/iris/iris_vidc.c     |  8 +++++++
->   2 files changed, 38 insertions(+)
-
-Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
