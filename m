@@ -1,86 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795748123;
-	b=EPwEr3+/v9Xvn5swVPaOKcyS8R/8WuI3Qop5bLCxHGhpc/0IRuhKMuYGahnHqfmmX+if
-	 VbeFqCkjzHGIpyrKxb9B2l1KOCjjcDi2SPz1ljUSKGhA5+Lg6qwb45+DDokJWE+btmgsU
-	 torlTaNFzxA7I31QRP3uXhHYGg1Inb/wSK16EvNwxvsyrmfiOYbzdjYEJvOaOsyes9MBP
-	 c5w+Nrbqc2CigEeijHXImN7Bn6wk49akx2fmw7Sx7BsaOaAGwSDt3q8XWopLzKyGS/guH
-	 EhPUJ5PsTiIXA8C+SfkJiLBG3FJ9rMo3ffAopBYbPF9JdEOEXqqLh6PWWg9t/QtzVow==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748123;
-	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=iuAZy1Xqdh6yRTzJc6FLUzIwcR1MgTN4XofneJJ+eTc=;
-	b=IdLSpNsk5LA+VsBAm0eUmt1SOLVq6M6NVqVh2AQOA57RBwWqPVe2pRSQCFl7E3IGMBDj
-	 IG0aMZ0jVlUlP28Fk1VNfrvoIPuOHrtg4Klt8bjE0m3yX9PPiknsuhpp0BWAGjJR6Wpnn
-	 E5as1QrWzv7k2Xg7jWwBQxI71i9rEbIOMwAmxxC9omQKoa1YSBZ+YQPdhUDhAekfA41QO
-	 XAGbMw3xKd/ew5iFOSsJ/RNKHG3dUGCvbsNAmHaWp9gbhZZo1Lj0DVoCbIpbSsLVJysfr
-	 5RWjxC3UwgDB9KoJebj1HCs3If4GMHM3vYye0W2DJpMhoo+N2MH+x4AKinCleKOUttQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FlzZrQMS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8827606A31E;
-	Fri, 27 Nov 2026 02:55:22 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FlzZrQMS
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795748122;
-	b=wnuMqB6vezTLGQXhbZZK5xd/b9z29BhJFTN0YJf1IhrjK0ESOrme+MORZTumWScqG1g/
-	 tKtUWoJVWyAoO+Og5Z5Xb6CIu1KbWlBuQvGy0J7CT5gYXvgGq+U2R0f2jq+4tlToTQBd6
-	 xcgwIKnEYn/3TUliWNZ4HX3rRstxGY38xCArDHxV4HYBGik2M+ZUdwHwS7Xmnw0DTjOmX
-	 dVGDrvEbgF1nSM2LozR5GXDdSQqLz00SY67mMsyaxp/E8CiRK6K6Kmv3+ELnRl3ZPRzsr
-	 Trl+TUB+IqefVC7FoFujEv9yMvHXOwrCQ+PGrWjoB6rTHsPP6J1CnN8682cnQdd4DLQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795748122;
-	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=iuAZy1Xqdh6yRTzJc6FLUzIwcR1MgTN4XofneJJ+eTc=;
-	b=zDSrVkdi7z0t0G5ioYP7UgryPaLyLGCI1N+E5uk/e1lE63l0ctpXXSyfgxkRJ3SRWxCp
-	 Zg5ScBWGnyUTIASVxbEay7F2FBwwPleMEEDgIBNG3jmFK5tOc7u/M46tpMKnXs/wy8p8P
-	 dCz4LgktPmeIWnkX5VOdJtkIC23Z8BPojDKP+Niq5E1GutSYP51Aw2dac2mDmkJuBfr32
-	 Ai+qZe+d3phMh2HI+eZ5E1BwzRN5XuuZZ+NMV+KBbhfzuqpqZNmqvJkJMlFPFbHMAXkr8
-	 ZMLsluYn7Bt4Y2JxJHYjEtzakJ1HwQ71kJi4/jwBtSE6ezx3ynAoQqqYhHgvOb8stlA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795748257;
+	b=Dgw7sy000PgmTpEbWWq3lYO4Pzs6iXmQsZuvt3FGsExO9smBtCq8m0M8p7Yse5PVB6Wz
+	 rMAxeSA8yLgf1DQQxZbRefEdH3knfICvVMPQU8RYA5fXBaFlAcX2tk2BXK+Mo/SmMofPi
+	 UnWK1M03CCBdIzgP5YXhwpl3WlUur/8Z28XRr+ESakGtkmklmKDN0aDiO6zTWlYXIfgZo
+	 jDvn4wWSTiNv3ZcMC1t9ong/W1iSQUukCfSwbdws3P2beU4RQ5KO71fhE40Vi9NTwT1i6
+	 fl6OkQ1k5tnQo718+c4Y6IR8qCbPrT6teLRMZIy4YRNrCoo3uF3dRKWYNDarqudgSLg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748257;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=uIjLsaOYaWwUEjrFbKpDugDIIvk/TRcaWwfj2pghAh4=;
+	b=J20ha836PCmj+/eCcQDpjUYOHQtnJE7MHkhnwH8Mfu/yP9Msym1ipfnju4JJpwlJjqym
+	 w2vG45Xdsd+TFehUFn6e/rpJnW+A9Oa62el/OHhKJ1DUek7DEqHK7Y8y2ANG8O3i3O0DS
+	 q32Z1WoqvNoDnEZpbn+VcqIwWn5Bl3W5K+zFBkMBss3YXb11OBUxH7eRhvmCLqrVnJcmp
+	 8NLiIAAInIGyLNJ5Xy9K0QUMFG/7HwtX7DJ5wgTu2icRa5gbTOai5V3N0kVVNALQk/AOo
+	 wd7qAi9t2U/C4AKhNbvK3ExSc7SxJNa3sVpHIoF++fT8D+XPjvJDGzAkUUD2O0EVMrw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=squebb.ca;
+	spf=pass smtp.mailfrom=squebb.ca;
+	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=G0QsHsxt;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=NOQ6ccEG;
+	arc=none smtp.remote-ip=202.12.124.152
+Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7EBEA1F000C1;
-	Fri, 27 Nov 2026 02:55:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795748122;
-	bh=iuAZy1Xqdh6yRTzJc6FLUzIwcR1MgTN4XofneJJ+eTc=;
-	h=From:To:Cc:Subject:Date:Reply-To;
-	b=FlzZrQMSP4GEYnaRkphNzlGd2PrGhIF1hxM6ZaZMoHMMiV+XLA0oCyf7QZTOgSXgG
-	 UzsRNLOVcD/2zGbyW5p9EMyPg78OJKJk0j0Ut90jme/0OvmJRqRXBhrCwBia5E2kiX
-	 dWKXyEwouvzE7vMmQW6Aai7t9a5kJSxMqo8JawmoLINoAIVivNEqwD2WGP/CizxWcG
-	 6QL14PH8dnopeWzrapRKGAxk9T07Clmy76b94Cw+05EscgVYzyVOkLSIz/uTSVijoL
-	 bJHankXIg7gF14YJ8V/xj4JrsYss4n8DO1SMOt72hl7F9mbgsz6ZWESPcqA2C9abU/
-	 ANs3Q2pnd1zvA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 119354B506;
-	Fri, 27 Nov 2026 02:55:18 +0000 (UTC)
-From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
- andy@kernel.org
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- Roman Vivchar <rva333@protonmail.com>, linux-iio@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-Subject: [PATCH v3] iio: adc: mt6359: fix MT6357 ISENSE/VCDT and MT6358
- VCDT request bits
-Date: Fri, 27 Nov 2026 02:55:17 +0000
-Message-Id: <20261127025517.9548-1-iasnezhkov@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3265B606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:57:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3265B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=G0QsHsxt;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=NOQ6ccEG
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 8F2747A0516
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:57:35 -0500 (EST)
+Received: from stl-imap-02 ([10.204.2.93])
+  by stl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 21:57:35 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795748255;
+	 x=1795834655; bh=uIjLsaOYaWwUEjrFbKpDugDIIvk/TRcaWwfj2pghAh4=; b=
+	G0QsHsxtZghP5wNl/aU1Jq9zrohy2cWU+pHR9ER2gLyjBL4cPdrw8Z8Irkkos7Wb
+	uXgabNT+Zahe67DJ/I9whYYe+b+aXHKnq7lDbKJLzONE2Jp3fHuNBYseTCEkLjLY
+	R9pBbZN00AYaDz1wljYLo5arYUCKJF+h07zPl14jGt8DHhq1xaeNyeSQaA6/HzVN
+	nuyql1cWJTIYmvQ1AlTLvgWKZmHcwlYa9qpddempSHVUzB3fUa+8zkFNObpT3U9B
+	1nKKvJUbN39N1zgy48wRQkRnvbxx1a9CRnhaAf2DfZXKfjjzbSvK9sh+FVTDh6Nb
+	zSGT0EiGkHz5GL8BMG8P1Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795748255; x=
+	1795834655; bh=uIjLsaOYaWwUEjrFbKpDugDIIvk/TRcaWwfj2pghAh4=; b=N
+	OQ6ccEGn+pGF8s5oo0GW5fBJVJZlbGE0GabsT8wV+Rktn157Rv4o8lCT7OKm8z4I
+	pdv0iAO3YnmTLVVyuQcUwz+rXY7sPjlLNL7yANQgF10Sht11qwuhh5LU6tS+zzyK
+	gE1y+6Wu0HiKzhLA+Ch+mU8bJ/ojgWXiV+xGojUUbyND0TnXBjsOrJ2NZvIwHhH6
+	a3FkDkDCQyJw/7TTZWyfU24kTPhgsqXzBh6va92e1XMT6kuTN84cndNLxw1VAAb9
+	Euja9Jqs39QLgDL24fUP2HHHOT9cZCcponKUCU85PjMtdTsA+q9cKs3yZkXVeZk0
+	JQj00JgsToy9if5YAeRJA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=squebb.ca a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795748255; d=squebb.ca;
+	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:gLiRwHFG2wRdM1d5ge7bsJopZQd7HgcHAYiL2XaTzK0GerB
+	H9hr02pFDTlFM5KqyIAO0l1R3vm9AH3NCLnYea/9aUtuY7mF06LycNdD5PcuGQRC
+	xgwC8h/nNVDV8Zg9e+COza0diAXD6vXQsvQFpoUi2yJQcQoI7j2nAIQ1qFJ54v/b
+	0u3riVl5HUeWojggNVkUenpDN9RlzAr4Dp9cLEy+GF1kztc74BQb/ij8AFGvBAuW
+	fnRCKCRbxweNq/JcmcE5Wrvy4YguSqwXVcumSZT5MBipKP374swqpYdrVGsN3heP
+	p/y12n/lvteeQnotRCF8pjnpnWI97eD3exnbLeg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:ZXWEkKeJdh1g0a7u+5HlyZjsgTRX6E9GTJggahCRKnM=:pTUMBPAcCIUFfg4AE6JmvRzFaLSISGg0Xsh/RgsU0Uc=;
+X-ME-Sender: <xms:nvEIa6pYrbvvLk7qiRwlKoM_QXr9HC_W356iDpmQCxxt2V_qVfbxvQ>
+    <xme:nvEIazdQvqrrPoX_Bk7gKTmqhw6fFloG4RY7EiccXkS0Ku9SaUwLOZbuc7cSeqdBL
+    dFUTB565K0ENfTz18lokbqbnYe1oVtthqbLLZzXF52vvr3d9ICSKDPnbA>
+X-ME-Proxy-Cause: dmFkZTF3ci2Xu0iYGEkhl9SOwkHBtpLcknovLCshrXxQvWYStaDwd8yJpYSRQyT1FO1FNA
+    RLauedTXfinlfZ/RKGWlaSO+heCi1L82xuTZ0SOGqThfEmJfVDr/5apdlRE4Upsif9bW0t
+    3VgjiALH2DpXJccvRl5nirTnbeucHyGwvVkG0rV0Z5YJH/nfU0nQmAnfpVcpMO09Bz9jjf
+    Q6t6YqeqT3Rt1v1COBCEZo84nhWiNnKOv/D2JnjfuFJOCmJBZIT2XmJW4EkEoQW8IEpfYc
+    USqPbe5tLfpLjkgtKMalHeTdpQMFNImZGwDipO9OXKiiybCo05XbIaa2P+JwrQl5PvVMHE
+    rBOGOnilp7c1udnYt6anOEDpaH7+RIuahjy96JZLje4Vp81eRHDqPYgvtEoAO8sAQQDUkP
+    EwZZznJjKOts3PA6ZZa2e0F2EdRg+baW1q5meZiyG6hP/DgHghiM1kOGIURxDtd8xUrug7
+    SQQctQ+5HTF66T4OLYGhnYK1jrYKpW4bsweOxgNfXmTy4GcBhxeI8pcO7zayl0F5ARLkTd
+    yhr8nDizhCwNr1dTbHlY9w6FugQz0Ljk57CutXY2vSl7/lCmpN+HofT52/m0CZzgeWmCyy
+    2mLFtRr5na3JvgpzIVQk4BfB6zCoaV6ddiSufBFSz5EM2AGw2ikc6VIYNHFA
+X-ME-Proxy: <xmx:nvEIaxWDDIyrvF7Wu5GibA1JYRXys3mE1X-1H5ybC3FxrHklPGVYdA>
+    <xmx:nvEIa3kld8Uz_yIyc-2RevKUGZEpepgbLrfJlpr2wLnbXObsBQNr6A>
+    <xmx:nvEIa4MTsiygTiZOZPJcmBTMottuFaAlKn432ymBWxxHimooMq2K-Q>
+    <xmx:nvEIa3IRkF7T28ydZfJxQdFcTsHXaR_KBR_2H3KwOj94LM3g40Z-nQ>
+    <xmx:n_EIawOxavKNFI2LjZ41HjYvnr6FzKqwRKChlOpwv-hO94PqKRhaqfGT>
+Feedback-ID: ibe194615:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id 95D9E2C00085; Thu, 26 Nov 2026 21:57:34 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,80 +115,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795748117; l=3085;
- i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=sgnrCZ+8Z//7Mp3+Z+qP8xX1lnU0T/jKoMNWsjR4WBQ=;
- b=rflaVb0IGQS4gPK+YmA2daDAOB0IbN1vK/rxQnjDU93P5Zxtf2yfEfCf4dbL6oL3xV40eow2U
- /7NHIzV4Oe8Di4zKE1Dv3iY9iHJ1F9altNO/+FoS4aC6hUrl7DBh2QJ
-X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
- pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
-X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
- auth_id=1643
-X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
-Reply-To: iasnezhkov@gmail.com
+X-ThreadId: A49xMeGXfQ8V
+Date: Thu, 26 Nov 2026 21:57:14 -0500
+From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
+To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
+ "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
+ "Hans de Goede" <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: 
+ "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
+ ibm-acpi-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Message-Id: <96ca0f67-1f62-41a3-a83a-1d70abf2e058@app.fastmail.com>
+In-Reply-To: <20261125-thinkpad-acpi-hotkey-poll-v1-4-6dee57519c2e@gmail.com>
+References: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
+ <20261125-thinkpad-acpi-hotkey-poll-v1-4-6dee57519c2e@gmail.com>
+Subject: Re: [PATCH 4/8] platform/x86: thinkpad_acpi: update polling state in
+ hotkey_user_mask_set()
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 
-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+On Wed, Nov 25, 2026, at 6:11 PM, Dmitry Torokhov wrote:
+> hotkey_user_mask_set() is called from both hotkey_mask_store() (sysfs)
+> and hotkey_write() (/proc/acpi/ibm/hotkey), but only hotkey_mask_store()
+> called hotkey_poll_setup(true) afterwards. As a result, updating the
+> hotkey mask through /proc/acpi/ibm/hotkey did not start or stop the
+> NVRAM polling thread to match the new mask.
+>
+> Move the hotkey_poll_setup(true) call into hotkey_user_mask_set(),
+> matching tpacpi_hotkey_driver_mask_set(), and drop the redundant #ifdef
+> guard from hotkey_mask_store().
+>
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
+> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> index e5f78107bd1a..7a82a9014a3e 100644
+> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> @@ -2137,6 +2137,8 @@ static int hotkey_user_mask_set(const u32 mask)
+>  	/* Enable the available bits in hotkey_user_mask */
+>  	hotkey_user_mask = mask & (hotkey_acpi_mask | hotkey_source_mask);
+> 
+> +	hotkey_poll_setup(true);
+> +
+>  	return rc;
+>  }
+> 
+> @@ -2647,10 +2649,6 @@ static ssize_t hotkey_mask_store(struct device *dev,
+> 
+>  	res = hotkey_user_mask_set(t);
+> 
+> -#ifdef CONFIG_THINKPAD_ACPI_HOTKEY_POLL
+> -	hotkey_poll_setup(true);
+> -#endif
+> -
+>  	tpacpi_disclose_usertask("hotkey_mask", "set to 0x%08lx\n", t);
+> 
+>  	return (res) ? res : count;
+>
+> -- 
+> 2.56.1.839.g22a8290db9-goog
 
-mt6357_auxadc_ch_desc[] sets req_bit to 0 for both ISENSE and VCDT, and
-mt6358_auxadc_ch_desc[] sets req_bit to 0 for VCDT. Bit 0 of
-PMIC_AUXADC_RQST0 triggers BATADC (ADC0) rather than ISENSE (ADC1) or
-VCDT (ADC2), so polling the ready bit of ADC1/ADC2 times out unless the
-channel was triggered externally.
-
-Use the actual hardware request bits in PMIC_AUXADC_RQST0: bit 1 for
-MT6357 ISENSE and bit 2 for MT6357/MT6358 VCDT (matching MT6363 VCDT
-and the MediaTek PMIC AUXADC hardware registers).
-
-Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-Reviewed-by: Roman Vivchar <rva333@protonmail.com>
-Tested-by: Roman Vivchar <rva333@protonmail.com> # mt6358
-Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
----
-Changes in v3:
-- Drop patch 1/3 (scale divisor), which duplicated Roman Vivchar's
-  earlier series (20261117-6768-6358-fixes-v2-3).
-- Drop patch 3/3 (MT6358 VBAT impedance ratio) for now until
-  mt6358_read_imp() timeout on mainline MT6358 is investigated.
-- Carry Reviewed-by and Tested-by from Roman Vivchar.
-- Link to v2: https://lore.kernel.org/r/20261126031013.27701-1-iasnezhkov@gmail.com
-
-Changes in v2:
-- Move AI coding assistant note below ---. No code changes.
-
-Found and drafted with an AI coding assistant.
-
- drivers/iio/adc/mt6359-auxadc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-index 88b0e26..0e7f9b8 100644
---- a/drivers/iio/adc/mt6359-auxadc.c
-+++ b/drivers/iio/adc/mt6359-auxadc.c
-@@ -224,8 +224,8 @@ static const struct iio_chan_spec mt6357_auxadc_channels[] = {
- 
- static const struct mtk_pmic_auxadc_chan mt6357_auxadc_ch_desc[] = {
- 	MTK_PMIC_ADC_CHAN(BATADC, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
--	MTK_PMIC_ADC_CHAN(ISENSE, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
--	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
-+	MTK_PMIC_ADC_CHAN(ISENSE, PMIC_AUXADC_RQST0, 1, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
-+	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 2, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
- 	MTK_PMIC_ADC_CHAN(BAT_TEMP, PMIC_AUXADC_RQST0, 3, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
- 	MTK_PMIC_ADC_CHAN(CHIP_TEMP, PMIC_AUXADC_RQST0, 4, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
- 	MTK_PMIC_ADC_CHAN(ACCDET, PMIC_AUXADC_RQST0, 5, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
-@@ -271,7 +271,7 @@ static const struct iio_chan_spec mt6358_auxadc_channels[] = {
- 
- static const struct mtk_pmic_auxadc_chan mt6358_auxadc_ch_desc[] = {
- 	MTK_PMIC_ADC_CHAN(BATADC, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
--	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
-+	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 2, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
- 	MTK_PMIC_ADC_CHAN(BAT_TEMP, PMIC_AUXADC_RQST0, 3, PMIC_AUXADC_IMP0, 8, 8, 2, 1),
- 	MTK_PMIC_ADC_CHAN(CHIP_TEMP, PMIC_AUXADC_RQST0, 4, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
- 	MTK_PMIC_ADC_CHAN(ACCDET, PMIC_AUXADC_RQST0, 5, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
--- 
-2.54.0 (Apple Git-157)
-
-
-
+Looks good to me.
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Mark
