@@ -1,103 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.23
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795763131;
-	b=NNkh7Mi/HxdajAWlsFlsJZC83yOKRY50+JaZ67gDgnSXSu3a5yTdIRc2kAV8avIUC1b6
-	 oKufj0b2N2IS56e1LOcQCg+IG0yPR1Hk7fkIB2suPNpC2lFMacPJMD7BB3Gtt8lVYMtq9
-	 2iQrieC/8SzBSuyV5j6+8Kailo1V1Igt1DpgUX1viSVi1PjqhFFDQRMljy/67D2r4aH0I
-	 ydAQs4xDOPWPOl7wXoH0Lbm3tCsr075XWzpzxL4F19ZHYsHzjweAdgdu2nBXUxV/d9cDd
-	 v3T3XVC2wWAI43qw5duhKkUauP8RcGOVjaD8NdqRUdW1jPMw0H1NX/ifo/eky0sVn/A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763131;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-AtpMessageProperties:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=17S/ehX7nQNq3SUBuTPO17VqRMytpWDVSuMXBA+JGXQ=;
-	b=LlaBcXQ0SvjT+OAEOMNo8FNZ/7DZSCrJwQruhaPWi5pUGvruXX5HCyKvsXLetw6yjD8/
-	 C6ME6CpFQ7cWm4bKN6lf2ZiQtMpU2AXcLT8zvmamR843z1ithghJlhwOpQUgBMWbYKnxZ
-	 rFExOAK6R9YTQcNUDdo9JVWm6bk8pU3D3gMgsQbqsPPNz1iuYvVEKjm/rsIxkMDuJliza
-	 0DXeAQBXWHrmt9Btu59V6IjLh1ssztAYrYtwvKSMaJCsJe/HcmNSMiiBtewFmZEAGRn4t
-	 LCV5QPMufB2W2MKcr0su7wmGssg8qhCWbQde3AlqkUkzfBKeuFT0ahVkvFoiHtQAY5Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=siemens.com;
-	spf=pass smtp.mailfrom=siemens.com;
-	dkim=pass header.d=siemens.com header.i=@siemens.com header.a=rsa-sha256 header.s=selector2 header.b=Ur802SIF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.23
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010023.outbound.protection.outlook.com [52.101.84.23])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795763245;
+	b=5Mz4OTmNRjdEBL0JjKliFOKYj6IIv0/kn3f/aBk8HNCjt3qAGfx5dtj+Y7KBXqRiisrQ
+	 clb6Wa1V8ZCpNbCr1mt4a5mIjSLudPkVC+IjHMWjkdf0cRslWL8vafWkqzLF/kKszksqB
+	 5R6urABZOJKofVnggxEP9fEGS5IqM1e/62l1U+ZXA+ywPR0zppuowmiUid5FV+hbRxMce
+	 vye4j/vnY1LI5UkJzsTON89bFbKEOMgHit/aJqeyBxIMb7hUS036EdbxfucDzyIVN6uAQ
+	 mI+597ul+ZQfHMCcakfxQ6T9V+aAY+kJUnS1k5bwvr8K9+AjlX+XkkdHlP7qNS0llFQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763245;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=ztaD78IbltCltOsv05ym21cV76+rcFbLrBKQOvg9Tyo=;
+	b=g61QOO0EXra809bmnX12wj7iSSssCiA3ZlXIKr0Qh2xDLgPnhPpvhxJiyI0g9F/pYEK4
+	 jdei9VVPdK81SRXTT5Fx+UzUSbZ8WrMaE8xfRusSNUuHc6+//DpS1iSqGjBBgwrBsmOO0
+	 7JD+1KcYWGO8TyzBmrtaMvcznRXMGHiIzWQihB2VYs8icYlE3eALfV4CzqoRSYXaua6ka
+	 iEHsUc59AWtqUXDYHLKsdLF6DrLbb4EhPXa/tjfiJAFSvcxcm/4DsNsdkqcmcUimk6lQs
+	 /kev2372Kf1LQFGzX5EuL7mv/f5nXljehyh+sdbyl2E0uBwDIETi0/TQhNOd6IPMygg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iAYRWx3q;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HCvbP6sR;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22385606A31C;
-	Fri, 27 Nov 2026 07:05:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22385606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=siemens.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5A1B606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:07:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5A1B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=@siemens.com header.a=rsa-sha256 header.s=selector2 header.b=Ur802SIF
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qGkmQbK++GxVIWBDGZ4vw8L68cGhZYVm9OYZsAe7CqtbJzcRuTqTVDU5otSRR0/L3hHfXNfM5do0vE4A8X0KePw50RuDQJ192gNWjwvUNb2qn9/xNb9gWPCN61z0EHSKpcKSltMzxrCDrKbTeCRTF6Via5/9gZ1XRtZvviGR3tm2+9uJGGjwGAHZQxiiPL/Lr219A1vStDkIm0o7F3eBLT2x2pewcRSg34MRtxFKzIn7XcWi++lkqWKLrsredLrxQBOHTg72mGu6e9HSASzcbEpsH6JMHEtL1DzWWWa9QAGWtqdnqXpCbxl09emDJQr7EbQKJ+dY1Ft33lMdC4abMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=17S/ehX7nQNq3SUBuTPO17VqRMytpWDVSuMXBA+JGXQ=;
- b=pYC+f2b27EUB+7juVAGbaKvRfrQi3Pv1u71UL2gP+iOVIYjZtxalwOubIn8l10a7Ok99M387Cdhjjge3UF4QEBIbE0zDihThAEIqPO0KnQ9LUZmWt9ta8FIkh+qQ/Es1PzwkiDmiZJQfN+Nb0XUByvHYt47LyeRaog5RN0J9qCaFtSpgL6E6IUEcBFql1dv6W5A3XzhydTv5l/peHAp2D8CYryo0vAZyYhChAqiiDuM/MZyQ6s+d6zM9u92it9HpykhufyTb5yzBXHmcYjicbavt4Awvhh8g4L7Fg542Oy672uNYKzA4wNBUjPcwwyQx205w+NCGMItr+jQYghLklQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
- dkim=pass header.d=siemens.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=17S/ehX7nQNq3SUBuTPO17VqRMytpWDVSuMXBA+JGXQ=;
- b=Ur802SIFWPZn2zObOcEFQjlu1KDuNwdI7j4QoKuDsZYtyXJbSCWgVCt63SO0s2EIKFBTRHa36cetXbHuhSXflFThl/9SNh6ER0HK0QlSBdrvoLik9jeeuXh6GzqpDo38dqzWc8BIAHePci9krQZuk3q/vY3HZLSs/TY08Z847sfi7uj3Q9Q8YLchRHZMmi9P2c59UfMQKanj4tv98bkMvHWa6T1101tvE/zgckPrbmrBhUp5a3nmFUPILBxfWGak3SuseZQqGyNrdDw8aZzrRqYZbFRhVLSshsY1F45sCuUbWN/c4YRCIN7HN1bnH0WO0GMEJTu3ESvfUsGquc2E0g==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siemens.com;
-Received: from AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:3dd::5)
- by DU0PR10MB5244.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:34c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.688.4; Fri, 27 Nov
- 2026 07:05:26 +0000
-Received: from AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::5f49:b0e9:d295:22d8]) by AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::5f49:b0e9:d295:22d8%6]) with mapi id 15.21.0688.001; Fri, 27 Nov 2026
- 07:05:26 +0000
-From: Tobias Schaffner <tobias.schaffner@siemens.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	rpm@xenomai.org,
-	jan.kiszka@siemens.com,
-	Tobias Schaffner <tobias.schaffner@siemens.com>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH v4 0/4] rv: per-edge dwell-time statistics for per-cpu monitors
-Date: Fri, 27 Nov 2026 08:05:41 +0100
-Message-ID: <20261127070545.64265-1-tobias.schaffner@siemens.com>
-X-Mailer: git-send-email 2.53.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR2P281CA0054.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:93::8) To AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:3dd::5)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iAYRWx3q;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HCvbP6sR
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR4YkYD564796
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:07:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ztaD78IbltCltOsv05ym21cV76+rcFbLrBKQOvg9Tyo=; b=iAYRWx3q/NCqP7tN
+	AlumLg0BNW6qbfVUtuiscA6wNUoQYHbZEEQF378cTy0Ssjrw3bfFg1V9x0VIa4eO
+	m5RUzHOlae9aSG8lWlQ7BMAYEJwpVh2h+i39RAcBMLw7ji4lRgXXfzHeeszMLkna
+	0FnbrAzZMdjOK7IkbT3lNsrt9d5rO+i5VHhWpyuRSCA2TDms//JhGmLqKK+294+B
+	Q/YuIHBNBErM0T9UVBC5ug5ry6g8l70dRS0swTuUgsvlLLNJm5yWcS5mipbq1lwF
+	s+mGV6z69kSGqmeVcnk66Hra5E3xMpp5YoXRfnl4v7biYQr3tiLSYdVkJntgQeng
+	o75J/Q==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ru39dgu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:07:22 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f2005ce21so1196114785a.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:07:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795763242; x=1796368042; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ztaD78IbltCltOsv05ym21cV76+rcFbLrBKQOvg9Tyo=;
+        b=HCvbP6sRtvmjdiKxlQaxZH0FqIgAbxq9K44tlLvnykEEf33o4dgVJHhJmFAOmjUseF
+         Gt9xdPJB11FsDKidoItd3EVzgP88vadh6jysYPxxR0wQsAco0jNvmaDLWHxCOav7DTxb
+         spK8/Uc8e44yMzYy6ZeJPMrBaqyX35/9SONTnCyKbCsQ+7nMd1JeVT5xI3cIEW+oTTdl
+         rqpQ3RNH+BQuDEKN2/KyBOpKmf159e9fdpwX3qMPzHK0N8RogM1C2OstJ+l07rF50Scf
+         AMYyU8aaRagGJDsocZobfpzTDdg1lDqslE3zC1ygNIduBmkPQ62qVYfQ9YrMNmJNgdxX
+         rykw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795763242; x=1796368042;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ztaD78IbltCltOsv05ym21cV76+rcFbLrBKQOvg9Tyo=;
+        b=N93wS7RFRH2NB5DGgf9eTfZ+OS19vTyZWhhy0fVfG3eu1jLdVF0Cy+kXZpLOr8vdft
+         q+oMx33S9HtxyLBWphy+0Rdni1JaZ1meji6ekMdgjVShTD76X30sEsBTa8YX/Sa3JpC5
+         JpVebR7y+f2LpZsQ6JLpXmSZwu693aNyFaS9iCTJ6zk1Bp3OWicLXueji0D3IMgUqORG
+         opp2rDhfPln4fn4yv7N53Li/7e+XOHDn7pR0/646S9ufD6BNXNvEs6RVwsbNvuwVTDzI
+         uTjY+F4DT4Gwl/FkqKsIDdxwPK9s+QwRpjSvkAvnH0+HjXB8X+ir4KYYeK6SC+h8wC9C
+         tfXg==
+X-Forwarded-Encrypted: i=1; AL+hErEI6/h65LPWZaTghbsone0tx3mZt5moEcwt9wLAaD00f813HEkAd3F2Uyru3Dc3Yibp4OhzbqwWlTyIElQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/lMutJrQd2hRe0BBEOxma9qNyckFPYN5HhY1gTb25d2YfurX84
+	v76lZLrPc/I2q3hD9MW8643An69SM3YAz7+dcnmzzbMKPT7fvGtQYCQkrya5BXlOtX5/20TGbGv
+	9uxFdW0Tpu5aYS6Kp0B9nI39GrxScUNXt3pVInvEm5ksqXNG/cyO4+rCzIZKPbkxY3/s=
+X-Gm-Gg: AZFdTZcBTkkkD4T2kiCSLgedTDcnkf3AXCsyNvxFoCfe+FXRjEOc51rL3GvwcBSUKAq
+	G0ZBrWmUbvHo67yI0NBqQiTfYdS5QJ8pO5hg8WHvvhTdB11F0YZAaUK1y418Dpes0USoO8DCA1Y
+	BWdKTje2P/u0d7fJGJ7n7UZFEKXjo09hidZ2XIthS3pLFM0tgmBnILRzK1ZI1jDWehjx1jNaknZ
+	ReV0cQ0K48Xyq6KYTpLTgmHlw+/RxnKjf9Rv0sSH8NMEnGQi8AUdWsxm/tlhOWq9A54WO2OtChM
+	JWUyP//xT4QmPVIYlrmuKvNX98IgaHJT8XNoeDllKGro1+7Bb9cjFld0G+UXKnUt9KRhKzu//RQ
+	bnp0t9MM0SOwn782bOa24Dhb5ah5OuO1MFnroKgKelfalF6UJgquJV7IvFNGw1QCM4/hLvU8QAC
+	44gfTW6h6wbc0LHA==
+X-Received: by 2002:a05:620a:2984:b0:93e:653e:6981 with SMTP id af79cd13be357-949ba7e2b41mr4164630785a.11.1795763241631;
+        Thu, 26 Nov 2026 23:07:21 -0800 (PST)
+X-Received: by 2002:a05:620a:2984:b0:93e:653e:6981 with SMTP id af79cd13be357-949ba7e2b41mr4164626185a.11.1795763241145;
+        Thu, 26 Nov 2026 23:07:21 -0800 (PST)
+Received: from [192.168.25.64] ([94.155.124.210])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab9cf005f2sm37463632f8f.45.2026.11.26.23.07.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 23:07:20 -0800 (PST)
+Message-ID: <cb9ab22a-50d1-4740-a88c-198b60f896d8@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 09:07:19 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,224 +116,236 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4992:EE_|DU0PR10MB5244:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0afcdc03-bd14-4744-97a4-08df4c54d042
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|10070799003|261009223027099003|55112099003|18002099003|6133799003|10067099003|260925022911599003|260925021911599003|11063799006|260925021311599003|261022075727099003|261026140227099003|261022105027099003|261026121527099003|56012099006|261021123027099003|261021121427099003|261028144727099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	/HJc8IYdAFDaoxK+xaEAxYQod2gzV0VjZ/bUZWB7YhT8xSTSLRd1OgwsH2i416Q1dIw32IT/Xq3hieEzEdzEstTUdVBNmaQ3kzXTx1VKFPdERSz7DCzRS5RPol742+4PaeKGDTWYm09Otz473PlgVQIBQ86vYSGtUsBauzVyI/njs0qnB3kMgOw5g62td7UeTwufVYpHwzlDKt65IfkQ1BCcQZaug4laohFZSM6x7RFZoYI1c5eFsaxgmXQ1TYQiMHOeeztvOiTpyPY9zU9yhVCAO69z1jBgMllPC1P7q1akYBH/chB6F3O95jbjOxP35HfCzqkSvd67odG/nx7KVOohGJK8skdTOEX9QUCYYgX6nKRXtz6aVY73VkHkhDomMJcAh7GrDLbsbhUAZ07NofGh6lOGPWwi2h9NfbBZ5h4GzgVE9jCbHOSxfWEkD6KY17BUJ5ZykTCX/sDAXVkFXLnDoIrgUQPFzflVd0EHIrGvnlJtKPIbGYs3v4wgXxCnwcA4gZZsjZ5osayuQmX85//wAbArsB5eGKch8ZNzEl094LuFZ+/yIoKhee21bVZjCmVPSvGqnGvFCm6YpmoYOK6ltor/32rOu16LOTpkO/GzqHlkMGAG1O/0I6i7Ed2Z
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(10070799003)(261009223027099003)(55112099003)(18002099003)(6133799003)(10067099003)(260925022911599003)(260925021911599003)(11063799006)(260925021311599003)(261022075727099003)(261026140227099003)(261022105027099003)(261026121527099003)(56012099006)(261021123027099003)(261021121427099003)(261028144727099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?ZEEt+ibpbYmVQ7JVvm5JOVIgktT/xLmuj2yhlZmTdy7KAUQHOrhKYpRQvbkK?=
- =?us-ascii?Q?VhQc5JMpzbZpzDugX60TKT8OS/4DzaOKOB1yZHtiATEkrF5u8Gmvyu7K9b0u?=
- =?us-ascii?Q?89wSOQ4DGi7UWVuEQG+BibB+cC6xRbfEAbfbX1geZK3PKICN++hpIJksBclh?=
- =?us-ascii?Q?LSqcGjr6cRN9nwabMUX1y6/wwpqF+hMDS3HE8yS5fsNRmRwJ42ZccCy/bZD9?=
- =?us-ascii?Q?gtmWerLlayuLNXvXo2EXO+bEzwqRy05+gRUNNqjDN7AI0qB5jBMit/zJ/Z9n?=
- =?us-ascii?Q?A52Myr3zFaz6ssCLCDcxpHRNvrw36HxbkrcADK8nKGjIL5R4kC8S5Y6cxt9Z?=
- =?us-ascii?Q?mjNIDYmu2Vf21x92Mj8f1WcwehViuNds2SEHVLkAEr2wsNYt1/M9RqbMoW+K?=
- =?us-ascii?Q?2QVD6ElZTu1M/7KFo3JPrBN0+gghzZqkd0Qof5FfDsPnm3tO4mdBuZv+Sffn?=
- =?us-ascii?Q?sr9QxXZvA0Bq1PsTi1bMbwtjWr+GH1iyMTLk48WqZTepgohZ5UVHX65O6slA?=
- =?us-ascii?Q?L9tWxTimgYAjvlTrg++LsWfN/U/uhstj6IOrLupNO3ao8HK8BBBalPg9wBHQ?=
- =?us-ascii?Q?jJrKIl9L+YJLWH594cRBk0n6vJwHVsDBhdyZi2uT+v+31QTSxdhnO1dJj8hx?=
- =?us-ascii?Q?8qeK3Sjq+5hiUe1GfRr8SBjNFqi4lLRk4ZwLMBnzNKZM9nzZodZgLjedhUf8?=
- =?us-ascii?Q?2g44jlIMX25nERCBURpFxDRvR20rGlLZYS6+rcId3t9SQarIGCAafRiR5AGQ?=
- =?us-ascii?Q?VHPjUb/7VvLAPukDSqjSdbc+zCnQp5nsVrPKM9aKWK1dqAQjW1PnEaGtp0Yt?=
- =?us-ascii?Q?QqPX4Ctpvv88NxhDzQXlNXNM7rMxdFZHBrkGeBPxjJ+r6Py2haGV5wNEo84G?=
- =?us-ascii?Q?fcfsxGXxqG9o7UF6zuNuK38RoQhh6eVSIokXHT+XtP0EIu5GM3fdmqzoFy31?=
- =?us-ascii?Q?sO/KK7TyPHU+vKA43dLiTMkaJTP2bx8KkkBfQTVI7kZenaZ2Rshc4wpmcVA6?=
- =?us-ascii?Q?MFgMT23dMBxLnhsXkt79iZ0wLKnFVVI2gTGeddTPNXSls7D7MquFW5Ex4lf5?=
- =?us-ascii?Q?HjhbLUTXC4W50/VVfi5yj9puRUdNP9YukduYxayjcx9YavaF0+ygdtCBnCDw?=
- =?us-ascii?Q?pbY9/uKeRUrpwKmFofLXnYAlh3I5avtNv7Iq+gYavAVL3vswePuXKKPwkmqt?=
- =?us-ascii?Q?4ByqiBk5NPjMXHBm0aBrrx06L2P5h+SKag5mhDRQjA57P9+sdtDXa5znKrxt?=
- =?us-ascii?Q?bnGF1uU0zX7DDpaalFfBtIvuxyMOJc0R6ulnJNaIpSb9t42YE33AcUoyfccw?=
- =?us-ascii?Q?zu6hoNffBDikAzhM3bSHWvrIS+jRaPxc89Z5ee/qF0BqVSmMqZYyIeYo3VgC?=
- =?us-ascii?Q?omqUthZJvdV2k2VWcm2yuTZO89N1v8vAi8YEPl8O9JWELnDGOID62X2ITm2R?=
- =?us-ascii?Q?nXUlReVVw89xLS5jGURkxVd4REeidWMMjx+fOa83hwwYAsOvZD4LLCrxMAzT?=
- =?us-ascii?Q?8YC9Wci36fuUUjaj8SRqtJbr039y8GEHgGie8WITeLfvlCT+iTopch+1nCn7?=
- =?us-ascii?Q?qsMZgaorZedlOB4hXWQgBV7Khx9Zlm4cHBrVIL4smxuFgMrmtT0OZUr0Wauu?=
- =?us-ascii?Q?o89hd2StCgDskJ+QpYUT0VPVMwluOknDEV5TqB9fBvHMjx7u1nJ2xwFlZvva?=
- =?us-ascii?Q?u/vEeGWsuE4gh83M9Yifx28hZSg30FrBHomc2kbsbcYfWShgrzkufRhhRJr3?=
- =?us-ascii?Q?4ts04jhRIe6c9cmFYj87wnCicsZFZiBzZmyFf2GNepetWBYpZ7tBnm5FayoE?=
-X-MS-Exchange-AntiSpam-MessageData-1: 0FtKuf6ks7xdnMs5eVa/dgKRntHl8OONRHY=
-X-OriginatorOrg: siemens.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0afcdc03-bd14-4744-97a4-08df4c54d042
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4992.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 07:05:26.6576
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QKSUpttAxF+SyYzEMrmHYM43+8MS1H35RSWc2fts792r/qJZhjfV/F479B/afbDtjh6QvlOuDBnkeMkBOb1gLUyaIIyt1KjNULfw8fzSqHo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB5244
-
-Hi Steven, Gabriele,
-
-I am using the RV system for a downstream project called EVL (aka Xenomai4).
-It is a small co-kernel system, small enough that I can model the whole
-co-kernel with RV instead of just a fragment of it.
-
-The patches in this series add a per-monitor "stats" file that exposes how
-often an edge has been visited and the dwell time in the prior state for
-per-cpu monitors.
-
-This allows me to not only check if the model is correct but also to see if
-all paths are exercised by my stress tooling and to decompose the latency of
-the co-kernel's wakeup path.
-
-I think that some of the upstream monitors like e.g. the sts monitor could also
-profit from this.
-
-As an example, here is the sts monitor on a StarFive VisionFive2 running a
-PREEMPT_RT kernel with this series (isolcpus=2-3 nohz_full=2-3). While it
-was enabled, hackbench (-g 4 -l 2000) ran on cpus 0-1, a SCHED_FIFO
-stress-ng cyclic thread (1 ms period) ran on the isolated cpu3 for 40 s,
-and cpu2 stayed idle. Only edges with a non-zero count are shown; all of
-them are valid (column 4) and every undefined edge stayed at zero:
-
-  # cat monitors/sched/sts/stats
-  # cpu edge label valid count sum_ns max_ns
-  0 0 can_sched:irq_disable 1 11367959 39357857250 3955250
-  0 4 can_sched:schedule_entry 1 912841 1953227750 54500
-  0 7 cant_sched:irq_enable 1 11367959 15829311500 44750
-  0 8 cant_sched:irq_entry 1 64567 105061000 6500
-  0 13 disable_to_switch:irq_enable 1 8637 24605500 14250
-  0 14 disable_to_switch:irq_entry 1 170 263500 5500
-  0 15 disable_to_switch:sched_switch 1 904204 3682090250 24000
-  0 18 enable_to_exit:irq_disable 1 8488 16681750 3500
-  0 19 enable_to_exit:irq_enable 1 8488 55429250 23750
-  0 20 enable_to_exit:irq_entry 1 8324 13597750 5500
-  0 23 enable_to_exit:schedule_exit 1 912841 1015160500 2750
-  0 25 in_irq:irq_enable 1 170 1154000 15500
-  0 26 in_irq:irq_entry 1 2 2500 1250
-  0 30 scheduling:irq_disable 1 913011 1096248500 2250
-  0 37 switching:irq_enable 1 904204 2809182000 13000
-  [ cpus 1-2 omitted ]
-  3 0 can_sched:irq_disable 1 308000 44282747500 1991893250
-  3 4 can_sched:schedule_entry 1 77831 99574500 6000
-  3 7 cant_sched:irq_enable 1 308000 781368250 25750
-  3 8 cant_sched:irq_entry 1 48789 71474750 4750
-  3 13 disable_to_switch:irq_enable 1 7 24000 9000
-  3 14 disable_to_switch:irq_entry 1 21 26750 1500
-  3 15 disable_to_switch:sched_switch 1 77824 179601750 10500
-  3 18 enable_to_exit:irq_disable 1 147 266000 3250
-  3 19 enable_to_exit:irq_enable 1 147 1193250 14000
-  3 20 enable_to_exit:irq_entry 1 143 198250 1750
-  3 23 enable_to_exit:schedule_exit 1 77831 78554500 4250
-  3 25 in_irq:irq_enable 1 21 199500 11250
-  3 30 scheduling:irq_disable 1 77852 89848000 2500
-  3 37 switching:irq_enable 1 77824 130814500 7000
-
-The sts model splits the schedule->switch path into separate states, so the
-per-edge dwell decomposes the scheduler's interrupts-off window: on cpu0 the
-prep phase (disable_to_switch, irqs off until the switch) tops out at 24.0us
-and the switch itself (switching:irq_enable) at 13.0us, over 904k switches.
-The counts also line up with the model, e.g. every irq_disable in can_sched
-has a matching irq_enable in cant_sched (11367959 == 11367959) and every
-switch in disable_to_switch leaves switching once (904204 == 904204).
-
-The isolated cpu3 only runs the cyclic thread, 77824 switches in 40 s, and
-its worst case is tighter (10.5us prep, 7.0us switch), while the idle
-isolated cpu2 shows no transitions at all. So the same file also makes the
-effect of cpu isolation visible per cpu.
-
-The changes are gated by CONFIG_RV_EDGE_STAT and dormant until a monitor is
-enabled, so existing setups are unaffected. When enabled, each accepted
-transition adds one local_clock() and a few lock-free local64_t updates. With
-the config off there is no code on the hot path at all.
-
-I focused on per-cpu monitors as a first step. Per-task and per-object
-monitors would have to aggregate entities that share a cpu, which is harder
-to get right, so I left them out for now.
-
-What is your opinion on this? Do you think this is worth getting upstreamed?
-
-Thanks for taking a look,
-Tobias
-
----
-
-Changes since v3:
- - Based on Gabriele's BTF fix for rv.h [1]. Thanks for this!
- - Stamp the initial state only when the monitor starts on entering it
-   (da_handle_start_event()). da_handle_start_run_event() starts a
-   monitor in a state the system has been in for an unknown time, so
-   its first dwell was a bogus few nanoseconds (sashiko). Documented
-   that this first transition is neither counted or timed.
- - Made da_state_t a typedef instead of a define (Gabriele).
- - Moved RV_EDGE_STAT to the end of the RV Kconfig (Gabriele).
-
-[1] https://lore.kernel.org/r/20261123083709.62502-1-gmonaco@redhat.com
-
-Changes since v2:
- - Resplit the series: one patch adds the facility, one wires it into the
-   DA/HA layer and one adds the selftest. da_state_t is now defined before
-   its first use (Gabriele).
- - Used rv_create_file() / rv_remove() with RV_MODE_READ and included
-   "rv.h" rather than <linux/tracefs.h> (Gabriele). That makes rv.h
-   reachable from a header every monitor pulls in, so patch 1 guards it
-   against double inclusion first.
- - Replaced the pack/unpack macros with FIELD_GET() and FIELD_PREP()
-   (Gabriele).
- - Dropped struct rv_this_edges in favour of a plain per-cpu array of
-   struct rv_edge_stat, used through per_cpu_ptr() and sizeof().
- - Added DA_EDGE(), DA_EDGE_STATE() and DA_EDGE_EVENT() instead of open
-   coding the state * EVENT_MAX + event arithmetic.
- - New "valid" column, from model_get_next_state() != INVALID_STATE, so a
-   non-zero count on an edge the model does not define is visible instead
-   of having to be inferred from the label. The selftest checks it too.
- - unlikely() on the first-sample check, and dropped the (unsigned int)
-   casts from both da_state_of() variants.
-
-Changes since v1:
- - Packed the state and its entry timestamp into one word, so one cmpxchg
-   commits both and a nested IRQ can no longer charge a dwell to the
-   wrong edge. Hope this approach is fine.
- - Moved the header to include/rv/edge_stat.h (Gabriele).
- - Implemented it all in the da_monitor layer so that rv.c is untouched
-   and the file is created from da_monitor_init() (Gabriele). I did not
-   create a matrix living in struct da_monitor though. I think that this
-   would need a fixed upper bound as rv.h does not know how many states
-   and events the monitor will have. But this would lead to a large array
-   in any monitor including per-task monitors.
- - Used local64_try_cmpxchg(), bound the loop at
-   MAX_DA_RETRY_RACING_EVENTS and warn now if it is hit (Gabriele).
- - Static per-cpu matrix instead of alloc_percpu() (sashiko).
- - depend on 64BIT, so GENERIC_ATOMIC64 is unreachable and the 32-bit
-   NMI deadlock cannot happen at all (sashiko).
- - Reset and report for_each_possible_cpu(), and reset before the
-   tracepoints are registered (sashiko).
- - stats file is 0440 now, and a failed create is propagated.
- - Columns are now count sum_ns max_ns.
-
-Tobias Schaffner (4):
-  rv: guard rv.h against double inclusion
-  rv: add per-edge dwell-time statistics
-  rv: collect per-edge dwell time for per-cpu DA/HA monitors
-  selftests/verification: test per-edge dwell-time statistics
-
- .../trace/rv/runtime-verification.rst         |  30 +++
- include/linux/rv.h                            |   9 +-
- include/rv/da_monitor.h                       |  24 +-
- include/rv/edge_stat.h                        | 214 ++++++++++++++++++
- include/rv/ha_monitor.h                       |   2 +-
- kernel/trace/rv/Kconfig                       |  12 +
- kernel/trace/rv/rv.h                          |   5 +
- tools/testing/selftests/verification/config   |   3 +
- .../verification/test.d/rv_edge_stats.tc      |  37 +++
- 9 files changed, 328 insertions(+), 8 deletions(-)
- create mode 100644 include/rv/edge_stat.h
- create mode 100644 tools/testing/selftests/verification/test.d/rv_edge_stats.tc
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] media: v4l2-event: Allow drivers to provide the
+ event timestamp
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
+ <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
+ <9b858d24-f783-44e5-a7e6-85b59e054f37@oss.qualcomm.com>
+ <6ddbed80-bda4-44c4-b0a4-be2e87b278b1@oss.qualcomm.com>
+ <CAFEp6-07goPSX=fEOmQziXTvSoSt7-FebXAtB9xfavTXB6-Ryg@mail.gmail.com>
+Content-Language: en-US
+From: "Gjorgji Rosikopulos (Consultant)"
+ <gjorgji.rosikopulos@oss.qualcomm.com>
+In-Reply-To: <CAFEp6-07goPSX=fEOmQziXTvSoSt7-FebXAtB9xfavTXB6-Ryg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=cOF1IVeN c=1 sm=1 tr=0 ts=6b092c2a cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=eGCDHFSXubCXFTSSGhjuOA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=qHgLvb82GJEiItVYC30A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: 6ZASAb2jRNSfvlQzQKnLgoNssCCKjnQS
+X-Proofpoint-ORIG-GUID: 6ZASAb2jRNSfvlQzQKnLgoNssCCKjnQS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAyOCBTYWx0ZWRfX4Ias14kW45Cc
+ IPscIf30rV35Ba2x5Rxq88kEyNI77g7X0i3PnCG/WCn9vykPcW4LXyQZqf1fWQOQsoj7f/wFPqC
+ NU6PJFhV9sGOdmVGM6clQj6m6uwthhFQcOu5upCkrDGSfHGnPjxUv06fM0xNkAKboBJBk7KlEo5
+ TKeZ2qZPiOfgdPAnOGnjR7rNVztxwXG8hxMJR0VZc1oS4pyR1n6Lf9TKQm+9Wtfof4C5M4WBeWn
+ H3fJIOAjqIyA8nugyrNclwGE3ZOM7549Cc8+7x2QXZKE9kOo6uHmrTnU5KyNCnC6JTcBaB4spjc
+ 119y2c5Fn/Va7RoQ4ESTWmBZ3F0mDnCawXyRL5zY5LLA822bEKWRlIuCF+5rdrHRr2dAZcdrDZa
+ +FGPHkMz5yGxmf9fujjk7+ZtUdWJq1kZePq69Zvkl6RvaFhUzbZO4IhXb4oWsK9YYBF23pErRaH
+ ske7A2DDwnCmpS1F7tw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAyOCBTYWx0ZWRfXxluoMQ0bhVE+
+ E7t8yBQRHwJpFaQATxcck6nsvXYGNwuNMAPpDJtPE3QM6yqe3IeCTnGeB8sVHehjq+SKUPokrbB
+ KJwZ6u3mFJ4HfKE+yaGOGIp+8235OIU=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 impostorscore=0 phishscore=0 bulkscore=0
+ adultscore=0 spamscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270028
 
 
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-prerequisite-patch-id: 206f940ad5b807994984989e14eb713386bf8b59
--- 
-2.53.0
+
+On 11/26/2026 5:15 PM, Loic Poulain wrote:
+> On Thu, Nov 26, 2026 at 8:52 AM Gjorgji Rosikopulos (Consultant)
+> <gjorgji.rosikopulos@oss.qualcomm.com> wrote:
+>>
+>>
+>>
+>> On 11/26/2026 9:00 AM, Gjorgji Rosikopulos (Consultant) wrote:
+>>> Hi Loic,
+>>>
+>>> Apart from hw timestamp propagation some other comments.
+>>>
+>>> On 11/25/2026 12:19 PM, Loic Poulain wrote:
+>>>> The timestamp reported to userspace for a V4L2 event is taken when the
+>>>> event is queued, which for an event signalling a hardware occurrence is
+>>>> only as good as the latency between the two. A CSI decoder able to latch
+>>>> the start-of-frame against the system counter knows that time to within a
+>>>> few microseconds, whereas the interrupt handler that gets to queue the
+>>>> event can be hundreds of microseconds late and is not consistent about
+>>>> it.
+>>>>
+>>>> Take the timestamp from the event when the driver filled it in, falling
+>>>> back to the current time when the field is cleared. Drivers have had no
+>>>> reason to set it so far, and every in-tree caller either uses a
+>>>> designated initialiser or memsets the event, so the field reads as zero
+>>>> everywhere today.
+>>>>
+>>>> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+>>>> ---
+>>>>  drivers/media/v4l2-core/v4l2-event.c | 20 ++++++++++++++++++--
+>>>>  include/media/v4l2-event.h           |  9 ++++++++-
+>>>>  2 files changed, 26 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/media/v4l2-core/v4l2-event.c b/drivers/media/v4l2-core/v4l2-event.c
+>>>> index 9dd2aaa95a67406bda3a257325442888895ed088..a35646c3a5c89febeb072d691ffd7853d9af714a 100644
+>>>> --- a/drivers/media/v4l2-core/v4l2-event.c
+>>>> +++ b/drivers/media/v4l2-core/v4l2-event.c
+>>>> @@ -150,6 +150,22 @@ static void __v4l2_event_queue_fh(struct v4l2_fh *fh,
+>>>>      wake_up_all(&fh->wait);
+>>>>  }
+>>>>
+>>>> +/*
+>>>> + * Hardware able to timestamp the event itself reports that time in the event,
+>>>> + * which is more accurate than the moment the driver gets to queue it. Fall
+>>>> + * back to the current time for the drivers that leave the field cleared.
+>>>> + */
+>>>> +static u64 v4l2_event_ts(const struct v4l2_event *ev)
+>>>> +{
+>>>> +    struct timespec64 ts = {
+>>>> +            .tv_sec = ev->timestamp.tv_sec,
+>>>> +            .tv_nsec = ev->timestamp.tv_nsec,
+>>>> +    };
+>>>> +    u64 ns = timespec64_to_ns(&ts);
+>>>> +
+>>>> +    return ns ? ns : ktime_get_ns();
+>>>> +}
+>>>> +
+>>>>  void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
+>>>>  {
+>>>>      struct v4l2_fh *fh;
+>>>> @@ -159,7 +175,7 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
+>>>>      if (vdev == NULL)
+>>>>              return;
+>>>>
+>>>> -    ts = ktime_get_ns();
+>>>> +    ts = v4l2_event_ts(ev);
+>>>
+>>> The documentation states that:
+>>>
+>>> "In order to queue events to video device, drivers should call:
+>>>
+>>> v4l2_event_queue (vdev, ev)
+>>>
+>>> The driver’s only responsibility is to fill in the type and the data fields.
+>>> The other fields will be filled in by V4L2. All other fields are filled from the v4l2. "
+>>>
+>>> So here we are changing the driver-api. I am sure that there are drivers
+>>> which does not set initialize the whole event struct. This will introduce new bugs with
+>>> some uninitiated data send to userspace as timestamp.
+> 
+> No, at least none have uninitialized value, this is mentioned in the
+> commit message, so this should not break anything.
+
+Yes it does not break for the currently up-streamed drivers. But anyway
+it is changing the driver API we need to be careful for this and proper
+description in the driver-api documentation. So it is also not clear
+whether this is the timestamp when the event is recieved by the hw
+or when the event is enqueued to the event queue. So my opinion is 
+that everything should be well documented.
+
+~Gjorgji
+
+> 
+>> My opinion is that similar to frame_sequence (which is different from event.sequence)
+>> to add frame_timestamp in the frame_sync data field. Whether that is monotonic timestamp
+>> or specific camera hw based timestamp is yet to be specified and decided.
+> 
+> Yes, but we're not changing that here. The reported timestamp remains
+> a monotonic system timestamp.
+> 
+> Linux provides a hardware abstraction layer, and in this case we're
+> reporting a SOF event, which is fundamentally a hardware/bus event. If
+> a driver can provide a more accurate monotonic timestamp for that
+> event than the generic framework helper, I believe the API should
+> allow it.
+> 
+> The goal is simply to give userspace a timestamp that more accurately
+> reflects when the event actually occurred. If that level of accuracy
+> is not required, there would be little value in providing event
+> timestamps at all, as userspace could just read the event and obtain
+> the current monotonic time itself.
+> 
+> Accurate timestamps allow downstream elements of the video pipeline to
+> make better decisions. For example, they provide a more precise
+> inter-frame interval and effective frame rate, and enable derived
+> measurements such as object velocity or motion estimation to be
+> computed more accurately.
+
+I Agree that the real timestamp of the frame_sync event is needed,
+i think there is no disagreement on that. It is actually how we provide
+that to userspace.
+
+> 
+> That said, I understand this point is somewhat controversial. Since it
+> is not a hard dependency, I can drop this patch from the series. We'll
+> still apply the timestamp to the frame itself.
+
+This more sense since the timestamp of the frame is well documented.
+And anyways the frame is what it travels to the encoders and other elements
+in the pipeline and needed a real timestamp.
+
+~Gjorgji
+
+> 
+> Regards,
+> Loic
+> 
+>>
+>>>
+>>> ~Gjorgji
+>>>
+>>>>
+>>>>      spin_lock_irqsave(&vdev->fh_lock, flags);
+>>>>
+>>>> @@ -173,7 +189,7 @@ EXPORT_SYMBOL_GPL(v4l2_event_queue);
+>>>>  void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev)
+>>>>  {
+>>>>      unsigned long flags;
+>>>> -    u64 ts = ktime_get_ns();
+>>>> +    u64 ts = v4l2_event_ts(ev);
+>>>>
+>>>>      spin_lock_irqsave(&fh->vdev->fh_lock, flags);
+>>>>      __v4l2_event_queue_fh(fh, ev, ts);
+>>>> diff --git a/include/media/v4l2-event.h b/include/media/v4l2-event.h
+>>>> index 3a0e2588361cf451b3dbfc63dfab99550d13cf6a..076f788e0469ae4666c60344e5ea73a698352134 100644
+>>>> --- a/include/media/v4l2-event.h
+>>>> +++ b/include/media/v4l2-event.h
+>>>> @@ -102,6 +102,11 @@ int v4l2_event_dequeue(struct v4l2_fh *fh, struct v4l2_event *event,
+>>>>   * .. note::
+>>>>   *    The driver's only responsibility is to fill in the type and the data
+>>>>   *    fields. The other fields will be filled in by V4L2.
+>>>> + *
+>>>> + *    Drivers whose hardware timestamps the event more accurately than the
+>>>> + *    moment the driver gets to handle it may also fill in the timestamp
+>>>> + *    field, as a CLOCK_MONOTONIC time. It is left alone if non-zero, so such
+>>>> + *    drivers must zero-initialize the whole &struct v4l2_event.
+>>>>   */
+>>>>  void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev);
+>>>>
+>>>> @@ -116,7 +121,9 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev);
+>>>>   *
+>>>>   * .. note::
+>>>>   *    The driver's only responsibility is to fill in the type and the data
+>>>> - *    fields. The other fields will be filled in by V4L2.
+>>>> + *    fields. The other fields will be filled in by V4L2. As for
+>>>> + *    v4l2_event_queue(), a non-zero timestamp field is taken as the
+>>>> + *    CLOCK_MONOTONIC time of the event.
+>>>>   */
+>>>>  void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev);
+>>>>
+>>>>
+>>>
+>>
 
