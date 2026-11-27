@@ -1,87 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818786;
-	b=Ef0XalgCIgN1w0FjDlqGbQZIwvsYBHvMxb8N18UGyNmPyuJUrUy7J1T5kSMH2AKoIAy8
-	 BBjElTgP630h+CtdISWeIST4y7WlHPaXX9Goijo7wEDURMD5jZ3EwER4NMZmEA46W+Xkh
-	 7O549KzNZQdBPP2jy8icyE3GF+ZI0RXqwrlKS9GS8u1nWr6K9cngKgd7E/cUvvkhiS5Mv
-	 Us3YtFp64j0SEvS0iFG+BoYabXSItPwV5m5NbRm+4p/Kaq1DdnWimwTWJoOGE3Tq5oxox
-	 to38B9BNFj+Qi/D1jUCyQ+xDTXW3YiZrds7Td0u0mhzSduhi3oPi1IxHpehEHOhfpmg==
+	t=1795818997;
+	b=POiBmil9LzHbaA7mmkAuUuTbBfJ4cJBNfrV7dG8E9SMKV1rcusu1GNFNj2SkiQblmFxc
+	 rF7ACcuT2odsO71UYFFDokk3dcvZ3l0v4pvMxAu5QvE4PzJ+Tx8z3RufHCjD09bzWZ39V
+	 nj2xFwuKYT3YOIDJHxdW89g/O4ssgYVTBxNmQu3zC6P2IbA/lOnjN/NjUmJpw5PKN5nhh
+	 FhH236pyxuEvQFgfF7jGdHJvK2SUI5DkfhBrhtXmlBTaTItu0plieTgMaOZzo/F+wQMDM
+	 clTEeOfEQHYbgM4VqeCtzrJ/h2pLaTJ4dsNOd1PySw15ghqDOBs3JtdoF/s4ryWZ+kQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818786;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=CrQD3lwMnz0z6petJkG+bLaq3UykExl4nKzRKQ7m+nQ=;
-	b=R3OVaBC/75OM6I5QpodkSkG8OId8S7saBx+08u3myFY97rttkFSfOeHRLH19veTc5YLw
-	 ryRv5TvbJ3GYzCWQH9Eg0F9wc2/llWLCNChkBEijO2oNw+uocPpqwcB6GpwCa3eK+WfiR
-	 yAJOxGfb2CI0XuKn0O46sV7fUoU+84lCSLD+Kicw4d+1R2AxVZun4AwGmCJe5kBq4EhNF
-	 LXGYZNzgzUP3Lc+yij75mQ1S7U+Qm+bMF8eXu3q5saJfdrrty31pEnXLd1VEVHAvy+Ldx
-	 ev9D5y3xILVweoZ+0zrfsx8WDN1jw124mu+oCo7aG4l7IUV6HqHq1uW+UAWl86vDAeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795818997;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=SZ3OQ2mv12Ze+aLOyUcRFBk1F/gfnm+grww8lcGn4t0=;
+	b=oOFW6IM57mP75+JTuQX4As7SOheb8z0cULXxkEtMwJTB+Fgc8bFQJq25Fc90Oe/jWaCs
+	 e5A6hzGzE/tCmFBjinIDgxTuF5E2jr0nLe4rUsZxv0ndRqxovoJ8rLqnTiaoxiiyT+60t
+	 g3y2fHC/6ouBhbFnKJdfZGMAVjyD6BP5GDswOmkbhCvnuTO+OrLEBXQudFNkKwlSWlmbH
+	 123+Zspt8yWJCg6/CppBJQoIRS8i1kazY8OzPeJ4UfE9QNtzIdbXYoCotopg4y1PkiELR
+	 UozKFGgD/rxBNgrQ6W2Tw+Jo2Hl4LjctJNa7Unkar+gD/zJUiZEUEfT0OR/Hu0704sA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U0fb5O4q;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oa0wyiyc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6D4F606A32D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:33:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6D4F606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F02A9606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:36:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U0fb5O4q
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so5827865f8f.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795818784; x=1796423584; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CrQD3lwMnz0z6petJkG+bLaq3UykExl4nKzRKQ7m+nQ=;
-        b=U0fb5O4qfhP5SKYTzf5w5qGHB3hYCAD52OjrDQL6AnWRhWfdPFC8RGiWWi61e9sToq
-         OnU3km4yk54UTQ7i5Rlb+Wz6V1U4o+BJW7uIFEUMNvd3RNIm1nz5TZL5HmMM88IceXjA
-         zsvs+ruwKAXsDA6HrHpEKcuZvoBaKP9oKde6hRTGfndf+XEF5j7nIw9QJfHHktW6Y4yj
-         V1kEE/XPUIQtfKp37qRlBGrVk8eWrS9Oh73W/0ly3ur/KHuebuKj0rovP8+09wIdV2Xd
-         SCw6MjdRpc074SRXu6K1pBH9IBxHCe7eIcAjbcgxn44zWAJsxA2fI3Ztn02erjR41uST
-         ZJpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795818784; x=1796423584;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CrQD3lwMnz0z6petJkG+bLaq3UykExl4nKzRKQ7m+nQ=;
-        b=kbAAOezgoeuZsdJgUHglKc8BAcS+yBRhyUKKGGvdHUy/5wk853XlWRQpiTaVmVY+4g
-         hTV0LiKTTn4MvYEwUA0kTtWs+yeqiihfafthiPlmHVEVNqRqaE44gk2cdz8kWpjA6aTm
-         9LRcqQxFKNv8vIDxZv/4z2hIuKKkHeiy/dgVXQSSanB1SHinDrskdNZnnod/HN9/jMZx
-         mN7Nu6dMDUjM4B4cfYolkE3cDaqR2fITuhGOP1SXZE9kDqSbTmYjr9419YLQxTFTRrvh
-         PcHrUoR+hvWC41fWdMzfPZ5EcOVZyxhmLURYysLiQW4/CWcIzvZsQXmISjkpscmc6MiS
-         9Mqg==
-X-Forwarded-Encrypted: i=1; AL+hErH9LFsbp3LnRY13r3zXjRYFJrWWoUiSfO9p8QmomWMaGn/IVdlcRDUZb32UyxmXhbjLNF0JU3Sy2yevrNM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+714yHfHBZ0DerM6zmBR5R7C4R0Vm3txG4HQ0mLRgpvaCJiamH
-	8vgfp7HIFqFX2LGT0ZPu+AAlSXLwH2Bk8krxGOBOVo7h/rV2gZv9eNYn
-X-Gm-Gg: AZFdTZfYG2Eov6hVBb4SieNlusEiYm/KqgeFt+jxvtLGS2HEeDe7e1YbJbsN5jpvBHr
-	wt1DtXStHB2l4Nu1ohHM6eRd9LM4N6nqjDI0gn9URz2Kot8gHgy/HeGXkY+v4MXq4BS0fduT5/h
-	//m6U4myOxxtM1RSnaI0dz6480Q2xUXhnqo+7C3AFiW/HlIbvHJhf/Z0PcP+oNed1QvHtP8Axi2
-	5S0izCGVeQGpB5oLs+JX74lqU+6gPMahQAWSsaGDU6E4mxKkw4AMcjfNsnltNfMYtGZNLyknJu+
-	ZBs/0FO9sI/1IQtX+3YUQuIaa2meBw1EY8OckwVHvr+Oi2agqQxQZaSzi4T9vAQg67I6CQn2Bzq
-	/lgCCcf5XivhY+x3UL4GklGkGnbXtvgYOI5UeuYj01/h0XOsJgPFxAIz2KW2bZNptVum/s6iAPj
-	HtInNxjR8Si+IvsEmqGGrH6TzZZ8kjnyMrmFfwx0e1eztfM5CywY53kQlFuN6qHL62toZGUld5v
-	U9WY+KA8HxhxYb4VAMK8ACpUVOsNkAs/ouymLQWsRCl6zEi5T7BtXfwZ950L2D2yObpIeixUQMc
-	J0gMFupCkyeozeqq5O6HBIVfwpy3QWuV
-X-Received: by 2002:a05:6000:3107:b0:4aa:1ae2:ff2a with SMTP id ffacd0b85a97d-4abaa977260mr61370948f8f.2.1795818784066;
-        Fri, 27 Nov 2026 14:33:04 -0800 (PST)
-Received: from [127.0.1.1] ([130.61.107.245])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm50430285f8f.20.2026.11.27.14.33.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 14:33:03 -0800 (PST)
-From: =?utf-8?q?Adil_H=C3=BCsrev_Tepe?= <tadilhusrev@gmail.com>
-Date: Sat, 28 Nov 2026 01:32:55 +0300
-Subject: [PATCH v2 3/3] power: supply: s2mu005-battery: add S2MU106 support
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oa0wyiyc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD831F00899
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:36:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795818996;
+	bh=SZ3OQ2mv12Ze+aLOyUcRFBk1F/gfnm+grww8lcGn4t0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=oa0wyiyctBvFied+j/e5B3PNxbetOgNaIH7JGFjxoRibBttI21/C7GzX/rAdKTSAC
+	 3rOhwkNOzetgcjWSn3x+LR1NMqDnEyDrZJaowrbspmuUU1qLdo2vtPvfudpu2NSqZo
+	 A2zcP0S3flNaBFM8kK5AEuqGaq91+5r1BUhRe56eBvLWI1WBl4SlH3kFdhGLzddNr4
+	 Qex4RGf8VG+/jzdjXY+3MDFLJOgusEN3vOW6mAFjH3RhSt8R4smjdqCsnsVkic8evO
+	 wxSoN/k9zVvmSB/CEuTVue2WAZCmCBFZtR1j2tz0hgjOY+16BpTBF1JrEvBiOgqb0x
+	 uCv5Vm7QMifsQ==
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38644aedba1so13333859eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:36:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHawayR9IPy6gedALzniAqv0UtynmG+dNFsZl4Aqe9Ppd6gCShPcRRuBjdQHh5eyJgKKYHjNLuwG5tCbM8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/A0zv4EGhq7xDcUb6qlUUd09H7xwhulySeuZ6xcgwgZxT3vMUP
+	DFvgSJFj6zJrLjQu24ZL/L4tbTRdD6RMwXUH38fEK2p4aK/FmpuxQ3veZKBWI3pShTD7WJFQIxX
+	vxZECNzkLwFIbMeuxYdMgDaalRxX9sYs=
+X-Received: by 2002:a05:701b:4648:b0:1b5:43af:1bde with SMTP id
+ a92af1059eb24-1b5568bebeemr22118799c88.25.1795818995779; Fri, 27 Nov 2026
+ 14:36:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,155 +59,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261128-s2mu106-fg-v2-3-2c3142e05aaf@gmail.com>
-References: <20261128-s2mu106-fg-v2-0-2c3142e05aaf@gmail.com>
-In-Reply-To: <20261128-s2mu106-fg-v2-0-2c3142e05aaf@gmail.com>
-To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- Yassine Oudjana <y.oudjana@protonmail.com>, 
- =?utf-8?q?Adil_H=C3=BCsrev_Tepe?= <tadilhusrev@gmail.com>
-X-Mailer: b4 0.16.0
+References: <cover.1779100597.git.u.kleine-koenig@baylibre.com>
+ <aimaTrJvXFjbDDTB@monoceros> <aloDsjYyv3gCsx39@monoceros> <avxptCL2mq7Z3vPi@monoceros>
+ <awlOvzxRjyQo6fOI@monoceros>
+In-Reply-To: <awlOvzxRjyQo6fOI@monoceros>
+From: Chanwoo Choi <chanwoo@kernel.org>
+Date: Sat, 28 Nov 2026 07:35:58 +0900
+X-Gmail-Original-Message-ID: <CAGTfZH0OyHZjH17Ab4dBb01UzrcpGJ3bRiXRsBPBpqG45-_dfQ@mail.gmail.com>
+X-Gm-Features: Aa3M54pK9rCNtB2GC8d0aqVo19kFPoFB-DE50LHyMwYPiEncKE36zl0mUIKMkfg
+Message-ID: <CAGTfZH0OyHZjH17Ab4dBb01UzrcpGJ3bRiXRsBPBpqG45-_dfQ@mail.gmail.com>
+Subject: Re: extcon still alive? [Was: Re: [PATCH v1 0/2] extcon: Rework
+ initialization of i2c_device_id]
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The S2MU106 fuel gauge uses the same STATUS/RVBAT/RCURCC/RSOC registers
-and scaling as the S2MU005, but has no MONOUT averaging path; reading the
-averaged voltage and current through it returns bogus values. Add a
-per-variant descriptor so the S2MU106 exposes only the instantaneous
-voltage, current, capacity and status, and derive the status from the
-instantaneous current when no average is available.
+On Fri, Nov 27, 2026 at 6:52=E2=80=AFPM Uwe Kleine-K=C3=B6nig (The Capable =
+Hub)
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> Hello,
+>
+> On Tue, Nov 17, 2026 at 03:53:17PM +0100, Uwe Kleine-K=C3=B6nig (The Capa=
+ble Hub) wrote:
+> > On Fri, Jul 17, 2026 at 12:31:20PM +0200, Uwe Kleine-K=C3=B6nig (The Ca=
+pable Hub) wrote:
+> > > On Wed, Jun 10, 2026 at 07:10:51PM +0200, Uwe Kleine-K=C3=B6nig (The =
+Capable Hub) wrote:
+> > > > On Mon, May 18, 2026 at 12:41:43PM +0200, Uwe Kleine-K=C3=B6nig (Th=
+e Capable Hub) wrote:
+> > > > > Hello,
+> > > > >
+> > > > > I plan to do the following to the definition of i2c_device_id:
+> > > > >
+> > > > >         diff --git a/include/linux/mod_devicetable.h b/include/li=
+nux/mod_devicetable.h
+> > > > >         index 23ff24080dfd..aebd3a5e90af 100644
+> > > > >         --- a/include/linux/mod_devicetable.h
+> > > > >         +++ b/include/linux/mod_devicetable.h
+> > > > >         @@ -477,7 +477,11 @@ struct rpmsg_device_id {
+> > > > >
+> > > > >          struct i2c_device_id {
+> > > > >                 char name[I2C_NAME_SIZE];
+> > > > >         -       kernel_ulong_t driver_data;     /* Data private t=
+o the driver */
+> > > > >         +       union {
+> > > > >         +               /* Data private to the driver */
+> > > > >         +               kernel_ulong_t driver_data;
+> > > > >         +               const void *driver_data_ptr;
+> > > > >         +       };
+> > > > >          };
+> > > > >
+> > > > >          /* pci_epf */
+> > > >
+> > > > I want to work on that, but I'd need this patch series to be in for=
+ it.
+> > > > Do you still have this patch on your radar?
+> > >
+> > > While I still have to make several patches land before I can modify
+> > > struct i2c_device_id, getting the patches from this thread in would a=
+t
+> > > least make my queue smaller.
+> > >
+> > > FTR: The series still applies fine to next-20260716.
+> >
+> > It's November and the series still applies to next-20261116. Does
+> > someone still have this patch set on their radar?
+>
+> This patch blocks going on with the above mentioned quest. The patch
+> we're discussing here (well actually that *I*'m discussing only) is
+> IMHO trivial. The last patch applied to drivers/extcon that went through
+> the hands of the registered maintainers was commit 1bf0ba46d9d2
+> ("extcon: usbc-tusb320: Make typec-power-opmode optional") from October
+> 2025 (picked up in March 2026).
+>
+> Greg's char-misc seems to be extcon's upstream, so I wonder if Greg
+> knows something about the state of extcon? Greg, would you merge my
+> patch without maintainer feedback? If yes I guess I should resend? If
+> yes, I'd expand the patch to a series adressing all the needs for my
+> quest also for other *_device_id structs.
 
-Signed-off-by: Adil Hüsrev Tepe <tadilhusrev@gmail.com>
----
- drivers/power/supply/s2mu005-battery.c | 61 +++++++++++++++++++++++++++++-----
- 1 file changed, 52 insertions(+), 9 deletions(-)
+Hi,
 
-diff --git a/drivers/power/supply/s2mu005-battery.c b/drivers/power/supply/s2mu005-battery.c
-index 9798a62ffec..a1bd9ffdd61 100644
---- a/drivers/power/supply/s2mu005-battery.c
-+++ b/drivers/power/supply/s2mu005-battery.c
-@@ -38,6 +38,7 @@ struct s2mu005_fg {
- 	struct regmap *regmap;
- 	struct power_supply *psy;
- 	struct mutex monout_mutex;
-+	bool has_monout;
- };
- 
- static const struct regmap_config s2mu005_fg_regmap_config = {
-@@ -168,16 +169,18 @@ static int s2mu005_fg_get_capacity(struct s2mu005_fg *priv, int *value)
- 
- static int s2mu005_fg_get_status(struct s2mu005_fg *priv, int *value)
- {
--	int current_now, current_avg, capacity;
-+	int current_now, current_avg = -1, capacity;
- 	int ret;
- 
- 	ret = s2mu005_fg_get_current_now(priv, &current_now);
- 	if (ret < 0)
- 		return ret;
- 
--	ret = s2mu005_fg_get_current_avg(priv, &current_avg);
--	if (ret < 0)
--		return ret;
-+	if (priv->has_monout) {
-+		ret = s2mu005_fg_get_current_avg(priv, &current_avg);
-+		if (ret < 0)
-+			return ret;
-+	}
- 
- 	/*
- 	 * Verify both current values reported to reduce inaccuracies due to
-@@ -240,12 +243,47 @@ static const struct power_supply_desc s2mu005_fg_desc = {
- 	.get_property = s2mu005_fg_get_property,
- };
- 
-+/*
-+ * The S2MU106 fuel gauge shares the direct STATUS/RVBAT/RCURCC/RSOC
-+ * registers and their scaling, but not the MONOUT average-monitoring path,
-+ * so the averaged voltage and current are not exposed on it.
-+ */
-+static const enum power_supply_property s2mu106_fg_properties[] = {
-+	POWER_SUPPLY_PROP_VOLTAGE_NOW,
-+	POWER_SUPPLY_PROP_CURRENT_NOW,
-+	POWER_SUPPLY_PROP_CAPACITY,
-+	POWER_SUPPLY_PROP_STATUS,
-+};
-+
-+static const struct power_supply_desc s2mu106_fg_desc = {
-+	.name = "s2mu106-fuel-gauge",
-+	.type = POWER_SUPPLY_TYPE_BATTERY,
-+	.properties = s2mu106_fg_properties,
-+	.num_properties = ARRAY_SIZE(s2mu106_fg_properties),
-+	.get_property = s2mu005_fg_get_property,
-+};
-+
-+struct s2mu005_fg_variant {
-+	const struct power_supply_desc *desc;
-+	bool has_monout;
-+};
-+
-+static const struct s2mu005_fg_variant s2mu005_fg_variant = {
-+	.desc = &s2mu005_fg_desc,
-+	.has_monout = true,
-+};
-+
-+static const struct s2mu005_fg_variant s2mu106_fg_variant = {
-+	.desc = &s2mu106_fg_desc,
-+	.has_monout = false,
-+};
-+
- static int s2mu005_fg_i2c_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
- 	struct s2mu005_fg *priv;
- 	struct power_supply_config psy_cfg = {};
--	const struct power_supply_desc *psy_desc;
-+	const struct s2mu005_fg_variant *variant;
- 	int ret;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-@@ -264,11 +302,12 @@ static int s2mu005_fg_i2c_probe(struct i2c_client *client)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "failed to initialize MONOUT mutex\n");
- 
--	psy_desc = device_get_match_data(dev);
-+	variant = device_get_match_data(dev);
-+	priv->has_monout = variant->has_monout;
- 
- 	psy_cfg.drv_data = priv;
- 	psy_cfg.fwnode = dev_fwnode(dev);
--	priv->psy = devm_power_supply_register(priv->dev, psy_desc, &psy_cfg);
-+	priv->psy = devm_power_supply_register(priv->dev, variant->desc, &psy_cfg);
- 	if (IS_ERR(priv->psy))
- 		return dev_err_probe(dev, PTR_ERR(priv->psy),
- 				     "failed to register power supply subsystem\n");
-@@ -276,7 +315,7 @@ static int s2mu005_fg_i2c_probe(struct i2c_client *client)
- 	if (client->irq > 0) {
- 		ret = devm_request_threaded_irq(priv->dev, client->irq, NULL,
- 						s2mu005_handle_irq, IRQF_ONESHOT,
--						psy_desc->name, priv);
-+						variant->desc->name, priv);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "failed to request IRQ\n");
- 	}
-@@ -287,7 +326,11 @@ static int s2mu005_fg_i2c_probe(struct i2c_client *client)
- static const struct of_device_id s2mu005_fg_of_match_table[] = {
- 	{
- 		.compatible = "samsung,s2mu005-fuel-gauge",
--		.data = &s2mu005_fg_desc,
-+		.data = &s2mu005_fg_variant,
-+	},
-+	{
-+		.compatible = "samsung,s2mu106-fuel-gauge",
-+		.data = &s2mu106_fg_variant,
- 	},
- 	{ }
- };
+I'm sorry for long delay. I had some individual issue.
+I'll review and merge the extcon patches. Once again, I'm sorryt.
 
--- 
-2.53.0
 
+--=20
+Best Regards,
+Chanwoo Choi
+Samsung Electronics
