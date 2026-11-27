@@ -1,101 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795770974;
-	b=KX0VaqJm7Ofo9nnj5abaREyGdeDhVe8N35mmIA+rkrA1HEn3s5oD/0RsYcofR3guAfeZ
-	 i2Fu4KGO2ku5zar7ESCfid6PBgLisbCLFJoaVfuz3OAeJahUXidPDYjoJ24POXnQXxzU/
-	 wtK0QygZBSxunRRrzCQuDATt+svFrnXb3W+UKV2nupk8pBrxs/y0Ztj6V+7MdzT/leyVv
-	 3Zc06QyXabMdOFbFYHakYs1EII1c1WYnKvvpbnxaGtQmkKh5bVIxyrQhyw49QjqRc01fE
-	 2OB42RAizgZhrWd6APUuUdbKnrEXbY6+ykc5WLK7fnSMQUsbPBWO+glMKvoSv/KNFfg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770974;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795770983;
+	b=tyJxDzWYtFJAa9dam4JmNpb78KDesymDArfbfsjoCkv1ttfxTcfTJrmPZ0rinUtp0Lp1
+	 /nKqOOkLoFbeEbg7OhMhUv0m/cKLfILIDu7AiWHnvWOq2pQA1qT5AwDFDDt5QfcK4dG3y
+	 UBIl2Gu4SwUon8/Vk5elMx900IIDZ2CN+Qq3bIzleCx32AKCqsJxw9hBUbetZ/wZN2w5O
+	 9VfZPeVmX0cz6q75Q1cL23MCkTQixlTicWbnuGb/vB0lKCan9MWxPJhhkFiaktnk1UQrb
+	 g1hWbRWnVOgy9U8sJKT0Z7KQZJ1YTcXGyqiDGxAUMKlYs+o8kqdscMpQ+19JHns0Cag==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770983;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jDYeL2kmjUbEkqOkiCW9A93olbaNlYCSbdBnZUJhtCA=;
-	b=MyyVEaKG57IWxYg9bt4bp+wEViFd21PywA21bqsBp4WNiUD8WkS181mwv3TpHkzIak2P
-	 Hj1RchreCr46DXljcv0/TURz4Bb9eedUEr+BuHElWIx+YKRcd5aA5+uyCiMst01lbp7uo
-	 jCQ3FUEfJLw1PZLEpA0lIGayoUReNrcVSDYi0Q8/bI3gI7SYCgH5RB+/r6MTUO/VfjsrE
-	 5fQSvRU1lHBKM7/MikFtFfaCce7o+0UfH10HojvJz4PFS8rkMJPxkeiuVZBVXVqpDxYKK
-	 uvz9IjLR2mhq9c09rb2I2Haukwl5IBEOMeHyk0SyMs9mU+HIqRnrAkeYfg67HOV/Chg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:In-Reply-To:References:From:Date:Subject:To:Cc;
+	bh=HcE4U4ajhU0fYFPRjlDViUPtdh5ql807zszqwyGOmGE=;
+	b=z27ixXt3cJK0hU8zBul/4x9veR/FU9Ow4qYFDExRzYVxBS/cGGqBzQM8k7/IrJfiOoH8
+	 KwtJr1AIqzp6dPWsoeWcwxH7nCS+BgI7KuzPBt4kOM55QFbTd35UpNaKwe+861UFWQb40
+	 c7b6QKSYPy1CegaUflEJ719VdJ8P1fKeMWa4spgDxvctBWUKRstrheAP9+lu0g+jhvZBh
+	 8MSc0dOhDr30VUanDAgFlsx7XzzSBakqMsXYdZYqih2mKGatFSUUJ/2DvgA34QHs1TKkh
+	 LBu3IJGNlCjO/k5QscEADbt+nuMg/YxL6vrlax4Eo7HImTV+ADxo97OnaCkKT6MguEQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jESfojEM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hgr5fBXG;
+	arc=none smtp.remote-ip=74.125.227.131
+Received: from mail-pj2-f3.google.com (mail-pj2-f3.google.com [74.125.227.131])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16036606A32F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:16:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16036606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67E1F606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:16:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67E1F606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jESfojEM
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-385d8a00598so11668042eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:16:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795770973; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Fdl7knc3SBJY0hncbrp8CbEyPqw5y5e7TMDhaoufcKVcSEIp2OlJuzVI5tBifgVusg
-         aJ4puprEUg3Nd5gwfdQczpvYRlen0SboXbKDIGoX//os+GqaIb8EKyS9P5th3zacVhLK
-         PvdhwMV+D75ygLvnCY8TTy7qayZNwdpTAfUlrc/HWOH57iVD7P+yOQA/1+iHxh7LqI1X
-         +JZM7RJhVj4TimnK5iRXqtVQn2yF/tgyDinAlZigvXV+gf1Is3BvFKLik9xvUQm9wHBh
-         IRj0Cap5UZFd0ifvFWt4KJwH+snXlGfUO5jNjoaQn6V4eL6Uqv7ZQQUO4h3eP/wUNzTH
-         zw+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jDYeL2kmjUbEkqOkiCW9A93olbaNlYCSbdBnZUJhtCA=;
-        fh=uPFvH+QYs56NT8HzHVzwFVvAZuRucMXKGYILaMkuiII=;
-        b=PICjqwUxXIkwMUy2oil1PjpwJjH9keZCgHv3APdQW4EIFAwcUwUOKUy/y8hCFsdXB1
-         RtpYWA5GgY1SSv3B43SaZ18j8g0P0SDTHmJLJWx8CqrL/l2RuQCJ9LnHUKKkHVG6QBsm
-         aSvnCrS97wmGHVwjBF8HHklU6firB1GVWxioAvDA2w62MQWQq43tUoJNmgkEOkPFKy1V
-         FxPXxwtZuJZOk7MFO7OojcfXybQixPl5fkhpCnn7w+Ufv18dhQc3Fb6oKp57zXiy1ncy
-         dujLF0yEF1uVIrVTiimN5KP6W2rGssIMGaujn8TAlJEpmgiA7xALjw87bLLwiCIzRtut
-         n35g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hgr5fBXG
+Received: by mail-pj2-f3.google.com with SMTP id d9443c01a7336-2f0f18feff0so4371885ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:16:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795770973; x=1796375773; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jDYeL2kmjUbEkqOkiCW9A93olbaNlYCSbdBnZUJhtCA=;
-        b=jESfojEM1vh73R4wVT9eTNLUEJhRw4r22MGydlhWedCIJk9uJS3oyb2aLr6tLipXeY
-         Phbv4MN9QzyHztsTTiaYFRsFKnhpwpwgrpYBrvIN60hMu0m7bZEtwoAjJI7GGoIJU8SO
-         eH5YaMTTEjolXjlnCrTJb8oHK2FyQ4apqkRXsUkaCIzQO4zYkXWacKQ3pDj71WvCYHWY
-         w5t8NQdurO5Z6T7gj+tX1uPDUkv5mRDvU2Lc5h94Urz9xzubLd4oXpFhE+DDl22BTVZQ
-         jbxzsKlKg8Y2fsCGqXk+J3kOBSgGuGer3wrkCFv6MjR1W5iaAe3d/4Du6Q/jOsdrPuLu
-         uZzw==
+        d=gmail.com; s=20260707; t=1795770982; x=1796375782; darn=vger.kernel.org;
+        h=cc:to:subject:date:from:references:in-reply-to:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=HcE4U4ajhU0fYFPRjlDViUPtdh5ql807zszqwyGOmGE=;
+        b=Hgr5fBXG0bZ3bzYqiy+3LV+7WCIIx1bGGoCLitdyX4rocGedwC5eIvB8pyCZhOpvy9
+         /Zq9BN3CfDeXnsIWRlq70Tzg8eYVFG3SMeI1xHsNVeJ+A5XNXj6Xq9q4kYaqjk3A7J5x
+         N4m8kSlcn3oQBTnMCWIV9C9b0/TuvBfhQdZoAYBz0ZW3ZUkcQTDJFLDj9WgJXUCfjsVR
+         IJTJLmgVMnR5X4j+/Doyy9ZC8PWEqJzqHSIZz+By/Zdn0ryo5lfEfeMDjClZVuxKatwB
+         d5Ygf4AhnNffkoEpkNMdhhsyadAfkD94s6D7Ra+BaiXNulsiLVicyQZMUIEV8VT8ZDbR
+         eG3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770973; x=1796375773;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795770982; x=1796375782;
+        h=cc:to:subject:date:from:references:in-reply-to:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jDYeL2kmjUbEkqOkiCW9A93olbaNlYCSbdBnZUJhtCA=;
-        b=cXwNp8iXQNUeJxTGFY71YY9fWKqwBCAK1/avvOGHUyVALvIFc93MJravaMUMYXK+yf
-         GbVygb6b1CojPmND8b9KQBpE78apyTRWbA/KYU64GYzP8EjOp0VI2vrqvLVnQfSurTbx
-         rMxjoo3ZddAjifuLot5WchzhExS7xYDy9wftk6GjI8WcZLTxm5KSIBuhBz9iZS1MeESN
-         8NC2ypc4h+MXCBkCKuWEZe169Tp1vhfgy62apTPepY0DgsjMqW5iJoERCyvnBwX/WGA1
-         cv0JLqk922EPFlkHjPjjySWaq2gzw1R/PQNlH7giWV32TXZwakdVRS6qVGtM3LXITFoc
-         DUBw==
-X-Forwarded-Encrypted: i=1; AL+hErHE3b/Ommt5/MbLQogs9/O6vOUL1gt73yf2/h5JJODdkf+G108fkXFhuHS+5GEhlxTKtxuZPAd101BCyDY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Mi56u3cfKxWJ/wrzWPo+hcvr1w1TMO2bB46+Td/W4fxbihpjl
-	XK46PuUlwbzJoAGY8XGdKONRke3Ey3eNp4TrsFhgVhpC2tlw6wXF5net6rmihq37tRMyOj78+LG
-	1rLezVzopSzhmyqFYQRF5ZWA8DUepF3M=
-X-Gm-Gg: AZFdTZdi/dSVc4xdD3LitrxG6P7qo5+q8OvbLMETcoZWxbAaeWW4+PgT6oI/A9Jreiv
-	gq7bN0w31k2D1/3exrUhnEuctXGRHJ3jUx4FLgGqYFfu955L/wQ16dSkQflLJguKWo/tVyUHDzP
-	QSewA3C8k50m5WKct+aDxDDEL+/LhWNh7LB7HRDCT+VID/d8bPq1HduTUz5ckand3AofFtrLKRy
-	fe7Lw3txMAp3M7Lhamf+fZ/1HNlmth1sxqpJ7gPPm5Uk6NDL/ffX+VfM9rYthesNKFE+EexX0K8
-	cMX58/VeY3Y9S/Oucy/v9HhpoxGIbDQhJTqWrN1jYF4yaZeIheta7S5QmTH/FerNsEK8IBI0cIn
-	ahqPLUdeRw3xULdlXyPeuGCVcVMugxtE6yuPFElPoscOu9jQVAPQ6SjSGAXMEW3GN3rk2j+7o7S
-	VbMoboew62f/2hgeXWZrY8XGnC7fKH9A==
-X-Received: by 2002:a05:7300:cf87:b0:386:565b:4f9b with SMTP id
- 5a478bee46e88-386565b529dmr18908380eec.36.1795770973084; Fri, 27 Nov 2026
- 01:16:13 -0800 (PST)
+        bh=HcE4U4ajhU0fYFPRjlDViUPtdh5ql807zszqwyGOmGE=;
+        b=fu4qdWDxwhJxSxOUVCVJ40mcotHuhhHduuAaZrdG/wNuYgRW8ANZ/BiSMSrmCDglzr
+         b9DnZYJmciVFQtmvwAy+ZpKbBMDJ3xI1DJO9a6bCh2XJujXXmI9Ho2bIvP/1+6h5EiQv
+         quU/XcuAFJ32xIbVizqmIRxxbfUZuaekhduh0zr1z3Oas+fKP1NclvwQudmvOCeRCl27
+         BTOmFd0cqZL2rUkbiEix7g/u2bPz6dRAheb0YyTq62SlMwO6yY3OxoTh2SmLHUULM/Ht
+         YS1AWa987NdGOq7wbk9RmKsZssfa9lty4PgLKV8x+W7P2GyLRDdKV0gNYpsHNFQMo29T
+         SuCw==
+X-Forwarded-Encrypted: i=1; AL+hErEfeM3ZuNSM6hc0w99RrTuJZmahe/FGKYWpGOAvwc32ksiE3rGEEWOCtX69yIPjFR28JX82sj3CSmyswHQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bS5sWkL2QeBXxugWAbed473hlB+FQM4IYlaLJtOArzsYoYjAF
+	57q48gxfOl4DvMdAqEGKWBgJLzyuIXz0pH6J8flLaTTrgdJzOmITtnFu
+X-Gm-Gg: AZFdTZeSTBRkidlBCzJmTyfXb6W519LW63f2eSZpMJpT4+MT8W978E+StbaPHlIbB+m
+	2IWkMEYS8AzUuvaqq/TjC9YURrbENSPLJSSRZGMFMs2MOtbTPPzTRnSrR0h4AVJKE4S4UDFXNce
+	JI52e5sc9eXfOmoF7oog+/6FSvL0X2gJ04m2KRa8GVJ6JAEiWzoCrTvn47AtekYnVTLyDBUfPTV
+	OiCI5DzTVsAl7bJV2u0nCPfG7Gdkgr1IFfYSKOj4EStAg5+rX8H7ZOfmlbs8vX7wYVBvMSp+FZq
+	V7zl2llr0fJIJpMwtR6el0VuuHQzGDMB476k9d7gBRH5tfVQh4CHwLFJ1KRaRbEdYxdVTpPbj83
+	lUPO/JfcQiMSwj0zyLEt+tBmSlN4KU/xR42jjWyXKiwpqwADE+0/WOsadOXeuLYBKEw2iDkqeHb
+	vZ35ANNpngGiYMY5kPltQghu2Tjocf9otXKb6i4g4lpI+Rj1zWE4SlnhuSjsnmpFaHoBV6zimlZ
+	g53AdlB+Oit/YXaMrzC39G3zysTK4DPpm4dfXYqqErCS7iKtk8Fhwk/x4jusI9YH2Wzt7gEC24W
+	CwTNgUjQxcZvGMH08Nofc/Tte6BQ2vjFosAUjEueJWKjKYdYjKGe9/+AmCI2YDBduuvyYHKE14o
+	zLhUnzg58n3l7lAuwiZK4Z70=
+X-Received: by 2002:a17:902:d4c3:b0:2ef:e20f:3eeb with SMTP id d9443c01a7336-2f09ca84710mr142455805ad.20.1795770981749;
+        Fri, 27 Nov 2026 01:16:21 -0800 (PST)
+Received: from [169.254.212.233] (ec2-16-179-105-217.ap-southeast-2.compute.amazonaws.com. [16.179.105.217])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f10c9casm117276575ad.52.2026.11.27.01.16.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:16:21 -0800 (PST)
+Message-ID: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
+In-Reply-To: <cover.1795769101.git.n0ps1edzz@gmail.com>
+References: <cover.1795769101.git.n0ps1edzz@gmail.com>
+From: Zhou Qiuyue <n0ps1edzz@gmail.com>
+Date: Fri, 27 Nov 2026 14:39:57 +0800
+Subject: [PATCH net 2/2] xfrm: fix use-after-free in xfrm_lookup_with_ifid()
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+    Ido Schimmel <idosch@nvidia.com>,
+    Kuniyuki Iwashima <kuniyu@amazon.com>,
+    Steffen Klassert <steffen.klassert@secunet.com>,
+    Herbert Xu <herbert@gondor.apana.org.au>,
+    David S. Miller <davem@davemloft.net>,
+    Eric Dumazet <edumazet@kernel.org>,
+    Jakub Kicinski <kuba@kernel.org>,
+    Paolo Abeni <pabeni@redhat.com>,
+    Simon Horman <horms@kernel.org>,
+    Willem de Bruijn <willemb@google.com>,
+    Hangbin Liu <liuhangbin@gmail.com>,
+    ipsec@lists.linux.dev,
+    linux-kernel@vger.kernel.org
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,311 +106,65 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261122081820.53199-1-clamor95@gmail.com> <20261122081820.53199-7-clamor95@gmail.com>
- <CQmBXmddTJ6v1iTnbDfQLA@nvidia.com>
-In-Reply-To: <CQmBXmddTJ6v1iTnbDfQLA@nvidia.com>
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-Date: Fri, 27 Nov 2026 11:16:01 +0200
-X-Gm-Features: Aa3M54qH8gYf5As35TKTatFm5o7bkTT2Je6sUBOdI-CDd1BicPTc8yLdRQYINpY
-Message-ID: <CAPVz0n14uUMdQYb+v_cKMiXRudND9fgKpqQWmGUO65BcCuciUA@mail.gmail.com>
-Subject: Re: [PATCH v8 06/12] drm/tegra: dc: Add elements required by Tegra
- MIPI DBI
-To: Mikko Perttunen <mperttunen@nvidia.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-=D0=BF=D1=82, 27 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 06:5=
-6 Mikko Perttunen <mperttunen@nvidia.com> =D0=BF=D0=B8=D1=88=D0=B5:
->
-> On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
-> > Add DC register definitions with additional fields in preparation for
-> > adding the 8-bit CPU interface (MIPI DBI).
->
-> Maybe also mention that some whitespace cleanup has been done.
->
+dst_dev_put() can replace a dst's device with the blackhole device and
+drop the reference to the original device.  The device can then be freed
+after the unregistering netdevice's todo work runs.
 
-sure
+xfrm_lookup_with_ifid() reads dst_orig->dev directly in its no-policy
+path.  It can therefore dereference the original device after that device
+has been freed.  KASAN reported this race three times while a reproducer
+repeatedly deleted and recreated a dummy interface and exercised the XFRM
+no-policy path.
 
-> >
-> > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> > ---
-> >  drivers/gpu/drm/tegra/dc.h | 194 ++++++++++++++++++++++++++++++++++---
-> >  1 file changed, 183 insertions(+), 11 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/tegra/dc.h b/drivers/gpu/drm/tegra/dc.h
-> > index 0cb0515968b35..e8913c5530a2d 100644
-> > --- a/drivers/gpu/drm/tegra/dc.h
-> > +++ b/drivers/gpu/drm/tegra/dc.h
-> > @@ -272,14 +272,150 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
-> >  #define  DC_COM_CRC_CONTROL_WAIT (1 << 1)
-> >  #define  DC_COM_CRC_CONTROL_ENABLE (1 << 0)
-> >  #define DC_COM_CRC_CHECKSUM                  0x301
-> > -#define DC_COM_PIN_OUTPUT_ENABLE(x) (0x302 + (x))
-> > -#define DC_COM_PIN_OUTPUT_POLARITY(x) (0x306 + (x))
-> > -#define LVS_OUTPUT_POLARITY_LOW (1 << 28)
-> > -#define LHS_OUTPUT_POLARITY_LOW (1 << 30)
-> > -#define DC_COM_PIN_OUTPUT_DATA(x) (0x30a + (x))
-> > -#define DC_COM_PIN_INPUT_ENABLE(x) (0x30e + (x))
-> > -#define DC_COM_PIN_INPUT_DATA(x) (0x312 + (x))
-> > -#define DC_COM_PIN_OUTPUT_SELECT(x) (0x314 + (x))
-> > +
-> > +#define DC_COM_PIN_OUTPUT_ENABLE(x)          (0x302 + (x))
-> > +#define DC_COM_PIN_OUTPUT_POLARITY(x)                (0x306 + (x))
-> > +#define LVS_OUTPUT_POLARITY_LOW                      BIT(28)
-> > +#define LHS_OUTPUT_POLARITY_LOW                      BIT(30)
-> > +#define DC_COM_PIN_OUTPUT_DATA(x)            (0x30a + (x))
-> > +/* Pin unmask is 1 bit above position of the pin in the OUTPUT_DATA re=
-gister */
-> > +#define PIN_UNMASK(x)                                BIT((x) + 1)
-> > +#define DC_COM_PIN_INPUT_ENABLE(x)           (0x30e + (x))
-> > +
-> > +/*
-> > + * The definitions below describe pin positions in the DC_COM_PIN_OUTP=
-UT_ENABLE(x),
-> > + * DC_COM_PIN_OUTPUT_POLARITY(x), DC_COM_PIN_OUTPUT_DATA(x), and
-> > + * DC_COM_PIN_INPUT_ENABLE(x) registers. The comment before each group=
- indicates
-> > + * the index of the register (the x value).
-> > + */
-> > +
-> > +/* 0 */
-> > +#define PIN_LD0                                      0
-> > +#define PIN_LD1                                      2
-> > +#define PIN_LD2                                      4
-> > +#define PIN_LD3                                      6
-> > +#define PIN_LD4                                      8
-> > +#define PIN_LD5                                      10
-> > +#define PIN_LD6                                      12
-> > +#define PIN_LD7                                      14
-> > +#define PIN_LD8                                      16
-> > +#define PIN_LD9                                      18
-> > +#define PIN_LD10                             20
-> > +#define PIN_LD11                             22
-> > +#define PIN_LD12                             24
-> > +#define PIN_LD13                             26
-> > +#define PIN_LD14                             28
-> > +#define PIN_LD15                             30
-> > +
-> > +/* 1 */
-> > +#define PIN_LD16                             0
-> > +#define PIN_LD17                             2
-> > +#define PIN_LPW0                             16
-> > +#define PIN_LPW1                             18
-> > +#define PIN_LPW2                             20
-> > +#define PIN_LSC0                             24
-> > +#define PIN_LSC1                             26
-> > +#define PIN_LVS                                      28
-> > +#define PIN_LHS                                      30
-> > +
-> > +/* 2 */
-> > +#define PIN_LHP0                             0
-> > +#define PIN_LHP1                             2
-> > +#define PIN_LHP2                             4
-> > +#define PIN_LVP0                             8
-> > +#define PIN_LVP1                             10
-> > +#define PIN_LM0                                      16
-> > +#define PIN_LM1                                      18
-> > +#define PIN_LDI                                      20
-> > +#define PIN_LPP                                      22
-> > +
-> > +/* 3 */
-> > +#define PIN_LSCK                             0
-> > +#define PIN_LSDA                             2
-> > +#define PIN_LCSN                             4
-> > +#define PIN_LDC                                      6
-> > +#define PIN_LSPI                             8
-> > +#define PIN_LSDI                             10
-> > +
-> > +#define DC_COM_PIN_INPUT_DATA(x)             (0x312 + (x))
-> > +
-> > +/*
-> > + * DC_COM_PIN_OUTPUT_SELECT(x) is a set of 7 registers that allow sele=
-cting
-> > + * one of 7 functions for each pin using 3 bits. Clearing all bits set=
-s
-> > + * the pin to its primary function, while setting them to 1 configures=
- it
-> > + * as a GPIO output. Other functions are unique to each pin. For detai=
-ls,
-> > + * check "23.7.17 DC_COM_PIN_OUTPUT_SELECT0_0" in the Tegra30 TRM.
-> > + */
-> > +#define DC_COM_PIN_OUTPUT_SELECT(x)          (0x314 + (x))
-> > +#define PIN_OUTPUT_SELECT_MASK(x)            (0x7 << (x))
-> > +#define PIN_OUTPUT_SELECT_PRIM(x)            (0 << (x))
-> > +#define PIN_OUTPUT_SELECT_OUT(x)             (1 << (x))
-> > +#define PIN_OUTPUT_SELECT_F2(x)                      (2 << (x))
-> > +#define PIN_OUTPUT_SELECT_F3(x)                      (3 << (x))
-> > +#define PIN_OUTPUT_SELECT_F4(x)                      (4 << (x))
-> > +#define PIN_OUTPUT_SELECT_F5(x)                      (5 << (x))
-> > +#define PIN_OUTPUT_SELECT_F6(x)                      (6 << (x))
-> > +#define PIN_OUTPUT_SELECT_F7(x)                      (7 << (x))
-> > +
-> > +/*
-> > + * The definitions below describe pin offset in the DC_COM_PIN_OUTPUT_=
-SELECT(x)
-> > + * registers. The comment before each group indicates the index of the=
- register
-> > + * (the x value).
-> > + */
-> > +
-> > +/* 0 */
-> > +#define PIN_OUTPUT_SELECT_LD0                        0
-> > +#define PIN_OUTPUT_SELECT_LD1                        4
-> > +#define PIN_OUTPUT_SELECT_LD2                        8
-> > +#define PIN_OUTPUT_SELECT_LD3                        12
-> > +#define PIN_OUTPUT_SELECT_LD4                        16
-> > +#define PIN_OUTPUT_SELECT_LD5                        20
-> > +#define PIN_OUTPUT_SELECT_LD6                        24
-> > +#define PIN_OUTPUT_SELECT_LD7                        28
-> > +
-> > +/* 1 */
-> > +#define PIN_OUTPUT_SELECT_LD8                        0
-> > +#define PIN_OUTPUT_SELECT_LD9                        4
-> > +#define PIN_OUTPUT_SELECT_LD10                       8
-> > +#define PIN_OUTPUT_SELECT_LD11                       12
-> > +#define PIN_OUTPUT_SELECT_LD12                       16
-> > +#define PIN_OUTPUT_SELECT_LD13                       20
-> > +#define PIN_OUTPUT_SELECT_LD14                       24
-> > +#define PIN_OUTPUT_SELECT_LD15                       28
-> > +
-> > +/* 2 */
-> > +#define PIN_OUTPUT_SELECT_LD16                       0
-> > +#define PIN_OUTPUT_SELECT_LD17                       4
-> > +
-> > +/* 3 */
-> > +#define PIN_OUTPUT_SELECT_LPW0                       0
-> > +#define PIN_OUTPUT_SELECT_LPW1                       4
-> > +#define PIN_OUTPUT_SELECT_LPW2                       8
-> > +#define PIN_OUTPUT_SELECT_LSC0                       16
-> > +#define PIN_OUTPUT_SELECT_LSC1                       20
-> > +#define PIN_OUTPUT_SELECT_LVS                        24
-> > +#define PIN_OUTPUT_SELECT_LHS                        28
-> > +
-> > +/* 4 */
-> > +#define PIN_OUTPUT_SELECT_LHP0                       0
-> > +#define PIN_OUTPUT_SELECT_LHP1                       4
-> > +#define PIN_OUTPUT_SELECT_LHP2                       8
-> > +#define PIN_OUTPUT_SELECT_LVP0                       16
-> > +#define PIN_OUTPUT_SELECT_LVP1                       20
-> > +
-> > +/* 5 */
-> > +#define PIN_OUTPUT_SELECT_LM0                        0
-> > +#define PIN_OUTPUT_SELECT_LM1                        4
-> > +#define PIN_OUTPUT_SELECT_LDI                        8
-> > +#define PIN_OUTPUT_SELECT_LPP                        12
-> > +
-> > +/* 6 */
-> > +#define PIN_OUTPUT_SELECT_LSCK                       0
-> > +#define PIN_OUTPUT_SELECT_LSDA                       4
-> > +#define PIN_OUTPUT_SELECT_LCSN                       8
-> > +#define PIN_OUTPUT_SELECT_LDC                        12
-> > +#define PIN_OUTPUT_SELECT_LSPI                       16
-> > +#define PIN_OUTPUT_SELECT_LSDI                       20
->
-> It becomes apparent here that the PIN_* and PIN_OUTPUT_SELECT_* are kind
-> of redundant as the pins are in the same order, the stride (and thus
-> register indexing) is just different. Hence, I think it would be cleaner
-> to have ..
->
-> #define PIN_LD0         0
-> #define PIN_LD1         1
-> ...
->
-> and then
->
-> #define PIN_REGISTER_INDEX(pin)         ((pin) / 16)
-> #define PIN_SHIFT(pin)                  (((pin) % 16) * 2)
->
-> #define PIN_SELECT_REGISTER_INDEX(pin)  ((pin) / 8)
-> #define PIN_SELECT_SHIFT(pin)           (((pin) % 8) * 4)
->
-> This will also simplify the tegra_dbi_idx tables since they can just
-> store the pin index, and the register index (and shift) can be
-> calculated based on that.
->
+Read the device through dst_dev_rcu() in an RCU read-side critical section.
+This requires netdev_run_todo() to wait for RCU readers after flushing
+routes; that fix is a prerequisite of this patch.
 
-I will look into this. Thanks
+This access was also identified during review of an earlier XFRM device
+lifetime fix and left for a follow-up.
 
-> >
-> >  #define DC_COM_PIN_MISC_CONTROL                      0x31b
-> >  #define DC_COM_PIN_PM0_CONTROL                       0x31c
-> > @@ -303,9 +439,15 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
-> >  #define  UNDERFLOW_REPORT_ENABLE (1 << 0)
-> >
-> >  #define DC_DISP_DISP_SIGNAL_OPTIONS0         0x400
-> > -#define H_PULSE0_ENABLE (1 <<  8)
-> > -#define H_PULSE1_ENABLE (1 << 10)
-> > -#define H_PULSE2_ENABLE (1 << 12)
-> > +#define H_PULSE0_ENABLE                              BIT(8)
-> > +#define H_PULSE1_ENABLE                              BIT(10)
-> > +#define H_PULSE2_ENABLE                              BIT(12)
-> > +#define V_PULSE0_ENABLE                              BIT(16)
-> > +#define V_PULSE1_ENABLE                              BIT(18)
-> > +#define V_PULSE2_ENABLE                              BIT(19)
-> > +#define V_PULSE3_ENABLE                              BIT(20)
-> > +#define M0_ENABLE                            BIT(24)
-> > +#define M1_ENABLE                            BIT(26)
-> >
-> >  #define DC_DISP_DISP_SIGNAL_OPTIONS1         0x401
-> >
-> > @@ -456,6 +598,22 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
-> >  #define DC_DISP_SHIFT_CLOCK_OPTIONS          0x431
-> >  #define  SC1_H_QUALIFIER_NONE        (1 << 16)
-> >  #define  SC0_H_QUALIFIER_NONE        (1 <<  0)
-> > +#define  SC0_H_QUALIFIER(x)                  (((x) & 0x7) <<  0)
-> > +#define  SC1_H_QUALIFIER(x)                  (((x) & 0x7) << 16)
-> > +#define  SC_H_QUALIFIER_DISABLE                      0
-> > +#define  SC_H_QUALIFIER_NONE                 1
-> > +#define  SC_H_QUALIFIER_HACTIVE                      2
-> > +#define  SC_H_QUALIFIER_EXT_HACTIVE          3
-> > +#define  SC_H_QUALIFIER_HPULSE                       4
-> > +#define  SC_H_QUALIFIER_EXT_HPULSE           5
-> > +#define  SC0_V_QUALIFIER(x)                  (((x) & 0x7) <<  3)
-> > +#define  SC1_V_QUALIFIER(x)                  (((x) & 0x7) <<  19)
-> > +#define  SC_V_QUALIFIER_NONE                 0
-> > +#define  SC_V_QUALIFIER_RSVD                 1
-> > +#define  SC_V_QUALIFIER_VACTIVE                      2
-> > +#define  SC_V_QUALIFIER_EXT_VACTIVE          3
-> > +#define  SC_V_QUALIFIER_VPULSE                       4
-> > +#define  SC_V_QUALIFIER_EXT_VPULSE           5
-> >
-> >  #define DC_DISP_DATA_ENABLE_OPTIONS          0x432
-> >  #define DE_SELECT_ACTIVE_BLANK  (0 << 0)
-> > @@ -493,6 +651,20 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
-> >  #define DC_DISP_CURSOR_POSITION_NS           0x441
-> >
-> >  #define DC_DISP_INIT_SEQ_CONTROL             0x442
-> > +#define SEND_INIT_SEQUENCE                   BIT(0)
-> > +#define INIT_SEQUENCE_MODE_SPI                       BIT(1)
-> > +#define INIT_SEQUENCE_MODE_PLCD                      0
-> > +#define INIT_SEQ_DC_SIGNAL_SHIFT             4
-> > +#define INIT_SEQ_DC_SIGNAL_MASK                      (0x7 << INIT_SEQ_=
-DC_SIGNAL_SHIFT)
-> > +#define NO_DC_SIGNAL                         0
-> > +#define DC_SIGNAL_VSYNC                              1
-> > +#define DC_SIGNAL_VPULSE0                    2
-> > +#define DC_SIGNAL_VPULSE1                    3
-> > +#define DC_SIGNAL_VPULSE2                    4
-> > +#define DC_SIGNAL_VPULSE3                    5
-> > +#define INIT_SEQ_DC_CONTROL_SHIFT            7
-> > +#define FRAME_INIT_SEQ_CYCLES_SHIFT          8
-> > +
-> >  #define DC_DISP_SPI_INIT_SEQ_DATA_A          0x443
-> >  #define DC_DISP_SPI_INIT_SEQ_DATA_B          0x444
-> >  #define DC_DISP_SPI_INIT_SEQ_DATA_C          0x445
-> > --
-> > 2.53.0
-> >
-> >
->
->
->
->
+OpenAI Codex was used to analyze the supplied KASAN traces and reproducer
+and to draft this patch and changelog.
+
+Reported-by: Jakub Kicinski <kuba@kernel.org>
+Link: https://lore.kernel.org/netdev/20260908224901.1591334-1-kuba@kernel.org/
+Fixes: 2d151d39073a ("xfrm: Add possibility to set the default to block if we have no policy")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhou Qiuyue <n0ps1edzz@gmail.com>
+---
+ net/xfrm/xfrm_policy.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+index cea6842e6..eafd090e3 100644
+--- a/net/xfrm/xfrm_policy.c
++++ b/net/xfrm/xfrm_policy.c
+@@ -3186,8 +3186,10 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
+ 	struct xfrm_policy *pols[XFRM_POLICY_TYPE_MAX];
+ 	struct xfrm_dst *xdst;
+ 	struct dst_entry *dst, *route;
++	struct net_device *dev;
+ 	u16 family = dst_orig->ops->family;
+ 	u8 dir = XFRM_POLICY_OUT;
++	bool is_loopback;
+ 	int i, err, num_pols, num_xfrms = 0, drop_pols = 0;
+ 
+ 	dst = NULL;
+@@ -3312,7 +3314,12 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
+ 	return dst;
+ 
+ nopol:
+-	if ((!dst_orig->dev || !(dst_orig->dev->flags & IFF_LOOPBACK)) &&
++	rcu_read_lock();
++	dev = dst_dev_rcu(dst_orig);
++	is_loopback = dev && (dev->flags & IFF_LOOPBACK);
++	rcu_read_unlock();
++
++	if (!is_loopback &&
+ 	    READ_ONCE(net->xfrm.policy_default[dir]) == XFRM_USERPOLICY_BLOCK) {
+ 		err = -EPERM;
+ 		goto error;
+-- 
+2.56.0
+
