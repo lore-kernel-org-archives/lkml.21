@@ -1,111 +1,134 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789995;
-	b=pbEUftdYgQNhUuZWr1BIZmCd4UHR+MonD+o6TP9VO7yytrc30oURbH3PIADETZcCS6dv
-	 +zhWdU2S38ZeCl9QBFg7ZSd1spje6nnhTeqQyFgGFYy2y762r2a2Pc9QRSJeYaWas1TcS
-	 mfWOjsHGfpE6ej7rqifiHdvz89RUqHGV2RjsshgrvmvqX55w8mvMSft21wQ/kBpftAWmG
-	 b1AsO16Y+PAgJh5hbkgmK6qZi34YYXxHzcsGVC+y2/pg9kisUtos5Wx7I1DwTYUtgC+Up
-	 oQQ3jgQQ1cuISebmMPj6fwjFkBszZuSzTOMPAqfp1ScozxOkfVu/qYwrqysXGe53P4A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789995;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=iWP69hNRNmZLA6SelaeZpNejkx3pRxxJb7FKwEEnVIE=;
-	b=tRIONzfnZabUC/jn5dj2+s4/ekT1XYmm2n6N3rxzYdoxzJ6uhwPshOwmuCcdV47jdxpW
-	 2C/1dX3EG8g53n46kwNONejdOCvZZEfNWO4pqFf82qrKeXCpI7ma9iyY3nrxPRbWcywVm
-	 NJjwfLIcDtl2Oo6+p882dpGENi1W3fmn3Lu4DCBopNh/sR5xh/iH5Xkc1qPbQJDDKYNj2
-	 oIV/fmZVPk3LbziZCMFfLWQagkvzSKo4mPmSjU9T8+D3ujlqvzJK7tRlW7rN3kr/pDZub
-	 vIvD3XvU6Gf2a3MIN39RJkSk8NXJuyuc4I+n+5G65VeByIZMrDQn0riPjnqDflYoCeA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HMNucjW+;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=guoj5dBg;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.8
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795790003;
+	b=Yjob7blXHOB0PF3pykNeWCbPtsrBkccmYA0tSinD6nLjwyGgZCyCvwiMEHkvTMdEUI54
+	 k4ksRhsQwuFHZKnX8Uzncq0YDF2gRozPbyRMAuCwonSaNGxBpD8wbb5HGwMTIuKv9QJYa
+	 2IxpZc8h/WTF0gnhfZsKVc5K91zq+CueRiMz1+SJkqzFeqy91shHWegGCjEQcwoN8l63s
+	 eXTadgCQeNG3m0iCAmfICwJ8A+maGmuK6wOU1q3DCICN/dXv/3lgopN2hIgw4s22A0JRr
+	 0oN7UZ4YYkK0ZMymnsIwcnB0g5ZWo9rqHNzmzIEspOO4Usp4SLz2jnO966EKOAaHgrg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790003;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=+GZNtGlArrny4BKyfqA/WeN2L3SohMvvUNeGlrMRSLw=;
+	b=SGC+i/nN/YJs516hYmrSOiaE7Tyuap0GIP/rvqzttr5PUKdjiejtTwGWdgTGYd/kWiaj
+	 Xte+7bXS/BRQAB5cvk2N55ERSd97dg4Ygn6IwI8RdRqzA8/PYxVZUQPgEi7vsUkVLL6u/
+	 V32jnvBeMqXTghHMgW49ah2NIN9n0yk55cWjouQbxOUkUyNFHA3Uu7kI76pYyjTvwlkk9
+	 o8DIFsY1kyn4BRSb7/lZ5hloSBs+4y4NopGQeDO8v93u3xgeiAqrHWWm60viW48j4grM4
+	 B35CLEj+FmSNa1vIGa+aFgDIy2v9fjYmU2odKPxc024KPOfhcU72TTBBCWAHRp9VUmQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="M/Mt/xnM";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 625C8606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 625C8606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25FD1606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25FD1606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HMNucjW+;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=guoj5dBg
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1JZj2683930
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iWP69hNRNmZLA6SelaeZpNejkx3pRxxJb7FKwEEnVIE=; b=HMNucjW+xDb1S/AB
-	Y9ZczFPd/ZYrE3A2AJ/8Fu/KLc9r8wkpQ1maqb/nTeWTQiKpURMtVpjzAmorngu6
-	1Gss6J+nqHdibemuvtvF7+5yVSYZoz1stcwgOksirfcySiNYRSKBfk4YdrhcaUqK
-	+e7BAN6YQJWNwj3xOsAWgTmFh0hIk4MUr9EgGsIueX8bVMxB8pIUTr3AIsABPdQU
-	zlFaj0b/earxKA9LL5j1Av/ZZetrhd2da4RxjAKFbbECl8+1UJQt6psQZfwiFxF6
-	VbBySedEHFpslbxpY1ZwC4SYyw3c6dkVRYA17OKHF35JFZQjzL7g/HOvXUPfO0fI
-	fzEMLw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73uhj24s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:13 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-94964828890so85058885a.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:33:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795789992; x=1796394792; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iWP69hNRNmZLA6SelaeZpNejkx3pRxxJb7FKwEEnVIE=;
-        b=guoj5dBgrHSsIJp+Jmu2CpwoKGM19tObEGPQNiXAjRHv9AcBilHEdSi2H3vnVyP2cm
-         U4hFV1QmBrQOgPe7XmAY25FybKyWvai+1g3olEqaF/vD320CgcvBXDvHPeLZllJsx4G3
-         Ih7buufim0uFZ/ENj/wwVr6Ydg2/icNt0FUy2WRpBVZmh1NGoRF8858bHg0AIRzyGXVA
-         +cKU1R9tzhe7EFmzhcMJEukQNurm3fq2G3UoBlKlALDKpN7atJsRs0OAsHLqFibKQ0/n
-         cFFiXp39OYXcXuKiarANk2J618+WHMK4k40P2ctihrjXGmpZWJuo3+XwcD4VugVKWNAw
-         70gA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795789992; x=1796394792;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iWP69hNRNmZLA6SelaeZpNejkx3pRxxJb7FKwEEnVIE=;
-        b=1FAdJhzK1mJeD/i+YbXotKUrnbVRj8DzseST3hJngnxNNJbgDMHqOSDYcqdltgCO7C
-         Yy5PAM+p7ciO5mrU2SLR95sn1eYWMohxBljEBsxMXVRQkioUTjdG4zyS45GRoIUZKSG8
-         4RQyBel2TA11ut9Obn+HmASef/5XCZL2cPIrMAg4flRkL+5nw6Jcecn7klm9EFr5X270
-         qeyURt+QlwcjumFgxESKECE2ORR/Q2C3Pu+wARlsq0TV/qOIcFclnfoDHQYZ0/olzaX1
-         wesLFJzWR53OC+GrOZED3ZfZZ3/baICa1t+zFaudKWi+fJ1HvYWBGrcDVTQBd3K97rx8
-         p8ZQ==
-X-Forwarded-Encrypted: i=1; AL+hErEapfoFhKsIwcOcKI0d2F0i95Jl23pN388JR7PogepeacT6tQlU9YfOhEo0QFMNtZx9wX4McahQVnoncOo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9vebF+4YfmkZHhiJjR3GMhs8Ge7SGTwuCL6h/eixazRd+AmuQf
-	DAwGeTkCaYnwzBjd2Qt653SBBCJ3RKtf13Y1gB3uPw2oByfWK2FioHcHcXY+uX08NjjtdiXfvlT
-	3B8+nWTBysLzmnkOzwlL1bTjrjamE2dyIEsrW/V0tBnr1j51KMf9Bxgp1Xj225YRTMWM=
-X-Gm-Gg: AZFdTZdigPdzWVGj8LNUVlUSKAS6s41YnJ5vI89Lr/ZN79/gg0xLjD14DuRy/9W9fH0
-	em8ote+QhNZuo5FvbU+H0ngvDOApVIJ5rtmCiQaUILdkUBy8GcyJcn8rhZ4scH5hH54sezu1CiO
-	FJBlqD2dzLlI/0vBkqcOuxsqm60G603m0BhscpYrJ/MKe0CrVs2crzIji8IU9ENL8ZfEZSruzvz
-	4kuVO9EKs/7R2jSAwG8NnxBarvq9Upclrk4O3Q4b/jX9sq/SL0X3gQyVWMVk0UGu6gqT0cehc8G
-	G4KAMmONPwbBsmVnmdSe4LlDTOE+ov5DtNejuygpDDqeny5FSG5Ht2Qsn8wUIxNJGIVWGAianTa
-	GhME7Qb8SXfxP1iLoh3NrERDAr1d0xyehturCcOUMenbtCtHa6mPrfXvNCzcufQzi8CqjKII=
-X-Received: by 2002:a05:620a:6e93:10b0:949:7fd2:6758 with SMTP id af79cd13be357-949ba68c353mr4128044185a.0.1795789992450;
-        Fri, 27 Nov 2026 06:33:12 -0800 (PST)
-X-Received: by 2002:a05:620a:6e93:10b0:949:7fd2:6758 with SMTP id af79cd13be357-949ba68c353mr4128039685a.0.1795789991996;
-        Fri, 27 Nov 2026 06:33:11 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae88143sm859572666b.32.2026.11.27.06.33.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 06:33:11 -0800 (PST)
-Message-ID: <1ef797ee-131f-417a-b473-52e4dd965470@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 15:33:07 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=M/Mt/xnM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795790003; x=1827326003;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=fHHwmij4Aqa3H9e/838yCuopLAg6DYSuPA8d4TrgVss=;
+  b=M/Mt/xnMs/+472/Ww89n+HTOFYGtMZXU1kIffmhrmemYjYSOYhG/hdtX
+   7sGvodRu7oeo9pInylzx7VfJbI/PPbp66lk9kQRYEaFVkDYOB2/byz2Jz
+   V8K3APdjTujj8z114IuP1Kv74QJIJnetpcIzHSUUfx4YvT6dhnnOc7AOm
+   vYvFaiOh2KZH+sU2n8I4+TCmv2lEZEHHVXt2hu/+ytWZw0LZ40xxypJPY
+   YqOhRLn/BhvkQIFJyBOPaFV313QDa8FHdpXmTPmGhkRh6d0gC1UCRMtRJ
+   8uqFMn2J/fh3QIX8Oe7ZWdBTutwgYnRYEozaObiA53RT7j0W8ymalEE28
+   w==;
+X-CSE-ConnectionGUID: eg7tu/8ET2aSVN3wxc8vwA==
+X-CSE-MsgGUID: Haci1WqgQSurp7mEz7MpyA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4588272"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4588272"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:33:21 -0800
+X-CSE-ConnectionGUID: mrb0BtCkSeKwBhuVW3XV+A==
+X-CSE-MsgGUID: XOSzA1F0TMKXthaeDrld9A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12758299"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:33:20 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 06:33:20 -0800
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 06:33:20 -0800
+Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.45) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 06:33:19 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xAgXwmw1bXUUKfWqEF+k8WlU9ocT5NTYXv5qmNRHsdGKCSWcQPbasdMTk596dZDwhwJwLQOpUpANlWS6Q5m84vzSjTQzGap9xQC2ENEZYu9ubiYBvCKOxshDs7/P2Ml5MxTisuinN9KIBvKyTsikCaHc3JnNvtzyoL97rYlWAfDdKOk9g9aZtl8ooHQcYUBvoPj/SOhmyuQ7+Ts2CI5oe53A8z6ilEu0ZXnoHADTTFYrBMVpFbsTXTlTasTwN7l12NPekaEYNvQsROyYd0xNR7LDrAYitsGMCSweJOQLxtiRuGwnJZj8lBT3HkiunLV1AV5t1IbWOKO4xuOGvFPL2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+GZNtGlArrny4BKyfqA/WeN2L3SohMvvUNeGlrMRSLw=;
+ b=SY74sxyTlSJe6VwHxlJSnuQmdWYkbLjyaCm8zvN14yo4ZpQfBdccThtr2q4Yg4kFPW+fo1rcqUvjCz0QDuzRcYcGFtKlQk6Q4jDZGf87aF3idyOWcVYsDN1sZJ+l5YZO6Nu7qfnFp9VtajKeW6F80URZMHidswsv0jIv0yltmvBD98uvNVQ68DEUuGEXJKruV34r4PEKFSeSF/AANmr3vpmbtHYgwuaH+bVmU2PjjU3szabzMEGVrLmc9xmWiqCNq2eQBSjdHE0woirZi47SndgT/qFQeTUA/r2yl6Q6ulAwFJ+LkDh0utFvOrDSoWT3mWBCmzMpAq8/mOKmLko6Hg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19) by
+ SN4PR11MB9965.namprd11.prod.outlook.com (2603:10b6:806:4fe::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 14:33:11 +0000
+Received: from DM4PR11MB6020.namprd11.prod.outlook.com
+ ([fe80::3058:1480:e4ac:5765]) by DM4PR11MB6020.namprd11.prod.outlook.com
+ ([fe80::3058:1480:e4ac:5765%3]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 14:33:11 +0000
+Date: Fri, 27 Nov 2026 22:22:09 +0800
+From: Chen Yu <yu.c.chen@intel.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+CC: Peter Zijlstra <peterz@infradead.org>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, Ingo Molnar <mingo@redhat.com>, Andrea Righi
+	<arighi@nvidia.com>, Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Valentin
+ Schneider" <vschneid@redhat.com>, James Buck <jbuck2005.linux@outlook.com>,
+	Usama Arif <usama.arif@linux.dev>, Tim Chen <tim.c.chen@intel.com>, Yi Lai
+	<yi1.lai@intel.com>, <linux-kernel@vger.kernel.org>, <chen.yu@linux.dev>
+Subject: Re: [RFC PATCH] sched/fair: Expand SIS_UTIL scan depth for small LLC
+ system
+Message-ID: <awmSEefDOF89Nbnb@chenyu-dev>
+References: <20261127094038.3422499-1-yu.c.chen@intel.com>
+ <CAKfTPtBexuKgiVWWk2avKzVo2MpH=8BLE3b11nXDvoKqqopgSQ@mail.gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtBexuKgiVWWk2avKzVo2MpH=8BLE3b11nXDvoKqqopgSQ@mail.gmail.com>
+X-ClientProxiedBy: SG2PR06CA0237.apcprd06.prod.outlook.com
+ (2603:1096:4:c8::20) To DM4PR11MB6020.namprd11.prod.outlook.com
+ (2603:10b6:8:61::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,91 +138,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: sm8350: Add the inline crypto
- engine
-To: me@fromdisposition.org, Abel Vesa <abelvesa@kernel.org>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261109-b4-sm8350-ice-v2-0-fd5e84985e90@fromdisposition.org>
- <20261109-b4-sm8350-ice-v2-2-fd5e84985e90@fromdisposition.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261109-b4-sm8350-ice-v2-2-fd5e84985e90@fromdisposition.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfX+b/1lgOQZsXx
- 4i1Em3Vyh59dZ8cY+b3eyvjVscxE26bFH0LsJ1L37oydkh5NdrSpGYByTHIidHIp9y2sgbuvBhj
- qWIprPGbsg96GGFcWNi8fKpqhvlTKys=
-X-Proofpoint-ORIG-GUID: gjJFss8Ao7DEk8PHlvAON-BKeaPP73i9
-X-Proofpoint-GUID: gjJFss8Ao7DEk8PHlvAON-BKeaPP73i9
-X-Authority-Analysis: v=2.4 cv=BbBNQbt2 c=1 sm=1 tr=0 ts=6b0994a9 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=Tt5JBQAfAAAA:8 a=R_l6ZAkWQ6Pq_YTnY14A:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22 a=kpHMOrJS8sLNr5ru0mYA:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfX/ByX2sLNWO8v
- 3JPVd/QTNsp91TV0taeVJKmPcuT/ZkzsDCnKE/GivU+8sO6QheOSz41W2iNU/dKIHZMLWnbcnX4
- QbwKkkhGxP2EefS38gbrbc2On/ztqH+9ssmnSwTgNyg69MKyEQ2ac6moRG88YxkHeyPxroqfhKq
- aRfNU6Mpjoy8dz163mega+gPRG2ITw/wkh52tD27OxG4aHPI0eMyvNEr2NNVZZhVUPPTMCnOXLP
- P0RmNPrOrBWNWlT85/PIqdC9z71KZ3yhWavRkEKQngv88584C4MP85FgEjQMjXjp2GZBETMI2pn
- j79eVH0X5W8iOa2KmoZNgorRr+TIQXm/+CnUtTOsc61iLg+aQXdRE+0OaxK4h1luvN40C7toM6A
- 52STTjHgdfZx83fEqG8mmPwwzo7OEnZdueUVCMhLPNRWCgTZlHTE1hCuyc36EGwfuZETP2fqsKL
- FANj2xOfrBklwilzu8Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270057
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR11MB6020:EE_|SN4PR11MB9965:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7c18416-1285-43dd-b96e-08df4c935cb3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|4143699003|22082099003|18002099003|11063799006|10067099003|56012099006|261026121527099003|261102123227099003|261028144727099003|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261026140227099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: ZRUZzXmAmlJdWdK9clrZQOdETdtI4kvkrR/UADu6wgJbU7N0loyJ1MweWGMWB8Zjy9PsTPUkXbAQXvBBDV9brRb1TS5Y5ApPtWTyzA4tIT33vuXoi5Ezk0j/rFQTzrwySvfY981iOXvxpTT0rNSokK+HZ1t6uFKD5mg59FIhkZoFH3g1ffQJd3N0maz4/WHw9jvQQVc0wISK2B0fYCjmfKZzXiB8zWZqpOJ0O/iOOPvjzVSbgIzccNAnx+K5q7WBnJt/Mkw16PbIDc6dGMCz9Bt2fBGplyyqCP0pgZn8WdwwfDL79FwMPEGDU2NcU6OOvEpOpZuCvgrpUb7yRV1jSlojZlfpbSVb4G1fSG+LnCe5x0IKwzNrTowjcGbldQ9rHU7wBTzuIge5p7FxCOiEklo/Lna52kZ79hZS50daAwfQ3k+GlzZ0E2SvA/PoJNokKW/WABQ1ukvONaSHKCCdC5TB35uBw5mw5Yu8DBrgVgS/zuhFBPU05MUQLIpDcKfiI5zeztMhnjdikIXRAdd2MueqMNErnX5bizDhaGFEg3feDrizpapYw/RbAGUuG0/pqJJ8JeBYdgrN7C2dLyENyUIvfvDWdbkWzooGWbE/0Dh/dOWjUi7HDkLXEoFsHMgh
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6020.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(4143699003)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006)(261026121527099003)(261102123227099003)(261028144727099003)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261026140227099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K9/Aqf9cxi3DxYy6+A4RQZ+lsgWRaLVDlltOOqvM7Wr1yFFTbZ4slkWIZTtH?=
+ =?us-ascii?Q?jTLjYYnopNWqrm1P9iKqLpLpTsDfi3JG3JhJoEpp+R/KievickeKBYKABXwF?=
+ =?us-ascii?Q?vUr8k1VE++5ZQNpcObTa6UkCZEVZNXVpbi+CMNSaiZZHNZoECsT1hi19h2RY?=
+ =?us-ascii?Q?n7pdFWOkhch6Q4BXaX4M5uxDVHjYxbnFSRJKJ0g9f5JwvEDWK5I+G+Fu+7e7?=
+ =?us-ascii?Q?6OhcMakFo52s6/Gfw4dY0tWZ+vvRpjCEFQ2G6Mevpv3GiSDylIk4zhm1xA9v?=
+ =?us-ascii?Q?vQPOFUDPG7kiC2q4CxQqQGSAAM/5VR4l3zioICk0YoGzbBsqBs+C9E2Ry7Dh?=
+ =?us-ascii?Q?tdyPq3NW8AmIziOf7zD+G//3fSjIPkFV3au4/Yda8NtOvXoaFRfinQObIzgR?=
+ =?us-ascii?Q?vPY5OLwNBLzzMYf0ukhBNxXXzNByN81xBfZZZhiFKmRA6cJjCSuAEdRKg31G?=
+ =?us-ascii?Q?s9XwM3UPr5KokZEWMtQb8A+tBGj7WW57jaSz3gg39vVFTkwFPLE3SN9ZEXCm?=
+ =?us-ascii?Q?Wp38Xi3gTA/Tz7npAFZ0zv6OW7sY6S3bB9TCrfXKTjo5fXcIIHig73YK1emg?=
+ =?us-ascii?Q?A2hK2s73/kkRYzUMm+raXw9Q4b3pcWcV1xf/Qo+b7eH13rZFWkulglGUOQzd?=
+ =?us-ascii?Q?WWZ7H/tNM5cxBPcldajDa250PdmRJUWn3ZV9JZ/NQnUuDP37HVk9WjahaH7X?=
+ =?us-ascii?Q?+dRpOdMlEvl4nLe2hFaobGHia+zmf/ALv59LuL+Jo2CnphBbnYRwtXk3BIN4?=
+ =?us-ascii?Q?40KkyqHBPEEQ8r5+AJYJkGhSFaQBQzWcCqZaYD+ngcTDTT6WYkxrovOIa0O+?=
+ =?us-ascii?Q?kCEzmBfom8pOJS0hxjJR8AAuKssy4dv6kdlp/ye/GSGOWYh9WNPERPxOozbk?=
+ =?us-ascii?Q?uZYsbn5epiBqgXhzDSWlJw7MhdapSp3x0fEUEwchSlwtpR87ksGb8pACM5Eo?=
+ =?us-ascii?Q?PpYCmRZ0y8VnmegZyJQX3JtD9lOjuX624YFYrc5QEM/W67zZKRIBq4+5eSZB?=
+ =?us-ascii?Q?BX1r7QgUePwVeyKKP5d9VW92JTxUudNTPob6KNu0M5aVRzeoo/LuPKMiNL5K?=
+ =?us-ascii?Q?mExj8B0LmX1j+elY69+2ORj3AlqDR27xbHCwWDTfNAp45lCR1Hiq42pBnkLO?=
+ =?us-ascii?Q?6s8TgMKbsZa8giVPV2WmF6Gpuu3pPHVuRqNslsMYKXLaEs3yT1osSo/Hyx0d?=
+ =?us-ascii?Q?FuKDgdpOqXLEqLhha/hbheCOuwwk+mMFJL7dgG5V0dAo00UpaHU68oSWqOFi?=
+ =?us-ascii?Q?OpwJqeSG0jfv+7W8vRUDqwT6+lMAi7xdkdy4MnkvOxsOyZ4EuI/4aUeRMMiU?=
+ =?us-ascii?Q?3QWcjbrJVx12Z93dlXg8K1Bn2n+4nZOtxIUcnlj5vR8Msj1+WNQk6XF1JEVb?=
+ =?us-ascii?Q?Rqx1+9ojtXm6uxNIqmPvU0GLkHEA3TbcN/+NsR+BWQbY6/6D1I13x+D8hoGF?=
+ =?us-ascii?Q?q0eZi+4lzauANI7EpQ46p9RTDVvfSdOc+cUrH+4hoIEQv8ylFTnB9adI+zZU?=
+ =?us-ascii?Q?GUkKHFWANl5okzLV0y9AAvsQhrWuMeZLFetQjSlboopAhAQEBvp+5a6JmVYV?=
+ =?us-ascii?Q?/BvmT6faa2y3J31jZei/L9UmWF7PWmx+kNQWQGqpENbGjxye9pWdUIpTw1kv?=
+ =?us-ascii?Q?D0KJ+fxlzyuJKy4mAHUWGQHa7d0c6spXT0os5TdKZnSMTyCZCp2loy4JCDOk?=
+ =?us-ascii?Q?Chelk5P7xyacm+XDCuXqlKxnMs4Rtj9TlntIHl6hZn7ejsvHI2lTQxiahX7t?=
+ =?us-ascii?Q?K+1ZgXSXKQ=3D=3D?=
+X-Exchange-RoutingPolicyChecked: ZaJW4gAcO+RC06L9DmW1edUZfYt9Gqz0TLMgn+jITok9cL4yLLrPKRjyr9PiWfpWyeVewUFsSh/5R0KrHD/GYjtA6TfggiqLBdl+DZ7Ohn/Chd8Ja583dE8bicTLHTtLet3QTDVr0jQmVrlHBAIe914hkKXl4B3kOyKIAWioUpQpx62MJPMype7Zw+CYSlSE/vbK6YRoskEbzmX3QdYBorpPAkJO7OIJqhNVxlb/hCCvp6XoeDWEQRuk1y2kXk04iLaOictMy7g8ih1pLCH9P8og0oNXIv75WENRkIPWhGN+6BWXkC1oZ9Hl+jeuhAap/nQKp7WDK8e3nepAYwDejA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7c18416-1285-43dd-b96e-08df4c935cb3
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6020.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 14:33:11.0862
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /VL3zVGiVlDDgZhhBYKmttuXv7eC6rcVuiDnUElaUu2JkAmieZsa+cJ7Q3D9yMapX8cAg4Vu6qdfXm3OCyodKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR11MB9965
+X-OriginatorOrg: intel.com
 
-On 11/9/26 2:55 PM, Demeter Barna via B4 Relay wrote:
-> From: Demeter Barna <me@fromdisposition.org>
+On Fri, Nov 27, 2026 at 12:11:17PM +0100, Vincent Guittot wrote:
+> On Fri, 27 Nov 2026 at 10:51, Chen Yu <yu.c.chen@intel.com> wrote:
+> >
+> > It was reported that scanning more CPUs on a system with a small LLC
+> > benefits the workload more than limiting the scan depth, because
+> > scanning more CPUs does not cost much and work conservation is
+> > preferred.
+> >
+> > Expand the scan depth so that systems with fewer than 32 CPUs per LLC
+> > behave like a 32-CPU system. This way, the scan number can be scaled up
+> > for such small systems.
+> >
+> > The effect is as below:
+> > nr_idle_scan before -> after the patch
+> > (LLC = 8, 12 and 16 CPUs for example)
+> > Cell format: util_sum : nr_scan before -> after
+> > Load% = util_sum / (llc_weight * 1024)
+> >
+> >   Load% | LLC=8            | LLC=12           | LLC=16
+> >   ------+------------------+------------------+------------------
+> >    10%  |   819 :  7 ->  8 |  1228 : 11 -> 12 |  1638 : 15 -> 16
+> >    20%  |  1638 :  7 ->  8 |  2457 : 11 -> 12 |  3276 : 15 -> 16
+> >    30%  |  2457 :  7 ->  8 |  3686 : 10 -> 12 |  4915 : 14 -> 16
+> >    40%  |  3276 :  6 ->  8 |  4915 :  9 -> 12 |  6553 : 12 -> 16
+> >    50%  |  4096 :  5 ->  8 |  6144 :  7 -> 12 |  8192 : 10 -> 16
+> >    55%  |  4505 :  4 ->  8 |  6758 :  7 -> 12 |  9011 :  9 -> 16
+> >    60%  |  4915 :  4 ->  8 |  7372 :  6 -> 12 |  9830 :  8 -> 16
+> >    65%  |  5324 :  3 ->  8 |  7987 :  5 -> 12 | 10649 :  6 -> 13
+> >    70%  |  5734 :  2 ->  8 |  8601 :  3 -> 10 | 11468 :  5 -> 10
+> >    75%  |  6144 :  1 ->  7 |  9216 :  2 ->  7 | 12288 :  3 ->  7
+> >    80%  |  6553 :  1 ->  4 |  9830 :  1 ->  4 | 13107 :  2 ->  4
+> >    82%  |  6717 :  0 ->  2 | 10076 :  0 ->  2 | 13434 :  1 ->  2
+> >    84%  |  6881 :  0 ->  1 | 10321 :  0 ->  1 | 13762 :  0 ->  1
+> >    85%  |  6963 :  0 ->  0 | 10444 :  0 ->  0 | 13926 :  0 ->  0
+> >    86%  |  7045 :  0 ->  0 | 10567 :  0 ->  0 | 14090 :  0 ->  0
+> >
+> > It was reported that with this change, the regression was fixed on Orange
+> > Pi 6 and Radxa O6. Since Intel servers usually have >= 32 CPUs per LLC,
+> > this change does not impact Intel servers much. AMD servers have 16 CPUs
+> > per CCX, testing on AMD Milan showed no significant difference on
+> > redis/mysql, and a slight improvement on hackbench/schbench:
+> >
+> >   =========================================
+> >   hackbench threads+pipe
+> >     num_runs:      5
+> >     host:          AMD-Milan
+> >     kernel:        7.4.0-rc4-sis-patched+
+> >   =========================================
+> >   G   FD  | baseline s/se% | patched s/se%  | SPEEDUP | RESULT
+> >   ------------------------------------------------------------------
+> >   1   1   |   6.352/ 7.57% |   5.680/ 5.74% |   1.12x | noise
+> >   1   2   |   6.225/ 8.75% |   5.624/ 7.27% |   1.11x | noise
+> >   1   4   |   8.834/10.23% |   8.799/10.24% |   1.00x | noise
+> >   1   8   |   4.833/ 1.70% |   5.060/ 1.72% |   0.96x | noise
+> >   1   16  |   5.471/ 1.61% |   5.551/ 0.60% |   0.99x | noise
+> >   1   20  |   5.220/ 1.17% |   5.298/ 0.82% |   0.99x | noise
+> >   2   1   |   5.558/ 6.23% |   6.114/ 8.63% |   0.91x | noise
+> >   2   2   |   8.056/10.44% |   8.029/12.53% |   1.00x | noise
+> >   2   4   |   5.292/ 1.26% |   5.152/ 1.89% |   1.03x | noise
+> >   2   8   |   5.493/ 2.15% |   5.403/ 3.38% |   1.02x | noise
+> >   2   16  |   5.557/ 1.68% |   5.407/ 0.88% |   1.03x | noise
+> >   2   20  |   5.224/ 0.68% |   5.341/ 1.19% |   0.98x | noise
+> >   4   1   |   6.047/ 2.89% |   5.797/ 4.41% |   1.04x | noise
+> >   4   2   |   5.597/ 2.19% |   5.791/ 1.77% |   0.97x | noise
+> >   4   4   |   5.397/ 1.62% |   5.501/ 1.18% |   0.98x | noise
+> >   4   8   |   5.468/ 2.67% |   5.155/ 0.95% |   1.06x | IMPROVED
+> >   4   16  |   5.989/ 3.31% |   5.507/ 1.36% |   1.09x | IMPROVED
+> >   4   20  |   5.267/ 0.79% |   5.101/ 0.60% |   1.03x | IMPROVED
+> >   8   1   |   5.322/ 3.12% |   5.273/ 1.96% |   1.01x | noise
+> >   8   2   |   5.531/ 2.38% |   5.367/ 1.64% |   1.03x | noise
+> >   8   4   |   5.672/ 0.70% |   5.814/ 2.60% |   0.98x | noise
+> >   8   8   |   5.037/ 0.93% |   5.100/ 0.97% |   0.99x | noise
+> >   8   16  |   5.455/ 0.45% |   5.290/ 0.39% |   1.03x | IMPROVED
+> >   8   20  |   5.388/ 0.36% |   5.285/ 0.18% |   1.02x | IMPROVED
+> >   16  1   |   5.519/ 2.49% |   5.296/ 2.10% |   1.04x | noise
+> >   16  2   |   5.398/ 0.77% |   5.503/ 3.05% |   0.98x | noise
+> >   16  4   |   5.274/ 1.72% |   5.363/ 1.72% |   0.98x | noise
+> >   16  8   |   5.416/ 0.37% |   5.185/ 0.20% |   1.04x | IMPROVED
+> >   16  16  |   5.596/ 0.41% |   5.337/ 0.24% |   1.05x | IMPROVED
+> >   16  20  |   5.292/ 0.88% |   5.076/ 0.55% |   1.04x | IMPROVED
+> >
+> >   redis (redis-benchmark -t set)
+> >   =========================================
+> >   THR | baseline rps/se% | patched rps/se% | SPEEDUP | p99 ms b/p  | RESULT
+> >   -----------------------------------------------------------------------
+> >   4   |  1492165/ 0.76% |  1480823/ 0.00% |  0.992x | 0.541 0.546 | noise
+> >   8   |  1665556/ 0.01% |  1665501/ 0.00% |  1.000x | 0.490 0.489 | noise
+> >   16  |   984279/ 0.60% |   974545/ 0.00% |  0.990x | 1.124 1.109 | noise
+> >   32  |   887091/ 0.01% |   883212/ 0.44% |  0.996x | 1.713 1.721 | noise
+> >
+> >   mysql
+> >   =========================================
+> >   THR  | baseline tps/se% | patched tps/se% | SPEEDUP | p95 ms b/p | RESULT
+> >   -----------------------------------------------------------------------
+> >   8    |   151897/ 0.76% |   152428/ 0.54% |  1.003x | 0.07 0.08 | noise
+> >   16   |   294014/ 0.59% |   296699/ 0.28% |  1.009x | 0.07 0.07 | noise
+> >   32   |   386817/ 2.18% |   377835/ 0.31% |  0.977x | 0.09 0.09 | noise
+> >   64   |   560950/16.97% |   481494/ 5.68% |  0.858x | 0.19 0.23 | noise
+> >   128  |   752079/ 4.92% |   729685/ 3.89% |  0.970x | 0.36 0.38 | noise
+> >   256  |   772771/ 0.62% |   771630/ 0.21% |  0.999x | 0.79 0.78 | noise
+> >
+> >   schbench
+> >   =========================================
+> >   T   WRK  METRIC   | baseline/se%   | patched/se%    | SPEEDUP | RESULT
+> >   -----------------------------------------------------------------------
+> >   2   8    rps      |  1683.8/ 0.04% |  1681.3/ 0.10% |  0.999x | noise
+> >   2   8    wake_p99 |    10.2/ 1.96% |     9.8/ 3.82% |  1.041x | noise
+> >   2   8    req_p99  |  4904.0/ 0.00% |  4904.0/ 0.00% |  1.000x | noise
+> >   4   16   rps      |  3369.0/ 0.03% |  3353.9/ 0.44% |  0.996x | noise
+> >   4   16   wake_p99 |    10.0/ 0.00% |    10.0/ 0.00% |  1.000x | noise
+> >   4   16   req_p99  |  4904.0/ 0.00% |  4904.0/ 0.00% |  1.000x | noise
+> >   8   32   rps      |  6724.6/ 0.04% |  6722.0/ 0.16% |  1.000x | noise
+> >   8   32   wake_p99 |     9.8/ 2.04% |    10.0/ 0.00% |  0.980x | noise
+> >   8   32   req_p99  |  4904.0/ 0.00% |  4904.0/ 0.00% |  1.000x | noise
+> >   16  64   rps      | 10933.0/ 4.10% | 11179.8/ 1.80% |  1.023x | noise
+> >   16  64   wake_p99 |    12.0/ 0.00% |    12.0/ 0.00% |  1.000x | noise
+> >   16  64   req_p99  | 10051.2/ 0.13% | 10051.2/ 0.08% |  1.000x | noise
+> >   24  96   rps      | 12970.1/ 0.22% | 12971.0/ 0.48% |  1.000x | noise
+> >   24  96   wake_p99 |    13.4/ 3.81% |    12.4/ 1.98% |  1.081x | noise
+> >   24  96   req_p99  | 10179.2/ 0.21% | 10185.6/ 0.21% |  0.999x | noise
+> >   32  128  rps      | 12613.1/ 0.09% | 12667.2/ 0.11% |  1.004x | IMPROVED
+> >   32  128  wake_p99 |    37.2/ 3.55% |    34.2/ 1.43% |  1.088x | IMPROVED
+> >   32  128  req_p99  | 10467.2/ 0.59% | 10358.4/ 0.06% |  1.011x | noise
+> >
+> > Fixes: 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select_idle_capacity()")
+> > Reported-by: James Buck <jbuck2005.linux@outlook.com>
+> > Closes: https://lore.kernel.org/lkml/CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM/
+> > Suggested-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > Tested-by: James Buck <jbuck2005.linux@outlook.com>
+> > Signed-off-by: Chen Yu <yu.c.chen@intel.com>
 > 
-> Describe the UFS inline crypto engine at 0x1d88000 and hand it to the
-> UFS host controller with qcom,ice. The region covers the engine and its
-> hardware key manager (0x8000 + 0x9000), as in Qualcomm's SM8350 device
-> tree; it is clocked by the UFS ICE core and AHB clocks and powered by
-> the UFS PHY GDSC, as on SM8450. Without it the UFS driver logs
-> "Disabling inline encryption support" and fscrypt has no hardware path.
-> 
-> Signed-off-by: Demeter Barna <me@fromdisposition.org>
-> ---
->  arch/arm64/boot/dts/qcom/sm8350.dtsi | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/sm8350.dtsi b/arch/arm64/boot/dts/qcom/sm8350.dtsi
-> index 55b32050c..2b258c4b4 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8350.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sm8350.dtsi
-> @@ -1782,6 +1782,8 @@ &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
->  				<0 0>,
->  				<0 0>,
->  				<0 0>;
-> +			qcom,ice = <&ice>;
-> +
->  			status = "disabled";
->  		};
->  
-> @@ -1807,6 +1809,17 @@ ufs_mem_phy: phy@1d87000 {
->  			status = "disabled";
->  		};
->  
-> +		ice: crypto@1d88000 {
-> +			compatible = "qcom,sm8350-inline-crypto-engine",
-> +				     "qcom,inline-crypto-engine";
-> +			reg = <0 0x01d88000 0 0x11000>;
+> Tested-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
+>
 
-sz=0x18_000, please
+Thanks. 
 
-Konrad
+> > ---
+> >  kernel/sched/fair.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > index da0d9e19c457..1c0e2ac7751d 100644
+> > --- a/kernel/sched/fair.c
+> > +++ b/kernel/sched/fair.c
+> > @@ -12937,8 +12937,9 @@ static void update_idle_cpu_scan(struct lb_env *env,
+> >         y = SCHED_CAPACITY_SCALE - tmp;
+> >
+> >         /* equation [2] */
+> > -       y *= llc_weight;
+> 
+> nti: it's worth adding a small comment about the reason for the 32 below
+> 
+>
+
+OK, let me add the comment in the next version:
+Scanning a small LLC is cheap, so work conservation is preferred over limiting
+the scan depth. Treat a small LLC as if it had 32 CPUs, then the number of
+CPUs suggested by SIS_UTIL is scaled up for small LLCs.
+
+thanks,
+Chenyu
+> > +       y *= max(llc_weight, 32);
+> >         do_div(y, SCHED_CAPACITY_SCALE);
+> > +       y = min_t(u64, y, llc_weight);
+> >         if ((int)y != sd_share->nr_idle_scan)
+> >                 WRITE_ONCE(sd_share->nr_idle_scan, (int)y);
+> >  }
+> > --
+> > 2.25.1
+> >
