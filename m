@@ -1,111 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778926;
-	b=M51PbvUPH67ht/VFz4R1XY2h9J3ks6xsNXFc6YdZ8wGDU5fvb8OBApBe2Ka+VgutN0ZF
-	 6E0Y5+vjgASI/LCfzBP3x663bv86IjEflBsLtgEEB3xSYl+FE3BXItrchxYTRLLeSVdN5
-	 ForYToFpcSiQlGjwza/Dez6eaptV/uIYmfKjXwE3OmO539zhEZp378ZWYKMSGAFHbsMzB
-	 IFRpEt68GBR6imwzwBizf9OtyvI2uFacQA1/DPgUZCSKKiogQ2OKkua2ro/fHR6X7FHnM
-	 H66+BTHM5PqM0tt11rz1rQyImrN3KCLR+im9ly1s91/bcT9n1GOWxFCZTRYkNUEmAQA==
+	t=1795778975;
+	b=INk6LUcCHAqzmZZRIttt/PA7GwEPlLuqnapXRquSN2j08KDRj+ZbShB+WyuZk9HR5N28
+	 6Cvh2vk3Pwmy3mOxscOjuXVm8MY9G+BXnPYCWRFEbzd+kqZqH2M9WxTmvPyk95F/XB3aE
+	 9Tn8Y41xBynE+sGvWSV6/aCF4OWmg6HsUe9MQFdPMs6+p9faafDcTLEo6aTLw+wEtmSuu
+	 i0706pic/gg6GS0WVC945FIyJu35b9yI4kYITUXb9yf4Cc/e6Td1Iu3tEbMTSBZigk/gw
+	 h1OG4qm4/8gcJk5j/zOG4q/h1lo9G3tVngciiVKk7nuI1ZcL649cjuHsewZHT7dbwxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778926;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=3QcMFLkVoOVQbwwuwu7BQKszQucYPXEBAdfvcVBv04Q=;
-	b=2CUiXkPz4EuvUuMXPkffpAYLhgTel0RzU/8ZaF92ivLJSF1qsDblJIYSca68fw625/Yc
-	 OEV7sWdDZBDye8ydHTeXLkMuHmK2+He1dmVxUMHqaQcc8X0gOM8C9uaafJg9wvpB/dL6n
-	 AAJRN/+XUi76geTgWFFqe+GPqBWh2ZOg8u4pt6GQXmfu/LZw9PCZ4o0o0qmu3rwEp2PAL
-	 j3eADuagPfF7oNPM1StaSHjn13f0+B8C0ghtADzak6LUy5B73ma+FjiphE5VBBkHkYIXJ
-	 xj300pqriL+BcPt6VNQzJA4eoCa54uvcX0DS9sj2dTixmSVMQ47am9uyqeLV+gxYY+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778975;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-B4-Tracking:
+	 X-Change-Id:X-Developer-Key:X-Developer-Signature:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=1ANkrmfMFrvpyiRa4lPkzfM9t4gFZOEBQHA6RfERmMA=;
+	b=1SaKdhxFtGVHgM90nbVBUHZk33ZyGiq7hL3TJB6Mr2aSH50EVXLQDHtdbXjlnZogrUtf
+	 UwHqXZxnL47kHfOEwg2Saum1ix+Bqw8xvQfL+4bMWiEA1WUu66IINHxgmRgE5qz9/cSgw
+	 hPe60nURevcx/BYgJexvDKnfBo12infsZzPjQKh0LhF8jmJ1SvjlJXEaGjvEoGnJJqe3t
+	 wEJ0/nyJ6njYzjJY7lopgJRSmnci3r7oeXnQVx1W2z753YPctgsu3jhZDJF0t2cRj2ext
+	 TCHDn+ew4lixaPjWrtJLupDdHJGQzTZ4wp4DIsVtUvN3Oi5L5q1TB9qB2YHH2BQBZcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cffWaVwq;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eoXRxvyC;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MtNjF3F3;
+	arc=none smtp.remote-ip=209.85.221.71
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90901606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:28:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90901606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 795E6606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:29:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 795E6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=cffWaVwq;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eoXRxvyC
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApJSk273463
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:28:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3QcMFLkVoOVQbwwuwu7BQKszQucYPXEBAdfvcVBv04Q=; b=cffWaVwqTRC4Xmkk
-	q7CQKO27Qf+HBe7JXDPh3qS8EMBx76rrdczz6lIFAV0VPeOdqyVEZAGMh6+6g/cS
-	NhmmwRw/QQGVUnYqkKcASyknzWEx8xdLsykuJh6v51+e8LVyVmAWq6bZeznxHcy2
-	NWBaJzTR2kyRyrN0zSw5Tw7Xf1ApAJdCvdfTX64c9LAEms1IbghLnVzOLWcxoVZL
-	IR966B1kRxA+GorI5u9NVn9IjJ6sd10Dqvp2/ov9FOe00Y3qfTk8RuqFdmVN9lrj
-	Cxx07gW8c8NrPAdBpFJk9OsG/Hv6FlQGtoT7csVFMlUVcfWeyCXKIek2fN3flL0f
-	Lk6hpA==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u49arx2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:28:44 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5476f5bd009so24934491cf.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:28:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MtNjF3F3
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4ab855a8c21so6253660f8f.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:29:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795778924; x=1796383724; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3QcMFLkVoOVQbwwuwu7BQKszQucYPXEBAdfvcVBv04Q=;
-        b=eoXRxvyCcG0GcIcguIYGwmHfNh5pI+biCVzVc7biSCICitb+H0DkMW9ywsUKxDWDlw
-         2eI0Anexx22OtjIOu0K5DCmfLe6jVButs+1LotzkN+9fotpvLNvpiw/wJ6klowLu+Tyh
-         h/A2TavREPeDBa1RzIQZEKE+iFxFSWE66fDcm3LN7qMjOKej5/WDKqxOe1CNPTrGo6UT
-         rEWLhvNoR2sYPnPcHxW9m1DAHY/kOlM4EJEQ4DViiYFuzhmMSgK5t9aXW7Bd4p7uiGMr
-         efU2fBE2rcwTrQw3sThmco0QB/6a4LSVdj7A2UIpQVRsut7szxdycng9s9TldFdCeTi1
-         awXA==
+        d=google.com; s=20260707; t=1795778973; x=1796383773; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1ANkrmfMFrvpyiRa4lPkzfM9t4gFZOEBQHA6RfERmMA=;
+        b=MtNjF3F3ue4BQZbA7P27kvnkLMXKa4DLZlWs9h5DrwtOEVHvLmkEkeuqBXM3mDys38
+         h7V2UxhWUocL70OsFSJGITejeE25EM30kepRufAgu1+tH59sgHkvkhJ19LCXui7pAaGX
+         Kzh7wvn7PKfwm+YV1RXWWVFr3zEc+hgJcV1O26hUld1gGzVhIl6EpEYp8vR6N2bU+9l6
+         sY+j8FZZTA2ZG6qvbQ2cGbZvPQrkFIdw3U3pSjIukTDB5e2wM19cNqkGLYthfV+4nP+8
+         Hc6mvAbBMkPAUVSuPFGaqX1Egp3xkiosyGDLks9o3ZFcFBShqizOgoWDqXIv3XfGAeRE
+         O10A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795778924; x=1796383724;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3QcMFLkVoOVQbwwuwu7BQKszQucYPXEBAdfvcVBv04Q=;
-        b=YSp0/87Fd82krpOk3a9Wlo2BjwFSVh7t/QYKCBxCxI9MAXAfWtsP0s8BsxK2xCJN+O
-         LvjsIxPd6ThIzznTk9bQn9BXEsGkFx9506nQO1gKX0YiQV3ljdgs51zFDp6J7g+IUQC9
-         7DATpHipYtSKbhWqBd2wPwo/2rnlr//zgCyg/7H2VVDMmI4nUOnAXQF9JezrxOyuNmYG
-         X87SClL3znYEQ5UaTaK4mzYp4HsI8+1wVtaTDfPACrawvrrdqZhZT1K2lIF0tI+yr/iu
-         jdGLuhKkJFT0IvSOZxNtixa5PlD0Ax+DCdXSDjDuDMly38N7iuTZIL2ZlCaUWPdXqhJ1
-         wx3A==
-X-Forwarded-Encrypted: i=1; AL+hErHI2HC93DrakuBKgWezkfJL12A0xSCeOeEWDEJ/lNmGDoUhd9ba9fG7c9JjMVpSUohW01zKA0auqIUjYks=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5+F/Y39ra9qKHqQDef9j70qKOWdALX11T4+sWljLNrLNAKct4
-	JinJEuqrHQ84oB3HuKLyBu4S+EzumqkAHr4H3Ltcokn8lygc+cBOYasFdlqlOLS+MxwBdV7ZGNg
-	r3Rx9ZocxfVFjrHMxMvPXvFgEGTScl90VPtM4aAGOB0G+SS3ayHzR31aPYUdrJoBdwJk=
-X-Gm-Gg: AZFdTZeYEZUsKg7untV7LUYeKeiUxE4PgMTprZPdaK2D8zSME0WPPwhjfMB9c4Rln0f
-	klkfpKzR/rs/3S/gi+hY9dCCas24XpwiYudJS4PykMEICr7Nokt5Y16IIHJlrfITksxEM9uSDLz
-	Kq4nlmuyKG8pVs+bjDbo1z3smBoqT+w7quFYkdAECF4t5M1I5it+Q23YKjh6ug6auMVnCJUDkES
-	9H+BpEuvIWJrQC2iVml4zhEi4SpRY4o4k2jyuvIBMjkYSNeFsIjk4Pl46WvRSrm/IP/5oExZIsT
-	LT1WQLwnVkCiU0KuD0J0tYrKoqtCEB5pOKEAF0DdwQvRtyMM/GfwOmi0NNkZXtaXxrDizZ/bv3W
-	7oiwpXGMwCCFKA9CeBunTzpUcaTSBPVW85GykcFgYstzJBlSBTd79WE0F+JuvVJuZrt3iuTY=
-X-Received: by 2002:a05:620a:a801:b0:949:a385:d30e with SMTP id af79cd13be357-949baa12795mr4352516985a.4.1795778923779;
-        Fri, 27 Nov 2026 03:28:43 -0800 (PST)
-X-Received: by 2002:a05:620a:a801:b0:949:a385:d30e with SMTP id af79cd13be357-949baa12795mr4352512185a.4.1795778923280;
-        Fri, 27 Nov 2026 03:28:43 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b00117dsm853935966b.80.2026.11.27.03.28.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 03:28:42 -0800 (PST)
-Message-ID: <a049f292-848e-46cb-a2b6-0c4a82e9a7e1@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 12:28:40 +0100
+        d=1e100.net; s=20260707; t=1795778973; x=1796383773;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1ANkrmfMFrvpyiRa4lPkzfM9t4gFZOEBQHA6RfERmMA=;
+        b=RfQbKXvRC7Om6QhacviY9wZdMiKQ4oYGvGI3371nGgvLOXWLmU7SXEXPXIIAjbE1FR
+         cZ5rv51WoKw1c+H1f5RNFw0xCGBz375jQONQ8TK7ZZUbvjGqS4vuWwILRAwVGJQAGcTP
+         nzXL5KZfPW6zQqJpRVkbZBHjFKDOGpZl/Xy+U+j7l4bFnMA7FXqI9dm671CXniFTfXWn
+         UT5MaGTRNZoey2JheDOutwpKOTwQnF9xNW6vDjcgqJUjTajDzSZvuTFNAWmoDjMu6F5h
+         eEioee3JstxjpsjYv5chwi1X4Xmzdip846XCHbqdvgrKBGJtbhsNLrd+S2Nm1Klmnnt3
+         3BJg==
+X-Gm-Message-State: APuU4Z91uM+vMmoCVeSrmU0KDU1rmLf9ZqmNcfvcz4Itnet72/6s7vGo
+	8TuJbJNnTi4ZCvyfasWw9kKPsqcdWxNutQ/jI0KL7ea37MRxFr35KooRIvr/RfmumjLWQHjknWj
+	ui8cCWXOgrHZGsPm1oA==
+X-Received: from wrvq18.prod.google.com ([2002:a5d:61d2:0:b0:4a3:99b3:25c8])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:310c:b0:487:27f9:844 with SMTP id ffacd0b85a97d-4abb627ed47mr58407004f8f.57.1795778972531;
+ Fri, 27 Nov 2026 03:29:32 -0800 (PST)
+Date: Fri, 27 Nov 2026 11:29:25 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,77 +75,87 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/4] PCI: dwc: Force L2 link entry on shutdown/reboot
- without D3cold check
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Jingoo Han <jingoohan1@gmail.com>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20261126-shutdown-v10-0-fed60d9687f2@oss.qualcomm.com>
- <20261126-shutdown-v10-2-fed60d9687f2@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261126-shutdown-v10-2-fed60d9687f2@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: xhj7BRiOUie6PbeOUmlROEYlb9s8Z9B8
-X-Proofpoint-ORIG-GUID: xhj7BRiOUie6PbeOUmlROEYlb9s8Z9B8
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0NSBTYWx0ZWRfX/IexN34dob99
- RSwFDjZ9y7mz98PYPvUO+RcRBCZ+cxFBzYA1z4f0A0YUSM6dCNUW9Dv1hhqaa2H49K9JTGdOuZj
- b4pmwr+g5/s1fMA2GzCcTUdgPEN4kus=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0NSBTYWx0ZWRfXxTanEQlBjMi/
- 4Wi5/B260nGs209N0m8g5Ub19UL39d2/SYwHeG0El6TlBfg7uQ8PKtCLG/X7nTCks8psc0z43BL
- WOQ/xoFGDlHMZbsk58TV09jf0h6wN/h4uWkiSDLpR2P5n4H7j9MbX/dw3p9j6vgNoiklbUmHgyU
- 19oNMvQ6esqwLlXjbxLKdcK/MQd7XHCJBOJ5jPaCRnIoKhQrdkIXRqg5ErMbNjDRYSppQzRJ37c
- LWxZJc0KqwmC3y4YgleMAoc3nIHVEctJ6IET+AXWXLq0brDFLRyhwTcYFLpgLS46ppFYOzKoIus
- SLqy+mR0BWJccaZKZK6UTs9iB+HBdFp5CG80Wcv2NU2YLggfIpj6jVnUpOPoe04jQHPvlvmygCk
- CnANXKRU3l/AetPo/t+qnkcWq1llkerY5aMl7pZJbe2BGqPad23rknaodtLhhAIf2zhPudO1fJG
- cQ8SWFXEtJk5+dwSDCA==
-X-Authority-Analysis: v=2.4 cv=A875rKWG c=1 sm=1 tr=0 ts=6b09696c cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=6YwwngTh1o4zImgwx78A:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
- priorityscore=1501 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270045
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAJRpCWsC/x3MTQqAIBBA4avErBtI6Ye6SrRInWogNMaSILp70
+ vJbvPdAJGGKMBQPCCWOHHyGKguw2+xXQnbZoCvdKqVbtMG7NAu6YJH9SSLXcbLZCTttTN01te2 Ng9wfQgvf/3uc3vcDq1dc92sAAAA=
+X-Change-Id: 20261126-condvar-doc-interruptible-72bb4754c9bd
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1878; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=E4n/kS/woo67/T3UC5fTwH7TZdTnEn6HvJSp9Je6L8k=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBrCWmWkxS+dBAWHnkI733O9C2UNjCPVi+JKnp0d
+ Lm4ACHoUGmJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCawlplgAKCRAEWL7uWMY5
+ Rq+BD/45pRBgwCN0gCCC8sjB5wRw2Tqd61R2ADtkeeNvOHFBxQwL9prZUrCfYgjVqjXMPA4IZLg
+ 7+a3eVKrIHIL3v3eku4YsxGRbE3J3cce1VkaooWLhdefe+LO9RShoyxlcqk3ALR0jINEcgBojtE
+ jFlnuc4aVCgwZoG5KugY3zWpcKo4xgQ0H9NU+wNJMWw6UErgFVE0esUA8t/QxQoW381SLp9Aiif
+ If/JmrnUl5a6B6FaQ1Vyg2wlFNZ7b8qhevB0badxyM9opvb0ECs5J5AG7On4bINNCFpi+2YR59x
+ vtzepdvJsTa13nsHnqZypygJx4/qaY3uK/fXaKlP4Y8jcCchXpmQwzKMc4brMxVT0dn7N53e50s
+ 3WHMOPFJhBOW0SIHnC3TLj7cp7jhDSCOPxkhqAowacOIo4/5jsXKvjwBzLwIUjRHPna6QkUzlkR
+ SEHIBE3N849aNSRXWvoL0Ebw3R9dlrFmPhrJ2ogPanKTBOT0u3Jq1bUL9pwQLaf+GYiXDUBcHA3
+ gL6od+qdInQL7ZcF8htgMk2LhBLwJELVBHtk8LfEa7BuXylsUTA+gH20s5sgZzUEhi6cyoSRlPc
+ MTVQ0p0mA0arKKVpztFgAM0d9bjNZ6I4OSLRt1+6T8eiZqxMBBJKn/+B2pCjQ1/FOFywKgR/sAH d/udzlJCUg5WmOw==
+X-Mailer: b4 0.14.3
+Message-ID: <20261127-condvar-doc-interruptible-v1-1-d61a13fb0c36@google.com>
+Subject: [PATCH] rust: sync: condvar: show interruptible wait in CondVar doc example
+From: Alice Ryhl <aliceryhl@google.com>
+To: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, Lyude Paul <lyude@redhat.com>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, 
+	"=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, Miguel Ojeda <ojeda@kernel.org>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	Sid Nayyar <sidnayyar@google.com>, Alice Ryhl <aliceryhl@google.com>
+Content-Type: text/plain; charset="utf-8"
 
-On 11/26/26 6:17 AM, Krishna Chaitanya Chundru wrote:
-> dw_pcie_suspend_noirq() normally calls pci_host_common_d3cold_possible()
-> to check whether every downstream endpoint can be put into D3cold before
-> bothering to move the link to L2. If no endpoint supports it, the
-> function returns early and leaves the link up.
-> 
-> Querying D3cold support during shutdown is actively harmful, not just
-> slow: pci_host_common_d3cold_possible() requires every active endpoint
-> to already be in PCI_D3hot, and returns false otherwise. If any endpoint
-> is still in D0 -- which is common, since endpoint drivers aren't
-> guaranteed to have suspended by the time the host's shutdown path runs
-> the check fails and dw_pcie_suspend_noirq() returns early without ever
-> moving the link to L2, leaving it up right up to the point where the
-> system cuts power/clocks to the controller.
-> 
-> Add a force parameter to dw_pcie_suspend_noirq() that callers set
-> explicitly to force this behavior, still call
-> pci_host_common_d3cold_possible() unconditionally, since it's also how
-> pme_capable gets set, but ignore its return value and force L2 entry
-> regardless when force is set.
-> 
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> ---
+The top-level `CondVar` documentation example currently only shows an
+uninterruptible `wait()`, even though interruptible waits are usually
+preferred so waiting tasks can respond to signals. Add an interruptible
+wait function alongside the uninterruptible one in the example.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+This came up while I was teaching the Rust for Linux course.
 
-Konrad
+Suggested-by: Sid Nayyar <sidnayyar@google.com>
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+---
+ rust/kernel/sync/condvar.rs | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/rust/kernel/sync/condvar.rs b/rust/kernel/sync/condvar.rs
+index 69d58dfbad7b..fba82650842c 100644
+--- a/rust/kernel/sync/condvar.rs
++++ b/rust/kernel/sync/condvar.rs
+@@ -54,8 +54,22 @@ macro_rules! new_condvar {
+ ///     value_changed: CondVar,
+ /// }
+ ///
+-/// /// Waits for `e.value` to become `v`.
+-/// fn wait_for_value(e: &Example, v: u32) {
++/// /// Waits for `e.value` to become `v`, returning `Err(ERESTARTSYS)` if a signal is received.
++/// ///
++/// /// Prefer interruptible waits when the caller can handle interruption, so waiting tasks remain
++/// /// killable.
++/// fn wait_for_value(e: &Example, v: u32) -> Result {
++///     let mut guard = e.value.lock();
++///     while *guard != v {
++///         if e.value_changed.wait_interruptible(&mut guard) {
++///             return Err(ERESTARTSYS);
++///         }
++///     }
++///     Ok(())
++/// }
++///
++/// /// Waits uninterruptibly for `e.value` to become `v`.
++/// fn wait_for_value_uninterruptible(e: &Example, v: u32) {
+ ///     let mut guard = e.value.lock();
+ ///     while *guard != v {
+ ///         e.value_changed.wait(&mut guard);
+
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261126-condvar-doc-interruptible-72bb4754c9bd
+
+Best regards,
+-- 
+Alice Ryhl <aliceryhl@google.com>
+
