@@ -1,45 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786276;
-	b=gQS69zS/thgug6i2C9ueFXVv2eq34W/aXxJd3ID8F/YAPsI4pHjKzBEcFKmy6W6zS7Yg
-	 bxtDN1ET/eeDqIe/v4guX675JRT2iVMlYGgzDXZsH0iba3/WPrcFFWR4UTlsfVoR2+L4K
-	 Mzbx1Baa1RbXicphltMHtqhzCRO0/F3S70EJMrK5xeX9Rq1QE+EAdI+dn+6n0jR+ip/TP
-	 WvLWMGtOdvEAi4x5MS90nOPwFpaFEsM+7hxdKnRlgtsXjiZwBADUXVUDFIvPDmJf91D+X
-	 dVOVp3sgjurpe7ySpDarVSqJZzwYpEZaNr5g6dxT1fK/gY5qvRqFAv2xuj5VXOiTYWg==
+	t=1795786280;
+	b=Vj3OipurIlN3aaTaGUohlt+33XaGAiw46Um+qWOod+Pha/Z3YVNPVoDawgNRNB5wEiyA
+	 d6aeJ3hKoh3ULjzY269FHFmMjMJu9sLrSy1bintCim3D59b8/aw+QC+cKQ7XArtWgtM49
+	 XD6y6x7SKgzP4PRESKfHI3tLFx7to7kJLBJ/EksWfRe2e9QvnG0fbMc+nLNiXsu+c+LBU
+	 wB96j4bZSnIbIEn0zqqkrb7XeemGR4DfkR0iyX4qJQlzbF7XMpEptWz8d00jHBOjWzrUG
+	 KcZ4m1Roir4a+BBeVBdgf7s+OjZnmQb/T0aKC1jV5eLtWB7eHWo0O/E4HEiXcvYne8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786276;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786280;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=j+AhWvZjNA/Qk9G+7JEfWEukJQ9zCiGKSKZhtBAXKPQ=;
-	b=JHnMg+YZ8GugxP0O7cHeFSZzWD0kr8orVIHN64B62BRLuyA/0pC923hk7sUcdQqSwH4v
-	 EItxIqSzWnb6m12t8rN0fK3CaiVh7HyplDnK5L/KaA4we6qopMkwgRJeAZdkJJjusbHXY
-	 89TBVSb16k5k7A+iABGZxA4SkeOrcq0CQyVeefcjraty5KPN7bfZs5tRTUujA3l+MABH/
-	 Dn4SFLKz9+V4IY4hW+HG3J0IO2/1aVOlRkGeZXd/hNZLTArfVBAnC5sAAjDOmtj/m/F21
-	 3kB0gemozZg7ttPelQtSXy/x6GL7m7V7WFtr9HRqPb8yct+BwOAbjTB8YZkzrt7hfNQ==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=aA/dQ2m8MP2DvnhHqLbRZoOC81lgm/NuCGrXryaOxfU=;
+	b=GFq2EcYinjcC7ZHrmzoYuPwzhPK95Q4vF7kUOm2QwACFH+1ejK6mOrQcUsXzGOcphaVx
+	 JH+sEcUttYHsVx47UPQ7YOPgUJdpdW/ZzSO4/XswlcI6e837kD2F4Z3nns1nb14QvYiU4
+	 nCVHI8Llj1DexMB58vxIu/t00dHT9zzAhnk6vElG8UP1jjBnkWtVqTYRzjwVUwL6PBo2f
+	 ueCwIc141tp6SfviV8+jQWLCEcvvYRya6CPaJ9mTTqX0g1cBncoJIQ3SZDDHXBujqj1il
+	 97q6YDXGf7GCAShrJ+40EIBZ7SumwPtLM224uA1flaALxRr/QFAModiT9KAlcBh0dPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.ustc.edu.cn;
 	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=M6xj2LVW;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=cdbtzyef;
 	arc=none smtp.remote-ip=202.38.64.46
 Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4CB09606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CB09606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 39F57606A329
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39F57606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=M6xj2LVW
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=cdbtzyef
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=j+AhWvZjNA
-	/Qk9G+7JEfWEukJQ9zCiGKSKZhtBAXKPQ=; b=M6xj2LVWlIjUY6pgxfYIdCd+05
-	VXuIMTGNTYuJESK7oU8x+51SiRaNjnXJUrrbbGQ3DYkxfqqKPpDqDd9eLY6mOhci
-	LO365OnfaJYB0u7qqBDgt4Ay1+8EBt2Fx5E4qpVHMDciZNlTNvaHGKknbVRY4tcw
-	1V1Spp3geeQ4QnZPM=
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=aA/dQ2m8MP2DvnhHqLbRZoOC81lgm/NuCG
+	rXryaOxfU=; b=cdbtzyefGRV9BIW2M3hsUvgH+k6WaJjZKbTEu4gh3W7WPGNDQJ
+	CxssMdC8xp89RA8ErvsDzwrvjsftRiAo0BsYboEDCVQwvZxQH8jkK5hHiY7Ip9O0
+	Zd0UNEIaxSpiANrRpmmWN7FGA/BKWCH73pHn57ehDsG4sLaKHcNgvmObU=
 Received: from xuqianhui.ustc.edu.cn (unknown [114.214.180.66])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgCXI0jphQlr2eQCAQ--.2853S2;
-	Fri, 27 Nov 2026 21:30:18 +0800 (CST)
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgCXI0jphQlr2eQCAQ--.2853S4;
+	Fri, 27 Nov 2026 21:30:24 +0800 (CST)
 From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
 To: suzuki.poulose@arm.com
 Cc: mike.leach@arm.com,
@@ -49,10 +50,12 @@ Cc: mike.leach@arm.com,
 	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] coresight: add missing MODULE_DEVICE_TABLE() for CTCU and TPDA
-Date: Fri, 27 Nov 2026 21:30:15 +0800
-Message-ID: <20261127133017.1606830-1-xiaqinghuan@mail.ustc.edu.cn>
+Subject: [PATCH v2 2/2] coresight: tpda: add missing MODULE_DEVICE_TABLE()
+Date: Fri, 27 Nov 2026 21:30:17 +0800
+Message-ID: <20261127133017.1606830-3-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127133017.1606830-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261127133017.1606830-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,76 +66,54 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgCXI0jphQlr2eQCAQ--.2853S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw1Uuw17Jw15uFWkKF45ZFb_yoW8ZryxpF
-	45K3y5CrZ8GF4F9a1xAF1jg3y8tr4kKw4YqFn8t3y7u3Z0vF95ZF12ka1rG3ZxGr1UG34r
-	C390qr1vqFyDAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkqb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1D
-	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
-	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU838n5UUUUU==
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREDB2sHyZtdggAdso
+X-CM-TRANSID:3pYKCgCXI0jphQlr2eQCAQ--.2853S4
+X-Coremail-Antispam: 1UD129KBjvdXoWrKFyUGF17CFWkCw4rCF18Grg_yoWkurc_Cw
+	1vgFyxZ34kGr9F9F1UJwnxuryxKanI9rn0va4qqFyfAwnrZ34fAr1vkrWxAay8GryDXasY
+	kr1DXrs8ur4jyjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbSAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7
+	IE14v26r15M28IrcIa0xkI8VCY1x0267AKxVW8JVW5JwA2ocxC64kIII0Yj41l84x0c7CE
+	w4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6x
+	kF7I0E14v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIE
+	c7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
+	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF04k20x
+	vY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I
+	3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIx
+	AIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAI
+	cVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2js
+	IEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07j2-eOUUUUU=
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREDB2sHyZtdggAfsq
 
-Hi,
-
-both the CTCU and the TPDA driver are matched through an ID table, but
-neither exports that table, so building them as modules produces a
-module without an "of:" / "amba:" modalias.  udev cannot autoload such a
-module, and the device stays unbound until somebody loads it by hand.
-
-This was found on an SM8750 based phone (mainline v7.3.1,
-CONFIG_CORESIGHT_CTCU=m and CONFIG_CORESIGHT_TPDA=m):
-
-  # lsmod | grep -c coresight_ctcu
-  0
-  # modinfo -F alias coresight-ctcu
-  (empty)
-  # modprobe coresight-ctcu && readlink -f /sys/bus/platform/devices/10001000.ctcu/driver
-  .../drivers/coresight-ctcu
-
-Five tpda devices behave the same way.  With this series applied the
-modules carry "of:N*T*Cqcom,sa8775p-ctcu" and "amba:d???F0F??" aliases,
-and on the next boot both autoload with no modules-load.d help at all:
-
-  # lsmod | grep -E 'coresight_(ctcu|tpda)'
-  coresight_ctcu         16384  0
-  coresight_tpda         24576  0
-  # for f in /sys/bus/amba/devices/*; do [ -e $f/driver ] || n=$((n+1)); done; echo $n
-  0
-
-There is no functional change for built-in builds; MODULE_DEVICE_TABLE()
-is only used for module aliases.
+TPDA is an AMBA driver, but its ID table is not exported either, so the
+module has no "amba:" modalias and udev never autoloads it.  On SM8750
+five tpda devices stay unbound until coresight-tpda is loaded by hand,
+even though the IDs in tpda_ids match.
 
 *** AI-assistance disclosure ***
-This series was prepared with the help of an LLM coding assistant.  The
-author reviewed every line, reproduced the before/after behaviour on
-hardware and is responsible for the content.
+This patch was prepared with the help of an LLM coding assistant.  The
+author reviewed every line and ran the commands quoted in the cover
+letter.
 
+Fixes: 5b7916625c01 ("Coresight: Add TPDA link driver")
+Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
 ---
-v2:
- - add the Fixes: tags requested by James Clark (both commits).
- - carry James Clark's Reviewed-by from v1.
- - no code change; the two hunks are byte-identical to v1.
+ drivers/hwtracing/coresight/coresight-tpda.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-v1: https://lore.kernel.org/all/20261127113137.931578-1-xiaqinghuan@mail.ustc.edu.cn/
-
-Qianhui Xu (2):
-  coresight: ctcu: add missing MODULE_DEVICE_TABLE()
-  coresight: tpda: add missing MODULE_DEVICE_TABLE()
-
- drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +
- drivers/hwtracing/coresight/coresight-tpda.c      | 1 +
- 2 files changed, 2 insertions(+)
-
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+index 89c8f71f0aff0..5d622d7b88f8a 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.c
++++ b/drivers/hwtracing/coresight/coresight-tpda.c
+@@ -622,6 +622,7 @@ static const struct amba_id tpda_ids[] = {
+ 	},
+ 	{ 0, 0, NULL },
+ };
++MODULE_DEVICE_TABLE(amba, tpda_ids);
+ 
+ static struct amba_driver tpda_driver = {
+ 	.drv = {
 -- 
-2.51.0
+2.53.0
 
