@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795811422;
-	b=ekThhn40ktLU381Yt6EXmkSB0zdCpadpGw/1s/drRoRFTwEfehAigOUC3h80Q6wu436p
-	 xmT7iB7HiqfHhyz2M8qY0IWp5RkxV6vRoer+in/66J6kL5iUKqYzNHroFm0WnXKxp4EsV
-	 nULE0yupnZSThRrfpI0KQQmZsSSOhD8JFrkrzcFvR/TJH7zn8NrjxZjHnrtX+0fnSolbh
-	 Bin8p078UFezq5Bn7rhOf/5u0RqixEOgF1UFOEDNbHqBUAhwUvggEewNY7llt8vsuqosq
-	 E3cngKTw3bHAhT38lcytL5YWguBKKZNdODy42GI/cYAUh70NPK5oPZzivFQuyUO7mTQ==
+	t=1795811419;
+	b=eDCY4YaXpLFHNGq1ayt5WU4QK3ZgvC3yV4M9SUSG+zmw09KG+vCXwbrZYq7uxRdwYOZg
+	 f7k7uHxkD/+B+ho/tvxra8csNtiSYk//1XnJbpNUyBwcHPWf3/t0ccmzCVrsqmv+NkCeu
+	 35abvNNZMTFdhqi5sw/bCNWcIjZDnDnCOwkgEyM7qF6R4qu61A6+cvzPdlRO6/EAtQ1fE
+	 Ch51wYaqYc7lCYp4/NT51Rn+GHPKFECbgExqcEgEtp+lUbs9U//ULFYqaLqU0vhpComIt
+	 PvhvteYkEGOI5EMihLG7sJrDjzSfuPGQVGowZcSX/d0YZH/0MChMiuwR70TMG+nGF/A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795811422;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795811419;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ypDv40wXCsTJZob1bP8jVIS1UkZGEDD4rGOmiZVwA/A=;
-	b=ySrI6KX7q8ufPkt42oFHHEAId8t2B/qLEtyMyapLGYmjzR6CdgD5plf00hbRpsqEIOS0
-	 9/MAzxGzkT6uFhmvUlHjHszWYV2+Pldbl1VdN7fhGBpCdKQtcSWstgGyEpNjheQPoT9jK
-	 2kNB0icgSAbww/QkDq/tHScYlFOxtQhMDLUNCrhS7GrN7vrtGsXDj+fseXAMNWErVx1Jl
-	 2EbsEp1ZQkVUpddThGif3BVCNubtD0mriX4y9xwT6QU0JwosgsWdHP8DPf9IIUxeDVAld
-	 +LKrmZeVTrnhvbc7/H4NafnSeAM/tWszf82ccCqz/6qpqLaPAO4Kn5bqqrE8hWkOjcg==
+	bh=pPc+i/x6DYbrMCfxvFpTZHdn6g20qy7xJ7gAP1DWm8Q=;
+	b=vqix15simLNPtinp1m2GXPmEe5goHC8vCzfl5aTJNkwyE0lBmLa5Icw+f8FiPi+zbVXN
+	 VpasKGxmpuh+wg4QVVu4W8Arf1jIUPycf6bHRPov/LWPJxFG6UHInIyP2jmbeVQwwkNqb
+	 copInaVs91P7abP9yubtdwQquo/QreHFHxvs58C+Gu9sdinisC5lP+r0mOP1aQxiQGxhU
+	 6PtA39OPLJAK/3wa1aXir8sEvXxw1rRuzHk4IjKJpZKs3En//NpBUTNFyBUZVcmkSJpkV
+	 1TquCDe6OwuH/0GYwqr3G8cgL9PKkRY+s+3nj+v/BaL0LUQw2qpZv/DgpW5YWhLuwyQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5yeSpYj;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LOP2Nr1o;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 692DF606A32F;
-	Fri, 27 Nov 2026 20:30:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 457FC606A331;
+	Fri, 27 Nov 2026 20:30:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5yeSpYj
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LOP2Nr1o
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795811421;
-	b=Mc3ZYMszoaaXZ4rGh95cDSnH3dWuXHk2GrRp4fE8ttnE9vfp/ALBzHeTT3kWbiLzbOWR
-	 ixic96f/nSEPTjrguKT/Y2NkUajyClGyNQXle/I/Ze4QUOMyBQ3iK5MV1eGLg6G+L8zed
-	 MXfBoWILjpswHGscgHtr1W1c+ltqbts0NPArks/6zx8qNVEWe09yxuGwDXk95hMTBW2pY
-	 s0Smt+wRmMQ4T6kT7Dc/q4madKdD0W/fll8Cpa7YpF0OuuP8JfjGABPPmT/VfT77mEy8d
-	 z5A5xHCvV3zyDx0a7hGXNzMguHAshpKe5a9TWiYTRyb/HOUXtEEO2xXRqmFdimbGqiA==
+	t=1795811418;
+	b=OMWaxTxmR8PS+2UF4Xl/vYjnd15sy8YqIcAS6Z9Cfe1+HRCnzwRLiyvVuADZrZxrWCDr
+	 yudfZNJkKffnXYxqau133l3OLMVClrmnGJXwAR37Z7w07/nrSQcxeSRm3D0jYAKXfxovh
+	 JZEGES+5xGauyp9yBOvCVhn9K4Y5ABdVBFf8hdQnP+TnJV2k55yoHkUix714qEdUcZ9Xi
+	 I0y6aqBgm79KSTlkedoC5GtRgttVVshfAZp6e5vouuwvR8FhAkZ10yub2M47819+D43+/
+	 ilo8IWRWMr+3jKrc1zqFUJlIPhoql4OKKv0CIoqZoDN9bR+dogPaLBsz/7LNc0yQcnA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795811421;
+	c=relaxed/relaxed; t=1795811418;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ypDv40wXCsTJZob1bP8jVIS1UkZGEDD4rGOmiZVwA/A=;
-	b=HevNqVO7viekmSIs9VvPc+EyvpuxUrD1ZJI3HcmPAsofvI4gGJn+CCw6+sUEPY4OLnBj
-	 KQrHINaRyul3Cas2u7HlyhLfQ6OgDt5Hf5YbIdI0wUGaATaf59Xiw9sk/1sNF6z/jdd4j
-	 U8LVui2239hgtLciCf1RCz31to1u3nlBxQyQZTzDA2YZeST9+8Qrgp0e2apGB8mC91WEi
-	 NU1SdATKmOOdOnBHOdO8t2yHUT77jPV/3QXS/N1LobSWC2aM3dfFxlun2wXqjFyULK7KE
-	 jXHpl7UQE5nITAQqTB1YZyRIbYiBLT3obj9XKLbJ7sgIVZX4qh6LpuESBFTRJS8lbYA==
+	bh=pPc+i/x6DYbrMCfxvFpTZHdn6g20qy7xJ7gAP1DWm8Q=;
+	b=P+hh485K9JM5Fkg6DxZ7KdFoV2GGUX1LSXuVSXTeupBx2IuYRx3L1BLgqPcHcAgezguL
+	 /gG+atxm5P4Mf5LnZ8nnv0t/XYkUozQitDArXKFZm5IW13+JG47XBFrDmQCecTVkRA1NJ
+	 yS4szuRkfxU4fXaAUwFnTpA5uw+pVIXWcAw914U7lqD7f7WoBpOK7RFuTxgEi/VADmfDO
+	 ckMb4DtpF3FsgdytI1Xz3s23sGNDk1h/05xKt3PvHhTMKDhuk/8M5mvYa1ghrf/VQ4Dp1
+	 SAsKp6xyXf2dK8O/T/50embUIqrTIwjrru2pNEDvnix/ywv1ZN0lR0MCllkziVM4GPA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 256291F0089B;
-	Fri, 27 Nov 2026 20:30:14 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id B8F461F00897;
+	Fri, 27 Nov 2026 20:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795811421;
-	bh=ypDv40wXCsTJZob1bP8jVIS1UkZGEDD4rGOmiZVwA/A=;
+	s=k20260515; t=1795811418;
+	bh=pPc+i/x6DYbrMCfxvFpTZHdn6g20qy7xJ7gAP1DWm8Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=m5yeSpYjvX5RcVueRid0k3ahtuH7NDC2O6lwTRn1f0sBShYJHSxjjbAlHhifNLRXu
-	 bVF3xuMEqNo3eor+JzIzCoLhMd9WZe7V9dVw7yigoChVyvp4Iy0d2FLGkgI6bhG5W3
-	 9Hc+t/c9i9LoU09RB1fyQpNe/3dZ8NJmyJEfzv85JiPaK4SWu2TT4WszPWkc6hZ6X8
-	 G39P+nzldYH6K4/grmYO4YsH1zncizYCfIE7u0JrYIcJINWkSULFbK1SR8aqB+NaWO
-	 yb3hPQHiTE2IPjdI4gjKK2DMbVm+8jOokPIon2cnqoSVNBPk7X9L63fpH+78ERvzpo
-	 Pokr2ibWhmv0g==
+	b=LOP2Nr1om5br3gb4h62UmXqsZRBdmOFuhihRZJXyQMUevcyQE4tNLw2RGG0ARsyG+
+	 6RJldWjcR8KTgYiyN0jde+j4Qz5Lzj3vSNdlyzwDYLmwifY1wmk1KtR5YZ951T6WzP
+	 bVV7UBJEO1mCg2cMK+DvAGoWqE3mSbpwtuk8y4cgl9npp9D00DBl6Pjewg13aoOXqR
+	 gSPClYrEM9iyENbd7WR2HDCgQaf0Xn8OXL1sF8n3+40cDgADgkyq0WUfrCIx6o4IlU
+	 oPU8O8Kpg55WsUgmFrG+adaP8ifE8oZRp9f2ApNrrRy40sy9Vg/zWAIHjWqPmpcZAH
+	 O8cvYLVzZG6Xg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A41A84DDC7;
+	by lkml.kernel.org (Postfix) with ESMTP id 44E144DDBD;
 	Fri, 27 Nov 2026 20:30:13 +0000 (UTC)
 From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 21:30:16 +0100
-Subject: [PATCH 4/4] media: i2c: ov7251: add V4L2_CID_FLASH_STROBE_OE
- control
+Date: Fri, 27 Nov 2026 21:30:13 +0100
+Subject: [PATCH 1/4] media: i2c: ov7251: wait for software reset settle in
+ power-on
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-ov7251-strobe-ncont-v1-4-cefa8c6c020b@gmail.com>
+Message-Id: <20261127-ov7251-strobe-ncont-v1-1-cefa8c6c020b@gmail.com>
 References: <20261127-ov7251-strobe-ncont-v1-0-cefa8c6c020b@gmail.com>
 In-Reply-To: <20261127-ov7251-strobe-ncont-v1-0-cefa8c6c020b@gmail.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -94,11 +94,11 @@ Cc: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
  linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Robert Ijtsma <robertijtsma@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795811412; l=3757;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795811412; l=990;
  i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=yvTV+s3D7NAOh5BV09o0U6C+V+jBgQvfOZD1tUWs0hM=;
- b=P6FZyAR+Ml3t5H3BowgEG7cVPUV/eVKhy0qBjPnxV/PVXTvynBHS9e0PB6FDbkeeQ0CmMU29F
- PH8WvxBV8vUClaaW2gsj2T8tc9uP48GlVjlXVS7L7E1PP3/WkeZgxXG
+ bh=C+8lmuISbwzysaK9qU8l6di4Xw5u0AVciao8qKMN3LA=;
+ b=HPtJUOnuhfsDgAFbXWAgHnbjkJU84yThp3NDuhihxnFHjXQiq2d+nFcFs3q5sTXo4tDa+PHmJ
+ QVOC/d9aW5gB94y3CHnk+GLm7uBSycyZYFlbM5gMFIF22xg5FWXSRlF
 X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
  pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
 X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
@@ -109,113 +109,33 @@ Content-Transfer-Encoding: 7bit
 
 From: Robert Ijtsma <robertijtsma@gmail.com>
 
-Devices such as the Microsoft Surface Pro X wire the OV7251 sensor's
-hardware STROBE output pin to an 850 nm IR illuminator for synchronized
-frame-exposure illumination.
+ov7251_global_init_setting[] issues a software reset (0x0103 = 0x01) as
+part of ov7251_set_power_on(), after which callers immediately issue
+further I2C register accesses. Give the sensor 5-10 ms to settle after
+global initialization to prevent intermittent I2C errors on rapid power
+cycles.
 
-Expose V4L2_CID_FLASH_STROBE_OE (default disabled) to drive the sensor's
-STROBE pin (0x3005, 0x3027, 0x3b81, 0x3b8e..0x3b8f) while streaming, and
-disable the strobe output when stopping the stream.
-
+Fixes: d30bb512da3d ("media: Add a driver for the ov7251 camera sensor")
 Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
 ---
- drivers/media/i2c/ov7251.c | 47 +++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 46 insertions(+), 1 deletion(-)
+ drivers/media/i2c/ov7251.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/i2c/ov7251.c b/drivers/media/i2c/ov7251.c
-index 13fcc4cdb31a5e7350bcc0b15d186f4912b074be..e6007708139964c423c68dae86e7c07c26349fea 100644
+index 5b03343a0350c926a34a391af6a338ddf6c3e0bd..77ac60fad62209eda0444015196e52564a0e947d 100644
 --- a/drivers/media/i2c/ov7251.c
 +++ b/drivers/media/i2c/ov7251.c
-@@ -30,7 +30,15 @@
- #define OV7251_CHIP_ID_HIGH_BYTE	0x77
- #define OV7251_CHIP_ID_LOW		0x300b
- #define OV7251_CHIP_ID_LOW_BYTE		0x50
-+#define OV7251_SC_IO_CTRL1		0x3005
-+#define OV7251_IO_CTRL1_STROBE_EN	BIT(3)
-+#define OV7251_SC_GP_IO_SEL1		0x3027
- #define OV7251_SC_GP_IO_IN1		0x3029
-+#define OV7251_STROBE_PATTERN		0x3b81
-+#define OV7251_STROBE_PATTERN_ALL	0xff
-+#define OV7251_STROBE_SPAN_H		0x3b8e
-+#define OV7251_STROBE_SPAN_L		0x3b8f
-+#define OV7251_STROBE_SPAN_DEFAULT	0x0200
- #define OV7251_AEC_EXPO_0		0x3500
- #define OV7251_AEC_EXPO_1		0x3501
- #define OV7251_AEC_EXPO_2		0x3502
-@@ -979,6 +987,37 @@ static int ov7251_set_hflip(struct ov7251 *ov7251, s32 value)
- 	return ret;
+@@ -941,7 +941,9 @@ static int ov7251_set_power_on(struct device *dev)
+ 		return ret;
+ 	}
+ 
+-	return ret;
++	usleep_range(5000, 10000);
++
++	return 0;
  }
  
-+static int ov7251_set_strobe(struct ov7251 *ov7251, bool enable)
-+{
-+	int ret;
-+
-+	if (enable) {
-+		ret = ov7251_write_reg(ov7251, OV7251_STROBE_PATTERN,
-+				       OV7251_STROBE_PATTERN_ALL);
-+		if (ret)
-+			return ret;
-+
-+		ret = ov7251_write_reg(ov7251, OV7251_STROBE_SPAN_H,
-+				       OV7251_STROBE_SPAN_DEFAULT >> 8);
-+		if (ret)
-+			return ret;
-+
-+		ret = ov7251_write_reg(ov7251, OV7251_STROBE_SPAN_L,
-+				       OV7251_STROBE_SPAN_DEFAULT & 0xff);
-+		if (ret)
-+			return ret;
-+
-+		ret = ov7251_write_reg(ov7251, OV7251_SC_GP_IO_SEL1, 0x00);
-+		if (ret)
-+			return ret;
-+
-+		return ov7251_write_reg(ov7251, OV7251_SC_IO_CTRL1,
-+					OV7251_IO_CTRL1_STROBE_EN);
-+	}
-+
-+	return ov7251_write_reg(ov7251, OV7251_SC_IO_CTRL1, 0x00);
-+}
-+
- static int ov7251_set_vflip(struct ov7251 *ov7251, s32 value)
- {
- 	u8 val = ov7251->timing_format1;
-@@ -1072,6 +1111,9 @@ static int ov7251_s_ctrl(struct v4l2_ctrl *ctrl)
- 	case V4L2_CID_VBLANK:
- 		ret = ov7251_vts_configure(ov7251, ctrl->val);
- 		break;
-+	case V4L2_CID_FLASH_STROBE_OE:
-+		ret = ov7251_set_strobe(ov7251, ctrl->val);
-+		break;
- 	default:
- 		ret = -EINVAL;
- 		break;
-@@ -1394,6 +1436,7 @@ static int ov7251_s_stream(struct v4l2_subdev *subdev, int enable)
- 		if (ret)
- 			goto err_power_down;
- 	} else {
-+		ov7251_set_strobe(ov7251, false);
- 		ret = ov7251_write_reg(ov7251, OV7251_SC_MODE_SELECT,
- 				       OV7251_SC_MODE_SELECT_SW_STANDBY);
- 		pm_runtime_mark_last_busy(ov7251->dev);
-@@ -1594,7 +1637,7 @@ static int ov7251_init_ctrls(struct ov7251 *ov7251)
- 	s64 pixel_rate;
- 	int hblank;
- 
--	v4l2_ctrl_handler_init(&ov7251->ctrls, 7);
-+	v4l2_ctrl_handler_init(&ov7251->ctrls, 8);
- 	ov7251->ctrls.lock = &ov7251->lock;
- 
- 	v4l2_ctrl_new_std(&ov7251->ctrls, &ov7251_ctrl_ops,
-@@ -1609,6 +1652,8 @@ static int ov7251_init_ctrls(struct ov7251 *ov7251)
- 				     V4L2_CID_TEST_PATTERN,
- 				     ARRAY_SIZE(ov7251_test_pattern_menu) - 1,
- 				     0, 0, ov7251_test_pattern_menu);
-+	v4l2_ctrl_new_std(&ov7251->ctrls, &ov7251_ctrl_ops,
-+			  V4L2_CID_FLASH_STROBE_OE, 0, 1, 1, 0);
- 
- 	pixel_rate = pixel_rates[ov7251->link_freq_idx];
- 	ov7251->pixel_clock = v4l2_ctrl_new_std(&ov7251->ctrls,
+ static int ov7251_set_power_off(struct device *dev)
 
 -- 
 2.47.3
