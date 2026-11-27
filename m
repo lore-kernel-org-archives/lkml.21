@@ -1,60 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767868;
-	b=x71vifXN+dKPhWGSLjsyNin93ncw88C6bgTsi4KnDsPFnRKRxAcUBvk6d8gFY+QYNBe9
-	 d0PkNJh2gm48Wp/zKefvXYJP+fHEiEcScwzJeUyBXm5LnZbrDu5DkHZd0JBHEkFMlrkzm
-	 vb66LXc7vW38bE2tTN7erQDKCqz4LkZK8AqsLxvZR8MddsTUbDKFP4eA2F3jeswdYaFis
-	 oC2609pO6yO3zdNxBwYOHBiXRr5ngnXw68AIUy/jTwtNu4fJK/XMprIX+hjQxnCRLZZlO
-	 QwInXPGYFswAdreNnS/p657jDudXfhg/GcYkAoW0daPrP9KIcriQTajpfCff90bJ7bQ==
+	t=1795767948;
+	b=Udg+NysFQ4b0uex1DUe3pFIin73vVgruJrT280R1VoHW9+f+ySjpsDy0CzIFQiUW0OXq
+	 ol1gekQ6vZagPIHHNoXarPhlYp708UuJtIby3wdn6vpZETzlgYMGY8JBpgP+gt/eD0B9t
+	 rsn3wQ348MyEOUuED5WAzS2SfRMoJdNq9aUNc80Zkpyxvaj1cjLVWoe/G6INaKBwYA0SK
+	 QErmPaCNw/7m4fRaxKljCTEwEiqQePlBKE5lSfpCyfau0ktMlOzJw2QN5XYTpKmRfZEFi
+	 07dsBleC8x/7yUj6Ycg8LYPyVPQbZqkIpmTekha9YMEUBJQyCp2JgTpLYNeFtMZG2sQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767868;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767948;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=bxqLFaxeSXekv8pV35zqiFDuRDd8lYoCf4UL4nBylLU=;
-	b=GhPCrtmo8OXVgAAsJdvqS/l2CTzMsDh3v2q/W8giADnYPUZsDTk5wLK+Q4fg/tE2yZoU
-	 WoFEILr2Bwh5K6z7P1qGsEtjUdYl6fdE7kR4ZvL8fD3wtOX/CX5vBh339xPPk7Nqh22EH
-	 EAavyRgrL3HMZ2rLtmIAwxKmyIITkpFsxLAp7pSGoAWHt5ARoF+8DlRmE2OCBKTVLYETn
-	 luSUpFbNsC5CC5qN1m3X9m93sNTHqbNkJn/1Z2ytFwXQ49n6dD3wuKm1Cj4EZtsJBGpvp
-	 t4D0GIcW49AMXUURoVSS6lKqXZKLLxxPy6pvI5WXp8Z52b65kHUG22keznoPkmMUr0Q==
+	bh=zDmzXu0NFQj2oA+T/NCkwzTX7oOI4zb62sgTL/zr73Y=;
+	b=U+Kqj7Wn5zx505zVNrHkyBgW0Zii/D1ImQpu9rw1T2cI3FmWI8TZJnQWvdXJoKDOYEoA
+	 SZyuhDajJslI+STKloTMCTPZ6+B3PPqGWETgW6XivgFfGIylhHgATF/o6EMt5pAjM329K
+	 D2TuZaGSRn8wtgtZl08Gm7SuEga4zPkVZtqPKFFGke1mWiw7Ze5Nn2ymhAGrtzA2R1wqt
+	 9BseQne7IOApNgOx2ZEiIrg63lwi/5/E29RmJH6pRJmXF9JYWJXtDPuN9FOYuXZlthtuM
+	 qnwn/+3s55FfUoS5zML6QkinUO4VDlW9sObNH7LzvqWs4Rk3vHY1pg7K7AYPsG39G9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=qm32bBe9;
-	arc=none smtp.remote-ip=115.124.30.98
-Received: from out30-98.freemail.mail.aliyun.com (out30-98.freemail.mail.aliyun.com [115.124.30.98])
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=P28Pzs3r;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=ZoDbpXC6;
+	arc=none smtp.remote-ip=103.168.172.148
+Received: from fout-a5-smtp.messagingengine.com (fout-a5-smtp.messagingengine.com [103.168.172.148])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B158606A31C;
-	Fri, 27 Nov 2026 08:24:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B158606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10A18606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:25:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10A18606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=qm32bBe9
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795767857; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=bxqLFaxeSXekv8pV35zqiFDuRDd8lYoCf4UL4nBylLU=;
-	b=qm32bBe9f7YYCixZjXXtsL7i/WJxBGMUnfQPwlyOB/UhKfXtxQA9PA64L7OtZeWWkChCOGgJMcqgz7ZyV5aZ8KiRGffSEKUWGCFNMFmg6actkxfgMQZ+91Jki9eaC7CuHqTC5lzWPmxzo/EWE6rcy3nM7OBpKWpi2CKrEA5gTd0=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R831e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=jiangtianfeng@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFXHc.Z_1795767837;
-Received: from h68d07384.sqa.eu95.tbsite.net(mailfrom:jiangtianfeng@linux.alibaba.com fp:SMTPD_---0XFXHc.Z_1795767837 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 27 Nov 2026 16:24:17 +0800
-From: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
-To: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
-Cc: Christian Loehle <christian.loehle@arm.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v3] cpufreq: Keep global boost enabled after partial enable
-Date: Fri, 27 Nov 2026 16:23:53 +0800
-Message-ID: <20261127082357.879160-1-jiangtianfeng@linux.alibaba.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <bf120bab-75dd-4660-88ad-c00dfec38c92@oss.qualcomm.com>
-References: <bf120bab-75dd-4660-88ad-c00dfec38c92@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=P28Pzs3r;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=ZoDbpXC6
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.phl.internal (Postfix) with ESMTP id 3E85EEC0BA4
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:25:47 -0500 (EST)
+Received: from phl-frontend-02 ([10.202.2.161])
+  by phl-compute-06.internal (MEProxy); Fri, 27 Nov 2026 03:25:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795767947;
+	 x=1795854347; bh=zDmzXu0NFQj2oA+T/NCkwzTX7oOI4zb62sgTL/zr73Y=; b=
+	P28Pzs3rG/Ql+Z/3b/AIRZOsnLghSC+HjbSaKzpQtrOa1MzT8DRedIMrKasnR/3B
+	Q4aTLcACx8iq6evN0dug0yPDk1ltbgskOo1ZskUnKLzOXULqWhuwrnsanqDVvafg
+	iluXxCg0NBjV2OW486MG46W078EuBJqyLI3O1/Iz81OlI8nS0lNagUF3pRBj6vZf
+	SDb4IWS1b8i+OSpYlyCJm+weYLgjeNAqxfMvdbyCjAuSNgUd4of5zCb1/lhQ8y8Q
+	qldwp6GG/QR6Xm2nPKv/gHN8aDcWIkrxizyS74JhM0hkuuH/nc85IVyjrct3bA9g
+	HtCdzgskDkFi2y+ReKdOpQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795767947; x=
+	1795854347; bh=zDmzXu0NFQj2oA+T/NCkwzTX7oOI4zb62sgTL/zr73Y=; b=Z
+	oDbpXC6OiG1UZVGZ8opCisBRPFRGBaZibG0dvp/7Qrmrzm/Du6h+2YDE2uY9DZNF
+	/HVoVMHFw7MMoJfSjnj0ROBP5chvdZlElOFQp5FxtpsJRGcSb8gOCUg0/7QUNkNO
+	2JnE9LFzOAFqlJvvK0qq2uqkl7weYG62iwmHMMA3Iiz+e+qF8UcMaoI3UcONq+tl
+	O1qHlyWrrSMiHhXKRe689eV83w7hqxICXoaqxi0g/v2fX41ai92lHMoreF4ijtY/
+	U5Afu7xh2f0ObD2XEaW3tjl2nZ572miuvPWjOR6GNSN8VoVLRi1n8Ot+D+efM3YA
+	EqYDN1sOg7BylKqd6cCjA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795767947; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:huj4AimRTIs/as7J3eV15qSqqjsy0JAO2wvHV4u4w9Ykrj9
+	oygf2JDWDEgZkbKIJsYBi68yZnrKJfaerPg0R5AIMCIbcRS/6YQdVIe/HFPxkc2x
+	bf4tRk/Z4U5ZP7ee3HBpVtP+3AqN/I99SI1CEpM039EuulzPEtTNeLBv/bVSkvyx
+	psjAc6+w7n2S0ZQfQcUGtjDbWvbE+zQb3bA5PcbSXsF7W1AWLBTzJxcAOqRjBJuF
+	MV9eIeYUsBypWj3P6Uhta2lN/rRW6/nt8v+H1odsv/tAtcW0WnGwoABA9yXrPMWf
+	If51h6L2pbJywdSxgOKJhjbSQIYrdSxSNeCQClQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:IN3N6R8aKo1aFDIDyk6mt1B3VNjp10IaXnV/s+rW0Og=:kH/9QYKA3sqNfHu1Ipc5Bgi+YdEDMsdF9GaXc3tTQO8=;
+X-ME-Sender: <xms:ij4Ja5YMjI6XpBTk5sueWesmvFBSeVPNGigXXjv5mqW7bizYcYVtqw>
+    <xme:ij4Ja-EGTDxmu9NNBv-i0pRL9mV1Q_ydYTqma6JxOZWXNPtGGnzIV3OkSgKPX6Es4
+    BD6T20jjBLYQCizsTe4oOMfZvwBeaPUGUBN8dJCXLKioBnbetAZZ74W>
+X-ME-Received: <xmr:ij4Ja9v9a8NOW5V45ANLEtSK4dJZ8rX8cbGbEfYpkPLymCVcmbjH4YNLIrrUW4PrWImrv5gEHwB6vn27fyytQUNyVtW7IZ4K>
+X-ME-Proxy-Cause: dmFkZTFADugZRovXfKmbemIN3QJamIXdr1KouCfBULZu1xG/dabUyzXYu/3Fjgo0prw1Z3
+    NkoY6lKMsK0mdAbMleCV83Y+2I7K/j6eMG9p1Cdv2VCVj7QJU5+9VZSwh32ZmM3OghVfWF
+    hsJ46d3mOvU+7+0anWZtn15nbpAFuouItvFvl9eyJhl1BpX3Gw8CbqhMnWTAqkmRhIjfCC
+    V/U+MmWOcVZHvgipZ2YwRcokhmPG74Kbe2AAU2rBABQmldd3J/ZKMryXHO6BWolbNdwMo5
+    tRF0joSK7HAgnrvhU698riohYqRzauKnG5EFtyABeXEWcdp/Cgi1BaDAIpKtWJ+BlmkXfD
+    xeHWo4mI/4B0LCoSXHZAS9hbqYQ3NOzL9G+eX3Flb2Kx1YL233oUK/UPlCKtFOh2G8Zq8O
+    4baWHESL3rDdJ1kWrzNJQ0o3yH67JZGz9NO4zUO5kpOCH7208P+7JnUDY71yDXIh/XI01L
+    kV23FLFlxuThWO75Mj+Fn0g1XXJ7M5EHT/sj387c+KeuhDP3DX/RQyPBHFPAPuYOS4MWwp
+    xzMQ7rgMVEGVmABmpUYF45JpXztK2RzKSCcqPbmvLhcA2vx9DpFTnfu2a9DHXN5CVwyqT/
+    hoSf4RqrV5WFK4ZjjMCHHBKVytQelZOkkdbezCj7SmqdJRohQ1xq28HkcK1w
+X-ME-Proxy: <xmx:ij4Ja0KRXab81tRTtbDn8PwF_r_NN8KUz2UikYQNxk3Dw9ZRyEF3pA>
+    <xmx:ij4Ja7O7i8uMZspfFb2tKwY38-dn4sAYZkEMHA75WcvQd-invLdYUQ>
+    <xmx:ij4Ja8be74G6GsnY73ybe9AUXFpCfUThyBvWP31eCISn8XFd3IV0kA>
+    <xmx:ij4Ja3xy3rGanqnq3uVWO5yp8-fcD95OqXILX0Z-bjfwI6JElE21cQ>
+    <xmx:iz4Ja8CdWAWxgt5yeoSR-GX1SwfD1Ku2Yju6qt7nswO5ro9j4KMqtziH>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 27 Nov 2026 03:25:44 -0500 (EST)
+Message-ID: <0b8e15dc-bd02-4fd8-87ab-198851769707@pobox.com>
+Date: Fri, 27 Nov 2026 00:25:43 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,26 +119,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7.3 0000/1002] 7.3.7-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261126105729.110697432@linuxfoundation.org>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <20261126105729.110697432@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, 27 Nov 2026 14:54:18 +0800, Zhongqiu Han wrote:
-> One thing to note is that a failed 0->1 write may now read back as 1,
-> though the resulting state itself is valid since 218a06a79d9a.
+On 11/26/26 2:58 AM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 7.3.7 release.
+> There are 1002 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.7-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-7.3.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-Understood. That is the intended partial-success semantic: the failed
-write still reports an error, while global boost remains enabled so the
-successfully updated policies stay valid and locally repairable.
+Tested on 2 amd64 systems and an arm64 virtual machine. Working well,
+no regressions observed.
 
-> Reviewed-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+Tested-by: Barry K. Nathan <barryn@pobox.com>
 
-Thank you for the review and for helping correct the implementation and
-changelog across the revisions.
-
-> Please drop notes like this from future postings.
-
-Understood. I will omit human-review/DCO-process instructions from
-future postings, while preserving substantive AI-assistance disclosure
-and applicable validation/NOT_RUN information.
-
-Best regards,
-Jiangtian
+-- 
+-Barry K. Nathan  <barryn@pobox.com>
