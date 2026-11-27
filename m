@@ -1,59 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795789510;
-	b=lx0h5jgAwM+Wby39CiAIuXTsNT0NnWe2sNsI/szUwQ6jKkpY0S5k3Bqfhf/a69gFpxEq
-	 zQDUCuBqEq8gz27CQJYEEW+K9CNhCo4pONwzvnY4SB+WwrDuxL5N+QFtNWTDyWOVUWkw3
-	 1rEqzS053/bCY/9i/a7bXvgqTJe33PDZNReBqPnokBLSIe4HMfzGBImOIPmWDTOStGyty
-	 dKXxSgkNqtmdkSehIAx9FnVq+GyqUo7GJoa0rfgraN3qQ8l8s8dgNjACeQadbAEMzVlGX
-	 dUCvBWd5Z3iCfOFoPo4S/N4TJ+4bOtXG11rwwlL4bNYVPMWB8r86fn3QlOij/gvU2/w==
+	b=nO/I51I/KpENerlp5UVDIRpd3XtUKN+hJD8YNWhwkg8o/B2KxcWhqlf3zITjCP2IKxjR
+	 6o1I+tpTPiA7fcUQ268srwzaPg6FS/E30tHMjmumWq2vlcJqtVSnNpyFbCUeR7etIF/6m
+	 5KqKXJa3ORbX+xZGt06Gd10RnSsnCisjp91FSn091K7zP2yl08YuyP8Kr28sBTsj27Eai
+	 FIadFuACTLMPiojqMygdzLBscJJTlhl/2Uju3PGGlGU9DEtDRc1u9+7rLr1ZDk31ZiTA6
+	 Xc7i4urIZB/tWWuIP+I9+E6t+XgrWcvWrLi6xQ8+6gfO12DC05QZ9bPuMBAo+c0D7fw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795789510;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=VDYSicKqp2OeFF0Ws3pjAHSZvsSuFmA+Av5A7v9g3uU=;
-	b=l9crf5zfD/lr1vughCS+lndpKYM4D8rcjGjBxbrNEygqOVSgsxZuqPIGrSNbVYYe5zWG
-	 tebl8l9O90uhRCtDbsIfgwB7EsE6c2Hk3B3RXVz+XFcOynzqWz9Bk3Wu/dK4orWCR6HsH
-	 RyHu41OL4C+OE9afvt+oe5pW3KW8UtJrbxhMR3SxtIGr0ovCMUnoE+kNu2pZk09cjjSpW
-	 Viz0IuinmlqtMSF8xiWG1fEAytPAVnNthY1J2FG8xOP4sov5HDkgp4darxEiBJRfHK48n
-	 bFWQLGncEdqx74J7I6qFC7wNUjvq3IJe7oEVLbuAildFErCf0APgH6QijYE17S0qQsA==
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=o5YMEpyPVMRHq3R3jE/xM+ZLo97uZzcZNi23LeKuoHA=;
+	b=Jc1xUolXR/PrUt3w9HpWPlF6Vpj9H+T21Huo3FjsGj3q5qDhLRWTKe0uLro15z+PCFlY
+	 YCPAWMW9soNmilZUycA6+49hFHaL0x5hrCZtiqWLrwolSphAEn6G38qNGtbdBTA1L74xb
+	 1UtMrdhI659UaBlRo/rck5g7ab7LFjRdkdkYtilcK2tLcZ3PWeApiE89d6TMbxE4ynEYm
+	 CbNbms+9oPFQq7TbvNOnYrHGR5yduJC3A8VRbAb3LrSTZgdM96pgU6HcF1ArZbHIDrJPM
+	 DQrFmOmAj3TQG9OW/eDZeDKkYsQKHtn0jT/a4K5FDN/MtdtZ79yWfyCr6dqSNmCzl3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mCPupFMk;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QIryK6YP;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2DE2606A6A9;
-	Fri, 27 Nov 2026 14:25:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2DE2606A6A9
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02F7E606A6B5
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:25:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02F7E606A6B5
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mCPupFMk
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QIryK6YP
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A28104E417C9;
-	Fri, 27 Nov 2026 14:25:07 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A35811A183F;
+	Fri, 27 Nov 2026 14:25:08 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6EC866049C;
-	Fri, 27 Nov 2026 14:25:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D3EAA11E68FF4;
-	Fri, 27 Nov 2026 15:24:56 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 71B156049C;
+	Fri, 27 Nov 2026 14:25:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 37EF711E69006;
+	Fri, 27 Nov 2026 15:24:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
 	t=1795789504; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=VDYSicKqp2OeFF0Ws3pjAHSZvsSuFmA+Av5A7v9g3uU=;
-	b=mCPupFMkcRfnTzAr1Spz4Iuoof0rLblYlcTgdlvYugdCRiPEsvTHWNKbhADlCvSGKwJ1Je
-	lG5Vz4gbMxFDMXUAKX2zEYbs9SW2y0Jt47OVeQdpx5boCZeYYwietaLpwk2CBCcFzA01od
-	hVYZ222UDqBIVsfEuci6NiuPKeuD2ZvKxyVqhraL0Objx+rpc+fqiGjWVnPgNKypPf0fKm
-	JBTqjtXV9bIr1kQI/iTrkEOQPe34K0Ljw8c3zBiDtM4FKtg1390PqeJTgE3ARKDWqV77no
-	PMvdPfBmyC4s/lrYEyIosPnLrCgIz2+uZdciTN3WxwezM/pZCt3kVrFNO09jVQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 27 Nov 2026 15:22:35 +0100
-Subject: [PATCH RFC v2 13/35] spi: cadence-qspi: Drop redundant checks
+	bh=o5YMEpyPVMRHq3R3jE/xM+ZLo97uZzcZNi23LeKuoHA=;
+	b=QIryK6YPTIgydwV4pC7EccY920APC/caDdInW75e99di7b5N5q6nalwfbeM6A54FBoZAur
+	+lgMtkrmsr5ahz1MVU53wRcfR2doH80Y968uVo608aDISbm003902nqDVEs2S7N3fOZMnU
+	OOmFkapoF0wwZLh4KEL/OK1xeK1YbY0DKetBHBNvXiqLPXbf0ysfizLCjFbvOnPsb0zP9i
+	dzpFw/D15adauAkNOV8RZ/TDr86lNw3BtvO3wss0HXWP5KMk45AKwyg4NJdbIZrL6uUZx4
+	RrKIvEXMKcOtCrbsXfVmhLF1D6Gg5BAxynVUybydS+p7vsqItDTRCxm9Zj9wZg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,85 +58,48 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-13-5c93f5e5d630@bootlin.com>
-References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
- Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
- Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
- Yu-Chun Lin <eleanor.lin@realtek.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Yogesh Gaur <yogeshgaur.83@gmail.com>, 
- Chris Packham <chris.packham@alliedtelesis.co.nz>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- Michal Simek <michal.simek@amd.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alvin Zhou <alvinzhou@mxic.com.tw>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 15:24:58 +0100
+Message-Id: <DN628YQ8UFG4.PF85CG1FNM2@bootlin.com>
+Cc: "Vladimir Oltean" <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Frank Li" <Frank.Li@nxp.com>, "Jerry
+ Ray" <jerry.ray@microchip.com>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Bo Mellberg"
+ <bo.mellberg@se.com>, "Pascal Eberhard" <pascal.eberhard@se.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miquel Raynal"
+ <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH net-next 0/3] net: dsa: lan9303: add LED mode
+ configuration
+From: "Paul Louvel" <paul.louvel@bootlin.com>
+To: "Andrew Lunn" <andrew@lunn.ch>, "Paul Louvel" <paul.louvel@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
+ <a96f239a-09f0-4899-b5e4-1cac4013b3c5@lunn.ch>
+In-Reply-To: <a96f239a-09f0-4899-b5e4-1cac4013b3c5@lunn.ch>
 X-Last-TLS-Session-Version: TLSv1.3
 
-The core already sanitizes the spi-mem operations, these checks are
-redundant so let's drop them.
+On Thu Nov 26, 2026 at 3:52 PM CET, Andrew Lunn wrote:
+>
+> Sorry, but NACK.
+>
+> Please use /sys/class/leds, with the ledtrigger-netdev, and offloading
+> to the hardware.
+>
+> 	Andrew
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/spi/spi-cadence-quadspi.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+Understood.
 
-diff --git a/drivers/spi/spi-cadence-quadspi.c b/drivers/spi/spi-cadence-quadspi.c
-index df7c04e0e2d2..97725ffeae93 100644
---- a/drivers/spi/spi-cadence-quadspi.c
-+++ b/drivers/spi/spi-cadence-quadspi.c
-@@ -476,9 +476,6 @@ static int cqspi_setup_opcode_ext(struct cqspi_flash_pdata *f_pdata,
- 	unsigned int reg;
- 	u8 ext;
- 
--	if (op->cmd.nbytes != 2)
--		return -EINVAL;
--
- 	/* Opcode extension is the LSB. */
- 	ext = op->cmd.opcode & 0xff;
- 
-@@ -1515,11 +1512,7 @@ static bool cqspi_supports_mem_op(struct spi_mem *mem,
- 
- 	if (all_true) {
- 		/* Right now we only support 8-8-8 DTR mode. */
--		if (op->cmd.nbytes && op->cmd.buswidth != 8)
--			return false;
--		if (op->addr.nbytes && op->addr.buswidth != 8)
--			return false;
--		if (op->data.nbytes && op->data.buswidth != 8)
-+		if (op->cmd.buswidth != 8)
- 			return false;
- 
- 		if (cqspi->is_rzn1)
+I will send patch #1 separately also.
 
--- 
-2.56.0
+Thanks.
+Best regards,
+--=20
+Paul Louvel, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
