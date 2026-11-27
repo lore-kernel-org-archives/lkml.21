@@ -1,97 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799586;
-	b=0G09P8OF+5PwsWIx7PsnlS/4sqKRGJYQo85RPoxyTV9NMyg3BXc483OjE9YmR6Gdr0GB
-	 Yr83Tv5q5dVI9AeaK6Mr315+5o0jViCRK4W8bSUVuODvpF/CotEK4FVIQf21nyST2hp4O
-	 0+C7gOPKHxo/lypJA1/H9P7KgQ+rsiBHgrM97OOncuj6GWO7sJI0gyji3n3pT3GyjxbxP
-	 jVZoSabDlNg9npfRgimJUvMybeEQTyVnLJJvM6+y4T+7JjOONJDIc/Ru/mhMaI679nvz4
-	 robmcE4uRJTbYbJFshNR0HdOrRJTY8ftp9qqcvVLkjLGxbkWpj3RP52c1okoeDPnlzQ==
+	t=1795799601;
+	b=ZDT55RAr4/dCWfKrSmp7tyw3+az1EPapB7PydhmnoHAhq2fZG5q8hvTRGovkeXmKxFCp
+	 zdXtBl9IPuWAE608nPBObGUa6EXF1A5aXBWvSCIPLlag/06zRs/m9hcfXpuqgP5vaq2WD
+	 EkvAaHdlB9hUi08ChqqrwMJr63rKMu/jp5IfE0IzSwGvoU/MqIjHrWqC069sa00ZCpTg4
+	 Ph78Yx4kYH64EF7F577q1YzrfzJzLA3B2qmFP77K4TuB1qmFMHckV50+NRGfNoC1g8qIm
+	 mS8HLE+5d9CyYwV/Bjr8Ce7tDSF685Co1GNjMkrpiXCbsn5IxBb1wDOS1/1dioojzKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799586;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799601;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7S4J0Oj3sYJi1UqXP5r2+N/vXgyTszyUgul/cChtfHk=;
-	b=XRultB6WcOQd8hhcJJzYaC0R7t71rJCiI79jxh2G8FwAkwNV+jUzyYa1x3kZ92gVTG8v
-	 t0JtjoT5MHVp9Afe5dwsvuHSF+mGoIeknJyXdzfjsKMZNvhv7sMVuZio7Yy2OFzcEBl76
-	 rNwyBA7nTgClizwdKZGyLHkqMyvktHwtsqECJrPZp7Gkd8/+QU5mIbpQbjp6E8aiSu4mD
-	 vpdpqms/zYt98eUB26ugIQRepyEZMBpKzXRRuWL9kmo+qx/kTvxx0O3rGO0aReC18j6wy
-	 s5rk/yox9dw60yaVaW0fE+Urf4XFOw+ZH9cBgzYSX0hHmBAMEPCqXx6Dwz9tfGDw0zg==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=j+q9Pl+HbS/InTwJthHaenRguBaH+pMfXVenIDo/BDc=;
+	b=qmmsIdv9dBB1118QRUlKUuDMShddpy8wYJlqCswfKVqLeq282RFb6ixKUbTc7sQZpGRo
+	 mwbI08Xu1VXn+Bx3cg4y7bPM+jwM/Q3UhZFO/ZeSq5o3faxZrVdJ9/QQNbvu1y3We0sc3
+	 elIBd4GxMIuDQODKk3Rx8kICdjFRf2KowB5FsjU11cjmkJsDbP/p2eBF9wJxtWZhfNqMR
+	 ucJax5+E4Gggd3jMNxsurfXDdpxN6o/Enb2TvSHWLzRTGbgloiVCj+Volv9wVsz1KkK7j
+	 3O28Ptd1SB4PqzRFRApPlnoKKZVjAkyDGECVNkERZK30KJF1fjtKmRaIly3DbfOKB3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fj7vH0m4;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ATise0C2;
+	arc=none smtp.remote-ip=209.85.208.176
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com [209.85.208.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCFF0606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:13:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCFF0606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4172D606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:13:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4172D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fj7vH0m4
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cddc250d815so3245511a12.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:13:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ATise0C2
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3adf222704dso8914251fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:13:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795799585; x=1796404385; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7S4J0Oj3sYJi1UqXP5r2+N/vXgyTszyUgul/cChtfHk=;
-        b=fj7vH0m4TeZVxSK8k5+Sz0uxrzg3f6k4UyMgACqdlY8cjUZo/6Vw64dAY+cCj8p6hp
-         qJZMFHzUaWj11QpZHmyemfspjyUsV7SdGByfZPfNZ9pBVG0bEaCUp7j2xw0/KPrFXFTg
-         JW9CWgxe4r+7O3oJbMpJT6sUt6Q/Hwzyur5mTQog7A6MM6zTF5Mhx6a9Etxm1eSZPzxY
-         t/hi9LFoM9gFcRHYScoOsEZUlw5OWsUnc+WRVeQwBQHwB6lxQPmKtNgZ6mRoh/CqVkXi
-         mWywp6E5Cd45e1sw3kU65/IWYgRbTYfUr5iSk9LULtwBEyvJHKhpWBtxpF64Af1+JfTs
-         W0Ng==
+        d=linaro.org; s=google; t=1795799598; x=1796404398; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=j+q9Pl+HbS/InTwJthHaenRguBaH+pMfXVenIDo/BDc=;
+        b=ATise0C2zygRkVnxpn+1Gi+wvzEDgRrpYlXsPMFVnxfwFb0qY49ChyMhFagedwTd7C
+         jjSKjOm248dCpVusUvOYfdFzbr78C0kpyq2Pp8/1bAM2zRTuxlneQ3ujKVqKpxBMQrvh
+         GkXqsFZbRJoIIshL3ynznuBArbx99GiXKbAG+y09VMweTymBKGAEPh+hf5kOtdh76tSQ
+         evsiB1kTOgSdcu8JdO4giOZDLdscI8A1y+vRaCfQk2i6k9sZXWdeEanPeJLpvickPIJx
+         gTmyNu+sLjEEgHosT7/77fiOtjFIYCItYX+0Q2lLzeKwS5iZMCJM1uYPoAfx+9cAnnoD
+         FidA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795799585; x=1796404385;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7S4J0Oj3sYJi1UqXP5r2+N/vXgyTszyUgul/cChtfHk=;
-        b=HAfFKwf4v/8ToRXHAVaapfX56LK5d8PzTWTOp69wGeCIjHYJf7PIJboyYtxSzmYs3j
-         ab643nFIf15WoSx9+xtRtBvfScmgA0wuv3pZdFndfDSQP4uFer5GwjUz6ZXnfpypy9ZU
-         oK4jpPR5g2VqCmmR631Z0//UzzK/c1S2XJgIl7oeU5Lbchxccp3o6bIX4Mqixv56AsyG
-         PXkVNwSgvClLeA2XFSiBVKEi+E51FsRUpihBingqfE1+pjgecCrVWM8vss+m2huDNAVD
-         DxnUXGWi6DWiZW8Qp14bfUZIpRHx2Tw6xOPddCKo76ao1CkvBnevylVzT25PYq8ZinLZ
-         7KMA==
-X-Forwarded-Encrypted: i=1; AL+hErGGgX/wfHlOSZUdCNdZZo3zV0/yLs66kA6pJ7+oryUqX73g8bjqFkX6Ok1cA47+2mlK0twwt5qT247AtnE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z82Lx7XARNTRtiO3w4fMSy5QCaVL7KMKWzBqpGIHaYG+Kd9KioP
-	Xb60MeRicq7lV+OaQWw3teQOMwn/UHXIAmekFYPeiLKraW63xZy0KpTP
-X-Gm-Gg: AZFdTZcp/MeOVzSu2V8KWpN2cY1hZzI3SMXF/bi90rNEUSRoC/tvMecq8SvwPWZYSLW
-	AICLbwLut1i22fSUwvObbum57WbiKOcvaSZUk+Qj3apaWs8i8IAaVw14/dJ2FMn+gZ5kxHYQJCr
-	0Z2EWtG4LuhSmRwxKeZA59anuSdl7dVyWZ6u6cCDRF63ZMdd8Up1w9Si/YpkFsN/BKqTDyrp3yj
-	ZWUJXQIL1kNtr45siquVHnC5paBBMsIpXMa/NA7Tbotn8N2zVXl98YRNM5+r6OEh1I8Q+TyN5r+
-	sAaK0RP8Rhpl+WjEWxhzGi+jC2d7FBzbQGJsj9UIKvAu+lsG+vLdVXiRlH+VzhR+pJPb3c+nvWj
-	Na1GCK17phiJGhA2kv+PkcPa9PVFqJlYzZzYCjbohyVn887tgnboDMteJB0xrBrfsL3VgvQwL7w
-	lR8r+PKe+F07/y5A18ONRvA1sS2PPXpG+BdcSjFkEVmf+q3M0YNpZ7/HwZaSufaQFhjG5alUgH1
-	eGeIGC5/dRjl/WDRoQY49DXlr421LTtR45WIJyAgwOLYLHRH1XoAQDbubBfcIU3C4o3dUf0XqCP
-	wDqaz78MQZ8NQRK3UVe/d8zhZHAAETxo3ptXCRWcaN7sefGiFrSZUrn1w16VwTGW5Pp/0bKrWTM
-	b7VA0HG2Gy3jldt9nkwVtxBh+ACJ+Q4HOWza6mAX5eZ66QcMO+SvAO/Bjoe13juPtTPBO+JdTRL
-	Dq0gAb2H6qNBZDJxrmGv+N
-X-Received: by 2002:a17:90b:2e49:b0:3ac:80dc:f419 with SMTP id 98e67ed59e1d1-3b41c90811fmr24324820a91.25.1795799584854;
-        Fri, 27 Nov 2026 09:13:04 -0800 (PST)
-Received: from fangorn.. (97-120-153-124.ptld.qwest.net. [97.120.153.124])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm38643445a91.3.2026.11.27.09.13.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 09:13:04 -0800 (PST)
-From: Carl Egbert <egbertcarl@gmail.com>
-To: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>
-Cc: Eric Naim <dnaim@cachyos.org>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	regressions@lists.linux.dev,
-	Carl Egbert <egbertcarl@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] ALSA: hda/realtek: Fix mute LED regression on ThinkPad T440/T450 family
-Date: Fri, 27 Nov 2026 09:12:41 -0800
-Message-ID: <20261127171241.1619113-1-egbertcarl@gmail.com>
-X-Mailer: git-send-email 2.48.1
+        d=1e100.net; s=20260707; t=1795799598; x=1796404398;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j+q9Pl+HbS/InTwJthHaenRguBaH+pMfXVenIDo/BDc=;
+        b=YoO+8hWfZvPXT8HZTFBaAyH4GkveUn/N+caGiThdmIlBSyjZz2yfvZIXzZB8el+dNa
+         VG+9ik+PMTMbbrSi0ZLufkN1zSVn9Zl8mC5utZKMY9wXI+IJkxhTfIC1NBL7che06VK4
+         8qehD+C9eC/7x6ehhiTewMMf44Bj0Pu++A9qOMp4hRyMI8j+vW3u6rvkDybTUT+uFKuR
+         7IZeIcHZfHjRWsJ+tOu1OpYilO41VPngXry1kEUV8XM6hqJQmtN7yQXtQb3KiKl0fe9v
+         u7/yLBAVxVskgLB6yC6k25MkmTyqt6AbPVys/omGxkf2bwKP+4+Z72vf+H1QE5FVvoER
+         QD/g==
+X-Forwarded-Encrypted: i=1; AL+hErFr33gLfJ0sMWzxruDgu0dF1dAWZBLGACAGunk1WfX0SBtddP205zeXOrGRCsO9F6ll7uhZBXiUi9M4OH0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92o0TnDy0FMynYpchq6r3fRExoNiUnAjlwjuFUO02QUsjgITOO
+	dojWXHZExoTuQFCFvqwHccv3ogiXDT0I2M7fF5e7BNpjPApXMWyxqirQk3bYH1ty57s=
+X-Gm-Gg: AZFdTZd9ktJm7Jn82iu7QI0DdSuMeLzDmLpETtcN9bB0JDkmGk6FVy0+mKdQd+Qhq+M
+	uGKPG/dlVZfHdMB0pyexEb+r0sC/omjlHQmQHYfDYj7YpCNJgzxkv5lbkb4T/zgaG1/9ks0VoBb
+	rXotfz979yestsyhlPHcvYwu1cfEN85ZADQN6pQbbLqyGM3j6TGdZXg+sH6zWxH4FgCtwZQq52y
+	+6JYaoRaPD3ofLAl/oufGSoeLIlsQP8ZSk9kdWcC3TU1idSH8m7pwnqnKtJznKzzQoSLVu/6KbL
+	hAny5NcPoLXgg22sTyroa3bRs0/JzDg4znQKl6G6M79aCsFL9G74sQVRRLURvPrLVEeKqBoyXIG
+	6CR5ivWSWafXXWKIeHm5cWCkq5msWT0+pKpDQLhvgDlU1kFtQ65zlNWHd6SmdP6b7CkghwG0yg6
+	i/nZrrpkzpJ4o4KqjwgUkNBSlc9xj+FOs3vpnVMcVgTeiLVOw3s+dbqzqGnmfGLV4rYnUbnrNSA
+	piOnK+Va4YceyLQIWuudocLh076cn9vcQvekPbkgGUDMxA4dzJ2xAnqR5P1hy6WSXIBogKOcmI2
+	uo5rUbrsla5CiUycA1BzBVbBByLoJFwUPBQeL0iRQcKWnEDPlxp3z0GB1kech5OtMGXwnmP3Ko4
+	seEaxZEE=
+X-Received: by 2002:a05:6512:1394:b0:5c0:da9:407b with SMTP id 2adb3069b0e04-5c1bc8722ffmr9342169e87.5.1795799598378;
+        Fri, 27 Nov 2026 09:13:18 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0419c2sm5950133e87.52.2026.11.27.09.13.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 09:13:18 -0800 (PST)
+Message-ID: <2ed19776-e8ed-438e-b946-7a83d9c318f0@linaro.org>
+Date: Fri, 27 Nov 2026 19:13:17 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,83 +91,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/7] media: i2c: add s5k5e8 image sensor driver
+To: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-clk@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>
+References: <20261127134507.125513-1-hikmahgumelar@gmail.com>
+ <20261127134507.125513-4-hikmahgumelar@gmail.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20261127134507.125513-4-hikmahgumelar@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Since commit 8a889cce1c6d ("ALSA: hda/realtek: Unchain
-ALC269_FIXUP_THINKPAD_ACPI from ALC269_FIXUP_LIMIT_INT_MIC_BOOST"),
-ThinkPads whose fixup chain goes through ALC292_FIXUP_TPT440_DOCK or
-ALC283_FIXUP_INT_MIC no longer get their mute LEDs set up. On a ThinkPad
-T450 (SSID 17aa:5034), the speaker mute LED no longer follows the mute
-state: no mixer control gets the speaker LED access flag, so snd-ctl-led
-is not loaded automatically and
-/sys/class/sound/ctl-led/speaker/card1/list stays empty.
+On 11/27/26 15:45, Hikmah Gumelar wrote:
+> Add V4L2 subdev driver for the Samsung S5K5E8 5-megapixel MIPI CSI-2
+> 
+> CMOS image sensor supporting 2592x1944 10-bit Bayer output.
+> 
+> Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+> ---
+>   MAINTAINERS                |   7 +
+>   drivers/media/i2c/Kconfig  |  10 +
+>   drivers/media/i2c/Makefile |   1 +
+>   drivers/media/i2c/s5k5e8.c | 567 +++++++++++++++++++++++++++++++++++++
+>   4 files changed, 585 insertions(+)
+>   create mode 100644 drivers/media/i2c/s5k5e8.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index f72ce07a4e38..2ac245d4ad7c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -25007,6 +25007,13 @@ T:	git git://linuxtv.org/media_tree.git
+>   F:	Documentation/devicetree/bindings/media/i2c/samsung,s5k3m5.yaml
+>   F:	drivers/media/i2c/s5k3m5.c
+>   
+> +SAMSUNG S5K5E8 CAMERA SENSOR DRIVER
+> +M:	Hikmah Gumelar <hikmahgumelar@gmail.com>
+> +L:	linux-media@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml
+> +F:	drivers/media/i2c/s5k5e8.c
+> +
+>   SAMSUNG S5K5BAF CAMERA DRIVER
+>   M:	Sylwester Nawrocki <s.nawrocki@samsung.com>
+>   M:	Andrzej Hajda <andrzej.hajda@intel.com>
+> diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+> index 162b8ea02601..4c622e5eef73 100644
+> --- a/drivers/media/i2c/Kconfig
+> +++ b/drivers/media/i2c/Kconfig
+> @@ -879,6 +879,16 @@ config VIDEO_S5K3M5
+>   	  To compile this driver as a module, choose M here: the
+>   	  module will be called s5k3m5.
+>   
+> +config VIDEO_S5K5E8
+> +	tristate "Samsung S5K5E8 sensor support"
+> +	select V4L2_CCI_I2C
+> +	help
+> +	  This is a Video4Linux2 sensor-level driver for the Samsung
+> +	  S5K5E8 5MP camera.
+> +
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called s5k5e8.
+> +
+>   config VIDEO_S5K5BAF
+>   	tristate "Samsung S5K5BAF sensor support"
+>   	help
+> diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
+> index a750942e9c62..bdcb8f34aca3 100644
+> --- a/drivers/media/i2c/Makefile
+> +++ b/drivers/media/i2c/Makefile
+> @@ -136,6 +136,7 @@ obj-$(CONFIG_VIDEO_RDACM21) += rdacm21.o
+>   obj-$(CONFIG_VIDEO_RJ54N1) += rj54n1cb0c.o
+>   obj-$(CONFIG_VIDEO_S5C73M3) += s5c73m3/
+>   obj-$(CONFIG_VIDEO_S5K3M5) += s5k3m5.o
+> +obj-$(CONFIG_VIDEO_S5K5E8) += s5k5e8.o
+>   obj-$(CONFIG_VIDEO_S5K5BAF) += s5k5baf.o
+>   obj-$(CONFIG_VIDEO_S5K6A3) += s5k6a3.o
+>   obj-$(CONFIG_VIDEO_S5KJN1) += s5kjn1.o
+> diff --git a/drivers/media/i2c/s5k5e8.c b/drivers/media/i2c/s5k5e8.c
+> new file mode 100644
+> index 000000000000..d25b978d7eda
+> --- /dev/null
+> +++ b/drivers/media/i2c/s5k5e8.c
+> @@ -0,0 +1,567 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/i2c.h>
+> +#include <linux/module.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/unaligned.h>
+> +#include <media/v4l2-ctrls.h>
+> +#include <media/v4l2-device.h>
+> +#include <media/v4l2-fwnode.h>
+> +
+> +#define S5K5E8_CHIP_ID_REG		0x0000
+> +#define S5K5E8_CHIP_ID			0x5e80
+> +#define S5K5E8_REG_MODE_SELECT		0x0100
+> +#define S5K5E8_MODE_STANDBY		0x00
+> +#define S5K5E8_REG_VTS			0x0340
+> +#define S5K5E8_REG_EXPOSURE		0x0202
+> +#define S5K5E8_REG_ANALOG_GAIN		0x0204
+> +#define S5K5E8_REG_TEST_PATTERN		0x0600
+> +#define S5K5E8_XVCLK_FREQ		24000000
+> +#define S5K5E8_LINK_FREQ_418MHZ		418000000ULL
+> +#define S5K5E8_PIXEL_RATE		167200000ULL
+> +
+> +struct s5k5e8_reg {
+> +	u16 address;
+> +	u8 val;
+> +};
+> +
+> +struct s5k5e8_mode {
+> +	u32 width, height, hts_def, num_regs;
+> +	const struct s5k5e8_reg *regs;
+> +};
+> +
+> +static const char * const s5k5e8_supply_names[] = { "avdd", "dvdd", "dovdd" };
+> +#define S5K5E8_NUM_SUPPLIES ARRAY_SIZE(s5k5e8_supply_names)
+> +
+> +/* Register initialization tables derived from Xiaomi Mi A1 vendor configuration */
+> +static const struct s5k5e8_reg s5k5e8_common_regs[] = {
+> +	{ 0x0100, 0x00 }, { 0x3906, 0x7e }, { 0x3c01, 0x0f }, { 0x3c14, 0x00 },
 
-Commit b2d447288fa7 ("ALSA: hda/realtek: Add
-ALC269_FIXUP_THINKPAD_LIMIT_INT_MIC_BOOST quirk") added a ThinkPad
-variant of ALC269_FIXUP_LIMIT_INT_MIC_BOOST and switched the quirk table
-entries that selected the plain fixup directly. Then
-commit 8a889cce1c6d ("ALSA: hda/realtek: Unchain
-ALC269_FIXUP_THINKPAD_ACPI from ALC269_FIXUP_LIMIT_INT_MIC_BOOST")
-removed the chain to ALC269_FIXUP_THINKPAD_ACPI from the plain fixup.
-However, two fixups reach the plain fixup through their own chain_id and
-were not converted:
+You should use CCI interfaces.
 
-  - ALC292_FIXUP_TPT440_DOCK, used by the ThinkPad T440, T440p, T440s
-    (via ALC292_FIXUP_TPT440), T540p, W541, X240, X1 Carbon 2nd, T550,
-    X250, L440, T450, T450s, L450 and X260
-  - ALC283_FIXUP_INT_MIC, used by a ThinkPad (17aa:501a), the IdeaPad
-    S210 and the Lenovo 145 (via ALC236_FIXUP_LENOVO_INV_DMIC)
+Overall perphaps it might be a long and tedious review process for the changes,
+and I would recommend to send and get accepted two sensor drivers only, then
+do other work.
 
-Their chains now end before alc_fixup_thinkpad_acpi(), so these machines
-no longer get the mute LED setup for thinkpad_acpi, nor no_shutup_pins.
+> +	{ 0x3235, 0x08 }, { 0x3063, 0x2e }, { 0x307a, 0x10 }, { 0x307b, 0x0e },
+> +	{ 0x3079, 0x20 }, { 0x3070, 0x05 }, { 0x3067, 0x06 }, { 0x3071, 0x62 },
+> +	{ 0x3072, 0x16 }, { 0x3203, 0x43 }, { 0x3205, 0x43 }, { 0x320b, 0x42 },
+> +	{ 0x3007, 0x00 }, { 0x3008, 0x14 }, { 0x3020, 0x58 }, { 0x300d, 0x34 },
+> +	{ 0x300e, 0x17 }, { 0x3021, 0x02 }, { 0x3010, 0x59 }, { 0x3002, 0x01 },
+> +	{ 0x3005, 0x01 }, { 0x3008, 0x04 }, { 0x300f, 0x70 }, { 0x3010, 0x69 },
+> +	{ 0x3017, 0x10 }, { 0x3019, 0x19 }, { 0x300c, 0x62 }, { 0x3064, 0x10 },
+> +	{ 0x3c08, 0x0e }, { 0x3c09, 0x10 }, { 0x3c31, 0x0d }, { 0x3c32, 0xac },
+> +};
+> +
+> +static const struct s5k5e8_reg s5k5e8_2592x1944_regs[] = {
+> +	{ 0x0100, 0x00 }, { 0x0136, 0x18 }, { 0x0137, 0x00 }, { 0x0305, 0x06 },
+> +	{ 0x0306, 0x18 }, { 0x0307, 0xa8 }, { 0x0308, 0x34 }, { 0x0309, 0x42 },
+> +	{ 0x3c1f, 0x00 }, { 0x3c17, 0x00 }, { 0x3c0b, 0x04 }, { 0x3c1c, 0x47 },
+> +	{ 0x3c1d, 0x15 }, { 0x3c14, 0x04 }, { 0x3c16, 0x00 }, { 0x0820, 0x03 },
+> +	{ 0x0821, 0x44 }, { 0x0114, 0x01 }, { 0x0344, 0x00 }, { 0x0345, 0x08 },
+> +	{ 0x0346, 0x00 }, { 0x0347, 0x08 }, { 0x0348, 0x0a }, { 0x0349, 0x27 },
+> +	{ 0x034a, 0x07 }, { 0x034b, 0x9f }, { 0x034c, 0x0a }, { 0x034d, 0x20 },
+> +	{ 0x034e, 0x07 }, { 0x034f, 0x98 }, { 0x0900, 0x00 }, { 0x0901, 0x00 },
+> +	{ 0x0381, 0x01 }, { 0x0383, 0x01 }, { 0x0385, 0x01 }, { 0x0387, 0x01 },
+> +	{ 0x0340, 0x07 }, { 0x0341, 0xb0 }, { 0x0342, 0x0b }, { 0x0343, 0x28 },
+> +	{ 0x0200, 0x00 }, { 0x0201, 0x00 }, { 0x0202, 0x03 }, { 0x0203, 0xde },
+> +	{ 0x3303, 0x02 }, { 0x3400, 0x00 }, { 0x323b, 0x02 }, { 0x3301, 0x00 },
+> +	{ 0x3321, 0x04 }, { 0x3306, 0x00 }, { 0x3307, 0x08 }, { 0x3308, 0x0a },
+> +	{ 0x3309, 0x27 }, { 0x330a, 0x01 }, { 0x330b, 0x01 }, { 0x330e, 0x00 },
+> +	{ 0x330f, 0x08 }, { 0x3310, 0x07 }, { 0x3311, 0x9f }, { 0x3312, 0x01 },
+> +	{ 0x3313, 0x01 },
+> +};
+> +
+> +static const struct s5k5e8_mode default_mode = {
+> +		.width = 2592, .height = 1944, .hts_def = 2856,
+> +			.num_regs = ARRAY_SIZE(s5k5e8_2592x1944_regs),
+> +		.regs = s5k5e8_2592x1944_regs,
 
-Point both fixups at ALC269_FIXUP_THINKPAD_LIMIT_INT_MIC_BOOST, which
-restores the fixup chains these machines had before 8a889cce1c6d. On
-the IdeaPad S210 and Lenovo 145, is_thinkpad() is false, so they only
-get no_shutup_pins back, as before the regression.
+There should be an endline after comma.
 
-Tested on a ThinkPad T450 on top of sound.git for-linus (e79163b531ec):
-with this patch, snd-ctl-led is loaded automatically at boot, and the
-speaker and mic mute LEDs follow the playback and capture mute state
-again. Not tested on the machines using ALC283_FIXUP_INT_MIC.
+> +	};
+> +
+> +static const s64 link_freq_menu_items[] = { S5K5E8_LINK_FREQ_418MHZ };
+> +
+> +struct s5k5e8 {
+> +	struct device *dev;
+> +	struct v4l2_subdev sd;
+> +	struct media_pad pad;
+> +	struct clk *xvclk;
+> +	struct gpio_desc *reset_gpio;
+> +	struct regulator_bulk_data supplies[S5K5E8_NUM_SUPPLIES];
+> +	struct v4l2_ctrl_handler ctrl_handler;
+> +	struct v4l2_ctrl *link_freq, *hblank, *exposure;
+> +	const struct s5k5e8_mode *cur_mode;
+> +	/* Serialize access to sensor registers and streaming state */
+> +	struct mutex mutex;
+> +	bool streaming;
+> +};
+> +
+> +static inline struct s5k5e8 *to_s5k5e8(struct v4l2_subdev *sd)
+> +{
+> +	return container_of(sd, struct s5k5e8, sd);
+> +}
+> +
+> +static int s5k5e8_read_reg(struct s5k5e8 *s5k5e8, u16 reg, u32 len, u32 *val)
+> +{
+> +	struct i2c_client *client = v4l2_get_subdevdata(&s5k5e8->sd);
+> +	struct i2c_msg msgs[2];
+> +	u8 addr_buf[2], data_buf[4] = { 0 };
+> +	int ret;
+> +
+> +	put_unaligned_be16(reg, addr_buf);
+> +	msgs[0].addr = client->addr;
+> +	msgs[0].flags = 0;
+> +	msgs[0].len = 2;
+> +	msgs[0].buf = addr_buf;
+> +	msgs[1].addr = client->addr;
+> +	msgs[1].flags = I2C_M_RD;
+> +	msgs[1].len = len;
+> +	msgs[1].buf = &data_buf[4 - len];
+> +	ret = i2c_transfer(client->adapter, msgs, 2);
+> +	if (ret != 2)
+> +		return ret < 0 ? ret : -EIO;
+> +	*val = get_unaligned_be32(data_buf);
+> +	return 0;
+> +}
 
-The regression was bisected on the affected T450. An AI assistant
-(Claude Code, using Claude Opus 5.5) was used throughout: it helped
-diagnose the problem, plan the bisection and write the scripts used for
-it, identify the cause, and drafted this patch and changelog. I ran the
-bisection and the tests on the hardware and reviewed the change.
+Remove it, and use CCI interfaces.
 
-Fixes: 8a889cce1c6d ("ALSA: hda/realtek: Unchain ALC269_FIXUP_THINKPAD_ACPI from ALC269_FIXUP_LIMIT_INT_MIC_BOOST")
-Cc: stable@vger.kernel.org
-Signed-off-by: Carl Egbert <egbertcarl@gmail.com>
----
- sound/hda/codecs/realtek/alc269.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
-index 5c3b383bb618..003f5052a842 100644
---- a/sound/hda/codecs/realtek/alc269.c
-+++ b/sound/hda/codecs/realtek/alc269.c
-@@ -5246,7 +5246,7 @@ static const struct hda_fixup alc269_fixups[] = {
- 			{ }
- 		},
- 		.chained = true,
--		.chain_id = ALC269_FIXUP_LIMIT_INT_MIC_BOOST
-+		.chain_id = ALC269_FIXUP_THINKPAD_LIMIT_INT_MIC_BOOST
- 	},
- 	[ALC290_FIXUP_SUBWOOFER_HSJACK] = {
- 		.type = HDA_FIXUP_PINS,
-@@ -5361,7 +5361,7 @@ static const struct hda_fixup alc269_fixups[] = {
- 		.type = HDA_FIXUP_FUNC,
- 		.v.func = alc_fixup_tpt440_dock,
- 		.chained = true,
--		.chain_id = ALC269_FIXUP_LIMIT_INT_MIC_BOOST
-+		.chain_id = ALC269_FIXUP_THINKPAD_LIMIT_INT_MIC_BOOST
- 	},
- 	[ALC292_FIXUP_TPT440] = {
- 		.type = HDA_FIXUP_FUNC,
-
-base-commit: e79163b531eca7f3fdc05031f4b43b6f7c51d3bc
 -- 
-2.48.1
-
+Best wishes,
+Vladimir
