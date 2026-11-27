@@ -1,44 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=154.81.10.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795743670;
-	b=cAFCB61ASeKqqmc2v+t2es0RHkzvOfHRvsvaaogaNuvql/DofMtHUBci4StfGemW1bRd
-	 UNnyKLiqc+C/szD7J3qKjGdP0aISl7GznulPYOKH32ZaaaVkKUZUBKtDmmcMO14BF9P/n
-	 WpTBctCxWp6pcgq716l9YGab0kqDyTzhL9XxwT5hG7zn2XkfdbbQ8YYl7lvUwiEn2CL/3
-	 7ZnZSOfoV1rKwKXrdLZiHKa9DJI7S64jBR545bInfv5yDkiexVVKAT0mdVfou1o7w/TIE
-	 cJy4qFS+rND8pgF4anv5cGtsBnoR/ouhET+Ji0/0pQBnCU7dyluKrp0fVhgFlodVmJA==
+	t=1795743768;
+	b=VhQoh+4PuzaUaC6FUYVkH7VEBnOxhZRzH1wkCqKMCg/qzA6AM3LkhO8qll05+b5H66Dm
+	 PxGAnzFnY8qfgcNMu0sqzJIcJbUk9TAiufQp6pUI/bnF2Z5wKqxzImrHXHLiIDVujHyf6
+	 PShcJDqf28YLE5Wo7PpYtwCpNryvbc86H/kOHoue2PcwEcDizJBV3M8F7G2vKB+/Bm3sC
+	 YGVuwfxyFt/PcCci15ZNfAg25XHIfVzm9R/kKrEIogcrrPytQj3K9rjDNhu4Mv2bjUwhp
+	 Jdl39HR2nyu4ptfYWnxxGYhgRdzQZjxaIziDENvB3/lOxoDImHWS+UPAcIl6dMqsBug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795743670;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:X-HM-Spam-Status:
-	 DKIM-Signature;
-	bh=8fTW3KeXDiiLMmJG9fyVvTKh0sZa7l/HWo28nMyrYN8=;
-	b=fYtkg3+Mufs0/8MvtSZOMkGF6/lFnIk+1llZAg60ZeYHyO0x1wdJJqy15uUM7p7SsD41
-	 QpRzAGlLq4VauBJuB9iEFpnMWyBve+4smSRo09WU3WPuAfUBjLngsf58xUSUmZUT92NDX
-	 NnD9wIC+VM43VOeO2lTBHmnMqeakIYYc25qrHPk77iXwx7f0vRdGKcfYfxCghWQFz7DM6
-	 3PVr3TamSDjwKerBCE0cQ11WLJtxYguBHa3KeHEYFQd9AwXewBSM82zHamakdNKYL0xEP
-	 L+mBUpKG6ly3lFXhEZv0MlJwWubIkHaqu6DpQ2KuTdKYMCbgafrx1jQaN9JB6QFJ4Mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795743768;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=XQbp+iYf+670Cjd0nc3KeQiLuIKrITL/6+mOjWe48x4=;
+	b=w2+L1FJYkq7j6C3Ozb89Legej91XttOk8cScu9r7dAfP5r2zgrP9ncThY12/e4USftiu
+	 GgnNcyQLzW+tP9Z69lx+Z8+FqeThux01sXwYCDTTrr1jMqA9A/0Rc1hAn6PidtHWZhMBo
+	 mtncGcU4EO5xSCyCtZGgeIRDJZTo2sijOSaK+d/E+MofhOyjdFV4e7c77zB/ZeWQNdbiw
+	 kL+sST86NuXEJ6fgKspO4lx9oynVffn0o9ktxVPxAshNHXvYTFd5mHjXSgV1ckR8wb07r
+	 8zsfWT5DpBD+UzOVKRWvFTnL+m9H65P3fW7fffyD7HlqEJ9sSy7yqGbXy9dPfPTknlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=easystack.cn;
-	spf=pass smtp.mailfrom=easystack.cn;
-	dkim=pass header.d=easystack.cn header.i=@easystack.cn header.a=rsa-sha256 header.s=default header.b=G2uO4Tmn;
-	arc=none smtp.remote-ip=154.81.10.34
-Received: from mail-m1034.netease.com (mail-m1034.netease.com [154.81.10.34])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cte8CXDh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AE7A606A31C;
-	Fri, 27 Nov 2026 01:41:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AE7A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=easystack.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=easystack.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB82F606A31C;
+	Fri, 27 Nov 2026 01:42:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=easystack.cn header.i=@easystack.cn header.a=rsa-sha256 header.s=default header.b=G2uO4Tmn
-Received: from [192.168.1.100] (unknown [218.94.118.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 262eb5d71;
-	Fri, 27 Nov 2026 09:40:58 +0800 (GMT+08:00)
-Message-ID: <0810cc96-ad0b-4718-acf8-c2bbf43e388b@easystack.cn>
-Date: Fri, 27 Nov 2026 09:40:58 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cte8CXDh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126811F0089B;
+	Fri, 27 Nov 2026 01:42:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795743768;
+	bh=XQbp+iYf+670Cjd0nc3KeQiLuIKrITL/6+mOjWe48x4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Cte8CXDh4YKfZj+U0TA+dURXZ/vAlvQ/kLh9gS6a4N9b665NhTA2+ndJtTOCH7aPh
+	 sZXxQhTaNFcWI+9GCrPpjLGDt8pG5qmku2zQ6y3qQN4qSqmMh+elTU0raGINHv1EJq
+	 1qzH6RIzG0V4q2SD18mWSF0HJlEBwKzoHjtsKSthTMjmRrnsqxmlgIoSS5ASXWHwFp
+	 X3llXG0PUbtzkeF+rsaG9mGyWiJBegAM/n1gJLrE3+AMQ4+YuXOWSWPcn6wKgzoLfg
+	 LlezuEsuVsWKIOt8pSSmIvJxnq8fomex1LaG4qoSI0AnYhM9C5LkPnAL5h2AP4bQCP
+	 OS8zA9awTY71Q==
+Message-ID: <68d1f55c-ddcf-4081-8111-9773c484ca07@kernel.org>
+Date: Fri, 27 Nov 2026 02:42:43 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,108 +52,73 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] bcache: fix use-after-free when waiting for
- dirty-init threads
-To: Coly Li <colyli@fygo.io>
-Cc: kent.overstreet@linux.dev, linux-bcache@vger.kernel.org,
+Subject: Re: [PATCH 7/7] arm64: defconfig: enable SDCA class driver and
+ WCD9378 codec
+To: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+ andersson@kernel.org, konrad.dybcio@oss.qualcomm.com, abel.vesa@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ alsa-devel@alsa-project.org, linux-sound@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20261105131954.1195428-1-fan.chen@easystack.cn>
- <A7BF631D-A5E8-47D0-B265-73C220200424@fygo.io>
-From: chenfan <fan.chen@easystack.cn>
-In-Reply-To: <A7BF631D-A5E8-47D0-B265-73C220200424@fygo.io>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa21aa9b2510229kunmd68f2d7bf9e8a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFJQjdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTR9LVkhPTB1LSU5IGBkYHVYVFA
-	kWGhdVGRETFhoSFyQUDg9ZV1kYEgtZQVlJSkNVQk9VSkpDVUJLWVdZFhoPEhUdFFlBWU9LSFVKS0
-	lPT09IVUpLS1VKQktLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=G2uO4TmnaRWHL7+oHlODaIUChNZB+J55G/lGUfrDajT0RtFNAafzcNYxmMZlOtNl+AADy+0P2xSGE2hs1cy+rrn9wIo7a399a1NFVP1hraIgmfMRlU0lQJVIcOkVWVAAOdhOK9J1YmnFfwmpgFVigdPhunvHGcSSzp/2CSuUXYA=; s=default; c=relaxed/relaxed; d=easystack.cn; v=1;
-	bh=8fTW3KeXDiiLMmJG9fyVvTKh0sZa7l/HWo28nMyrYN8=;
-	h=date:mime-version:subject:message-id:from;
+References: <20261126183806.172485-1-srinivas.kandagatla@oss.qualcomm.com>
+ <20261126183806.172485-8-srinivas.kandagatla@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20261126183806.172485-8-srinivas.kandagatla@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Coly,
+On 26/11/2026 19:38, Srinivas Kandagatla wrote:
+> Enable CONFIG_SND_SOC_SDCA, CONFIG_SND_SOC_SDCA_CLASS and
+> CONFIG_SND_SOC_WCD9378_SDCA so Qualcomm Glymur-based laptops have
+> working headset audio out of the box.
 
-Thanks for your advice, I will refactor it in the next few days.
+All of them? This is board specific, not SoC, thus please name at least
+few upstream examples.
 
-在 2026/11/26 19:35, Coly Li 写道:
-> Hi Chen Fan,
->
-> Nice catch!
->
->> 2026年11月5日 21:19，Chen Fan <fan.chen@easystack.cn> 写道：
->>
->> We use multiple threads to count dirty sectors in parallel (read-only).
->> bch_sectors_dirty_init() waits for the last dirty-init thread to set
->> state.started to 0.
->>
->> However, after the last thread sets state.started to 0 but before it calls
->> wake_up(&state->wait), bch_sectors_dirty_init() may observe started == 0,
->> return from wait_event() directly, and free local variable state.
->> The subsequent wake_up(&state->wait) then accesses freed memory, because
->> bch_sectors_dirty_init() has already exited.
->>
->> Fix this by using a completion to wait for all dirty-init threads, so that
->> no dirty-init thread can still access state after the wait completes.
->>
->> This issue was triggered in our environment with the following stack:
->> ------------[ cut here ]------------
->> [30433.391386] Internal error: Oops: 0000000096000047 [#1] SMP
->> [30433.585804] CPU: 54 PID: 48242 Comm: bch_dirtcnt[1] Kdump: loaded Tainted: G  6.6.0-98.0.0.90.aarch64 #1
->> [30433.718972] Call trace:
->> [30433.722722]  native_queued_spin_lock_slowpath+0x33c/0x420
->> [30433.729401]  __wake_up_common_lock+0xbc/0x118
->> [30433.735050]  __wake_up+0x20/0x38
->> [30433.739575]  bch_dirty_init_thread+0x1c0/0x1f8 [bcache]
->> [30433.746169]  kthread+0xf0/0x108
->> [30433.750583]  ret_from_fork+0x10/0x20
->> [30433.755425] Code: 91002020 8b040284 f862d8a5 aa0403e2 (f8256841)
->>       ---[ end trace ]---
->>
->> Signed-off-by: Chen Fan <fan.chen@easystack.cn>
->> ---
->> drivers/md/bcache/writeback.c | 31 ++++++++++++-------------------
->> drivers/md/bcache/writeback.h |  4 +---
->> 2 files changed, 13 insertions(+), 22 deletions(-)
->>
->> diff --git a/drivers/md/bcache/writeback.c b/drivers/md/bcache/writeback.c
->> index 4b237074f453..e74457a8c952 100644
->> --- a/drivers/md/bcache/writeback.c
->> +++ b/drivers/md/bcache/writeback.c
-> [snipped]
->
->> diff --git a/drivers/md/bcache/writeback.h b/drivers/md/bcache/writeback.h
->> index 31df716951f6..e6c74be20fc6 100644
->> --- a/drivers/md/bcache/writeback.h
->> +++ b/drivers/md/bcache/writeback.h
->> @@ -31,7 +31,6 @@
->> struct bch_dirty_init_state;
->> struct dirty_init_thrd_info {
->> struct bch_dirty_init_state *state;
->> - struct task_struct *thread;
->> };
->>
-> After this change, struct dirty_init_thrd_info has only one member state,
-> I feel you can totally remove struct dirty_init_thrd_info, and move state
-> directly into struct bch_dirty_init_stat.
->
->
->> struct bch_dirty_init_state {
->> @@ -40,9 +39,8 @@ struct bch_dirty_init_state {
->> int total_threads;
->> int key_idx;
->> spinlock_t idx_lock;
->> - atomic_t started;
->> atomic_t enough;
->> - wait_queue_head_t wait;
->> + struct completion done;
->> struct dirty_init_thrd_info infos[BCH_DIRTY_INIT_THRD_MAX];
-> You may think of changing the above line into
-> struct bch_dirty_init_state state[BCH_DIRTY_INIT_THRD_MAX];
->
->
-> Thanks.
->
-> Coly Li
+
+Best regards,
+Krzysztof
