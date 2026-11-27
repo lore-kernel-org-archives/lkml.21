@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795810464;
-	b=Q3U1XWwJ7Zhacr5FWBky7JSi4Z0fNz0mGqvIl+KRD/J1LZo99gk0r25YYAraWM9VjfAJ
-	 osIqS5vz6QZS09mP0SSpzhb7K8hu1opvaVdrg7lZCll2LD0K93XXQRWfLKncCwGbzZPcy
-	 q/QOBtvl9f1CiIRtsMIgm1Lm8v80Mt23zeTkjQic1xeCr4xdu4Xia8hvoMcgkFkK6D7Z7
-	 aevrlJUt2db4FzvBtCvEK5ISnulh79jvN66o0ku8ATGTijOqs9QBERd9mNEIWMjx/1sEp
-	 11fp5Zlyuj3JiaioFK2W2F4o3lV+mht7ne2caFv6i+mLkpCndEoslGwfnn6z6HgSv9w==
+	t=1795810471;
+	b=zLTPGyHBd5FjI20nMqcWd82egEpxzGaZwBbk+qoc09NzOPW1kcZjSUIBFlVPNpzVoTOT
+	 0NJMcTFS57o4nZTNXdL6hX8fkoo0xbgkTowAYraxtHk7E+YPnZUgWZossVEyNrjWtQ7RP
+	 8siHpGCmRLRFbMieZoOHL+kv+SThNPUHpEKVWWLsPG3cDa174jYD5CLNZOd8N5lr76e4H
+	 Vk3Z2r8NxEr1pv+sZATGgCHQnzxx4X0pUcONzamzHdOxXWsm/UHHyy6wYxwfq/HGbwNox
+	 xG9DL0cgJ3u0j8snQ3xfTsLpYay9pXdE3dL5Ih84gc2Ac8sDAfsiKsF8IpkBb95p49A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795810464;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810471;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=2OzrTCLFRXHQ5G5PcwdIRVZPS7FUL7CLCrYOZTtcWGo=;
-	b=ZZcZptGS3QUp3CQ6uqMv3Hs+JG0i0A0NqEiRyGpisQHVSVbcuyVsrwzrSIZlZAlZ54f/
-	 WFJChX9I5wQDEXVkNMgbDo5Nt2BGdK6zgGjzRTDRrpuZcHXPh6I5C72AtjNJoKdgl/0H6
-	 oWvps84wqzydRT2jzLJAgwMUbQMTjS+mO3OzxvDXo41yXAMv7fB9mkzl6d9+uKsN1DxSl
-	 8FBJpBZQt+QheEnsc0iBpLegcxLSN+NDt+8VU+DNr3y5SZKmwk3b0qE//YdCDcc6CFfqK
-	 T93NSodta3Gt9g6O8Jv0ps7eUHWMqC5rQxpC9fEroaExwBshooirnxJAVL9oWzawIOA==
+	bh=VtVT1PL9qtLAI0wGHd4Yx/5bH0OWaunX/DrQioCum8E=;
+	b=Lv+Mfj0ZV8FNoouYrunckPEdGNZ1cGlEtl7HzDDsjGYurfOOkAlU4Z2hL+aKnO4Ke4c2
+	 QgLTVcK9n2rINN5O1NcV+3dUuapB/Vh9eWeXtHdGhXGHJB1gPS0rWM38P3pKNha+icf2X
+	 MjbLDIAHznjO0F4oCcJB2jzLy2lD/4VGdNJPuQkv+neH/yCETRBRgTmO0nP5yiIuWjYgh
+	 pQ6cQpUnaQohbVC+Ab9CWZyhqopPQQRD4nxzFFeMG3Gpm14iS5xFnBus9NCbVi/PTf2Sf
+	 DKxFBRnmTM1c2zkoJ5+c0dsRC5cfafVkM8F2BRbK82RyRrklq5j0fsia9tC3oM9IP5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=H6HNp5ce;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UZK9JJHT;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F1F5606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:14:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F1F5606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BF26606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:14:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BF26606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=H6HNp5ce
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UZK9JJHT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795810462;
+	s=mimecast20190719; t=1795810469;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2OzrTCLFRXHQ5G5PcwdIRVZPS7FUL7CLCrYOZTtcWGo=;
-	b=H6HNp5ceC09DmoHeNL0MjnWe2dqcrEdoIheGursxix15SZ3RdX9Iy2CHc8b2Jjdxn2/iKE
-	YKSfgTNFAVZ9+8rLDD5b6MC1olZCpdpHyfYF++rNGvhBgmdtqCgE6BjRVKS0GBSSidHMe4
-	t3sISsu/irLj6BDv9n954f5JSlEU7dU=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=VtVT1PL9qtLAI0wGHd4Yx/5bH0OWaunX/DrQioCum8E=;
+	b=UZK9JJHT0vsSVBoLQ6IWpnvp7NHpqCYt5K7sokRI7sdHcCP7lpLru2sQCROkI+6nK/3jMP
+	ioJoJg5EdJjK89C7ot08mHUrHi5/LkoP5cssqXJpg1Kw7YW2UaOzo7v+d9z3/LWYSF8k/B
+	k3f53I83wZgOl7yFsk6xZRKYzfUZDyA=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-652-kVyebHtEN6SvC2uM12T_1Q-1; Fri,
- 27 Nov 2026 20:14:17 +0000
-X-MC-Unique: kVyebHtEN6SvC2uM12T_1Q-1
-X-Mimecast-MFC-AGG-ID: kVyebHtEN6SvC2uM12T_1Q_1795810452
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-489-Q0nnnHUINhmQaUSRqNdDvg-1; Fri,
+ 27 Nov 2026 20:14:26 +0000
+X-MC-Unique: Q0nnnHUINhmQaUSRqNdDvg-1
+X-Mimecast-MFC-AGG-ID: Q0nnnHUINhmQaUSRqNdDvg_1795810462
 Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 639931800556;
-	Fri, 27 Nov 2026 20:14:12 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0F9541944AA5;
+	Fri, 27 Nov 2026 20:14:22 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B4BB7436;
-	Fri, 27 Nov 2026 20:14:02 +0000 (UTC)
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BF428436;
+	Fri, 27 Nov 2026 20:14:12 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -106,9 +106,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	Dan Beimborn <Dan.Beimborn@qube-rt.com>,
 	"Pak Hung Vincent Chiu" <pak-hung.chiu@qube-rt.com>
-Subject: [PATCH v10 08/10] x86/mm/pti: Introduce kernel_cr3_loaded
-Date: Fri, 27 Nov 2026 21:12:19 +0100
-Message-ID: <20261127201221.434876-9-vschneid@redhat.com>
+Subject: [PATCH v10 09/10] x86/mm/pti: Drive kernel_cr3_loaded
+Date: Fri, 27 Nov 2026 21:12:20 +0100
+Message-ID: <20261127201221.434876-10-vschneid@redhat.com>
 In-Reply-To: <20261127201221.434876-1-vschneid@redhat.com>
 References: <20261127201221.434876-1-vschneid@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -126,180 +126,232 @@ X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 Later commits will rely on being able to check whether a remote CPU is
 using the kernel or the user CR3.
 
-Add a per-cpu variable that will be updated right before switching to the
-kernel CR3.
+This per-CPU variable needs to be updated before the actual CR3 write, IOW
+it always immediately precedes it:
 
-Note that this only adds the backing data, a later commit will drive the
-updates.
+  KERNEL_CR3_LOADED := 1
+  SWITCH_TO_KERNEL_CR3
+  [...]
+  KERNEL_CR3_LOADED := 0
+  SWITCH_TO_USER_CR3
 
-pcpu access in early entry
+NMI reentry considerations
 ==========================
 
-The variable is accessed through two different ways:
+NMIs are cheeky and can occur e.g. after @kernel_cr3_loaded has been updated
+but before the actual CR3 has been switched. This requires some extra care when
+exiting the NMI to *not* restore @kernel_cr3_loaded to its userland value.
 
-1) The general case where swapgs has already been executed, and the usual
-   gs-based per-cpu offset is usable. This requires mapping the variable in
-   the userspace visible pages, since CR3 hasn't been switched to the
-   kernel CR3 yet.
-2) The paranoid case where swapgs has *not* be executed, in which case
-   a CEA alias is used.
+That part is implemented by abusing bit #60 of the CR3 which is reserved;
+it itself is never written to in the actual CR3, but is fiddled in its
+register copy.
 
-security concerns
-=================
+Per the Intel SDM:
 
-That variable does not contain any exploitable data, and being in the
-.data..percpu..aligned section it occupies a whole page - that is, as long
-as it is not the last variable in that section. AFAICT the last one is
-always @entry_stack_storage (which by itself is a whole page), although I'm
-not sure if that's a happy accident or if it is actually enforced somehow?
+```Volume 3, Chapter 5.1.4 Enumeration of Paging Features by CPUID
+This width is referred to as MAXPHYADDR. MAXPHYADDR is at most 52.
+```
+
+```Volume 3, Chapter 5.5.2 Use of CR3 with Ordinary 4-Level Paging and 5-Level Paging
+| Bit position | Contents                                                                               |
+|--------------+----------------------------------------------------------------------------------------|
+|         11:0 | PCID                                                                                   |
+|       M-1:12 | Physical address of the 4-KByte aligned PML4 table used for linear-address translation |
+|         60:M | Reserved (must be 0)                                                                   |
+|           61 | Enables LAM57 for user pointers; Section 4.4.3                                         |
+|           62 | Enables LAM48 for user pointers; ignored if bit 61 is set                              |
+|           63 | Reserved (must be 0)                                                                   |
+```
+
+unconditional update
+=====================
+
+This will only be really useful for NOHZ_FULL CPUs, but it should be
+cheaper to unconditionally update a never-used per-CPU variable living in
+its own cacheline than to check a shared cpumask such as
+  housekeeping_cpumask(HK_TYPE_KERNEL_NOISE)
+at every entry.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/x86/include/asm/cpu_entry_area.h |  4 +++
- arch/x86/include/asm/pti.h            | 11 ++++++++
- arch/x86/kernel/asm-offsets.c         |  3 ++
- arch/x86/mm/cpu_entry_area.c          |  5 ++++
- arch/x86/mm/pti.c                     | 40 +++++++++++++++++++--------
- 5 files changed, 51 insertions(+), 12 deletions(-)
+ arch/x86/Kconfig                            | 14 ++++
+ arch/x86/entry/calling.h                    | 71 +++++++++++++++++++++
+ arch/x86/include/uapi/asm/processor-flags.h |  3 +
+ kernel/sched/isolation.c                    |  9 ++-
+ 4 files changed, 96 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/include/asm/cpu_entry_area.h b/arch/x86/include/asm/cpu_entry_area.h
-index 462fc34f13176..e321fd7f50d2b 100644
---- a/arch/x86/include/asm/cpu_entry_area.h
-+++ b/arch/x86/include/asm/cpu_entry_area.h
-@@ -127,6 +127,10 @@ struct cpu_entry_area {
- 	 * Reserve enough fixmap PTEs.
- 	 */
- 	struct debug_store_buffers cpu_debug_buffers;
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 15fd9ec5ecacb..cc8bc8a47b0f4 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -2163,6 +2163,20 @@ config ADDRESS_MASKING
+ 	  The capability can be used for efficient address sanitizers (ASAN)
+ 	  implementation and for optimizations in JITs.
+ 
++config TRACK_CR3
++       def_bool n
++       prompt "Track which CR3 is in use"
++       depends on X86_64 && MITIGATION_PAGE_TABLE_ISOLATION && NO_HZ_FULL
++       help
++	 This option adds a software signal that allows checking remotely
++	 whether a CPU is using the user or the kernel page table.
 +
++	 This allows further optimizations for NOHZ_FULL CPUs.
++
++	 This obviously makes the user<->kernel transition overhead even worse.
++
++	 If unsure, say N.
++
+ config HOTPLUG_CPU
+ 	def_bool y
+ 	depends on SMP
+diff --git a/arch/x86/entry/calling.h b/arch/x86/entry/calling.h
+index 77e2d920a6407..e28e41a011394 100644
+--- a/arch/x86/entry/calling.h
++++ b/arch/x86/entry/calling.h
+@@ -9,6 +9,8 @@
+ #include <asm/ptrace-abi.h>
+ #include <asm/msr.h>
+ #include <asm/nospec-branch.h>
++#include <asm/jump_label.h>
++#include <asm/pti.h>
+ 
+ /*
+ 
+@@ -170,9 +172,74 @@ For 32-bit we have the following conventions - kernel is built with
+ 	andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
+ .endm
+ 
++.macro TRACK_CR3_KERNEL_ENTRY
 +#ifdef CONFIG_TRACK_CR3
-+	atomic_t kernel_cr3_loaded __aligned(PAGE_SIZE);
-+#endif
++	STATIC_BRANCH_FALSE_LIKELY housekeeping_overridden, .Lend_\@
++	orl $KERNEL_CR3_IN_KERNEL, PER_CPU_VAR(kernel_cr3_loaded)
++.Lend_\@:
++#endif // CONFIG_TRACK_CR3
++.endm
++
++.macro TRACK_CR3_KERNEL_EXIT
++#ifdef CONFIG_TRACK_CR3
++	STATIC_BRANCH_FALSE_LIKELY housekeeping_overridden, .Lend_\@
++	movl $KERNEL_CR3_IN_USER, PER_CPU_VAR(kernel_cr3_loaded)
++.Lend_\@:
++#endif // CONFIG_TRACK_CR3
++.endm
++
++.macro PARANOID_TRACK_CR3_KERNEL_ENTRY scratch_reg:req save_reg:req
++#ifdef CONFIG_TRACK_CR3
++	STATIC_BRANCH_FALSE_LIKELY housekeeping_overridden, .Lend_\@
++
++	/*
++	 * Due to FSGSBASE hilarity, we don't have a viable GS to rely on to
++	 * do a classic percpu access here.
++	 * Instead, fetch the percpu address via the CEA.
++	 */
++	subq $10, %rsp
++	sgdt (%rsp)
++	movq 2(%rsp), \scratch_reg /* GDT address */
++	addq $10, %rsp
++
++	/*
++	 * We may have just interrupted another entry that has set
++	 * $KERNEL_CR3_IN_KERNEL, but hasn't written to CR3 yet.
++	 * Abuse \save_reg to remember that at exit and to leave
++	 * @kernel_cr3_loaded as it was.
++	 */
++	testl $KERNEL_CR3_IN_KERNEL, CPU_ENTRY_AREA_kernel_cr3(\scratch_reg)
++	jz .Ltrack_\@
++	bts $X86_CR3_REENTRY_BIT, \save_reg
++	jmp .Lend_restore_\@
++.Ltrack_\@:
++	movl $KERNEL_CR3_IN_KERNEL, CPU_ENTRY_AREA_kernel_cr3(\scratch_reg)
++.Lend_restore_\@:
++	/* CEA hackery done; restore @scratch_reg */
++	mov \save_reg, \scratch_reg
++	btr $X86_CR3_REENTRY_BIT, \scratch_reg
++.Lend_\@:
++#endif // CONFIG_TRACK_CR3
++.endm
++
++.macro PARANOID_TRACK_CR3_KERNEL_EXIT save_reg:req
++#ifdef CONFIG_TRACK_CR3
++	STATIC_BRANCH_FALSE_LIKELY housekeeping_overridden, .Lend_\@
++	/*
++	 * If we entered with @kernel_cr3_loaded already written to, leave it
++	 * as is.
++	 */
++	btr $X86_CR3_REENTRY_BIT, \save_reg
++	jc .Lend_\@
++	movl $KERNEL_CR3_IN_USER, PER_CPU_VAR(kernel_cr3_loaded)
++.Lend_\@:
++#endif // CONFIG_TRACK_CR3
++.endm
++
+ .macro SWITCH_TO_KERNEL_CR3 scratch_reg:req
+ 	ALTERNATIVE "jmp .Lend_\@", "", X86_FEATURE_PTI
+ 	mov	%cr3, \scratch_reg
++	TRACK_CR3_KERNEL_ENTRY
+ 	ADJUST_KERNEL_CR3 \scratch_reg
+ 	mov	\scratch_reg, %cr3
+ .Lend_\@:
+@@ -182,6 +249,7 @@ For 32-bit we have the following conventions - kernel is built with
+ 	PER_CPU_VAR(cpu_tlbstate + TLB_STATE_user_pcid_flush_mask)
+ 
+ .macro SWITCH_TO_USER_CR3 scratch_reg:req scratch_reg2:req
++	TRACK_CR3_KERNEL_EXIT
+ 	mov	%cr3, \scratch_reg
+ 
+ 	ALTERNATIVE "jmp .Lwrcr3_\@", "", X86_FEATURE_PCID
+@@ -239,6 +307,7 @@ For 32-bit we have the following conventions - kernel is built with
+ 	bt	$PTI_USER_PGTABLE_BIT, \scratch_reg
+ 	jnc	.Ldone_\@
+ 
++	PARANOID_TRACK_CR3_KERNEL_ENTRY \scratch_reg \save_reg
+ 	ADJUST_KERNEL_CR3 \scratch_reg
+ 	movq	\scratch_reg, %cr3
+ 
+@@ -257,6 +326,8 @@ For 32-bit we have the following conventions - kernel is built with
+ 	bt	$PTI_USER_PGTABLE_BIT, \save_reg
+ 	jnc	.Lend_\@
+ 
++	PARANOID_TRACK_CR3_KERNEL_EXIT \save_reg
++
+ 	ALTERNATIVE "jmp .Lwrcr3_\@", "", X86_FEATURE_PCID
+ 
+ 	/*
+diff --git a/arch/x86/include/uapi/asm/processor-flags.h b/arch/x86/include/uapi/asm/processor-flags.h
+index 81d0c8bf11377..279c745db7cf1 100644
+--- a/arch/x86/include/uapi/asm/processor-flags.h
++++ b/arch/x86/include/uapi/asm/processor-flags.h
+@@ -82,6 +82,9 @@
+ #define X86_CR3_PCID_BITS	12
+ #define X86_CR3_PCID_MASK	(_AC((1UL << X86_CR3_PCID_BITS) - 1, UL))
+ 
++#define X86_CR3_REENTRY_BIT 60 /* NOT a CPU flag, but a pure software abuse of the CR3 layout */
++#define X86_CR3_REENTRY    _BITULL(X86_CR3_REENTRY_BIT)
++
+ #define X86_CR3_LAM_U57_BIT	61 /* Activate LAM for userspace, 62:57 bits masked */
+ #define X86_CR3_LAM_U57		_BITULL(X86_CR3_LAM_U57_BIT)
+ #define X86_CR3_LAM_U48_BIT	62 /* Activate LAM for userspace, 62:48 bits masked */
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index 156025ef81b75..90640c9e7f811 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -19,7 +19,14 @@ enum hk_flags {
+ 	HK_FLAG_KERNEL_NOISE	= BIT(HK_TYPE_KERNEL_NOISE),
  };
  
- #define CPU_ENTRY_AREA_SIZE		(sizeof(struct cpu_entry_area))
-diff --git a/arch/x86/include/asm/pti.h b/arch/x86/include/asm/pti.h
-index 88d0a1ab1f77e..142b2d225c5eb 100644
---- a/arch/x86/include/asm/pti.h
-+++ b/arch/x86/include/asm/pti.h
-@@ -1,12 +1,23 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #ifndef _ASM_X86_PTI_H
- #define _ASM_X86_PTI_H
-+
-+#ifdef CONFIG_TRACK_CR3
-+#define KERNEL_CR3_IN_USER 0
-+#define KERNEL_CR3_IN_KERNEL 1
-+#endif
-+
- #ifndef __ASSEMBLER__
+-DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
++/*
++ * This key is accessed in early entry code to drive the CPU isolation IPI
++ * quiescing mechanism. This happens before a serializing instruction has been
++ * executed in the entry path. This is acceptable as a stale value will only be
++ * observed during transient CPU isolation states, and the updated value will be
++ * acted upon at the next kernel exit.
++ */
++DEFINE_STATIC_KEY_FALSE_ENTRY(housekeeping_overridden);
+ EXPORT_SYMBOL_GPL(housekeeping_overridden);
  
- #ifdef CONFIG_MITIGATION_PAGE_TABLE_ISOLATION
- extern void pti_init(void);
- extern void pti_check_boottime_disable(void);
- extern void pti_finalize(void);
-+
-+#ifdef CONFIG_TRACK_CR3
-+DECLARE_PER_CPU_PAGE_ALIGNED(atomic_t, kernel_cr3_loaded);
-+#endif
-+
- #else
- static inline void pti_check_boottime_disable(void) { }
- #endif
-diff --git a/arch/x86/kernel/asm-offsets.c b/arch/x86/kernel/asm-offsets.c
-index 081816888f7a0..5ba8d5b791e1f 100644
---- a/arch/x86/kernel/asm-offsets.c
-+++ b/arch/x86/kernel/asm-offsets.c
-@@ -117,6 +117,9 @@ static void __used common(void)
- 	OFFSET(CPU_ENTRY_AREA_entry_stack, cpu_entry_area, entry_stack_page);
- 	DEFINE(SIZEOF_entry_stack, sizeof(struct entry_stack));
- 	DEFINE(MASK_entry_stack, (~(sizeof(struct entry_stack) - 1)));
-+#ifdef CONFIG_TRACK_CR3
-+	OFFSET(CPU_ENTRY_AREA_kernel_cr3, cpu_entry_area, kernel_cr3_loaded);
-+#endif
- 
- 	/* Offset for fields in tss_struct */
- 	OFFSET(TSS_sp0, tss_struct, x86_tss.sp0);
-diff --git a/arch/x86/mm/cpu_entry_area.c b/arch/x86/mm/cpu_entry_area.c
-index 575f863f3c75e..a8c3381432a57 100644
---- a/arch/x86/mm/cpu_entry_area.c
-+++ b/arch/x86/mm/cpu_entry_area.c
-@@ -202,6 +202,11 @@ static void __init setup_cpu_entry_area(unsigned int cpu)
- 			     per_cpu_ptr(&entry_stack_storage, cpu), 1,
- 			     PAGE_KERNEL);
- 
-+#ifdef CONFIG_TRACK_CR3
-+	cea_map_percpu_pages(&cea->kernel_cr3_loaded,
-+			     per_cpu_ptr(&kernel_cr3_loaded, cpu), 1,
-+			     PAGE_KERNEL);
-+#endif
- 	/*
- 	 * The Intel SDM says (Volume 3, 7.2.1):
- 	 *
-diff --git a/arch/x86/mm/pti.c b/arch/x86/mm/pti.c
-index 598f553cc8713..69c03acceb1de 100644
---- a/arch/x86/mm/pti.c
-+++ b/arch/x86/mm/pti.c
-@@ -446,6 +446,22 @@ static void __init pti_clone_p4d(unsigned long addr)
- 	*user_p4d = *kernel_p4d;
- }
- 
-+static void __init pti_clone_percpu(unsigned long va)
-+{
-+		phys_addr_t pa = per_cpu_ptr_to_phys((void *)va);
-+		pte_t *target_pte;
-+
-+		target_pte = pti_user_pagetable_walk_pte(va, false);
-+		if (WARN_ON(!target_pte))
-+			return;
-+
-+		*target_pte = pfn_pte(pa >> PAGE_SHIFT, PAGE_KERNEL);
-+}
-+
-+#ifdef CONFIG_TRACK_CR3
-+DEFINE_PER_CPU_PAGE_ALIGNED(atomic_t, kernel_cr3_loaded) = ATOMIC_INIT(KERNEL_CR3_IN_KERNEL);
-+#endif
-+
- /*
-  * Clone the CPU_ENTRY_AREA and associated data into the user space visible
-  * page table.
-@@ -456,25 +472,25 @@ static void __init pti_clone_user_shared(void)
- 
- 	pti_clone_p4d(CPU_ENTRY_AREA_BASE);
- 
-+	/*
-+	 * This is done for all possible CPUs during boot to ensure that it's
-+	 * propagated to all mms.
-+	 */
- 	for_each_possible_cpu(cpu) {
- 		/*
- 		 * The SYSCALL64 entry code needs one word of scratch space
- 		 * in which to spill a register.  It lives in the sp2 slot
- 		 * of the CPU's TSS.
--		 *
--		 * This is done for all possible CPUs during boot to ensure
--		 * that it's propagated to all mms.
- 		 */
-+		pti_clone_percpu((unsigned long)&per_cpu(cpu_tss_rw, cpu));
- 
--		unsigned long va = (unsigned long)&per_cpu(cpu_tss_rw, cpu);
--		phys_addr_t pa = per_cpu_ptr_to_phys((void *)va);
--		pte_t *target_pte;
--
--		target_pte = pti_user_pagetable_walk_pte(va, false);
--		if (WARN_ON(!target_pte))
--			return;
--
--		*target_pte = pfn_pte(pa >> PAGE_SHIFT, PAGE_KERNEL);
-+#ifdef CONFIG_TRACK_CR3
-+		/*
-+		 * The entry code needs access to the @kernel_cr3_loaded percpu
-+		 * variable before the kernel CR3 is loaded.
-+		 */
-+		pti_clone_percpu((unsigned long)&per_cpu(kernel_cr3_loaded, cpu));
-+#endif
- 	}
- }
- 
+ struct housekeeping {
 -- 
 2.56.1
 
