@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795774426;
-	b=3DNf1RnZbJYXAXCuxLVxNcproY+/UAAQCiy6ux8gK8syXFgvVDPhxYpmvAvzVwVLiJZy
-	 sVMYc+JFtmGjswX0C7Vq2fCCghBmeIeG+RPoVQv3PqNtTu9U62kP7G3aDf/89P7tY5lwP
-	 TGhFNAKC0SmuVY4mblNYwyqc72sIEY06aVpY+ye15WENcE1oYpABRYJWejAnked9YJznj
-	 ThSTuVC4EVDimXpag5uVWiRqIW7r93xnXIgdyAaaS2cJfHco4qSrssgFt22Q5M5+Y6vY/
-	 3g1WErRMEY5sSUqrLVnWGpnypNK29u2XdxcYCenDoY8Er4jj2P61wQ56aH6nvTZGPFA==
+	t=1795774439;
+	b=02mttcIj6FXrZNHcq0pIHXtLYYO4AmMAaP+y5S/SxoA6uNJqIxgn033yEz1DqtV0VF6f
+	 CmboUkc4Z0zM4uz7VTRK4yrJ+qPmiDZlz1/wl5ScHk70D9bN0KDSbZZbZFBRUfu9EwCFq
+	 DZAq8Qu2XEwVLyjT6HTW92s6DyUTXJBe2HLpuXLaQIfxwguFW0gPfx6IURHRWtCMg5W96
+	 xEtdqe1qN+5h88xu4YfxhQZvhw527d+6kEmxSSQFXkIF8oATRLu8Fw1OyreegQ8l3lkdW
+	 NmhzooZudAsrG2p1QfA44eMuGThyJxmUQSXUmQtaYInBTJJ6Rf1X9T8q52h4IC9zcCg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774426;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774439;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=L3uorpJsDuQi8hiKfbI2IIOCDoZSKWRJ97N9hJn2fYU=;
-	b=mijiOsjfvcf201vgW02QSDYYLx8BMXXEdUXzmPZGZIXR7oYNERLI8dcnzBAg1afRsDv2
-	 nI3NB7URWBzAf0RvQdeNsVmdwiKuggv10LWnyM9GHPRMz2m+N0eGyN0wSdD6317Odwv5S
-	 g8fT7PLPkaBG4SYoNw/Yj8v6VjZ0uRQ4QsMzzPRTeDy1hoxDvaCefByzN60gbvoSF1/9p
-	 kiikHknkBQIlqI/XQA6SQQlcX59FvB3p0SqIKwe/OzqPRvgFHUHgg+ZSM/mkmlIyQKfTS
-	 VIGAfNsmZb1eO+gig5HUwSBydiD2LOejyXFnJ4gMHBCtrIkwSqtAOHVW5MKOUks3eOw==
+	bh=EDoGPKELBrjjXmAt5YhWl1KjRqEHm9HW5lJDRGwefDk=;
+	b=zsgBjx/gvOfj9PT2WgGjK84jbr0dWMj6T/kTo6SSx5vTTH352gs3TbeR9/MOHAn+Bs/j
+	 OQpgfS3mdqFOERLOd25aLxKf3B81rF54ufh/zLfUGqHSWQ+sr5FQCEBQhUaNekk9aZBG7
+	 FApk40O7T4u72ynNhSk5jur6yqF4pOjBx4AkBaI/scYqDAK9w2lCxlDOLnNewxEAifssv
+	 mKZuxefAj7krIjgLSQlSSpkFtz0zEzOMcSAsV4xh/+tmSszb+hDqBrPzJNjwblrpjUFcY
+	 RhdhILQiXhe1y8XarA2fPat2QIjz4Is2eucnv16gieFbMPhvW/P4c7HKTPbLCeXJLWg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bLpmXzck;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XK9EVq1v;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5254960A383C;
-	Fri, 27 Nov 2026 10:13:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D72E160A2605;
+	Fri, 27 Nov 2026 10:13:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bLpmXzck
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XK9EVq1v
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795774425;
-	b=H4dG7uF0jCrmuxY2elm3DTsFvHOo37hi2XfBPyCxMFdxT7e9XtrSJI0xTHUE84J5lX1U
-	 7NYaxPb9I8+jpAOL2XWhQF9qEI5O9P/6/Z9bbBGanQDgjiXcqvPRqvNjoffoC2BvYlQO9
-	 9NfrNXbnoLfn8berXPElC6Af2BwOxd/7Iw+iSWCQ69InrigxEo3tOT9HlR0sG6EZ7nE8T
-	 iUNnf+JQfbrx2ixaTqDlTSlw5I9CZGA+isuNj3iZ9bTLBMwiGEiNEqZg1I+cHSDzoJmaV
-	 p5evMIgeVWCDhwj2VEyCZVb1klfiM30jCFCD5e6LFfE+Pgi75HRbAONRQYk8wAhycEA==
+	t=1795774439;
+	b=ZIg1sXXBztA7BHyhBylVMJwxpJqrvbyBctmclzAUq4MCrVwFGSd3jRbr5LILCMll5qQ/
+	 bpwo9oOAz/Ce/nUtOQq1fOchqn0oFqaQiy753c3FhnCcXHFdD6FBUJERc56azVahjcmkD
+	 M21rLwLJUqgAiFmA+4INnUJnJXTk+Nzlh11WKfwac6O8rlLy61ONLm1CPUqLy3GQoM0n7
+	 pj1/bWd1fyoYbmMFGyd2J/SUWlWVjLkC3PozdNwnBddzxvsBTTAjtV8jfNhYv0WTU2MWZ
+	 d1CE5Y16sLCrFBydlvw/MZTlVm2smjedcqkVgWjZDxWNZXIcOz+a5eWuPfbGTh+K28A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795774425;
+	c=relaxed/relaxed; t=1795774439;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=L3uorpJsDuQi8hiKfbI2IIOCDoZSKWRJ97N9hJn2fYU=;
-	b=zItJXyhjaRfIBs9ejqrv2co3vh/SQMHMa1zg/9/xyXlaZb6QA86uaRdGQoWDCgLZtkbA
-	 /67oqr5Chy5WNThokKoKymAZm/+vsdVj4SvVoZ0+e/6m+ezkpFaFeQ+BGQ7CSNbbhvmPf
-	 ePcN9lJI/lsCHuYtanOJ6Ia1PApnFUbwHqq7A22qSlDL3jObAK7NsaEYajwNKyVpMIGlZ
-	 DH678LAVAfPMDUzHLD0GTzvr7sXmm/DaZ5Uy+xLMhPUrrhsgxqgNRpWyxqKKSbAkH9OAM
-	 dBjoVilYIkv1tNpFkILNcpI4g1GYZzbcUoH3KikizmZe/ObdQgWW/traQFw5AdjB4Vg==
+	bh=EDoGPKELBrjjXmAt5YhWl1KjRqEHm9HW5lJDRGwefDk=;
+	b=yYBj8HOBhaf2DQOOZyQiB3Lcrv9QtKHq09p7uhRrGKOc4YUPBUR4rlVaXh5eLUJpLPUr
+	 +8qGrOlQtW/vNtwAg5Z3vm34ercqu8PRn8jDM7/5K7dKlSQfNSWq90Z8ywq4UMA4rAg98
+	 23XDDZ3ywPTZvtD7qDa8vPC8pe5owy5GKIkPLrJBlGRbOtJMsN6y56BNi9211wuO70ym6
+	 msKdx6Cd6hKiHlmtZsIikI3yUtakvB3N+dVaGa+a3jrVr+z7mr5VIlx4MSdDqr5zsu5A2
+	 xXXBrIls/OhTh8yT/1WCzr09+PptOCE3I1UHAL6gy13HKjDc/8ZzonmcK/1BUO3g/sg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 816361F00919;
-	Fri, 27 Nov 2026 10:13:22 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id A89251F02EF3;
+	Fri, 27 Nov 2026 10:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795774425;
-	bh=L3uorpJsDuQi8hiKfbI2IIOCDoZSKWRJ97N9hJn2fYU=;
+	s=k20260515; t=1795774439;
+	bh=EDoGPKELBrjjXmAt5YhWl1KjRqEHm9HW5lJDRGwefDk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=bLpmXzck+8l9P8LUK+2aIeR9vwlqmJ073m5oaNcMe2Rg85sG3hoWR2yh2zDQZi+nJ
-	 0rVnB8Z0YIejiP4j22fvWSq3VfiJ9W+V/lCIR1jFkqA4u1uKu9p/YO4mkXQwJXnbge
-	 NRnbjpjMOz++RfPhwTJgjCn7fxtxr38fIfX2Fqk5mGq0uc2eGQyCmeCMiCGkI+dBiU
-	 +z0Wz2HCA58pTiXmfrHJUr9Wc3kCceHqiN+K4cIrrAjMEaW0/kj8CGd9JI6X3oTLlX
-	 jLLec0S7EOxzBRZo6qd+o27Wi35Gyn9zAvxDK4iwri4Bb+LGI8RSxpMxXX5PgyV81n
-	 jXyycQ1naHoMQ==
+	b=XK9EVq1vHr5wfU5TBdymL+yGdkPGK8pCHzmWWmxJCpfBlwaRKcRsg+LRx3YTX1BAx
+	 tg6+CWwSmYY6IyASX+1NeCqmAoUza8gip1ujGaYH00Tdz4AjIJWfWHF00t8swNSs7a
+	 yfPs8/UAP1O8/sa/fqFZO+sZburwz53WPqElNdGxe9S150xbSegXBkJFKmzkluL493
+	 0RzedI/cvi5P0x2RinvQGk3VM/GUOo4bWHD81OsaUq/0lBM7vWPfrYOE4mAZgIFysr
+	 U/7nc3i9Xh0C/LFyz6t6QYPv6bRRkUcGGQbqY0lqL9oBw/N46kaH9YhHVZ8NOM2Dj5
+	 j2ESg5V6HrLig==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1035D4B6F7;
-	Fri, 27 Nov 2026 10:13:22 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 752204B71F;
+	Fri, 27 Nov 2026 10:13:23 +0000 (UTC)
 From: Yuugo Yoneda via B4 Relay <devnull+yogo.0917.sabu.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 19:13:04 +0900
-Subject: [PATCH RFC v3 03/13] dt-bindings: interrupt-controller: add SiRF
- AT550 interrupt controller
+Date: Fri, 27 Nov 2026 19:13:14 +0900
+Subject: [PATCH RFC v3 13/13] ARM: configs: add at550_defconfig
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-at550-rfc-v1-v3-3-f2221008912b@gmail.com>
+Message-Id: <20261127-at550-rfc-v1-v3-13-f2221008912b@gmail.com>
 References: <20261127-at550-rfc-v1-v3-0-f2221008912b@gmail.com>
 In-Reply-To: <20261127-at550-rfc-v1-v3-0-f2221008912b@gmail.com>
 To: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
@@ -103,11 +102,11 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-mmc@vger.kernel.org, linux-doc@vger.kernel.org, soc@lists.linux.dev, 
  Yuugo Yoneda <yogo.0917.sabu@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795774399; l=2262;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795774399; l=2043;
  i=yogo.0917.sabu@gmail.com; s=ypl514-20261117; h=from:subject:message-id;
- bh=F60mi4ewot5gPQAYKYIRAeZ4rErv6ktzSFwpDWHu6xY=;
- b=TyCXSzk5Q2h/ZYk3LbPQWnuhQdFVxFL6RWlbhpnvJAc2Qrj+IAKUj744D0gvSW28eOsu2ccZL
- xNsjoxpdA13BiV6tNin18IELHG/RL245E0NaStgGdI20VD0jXpZV1Pk
+ bh=pMke0imoJchV0ULfBw7Dw5Vuko1MgRapuxPRcWPCC48=;
+ b=zMJwS0lv8mcBI7AYpmpaqrquKzjeAZI3uguikK975Yp28PPKDhaomZuGnisdZ+dwqg7z4AD5J
+ 0vLozBuiDxxCoxOKuFIGEUQD3bJg0yAnV9JXxQZhZVCKb1kL9dvuycl
 X-Developer-Key: i=yogo.0917.sabu@gmail.com; a=ed25519;
  pk=TIQ8Tk4xQrxyn8rmk3GI2f5qg/kO6g2KZm7YOOyBHeg=
 X-Endpoint-Received: by B4 Relay for
@@ -118,79 +117,70 @@ Content-Transfer-Encoding: 7bit
 
 From: Yuugo Yoneda <yogo.0917.sabu@gmail.com>
 
-Document the Devicetree binding for the 64-source level-sensitive
-interrupt controller in the SiRF AT550 SoC.
+Add a minimal defconfig for the SiRF AT550 / YPL514si enabling
+ARCH_MULTI_V6, ARCH_AT550, FB_SIMPLE, TOUCHSCREEN_AT550,
+MMC_SDHCI_AT550, and VFAT/initramfs support while disabling
+ARCH_MULTI_V7 and unvalidated SUSPEND.
 
 Signed-off-by: Yuugo Yoneda <yogo.0917.sabu@gmail.com>
 ---
- .../interrupt-controller/sirf,at550-intc.yaml      | 46 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 47 insertions(+)
+ MAINTAINERS                      |  1 +
+ arch/arm/configs/at550_defconfig | 35 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 36 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sirf,at550-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/sirf,at550-intc.yaml
-new file mode 100644
-index 000000000..7effe6c9b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sirf,at550-intc.yaml
-@@ -0,0 +1,46 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/sirf,at550-intc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SiRF AT550 interrupt controller
-+
-+maintainers:
-+  - Yuugo Yoneda <yogo.0917.sabu@gmail.com>
-+
-+description:
-+  The AT550 interrupt controller routes 64 level-sensitive interrupt sources to
-+  the ARM1136 IRQ and FIQ inputs. Each source has a fixed active level; the
-+  single interrupt cell is the source number.
-+
-+properties:
-+  compatible:
-+    const: sirf,at550-intc
-+  reg:
-+    maxItems: 1
-+  interrupt-controller: true
-+  '#interrupt-cells':
-+    const: 1
-+  '#address-cells':
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupt-controller
-+  - '#interrupt-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    interrupt-controller@90020000 {
-+        compatible = "sirf,at550-intc";
-+        reg = <0x90020000 0x1000>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+        #address-cells = <0>;
-+    };
-+
-+...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index a825b3bae..e052d9dde 100644
+index c6f0f3fb6..d5a7e78ff 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -25851,6 +25851,7 @@ SIRF AT550 PLATFORM
- M:	Yuugo Yoneda <yogo.0917.sabu@gmail.com>
- S:	Odd Fixes
- F:	Documentation/devicetree/bindings/arm/sirf,at550.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/sirf,at550-intc.yaml
- 
- SIS 190 ETHERNET DRIVER
- M:	Francois Romieu <romieu@fr.zoreil.com>
+@@ -25857,6 +25857,7 @@ F:	Documentation/devicetree/bindings/interrupt-controller/sirf,at550-intc.yaml
+ F:	Documentation/devicetree/bindings/mmc/sirf,at550-sdhci.yaml
+ F:	Documentation/devicetree/bindings/timer/sirf,at550-timer.yaml
+ F:	arch/arm/boot/dts/sirf/at550*
++F:	arch/arm/configs/at550_defconfig
+ F:	arch/arm/mach-at550/
+ F:	drivers/clocksource/timer-at550.c
+ F:	drivers/input/touchscreen/at550-ts.c
+diff --git a/arch/arm/configs/at550_defconfig b/arch/arm/configs/at550_defconfig
+new file mode 100644
+index 000000000..95d32f2c9
+--- /dev/null
++++ b/arch/arm/configs/at550_defconfig
+@@ -0,0 +1,35 @@
++# CONFIG_LOCALVERSION_AUTO is not set
++CONFIG_SYSVIPC=y
++CONFIG_NO_HZ_IDLE=y
++CONFIG_HIGH_RES_TIMERS=y
++CONFIG_BLK_DEV_INITRD=y
++CONFIG_ARCH_MULTI_V6=y
++# CONFIG_ARCH_MULTI_V7 is not set
++CONFIG_ARCH_AT550=y
++# CONFIG_SUSPEND is not set
++CONFIG_MODULES=y
++CONFIG_MODULE_UNLOAD=y
++CONFIG_PARTITION_ADVANCED=y
++CONFIG_NET=y
++CONFIG_UNIX=y
++CONFIG_DEVTMPFS=y
++CONFIG_DEVTMPFS_MOUNT=y
++CONFIG_INPUT_EVDEV=y
++# CONFIG_INPUT_KEYBOARD is not set
++# CONFIG_INPUT_MOUSE is not set
++CONFIG_INPUT_TOUCHSCREEN=y
++CONFIG_TOUCHSCREEN_AT550=y
++CONFIG_FB=y
++CONFIG_FB_SIMPLE=y
++CONFIG_FRAMEBUFFER_CONSOLE=y
++CONFIG_MMC=y
++CONFIG_MMC_SDHCI=y
++CONFIG_MMC_SDHCI_PLTFM=y
++CONFIG_MMC_SDHCI_AT550=y
++CONFIG_VFAT_FS=y
++CONFIG_TMPFS=y
++CONFIG_NLS_CODEPAGE_437=y
++CONFIG_NLS_ISO8859_1=y
++CONFIG_NLS_UTF8=y
++CONFIG_FONTS=y
++CONFIG_FONT_8x8=y
 
 -- 
 2.56.1
