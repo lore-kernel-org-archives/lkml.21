@@ -1,66 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795774450;
-	b=tzIqyH/88oYzPMgV2T7h3FoIAXAZrVY6kFhDWz5qOmmRlTlApZhlqM2FENs0bNNRE8RH
-	 /NxqmKVHqDyKO5NRPSta5v7RbLC9FLXq1xnHWGbabHuhgwFD62hWlvevb2CA6GyQbfV4d
-	 8NjjZd42ANeIrk0UnoEj0Hrt/KY0UG2xiBKSUgH6abiIGEEurYJZlTkKZa3JP3/SP3UIr
-	 wjTW974oCZ3cEzj36FNuUkAR2KVJd7jfd9HjRaN0EE5MGDgzrZ84MC6s03xNzvn0I19Rm
-	 RIeG8o2iDxsk3esSd0Ct7z3ZuR++LXxbVCEIqPlRwHyj7pQeQRAsCevDbXFJkK5Dp4A==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795774452;
+	b=veKhEZVdNprSc2BgZ+Hi3T1g+DjZXumIqY5aiLPVUvCtFMk4oWztlgIUUuD8My89l5hX
+	 nCwaLjZPIF0OuNvo01VgBKnO0S5RMLhCmnjUMDLx9FWf/X+4cJ2CAQNz1xyA+q5oz9NMO
+	 5evwssGYGEsBon99qRcv6pxAgP942Y9BeJNFvN9zApfdSjFDDtfs8mak86mexNvorss4W
+	 XzZYI4yhob05RqK/HfcYFy/Fay4b8IN0FECKUNTueUTlFbjfH6dC4mdfre9l6NCDsokOT
+	 ThuzAOk0nprAyULmO/tQgqUPTmokjcjnb5JTfrQuBUq3Wo2QfkR56VkdIeX77kUNk8A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774450;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=mFrz0tg1BYUUgnbknpOtDLj8CSqNemB5JAMMawMUfoY=;
-	b=OjlJXX/OcAg/V+fdlTDjf0CCR2YL8Ffr0iOmVZXwZ0KAXkA5lTgqroEJYh//BTbZrM5E
-	 NmhaRV2n5WWVg8hgjmiP+FJsWJXSfZLIdidREoXBTJdwuSt0+B8XCMqgU/OGGEnM629qS
-	 zs1QQ+sCHKBrVtVKozOaaSnKV0knFy2s4xqKy7SWcDiphwdN3PpGvBMv8drR53+GOqLKU
-	 AWR8VlrJzO4Uf9g7yJsUaWY2aw4oHq9wSyBSau32gNUz+k2qsGs5hUlJOFQicq1WG+u4w
-	 py2pG4wKlH1yIMW+6ow1/nmuTJ5n5Gju14rBxgUWf3t56FShcz9hKIrvAcO3hDU7XcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774452;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=pnSZi82mVfZLS6PwIZVcWPzE7AlvW48La+q7lJF7NRc=;
+	b=BMGN88pZN1+pPWdsQCB2daI21yf2jQ78sAlZVLZO2du3njnyt0AcaEZBaZAgzEEO2873
+	 iR9q4ZNOFtr1W9d2arGWpAkFJQ4ObY0Eyr77/qHlDCyAdbavObGKDlYqkIsBz09AWppaf
+	 tjaEYH92Pa/9sMeGUzqaA9I427EezlDbDrS6+OI/nZabJMqGNQ/oXpwUQdXirIHawoz0D
+	 GE24Y0hUW0yRprxFWXPcyDVufydQYxYawqocaYFMbPXYzPqLJtdwkwYjYzA/Zpi45KrMw
+	 Xh0OCvfekBx6HEXtb4mjWNosCOPmwhbDhLOm6ogG3VaNeZn9lmlzlt3tiedGaoHTmsg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ph4ntom-rev.uz;
-	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
-	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=A7yFdWkx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YDGzarso;
+	arc=fail smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8144D606A32F;
-	Fri, 27 Nov 2026 10:14:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8144D606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 092DA60A2615
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:14:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 092DA60A2615
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=A7yFdWkx
-ARC-Seal: i=1; a=rsa-sha256; t=1795774388; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=E+nIdGxY8F9qO9biYcEA826RxaXPV2rWPVie3DRz3VVwGbB2yxx/o/9DTuWS7GD4IGUjwA55yPXv8qBNnBaFSq1NuUnDU0IZ3lHbFHoDoL6YxjbzTmIcmNO3WcuLdAIyItcLa++moyTq4cbuTdkLDk+FSfJFbiGXnXmm0yZTt3A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795774388; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=mFrz0tg1BYUUgnbknpOtDLj8CSqNemB5JAMMawMUfoY=; 
-	b=CP3JaINRUAv+LK3t2NpDLYJ4I7VLK5Hwgu4pQR32BCHOCbNDG/BxIx4/bK/vcSor/wG0mCBfKVCk8jROAX//2YD+L5fRtHWkndFSIAA7MC0N/y2i1/gwWV+JkYu3Wk4UB8h4pMK46CMiXekyEUQhNTRYwWydJfp5SvAakl2hQ8A=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ph4ntom-rev.uz;
-	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
-	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
-DKIM-Signature: a=rsa-sha256; b=A7yFdWkxY/6Y4cIbk1Q74sNWSsnwT855XWb9KkOw4cchutj0pC5gLeoTZyAVKodlT2uHJN2HkiHaEC3FEb4n4UKBH3UVKMIFtg01GKmSD47OhtsxacHklpmmyuSWldYWVqEkeusIMe8lbsBqyiW3VUJ7EcH2TDw87kxJVk/8+sWbCG78yvZn8ZYoVHHN9BVxOiJke0z0hfSHeNYfTraKc2XSQYhFMgs1rnQ0c5IgVGVAU++xUYOjCC3EAqq2mn7ZCoAPjsLh/h4PJb4ehNmk5bkiSRzhmYsnmOXE0PSvrH//IlPLn1y1hQxwEE5IKcSr5GaK79QMYU80uyZac9IXNw==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=mFrz0tg1BYUUgnbknpOtDLj8CSqNemB5JAMMawMUfoY=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795774385578453.0741621616363;
-	Fri, 27 Nov 2026 02:13:05 -0800 (PST)
-From: Enver Ikromov <owner@ph4ntom-rev.uz>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Enver Ikromov <owner@ph4ntom-rev.uz>,
-	linux-wireless@vger.kernel.org,
-	Ahmet Zeren <niko3x@proton.me>,
-	Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rtw-next 2/2] wifi: rtw89: pci: fix TX status and counters for NO_ACK frames
-Date: Fri, 27 Nov 2026 15:12:59 +0500
-Message-ID: <20261127101259.91-1-owner@ph4ntom-rev.uz>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <355183d7bab743e99e3d8bac03d80ed8@realtek.com>
-References: <20261126083141.1470-1-owner@ph4ntom-rev.uz> <20261126083141.1470-3-owner@ph4ntom-rev.uz> <355183d7bab743e99e3d8bac03d80ed8@realtek.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YDGzarso
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b47c1a3c74so1960734a12.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:14:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795774450; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nh6TQW3Tt0H05YxR0QLoyJKoWBFb+7k20cPJrhr5AMhQlFWCG2Ht9ByW2XCw+5Bl6i
+         6ie2wtCIM7eMlU5EHFyOmxs4B8uegJ7ugfqpBjnU+XS7FaSVotpgM2ZjG/4c6kL+nUi3
+         V65mxpB7T05irGY/eMm+4yCeknKYM3l78EXepE0RyvZXnHuh34U/QsmzBnckEK0EugQf
+         ygEMYmjBuFn6Oto1OCVuuJplhh4Jp7OJ0yR/HTMxrKFajSVnL8pnAmZ478R/mVTw3Uru
+         uIdjkn7Ud2kLp4fn5lkD9HF1K+0+quFwD+CSvbA3q/GwAcH7t6AX6Jii1UrZwTsh3uV7
+         uVyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=pnSZi82mVfZLS6PwIZVcWPzE7AlvW48La+q7lJF7NRc=;
+        fh=roukCrHQhsBbOQxYidwpa+o9PwMiMbUgZhNpVEaLpHM=;
+        b=hjI7nCzEjCHT8UV3AE/NJ8E97izti1l/MTjTWt2ZuPW7BbFNOSjLcwrZpkB+x1T/jZ
+         n9fOy3P6hq4GzNuIgO6bRRboLdRIrNbiLjuOOSizoDtXrwdITc22GAYNrSXgG+xHRbAa
+         2HwwWF5Gq0rlpm3RscIlZgXTyfpW7k7UZ68xuOn7zsxr6PXcNwJuTsh9cJe6QNCgIT1G
+         GCJ0928OrxNAKo6Bbc/hMUcjUTfRRXZZNt2f53hWqeQ+lNwpVcRw2BPDUAoh4v/wsTbm
+         0MUseRd33n065DmRSPHSwNqR+/wO+VJ9TFe7NdarNsXeXqyJcNcW96tQ8sPCPNuwJ6AT
+         94gA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795774450; x=1796379250; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pnSZi82mVfZLS6PwIZVcWPzE7AlvW48La+q7lJF7NRc=;
+        b=YDGzarsoRdrYESd0WQH9jBHguYTwQ4MWdevK+E8KmC2uyYZLyscJgJwBjwonhC0NwT
+         Bpl0R8s2k8kM3FuRv9FJf/wNwnI4Fc8/M8oqwnbMB+SuPWfh5FQpVSPenWXXWhy0LSkG
+         sihB80deO7zB26y3FM3Qxo63SaGHV4Hlk0xud2yxHvlJcFdpP2r7KfcKkQcS7J5mMOIk
+         yNq+7yigz9q0FaWoAyhrYX8dVr28Zsxpht995AvRZ0JNonpCR15863AMxYKEzaVj9BIN
+         ZE+9pctjIYTqfK5r0M9n6Op5Mo20Hpx0XYCb1SgrrnlTiDwGGAuSqSE2STS7RkRnUD6U
+         JwxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795774450; x=1796379250;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pnSZi82mVfZLS6PwIZVcWPzE7AlvW48La+q7lJF7NRc=;
+        b=vJuncG0Pj5rb24zRKU6VRJ68unaPoXKT4tyQwEHAnPXACp9sugXNZttqWwopsafZc5
+         e7Hdasa0nlCGE66BtHL/Oz12+NjiBLdrscHmIc3xDtS4CyDBu3aKOVKzUCSBXyMyMSzG
+         etc/A3F2ymlTiS45Qx8Gb4E+XZ/ZIMnTuGPS60NA75NygN/9Uj7496k6pYlcgO2xXNkr
+         zcGy3+fivdOkxDEPFQ/Tx7yOudlbX0pPoVWzs2dC6MEO+yYcdxbRne2/PZzHvKAwoJ6P
+         zPqEOvOontif2Z07H5PRCLE2v/0jP1SRSP3gciW9IxKJSSEY2D/R6Mr+mELVjE0nedUi
+         Ji5Q==
+X-Forwarded-Encrypted: i=1; AL+hErEqJrLUdjHr7BSBNNq+r2IQTgM4qJO/e1h9dL9s1X41LDvnnpnx6qHxOKjn1rptvasIqliDWyUFmOSK2/k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8vdjLNtfR4qiSNiINI+BlRnS+KzXw9xIjrFQECWYf+Irg2eg2h
+	I980zdfWV7OB3CaeZUWTc1nWD2kY8BWuzMhnkQdGtzq1T/di3chmd4ielYtpkiqub8RAQc1cREn
+	6CrxY59AAwQFgsl0pTDwS/QjtijO12UY=
+X-Gm-Gg: AZFdTZf5YTgyzNjso0NUIhR6zVnVID/W1DnQPqxKXTov5Z1qbdaR2EXISrXLUs6y/E1
+	IM06cWbIckV5yafcAS1iWYdEg/soCWPmIKn0YGQJMaU74vOJDtth2BJKovC7ZM46abyStnkkaJj
+	KAwQ+IBygiGWs0hWepwDgnbXOFe386GVuVyfboOxoc+SVXglhtwiEKSYtR34zt/0ulMV55VSK0F
+	VASPLNpMVIONyrzvME15KDZ04/YgEmptjr2XCsEUJB+Jf8JEA5qnxNfwgkmeTjwwdYtqvjLZcHs
+	3oD+8Js4d7nJK1qbK0oFUGd34lz6Ww8cAWNhN5t6zh23rDubAhgF8WUvra2PLkqj6XKezo9jrK7
+	BWhGgQD0Ou9Hd/pK4WaSr+/EbieKx+6pVqR8HRs+tB6Cah79LJO8SBNXK2s2oqLL1K18MUnUm6P
+	/FtH+vpsvPUwWaFCE9
+X-Received: by 2002:a05:6402:44d2:b0:6b4:5d8c:95e2 with SMTP id
+ 4fb4d7f45d1cf-6ba37c7a0dfmr13780450a12.4.1795774450046; Fri, 27 Nov 2026
+ 02:14:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,49 +102,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+From: Abhishek Khade <abhishekkhade69@gmail.com>
+Date: Fri, 27 Nov 2026 15:43:32 +0530
+X-Gm-Features: Aa3M54oFJndZgHbtbGYTQ8JLkfWXcGRfcl4DQYm07uiwGxgi46GejzDgXxTGmzU
+Message-ID: <CANspbQrVUG8h5ZWBW6croG=+VnDoseeJvPwid=gYazA4aKRjOQ@mail.gmail.com>
+Subject: [RFC] bpf: Is an open-coded bpf_iter_mount kfunc wanted?
+To: bpf@vger.kernel.org, linux-fsdevel@vger.kernel.org
+Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
+	brauner@kernel.org, viro@zeniv.linux.org.uk, jack@suse.cz, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, Nov 27, 2026 at 07:32:13AM +0000, Ping-Ke Shih wrote:
-> > In rtw89_pci_tx_status(), IEEE80211_TX_STAT_NOACK_TRANSMITTED is set
-> > unconditionally whenever IEEE80211_TX_CTL_NO_ACK is present, even when
-> > the frame was dropped (RTW89_TX_MACID_DROP or RTW89_TX_LIFE_TIME)
-> > without being transmitted.
->
-> What is the problem?
->
-> Set it only if successfully transmit?
+Hi all,
 
-Yes, set it only when the frame was actually sent. PCIe chips like
-RTL8852AE don't enable tx_rpt, so injected NO_ACK frames report TX
-status through rtw89_pci_tx_status() rather than rtw89_tx_rpt_tx_status().
-Setting NOACK_TRANSMITTED on MACID_DROP or LIFE_TIME makes mac80211
-count dropped frames as transmitted, and setting STAT_ACK on TX_DONE
-reports NO_ACK frames as acked. On AX unicast NO_ACK with tx_cnt_lmt = 1,
-the single TX attempt finishes with RTW89_TX_RETRY_LIMIT, so both
-TX_DONE and TX_RETRY_LIMIT mean it went out on air.
+Before writing any code, I wanted to check if there is interest in an
+open-coded BPF iterator for struct mnt_namespace mounts
+(bpf_iter_mount_{new,next,destroy}).
 
-[...]
-> > Clear stale TX status bits and set IEEE80211_TX_STAT_NOACK_TRANSMITTED
-> > exclusively when a NO_ACK frame completes with RTW89_TX_DONE or
-> > RTW89_TX_RETRY_LIMIT, reserving IEEE80211_TX_STAT_ACK and
-> > tx_ring->tx_acked for non-NO_ACK completions while still accounting
-> > RTW89_TX_LIFE_TIME and RTW89_TX_MACID_DROP as failures.
->
-> I think no need this.
->
-> > Fixes: e3ec7017f6a2 ("rtw89: add Realtek 802.11ax driver")
-> > Cc: stable@vger.kernel.org
->
-> I don't think this a big deal. It looks like we have Fixes/Cc stable everywhere...
-[...]
-> Why should we clear these two bits?
+I tested doing this without a kfunc in a BPF program first:
+- Using bpf_probe_read_kernel() + bpf_for(), a BPF program can walk
+  ns->mounts (rb_node) and read scalar fields like mnt_id and
+  mnt_flags, though without namespace_sem protection.
+- However, pointers obtained via bpf_probe_read_kernel() become
+  untrusted scalars, so the verifier rejects passing them to VFS kfuncs
+  such as bpf_path_d_path() or bpf_get_dentry_xattr().
 
-Right, tx_ring->tx_acked and the other ring counters should stay as-is,
-and clearing those two bits ahead is unnecessary. In v2 I'll leave the
-tx_ring counters untouched, drop the flag clearing and Fixes/Cc: stable
-tags, and keep the commit message short.
+If an open-coded sleepable iterator (taking namespace_sem during step
+lookup and returning a trusted struct vfsmount * or struct path) would
+be useful for BPF LSM / tracing use cases, I would be happy to work on
+an RFC patch and selftests. If bpf_probe_read_kernel() or userspace
+listmount() is preferred instead, please let me know.
 
 Thanks,
-Enver
+Abhishek Khade
