@@ -1,97 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.6
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748707;
-	b=aatuYI7aBQ0SgvyfHQbr7R/D1yr0udOjp+xMbqkGrQwWLcLItQJbnmNTZj6OuZxckpBz
-	 WtCi1tnkj0UgM09VA/MiNWopuIzqoW671M30fLOySQduPOaDBAi6yunCXyS6KWMDAeL4S
-	 r/CuRB3vaDZg9TZe/Mth5eg/uBe64sbLzV4yloREn37Qbsci3rFhw3cUfeIrg80Zgg8Mz
-	 c9LNMGjlnskCyTdfA0PEfPJ4duuf72olMhsUy/yEOfpNdKgcRodlJ9j5kw36v9rmLZLzc
-	 7KJj7ycv2LX2F+7rbaOUefJGxhHjStL+cZAasSltZ7J23Pe+AolbUQvYVP7K8KIrsHA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748707;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=VMJSDmNyEar0oZTXLe+VUV/WQ3gMi33nYR1P2XH9AI8=;
-	b=vBZbvU8om+IkLnMI7k0sw072jNSJxgEBntTe7tPlh27xl6PRQi9hKLhWJEkyMdzgP3tD
-	 hZM62O5AMnNA8yDIiwxxa40vgor3Rwt3P2DnSnkQWlp4Ktb9JE0EbBNuoph8pZ+cBLbSW
-	 uu+61hDNgghBPCdmbEYf75SqX6X9M2nCJ0FQAOoj+kLvItOT2CJduGPRWL3MhfZM5LqN4
-	 jAK75Z0YxpVT09K8/0Iz10/w7HjFVFmCTA5VjD9IS0O5uF+4KlWtshArBdVaQzFEd3m4r
-	 4Sjd22GwNtnCzTQPGyHqWdQJwVbYpY1SJxOzE+3ZJN6vAPgroBNuYzLnZjigt4oTv4g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AE38USPW;
-	arc=none smtp.remote-ip=74.125.229.6
-Received: from mail-dy2-f6.google.com (mail-dy2-f6.google.com [74.125.229.6])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795748746;
+	b=zu/4WG14Gzb0gSu+ayBEDM2aZsOoxwNgkNei255v0kZWNm403JdjnNzUgdw9zb54X7k0
+	 d120UU6DLE8jFQ6DvtKdPS3MfXBLZ9OVeepxQE/vof7P/wC3NIw0+HQgBN2/t/OpdbkYR
+	 3MCByRDRhbIYNG5gMhuXjv4U1N6HCLFpUG9ReBdPDP+iD+MKxxa6JiavbdLM59jCFAMrx
+	 2Rxq+TJHAR9JSpbZ+qYYY7WLRxe78JSHJnOg2GUahAyCJKoqefnCTty+0MjFG6jSBKYFH
+	 0O2AIeYJOsMKXZ2LcyUO3eo30VSPOkSk9bCNYszh7XrYnGt5ByPkhHH8XP11EC6gkTg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748746;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=ZYSpWaydzi/HLoHbkGjLDcru//1qD664DYcG/RjHYVY=;
+	b=fNpBfp/TnhE0ixZb4Oc+V2Ymdgvx6Vz15pW64VqTn+yog65H4SsfoflCXKvw/P7wArZE
+	 Utlz580BNPqlHyNTvU3rO5NGunO66OKo1yULNoywEVMaohIo6gfYEeldM/ZUma0sFu5DL
+	 WSTz8aBOruUGHbcE0j3fSveQhatV+HdAqr8eCidiCWI1b37c6nwS7221DCtvaAmB4Tczc
+	 IdGc8xctUmGWoAMg1I28ja1UTEdfizeHNKdjzWHUuWeib8pMRZJXjsp2WUzhPlzgKXbBl
+	 lwLoKxNGq1Srt8ElfMamEp3Xt3IvW655uFRm48WBZo+n03NNclnVXH9YyCVNgLtbrGg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="eq6jpS0/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164F4606A324;
+	Fri, 27 Nov 2026 03:05:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eq6jpS0/
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795748745;
+	b=l9QC1lSpILgi022u5FAIXRNTIscTWzvR+262C0YALSspXQdkkAbK/JtZy5kw43dr67FC
+	 z9Gu282EjEQ316B7C+kLJ040obDm5wi9xOIzQ/iXwpSvekBeNuYg3qCUKVPIjUyD3PhQM
+	 DJODhw3km01GPxdNh06hlFhClc9m7vjrvn6XkKDPO/OwJd2WC0wsmqzHXQIfv5y9FZedo
+	 p47q5gFiEBmTKRAX53S5Hg4WyKAtiz7gCZ6vDV9CtHm8OQQ1YxYLuR5ozSjdBimr2yLYm
+	 jvftXMHXKXSOcpDDT7X2Z2oxKLrn6IfqMPUUhxh8f7qTrfE2vgprWJGGapTAgmwx6BA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795748745;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=ZYSpWaydzi/HLoHbkGjLDcru//1qD664DYcG/RjHYVY=;
+	b=SfmdIoEIHlqQmM0MnFk/JzRBbORM5KK3rWlGJbU/pfYxvCy677UhMz6lYo5YeQpdNFK5
+	 JJD582IpFyHf4bKja0FxD5U/KKN5OE2s4sG+k+fSdfe4I9oaCRCLzetHZ4qxZv8smy+ep
+	 cnoc6tQwFKS81F2F1Bl2YGkv2ktjrmeK0OiyxMm5H/84akoLy6bkea5E4fXGB7Hj/BO4u
+	 Hn5pkL9Ks46wKKely6A6mvNMthBtnKA/ZWUg56JsDUB8U9I153VuaGlSuV9tXGNfLK+Rp
+	 semWs/uEWIvEfwRPnxhrMFz/ILaPeCp5yJKDrnoAvfUdIwHSqUNWU4f6qb0v1eK7yDA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D54C6606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:05:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D54C6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AE38USPW
-Received: by mail-dy2-f6.google.com with SMTP id 5a478bee46e88-33e48934fa8so1474675eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:05:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795748706; x=1796353506; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VMJSDmNyEar0oZTXLe+VUV/WQ3gMi33nYR1P2XH9AI8=;
-        b=AE38USPW5TWl9F4oXD7LDVr2hn25W7zaqL+RZgZm15AUQjyNTmfZw9Yx759f6OTMuM
-         CrQT1lS0N7x+8afjh1La6Lx4lTB8aNjjUYK82L73suD1lWk9IBY7F5Rjshn4cnWZPPim
-         TDRhZEN+M7Cq1Xm5YD/8RiBL/Bkr61GHbql6IR9gY+4hV4aiW0XaPgON9g3V3k4dQiBx
-         ggkpH3xj6SABmowixfpV0VyyFcYsMP/XMmOY+JbIg4dxSMGWkO4gla6lVIsITMK/UjjP
-         +FJuJc2ncDBud2RcclfSFfjav620QfIJb9cBRFRaU02gjyj4r6gRVRirFHnw4MhalrkV
-         MfdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795748706; x=1796353506;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VMJSDmNyEar0oZTXLe+VUV/WQ3gMi33nYR1P2XH9AI8=;
-        b=KpDdfc7D1vvKgihTdy+fbFPS27N1eV3Ch6hI5Jir5bRSlYZfw6qO60d7pfnEJHardP
-         wrp7Igm2iT9sdMrFYOewPsZNq45k8r8HNx/PaC3+OC8Q6gcvM8w36VsWulFC2T5DQky9
-         XKj3LWLPUyC4ZGBrYtpoNSJpFipWubQu0/eTwArLRqCEMzcV5AxAxLfEo8zwL2mwPaCp
-         6a4KrE9+cnQATOrqjvbkImIakF3ofzvl3y1dw85Hj+jDQdFVzTY3Cu/Gv93Fb7T9HjG0
-         +V1YWmunqzZYwuQxSm4Ku81Kto4XwFZ7EfEz7lxNNOtt3YhOkOR4UiwhCf2BDKGWyP/b
-         mRBA==
-X-Gm-Message-State: APuU4Z8nK7uL3qHi4g4Ihr0Gn3b3H3QOJsYNLOWyQkG28d256OT9TWHl
-	F1dwlCi2lygQHvyo2paWctS0TTBh0MI/Z6dEbNRpMXaK9AEbrZ1O3HmSIuDQGSbC6t1eIg==
-X-Gm-Gg: AZFdTZc76Q8gvA15h5oFpPTqr5Bg10P2opgIaxHXIV1mT7INR3xxwOFO/CuApokFkI1
-	qmHAbSf4yXZ8PIT4Y10r0DoU3h3rzzIoMfoyrXyMs3rIqqzdp0WC3R1t5XMOARXMAzyNnWw7BpE
-	71NOH9p1S1DKWJDdXnvaaosZ74GFRKlOfchplRIDcWvrZpGsma/ymfyyMHz1Ipklnz/Mf6Cg/F9
-	bGUfzYwbj45hrYvxd6+kYgzt6AGMX7BTnm6xPbi4xfGBWgQWDAFp6eCqno+VqDLwU1K+FtJUw7A
-	e5k220BFPmYeBEOtby9Z3w7iQ2AK9N+r3rSu9izG5kaqXDHzTmdkOwuVzGs3L1IvwsyPhlHAr1t
-	v+n5AB/6PnYixK0v9uhaqSBt562D4CyCEpvEyQyYNGhVCWnSM/pGvEZWWhyc9kPyQcmgKvqkzoc
-	svsgj4LRBKvq9jmyQis63eXfs3m57d5O50FCHBQQwHaKOnTepuaGhGH5z3dbZPfYfcZMWV6qGRO
-	F33siGoVEWIBMDC8DY1empYrPLMuVqF4QsavEnI8Vaz8ECFByTNLs8ZS/aHsij1FSrJvgg604md
-	/Be1mprPHleI5xiJrcZyeAe4ndj648EQo9Ek9FJmnObakPXk9utdIJ5c/AfGPhp7ah7JJ9oHYAh
-	k1f3qdMAMN7cMuKMBkZH91ZXvk2nQk/fh0vpEaAlqqpKEC0gUCW9JSdM98ZfOSiKVH3521GRhL4
-	tGM7E4GhPAthcgC8pHjaAuPg==
-X-Received: by 2002:a05:701b:4583:10b0:185:33ab:4d55 with SMTP id a92af1059eb24-1b5569101fdmr21655037c88.29.1795748705829;
-        Thu, 26 Nov 2026 19:05:05 -0800 (PST)
-Received: from localhost (ec2-54-254-160-110.ap-southeast-1.compute.amazonaws.com. [54.254.160.110])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm59613588c88.13.2026.11.26.19.05.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 19:05:05 -0800 (PST)
-From: jianyungao89@gmail.com
-To: linux-kernel@vger.kernel.org
-Cc: Jianyun Gao <jianyungao89@gmail.com>,
-	stable@vger.kernel.org,
-	Carlos Maiolino <cem@kernel.org>,
-	"Darrick J. Wong" <djwong@kernel.org>,
-	Eric Sandeen <sandeen@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Brian Foster <bfoster@redhat.com>,
-	Yuzuki Ishiyama <ishiyama@hpc.is.uec.ac.jp>,
-	linux-xfs@vger.kernel.org (open list:XFS FILESYSTEM)
-Subject: [PATCH] xfs: fix log flag cleanup in xfs_bmapi_remap error path for attr fork
-Date: Fri, 27 Nov 2026 11:04:55 +0800
-Message-Id: <20261127030501.1618-1-jianyungao89@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 7512D1F000C1;
+	Fri, 27 Nov 2026 03:05:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795748745;
+	bh=ZYSpWaydzi/HLoHbkGjLDcru//1qD664DYcG/RjHYVY=;
+	h=From:To:Cc:Subject:Date:Reply-To;
+	b=eq6jpS0/kyquKPPhnRS6PUnvyvttlOX5AzWJCYyl6NAMRpev2N5u9dFI7Ij+Z5hx9
+	 8KRj1nD6JLDPyn/L6kce+HB39rmn44c6tMKFuuxOYoknI83E3mlVvX0fpZ0KA3jpiA
+	 jDQ8GjSXbQzvKO8KHqccA4yUh5ECYmYBPZ2sWcMWq7Z4Ck4CxNLvtmb9qLTokkqWTu
+	 qz0wcL8S2EiEK0zGWEgvdf5g7nTUA5DEj+y5rDr5M/4DHntaP4HYtSb0JyZJmcIGDg
+	 ycJqGzKlcfgKDZcvO0eVw5gjz/z5xdVp6fHN+02MqppxefikEULjbHfCPILMALX5Pz
+	 pvCH59F1cf4SQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EAC424B513;
+	Fri, 27 Nov 2026 03:05:42 +0000 (UTC)
+From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
+To: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ leilk.liu@mediatek.com, me@adomerle.pw, 
+ Roman Vivchar <rva333@protonmail.com>, devicetree@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v4] spi: dt-bindings: mediatek,spi-mt65xx: Add compatible
+ for MT6789
+Date: Fri, 27 Nov 2026 03:05:42 +0000
+Message-Id: <20261127030542.11696-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,65 +91,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795748742; l=1611;
+ i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
+ bh=sl67F/NTDPcA/UZxNAmRnJaGzbkAwbuNN2+Fz3m685o=;
+ b=Hy2FnvqAyjz44CTPE4b1DcOaO/n2DUIuTQY/BcngfHKgXNEVNbvB0xCQPBkIfYHpR827nRR2h
+ aUl2X33T4xcAXuxt7RPmgmphV2WGxgaMxUVCZc1yb9VSOSqmb5NeLy6
+X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
+ pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
+X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
+ auth_id=1643
+X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+Reply-To: iasnezhkov@gmail.com
 
-From: Jianyun Gao <jianyungao89@gmail.com>
+From: Arseniy Velikanov <me@adomerle.pw>
 
-xfs_bmapi_remap() was originally a data-fork-only helper, so its error0
-cleanup block hardcoded ip->i_df.if_format and the D-series log flags
-(XFS_ILOG_DEXT / XFS_ILOG_DBROOT).  commit 7cf199ba5a70d ("xfs: make
-xfs_bmapi_remapi work with attribute forks") extended the function to
-support XFS_BMAPI_ATTRFORK and converted almost the entire body to use
-whichfork, but the error0 cleanup was left untouched; a later mechanical
-conversion in commit f7e67b20ecbbc ("xfs: move the fork format fields
-into struct xfs_ifork") preserved the bug.
+Add the SPI controller compatible for the MediaTek MT6789 SoC using
+mediatek,mt6893-spi as its fallback compatible, as MT6789 SPI is
+programming-model compatible with MT6893 and needs no driver change.
 
-When called for the attr fork, the cleanup is a complete no-op: it
-checks the data fork's format and clears D-series flags that were never
-set, while the A-series flags (XFS_ILOG_AEXT / XFS_ILOG_ABROOT) set by
-xfs_bmap_add_extent_hole_real() are never stripped.  This is reachable
-on the success path too, since error0 is a fall-through target: if the
-attr fork starts in BTREE format and a three-way merge drops
-if_nextents below the threshold, xfs_bmap_btree_to_extents() frees
-if_broot but a stale XFS_ILOG_ABROOT remains in logflags.
-
-In practice this does not crash or corrupt data -- the inode item
-format and flush helpers dispatch on if_format and clear stale ABROOT
-before if_broot is dereferenced.  But the code is logically inconsistent
-and relies on downstream defensive checks; fix it now to avoid future
-trouble if those checks are refactored.
-
-Make the cleanup fork-aware, mirroring xfs_bmapi_finish(): use
-xfs_ilog_fext/fbroot(whichfork) and check ifp->if_format.
-
-Fixes: 7cf199ba5a70d ("xfs: make xfs_bmapi_remapi work with attribute forks")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jianyun Gao <jianyungao89@gmail.com>
+Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
- fs/xfs/libxfs/xfs_bmap.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+Changes in v4:
+- Split out from the MT6789 pwrap series into its own standalone patch
+  (suggested by Roman Vivchar).
+- Use spi: dt-bindings: subject prefix (Mark Brown).
+- Remove review-history wording from commit message body.
+- Add sender Signed-off-by.
+- Link to v1: https://lore.kernel.org/linux-mediatek/20250715231921.4527-1-me@adomerle.pw/
+- Link to v3: https://lore.kernel.org/r/20261126031001.27288-1-iasnezhkov@gmail.com
 
-diff --git a/fs/xfs/libxfs/xfs_bmap.c b/fs/xfs/libxfs/xfs_bmap.c
-index dcd5faf3428e..9236aa80838e 100644
---- a/fs/xfs/libxfs/xfs_bmap.c
-+++ b/fs/xfs/libxfs/xfs_bmap.c
-@@ -4520,10 +4520,12 @@ xfs_bmapi_remap(
- 	error = xfs_bmap_btree_to_extents(tp, ip, cur, &logflags, whichfork);
- 
- error0:
--	if (ip->i_df.if_format != XFS_DINODE_FMT_EXTENTS)
--		logflags &= ~XFS_ILOG_DEXT;
--	else if (ip->i_df.if_format != XFS_DINODE_FMT_BTREE)
--		logflags &= ~XFS_ILOG_DBROOT;
-+	if ((logflags & xfs_ilog_fext(whichfork)) &&
-+	    ifp->if_format != XFS_DINODE_FMT_EXTENTS)
-+		logflags &= ~xfs_ilog_fext(whichfork);
-+	else if ((logflags & xfs_ilog_fbroot(whichfork)) &&
-+		 ifp->if_format != XFS_DINODE_FMT_BTREE)
-+		logflags &= ~xfs_ilog_fbroot(whichfork);
- 
- 	if (logflags)
- 		xfs_trans_log_inode(tp, ip, logflags);
+Rebased onto mainline with an AI coding assistant.
+
+ .../devicetree/bindings/spi/mediatek,spi-mt65xx.yaml          | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+index 3bf3eb1..7d82369 100644
+--- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
++++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+@@ -39,6 +39,10 @@ properties:
+               - mediatek,mt7988-spi-single
+               - mediatek,mt8188-spi-ipm
+           - const: mediatek,spi-ipm
++      - items:
++          - enum:
++              - mediatek,mt6789-spi
++          - const: mediatek,mt6893-spi
+       - items:
+           - enum:
+               - mediatek,mt8196-spi
 -- 
-2.34.1
+2.54.0 (Apple Git-157)
+
+
 
