@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795761535;
-	b=l+3CpINnKjtyVc7tR7o27DqBwyYCg83tnIhK5QZ39X8zVkFc8P+dTqj9D2jP7OtdNQcl
-	 abeIdCQbJyIXJdvddWah3MSbq/mOBnzZpH18JOYj8pDovJvNDvX7yynDWn8udDNvb6asl
-	 L1ADuna9nOvLcAt4bB78rKAe8nE1KE9L9M7Dtr5F3m552xxkdZVLiLXfgmdicaHvpbFVm
-	 2owkHvq/CPRibSdXkd3efleN76Fd7kegv3Xf59uG552O49GZZ7s4aQ1Jxq7Hjm93WoW2v
-	 Z44thIlWrSOh7osT4aZhfsY8Rku2KSGQ+hqPJATaJ6Gish7gBJUJnp0cUUkpdVcwaaA==
+	t=1795761537;
+	b=uAoJEI79NgD8ctE6IhJq7T8bh9SZBmFM5VN/Bo8Y/jXcT8/iHU/jYGBlIDsmi1n6j1gn
+	 3GHK8dPfkHo4DRJc3HL+9essqdgCYOyqI+l7MtYX2evEvIf5xvNZKKGjeiL7QNsUEp7bj
+	 7/gr6ih4QuBjWtusAF2YKUvPxUho0SmAJqYOEZYl7tdb7AeW0txsLHW/zsl+ms9tllnjA
+	 /r9TbNefdievHMD8yO3d24dykCyI9cXSy/7Y80Js1WRzRMqFAPb2wEt9cksfUOsjedKlt
+	 RncD5K5mYF7z7pmaiEw/BAI6c9TpLrkyv0bg4ozgow82RzNbdzba6WaxrCxbUAcobOw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761535;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761537;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=swXU89ZgE1T0CWgfhGQJ4/y3KO2SK49/UPOsKrkU4XA=;
-	b=x9v/woZlOwOtnW9YxO1bpDQkxmVo+SF3NKJw2dd0JZze1IzezcJXjhVnDsNQwodlCn6/
-	 wNDun414ESlcscl9qAKWAEaoJDnMBPmDiQGHx0vvTe4BZEqeht4Ie3CNQnods9hWmc+JJ
-	 ezKSsas5YKnfRjpUgqv11aLrNLAGSHEUwSFJSe8Y1VewOTzIALiiThHB15MW2vxhh2ceV
-	 fFWq6wYTm9ATaDxNXmxGVo5RJphtAETYWo3sqCuwBNthkU0pbekYDYWQSmEZIqYiD82PS
-	 pjtEHc6Zexndyl582D9i/hdE6hjOHfY6mUWwTgmyvrZYTMIORDJGRhtfKMd169GXGQQ==
+	bh=7o7wf/XwLX8cONxvOHkzMOsn84EM2U61JcBTz69PSzA=;
+	b=zxUsvbjROZBt3xqR8B02YBzpK1SawGFNjpegR+JbmSgLHN1H4nV+AYsQtU+dBVLd3CBq
+	 Oxu2l9tIvqG2LpVuYIGUsIUrSEhP6LhQUl2RFzYCEzusexd76s1qziasarn1C4XQbB4GR
+	 9evMK2Kc+yx+DDjqd5renEI1O00aBmJDISu9FtXQEZQhpCQqJZwDDI5txdGDkMr9d1AeU
+	 FlrZ8Pp1l27EkEtz/91AffyxyU+sC4q2IOdMIZjwzkf02aJAfH67YT/8JCF0X5SwbVqAe
+	 1Yiw4T30QVD2ieZP5LuxVqRluu1y85awSH8HQhBfOWMhByn+kDyzEHzASNujoYBEqCQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U97Qs2py;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KO2Ac8rw;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B69B606A324;
-	Fri, 27 Nov 2026 06:38:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A61606A32E;
+	Fri, 27 Nov 2026 06:38:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U97Qs2py
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KO2Ac8rw
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795761534;
-	b=sjHzshTknVKaTfN3k5BiOtOW//5wo63w0HGEgXTpmefGA7lwRYMgnbW2sng/MwigmfCM
-	 QaHHF4EauHqaB9+mGBmirCgZJtgfVExdXxERwG36uozFowRgz487ytRNc1H3gaQGvix3y
-	 mMhuNhK2e5jkyp9/y6lXjUE53HZ1AdqvdT4fPl2NLWXh1Zqadi8V8vnJCnWzlbDhYZB72
-	 TOe1i+avyZhqiFeWC9v+LEbfWReqW64dtZfLIuGF35zcgI+l1myD21hh367e6qOBeoGsP
-	 PAz3r9lsHZk7DbPSD79gLmGwzyz7+CZsjeLWYDbWQh0/WwAq4E30z9MHGS6NJVnKvvg==
+	t=1795761537;
+	b=vjlGSyJbRMQE9n9K/vEW6myMhqoQ3VXrvBK106MhGmimZZYSh8jcq5eg7ulH3Y2pHFX+
+	 06Wck/RD8Rs0yXje2l9qlHAbvywIilWSrXh5d0ulm4dwCRvSGZk4as3YgqLN8T36XAyvn
+	 UQF6yOQgfRbH6OrMWaUdNFqcRcAxhD15Dy/oTHMWrMT++m3MR11MZV27pfk5TQirrkZqK
+	 Ls76alX1uaVfdeNvxqItqSIytD85d4zq8nt6/p0iJT9f+YbUgOEyTT/Ph88PCvbcXnVnR
+	 EE/DaXPkhWsVFpUTc/0sYITy+tGits0M55akwd5OTRNpPuDGcvVoLDiSsbXPV8803jw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795761534;
+	c=relaxed/relaxed; t=1795761537;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=swXU89ZgE1T0CWgfhGQJ4/y3KO2SK49/UPOsKrkU4XA=;
-	b=H3RDAvgw/lFTlYoImzvmxPUkD7xeOT6YKuMoslgx91ZPki5tq7RWPzF1+Mmb55GiOXBG
-	 RxA+Vv10dv2lHDVnbN5RCtaQRIQpQP6TBjsRSRkmSEZumJw1g7EKP85vFpSubkk3dId4F
-	 5ui4TwHKZ81pcZN50rCekyv/7joQ4CziqBr3w2xI+a8cLcB7hvjjdtfr1QCkHye1jALyH
-	 /CJfqZNFDUMp+sxkEcJRRDPevu8B1gjdLFYL9rVLEiTmM2efawllFIJg6SZdufnocwX8t
-	 qL+dBthCr0LPBMVuZlBHvgRtsYbtCgOzz4Wdb04A1dishDQqDCqBgP4lqyDGRhJiDnw==
+	bh=7o7wf/XwLX8cONxvOHkzMOsn84EM2U61JcBTz69PSzA=;
+	b=kHMbpMx6uJrepmHU+LAinJ5v8+hAAGarwNC4zj+zwLoL0d7c+W9Xgn3Smzjp6/0Pyxl2
+	 BnZ0sS7GDThqIEwnpn8aHM86/UR3By+OhBkY05Rw+xjND3/UjY8n0v8KOG4/9iXbAnqbE
+	 BqTqFjYJg/DTWzIOtixotJr80xOR3wMuqObe+jQhQEU0HvmEruwY5eXOIFqOj+/PtkdbR
+	 gqJcKQbhhqoCWfh84T1Jnb9+UqslVbB9HULs52olxu5ZCdbNBt+RZmPaaU1zqyN9qlcls
+	 rMH/wXxMJscX9QPTP0HuwyrLseQg5CLjQg8GTHJqMoCaKZspaErOBBT6yCnwvLL4roA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6CDD21F00898;
+	by smtp.kernel.org (Postfix) with ESMTPS id 8C8FE1F0089A;
 	Fri, 27 Nov 2026 06:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795761534;
-	bh=swXU89ZgE1T0CWgfhGQJ4/y3KO2SK49/UPOsKrkU4XA=;
+	s=k20260515; t=1795761537;
+	bh=7o7wf/XwLX8cONxvOHkzMOsn84EM2U61JcBTz69PSzA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=U97Qs2pyeCuR+F0jRJAfYbROzzNoOJNnU9VgsKdANgQYWwyUra6zkdhJ+hbRUVspf
-	 32r6RPMmFIrrEJlNYTGE13Y03AmifI7npRC0F6Azk3w3hPX/u93AOp/7YkG39UU63q
-	 fJDTTMLS5/z99gOjePoFPyihSZMXhAWwk3LY0shAhLqUjyPZ2DkJZ9S2oTQbK6EtR0
-	 LjP7jMHyOL4ebL2/CxHVeXrtAO3u021feeAu1TiQbXQNwOrs8+XRamDPbEiTyBTOrm
-	 82PZDmroSLNEU+/fdVZK+jTEhjBpVZFQ8FlMrnX9D14/vTc1xK9u5P/yLU+CoFy8x2
-	 Q56ZKk5+Kd7Lw==
+	b=KO2Ac8rwA316ou6OzkV8jvxDGrZonWqRSYAHoYduw6UQo84L/KTOHFTchTNepMI0P
+	 K0/rCmM0oZusw0fyeFsuwDCH27SowZ04acALnMH+g8VrrIi2Wr4bpCN93OeCK2IiP4
+	 bWAp6GDptiB+ZB3u2ku1HLmzvyaZAGXltcQAIqsDYi5X7EFfx9eJvUNDN5y/fQDuST
+	 JYcJI+HgXVh+wrp+emzgCm1Yac0SNyh9nFjF516yO5T8/cffY/rV4BWoMF/5X18Lu5
+	 d7JCC6OM+zRUoAOImZzYGBdLqxZrWO0buN4kfP9KMlE42BsSHyPx60UyBFL0ddMhxn
+	 LfwmR7Re/ZbeQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F2B674B5B4;
-	Fri, 27 Nov 2026 06:38:45 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 1E1364B5C0;
+	Fri, 27 Nov 2026 06:38:46 +0000 (UTC)
 From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 27 Nov 2026 08:38:38 +0200
-Subject: [PATCH RFC 01/10] Documentation: coresight: cpu-debug: Fix the
- module parameter name
+Date: Fri, 27 Nov 2026 08:38:39 +0200
+Subject: [PATCH RFC 02/10] coresight: cpu-debug: Make the enable parameter
+ read-only in sysfs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-b4-coresight-cpu-debug-lockup-v1-1-69d3ad1e0fc8@iav.lv>
+Message-Id: <20261127-b4-coresight-cpu-debug-lockup-v1-2-69d3ad1e0fc8@iav.lv>
 References: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
 In-Reply-To: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -98,13 +98,13 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
  Feng Tang <feng.tang@linux.alibaba.com>, Igor Velkov <iav@iav.lv>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1068; i=iav@iav.lv;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1474; i=iav@iav.lv;
  h=from:subject:message-id;
- bh=tdkUlwej4U5iLMdBPWEh+RWe3oS9OYaUeonOCJ3l0xI=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDNmcqgXMe7kLxNqEDh488fXZ4aTVtU1rNjzgzmiv/RYz/
- 5P8cu3ZHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiSqsY/vtP3ZcafkX8Xciv
- 0mdPOv42OHg5yt1XvVByRK0re8U1Hm2Gf4bMJ1VZYpJ/zHXg/hPZfyCqqrzFM/Twzrlzd0b6OXz
- nZgIA
+ bh=S8ilSl3i/zzxTPiODOCucBWFSnR+cdlYr4OIODiodjE=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDNmcqgVMuWF/PGWT+AvTsqardj47+/nR+4lCX5hbnnMWf
+ 7gdKKTSUcrCIMbFICumyDLhkMatjCVX//p7mD+AmcPKBDKEgYtTACZiG8TwV3rmt9UpRv0Pd9Ws
+ P7ztS/KNY/3+Vw88KTfNtmV8vCNBfSbDP0vN/9fiwxqPt7hFzWoov7lyH+capqehnkn3d52Vu61
+ mzwoA
 X-Developer-Key: i=iav@iav.lv; a=openpgp;
  fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
 X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
@@ -114,28 +114,36 @@ Content-Transfer-Encoding: 7bit
 
 From: Igor Velkov <iav@iav.lv>
 
-The parameter that enables the debugging is "enable"; the module has no
-"debug" parameter.
+A write to /sys/module/coresight_cpu_debug/parameters/enable changes
+debug_enable but takes no runtime PM reference, so the driver then
+reads the debug registers with their clock and power domain possibly
+off. A later write to the debugfs knob finds debug_enable already set
+and does nothing.
 
-Fixes: 0cd555c35131 ("doc: Add documentation for Coresight CPU debug")
+Leave the parameter for the command line and for module load, and the
+debugfs knob for run time, as the documentation describes. A set
+callback that does what the knob does would also work, but one run-time
+interface is enough.
+
+Fixes: 2227b7c74634 ("coresight: add support for CPU debug module")
 Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
- Documentation/trace/coresight/coresight-cpu-debug.rst | 2 +-
+ drivers/hwtracing/coresight/coresight-cpu-debug.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/trace/coresight/coresight-cpu-debug.rst b/Documentation/trace/coresight/coresight-cpu-debug.rst
-index 836b35532667..32fbae244524 100644
---- a/Documentation/trace/coresight/coresight-cpu-debug.rst
-+++ b/Documentation/trace/coresight/coresight-cpu-debug.rst
-@@ -130,7 +130,7 @@ If you want to enable debugging functionality at boot time, you can add
- The driver also can work as module, so can enable the debugging when insmod
- module::
+diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+index edccbd2fa5e2..f9e6e344ed59 100644
+--- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
++++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+@@ -109,7 +109,7 @@ static int debug_count;
+ static struct dentry *debug_debugfs_dir;
  
--  # insmod coresight_cpu_debug.ko debug=1
-+  # insmod coresight_cpu_debug.ko enable=1
+ static bool debug_enable = IS_ENABLED(CONFIG_CORESIGHT_CPU_DEBUG_DEFAULT_ON);
+-module_param_named(enable, debug_enable, bool, 0600);
++module_param_named(enable, debug_enable, bool, 0400);
+ MODULE_PARM_DESC(enable, "Control to enable coresight CPU debug functionality");
  
- When boot time or insmod module you have not enabled the debugging, the driver
- uses the debugfs file system to provide a knob to dynamically enable or disable
+ static void debug_os_unlock(struct debug_drvdata *drvdata)
 
 -- 
 2.43.0
