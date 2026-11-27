@@ -1,99 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795796548;
-	b=oQZM4IjfXIO42LwccHO+nT4Cqu37DDi5HcSMxiEzOMd+0gHd9cPsk7X3qNQe7h+AMf8f
-	 bT/m9HB/GE7X2oL2U9xo66AvzZVViXzxvtteyHybVPm2G7aqybZSo5217Xcfk4zDN0T47
-	 whnKAs92w5kd6nmcgM8ZhjozRWVBB7yyO3KjLUk6v3n+mc4NJoUpuporlYG5jUiJhjSlm
-	 U1mBgkAjnDQuKckqi7RYnWirwkeBsAXbiVSCGmrUKLTpmS1vNbj/nbftsOZBnENNvIX9R
-	 u2aje+enrbVeicYfWGYj6ghlpuWGofv0OGMVElJz36kBtkQkA7s3nTj8up9YHcHl2vQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796548;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=xGF7E8bL6eqxE+DsS5vMeqDfnm+UP74XOc2nxISqzRc=;
-	b=Xs5YuodphhRVLrCPfKDLSRz/9dhke4YvTG5bpwe5iHYOocCb09B6Y7uSqVlD7GeyDjIo
-	 Y73jgYqDf1vElPemWumcuKmr+T1eEbCXe43jwWl37ECW9XJ8oqyY2ysIrBkvySqjzj87e
-	 NswX6t18PYnD0SXIEBJsfCJwsoK+lmqE258RiioCfwLaJQtviyd24I5KUl0Hu7KLTgJft
-	 9jGcGkz8Dd3KXM4S3GALg65GO9qPP6yXqAJ9YffYcmyfi1seNZTz/YZyxXLsGKaFx5XHy
-	 yNeCiN45L6Meu/GI4KnuJm58suyjLR6HftdpvAjfoGr4RSAHsQ0lPbF86GoRo7QPnKw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.175
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795796558;
+	b=1WQe4ibt4+NcFHLxQJwUc2Z+ekxnYawydlfDZRzlP20vr/wbfB4IOEWveIRlK6gUHhuz
+	 cKrbgbl0kDd5a5CDrZfe02LgKsut0Nqp5J96lqgavKgLrtipQ9pCNdhcBP3+oKSw6pXld
+	 lYxmLReiwEX39prrrCFhnR4u0OL6Nv748YWsacrEij6ArGuA0kIOwQy6lktEdV0tp+A/Z
+	 8roRbLLAdnfv37WS9k51PbJnkiAYifDlDZljDe+8orWl2c8i/nxPsn1xn+75H6IJQbRx+
+	 wgkg5XFNwfprgVwZnxfCahMNw1CmWPCliQ8eWsSN4q7o/IOap07R2UmoodrmhV/EaCw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796558;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=2FluCkB23A2rX2sPHBDAcwkjRgUYCjrVI/IlnA5wVSI=;
+	b=VfXrE6I7r2Tq65NMsD1sTPmLHuHYDz8CzgnA6enWuXT5BiDcsAMGX+mtZPk3M87SaYtw
+	 8w8aNiIDUZ/XoR4hZzKJkQS5yMopT+q4d44wcb7j7G3WLjgilYv6Y4BcfUeifG4iV/QJe
+	 +63L4qLGf4o06PdQtzO9Thaw8g1sehMh5V8aXKlRcjT05VhyDi2cjibrd9m5MvbushMDq
+	 omzJ67RY5u58LHcoIjNNYuVqYxOvsNt3J5lGLFK2gRislMhOuNBwix40Ef5GUpl+Zi19o
+	 /X8yk0JipzN3treoT829CVOzbmQSo7neVDTDM3N2jfG+Sp+8QxWn4RT3MijMOhG12QQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=linux.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=edhb7M1n;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	arc=none smtp.remote-ip=209.85.128.175
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E4ED606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:22:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E4ED606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C4A4606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:22:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C4A4606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=edhb7M1n
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b87408c797so2567718a12.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:22:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795796546; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SEiCh01zWIATBeoWL2qgLOoYs2VXJfUpIfbMZji/3qZtNYiFLyzGnE20el7e60we6E
-         M+VLlOsbfqKVgf8c+iWCYUZdb6XtjrI0z5TIj8sZrNQEB+fPPz4nnuVAox1HgdwaO70A
-         1XWMsjhlJlCey7er3pqas2Un3L8x4oYDIteo80LlbBt7Bfevdl2j+MO5knMTaY7+8yHp
-         WkWxDCpY+ACimakuyRrWdCs+a71SgOMmc6dlEAyoCatQfH/UNwmn3QcmA0aVSb9fgjRC
-         FevbQLGxGlPWewIE8nUN7lmA8xagRiHSJFjpiBBifLHz/UY3rzbS/5RXCkNKbXAgKgAR
-         tPcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=xGF7E8bL6eqxE+DsS5vMeqDfnm+UP74XOc2nxISqzRc=;
-        fh=sGgrIORc5nQWhmm5WsEKDhslp4F/A1Vf1kwKY5GNnyI=;
-        b=WU40dLP21OTiHh00pFxTa23SVKODZINdwAMe2AeSQZtix1Xl86HkGKqMjTknRdZA30
-         VktNmCNWENkK6aLnoI50gslLlufXVoJuvTQjncxSt0OL34Z9/2yJqaCkqOIufKRDGjL6
-         /tmQiuQpLu1MdlQ0sqcbVabqrN3JCrD+OTBKgksvyFL++fTmejdTQEA93yjZbl6c2jVx
-         iF3o/mFmcTLL4DVVLjzjT/RQ8+w5j9koGi6u6bRVQGb3ax/mPtG9+OobJCn8bOEeHGSm
-         Tuc8Z8ML1dQiM1CGPqtA/NAQ+XJguB11Mq0jhfpaW/1gpn1KUW/ER095/pw3OD3ewJ8C
-         kYCA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795796546; x=1796401346; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xGF7E8bL6eqxE+DsS5vMeqDfnm+UP74XOc2nxISqzRc=;
-        b=edhb7M1nZUhi4oVxbok9hfWpYA92FcmUhvDUrnAWtUqlFF9iFs1GGMnpR6ULJJjsxX
-         LEXYIUWzaClgcf6FS9o/3/tkGmcpS1fmwOWo+hv/vWLljKeaSij91mIvI60++5lR409A
-         pledBsf59fPSrcPJp9BN+Y2hJDvtr5+vwNm1hxUkGIMThlaAWKxu1B78lEjNI8GERhQI
-         u91bg8ihSMHKmIgkEP1k3P5DplijAXmRcOFNtDaltanGKEjV8cbOLhGFYTUTcB5ktz9A
-         Uk4kA752zgf+GkjlG6hXTydkh/WENaiNZMkx2Wjd3Ws35rUojC05jLBn4yd6vD/DYDQ/
-         cfpQ==
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b4e04eda5aso61435827b3.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:22:37 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795796546; x=1796401346;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=xGF7E8bL6eqxE+DsS5vMeqDfnm+UP74XOc2nxISqzRc=;
-        b=XkLUH6BtaYilLux7zeT7e+CNSdcfTqFkEIde6cc75Bvelk0UBw8MNSUjEhjajC3AVt
-         DvVY9ZESOWi+2Arv4ITiv5+Hx0i1HmlK8qiNJKt3z3MSZSqXkRiGCYPx5ZPz9tBbENhL
-         sr1TjIjGNyqnhc3JoP8Sze8cj8wnSys9AemTz869nkUZ43LIkWY2UuCUM2YageR6BcXv
-         lCwA/KrhUXPg8Tx4qJRBjEBx38wif2yuYklI5QWzoN6ZVFeXukXgOZNBEANAnxBoxQw7
-         9Ro4KSGFciIS/xdaOTBjKsJRv+cTsRqr4TVEs5EkqhliDl7E2KNyAEHebjBzDiogCsZP
-         dV5w==
-X-Forwarded-Encrypted: i=1; AL+hErF7ApeRXHexRFm9PLBaaMvhNHBHIGTEt5P3/XpcPGsM+JXw6DzHBTIDEHwnq9GNHM6s1ny7ypMI8oICovY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//hgGUADKWsgvqp2x/ihAAGGjrI+AXyk59iUXjwM79O/n07Owb
-	VlbxgrUliquWP7Qqjflb159IfiI0I2rDs6BYZQFOimnxiY8uSBV7E+YrZ3CImfYIfth/t+nFwDN
-	CLgzIBMFO8k/0ehnBe1gu4KS8W5pjiC4=
-X-Gm-Gg: AZFdTZfYji/eNZhzi4FJObEYnfl1DPxoKDvV/IHyAdUHHv1zVPVG6n9hPNpy/DifSh5
-	+dZOMYJkgJu5aQUP/I2CuyQWqE1NmCo+SYI2rumLdtyNAH+hRWF4o/mmhlSAcvnGvKt/cgHAG9j
-	bb5Ama5Se+7c6IAI89DII8zEgGaUUSPyfM0lB+hyx2PNZs+6pMhaU5EaXPmhto1ZCu4AoNCtKyv
-	oT4aZ9JsrWShWAc+1jT+TN1xxV3XBsOgUIJxPpwF+oT8AHc2viGDNmV0FfZQBUFj0JJy+1cuzzt
-	lmmgkOc6WWSPfDMf9D3tR/j9yjnL+bzAJv8aNc+nuBURT1dQxCBpzjuPgA22KZXEr0F+Ynlvg07
-	Bc3JwdKRYpintFklJRN0Gq+CtCkd5IF5sXJQ=
-X-Received: by 2002:a05:6402:a307:b0:6b8:7f14:dded with SMTP id
- 4fb4d7f45d1cf-6ba37ea7705mr14055793a12.34.1795796546329; Fri, 27 Nov 2026
- 08:22:26 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795796556; x=1796401356;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2FluCkB23A2rX2sPHBDAcwkjRgUYCjrVI/IlnA5wVSI=;
+        b=MB4G+M6E07RPLIGHP0/d6118ncx8YFnLh6TzXV3bsYJFj0Yuq5DdOzh+wiiLaYtzC2
+         UKcMLpkDCdVaGZBYVM1Vd/FbHMMYbFAI8BRMu6ETTZDZCFm9cVWps1925kvkWILw7j6H
+         LpLk5uVCbSnK4x+5IJ4vcC5iUPlkedEO9LgYELKEOd92LuOKP0G9tW9D1lrIybZByE01
+         kJ97F7x3785lg1VbypoCsQFsl19VTGhkHrVLXcsmXZ0lif1XiN+D8vgJ2565MW4L650d
+         6RWxCXsMdQWbeTBO6A9eXPhtBTpSoUBfgkgKgTdzV0RN9l/YNuYNmBcr2FYxXlJtYFnG
+         ZJbg==
+X-Forwarded-Encrypted: i=1; AL+hErGDivikJm+7zT57/8ztdXA6QqS1caPm62TzWXzTkLSnD0gNism9O1VY15AXb2oitc/NnwsD5sdPNR55sIY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5Ev3nq6ZPgqoHB0R96hJ5Phz36lnpySOu2WgIhruKO9uOAMAs
+	5H7SsXqQF7/a8qfOzcYbvKDwuLtUH4vtHeANQVijmEgy8HEu19GTfW8OnKf7zg==
+X-Gm-Gg: AZFdTZe5Yx80W6Iqru1ML0RlsFGbMG6Q8UasxSG36+yIhEcYkswp/qo9tBo966afc+F
+	cFJfv44LxrZ5pww/zZHT7cq9WLYQYmhl3NN87569lxSnBOTHNQ0uU45qBAb68FkXPqiVuNur8Pe
+	kxbnxAg7Na20TgBf3Mz+j9b5BktaQaYOSRLZhDXBnj9QdgV24a45o7vLdD10zDr5ZlN88w8Qx/B
+	Suv8IO0fHy3BXTwDYvnJx6A198Nh7YLAei2wXOD5Q0+hMKgB5xf3dDEwisZNcEEfsCpWl9KEtkH
+	nmYtMjjWOP3BLHL2SxZiACh0caFdQ42IGqX2SAmUqdRqEDVYdR0GyeP4aQPqev2sTioSa1DQTUv
+	TqAc4iMb17TO+kWx2wq+XuKPTbUiBGtNxTRRNhkotUa5YO4KBWZLORlV6OCxWsysQ2SgXlcY9SI
+	aIvAFJIBU8QceSe0dMkyXekSm1uCI+1j2ZPSDacYmsW+mcN4SFUjs+pGPbttbrp+WNFhSM8RuFb
+	rEVghYnrUBr1MHoRiDRQRmMBe2tK54K1a6gI4eDsPkIBKI+P9tTeC/4suPKejrd3FgirSUuo9y9
+	dryT7wRDyzYTfVrAeA/WwPFsOYTAKZMTgIL8SX7dfM4kS7V1sB0epuDmv+pVqmsYqCwpSlccuR/
+	U+OMopLaSEpcSSAOh6UGDOACXKQH9t7VJtow5NNvIE6IiqQadnDu53ePTEQ==
+X-Received: by 2002:a05:690e:1906:b0:67c:6ff:f070 with SMTP id 956f58d0204a3-67df42b4b3amr14462000d50.7.1795796556349;
+        Fri, 27 Nov 2026 08:22:36 -0800 (PST)
+Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com. [209.85.128.180])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df31fa7afsm11269692d50.1.2026.11.27.08.22.35
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 08:22:35 -0800 (PST)
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4b9ba815bso48816297b3.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:22:35 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFnS7/11+n5ghC6PKMDny/BDY1I/8bfrOQ78F+fQGvGvmbklBfbXpo2J7czYTnKniPVhVjPwJwN5iRopjk=@vger.kernel.org
+X-Received: by 2002:a05:690c:9a82:b0:8b0:c71d:2b2b with SMTP id
+ 00721157ae682-8b5205137b8mr119923687b3.45.1795796555253; Fri, 27 Nov 2026
+ 08:22:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,44 +82,245 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
-In-Reply-To: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Fri, 27 Nov 2026 21:52:10 +0530
-X-Gm-Features: Aa3M54qbxpABrphlzhxg9I2Mo9h5VFuq3p0P6kC8_azVaeYz0HCPXkRvM1DueFo
-Message-ID: <CANAwSgTFJDGT5pR=Pv0v4RSWqTZ9q6YeP14TANRUrBrg6Be_oA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] Add SpacemiT K1/K3 SoC timer support
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Yixun Lan <dlan@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+References: <20261114133738.52817-1-tanure@linux.com>
+In-Reply-To: <20261114133738.52817-1-tanure@linux.com>
+Reply-To: tanure@linux.com
+From: Lucas Tanure <tanure@linux.com>
+Date: Fri, 27 Nov 2026 16:22:23 +0000
+X-Gmail-Original-Message-ID: <CAJX_Q+15Vit+pU3XE+DiUH4u6APf-FYBuhnrVGx9=pZC8MGpWw@mail.gmail.com>
+X-Gm-Features: Aa3M54quNMc8BBDlmy1z8lmGJhR7RotCtAP1c_2g21GpRyDjwzEWIScV0cEj9Ts
+Message-ID: <CAJX_Q+15Vit+pU3XE+DiUH4u6APf-FYBuhnrVGx9=pZC8MGpWw@mail.gmail.com>
+Subject: Re: [PATCH] iommu/rockchip: do not walk the page tables of a disabled MMU
+To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Cc: stable@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Troy,
-
-On Wed, 25 Nov 2026 at 07:54, Troy Mitchell
-<troy.mitchell@linux.spacemit.com> wrote:
+On Sat, Nov 14, 2026 at 1:37=E2=80=AFPM Lucas Tanure <tanure@linux.com> wro=
+te:
 >
-> The SpacemiT K1 and K3 SoCs have APB timers that run independently of
-> the CPU cores. Each timer block has three 32-bit up counters, and each
-> counter has three match comparators and its own interrupt. A counter
-> can be clocked from the functional clock or from the 32.768 kHz clock,
-> and can run in free-running or periodic mode.
+> A page fault handler running while another CPU detaches the same IOMMU
+> can read a cleared RK_MMU_DTE_ADDR, turn it into a linear-map pointer
+> and dereference it, which panics the machine. A dummy or firmware-left
+> address is as unsafe.
 >
-> This series uses counter 0 as a oneshot clockevent. It is registered
-> for tick broadcast, so it can wake up CPUs whose local RISC-V timer
-> stops in idle.
+> Seen on PX30 at reboot: the display controller still fetched an
+> unmapped framebuffer, its IOMMU sat in a page fault, ignored the stall
+> and paging-disable commands, and had RK_MMU_DTE_ADDR cleared during
+> the handler's second run.
 >
-> K3 uses the same register interface as K1 and falls back to the K1
-> compatible. Both SoCs run the timer from a 1 MHz functional clock.
+> No wait works: the master shares the line, the RK3588 NPU driver
+> detaches from its interrupt thread, where synchronize_irq() deadlocks,
+> and synchronize_hardirq() skips a force-threaded handler. A spinlock
+> orders the walk against the register clear.
 >
-Tested on a Banana Pi BPI-F3.
-
-Reviewed-by: Anand Moon <linux.amoon@gmail.com>
-Tested-by: Anand Moon <linux.amoon@gmail.com>
-
-Thanks
--Anand
+> 6.1 vendor kernel log, rk_pagefault_done is the walk, per CPU:
+>
+>   CPU 1, init, reboot path:
+>   [ 1069.789374][    T1] rk_iommu ff460f00.iommu: Enable stall request ti=
+med out, retry_count =3D 0, status: 0x0002cb
+>   [ 1069.791314][    T1] rk_iommu ff460f00.iommu: Disable paging request =
+timed out, retry_count =3D 0, status: 0x0002cb
+>   [ 1069.830197][    T1] Call trace:
+>   [ 1069.830922][    T1]  iommu_detach_device+0xd0/0xdc
+>   [ 1069.831483][    T1]  rockchip_drm_dma_detach_device+0x1c/0x34
+>   [ 1069.832033][    T1]  vop_crtc_atomic_disable+0xb0c/0xc44
+>   [ 1069.832751][    T1]  drm_atomic_helper_commit_modeset_disables+0x348=
+/0x690
+>   ...
+>   [ 1069.836601][    T1]  drm_atomic_helper_shutdown+0xa0/0x158
+>   [ 1069.837152][    T1]  rockchip_drm_platform_shutdown+0x18/0x2c
+>   [ 1069.837870][    T1]  platform_shutdown+0x3c/0x54
+>   [ 1069.838599][    T1]  device_shutdown+0x194/0x260
+>   [ 1069.839160][    T1]  kernel_restart+0x40/0x128
+>
+>   CPU 0, page fault handler:
+>   [ 1069.790364][    C0] rk_iommu ff460f00.iommu: Page fault at 0x0000000=
+0ffee0000 of type read
+>   [ 1069.792129][    C0] rk_iommu ff460f00.iommu: Page fault while iommu =
+not attached to domain?
+>   [ 1069.792184][    C0] rk_iommu ff460f00.iommu: Page fault at 0x0000000=
+0ffee0280 of type read
+>   [ 1069.794604][    C0] Unable to handle kernel paging request at virtua=
+l address ffffff8000000ffc
+>   [ 1069.805998][    C0] Internal error: Oops: 0000000096000006 [#1] PREE=
+MPT SMP
+>   [ 1069.809484][    C0] pc : rk_pagefault_done+0x1b4/0x3c8
+>   [ 1069.810548][    C0] lr : rk_pagefault_done+0x19c/0x3c8
+>   [ 1069.832390][    C0] Call trace:
+>   [ 1069.833116][    C0]  rk_pagefault_done+0x1b4/0x3c8
+>   [ 1069.833844][    C0]  rk_iommu_irq+0x64/0xc8
+>   [ 1069.834395][    C0]  __handle_irq_event_percpu+0xe8/0x2ac
+>   [ 1069.834945][    C0]  handle_irq_event+0x40/0xbc
+>   [ 1069.835675][    C0]  handle_fasteoi_irq+0x118/0x28c
+>   [ 1069.836404][    C0]  generic_handle_domain_irq+0x44/0x6c
+>   [ 1069.836954][    C0]  gic_handle_irq+0x60/0xf0
+>   [ 1069.837505][    C0]  call_on_irq_stack+0x3c/0x5c
+>   [ 1069.838235][    C0]  do_interrupt_handler+0x4c/0x94
+>   [ 1069.838963][    C0]  el1_interrupt+0x44/0xa8
+>   [ 1069.839446][    C0]  el1h_64_irq_handler+0x18/0x2c
+>   [ 1069.839997][    C0]  el1h_64_irq+0x78/0x7c
+>   [ 1071.215224][    C0] Kernel panic - not syncing: Oops: Fatal exceptio=
+n in interrupt
+>
+> Fixes: c68a292152d3 ("iommu/rockchip: rk3288 iommu driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> ---
+>  drivers/iommu/rockchip-iommu.c | 28 ++++++++++++++++++++++------
+>  1 file changed, 22 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iomm=
+u.c
+> index 1fa3110b142a..0f40d9678344 100644
+> --- a/drivers/iommu/rockchip-iommu.c
+> +++ b/drivers/iommu/rockchip-iommu.c
+> @@ -115,6 +115,7 @@ struct rk_iommu {
+>         struct iommu_device iommu;
+>         struct list_head node; /* entry in rk_iommu_domain.iommus */
+>         struct iommu_domain *domain; /* domain to which iommu is attached=
+ */
+> +       spinlock_t lock;
+>         const struct rk_iommu_ops *rk_ops;
+>  };
+>
+> @@ -543,7 +544,8 @@ static int rk_iommu_force_reset(struct rk_iommu *iomm=
+u)
+>         return 0;
+>  }
+>
+> -static void log_iova(struct rk_iommu *iommu, int index, dma_addr_t iova)
+> +static void log_iova(struct rk_iommu *iommu, struct iommu_domain *domain=
+,
+> +                    int index, dma_addr_t iova)
+>  {
+>         void __iomem *base =3D iommu->bases[index];
+>         u32 dte_index, pte_index, page_offset;
+> @@ -563,6 +565,12 @@ static void log_iova(struct rk_iommu *iommu, int ind=
+ex, dma_addr_t iova)
+>
+>         mmu_dte_addr =3D rk_iommu_read(base, RK_MMU_DTE_ADDR);
+>         mmu_dte_addr_phys =3D iommu->rk_ops->pt_address(mmu_dte_addr);
+> +       if (domain =3D=3D &rk_identity_domain ||
+> +           mmu_dte_addr_phys !=3D to_rk_domain(domain)->dt_dma) {
+> +               dev_err(iommu->dev, "iova =3D %pad: page directory %#x is=
+ not the attached domain's, not walked\n",
+> +                       &iova, mmu_dte_addr);
+> +               return;
+> +       }
+>
+>         dte_addr_phys =3D mmu_dte_addr_phys + (4 * dte_index);
+>         dte_addr =3D phys_to_virt(dte_addr_phys);
+> @@ -593,6 +601,7 @@ static void log_iova(struct rk_iommu *iommu, int inde=
+x, dma_addr_t iova)
+>  static irqreturn_t rk_iommu_irq(int irq, void *dev_id)
+>  {
+>         struct rk_iommu *iommu =3D dev_id;
+> +       struct iommu_domain *domain;
+>         u32 status;
+>         u32 int_status;
+>         dma_addr_t iova;
+> @@ -606,6 +615,8 @@ static irqreturn_t rk_iommu_irq(int irq, void *dev_id=
+)
+>         if (WARN_ON(clk_bulk_enable(iommu->num_clocks, iommu->clocks)))
+>                 goto out;
+>
+> +       spin_lock(&iommu->lock);
+> +       domain =3D READ_ONCE(iommu->domain);
+>         for (i =3D 0; i < iommu->num_mmu; i++) {
+>                 int_status =3D rk_iommu_read(iommu->bases[i], RK_MMU_INT_=
+STATUS);
+>                 if (int_status =3D=3D 0)
+> @@ -625,15 +636,15 @@ static irqreturn_t rk_iommu_irq(int irq, void *dev_=
+id)
+>                                 &iova,
+>                                 str_write_read(flags =3D=3D IOMMU_FAULT_W=
+RITE));
+>
+> -                       log_iova(iommu, i, iova);
+> +                       log_iova(iommu, domain, i, iova);
+>
+>                         /*
+>                          * Report page fault to any installed handlers.
+>                          * Ignore the return code, though, since we alway=
+s zap cache
+>                          * and clear the page fault anyway.
+>                          */
+> -                       if (iommu->domain !=3D &rk_identity_domain)
+> -                               report_iommu_fault(iommu->domain, iommu->=
+dev, iova,
+> +                       if (domain !=3D &rk_identity_domain)
+> +                               report_iommu_fault(domain, iommu->dev, io=
+va,
+>                                                    flags);
+>                         else
+>                                 dev_err(iommu->dev, "Page fault while iom=
+mu not attached to domain?\n");
+> @@ -651,6 +662,7 @@ static irqreturn_t rk_iommu_irq(int irq, void *dev_id=
+)
+>
+>                 rk_iommu_write(iommu->bases[i], RK_MMU_INT_CLEAR, int_sta=
+tus);
+>         }
+> +       spin_unlock(&iommu->lock);
+>
+>         clk_bulk_disable(iommu->num_clocks, iommu->clocks);
+>
+> @@ -921,16 +933,19 @@ static struct rk_iommu *rk_iommu_from_dev(struct de=
+vice *dev)
+>  /* Must be called with iommu powered on and attached */
+>  static void rk_iommu_disable(struct rk_iommu *iommu)
+>  {
+> +       unsigned long flags;
+>         int i;
+>
+>         /* Ignore error while disabling, just keep going */
+>         WARN_ON(clk_bulk_enable(iommu->num_clocks, iommu->clocks));
+>         rk_iommu_enable_stall(iommu);
+>         rk_iommu_disable_paging(iommu);
+> +       spin_lock_irqsave(&iommu->lock, flags);
+>         for (i =3D 0; i < iommu->num_mmu; i++) {
+>                 rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, 0);
+>                 rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR, 0);
+>         }
+> +       spin_unlock_irqrestore(&iommu->lock, flags);
+>         rk_iommu_disable_stall(iommu);
+>         clk_bulk_disable(iommu->num_clocks, iommu->clocks);
+>  }
+> @@ -997,7 +1012,7 @@ static int rk_iommu_identity_attach(struct iommu_dom=
+ain *identity_domain,
+>         if (iommu->domain =3D=3D identity_domain)
+>                 return 0;
+>
+> -       iommu->domain =3D identity_domain;
+> +       WRITE_ONCE(iommu->domain, identity_domain);
+>
+>         spin_lock_irqsave(&rk_domain->iommus_lock, flags);
+>         list_del_init(&iommu->node);
+> @@ -1051,7 +1066,7 @@ static int rk_iommu_attach_device(struct iommu_doma=
+in *domain,
+>         if (ret)
+>                 return ret;
+>
+> -       iommu->domain =3D domain;
+> +       WRITE_ONCE(iommu->domain, domain);
+>
+>         spin_lock_irqsave(&rk_domain->iommus_lock, flags);
+>         list_add_tail(&iommu->node, &rk_domain->iommus);
+> @@ -1227,6 +1242,7 @@ static int rk_iommu_probe(struct platform_device *p=
+dev)
+>                 return -ENOMEM;
+>
+>         iommu->domain =3D &rk_identity_domain;
+> +       spin_lock_init(&iommu->lock);
+>
+>         platform_set_drvdata(pdev, iommu);
+>         iommu->dev =3D dev;
+> --
+> 2.56.1
+>
+ping?
