@@ -1,69 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.172.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795805907;
-	b=3+qh2rDHgaV5oFlRIYINcF1DxuTBmNC2jMXZ0cgjDU810OoyuAxLpkioUhZLP9opq7Go
-	 kbtKOTEMUccCJbk21qPM/e147DIUAg55dU4HnhPmlAuJ28qLn8Ejdblvl3agncsgnSXX4
-	 tffjdAM02zEPQ2mzNP0ZrcYOsyYwTWwKfD/qI1DIKvwrbs5zRBNN1P8bhrP145a+D9OUr
-	 hWAX4RhDWhRQTnlVWyVNiZA62MYeykWx5wskBHT8wwCJmAA4ICEPMNzwVTfnzqgf4Ogs7
-	 R13tPH2L6lx8tyWAko+pyui8eyYiB0W3hfvDtOPw9vJ2tNwuiCa2CxDAyrf35JQN+uQ==
+	t=1795805911;
+	b=qq26KmqN03z03j1AS9Z84SUG/AcHTfcvOo1j9APuDeHqibCt6eGNQI5x6u4FXqoJYQfy
+	 Iv84dsdL34WecRAmhnTRP/yieH5Ea8fmev+fyp6SHOZt2zq+GQLr+9ngqSDegMj44G8Jg
+	 VQxC12/bsx0MWie2Ua4AoKsPPra63wkLIM42dvvidfJQj3b52cMmBKUOkdkofH1ucZ6CN
+	 5CL2Joy6A/mlITHpN3fDGZ5JQ+qaiA+0hXsnC4ARhdI+B7s7+DGPhQeEfWFpTaH7vm1Xx
+	 50Ty8dQzDAth6OzH27bxPunjquxrUrUSVsFvj9WkU9Zr/nzPJP5pK5sRa1GJaOUubBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805907;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=uKCrPR60jaWb2Zhk534ZCZD0Kw22aJy6wHHdu9KIW1I=;
-	b=wXHWJVzcu2Pwtios43h41VT50OYWGgbeaSB47IDGfMX9vTKvD2K9nWyHTn3AO8ESKIJy
-	 wLcpu4gbzLlVkBD4vLtUoAm6IaS5uWM8LtGJnaQ2NEfShTUVtuM4w/BIDgJBDJbkLf0PD
-	 vC/IGXmoZ7FdmiHOUVK+H20wdIIj2FY8lghYLS/uZFJJxHLcueHsQa465JLTODOgkn4k8
-	 9kGYY/AuqmkScJWC1FraygDduHNBEQllQ2HlVIQblNRF4UPwLTRXZwxT5/4v4ttekc12V
-	 NkWCjvjM96TmRV7SaaVjpa58tpRNxCqf3AtVtb5evPk0XL+fL40UAu8BeHyIYIo3SHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805911;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Bar:X-Rspamd-Report:X-Rspamd-Score:DKIM-Signature;
+	bh=13Im6NjMRVUnMmBZBKdEmfUNzbWwvMI0PbIOHyXXUHA=;
+	b=Gqzk0KJ2+qDNyS/1gQFnodd8I1bEUsI/rzJSIfnI8v9C4rV6paSYiFDnl8RYdKuR9z6J
+	 u8z1MSAzRo6pCO7jKIC2xZ8rsVK+tWdR92K0LZMtjikECPwe8qT5bHR8uEqvCjc2AinaI
+	 3ZStsZdJubdXGlYBFuMh1QXw5f/NN3Qn14TRxdMNs9mdEsgEdaQg1NI4GjfEaDXlh+k8C
+	 5Eeabz5AbAtX26Z7+CRhsE6dsRu4pey7EmyGOnXBB281rffbzVaJF+XDn4iir1i410Ezm
+	 kL19/Xdi4WMmWzQN40KrWIbILDmRqGKtaUMsPClDEj80iztB+BkX8gG+dCeKi6vMDnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=d3YE0ITt;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dmarc=pass header.from=david-bauer.net;
+	spf=pass smtp.mailfrom=david-bauer.net;
+	dkim=pass header.d=david-bauer.net header.i=@david-bauer.net header.a=rsa-sha256 header.s=uberspace header.b=KA61qEUH;
+	arc=none smtp.remote-ip=95.143.172.20
+Received: from mailgate01.uberspace.is (mailgate01.uberspace.is [95.143.172.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4604606A6A4
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:58:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4604606A6A4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A15AB60A3817
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:58:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A15AB60A3817
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=david-bauer.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=david-bauer.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=d3YE0ITt
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795805905;
-	bh=uKCrPR60jaWb2Zhk534ZCZD0Kw22aJy6wHHdu9KIW1I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d3YE0ITtkvJEqGUDx/RAAneNdpWQc2mcwwJ2tq74i9QcNAJimQ/RxgcBZuAVBKKh6
-	 SHsKaGqj/kQkZ43D2qPbj2/Vfy9MOynpFQhNFL6hdaAbNNqkQJpQw0Eo25V+BuTTeZ
-	 J84w3DnYpAHZ5pNqOxT7pSDg0vB/lbIOHtKdZus695YfF2IRNG2RbWv5rokxqTzz1v
-	 PcRw9+ap7eHvQcogQopxU9BahPx2U/wjlSCs2ZJRkoz1DdZVhZ3ew+bmVIC1viEM6Q
-	 7ZR5oGD2JGZO+ju1a+ZjT8RYwyF/osEkfZrliuVEtcfTBCAmEpFPpdDuVqJLEc84KC
-	 Fz4NMX6yeoXFw==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbjNx1KnNzXX1;
-	Fri, 27 Nov 2026 13:58:25 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
+	dkim=pass (4096-bit key, unprotected) header.d=david-bauer.net header.i=@david-bauer.net header.a=rsa-sha256 header.s=uberspace header.b=KA61qEUH
+Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 457B461B09
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:58:27 +0100 (CET)
+Received: (qmail 18833 invoked by uid 988); 27 Nov 2026 18:58:27 -0000
+Authentication-Results: perseus.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Fri, 27 Nov 2026 19:58:26 +0100
+From: David Bauer <mail@david-bauer.net>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	"Paul E. McKenney" <paulmck@kernel.org>
-Subject: [PATCH v2 12/16] x86/entry: Remove stale membarrier sync core comments
-Date: Fri, 27 Nov 2026 13:58:17 -0500
-Message-ID: <20261127185822.158216-13-mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
-References: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH mt76 1/2] wifi: mt76: mt7603: provide timeout trigger to mt7603_watchdog_check
+Date: Fri, 27 Nov 2026 19:58:14 +0100
+Message-ID: <20261127185819.1340117-1-mail@david-bauer.net>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,70 +67,92 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999999) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.099999
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=david-bauer.net; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=7bfiLualbveH/vmJMKNmgItfJglWVbEZKv1+aO2WROo=;
+	b=KA61qEUHitWr/v+uWQ6eotK/cLd+8/jwqFNuAn97PzcFfuXoGmU2u1jnQDcJ7sePhaNaLooEyr
+	CtcJLYyPxPXPDtQksJNmI1pbK90tZ+5gyOxdxu9Y15w3ivk/TmLFacwarM9uvOQjtk+n3Xasm09j
+	oj2awwLiu5iljvfhHUmOU00iCKGOjNV4lnN1ZsmIHckOOiWAlgyWSlz+UJMYJ3my74E+73E4APiG
+	I9Vl4li5+lLsqngBvYDKf4m1gj+dikP22dSRkn8ypX0cva2gVXiR0xmzho/pWXdEEFaznVN5aIvi
+	bNt9cpEO6KCuFt7fNX7UdsqRP0+TXQabsPtEOcO6c/QxTLpbgb7vaKqrJXpaP4bZTHX3aXPNYqWQ
+	HvMgxBru+tCSXMrRadFqxADB1XcfA/BEUbV/a5EM1RbzZB/+nBAzocFWvh/n6vtWu7GSVY/x9Bmi
+	OjFVaPEmbQEOG3wSVsFTvR1BT68dtn/hlQWi4eHCGJTgIdcMGl47RMM9o5AjqS2aAsj1znJjFatG
+	m46eSyU6FbTNNubLXNiW31Is0SuMaJ6FYXyR4rAd2IgxYsA3yT4AqWKteR5tTmh4L6Gq/pp4gHJh
+	86ByS/lEFqupKJxnrOwlugymZIo0VboDITtIXJyasfsB2FNfne+h+7zsP8vatQDiHbe3IC/XFZkS
+	8=
 
-Two comments state that the membarrier sync core command relies on
-the IRET which returns from the IPI handler. This is no longer true
-since commit a493d1ca1a03 ("x86/membarrier: Get rid of a dubious
-optimization"): sync_core_before_usermode() serializes the core in
-the IPI handler.
+Supply the timeout trigger threshold value to mt7603_watchdog_check.
 
-Remove both comments.
+This is required in order to define individual threshold values for
+reset types.
 
-The comment of sync_core_before_usermode() lists the instructions
-which return to user-space without serializing the core. Fix a typo
-in it ("sysrel") and add ERETU, which FRED uses.
-
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Signed-off-by: David Bauer <mail@david-bauer.net>
 ---
- arch/x86/entry/entry_32.S        | 5 -----
- arch/x86/entry/entry_64.S        | 4 ----
- arch/x86/include/asm/sync_core.h | 2 +-
- 3 files changed, 1 insertion(+), 10 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7603/mac.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/entry/entry_32.S b/arch/x86/entry/entry_32.S
-index 92c0b4a94e0a..d47bb08afb24 100644
---- a/arch/x86/entry/entry_32.S
-+++ b/arch/x86/entry/entry_32.S
-@@ -954,11 +954,6 @@ restore_all_switch_stack:
- 	RESTORE_REGS pop=4			# skip orig_eax/error_code
- 	CLEAR_CPU_BUFFERS
- .Lirq_return:
--	/*
--	 * ARCH_HAS_MEMBARRIER_SYNC_CORE rely on IRET core serialization
--	 * when returning from IPI handler and when returning from
--	 * scheduler to user-space.
--	 */
- 	iret
- 
- .Lasm_iret_error:
-diff --git a/arch/x86/entry/entry_64.S b/arch/x86/entry/entry_64.S
-index 253f0a585927..b8661064232c 100644
---- a/arch/x86/entry/entry_64.S
-+++ b/arch/x86/entry/entry_64.S
-@@ -626,10 +626,6 @@ SYM_INNER_LABEL(restore_regs_and_return_to_kernel, SYM_L_GLOBAL)
- #endif
- 	POP_REGS
- 	addq	$8, %rsp	/* skip regs->orig_ax */
--	/*
--	 * ARCH_HAS_MEMBARRIER_SYNC_CORE rely on IRET core serialization
--	 * when returning from IPI handler.
--	 */
- #ifdef CONFIG_XEN_PV
- SYM_INNER_LABEL(early_xen_iret_patch, SYM_L_GLOBAL)
- 	ANNOTATE_NOENDBR
-diff --git a/arch/x86/include/asm/sync_core.h b/arch/x86/include/asm/sync_core.h
-index df22113db9cd..0ab91f7e2020 100644
---- a/arch/x86/include/asm/sync_core.h
-+++ b/arch/x86/include/asm/sync_core.h
-@@ -91,7 +91,7 @@ static __always_inline void sync_core(void)
- /*
-  * Ensure that a core serializing instruction is issued before returning
-  * to user-mode. x86 implements return to user-space through sysexit,
-- * sysrel, and sysretq, which are not core serializing.
-+ * sysretl, sysretq and eretu, which are not core serializing.
-  */
- static inline void sync_core_before_usermode(void)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+index 5940306ed3ce2..634bb67b57d52 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+@@ -1602,6 +1602,7 @@ static bool mt7603_rx_pse_busy(struct mt7603_dev *dev)
+ static bool
+ mt7603_watchdog_check(struct mt7603_dev *dev, u8 *counter,
+ 		      enum mt7603_reset_cause cause,
++		      u8 counter_timeout,
+ 		      bool (*check)(struct mt7603_dev *dev))
  {
+ 	if (dev->reset_test == cause + 1) {
+@@ -1610,7 +1611,7 @@ mt7603_watchdog_check(struct mt7603_dev *dev, u8 *counter,
+ 	}
+ 
+ 	if (check) {
+-		if (!check(dev) && *counter < MT7603_WATCHDOG_TIMEOUT) {
++		if (!check(dev) && *counter < counter_timeout) {
+ 			*counter = 0;
+ 			return false;
+ 		}
+@@ -1618,7 +1619,7 @@ mt7603_watchdog_check(struct mt7603_dev *dev, u8 *counter,
+ 		(*counter)++;
+ 	}
+ 
+-	if (*counter < MT7603_WATCHDOG_TIMEOUT)
++	if (*counter < counter_timeout)
+ 		return false;
+ trigger:
+ 	dev->cur_reset_cause = cause;
+@@ -1897,21 +1898,27 @@ void mt7603_mac_work(struct work_struct *work)
+ 
+ 	if (mt7603_watchdog_check(dev, &dev->rx_pse_check,
+ 				  RESET_CAUSE_RX_PSE_BUSY,
++				  MT7603_WATCHDOG_TIMEOUT,
+ 				  mt7603_rx_pse_busy) ||
+ 	    mt7603_watchdog_check(dev, &dev->beacon_check,
+ 				  RESET_CAUSE_BEACON_STUCK,
++				  MT7603_WATCHDOG_TIMEOUT,
+ 				  NULL) ||
+ 	    mt7603_watchdog_check(dev, &dev->tx_hang_check,
+ 				  RESET_CAUSE_TX_HANG,
++				  MT7603_WATCHDOG_TIMEOUT,
+ 				  mt7603_tx_hang) ||
+ 	    mt7603_watchdog_check(dev, &dev->tx_dma_check,
+ 				  RESET_CAUSE_TX_BUSY,
++				  MT7603_WATCHDOG_TIMEOUT,
+ 				  mt7603_tx_dma_busy) ||
+ 	    mt7603_watchdog_check(dev, &dev->rx_dma_check,
+ 				  RESET_CAUSE_RX_BUSY,
++				  MT7603_WATCHDOG_TIMEOUT,
+ 				  mt7603_rx_dma_busy) ||
+ 	    mt7603_watchdog_check(dev, &dev->mcu_hang,
+ 				  RESET_CAUSE_MCU_HANG,
++				  MT7603_WATCHDOG_TIMEOUT,
+ 				  NULL) ||
+ 	    dev->failed_pse_reset_attempts) {
+ 		dev->beacon_check = 0;
 -- 
-2.47.3
+2.53.0
 
