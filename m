@@ -1,62 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793566;
-	b=wuTRZKv3Pyh4RSwAChnkItI2WJ1sTZ/pfosiVYzdGuIwKmlD3elWscPTaICsQv7RCQHj
-	 YwEZf3OjLY2ppLji9CozbkZjxNZkTpEoUYwoer6Ouzqhs8lKzYYvi0Q8y68ZCLq3XGaOo
-	 sfFnyz1/jJBwTwMtRN0T09kVdzJuo3dU0HHmfkCF9hSW809OATBtDLngbqy+XD22PWmK5
-	 O5L0Lcb8hACdBG2y1wOxXOAPfGMFisBCYclXUCNGnEv+HWTK9gOCiLkge+5xGVkZSCsOS
-	 8oth0YPKTkpoubIwLqhG7xCNsLLtY2q7yGRvLWFSP6wxq7bZUCJjVbHyk5bAX+OsSIQ==
+	t=1795793568;
+	b=0eOs4zWBIH3XY4xmRJQJVj2BejZA/H3787mbyZe6Yv3Mk/pkR327pYdiLuLWzzHmfKwJ
+	 cUMTiH2D2Q+s6ZcDzDvMnEQbf68iTZLq6hhzd9R8NmGHMZWrAKhef6jV9wG8V9HWMiBS3
+	 70ZNTzha1NJvJYBeiQrMn1n2J+pmoOW7XXXS7C6Pb4T3kqdKcNACIdAQyr/UC9caZFNRy
+	 vSIEjG1lg1Nc9CUF8RlOp5AsAqY9uX5iY0o7VkaMs4EyyZuOnRQIJ103HoPHA643NsLDz
+	 bsWPAh8hZSLgNGPK05hHZGk/VmhpcogcOFb8+r8bu1Dr471oGjUKs4i2En/VdyV89CQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793566;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=2xSkHmgwcY/UBC1h6KghOKuKRKbFTAGv0DCM6/0KU/Q=;
-	b=u0UX0uFCTFH7val6RRZcOAMEjN0wGAlx5epvvb3JvAvCSFQ7pxV8WDvBM72yKmxwd9iK
-	 U3rj7+NWjOcK6QoMJDEDb7phRNIh+xZZY2ji5FwZTCTDI9lzEv5aQzavK0qP6QMB+HxcQ
-	 zx4riG+P/yNc6sUpjbGO3jBw2J6ZC0rCfPHbDgLCW/W7auA+tueu4HwmxOSR9n8HYOa2f
-	 CopoOveHk1lZ1yr2h0GYfLPvg45LFpO9YxfsIDebZ/Hfh73Lo0Hf7jAN+CR9xN8PloPrH
-	 +XWHojuFpXJMtWuFOi6KKuGuVEfg6tGwaB2vSfJSC1hi6T8UxfSUTHkQ0IUZA6AU+bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793568;
+	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=xBRn49p7x5P2JnsS/AwLAkeJTmgdq0ZToxo/maqobQo=;
+	b=taiW2XWcJiThHgf4GKLwlDaWMKCemEWLSM7BLYc16AHUjutX4zzpOcd93TpRWR1K3qqh
+	 NVy8jLxlEm5zy9eL7tW7E1TLkMr37BSOJf+1AQJZ+r0V0XCIJePxjVQqxwsVbzTrjv4HQ
+	 ES3d++T89Qq/JKSadmuGZADh6YGIxu0xwoqQ03wK/3ugqmKMKzaD4ZP8v8O2gILDX/M98
+	 alizqSOQZrEnsODovXAJRt5KN4PPKvcYwI8T4WzRTPZZWHRdkG2gjneKllM6p1zUwVLj8
+	 LqpKWVUUp/f1jtgfyK7G/3JBOliVI624f7ha1MCH+f0Rm3LBbovo4ryGSQB90w3thkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hMw9Mmff;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JRxvAwbT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 961CF606A32D;
-	Fri, 27 Nov 2026 15:32:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 961CF606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD05F606A32A;
+	Fri, 27 Nov 2026 15:32:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hMw9Mmff
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=2x
-	SkHmgwcY/UBC1h6KghOKuKRKbFTAGv0DCM6/0KU/Q=; b=hMw9MmffvoYK+85EWJ
-	rgTbegGzzCKWXUqJ/BsR+0TwVnWua53vClugIW0dGs1pA5hgxMAMyvk6llibiE/Z
-	aHtKDRycKzcDoqL76YzOnFF/nAN6RIaaZtmDlE+XVb76ifovaRmS+Ko1KxDAz/bZ
-	7ocqXp3w/RVcWawP5I3+8BO2E=
-Received: from SYPC (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3n_FLoglr+1AILg--.23527S2;
-	Fri, 27 Nov 2026 23:31:24 +0800 (CST)
-From: Yang Siyuan <hsyysy@163.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JRxvAwbT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 523231F00898;
+	Fri, 27 Nov 2026 15:32:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795793568;
+	bh=xBRn49p7x5P2JnsS/AwLAkeJTmgdq0ZToxo/maqobQo=;
+	h=From:To:Subject:Date:In-Reply-To:References;
+	b=JRxvAwbTBrXanJgeTCDSzmeoZKc54ZekNd9XVrRJa40uqNCiAHRpumLZWOdqZ+xW/
+	 o9Ns3DiHx/N+em/r+5+83Dqzo8oPmcsac9MXTO2juy+ZCW+lULy3bU6q+yU2JVxmms
+	 +4EnJvAyFl8lqOGb1gQfXNDOxOzDjdRXio/w2UbZwPA8PCg6toZ3jjUFnUm41mstuz
+	 gJH8rPcnlgcHlYrcDm8ReDLxODe+DY1xtG5102Mty93RvkC5iWFlfTouwCwSnT/BSG
+	 z5VEflxTXjk8Ip7t2q5yfRPyZ4XxHs+jFs+rx3jO6fAGvn8snuLBnQ+D+Lt+khCVEh
+	 7XwR3ZxPXMpLQ==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	Foon Tan <lftan@altera.com>,
+	Graham Moore <grmoore@opensource.altera.com>,
+	Murugan R <vadivel.muruganx.ramuthevar@intel.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Pratyush Yadav <p.yadav@ti.com>,
+	Dhruva Gole <d-gole@ti.com>,
+	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
+	linux-spi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] ASoC: rockchip: i2s-tdm: add I2S_XFER to register defaults
-Date: Fri, 27 Nov 2026 23:30:24 +0800
-Message-ID: <20261127153024.2348805-1-hsyysy@163.com>
-X-Mailer: git-send-email 2.56.1
+Subject: [PATCH v2 06/10] spi: cadence-quadspi: Validate num-cs against CQSPI_MAX_CHIPSELECT
+Date: Fri, 27 Nov 2026 15:31:09 +0000
+Message-ID: <20261127153158.2969573-7-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+In-Reply-To: <20261127153158.2969573-1-lee@kernel.org>
+References: <20261127153158.2969573-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,44 +67,67 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3n_FLoglr+1AILg--.23527S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWruw1DWFykZFy3urWrKryrtFb_yoW8Jr43p3
-	s3ArZ29FWxGw1jvrn8JrnxCF40krWqya13GF4fKa47A3ZFkFs5uwnIgr1vkFW3Zr47Ca42
-	kryqq34jvF4S9aUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UBa0dUUUUU=
-X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7QzYDWsJokwXdgAA3Z
 
-rockchip_i2s_tdm_reg_defaults[] is missing I2S_XFER (0x1c), which resets
-to 0 (TX and RX disabled). The driver uses a flat regcache and calls
-regmap_update_bits() on I2S_XFER from rockchip_snd_xfer_sync_reset()
-before that register has been written, so regcache_flat_read() hits an
-invalid cache entry and warns:
+cqspi_of_get_pdata() reads cqspi->num_chipselect from the "num-cs"
+Device Tree property without checking that it fits within
+CQSPI_MAX_CHIPSELECT.  cqspi_setup_flash() then validates each child
+node's chip select only against cqspi->num_chipselect before indexing
+cqspi->f_pdata[CQSPI_MAX_CHIPSELECT], allowing an out-of-bounds write
+if a DT specifies more than CQSPI_MAX_CHIPSELECT chip selects.
 
-  rockchip-i2s-tdm: using zero-initialized flat cache, this may cause
-  unexpected behavior
+Reject "num-cs" values exceeding CQSPI_MAX_CHIPSELECT in
+cqspi_of_get_pdata(), and store cs as u32 in cqspi_setup_flash() to
+match of_property_read_u32().
 
-Add the reset value so the flat cache starts with the actual hardware
-state.
-
-Tested on a Rockchip RK3566 board; no functional change.
-
-Signed-off-by: Yang Siyuan <hsyysy@163.com>
+Fixes: 0d62c64a8e48 ("spi: cadence-qspi: assert each subnode flash CS is valid")
+Closes: https://sashiko.dev/#/bug/linux-cd463fc8-1b94-4bcf-8d06-fae21b88894c
+Signed-off-by: Lee Jones <lee@kernel.org>
 ---
- sound/soc/rockchip/rockchip_i2s_tdm.c | 1 +
- 1 file changed, 1 insertion(+)
+v1 => v2:
+ - Reject num-cs values exceeding CQSPI_MAX_CHIPSELECT in cqspi_of_get_pdata() and store cs as u32 in cqspi_setup_flash(), per Theo Lebrun's review.
+ - Simplify the commit message and drop the stable tag, per Theo Lebrun's review.
 
-diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
-index 75e6cab..a6efd92 100644
---- a/sound/soc/rockchip/rockchip_i2s_tdm.c
-+++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
-@@ -973,6 +973,7 @@ static const struct reg_default rockchip_i2s_tdm_reg_defaults[] = {
- 	{0x08, 0x00001f1f},
- 	{0x10, 0x001f0000},
- 	{0x14, 0x01f00000},
-+	{0x1c, 0x00000000},	/* I2S_XFER: TX/RX disabled after reset */
- 	{0x30, 0x00003eff},
- 	{0x34, 0x00003eff},
- 	{0x38, 0x00000707},
+ drivers/spi/spi-cadence-quadspi.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/spi/spi-cadence-quadspi.c b/drivers/spi/spi-cadence-quadspi.c
+index 912470bdd10c..0f15250c51db 100644
+--- a/drivers/spi/spi-cadence-quadspi.c
++++ b/drivers/spi/spi-cadence-quadspi.c
+@@ -1613,8 +1613,13 @@ static int cqspi_of_get_pdata(struct cqspi_st *cqspi)
+ 		}
+ 	}
+ 
+-	if (of_property_read_u32(np, "num-cs", &cqspi->num_chipselect))
++	if (of_property_read_u32(np, "num-cs", &cqspi->num_chipselect)) {
+ 		cqspi->num_chipselect = CQSPI_MAX_CHIPSELECT;
++	} else if (cqspi->num_chipselect > CQSPI_MAX_CHIPSELECT) {
++		dev_err(dev, "num-cs (%u) exceeds maximum (%u)\n",
++			cqspi->num_chipselect, CQSPI_MAX_CHIPSELECT);
++		return -EINVAL;
++	}
+ 
+ 	cqspi->rclk_en = of_property_read_bool(np, "cdns,rclk-en");
+ 
+@@ -1753,7 +1758,8 @@ static int cqspi_setup_flash(struct cqspi_st *cqspi)
+ 	struct platform_device *pdev = cqspi->pdev;
+ 	struct device *dev = &pdev->dev;
+ 	struct cqspi_flash_pdata *f_pdata;
+-	int ret, cs, max_cs = -1;
++	int ret, max_cs = -1;
++	u32 cs;
+ 
+ 	/* Get flash device data */
+ 	for_each_available_child_of_node_scoped(dev->of_node, np) {
+@@ -1764,7 +1770,7 @@ static int cqspi_setup_flash(struct cqspi_st *cqspi)
+ 		}
+ 
+ 		if (cs >= cqspi->num_chipselect) {
+-			dev_err(dev, "Chip select %d out of range.\n", cs);
++			dev_err(dev, "Chip select %u out of range.\n", cs);
+ 			return -EINVAL;
+ 		}
+ 
 -- 
-2.56.1
+2.56.1.839.g22a8290db9-goog
 
