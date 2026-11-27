@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795800174;
-	b=sX1YD8PHQEXr6UYRGQTNO80SVXCkeiXIylN08t647rDF7HTvoUG79kBabZiT5HK5f4zB
-	 BkcolFKBb7gRNcDhW91RBuwe/aLFeNrP3+adLLKIQzrN2xuVuMgHANtDfLkWH4U1DGath
-	 LFZVgHFKhDbgZ2KNRWi2shSIUugroDrK+TRHJglEOJTPyyYamY2A0OMMXCmizhgJPX6V5
-	 StECJ5cxV+bILdKc6CzbZpAORma0KyfhxXWl+v6PBj+IodxUlV2NVZTznlVv93aOJoATH
-	 YdbA60f4Rzq+ctW1dm9zYXC+xI9C3LY1bPl0+5dLh4WQNrSGUVtvEd8aJIuzK/ntfog==
+	t=1795800264;
+	b=pW/3T2ar3kHFMbz8dOnaOHbP2/n/ygecncWeaLnzzD9gLj4RboZk8JkUt2wIC61Q91m8
+	 JzIlNpQlyJcLY1LPPnGCyk1USWyNDDGJshBNOfk0SkANoMl1Sob/OeQVsBIDNKQmBq7uf
+	 3czVDAaoyM1QgdPhCLscokaKkmodVhqAFFwiDtdK9KFSaNVOINsXJMSoz+ERTM11yLXBR
+	 n+FsS2FXv9XgSsp5S6JejNnxNYHmQ1Qyyre8JSzC0zYXJ9UurOl+6RRPaOe7ShffNCTqD
+	 HGB6vBoAPdsRrPp9wNMviWptnwCsif+dH0WJ+BI8LGIon5kVKmp/VZPijsdZT73Mzrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795800174;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=pubxOyQNxqJObSQRzP2EByZPCuSgU1IGzHB2bC+qN9U=;
-	b=bDO4Uk1Oyvxq5NWvjI4vpQZHtuZ4aPzS8qOzbvnJ7WldwLQ60uIQiJ3IX+/9pLxAEsdH
-	 SPeizHjJlicK5XbK5lBwmQcmHPycfrJFYE7WNPZUs6M71dk61PWiAsygj40obj6HrSynF
-	 MyZZd23Jt8npCL8ufwIbMxL/a8OJyo+G3Q8F9K6Btwik0FwIzoJgKMug34MX2zDGq1UlK
-	 6yjp4XFwZWcyvyIxf2CIvlnc2goMzm8OQXoeFPnYahuvJ0ThVQdJM58uGzPZnLnzt2Nos
-	 mH3Xk5+2IdHVCgb/ilqKRrlImpL/LKB5wwkSSRje8s/xOEQn2ps9vjCxgzgfKl2wcmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795800264;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	 References:Date:Message-Id:X-Mailer:X-Last-TLS-Session-Version;
+	bh=RHZ/QH5LnoISU6GeZCjgA0RZWJvhgjCLYDlmnSC1S/U=;
+	b=3hUxKN/7oafLbnCarq3ZcNws4fI8Ti0q2gFhpla9Xb6MgKf7M10CwuzC8so2RuYAo+Md
+	 irK33c/FtZns6KB+yJHS4wZ9XgNkBr0zHT5qjUofiwbw0wD5sDaKPU+BHJaHzJ2SmWAjA
+	 zlIOYb4UJGUUkyXhJyy8J3oiuBq3q+3oj17fAh06aRUNRvT7t4t5SzszWCA8xprheweQ6
+	 LNCDhCkvfJK7lcw9jC1//ZXQgUzCB3Au+lU2XizGj/2yKHdQmGaaHAwQK6TxXEJpHYbq0
+	 o0BuaCqcELIpj0c7p9GeowI+3CDCzgeE3gDx5X47L77AFSl/8NhWRFKjR/fEBC/HAjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lJmWrYsS;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=W870dAHW;
 	arc=none smtp.remote-ip=185.246.85.4
 Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24A58606A31C;
-	Fri, 27 Nov 2026 17:22:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24A58606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2776F606A31C;
+	Fri, 27 Nov 2026 17:24:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2776F606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lJmWrYsS
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=W870dAHW
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A0F024E417C7;
-	Fri, 27 Nov 2026 17:22:52 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 631564E417C7;
+	Fri, 27 Nov 2026 17:24:22 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5E33D6049C;
-	Fri, 27 Nov 2026 17:22:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EC53911E90D65;
-	Fri, 27 Nov 2026 18:22:43 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 29E426049C;
+	Fri, 27 Nov 2026 17:24:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3689511E90CD5;
+	Fri, 27 Nov 2026 18:24:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795800167; h=from:subject:date:message-id:to:mime-version:content-type:
+	t=1795800256; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=pubxOyQNxqJObSQRzP2EByZPCuSgU1IGzHB2bC+qN9U=;
-	b=lJmWrYsSeVaZ8lnbvl7iZRf/Xsw9YMSMz7FPFKmlGc9QkU+qrFNgOfwl/815v8sGHvemZG
-	jJ1/JDdD3F9T1QFViGRTlTb7cWyP1PCJa+oxyPceNJxBCgHWFaUO81tnqqphyfBFgxxBKx
-	H7aOXcub76BfTSftj2ii0rCdO0fbI8uaqd2I15yM6a86XoUeang9PglyA5zmhyEb0LAbq1
-	jMH4wSujc4aCGw8Iotuehl5ObBp4l5WlxmN7Jk3ao5nQ1uiIadiODOPV9IuYIT2j/jbMYo
-	y+EynpzqiDwpNjSFtdd+k8oLX/t/0mHb7Bk8D2XfPGKfqZLrpjv4HXlDPAed0Q==
+	bh=RHZ/QH5LnoISU6GeZCjgA0RZWJvhgjCLYDlmnSC1S/U=;
+	b=W870dAHWC1yqL23kPODML9ob6EDrRfjB9CimjwkTP5dHp4PtRekPhyK3ttr37+zDzNKg+M
+	vDDlszyZx0N0fcPAaMPMEV4Imq+XA/QDRN8TrjRErNoE/ED9NkIhqn2TmEbHCY5Gr+DBpL
+	gRHQUxHOAAylmTCifAgJETn819LYv2pu8e1X4JeKR2ExhNiM8H0RJiUSv4s3TJdEl0HkqU
+	uTciaRI8m9sNFZ/IRJ8ml/pDxq2d8e/Q6TSmZpvS6hjTyyc6kpgicB9VVS52apbDT2OT3+
+	StsObVSr+ANdF+V2zV+I0z1Tnfvj3zZKS5WuMiR32y+jTVFIq+M8sOU7Mf62+Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,62 +58,98 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 18:22:43 +0100
-Message-Id: <DN6611WYQN57.39FY9Q6KK65TS@bootlin.com>
-To: "Lee Jones" <lee@kernel.org>, "Mark Brown" <broonie@kernel.org>, "Foon
- Tan" <lftan@altera.com>, "Graham Moore" <grmoore@opensource.altera.com>,
- "Murugan R" <vadivel.muruganx.ramuthevar@intel.com>, "Vignesh Raghavendra"
- <vigneshr@ti.com>, "Pratyush Yadav" <p.yadav@ti.com>, "Dhruva Gole"
- <d-gole@ti.com>, <linux-spi@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH v2 06/10] spi: cadence-quadspi: Validate num-cs against
- CQSPI_MAX_CHIPSELECT
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261127153158.2969573-1-lee@kernel.org>
- <20261127153158.2969573-7-lee@kernel.org>
-In-Reply-To: <20261127153158.2969573-7-lee@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 1/2] drm/bridge: nwl-dsi: Move DSI host disablement to
+ ->atomic_post_disable()
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Stefan Ghetu <stefan.ghetu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ devicetree@vger.kernel.org, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Conor Dooley <conor+dt@kernel.org>, 
+ David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
+ =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Philippe Cornu <philippe.cornu@foss.st.com>, 
+ Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+ Robert Chiras <robert.chiras@nxp.com>, Robert Foss <rfoss@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Sam Ravnborg <sam@ravnborg.org>, 
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Yannick Fertre <yannick.fertre@foss.st.com>, Liu Ying <victor.liu@nxp.com>
+In-Reply-To: <20261125075455.772826-2-stefan.ghetu@nxp.com>
+References: <20261125075455.772826-1-stefan.ghetu@nxp.com>
+ <20261125075455.772826-2-stefan.ghetu@nxp.com>
+Date: Fri, 27 Nov 2026 18:23:58 +0100
+Message-Id: <179580023804.1981164.5694161848427155266.b4-review@b4>
+X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-Hello Lee,
+Hello Stefan,
 
-On Fri Nov 27, 2026 at 4:31 PM CET, Lee Jones wrote:
-> cqspi_of_get_pdata() reads cqspi->num_chipselect from the "num-cs"
-> Device Tree property without checking that it fits within
-> CQSPI_MAX_CHIPSELECT.  cqspi_setup_flash() then validates each child
-> node's chip select only against cqspi->num_chipselect before indexing
-> cqspi->f_pdata[CQSPI_MAX_CHIPSELECT], allowing an out-of-bounds write
-> if a DT specifies more than CQSPI_MAX_CHIPSELECT chip selects.
+> Some MIPI DSI panels, like the Raydium RM68200, send DCS commands such
+> as MIPI_DCS_SET_DISPLAY_OFF and MIPI_DCS_ENTER_SLEEP_MODE from their
+> drm_panel_funcs::unprepare() callback. For those commands to reach the
+> panel, the DSI host controller and its PHY must still be running.
 >
-> Reject "num-cs" values exceeding CQSPI_MAX_CHIPSELECT in
-> cqspi_of_get_pdata(), and store cs as u32 in cqspi_setup_flash() to
-> match of_property_read_u32().
+> The panel bridge calls drm_panel_unprepare() from its post_disable
+> hook, while nwl-dsi currently shuts down the controller, the PHY and
+> the clocks from ->atomic_disable(). Since all ->atomic_disable() hooks
+> in a bridge chain run before any ->atomic_post_disable() hook, the DSI
+> link is already down by the time the panel tries to talk to it.
 >
-> Fixes: 0d62c64a8e48 ("spi: cadence-qspi: assert each subnode flash CS is =
-valid")
-> Closes: https://sashiko.dev/#/bug/linux-cd463fc8-1b94-4bcf-8d06-fae21b888=
-94c
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
-> v1 =3D> v2:
->  - Reject num-cs values exceeding CQSPI_MAX_CHIPSELECT in
->    cqspi_of_get_pdata() and store cs as u32 in cqspi_setup_flash(),
->    per Theo Lebrun's review.
->  - Simplify the commit message and drop the stable tag, per Theo
->    Lebrun's review.
+> Move the disablement to ->atomic_post_disable(), so that a downstream
+> panel bridge that sets pre_enable_prev_first gets a chance to send its
+> shutdown commands first. The enable side is unaffected: the controller
+> is brought out of reset in ->mode_set(), which runs before any
+> pre_enable hook.
 >
->  drivers/spi/spi-cadence-quadspi.c | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
+> Fixes: 44cfc6233447 ("drm/bridge: Add NWL MIPI DSI host controller support")
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> Signed-off-by: Stefan Ghetu <stefan.ghetu@nxp.com>
+>
+> diff --git a/drivers/gpu/drm/bridge/nwl-dsi.c b/drivers/gpu/drm/bridge/nwl-dsi.c
+> index 1aab46e1a168..2b1af6d1d58b 100644
+> --- a/drivers/gpu/drm/bridge/nwl-dsi.c
+> +++ b/drivers/gpu/drm/bridge/nwl-dsi.c
+> @@ -738,8 +738,8 @@ static int nwl_dsi_disable(struct nwl_dsi *dsi)
+>  	return 0;
+>  }
+>
+> -static void nwl_dsi_bridge_atomic_disable(struct drm_bridge *bridge,
+> -					  struct drm_atomic_commit *state)
+> +static void nwl_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
+> +					       struct drm_atomic_commit *state)
+>  {
+>  	struct nwl_dsi *dsi = bridge_to_dsi(bridge);
+>  	int ret;
+> @@ -968,7 +968,7 @@ static const struct drm_bridge_funcs nwl_dsi_bridge_funcs = {
+>  	.atomic_create_state		= drm_atomic_helper_bridge_create_state,
+>  	.atomic_check		= nwl_dsi_bridge_atomic_check,
+>  	.atomic_enable		= nwl_dsi_bridge_atomic_enable,
+> -	.atomic_disable		= nwl_dsi_bridge_atomic_disable,
+> +	.atomic_post_disable	= nwl_dsi_bridge_atomic_post_disable,
 
-Reviewed-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+Looks OK to me, and I don't think it's going to break.
 
-Thanks,
+However it would be good to have testing on other platforms, so I'd wait a
+moment before applying, in case someone has a change to test.
 
---
-Th=C3=A9o Lebrun, Bootlin
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
+Luca
+
+-- 
+Luca Ceresoli, Bootlin
 Embedded Linux and Kernel engineering
 https://bootlin.com
 
