@@ -1,65 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795935;
-	b=MEYkJ7tKA0hnn9RvozvDavvai+QvY9/CNI+o8iepxaqOe7XuF4xwqUFgq7KKX202N2lP
-	 pykgn9gphoisTaOQsHcj9UHSMZJIxhC1PtjlR7oUZEWcJBzMAe75fwTyIfqGxTfQKS6uQ
-	 oume/wZ86eUBCYpW2jZ+eDJTjTfiRLZfA4nZ/TqxS5BnfTtUicFqtcPROsHzUHvoRjWj5
-	 HU/91+SiQ8cZ+QSlMzQiQZOz/tJJwT1129k7FfJAVKOSyt976tsPLGB4/fH4HEGnBfDcB
-	 9vS5xkKA00vvVAey8RNuTR6roeipXA71+Yn3h6/PYI6KwbCSrCNUtRIQqCdSK7FTwVg==
+	t=1795796066;
+	b=U4LICDr/Cjmimequ+J+Uz7ENmcVYKVeU+klOXGJz+tpIgLEfpeeP3gFxD+Ty9TeNArEb
+	 5UOU1SOEwoUV3eYrG281Q5kuIZps/ZuPaVsUn4U1aoKnzQZ73p3EExaqPrbLiYQrakZi0
+	 naccDE/8DpJZfHvJdHljHi95ThHKX/WKKmZN8WalkxTzx5Rp8ZL7XwNrUaGdD8gCXY15o
+	 n6oCeMbyb5irYHbccZNjkZy92p4+hugK8IuR0Q2BNisBg9DvVya4CAWO0avaALwxk4MOb
+	 ZQK9xDoFjxDeiJj1h3g74EDz88jkEbnpX3DoYBzrk7cHAtQs3bEtj+TUh2qtFRjXRIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795935;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=VBgH8+Q6QHWEj0qZC0+SboPRRBmICX+3ZM9Ab5HQr2s=;
-	b=npc/RDvI/8nmxCgdMUGNv4Rxl98uS+FDJZ1zL8i4ckPHl8cArXzewBi/fYEG/kg0AVrS
-	 7A0vzN8rSiJZTpdx33n6vlCxAP29mXN4QDMcEXiJ4ZtvRmsOZ1frCpuQBZloxxURf1yps
-	 UzPXguLJ+qU99RF4tzcRlZcNWH8ozItoZSrG4g/spusgOs7tS0hmJdbGoWFIXynu5TA6f
-	 EAMOQOZ5pTGMyLotVQsTa0tnMl3Nidu/d6JSTj042WpIrB1yrFW5hAEB7AcLaMTTlxA4B
-	 eJiyDkO0m9OWaquALfeyvtLDPxnz4XEfbJdpG8D7lW2afnOOH3IiLrqPaqimoDtIUpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796066;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=PiMjljHAXEnxkN3fZddDPsELEz/91yYiiyEN+s6dHEs=;
+	b=okz6STFi2qeJZpaEsp7TTcZ1TLK1f0IHnwY0an11sRTaf2r7pwydqwggPesV6V1FJMqE
+	 1TUWcDccniZpRJi76GNAOD2j3XLxt1diSZWFsfZlIHXz3Flwzk0TRmIEWwMSMgjz/5zOy
+	 bMOEM9qVrt8ohYlbta3g7frY+QkgJf31nysYrIDpYmDi3lJNRaIpUZyg0lWT0mNFMRDT9
+	 EdsX+2PcHlhAdfIyMXlIX6gStvwElRrazGwjoKRwTwlej/QXK1Ekd7NvqOqbZCJri0Xgn
+	 uufB5DvyaIdkxfJxe8cwuZiPB1vssQC6wuMlt7YolDvUH06m/5F6wdZ2JnNzPtaPV+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H8yYY+4t;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GN/zhOW0";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A2CC606A329;
-	Fri, 27 Nov 2026 16:12:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE4A1606A31C;
+	Fri, 27 Nov 2026 16:14:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H8yYY+4t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0F951F00A2C;
-	Fri, 27 Nov 2026 16:12:14 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GN/zhOW0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAE891F00898;
+	Fri, 27 Nov 2026 16:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795935;
-	bh=VBgH8+Q6QHWEj0qZC0+SboPRRBmICX+3ZM9Ab5HQr2s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=H8yYY+4tIiy3LbXOAHA8yprNDZ8BxfhutArHw8EX7sd2LmdWF3Rnl+cBPqkKJD8hU
-	 HCVAWuenQuX3oLwWn9tXGkHnn7lA2DfXj6lZIojCS2U5Exnpe3IRdHyjv1Z10Ha+81
-	 t2VaYqBcU5iVXovXZiDzcwuI7HTbQ5azdWvZS/2jC49ShlTJVBiZSYKj495i+3bPDe
-	 WhrtmbQ5k9ZZFEbZegbVX7/vVuzTBufB4Zf1+yyyEi51lnzFK4COzf6w5je+oMN1z6
-	 pz3pb+AlMwEjzw5lJYmJ74hutXs2y+IR2D1OZknEch+2mtQk54PQd37U6hJAYlIHdr
-	 Wf+rDMm1vXGbQ==
-Date: Fri, 27 Nov 2026 06:12:13 -1000
-Message-ID: <2ac377700fd9cd17c32aae2a9d3dbea7@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>, Danilo Krummrich <dakr@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Trevor Gross <tmgross@umich.edu>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>,
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- John Hubbard <jhubbard@nvidia.com>, Philipp Stanner <phasta@kernel.org>,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev
-Subject: Re: [PATCH v4 5/5] rust: workqueue: add ScopedWork for non-'static work items
-In-Reply-To: <CAH5fLgjvFXX6oZRkH9OFCun4eNGWKkmoeCfVK3_16Yc75dfRkw@mail.gmail.com>
-References: <20261119-rust-workqueue-v4-0-707c68994940@google.com> <20261119-rust-workqueue-v4-5-707c68994940@google.com> <5eec17370f67438e43bb1c82b1d6a16b@kernel.org> <20261125181752.2027207-1-aliceryhl@google.com> <f9d8ff6a6c4a4d098e0d461da4e40474@kernel.org> <CAH5fLgjvFXX6oZRkH9OFCun4eNGWKkmoeCfVK3_16Yc75dfRkw@mail.gmail.com>
+	s=k20260515; t=1795796066;
+	bh=PiMjljHAXEnxkN3fZddDPsELEz/91yYiiyEN+s6dHEs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GN/zhOW0t/Dtz2TZSw9Gc4aXbaArAcBLAuNvI60Chq1Vyqgi9Z4UoJ2RfQN9DKmf7
+	 xA5Uc8LCrZGkkoDfkCpYcLhV+JPn/wLLUOyvuPKiuF3JFWBfYYp0E/chumHr1lfhzf
+	 W7W+/3lUdOVZrCdsNpP1Iuz5mgIaLolp6AsXz6qFIdrTlNX8+oiYTVmZKYWNGwlJv1
+	 2eZigogyjhLpncCvdpOCkEBdbQc/22ZrjcsDsqBj7skDTG6aE4EG4UXBOSZu5tP1iW
+	 Q+snHLR3V3dKhbMolZexgdDTvPDwRzU6CF1qvWQOu75RteTrwdO/TMY+3f4EHtPe67
+	 ELfpKTgOJkF8g==
+Message-ID: <012855be-7a95-436f-b0ab-11ae3134ced8@kernel.org>
+Date: Fri, 27 Nov 2026 16:14:20 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,48 +51,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/7] Enable front and rear cameras on Xiaomi Mi A1
+ (tissot)
+To: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-clk@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>
+References: <__OIHsqpwOqb8kxVYcd2PoPvNYDhN8XO6vyXiYMCCK6o3sfyJ1gl1GNdhcGYhdfBf43tQmn6Dt6cWXcSD1uiPA==@protonmail.internalid>
+ <20261127134507.125513-1-hikmahgumelar@gmail.com>
+From: Bryan O'Donoghue <bod@kernel.org>
+Content-Language: en-GB
+Autocrypt: addr=bod@kernel.org; keydata=
+ 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
+In-Reply-To: <20261127134507.125513-1-hikmahgumelar@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Hello, Alice.
+On 27/11/2026 13:45, Hikmah Gumelar wrote:
+> This series enables the front (Samsung S5K5E8) and rear (OmniVision OV12A10)
+> cameras on the Xiaomi Mi A1 (msm8953-xiaomi-tissot), along with the required
+> MSM8953 CAMSS clock fix, sensor DT bindings, V4L2 subdev drivers, and SoC/board
+> devicetree updates.
+> 
+> Changes in v5:
+> - Restore missing `select V4L2_CCI_I2C` lines across existing camera sensor
+>    entries in drivers/media/i2c/Kconfig.
+> - Move ov12a10 Kconfig/Makefile entries from the s5k5e8 driver patch into the
+>    ov12a10 driver patch to preserve per-commit bisectability, and add
+>    MAINTAINERS entries for both bindings and drivers.
+> - ov12a10: Call pm_runtime_enable() before registering the async subdev, add
+>    v4l2_subdev_cleanup() in the probe error unwind path, update the active
+>    subdev state and return -EBUSY when streaming in set_fmt, add the 35 ms
+>    post-powerdown delay when reset_gpio is absent, and match the initial
+>    V4L2_CID_EXPOSURE maximum (3372) to the default mode.
+> - msm8953-xiaomi-tissot.dts: Move `vdd_l23-supply` inside the `regulators`
+>    child node under `&rpm_requests`.
+> - Include base-commit metadata via git format-patch --base.
+> 
+> Hikmah Gumelar (7):
+>    clk: qcom: gcc-msm8953: fix csi_phytimer_clk_src 100MHz parent
+>    media: dt-bindings: media: i2c: add Samsung S5K5E8
+>    media: i2c: add s5k5e8 image sensor driver
+>    media: dt-bindings: media: i2c: add OmniVision OV12A10
+>    media: i2c: add ov12a10 image sensor driver
+>    arm64: dts: qcom: msm8953: add CAMSS node and MCLK pinctrl states
+>    arm64: dts: qcom: msm8953-xiaomi-tissot: enable front and rear cameras
+I recommend breaking up your patches in three separate series.
 
-On Thu, Nov 26, 2026 at 12:43:07PM +0000, Alice Ryhl wrote:
-> Of course, there may be other ways to enforce the non-reentrance
-> conditions hold, which could let me get rid of the lifetime. But the
-> lifetime is there to handle the cleanup before destroy_workqueue() is
-> called case, so a percpu refcount does not come into play.
+1. s5k5e8
+2. ov12a10
+3. SoC depends
 
-I didn't explain myself well. I'm not saying that the current scheme
-doesn't work. My concern is how easy the interface is to use, and I wonder
-whether taking workqueue lifetime out of the compiler-managed lifetime
-rules could make it simpler. Something like the following:
+with #3 depending on #1 and #2. As is you need people to pick up patches 
+individually within a series which is always tougher.
 
-- Every Rust work item and delayed work item is bound to one workqueue.
-
-- A Rust workqueue has a percpu refcnt and each work item bound to it
-  holds a reference.
-
-- Destroying the workqueue waits for the refcnt to reach zero. A leaked
-  work item then stalls workqueue destruction, which seems like an okay
-  failure mode.
-
-Work items bound this way never move between workqueues, and neither
-delayed work items nor ScopedWork would need the workqueue to be 'static
-or carry its lifetime. This doesn't solve data or device lifetimes but it
-decouples them from the workqueue's, and device accesses can use workqueue
-destruction as the draining point.
-
-We can add whatever is needed on the workqueue side to make draining work
-well, e.g. an operation which expires a workqueue so that work items
-queued on it afterwards are dropped without running, self-freeing ones
-included.
-
-Workqueue looks the way it does because it's C and leaves all lifetime
-management to its users. Carrying the same model over to Rust and then
-wrapping it for each use case seems like a missed opportunity. I don't
-know Rust well, so I could just be blowing hot air.
-
-Thanks.
-
---
-tejun
+---
+bod
