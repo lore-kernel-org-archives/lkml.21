@@ -1,123 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795808954;
-	b=4xaPKCn+wdh7hKQAH1W8l0lsqy1JHIswE7NtlSjoiAV9/JK+kjq4zpbzZhjS8hJCDemh
-	 RzFZw+OLe1+BkpgRNNCjMbOLcxwkMtjTiLigoa5YLEH5ta741QywIVmTwIaSmoHHg3uV2
-	 s9Sek5nPbc7RnsVilwQnhFOyR9krfHWkW+9eD5t0ys9x/ScjWLrr1IZJGHhGxq5FV5Lsg
-	 3KKtNVFPAwHeqv6XlNF1AdaCsg8sx419JFBEr5+TBujInz9UU5YT7CgVvWIjnRzi5GZd/
-	 wAkgh7NNk7JmnNCHUgGj8kJzNipmU9Qfh8aovbnhEXaVgmX2SCwXKJBgF0f9UxHCEmw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795808954;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=g2dcKjVxVXVvc7zH7i/+/9NYX/sWj0TUS/ckSZHauwE=;
-	b=dWO+UHDE3JRYpgXvHpWoCiXELs8pq84mRnfgxhARMlvXiAzxtavcPKKI5bRwwd814NGW
-	 t50kvOk4MpgyYTgSCdA5UsggMUbhAB7YorFJkpvqu2QAcNc84Tz29QvJh9lQyw19JCUgE
-	 P5wedyzg8Y+CXYqHGcuAosq2qJt+BLxSRIaTcRq8/Ny1Z1roYCGnkGXA0wlE3fkt94b8o
-	 0U6rjifRFEgrFjbDbQPcxZIcGoy5Kv7GH86VVd1PQt72o5eWOGuRzIl9V/V3CRvMIdOUt
-	 IRmdoXtjCFheH0XttZ+WVp79WiFee1ckl8Fh+R8UN+LykKM9HzircWv3zWJVVyUvzlQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MAWyzwCU;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BAQgHN4J;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.7
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795809118;
+	b=I7F6KY7OH1wPWHhwF+6Op6SXsQ5WScIgy+7bxsXuU7/WvOFaZimGZuqRbDFZGtuybUzt
+	 u5Gs1Yl35nA+ioEJjV01j63RTa/DAyW9nnsdFIuTlG+5eM7xv/u20Ax7YqyjmbSJKBNYy
+	 uymy5xKQMOQELmEUu0+yWLM+Ho2OUFxIjVCWbU57zsVjiCt09e8iG5PnX+Drvq0Fn2nUJ
+	 oUVh1BxWf5JJD1sQ9qduudS9s4lMRFK3MYXkfd9fn0OIihOCvALbYjq1Hi1zk4gUOEFbr
+	 BINMZy3fcuK38uio9RzV0lrgDsydC5j4UiRqH8LRYnqum92HU7ODispOXbwLmBicP7Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795809118;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=sszx2dCOUrs1iIqSfZgFE+TowPKkpE+xPVt07ojtwj0=;
+	b=YIaTIZhMfjPMs4lExx7A0XleJtnkTEY6bJMGkD/7SaN6xrAAQeeBDVLcpVasY5RazoBR
+	 f1OueDVm3BIvrb5rvF1mjrQ3GDMJAF1HLFi1brjwdJC1bJtxpfyWJZ8QE4thciHiFJFce
+	 KHRkQNwtlKskBbhlF44HqJiDBuDSEsj2tv56LZhkT+K6X9gtV4OSml0FtPyRuMIzi/9Qr
+	 wwBMLsHiMVAfZ2thDr7Mxek8gtxuKE1NXp4zE0VRLOsVe8ZdsiyvQAdWFcj9RzpnBZkhE
+	 8Y0ew6lcy0Dl3qJjqdZVQfxJemfAOtdBuSuSE2toa0ORODk9SGCa1DXy/d5QUPqOo4Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=cDDGOJX+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.7
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010007.outbound.protection.outlook.com [40.93.198.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC30C606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:49:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC30C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E37BF606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:51:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E37BF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MAWyzwCU;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BAQgHN4J
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARJAug33038741
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:49:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=g2dcKjVxVXVvc7zH7i/+/9NY
-	X/sWj0TUS/ckSZHauwE=; b=MAWyzwCUrewdsxoJ8TW0zpWcLY4BGYn1dTb+283W
-	SqCnSGYntirSpA/70oUIrY+JM+1WM43ZNXDi1JHKL6sZ/I62nciP1RxlYBMByEIh
-	KZnoo76VP85xtAINSTc+1p5uuUWgsKudn0+5yiie1TUPlFir6G8fpAI+Sd8sF6tt
-	ixaEPrT6/F1/WRtppeEV5hz6b/6Zyjqg6S9+FBLzfpSxW8nSyVwbca0r+AMccp6e
-	0Mgn82x9Axq3g4Rk4hVo8hVQ6n85lqOjwEfm/7Q0lJlyGYbv4Fs7XMNHlABOvEEc
-	nVZU0ROYWO9yXfY9AJhGlUteuenORnPIPZhDkx6vT45AhQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j7e4ngc3q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:49:12 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-9308eafb465so1608185085a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:49:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795808952; x=1796413752; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=g2dcKjVxVXVvc7zH7i/+/9NYX/sWj0TUS/ckSZHauwE=;
-        b=BAQgHN4JuDovfM23nPb1jI/XwtqPzUm9RqO6XCsGHhzqu1ZWeaPMNMI+U06qUUgzAO
-         7T2fnmvqcOe1hcdoHBtVnoICjPYHi/kdNGEQ1zY8menHye4++Zmdvh+l5Im8M5n+/3YQ
-         C0Dn58b0J6iOJe8nL13Nrs4zo9Uly5EqnZtIel7HYXeskKstriduA8HUwQUFLMUPAY0C
-         KRWipdDzm5hj/+UFLYqe6iJJDUFPVSBBxIxJr8l/kLiOXQU4VlfHFV26sfY0/BjWcKas
-         SJegrq0bvKvXFvf1IWeaTXwf59AO9cApN3JylY+BMHDXqAjbUeWJdadGioz3m6StzECQ
-         qolg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795808952; x=1796413752;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g2dcKjVxVXVvc7zH7i/+/9NYX/sWj0TUS/ckSZHauwE=;
-        b=iHDO8STqYTLEnzeO9IxAej6uA5u8bNwbLvnUv5UJmNrbDJz8GXfl5cNZaCK/A3lrIo
-         8MSKQ+svQI1jTClg1LHsicxZ1ZXkmg/LgxPdY9K20//6IL8Zp3ISTPghRPnZIfibZcCd
-         6nQq7b6QZziQzGMGpriW1l2uzZyAqjlwiAFTi2RPEHDrI4zibJVLBaDJXdY2x5S/x/MI
-         G8LQO+SodnSOgdyJo16gaw/wlMUT6vFu2pND96wNgrwU5FeKTE4W3wJjcQ00JA0+4376
-         HymNKdaNxyAQt54diNpcyuLGMfjO1tfeDcdJsT0p9p8irZ6wzIuIl3xVQHJv/As9Ve2i
-         ECIQ==
-X-Forwarded-Encrypted: i=1; AL+hErE6RzJG4xL93U9brYJ2crKWno9cp7K2XpGrTE8ZcSb2UYrBWNHaZbV/gPqjNdtQUw41eUv7aDeiRkwnc1g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9IStkh0ALCJcUXy9pMf4cVIDcAPu3oP+BjUz4f0BkiFWGnCjtE
-	Ik+svKD2OJZlLZxBkbG9yMu1FmVFs33VgWOyvIEwOznHSobYveifsnj0dzcp99wptK6F2gKmkSE
-	fK3Vd8YyTVLhqlsrClSk4bzHjBjRgs+74gqQYlzOPFMGmxpdv3a06YQeK0gaTIQQXt74=
-X-Gm-Gg: AZFdTZchrBLWDn42o7fTmgayw0T84aU6LzIlSHarmAjnA9WlZPa36y/DeUKXv9UbpqF
-	XPrtoiaT8bCi6gl3XsortMRdXOq41NEnoBKTgimXaDzn078g/idiJTzoAe0KycW9RYAgB+jQ6gr
-	BBHLftFhcKWs1siN3Bvat1vOX1P813fQG/CLm68TUWBo+5ttiE3+hMWZsktDWEgB9JO1wuZt+B3
-	CZGekO6zEDjfl3NTgMclH+ggAWQCOk/ulbuNFZnjThFM7IIYK/kVZWw5wMEk4fvfzQ2CBOi3ASo
-	8NER/jTdsBRpNXk/KbC4XWh5VYg7RgFEi5DjPpBuGxyP2ci0ha8VcPwueKu+m9w/37KNUJ/2x0F
-	IF3o27DpFRV1arRd6EoCby/w17SMtvu1APOsSyE8rNc2OnM//JYNhJys3G/PgQbP4GUjYAuUMo7
-	g4YYONmXGs42zm3HsCKGo03VsBy3C8CpvUe6vsdVbzm6a2SB22G2EIb468Z9P7bg==
-X-Received: by 2002:a05:620a:6293:b0:937:6c0a:9b65 with SMTP id af79cd13be357-949ba848403mr4309583285a.7.1795808951736;
-        Fri, 27 Nov 2026 11:49:11 -0800 (PST)
-X-Received: by 2002:a05:620a:6293:b0:937:6c0a:9b65 with SMTP id af79cd13be357-949ba848403mr4309577185a.7.1795808951105;
-        Fri, 27 Nov 2026 11:49:11 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c33ed140c5sm391396e87.81.2026.11.27.11.49.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 11:49:10 -0800 (PST)
-Date: Fri, 27 Nov 2026 21:49:08 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jessica Zhang <jesszhan0024@gmail.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Subject: Re: [PATCH v3] drm/msm: preemption aware hangcheck
-Message-ID: <3f54aqzk64kpekzthwt7bkhrxyv4zczdtnbtix347bppse6got@vubfdnmms7in>
-References: <20261106-preemption_aware_hangcheck-v3-1-852acf72102c@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=cDDGOJX+
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NIbDN4HEmC1ZhAN58El6HGxhdx2XrBHfCeD2H8XNVD8wq+3pS8t0Qs7QPBAjFI8D57wmWsdCrrRfKfRlLcJTLM/psFNPnkrID9nIe5ICM1yousFuQFIIzopOcSvOro0gXzjESWr+VAPNWbnqOvTI42Y1uW9JLFmwhMPXEqyOrOV+0f9TdTs/gQhumoWXF8J8c6MkzDTryjy1fXqKjZ936xIvf5l0CE+iINd1i4QIK5QdO/rs3wht0wAlS9MJw+S/1Loi2VJXrT65tEw7n/jTIgtuCcCHvK2PjxuRo/vp9pWpu653BzVzjn5QFzy7p80nKvu22hK9u8dbvtZmJizOLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sszx2dCOUrs1iIqSfZgFE+TowPKkpE+xPVt07ojtwj0=;
+ b=buMM0vGDjif9IAVlvkXkldZJY83GVxqgALifJGGvQtK1hdvi61BZMopzqA6ivtyxbAiDvGwmFv3cqTNlGfvyqq7QSCsNA541YlxiS4bPmg1HJPIiCe7FaVa/P1nh+hg3YuzCwsxYBa9RllfeCX6gyHh+bC+8lsgqf3qtRHm/tkoCdakapfBVGvo8Bsl1DronAkw39hwyLaja0hdMhXi3/6sMxNytUyoVMxaRyRJsmHCyz75piWocgUDiT7vZAw6CGsrqjL6B/lt+SLqr5ICBeHzadlPpyd+73qaoC/YmkgoXplMdbXcYW4n5uBQepwkGsqPvIc5KhBv6JuB/xwR1SQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sszx2dCOUrs1iIqSfZgFE+TowPKkpE+xPVt07ojtwj0=;
+ b=cDDGOJX+1tTlDnt5JA3ZpiL4exfgtqqp+4Hub/8b1KdHdVJN/xkm69hYozUPCr9aE/FOZU4PpBhMLCCHweHflRP1z+nmZiIzQFUYB2eR2hV61m30QVP5YYuJOZ9ibkhWWob7NAJdtpF0OUfRFPaiWlgcjTC39rgzUePeTTUogDWPGhI1MjRbufKnD3im3aIOOej8ZlODr8jlpyFH5vOW6uiK11k/z4a2XukTtn70LDoX3LUQa7ca3x/XJA2fKK8nO8QVoRcjfk7KwbXiSYoTRpIH77N4jc0hhecB+uOg1L1y3iQDyMQbxRZqdRHapGlGXjzJ9a4f4tPJSCnEPcox3Q==
+Received: from BN9P220CA0008.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:13e::13)
+ by LY0PR12MB991900.namprd12.prod.outlook.com (2603:10b6:404:215::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 27 Nov
+ 2026 19:51:53 +0000
+Received: from LV8PEPF0000006A.namprd03.prod.outlook.com
+ (2603:10b6:408:13e:cafe::59) by BN9P220CA0008.outlook.office365.com
+ (2603:10b6:408:13e::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 27 Nov 2026 19:51:53 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ LV8PEPF0000006A.mail.protection.outlook.com (10.167.248.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 19:51:52 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
+ 2026 11:51:39 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 11:51:38 -0800
+Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
+ Transport; Fri, 27 Nov 2026 11:51:37 -0800
+Date: Fri, 27 Nov 2026 11:51:35 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy
+	<robin.murphy@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+	<rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Johan Hovold
+	<johan@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Mark Rutland
+	<mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<driver-core@lists.linux.dev>, Sonang Patel <sonangp@nvidia.com>, "Ankit
+ Agrawal" <ankita@nvidia.com>, <shameerali.kolothum.thodi@huawei.com>
+Subject: Re: [PATCH v3 5/7] iommu: Introduce TDISP T=0 state for confidential
+ IOMMUs
+Message-ID: <awnfR/U0Bi95B3UT@nvidia.com>
+References: <cover.1794343501.git.nicolinc@nvidia.com>
+ <07ea92910895a2b0db33afefaa3a0ef182b2968c.1794343501.git.nicolinc@nvidia.com>
+ <179563006502.253973.9155049351516451537.b4-review@b4>
+ <awe6WgoiKaBTgINn@nvidia.com>
+ <20261126145715.GG114472@nvidia.com>
+ <awiLcoPfk0xxEL4A@nvidia.com>
+ <20261126195346.GJ114472@nvidia.com>
+ <awiaoX4RrQPP23OY@nvidia.com>
+ <20261127174215.GR114472@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,256 +129,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261106-preemption_aware_hangcheck-v3-1-852acf72102c@gmail.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA3OCBTYWx0ZWRfXzN3hiwZg07Cy
- coFXNZA/U04G6cLco6ka+l2RqVV4O6eveRQKW+lb6kTVnBzcCjiKwFKZ0SqUT6qKilJVf1+Ocou
- NE32stOqTJMjUFbqNT3NktretjjWDHc=
-X-Proofpoint-GUID: mN_LFpzJuGlwZGTsPvLZ_R-QQjU5vnHN
-X-Authority-Analysis: v=2.4 cv=LPLz05W9 c=1 sm=1 tr=0 ts=6b09deb8 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=bC-a23v3AAAA:8 a=pGLkceISAAAA:8 a=tVI0ZWmoAAAA:8
- a=e5mUnYsNAAAA:8 a=te0fHMlqqURSnBpgbLIA:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22 a=FO4_E8m0qiDe52t0p3_H:22 a=-BPWgnxRz2uhmvdm1NTO:22
- a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-ORIG-GUID: mN_LFpzJuGlwZGTsPvLZ_R-QQjU5vnHN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA3OCBTYWx0ZWRfX1Wvd/G5rQIhH
- +mqUeYjciZzIWepiEIp6SZPhKXWCWUq8F5CB6/0Rid35PRcxvXJVINIBudQboQXy9Rg0G8dOszj
- yoprBWVuYjInjq122AyP5rtckXmIVadzBs5FsgjjEqBJEVZPlcKdr8fvudQiqoXzUvjCTyEp7q5
- NqlQtmVlOOXDjgBjOwVb9snENl38OtsmuuyPiAUTfYiaHr3BwSxtBmNwG8ZwZGIC6zkbyPd7hrH
- HrJglPB9hGcJCQwTI9Bq0GHUUP5FWa0lUx0voZxQJoK+zzFUXIcUhRLvP3eYTmEm09FcP4WLgGb
- T/6YQ8w+cW9BbjdQwhnn+FXUfUq9d6lF418KLGpCg8Os1mkLyKfiZo4D9bvwqISxN7MKqEGHscI
- gCZxHf3TqfYrik1f4zWYAeZemFciX1KUYjcTr+Y0NLJroa2iYMP2cm1rfvQRsMubTx5L37KD5bd
- wAmnfumIesrFQBIcu8Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_04,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0
- suspectscore=0 clxscore=1015 lowpriorityscore=0 priorityscore=1501
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611270078
+In-Reply-To: <20261127174215.GR114472@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF0000006A:EE_|LY0PR12MB991900:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4dead4f-01e8-4709-8f4a-08df4cbfe274
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|36860700016|1800799024|6133799003|18002099003|22082099003|261028144727099003|11063799006|261022105027099003|4143699003|56012099006|261021121427099003|10067099003|261021135927099003|261026121527099003|261102123227099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info:
+	Pnt1MOhHf2rDg5+LEdy4eCyxzHmjsU2v5GbrKZkilPeuK+Dto0IeTGdQcj99GfRar6PySYBxgPatVthAEDsAoFPCgNgfqf59hYgx4JG1T8pci5A8IB3WHFa5cPyMfzb7o8w26p+UvBPO4htxql1Jw0375MKasboJZD056rotwQ5LrZImI7Z7q3cl2LD9VbU2Yc5n/wm24Y+OXbuqFR91yfetebUdr0cYswSLJKr+pM464YGm1hDcyErOZKcKqxdCDsdsWpTT8GLGlnnp+o83yQ0IxVHRksfziHIJwnFHJa9CNwplqpdfTeyf4FPRvc98k/NTwuujZ75Qs6rfPnF/h6NIFZB5yY6lOwzwnMtWUlE2gz10jk+EsdimcuQu8pjo0cu088mf1rbjaqQ2Pdo2uNbIeTWxJASlzhVM9aYwWSU+EgaT34/f/kIRZ0fdrdt8q5ONkoBP6gMzth4eiOFzWpLA4oPJD6+SrgYzpSOMi5Uy5TrXfJDUal9AJRqGUouKlfHuKp764LNdzj8miWJb6rzfhUHK4uDJpQL6mfmFss84wA9bMqasvUe7jVfBM1gj/968FbwPindiB7pXKJrvQesuWuqvC1fsjPzoqLAigzPFkZxECKCcMUnYqZuND8dC9kFHbKFdUcuuNvgeeu0UKaUsQAXiGcBIf5r559u/roY+dYSVUFxDaVf/DxfE6bddoeA0LXWb37EEcrTTcEyc5A==
+X-Forefront-Antispam-Report:
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(36860700016)(1800799024)(6133799003)(18002099003)(22082099003)(261028144727099003)(11063799006)(261022105027099003)(4143699003)(56012099006)(261021121427099003)(10067099003)(261021135927099003)(261026121527099003)(261102123227099003)(261026140227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	WJTLQJ2R2shfwyR6hO7MHawE/zb0wsCVcBwKuAsLaU3tsKMdDCXteJ9fg3J80s636PEy319FbNKQck/YUrTaHK6n3njL1DbsSp9EMSdLjszubCvBG8mt8DfS0U3Jht3LmNctKFHxlH3JP/e8NRxZT2cyICwRjGWdESC2eOZkjIYxRE5QX0S+Y5JJ/HiLh5Erls6l3fbHt4kjPkUhCUWXbsboM3H3WAn65mlDYqz0BSdFhnbxb17xWRcnWaBkRD+cUvJgGpBmGCPFluEnqSdAIyvmwMvhGiESaBgT0lLUPC6dJsSK7x4X0XYRkfi77Y2eWsvIFUxfzt0XlXfORfy5vu/XxlUrzeG4pvv5i36x9NwFqTEYR8I5dwHC2tgGRcAYdsw2tyPAh5RhRx4crmOL/WO56Z2n3HlGKYMWcMx2vk0/PkXb9aerEIzuBjrFDRwf
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 19:51:52.9589
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4dead4f-01e8-4709-8f4a-08df4cbfe274
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	LV8PEPF0000006A.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR12MB991900
 
-On Fri, Nov 06, 2026 at 05:46:28PM +0100, Anna Maniscalco wrote:
-> Rework hangcheck code to work well toghether with preemption.
+On Fri, Nov 27, 2026 at 01:42:15PM -0400, Jason Gunthorpe wrote:
+> On Thu, Nov 26, 2026 at 12:46:25PM -0800, Nicolin Chen wrote:
+> > On Thu, Nov 26, 2026 at 03:53:46PM -0400, Jason Gunthorpe wrote:
+> > > On Thu, Nov 26, 2026 at 11:41:38AM -0800, Nicolin Chen wrote:
+> > > > On Thu, Nov 26, 2026 at 10:57:15AM -0400, Jason Gunthorpe wrote:
+> > > > > On Wed, Nov 25, 2026 at 08:49:30PM -0800, Nicolin Chen wrote:
+> > > > > > On Wed, Nov 25, 2026 at 02:07:45PM -0400, Jason Gunthorpe wrote:
+> > > > > > > Though I am wondering if we really need the ATS stuff. Why do we need
+> > > > > > > that? The pci_ats_required() in the hypervisor should force ATS since
+> > > > > > > the hypervisor is not going to construct a vSTE or use a nesting
+> > > > > > > domain that would inhibit that? Can we just drop this whole patch?
+> > > > > > 
+> > > > > > Ah, you're right. It was added for non-pci_ats_required (non-CXL)
+> > > > > > cases where the ATS state needs to be in sync with the hypervisor.
+> > > > > > 
+> > > > > > However, the justification/usecase here is pci_ats_required alone.
+> > > > > > 
+> > > > > > One small concern is whether VMM always exposes the underlying ATS
+> > > > > > state or not to the guest VM. QEMU seems to do so. I did a test by
+> > > > > > dropping the patch: lspci in the VM still shows: ATSCtl: Enable+
+> > > > > 
+> > > > > It probably shouldn't do that, but it is also not harmful. The guest
+> > > > > PCI controls should be fully ignored by the VMM..
+> > > > 
+> > > > Would a PCI device driver (running in the guest) check the guest
+> > > > level ATSCtl state for its ATS pathway?
+> > > > 
+> > > > If VMM is not supposed to read through the physical config space,
+> > > > without this patch, I suppose ATSCtl would be disabled and ATS on
+> > > > RID might not be functional?
+> > > 
+> > > VMM does not bind guest vPCI ATS Control to the physical ATS control.
+> > >
+> > > ATS is controlled through the vSTE only on all arches.
+> > > 
+> > > Without a vIOMMU ATS is controlled entirely by host preference ie
+> > > always on if available usualy.
+> > >
+> > > There is no need for the guest to read or write the vPCI ATS config
+> > > space, but it does anyhow because it doesn't know it is a guest.
+> > 
+> > Hmm, I think we are talking about different layers.
+> > 
+> > I get that the physical ATS control is decided by either vSTE or
+> > the hypervisor.
+> > 
+> > But both the ATSCtl state and pdev->ats_enabled, in the guest OS,
+> > reflect the vPCI status.
+> > 
+> > Since VMM isn't supposed to read through the physical PCI config
+> > space, the ATSCtl state would be disabled.
 > 
-> Track the time a job has spent in a ring by storing timestamps of the
-> `CP_ALWAYS_ON_CONTEXT` register at the beginning of a job and when
-> switching rings as well as reading it back if the ring is currently
-> active.
+> The VMM needs to see that ATS is available on the vPCI capabilities.
+
+For cap, yes. I meant "Enable+" vs "Enable-".
+
+> > And pdev->ats_enabled would not be set, after we drop this patch.
 > 
-> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-> ---
-> Ever since we added support for preemption hangcheck has been somewhat
-> broken as it is not aware of multiple rings.
+> > I agree that there is no need for the guest PCI device driver to
+> > read those two vPCI-related states, but if it ever tests either
+> > of them and gates its ATS pathway on it, this can break, right?
 > 
-> In some cases it might not recognize that one ring is stuck if the gpu
-> switches in and out of it.
-
-This text should start the commit message, it's a description of the
-problem. The text under three dashes will not land in the kernel and so
-nobody would know why you were doing these changes.
-
+> Normally the guest without a viommu will not do anything with ATS, but
+> the hypervisor forces it on for the guest. This is OK because without
+> a viommu there is no invalidation to worry about.
 > 
-> depends on https://lore.kernel.org/linux-arm-msm/20261102190010.720443-1-robin.clark@oss.qualcomm.com
-> ---
-> Changes in v3:
-> - Addressed sashiko's feedback
-> - Rebased on reworked IFPC disable series
-> - Link to v2: https://patch.msgid.link/20261029-preemption_aware_hangcheck-v2-1-be0056e1f02d@gmail.com
+> So the ATS state in the guest was never correct anyhow and we just
+> happily ignore it and appreciate that the hypervisor forced it on for
+> us.
 > 
-> Changes in v2:
-> - Various fixes
-> - Fix interaction with IFPC by using OOB vote
-> - Link to v1: https://lore.kernel.org/r/20250911-preemption_aware_hangcheck-v1-0-974819876819@gmail.com
+> When we added the viommu then the viommu has to control the ATS
+> because it is responsible to issue the ATS invalidations, so now ATS
+> is controlled via the vSTE EATS, not through the PCIe config space.
 > 
-> To: Rob Clark <robin.clark@oss.qualcomm.com>
-> To: Sean Paul <sean@poorly.run>
-> To: Konrad Dybcio <konradybcio@kernel.org>
-> To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> To: Dmitry Baryshkov <lumag@kernel.org>
-> To: Abhinav Kumar <abhinav.kumar@linux.dev>
-> To: Jessica Zhang <jesszhan0024@gmail.com>
-> To: Marijn Suijten <marijn.suijten@somainline.org>
-> To: David Airlie <airlied@gmail.com>
-> To: Simona Vetter <simona@ffwll.ch>
-> Cc: linux-arm-msm@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: freedreno@lists.freedesktop.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  drivers/gpu/drm/msm/adreno/a5xx_gpu.c     |  5 +--
->  drivers/gpu/drm/msm/adreno/a6xx_gmu.c     |  6 +---
->  drivers/gpu/drm/msm/adreno/a6xx_gpu.c     | 54 +++++++++++++++++++++++------
->  drivers/gpu/drm/msm/adreno/a6xx_gpu.h     |  1 +
->  drivers/gpu/drm/msm/adreno/a6xx_preempt.c | 32 +++++++++++++-----
->  drivers/gpu/drm/msm/adreno/a8xx_gpu.c     | 12 ++-----
->  drivers/gpu/drm/msm/adreno/adreno_gpu.c   |  3 +-
->  drivers/gpu/drm/msm/msm_gpu.c             | 56 ++++++++++++++++++++++++-------
->  drivers/gpu/drm/msm/msm_gpu.h             | 11 ++++++
->  drivers/gpu/drm/msm/msm_ringbuffer.h      | 10 ++++++
->  10 files changed, 140 insertions(+), 50 deletions(-)
+> When we add CC we create a new problem, the VMM no longer sees the
+> secure vSTE so it cannot use that to drive the ATS anymore.
 > 
-> diff --git a/drivers/gpu/drm/msm/adreno/a5xx_gpu.c b/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
-> index 16c7335c4b1f..8800352455df 100644
-> --- a/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
-> +++ b/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
-> @@ -1251,10 +1251,7 @@ static void a5xx_fault_detect_irq(struct msm_gpu *gpu)
->  		gpu_read64(gpu, REG_A5XX_CP_IB2_BASE),
->  		gpu_read(gpu, REG_A5XX_CP_IB2_BUFSZ));
->  
-> -	/* Turn off the hangcheck timer to keep it from bothering us */
-> -	timer_delete(&gpu->hangcheck_timer);
-> -
-> -	kthread_queue_work(gpu->worker, &gpu->recover_work);
-> +	msm_trigger_recovery(gpu);
->  }
->  
->  #define RBBM_ERROR_MASK \
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
-> index bba5468db42e..bcbe1b949217 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
-> @@ -28,11 +28,7 @@ static void a6xx_gmu_fault(struct a6xx_gmu *gmu)
->  	/* FIXME: add a banner here */
->  	gmu->hung = true;
->  
-> -	/* Turn off the hangcheck timer while we are resetting */
-> -	timer_delete(&gpu->hangcheck_timer);
-> -
-> -	/* Queue the GPU handler because we need to treat this as a recovery */
-> -	kthread_queue_work(gpu->worker, &gpu->recover_work);
-> +	msm_trigger_recovery(gpu);
->  }
->  
->  static irqreturn_t a6xx_gmu_irq(int irq, void *data)
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> index 773c1727dd31..179e42119307 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> @@ -519,6 +519,9 @@ static void a7xx_submit(struct msm_gpu *gpu, struct msm_gem_submit *submit)
->  	get_stats_counter(ring, rbbm_perfctr_cp0, rbmemptr_stats(ring, index, cpcycles_start));
->  	get_stats_counter(ring, cp_always_on_context, rbmemptr_stats(ring, index, alwayson_start));
->  
-> +	get_stats_counter(ring, cp_always_on_context,
-> +		rbmemptr(ring, last_job_start_ctx));
-> +
->  	OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
->  	OUT_RING(ring, CP_SET_THREAD_BOTH);
->  
-> @@ -1474,8 +1477,11 @@ static int hw_init(struct msm_gpu *gpu)
->  	/* Always come up on rb 0 */
->  	a6xx_gpu->cur_ring = gpu->rb[0];
->  
-> -	for (i = 0; i < gpu->nr_rings; i++)
-> +	for (i = 0; i < gpu->nr_rings; i++) {
->  		gpu->rb[i]->cur_ctx_seqno = 0;
-> +		gpu->rb[i]->memptrs->last_job_start_ctx = 0;
-> +		gpu->rb[i]->memptrs->last_active_ctxcycles = 0;
-> +	}
->  
->  	/* Enable the SQE_to start the CP engine */
->  	gpu_write(gpu, REG_A6XX_CP_SQE_CNTL, 1);
-> @@ -1838,13 +1844,10 @@ static void a6xx_fault_detect_irq(struct msm_gpu *gpu)
->  		gpu_read64(gpu, REG_A6XX_CP_IB2_BASE),
->  		gpu_read(gpu, REG_A6XX_CP_IB2_REM_SIZE));
->  
-> -	/* Turn off the hangcheck timer to keep it from bothering us */
-> -	timer_delete(&gpu->hangcheck_timer);
-> -
->  	/* Turn off interrupts to avoid triggering recovery again */
->  	gpu_write(gpu, REG_A6XX_RBBM_INT_0_MASK, 0);
->  
-> -	kthread_queue_work(gpu->worker, &gpu->recover_work);
-> +	msm_trigger_recovery(gpu);
->  }
->  
->  static void a7xx_sw_fuse_violation_irq(struct msm_gpu *gpu)
-> @@ -1861,11 +1864,8 @@ static void a7xx_sw_fuse_violation_irq(struct msm_gpu *gpu)
->  	 * to legacy blending.
->  	 */
->  	if (status & (A7XX_CX_MISC_SW_FUSE_VALUE_RAYTRACING |
-> -		      A7XX_CX_MISC_SW_FUSE_VALUE_LPAC)) {
-> -		timer_delete(&gpu->hangcheck_timer);
-> -
-> -		kthread_queue_work(gpu->worker, &gpu->recover_work);
-> -	}
-> +		      A7XX_CX_MISC_SW_FUSE_VALUE_LPAC))
-> +		msm_trigger_recovery(gpu);
->  }
->  
->  static void a6xx_gpu_keepalive_vote(struct msm_gpu *gpu, bool on)
-> @@ -2293,6 +2293,39 @@ static u64 a6xx_get_timestamp(struct msm_gpu *gpu)
->  	return gpu_read64(gpu, REG_A6XX_CP_ALWAYS_ON_COUNTER);
->  }
->  
-> +static int a6xx_get_ctx_timestamp(struct msm_ringbuffer *ring, uint64_t *value)
-> +{
-> +	struct msm_gpu *gpu = ring->gpu;
-> +	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
-> +	struct a6xx_gpu *a6xx_gpu = to_a6xx_gpu(adreno_gpu);
-> +	int ret = 0;
-> +
-> +	/* Inhibit IFPC while accessing registers: */
-> +	guard(ifpc_disable)(gpu);
-> +
-> +	/*
-> +	 * a6xx_gmu_set_oob cannot be called while holding a spinlock.
-> +	 * Limit the scope.
-> +	 */
-> +	if (gpu->nr_rings == 1) {
-> +		guard(spinlock_irqsave)(&a6xx_gpu->eval_lock);
-> +
-> +		/*
-> +		 * Make sure the GMU keeps the GPU on while we read the register
-> +		 *
-> +		 * This should normally not be waking up the gpu since the
-> +		 * hangcheck timer shouldn't fire when the gpu is idle.
-> +		 */
-> +		if (a6xx_in_preempt(a6xx_gpu) || ring != a6xx_gpu->cur_ring)
-> +			return -EBUSY;
-> +
-> +		*value = gpu_read64(gpu, REG_A6XX_CP_ALWAYS_ON_CONTEXT);
-> +	} else
-> +		*value = gpu_read64(gpu, REG_A6XX_CP_ALWAYS_ON_CONTEXT);
+> Instead the VMM is going to have to emulate the ATS enable bit and
+> route to a VMM controlled vSTE for the T=0 translation. When the
+> device is in T=1 mode, and a vIOMMU is enabled then it should reflect
+> the ATS enable into EATS on the non-secure vIOMMU.
+> 
+> Otherwise, in T=0 mode, when there is no vIOMMU, it should continue to
+> rely on the host kernel to set ATS to whatever it wants when it
+> attaches a simple S2 domain.
+> 
+> Thus, in T=0 mode there is no reason for the VMM to manipulate the
+> ATS, just like it doesn't manipulate it when there is no IOMMU driver.
 
-Isn't this inverted? With the single ring, there is no other ring and no
-preemtpion.
+OK. Thanks for the explain. The takeaway is that the PCI device
+driver should not rely on ATSCtl or pdev->ats_enabled for ATS,
+like what they wouldn't do that when there is no IOMMU.
 
-> +
-> +	return ret;
-> +}
-> +
->  static struct msm_ringbuffer *a6xx_active_ring(struct msm_gpu *gpu)
->  {
->  	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
-
-> @@ -43,6 +47,17 @@ static void preempt_prepare_postamble(struct a6xx_gpu *a6xx_gpu)
->  	postamble[count++] = CP_WAIT_REG_MEM_4_MASK(0x1);
->  	postamble[count++] = CP_WAIT_REG_MEM_5_DELAY_LOOP_CYCLES(0);
->  
-> +	a6xx_gpu->preempt_postamble_cntreset_end = count;
-> +
-> +	if (last_active_ctxcycles) {
-> +		postamble[count++] = PKT7(ring ? CP_REG_TO_MEM : CP_NOP, 3);
-
-ring is always non-NULL here
-
-> +		postamble[count++] = CP_REG_TO_MEM_0_REG(REG_A6XX_CP_ALWAYS_ON_CONTEXT) |
-> +			CP_REG_TO_MEM_0_CNT(2) |
-> +			CP_REG_TO_MEM_0_IS_64B;
-> +		postamble[count++] = lower_32_bits(last_active_ctxcycles);
-> +		postamble[count++] = upper_32_bits(last_active_ctxcycles);
-> +	}
-> +
->  	a6xx_gpu->preempt_postamble_len = count;
->  
->  	a6xx_gpu->postamble_enabled = true;
-
--- 
-With best wishes
-Dmitry
+Nicolin
