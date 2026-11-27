@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.115
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.119
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765502;
-	b=YizLxpeRFBuW8bN3uJP0GusGZCAcJj9nlKYEkEq0Vpe3AmXTpNXkkYJ6pymyFSu9+FkC
-	 2XIVgn2V2z7oLSS+2OQB1CYVzEr6VvE4KMUIRa5rCQdmWyhpzuFiR6NjJ95/+x8TsDqFB
-	 En/AZK7+ruqcZpmY/Vj4U9z5ZxzdC2VsE/A96Qjt/EPULAF20wNcMDnvu0Iko35hhJ/BV
-	 oNsx7TwctiTra+OzHVrSOBdZo6RMD6hNg1Cyt+tGNHr5DeEExAMl8DMkKihtu97xlptjm
-	 PiBeqkg8qagJeEuuYyENpgrnG5TWZ392tfUOxVnFRal1JkiR4Wgf0PsI0RmzfNzDehA==
+	t=1795765503;
+	b=Lu47sZObZej33LRAYOpqCr2PEA6m1fI0pr/gBVqa+rc6qJ8ya4MuynjEfOse/NoWX25q
+	 k/ykBAFfUXzO3xn3k1be1Lg48m5gvw578RqKJPIfa0botDNnwhiRiTNegWsPCKZxeNFuI
+	 D/GJq7odVlQnPJ8kqZQAXhFv4kyJDCvo60y3AKMFvFQYygHLdxlAq15vHw1KwRp4yZfTH
+	 qqUYZ3cdqE/MMZQBoE9DSQz8AEAKhJOoxLHDGBv9PrgfOIok7yiUIsc1tHeqIi0Dyydyp
+	 7P/GegIIx3j/IU6X7EOe1cz29zKGgqsZ1bd0m4RcBMLn0QK5OVPCjVoc9egfhGO3cFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765502;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765503;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=TLKRd8QC/BYL1fg8i3fNARnXOmRuwMr6bd5jMLPGN9Y=;
-	b=Dk6hhA6rRnVClhLaVm80rqGVZJJot6jZ2ZhdF2CClS2BBLZlrlrKhfphHK4iRUlYgrW0
-	 zSx60XvZC7ADnqdABkNLZyPsNurMwcVfXkdvLogNf7ooKxIpzBmc+quP34JeY6+M2bi5Y
-	 rKwx7VkhZQTZzmcFhO6r0G/B/Drve4XH6eWBF8pavfaLYuUGiUHD9vTZCTI2UOTZIpxmf
-	 vkSn83yWJFUzdcIHkoZyYDx6lCXvvdkP5wLX/b8saRwMaDYm7M+dkalHRJKUUaznGNXXj
-	 42pJm+1mAgOQkMUSMld0coc8l5mm+FKnWCZJCZDu/rl38qPIh4BV7KFvueRptFSsNWg==
+	bh=Edaz0a8Pn7RwmCSYLpiyB9Hw6aP0EcYCTitOem48uaY=;
+	b=puKDn0TNdrHwVWIlyUKo3eQc2nnYVOauuMndPk5As/n1csl9i033545lPRFN9YlX1ao2
+	 LMlYa056g3nWHW3mK8nn5btSRqiquzFtLUWIkxZLer6hoo3kgeBCKE/xg5XGykqo1Tu8b
+	 GO0PwJ6b1+FXXJFFe4v9E+gmo/aYnMlyIt67zzxbEEefeYZalo5zyEj48PrWOleEBS6SD
+	 bUl5jzjpSO6r26Ok+a+oZg3O2axlhx3uX5lc53LJcPQHcH0V0hTM+mH9Y1ofLTZ4Ab7cn
+	 vR7892SFlPWGiOh3fG6zMSB8u+Fyt10TTSfewNQ7Xi1/a3p9PlSyiHlEKI96rMLE6EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tHzS949P;
-	arc=none smtp.remote-ip=95.215.58.115
-Received: from mta1.migadu.com (out-115.mta1.migadu.com [95.215.58.115])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Hvhj66vo;
+	arc=none smtp.remote-ip=95.215.58.119
+Received: from mta1.migadu.com (out-119.mta1.migadu.com [95.215.58.119])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28FAE606A697
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:45:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28FAE606A697
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 001AE606A6AA
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:45:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 001AE606A6AA
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tHzS949P
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Hvhj66vo
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=7/9aubeJ7ANPjxxvP5vIEXNZStyv5Yrfe+pB6O5E5RA=;
+DKIM-Signature: a=rsa-sha256; bh=QauHdFkdMY5QnZ6hX3/Ka5uYXIegeVDxxJXsQ1MBmSU=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795765500; v=1; x=1796370300;
- b=tHzS949PZslHjwPsfRnaCVI068Ai9AFQGLt7fduaz+hwvBtKMtyKCDTpL6ELL73yDcTJJ5dU
- yAt/dh2mdgFV1MDJeOeJpIgLeEY2lVXfv0DEtetzz8Uxg+iuk3R/aaCLzrSUtovhPTmbn4i6fM4
- +BYg0uPSVlLIZdPi8jt607jU=
+ t=1795765501; v=1; x=1796370301;
+ b=Hvhj66voT1cHMAKbs4RsyS9ML7mtXBRyiN7Ndm3qKUGrgtP7t9tVbdjZbc3qjPhrCsiYLUQh
+ V7e4SNLJbNUmYeEMCsfq4ufuThk43Ibwzeb8/5/EiWh4qo/dc7HsddLbHp1m6PfrdUkEFkl7mmG
+ FIQ1F8yu8xAyqOKV0Dn0atKc=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 363d26472d9a53f3;
+Received: by smtp.migadu.com with ESMTPS id bc1b4c27aa684e86;
 	Fri, 27 Nov 2026 07:45:00 +0000
-X-Mizu-Trace-ID: 363d26472d9a53f3
+X-Mizu-Trace-ID: bc1b4c27aa684e86
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -59,9 +59,9 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 07/10] arm64: sysreg: Reject an enum value not written at its field's width
-Date: Fri, 27 Nov 2026 07:44:23 +0000
-Message-ID: <20261127074426.50739-8-fuad.tabba@linux.dev>
+Subject: [PATCH v2 08/10] arm64: sysreg: Reject a macro name defined twice
+Date: Fri, 27 Nov 2026 07:44:24 +0000
+Message-ID: <20261127074426.50739-9-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261127074426.50739-1-fuad.tabba@linux.dev>
 References: <20261127074426.50739-1-fuad.tabba@linux.dev>
@@ -76,39 +76,42 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The generator emits each enum value as written and doesn't check it
-against the width of its field, so a value wider than the field defines
-a constant the field can't hold. The duplicate value check compares the
-strings as written, so 0b01 and 0b001 in the same field pass as distinct
-values, and the rule's pattern, an unanchored /0b[01]+/, accepts 0b12
-too.
+The generator rejects a duplicate register, SysregFields block, prefix
+or enum value, but not two definitions of the same macro. Two fields
+called F in REG make it emit REG_F twice with different masks, which the
+compiler reports only as a redefinition warning against the generated
+header, in every file that includes it. Two values of one enum sharing a
+name do the same, and so do names that collide only once the generator
+joins them: a field A_B beside value B of field A, a field F_MASK beside
+F, or a field B_C in FOO beside a field C in FOO_B.
 
-Require each value to be 0b followed by exactly as many binary digits as
-its field has bits. Test it in the rule's action rather than by
-tightening the pattern, so that a value such as 0b12 is reported with
-its field's width, instead of falling to the generic "unhandled
-statement" error.
+Record every macro name the generator defines, and fail on the second
+definition. This covers a duplicate block or prefix too, but their own
+checks stay, since they report the duplicate at the block's own line, by
+block name.
 
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/tools/gen-sysreg.awk | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/tools/gen-sysreg.awk | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index 1843d283192d2..cde526896ed96 100755
+index cde526896ed96..0bd6aab8aae0f 100755
 --- a/arch/arm64/tools/gen-sysreg.awk
 +++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -367,6 +367,9 @@ $1 == "EndEnum" && block_current() == "Enum" {
- 	val = $1
- 	name = $2
- 
-+	if (val !~ /^0b[01]+$/ || length(val) - 2 != msb - lsb + 1)
-+		fatal("Enum value " val " for " name " is not " (msb - lsb + 1) " binary digits")
+@@ -46,6 +46,10 @@ function expect_fields(nf) {
+ # Print a CPP macro definition, padded with spaces so that the macro bodies
+ # line up in a column
+ function define(prefix, name, val) {
++	if ((prefix name) in defined_macros)
++		fatal("Duplicate macro " prefix name)
++	defined_macros[prefix name] = 1
 +
- 	if (val in seen_enum_vals)
- 		fatal("Duplicate Enum value " val " for " name)
- 	seen_enum_vals[val] = 1
+ 	printf "%-56s%s\n", "#define " prefix name, val
+ }
+ 
 -- 
 2.47.3
 
