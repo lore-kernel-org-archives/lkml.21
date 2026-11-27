@@ -1,45 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795810310;
-	b=K4k2dot70vHKVVbYGAVnvefOXMxNb7fB3K1TpLgbul33MigflzvPl5civoDiab1f7ORI
-	 fn6JKDjcMhk3LY7h5MbEmJEKdoTyZAGyVgONoJLf9/YVGW+dykTwlDMVXO2xUv8aD5DmP
-	 XzFNmLDoqade8DdB8ZXODOlzAkBE+LZ0MSshG6qe67hgUWRzwN/obT36nee4nGLJn6RV9
-	 vlvtIph6Ve2Q4NGf30qB/0KTueWH8KzPdY/sKDq7FRH/kzSdzNLcmmaV9ouskiXIVh637
-	 S/StE0hnMZgariZsglyPpIpZ8I6CNMKfQZWzjCssx8ZrGVCk6yICW8M2ev7GorvUrig==
+	t=1795810306;
+	b=RDBi5g/nara/ss8tgmoiB2C4kaeRh7MayrFvxtI8HDAUUUuZItlY7+EVR8htjodbfUtP
+	 c57c5Z64eeFKI/OQMdzzG0MrkHJA9yOVr4mVhJ0ShArC5ft77+QxP/mXZRNneUhkasQDu
+	 qryOyNk0u/LD8DK+/1iy1KJJts07Am2f3E51iIWdSNpszxL68W0tC8IkVlsygg3qRBbkK
+	 yyvkLfJeI7iT8eZxdTSVyFGBDR3gJTbIHZd0fjw+F3LtaCszoYYmo6iLvUFbZUgO5uFpF
+	 gOyE5EsXA2MwUohzGqTRwA3i1KpuJ7qeUcnxYdnPEsCElexvGgnYE0MNj4lj7csis9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795810310;
-	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
-	 In-Reply-To;
-	bh=xQkfae/SKeVDaBhKJZUuyKSaF2mzk809NAHAXx7sAak=;
-	b=yXHIzKIOEu97GtYYpB7L849XiMS+9l3RhYBmQDLHaB8JMlye0lawySZYO0nfIx53814o
-	 XHhtefzJ8XUC3uuwXU3U7Xh7j/iIsk7v0aAQQhwthLO+m6twhufp9tUw9oAWxF/7CIjcm
-	 BaR4yptM6LLWdl5RezMOhCsBGMtrqZU73CuJAr+EHeTTri0i1EZvYc/KMcKHTg1ngnCA6
-	 DVuPz0dD34GNWg6ZW4odLQAb+XY/qvjLbXtOIYKwJ/dTbsZHmvF8TVavT67Tl2hZBJg15
-	 gyrNSc75DrcdJuU5abfh0YJAwoWstSsoKMHLlonqGRK4bKL5bsPUb8u4y22qwSi5caw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810306;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=/aO07p9edFZdoG2hB8TFUOLNKp+B/c/NIsghkzVaaxc=;
+	b=dlWPfvY/jMxBfrfShMaQNCFhKBHvv4mljmO83wptQL4224yEAU31XSvWIOp+5PMAti6N
+	 oOpSVr7WHNgwd+YulYYwES1mcs8TaMYAr8K9+Vy0eLaBB/ojFAjdh5EVy09mX1zd22WpM
+	 VEDuQu7erjEQ/2xDglBqQcy+tYn4aivQI4Viq4mUo29tnqNWOiZI3jlQcRrgq6WmZJAzN
+	 PA/vjOMeIDl3IWMD3+aHz9437SFngctELUhP7AYaLdrL+qUwNhvvl0feLgBdlfH7Fj1Yd
+	 6Kftv4ZyeIULPbxV/b4jQZZM5Fgfa6+ZfpUpY0izfb/Fhig7x9LUBEqd+hLPcN703kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UqscSC7o;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VbT6ANcB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB438606A321;
-	Fri, 27 Nov 2026 20:11:50 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UqscSC7o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EDDD1F00899;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AA26606A31C;
 	Fri, 27 Nov 2026 20:11:46 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VbT6ANcB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C682C1F00919;
+	Fri, 27 Nov 2026 20:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795810309;
-	bh=xQkfae/SKeVDaBhKJZUuyKSaF2mzk809NAHAXx7sAak=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To;
-	b=UqscSC7oRfjgaDALeV44q7rOHH9jFsHctIWjLb1BN5foFIH/610yWIZT4EQ6WdKzm
-	 CHHwiKAeVNcA7A7otdwvnTthdgJXwTpB8YbUWzEoqCksc5Ru77+oBOq0/bveio09mk
-	 WXqqfYX/K2Wwy7w4Bxse6DlzXiKrUX7RXEETn0Q+cDeYAAm8GUD1bma0aesuTpFGIo
-	 jA2b2evqxl5e8xExYPx50NFRdGMnYEyVsXJoGPBIFDZATPb8HNqMbL4eJxYab9hxDQ
-	 f/xrrDJnBSaCUkioZsmWDGgNV+UJLYJzZMaXdGgMN3ZFo9fisCte0bGT1n0j+96t88
-	 2wyaPTpdrX+Bw==
+	s=k20260515; t=1795810306;
+	bh=/aO07p9edFZdoG2hB8TFUOLNKp+B/c/NIsghkzVaaxc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=VbT6ANcBM/6KWc2eB994TNVUEPChfxuqbA7QutenW1oIhd70aCMlt0HsJCCL9TmBh
+	 aYZFWaCDSZ5hfe6BpafJOYFMG4fvAxOfTxlbYEa+jhmilbEooYnjb1oUSXLkXD9GGD
+	 SXZduO3kkeQy9KrYhzixcJR4CliaNVGMirS0EkylxxGnnw7qyBBAFeSmqA5cbdxtKa
+	 ZsxDnYFCFGDTR3B6IIRb0wZ++Pv+EZONewDNYGQxdqhjLoDBvNVeFIl0JCsBG29jz/
+	 EEqx1VJmfUnSLE3KJq5625C7pxjsSIUcuzHApMH41gIyxNkhtPIGpCYwwYbIqb7dIU
+	 tQi1HOb86s12w==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Dan Murphy <dmurphy@ti.com>,
+	linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH 07/10] Input: drv2665 - disable haptics work across suspend and resume
+Date: Fri, 27 Nov 2026 20:10:01 +0000
+Message-ID: <20261127201050.3532488-8-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+In-Reply-To: <20261127201050.3532488-1-lee@kernel.org>
+References: <20261127201050.3532488-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,41 +61,91 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 21:11:44 +0100
-Message-Id: <DN69MGXVNYTK.3QKU099BIJXHQ@kernel.org>
-Subject: Re: [PATCH 0/2] rust: dma_buf: add dma-fence signalling sections
-Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Sumit Semwal"
- <sumit.semwal@linaro.org>, =?utf-8?q?Christian_K=C3=B6nig?=
- <christian.koenig@amd.com>, "Philipp Stanner" <phasta@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun
- Feng" <boqun@kernel.org>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- "Tamir Duberstein" <tamird@kernel.org>, "Alexandre Courbot"
- <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linaro-mm-sig@lists.linaro.org>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-To: "Gary Guo" <gary@garyguo.net>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20261127-dma-fence-signalling-v1-0-c44e8f4910ca@collabora.com>
- <DN6838W1WF2T.2FLQ4AOZX5B40@garyguo.net>
-In-Reply-To: <DN6838W1WF2T.2FLQ4AOZX5B40@garyguo.net>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Fri Nov 27, 2026 at 7:59 PM CET, Gary Guo wrote:
-> Do you need it being a guard? You can do things like
->
->     let a =3D SignallingSection::begin();
->     let b =3D SignallingSection::begin();
->     drop(a);
->     drop(b);
->
-> to break nesting. A closure-based approach wouldn't have this issue.
+drv2665_suspend() puts the device into standby and disables its
+regulator without stopping haptics->work.  A pending or timer-scheduled
+haptics worker can therefore execute I2C regmap transactions while the
+chip is unpowered or the I2C bus is suspended, including when the input
+device is inhibited.
 
-I also think that a closure-based design would be better.
+Call disable_work_sync() unconditionally in drv2665_suspend() before
+entering standby (re-enabling on suspend error) and call enable_work()
+unconditionally in drv2665_resume() so the disable count always remains
+balanced across suspend/resume cycles.
 
-Another nit, "signaling" is much more common in the kernel than "signalling=
-".
+Fixes: 4d10da13467e ("Input: add TI drv2665 haptics driver")
+Closes: https://sashiko.dev/#/bug/linux-c1b30f7c-1836-440f-8a6a-75ada49be7d5
+Cc: stable@vger.kernel.org
+Signed-off-by: Lee Jones <lee@kernel.org>
+---
+ drivers/input/misc/drv2665.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/input/misc/drv2665.c b/drivers/input/misc/drv2665.c
+index 90407f8797c7..3ade96308192 100644
+--- a/drivers/input/misc/drv2665.c
++++ b/drivers/input/misc/drv2665.c
+@@ -228,12 +228,15 @@ static int drv2665_suspend(struct device *dev)
+ 
+ 	guard(mutex)(&haptics->input_dev->mutex);
+ 
++	disable_work_sync(&haptics->work);
++
+ 	if (input_device_enabled(haptics->input_dev)) {
+ 		error = regmap_update_bits(haptics->regmap, DRV2665_CTRL_2,
+ 					   DRV2665_STANDBY, DRV2665_STANDBY);
+ 		if (error) {
+ 			dev_err(dev, "Failed to set standby mode\n");
+ 			regulator_disable(haptics->regulator);
++			enable_work(&haptics->work);
+ 			return error;
+ 		}
+ 
+@@ -243,6 +246,7 @@ static int drv2665_suspend(struct device *dev)
+ 			regmap_update_bits(haptics->regmap,
+ 					   DRV2665_CTRL_2,
+ 					   DRV2665_STANDBY, 0);
++			enable_work(&haptics->work);
+ 			return error;
+ 		}
+ 	}
+@@ -253,7 +257,7 @@ static int drv2665_suspend(struct device *dev)
+ static int drv2665_resume(struct device *dev)
+ {
+ 	struct drv2665_data *haptics = dev_get_drvdata(dev);
+-	int error;
++	int error = 0;
+ 
+ 	guard(mutex)(&haptics->input_dev->mutex);
+ 
+@@ -261,7 +265,7 @@ static int drv2665_resume(struct device *dev)
+ 		error = regulator_enable(haptics->regulator);
+ 		if (error) {
+ 			dev_err(dev, "Failed to enable regulator\n");
+-			return error;
++			goto out;
+ 		}
+ 
+ 		error = regmap_update_bits(haptics->regmap, DRV2665_CTRL_2,
+@@ -269,12 +273,13 @@ static int drv2665_resume(struct device *dev)
+ 		if (error) {
+ 			dev_err(dev, "Failed to unset standby mode\n");
+ 			regulator_disable(haptics->regulator);
+-			return error;
++			goto out;
+ 		}
+-
+ 	}
+ 
+-	return 0;
++out:
++	enable_work(&haptics->work);
++	return error;
+ }
+ 
+ static DEFINE_SIMPLE_DEV_PM_OPS(drv2665_pm_ops, drv2665_suspend, drv2665_resume);
+-- 
+2.56.1.839.g22a8290db9-goog
+
