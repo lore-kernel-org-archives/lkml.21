@@ -1,88 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795810207;
-	b=oAG1ZOYexllbfjEGHGa7/xOQbOffiUh+JwlOiG9p4qle8kMU8NZ3G3fqfiaKablnyE6i
-	 9h5LgIN83oLMlqzVMoA0NQ1eXTv/6MQooDpurIW4IVAxUQQPSFgNycN03w+G+DHCMkive
-	 9bhHuiq2JwwDJ1xPkNyjq8QYfqCgObhqO+DvDO3Xb4EuFMpyjZ3Gsd0UpR99kyPfJ3wEn
-	 3n51B+9zstS7hKMjBKdJDLFTku+shD8ZuHxbLOXzX4ciBCKm0MSF3f2M2sGPT2DemyHRz
-	 UNsN4hp+CQ6lhO/HxEmeDL8XNU+B9hsB+SFjknhhxf52k4lyHOjGHSuxn1HfaqptOkg==
+	t=1795810258;
+	b=cCduF/ZEQMpVG4m3zBgD8pZcFLazUmdTpoRYn/w5krd57UuOL6F49WpRQhmTuLskljlq
+	 sRzgf0zOrNpdTyUuNcgMQcJC1zr5zvCshWafVbZNQ3SzgwMdOcr8iXRMycu8dJu8zu96B
+	 Xxw3zfuCyMcXlHx0PU10vCFpcfzBJJnka131GeM3zErLIO7dn2d8FNy7wXi//hbk+ffqv
+	 GImAUX5etVhfes3lDGe5JPTnsD77WPd+XeNVvoWfVvwH986try2rICvCArgptm2ml4Vre
+	 A6v9OsTBFR5Qpb+pJ1UfALtu1DNefybeanCFCmHjAYESoPOoN443PCHxNkXt16v5Syw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795810207;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=iwinBqJVI6CfJQnf2HrLfPVQ0/rpb948wCB1K04dFmA=;
-	b=dwW8uvZky8xyb0IclgU8FI8nXAak3OU4iBVh26MJxFjMu0eMHYqvV4DaZmogCJzGWA/U
-	 FXCGVq1OIScchqINgvqd9qkhfWVl+y9g2MEHDrXrMVtBsesZR5AG5jvmNHj3aozqmvnoN
-	 Wo51Jk8wwjtuBzdgJz4wgzFL4BD4usHlOV9XGqU6gL3gYtMlL7+rwtqpPMR8ssofXu6Xl
-	 gPG3lM1TGVBwCJQ+PEAdg51C0ZcB/Sn86WPGFpV+E3PP3I4T/3gJM6lwcY/GxpHXoZuFj
-	 L4uCke3Fs8GI+oFK+We5kX/vg4r7IalH+hA/Fbx5hYBUGCbCigAetP6bbMQDPPlF3VA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810258;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=RCjPO13Jg/1eI9KOpBhWyGzhdF76JSGpj17iCwvBrDY=;
+	b=o9n94TXkd5MXF8G4JBX5GEXh+5lR4TCSonCL5YPiD6LOWLuPpk2wZDpMiLipfPw6ugpj
+	 qvUdNDFu6zB2M7dy5cPzaQDTsj2Dvymj2J8uNIP9gxFSGmjBo5/JI/QozJ6RqY4yeXDR5
+	 YivisbyxIcylUd2oprBRMq3vlW+EHkaCsAzvTU2HxY4sgZLFPR2b6KU/JynwbE8QH178H
+	 zHWi1nANr3iEhCPqHMTywLwViO9Ks6LSbnY6Gmz+DgtxzAwKdIR6qhS2xOZIU6DbcwJVG
+	 Hwtqd5C8X3LVWy3/KuVVzQbIIX5eyesXzT73iYsVz+L8017fc5hXQ6ub7NI6Ai+zv4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VFkituvX;
-	arc=none smtp.remote-ip=209.85.161.43
-Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dad6wqal;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F12606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:10:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78F12606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 580C5606A31C;
+	Fri, 27 Nov 2026 20:10:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VFkituvX
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-71b47eede22so5036278eaf.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:10:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795810205; x=1796415005; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iwinBqJVI6CfJQnf2HrLfPVQ0/rpb948wCB1K04dFmA=;
-        b=VFkituvXBbHNHAsMZaLgubeRUts9st8z8FIxbGXilNOoefQXSvQ4AQxONHqByST8d4
-         iUC+6KwbySRPU1s/Aod4eoaRjLR7z1xm3/9JcOlmRw7Lj/+xB0cpqGf9gp/D1fRbFMo7
-         MqCpRsATR20ht+ZISQb7xPlIzxLALU7KMb0QzmMIa0OJYd+LHYAg0LIVdIxvLwaqboYX
-         tSj9et2MASNfErEto9y0/n/xHjp1bsizqmKtddkbk4zhYcr6RizEGYjt5lEEnL2lZwyl
-         CVUaDaIHk0msNLuzHbohKLcUAB4idUY0+YfP2fpAvnigMZZ7gBgbKROJubo5KcSrBRF6
-         rMOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795810205; x=1796415005;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iwinBqJVI6CfJQnf2HrLfPVQ0/rpb948wCB1K04dFmA=;
-        b=Pv3E7+FBb/URYl4SHeBcur9Rwyy8+8/1f3lMfUvUgLjvdfPOL4ZHddaGKKM7FhnrtG
-         HNifK/YGp1jtD+A7s5AaUfcEXK/At4k+khdREzKbgoRKH+v4xnAdbU6kuKyFe+Fjd/gl
-         wA2+pNvgOcZ22AYf2d1AkMw5eAWiLDmGdiXrCRThT41TFHVWgHjII+kDR4SRujVGQY2Z
-         bIQCYQ6Qp+ZjAhoWkRMSZxH2kJX5eEdG0r9X6gAM8M7ifxwkr1AOyl32Jmz6D+Txk6HA
-         wSPaPuSVEgfa1CpJ59bG15fa746kOdosPCBH/5tK/+gx9KK4w2/+UnlooJH1hAv0aDqY
-         XdDg==
-X-Forwarded-Encrypted: i=1; AL+hErGHgI/fnzmWOIMXfYadGeBu6s9tSV0SJfxdXCm/vcjV/mcmz9rUy5CZJKNCu3JVV3ErHD8hcjPh3S3mRec=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KddA/giy5oyoP8l90572dZ8gesjuMoywTaGWPEuIHUJJRV8j1
-	iVw6dV4aHZX4TvZrPUkmI3U/HrAwfT+WN1x66QPrptZ/QHAKMPG/7nkl
-X-Gm-Gg: AZFdTZesE2Vj5LOx1l0JMTTSnUOmcgPAhoJity30miOsBwt9lYhYWOKQ+dNS4ws7t+Q
-	3dEjNDeEjbzyR3D88/QKNC8qoOYnIyO1CAmRLN+4jZjXpLBThsdM48OaP7F0edQm2XWB0UGUCIc
-	4A/I5GVQsrsN96I3vzqQrfhoBcIoqLISNPBTTXz2tc25XifCzVkPnXpTO1YlcdDuBMUN7/Nnc8B
-	eY0n19KBxYoL7EkcCrtpQsjxvaugs033Wly+7U//D179Srx46BhmZIMu7bs8uuL/SJXku0foWLZ
-	Sjbfjlt8wJwL+cXXSOxYo9TL5U68Xlycz0u0ox6IA3gX3XuQhjNp4OORqV2FJ2D2aM4gqEwznBW
-	dV8Wo238W69+NRdSyMNejfqrztisCn3uzwS1yTOq2202PFW/D5o+zq3tWKCErrn3f5UrsGYPfAh
-	XdwtN3r+acHv6wWqCcREZyrtIFxyKIyslfyhaOeafvsEo+k+7YNAH16ZUmXUNlOzndAOdw0kxb/
-	LMsRHWVcxL0E7lusejq4Nw8qqlix2WnkrOl4HAtMu84czmMJSIw+gH0HxXnf5XVUWHoOkSHpuR8
-	TpDQA40Cm0JZI4RTjvJrNpPe0KivQg==
-X-Received: by 2002:a05:6820:a284:10b0:6d9:e2f3:9b51 with SMTP id 006d021491bc7-71b39544cf5mr16352909eaf.66.1795810205054;
-        Fri, 27 Nov 2026 12:10:05 -0800 (PST)
-Received: from [127.0.1.1] ([150.117.174.129])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b8590ba0fsm4834662eaf.2.2026.11.27.12.09.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 12:10:03 -0800 (PST)
-From: Gary Wang <is0124@gmail.com>
-Date: Sat, 28 Nov 2026 04:08:34 +0800
-Subject: [PATCH v4 5/5] pinctrl: upboard: add device id INTC1055 & INTC1057
- & INTC105E based UP boards support
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dad6wqal
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A69EE1F000C1;
+	Fri, 27 Nov 2026 20:10:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795810257;
+	bh=RCjPO13Jg/1eI9KOpBhWyGzhdF76JSGpj17iCwvBrDY=;
+	h=From:To:Cc:Subject:Date;
+	b=dad6wqal4qMLI/m3CCqeUPQ3+a7J7Slmk6ZMsKZG7WXyk8TUpHR6wtcPKAUvoymQB
+	 4PCsnFPEE+eAy5JHUMo0CIZ2hMcHfmK3ihlMI6C/QYD1pyNMCLmTssqGvkDkHBVuyq
+	 PV4UOJnaEXq0tdvxQvypek1O/Zq7Yl/Pa2VLRSpqsi0TkIGzGWseykB7haFl/bnbOj
+	 DefCUTJqpsPJq8LzHBYIwrBG+0g/NF2XSVZmpWRn8R5coLIl0FDDgWLyrxj5SabL6p
+	 /tZvaAuqns8Sc6DQbstR/sDiVyHPvuBBRb/Q65gOXOWoje+JMM1qE3+AH6Y/9NX7T2
+	 U0JeJL1jsYLjg==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	"Pierre-Loup A. Griffais" <pgriffais@valvesoftware.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Adam Buchbinder <adam.buchbinder@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andi Shyti <andi@etezian.org>,
+	Anthony Liguori <aliguori@us.ibm.com>,
+	Christoph Fritz <chf.fritz@googlemail.com>,
+	Dan Murphy <dmurphy@ti.com>,
+	David Heidelberg <david@ixit.cz>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Dominic Cerquetti <binary1230@yahoo.com>,
+	Elliot Tester <elliotctester@gmail.com>,
+	Franz Lehner <franz@caos.at>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Griffin Kroah-Hartman <griffin.kroah@fairphone.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Ivan Hawkes <blackhawk@ivanhawkes.com>,
+	Jan Kratochvil <honza@jikos.cz>,
+	Javier Martinez Canillas <javier@osg.samsung.com>,
+	Jeff LaBundy <jeff@labundy.com>,
+	Jens Reidel <adrian@mainlining.org>,
+	Juergen Gross <jgross@suse.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marko Friedemann <mfr@bmx-chemnitz.de>,
+	Markus Armbruster <armbru@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>,
+	Oliver Schwartz <Oliver.Schwartz@gmx.de>,
+	Pavel Rojtberg <rojtberg@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Steven Toth <steve@toth.demon.co.uk>,
+	Vojtech Pavlik <vojtech@ucw.cz>
+Subject: [PATCH 00/10] Input: Fix OOB writes, UAFs, NULL derefs, and suspend work bugs (batch 2)
+Date: Fri, 27 Nov 2026 20:09:54 +0000
+Message-ID: <20261127201050.3532488-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,156 +90,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-5-029071f417d5@gmail.com>
-References: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-0-029071f417d5@gmail.com>
-In-Reply-To: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-0-029071f417d5@gmail.com>
-To: Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Thomas Richard <thomas.richard@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Daniele Cleri <danielecleri@aaeon.eu>, 
- JunYingLai <junyinglai@aaeon.com.tw>, Louis Chen <louischen@aaeon.com.tw>, 
- BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Gary Wang <is0124@gmail.com>
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Add support "UP Xtreme ARL","UP Xtreme i14","UP Squared Pro 7000",
-"UP Squared i12","UP 7000" and I2C/PWM/UART/SPI pins mapping data.
+These issues were reported by Sashiko.
 
-Signed-off-by: Gary Wang <is0124@gmail.com>
----
- drivers/pinctrl/pinctrl-upboard.c | 102 ++++++++++++++++++++++++++++++++++++--
- 1 file changed, 97 insertions(+), 5 deletions(-)
+This is batch 2 of Input bug fixes, based on input/next.  It addresses
+out-of-bounds accesses and underflows in adi, probe and unbind work
+UAFs in xpad and aw86927, sysfs information disclosure in stmfts,
+NULL dereferences in xen-kbdfront and goodix_berlin, SPI transfer size
+underflow in goodix_berlin_spi, and suspend work stopping in drv2665
+and drv2667.
 
-diff --git a/drivers/pinctrl/pinctrl-upboard.c b/drivers/pinctrl/pinctrl-upboard.c
-index bcd2dae9969f..7c947158b07c 100644
---- a/drivers/pinctrl/pinctrl-upboard.c
-+++ b/drivers/pinctrl/pinctrl-upboard.c
-@@ -913,7 +913,7 @@ static const struct upboard_pinctrl_map upboard_pinctrl_map_apl01 = {
- 	.nmaps = ARRAY_SIZE(pinctrl_map_apl01),
- };
- 
--static const struct pinctrl_map pinctrl_map_adl[] = {
-+static const struct pinctrl_map pinctrl_map_upxadlp[] = {
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c0_grp", "i2c0"),
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c1_grp", "i2c1"),
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "pwm0_grp", "pwm0"),
-@@ -921,9 +921,61 @@ static const struct pinctrl_map pinctrl_map_adl[] = {
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "ssp2_grp", "ssp2"),
- };
- 
--static const struct upboard_pinctrl_map upboard_pinctrl_map_adl = {
--	.maps = &pinctrl_map_adl[0],
--	.nmaps = ARRAY_SIZE(pinctrl_map_adl),
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upxadlp = {
-+	.maps = &pinctrl_map_upxadlp[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upxadlp),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upsadlp[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "ish_uart0_grp", "ish_uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "ssp2_grp", "ssp2"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upsadlp = {
-+	.maps = &pinctrl_map_upsadlp[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upsadlp),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upadln[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "uart0_grp", "uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_spi_grp", "ish_spi"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upadln = {
-+	.maps = &pinctrl_map_upadln[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upadln),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upnadln[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_i2c0_grp", "ish_i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_i2c1_grp", "ish_i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "uart0_grp", "uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_spi_grp", "ish_spi"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upnadln = {
-+	.maps = &pinctrl_map_upnadln[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upnadln),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upxarl[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "uart0_grp", "uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "spi0_grp", "spi0"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upxarl = {
-+	.maps = &pinctrl_map_upxarl[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upxarl),
- };
- 
- static const struct dmi_system_id dmi_platform_info[] = {
-@@ -941,7 +993,47 @@ static const struct dmi_system_id dmi_platform_info[] = {
- 			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
- 			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPX-ADLP01"),
- 		},
--		.driver_data = (void *)&upboard_pinctrl_map_adl,
-+		.driver_data = (void *)&upboard_pinctrl_map_upxadlp,
-+	},
-+	{
-+		/* UP Squared i12 */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPS-ADLP01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upsadlp,
-+	},
-+	{
-+		/* UP Squared Pro 7000 */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPN-ADLN01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upnadln,
-+	},
-+	{
-+		/* UP 7000 */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UP-ADLN01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upadln,
-+	},
-+	{
-+		/* UP Xtreme i14  */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPX-MTL01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upxarl,
-+	},
-+	{
-+		/* UP Xtreme ARL  */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPX-ARL01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upxarl,
- 	},
- 	{ }
- };
+Cc: "Pierre-Loup A. Griffais" <pgriffais@valvesoftware.com>
+Cc: "Uwe Kleine-König (The Capable Hub)" <u.kleine-koenig@baylibre.com>
+Cc: Adam Buchbinder <adam.buchbinder@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Andi Shyti <andi@etezian.org>
+Cc: Anthony Liguori <aliguori@us.ibm.com>
+Cc: Christoph Fritz <chf.fritz@googlemail.com>
+Cc: Dan Murphy <dmurphy@ti.com>
+Cc: David Heidelberg <david@ixit.cz>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Dominic Cerquetti <binary1230@yahoo.com>
+Cc: Elliot Tester <elliotctester@gmail.com>
+Cc: Franz Lehner <franz@caos.at>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
+Cc: Hans de Goede <hansg@kernel.org>
+Cc: Ivan Hawkes <blackhawk@ivanhawkes.com>
+Cc: Jan Kratochvil <honza@jikos.cz>
+Cc: Javier Martinez Canillas <javier@osg.samsung.com>
+Cc: Jeff LaBundy <jeff@labundy.com>
+Cc: Jens Reidel <adrian@mainlining.org>
+Cc: Juergen Gross <jgross@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-input@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+Cc: Marko Friedemann <mfr@bmx-chemnitz.de>
+Cc: Markus Armbruster <armbru@redhat.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
+Cc: Oliver Schwartz <Oliver.Schwartz@gmx.de>
+Cc: Pavel Rojtberg <rojtberg@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Steven Toth <steve@toth.demon.co.uk>
+Cc: Vojtech Pavlik <vojtech@ucw.cz>
+
+Lee Jones (10):
+  Input: adi - prevent off-by-one write in adi_read_packet()
+  Input: adi - validate axis and button counts in adi_id_decode()
+  Input: xpad - cancel presence work on xpad360w_start_input() failure
+  Input: aw86927 - use devm_work_autocancel() for haptics play work
+  Input: stmfts - fix i2c_smbus_read_i2c_block_data() check in status
+    sysfs
+  Input: xen-kbdfront - check info->ptr and info->kbd before
+    dereferencing
+  Input: drv2665 - disable haptics work across suspend and resume
+  Input: drv2667 - disable haptics work across suspend and resume
+  Input: goodix_berlin_i2c - check i2c_get_match_data() for NULL
+  Input: goodix_berlin_spi - validate ic_data and SPI max transfer size
+
+ drivers/input/joystick/adi.c                  | 45 ++++++++++++++++++-
+ drivers/input/joystick/xpad.c                 |  6 ++-
+ drivers/input/misc/aw86927.c                  |  6 ++-
+ drivers/input/misc/drv2665.c                  | 15 ++++---
+ drivers/input/misc/drv2667.c                  | 15 ++++---
+ drivers/input/misc/xen-kbdfront.c             |  7 +--
+ drivers/input/touchscreen/goodix_berlin_i2c.c |  3 ++
+ drivers/input/touchscreen/goodix_berlin_spi.c |  6 +++
+ drivers/input/touchscreen/stmfts.c            |  5 ++-
+ 9 files changed, 88 insertions(+), 20 deletions(-)
 
 -- 
-2.43.0
+2.56.1.839.g22a8290db9-goog
 
