@@ -1,91 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.37.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768380;
-	b=dv9Yt9xWGl2Or1QYFa3mwt6Je1c6PVE6Jn9wwQDRT9pxHcZ0dpJWQOe2kFXy1iG4HHQa
-	 OwKC8XUgUkOIquNmKg5wiqV1UefTKPWXQdG2ALmEKhR88+wRxwopAk3ELxI+BLo1VofaQ
-	 6q+xyXUKh5WlX53htU794Fq/IV11apuOEdQ6QsethHZSJdfW5hkrwZn8DJi+RXT3N05A1
-	 +94U27e8Y8AUPrO7ygDmozKBInOYb2Lt6pY+mPWXKg8mZEdjnynE8r0LEO48Fz2+189y4
-	 68K8ynR1UeQF8wYGVLD+qcS5U1kdTZ6z5VbGZ/412KcsbBThyb3Dg3AXmWPOk7wBqVQ==
+	t=1795768411;
+	b=SSAM3tRbjHd+/sml5MCdc1WYrqL9EEw2rZH0E5zpUIkwD0t3JJYTwBe2Pn4MwMXkskey
+	 XtTPvJtCUqPXbzwHmPNU3VwFXkj1icXZJDkZqi0gwUX+MMkWFp658dDeyfidCcn1UIDDF
+	 csuwNsqWOFXHWUL38LpSuTmqcze/83yESqdve3jxKycKxL38hA2Z4tXroGFkSvgnOi9D2
+	 nETqrIyrU/S0P/qG4sUU98PGKz/H/UDUNiDxmarOoDaQN1D+6YsgVww2mhWkQSoEb8nU5
+	 k7Pu5vja7GLNFFptfbfsaM+3hryXSiGCKRWL8pEzQXIAcjM1mdzMsbTzgdmkETQxY4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768380;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768411;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
 	 Content-Disposition:In-Reply-To;
-	bh=x7T2hvQbWIwodUQErSaaCwrbt5ZR0SaoWTUBnFNg5fA=;
-	b=d9FNM88WeRJ4CF+1XElh+ZkDR1rkxk7yVAEpCNetc/bFL+3ICIEh5JMjqfUMB3uuk9Sa
-	 /QBL8Jsusar9XXZ0o+EbxSg2OYfNp3+zqUKXxfKypjSxUAj4zKpsRhXpnKy0ZtHOyf430
-	 UwIXbKGZ0e4VvAI5op0DJWOXE7kfRWjh6LFWAjtnWrBGW7r4mBz55LO8Yj4lnDmMDtBaK
-	 PrQeFas7mlhBz2gmJAVQDhjiXQitfEc6rrjawD1g+2it9Oq4ynApjSfoV2HIKz7WMw183
-	 xht47PexR0P3441ShgRKdmpuvoGQT9I7lhpDCfK0dRZWAXVEY+ob4tNv2gC88kGQdag==
+	bh=/h6ivogR65iO+inwU9QCiWi1gvByiI97sc5h6yHKLMM=;
+	b=5Jt1tQ0EuyhuRYsuXh6X3qQ5yPe0C3OQjCpKwiU+A5kU4vsw1l08U81UA/g07Qb75AfP
+	 wnMedUl2aIDnwA7qMEVcrIeZ3qiHyrKS+ONXEAPBy1IcVXH5jxvNmgNNU3LTAvNQHeSUn
+	 EIjz5Tl4W8Z/dUblY4EWP+XBOzn4JCoJXl8DELg86D50rDs1NNei0gqIufnV3V946NhzA
+	 03xZqgCcNio1aPTEP2ZUqJhYoFBEoS9GvoTZEuhjc0o9r03QbqlMcb8G/kr9eNlUfJIUm
+	 1791/NAZ2q9nHW7Fwsq9PH6kr4ioS+ysYNCw90oKqhjBU4LvyOcr1/dPKKrDT/PcIJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fujitsu.com;
-	spf=pass smtp.mailfrom=fujitsu.com;
-	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=Swf+ci1q;
-	arc=none smtp.remote-ip=139.138.37.100
-Received: from esa12.hc1455-7.c3s2.iphmx.com (esa12.hc1455-7.c3s2.iphmx.com [139.138.37.100])
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fzx9f9eS;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A65606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:32:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A65606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AE98606A31C;
+	Fri, 27 Nov 2026 08:33:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AE98606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=Swf+ci1q
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1795768379; x=1827304379;
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fzx9f9eS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795768411; x=1827304411;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=ImbUcSS8Q6xOASEFymtw22SRZBZBBDi6HTSnPwkGl+s=;
-  b=Swf+ci1qpuk6l/o5dMuF019GxotmipzbLFNlAozGaL1kdRUsjPFg0eRu
-   WOI0Bk5mj1L2TXHPTbDBkkzN/WTpvSWHtHCeT19SPiOphoHNAaEXuHaMM
-   J9g5MuK3TBcWouOEZ+VO2UxAqOuGe0tGkhiMGAsnyh9TBPehyQKPzsi6P
-   +UnqgVKxFNr3uTStC58K5mC3vHFAoue8oFSP4WOPgMlxMSrWrL8Ps2/Dl
-   oqvBx2NwnOrnFpmaZmQgyGxkrL6/szxAdgo5e8OheKtdCmKGS4gVriV6+
-   z+1OcTBeqNyIYNLUhNbRO7XPdBhjd01h7j8NAzSvufXE1EpKw/iOEYPFT
-   g==;
-X-CSE-ConnectionGUID: Bs7a9QndRNWKibFPNdybUg==
-X-CSE-MsgGUID: TaJy122oSPGv/zvwFsUnLQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="241071013"
-X-IronPort-AV: E=Sophos;i="6.27,236,1786978800"; 
-   d="scan'208";a="241071013"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 17:32:52 +0900
-Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 717651C01696
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:32:52 +0000 (UTC)
-Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id 286861400635
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:32:52 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.69.152])
-	by az2uksmom2.o.css.fujitsu.com (Postfix) with SMTP id 4F4DA14063B5;
-	Fri, 27 Nov 2026 08:32:49 +0000 (UTC)
-Date: Fri, 27 Nov 2026 17:32:47 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
- sizing
-Message-ID: <awk97nvn_HKgONmF@FCCLS0092175.localdomain>
-References: <asYZFXGyafRjjBS0@arm.com>
- <asYiOgskwi8JYLe_@willie-the-truck>
- <yq5awlrt3dwo.fsf@kernel.org>
- <yq5av77c92oo.fsf@kernel.org>
- <aseRzPshcoys7AJS@arm.com>
- <yq5ao6d48dqr.fsf@kernel.org>
- <auR0fT1yrKQ9wbm8@FCCLS0092175.localdomain>
- <yq5a8q3d9oe6.fsf@kernel.org>
- <avRKiCBs81XSYMqW@FCCLS0092175.localdomain>
- <yq5a33t6qrvc.fsf@kernel.org>
+  bh=3GpE+F+q7kE86t8MgkNfa5zzEw9Mo11gooWpH2jqaUU=;
+  b=fzx9f9eSmry8mnRAeFsIHVGDw0UC1U54sXgQ4ePV8ULPs5x+a/bGElx2
+   6/uEl06oZC1y60r3dOorTh0eP+n5TFIJm7yDv64gaxH8jZVExs2xF5zV3
+   E5O4dFATjACb4hktiZ+6es3k1bvhy5J5rIqZQYd0YCjpiD+Bm0Y8GotR3
+   KKhczQsH6Xka0a18x+P1FaS5KemT04gcfYVWr9ZLzciiQMcmrU+mFFOCH
+   eF4oYIUsu3LjT6IdU8Z2tmUHRv8pA9zcjDsrXehre+0TeyUwltKcbEmgc
+   +HyKysqdmC72pS0ROUzViItCmOG2ZGHe4eVnWAYFCnksE0kDo8eJlt+db
+   A==;
+X-CSE-ConnectionGUID: POdSmR41Rom5ykHIRZ2cww==
+X-CSE-MsgGUID: FMIH1xLqQsat2FiJ+UEnzA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4583061"
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="4583061"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 00:33:30 -0800
+X-CSE-ConnectionGUID: ubG+/dVMQfmbcUC6lqY/Eg==
+X-CSE-MsgGUID: oqVoqhsbQCiER1kAgiDQvQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="12237506"
+Received: from igk-lkp-server01.igk.intel.com (HELO e79648c3b81b) ([10.211.93.152])
+  by orviesa005.jf.intel.com with ESMTP; 27 Nov 2026 00:33:18 -0800
+Received: from kbuild by e79648c3b81b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWrO4-0000000000p-1PQJ;
+	Fri, 27 Nov 2026 08:33:00 +0000
+Date: Fri, 27 Nov 2026 09:32:14 +0100
+From: kernel test robot <lkp@intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, David Lechner <dlechner@baylibre.com>,
+	Rupesh Majhi <zoone.rupert@gmail.com>
+Subject: Re: [PATCH v2 1/1] iio: core: Split debugfs routines
+Message-ID: <20261127090758.cpRe3Nuo-lkp@intel.com>
+References: <20261125140251.384361-1-andriy.shevchenko@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,56 +85,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <yq5a33t6qrvc.fsf@kernel.org>
+In-Reply-To: <20261125140251.384361-1-andriy.shevchenko@linux.intel.com>
 
-On 11/12 15:43, Aneesh Kumar K.V wrote:
-> Kohei Enju <enju.kohei@fujitsu.com> writes:
-> 
-> > Hi Aneesh,
-> >
-> > On 11/01 09:47, Aneesh Kumar K.V wrote:
-> > [...]
-> >> >
-> >> > Hi Aneesh,
-> >> >
-> 
->  [ ... 35 lines skipped ... ] 
-> 
-> > Overall, I would prefer the dynamic sizing approach. However, I believe
-> > the initial pool size still matters.
-> >
-> > Also, as Catalin pointed out earlier in the following message:
-> >
-> >     https://lore.kernel.org/all/ann6noRzoPLL9kDY@arm.com/
-> >
-> > the arm64 adjustment also reduces the target size used for dynamic
-> > pool allocation, since both the initial pool and dynamic allocation
-> > currently use default_nslabs.
-> >
-> > I am testing the patch below to decouple the initial pool size from the
-> > dynamic allocation target. It adds swiotlb_adjust_initial_size() for
-> > callers that only want to reduce the initial allocation, while keeping
-> > the existing swiotlb_adjust_size() semantics for callers that want to
-> > adjust both sizes.
-> >
-> 
-> Should we instead update the logic so that reducing the swiotlb size
-> leaves the dynamic allocation size unchanged, while increasing it also
-> bumps the dynamic allocation size?
+Hi Andy,
 
-Sorry for the late response.
+kernel test robot noticed the following build errors:
 
-That makes sense for the arm64 and RISC-V cases. However, for
-plat_swiotlb_setup() in arch/mips/cavium-octeon/dma-octeon.c, I'm not
-sure whether we also want to preserve the dynamic allocation target when
-reducing the initial pool size.
+[auto build test ERROR on jic23-iio/togreg]
+[also build test ERROR on linus/master v7.4-rc4 next-20261126]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Do we want that change on Octeon too? If not, I'd prefer a separate API
-so that we can preserve the existing behavior and explicitly update only
-the callers that need to reduce the initial pool size independently of
-the dynamic allocation target.
+url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Shevchenko/iio-core-Split-debugfs-routines/20261125-145940
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git togreg
+patch link:    https://lore.kernel.org/r/20261125140251.384361-1-andriy.shevchenko%40linux.intel.com
+patch subject: [PATCH v2 1/1] iio: core: Split debugfs routines
+config: powerpc-randconfig-r2309-20261127 (https://download.01.org/0day-ci/archive/20261127/20261127090758.cpRe3Nuo-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 3a9f981aab0cc32f74ffac36a87891cda8889c37)
+sparse: v0.6.5-rc1-21-g84ec0658
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127090758.cpRe3Nuo-lkp@intel.com/reproduce)
 
-Thanks,
-Kohei
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261127090758.cpRe3Nuo-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> ld.lld: error: relocation R_PPC_ADDR16_HI cannot be used against local symbol; recompile with -fPIC
+   >>> defined in vmlinux.a(arch/powerpc/kernel/head_85xx.o)
+   >>> referenced by arch/powerpc/kernel/head_85xx.o:(.head.text+0x3ca) in archive vmlinux.a
+--
+>> ld.lld: error: relocation R_PPC_ADDR16_HI cannot be used against symbol 'init_task'; recompile with -fPIC
+   >>> defined in vmlinux.a(init/init_task.o)
+   >>> referenced by arch/powerpc/kernel/head_85xx.o:(.head.text+0x3ee) in archive vmlinux.a
+--
+>> ld.lld: error: relocation R_PPC_ADDR16_LO cannot be used against symbol 'init_task'; recompile with -fPIC
+   >>> defined in vmlinux.a(init/init_task.o)
+   >>> referenced by arch/powerpc/kernel/head_85xx.o:(.head.text+0x3f2) in archive vmlinux.a
+--
+>> ld.lld: error: relocation R_PPC_ADDR16_HI cannot be used against symbol 'init_thread_union'; recompile with -fPIC
+   >>> defined in ./arch/powerpc/kernel/vmlinux.lds:145
+   >>> referenced by arch/powerpc/kernel/head_85xx.o:(.head.text+0x3fe) in archive vmlinux.a
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
