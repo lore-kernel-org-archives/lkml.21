@@ -1,68 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.212
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795800969;
-	b=FUT0fP47ZcmirAtcNSYnYLyGwFp8l1dompwIkUP/DbN5vmv90e+ZQeFIb9xlmEDLcf7b
-	 M+7LFKKgIc9UA6rgTvmnZvpN9IlQN4UjEN6PDFm6XiDknVfcVA8bmPMTYm2Zac9vxgOoA
-	 9kCL2JulqmeeHPOz30BArKoqdlUDPE+FDrGrTImWCayqUK6CmErvBqf2pgwT0TZ56epJM
-	 FK2FjFDPd9Svw4DUyPZg4BAcA+kj/wNpnuRoXyzciKgszydGEqauWCOMC/aO5O1pFFYaQ
-	 EqfGKmAiwvt/phAi4mzW1OuuZqehdCr7b2GYVd09nTFa7kwLpaaXhtAvNeG1pcmSF+w==
+	t=1795801052;
+	b=t1+CxnNLlqO5+6mliTcV02j9r73M/9aWh8wGCEBM6yznA7M4xYQlY0HnoAAa7wk77PaV
+	 aWggo7nuAZVO886Cr20b4AbUKBOkWAsNjqxATnVMs8TxhzsmDN5XjyEycVSP1LK21rtFU
+	 aPBWdlMKXcLGUNWxhCdYm/zP4dOPzPpl2ToekBKTli1BA0f5tVCDcHK1WN/ru2bwHmgaN
+	 RXaJDtUlhOPE1zhwmFHit3Ho0maPb5/OTBrleMxgOPY3ZToEtHY2onqDqyGLMbLFGIeCo
+	 Kajga3dsPgaI60nZ8paVB5reEZ+KRmKKTfYm9LaTSoenrQCviP+yiE/iFAwOMnvPo6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795800969;
-	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Mxq2ajFAdc7BHde2lquSmjBeWvjKHqLe2URNnjWYuSI=;
-	b=gajC0d9ZFN4DUcua+cjD0wZOOpuzacKQHV4rUmFT29+U9fWNtX69QP36cP6lGLlj2jes
-	 dOBqYceqe8XgjNubb/gbQ2hwIF1tDYAB/mzcOl1Vzk5m1TuxeQOFjjvdWtuU38NqrjTl6
-	 yPR3t2A1sN5fW6JonQJtT1KSts9y6GpGzf7UMBqKOpFISoBGYkNygeApJsCPi94ZVJT60
-	 NQBTyHXpyYhV6ixt/mbAoeYaG9MCC7PWeYR+esI4zdCI4KI1sbPwtNQCGuHhGZCnvz+2d
-	 E5cJlEKrEQkzDDFkCaxS1Lybf0GC66OzVByzhyRIZqyWtTfUNtzdtds3SkR3OcBnuaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801052;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:
+	 X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=Ybmf5eA8nO2z1EXCBSwNgRRAB14C9dISogEzuEi/y2w=;
+	b=m2dQTyPlvjD8pRgXqMKu2/ueF1gDxxEdEwpn/fzclcs5dqt4atyPPGF000rNI9ivSyjW
+	 7hbQsWGnlvp2p+4bnSPLMemZjLleFWMUdPy27owuLJKpQ1aHIrvYtQomX/hU4mZPGFUx2
+	 IFNys3cSxAZD8HMEevm2y4nUngerxavJP3remFl4avreFamlliSLcZWKGRHbE10RRlBWM
+	 UnHfufGt2nhjj4nRtLvMMTM0+ZYiMY7nf8UB72nN6BkcHZgNvcuAT91urFC2VAXN5+tok
+	 VS28JSZRN51FsYjKIlFneSAWg+ngqzjEbLyx1ZSFhneu1vZl/HI5Ga6PxAA2G35FBnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=nB9AairJ;
-	arc=none smtp.remote-ip=91.216.248.212
-Received: from bulk0.mail-out.lima-city.de (bulk0.mail-out.lima-city.de [91.216.248.212])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=GBpnaCxs;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=3LNuVTnC;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=GBpnaCxs;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=3LNuVTnC;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 947D0606A6A6;
-	Fri, 27 Nov 2026 17:36:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 947D0606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A964606A69B;
+	Fri, 27 Nov 2026 17:37:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A964606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=nB9AairJ
-From: Andre Eikmeyer <dev@deq.rocks>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795800966;
-	bh=NwD2EqHuGoBkwsa+FPnF+xUDZsP/uuYBvzKeBFxFKtE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nB9AairJm9DhieAOj/2R2KRDKnq7RoRBSG/NWp7v3RJWhIe9oJMCppt//HZLIGq0w
-	 CsGq68bGbDLfNWMk1UF/C3SQ+KcHgXbkPlE5LeWEeXA/XgBSTeV6li+Psq2SocCN3Y
-	 vHQ1h0oFvovuKi82taHc6AP3n9rifkttbkpLxDNZ/jDMA3s9RLnEEu/cf+ewdN8tUW
-	 7cYtJH88de7+f64iMn8oIKT7Kd+B39v0nasEoLa6fY0Yf0JeMqLjR35FNdO4qU3i49
-	 b1DX+hBCzq5M3euTyruVYeRzNlLAwqVlX7zKN57ryjNg+KA6mdrJ84jlMjbxdi87cC
-	 CUcwGczUIhTrA==
-To: arend.vanspriel@broadcom.com
-Cc: linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=GBpnaCxs;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=3LNuVTnC;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=GBpnaCxs;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=3LNuVTnC
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 692BA229B3;
+	Fri, 27 Nov 2026 17:37:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795801044; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ybmf5eA8nO2z1EXCBSwNgRRAB14C9dISogEzuEi/y2w=;
+	b=GBpnaCxsoKsqmpgeuhX6PcK38zGVRL1/v00yZkO5RzTAeEU+QO4frT7xyJIA1y4rPYgIsX
+	lV5sXHrpp49aL1Pa4OByttGbsLLMu2kBGfQS05zYuO4lJ1QKetFYD8Vh8lb7IP0sh7aF03
+	Ye4jiVGzCrWv7jEbRJIBebq4mT3+uv4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795801044;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ybmf5eA8nO2z1EXCBSwNgRRAB14C9dISogEzuEi/y2w=;
+	b=3LNuVTnCHbjBqdEeosKTgmGqj3A/cj+ua712lvZFZrPhyOdszGUDIWOjjaHLfZngDZhZbX
+	x988wy/bUCrp7IAg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=GBpnaCxs;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=3LNuVTnC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795801044; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ybmf5eA8nO2z1EXCBSwNgRRAB14C9dISogEzuEi/y2w=;
+	b=GBpnaCxsoKsqmpgeuhX6PcK38zGVRL1/v00yZkO5RzTAeEU+QO4frT7xyJIA1y4rPYgIsX
+	lV5sXHrpp49aL1Pa4OByttGbsLLMu2kBGfQS05zYuO4lJ1QKetFYD8Vh8lb7IP0sh7aF03
+	Ye4jiVGzCrWv7jEbRJIBebq4mT3+uv4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795801044;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ybmf5eA8nO2z1EXCBSwNgRRAB14C9dISogEzuEi/y2w=;
+	b=3LNuVTnCHbjBqdEeosKTgmGqj3A/cj+ua712lvZFZrPhyOdszGUDIWOjjaHLfZngDZhZbX
+	x988wy/bUCrp7IAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0B838134E8;
+	Fri, 27 Nov 2026 17:37:24 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id AW3mNNO/CWsIFgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Fri, 27 Nov 2026 17:37:24 +0000
+Date: Fri, 27 Nov 2026 18:37:23 +0100
+Message-ID: <878q2emazw.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Cc: alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	nicolas.ferre@microchip.com,
+	perex@perex.cz,
+	tiwai@suse.de,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	michael.reeves077@gmail.com,
-	marcan@marcan.st,
-	j@jannau.net,
-	asahi@lists.linux.dev,
-	sebastian.reichel@collabora.com,
-	Soeren Coremans <sorencoremans@gmail.com>,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>
-Subject: [PATCH wireless-next v3 4/5] wifi: brcmfmac: msgbuf: do not wait for tx status on the BCM4377
-Date: Fri, 27 Nov 2026 18:35:48 +0100
-Message-ID: <20261127173549.29335-5-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261127173549.29335-1-dev@deq.rocks>
-References: <20261127173549.29335-1-dev@deq.rocks>
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH v2] ALSA: atmel: ac97c: fix reset GPIO error handling
+In-Reply-To: <20261127100645.3564-1-sreekuttan2156239@gmail.com>
+References: <20261127095029.3280-1-sreekuttan2156239@gmail.com>
+	<20261127100645.3564-1-sreekuttan2156239@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,52 +117,62 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Rspamd-Queue-Id: 692BA229B3
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-12.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_TO(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.51
 
-The BCM4377 firmware returns the tx status of the queued packets only
-when it gets the flowring delete request, before the delete response.
-brcmf_msgbuf_delete_flowring() waits up to 100 ms for them before it
-sends the request, so every disconnect logs a timeout.
+On Fri, 27 Nov 2026 11:06:45 +0100,
+Sreeraj S Kurup wrote:
+> 
+> The driver currently ignores errors returned by
+> devm_gpiod_get_index() and continues probing. This can cause problems
+> when the GPIO provider is not ready and the function returns
+> -EPROBE_DEFER.
+> 
+> Use devm_gpiod_get_index_optional() to handle the reset GPIO as
+> optional. If the GPIO is not available, the driver can continue using
+> the internal reset mechanism. If GPIO acquisition fails for another
+> reason, return the error using dev_err_probe().
+> 
+> Also, check the GPIO descriptor for NULL in atmel_ac97c_reset(),
+> because the optional GPIO API returns NULL when no GPIO is assigned.
+> 
+> Fixes: 5f10e84934e4 ("ALSA: atmel: convert AC97c driver to GPIO descriptor API")
+> Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 
-Send the delete right away on the BCM4377. Its tx status still comes
-before the delete response, so pend_8021x_cnt drains as before. Other
-chips keep the wait.
+Applied to for-next branch.  Thanks.
 
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
----
- .../net/wireless/broadcom/brcm80211/brcmfmac/msgbuf.c  | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/msgbuf.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/msgbuf.c
-index 79c1891db59..195a1a362ba 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/msgbuf.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/msgbuf.c
-@@ -14,6 +14,7 @@
- 
- #include <brcmu_utils.h>
- #include <brcmu_wifi.h>
-+#include <brcm_hw_ids.h>
- 
- #include "core.h"
- #include "debug.h"
-@@ -1505,8 +1506,13 @@ void brcmf_msgbuf_delete_flowring(struct brcmf_pub *drvr, u16 flowid)
- 	flow->rings[flowid]->status = RING_CLOSING;
- 	brcmf_commonring_unlock(commonring_del);
- 
--	/* wait for commonring txflow finished */
--	while (retry && atomic_read(&commonring_del->outstanding_tx)) {
-+	/*
-+	 * Wait for commonring txflow finished. The BCM4377 firmware returns
-+	 * the tx status of the posted packets only on the delete request,
-+	 * before the delete response.
-+	 */
-+	while (drvr->bus_if->chip != BRCM_CC_4377_CHIP_ID && retry &&
-+	       atomic_read(&commonring_del->outstanding_tx)) {
- 		usleep_range(5000, 10000);
- 		retry--;
- 	}
--- 
-2.56.0
-
+Takashi
