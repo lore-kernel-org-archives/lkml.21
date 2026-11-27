@@ -1,69 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795805906;
-	b=pnPst/kXl3q+Pn1hFjMDjcmtQrBlw6l+zc84wXFSKBNhfcC/RDJ44guwHO5rhVqcv5Nd
-	 QArFAd/8kaVe2Rnh4E2UCF06aBptaTEoeOM8fUWrHJHZeW8cqpX8o9bR2PeuB7ooUKD2e
-	 CUaIyWPLSuJikM6tMUi0DMn4wYwuXJyjxltLUB8zDkFMw307XMXkVPU0POHo+LxA5Zdzp
-	 jVWOljohSzvXIIuy/+xTu4ve1aSLcdrtaeOMGdMW+12xNL0kkVS79e0yCDGm5zbPmT8Re
-	 sURyQqbiWmOb62pyjXi3QwIUE69xBxGN0MIfTVI/FySXfGQfxirqMy74AbKowH261Wg==
+	t=1795805907;
+	b=QKrqrx9yPVNx4T7jmBwvp279cATFxWHWc4ainDv/i9sPn78PXx7m+csdZnP/jaObCOta
+	 Fjg3WplsZMtEeAqRthr2t83iRPA+BUuGFF+IkbnmRf2AVWSsIktzP5nt4Ckw7l8K/kGPu
+	 dDsQw1XoSkGSISbzhanmK3HpxovDy9OMBIhs6kS9gql7EvZ76+iTByqE+gDDUNr40I76E
+	 Zn1dF3dUQRsfSJKWn4hlEFHfyrkje9asW8q7+hyb79Pv5kPbGoBAYFwFMZzBQZEZvDEU6
+	 4sQCMVhD2T7mRM1FzEegtUXtTE6ob1HtCnHWJHTm3bM9OnYZLrVCExH65ScDy7Sd8dQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805906;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805907;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=rvc8V6tMkpwX750VfmxtJXX879RUjLM/1sI2Y+JFcqM=;
-	b=tC8/v5YYg5kcn9bm+hBhgXGBir2RHWIkTZNCAGNR9NPojvOwbQuOa/LL8BzayOUT27iY
-	 OJE6mKUd1PzPmEapCPD04SrdC2Rssnes5KIkCYSM14Sh+a9AlR8elK+FFN4Ic6Ri8oS7K
-	 q93aoYFGWpfvm0JwWGEbwKBSyNzlqcYvqCNxfz+r3qfywStLLYzJK7YpIzdT33Xkj3ZRq
-	 9Cfzls0wYAZBCJh4KJNHtu66FY0Ndo4q6idjovCubGMozmLzqfVlVqBDyTIdpO9go/aXk
-	 pOBtE+z3g9fXJtwnwI/6mvGMGoq1n5vZLbjMlsc5ytmQir1+Odn4qGXVEvPH1D5G4Hg==
+	bh=WJKqb9lbHcL4EmdzdUnYQ7GHUDciH6wBpPPSXp/2ZaA=;
+	b=rlEpL+3bBdzoH61X3CkNJNjSS5wSxgk7GIcQGWuJ7e8SwdCg7hPy9ZjmHz5cDBLZvZgh
+	 w6icq3LpCLiGVt0LDY04SEHS8y42i8+JlZ0PuIOuhhyhLAgQlt9BWNnei6JKJXVfAb/6a
+	 Oop/ZL0QyI9oV9iX2tO3s92O6eR7Xw/2xKASE5DePdCfJvC+6gtbn7i1jy0Te4eKB3WQ3
+	 PkaOey5pMe0Ea08qIqR45d09qz/YHAAfYsuWiIykawjkETG7EdrpQnPGxn+AyoPGFNqq7
+	 S5XvHc56nEWXHKQzOIgWde1K+fGrB6bwqaEP16kIMbNfAxJETqeN8DnbRsxbXwfiAsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=LvJJ0lZg;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=vM+4BJa0;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC559606A31E;
-	Fri, 27 Nov 2026 18:58:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC559606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEFA2606A699;
+	Fri, 27 Nov 2026 18:58:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEFA2606A699
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=LvJJ0lZg
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=vM+4BJa0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795805903;
-	bh=rvc8V6tMkpwX750VfmxtJXX879RUjLM/1sI2Y+JFcqM=;
+	s=smtpout1; t=1795805904;
+	bh=WJKqb9lbHcL4EmdzdUnYQ7GHUDciH6wBpPPSXp/2ZaA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LvJJ0lZgBj39ZjykBo1f1mhETLOw7yyVH/ZOt55Ajw1MQZeF6kjsb7eqQFM4bSfL3
-	 lVTCEK7v180STqQEhvlBrck7MRUx1q0qXuJA+N1Y2dcxbL09qfmzKIyHo0pDKx3Cub
-	 jWR+vydfuF9qjsCalYPMesNHqs2ko5H1PvdUrx3ZWRXMkZ0ek9vI7/uioDq60Fzn/T
-	 i5yE2HLfeUpXbeaj0dGekJRbTxQTuuYo0AtGXrIBZZrGrYjwu0gu4k7KpXPH34g21W
-	 Z51FhLUk2L9RbHPxffy/eGISQCbloMZsNgRnb2w38xc5WV4j+V1vScKDuT0/IK9dK6
-	 f0e1K9whkf/qg==
+	b=vM+4BJa0IXxhOEjNMnoaK0yrLGfroaMjK+73E8nvuQzh1T038N4Q6RQRo71UN6WbY
+	 Z5lh1/iGHMEo92AO0EKNdbVuDTtd/id2K2wCC47ds6I+g7g/b6ZOWYO5UGqRFJ+tPA
+	 WNVEdNCF/ltr1HRzu6Ev8gn0IBYE3IK0wqU4imHqP+PofOadRXGWX2BJvjhyg6BgTB
+	 O/xekds9NRnux3qZNm8zm8MfjKp3ItMGRuQjvs/wguUpIc9Aj4fp+RAUZmLVFcb8Ve
+	 5WWgb/3coHwC+LVt3hSQh7SSX6FPxakR+syJ7d2oIY0zlcPvzlZOghx0CnFoyj6FSA
+	 ZW17HYle2emzg==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbjNv5Lp9zXFp;
-	Fri, 27 Nov 2026 13:58:23 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbjNw5DLlzXWy;
+	Fri, 27 Nov 2026 13:58:24 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>
 Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
 	"Paul E. McKenney" <paulmck@kernel.org>,
+	John David Anglin <dave.anglin@bell.net>,
+	linux-parisc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v2 01/16] sched/membarrier: Fix stale runqueue state after a lazy mm switch
-Date: Fri, 27 Nov 2026 13:58:06 -0500
-Message-ID: <20261127185822.158216-2-mathieu.desnoyers@efficios.com>
+Subject: [PATCH v2 09/16] parisc: membarrier: Add full memory barrier in switch_mm()
+Date: Fri, 27 Nov 2026 13:58:14 -0500
+Message-ID: <20261127185822.158216-10-mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
 References: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
@@ -78,137 +74,133 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-MEMBARRIER_CMD_GLOBAL_EXPEDITED sends an IPI to each CPU which runs
-a registered process. It finds those CPUs with rq->membarrier_state,
-a per-runqueue copy of the membarrier state of the mm.
+The expedited membarrier commands need a full memory barrier after
+the scheduler stores to rq->curr, before the CPU returns to
+user-space. membarrier() skips the IPI to a CPU which it sees running
+another mm. This barrier orders the user-space accesses of the
+incoming thread after that check. See scenario (A) in
+kernel/sched/membarrier.c.
 
-Commit 227a4aadc75b ("sched/membarrier: Fix p->mm->membarrier_state
-racy load") added the copy. The scheduler updates it when it switches
-between two mm. A registration sends an IPI to update the runqueues
-which keep running the mm.
+parisc has no dedicated barrier. It used to get it from
+smp_store_release() in finish_task() and from spin_unlock() in
+finish_lock_switch(). The first one issued a SYNC instruction. The
+second one issued an LDCW instruction, which is strongly ordered.
 
-membarrier_switch_mm() compares the previous active_mm with the next
-mm. So it also skips the update when the previous task only borrowed
-the mm. This is a kernel thread in lazy TLB mode, or a task past
-exit_mm(). The copy can be stale in two such cases.
+Both are ordered stores since v5.9:
 
-Case 1: a process registers while a lazy TLB kernel thread borrows
-its mm on another CPU. T is a thread of a process with mm M, which is
-not registered yet. S is a thread of another process.
+ - commit 157e9afcc4fa ("Revert "parisc: Revert "Release spinlocks
+   using ordered store"""),
+ - commit e96ebd589deb ("parisc: Implement __smp_store_release and
+   __smp_load_acquire barriers").
 
-  CPU 0                                        CPU 1
+Linux runs with the PSW O bit clear. The PA-RISC 2.0 architecture
+then allows plain loads and stores to be weakly ordered. It orders an
+ordered store before a following ordered load, not before a following
+plain load. So an ordered store is not a full barrier.
 
-  T runs in user-space
-    rq->membarrier_state == 0
-  T migrates to CPU 1
-  context_switch(T -> idle)
-    idle borrows M as its active_mm
-                                               context_switch(-> T)
-                                               T: MEMBARRIER_CMD_REGISTER_GLOBAL_EXPEDITED
-                                                 sets the state of M
-                                                 sets rq->membarrier_state of CPU 1
-                                                 CPU 0 runs idle: no IPI
-                                               T migrates to CPU 0
-  context_switch(idle -> T)
-    membarrier_switch_mm(rq, idle->active_mm, T->mm)
-      prev_mm == next_mm: no update
-  T runs in user-space
-    rq->membarrier_state == 0 (stale)
-                                               S: MEMBARRIER_CMD_GLOBAL_EXPEDITED
-                                                 CPU 0: state not set, no IPI
+Nothing else is a full barrier on a switch between two user
+processes. switch_mm_irqs_off() only writes control and space
+registers.
 
-Case 2: a thread exits and the CPU then runs another thread of the
-same process. A and B are threads of a registered process with mm M.
-S is a thread of another process.
+The PA-RISC 2.0 manual lists the strongly ordered accesses: I/O
+space, pages with the TLB U-bit set, LDCW, LDCD, the TLB purges and
+SYNC. MTCTL, MTSP and RFI are not among them.
 
-  CPU 0                                        CPU 1
+This was found by reading the code and the architecture manual. On a
+PA-RISC 2.0 SMP machine, a thread which is scheduled in would run
+user-space code without the promised barrier. User-space would see a
+memory ordering failure: the caller of an expedited membarrier command
+would miss a recent store of that thread. PA-RISC 1.1 is strongly
+ordered and not affected.
 
-  B exits
-  exit_mm()
-    B->mm = NULL
-    membarrier_update_current_mm(NULL)
-      rq->membarrier_state = 0
-  context_switch(B -> A)
-    membarrier_switch_mm(rq, B->active_mm, A->mm)
-      prev_mm == next_mm: no update
-  A runs in user-space
-    rq->membarrier_state == 0 (stale)
-                                               S: MEMBARRIER_CMD_GLOBAL_EXPEDITED
-                                                 CPU 0: state not set, no IPI
+Do as powerpc and riscv: add membarrier_arch_switch_mm() and call it
+from switch_mm_irqs_off() when the mm changes. It issues smp_mb()
+only when the next mm registered for an expedited command.
 
-kthread_unuse_mm() clears the copy in the same way as exit_mm().
+Compile-tested only.
 
-In both cases, the registered process runs without the promised
-memory barrier. This lasts until the CPU switches to the process from
-another mm.
-
-User-space sees this as a memory ordering failure. The registered
-processes omit memory barriers from their fast paths. The caller
-issues MEMBARRIER_CMD_GLOBAL_EXPEDITED where it needs those barriers.
-An example is RCU-like synchronization over shared memory. Without the
-IPI, the caller would miss a recent store of a registered process. It
-would then, for example, free memory which that process still uses.
-A thread exit in a registered multi-threaded process is enough to
-trigger case 2.
-
-Both cases were reproduced on v7.4-rc2: 1000 commands send no IPI to
-the registered process.
-
-Fix this by passing prev->mm rather than prev->active_mm. It is NULL
-for a kernel thread and for an exited task, which forces the update.
-The update is still skipped between two user tasks of the same mm.
-
-Fixes: 227a4aadc75b ("sched/membarrier: Fix p->mm->membarrier_state racy load")
+Fixes: 157e9afcc4fa ("Revert "parisc: Revert "Release spinlocks using ordered store""")
+Fixes: e96ebd589deb ("parisc: Implement __smp_store_release and __smp_load_acquire barriers")
 Cc: stable@vger.kernel.org
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 ---
- kernel/sched/core.c  |  6 +++++-
- kernel/sched/sched.h | 15 +++++++++++++++
- 2 files changed, 20 insertions(+), 1 deletion(-)
+ arch/parisc/Kconfig                   |  1 +
+ arch/parisc/include/asm/membarrier.h  | 33 +++++++++++++++++++++++++++
+ arch/parisc/include/asm/mmu_context.h |  2 ++
+ 3 files changed, 36 insertions(+)
+ create mode 100644 arch/parisc/include/asm/membarrier.h
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 1a088d4576f5..df6d15cf7109 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -5551,7 +5551,11 @@ context_switch(struct rq *rq, struct task_struct *prev,
- 		else
- 			prev->active_mm = NULL;
- 	} else {					// to user
--		membarrier_switch_mm(rq, prev->active_mm, next->mm);
-+		/*
-+		 * Pass prev->mm, not prev->active_mm: see
-+		 * membarrier_switch_mm().
-+		 */
-+		membarrier_switch_mm(rq, prev->mm, next->mm);
- 		/*
- 		 * sys_membarrier() requires an smp_mb() between setting
- 		 * rq->curr / membarrier_switch_mm() and returning to userspace.
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 1d76950dbb0a..68353796a7f9 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -3907,6 +3907,21 @@ static inline bool sched_energy_enabled(void) { return false; }
-  * - prior user-space memory accesses and store to rq->membarrier_state,
-  * - store to rq->membarrier_state and following user-space memory accesses.
-  * In the same way it provides those guarantees around store to rq->curr.
-+ *
-+ * @prev_mm is the mm of the previous task. It is NULL for a kernel
-+ * thread and for a task past exit_mm().
-+ *
-+ * The update is skipped only between two user tasks of the same mm.
-+ * rq->membarrier_state is up to date in that case. It was set when
-+ * the first of those tasks was scheduled in, or later by the
-+ * registration IPI.
-+ *
-+ * It must not be skipped when the previous task only borrowed the mm
-+ * as its active_mm. rq->membarrier_state can be stale then:
-+ *
-+ * - exit_mm() and kthread_unuse_mm() clear it,
-+ * - a registration does not send an IPI to a CPU which runs a lazy
-+ *   TLB kernel thread.
-  */
- static inline void membarrier_switch_mm(struct rq *rq,
- 					struct mm_struct *prev_mm,
+diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+index 77f67028ad89..3d6b4cc8d6a5 100644
+--- a/arch/parisc/Kconfig
++++ b/arch/parisc/Kconfig
+@@ -13,6 +13,7 @@ config PARISC
+ 	select ARCH_HAS_DMA_ALLOC if PA11
+ 	select ARCH_HAS_DMA_OPS
+ 	select ARCH_HAS_ELF_RANDOMIZE
++	select ARCH_HAS_MEMBARRIER_CALLBACKS
+ 	select ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_HAS_STRICT_MODULE_RWX
+ 	select ARCH_HAS_UBSAN
+diff --git a/arch/parisc/include/asm/membarrier.h b/arch/parisc/include/asm/membarrier.h
+new file mode 100644
+index 000000000000..822dcadaf9bb
+--- /dev/null
++++ b/arch/parisc/include/asm/membarrier.h
+@@ -0,0 +1,33 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_PARISC_MEMBARRIER_H
++#define _ASM_PARISC_MEMBARRIER_H
++
++static inline void membarrier_arch_switch_mm(struct mm_struct *prev,
++					     struct mm_struct *next,
++					     struct task_struct *tsk)
++{
++	/*
++	 * Only need the full barrier when switching between processes.
++	 * Barrier when switching from kernel to userspace is not
++	 * required here, given that it is implied by mmdrop(). Barrier
++	 * when switching from userspace to kernel is not needed after
++	 * store to rq->curr.
++	 */
++	if (IS_ENABLED(CONFIG_SMP) &&
++	    likely(!(atomic_read(&next->membarrier_state) &
++		     (MEMBARRIER_STATE_PRIVATE_EXPEDITED |
++		      MEMBARRIER_STATE_GLOBAL_EXPEDITED))))
++		return;
++
++	/*
++	 * The membarrier system call requires a full memory barrier
++	 * after storing to rq->curr, before going back to user-space.
++	 *
++	 * Nothing else provides it on this path. spin_unlock() and
++	 * smp_store_release() are ordered stores. PA-RISC 2.0 does not
++	 * order an ordered store with a following weakly ordered load.
++	 */
++	smp_mb();
++}
++
++#endif /* _ASM_PARISC_MEMBARRIER_H */
+diff --git a/arch/parisc/include/asm/mmu_context.h b/arch/parisc/include/asm/mmu_context.h
+index c9187fe836a3..42ff1b9444f1 100644
+--- a/arch/parisc/include/asm/mmu_context.h
++++ b/arch/parisc/include/asm/mmu_context.h
+@@ -4,6 +4,7 @@
+ 
+ #include <linux/mm.h>
+ #include <linux/sched.h>
++#include <linux/sched/mm.h>
+ #include <linux/atomic.h>
+ #include <linux/spinlock.h>
+ #include <asm-generic/mm_hooks.h>
+@@ -51,6 +52,7 @@ static inline void switch_mm_irqs_off(struct mm_struct *prev,
+ 		struct mm_struct *next, struct task_struct *tsk)
+ {
+ 	if (prev != next) {
++		membarrier_arch_switch_mm(prev, next, tsk);
+ #ifdef CONFIG_TLB_PTLOCK
+ 		/* put physical address of page_table_lock in cr28 (tr4)
+ 		   for TLB faults */
 -- 
 2.47.3
 
