@@ -1,68 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777433;
-	b=CmXOzx3B8S1FJLl/YbwtG/i1wGA0uUcDUoJAGAMQI1mxi9EDDeoGsCm2YNmzhTBB2Nk6
-	 /w6Jj8jXr2IY3jrFco3drV6Q68bIs2ZZfJL/Klf/NB4FxA2gTLU58bO38i7LuMMnY1Py2
-	 aielptKpV6dRC6mnmt9nybbFlnH62T5yLThuZOoH4eFkbOdMTtbtW+t2Jrpx2idxisZV2
-	 IPOEhudQMqU8K6HmUgkFsa4W5KO4Q5ey6FRL8VTlE6FWOvcW76YvhLIQCmGI8DoxUFhyP
-	 Ljpx0mZYnnG9aDQpV7fTEpaHEm2r54lxTmUrkbaV+6ulEaCZ0Iw5JBdIsyNm5LzENIQ==
+	t=1795777442;
+	b=fZ0uMDnqP1LMStr4BEh/vjTiguAOczXNf6+XYJXWN7UwuIN/8nap6LiZ1wrh9B5TnHFF
+	 0VnfaZap49PLqEoWvLTzs723rol7ZEKbLHTaL4Ht+8vRCOS/oex50t3iVIiL1O0PK6WhG
+	 K7c0YCDhpZr1GGq6DHW8C8qoYpjXl8YFAe5inll1xLRgangBwPgHMc9wYBlVaKrkBitmN
+	 o5Wsd5TJ7VyrKCpR/crbne1eBhQUAtgfrG5ompk2NmUQxO1cLBYRspDHL90YqIAPokxmn
+	 feOAk3lFBDy4Ja6uIFiwPZIeDbI+XMyzm+Pdvc8BxYuQ/yAuAcOWRT/DxMsbq7pbl+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777433;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Type:X-Last-TLS-Session-Version;
-	bh=GcKjqxPTty7UJBOpaS0p7nMe8iT/y4UnYY+fdrHm9N0=;
-	b=IogWYDl0jJLT1t7ac2ELkhXmdnSAbUcFu4lET/BJCg/7MIqYacs+7BDuuYdi4nEwmqOK
-	 N9lAMIUCKNDM1WKsVtk4JCGOCvaFtkdx/NMOtctb2xrY3d8/ApS1Ft1jlbc8V5wep5GcC
-	 k1OV2JG4YxoldKdZ/gPr1zQl2uldIRgW7YiG46qi2mNoUZD+UdiOh45tGSi213uE9MrGa
-	 YyP1UZJqHtr/OuqqImfupvsZsRsEXFRgzlQGGHWYoZL+i0KgGapCEiD6KLPnb5k1dMhyQ
-	 29WxpIzx5VxWP43JV4um0n5Js14ZGoLO+szQ2ufhlyW7S1YA/GsmaUF5prAQBcUm1Dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777442;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
+	b=K9WMf7feHBGpxiMtrsJFi7FdgcSD9D+ukZgrPxn+BKrAqEqHgqBefFYot7ApqwnW86UG
+	 rEMxN8y8ZmvPyFYy6pIsRwXBVahd/ybudAXXK3VAMLgv16hsg2W4PiPA0hQTVznisuNTo
+	 678tSZ0+0jk6htqUSZyjsSKDFo8KucC6YVSDZVa+3dKCxUcjEZKzFuIMMBaNWbOXS/3i1
+	 h48dTP2CVr21bEapFzzA+9Dxv9pinwG3qG8jcegry0BMkiwfiZ2CWeHSL15+dJDHRi9s/
+	 aZuZNrLZwo7U7Nim27sI96dZ8xboFPiZyWl2U9eRduQyPJum55ISLCSQ/Xu1eFV1KkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xmo+Gcp;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=UQZiU34F;
+	arc=none smtp.remote-ip=74.125.82.226
+Received: from mail-dy1-f226.google.com (mail-dy1-f226.google.com [74.125.82.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E407A606A31C;
-	Fri, 27 Nov 2026 11:03:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E407A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD720606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:04:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD720606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xmo+Gcp
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 8CB041A17AF;
-	Fri, 27 Nov 2026 11:03:51 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 620976049C;
-	Fri, 27 Nov 2026 11:03:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 91C5111E6823C;
-	Fri, 27 Nov 2026 12:03:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795777430; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=GcKjqxPTty7UJBOpaS0p7nMe8iT/y4UnYY+fdrHm9N0=;
-	b=0xmo+Gcp9L4V5/yIei1Alx0Wrct+LnGna4c5PkZpUj9Mxja9sb7597jQzUthjp1XpKWiuD
-	o1aGXJTBNj+m/0JtFgg5YzdaPruJWZkyCEW0l6fxCUVibhstf9HRtr5ZatkJvWjyCHo4y4
-	YndD7kHvSNm/RJWEwEr6f28FNLYzAr1yFTKo36aRo5lVaOZD59Y4mWhqGj2WgDTqcyCqpo
-	V1RoITdTv76E2d5RvOvjVZ06SPUo9dONSpek4aQhei0ZpHXZye1wKRTjSlLvFzDJkMsZr0
-	Kpbr9bygjj4xKaK0VKzgZbXr+nGKzI7ZeKkHY6fCs0J8LvzyFUJhcB9lXYqM/A==
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: Ajit Singh <blfizzyy@gmail.com>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heikki.krogerus@linux.intel.com,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: usb: ti,tusb1046: Document no-hpd
-Date: Fri, 27 Nov 2026 12:03:49 +0100
-Message-ID: <7Btt4YglQaCq982N5FWq3g@bootlin.com>
-In-Reply-To: <20261127110213.17642-1-romain.gantois@bootlin.com>
-References:
- <20261126093819.76480-1-blfizzyy@gmail.com>
- <20261126093819.76480-2-blfizzyy@gmail.com>
- <20261127110213.17642-1-romain.gantois@bootlin.com>
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=UQZiU34F
+Received: by mail-dy1-f226.google.com with SMTP id 5a478bee46e88-386c71feeeaso4459323eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:04:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=andrii.net; s=gmail-2025; t=1795777441; x=1796382241; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
+        b=UQZiU34Fa3WLoJfrLE6309naeCq7IO6zuC2AP3eyTRT/oykAOoZnS7dTa0QKRzG1bX
+         GxHACPHIO5DVgnHtS4+xk4RereDUpW2PImoxHBUamW2UcE75t3wx8KQ0bDSXgnQOHBHr
+         E8tzrc69cZDRExukvNvh9gkSmy2h6YL9dwfgPVOkKsQpFCB6GWFr6b0V4P5uQEUWty+4
+         4lqroT0ADML6YOXMgpC1kueW2UvPa90u/nLXAJCvjY11kp9Z+h09dXi4ooaGWjDl4JfU
+         FTxgtKmrY+MwOyq8zhWZ92NzvWAEivE400c406O6Z7i/fOQTIRdhC+s1JTAq3n+Bdx8q
+         UyYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795777441; x=1796382241;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
+        b=Af4mjN4fuSwMl3eA+MW6AEgTLGDp9lJJ4Q36vEf+S9tS11JdzMHQ/luO5dzFDdpXC2
+         KSNxtCa1AHN4y7Uhi5i8JJNa0w8Iq6EmplB9K7oOxHV0jQF8M4DgF6wjkuj7gMFJgMjW
+         93qHRv+30EnBo235RRyGWW//sg7DDIICdgi6hDforJ36alRMWiAIpyCxE4ugmdUyo1c+
+         JzVRG0IP2g0KeQJzuuh/LzvS+Fk8xpzazucahlNkYPgn3VLUXVkg0QkL8gCjHZGlfxxX
+         lFGgfvjm/eQZVl2XVcBFCVlBK5qrUE9NtnXta45yaBuqe8BUJyjdbAdXGUchCVUzFtNa
+         45AA==
+X-Forwarded-Encrypted: i=1; AL+hErGPM2BMsvg/Da3o9GEuTY/eN073rjtE1nuf/704iQVZlDaGJ/UVxgQhh1U6whQFJn82q3UkKQd2Qtr0Bsw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Emac55KjDaPr/RYhrLe6YTtXvRiH0TZZ1VXJCqCwqCJpYLLWU
+	IwmzaXtQAzr4MPC+l4366Ihx0i335jt9fjFeVYW9WPjVD9KMSYQTQYX7fXx8b9Vr1xddi00Qe6U
+	dvH4lRvf1yZo1mcOleKziRrTzQltvIm11Sfvd78OS09pjoKooe7MP
+X-Gm-Gg: AZFdTZeYnmZdpuS2FzHz2YmAfoC/aWdSscxKsxfSOLH+Sujs0gMGLHriVwbApffwsUE
+	kNwP1BIiPbDjlubjdFY1jSHmDswaOK0ELEEBPn8wwC2TVv0Vi/bJtk+huyP4bFVWqv3Dxe24h1n
+	7Ra0bYm7KKT9eG6/EqWMro+UFs0uBPAFqtMfK6DfsYWVC9yn7s/U4ECfynrNIfGJWpLvcMMC596
+	SoLOPg0V5Sz+d0MdV8UHyTXLz+35KFsL8X0ug9ZstN0S5+9n5E0Cbe3wZnODXhvDZTJMLzRA6Hd
+	tkzcmRX47D65QUb285WDnyohPLOAsTM3XWjwzS28UFN9b1w5+ZK6phIwYM7whD0VOoYU72zWuJl
+	rRcQUKbrX4/tmkt5f7jpekgbu6z8=
+X-Received: by 2002:a05:7300:ce8f:b0:375:7be3:1bbd with SMTP id 5a478bee46e88-38570b336f4mr21662778eec.23.1795777440698;
+        Fri, 27 Nov 2026 03:04:00 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-385677c0c07sm3922451eec.19.2026.11.27.03.03.59
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 27 Nov 2026 03:04:00 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Hopps <chopps@labn.net>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: iptfs: reserve room for the outer MAC header in new inner skbs
+Date: Fri, 27 Nov 2026 03:03:55 -0800
+Message-ID: <a502a95c-de83-4f8d-986e-80f804ebe76c@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,60 +102,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextParts1f-7MSPR1KoaJNuPl08eQ";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
---nextParts1f-7MSPR1KoaJNuPl08eQ
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: Ajit Singh <blfizzyy@gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: usb: ti,tusb1046: Document no-hpd
-Date: Fri, 27 Nov 2026 12:03:49 +0100
-Message-ID: <7Btt4YglQaCq982N5FWq3g@bootlin.com>
-In-Reply-To: <20261127110213.17642-1-romain.gantois@bootlin.com>
-MIME-Version: 1.0
+__input_process_payload() copies outer MAC headers into skbs with up
+to 80 bytes of headroom. Longer headers (NBMA GRE) wrap the 16-bit
+offset, and the copy lands far past skb->head; reserve room for mac_len.
 
-On Friday, 27 November 2026 12:02:13 CET Romain Gantois wrote:
-...
-> > 
-> > +	priv->no_hpd = device_property_read_bool(dev, "no-hpd");
-> > 
-> >  	mutex_init(&priv->general_reg_lock);
-> 
-> Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
+  BUG: KASAN: slab-use-after-free in __input_process_payload.isra.0+0x51c/0x1c70
 
-Apologies, that one was meant for patch 2/2, I'll resend it.
+The patch was written with an AI coding assistant and reviewed by the
+submitter.
 
+Fixes: 6c82d2433671 ("xfrm: iptfs: add basic receive packet (tunnel egress) handling")
+Link: https://lore.kernel.org/netdev/179524501671.3135.15869590714107061136@kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+---
+netdev's AI review of Piyus Kedia's "xfrm: do not write the ethernet
+header when the mac header is unset" pointed out this write (Link:
+above). 7a505bb0168a ("net: clear skb->mac_len in
+skb_unset_mac_header()") does not cover it: here the MAC header is set.
+
+Found independently by an AI code review agent. Reproduced on ipsec
+master without kernel changes or fault injection. With this patch the
+reproducer passes, two boots each way, with panic_on_warn=1 and no
+KASAN report. A reproducer is available to the maintainers on request.
+Not tested: an architecture where L1_CACHE_BYTES is larger than 64.
+
+ net/xfrm/xfrm_iptfs.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 3fff835497b9..fe54979116de 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -242,7 +242,9 @@ static u64 __esp_seq(struct sk_buff *skb)
+  *
+  * When @l3resv is false, resv is XFRM_IPTFS_MIN_L2HEADROOM which arranges for
+  * `skb->data - 16`  which is a good guess for good cache alignment (placing the
+- * to be pushed L2 header at the start of a cacheline.
++ * to be pushed L2 header at the start of a cacheline. If @tpl's MAC header
++ * is longer, as with NBMA GRE, resv is its length rounded up, so the
++ * arrangement holds: it is copied in front of the inner packet.
+  *
+  * Otherwise, @l3resv is true and resv is set to the correct reserved space for
+  * dst->dev plus the calculated L3 overhead for the xfrm dst or
+@@ -263,6 +265,11 @@ static struct sk_buff *iptfs_alloc_skb(struct sk_buff *tpl, u32 len, bool l3resv
+ 
+ 	if (!l3resv) {
+ 		resv = XFRM_IPTFS_MIN_L2HEADROOM;
++		/* A longer MAC header needs room too; round up to keep
++		 * the cacheline arrangement.
++		 */
++		if (unlikely(tpl->mac_len > resv))
++			resv += ALIGN(tpl->mac_len - resv, L1_CACHE_BYTES);
+ 	} else {
+ 		struct dst_entry *dst = skb_dst(tpl);
+ 
+
+base-commit: 2803867cf3defa294710088a4663b434e12b5e93
 -- 
-Romain Gantois, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
---nextParts1f-7MSPR1KoaJNuPl08eQ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEETFOGm0tqZfYwVxBymGofZEoxB4MFAmsJY5UACgkQmGofZEox
-B4PnCxAAoYPzub8H6YOYxPZYXqpuxHQ2f6soeBWPM2n8Dc52QG1RXEqL9kOcFg2v
-M0rrXhh1RqwZGzlpqFZpockGmoRM/Az3vMWvvSW8ypQtaOzgTUE0PMIpduwEX6Qz
-Tp9WOhEi5zYa/IE/1Sb0d+WImQNq63/59Esn4iiWrqQiX2RLwtJXzomWrxDO6ikh
-cxFMB6Xk7QjZYf02vmFJeTkZnImVeksHVv6Vizi2Rq/JgyAiJeUQooBIEgg3YUom
-NelGYEaChSH2JwxV24YDrK9MpU/bCrSEtUdZ2OTFLItSgkE1ywtoxpl8HOmbHdCc
-VGRUBZwDl9Vp7+9NtmH8aUCZxrgQHnkcpHeXk9l77r81mJN54qVSTT/z3B3EDgU1
-G2UpE8DBNFCnmaTT9ZBtC6D1lRq0AK6SVyqHA9VDWm0UZzSTXhHJZAkNPwYniNwO
-MBefe+8ZYGt8FZ/bKvXD/yjr8qqYzUmZvJPd09tsW5H611HpR5mQj0muM2YS3TMt
-ZIqic2HAiaT3rApqUotURth9DhlzKKMx20mv/rUHUX+mexHjUiXfGhsaZ6kJSWqi
-7UeTmY5LmmB1t4sBQQqHc0JxUuS5tsbiYzS2FNCztpflp/EuHS15EThKShRhaESa
-MLkAyu3ANQ6hKsp4TIlDpodcDR+L4Khna8d6VI2LxLg1EfpO2Ic=
-=RBUs
------END PGP SIGNATURE-----
-
---nextParts1f-7MSPR1KoaJNuPl08eQ--
-
-
+2.53.0
 
