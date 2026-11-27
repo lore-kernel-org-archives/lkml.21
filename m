@@ -1,64 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.190
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763767;
-	b=lOeFHt4ecgIORA4gcF4ivJm0s+wCTIIRn6Cxo1BGhn5ErzNnU7RniSoO2cxt/BdzjMI2
-	 bjxnrC4mhusTG0udVGkjY+f6clXtP2Czz2OcAnuOsuVpmCXn17+jD08g2d1YC5d+E7wni
-	 Q/8pI4QL6k+Divs27Ynesgidm0S6vvB2/A2jaFJlfur+CNESnvYmmV8KnS/Bu1oyKORdo
-	 idKvOV58ztJytAdGSbuc1T0OV0ATHuZK0o2uLfmHgCLVO91wWidhKUsGd4K2klRhWsD6M
-	 1MZCqGBKqTZudqiu1OMbW49+GRnu7RFg1CsCqPUJF2Ccg4pJjEuhJGyT6i+dv7Z+d7Q==
+	t=1795763863;
+	b=kauF8oO1BlFRvinS9rKxGYzIIUgFi3+u2GnsB0qmfsiFegJTrcihsku5jZi09wTb/pEZ
+	 UCI92ZMJOGnnUSdIWpCJXU1/RRNae/nHJ4BPe4jgvN++1JtxEwn1w4CcQDvkp31lPGfi9
+	 ybsG8wiEjAOfBckKlVW2Ii3runX9Kcc+LE21SqZm2ABVr45H3tPgM5/sMVZFNu15OOrJD
+	 TV4gM2sX4qs7GRYQoY4EOugwAUQ4QTtfYqvxZ1Y90ke0uKQ0G9UPSJSNVL6hEi+hxUkuW
+	 J7s4IcjrkJ2a/6IZOo4B1kwuXXWdUTQPnG0i0JPtufTohJdgtaxeLD/tfe7GB4Yg/TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763767;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=WlyVMIf+w2EK4kCSEt6kaV0RPIZEQmXW1mV3dcuujUQ=;
-	b=PGrA/DrJ/t7GEg2zsN06Iu9bUvkZcTgzAz0baqYXl64KwIC5++1qNBh3wXmEwL1cZO6T
-	 buWNA1m/QsMbvkljuQXjufTt6XPlbyyovbNZ2jJ+1PTyHZA0blB3pUW2sPW/BODziVpmJ
-	 Pgv8sRW7A31IwbUp96LYgGAWHojqhaCbi3Ko9CThC3+Kt/gy6pLW6JlVcMPBU7CeJOwJ4
-	 ufrB0d6YJBOYrf3bCemo/h19WhFOqgkpE3KG4+b2vVACT45q4DOFzFYxDTgw9lrvg1PP8
-	 ISD/LsYiRaz0QzmstztTbnEyOTrPE4KKVYsKtOavp8Lm+CzI6xutRy79jkMM4No84Og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763863;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=ZDxWq3H+nQgSm2N5ZS0dn18NbG9MPkdtWJ8/RojaxCM=;
+	b=aRVGlnR206YQ9fYj06xoZZvADUki51cyyNjCqlD6fuCjGvj/AMuczJ90cw7N00IACP2f
+	 eMxt4KrbnhRA3lpTUkVKrwqqIdJGq0XSKJMlvlid1uQBPnvFAJj2SIxWijvwyx7+GL5vt
+	 lMqUlaxRjEUe4YbZC/0E8rvJeSRGKee3Rsl+yaDsQzQ8mxyCL9BHNeq1ZYrjoEkWrqCPg
+	 gSbEhbKMplGVsUtnvsyfcIZNFSW3Jt0GYVXyhZl9hIRxcURW2T1WMi0NFFUXbnXGTKdeX
+	 lq/xDPI5jqfz2BKGw3W4FwlDd5IiI5Pe9+H0m5Vaq1vTl/ms7uynZfAC8ghDtSEryoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BAmhBnEC;
-	arc=none smtp.remote-ip=95.215.58.190
-Received: from mta1.migadu.com (out-190.mta1.migadu.com [95.215.58.190])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83BAF606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:16:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83BAF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BAmhBnEC
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=UZ9O/NjNPc2csaBXueC5lS/m897rTjKX3GK+oQ+Naos=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795763764; v=1; x=1796368564;
- b=BAmhBnECdHQLGTcuEm4vGzReBW93g4dgWBXd7QcUMyF0AFNUozbGBfV9qHhBcfA87gNHDZOc
- PU1XVxeU1FbAwofaKCY/EpLz2qekhQbM64e0pDDnh1qPVJo4j1Pk0/++IBl8ZMYAbgns2S5coj4
- MSUf5vvUqqxDNcnOo4PBZKyM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 094f7b84a20c887f;
-	Fri, 27 Nov 2026 07:16:04 +0000
-X-Mizu-Trace-ID: 094f7b84a20c887f
-X-Migadu-Flow: FLOW_OUT
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-To: printk@lists.linux.dev
-Cc: Petr Mladek <pmladek@suse.com>,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 36DC8606A31C;
+	Fri, 27 Nov 2026 07:17:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36DC8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
+	Content-Transfer-Encoding; bh=ZDxWq3H+nQgSm2N5ZS0dn18NbG9MPkdtWJ
+	8/RojaxCM=; b=ZUygs/Xl33DYSeoJRJON5ZzAyhOfmRBwV7niP8Ydvb/rxM7CCi
+	Is/SOvIt/J/G41J6PVOSti31am0Y78Onh0hahp77u3AfMzxZOFv+Jl9aHZ06u/f1
+	ChKf+MzQeCdpZzbeJPzHhGYlVszdSEOMhnEZcHFf4PO8Mk0oidMHCxOok=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.43])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkDW2fx+LglrOi1RAg--.138S2;
+	Fri, 27 Nov 2026 15:17:20 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Takashi Iwai <tiwai@suse.de>,
+	Jaroslav Kysela <perex@perex.cz>
+Cc: linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Xuanqiang Luo <luoxuanqiang@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v1] printk: clear saved_console_loglevel on /proc/sys/kernel/printk writes
-Date: Fri, 27 Nov 2026 16:15:48 +0900
-Message-ID: <20261127071548.333115-1-xuanqiang.luo@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	syzbot ci <syzbot+ci4a0a685a2ad8288a@syzkaller.appspotmail.com>,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>,
+	YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+Subject: Re: [syzbot ci] Re: ALSA: line6: Stop URBs synchronously via sync_stop callback
+Date: Fri, 27 Nov 2026 15:17:18 +0800
+Message-Id: <20261127071718.3004-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <6b0921f3.1492ceaa.187240.0078.GAE@google.com>
+References: <6b0921f3.1492ceaa.187240.0078.GAE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,176 +62,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BbQMCkDW2fx+LglrOi1RAg--.138S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrAw13tw1DJFyfJF48Cw4kWFg_yoWxXFb_ua
+	4DXF93Ww4UXrn2ga1UKF17tr9xGr48Wr17XrykKrZrAr9ayF9rWFZ8KFyrCryI9ws2vrW5
+	JwnIv34xZw12yjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
+	0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7MxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWI
+	evJa73UjIFyTuYvjfUY3kuUUUUU
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUJD2sIS1kirAAEs5
 
-From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Hi,
 
-When console logging is temporarily disabled via syslog(2)
-SYSLOG_ACTION_CONSOLE_OFF (e.g., "dmesg -D" or Plymouth during boot),
-do_syslog() stores console_loglevel in saved_console_loglevel and later
-restores it on SYSLOG_ACTION_CONSOLE_ON (e.g., "dmesg -E" or
-plymouth-quit).
+Thanks for the report.  This crash is from v4 of the series, which lacked
+the guard for the URB array in the probe failure path: line6_init_pcm()
+publishes line6->line6pcm before creating the URBs, so a failing probe
+reaches line6_pcm_disconnect() with pcms->urbs == NULL.
 
-Commit 1aaad49e856c ("printk: Restore previous console_loglevel when
-re-enabling logging") clears saved_console_loglevel on
-SYSLOG_ACTION_CONSOLE_LEVEL ("dmesg -n") so an explicit loglevel update
-implicitly re-enables console logging. However, /proc/sys/kernel/printk
-uses proc_dointvec() directly and leaves saved_console_loglevel stale.
-If systemd-sysctl sets kernel.printk (e.g., "4 4 1 7") while console
-logging is disabled during boot, a later SYSLOG_ACTION_CONSOLE_ON
-silently overwrites console_loglevel back to the old saved value (e.g.,
-7), flooding slow serial consoles with notice/info messages.
+v5 and v6 already contain the fix:
 
-Move saved_console_loglevel to file scope and wrap proc_dointvec() in
-printk_sysctl_set_loglvl() to reset saved_console_loglevel to
-LOGLEVEL_DEFAULT on successful writes, while leaving it intact on reads,
-empty/invalid writes, and non-zero-offset writes ignored under
-SYSCTL_WRITES_STRICT. Because /proc/sys/kernel/printk always writes
-starting at console_loglevel, valid offset-0 writes clear
-saved_console_loglevel even when re-writing the current loglevel (e.g.,
-kernel.printk = "1 4 1 7"), matching SYSLOG_ACTION_CONSOLE_LEVEL
-semantics (at the cost of also clearing it if a caller rewrites
-console_loglevel solely to adjust later fields).
+	/* May be called when the URB creation failed during the probe */
+	if (!pcms->urbs)
+		return;
 
-Serialize saved_console_loglevel and console_printk[] updates across
-do_syslog() and /proc/sys/kernel/printk with a dedicated
-console_loglevel_lock mutex (using READ_ONCE/WRITE_ONCE for
-console_loglevel to match proc_dointvec()), keeping syslog_lock scoped
-to ringbuffer reader state and avoiding contention or lock-ordering
-dependencies with syslog readers and console registration.
+	v6: https://lore.kernel.org/all/20261122104039.7160-1-25031212351@stu.xidian.edu.cn
 
-Fixes: 1aaad49e856c ("printk: Restore previous console_loglevel when re-enabling logging")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
----
- kernel/printk/internal.h |  2 ++
- kernel/printk/printk.c   | 50 ++++++++++++++++++++++++++++++++++++----
- kernel/printk/sysctl.c   |  2 +-
- 3 files changed, 48 insertions(+), 6 deletions(-)
+v6 applies to the reported base (9437ee8b6cf6) and passes the compile
+check, so no separate fix is needed.
 
-diff --git a/kernel/printk/internal.h b/kernel/printk/internal.h
-index 85fbf1801cbe..8bae853c64b7 100644
---- a/kernel/printk/internal.h
-+++ b/kernel/printk/internal.h
-@@ -10,6 +10,8 @@
- void __init printk_sysctl_init(void);
- int devkmsg_sysctl_set_loglvl(const struct ctl_table *table, int write,
- 			      void *buffer, size_t *lenp, loff_t *ppos);
-+int printk_sysctl_set_loglvl(const struct ctl_table *table, int write,
-+			     void *buffer, size_t *lenp, loff_t *ppos);
- #else
- #define printk_sysctl_init() do { } while (0)
- #endif
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 5dbcf8a9909b..c6d2bec573b6 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -1737,11 +1737,17 @@ static void syslog_clear(void)
- 	mutex_unlock(&syslog_lock);
- }
- 
-+/*
-+ * Protects @saved_console_loglevel and serializes syslog(2) and
-+ * /proc/sys/kernel/printk updates to console_printk[].
-+ */
-+static DEFINE_MUTEX(console_loglevel_lock);
-+static int saved_console_loglevel = LOGLEVEL_DEFAULT;
-+
- int do_syslog(int type, char __user *buf, int len, int source)
- {
- 	struct printk_info info;
- 	bool clear = false;
--	static int saved_console_loglevel = LOGLEVEL_DEFAULT;
- 	int error;
- 
- 	error = check_syslog_permissions(type, source);
-@@ -1782,26 +1788,32 @@ int do_syslog(int type, char __user *buf, int len, int source)
- 		break;
- 	/* Disable logging to console */
- 	case SYSLOG_ACTION_CONSOLE_OFF:
-+		mutex_lock(&console_loglevel_lock);
- 		if (saved_console_loglevel == LOGLEVEL_DEFAULT)
--			saved_console_loglevel = console_loglevel;
--		console_loglevel = minimum_console_loglevel;
-+			saved_console_loglevel = READ_ONCE(console_loglevel);
-+		WRITE_ONCE(console_loglevel, minimum_console_loglevel);
-+		mutex_unlock(&console_loglevel_lock);
- 		break;
- 	/* Enable logging to console */
- 	case SYSLOG_ACTION_CONSOLE_ON:
-+		mutex_lock(&console_loglevel_lock);
- 		if (saved_console_loglevel != LOGLEVEL_DEFAULT) {
--			console_loglevel = saved_console_loglevel;
-+			WRITE_ONCE(console_loglevel, saved_console_loglevel);
- 			saved_console_loglevel = LOGLEVEL_DEFAULT;
- 		}
-+		mutex_unlock(&console_loglevel_lock);
- 		break;
- 	/* Set level of messages printed to console */
- 	case SYSLOG_ACTION_CONSOLE_LEVEL:
- 		if (len < 1 || len > 8)
- 			return -EINVAL;
-+		mutex_lock(&console_loglevel_lock);
- 		if (len < minimum_console_loglevel)
- 			len = minimum_console_loglevel;
--		console_loglevel = len;
-+		WRITE_ONCE(console_loglevel, len);
- 		/* Implicitly re-enable logging to console */
- 		saved_console_loglevel = LOGLEVEL_DEFAULT;
-+		mutex_unlock(&console_loglevel_lock);
- 		break;
- 	/* Number of chars in the log buffer */
- 	case SYSLOG_ACTION_SIZE_UNREAD:
-@@ -1855,6 +1867,34 @@ SYSCALL_DEFINE3(syslog, int, type, char __user *, buf, int, len)
- 	return do_syslog(type, buf, len, SYSLOG_FROM_READER);
- }
- 
-+#ifdef CONFIG_SYSCTL
-+int printk_sysctl_set_loglvl(const struct ctl_table *table, int write,
-+			     void *buffer, size_t *lenp, loff_t *ppos)
-+{
-+	loff_t pos = *ppos;
-+	int old_loglevel;
-+	int err;
-+
-+	if (!write)
-+		return proc_dointvec(table, write, buffer, lenp, ppos);
-+
-+	mutex_lock(&console_loglevel_lock);
-+	old_loglevel = READ_ONCE(console_loglevel);
-+	err = proc_dointvec(table, write, buffer, lenp, ppos);
-+	/*
-+	 * Implicitly re-enable logging to console. Under SYSCTL_WRITES_STRICT,
-+	 * non-zero-offset writes return 0 without updating table->data, so
-+	 * require either offset 0 or an observed console_loglevel change.
-+	 */
-+	if (!err && *lenp &&
-+	    (!pos || READ_ONCE(console_loglevel) != old_loglevel))
-+		saved_console_loglevel = LOGLEVEL_DEFAULT;
-+	mutex_unlock(&console_loglevel_lock);
-+
-+	return err;
-+}
-+#endif /* CONFIG_SYSCTL */
-+
- /*
-  * Special console_lock variants that help to reduce the risk of soft-lockups.
-  * They allow to pass console_lock to another printk() call using a busy wait.
-diff --git a/kernel/printk/sysctl.c b/kernel/printk/sysctl.c
-index f15732e93c2e..a2c204320898 100644
---- a/kernel/printk/sysctl.c
-+++ b/kernel/printk/sysctl.c
-@@ -25,7 +25,7 @@ static const struct ctl_table printk_sysctls[] = {
- 		.data		= &console_loglevel,
- 		.maxlen		= 4*sizeof(int),
- 		.mode		= 0644,
--		.proc_handler	= proc_dointvec,
-+		.proc_handler	= printk_sysctl_set_loglvl,
- 	},
- 	{
- 		.procname	= "printk_ratelimit",
-
-base-commit: 9437ee8b6cf607e883b36e44bd755968daaebd48
--- 
-2.43.0
+Thanks,
+YuanZhe Liu
 
