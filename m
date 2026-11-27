@@ -1,57 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.68
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795745678;
-	b=gb/wropfuUci0nYBcZGQBg0CaIzMo5liBaSobxMWf/ubSCT6lBw5lOjJZSFgwlJXM8/R
-	 QJcWzgp2GYBDAK40CXB+DrzpjK5SYBRK2+uZeQ0EGC8s0MT07f0AceWApMV4ky9oDv9s8
-	 4bAJJy6TBmt8GnUFkDILCcr70Dogwlsud7rJrVXzFt0VtKmHbEw0TWkSCtW0KhPU7DyM6
-	 BwcxDDeyDllb1tN5mQ/1W8m3Nq+EudYb2x06QecH5WYvRx0fkrlcPRE5Qa93DFy2I3dxM
-	 SWIqkb4d1WbdBf5SrV+K5zcAdmBxg1ueRAZxmQPrxbthMXOZzfsIy3SX7eUu5hk3rNA==
+	t=1795745714;
+	b=2GRRLpTLoFK71Lev97F4SWj/zMf8TDZ9J31Cp8jEc6m0SL0wp1qKvTAIm1cNe0L15mNa
+	 ahsCB4Atjhyk0uxh8YxGAZfNhq+G/k+kVFsawiDC0RA3EhuAfN+r77zL9nCItEsAgVIXu
+	 ptD1sO2E/Hm5v6XVmJQFXaGtNPXConFZANFrd3Ai5mizgzxXZX0dUkdIzDlmlnEwxjDUk
+	 aD1hidi2L4z15E/l3rOkGOQyuwL40ptW+Aa4JLC/Cmm1HcvR/R6w0UpC+ZmO99L4toTN6
+	 r2pbfJyQ1ivYlywx/GsV3o+07LhxG9nXHVfRUbyaNQXPTr31faQYc9JBvnLLc+MkcBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795745678;
-	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=G1B15ny8r70aWtqYGkWccyTxg3wcjdom6IsqnICi+1E=;
-	b=aPIe/KPwy0RCh+nVvjeAp/1k5xhySsiSBy0+0qwk3pXRu8kQoTqowHSznqoIOhIlUwYo
-	 8ARc/JvdwrNhySxvvWsGlCB6ngYZ7By0cFzF5ExkU34JdqG+aQ8DEup3oUNwOs5+Dbg1+
-	 nvHuDnrzoOHKY3Sgqb9rG8RgL91hXJ7fG9FqBLMS++qQ7MsqGsjGo0oBSh7SWaKE4ZuPx
-	 +vr1UA7F6MWGOYPTDfZRR50G5Yf5XM7x0ccoWzSn0TVc9vndzf9+nQi9IVx6maHwRb/OH
-	 oPR2JA46sxROpROu0WityhQggVpQsgnSXI5Pk49+YMRzVmTtMBO8D9HaTpq7VAApEPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745714;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:References:Content-Type:Date:
+	 Message-ID;
+	bh=h1ArAbbh+Nj6+8II10ytomm7q9koo3eQf1sW7tmJxyM=;
+	b=vrwcDHUfWbN671/mfBa/wi1ucrLjnF5+ecGTGG402UwGal3AQ3+sQ/OTGYC8zBJ3nwHh
+	 mNvnHIoLLk37tX522dHrycMTij3+aGcR3fRisaNTPsXxJZ+f6j/5TFuF1Kq62Lm2jc4fc
+	 p5VYjnf3GDq83IhXm1Qy+8LnONmkVO6fKGKzF4YHtm3ps9Ypra39lUHKbc68h0xukVe/O
+	 OZn0N+YnQwem/ZawtplGfSZSU0djLdk2M8UgdsF4PMAQC7MgX4C3Dppd7BKxb+TtkWK0E
+	 Rbm5huFqg9rBbovVhvIqQQGxm9bfGUusVSR3wE43NYNTuz//9kWY4evoJ+eX0fyfSNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=myth5.com;
-	spf=pass smtp.mailfrom=myth5.com;
-	arc=none smtp.remote-ip=115.124.28.68
-Received: from out28-68.mail.aliyun.com (out28-68.mail.aliyun.com [115.124.28.68])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sdsq5qhN;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8840E606A31E;
-	Fri, 27 Nov 2026 02:14:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8840E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=myth5.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=myth5.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.09420933|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0179708-0.0136425-0.968387;FP=12537866024497197795|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033024148021;MF=myth5@myth5.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.kB472c2_1795745656;
-Received: from precision-5560(mailfrom:myth5@myth5.com fp:SMTPD_---.kB472c2_1795745656 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Fri, 27 Nov 2026 10:14:25 +0800
-From: "fangzhong.zhou" <myth5@myth5.com>
-To: mika.westerberg@linux.intel.com
-Cc: "fangzhong . zhou" <myth5@myth5.com>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	Mika Westerberg <westeri@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Hans de Goede <johannes.goede@oss.qualcomm.com>,
-	Dell.Client.Kernel@dell.com,
-	linux-i2c@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: acpi: Limit DLL0945 100 kHz quirk to Dell Precision  5560 and XPS 15 9510
-Date: Fri, 27 Nov 2026 10:11:54 +0800
-Message-ID: <20261127021203.35477-1-myth5@myth5.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261120071924.GI229695@black.igk.intel.com>
-References: <20261119143218.586632-2-pmenzel@molgen.mpg.de> <20261120071924.GI229695@black.igk.intel.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76852606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:15:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76852606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sdsq5qhN
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b904d10882so3163473b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:15:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795745714; x=1796350514; darn=vger.kernel.org;
+        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=h1ArAbbh+Nj6+8II10ytomm7q9koo3eQf1sW7tmJxyM=;
+        b=sdsq5qhN5dmS7dLj4XnR8rPB3KKvR8KbIHitgjRlB7ObsgQgM4C+622YeHltjcGIaF
+         zBJgLrIRJuVzPhP8rGXpv2INY7HE/mx8unNhyIZ+nMmHNkrHc7pD4huKWXoh/uo/QfZu
+         8Mk4qcTbBJw5E6CWpI0LvzKm6pRdcnNwJxtN7HNfTVA4JWTHr7osJ/tfhHfe2xTUFyLA
+         WH8lcSxnLDpJAfZvMfq4BE5igGr/MbDFYeBLkOQzuFc6Q1pNzCDohFPFf4Ky0CmaaW9C
+         DPvN43vMLcU/VFj707tmQ4T1mEbYpTaldm+ZNOqhpMmGJQJ1EhcTsUTe4HIYgH+CgWx/
+         w8vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795745714; x=1796350514;
+        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=h1ArAbbh+Nj6+8II10ytomm7q9koo3eQf1sW7tmJxyM=;
+        b=IgpuaobNL6+lc2SH7C7OKxBPawa9Lly2myoOiM+VgMz+6JhAy25jetSI16aGeIUXFf
+         rCqm9LOWrHwZ2mzVaYjGp8QyeS7VzBSQZPYP4vk3o8OqugLzCMh5rUsDoX4Y0uU0xHeS
+         7uY+CPk+C/+W3xKVeUIufOXho77WBOLDXvDVO07/nfRbMAUSxWSAbcL5af4+VgLF/Lx0
+         OWmFqjX1p+xP3ou7+5EaKvq8IDRS8rMY3OSgFlbP47/oRlEjiiknWlbz6c9ptxfom1VT
+         JLvj+TX/aqxJiex4NglL+KzoS41HW9ABit4+x1QSyJ/1/KXwHCJ5G897qqAkVLfO3nJn
+         AnQw==
+X-Forwarded-Encrypted: i=1; AL+hErEJv/ZVb2zYS5YDFH1XAV3tSLQ9Bpcok/r4lkbpHvbOIfA4hJGLQrTimutuIGiXoUWbRekQjHwav8Riex8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8hGw9eJNJXweC1MmU5saLnSBRMNV6kWNyD5NZQzNlofaaOkq5O
+	iNjqP5t63LT/i7bkX7Mm1B59mo1ITKZq8AItSs8oCjNm16xHyHsxX5to
+X-Gm-Gg: AZFdTZdD462v/luOgePaBTMVAw3PqHVT2s/QuJIHQDL5Y1v0asiErl1oOgzMiyAJy6Z
+	rgmpl+9RewzR3rPR2FoxQsOzU3LKTP1EpLCHNSr02LdEHrbNDneEG2qVbATp2s4GBOFrKYrSe7J
+	iDJR+ebeFmOHRy43UWkmoJCB65owR3v4JcFpl6OXci788AX+A5Imx7IwiRA6X6eEG9RRq8GC+xC
+	EA9Te2SCR0FzVvWuryJNF14nPPMYfXMUyV9NiyH1D/McmFcfop9VkMS526YfT9VtxpWgJOX8ofN
+	yUw5bnVZzgaIroXwS4DD1qupNbabSEGaOpoW7F4hd6NQvx2GAf6keNBzcNjA1lDXWb1eOhpxw1Z
+	ch01EnJTAL7S76EFlvdtvKUof+PLtqkNtBZEv+y4j7uOBnznJywtql1ctTrkfOxwGk8LC0Q9A8b
+	2zQARa8xf/WRlYmMmPHT1FBsNQBBfuNXsudcD0k3JHoBCYmx4LvdR+xRL22UOF6W2c9EzxtsH68
+	llxvEEOLm8QDQZIz1iAkBOFc99m+cOZVjmkAV4UHeoXfxi+6uXDwOPpdhJU54R+Wz3pUuMA+k3J
+	9pR7MFQ8NwaMASh6bX9qL4ESyEWFYTPRHgHtumbGB8HBuVxNyZTvoVlzjxGgzVzrMx2mgOV5aRg
+	=
+X-Received: by 2002:a05:6a00:c4cb:b0:882:2b16:c314 with SMTP id d2e1a72fcca58-8c922b00017mr13559729b3a.52.1795745713852;
+        Thu, 26 Nov 2026 18:15:13 -0800 (PST)
+Received: from mac.lan (114-45-165-38.dynamic-ip.hinet.net. [114.45.165.38])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077babfsm11807929b3a.5.2026.11.26.18.15.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 18:15:13 -0800 (PST)
+From: Ilia Snezhkov <iasnezhkov@gmail.com>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, broonie@kernel.org,
+ amergnat@baylibre.com, leilk.liu@mediatek.com, me@adomerle.pw,
+ devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH v3 0/4] soc/spi: mediatek: Add MT6789 PMIC wrapper and SPI support
+In-Reply-To: <0Af_vuU3D7JCxCsHmjyJZCQhptiOPd3Y325yrg4ufwjT3C5cz6cgJxU4CHY4qfES7Hhzcb-sxm0o7dj-diOzMJPCcw5bSyrYi5CWUNsXQus=@protonmail.com>
+References: <20261126031001.27288-1-iasnezhkov@gmail.com> <0Af_vuU3D7JCxCsHmjyJZCQhptiOPd3Y325yrg4ufwjT3C5cz6cgJxU4CHY4qfES7Hhzcb-sxm0o7dj-diOzMJPCcw5bSyrYi5CWUNsXQus=@protonmail.com>
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 10:15:08 +0800
+Message-ID: <179574570832.2422.15788597758077074271@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,74 +101,12 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 08:19:24 +0100, Mika Westerberg <mika.westerberg@linux.intel.com> wrote:
-> Hi,
->
-> On Thu, Nov 19, 2026 at 03:32:16PM +0100, Paul Menzel wrote:
->> Commit 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
->> forces the I2C bus to 100 kHz for all devices with the ACPI ID DLL0945 to
->> work around a sluggish cursor on the Dell Precision 5560. But DLL0945 does
->> not identify a touchpad model. Dell uses it for touchpads from different
->> vendors:
->> 
->>     System                Touchpad
->>     Dell Precision 5560   ELAN 04F3:311C
->>     Dell XPS 15 9510      ELAN 04F3:311C (bugzilla #214597)
->>     Dell XPS 13 9310      Synaptics 06CB:CDE6
->> 
->> The ELAN touchpads are the ones known to need 100 kHz, but the Synaptics
->> touchpad of the Dell XPS 13 9310 is slowed down without need. Its DSDT
->> specifies 400 kHz, and Linux logs:
->> 
->>     i2c_designware i2c_designware.0: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
->> 
->> The touchpad scans every 7.1 ms (scan time field in the input report), and
->> i2c-hid reads wMaxInputLength (64 bytes) for each report. Tracing the I2C
->> transfers for 30 seconds of moving a finger on the touchpad shows:
->> 
->>                              100 kHz   400 kHz
->>     read time (median)        7.3 ms    2.5 ms
->>     bus busy                   87 %      36 %
->>     reports per second          111       140
->>     frames lost                18.6 %     0 %
->> 
->> At 100 kHz the host cannot keep up with the touchpad, and every fifth frame
->> is lost. At 400 kHz all frames arrive, and no sluggish cursor was noticed.
->> 
->> So, only apply the DLL0945 entry on the Dell Precision 5560 and XPS 15 9510
->> by pointing the entry's driver_data to a DMI table, which can be used to
->> restrict other entries in the same way.
->
-> Yeah, we should really figure out how this works in Windows. I'm sure they
-> don't have such a quirk list so maybe it's up to the vendor specific
-> drivers to "tune" the bus to their needs whereas in Linux we obey the ACPI
-> description.
->
->> Tested on the Dell XPS 13 9310.
->> 
->> - The `[Firmware Bug] … forcing it to 100000` line is gone from dmesg.
->> - Re-probed the touchpad’s I²C controller with debug output on, and it
->>   reports `Bus speed: Fast Mode (400 kHz)`. The touchpad came back up
->>   under hid-multitouch.
->> 
->> Fixes: 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
->> Link: https://bugzilla.kernel.org/show_bug.cgi?id=214597
->> Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>
->> Cc: Dell.Client.Kernel@dell.com
->> Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
->
-> Acked-by: Mika Westerberg (Intel) <westeri@kernel.org>
+Hi Roman,
 
-From my subsequent testing, the cursor lag issue still appears when the
-laptop is under high load or any other reasons, so my earlier patch did 
-not fully resolve the problem.
+Good point — there is no dependency between pwrap and spi here. I will
+split this into a standalone pwrap series and a separate spi-mt65xx
+binding patch in v4, and move all review-history notes below ---.
 
-I then replaced the original touchpad with a brand-new unit. After more
-than one and a half months of continuous testing, the cursor lag has not
-reappeared.
-
-I will keep testing to confirm whether the issue is completely gone.
+Best regards,
+Ilia
