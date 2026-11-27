@@ -1,62 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795787883;
-	b=tPYm8FTDFKu0bKcQH2gwaCdEUaXyTZPlbRNU17dLmSqFTcQFC2x1DWRJZGIh4Z3lqRji
-	 Mxu/9aWmwBlrCqSf6vVANxtFFf1Uuj3PL2bjZc0blp20PShg5YPRdmo9LH2jhmSyqjjpb
-	 GAa+rhzUXNcrFyasdWrTUHQcmUs0//XOWX3rISCwQm0iPdOnNacehstyqgkUAUrBkZVZi
-	 XPt+yKMpsqLcaLssPvMbSGGotpilb5zXE57eMwFgkNGUAttW1IfatHZgHFXRabdeP5L+E
-	 p5Q38MZVPgNRfHrB0cTFExefi682YhzGj0C4najjUJTlLRDTXrjdPI/aKa14pm16S5A==
+	t=1795787896;
+	b=QaEPzSYxFtpQia3VWemcZzhkbeD4jJxk08XJB0IHzeRX/jWLtU+zsCWlWdqxfSmdKjmD
+	 eP0IZFOpZIv2HFu2fpgR5YqsC4vQrG0oeksDE77uBpqwKLcELH/lvQoDHGZWsb1K6TOjs
+	 ttuuZ6T2CLqAtM65uykeOsY1E9G+APDQ2kchsZZw2jjM++L70wwGH0capPM+qJ7Z991IU
+	 pvx0NNi9jcqcMHu7EhFVGB4m114vI4cUCE0z/3fmoFo8SIfHuceCkmrWbvzNuSvGBrKX8
+	 70bqd/MSrUaFwS6t+m2cWjOHyqu0b0lKORucPf4NfXZjCbjDsmSjdTEzgBKjsuiPnDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795787883;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=szVgaibry9oYc6Hb9Fvj7Sr2KhUFb4A0TTjlaHwIMpw=;
-	b=uoFjmbEzFtQ6Tq6sX798YB8HkneU6Rm2fPn5TF6imyvVtGgfFJksDaJTIPMo6+V/dqL6
-	 ebX+bMDfynxOMpaZnP32aLmbwvEuDGdjGT4Huwa7sDSKv2iWiBEzXdofA3G8VUVrDXQQv
-	 HAsoZT+du+suqYKfuTYDlcYfJY1HDa2hYIXmnOVF90sPUXhx4lVtqCLccEsYcblPu25Va
-	 bzTDFzcfNPydjC9jJzXFrF7NRLROFv5Jeefyowg9B0cfBOAUTTwgF+Szvso4h2Rm8ON2y
-	 ayzTWs3dXvkfcLRIuAwTuC5FhyJ5mqeUZgZITw0R9wZSNL6yh4FU7K7qkTRG5MnEJOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795787896;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=f1cpR8UC2K9Hh290rl3zoXoR37d6lYjg5P7GDWf+Pv4=;
+	b=RHjtkf1/dqDWJFM5EZil/QZT/UDxspR+8dRWaxsT8a+BPOvZuKFq4CFJH0SMoskWhol2
+	 5vM0CsNh+jcpVGXfnQLOE9HhBuEweuWx/gGXk399J0+1zEdJZwkuH/D8CD+wFWNREArXY
+	 Bx84oMjxab4lDIGZ8gZA2jIZOMAbG2/8haX/oTNP4fLIvmg8x6fJ5vFdM5QHrRtAyH5iR
+	 kcFtmmmf+68ecgzihnLWmsnyx/YB7jucodCLA5vJDR4e5W4Eho4hKnxfqksjYSSX+pkKu
+	 iRoMhHM3cF18JstRIwG1PzMba8FC9PIaPtdY8QGSbgJLvJOlRp9B0K9GJq2xvvliD+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BcABvHmf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mwr1txn7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26FFF606A31E;
-	Fri, 27 Nov 2026 13:58:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D553606A31C;
+	Fri, 27 Nov 2026 13:58:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BcABvHmf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69AAD1F000C1;
-	Fri, 27 Nov 2026 13:58:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mwr1txn7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E9461F00897;
+	Fri, 27 Nov 2026 13:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795787882;
-	bh=szVgaibry9oYc6Hb9Fvj7Sr2KhUFb4A0TTjlaHwIMpw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BcABvHmfza53hkvkRI8sqsQ5thyn9Xowx0/UhTnOWBxZI+NyyLhd2lRlB0ST9OXU7
-	 JN6BlRmPb0vEg7DOItyaeqStrryrIyK+WeJIWHHU3Yx/Q0ZHa7N4mj2zxX1ShqxHTU
-	 omQUfmk/W/UoUBxkr0xWbT3spinePEW06PAHWj/kbhV1wE/eMNa9uB0O+Ruo8i29Zd
-	 DqmBZyxrmPs32IkL+HrDOxNzRaSk10bZOxns/IAdPFAi7P3UBPZKPSwheYLl+53L9v
-	 FiAod6ycSu12u4e0MZPXbthsxCOVTpYv+qKa5Z1nKEzaJ3LxwOhjtd7oKvkIcS8wMx
-	 zxK7tu+ww4aCQ==
-Received: from johan by xi.lan with local (Exim 4.100.2)
-	(envelope-from <johan@kernel.org>)
-	id 1xWwSe-00000002Cl8-0VUQ;
-	Fri, 27 Nov 2026 14:58:00 +0100
-Date: Fri, 27 Nov 2026 14:58:00 +0100
-From: Johan Hovold <johan@kernel.org>
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] sh: kfr2r09: fix i2c adapter leaks
-Message-ID: <awmMaPr3TCrM2Qz7@hovoldconsulting.com>
-References: <20260508120601.426115-1-johan@kernel.org>
- <aiwtIkdGNMFqJmHk@hovoldconsulting.com>
- <06c0871d4999dcb09aeca6bbf6a6eb282147d606.camel@physik.fu-berlin.de>
- <anx_ntq7VbbuQtkF@hovoldconsulting.com>
- <ar5afD7Sx-hBgTxp@hovoldconsulting.com>
- <7e991a2c3cc33696ea8d15734b89b67c8bb46f5d.camel@physik.fu-berlin.de>
+	s=k20260515; t=1795787895;
+	bh=f1cpR8UC2K9Hh290rl3zoXoR37d6lYjg5P7GDWf+Pv4=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=Mwr1txn7jxQbejBY5GLGQ0t+lgUPqvLYv6L9blRBfMR7VxoKA4rZm6Dmm7ILpH1gW
+	 o/Dm9uuaxFmgpPqYLRGdXbE2hghbvSsphBP3k6S6pYnyQYKvK/VC1O6W0wAjj2o8jK
+	 BFSOXBhJiocESx7bjUz8XyD8Xki1y7dymQIHMlb+vuMhNaRdSsuMc+vzs+Vy/7OMYC
+	 dQYhtmcIw8YGWicI2iUJx4ezMLQHA8B4/KsNKLH7a/6QjZJa896fOK/0ATMJR4uVt5
+	 AdnISnq9i30+Teum8o+Jeh9iDXUXGYqjlzsV016HNoS/+ceXxqDGpmfxzv23X+0FUh
+	 rAGob45wrO+Pg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,39 +49,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7e991a2c3cc33696ea8d15734b89b67c8bb46f5d.camel@physik.fu-berlin.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] phy: rockchip-usb: fix reset control leak
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Xia Yan <yanxia@cmss.chinamobile.com>
+Cc: vkoul@kernel.org, linux-phy@lists.infradead.org, 
+ neil.armstrong@linaro.org, mani@kernel.org, heiko@sntech.de, 
+ p.zabel@pengutronix.de, ayaka@soulik.info, kishon@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, yana06070@163.com
+In-Reply-To: <20261115042640.426517-1-yanxia@cmss.chinamobile.com>
+References: <20261115042640.426517-1-yanxia@cmss.chinamobile.com>
+Date: Fri, 27 Nov 2026 19:28:07 +0530
+Message-Id: <179578788741.13164.8538367481844332594.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2030; i=mani@kernel.org;
+ h=from:subject:message-id; bh=2LC0gv6PbFQzQ2shw21mBeIjq7U/AJqmn3yIRLpECSI=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCYxy/tnNAqKySBaZmAGd4rkFqYGz3dced8FzB
+ MTfEoh13lWJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawmMcgAKCRBVnxHm/pHO
+ 9VN+B/98sdGMuznYvCHZlcxI085NqcsaU/rEbhG5UbvhGEpYFkj6/u8oKd3mooQvZlX2tGjFKdV
+ PgcK55C6Fo0i/ducIa1zXTckPf1O7vvQvzY0EgqgyWHs2PKM8GAzMU5vZ+34tmkjZRdtNGHZz40
+ 9aWNyUo26t4Ww9pu+b9GUPYPWWZiU+Yl2/5s53mBHmYoJP2R0Y8KJxoqIt3WMBJKEIXUa8bYSuE
+ LC6txnqr4S9bB/hm0prdJI1G3U+1qWV+oTNJEgt7Yit7OlshzUtFgRgKPMi+3gmeRP8rhOueZf0
+ Ak4FJMjVf2PMxwknn5y1NRgYRiapdx6ymbozXFKFnU5DH/d1
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-On Thu, Oct 01, 2026 at 06:41:02PM +0200, John Paul Adrian Glaubitz wrote:
-> On Thu, 2026-10-01 at 15:05 +0200, Johan Hovold wrote:
-> > On Wed, Aug 12, 2026 at 04:13:50PM +0200, Johan Hovold wrote:
-> > > On Sat, Jun 13, 2026 at 07:11:02AM +0200, John Paul Adrian Glaubitz wrote:
-> > > > On Fri, 2026-06-12 at 18:00 +0200, Johan Hovold wrote:
-> > > > > On Fri, May 08, 2026 at 02:05:59PM +0200, Johan Hovold wrote:
-> > > > > > The kfr2r09 platform setup code fails to drop the references it acquires
-> > > > > > to the I2C adapter.
-> > > > > 
-> > > > > > Johan Hovold (2):
-> > > > > >   sh: kfr2r09: fix i2c adapter leak on USB gdaget setup
-> > > > > >   sh: kfr2r09: fix i2c adapter leak on serial console setup
-> > > > > 
-> > > > > Can these be picked up now?
-> > > > 
-> > > > I will try to review some patches this weekend.
-> > > 
-> > > Any chance to get these into 7.3?
-> > 
-> > Can these be picked up now?
+On 2026-11-15 12:26 +0800, Xia Yan wrote:
+> rockchip_usb_phy_init() acquires a reset control from each PHY child
+> node but never releases it on probe failure or driver detach.
 > 
-> Yes, I'll pick them up for v7.4. I have already reviewed and merged
-> some patches for v7.4. I need to perform some more tests but yours
-> should go in with v7.4 as well.
+> The leaked exclusive control prevents a later probe from acquiring
+> the same reset. Since lookup errors are converted to NULL, subsequent
+> PHY reset calls silently skip the hardware reset.
+> 
+> Register a devres action after a successful lookup to release the
+> control on probe failure and detach. Keep the child-node lookup and
+> the existing handling of lookup errors.
+> 
+> Found during review of reset-control lifetimes.
+> 
+> Fixes: 0f74ab59ce87 ("phy: rockchip-usb: use rockchip_usb_phy_reset to reset phy during wakeup")
+> Cc: stable@vger.kernel.org
 
-They apparently did not make it into 7.4. How about 7.5?
+Stop CCing stable list for these minor fixes, please.
 
-Can also pick this one up along with these?
+> Signed-off-by: Xia Yan <yanxia@cmss.chinamobile.com>
+> ---
+>  drivers/phy/rockchip/phy-rockchip-usb.c | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-usb.c b/drivers/phy/rockchip/phy-rockchip-usb.c
+> index c5a2853a63d3..79b3315b6590 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-usb.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-usb.c
+> @@ -183,6 +183,11 @@ static const struct phy_ops ops = {
+>  	.owner		= THIS_MODULE,
+>  };
+>  
+> +static void rockchip_usb_phy_reset_put(void *data)
+> +{
+> +	reset_control_put(data);
+> +}
+> +
+>  static void rockchip_usb_phy_action(void *data)
+>  {
+>  	struct rockchip_usb_phy *rk_phy = data;
+> @@ -219,8 +224,15 @@ static int rockchip_usb_phy_init(struct rockchip_usb_phy_base *base,
+>  	}
+>  
+>  	rk_phy->reset = of_reset_control_get(child, "phy-reset");
+> -	if (IS_ERR(rk_phy->reset))
+> +	if (IS_ERR(rk_phy->reset)) {
+>  		rk_phy->reset = NULL;
+> +	} else {
+> +		err = devm_add_action_or_reset(base->dev,
+> +					       rockchip_usb_phy_reset_put,
+> +					       rk_phy->reset);
+> +		if (err)
+> +			return err;
+> +	}
 
-	https://lore.kernel.org/all/20260812142636.55563-1-johan@kernel.org/
+Why not devm_reset_control_get()?
 
-Johan
+- Mani
+
+
