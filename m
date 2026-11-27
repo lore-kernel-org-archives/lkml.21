@@ -1,92 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789533;
-	b=ITNAXwudQXYVYHTJa4WI+GD26PyhgR2ycV5Cz+fY4NezrOjRLcrP3p7o2ferj9Xg1fzA
-	 lBhZX5pGMtJKUL1sm9p9/fo63Rd5hjBZF2g8FQ5nMBXlyx9m/sZSGKC3YCA41YtJ3rPs5
-	 gCzze9M1Qhymdwot/6/xfWT1/TbEyp0Eeq6OJvUzljzg+jrSPEkeDNaFwYRtChjb4jdym
-	 iD2e/2ZY1LkBqSyJ7rguefc8r25lG25/IlVtVBZdvt7oQ4dnvJQKj582xVV2xvgn9QtiB
-	 Z0Czm0X4OXiWGqv9W+9mxdIxqBP6KXAWQBp4EZb0qSLb+BIhfMorQ2q0iux4CZrTmlw==
+	t=1795789536;
+	b=cxxPniZXZ2q1XmEYXZYfebZ/N+F8JB+8v1FSPkiiHreamzi2aZ+0I0Mp39F5JtrsmL9S
+	 BiYizrjuQVku4EChHCHtQjmvT4D2/0DmXtMx5oph2QzICEwBGwncZKLV7j5JA11/QS8D4
+	 Gqz0TBSnXM3iCzlV2KkkLPjY7fFqBOntXDut/JaVJmEXeA4/w37Akuk3c5dgxLuSoSI29
+	 aFX5DzEgLRAkMLlYtVs9sR/0W2HGjquPgp9uLkMhH6/ZY0Gxp4w5kaluZ+q9oAjQycBrx
+	 pGUmVXG6Zn3bhq3gG5Iun4UGBVevYYmMe6TuTLEHu9iRldhm7ULWoPxYYJAppGtSKzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789533;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=69Boeb8mRxWk2/KhwOa9TkdVF7ruaVgxWOjUsLjcTpc=;
-	b=d4wVbv6ui87SaEC8Y7N3DD1l6Yms+4T16zXsM/yzBC5D+c78FS7ir8B0Ns11Q6GFuihG
-	 9NKo4As5XZmjhXKXErKAoXFWbblwEAOvQDAsPxEwsFQ2nnMrJ/CtrLTXryp34OQohGXQL
-	 iaiOO1qLPM6W0KOVgBB3xI9uqe1aQOP8zaFlNCQ0hkQycvg01eeFEQj2/jKl0rMbUzEE2
-	 4M9V7gXSMHqSHWiLVgJf925YPbac/mLm2wW+Cvlata+hBZ5oXFlPOTxoyBRrMjb+9o6LD
-	 OYXoFB8pOglblKjw24TTJnPMxSS7h9CttoIOUM6k3Bl089LCx5dQNhoJgTcAjNysBlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789536;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=oIP6YsVJ0tzemJtkR4/F0RGkjUMxie6otevjRQEs/Zw=;
+	b=Us4/82agtZClfenp0LYES53O34t1/AXhkzrWG4RekYZERrsUkzspF5HGQrEUHriPi8U6
+	 lv33c19M4H7TCfGiikFu4SfCrmY+UNA17wErxTe08RaqmCQfn/bqYBwLiBOBkpCLjrE/X
+	 rkNQFH4pdmDgC7m31y8UcrnTt7PbpnN9Le1x7e6cCxuhm7W5WHRBbjQZrFabKUjveKKY8
+	 M7TFzLUehoXX29HE8LXrxin+gV0cHqV6g5fwLQe4HqpUx91CjZLv4TwM/ecw1wTkRYHad
+	 NLFKBsSHHPrSSSFenXimoOzbXg5GUH40DvJSAPfPWTpJppM5rys4JH42jhgP7C5R5tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ZDGkpVFV;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Nbd+2k2z;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41BFB606C2DF
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:25:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41BFB606C2DF
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC96D606C2F5
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC96D606C2F5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ZDGkpVFV
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4Uga3419210;
-	Fri, 27 Nov 2026 14:24:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=69Boeb8mRxWk2/KhwOa9TkdVF7ruaV
-	gxWOjUsLjcTpc=; b=ZDGkpVFVChFEKR0+HGRzJNBYnhG2tJ6KTUrekOfkh3eos0
-	JWtb0Z439xqCSM7cyeu1A/nM2TXkC8fEKHd057aD14q6MzaJ7blsCwHu2UreD3oU
-	O5Ul6pxJyK6yDdSNiZ23nrb5W/clPsNSkl3lUjjEJHdRzoyFyZy6ZDFA5LNYBnel
-	+VYgJnovTEHQVB8TcP7OlJBU/4ArwzFoduMqt+3KavLA8ZeItoqAlZS386gX4wzs
-	rQlmKsDxPrtmxgQycpb/uHIQDKZzJAq7qXxVO1yHarRgLMYI24mmqEEYdnIdC1C5
-	u1oSkPGLSnyUjgbrqQlMW7SCx7CaUJQhmt+mV4aA==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fap8sw-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 14:24:54 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4FdU3892940;
-	Fri, 27 Nov 2026 14:24:53 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j6ucctxb3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 14:24:53 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AREOpbt46465342
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 14:24:51 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5A4CC2004F;
-	Fri, 27 Nov 2026 14:24:51 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BD17B20043;
-	Fri, 27 Nov 2026 14:24:50 +0000 (GMT)
-Received: from osiris (unknown [9.111.4.254])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 27 Nov 2026 14:24:50 +0000 (GMT)
-Date: Fri, 27 Nov 2026 15:24:49 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Sascha Bischoff <Sascha.Bischoff@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 07/10] arm64: sysreg: Reject an enum value not written
- at its field's width
-Message-ID: <20261127142449.333656-B-seiden@linux.ibm.com>
-References: <20261127074426.50739-1-fuad.tabba@linux.dev>
- <20261127074426.50739-8-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Nbd+2k2z
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B134B1A1838;
+	Fri, 27 Nov 2026 14:25:34 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 73B116049C;
+	Fri, 27 Nov 2026 14:25:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 026A611E68FF4;
+	Fri, 27 Nov 2026 15:25:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795789528; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=oIP6YsVJ0tzemJtkR4/F0RGkjUMxie6otevjRQEs/Zw=;
+	b=Nbd+2k2zRxfdX4N7PZuOesTe7y9uTS4XxFCrwjSo3LlykwttKnd2QBPXS7PTjAeHu+DGsh
+	ub3eIakOiP6Hwf4eE4KcQ6YASWe65YaVejiDLnN5qvyijvuYpqqX5380WkqD+LdzgSxTeG
+	hHVt7tbvP1wXmxEl3y3Xj1L7/yArHiTLqkQjyFNFVzowU47sJHCqDoz7MDVHrXwR9Q6Ng6
+	cFg4OluANdGXIR+2n8CHr79haJq9g91aU7IpYD0AKFqSBfvfRvX+SutHyxGkqrS9FR19y+
+	EaljxuCCa79rQSzyVe7u74NkZpnNJezBU/S5NAko5jt+NEUgcla3e/xg4+kB9w==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Fri, 27 Nov 2026 15:22:38 +0100
+Subject: [PATCH RFC v2 16/35] spi: microchip-core-qspi: Consume dummy
+ cycles directly
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,55 +64,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127074426.50739-8-fuad.tabba@linux.dev>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX6LfmeZNZiicE
- U4DgzlPoQRTCYs72LTqt3tDI3u6sxFY2U7LRAj4ChcxmDKaJBnr1Gam369GUhfxxfGlHFyhcnfx
- T4UETxjBTmIft5qNMb5NpqiFmiLCYyOo48UUZBHtkA/euwk4FT5t/Jh81/xJ9Bp3lylhvnjSGSp
- nUtuzN9pwMtbrChsMnHeADh9r9QVRWUvysYcoic0wuKCxLQukGdVgPFF/9adR1eBBDiA+tctaAw
- YVwr7piFOpyWgCF49y5Jm0MIaGEYUklwgWpEdIadrHYxBsgQTibn7MwlL/+u90TrsYD7xKiNxY/
- I3Nc78wNC8pdGNyayldUxw8w97ShQ7aFf4ZdNzUnNF9EvmGjxZiZw3xJW529LFiUbB+F16TYEoJ
- KIi8ZQXs5rVfVm56qq0s9/KbODoBCN9ITJDR7vZ67ZFvkOfThYtZNf3OKOHiBjZySWucuoRtR+h
- v6sP3aoSsZTjOCisxHQ==
-X-Proofpoint-ORIG-GUID: siIcS3kY0a9R8TElJG9AbDqR2B53cKyZ
-X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b0992b7 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=OUEnCn56XahdxCnzIxUA:9 a=CjuIK1q_8ugA:10 a=ZXulRonScM0A:10
-X-Proofpoint-GUID: Qbkhe7uRqyNltyMZpenIPvCIZr7g46S4
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX1iX6K8X+ZL+K
- cKMF7vFrETr9bhI9wF0NtTNdLUDYvkLgsG1M+MISam7qTP+nDfS6whkvPzLVCRXM3nsOCtSGhZ7
- KJFWd/Y46FIn8vY+szd1/vYdou/1gBM=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
- clxscore=1015 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611270056
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-16-5c93f5e5d630@bootlin.com>
+References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
+ Yu-Chun Lin <eleanor.lin@realtek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Chris Packham <chris.packham@alliedtelesis.co.nz>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri, Nov 27, 2026 at 07:44:23AM +0000, Fuad Tabba wrote:
-> The generator emits each enum value as written and doesn't check it
-> against the width of its field, so a value wider than the field defines
-> a constant the field can't hold. The duplicate value check compares the
-> strings as written, so 0b01 and 0b001 in the same field pass as distinct
-> values, and the rule's pattern, an unanchored /0b[01]+/, accepts 0b12
-> too.
-> 
-> Require each value to be 0b followed by exactly as many binary digits as
-> its field has bits. Test it in the rule's action rather than by
-> tightening the pattern, so that a value such as 0b12 is reported with
-> its field's width, instead of falling to the generic "unhandled
-> statement" error.
-> 
-> Reviewed-by: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+The controller programs the dummy phase in clock cycles, but the driver
+converts the legacy dummy byte count into cycles. Advertise the
+dummy_cycles capability and use op->dummy.ncycles directly.
 
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/spi/spi-microchip-core-qspi.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/spi/spi-microchip-core-qspi.c b/drivers/spi/spi-microchip-core-qspi.c
+index c0ea65014d2e..80481011b83e 100644
+--- a/drivers/spi/spi-microchip-core-qspi.c
++++ b/drivers/spi/spi-microchip-core-qspi.c
+@@ -8,6 +8,7 @@
+  *
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -420,7 +421,6 @@ static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_devi
+ 
+ static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi_mem_op *op)
+ {
+-	u32 idle_cycles = 0;
+ 	int total_bytes, cmd_bytes, frames, ctrl;
+ 
+ 	cmd_bytes = op->cmd.nbytes + op->addr.nbytes;
+@@ -459,11 +459,7 @@ static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi
+ 	writel_relaxed(frames, qspi->regs + REG_FRAMESUP);
+ 	frames = total_bytes & BYTESLOWER_MASK;
+ 	frames |= cmd_bytes << FRAMES_CMDBYTES_SHIFT;
+-
+-	if (op->dummy.buswidth)
+-		idle_cycles = op->dummy.nbytes * 8 / op->dummy.buswidth;
+-
+-	frames |= idle_cycles << FRAMES_IDLE_SHIFT;
++	frames |= op->dummy.ncycles << FRAMES_IDLE_SHIFT;
+ 	ctrl = readl_relaxed(qspi->regs + REG_CONTROL);
+ 
+ 	if (ctrl & CONTROL_MODE12_MASK)
+@@ -561,6 +557,9 @@ static bool mchp_coreqspi_supports_op(struct spi_mem *mem, const struct spi_mem_
+ 	if (!spi_mem_default_supports_op(mem, op))
+ 		return false;
+ 
++	if (op->dummy.ncycles > FIELD_MAX(FRAMES_IDLE_MASK))
++		return false;
++
+ 	if ((op->data.buswidth == 4 || op->data.buswidth == 2) &&
+ 	    (op->cmd.buswidth == 1 && (op->addr.buswidth == 1 || op->addr.buswidth == 0))) {
+ 		/*
+@@ -601,6 +600,7 @@ static const struct spi_controller_mem_ops mchp_coreqspi_mem_ops = {
+ 
+ static const struct spi_controller_mem_caps mchp_coreqspi_mem_caps = {
+ 	.per_op_freq = true,
++	.dummy_cycles = true,
+ };
+ 
+ static int mchp_coreqspi_unprepare_message(struct spi_controller *ctlr, struct spi_message *m)
+
+-- 
+2.56.0
 
