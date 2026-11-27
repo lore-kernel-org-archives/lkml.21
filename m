@@ -1,81 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771442;
-	b=Hoc1sxURhDyWZTNvzaKMbp83A82Cj2xH6zYS3XqbCQ6sDUQNIj7PBuXeksG3meQT5fIR
-	 Zjrwg69L39axHPOnhhZiLq+e7mG9L8D391SOpJOIEyvKctHGnnyp1d9omxjHwtOSEh/f5
-	 LNGQSncbbf4lDEIXlQtRLIrbC0tdnSykdijWUmdWunJRibRC8u9cnVv15lH26Ye4fHinB
-	 eAxi4p9X/f+9IZUJtHtPSJWgsElYVTPM+RsPeqUMLpL/7souxyKH6aB6mIlRrjXUAnV7g
-	 3VyteAkBeqZjQbfW/EARHwXSMYiQQzv0HpEWFWkLo+OtFwGvCTUlRfmHr5487974ydg==
+	t=1795771445;
+	b=yiEUtdV6HqyUgI9+dO2Wn7X3EiWWy9kr7d7zRqL06RYewRRp+gFZQTwFYIx+zwbVQwTk
+	 AzdgjNW2Rd+zWeFqkugnsmwMRoRzy8k/tUslFzbjf/DRz2D5TSPsEtGFabzg7jfHAzq76
+	 88R9NEVfKIeooh+av4iaO03RGGTcLJgkP32FgvDExiDdrqMyCXCKYeq/NmRQSA/rwajaU
+	 C2xRXNXDj9CwFjcWTlKY1NcEkzcnMseWep9U6A098gVGTbIAs2yNQDBiYabwURH7DAeMe
+	 pzilfRKTLt3RkCSy7LMeupW35cAy4BzQd9u2fKGAiJisR3wPUae8TKiFB+EUxkeU0aQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771442;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=dcm3vEaafSdM/C5J8kdxevbXyamY5QJ7Qrldbj24bk8=;
-	b=b622evEGguf5bmzbUUljpqrvnU6/UOb+MRgJPw8GEBqumy1JATm2f7nuYwPfuZylTkqO
-	 QUh6AfJ2O+TqFSO6v57KLFzkvOgHVjpMjeDFsONls6hQy77kRF6rWddYru95mfei0XbGh
-	 nwSs6OkxUJcEFiJJunDI9x1alJ/cOmOdmi26ujL3rrqP7S8VvMS+DwGvKrs4X46L0rBg8
-	 4hCjvEyeK95U7FDgQOOO9iGR3Dp4J77gLhBvXuXqgghCsm1mI1gVO3FziPMg/ZFPRm4eE
-	 GDgXxCsEIvJ3cPQxmEobFmX+Nb8bOSsmOE7ULXbJxzA3/IGHEqFcSuGHukiYcDVOFZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771445;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=q1Uuv3s1OBKaJBzE3G5+r1JPdIOySBnabwRbvvXOjkU=;
+	b=reWm/en894MQO3SH+v1133iYBoR0raA9wgwTel4VkRLWPrf0w+GMxzugFV2kDFiNqn5x
+	 uwjEiPDir1rP2BsroovbLqLswkGiCn5uKKMu3Nc8ZGICSgcdsIRQljOdnSAFgnMUP4+yu
+	 IkbWOcoUrV5jSdI7+V2iRrCPEuiqMpTKU0z3y+b2BNNGaXpGvwbHvsIZ+Nac/EAdoPS4W
+	 QFGIVpN7ZSSQh0aMmNrtin9UwbbVwb8t3vR55Pv4Ur6QvmgWZoetBNhsMbQN4e++m9V5+
+	 HxxQoq2NOGhR9FZ4340cN39a59KzZajyfFxJljq5sMGA9jZfjFZuopxVLcuj49tes6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=cF1aTWG+;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nx5xe6UA;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4DEC606A31E;
-	Fri, 27 Nov 2026 09:24:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4DEC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCA2F606A33A
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:24:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCA2F606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=cF1aTWG+
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 2EFB720854;
-	Fri, 27 Nov 2026 10:24:00 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id X0G047dj0qH4; Fri, 27 Nov 2026 10:23:56 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id EDAE120839;
-	Fri, 27 Nov 2026 10:23:55 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com EDAE120839
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795771436;
-	bh=dcm3vEaafSdM/C5J8kdxevbXyamY5QJ7Qrldbj24bk8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=cF1aTWG+3V4v29+SEEMfMv9E5crQnBDJI+uKpUmTQ4XutlW20uU/LPWcGFLyUwCJo
-	 uvlWN1wpvUqCbIog9C2Epm9zBBXiH7v8dyiqhhzLqMvSBUAxluJNZy89XE4yBdc3hY
-	 35pkRdopPK54hs34a09bq/7e+dOnl21rDyxG9SKRpvk394K+SUUL6juhKvOe9HgFKk
-	 CFTNz0iCxH8mrHW5uR6wGMWRwl7TzlgPEMRDWRgUIn2SSoghmKU5b3Vy3B8h3wqB/B
-	 6dX7Ezw6vslH95QHdfqt9dhsb8guiKqGHzZP19AcCDBfaqvEZwrppLmcDHsKn41eJb
-	 /yMrbon3eMPHA==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 27 Nov
- 2026 10:23:54 +0100
-Received: (nullmailer pid 3467634 invoked by uid 1000);
-	Fri, 27 Nov 2026 09:23:53 -0000
-Date: Fri, 27 Nov 2026 10:23:53 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Andrii Tereshchenko <opensource@andrii.net>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Christian Hopps <chopps@labn.net>, Fernando Fernandez
- Mancera <fmancera@suse.de>, Willem de Bruijn <willemb@google.com>, Piyus
- Kedia <piyus@iiitd.ac.in>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-Subject: Re: [PATCH ipsec v2] xfrm: iptfs: make room before copying a
- continuation in reassembly
-Message-ID: <awlMKdcVSQEShHlw@gauss4>
-References: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nx5xe6UA
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cd62c570b5dso5276938a12.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:24:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795771444; x=1796376244; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q1Uuv3s1OBKaJBzE3G5+r1JPdIOySBnabwRbvvXOjkU=;
+        b=nx5xe6UAeTeMxVAyOoQtyhZ2he7JkDm/MJ8VuN0CTwLfOj3Kq9s8HM9PBYQiG9sLvF
+         DxBMNjacBgW51PdfS65EKkpjwI8uRH1nQo70q98MPEAK/an/hyMXnqdvjF99VifjqQeZ
+         kiPrveJZnkj/gAoCmvgGO4IDvVs3q/zMR5HXsSSaN+c7G+37Jt6T4ayn7Sp6cenIWr2p
+         oRT9GQa2KpV2nD31988ej8xjounJNHAX2Ic9GL/eCPtDoVePFd7iDaiF5Mg3TaQXKnX0
+         bPtc/UUfEei7WDQKVPSUJj8Lvu/oqav5FlzD2tIpk/jfbQOY3oi0Yzh7XEdhBZDNzPZj
+         KiCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795771444; x=1796376244;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=q1Uuv3s1OBKaJBzE3G5+r1JPdIOySBnabwRbvvXOjkU=;
+        b=pO4htAmb9ANXRHLptgK0gKk0455GqhmGR9bzQxuxLVzOt3c373ONpL59DbP54y7nAv
+         cK3jtD7ZH308LzSEJMxbXdLyMm3c2a8KtjoqfgTtV5i9Hcj8CvXI7PIfDVVJFdQ6O0Ci
+         E+8abv+p0dauW7t1R8CGZG2KgFOvTRulfXXcbb4t6ZH63JZbuogP1tnE7V4wmDAaR7sI
+         Uj2Wo8w50aYTSLv3G2RCIp/vLd2RhO2q+UWdRws5SXiddN5EXpv8I+2yVa8EaOMuaGul
+         idO8xcz8dgUU8J9PpXdtAXNroLYVlBYoWL3FjJg6FUqy0LKb5iqJyUU/DuWln7t4hehb
+         V0tQ==
+X-Forwarded-Encrypted: i=1; AL+hErGedFSLjLYb1hWtzU1Vww3uaeRHJ9XNopS5SNmiZsBryT162DdQ7/pBoo0wsT43L8RtoJX+51Wr5r7hvYI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8d3ppwEYWPUyy7QuumU+QDVRILyHMNcisG/Rs86wP9xJ6CtcQR
+	q3hQfwxWQ6OD8GuxAbMANMD5GKEK0MJUlRl4L1o/VFQOJosdlAbW8l0puPWF3g==
+X-Gm-Gg: AZFdTZcNnqdU28ZLP3kFAyz1wX1vRn0Y2kBLc66haPRNFCusW+csH0Gii0KVozWwJgN
+	8yRe21T8d4yloNQSHlT6WbDFEFkZ5uJ2HfLhUlCUYEdXrF38sjq3uQ37OrFAUBwBZ8JP3bNHINH
+	8BpkX2GHTsScFECPdGijOzR8n3mMVHt7jV3lvQ7h3FXFKSTqGMWfH+AR3uUbB0Al56Sr3PLO/gL
+	uAGcdDiRxB0biwvfw8iyJ8221rcGfxae5jpHtgjgbm1uNKuEbIPEY2PBWMElFyimHDKhf4HGS+A
+	9bj/H94483ApuM2EVJWNxLf2YvprPDsJV7MK8sRJ4x9iH7H/UfRmnMgRX7PYuvgcJVQvomucI+P
+	eWWEAwU8Emhl4btVH/u10+Zv0+TRBWc/J0CdEOkkuZidVXUjYWA2ygo7uzTO5qSJaVkJ7PcJtt+
+	VfgbstUX0YY5iekYkQC6fUzKc+ErBJi94Ffn6UYZetGkvEwPpJl4PLB09IHGOeKwWjwQi6Ywm56
+	GuYBvPCNs//gv++3ISIN/Ao+zavDQepjR/1sJxs2wEJkFxeXROJtlRBXZX1Fvsnm/luxZdKQ1wX
+	DLUCXNSGPXRf7pTHd17FH2wWPZ3jfZVj9p9kIO5CiL5+9SgD56dQDiML70A1U4Iof39X0ziOze6
+	O1NGrU2ubSrhXxlGwC+euVUHEjY/Ey1c0ZGb3hviN1e8nCx6eZ5hNZQZbfLSepcwLUA==
+X-Received: by 2002:a17:90b:4ec4:b0:3b0:9a0d:b825 with SMTP id 98e67ed59e1d1-3b41cafdb88mr22056327a91.45.1795771444055;
+        Fri, 27 Nov 2026 01:24:04 -0800 (PST)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm37942052a91.6.2026.11.27.01.24.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:24:03 -0800 (PST)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-sound@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/3]  ASoC: stm32: spdifrx: Fix resource handling and startup
+Date: Fri, 27 Nov 2026 16:23:42 +0700
+Message-ID: <20261127092345.12383-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,40 +105,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <e417c7f2-eaee-4fb0-b365-65cd521efd6b@mid.andrii.net>
-X-ClientProxiedBy: EXCH-03.secunet.de (10.32.0.183) To EXCH-01.secunet.de
- (10.32.0.171)
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 22, 2026 at 05:09:25AM -0800, Andrii Tereshchenko wrote:
-> When iptfs_reassem_cont() cannot share a continuation as page frags, it
-> linearizes the in-progress skb and copies the data in with skb_put(),
-> without checking the tailroom. An skb started by iptfs_pskb_add_frags()
-> has little room after linearizing, so a larger continuation panics the
-> kernel in softirq:
-> 
->   skbuff: skb_over_panic: ... len:2884 put:1442 ... end:0x6c0 dev:eth1
->   kernel BUG at net/core/skbuff.c:215!
->   Call Trace:
->    <IRQ>
->    skb_put.cold+0x1f/0x1f
->    iptfs_reassem_cont+0x242/0x760
->    iptfs_input_ordered+0x382/0x3e0
->    iptfs_input+0x24d/0x630
->    xfrm_input+0x12a5/0x29f0
-> 
-> After linearizing, grow the head if the rest of the inner packet does
-> not fit, and abandon the reassembly if that fails.
-> 
-> Made with an AI coding assistant, reviewed by the submitter.
-> 
-> Fixes: 5f2b6a909574 ("xfrm: iptfs: add skb-fragment sharing code")
-> Fixes: 0b352f83cabf ("xfrm: iptfs: fix skb_put() panic on non-linear skb during reassembly")
-> Reported-by: Piyus Kedia <piyus@iiitd.ac.in>
-> Closes: https://lore.kernel.org/all/20261119142308.3272570-1-piyus@iiitd.ac.in/
-> Link: https://lore.kernel.org/all/20260908224855.1591147-1-kuba@kernel.org/
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Applied, thanks a lot!
+Hi all, 
+
+This series improves resource management and error handling in the
+STM32 SPDIFRX driver.
+It also fixes the refcount handling on synchronization failure and
+ensures the clock is enabled before setting the substream pointer.
+
+Compile-tested only.
+
+Best regards,
+Phuc
+
+bui duc phuc (3):
+  ASoC: stm32: spdifrx: Use devm helpers and drop remove callback
+  ASoC: stm32: spdifrx: Fix refcount on sync failure
+  ASoC: stm32: spdifrx: Enable clock before setting substream
+
+ sound/soc/stm/stm32_spdifrx.c | 87 ++++++++++++-----------------------
+ 1 file changed, 30 insertions(+), 57 deletions(-)
+
+-- 
+2.43.0
+
