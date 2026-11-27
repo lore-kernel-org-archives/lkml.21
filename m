@@ -1,68 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795821728;
-	b=glVDgOLX5mOHfP/lcp4xImFDT2My9WYZQ/GT869VbigrNdWMaIb+emSkcHVm7E3pzQdF
-	 szL4VaBat68dMQRSjbXUTI0UysMo2B4NMSSB8s79aw4FH8UDih1uahkicTnbJb+YAzmTn
-	 DxjKr2Gd3K0T4iEwl0Tos0xKIJSb6TKRCSyiLltfqrjXALXl5E7NL58tqlAt3Bx/xI7Q1
-	 I3KbNjQgOLtzGjWZRuqojK8ibaeRcmC8dvj5fbx1jH04sKGKm84V5F0VlogTu+/zBPa9B
-	 W1Pvw3fFzE27BHWhFq8/RUrgef9yJaXK/XNnB/G4hvz8es447R+UWgYjY5LUJAOQqmQ==
+	t=1795821749;
+	b=vsdV+GzcqNauT6nlXMM0bHXmSFJ9IyEdS+FVTSSIEJ70taaJw5TMNz3qnh9lc5oOhwEj
+	 V7qEPuyAlgHLFfMYbCLQQZj6u9vABGTFJhPd/PUkv0KqEizqiwc6I2O1WQWeG4U3sSabS
+	 1Np7aKy4XzWOK2We6A03DV8UzSrMPidIOpPAZdytQei25n9khGK3jeu224B1V8FXIqDtx
+	 ZDSIFPr1Jg1LS1ON7q6ZFhGUra/miYMTq2Fr+rKJ5moAsDw7XdXnEaD5yiKttR+GRgTJh
+	 m6lJN69J+czgdDBsM45ZyNhgr+KHFHdeFXZfIfwANTOD0vX82xBoRsd+ZU+IQiJFYNQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821728;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
-	 X-ZohoMailClient;
-	bh=4Jj7arnuaVZ1PVynNzLYmGCV2upmIWevRcqZdV9tnzc=;
-	b=x5eI0frwy4Y576mwRAoVg9hWrQj4YRJkUx4cxlXA9XNyM0IaVidlF4MDbd04LtbB+Xbr
-	 /rZlEWHdfSX2GVggZr8mn5dqOId7rB3FZpifb7rVReYOzEyuwSTsJX3+KXeLiMqI5I+i9
-	 yl4GfDKxE0SoXFnqRhWUv9OzAtrfoJdhxe1O9bDd0tmGyJi036EsDzDSuqpwxwsw/30n+
-	 fd/VIlY53L3MlszW9KOdt/WBYMnSvupQrZ5nsdsQKwv1XpBYMk6ucudEDxivZtMCO62jr
-	 WjDh/WPZSEqHxK+uykK6rTDXFxKG8jexPM3Yc4YnyWUEtV2xh6Q0veyjT5UoiV9ONtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821749;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=XfKxPg9R4n+fm7ov4vSKe0tvTmGYA8ZHDNQOJkWyL2Y=;
+	b=TTk4WRdbCODEz1dfmw5DfkvFmrnSzMs6AqkUK0pPHKF9nB+v2Q/SD2bXvv9kuIaC+9Xn
+	 tNLbl+4f/9p/6qT8URU/ot5EVnJM4xASTjK+KlHmd9TjV/hxLSUsorf/YzClobxNZQlBC
+	 fz2zjkW4ruK1OqFve9oM52nWF1XIbPWfGyv9+B/8SY3zMreAMFcLRci1cORbu5XvBXJsM
+	 ttkTDoz+DDXOtREagxk4o+kcqlP2RKCIbG+jQH+sR0IgoqoNs9HDSD/9SVIYF+OH8KQlm
+	 s44v3GwC/NjjIpGt+ra5GTCfhkEyn+6N1xRG2X2Y1MorWtFeb63iaVQ7gTdpgAcveLA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=VnKp2xL0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hcgLm4VU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69B5A606A31C;
+	Fri, 27 Nov 2026 23:22:29 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hcgLm4VU
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795821748;
+	b=GrS7wWGoQFiDtQXJsI7yTqBL7M/aZaoH8DRgDBY1I4P10OGzkVf5P7ChsSOD6QCbkXWZ
+	 LvGffT7wnHq/z3mNXiJmETmHEQdUwgAC1BHToecqXXEqhQ5nrY5g4k6S6JOdPgm+60tX2
+	 NwVpWkOAD5bV3JPGfU1O/i1D1DKlwGvdDtZsan1G2NP7WYQfntG8E06v9bSOHNLpZICdU
+	 LxrtobzTzgGSn6bt69rZQ1LFudUUpxVIxOsJGDBgOHxgOz5CiElAhWWCFO+p+sdvQ54Lb
+	 dNjSOVmWvymJf33cMCuWCmqcHckRj09iq25BoMcJ7lbj4Fj2tjOLBa+vOjM+olCj/UQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795821748;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=XfKxPg9R4n+fm7ov4vSKe0tvTmGYA8ZHDNQOJkWyL2Y=;
+	b=jWC0510zuwDbDiMpOBE3bS4ET+6LgLX1q4KswRJr6Fk4gjx8lvJiWMCrgCmFbfJ2cN5w
+	 JRRaZmKGO2IAjKmdAIdZfvGIcTIUVh09FOYIQnjFCMSoZObdxndRVmcWNdsa7CneS41Rj
+	 yX6UBOHlgFhxdrIDChPAySzP5ZsnSo3Su6prYSUcFAySvGfrfgZfGlSgPcfZ/AS/YOjgh
+	 kLaj63Nt4RFAWMvcJCF588gUrQEIhNcu4N7LQ2UfGXfIJGpBJsarpiuqXxs3Gv9TZK+AQ
+	 j6uujiaM5DNhTwu5sZq3V1rg921eA9CV4lA4oQfK/6x5M3D2VIOtQABOCSQmWeMuYHw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7C17606A31C;
-	Fri, 27 Nov 2026 23:22:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7C17606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=VnKp2xL0
-ARC-Seal: i=1; a=rsa-sha256; t=1795821711; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Po/7cxETW0P+0BYgx5FsM/w+XgFXuoKm5rrrcemFG/9h2/TqqfzfbHFEEQgs5HIzCqOKgrzx6Tyk9D/1xj+xGrySwcUwl0uGEo9UGZxXl1yYYwLdQ/9xP340F8ErFNdDvzi6KZCkcikberz/oQPVs5+pi84Im3ysFGfn3zJlj4g=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795821711; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4Jj7arnuaVZ1PVynNzLYmGCV2upmIWevRcqZdV9tnzc=; 
-	b=gZ4TSlynipkGnxVaqBDA8iHVFuk9zQClQWeNxQ7qUETU9e4gS4o8APpVNiBG7bOBPcrTXknfNlIOEHP98/xA4idEwRdZXPld+3czAhK/Ul84ZCijHgJOAWxPCa0uhxKtP8zCWojDUQv5BA8RYmPC8AVRfscojt5snNX+4M7qN5k=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=VnKp2xL0JcyufbPgc0WQ6uGE+jKzLX+p+s6R6Xr47eeXX+3Jc7FKSkdiA5nIsoHiHzb7oTikJ2eW7ZPUjMAHa49BdmBOaWjlZj4x8zP9ua7aAW4jjhAerespBpa44TWUeD5ly2iGuh7H+xSVnqFh1pbgN5K4RvaKgsiuA7Cf9r0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=4Jj7arnuaVZ1PVynNzLYmGCV2upmIWevRcqZdV9tnzc=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795821708823875.3406304013236;
-	Fri, 27 Nov 2026 15:21:48 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 233FF180918; Sat, 28 Nov 2026 00:21:44 +0100 (CET)
-Date: Sat, 28 Nov 2026 00:21:44 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Shawn Lin <shawn.lin@linux.dev>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] mmc: dw_mmc: add central watchdog and convert CTO
- onto it
-Message-ID: <awoP1p0lw0bFglKX@venus>
-References: <1787817486-137277-1-git-send-email-shawn.lin@rock-chips.com>
- <1787817486-137277-2-git-send-email-shawn.lin@rock-chips.com>
- <awRdY6Xw5scc5V7-@venus>
- <5b7318ff-b41e-45f6-8127-d42eab0dcb67@linux.dev>
+	by smtp.kernel.org (Postfix) with ESMTPS id 0BB201F000C1;
+	Fri, 27 Nov 2026 23:22:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795821748;
+	bh=XfKxPg9R4n+fm7ov4vSKe0tvTmGYA8ZHDNQOJkWyL2Y=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=hcgLm4VUdDCUhLkKHew/iScOcPa4uMWmQUKeYXLW5ed1K3n2L1u+cNMJVwU5fHmxf
+	 ZdnbosC4m4CZVDFOkYQQv6oIHQMgbU8cn15TRXApgriVcwNa1aNZGCkehHmHxNOO6X
+	 QGHHFBq0tOE7b/8y0eK+8mRPj3d7c17miBh0O3Pr3QzbTNSEB94Vfme7skAzTdguCM
+	 j0IeCc5yODB6si1AtOml4YZzB9GoSQQ8hlILB7o8r9WGyLLcmBysqrLR8Kl+OkDa5n
+	 9mqFnlDfLwbdeoQjB6ogSM+BH4pVu1Gid+4QEcpmlicCjDYV2qMFni+mwcKVBio8R/
+	 WXRFjUkT2jELg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 7C0D94DE76;
+	Fri, 27 Nov 2026 23:22:26 +0000 (UTC)
+From: Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org>
+Subject: [PATCH v2 0/2] iio: afe: rescale: Get driver data using
+ platform_get_match_data()
+Date: Sat, 28 Nov 2026 00:22:08 +0100
+Message-Id: <20261128-iio_rescale_platform_ids-v2-0-4c35f16c4f77@redaril.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,88 +84,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7u53mmt7egemklqt"
-Content-Disposition: inline
-In-Reply-To: <5b7318ff-b41e-45f6-8127-d42eab0dcb67@linux.dev>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.28.1.5.5/295.810.79
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/43NQQqDMBBA0auEWZuSCVKrq95DRIZkrANqZCLSI
+ t691BN0+xfvH5BZhTM05gDlXbKkBRrjCwNhpOXFViI0Brzzd3TuYUVSr5wDTdyvE21D0rmXmK2
+ LnqpIoa5KgsLAqjzI+6LbrjAwSt6Sfq7Tjr/6B7qjReuwHjBgWTrvn8qRVKbbzNCd5/kF5OXzM
+ MEAAAA=
+X-Change-ID: 20261008-iio_rescale_platform_ids-0d2a7dac974a
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Johan Hovold <johan@kernel.org>, Peter Rosin <peda@lysator.liu.se>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>
+Cc: driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-iio@vger.kernel.org, Fabio Forni <development@redaril.me>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1477;
+ i=development@redaril.me; h=from:subject:message-id;
+ bh=PBSXqgaqkOnXYBgeJ3eZjM3FUUbpqsbEEol5o21C8RY=;
+ b=owGbwMvMwCXWeKho1tqFWemMp9WSGLK5BDYGOIhX22z/7WaSd0JtVqqBuj3bzVO603imL392k
+ qt1Q4FgRykLgxgXg6yYIst/J6NN3WYmRrf6JWph5rAygQxh4OIUgIlsZGP4p2329/PqD0fsq3cX
+ rEzefsbd+WPikT+5WVvP7m729AzsmsbI0Kl4YepSJ+4jaXZrp0r/iZRe6tSr4hQl9587Lzri/1s
+ TZgA=
+X-Developer-Key: i=development@redaril.me; a=openpgp;
+ fpr=FF4232B28B363432DA8F187D81C2729AADA16A67
+X-Endpoint-Received: by B4 Relay for development@redaril.me/default with
+ auth_id=1033
+X-Original-From: Fabio Forni <development@redaril.me>
+Reply-To: development@redaril.me
+
+Add a new helper to get data when drivers are bound using platform_device
+plus swnodes, that typically happpens when such drivers are dynamically
+instantiated.
+
+As swnodes do not implement device_get_match_data(), a fallback mechanism
+is needed to access driver_data inside platform_device_id structs. While
+drivers can have such logic locally, Andy Shevchenko suggested to add a
+global helper for this situation. See discussion in v1. 
+
+v1 was about adding the logic above in iio-rescale: the same goal applies
+to this revision. iio-rescale is modified to call the new
+platform_get_match_data() helper.
+
+Signed-off-by: Fabio Forni <development@redaril.me>
+---
+Changes in v2:
+- Add platform_get_match_data()
+- Use platform_get_match_data() in iio-rescale
+- Use imperative mood throughout commits and cover letter
+- Link to v1: https://lore.kernel.org/r/20261008-iio_rescale_platform_ids-v1-1-019f1c144022@redaril.me
+
+---
+Fabio Forni (2):
+      drivers: core: platform: Add platform_get_match_data() helper
+      iio: afe: iio-rescale: Add platform IDs
+
+ drivers/base/platform.c         | 28 ++++++++++++++++++++++++++++
+ drivers/iio/afe/iio-rescale.c   | 18 +++++++++++++++++-
+ include/linux/platform_device.h |  2 ++
+ 3 files changed, 47 insertions(+), 1 deletion(-)
+---
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+change-id: 20261008-iio_rescale_platform_ids-0d2a7dac974a
+
+Best regards,
+-- 
+Fabio Forni <development@redaril.me>
 
 
---7u53mmt7egemklqt
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/4] mmc: dw_mmc: add central watchdog and convert CTO
- onto it
-MIME-Version: 1.0
-
-Hi,
-
-On Tue, Nov 24, 2026 at 08:46:54AM +0800, Shawn Lin wrote:
-> Hi Sebastian
->=20
-> =E5=9C=A8 2026/11/23 =E6=98=9F=E6=9C=9F=E4=B8=80 23:57, Sebastian Reichel=
- =E5=86=99=E9=81=93:
-> > Hello Shawn,
-> >=20
-> > On Thu, Aug 27, 2026 at 03:58:03PM +0800, Shawn Lin wrote:
-> > > +	if (host->wd_events =3D=3D DW_MCI_WD_DATA_EVENTS) {
-> > > +		dev_warn(host->dev,
-> > > +			 "Data timeout, state %d\n", host->state);
-> >=20
-> > This new warning is now printed during boot on RK3588 and RK3576
-> > (the other message from here are printed at info level):
-> >=20
-> > Sige 5 (RK3576):
-> > [   17.801623] mmc_host mmc2: Bus speed =3D 198000000Hz (req 200000000H=
-z, actual 198000000HZ div =3D 0)
-> > [   17.820103] dwmmc_rockchip 2a320000.mmc: Data timeout, state 3
-> > [   17.853679] dwmmc_rockchip 2a320000.mmc: Data timeout, state 3
-> > [   17.854003] dwmmc_rockchip 2a320000.mmc: Successfully tuned phase to=
- 228
-> >=20
-> > Rock 5B (RK3588):
-> > [    3.956249] mmc_host mmc1: Bus speed =3D 198000000Hz (req 200000000H=
-z, actual 198000000HZ div =3D 0)
-> > [    4.049033] dwmmc_rockchip fe2c0000.mmc: Data timeout, state 3
-> > [    4.086338] dwmmc_rockchip fe2c0000.mmc: Data timeout, state 3
-> > [    4.093284] dwmmc_rockchip fe2c0000.mmc: Successfully tuned phase to=
- 102
-> >=20
->=20
-> This's a normal case on Rockchip platform that no interrupt happens
-> during tuning. Because the driver is seeking valid sample phases,
-> however, some phases could make the controller hung. So watchdog fires
-> here. Keeping it as dev_warn() only adds noise to every boot.
-> Alternatively we could downgrade the message to dev_dbg().
-
-It sounds sensible to downgrade the warning, if timeouts are considered
-normal behavior.
-
-Greetings,
-
--- Sebastian
-
---7u53mmt7egemklqt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmsKEIAACgkQ2O7X88g7
-+ppt5g//fR67MbqXIq/UpdXSpTeUhTsLwSLg+z2kRufoOIjyDB/c1aWlruAfh4An
-RwEYv/v1g6S+MkTpQKK7mpTEYMqtNM7p0YqDdV1gX/vLQx2Ef+E/Evnmk05pODxf
-nG0d+6GxI59GEmJYjfqptLbgxwtghgu7gD94WZsdWjL1PAOSs4f9nkKocpZoSfjC
-m3OeTzlyhLzs6elCJf/gYRy+Je6J7lei22fTcyXtgm+VACtoM1eLbg6RQ/JS/nnl
-Yo+qgZgL5pqx3S8uvB/J/Xtai490uikWb2wS7hwiL1W56tKjz1ZBijDhZbq9q1eR
-mZA2JPEuSGfo8whueYVMnPXIDk6taMN4v3XJAcKawezr09swErSi2rxNdpL+27VT
-ioblJYUtdgmW96ZQSXVDOukPpddViEM0flI0LQ5vqHan3m0f64oQ3dvP00u6uM5B
-W/6Q/nGQi694R/RvhydePVlPZ0cQ4ISs5Nha1Zk170ngSVhe5ddly/tmClewktxA
-/hQUQWSXjViAIcLsvX9julqiBo2bTQhirJ/tT1ccxMzD7byUsWOKY6Ikr9frynoL
-VG3vbSV+Melhe7zRFCGygfxR9KTp9WJ2j6lNVVUV7qqS8juQxYHOYZq9IyK1BEGc
-iBpE09hAihsYdBCX3oz616caRZC97MAmtnmdxE9FkSymQ6m9gL4=
-=DYfD
------END PGP SIGNATURE-----
-
---7u53mmt7egemklqt--
