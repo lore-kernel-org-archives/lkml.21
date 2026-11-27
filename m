@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795811196;
-	b=G0OxhBJ34821YxO3Qe6LW9+IZTGcC2gxWk2ewLr4+8Y/84mRswPED0cfXh/pNz5Ub6CR
-	 D2CU2v+OvuFQrMgmHH0IaHVPFvHMaMgdbE1WwvLvgUbUQbg462ik49di+yy/pPNnGGxXf
-	 imowKZIl8eM6Ci+eRKdj0KnW04L7eNyO8B7Hd+0anqwxUxdyMXO6ODVEo9PkVSCKDE/GB
-	 BEKG2YRM/gSuHuMsA6gaDWC+8hOSyvBvlMWw2LmdJhlRGK6u33fff4SL6SU+YmowZ4ZB6
-	 5JQKmcgVrHen/zxKmAmfbd1/1SECBnw9HucjIaHkFR5xGqVi4EiGmyJmnOEnKk/Zwbg==
+	t=1795811201;
+	b=aSvpOrOkRSzqBMyfmztVfgBCz10A5w3RbPtCZLkB/TgrXzGeJknstEc/R6dRtubsM9H2
+	 u7MrsQBlp67SQFdmYwGDiuN71g5GFLM8YY2a8Ma3eflzADO0RJtGIvaFxCtRc1tU+gZ0g
+	 0+46aJcwbOhK7O+O8X81fgtmNQhgIMOXhc7z5/VRhb6hmt3PVOYyYd+oR+en2DJ8Ikq5F
+	 LfV/PnWJ1gRw6n0ldxb0HB0HuGT/VFx1LdUmPrXHWRBW241+dcy94gBZKfs4hBlmeFxjc
+	 m4GNyocP42L83EL9c1o32JTc04RKM6TqgmqfwcjVHvjPZgHC8LCFo1UGW5vYP3IC+7A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795811196;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795811201;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZCZWqQ0lMucwJhS0m4gbpolmUfSCKEbqX9zkZqGK+Jc=;
-	b=a2jPuUyGhTB6uUZtVNJ8Prm4n0O0bMrYBHzG9WBVg40OVZsQBj89mlJS1HT1kxSslKAt
-	 24mlo30vOVpBCq8iSdGMWriLxe24G1HfrDuusRu6o6z8G4fy/2oQ+utNKPS4/2Xv2iyU2
-	 ndzFTN37x8tdrL0biLP4d8NFf6zuIo819JqOuAqKAYRznXMCENd6EkoGv1kcdgk24ICNa
-	 11Hyx9Gq5ZWmkfmxlFeytuBHd4WBMiMh3HdsWcPJDJX0MRgMbokqZWz5fC4uyZsI9oT5D
-	 aJf3BmlDw64fZQpGi/R4Cbsqn+/0MObs4VdCwcBsNUlkdK02uYSzhwoIxsEEDs3jmzA==
+	bh=3l0a8dPgLt9arh9f1HV/W6Nn3zd029azUiMXffOcMqQ=;
+	b=CFGhaVWSc9JHJDTmN0/RxmKjSOSXkuIRS5a9c9OSeLdVtvV/Y3qszqyIY7lwMMXpTyKI
+	 jUa2JpK1rp2VkuvgE9A0yfnvMueY8xwP0g5e4jn3gEJ8TqH0fSzDgZlAX5ZCN/U1Dmlzl
+	 ykjAGT2+VRZWCniDWXmC4Zu/j7frOvtrHcO61bCtiGtpIT9yFNpYba80W7Qth4K+tT2Pm
+	 bi2J9ur6fbMFWxxxv3nipFITL2NSfGzIg5KlHvbc6ve+GxDWIU2T76vTGbT1FCTQ20bAG
+	 NwI//clSlkEcJKc6d5ql9Ug4uIeRocLjZugX4wf0IZnEoWh5XEoGksyr4rcj+2ZUeiA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XkcRGPVE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DkKrxuAx;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F1D7606A321;
-	Fri, 27 Nov 2026 20:26:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B02BD606A330;
+	Fri, 27 Nov 2026 20:26:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XkcRGPVE
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DkKrxuAx
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795811196;
-	b=qOfjnYItppYCun3laWtuSXoXrHrbEKOkMR/C9CqT5lrREPIGFc3qDhXbpZAWDwgkk357
-	 IHhs+tYtAw3bmEKs3RyavfpYRFvpnXvp4FU8iG6WeoGc+e7NcufjwxmSKLvkhSuIEA9TB
-	 E0CmcKyCF/3/+oQ/19fa91pUmFCwLYTCJQDbHoffBjhccqaB6w6oc5V6kipfCaDeOsdb+
-	 Y6UfP//JRS1V3v8ek58vZUSJJblCW6lsQ2wpA38v15qg+sHpe2zI1dq34OeVSHIaKGg2E
-	 ATxUVw8OgcNCWSzYPyLS5im+PuUa6VJ/BRbbsTfVsbmSmeWFxA86IVGSMZXG7CQiMVg==
+	t=1795811201;
+	b=TbbjrwP12HVqgud35XmaCeP7MPpEkcwpKyGAsInwOxS10PenhsvL0HTwOvHiMDx09IY5
+	 lt4D/fsCM4uNA71BU+1+e4RrJavHmpRenxI+XBq5EaU/sRthgffUMbcemMyNzwxQVqjL+
+	 PcgY04A0nK9LOyfhxrrHvpN1grSGqwAMoYQ/zw7QZ0IXG2FHDOG0K3wKL61jJ1Dze43D/
+	 Qq/rlNdKj+f+nupSaxsFZAa2/2ZyRjN3KOFK/zfUb5a8p+tA+vk8PhW22kUt2/MpXFTuC
+	 OA/KYd0K/vwBKSNH1TkFOd73oyQUU3jing0WbpZ4KgiO4I3kwOoeu1myaOTvOpL2nKg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795811196;
+	c=relaxed/relaxed; t=1795811201;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZCZWqQ0lMucwJhS0m4gbpolmUfSCKEbqX9zkZqGK+Jc=;
-	b=try/UCSagwdDNNevlookGSDdS4b/r719MhvYk/hao2dauvsREzUZmCIdS6c88SLdYf/m
-	 DWLH5Rzhl6K3I1hApRzObAhJLZPVoobydbQQL4+Xuzr3eIWPPwyRVKCpKBtffhsB66iGg
-	 TaFu6HNJ6oKjqNqZOQzbWBDh5tKuFPTMYTfQEjjty9jkZXR/zcGlPK4fEiGASjs/1aCeX
-	 1UJJW1cbApOfNQebqB01K/z3UDxTWQ7AXTMved3uJZKaamU4hU88zIbcDfWS2DhBhUbxZ
-	 soed73j8w4u7CXdNXtaq1FRVi229xg7G9+Q/iJQqQP4ZtMEzzAj635x1e12QkibX6sQ==
+	bh=3l0a8dPgLt9arh9f1HV/W6Nn3zd029azUiMXffOcMqQ=;
+	b=axXiiqjZnW4/4JClQpBpxQ9qwqoKyFeVOkWd4vtN3334lRTC/ndShdmhzk+7xrPoYhju
+	 wzJAA9AlubcUKHvmkX5W/hT2zDrybqiD9dKbh/EpB95lrJ26hlZVrC1S4+AMUqeLXau5V
+	 KJiEVRwu5MZ0ttSN2MxjEdUDP9F/CXywFfExiojwLBM8DyijeOAW6DkJ1MC0xpUJnbYZk
+	 thvoiHy7igUh1/wkUclcxCMUSpj3NuWW3S6fgTmM6uDj8hAob73ANeqvg+x17FQZmrad6
+	 cO3vN2k4UE7WJmFzDrrT5ae3zJEeoXbnzh954ewWylZqROseQ1czpfHcr22mHllO65g==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7735A1F00925;
-	Fri, 27 Nov 2026 20:26:30 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 209A31F0089A;
+	Fri, 27 Nov 2026 20:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795811196;
-	bh=ZCZWqQ0lMucwJhS0m4gbpolmUfSCKEbqX9zkZqGK+Jc=;
+	s=k20260515; t=1795811201;
+	bh=3l0a8dPgLt9arh9f1HV/W6Nn3zd029azUiMXffOcMqQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=XkcRGPVEO7G9VYtpReCrvAsSfuvMg2Q6AlpbQZPB2yZYzAGgglJqYJuUoB5U++MYx
-	 cJGK+8NnwM2Wsy5rvN9cwCztht/CvmNivWrS5fCRcnSwtXd7+PWfbRJ91WFQbJQxqv
-	 /3wWAee0YjrAcQNrb8sODHQ0V8qwFUzcYH/hveXMMyTXPq2cQLfu7dkBfylY825e2G
-	 eCO59sLgwzZuI4MvGw2CQqN3AMhsJ0lV60UztxzGnmj2sAM0VsEnA8Rfs5D1ARZ9bq
-	 spL0efWFg+x8NaNdv/ZzeEYmTcQntThpqO0gEN7/1Dd9YS2Tp9YGi6IbRTBxh8TM3I
-	 fkqfJAMG0JAHA==
+	b=DkKrxuAxa42c1P/kcAK/YKWDcr6KMP+ixJ50F7QIpq7dVDgw1obJdS0q9uVNJQfWc
+	 0SOQ12T6E22jEnxOq5taMct9xmN5mywjF9hDpEru/SpYFZspYvHXSuWbbHYZPlFeFQ
+	 cFAhAm7nRaP8w7ax2Z/Gzk41ltSWG8b8hbM3OdQgXws8j+G8Sddn63RiZymaRorYPm
+	 TUSsiq3DFmK2ekbCl8tIzeRasiZ2SKZF/lyPUeDUv3ysqsOL0IGB6K7dA+m1a3CrBF
+	 hKdbQSW08tnFwFORgiD+vHmd58LSefKC47r5nE30qAfsYDx8s9F600hwQZ87JcF/1N
+	 k1g6FAk90jmMQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C8E2E4DDB5;
+	by lkml.kernel.org (Postfix) with ESMTP id A4FF64DDB1;
 	Fri, 27 Nov 2026 20:26:24 +0000 (UTC)
 From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 21:26:28 +0100
-Subject: [PATCH 5/5] media: qcom: camss: csid-gen2: support plain 16-bit
- LSB RAW10 formats
+Date: Fri, 27 Nov 2026 21:26:27 +0100
+Subject: [PATCH 4/5] media: qcom: camss: vfe-17x: use vfe_buf_done() and
+ defer WM enable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-camss-titan17x-fixes-v1-5-541ab39e5889@gmail.com>
+Message-Id: <20261127-camss-titan17x-fixes-v1-4-541ab39e5889@gmail.com>
 References: <20261127-camss-titan17x-fixes-v1-0-541ab39e5889@gmail.com>
 In-Reply-To: <20261127-camss-titan17x-fixes-v1-0-541ab39e5889@gmail.com>
 To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
@@ -100,11 +100,11 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
  linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Robert Ijtsma <robertijtsma@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795811183; l=2857;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795811183; l=5143;
  i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=OWlbMqX8jFwDrOqApkzGhlVoUAPe5r3DiPbb52QR850=;
- b=hBozxEXAM7jf3vqt18NhHBdNwpzBWbqrHNSqcNsEdz+Zj443e+itwIY77vkCP21gWeHygp5Qm
- lBNSbo/njsODp8xkh0d0pjBkMlfEnRULe2CEPBHmAnZ88i8Z4rX3ik1
+ bh=QKzdaNX0ejvQy/NzKMFAMcwYp9tSII3/DNvIHJEEzdI=;
+ b=pQueruEt74bFFnMxkCvtQ5ueakqF9H0/QMxGkxWE12XedkI4Fw8sSWzhN9jXy2Mqu0TUBqbBn
+ 3ceDvy+PlMaC5d9kIHr+CxSyJmLlcMi4tbQ6rBhDHgB3FRPeIaXdeBQ
 X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
  pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
 X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
@@ -115,70 +115,139 @@ Content-Transfer-Encoding: 7bit
 
 From: Robert Ijtsma <robertijtsma@gmail.com>
 
-csid_src_pad_code() and vfe_formats_rdi_845 already expose
-MEDIA_BUS_FMT_SBGGR10_2X8_PADHI_LE and MEDIA_BUS_FMT_Y10_2X8_PADHI_LE
-for unpacked 16-bit RAW10 capture, but formats_gen2[] omitted both
-codes and __csid_configure_rdi_stream() unconditionally configured
-DECODE_FORMAT_PAYLOAD_ONLY.
+camss-vfe-17x keeps a private copy of vfe_buf_done() in
+vfe_isr_wm_done() that skips calling reg_update() after updating the
+write master address, preventing the newly queued buffer address from
+being latched for the next frame.
 
-Add both PADHI_LE formats to formats_gen2[] and configure
-DECODE_FORMAT_UNCOMPRESSED_10_BIT with PLAIN_FORMAT_PLAIN16 and
-PLAIN_ALIGNMENT_LSB in __csid_configure_rdi_stream() when selected.
+Reuse the shared vfe_buf_done() helper (after validating
+wm_output_map[wm] != VFE_LINE_NONE before indexing vfe->line[]),
+explicitly initialize the write master framedrop and IRQ subsample
+registers to 0/1 in vfe_wm_start(), and defer enabling WM_CFG_EN until
+vfe_wm_update() programs IMAGE_ADDR and FRAME_INC.
 
-Fixes: 729fc005c8e2 ("media: qcom: camss: Split testgen, RDI and RX for CSID 170")
+Fixes: 7319cdf189bb ("media: camss: Add support for VFE hardware version Titan 170")
 Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
 ---
- drivers/media/platform/qcom/camss/camss-csid-gen2.c | 11 +++++++++--
- drivers/media/platform/qcom/camss/camss-csid.c      | 14 ++++++++++++++
- 2 files changed, 23 insertions(+), 2 deletions(-)
+ drivers/media/platform/qcom/camss/camss-vfe-17x.c | 66 +++++------------------
+ drivers/media/platform/qcom/camss/camss-vfe.c     |  5 +-
+ 2 files changed, 16 insertions(+), 55 deletions(-)
 
-diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen2.c b/drivers/media/platform/qcom/camss/camss-csid-gen2.c
-index 44c6c214f50be13dfbb8ba5d9e2e16964ded9ef6..de9e2a3191448c617a4c732edbba346bf9eb5673 100644
---- a/drivers/media/platform/qcom/camss/camss-csid-gen2.c
-+++ b/drivers/media/platform/qcom/camss/camss-csid-gen2.c
-@@ -282,8 +282,15 @@ static void __csid_configure_rdi_stream(struct csid_device *csid, bool enable,
- 	val = 1 << RDI_CFG0_BYTE_CNTR_EN;
- 	val |= 1 << RDI_CFG0_FORMAT_MEASURE_EN;
- 	val |= 1 << RDI_CFG0_TIMESTAMP_EN;
--	/* note: for non-RDI path, this should be format->decode_format */
--	val |= DECODE_FORMAT_PAYLOAD_ONLY << RDI_CFG0_DECODE_FORMAT;
-+	if (input_format->code == MEDIA_BUS_FMT_SBGGR10_2X8_PADHI_LE ||
-+	    input_format->code == MEDIA_BUS_FMT_Y10_2X8_PADHI_LE) {
-+		val |= format->decode_format << RDI_CFG0_DECODE_FORMAT;
-+		val |= PLAIN_FORMAT_PLAIN16 << RDI_CFG0_PLAIN_FORMAT;
-+		val |= PLAIN_ALIGNMENT_LSB << RDI_CFG0_PLAIN_ALIGNMENT;
-+	} else {
-+		/* note: for non-RDI path, this should be format->decode_format */
-+		val |= DECODE_FORMAT_PAYLOAD_ONLY << RDI_CFG0_DECODE_FORMAT;
-+	}
- 	val |= format->data_type << RDI_CFG0_DATA_TYPE;
- 	val |= vc << RDI_CFG0_VIRTUAL_CHANNEL;
- 	val |= dt_id << RDI_CFG0_DT_ID;
-diff --git a/drivers/media/platform/qcom/camss/camss-csid.c b/drivers/media/platform/qcom/camss/camss-csid.c
-index 123c097ee54bfdcafbba02a6c01f51c545bf472e..12ffa438284806bc37fd150ca0e4c74d0706d2d1 100644
---- a/drivers/media/platform/qcom/camss/camss-csid.c
-+++ b/drivers/media/platform/qcom/camss/camss-csid.c
-@@ -424,6 +424,20 @@ static const struct csid_format_info formats_gen2[] = {
- 		10,
- 		1,
- 	},
-+	{
-+		MEDIA_BUS_FMT_Y10_2X8_PADHI_LE,
-+		MIPI_CSI2_DT_RAW10,
-+		DECODE_FORMAT_UNCOMPRESSED_10_BIT,
-+		16,
-+		1,
-+	},
-+	{
-+		MEDIA_BUS_FMT_SBGGR10_2X8_PADHI_LE,
-+		MIPI_CSI2_DT_RAW10,
-+		DECODE_FORMAT_UNCOMPRESSED_10_BIT,
-+		16,
-+		1,
-+	},
- 	{
- 		MEDIA_BUS_FMT_SBGGR12_1X12,
- 		MIPI_CSI2_DT_RAW12,
+diff --git a/drivers/media/platform/qcom/camss/camss-vfe-17x.c b/drivers/media/platform/qcom/camss/camss-vfe-17x.c
+index 304dafb39ad5121ade50cf278e0ada53f5e5203e..9aceea8609753fe3a8015c41398bfbc4e769ea9d 100644
+--- a/drivers/media/platform/qcom/camss/camss-vfe-17x.c
++++ b/drivers/media/platform/qcom/camss/camss-vfe-17x.c
+@@ -249,10 +249,14 @@ static void vfe_wm_start(struct vfe_device *vfe, u8 wm, struct vfe_line *line)
+ 	val = WM_STRIDE_DEFAULT_STRIDE;
+ 	writel_relaxed(val, vfe->base + VFE_BUS_WM_STRIDE(wm));
+ 
+-	/* Enable WM */
+-	val = 1 << WM_CFG_EN |
+-	      MODE_MIPI_RAW << WM_CFG_MODE;
+-	writel_relaxed(val, vfe->base + VFE_BUS_WM_CFG(wm));
++	/* No dropped frames, one IRQ per frame */
++	writel_relaxed(0, vfe->base + VFE_BUS_WM_FRAMEDROP_PERIOD(wm));
++	writel_relaxed(1, vfe->base + VFE_BUS_WM_FRAMEDROP_PATTERN(wm));
++	writel_relaxed(0, vfe->base + VFE_BUS_WM_IRQ_SUBSAMPLE_PERIOD(wm));
++	writel_relaxed(1, vfe->base + VFE_BUS_WM_IRQ_SUBSAMPLE_PATTERN(wm));
++
++	/* Ensure WM configuration completes before buffer enqueue */
++	wmb();
+ }
+ 
+ static void vfe_wm_stop(struct vfe_device *vfe, u8 wm)
+@@ -270,6 +274,10 @@ static void vfe_wm_update(struct vfe_device *vfe, u8 wm, u32 addr,
+ 
+ 	writel_relaxed(addr, vfe->base + VFE_BUS_WM_IMAGE_ADDR(wm));
+ 	writel_relaxed(stride * pix->height, vfe->base + VFE_BUS_WM_FRAME_INC(wm));
++	/* Ensure IMAGE_ADDR and FRAME_INC land before enabling WM_CFG */
++	wmb();
++	writel_relaxed((1 << WM_CFG_EN) | (MODE_MIPI_RAW << WM_CFG_MODE),
++		       vfe->base + VFE_BUS_WM_CFG(wm));
+ }
+ 
+ static void vfe_reg_update(struct vfe_device *vfe, enum vfe_line_id line_id)
+@@ -475,55 +483,7 @@ static void vfe_isr_reg_update(struct vfe_device *vfe, enum vfe_line_id line_id)
+  */
+ static void vfe_isr_wm_done(struct vfe_device *vfe, u8 wm)
+ {
+-	struct vfe_line *line = &vfe->line[vfe->wm_output_map[wm]];
+-	struct camss_buffer *ready_buf;
+-	struct vfe_output *output;
+-	unsigned long flags;
+-	u32 index;
+-	u64 ts = ktime_get_ns();
+-
+-	spin_lock_irqsave(&vfe->output_lock, flags);
+-
+-	if (vfe->wm_output_map[wm] == VFE_LINE_NONE) {
+-		dev_err_ratelimited(vfe->camss->dev,
+-				    "Received wm done for unmapped index\n");
+-		goto out_unlock;
+-	}
+-	output = &vfe->line[vfe->wm_output_map[wm]].output;
+-
+-	ready_buf = output->buf[0];
+-	if (!ready_buf) {
+-		dev_err_ratelimited(vfe->camss->dev,
+-				    "Missing ready buf %d!\n", output->state);
+-		goto out_unlock;
+-	}
+-
+-	ready_buf->vb.vb2_buf.timestamp = ts;
+-	if (line->sof_seq)
+-		ready_buf->vb.sequence = atomic_read(line->sof_seq);
+-	else
+-		ready_buf->vb.sequence = output->sequence++;
+-
+-	index = 0;
+-	output->buf[0] = output->buf[1];
+-	if (output->buf[0])
+-		index = 1;
+-
+-	output->buf[index] = vfe_buf_get_pending(output);
+-
+-	if (output->buf[index])
+-		vfe_wm_update(vfe, output->wm_idx[0], output->buf[index]->addr[0], line);
+-	else
+-		output->gen2.active_num--;
+-
+-	spin_unlock_irqrestore(&vfe->output_lock, flags);
+-
+-	vb2_buffer_done(&ready_buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
+-
+-	return;
+-
+-out_unlock:
+-	spin_unlock_irqrestore(&vfe->output_lock, flags);
++	vfe_buf_done(vfe, wm);
+ }
+ 
+ static const struct vfe_isr_ops vfe_isr_ops_170 = {
+diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
+index b01c7c919de459bdb6581dba81c15a176e551208..71f3731f05f10194e36a5802065fb82f751baa16 100644
+--- a/drivers/media/platform/qcom/camss/camss-vfe.c
++++ b/drivers/media/platform/qcom/camss/camss-vfe.c
+@@ -432,8 +432,8 @@ u32 vfe_hw_version(struct vfe_device *vfe)
+  */
+ void vfe_buf_done(struct vfe_device *vfe, int wm)
+ {
+-	struct vfe_line *line = &vfe->line[vfe->wm_output_map[wm]];
+ 	const struct vfe_hw_ops *ops = vfe->res->hw_ops;
++	struct vfe_line *line;
+ 	struct camss_buffer *ready_buf;
+ 	struct vfe_output *output;
+ 	unsigned long flags;
+@@ -447,7 +447,8 @@ void vfe_buf_done(struct vfe_device *vfe, int wm)
+ 				    "Received wm done for unmapped index\n");
+ 		goto out_unlock;
+ 	}
+-	output = &vfe->line[vfe->wm_output_map[wm]].output;
++	line = &vfe->line[vfe->wm_output_map[wm]];
++	output = &line->output;
+ 
+ 	ready_buf = output->buf[0];
+ 	if (!ready_buf) {
 
 -- 
 2.47.3
