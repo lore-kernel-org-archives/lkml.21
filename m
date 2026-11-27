@@ -1,68 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763708;
-	b=QImrFqsRFJzL8mwj2FJFY5XjcaZoCryXLrcoHTNZqwG4aYqemyI8sIacYL1Zf9nGD02Y
-	 GUyXS42c4JFSz4asQjlJanP+erLDAMQizJRUkvy2T/E6dlxAujl1y/kEzKqk2BU6q1nqf
-	 PPec5iuez1VUMT0+XE3tqtzIoTUumyudVrV0SE3Sx1Tm3os7h1Y26vGKs993xrnr7pajZ
-	 2YEg0AyDoIkmJJH1ZrzSxMfHOp5mJ1VWTZ2CMxEFaVav+3J+lXSyMSY2GfLV9rucz0H+7
-	 JKoevftbqB6Yfniyia+8zmjeRW8PrqiJ96dBq2W6t+vKhlNlFfsbFBMul8oJKwNNbEg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763708;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=sdHeVGtyJhV98HK8k0GuhRxGfmBtLYuJT4oh96DWm9U=;
-	b=Z7f4Ew06hwkZcvvxTZ7m3FHoXo2AWNLHg2N8WBLeyna86fCdMs1WeqJ2dwBbq45O2yG+
-	 XG8rIFqf9wcuF0f6f7n64u1Nd6xbuqqFUuUT9jRy/3jdaSRBPMyt8ooehxlzz2sKSvz/i
-	 CNgUUPQCicvc12Y/ZYXlx87KpLTfKOiieAv4Pg6iTooYjmsNVlDWa7Mulv3fgwhYGIs9E
-	 PyZVzU7MgWzwm3JnnqdJu0VQ2X8qGsea/7Gkyr7HJj7Qtn9+qvQ9McxLnjqbpyacYmKaE
-	 hlHeDQiQyIFPBkqq246+I/alh/qaXxpqabWkbTYe0jCrZTstiKTublgGGd9zfkT1TnA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=kVacH+FV;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91892606A324;
-	Fri, 27 Nov 2026 07:15:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91892606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795763732;
+	b=FFDqsEEdhqzD0C4I93Tu3pbY/cWuxJqKzvk4QxIh84bOoHCHYnMMvtCsRueB5jKghzvL
+	 sHDfOG9RsKpIynH0TJLVJ9Q4em9stKwwxUguoVkzXQa7r7P67tb7xRm+HN/5AU3O9g59x
+	 AXWEMvBsGd+gP3gChzpsFnW5hhleb8LmPBcEFBKYnZcMP+OM8lq8jkphyFgp0XXeyia70
+	 M/X6liK33XtYk7gKuunfpl/ftkwQ9gUQ/S6+JYhxihWnsX6DXzOKAAHY+gsybaC8VDbAy
+	 D0nNV17PUr0u49xvFmIJ7R4UL0sXc6jDc8pPN64ZX9Fwwh3Jselmva8LTK5XvXi9TUg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763732;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=yHuX3HFjSSMOPaajuVozxl5jxmse0rZffXCwLljYMdo=;
+	b=xq0ntT/RA3Qe1porkh6LCgBS+xuTMfkNbEyXVkaJWLaamdEyNVKPokUT4lnvipvsFyvf
+	 7WTVNPcOEGG8s7Wj91ddF27TxXa4ISX/ANVQRuzzSCBpfiBDvc0t5A/nwXZYn+mJWPuZU
+	 yeAAZ4tTHQBkZqeIuQf+T3GLIUnvcSvq1XIRROPk3AHm2tsVsA5a79Gc1690lgJUuVvSi
+	 a2SqMfB5MCc9HzRUn4Tcn8JNLwdt+C1ZzIR+0u5X9MnHr6JBsxc0MzHFVenEPULlicrrL
+	 C1sy+ZRaJcdTUqUBs0n7FzzZTHXxxmCzvClzFH2TRpzkZrcStQ3V353vUUypou5CQRg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bduT+fgQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 299B4606A321;
+	Fri, 27 Nov 2026 07:15:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=kVacH+FV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=kVacH+FV8yfpcKk8v/nyGFqL8DYtZHeWDGJJA0MXeowJL612xIt0KD2ncuUAQvgfZPHdNDTjkiL9b
-	 caSoaVzncnM3o+1ImTQmgINmUKTjAJNqsicHqmOlRjkmDdtM9cibdSzHDtaYx9y2904aGNJ3OxNbCU
-	 8HiJldf4zFkOcCyo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b092df60bd-9fa18;
-	Fri, 27 Nov 2026 15:15:02 +0800 (CST)
-X-RM-TRANSID:2ee26b092df60bd-9fa18
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.localdomain (unknown[10.55.1.72])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b092df40d7-8acc7;
-	Fri, 27 Nov 2026 15:15:02 +0800 (CST)
-X-RM-TRANSID:2ee76b092df40d7-8acc7
-From: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
-To: Jiri Pirko <jiri@resnulli.us>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: tongzhiwei@cmss.chinamobile.com,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Jiri Pirko <jiri@nvidia.com>
-Subject: [PATCH net-next v2] lib: objagg: Fix stats imbalance on hinted-parent error path
-Date: Fri, 27 Nov 2026 15:14:45 +0800
-Message-ID: <20261127071449.551-1-tongzhiwei@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.45.0.windows.1
-In-Reply-To: <20261106095621.143-1-tongzhiwei@cmss.chinamobile.com>
-References: <20261106095621.143-1-tongzhiwei@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bduT+fgQ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795763732;
+	b=ka68mixIR/sdt7Pie395O3GfIL8SC0k2h3oqYpDfRiWQkW+0z2ag89U5hImhgJb+lP9N
+	 /Gq92hm2hvTOIxQZ+ONDXwQlhg8ZMlKhaWf76KnAeOdysjMh8OL6bIShEJqUIe/GcUD7I
+	 JCDTCUYZV8885b4csLtY8OidnUbHmUoF1+G0eBlMqCHkdjOdQ7CmyfWUtyzfVQeOyIuBD
+	 ak+fScv2FgY3xUXajAwUSu8N+ptFcH4Rflj/5wI/Y2RwmyrBIUEBIVi9SyaxnJQu92LRb
+	 F7Q9E2aSD2xOILLfj5BlKV4k8bMz6e0vW7sKCJu6aTM6e8W57hcRLg4yRGoed4cJdtg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795763732;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=yHuX3HFjSSMOPaajuVozxl5jxmse0rZffXCwLljYMdo=;
+	b=PAaKQiBEefm9j8VlZsKW4qGOSoNYPNJSvDIscGZZOYYzgX/QeBjV257yL1b2mlOlueTf
+	 pD9uMF/QLHC50PuBNIwyIc3KdxloOycFEvD3sGT4P8QmBbNRoZkUo8qAwBWS/fF1r9fSJ
+	 pLkrbe4efANl0r4vb7J5BUtp7GdepXRbbx6LguC+KjNupgNLYoXB8FUMtCb7AxYPyJCI4
+	 IoCgrxouPyF9reBIJ1yjJDyJDj7+IJfRakJQEVSxFSwxej37szTn/4lF+GhVii41ozQkj
+	 eBIV++NX7DYhUXvxT9LV5AlWnMrJKxxCGvexpStUmvigA2mDf9OMGE3f1Bj1Sr4jOnw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 1FFC51F00919;
+	Fri, 27 Nov 2026 07:15:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795763732;
+	bh=yHuX3HFjSSMOPaajuVozxl5jxmse0rZffXCwLljYMdo=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=bduT+fgQ55ol1VlIwOoeJj8fPXwzaeX02VqZe19kucwAWz7RatpTftcRn/tfqnFNU
+	 wI6XmANbrblEVrFvlRZfjqVNSlplTxNFhZMt18/rnIAF2eIAS+VnuNb9MF0b5yztpg
+	 m1FQGqLiQS6EHH1Q/iuk1wOwWRyYsjtBp0cFbQTa/BkFA/CqRt65UyCftp7uwIRLSq
+	 /KFr1WM3dNkrJGEHYBFWZ/D5DVw1woKMtM0LPfBQmy44JPsqNUFR7td/ouxLLBYyMS
+	 8V51JhiEcrblKtgWul8aFCl1XQ7PPkS09hkd2QT+Q+dz1RqQ/V0Hepp+9CZCrLFj9S
+	 4ezrAhJ3b8G9w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A6B9D4B5F5;
+	Fri, 27 Nov 2026 07:15:21 +0000 (UTC)
+From: Andrei Aleksandrov via B4 Relay <devnull+aladex.gmail.com@kernel.org>
+Subject: [PATCH RFC 0/2] ALSA: usb-audio: Make the EPOS GSX 1000 v2 volume
+ ring work
+Date: Fri, 27 Nov 2026 08:15:20 +0100
+Message-Id: <20261127-gsx1000-v1-0-833554c37b82@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,69 +84,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyNz3fTiCkMDAwNdS1ODNCNLc3MTAwsDJaDqgqLUtMwKsEnRSkFuzkq
+ xEMHi0qSs1OQSkBlKtbUAxIqMdnAAAAA=
+X-Change-ID: 20261127-gsx1000-950f29774080
+To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-input@vger.kernel.org, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Andrei Aleksandrov <aladex@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795763720; l=2896;
+ i=aladex@gmail.com; s=20261127; h=from:subject:message-id;
+ bh=Cx5E16DVxiKC2W4AXUGiE4DSUnwoqavuCDkkSrkCAGU=;
+ b=/FLIARca831KI99M2Hcc6myUHvdtGx/mI4TXGlV5zWmzSOlqmag+JNTZkIRBB4qduNEd8uorU
+ Pg224/1KH9rDDKSEzgLOjFosffB5ildc4BkuL6UEUahhlnhf56BPzz/
+X-Developer-Key: i=aladex@gmail.com; a=ed25519;
+ pk=BRFQEVGQ1X027TItMW+SIsAtbYscopzlk1EJT8Girkg=
+X-Endpoint-Received: by B4 Relay for aladex@gmail.com/20261127 with
+ auth_id=1663
+X-Original-From: Andrei Aleksandrov <aladex@gmail.com>
+Reply-To: aladex@gmail.com
 
-This issue was discovered by an AI code review agent during static
-inspection of the hinted-parent error path.  It has not been
-triggered or observed at runtime; the analysis was confirmed by
-inspecting the code, pairing __objagg_obj_get() with
-__objagg_obj_put() on the success path.  The fix has not been
-runtime-tested.  Its only build validation is the automated netdev
-build tests run on the v1 submission (identical diff), which passed
-with no new warnings.  The fix and this commit message were
-prepared by the same LLM agent and reviewed by the human submitter.
+The volume ring of the EPOS / Sennheiser GSX 1000 v2 has never worked on
+Linux: turning it makes the volume oscillate or run down, and the usual
+workaround is to disable it with a hwdb rule [1][2][3]. This series makes
+it behave as on Windows, based on USB captures of the Windows inbox
+driver (usbaudio.sys + HID, there is no vendor driver):
 
-In objagg_obj_init_with_hints(), the parent is obtained via
-__objagg_obj_get() which increments only the refcount without
-touching stats.  The matching release for internal references is
-__objagg_obj_put() (no stats adjustment), as used in the success
-path in objagg_obj_parent_unassign().
+- the ring sends HID Vol+/Vol- until the volume the host writes to FU 12
+  matches the ring position, and compares it with 1/256 dB precision;
+- Windows writes fractional dB values from its 0..100 % scale to
+  channels 1 and 2 of FU 12, in 2 % steps per ring detent.
 
-However, the error cleanup at err_parent_assign calls the public
-objagg_obj_put(), which additionally runs objagg_obj_stats_dec(),
-decrementing user_count and delta_user_count with no prior
-increment.  This corrupts the parent stats, leading to
-under-reporting and potential user_count underflow.
+Patch 1 replaces the 1 dB FU 12 volume with a 0..100 control that writes
+the exact values measured from Windows. Patch 2 answers the ring's
+Vol+/Vol- in the driver with the Windows step.
 
-Use __objagg_obj_put() to match the internal __objagg_obj_get().
+This is an RFC because of two design choices I would like your opinion
+on:
 
-Fixes: 9069a3817d82 ("lib: objagg: implement optimization hints assembly and use hints for object creation")
-Signed-off-by: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
-Reviewed-by: Jiri Pirko <jiri@nvidia.com>
+1. The new control has no dB TLV, on purpose: with a TLV, PipeWire and
+   PulseAudio map their volume through the dB curve, and the number on
+   the device display no longer matches the desktop percent. Without it
+   they map linearly onto the 101 steps and the display matches, as on
+   Windows. Would you prefer a TLV (e.g. a DB_RANGE over the table)
+   instead, accepting the display mismatch?
+
+2. Patch 2 registers an input handler with a .filter callback that
+   swallows KEY_VOLUMEUP/KEY_VOLUMEDOWN from this card's own HID
+   interface. Subscribing to HID input from mixer_quirks.c has a
+   precedent (the DualSense jack detection), filtering does not. Is this
+   acceptable in snd-usb-audio, should it be optional (a module
+   parameter), or would you rather see it done elsewhere?
+
+Only 1395:00b1 is enabled. The GSX 1000 v1 (005e, 00a0) and GSX 1200
+(005f, 00a1) are likely similar, but I have no captures of them.
+
+The captures, their decoding and a DKMS package of the same code (in
+use on 7.3) are at https://github.com/Aladex/epos-gsx.
+
+Disclosure: the reverse engineering and these patches were prepared with
+the help of an AI coding assistant. I reviewed the code, and I tested it
+on my own device; the captures are from my hardware.
+
+[1] https://bugs.launchpad.net/bugs/1821496
+[2] https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/3714
+[3] https://github.com/evilphish/sennheiser-gsx-1000
+
+Signed-off-by: Andrei Aleksandrov <aladex@gmail.com>
 ---
-V1 -> V2:
-- add the net-next tree designation to the subject
-- add the Fixes: tag for the commit that introduced the
-  hinted-parent error path
-- collect the Reviewed-by tag from Jiri Pirko.  Thank you for the
-  review, and sorry for the slow follow-up!  The diff is unchanged,
-  so the tag is carried over as-is
-- replace the "NOTE: this commit is worked by llm completely" line
-  and the "Assisted-by: LLM" trailer with the plain-English
-  discovery and testing statement above, per the "Bug fixes"
-  section of Documentation/process/maintainer-netdev.rst
-- no code changes
+Andrei Aleksandrov (2):
+      ALSA: usb-audio: Add Windows volume scale quirk for EPOS GSX 1000 v2
+      ALSA: usb-audio: Handle the EPOS GSX 1000 v2 volume ring in the driver
 
-v1: https://lore.kernel.org/r/20261106095621.143-1-tongzhiwei@cmss.chinamobile.com/
+ sound/usb/mixer_maps.c   |  11 ++
+ sound/usb/mixer_quirks.c | 343 +++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 354 insertions(+)
+---
+base-commit: 486060b97284c95384744f030706f89e1980a46e
+change-id: 20261127-gsx1000-950f29774080
 
- lib/objagg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/lib/objagg.c b/lib/objagg.c
-index 23c7105a3f9f..6c4144213eb8 100644
---- a/lib/objagg.c
-+++ b/lib/objagg.c
-@@ -327,7 +327,7 @@ static int objagg_obj_init_with_hints(struct objagg *objagg,
- 	return 0;
- 
- err_parent_assign:
--	objagg_obj_put(objagg, parent);
-+	__objagg_obj_put(objagg, parent);
- 	return err;
- }
- 
--- 
-2.43.0
-
+Best regards,
+--  
+Andrei Aleksandrov <aladex@gmail.com>
 
 
