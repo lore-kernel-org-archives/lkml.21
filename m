@@ -1,82 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795792334;
-	b=E/C5SWadehTE2nCrEI84n5b5YdTsAp3RrJ3/5iKZ7YcV6fCUbDVlFg40qH5q49UJXera
-	 iQWcl/sv2yJNMMDM05lbB8hMZGJZHa6R+nDsgclLxtuNFTz9g4qEVBu6q+qdJPeW46+ta
-	 nLWAzewd4cs9YtbRy0uaeWqzWM/75fT4VetFCb5vd2jCA/RnAQftjHeBp56tsqXFLYMM9
-	 ySrwzB/DHRx5oLxGYke98lCY5ogLd90iTyKhr6COdX0xxi4MvzJ0lZVmHqaBFuLbYxApE
-	 mA0XnQuhLtgrg1OpFqAKFr4/nlU6yRAckpaus8o4n1FJpx8t66b/SHdBg7A1xzRPhzA==
+	t=1795792341;
+	b=gtjOFSmXPv4m4jkUiw1VGVu27zsLxYs/1uflFSP/4iFFHGGt9Tr3mBMF4diQi87jYwfC
+	 dAfo18kSqLJdhjrelXkwvKuUytoUDAOFfTZ8QakRFIv3P/B6SM06pWkZLUkRwzgO6uTcC
+	 sbXOm1hcIrSUuhsqlToelOUskX0fP/A9SbFuKck7w5jPY8/EVhtPXj6SoZB4E3piy1qOq
+	 nRb5F95qyRHhU7qVViEFIDV2NNaJMaeXthsSZ+EZ5G4y+2QIOMxmMLkq4ls0TI+YERkYg
+	 khZvrAcSYyh29vdOMkj3IzZ1Ui6Hs5/7j5UhphD5cUw+RtG+apK/1PByDyQKgsl5MUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792334;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=JguMDeketz0aJ5tG4V2w4wg3L7yYMiRjEQk6NS/fJ8w=;
-	b=CIET1Xv2xGZnHrf3QKRGHVFVnrU5+K/WR2OmUhIJELg93AnGGRRUo3LXzUY2EhaVfJZE
-	 WGK8ip9p/5FUdyrVZ2DBb5xo3vujOUpLc4Oz0xkhbLWW9RaxaKUkSyQb1b8rNthOP1HIi
-	 ahE+TDgs5yois0/AoQhnygZqwmYpW2RQMex/R8ys1PVRKARrDGQBa2j3K4z4A6IzH4lxb
-	 Ukpq7NeBQQbK4CHsdJvmmmnogRJGStszKs5tJYt7BdijmqBlEEpERpG+NXTr9Q0x2j1A0
-	 dt0mJf+BdTy3b0mamQMpvz7OTJB2AVWgy+sF+nBsWwIF3vojWBL6tRkaObGnQ7UZMQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792341;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=hG1UcIeD5kDsTZ/j31mkrP5xd0P4UvuVoAKHdexqypg=;
+	b=5pRJku3gVLJzeKp0T6uZK+vNt66P52nR7G84MT++P4IIwPLk+ZKC01Fp7uOVFPvxEGmi
+	 FPPK1Km2Qlgi7QVxpDZ6vzxCaOE9RzrxBfP9n1P74K+MCRI9Fn6UAWWi/2SBSHQa2usRD
+	 6ucPmY4vTMwq0CEOZ9dAtfDt9Sz5n6DCt3iXEpbPwgFevljrL2wEHvxO+6zI4OSnwbEMF
+	 TViWkw8gbPsR1bNz7zwLZPykWoUkL1Gk0VtrPJCpRiI6/XH38oXE0WWRG3tUZRrbFpmy1
+	 KF2QB6jnd1ew/L9giR5GDb38hUXxi+GqH5O851mfNPRG8bPRAFOI53sF/GRSTOiShzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CqBikNXw;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78E40606A6A1;
-	Fri, 27 Nov 2026 15:12:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78E40606A6A1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Aliu6mPB;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 36C8A606A336;
+	Fri, 27 Nov 2026 15:12:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36C8A606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CqBikNXw
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4cSJ1650134;
-	Fri, 27 Nov 2026 15:12:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=JguMDe
-	ketz0aJ5tG4V2w4wg3L7yYMiRjEQk6NS/fJ8w=; b=CqBikNXwtNBwN7FSUezTMN
-	PEchtNoAJ+4V5hk4m19MMZ8U1L2AQvxuLms9NBxn3AUSLalS2kziXVVCSRKOw5Tu
-	S5gzhrf0ORcQomDRVW7xC8kOroWGEF97/TRCpdZpE0NUHDWH6g440cikR3rRqUUg
-	UzY2FlejFxZ0lc70mVS3F47OZoTJ50Q8/IwsMJ3BTel2+wVKMJ25dgzzIarAUtmT
-	ibJTmszdV4RUdXTl7CAAcJ+S2lxC6CSa012wSrvQVBwYFl8nUI5cccHzaLo9gmDt
-	D06zJRT8kPEzYg6tpQQ1ytPsSib6EMPwYjmacHIn9haA0CBjEdTXs5BZHVNYAnTA
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3pde4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:12:02 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4FZ31180983;
-	Fri, 27 Nov 2026 15:12:01 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j6rhckqdc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:12:01 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARFBvfM7471382
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 15:11:57 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 54C8020043;
-	Fri, 27 Nov 2026 15:11:57 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8E43A20040;
-	Fri, 27 Nov 2026 15:11:54 +0000 (GMT)
-Received: from localhost.localdomain (unknown [9.39.17.190])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 27 Nov 2026 15:11:54 +0000 (GMT)
-From: Ojaswin Mujoo <ojaswin@linux.ibm.com>
-Date: Fri, 27 Nov 2026 20:41:00 +0530
-Subject: [PATCH v2 13/13] ext4: re-enable zeroout fallback
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Aliu6mPB
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEC59169E;
+	Fri, 27 Nov 2026 07:12:17 -0800 (PST)
+Received: from [10.57.71.121] (unknown [10.57.71.121])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 391CF3F632;
+	Fri, 27 Nov 2026 07:12:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795792340; bh=UhKmPuC8DACVoypwIe16TXINMMAoEKBWaFZcV9+dSjo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Aliu6mPBwYN5HSMdptjc8jnPjK5BOd8wx9RKcKPyfNS43GcRQaSwUj25U3P1SnHAG
+	 8xkH6zd4yykKSeWXRHwyLkTXOsmF5IqkPe4GzVXq7CVj3Yqh+r31vXJuppbFq1Fwe1
+	 qxHQdEPjVzc2b7w4z6dBLBzE+oViDmSYGQd/rozE=
+Message-ID: <b1733f2a-ed03-4f38-8c40-6e0e535f1632@arm.com>
+Date: Fri, 27 Nov 2026 15:12:14 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,69 +53,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/8] Enhance TLP packet decoder with field-level
+ parsing and versioning
+Content-Language: en-GB
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Sizhe Liu <liusizhe5@huawei.com>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, bhelgaas@google.com,
+ yangyccccc@gmail.com, jic23@kernel.org, john.g.garry@oracle.com,
+ will@kernel.org, james.clark@linaro.org, mike.leach@arm.com,
+ leo.yan@linux.dev, peterz@infradead.org, mingo@redhat.com,
+ namhyung@kernel.org, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, wangyushan12@huawei.com, wuzongyu1@huawei.com,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linuxarm@huawei.com, prime.zeng@hisilicon.com
+References: <20260908140509.2485649-1-liusizhe5@huawei.com>
+ <aqB37YCMUYKodo3N@x2>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aqB37YCMUYKodo3N@x2>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-ext4-endio-zero-bug-v2-13-4106968e4d15@linux.ibm.com>
-References: <20261127-ext4-endio-zero-bug-v2-0-4106968e4d15@linux.ibm.com>
-In-Reply-To: <20261127-ext4-endio-zero-bug-v2-0-4106968e4d15@linux.ibm.com>
-To: "Theodore Ts'o" <tytso@mit.edu>, Andreas Dilger <adilger.kernel@dilger.ca>,
-        Baokun Li <libaokun@linux.alibaba.com>, Jan Kara <jack@suse.cz>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-        Zhang Yi <yi.zhang@huawei.com>
-Cc: linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b099dc2 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
- a=yX2KSBNdrbUira0Ip4AA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA2MCBTYWx0ZWRfX5JGemIKXWBgB
- 97YhN1iFevShqbKYi2eWvPdbAHCRnMt5LeDojZWq/wtj90ln0u+Xi94VXRLeccVWluP9OxDe++5
- ESESRULaS1wdFhmcXQ/GpfVkezJQNyE=
-X-Proofpoint-ORIG-GUID: 3sEDHlN1BPnS1F3ZzzdCDUg52_2loTeN
-X-Proofpoint-GUID: zGvkzZ2boJR31jIKWKcZ2UmsTIiUWkih
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA2MCBTYWx0ZWRfX/opeB1LRUg7D
- fcrSCxX92GzlQj1BRC5ZEzS6MdT+EQmGe1K4qIE60HiqgGhtSgX1QCut9jkbfpUA1Xs2LfVahKK
- rw6DyILpc5/Lr9h+G+QWyRr9Kr7dM/Fo30knVM/EpRYNybFHD1BUAQv3WXnzq0t3BIvwcV6PSSE
- YSqDaEOez3S+NIwhm7MtWjR/rnZgXge+ZQJQOAAtbmnunJ831hPf0aglSpgmyxWxC2H8jjzz/0k
- L7fi9dF1AbJ2AVSA8oRui50DQaAnC47U/hj4mWFQQaSt19z+f6DvJRjxLsLXXz9W+ZOowomj1c2
- DXTD/vGyUf0b1rSyXeGBKwzrW3K9/Q+fkJPIrFoga4zo182t912hUw3cMgGqQ86w3PSbeb57QBS
- XXT4Eb81PymTU8OqGlf5PvWyj4T6zOwcWdTWDNMVpXZXmz+7F/5TvYKjq+UZKENLpgnA2IkGL7s
- 75E1lV0MivkUMNzUlBQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270060
 
-Now that we have fixed the data corruption and cache consistency bugs
-around zeroout fallback, lets re-enable the feature.
+Hi Arnaldo,
 
-Signed-off-by: Ojaswin Mujoo <ojaswin@linux.ibm.com>
----
- fs/ext4/extents.c | 3 ---
- 1 file changed, 3 deletions(-)
+On 08/09/2026 22:02, Arnaldo Carvalho de Melo wrote:
+> On Tue, Sep 08, 2026 at 10:05:01PM +0800, Sizhe Liu wrote:
+>> The original hisi-ptt-decoder only prints raw hex values with generic field
+>> names for DW0/DW1/DW2/DW3, without classifying TLP types or decoding
+>> DW0/DW1/DW2/DW3 fields according to the hardware-defined packet format.
+>>
+>> This series enhances the HiSilicon PTT (PCIe Trace and Tuning) packet
+>> decoder in perf tool to provide detailed field-level parsing of TLP headers
+>> based on message type, and adds a versioning mechanism for backward
+>> compatibility both in hisi_ptt driver and perf tool.
+> 
+> Series is sashiko clean by now, has a Reviewed-by, but it touches both
+> kernel and tools, I wouldn't have a problem if it was processed by
+> whoever maintains the kernel part.
+> 
+> - Arnaldo
 
-diff --git a/fs/ext4/extents.c b/fs/ext4/extents.c
-index 5130416aa8b4..df3085f2fc44 100644
---- a/fs/ext4/extents.c
-+++ b/fs/ext4/extents.c
-@@ -3567,9 +3567,6 @@ static struct ext4_ext_path *ext4_split_extent(handle_t *handle,
- 	if (orig_err != -ENOSPC && orig_err != -EDQUOT && orig_err != -ENOMEM)
- 		goto out_orig_err;
- 
--	/* zeroout fallback disabled: always return the original err */
--	goto out_orig_err;
--
- 	/* we can't zeroout? just return the original err */
- 	if (!(split_flag & EXT4_EXT_MAY_ZEROOUT))
- 		goto out_orig_err;
+Please could you add your Ack on the series, so that I can pick it via
+Coresight tree.
 
--- 
-2.55.0
+Suzuki
+
+
+>   
+>> ---
+>> Changes in v4:
+>> - Add missing space in hisi-ptt.rst (Sashiko).
+>> - Widen the pattern bit field in struct hisi_ptt_trace_ctrl (Sashiko).
+>> - Add protocol defined TLP header length parsing in patch 05/08.
+>> - Add MRd and DMRr message types parsing in patch 05/08.
+>> - Add comment for enum hisi_ptt_pkt_msg_type in patch 05/08.
+>> - Add DW0 and DW1 fields analysing in patch 06/08.
+>> - Refine bit-fields parsing of DW0/DW1/DW2/DW3 based on different requests
+>>    in patch 06/08.
+>> - Refine the description of pattern=1 in the document in patch 07/08.
+>> - Extract the bit-field printing of v1 version into functions in
+>>    patch 08/08.
+>> - Link to v3: https://lore.kernel.org/linux-pci/20260903075241.1445338-1-liusizhe5@huawei.com/
+>>
+>> Changes in v3:
+>> - Add explicit inclusion of <stdbool.h> (Sashiko).
+>> - Make patch 07/08 apply cleanly to mainline (Yushan).
+>> - Pick up the reviewed-by tag (Yushan).
+>> - Link to v2: https://lore.kernel.org/linux-pci/20260827140442.2031128-1-liusizhe5@huawei.com/
+>>
+>> Changes in v2:
+>> - Split patch 01/10 and patch 02/10 from series v1 into independent patch
+>>    series for backporting (Bjorn).
+>> - Use bitwise operations instead of C bitfields for cross-platform cases
+>>    (Sashiko).
+>> - Add `pattern` parameter in hisi_ptt driver for layout compatibility.
+>> - Link to v1: https://lore.kernel.org/linux-pci/20260604075005.2219785-1-liusizhe5@huawei.com/
+>>
+>> ---
+>> Sizhe Liu (8):
+>>    perf hisi-ptt: Abstract trace data buf and offset
+>>    perf hisi-ptt: Complete the field names for 4DW and 8DW packets
+>>    perf hisi-ptt: Extract the raw data printing part
+>>    perf hisi-ptt: Merge 4DW and 8DW HEAD0 printing
+>>    perf hisi-ptt: Add parsing of supported message types and proto length
+>>    perf hisi-ptt: Add field-level parsing for header DW0/DW1/DW2/DW3
+>>    hwtracing: hisi_ptt: Add pattern PMU config for trace format selection
+>>    perf hisi-ptt: Pass pattern version to decoder for compatibility
+>>
+>>   Documentation/trace/hisi-ptt.rst              |  26 +-
+>>   drivers/hwtracing/ptt/hisi_ptt.c              |  25 +-
+>>   drivers/hwtracing/ptt/hisi_ptt.h              |   4 +
+>>   tools/perf/arch/arm64/util/hisi-ptt.c         |  18 +
+>>   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 593 ++++++++++++++++--
+>>   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   | 241 ++++++-
+>>   tools/perf/util/hisi-ptt.c                    |  51 +-
+>>   tools/perf/util/hisi-ptt.h                    |   9 +-
+>>   8 files changed, 872 insertions(+), 95 deletions(-)
+>>
+>> -- 
+>> 2.33.0
+> 
 
