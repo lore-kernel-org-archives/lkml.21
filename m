@@ -1,58 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795797960;
-	b=l88616QoZf/uexIAB85Hvk/n9JYDIDWlLoKOh15FKytQx7pTm+fHkNnJy8BGdmp1ePmZ
-	 KjcbkvCuXdn5InBGEAh4BKHo2MPm8WTAIk6TUkoYQ9pVdpI8qxssLLI/Xnc527w9GLpaF
-	 TCQv5InyoqaB2PWyjqs/U1BpJI8gNlY+Y15ll1tpKjaVz22HzanXOIqnVOwd9a6BH6y0O
-	 whqlB/BFFGoOsm0inPdJfoQUHL+OR+T3ZjEwhgjD81Z8CXuzww++QEs0AXoBNsCpRvxt/
-	 FF8QOze9dvydLgqtEyNTO6mXYRzjZcTnLxZgxcw+DjWqjTEbImAu8z9Ti2cClxfMIhQ==
+	t=1795798028;
+	b=x6977NhKMfpuKJDf0BN/ttpcX/lr/nof+mMCaPNUvCZCeJ28lhkkwjvnR1Ykl23XxYEO
+	 S+9M+18cXH6QJPP1adpuzEhM0K2uyFnNe6vR6bvQf3+EuNzG+ycvWlshsAJQrN9Pf4SNG
+	 TNe6YaoRpkIEjD1ErQiJ5Pm05C9wuhubtoXt7gOqSgck9sS6dYG5wNQqEOjs+Askpe1gH
+	 2zt897fxP63pAM3IZ3lmNAhMJ8ZHVyG7yNbdVqoIjNl/BKP1J2WLYZfoK17VeTBwxvmik
+	 NLWe5U+Tz8K2qVnmmpEJu7Ax9RFVmKyKS4W8semEi9Yd7xpkUNsJRCpNOWIGTpX39Rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797960;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=tL59kLErIyoVt3fJ3Igm47VdgC5F3mDCdQ7RiRVXjAk=;
-	b=i0ps+/MFCGyfAEzDGpcr2qigwvraujZDvoWdXFZPEc5rnNUb2aPZB0CGIjvudh/k2ufI
-	 wf38fKAK28RdtRmnFiWgLVgnQK9/x/CHHxStjdQJvJSaACKyN3Hk6Y4NeTuR8rmHJFAVT
-	 mnqaDOItkFRcjYH1rwHYcdYouPwVvqRli8dDazb0bPf0/InYpSppMf9clCiupPcYNK5dG
-	 UYA+IdFoyan36bzme/M+kGGUtdUpWGPnEyDjnX2u3e/KKr1EnL8EjHgWkty6vWNrh+dzf
-	 rUBy9HuNmQ5PxYqYNSnbQB5mPmKRCHfJumdCaxURNL+O3D70ddZiXr0DqClLgPGULmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798028;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=zx3AnSzZZBDI5AJfT34gcNM62do8VpPC/Q9qG67J7oY=;
+	b=26AGQ1jgxQLGfaFWveW7fUUHt2lTuMg5Ga7r9ly1rbKpU8bCtEQ6q1ioxdyJut4ypogu
+	 IQ1Hvo0LDvE2AmFqCQbSyrUjZXfZWFslnDKlOSs5e9Devyk20Qor7wZ8G9Lx4yKdCA2Np
+	 pumgHG+WE8PC56yS4u66Oc8tnJEAOxr5YgWdcrAAJxhhu5Dcj8X2S7Cvf4XmRvcR5vEBe
+	 GGNMYDcHyP/mS4MJD1Pgop0v5Glwjk3Y7EAXXeqy1tVvygAI4AgTdLUGjpddJKmraetcd
+	 kK55+yxHNeEgf4RIQf7bo5Ovzjrkk9UPdgBApvwDuB7wkwjqKaoA6vKJ9BqnneI3SWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=DfMAiQdT;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaPO+bzJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0897A606A32A;
-	Fri, 27 Nov 2026 16:45:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0897A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E92D8606A31C;
+	Fri, 27 Nov 2026 16:47:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=DfMAiQdT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795797958;
-	bh=Bxc8NEyDBUAYf72MPzeam6V/+fXECf3K+tlbsq+D+c4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DfMAiQdT73P4gDRHUOQsFCrPjT6Rf2xJ/xO6bt/DViSdS/DZ0fWMmNXt1LIY9j1T5
-	 oW7pEbKXi3IXbJAydTZAKsQYpRk96cCaJWwQDWxR4YZT1q4388wGH1+pxgeWcGWAax
-	 4ktMLi3m5+IOw6tR5NOaWb7JCHvfxgqFU/miRoJl3GyseTaFWpCFZuL/yUzbATTniw
-	 zBG8aS0nXcDGkH5+SCiw/KDckibIxeTfqUVtJsfDfvd2PDtd64k2JBGg09awM5BWCp
-	 2ScJkKOuuYFhpoUJ1wBM7tMHBs8O4tdDsaWVISmzjAEsl7vuKGkM2y5af4vvG+YDAL
-	 /kIg7d7FXbELA==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8629E17E0BA9;
-	Fri, 27 Nov 2026 17:45:56 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Fri, 27 Nov 2026 11:45:13 -0500
-Subject: [PATCH v4 9/9] media: hantro: Add v4l2_hw run/done traces
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaPO+bzJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51B1B1F00893;
+	Fri, 27 Nov 2026 16:47:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795798027;
+	bh=zx3AnSzZZBDI5AJfT34gcNM62do8VpPC/Q9qG67J7oY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DaPO+bzJsE5GLOz7Ck9rQcpq5b6CRDRJXTWvW8cxGodR/PrXA/qV1eTni370++3c5
+	 ceKpTcS4Nkdr/+OUUYUFmXhh/tMMylUUVijoNPnkfbkvmWT0B7x4g47mhK48CTZQSP
+	 2KNnCFR58/WCJajArfTe7XSa059425rIN5wTaU/T7PZzIrmaynN0j+/f85x22vA+UA
+	 nt2VejMTitX65N6aiUr0I2/+DCe0fTblsZqcXQfLTJtucVGqXD2RaFr3ROWqAgBpfZ
+	 WHsY1+XtBlo3rVXSyZ4IPRYEw401Zx8NgiB2o5SPSZB6j8ohCeai7lZ+6ji1Hjip9x
+	 iX/OH6gkPupUA==
+Date: Fri, 27 Nov 2026 16:46:58 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Willy Tarreau <w@1wt.eu>, 
+	Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>, 
+	Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Jonathan Cameron <jic23@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Theodore Ts'o <tytso@mit.edu>, 
+	Security Officers <security@kernel.org>, workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
+ and a cover letter
+Message-ID: <awmrvCPm6ZI7Yd7_@gremlin>
+References: <awjopqoCJqwChwnF@laps>
+ <awlCy3vDs0fKx1ku@gremlin>
+ <awlNYsu1y8EhYgor@1wt.eu>
+ <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org>
+ <awlR9pQUjodcLjZK@gremlin>
+ <20261127133756.455469-1-sashal@kernel.org>
+ <awmJ2c87NSDjtSwp@gremlin>
+ <20261127143124.1039470-1-sashal@kernel.org>
+ <awmU4L01OH9kWEVv@gremlin>
+ <20261127153902.1320179-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,131 +75,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-v4l2-add-ftrace-v4-9-24138479002f@collabora.com>
-References: <20261127-v4l2-add-ftrace-v4-0-24138479002f@collabora.com>
-In-Reply-To: <20261127-v4l2-add-ftrace-v4-0-24138479002f@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Detlev Casanova <detlev.casanova@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127153902.1320179-1-sashal@kernel.org>
 
-Add the trace calls as well as retrieving the number of clock cycles for
-the rockchip_vpu core.
+On Fri, Nov 27, 2026 at 10:39:02AM -0500, Sasha Levin wrote:
+> The series calls for *less* text in the commit message. The extra text goes
+> into the cover letter, which humans can ignore if they don't want it.
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- drivers/media/platform/verisilicon/hantro.h               | 3 +++
- drivers/media/platform/verisilicon/hantro_drv.c           | 9 +++++++++
- drivers/media/platform/verisilicon/rockchip_vpu981_regs.h | 1 +
- drivers/media/platform/verisilicon/rockchip_vpu_hw.c      | 2 ++
- 4 files changed, 15 insertions(+)
+You're just shifting the slop around and encouraging more of it, ultimately
+no?
 
-diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-index 0353de154a1e..3f7c54f81f3b 100644
---- a/drivers/media/platform/verisilicon/hantro.h
-+++ b/drivers/media/platform/verisilicon/hantro.h
-@@ -193,6 +193,8 @@ hantro_vdev_to_func(struct video_device *vdev)
-  *			shared with interrupt handlers.
-  * @variant:		Hardware variant-specific parameters.
-  * @watchdog_work:	Delayed work for hardware timeout handling.
-+ * @hw_cycles:		Hardware cycles used by the current job, if reported
-+ *			by the variant. Reset to 0 when a job is started.
-  */
- struct hantro_dev {
- 	struct v4l2_device v4l2_dev;
-@@ -213,6 +215,7 @@ struct hantro_dev {
- 	spinlock_t irqlock;
- 	const struct hantro_variant *variant;
- 	struct delayed_work watchdog_work;
-+	u32 hw_cycles;
- };
- 
- /**
-diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 3734ea701145..45bf926c0480 100644
---- a/drivers/media/platform/verisilicon/hantro_drv.c
-+++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -25,6 +25,8 @@
- #include <media/videobuf2-core.h>
- #include <media/videobuf2-vmalloc.h>
- 
-+#include <trace/events/v4l2.h>
-+
- #include "hantro_v4l2.h"
- #include "hantro.h"
- #include "hantro_hw.h"
-@@ -106,6 +108,7 @@ void hantro_irq_done(struct hantro_dev *vpu,
- 	 * and will take care of finishing the job.
- 	 */
- 	if (cancel_delayed_work(&vpu->watchdog_work)) {
-+		trace_v4l2_hw_done(ctx->fh.tgid, ctx->fh.fd, vpu->hw_cycles);
- 		if (result == VB2_BUF_STATE_DONE && ctx->codec_ops->done)
- 			ctx->codec_ops->done(ctx);
- 		hantro_job_finish(ctx, result);
-@@ -122,6 +125,9 @@ void hantro_watchdog(struct work_struct *work)
- 	ctx = v4l2_m2m_get_curr_priv(vpu->m2m_dev);
- 	if (ctx) {
- 		vpu_err("frame processing timed out!\n");
-+
-+		trace_v4l2_hw_done(ctx->fh.tgid, ctx->fh.fd, vpu->hw_cycles);
-+
- 		if (ctx->codec_ops->reset)
- 			ctx->codec_ops->reset(ctx);
- 		hantro_job_finish(ctx, VB2_BUF_STATE_ERROR);
-@@ -159,6 +165,8 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
- 	v4l2_ctrl_request_complete(src_buf->vb2_buf.req_obj.req,
- 				   &ctx->ctrl_handler);
- 
-+	trace_v4l2_hw_run(ctx->fh.tgid, ctx->fh.fd);
-+
- 	/* Kick the watchdog. */
- 	schedule_delayed_work(&ctx->dev->watchdog_work,
- 			      msecs_to_jiffies(2000));
-@@ -182,6 +190,7 @@ static void device_run(void *priv)
- 
- 	v4l2_m2m_buf_copy_metadata(src, dst);
- 
-+	vpu->hw_cycles = 0;
- 	ret = ctx->codec_ops->run(ctx);
- 	if (ret)
- 		hantro_job_finish(ctx, VB2_BUF_STATE_ERROR);
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h b/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-index e4008da64f19..96b85470208b 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-@@ -451,6 +451,7 @@
- #define av1_pp0_dup_ver			AV1_DEC_REG(394, 16, 0xff)
- #define av1_pp0_dup_hor			AV1_DEC_REG(394, 24, 0xff)
- 
-+#define AV1_CYCLE_COUNT			(AV1_SWREG(63))
- #define AV1_TILE_OUT_LU			(AV1_SWREG(65))
- #define AV1_REFERENCE_Y(i)		(AV1_SWREG(67) + ((i) * 0x8))
- #define AV1_SEGMENTATION		(AV1_SWREG(81))
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-index 02673be9878e..04f26d6fded2 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-@@ -433,6 +433,8 @@ static irqreturn_t rk3588_vpu981_irq(int irq, void *dev_id)
- 	vdpu_write(vpu, 0, AV1_REG_INTERRUPT);
- 	vdpu_write(vpu, AV1_REG_CONFIG_DEC_CLK_GATE_E, AV1_REG_CONFIG);
- 
-+	vpu->hw_cycles = vdpu_read(vpu, AV1_CYCLE_COUNT);
-+
- 	hantro_irq_done(vpu, state);
- 
- 	return IRQ_HANDLED;
+>
+> >Where was this floated? I didn't hear anything about it? Was it another
+> >decision made by a cabal behind closed doors? :)
+>
+> Hallway track during LPC mostly :) There's no "decision" here. Folks were
+> raising both concerns: "the changelogs are too long, they suck for humans" and
+> "the changelogs are too short, we don't get enough information / the AI fakes
+> stuff".
+>
 
--- 
-2.56.1
+I haven't a clue why anybody would say they were too short, I have never seen a
+slopped patch where that was the case?
 
+Why would adding more text address faking? That seems orthogonal really?
+
+> >Anyway, let me rephrase I guess - please don't ask LLMs to add more slopped
+> >text for me to deal with?
+> >
+> >I really dislike the idea of a cover letter for a single patch in general,
+> >but from an LLM you literally just made my life twice as bad.
+> >
+> >Please, don't?
+>
+> I suspect we won't find something here that works for everyone, so subsystems
+> could tune it in their maintainer handbook docs if they need to.
+
+This is just 'shut up' in more words no? (did you use an LLM? ;)?
+
+Am we in the community permitted to debate the defaults? Or are they already
+decided upon?
+
+>
+> One question though: what stops you from ignoring the cover letter altogether
+> and looking only at the commit message? We can have AI explicitly tag a
+> "slopped" cover letter if it'll make it easier...
+
+Now "Shut up" + "ignore the spam" :)
+
+I've got the distinct impression my views are not welcome on this topic,
+rather had that feeling from the start (my changes to
+docs/process/generated-content required me to -shout- to be heard).
+
+I've engaged regardless because this impacts my + other's day-to-day
+experience of the kernel majorly, and I feel this stuff is a survival-level
+issue for the kernel.
+
+But I'm not sure there's really great RoI for me any more, given it seems
+one can only have minimal impact on this as a community-member.
+
+So I think I'll disengage from the thread at this point.
+
+Thanks, Lorenzo
