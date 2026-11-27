@@ -1,144 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795791053;
-	b=U0USxk2AoyiwwQ0grOTX/7l0gpnWHXtw8CNuXch2UiV5/JXN09Lgmwvu+P8ZE4HU2k4g
-	 qC7I34HJXK5RngA2kjo6vHfmxVC9w4bb3o/PkUCg7Obv9XoxfQB5cYUTcLIHf1eK4ZRx7
-	 /13AT+YLIvqeK20N/xJEiqf+Rsvt2y+bPr94M+eKwYU8GYVjxKvOMnt85s6N3o/vmMBcr
-	 pwsairDb8OmVUrZCmJ6Gn6PLOFi3bTA9uEJ+XKmQqho5A6YCGfMj0+kSuCwncgVVQkhxZ
-	 +6j29pGfvHsnRf5VMKlv1pULMCP1V4N9sdjB7tzSxR6bGH4O6yF1Wl01frlqwPbKkUw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791053;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:Received:Received:Message-ID:Date:User-Agent:Subject:To:CC:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=aUd3T02Gc74duTmodEL7iM50DPzhk1ccT05XBht+77M=;
-	b=v8AyB5byDFepCvXqAycMD3kFeVWzydLrKnRd2gPKM6enTk5k45fSlH6WULn6ICTWoZyE
-	 1XJ9HBtpSjcQJj9mmxKMbu8jHHPXTVdSwY0grRX+1GtZOe4BEgQtQHTOICIEVP54jX53l
-	 duAwke/rjzFt18QJtQslUADet1+k6Q/kGW7MP8iKxYDfKXboU53L/0IWckfWztSAolKq9
-	 jUV2HzZu6Y57NbOPOEYMHknE16DopdCPRb7bm7S0OIKcFtgNw2ZFHt0CULCs7LNL011pO
-	 net5ioBIz24GQRfP4Ja0bnTtzYh0GzSLuoRdN32NhV1LesHGjMc7puSzbJsZUDKL4uA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnNZJ8hv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795791063;
+	b=ZzoIJkxgQOmhzdbBxIEwaN2Lz4tp7swHtoMW/tYh5i0SB8xVo8djF/k+baD43jSVgcYB
+	 wT3iii7VZXpEzsw2dzwJU+XWPnhvN9cVdPX/1CYrGo5UyraFiIYYpyae3NilLuu4T9BQV
+	 9zESOM4lW2qcEjk/TCyCxXvWj0gJx8Q1IVhq3gTGuvpNdsG8j6GOY7wZTLXxXh7bWP1oY
+	 Izr/NE8IfHPLA70EXTrVXRsDrlAwbRregBBo/xkY5+dBLPjTpmHnn9bl5j97mk4RyEegz
+	 79Nrv3GEL4hPYkntLo3gOKy2VIEHeEArgnia9pEs3TcTd5J/o60i2CqVgT3oLEspVlA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791063;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mU/30650/bwhfEPPU/bfQEwRxUgVPROimkY3zqsbYnA=;
+	b=lL9h5DK8TuoGMKzAXUjg+MK4bZd8myJT+zeK5oqZvyCfOt8BLsdcRF52dS5mclZ9PC1M
+	 0k1C8iOJvQBoGMd0ouMzt+lgLwz09dUQr0R8/yikiDghe3JoT5Bj43tV2lctsnfhxDqFn
+	 lCC9eRmvdZ/X/1yf+MlWJ6FoIY+YOsxVWIsh7bNUF3mftDws/3YLnauvtAK3ARiBdhnWU
+	 kOy5ElGdW3gW6S6EnkpMT3MLG/ZqEY4vs470y0ouLMto+LfG8E6XcNxDmgfX/AZEut3rd
+	 gxqe4Qe8M+iVWenCkpJJ4WVB6rqmSS8GQPQpi0krf3ohBuDgM3QGx9NrCWr6ouudblg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYeIzLJS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26E79606A32C;
-	Fri, 27 Nov 2026 14:50:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26E79606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80557606A31C;
+	Fri, 27 Nov 2026 14:51:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnNZJ8hv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795791053; x=1827327053;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=fnSC2nvMGZ7fvY3oROjbD97/wxW30z9c9EF/yrrlcwE=;
-  b=bnNZJ8hv29CYa7zr0Vxmp/XJwiZ4TvP+Y6Rx17sCglspzSW6X2husLcc
-   08PjnhGHVYbPKr+ExjKAUStgfe1yc0mWVqotX0o/yP+4i+6pGMoUmW9Ts
-   PgDKW7xInHYKo3b4Jh5R6PNILiGuS74aTbtOCupxLLCdejA0YS/9et+Q1
-   alU3yDmrhGQSxLH7VR69s1Ei311HpnAFMS6DbmDN2QNvXWfSjIGwwUG4r
-   H1rPlEoTUnC7rNcUVsOgxnX1ib77dAZEZH/qmBBCfOzgFmYNxvOw1jBHW
-   W1bRsBmYk1wx9tLRqQr4EMbcnQ6/bVDa1KbleVsmQMfHjPei8RZZgpi97
-   A==;
-X-CSE-ConnectionGUID: ysvXFK1SSJyVYbsexbRSuA==
-X-CSE-MsgGUID: 0n0oPVHOSrKxmrH59MrfYA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4614985"
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4614985"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:50:52 -0800
-X-CSE-ConnectionGUID: ykY4GW1VSjGp/4wSDKvgZw==
-X-CSE-MsgGUID: Nd8Tk76KTPCJ5W6PeWrP/A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="12445261"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:50:52 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 06:50:51 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 06:50:51 -0800
-Received: from PH0PR06CU001.outbound.protection.outlook.com (40.107.208.71) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 06:50:51 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TdhBF1y/YMwZTxlDJ4VOSiFyZ8RPRHEKzZPe7iTMu5tQyzNhASCwl2l3ulhTnlMjjGsQHcICBXLroNdPEOckU5E0aqXi8LjBGVxEM0pMFq3rkqOqXWkN52/k4+RXfYRZksvVulU05geQa6uuWCNotQJmzsv/xmIvBA1V8Kxk6tlEdqLTUgt9Ilid6hCGx6y19nwS6a+jL7HSfb9OVm1ROjQ2ZtMRyBMu5gQ+uWBPOrNZl80SwqUQ5NplN/0+YEKIcqE+pNAL3iVxPpgLMEnMmqbykzf0o9cChbJv38+0wBL5se97bK+c00RO18FwfdpMLvY0RQou3I2SBFzx4QwxSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aUd3T02Gc74duTmodEL7iM50DPzhk1ccT05XBht+77M=;
- b=ORBSWkDxSvUC2S9Q0dbClZXbmm9dRh7y94twTCiP5X56rBhittUL3m3Zt50xJ/aCYLaEzB7+o5L17bfnzumGs4c3wLS70QqeSgh6JJZpWjk6/HwRSQWMMtkwrXcVC2WRE+rSThQuECb2fkmS5SXKiLev9iucbTRCnYR4F39Cc0V+w40BTSZ0lpR2rdfDLxUUczPkJlDGCYGTEg8yUCj/NFV9ouXc1frDOawmJMcSme83GR8nAy7oPLhyQXKe9nyEdo8NTb5fCS8ipsJ2N+jPFYTrH5l7+ZnVn1781rMkYrlkENsUHNRK0cXZzP/ufkt6nF/VizsfVItbU7fBS8QW3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
- by SJ0PR11MB4941.namprd11.prod.outlook.com (2603:10b6:a03:2d2::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
- 2026 14:50:47 +0000
-Received: from LV3PR11MB8508.namprd11.prod.outlook.com
- ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
- ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 14:50:46 +0000
-Message-ID: <c0b3a1c9-29ac-4833-84b8-59e5776b0726@intel.com>
-Date: Fri, 27 Nov 2026 15:50:38 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v5 1/4] ice: stop the service task before the PF is
- unloaded
-To: Petr Oros <poros@redhat.com>
-CC: Tony Nguyen <anthony.l.nguyen@intel.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, <netdev@vger.kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Aleksandr Loktionov
-	<aleksandr.loktionov@intel.com>, Simon Horman <horms@kernel.org>, "Michal
- Swiatkowski" <michal.swiatkowski@linux.intel.com>, Grzegorz Nitka
-	<grzegorz.nitka@intel.com>, Paul Menzel <pmenzel@molgen.mpg.de>, "Wojciech
- Drewek" <wojciech.drewek@intel.com>, Marcin Szycik
-	<marcin.szycik@linux.intel.com>, Martyna Szapar-Mudlaw
-	<martyna.szapar-mudlaw@linux.intel.com>, Ivan Vecera <ivecera@redhat.com>,
-	Jacob Keller <jacob.e.keller@intel.com>, Jesse Brandeburg
-	<jbrandeb@kernel.org>, Rinitha S <sx.rinitha@intel.com>, Aaron Ma
-	<aaron.ma@canonical.com>, <intel-wired-lan@lists.osuosl.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261127085714.1207361-1-poros@redhat.com>
- <20261127085714.1207361-2-poros@redhat.com>
-From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Content-Language: en-US
-In-Reply-To: <20261127085714.1207361-2-poros@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DU2PR04CA0314.eurprd04.prod.outlook.com
- (2603:10a6:10:2b5::19) To LV3PR11MB8508.namprd11.prod.outlook.com
- (2603:10b6:408:1b4::8)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYeIzLJS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 861AE1F0089C;
+	Fri, 27 Nov 2026 14:50:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795791063;
+	bh=mU/30650/bwhfEPPU/bfQEwRxUgVPROimkY3zqsbYnA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=OYeIzLJSF83eWbsDZvn58Yb5iUuNe0mrKd52MgexXX2nS4Zu5UD7T3G4pbvoEpLJs
+	 OiV8yfs4t8ZouLwqpWPEMGHru55Y2/XoDD3ZgcWMjl7fynAhZAMzSyygVZUPz/4MVH
+	 pIAxybtX72MK/eiWoedoc4VI7qynQa1ebNHbhzvF5cnZaqZRhAogwUd6+8JY4TWLQt
+	 mxXhBbm6V+OOLAQvq902fMApbk0Lxz+iCdXIXVXMyr0/XIhU3NSNOd9gKGNbAeXSZo
+	 A6eQnPf7+b947Qb71Pu9amt1tO+l9nlIMV494YzxNNfgw+2Y6cdqHc7fn/HL7Ca4B5
+	 om+BlzKp6e6kw==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: snambakam@microsoft.com, Steven Rostedt <rostedt@goodmis.org>, linux-trace-kernel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: [RFC PATCH 2/5] bootconfig: Support stacked initrd bootconfigs and bootconfig= selection
+Date: Fri, 27 Nov 2026 14:46:16 +0000
+Message-ID: <20261127144614.61194-3-mhiramat@kernel.org>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261127144614.61194-1-mhiramat@kernel.org>
+References: <20261127144614.61194-1-mhiramat@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -148,132 +58,583 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|SJ0PR11MB4941:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37bc416e-02f8-4651-7224-08df4c95d1ac
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|261022105027099003|10067099003|11063799006|56012099006|5023799004|261021123027099003|261026121527099003|261028144727099003|261022075727099003|261021121427099003|261026140227099003|261102123227099003|261009223027099003|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info: TlbOhaclP0OaDErBqE3gkN1El8k+NSfonSs/3VwKDLHaKYrNVWNgBnh8EJkuKhQbcjDWtxoXh+PsBC77MSQIwpAnf9BFyqo3i80uKqXnO7e911ZltD+VcGLtXvwezZSZnwxbBJOE4DMR4AjjadQ12MnwnZAsGKniyByTzyps1dVtI47tw/WCx0bWNpbgISnu6yJFkU+inIyDwmS09GSa7zirfjDoR3KnolZRBS18vckzaIXH/gXKzAhwB8Eg5745dlaksLCBN8vMAXrJpqTLLj21agN+wl4pP0k/0TKeYysZMNGF9p77cvacG6101wX05KfPud4XfdfMPp7I67dprwCTlIKugod594jTZL1TTbgqWJUEbpuoOfp0+q9bla+Z9MnqBWtQNCN3JKzcEux8G1FITj3nPjo2oM+3SAjAweqIyRudU6ZMPNU76LAkBOhwbDRVrYGUHjTz8tv1U5I4SBt0T7cEScvTkKCvBRm9imJ2yUc0sy7gYwXexiBmiylKafkqEFPADnf9mSuJlOlV04lkhYXqF2BXf3vWwdaHyqsdv795kODFZX5waYfVtEnBEghtBSH4bGlPGj56bQDCqDEoCSEhQVTrb5+Ni7a+p+76IoQCynuZyzLX3iFOFmC/v04eED57LwnqA2izaYAfcuHXcsczOIFuRStzULyH9HA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(261022105027099003)(10067099003)(11063799006)(56012099006)(5023799004)(261021123027099003)(261026121527099003)(261028144727099003)(261022075727099003)(261021121427099003)(261026140227099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UUJra2VEdU1mVmFMcFdrS0xhVnpNaFI5dzQwTzV5OVBRcjhBeHhOVlVkb0U2?=
- =?utf-8?B?ajQ4cllkbHlTTDhMK3hyUjluZXJaTExHL1c1VzdQUW5KRW9PWTkyNnYrMWFX?=
- =?utf-8?B?QXdOVU5vQTBuS3UzL3pqam51ZWtmTFl0MXJvamErQ2FsbENZQkFBQXlrRkt2?=
- =?utf-8?B?YlVtbUhER3IyUFY3VTBzR25OSTBQdXpEOXlZb21kekttdGJZVDFFeVZGbEdO?=
- =?utf-8?B?d0xLbHVqb3ZQNVkvVlpici9aN2luRzhHWkdtOVB0NHhZazBHeXVINmx1dkdv?=
- =?utf-8?B?Um1LUm9mRUx6a3V5Wk5VSjdWTXpEc3lyWTdFdHhmR0NjVStuUzM1cVFLNGwz?=
- =?utf-8?B?UGRuQmg2aUkvK2h2SndvbXJSL3lEaWdrKzEvNVlLR01wVFh5UkRnV1ZiaWdu?=
- =?utf-8?B?SU1yVGhudUdkRFdoN1czMjFVbDZUZzlXRVhGY0p3Rmw4a05xVCtZNDV2SXpJ?=
- =?utf-8?B?dEF6cGNsM0pVeDVVc0dENTEvS3hNOFdZZVUrUFp1cU4zL0xCaUdibW02WkZi?=
- =?utf-8?B?cmxTZ2w3a0NvcnhJYVh2am1jMGxNS3lkaFo5UEthdHNjeDBwUUZmQTdRd0Mv?=
- =?utf-8?B?K1ZIU2tTdEtyR2YyZTJZSWEwYnlrSlByVXhLLzZmai8zd1diWXpLOXl0VXYy?=
- =?utf-8?B?UVJsQVhQaFYxSHZCdlp3NHAwdGxHSThYUHFNY3ZSVU9selhzeVVWeFhCOElD?=
- =?utf-8?B?Y1draGxHZFRCdmJsQnlKMXI1TXY0M01BdnR4N1NZdUVaOVFwUTRVVlAxTkRm?=
- =?utf-8?B?UHZLV2ZydFhUZFlCa0xWOTFWNm9tTmR5c2krMzhFWmo4WENOQ0paZjYzc0hu?=
- =?utf-8?B?TVRCV014TGU3S1BHSWhvSks5MmpYL1hCaGpxV1hkTy96bEN6SEV0S3dqb1hp?=
- =?utf-8?B?Z0dJcERvc01wUzN1MWxVS21zeWRwRWNtYmRaL3RvQ1ZBcGJ0QUJrSitnVnpT?=
- =?utf-8?B?V0JqeXJaQi9YSWVFNjJwSXpheG9DQlg1VnFQdWw2NVBGMHRSYkNkNm5UMjlk?=
- =?utf-8?B?MjVOU09NSExpSlREY1B5cnhZTFJCbDNibUVsVTNZdDVoUDZBaEs1TUpuU0hl?=
- =?utf-8?B?MElsamJtT3V1OUN2cTdxOWZSZ2JLOVF3dnZNc1c5czJWeWlnVWZHZXlKUXZ0?=
- =?utf-8?B?UmdBZlVJTUtIWklRbE5GQU01YVVpRisrNHNOQldPbjZyYTRja24xcEFRbTlm?=
- =?utf-8?B?K3ZyaUFhYTB5U25xUyt1b04xYjZzSktLN05xNFNOaDNQeHg1NU80RTZJcjZk?=
- =?utf-8?B?Rm1QdUtIc21mOUpQWUlWUjg0VWFDaUljOWg3RjV0OGtKM2g3d2wzbm9zSy9y?=
- =?utf-8?B?cHdDcDdpeXBDeXdLZG9abzFKV3VQOXpZdFV2SVhwSE5Td0Q4aEdob3FiWTJD?=
- =?utf-8?B?UjZiYm05RTJXYlRHRm5KcDI3dkppbDhlTndGRFl5dWdCekZiU1R2RmFMbHFi?=
- =?utf-8?B?TkJmSWFqRi9wLzVoUFBYcGdrUUdicWxoOG40VjQzNUlyMmdaazluRjd2eVNo?=
- =?utf-8?B?TFdTQ2JOZ1BkekhiYWg1aTRMNWZHTFlTdXd6dWkyeDd0N1RDcnkvaGY2TjlP?=
- =?utf-8?B?NXBtOStrNUNzN2pmU0JtcVNMR0YxdlJyVDRDR3UybWtyTEphb0EyVmRCbjNi?=
- =?utf-8?B?cmlEaWxMNXBSUE1XSG1tZUl6bk51QTB4eVJHUEFMSDlWbU9NNExtaHJ0YVcz?=
- =?utf-8?B?bU02WVNjcUdtcEEwQm1VbE8zemFRdldGUGJEaEwxUWxnVHpwc3hIZVV0dlQ2?=
- =?utf-8?B?RGlHR1hlQkZHajFBeE1qQS9WOHY5VTdRbGovWXBmbDZhQUJ2NFQwdVJPdmcy?=
- =?utf-8?B?cGZSZmtEdFlUMzQwTkRDbm80eVBmYmY4cU9kS3hDWFB2RU5BL0NJdUJPWkhJ?=
- =?utf-8?B?UUhyN1JrSzUyL3prdmR6NGdLOE9XRFZDaitkZjBxWkdUdGlNMGpFOW9Pa3Bn?=
- =?utf-8?B?emFRYzl6czAzNzV3aHEwK1R6TGxoRlJBZXR1RU1EOWZ5ZnNMTW5DWFJqWjV5?=
- =?utf-8?B?VmtvTTdzajIzTlViNnVVcXo5YlVORll3Y2FBUWxNYkZQVGpMbWgxcVczRXFV?=
- =?utf-8?B?TXBDSXdRS2VSOE5HVzZjZ3hMdjN4T1JMUUsxVVNCbDhtLzVKUVhpMU80TFVT?=
- =?utf-8?B?V2cyL2Y0QkhrV2w2UW1sS2NxbzhNUDBPalJNQU42ZEZScUVFQ1VOS3NFSFk0?=
- =?utf-8?B?SmVZMmdFUWNwSjg2R1ZnQ1BGREw5L3huVGVJUkI3cjlVU01Ga1RKUm0xQU5D?=
- =?utf-8?B?UzdBK0FkZ3hTVkFDc2lod0FHUk1EdzF1cnZtSmJaWkFHWGFLaW9Ib1VTRitG?=
- =?utf-8?B?OFhDOXlhZzJVUnhsVXIvOU1weVBEVHRVeis5T09uWHNEakEwOEpicmlxZEo5?=
- =?utf-8?Q?lXAybNCBOEEJqI/c=3D?=
-X-Exchange-RoutingPolicyChecked: cXidooGmfFCCslk7VMkl2G+6M2gKlsJ8GUTfSbkWFNf7dWQUB1g1t7neIsLK3Z6px+Vbl2oQAwMDkeEkveo89OUfDWnJkFdhn55tPzpTByhkR+jk73pUyCvhAlWVjmDpr9LlbNH8oGI0pMoIGofiYPDJ/G15ws44qjJHRJsxrZi9Tv8n0W6W2rvDwxk+sqlKYlS4hZZWOJrcJOAp//rGuAFLZcVGsOvclOzKFHQMGxNCUewQQa1cViDJrjkbm2iA8AF0e9MtJNmgWmvRiowqgQ4+Oh1KPkjx2Jb33ZWL+rdK6BWWmZcfni2774lIgpi8rwfgqtCII253T7vGgG4OTw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37bc416e-02f8-4651-7224-08df4c95d1ac
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 14:50:46.3095
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s0AFsXK20ArYD+SJ84Fx/Xut2xAl+fvVyUU/HnqjQNmO+GlK3OTnB0Bz464TNKzkoPicvmnsfh5MJ5Xmszic0tT0RKwZ0sDjxBRITWFnwNY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB4941
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 11/27/26 9:57 AM, Petr Oros wrote:
-> Commit 8a37f9e2ff40 ("ice: move ice_deinit_dev() to the end of deinit
-> paths") moved the service task stop and the cancel of the AdminQ event
-> waiters from after ice_free_vfs() to the end of ice_remove(). Since then
-> a queued or running service task can still walk pf->vsi[] while
-> ice_remove_arfs(), ice_unload() and ice_deinit() free the aRFS filters,
-> the netdev, the LAG and the VSIs. A last run that takes longer than a
-> timer period also arms the service timer again after the stop at the
-> end has deleted it, and the timer then fires after the PF is freed.
-> 
-> Stop the service task and cancel the waiters after ice_free_vfs() again.
-> The stop in ice_deinit_dev() stays and deletes a timer armed by the last
-> run. As before that commit, a devlink flash that is still running when
-> the driver is removed fails, at the latest when its next AdminQ wait
-> times out.
-> 
-> Found by AI code review. Validated on an E810-C (FW 8.1.1, ICE COMMS
-> package 1.3.55.0) with a test-only 12 s delay in ice_sync_fltr_subtask()
-> after it took the VSI pointer, armed right before a promisc change and
-> rmmod ice. Without this patch KASAN reports a slab-use-after-free in
-> ice_vsi_fltr_changed() on the freed main VSI, and the kernel then faults
-> in call_timer_fn() on the timer function of the unloaded module. With it
-> rmmod waits for the run and nothing is reported. Also tested by removing
-> the driver during switchdev sessions and with four VFs bound to iavf. No
-> kernel selftests cover this.
-> 
-> Fixes: 8a37f9e2ff40 ("ice: move ice_deinit_dev() to the end of deinit paths")
-> Signed-off-by: Petr Oros <poros@redhat.com>
-> ---
-> v5:
-> - New patch. The uplink resync in patch 3 queues a filter sync when a
->    switchdev session ends, and a session that still runs when the driver
->    is removed ends in ice_remove().
-> ---
->   drivers/net/ethernet/intel/ice/ice_main.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-> index 47c6798c97e8f1..6dede87b78944f 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_main.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
-> @@ -5387,6 +5387,9 @@ static void ice_remove(struct pci_dev *pdev)
->   		ice_free_vfs(pf);
->   	}
->   
-> +	ice_service_task_stop(pf);
-> +	ice_aq_cancel_waiting_tasks(pf);
-> +
+Allow an initrd image to carry up to XBC_CONFIG_MAX (32) stacked
+"#BOOTCONFIG" trailers and select which subset to load at boot via
+bootconfig=[+][<sel>,...].
 
-makes sense, thank you!
-Reviewed-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-(would be fine for me to pick this particular patch directly to netdev
-too, have not read the rest of the series through)
+When peeling trailers backwards from initrd_end, populate a static
+xbc_configs[XBC_CONFIG_MAX] array from the tail so entries land directly
+in forward stack order (0 .. count - 1) without extra allocations. All
+valid trailers are always stripped from initrd_end so initramfs
+unpacking is unaffected even when bootconfig is not enabled or more than
+XBC_CONFIG_MAX trailers are attached. If an individual block has a
+malformed ID header or duplicates an earlier block's ID, only that block
+is ignored so valid blocks (including block 0) can still load.
 
->   	if (!ice_is_safe_mode(pf))
->   		ice_remove_arfs(pf);
->   
-> @@ -5407,7 +5410,6 @@ static void ice_remove(struct pci_dev *pdev)
->   	ice_deinit_hw(&pf->hw);
->   
->   	ice_deinit_dev(pf);
-> -	ice_aq_cancel_waiting_tasks(pf);
->   	set_bit(ICE_DOWN, pf->state);
->   }
->   
+Define block 0 (the first block immediately after initramfs) as the
+default bootconfig rather than the outermost trailer: this ensures that
+appending optional debug/scenario overlays to an image does not alter
+what bare "bootconfig" loads by default, and places the default config
+first in stack-order merging so later overlays can override keys with
+":=" or "+=".
+
+Note on command-line ABI: previously "bootconfig=" with an empty value
+was treated the same as bare "bootconfig". With parameterized selection,
+"bootconfig=" now clears any earlier "bootconfig=..." selection on the
+command line (for example, overriding a UKI's built-in .cmdline), except
+when CONFIG_BOOT_CONFIG_FORCE=y is set, which continues to force block 0
+so the Kconfig's unconditional-bootconfig guarantee is preserved.
+
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+---
+ .../admin-guide/kernel-parameters.txt         |  10 +
+ arch/x86/kernel/setup.c                       |   7 +-
+ include/linux/bootconfig.h                    |   3 +
+ init/main.c                                   | 261 +++++++++++++-----
+ lib/bootconfig.c                              | 121 ++++++--
+ 5 files changed, 304 insertions(+), 98 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 0b3c140babd9..b514ec59c810 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -652,8 +652,18 @@ Kernel parameters
+ 			Format: integer
+ 
+ 	bootconfig	[KNL,EARLY]
++	bootconfig=[+][<sel>][,<sel>...]
+ 			Extended command line options can be added to an initrd
+ 			and this will cause the kernel to look for it.
++			When multiple bootconfig files are attached to the
++			initrd, each <sel> may be a bootconfig <id>, a 0-based
++			<index>, or empty (selecting index 0, e.g.
++			"bootconfig=,debug"). Selected configs are merged in
++			initrd stack order. Bare "bootconfig" selects index 0;
++			leading "+" appends to a prior selection (or to index 0
++			if none preceded it); empty "bootconfig=" clears any
++			prior selection (unless CONFIG_BOOT_CONFIG_FORCE=y is
++			set, which forces index 0 when no config is selected).
+ 
+ 			See Documentation/admin-guide/bootconfig.rst
+ 
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index 19fc8e1714e6..b92482f2216b 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -927,11 +927,10 @@ void __init setup_arch(char **cmdline_p)
+ #ifdef CONFIG_CMDLINE_FROM_BOOTCONFIG
+ 	/*
+ 	 * Prepend the build-time-rendered embedded "kernel" keys here so
+-	 * parse_early_param() below sees them, using the same opt-in as the
+-	 * runtime parser, plus the build-time CONFIG_BOOT_CONFIG_FORCE.
++	 * parse_early_param() below sees them, using the same opt-in and
++	 * index 0 selection rule as the runtime parser.
+ 	 */
+-	if (bootconfig_cmdline_requested(boot_command_line, NULL) ||
+-	    IS_ENABLED(CONFIG_BOOT_CONFIG_FORCE))
++	if (bootconfig_cmdline_requested(boot_command_line, NULL))
+ 		xbc_prepend_embedded_cmdline(boot_command_line,
+ 					     COMMAND_LINE_SIZE);
+ #endif
+diff --git a/include/linux/bootconfig.h b/include/linux/bootconfig.h
+index 899cb7ac6b64..9b7f77c18c90 100644
+--- a/include/linux/bootconfig.h
++++ b/include/linux/bootconfig.h
+@@ -371,6 +371,9 @@ static inline const char *xbc_get_embedded_bootconfig(size_t *size)
+ /* Bootconfig opt-in detection, shared by setup_arch() and setup_boot_config() */
+ #ifdef CONFIG_BOOT_CONFIG
+ bool __init bootconfig_cmdline_requested(const char *boot_cmdline, int *end_offset);
++bool __init xbc_select_cmdline_configs(const char *boot_cmdline,
++				       struct xbc_config *cfgs, int count,
++				       int *end_offset);
+ #endif
+ 
+ /* Build-time-rendered bootconfig cmdline prepended in setup_arch() */
+diff --git a/init/main.c b/init/main.c
+index f14780345051..a539eb5b0cd1 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -266,80 +266,117 @@ static int __init loglevel(char *str)
+ early_param("loglevel", loglevel);
+ 
+ #ifdef CONFIG_BLK_DEV_INITRD
+-static void * __init get_boot_config_from_initrd(size_t *_size)
++static int __init get_boot_config_from_initrd(struct xbc_config *cfgs,
++					      int max_cfgs, int *count)
+ {
+ 	u32 size, raw_size, csum;
+ 	char *data;
+ 	u8 *hdr;
+-	int i;
++	int i, total = 0;
+ 
+-	if (!initrd_end || initrd_end < initrd_start ||
+-	    initrd_end - initrd_start < BOOTCONFIG_FOOTER_SIZE)
+-		return NULL;
+-
+-	data = (char *)initrd_end - BOOTCONFIG_MAGIC_LEN;
+-	/*
+-	 * Since Grub may align the size of initrd to 4, we must
+-	 * check the preceding 3 bytes as well.
+-	 */
+-	for (i = 0; i < 4; i++) {
+-		if (!memcmp(data, BOOTCONFIG_MAGIC, BOOTCONFIG_MAGIC_LEN))
+-			goto found;
+-		data--;
+-	}
+-	return NULL;
++	if (count)
++		*count = 0;
+ 
++	while (initrd_end && initrd_end >= initrd_start &&
++	       initrd_end - initrd_start >= BOOTCONFIG_FOOTER_SIZE) {
++		data = (char *)initrd_end - BOOTCONFIG_MAGIC_LEN;
++		/*
++		 * Since Grub may align the size of initrd to 4, we must
++		 * check the preceding 3 bytes for the outermost trailer.
++		 */
++		if (total == 0) {
++			for (i = 0; i < 4; i++) {
++				if (!memcmp(data, BOOTCONFIG_MAGIC,
++					    BOOTCONFIG_MAGIC_LEN))
++					goto found;
++				data--;
++			}
++			break;
++		} else if (memcmp(data, BOOTCONFIG_MAGIC,
++				  BOOTCONFIG_MAGIC_LEN)) {
++			break;
++		}
+ found:
+-	hdr = (u8 *)(data - 8);
+-	if ((unsigned long)hdr < initrd_start)
+-		return NULL;
++		hdr = (u8 *)(data - 8);
++		if ((unsigned long)hdr < initrd_start)
++			break;
+ 
+-	raw_size = get_unaligned_le32(hdr);
+-	csum = get_unaligned_le32(hdr + 4);
++		raw_size = get_unaligned_le32(hdr);
++		csum = get_unaligned_le32(hdr + 4);
+ 
+-	if (raw_size > XBC_DATA_MAX_PADDED) {
+-		pr_err("bootconfig size %u is greater than max size %d\n",
+-			raw_size, XBC_DATA_MAX);
+-		return NULL;
+-	}
++		if (raw_size > XBC_DATA_MAX_PADDED) {
++			pr_err("bootconfig size %u is greater than max size %d\n",
++			       raw_size, XBC_DATA_MAX);
++			break;
++		}
+ 
+-	if (raw_size > ((unsigned long)hdr - initrd_start)) {
+-		pr_err("bootconfig size %u is greater than initrd size %lu\n",
+-			raw_size, initrd_end - initrd_start);
+-		return NULL;
+-	}
++		if (raw_size > ((unsigned long)hdr - initrd_start)) {
++			pr_err("bootconfig size %u is greater than initrd size %lu\n",
++			       raw_size, initrd_end - initrd_start);
++			break;
++		}
+ 
+-	data = ((void *)hdr) - raw_size;
++		data = ((void *)hdr) - raw_size;
+ 
+-	size = xbc_exclude_padding(data, raw_size);
+-	if (size > XBC_DATA_MAX) {
+-		pr_err("bootconfig size %u is greater than max size %d\n",
+-			size, XBC_DATA_MAX);
+-		return NULL;
+-	}
++		size = xbc_exclude_padding(data, raw_size);
++		if (size > XBC_DATA_MAX) {
++			pr_err("bootconfig size %u is greater than max size %d\n",
++			       size, XBC_DATA_MAX);
++			break;
++		}
+ 
+-	if (xbc_calc_checksum(data, raw_size) != csum) {
+-		pr_err("bootconfig checksum failed\n");
+-		return NULL;
++		if (xbc_calc_checksum(data, raw_size) != csum) {
++			pr_err("bootconfig checksum failed\n");
++			break;
++		}
++
++		/*
++		 * Remove bootconfig from initramfs/initrd. Since the initrd
++		 * memory (including the bootconfig) is freed with initrd_end,
++		 * save the original end to free the whole region later.
++		 */
++		if (!initrd_mem_end)
++			initrd_mem_end = initrd_end;
++		initrd_end = (unsigned long)data;
++		total++;
++
++#ifdef CONFIG_BOOT_CONFIG
++		if (cfgs && max_cfgs > 0) {
++			struct xbc_config *slot;
++
++			if (total <= max_cfgs) {
++				slot = &cfgs[max_cfgs - total];
++			} else {
++				memmove(&cfgs[1], &cfgs[0],
++					(max_cfgs - 1) * sizeof(*cfgs));
++				slot = &cfgs[0];
++			}
++			if (xbc_parse_id_header(data, size, slot) < 0) {
++				slot->name = "";
++				slot->name_len = 0;
++				slot->data = NULL;
++				slot->size = 0;
++				slot->enabled = false;
++			}
++		}
++#endif
+ 	}
+ 
+-	/*
+-	 * Remove bootconfig from initramfs/initrd. Since the initrd memory
+-	 * (including the bootconfig) is freed with initrd_end, save the
+-	 * original end to free the whole region later.
+-	 */
+-	if (!initrd_mem_end)
+-		initrd_mem_end = initrd_end;
+-	initrd_end = (unsigned long)data;
+-	if (_size)
+-		*_size = size;
++	if (!cfgs || total == 0)
++		return 0;
++
++	if (count)
++		*count = total > max_cfgs ? max_cfgs : total;
+ 
+-	return data;
++	return total;
+ }
+ #else
+-static void * __init get_boot_config_from_initrd(size_t *_size)
++static int __init get_boot_config_from_initrd(struct xbc_config *cfgs,
++					      int max_cfgs, int *count)
+ {
+-	return NULL;
++	if (count)
++		*count = 0;
++	return 0;
+ }
+ #endif
+ 
+@@ -444,29 +481,92 @@ static int __init warn_bootconfig(char *str)
+ 	return 0;
+ }
+ 
++static struct xbc_config xbc_configs[XBC_CONFIG_MAX] __initdata;
++
++static void __init drop_bad_boot_configs(struct xbc_config *cfgs, int count)
++{
++	int i, j;
++
++	for (i = 0; i < count; i++) {
++		if (!cfgs[i].data || !cfgs[i].name_len)
++			continue;
++		for (j = i + 1; j < count; j++) {
++			if (cfgs[j].data &&
++			    cfgs[j].name_len == cfgs[i].name_len &&
++			    !memcmp(cfgs[j].name, cfgs[i].name,
++				    cfgs[i].name_len)) {
++				cfgs[j].data = NULL;
++				cfgs[j].size = 0;
++			}
++		}
++	}
++}
++
++static void __init report_bad_boot_configs(const struct xbc_config *cfgs,
++					   int count, int total)
++{
++	int i;
++
++	if (total > XBC_CONFIG_MAX)
++		pr_err("bootconfig: too many bootconfigs in initrd (%d > %d), ignoring extra blocks\n",
++		       total, XBC_CONFIG_MAX);
++
++	for (i = 0; i < count; i++) {
++		if (cfgs[i].data)
++			continue;
++		if (cfgs[i].name_len)
++			pr_err("bootconfig: duplicate ID '%.*s' in block %d, ignored\n",
++			       (int)cfgs[i].name_len, cfgs[i].name, i);
++		else
++			pr_err("bootconfig: invalid ID header in block %d, ignored\n",
++			       i);
++	}
++}
++
+ static void __init setup_boot_config(void)
+ {
+-	const char *msg, *data;
+-	int pos, ret, offs;
++	const char *msg, *embed_data;
++	struct xbc_config *cfgs = NULL;
++	int pos, ret, offs, total, count = 0, err_idx = -1, i;
+ 	size_t size;
+ 	bool from_embedded = false;
++	bool any_enabled = false;
+ 
+-	/* Cut out the bootconfig data even if we have no bootconfig option */
+-	data = get_boot_config_from_initrd(&size);
+-	/* If there is no bootconfig in initrd, try embedded one. */
+-	if (!data) {
+-		data = xbc_get_embedded_bootconfig(&size);
+-		from_embedded = true;
++	/* Cut out all bootconfig trailers even if we have no bootconfig option */
++	total = get_boot_config_from_initrd(xbc_configs, XBC_CONFIG_MAX, &count);
++	if (count > 0) {
++		cfgs = &xbc_configs[XBC_CONFIG_MAX - count];
++	} else {
++		/* If there is no bootconfig in initrd, try embedded one. */
++		embed_data = xbc_get_embedded_bootconfig(&size);
++		if (embed_data) {
++			if (xbc_parse_id_header(embed_data, size,
++						&xbc_configs[0]) < 0) {
++				xbc_configs[0].name = "";
++				xbc_configs[0].name_len = 0;
++				xbc_configs[0].data = embed_data;
++				xbc_configs[0].size = size;
++				xbc_configs[0].enabled = false;
++			}
++			cfgs = &xbc_configs[0];
++			count = 1;
++			total = 1;
++			from_embedded = true;
++		}
+ 	}
+ 
+-	bootconfig_found = bootconfig_cmdline_requested(boot_command_line, &offs);
++	if (count > 0)
++		drop_bad_boot_configs(cfgs, count);
++
++	bootconfig_found = xbc_select_cmdline_configs(boot_command_line,
++						      cfgs, count, &offs);
+ 	if (!(bootconfig_found || IS_ENABLED(CONFIG_BOOT_CONFIG_FORCE)))
+ 		return;
+ 
+ 	/* Offset of the init arguments after a "--", located by the helper. */
+ 	initargs_offs = offs;
+ 
+-	if (!data) {
++	if (!count) {
+ 		/* If user intended to use bootconfig, show an error level message */
+ 		if (bootconfig_found)
+ 			pr_err("'bootconfig' found on command line, but no bootconfig found\n");
+@@ -475,16 +575,35 @@ static void __init setup_boot_config(void)
+ 		return;
+ 	}
+ 
+-	ret = xbc_init(data, size, &msg, &pos);
++	report_bad_boot_configs(cfgs, count, total);
++
++	if (!bootconfig_found && IS_ENABLED(CONFIG_BOOT_CONFIG_FORCE))
++		cfgs[0].enabled = true;
++
++	for (i = 0; i < count; i++) {
++		if (cfgs[i].enabled && cfgs[i].data) {
++			any_enabled = true;
++			break;
++		}
++	}
++	if (!any_enabled)
++		return;
++
++	ret = xbc_init_configs(cfgs, count, &msg, &pos, &err_idx);
+ 	if (ret < 0) {
+-		if (pos < 0)
++		if (err_idx >= 0)
++			pr_err("Failed to parse bootconfig [%d%s%.*s]: %s at %d.\n",
++			       err_idx, cfgs[err_idx].name_len ? ":" : "",
++			       (int)cfgs[err_idx].name_len,
++			       cfgs[err_idx].name, msg, pos);
++		else if (pos < 0)
+ 			pr_err("Failed to init bootconfig: %s.\n", msg);
+ 		else
+ 			pr_err("Failed to parse bootconfig: %s at %d.\n",
+-				msg, pos);
++			       msg, pos);
+ 	} else {
+-		xbc_get_info(&ret, NULL);
+-		pr_info("Load bootconfig: %ld bytes %d nodes\n", (long)size, ret);
++		xbc_get_info(&ret, &size);
++		pr_info("Load bootconfig: %zu bytes %d nodes\n", size, ret);
+ 		/*
+ 		 * keys starting with "kernel." are passed via cmdline. When
+ 		 * this bootconfig came from the embedded source and
+@@ -519,7 +638,7 @@ static void __init exit_boot_config(void)
+ static void __init setup_boot_config(void)
+ {
+ 	/* Remove bootconfig data from initrd */
+-	get_boot_config_from_initrd(NULL);
++	get_boot_config_from_initrd(NULL, 0, NULL);
+ }
+ 
+ static int __init warn_bootconfig(char *str)
+diff --git a/lib/bootconfig.c b/lib/bootconfig.c
+index fe27e72c9ee5..44177b7c0866 100644
+--- a/lib/bootconfig.c
++++ b/lib/bootconfig.c
+@@ -115,33 +115,54 @@ bool __init xbc_embedded_cmdline_applied(void)
+ }
+ #endif	/* CONFIG_CMDLINE_FROM_BOOTCONFIG */
+ 
+-/* parse_args() callback: flag when the "bootconfig" parameter is present. */
+-static int __init bootconfig_optin(char *param, char *val,
+-				   const char *unused, void *arg)
++struct xbc_cmdline_select_ctx {
++	struct xbc_config *cfgs;
++	int count;
++	bool seen;
++	bool active;
++	bool warn;
++};
++
++/* parse_args() callback: track opt-in and update enabled bootconfig entries. */
++static int __init xbc_cmdline_select_cb(char *param, char *val,
++					const char *unused, void *arg)
+ {
+-	if (!strcmp(param, "bootconfig"))
+-		*(bool *)arg = true;
++	struct xbc_cmdline_select_ctx *ctx = arg;
++
++	if (strcmp(param, "bootconfig"))
++		return 0;
++
++	if (!val) {
++		ctx->active = true;
++	} else if (*val == '\0') {
++		ctx->active = false;
++	} else if (*val == '+') {
++		if (!ctx->seen || val[1] != '\0')
++			ctx->active = true;
++	} else {
++		ctx->active = true;
++	}
++
++	if (ctx->cfgs)
++		__xbc_enable_configs(ctx->cfgs, ctx->count, val,
++				     &ctx->seen, ctx->warn);
++	else
++		ctx->seen = true;
++
+ 	return 0;
+ }
+ 
+-/**
+- * bootconfig_cmdline_requested() - Was "bootconfig" passed on the cmdline?
+- * @boot_cmdline: kernel command line to inspect (not modified)
+- * @end_offset: if non-NULL, set to the offset of the init arguments that
+- *		follow a "--" separator, or 0 when there is none
+- *
+- * Parse a private copy of @boot_cmdline (parse_args() is destructive) and
+- * report whether "bootconfig" is present before the "--" separator.
+- * setup_arch() uses this to gate prepending the build-time embedded cmdline;
+- * setup_boot_config() uses it for the runtime opt-in and to locate the init
+- * arguments via @end_offset. Sharing one parser keeps the early and late
+- * paths agreeing on what counts as opt-in. CONFIG_BOOT_CONFIG_FORCE is not
+- * folded in here; callers apply it where they need it.
+- */
+-bool __init bootconfig_cmdline_requested(const char *boot_cmdline, int *end_offset)
++static bool __init xbc_parse_cmdline_bootconfig(const char *boot_cmdline,
++						struct xbc_config *cfgs,
++						int count, int *end_offset,
++						bool warn)
+ {
+ 	static char tmp_cmdline[COMMAND_LINE_SIZE] __initdata;
+-	bool found = false;
++	struct xbc_cmdline_select_ctx ctx = {
++		.cfgs = cfgs,
++		.count = count,
++		.warn = warn,
++	};
+ 	char *err;
+ 
+ 	if (end_offset)
+@@ -149,7 +170,7 @@ bool __init bootconfig_cmdline_requested(const char *boot_cmdline, int *end_offs
+ 
+ 	strscpy(tmp_cmdline, boot_cmdline, COMMAND_LINE_SIZE);
+ 	err = parse_args("bootconfig", tmp_cmdline, NULL, 0, 0, 0,
+-			 &found, bootconfig_optin);
++			 &ctx, xbc_cmdline_select_cb);
+ 	if (IS_ERR(err))
+ 		return false;
+ 
+@@ -157,7 +178,61 @@ bool __init bootconfig_cmdline_requested(const char *boot_cmdline, int *end_offs
+ 	if (end_offset && err)
+ 		*end_offset = err - tmp_cmdline;
+ 
+-	return found;
++	return ctx.active;
++}
++
++/**
++ * bootconfig_cmdline_requested() - Should embedded bootconfig cmdline apply?
++ * @boot_cmdline: kernel command line to inspect (not modified)
++ * @end_offset: if non-NULL, set to the offset of the init arguments that
++ *		follow a "--" separator, or 0 when there is none
++ *
++ * Parse a private copy of @boot_cmdline (parse_args() is destructive) and
++ * report whether the default (index 0 / embedded) bootconfig is selected
++ * before the "--" separator, or forced by CONFIG_BOOT_CONFIG_FORCE when no
++ * active selection overrides it. setup_arch() uses this to gate prepending
++ * the build-time embedded cmdline, matching setup_boot_config()'s runtime
++ * selection rule.
++ */
++bool __init bootconfig_cmdline_requested(const char *boot_cmdline, int *end_offset)
++{
++	struct xbc_config emb = { .name = "", .name_len = 0, .enabled = false };
++	const char *data;
++	size_t size;
++	bool active;
++
++	data = xbc_get_embedded_bootconfig(&size);
++	if (data && xbc_parse_id_header(data, size, &emb) < 0) {
++		emb.name = "";
++		emb.name_len = 0;
++	}
++
++	active = xbc_parse_cmdline_bootconfig(boot_cmdline, &emb, 1,
++					      end_offset, false);
++	if (IS_ENABLED(CONFIG_BOOT_CONFIG_FORCE) && !active)
++		return true;
++
++	return active && emb.enabled;
++}
++
++/**
++ * xbc_select_cmdline_configs() - Select bootconfig entries from cmdline
++ * @boot_cmdline: kernel command line to inspect (not modified)
++ * @cfgs: array of bootconfig descriptors from initrd or embedded fallback
++ * @count: number of entries in @cfgs
++ * @end_offset: if non-NULL, set to the offset of init arguments after "--"
++ *
++ * Evaluate all "bootconfig" parameters before "--" left-to-right and update
++ * @cfgs[i].enabled accordingly.
++ *
++ * Return: true if bootconfig remains active after parsing @boot_cmdline.
++ */
++bool __init xbc_select_cmdline_configs(const char *boot_cmdline,
++				       struct xbc_config *cfgs, int count,
++				       int *end_offset)
++{
++	return xbc_parse_cmdline_bootconfig(boot_cmdline, cfgs, count,
++					    end_offset, true);
+ }
+ 
+ #endif	/* __KERNEL__ */
+-- 
+2.43.0
 
