@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789671;
-	b=448d7PkMR9q0hSXWjsbqu0j+mVitaSdXKC9n/eIR0m6pQ9+e8m6mvhmw7BBE/UUTMkyp
-	 eP3Xm0ysX7YBHWSgli4RnVaVVrmX2b0OtvKSnmvyTKEOt6iO8ARVcpPM+T9VXhUYV+w6f
-	 kvFmLNXZTbPcr3cEL4EQKrMf0l9Q/o0ZhQHSEM2058cVi955ALcHmjN8hFl1C5FdbPv9p
-	 3acVe22mxu4RaTvmJ4WG/jJxpwC7w4BgJ/73Dx8Suyx2BDW0QNfm7O1AL7pPywALjEniA
-	 qjzvAjtbdV0lBk9hIcWt9RphPMwgzUf9NexQ0sKZidpdIx6y/lY2YjMMUgSDSQIRIPQ==
+	t=1795789680;
+	b=JdoYODCcXmTqy3WqXZaU+DZK6JCYtD7qhz7esSFueqFz2+TccqH0sSVjFhyPJ8SPEon0
+	 71dVSFegmwhSl9GS3231aw3vQ5ovHvYbb3Ysd9h4sIPOEiFLICtf5e5QzQ/mv/8MpMex9
+	 l21igO/Mk3Wc/K6VTo0GrkSntclpCXF5hJzGwGYh0oaBBe/OnqNi+7X4xInP/aPWYNpN8
+	 +KQQzsvUbfL1nSzNeSGyCN7Ars4b0dZb1jlzK5we7eqYtxzfo9cH64t4BexQYMmLoh+4g
+	 YPY2NqgwzvRoXQ4f1/4lq+47LMvJuFor6YUeLBUZ3TxhTn2qpBJzRyMfGK1flYPNZpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789671;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=MfCoLiXadgJqPzNFXHlwqjB24hzETelL3UnVk6vwlOg=;
-	b=Xy+ADIBRIPNsjD49ONbPTztTtgT66cIPr3Gx5DphxFfFOOj9jo2jWtyNQ/yIxuMR2EqH
-	 OR3zXSCsbyNvGQzWVAg8mujaKeJJXS8mskcgngx5p2CKgLhvXEDtvrus9pM08eRicKR7P
-	 i/edWxNjSBxbmjkgoaalvxz2HL0V+l8Ci9jXbEubnvnlITJFc6GvK+QYKAuotlGCOq7AU
-	 14e1IbhX0PfixilW/Ag0s6bXD6eIetFkxWFZ/QrwUgKzEV1d25cM0cy6jVrB8k5KuxqqQ
-	 4xwCoWZNdVG3qgDnsjwYsZPkuWV7e2s6D66gmZAn0NywPls6ym1+eEzz5cQbqLqb4hQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789680;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=t8xaCGkapw3XVy4Hw7CV1emEcGQK7H2PmWY00ef3WO0=;
+	b=LYEXDa6h3jfs1V+LftJ+I9AWj+/GYdHH1CkSHkPCiieL1RmstiQxdh4da7b8kpGaFBiT
+	 kXc5D9hDlgPtB5Un3+LXF0fvbvKO3Hhabf9N3OAGSfzjfG8KkD/vrE823e6xjxY0e2nZj
+	 TDLVdxA/vUHfFFVT4+NpX0WyybINHGr+FhrUoOWM0IMM5K4Nia5Spo0+qZhpnEmwHZ2KR
+	 SohSZPhRe1f/rkIKY86oc+ftLTnG3uPwl72AFwugVNGR4TlQIMJsaOWum+OPfY7ipogVx
+	 O+bU/K0TSPfeqMiMq0/rD5FM64xIKhdajReDvUVLKM2i0ZROck5M5bXDwJhEx+b7LPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hk1rjp5x;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=E5CGmgTl;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF08D606A722;
-	Fri, 27 Nov 2026 14:27:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 905576072F01
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:27:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 905576072F01
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hk1rjp5x
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6963D1F00A18;
-	Fri, 27 Nov 2026 14:27:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789671;
-	bh=MfCoLiXadgJqPzNFXHlwqjB24hzETelL3UnVk6vwlOg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=hk1rjp5xJLOuKDeX739jqMwhyQweuW5vf5KAvHucHMdjIPHUt/d2kIusLPVQG/5IP
-	 23CjudQQfEhFX029xLDWvx8y1OuQtEl7iORq37/7JWQsqzZe9kkZogl8k1cvbJdIsg
-	 jCoUDGGfifFkcsNCr5DidkTmN3tEw3ji829J4z3HrepQHvsjnVuMDkivLS5Rsm64rO
-	 iq72XX8vs7qCJ52mLVJkQX512r+CKkxqyxGbUu7Xbpqcij1G5uliHuG4Pgh/sjBVHP
-	 qoLqnXf9rWGwCnOKHlOfsu6fspnEKb+7ld7kzJoPeQAPtir+MYwMfVfHFO3U+0DaFA
-	 Q0FfeOY403SNg==
-From: bod@kernel.org
-Date: Fri, 27 Nov 2026 15:27:23 +0100
-Subject: [PATCH v8 04/10] arm64: dts: qcom: x1e80100-crd: Add ov08x40 RGB
- sensor on CSIPHY4
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=E5CGmgTl
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 64B654E417CD;
+	Fri, 27 Nov 2026 14:27:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2E54A6049C;
+	Fri, 27 Nov 2026 14:27:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 50A7611E68FDF;
+	Fri, 27 Nov 2026 15:27:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795789675; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=t8xaCGkapw3XVy4Hw7CV1emEcGQK7H2PmWY00ef3WO0=;
+	b=E5CGmgTl43LUv/Wxw0p2JNyzgHt6z+dpetXd2kS2qL+rL3snuzvIp+P3rbNz+oyk3fu7hU
+	TreJNAyLrcFBm0ugH5RPSeM0g9U79sBAo6XOxTA0gykC687ycVdJNNS8Omz1uj7z0kNkMj
+	ptomlmpr0rgl6yiczbLUuJ0sCh9qWzEjbvJpVGx3HrxQZmFyOInGk/ho6nHCOJrDnNMGKQ
+	/ffnWqCFriCA1995pfJqfSAshYk3zJkoF0AyX/et/5qq9IVuqHC+Wx+beqi9s7hknfy5a3
+	XVhD4IsrEdp1utYqalbP0yCtkNQrPGdfvYa4RkylmyJh+fe3smtIk4rCrLocDQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Fri, 27 Nov 2026 15:22:56 +0100
+Subject: [PATCH RFC v2 34/35] spi: zynqmp-gqspi: Consume dummy cycles
+ directly
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,155 +66,159 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-x1e-camss-csi2-phy-dtsi-v8-4-2793b8e5138c@kernel.org>
-References: <20261127-x1e-camss-csi2-phy-dtsi-v8-0-2793b8e5138c@kernel.org>
-In-Reply-To: <20261127-x1e-camss-csi2-phy-dtsi-v8-0-2793b8e5138c@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bryan O'Donoghue <bod@kernel.org>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- linux-media@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2749; i=bod@kernel.org;
- h=from:subject:message-id; bh=FmeXE5AVOP6/r38dOcWxTggRJfSwR/+biWJcD2TUTmM=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrCZNRKJI1s0BAUM+B/IbLj97Ujq9YK248zwefU
- eFu7GJbc3CJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawmTUQAKCRAicTuzoY3I
- OggfEACSxKG2uwBsNlYYy3+sDiv8kdaKjX1y1kc/oVwm6dvErbsO0Ge2/DnfleO0hqQr2ynIMyw
- W8+8KA3axWwANbGs611aZnFAM6VQuyWq0fKOMMag/6m62muYFHnxC+ONADz5kY1SQmCIuG/2Sjb
- xW1Xk00fOx+laqk0a8s5TKGhTF2wH7SGMyJliLTWpT4CTIxrMJhDiqt3dBYG7UE2p6kKB1u+1f5
- mkEBA5CuXzIckZOHmzA6/5T7RECm2jxlgtWloaIdnxdVsLQeTeBjA6ZeuITr8C+f8Fc59qI+1Ue
- LQzusVAXd3quX4SGiPZQz39t02QA+x3oYYOMCdycvV1m0svaZ3JkdGeFNHhH7H06+zvRKT41Z8K
- IYo1+hIFmdwPtv8OC4sCCre2LS1UmvyDWrhcE9Pf9lfJKcEjOBas9BZNz7YodLXCQ2rkq6+KrAz
- oNGOj4YpaC95XeJAauz+ZLJsQ82X2ux1i8ZiC8Pi+YQrTv00NbLO32G5olGNEJAO0B0q6BAGQP5
- y19LdB9XkmPsjzwioxZz+7qzdw9V742T+PXY79wKxkEdArEGDxSE/pwDMA4kDCSZhV0GVzuXYcr
- TCIxxwvExoqrKDpPMPRWZ8rVJQvudUdR+Whg80TEo7TTMS+BTkeDZSlbMijxuxrX12LJqf2oqJC
- AxdwdpmmUtubvtA==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-34-5c93f5e5d630@bootlin.com>
+References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
+ Yu-Chun Lin <eleanor.lin@realtek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Chris Packham <chris.packham@alliedtelesis.co.nz>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+The controller programs the dummy phase in clock cycles in the GEN_FIFO,
+but the driver converts the legacy dummy byte count itself. Advertise the
+dummy_cycles capability and use op->dummy.ncycles directly.
 
-Define ov08x40 on cci1_i2c1. The RGB sensor appears on the AON CCI pins
-connected to CSIPHY4 in four lane mode.
+Store the dummy cycle count in a dedicated dummy_cycles field instead of
+reusing bytes_to_transfer, which is reserved for byte-oriented transfers.
 
-Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- arch/arm64/boot/dts/qcom/x1-crd.dtsi | 82 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 82 insertions(+)
+ drivers/spi/spi-zynqmp-gqspi.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/x1-crd.dtsi b/arch/arm64/boot/dts/qcom/x1-crd.dtsi
-index 71c819aa2d43c..5f66e23e694db 100644
---- a/arch/arm64/boot/dts/qcom/x1-crd.dtsi
-+++ b/arch/arm64/boot/dts/qcom/x1-crd.dtsi
-@@ -6,6 +6,8 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/gpio-keys.h>
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
- #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
+index 15e9d3ef8839..6289e33c2807 100644
+--- a/drivers/spi/spi-zynqmp-gqspi.c
++++ b/drivers/spi/spi-zynqmp-gqspi.c
+@@ -176,6 +176,8 @@ struct qspi_platform_data {
+  * @rxbuf:		Pointer to the RX buffer
+  * @bytes_to_transfer:	Number of bytes left to transfer
+  * @bytes_to_receive:	Number of bytes left to receive
++ * @dummy_cycles:	Number of dummy cycles to insert
++ * @dummy_phase:	Whether the dummy phase is currently executing
+  * @genfifocs:		Used for chip select
+  * @genfifobus:		Used to select the upper or lower bus
+  * @dma_rx_bytes:	Remaining bytes to receive by DMA mode
+@@ -198,6 +200,8 @@ struct zynqmp_qspi {
+ 	void *rxbuf;
+ 	int bytes_to_transfer;
+ 	int bytes_to_receive;
++	u32 dummy_cycles;
++	bool dummy_phase;
+ 	u32 genfifocs;
+ 	u32 genfifobus;
+ 	u32 dma_rx_bytes;
+@@ -681,8 +685,14 @@ static void zynqmp_qspi_fillgenfifo(struct zynqmp_qspi *xqspi, u8 nbits,
+ 			transfer_len = xqspi->dma_rx_bytes;
+ 		else
+ 			transfer_len = xqspi->bytes_to_receive;
+-	} else {
++	} else if (xqspi->txbuf) {
+ 		transfer_len = xqspi->bytes_to_transfer;
++	} else {
++		/*
++		 * The GEN_FIFO immediate_data field carries a number of
++		 * dummy SCLK cycles, not a byte count.
++		 */
++		transfer_len = xqspi->dummy_cycles;
+ 	}
  
-@@ -933,6 +935,70 @@ &gpu {
- 	status = "okay";
+ 	if (xqspi->txbuf)
+@@ -832,7 +842,8 @@ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
+ 			(mask & GQSPI_IER_GENFIFOEMPTY_MASK))
+ 		zynqmp_qspi_readrxfifo(xqspi, GQSPI_RX_FIFO_FILL);
+ 
+-	if (xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
++	if (!xqspi->dummy_phase &&
++	    xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
+ 	    ((status & GQSPI_IRQ_MASK) == GQSPI_IRQ_MASK)) {
+ 		zynqmp_gqspi_write(xqspi, GQSPI_IDR_OFST, GQSPI_ISR_IDR_MASK);
+ 		complete(&xqspi->data_completion);
+@@ -1109,15 +1120,13 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
+ 		}
+ 	}
+ 
+-	if (op->dummy.nbytes) {
++	if (op->dummy.ncycles) {
+ 		xqspi->txbuf = NULL;
+ 		xqspi->rxbuf = NULL;
+-		/*
+-		 * xqspi->bytes_to_transfer here represents the dummy circles
+-		 * which need to be sent.
+-		 */
+-		xqspi->bytes_to_transfer = op->dummy.nbytes * 8 / op->dummy.buswidth;
++		xqspi->dummy_cycles = op->dummy.ncycles;
++		xqspi->bytes_to_transfer = 0;
+ 		xqspi->bytes_to_receive = 0;
++		xqspi->dummy_phase = true;
+ 		/*
+ 		 * Using op->data.buswidth instead of op->dummy.buswidth here because
+ 		 * we need to use it to configure the correct SPI mode.
+@@ -1136,6 +1145,7 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
+ 			xqspi->rxbuf = NULL;
+ 			xqspi->bytes_to_transfer = op->data.nbytes;
+ 			xqspi->bytes_to_receive = 0;
++			xqspi->dummy_phase = false;
+ 			zynqmp_qspi_write_op(xqspi, op->data.buswidth,
+ 					     genfifoentry);
+ 			zynqmp_gqspi_write(xqspi, GQSPI_CONFIG_OFST,
+@@ -1151,6 +1161,7 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
+ 			xqspi->rxbuf = (u8 *)op->data.buf.in;
+ 			xqspi->bytes_to_receive = op->data.nbytes;
+ 			xqspi->bytes_to_transfer = 0;
++			xqspi->dummy_phase = false;
+ 			err = zynqmp_qspi_read_op(xqspi, op->data.buswidth,
+ 					    genfifoentry);
+ 			if (err)
+@@ -1179,6 +1190,7 @@ static int zynqmp_qspi_exec_op(struct spi_mem *mem,
+ 
+ return_err:
+ 
++	xqspi->dummy_phase = false;
+ 	zynqmp_qspi_chipselect(mem->spi, true);
+ 	mutex_unlock(&xqspi->op_lock);
+ 
+@@ -1206,6 +1218,7 @@ static const struct spi_controller_mem_ops zynqmp_qspi_mem_ops = {
+ 
+ static const struct spi_controller_mem_caps zynqmp_qspi_mem_caps = {
+ 	.per_op_freq = true,
++	.dummy_cycles = true,
  };
  
-+&camss {
-+	status = "okay";
-+};
-+
-+&camss_csiphy4_in_port {
-+	camss_csiphy4_inep: endpoint {
-+		data-lanes = <1 2 3 4>;
-+		remote-endpoint = <&csiphy4_out_ep>;
-+	};
-+};
-+
-+&cci1 {
-+	status = "okay";
-+};
-+
-+&cci1_i2c1 {
-+	camera@36 {
-+		compatible = "ovti,ov08x40";
-+		reg = <0x36>;
-+
-+		reset-gpios = <&tlmm 237 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam_rgb_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&camcc CAM_CC_MCLK4_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK4_CLK>;
-+		assigned-clock-rates = <19200000>;
-+
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
-+
-+		avdd-supply = <&vreg_l7b_2p8>;
-+		dovdd-supply = <&vreg_l3m_1p8>;
-+
-+		port {
-+			ov08x40_out_ep: endpoint {
-+				data-lanes = <1 2 3 4>;
-+				link-frequencies = /bits/ 64 <400000000>;
-+				remote-endpoint = <&csiphy4_in_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&csiphy4 {
-+	vdda-0p9-supply = <&vreg_l2c_0p8>;
-+	vdda-1p2-supply = <&vreg_l1c_1p2>;
-+
-+	status = "okay";
-+};
-+
-+&csiphy4_in_port {
-+	csiphy4_in_ep: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+		data-lanes = <1 2 3 4>;
-+		remote-endpoint = <&ov08x40_out_ep>;
-+	};
-+};
-+
-+&csiphy4_out_port {
-+	csiphy4_out_ep: endpoint {
-+		remote-endpoint = <&camss_csiphy4_inep>;
-+	};
-+};
-+
- &i2c0 {
- 	clock-frequency = <400000>;
- 
-@@ -1585,6 +1651,22 @@ &tlmm {
- 			       <65 1>, /* EC reset */
- 			       <238 1>; /* UFS Reset */
- 
-+	cam_rgb_default: cam-rgb-default-state {
-+		mclk-pins {
-+			pins = "gpio100";
-+			function = "cam_aon";
-+			drive-strength = <16>;
-+			bias-disable;
-+		};
-+
-+		reset-n-pins {
-+			pins = "gpio237";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+	};
-+
- 	ec_int_n_default: ec-int-n-state {
- 		pins = "gpio66";
- 		function = "gpio";
+ /**
 
 -- 
-2.55.0
+2.56.0
 
