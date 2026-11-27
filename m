@@ -1,100 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795748110;
-	b=HEFaDSgNDRifIze22h6XtImcJsnvoFjraKal620j5UerlcJuED9LzUN2XaBHF5Vm5ntZ
-	 YsgejqAA9FpZadCyA3qlEYPgYPuBUc589SQ9Gbf5fAMMT6kjx0wXRFcyO9I/91DNRopWX
-	 RlxRCMBDImzig8bYYT+j2hhrmyYhRv+FwSXlbcO+VllUpee/2CVNMXpKQlEO7fjzasu54
-	 SiXb3/jqYEGJxz5cf++fhaq0RWJ1sZEiS70N6k2XBEy/I+xjmNo78FRtIpfmwZ73bdkRy
-	 crnR9ognTrWIp+jHSk6nCEbcIosnpPDM6NaJ2CrhEvp+5B25RGoRcw/jfWOnIL9iLrw==
+	t=1795748123;
+	b=EPwEr3+/v9Xvn5swVPaOKcyS8R/8WuI3Qop5bLCxHGhpc/0IRuhKMuYGahnHqfmmX+if
+	 VbeFqCkjzHGIpyrKxb9B2l1KOCjjcDi2SPz1ljUSKGhA5+Lg6qwb45+DDokJWE+btmgsU
+	 torlTaNFzxA7I31QRP3uXhHYGg1Inb/wSK16EvNwxvsyrmfiOYbzdjYEJvOaOsyes9MBP
+	 c5w+Nrbqc2CigEeijHXImN7Bn6wk49akx2fmw7Sx7BsaOaAGwSDt3q8XWopLzKyGS/guH
+	 EhPUJ5PsTiIXA8C+SfkJiLBG3FJ9rMo3ffAopBYbPF9JdEOEXqqLh6PWWg9t/QtzVow==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748110;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=v3hflK/w9trNoSZS5EWvDWp/lpUVGxr8L2pSGjpSId0=;
-	b=v4gYExNjSB94Gx4fe9dsOYD8VQpMmxMY7oCRDJksXk7DOXcYptfPLxBqVdMDS2AW63xJ
-	 xd1ZOsQlh9i0fRHDR/raQVLY9dkYMvSkLaTco+oPR+KGshj77nRZQbF2d/jnVPaJHyWVl
-	 6ei0TRZBcsMYkKT6bp3BVKuA0eKCsWwzpKj8wWjpsnEpN/9RJcIsWO4Af4UTU5yBSc/9t
-	 5IL6/WZPIag4BwFVpSZUX9bI5TQeBH3jMuetyATmwOYMUIX063jircbjo8s7tas+L25ac
-	 JDk8+uABJzICn+3hmIiyt1Gy7rVEwfWt6IfBoy5MfxUrTRCQhApKPDG2778jIpW5gzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748123;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=iuAZy1Xqdh6yRTzJc6FLUzIwcR1MgTN4XofneJJ+eTc=;
+	b=IdLSpNsk5LA+VsBAm0eUmt1SOLVq6M6NVqVh2AQOA57RBwWqPVe2pRSQCFl7E3IGMBDj
+	 IG0aMZ0jVlUlP28Fk1VNfrvoIPuOHrtg4Klt8bjE0m3yX9PPiknsuhpp0BWAGjJR6Wpnn
+	 E5as1QrWzv7k2Xg7jWwBQxI71i9rEbIOMwAmxxC9omQKoa1YSBZ+YQPdhUDhAekfA41QO
+	 XAGbMw3xKd/ew5iFOSsJ/RNKHG3dUGCvbsNAmHaWp9gbhZZo1Lj0DVoCbIpbSsLVJysfr
+	 5RWjxC3UwgDB9KoJebj1HCs3If4GMHM3vYye0W2DJpMhoo+N2MH+x4AKinCleKOUttQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bNe7M8+B;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FlzZrQMS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8827606A31E;
+	Fri, 27 Nov 2026 02:55:22 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FlzZrQMS
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795748122;
+	b=wnuMqB6vezTLGQXhbZZK5xd/b9z29BhJFTN0YJf1IhrjK0ESOrme+MORZTumWScqG1g/
+	 tKtUWoJVWyAoO+Og5Z5Xb6CIu1KbWlBuQvGy0J7CT5gYXvgGq+U2R0f2jq+4tlToTQBd6
+	 xcgwIKnEYn/3TUliWNZ4HX3rRstxGY38xCArDHxV4HYBGik2M+ZUdwHwS7Xmnw0DTjOmX
+	 dVGDrvEbgF1nSM2LozR5GXDdSQqLz00SY67mMsyaxp/E8CiRK6K6Kmv3+ELnRl3ZPRzsr
+	 Trl+TUB+IqefVC7FoFujEv9yMvHXOwrCQ+PGrWjoB6rTHsPP6J1CnN8682cnQdd4DLQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795748122;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=iuAZy1Xqdh6yRTzJc6FLUzIwcR1MgTN4XofneJJ+eTc=;
+	b=zDSrVkdi7z0t0G5ioYP7UgryPaLyLGCI1N+E5uk/e1lE63l0ctpXXSyfgxkRJ3SRWxCp
+	 Zg5ScBWGnyUTIASVxbEay7F2FBwwPleMEEDgIBNG3jmFK5tOc7u/M46tpMKnXs/wy8p8P
+	 dCz4LgktPmeIWnkX5VOdJtkIC23Z8BPojDKP+Niq5E1GutSYP51Aw2dac2mDmkJuBfr32
+	 Ai+qZe+d3phMh2HI+eZ5E1BwzRN5XuuZZ+NMV+KBbhfzuqpqZNmqvJkJMlFPFbHMAXkr8
+	 ZMLsluYn7Bt4Y2JxJHYjEtzakJ1HwQ71kJi4/jwBtSE6ezx3ynAoQqqYhHgvOb8stlA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86489606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:55:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86489606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bNe7M8+B
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b86bbce3d1so10266424a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:55:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795748109; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XEHwfRL7NuulIQWLceTJD18lh8XOf1/tabphsZ6+reVemiZOHZyqyodT6K1mZR0i1B
-         aMaa4HOo9gRovipZhw0ymLlnlMBcgc51JcX288VbihNnFSur1wiJEplAre5NK7nXL7si
-         FEba2/GmjdocLwMwix1YGZlrrseEmgX53CbBHuRt2fZzWIwK4Gpw+FSCb7+OgneNSR+H
-         jhEP5pwd9csgSgbAGAEGlCWUkom+agEESVvtLSftnDSykISeXTEmetfn3UQCm+Gawl//
-         Ze+6vuLm7aDQdIVd9tOYWTRZ7RvnHE2KP3o+nkTBip8j2WkZmIr4DLh1ENeZZtbuLqQO
-         Gxiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=v3hflK/w9trNoSZS5EWvDWp/lpUVGxr8L2pSGjpSId0=;
-        fh=ZcMASx504JSuQ9kSh2HOlVGr6wlc0uFTObZ4FrX/gV4=;
-        b=cEF6wAxumQuogrTzh+YmTG+4OmRYWxsNYnTgGPZvU7CDRdlXCbYcYBDbYDtIspKTpW
-         j23phRQOkO8l5YMKen+r4c8vEXVzAN4IXDdw6SAqv1GITMgTIkpn+5vBMlJouHcuXY5k
-         i+FygLFJwTymcJJBZYDxPk1qroFpxDUTgvJw+bZB3kzfVx+mvxqO5gyPatnLtl9L3u6x
-         vrdFk+rgVcRLAizVT6jver1dXzB6MDpt+A2HzOnywX35NMZf+oZlI24glPPvqAR496jC
-         abG56ASJKkKtob2CK90gzM2TXwJsIXn4rspE+eT00iY0l0kikCaCYy/ndWlgDsieFPEE
-         Ye3w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795748109; x=1796352909; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=v3hflK/w9trNoSZS5EWvDWp/lpUVGxr8L2pSGjpSId0=;
-        b=bNe7M8+B8p5uXT6E8+AspgMl9mE4AZIaw0O6Cis6YnJ4MD9SLSyHtC8mDi3QFxXbUH
-         zFJl2sycu4RaPGjExHOkmCoLEg4JMyOjxZ+zZ/RhlpUbQiU9/G2wqbHfz0rBmegzQ2iU
-         XtE7GhpJkGUWczk7KYyKVCq4khiPff3YeFDZ/z/fIHfY+8WC+YNUNJ6tpwndyp43LyJK
-         E8IAteuzZmqxnCQQz1NOqlXimQ+25vbDusz/oxmjgHP2ES+7GBtHP73YSfQr8zuLXr/l
-         DCQDBuflx5hxVrCguwxm+4THbjQPYTtvDi2FHjJ05IhUV79ZukszySTsFzuRWELxkGj6
-         AQNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795748109; x=1796352909;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=v3hflK/w9trNoSZS5EWvDWp/lpUVGxr8L2pSGjpSId0=;
-        b=IrJFCO7ULpzlNhkvniNAIJY0UlRgrnYpW3Blkyp+exLfPqzja2Wx35TdzFYYiytAri
-         R0DpBc+1E3kZ55NvyeUH4XTS50CM+3d+tuqVu6GsLYcr9gJtCQ9nSIsp2xhg53yoxkOb
-         1IbpcsJiL9fbYqJaGa5EwQ5elVpn5meqOqSJRiiPStjYM1lC9AGk1VHTxfgOqni6OrxM
-         1FKH3MvSYE627MqWvB9zh7/aXb9p+OY+EBB1icNHPFGjdsq6lpQ3tJFCiEaPGSlQ9ekC
-         XkRoqgZcErgK4B3zj9sYkTy+Q997Dt6Drr8TD48bC9aiZPtM3KwXybfho+aaDVYVqiIo
-         CM/g==
-X-Forwarded-Encrypted: i=1; AL+hErHJTbwHCDy5BPV0EHgVrR2TQL4KeOctNQNNVclp9Q0NHxxiaQAKAswyjkcZIBoPm521XR/1IZO1+ry5eO4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z94l8KuA5HrBx0CcF/Zw/XcOhLuQ+pJWrxONmcOctt3xmrEVYUA
-	nZzYPGe/p55BTl9nhCzu4SEhDgluZhCJmmwL3heI5PoK9SLxkhLjMvc/IqDXpNGqRO8RCOcrIUC
-	QBVitqxBr8QTXaHkZ4k/TYHqiQXi2E6Q=
-X-Gm-Gg: AZFdTZc9rxUK7ca6TWusHgoXMC/atkF4/sxyzfS82fQxwdwTQvH3VM/nLXMEiFx0Q/z
-	nvANByXQFTn2hNymx9azQjW50ExKwMcjps3PfE4hCDnWss6ioXHX6ooDWLNaorwzlOCwJKHbIrJ
-	SnyaATgBxPEI/ByJiujOuykvc/AnxZx4GhpOOahAxYWg4VnhUoFPvr7pGePOT9XsBcnqMgDejvd
-	aOc3SVPlqVOK/eYOo/hmngy1PUVxQk3Yn/NFPdfnmXZui+9gmef0wcZBJbsbANkDtQi8sNMWNM4
-	82LmG8CI0cIDIUnsuc4LWjxFwRjsGmPj8dFRte/ZiA/ARt2MWDLqCEy+1P2n8yF+J/0CnPLy0fY
-	jiXxkH2PrjIMll91f7JSs17y1hCX0kubeUohh0lk6ySD64OYdqeHBJ9FLvbjrugbYpO+xnQ==
-X-Received: by 2002:aa7:d287:0:b0:6b8:818d:520c with SMTP id
- 4fb4d7f45d1cf-6ba37c7ba50mr12205368a12.5.1795748108667; Thu, 26 Nov 2026
- 18:55:08 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 7EBEA1F000C1;
+	Fri, 27 Nov 2026 02:55:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795748122;
+	bh=iuAZy1Xqdh6yRTzJc6FLUzIwcR1MgTN4XofneJJ+eTc=;
+	h=From:To:Cc:Subject:Date:Reply-To;
+	b=FlzZrQMSP4GEYnaRkphNzlGd2PrGhIF1hxM6ZaZMoHMMiV+XLA0oCyf7QZTOgSXgG
+	 UzsRNLOVcD/2zGbyW5p9EMyPg78OJKJk0j0Ut90jme/0OvmJRqRXBhrCwBia5E2kiX
+	 dWKXyEwouvzE7vMmQW6Aai7t9a5kJSxMqo8JawmoLINoAIVivNEqwD2WGP/CizxWcG
+	 6QL14PH8dnopeWzrapRKGAxk9T07Clmy76b94Cw+05EscgVYzyVOkLSIz/uTSVijoL
+	 bJHankXIg7gF14YJ8V/xj4JrsYss4n8DO1SMOt72hl7F9mbgsz6ZWESPcqA2C9abU/
+	 ANs3Q2pnd1zvA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 119354B506;
+	Fri, 27 Nov 2026 02:55:18 +0000 (UTC)
+From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
+To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
+ andy@kernel.org
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ Roman Vivchar <rva333@protonmail.com>, linux-iio@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v3] iio: adc: mt6359: fix MT6357 ISENSE/VCDT and MT6358
+ VCDT request bits
+Date: Fri, 27 Nov 2026 02:55:17 +0000
+Message-Id: <20261127025517.9548-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,133 +90,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261101160427.85701-1-maxmuzaf@gmail.com> <179502478384.194898.8139869410612997037.streamfolio@tychen.cc>
- <av3vMMhFbiaop7zA@KASONG-MC4> <20261119082441.196139-1-hi@tychen.cc> <20261121205953.30737-1-maxmuzaf@gmail.com>
-In-Reply-To: <20261121205953.30737-1-maxmuzaf@gmail.com>
-From: Kairui Song <ryncsn@gmail.com>
-Date: Fri, 27 Nov 2026 10:54:31 +0800
-X-Gm-Features: Aa3M54oZAY7wIG0YhxI5gfZ4onlcVlgmd6HzWuctq8VM5P9-R9yNP-MHxvDvKrM
-Message-ID: <CAMgjq7DDUHrHEXiGDnPn6+keL6VxWWMabAr-BRrNM_bwsKPZnQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/1] mm/mglru: MADV_RANDOM page cache never ages and
- thrashes the oldest generation
-To: Maxim Muzafarov <maxmuzaf@gmail.com>
-Cc: linux-mm@kvack.org, Tianyi Chen <hi@tychen.cc>, 
-	Andrew Morton <akpm@linux-foundation.org>, Qi Zheng <qi.zheng@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Yu Zhao <yuzhao@google.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795748117; l=3085;
+ i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
+ bh=sgnrCZ+8Z//7Mp3+Z+qP8xX1lnU0T/jKoMNWsjR4WBQ=;
+ b=rflaVb0IGQS4gPK+YmA2daDAOB0IbN1vK/rxQnjDU93P5Zxtf2yfEfCf4dbL6oL3xV40eow2U
+ /7NHIzV4Oe8Di4zKE1Dv3iY9iHJ1F9altNO/+FoS4aC6hUrl7DBh2QJ
+X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
+ pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
+X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
+ auth_id=1643
+X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+Reply-To: iasnezhkov@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 5:00=E2=80=AFAM Maxim Muzafarov <maxmuzaf@gmail.com=
-> wrote:
->
-> Hi Tianyi, Kairui,
->
-> Sorry for the late reply. There was a lot of new information for me
-> to digest.
->
-> I've checked the reproducer you provided. It tests a slightly
-> different scenario from the one I mentioned in my first email.
-> However, I managed to adapt it [1] to my case and tested everything
-> with the same setup (x86-64 VM), and I also reproduced your results.
->
-> The key difference [1] is that I added two new knobs:
-> - SCAN_PASSES (default 1, your value), how many times each scan page
->   is touched
-> - SCAN_MB (default 96, your value), the cold scan size in MiB
->
-> This is important because 300 MiB scan forces reclaim to reach the
-> pages during the first pass, which clears their accessed bits and
-> evicts some of them. The second pass then gives the scan pages a
-> second visible access. The reproducer from my first email also reads
-> the cold data twice (--loops=3D2).
->
-> So the idea is to get the cold data promoted to newer generations
-> and watch whether the workload recovers while the oldest generation
-> is thrashing.
->
-> With a 300 MiB scan and 2 passes, neither MGLRU nor MGLRU-FG5 can
-> recover. FG5 handles the 96 MiB scans and the 300 MiB single pass
-> scan.
->
-> The Patch
-> ---------
->
-> Kairui,
+From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-Hi Maxim, thanks for looking into this.
+mt6357_auxadc_ch_desc[] sets req_bit to 0 for both ISENSE and VCDT, and
+mt6358_auxadc_ch_desc[] sets req_bit to 0 for VCDT. Bit 0 of
+PMIC_AUXADC_RQST0 triggers BATADC (ADC0) rather than ISENSE (ADC1) or
+VCDT (ADC2), so polling the ready bit of ADC1/ADC2 times out unless the
+channel was triggered externally.
 
-I reproduced your cases on latest FG (7.4.0-rc3, 1 GiB
-memcg, x86-64). Base FG fails 4/5 seeds: early p50 280-344 ms,
-late p50 364-375 ms, .vec 9-19 MiB, scan 288 MiB resident.
+Use the actual hardware request bits in PMIC_AUXADC_RQST0: bit 1 for
+MT6357 ISENSE and bit 2 for MT6357/MT6358 VCDT (matching MT6363 VCDT
+and the MediaTek PMIC AUXADC hardware registers).
 
-Refautl ditance below seems fix the problem just fine as we
-expected.
+Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
+Reviewed-by: Roman Vivchar <rva333@protonmail.com>
+Tested-by: Roman Vivchar <rva333@protonmail.com> # mt6358
+Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+---
+Changes in v3:
+- Drop patch 1/3 (scale divisor), which duplicated Roman Vivchar's
+  earlier series (20261117-6768-6358-fixes-v2-3).
+- Drop patch 3/3 (MT6358 VBAT impedance ratio) for now until
+  mt6358_read_imp() timeout on mainline MT6358 is investigated.
+- Carry Reviewed-by and Tested-by from Roman Vivchar.
+- Link to v2: https://lore.kernel.org/r/20261126031013.27701-1-iasnezhkov@gmail.com
 
->
-> On Mon, Nov 02, 2026 at 02:02:33AM +0800, Kairui Song wrote:
-> > This code snip:
-> > + /* Set refault as active. */
-> > + if (distance < total / 2) {
-> > + folio_set_active(folio);
-> [...]
-> > That way, even a random folio will be put to the head directly instead
-> > of keep thrasing on tail. And placing on head or newer gen will
-> > trigger aging.
->
-> As I understand it, the refault distance series will break this loop
-> on tail. However, will the loop survive when the hot random set
-> is much bigger than half of memory? E.g. when its refault
-> distances exceed total / 2 and refaults land in the oldest
-> generation again? Should we in this case use the aging logic from
-> this patch as a fallback?
+Changes in v2:
+- Move AI coding assistant note below ---. No code changes.
 
-Yes, that's expected when the hot random set is much larger than memory:
-`distance >=3D tail` keeps part of it in the oldest generation, and that is
-intentional (MRU-like). It's not part of your case, but it is a real future
-case.
+Found and drafted with an AI coding assistant.
 
-> Anyway I'd be happy to test the refault distance implementation as
-> part of this work when it's ready.
->
-> I also rebased the patch onto mm-new (25fee5b1762b) [2] and on top
-> of the MGLRU-FG5 branch [3]. The patch applies unchanged to both.
->
-> Please, let me know if I need to send v2 of the patch to this thread.
+ drivers/iio/adc/mt6359-auxadc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Let's wait a bit: the per-generation counter could trigger unnecessary agin=
-g.
-If the active working set is well protected in the newer generations,
-constant eviction of rarely used folios should not trigger aging; otherwise
-it may push the working set out of memory and cause a regression.
+diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
+index 88b0e26..0e7f9b8 100644
+--- a/drivers/iio/adc/mt6359-auxadc.c
++++ b/drivers/iio/adc/mt6359-auxadc.c
+@@ -224,8 +224,8 @@ static const struct iio_chan_spec mt6357_auxadc_channels[] = {
+ 
+ static const struct mtk_pmic_auxadc_chan mt6357_auxadc_ch_desc[] = {
+ 	MTK_PMIC_ADC_CHAN(BATADC, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+-	MTK_PMIC_ADC_CHAN(ISENSE, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+-	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
++	MTK_PMIC_ADC_CHAN(ISENSE, PMIC_AUXADC_RQST0, 1, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
++	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 2, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(BAT_TEMP, PMIC_AUXADC_RQST0, 3, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(CHIP_TEMP, PMIC_AUXADC_RQST0, 4, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(ACCDET, PMIC_AUXADC_RQST0, 5, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+@@ -271,7 +271,7 @@ static const struct iio_chan_spec mt6358_auxadc_channels[] = {
+ 
+ static const struct mtk_pmic_auxadc_chan mt6358_auxadc_ch_desc[] = {
+ 	MTK_PMIC_ADC_CHAN(BATADC, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+-	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
++	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 2, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(BAT_TEMP, PMIC_AUXADC_RQST0, 3, PMIC_AUXADC_IMP0, 8, 8, 2, 1),
+ 	MTK_PMIC_ADC_CHAN(CHIP_TEMP, PMIC_AUXADC_RQST0, 4, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(ACCDET, PMIC_AUXADC_RQST0, 5, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+-- 
+2.54.0 (Apple Git-157)
 
-> The full results are in the gist [5].
 
-Thanks! I also tested the refault distance design below, and it looks good:
 
-    distance =3D lru_distance(lruvec, token, LRU_GEN_EVICT_BITS,
-                lru_gen_bucket_order[type]);
-    tail =3D lru_gen_tail_size(lruvec, type);    /* oldest MIN_NR_GENS */
-
-    if (distance < tail) {
-        /* It would still be resident if it had been kept. */
-        folio_set_active(folio);
-        __folio_set_lru_refs(folio, min(refs, LRU_REFS_PROTECTED));
-    }
-
-I also swept the promotion threshold: tail, total/2, and total/4 all fix
-this case; gating on refs does not (refs are 0 for MADV_RANDOM).
-
-Results (300 MiB / 2 passes, 1 GiB memcg; base/RD 5 seeds, aging patch 2):
-
-                          early p50    late p50    .vec late
-Base FG                   280-344 ms   364-375 ms  9-19 MiB
-FG + RD                   5.1-5.4 ms   2.7-2.9 ms  117.2 MiB
-Your patch                7-51 ms      2.9-4.3 ms  117.2 MiB
-
-And your tests covered the other parts too, so I think FG + RD is the right
-approach. I'll keep this case covered and Cc you on update.
