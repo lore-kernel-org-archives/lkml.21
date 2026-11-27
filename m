@@ -1,53 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.13
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795817660;
-	b=PshrRB492FmQjIpNs23EvL3edQmBgQnfHE7cThI1+eyfdNgXUilGud+rTlltWdyS5nrH
-	 828IMo5if06EStqZ7as1HKcgUeiwatYIFUyh9nxKOOVm8oeiiLFGhCX3YK68zFMu0BAci
-	 Y+B69rPTT0jkoUgZDLd2Skzs5BzwWBja5MqxyRDgf+jtHAcRHAm5ksIIWKRzlphrEYvXE
-	 IIK4jRtneig9ozDadG6bJyqS6Nlw45RpBXO5bf/oms9Rzc5RHCXjWVVMlouRknbwwBuVW
-	 xBmyFvRLiaIcEpDGrmITN5/4KvfiVgTJdTEjS95an4GqZMP/nE66jUs+YMRJQrZ4GEQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795817660;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Stat-Signature:X-Spam-Status:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=xmysb+AOKmWyHHQL9HFlpt3Fzy5PjzXsyT5qvr4KqCc=;
-	b=zl4j8xH2VXwwwZiQdH/tV7ogZRPiH1+okEl5KzTPzTZOEC+WAsuoiJWDt3DcOEdtI7sW
-	 L0gO6Crpi2NkcjuoqAhRdoPA/EdeccLEmwglRgtm66g+WmB2P1AKjPNFujsRbkPWaeas6
-	 5pbnKVmZdt5W7eNInSlhu8rhFcCtwHVEmKWYxl1ho3/pQLJbmpmRUK54lVJKk/UTpMLlm
-	 N8p8ubO86o5xwDinZ6iQc1Ul9f90Sd+nGWhqxt1sBRRLXXJa96EY6Gn0xs3vPEBWsq0cO
-	 CzHWdpsWqkRhIIDSOWwiNNyYXl1v7KRZLAIkoPw9x/CF8FquxoOXLmHSuit04JVnrfw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=GeZQpEct;
-	arc=none smtp.remote-ip=216.40.44.13
-Received: from relay.hostedemail.com (smtprelay0013.hostedemail.com [216.40.44.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.181
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795817667;
+	b=jCgWdlqZXsR2TeF/YrFbGMlM7GXN7PZaYJfozhn7KU6hFIHal2xZtHAD5YT/kX6lsNG0
+	 BIXLmk5sm493t6JuNuVTKSU8k6rNPOyvKf/O5lvG8vVtgpZg15GuUW1TUUYmbes10cpMD
+	 AnsxEbmZN9l8J8uCyym/qH7L1zHeEwTLXy2jrjxMT36pzr1irDh60KSqAYt1ILnuON58V
+	 6wCvGtM75V7g5DXn7D6Dx0rg1YL25+rWuQqVKv7j8YxqOyRmWt4QdwVHXASl0A6tFMaiQ
+	 WW257U2mnHEv2a8t6gdHv3WNHHK6/gqc7g9U+c/p0w4PJrrFBWXpblaBNhzcn2LbaMw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795817667;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=R+GWEKhj5g2p+5aZiSD1FIPN8G34y6oXiGP97Svh0ns=;
+	b=vbFAZNRKt7Yw9D0MQlc9mIWt00kglUmUPnP/mLh3g3YBlzHQEjITSH7hQ51AHl1HPgxL
+	 yn/R7AlkaUjjRsFxeDWz++8265hJ1m7Y1lW/pLl32sLosWwPNKcLD5+2nQ5mPXry01W2D
+	 3zMWPbFNuhv1WvsKsvWXxWgNObJvO0FhJ+K2usLL49w6PaIRPBavph+s5e1TVn+Hs0eoQ
+	 cQEhqqYE35dQEE1fEb9BP5ilA4gnelbbeJcOQD4J+S3PBb7B6QGNWF46mHs8glRTFlCoE
+	 sce+H4Ebxevng9CjDkDGOIdJlc0anMW4qv8rsogfPxinWW5Wxp3orPm/a2NkSd1WDkw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nexthop.ai;
+	spf=pass smtp.mailfrom=nexthop.ai;
+	dkim=pass header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=JwXKkOiA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.181
+Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com [209.85.128.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C4B2606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:14:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C4B2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6896E606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:14:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6896E606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nexthop.ai
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nexthop.ai
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=GeZQpEct
-Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay05.hostedemail.com (Postfix) with ESMTP id A8DC640520;
-	Fri, 27 Nov 2026 22:14:11 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id EB77718;
-	Fri, 27 Nov 2026 22:14:09 +0000 (UTC)
-Date: Fri, 27 Nov 2026 17:14:08 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Vincent Donnefort <vdonnefort@google.com>
-Subject: [for-linus][PATCH] ring-buffer: Add missing cnt increment for
- remote ring buffers
-Message-ID: <20261127171408.0d804b05@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=JwXKkOiA
+Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-8b4d07494b0so92599197b3.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:14:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795817666; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QSPerhQO2j9BQmsAa3mTvNk4I1OswXgnXOZMjILhNh0GOIg+2B9gckUG5lVar3J+U9
+         0qXRfuXTiljtVF2m8FG/NIOaltxmOi7HWkcmjndMgvWL+1jVEUD83Xr/gOkBvviCPgp4
+         ZKxXViWntgG5BKQpNEk5mfnpfOWx6f7q5GekY0Eo5EH0rO+870fOn2lP8Y5Buo+NdXvH
+         Jwecbcn8lp1D4OoOqz6yNlgD5sTd8YW2nqU8jUMrPDjpCZLDlcp1O0K4+o2UehEtESwe
+         TROD4Vc7cwqY6nlcagnuVcGVBtF1qzU9Bf9//FfxmXa5nTxWdF0cWfKBLPxMjf1LqA+a
+         jonw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=R+GWEKhj5g2p+5aZiSD1FIPN8G34y6oXiGP97Svh0ns=;
+        fh=U9oRvA4JbZudOZ0YdGWig/uQe2pynzs+7qDuCJzsYZw=;
+        b=ND5FHj58KQNZrR/3tOrQCvkpU8IgiuO7d68n+0o2ervhpmExEIyzPdV5NGz1m1XFzz
+         h3hOrAN6aFTt4zRC9egsm7zxZm+PHdwdmOrq3omAAuFSy53uLZHc7cZx4RvKDdNk2Rfm
+         QUdZDDKwnpPGTWgeQFKUR+zsPv1mcwNdp72+tySDNQjxL3nMCUOwx1oNhC03hHXtQq4f
+         +dUcEDXSwqJxH8Ac23g4H6WTbiFdZlsdTccenxOAjJOWO8BUlz6AtNX3xrKTu8Zq+FHF
+         B8l75KIWHNG6Dxv+CS+6vb+UoQqJyASzBzpmki+2FOr+PfS1aQX4lQNOdmuxuR2YVeob
+         CfWA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1795817666; x=1796422466; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=R+GWEKhj5g2p+5aZiSD1FIPN8G34y6oXiGP97Svh0ns=;
+        b=JwXKkOiA1hHPevvY6KlGz0H49ngjn7RSbuIh1YPq3ZNFaYUe1nazCmKX2br5ZXNy4J
+         lrV768348Q3U79vKmJySW2rQ/MkbDivy3dmUMfBNwTYOAPAbhoTrWGG85bRhMU+mxDin
+         Q4jcdvzBp30jHmZqt0LjihCvbPF3x7iSxL4xEcataneXHFNDE2OARzMZQw8C/x/OLs4E
+         LSe4CdBiFOxtxXIA6bELFzV2YiTbFfJtbz1i4xQtMCPC5/g7joS4/uxbvwPx90zjmTTM
+         CE36Ip4C4zEdmHSCsHw+iyU9lpY7XuHS3y/YQZpYEZUXtfn6/OBY8NePBmmoQXkwJn72
+         L+2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795817666; x=1796422466;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=R+GWEKhj5g2p+5aZiSD1FIPN8G34y6oXiGP97Svh0ns=;
+        b=jLfCv+YlmZHUJ81J1pLvXfLnB9B2v1qnnq2WEHoZZspZ7CplRIRsvA3AI8TbAkDr+i
+         5gHC7TQahC95LVlqBmQl6f1USMbRXwDYtevL1CPlXezAeuuvXMgoU3kymy1pDRMKy0jW
+         gXy4Q8T+WnUA6ZKqvJmZNYPUM/aPlKKaOjYWmeFxeS+uXY56gpSObIXnTWPGDacXlYj5
+         MhjnOm/cds70t8sFAsGO4sDo2nw9e3ArT1M39khhzq3ru5OV0RxkkfCbXafsZaIQekkW
+         iiqbOHn259Aa9CT2v0+DGB7W4efoQ3+XmgnSrB/IcV788QxqI+kuR1CSt3rbpQdu+SNG
+         jJ/w==
+X-Forwarded-Encrypted: i=1; AL+hErGVSzEcRloB2fJjVa9lLGz18d22X8wC13RogzOJVhQ19sQkknrNfPUT1oXOJOydy+cWbMxeEpo6sGjQusM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QEwJNpD9LNmW/FEnta/qp0EnyKFCNVqXFyL2yJNM7fYKCuiLY
+	HpvDoO9QdZWyvms6L31SXuiyQZyX0+1GJTo6EB0j5BqB9r946w7TebP6zyjJcv8x5Ssb7PmCCR5
+	sEv2ceDwKR9ojPmG6NjZkZd0ytwXKH8nIBU6ER6Vb0Q==
+X-Gm-Gg: AZFdTZcseB9l291M+WlH9uW9wMgwNgAlU2IabyeV+n42Ij1lzl5kChtiKDBiFnnoSyy
+	XWRHXcqT+SHn6Q5RbdWVPfc8PsCjbXd/jo5S9kSxc5G3syBDttEljmLNNEBjy3pM2Zgc4za1apd
+	rpT9Ik+HbUj9wNPm2ts6qZ/adNhfJMDw7cBdDqifRV9Ig7tlpIh4U7SFqr/lYyNBugi8wBMAjUo
+	0ZZBmpKCgSHbI/Ac2wRIxmDucaB7JhHZtKfmsJNcbJU+uudl4u3/YEQTcXa3Ym4GsS6whKj5WTN
+	iLI2H7S0SKynp8cIJuAIKNNKhfW5pbdybbJ+VktTwS1P+ef3uf2GbN0Pu5vytWAR/Tn+wvYKVDk
+	bVVcwI4nNhPZpG9uhp2L/GgXxsNcHN/8xnnhLYpPeQh30UhrHICY/jnCJYh6arpsJPW1j
+X-Received: by 2002:a05:690c:290:b0:895:8474:3c6f with SMTP id
+ 00721157ae682-8b5201eff64mr106815777b3.0.1795817666463; Fri, 27 Nov 2026
+ 14:14:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,62 +103,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: huz387r9jrbwrqeu9m1twi1ydn4korzu
-X-Rspamd-Server: rspamout07
-X-Rspamd-Queue-Id: EB77718
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/zWkQtEHBwjiM+vgvrxhKcd7DqvCWHWgU=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=xmysb+AOKmWyHHQL9HFlpt3Fzy5PjzXsyT5qvr4KqCc=; b=GeZQpEcttKyAnm7pPtJTbjGIapF3BqHDrvqyWi4crgfnhYp1TRy9+M4Mj5IrKJHtERzCoRn8KYh3hUc51H1hcgrt6evytlmxuXIr/jPR3x/NOfwdHn7oqrPlTmeoXmkUvq5NiFNkJlWYxbrAQVCshvatDO0ynKdJK3PauB3ZBkc=
-X-HE-Tag: 1795817649-987414
-X-HE-Meta: U2FsdGVkX19alCtx/1lhqeAN/c6HHvZlpQffh6C9DgyK2suzPm1O6EHkSfFXCnKllL0PMp8lUzbK5C211R4qnZYFTE5u5D7WKddZFHAgdroa/M3gvCVgjHXuSBe9k6NvwJppddBYn5xxK6KffybgtWqjVGwc4RnAIzpL2ZpxlX+MmkdQYxTkX9o9Ox6iyT68Ko09JXq0zxHOMi5sryTxeIYP83Bz3IANC2M21LwmuIt/vU0PuxweXUKuaDgzZEFsuhifpuczF2hDn/O4o2C2obgFy0VnBgr/PLJzM5UjnuoBFmExaE3P9WOhTRxDOvm6Fr+P4BsXtB8wNHy7ODPsz06+XMy3RHSdAnefW1ys9vFZsPHN7UvlTl9Tp3h5aemF2sm1cqYKfofpiQ2OzpqQ8wKnQ/7Ard/9OwiUViPAP6MIQ0w4O4Ahdyo40QskNXhuS0QY+9D/R2pIVuJDCk2UC+hO29hcmw0XLogZRW34lZO5OYUKcijFWO1OpXI4dSEl
+References: <20261125-tcp-l3mdev-exempt-ports-v2-1-b920f3ff8f5e@nexthop.ai> <179572802536.3135.6305865608768923950@kernel.org>
+In-Reply-To: <179572802536.3135.6305865608768923950@kernel.org>
+From: Kalash Nainwal <kalash@nexthop.ai>
+Date: Fri, 27 Nov 2026 15:14:14 -0700
+X-Gm-Features: Aa3M54oqRaxMY7_UWPQgj5lUHHUmW8MGZPBMkR5eyixxsYNc4OEEliipG1r_sDM
+Message-ID: <CAAv61uQA=z5i7OB3O55jvcZP+wVt5907oPUnhuO-zyjn2-P-SA@mail.gmail.com>
+Subject: Re: [PATCH net-next v2 1/2] tcp: add net.ipv4.tcp_l3mdev_exempt_ports sysctl
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
+	pabeni@redhat.com, horms@kernel.org, corbet@lwn.net, 
+	skhan@linuxfoundation.org, rdunlap@infradead.org, dsahern@kernel.org, 
+	idosch@nvidia.com, ncardwell@google.com, kuniyu@google.com, shuah@kernel.org, 
+	joel.granados@kernel.org, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+> [Severity: Medium]
+> Could the commit message explain why a new UAPI knob was chosen instead
+> of fixing the selection order in inet_lhash2_lookup() and
+> inet6_lhash2_lookup()?
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git
-trace/fixes
+Yes, v3 adds that to the commit message. With both listeners present,
+existing setups get a stable result that depends on creation order and
+address family, and making the bound listener always win would change
+that for every tcp_l3mdev_accept user. So the new behavior is opt-in
+per port.
 
-Head SHA1: 76a0a6d58318fff8b14530ed9b99c7065995db29
+The SO_BINDTODEVICE case without a VRF is a fair point. The same
+early return applies there, and this sysctl does not cover it, since
+it is scoped to l3mdev traffic. A change to the lookup itself would
+cover both cases.
 
+Maintainers: if you would rather fix the selection order in
+inet_lhash2_lookup() and inet6_lhash2_lookup() so that a matching
+device-bound listener always wins, I am happy to rework the series that
+way and drop the sysctl.
 
-Vincent Donnefort (1):
-      ring-buffer: Add missing cnt increment for remote ring buffers
+> [Severity: Low]
+> Should the document leave the fast path columns empty for this field?
 
-----
- kernel/trace/ring_buffer.c | 1 +
- 1 file changed, 1 insertion(+)
----------------------------
-commit 76a0a6d58318fff8b14530ed9b99c7065995db29
-Author: Vincent Donnefort <vdonnefort@google.com>
-Date:   Tue Nov 17 15:15:20 2026 +0000
-
-    ring-buffer: Add missing cnt increment for remote ring buffers
-    
-    The ring_buffer_per_cpu::cnt member tracks modifications to the ring
-    buffer links. It was introduced for rb_check_pages() to avoid locking
-    the ring buffer for the entire duration of the check. The reader page
-    swap function for remote ring buffers does not update it. If a
-    concurrent rb_check_pages() recorded a page as head before dropping the
-    reader lock, it misses the list update and loops indefinitely. Add the
-    missing increment.
-    
-    Cc: stable@vger.kernel.org
-    Fixes: fbd1743ecba1 ("ring-buffer: Add non-consuming read for ring-buffer remotes")
-    Reported-by: Sashiko <sashiko-bot@kernel.org>
-    Link: https://patch.msgid.link/20261117151520.3972146-1-vdonnefort@google.com
-    Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-    [ rebased to v7.4-rc4 as there were conflicts ]
-    Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
-
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index a5a0adc934fa..65dddfac5e04 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -5891,6 +5891,7 @@ __rb_get_reader_page_from_remote(struct ring_buffer_per_cpu *cpu_buffer)
- 	cpu_buffer->pages = &new_head->list;
- 	cpu_buffer->lost_events = cpu_buffer->meta_page->reader.lost_events;
- 	local_inc(&cpu_buffer->pages_read);
-+	cpu_buffer->cnt++;
- 
- 	if (!rb_page_size(cpu_buffer->reader_page))
- 		return NULL;
+Yes, fixed in v3.
