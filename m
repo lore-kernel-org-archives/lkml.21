@@ -1,69 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.30.148.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753069;
-	b=Cf8S/eggDV9bYRX3pi7VO+1gEhCMCmepiYp2fiNXmX70l/RDQixc4hCx++aZ/vZgeYLF
-	 BiCNlS/mrFBcHbsshHx2xfQ4No7RvInHtunVqKrnBp+WjMMgh+WaZ5tS9cCQLR9BQBmEh
-	 XGXd51CKzwLeRQ2TftBgjKbQACu6JYTU3tleZghtFHa6DWm+weXaAOZbXSE5Pq4Z9WACs
-	 JnOLV9Mz/eHUYJiWStmLHPV3czQlrm2SlbkOJ1oWTtxAxpAt3UM9Iy+troKj9Eq+fCaD+
-	 mCx9uF2MopIRNRp6CIB0WksspkbWmCMqNrutKibgMh8er6YQ7dP8lXWVXXAWVZzE4MQ==
+	t=1795753137;
+	b=LVmG+7MawRM61uJQ2jjji6xwnil3MT4zOnrlgvRqB8kSLJamN6RDOt7wUuAMyN7r8BlH
+	 1CJsIOi9xTlsBZEY0e6dyqtJjAqYz1loeFjKg8mttGLgIp/AbItWADWNI1NuhLTkkOEY7
+	 JjE40/K6rjcWJG1GEQj0uysnvJP3k/g8UZqe5qbdOVXBZlCHOzrZGanHXU81WbDBzoirK
+	 RUgxaadNHJSN4jaSKQmJFsfnudTvlRJ4QbQy/sfHddid1OoqPF2sDI8X9/WbNvZDwC1qV
+	 GA3Ua5iVDM9V0jkcIEIHH8KzrH2Vr7blbZRf/UYfTbSAuf1FG8QsRFIve6JVjRX3how==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753069;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Zmail-TransId:X-Mailer:Message-ID:In-Reply-To:References:Date:
-	 Mime-Version:From:To:Cc:Subject:Content-Type:X-MAIL:X-TLS:
-	 X-ENVELOPE-SENDER:X-SOURCE-IP:X-CLEAN:X-Fangmail-Anti-Spam-Filtered:
-	 X-Fangmail-MID-QID;
-	bh=m2dfFTLyJDnuut/kSgGNburJKYEkRooFBwozoeDUcTg=;
-	b=uwJ9uvlL86aG/muFq4UzbJw0UyRPuhvziCgEy5EyS442sXyTxVHIsmhiBUGJglLuXBml
-	 roBWFkos9BYSUkVcNsNYE7P0lKRT7U6EhX0Y19dTUYb8ELRaAg8CX7+AMCiy1/eLYsdfJ
-	 4DgX1hmiIhcp64o0UKpv8nZdXej1HObMrWIA4R9RbYbrA1+1Yy8GBC5CFHuJQWYSEsusf
-	 ir5cpwJxhR+ese/NmUXw82YVO3aBVtfj7TYOJrLbfDf2jx24X6v2JmDg9KZ+Zevm60f+c
-	 WNZsR+/F1WEgHFARvVIWoNOGtHLyMDN2KvJ6Cl2KCHNNeEiss0KMJWvSq2eKSIRUGZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753137;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=93YINut3KE5OztbS+NDPfxjifdfR77qYaLTwskp1sjA=;
+	b=Oq910QI6AzcAdjtrMJbE8X6V/v03LhJhq9jTSAtELQemqeHtpkkIC+UMmNjk/LRv70Qn
+	 uwnJk8gyJcmwH65Z0XLR/zWVYrkXUQlHibQJuNHPaB6pq4uGZHGStbJJo1rMSNpfcQC2g
+	 eSKJT1tZiHWrRN6hNOJNFRMlpERkGBzdYLCA5EV9x/1qqSS6tLa87mnRvUvQf37nAFGnK
+	 jPPOnK4rFtixa05N0fcE7p1AYyHCnuBOLyzOvEtMF7A9iNc7HO2DZ65usjynvOwQ7n8eH
+	 0AesBEnwijiKZOgwpaNIWTalhcdWD0azoyjuuxgBqKtLtJqBn+cOBfdRnFC6tbvN8vQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zte.com.cn;
-	spf=pass smtp.mailfrom=zte.com.cn;
-	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b="oS/bzFpP";
-	arc=none smtp.remote-ip=160.30.148.34
-Received: from mxhk.zte.com.cn (mxhk.zte.com.cn [160.30.148.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KZIamYWu;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF0B7606A32E;
-	Fri, 27 Nov 2026 04:17:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF0B7606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22523606A324
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:18:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22523606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=oS/bzFpP
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jbKrq2cRKz4yjjB;
-	Fri, 27 Nov 2026 12:17:47 +0800 (CST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
-	s=z202610; t=1795753067;
-	bh=08f/pkkFDOG0F17eQvtO+Ri+d2aRnQL9K1pmC5PEQdM=;
-	h=In-Reply-To:References:Date:From:To:Cc:Subject;
-	b=oS/bzFpPKIl3JunA1hxMLAalr/0tpzfA0q6IuO6dE1ROcrd1gcH/o5shGuZtBDKNI
-	 F/gc9KuEw7ED3ux4VmvMIlNayyIQu9G1pZGzgYegtEePS/MqlqLwr3qaW/RsSGWy6p
-	 M7VyhDKbJRhzBY8CYBZgt7Fb5zT3F6ASW0VcpSzj1mHuiYjRZZI4bCRGdcDSubfP2w
-	 qNpAqrc9DATtyeC9lPV7siV01Os/CpAkP5dYbROgSlN2tpEBIZOZgu52VBTX2LUdJO
-	 m67D9Xv4SiM5D6M2eplUSIbAUx/Ha/c5sjLpDJzyNDwQFYhy82hmGIqskXhSC3INHW
-	 UmDtQlFs1axDA==
-Received: from xaxapp02.zte.com.cn ([10.88.97.241])
-	by mse-fl1.zte.com.cn with SMTP id 6AR4HbL9090958;
-	Fri, 27 Nov 2026 12:17:37 +0800 (+08)
-	(envelope-from shao.mingyin@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Fri, 27 Nov 2026 12:17:38 +0800 (CST)
-X-Zmail-TransId: 2afb6b090462276-08b92
-X-Mailer: Zmail v1.0
-Message-ID: <20261127121738923LHjBUaCxdDRPGTYPDZBDV@zte.com.cn>
-In-Reply-To: <20261127121734430rp7P_HaHukJyZYs7OMQjx@zte.com.cn>
-References: 20261127121734430rp7P_HaHukJyZYs7OMQjx@zte.com.cn
-Date: Fri, 27 Nov 2026 12:17:38 +0800 (CST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KZIamYWu
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b520f1604fso393838a91.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:18:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795753136; x=1796357936; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=93YINut3KE5OztbS+NDPfxjifdfR77qYaLTwskp1sjA=;
+        b=KZIamYWudgLOaRsKoqqyDFI8ih6B/PwA45hiEyepNUmZ0Y8HlIe/rhfBjb7D8KUbWY
+         fFuYxERH3zxGt0ZoDOi8NUzEmzLsMcttanbdG4P8Z+WnPQtgBF3fDbzbDg50Upl4XYTq
+         y64ktzqAl3fqKpTZja93M2PobdoXDX0XgOkH/7grUKWf/sJFaMEG7N1BT16XNRPDnbAz
+         6vdzGTiEN7su9ZgThwVOS2RGckGREbia60tiduJxWnSoiF/Igf1ObK83gO2OhEJReSCW
+         C07J45Xm8yu7LaGBsGwumChXHegUmLsXEBbDd+ec2++CL/rIVgqPWYVZHhZ86u84SdGY
+         2S2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795753136; x=1796357936;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=93YINut3KE5OztbS+NDPfxjifdfR77qYaLTwskp1sjA=;
+        b=SlHj68hex2A0S3ohP187q1UAE1X01w+iQ+GLbh93lmsoxYHGQCQat8kD+KVo7R0JjP
+         BYxmxyrRv0lovntuCnM/WY4MN9IR7Tl34nV11hg2VtsWfi3S0/L+o6OJ1W5yGtSLdw5E
+         mAaJxhaYqI9An5VLLAT6hXop3/3ELhdXmySCypO1kv+fk3+sFAINrmflmCpLmt+Jg/QO
+         vKE/viTF0cJMfbhNaMUbJcjgnvMC1IrEnAvJeN/Ar9vQv4+PZtxqNWOLmUBTjBkXvrdY
+         xOwhBn6ucILCgTeWdt/7kWXTqu/nTb3dQZ5wdmZL6AKJs+JChU83kCOzdD5DGDBIKo2x
+         ihWg==
+X-Forwarded-Encrypted: i=1; AL+hErHU4t3BEgggIok1qbRqdRtRoCPoGZJyt16hNRnjhAdMCyY429CP2bW+bXQ6KhwiaTTca243uviiDv7Jhac=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FuEkFBNJ1lBT6MWjNvLRM8JN+KMUGG6FziNjp4/dne4zyCgnY
+	GtSAgrbZZWjd0uV+FvCCbke4nuKqqyDO6sbR0pzSQBc9/JG9Dx02m2Rb
+X-Gm-Gg: AZFdTZfTzm2y/ZqJXRkoptJrmcKbhjHVV7nSifKZ6B4Zk0H6oF1hsursPi6yAZMqzrZ
+	m3znynQX+WzyokL0tvS2xiqK9BIn1NLXsdyTorheZqFZr6IPefx5/wjzogQe8vl54STClWzyAzR
+	DudwTyo99X0kHQaLmBds+f8K3dWYRld3YKllUneLg2UIl4tJHfF869iQqYH9h8hVEhp9TD5h3vD
+	0IxNvrKFUMUQyinziyXQVz+AmS0VfUIIRq8vz5olwkncXHTHa+Ucx5+j3kq5eOJizugM3Q4/IC8
+	BmMYpVOZ5ewTERqHLg6NyO6MkHA4Qd65390si7HrkqmYVyJ0LUyDUiuEEZrr4+m6Ug3gabwYawL
+	rODh2BBQarDkxRE2DwFqAjgmZZzqRr2heOVcm9G2C7Yo2vKOTvwBcX0ek7YLV0lQIgyBUnfS74n
+	HIZqOIKV/WzpDpQQQFybW3aikSNz0qZWiaJ8cEQDDAmqm0jB4fstGyiW2qGESOwknazhB6LCHSb
+	2kO/lsAI6PZm4zGlhhpZaeU9qH6YVdG8hn96W0YiLuK8v5hrJqBz8yPb76fdZBv3hsoc07BtauM
+	zNf0OsPE04KYpOypbQxNs4KkE6ro5Z1C0i3lMgY5hFLxakuK2Q==
+X-Received: by 2002:a17:90a:e705:b0:3ab:1b1c:8a70 with SMTP id 98e67ed59e1d1-3b41c938d83mr20435234a91.38.1795753136343;
+        Thu, 26 Nov 2026 20:18:56 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad46ef5sm36000501a91.8.2026.11.26.20.18.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 20:18:56 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: ebiggers@kernel.org,
+	Jason@zx2c4.com,
+	ardb@kernel.org,
+	stian@itx.no
+Cc: linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH] crypto: sparc: remove trailing whitespace from AES assembly
+Date: Thu, 26 Nov 2026 22:18:53 -0600
+Message-ID: <20261127041853.127855-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,141 +97,30 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-From: <shao.mingyin@zte.com.cn>
-To: <lee@kernel.org>, <mfd@lists.linux.dev>
-Cc: <tony@atomide.com>, <linux-omap@vger.kernel.org>,
-        <support.opensource@diasemi.com>, <patches@opensource.cirrus.com>,
-        <ckeepax@opensource.cirrus.com>, <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?W1BBVENIIHYyIDIvM10gbWZkOiBhcml6b25hOiBGcmVlIG9ubHkgcmVnaXN0ZXJlZCBkaWFnbm9zdGljIElSUXM=?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL:mse-fl1.zte.com.cn 6AR4HbL9090958
-X-TLS: YES
-X-ENVELOPE-SENDER: shao.mingyin@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Fri, 27 Nov 2026 12:17:47 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6B09046B.000/4jbKrq2cRKz4yjjB
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-arizona_dev_init() requests three diagnostic IRQs before adding MFD
-children. If adding the children fails after any of those requests
-succeed, the probe error path tears down the IRQ mappings while the
-diagnostic IRQ actions are still registered.
+Remove the trailing tab after the key expansion label in
+aes_asm.S.
 
-Record which requests succeed and free those IRQs before IRQ teardown
-on probe failure and on removal. Diagnostic IRQs remain optional, and
-a failed request never leads to a call to free its action.
-
-Fixes: 3cc729869475 ("mfd: arizona: Core driver")
-Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
 ---
-Changes in v2:
-- Record successful IRQ requests and share cleanup between probe
-  failure and removal.
+ lib/crypto/sparc/aes_asm.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Previous version: https://lore.kernel.org/all/20261107162122461AuQ94DzIh_R4gD8FWdVlC@zte.com.cn/
-
-Build-tested on Linux-next next-20261118 with GCC 13.3.0 for x86_64.
-
- drivers/mfd/arizona-core.c       | 49 ++++++++++++++++++++++++++------
- include/linux/mfd/arizona/core.h |  1 +
- 2 files changed, 41 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/mfd/arizona-core.c b/drivers/mfd/arizona-core.c
-index 91975536d14d..8e5b8a75e773 100644
---- a/drivers/mfd/arizona-core.c
-+++ b/drivers/mfd/arizona-core.c
-@@ -231,6 +231,43 @@ static irqreturn_t arizona_overclocked(int irq, void *data)
- 	return IRQ_HANDLED;
- }
+diff --git a/lib/crypto/sparc/aes_asm.S b/lib/crypto/sparc/aes_asm.S
+index fd90b129972f..0ddf181f342e 100644
+--- a/lib/crypto/sparc/aes_asm.S
++++ b/lib/crypto/sparc/aes_asm.S
+@@ -293,7 +293,7 @@ ENTRY(aes_sparc64_key_expand)
+ 	ba,pt	%xcc, 80f
+ 	 std	%f58, [%o1 + 0xc8]
  
-+static const struct {
-+	int irq;
-+	char *name;
-+	irq_handler_t handler;
-+} arizona_info_irqs[] = {
-+	{ ARIZONA_IRQ_CLKGEN_ERR, "CLKGEN error", arizona_clkgen_err },
-+	{ ARIZONA_IRQ_OVERCLOCKED, "Overclocked", arizona_overclocked },
-+	{ ARIZONA_IRQ_UNDERCLOCKED, "Underclocked", arizona_underclocked },
-+};
-+
-+static void arizona_request_info_irqs(struct arizona *arizona)
-+{
-+	unsigned int i;
-+	int ret;
-+
-+	for (i = 0; i < ARRAY_SIZE(arizona_info_irqs); i++) {
-+		ret = arizona_request_irq(arizona, arizona_info_irqs[i].irq,
-+					  arizona_info_irqs[i].name,
-+					  arizona_info_irqs[i].handler,
-+					  arizona);
-+		if (!ret)
-+			arizona->info_irq_mask |= BIT(i);
-+	}
-+}
-+
-+static void arizona_free_info_irqs(struct arizona *arizona)
-+{
-+	int i;
-+
-+	for (i = ARRAY_SIZE(arizona_info_irqs) - 1; i >= 0; i--)
-+		if (arizona->info_irq_mask & BIT(i))
-+			arizona_free_irq(arizona, arizona_info_irqs[i].irq,
-+					 arizona);
-+
-+	arizona->info_irq_mask = 0;
-+}
-+
- #define ARIZONA_REG_POLL_DELAY_US 7500
- 
- static inline bool arizona_poll_reg_delay(ktime_t timeout)
-@@ -1355,12 +1392,7 @@ int arizona_dev_init(struct arizona *arizona)
- 	pm_runtime_set_autosuspend_delay(arizona->dev, 100);
- 	pm_runtime_use_autosuspend(arizona->dev);
- 
--	arizona_request_irq(arizona, ARIZONA_IRQ_CLKGEN_ERR, "CLKGEN error",
--			    arizona_clkgen_err, arizona);
--	arizona_request_irq(arizona, ARIZONA_IRQ_OVERCLOCKED, "Overclocked",
--			    arizona_overclocked, arizona);
--	arizona_request_irq(arizona, ARIZONA_IRQ_UNDERCLOCKED, "Underclocked",
--			    arizona_underclocked, arizona);
-+	arizona_request_info_irqs(arizona);
- 
- 	ret = mfd_add_devices(arizona->dev, PLATFORM_DEVID_NONE,
- 			      subdevs, n_subdevs, NULL, 0, NULL);
-@@ -1373,6 +1405,7 @@ int arizona_dev_init(struct arizona *arizona)
- 	return 0;
- 
- err_irq:
-+	arizona_free_info_irqs(arizona);
- 	arizona_irq_exit(arizona);
- err_pm:
- 	pm_runtime_disable(arizona->dev);
-@@ -1417,9 +1450,7 @@ int arizona_dev_exit(struct arizona *arizona)
- 	}
- 
- 	mfd_remove_devices(arizona->dev);
--	arizona_free_irq(arizona, ARIZONA_IRQ_UNDERCLOCKED, arizona);
--	arizona_free_irq(arizona, ARIZONA_IRQ_OVERCLOCKED, arizona);
--	arizona_free_irq(arizona, ARIZONA_IRQ_CLKGEN_ERR, arizona);
-+	arizona_free_info_irqs(arizona);
- 	arizona_irq_exit(arizona);
- 	arizona_enable_reset(arizona);
- 
-diff --git a/include/linux/mfd/arizona/core.h b/include/linux/mfd/arizona/core.h
-index 6d6f96b2b29f..3a9881a1c0c9 100644
---- a/include/linux/mfd/arizona/core.h
-+++ b/include/linux/mfd/arizona/core.h
-@@ -136,6 +136,7 @@ struct arizona {
- 	struct irq_domain *virq;
- 	struct regmap_irq_chip_data *aod_irq_chip;
- 	struct regmap_irq_chip_data *irq_chip;
-+	unsigned int info_irq_mask;
- 
- 	bool hpdet_clamp;
- 	unsigned int hp_ena;
-
-base-commit: e8017d29067fd1310a65c3494ce1a1b492adbac6
+-1:	
++1:
+ 	/* 192-bit key expansion */
+ 	ld	[%o0 + 0x10], %f4
+ 	ld	[%o0 + 0x14], %f5
 -- 
-2.43.0
+2.56.1
+
