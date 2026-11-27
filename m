@@ -1,86 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.172.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795805908;
-	b=YyxBkl8ZZlQZ77EG6KG6HLfI+BCX0bGSFViphRLIa0D8U2Aa3+Ystx40Um6Pa3wMrE2L
-	 Ub4gs3o8xRO1iVGrK0oYuKXxaBbWY3NDCuvY4GYzzR1WzV6IcSMzvNAx1eAU6tyY4qMdR
-	 YYd9q6Yae7GE78f9oSbOQhhaNcPc7r7i0XZ+4pqChAkVmN7oOK5YfNIbPz9gvu8YUSxOV
-	 P6X/b+7Zdw4m7RIGD5uxJmzKSzrqda2c/B3hEAxk/lEqDjp+zWDHwJYcu3yu6fehxzwwL
-	 ucWUDg5oksipe5ewFsDFYYIKP/kLuNTDsiQCYZn4La1msh1onLx+9pIunMEjG3KcIRg==
+	t=1795805912;
+	b=BTU8gVpK8gWFYoRbSMRBJXEgXwJLpQvYHfWTtc4p9XQzHKK/mPWbVaynMueL7ZInBBSl
+	 SUc2OMKwTtnVI4pQROxAlO0BcBqHECC9jGYH8o3oc5T+m72WYdzHcO1jgrqEHiAqNN6Rp
+	 U6+5HD7WpQ+3nmYkd44VwViahyUX1LA0JH9JblHUZHeJ1Of4TnAWqjoUTEmgDpz2fJuDg
+	 ZZu/hLa4DPmKs1DLICCjZ3VbQJVLEfbIBpqCNUtALALQn2AvOFXVcZkulGtSIjh0Vl0FE
+	 zdnVd4IT8hNBeZ2yPZYE1X9cQ9sjanQOc2FW/KueQWsTFlGcCxx3qhh775Nrep6lJRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805908;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805912;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3orQFE08kjrTAUJE8mLYeXKLSOzKBUY432bsO80CLow=;
-	b=RKIBNybQTN7VD900DzRk0zyV4aY/hxoh7A/LiG0vRuHQcnueiMCrNDdDvbilG4YCaKkG
-	 GC4G9CT5z2hRMM6pazetwYc7RvhiM2ugH0c2vv35qjZjmQtUC9CKYCgpr1SW02jfG4jIG
-	 IDzMemRrNsZA3qp//t2rcTOaAtfC20HH5rfU8iE9lRD++XiN/Cq/4L8g51WwACEvZTOlT
-	 mOOB6ipzLnuCQu6SZ5R2djmIDsGs9GSq255rXwsJRXAGlmYWTgi61PNHiZ73yG7VSw7Ek
-	 yO8+jYjQB6aPVFLG+HUwqxllMcR9zy8okNIjePKhOoC98T+epogljt4Be0+YDToVe5Q==
+	 Content-Transfer-Encoding:X-Rspamd-Bar:X-Rspamd-Report:X-Rspamd-Score:
+	 DKIM-Signature;
+	bh=XN9AeoCHh5uDtg6xfkBM1ykJ3IHRWDKfUxRaydoLhys=;
+	b=c3sFZ6PswKJAdZWiwsIr76KeP5LVTOCTTLcdK6yFo6k9Ao//5weurXy1FtqcmaKrTkcv
+	 Nse+9ywzMMxmba7wYW0sQTt2Y4FDyfPcFgs3I0Ef+nyrWsFV5cTgxyiyk4SOSapIm4Vp2
+	 Gbvu0b7sPB7ye2k5oJ0zCW71jCfnRHgB6Iou7aEeMqPR2FpjQjxg7++1brJc2qUtr5Foc
+	 C1Ao58LOJNqibmnUlELty7GgKE3kPguwQNP49qFo9HAL1j5pLgjQFiAg4x9Yx3FSXUh3F
+	 OQIf+dymV7V/bB2QqvwiIgB/KaE1YXhjegOyT1QnqZj41sKNWUd/OrkedaG+4xA8cwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=vri6d6zD;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dmarc=pass header.from=david-bauer.net;
+	spf=pass smtp.mailfrom=david-bauer.net;
+	dkim=pass header.d=david-bauer.net header.i=@david-bauer.net header.a=rsa-sha256 header.s=uberspace header.b=MAJUjlcc;
+	arc=none smtp.remote-ip=95.143.172.20
+Received: from mailgate01.uberspace.is (mailgate01.uberspace.is [95.143.172.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 701B3606A6BE;
-	Fri, 27 Nov 2026 18:58:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 701B3606A6BE
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98ADA60A5BE6
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:58:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98ADA60A5BE6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=david-bauer.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=david-bauer.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=vri6d6zD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795805905;
-	bh=3orQFE08kjrTAUJE8mLYeXKLSOzKBUY432bsO80CLow=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vri6d6zDiPU0y0fFDVVYaiFSrZWthF/KlX+ZeuZjh68EFJ0icwjWuAqJtz/7GUrW6
-	 ZnFL6n6vNH6i+ea+FvMPuzrUdKrJ3+WJyDm09Jl5DgWpd9jJPqtJLjQB7j2kAh+tPP
-	 GAb2e8pn2vd/bah3ieNJyBew6IjxR1hbFvdPyZi6TgOyKvfj36uUlaGHsjR/1DYZwP
-	 FDXZLxZdIkqcQvsSm/IlCrWIHIgag+80KRrZPinSTlF3dPsmc+pg6JRxiY4hasvvrn
-	 I65tjVve3BroBH9CdnbzVQI5kkFw5ErU/h8qeSa4K097cq6CZjH0Zy4Ss4N8GkSc6A
-	 DxPXWVsZj9yhw==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbjNx2CpdzXmL;
-	Fri, 27 Nov 2026 13:58:25 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Shuah Khan <shuah@kernel.org>,
+	dkim=pass (4096-bit key) header.d=david-bauer.net header.i=@david-bauer.net header.a=rsa-sha256 header.s=uberspace header.b=MAJUjlcc
+Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id D5A9D61B20
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:58:29 +0100 (CET)
+Received: (qmail 18855 invoked by uid 988); 27 Nov 2026 18:58:29 -0000
+Authentication-Results: perseus.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Fri, 27 Nov 2026 19:58:29 +0100
+From: David Bauer <mail@david-bauer.net>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	David Howells <dhowells@redhat.com>,
-	Jade Alglave <j.alglave@ucl.ac.uk>,
-	Luc Maranget <luc.maranget@inria.fr>,
-	Akira Yokosawa <akiyks@gmail.com>,
-	Daniel Lustig <dlustig@nvidia.com>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	linux-arch@vger.kernel.org,
-	lkmm@lists.linux.dev
-Subject: [PATCH v2 13/16] selftests/membarrier: Add litmus tests of the memory ordering
-Date: Fri, 27 Nov 2026 13:58:18 -0500
-Message-ID: <20261127185822.158216-14-mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
-References: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH mt76 2/2] wifi: mt76: mt7603: add dead broadcast recovery
+Date: Fri, 27 Nov 2026 19:58:15 +0100
+Message-ID: <20261127185819.1340117-2-mail@david-bauer.net>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127185819.1340117-1-mail@david-bauer.net>
+References: <20261127185819.1340117-1-mail@david-bauer.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,726 +70,214 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-3) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=david-bauer.net; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=rEohxessK+hTiJzHLgry3tO0c6xfZFIQL6UX5Z9n1Xo=;
+	b=MAJUjlcchDE4fzL9hktCu8PgtQIERj1/ndImOiDz73TK5clEq6QDTvfSBtCibGBvXMf0sl8o1i
+	8D76xxSucfoWpXkLgewhpXMb7frEQZrbFVgQiAK/S8PeWqLtSwkGYyGzmO8hAXc6mQrwSJpNFewU
+	FdHYzyrzuQbkys0MTPB1QdznW1ASxmr0rwWHKA2RHUFMzqT931iWA1mjvsL3+3EZQEHoaeAXhfYr
+	5o7yWwSDFh3j/rgVcU9Y3qgYCCAG1Fyb8uvkBBVxONPstszwyQLTm1eUBzOKnSu6LDPR59mLz5Sd
+	nCj9u9phWeLjqSCE0dtwoFLoomSmwd4MAXZ8vm9K+eSur7nPsX8f5Pa5RUe9rzQp6IZ7y7sBI8Fc
+	3S/BQcI8r3vzz/Cwr0YT3smUIymTA2xaRVR36FMplVHskQYY+LBnL7ZQ1RZuQgqvejdYBG0AJGan
+	Ky9e+0tO687z/8+H2Sy0cSw3cRje/tXU6gCf1kVCWi5SZULDKFXpZE4n7bb+2u1RW2/+27RBwzRs
+	/Kp0MAcwNWsRm29pjAEg0OmxKmValudF0vIQXnoEri+ImQDqUlVnYB0Ax+4izl34befwY8desjZX
+	4c7rdVn01j2Um4l5UYVEOoLv6Mk7u7n/6NN3UZmupQZGIj4q19gG03esqF4X/mWkWEUuVwk0gCeU
+	4=
 
-membarrier relies on memory barriers in the system call, in its IPI
-handler and in the scheduler. The comment at the top of
-kernel/sched/membarrier.c describes the scenarios. A test on real
-hardware can check that the kernel executes a barrier. It cannot show
-that the barrier is needed: a missing barrier may never fail in
-practice.
+With a Access Point located in a busy pub the associated client count on
+a mt7603 radio often declined to single-digits. In this case, IPv6
+connectivity also broke down.
 
-Check these scenarios with the Linux kernel memory model instead.
-The litmus tests cover:
+Upon further investigation the issue was found in the AP not
+broadcasting any non-unicast traffic anymore. This includes data frames
+as well as beacon frames. The single-digit clients were clients which
+practiced active probing.
 
- - a thread which runs after the IPI, scenario (A),
- - a thread which ran before the IPI, scenario (B),
- - a thread which is scheduled in while membarrier() sees another
-   task in rq->curr, scenarios (A) and (C),
- - a thread which is scheduled out before membarrier() loads
-   rq->curr, scenarios (B) and (C).
+In case the radio enters this faulty state, TX status reports for
+broadcast traffic also stopped entirely. Applying a full reset procedure
+including the PSE returns the radio to full operation again.
 
-herd7 reports "Never" for these 4 tests. 9 variants drop one barrier
-each, and herd7 reports "Sometimes" for them. One of the variants
-replaces the full barrier after the store to rq->curr with
-smp_store_release(). This is the LoongArch and parisc case.
+Use the absence of TX status reports for broadcast frames as a indicator
+for a full reset. Introduce a new reset-cause for this error.
 
-The README describes the model and how to run the tests.
+The trigger after 100 failed TXS reports was determined by running the
+patch on a AP while observing client-count in a busy environment. The
+value of 100 results in permanently working WiFi for clients, resulting
+in 4 reset triggers over a timespan of 4 weeks.
 
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Signed-off-by: David Bauer <mail@david-bauer.net>
 ---
- kernel/sched/membarrier.c                     |  3 ++
- .../selftests/membarrier/litmus/README        | 52 +++++++++++++++++++
- .../litmus/ipi-after-thread-no-exit-mb.litmus | 36 +++++++++++++
- .../ipi-after-thread-no-handler-mb.litmus     | 36 +++++++++++++
- .../membarrier/litmus/ipi-after-thread.litmus | 47 +++++++++++++++++
- .../ipi-before-thread-no-entry-mb.litmus      | 37 +++++++++++++
- .../ipi-before-thread-no-handler-mb.litmus    | 37 +++++++++++++
- .../litmus/ipi-before-thread.litmus           | 46 ++++++++++++++++
- .../litmus/sched-in-no-entry-mb.litmus        | 34 ++++++++++++
- .../membarrier/litmus/sched-in-no-mb.litmus   | 33 ++++++++++++
- .../membarrier/litmus/sched-in-release.litmus | 38 ++++++++++++++
- .../membarrier/litmus/sched-in.litmus         | 51 ++++++++++++++++++
- .../litmus/sched-out-no-exit-mb.litmus        | 34 ++++++++++++
- .../litmus/sched-out-no-sched-mb.litmus       | 34 ++++++++++++
- .../membarrier/litmus/sched-out.litmus        | 49 +++++++++++++++++
- 15 files changed, 567 insertions(+)
- create mode 100644 tools/testing/selftests/membarrier/litmus/README
- create mode 100644 tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-exit-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-handler-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/ipi-after-thread.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-entry-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-handler-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/ipi-before-thread.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-in-no-entry-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-in-no-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-in-release.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-in.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-out-no-exit-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-out-no-sched-mb.litmus
- create mode 100644 tools/testing/selftests/membarrier/litmus/sched-out.litmus
+ .../net/wireless/mediatek/mt76/mt7603/beacon.c    | 11 +++++++++--
+ .../net/wireless/mediatek/mt76/mt7603/debugfs.c   |  3 ++-
+ drivers/net/wireless/mediatek/mt76/mt7603/mac.c   | 15 ++++++++++++++-
+ .../net/wireless/mediatek/mt76/mt7603/mt7603.h    |  9 +++++++--
+ 4 files changed, 32 insertions(+), 6 deletions(-)
 
-diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
-index 46e823a3d668..5dd88ac0957b 100644
---- a/kernel/sched/membarrier.c
-+++ b/kernel/sched/membarrier.c
-@@ -133,6 +133,9 @@
-  * Using the scenario from (A), we can show that (a) needs to be paired
-  * with (g). Using the scenario from (B), we can show that (c) needs to
-  * be paired with (d).
-+ *
-+ * The litmus tests in tools/testing/selftests/membarrier/litmus check
-+ * these scenarios with the Linux kernel memory model.
-  */
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c b/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
+index acca98139f92e..184d3b732e381 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/beacon.c
+@@ -71,6 +71,8 @@ mt7603_update_beacon_iter(void *priv, u8 *mac, struct ieee80211_vif *vif)
+ 	mt76_tx_queue_skb(dev, dev->mphy.q_tx[MT_TXQ_BEACON],
+ 			  MT_TXQ_BEACON, skb, &mvif->sta.wcid, NULL);
  
- /*
-diff --git a/tools/testing/selftests/membarrier/litmus/README b/tools/testing/selftests/membarrier/litmus/README
-new file mode 100644
-index 000000000000..c9ae572a9d43
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/README
-@@ -0,0 +1,52 @@
-+Litmus tests of the membarrier system call. They check the memory
-+ordering scenarios of kernel/sched/membarrier.c with the Linux kernel
-+memory model. Each test with the result "Never" models a case of
-+these scenarios. A test with the result "Sometimes" drops one
-+barrier, to show that the scenario needs it.
-+
-+In each test, P0 is the caller of membarrier(). P1 is a CPU which runs
-+a thread of the target process.
-+
-+The user-space accesses of the thread are WRITE_ONCE() and READ_ONCE()
-+in program order, without a memory barrier between them. This is what
-+barrier() gives in user-space code.
-+
-+The model has no interrupt. The IPI is modeled as a request and an
-+acknowledgment: the caller stores "req", the handler loads it, issues
-+its memory barrier and stores "ack", and the caller loads "ack". The
-+"exists" clause of each test keeps the executions where this exchange
-+took place.
-+
-+Run them from tools/memory-model, with herd7 installed:
-+
-+  cd tools/memory-model
-+  for f in ../testing/selftests/membarrier/litmus/*.litmus; do
-+	herd7 -conf linux-kernel.cfg $f | grep Observation
-+  done
-+
-+Each observation must match the "Result" in the comment of its test.
-+
-+The thread is interrupted by the IPI:
-+
-+  ipi-before-thread.litmus, ipi-before-thread-no-entry-mb.litmus,
-+  ipi-before-thread-no-handler-mb.litmus
-+    Scenario (A). The thread runs after the IPI. It sees the stores
-+    which the caller did before membarrier().
-+
-+  ipi-after-thread.litmus, ipi-after-thread-no-exit-mb.litmus,
-+  ipi-after-thread-no-handler-mb.litmus
-+    Scenario (B). The thread ran before the IPI. The caller sees its
-+    stores after membarrier().
-+
-+The caller sees another task in rq->curr and sends no IPI:
-+
-+  sched-in.litmus, sched-in-no-entry-mb.litmus, sched-in-no-mb.litmus,
-+  sched-in-release.litmus
-+    Scenarios (A) and (C). The thread is scheduled in. The scheduler
-+    issues a full barrier after the store to rq->curr. An
-+    smp_store_release() which is not a full barrier is not enough.
-+
-+  sched-out.litmus, sched-out-no-exit-mb.litmus,
-+  sched-out-no-sched-mb.litmus
-+    Scenarios (B) and (C). The thread is scheduled out. The scheduler
-+    issues a full barrier before the store to rq->curr.
-diff --git a/tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-exit-mb.litmus b/tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-exit-mb.litmus
-new file mode 100644
-index 000000000000..fb67beaba996
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-exit-mb.litmus
-@@ -0,0 +1,36 @@
-+C ipi-after-thread-no-exit-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * ipi-after-thread without the barrier (c) at the end of membarrier().
-+ * The load of x by P0 can then be done before the IPI completes.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *req, int *ack)
-+{
-+	int r_ack;
-+	int r1;
-+	int r2;
-+
-+	r2 = READ_ONCE(*y);
-+	smp_mb();
-+	WRITE_ONCE(*req, 1);
-+	r_ack = READ_ONCE(*ack);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+P1(int *x, int *y, int *req, int *ack)
-+{
-+	int r_req;
-+
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*y, 1);
-+	r_req = READ_ONCE(*req);
-+	smp_mb();
-+	WRITE_ONCE(*ack, 1);
-+}
-+
-+exists (0:r2=1 /\ 1:r_req=1 /\ 0:r_ack=1 /\ 0:r1=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-handler-mb.litmus b/tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-handler-mb.litmus
-new file mode 100644
-index 000000000000..687e883850a9
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/ipi-after-thread-no-handler-mb.litmus
-@@ -0,0 +1,36 @@
-+C ipi-after-thread-no-handler-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * ipi-after-thread without the barrier in the IPI handler. The store to
-+ * x by P1 can then be delayed past the acknowledgment.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *req, int *ack)
-+{
-+	int r_ack;
-+	int r1;
-+	int r2;
-+
-+	r2 = READ_ONCE(*y);
-+	smp_mb();
-+	WRITE_ONCE(*req, 1);
-+	r_ack = READ_ONCE(*ack);
-+	smp_mb();
-+	r1 = READ_ONCE(*x);
-+}
-+
-+P1(int *x, int *y, int *req, int *ack)
-+{
-+	int r_req;
-+
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*y, 1);
-+	r_req = READ_ONCE(*req);
-+	WRITE_ONCE(*ack, 1);
-+}
-+
-+exists (0:r2=1 /\ 1:r_req=1 /\ 0:r_ack=1 /\ 0:r1=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/ipi-after-thread.litmus b/tools/testing/selftests/membarrier/litmus/ipi-after-thread.litmus
-new file mode 100644
-index 000000000000..1145faf62b6d
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/ipi-after-thread.litmus
-@@ -0,0 +1,47 @@
-+C ipi-after-thread
-+
-+(*
-+ * Result: Never
-+ *
-+ * Scenario (B) of kernel/sched/membarrier.c.
-+ *
-+ * P1 is a user-space thread which runs "x = 1; y = 1" in program order,
-+ * without a memory barrier. The IPI of membarrier() interrupts it after
-+ * that. P0 reads y before membarrier() and x after it.
-+ *
-+ * req and ack model the IPI, see README.
-+ *
-+ * The barrier in the IPI handler orders both stores before the
-+ * acknowledgment. The barrier (c) at the end of membarrier() orders the
-+ * acknowledgment before "r1 = x". P0 thus sees x == 1. This holds
-+ * whatever P0 read from y: y is kept to match the scenario.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *req, int *ack)
-+{
-+	int r_ack;
-+	int r1;
-+	int r2;
-+
-+	r2 = READ_ONCE(*y);
-+	smp_mb();
-+	WRITE_ONCE(*req, 1);
-+	r_ack = READ_ONCE(*ack);
-+	smp_mb();
-+	r1 = READ_ONCE(*x);
-+}
-+
-+P1(int *x, int *y, int *req, int *ack)
-+{
-+	int r_req;
-+
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*y, 1);
-+	r_req = READ_ONCE(*req);
-+	smp_mb();
-+	WRITE_ONCE(*ack, 1);
-+}
-+
-+exists (0:r2=1 /\ 1:r_req=1 /\ 0:r_ack=1 /\ 0:r1=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-entry-mb.litmus b/tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-entry-mb.litmus
-new file mode 100644
-index 000000000000..9685e34e224a
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-entry-mb.litmus
-@@ -0,0 +1,37 @@
-+C ipi-before-thread-no-entry-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * ipi-before-thread without the barrier (a) at the start of
-+ * membarrier(). The store to x can be delayed past the IPI. P1 and P0
-+ * then both read 0.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *req, int *ack)
-+{
-+	int r_ack;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*req, 1);
-+	r_ack = READ_ONCE(*ack);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *req, int *ack)
-+{
-+	int r_req;
-+	int r1;
-+
-+	r_req = READ_ONCE(*req);
-+	smp_mb();
-+	WRITE_ONCE(*ack, 1);
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (1:r_req=1 /\ 0:r_ack=1 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-handler-mb.litmus b/tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-handler-mb.litmus
-new file mode 100644
-index 000000000000..1559bce76ea5
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/ipi-before-thread-no-handler-mb.litmus
-@@ -0,0 +1,37 @@
-+C ipi-before-thread-no-handler-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * ipi-before-thread without the barrier in the IPI handler. The load of
-+ * x by P1 can then be done before the handler loads req. This is why
-+ * ipi_mb() issues smp_mb() rather than rely on the interrupt alone.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *req, int *ack)
-+{
-+	int r_ack;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	smp_mb();
-+	WRITE_ONCE(*req, 1);
-+	r_ack = READ_ONCE(*ack);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *req, int *ack)
-+{
-+	int r_req;
-+	int r1;
-+
-+	r_req = READ_ONCE(*req);
-+	WRITE_ONCE(*ack, 1);
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (1:r_req=1 /\ 0:r_ack=1 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/ipi-before-thread.litmus b/tools/testing/selftests/membarrier/litmus/ipi-before-thread.litmus
-new file mode 100644
-index 000000000000..e21e79e2d2ad
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/ipi-before-thread.litmus
-@@ -0,0 +1,46 @@
-+C ipi-before-thread
-+
-+(*
-+ * Result: Never
-+ *
-+ * Scenario (A) of kernel/sched/membarrier.c.
-+ *
-+ * P0 calls membarrier(). P1 is a user-space thread which the IPI
-+ * interrupts before it runs "y = 1; r1 = x". Its two accesses are in
-+ * program order, without a memory barrier.
-+ *
-+ * req and ack model the IPI, see README.
-+ *
-+ * The barrier (a) at the start of membarrier() orders "x = 1" before
-+ * the IPI. P1 thus sees x == 1 after the IPI. This holds whatever P0
-+ * reads from y: y is kept to match the scenario.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *req, int *ack)
-+{
-+	int r_ack;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	smp_mb();
-+	WRITE_ONCE(*req, 1);
-+	r_ack = READ_ONCE(*ack);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *req, int *ack)
-+{
-+	int r_req;
-+	int r1;
-+
-+	r_req = READ_ONCE(*req);
-+	smp_mb();
-+	WRITE_ONCE(*ack, 1);
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (1:r_req=1 /\ 0:r_ack=1 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-in-no-entry-mb.litmus b/tools/testing/selftests/membarrier/litmus/sched-in-no-entry-mb.litmus
-new file mode 100644
-index 000000000000..a40837fad005
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-in-no-entry-mb.litmus
-@@ -0,0 +1,34 @@
-+C sched-in-no-entry-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * sched-in without the barrier (a) at the start of membarrier(). The
-+ * store to x can be delayed past the load of rq->curr. P0 sees no
-+ * thread and sends no IPI. The thread reads x == 0.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	r_curr = READ_ONCE(*curr);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *curr)
-+{
-+	int r1;
-+
-+	WRITE_ONCE(*curr, 1);
-+	smp_mb();
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (0:r_curr=0 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-in-no-mb.litmus b/tools/testing/selftests/membarrier/litmus/sched-in-no-mb.litmus
-new file mode 100644
-index 000000000000..6840cb26e13d
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-in-no-mb.litmus
-@@ -0,0 +1,33 @@
-+C sched-in-no-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * sched-in without the full barrier after the store to rq->curr. P0
-+ * sees no thread and sends no IPI. The thread reads x == 0.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	smp_mb();
-+	r_curr = READ_ONCE(*curr);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *curr)
-+{
-+	int r1;
-+
-+	WRITE_ONCE(*curr, 1);
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (0:r_curr=0 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-in-release.litmus b/tools/testing/selftests/membarrier/litmus/sched-in-release.litmus
-new file mode 100644
-index 000000000000..d2df75b388fe
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-in-release.litmus
-@@ -0,0 +1,38 @@
-+C sched-in-release
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * sched-in with smp_store_release() in place of the full barrier after
-+ * the store to rq->curr. This is finish_task() on an architecture where
-+ * smp_store_release() is weaker than a full barrier. It does not order
-+ * the store to rq->curr before the loads of the thread.
-+ *)
-+
-+{
-+	int on_cpu = 1;
-+}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	smp_mb();
-+	r_curr = READ_ONCE(*curr);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *curr, int *on_cpu)
-+{
-+	int r1;
-+
-+	WRITE_ONCE(*curr, 1);
-+	smp_store_release(on_cpu, 0);
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (0:r_curr=0 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-in.litmus b/tools/testing/selftests/membarrier/litmus/sched-in.litmus
-new file mode 100644
-index 000000000000..c89e2c6c4554
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-in.litmus
-@@ -0,0 +1,51 @@
-+C sched-in
-+
-+(*
-+ * Result: Never
-+ *
-+ * Scenarios (A) and (C) of kernel/sched/membarrier.c: a thread of the
-+ * target process is scheduled in while P0 calls membarrier().
-+ *
-+ * curr stands for rq->curr of the CPU of P1: 0 for another task, 1 for
-+ * the thread. P0 loads it between its two barriers. It sends no IPI
-+ * when it reads 0, which is the case the "exists" clause keeps.
-+ *
-+ * P1 is the scheduler, then the thread in user-space. The scheduler
-+ * stores to rq->curr, then issues a full barrier before the return to
-+ * user-space. Each architecture provides this barrier its own way, see
-+ * Documentation/scheduler/membarrier.rst.
-+ *
-+ * Either P0 sees the thread and sends the IPI, or the thread sees
-+ * x == 1. This holds whatever P0 reads from y: y is kept to match the
-+ * scenario.
-+ *
-+ * The same argument holds with tsk->mm in place of rq->curr. It covers
-+ * kthread_use_mm(), scenario (E), and the icache_stale_mask of the
-+ * RISC-V sync core command.
-+ *)
-+
-+{}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r2;
-+
-+	WRITE_ONCE(*x, 1);
-+	smp_mb();
-+	r_curr = READ_ONCE(*curr);
-+	smp_mb();
-+	r2 = READ_ONCE(*y);
-+}
-+
-+P1(int *x, int *y, int *curr)
-+{
-+	int r1;
-+
-+	WRITE_ONCE(*curr, 1);
-+	smp_mb();
-+	WRITE_ONCE(*y, 1);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+exists (0:r_curr=0 /\ 1:r1=0 /\ 0:r2=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-out-no-exit-mb.litmus b/tools/testing/selftests/membarrier/litmus/sched-out-no-exit-mb.litmus
-new file mode 100644
-index 000000000000..e4bb1ee7a935
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-out-no-exit-mb.litmus
-@@ -0,0 +1,34 @@
-+C sched-out-no-exit-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * sched-out without the barrier (c) at the end of membarrier(). The
-+ * load of x by P0 can then be done before it loads rq->curr.
-+ *)
-+
-+{
-+	int curr = 1;
-+}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r1;
-+	int r2;
-+
-+	r2 = READ_ONCE(*y);
-+	smp_mb();
-+	r_curr = READ_ONCE(*curr);
-+	r1 = READ_ONCE(*x);
-+}
-+
-+P1(int *x, int *y, int *curr)
-+{
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*y, 1);
-+	smp_mb();
-+	WRITE_ONCE(*curr, 0);
-+}
-+
-+exists (0:r2=1 /\ 0:r_curr=0 /\ 0:r1=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-out-no-sched-mb.litmus b/tools/testing/selftests/membarrier/litmus/sched-out-no-sched-mb.litmus
-new file mode 100644
-index 000000000000..7b690db2b4be
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-out-no-sched-mb.litmus
-@@ -0,0 +1,34 @@
-+C sched-out-no-sched-mb
-+
-+(*
-+ * Result: Sometimes
-+ *
-+ * sched-out without the full barrier before the store to rq->curr. The
-+ * store to x by the thread can then be delayed past it.
-+ *)
-+
-+{
-+	int curr = 1;
-+}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r1;
-+	int r2;
-+
-+	r2 = READ_ONCE(*y);
-+	smp_mb();
-+	r_curr = READ_ONCE(*curr);
-+	smp_mb();
-+	r1 = READ_ONCE(*x);
-+}
-+
-+P1(int *x, int *y, int *curr)
-+{
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*y, 1);
-+	WRITE_ONCE(*curr, 0);
-+}
-+
-+exists (0:r2=1 /\ 0:r_curr=0 /\ 0:r1=0)
-diff --git a/tools/testing/selftests/membarrier/litmus/sched-out.litmus b/tools/testing/selftests/membarrier/litmus/sched-out.litmus
-new file mode 100644
-index 000000000000..8fb1532bd13c
---- /dev/null
-+++ b/tools/testing/selftests/membarrier/litmus/sched-out.litmus
-@@ -0,0 +1,49 @@
-+C sched-out
-+
-+(*
-+ * Result: Never
-+ *
-+ * Scenarios (B) and (C) of kernel/sched/membarrier.c: a thread of the
-+ * target process is scheduled out while P0 calls membarrier().
-+ *
-+ * curr stands for rq->curr of the CPU of P1: 1 for the thread, 0 for
-+ * another task. P0 sends no IPI when it reads 0, which is the case the
-+ * "exists" clause keeps.
-+ *
-+ * P1 is the thread in user-space, which runs "x = 1; y = 1" in program
-+ * order. Then the scheduler issues a full barrier before it stores to
-+ * rq->curr: smp_mb__after_spinlock() in __schedule().
-+ *
-+ * When P0 saw y == 1 and sees that the thread is gone, it sees x == 1.
-+ * This holds whatever P0 read from y: y is kept to match the scenario.
-+ *
-+ * The same argument holds with tsk->mm in place of rq->curr. It covers
-+ * exit_mm(), scenario (D), and kthread_unuse_mm(), scenario (E).
-+ *)
-+
-+{
-+	int curr = 1;
-+}
-+
-+P0(int *x, int *y, int *curr)
-+{
-+	int r_curr;
-+	int r1;
-+	int r2;
-+
-+	r2 = READ_ONCE(*y);
-+	smp_mb();
-+	r_curr = READ_ONCE(*curr);
-+	smp_mb();
-+	r1 = READ_ONCE(*x);
-+}
-+
-+P1(int *x, int *y, int *curr)
-+{
-+	WRITE_ONCE(*x, 1);
-+	WRITE_ONCE(*y, 1);
-+	smp_mb();
-+	WRITE_ONCE(*curr, 0);
-+}
-+
-+exists (0:r2=1 /\ 0:r_curr=0 /\ 0:r1=0)
++	dev->bcast_queued = true;
++
+ out:
+ 	spin_unlock_bh(&dev->ps_lock);
+ }
+@@ -127,6 +129,7 @@ void mt7603_pre_tbtt_tasklet(struct tasklet_struct *t)
+ 		dev->beacon_check = 0;
+ 	mt7603_mac_stuck_beacon_recovery(dev);
+ 
++	dev->bcast_queued = false;
+ 	q = dev->mphy.q_tx[MT_TXQ_BEACON];
+ 	spin_lock(&q->lock);
+ 	ieee80211_iterate_active_interfaces_atomic(mt76_hw(dev),
+@@ -137,7 +140,7 @@ void mt7603_pre_tbtt_tasklet(struct tasklet_struct *t)
+ 
+ 	mt76_csa_check(mdev);
+ 	if (mdev->csa_complete)
+-		return;
++		goto out;
+ 
+ 	q = dev->mphy.q_tx[MT_TXQ_CAB];
+ 	do {
+@@ -149,7 +152,7 @@ void mt7603_pre_tbtt_tasklet(struct tasklet_struct *t)
+ 		 skb_queue_len(&data.q) < 8);
+ 
+ 	if (skb_queue_empty(&data.q))
+-		return;
++		goto out;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(data.tail); i++) {
+ 		if (!data.tail[i])
+@@ -165,6 +168,7 @@ void mt7603_pre_tbtt_tasklet(struct tasklet_struct *t)
+ 		struct mt7603_vif *mvif = (struct mt7603_vif *)vif->drv_priv;
+ 
+ 		mt76_tx_queue_skb(dev, q, MT_TXQ_CAB, skb, &mvif->sta.wcid, NULL);
++		dev->bcast_queued = true;
+ 	}
+ 	mt76_queue_kick(dev, q);
+ 	spin_unlock(&q->lock);
+@@ -177,6 +181,9 @@ void mt7603_pre_tbtt_tasklet(struct tasklet_struct *t)
+ 		MT_WF_ARB_CAB_START_BSSn(0) |
+ 		(MT_WF_ARB_CAB_START_BSS0n(1) *
+ 		 ((1 << (MT7603_MAX_INTERFACES - 1)) - 1)));
++out:
++	if (dev->bcast_queued)
++		dev->bcast_check++;
+ }
+ 
+ void mt7603_beacon_set_timer(struct mt7603_dev *dev, int idx, int intval)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/debugfs.c b/drivers/net/wireless/mediatek/mt76/mt7603/debugfs.c
+index c891ad5498e61..7baabd09d57c4 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/debugfs.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/debugfs.c
+@@ -14,6 +14,7 @@ mt7603_reset_read(struct seq_file *s, void *data)
+ 		[RESET_CAUSE_BEACON_STUCK] = "Beacon stuck",
+ 		[RESET_CAUSE_MCU_HANG] = "MCU hang",
+ 		[RESET_CAUSE_RESET_FAILED] = "PSE reset failed",
++		[RESET_CAUSE_BCAST_TXS_TIMEOUT] = "Broadcast TXS timeout",
+ 	};
+ 	int i;
+ 
+@@ -21,7 +22,7 @@ mt7603_reset_read(struct seq_file *s, void *data)
+ 		if (!reset_cause_str[i])
+ 			continue;
+ 
+-		seq_printf(s, "%20s: %u\n", reset_cause_str[i],
++		seq_printf(s, "%23s: %u\n", reset_cause_str[i],
+ 			   dev->reset_cause[i]);
+ 	}
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+index 634bb67b57d52..76ee5dc332709 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+@@ -1279,8 +1279,13 @@ void mt7603_mac_add_txs(struct mt7603_dev *dev, void *data)
+ 	pid = le32_get_bits(txs_data[4], MT_TXS4_PID);
+ 	wcidx = le32_get_bits(txs_data[3], MT_TXS3_WCID);
+ 
+-	if (pid == MT_PACKET_ID_NO_ACK)
++	if (pid == MT_PACKET_ID_NO_ACK) {
++		if (wcidx >= MT7603_WTBL_STA) {
++			/* Reset broadcast check */
++			dev->bcast_check = 0;
++		}
+ 		return;
++	}
+ 
+ 	rcu_read_lock();
+ 
+@@ -1340,6 +1345,9 @@ static void mt7603_pse_reset(struct mt7603_dev *dev)
+ 	/* Reset PSE */
+ 	mt76_set(dev, MT_MCU_DEBUG_RESET, MT_MCU_DEBUG_RESET_PSE);
+ 
++	/* Reset broadcast TXS loss trigger */
++	dev->bcast_check = 0;
++
+ 	if (!mt76_poll_msec(dev, MT_MCU_DEBUG_RESET,
+ 			    MT_MCU_DEBUG_RESET_PSE_S,
+ 			    MT_MCU_DEBUG_RESET_PSE_S, 500)) {
+@@ -1475,6 +1483,7 @@ static void mt7603_mac_watchdog_reset(struct mt7603_dev *dev)
+ 	}
+ 
+ 	if (dev->failed_pse_reset_attempts ||
++	    dev->cur_reset_cause == RESET_CAUSE_BCAST_TXS_TIMEOUT ||
+ 	    dev->cur_reset_cause == RESET_CAUSE_RX_PSE_BUSY)
+ 		mt7603_pse_reset(dev);
+ 
+@@ -1900,6 +1909,10 @@ void mt7603_mac_work(struct work_struct *work)
+ 				  RESET_CAUSE_RX_PSE_BUSY,
+ 				  MT7603_WATCHDOG_TIMEOUT,
+ 				  mt7603_rx_pse_busy) ||
++	    mt7603_watchdog_check(dev, &dev->bcast_check,
++				  RESET_CAUSE_BCAST_TXS_TIMEOUT,
++				  MT7603_WATCHDOG_BCAST_TIMEOUT,
++				  NULL) ||
+ 	    mt7603_watchdog_check(dev, &dev->beacon_check,
+ 				  RESET_CAUSE_BEACON_STUCK,
+ 				  MT7603_WATCHDOG_TIMEOUT,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
+index 6c89e087d57d4..e40b887914ff4 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
+@@ -31,8 +31,9 @@
+ 
+ #define MT7603_PRE_TBTT_TIME	5000 /* ms */
+ 
+-#define MT7603_WATCHDOG_TIME	100 /* ms */
+-#define MT7603_WATCHDOG_TIMEOUT	10 /* number of checks */
++#define MT7603_WATCHDOG_TIME		100 /* ms */
++#define MT7603_WATCHDOG_TIMEOUT		10 /* number of checks */
++#define MT7603_WATCHDOG_BCAST_TIMEOUT	100 /* number of checks */
+ 
+ #define MT7603_EDCCA_BLOCK_TH	10
+ 
+@@ -98,6 +99,7 @@ enum mt7603_reset_cause {
+ 	RESET_CAUSE_RX_PSE_BUSY,
+ 	RESET_CAUSE_MCU_HANG,
+ 	RESET_CAUSE_RESET_FAILED,
++	RESET_CAUSE_BCAST_TXS_TIMEOUT,
+ 	__RESET_CAUSE_MAX
+ };
+ 
+@@ -142,7 +144,10 @@ struct mt7603_dev {
+ 	s8 sensitivity;
+ 	u8 sensitivity_limit;
+ 
++	bool bcast_queued;
++
+ 	u8 beacon_check;
++	u8 bcast_check;
+ 	u8 tx_hang_check;
+ 	u8 tx_dma_check;
+ 	u8 rx_dma_check;
 -- 
-2.47.3
+2.53.0
 
