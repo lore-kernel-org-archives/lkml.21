@@ -1,49 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795808784;
-	b=pYb79LNl2fsjUBktO4jVzdXaagwyhbwE8K7jpOmpsLYkLTIbgT4gP084VgOyjX+ElTfn
-	 IshPagwUPIzfOTts4F4SDtgYutA+9nWrF3o2UEaPexRgYl5k86TSOWQjYAUsJBFmJSNuG
-	 QbJhDv5tI1Uhxfgk8UkFHQdMmV56Fv2t9fVt2U2GuhuDTa8TsNEs+RCSo4kfwhsiiINMg
-	 8O9y80GJ/2CxX6Ez4T9bYG352/beczhYX+43d0zlw7MNV4D6NQxE4g3Xs1b0K7cMlAa8W
-	 eHgezMS15lBKqDoH3945uCqNCRi0ES/LtVIlOUx18UnpKMQySNNJ5V2CQT46+w0PLAQ==
+	t=1795808954;
+	b=4xaPKCn+wdh7hKQAH1W8l0lsqy1JHIswE7NtlSjoiAV9/JK+kjq4zpbzZhjS8hJCDemh
+	 RzFZw+OLe1+BkpgRNNCjMbOLcxwkMtjTiLigoa5YLEH5ta741QywIVmTwIaSmoHHg3uV2
+	 s9Sek5nPbc7RnsVilwQnhFOyR9krfHWkW+9eD5t0ys9x/ScjWLrr1IZJGHhGxq5FV5Lsg
+	 3KKtNVFPAwHeqv6XlNF1AdaCsg8sx419JFBEr5+TBujInz9UU5YT7CgVvWIjnRzi5GZd/
+	 wAkgh7NNk7JmnNCHUgGj8kJzNipmU9Qfh8aovbnhEXaVgmX2SCwXKJBgF0f9UxHCEmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795808784;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=k3mLM1wyRXEsg+PNLXtW45Wd/AVD4xoxhnOqafugdiQ=;
-	b=VrMDKldtkQCr1j2FyEPAiLcBqGUEOjD3VZDTw95Sfanljadvg3yUNTM8QYM4cSdx7/5h
-	 KWPQIQG/UkqjIBA1FobtQx7rM7ildk626dvqTP5tUXzTpI8+g/kytEI9Z5szM7/n3KUUO
-	 JlzhY17tOOn9iGUKTkoPkBxewSRsLAHBevXyITFvVoKoTw90TyHyI1ysgXcm5XJqyiZ2z
-	 0lZ0ehgzxGdpwIXV6OZ+Xhjppwxxg5VKp7N4TGylJQKRFFCJv0ENirxTtHbT9v2orjPa5
-	 T1+k7NcNvvW0VsAsqX7wpk+DfjMHW8kyWD5DTFFl5duvuYHGVNBhviPl9irHksiTNmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795808954;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=g2dcKjVxVXVvc7zH7i/+/9NYX/sWj0TUS/ckSZHauwE=;
+	b=dWO+UHDE3JRYpgXvHpWoCiXELs8pq84mRnfgxhARMlvXiAzxtavcPKKI5bRwwd814NGW
+	 t50kvOk4MpgyYTgSCdA5UsggMUbhAB7YorFJkpvqu2QAcNc84Tz29QvJh9lQyw19JCUgE
+	 P5wedyzg8Y+CXYqHGcuAosq2qJt+BLxSRIaTcRq8/Ny1Z1roYCGnkGXA0wlE3fkt94b8o
+	 0U6rjifRFEgrFjbDbQPcxZIcGoy5Kv7GH86VVd1PQt72o5eWOGuRzIl9V/V3CRvMIdOUt
+	 IRmdoXtjCFheH0XttZ+WVp79WiFee1ckl8Fh+R8UN+LykKM9HzircWv3zWJVVyUvzlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ayy9Q0Mu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MAWyzwCU;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BAQgHN4J;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6A8E606A31C;
-	Fri, 27 Nov 2026 19:46:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC30C606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:49:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC30C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ayy9Q0Mu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C03D1F00924;
-	Fri, 27 Nov 2026 19:46:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795808784;
-	bh=k3mLM1wyRXEsg+PNLXtW45Wd/AVD4xoxhnOqafugdiQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ayy9Q0MuJnX7YhI1XdSAFEYJ6S2e28R4qby8PzluI4BQ0YFOhYr0KTv7fbVo97Im/
-	 mSRkHq3NiQJIY1xJ1pJPkRdUNk8scBCJe8/NqAjuttTECCKLhmFBDkv+1h3Y6Sax2X
-	 sTdQp8UYr5Or8RVpRWODiqTpxeNi9Lp+znszkSItlz4OCutmyhO3ZRcpaaY+cPtcmc
-	 PAx2Ab/mrzHAanNJHrfhBsUQ4AK8OceqKgDMfzfsBeT6nSHZCpuqxMTeofF19u08av
-	 JkZ5N/kNKCccI0t6D4kzSwSCbwBMJ4BQ/12C49t1v67J6o4wso0UzU3uTTKHiLridj
-	 GbMl9w5ZdETFQ==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Fri, 27 Nov 2026 19:45:43 +0000
-Subject: [PATCH 4/4] fs/proc/task_mmu: write-protect only with ptrace
- attach
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MAWyzwCU;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BAQgHN4J
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARJAug33038741
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:49:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=g2dcKjVxVXVvc7zH7i/+/9NY
+	X/sWj0TUS/ckSZHauwE=; b=MAWyzwCUrewdsxoJ8TW0zpWcLY4BGYn1dTb+283W
+	SqCnSGYntirSpA/70oUIrY+JM+1WM43ZNXDi1JHKL6sZ/I62nciP1RxlYBMByEIh
+	KZnoo76VP85xtAINSTc+1p5uuUWgsKudn0+5yiie1TUPlFir6G8fpAI+Sd8sF6tt
+	ixaEPrT6/F1/WRtppeEV5hz6b/6Zyjqg6S9+FBLzfpSxW8nSyVwbca0r+AMccp6e
+	0Mgn82x9Axq3g4Rk4hVo8hVQ6n85lqOjwEfm/7Q0lJlyGYbv4Fs7XMNHlABOvEEc
+	nVZU0ROYWO9yXfY9AJhGlUteuenORnPIPZhDkx6vT45AhQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j7e4ngc3q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:49:12 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-9308eafb465so1608185085a.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:49:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795808952; x=1796413752; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g2dcKjVxVXVvc7zH7i/+/9NYX/sWj0TUS/ckSZHauwE=;
+        b=BAQgHN4JuDovfM23nPb1jI/XwtqPzUm9RqO6XCsGHhzqu1ZWeaPMNMI+U06qUUgzAO
+         7T2fnmvqcOe1hcdoHBtVnoICjPYHi/kdNGEQ1zY8menHye4++Zmdvh+l5Im8M5n+/3YQ
+         C0Dn58b0J6iOJe8nL13Nrs4zo9Uly5EqnZtIel7HYXeskKstriduA8HUwQUFLMUPAY0C
+         KRWipdDzm5hj/+UFLYqe6iJJDUFPVSBBxIxJr8l/kLiOXQU4VlfHFV26sfY0/BjWcKas
+         SJegrq0bvKvXFvf1IWeaTXwf59AO9cApN3JylY+BMHDXqAjbUeWJdadGioz3m6StzECQ
+         qolg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795808952; x=1796413752;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g2dcKjVxVXVvc7zH7i/+/9NYX/sWj0TUS/ckSZHauwE=;
+        b=iHDO8STqYTLEnzeO9IxAej6uA5u8bNwbLvnUv5UJmNrbDJz8GXfl5cNZaCK/A3lrIo
+         8MSKQ+svQI1jTClg1LHsicxZ1ZXkmg/LgxPdY9K20//6IL8Zp3ISTPghRPnZIfibZcCd
+         6nQq7b6QZziQzGMGpriW1l2uzZyAqjlwiAFTi2RPEHDrI4zibJVLBaDJXdY2x5S/x/MI
+         G8LQO+SodnSOgdyJo16gaw/wlMUT6vFu2pND96wNgrwU5FeKTE4W3wJjcQ00JA0+4376
+         HymNKdaNxyAQt54diNpcyuLGMfjO1tfeDcdJsT0p9p8irZ6wzIuIl3xVQHJv/As9Ve2i
+         ECIQ==
+X-Forwarded-Encrypted: i=1; AL+hErE6RzJG4xL93U9brYJ2crKWno9cp7K2XpGrTE8ZcSb2UYrBWNHaZbV/gPqjNdtQUw41eUv7aDeiRkwnc1g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9IStkh0ALCJcUXy9pMf4cVIDcAPu3oP+BjUz4f0BkiFWGnCjtE
+	Ik+svKD2OJZlLZxBkbG9yMu1FmVFs33VgWOyvIEwOznHSobYveifsnj0dzcp99wptK6F2gKmkSE
+	fK3Vd8YyTVLhqlsrClSk4bzHjBjRgs+74gqQYlzOPFMGmxpdv3a06YQeK0gaTIQQXt74=
+X-Gm-Gg: AZFdTZchrBLWDn42o7fTmgayw0T84aU6LzIlSHarmAjnA9WlZPa36y/DeUKXv9UbpqF
+	XPrtoiaT8bCi6gl3XsortMRdXOq41NEnoBKTgimXaDzn078g/idiJTzoAe0KycW9RYAgB+jQ6gr
+	BBHLftFhcKWs1siN3Bvat1vOX1P813fQG/CLm68TUWBo+5ttiE3+hMWZsktDWEgB9JO1wuZt+B3
+	CZGekO6zEDjfl3NTgMclH+ggAWQCOk/ulbuNFZnjThFM7IIYK/kVZWw5wMEk4fvfzQ2CBOi3ASo
+	8NER/jTdsBRpNXk/KbC4XWh5VYg7RgFEi5DjPpBuGxyP2ci0ha8VcPwueKu+m9w/37KNUJ/2x0F
+	IF3o27DpFRV1arRd6EoCby/w17SMtvu1APOsSyE8rNc2OnM//JYNhJys3G/PgQbP4GUjYAuUMo7
+	g4YYONmXGs42zm3HsCKGo03VsBy3C8CpvUe6vsdVbzm6a2SB22G2EIb468Z9P7bg==
+X-Received: by 2002:a05:620a:6293:b0:937:6c0a:9b65 with SMTP id af79cd13be357-949ba848403mr4309583285a.7.1795808951736;
+        Fri, 27 Nov 2026 11:49:11 -0800 (PST)
+X-Received: by 2002:a05:620a:6293:b0:937:6c0a:9b65 with SMTP id af79cd13be357-949ba848403mr4309577185a.7.1795808951105;
+        Fri, 27 Nov 2026 11:49:11 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c33ed140c5sm391396e87.81.2026.11.27.11.49.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 11:49:10 -0800 (PST)
+Date: Fri, 27 Nov 2026 21:49:08 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Jessica Zhang <jesszhan0024@gmail.com>, linux-arm-msm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-kernel@vger.kernel.org,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Subject: Re: [PATCH v3] drm/msm: preemption aware hangcheck
+Message-ID: <3f54aqzk64kpekzthwt7bkhrxyv4zczdtnbtix347bppse6got@vubfdnmms7in>
+References: <20261106-preemption_aware_hangcheck-v3-1-852acf72102c@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,178 +127,256 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-mlock-madvise-mprotect-ai-fixes-v1-4-e46b2b1eb435@kernel.org>
-References: <20261127-mlock-madvise-mprotect-ai-fixes-v1-0-e46b2b1eb435@kernel.org>
-In-Reply-To: <20261127-mlock-madvise-mprotect-ai-fixes-v1-0-e46b2b1eb435@kernel.org>
-To: Jan Harkes <jaharkes@cs.cmu.edu>, coda@cs.cmu.edu, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Rheinsberg <david@readahead.eu>, Hugh Dickins <hughd@google.com>, 
- Vlastimil Babka <vbabka@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
- David Hildenbrand <david@kernel.org>, Jann Horn <jannh@google.com>, 
- Alex Shi <alexs@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
- Pedro Falcato <pfalcato@suse.de>, David Rientjes <rientjes@google.com>, 
- Rik van Riel <riel@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- =?utf-8?q?Micha=C5=82_Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>, 
- Arnd Bergmann <arnd@arndb.de>, Stephen Rothwell <sfr@canb.auug.org.au>, 
- Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: codalist@coda.cs.cmu.edu, linux-mm@kvack.org, 
- Andrei Vagin <avagin@gmail.com>, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Chris Mason <mason@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5134; i=ljs@kernel.org;
- h=from:subject:message-id; bh=LDwlOoGL+Fn5OvyHg2RGXRShc7rrh/h1bpGPWGzw/QM=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI5776UnsqgY2scx+B02GzrzbLIuS/0wj8LnUzS7Hh9e
- HK8XWZjRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACZypI7hf/EOM55TOmyXlYO2
- mCz+6t6xb5rhWeZHN9WPx2Qfz3gWcp+R4aPbRvGwTVnn478uz2ZXvLlzb9jsRaJ/pTZ4bTV5ckw
- xiBsA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261106-preemption_aware_hangcheck-v3-1-852acf72102c@gmail.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA3OCBTYWx0ZWRfXzN3hiwZg07Cy
+ coFXNZA/U04G6cLco6ka+l2RqVV4O6eveRQKW+lb6kTVnBzcCjiKwFKZ0SqUT6qKilJVf1+Ocou
+ NE32stOqTJMjUFbqNT3NktretjjWDHc=
+X-Proofpoint-GUID: mN_LFpzJuGlwZGTsPvLZ_R-QQjU5vnHN
+X-Authority-Analysis: v=2.4 cv=LPLz05W9 c=1 sm=1 tr=0 ts=6b09deb8 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=bC-a23v3AAAA:8 a=pGLkceISAAAA:8 a=tVI0ZWmoAAAA:8
+ a=e5mUnYsNAAAA:8 a=te0fHMlqqURSnBpgbLIA:9 a=CjuIK1q_8ugA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=FO4_E8m0qiDe52t0p3_H:22 a=-BPWgnxRz2uhmvdm1NTO:22
+ a=Vxmtnl_E_bksehYqCbjh:22
+X-Proofpoint-ORIG-GUID: mN_LFpzJuGlwZGTsPvLZ_R-QQjU5vnHN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA3OCBTYWx0ZWRfX1Wvd/G5rQIhH
+ +mqUeYjciZzIWepiEIp6SZPhKXWCWUq8F5CB6/0Rid35PRcxvXJVINIBudQboQXy9Rg0G8dOszj
+ yoprBWVuYjInjq122AyP5rtckXmIVadzBs5FsgjjEqBJEVZPlcKdr8fvudQiqoXzUvjCTyEp7q5
+ NqlQtmVlOOXDjgBjOwVb9snENl38OtsmuuyPiAUTfYiaHr3BwSxtBmNwG8ZwZGIC6zkbyPd7hrH
+ HrJglPB9hGcJCQwTI9Bq0GHUUP5FWa0lUx0voZxQJoK+zzFUXIcUhRLvP3eYTmEm09FcP4WLgGb
+ T/6YQ8w+cW9BbjdQwhnn+FXUfUq9d6lF418KLGpCg8Os1mkLyKfiZo4D9bvwqISxN7MKqEGHscI
+ gCZxHf3TqfYrik1f4zWYAeZemFciX1KUYjcTr+Y0NLJroa2iYMP2cm1rfvQRsMubTx5L37KD5bd
+ wAmnfumIesrFQBIcu8Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_04,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 priorityscore=1501
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611270078
 
-The abomination known as PM_SCAN_WP_MATCHING, which makes PAGEMAP_SCAN not
-scan but mutate for eldritch uffd-wp purposes, also lacks a permission
-check when scanning the mm of another process.
+On Fri, Nov 06, 2026 at 05:46:28PM +0100, Anna Maniscalco wrote:
+> Rework hangcheck code to work well toghether with preemption.
+> 
+> Track the time a job has spent in a ring by storing timestamps of the
+> `CP_ALWAYS_ON_CONTEXT` register at the beginning of a job and when
+> switching rings as well as reading it back if the ring is currently
+> active.
+> 
+> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+> ---
+> Ever since we added support for preemption hangcheck has been somewhat
+> broken as it is not aware of multiple rings.
+> 
+> In some cases it might not recognize that one ring is stuck if the gpu
+> switches in and out of it.
 
-It defaults to PTRACE_MODE_READ, which is insufficient for this accursed
-operation.
+This text should start the commit message, it's a description of the
+problem. The text under three dashes will not land in the kernel and so
+nobody would know why you were doing these changes.
 
-Therefore actually check for permissions correctly, and also make sure the
-mm is as expected when doing so.
+> 
+> depends on https://lore.kernel.org/linux-arm-msm/20261102190010.720443-1-robin.clark@oss.qualcomm.com
+> ---
+> Changes in v3:
+> - Addressed sashiko's feedback
+> - Rebased on reworked IFPC disable series
+> - Link to v2: https://patch.msgid.link/20261029-preemption_aware_hangcheck-v2-1-be0056e1f02d@gmail.com
+> 
+> Changes in v2:
+> - Various fixes
+> - Fix interaction with IFPC by using OOB vote
+> - Link to v1: https://lore.kernel.org/r/20250911-preemption_aware_hangcheck-v1-0-974819876819@gmail.com
+> 
+> To: Rob Clark <robin.clark@oss.qualcomm.com>
+> To: Sean Paul <sean@poorly.run>
+> To: Konrad Dybcio <konradybcio@kernel.org>
+> To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> To: Dmitry Baryshkov <lumag@kernel.org>
+> To: Abhinav Kumar <abhinav.kumar@linux.dev>
+> To: Jessica Zhang <jesszhan0024@gmail.com>
+> To: Marijn Suijten <marijn.suijten@somainline.org>
+> To: David Airlie <airlied@gmail.com>
+> To: Simona Vetter <simona@ffwll.ch>
+> Cc: linux-arm-msm@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: freedreno@lists.freedesktop.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  drivers/gpu/drm/msm/adreno/a5xx_gpu.c     |  5 +--
+>  drivers/gpu/drm/msm/adreno/a6xx_gmu.c     |  6 +---
+>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c     | 54 +++++++++++++++++++++++------
+>  drivers/gpu/drm/msm/adreno/a6xx_gpu.h     |  1 +
+>  drivers/gpu/drm/msm/adreno/a6xx_preempt.c | 32 +++++++++++++-----
+>  drivers/gpu/drm/msm/adreno/a8xx_gpu.c     | 12 ++-----
+>  drivers/gpu/drm/msm/adreno/adreno_gpu.c   |  3 +-
+>  drivers/gpu/drm/msm/msm_gpu.c             | 56 ++++++++++++++++++++++++-------
+>  drivers/gpu/drm/msm/msm_gpu.h             | 11 ++++++
+>  drivers/gpu/drm/msm/msm_ringbuffer.h      | 10 ++++++
+>  10 files changed, 140 insertions(+), 50 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/msm/adreno/a5xx_gpu.c b/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
+> index 16c7335c4b1f..8800352455df 100644
+> --- a/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
+> @@ -1251,10 +1251,7 @@ static void a5xx_fault_detect_irq(struct msm_gpu *gpu)
+>  		gpu_read64(gpu, REG_A5XX_CP_IB2_BASE),
+>  		gpu_read(gpu, REG_A5XX_CP_IB2_BUFSZ));
+>  
+> -	/* Turn off the hangcheck timer to keep it from bothering us */
+> -	timer_delete(&gpu->hangcheck_timer);
+> -
+> -	kthread_queue_work(gpu->worker, &gpu->recover_work);
+> +	msm_trigger_recovery(gpu);
+>  }
+>  
+>  #define RBBM_ERROR_MASK \
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+> index bba5468db42e..bcbe1b949217 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+> @@ -28,11 +28,7 @@ static void a6xx_gmu_fault(struct a6xx_gmu *gmu)
+>  	/* FIXME: add a banner here */
+>  	gmu->hung = true;
+>  
+> -	/* Turn off the hangcheck timer while we are resetting */
+> -	timer_delete(&gpu->hangcheck_timer);
+> -
+> -	/* Queue the GPU handler because we need to treat this as a recovery */
+> -	kthread_queue_work(gpu->worker, &gpu->recover_work);
+> +	msm_trigger_recovery(gpu);
+>  }
+>  
+>  static irqreturn_t a6xx_gmu_irq(int irq, void *data)
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> index 773c1727dd31..179e42119307 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> @@ -519,6 +519,9 @@ static void a7xx_submit(struct msm_gpu *gpu, struct msm_gem_submit *submit)
+>  	get_stats_counter(ring, rbbm_perfctr_cp0, rbmemptr_stats(ring, index, cpcycles_start));
+>  	get_stats_counter(ring, cp_always_on_context, rbmemptr_stats(ring, index, alwayson_start));
+>  
+> +	get_stats_counter(ring, cp_always_on_context,
+> +		rbmemptr(ring, last_job_start_ctx));
+> +
+>  	OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
+>  	OUT_RING(ring, CP_SET_THREAD_BOTH);
+>  
+> @@ -1474,8 +1477,11 @@ static int hw_init(struct msm_gpu *gpu)
+>  	/* Always come up on rb 0 */
+>  	a6xx_gpu->cur_ring = gpu->rb[0];
+>  
+> -	for (i = 0; i < gpu->nr_rings; i++)
+> +	for (i = 0; i < gpu->nr_rings; i++) {
+>  		gpu->rb[i]->cur_ctx_seqno = 0;
+> +		gpu->rb[i]->memptrs->last_job_start_ctx = 0;
+> +		gpu->rb[i]->memptrs->last_active_ctxcycles = 0;
+> +	}
+>  
+>  	/* Enable the SQE_to start the CP engine */
+>  	gpu_write(gpu, REG_A6XX_CP_SQE_CNTL, 1);
+> @@ -1838,13 +1844,10 @@ static void a6xx_fault_detect_irq(struct msm_gpu *gpu)
+>  		gpu_read64(gpu, REG_A6XX_CP_IB2_BASE),
+>  		gpu_read(gpu, REG_A6XX_CP_IB2_REM_SIZE));
+>  
+> -	/* Turn off the hangcheck timer to keep it from bothering us */
+> -	timer_delete(&gpu->hangcheck_timer);
+> -
+>  	/* Turn off interrupts to avoid triggering recovery again */
+>  	gpu_write(gpu, REG_A6XX_RBBM_INT_0_MASK, 0);
+>  
+> -	kthread_queue_work(gpu->worker, &gpu->recover_work);
+> +	msm_trigger_recovery(gpu);
+>  }
+>  
+>  static void a7xx_sw_fuse_violation_irq(struct msm_gpu *gpu)
+> @@ -1861,11 +1864,8 @@ static void a7xx_sw_fuse_violation_irq(struct msm_gpu *gpu)
+>  	 * to legacy blending.
+>  	 */
+>  	if (status & (A7XX_CX_MISC_SW_FUSE_VALUE_RAYTRACING |
+> -		      A7XX_CX_MISC_SW_FUSE_VALUE_LPAC)) {
+> -		timer_delete(&gpu->hangcheck_timer);
+> -
+> -		kthread_queue_work(gpu->worker, &gpu->recover_work);
+> -	}
+> +		      A7XX_CX_MISC_SW_FUSE_VALUE_LPAC))
+> +		msm_trigger_recovery(gpu);
+>  }
+>  
+>  static void a6xx_gpu_keepalive_vote(struct msm_gpu *gpu, bool on)
+> @@ -2293,6 +2293,39 @@ static u64 a6xx_get_timestamp(struct msm_gpu *gpu)
+>  	return gpu_read64(gpu, REG_A6XX_CP_ALWAYS_ON_COUNTER);
+>  }
+>  
+> +static int a6xx_get_ctx_timestamp(struct msm_ringbuffer *ring, uint64_t *value)
+> +{
+> +	struct msm_gpu *gpu = ring->gpu;
+> +	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
+> +	struct a6xx_gpu *a6xx_gpu = to_a6xx_gpu(adreno_gpu);
+> +	int ret = 0;
+> +
+> +	/* Inhibit IFPC while accessing registers: */
+> +	guard(ifpc_disable)(gpu);
+> +
+> +	/*
+> +	 * a6xx_gmu_set_oob cannot be called while holding a spinlock.
+> +	 * Limit the scope.
+> +	 */
+> +	if (gpu->nr_rings == 1) {
+> +		guard(spinlock_irqsave)(&a6xx_gpu->eval_lock);
+> +
+> +		/*
+> +		 * Make sure the GMU keeps the GPU on while we read the register
+> +		 *
+> +		 * This should normally not be waking up the gpu since the
+> +		 * hangcheck timer shouldn't fire when the gpu is idle.
+> +		 */
+> +		if (a6xx_in_preempt(a6xx_gpu) || ring != a6xx_gpu->cur_ring)
+> +			return -EBUSY;
+> +
+> +		*value = gpu_read64(gpu, REG_A6XX_CP_ALWAYS_ON_CONTEXT);
+> +	} else
+> +		*value = gpu_read64(gpu, REG_A6XX_CP_ALWAYS_ON_CONTEXT);
 
-As it stands, a task may currently manipulate page tables of the remote
-process, write-protecting uffd-wp marked pages, allocating page tables and
-splitting THP, and invoking MMU notifiers as needed.
+Isn't this inverted? With the single ring, there is no other ring and no
+preemtpion.
 
-The check is made at the time of the ioctl against its caller, as
-lock_trace() does for other /proc files, rather than at open.
+> +
+> +	return ret;
+> +}
+> +
+>  static struct msm_ringbuffer *a6xx_active_ring(struct msm_gpu *gpu)
+>  {
+>  	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
 
-A tracker which passes READ but not ATTACH on another process now gets
-EACCES for PM_SCAN_WP_MATCHING, whether it opened the pagemap file itself
-or was handed the descriptor.
+> @@ -43,6 +47,17 @@ static void preempt_prepare_postamble(struct a6xx_gpu *a6xx_gpu)
+>  	postamble[count++] = CP_WAIT_REG_MEM_4_MASK(0x1);
+>  	postamble[count++] = CP_WAIT_REG_MEM_5_DELAY_LOOP_CYCLES(0);
+>  
+> +	a6xx_gpu->preempt_postamble_cntreset_end = count;
+> +
+> +	if (last_active_ctxcycles) {
+> +		postamble[count++] = PKT7(ring ? CP_REG_TO_MEM : CP_NOP, 3);
 
-Also update the pagemap documentation to reflect the change.
+ring is always non-NULL here
 
-Fixes: 52526ca7fdb9 ("fs/proc/task_mmu: implement IOCTL to get and optionally clear info about PTEs")
-Reported-by: Chris Mason <mason@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- Documentation/admin-guide/mm/pagemap.rst |  4 ++-
- fs/proc/task_mmu.c                       | 47 ++++++++++++++++++++++++++++----
- 2 files changed, 44 insertions(+), 7 deletions(-)
-
-diff --git a/Documentation/admin-guide/mm/pagemap.rst b/Documentation/admin-guide/mm/pagemap.rst
-index 77447c454632..f000296e5ab3 100644
---- a/Documentation/admin-guide/mm/pagemap.rst
-+++ b/Documentation/admin-guide/mm/pagemap.rst
-@@ -240,7 +240,9 @@ in this IOCTL:
- - Write-protect the pages. The ``PM_SCAN_WP_MATCHING`` is used to write-protect
-   the pages of interest. The ``PM_SCAN_CHECK_WPASYNC`` aborts the operation if
-   non-Async Write Protected pages are found. The ``PM_SCAN_WP_MATCHING`` can be
--  used with or without ``PM_SCAN_CHECK_WPASYNC``.
-+  used with or without ``PM_SCAN_CHECK_WPASYNC``. On the pagemap file of another
-+  process, ``PM_SCAN_WP_MATCHING`` requires that the caller is allowed to attach
-+  to that process with ptrace. Otherwise the IOCTL fails with ``EACCES``.
- - Both of those operations can be combined into one atomic operation where we can
-   get and write protect the pages as well.
- 
-diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-index e3d894ed2b91..19acdddd4b23 100644
---- a/fs/proc/task_mmu.c
-+++ b/fs/proc/task_mmu.c
-@@ -3120,11 +3120,41 @@ static long pagemap_scan_flush_buffer(struct pagemap_scan_private *p)
- 	return n;
- }
- 
--static long do_pagemap_scan(struct mm_struct *mm, unsigned long uarg)
-+/*
-+ * Ensure the caller has PTRACE_MODE_ATTACH_FSCREDS permission for wp scan, and
-+ * that the file's mm still matches the process's.
-+ */
-+static int pagemap_scan_check_wp(struct file *file, struct mm_struct *mm)
-+{
-+	struct task_struct *task;
-+	struct mm_struct *task_mm;
-+	bool same_mm;
-+
-+	if (mm == current->mm)
-+		return 0;
-+
-+	task = get_proc_task(file_inode(file));
-+	if (!task)
-+		return -ESRCH;
-+
-+	task_mm = mm_access(task, PTRACE_MODE_ATTACH_FSCREDS);
-+	put_task_struct(task);
-+	if (IS_ERR(task_mm))
-+		return PTR_ERR(task_mm);
-+
-+	same_mm = task_mm == mm;
-+	mmput(task_mm);
-+
-+	return same_mm ? 0 : -EACCES;
-+}
-+
-+static long do_pagemap_scan(struct file *file, unsigned long uarg)
- {
- 	struct pagemap_scan_private p = {0};
-+	struct mm_struct *mm = file->private_data;
- 	unsigned long walk_start;
- 	size_t n_ranges_out = 0;
-+	bool scan_wp;
- 	int ret;
- 
- 	if (!mmget_not_zero(mm))
-@@ -3134,6 +3164,13 @@ static long do_pagemap_scan(struct mm_struct *mm, unsigned long uarg)
- 	if (ret)
- 		goto out_mmput;
- 
-+	scan_wp = p.arg.flags & PM_SCAN_WP_MATCHING;
-+	if (scan_wp) {
-+		ret = pagemap_scan_check_wp(file, mm);
-+		if (ret)
-+			goto out_mmput;
-+	}
-+
- 	p.masks_of_interest = p.arg.category_mask | p.arg.category_anyof_mask |
- 			      p.arg.return_mask;
- 	ret = pagemap_scan_init_bounce_buffer(&p);
-@@ -3155,7 +3192,7 @@ static long do_pagemap_scan(struct mm_struct *mm, unsigned long uarg)
- 			break;
- 
- 		/* Protection change for the range is going to happen. */
--		if (p.arg.flags & PM_SCAN_WP_MATCHING) {
-+		if (scan_wp) {
- 			mmu_notifier_range_init(&range, MMU_NOTIFY_PROTECTION_VMA, 0,
- 						mm, walk_start, p.arg.end);
- 			mmu_notifier_invalidate_range_start(&range);
-@@ -3164,7 +3201,7 @@ static long do_pagemap_scan(struct mm_struct *mm, unsigned long uarg)
- 		ret = walk_page_range(mm, walk_start, p.arg.end,
- 				      &pagemap_scan_ops, &p);
- 
--		if (p.arg.flags & PM_SCAN_WP_MATCHING)
-+		if (scan_wp)
- 			mmu_notifier_invalidate_range_end(&range);
- 
- 		mmap_read_unlock(mm);
-@@ -3201,11 +3238,9 @@ static long do_pagemap_scan(struct mm_struct *mm, unsigned long uarg)
- static long do_pagemap_cmd(struct file *file, unsigned int cmd,
- 			   unsigned long arg)
- {
--	struct mm_struct *mm = file->private_data;
--
- 	switch (cmd) {
- 	case PAGEMAP_SCAN:
--		return do_pagemap_scan(mm, arg);
-+		return do_pagemap_scan(file, arg);
- 
- 	default:
- 		return -ENOIOCTLCMD;
+> +		postamble[count++] = CP_REG_TO_MEM_0_REG(REG_A6XX_CP_ALWAYS_ON_CONTEXT) |
+> +			CP_REG_TO_MEM_0_CNT(2) |
+> +			CP_REG_TO_MEM_0_IS_64B;
+> +		postamble[count++] = lower_32_bits(last_active_ctxcycles);
+> +		postamble[count++] = upper_32_bits(last_active_ctxcycles);
+> +	}
+> +
+>  	a6xx_gpu->preempt_postamble_len = count;
+>  
+>  	a6xx_gpu->postamble_enabled = true;
 
 -- 
-2.56.1
-
+With best wishes
+Dmitry
