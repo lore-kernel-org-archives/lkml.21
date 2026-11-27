@@ -1,49 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777044;
-	b=V7Yt9yqT5utDvPp9l2fBZaNyDS5XwmBUJ++D+VVIsI9jNMDZ68Guya/5eb4B+JtqV95U
-	 CKEzkdeHV2P+r1wHHNJYytZXWwgsBHpSvsZf0cq5cLtAOaVo5yFRh+y0AF2jiA6uQ6+7l
-	 ruegfWg5EFofy+Ud97LGfI8Unf9Aqqkz2f+3oiuk7O0VPmyd7+QuPp87QBMKrKg+RnMy0
-	 eqTDu0+Ag5wsXAF3nTTKVnfKuQjKocVEjKsY3qzpuQC6aQGwkC1gYCTeRDze1p/s3KKKr
-	 GQyv3bMmBDT7HbUBSZOyhloSZx24emPS9e2BfoXb1No4WGHRs8T1tGx2P0SKMXRb5Ow==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777044;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Xx1Jv0J1bDZQpWVoeU6QkZxWXumP+4homny7f0vYJN8=;
-	b=VlKMGf+7QdY1Ow9Za8NpEtyHXoEYh3rp6x8+9j4xH0TBgB2c4MwKN+27bL5EraYnBq/9
-	 /KEiQFJcGm2tlPuAW+EbSxG370MsMgw/v6IqXctLgqmwXUKhQAReKli4R+gfbnB74XIAx
-	 CGoG/wlQ5iIxdrMko3WAIiRq3SWhvMlN/hsUD+q2XguprHjrSb4HZqePK4f2Sbqv1MmCH
-	 YJYAev0spWID9DgTbqQFjmV9noTHSKIY1sZXVqDXmTPcf/TDEkFMg5C5bnxtqIaGGxVR7
-	 zcqrnOF5BT96WlHv0Shq0N3S1ORYUeUco5uXiKR9xtCT13WZnJbMIZ4CS5ORrUuHWOA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=B25sau8T;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id F0985606A31E;
-	Fri, 27 Nov 2026 10:57:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0985606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795777092;
+	b=F/AXGDuNY2zuIcSBGWEJycprH/19NnLVYI3N7zThaUdrDcY1WmiRzDofjY759I5v/gbp
+	 DKGZwuk6f/9ChPB5peYBfI/H+LHpPuY9RykdNJrPdOjMpQ7CZhM5wD1yMC9vv6iHCgqU2
+	 50YaiBTaF0kTAC8nFDjqg5H6NH4Y2VslNE4P7Qg6zSWjytmjuw01atp+Vc2TKA63C7vAt
+	 ebwbmaDI2msaX4VRox8d5tV7JGooku3LMHS9VnYLbnG4q67r3CctToXdstTpjYlchwi1p
+	 cdMb9IlBb69hNZcXsRpV1Tc3wx5VnH6QAO6dXgAEvQ4CcRVNVCszGVX09fpWJQKZ5Dw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777092;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=MUEQYRgAV1pWb9tB5vVjEtsA48/NCfRo+KnanIYJmp0=;
+	b=zhSr/iYiHTalawKi7yhn9y3g14uFud+LqETpkSrzKCkqf4VeXUeEqB5zHCrc0CkpBkYV
+	 PPGiKjbW97dYu9nMyB+2EqJ878oZ9/QjoIALdRm1nInbg1zorPuF08zDAdvUVctu6sPcz
+	 MYmdGyu7AiUvk9z4nFLVkhLlwHqcaR5gBCasvBsNP9l+XWK02Dq/gkw8DtC/Mch4r84su
+	 Yv4tQzojM6GXohde/ExG7mChP7PYrxMxaO++1pAKAZsVsyHApl1DuvKfkgLjbjEHrd9I+
+	 VUYsm86QPO08rXW6iVwStPJChEIDwu3dTTN2oE9r5YDrK5aWicfThVpVC1fS1Uixo2w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=EIPwdzux;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QnwHWYlf;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3362606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:58:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3362606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=B25sau8T
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 113372F;
-	Fri, 27 Nov 2026 02:57:20 -0800 (PST)
-Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD2AC3F86C;
-	Fri, 27 Nov 2026 02:57:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795777042; bh=tI/WuxzQHxbeBxg0ET/wSwRkMo9dWBTAelQ6L/tkO0w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B25sau8T3KTWvItqVLYxp2RC03ZVEdbWyH2MkDzRUOwL8iEOzA/2/szKI8T2Qprfd
-	 h3ydqMKrxtJOWqAT2aGr0TfpGKtfA+aov42u1vZKGbr9qedYIqIEJGcOHMe4lweHCQ
-	 92rX7V3jq+WkTaWtSYyrHCAP3UW8GslYwmn/6M4w=
-Message-ID: <9ab5f851-1b56-49ed-bfdd-46abdbdda1c0@arm.com>
-Date: Fri, 27 Nov 2026 10:57:16 +0000
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=EIPwdzux;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QnwHWYlf
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApP49273655
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:58:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	MUEQYRgAV1pWb9tB5vVjEtsA48/NCfRo+KnanIYJmp0=; b=EIPwdzuxLiV7wGp0
+	Vgw4XBiF3kMikABCrnfoXg7XheZJ4Y+85ejcIObB+lz8TROUr3Wadey9HK6LpdoI
+	WnVXI3YD/3mGnl8+NFIqcjdd8MXZBF3girBvmO2rszREoJVGhkvtn6ZaMTOti/Dg
+	GoHHK/lPYwxY1jOIM+65tDCsuuFXykBSSgiDO/bhBJKxEM3MlVx9MSivxUxXQLxC
+	UsDUHWfqn3SVqnWR5jGhq8Kyt55HuQmZkl2K0oz1NdcRYQd3Sk2ibGw3iCC/mXxr
+	EZsVbggGtqPv9xc/CE4TMjV22/6We47cmcez88zjMPXVBInxDUYGCYBZYB7QHBYv
+	nGNeBQ==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u49anjm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:58:11 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cdebc913d7cso1321981a12.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:58:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795777090; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AVV1TFhk+Ekn7+8hW3qTkEEfpoX+D5nBTnCPXG5rHtfKz26M1rQFQoiS+MJgGe5Ncd
+         VywaZOKSH+JEK+C4XKqF21/wnjJO8vLw1OvQlKsRyzHpJYB34nOaic4J7PXK13MX7J6M
+         ihlF+d4frdkHI+KL1dw55aW0fw/wrrkStC02FbzVBIkEvO8NtgyfiHtZsxzDfwdkGvQm
+         pIQm1ttZxQC1dUqpgMaN90WvDjhTOgf/LpKYV3m4fBwYorGwJr4yv/FDWkBkzU4Nm3jg
+         Rh9zfA8vbqLazW+234LrRUCuqQWg1zAR6Y4frFRJ8JfQ3expLXxtLpKGOBkwKH9UzRqa
+         4ZoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=MUEQYRgAV1pWb9tB5vVjEtsA48/NCfRo+KnanIYJmp0=;
+        fh=ljtcN1pEKux+Du3wHT6oCE7nicMtmlX+v6n35DzzhTI=;
+        b=sn2yeq9Q4RyjSFU22ApeYcqXE9AJ8TNj3DD477CXNLxcu4jknmEvGtToycpKf+l1jJ
+         cI4Cif2bRJ8A3BD63oFZiLBJchTBknWvPo1mIxtw+6B4zZYoEkTOU8S3ouUqvxzK53Id
+         YDLl1j+2sJrdfalJwC2rROj75rpmodxLy2uZkLfu6x+L+GM7J3IOqkc3oZEtERFOBrzo
+         yYUe/UNxUwhljMJkb6JZ3xe1k4nc0gHVrVafpzL8/Xp6xM3ZFfz4MCqghxtoWmX3+cy0
+         MiOt6NPSDTNc9g26GiEarBeWu/3QyWY9djZGbohSI7LI4edJ5G8Jpi0x37P1cttmLEqN
+         pnfw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795777090; x=1796381890; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MUEQYRgAV1pWb9tB5vVjEtsA48/NCfRo+KnanIYJmp0=;
+        b=QnwHWYlf8S8LugAhpln/KMek0evLWT/iAaWxgJOomU14KCSFDovTBqVjF0nbQ4IVRQ
+         Xq8YTKybyjFsJ8U601dDSybMnZeSIVZ25l3OxRAOX8WVUhE7AnMtcVpPTrRpgcdu4o7N
+         cwVL+Jcki3P8BRXgJSgbgScEvUzR0XSvAOjx+RsT4beGL/V6DxOYvAkRvsN1oNuMsDZz
+         eR0DBW2zeVcraGeE5T6shfc9/d1Q1oJEYQuFVFkqLX2SNWb/5YphZwTE9fZ4NQsgNzvZ
+         Tt7VA1GKp3jWYUz+N5+DiVN4iGCh4jxdRF/fus7ZKP0F4/79dQc9tCXeEwqx8rp75zl0
+         3iPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795777090; x=1796381890;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MUEQYRgAV1pWb9tB5vVjEtsA48/NCfRo+KnanIYJmp0=;
+        b=mzKswiJ3qm5YquLiniXLpabLGHlMnX6IBHQWOLt9U2W+X9WibzEFL/sRQmZcBDvMJr
+         UfaEcGQFWq7OOl7I5MWyAXmo2HwOLylHWJG5cWaHm08/AbT9qYmjyXrbZ+C4h/YfoeZF
+         pg2VCZhMw4X6unTMmUzs2O80yFsb8f/vuqmEhN13S3uqSbXfSJ0AXhsHb9Jk/y36jnNS
+         uCx5IijuUndjjwKnLQZY1QMdvIgDDmJ7qe4bwIWsKTjZVJX13S7Z8KuXVwrfTJSvhNm7
+         EDuQhHbMARtpW41K0XFkZ3jNgDLSIgzDKrLk1wkDkMboNB1U6Akv+UzRtr+zEFJZOLnq
+         //xg==
+X-Forwarded-Encrypted: i=1; AL+hErG5ySNlp14A4MIBq67N0Z+RFqVjMJKh5OGnuhNW6L+DDUyh8eF8XX2wy67PHen1f2X7uzKc2nTR0litbfc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+PlflN26kv+jd/eaytDBRyIDHYBnGQluLtNvbOXQHOZAhnE46o
+	dsHMb4Vx2ZJAdE3j3Uv1mMtGx3Dok9P2hp9IJWAp+RjGfLzV6bEx9B/+L3RoOlo40TXNooOw7sm
+	A1nAyqdrAq8iC7OqO5RLrAbw+WMNpEuPHjhTEe80cm1VW9n30QgsYJB2phtDAgpm/sMhMOfYMy1
+	i7hqnuoRKVhMcQyyKZXN4QfpRQ/aUNiSfY6ZEFvTGFngS+g7TcpVeV
+X-Gm-Gg: AZFdTZcMeweZckSLXkGa/4wQKlIPABeBJWLD5Zstxv/9Uf6oYEb8bg4TcS304cACCCN
+	AbchduECr5iiIclPnejxRc7kji/JKSLydROBcv1MhakLG9D0+OH0xhARRuZ3ZL0GDUCyuJIKBQr
+	Yv34P9xnahK2Cc6jFl52GSEk3VBYo86iwF8Wc6EC1rzrGV7VdJIY/32B3htw==
+X-Received: by 2002:a05:6a21:32a2:b0:3e2:7a40:a566 with SMTP id adf61e73a8af0-4014d360163mr23482428637.45.1795777090309;
+        Fri, 27 Nov 2026 02:58:10 -0800 (PST)
+X-Received: by 2002:a05:6a21:32a2:b0:3e2:7a40:a566 with SMTP id
+ adf61e73a8af0-4014d360163mr23482388637.45.1795777089644; Fri, 27 Nov 2026
+ 02:58:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,126 +127,243 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
- samuel@sholland.org, Enzo Adriano <enzo.adriano.code@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
- Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>,
- Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
- Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
- Lukas Schmid <lukas.schmid@netcube.li>,
- Cristian Filipescu <filipescu.cristian@gmail.com>,
- Norman Herms <dockseed@proton.me>
-References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
- <20261126-a733-cubie-a7s-dt-v6-2@gmail.com>
- <p3YaXlLJTguQBGnWyMpb1w@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <p3YaXlLJTguQBGnWyMpb1w@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261023-pm_attach_by_node-v1-1-4dbaccdf8b0e@ideasonboard.com>
+ <CAPx+jO_FC1t_UaDfQDPOCy+V-Zdc1b5h5krrppGvYiW-LsD3LQ@mail.gmail.com> <4fbeef8c-1dc8-4cac-a4af-835037c3dc4b@ideasonboard.com>
+In-Reply-To: <4fbeef8c-1dc8-4cac-a4af-835037c3dc4b@ideasonboard.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 11:57:57 +0100
+X-Gm-Features: Aa3M54qXtAIHNiGpyOaEyPdRYU5jSSo943VspeWjL8RHDV3sdq5YmHqVLG3NwR0
+Message-ID: <CAPx+jO_5OK_9VJo7vh0CP37-fTkd_2j3XtyGkTw3bz4heyYq6Q@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: core: Add genpd_dev_pm_attach_by_node()
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@kernel.org>,
+        Len Brown <lenb@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Danilo Krummrich <dakr@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Devarsh Thakkar <devarsht@ti.com>, linux-pm@vger.kernel.org,
+        driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: rbXVete63Ss3niGLXT3p4pZr-J8q7FqE
+X-Proofpoint-ORIG-GUID: rbXVete63Ss3niGLXT3p4pZr-J8q7FqE
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0MyBTYWx0ZWRfX7e07uchxJDm9
+ qBgtbByJBPJUEjrh8ZmUTYE74HIZqBRrcPZWLN8PrDH+oPeEHR6p91XZ7yzw+Waltebpgkcix3/
+ 9XJHBJA5BUJy7j8yyqo4BDYKZXc7lgw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0MyBTYWx0ZWRfX7gqIm+W2sw6t
+ ZtkfC/DTaE2klijNOmicAH48AU1p95EO1njAm98UMam0Xwui060BjFXLsdJ9VwyX1ZveYpYtGhx
+ n7ojXU9+4suwq1qlNrnnBsn+4j7QGumnI6OHVZhYc8rsX5nl0Ph9tlgMM/pKk1Ee6xeKUlKlciz
+ AJR/soAqG9N8qS2Tv06XwuUcOTDtA1TqQRLeoiVqt5nXUP1CpdH+QaS639bpWm1i9Q8/FtI3bUT
+ +sI53d1emVrrKHVYQDSFXklIjOFsw3rJrg+vZTZfTemseeuebhvkjBNS8lXr1eES2M0aztvIhvO
+ /LgaaSImmAJeXyfOXr2IDFiD34FWxPJngItJduUp2sNX2V1I+E0mj+i/cG9zl1uARgmwVOa0dKi
+ vYFLxDDdrQelxke6YTqrEk4jgGtjTdYEDw3mS+vQAot6r+qYaFY8PzO0v5DmyId9Ri2SmyPxSEv
+ HDblBYIpLvo4n4YU3aA==
+X-Authority-Analysis: v=2.4 cv=A875rKWG c=1 sm=1 tr=0 ts=6b096243 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8 a=P1BnusSwAAAA:8
+ a=U9_UlU1nMNCvezYFiagA:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+ a=D0XLA9XvdZm18NrgonBM:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
+ priorityscore=1501 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270043
 
-Hi Jernej,
+On Fri, Nov 27, 2026 at 10:07=E2=80=AFAM Tomi Valkeinen
+<tomi.valkeinen@ideasonboard.com> wrote:
+>
+> Hi,
+>
+> On 25/11/2026 14:50, Ulf Hansson wrote:
+> > On Fri, Oct 23, 2026 at 8:17=E2=80=AFPM Tomi Valkeinen
+> > <tomi.valkeinen@ideasonboard.com> wrote:
+> >>
+> >> genpd_dev_pm_attach_by_id() and genpd_dev_pm_attach_by_name() attach a
+> >> virtual device to a PM domain listed in the OF node of the passed
+> >> device.
+> >>
+> >> Some hardware blocks are described in a child node of a main device.
+> >> They have no device of their own, but they do have a PM domain of thei=
+r
+> >> own. Neither function can attach that domain, as both parse only the O=
+F
+> >> node of the device.
+> >>
+> >> An example case is TI's display subsystem and its OLDI (LVDS)
+> >> transmitters:
+> >>
+> >> dss@30200000 {
+> >>      power-domains =3D <...>;
+> >>
+> >>      oldi-transmitters {
+> >>          oldi@0 {
+> >>              power-domains =3D <...>;
+> >>          };
+> >>
+> >>          oldi@1 {
+> >>              power-domains =3D <...>;
+> >>          };
+> >>      };
+> >> };
+> >>
+> >> The OLDI TX blocks are not part of the DSS IP, but they are not quite
+> >> real devices either as they don't have registers of their own, and are
+> >> instead controlled via DSS registers.
+> >>
+> >> Add genpd_dev_pm_attach_by_node(), which is similar to
+> >> genpd_dev_pm_attach_by_id() but instead of looking for the power-domai=
+ns
+> >> from the passed device's DT node, the DT node is passed explicitly. Al=
+so
+> >> add a matching wrapper function dev_pm_domain_attach_by_node().
+> >>
+> >> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> >> ---
+> >> This is a new try for managing the OLDI power domains. Previously I
+> >> tried using auxiliary device/driver for OLDIs, and handling the PDs th=
+e
+> >> normal way:
+> >>
+> >> https://lore.kernel.org/all/20260529-beagley-ai-display-v3-12-7fefdc5d=
+1adf%40ideasonboard.com/
+> >>
+> >> Then I realized an issue, mentioned in
+> >> Documentation/driver-api/driver-model/driver.rst: "-EPROBE_DEFER must
+> >> not be returned if probe() has already created child devices".
+> >
+> > I don't follow. How is this a problem? Why not create the child
+> > devices at a later point?
+>
+> The problem the above text refers to is (as far as I understand):
+>
+> The main driver probes, and creates a child device, which probes
+> successfully. That causes the flag for "run deferred probes again" to be
+> set. The main driver then continues its probe, but, for some reason,
+> must return -EPROBE_DEFER. But as the above-mentioned flag is set, so
+> probes are ran again, resulting in the same sequence, again and again.
+>
+> Creating the child device later is difficult. We have display pipelines
+> which contain multiple independent devices. All those devices must have
+> probed and their bridges/panels registered to the DRM framework so that
+> the main DRM driver can finish its probe. If parts of the pipeline are
+> missing, we return -EPROBE_DEFER and wait for the missing parts to appear=
+.
 
-On 11/27/26 05:29, Jernej Škrabec wrote:
-> Dne četrtek, 26. november 2026 ob 21:35:40 Srednjeevropski standardni čas je Enzo Adriano napisal(a):
->> The Allwinner A733 combines six Cortex-A55 and two Cortex-A76 cores.
->> Add the common device tree for the first Cubie A7A, A7S and A7Z board
->> DTS files. Describe the CPUs, PSCI, architectural timers, GIC, RTC,
->> main and always-on clock/reset and pin controllers, UART, I2C and
->> MMC. The preceding revision booted on the A7S and A7Z.
->>
->> The A7S schematic, sheets 7 and 16, shows the EEPROM wired to I2C0
->> on PG8/PG9. Use mux 6 as documented in the A733 Datasheet v1.00,
->> section 4.2.6, table 4-36. The A7A schematic shows the external RTC
->> on S_TWI1. Add its R-I2C1 pin group on PL12/PL13, mux 3.
->>
->> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
->> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
->> and noncoherent attributes follow Andre Przywara's A733 reference
->> and the A523 precedent. The CPUX interconnect diagram in section
->> 5.1.2 supports the noncoherency inference. Leave the ITS disabled
->> pending clock/reset and MSI integration.
->>
->> Describe the single DynamIQ unit and shared L3 shown in section
->> 5.1.2, figure 5-1. Partition PPI 7 (section 12.2.3, table 12-1)
->> between the Cortex-A55 and Cortex-A76 PMUs so each probes its own
->> core type. Defer capacity-dmips-mhz until it is measured on A733.
->>
->> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b352986b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
->> Link: https://lore.kernel.org/r/20261126172253.1097838-2-andre.przywara@arm.com
->> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
->> Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa Cubie A7Z V1.11
->> Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
->> Co-developed-by: Andre Przywara <andre.przywara@arm.com>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
->> ---
->> Changes since v5:
->> - Mark the I2C0 PG8/PG9 group /omit-if-no-ref/, as requested. This
->>    satisfies Andre's review condition.
->> - Move the RTC clock include after the A733 clock headers and cite
->>    the A733 datasheet and A7S schematic for the I2C0 pins.
->> - Fold in Andre's R-I2C1 pin group for A7A. A7S and A7Z leave
->>    it unused. A7S still references the I2C0 group.
->> - Vinicius tested the v5 DTSI with his A7Z v1.11 board DT. Norman
->>    tested the v5 series on A7S. Their tags here cover the SoC DTSI.
->>
->>   .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 671 ++++++++++++++++++
->>   1 file changed, 671 insertions(+)
->>   create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
->>
->> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
->> new file mode 100644
->> index 000000000000..e062b08006da
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
->> @@ -0,0 +1,671 @@
+Well, I still don't see why creating the child devices later is a
+problem. In fact, the opposite seems to be the reason for these
+churns.
 
-[ ... ]
+Usually what we do to solve this kind of problem is to make sure the
+main driver for the parent device has completed its operations for the
+probe and then it populates the child devices. If that doesn't work
+for some reason, the main driver simply needs to remove the child
+devices in the error path in the probe.
 
->> +
->> +		mmc0: mmc@4020000 {
->> +			compatible = "allwinner,sun60i-a733-mmc",
->> +				     "allwinner,sun20i-d1-mmc";
-> 
-> That's not really the case, is it? A733 emmc has support for voltage switching,
-> so regulator should be added here for voltage switching.
+If the main driver requires the child devices to complete their probe,
+an additional synchronization mechanism needs to be added to allow
+them to inform the parent.
 
-But it's still compatible to the D1 MMC controller, isn't it? As in: a 
-driver capable of supporting the D1 MMC IP can also drive the A733 MMC. 
-I think the voltage regulator is a separate problem: it's external to 
-the MMC IP. The vqmmc supply property is documented and usable, and the 
-availability of the regulator it points to is a separate issue.
-The same as the H616 and A523 have the voltage switch already, but are 
-still compatible to the A100 and D1, respectively.
+>
+> And the OLDIs here are not really independent devices. They don't have
+> register space, and OLDI configuration is done via DSS registers. Yet
+> they don't fit very well inside the DSS either, as they are clearly an
+> outside IP, an external encoder. So the aim has been to represent them
+> as separates child DT nodes, which allows setting OLDI properties and
+> the media graph, but there's no compatible string and it's the tidss
+> driver that fully manages the creation/cleanup.
 
-> I suggest that you drop this node until proper adjustment is made.
+I don't see how this is a problem. It's perfectly fine at ->remove()
+that the parent should be responsible for removing its children,
+right?
 
-Do you have any code for the voltage switch already? Your comment in the 
-UHS-1 prep series suggests so? Any chance you can post that separately, 
-to get any DT compatibility problems out of the way early?
+>
+> Here a simple pipeline could be:
+>
+> DSS -> OLDI -> panel
+>
+> If the panel hasn't been registered, tidss will defer. But tidss needs
+> OLDI to be there too, when it binds the display pipeline, otherwise it
+> could never finish.
 
-Cheers,
-Andre
+I guess "finish" is the important word here. Finish doesn't
+necessarily need to be the same thing as that probe completed. This is
+what it seems to boil down to.
 
-> Best regards,
-> Jernej
-> 
->> +			reg = <0x04020000 0x1000>;
->> +			interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
->> +			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
->> +			clock-names = "ahb", "mmc";
->> +			resets = <&ccu RST_BUS_MMC0>;
->> +			reset-names = "ahb";
->> +			pinctrl-names = "default";
->> +			pinctrl-0 = <&mmc0_pins>;
->> +			#address-cells = <1>;
->> +			#size-cells = <0>;
->> +			status = "disabled";
->> +		};
->> +
+>
+> It is possible to create the DRM bridge entity for the OLDI without any
+> OLDI device/driver, which allows creating the display pipeline. But the
+> OLDI bridge code has to be able to enable the OLDI power domain, and I
+> think the only way to use PDs currently is via devices.
+
+Correct and there are good reasons for that.
+
+>
+> So if we created the OLDI DRM bridge as mentioned above, then later in
+> tidss probe we could create a device for OLDI, which probes and binds.
+> That can then be used to control the PD, but there would be no other use
+> for it. And the sequence feels like doing it backwards.
+
+I am not sure this is backwards, at least if we compare with how many
+other subsystems/drivers are doing it.
+
+>
+> >> The PD virtual devices used in this patch's approach do not hit the
+> >> issue as they don't get a driver, so they are not probed. The tidss
+> >> driver's OLDI part can then use normal pm_runtime_get/put functions to
+> >> manage the OLDI PDs.
+> >
+> > Sorry, but this makes no sense to me. Considering the above statement
+> > about -EPROBE_DEFER and child devices, it sounds like we need to
+> > manage some kind of cleanup in both solutions, right?
+>
+> Yes, but with PD virtual devices there's no probe, so they don't cause
+> the "do deferred probes again" flag to be set. It's not the cleanup as
+> such that causes the problem.
+>
+> In some ways this does feel a bit like a work-around to the framework
+> limitation. Representing OLDI with the aux-bus feels quite correct, I
+> think. But then, all that plumbing just to enable/disable the PD...
+
+Right, but the plumbing sounds quite straightforward, especially since
+the auxiliary bus would solve most of the problem for us.
+
+More importantly, I really want to avoid introducing another API for
+attaching to power domains.
+
+To solve this I suggest to re-visit the auxiliary device/driver. It's
+also important that the created auxiliary device gets its fwnode
+assigned to the corresponding child node as in this way, the child
+node will also be properly considered for "sync_state" for the
+power-domain provider. In regards to the synchronization with the
+parent, I suggest providing a platform data for the auxiliary device,
+that the auxiliary driver can use to notify the driver for the parent
+that it's ready.
+
+>
+> So, what I'm basically trying to do in this patch is to provide an API
+> that allows enabling/disabling a PD that's not in a DT node managed by a
+> Linux device.
+>
+> > Perhaps if you provide a user of dev_pm_domain_attach_by_node() this
+> > becomes more clear.
+> I have pushed my branch to korg:
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/tomba/linux.git/log/?h=3D=
+b4/beagley-ai-display
+>
+> The commit that uses this patch is:
+>
+> "drm/tidss: oldi: Add power domain support"
+>
+> And the dts file that has the OLDI nodes is:
+>
+> "arm64: dts: ti: k3-am62p-j722s-common-main: Add support for DSS"
+>
+>   Tomi
+>
+
+Kind regards
+Uffe
