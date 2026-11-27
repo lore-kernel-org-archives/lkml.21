@@ -1,98 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818730;
-	b=Eif2tggJ45EX9XlzEQoqrX9dFezQwtLOox0hTJxVMuHhjBZGeBdr/wk/I7g30YE/Mu8C
-	 rCL9+PSfTO1nuST7EZ2VkXA63L1xoizk85dBnPDD8e1eoc9std0SKFXtsZjcPNGsyiPHB
-	 +twwkhh2cs1zRfsfnuZW3bfDJaLbj7BmK7kMtOYIg4Sj8zbRjMvyu87j/cWVR+09p0rJk
-	 MCT2NaqS/JlpLJiL9NCZ9KZ2ayFnaNeTuePHw0dFu5vr6/GYlPpIs0cYhpjGfRDXRRKwt
-	 CabufOMvg45KC8BjSAVF+OfTnPOZsMMOC61L1KFNhiIu5uIVpDgOnjxFw03w7WpONIQ==
+	t=1795818776;
+	b=rNotaqfs205IYjpMIEFHK4cM+k27GcDja2b72/H/9Fx84DlVRKXJPcAlt8AGXibVeRW9
+	 LJdCr5CHotyv2nri556gqIw9EXnBdZaAXYxRv1GLqeDnw3AitJYSrVee0lNtMreGuuHMo
+	 +lMNk34qnCgHV+iuxCcmz4Xktxrx0wUgzZfRCaFWN92psGkwrM9LDI4Nit1sO3AP48HLd
+	 snk/G6PL67RaB9zCsOnqY8L3Wry12P9flZPj1yeOnU6mxZsacQ9Cf4/6NTB4Y3d6+HqzQ
+	 oLrLOp25mFeRqJmTYhGGR5iIbDhuyzu2lTrRVTBx3loXkuqhrTqg+7StGYxU/ow3geA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818730;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795818776;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-	b=nhvjN94FCCTXQBdUIkEGuEFACPkTQk4MEm6U+mKTBr3ROli3AsxPU67OhsH0XU98Oj5I
-	 6UqNpcR47cqwZRmQyt4se5+11WSRJEQjCs7u82iZ6AvGXnn8TpYVsr5Ij95jRFuyfRlYe
-	 1J5MBe2MJomPgfcR6HVct1+NszcHNsO7ESS946Gxt9srHh1hoAliLo45eLW2swYd+P2Dq
-	 oWH9RsXhPJmpc+7WMXOCg5HtHaKB0YfWyddZmni25a1S7NzdwxxKWHlAEgkSxmkUaRoie
-	 WRaknprp6zUj7qovbJIBss3AqcB3FjOMh76/WloWKCIgJRCsphm9I+l3UsCJNwsjNZg==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=e18q7m+XRgO8UtTQ6TkOW3EX1GONk1zjdab/Y9iIkTw=;
+	b=4fPpgkYpZRNelI5sdGvJO3PSGTX7W7QXI7ZV5g3sVqkb+ruYXel32qMo9qmkoetnU537
+	 EM3xSJPtOT9hEZH8MEza1Gq/84qeBTInP199gbSe04M39C+cHUFc/6m5lYq0P/zT9q0mE
+	 u7gJim8h6NAa8+k4OsI/0rU+MtqKrSNCM+Y637zfepFa8GHl7nhmr9pfGv/UYdJr207ji
+	 R6SMorb56RQLqlaSQ+SRc4P6lZxYada2yOl5HIpP9OQq7+kV2T2rPowG+x7U4xQ7UoHBa
+	 hdFWFCdAmkFK7BXN/72OSC+R/MLyi0pqV0wTzR0EUbmvqut3HM2uCdl9fBOPHAqHo5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=dSzEPUbF;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="KXbz5l/u";
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABB10606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:32:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABB10606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A663606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:32:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A663606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=dSzEPUbF
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cde5a7d7849so3742798a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:32:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KXbz5l/u
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a9be758734so5385095f8f.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:32:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795818729; x=1796423529; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-        b=dSzEPUbFLfoKeZQxnAG9QqWHbOj8cv5Kaqd11peIcu5btYU9rDWRJX7Xr0IJoeuyJr
-         iOZJuJm5lXcHHXSczkdFuXIwaF95duee69xoVEwfNKKjqNpxplfm/TIMG9cY7JevTvCg
-         qxcssLKWV2xo9PCqYR572cSZp0u8ALAF4YY66x7xkrQMGrK6AZJwZWL86ze43b3n2kzX
-         O9TIkHPfXVjNxNS9u7h8oIRRQO9nHIVtJAXqUs+wADNGHcXa+a6rYLo4HfEvRSjRCoic
-         cgvr691f1z4dgwNyc4PXSyfPls9LodqgKBYOk1nHuZoZ74QIVNQatf0CvlyJx6r/u5RI
-         fH/w==
+        d=gmail.com; s=20260707; t=1795818775; x=1796423575; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=e18q7m+XRgO8UtTQ6TkOW3EX1GONk1zjdab/Y9iIkTw=;
+        b=KXbz5l/uODdnOEfSJoNmxfbMA6pMr0YlR66YwD+IB+sEF0i+m+7C+RAxhLyF+SfJbd
+         uGJvqUYQRf6EEBoj3BV1n1MD1T2kbbzaipdHnEbFpd97X0el041kD+NYxV8xV2M6Aodz
+         KXmHk1p4QZnCdxKPEE0/uDlmFu8NUC6vQDp+XVKM3/TyEnLfD5arLsXTinq019BnJXZ2
+         +UoG7nctxn6EsFi2a+RR7zLyC2gVyDadDvkDyC/p3/DjPlgugXiqmKZHV1X1MKvcAZPN
+         bcxfO0vexWyZ0j0FpOmMvIm/aNQhTMELCrTP7SxKDl8ixrBZc024O09xabaaEqdrXtyF
+         AsoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795818729; x=1796423529;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-        b=WlgxSkb1DwJZ0TTMB0iEK28vVS/TTp2/yum+qq1ewzYjEGDl17qdQgXc16Cill7oQe
-         dovUPNPz5C1R/g2AZ8V0DpTdL/fUKA9nzEodDN91Z4NjZL7s6zjV0mOZaMQPwbuiK93k
-         GIBCzUL0+RhZHeeTd/IP6bHjMkqs3uI2j3iQWF0XxCh9zZPHj6/1lHhVgnQG/JSw/Tke
-         hoNyiLHZbqFbQmk3o+vVPlZx6/P2NmVBqFX41EKb6o8yZUak5DkQHHmeJsaFg/y6MorM
-         2HuM26xekykHzi0fBd8X8HYXc8n7Eza5+uRGPt1sQ5buNGipJBwi94qddV992lAuRLQu
-         809w==
-X-Forwarded-Encrypted: i=1; AL+hErGdSwlT13pziu3F9bd6jR9h4JHGdhgrnq9b8v0rr4hG5kKBy9KnjbrOf2/nywpmGY8gJkErbz4wrZRR+Ac=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vOsSEgrJBwUjsB3O7XLu4MMyg6imOJV1eTpRhJeu+KFSC3UxZ
-	QnPDvkeA7w+Hz9WTI2a/vvKl9TIizaTPtxHwaSsu2uMZUCqSw8Tqg6++MsYLO679dF+8Gsdw87K
-	F7U2oSPxVGc01eDRr+tBsseYnRlKOGtKHXeuoxDBnz1D5E48BQxpJ
-X-Gm-Gg: AZFdTZcLFoD0CObcIXya/rMCj7r4fxVpfWJEaej8687TcLOO+Poy+NjDRwcwSpEUrTs
-	df4+auCRyucJJkt+DCwpstq9+ASJ5oPEEkzLMs211fLnTZabK/ULtfmdOazNrzBZ8zZQ6q5OW0K
-	p0xoTP0MDvQxdYqHbrskXpT1Blvxa1lKhs2UUN543u36ETl6W3NefK0LO0wFmcQlvzK3nR44BSB
-	+XfSRBdm55S/dUrkMUdMLsdpQT6IcetpDW7xGCSZS8hHf12dYFvMmGN4lb3jE5yXMD9kVO6U5LJ
-	anSC84WN+EA4f9iAVo7FfB1dVIfoSYzRwUEKq4WIUZsoLxauFZChrDvSqIUrl1fCDDuTQbm5YlZ
-	Ix3ydJnM/tNm1yVSnO7kybpqWDnw=
-X-Received: by 2002:a17:90b:2cce:b0:3b0:9a1b:b709 with SMTP id 98e67ed59e1d1-3b41c95f64dmr26944682a91.54.1795818728866;
-        Fri, 27 Nov 2026 14:32:08 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4d00c6137sm8742684a91.5.2026.11.27.14.32.08
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 14:32:08 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec] xfrm: iptfs: give a runt-started inner packet a MAC header
-Date: Fri, 27 Nov 2026 14:32:05 -0800
-Message-ID: <e7d0ab12-61be-4ba7-9a2d-4a71ca73dc4e@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
+        d=1e100.net; s=20260707; t=1795818775; x=1796423575;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=e18q7m+XRgO8UtTQ6TkOW3EX1GONk1zjdab/Y9iIkTw=;
+        b=HP2y6X87+8MQaMhHE2qCdpp3IsDijjA3M2hMnd8nfQ7GWRjXpP9mJh3KLjPfT556Hs
+         9KuskUo2R2cki33dHYKEDSNC6ip/8aZJocs3xbuLovdad0o1PI7I3xnSBf+kwT2YOdrv
+         ymHYMHrqgnYTTwD2DH4rqArM6uh36eRUokQWc0PxCi9te14ykU6FyN4MJNBgdweKAqdu
+         pNi0riZSJ2otXTBLmXio5DsOeZZWCt7xCYJPNcvmAY468NfrCrD4D9UmhA4OG6h4FUiz
+         5qSTMWdv7jIbN7nXFxwOLuwqT+2vh3QNUDrTJyNqnKB/uMYmAnzTe0TaLMKpfaaQssUR
+         XnZg==
+X-Forwarded-Encrypted: i=1; AL+hErGFkdRZsCq9enfo3ZpXGp5X66uFdcemxG0JGRs/zDi+97kMRqQc/GK5xsEtZPgXA64x60vKz+3MYVmCshY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RtLtAUK3pluJ8Pp28A9kviO/QFQj30Q6bLQsMOJ0gdy2QO2uv
+	siAJ4DmC4x9wdIUrw92MNkzpMQzHwEOaPiKIXE6wVhDbU+7gmor9FUl/
+X-Gm-Gg: AZFdTZdMhBrRUf+sqAZuEDXH4Q33XdG/tRAzxDbhURKLPCgl20GfZSlQtnsQ75e9WBp
+	uyBrqHqzJh5EPkpdFjauMIEX2czp1qq6FhlPbJdVhmqTvFAt2piI+bTZy9lMggz/9YYOUfHXr/A
+	+cXWcZqEUCB2MhGn2ezy3tXnbuMxtzpFvwpMyRIwpK2xgKA9mGRP8pPMTr9R5I/kLtK1uxkWCQx
+	QJpm2R0yhOvGL7rJMUS5JUiRwNjBQXSOgeu6DNY/NlvgXtOT3zaP0c0Ik1P7euhA8ZaDbw/v6An
+	ewkjJ8TxlEfmf2CuN0O5+B7eeuoNsaneFRG+yXWaq+QqWbRmlp3eoMvhnOXzRP2qSyps30tBnm0
+	nMsFtzl7Ujp4TAKB87YBRganVWdH2k8nXsOpTDQa1mxnNrW0H66kd7z1356rI111YZ1EZ0yN0bF
+	Y/67SxHAg0gW6NFe6cTJWprX4OEjlzMUE03RpGs8WU+AldPDGgQ/Xgs9CO91yycfFSgKObdmj1G
+	UsGdsJBkUytQHDFYMCvviElb70hhAo1W/Qhgez+bCXgom+1ce+8rAOXuV86aAikheJaWHSCd4rz
+	RFN2B3UGctF8lPenwQSOaUd+JhHHD+VN6Go5o/3WY0l/e8gUFRex2GI=
+X-Received: by 2002:a05:6000:2883:b0:4a4:39bb:970d with SMTP id ffacd0b85a97d-4abab02c469mr49831115f8f.2.1795818774858;
+        Fri, 27 Nov 2026 14:32:54 -0800 (PST)
+Received: from [127.0.1.1] ([130.61.107.245])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm50430285f8f.20.2026.11.27.14.32.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 14:32:54 -0800 (PST)
+From: =?utf-8?q?Adil_H=C3=BCsrev_Tepe?= <tadilhusrev@gmail.com>
+Subject: [PATCH v2 0/3] power: supply: s2mu005-battery: add S2MU106
+Date: Sat, 28 Nov 2026 01:32:52 +0300
+Message-Id: <20261128-s2mu106-fg-v2-0-2c3142e05aaf@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,78 +91,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02OQQ6CMBBFr0Jmbcm00hJdeQ/jopQpjKFAWjAmh
+ LtbdOPyJe+//A0SRaYE12KDSC9OPI0Z1KkA19uxI8FtZlCojJRKi6TCKtEI3wlNyruquqBrCPJ
+ gjuT5/Y3dHz9Oa/MktxyFw/BxCmLpI9m/qDRYV4hYnrWWtRFSLLbloV9TPnTrguWhdFOAff8A/
+ VES0q4AAAA=
+X-Change-ID: 20261125-s2mu106-fg-5e2fc4490cbe
+To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Yassine Oudjana <y.oudjana@protonmail.com>, 
+ =?utf-8?q?Adil_H=C3=BCsrev_Tepe?= <tadilhusrev@gmail.com>
+X-Mailer: b4 0.16.0
 
-When an inner packet's IP header is split across two outer packets (a
-runt, which RFC 9347 allows), iptfs_reassem_cont() allocates the skb
-for the rest but never sets its MAC header. Any packet socket on the
-device then pushes back toward the unset header and panics:
+Add the Samsung S2MU106 fuel gauge (found on the Samsung Galaxy XCover5,
+Exynos850) to the s2mu005-battery driver. It has the same direct
+voltage, current and state-of-charge registers as the S2MU005 but no
+MONOUT averaging, so it gets its own compatible and match data. The
+XCover5 does not wire the gauge's alert line, hence patch 2.
 
-  skbuff: skb_under_panic: text:ffffffff82071ea5 len:-65455 put:-65455
-   skb_push+0x53/0x60
-   tpacket_rcv+0x91f/0xee0
-   netif_receive_skb_list_internal+0x49b/0x10e0
+This supersedes the standalone s2mu106-fuelgauge series [1], as asked
+by Kaustabh and Krzysztof.
 
-An unprivileged user can set the whole thing up (both tunnel ends and
-the capture in its own namespaces). With GRO on the ingress device,
-gro_list_prepare() reads past the head the same way, with no socket
-at all. Rebuild the MAC header from the outer packet.
+[1] https://lore.kernel.org/all/20261117104328.1176951-1-tadilhusrev@gmail.com/
 
-The patch was written with an AI coding assistant and reviewed by the
-submitter.
+An AI coding assistant (Claude Code) helped compare the register maps
+and draft these patches. I reviewed and tested them on the device.
 
-Fixes: 075694765446 ("xfrm: iptfs: handle received fragmented inner packets")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+Changes in v2:
+- binding: add the compatible to the enum, no s2mu005 fallback
+- shorter commit messages
+- Link to v1: https://lore.kernel.org/all/20261116074000.355176-1-tadilhusrev@gmail.com/
+
 ---
-Found by an AI code review agent while testing an unlocked runt state.
-Validated with a shell + Python (cryptography) + C netlink reproducer,
-no kernel changes or fault injection; a sender without the SA's keys
-cannot reach it (ESP drops forged runts). Tested: the reproducer
-panics unmodified kernels, as root and as an unprivileged uid, and
-passes with the fix, with well-formed frames; KASAN and lockdep
-builds, panic_on_warn=1 on the fixed kernel. GRO evidence (no packet
-socket needed), on f0e68014f4ac: IPv6 ESP-in-UDP with runts through
-GRO + rx-gro-list at ingress triggers KASAN slab reports in
-dev_gro_receive() (read of size 8); the same traffic with runts=0 is
-clean, and the fixed stack forwards everything with no report. Also
-reproduced with the sender on one host and a KASAN victim on another,
-needing only CONFIG_XFRM_IPTFS (the xfrm_iptfs module, or built in);
-present since v6.14. A reproducer is available to the maintainers on
-request. Depends-on
-note: this copy relies on C1
-([PATCH ipsec] xfrm: iptfs: reserve room for the outer MAC header in
-new inner skbs, patchwork 15029420, posted 11-27) for long MAC headers.
+Adil Hüsrev Tepe (3):
+      dt-bindings: power: supply: samsung,s2mu005-fuel-gauge: add S2MU106
+      power: supply: s2mu005-battery: make the alert interrupt optional
+      power: supply: s2mu005-battery: add S2MU106 support
 
- net/xfrm/xfrm_iptfs.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ .../power/supply/samsung,s2mu005-fuel-gauge.yaml   |  1 +
+ drivers/power/supply/s2mu005-battery.c             | 71 ++++++++++++++++++----
+ 2 files changed, 59 insertions(+), 13 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261125-s2mu106-fg-5e2fc4490cbe
 
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 3fff835497b9..28b9fa109251 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -845,6 +845,20 @@ static u32 iptfs_reassem_cont(struct xfrm_iptfs_data *xtfs, u64 seq,
- 		}
- 		xtfs->ra_newskb = newskb;
- 
-+		/* Rebuild the mac header from the outer packet, as
-+		 * __input_process_payload() does for the skbs it allocates;
-+		 * packet taps push back to it on receive.
-+		 */
-+		if (skb_mac_header_was_set(skb)) {
-+			skb_set_mac_header(newskb, -skb->mac_len);
-+			memcpy(skb_mac_header(newskb), skb_mac_header(skb),
-+			       skb->mac_len);
-+			if (skb->mac_len)
-+				eth_hdr(newskb)->h_proto =
-+					(xtfs->ra_runt[0] >> 4) == 6 ?
-+					htons(ETH_P_IPV6) : htons(ETH_P_IP);
-+		}
-+
- 		/* Copy the runt data into the buffer, but leave data
- 		 * pointers the same as normal non-runt case. The extra `rrem`
- 		 * recopied bytes are basically cacheline free. Allows using
+Best regards,
+--  
+Adil Hüsrev Tepe <tadilhusrev@gmail.com>
 
-base-commit: 1213df0bc5993e479706c5eba5830243d778f164
---
-2.53.0
