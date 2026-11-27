@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774195;
-	b=WSc6R6R6GlqSGxmSe4hEY4ckFukOVoRbHzPoaa2G/K5hc3xU4sJT3au7hKnIDEfsUULv
-	 xRd5xITj457j0d4DDA2os5DTNxrjpq+pPdw6lT7HCh9zCPuP6yl7eh6gofdwZMUmW7Ocv
-	 rAi/YqpinjemnnUKzLdjGt2xExqjApvkq9qEcHYSHpswfMx2nQS4eve44dzM/fSS0juRD
-	 VcVPbouqq6HbwZd0ZSJz0VU0Ie2YR2VsKM8qRYRPITSlMEGHPK0BgNbJAin96DzAOipGD
-	 q8FBSJCmgWSu6WniSWkTfKI60nhjenMq5fvfKrECwS9aFTp2SciNqvXJup/iajkIZ0w==
+	t=1795774198;
+	b=x+/HRyK/EpyUNevnNvNHk1Yir8y7ocrTr6kXGvi06T9TSMeQz7zyR0EBsnxEdsdYmLU5
+	 h0ero9M7SsYLHM2iQsEnbtWL5Kw0nXGNf1zhx8UqQdfrtLnxc61sJcYJsQWd+NACtEF/d
+	 bK/svH0nR9n9axcpGC5nwK7ddJhr8sdFqGiq9JGZqfopd7its8shhsS2sQtCB1nm9xS+o
+	 7RZkMvklLnep1J5vdUczE+3JEQCiipBcQPRl94bhLQCR1RHUiXU//zxbobCrs0z9aBBxs
+	 poHiDdlbEmuPYlYMEUL1LzivBHnCu1POPRs9pKseEdOsrmk+CFulA/2hWMjD+Lv7wTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774195;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774198;
 	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
 	 X-ClientProxiedBy;
-	bh=o2JgAdhOUezhb7GopSWs/4mAyB0d8SaoL2siDpc178w=;
-	b=UN7TIAMuGp0I49QNbp3T2a7ZVa3WJ86hsZ2Xa9Xd2op1kDg12Dlx8j4ZQskhuRT/3hAs
-	 u4BNjHNvCkiC2sooa+0N/myndEFGk3BWz+oCpbic8ddgVJHnUP0u0JS8nMWW2XspuLt+J
-	 kmuRXR/Dv0yh/2UHyTycAgYYJSQ+KjQvI2goQxKbXiLwR2tLjCWyqjJVS5ZUSgCkkSgRb
-	 Wfz8YltUdd3xT7GapH5eo8JGIUgSWndWAeYj4Pb6hlsmSJt+22GnxRM6qva/OeWTS1Thy
-	 PYDI4nZt1320XgV55ilaxTTVopBuKqvXpFtwXmlXhIjompTk4EmrLNTattVs/nztRvQ==
+	bh=s8qObomYCecJVouy0UUz+TSdHIjxdSuOA9Xb1SkdQ/Q=;
+	b=11uM0EXnBtM39tWpWTxz3TbZrSq+GB8cg6+XySU9UnDWJeHCJU6Qj08hb3GOL50IbrcE
+	 uUaWMKcDCRpi/xo2rLK+3OkwA+zhoLDUrbrpEvC4o0tHZDsC1YXB8A09s0ZIhgkarr77U
+	 s3G0SVPTINYIVPuQdMkvQ461glo0TY6cqp5BPJ3bVnhJxqSQP7hw1FIJSH6Tkow3GkprM
+	 p58cymX5AO1XW3/RNWsYW3I2aaMvUhGy5hkFGewEZmvyIePL5h9Cs5bKiYS1H1JgHgiXj
+	 f6Kc2XWcW99JBJhniXK5DGXegR/lnMZ63otKBfLxJlPBPw+Q6zONq8gNgsYQK7XSBmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=huawei.com;
 	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=xHdaySEE;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=IC63r5K+;
+	arc=none smtp.remote-ip=113.46.200.225
+Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 324BC606A32F;
-	Fri, 27 Nov 2026 10:09:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 324BC606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B04D4606A333;
+	Fri, 27 Nov 2026 10:09:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B04D4606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=xHdaySEE
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=IC63r5K+
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=o2JgAdhOUezhb7GopSWs/4mAyB0d8SaoL2siDpc178w=;
-	b=xHdaySEEyaH0POGVQRnc6Wwb+5tU4iQ95bHxmODrOZ/ParLiLSPPewxEFFlP+rhAjn6FbYlDS
-	od8iQIoyVKC5Kds2HldEFZJtEnscS9UBTt0/RV+odveJO6GIJBF/xMr/St4Q7GiIu5vPxjhszxy
-	usVJenJk4IgG9aFFrNB/9X0=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jbTdx0yGRz1T4LN;
-	Fri, 27 Nov 2026 18:08:53 +0800 (CST)
+	bh=s8qObomYCecJVouy0UUz+TSdHIjxdSuOA9Xb1SkdQ/Q=;
+	b=IC63r5K+Z2IIgXCeb1fWJfUEaEt/dzATCLrM9y9Me68yOdckVKVnal/PNhIqdwEXxEQ+q/biP
+	wQqsXtzp+/Y8rPlUAkDBI7aeJ3bi4Ac2zgIh3nXuU3DacCfNqAxSvOIJo2JEk1C94viw/MDyoGZ
+	d20+N1HvUWkr0eAYJSE0V3E=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jbTff25n5z1K975;
+	Fri, 27 Nov 2026 18:09:30 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id B875940561;
-	Fri, 27 Nov 2026 18:09:45 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7DCD340565;
+	Fri, 27 Nov 2026 18:09:49 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 27 Nov
- 2026 18:09:43 +0800
+ 2026 18:09:47 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <maddy@linux.ibm.com>,
@@ -78,9 +78,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<kexec@lists.infradead.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v9 02/11] kexec: Add helpers to load the elf core header, initrd and FDT
-Date: Fri, 27 Nov 2026 18:09:16 +0800
-Message-ID: <20261127100925.3019877-3-ruanjinjie@huawei.com>
+Subject: [PATCH v9 04/11] LoongArch: kexec_file: Load the other segments with common helpers
+Date: Fri, 27 Nov 2026 18:09:18 +0800
+Message-ID: <20261127100925.3019877-5-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261127100925.3019877-1-ruanjinjie@huawei.com>
 References: <20261127100925.3019877-1-ruanjinjie@huawei.com>
@@ -98,188 +98,190 @@ Content-Type: text/plain
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 
-arm64, LoongArch and RISC-V load the kdump kernel's elf core header and
-initrd by hand, and arm64 and RISC-V also build the device tree for the
-kexec kernel and place it as a segment.  Add helpers for them so that
-every architecture keeps its own placement policy, which the caller
-puts into the kexec_buf:
+Use the common segment helpers to load the elf core header and the initrd
+instead of open coding them. The initrd and the command line come from
+the image.
 
-- kexec_prepare_elf_core_header() builds the header once per image and
-  returns the number of memory ranges, which x86 needs to size its
-  crash hotplug reservation.
-
-- kexec_add_elf_core_header() places the prepared header as a segment.
-  The caller provides the kexec_buf with its placement policy and the
-  size to reserve: x86 and powerpc put their crash hotplug reservation
-  there, the other architectures the header size.
-
-- kexec_add_initrd() places the initrd from the image.
-
-- of_kexec_add_fdt() builds the device tree for the kexec kernel, packs
-  it and places it.
-
+Cc: Huacai Chen <chenhuacai@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: Baoquan He <baoquan.he@linux.dev>
 Cc: Mike Rapoport <rppt@kernel.org>
-Suggested-by: Mike Rapoport <rppt@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- drivers/of/kexec.c    | 35 +++++++++++++++++++++++++
- include/linux/kexec.h |  6 +++++
- include/linux/of.h    |  4 +++
- kernel/kexec_file.c   | 60 +++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 105 insertions(+)
+ arch/loongarch/include/asm/kexec.h         |  3 +-
+ arch/loongarch/kernel/kexec_efi.c          |  3 +-
+ arch/loongarch/kernel/kexec_elf.c          |  3 +-
+ arch/loongarch/kernel/machine_kexec_file.c | 71 +++++++---------------
+ 4 files changed, 25 insertions(+), 55 deletions(-)
 
-diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
-index bb4e0d9bfd38..a6f07c33fc40 100644
---- a/drivers/of/kexec.c
-+++ b/drivers/of/kexec.c
-@@ -533,3 +533,38 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
+diff --git a/arch/loongarch/include/asm/kexec.h b/arch/loongarch/include/asm/kexec.h
+index 6be136e9f0a0..b000e97c95f6 100644
+--- a/arch/loongarch/include/asm/kexec.h
++++ b/arch/loongarch/include/asm/kexec.h
+@@ -51,8 +51,7 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image);
+ #define arch_kimage_file_post_load_cleanup arch_kimage_file_post_load_cleanup
  
- 	return fdt;
- }
-+
-+int of_kexec_add_fdt(struct kimage *image, struct kexec_buf *kbuf,
-+		     unsigned long initrd_load_addr, const char *cmdline,
-+		     void **fdt)
-+{
-+	void *new_fdt;
-+	int ret;
-+
-+	new_fdt = of_kexec_alloc_and_setup_fdt(image, initrd_load_addr,
-+					       image->initrd_buf_len,
-+					       cmdline, 0);
-+	if (!new_fdt) {
-+		pr_err("Preparing for new dtb failed\n");
-+		return -EINVAL;
-+	}
-+
-+	fdt_pack(new_fdt);
-+
-+	kbuf->buffer = new_fdt;
-+	kbuf->bufsz = kbuf->memsz = fdt_totalsize(new_fdt);
-+	kbuf->mem = KEXEC_BUF_MEM_UNKNOWN;
-+
-+	ret = kexec_add_buffer(kbuf);
-+	if (ret) {
-+		kvfree(new_fdt);
-+		return ret;
-+	}
-+
-+	*fdt = new_fdt;
-+
-+	kexec_dprintk("Loaded dtb at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-+		      kbuf->mem, kbuf->bufsz, kbuf->memsz);
-+
-+	return 0;
-+}
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index bac11e940e74..491046a90ffa 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -258,6 +258,12 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
+ extern int load_other_segments(struct kimage *image,
+-		unsigned long kernel_load_addr, unsigned long kernel_size,
+-		char *initrd, unsigned long initrd_len, char *cmdline, unsigned long cmdline_len);
++		unsigned long kernel_load_addr, unsigned long kernel_size);
+ #endif
  
- extern int kexec_add_buffer(struct kexec_buf *kbuf);
- int kexec_locate_mem_hole(struct kexec_buf *kbuf);
-+int kexec_add_initrd(struct kimage *image, struct kexec_buf *kbuf);
-+#ifdef CONFIG_CRASH_DUMP
-+int kexec_prepare_elf_core_header(struct kimage *image, bool need_kernel_map,
-+				  unsigned long *nr_ranges);
-+int kexec_add_elf_core_header(struct kimage *image, struct kexec_buf *kbuf);
-+#endif
+ typedef void (*do_kexec_t)(unsigned long efi_boot,
+diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
+index 28a1d0420ba3..4824c47907ac 100644
+--- a/arch/loongarch/kernel/kexec_efi.c
++++ b/arch/loongarch/kernel/kexec_efi.c
+@@ -77,8 +77,7 @@ static void *efi_kexec_load(struct kimage *image,
+ 		/* Try to load additional data */
+ 		kernel_segment = &image->segment[kernel_segment_number];
+ 		ret = load_other_segments(image, kernel_segment->mem,
+-					  kernel_segment->memsz, initrd,
+-					  initrd_len, cmdline, cmdline_len);
++					  kernel_segment->memsz);
+ 		if (!ret)
+ 			break;
  
- #ifndef arch_kexec_apply_relocations_add
- /*
-diff --git a/include/linux/of.h b/include/linux/of.h
-index 44d83133a65a..5934097e7a21 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -480,10 +480,14 @@ int of_map_msi_id(const struct device_node *np, u32 id,
- phys_addr_t of_dma_get_max_cpu_address(struct device_node *np);
+diff --git a/arch/loongarch/kernel/kexec_elf.c b/arch/loongarch/kernel/kexec_elf.c
+index 1b6b64744c7f..6fda49de330f 100644
+--- a/arch/loongarch/kernel/kexec_elf.c
++++ b/arch/loongarch/kernel/kexec_elf.c
+@@ -83,8 +83,7 @@ static void *elf_kexec_load(struct kimage *image,
  
- struct kimage;
-+struct kexec_buf;
- void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
- 				   unsigned long initrd_load_addr,
- 				   unsigned long initrd_len,
- 				   const char *cmdline, size_t extra_fdt_size);
-+int of_kexec_add_fdt(struct kimage *image, struct kexec_buf *kbuf,
-+		     unsigned long initrd_load_addr, const char *cmdline,
-+		     void **fdt);
- #else /* CONFIG_OF */
+ 	/* Load additional data */
+ 	kernel_segment = &image->segment[kernel_segment_number];
+-	ret = load_other_segments(image, kernel_segment->mem, kernel_segment->memsz,
+-				  initrd, initrd_len, cmdline, cmdline_len);
++	ret = load_other_segments(image, kernel_segment->mem, kernel_segment->memsz);
+ 	if (ret < 0)
+ 		goto out;
  
- static inline void of_core_init(void)
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index 1f128c6e6fa3..66f389346c2b 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -109,6 +109,66 @@ static void kexec_free_elf_headers(struct kimage *image)
- 	image->elf_headers_sz = 0;
- }
+diff --git a/arch/loongarch/kernel/machine_kexec_file.c b/arch/loongarch/kernel/machine_kexec_file.c
+index f16d9ab14726..00940f20b45e 100644
+--- a/arch/loongarch/kernel/machine_kexec_file.c
++++ b/arch/loongarch/kernel/machine_kexec_file.c
+@@ -115,19 +115,20 @@ static void cmdline_add_elfcorehdr(struct kimage *image, unsigned long *cmdline_
+  * locations, this function will undo changes to the image and return non zero.
+  */
+ int load_other_segments(struct kimage *image,
+-			unsigned long kernel_load_addr, unsigned long kernel_size,
+-			char *initrd, unsigned long initrd_len, char *cmdline, unsigned long cmdline_len)
++			unsigned long kernel_load_addr, unsigned long kernel_size)
+ {
+-	int ret = 0;
++	struct kexec_buf kbuf = {
++		.image = image,
++		/* Don't allocate anything below the kernel */
++		.buf_min = kernel_load_addr + kernel_size,
++		.buf_max = ULONG_MAX,
++	};
+ 	unsigned long cmdline_tmplen = 0;
+ 	unsigned long initrd_load_addr = 0;
+ 	unsigned long orig_segments = image->nr_segments;
++	char *cmdline = image->cmdline_buf;
+ 	char *modified_cmdline = NULL;
+-	struct kexec_buf kbuf = {};
+-
+-	kbuf.image = image;
+-	/* Don't allocate anything below the kernel */
+-	kbuf.buf_min = kernel_load_addr + kernel_size;
++	int ret = 0;
  
-+#ifdef CONFIG_CRASH_DUMP
-+int kexec_prepare_elf_core_header(struct kimage *image, bool need_kernel_map,
-+				  unsigned long *nr_ranges)
-+{
-+	int ret;
-+
-+	/*
-+	 * The header does not depend on where the segments are placed, so
-+	 * the loaders' placement retries can reuse the same build.
-+	 */
-+	if (image->elf_headers)
-+		return 0;
-+
-+	ret = crash_prepare_headers(need_kernel_map, &image->elf_headers,
-+				    &image->elf_headers_sz, nr_ranges);
-+	if (ret)
-+		pr_err("Preparing elf core header failed\n");
-+
-+	return ret;
-+}
-+
-+int kexec_add_elf_core_header(struct kimage *image, struct kexec_buf *kbuf)
-+{
-+	int ret;
-+
-+	kbuf->buffer = image->elf_headers;
-+	kbuf->bufsz = image->elf_headers_sz;
-+	kbuf->mem = KEXEC_BUF_MEM_UNKNOWN;
-+
-+	ret = kexec_add_buffer(kbuf);
-+	if (ret)
-+		return ret;
-+
-+	image->elf_load_addr = kbuf->mem;
-+
-+	kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-+		      image->elf_load_addr, kbuf->bufsz, kbuf->memsz);
-+
-+	return 0;
-+}
-+#endif /* CONFIG_CRASH_DUMP */
-+
-+int kexec_add_initrd(struct kimage *image, struct kexec_buf *kbuf)
-+{
-+	int ret;
-+
-+	kbuf->buffer = image->initrd_buf;
-+	kbuf->bufsz = kbuf->memsz = image->initrd_buf_len;
-+	kbuf->mem = KEXEC_BUF_MEM_UNKNOWN;
-+
-+	ret = kexec_add_buffer(kbuf);
-+	if (ret)
-+		return ret;
-+
-+	kexec_dprintk("Loaded initrd at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-+		      kbuf->mem, kbuf->bufsz, kbuf->memsz);
-+
-+	return 0;
-+}
-+
- /*
-  * Free up memory used by kernel, initrd, and command line. This is temporary
-  * memory allocation which is not needed any more after these buffers have
+ 	modified_cmdline = kzalloc(COMMAND_LINE_SIZE, GFP_KERNEL);
+ 	if (!modified_cmdline)
+@@ -140,79 +141,51 @@ int load_other_segments(struct kimage *image,
+ #ifdef CONFIG_CRASH_DUMP
+ 	/* Load elf core header */
+ 	if (image->type == KEXEC_TYPE_CRASH) {
+-		void *headers;
+-		unsigned long headers_sz;
+-
+-		ret = crash_prepare_headers(true, &headers, &headers_sz, NULL);
+-		if (ret < 0) {
+-			pr_err("Preparing elf core header failed\n");
++		ret = kexec_prepare_elf_core_header(image, true, NULL);
++		if (ret)
+ 			goto out_err;
+-		}
+ 
+-		kbuf.buffer = headers;
+-		kbuf.bufsz = headers_sz;
+-		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+-		kbuf.memsz = headers_sz;
+ 		kbuf.buf_align = SZ_64K; /* largest supported page size */
+-		kbuf.buf_max = ULONG_MAX;
+ 		kbuf.top_down = true;
++		kbuf.memsz = image->elf_headers_sz;
+ 
+-		ret = kexec_add_buffer(&kbuf);
+-		if (ret < 0) {
+-			vfree(headers);
++		ret = kexec_add_elf_core_header(image, &kbuf);
++		if (ret)
+ 			goto out_err;
+-		}
+-
+-		if (unlikely(image->elf_headers))
+-			vfree(image->elf_headers);
+-
+-		image->elf_headers = headers;
+-		image->elf_load_addr = kbuf.mem;
+-		image->elf_headers_sz = headers_sz;
+-
+-		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+-			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+ 
+ 		/* Add the mem=size@start parameter to the command line */
+ 		cmdline_add_mem(&cmdline_tmplen, modified_cmdline);
+ 
+ 		/* Add the elfcorehdr=size@start parameter to the command line */
+-		cmdline_add_elfcorehdr(image, &cmdline_tmplen, modified_cmdline, headers_sz);
++		cmdline_add_elfcorehdr(image, &cmdline_tmplen, modified_cmdline,
++				       image->elf_headers_sz);
+ 	}
+ #endif
+ 
+ 	/* Load initrd */
+-	if (initrd) {
+-		kbuf.buffer = initrd;
+-		kbuf.bufsz = initrd_len;
+-		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+-		kbuf.memsz = initrd_len;
++	if (image->initrd_buf) {
+ 		kbuf.buf_align = 0;
+ 		/* within 1GB-aligned window of up to 32GB in size */
+ 		kbuf.buf_max = round_down(kernel_load_addr, SZ_1G) + (unsigned long)SZ_1G * 32;
+ 		kbuf.top_down = false;
+ 
+-		ret = kexec_add_buffer(&kbuf);
+-		if (ret < 0)
++		ret = kexec_add_initrd(image, &kbuf);
++		if (ret)
+ 			goto out_err;
+ 		initrd_load_addr = kbuf.mem;
+ 
+-		kexec_dprintk("Loaded initrd at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+-			      initrd_load_addr, kbuf.bufsz, kbuf.memsz);
+-
+ 		/* Add the initrd=start,size parameter to the command line */
+ 		cmdline_add_initrd(image, &cmdline_tmplen, modified_cmdline, initrd_load_addr);
+ 	}
+ 
+-	if (cmdline_len + cmdline_tmplen > COMMAND_LINE_SIZE) {
++	if (image->cmdline_buf_len + cmdline_tmplen > COMMAND_LINE_SIZE) {
+ 		pr_err("Appending command line exceeds COMMAND_LINE_SIZE\n");
+ 		ret = -EINVAL;
+ 		goto out_err;
+ 	}
+ 
+-	memcpy(modified_cmdline + cmdline_tmplen, cmdline, cmdline_len);
+-	cmdline = modified_cmdline;
+-	image->arch.cmdline_ptr = (unsigned long)cmdline;
++	memcpy(modified_cmdline + cmdline_tmplen, cmdline, image->cmdline_buf_len);
++	image->arch.cmdline_ptr = (unsigned long)modified_cmdline;
+ 
+ 	return 0;
+ 
 -- 
 2.34.1
 
