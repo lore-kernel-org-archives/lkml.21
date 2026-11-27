@@ -1,74 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.29
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795803142;
-	b=BW9XFMxrN7p7rYR0wPCDjp/wfBxXPLsLE9PWYUyQmu/lJWqo96NGgublk3w20LRlOKqE
-	 y/7vdRDH3KpUbys/duqQ6c4f6isPkJFFvdPJ1HdC8fviWzAXyrUiQH0nKpGxbhEOs+VoT
-	 6xTlbThegwJw+OcNlbOoaMTjnELmWrGQxJD3Twy+y9FcnmRsyOBSM9CgOtV65S++ryWaR
-	 joG/tm2WyOPkUilJszZYhbE9nBqan4+cZkWeFg6i25lwg21cnxyUCwpDewUNoZa/ucyf9
-	 dtC5d2X1mF3eQ5y1oEf7itxeZBBKMx7OU2NerheVk97Wdf3/wo/w6GLTvEulKGXxcGA==
+	t=1795803166;
+	b=n38rzZUc0IJRb5LkddC8suvzvSV0y01nbZK6aemtFjvBOGkDTbLwn8K0ROWYcqoVX6mN
+	 eP3N0qhs/BlCMP5KjHXSX+vwOw42TTH4X80H4Splt/Ohtcs50FHC4XdIrSsbH0AlBNLZ3
+	 r3PNeCxBYTM0D3iEmXgbQSfgJKS1rbZbenaK0NLD0DXO6jrIv8+MKxIERlP9fQRCt2NCL
+	 8BfWoKz64C6komCZ7HOCP5Sue0vg82/X+aSMnL7PEQYXlEzWCHNgMws7+mEPqc52LVY7n
+	 Oyb3vKDil0f9RJwXod0ksb3eTbYFBY3KcziLLh9TLj83VdBs/rglrwbNQkOTWFjx1YA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803142;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=NZGcvqBJEfT7g/whVf4ukhs+6BekUU6T21N+nSw//EY=;
-	b=QbFi4qRnFYvQf40z1UgpeNwkDNIgu8qBjo8AMl4OlQhvfpCXravsGCebefyEefY/59Oo
-	 MGCrqATtU+MowMo5CzMNKC2O6lkuTfE412M65sgTqq5J5HAGgv5YN7u72f2e29GqJCSLE
-	 XEQVFm8g8RUk23yyFdPSTRSNwdk+3JpFqsj3ZjG/VA3HZca0tYyJP2UikUdC5moFlI9SV
-	 7MdjuG/5Ty7eSh0q2e5G+IqgbLFT6vCqklEVY+tLt7SMU/7YCRHnxcCwqkGJbdj1fwoli
-	 vdiaq3MwdSDX8a0yPZcjIBGdeITE/CLm00RUS8lwW1psyGrt/XhxHSsLhGWTp5Nc7ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803166;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=g4XjkTeEPorowL6TGZItvt/dW091Sbnkdr9qWSWKFsw=;
+	b=tyXw9er68eE2fRXkgqtxwz5hvFDyMcTz6JcWCWRKocrhqwuLjxCjZu8lFM7Y8lRQfo/j
+	 U/hLZDfGZi1dS0q2lhvP1znlRuq+gXfMeZ1Ilo7+eq1U7JJYOZcemAS1dQuaBbAloWkGR
+	 oXCfMIrLpcclQQjaFcpP7M+GSO6mywkizbxzwivSprt1aTdRquG60WsY4kSTm5a2/5TGr
+	 aHMApqy+M1FxdB6zyQ6bxX7ELMwzknkua1Xqbiddcf9PmlQfmi6965U1hksypbRMwRwfr
+	 3B7216f3v5Ss2Tf+9r4aKRAMxEOW804CdFCwTJF8VzOsmUtmfpE4ERy6BFPoUp5WuIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HHc77jFv;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 67BD5606A321;
-	Fri, 27 Nov 2026 18:12:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67BD5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VXmBLnO5;
+	arc=none smtp.remote-ip=79.135.106.29
+Received: from mail-10629.protonmail.ch (mail-10629.protonmail.ch [79.135.106.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7C18606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:12:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7C18606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HHc77jFv
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 891F61575;
-	Fri, 27 Nov 2026 10:12:18 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBA4E3F86C;
-	Fri, 27 Nov 2026 10:12:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795803141; bh=BX01zZQ8nHBs4mxff7UBzSukxYsQTZNUpf0gX1VR81o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HHc77jFvjaccfHJE17xqKL/IqiGPQ+BeH6zBI+g2ieHQmh2//J2eW8wELdkkk8hRu
-	 dO/oTl4A3EAMrpugvgDmxQrH2rsSUmToa4UBPRb6Y5gHJGiXiSml4XSNmZSjqEaPjT
-	 FKNykJLuwmnANFhWJPm0cV+aM5RAEJZy25LS3Ack=
-Date: Fri, 27 Nov 2026 18:12:15 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
-	Pawel Chmielewski <pawel.chmielewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>, Len Brown <lenb@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Mark Brown <broonie@kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Gavin Shan <gshan@redhat.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH RFC v3 3/8] arm64: acpi: Enable ACPI CCEL support
-Message-ID: <awnH_1vFvFXpny-M@e129823.arm.com>
-References: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
- <20261127-arm_cca_mr-v3-3-df3230afce8f@arm.com>
- <3a46bcc3-33bb-4c9d-a3e5-44144406dbda@arm.com>
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VXmBLnO5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795803158; x=1796062358;
+	bh=g4XjkTeEPorowL6TGZItvt/dW091Sbnkdr9qWSWKFsw=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=VXmBLnO5/cti5FpDWa6tnZ0X0x1Uo6/ihGFibv4xMx/41pfr1ie0ISxHu+0gP94o8
+	 LiDJfqNHSmIpgRB97B1Fzar0fBtj/yHtfvvBKzGlzLQjaDdreYaNJVgj5gtbp8+LUm
+	 BK1CaB3s16sypcJxjB9e6SgMB9EFiPXsK+zz/Ni5S5DMvHHbQHSb8G0DBQ8honoKvf
+	 5Gw+GBswRwU5Nkh/lgsTNVOusr2i6oGQ8f21tH3PqgSElJSlgUHK2B9ezzsxMe7Wt3
+	 WYaboM+HqUTnszU/8wVad7bggWCEgsljt1jNNXiUWy+MHw71jdAn0jTeLraem1BzOs
+	 fGnj1iaeRA+rA==
+Date: Fri, 27 Nov 2026 18:12:33 +0000
+To: iasnezhkov@gmail.com
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, amergnat@baylibre.com, me@adomerle.pw, devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/3] soc: mediatek: mtk-pmic-pwrap: Add MT6789 support
+Message-ID: <czEp-CqZIp301roqRSqIALy9ubTnOg7uHv75zRifEAuhIS0f1zSU45eKzIC3fZfiUnaahQK6yVuQvthvHZOt267Mpt13X55ERh2A6HJRTic=@protonmail.com>
+In-Reply-To: <20261127030009.10572-4-iasnezhkov@gmail.com>
+References: <20261127030009.10572-1-iasnezhkov@gmail.com> <20261127030009.10572-4-iasnezhkov@gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: a252025cd58c9cc04ec8fb1af0e63707bf4d7bfb
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,58 +64,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3a46bcc3-33bb-4c9d-a3e5-44144406dbda@arm.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 27, 2026 at 04:28:01PM +0000, Suzuki K Poulose wrote:
-> On 27/11/2026 15:32, Yeoreum Yun wrote:
-> > From: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > 
-> > Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
-> > As per UEFI specifications NVS memory is reserved for Firmware use even
-> > after exiting boot services. Thus map the region as read-only.
-> > 
-> > Cc: Sami Mujawar <sami.mujawar@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> > Cc: Steven Price <steven.price@arm.com>
-> > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > Cc: Gavin Shan <gshan@redhat.com>
-> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   arch/arm64/kernel/acpi.c | 11 +++++++++++
-> >   1 file changed, 11 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> > index 681aa2bbc3995..3d6335db882d3 100644
-> > --- a/arch/arm64/kernel/acpi.c
-> > +++ b/arch/arm64/kernel/acpi.c
-> > @@ -354,6 +354,17 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
-> >   			prot = PAGE_KERNEL_RO;
-> >   			break;
-> > +		case EFI_ACPI_MEMORY_NVS:
-> > +			/*
-> > +			 * ACPI NVS marks an area reserved for use by the
-> > +			 * firmware, even after exiting the boot service.
-> > +			 * This may be used by the firmware for sharing dynamic
-> > +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
-> > +			 * as read-only.
-> > +			 */
-> > +			prot = PAGE_KERNEL_RO;
-> > +			break;
-> > +
-> 
-> Unfortunately this breaks some platforms, where the NVS must be mapped
-> R/W. Thats why we dropped this patch.
-> 
-> https://lore.kernel.org/all/20251124103329.363afcc6@foz.lan
+On Friday, November 27th, 2026 at 5:00 AM, Ilia Snezhkov via B4 Relay <devn=
+ull+iasnezhkov.gmail.com@kernel.org> wrote:
 
-Thanks to share. anyway it's enough to read in this series.
-So I'll drop this in the next spin. Thanks!
+> From: Arseniy Velikanov <me@adomerle.pw>
+>=20
+> Add PMIC-Wrapper support for the MediaTek MT6789 (Helio G99) SoC.
+>=20
+> MT6789 uses the PMIF-SPI arbiter interface with bank 3 interrupt
+> registers (INT_EN at 0x450, INT_FLG at 0x458, INT_CLR at 0x45C, mask
+> 0x180000) and WACS2 software interface at 0x880..0x8A8. Register offsets
+> and wrapper parameters are verified on live MT6789 hardware (iKKO
+> MindOne, MT6366 PMIC).
+>=20
+> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+> ---
+> Changes since v2:
+> - Added PWRAP_INT_FLG (0x458) and PWRAP_INT_CLR (0x45C) matching bank 3
+>   PWRAP_INT_EN (0x450).
 
--- 
-Sincerely,
-Yeoreum Yun
+I don't see INT_FLG and INT_CLR in the 5.10 kernel [1]. Where did you
+find them?
+
+Also, the series doesn't apply on next-20261125. It might be due to
+recent mt6572 changes. Please rebase.
+
+[1] https://github.com/xiaomi-mt6789-devs/kernel_xiaomi-yunluo/blob/d92da04=
+1e3ad824c273877abeeeb07c145c37d02/drivers/soc/mediatek/mtk-pmic-wrap.c#L667
+
+Best regards,
+Roman
