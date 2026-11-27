@@ -1,95 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753969;
-	b=0z5qVdv6mhZiN5JG5MnSHwm+I+fEVyIvxnNwpDDXTz+hZnY7gAioiNCmsFoFjYIEgAy+
-	 OAzaqnPn/DGvCN2j6LysUqNaG52aB1QoQu+g8vYWtVsOn4JEHkDV16lz5uSbY94wBj3IJ
-	 0w7c2A4qUjNrjn+lWLPTzXXBpBhHg+Lww+YphT4SRjLlNJWyM+LR/CVuPebLi0dN6tkLr
-	 VLgYXPBAJXafEYExfj0Nt2BIijpV0YNAuW81oGVlA+Wd99sjkYGmRxLFNa0fxpnReA1yj
-	 5q1jH16EBV10avwuK6VTk3hP/Q2BdcX1FaXZy/7VtAmLkbzmCkOWKeKHUgZWHlP6E6w==
+	t=1795754012;
+	b=Lh8YVUwragiurfmosVqbUWcdEF9It2N7viU4vZdCyK1VuHeguAiOZruZZNMYkVVG3w+j
+	 ulpy7yO4va6SyvvPs22g+XI1y2Dq1NTWLul1CSY62//p0KgjGfn0KnkvvHYjdsDIVT0ug
+	 yYgG1D2UA1terumYicj0jT22ep6KYcpZPNAVVIo2sm3mNVuaCA9tLRGurZmSUYDYEbHl+
+	 x1NFlVUTkbjMCl4KTYzx456Ujs/IVe0SccyzPahopBH/BJLZsEC9BoMHPHQUB1IM1ZuX8
+	 b3PE5lsnSDDXlc7FdbO35+CwAkATRr6EnenT1ggidY12wGU2wbDiZn+BQlPu5/mREow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753969;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9wan7/G8S4UB5GznKJoS+f2YKxQ4KsBioj9oqflOV7o=;
-	b=t+aE2MvVFtIgTwPxLHayla19RH9gP+LijsPWnB3Z7k453EdVzTx9qgw96IFsJ9MSCH2R
-	 5Qvoo5RwFUsRWBMGFGWbsayB34s2Hd0CA8iQjF1BkGYfXO4inTXITuX8CAm3pJO2J8PRY
-	 IZTVyPdlN9ja01q2EuPnkBtcAToCu7zLMdzMxdnll72Eo4GPqgK5xsQ+wZ2Nmyp/1/kjx
-	 FwOe9G8eXFXhmr68A6QUDSeCrfm9W1JrvMu9yu/yUSODxini8j9enQmBYHBFjGuxKtM3H
-	 drSer9k7Ju3MM1vmvn3jswy37JW/d2frbjpxGpg7T7e2rT5LHiL8IOnadPNBW4zgNSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795754012;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=7rOhMtv2u2ZTS7Y7SzBLnz/8dNSyiaSieAM2fOven2w=;
+	b=HmVrBJ1/vC+JxqoTdvkwtizyQpq2PiLgwjiacTPYZk4Dofa1+dwDSI7il2FJjCxUeRjA
+	 2ucs7Aze7zOdjZ0Wj68cNsUHJz5Oohwhqa0scOohjf49dWWIf6OlW4T0hlzbjJVaCVTzn
+	 Dbscw21lc1+lYf8euFsSyjrz03wI/TcGFZyMXj2Ox0G+R7Cr3HWuN35Xj5oAyOccZCoA6
+	 /Forl/2eXFOuONyijULVkmXPSTgbqcjxcjLEPwrFn9wImxugUxe+UlFfXL18Rmi1tTOZl
+	 hGAvWG1W+9f2oJUFE0gyy/d6NLqqgtIosPBg3At9rfTyIDlKr5E8b+G6b2wDQUcBwtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="TA0Xf/52";
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.210.69
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45132606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:32:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45132606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TA0Xf/52
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so4577260b3a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:32:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795753969; x=1796358769; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9wan7/G8S4UB5GznKJoS+f2YKxQ4KsBioj9oqflOV7o=;
-        b=TA0Xf/526I4RQgqo925fVLv2MqNnBpADfW9+sve7dvu/s7PRVUY6H7yR53MDHiVHSA
-         cnHrMvfH8KMiZYoJGA7hHW66vWMscRDFzgzpLSztD719/fDXSxcJ+bKTlAT/selsGfnM
-         lsrovSZMBCOOspDUJLPruCI9ODTKdHVuTgcvB/LmBhETkAV3/Fm6Jqoh26F3XU7fZVzR
-         Hjt4+9tYQaosnWHt3g7jb6s63+seEHoheOZlg+4u7MAvDuC4g5ueOY3YrsE7j+vxi8Qi
-         dqKoalApYqfB2+h5S4W2jMitS0v2V3+Z+9MFAIxFRkuRSewJ0sMQ2df9bdYSopaBBgJa
-         BXmw==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2BEA606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:33:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2BEA606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-8520e83f715so7435311a34.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:31 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795753969; x=1796358769;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9wan7/G8S4UB5GznKJoS+f2YKxQ4KsBioj9oqflOV7o=;
-        b=Jgt1cpzVez8EuvnhM0aUMGOMzvuR9DEOptCNh1GNzYtZxFgngT8VA6qtqNSrNSDhvO
-         R8EDVbDt5quRN4dk0mygTJCx76Hi2x3Cn8vf0KOBdkiC+rFAKmxv350qpfyKHUYxZq5c
-         eJ51IN3Mskko7lHWEhzrbhqEezeLjPSme8Xsbg0onLlv1L/D/u/dY0u2ix4nM9u3piWJ
-         WhCMCbhN0vHZDgZHGaE8Tbxipe94yIMT58+IU+2k2yCSWJXVxW3x4bTsD1mcIEAf4aTh
-         PxnrfggB9oUsVCnjWR4ozOmOKuIfbqRSHG39Wm88UmgHaKejEX3owktskHGUkBkH4rt5
-         KgzA==
-X-Forwarded-Encrypted: i=1; AL+hErGhHHIwoYy1kw82tdT6mp3rqwuTQzELPbM3niXr2JqrMjecy0+JI8DWhfhAk36gWacWP3QCpU4kNGISGVo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DH8bO1ELf79eD7ViBbuo3dycwMlnF19viIsmCYhA/RyS0jvLG
-	fI0cpP9lFm0YqqpS8ymSYrK3K1My0UvCd5MQmFuxbNSrVjWxGEtAKVGr
-X-Gm-Gg: AZFdTZep+NaAohwOlZDOm9aLV0T1rXSapNWBKfg1+cIoTSyLjqwYopCdttkx1vZJrJa
-	2XzLG0NKosoHQWfJxfiNJntg8ms+Pa5GlOYFOPj4mKnaPXX4qlCu70PQpN0xYG8RT2JWbbJ8wp5
-	1yjYhZh4au+WVuISVRN3R7uqdOjCizuUPA2zZYLqB0NP1egdHLF2aZRrdeqeZVH22ey+lAo7rKH
-	wfXpSruMoR98GpKE9YlRS9+2HWoQyWhd4SSxskZjIIUP4DSqV9WyUM9xXNlVCHoEzYSBspMRfGT
-	raHcnbGE83e0vliqd4r7U70ebnyaRX2ZhNpHhRE0IjBgH5LcvRLa72+VEqLVrdrJ5aB6reyM5hB
-	bYEA6U1T5OyYb/BwvaRwxZqUFfr4gW+PGdtPC0HxbeThdXu/wriIm5by/EgfuUj60FBxykdHW27
-	DV69YHlym1RmR5xsOfUWcEs1JAfUQdPSvG1cw9IihlDcc/Nmyi3dfemOy9VdY5XOIBRg/b6NsV1
-	r/DWvEY1ZfGNL2n9vs8pVAEbx7OrS/WOfn93VLD1KJoOVDR8GX1SvTttrowE32j3HDw65hg+x6w
-	mjdjsoYmVx0NbJLVnXGFmk7HOaTgne2BkDja7kYYWfkDEWcLRnq6fbje3FcocMqaS0+Pclk=
-X-Received: by 2002:a05:6a00:c08a:20b0:8c7:f59c:e82e with SMTP id d2e1a72fcca58-8c7f59cee72mr12535360b3a.36.1795753968591;
-        Thu, 26 Nov 2026 20:32:48 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4c43bsm11468690b3a.26.2026.11.26.20.32.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 20:32:48 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: hansg@kernel.org,
-	ilpo.jarvinen@linux.intel.com
-Cc: platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH 2/2] platform/x86: mxm-wmi: remove trailing whitespace
-Date: Thu, 26 Nov 2026 22:32:45 -0600
-Message-ID: <20261127043245.132189-2-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261127043245.132189-1-artem122novak@gmail.com>
-References: <20261127043245.132189-1-artem122novak@gmail.com>
+        d=1e100.net; s=20260707; t=1795754011; x=1796358811;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7rOhMtv2u2ZTS7Y7SzBLnz/8dNSyiaSieAM2fOven2w=;
+        b=TiqrEJgifnMDpkPh3n9TAYNShyd2EyfqteCepJ7sY3v9zuGT9kewJyRV5zw7XhF9Hw
+         bsNniAFYX2C6ydM3caBJShdayjwrCtlw4Q640BzB+uXWext+WRhNO2UtaGo2iTgapzoE
+         Hq05+0oQBu5R1Ed+EE0sGkyHplpr+vkak5y2/f3fRlAZWEEoRTtofbDof2wAq0Mthp3Z
+         3XIohUvgwRt111ewEkc1ZN9BqVOFrL/+uU6q9pIeh3tTBqIymN9MuIUxRNN9C91sECXj
+         iTa78HcWAw52JjHmc7+6NOgzCxkA9Pfvra6eRzFBh5MGorDlUH5Mt4k+rvL9sVFrKfri
+         nDdg==
+X-Forwarded-Encrypted: i=1; AL+hErGb4KBTvKWR/Ic44bLt1pIptwKp+OppPnK4ZRhAj4/AUPP667AsQVnKBjQJn2DjY1VPimzyDv07OgtwZKI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8s5UAdtOZuAAfuWPLGkKGAf0rxFUGdcEfhsQRS+rC53t3qdhzG
+	g0eNZaQO8pWrBrCpKNIvnGev6ixdoPt+q7/81Hwnd+KI8chgreJknpG5DGho9zzT/MH414tGOnI
+	kfqCbonOIVfuN+dYfYqdDE9evSdj+1MaY4shddXTsOFkOHpv4NxYZMNtZSdY=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,29 +58,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:4f4d:b0:576:4f95:5305 with SMTP id
+ 5614622812f47-57a0ac32c49mr29972057b6e.38.1795754011163; Thu, 26 Nov 2026
+ 20:33:31 -0800 (PST)
+Date: Thu, 26 Nov 2026 20:33:31 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b09081b.904258e1.78503.002c.GAE@google.com>
+Subject: [syzbot] Monthly gfs2 report (Nov 2026)
+From: syzbot <syzbot+list3a3ae45b81deecab1f47@syzkaller.appspotmail.com>
+To: gfs2@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Remove the trailing whitespace from the blank line in
-mxm_wmi_call_mxds().
+Hello gfs2 maintainers/developers,
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
+This is a 31-day syzbot report for the gfs2 subsystem.
+All related reports/information can be found at:
+https://syzkaller.appspot.com/upstream/s/gfs2
+
+During the period, 0 new issues were detected and 0 were fixed.
+In total, 20 issues are still open and 51 have already been fixed.
+There are also 7 low-priority issues.
+
+Some of the still happening issues:
+
+Ref Crashes Repro Title
+<1> 111     Yes   kernel BUG in do_qc
+                  https://syzkaller.appspot.com/bug?extid=bad65435361712796381
+<2> 80      Yes   KASAN: slab-use-after-free Read in folio_evictable (3)
+                  https://syzkaller.appspot.com/bug?extid=4c7590f1cee06597e43a
+<3> 41      No    KASAN: slab-use-after-free Read in gfs2_ail_drain
+                  https://syzkaller.appspot.com/bug?extid=84a21b16aba9f279d96a
+<4> 197     Yes   kernel BUG in gfs2_quota_cleanup (3)
+                  https://syzkaller.appspot.com/bug?extid=af4d53576692f8956fd6
+<5> 167     No    WARNING in iomap_writepages
+                  https://syzkaller.appspot.com/bug?extid=5e659793378ad9e06387
+
 ---
- drivers/platform/x86/mxm-wmi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/drivers/platform/x86/mxm-wmi.c b/drivers/platform/x86/mxm-wmi.c
-index dbc5e35ec38b..c9a3d1cac65a 100644
---- a/drivers/platform/x86/mxm-wmi.c
-+++ b/drivers/platform/x86/mxm-wmi.c
-@@ -46,7 +46,7 @@ int mxm_wmi_call_mxds(int adapter)
- 
- 	printk("mux switched %d\n", status);
- 	return 0;
--			    
-+
- }
- EXPORT_SYMBOL_GPL(mxm_wmi_call_mxds);
- 
--- 
-2.56.1
+To disable reminders for individual bugs, reply with the following command:
+#syz set <Ref> no-reminders
 
+To change bug's subsystems, reply with:
+#syz set <Ref> subsystems: new-subsystem
+
+You may send multiple commands in a single email message.
