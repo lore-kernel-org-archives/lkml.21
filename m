@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753624;
-	b=2cQdBUq8noCSPhzry85lkgdG09UBWuCeBk4zIVHEPwZh3mYS0qDTqIEF61/TIYtjWrN+
-	 PWJTUreMLtgimCOxeyuTJuHBAo87unXyHC9y9S1PLGp5vKgio2k5zY66IZ4/NmDdLes9G
-	 qecAy6GQCsLKkhfW0ZKEwDSTb1Mt6MTitnyAjrkaP8RcsiO+MQNCItbXFFMats6SpPszv
-	 r9VEA65/I87yJj9dNZZl5yQCxGrKdEnIDxTKQ7K7YmgtzI7voa9iOP2pHL0FZBkhNP7LG
-	 0pVPAWlcwRnfqrcBGvg/hccbu99MbitMnWHJQxOaHBLP3OyZDCLRrTE5kDE0HDKMvVg==
+	t=1795753621;
+	b=YDSfBFWTCeESxNheWCyjf199IwFiXynbw7LHeMo9KjxIrGniA2WWSsJoq/W6pt9aPprK
+	 0eUr3J9kfaHXIaBV8VPX1cJTx4oHoXMAARZOEHv0gv61+TQztrLBjC1KHs4NyAKqkDZay
+	 ci3hioxUnE9xqbU0xar6N6MtB8xbL/IFyll39Dd6wqFforRWjkyvrxjB8kVH+a7zCflet
+	 kK8mMAX1XtBdQ6XjfCCvFQ8m9mFyC58NQDHAAlU015O8kuLVmNFveUi84EBQlaWrdUMGz
+	 M3chnfPby3MyhAXGNYLWqXf6QqLH71MTW9uacJuVdhW9ajZYAlEmBOLYkKB6EpaNK/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753624;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753621;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=aM7yTZa2mR1XHJV/CGPWguWQsTg/lG+DKYjci4/Vjco=;
-	b=I/sjGlU45+p2nDUmH/HFO8ydQY3e/p8bXeiSUQQfICTH5S9v07hj8hXfB7rvdMyziZCX
-	 xT/l938bOHigEsxedWU/8tVsR0fK6QSJZYZ5FgPIZ0kI9SxavLNOQav7gc+lAi/swDKkZ
-	 sc00HMVgfIXBscvFEZzzVMvbTvz0gzIzPckgq5RL04qtJFCx5VgK+96acUZwzQGyjdPI0
-	 FvWSs+RYbtf8TxJDOpOSTNw0evDfayXxbvraCzQ8VJ4f60CX6bt0Vcd24eoeT/vg+oQc6
-	 DvaH3XlWL3rvCBIYvhthwVCiR7yKRldioj1Iqad0h7i13VGTSSyCHLAQyAVHeuDOjhQ==
+	bh=9qlfoltgQZQLTiaNigWx976hqgBrcBMxN+/iUMS2pNs=;
+	b=HTlcWlx+JoDcIaar07VV1kBVn4ODPJtwe4hI5mMk1IhTygQZldB8b39qeLaxzzJ3G3ne
+	 OLaiJDvGjV2CAWEebXK+CLHJG4JzWObQ+U5+0Q4xdtcf+1HkDg8/gSJUFfHmx939iR8Sc
+	 5PJxVlFWMupTUuXarHyRvDNynhELmrwas+WqFyuhIpYOY1R8ifyvbYk7hhv02C1EV+YK4
+	 iW9zGLX7fLDrgN4MY32s+IKqUcUjU1Jq6I5ZeHSCzr2drmSqD/HJNQb7MpuM8+gXXAvNP
+	 wk2Aw0qf5fgUf5MDU3nqvIduNeY6fvENxx6rc5vrpCY4FSviqFfq1ny1kBpSoioB7ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltmiJSkh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSWx4UlP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBF40606A334;
-	Fri, 27 Nov 2026 04:27:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B715606A31C;
+	Fri, 27 Nov 2026 04:27:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltmiJSkh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAFF71F00925;
-	Fri, 27 Nov 2026 04:27:03 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSWx4UlP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 642961F00893;
+	Fri, 27 Nov 2026 04:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795753624;
-	bh=aM7yTZa2mR1XHJV/CGPWguWQsTg/lG+DKYjci4/Vjco=;
+	s=k20260515; t=1795753621;
+	bh=9qlfoltgQZQLTiaNigWx976hqgBrcBMxN+/iUMS2pNs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ltmiJSkh1N/uSfnZVvELdlJk/ydOiVgbfRj3Eoj1QaWgckvIYEkdBou9vIWND0Dmr
-	 SiPlXJz7zpLRat6TX998z1l+ZvBx48js64VjWheF7yB+mOIWTxildmmFxYe8YLLlFQ
-	 uOB8ZnhjMmGWfTQNZTAJ/YDNrnbE3p3P9n9qlWqF0OsRBgDdNcQD9axZoOEpwhhcdX
-	 kWpZIDSOwfNA28+s31kFLCVXlzjstKDklfhWCdPQnRKNosc+9kPbxNy9ScR2aqm8ja
-	 PHN/B2zzHX4WYmAsQqqhMZE2p6OpAJYj6DvFdqykvWl6/WkqrTEt6PZJbBl0CZLSsu
-	 YkxJr+5FG6/Tw==
-Subject: Re: [PATCH net-next v9 08/12] r8152: split RTL_VER_17 into QFN68 and
- QFN100 package variants
+	b=RSWx4UlPFGUJk3/BB5u/lJSuSOmV+Jrz2ByaJXYYzZDwtSmwexebhTNkshEsEood4
+	 +ccga8k7gQlSzerZwyYsmswtYmb9BvB80QBkgIzExJlh7tx4Qw6sy5z15BGhswzpXT
+	 nER3WpLBHxT9Q7tA5r2BinxBwuvtb9xLtU8dKHjLdXnBJZQlLVQR4cX+dWkPeSBqTb
+	 M22zm0lda0k4e3krkTgk4uJM7eB4JCenONquy2b6/akfgeGqs156zLprcGchp+5pzQ
+	 uQEPNpQXQ0u+x0h7ZXxpQgX+0A6a8y5YaEJOUCjRRs/ACC9NgrsBPrcNa5+UvZUeuH
+	 T4WAqkBL7XKKg==
+Subject: Re: [PATCH net-next v9 01/12] r8152: fix
+ RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings
 From: netdev-bot+sashiko@kernel.org
 To: hsu.chih.kai@realtek.com
 Cc: davem@davemloft.net, kuba@kernel.org, netdev@vger.kernel.org,
  nic_swsd@realtek.com, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  edumazet@google.com, bjorn@mork.no, pabeni@redhat.com, andrew+netdev@lunn.ch,
  mail@birger-koblitz.de
-Date: Fri, 27 Nov 2026 04:27:03 +0000
-Message-ID: <179575362324.3135.9669497990549921570@kernel.org>
-In-Reply-To: <20261126033211.51850-9-nic_swsd@realtek.com>
-References: <20261126033211.51850-9-nic_swsd@realtek.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 04:26:59 +0000
+Message-ID: <179575361990.3135.4466986058036107796@kernel.org>
+In-Reply-To: <20261126033211.51850-2-nic_swsd@realtek.com>
+References: <20261126033211.51850-2-nic_swsd@realtek.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -65,155 +65,120 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] Before this patch, chip ID 0x2020 always mapped to RTL_VER_17
-  and r8152 drove it.
-- [Low] The commit message says QFN100 "uses a different firmware image
-  from QFN68" and gives "guessing a package could load the wrong…
+- [Low] The commit message of "r8152: fix
+  RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings" carries three…
+- [Low] Six independent register fixes, attributed to three different
+  original commits, are squashed into one patch.
 
 --
 
-r8152: split RTL_VER_17 into QFN68 and QFN100 package variants
+r8152: fix RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings
 
-This patch splits RTL_VER_17 into RTL_VER_17_QFN68 and RTL_VER_17_QFN100.
-The package is detected by reading the new PLA_PKG_DET register from
-__rtl_get_hw_ver(). QFN100 parts now load rtl_nic/rtl8159-2.fw instead of
-rtl8159-1.fw, and r8157_init() gains a QFN68-only u2phy backup restore
-write.
+This commit adjusts rtl8156_up() and rtl8156_down() so that several
+datasheet-required register settings are applied to the right
+RTL8156-family chip versions. It changes the version gates for PLA_RCR1,
+USB_SPEED_OPTION and PLA_MCU_SPDWN_EN and adds Clear_SDR writes. It also
+sets ALDPS_PROXY_MODE and DIS_MCU_CLROOB on OOB entry and uses different
+OOB RMS/MTPS values for RTL8157/RTL8159.
 
-> diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index 3e16d0f832bc3..151acb0f58da6 100644
-> --- a/drivers/net/usb/r8152.c
-> +++ b/drivers/net/usb/r8152.c
+> Several settings the datasheet requires for these chips were either
+> missing or gated on the wrong version range in the shared
+> rtl8156_up()/rtl8156_down():
 
 [ ... ]
 
-> @@ -10223,9 +10253,12 @@ static int rtl_fw_init(struct r8152 *tp)
->  	case RTL_VER_16:
->  		rtl_fw->fw_name		= FIRMWARE_8157_1;
->  		break;
-> -	case RTL_VER_17:
-> +	case RTL_VER_17_QFN68:
->  		rtl_fw->fw_name		= FIRMWARE_8159_1;
->  		break;
-> +	case RTL_VER_17_QFN100:
-> +		rtl_fw->fw_name		= FIRMWARE_8159_2;
-> +		break;
->  	default:
->  		break;
->  	}
+> Fixes: 195aae321c82 ("r8152: support new chips")
+> Fixes: fd3c7d080df5 ("r8152: Add support for the RTL8157 hardware")
+> Fixes: ad2a55b63b41 ("r8152: Add support for the RTL8159 chip")
 
 [Severity: Low]
+Could the commit message say what goes wrong on real hardware without
+these settings?
 
-The commit message says:
+Each item is justified only as something the datasheet requires. None of
+them names a symptom someone would see, such as WoL/OOB wake failures,
+RX stalls after resume, wrong OOB frame size limits, or link loss after
+ifdown/ifup. The message also doesn't say whether any of the changes
+fixes a reported problem.
 
-  QFN100 uses a different firmware image from QFN68, so rtl_fw_init()
-  selects rtl8159-2.fw for it and keeps rtl8159-1.fw for QFN68.
+Some of the changes affect every RTL8156-family chip:
 
-It also explains rejecting unknown packages with "guessing a package could
-load the wrong firmware".
+- ALDPS_PROXY_MODE in PLA_BDC_CR, set in rtl8156_down().
+- DIS_MCU_CLROOB in PLA_OOB_CTRL, set in rtl8156_down().
+- The PLA_RCR1 BIT(3) clear in rtl8156_up(), which now also runs on
+  RTL8156/RTL8156B.
 
-Before this patch, every 0x2020 chip got rtl_nic/rtl8159-1.fw, QFN100 parts
-included. If that image was wrong for QFN100, is this a fix to the original
-RTL8159 support? Other fixes in this series carry a tag like:
+195aae321c82 dates back to 2021, so these Fixes: tags will pull the patch
+into several stable trees. Backporters need to know which bug this fixes.
 
-  Fixes: ad2a55b63b41 ("r8152: Add support for the RTL8159 chip")
-
-Should this patch carry one too?
-
-Is rtl_nic/rtl8159-2.fw already in linux-firmware?
-rtl8152_request_firmware() does not fail when the file is missing:
-
-result:
-	if (rc) {
-		rtl_fw->fw = ERR_PTR(rc);
-
-		dev_warn(&tp->intf->dev,
-			 "unable to load firmware patch %s (%ld)\n",
-			 rtl_fw->fw_name, rc);
-	}
-
-If the new file is not published yet, QFN100 users would go from loading
-rtl8159-1.fw to running with no firmware patch at all. Only a warning would
-show the change.
-
-Could the commit message say whether this is a fix or a feature, and where
-the new firmware can be found?
+> diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
+> index 4815235e8e730..d00cc911ae135 100644
+> --- a/drivers/net/usb/r8152.c
+> +++ b/drivers/net/usb/r8152.c
+> @@ -6820,8 +6820,7 @@ static void rtl8156_up(struct r8152 *tp)
+>  
+>  	ocp_byte_clr_bits(tp, MCU_TYPE_PLA, PLA_OOB_CTRL, NOW_IS_OOB);
+>  
+> -	if (tp->version >= RTL_VER_16)
+> -		ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_RCR1, BIT(3));
+> +	ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_RCR1, BIT(3));
+>  
+>  	ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_SFF_STS_7, MCU_BORW_EN);
+>  
 
 [ ... ]
 
-> @@ -10318,7 +10382,20 @@ static u8 __rtl_get_hw_ver(struct usb_device *udev)
->  		version = RTL_VER_16;
->  		break;
->  	case 0x2020:
-> -		version = RTL_VER_17;
-> +		ret = __rtl_get_pkg_det(udev, &pkg_det);
-> +		if (ret < 0) {
-> +			version = RTL_VER_UNKNOWN;
-> +			dev_err(&udev->dev, "Failed to read package: %d\n",
-> +				ret);
-> +		} else if (pkg_det == 0x1e || pkg_det == 0x1c) {
-> +			version = RTL_VER_17_QFN68;
-> +		} else if (pkg_det == 0x18 || pkg_det == 0x1a) {
-> +			version = RTL_VER_17_QFN100;
-> +		} else {
-> +			version = RTL_VER_UNKNOWN;
-> +			dev_info(&udev->dev, "Unknown package 0x%04x\n",
-> +				 pkg_det);
-> +		}
->  		break;
->  	default:
->  		version = RTL_VER_UNKNOWN;
+> @@ -6860,6 +6860,23 @@ static void rtl8156_up(struct r8152 *tp)
+>  	if (tp->version < RTL_VER_16)
+>  		r8153_u2p3en(tp, true);
+>  
+> +	switch (tp->version) {
+> +	case RTL_VER_13:
+> +	case RTL_VER_15:
+> +		/* Enable Clear_SDR */
+> +		ocp_word_set_bits(tp, MCU_TYPE_USB, 0xd3ca, BIT(15));
+> +		break;
+> +	case RTL_VER_16:
+> +	case RTL_VER_17:
+> +		/* Enable Clear_SDR */
+> +		ocp_byte_set_bits(tp, MCU_TYPE_USB, 0xd378, BIT(7));
+> +		/* Clear SDR bit */
+> +		ocp_word_clr_bits(tp, MCU_TYPE_USB, 0xcd06, BIT(15));
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
 
-[Severity: Medium]
+[Severity: Low]
+This isn't a bug, but could this be split into separate patches, one per
+Fixes: target?
 
-Before this patch, chip ID 0x2020 always mapped to RTL_VER_17. Now it maps
-to RTL_VER_UNKNOWN in two cases:
+These parts only affect RTL8156/RTL8156B and fix 195aae321c82:
 
-  - __rtl_get_pkg_det() fails (three failed control reads, a short read,
-    or -ENOMEM).
-  - The masked value is not 0x1e, 0x1c, 0x18 or 0x1a. That covers 12 of
-    the 16 values PKG_MASK allows.
+- The PLA_RCR1 BIT(3) clear.
+- The 0xd3ca Clear_SDR write for RTL_VER_13/RTL_VER_15.
+- ALDPS_PROXY_MODE and DIS_MCU_CLROOB on OOB entry in rtl8156_down().
 
-The commit message calls this a fallback. Do the callers treat it as one?
-Both of them reject the device:
+The rest, including the PLA_RMS/PLA_MTPS switch in rtl8156_down(), only
+matters for code added by fd3c7d080df5 and ad2a55b63b41.
 
-rtl8152_cfgselector_choose_configuration()
-	if (__rtl_get_hw_ver(udev) == RTL_VER_UNKNOWN)
-		return -ENODEV;
+The RCR1 hunk above removes the "if (tp->version >= RTL_VER_16)" gate,
+which came from ad2a55b63b41. This switch in rtl8156_up() also puts the
+RTL_VER_13/15 and RTL_VER_16/17 cases side by side. As a result, the
+patch won't apply to stable trees that have 195aae321c82 but not the
+RTL8157/RTL8159 support.
 
-rtl8152_probe()
-	version = rtl8152_get_version(intf);
-	if (version == RTL_VER_UNKNOWN)
-		return -ENODEV;
+Separate patches would also let a bisect show which of the six register
+changes is at fault if one of them causes a regression.
 
-In those cases a previously supported RTL8159 is never switched to vendor
-mode, and r8152 never drives it. The unknown-package case is logged only
-at dev_info. Should the commit message say that a chip which used to bind
-to r8152 can now stop binding?
-
-The stated reason is to avoid loading the wrong firmware. Is refusing the
-whole device needed for that? rtl8152_request_firmware() already skips
-loading when no firmware name is set:
-
-	if (rtl_fw->fw || !rtl_fw->fw_name) {
-		dev_info(&tp->intf->dev, "skip request firmware\n");
-
-Also, each caller reads PLA_PKG_DET again on its own: the cfgselector,
-rtl8152_probe(), and r8153_ecm_probe() through rtl8152_get_version(). If
-one read fails transiently, the callers can get different answers. Could
-the cfgselector then switch the device to vendor mode, only for
-rtl8152_probe() to reject it?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126033211.51850-1-nic_swsd%40realtek.com
