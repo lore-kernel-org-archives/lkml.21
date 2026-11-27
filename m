@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795806215;
-	b=C50Ton8OyFPicp0/PHY2z3kiJcYK3ZrKMK1iw6LONEvZosTA9qPc3lIZUM0OyPCtM+Ua
-	 888cMhF79ZsXcCwN1kmxjGoC4RtqTWsIcQqo1mqZ9lNO+tjohFk3RJQrsirnbpOE+Id07
-	 Yq7tiSiCCQymk/czg2v0INZSaqu0LuWJwz8+vvpLvoRXdWnV9AXl3jd2RSt1qqRHg0ULu
-	 cCWmVkzX0zqlPA9Q/POSu+6Jc82HWfnyKIKWrkdLacunnNy2eKFwydrXLz99VL7FRDBLk
-	 jMRL4B5HGfpJ4cWPA37HRxLUY/fAyL46bl+a+2jXvzJj+SFfBRWZT9g8KE1xgjV027A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795806215;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=oKg0XmsKV4XfBnWh2hNz4kuDsiTnanENrTKudHVyA+Y=;
-	b=fmcvWqRawfbwOj5hR09JeJBGlfQQEknNJQW42bk3k3JfgHcG9em7NYPrQMBLscNOrjVh
-	 PLUaw5SttpE5aKtIkff3wRBe4FE6JkpRHBJJNVMC7oNYa8Q80qzsJ0bCmzv/da4W0xO4F
-	 RJeKegw/tmUuQZcvEUVyU9GsnxyvO4y3pUD+AyWsp292rBJ2u9EGbOCL+RYnpSP3G2kuM
-	 ioREruXD+YDVDqxiWC/9KOhISPQ4DpfgAkDcM5tTlFf3jlimYAOc9n/GBj/fGjQE9mdil
-	 U/cSGo1V2aE6JFzaanX/OYUWWj7vW0u/W5rp6veOnkyLg5qpTLiMqaqPxCLl224BJaw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WKQhIzjy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795806225;
+	b=XskdSQcQ3leANTudNiP+PlPhyFzXkqjU7Ti9DPcub5f8gTBenoiAcQUuHoaYcCgHTup8
+	 x2bplDhxKh+SStntzybdI6TvbeYzzieZLnFLXv4ZhMMyEOKVpoR3XTW3pj9OtpdoOGPGh
+	 r/ZXn2wpZo0KAt9YhLjcNx4LGi8mEsF2AV3P060rwUuLGxQtCETew5nIWL72e+Uqz2q6X
+	 mueK390PvsNtZURBoTrZARInhRtSoQuek8W+DssnSHTyrNiyqiK7h+KQJXLu6wuOCTWuZ
+	 98HCrqS8IBpuHEw9iqKglEI3j3I1Ye9WC2C0jyGc1ZNe4zllwRhyBgmez1EHLVOjJoA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795806225;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=jafXnWhpURDif5fLvsPb76l702QRhjzhHxDiU2hA4Hk=;
+	b=peft3P+wE5J1ReQ3aIAnOp00gr9q17ASwRgf7zEcxzydfN8+dXf/4qHJRMXy5Nyc+st5
+	 OSIOkPe4IUqzQuoZFEEaFG1f08HY+1M6CBMy4zbAZQxBSgB6Ni5MfzhlI/ZvdUyOa2gyD
+	 zXlnRwwjh+mIQ0ncA9QWnb+r3dHKEpsW/W8O0bfCNb35D+/okjhX5xgAhIpHOldFKuk4B
+	 Scbf0PeTV+ME96uZZI0681NueeshrTl5xWgU6UZ/8V+jgq54Hnexcpgz+P1D5N1/4mq+z
+	 9egtsXzfFJpyxuaMQ0hBnBhB+xAYyGihSybAywFrytniM4Ly4NoMLGQpJYNac6AjTGw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fvalCSKm;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10092606A31C;
-	Fri, 27 Nov 2026 19:03:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55B1D606A338;
+	Fri, 27 Nov 2026 19:03:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WKQhIzjy
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795806214;
-	b=f4E9sj/eUZXsSWIveq/yUxbnwFTaQOF7208iutA9RuWCboqYw3mK1cbLzb/gilHycyRr
-	 n/ZbGpgMqM1VjayFRMcREUoKY92L9jsuYzkEVAcgu/IViimGCvfj73oULTIHQiBejZPZr
-	 ICg1ULiXo2CXndDjkzgTTrlxJmphl3IzMch3numXskKGIqa5A8Pf5Wc2ZpE8K1JXxNilm
-	 3vy8H44HsfeJPxynlxOcFQkxHM8krscmL3xTg4aCFSbPyuqKfu69lDEZPyJ37CrBzs73m
-	 SqptwFW7tJytEn5Zv1f6iLMHI4ZGM/9BTBElf0xBRftjZuDyYwojEzkg55fgMgkynLQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795806214;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=oKg0XmsKV4XfBnWh2hNz4kuDsiTnanENrTKudHVyA+Y=;
-	b=XBwPxcMRC7GOwbIftROuGU/At7kSbQTsUcUMIZjGccI+Q3/i49BLgssmj7g8ANRi1Nyu
-	 SUPczzO4UiNZY2IAjmZ5uAf/RSrv9z4Rk0jcof0tBK7k5IrVGCW2ndY24VgC7ZeoKWHz1
-	 pLR2019Xt8WY8hCp/1AzRne6+4dRqDOIyCmjuB2ixfXn6eJFlmVyo4LZe8cKIWdcOEBBp
-	 Sr8AaHiH6qQPHO0Ooi4J6ajjJsLgW4zJiP3AoIKU4SyEIhEvaDipBUXv0Z77VcBtko6fU
-	 GwB2ZR3KbrZuRgTHP6JTlGI+Qn0keoZRp5sUQ/Xw+QI0bqGfpr9kMKizVmcOadDwpWQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8CCA11F000C1;
-	Fri, 27 Nov 2026 19:03:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fvalCSKm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EFA91F000C1;
+	Fri, 27 Nov 2026 19:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795806214;
-	bh=oKg0XmsKV4XfBnWh2hNz4kuDsiTnanENrTKudHVyA+Y=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=WKQhIzjyJyp1eflZGnyKxjxrpuseqwQeXaRJHw8ihepHZgJFYoQoXXlWA3nmvouzM
-	 5LSBNPwicnGf0ECB5JMZ2K9Xcg/z+qIVnqVxntsO6dPEJ7zwgfq2ggJoKSA3y2hkmQ
-	 Ropt867AyZcWT/FTn3X+VKzN638BlYW2sxG4ipLz7o+L8NsP2qQJaR0fw4M4R99pxO
-	 ZeB/cGGP6wP/BQxvpfPdCv5/U09bBb+l2pTaYwuy+x7lmuR3MpxftVfHgs5/DXgi8u
-	 H7KGLskEmiia7N9+I89C0mdviWeSQS/92xoTJbyOIgLwlxiVRM3MPP3L2NulGr3YoN
-	 sEYP5YY/BssLQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0BA934DD1C;
-	Fri, 27 Nov 2026 19:03:31 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 22:03:31 +0300
-Subject: [PATCH] i2c: cs75xx: Disable the controller before releasing its
- IRQ
+	s=k20260515; t=1795806224;
+	bh=jafXnWhpURDif5fLvsPb76l702QRhjzhHxDiU2hA4Hk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=fvalCSKmiqVGcTK8weykHhx2xgNRYao3bA8AW9OHZI4ClPQTWqJr4RQ202m7tCeHa
+	 7INLIFe6hYiN4dYke9jgIyGJGcEZr/Hc3e6yptbm0KAVa7SfsfvMcTwZ+uggAZh+Y7
+	 tPQzfvRMk22ZN7oVx0jOXHcAN1QFDwav2yZv3pp/XI+yQtNieBmrQXHv61+FBBSVey
+	 mOHSacWxygRtuaglmFiwkGaqAN50/cJIJL+VtnnZy8uixd9SANoEJK3bTUiC3nYcnT
+	 M+enZs06BamI5hOiJk5THsDmQ2SsbJkO9cw1Hj/z2QQn9evQZSY5IKdREdgPbhQvnR
+	 H4Sxpjb9a6hFg==
+Subject: Re: [PATCH net-next V3 4/5] net/mlx5: nodnic: Add ethtool driver info
+From: netdev-bot+sashiko@kernel.org
+To: tariqt@nvidia.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ cjubran@nvidia.com, gal@nvidia.com, linux-kernel@vger.kernel.org,
+ shshitrit@nvidia.com, horms@kernel.org
+Date: Fri, 27 Nov 2026 19:03:43 +0000
+Message-ID: <179580622390.3135.423426456579450478@kernel.org>
+In-Reply-To: <20261126182448.707782-5-tariqt@nvidia.com>
+References: <20261126182448.707782-5-tariqt@nvidia.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,90 +63,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-i2c-cs75xx-irq-teardown-v1-1-f6acd781af04@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCQAxA0auUrA00gWnBq4iLMY0aF1NNqg6U3
- t1Rl2/x/wqhbhqw71ZwfVnYXBpo14Fcc7ko2tQM3PNAxCMaC0qMqVY0f+Ci2af5XTDlfmCVRIk
- YWn13PVv9nQ/Hv+N5uqks3x1s2wdEWE97ewAAAA==
-X-Change-ID: 20261127-i2c-cs75xx-irq-teardown-5a062ec51512
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795806210; l=2481;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=H8bWwANLWzhb+hTYvLCYBcRvBSWNfP9Xtsa2d31C1Nk=;
- b=qmgG547+jw6GW3bGVGWtiElxcn0Eg/+RbwUnQ8zCGD0lg1HRXszHaKksLpZWE8u8Abjn/nER4
- GxHNK5Wd9TrC1oldyPens+dZ/PQa64RtS3x+6C8T1R4qWLJ+wBOB89X
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Managed resources are released in reverse registration order. Registering
-the disable action before the IRQ causes free_irq() to run while the
-controller is still enabled during probe failure or driver removal.
+Low priority / nit picks for your consideration:
 
-Register the disable action after devm_request_irq() so that the adapter
-is removed first, then the interrupt source is disabled, and finally the
-handler is freed and synchronized before the clock and mapping disappear.
-Disable the controller explicitly if requesting the IRQ fails.
+- [Low] In drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c,
+  mlx5_nodnic_get_drvinfo() copies KBUILD_MODNAME into drvinfo->driver…
 
-Fixes: 3fdb0e8ef0d4 ("i2c: Add Cortina Systems CS75xx I2C controller driver")
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
-This is a focused follow-up to the driver accepted in i2c/i2c as
-3fdb0e8ef0d4, rather than a reroll of the complete I2C series.
+--
 
-Move the managed disable action after the IRQ registration, and disable
-the configured controller explicitly if requesting the IRQ fails. The
-adapter is removed before the source is disabled, then free_irq() drains
-any handler before the clock and register mapping are released.
+net/mlx5: nodnic: Add ethtool driver info
 
-The driver postimage matches the correction already compiled in native
-ARM and OpenWrt 6.18.64 builds and installed on Almond+. Focused tests
-using the actual cleanup source cover successful teardown, request_irq
-failure, action-registration failure and adapter-registration failure.
-No hardware fault injection is claimed.
----
- drivers/i2c/busses/i2c-cs75xx.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+This adds a get_drvinfo ethtool callback to the nodnic driver. It reports
+the driver name, the firmware version read from the initialization
+segment, and the PCI bus information.
 
-diff --git a/drivers/i2c/busses/i2c-cs75xx.c b/drivers/i2c/busses/i2c-cs75xx.c
-index 49a14f27b..c5365448c 100644
---- a/drivers/i2c/busses/i2c-cs75xx.c
-+++ b/drivers/i2c/busses/i2c-cs75xx.c
-@@ -344,12 +344,15 @@ static int cs75xx_i2c_probe(struct platform_device *pdev)
- 	writel(0, i2c->base + CS75XX_I2C_IE);
- 	writel(CS75XX_I2C_INT_DONE, i2c->base + CS75XX_I2C_INT);
- 
--	ret = devm_add_action_or_reset(dev, cs75xx_i2c_disable, i2c);
--	if (ret)
--		return ret;
--
- 	ret = devm_request_irq(dev, i2c->irq, cs75xx_i2c_isr, 0, dev_name(dev),
- 			       i2c);
-+	if (ret) {
-+		cs75xx_i2c_disable(i2c);
-+		return ret;
-+	}
-+
-+	/* Quiesce the source before devres releases the interrupt handler. */
-+	ret = devm_add_action_or_reset(dev, cs75xx_i2c_disable, i2c);
- 	if (ret)
- 		return ret;
- 
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c b/drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
+> index 9ab996a6ebaf0..bdbe76b8dbcba 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
 
----
-base-commit: 3fdb0e8ef0d477ce4b9a9c5ebd370e64d7ae4ed8
-change-id: 20261127-i2c-cs75xx-irq-teardown-5a062ec51512
+[ ... ]
 
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
+> +static void mlx5_nodnic_get_drvinfo(struct net_device *netdev,
+> +				    struct ethtool_drvinfo *drvinfo)
+> +{
+> +	struct mlx5_nodnic_priv *priv = netdev_priv(netdev);
+> +	struct mlx5_nodnic_core_dev *mdev = priv->core_dev;
+> +
+> +	strscpy(drvinfo->driver, KBUILD_MODNAME, sizeof(drvinfo->driver));
+> +	snprintf(drvinfo->fw_version, sizeof(drvinfo->fw_version),
+> +		 "%d.%d.%04d", mlx5_nodnic_fw_rev_maj(mdev),
+> +		 mlx5_nodnic_fw_rev_min(mdev), mlx5_nodnic_fw_rev_sub(mdev));
+> +	strscpy(drvinfo->bus_info, dev_name(mdev->device),
+> +		sizeof(drvinfo->bus_info));
+> +}
 
+[Severity: Low]
+This isn't a bug, but are the two strscpy() calls in
+mlx5_nodnic_get_drvinfo() needed?
 
+ethtool_get_drvinfo() in net/ethtool/ioctl.c already fills in these
+fields from the parent device:
+
+net/ethtool/ioctl.c:ethtool_get_drvinfo() {
+    ...
+	if (ops->get_drvinfo) {
+		ops->get_drvinfo(dev, &rsp->info);
+		if (!rsp->info.bus_info[0] && parent)
+			strscpy(rsp->info.bus_info, dev_name(parent), ...);
+		if (!rsp->info.driver[0] && parent && parent->driver)
+			strscpy(rsp->info.driver, parent->driver->name, ...);
+	} else if (parent && parent->driver) {
+		strscpy(rsp->info.bus_info, dev_name(parent), ...);
+		strscpy(rsp->info.driver, parent->driver->name, ...);
+	}
+    ...
+}
+
+For this driver, mlx5_nodnic_build_netdev() calls
+SET_NETDEV_DEV(netdev, core_dev->device), and core_dev->device is
+&pdev->dev. parent->driver->name comes from mlx5_nodnic_core_driver,
+whose .name is KBUILD_MODNAME in the same mlx5_nodnic module. The core
+therefore produces the same driver and bus_info strings this callback
+writes.
+
+Could the callback fill only fw_version and leave driver and bus_info
+to the core?
+
+On the same point, the commit message says:
+
+    Implement the get_drvinfo ethtool operation to report the driver name,
+    firmware version, and PCI bus information.
+
+Before this patch, "ethtool -i" already showed the mlx5_nodnic driver
+name and the PCI bus info. Would it be more accurate for the commit
+message to say that only the firmware version is new?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126182448.707782-1-tariqt%40nvidia.com
