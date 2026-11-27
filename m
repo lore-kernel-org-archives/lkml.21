@@ -1,49 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771658;
-	b=UsQ9NHl88ZcC4YoUrOZRJTarGUz9QniZaCBskpBmDVxgrUq6j5G/A+pXSjEWO8voeNy2
-	 8DjLYucg1gcyh0jfFwOJx5L/4gFf46gHbOLKkkKo7c6oLWZ7Ii0hYNh4oGudPhPDX41hy
-	 wWimdMpny2vqxFLm9vNpCkGk36/kZ0MkaihvVqpverDU6LhyzmU3wzBfvAFSPaViKWABA
-	 mw2eJpJFv0ynXFjRAWQdmiTTfCHcsSXnASbwLpMjUmDVT7cUuu5AkZA8xejhzPNF8lf1F
-	 VaG2yJfFNimIOKV4i5L1RW+tRlY/bTePjrKDWWTEvTiGSuTDLw6xvsKmc2bbGJG3WXw==
+	t=1795771680;
+	b=ZHSh9KJ6xGEJBcsSWSYU2AqfaBy9pooZsUvFUtRLgPhtFuJ/AvKKAXUNaj1TjE2sqwYx
+	 t1K/wgYCilrgiqLwPXex9t4bHSAI6YkrC8Oehj5sIhqPsuxrr/tK/iJ4+9BwAo+75uPdW
+	 n5fagIfuseJRclmKpRShJpJbGRjVXrJburMlODwXcARoThTnNV3uPqHCDwzYtx+7u/fgs
+	 2tCgLy53vHetWaQsnpiqimvxBODYpmiCvF9itBmrSZECwp4TVmOPeW9NcRkCqaQuRynaF
+	 IHMgcd3R8Mx4mnUIsH7xk0ECmCha8SffKCcCKwcCIg3AgCut03RFkDk5CW2m4TtXzOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771658;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=tO0ZbVOvLqHdVD96cZJ5I5CAW5SvREXD0z4PFqcFHoY=;
-	b=HDv5lE4paI7n7QCOJQmD/IOf3piaJ6h1PIVzJHMEIksL21lxiDuXTP8P7q0SMVEei3kE
-	 EZvvXSkWAnN1zwGsqs6kGHYcnhWcfy8PeHtXJ6ANcdT6AFqMjodZEGR3egLzZmzdUAK4h
-	 7MDRQX/cWkTeNbCzJekYvz7wMFb00nC2tSYY7JIlxskxtEDu9c+wDdIR7E3+UO1Bw1n0n
-	 CLu1hg2uiIx0RLbsbjqCpdPdqO+5P4BLTXVOcbVp/R5A2YLbkNXuP2ikuevvusxi3ezv2
-	 pvaj5xF6CaUtoAJWCBV4drCsxXSfwAME4eNJWnbOzcTFNPKsQDLhlOku3+KeOdXN51Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771680;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=WxrFT4Y6ROLLrJIxlZbs/UKZoIxJCgrWVSI6EmrHZzE=;
+	b=ZBJC9KcRl/udcE0P/6ocQaP7rBqvyNdCPIBSbRr+VGPZEJolt0Ka0Xp2F7csXviirBP2
+	 l+AqkyMjt7BcH3J8XdK6P63mfXqgP2kM2Cuz/hE1dRpNC8+ZbQNzJJWaLU1SRxhu0/aCS
+	 cBIFAizF93kYE3MIOyfSRcGi8QNsuwy92uNVRJAjUlQa6qrdq9nx92jmDMUXdRhNI4Oox
+	 gYraiOxYAzO/FD0YDIkgVGAVWFEmxeZ+uuR1Dlhj9O8zmQu2jmpHTu6D5kaz1ttAaOnXQ
+	 mTksR9cRFUB9OgSubC4bRCsjodtrICkLjnbx2TC+4JJozc2L90Bf00c7A0DHO5RTzvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FnAfKrCM;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4BC7B606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:27:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BC7B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=jQnjGVJQ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=YvbCe1xx;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5098606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:27:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5098606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FnAfKrCM
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6E7A1758;
-	Fri, 27 Nov 2026 01:27:34 -0800 (PST)
-Received: from [10.57.71.121] (unknown [10.57.71.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2D3F3F632;
-	Fri, 27 Nov 2026 01:27:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795771657; bh=daFvf/uPQyO5xYYQlAsUmRTZA1yhelIgKqaSBtUjSAs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FnAfKrCMwrKa+dj6msQa5K4JLL4Et3Eb2mvzUrDDnjTZRMZ+WSpKAuzzyl4zEetfR
-	 WgB2W8XY4YO9/tzOY2yR4moVHflxlS9UExsZCcxrpwqMlhojfMMS/5j+6LaZetlfFJ
-	 OgooA0DaJ/6caXdyyOK9w7iqomTfLU+gvfz0o4H8=
-Message-ID: <baf725aa-8814-4f0b-865a-150028d1a561@arm.com>
-Date: Fri, 27 Nov 2026 09:27:34 +0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=jQnjGVJQ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=YvbCe1xx
+Date: Fri, 27 Nov 2026 09:27:48 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795771670;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WxrFT4Y6ROLLrJIxlZbs/UKZoIxJCgrWVSI6EmrHZzE=;
+	b=jQnjGVJQBoanpzn1jvc2w3JUGp1SUZXUIiRc09dgbPhob6NX1IHergBfAQF1glg+GlpcnW
+	2FJtZuy+k6NLWlbfuHHaZPcUIijEE860EeEF3mb1BpzEahZYth7xq80oH+QGaSJC66w5oi
+	YPY53gvk6c5vayKVsebWdRNGc8hOUJ0UHzRJTLslvc3e57Q/4OmROvQDyzID/CLkOhROtx
+	mI1iRpN9eVXLZRPAkJpmgLNj2Y3NH/5hrm9MoheZXjW7NjF3m6LBM6SwgH8qJC4qkI1TRO
+	bevVGHia3JVufZYxkDpIp4zSieD3xQw6SQ3O1QLF2Om1Pd0IZXAmr623ityS/g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795771670;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WxrFT4Y6ROLLrJIxlZbs/UKZoIxJCgrWVSI6EmrHZzE=;
+	b=YvbCe1xxlGeFLkPkxv1DSTR8ajqTba4YL9SH6g6laoqk3LDFk+H8/MorYJJYkaAEaJOg5k
+	m4mhPJHsFZwjXVDA==
+From: "clocksource-bot for Ryan Brue" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-kernel@vger.kernel.org
+Subject: [clocksource: timers/drivers/next]
+ clocksource/drivers/timer-mediatek: Enable the GPT irq before registering
+Cc: Ryan Brue <ryanbrue.dev@gmail.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ "Chen-Yu Tsai" <wenst@chromium.org>,
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>
+In-Reply-To:
+ <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
+References:
+ <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,61 +82,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/23] coresight: trbe: Report truncated trace on
- buffer update errors
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-15-3f57cf3199b1@arm.com>
- <57ca748e-127d-45a6-a662-fc1cb9895b51@arm.com>
- <20261111160528.GD9176@e132581.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261111160528.GD9176@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Message-ID: <179577166858.92412.11043565365102336770.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/11/2026 16:05, Leo Yan wrote:
-> On Wed, Nov 11, 2026 at 10:47:10AM +0000, Suzuki K Poulose wrote:
-> 
->>> @@ -903,6 +903,7 @@ static unsigned long arm_trbe_update_buffer(struct coresight_device *csdev,
->>>    		 * errors and as such buffer is empty.
->>>    		 */
->>>    		if (act != TRBE_FAULT_ACT_WRAP) {
->>> +			perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
->>
->> Do we need this though ? If the buffer has space left, we shouldn't use
->> TRUNCATED. TRUNCATED causes the event to be stopped and the userspace
->> needs to re-enable the event.
-> 
-> Here setting TRUNCATED flag is intentional for fatal faults. The following
-> patch restricts this handling to TRBE_FAULT_ACT_FATAL only.
-> 
-> We can consider this from two perspectives:
-> 
->   1. We distinguish TRUNCATED from PARTIAL (see patch 23). PARTIAL
->      indicates a recoverable trace gap without disabling the perf event,
->      requiring tools to reset the decoder explicitly.
-> 
->      In contrast, TRUNCATED streams contain ASYNC packets for decoder
->      synchronization, so reset decoder is not needed.
->   
->   2. The AUX sampling calls update buffer callback [1], any fatal faults
->      will set TRUNCATED to disable hardware and waiting for userspace to
->      re-enable.
-> 
-> Thanks,
-> Leo
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20260915-arm_cs_support_aux_sample-v1-16-35cf6f297d20@arm.com/
+The following commit has been merged into the timers/drivers/next branch of c=
+locksource:
 
-Fair enough,
+Commit-ID:     a3c327ed541199b2ab2bec6d6f130b56cba767ee
+Gitweb:        https://git.kernel.org/pub/scm/linux/kernel/git/daniel.lezcano=
+/linux.git//a3c327ed541199b2ab2bec6d6f130b56cba767ee
+Author:        Ryan Brue <ryanbrue.dev@gmail.com>
+AuthorDate:    Wed, 25 Nov 2026 23:13:50 -06:00
+Committer:     Daniel Lezcano <daniel.lezcano@kernel.org>
+CommitterDate: Thu, 26 Nov 2026 10:47:12 +01:00
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+clocksource/drivers/timer-mediatek: Enable the GPT irq before registering
+
+Since the driver probes as a platform device, the GPT clock event is
+registered late in boot, when PSCI CPU idle may already have put CPUs
+into a state that stops their local timer. Those CPUs wait in the
+oneshot broadcast mask on the hrtimer broadcast, and
+tick_install_broadcast_device() arms the new broadcast device to expire
+at once so that it wakes them.
+
+mtk_gpt_init() sets the timer's bit in GPT_IRQ_EN only after
+clockevents_config_and_register(). The forced event fires while the bit
+is clear, the status register stays clear, and the waiting CPUs are
+never woken. On an MT8173 tablet with the CPU_SLEEP_0 idle state in
+use, this hung the boot in 20 of 40 boots; with this change it booted
+16 of 16.
+
+Enable the interrupt before registering the clock event. The IRQ line
+stays disabled until enable_irq(), so the handler still can't run before
+the clock event is set up. With the bit set, the timer that
+mtk_gpt_setup() leaves running could latch an interrupt that
+registration doesn't acknowledge, the kind of pending interrupt that
+commit fc686d0037d7 ("clockevents/drivers/mtk: Fix spurious interrupt
+leading to crash") acknowledges in mtk_gpt_enable_irq(). So stop the
+timer before enabling the interrupt, until the core programs an event.
+
+Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF probi=
+ng")
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@kernel.org>
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+Tested-by: Luca Leonardo Scorcia <l.scorcia@gmail.com> # MT8167 Sony PSC Mini
+Tested-by: Chen-Yu Tsai <wenst@chromium.org> # MT8173 Hana (Telesu)
+Link: https://patch.msgid.link/20261125-timer-mediatek-gpt-irq-order-v2-1-e9e=
+793bd87d4@gmail.com
+---
+ drivers/clocksource/timer-mediatek.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer=
+-mediatek.c
+index 764c30c..48a9ebf 100644
+--- a/drivers/clocksource/timer-mediatek.c
++++ b/drivers/clocksource/timer-mediatek.c
+@@ -352,10 +352,12 @@ static int mtk_gpt_init(struct platform_device *pdev)
+=20
+ 	/* Configure clock event */
+ 	mtk_gpt_setup(&to, TIMER_CLK_EVT, GPT_CTRL_OP_REPEAT);
++	/* Stop it so that nothing is pending when its irq is enabled */
++	mtk_gpt_clkevt_time_stop(&to, TIMER_CLK_EVT);
++	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
+ 	clockevents_config_and_register(&to.clkevt, timer_of_rate(&to),
+ 					TIMER_SYNC_TICKS, 0xffffffff);
+=20
+-	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
+ 	enable_irq(timer_of_irq(&to));
+=20
+ 	return 0;
