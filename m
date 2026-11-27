@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763863;
-	b=kauF8oO1BlFRvinS9rKxGYzIIUgFi3+u2GnsB0qmfsiFegJTrcihsku5jZi09wTb/pEZ
-	 UCI92ZMJOGnnUSdIWpCJXU1/RRNae/nHJ4BPe4jgvN++1JtxEwn1w4CcQDvkp31lPGfi9
-	 ybsG8wiEjAOfBckKlVW2Ii3runX9Kcc+LE21SqZm2ABVr45H3tPgM5/sMVZFNu15OOrJD
-	 TV4gM2sX4qs7GRYQoY4EOugwAUQ4QTtfYqvxZ1Y90ke0uKQ0G9UPSJSNVL6hEi+hxUkuW
-	 J7s4IcjrkJ2a/6IZOo4B1kwuXXWdUTQPnG0i0JPtufTohJdgtaxeLD/tfe7GB4Yg/TA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763863;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=ZDxWq3H+nQgSm2N5ZS0dn18NbG9MPkdtWJ8/RojaxCM=;
-	b=aRVGlnR206YQ9fYj06xoZZvADUki51cyyNjCqlD6fuCjGvj/AMuczJ90cw7N00IACP2f
-	 eMxt4KrbnhRA3lpTUkVKrwqqIdJGq0XSKJMlvlid1uQBPnvFAJj2SIxWijvwyx7+GL5vt
-	 lMqUlaxRjEUe4YbZC/0E8rvJeSRGKee3Rsl+yaDsQzQ8mxyCL9BHNeq1ZYrjoEkWrqCPg
-	 gSbEhbKMplGVsUtnvsyfcIZNFSW3Jt0GYVXyhZl9hIRxcURW2T1WMi0NFFUXbnXGTKdeX
-	 lq/xDPI5jqfz2BKGw3W4FwlDd5IiI5Pe9+H0m5Vaq1vTl/ms7uynZfAC8ghDtSEryoA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 36DC8606A31C;
-	Fri, 27 Nov 2026 07:17:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36DC8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
-	Content-Transfer-Encoding; bh=ZDxWq3H+nQgSm2N5ZS0dn18NbG9MPkdtWJ
-	8/RojaxCM=; b=ZUygs/Xl33DYSeoJRJON5ZzAyhOfmRBwV7niP8Ydvb/rxM7CCi
-	Is/SOvIt/J/G41J6PVOSti31am0Y78Onh0hahp77u3AfMzxZOFv+Jl9aHZ06u/f1
-	ChKf+MzQeCdpZzbeJPzHhGYlVszdSEOMhnEZcHFf4PO8Mk0oidMHCxOok=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.43])
-	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkDW2fx+LglrOi1RAg--.138S2;
-	Fri, 27 Nov 2026 15:17:20 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Takashi Iwai <tiwai@suse.de>,
-	Jaroslav Kysela <perex@perex.cz>
-Cc: linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzbot ci <syzbot+ci4a0a685a2ad8288a@syzkaller.appspotmail.com>,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>,
-	YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-Subject: Re: [syzbot ci] Re: ALSA: line6: Stop URBs synchronously via sync_stop callback
-Date: Fri, 27 Nov 2026 15:17:18 +0800
-Message-Id: <20261127071718.3004-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <6b0921f3.1492ceaa.187240.0078.GAE@google.com>
-References: <6b0921f3.1492ceaa.187240.0078.GAE@google.com>
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795763873;
+	b=VS1sRJ8eUB3gKvRFSjrMFtWEftl7xlF/MQwTNMEbhhIAcAArUYeP24RYkAFnTT+PGmJi
+	 Jn46BtMqgv97TQDlJBg0AZyem42HBvtcJ70NNeFjwDerSOUtNVKW5+XktUad2edb39b01
+	 gv3BtfgR3/OOFHoIC1zrRiK+a1ia2zuR4KU0PbPHpSy2k2sl5dwjzdAoX1LL2s99GNgso
+	 jbsIaeW4wCbldKe5Xp2b/dUGBzkf6vPuf3fzEdHerp1jqEhrwRHHtAhu54Nix233WyF8g
+	 OkZWYJ65r3hk4THHUv2edEfIt4QOA+bHJKOBpRbHLfkwPGP0lQtkZVfkAyHGJQzCgHg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763873;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=QThccq8aVO4qT5svmvutaMycEXGwprtb+sQAgRodxfE=;
+	b=I0Uj5Gqz5XjJ6Jso63ZDdvvv4bQekFI/NK5l7GrLx7So740kcswqcfOtwtaNFaC5uXZM
+	 fk9EoCArB8plo3K+Ukq/vyEHFMcDIBkQFoZp1rFiQ++ILXwmahXAbRtqYhkf+XV4baR6T
+	 w7COojOVcasXVRSQLNv95zuIhIaUonuJ8ZOo74CCzZ3/ystlYXscT69YyHK+LV4hHf1Qb
+	 NMpTccObPTn5IP+khCYt70wYtyv+mjzIxzu1AlHrElyr3zSQL/jY2AyqISqlFBGMNgcTO
+	 E688bJ38/5wqO6QOn9bsBV8V4RAjQNyqNwEV3XU3aNP1E7T0/678V0LQYFPjXlxY9Mg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=koyXUugt;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3264C606A31E;
+	Fri, 27 Nov 2026 07:17:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3264C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=koyXUugt
+ARC-Seal: i=1; a=rsa-sha256; t=1795763841; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=S7piGxenIQRfIfFugIGmND7h2L/Q/ME+HW19qKb/k3vFGqsNkUA2uhFERE11LTdtKlsdTzcldqq+JTOvGUv3tmiZnSf54nhcy1zfGQGWCTt39r6uaGZvlYblmI0KvYSLE7+TTqWkLAT38kvfURzAbwTnjnelzcmX+4jD4VmHIAg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795763841; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QThccq8aVO4qT5svmvutaMycEXGwprtb+sQAgRodxfE=; 
+	b=KmyVbxEnXtCtn+yPS2llXrCywoIg105QHwbYM+iFtu+T5zWCqLqxi5Dq577Lw6a8uOFc99OZgzFU58ZdmXncOx11j45sgXOLudxjUE0pDS9Y8mO9L5JPgCOMwtYgW8VCwgPjpwS96qpF17uCl0BcU440mfOafAs4k5h+Tbkvb+s=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=koyXUugtIGFaI3oRPdQ/lKnH8TJmMOlJ0tOcQ61edgXXMngNR8tfcnhtJf6uyuNTu0oth5FYuwDiU+gd8LK7ROXtELehd6aFL/WDnnEBP7z5A4W67dwD7fkaRffewTXTiRITRrhCBh1b93JrLYkABfawEZyMRtcyNcsObqjWzrE=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=QThccq8aVO4qT5svmvutaMycEXGwprtb+sQAgRodxfE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795763839368810.0143316630227;
+	Thu, 26 Nov 2026 23:17:19 -0800 (PST)
+Message-ID: <d83e09c8-cfac-46cd-83bb-d2ad751fa6fe@collabora.com>
+Date: Fri, 27 Nov 2026 08:17:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,45 +58,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/9] phy: rockchip-samsung-dcphy: Add the MIPI D-PHY
+ receiver
+To: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Quentin Schulz <quentin.schulz@cherry.de>, Sashiko <sashiko-bot@kernel.org>
+References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
+ <CAPwA33K7f2EbtH8rqihnxB8RkB1PzJTmDyGJ39ojROuTYwK0Dw@mail.gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <CAPwA33K7f2EbtH8rqihnxB8RkB1PzJTmDyGJ39ojROuTYwK0Dw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BbQMCkDW2fx+LglrOi1RAg--.138S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrAw13tw1DJFyfJF48Cw4kWFg_yoWxXFb_ua
-	4DXF93Ww4UXrn2ga1UKF17tr9xGr48Wr17XrykKrZrAr9ayF9rWFZ8KFyrCryI9ws2vrW5
-	JwnIv34xZw12yjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
-	0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7MxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWI
-	evJa73UjIFyTuYvjfUY3kuUUUUU
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUJD2sIS1kirAAEs5
+X-ZohoMailClient: External
 
-Hi,
+Hi Jason,
 
-Thanks for the report.  This crash is from v4 of the series, which lacked
-the guard for the URB array in the probe failure path: line6_init_pcm()
-publishes line6->line6pcm before creating the URBs, so a failing probe
-reaches line6_pcm_disconnect() with pcms->urbs == NULL.
+On 11/27/26 07:24, 楊智成 wrote:
+> Hi all,
+> 
+> Michael, I kept your Reviewed-by from v6 on 6/9, 8/9 and 9/9, as the
+> v7 changes there follow your suggestions. Are you fine with keeping it?
 
-v5 and v6 already contain the fix:
+Oh yes, absolutely. For the whole series:
 
-	/* May be called when the URB creation failed during the probe */
-	if (!pcms->urbs)
-		return;
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
 
-	v6: https://lore.kernel.org/all/20261122104039.7160-1-25031212351@stu.xidian.edu.cn
+> For v8 I only plan to drop the Tested-by tags from 1/9 and 2/9.
+> Please let me know if anything else should change before I send it.
 
-v6 applies to the reported base (9437ee8b6cf6) and passes the compile
-check, so no separate fix is needed.
+Please go ahead with v8!
 
-Thanks,
-YuanZhe Liu
+> 
+> Thanks,
+> Jason
+
+Thanks and best regards,
+Michael
 
