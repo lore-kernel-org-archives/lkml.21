@@ -1,78 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795802609;
-	b=aliXK0AyuV9RO6fedYHcFPIu/gUE7r4VovlE6P4EXHHTFmWfK6s9/BXZYCqAxMs77lVr
-	 dLYQqxt9SCFcVBIONTwPnl2/2PkreqQR3D/E9jXzbajVG4kaa6bmAE9kF91FXmEvdvClo
-	 /ae8Ctcpzq0hYPgqHnn8EbPTj2CpvDUx/prr/RbvT2mQcV30RzQYZKIVu6ie1S89Du8e3
-	 wSRlFJF13/5KEs3pVPh7HV9Zg7o4UUwb+dsgS+Qdv0pXdYbevuNmV/FCt9oSqpmUupqqT
-	 cc8MFp2MgDy1WbY90NPjRg+eEc0S2kEIU8+LDRo87lZibErbLEFJylYR3Ua7yiKJ+6w==
+	t=1795802638;
+	b=znkKqUHEN1poBNBC9epOB/DA1k6UwGWTk8rtdxYzcwNJWyjIvM+YsKpSst9wekL7N0L6
+	 ctqQ9HzlrAsUe1NylGnM0XY2yiandoAXbSsV9qoctIQvpqeMncUwXAZCQtnlpaw/dWdR8
+	 fMBahM1jU+ZJMwlaGF6HPhMl3iD2Ha/f3rmTSwkSzPd7lLqI7e0r2zrT4xznr45yctyHa
+	 J92MwfgWonZLmBVLT4ah70fUEFdXqNgabSsdvYfLKYVddaSCdcl15SXokeYHfIGtQgu3C
+	 7VENKAaKuQSThMz4gz0v8bWBzgD6tj7ZQ3CHSrcgWDyU75iL4mMU0rg7hwf3XprptpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795802609;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=IReSkSwkQKl7NvtaU3+COhoF1pbztg5zdL7eqGyZjeQ=;
-	b=1YDEgQWmxZ0T6viIsZ/U01SgS7BEzU93LGO14Suz/qRXJ5r4E0g9ULZ3dUTT9odU5oYd
-	 +T75RNQsC86pNsgcYxnGPsAICCzXerlOmVBKW/2y9ozy/haxYWVDRrQWLB2/g88sRfj5s
-	 1T8vR5NgJrmbetiVN/IHa9Xj1TFaJGypZv5xiZhdfiIG3GZw0UnM0dPHhVeX7J9V/iKid
-	 cBzRoe3PO+1lPgOqXhg88BsEjCV+6+NTCOWD7y7uMojJ9iVakGOkmRWX1oug6phxgze70
-	 1bn4E8YDg203hZfA0kiXcVBNgkOAPfsdA+t+AyEXSufmx/la6J5aLYV3I+4mAW+eN3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795802638;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=9pWZ3EWTAvBpk0cahRb0lTVvvb814awtr8WKr44+mVA=;
+	b=tfAG8lrbTFH9B/at2R9otu376p1MRV71Q7yr2gelf0LEA8a2fDyuukOiYP+YvwMn7K4t
+	 o78DUDXcCp5siaMGWDRRwhvEFxrksYZQqrGZ5MlOpDqLc9f+kGAe9oBHhDej6KO07bo/v
+	 XA53oqIhGHbvErU2/nOIMPMIqj7ujdbnV5rgzoUP8OjlqQMc0OcU44e9A9ia5a5yAENS/
+	 R1W/Gv3vR0fWc91QyNeKyKWgsZN8HOpv4Z4tnpV4nGmjDDTY+B504XDogT3FfsY43uelU
+	 LzkXveS5nlhWfBd3yNHn4aucLyBpKMAlXIYYnCgn3SKvxIyXD2ZKhQgtlMNxX9W/U7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlqGHd5w;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=kaldtiCF;
+	arc=none smtp.remote-ip=216.40.44.17
+Received: from relay.hostedemail.com (smtprelay0017.hostedemail.com [216.40.44.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 994F0606A31F;
-	Fri, 27 Nov 2026 18:03:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02FE6606A31C;
+	Fri, 27 Nov 2026 18:03:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02FE6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlqGHd5w
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F95B1F00897;
-	Fri, 27 Nov 2026 18:03:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795802609;
-	bh=IReSkSwkQKl7NvtaU3+COhoF1pbztg5zdL7eqGyZjeQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mlqGHd5wQLOxZIk0f4sGq/b/4Pf+nkXT9YhzVnbCb0U5RiSKuBvvh6kjs9lrq/NUa
-	 wb57ZZaI/8SsWxX1Bg9WxTcFVUYx4Gy1FRcntyiOBO1QdCFeaTHOKgBPeE1uPTTwS5
-	 P1ogEgT3OEftUyzyJirb34CW+8tKi1Pv07tLSrN1fAcFmKeZaYSBd6dgCBa8NqzO8i
-	 9YwRqU1/RGkVrOo0hAdCFwp8+qKD0NJVuKUOV0qgcRAqQQXEJBFzL1mn4CTPIurphQ
-	 HbRZ6nz5/fG3yyyeBNXgap364qE+0UnyrnHcE8b4/4Sl/yGjaK33nyKyXCzx3ZS6NV
-	 ZuLvTlWLgo+6A==
-From: Sasha Levin <sashal@kernel.org>
-To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Willy Tarreau <w@1wt.eu>,
-	Borislav Petkov <bp@alien8.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Leon Romanovsky <leon@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>,
-	Security Officers <security@kernel.org>,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and a cover letter
-Date: Fri, 27 Nov 2026 13:03:25 -0500
-Message-ID: <20261127180325.2304501-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <33de19df-1729-4d1c-a6ce-e10e240e0c57@kernel.org>
-References: <20261126171926.2766137-1-sashal@kernel.org> <20261126171926.2766137-2-sashal@kernel.org> <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org> <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps> <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu> <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin> <20261127133756.455469-1-sashal@kernel.org> <awmJ2c87NSDjtSwp@gremlin> <20261127143124.1039470-1-sashal@kernel.org> <33de19df-1729-4d1c-a6ce-e10e240e0c57@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=kaldtiCF
+Received: from omf06.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 8EDB4A77F5;
+	Fri, 27 Nov 2026 18:03:49 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf06.hostedemail.com (Postfix) with ESMTPA id A7BB82000E;
+	Fri, 27 Nov 2026 18:03:47 +0000 (UTC)
+Date: Fri, 27 Nov 2026 13:03:46 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Jaeyeong Lee <lee@jaeyeong.cc>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, linux-trace-kernel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] tracing: Reject filter commands in perf function event
+ filters
+Message-ID: <20261127130346.2caf63af@gandalf.local.home>
+In-Reply-To: <20261125060411.445-1-lee@jaeyeong.cc>
+References: <20261125060411.445-1-lee@jaeyeong.cc>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,29 +61,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout06
+X-Rspamd-Queue-Id: A7BB82000E
+X-Stat-Signature: aa3ku49etq5heib8116fmey8957jchin
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19ESAvDAcOS6rFJ3VY0F2ntNB+MKBfNvUw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=9pWZ3EWTAvBpk0cahRb0lTVvvb814awtr8WKr44+mVA=; b=kaldtiCFQc6lwivJefi+IYI2OOVftvy9gAcFSinswzJ0jdqAHM099Oyz+uWDPheshnkKK5Uih4yttVPJv4SxBmGRFvRIT3s35DW8CoOYkqcNQACuEHmDHrJGjJTZJIlOHlDjqhDkPJHNaAH6ZwWsXSqovVx/vp1SEOcITxVnME8=
+X-HE-Tag: 1795802627-954037
+X-HE-Meta: U2FsdGVkX19IbsaVSUwUxngVcYthpSe6DD2fir3oDKhubmjRVl5vCa33k0aM9IerwPuvs5J8rP7CdVH5zwCFxlplNVhZxXZ/xdbho9zlH/nwgyDc5Dvn9dPBZbm/yZe2c5kZ6FIDZFfiuhlEXQBU8kJDkWw1AWOD7bSv5JrWHSVc2kad9nIAEkcrRtnOmkTOcCGIDpTMv5oME+Iqp6Klh/ywoOO33PBnoLOcwGbNJKb9+AWA6KVIHmExfORylHnfTWRvCDxFz4n7vOTnUTdAa+R44BGHmvJyRaZpzVzn1KThqz2rJFdfXCrLnKRZG5QiRn/WIy8C2nPjXKw/q/IfIw3a27Ly8zIZ
 
-On Fri, Nov 27, 2026 at 06:51:17PM +0100, Vlastimil Babka (SUSE) wrote:
->If you then do 'b4 send' and it's a single patch, it indeed puts it below
->the '---' line. So git am discards it.
->I think it makes a lot of sense? If there is a single patch, it should be
->self-descriptive anyway, there isn't much information necessary to explain
->the whole series, if there's no series. So you might consider some extra
->info/context useful for reviewing, but not important enough for a commit log
->you want to see doing a git blame later (but it's still reachable via Link:
->anyway). So putting it below the --- should be good enough.
+On Wed, 25 Nov 2026 06:04:44 +0000
+Jaeyeong Lee <lee@jaeyeong.cc> wrote:
 
-Yup, that works: git am would drop it, and it's still on lore for anyone who
-follows the Link:.
+> The perf function event (ftrace:function) keeps a CPU number in
+> event->ftrace_ops.private: perf_ftrace_function_register() stores
+> nr_cpu_ids there, and the TRACE_REG_PERF_ADD/DEL callbacks store
+> smp_processor_id() and nr_cpu_ids.
+> 
+> Since commit 31f505dc7033 ("ftrace: Implement :mod: cache filtering on
+> kernel command line"), ftrace_set_regex() treats ops->private as a
+> struct trace_array when the pattern contains a ":mod:" command. The
+> "ip" filter of a perf function event is passed unchanged to
+> ftrace_set_filter() and ftrace_set_notrace(), so a filter such as
+> 
+>   ip == foo:mod:bar
 
-The concern I thought folks would have is that it creates a big wall of text
-before you get to the diff itself...
+Hmm, I think this should be allowed to filter only on modules.
+Just not cache the module if it doesn't exist.
 
-What about putting it at the end of the patch mail instead, after the diff, the
-same way format-patch --base adds base-commit? git am ignores it there too, and
-reviewers who don't care about it never have to scroll past it.
+> 
+> makes ftrace_set_regex() use the CPU number as a trace_array pointer.
+> When the module is not loaded, ftrace_set_hash() sets
+> FTRACE_HASH_FL_MOD on the filter hash of the new perf event, which is
+> still NULL. If an earlier pattern in the same filter created the hash
+> (for example "ip == vfs_read foo:mod:bar"), cache_mod() then
+> dereferences &tr->mod_trace at a small address instead:
+> 
+>   BUG: kernel NULL pointer dereference, address: 0000000000000018
+>   RIP: 0010:ftrace_set_hash+0x210/0x260
+>   Call Trace:
+>    ftrace_set_regex+0xc0/0x160
+>    ftrace_profile_set_filter+0x24f/0x340
+>    _perf_ioctl+0x531/0xb20
+>    perf_ioctl+0x42/0x70
+>    __x64_sys_ioctl+0x96/0xe0
+>    do_syscall_64+0xf9/0x540
+> 
+>   BUG: kernel NULL pointer dereference, address: 00000000000001f2
+>   RIP: 0010:cache_mod+0xb7/0x1f0
+>   Call Trace:
+>    ftrace_set_regex+0x121/0x160
+>    ftrace_profile_set_filter+0x24f/0x340
+>    _perf_ioctl+0x531/0xb20
+> 
+> Perf function filters only take function name patterns, and the perf
+> ops has no trace_array to cache module filters in. Reject patterns
+> that contain the ':' command separator before they reach
+> ftrace_set_regex(). This is the result ftrace_set_regex() already
+> returns for such patterns when ops->private is NULL.
+> 
+> Both crashes were reproduced on v7.4-rc4 (8d7fe9885c62) in QEMU/KVM
+> with x86_64_defconfig plus CONFIG_FUNCTION_TRACER, using a test that
+> opens ftrace:function with perf_event_open() and sets the filters above
+> with PERF_EVENT_IOC_SET_FILTER as root. With this change both filters
+> return -EINVAL without a crash, and plain filters such as
+> "ip == vfs_read", "ip != vfs_write" and
+> "ip == vfs_read || ip == vfs_write" are still accepted.
+> 
+> This bug was found by static analysis.
+> 
+> Fixes: 31f505dc7033 ("ftrace: Implement :mod: cache filtering on kernel command line")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jaeyeong Lee <lee@jaeyeong.cc>
+> ---
+>  kernel/trace/trace_events_filter.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
+> index a9d77df3e..da48210a6 100644
+> --- a/kernel/trace/trace_events_filter.c
+> +++ b/kernel/trace/trace_events_filter.c
+> @@ -2669,6 +2669,9 @@ static int ftrace_function_set_regexp(struct ftrace_ops *ops, int filter,
+>  {
+>  	int ret;
+>  
+> +	if (strnchr(re, len, ':'))
+> +		return -EINVAL;
+> +
+>  	if (filter)
+>  		ret = ftrace_set_filter(ops, re, len, reset);
+>  	else
 
--- 
-Thanks,
-Sasha
+
+Does this work to fix the problem?
+
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 5b161959e701..6e82941ee2e9 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -6808,9 +6808,6 @@ ftrace_set_regex(struct ftrace_ops *ops, unsigned char *buf, int len,
+ 
+ 	/* This can also handle :mod: parsing */
+ 	if (next) {
+-		if (!tr)
+-			return -EINVAL;
+-
+ 		command = strsep(&next, ":");
+ 		if (strcmp(command, "mod") != 0)
+ 			return -EINVAL;
+@@ -6850,8 +6847,15 @@ ftrace_set_regex(struct ftrace_ops *ops, unsigned char *buf, int len,
+ int ftrace_set_filter(struct ftrace_ops *ops, unsigned char *buf,
+ 		       int len, int reset)
+ {
++	void *private = ops->private;
++	int ret;
++
+ 	ftrace_ops_init(ops);
+-	return ftrace_set_regex(ops, buf, len, reset, 1);
++	/* ftrace_set_regex expects private to be a trace_array or NULL */
++	ops->private = NULL;
++	ret = ftrace_set_regex(ops, buf, len, reset, 1);
++	ops->private = private;
++	return ret;
+ }
+ EXPORT_SYMBOL_GPL(ftrace_set_filter);
+ 
+
+-- Steve
