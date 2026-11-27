@@ -1,103 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795742816;
-	b=d+uOPFuGvpWLg8djkvbi7p6huTjhWUvwMIhQRYkyEVI5BmTYPvnVK/CAxRI+LrQDxQpC
-	 FMNpoVuIMQweDTZz6QYHQHZFkl6xHvkn/GHcq7pp/7fAg7Hmssvt+tImew9R+kEX9n4/p
-	 OZQjd/7Qm/qkg38VRXRZoog2IsUbupXFyydVQBI1irHza2jk9sbE+xEWo5r/1WUGCIkWb
-	 KNQ7DANnxhq8X1WeGjdH+gYYOhof3GBR2w28KiXwBMWXQ4t/3wpm9Pd+W/RGB9R2geOHn
-	 YQIhaX4UK+WRMpAdb1mfqOsV0PURwRQESfNqOjcCcVc5T0q1NJ+BgHsSd3/1Go/Dy2w==
+	t=1795742854;
+	b=euEHoep4JoRQcqobC/F1US32yaq1abzsQifKNahds/jaGYcT0Jc+aA+qAx279TDDNaOT
+	 DLZYCJ0rHQEEBU2bxnEzsqbO40ic5OMU+gpUVsJNSyKyE46ry9wZ88ZnHnKFVhyAVA+/e
+	 i+2CBj3wniNOmwSIJz3zdJMifEskAErJbX2TDbtDI2siDZflDR+pu/SZWUxA4hH1d9f0U
+	 LQVBiWxHUJo67ZeBn9IvBlTlHKaXqvUYL8ywcOYFkZIquno7ExynyH6TnVlo3mgljGdyy
+	 jOhNMx8dTaeYnMX666TkmXRrXPVXyvr9O7jwGkBhgACvXDAzCtdH4s7XPiwweuvHLcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795742816;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=agx1/QEyGbjChimrEJGp98b4hAyFpBve2ogiEqDdEV4=;
-	b=2bAKE9GwYSt8Ct+Of3dIOSOZE4wsbTIKJxqUNsGnDdTYQTyUq5+x3hDcdD4dP0M3L5Lg
-	 CSWqA2fUwrZ7vPkPjD/5sYf+Ga5XBcS9TU3lqb2uP3CFbqVi5GEolld+k2vfWvMB7mjDJ
-	 p5cOvmq2K1lsAGhys7T3NdytN1draxd3S7QS/3S2HeT+sKVyPcdW6jCYH8HrNy7a7P+Lw
-	 +EnLs5jBJ2+QiaL+JZkuFTSGCgZnBQ3svWwEr4gNNHJZkM8aR2kwJpdzjusMbtf7eO9ih
-	 qPdgEZc5tN5G6SmcYux6E8EIrLU4PvbPhW0nx8DwGbkGyWcNieN2DfQciwkclls851A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795742854;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=hdgX1iMSKVKnh/Mxu48+QFDNokLMugndHgnih4Ql3oU=;
+	b=ISdZDpR4schpcc+M3f9uR6CTFY4mz0AxHOvWm9MrkUJi6gTEoxeIRjj0Vm62dZD+kexX
+	 fX6pQfiTzOM7ciaU8VkD2/R9bvD38QSRA8cZefl6Q08gMIetG2apRxPymIHRW7jl7necM
+	 XxmMzJa/Y7NZpGgBT0zh6N85vT6S/9hoJ0WX79hhWcfodnIj0z3ke4v02j8BXTTUfbNq8
+	 GpaWEoq/LprPNWJezWHULPGYelOcxy3W6v1gSlgqDOlUSia+5kmoD0POCF9cf7YIsWjZM
+	 xyQZz7ui8sEobcpk+Ys07pBWPd01/M+tgmrveb24zSejWq5MZZPud/7s+D51NcXiGJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UUCtgzOA;
-	arc=none smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ksw5E0df;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CE57606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:26:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CE57606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1B02606A31C;
+	Fri, 27 Nov 2026 01:27:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1B02606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UUCtgzOA
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cdab938dc83so2963471a12.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:26:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795742815; x=1796347615; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=agx1/QEyGbjChimrEJGp98b4hAyFpBve2ogiEqDdEV4=;
-        b=UUCtgzOAhbpLkOe9O/LihI/4iGYdfewfh8ZU74Y4kT8n+xqr2zYx+WyS8qTtfQF+4F
-         2j1NcM+IWwC6yayeGZposdi7rWJJeQDQSUqdNDEw81+mWnLZvH+dIk6XejU9pVTD3Bxk
-         jCSnWHuDQ2xUHGeQ3+xO2xzupjj1NPd3tGxnV9fzTBhkk+ujNXnOibjDlL2d0Ro8av5C
-         5tmiKK/ldB9E5ZpX0W8RBwQPQ1wXXoN4drCt2OnhjRZ8x3RxdhOiK70VpK5XDHSftS0E
-         6MyduK+l+EfynvlqCc4f+1YRBDtX/aUhd1ieAuG0D6ggEB+gRfucloOvkYt510aEmMv6
-         3ICQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795742815; x=1796347615;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=agx1/QEyGbjChimrEJGp98b4hAyFpBve2ogiEqDdEV4=;
-        b=wGacfyFg7StXfzVJGsRXXioZF9yauxrpyUn8xbJQxlmXqZiZJFzlBINuufEqXnVkyJ
-         GpdW7pcLKNNuq+5NAYsarFvq33PdztVg5URU8FcDfRT8qTWn1oRM34aRFnq+tDbJBhAq
-         0AWD0PkVpGAlo3ezk96I7rKzII/T+ZXLDBc6zV8Q4+8gMUN/BIfXW2IikujjZRNpKxFg
-         ahT6YmhcjMHX64w0LH0o4u8EhuE/EB2o00mTbFuHA9UuHVQ8D0I8MeeNXhJ7dQ036lSC
-         ilvTZyX3PWJSXPoffG5qZMXQ0FXOfAvBVkPqk4DrhqOqJWU87VJcEVQfaAFmoHI9s6yM
-         anGw==
-X-Forwarded-Encrypted: i=1; AL+hErFEymlNf8BtnXWpmEeRyWp1/aQ+PiY1zLaLULBpnVuETQwYNzauJKteRUHAWkNyOfwhKgThkycgJ4l2wbs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9spCrT3eDKylL0yNY3Pr2qUOVSnLWe/JF4VvruJUAmYdRgcWep
-	lxG0Ykqjfri0VaUTf3YHnYLx4iZ6Hymas4d6doDwSMMNpP6VvbhKHikg
-X-Gm-Gg: AZFdTZddmprDWwFsasD18bYTChI9E2vfKudfGARQCqZbp1wdm0pE5ABIm92aXruzjxW
-	ShSgJeZL92P/mHqXTDaPOox/RXFVvdz8YvbjabjVSY7Gjgw5cTksI4h3dtpdaaQLqDhibwgvPzF
-	l/P9VcYHwufA3u+rBPmFt2fnQbZR/bJkT7ZEMMypapzwSCjjmdTeNXt0unQp+qml3iMhOI/krtH
-	GhzXjSA9G4CswmwNjfHeRPvbA65x21Rvf4sEv1aaNJ3yJWIorOEfJJN3jHDpCaP5O6wW6T+C3j8
-	Gba0hEkAALESO37SykU9GrvBdNJ+943klJY+DQb+5+W5CZ3XETRV4e6jVQgwNppTWJSuxGuN1W0
-	Ex9l7b+FSMKmPQntcfwHMIdo0aiS/19ZUcO97UTS4JgY977XkV6lUzTPesQBesHmCINoYvFRBZt
-	62EZLuKOCkhvBTh/GM/mlB9qteiIhJ/z7LmQ/kFGKO1xhIK8OWLQ1kzv0Va1XuGFJ0jMvROz2Lh
-	dfaSxE5Cac2muaEwx2ojwXU1Gxm4f+LecFpCOVyV/E74oXxwEU7TEOYFxxfGFXUIS6jvYnBEe7y
-	Qt9cb2+5iwRgtNmSeZPY3cgzkOyzW/nRoGpUhFIeWRV15wDooJTd23XRPcsARgc9ZoxE5asie8L
-	1xgYuZkrTbdBLqFlwrsGMoSh03+frH5D6SLhkkcoTd9k+fA==
-X-Received: by 2002:a17:90b:2c84:b0:3b0:9fbf:894c with SMTP id 98e67ed59e1d1-3b41c8fe256mr20560948a91.17.1795742815391;
-        Thu, 26 Nov 2026 17:26:55 -0800 (PST)
-Received: from romain-ThinkPad-P14s-Gen-5-AMD.tail433d9c.ts.net ([2001:861:39c2:e340:1432:1241:93b7:7b4b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm35042866a91.4.2026.11.26.17.26.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 17:26:54 -0800 (PST)
-From: Romain TISSERAND <romain.tisserand@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	sashiko-reviews@lists.linux.dev
-Subject: [PATCH 4/4] iio: adc: Add the PocketGo S30 analog stick MCU
-Date: Fri, 27 Nov 2026 02:26:12 +0100
-Message-ID: <20261127012612.1589039-5-romain.tisserand@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127012612.1589039-1-romain.tisserand@gmail.com>
-References: <20261127012612.1589039-1-romain.tisserand@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ksw5E0df
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795742851;
+	bh=XZqSUTuW2bTPxCNamalpT3kg2C1Eyn0CxPPVJQRoNzE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=ksw5E0dfRFH9qantqIKVK6v9mdQ3hy+F9XB2PQ0JLl709W8sLZbVZZ4jCDBBokMqH
+	 oy6go8m6e892txhE8OEzpBnBevuCUYtWr6fDv9GIM9ekREJkKYRDmuSwbSmZ+XPB7l
+	 vTEV/P5EbQlN6mj2qXp0PkUTGC8R1h10fZPEccBZblVVHXy3972ksnsNrwqFwP1vxW
+	 5eQqFUQmMDKgeIqwa/7SXl3cZ6kvXzm/P1QbLtKqx/hEvUASCOvX/cXSpEcWcbfqBm
+	 IdVZm1wy5R7pxjxISBlZl/NRl2+cD7s7y8vcbhSQU8ldG/hirrvJUI5p64YmM2ILkJ
+	 9/S3/ZjXdS1/g==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 47C3217E07B5;
+	Fri, 27 Nov 2026 02:27:30 +0100 (CET)
+Message-ID: <af92d9c302242d8470ee86ed5ede787b8a45f092.camel@collabora.com>
+Subject: Re: [PATCH v2 8/9] media: chips-media: wave5: restore the display
+ flags after a flush
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: "Jackson.lee" <jackson.lee@chipsnmedia.com>, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl, bob.beckett@collabora.com
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	lafley.kim@chipsnmedia.com, b-brnich@ti.com, hverkuil@xs4all.nl, 
+	nas.chung@chipsnmedia.com, stable@vger.kernel.org
+Date: Thu, 26 Nov 2026 20:27:28 -0500
+In-Reply-To: <20261109052853.110-9-jackson.lee@chipsnmedia.com>
+References: <20261109052853.110-1-jackson.lee@chipsnmedia.com>
+	 <20261109052853.110-9-jackson.lee@chipsnmedia.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Ml90ovTqf9+evYPR6K14"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,244 +89,227 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The PocketGo S30 handheld (Allwinner A33) reads its analog stick through
-a microcontroller at address 0x60 on i2c0. A four-byte read returns the
-two raw 8-bit potentiometer readings, each followed by its complement:
+--=-Ml90ovTqf9+evYPR6K14
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-  <a> <~a> <b> <~b>
+Le lundi 09 novembre 2026 =C3=A0 14:28 +0900, Jackson.lee a =C3=A9crit=C2=
+=A0:
+> From: Jackson Lee <jackson.lee@chipsnmedia.com>
+>=20
+> Flushing an instance clears the display flags, so every frame buffer look=
+s
+> free again -- including the ones userspace is still holding.
+> streamoff_output() marks only the buffers that happen to be queued when i=
+t
+> runs, and userspace clears those as it re-queues them, so the buffers it
+> kept end up unmarked.
+>=20
+> The next pictures are then decoded straight into buffers the application
+> owns. finish_decode() cannot find them in the queue and warns:
+>=20
+>   wave5_vpu_dec_finish_decode: invalid display frame index N
+>=20
+> A trace of the flags across a seek shows it plainly: at streamoff the fla=
+gs
+> are 0x73, only the two queued buffers are marked again, userspace re-queu=
+es
+> five of seven buffers and the flags reach 0 -- and the two it kept are
+> decoded into 8 and 12 ms later.
+>=20
+> Re-establish the flags once the flush is done, from the buffers' own
+> states: mark everything the driver does not own, hand back only what it
+> does.
+>=20
+> Derive that from the vb2 buffers rather than from the m2m ready queue. Th=
+e
+> earlier per-buffer loops walked that list with v4l2_m2m_for_each_dst_buf(=
+),
+> which takes no lock, while the interrupt thread unlinks entries from it i=
+n
+> v4l2_m2m_dst_buf_remove_by_idx(); walking it here oopsed on a poisoned li=
+st
+> pointer:
+>=20
+>   Unable to handle kernel paging request at virtual address
+>   deacfffffffffcd8
+>   pc : streamoff_output+0xe4/0x294 [wave5]
+>   Call trace:
+>    streamoff_output+0xe4/0x294 [wave5]
+>    wave5_vpu_dec_stop_streaming+0x244/0x2b4 [wave5]
+>    __vb2_queue_cancel+0x30/0x278 [videobuf2_common]
+>=20
+> Indexing the vb2 queue directly avoids the list entirely.
+>=20
+> With a flushing seek every 2 s for 180 s through glimagesink, three runs
+> each: 4, 4, 4 of those warnings before and 0, 0, 0 after, with no oops.
+>=20
+> Fixes: 9707a6254a8a ("media: chips-media: wave5: Add the v4l2 layer")
+> Cc: stable@vger.kernel.org
+> Tested-by: Brandon Brnich <b-brnich@ti.com>
+> Signed-off-by: Jackson Lee <jackson.lee@chipsnmedia.com>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> ---
+>  .../chips-media/wave5/wave5-vpu-dec.c         | 77 +++++++++++++++----
+>  1 file changed, 60 insertions(+), 17 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c b/d=
+rivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> index e351a86528bd..102c07979d08 100644
+> --- a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
+> @@ -1087,6 +1087,45 @@ static int wave5_vpu_dec_queue_setup(struct vb2_qu=
+eue *q, unsigned int *num_buff
+>  =09return 0;
+>  }
+> =20
+> +/*
+> + * Re-establish the display flags from the buffers' own states: the VPU =
+may only
+> + * write into a frame buffer the driver owns. Everything else -- above a=
+ll the
+> + * buffers userspace is holding -- has to stay marked.
+> + *
+> + * Walk the vb2 buffers rather than the m2m ready queue. That list is mo=
+dified
+> + * from the interrupt thread (v4l2_m2m_dst_buf_remove_by_idx() in
+> + * finish_decode()) and v4l2_m2m_for_each_dst_buf() takes no lock, so it=
+erating
+> + * it here can land on an entry that was just unlinked.
+> + */
+> +static void wave5_dec_sync_disp_flags(struct vpu_instance *inst, bool ma=
+rk_all)
+> +{
+> +=09struct v4l2_m2m_ctx *m2m_ctx =3D inst->v4l2_fh.m2m_ctx;
+> +=09struct vb2_queue *dst_vq =3D v4l2_m2m_get_dst_vq(m2m_ctx);
+> +=09unsigned int i;
+> +
+> +=09for (i =3D 0; i < vb2_get_num_buffers(dst_vq); i++) {
+> +=09=09struct vb2_buffer *vb =3D vb2_get_buffer(dst_vq, i);
+> +=09=09bool driver_owns;
+> +=09=09int ret;
+> +
+> +=09=09if (!vb)
+> +=09=09=09continue;
+> +
+> +=09=09driver_owns =3D !mark_all &&
+> +=09=09=09      (vb->state =3D=3D VB2_BUF_STATE_QUEUED ||
+> +=09=09=09       vb->state =3D=3D VB2_BUF_STATE_ACTIVE);
 
-The value and its complement appear to come from consecutive samples:
-they differ by a count or two at rest and by more while the stick moves
-fast. With an exact check, about one read in four is rejected, and
-about 4% still fail after three tries when polled as adc-joystick does.
-The stock driver uses an exact check and silently drops such frames.
-Accept a difference of up to 2 instead and read again, up to three
-times, beyond it or on a bus error (the MCU occasionally NACKs its
-address): over 2 x 6000 reads at rest and moving, none failed and under
-2% needed a second try.
+Its unclear, inside the framework the driver only owns the ACTIVE buffer, a=
+re
+you sure you wanted to call this owned?
 
-Add an I2C driver that exposes the two readings as raw IIO channels, so
-that adc-joystick can read the stick in polled mode. Each channel read
-fetches a fresh frame.
+> +
+> +=09=09if (driver_owns)
+> +=09=09=09ret =3D wave5_vpu_dec_clr_disp_flag(inst, vb->index);
+> +=09=09else
+> +=09=09=09ret =3D wave5_vpu_dec_set_disp_flag(inst, vb->index);
+> +=09=09if (ret)
+> +=09=09=09dev_dbg(inst->dev->dev,
+> +=09=09=09=09"%s: %s display flag of buf index: %u, fail: %d\n",
+> +=09=09=09=09__func__, driver_owns ? "Clearing" : "Setting", i, ret);
+> +=09}
+> +}
+> +
+>  static int wave5_prepare_fb(struct vpu_instance *inst)
+>  {
+>  =09int linear_num;
+> @@ -1541,7 +1580,6 @@ static int streamoff_output(struct vb2_queue *q)
+>  =09int ret;
+>  =09dma_addr_t new_rd_ptr;
+>  =09struct dec_output_info dec_info;
+> -=09unsigned int i;
+>  =09struct vpu_src_buffer *vpu_buf, *tmp;
+> =20
+>  =09inst->retry =3D false;
+> @@ -1550,14 +1588,6 @@ static int streamoff_output(struct vb2_queue *q)
+>  =09list_for_each_entry_safe(vpu_buf, tmp, &inst->avail_src_bufs, list)
+>  =09=09list_del_init(&vpu_buf->list);
+> =20
+> -=09for (i =3D 0; i < v4l2_m2m_num_dst_bufs_ready(m2m_ctx); i++) {
+> -=09=09ret =3D wave5_vpu_dec_set_disp_flag(inst, i);
+> -=09=09if (ret)
+> -=09=09=09dev_dbg(inst->dev->dev,
+> -=09=09=09=09"%s: Setting display flag of buf index: %u, fail: %d\n",
+> -=09=09=09=09__func__, i, ret);
+> -=09}
+> -
+>  =09while ((buf =3D v4l2_m2m_src_buf_remove(m2m_ctx))) {
+>  =09=09dev_dbg(inst->dev->dev, "%s: (Multiplanar) buf type %4u | index %4=
+u\n",
+>  =09=09=09__func__, buf->vb2_buf.type, buf->vb2_buf.index);
+> @@ -1574,6 +1604,20 @@ static int streamoff_output(struct vb2_queue *q)
+>  =09if (ret)
+>  =09=09return ret;
+> =20
+> +=09/*
+> +=09 * The flush clears the display flags, so every frame buffer now look=
+s
+> +=09 * free -- including the ones userspace is still holding. Only the
+> +=09 * buffers that happened to be queued when the flush ran were marked
+> +=09 * again, and userspace clears those as it re-queues them, which leav=
+es
+> +=09 * the ones it kept unmarked: the next pictures are decoded straight
+> +=09 * into buffers the application owns and finish_decode() cannot find
+> +=09 * them in the queue any more.
+> +=09 *
+> +=09 * Mark everything, then hand back just what is queued, the same way
+> +=09 * wave5_prepare_fb() establishes the flags in the first place.
+> +=09 */
 
-Signed-off-by: Romain TISSERAND <romain.tisserand@gmail.com>
----
- MAINTAINERS                          |   7 ++
- drivers/iio/adc/Kconfig              |  11 ++
- drivers/iio/adc/Makefile             |   1 +
- drivers/iio/adc/pocketgo-s30-stick.c | 149 +++++++++++++++++++++++++++
- 4 files changed, 168 insertions(+)
- create mode 100644 drivers/iio/adc/pocketgo-s30-stick.c
+This is very long and unsual, can you find a way to simply say what you wan=
+t to
+achieve? Someone will rafactor the code someday (hopefully) and this will
+eventually be outdated.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 253275882ab9..7f99ad72e412 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22256,6 +22256,13 @@ S:	Maintained
- F:	drivers/pnp/
- F:	include/linux/pnp.h
- 
-+POCKETGO S30 ANALOG STICK MCU DRIVER
-+M:	Romain TISSERAND <romain.tisserand@gmail.com>
-+L:	linux-iio@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/iio/adc/miyoo,pocketgo-s30-stick.yaml
-+F:	drivers/iio/adc/pocketgo-s30-stick.c
-+
- PORTUGUESE (BRAZILIAN) TRANSLATION
- M:	Daniel Pereira <danielmaraboo@gmail.com>
- L:	linux-doc@vger.kernel.org
-diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-index 48a0c4a88731..e1d619dcf0e8 100644
---- a/drivers/iio/adc/Kconfig
-+++ b/drivers/iio/adc/Kconfig
-@@ -1443,6 +1443,17 @@ config PALMAS_GPADC
- 	  is used in smartphones and tablets and supports a 16 channel
- 	  general purpose ADC.
- 
-+config POCKETGO_S30_STICK
-+	tristate "PocketGo S30 analog stick MCU"
-+	depends on I2C
-+	help
-+	  Say yes here to support the analog stick microcontroller of the
-+	  PocketGo S30 handheld, read over I2C. The readings are exposed as
-+	  IIO channels, for adc-joystick.
-+
-+	  To compile this driver as a module, choose M here: the module will be
-+	  called pocketgo-s30-stick.
-+
- config QCOM_VADC_COMMON
- 	tristate
- 
-diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
-index eba4d8eb716a..d707ce30e728 100644
---- a/drivers/iio/adc/Makefile
-+++ b/drivers/iio/adc/Makefile
-@@ -123,6 +123,7 @@ obj-$(CONFIG_NXP_SAR_ADC) += nxp-sar-adc.o
- obj-$(CONFIG_PAC1921) += pac1921.o
- obj-$(CONFIG_PAC1934) += pac1934.o
- obj-$(CONFIG_PALMAS_GPADC) += palmas_gpadc.o
-+obj-$(CONFIG_POCKETGO_S30_STICK) += pocketgo-s30-stick.o
- obj-$(CONFIG_QCOM_PM8XXX_XOADC) += qcom-pm8xxx-xoadc.o
- obj-$(CONFIG_QCOM_SPMI_ADC5) += qcom-spmi-adc5.o
- obj-$(CONFIG_QCOM_SPMI_ADC5_GEN3) += qcom-spmi-adc5-gen3.o
-diff --git a/drivers/iio/adc/pocketgo-s30-stick.c b/drivers/iio/adc/pocketgo-s30-stick.c
-new file mode 100644
-index 000000000000..09a60cb307d9
---- /dev/null
-+++ b/drivers/iio/adc/pocketgo-s30-stick.c
-@@ -0,0 +1,149 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * PocketGo S30 analog stick MCU
-+ *
-+ * The MCU samples the two stick potentiometers and answers an I2C read of
-+ * four bytes with the raw 8-bit readings, each followed by its complement:
-+ *
-+ *   <a> <~a> <b> <~b>
-+ *
-+ * The value and its complement appear to come from consecutive samples:
-+ * they differ by a count or two at rest, and by more while the stick moves
-+ * fast, so an exact check would drop about one read in four. Accept a
-+ * difference of up to S30_STICK_TOLERANCE and read again beyond it. The
-+ * readings are exposed as two IIO channels, for adc-joystick.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bits.h>
-+#include <linux/dev_printk.h>
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/iio/iio.h>
-+#include <linux/math.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+
-+#define S30_STICK_RETRIES	3
-+/* largest accepted difference between a reading and its complement */
-+#define S30_STICK_TOLERANCE	2
-+
-+/* signed distance of a + b from 0xff, -255..255 */
-+static int s30_stick_mismatch(u8 a, u8 b)
-+{
-+	return a + b - 0xff;
-+}
-+
-+static int s30_stick_read(struct i2c_client *client, u8 *val)
-+{
-+	u8 buf[4];
-+	int i, ret = -EIO;
-+
-+	for (i = 0; i < S30_STICK_RETRIES; i++) {
-+		ret = i2c_master_recv(client, buf, sizeof(buf));
-+		if (ret != sizeof(buf)) {
-+			if (ret >= 0)
-+				ret = -EIO;
-+			continue;
-+		}
-+
-+		if (abs(s30_stick_mismatch(buf[0], buf[1])) > S30_STICK_TOLERANCE ||
-+		    abs(s30_stick_mismatch(buf[2], buf[3])) > S30_STICK_TOLERANCE) {
-+			ret = -EIO;
-+			continue;
-+		}
-+
-+		val[0] = buf[0];
-+		val[1] = buf[2];
-+		return 0;
-+	}
-+
-+	return ret;
-+}
-+
-+static int s30_stick_read_raw(struct iio_dev *indio_dev,
-+			      struct iio_chan_spec const *chan, int *val,
-+			      int *val2, long mask)
-+{
-+	struct i2c_client *client = iio_device_get_drvdata(indio_dev);
-+	u8 v[2];
-+	int ret;
-+
-+	if (mask != IIO_CHAN_INFO_RAW)
-+		return -EINVAL;
-+
-+	ret = s30_stick_read(client, v);
-+	if (ret)
-+		return ret;
-+
-+	*val = v[chan->channel];
-+	return IIO_VAL_INT;
-+}
-+
-+static const struct iio_info s30_stick_info = {
-+	.read_raw = s30_stick_read_raw,
-+};
-+
-+#define S30_STICK_CHAN(ch) {					\
-+	.type = IIO_VOLTAGE,					\
-+	.indexed = 1,						\
-+	.channel = (ch),					\
-+	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
-+}
-+
-+static const struct iio_chan_spec s30_stick_channels[] = {
-+	S30_STICK_CHAN(0),
-+	S30_STICK_CHAN(1),
-+};
-+
-+static int s30_stick_probe(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+	struct iio_dev *indio_dev;
-+	u8 v[2];
-+	int ret;
-+
-+	indio_dev = devm_iio_device_alloc(dev, 0);
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	ret = s30_stick_read(client, v);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "no answer from the stick MCU\n");
-+
-+	iio_device_set_drvdata(indio_dev, client);
-+	indio_dev->name = "pocketgo-s30-stick";
-+	indio_dev->info = &s30_stick_info;
-+	indio_dev->modes = INDIO_DIRECT_MODE;
-+	indio_dev->channels = s30_stick_channels;
-+	indio_dev->num_channels = ARRAY_SIZE(s30_stick_channels);
-+
-+	return devm_iio_device_register(dev, indio_dev);
-+}
-+
-+static const struct of_device_id s30_stick_of_match[] = {
-+	{ .compatible = "miyoo,pocketgo-s30-stick" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, s30_stick_of_match);
-+
-+static const struct i2c_device_id s30_stick_id[] = {
-+	{ "pocketgo-s30-stick" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, s30_stick_id);
-+
-+static struct i2c_driver s30_stick_driver = {
-+	.driver = {
-+		.name = "pocketgo-s30-stick",
-+		.of_match_table = s30_stick_of_match,
-+	},
-+	.probe = s30_stick_probe,
-+	.id_table = s30_stick_id,
-+};
-+module_i2c_driver(s30_stick_driver);
-+
-+MODULE_AUTHOR("Romain TISSERAND <romain.tisserand@gmail.com>");
-+MODULE_DESCRIPTION("PocketGo S30 analog stick MCU");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
+> +=09wave5_dec_sync_disp_flags(inst, false);
+> +
+>  =09/* Reset the ring buffer information */
+>  =09new_rd_ptr =3D wave5_vpu_dec_get_rd_ptr(inst);
+>  =09inst->last_rd_ptr =3D new_rd_ptr;
+> @@ -1614,16 +1658,15 @@ static int streamoff_capture(struct vb2_queue *q)
+>  =09struct vpu_instance *inst =3D vb2_get_drv_priv(q);
+>  =09struct v4l2_m2m_ctx *m2m_ctx =3D inst->v4l2_fh.m2m_ctx;
+>  =09struct vb2_v4l2_buffer *buf;
+> -=09unsigned int i;
+>  =09int ret =3D 0;
+> =20
+> -=09for (i =3D 0; i < v4l2_m2m_num_dst_bufs_ready(m2m_ctx); i++) {
+> -=09=09ret =3D wave5_vpu_dec_set_disp_flag(inst, i);
+> -=09=09if (ret)
+> -=09=09=09dev_dbg(inst->dev->dev,
+> -=09=09=09=09"%s: Setting display flag of buf index: %u, fail: %d\n",
+> -=09=09=09=09__func__, i, ret);
+> -=09}
+> +=09/*
+> +=09 * Every CAPTURE buffer is about to go back to userspace, so none of =
+them
+> +=09 * may be decoded into until it is queued again. wave5_prepare_fb() o=
+nly
+> +=09 * re-establishes the flags on the INIT_SEQ -> PIC_RUN transition, wh=
+ich a
+> +=09 * plain streamoff/streamon of this queue does not go through.
+> +=09 */
+> +=09wave5_dec_sync_disp_flags(inst, true);
+> =20
+>  =09while ((buf =3D v4l2_m2m_dst_buf_remove(m2m_ctx))) {
+>  =09=09u32 plane;
 
+Nicolas
+
+--=-Ml90ovTqf9+evYPR6K14
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawjcgAAKCRDZQZRRKWBy
+9IePAQD7AMY0KmN9vwzelJFIhBYgxn3SQKf7T8oibDH9uDlEdgD/RrvAANhCcC3E
+3uZuKc4tf25NVebhqvpuKkz+ua8SjA8=
+=KsyU
+-----END PGP SIGNATURE-----
+
+--=-Ml90ovTqf9+evYPR6K14--
