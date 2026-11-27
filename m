@@ -1,64 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801766;
-	b=H1/r9h+kqHTnNvbA1qrTAb27FTIN5byVFyV3sNMNfmm+P8Ab9rXwq0kBfu0j7gUqGbxd
-	 9Bxu0zmTr6V3AyuOQ1rO4+Ju/DUH2uwhqqXr0t+g1oj99HHazrDi+/PFArUU/wTOan+iB
-	 va3LCCZM25iD8bB1EjEZmOxLN/C3UFIrscj+yVikOCTjb33/0n6Vxmwk+o1qORRZqGoH9
-	 p05w2NqPzUOZ8OMxbPymZRjr69k9aXgZk83ZAaebEGAuh+qI7BNN1T1oHtyLO/2bwPI6w
-	 hDSTsFF93FnAS7ao0XdgZ96Lhu2BmTyDLHJ0464Ti57cfzxJq6cRipTId2NaVCB0eDw==
+	t=1795801885;
+	b=EkKzgSPNOEHBtOuGECFpiJcRRqlIu189eMxjIHZfYpyId8liPDhzejGCaXyD3cDLccGz
+	 b3LURojOaPkGWknfMsvrmxJS5sN1cDCI2vy3d68r9baszxYJYap6WPJVS6FPgAn66dgb4
+	 uehwrY26VpiJgSEYcGgJfc7rjDELVlfkcx3+5KGQ4mdkH3o5JJa7Je5+9e7AlNma2omOR
+	 1jBxxMGsmI1G9K04MN6niNMr4Fw5nGT7YPns+GFr0qZdgDITDyeJrWuNZTfF+Azp1b46h
+	 o3PCos8EwNA2oQtfmiiRFE7AM2RNIW3sKXFzwyUqhpJ9wnLkuLOBWtLrhkncCEuZ9Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801766;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Mime-Version:Content-Type:
-	 Date:Message-Id:Subject:Cc:From:To:References:In-Reply-To:
-	 X-Scanned-By;
-	bh=Y/Gw+uO8dNWe1Q6KWKNGi2gbav0cIn6VvyubnYQMPkg=;
-	b=2BdwDfPcXPXwea3V0k4GQCqa2d2Tygm3ISLfFoKHrJNA6pfJSpdKEq8KYXayw6yI58xp
-	 wRhHn+xqdc/kk6oWSjHthCX6OiT2ZFH49HejfXHsH5vZAcApSWUo3JHPxMHj4jx0//RIA
-	 nihJMSgLE1YoCFEbfshkadob1UvY117DOxSEWijsSZ4cJehxdmWhTmA2c0mcB3n7UNqe0
-	 9LSSCgPtXAhhUyIebI3srcV1lDzgjRTbuN3+fLwdoLpI1utlf3kddRpXMZhG4TEZ3nTYW
-	 jkhd43iD2GpIFL3Mywf6svTGP3PI1YVkZY2zlVim2WxnEiDJHhi+HzHd6NQX5lz/Vkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801885;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=vZUCFIgUPUAkwneDlYHb0hMYoy5QBl/Pl9WSaWIz7y4=;
+	b=Czd94mC8YHZnTL4vEOvfgm/sAw1haZsvhjVFBBp+R6n1fn/9x/6p889TtDWsJdODruf/
+	 +Bn63ikB2lxNT3QEIiaYb7pP5SCiDB44XEwED97hoxTPkrHOfbABDRHE6/DgJNtk6H5Ba
+	 OV4NpyESsTZXp6IdYEdm4yMpCzm2s6zrb/jCUK/NCmS4YxMhcmL7tulJqPs4txWO6Di2J
+	 HR5LquCXG9uVlxflHmepH5GVPmpDEPV+WLMAjdfYmBpT4BeQQsn9dVkg2XSkwQYAa3dcB
+	 MFpmLV6Hhs7k2sT9CG/jbatrCe0SHyGgWyof6n2ao2L2aCc0qBpX857btFGtzbKZbkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iDSeg5dC;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sh+Z9zUQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB586606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:49:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB586606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09533606A31C;
+	Fri, 27 Nov 2026 17:51:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iDSeg5dC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795801765;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Y/Gw+uO8dNWe1Q6KWKNGi2gbav0cIn6VvyubnYQMPkg=;
-	b=iDSeg5dCq3uzOalMtbjAJY+4GvD+IJARxZgCrMDho508psj+wdpdOA5pF4a2fSrwNJ49IY
-	S08VWb+TFUQTYH3vdKCZvy0GG4GGKkBVuywL6zBy3dTapZl/zg0/ibDSMNsgwMuQA3sFL0
-	MR2Dt9Dq7mIupF5JFmYuQfKbPCIrQEw=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-634-RW6IK39hMkGI2nB0A7B1LA-1; Fri,
- 27 Nov 2026 17:49:20 +0000
-X-MC-Unique: RW6IK39hMkGI2nB0A7B1LA-1
-X-Mimecast-MFC-AGG-ID: RW6IK39hMkGI2nB0A7B1LA_1795801759
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2196E195604A;
-	Fri, 27 Nov 2026 17:49:19 +0000 (UTC)
-Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EAE5630002C2;
-	Fri, 27 Nov 2026 17:49:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sh+Z9zUQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79E2A1F00893;
+	Fri, 27 Nov 2026 17:51:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795801884;
+	bh=vZUCFIgUPUAkwneDlYHb0hMYoy5QBl/Pl9WSaWIz7y4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Sh+Z9zUQOQDS9AA3I7rOGEsY+9NzfIRIxL8zeELyYOpYS72uhYMcJ8VVWvTQCy7Vb
+	 F5BBiD9Or6/F298ntI4IOSetQnzPF5Y832xSkqxhbZL5SfJqjRLh7t/SC9u8W7doiD
+	 aWgnfbbR/TYzuKGlTOyo3sZsdcTqNe3pIg4Y16aSanJTWbzjm7/eY0npPkkdhPo7x6
+	 pSwqiQkMwaKotrc0REto9UhN2vOACFz0hPV11ulDklYGa7zJC5iJtjLxIbGZy9H/OH
+	 Mg7K31FTEYZMI764ZwnPe2h9fjOKm3RHVJ+J0BJnHiS0+6yEnjBaW/XXqqCPBep5FM
+	 GjVhr8e7lHDMg==
+Message-ID: <33de19df-1729-4d1c-a6ce-e10e240e0c57@kernel.org>
+Date: Fri, 27 Nov 2026 18:51:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,292 +50,123 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Fri, 27 Nov 2026 14:49:13 -0300
-Message-Id: <DN66LCLCYBP5.O2KSAOOS8SYO@redhat.com>
-Subject: Re: [PATCH 1/3] certs: blacklist: define skid: entries and add
- is_key_blacklisted()
-Cc: "Jarkko Sakkinen" <jarkko@kernel.org>, "David Howells"
- <dhowells@redhat.com>, "Roberto Sassu" <roberto.sassu@huawei.com>,
- =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
- <keyrings@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-From: "Bruno Meneguele" <bmeneg@redhat.com>
-To: "Mimi Zohar" <zohar@linux.ibm.com>, <linux-integrity@vger.kernel.org>
-References: <20261106173149.707244-1-zohar@linux.ibm.com>
- <20261106173149.707244-2-zohar@linux.ibm.com>
-In-Reply-To: <20261106173149.707244-2-zohar@linux.ibm.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and
+ a cover letter
+Content-Language: en-US
+To: Sasha Levin <sashal@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Willy Tarreau <w@1wt.eu>,
+ Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>, Jonathan Cameron <jic23@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Theodore Ts'o <tytso@mit.edu>, Security Officers <security@kernel.org>,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-2-sashal@kernel.org>
+ <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+ <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps>
+ <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu>
+ <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin>
+ <20261127133756.455469-1-sashal@kernel.org> <awmJ2c87NSDjtSwp@gremlin>
+ <20261127143124.1039470-1-sashal@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ xsFNBFZdmxYBEADsw/SiUSjB0dM+vSh95UkgcHjzEVBlby/Fg+g42O7LAEkCYXi/vvq31JTB
+ KxRWDHX0R2tgpFDXHnzZcQywawu8eSq0LxzxFNYMvtB7sV1pxYwej2qx9B75qW2plBs+7+YB
+ 87tMFA+u+L4Z5xAzIimfLD5EKC56kJ1CsXlM8S/LHcmdD9Ctkn3trYDNnat0eoAcfPIP2OZ+
+ 9oe9IF/R28zmh0ifLXyJQQz5ofdj4bPf8ecEW0rhcqHfTD8k4yK0xxt3xW+6Exqp9n9bydiy
+ tcSAw/TahjW6yrA+6JhSBv1v2tIm+itQc073zjSX8OFL51qQVzRFr7H2UQG33lw2QrvHRXqD
+ Ot7ViKam7v0Ho9wEWiQOOZlHItOOXFphWb2yq3nzrKe45oWoSgkxKb97MVsQ+q2SYjJRBBH4
+ 8qKhphADYxkIP6yut/eaj9ImvRUZZRi0DTc8xfnvHGTjKbJzC2xpFcY0DQbZzuwsIZ8OPJCc
+ LM4S7mT25NE5kUTG/TKQCk922vRdGVMoLA7dIQrgXnRXtyT61sg8PG4wcfOnuWf8577aXP1x
+ 6mzw3/jh3F+oSBHb/GcLC7mvWreJifUL2gEdssGfXhGWBo6zLS3qhgtwjay0Jl+kza1lo+Cv
+ BB2T79D4WGdDuVa4eOrQ02TxqGN7G0Biz5ZLRSFzQSQwLn8fbwARAQABzSNWbGFzdGltaWwg
+ QmFia2EgPHZiYWJrYUBrZXJuZWwub3JnPsLBsAQTAQoAWhYhBKlA1DSZLC6OmRA9UCJPp+fM
+ gqZkBQJqFFy6GxSAAAAAAAQADm1hbnUyLDIuNSsxLjEyLDIsMgIbAwUJGtCBUAULCQgHAwUV
+ CgkICwUWAgMBAAIeBQIXgAAKCRAiT6fnzIKmZJIUEADFx/tREzUImHrEwVHeSvDFmA7tJysI
+ UVrlvrM09E7GIuzphzv7jYmo8n3ANpCczLEVr4G0syYQdTigaZgv3+FQDIIzhKih1IHhu1Ei
+ XHlywNWKnQxxQEUNi5Mwx43wQz5XVw9F1A7gtKBKNtfogO511hAbrzagrYajyQacEJ/+sfhZ
+ 9Da8ltHIXD8pcYaHUfQgEusCgmEd9+KrUwrTbckFKmYq5chuE6yJ4J0EmWknL096jIE6CnzF
+ FRslQ3B1UKDjxVsm1ZHfir5NeWszLkTvGFsddFaWTgh8UycESG6VQzKXjjewXu2pG7YQYRpj
+ QKm1W5X2TkwWkXRBZTmfmbhxIUMh3+zf5wQ463rSmDN/8v81tdqBtAW6rH/kzg1GvkaTHXn0
+ 507yEHFzBksk2viAuIxxr7km8+/KARYLIdGtx30EG8cKzAUZOK6WqxtNCsXUJNrVE8CWrCaD
+ icoNu7Fs1c5hmPHdSTnU48ce67449DdnO4neLSNhRiGlMHJgfJUmgrxu/hcYeOZ3haWmEQ2w
+ uW1Mh01OHi8QZHCEyAbABrPs9GUgccc/4eYXX9hIgxfSkYzn8f+8NuIFPWl/0uTvjgqU29FQ
+ SbzOLxHq9439Ox40G5mS5eZXRGxITYR+6TXvRGI6P/264jvflnr/pDGUttaikU+0W+1uxgKH
+ cmYbEc7ATQRbGTU1AQgAn0H6UrFiWcovkh6EXVcl+SeqyO6JHOPm+e9Wu0Vw+VIUvXZVUVVQ
+ La1PQDUi6j00ChlcR66g9/V0sPIcSutacPKfdKYOBvzd4rlhL8rfrdEsQw5ApZxrA8kYZVMh
+ FmBRKAa6wos25moTlMKpCWzTH84+WO5+ziCTsTUZASAToz3RdunTD+vQcHj0GqNTPAHK63sf
+ bAB2I0BslZkXkY1RLb/YhuA6E7JyEd2pilZOrIuBGl/5q2qSakgnAVFWFBR/DO27JuAksYnq
+ +aH8vI0xGvwn75KqSk4UzAkDzWSmO4ZHuahKtQgZNsMYV+PGayRBX9b9zbldzopoLBdqHc4n
+ jQARAQABwsF8BBgBCgAmAhsMFiEEqUDUNJksLo6ZED1QIk+n58yCpmQFAmfIHFQFCRYU6J8A
+ CgkQIk+n58yCpmS2PA//bqN1LfcotmArgElsa+0EGZSQlYgK48pm8WAeTXTngudP9IJ4SuKY
+ HR5RNjHcBeqN+Me0zxRqYzRb8nGanHEkDyf4Im8DQM8d6vbyU+FcPmG4skud4kgS1zMHnlVd
+ SXfSIwKC/hKgdHG8aBV7545Lz9X6Iohea+94wneD0aw/hqF+QWewGZhWJriWAZtvEkzNjQOi
+ 4U9F/trLten/x7bpphDSnDMKJtITbtzATT1Dq7o7VpIUK1nCTQALMuMjKCdi8OdU/+V+R3O4
+ 0PXWvX8qrvqYapVbZ+9KqT74FsuB0Ya9uXwgBF2Q6cRuETZk5vqaqKxzqoQZCO8AOz/58j6O
+ 2RHNy/mZEN+7tJ5Tsq42zVJ4jxsT8b9YplavCMsnBgDeRWhcbYhCyttoL7nYISyWg4kQYZ/P
+ wIV3OuNv2f8iKYsxNsRuClOAF82+gvqOy1/1pprFjy8uo2pkoOrb63aOP3vO5VHnRKgra6dq
+ NcaZ+c6J4H+nEJGi2SkHAUJz5oBzuThvPudLvPA/SK8sKoM01IRxSihev/S/5WLazXB1PGem
+ OCbvzC1IjWJJraxiDJ5IygokapUa2RP7+WBR22skQ3SSl6G107QgWKSyTOGWEaRmV53vxQLV
+ jXuCmzSSasTL60zq5yGrT4/DYQVSNEUiUbG4pYekxJujNeEDkUlky0Y=
+In-Reply-To: <20261127143124.1039470-1-sashal@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
---e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8; format=Flowed
+On 11/27/26 15:31, Sasha Levin wrote:
+> On Fri, Nov 27, 2026 at 02:20:15PM +0000, Lorenzo Stoakes (ARM) wrote:
+>>On Fri, Nov 27, 2026 at 08:37:56AM -0500, Sasha Levin wrote:
+>>> Very much the case. But we can't stop the "wrong hands" from using it, so we
+>>> need guardrails around them that make it produce what we, as a community, think
+>>> is the right thing.
+>>
+>>These aren't guardrails, you are just trying to modify the output of
+>>something that's broken here IMO.
+> 
+> I see this as the beginning of a guardrail. It'll take us some time to get to
+> something like checkpatch for LLMs, but we have to start somewhere.
+> 
+>>I think a placeholder works better, personally.
+> 
+> I don't think we can really instruct LLMs not to write the message. The human
+> will just turn around and tell it to ignore that instruction and write the
+> commit message anyway.
+> 
+>>+10. Write the cover letter described in "Cover letter" above from what the
+>>+    previous steps produced. This part is not optional, not even for a single
+>>+    patch or a one-line fix.
+>>
+>>BTW this seems to be instructing LLMs to generate cover letters for single
+>>patches which I don't personally love to see.
+>>
+>>And it therefore gives the LLM double the chance to post awful word
+>>salad. So I'd prefer not to have that clause ideally.
+> 
+> The single patch cover letter was something that was floated during LPC and the
+> Maintainers Summit. The other option I was thinking about is a git note
+> attached to the patch: format-patch puts it below the "---" and git am discards
+> it, so it never lands in the tree. I'm open to suggestions though.
 
-On Fri Nov 6, 2026 at 2:31 PM -03, Mimi Zohar wrote:
-> A "tbs:" blacklist entry is only compared against certificates being
-> added to a keyring or presented in a signature chain, so it does not
-> stop a key that is already loaded from being used as a trust anchor.
->
-> Define a new "skid:<hex>" blacklist entry, holding a Subject Key
-> Identifier, and add is_key_blacklisted(), which looks up the SKID of an
-> asymmetric key in the system blacklist.  Entries are added like "tbs:"
-> and "bin:" entries and are subject to CONFIG_SYSTEM_BLACKLIST_AUTH_UPDATE=
-.
->
-> blacklist_vet_description() now uses a prefix table, since the prefixes
-> no longer all have the same length.  "tbs:" and "bin:" entries behave
-> as before.
->
-> For example, to add an entry for a certificate (the signed string must
-> not include a trailing newline):
->
->   skid=3D$(openssl x509 -in cert.pem -noout -ext subjectKeyIdentifier |
->          sed -n '2s/[ :]//gp' | tr A-F a-f)
->   printf 'skid:%s' "$skid" > skid.txt
->   openssl smime -sign -binary -noattr -in skid.txt -signer signer.crt \
->           -inkey signer.key -outform DER -out skid.p7s
->   keyctl padd blacklist "skid:$skid" %:.blacklist < skid.p7s
->
-> The SKID is also the hex string in the description of the key on a
-> keyring, and its last four bytes are the key ID in the security.ima
-> xattr, so an entry is easy to correlate with the key it revokes:
->
->   # keyctl show %:.ima | grep 073d
->   927946571 --als--v  0  0   \_ asymmetric: test signing key: b7809c3372a=
-07fe87248dcec7ff047a40fb3073d
->   # keyctl show %:.blacklist | grep skid
->   1014808518 ----s--v 0  0   \_ blacklist: skid:b7809c3372a07fe87248dcec7=
-ff047a40fb3073d
->
-> Signed-off-by: Mimi Zohar <zohar@linux.ibm.com>
-> ---
-> Changelog v1:
-> - Addressed Sashiko issues: drop Kconfig change, linking issues when
-> blacklist support configured, but without CONFIG_ASYMMETRIC_KEY_TYPE
-> configured.
->
->  certs/blacklist.c             | 83 ++++++++++++++++++++++++-----------
->  include/keys/system_keyring.h | 12 +++++
->  2 files changed, 70 insertions(+), 25 deletions(-)
->
-> diff --git a/certs/blacklist.c b/certs/blacklist.c
-> index fa561c12eabf..9158bd9f9fc9 100644
-> --- a/certs/blacklist.c
-> +++ b/certs/blacklist.c
-> @@ -32,6 +32,7 @@
->
->  static const char tbs_prefix[] =3D "tbs";
->  static const char bin_prefix[] =3D "bin";
-> +static const char skid_prefix[] =3D "skid";
->
->  static struct key *blacklist_keyring;
->
+b4 tracks the cover letter (with to/cc list and its own metadata) as an
+empty commit preceding the series itself, regardless of whether it's a
+single patch or a series. IIUC the empty commit is less easy to lose than
+git note, but that's probably not the crucial part.
 
-Hi Mimi,
-
-the script certs/check-blacklist-hashes.awk needs to be updated to allow "s=
-kid:"
-hash type too, otherwise build fails with "unknown prefix":
-
-$ echo '"skid:3afbecd5ee1d3d787c61270797e5c85065d030cc"' > certs/blacklist.=
-txt
-$ scripts/config --set-str SYSTEM_BLACKLIST_HASH_LIST certs/blacklist.txt
-$ make certs/
-  DESCEND objtool
-  GEN     certs/blacklist_hash_list
-Unknown prefix (item 1): skid:3afbecd5ee1d3d787c61270797e5c85065d030cc
-make[3]: *** [certs/Makefile:21: certs/blacklist_hash_list] Error 1
-make[2]: *** [scripts/Makefile.build:572: certs] Error 2
-make[1]: *** [/home/brdeoliv/git/linux/Makefile:2244: .] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-It seems to be just a single line of code and the file documentation:
-
--       if (!match(part1[1], "^(tbs|bin):(.*)$", part2)) {
-+       if (!match(part1[1], "^(tbs|bin|skid):(.*)$", part2)) {
-
-At the same time, I noticed you also dropped the Kconfig documentation chan=
-ge
-for CONFIG_SYSTEM_BLACKLIST_HASH_LIST when you fixed Sashiko's report.
-
-> @@ -40,36 +41,30 @@ extern __initconst const u8 revocation_certificate_li=
-st[];
->  extern __initconst const unsigned long revocation_certificate_list_size;
->  #endif
->
-> +static bool blacklist_prefix_valid(const char *desc, size_t len)
-> +{
-> +	return (len =3D=3D sizeof(tbs_prefix) - 1 &&
-> +		!strncmp(desc, tbs_prefix, len)) ||
-> +	       (len =3D=3D sizeof(bin_prefix) - 1 &&
-> +		!strncmp(desc, bin_prefix, len)) ||
-> +	       (len =3D=3D sizeof(skid_prefix) - 1 &&
-> +		!strncmp(desc, skid_prefix, len));
-> +}
-> +
->  /*
-> - * The description must be a type prefix, a colon and then an even numbe=
-r of
-> - * hex digits.  The hash is kept in the description.
-> + * The description must be a type prefix ("tbs", "bin" or "skid"), a col=
-on and
-> + * then an even number of lower-case hex digits.  The hash (or, for "ski=
-d", the
-> + * Subject Key Identifier) is kept in the description.
->   */
->  static int blacklist_vet_description(const char *desc)
->  {
-> -	int i, prefix_len, tbs_step =3D 0, bin_step =3D 0;
-> -
-> -	/* The following algorithm only works if prefix lengths match. */
-> -	BUILD_BUG_ON(sizeof(tbs_prefix) !=3D sizeof(bin_prefix));
-> -	prefix_len =3D sizeof(tbs_prefix) - 1;
-> -	for (i =3D 0; *desc; desc++, i++) {
-> -		if (*desc =3D=3D ':') {
-> -			if (tbs_step =3D=3D prefix_len)
-> -				goto found_colon;
-> -			if (bin_step =3D=3D prefix_len)
-> -				goto found_colon;
-> -			return -EINVAL;
-> -		}
-> -		if (i >=3D prefix_len)
-> -			return -EINVAL;
-> -		if (*desc =3D=3D tbs_prefix[i])
-> -			tbs_step++;
-> -		if (*desc =3D=3D bin_prefix[i])
-> -			bin_step++;
-> -	}
-> -	return -EINVAL;
-> +	const char *colon =3D strchr(desc, ':');
-> +	int i;
->
-> -found_colon:
-> -	desc++;
-> +	if (!colon || !blacklist_prefix_valid(desc, colon - desc))
-> +		return -EINVAL;
-> +
-> +	desc =3D colon + 1;
->  	for (i =3D 0; *desc && i < MAX_HASH_LEN; desc++, i++) {
->  		if (!isxdigit(*desc) || isupper(*desc))
->  			return -EINVAL;
-> @@ -160,6 +155,10 @@ static char *get_raw_hash(const u8 *hash, size_t has=
-h_len,
->  		type_len =3D sizeof(bin_prefix) - 1;
->  		type_prefix =3D bin_prefix;
->  		break;
-> +	case BLACKLIST_HASH_SKID:
-> +		type_len =3D sizeof(skid_prefix) - 1;
-> +		type_prefix =3D skid_prefix;
-> +		break;
->  	default:
->  		WARN_ON_ONCE(1);
->  		return ERR_PTR(-EINVAL);
-> @@ -244,6 +243,40 @@ int is_hash_blacklisted(const u8 *hash, size_t hash_=
-len,
->  }
->  EXPORT_SYMBOL_GPL(is_hash_blacklisted);
->
-> +#ifdef CONFIG_ASYMMETRIC_KEY_TYPE
-> +/**
-> + * is_key_blacklisted - Determine if a key is blacklisted by its SKID
-> + * @key: The key to be checked, e.g. a trust anchor found in a keyring
-> + *
-> + * Unlike a "tbs:" entry, which is only compared against certificates be=
-ing
-> + * added or presented in a chain, this checks a key that is already load=
-ed, so
-> + * that keys that cannot be unlinked from their keyring can still be rev=
-oked.
-> + * The identifier is taken from the key itself, not from the caller.
-> + *
-> + * Returns -EKEYREJECTED if the key's Subject Key Identifier is blacklis=
-ted,
-> + * 0 if it is not (or the key has no SKID), or another negative error.
-> + */
-> +int is_key_blacklisted(const struct key *key)
-> +{
-> +	const struct asymmetric_key_ids *kids;
-> +	const struct asymmetric_key_id *skid;
-> +
-> +	if (!key || key->type !=3D &key_type_asymmetric)
-> +		return 0;
-> +
-> +	kids =3D asymmetric_key_ids(key);
-> +	if (!kids)
-> +		return 0;
-> +
-> +	skid =3D kids->id[1];
-> +	if (!skid || !skid->len)
-> +		return 0;
-> +
-> +	return is_hash_blacklisted(skid->data, skid->len, BLACKLIST_HASH_SKID);
-> +}
-> +EXPORT_SYMBOL_GPL(is_key_blacklisted);
-> +#endif
-> +
->  int is_binary_blacklisted(const u8 *hash, size_t hash_len)
->  {
->  	if (is_hash_blacklisted(hash, hash_len, BLACKLIST_HASH_BINARY) =3D=3D
-> diff --git a/include/keys/system_keyring.h b/include/keys/system_keyring.=
-h
-> index a6c2897bcc63..2ac1dae2063a 100644
-> --- a/include/keys/system_keyring.h
-> +++ b/include/keys/system_keyring.h
-> @@ -15,6 +15,8 @@ enum blacklist_hash_type {
->  	BLACKLIST_HASH_X509_TBS =3D 1,
->  	/* Raw data hash */
->  	BLACKLIST_HASH_BINARY =3D 2,
-> +	/* Subject Key Identifier of a key (not a hash) */
-> +	BLACKLIST_HASH_SKID =3D 3,
->  };
->
->  #ifdef CONFIG_SYSTEM_TRUSTED_KEYRING
-> @@ -92,6 +94,16 @@ static inline int is_binary_blacklisted(const u8 *hash=
-, size_t hash_len)
->  }
->  #endif
->
-> +#if defined(CONFIG_SYSTEM_BLACKLIST_KEYRING) && \
-> +    defined(CONFIG_ASYMMETRIC_KEY_TYPE)
-> +extern int is_key_blacklisted(const struct key *key);
-> +#else
-> +static inline int is_key_blacklisted(const struct key *key)
-> +{
-> +	return 0;
-> +}
-> +#endif
-> +
->  struct pkcs7_message;
->  #ifdef CONFIG_SYSTEM_REVOCATION_LIST
->  extern int add_key_to_revocation_list(const char *data, size_t size);
-> --
-> 2.56.0
-
-
-
-
-
---
-Bruno Meneguele
-PGP Key: http://bmeneg.com/pubkey.txt
-
-
---e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777
-Content-Type: application/pgp-signature
-
------BEGIN PGP MESSAGE-----
-
-wsCpBAEBCABdBYJrCcKcCRBh1GQVH5GiQzUUAAAAAAAcABBzYWx0QG5vdGF0aW9u
-cy5vcGVucGdwanMub3JnEsYLSdME4OnumBKUuDqa4BYhBHVqOp0252XWw5l7rWHU
-ZBUfkaJDAABKogf9GFxVptXl/MrZOfzQGOGFT/B6iALGAAoKkZiVEHgsHB0MfH2m
-EbC0R7CpPjUmEDDfweR92J3Wu2NUUuYwcMxVH4YIqQbawoonD9aEku7G3URGaPWA
-qSBKYwoxbTG3/467wDf92snxLFDgC1bC4ofQwz9ynfvH9/9tuQznekWdaJ7G43c1
-42zygjLsyu748GGailNEjW/MrZTbSDvLjN6eOo89p2VhvvnDx5qGwzQv+b/bjF2p
-kt22schgopEOmmylq2RWUeHRTFlUNkhhlnw9JmRQaO021ImDHAB9BA0wsHnH/Wle
-uTcgB09hgZLG+Q0diUgv63eRitCw9ugUwCpdVw==
-=tSap
------END PGP MESSAGE-----
---e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777--
-
+If you then do 'b4 send' and it's a single patch, it indeed puts it below
+the '---' line. So git am discards it.
+I think it makes a lot of sense? If there is a single patch, it should be
+self-descriptive anyway, there isn't much information necessary to explain
+the whole series, if there's no series. So you might consider some extra
+info/context useful for reviewing, but not important enough for a commit log
+you want to see doing a git blame later (but it's still reachable via Link:
+anyway). So putting it below the --- should be good enough.
