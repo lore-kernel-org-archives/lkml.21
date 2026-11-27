@@ -1,91 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821111;
-	b=c2qv3kxDiMdn1GpAStXuU3y+Isqc0dKub30WYRoBFuLPphuPX5nT93EsIj9N0eAMIj/s
-	 zTMypj/S+O4XLbC7ux7OiYC2LXE4UWzUsn5jsp/QCyYZm95NskQwGJE8KeKFKolnY+96b
-	 n6Go11bGQoH6f9Y+ntBZSfQVO8o4Q478LFAbwJep3h0I+rpgn2crbheqhh9Gc1giVjb5u
-	 EO+Y/TuT0r2ulKMrIs/PQdh4c4tBOGoUQ5nSsqTNomuMR1OzB+OEfjJgH50TDah6PHhLb
-	 ZgS94Tb9jjkiaR98ho/j4XVSkEyTFoyy4k2mbhVZQANGm2Jeqd1iEA6qzJDAx+a8Vbw==
+	t=1795821276;
+	b=d4M+NMTrvTsaEdh0KKwAGlMCfkqzkdNquR43q8FgefhBXKoKYfacpZAZlJGNsLo1XCMM
+	 5wtb83J0lkj2O2MvWDCMyy9zFw5N6dCf/C4K/JfOBiz3zU/zc/p2wj1xAagRYMBjTsGs0
+	 E5M6bXakz+vRw6HCBqcuV5tqgNzNF+2GFFcgu9LcABxFJJihT2l01Bc5LunqQcsrttk06
+	 fF897xk34619g2jyX1zpw7CrNEavVpTPcu3s6xCZ+ldrVbNOWmYaIFAZdRmmhPhG4Er4L
+	 J6v/123WPKmzmBImx1N0njiZPetsjCVLbd4DaPuWa7cACPvebFK5qvFgkUMHG6FYfmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821111;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821276;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=PpxoeyjYrCqY9eg6ZscAnqGD9ZnSfRdjl0ZbWcv5AAg=;
-	b=WYttImSekNc7V6DInTmedJP3N4WMi/0NwUo3y65lfv3brxzFiqzNOEfOPiJdGut2PG9j
-	 oo9FXDE1ci/GwlMliarRh2xZMDbxZ3qNmk8WTMMBwee1ty+RtpMdWjZgNGMGIwqJxOgvj
-	 HmA1UDAiiYtyz7kl3ll/7dp3fdaI7DwonML4oVH8FNp57fmKKQlbxcR/qHxTat0I/nb5H
-	 UOA2ivxExD+Prd2QV995uQu8JhDnX3LZ5OPr3yJIbpRyoESwQW32MIDcidnyUI6P649QV
-	 sIcF15PKC+1JIqVvXhNMP806F+LfFBnBwaAapF8qC9DLZ8BKtT8i8U1RfRIuvpph1IQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Reply-To:Subject:Content-Language:To:Cc:
+	 References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=FlbabcyVkuAXu5z0Ru/b/FDnkn/RtPfkCs5EqjzDxBs=;
+	b=WINZxwd9cNuc8DKSYtfc6Xuc9zfRD23BWhF92nsoSNqw2y6d/7ZqrKyFJ6mXeMoV/cDd
+	 6Qv+PatczLeBbiw4qYjxPj7uAJqptrx17s3KdMg0Etoia+ievNRd3WJxDnedpyKhc1ZPc
+	 nB//oBN8+vzjbm8s/UzwIHbBfEwZJYwtYX3BGwcmhyUPzhOUoEIxnsZzwgof+G7znA5RW
+	 8IXdRtKJO49IEBBHJp6E/jBt7aZmzlQQiDPCmZvDU5FllblRbOjC9ljN1mW45y5h6Z3wT
+	 N4OSZJuMiG4N/bMtCEl05VmQy4n/Eb71q5NRCKGT8JA8B3tVRDSuhELYFNKJA8gnrtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xzGgi89M;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zgHtotMa;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FF2E606A6A6
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:11:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FF2E606A6A6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9957C606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:14:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9957C606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xzGgi89M
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso61710895e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:11:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zgHtotMa
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a3c08d6928so12772969c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:14:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795821110; x=1796425910; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PpxoeyjYrCqY9eg6ZscAnqGD9ZnSfRdjl0ZbWcv5AAg=;
-        b=xzGgi89M2S12Xqojxd9tP8UJOR82cF4rXhnQ6WcvgtlMFxAleliSFhqNTlUkum9zG3
-         Z/Sbu4dNe0DYS/n5ccfloB0cdtELXtNEIy33NBIFm29YuPlmvd2UeXyGdgv7M5iFwiHJ
-         JZ0Yhg1XwyEY2tONGzHqmpgWdPtVVIisBTGidWM2rvPxDClXVPN/MKim1FWIDiJBe7QJ
-         8bHqN4uetbe6FQ3XDEInLENjS/nPISPP7uQxHCTzRXPfI1lv2WkFI7u4Zt6FOs5Vv/qA
-         6uZ8bSOSR239wUIRZrt2KqMBfzq3gojslz542wo5Fw/ud3HtHS2uhxBEGGV4F7K1gQyd
-         pQ6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795821110; x=1796425910;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795821275; x=1796426075; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PpxoeyjYrCqY9eg6ZscAnqGD9ZnSfRdjl0ZbWcv5AAg=;
-        b=m3vgsxU3Gr6IIH0C9u4C0nUSWKZiffsnbuwC0KFz1ObZUwqHzktU5AikN+/D9ZVjVp
-         IXo9+PDut2jAlxf/gchGMx+sCL4uwZIHymiu6pT1AAs05ZNn53g8ZX+4t+ZLK5Yc22dZ
-         AZgPgO9MlnugDjyMsfXjUvs1L4PMIPCexNYUILOe228msGl7Nc30ZTzGs3ZJXIswNeW8
-         vwVwEcP70NPmNFlA8/4+hZ2Mg8zGcKEPxZF5+R842fMVPQbtESRXZLgcdcBTNY9bE3K6
-         geCq6zR4smjGNGvJt/TIGuTr5WSDRd9J6BzMzx33KnfJaCxuLtXgK0stg12I3803b8Wh
-         Ipog==
-X-Forwarded-Encrypted: i=1; AL+hErFWI7PoOaYwyXGwmwzZGSZFUp2xHuhIQ2cA3dIqm7HLM/XhZzM4CIU6EhahpXpC7FZ5l4u6mSJAf76lZVA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/CH59MMBPAiHzAsye1qTL5QMGaEbK3Tc56AGD7/0XzYRoPcLrO
-	qPoAaP/nD0+Px2Hs09+ZSkGL5O08fHI0kkaSXhyzZ8Yqe1v0DkgO7vDO
-X-Gm-Gg: AZFdTZcjbDY436ysXWH+3cuAqxiRlXRRkqC6/k5wjuSiLBCx1XdUDUkuM2VGVcYn6w+
-	+B1NWvNxaaqQR0xEAYRqm2fw0PBAsrqBvjXv8Xz1uApG+EmYzQiljVhyqG2QekSn1h3lQ+4EV/A
-	YOK4BiiXYMCI4lcjSWyv53+5nwP7/quevyfo6MySCb+DboTpRycPdNEHVDo+RumfxbJ18SSfUxg
-	dMOoBxP1gHWBxSuwZQJwpyMK24EmD2ptOpwolYgz8otF8/G/QdGbuIn6YyA0NkltG11L426zQBV
-	G6lNSQvCXpkGzfb7vzxFmcPskDnmF9NNhdtdvzveWCp7j/nLDVlGwgRNr98GwHc0/Vnxy/YZEq7
-	vNHSzFHl6pyhHURzj7pvxazISmkG/07VsSopPI+dhY5sP7r3yFkazPH02OLsEt8wuS5O1+7vEjc
-	gJykvyejeWVW/8sKTejBwpqwwtqtSZaKb3FbAbw5uCL9ip5TiSMX3nX3IyN0jN+/OakSK+iPXYA
-	4P8wd8s9EcZQZ/Z+rtOZYOV892bGMtLbl+TJwBpK7Ct/mhI2hsZdn9VzL/dz27ILEO09zxXdOs0
-	G91VTc2gkNybHfL/Zqv5h8a6gV4lRz3wMgyRrKk1UthNYq4HBKwo+u9DEJNflyzRWKuAxh3j6YQ
-	JpzJw53EuuumYAzm2i1z5I0bxTQ2Pi21W8IljtGsMGiti15BD1u3riEwaHcUuNnif1tIe9Q/Ur4
-	cW3hRx6JCxa78=
-X-Received: by 2002:a05:600c:4f84:b0:4bb:5f3b:25a9 with SMTP id 5b1f17b1804b1-4bb88820f39mr494916255e9.30.1795821109624;
-        Fri, 27 Nov 2026 15:11:49 -0800 (PST)
-Received: from PC-Marco.local ([151.59.46.9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm600062645e9.9.2026.11.27.15.11.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 15:11:49 -0800 (PST)
-From: Marco Ziliani <rylos78@gmail.com>
-Date: Sat, 28 Nov 2026 00:11:36 +0100
-Subject: [PATCH v3 4/4] media: i2c: ov5693: Use autosuspend when stopping
- the stream
+        bh=FlbabcyVkuAXu5z0Ru/b/FDnkn/RtPfkCs5EqjzDxBs=;
+        b=zgHtotMapPNN2PKfS4quoYXD9Fae42cXuabk+6Q7nHJHGNtnBONo2fFiCjENeQ4vea
+         j2XeQnLOxDt9Uut+lolR6zpNHEe290IZmeVJnRWOoeWG7+9hPs0BthPkswRNnkBwpFYh
+         74pDSQF2ehhY8UtlZq3+CswhQxyMitsrvRJNjxktOofq8u6uq/wZJwqIpNuGjhpR/9P0
+         uCpOcpwNDPdxpWzEqlr1H2i4uwlpGDMICDoxmQjGyfle7/uFdrVdOKRadXDwNJiDBUHS
+         xVy/rOmYDTGHMWua0H72e0XiVcuCYjl+YfOojuE8waVzNdXCSXeB4otpUkhkes2CafRs
+         k+Ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795821275; x=1796426075;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FlbabcyVkuAXu5z0Ru/b/FDnkn/RtPfkCs5EqjzDxBs=;
+        b=QOpDpTJexyB//gusYwS3nxamLCGWox8zrbLVfzEYJHKyJ3kTXwGOV1doNbq/Ef+eDT
+         Org7y7oVHGHi2Ec7OiqH60vr0cZgcgoNd79roLQ/JFROa/+jUfg+6ObDF8+cbR15FsUF
+         zfgfAy17ypVAvGmNjt5EtGB1oPOIce20FfKAFOQJZPBDB2o+JVYYqzOWV8vkYmKP/lbZ
+         p83yf4kNzHLEK20sM+R6l2lQWi6VyJszLsTxuxLaClfQ2v9S0wKsC9jkJFh0zbZrS3SV
+         6eS/0YfhO1bo8/j/d8X0ZJ36EX7IxQdyDoejmTWaj7OGpaUZKeRSV/3ANRWEjLi19J4e
+         6AXw==
+X-Gm-Message-State: APuU4Z/iGWMzbmCV6iti7/jPWbtOTDVkI8PaEqtXjYdfbi/wXY80dA3h
+	Yh0xuXuPRgzntVo5no1dsEwBVdh2Kh0Nt4ghmPLgTkcuD8JHndjtW7Ub
+X-Gm-Gg: AZFdTZflayqAzvVPBwYzSF7adEjyVGI53VODq++/NAoLm25pOIvZs8iIv92H2PpHypY
+	2TUn3skhr4XIPHvrrZwLIxgspHow30N7Dt+ux0sRxQ36G+Gwg26m6wpjL9CePnpcDQwxDXZmdlV
+	g+PGDnLx8C0nMPKZVeAI/zU8VyMili/qjFtyNHjU+7g7F2US+QofnfdXGMKdUpCdd/ofuvpnot7
+	TPvPOLphUjfBDBgMJIKEukVH26U326U0amo1S8bmGWQJZeB8hAkdvGp8O1KralJaDdi2fpWgP3V
+	03IqiyELgergyoQpqeyZpC9FrwRByL37aNsxgtTgtOcC3h/8kW42BOeUhO0oZ0Dk4fvjdDc+4pk
+	uy39LHvUyCPZurokhxXdNnkejq8ZylmsEq8YRJIDa+OYUB2/KgEUQRFnyFYku3n4ijN0OSb0byS
+	YvWkju7eMvcGtAZcStjBtHX9OczcjxujKl7QscBq1GaGLFPpOeEESz3QV33mfLUDwh2PWPsYOVu
+	F986VSJ2vrs45L7ZJezeZ/cK5qsrSiEiDRSxbZSfbtL5b2QgXIIGppYRpBK5eNk//UESwqHXLQZ
+	YCXMXbXmYRSEG5V9+XrEP6Hhkl7S/m2PqIjfOsh3MQYVhs1P1GgSNqNnMyeBXExppRY=
+X-Received: by 2002:a05:701b:4182:20b0:151:2e62:fe6d with SMTP id a92af1059eb24-1b5568a2ef4mr25852998c88.22.1795821274577;
+        Fri, 27 Nov 2026 15:14:34 -0800 (PST)
+Received: from [192.168.35.60] ([218.50.238.131])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm58356788c88.2.2026.11.27.15.14.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 15:14:33 -0800 (PST)
+Message-ID: <fa303423-0dc6-4075-9c0a-d32dbc6d8631@gmail.com>
+Date: Sat, 28 Nov 2026 08:14:30 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,71 +90,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Reply-To: chanwoo@kernel.org
+Subject: Re: [PATCH] extcon: ptn5150: fix fwnode reference leak in
+ ptn5150_i2c_probe()
+Content-Language: ko
+To: Miles Krause <mileskrause5200@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi
+ <cw00.choi@samsung.com>, Xu Yang <xu.yang_2@nxp.com>,
+ Frank Li <Frank.Li@nxp.com>
+Cc: linux-kernel@vger.kernel.org
+References: <20260906-extcon-ptn5150-fwnode-leak-v1-1-42c2ff731138@gmail.com>
+From: Chanwoo Choi <cwchoi00@gmail.com>
+In-Reply-To: <20260906-extcon-ptn5150-fwnode-leak-v1-1-42c2ff731138@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-ov5693-fixes-v3-4-bcdd169958b6@gmail.com>
-References: <20261128-ov5693-fixes-v3-0-bcdd169958b6@gmail.com>
-In-Reply-To: <20261128-ov5693-fixes-v3-0-bcdd169958b6@gmail.com>
-To: Daniel Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-media@vger.kernel.org, Chris Simpson <chris@nilk.net>, 
- Tony Garcia <tony@loafecho.com>, Simon Kruse <simon0x+git@proton.me>, 
- "D. Manresa" <dmanresa@gmail.com>, linux-kernel@vger.kernel.org, 
- Marco Ziliani <rylos78@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795821102; l=1991;
- i=rylos78@gmail.com; s=20261027; h=from:subject:message-id;
- bh=50CDNpEVkpZUkj4rcLzBQPrrm+eW1uUsTRn/4t6oC/I=;
- b=HYMhyGaHk/c55honsuCe0uxTYDDTQJv6CrCKQjSkEcBsriRAaJmATvwJmg/TBW/Y3KzzUYqpj
- 9AEkFrzYBuZCBThC6CDA14SPFxLB3hG1pIUBLOVWqqIQWCmwy5PMwLF
-X-Developer-Key: i=rylos78@gmail.com; a=ed25519;
- pk=nXCfiK5yExPZCMp+lfKif3gdXkfjkUK2qk7bDW+ixMo=
 
-The driver enables runtime PM autosuspend with a 1 second delay at
-probe, but drops the usage count at stream stop with pm_runtime_put(),
-which doesn't update the device's last busy time. The autosuspend
-delay is then counted from the runtime resume at stream start rather
-than from stream stop, so after any stream longer than the delay the
-sensor is powered off right away.
+On 9/7/2026 4:49 AM, Miles Krause wrote:
+> ptn5150_i2c_probe() looks up the "connector" child node with
+> device_get_named_child_node(), but never releases the reference that
+> the lookup returns.
+> 
+> fwnode_typec_switch_get() and fwnode_usb_role_switch_get() each take
+> their own reference on the switch they hand back, so the caller still
+> owns the fwnode reference.  Nothing in the driver drops it: the devm
+> cleanup handler ptn5150_work_sync_and_put() releases info->role_sw and
+> info->orient_sw only.  The node is therefore leaked on both error
+> returns that follow the lookup, and on a fully successful probe.
+> 
+> Declare 'connector' with __free(fwnode_handle) so that the reference is
+> released on every path out of the function.
+> 
+> Fixes: 842546c56345 ("extcon: ptn5150: Add Type-C orientation switch support")
+> Signed-off-by: Miles Krause <mileskrause5200@gmail.com>
+> ---
+>  drivers/extcon/extcon-ptn5150.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/extcon/extcon-ptn5150.c b/drivers/extcon/extcon-ptn5150.c
+> index eca1b140aeb0..ede38eec2466 100644
+> --- a/drivers/extcon/extcon-ptn5150.c
+> +++ b/drivers/extcon/extcon-ptn5150.c
+> @@ -256,7 +256,6 @@ static int ptn5150_i2c_probe(struct i2c_client *i2c)
+>  {
+>  	struct device *dev = &i2c->dev;
+>  	struct device_node *np = i2c->dev.of_node;
+> -	struct fwnode_handle *connector;
+>  	struct ptn5150_info *info;
+>  	int ret;
+>  
+> @@ -343,7 +342,8 @@ static int ptn5150_i2c_probe(struct i2c_client *i2c)
+>  	if (ret)
+>  		return -EINVAL;
+>  
+> -	connector = device_get_named_child_node(dev, "connector");
+> +	struct fwnode_handle *connector __free(fwnode_handle) =
+> +		device_get_named_child_node(dev, "connector");
+>  	if (connector) {
+>  		info->orient_sw = fwnode_typec_switch_get(connector);
+>  		if (IS_ERR(info->orient_sw))
+> 
+> ---
+> base-commit: 88405f0ad1d5c680afe3ea0ce9345fa9e1deaac8
+> change-id: 20260906-extcon-ptn5150-fwnode-leak-81c395149a9d
+> 
+> Best regards,
 
-Use pm_runtime_put_autosuspend(), which marks the device busy, so that
-the delay counts from stream stop as intended, and a following stream
-started within it doesn't power the sensor up from scratch again. Now
-that format changes are written to a powered sensor, keeping it powered
-between streams no longer leaves it in a stale mode.
-
-On a Surface Pro 9 (IPU6) with autosuspend_delay_ms set to 3000, the
-sensor suspended 1-2 ms after a 5 s stream stopped; with this change,
-3.7 s after it, i.e. the delay plus the autosuspend timer slack. On a
-Surface Pro 5 (IPU3) with the default 1 s delay, the sensor suspended
-as soon as a 2 s stream stopped; with this change, 1.1 s after it.
-
-Fixes: 89aef879cb53 ("media: i2c: Add support for ov5693 sensor")
-Reported-by: D. Manresa <dmanresa@gmail.com>
-Closes: https://github.com/linux-surface/kernel/pull/181#issuecomment-6436016335
-Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-Tested-by: Chris Simpson <chris@nilk.net>
-Tested-by: Tony Garcia <tony@loafecho.com>
-Signed-off-by: Marco Ziliani <rylos78@gmail.com>
----
- drivers/media/i2c/ov5693.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/media/i2c/ov5693.c b/drivers/media/i2c/ov5693.c
-index 6e76e289f..5c64ae063 100644
---- a/drivers/media/i2c/ov5693.c
-+++ b/drivers/media/i2c/ov5693.c
-@@ -1098,7 +1098,7 @@ static int ov5693_s_stream(struct v4l2_subdev *sd, int enable)
- 		goto err_power_down;
- 
- 	if (!enable)
--		pm_runtime_put(ov5693->dev);
-+		pm_runtime_put_autosuspend(ov5693->dev);
- 
- 	return 0;
- err_power_down:
+Applied it. Thanks.
 
 -- 
-2.56.1
-
+Best Regards,
+Chanwoo Choi
+Principal Engineer, Samsung Electronics
