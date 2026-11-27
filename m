@@ -1,67 +1,165 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.33.109.111
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769363;
-	b=0iSCMpB1DKiMbFGYe8c04SdiNqqr/sg6ZH719rXhG79XwfOzLJkQ9FSlTIR5mj+Jcy7w
-	 IiZFVPLfL0sFOz2ymQXLnrc5PtGxsw2irQO+nquukhJm1PKzNFQFCQwtaM+ZwLqy7c4+8
-	 bLLrbiOD4snqu69z6I9XkPpmNDTUWjT6bbwD5jRr/oQp+ieJ6EYzj8wgql2Suxqqepaqj
-	 7+kL00fAW3LR45tKVQYZA5fEjARD3QJBGLBZaTHsy00Q8fnqUZ96fuKakkNVi6Ct7q1Z+
-	 dCNfU/StqYQDPNIyJlbF63oq6bLY584oPrNuSI6gzqXAXeKTzf/2COrfvbBpeoxObwA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769363;
-	h=DMARC-Filter:Received:Received:Received:X-OVh-ClientIp:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:x-ovh-tracer-id:X-VR-SPAMSTATE:
-	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
-	bh=2iTOgauixE1SrVQjE6H48KVFcuPrvMgZ33dnmWCt6iU=;
-	b=V6SeHxBI2k05udQj+uyQucr1Tp6Z6eBKh+uRefNIw//PRP0GZxbi1x9EzCQzwA4XZ1X7
-	 +sm+/Lc2D6kPhtWlVeV/JVnNJ+6/2yCYVwheHniWFCw7vSb4ENns8b0ZJ9uMe5/onKSgB
-	 P771pcy7jdMkxhXVr3WrSRPQ3dceyx3UqHdz3N0NDaHRTXgWm5M84NFsk5sIzZjb+AA9P
-	 oWzrxo7mNpDUXJDCgG4HcuifPAzsokEURrYIecnnKc0uH9KqkIs9NPjJmZ3ISYPmMlP0a
-	 6MpuFHXZbY+HQ+Nf6C0A7LcFsybCkAKJhJwHWbSdR6sa3M/4yApdMizb4O1MtQw9MFw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=3mdeb.com;
-	spf=pass smtp.mailfrom=3mdeb.com;
-	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b="EW2/4cEn";
-	arc=none smtp.remote-ip=178.33.109.111
-Received: from 2.mo583.mail-out.ovh.net (2.mo583.mail-out.ovh.net [178.33.109.111])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.125
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795769358;
+	b=sBGoDG0nU6nwuPfeQEuZ9kWUs7zBpLHSyiGVrEYYqtC2VbTKXLF63il7H1XiOQb48xLt
+	 EYvYWFtDyU7A6mPDs4Er6GCw+bRRfNSyJ+PHgJSg2EQGmeUU+rbMXkI37gGj1fWCCtXnA
+	 7cyu001avbR+ICnfPhaWhqN8NMb5y2pWGgk/TItZB1tPL/HTwbarC35SrOLL6D3BP/SgU
+	 9UYoMRelRuWbqYMlcC7weVpDr9BWW4naili+AMHXKldxTLgSZLMiZrTe1VY6FC0htsWUq
+	 kmsM72pvKHSxQz/bHg4GbODngHGqkFicf+8IMfyLzhfkZ5HPn1J1H6M+idplfJz8agQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769358;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=3RGnzTdg+afaO5IiH9+ZS8CbcQlMKxIDvDKlgMyZiS0=;
+	b=g1uviTI5gvyPA9t6ZX7mdYGkrZfbZVO18kkAjWKCuZMoHXNvCkRIaxU3VOV5RULV7CWO
+	 HkQwCjMr/+4V3N6FosYnAlHIOGFxCOswepGh5Qeq/wLfAQFAFNFDJkbnUw7ZIPKKLCW/O
+	 ZsM2QZf+7IsBOyogzN+EbMldxDegQqaEsIuLdq1n7uss54vMC2zvuPLETgMxpOCwkUmLP
+	 TkPwBeWqxlmI+32q9iAUTIV4GhG8JNG1BVgP+1vZD/8mHcjKyasLgK6V2rO3rFNgOCIsf
+	 it5eokzUzb8bgiK4AY3QnU9f5N+r+KKrrocqg/y4dinHRsALCjTg/3TpLD/AMRL2qLw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=aweta.nl;
+	spf=pass smtp.mailfrom=aweta.nl;
+	dkim=pass header.d=aweta.nl header.i=@aweta.nl header.a=rsa-sha256 header.s=selector1 header.b=eYy3nb1N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.125
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11021125.outbound.protection.outlook.com [40.107.130.125])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E6A460A260D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:49:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E6A460A260D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=3mdeb.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=3mdeb.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23AB606A326;
+	Fri, 27 Nov 2026 08:49:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F23AB606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=aweta.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aweta.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=EW2/4cEn
-Received: from director11.ghost.mail-out.ovh.net (unknown [10.109.254.83])
-	by mo583.mail-out.ovh.net (Postfix) with ESMTP id 4jbRt25S7Jz5vkM
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:49:14 +0000 (UTC)
-Received: from ghost-submission-7ccd8bbbb6-bntqx (unknown [10.110.113.124])
-	by director11.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 54A50C2A93;
-	Fri, 27 Nov 2026 08:49:14 +0000 (UTC)
-Received: from 3mdeb.com ([37.59.142.110])
-	by ghost-submission-7ccd8bbbb6-bntqx with ESMTPSA
-	id 3zMOCghECWtv1hQAXudyjw:T4
-	(envelope-from <filip.golas@3mdeb.com>); Fri, 27 Nov 2026 08:49:14 +0000
-Authentication-Results:garm.ovh; auth=pass (GARM-110S0043fa16766-6412-4683-93c0-cbf2752877c3,
-                    2D78F170DE5B25267C595F1CD7CE4558A7ADEF44) smtp.auth=filip.golas@3mdeb.com
-X-OVh-ClientIp:213.192.77.249
-From: =?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
-To: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal.kopec@3mdeb.com>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Guenter Roeck <linux@roeck-us.net>,
-	=?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
-Subject: [PATCH v4 3/3] platform/x86: dasharo-acpi: Add EC fan curve support
-Date: Fri, 27 Nov 2026 09:49:10 +0100
-Message-ID: <20261127084910.3355833-4-filip.golas@3mdeb.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261127084910.3355833-1-filip.golas@3mdeb.com>
-References: <20261127084910.3355833-1-filip.golas@3mdeb.com>
+	dkim=pass (2048-bit key, unprotected) header.d=aweta.nl header.i=@aweta.nl header.a=rsa-sha256 header.s=selector1 header.b=eYy3nb1N
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mtV+canPLX/G/tQ0/sXcyrsPPstsJj0570sK/nC8YitQw9Yxs92aDSDyXgI4ARU/ZV/YgOgAiqcjK2j+z55WRrvIBGAq6Mp1MSlhcnVC+M9ura53d11bOTLg70w4jvj3wTdADXfiFSdVZGFh8IHP6JSLUynnx1IAyWIl/CAiRpktcJAQhkZYHsydy9B+epzf0SfFHkr17+MZ2xLoEupH7GsPg1iN9zwoq/BeOHuzjo4htUvaem3Lbh4B5HfsRgvYcFRqxI0jbR0aRdjB2/ldSBd33pimC3Ya1Fs9s5wyDVRoODUvidXOwx3ocRM/aNvZ6myIkLPK9MJ4YHTyrjq1oQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3RGnzTdg+afaO5IiH9+ZS8CbcQlMKxIDvDKlgMyZiS0=;
+ b=fsdI6LNKOz2/iYVQVDnoqWTvrosyuSji+HPVcRUiyBWmhIZTSXOCAWS1hwIng8dkAFnhp/FXeqvkwKwA21zHz1o4uJ1jT9Ed6TprRWq0jt8GfNv7TeGAdqGAmg3GsHsFIU3cKB4VxyOlU9q9nRw8SI4BZ2cSYF66ctxRiun+LntOmWQuBP4LVlXB0t/LaS5MobDLQs+mFZGKB/+O58+e4jJpx2CAIdYtfyozgx/bAfMTu+lFEw8+bDOCMdtR0qducG04/gYIzw9G5W96tOwX+i+a0W7gN/3HBj+cblHqblTQ28ZvXu2B+IuqbKoXPZqIVhMZSsBOsOIwNYTOcMC3ug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aweta.nl; dmarc=pass action=none header.from=aweta.nl;
+ dkim=pass header.d=aweta.nl; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aweta.nl; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3RGnzTdg+afaO5IiH9+ZS8CbcQlMKxIDvDKlgMyZiS0=;
+ b=eYy3nb1NwAKHBQyVIJCyjDYNltpzrVwl7+TM3qdFiX4Vx0MLgjw1QKqXBBRwX1TjZLUyuruhe75DdkQ+e5X9cjSVlydiIxWY+9WJoSmwA7N16KvG5mTovuO1NEGCVOG9FoB7tyXViBqAw6cUcRqGhw/pYYVQi6fi3ixzsHwTWVCqC1yfxD4JkCxD4zos4EIMMzgd3ygIfAwCWZV4qTg3rCsWce9R/LGZg9tYHT6HnkoE2+Y/S1QUzG3YqSfN+P2P1HYtnXHCObA20BD5JxIrtGqcn+sp2KRlixXlxTYjM4W8SybPzKP5V/6XEWzrb11tY7pFfrkW3pg0yM5SrzcIOA==
+Received: from AS5PR05MB11020.eurprd05.prod.outlook.com
+ (2603:10a6:20b:67d::13) by AS5PR05MB11846.eurprd05.prod.outlook.com
+ (2603:10a6:20b:6c5::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 08:49:12 +0000
+Received: from AS5PR05MB11020.eurprd05.prod.outlook.com
+ ([fe80::2dc4:6bec:d87e:3492]) by AS5PR05MB11020.eurprd05.prod.outlook.com
+ ([fe80::2dc4:6bec:d87e:3492%4]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 08:49:12 +0000
+From: Tjerk Kusters <tkusters@aweta.nl>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
+CC: "anthony.l.nguyen@intel.com" <anthony.l.nguyen@intel.com>,
+	"przemyslaw.kitszel@intel.com" <przemyslaw.kitszel@intel.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net"
+	<daniel@iogearbox.net>, "hawk@kernel.org" <hawk@kernel.org>,
+	"john.fastabend@gmail.com" <john.fastabend@gmail.com>, "sdf@fomichev.me"
+	<sdf@fomichev.me>, "sven.auhagen@voleatech.de" <sven.auhagen@voleatech.de>,
+	"richardcochran@gmail.com" <richardcochran@gmail.com>, "kurt@linutronix.de"
+	<kurt@linutronix.de>, "sriram.yagnaraman@ericsson.com"
+	<sriram.yagnaraman@ericsson.com>, "intel-wired-lan@lists.osuosl.org"
+	<intel-wired-lan@lists.osuosl.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"maciej.fijalkowski@intel.com" <maciej.fijalkowski@intel.com>, "p@1g4.org"
+	<p@1g4.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: RE: [PATCH net v6 3/3] igb: do not split AF_XDP zero-copy frames over
+ several Rx buffers
+Thread-Topic: [PATCH net v6 3/3] igb: do not split AF_XDP zero-copy frames
+ over several Rx buffers
+Thread-Index: AQHdcakNwPgs9FTQsEys1XYyFZRXXrcu5yEAgBLN1UA=
+Date: Fri, 27 Nov 2026 08:49:12 +0000
+Message-ID:
+ <AS5PR05MB11020FF8D6CFDDFB1DA15BA99B9412@AS5PR05MB11020.eurprd05.prod.outlook.com>
+References: <20261111-igb-rx-ts-fix-v6-3-ba5b9903859c@aweta.nl>
+ <179473557614.2199510.972066447270237709@kernel.org>
+In-Reply-To: <179473557614.2199510.972066447270237709@kernel.org>
+Accept-Language: en-US, nl-NL
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aweta.nl;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS5PR05MB11020:EE_|AS5PR05MB11846:EE_
+x-ms-office365-filtering-correlation-id: 9870550f-f6b8-4484-b024-08df4c634f39
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|38070700021|10067099003|56012099006|261026140227099003|261026121527099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003|5023799004|22082099003|18002099003|4143699003;
+x-microsoft-antispam-message-info:
+ FMvBKsfybtKU7rJ7L7JUl8J33AAAX41RGV9/edXVPGElzO3+UHic1Vfl9b6BgMPsN1BAtkePfhwD/ID8r4A+X3CwnMqHfYHHjVLId9guRybQAF5tfl/VVByvtFOMrPbEjgW94XhZbFyvllN89vb/lzq8AfIr1qkcrwQK5TO+Z/OKWhd+MZMhdCrdcRd53TdPM0olnJd1OWk7TcP0xJ/t7c+O1Ykbwy7HiRvUBRwHbqDjBshDzy2Vlb9rVJRtQxf9ze2F4vyADNk8BSHGreS63t5A7u7Yn9DjXtgeLXqGMlgupPweU0NXUHU1ygQjOFo4lcmGqQB/My9Kf7UPnzaVuKVTSZIAtCyAObjnG77CF3qFu7IsVRhlM6C1XbCfPaW0FDFQd2qmztveHYLiHO12b1bCFf3giq4wNII3MAPQYuc4reP1BZvLI3mzwCizUh+uZuLKbtfuJez3qT1yBa3vlTxVxcBo/DFxtWs2l0bJ/MSA8QH4r0C6qSgWZY3soIs5zyV5Bl5ACdyxTKB2G8izoRkhKhVIOgJf5CW8puIkOujyCmZDXGTjznd40Cb72nIdd78oAfhzNApicbSTM1cli5jSw1yg6bcOFa/lLZ5DeGqLNqkOUpA6GTilT+dBWrXwV5TMVrEhFF+m6BycDOd2DCJYTMSOnfQJk8R5rRPCjxDwSh1gNTwJPqDMDN9GIwPur1vV3G8Px/cz44BQFQjG/w==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS5PR05MB11020.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(38070700021)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(5023799004)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?bWNSVjV5S0l4T3ROSFI1SEJiLzRGRHBqSnIyZmhQUkRMUjhpUVBiWm83Sy9C?=
+ =?utf-8?B?Rk1HVVcvVDdNNVFrV1ZraXRoS05DMU5seHYyVEp2N3JuT2VwS0JnT25qeGNt?=
+ =?utf-8?B?aWFtR0pXZ05CbzZERmZIQVZQc0RDTzcxbGJQdDFQOXpXUm9pdjlNcWRjc3Jq?=
+ =?utf-8?B?YWpseVZKb0kxaGUvKytZczhBK1FQYlVOTC9pMjZoMVRHcjFoV2ppZnZnaVVs?=
+ =?utf-8?B?WEwvTnV3TGl3WExHR0JWVVRvL3RkSDNqd1h0UUJOU20xNVB1b2d3bFhHZG14?=
+ =?utf-8?B?Nkk1UHFXL1A4dUx6ZUZiSTlwUStkZ001WDJSTUZiS2pOUGxpM0lVUEhZam50?=
+ =?utf-8?B?V0sxWmp5N3BhZ243OE51NW90RmljTUdpaUNGZ21XU2YyUE8wY0prclpGSVRi?=
+ =?utf-8?B?Y1dOSjhlY3BlMS9Cb1I2aWRSYkVsT1NuNHNwVUhZZnVHbUJrYkMwS1Y4clZE?=
+ =?utf-8?B?YTJ4bHhYVjNvTHRRenhQY2cvaTBvQTJSTXByNGlhM3RnZlk4TzR1YWIvamJx?=
+ =?utf-8?B?cGtyTzdFUUV0WFk5bGtsT2dTRm54eDM3OEsrUVZzYmF2c0h0QkI2VTdDS2Er?=
+ =?utf-8?B?azNBdDR5V2hncXJGMEZKOEVqWTN3M2RSUWpGTjRZZ0dKM1pJUzJDTys3NXM4?=
+ =?utf-8?B?SElyQ1FRWTE1MWMyOW10cmNWK1Y5dXZsZE1jTitEU29VcGhBREx0L2UxaCs0?=
+ =?utf-8?B?UHRtY1FsNExaUjB2UklRajNwS3kzN0NXcmcydG9HSXplU2VINzNDWjBhMTcx?=
+ =?utf-8?B?ZnYvRTRYZ0U1bXptck41RmQ1VEdMaVZRM0VTeGlkRkd1VCt3WjdrV3ljN2I0?=
+ =?utf-8?B?K0NaYjJaSnNrUUgxODdhTTZLVjY3OE5FelJHMTJOMk82cStPemNTdlpHcmNz?=
+ =?utf-8?B?NWNpRFQ0dVlmRSs4U3czamVkT2ZNSUw1SWpEMWNEZng4eUhXNUxvYnJ3NG5q?=
+ =?utf-8?B?ZzU5R05UVVdMSG1LUVVDMjViWjRTdXdpQlM4OTY5cGlJMjN6eTZuOU9DWnEy?=
+ =?utf-8?B?YUJYRVpkYTdDZ3BUZ1hOYnJ4SUlTU0RSL1RwWXd1VVhhdEF4NWxnVlR4NXg5?=
+ =?utf-8?B?U3JQZzk5WmZKRDhLc01RelMzdjczbS91MTZIejNrMmdhUHNUYTVQLzR2aFY3?=
+ =?utf-8?B?bFFpYzNmdzlvME84emR1M2VTK1NEakhDR3NWTGpmSG91bFB6UlZlVE4wM0dK?=
+ =?utf-8?B?WWpzc2ttQXhjMVJDcWtZQVc1TDZmNG9hN0RWbHVVSktGT2tKeUJQVlpRU1k4?=
+ =?utf-8?B?dUxiMFhmazFtSTNoaXJFNlRCaWhkeElyMzI4Y1VKWm5aOS9lbjRCMGtyTzQ2?=
+ =?utf-8?B?MEMwYzZuamlFRTNRdmx5ZmVDdmM0dXVkeStxNmtEZGtuWkxsNmxpKy9GY3Jz?=
+ =?utf-8?B?KzZLdGhSUEpLNFVWcTZNUGZaeEtoL2pvdFhuUDZBRmhVZCtaRmhDRjJzZGRU?=
+ =?utf-8?B?OEp1WlJIL1pZNWxaR2Zyay9ERXFBOGVKVytjVVEyUWxtZGhaVmtvTzh1QUpi?=
+ =?utf-8?B?MlRhbldMU3RXazR0bWVZZHhlUzhJUW9veTJ6S0R6WnFzRGhYZG5McmZ4Qml1?=
+ =?utf-8?B?NEkxVjB1Y2czVTd0d3FNWlJtTUxPelVNRE14ZC9tTXZCNjlEbStIaUtTNldQ?=
+ =?utf-8?B?a3p6a1Y3MEIyalhtK3FyZ0xoNGpJZEZyZG5PTG54bzNUWWNRdmJvaDJkdzE4?=
+ =?utf-8?B?T3lxS0tVNEwrMEJQL09pRVR5OFl6WE1hQTVubkJQd0R4TE9OaHU1VkQraXZD?=
+ =?utf-8?B?NWk3TXZkaWpnYzRrNjh6MnVlVVBGWlZnQVg2c2ZOVGV3VjJwUlAwT2ozWnJn?=
+ =?utf-8?B?RURzWWJKd0c5cDVNMXNkcHJKN3ZNL285ZVdkdDJVT0dBek9qMCtWWEorRDlr?=
+ =?utf-8?B?U2FRZmhZdEV3N3gvb3hlYktHVU5hMC91TThveGNVWFFmRjdjV1doQmdySkZz?=
+ =?utf-8?B?R09tbC9GWFNod3JtQ2NTKzNkVWp1amtKWjMvUGJGUDV1b3ArdlM0VGNrdnlq?=
+ =?utf-8?B?ZHRnaUxHdlp0d0JxUGJvRmszZk5IYzBwSEhmR2hnbmF5VkRLR1AzQmNXOFl4?=
+ =?utf-8?B?eTdDT3NsSHMzbmNpMEZ2Tnc0RGdQU3Y1QVlnU1pWODVyR3hUbUJvenVvZTRG?=
+ =?utf-8?B?ckpFNVhHa3FRSmdIcnJ4RXUrR0VxRzFWY3FiMHl2djNXQ2loOVFhSWdFRGpi?=
+ =?utf-8?B?bVU3K2N5b044OTB2SFJXT00vaDQ1eWhMMDMrZXVuUExxYlZFTmtzTG90ZDMy?=
+ =?utf-8?B?bFk1cEF1d05VR2RjTTFaaUczTlRNNHZGQnRYdUVIOUc3bjlYQU9HME9LQTkv?=
+ =?utf-8?Q?FUR3u3rZr1BW2ks4V0?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,330 +169,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-x-ovh-tracer-id: 4902731147050545135
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTGmTo2SJLw22JHTIqldyJfHVhl4m6anTstpuqlZPPd16K+Tn0/hy/vNxAz0zWtSwAiC17uO1AVxzXNJJSVsGCbQTSajakJkTp/DEQkNG9r2WjLD5Z3btMqPcIeIX1fKFgdY1lFT5SIMPHl+lPJbd77O/Kgfm39lQRLbUmJNW9EwQL3wudFcBgi1xIWV0FzY0ws+I8mejZoac/VXb0AV4ArJH7gyBp2biRp0EqjiLtd1gyTb1WOxMmYdPke6kdgHwGERZvoG4u4YqKeb63bTlueqMyKpyE4mWvtsmRphwEVzmCEvJFvUQPdEm0bOXofatBDJP7tkbjDo4L3wYChzhtjBWT/5bAd2+dAUD9XI0oG30QNGJypXpGD1cx/U2Kk2vzx8KsATcQOZTkSxVC19ITw7uY7pEaSNO6DP/gLlpPUzu85uovjb8IXu0Ag3rTv+yYJWEXUP9YdyY3S46p+PBdtQe9XHTm7bBb02mqu4rnLdT5S2wfUhxnRPkUbrzEaVy4NsmabTSwobqqlMoC9ujY/PNUOJuRZfTCifIE6lZC1Na7AgtQhZsCVJnICc5vRu2aAHP+/QLAFEfwbVhQQeF4kD/XZOyIg7YZh1z5yPz593NNw9ajIR021eO29YpGCdt15eWV6SAIC8pYC6dAl7EmoJ/xqTQSj3LKAflGiPb5cEqg
-DKIM-Signature: a=rsa-sha256; bh=2iTOgauixE1SrVQjE6H48KVFcuPrvMgZ33dnmWCt6iU=;
- c=relaxed/relaxed; d=3mdeb.com; h=From; s=ovhmo3617313-selector1;
- t=1795769354; v=1;
- b=EW2/4cEnJGRLB5wTY7ajYREy87jRJGdy3Gk8NmmPCOdO0V3RuLimyWv2lEaXXBEY7lGhrCkj
- yl7me5uAN9yLWDtQ04DR6FFAk3eTG6o2i5HAv977buR6OhFFB3ReZ7LgY9tpch6Zf6Zm5kZ6767
- 32e/S298ciqidjo+sT2S279i7yOUeoqjCqRGzT/rr6R8VPfYe8kGg3PeTTqlgLjtdpS4gIDV/IY
- 7ebSiDQVizSgU30LVZ9GWQyKWM6KQkFzVqxGqN3DmpyBnN9trYo0Fp/fsFK5fTMogc6w2b0II9g
- bDa/m+w46urr14HBY8LNj3Wh87sRqqWGgwp8ErAe4Lr7Q==
+X-OriginatorOrg: aweta.nl
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS5PR05MB11020.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9870550f-f6b8-4484-b024-08df4c634f39
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 08:49:12.3995
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 6546512a-ba20-41bf-9d8d-c076dcbf6fd9
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 5RWUX0rQxLwgmMzb8nIWJn1tgqTIJC2TUo6mguO40BolLKq75MVWOPZ058uat411ttCyGUiYxA5iuzKVZ3MNjQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR05MB11846
 
-Expose the four-point fan curve run by the EC as pwmN_auto_pointM_temp
-and pwmN_auto_pointM_pwm, so that userspace can read and change it.
-The EC validates the curve on every write and keeps running the
-previous one if the new curve is invalid.
-
-On shutdown, ask the firmware to store the current curve, so that it is
-restored on the next boot.
-
-Fan curve control is only exposed for fans on which the firmware reports
-support for it.
-
-Signed-off-by: Filip Gołaś <filip.golas@3mdeb.com>
----
-Changes in v2:
-- Make the curve point attributes static, so DASHARO_POINT_ATTRS()
-  does not define 16 global symbols.
-- Reject negative fan curve temperatures before converting them to
-  degrees, which can round to positive.
-- Use DIV_ROUND_CLOSEST_ULL() for showing curve PWM instead of
-  DIV_ROUND_CLOSEST(), so it links on 32-bit x86.
-- Setting a curve point stages it, applying it is a separate ACPI call.
-  Add a mutex to prevent staging more changes before the first set is
-  applied.
-- Use dasharo_fan_channel to find correct channel for DASHARO_FEATURE_FAN_POINTS.
-- SFCS now takes no arguments and saves all fans. The Dasharo dev
-  build previously was accepting and ignoring the argument.
-
-Changes in v3:
-- Fix inconsistent use of parentheses in DASHARO_POINT_ATTRS macro
-- Create curve point attributes for all 24 PWM channels
-- Use DIV_ROUND_CLOSEST for temperature unit conversion
-- Use hwmon_lock instead of a private mutex
-
-Changes in v4:
-- Remove variable that became unused in v3 in dasharo_probe
-- Fix incomplete creation of point attributes for PWM channels 3-24
-- Fix possible overflows in curve_point_temp_store after using DIV_ROUND_CLOSEST
----
- drivers/platform/x86/dasharo-acpi.c | 227 +++++++++++++++++++++++++++-
- 1 file changed, 226 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/platform/x86/dasharo-acpi.c b/drivers/platform/x86/dasharo-acpi.c
-index 85f88b11fcf9..ebbd9b7c8979 100644
---- a/drivers/platform/x86/dasharo-acpi.c
-+++ b/drivers/platform/x86/dasharo-acpi.c
-@@ -6,6 +6,8 @@
- #include <linux/acpi.h>
- #include <linux/array_size.h>
- #include <linux/hwmon.h>
-+#include <linux/hwmon-sysfs.h>
-+#include <linux/kstrtox.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/types.h>
-@@ -407,6 +409,217 @@ static const struct hwmon_chip_info dasharo_hwmon_chip_info = {
- 	.info = dasharo_hwmon_info,
- };
- 
-+static int dasharo_curve_point_call(struct dasharo_data *data, int pwm_channel, const char *method,
-+				    const u64 *args, unsigned int n_args, u64 *ret)
-+{
-+	int channel = dasharo_fan_channel(data, DASHARO_FEATURE_FAN_POINTS, pwm_channel);
-+
-+	if (channel < 0)
-+		return channel;
-+
-+	return dasharo_call(data, method, DASHARO_FEATURE_FAN_POINTS, channel, args, n_args, ret);
-+}
-+
-+static int dasharo_curve_point_store(struct dasharo_data *data, int channel, const char *method,
-+				     unsigned int point, u64 value)
-+{
-+	u64 args[2] = { point, value };
-+	u64 ret;
-+	int err;
-+
-+	// set of temp/duty
-+	err = dasharo_curve_point_call(data, channel, method, args, 2, &ret);
-+	if (err)
-+		return err;
-+	if (ret)
-+		return -EPERM;
-+
-+	// commit
-+	err = dasharo_curve_point_call(data, channel, "CFCV", NULL, 0, &ret);
-+	if (err)
-+		return err;
-+
-+	// The EC rejected the curve
-+	return ret ? -EINVAL : 0;
-+}
-+
-+static ssize_t curve_point_temp_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	u64 point = sattr->index;
-+	u64 val;
-+	int err;
-+
-+	guard(hwmon_lock)(dev);
-+
-+	err = dasharo_curve_point_call(data, sattr->nr, "GFPT", &point, 1, &val);
-+	if (err)
-+		return err;
-+
-+	return sysfs_emit(buf, "%llu\n", val * MILLIDEGREE_PER_DEGREE);
-+}
-+
-+static ssize_t curve_point_temp_store(struct device *dev, struct device_attribute *attr,
-+				      const char *buf, size_t count)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	long val;
-+	int err;
-+
-+	err = kstrtol(buf, 10, &val);
-+	if (err)
-+		return err;
-+
-+	if (val < 0 || val > U8_MAX * MILLIDEGREE_PER_DEGREE)
-+		return -EINVAL;
-+
-+	val = DIV_ROUND_CLOSEST(val, MILLIDEGREE_PER_DEGREE);
-+
-+	guard(hwmon_lock)(dev);
-+
-+	err = dasharo_curve_point_store(data, sattr->nr, "SFPT", sattr->index, val);
-+	return err ?: count;
-+}
-+
-+static ssize_t curve_point_pwm_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	u64 point = sattr->index;
-+	u64 val;
-+	int err;
-+
-+	guard(hwmon_lock)(dev);
-+
-+	err = dasharo_curve_point_call(data, sattr->nr, "GFPD", &point, 1, &val);
-+	if (err)
-+		return err;
-+
-+	return sysfs_emit(buf, "%llu\n", DIV_ROUND_CLOSEST_ULL(val * 255, 100));
-+}
-+
-+static ssize_t curve_point_pwm_store(struct device *dev, struct device_attribute *attr,
-+				     const char *buf, size_t count)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	long val;
-+	int err;
-+
-+	err = kstrtol(buf, 10, &val);
-+	if (err)
-+		return err;
-+
-+	if (val < 0 || val > 255)
-+		return -EINVAL;
-+
-+	guard(hwmon_lock)(dev);
-+
-+	err = dasharo_curve_point_store(data, sattr->nr, "SFPD", sattr->index,
-+					DIV_ROUND_CLOSEST(val * 100, 255));
-+	return err ?: count;
-+}
-+
-+#define DASHARO_POINT_ATTR(ch, pt) \
-+	static SENSOR_DEVICE_ATTR_2_RW(pwm##ch##_auto_point##pt##_temp, curve_point_temp, \
-+				       (ch) - 1, (pt) - 1); \
-+	static SENSOR_DEVICE_ATTR_2_RW(pwm##ch##_auto_point##pt##_pwm, curve_point_pwm, \
-+				       (ch) - 1, (pt) - 1)
-+
-+#define DASHARO_POINT_ATTR_PTRS(ch, pt) \
-+	&sensor_dev_attr_pwm##ch##_auto_point##pt##_temp.dev_attr.attr, \
-+	&sensor_dev_attr_pwm##ch##_auto_point##pt##_pwm.dev_attr.attr
-+
-+#define DASHARO_POINT_ATTRS(ch) \
-+	DASHARO_POINT_ATTR(ch, 1); \
-+	DASHARO_POINT_ATTR(ch, 2); \
-+	DASHARO_POINT_ATTR(ch, 3); \
-+	DASHARO_POINT_ATTR(ch, 4)
-+
-+#define DASHARO_CHANNEL_PTRS(ch) \
-+	DASHARO_POINT_ATTR_PTRS(ch, 1), \
-+	DASHARO_POINT_ATTR_PTRS(ch, 2), \
-+	DASHARO_POINT_ATTR_PTRS(ch, 3), \
-+	DASHARO_POINT_ATTR_PTRS(ch, 4)
-+
-+DASHARO_POINT_ATTRS(1);
-+DASHARO_POINT_ATTRS(2);
-+DASHARO_POINT_ATTRS(3);
-+DASHARO_POINT_ATTRS(4);
-+DASHARO_POINT_ATTRS(5);
-+DASHARO_POINT_ATTRS(6);
-+DASHARO_POINT_ATTRS(7);
-+DASHARO_POINT_ATTRS(8);
-+DASHARO_POINT_ATTRS(9);
-+DASHARO_POINT_ATTRS(10);
-+DASHARO_POINT_ATTRS(11);
-+DASHARO_POINT_ATTRS(12);
-+DASHARO_POINT_ATTRS(13);
-+DASHARO_POINT_ATTRS(14);
-+DASHARO_POINT_ATTRS(15);
-+DASHARO_POINT_ATTRS(16);
-+DASHARO_POINT_ATTRS(17);
-+DASHARO_POINT_ATTRS(18);
-+DASHARO_POINT_ATTRS(19);
-+DASHARO_POINT_ATTRS(20);
-+DASHARO_POINT_ATTRS(21);
-+DASHARO_POINT_ATTRS(22);
-+DASHARO_POINT_ATTRS(23);
-+DASHARO_POINT_ATTRS(24);
-+
-+static struct attribute *dasharo_point_attrs[] = {
-+	DASHARO_CHANNEL_PTRS(1),
-+	DASHARO_CHANNEL_PTRS(2),
-+	DASHARO_CHANNEL_PTRS(3),
-+	DASHARO_CHANNEL_PTRS(4),
-+	DASHARO_CHANNEL_PTRS(5),
-+	DASHARO_CHANNEL_PTRS(6),
-+	DASHARO_CHANNEL_PTRS(7),
-+	DASHARO_CHANNEL_PTRS(8),
-+	DASHARO_CHANNEL_PTRS(9),
-+	DASHARO_CHANNEL_PTRS(10),
-+	DASHARO_CHANNEL_PTRS(11),
-+	DASHARO_CHANNEL_PTRS(12),
-+	DASHARO_CHANNEL_PTRS(13),
-+	DASHARO_CHANNEL_PTRS(14),
-+	DASHARO_CHANNEL_PTRS(15),
-+	DASHARO_CHANNEL_PTRS(16),
-+	DASHARO_CHANNEL_PTRS(17),
-+	DASHARO_CHANNEL_PTRS(18),
-+	DASHARO_CHANNEL_PTRS(19),
-+	DASHARO_CHANNEL_PTRS(20),
-+	DASHARO_CHANNEL_PTRS(21),
-+	DASHARO_CHANNEL_PTRS(22),
-+	DASHARO_CHANNEL_PTRS(23),
-+	DASHARO_CHANNEL_PTRS(24),
-+	NULL
-+};
-+
-+static umode_t dasharo_curve_point_is_visible(struct kobject *kobj, struct attribute *attr, int n)
-+{
-+	struct device *dev = kobj_to_dev(kobj);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	struct device_attribute *dattr = container_of(attr, struct device_attribute, attr);
-+	int channel = to_sensor_dev_attr_2(dattr)->nr;
-+
-+	if (dasharo_fan_channel(data, DASHARO_FEATURE_FAN_POINTS, channel) < 0)
-+		return 0;
-+
-+	return attr->mode;
-+}
-+
-+static const struct attribute_group dasharo_point_group = {
-+	.attrs = dasharo_point_attrs,
-+	.is_visible = dasharo_curve_point_is_visible,
-+};
-+
-+static const struct attribute_group *dasharo_groups[] = {
-+	&dasharo_point_group,
-+	NULL
-+};
-+
- static void dasharo_fill_feature_caps(struct dasharo_data *data, enum dasharo_feature feat)
- {
- 	struct dasharo_capability *cap;
-@@ -442,16 +655,27 @@ static int dasharo_probe(struct platform_device *pdev)
- 	if (!data)
- 		return -ENOMEM;
- 	data->pdev = pdev;
-+	platform_set_drvdata(pdev, data);
- 
- 	for (unsigned int i = 0; i < DASHARO_FEATURE_MAX; ++i)
- 		dasharo_fill_feature_caps(data, i);
- 
- 	hwmon = devm_hwmon_device_register_with_info(&pdev->dev, "dasharo_acpi", data,
--						     &dasharo_hwmon_chip_info, NULL);
-+						     &dasharo_hwmon_chip_info, dasharo_groups);
- 
- 	return PTR_ERR_OR_ZERO(hwmon);
- }
- 
-+static void dasharo_shutdown(struct platform_device *pdev)
-+{
-+	struct dasharo_data *data = platform_get_drvdata(pdev);
-+	u64 ret;
-+
-+	/* Let the firmware persist the fan curve the EC runs */
-+	if (data->caps_found[DASHARO_FEATURE_FAN_POINTS])
-+		acpi_evaluate_integer(ACPI_HANDLE(&pdev->dev), "SFCS", NULL, &ret);
-+}
-+
- static const struct acpi_device_id dasharo_device_ids[] = {
- 	{"DSHR0001", 0},
- 	{}
-@@ -464,6 +688,7 @@ static struct platform_driver dasharo_driver = {
- 		.acpi_match_table = dasharo_device_ids,
- 	},
- 	.probe = dasharo_probe,
-+	.shutdown = dasharo_shutdown,
- };
- module_platform_driver(dasharo_driver);
- 
--- 
-2.56.0
-
+PiAtIFtNZWRpdW1dIFRoaXMgaXMgYSBoYXJkd2FyZS1kZXBlbmRlbnQgRE1BIGJvdW5kLg0KDQpU
+ZXN0ZWQgb24gYW4gSTM1MCAoNy4zLjEpLCB3aXRoIG9uZSBWRiBvbiB0aGUgc2FtZSBob3N0IGlu
+IGFub3RoZXINCm5ldHdvcmsgbmFtZXNwYWNlIGF0IE1UVSA5MDAwLCBzZW5kaW5nIHRvIHRoZSBQ
+RjoNCg0KLSBQRiBhdCBNVFUgMTUwMCB3aXRoIGFuIFhEUCBwcm9ncmFtIGF0dGFjaGVkLCBzbyB0
+aGUgUEYgcG9vbCBsaW1pdCBpcw0KICAxNTI2IChnbG9iYWwgUkxQTUwgOTcyOCB3aXRoIFZGcyks
+IHdpdGggUnggdGltZXN0YW1waW5nIG9mZiBhbmQgb246DQogIGZyYW1lcyBvZiB1cCB0byAxNTI2
+IGJ5dGVzIHdpdGhvdXQgRkNTIHJlYWNoIHRoZSBQRiwgZnJhbWVzIG9mIDE1MjcNCiAgYnl0ZXMg
+YW5kIG1vcmUgZG8gbm90LiBUaGUgTUFDIGNvbXBhcmVzIHRoZSBmcmFtZSB3aXRob3V0IEZDUyB3
+aXRoDQogIFZNT0xSLlJMUE1MLCBzbyBpdCB3cml0ZXMgYXQgbW9zdCB0aGUgbWF4aW11bSBmcmFt
+ZSBzaXplIHBsdXMgdGhlDQogIDE2LWJ5dGUgaGVhZGVyLCB3aGljaCBpcyB3aGF0IGlnYl94c2tf
+ZnJhbWVfZml0cygpIGNoZWNrcyBhZ2FpbnN0IHRoZQ0KICBYU0sgZnJhbWUuDQotIFRoZSBzYW1l
+IHdpdGggeGRwc29jayBpbiB6ZXJvLWNvcHkgbW9kZSB3aXRoIDIgS2lCIGNodW5rcyBvbiBQRiBx
+dWV1ZQ0KICAwOiAxNTAwLWJ5dGUgcGluZ3MgZnJvbSB0aGUgVkYgYXJyaXZlIG9uIHF1ZXVlIDA7
+IDE2MDAsIDMwMDAgYW5kIDgwMDANCiAgYnl0ZSBwaW5ncyBhZGQgbm90aGluZyB0aGVyZSBidXQg
+dGhlIGJhY2tncm91bmQgdHJhZmZpYy4NCi0gQSAzMDAwLWJ5dGUgYnJvYWRjYXN0IG9yIElQdjYg
+bXVsdGljYXN0IGZyb20gdGhlIFZGIGRvZXMgbm90IHJlYWNoIHRoZQ0KICBQRiBlaXRoZXI7IDUw
+MC1ieXRlIG9uZXMgZG8uDQotIFdpdGggdGhlIFBGIGF0IE1UVSA5MDAwIChwb29sIGxpbWl0IDk3
+MjgpIGFuZCBubyBYRFAsIHBpbmdzIG9mIDE2MDANCiAgdG8gODAwMCBieXRlcyBmcm9tIHRoZSBW
+RiBhcmUgYW5zd2VyZWQsIGFuZCB0aGUgc2FtZSAzMDAwLWJ5dGUgZnJhbWVzDQogIHNlbnQgdG8g
+YSBNQUMgYWRkcmVzcyBvbiB0aGUgd2lyZSBkbyBsZWF2ZSB0aGUgVkYuDQoNClNvIG9uIHRoZSBJ
+MzUwIHRoZSBpbnRlcm5hbCBzd2l0Y2ggYXBwbGllcyB0aGUgUEYgcG9vbCdzIFZNT0xSLlJMUE1M
+IHRvDQpWRi10by1QRiBsb29wYmFjayBhbmQgdG8gcmVwbGljYXRpb24gYXMgd2VsbCwgYXQgdGhl
+IGV4YWN0IGxpbWl0LiBUaGUNClZGJ3Mgb3duIFNFVF9MUEUgbGltaXQgaXMgd3JpdHRlbiB0byB0
+aGUgVkYncyBwb29sIG9ubHkuDQoNClRoZSAyIEtpQiBidWlsZF9za2IgcmluZ3MgYWxyZWFkeSBk
+ZXBlbmQgb24gdGhpcyBsaW1pdDogd2l0aCBWRnMgdGhlDQpnbG9iYWwgUkxQTUwgaXMgOTcyOCwg
+YW5kIG9ubHkgdGhlIFBGIHBvb2wgbGltaXQga2VlcHMgYSBmcmFtZSBpbnNpZGUNCnRoZSBoYWxm
+IHBhZ2UsIGFsc28gZm9yIGZyYW1lcyBmcm9tIGEgVkYuIFRoaXMgcGF0Y2ggbWFrZXMgWFNLIHJp
+bmdzDQpkZXBlbmQgb24gaXQgaW4gdGhlIHNhbWUgd2F5LiBJIGhhdmUgbm8gODI1NzYgdG8gdGVz
+dCB0aGlzIG9uLg0K
