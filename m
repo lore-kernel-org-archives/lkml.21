@@ -1,47 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795743275;
-	b=OO8USXwdZz5mo0mkinjHOaWPVJZ9YNMsdXhgk5f9/Vwu4gkxDpvbq1AYkl5cMHzjxC6l
-	 jZG9YjvMKVj2FW+8c9k+WUY7wEtgdzjOJefXuHn48LfYdHPrzDGNDa2TgYzJF0aeUw8x4
-	 lIJHL+aOETFVMMTdR1HeWvgcYAPY5x5+J6P4AI1w+8LxyCAtQpP3qmH3RtY8reQx94yAP
-	 fhkR5Pwsoip3OpdjUeI35HEVZOEVEjnwqRx2O5xK5gx+wt81YgaMY35+hoScre+Yu/qGK
-	 eAryk24AD6RTUi2EWx6dkWLIyBwzFLBu70rcHFlgI45XBJU+WsrjCabk7ZpgtI69P5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795743275;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=3IhNLLqkV+73vjMEib8YQujCA7t2AxAqWwnAELMjvVM=;
-	b=fwuH1HEHNdz7/3e6g+aDEjH+kOFhXX5w8JZ+UDhs9ot/bNUciSRzJPa2h+33PT7TlA5W
-	 6MgQ/TQ5D2k5O5oveUKwgOPAs18L94cKV6KdUd5gBbLND30TuMVbtpDdK2ZxqJXntu7TL
-	 hX5de4ZCKknLDUbuiaq891DOkBqI6vlPHPon8DTV4Bfy1AVsljVppr8aBjN5E0ZuZqWNf
-	 aZlQyKdVAHJ45n9mTMOVIsNP4QUFfiuKsjwA7k/fIaSvf9qUawl1SrRdQ52uc/zCxgq4h
-	 yr4mdrIJEWJnfEOJ7lHe3DwCNv8eG+B2bK9//9efcX2hXxz4J+vRlCOiE2XQIP/K+tA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EEQ2v0EZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795743276;
+	b=nk9PwD4E6gsdCwkDUtzxXdrGb01tK6P3O2xGKeCQ4nbvxrDKroYOBapwww+FQ+bpfsWl
+	 N8C7JVRDzKM+JZhImLckknl4PB3cpUsvwadj+YUX8XexvlVwWVq6IrTTEVWosPbu1J90s
+	 b/+cDuNAojb8/0xQ0V9bS+BwFkour7I7wB49kJhctnvYe/4mXbv38Zr4+djd0VBNlQ1aK
+	 dIaW7gdctYSzQj+eA62ah1/NjjZ51oS+xDjitbq/o8hBvqMFKvs6MxdtezDnRrHfRSpuE
+	 Bkocc0v+VAj7ke3tyUbz4WMJ3yhpSndN6WjzYJKnvf0KjjQIroWAANhgQY+3L1r9L8g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795743276;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=hU2U5lk2837LuV+creZT1TNKTOC/1AOVTgldGOkkXaw=;
+	b=xkU6Pg/Gq0T2/0bE2h1S+XNeq49Dn3D89j0et1GUEpopgF09SoCQ2V2PQ6WqaWowQzKr
+	 zU0O9Be5OjbhOLR2/2MmpJRlxROgU3Rh+o8FsbtsAe9eOiicod8TXgbpBoT9uq4WkwMag
+	 ciRxG7/4NDfQIuHwBSYy7sTl2l98g7E6ILLTV5MvwKLm1Th+TO6ptUELAjplv46ZarsXt
+	 doCFdk8aDAIasBsknE3pA9XhG8FCvXO+mdzS+vzMkDUQuW1vFItcaJk+mrEmHdWqW+Tgy
+	 b8JRC87l22g/iGIFQL3HnSgWuO6mjOmkvaI27ZoGqvJJyTeFeT+RYGjMxaR0AiZPLww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z9jPlAPf;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.48
+Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 817AE606A31C;
-	Fri, 27 Nov 2026 01:34:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC39A606A32F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:34:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC39A606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EEQ2v0EZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 891AE1F000C1;
-	Fri, 27 Nov 2026 01:34:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795743275;
-	bh=3IhNLLqkV+73vjMEib8YQujCA7t2AxAqWwnAELMjvVM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EEQ2v0EZog/sesY3SJAX+bM/HjpuLmXhufUH48QS0HnuEdAJUsQVrjp5CF48clkrz
-	 K5zIqKgvmWIrcFC8b5M7Iko3wNQmyUDPdPq624n8fB6NL6F86UN6WkkZ1Tqh9W8rQM
-	 ru1haA0OVxD44ZAnX0unGhYYICNpoZChiKoDZ2UWKA9BYJGfsCSTEyaVf0pqROXSwh
-	 +BdDs9nzPA0gvZbn6SdwiauPUZ7bxA7j2Jxt2vV2s05N9HCtsgiHBF6F2yiq4jOlZM
-	 ptWofBPm9nyeH5VFIiUxF8xAcF7XaUYBAPQt3g21UdP2NKfZ3VIuILaRUApyQgmFYl
-	 f8w4APxmPHaNA==
-Message-ID: <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
-Date: Fri, 27 Nov 2026 02:34:26 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z9jPlAPf
+Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-9215934a14cso53213736d6.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795743275; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CHCG9QfqDjw/vYTJlFh33gBK9wdVQztyGMXDFnvqR1vXMEqH2rcrAPgF+aKwP1TOq+
+         ZvPGCdOMigxms5xNajYjegspgbEZjGAS/otsLCr5157B2ywiOqdaVV/ETm0PdhbaUqOA
+         s02cIC+i+MoLQta0sf0fcpMtdY4+VCGTzIUzZt1zrLuSk/wHOcwkuZV0kriQLJqysojU
+         5r7IfAIEGdL8H5zLSVqb7ShxS/K3PRlBJsrtsVl8BFTuVgyxv5QZYcokA4dGIcHYlxov
+         vJE+wUByEII9119E/0GaVruRPN0Ta5kScLV9rfVixY+9CPhpgF+pWPpXwSB15tONIzxE
+         5q5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hU2U5lk2837LuV+creZT1TNKTOC/1AOVTgldGOkkXaw=;
+        fh=zSS3NUqlFIHKJ9h+OaeCR4klksXMmZwkhbyzbf4Tong=;
+        b=YRUS1+R4x35ZArklA/RTsDjlrLLbL8DR/l7VImKaGdb87LcgMquwJwY7243/s/mJYT
+         2aAbDle/xWJZdDeXp8S1yM8tQLxquTL78Gpb7Ht1B0Outo1AngNs2pjxCgZefLigE9XJ
+         N0rod3kUykoBzqvcOFFy+3fWnEw9W/571ZacOFApJfLMjlnP+9zloTW8lrOHb2U4swVo
+         RUYmhnLHCa8RD6Aggep4j/RPWR0zoDerQ+BX2wI+nM7UaP3BtRnz4jjLbHA/wtOuSXY7
+         JWe8MS0M9cKq5D/rvBy/Tgqb1b9wl/9zUddMWGC0RrTnYoDLXu7WtukLTdNGgjtMZlem
+         ZfmQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795743275; x=1796348075; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hU2U5lk2837LuV+creZT1TNKTOC/1AOVTgldGOkkXaw=;
+        b=Z9jPlAPfbk11RA9ZLquc0hQutA2zNbigq3YWXDATzqziE2qrm0/T2BCT8UE1dGGhZv
+         Py7XYzq309HhSZvBcQ6Z3S/09YJH+SoNOa0amq9U86WBx0G1Q7bj+UZFv5+oVbvqHcdG
+         91JJgW0Qc7j6CpnhiO7VlylYkVuWWUKRSJYN/IFA2jPIdpgsns3PpwYNKs1kHTm/KPwM
+         Cv+AGWCnatJOXWoBwMes4DY3EgADioFGvE8nYqS8udCNcXaVnp1XFqJcCEBeorvGZmwH
+         tL9onYYGc0c8U+bAgZay58nUbfOIz6/7h831VhX0qxuN7J6FQqpKw888dhyp+jQsfiIm
+         sjdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795743275; x=1796348075;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hU2U5lk2837LuV+creZT1TNKTOC/1AOVTgldGOkkXaw=;
+        b=lE759M/G6gJIXRlfuGZnri6E/MH7DU1wi6j04HIuMOtAUYu+iwl+FGe7yAasjMnRj7
+         ZXw2eeOnPFYb8HREkVibOPaIFwWjxy4Nvrth9464kqSnbPtF2JHRVVGnelQ0W5J0uMEJ
+         3Ob4Xmlf2PqEhKVmwqOoT4yPv2uaEuJejsHMrFVER33aFVUNY3tWXO/CA3Zui2sJ2JkP
+         Oyt9SrUnHTevr2wqWanU/js7xC8q88VUN8dk2ohbr32kX0EXwiYIIJ0lwM9e3F+hECg9
+         +MOnC4TpXxlWYg7u4FGxXWMPaj18M3IyD8GLWFu8vWbrJcT3t/KarneihMgsV3GYj1kP
+         zo0Q==
+X-Forwarded-Encrypted: i=1; AL+hErHUs9XhE2r+kJKzksMTeIufAYOl+PXKnUevviFsald/mCgFCzx0Wq1waymOTnb/RJ9pn8EuVwez6kfRwgs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99XGj2uxKxtg6sUkC7jzqf9O3i+yDKUv42y2durUDQxoK5yx9i
+	dkDIfScs838FqX0fyrMCVK1QVHlTq9YDQgU747DDmnRw/A1FciMpMkDkPfjVuunwy5aAmkEmPSX
+	SZD2l0pzy0X/9dQlRA9y3sZ1nKw3oNLM=
+X-Gm-Gg: AZFdTZc4dFr2LEMa3ZQKhjxwbz7ta4pJdNyAb4v16x+zIvGduOGMdp2TIr62YzA8HGW
+	nWCAOrGmuf6MzvRzgHZumzavNAgAkwyFV9oNS0wqTkq9XkslmlJPI/Myd59Mvt0Rcaa90k9IlOH
+	G7NXgewllOvzY3rWP3FD31rjr2SUsncfBBDIC4ESojSUFKUrIPu1SCtvsR3jFIe7Vpdzk7sh/cu
+	fVP7pwqEJ2nbe63U5mqVgTUOYxq2PCua9WHePqEMasdU0S7hPxhleZbDwZ0ZzwiKSTJMeDOUu+R
+	1TURUA5Li752Brbtg7C8soDSrawFstNPSXU8EzFlkH8za6IhwfBfke6cq2A+TC3W0J+E3H6LKh6
+	EecmRyAZJafrV7X28Fsxrxi48KWWCqKkuotgY
+X-Received: by 2002:a05:6214:5f07:b0:921:3867:1bb0 with SMTP id
+ 6a1803df08f44-9214220c37amr376789406d6.24.1795743274810; Thu, 26 Nov 2026
+ 17:34:34 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,87 +104,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and
- a cover letter
-To: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
- Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Borislav Petkov <bp@alien8.de>,
- Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
- Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Jonathan Cameron <jic23@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
- Security Officers <security@kernel.org>, workflows@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261126171926.2766137-2-sashal@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261127004411.109585-1-artem122novak@gmail.com> <awjaHB2ugCG_F3Io@google.com>
+In-Reply-To: <awjaHB2ugCG_F3Io@google.com>
+From: Artem Novak <artem122novak@gmail.com>
+Date: Thu, 26 Nov 2026 19:34:23 -0600
+X-Gm-Features: Aa3M54r2A9iEKs22yG_w3K42aATDwZjN-MFk4H_IHS7ixiYAkVkVNmajCvdJ7Gs
+Message-ID: <CAPufuhb9txcosy48VXtfxwnC7Ct448J=_HbR00JnZR1QG-NfHg@mail.gmail.com>
+Subject: Re: [PATCH] zram: validate decompressed page size
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: minchan@kernel.org, axboe@kernel.dk, linux-kernel@vger.kernel.org, 
+	linux-block@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 26/11/2026 18:19, Sasha Levin wrote:
-> Commit messages written by AI coding assistants are too long.
-> Maintainers keep asking for them to be cut down [1][2][3][4]: they read
-> like a copy of the assistant's analysis and bury what a reader needs.
-> When an assistant does trim, the opposite problem shows. A few lines of
-> a backtrace do not tell a reviewer how the failure was produced, and
-> Leon Romanovsky showed a case where only the full log revealed that the
-> crash came from an out-of-tree module written to provoke it [5]. Willy
-> Tarreau suggested a short quote in the changelog plus the full log
-> attached [6].
+Hey Sergey,
 
-Shall we rather ask them not to write commit msgs at all? By writing
-commit msg we encourage - or try to encourage - at least basic
-understanding of what the patch does.
+On Thu, Nov 26, 2026 at 7:19=E2=80=AFPM Sergey Senozhatsky
+<senozhatsky@chromium.org> wrote:
+> Yeah, I don't think we should do this.  We only ever compress PAGE_SIZE
+> buffers, if some backend decompresses it to a something that is not
+> PAGE_SIZE and doesn't signal an error via "ret" then it's a bug in the
+> backend and zram should not cover it up.
 
-Best regards,
-Krzysztof
+I see.
+
+I thought it might be worth having a defensive check here,
+since allowing an incorrectly sized result to propagate seems a bit sloppy.
+
+Do you consider this useful, or should I rely completely on the
+backend contract?
+
+>
+> On (26/11/26 18:44), Artem Novak wrote:
+> [..]
+> > @@ -185,6 +185,8 @@ int zcomp_decompress(struct zcomp *comp, struct zco=
+mp_strm *zstrm,
+> >       ret =3D comp->ops->decompress(comp->params, &zstrm->ctx, &req);
+> >       if (src)
+> >               kunmap_local(src);
+> > +     if (!ret && req.dst_len !=3D PAGE_SIZE)
+> > +             ret =3D -EINVAL;
+> >       return ret;
+> >  }
+>
