@@ -1,106 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771532;
-	b=pyyj3kNxyTt0M7/EG4zOynkVXTFlZ/Sb1JpIL6C4hsSFrWyi33QeZbg4EZozVaJIr8PL
-	 mSwNuHU9LBUarMtItZ5WOZuxvMkozRSmBpoWO9L8EdeKup4fnchO9L9RPQiJFMg/rXoKN
-	 qE3ikgnun47oDZN54yOW7tawiiCNMvipXpoIiSW94Wsi06/ZyQmOkSCazoHRDoOel2KEj
-	 M9Eikir66SgKbKjhMHfxHuA2QZC0k07TLLdIEa2QLfIS29iJBTTIhbqNgWajc2GrdIfR7
-	 oiFeQbaziGjYTGC3y+vgXttt/3j6Fs2bUOpLjHxNc7aKFP7Akfmiwmnl8h51naKST0Q==
+	t=1795771542;
+	b=em7uXoeKmDgJN/xyEiFFW2mZSOaV4tyBmB9Q7ELWKoI86bR1Lo0AZWaF1YvIpIN6oIfI
+	 viC3+Uk0feMDfGXtR7Gf8CI3ACTPPpEl7PYXLQG572L5XGjl88q+AFXbZkmy8+fJJSZk8
+	 25K3Z9v+00482xGvzlvT5aAxPx3lJxOe3kRFmU0GL4XwEf0QAcXm9jDirOKetzQefkgN+
+	 l2NJHpoXj4LH7gsJRd8iOxhfemUT9Ad3ZIYVxEa0PfyHnkHay9kIKpI6I4pmdMnVdkyvr
+	 85eQp+fSPOafz93Qt7159XcfYtZaG7oGt+h5rCl+werjM53jVjn+rAFCO4VHLh6JTRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771532;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=lkg78SVa1VvZWM1qpB5F09DE1jX0V7/77oNZYtMWp3Q=;
-	b=YdZIqmIvwiQ9Y746dtlKGliu3/ysnuwacEkoav2+g/Aym+TQ9BvWTt/0FCQ6Hch3Xj8p
-	 MDOv1EjXjoox1I+y7bTo3Lzddi9+WZNnsp7P9Yw+cKiNHXSFdnqBgJ+XbsseOSEGqmDMr
-	 3jF8ew4GKsK9utXALkMTSJ70OxDDOsajIZwtMfiBIeZG1QHwyWHDmLF+YRbjSa+0+24N6
-	 V+g326PXDnPZWnPeK59yjdJ2yCAtXvgte6mbqB2OAIsCwxoXrW8A087pm0t5JGjKG4BCr
-	 nIZBZ9Sz3JdJYg1OvhTvh82x9jpc24J0TUIFZ440KOTvbNrmTczGRh+K7ZaTkkfsyqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771542;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=kRUs7ZAA7rua9kayF2pDKhc5cHCXtHDqEJmwG/etACg=;
+	b=G/EYs3vxUoW6fgp++4J9hLSEUrMsIOAv8djELRlNcim9U2yRXD5i2YK6FxCcS4d+r4cG
+	 DANjoC90jkZDj7IKYshZtfm7ff1z1DhbIfmfEogf+cAhybyCpokqgaXNiGBCGhUfAHWK6
+	 9QrYXoVfmnkCFix6fQJcSSmeL6xgVDbGUe/4ez5d8sxPU+AqDzd7pNts2AKxmYLo8rFe9
+	 y+6PtOGT4PqxaAKCqs35r1v3sQHE7eO+CvLiL5qPLUX4qmn79jaAPw7C5Y3781sU4VDrT
+	 49jKOWOgeJ7qOQBO3og++o5AU+UXUIwggStHytl7Bi8brg6boB5UMf46CpVgLYfxNJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=fB21m6RG;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7F9C606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7F9C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qSwD7ArU;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D7FC7606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7FC7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=fB21m6RG
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-490f38e9688so5443753f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:25:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795771530; x=1796376330; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lkg78SVa1VvZWM1qpB5F09DE1jX0V7/77oNZYtMWp3Q=;
-        b=fB21m6RGRDcXRPyA/EBWMigyLQqGvB9zRj4XIHuXhCVyQcR2j3cAdoXL1vdtAPHZYS
-         hS+m+8gmxxeRkDwrw/pZ9Md7n9nG2mdKYahjAc7tyYfLolUm8zYFp57jl/M87odQ3sRE
-         p2W74AHXknKXYHrT1pzS34oootQtiwZzJ8tPOU3YBWgUW5fr3OlS21JdfBNCc27cgCop
-         74BBYtir0B58DN6k2tz8VO/xfnJVQ/VYkusqK6tc+IGaRFilxIYjnfJTPrT/pgv7dQHU
-         PzwY5opjMzU+4ydupSppaQ0nUVbXclK8ccuRcMmKqUXRmGvrFc+edgl06X7rSw96KujF
-         MC3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771530; x=1796376330;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lkg78SVa1VvZWM1qpB5F09DE1jX0V7/77oNZYtMWp3Q=;
-        b=ROHHAKXH8gOCb2jW5evjSx+TSlxkYAuv8Euwete8EDpcIyDgotIgw522NQ3SwhRZsm
-         Ib7hC3zAl/m/4w7Pyptnh1DZKY/cqrBmqGlvwhNCbrwEWojFE07KWlajiSDX6gC55N4O
-         3yV5NfgM0ASEu7dRQFcspBa911+kss/BLKURHXeBjKzws+xTqpPlrBWUkBzPRxSqSyuT
-         zJBBv0SqQXGAEWj7+WKOMiH+gxfToQpM36B9ksLkbrMETGQ/nHBwYmvayWfV7b/qOq/F
-         NFfFGKpuY3PsUCwYzraiZDKmF2OIgxqOTGe5rlKkspb9tuSLquZo9eL8Vg3UTk7r4w5K
-         IumQ==
-X-Forwarded-Encrypted: i=1; AL+hErE+WRp1mrNPrYjhvHxcDhaVSSYU9zMXpZeHR7Q1SFtGC7R7MeWfXiRYfFbyd7qR74X4ubO6TMS/vXge1s8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8tJjhh2uGm2QbTi2TsuQZFoEuY1DezJN/hVL/SVZe1UWC/Z/qc
-	TsOZAj5MgkEUp4GQj/fLaKXKYNrBQTV783vK+gDMa//yLIfvZxXH2ouZCXjF7hy2oiU=
-X-Gm-Gg: AZFdTZdPshV7Hn9AXPC3ONR4xHW7ZwJHKiXjPLa6hPHSKVcPtgfCJKVmHHwwlgCGdAH
-	SNrP6yqn2BKU+f3dGPBQMu+NSGywPomn+VTSyn5DpB+iXqDBIm4c4UUU96dLx63ePeCAmFHWmu4
-	Al89/WOAvwZsi3PwcT2vv9gmTlHRcd9UuBEIWIh4d/D758yTDx6Z7HgrbBGU+nm7jIrUZXKy7Fe
-	jkjCe7yoeC2eaL1YL7th4+aRRhRb7I7Uhtxg770nNApoz6SsI1t4fQ7gyIiWhbWROh79zxKSGwF
-	+v0SY3SgTya7yIaDQpKfIjwtVfvLfUjONMkXiXf8zfcoH+D8iG37pmtN/F96Tp6niDFYUXcoMNp
-	cXi6Q6f00MGFL+h1P60gT+rYFiGFlzvSmA/P3RXK2rPIDU2VmNvu/t7UGcKxCCpekvr+hOjxAP1
-	H01v92IRoAIyDeu8GUZMj+lutxfqwJx8LdHHeIZH5WtCdKDE0QQ8pWp7IlS7EqQ01bDU5xrO0XF
-	hI0MYB32Aj6/OG9Fnn0k6xc1c5gsGhwViLYX8SiToinN8K6uFUD/f3vYCnHChuZKiPqdpOJfqjn
-	hbVsSGhH/PKMfczD3Mkjv255T5Yq/gz7itNoWP8T
-X-Received: by 2002:a05:6000:2382:b0:4a7:1fca:e537 with SMTP id ffacd0b85a97d-4abb0886cbamr47878406f8f.9.1795771529952;
-        Fri, 27 Nov 2026 01:25:29 -0800 (PST)
-Received: from localhost (109-81-21-11.rct.o2.cz. [109.81.21.11])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm44226033f8f.56.2026.11.27.01.25.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:25:29 -0800 (PST)
-Date: Fri, 27 Nov 2026 10:25:28 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: Tejun Heo <tj@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	David Hildenbrand <david@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
-	Greg Thelen <gthelen@google.com>, Greg KH <greg@kroah.com>,
-	Ming Lei <tom.leiming@gmail.com>, linux-mm@kvack.org,
-	cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND] mm/vmscan: Fix legacy memcg reclaim deadlock
- against filesystem freeze
-Message-ID: <awlMiOQjOyTH3hQR@tiehlicka>
-References: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qSwD7ArU
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26D5B1758;
+	Fri, 27 Nov 2026 01:25:37 -0800 (PST)
+Received: from [10.57.71.121] (unknown [10.57.71.121])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D74C73F632;
+	Fri, 27 Nov 2026 01:25:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795771540; bh=YSVAsM6E2UvKH/5A+IJHT62yGjSLzdtkY7GEKsxCbj8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qSwD7ArUfrns96Uw1W2Xa+LsibwtUL38fvGa1XA+o3Eb9WK1PWh0vvWyS25qzXIVE
+	 DFzPx8Q+CthlFKA6eOGCTMr/0msCmiDMzHxA/VDblvqpAGzy2czZqK1WBlUnnNfKqw
+	 B0dH1N7W29k/ong6SVwymn1QXfAEiwJV60Rr9Ozo=
+Message-ID: <9e4fa895-14eb-4770-8248-ad1da1503ddc@arm.com>
+Date: Fri, 27 Nov 2026 09:25:36 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,277 +53,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <17d0d1395c0237d201a1abb2473d51f5@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/23] coresight: trbe: Refactor buffer and IRQ
+ handling
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+ Leo Yan <leo.yan@arm.com>
+Cc: catalin.marinas@arm.com, mark.rutland@arm.com, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org
+References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+ <179571394630.2992027.10346522745976163448.b4-ty@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <179571394630.2992027.10346522745976163448.b4-ty@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu 26-11-26 02:08:56, Tejun Heo wrote:
-> Legacy memcg reclaim has no dirty throttling, and shrink_folio_list() waits
-> for a folio that is under writeback and already marked for reclaim (case 3
-> in its comment). That wait can deadlock against a filesystem freeze:
+On 26/11/2026 17:56, Will Deacon wrote:
+> On Fri, 16 Oct 2026 17:54:58 +0100, Leo Yan wrote:
+>> This series follows the earlier TRBE buffer refactoring posting [1].
+>> The work is now split into two parts. This first part contains fixes
+>> and refactoring in preparation for wrap and trigger mode support.
+>> Support for those modes will be sent separately.
+>>
+>> The patches are grouped as follows for easier review:
+>>
+>> [...]
 > 
-> 1. A task in write() to filesystem B holds freeze protection on B, enters
->    memcg reclaim and waits for writeback of a folio of a filesystem on a
->    loop device backed by a file on B.
+> Applied sysregs update to arm64 (for-next/sysregs), thanks!
 > 
-> 2. A freeze of B waits for the task to drop its freeze protection.
+> [01/23] arm64/sysreg: Define TRBSR_EL1.EC event classes
+>          https://git.kernel.org/arm64/c/9d3009259f0a
 > 
-> 3. The loop worker has to take freeze protection on B to write the folio out
->    and blocks behind the freeze.
+> NOTE: I included the asm/sysreg.h change from patch 12 as well and added
+> a comment noting that the BSC encodings only apply for "Other" buffer
+> management events. Ideally, we'd be able to namespace those in the
+> sysreg file for each of the MSS2 encodings but I couldn't figure out an
+> easy way to do that.
 > 
-> The same applies to any driver that writes to a file on a local filesystem
-> to serve block I/O and takes freeze protection for it.
-> 
-> Reclaim can't tell which filesystem a writeback depends on. Count the
-> superblocks that are being frozen and make the wait time out after 15
-> seconds. If one is being frozen at that point, warn and give up. Until none
-> is, treat such folios like case 2 and skip the legacy writeback throttle, so
-> that the task a freeze may be waiting for isn't held up.
-> 
-> This trades the deadlock for premature memcg OOM kills during such a freeze.
-> The wait also no longer hits the folio_wait_writeback tracepoint, and the
-> hung task detector no longer reports a task stuck in it for another reason
-> as the task wakes up every 15 seconds.
-> 
-> Fixes: e62e384e9da8 ("memcg: prevent OOM with too many dirty pages")
-> Reported-by: Christian Brauner <brauner@kernel.org>
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> Reviewed-by: Johannes Weiner <hannes@cmpxchg.org>
-> Reviewed-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> Cheers,
 
-Acked-by: Michal Hocko <mhocko@suse.com>
-Thanks!
 
-> ---
-> This was first posted in a private thread and is resent here for the lists,
-> rebased onto the current mainline. The only other change is the added
-> Reviewed-by tags.
-> 
-> This is on top of v7.4-rc4-388 (25faec9ce61c). In a test with a filesystem
-> on a loop device backed by a file on another filesystem, writers to both in
-> a v1 memcg and the backing filesystem frozen and thawed in a loop, the
-> unpatched kernel deadlocks within seconds. With the patch, a stuck freeze
-> gets through in 15 to 18 seconds.
-> 
->  fs/super.c               |    7 +++++
->  include/linux/fs/super.h |    1 
->  mm/filemap.c             |   22 +++++++++++++++--
->  mm/internal.h            |    1 
->  mm/vmscan.c              |   58 ++++++++++++++++++++++++++++++++++++++++++++---
->  5 files changed, 83 insertions(+), 6 deletions(-)
-> 
-> --- a/fs/super.c
-> +++ b/fs/super.c
-> @@ -48,6 +48,9 @@ static int thaw_super_locked(struct supe
->  static LIST_HEAD(super_blocks);
->  static DEFINE_SPINLOCK(sb_lock);
->  
-> +/* nr of superblocks that freeze_super() is in the middle of freezing */
-> +atomic_t sb_nr_freezing;
-> +
->  static char *sb_writers_name[SB_FREEZE_LEVELS] = {
->  	"sb_writers",
->  	"sb_pagefaults",
-> @@ -2235,6 +2238,7 @@ retry:
->  		return 0;
->  	}
->  
-> +	atomic_inc(&sb_nr_freezing);
->  	sb->s_writers.frozen = SB_FREEZE_WRITE;
->  	/* Release s_umount to preserve sb_start_write -> s_umount ordering */
->  	super_unlock_excl(sb);
-> @@ -2249,6 +2253,7 @@ retry:
->  	ret = sync_filesystem(sb);
->  	if (ret) {
->  		sb->s_writers.frozen = SB_UNFROZEN;
-> +		atomic_dec(&sb_nr_freezing);
->  		sb_freeze_unlock(sb, SB_FREEZE_PAGEFAULT);
->  		wake_up_var(&sb->s_writers.frozen);
->  		deactivate_locked_super(sb);
-> @@ -2265,6 +2270,7 @@ retry:
->  			printk(KERN_ERR
->  				"VFS:Filesystem freeze failed\n");
->  			sb->s_writers.frozen = SB_UNFROZEN;
-> +			atomic_dec(&sb_nr_freezing);
->  			sb_freeze_unlock(sb, SB_FREEZE_FS);
->  			wake_up_var(&sb->s_writers.frozen);
->  			deactivate_locked_super(sb);
-> @@ -2278,6 +2284,7 @@ retry:
->  	WARN_ON_ONCE(freeze_inc(sb, who) > 1);
->  	sb->s_writers.freeze_owner = freeze_owner;
->  	sb->s_writers.frozen = SB_FREEZE_COMPLETE;
-> +	atomic_dec(&sb_nr_freezing);
->  	wake_up_var(&sb->s_writers.frozen);
->  	lockdep_sb_freeze_release(sb);
->  	super_unlock_excl(sb);
-> --- a/include/linux/fs/super.h
-> +++ b/include/linux/fs/super.h
-> @@ -234,6 +234,7 @@ int freeze_super(struct super_block *sup
->  		 const void *freeze_owner);
->  int thaw_super(struct super_block *super, enum freeze_holder who,
->  	       const void *freeze_owner);
-> +extern atomic_t sb_nr_freezing;
->  
->  int sb_init_dio_done_wq(struct super_block *sb);
->  
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -1245,8 +1245,8 @@ static inline bool folio_trylock_flag(st
->  	return true;
->  }
->  
-> -static inline int folio_wait_bit_common(struct folio *folio, int bit_nr,
-> -		int state, enum behavior behavior)
-> +static inline int folio_wait_bit_common_timeout(struct folio *folio, int bit_nr, int state,
-> +		enum behavior behavior, long timeout)
->  {
->  	wait_queue_head_t *q = folio_waitqueue(folio);
->  	int unfairness = sysctl_page_lock_unfairness;
-> @@ -1324,7 +1324,9 @@ repeat:
->  			if (signal_pending_state(state, current))
->  				break;
->  
-> -			io_schedule();
-> +			timeout = io_schedule_timeout(timeout);
-> +			if (!timeout)
-> +				break;
->  			continue;
->  		}
->  
-> @@ -1393,6 +1395,13 @@ repeat:
->  	return wait->flags & WQ_FLAG_WOKEN ? 0 : -EINTR;
->  }
->  
-> +static inline int folio_wait_bit_common(struct folio *folio, int bit_nr, int state,
-> +		enum behavior behavior)
-> +{
-> +	return folio_wait_bit_common_timeout(folio, bit_nr, state, behavior,
-> +					     MAX_SCHEDULE_TIMEOUT);
-> +}
-> +
->  #ifdef CONFIG_MIGRATION
->  /**
->   * softleaf_entry_wait_on_locked - Wait for a migration entry or
-> @@ -1490,6 +1499,13 @@ int folio_wait_bit_killable(struct folio
->  }
->  EXPORT_SYMBOL(folio_wait_bit_killable);
->  
-> +/* wait up to @timeout jiffies for @bit_nr to clear, true if it cleared */
-> +bool folio_wait_bit_timeout(struct folio *folio, int bit_nr, long timeout)
-> +{
-> +	return !folio_wait_bit_common_timeout(folio, bit_nr, TASK_UNINTERRUPTIBLE, SHARED,
-> +					      timeout);
-> +}
-> +
->  /**
->   * folio_put_wait_locked - Drop a reference and wait for it to be unlocked
->   * @folio: The folio to wait for.
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -1276,6 +1276,7 @@ struct migration_target_control {
->   */
->  ssize_t splice_folio_into_pipe(struct pipe_inode_info *pipe,
->  			       struct folio *folio, loff_t fpos, size_t size);
-> +bool folio_wait_bit_timeout(struct folio *folio, int bit_nr, long timeout);
->  
->  static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
->  {
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -1157,6 +1157,55 @@ static bool may_enter_fs(struct folio *f
->  }
->  
->  /*
-> + * Legacy memcg reclaim has no dirty throttling and waits for writeback in
-> + * shrink_folio_list() instead. That wait can deadlock against a filesystem
-> + * freeze:
-> + *
-> + * 1. A task holds freeze protection on filesystem B, e.g. in write(), enters
-> + *    reclaim and waits for writeback of a folio whose I/O ends up as a write to
-> + *    B, e.g. through a loop device backed by a file on B.
-> + *
-> + * 2. A freeze of B waits for the task to drop its freeze protection.
-> + *
-> + * 3. The write to B waits for the freeze.
-> + *
-> + * Reclaim can't tell which filesystem a writeback depends on. As a crude
-> + * workaround, memcg_wait_writeback() times out and, if any filesystem is being
-> + * frozen at that point, sets memcg_wb_wait_skip. While it is set, legacy memcg
-> + * reclaim neither waits for nor throttles on writeback, so that the task a
-> + * freeze may be waiting for isn't held up in reclaim and can drop its freeze
-> + * protection. This can cause premature memcg OOM kills.
-> + */
-> +static bool memcg_wb_wait_skip;
-> +
-> +/*
-> + * Test memcg_wb_wait_skip. It takes effect only while a filesystem is being
-> + * frozen and is cleared here once none is. A freeze that starts before it is
-> + * cleared inherits the skip.
-> + */
-> +static bool memcg_skip_wb_wait(void)
-> +{
-> +	if (!READ_ONCE(memcg_wb_wait_skip))
-> +		return false;
-> +	if (atomic_read(&sb_nr_freezing))
-> +		return true;
-> +	WRITE_ONCE(memcg_wb_wait_skip, false);
-> +	return false;
-> +}
-> +
-> +/* wait for writeback of @folio, see memcg_wb_wait_skip for the timeout */
-> +static void memcg_wait_writeback(struct folio *folio)
-> +{
-> +	while (!folio_wait_bit_timeout(folio, PG_writeback, 15 * HZ)) {
-> +		if (atomic_read(&sb_nr_freezing)) {
-> +			WRITE_ONCE(memcg_wb_wait_skip, true);
-> +			pr_warn("memcg1 writeback wait timed out during fs freeze, skipping waits, may OOM early\n");
-> +			return;
-> +		}
-> +	}
-> +}
-> +
-> +/*
->   * shrink_folio_list() returns the number of reclaimed pages
->   */
->  static unsigned int shrink_folio_list(struct list_head *folio_list,
-> @@ -1277,7 +1326,9 @@ retry:
->  		 *    reclaim flag set. memcg does not have any dirty folio
->  		 *    throttling so we could easily OOM just because too many
->  		 *    folios are in writeback and there is nothing else to
-> -		 *    reclaim. Wait for the writeback to complete.
-> +		 *    reclaim. Wait for the writeback to complete. If
-> +		 *    memcg_wait_writeback() gives up, such folios are treated
-> +		 *    as in case 2 until no filesystem is being frozen.
->  		 *
->  		 * In cases 1) and 2) we activate the folios to get them out of
->  		 * the way while we continue scanning for clean folios on the
-> @@ -1300,6 +1351,7 @@ retry:
->  
->  			/* Case 2 above */
->  			} else if (writeback_throttling_sane(sc) ||
-> +			    memcg_skip_wb_wait() ||
->  			    !folio_test_reclaim(folio) ||
->  			    !may_enter_fs(folio, sc->gfp_mask) ||
->  			    (mapping &&
-> @@ -1325,7 +1377,7 @@ retry:
->  			/* Case 3 above */
->  			} else {
->  				folio_unlock(folio);
-> -				folio_wait_writeback(folio);
-> +				memcg_wait_writeback(folio);
->  				/* then go back and try same folio again */
->  				list_add_tail(&folio->lru, folio_list);
->  				continue;
-> @@ -2086,7 +2138,7 @@ static void handle_reclaim_writeback(uns
->  		 * enough for cgroupv1 writeback throttling to work
->  		 * on a large system.
->  		 */
-> -		if (!writeback_throttling_sane(sc))
-> +		if (!writeback_throttling_sane(sc) && !memcg_skip_wb_wait())
->  			reclaim_throttle(pgdat, VMSCAN_THROTTLE_WRITEBACK);
->  	}
->  
+Thank you Will, much appreciated ! We can sort out the auto generation
+in a separate patch. I believe we do it for some other sysreg already.
 
--- 
-Michal Hocko
-SUSE Labs
+
+Cheers
+Suzuki
+
