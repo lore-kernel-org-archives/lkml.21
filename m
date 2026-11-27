@@ -1,47 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795787580;
-	b=2uoAUJ4H2+YSWKvTJyeyrHUvlRJ5a3T1qKQ5MJGuOJznC9JgiodgzmTp069FWis3XB2y
-	 njTywjluGose5FFt0HxGHbAuNsr8j8nNww3M2QFepBSs3gT0dcDGbKaucDxsVKc5fsUg/
-	 syNTyV0sIRcDYktHDeWpKVOqVlXatLIhooku7kbPM0L/SYTiXphdM5RiMEE5OT3lKJ6fT
-	 afzMrEiCzSxOhpohzDtXfFtPLT00LnrjjGfDvcWDIlf8k/2OUHMk3QPuTNmSmvS83mtVZ
-	 v4XpGWlEw+lrCX89IcvQjsXfkPAjDywNwLx0LxH4crDPXZE2FGG0YVZOHRx3/L9O+ug==
+	t=1795787687;
+	b=BE8CkqgSIh4TASwfBXcIrrM6G2YFMgWzjr3nlnSWVbDZrzIZnVx+FjnRI+rZLncvFFAD
+	 BVYBT1QZBXvr38EFqsU7Kcj9Bkm0pSJF2X/7KYvWFR554YLXeQqERk1U/QC+r3KHnKtb1
+	 8psKa8uHu7HsD6ti2x1tcD21zEz4II1shUEOi2GdlWQKpIIKPaic1gPWHbGnhkEVoJAUv
+	 JFp+zIxPcE1aLJmRZw7v5D5UpMKjbrywZKJhuZGgn/6ASVBiJnNW5V7B1jGoq6BmOk18y
+	 eVHrp4wSPGl8ZyUVsH1sWeB9SdgjdgPrKQfAwi6B6iGNm0HhW+M28k/hBvhiyXUD77Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795787580;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=NnL6oYv8pcswoGVGxE5hALvPx9eK2Dy1QdVwtpOKOCQ=;
-	b=l66YCavgr4H5FIUyIZLwHlsnjHLD+B9hFq3DFcZAg4IBryLX4GNpqM8SWpp2Lz2EKb9A
-	 V3etpa4yETKcATURFJ21c7S1xdf6uqyGQPf1kmFL+mY3mWQcKIpy3oFVTHcbTzF0Gwfrd
-	 GfjKpT+Ip65ZxWjolFUrN31poIi1qnFQSNdf/aVFaEZyGuKZA519gm7YFcqIb6T5sv7r7
-	 8KbYtqbFaUdpMAO8ZbekremXSza5ideTgIrlGq1pB+TC372fTpjUqpIEffaNRQSfJ2/nE
-	 hU/s5BVpbk8+A/R3ZyOQ2mT4yfAm8yMhFMXVO2LhqWw51hNeVn/+VUlQOSAcyhrNrDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795787687;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ihaNk17hqENSXbY9COGf+8Q0e2XiJjXPQdUUyev7UHk=;
+	b=oNBartppeLGdQaIUGRo9PnwKtEQFV0djdE4eaWqdyJaMu+ETTk+myHpS74FTBC++9hae
+	 Q46NGPuOlJkoDHSjiLze9+pm/rJhiUYtf4/z9iKXRFEhPHKmRqHV5PwqIeVc9heQvXwbm
+	 7Ke6454acL/S8yJjojCs7aP/GzHx/5mjMe+p0jJLnM2uC51To4IhfBdaacrsN0s35TN9Y
+	 8hYxda6slgJkd2Ij+o/EUMU1F+6X7bffPN3ACbI16CKcVjxASZ8cx7SOjtadZGamCT9jh
+	 k87xl1x5oXFbicJkBfNQwvBQjQ8YUUVjHrL9Zee23VZIG4wnCvjl4GA2vukiveZPhTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lOU3jS05;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EBrzati9;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F947606A32E;
-	Fri, 27 Nov 2026 13:53:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0684E606A32C;
+	Fri, 27 Nov 2026 13:54:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lOU3jS05
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 492B11F00899;
-	Fri, 27 Nov 2026 13:52:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EBrzati9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B21D1F00893;
+	Fri, 27 Nov 2026 13:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795787580;
-	bh=NnL6oYv8pcswoGVGxE5hALvPx9eK2Dy1QdVwtpOKOCQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lOU3jS05VcyZZFWH0Ex6zQMZAGu/7i6oQ5LgfDNeZLuAvmaD6z+bombO0C5dzz90C
-	 8ICukcTPgEVlmFI4jB9esjiQcjiUgQcnWzqlbtuiKTat0VRJYJQkWIHhPwUHJp/RaF
-	 7qj7uKPDs2UmwXeVbJNUtIUyzl6jEJklYcn9YZMYyptK+1Wc/5vj6D0J1a/tNiMPN2
-	 /Zw9l2RrqV0VYYKXApMjQ+Qv0ZAa+MxmCpFuycVJpz/Ng8rQrFkxYvLGLPp5qklJML
-	 j/MuiM8ijZ59L8dfi7PEO8MUbaQjKcgwAjFbwL1jlLn6mHc5URsNhkBHiSDh4+m/ne
-	 016nMBcygMNAw==
-Message-ID: <05fb3ee5-e75c-4175-bbd0-fb5a368e4da2@kernel.org>
-Date: Fri, 27 Nov 2026 14:52:49 +0100
+	s=k20260515; t=1795787686;
+	bh=ihaNk17hqENSXbY9COGf+8Q0e2XiJjXPQdUUyev7UHk=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=EBrzati9JhcbB2R9MVAsDvs/3N6Vf1bh0Aooa1tg26NApbNA1dZUlgFy7q9FHDcxF
+	 pZTMotJWV+a6HtIPzZKNausCBV6Fg6CNo60U8ojPUYPIe62LoyXKaPshYUZKu1c0VN
+	 8bSRRe7DUvAJyO+wSnJRAA2S+Ph57kUimsl5vIy8YkkxJmepEq/UPFwqQzWbrYJmNl
+	 XuBFLMPPA26+L7aSjqmru2GCE0/rFUezd9LcOFx6xmlAW4AQDwLsAS+UCSXfvLrpF8
+	 CL3thFbuTn1DG17yeQ+wrRIpy6fPt+4dQ2P3d5vta4sqYiZB8q/EW8q6ZpQbcZP5MY
+	 NtTzH8tclBZbQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,108 +49,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and
- a cover letter
-To: Sasha Levin <sashal@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Willy Tarreau <w@1wt.eu>, Borislav Petkov <bp@alien8.de>,
- Krzysztof Kozlowski <krzk@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Jonathan Cameron <jic23@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Theodore Ts'o <tytso@mit.edu>, Security Officers <security@kernel.org>,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
- <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps>
- <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu>
- <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin>
- <20261127133756.455469-1-sashal@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261127133756.455469-1-sashal@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 3/3] phy: exynos5-usbdrd: fix HS phy init count
+ imbalance on Exynos2200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Soheyb Boulaa <soheyb_boulaa@proton.me>
+Cc: Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20261114064400.45572-4-soheyb_boulaa@proton.me>
+References: <20261114064400.45572-1-soheyb_boulaa@proton.me>
+ <20261114064400.45572-4-soheyb_boulaa@proton.me>
+Date: Fri, 27 Nov 2026 19:24:38 +0530
+Message-Id: <179578767823.13164.4595964054834995547.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1130; i=mani@kernel.org;
+ h=from:subject:message-id; bh=moU+LPCi/fmXx4hUo8rYp5XjV9/dvpjSZdoJhSaoZnI=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCYuhDHABi5d4RO5C0tclXwG3gZMS18Mt9rZYQ
+ xgayjpt5FSJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawmLoQAKCRBVnxHm/pHO
+ 9UYYB/44Ifkb6x2lMRRwQqwm8z+PFDfp/Kd7Y7xK7P65lr4oG7LHKgHYysohIcfbkDRH7FGkR1f
+ ecofjz7Fz18DVur6zlCgp9s19198l0YjtM5PpS8U3CWrfNCOWUg6dwH+VvO7lUifvZMlF2L9Tgw
+ 2GtLfpsQ1q59Q4KuUbS6q9bVpWdUdYQX9aCn+osfepYzVxrfQbMyp5zObPdMOxYrv4Lhml4QfvP
+ USFMxBhpc5RVplx0MurolHM9hgDG1V4l75Qr5tIR43aJUpnLEKIhMwj+4Ce/Hu59io8vCzaCs2c
+ w7AVM5hiWTvDqdW+4My0Ii35ijvNrWu7CYG+DmUUpSq9Y6gp
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-On 11/27/26 14:37, Sasha Levin wrote:
-> On Fri, Nov 27, 2026 at 09:54:07AM +0000, Lorenzo Stoakes (ARM) wrote:
->> On Fri, Nov 27, 2026 at 10:44:56AM +0100, David Hildenbrand (Arm) wrote:
->>> So as usual: in the right hand it is very useful, In the wrong hands it's not.
+On 2026-11-14 06:44 +0000, Soheyb Boulaa wrote:
+> exynos2200_usbdrd_utmi_init() calls phy_init() on the high-speed phy,
+> but exynos2200_usbdrd_phy_exit() never calls phy_exit() on it. The init
+> count of the high-speed phy therefore never drops back to zero: after
+> the first init, every later phy_init() of it returns early, and its
+> clocks and supplies stay enabled across an exit of the UTMI phy.
 > 
-> Very much the case. But we can't stop the "wrong hands" from using it, so we
-> need guardrails around them that make it produce what we, as a community, think
-> is the right thing.
+> When the high-speed phy loses power while the controller is suspended,
+> it is thus not set up again on resume, and the DWC3 core soft reset
+> times out:
 > 
->> I've dropped a bunch of reviewerships because if this keeps going, I'm going to
->> burnout completely.
->>
->> And to me the TL;DR is 'this bad thing you are dealing with on a daily basis -
->> is not bad, it's good, and we should have more of it, but only if you hold it
->> right'.
+>   dwc3 11210000.usb: DWC3 controller soft reset failed
 > 
-> I think we're actually agreeing here: LLMs write crappy commit messages today.
-> My point was that they have the capability to do this really well (the "and" in
-> that line should have been "than"), we're just not getting that out of them
-> right now. These things just helped prove the Riemann hypothesis, I have a hard
-> time believing that a good kernel commit message is where they hit their limit.
+> Exit the high-speed phy when the UTMI phy exits, last, once the rest of
+> the exit has succeeded: the phy core counts a failed exit as no exit,
+> so the high-speed phy has to stay initialized along with the UTMI phy.
+> 
+> Fixes: cc52a697f87e ("phy: exynos5-usbdrd: support Exynos USBDRD 3.2 4nm controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Soheyb Boulaa <soheyb_boulaa@proton.me>
 
-They are very good at brute-forcing solutions when they have ways of verifying
-whether what they generated actually works. That's why they shine at lean proofs
-nowadays.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
--- 
-Cheers,
+- Mani
 
-David
+
