@@ -1,79 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795768551;
-	b=1H62JMmvJN+s8SBnoGXev+ew5x7Mhf4BMpeVQ/sivP1a2g5fpfOR3bgCt2m3oL44Patm
-	 VB0twjwTbfgL94Z3j4G6UkK0ouMI9MHoNTiynkAgZwB/01wufjWv2UfKNc62h1B4hnvIk
-	 9ExpHcQfAPF3B138lt+IeCvTvfMF4rsboYP7zWWHVDVTIe4WJbfPe73bg5DLiHo29I4vn
-	 zwwOp9aRPooj7hrpMZ+ZXgfNbflMLstk0UBUSoVUn0rcFEEearLZYgM8e3/3QGwr49vYF
-	 LcCohObNbJlxv6NvUHGPAi07iGa0493h5nhuJGP3jNERo3spD9XbzVOoS0tcf9zKN7w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768551;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=JGaD5PI/66uiCbIuMTU+Efr4PnsGJjUp9yJer0SVIlg=;
-	b=t7xixDpBhzzczVi1Kjk1Kmnf3KrGLW4ERvSMCIWz0xBFO8p8+HW9CoHWA+aziG09N+Te
-	 UPNNpgVTnVjp86qvmDkM2HDYC/I4Wli/ZDR25ObH3NJzsRe/EKI7On31SuTm3uLmRQlxD
-	 KuxmRZiVOYvbw5sPMl689y7VUxXOnf6iQGzycyz1n2KEdw2XZHzOycxb9gX1jzCZ0A3wm
-	 FYIbINCLwhWmmdXdZfcDgEkcYbox+ZIZ2PRmvIEfp3a57uqvP/veI9HCS+kLS1598UGCt
-	 vSm7oXBXV24rKUpRh50p0ud++mjPWi2IkHR8yrDCsJ4xv6qF+wgFKVwCEqTUWqS43XQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXXnunj5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE037606A686;
-	Fri, 27 Nov 2026 08:35:51 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795768557;
+	b=X+dJTiby/u3Rc1ZOodK/NPlRi3/QhpygKFgV1UA8DZ2LVtEp2XS50HSWyE0ETzgg1zHs
+	 wAVrtVYRMY4KsB6Ii5Xi/YTx+7Qj4Bc/n27NsS85o8sOGIP0HBQ8u+cx+MesKOXCQwoiA
+	 QNMgKM+x3NcoreOqlFPkDyTTSNurMclTxxQs0VKR4gGAZB/uwp97oWpt6Djr6V/vYjIyU
+	 vSchK/bUCFHJSZrH1N2eplDv89y5qAHsDQ3wvccgOBYmpSlyDZ4jLMrbwh2La/69sEYrJ
+	 ObPFLwa9aVQ3GHJvLyJnPZEMuj9IrN5KLqi+N18keqWK38AKTwoz1xOptP0C4miC8Eg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768557;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=t+FMbBbUNar14Wtiwe+DEqu9rMcI2SZMnu83nzRrsBc=;
+	b=L2gz2db5H39EPfFb38qx7XmFLKjNK5KgQAjWmUBHSfSDGpSgijEtCKr8ur4RnN945IEO
+	 POzidqMoTk8yZFoi+xHz3X1lM3ut0TeoVZhgkfeWY1Hq33kqf49saE9sKvGLMRMHTrNCE
+	 ryd8l4DwBHMnUFzDiS2pZBUf475WLHfR6xHnkhGB4TU2vCxmKpV+4np74MHFdpsNJcfM0
+	 LPP148Hvaw92Cg5yBQLPUSDGGdisLOofmPIJaSqm6L9TPHbIdWO2bNHISi8gsJZ7zwZmA
+	 xz0FexUSuKtWWfpifh8YNMxeJBm+jND2k4AxcdEpldKb2K1rOCB8Na7m8LB0N4ovJOQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c6YVJZfk;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 671D0606A6A0
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:35:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 671D0606A6A0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXXnunj5
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795768551;
-	b=j9O6uFD4CGzK0jmuSQ9J1Tfr0TBcJdaF/6Q0Z5P7ohV2RDZACetWnboPeXLL9rOahJ2L
-	 kEK41fop4RgkDR6exX3wTq4sokG+eS8BeLZx5dywldIxnXx1bDFnm2oJxCSRSzB6q/Jby
-	 uPooQubXCZ4qWFXejM4TbheLabDpvAZ8XXx1FMsn+oC91O8dRbIXAv74DKsmW45f3orFd
-	 hnEbzrkI0eMs7NvLWMTgZclgD8SiT6HVxMV0V1zQJg9eWZbuvqd1I7/14/tt5f7UsUw2i
-	 YTU/ZfA+V4pVETe+fcXlyLrmfdFrgKoUAu4qYmGtGm6lEMC4n8u3cEH0jfOXvZaqHig==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795768551;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=JGaD5PI/66uiCbIuMTU+Efr4PnsGJjUp9yJer0SVIlg=;
-	b=qoQUzf4xtDDui0RJIb+kdiz9tvfsYrAo/avBn+QG5hMnjyowqTvHshk/4JJeNoDKZA/0
-	 cGUGJTkc8JVcEMTotGeqmgoxWLVa/cA10A0KBk2Ml8PWC2gRGvrZpzmzArOY2T/b7EVC/
-	 qdTIeIYN2x5oE+jS9RhtjCQBgNs1D38nwMkJXFr6bVFGCaEn78z3hm7FUCuzWk1V8yAoE
-	 QZ1sbh0PuGCMpTKejEj3zjAuir+GM9MPR2AUKKU6Avaf86XDnDEMq9hiquhB+8q9wdoQ1
-	 EgzwQnGdvmC6Climr28vrqCdJvlTcAHr6cbwg59pSiuWbhflA5S84YqDceja7Ce2hUA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 16E2D1F00898;
-	Fri, 27 Nov 2026 08:35:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795768551;
-	bh=JGaD5PI/66uiCbIuMTU+Efr4PnsGJjUp9yJer0SVIlg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=AXXnunj54tXP2WApne5SjvZlQ0UZKZ5WgsgSt/stkn2jTOaFewSNybnJGsu1qDqS7
-	 nDZth4Z6QUvuqSpznBH8XTF/F39MQvYUz64dEYpTyFNAv2MwJGf006jQzruI6QtjpY
-	 Cxb13goe6P+sk+dwtPe7W5Hw3AhGTGi/gPCIGcVpxVRXTaQkaD+dCzEb36opDYYo3Q
-	 M8xa1zuUNLeae3UK8uhyj0BP7IUpN4PL6GDs9KsQZ4iZftAz4cScjNAQjkCqSl9zS9
-	 lxLluP73JsaznFvLfbVdmPXi/jJ+ekK13rqTl/JyouLEGXO4B5IVdfEiABvuHYLEah
-	 2/3byLMv77e2A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 950C04B642;
-	Fri, 27 Nov 2026 08:35:28 +0000 (UTC)
-From: Murad Dadashev via B4 Relay <devnull+llamapersonaltv.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 11:35:13 +0300
-Subject: [PATCH 02/10] wifi: mt76: mt7603: make mcu message helpers usable
- by other buses
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=c6YVJZfk
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E64E01E4D;
+	Fri, 27 Nov 2026 00:35:53 -0800 (PST)
+Received: from e127648.arm.com (unknown [10.57.70.173])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 292CD3F86C;
+	Fri, 27 Nov 2026 00:35:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795768556; bh=pYQ0Gm9oagsTC1qc0ysTh2G9JxgFk+JBzVlSW4pWpws=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c6YVJZfkOt5mnBFjT2g8yOllgkWB6/VfQ1gabsvrvPhCDgKNx9f5dyv0FBZs7BBlb
+	 cfzxQTUlC6ri4NPfaP2OqQKyAICjjmmv2RzLDK0iZUzeveWgxyf5jT8OWUJ+SU0fDl
+	 /GBUIjN430pBXD/THbNPSZnwzHofFSB+ytxuArBI=
+From: Christian Loehle <christian.loehle@arm.com>
+To: mingo@kernel.org,
+	peterz@infradead.org,
+	vincent.guittot@linaro.org
+Cc: qyousef@layalina.io,
+	christian.loehle@arm.com,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	jstultz@google.com,
+	kayracizmeci@gmail.com,
+	wvw@google.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
+Date: Fri, 27 Nov 2026 08:35:42 +0000
+Message-Id: <20261127083542.3172843-3-christian.loehle@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261127083542.3172843-1-christian.loehle@arm.com>
+References: <20261127083542.3172843-1-christian.loehle@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,123 +69,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-mt7603u-v1-2-369bee9846f8@gmail.com>
-References: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
-In-Reply-To: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Murad Dadashev <llamapersonaltv@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795768526; l=3594;
- i=llamapersonaltv@gmail.com; s=20261127; h=from:subject:message-id;
- bh=g4XUtnuymEQFvCt7ERD1/Ld0HSmrdfs2a5Zn8j72UIc=;
- b=7yGr8Rc1ykiw5mywD+Anw9WR0oSNt5gEclop42dkuG8NvN8OqjDkKfsLCic9jrFhIG4THeD/M
- BxV59VgExixBWtcXkOZ8a1WLfBNc0ohm+t8h+IgBfQXNHjD3++zhO4Z
-X-Developer-Key: i=llamapersonaltv@gmail.com; a=ed25519;
- pk=CeMIX207ioWRbMAA6A2GYgT+DpeVlKHVn7I0KjfHeCg=
-X-Endpoint-Received: by B4 Relay for llamapersonaltv@gmail.com/20261127
- with auth_id=1664
-X-Original-From: Murad Dadashev <llamapersonaltv@gmail.com>
-Reply-To: llamapersonaltv@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Murad Dadashev <llamapersonaltv@gmail.com>
+From: Qais Yousef <qyousef@layalina.io>
 
-Split filling in the MCU TXD out of mt7603_mcu_skb_send_msg() into
-mt7603_mcu_fill_msg(), and make mt7603_mcu_parse_response() and
-mt7603_load_firmware() non-static.
+We already have uclamp_rq_is_idle(), but it wasn't used everywhere.
+Replace open coding with the function and add new wrapper to set and
+clear the flag which enhances readability.
 
-A USB driver needs to send the same MCU messages and download the same
-firmware, but over a bulk endpoint instead of the MCU DMA ring.
-
-No functional change.
-
-Signed-off-by: Murad Dadashev <llamapersonaltv@gmail.com>
+Reviewed-by: Kayra Cizmeci <kayracizmeci@gmail.com>
+Signed-off-by: Qais Yousef <qyousef@layalina.io>
+Signed-off-by: Christian Loehle <christian.loehle@arm.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt7603/mcu.c    | 23 ++++++++++++++--------
- drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h |  5 +++++
- 2 files changed, 20 insertions(+), 8 deletions(-)
+ kernel/sched/core.c  | 14 +++++++-------
+ kernel/sched/sched.h | 10 ++++++++++
+ 2 files changed, 17 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-index e432cce97640d631d91a088ec5a5a07721b03a94..bbc8402fc98e3c99a9073cc70c3c492e21b761cd 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
-@@ -13,9 +13,8 @@ struct mt7603_fw_trailer {
- 	__le32 dl_len;
- } __packed;
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 05b092147c6f..8c4cd507eca9 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -1644,7 +1644,7 @@ uclamp_idle_value(struct rq *rq, enum uclamp_id clamp_id,
+ 	 * max-clamp.
+ 	 */
+ 	if (clamp_id == UCLAMP_MAX) {
+-		rq->uclamp_flags |= UCLAMP_FLAG_IDLE;
++		uclamp_rq_set_idle(rq);
+ 		return clamp_value;
+ 	}
  
--static int
--mt7603_mcu_parse_response(struct mt76_dev *mdev, int cmd,
--			  struct sk_buff *skb, int seq)
-+int mt7603_mcu_parse_response(struct mt76_dev *mdev, int cmd,
-+			      struct sk_buff *skb, int seq)
+@@ -1655,7 +1655,7 @@ static inline void uclamp_idle_reset(struct rq *rq, enum uclamp_id clamp_id,
+ 				     unsigned int clamp_value)
  {
- 	struct mt7603_dev *dev = container_of(mdev, struct mt7603_dev, mt76);
- 	struct mt7603_mcu_rxd *rxd;
-@@ -34,11 +33,10 @@ mt7603_mcu_parse_response(struct mt76_dev *mdev, int cmd,
- 	return 0;
+ 	/* Reset max-clamp retention only on idle exit */
+-	if (!(rq->uclamp_flags & UCLAMP_FLAG_IDLE))
++	if (!uclamp_rq_is_idle(rq))
+ 		return;
+ 
+ 	uclamp_rq_set(rq, clamp_id, clamp_value);
+@@ -1908,8 +1908,8 @@ static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p, int flags
+ 		uclamp_rq_inc_id(rq, p, clamp_id);
+ 
+ 	/* Reset clamp idle holding when there is one RUNNABLE task */
+-	if (rq->uclamp_flags & UCLAMP_FLAG_IDLE)
+-		rq->uclamp_flags &= ~UCLAMP_FLAG_IDLE;
++	if (uclamp_rq_is_idle(rq))
++		uclamp_rq_clear_idle(rq);
  }
  
--static int
--mt7603_mcu_skb_send_msg(struct mt76_dev *mdev, struct sk_buff *skb,
--			int cmd, int *wait_seq)
-+void mt7603_mcu_fill_msg(struct mt7603_dev *dev, struct sk_buff *skb,
-+			 int cmd, int *wait_seq)
- {
--	struct mt7603_dev *dev = container_of(mdev, struct mt7603_dev, mt76);
-+	struct mt76_dev *mdev = &dev->mt76;
- 	int hdrlen = dev->mcu_running ? sizeof(struct mt7603_mcu_txd) : 12;
- 	struct mt7603_mcu_txd *txd;
- 	u8 seq;
-@@ -71,6 +69,15 @@ mt7603_mcu_skb_send_msg(struct mt76_dev *mdev, struct sk_buff *skb,
+ static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p)
+@@ -1948,8 +1948,8 @@ static inline void uclamp_rq_reinc_id(struct rq *rq, struct task_struct *p,
+ 	 * Make sure to clear the idle flag if we've transiently reached 0
+ 	 * active tasks on rq.
+ 	 */
+-	if (clamp_id == UCLAMP_MAX && (rq->uclamp_flags & UCLAMP_FLAG_IDLE))
+-		rq->uclamp_flags &= ~UCLAMP_FLAG_IDLE;
++	if (clamp_id == UCLAMP_MAX && uclamp_rq_is_idle(rq))
++		uclamp_rq_clear_idle(rq);
+ }
  
- 	if (wait_seq)
- 		*wait_seq = seq;
+ static inline void
+@@ -2140,7 +2140,7 @@ static void __init init_uclamp_rq(struct rq *rq)
+ 		};
+ 	}
+ 
+-	rq->uclamp_flags = UCLAMP_FLAG_IDLE;
++	uclamp_rq_set_idle(rq);
+ }
+ 
+ static void __init init_uclamp(void)
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 804c70317637..982d47fbe9b7 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -3799,6 +3799,16 @@ static inline void uclamp_rq_set(struct rq *rq, enum uclamp_id clamp_id,
+ 	WRITE_ONCE(rq->uclamp[clamp_id].value, value);
+ }
+ 
++static inline void uclamp_rq_set_idle(struct rq *rq)
++{
++	rq->uclamp_flags |= UCLAMP_FLAG_IDLE;
 +}
 +
-+static int
-+mt7603_mcu_skb_send_msg(struct mt76_dev *mdev, struct sk_buff *skb,
-+			int cmd, int *wait_seq)
++static inline void uclamp_rq_clear_idle(struct rq *rq)
 +{
-+	struct mt7603_dev *dev = container_of(mdev, struct mt7603_dev, mt76);
++	rq->uclamp_flags &= ~UCLAMP_FLAG_IDLE;
++}
 +
-+	mt7603_mcu_fill_msg(dev, skb, cmd, wait_seq);
- 
- 	return mt76_tx_queue_skb_raw(dev, mdev->q_mcu[MT_MCUQ_WM], skb, 0);
- }
-@@ -113,7 +120,7 @@ mt7603_mcu_restart(struct mt76_dev *dev)
- 	return mt76_mcu_send_msg(dev, -MCU_CMD_RESTART_DL_REQ, NULL, 0, true);
- }
- 
--static int mt7603_load_firmware(struct mt7603_dev *dev)
-+int mt7603_load_firmware(struct mt7603_dev *dev)
+ static inline bool uclamp_rq_is_idle(struct rq *rq)
  {
- 	const struct firmware *fw;
- 	const struct mt7603_fw_trailer *hdr;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-index 5b0ecd01aad95a11f641ca41f8a9206882c54c28..f91968a63b6497460a26fed7d775f3745269bfa7 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-@@ -186,6 +186,11 @@ int mt7603_eeprom_init(struct mt7603_dev *dev);
- int mt7603_dma_init(struct mt7603_dev *dev);
- void mt7603_dma_cleanup(struct mt7603_dev *dev);
- int mt7603_mcu_init(struct mt7603_dev *dev);
-+int mt7603_load_firmware(struct mt7603_dev *dev);
-+void mt7603_mcu_fill_msg(struct mt7603_dev *dev, struct sk_buff *skb,
-+			 int cmd, int *wait_seq);
-+int mt7603_mcu_parse_response(struct mt76_dev *mdev, int cmd,
-+			      struct sk_buff *skb, int seq);
- void mt7603_init_debugfs(struct mt7603_dev *dev);
- 
- static inline void mt7603_irq_enable(struct mt7603_dev *dev, u32 mask)
-
+ 	return rq->uclamp_flags & UCLAMP_FLAG_IDLE;
 -- 
-2.47.3
-
+2.34.1
 
