@@ -1,49 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799222;
-	b=09KVjNkVCAPd65QJXAj9qiqCoOYHEUIctpyNT5FVBk2PrRSahjtNpy0mGD8KNRZSUuh2
-	 nsoCbrk3iyqzRBe582kvJ6/8kYhXHoO8jWDZnvohbJKwEBvZH/8x1KILBtXIQ9Uf1J8Cm
-	 86+KpxaO0UBJJ287sEJQXceu/eRDHtKNsc2Y81UD4/Q2a5Kbd4NJRDjweTxrXvYpyyoha
-	 QZn8ZMi3g7ymRwAT3xpfIJ+fDOxn+myABi4qKOe1ta3d4EsohkI4fqt8FpH29BdC30oBu
-	 Ktm1lhR3hoZEMmDXqxMglnT5hN1q5oNUNJb4iiu2gvdMDbN4mFebc+8zCyMn/zc0q9g==
+	t=1795799240;
+	b=p8dEukI1Nia8WHDTVZedPAmJ2HIDJoNbuKjp8bCr2p8WSii5hU5jPioX0TuIbNdD9RuH
+	 N+XNzSQezHMeR2nc9P62HcCV5ZbJiqnSWd1kYQrH+JfAt2OkFD4n2GOVIljGaq5RU0Vbl
+	 aAbaaElBFmS3sdtJg1o8UqZAIUi4NCJmG0y+CdxK2kCTCifpQ/ZEJ4PmH8QiC9B7F2S0y
+	 hWvkUzpzOG+VSv638VNvJfEdv7kT/PRJphjV8Mt1v0wTsH/OFiFlNF/h6MyqgWvkYFHoe
+	 TVKabnyd/B0LhjS30yi95hUsErYEGLog+XLKHDCl7WmNvltpq+1q2WftyoRv51Fl/iQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799222;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=9gzHBqo1ZS1N9lhELOvmEI3+H79vKOr9CzjE/QFqZ20=;
-	b=wKp8FMLS/A5EAYHEW8x23sHUjCnkncL3mm28vyb4iHNtqlvUW+VOEBLQEOFIi3A/rWiI
-	 XUT0I8uFI4Uf1xlU6tpz1KmCp5MezkuS3p/tDivuL/RzaePQm+85w0+L+gymK8DZT+nKr
-	 klno2m2aEdyU53pGLmZ2XVFI24NwXGfAIS7CGEspO42P6J0WkAXHvvxTTDxGuRazVR15G
-	 ZUCEONVm2YCTi+kff1qZ+xmAkRs08plLcFsr13CIA8Z425cPMf6h+dRpds8DjbbZvKVwt
-	 N9t/xh0OTP0jhnnCyv4hDiFPi0YBCg3KRX4Mt+V+/eRKi1YTirlepqggePtw+tWHIPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799240;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=PdndVKJFo7cHXqOQ9mGDRu01U/lAdsSMeeFhNTaFFmY=;
+	b=s0NkcfWNMElWAHcWxFMT8ThA9+UblCaU730hecSk0REyGqYnO0Re0FWbTrFkXemO6BmA
+	 RDry1TGqMwadZg0Ih4cIBnofemSRl4ipY8Mt2N8wHh7KzPu/YkUiuYevLfZwPV1qt6LJt
+	 8szVLv8Eab2Dm+phswUGoHEgmRQRkqq/8T13VQa8DibUjNj59MfBIv15m6fbrY+fzqZZ/
+	 Dd48F6QCL4IrTE8zAjbGTo/XoZAVK9ruM0/tT9ifFVv+AWxmDFHJkSnjVVxsDEJMSbf4V
+	 fZC2KkR7GhAAr4Vo7VsJ/ba3rwhacmZWVQamyi78xonj7LBOUv8l8hQNsOtEDq1jtkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=V1Rkddvt;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1427E606A31F;
-	Fri, 27 Nov 2026 17:07:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1427E606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L4qceq45;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6202606A31C;
+	Fri, 27 Nov 2026 17:07:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=V1Rkddvt
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 181621575;
-	Fri, 27 Nov 2026 09:06:58 -0800 (PST)
-Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCBED3F632;
-	Fri, 27 Nov 2026 09:06:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795799220; bh=qFa6sy83V0It3krE5paW+O7B9Fqh10IXDVByOoZlZCg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=V1RkddvtAdtrHpMFzFpDiZ4C/UaR5WYNc0ztJ5+Z463L6+Nv4oHyzmK4HiDTvzwPm
-	 6AN/jKSaaEq5km6iu5X7tdN3q7y61sqjxji932nkfydkvILEPaCr/n+5gNJQa4j/1l
-	 RxbqgiXm9QE3eTgf9w3rbLIjjLNBO5C4uWWNZwhg=
-Message-ID: <682cee16-d56c-436a-8661-0cf511fa2e78@arm.com>
-Date: Fri, 27 Nov 2026 17:06:54 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L4qceq45
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2F9A1F00893;
+	Fri, 27 Nov 2026 17:07:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795799240;
+	bh=PdndVKJFo7cHXqOQ9mGDRu01U/lAdsSMeeFhNTaFFmY=;
+	h=From:To:Cc:Subject:Date;
+	b=L4qceq45GDx6JcEele2BvYYX9U0rdgQfBfplZblCu5YdWd1L6v0kFvirUtFImlxpu
+	 OCcTKFys0pwxgL1sn+G+7Bw5EpCL1V+Zv+Lymqf/BHy2i1VAzYUDkX/oUM7VNXnwq+
+	 SchJWtXKEPIV/m++1/M/DweKe6hStcnw/X6KXl+K76uIZ1LD6GYsZt7ZBYh+mOmfa+
+	 tyuzhIo8iavebwVcD4dZ1i6Jl9hJq4yh1TYExb/bF4G9lTn0UOyVrNIcQz0uEDowP/
+	 HsP7lypu9lZwTi2R1zBBJRnTTEdkUgx3UQgYv990WfcWBeuGf1lFRgGt5LJgvqzMKL
+	 vsOcdf50dtv0A==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	bpf@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <pobrn@protonmail.com>,
+	=?UTF-8?q?Beno=C3=AEt=20Sevens?= <bsevens@google.com>,
+	=?UTF-8?q?Filipe=20La=C3=ADns?= <lains@riseup.net>,
+	"He, Bo" <bo.he@intel.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	"Zhang, Jun" <jun.zhang@intel.com>,
+	Andreas Gal <gal@cs.uni-magdeburg.de>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Bastien Nocera <hadess@hadess.net>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Charles Wang <charles.goodix@gmail.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Jason Gerecke <jason.gerecke@wacom.com>,
+	Jiangshan Yi <yijiangshan@kylinos.cn>,
+	Jiri Kosina <jikos@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	linux-hyperv@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	Lopez Casado <nlopezcasad@logitech.com>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	message to <vojtech@ucw.cz>,
+	Michael Bommarito <michael.bommarito@gmail.com>,
+	Michael Haboustak <mike-@cinci.rr.com>,
+	Pan Chuang <panchuang@vivo.com>,
+	Ping Cheng <ping.cheng@wacom.com>,
+	Rishi Gupta <gupt21@gmail.com>,
+	Roderick Colenbrander <roderick.colenbrander@sony.com>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	Stefan Achatz <erazor_de@users.sourceforge.net>,
+	Tianchu Chen <flynnnchen@tencent.com>,
+	Vojtech Pavlik <vojtech@suse.cz>,
+	Wei Liu <wei.liu@kernel.org>,
+	Zhang Lixu <lixu.zhang@intel.com>
+Subject: [PATCH v2 00/10] HID: Fix race conditions, UAFs, and bounds bugs
+Date: Fri, 27 Nov 2026 17:06:18 +0000
+Message-ID: <20261127170712.3163443-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,124 +93,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
-To: Norman Herms <dockseed@proton.me>, Jerome Brunet <jbrunet@baylibre.com>
-Cc: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
- samuel@sholland.org, Enzo Adriano <enzo.adriano.code@gmail.com>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
- Pablo Mazzini <pmazzini@gmail.com>,
- Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
- Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
- Lukas Schmid <lukas.schmid@netcube.li>,
- Cristian Filipescu <filipescu.cristian@gmail.com>
-References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
- <20261126-a733-cubie-a7s-dt-v6-2@gmail.com>
- <p3YaXlLJTguQBGnWyMpb1w@gmail.com>
- <1jld6eldic.fsf@starbuckisacylon.baylibre.com>
- <wzwsbUKM-fEhYpTIhswvHly5oyuMCPDOExJEWjbSf-OS3Lrwx2H_l9CUfuMITJUK5CyEz4pNojUFRzjDDczUQmX_LmSWwF7DVSceD34XeHY=@proton.me>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <wzwsbUKM-fEhYpTIhswvHly5oyuMCPDOExJEWjbSf-OS3Lrwx2H_l9CUfuMITJUK5CyEz4pNojUFRzjDDczUQmX_LmSWwF7DVSceD34XeHY=@proton.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi,
+These issues were reported by Sashiko.
 
-On 11/27/26 17:37, Norman Herms wrote:
-> Hi Jerome,
-> 
-> On the PF voltage selector: we have been running UHS-I on the Cubie
-> A7S for a while in our own trees (6.18 and mainline based). Here is
-> what we ran into, in case it helps whoever models it.
-> 
-> - The switch: on this board bank PF takes its supply from VCC-IO
->    (3.3 V) or from CLDO5 (1.8 V), selected by GPIO_POW_VAL_SET_CTL
->    bit 0 (1 = 3.3 V). There is no external regulator to switch, so
+This v2 series addresses Srinivas Pandruvada's review feedback on
+hid-sensor-hub and collects Reviewed-by and Tested-by tags from v1.
 
-What do you mean by that? The proper solution is to *create* a new 
-regulator driver, either embedded in the pinctrl driver (make the 
-pinctrl export a regulator device), or as a separate driver, using some 
-pinctrl provided regmap. To be precise, it should be some kind of 
-regulator mux, selecting between VCC-IO and VCC18-PF.
-And then it should indeed just be a matter of pointing vqmmc-supply to 
-that regulator to make it work.
-Are you using a different approach? I have seen various downstream 
-patches implementing something similar, and they seem to be happy.
-And I have seen pinctrl states as well, but think we need a proper vqmmc 
-regulator, regardless?
+v1 => v2:
+ - Drop kfree() from sensor_hub_raw_event() and clear hsdev->pending.status before complete() under data->lock in patch 04, per Srinivas Pandruvada's review.
+ - Add Hamza Mahfooz's Reviewed-by tag on patch 06.
+ - Add Ping Cheng's Reviewed-by and Tested-by tags on patch 08.
 
->    vqmmc does not fit, and sunxi-mmc without vqmmc returns -EINVAL for
->    1.8 V.
+Cc: "Barnabás Pőcze" <pobrn@protonmail.com>
+Cc: "Benoît Sevens" <bsevens@google.com>
+Cc: "Filipe Laíns" <lains@riseup.net>
+Cc: "He, Bo" <bo.he@intel.com>
+Cc: "K. Y. Srinivasan" <kys@microsoft.com>
+Cc: "Zhang, Jun" <jun.zhang@intel.com>
+Cc: Andreas Gal <gal@cs.uni-magdeburg.de>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Bastien Nocera <hadess@hadess.net>
+Cc: Benjamin Tissoires <bentiss@kernel.org>
+Cc: bpf@vger.kernel.org
+Cc: Charles Wang <charles.goodix@gmail.com>
+Cc: Dexuan Cui <decui@microsoft.com>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Haiyang Zhang <haiyangz@microsoft.com>
+Cc: Jason Gerecke <jason.gerecke@wacom.com>
+Cc: Jiangshan Yi <yijiangshan@kylinos.cn>
+Cc: Jiri Kosina <jikos@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>
+Cc: linux-hyperv@vger.kernel.org
+Cc: linux-i2c@vger.kernel.org
+Cc: linux-iio@vger.kernel.org
+Cc: linux-input@vger.kernel.org
+Cc: Lopez Casado <nlopezcasad@logitech.com>
+Cc: Marcel Holtmann <marcel@holtmann.org>
+Cc: message to <vojtech@ucw.cz>
+Cc: Michael Bommarito <michael.bommarito@gmail.com>
+Cc: Michael Haboustak <mike-@cinci.rr.com>
+Cc: Pan Chuang <panchuang@vivo.com>
+Cc: Ping Cheng <ping.cheng@wacom.com>
+Cc: Rishi Gupta <gupt21@gmail.com>
+Cc: Roderick Colenbrander <roderick.colenbrander@sony.com>
+Cc: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+Cc: Stefan Achatz <erazor_de@users.sourceforge.net>
+Cc: Tianchu Chen <flynnnchen@tencent.com>
+Cc: Vojtech Pavlik <vojtech@suse.cz>
+Cc: Wei Liu <wei.liu@kernel.org>
+Cc: Zhang Lixu <lixu.zhang@intel.com>
 
-Do you mean you use vmmc-supply to point to some 1.8V regulator? This is 
-indeed bound to fail, as the SD spec requires 3.3V always for the supply 
-voltage. And the binding/SD card Linux subsystem allows not providing 
-vqmmc, at which point it will assume it's the same as vmmc - but not the 
-other way around.
+Lee Jones (10):
+  HID: core: Protect hid->inputs traversal in hid_check_keys_pressed()
+  HID: mcp2221: Synchronise rxbuf access against raw_event callback
+  HID: logitech-hidpp: Synchronise send_receive_buf against raw events
+  HID: sensor-hub: Serialise synchronous read teardown under data->lock
+  HID: roccat: pyra: Resolve USB device from parent in actual_profile
+  HID: hyperv: Validate VMBus packet and payload bounds on receive
+  HID: hid-goodix-spi: Validate package sizes in goodix_hid_irq()
+  HID: wacom: Stop HID hardware before releasing resources on mode
+    change
+  HID: debug: Hold driver_input_lock while dumping raw report descriptor
+  HID: playstation: Cancel DualSense output worker on create failure
 
- >    We use two pinctrl states, "sdmmc-3v3" and "sdmmc-1v8" as on> 
-Tegra, whose pin groups carry power-source.
-> 
-> - The withstand mode: with PF in the adaptive mode of
->    GPIO_POW_MOD_SEL (01, which is what the pinctrl automatic voltage
->    detection patch sets), the pads follow the SoC's own supply
->    detector, and on our board that detector now and then reports
->    3.3 V while PF runs at 1.8 V.
+ drivers/hid/hid-core.c           | 16 ++++++---
+ drivers/hid/hid-debug.c          | 12 ++++---
+ drivers/hid/hid-goodix-spi.c     | 34 +++++++++++++------
+ drivers/hid/hid-hyperv.c         | 12 +++++++
+ drivers/hid/hid-logitech-hidpp.c | 58 +++++++++++++++++++++-----------
+ drivers/hid/hid-mcp2221.c        | 47 ++++++++++++++------------
+ drivers/hid/hid-playstation.c    |  1 +
+ drivers/hid/hid-roccat-pyra.c    |  9 +++--
+ drivers/hid/hid-sensor-hub.c     | 29 ++++++++++++----
+ drivers/hid/wacom_sys.c          |  4 +--
+ 10 files changed, 150 insertions(+), 72 deletions(-)
 
-Is that a timing issue, maybe? Maybe the sampling happens only so often, 
-and you just happen to miss the change, occasionally?
-
-> With one card, 14 of 40 SD rebinds at
->    SDR104 failed: the CMD6 status read gets a data CRC error and the
->    card falls back to high speed; once the card was lost ("error -5
->    whilst initialising SD card"). Setting the PF mode by hand together
->    with the switch gave 0 of 40: 10 (3.3 V) before switching to 3.3 V,
-
-Just to clarify: "0 of 40" means *0 fails* here, so it works?
-
->    and 11 (1.8 V) after switching to 1.8 V, once GPIO_POW_VAL reports
->    PF at 1.8 V. Our final patch does that and also gave 0 of 40.
-
-Do you mean your patch just badly hacks those two bits to do what you 
-want, by treating PortF separately, but it's not something that looks 
-nice and upstreamable?
-
->    Oddly, the fault also goes away while the USB3 combo PHY runs; on
->    this board CLDO5 supplies its analog part too. Another card passed
-
-So according to the A7A schematics VCC18-PF is a separate power supply 
-pin on the SoC, and it's supplied by CLDO5. On the A7A CLDO5 is not 
-always-on, so you would need to reference it somewhere to be enabled, by 
-the SD card node.
-
->    40 of 40 even in the adaptive mode.
-> 
-> - The eMMC on bank PC needs no switching, CLDO5 is fixed at 1.8 V.
->    But if the boot chain leaves the PC field at its reset value 10 (the
->    register resets to 0x022aaaa0), HS400 enhanced strobe fails with
->    "mmc_select_hs400es failed, error -110". So on PC, 10 behaves as the
->    3.3 V mode, as in the register table, not as the adaptive mode the
-
-But this is a firmware problem, then? As 0b10 is documented as 3.3V, 
-which is wrong if you use a 1.8V eMMC. So doesn't the new pinctrl fix 
-patch overwrite this with "auto" (0b01)?
-Even if not, firmware should not program the wrong values. I guess 
-U-Boot would similarly fail to access the eMMC with that wrong value?
-
-Cheers,
-Andre
-
->    text of 18.14.4.6 gives for C/E/K. 01 and the fixed 1.8 V mode (11)
->    both work.
-> 
-> We can test patches for this on the A7S, SD and eMMC.
-> 
-> Built and measured by AI agents (Claude) on my boards.
-> 
-> Thanks,
-> Norman
+-- 
+2.56.1.839.g22a8290db9-goog
 
