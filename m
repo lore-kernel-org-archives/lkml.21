@@ -1,107 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761442;
-	b=iJDFIu6KuKVPASX5Y/wfTrRwQxqrrQZbkuJqLoAXWXEDVtPKjoPT4vqP7uhBlG6btNVE
-	 5C25JHsjVY9hf60kFGEvWnN4/YfkmQL4lGkvMOy3slgIuZClJ6Hui4qIFyTd2yJiS+z2X
-	 Vee6Nmn/kbS0QQFY0C1W281z+/ANRQnokEa4MrT+D7m0KFv/PeDUEzydrkOhTClyMvcBm
-	 pxVNcwKv6jhfs4C8K3/AQ2UNwmPDXo8ELQthYJH9Ad2XhL/HOPpxBuc1bHb9rrktVyst2
-	 SgptBhNVO6ig6OOXVmRVwX/7RHaQ8Vk3ZhurQg9tno8gtyv3KC9AxxXjqsZIB00UsKw==
+	t=1795761469;
+	b=uGVQaWI4L2qSMZ1h0HwjSyIRDcbOlEV5wHVf9xQdDSy6b+6XMxPyrN8dYQIbnjGzfLAq
+	 /voaFEAFFfqFZpHvR/gQh/S2adOEayn/sf/5E6p9DUd9qpukKpOVDoBrfG2lwwtVxyUqS
+	 9kuy5siBDm/LLb+PmE6ym2i1MJ7e99u4qb1oWE5t8kqI+7yAtepcynsBrrpQV6wtCsMNE
+	 elQjM74+gurEweNrGEIZj258ox53XVRYV93pUhLMPCjhJcQ8UkDUU/N/gQSFoCo4EuQdO
+	 AyqDldVGZkPI5FK8ko8wcnMn2FXErl/4XxKxTgEVL7AHnXzAz7JKze838cH5T6rRviA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761442;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Bsh30DvD4dl6hdEqW7rttLHSnbuBwkW1mxeTuDyZlIY=;
-	b=E5fHzQ1wJXI6cMtlRNm1DxhBfd1Nm0LylAmteZPQDjEU9Sobbx0YGo+gJv5R8Oq2BxJn
-	 KKk6ekvpuV3zj3esf7a2RNF+gBR6n9Q3WLQNdLaoacnYUFtfdeS3uRJ7C4GN88F4y9lTy
-	 qNpZEI/PM+jozhVuTFkYL7XB46xP3mD70Lm3sCS5KFtHNo9M+QtgoGQ89zvZAAtGRiDvc
-	 pzclm1FJbCe0pjL9JK60LPvKPwdB/9JOftmq6Emj5YI9zzPNNqtMJ27QPM4nmILLfQ68P
-	 ok6LlEON77z0Gf82pbMfy+HZ9VR9aM+ObuasMVyO8vJyXmWiwBb2N0mj81nEdKfKe2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761469;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=E2wmtb0wcDKKCs321oPWCjIyUWd2kHhLtPftKss7IzM=;
+	b=v7wsCP/PftWoBi+bWDCM0mHzVdjsktZlejS0YSbEycUkl0zDf894gwc5GF+lMNOl9JRM
+	 6RwMYtFFXUnIE9CmJWLJcu1FGEssDsbVb67FxQLwXknvhDNbUBB8nj6NSDfLudRfozBfq
+	 Nj6BqWwC3WEcwxeTe7TjCJ4iyQX8nj/GDPUQ1lygmRYIZADpvCW+8DmRIqpzOk4Dpq2Ry
+	 OB1Ssq/THQpSwRR7tunUxMem4i1DjOAgMaIoAVgfvgRDN1ZCrDyhGtPm0/C5WshNF+jJk
+	 flKxhhHs8m2F1LUSh6ucQOqr5P8RCP52qy/Iu/vgI5Wsafk59g7+yt5AtuK1Tpk0/Tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ucztA/QJ";
-	arc=none smtp.remote-ip=209.85.208.175
-Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com [209.85.208.175])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TvhJ11L1;
+	arc=none smtp.remote-ip=91.218.175.216
+Received: from mta0.migadu.com (out-216.mta0.migadu.com [91.218.175.216])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BD6B606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:37:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BD6B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25E1606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:37:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25E1606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ucztA/QJ
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ae1fd4252fso75215551fa.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:37:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795761440; x=1796366240; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Bsh30DvD4dl6hdEqW7rttLHSnbuBwkW1mxeTuDyZlIY=;
-        b=ucztA/QJ143mwCYe3kf7A2RaycBZd2xoYXbvWqsW5cbri3/pQzV93kPcHYN9CCaW2l
-         bnnQmXcGSWufUwLRWXIDFAM+WQkX6R5SuJomY1IMK3SQbYT/XVX/VcTCtiqRpPM4oVSR
-         3r0Ax1FV8YKaxt+rwSQo8jYYBpMRb28Zt6Pz6uutC8KtVETt3fvPjcGdJVuf/uyWZRQV
-         ML19RqqoRhgfjNVj+xSLTceTW5eOy3/VT5jUSlptVfHdtOdaZKYBdBV68si5wd8ViWCd
-         iyM0U9S3MHMfjBoSum/p2e3pKQpX8IAChJUayLm/CwfyRn4+qsNlxaOdvUVImhb07gmI
-         c32Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795761440; x=1796366240;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Bsh30DvD4dl6hdEqW7rttLHSnbuBwkW1mxeTuDyZlIY=;
-        b=ZPLVUHhkrtgetZSrDZPdJUYx4/TpJJZ4/pJYh+U28uNHLY9Yurum3RCp83AWaQgnPZ
-         O1DxmcAC0w5VNu1PGKNOr+IGdNXUYlfTUIaw5p7ywEePndjjb+QirBRXKmylHv5qUuNX
-         rBQWOwOP9DcBIJvDasOh0SM28ml3j5IykseEJkAVbzlUChr5SvrPp+Td7H/4Rw7nIbFy
-         dif6RRl1b7BS93v7BQScgU+dDKKAsur9TwRil09EogZJi/vLSovz1GgWJ8YJVvRKREEw
-         khvEU7NxaropaLO9oca7fgvhM2ZLtAxgoIYmr28Sdl9TMxMTZLbgm4H11TRiIFFU5NiJ
-         INsA==
-X-Forwarded-Encrypted: i=1; AL+hErGCW3ah4hiDTQiomkR8Q8OkjYiu8G0rI1RCNlvI2JNGvPizjOVxb59CSifPnJESFyVR8IXFBflEXm+AUxM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8JYaQsb7L1uew+LW6Ek/NE6mUK8avC1P56KxQdajLdHSgWfu0o
-	HZlT5GBgr6y6lKu5FANGQtCebMbAVT92xvc/MLeQ2si32U/8LeTjkITN
-X-Gm-Gg: AZFdTZc4yKtVS3UEmAW48FIfLV7VoZ7ajdlqxzVn/L8mBax9Ubc6eOugihaRPqKbGKE
-	zjv6XW9zal8GoQmBxrrSDJf94AceDKP9gCmxiDZ9WEcsuRpA1kdgvil5mhFzDS4xzXsgtauHoRX
-	dLWTc+V9BUSh/IiMHZzE9zuEFYE7QHNbFu1ifcdz32gY33luzpYPkfnq8aCdXhBzwOJEChHlAdi
-	XxfQR496g8ebgFCfQ09dm6XJTiMVGfI3BkTyQmNiYn/DVKvKEDI87K/lTlfMh8HRlSrv55K0Vs1
-	Y55lJUDXUQwrdnrlai8egUCpQ/8rj8l+Xcu08aIWQokN6++kpwfLv98bFbxkgqtYw5VHTKy8cJk
-	+XCfma6MAH1fEr72dhRj2Ik+TduPQQDrj6AQkQRmFD13zXVoNpW0NK/7+4tooWsvvGJPL6inj1Q
-	uTRbWXC96mHOla6wtZ2n9j2fNsF4N8pvMtPM/VZCHxWV5SqIez+SXivlz1RLCRVTE6nVVhx9rtR
-	65e4URmEA/dAswX1Gmk+2vY1IH7Nq61arIe3gYtZf31xv9Y1mrbhdsnwPH3PUClz+dZmuZEi9N1
-	a1MZ7Bo2AbxF6SKijUTqqBoAoAs9Kg==
-X-Received: by 2002:a05:6512:2249:b0:5bf:cea4:b26a with SMTP id 2adb3069b0e04-5c1bc86048dmr6197622e87.48.1795761439922;
-        Thu, 26 Nov 2026 22:37:19 -0800 (PST)
-Received: from NB-6746.. ([188.243.183.76])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd01772esm5618994e87.39.2026.11.26.22.37.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 22:37:19 -0800 (PST)
-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	maxime.chevallier@bootlin.com,
-	pavel@ucw.cz
-Cc: Artem Shimko <a.shimko.dev@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH net-next v7 1/3] net: phy: dap8211r: fix kernel-doc comments for extended register helpers
-Date: Fri, 27 Nov 2026 09:37:03 +0300
-Message-ID: <20261127063708.3074433-2-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127063708.3074433-1-a.shimko.dev@gmail.com>
-References: <20261127063708.3074433-1-a.shimko.dev@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TvhJ11L1
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=hbTakbmtjSC1ddEG1VRWcdm081coIzduXAdgrdbQ2N8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795761466; v=1; x=1796366266;
+ b=TvhJ11L1NYTdAaLzhMpp0g+J72SYeZc8KzWekvqX+2lNy3bsHrs7yNcxJ6mt6yzN0N9Mes1P
+ qdFFKkHOMTd2GnO1A77FZ/UG9vicGi+lWNU1OyEYHOp3KbP2+8e/KkgonRAtFII177kMM3nqCY+
+ oeWlRXdsMRQMJSNBCSoBAFcg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 6e902a76121439d6;
+	Fri, 27 Nov 2026 06:37:46 +0000
+X-Mizu-Trace-ID: 6e902a76121439d6
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Date: Fri, 27 Nov 2026 14:37:28 +0800
+Subject: [PATCH net-next v2] bonding: check XDP support before enslaving
+ changes state
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,41 +60,165 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-bond_xdp_fix-v2-1-1e05818a41ef@kylinos.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/21NSw6CMBC9Cpm1NbQFFFfewxAiMMiomZK2Egjp3
+ S24dfXy/is4tIQOLskKFidyZDgSdUigHe78QEFd5KBSVUipMtEY7uq5G+ueZqH7HJsi1xFTiJX
+ RYpT3uRswesE4e6h+jvs0T2z9trZlB3Le2GV/nuTe+H8ySSEFFqfyrEuVaZVdX8ub2Lhjy1CFE
+ L5dGfHRxQAAAA==
+X-Change-ID: 20261124-bond_xdp_fix-3f5eb6533f50
+To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Jesper Dangaard Brouer <hawk@kernel.org>, 
+ John Fastabend <john.fastabend@gmail.com>, 
+ Stanislav Fomichev <sdf@fomichev.me>, 
+ Nikolay Aleksandrov <razor@blackwall.org>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ Hangbin Liu <hangbin.liu@linux.dev>
+X-Mailer: b4 0.16.0
 
-The kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
-incorrectly state that the caller must hold the MDIO bus lock.
+From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-Remove the misleading sentence from both comments since the functions
-lock MDIO internally by themselves.
+The XDP capability checks in bond_enslave() - ndo_bpf/ndo_xdp_xmit
+presence and whether the slave already runs an XDP program - run only
+after the slave has been opened, linked and published to the
+datapath. On failure the slave may already be bond->curr_active_slave
+or reachable through bond->slave_cnt and the upper device list, so a
+lot of state has to be undone, and bond_xdp_xmit() can observe the
+slave before its capability was ever verified.
 
-Fixes: d90265e75584d ("net: phy: add DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY driver")
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Move both checks into the validation section at the top of
+bond_enslave(), before the first state change, so a rejected slave
+returns directly with nothing mutated. bond_xdp_set() repeats the
+same two checks for every slave, so factor them into a common
+bond_slave_xdp_check() helper used by both paths.
+
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
 ---
- drivers/net/phy/dap8211r.c | 2 --
- 1 file changed, 2 deletions(-)
+For Sashiko:
 
-diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
-index 0bf770f8ebbb..1fe20efd394d 100644
---- a/drivers/net/phy/dap8211r.c
-+++ b/drivers/net/phy/dap8211r.c
-@@ -69,7 +69,6 @@ static const int dap8211r_internal_delay[] = {0, 150, 300, 450, 600, 750, 900,
-  * @reg: Extended register address
-  *
-  * Reads a PHY extended register using the indirect access method.
-- * The caller must hold the MDIO bus lock.
-  *
-  * Return: Register value on success, or negative error code
-  */
-@@ -97,7 +96,6 @@ static int dap8211r_read_ext(struct phy_device *phydev, u16 reg)
-  *
-  * Modifies a PHY extended register using the indirect access method.
-  * New value = (old value & ~mask) | set.
-- * The caller must hold the MDIO bus lock.
-  *
-  * Return: 0 on success, or negative error code
-  */
--- 
-2.43.0
+please ignore the bond's promiscuity/allmulti/ns maddrs leak issue
+when xdp setup failed. It will be addressed in another patch.
+
+please ignore the no unwind for bond_3ad_bind_slave if
+dev_xdp_propagate failed. It will be addressed in another patch.
+---
+Changes in v2:
+- move the duplicate checking in bond_xdp_set to the new check function.
+- Move the bond_xdp_xmit() fix in another patch and target to net (sashiko)
+- Link to v1: https://patch.msgid.link/20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn
+---
+ drivers/net/bonding/bond_main.c | 58 ++++++++++++++++++++---------------------
+ 1 file changed, 29 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index de933245b12b..757ab7fa63ee 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -1866,6 +1866,26 @@ static void bond_ether_setup(struct net_device *bond_dev)
+ 	bond_dev->priv_flags &= ~IFF_TX_SKB_SHARING;
+ }
+ 
++static int bond_slave_xdp_check(struct net_device *bond_dev,
++				struct net_device *slave_dev,
++				struct netlink_ext_ack *extack)
++{
++	if (!slave_dev->netdev_ops->ndo_bpf ||
++	    !slave_dev->netdev_ops->ndo_xdp_xmit) {
++		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
++			     "Slave does not support XDP");
++		return -EOPNOTSUPP;
++	}
++
++	if (dev_xdp_has_own_prog(slave_dev)) {
++		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
++			     "Slave has XDP program loaded, please unload before enslaving");
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
+ void bond_xdp_set_features(struct net_device *bond_dev)
+ {
+ 	struct bonding *bond = netdev_priv(bond_dev);
+@@ -1955,6 +1975,12 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 		return -EPERM;
+ 	}
+ 
++	if (bond->xdp_prog) {
++		res = bond_slave_xdp_check(bond_dev, slave_dev, extack);
++		if (res)
++			return res;
++	}
++
+ 	/* set bonding device ether type by slave - bonding netdevices are
+ 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
+ 	 * there is a need to override some of the type dependent attribs/funcs.
+@@ -2318,15 +2344,7 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 		unblock_netpoll_tx();
+ 	}
+ 
+-	if (!slave_dev->netdev_ops->ndo_bpf ||
+-	    !slave_dev->netdev_ops->ndo_xdp_xmit) {
+-		if (bond->xdp_prog) {
+-			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+-				     "Slave does not support XDP");
+-			res = -EOPNOTSUPP;
+-			goto err_dec_slave_cnt;
+-		}
+-	} else if (bond->xdp_prog) {
++	if (bond->xdp_prog) {
+ 		struct netdev_bpf xdp = {
+ 			.command = XDP_SETUP_PROG,
+ 			.flags   = 0,
+@@ -2334,13 +2352,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 			.extack  = extack,
+ 		};
+ 
+-		if (dev_xdp_has_own_prog(slave_dev)) {
+-			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+-				     "Slave has XDP program loaded, please unload before enslaving");
+-			res = -EOPNOTSUPP;
+-			goto err_dec_slave_cnt;
+-		}
+-
+ 		res = dev_xdp_propagate(slave_dev, &xdp);
+ 		if (res < 0) {
+ 			/* ndo_bpf() sets extack error message */
+@@ -5735,20 +5746,9 @@ static int bond_xdp_set(struct net_device *dev, struct bpf_prog *prog,
+ 	bond_for_each_slave(bond, slave, iter) {
+ 		struct net_device *slave_dev = slave->dev;
+ 
+-		if (!slave_dev->netdev_ops->ndo_bpf ||
+-		    !slave_dev->netdev_ops->ndo_xdp_xmit) {
+-			SLAVE_NL_ERR(dev, slave_dev, extack,
+-				     "Slave device does not support XDP");
+-			err = -EOPNOTSUPP;
++		err = bond_slave_xdp_check(dev, slave_dev, extack);
++		if (err)
+ 			goto err;
+-		}
+-
+-		if (dev_xdp_has_own_prog(slave_dev)) {
+-			SLAVE_NL_ERR(dev, slave_dev, extack,
+-				     "Slave has XDP program loaded, please unload before enslaving");
+-			err = -EOPNOTSUPP;
+-			goto err;
+-		}
+ 
+ 		err = dev_xdp_propagate(slave_dev, &xdp);
+ 		if (err < 0) {
+
+---
+base-commit: ccb81d5e317b0ae2cc66ca1c628c0ca907928f94
+change-id: 20261124-bond_xdp_fix-3f5eb6533f50
+
+Best regards,
+--  
+Hangbin Liu <liuhangbin@kylinos.cn>
 
