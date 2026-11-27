@@ -1,57 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.103
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795802876;
-	b=ljgGGmgZvnq9iBjFYfQjhvReX1PDysYMixkfMZhiTHXQXb03Y/wusEuO7OaUcBJorL+v
-	 eoyM5qHiKqWZSmv3YaGq+0kYGZIywp2gIJPgzol6RtD1OXpu0tMo/OyAMsBasQZSkkORZ
-	 wzVwqqef2wiVU2SMKK+1MRK65rhBep6KsxxcryMJF74gFMfyXUZHGaeP/m8cliFGD1wNR
-	 +XN0xRHVvoAsPg3GZT9buYervHLQ2vMhBBybG6Yi3oPDznFqyoP6NfigKGxko61FHTeOT
-	 h9coPL2PvqOy0SlG0OojD8GSU6oUaGUs3vd1q1fwAX6bC/srHONzp4gIQ9avH4RGg3w==
+	t=1795803038;
+	b=z9iffVCATrShS93q9LXO94dX6A1218Nk3+/Q299nPdR2mnhaRjwFiC8W12akDVZTLjV3
+	 F0vQ1//G6cK+s01ck3P4sPzpaVqJcnxg4FkZPJIXcGoV8LEihWeBuCChYlbl3m/AMx4dW
+	 A7ysQ4iagQUjl5bGCIkxbWLTIVCMQtFqvstBML4frbhIeJkZ/UoFShC5o7LVAUImjg2QT
+	 ynzZLlGcPCMOUFbCkzMJ7Pw0LyCwP7HGtoDxX5ZZeyV0b0AZQMAbGGsyGvNB8DKGCzj1V
+	 I4Com0L5qgg4kAqjJhE1iubcv6T8uchik9iDPusU/uSs/KuqDibPa8qLt5AE0z/XzJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795802876;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=9+sXP/dgT8KSDd3l4e8Kf/bLYRbSf9j3hdA0pgxosqI=;
-	b=SliQSXwC8pwgF7CaOHuLDqbjMBCEsFJ8D0/GeKBRRalv5Mhx4zxYh683Qae0q2E8ConL
-	 ziwRL4y5uenneAVRDzF3mrm62zO7aQWeX4zqy8Ad2ZB32/Lc1ggZ4s2xginrWLL+e//SQ
-	 Ykba8DdUoBPo2A+/0v+i1mFWqEoSGvIB6iEkASZXHA5kdHOIQGEnbJBpC0sy8UDPNSatI
-	 W3uexiKrBZ2jkSjQcDwTNEjhC/pnyLdzQ4kp1drdOTtqpUzlxc4vPVFR8enxHarAN13yT
-	 Zcad/gg5pGzRFlN9PlvA8pv2WLXLXo6xwO6CyMMz3lchRHvrXe3ldwjE6PkKw208fGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803038;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=qj6sXs+CgtyUP++7pGL9qFS2nskS1G5FtRqYto9t8HU=;
+	b=zDBaTdYcOptCmex9x84ZSbz0nUnVSuiFAQZEAaqSiUD91AGGvjCgzLsTtAeO1uJ6RD6O
+	 5a/e/SfRfmaLj5k/cKvxnG4IkqsEKsItEeyVQ2fhsuaH9TmRGaSHTAlkgRtHYdQsCfNpm
+	 am/lFsZS0mkKw5RjelyBL8rRAsNTO+/qDadF8l+8S1QBES4dRwbfLW31xd8S0IihTrdUU
+	 W2luHxcsf9V33RztULA+VYkvTN368wESVeozGdRP/C2k6/StUEKS9p2BDmanYmwj98BtW
+	 YLz+T4nOsy46TyhysymugCBT6TBHpwr7V/tp2vI9m13Mlsdh5RdVafZXL0mSlWZyFZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPrcT72z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=nRu0Z70F;
+	arc=none smtp.remote-ip=185.70.43.103
+Received: from mail-43103.protonmail.ch (mail-43103.protonmail.ch [185.70.43.103])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F087606A31C;
-	Fri, 27 Nov 2026 18:07:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A65D3606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:10:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A65D3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPrcT72z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66E161F00898;
-	Fri, 27 Nov 2026 18:07:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795802875;
-	bh=9+sXP/dgT8KSDd3l4e8Kf/bLYRbSf9j3hdA0pgxosqI=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=WPrcT72zGiik0zk0XryPuR80p0VH3a/r9YJOsBtmP9PzIL/W7vBXJh7UPlYU1HYbR
-	 W6d9JhRLaG7GVB5qxl5gQMRsfq/xfvNBI2kPpYU6TkVulMDyeQYwJFIOCOI/59UDwN
-	 6R0dkz0zax/yZIuzFLITsLGj21lQgjcCZDs6WLTnsd0arvnyErXyZi/jQkMp5PIRGf
-	 ujPluQw51lLq60YNUSUl0RpVCxw6Cipwfag9HAO3I9lzyeYc4Z/vLMh7TB/fel88Ns
-	 a+Mm7hkfBnBPcutIeVZ7Baita6C+hoDCh/iRT9ByPSqJgQDgHEUBZPUiKmbdbuQm0g
-	 i8oYG7Ba6XYcA==
-Message-ID: <sashiko-outbox-238044@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v12 41/43] sched/deadline: Run a boost held at its first
- refill on a donor period
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <5b1fecd307f51ac34910dc854f64c64a63dbb7e3.1795771148.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
- <5b1fecd307f51ac34910dc854f64c64a63dbb7e3.1795771148.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 18:07:55 +0000
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=nRu0Z70F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795803035; x=1796062235;
+	bh=qj6sXs+CgtyUP++7pGL9qFS2nskS1G5FtRqYto9t8HU=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=nRu0Z70FjvuE9643w2vwHolULu8DjKKrgX8iiERIiDc2pVRN4UBH73JYuUcmdUhHN
+	 r0LW+TlwkO3zG4S2h00YDr32ea2f2ajB6imuWnVo7kbX9IugHsjRd9BKgBiRicjD23
+	 pziMdIdbinnCn0JI1uw2u5+jdGfCSgg2GK0tI0w0jkDrdnkcK0zzQq1IpBNRqaKsYm
+	 i1UQ0J0785ZR8Ttfuofwg2v/5saz2L/wkJenMC6Gu5ns4h6EGyDH9wKgxkVed3/qBb
+	 dS/zGYmO6KluR8cu4S73aLyizbckIMXXYYSJQO97fT3zlRFxPa2Jt02UJtJkDfcyVE
+	 NWS9pj7jhjgDA==
+Date: Fri, 27 Nov 2026 18:10:27 +0000
+To: antoine.pichot@gmail.com
+From: Anthony Garcia <TonysTracer@pm.me>
+Cc: linux-media@vger.kernel.org, sakari.ailus@linux.intel.com, mchehab@kernel.org, hansg@kernel.org, andriy.shevchenko@linux.intel.com, dan.scally@ideasonboard.com, djrscally@gmail.com, dmanresa@gmail.com, dave.stevenson@raspberrypi.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/9] media: i2c: ov7251: fixes and infrared strobe for Surface Book 2
+Message-ID: <9M76pTkfqTFYYV0x7QQegwNjy5ZHwG2LsiwewU-KWrCowx5tvfp2L4W6za362xj-ymlfYDci3p_aGCNp9tPMPgy-jzBu-OFHHZJaNw-1o0c=@pm.me>
+Feedback-ID: 110080960:user:proton
+X-Pm-Message-ID: 87d127640e83a2597299a71c3816e4d5d9aa84d7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,152 +60,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] sched/deadline: corrupted donor period state when donor
-  params are cleared
-- [Low] sched/deadline: duplicate replenishment tracepoint on first
-  held-boost refill
---
+Hi Antoine,
 
-commit 0aa5ad7879d538e8d7671934363e9bde5d35376e
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Tested on a Surface Pro 7 (Ice Lake). Its OV7251 IR camera sits behind
+an IPU4P, which I run with ruslanbay's IPU4P-on-IPU6 RFC series on
+linux-surface 7.3.0-rc7. I built kernel/backport/ov7251.c from your
+surface-ir-camera repo (commit 83b3ca1, so mainline 7.2 plus the
+linux-surface gain control rename and patches 1-8) as an out-of-tree
+module against that kernel. Patch 9 wasn't tested, I used the installed
+ipu-bridge. Capture was 10 runs of 10 frames each at 640x480 30 fps
+through libcamera's cam, with the frames saved and their mean pixel
+value measured.
 
-sched/deadline: Run a boost held at its first refill on a donor period
+As posted it doesn't probe on my kernel:
 
-This commit runs a boost held at its first refill on a donor period by
-calling dl_boost_donor_period() from dl_hold_refilled_boost() and keeping
-the placed period in replenish_dl_new_period().
+  ov7251 i2c-INT347E:00: supply vdda not found, using dummy regulator
+  ov7251 i2c-INT347E:00: ov7251_write_reg: write reg error -121: reg=3D103,=
+ val=3D1
+  ov7251 i2c-INT347E:00: error during global init
 
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index b9dd7ec10e7d2..f4e07aa47715d 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
+That's the INT3472 supply name mismatch D. Manresa fixed in 59cab094b8b5
+("platform/x86: int3472: map the ov7251 power enable GPIO to "vdda""),
+which is in v7.4-rc1 but not in my 7.3 tree (linux-surface/kernel PR 199
+is an open backport of it to 7.3). Same thing Firas hit on the Pro 7+.
+My kernel carries a local workaround instead, an ov7251-side fallback
+that asks for "avdd" when "vdda" doesn't exist, so I added that same
+fallback to your file for the test. It picks up the same INT3472
+regulator that 59cab094b8b5 renames to "vdda", and with it the sensor
+probed and streamed. I didn't test 59cab094b8b5 itself or a 7.4 kernel.
+I don't see anything in your series that needs to change for this, on a
+7.3 base it just needs the INT3472 mapping or an equivalent fallback.
 
-[ ... ]
+With the fallback applied:
 
-> @@ -1741,11 +1746,13 @@ static void wakeup_preempt_dl(struct rq *rq, stru=
-ct task_struct *p, int flags);
->  static inline void replenish_dl_new_period(struct sched_dl_entity *dl_se,
->  					    struct rq *rq)
->  {
-> -	dl_note_donor_refill(dl_se);
-> -	/* for non-boosted task, pi_of(dl_se) =3D=3D dl_se */
-> -	dl_se->period_start =3D rq_clock(rq);
-> -	dl_se->deadline =3D dl_se->period_start + pi_of(dl_se)->dl_deadline;
-> -	dl_se->runtime =3D pi_of(dl_se)->dl_runtime;
-> +	/* A boost held from this refill keeps the period it placed. */
-> +	if (!dl_note_donor_refill(dl_se)) {
-> +		/* for non-boosted task, pi_of(dl_se) =3D=3D dl_se */
-> +		dl_se->period_start =3D rq_clock(rq);
-> +		dl_se->deadline =3D dl_se->period_start + pi_of(dl_se)->dl_deadline;
-> +		dl_se->runtime =3D pi_of(dl_se)->dl_runtime;
-> +	}
-> =20
->  	/*
->  	 * If it is a deferred reservation, and the server
+- Probe passed, so the firmware's link frequency is one the driver's
+  table has. I didn't read back which one was used.
+- 10 of 10 stream runs delivered all 10 frames, no kernel errors.
+- strobe_output_enable works. Lit frames read 29.0 to 29.1 and the
+  frames in between 8.1 to 8.2, alternating exactly, and 8.1 with the
+  control off.
 
-[Severity: Low]
-Does holding a boost on its first refill emit trace_sched_dl_replenish_tp()
-twice for a single replenishment?
+Not tested yet: Howdy end to end on these patches.
 
-When dl_note_donor_refill() holds the boost, dl_hold_refilled_boost() calls
-dl_boost_donor_period().  Whenever no earlier donor period is resumed,
-dl_boost_donor_period() calls replenish_dl_new_period(), which fires
-trace_sched_dl_replenish_tp() before returning to the outer
-replenish_dl_new_period() or replenish_dl_entity() call that fires
-trace_sched_dl_replenish_tp() a second time.
+The tests were scripted and run on my Surface Pro 7 by an AI coding
+assistant (Claude) at my direction, and it drafted this summary.
 
-[ ... ]
+For patches 1-8 on the Surface Pro 7 (IPU4P), with the local ov7251
+"avdd" fallback described above rather than 59cab094b8b5 itself. What I
+exercised was probe, 30 fps streaming and the strobe control, not the
+pixel rate, 60/90 fps or the rotation controls:
 
-> @@ -6115,11 +6125,15 @@ static bool dl_setattr_period(struct sched_dl_ent=
-ity *dl_se, u64 old_runtime,
->   * If sched_setattr() changed the parameters before this refill,
->   * dl_setattr_period() saved the old ones in setattr_*. Fit the period
->   * saved in own_* to the new parameters with them. setattr_* share
-> - * storage with own_*: read them before writing own_*. The caller holds
-> - * the rq lock of the task, and has updated the rq clock.
-> + * storage with own_*: read them before writing own_*. Return true if a
-> + * period of the donor was placed. The caller holds the rq lock of the
-> + * task, and has updated the rq clock.
->   */
-> -static void dl_hold_refilled_boost(struct sched_dl_entity *dl_se)
-> +static bool dl_hold_refilled_boost(struct sched_dl_entity *dl_se)
->  {
-> +	struct sched_dl_entity *pi_se =3D pi_of(dl_se);
-> +	u64 donor_runtime =3D READ_ONCE(pi_se->dl_runtime);
-> +	u64 donor_deadline =3D READ_ONCE(pi_se->dl_deadline);
->  	u64 old_runtime =3D dl_se->setattr_runtime;
->  	u64 old_deadline =3D dl_se->setattr_deadline;
->  	u64 old_period =3D dl_se->setattr_period;
-> @@ -6142,6 +6156,14 @@ static void dl_hold_refilled_boost(struct sched_dl=
-_entity *dl_se)
->  				 old_runtime, old_deadline, old_period, false, false);
->  	else if (!dl_time_before(now, dl_se->own_deadline))
->  		dl_se->own_runtime =3D 0;
-> +	/*
-> +	 * replenish_dl_entity() checks the donor's parameters: it adds no
-> +	 * runtime if they were cleared. Start no period from them then.
-> +	 */
-> +	if (!donor_runtime || !donor_deadline)
-> +		return false;
-> +	dl_boost_donor_period(dl_se);
-> +	return true;
->  }
->  #endif /* CONFIG_RT_MUTEXES */
+Tested-by: Tony Garcia <tony@loafecho.com>
 
-[Severity: Medium]
-Can clearing the donor's parameters corrupt dl_se's period and saved
-boost_* state?
-
-When the donor leaves SCHED_DEADLINE and __dl_clear_params(pi_se) zeroes
-its parameters before or during the first refill of an unheld boost, three
-things go wrong:
-
-1. dl_hold_refilled_boost() sets dl_se->dl_boost_held =3D 1 before checking
-!donor_runtime || !donor_deadline.  Returning false leaves dl_se->deadline
-and dl_se->period_start on the owner's own period with dl_se->runtime =3D=
-=3D 0.
-At deboost, dl_end_held_boost() sees dl_boost_held =3D=3D 1 and saves the
-owner's own period and zero runtime into boost_* with dl_boost_granted =3D =
-1:
-
-kernel/sched/deadline.c:dl_end_held_boost() {
-	if (!dl_se->dl_boost_held)
-		return false;
-	...
-	dl_se->boost_deadline =3D dl_se->deadline;
-	dl_se->boost_runtime =3D dl_se->runtime;
-	dl_se->boost_period_start =3D dl_se->period_start;
-	dl_se->dl_boost_granted =3D 1;
-}
-
-A subsequent held boost from a new donor within own_period_start + period
-then resumes the owner's own_period_start with zero runtime in
-dl_boost_donor_period(), and replenish_dl_entity() pushes its deadline out
-to own_period_start + dl_deadline + dl_period (past the waiter's deadline).
-
-2. When called from replenish_dl_new_period() -> dl_note_donor_refill(),
-returning false from dl_hold_refilled_boost() causes
-if (!dl_note_donor_refill(dl_se)) in replenish_dl_new_period() to take the
-branch and overwrite period_start =3D rq_clock(rq), deadline =3D period_sta=
-rt +
-0, and runtime =3D 0 from the cleared donor parameters anyway.
-
-3. __dl_clear_params(pi_se) runs under the donor's rq lock on another CPU.
-replenish_dl_entity() snapshots runtime, deadline, and period once and
-validates all three, whereas dl_hold_refilled_boost() re-reads
-pi_se->dl_runtime and pi_se->dl_deadline (without dl_period), and
-dl_boost_donor_period() and replenish_dl_new_period() re-read pi_se fields
-again.  If __dl_clear_params(pi_se) races between replenish_dl_entity()'s
-initial check and those re-reads, dl_hold_refilled_boost() can return false
-without placing a donor period while replenish_dl_entity() still executes
-its while (dl_se->runtime <=3D 0) loop on the owner's own deadline and
-negative runtime, or replenish_dl_new_period() can zero the relative
-deadline and runtime before that loop advances both period_start and
-deadline to now + period.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
-t.mathieu.desnoyers@efficios.com?part=3D41
