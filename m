@@ -1,64 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794578;
-	b=GqT0OQ7n3Z3cIv0Or2DP4V+CKW+AUm4K+gp5jC9R1UrPZFswWaTmcOVIaOeI/+ZoVMiR
-	 Oju4W2WPwxxVkTEMB6wZl8IAYbb56cKhV/5eYJTnKA2rO18yS6QRk3q4V4Euw8RsPiCX2
-	 4PRN274OsxGWPlAr11rTJeGhX/lRQsFWQlolEO2nAgKSzd/g+XGjWRUxW7N1LUQ2jfUsR
-	 qpIuV/JM3WaIKff4UhPWpfXzSwzHE4mXkyVCF7pngmEVdvW8npR8662ymA6+IH91TaYAD
-	 in4TZPHBrAQqPU6JAuUvKO/Rh+N6BebQESq5XkdcwLJH+pUAdt5YByMu2+tnIvwhAMw==
+	t=1795794615;
+	b=uizwTik4RYNhbvBugYbbf2SDZue95zSPfNlC7zFiVil8+hb9zymZ/QpcwNL7OA5x1KS0
+	 dUctQO+ALpzltPyeyZnPTBZc2Kg3KWfy9YPepO4qgzE4lPADTntkd8d1VyH2qwi9xJuK8
+	 pQoX/Egl718zQULiPrGBJIXtytVpAZOkWWY6tUGoZ29uRtNzBiWGEeQYkjGwyta46ryxI
+	 xS/0+7LikzZ8Aucy3/U2W8XEKuFoLYHnrT6Ut4c6UKZy2DgWUskP1iTH3MMyIscpUgYzH
+	 p4I5kLuSxf6wmB2JaB6LBrtRh84lPlrxZN5d2CK6ciITEE4zTEE6fXREw/X/OBRey/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794578;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794615;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
 	 Content-Disposition:In-Reply-To;
-	bh=yeHQQxEc7Gou5vCe9VVvBgjTfw4hsENbh9TrVOeRMog=;
-	b=eJpPfkzaj388EO6AGIBnjOIg721BVadCi18zUeMYL5HCdhIdXFYr5Cljfm2FcZCQjoy+
-	 3ClbRn5FlDBTYo9PtC2Cd7w8cyGPsTnLo+q9xTrQo05ldSuGxNVSQU4PC/E2HIPlwS2Ho
-	 yzrNoAoonmU+Er1RCPUzqqMRzxGEFkhFmvQrPoKym0KgVGEsRLhbrVTSA1jctUJyHqdSz
-	 ubYS8zTsabIdcW0DLldgANc4XubaW7EvjZ8fSYUkrePCvU5BqIaFVayECvVh5DXNLwm/J
-	 0AoJzjashADwqhDEeaLTrE4rKq15DmuV3wyyYAekjVJ4TZ2oshociNE7DskTW2dSyWQ==
+	bh=/vBHlhJ/W1xZToIFFx1FnlTJw/r0UAj/MYnI+1u/MyU=;
+	b=hJKU+U7UJKKIg/DIa8JNhrWlkAxz8mAnll7Ph2QbP6USR4wlu0wEmTfCEvMnxv6evBnW
+	 IYWhm5Q68OzuPP+K/iyr9i2P/rNTzmcl7wWOmsg3SVoSVKbBiXLIjiIqxc04Y5HbibLQz
+	 IySOvtOdSWZy44+Ltd+imo+KyQ90eVZzbyJQqPXSXuyf0+g/aa+SYkHWojprAUvwdRDiC
+	 OfhT5N5cAa6xAZq8Ae2F7pE9ksAVle/em5fsLA4XFrMZ1zv5KdoMSlfuuzxZ6LwoWibA1
+	 b5O8zkmSKx2SIjMb8AcPCST3Uy7wRssHrSq4UmMIOn3j+H7BHWNiFLPA6NNlzIg5m6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DQfwROO0;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NrruEC5+;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 04327606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:49:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04327606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id ACBF7606A31C;
+	Fri, 27 Nov 2026 15:50:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACBF7606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DQfwROO0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NrruEC5+
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CB832F;
-	Fri, 27 Nov 2026 07:49:34 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D37253F632;
-	Fri, 27 Nov 2026 07:49:36 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 360DF2F;
+	Fri, 27 Nov 2026 07:50:11 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 891343F632;
+	Fri, 27 Nov 2026 07:50:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795794577; bh=yeHQQxEc7Gou5vCe9VVvBgjTfw4hsENbh9TrVOeRMog=;
+	t=1795794614; bh=WfYS7XzkCTsLbNBcdEp/guv89SRLO1zfUYEw+X3yVdY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DQfwROO0omm1UYPhtG5c4yjZkdDi+/kBc+g37J6HAPe5FOXS/v0t7sbwvDnKpcVOC
-	 kM1MVV5qbqdxFbx4S73wNJp3AJ1e7fIJPc2SoSnU30R4xQ1mYqDQius1EY/1oFw4O2
-	 S2rJ+WO1Sqe4D+fju3x01cHiLI22oK96kYihZdbc=
-Date: Fri, 27 Nov 2026 15:49:34 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org
-Subject: Re: [PATCH v2 08/23] coresight: trbe: Clear stale external abort
- status
-Message-ID: <20261127154934.GG861809@e132581.arm.com>
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-8-3f57cf3199b1@arm.com>
- <718f6c8c-71cd-414b-9ac1-11528dc35f24@arm.com>
+	b=NrruEC5+ls++tnQfEGCdiET9qhxdHv9si6NUzzdUItiMF6244K9aNnhsOs57biYAe
+	 ctoc4C8jR2F3U2E1NjpJ2fdu99OvpUU1TFTb+R3JEFFeLuTKTZ26VqQKJe7F0j/lx4
+	 b0JDsNqOQdIoRqUvKOS3E5D4YUzpRlUOg8zo3VAQ=
+Date: Fri, 27 Nov 2026 15:50:02 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
+	philip.radford@arm.com, david@kernel.org,
+	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v17 11/34] firmware: arm_scmi: Add Telemetry basic
+ attributes enumeration
+Message-ID: <awmmqnzicQgmW_KE@pluto>
+References: <20261124194841.1147072-1-cristian.marussi@arm.com>
+ <20261124194841.1147072-12-cristian.marussi@arm.com>
+ <20261124155940.0000336d@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,17 +72,35 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <718f6c8c-71cd-414b-9ac1-11528dc35f24@arm.com>
+In-Reply-To: <20261124155940.0000336d@oss.qualcomm.com>
 
-On Thu, Nov 26, 2026 at 11:19:17AM +0000, Suzuki K Poulose wrote:
+On Tue, Nov 24, 2026 at 03:59:40PM -0800, Jonathan Cameron wrote:
+> On Tue, 24 Nov 2026 19:48:17 +0000
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
+> 
+> > Add SCMIv4.0 Telemetry basic support for minimal initialization and
+> > protocol attributes enumeration: expose telemetry instance descriptor
+> > via a simple information retrieval protocol operation.
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> > v15 --> v16
+> >  - ignore groups
+> 
+> Partly... Need to do a lot more ignoring to make this true and consistent.
+> There are a few things in here, but key is we need the whole framework
+> to be as unaware of groups as possible. At least up to the userspace interface
+> layer where we may need to ensure extensibility.
 
-> minor nit: In the future, please keep all the "stable" fixes at the
-> beginning of a series. That allows people to apply them without the
-> other dependencies (even though this one doesn't) and allows maintainers
-> to pick up the patches from a series (without applying the entire
-> series).
+As of now I removed the logic, but kept the existing data structure and interfaces
+(like grps params in ops) and inhibited where needed any remaining code
+path pertaining to groups.
 
-Sure, I'll move the fix patches to the front of the series.
+I agree that a more clean but pervasive approach would be to fully obliterate
+any group reference and then just re-introduce all of this later when the
+extended series will be re-posted...it would be a lot of churn to remove/refactor
+and test to just then re-add later all of this support...but yes why not
+I can do that.
 
 Thanks,
-Leo
+Cristian
