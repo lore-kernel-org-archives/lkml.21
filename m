@@ -1,88 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795784862;
-	b=CZjcghfAuhk0KpCm60vj8lrSCDAhGWT33A51XG7XZOWBaxZg4+57KbBSXxgb/9Q21K0x
-	 y6MTfSP4vqZVE+kvwk4bL0Kd7LhO2/M0uSd/aNUmdE9scztzzI8lTdxjt0dUUZQoOW2mI
-	 6IQ/LW9edX1mQkbKDpbDtbH9t0EEYdW7E1am3QtTiEeGlmh0tifzt/XvmRZQmxzElJOXj
-	 hLiIYh6Nq/TEupC+8hrlBeAh4ZjznG1OlQciyuiTVTlj+pl6r3It/tbo1/qJ3i651JebJ
-	 NYXfd1wIS2lw9AbTkv8y12BRR0aPlf9m3wPQ7zN0Dj2uUJKuyDlUCLHh1XQl8k9x89g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784862;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795784921;
+	b=cD7QKuNnrAJhtNlJElUSsFxOem1N+CQyrjVm9ZFWBTAHfI9zLpRC4UazU6LSnBfw6dze
+	 uCrwgUN7h1PDxY9dlOapzCyoxnCuJ7yhjkKlVTrO+S4e6Wv/JhcfMi7KF6LvpJn5AoY5U
+	 aVKkaAN7aqdeeu/nNKHgfurMNmpNZMpy21KGQpAZ6/shh3Ix1jkord3KKip5AdBWkeLll
+	 PcObwNBzPNVbHXEA5l/6Tar6iIDSj4cxZTgHFOVcwHKLhP/WG54KRHKyCJ119QTCA3glV
+	 R0JZQUjgH8vU679kN6LQR9rxEMb5NgJJ/V2yb+c1YEvHFxV2pUxRA5eLDhCVx2cTrbg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784921;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kIn3Z40GB3Fv6RQJNleZ9bonkImRIY4BwaanX9JUugM=;
-	b=zR0YlmvwxcQrqu9LyJk7gByDuRkoRtFrSzSljU8ulZ2EJhxvBubpYYEUKqc/bhu0aI6X
-	 G0Cbt4HYqwNjrFVvMcA8Anc2jjV2+sUsWbkEVHkWFtY1g5AHN09ymTGhWZbDH9qvq/2HF
-	 6atJCuG4vLIHeHZTcteCOR/Rww6bezL+MMfZ4+AYmcq5ozPHhfHxQIP27LTePG8WemN+8
-	 HK43inb2jZlnew7cJXLCZDXjJQvs+G91nv/Jui9lj2wl4Uo3O3PEMSryP4TKkZcNIp/ug
-	 DvSk1JTevUCSCRihd74cmMeybTOowlEsoZiERmg0UTOss3tRPKu0aTBGdZSnwlBxbTg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=csHhW7oT;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=C0gaW0T//VOtwOuwTFVY9WwABc2rEZBaWTGdLWhFohw=;
+	b=U61gJIGGAIl0SgxvjZcml+wzzLzDy0qQMZNiQhrbayJcAb8cdsjjdZXsUFgq44BkUIEq
+	 6UpdjIWpXMN3QAsf6+8VRzTtp+9aQ35UzGF7tlkf2MIMk8Ge5mUK2mhrzu2xoBoZxWsfx
+	 7l6B66J0YQX9drpfSjeC1C1c3uwHH0d7YBwqPevDP8hVIXnMUihqDv159iFtC0ewCiCfo
+	 B0WYSlZPJ3OjjFvKt/EdcnOshlKd05wdDYiBmkuxi7xLnFwLlbkMamVlLAmJ3pGaD6yC5
+	 Lyipc9TSUlQfTNLrvht/PWnYz7LphNje5xIK27G8rcgzkdcihEjBDOqGx8y6PDfmH0A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=chi5MtYr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B899A606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:07:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B899A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF31B606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:08:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF31B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=csHhW7oT
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so69534915e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:07:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=chi5MtYr
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3863db981d4so11360998eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:08:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795784920; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Zmc0r1JDI80bg3M7l26Ky2Vs795zEwoWC7vXFFFmgRNDagK3GfviAdTpjkal76YkKi
+         hChdUJvysayhATR6WsyqLlJN1cZru9xdfEnxGXvjQVr4WyrdM1BVuQ1TDIiTFhDQf0cp
+         xSJK26vrZ2rE/w/bm07x113qou0wljyTK3cvXtBGVuZCttXvFYvqtoKq8Iw+Ib7nE0h9
+         1reUZ1Q1aD7PlxRLy/M83TPXxdFsbN8cofzWpeHOozAkZX7ri36Fqf1OQz2yJ/SiAQoj
+         lKgHMvy/scg9G+en79YNjZwOdnyAa2X1/fZZJBV9lM6lXhhulkkbO7qtyNsF4N6vX+iM
+         0Y7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=C0gaW0T//VOtwOuwTFVY9WwABc2rEZBaWTGdLWhFohw=;
+        fh=STz3OS/WimS7uU8PK8KIBfxv2yF0DKLNQCbnS6V3Q5Y=;
+        b=YWkYDfPBX2vmoGVgoSI1IcRZsAuskUSwcBH3G2F8Ki1w5W4iJIfIuiZdUD3+hVYqhC
+         OmLOsDxaApyqrP2e3RLXkcSV7zlfmor1lBVoTaFox/Ile9zqS8VjkB3az42oalbc3bk+
+         HTiOim1FpX1hAi8jnNk1dR710xJEuj5S+BYYWcJxZ4K0IJzA53/PeQfQNhlc0F9lvIAh
+         /TJJEN1y6canfc18h4IW47b9ARd6cP2LHR+6XdyeeziQ2of/xnuu9B8HpJjbTHOxBKfQ
+         RAwsUGVLQgU7ijGJcjHccRXFX0LeVvpcqpdUtwtTvCbvl/YlFetiqN1LsKR6HYKRsBnl
+         A6lg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795784860; x=1796389660; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kIn3Z40GB3Fv6RQJNleZ9bonkImRIY4BwaanX9JUugM=;
-        b=csHhW7oTx/7IUXKBRYeC+C+z7IgdGVPU5zrgJhMaisMEotfSmxmYQzrUBUAj2EI2vj
-         L44sPJZxi/FDJsBAJp18JKdXG/3Ih8ijYCzcHe5fGgtd58WF2GcPMdc0Fgj02DuXf3+t
-         btRZYQXSlKdhUexvevGSlQDPveUZIwg8Vy7uY5cnLKuny9n2Z2yAZIpwDzO61CPWbU48
-         hiTSzeX1YkTfLpezfeofyAYaAU6I/GpqVI8kyXFUIYDN4WsAwV2XbhPFgDYtNHk4RJMO
-         37TgJsRfueLD6z2n8frUtpydcroGwBJWVLetLTc+bNH0Zkv1aH3uEGPwSiepLrR0YCkS
-         G0Mw==
+        d=gmail.com; s=20260707; t=1795784920; x=1796389720; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=C0gaW0T//VOtwOuwTFVY9WwABc2rEZBaWTGdLWhFohw=;
+        b=chi5MtYr3koVFYMUEYFb/9Z33Tg5jvqNFv7PQiVYP6JtHQogg71xigG6+9IKUkLflg
+         5tqXonZxZKCkPH7LxzxdtM6eT0IjqnV1tNiKt6S/wqjgcVPvklq2RPIPm10uVPKTjS5f
+         vgBQ7ihJ6JxXsHRy+TG14neqjBL/5CWUhbW5dnzciv0/SQgdXH4jHo8+3ZbhVgTe3jnC
+         NGdYvemtb1U5RQDiqiCJ+0iIM2aQt4Z1YzhvIOx4MfLGYD6OpXoUM34mXC80iizWZ01X
+         xw7wTF8k91xdsblalCvkUSKdLNlC7qGCgU8XGuwGjwXJVM+S1N8o+VXIpSGYS0oveZcu
+         NOYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795784860; x=1796389660;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kIn3Z40GB3Fv6RQJNleZ9bonkImRIY4BwaanX9JUugM=;
-        b=cdHLn8uV3gwtfKdjlr1jU8DSqn8xT4L7W0WX6viqc/wRN4e1rLgknI/6zLzxbFForq
-         0wdYf40yoaT+BtIsu5J1VbPSxqERxNH0u1I3FmjHMx8D8wk8yyn9eUOg3c1yuFFM1nci
-         OiNxsocozER2DqlupJC+/xc1hL5+FJee1ZXLXtuObPPMEjnijqhEMTxYAHb+CaM4I61b
-         33hPSceloq7ZkYashwSlEmV6Ccf/Jzb15Cr/5I9qeEa0D+8GBynjOKnQkqUpC8Jlw056
-         MVMO0ESuLI3EExnCtakJCc+jbMFxt9l7gximwQvdR6OWHD9G2uM1e1VjDrWacb2CdPhF
-         7kbQ==
-X-Forwarded-Encrypted: i=1; AL+hErFbpUfaTp/JKZQMz1/i5AOwEKH8wV+64lPBnZiuWezwNW00Kex6PZeL/0Dk2t6KJkQBLy8sZ8GnyKQa1gc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/rs/cM9tMG7GIvg41o9PUzMeW9zOR4wLIrpURo80DdwPYU+Ufu
-	RFmZG1E6ar6b+GI0nUT+Mz3rYK5sTfmtIybGz5wlJshpSK9nw5DwZSQ9YihDB8LOTY8=
-X-Gm-Gg: AZFdTZeqFJTvWttaW99Ba2K7JP83Zm4Ixquzfv9vmoMgChnM8MBniKOedvr9VRG+hFP
-	Ywm9glK4HZ0/LTPpkWezMEGPXYEcIO0UoKFwvN1RzNXDQCKw7MSWNO2Ectu4D/2xJRPGS99SD69
-	nDM9mR9IXpLRivNXidBJAMbbYM9TNtiE8/wiLn9/75U/H8ZbCjQdGV6xJ3B7J93SHe4QSLHtlGV
-	m8k8io/qB+dZspuK+dV3RBc2oG86Bxb9Nnjt9+bWQSjZDuWdB+98xau2gifE2cry9ydvWUc3IMI
-	6moOqT4toBExUG4mEyNn8wxJDKfRwKgPlIVzscuoIrVNcomjl3QojAWeZdbbj5KuVr9RPuQKb5K
-	NHbJEKiDfxyHmtFF3cNvdPrdm0a0ptoIcPvHlTvHxxXKFb339cVOkDizBbOpz60j0NZB6Hv7taY
-	SWITMmq/7mTMPOTh1S517VRNFrudjoQNPIZynjNuw/364/rYRWsFtBhNi2Ecwnq/SbIzh5IfR56
-	J7920BusFBG1WkbphWH17WAE3HyxG8qx3nyPjxdC51GVR4CtlXvsERaH6qxmxq5TiTbZoyFw4KJ
-	eqi3AGc9Yygonhb2APElqhAE4PWewdrVhQ==
-X-Received: by 2002:a05:600c:6749:b0:4a2:d99:3171 with SMTP id 5b1f17b1804b1-4bb8881b52dmr457902075e9.23.1795784859950;
-        Fri, 27 Nov 2026 05:07:39 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm725641925e9.2.2026.11.27.05.07.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 05:07:39 -0800 (PST)
-Message-ID: <f1cd9130-76d3-4828-9cd0-aebb43e51de2@linaro.org>
-Date: Fri, 27 Nov 2026 13:07:38 +0000
+        d=1e100.net; s=20260707; t=1795784920; x=1796389720;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=C0gaW0T//VOtwOuwTFVY9WwABc2rEZBaWTGdLWhFohw=;
+        b=GJf8xeOsEuGHnGnWqr6DmhJ3FUUH4A0ieCoisyXWQPdQDNWtHbCNBoD+0qSgGuWwsT
+         Rzr8nRMxo61QBBlpylfUmCnPHnhG6TNCNJnGPS/mqqA5usgrG/O8tgiN/er8Ycfe4ovD
+         vz7ekPT1ovBSxgAc0E0j/cM2Jn8rwTv72lU/ot0fnDyGS63RcK1tGeBWwzR44fw38DBN
+         OVx/2mRIYu9/buW6j4JaUkSEHf1K2gfL50zUwUwXNKKoOiIvGhNy6I6dDeNwL5Ca7wf8
+         jXDZhHgYailZdgfS9kk/7osouUAYLrTp3AcfP29/lNgHpDsbtCbJaEeEM0Dc7/CYrYJI
+         mCmg==
+X-Forwarded-Encrypted: i=1; AL+hErHOWUzAsvXU0gPBYoSiI8pBrAHO8dkAxfndMyRnrwPmjow/6f4hy3a6kl7lX3zgnYeZ/AmJ1Jd/237LiBU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/DtGN7Z0EijHZxuU/AiigilQNc3cYcKTMfbqpv0pW6Qjj/9YB7
+	EDejpfN+QKxBwo67OgMfI6MQjH99mAI/SlB6AzzJCqm0B6VBhhynZIWUdaRrIxnD0iqpwxgi2IL
+	K+OBt2VIlYZ1Ro4fdM/dultj1AotH3Ic=
+X-Gm-Gg: AZFdTZcg6jA+dp0BQOnHsK0FgkKdlDciqm/soszeVy6RRbXOigJtWlbtc0yBxRgYVAS
+	FEsIkhyYtXiDcy6Ph7Dg4gphsl9QrHDFebIsy+B41R0lDyXG9L3cJaHukE1bYVQdRqd4ivqrtZE
+	mf4YVKlAcf3Zca1tgm8+spEciQyAwJtYawlqmf8i52VZ4eJ1KNm1afQZ/kDjzJJxoMkMSW0Koi/
+	3eQUxRZIK3UPCLpveYgGyJ+1lkgD0Q4M7KfzXmNt9iVM+CAeCOW5WWUNQm+/qP7GhhxWUcoHIpb
+	sVSm3KwPF2hhnGlbXQArZejQyUDnvhqgz3SMuY2MLP2LSBPLlre/ngaI487s97lbGF+tzpjRJcM
+	QymWVYgklmVtXKfuvRGmrmx88U2c9ZkiFVH7ONx3wqfr+MXBqcVed1E8jGUk1x2naDUGgBAyw4C
+	mGZ+NSHEerx8LJolMei30vuqbcFpu8GCQ=
+X-Received: by 2002:a05:7301:10c4:b0:386:d310:4c1c with SMTP id
+ 5a478bee46e88-386d3104c52mr9700616eec.21.1795784919819; Fri, 27 Nov 2026
+ 05:08:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,166 +105,200 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf arm-spe: Honor --time ranges when synthesizing
- samples
-To: Jan Bernloehr <jbernloehr@nvidia.com>
-Cc: Leo Yan <leo.yan@linux.dev>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@arm.com>, John Garry <john.garry@linux.dev>,
- Namhyung Kim <namhyung@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matt Ochs <mochs@nvidia.com>,
- Linux perf Profiling <linux-perf-users@vger.kernel.org>
-References: <20261127123855.78212-1-jbernloehr@nvidia.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261127123855.78212-1-jbernloehr@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261122081820.53199-1-clamor95@gmail.com> <hlO8KiQKSi62yShZAIyhpw@nvidia.com>
+ <CAPVz0n0Qyekm7qUyCVFMTDSuVSw=1my4x-rgiafp3+mQ_sgk3Q@mail.gmail.com> <uQ14beL2SOumMxaLqMFc4w@nvidia.com>
+In-Reply-To: <uQ14beL2SOumMxaLqMFc4w@nvidia.com>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Fri, 27 Nov 2026 15:08:28 +0200
+X-Gm-Features: Aa3M54qgDXor0Xf9K6XHdCJ3yIc8SRM3BWawDQskrGgi0w7vMixGfnu5GIJLqUQ
+Message-ID: <CAPVz0n3hT2qGag=CzH6JimHpWVqTC-B1p=7n5U9SPP7UHyeGdA@mail.gmail.com>
+Subject: Re: [PATCH v8 02/12] drm/panel: panel-hitachi-tx10d07vm0baa: Convert
+ to use MIPI DBI bus
+To: Mikko Perttunen <mperttunen@nvidia.com>
+Cc: devicetree@vger.kernel.org, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=D0=BF=D1=82, 27 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 14:2=
+0 Mikko Perttunen <mperttunen@nvidia.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> On Friday, November 27, 2026 6:10=E2=80=AFPM Svyatoslav Ryhel wrote:
+> > =D0=BF=D1=82, 27 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE =
+06:23 Mikko Perttunen <mperttunen@nvidia.com> =D0=BF=D0=B8=D1=88=D0=B5:
+> > >
+> > > On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
+> > > > Switch from a generic platform driver to a dedicated MIPI DBI Type =
+B
+> > > > driver.
+> > > >
+> > > > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> > > > ---
+> > > >  .../drm/panel/panel-hitachi-tx10d07vm0baa.c   | 25 +++++++++------=
+----
+> > > >  1 file changed, 12 insertions(+), 13 deletions(-)
+> > > >
+> > > > diff --git a/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c b/=
+drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
+> > > > index 83c2af1be9755..318ece68b7806 100644
+> > > > --- a/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
+> > > > +++ b/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
+> > > > @@ -14,6 +14,7 @@
+> > > >  #include <video/mipi_display.h>
+> > > >
+> > > >  #include <drm/drm_mipi_dbi.h>
+> > > > +#include <drm/drm_mipi_dbi_bus.h>
+> > > >  #include <drm/drm_modes.h>
+> > > >  #include <drm/drm_of.h>
+> > > >  #include <drm/drm_panel.h>
+> > >
+> > > You should now be able to get rid of includes of of_platform.h
+> > > (replacing with of.h) and platform_device.h. Agent says drm_of.h and
+> > > property.h are also unused.
+> > >
+> > > > @@ -25,7 +26,7 @@ static const struct regulator_bulk_data hitachi_t=
+x10d07vm0baa_supplies[] =3D {
+> > > >
+> > > >  struct hitachi_tx10d07vm0baa {
+> > > >       struct drm_panel panel;
+> > > > -     struct mipi_dbi *dbi;
+> > > > +     struct mipi_dbi_device *dbidev;
+> > > >
+> > > >       struct regulator_bulk_data *supplies;
+> > > >       struct gpio_desc *reset_gpio;
+> > > > @@ -40,9 +41,10 @@ static inline struct hitachi_tx10d07vm0baa *to_h=
+itachi_tx10d07vm0baa(struct drm_
+> > > >  ({ \
+> > > >       const u8 d[] =3D { seq }; \
+> > > >       struct drm_panel *panel =3D &(priv)->panel; \
+> > > > +     struct mipi_dbi_device *dbidev =3D (priv)->dbidev; \
+> > > >       struct device *dev =3D panel->dev; \
+> > > >       int ret; \
+> > > > -     ret =3D mipi_dbi_command_stackbuf((priv)->dbi, cmd, d, ARRAY_=
+SIZE(d)); \
+> > > > +     ret =3D mipi_dbi_command_stackbuf((dbidev)->dbi, cmd, d, ARRA=
+Y_SIZE(d)); \
+> > > >       if (ret) \
+> > > >               dev_err_ratelimited(dev, "error %d when sending comma=
+nd %#02x\n", ret, cmd); \
+> > > >       ret; \
+> > > > @@ -54,10 +56,6 @@ static int hitachi_tx10d07vm0baa_prepare(struct =
+drm_panel *panel)
+> > > >       struct device *dev =3D panel->dev;
+> > > >       int ret;
+> > > >
+> > > > -     priv->dbi =3D dev_get_drvdata(dev->parent);
+> > > > -     if (!priv->dbi)
+> > > > -             return -ENODEV;
+> > > > -
+> > > >       gpiod_set_value_cansleep(priv->reset_gpio, 1);
+> > > >
+> > > >       ret =3D regulator_bulk_enable(ARRAY_SIZE(hitachi_tx10d07vm0ba=
+a_supplies), priv->supplies);
+> > > > @@ -243,9 +241,9 @@ static const struct drm_panel_funcs hitachi_tx1=
+0d07vm0baa_panel_funcs =3D {
+> > > >       .get_modes =3D hitachi_tx10d07vm0baa_get_modes,
+> > > >  };
+> > >
+> > > Unnecessary semicolon here.
+> > >
+> > > >
+> > > > -static int hitachi_tx10d07vm0baa_probe(struct platform_device *pde=
+v)
+> > > > +static int hitachi_tx10d07vm0baa_probe(struct mipi_dbi_device *dbi=
+dev)
+> > > >  {
+> > > > -     struct device *dev =3D &pdev->dev;
+> > > > +     struct device *dev =3D &dbidev->dev;
+> > > >       struct hitachi_tx10d07vm0baa *priv;
+> > > >       int ret;
+> > > >
+> > > > @@ -264,6 +262,9 @@ static int hitachi_tx10d07vm0baa_probe(struct p=
+latform_device *pdev)
+> > > >               return dev_err_probe(dev, PTR_ERR(priv->reset_gpio),
+> > > >                                    "Failed to get reset gpio\n");
+> > > >
+> > > > +     priv->dbidev =3D dbidev;
+> > > > +     mipi_dbi_set_drvdata(dbidev, priv);
+> > > > +
+> > > >       ret =3D drm_panel_of_backlight(&priv->panel);
+> > > >       if (ret)
+> > > >               return dev_err_probe(dev, ret, "Failed to get backlig=
+ht\n");
+> > > > @@ -272,9 +273,7 @@ static int hitachi_tx10d07vm0baa_probe(struct p=
+latform_device *pdev)
+> > > >       if (ret)
+> > > >               return dev_err_probe(dev, ret, "Failed to add panel\n=
+");
+> > > >
+> > > > -     platform_set_drvdata(pdev, priv);
+> > > > -
+> > > > -     return 0;
+> > > > +     return devm_mipi_dbi_attach(dev, dbidev);
+> > > >  }
+> > > >
+> > > >  static const struct of_device_id hitachi_tx10d07vm0baa_of_match[] =
+=3D {
+> > > > @@ -283,14 +282,14 @@ static const struct of_device_id hitachi_tx10=
+d07vm0baa_of_match[] =3D {
+> > > >  };
+> > > >  MODULE_DEVICE_TABLE(of, hitachi_tx10d07vm0baa_of_match);
+> > > >
+> > > > -static struct platform_driver hitachi_tx10d07vm0baa_driver =3D {
+> > > > +static struct mipi_dbi_driver hitachi_tx10d07vm0baa_driver =3D {
+> > > >       .driver =3D {
+> > > >               .name =3D "panel-hitachi-tx10d07vm0baa",
+> > > >               .of_match_table =3D hitachi_tx10d07vm0baa_of_match,
+> > > >       },
+> > > >       .probe =3D hitachi_tx10d07vm0baa_probe,
+> > > >  };
+> > > > -module_platform_driver(hitachi_tx10d07vm0baa_driver);
+> > > > +module_mipi_dbi_driver(hitachi_tx10d07vm0baa_driver);
+> > > >
+> > > >  MODULE_AUTHOR("Svyatoslav Ryhel <clamor95@gmail.com>");
+> > > >  MODULE_DESCRIPTION("HITACHI TX10D07VM0BAA MIPI DBI Type B panel dr=
+iver");
+> > > > --
+> > > > 2.53.0
+> > > >
+> > > >
+> >
+> > I agree that your suggestions are ok, but they are out of scope of
+> > this patch. They would require either dedicated commits or can be sent
+> > as followups later on since they do not cause bugs.
+>
+> I don't see why the include changes are out of scope. The platform
+> driver was including platform includes but now it's no longer a platform
+> driver so it shouldn't include platform driver stuff. The rest are minor
+> enough that I think they can be included as well.
+>
+
+I can remove headers, sure. Regarding semicolon, here is a bigger code frag=
+ment
+
+ static const struct drm_panel_funcs hitachi_tx10d07vm0baa_panel_funcs =3D =
+{
+    .prepare =3D hitachi_tx10d07vm0baa_prepare,
+    .enable =3D hitachi_tx10d07vm0baa_enable,
+    .disable =3D hitachi_tx10d07vm0baa_disable,
+    .unprepare =3D hitachi_tx10d07vm0baa_unprepare,
+    .get_modes =3D hitachi_tx10d07vm0baa_get_modes,
+};
+
+- static int hitachi_tx10d07vm0baa_probe(struct platform_device *pdev)
++ static int hitachi_tx10d07vm0baa_probe(struct mipi_dbi_device *dbidev)
+{
+- struct device *dev =3D &pdev->dev;
++struct device *dev =3D &dbidev->dev;
+struct hitachi_tx10d07vm0baa *priv;
+int ret;
 
 
-
-On 27/11/2026 12:38, Jan Bernloehr wrote:
-> perf script and perf report pass their --time ranges to the AUX trace
-> decoders through itrace_synth_opts. Intel PT uses them to skip decoding
-> outside the ranges, but Arm SPE ignores them: it synthesizes a sample
-> for every record, only for the tool to drop the samples outside the
-> ranges in its sample handler.
-> 
-> Check each record's timestamp against the ranges before synthesizing
-> samples for it. The check runs after the --itrace period count and
-> converts the record timestamp with tsc_to_perf_time(), as
-> arm_spe_prep_sample() does for sample->time, so the tool receives the
-> same samples as before. Without timestamps (timeless decoding) nothing
-> changes.
-> 
-> Decoding still runs to the end of each queue rather than stopping at the
-> first record past the last range: record timestamps do not always
-> increase within a queue, and on Neoverse V2 traces such an early stop
-> dropped samples that were inside the range.
-
-Do you care that timestamps don't always increase? Seems like it would 
-be acceptable to stop after the first timestamp that you see outside of 
-the range, even if there are some edge cases where there may be an 
-earlier one later.
-
-Also can you elaborate why they don't always increase? I would have 
-thought that they would always generally increase in SPE data, if not 
-for some allowance for instruction re-ordering or something like that. 
-But that would be tiny and not really relevant for this feature.
-
-> 
-> On 28 GB and 55 GB Neoverse V2 traces, perf script --itrace=i1i with
-> --time=70%-95% goes from 212 s to 188 s and from 383 s to 339 s, and
-> with --time=70%-70.01% from 101 s to 72 s and from 188 s to 131 s, with
-> byte-identical output.
-> 
-> The code and this message were drafted with an AI coding assistant
-> (Claude Opus 5.5).
-> 
-> Signed-off-by: Jan Bernloehr <jbernloehr@nvidia.com>
-> ---
-> Tested on GB200 (Neoverse V2) with two perf.data files (28 GB, 55 GB)
-> recorded with
->    perf record -e 'arm_spe_0/branch_filter=1,event_filter=0x2,jitter=1,period=4096/u'
-> and decoded with
->    perf script --itrace=i1i -F comm,tid,cpu,time,period,event,addr,ip,dso --no-demangle
-> using perf-tools-next 29fd95dbd25 with and without this patch:
-> 
->                            28 GB            55 GB
->    --time=70%-95%          212 s -> 188 s   383 s -> 339 s
->    --time=70%-70.01%       101 s ->  72 s   188 s -> 131 s
->    --itrace=i10i 70%-95%    84 s ->  81 s   150 s -> 147 s
-> 
-> Output was byte-identical to the unpatched perf in every case.
-> 
-> An earlier version also stopped decoding a queue at its first record past
-> the last range. On the 55 GB trace that dropped 21% of the in-range
-> samples, because some queues produced in-range records after a record
-> stamped past the range, so this version decodes every queue to the end.
-> 
->   tools/perf/util/arm-spe.c | 33 +++++++++++++++++++++++++++++++++
->   1 file changed, 33 insertions(+)
-> 
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 8d95df23be6..bf1e824ea76 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -26,6 +26,7 @@
->   #include "symbol.h"
->   #include "thread.h"
->   #include "thread-stack.h"
-> +#include "time-utils.h"
->   #include "tsc.h"
->   #include "tool.h"
->   #include "util/synthetic-events.h"
-> @@ -93,6 +94,9 @@ struct arm_spe {
->   
->   	u64				kernel_start;
->   
-> +	struct perf_time_interval	*ptime_range;
-> +	int				range_num;
-> +
->   	unsigned long			num_events;
->   	u8				use_ctx_pkt_for_pid;
->   
-> @@ -1077,6 +1081,19 @@ arm_spe__synth_data_source(struct arm_spe_queue *speq,
->   	return data_src;
->   }
->   
-> +/*
-> + * Check a record against the --time ranges. Samples outside them would only
-> + * be dropped by the tool, so do not synthesize them.
-> + */
-> +static bool arm_spe__skip_record(struct arm_spe *spe, u64 timestamp)
-> +{
-> +	if (!spe->range_num)
-> +		return false;
-> +
-> +	return perf_time__ranges_skip_sample(spe->ptime_range, spe->range_num,
-> +					     tsc_to_perf_time(timestamp, &spe->tc));
-> +}
-> +
->   static int arm_spe_sample(struct arm_spe_queue *speq)
->   {
->   	const struct arm_spe_record *record = &speq->decoder->record;
-> @@ -1092,6 +1109,9 @@ static int arm_spe_sample(struct arm_spe_queue *speq)
->   		return 0;
->   	speq->sample_count = 0;
->   
-> +	if (arm_spe__skip_record(spe, record->timestamp))
-> +		return 0;
-> +
->   	arm_spe__sample_flags(speq);
->   	data_src = arm_spe__synth_data_source(speq, record);
->   
-> @@ -1255,6 +1275,17 @@ static int arm_spe_run_decoder(struct arm_spe_queue *speq, u64 *timestamp)
->   	return 0;
->   }
->   
-> +static void arm_spe__setup_time_ranges(struct arm_spe *spe,
-> +				       struct itrace_synth_opts *opts)
-> +{
-> +	/* Without timestamps, samples cannot be filtered by time */
-> +	if (!opts || !opts->range_num || spe->timeless_decoding)
-> +		return;
-> +
-> +	spe->ptime_range = opts->ptime_range;
-> +	spe->range_num = opts->range_num;
-> +}
-> +
->   static int arm_spe__setup_queue(struct arm_spe *spe,
->   			       struct auxtrace_queue *queue,
->   			       unsigned int queue_nr)
-> @@ -2055,6 +2086,8 @@ int arm_spe_process_auxtrace_info(union perf_event *event,
->   	 */
->   	spe->synth_opts.period = spe->synth_opts.period ?: 1;
->   
-> +	arm_spe__setup_time_ranges(spe, session->itrace_synth_opts);
-> +
->   	if (spe->synth_opts.period > 1)
->   		ui__warning("Arm SPE has a hardware-based sampling period.\n\n"
->   			    "--itrace periods > 1i downsample by an interval of n SPE samples rather than n instructions.\n");
-
+>
+>
