@@ -1,63 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768551;
-	b=gTqxbrd4RKZT4f3mVxf8XcEP/debADv3/Au6z209fwQVJRBwHd6Em3paC+WAZU2QREq1
-	 4lBoMkFVfCv6YD4yWvIaW/mO1vTPUQSSgt9IuKH1nmGfZdhDAgQlHh3yEHv26jSo4Iki2
-	 ghDEtexsJe0DGTw5Vp9/N0d1QjRAbmOYa7kEcv6f9CVB1zjYGF2+I87K5NuwyKIzKav+G
-	 8HQhcTFGzkQVwNkpzzjoxU4oBwtOKGjzAOPnYXX5c1vuRNitG2UT9/tVeGXDkCqOeteqA
-	 exK24OKmMnbH8rN+N/ULpN6qGJ/rByhBOq1sB6zn81X0EIyBFhkYFR3PQam0YPZtiTQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768551;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7QGeJWidz6c8FdxSEbDOXfVOMKv35Ol35h6d4CjOJEQ=;
-	b=iZveIkJEgqmRMm7OqC4E7OEH26ukyv2Av8Y0crTIUqW4IS36yZyTz/EHC0VaqMXXytPz
-	 KDoAOCqEkl5bIP5Xp971TOMTtCLBBkr7Ey05DH9tzLs7XKO00PnfRvQwvLAOiqD79bL38
-	 0QJcKHENHThsStIaS63WUjrsD2PFACV1K0tPnjhh+zaHOp8MBpWN6RQ5n8f9vZy4yM3al
-	 FQNq7Ixc47JZQowtH7Cd4eWbVep5h4TjvGXQuwZdVXPXRlOH2aUGRwZVSzWd6mP0DrBR8
-	 /7SYWaS6+/Cb3Bm9mShG6v0Lhz4pVf+9XHWn7BeHjIPdQr3MBbsqBvlUyUiQdUnOp8Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lM+HwA5E;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6A852606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:35:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A852606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795768553;
+	b=D+O/ckuMQ2U2bv/bD78GFnEM+vS5/lacMmsuAHNL51ugo9THdPDwm2CiulsLj8dLg/O6
+	 /2GIUPoAeZHhGe2uUA+Ie8Bxo2bPU5CwCvS1FVV9FeAYU3mVj+8dxLpuhE+DoVOcX1KGT
+	 NwFHnKgKgeleJ4vfd+CMglU+o2ROCsAjJkicPkxTW2GD4LPMkLVGRnFK6I2sSo3uVyqWN
+	 FTiILMk/Vdf5kP2QXawkU+zJ1UHrngSy2/VCqYUpE2stvZAgSS+sWnEw3bE93ub8ApV6H
+	 UtYWg2cQdo5vtashEtWcCnpQC6ego2mvdQp0xImOd6CeUWz/AeM9fMYNvYMXYvDYa+Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768553;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=fLqf6YfOCjBaG4a1Aer12vUFt+59JHEWFYJtZISecp8=;
+	b=P6fT8qkeKWro4t00W887osySW+VsIJqsMIJcBDHz41p3y/PRt0Wqn8rtOPG5G0+su6Kn
+	 wMTL8Fh0l6DuR1YD3ZIPEVLprYpXar9KiOe9jKr2q9mUsVOrdr2rhB4nRW9V15JmJY3VG
+	 p2NIf1YmKqkksI6qE/M7joSf5g2X/7UCYjWM6GYMdUacNPf0nC8DP5hR6I/IXX13JHR7n
+	 kFSo/XGga2z1v1XIbgCtSyjc8yqaJcotnQI0usvK2apdfQPnCDoDLf4pNMlWOQMv3BFCj
+	 fMdcXVZgQiQKJqCtwUQ/qVLosbHtaqIP9P/XvqYHP9UDDlD6t4+v+rLYW5t+2mfsXuA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jOmI3KCJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A99E606A33B;
+	Fri, 27 Nov 2026 08:35:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lM+HwA5E
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADA731758;
-	Fri, 27 Nov 2026 00:35:47 -0800 (PST)
-Received: from e127648.arm.com (unknown [10.57.70.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E0F5C3F86C;
-	Fri, 27 Nov 2026 00:35:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795768550; bh=w7s3+IlhcG15VASI78kwNc9Nt+mliWS8M9atS/fYjr4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=lM+HwA5EdbyrlfvyC3EcMI+3dvkK7xGBRMZ3NUbg0ov8DMOa/5RC4wq1icd3oH7Kk
-	 NGEPLrvFHa+oeGFfWvehb59nY9gRI9piKODHJ5tgxXEFCu3WHx8Rod35PX/qy0FiLd
-	 +p1foh38Q+9PVj530HRRffdhlbOzBJTs6UTt/7/0=
-From: Christian Loehle <christian.loehle@arm.com>
-To: mingo@kernel.org,
-	peterz@infradead.org,
-	vincent.guittot@linaro.org
-Cc: qyousef@layalina.io,
-	christian.loehle@arm.com,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	jstultz@google.com,
-	kayracizmeci@gmail.com,
-	wvw@google.com,
-	linux-kernel@vger.kernel.org
-Subject: [RESEND][PATCH 0/2] sched/uclamp: Fix dequeue accounting across static-key updates
-Date: Fri, 27 Nov 2026 08:35:40 +0000
-Message-Id: <20261127083542.3172843-1-christian.loehle@arm.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jOmI3KCJ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795768553;
+	b=pGAYvPnbM3BKUlAnjI0CZweyXK5w82Eo4+DKmKbEtuQBFk71pipxtVWuy7uzc0JI74j0
+	 S35lEYidXZl0mUbse5fWlYnhC554uWopa0Hlaau4Ssl5vl+Furib8M8bZQ5viel4FywY/
+	 aESgYWgvtyqBgivBR3YIiZ/iNbgIVlw8LA/PPC2rBZI4wEm1mcMYy3VWNdpOG5zkFNXal
+	 BBkxRrtYVsx10lQGsZ0n58sHhHGLhe4YG1gouc3B2j5h1VRWvtYDOFwZ2BhQ+AuCh/0ZG
+	 HyACZcV/oPBabVtgoR4BbkUZmm7toTxcJ4UVFFeJqHXEPQiB7AT6AtlW1L1FHKHkFjg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795768553;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=fLqf6YfOCjBaG4a1Aer12vUFt+59JHEWFYJtZISecp8=;
+	b=Ae4RsgxWMgx/kMW0S0gpLqywrMTQ5PFuMaiw5LBM/RqVzYbWmVtHuOYC9YrA+n69YDIR
+	 bEmKFTxxwXCV9v3xqL6cpIcw2etuNsOD0xOfVXHouwK3X4CRgV8hA8rIaGkzAjPdI0bUE
+	 vcow1f3MprDTziIODR4ldHDfFPrn6Mxu5sgOpXP7ts4lAeON9HPmbF0VpkgqWvgJrZEOB
+	 TTwnfD0OUCwYDoepVgkhibrTFFLODnq5X4NAUN4B7Lne5RXqQfbm3G75VyKGY2EMZrKgu
+	 ez0KYfrt81SF7ymrmkisTi0atyL2ePgDHNmAuHTYaJNrP1RoZINYha9NShdT1D2lw+g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id D11B61F0089F;
+	Fri, 27 Nov 2026 08:35:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795768553;
+	bh=fLqf6YfOCjBaG4a1Aer12vUFt+59JHEWFYJtZISecp8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=jOmI3KCJvXtRyLKh4jgfswQexiSIK3nWkAMO61qAZIQMMrfJebWkTum4R9tU9GwMP
+	 ZUpBDZaItTDMs5onfynuU5OVYp3Un5/7jtdEPNOeRypFQPJ0y5iv27FgA7e1+ozf3l
+	 xvusN/hEshZ1Rz3RAABhoojlLiSP1prV4JLHm6VriaeizhG6MNGYPL14HzpxziJRq0
+	 LxbctX6HQFNhFyMBxCma35D0WPLJsvir0RZWCsOPPjiSVgQCkeHNWSv5HtlJECUdQY
+	 BVSDLgzGy7zqdnBFdQy4nTd5XZRsfB1pMAVe4mz8cK/mv6pfMiHPSJs9AJ58t+et4t
+	 GN8rmj4KXwXqA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EFF3A4B64E;
+	Fri, 27 Nov 2026 08:35:28 +0000 (UTC)
+From: Murad Dadashev via B4 Relay <devnull+llamapersonaltv.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 11:35:16 +0300
+Subject: [PATCH 05/10] wifi: mt76: mt7603: allow configuring TX and RX
+ antennas separately
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,69 +83,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-mt7603u-v1-5-369bee9846f8@gmail.com>
+References: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
+In-Reply-To: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Murad Dadashev <llamapersonaltv@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795768526; l=5149;
+ i=llamapersonaltv@gmail.com; s=20261127; h=from:subject:message-id;
+ bh=Y74MJP9ElQtXX28cMEHxNG9OMLyPAiUoKVMjMJdxzCY=;
+ b=i9ttqsa4JnW0uDjs5F5uSWJ3DoWL5r2Efwf/TaN8rHBKjs8BzVEGJMvorbrxrN7dUxeO2L9g7
+ ccunndeahLDDtGf2gSrrG4PoXEuNa7IUJVLCIfWIqUUGy5qKALg6fbn
+X-Developer-Key: i=llamapersonaltv@gmail.com; a=ed25519;
+ pk=CeMIX207ioWRbMAA6A2GYgT+DpeVlKHVn7I0KjfHeCg=
+X-Endpoint-Received: by B4 Relay for llamapersonaltv@gmail.com/20261127
+ with auth_id=1664
+X-Original-From: Murad Dadashev <llamapersonaltv@gmail.com>
+Reply-To: llamapersonaltv@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Static-key updates can let enqueue account a task before dequeue observes
-uclamp as enabled. Patch 1 checks the task's effective UCLAMP_MIN active
-flag on dequeue, so accounted clamps are released regardless of static-key
-update progress. The early check keeps the unused dequeue path short, and
-enqueue retains its static key.
+From: Murad Dadashev <llamapersonaltv@gmail.com>
 
-Patch 2 picks up Qais's idle-flag wrapper cleanup from v7 [1].
+Add set_antenna support with independent TX and RX chain masks. When
+fewer TX than RX chains are used, keep the RX MCS set and advertise the
+lower TX stream count through IEEE80211_HT_MCS_TX_RX_DIFF, so rate
+control does not pick rates the hardware cannot send.
 
-The measurements below are for patch 1 on v7.4-rc4, before adding patch 2
-and rebasing. Each cell gives fix / always-on percentage changes versus
-unfixed, with CONFIG_UCLAMP_TASK=y throughout. The unfixed and fixed
-kernels keep the uclamp key disabled while always-on performs accounting.
+This is useful for devices where one TX chain is not usable, which
+otherwise lose a large share of two-stream frames.
 
-Nine fresh boots per variant, 20 measured repetitions per boot. Changes
-are geometric means of paired boot-median ratios.
-Positive time/latency is slower, positive throughput is faster.
+Signed-off-by: Murad Dadashev <llamapersonaltv@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c |  1 +
+ drivers/net/wireless/mediatek/mt76/mt7603/main.c   | 56 +++++++++++++++++++++-
+ drivers/net/wireless/mediatek/mt76/mt7603/mcu.c    |  3 +-
+ drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h |  2 +
+ 4 files changed, 60 insertions(+), 2 deletions(-)
 
- Workload / metric              │ i7-13700K: fix / always-on │ Xeon: fix / always-on │ Orion: fix / always-on
-────────────────────────────────┼────────────────────────────┼───────────────────────┼────────────────────────
- messaging-processes / seconds  │        (-0.06%) / (+0.09%) │   (-0.40%) / (-0.21%) │      -0.38% / (-0.31%)
- messaging-threads / seconds    │        (-0.19%) / (+0.05%) │       -0.86% / -1.77% │    (+0.10%) / (+0.11%)
- pipe-processes / usec_per_op   │          (+0.18%) / +1.56% │    (-0.002%) / +2.41% │        -1.17% / +1.19%
- pipe-threads / usec_per_op     │            -0.78% / +0.88% │     (+0.01%) / +2.91% │    (-1.61%) / (+0.53%)
- schbench-256k / rps            │       (+0.002%) / (-0.04%) │    (+0.004%) / -0.05% │    (-0.20%) / (+0.03%)
- schbench-256k / wakeup_p99_us  │        (+0.42%) / (+0.51%) │    (+2.33%) / +10.62% │    (-1.44%) / (-0.37%)
- schbench-4096k / rps           │        (+0.00%) / (+0.00%) │   (+0.00%) / (+0.00%) │    (+0.00%) / (+0.00%)
- schbench-4096k / wakeup_p99_us │        +32.68% / (+12.93%) │  (-10.66%) / (+2.71%) │      (+3.03%) / -6.99%
- tcp-stream-1024 / Mbps         │          (-0.24%) / -0.69% │       -0.61% / +1.07% │      +0.36% / (-0.52%)
- tcp-stream-16384 / Mbps        │          (-0.03%) / -0.29% │       -0.57% / +0.23% │    (+1.04%) / (-0.82%)
- tcp-stream-64 / Mbps           │         (+3.05%) / +18.60% │    (+0.12%) / +23.54% │        +2.50% / +2.09%
- tcp_rr / transactions_per_sec  │          (-0.57%) / -1.68% │       -0.66% / -1.33% │      (+0.10%) / -1.58%
- udp-stream-1024 / rx_Mbps      │        (+0.19%) / (+0.17%) │   (-0.41%) / (+0.32%) │      -1.58% / (-0.63%)
- udp-stream-128 / rx_Mbps       │        (-0.82%) / (-0.15%) │     (-0.38%) / +1.54% │        -1.31% / -0.69%
- udp-stream-16384 / rx_Mbps     │        (-0.31%) / (-0.49%) │       -0.35% / +0.30% │        -1.52% / +0.61%
- udp-stream-2048 / rx_Mbps      │        (+0.02%) / (+0.06%) │   (-0.24%) / (-0.09%) │      -1.18% / (-0.74%)
- udp-stream-256 / rx_Mbps       │        (+0.33%) / (+0.29%) │       -0.72% / +1.56% │        -1.76% / -0.86%
- udp-stream-3312 / rx_Mbps      │        (+0.38%) / (-0.07%) │   (-0.04%) / (+0.14%) │      -1.18% / (-0.54%)
- udp-stream-4096 / rx_Mbps      │        (-0.06%) / (+0.22%) │   (-0.24%) / (+0.08%) │      -1.31% / (-0.66%)
- udp-stream-64 / rx_Mbps        │        (-0.18%) / (-0.17%) │       -0.57% / +1.20% │        -1.51% / -1.45%
- udp-stream-64-pinned / rx_Mbps │        (-0.94%) / (+0.90%) │     (-0.28%) / +1.63% │      -1.21% / (-0.30%)
- udp-stream-8192 / rx_Mbps      │          (-0.25%) / -0.39% │       -1.54% / -1.01% │      -0.96% / (+0.15%)
- udp_rr / transactions_per_sec  │          (-0.72%) / -1.69% │       -0.94% / -1.55% │        +0.44% / -1.84%
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c b/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
+index 05f7aaefaf89b455681bf9e7e9a2440864aff4b5..28fd818428e1ce6f69866e7e192f62a952c6a80d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c
+@@ -183,6 +183,7 @@ int mt7603_eeprom_init(struct mt7603_dev *dev)
+ 		dev->mphy.antenna_mask = 1;
+ 
+ 	dev->mphy.chainmask = dev->mphy.antenna_mask;
++	dev->tx_ant = dev->mphy.antenna_mask;
+ 
+ 	return mt76_eeprom_override(&dev->mphy);
+ }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/main.c b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
+index be4da5023e439a9e0f3386d1e2140464efad4e94..80dafe89e2c54c1148611b89c7cd65885214463c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
+@@ -719,6 +719,59 @@ mt7603_sta_rate_tbl_update(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+ 	spin_unlock_bh(&dev->mt76.lock);
+ }
+ 
++static int
++mt7603_set_antenna(struct ieee80211_hw *hw, int radio_idx, u32 tx_ant,
++		   u32 rx_ant)
++{
++	struct mt7603_dev *dev = hw->priv;
++	struct mt76_phy *mphy = &dev->mphy;
++	struct ieee80211_sta_ht_cap *ht_cap = &mphy->sband_2g.sband.ht_cap;
++	u32 avail = hw->wiphy->available_antennas_tx;
++	int n_tx = hweight8(tx_ant);
++
++	if (!tx_ant || !rx_ant || (tx_ant & ~rx_ant) || (rx_ant & ~avail))
++		return -EINVAL;
++
++	if (BIT(n_tx) - 1 != tx_ant || BIT(hweight8(rx_ant)) - 1 != rx_ant)
++		return -EINVAL;
++
++	mutex_lock(&dev->mt76.mutex);
++
++	mphy->antenna_mask = rx_ant;
++	mphy->chainmask = rx_ant;
++	dev->tx_ant = tx_ant;
++	mt76_set_stream_caps(mphy, false);
++
++	ht_cap->mcs.tx_params = IEEE80211_HT_MCS_TX_DEFINED;
++	if (tx_ant != rx_ant) {
++		ht_cap->cap &= ~IEEE80211_HT_CAP_TX_STBC;
++		ht_cap->mcs.tx_params |= IEEE80211_HT_MCS_TX_RX_DIFF |
++			FIELD_PREP(IEEE80211_HT_MCS_TX_MAX_STREAMS_MASK,
++				   n_tx - 1);
++	}
++
++	if (test_bit(MT76_STATE_RUNNING, &mphy->state))
++		mt7603_mcu_set_channel(dev);
++
++	mutex_unlock(&dev->mt76.mutex);
++
++	return 0;
++}
++
++static int
++mt7603_get_antenna(struct ieee80211_hw *hw, int radio_idx, u32 *tx_ant,
++		   u32 *rx_ant)
++{
++	struct mt7603_dev *dev = hw->priv;
++
++	mutex_lock(&dev->mt76.mutex);
++	*tx_ant = dev->tx_ant;
++	*rx_ant = dev->mphy.antenna_mask;
++	mutex_unlock(&dev->mt76.mutex);
++
++	return 0;
++}
++
+ static void
+ mt7603_set_coverage_class(struct ieee80211_hw *hw, int radio_idx,
+ 			  s16 coverage_class)
+@@ -783,7 +836,8 @@ const struct ieee80211_ops mt7603_ops = {
+ 	.set_coverage_class = mt7603_set_coverage_class,
+ 	.set_tim = mt76_set_tim,
+ 	.get_survey = mt76_get_survey,
+-	.get_antenna = mt76_get_antenna,
++	.get_antenna = mt7603_get_antenna,
++	.set_antenna = mt7603_set_antenna,
+ 	.set_sar_specs = mt7603_set_sar_specs,
+ };
+ EXPORT_SYMBOL_GPL(mt7603_ops);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
+index eb633f5d7171e99a0339a2f44fa0ab39379642f1..cf81fc2e252a37e1d40c1f297b1c9688c054ca40 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
+@@ -397,6 +397,7 @@ int mt7603_mcu_set_channel(struct mt7603_dev *dev)
+ 	struct cfg80211_chan_def *chandef = &dev->mphy.chandef;
+ 	struct ieee80211_hw *hw = mt76_hw(dev);
+ 	int n_chains = hweight8(dev->mphy.antenna_mask);
++	int n_tx = hweight8(dev->tx_ant);
+ 	struct {
+ 		u8 control_chan;
+ 		u8 center_chan;
+@@ -410,7 +411,7 @@ int mt7603_mcu_set_channel(struct mt7603_dev *dev)
+ 		.control_chan = chandef->chan->hw_value,
+ 		.center_chan = chandef->chan->hw_value,
+ 		.bw = MT_BW_20,
+-		.tx_streams = n_chains,
++		.tx_streams = n_tx,
+ 		.rx_streams = n_chains,
+ 	};
+ 	s8 tx_power = hw->conf.power_level * 2;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
+index f91968a63b6497460a26fed7d775f3745269bfa7..8559a1ee06cd79a00ec4e382065f24f5180a8a21 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
+@@ -108,6 +108,8 @@ struct mt7603_dev {
+ 
+ 	const struct mt76_bus_ops *bus_ops;
+ 
++	u8 tx_ant;
++
+ 	u32 rxfilter;
+ 
+ 	struct mt7603_sta global_sta;
 
-Separately, paired log-ratio t-tests with Holm correction across the 69
-fix-versus-unfixed comparisons retained only significant regression:
-Xeon UDP_STREAM 8 KiB throughput −1.54%.
-
-[1] https://lore.kernel.org/r/20261126012836.15205-3-qyousef@layalina.io
-
-Christian Loehle (1):
-  sched/uclamp: Always account active clamps on dequeue
-
-Qais Yousef (1):
-  sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
-
- kernel/sched/core.c  | 27 +++++++++++++--------------
- kernel/sched/sched.h | 10 ++++++++++
- 2 files changed, 23 insertions(+), 14 deletions(-)
-
-
-base-commit: 029fd68a263364583b6f9b34d22761acf0a3940c
 -- 
-2.34.1
+2.47.3
+
+
