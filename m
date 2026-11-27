@@ -1,52 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795793336;
-	b=IPGdkoDXS393mCKpmGlqkxsIrXrHQ70vAnvKTER1ZHuurpgevqJPUFu4iYZ21xBhCAN4
-	 nfz1aDNzvjuoBpDk6yGTeYJGNUJawdPtnfOZvGTGF6N8F+9XvJD9Jg8CnfcPLBDXiRW8m
-	 6mSEt0sg2tBQXNmufuSaOHtGbu51FQ48t3iq2yOnByU9BsSvV6s8fAQuucvxw/fLFeLX/
-	 UfTHQd8FogXrkZxQT5Xwvgk+PzlXpKLEL1QkLmjomm7xqP23Z8uMZqB6OhWm+dF3PmAit
-	 b/JpXPKJJQWGah/6J/xnJboGM/QcLkh9/2CcgRPHKYC2jclOfZMIDPldJQTJs9iOG2w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=SeD0iVK4uwwtd3MjQ3w7kKxYW7wEGaoG+cwZup5/hJnWGeBGGzK5Wa7MYB1s/nD9Odan
+	 pKAyyaFjI/UWKVe/XzBbkliPpODp4CXk11n731/RrJLzo1l1ApHEZ7XrHWNGzyXFgN0Gb
+	 CVi1mqZzw3ulyj8sg/0ZkTKT0PgAyk1s4fGZXcniQ2JyJFQUfF4f3itFIK7V2Ay7PuwPL
+	 5hMOIlQhTDNZKZ9dWKnuQD3oRtOeZBYmYTfXfyAE+8SWhNHN8vd931SGB9dznT6pxBmB4
+	 JrW+TNK/x0Pk8mRSnHYKArWfbWDx5ZPtME7tQWVrMmOwx6GHu0mavEojtm0BXtuERMA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795793336;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=N8r7Otei+XSQJ5qNWiGsPFaP8lhiVxL0XWwhCZpynbE=;
-	b=V8dWbB2BrTJCK+0AADeDKI3kzU5FhZm+1B61bZ/PEod21t14n7a+nzICUndjnlbKBG1D
-	 9PsfOgXw+mihlaPvJwh+VeWDS/8NJGBClg17Vt7ahJH/2/JYQByWG9uwQK+Tc6XLtQ6+G
-	 FuVDDrCOuSZq/5IzvBh9yqHoEcEF7CqquhTm9uxzq7DTHV51TE3Ey8Ln7HFOWXBwfW5j7
-	 P3y5CmMcqqJs57Rmow3N5+kKf7Qpy3pCa12zcS0fFYdf70k6Hb1KxHAI02OqswoAGNpIG
-	 wD1T0BS2l5BuRqTnt/QXHGEdgfB6TBUvktiXR0nk/PcxJtNB/NjVKZqDG1Fje9foZ5A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=SjjeWAMt;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id BA84160A380C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:28:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA84160A380C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=e7lJU2yXjKEMQUztoownYxmSUo5xLYjYP3p+fKIDals=;
+	b=V0v186vQBVZ1SmFHHmrxF2nRsju4G8BDrgehnD8ZH17ULohXYH1hOF+NHdouDjdyWfDS
+	 0zz3taqtO1IR7lZWY6q5BRyM4oCJJS2rMNxO38zmoZpZ/dHZ5TaFBPa4NLbIoHv0MChH0
+	 DxxAyoAxRLDyPcSl1DHvK/9HjHZ07rgHf6Ck5K8nwIXGCKOdjcaOc46ncZF5YjqRoeIuX
+	 nPut5ybfpBTBfwGi1588oCioJXRYGSSKC7UQJ/zEAaEGY5mQAf+28GYTtrkG1+/Cr06wb
+	 XQ8BAJ4YelkTbaLhDJ8eL/LLJwA5/MHcKHPiFdgXg5FKpOyBY/tMT8P6tYvepWqKopw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=fO65uMAa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.12
+Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013012.outbound.protection.outlook.com [52.101.72.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62CCC60A380E;
+	Fri, 27 Nov 2026 15:28:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62CCC60A380E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=SjjeWAMt
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F73C1E8D;
-	Fri, 27 Nov 2026 07:28:52 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E50A3F632;
-	Fri, 27 Nov 2026 07:28:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795793334; bh=/J/nROVIoZfoB1kVaPX0p0IurFF2MGHYOgFXul0PDkE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SjjeWAMtp20zvUXg+ogHMN48NpR5QpTddtKSBt9GdLAe/1Xcizztwq4rWfpfrgpTi
-	 IpaxNy8bkLQgh8Z/mx9UEvtvZMye/mij4trOgS4hstyejOwzkdjMnufkl4pS7EZzPt
-	 Ij6bYEJSbijZ6/5cT67xT45dYYAxwyj/5iSRbu68=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Fri, 27 Nov 2026 15:28:36 +0000
-Subject: [PATCH RFC v2 6/6] selftest: attestation: add
- firme_attestation_test selftest
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=fO65uMAa
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ee0BaKGRkzMEoH4FVrXa+MFpSksLPjr/5FdKgKu0/J4YWVS+gXglySKUv+pO2p3RYkG+WLcceZ1Bq6iuJO7Yh43AlDXshOwf80Shr5ZRYla6UrKYih/oKGheElvwXAuGDrRrULEwCUeW8KazsnoI9LbwzEupM7SC76Y2vzpcqGE4F0i4jjCWTy8NP603KfsinAi0qwxQb4r0FxLuAz1sok5l6IjzNRl0I0g0eEpyAZ8IVD4zqzk378Ui/PHBQBQvyRF4nEMR5uXqSOvZF8CTcmmXUY5701xNhqEELEiWDffEEsmWSaQry2cXXHBLDor/PCJ6/reK4laiurJuKF7L9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e7lJU2yXjKEMQUztoownYxmSUo5xLYjYP3p+fKIDals=;
+ b=Rufz8q9JZZDB0MXhsn1DaGb4+hSIyEvq8hO63WZzOq39iecU4A5hQb4acnYMxIMC4804d0Q18rRrVaqrfK3D9mLieiiKV1NU5qLSYQSRgQ6sbp6aOVYTJzE79GEGRCfCF42QjRwRZEhjtebuERwpFXvkYQViBJql2x/EoVFrtVHmdeojXe+HCbz5JBhDUTppmLb6ZAE3szwFYBWeSrGZPusjUcxCLYu7iDyZNPP7mPkVAwe9Jx8oT33HVaJsetIM/JdU34V/+P1owf8S5klLDeA45VewkIdBefXE7oKvKENlfnfN7UaD5SmFtEiXOq3ZlTbD8OSPH+HHCJt7V1v8SQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e7lJU2yXjKEMQUztoownYxmSUo5xLYjYP3p+fKIDals=;
+ b=fO65uMAa/2y2ONOGcPEWjVG2+2zRxXzlVLmeq8RazSAPyXORFC/Fbd9FQKccLSqLxfXFcRDES5b/uXLz8KhRFLpGxQQ2vpUyzEagZPRHlHnhJ5YBBG4aF7lo0NwYb+EmXKSu3YJXbTZwQ7k3EZNvXqEC05KIVrdZyrMyhY5yPj308vhyuKmccwdKk/RKUQNC+nhAHD6pSXV5UDbTKgmBH6nv51LrVFTLaCwqXqQjxeqaXFzNgrXWeOKt068hU1SSTZTlKXU/fno7p0RiwcAcouhWCCWNa5WYORROc3F+krSttDiXswywBwEuuzDJuk7xaNBRCIA2whrVykOZiAR/3w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AS8PR04MB7525.eurprd04.prod.outlook.com (2603:10a6:20b:29b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Fri, 27 Nov
+ 2026 15:28:52 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 15:28:52 +0000
+Date: Fri, 27 Nov 2026 09:28:36 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v13 0/5] Add support for i.MX94 DCIF
+Message-ID: <awmhpFuAOF4BmmEO@SMW015318>
+References: <20261120-dcif-upstreaming-v13-0-966ac248773f@oss.nxp.com>
+ <awmGCp4e2pgtxsqr@vm>
+ <DN63BMGBI07A.1IC73REGZ7NXZ@bootlin.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DN63BMGBI07A.1IC73REGZ7NXZ@bootlin.com>
+X-ClientProxiedBy: PH5P222CA0003.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:34b::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,328 +114,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-firme_interface-v2-6-ab88b2d0b4e0@arm.com>
-References: <20261127-firme_interface-v2-0-ab88b2d0b4e0@arm.com>
-In-Reply-To: <20261127-firme_interface-v2-0-ab88b2d0b4e0@arm.com>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki Poulose <suzuki.poulose@arm.com>, 
- Steven Price <steven.price@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jiri Pirko <jiri@resnulli.us>, 
- GONG Ruiqi <gongruiqi1@huawei.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- Mark Brown <broonie@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9210; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=/J/nROVIoZfoB1kVaPX0p0IurFF2MGHYOgFXul0PDkE=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBrCaGpLeJqr102GJNW8A2fQ89QeQhR9OEC9d1DG
- nmVSNkqCKeJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCawmhqQAKCRBt1cPRWsUx
- M0ktDADHeqR92777tLtYurePe/KD3Jsn/dV6dtVAi9x1oX/EHilUgdp83LTDBhaOd9gI9ZlOof8
- sz9wl3Gx3LEGIz3Wu/WCLtC2JxRDuw+0LhMHhTi8QvCGclzoAMurlDcDTgBA2rnpP0cDVYnT4Hi
- lTrMTX3fGgQVy1OvoB4uBiZXjf+idXQ+vKFku1kirgzkzAg+0ora9O/u3c7DmWblwnC00HTBjA+
- sfGRNGx2wNsskCFLLInyQOsKTpOqzpvsHXpNM7Ptj6kbLTwmI63O7sv1itFtM8B97dRcdv3terV
- O+FaVFcAkwu5S5oOGf7PYuVPquPgulPVM/vu0Xmm46T//Acm07HoK8QYVlesUuUVTFj9cYIJnvC
- XiXjUeH/F6kpQ7Yr+hrqKigICkk2sUSvKqBGU6WHIzLYBAyt4eRPW8vZXtbanx1EQmQeq81v3Wl
- aMvVKm/bYUXzQ6hoFIKhg3I6aa1MVa97ymUZU6n2axd0WPB1z/2Mzb3d9MHxkJU0oXH9g=
-X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
- fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS8PR04MB7525:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f6837c3-5db3-4af6-c9b9-08df4c9b242e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|7416014|376014|23010399003|1800799024|366016|4143699003|18002099003|22082099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	7JCBMu0Y6YgLM/qt5gLbKNCm094IrCFfVjyVVdAbgzlT1ZHl4IKyQrXc88LfsRv9MDGNnHdgoFDJOCkSPr+B02kkgZM9/U1Cjy5LZ992+B0vjPcGfwb6jOVcvIJoAvT4bwmUqjlkBk7gjCoXikTUt96+vybtWugzBpjSfnhe9AC5BNgjkataveXOghxXegDd51CQMX/xjx3rqhj4yM1MbwzImyz0JrJSYCjd/urX9cQoEs/i+NQ7dppIYduh0J8Ep2dpXFpQ9WRzcry7P7gw2fUAJbUXKz/bGzyRe5unNvrbc3KS9Gc6X1gI8bfeW9xJiiJbSEBybWSiTxL9M/UbQORn2oeCgS1s33aBwLoT8LBTgq9id5Q3yoQzCxTOmA5XGb1DxiR/yDwzw1Fy9cRm1+Wqzhu8TtROPhoqgeogjjkKYwrUfk8OFZ5eJSoVbl/K8iqRasD/abeRzmCeCRFLaw+gdDEY+h3ToPZceJljPBBfrzm69GBUZl90ZxYJJqvqfSzLVDLhl99DraT2eVJUHzlg2VjCWQTYUHiMFYx7rxwP13BaLXybfmqVv4wN8NaNBhjvfUUjpiML8ydsEugLjq04vYtYoDOPLuWuffo6dmo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(23010399003)(1800799024)(366016)(4143699003)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?9HlGUE4m7Q9D6WFfIL9Ad7+Z1JtyYYLa9XqGrm7Au2fta7FoeTsyPoYf2WMG?=
+ =?us-ascii?Q?kykvCWnI+VHpFbrCuv8swvSkM2LUSBz5xBD8XuzjlKldllhzRaiQzfR6+vc4?=
+ =?us-ascii?Q?LfnrwXSYagtYymcmRRVAEuUIeJnQxBDk90pa7Utv/Fm3Re7s2PSsgYxk6mAX?=
+ =?us-ascii?Q?ehhLv0MCx4XGgjbL68Uy54WlgvzE2u28yHbfnjAa3FCP4xbX7YHms/8mihDy?=
+ =?us-ascii?Q?4dntO7mT+R6wwpp2Rrfw2/BLsOb/8TpXaYz5xtyCSyxW5fmPI3XryNKLIttM?=
+ =?us-ascii?Q?XMvleeGxTHfqr1Izk5npfKELQxVRvwoNNpP0b9wS8VlvKVMCMpBeqTes4F+j?=
+ =?us-ascii?Q?QqSEslu5LCb4gsQpGyLbU6MAQzcqg6cBl0MyMJ8D2ulXQH7wU502wuq2+q48?=
+ =?us-ascii?Q?RRB+dcdvJWe1/+Xfq37XrHUTcMaby62HO0S9XiP/x3eoFwAckrGiPBW9iWjr?=
+ =?us-ascii?Q?ZCdXicz+u/VcTuqqVe1VhtxfAF0ZYgOpGAN3qq63wzGv1Q7vAo7xMYx/I/5u?=
+ =?us-ascii?Q?ZQMhksRJh1ieUJnvo5rJoIz51eZVaD5RwpOMWrESTKne95fqSSI5eFZ4sYOd?=
+ =?us-ascii?Q?hLK0NwaKViz88GaAAjfCterWhnHDQpAPd0Sr04J5w/dBUhv93t0BdGX0qhF2?=
+ =?us-ascii?Q?cTxM69Ih87dK8omSDCJtToTeYCpZeRYrgNt0P4WCR9dhCAR3ZPM6iXP8t4Mf?=
+ =?us-ascii?Q?YSlaIehO5T9CQLQJ+ZFssGedp9YkAcVd2o6C3uy+fhJrQCDNVlMxdVv+GZRp?=
+ =?us-ascii?Q?gr+SFF5DKxSIZPVTO1bz0Mbo3y/IT5TFmH2QEehG3EoY+asrE9L+lNGbinjE?=
+ =?us-ascii?Q?P/jrhFCNjmzc/PL72jlbQpFrU9OnjA5E6AqW5KBDssUj1c1fp0umfnlx7L+u?=
+ =?us-ascii?Q?9Kd/JdnujQFhLQlaVf8syXy1k3Sa8bydzM+nrcrT4AULE7A4ZqO8k1wCVvb6?=
+ =?us-ascii?Q?IsC2yxVbdcZCizL22aG2SzCusxeQB9C2PfwdH1nT8eJPYZmcuRdWWw7p1+st?=
+ =?us-ascii?Q?eKsfybf63DbXUGRQt/8Nhep0ZZ4EmMnjAB9e+la9zI3IyVhBVLRpIMIEwUIM?=
+ =?us-ascii?Q?3mAA9oY2Ou+TPzRkpltsRggeoa6cYrErXcQb3scAy8N4AE0bwDf6IWZPHA9i?=
+ =?us-ascii?Q?MtQ68cPOet22csd+KRLReDe2OILkDgXdumtQOysdzCz3PnXZb3OpObdg/mJC?=
+ =?us-ascii?Q?5VREsaSVYUxINYFXkjYHMVUSoNUh8aJ3YyTGHH0UTC424VJUxd7t+Vxw6tOs?=
+ =?us-ascii?Q?vvpOZAt4NCnOu+07CG7OC0+DOnJSWu78iAd+erbSsRDgulFSfAMhMfNObM+4?=
+ =?us-ascii?Q?LthTtmZZRKw9bICQe0qLhRzqwomMtNbiilMkm3wzXNM1hRUvUOlaBQHXIdy0?=
+ =?us-ascii?Q?GSBu+4TjK1ezTgs/OQ7Wme2wLlauEL9cJ7yq7N0gvlwyitoMhChAABQq7p7M?=
+ =?us-ascii?Q?nDj7hI3aoQl0AujAxfHoLGJ+C2lWcEpnhJQTDR5scACSJdsdftpolMPSySpO?=
+ =?us-ascii?Q?MPkO6ScSMpp/ppxB+FX1qaTuu6niIFwJLetjv6w4LDkknVlWqAqD05JpGayO?=
+ =?us-ascii?Q?cPoCwn7mx/7bLqiKnZq9BV6g6cegorRYZua5K2P/za5zlhgBcTZKOTgG612f?=
+ =?us-ascii?Q?irha38MAUoYEASzwgZUvWvGY9ikwX3ygdgHMpp0ao1wzXKfPQMuvFiV6hSN+?=
+ =?us-ascii?Q?zu0QERwamSJMpR0LetSNnaKPyicuakYwLJSj+1qI2yqljbmweLH3EgQyMw6x?=
+ =?us-ascii?Q?3gSvcTab4HdnfsjNSo4oR860LR/+hCMATHzDSUIY0zNO+vSPWMMu?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f6837c3-5db3-4af6-c9b9-08df4c9b242e
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 15:28:52.2730
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EVLke28aOskgWTQk3ipnbLUPu0/yZRTvqPemsSs1JD4hn15jNiuqwcUq7N2ZCZKavA184irctWLmM6GBI+SiTzbUGg9QEoCnncuWMS0l+3k2gxcz4Px3w3oSEztO2jmQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7525
 
-Add firme attestation selftest to test evidence-get interface
-for getting platform attestation token.
+On Fri, Nov 27, 2026 at 04:15:28PM +0100, Luca Ceresoli wrote:
+> On Fri Nov 27, 2026 at 2:41 PM CET, Laurentiu Palcu wrote:
+> > Hi Luca, Frank,
+> >
+> > All patches in v13 now have review tags. Since we are approaching -rc6,
+> > would it be possible to pick this up for 7.5?
+> >
+> > Luca: could you apply 1/5 and 2/5 to drm-misc-next?
+>
+> I plan to apply these next week. I ususally leave at least 1w after a patch
+> is reviewed before applying it, in case someone has objections.
+>
+> > Frank: could 3/5-5/5 go through i.MX tree?
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- tools/testing/selftests/attestation/.gitignore     |   1 +
- tools/testing/selftests/attestation/Makefile       |  10 +-
- .../selftests/attestation/firme_attestation_test.c | 232 +++++++++++++++++++++
- 3 files changed, 241 insertions(+), 2 deletions(-)
+I will pick 4 and 5 after you pick others to avoid conflict with other dts.
 
-diff --git a/tools/testing/selftests/attestation/.gitignore b/tools/testing/selftests/attestation/.gitignore
-index 8f2cf420b7c19..e10d0c9e4723c 100644
---- a/tools/testing/selftests/attestation/.gitignore
-+++ b/tools/testing/selftests/attestation/.gitignore
-@@ -2,3 +2,4 @@
- attestation_test
- ima_attestation_test
- tdx_attestation_test
-+firme_attestation_test
-diff --git a/tools/testing/selftests/attestation/Makefile b/tools/testing/selftests/attestation/Makefile
-index eb35544afef6f..d4875652b4a14 100644
---- a/tools/testing/selftests/attestation/Makefile
-+++ b/tools/testing/selftests/attestation/Makefile
-@@ -3,12 +3,14 @@ CFLAGS += -Wall -O2 $(KHDR_INCLUDES)
- CFLAGS += -I../../../ctlv/libctlv
- LDLIBS += -lpthread
- 
--TEST_GEN_PROGS := attestation_test ima_attestation_test tdx_attestation_test
-+TEST_GEN_PROGS := attestation_test ima_attestation_test tdx_attestation_test \
-+		  firme_attestation_test
- 
- LIBCTLV_DIR := ../../../ctlv/libctlv
- BINDINGS := ctlv_attestation_user_gen.c \
- 	    ctlv_attestation_sim_user_gen.c \
--	    ctlv_attestation_tdx_user_gen.c
-+	    ctlv_attestation_tdx_user_gen.c \
-+	    ctlv_attestation_firme_user_gen.c
- 
- EXTRA_CLEAN = $(OUTPUT)/libctlv
- 
-@@ -25,6 +27,9 @@ $(OUTPUT)/ima_attestation_test: ima_attestation_test.c $(BINDINGS) $(LIBCTLV)
- $(OUTPUT)/tdx_attestation_test: tdx_attestation_test.c $(BINDINGS) $(LIBCTLV)
- 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ $(LDLIBS) -o $@
- 
-+$(OUTPUT)/firme_attestation_test: firme_attestation_test.c $(BINDINGS) $(LIBCTLV)
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ $(LDLIBS) -o $@
-+
- $(LIBCTLV): FORCE
- 	$(Q)mkdir -p $(OUTPUT)/libctlv
- 	$(Q)$(MAKE) -C $(LIBCTLV_DIR) CC="$(CC)" OUTPUT=$(OUTPUT)/libctlv/ \
-@@ -33,3 +38,4 @@ $(LIBCTLV): FORCE
- FORCE:
- 
- .PHONY: FORCE
-+
-diff --git a/tools/testing/selftests/attestation/firme_attestation_test.c b/tools/testing/selftests/attestation/firme_attestation_test.c
-new file mode 100644
-index 0000000000000..3a893466dbe56
---- /dev/null
-+++ b/tools/testing/selftests/attestation/firme_attestation_test.c
-@@ -0,0 +1,232 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <stdbool.h>
-+#include <stdlib.h>
-+#include <string.h>
-+
-+#include <linux/bits.h>
-+#include <linux/hash_info.h>
-+
-+#include "../kselftest_harness.h"
-+#include "ctlv_attestation_firme_user_gen.h"
-+
-+static const char *error_text(const struct ctlv_error *error)
-+{
-+	static char text[512];
-+
-+	return ctlv_error_str(error, text, sizeof(text));
-+}
-+
-+static void dump_pat(const void *pat, __u64 pat_size)
-+{
-+	__u64 i;
-+
-+	if (!TH_LOG_ENABLED)
-+		return;
-+
-+	fprintf(TH_LOG_STREAM, "FIRME PAT:\n");
-+	for (i = 0; i < pat_size; i++) {
-+		if (!(i % 16)) {
-+			if (i)
-+				fprintf(TH_LOG_STREAM, "\n");
-+			fprintf(TH_LOG_STREAM, "\t");
-+		}
-+		fprintf(TH_LOG_STREAM, "%02x ", ((uint8_t *)(pat))[i]);
-+	}
-+	fprintf(TH_LOG_STREAM, "\n");
-+}
-+
-+static int firme_evidence_get(struct ctlv_dev *dev, __u64 id,
-+			    const unsigned char *challenge, size_t challenge_length,
-+			    void *output, size_t output_length,
-+			    struct ctlv_reply **reply, struct ctlv_error *error)
-+{
-+	struct ctlv_msg *request;
-+	int ret;
-+
-+	ret = ctlv_attestation_evidence_get_request_new(&request);
-+	if (ret)
-+		return ret;
-+	ctlv_attestation_evidence_get_challenge_put(request, challenge,
-+						    challenge_length);
-+
-+	ctlv_attestation_evidence_get_objects_start(request);
-+	ctlv_attestation_evidence_get_objects_id_put(request, id);
-+	ctlv_attestation_evidence_get_objects_data_put_va(request, output, output_length);
-+	ctlv_record_end(request);
-+
-+	ret = ctlv_msg_err(request);
-+	if (!ret)
-+		ret = ctlv_attestation_evidence_get(dev, request, reply, error);
-+	ctlv_msg_free(request);
-+	return ret;
-+}
-+
-+FIXTURE(firme_attestation)
-+{
-+	struct ctlv_dev *dev;
-+	struct ctlv_error error;
-+	__u64 pat_id;
-+	__u64 max_challenge_size;
-+	__u64 max_token_size;
-+};
-+
-+FIXTURE_SETUP(firme_attestation)
-+{
-+	const struct ctlv_hdr *caps, *evidence, *obj, *format, *challenge;
-+	struct ctlv_reply *reply;
-+	__u64 value, class;
-+	__u32 obj_count = 0;
-+	int ret;
-+	bool got, known;
-+
-+	ret = ctlv_open("ctlv-attestation-firme", 0, O_RDWR, &self->dev);
-+	if (ret)
-+		SKIP(return, "no FIRME attestation device: %s", strerror(-ret));
-+
-+	ASSERT_EQ(0, ctlv_attestation_device_get(self->dev, NULL, &reply,
-+						 &self->error))
-+	{
-+		TH_LOG("%s", error_text(&self->error));
-+	}
-+
-+	caps = ctlv_attestation_device_get_caps_get(ctlv_reply_root(reply));
-+	ASSERT_NE(NULL, caps);
-+
-+	evidence = ctlv_attestation_device_get_caps_evidence_get(caps);
-+	ASSERT_NE(NULL, evidence);
-+
-+	ctlv_attestation_device_get_evidence_objects_for_each(obj, evidence) {
-+		obj_count++;
-+	}
-+	EXPECT_EQ(1, obj_count);
-+
-+	obj = ctlv_hdr_find(evidence, CTLV_ATTESTATION_T_DEVICE_GET_EVIDENCE_OBJECTS);
-+	ASSERT_NE(NULL, obj);
-+
-+	got = ctlv_attestation_device_get_objects_class_get(obj, &class, &known);
-+	ASSERT_TRUE(got);
-+	ASSERT_EQ(class, CTLV_ATTESTATION_EVIDENCE_CLASS_SIGNED);
-+
-+	got = ctlv_attestation_device_get_objects_id_get(obj, &value);
-+	ASSERT_TRUE(got);
-+	self->pat_id = value;
-+
-+	got = ctlv_attestation_device_get_objects_max_length_get(obj, &value);
-+	ASSERT_TRUE(got);
-+	self->max_token_size = value;
-+	ASSERT_NE(0, self->max_token_size);
-+
-+	format = ctlv_hdr_find(obj, CTLV_ATTESTATION_T_DEVICE_GET_OBJECTS_VENDOR_FORMATS);
-+	ASSERT_NE(NULL, format);
-+
-+	got = ctlv_attestation_device_get_objects_vendor_formats_get(format, &value);
-+	ASSERT_TRUE(got);
-+	EXPECT_EQ(value, CTLV_ATTESTATION_FIRME_EVIDENCE_VENDOR_FORMAT_PLATFORM_ATTESTATION_TOKEN);
-+
-+	challenge = ctlv_hdr_find(obj, CTLV_ATTESTATION_T_DEVICE_GET_OBJECTS_CHALLENGE_LENGTHS);
-+	ASSERT_NE(NULL, challenge);
-+
-+	got = ctlv_attestation_device_get_challenge_lengths_max_length_get(challenge, &value);
-+	ASSERT_TRUE(got);
-+	self->max_challenge_size = value;
-+	ASSERT_NE(0, self->max_challenge_size);
-+
-+	ctlv_reply_free(reply);
-+}
-+
-+FIXTURE_TEARDOWN(firme_attestation)
-+{
-+	if (self->dev)
-+		ctlv_close(self->dev);
-+}
-+
-+TEST_F(firme_attestation, discovery_and_construction_fields)
-+{
-+	const struct ctlv_hdr *caps, *evidence;
-+	const struct ctlv_hdr *info;
-+	struct ctlv_reply *reply;
-+	__u64 flags, unknown, value;
-+	bool got;
-+
-+	EXPECT_TRUE(ctlv_dev_inherits(self->dev, "ctlv-attestation"));
-+	ASSERT_EQ(0, ctlv_attestation_device_get(self->dev, NULL, &reply,
-+						 &self->error))
-+	{
-+		TH_LOG("%s", error_text(&self->error));
-+	}
-+	caps = ctlv_attestation_device_get_caps_get(ctlv_reply_root(reply));
-+	ASSERT_NE(NULL, caps);
-+	evidence = ctlv_attestation_device_get_caps_evidence_get(caps);
-+	ASSERT_NE(NULL, evidence);
-+	got = ctlv_attestation_device_get_evidence_flags_get(evidence, &flags,
-+							     &unknown);
-+	ASSERT_TRUE(got);
-+	EXPECT_EQ(0, flags);
-+	EXPECT_EQ(0, unknown);
-+
-+	info = ctlv_attestation_device_get_info_get(ctlv_reply_root(reply));
-+	ASSERT_NE(NULL, info);
-+
-+	got = ctlv_attestation_firme_device_info_version_get(info, &value);
-+	ASSERT_TRUE(got);
-+	TH_LOG("FIRME attestation version: %lld.%lld\n",
-+		(value & __GENMASK_ULL(31, 16)) >> 16,
-+		value & __GENMASK_ULL(15, 0));
-+
-+	ctlv_reply_free(reply);
-+}
-+
-+TEST_F(firme_attestation, firme_pat_get)
-+{
-+	void *challenge, *pat;
-+	struct ctlv_reply *reply;
-+	const struct ctlv_hdr *root, *result;
-+	unsigned int index;
-+	__u64 pat_size;
-+	bool got;
-+	int ret;
-+
-+	ASSERT_EQ(0, posix_memalign(&challenge, 8, self->max_challenge_size));
-+	ASSERT_EQ(0, posix_memalign(&pat, 8, self->max_token_size));
-+
-+	for (index = 0; index < self->max_challenge_size; index++)
-+		((uint8_t *)challenge)[index] = index;
-+
-+	ret = firme_evidence_get(self->dev, self->pat_id,
-+				 challenge, self->max_challenge_size,
-+				 pat, self->max_token_size,
-+				 &reply, &self->error);
-+	if (ret == -EIO || ret == -ETIMEDOUT || ret == -EOPNOTSUPP) {
-+		free(pat);
-+		free(challenge);
-+		SKIP(return, "FIRME PAT get service unavailable: %s", strerror(-ret));
-+	}
-+
-+	ASSERT_EQ(0, ret)
-+	{
-+		TH_LOG("%s", error_text(&self->error));
-+	}
-+
-+	root = ctlv_reply_root(reply);
-+	got = ctlv_attestation_evidence_get_evidence_generation_present(root);
-+	EXPECT_FALSE(got);
-+
-+	result = ctlv_hdr_find(root, CTLV_ATTESTATION_T_EVIDENCE_GET_RESULTS);
-+	ASSERT_NE(NULL, result);
-+
-+	got = ctlv_attestation_evidence_get_results_length_get(result, &pat_size);
-+	ASSERT_TRUE(got);
-+	ASSERT_GT(pat_size, 0);
-+	ASSERT_LE(pat_size, self->max_token_size);
-+	TH_LOG("FIRME PAT size: 0x%llx\n", pat_size);
-+
-+	dump_pat(pat, pat_size);
-+
-+	ctlv_reply_free(reply);
-+	free(pat);
-+	free(challenge);
-+}
-+
-+TEST_HARNESS_MAIN
+Abel Vesa:
 
--- 
-2.43.0
+patch 3, should be picked by Abel Vesa. If he agree, I can also pick it.
 
+Frank
+
+>
+> Luca
+>
+> --
+> Luca Ceresoli, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+>
