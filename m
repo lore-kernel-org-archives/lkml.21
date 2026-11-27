@@ -1,99 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799189;
-	b=dWSdU/6A596Z5WwcVzfzjf73kuGy4ekSBgIEh4bPcmMvCeAunFSCLSO/UdBviwKZfzdR
-	 o7V0weg8P51V9KuRV3MozjLMz7dWJ1G+cpXhEpzedOBkUmbR4Aq+rSuP647O9uhwzi5IA
-	 vLRsdzNqIG4G7+omr0Tsl8eOz+VvcMxHLc/StozoGhvMJJagIkvmrBV3Bjj7d61+HJ2yC
-	 SqKBGwWvbhv8xoyVrqrP/JWDjohK7QdSmLRJfEyDQ7frz+y0ICgrjidhw/HDO8xe7vpQb
-	 eo3xKkrDHBEEmJXiF3h8FVORlSLFgMhE2y7jh7ry8BgDfpgV4Nq5Jt5e9k56L0+O4cA==
+	t=1795799222;
+	b=09KVjNkVCAPd65QJXAj9qiqCoOYHEUIctpyNT5FVBk2PrRSahjtNpy0mGD8KNRZSUuh2
+	 nsoCbrk3iyqzRBe582kvJ6/8kYhXHoO8jWDZnvohbJKwEBvZH/8x1KILBtXIQ9Uf1J8Cm
+	 86+KpxaO0UBJJ287sEJQXceu/eRDHtKNsc2Y81UD4/Q2a5Kbd4NJRDjweTxrXvYpyyoha
+	 QZn8ZMi3g7ymRwAT3xpfIJ+fDOxn+myABi4qKOe1ta3d4EsohkI4fqt8FpH29BdC30oBu
+	 Ktm1lhR3hoZEMmDXqxMglnT5hN1q5oNUNJb4iiu2gvdMDbN4mFebc+8zCyMn/zc0q9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799189;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Gvz5aUWafc0NS4kFOYpuamCKKhW8CpbeqSpgoy22VUg=;
-	b=ehjdwdY2g4gd8oRq5bKL+ktHT7HXfC4DLkoJVywJGkn9RxzjJlvjLCE1bgPh5OORE86t
-	 ptS6He63fnxMp4yqD6HGznJZxxGHW0OXNBPInpRrICjVaHkt23evykn4DGQNsbkN4vIdk
-	 dMYTTBz2bLQAYenWDwICglZUkixAic/7+B9Yrt2Z+H5A5NoW3+3JbkZz1BX4RH0HlAMou
-	 m/DdhJlVFAoUBF6Dtnv/ofkIkPell9/ipbFZahWimSgrwrp7tUFrcvxULp8wCT9lBPMFl
-	 WPghwi+W0JBjBUB/8hx6OaoWDk/45CUOFONS/WCyYn5bv9ykOruHSOEWYfornjY7PyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799222;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=9gzHBqo1ZS1N9lhELOvmEI3+H79vKOr9CzjE/QFqZ20=;
+	b=wKp8FMLS/A5EAYHEW8x23sHUjCnkncL3mm28vyb4iHNtqlvUW+VOEBLQEOFIi3A/rWiI
+	 XUT0I8uFI4Uf1xlU6tpz1KmCp5MezkuS3p/tDivuL/RzaePQm+85w0+L+gymK8DZT+nKr
+	 klno2m2aEdyU53pGLmZ2XVFI24NwXGfAIS7CGEspO42P6J0WkAXHvvxTTDxGuRazVR15G
+	 ZUCEONVm2YCTi+kff1qZ+xmAkRs08plLcFsr13CIA8Z425cPMf6h+dRpds8DjbbZvKVwt
+	 N9t/xh0OTP0jhnnCyv4hDiFPi0YBCg3KRX4Mt+V+/eRKi1YTirlepqggePtw+tWHIPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jxxqLANF;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89024606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:06:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89024606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=V1Rkddvt;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1427E606A31F;
+	Fri, 27 Nov 2026 17:07:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1427E606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jxxqLANF
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4b467581b98so80183525e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:06:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795799186; x=1796403986; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Gvz5aUWafc0NS4kFOYpuamCKKhW8CpbeqSpgoy22VUg=;
-        b=jxxqLANFPpaH1+5y0/cFQT4hhrySxUswtKPuWqXiqDlS+OuyPEOszdX+4++lih1DPB
-         clnPVDzTM3S3Y4bNBFk9Af7oOq19s1tpYUuFQaJ86PpLBCUwYymgGlcoxTUpTvUReI00
-         gaLqbNAj5Syd1/sNE6tsgSAi24OjO0BzsQ9U3HSQbUHP1aQAujeN76xnw1U1wQQz/BLO
-         rdqzjvodbmHIm/ijsQVgS+KEHrgDpX6b1vsr46x5Glyq8wq0E+JwXwAn4ZGnGmrcEQuM
-         ggCUVJ7A2xrOOWnX4T2u+MHjHC8XAvprwfu2bSb7t8QK7GzTeap+7NrAIytQ5Z0j38Oo
-         0rRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795799186; x=1796403986;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Gvz5aUWafc0NS4kFOYpuamCKKhW8CpbeqSpgoy22VUg=;
-        b=QlwBJC8wv4JKwLD/vBfemSKeHDKZjfA7lWrElHT0qqZbRCGLTaGSYHdcKnMBS3rJHR
-         LSEBKZhJZlW0N4V+E2cRtBCk++yMjr7rW5XEvsOA4O3b2fDjHQrSYzxRiqQN8rpTjXWF
-         8rfiVNVH6Lul6DFVFILaaqbYeKWlNkXNcca2IMqyg6rPDqIsc2epFxxlH0QldYmbl4W0
-         aXtBjyhwDRIW8L82nvxlQXYNyRgkbzq+Pz5Rm227b4LgyKxQGZ9thIRxIg76gSPzVSQI
-         SN7TjJwJhLWSaYp7cvxlPNjcBzkOlwOvVcq/zW03o3sz/PGzQzVOWBgRFwkFxvg/j6PX
-         LINw==
-X-Forwarded-Encrypted: i=1; AL+hErFRQwPIc4DwDqXU0Z/GzbjDmW5KmH5MZiW8KjrWjZ2xRJEUTuP8H/dlmcjX8kerThCvLpd+dPqmZCa4y0Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8v5PGe29XHQAT2GmeqK584WsiTw23JkULvMp8Yo5BEIY/hMn+L
-	9q6U4d9QDhZ/soawp8yygzypLdBlIc1xpdCPvaLbZlGvfO/ANXe1KmoB
-X-Gm-Gg: AZFdTZeNWoevR3wh8Nh2b6iNZSpGX61XJxMShtHW+D9yGC3d8OwJMAT/NKogndSVpI4
-	AtxFsWiZX37Xi4kb9YwglOLGj0G6cuWyBR+ojkVNyoHAxadF4qkbCQyjChEPG0oAJqtkYoGhW+4
-	5lN4cGVm/p4XK/51fqXjzZVmkAVptRMpst0PPCYFaNFx8EySNe1Nzp3DnTwDIIUsrs2DE74wpn7
-	GXsNpIxTHhI6xlpEyiYaumx50yLpyhMM3PoOCeslkCgU9xsOg52IWbuYFQJJrmWfvASv9kS8XLT
-	xO1IErErreVp4M0BdgjTG7OG2B0LI93Pba0KUhK9wbcryjWoYHbgRzkTjLk4iW3JaVWGX0b/h0K
-	bPmpDhHclJnYCl7Szcz+dkDcy19GgKBKaGPHIlil6BVu7szkzNqVL9o6XQuKj0VRlOiT1G7YbYs
-	lAkyE9N02DMHkltDKJwRnLaVQlEJgV/ncyG8o2zcfRmAUUZa7KUoV5B0RoD+VLs7AukFgXRIdUI
-	rBfMHBdHobeWcUrTgktDzntC3/Y2mprz8y0ZKj9mHOdXqy6nFWwCqHFxAlPzsuRpcTKCMuy0K0I
-	rpeu5E55pjVchax5CWR2NTSlUbKwPBT055IF7E2+63nbXmL/3nqYJqqjYQ==
-X-Received: by 2002:a05:600c:c0c6:b0:4bb:b0d8:333c with SMTP id 5b1f17b1804b1-4bbb0d8335emr65847945e9.31.1795799185876;
-        Fri, 27 Nov 2026 09:06:25 -0800 (PST)
-Received: from SMW032656.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm49324759f8f.3.2026.11.27.09.06.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 09:06:25 -0800 (PST)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
-	elena.popa@nxp.com,
-	cosmin.stoica@nxp.com
-Cc: patches@opensource.cirrus.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] ASoC: wm8962: fix interrupt mis-firing during runtime_resume()
-Date: Fri, 27 Nov 2026 19:00:39 +0200
-Message-ID: <20261127170039.663-4-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127170039.663-1-laurentiumihalcea111@gmail.com>
-References: <20261127170039.663-1-laurentiumihalcea111@gmail.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=V1Rkddvt
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 181621575;
+	Fri, 27 Nov 2026 09:06:58 -0800 (PST)
+Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCBED3F632;
+	Fri, 27 Nov 2026 09:06:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795799220; bh=qFa6sy83V0It3krE5paW+O7B9Fqh10IXDVByOoZlZCg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=V1RkddvtAdtrHpMFzFpDiZ4C/UaR5WYNc0ztJ5+Z463L6+Nv4oHyzmK4HiDTvzwPm
+	 6AN/jKSaaEq5km6iu5X7tdN3q7y61sqjxji932nkfydkvILEPaCr/n+5gNJQa4j/1l
+	 RxbqgiXm9QE3eTgf9w3rbLIjjLNBO5C4uWWNZwhg=
+Message-ID: <682cee16-d56c-436a-8661-0cf511fa2e78@arm.com>
+Date: Fri, 27 Nov 2026 17:06:54 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,99 +53,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
+To: Norman Herms <dockseed@proton.me>, Jerome Brunet <jbrunet@baylibre.com>
+Cc: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ samuel@sholland.org, Enzo Adriano <enzo.adriano.code@gmail.com>,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Pablo Mazzini <pmazzini@gmail.com>,
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+ Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ Cristian Filipescu <filipescu.cristian@gmail.com>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+ <20261126-a733-cubie-a7s-dt-v6-2@gmail.com>
+ <p3YaXlLJTguQBGnWyMpb1w@gmail.com>
+ <1jld6eldic.fsf@starbuckisacylon.baylibre.com>
+ <wzwsbUKM-fEhYpTIhswvHly5oyuMCPDOExJEWjbSf-OS3Lrwx2H_l9CUfuMITJUK5CyEz4pNojUFRzjDDczUQmX_LmSWwF7DVSceD34XeHY=@proton.me>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <wzwsbUKM-fEhYpTIhswvHly5oyuMCPDOExJEWjbSf-OS3Lrwx2H_l9CUfuMITJUK5CyEz4pNojUFRzjDDczUQmX_LmSWwF7DVSceD34XeHY=@proton.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Hi,
 
-During testing, it has been observed that the runtime_resume() function
-may cause the codec interrupt to become asserted. Interestingly enough,
-for the MR-NAVQ95 platform, the logic HIGH signal would sometimes peak at
-about 50% of DBVDD (1.8V), which seems to be enough to make the downstream
-PCAL6416 chip (which is edge triggered) think an interrupt has occurred
-and report it downstream.
+On 11/27/26 17:37, Norman Herms wrote:
+> Hi Jerome,
+> 
+> On the PF voltage selector: we have been running UHS-I on the Cubie
+> A7S for a while in our own trees (6.18 and mainline based). Here is
+> what we ran into, in case it helps whoever models it.
+> 
+> - The switch: on this board bank PF takes its supply from VCC-IO
+>    (3.3 V) or from CLDO5 (1.8 V), selected by GPIO_POW_VAL_SET_CTL
+>    bit 0 (1 = 3.3 V). There is no external regulator to switch, so
 
-A sample of the captured waveform is shown below (sample is taken around
-the time wm8962_i2c_probe() is called). WM8962_GPIO2 is the GPIO2 pin of
-the codec and is configured to generate interrupts for the downstream PCAL
-chip. PCAL6416_INT_N is the PCAL's INT_N pin. The GPIO2 active HIGH signal
-peaks at about 0.7V in this particular snippet.
+What do you mean by that? The proper solution is to *create* a new 
+regulator driver, either embedded in the pinctrl driver (make the 
+pinctrl export a regulator device), or as a separate driver, using some 
+pinctrl provided regmap. To be precise, it should be some kind of 
+regulator mux, selecting between VCC-IO and VCC18-PF.
+And then it should indeed just be a matter of pointing vqmmc-supply to 
+that regulator to make it work.
+Are you using a different approach? I have seen various downstream 
+patches implementing something similar, and they seem to be happy.
+And I have seen pinctrl states as well, but think we need a proper vqmmc 
+regulator, regardless?
 
-              3.3V
+>    vqmmc does not fit, and sunxi-mmc without vqmmc returns -EINVAL for
+>    1.8 V.
 
-WM8962_GPIO2
-                             --------                  --------
-                             |      |                  |      |
-              0V ____________|      |__________________|      |_____
+Do you mean you use vmmc-supply to point to some 1.8V regulator? This is 
+indeed bound to fail, as the SD spec requires 3.3V always for the supply 
+voltage. And the binding/SD card Linux subsystem allows not providing 
+vqmmc, at which point it will assume it's the same as vmmc - but not the 
+other way around.
 
-              3.3V
-                _______________________________________
-                                                      |
-PCAL6416_INT_N                                        |
-                                                      |
-              0V                                      |_____________
+ >    We use two pinctrl states, "sdmmc-3v3" and "sdmmc-1v8" as on> 
+Tegra, whose pin groups carry power-source.
+> 
+> - The withstand mode: with PF in the adaptive mode of
+>    GPIO_POW_MOD_SEL (01, which is what the pinctrl automatic voltage
+>    detection patch sets), the pads follow the SoC's own supply
+>    detector, and on our board that detector now and then reports
+>    3.3 V while PF runs at 1.8 V.
 
-The fix for this would be to mask interrupts during runtime_supend() and
-unmask them during runtime_resume() only after all of the operations have
-finished (i.e. before returning from the function). This requires the
-IRQ_DISABLE_UNLAZY IRQ flag be set to handle interrupt controllers which
-don't implement the .irq_disable() callback. This ought to make sure that
-the interrupt is at least masked after disable_irq() is called.
+Is that a timing issue, maybe? Maybe the sampling happens only so often, 
+and you just happen to miss the change, occasionally?
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- sound/soc/codecs/wm8962.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+> With one card, 14 of 40 SD rebinds at
+>    SDR104 failed: the CMD6 status read gets a data CRC error and the
+>    card falls back to high speed; once the card was lost ("error -5
+>    whilst initialising SD card"). Setting the PF mode by hand together
+>    with the switch gave 0 of 40: 10 (3.3 V) before switching to 3.3 V,
 
-diff --git a/sound/soc/codecs/wm8962.c b/sound/soc/codecs/wm8962.c
-index 3bbaacb08aaf..8c9523d60219 100644
---- a/sound/soc/codecs/wm8962.c
-+++ b/sound/soc/codecs/wm8962.c
-@@ -4021,7 +4021,7 @@ static int wm8962_i2c_probe(struct i2c_client *i2c)
- 
- 		ret = devm_request_threaded_irq(&i2c->dev, wm8962->irq, NULL,
- 						wm8962_irq,
--						trigger | IRQF_ONESHOT,
-+						trigger | IRQF_ONESHOT | IRQF_NO_AUTOEN,
- 						"wm8962", &i2c->dev);
- 		if (ret != 0) {
- 			dev_err(&i2c->dev, "Failed to request IRQ %d: %d\n",
-@@ -4039,6 +4039,15 @@ static int wm8962_i2c_probe(struct i2c_client *i2c)
- 			/* enable GPIO IRQs if need be */
- 			wm8962_init_gpio_irq(wm8962);
- 		}
-+
-+		/*
-+		 * we are forced to keep interrupts disabled while doing runtime_resume().
-+		 * Otherwise, we may end up with some unwanted transitions on the interrupt
-+		 * line. Some interrupt controllers may not implement the .irq_disable()
-+		 * callback. In such cases, the interrupts will only be masked if
-+		 * IRQ_DISABLE_UNLAZY is set.
-+		 */
-+		irq_set_status_flags(wm8962->irq, IRQ_DISABLE_UNLAZY);
- 	}
- 
- 	pm_runtime_enable(&i2c->dev);
-@@ -4131,6 +4140,10 @@ static int wm8962_runtime_resume(struct device *dev)
- 				   WM8962_MSTR, WM8962_MSTR);
- 	msleep(5);
- 
-+	/* keep this last - keeps the interrupt line from mis-firing */
-+	if (wm8962->irq)
-+		enable_irq(wm8962->irq);
-+
- 	return 0;
- 
- cache_sync_err:
-@@ -4147,6 +4160,9 @@ static int wm8962_runtime_suspend(struct device *dev)
- {
- 	struct wm8962_priv *wm8962 = dev_get_drvdata(dev);
- 
-+	if (wm8962->irq)
-+		disable_irq(wm8962->irq);
-+
- 	if (wm8962->master_flag)
- 		regmap_update_bits(wm8962->regmap, WM8962_AUDIO_INTERFACE_0,
- 				   WM8962_MSTR, 0);
--- 
-2.53.0
+Just to clarify: "0 of 40" means *0 fails* here, so it works?
+
+>    and 11 (1.8 V) after switching to 1.8 V, once GPIO_POW_VAL reports
+>    PF at 1.8 V. Our final patch does that and also gave 0 of 40.
+
+Do you mean your patch just badly hacks those two bits to do what you 
+want, by treating PortF separately, but it's not something that looks 
+nice and upstreamable?
+
+>    Oddly, the fault also goes away while the USB3 combo PHY runs; on
+>    this board CLDO5 supplies its analog part too. Another card passed
+
+So according to the A7A schematics VCC18-PF is a separate power supply 
+pin on the SoC, and it's supplied by CLDO5. On the A7A CLDO5 is not 
+always-on, so you would need to reference it somewhere to be enabled, by 
+the SD card node.
+
+>    40 of 40 even in the adaptive mode.
+> 
+> - The eMMC on bank PC needs no switching, CLDO5 is fixed at 1.8 V.
+>    But if the boot chain leaves the PC field at its reset value 10 (the
+>    register resets to 0x022aaaa0), HS400 enhanced strobe fails with
+>    "mmc_select_hs400es failed, error -110". So on PC, 10 behaves as the
+>    3.3 V mode, as in the register table, not as the adaptive mode the
+
+But this is a firmware problem, then? As 0b10 is documented as 3.3V, 
+which is wrong if you use a 1.8V eMMC. So doesn't the new pinctrl fix 
+patch overwrite this with "auto" (0b01)?
+Even if not, firmware should not program the wrong values. I guess 
+U-Boot would similarly fail to access the eMMC with that wrong value?
+
+Cheers,
+Andre
+
+>    text of 18.14.4.6 gives for C/E/K. 01 and the fixed 1.8 V mode (11)
+>    both work.
+> 
+> We can test patches for this on the A7S, SD and eMMC.
+> 
+> Built and measured by AI agents (Claude) on my boards.
+> 
+> Thanks,
+> Norman
 
