@@ -1,64 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791720;
-	b=GW+F9bqsKpVfkkZwpyXVx7PIT35U9aDD0iVP5LiBe6MAowUnr2wT7BFZFVIAlFdJnRJx
-	 541k5TVYOSThNNHb32yr1QaTacT27ZGv0v9tXafFH4JoZ1j9JkZXqnESSRD/d7mYAhuj2
-	 CxD8VmF7W/KmKKPgHOSOyLxCIT90k2nP1q4rX+naxQGx2U9xKT9VJR0JDeEft0pBDMubK
-	 1Yqvunqqo+P/y/BDc7aFQbmKgAVCFNtF3sR11p0tpVjz2NZv0XOfxgi05F5QEDajssQfX
-	 9pyweCRnXZM1P+w5/30ieSMeYzUuKdNQrzaXnuXoSdLNQgLVjAniAZi9dPGBw4r5piQ==
+	t=1795791759;
+	b=CFxUPGzuGokid3OWbtWMeBQGdyd+5pj/AfPTIkYMAbr4l5vxObJgR8Hy7rzhlRTpHC9X
+	 xUk4ltPvA4PV7fwJjNzb2z9Nn16zz/m4KzpAMNxOPXl5adqxaNd5rMOfz57pBs4HTc1vF
+	 4eaATymS+8z1VNeyV/v+gAF9Wj6ycLb3mfZhWHK4gmFZgZ3zkl0sPVt3hQ4SK2mAxiwhU
+	 xMlyHCJKWHDjGpB9JFOc6YRJXaE3B9GrAHJBYBR/2Uk31PbHtYnM91f0eY+Yl0BykflaG
+	 ytpGv+6IYGvaOfYedC+HoKjMxWUOnY0Q2yaLzbEZG330Bn0aHeAMvfMsxAlC7hNK/Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791720;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=gavLcZVGISvYCgA5MKkRgGqRprf3c04aAEhyObo7WH0=;
-	b=O102nt/n56VkMWQPUlodKC2N0CMCxZNthT0P1QRhDocFC97xM2/ZzulG4QOi1ta/b1Ul
-	 gBr00t5NbhmVm9dW6gjqRu/Dq4+94rj6rcxrirCGl3a5EzRqH9ucaKISXrSGBrCUKeOsT
-	 OlSF1Hm1L9LKsMK39eT1LNx0jngg37mf4RL2yQQSNdxJB2ycYPQQBb/5QN8t2HoJWIu7m
-	 CiRN7q1dy3a/PZldsFS+2vkn4UgdgSxVm5JAX3XUmuT/S7ejUYXmjSbLl8yPC8k+2kzUK
-	 B0dyUIdUxvxKW55nY2rxX61vP/y7LnW514XwLZXyWk5xTaI5WL4TeTZECcF9G+6oJ4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791759;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:DKIM-Signature;
+	bh=BLefJJCMTPwvzLyIbDX2Q4Lv9aLiY+ySW5snVDkb/HE=;
+	b=plfi/IFVy1DSr7+sTBf1HpPypQifHeIZJ8YOU0XebGlYorymMq0Oe7or7IVa6DG9db2u
+	 v0i6JIEvx+l9fDli2/bhwFSJWMWLr36vfJgvAVczI0NMvI0QDxdSrhCIaD01+LVAZQwPn
+	 xLI8PECLi41ayz0ZxtHEe0R0JSvmg0c6NYHc5qk83FwYshFccFE0iTHsFmCV3PT/mKtiW
+	 j2HJ2ij/5eW0IxKjdIvzU5Vq50Pit2Cx3NxWVbQ6jhwohug4CDW7MJUV+mreRcuhplDsH
+	 rbghYuieTfFKfuHVsM2a+s9B3uXKA+WMJGF2MyIERFKP9JOIQL+PWxMl1Be9KiCQh7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1AMsJGm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=molgen.mpg.de;
+	spf=pass smtp.mailfrom=molgen.mpg.de;
+	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=RmIJXozt;
+	arc=none smtp.remote-ip=141.14.17.11
+Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED992606A332;
-	Fri, 27 Nov 2026 15:01:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 378A6606A31C;
+	Fri, 27 Nov 2026 15:02:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 378A6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1AMsJGm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084ED1F00925;
-	Fri, 27 Nov 2026 15:01:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795791719;
-	bh=gavLcZVGISvYCgA5MKkRgGqRprf3c04aAEhyObo7WH0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Y1AMsJGmTSoeBnJeSnK81ArrXDkJlSz8cl90Ch0PEgJFym2qaMEqwG2rjjmbcIULK
-	 7qC+7uCyZ3fhasBkePeZdgwQLCwfhMWcnQs2tZnb/MBczoaLPHJdeIuPG/YHcTBQqS
-	 TvsLYpc4pfTzVKKVtvjgG4FOQW2+5YTVqO8CYdMySRX0qpu1Ai3OA5oTerxtqa7475
-	 sLh9VxikgXx2xZEwW+f5mwKXKD4cWBoFbo9Q4f12PMPc/yF05HYcWJAPUJDDGUlTXT
-	 cCLszI7953dHgNgzfitXeK4Z/A7waQIZMJTD5wcxp8vuk6tiyH2c+IiJA/TQwz11lt
-	 k5HPUfAw/s96A==
-Subject: Re: [PATCH net-next v4 2/2] rust: net: phy: pass &Device to suspend,
- read_mmd and write_mmd
-From: netdev-bot+sashiko@kernel.org
-To: engineer.jjhama@gmail.com
-Cc: fujita.tomonori@gmail.com, tmgross@umich.edu, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
- aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com,
- tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, andrew@lunn.ch,
- hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Fri, 27 Nov 2026 15:01:57 +0000
-Message-ID: <179579171759.3135.17093174832715178@kernel.org>
-In-Reply-To: <20261126-exp-phy-rs-maybelocked-v4-2-16f9a10bb579@gmail.com>
-References: <20261126-exp-phy-rs-maybelocked-v4-2-16f9a10bb579@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=RmIJXozt
+Received: from abreu.molgen.mpg.de (g44.guest.molgen.mpg.de [141.14.220.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 166D04C442F94A;
+	Fri, 27 Nov 2026 16:02:06 +0100 (CET)
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+To: Vinod Koul <vkoul@kernel.org>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
+Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] soundwire: Suspend and resume asynchronously
+Date: Fri, 27 Nov 2026 16:00:55 +0100
+Message-ID: <20261127150101.48880-1-pmenzel@molgen.mpg.de>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,99 +59,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
+	t=1795791727; 
+	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
+	bh=BLefJJCMTPwvzLyIbDX2Q4Lv9aLiY+ySW5snVDkb/HE=; 
+	b=RmIJXoztTAvuJD5JVTj6J2MqsvQtyguELAh2yb/gQIqjst4G+/NWPcG7DKM1a9pOuXHkqBmouh4e
+	LkSHyF6YevmdxBLhMXoOhrMWPp7xb6VOkRDR7riGDhBOZe73c2KF0WxakZ+WUaYs3sqAJ4o+Gzu1pc
+	Rvi5yzMfJknAzoSmX4/SKoCW/Kpo9BEQrIo0FNeTPrvE3UDH+81SgiHOaICLTdCg0ya64F22K3IiO4
+	qz4dWZpuT8MUUh71GUB0uM99PVbJGcCEuXBNyi8GhgdE+9vXEzHgdmjZJWfVAI5YHedQRJXYq7U9CY
+	0Dc0A7Yd3CXDcjW+zy0ssM5k9JsA60dQ==
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On system resume, the SoundWire devices are resumed synchronously, so the
+codecs on different links wait for each other’s re-enumeration, and the
+whole audio subtree waits for every synchronous device before it in
+dpm_list. On a Dell XPS 9315 (Alder Lake, SOF, RT1316 on link 2, RT714 on
+link 3), the four resume callbacks run one after the other, in one cycle:
 
-Low priority / nit picks for your consideration:
+    soundwire_intel.link.2     2.2 ms
+    sdw:0:2:025d:1316:01      16.3 ms
+    soundwire_intel.link.3     2.2 ms
+    sdw:0:3:025d:0714:01       9.9 ms
 
-- [Low] This patch adds doc comments to `Driver::read_mmd` and
-  `Driver::write_mmd` in rust/kernel/net/phy.rs.
+Their span is 28.9 ms. With both patches, the callbacks overlap, and the
+span drops to 17.1 ms (median of five s2idle cycles each, sleepgraph with
+the device callback trace events). It is on the critical path of the resume
+with the panel on, right behind SOF, which waits for i915 through its
+device link.
 
---
+Patch 1 marks the generic manager and peripheral devices, patch 2 the Intel
+link devices. The SHIM registers are shared by the links; patch 2 explains
+why the multi-link SYNC arm and SYNCGO sequence in intel_start_bus()
+tolerates two links interleaving. It is the part I am least sure about, so
+please check it. The second link’s power-up waits on shim_lock, so in 49 of
+50 traced cycles the start-up was serial anyway; in one cycle both links
+were armed before the first SYNCGO, and the bus came up fine. If you
+prefer, I can serialize intel_start_bus() across links instead; it takes
+about 0.1 ms per link.
 
-rust: net: phy: pass &Device to suspend, read_mmd and write_mmd
+Not tested: AMD and Qualcomm managers, and peripherals of other codec
+drivers. Patch 1 changes the ordering against synchronous devices that are
+neither descendants nor device-link consumers of the peripherals. The
+WCD93xx codecs have device links. The deferred resume work of the ASoC card
+can now run while a codec still waits for its re-initialization; with the
+RT1316 and RT715 SDCA drivers, its register writes then end up in the
+regmap cache, which the codec syncs afterwards. I checked the other drivers
+only by reading the code. Suspend is now asynchronous as well, which I did
+not measure.
 
-This commit changes the suspend, read_mmd and write_mmd callbacks in the
-Rust PHY abstraction to take &Device instead of &mut Device. The reason is
-that PHYLIB does not always hold phy_device->lock when it calls them. It
-also documents that read() and write() deadlock inside read_mmd and
-write_mmd, and updates ax88796b_rust to match.
+Tested on the Dell XPS 9315 with 7.4-rc4, these and unrelated resume
+patches: 50 s2idle cycles, each followed by 1 s of playback to the RT1316
+and 1 s of capture from the RT714 (non-zero samples), with no errors in the
+log; also 30 resume stress cycles in an earlier run. The series is based on
+soundwire/next and only compile-tested there (W=1).
 
-> diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-> index bb2cc6b3c94c8..d04a651ae62b2 100644
-> --- a/rust/kernel/net/phy.rs
-> +++ b/rust/kernel/net/phy.rs
+The analysis, the patches and the messages were drafted with
+claude-opus-5-5 (Claude Code), asked to cut the s2idle resume time of the
+laptop, see Documentation/process/generated-content.rst.
 
-[ ... ]
+Paul Menzel (2):
+  soundwire: Suspend and resume managers and peripherals asynchronously
+  soundwire: intel: Suspend and resume the links asynchronously
 
-> @@ -627,12 +627,18 @@ fn resume(_dev: &mut Device) -> Result {
->      }
->  
->      /// Overrides the default MMD read function for reading a MMD register.
-> -    fn read_mmd(_dev: &mut Device, _devnum: u8, _regnum: u16) -> Result<u16> {
-> +    ///
-> +    /// PHYLIB calls this with the MDIO bus lock held, so calling [`Device::read`] or
-> +    /// [`Device::write`] here deadlocks.
-> +    fn read_mmd(_dev: &Device, _devnum: u8, _regnum: u16) -> Result<u16> {
->          build_error!(VTABLE_DEFAULT_ERROR)
->      }
->  
->      /// Overrides the default MMD write function for writing a MMD register.
-> -    fn write_mmd(_dev: &mut Device, _devnum: u8, _regnum: u16, _val: u16) -> Result {
-> +    ///
-> +    /// PHYLIB calls this with the MDIO bus lock held, so calling [`Device::read`] or
-> +    /// [`Device::write`] here deadlocks.
-> +    fn write_mmd(_dev: &Device, _devnum: u8, _regnum: u16, _val: u16) -> Result {
+ drivers/soundwire/intel_init.c | 3 +++
+ drivers/soundwire/master.c     | 3 +++
+ drivers/soundwire/slave.c      | 6 ++++++
+ 3 files changed, 12 insertions(+)
 
-[Severity: Low]
-Should this list of deadlocking methods include Device::genphy_suspend()
-as well?
 
-The previous patch in the series ("rust: net: phy: take &self in methods
-that do not need phy_device->lock") changed genphy_suspend() to take &self.
-That means read_mmd and write_mmd can call it through the &Device they now
-receive:
-
-rust/kernel/net/phy.rs:Device::genphy_suspend() {
-    pub fn genphy_suspend(&self) -> Result {
-        let phydev = self.0.get();
-        ...
-        to_result(unsafe { bindings::genphy_suspend(phydev) })
-    }
-}
-
-On the C side, that call takes the MDIO bus lock a second time:
-
-phy_read_mmd()
-  phy_lock_mdio_bus(phydev)
-  __phy_read_mmd()
-    phydev->drv->read_mmd()          <- Rust read_mmd callback
-      Device::genphy_suspend()
-        genphy_suspend()
-          phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
-            phy_modify()
-              phy_lock_mdio_bus(phydev)   <- deadlock on bus->mdio_lock
-
-phy_write_mmd()->__phy_write_mmd()->drv->write_mmd follows the same path.
-
-As far as I can tell, read(), write() and genphy_suspend() are the only
-&Device methods that access the hardware. All three take the MDIO bus
-lock, and the abstraction has no unlocked accessor along the lines of
-__phy_read() or __mdiobus_read().
-
-If that is right, a read_mmd or write_mmd override cannot safely reach the
-bus at all. Could the doc comment say this, or at least name
-genphy_suspend() next to read() and write()?
-
-No in-tree Rust driver implements read_mmd or write_mmd today. Before this
-series, &mut Device methods such as read_paged() could already deadlock
-here in the same way. The incomplete wording itself is new in this patch.
-
->          build_error!(VTABLE_DEFAULT_ERROR)
->      }
->
-
+base-commit: d9ea256ee889f3db9f0bd07ce5d114ce92e31b4f
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-exp-phy-rs-maybelocked-v4-0-16f9a10bb579%40gmail.com
+2.54.0
+
