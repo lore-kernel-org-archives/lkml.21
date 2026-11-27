@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778735;
-	b=ulvFP0hX9t/n/+cbFvdeH30qboHHl+GzJN1zpeMc5icNYiup2d1Ns5MpJukQ8rspWAQc
-	 jITtLJivpidEPs7WPHs0YEsBY/Y8rEs1EooEsAgMWHgv5Fn/DagR+tD+ZlLErtNFVUUGo
-	 Si/CLPG/Gw7rwMBYvPLiTVevXfGsNxTrA+B/RZcRVnv5+HgRiDff1aWsDt7UxnJfjZG93
-	 sPum+asL0aXqV6a5uJzy0YRAcy99lDgmsFlV/q1sjikqDRExpsTucb6T71LEZM7IMLP4X
-	 IHUEqNcrn1/Htkj2WNKaQLk21DktRxl05YYrujuWQsPXXpyj+wjZfnsjBeqoSXS7ScA==
+	t=1795778737;
+	b=GDqmnywUZgw0weNnwqQ3gSLoIghGlwrOt9h7P++hDdsX8g5nQUiRKAkKAqxbcA5Ra2JZ
+	 9bEGMdrfKwpCy6YhmKaV9tNSsHDFdxIjyBM4qdePXL+VKMT9VQP/cRLDleUoglp24cHXz
+	 fIK2LDN4G0Jj0XHib7rQPNHa9OS5iSDQ/DEFONzcQXkaN7llkS0+O1OIcg2Wev5L5mcj+
+	 0VvutOvH8GCysJcTfnxe7Skaaua3H33ENewapHpT+GV4cTkIChxr05iAvcIMJ9oW6ZMDn
+	 rN5IXLZ7HzUTTToGUy0EIrf3Pl3qVhHLNMw/Ti9r3CZkSxjLxFysw+eZWx86yU2ykaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778735;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778737;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=jZwk8lPLGTAnuCrXapHQwXk3vZd5cBJY13irGJMYN08=;
-	b=ZT3IujsL+S8fHSiIhN/UcXl0lh7wHZZnUCo+vuZVDY+aMlfxNAlDganywlpqkPGdOrFP
-	 mqkbt+JcdI6UeyNa+e+5ypLV4d6srXaXGOVDO9wNcEIgrdJ3bOw5SJJfGyIrtqAcoyDbf
-	 urEES9e4LO6XdeyENQ9gjtH0WaibTxfOTatuJcnIKAZi/6o7CJmc/qiRhgI55Bc9zaFW1
-	 EH0pZWrhy49hkj2sTpMWsgPrNPO31dCLDvH3JxhK/cRrXTtuqu+1GYXtRzXyDOsY6GA67
-	 JC/E9PIe/XiI1Hur68vzP5C1xBg/Q21XpRZMdWpIgXmQMwfkDqnLEl1/skqSry7IBBA==
+	bh=SknelRmhjC3whrsdhg5a5rDkEEx5Umf46Ai4MclvtjA=;
+	b=i15MtTEK9TtsX/Fvaz1VrckCq8PO8pq0enXxMD0nA9Td+WD6X8DoiQ6P1n9FawclysYb
+	 g/ZB+srDPyMSF3BsRudOgGSuhZv9UFYdYAetCjL0STRlAxixSzKpEbiAVuh+0wDuDFJy2
+	 Yy29hGpYbUGC/m3n4ihxjkiAzvMqsBu08rckcQL6jXa0fcX0lqrS4cuUggx+2GGwpeFFt
+	 ukLdXGr9+OuJaQJnTEFW3aypMHiZODZsWp7jleZp+DsZIiYr9ugiIJVNBbjNkDpvBqCYO
+	 SnSbEG/t+GL0JqDpOI+dc0h5RXzu8kXTKcf2ZcWIk8H4lzEQThItvfZMxTqZ/Zzggbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=DCDgy+yD;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=fCE3Bd2c;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 192CB606A335;
-	Fri, 27 Nov 2026 11:25:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 192CB606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32001606A6A7;
+	Fri, 27 Nov 2026 11:25:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32001606A6A7
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=DCDgy+yD
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5113A3764;
-	Fri, 27 Nov 2026 12:25:32 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=fCE3Bd2c
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36D47A482B;
+	Fri, 27 Nov 2026 12:25:34 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795778733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795778734; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=jZwk8lPLGTAnuCrXapHQwXk3vZd5cBJY13irGJMYN08=;
-	b=DCDgy+yDDd42IqeCf4eVW1eiKoNsRCCfTkui23vjwRvwWChYXd6pQDv9O7k++Venlit7vf
-	44auw9rujlP0i2iXrDpS1a2zr72uDmF2WL9HZHW+SO2T3WlaDeMaW0GdBobN8u1aiL8oSo
-	vylqHQcZomNtpAt92TtMGLIlqyKcYjxNzOVp3qZQw5eBKgu3HDxuUgJzLenMb26kQzT5gl
-	JK0I3yBylSwClB4ScqH2+LpieIIc/EgYd/LIaz4a4vhUkSxiiwvLpz3Py75dH05UaK92Nb
-	w3thQdRSle5IS3YcQLkHTu6gcTINytgksl8T/rt6m6ppfNUIAjhPi0cel4+1nQ==
+	bh=SknelRmhjC3whrsdhg5a5rDkEEx5Umf46Ai4MclvtjA=;
+	b=fCE3Bd2cLWR+ZxF8Am4hXuhD4XLzXzH6Z9kpuMhrbvPzzdC6baQlTggZip3o46AddIwA8R
+	DNb3UpiMO6OyBEo8D7i+pAtQRqee10fW6xIBNBa3w3zS0yt7igt0nOMfxru+4QhFkTcYpy
+	bMp5yjxpE3gLtk4CabevN4ZPdAfQa/fpCfYoL8b55Egsi2j1hUc3lwlimUSwL+x2r4a8Dw
+	5xNpVs/uRLsazi3eDAA97qlBLXT30/73Sd//eigMPPi97L7x+NGDNwL4pkhGBdP3HduMZy
+	QX5YZ7QcdCAYud3uw3Zrg8CjaOqTOpswmNY45FTN0Lkiy1jks6+UCr2rsvb2kQ==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Fri, 27 Nov 2026 12:25:14 +0100
-Subject: [PATCH net-next v10 4/8] net: bcmgenet: derive the receive buffer
- length from the MTU
+Date: Fri, 27 Nov 2026 12:25:16 +0100
+Subject: [PATCH net-next v10 6/8] net: bcmgenet: build the DMA rings before
+ giving up the running ones
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,7 +59,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-nb-genet-mtu-nn-v2-v10-4-749c7cc45d97@tipi-net.de>
+Message-Id: <20261127-nb-genet-mtu-nn-v2-v10-6-749c7cc45d97@tipi-net.de>
 References: <20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97@tipi-net.de>
 In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97@tipi-net.de>
 To: Doug Berger <opendmb@gmail.com>, 
@@ -70,268 +70,471 @@ To: Doug Berger <opendmb@gmail.com>,
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
 Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-The receive buffer length is a fixed 2048 bytes. The packet ready
-thresholds keep whatever value the reset left. Neither follows the MTU.
+bcmgenet_init_dma() allocates the new rings only after its callers have
+torn the running ones down, so a failure under memory pressure leaves the
+interface with no datapath at all. The MTU change in the next patch runs
+the same path on a live interface, where that takes a working link down.
 
-Compute the receive threshold from the MTU and program it into RBUF. The
-buffer length follows from it, with the status block on top. The MTU is
-still fixed at ETH_DATA_LEN, so the threshold comes out at 0x80, the value
-a v5 holds out of reset, and the buffer only grows by the status block the
-hardware already wrote. Derive UMAC_MAX_FRAME_LEN and the flow period from
-the MTU too, with a floor at ETH_DATA_LEN so a lower MTU does not stop the
-MAC accepting a standard frame.
+Allocate into a set of its own first and install it only once it is
+complete, so a failed allocation costs the running datapath nothing.
 
-Suggested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+The receive buffers can only reach the hardware at install time, the
+descriptors of a running ring must not be rewritten.
+
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 91 +++++++++++++++++++++-----
- drivers/net/ethernet/broadcom/genet/bcmgenet.h | 18 ++++-
- 2 files changed, 91 insertions(+), 18 deletions(-)
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 248 +++++++++++++++----------
+ drivers/net/ethernet/broadcom/genet/bcmgenet.h |   9 +
+ 2 files changed, 158 insertions(+), 99 deletions(-)
 
 diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-index 5c050331da69..15b7c8a52520 100644
+index 5ad38b4eccd1..fc8b8400fcbb 100644
 --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-@@ -48,18 +48,42 @@
- #define GENET_Q0_TX_BD_CNT	\
- 	(TOTAL_DESC - priv->hw_params->tx_queues * priv->hw_params->tx_bds_per_q)
- 
--#define RX_BUF_LENGTH		2048
- #define SKB_ALIGNMENT		32
- 
-+/* The transmit descriptors carry their own lengths, so this is unused and
-+ * keeps the reset value.
-+ */
-+#define TX_RING_BUF_SIZE	2048
-+
-+/* Once the threshold is reached RBUF hands a frame to the receive DMA and
-+ * TBUF hands one to the MAC. Both registers are 8 bit in units of 16 bytes
-+ * and want a multiple of the 256 byte burst size, so 0xf0 is the largest
-+ * usable value.
-+ */
-+#define ENET_THLD_UNIT		16
-+#define ENET_THLD_BURST		256
-+#define ENET_THLD_DEFAULT	0x80
-+#define ENET_THLD_MAX		0xf0
-+
- /* Page pool RX buffer layout:
-  * RSB(64) + pad(2) | frame data | skb_shared_info
-  * The HW writes the 64B RSB before every descriptor of a frame. Only the
-  * first one also gets the 2B alignment padding.
-  */
--#define GENET_RSB_PAD		(sizeof(struct status_64) + 2)
-+#define GENET_RBUF_ALIGN	2
-+#define GENET_RSB_PAD		(sizeof(struct status_64) + GENET_RBUF_ALIGN)
- 
--/* RX buffer plus the skb_shared_info napi_build_skb() places behind it */
--#define GENET_RX_BUF_SIZE	SKB_HEAD_ALIGN(RX_BUF_LENGTH)
-+/* A descriptor never spans more than one page, which also holds
-+ * skb_shared_info behind the frame, so on 4K pages the page bounds the
-+ * threshold before the register does. Larger pages fit several descriptors.
-+ */
-+#define ENET_SHINFO_LEN		SKB_DATA_ALIGN(sizeof(struct skb_shared_info))
-+#define ENET_THLD_PAGE_LEN	round_down(PAGE_SIZE - ENET_SHINFO_LEN - \
-+					   sizeof(struct status_64), \
-+					   ENET_THLD_BURST)
-+#define ENET_THLD_MAX_LEN	min_t(unsigned int, \
-+				      ENET_THLD_MAX * ENET_THLD_UNIT, \
-+				      ENET_THLD_PAGE_LEN)
- 
- /* Tx/Rx DMA register offset, skip 256 descriptors */
- #define WORDS_PER_BD(p)		(p->hw_params->words_per_bd)
-@@ -2282,7 +2306,7 @@ static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
- 			      struct enet_cb *cb)
- {
- 	struct bcmgenet_priv *priv = ring->priv;
--	unsigned int size = GENET_RX_BUF_SIZE;
-+	unsigned int size = SKB_HEAD_ALIGN(priv->rx_buf_len);
- 	unsigned int offset;
- 	dma_addr_t mapping;
- 	struct page *page;
-@@ -2297,7 +2321,7 @@ static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
- 
- 	/* page_pool handles DMA mapping via PP_FLAG_DMA_MAP */
- 	mapping = page_pool_get_dma_addr(page) + offset;
--	dma_sync_single_for_device(&priv->pdev->dev, mapping, RX_BUF_LENGTH,
-+	dma_sync_single_for_device(&priv->pdev->dev, mapping, priv->rx_buf_len,
- 				   DMA_FROM_DEVICE);
- 
- 	cb->rx_page = page;
-@@ -2376,10 +2400,10 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
- 		}
- 
- 		/* Sync the full buffer; the HW may have written anywhere
--		 * up to RX_BUF_LENGTH.
-+		 * up to priv->rx_buf_len.
- 		 */
- 		page_pool_dma_sync_for_cpu(ring->page_pool, rx_page, rx_offset,
--					   RX_BUF_LENGTH);
-+					   priv->rx_buf_len);
- 
- 		hard_start = page_address(rx_page) + rx_offset;
- 		status = (struct status_64 *)hard_start;
-@@ -2401,7 +2425,7 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
- 					     : sizeof(struct status_64);
- 
- 		/* Reject lengths that would underflow the SKB build path. */
--		if (unlikely(len > RX_BUF_LENGTH || len < min_len)) {
-+		if (unlikely(len > priv->rx_buf_len || len < min_len)) {
- 			netif_err(priv, rx_status, dev,
- 				  "invalid packet length %d\n", len);
- 			BCMGENET_STATS64_INC(stats, length_errors);
-@@ -2653,6 +2677,41 @@ static void bcmgenet_link_intr_enable(struct bcmgenet_priv *priv)
- 	bcmgenet_intrl2_0_writel(priv, int0_enable, INTRL2_CPU_MASK_CLEAR);
+@@ -2383,16 +2383,15 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	goto out;
  }
  
-+/* Receive threshold in register units. Covers the alignment bytes and the
-+ * frame, but not the status block, which the hardware adds on top.
-+ */
-+static unsigned int bcmgenet_pkt_rdy_thld(unsigned int mtu)
-+{
-+	unsigned int len = GENET_RBUF_ALIGN + mtu + ETH_HLEN + VLAN_HLEN;
-+
-+	len = round_up(len, ENET_THLD_BURST) / ENET_THLD_UNIT;
-+
-+	/* Keep the reset default for the common MTUs */
-+	return clamp_t(unsigned int, len, ENET_THLD_DEFAULT,
-+		       ENET_THLD_MAX_LEN / ENET_THLD_UNIT);
-+}
-+
-+/* A buffer has to hold everything the threshold lets the hardware deliver */
-+static unsigned int bcmgenet_rx_buf_len(unsigned int mtu)
-+{
-+	return sizeof(struct status_64) +
-+	       bcmgenet_pkt_rdy_thld(mtu) * ENET_THLD_UNIT;
-+}
-+
-+/* Call with the MAC disabled */
-+static void bcmgenet_set_mtu_regs(struct bcmgenet_priv *priv, unsigned int mtu)
-+{
-+	u32 thld = bcmgenet_pkt_rdy_thld(mtu);
-+
-+	bcmgenet_umac_writel(priv, ENET_MAC_FRAME_LEN(mtu), UMAC_MAX_FRAME_LEN);
-+
-+	/* GENET v1 maps other registers at these offsets */
-+	if (GENET_IS_V1(priv))
-+		return;
-+
-+	bcmgenet_rbuf_writel(priv, thld, RBUF_PKT_RDY_THLD);
-+}
-+
- static void init_umac(struct bcmgenet_priv *priv)
+-static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
+-			      struct enet_cb *cb)
++static int bcmgenet_rx_alloc_cb(struct bcmgenet_priv *priv,
++				struct page_pool *pool, unsigned int buf_len,
++				struct enet_cb *cb)
  {
- 	struct device *kdev = &priv->pdev->dev;
-@@ -2669,7 +2728,7 @@ static void init_umac(struct bcmgenet_priv *priv)
- 			     UMAC_MIB_CTRL);
- 	bcmgenet_umac_writel(priv, 0, UMAC_MIB_CTRL);
+-	struct bcmgenet_priv *priv = ring->priv;
+-	unsigned int size = SKB_HEAD_ALIGN(priv->rx_buf_len);
++	unsigned int size = SKB_HEAD_ALIGN(buf_len);
+ 	unsigned int offset;
+-	dma_addr_t mapping;
+ 	struct page *page;
  
--	bcmgenet_umac_writel(priv, ENET_MAX_FRAME_LEN, UMAC_MAX_FRAME_LEN);
-+	bcmgenet_set_mtu_regs(priv, priv->dev->mtu);
+-	page = page_pool_dev_alloc(ring->page_pool, &offset, &size);
++	page = page_pool_dev_alloc(pool, &offset, &size);
+ 	if (!page) {
+ 		priv->mib.alloc_rx_buff_failed++;
+ 		netif_err(priv, rx_err, priv->dev,
+@@ -2400,15 +2399,36 @@ static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
+ 		return -ENOMEM;
+ 	}
  
- 	/* init tx registers, enable TSB */
- 	reg = bcmgenet_tbuf_ctrl_get(priv);
-@@ -2780,7 +2839,7 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
++	cb->rx_page = page;
++	cb->rx_offset = offset;
++	cb->rx_size = size;
++
++	return 0;
++}
++
++static void bcmgenet_rx_arm_cb(struct bcmgenet_priv *priv, struct enet_cb *cb)
++{
++	dma_addr_t mapping;
++
+ 	/* page_pool handles DMA mapping via PP_FLAG_DMA_MAP */
+-	mapping = page_pool_get_dma_addr(page) + offset;
++	mapping = page_pool_get_dma_addr(cb->rx_page) + cb->rx_offset;
+ 	dma_sync_single_for_device(&priv->pdev->dev, mapping, priv->rx_buf_len,
+ 				   DMA_FROM_DEVICE);
  
- 	/* Set flow period for ring != 0 */
- 	if (index)
--		flow_period_val = ENET_MAX_FRAME_LEN << 16;
-+		flow_period_val = ENET_MAC_FRAME_LEN(priv->dev->mtu) << 16;
+-	cb->rx_page = page;
+-	cb->rx_offset = offset;
+-	cb->rx_size = size;
+ 	dmadesc_set_addr(priv, cb->bd_addr, mapping);
++}
++
++static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
++			      struct enet_cb *cb)
++{
++	struct bcmgenet_priv *priv = ring->priv;
++	int ret;
++
++	ret = bcmgenet_rx_alloc_cb(priv, ring->page_pool, priv->rx_buf_len, cb);
++	if (ret)
++		return ret;
++
++	bcmgenet_rx_arm_cb(priv, cb);
  
- 	bcmgenet_tdma_ring_writel(priv, index, 0, TDMA_PROD_INDEX);
- 	bcmgenet_tdma_ring_writel(priv, index, 0, TDMA_CONS_INDEX);
-@@ -2791,7 +2850,7 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
- 				  TDMA_FLOW_PERIOD);
- 	bcmgenet_tdma_ring_writel(priv, index,
- 				  ((size << DMA_RING_SIZE_SHIFT) |
--				   RX_BUF_LENGTH), DMA_RING_BUF_SIZE);
-+				   TX_RING_BUF_SIZE), DMA_RING_BUF_SIZE);
+ 	return 0;
+ }
+@@ -2657,22 +2677,15 @@ static void bcmgenet_dim_work(struct work_struct *work)
+ }
  
- 	/* Set start and end address, read and write pointers */
- 	bcmgenet_tdma_ring_writel(priv, index, start_ptr * words_per_bd,
-@@ -2810,8 +2869,9 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
- static int bcmgenet_rx_ring_create_pool(struct bcmgenet_priv *priv,
- 					struct bcmgenet_rx_ring *ring)
+ /* Assign page_pool pages to RX DMA descriptors. */
+-static int bcmgenet_alloc_rx_buffers(struct bcmgenet_priv *priv,
+-				     struct bcmgenet_rx_ring *ring)
++static void bcmgenet_arm_rx_buffers(struct bcmgenet_priv *priv,
++				    struct bcmgenet_rx_ring *ring)
  {
--	/* Buffers share a page. bcmgenet_rx_refill() syncs each one for the
--	 * device, PP_FLAG_DMA_SYNC_DEV would sync the whole page.
-+	/* Buffers may share a page, depending on PAGE_SIZE and the MTU.
-+	 * bcmgenet_rx_refill() syncs each one for the device,
-+	 * PP_FLAG_DMA_SYNC_DEV would sync the whole page.
+-	struct enet_cb *cb;
+ 	int i;
+ 
+ 	netif_dbg(priv, hw, priv->dev, "%s\n", __func__);
+ 
+-	/* loop here for each buffer needing assign */
+-	for (i = 0; i < ring->size; i++) {
+-		cb = ring->cbs + i;
+-		if (bcmgenet_rx_refill(ring, cb))
+-			return -ENOMEM;
+-	}
+-
+-	return 0;
++	for (i = 0; i < ring->size; i++)
++		bcmgenet_rx_arm_cb(priv, ring->cbs + i);
+ }
+ 
+ static void bcmgenet_free_rx_buffers(struct bcmgenet_priv *priv)
+@@ -2964,41 +2977,33 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
+ 	netif_napi_add_tx(priv->dev, &ring->napi, bcmgenet_tx_poll);
+ }
+ 
+-static int bcmgenet_rx_ring_create_pool(struct bcmgenet_priv *priv,
+-					struct bcmgenet_rx_ring *ring)
++static struct page_pool *bcmgenet_create_rx_pool(struct bcmgenet_priv *priv,
++						 unsigned int size)
+ {
+ 	/* Buffers may share a page, depending on PAGE_SIZE and the MTU.
+-	 * bcmgenet_rx_refill() syncs each one for the device,
++	 * bcmgenet_rx_arm_cb() syncs each one for the device,
+ 	 * PP_FLAG_DMA_SYNC_DEV would sync the whole page.
  	 */
  	struct page_pool_params pp_params = {
  		.order = 0,
-@@ -2876,7 +2936,7 @@ static int bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
- 	bcmgenet_rdma_ring_writel(priv, index, 0, RDMA_CONS_INDEX);
- 	bcmgenet_rdma_ring_writel(priv, index,
- 				  ((size << DMA_RING_SIZE_SHIFT) |
--				   RX_BUF_LENGTH), DMA_RING_BUF_SIZE);
-+				   priv->rx_buf_len), DMA_RING_BUF_SIZE);
- 	bcmgenet_rdma_ring_writel(priv, index,
- 				  (DMA_FC_THRESH_LO <<
- 				   DMA_XOFF_THRESHOLD_SHIFT) |
-@@ -4156,6 +4216,7 @@ static int bcmgenet_probe(struct platform_device *pdev)
- 	/* Mii wait queue */
- 	init_waitqueue_head(&priv->wq);
- 	bcmgenet_hfb_init(priv);
-+	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
- 	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
+ 		.flags = PP_FLAG_DMA_MAP,
+-		.pool_size = ring->size,
++		.pool_size = size,
+ 		.nid = NUMA_NO_NODE,
+ 		.dev = &priv->pdev->dev,
+ 		.dma_dir = DMA_FROM_DEVICE,
+ 	};
+-	int err;
+-
+-	ring->page_pool = page_pool_create(&pp_params);
+-	if (IS_ERR(ring->page_pool)) {
+-		err = PTR_ERR(ring->page_pool);
+-		ring->page_pool = NULL;
+-		return err;
+-	}
  
- 	priv->clk_wol = devm_clk_get_optional(&priv->pdev->dev, "enet-wol");
+-	return 0;
++	return page_pool_create(&pp_params);
+ }
+ 
+ /* Initialize a RDMA ring */
+-static int bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
+-				 unsigned int index, unsigned int size,
+-				 unsigned int start_ptr, unsigned int end_ptr)
++static void bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
++				  unsigned int index, unsigned int size,
++				  unsigned int start_ptr, unsigned int end_ptr,
++				  struct page_pool *pool)
+ {
+ 	struct bcmgenet_rx_ring *ring = &priv->rx_rings[index];
+ 	u32 words_per_bd = WORDS_PER_BD(priv);
+-	int ret, i;
+ 
+ 	ring->priv = priv;
+ 	ring->index = index;
+@@ -3008,21 +3013,11 @@ static int bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
+ 	ring->read_ptr = start_ptr;
+ 	ring->cb_ptr = start_ptr;
+ 	ring->end_ptr = end_ptr - 1;
++	ring->page_pool = pool;
+ 	/* Zeroing RDMA_PROD_INDEX below also clears the discard counter */
+ 	ring->old_discards = 0;
+ 
+-	ret = bcmgenet_rx_ring_create_pool(priv, ring);
+-	if (ret)
+-		return ret;
+-
+-	ret = bcmgenet_alloc_rx_buffers(priv, ring);
+-	if (ret) {
+-		for (i = 0; i < ring->size; i++)
+-			bcmgenet_free_rx_cb(ring->cbs + i, ring->page_pool);
+-		page_pool_destroy(ring->page_pool);
+-		ring->page_pool = NULL;
+-		return ret;
+-	}
++	bcmgenet_arm_rx_buffers(priv, ring);
+ 
+ 	bcmgenet_init_dim(ring, bcmgenet_dim_work);
+ 	bcmgenet_init_rx_coalesce(ring);
+@@ -3049,8 +3044,6 @@ static int bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
+ 				  RDMA_WRITE_PTR);
+ 	bcmgenet_rdma_ring_writel(priv, index, end_ptr * words_per_bd - 1,
+ 				  DMA_END_ADDR);
+-
+-	return ret;
+ }
+ 
+ static void bcmgenet_enable_tx_napi(struct bcmgenet_priv *priv)
+@@ -3239,18 +3232,17 @@ static void bcmgenet_destroy_rx_page_pools(struct bcmgenet_priv *priv)
+  *
+  * Queue 0 is also the default Rx queue with GENET_Q0_RX_BD_CNT descriptors.
+  */
+-static int bcmgenet_init_rx_queues(struct net_device *dev)
++static void bcmgenet_init_rx_queues(struct net_device *dev,
++				    struct bcmgenet_dma_set *set)
+ {
+ 	struct bcmgenet_priv *priv = netdev_priv(dev);
+ 	unsigned int start = 0, end = GENET_Q0_RX_BD_CNT;
+ 	u32 i, ring_mask;
+-	int ret;
+ 
+ 	/* Initialize Rx priority queues */
+ 	for (i = 0; i <= priv->hw_params->rx_queues; i++) {
+-		ret = bcmgenet_init_rx_ring(priv, i, end - start, start, end);
+-		if (ret)
+-			return ret;
++		bcmgenet_init_rx_ring(priv, i, end - start, start, end,
++				      set->page_pool[i]);
+ 
+ 		start = end;
+ 		end += priv->hw_params->rx_bds_per_q;
+@@ -3263,8 +3255,6 @@ static int bcmgenet_init_rx_queues(struct net_device *dev)
+ 	/* Enable Rx rings */
+ 	ring_mask <<= DMA_RING_BUF_EN_SHIFT;
+ 	bcmgenet_rdma_writel(priv, ring_mask, DMA_CTRL);
+-
+-	return 0;
+ }
+ 
+ static int bcmgenet_dma_teardown(struct bcmgenet_priv *priv)
+@@ -3310,11 +3300,86 @@ static void bcmgenet_fini_dma(struct bcmgenet_priv *priv)
+ 	priv->tx_cbs = NULL;
+ }
+ 
+-/* init_edma: Initialize DMA control register */
+-static int bcmgenet_init_dma(struct bcmgenet_priv *priv, bool flush_rx)
++/* Hand back a set that was never installed */
++static void bcmgenet_free_dma_set(struct bcmgenet_priv *priv,
++				  struct bcmgenet_dma_set *set)
++{
++	unsigned int start = 0, end = GENET_Q0_RX_BD_CNT;
++	unsigned int i, q;
++
++	for (q = 0; q <= priv->hw_params->rx_queues; q++) {
++		if (set->page_pool[q]) {
++			for (i = start; i < end; i++)
++				bcmgenet_free_rx_cb(set->rx_cbs + i,
++						    set->page_pool[q]);
++			page_pool_destroy(set->page_pool[q]);
++		}
++
++		start = end;
++		end += priv->hw_params->rx_bds_per_q;
++	}
++
++	kfree(set->rx_cbs);
++	kfree(set->tx_cbs);
++	memset(set, 0, sizeof(*set));
++}
++
++/* Build everything a datapath of this buffer length needs. The running one
++ * keeps its own until the caller installs this set, so a failure here costs
++ * nothing.
++ */
++static int bcmgenet_alloc_dma(struct bcmgenet_priv *priv, unsigned int buf_len,
++			      struct bcmgenet_dma_set *set)
++{
++	unsigned int start = 0, end = GENET_Q0_RX_BD_CNT;
++	unsigned int i, q;
++
++	memset(set, 0, sizeof(*set));
++
++	set->rx_cbs = kzalloc_objs(struct enet_cb, TOTAL_DESC);
++	set->tx_cbs = kzalloc_objs(struct enet_cb, TOTAL_DESC);
++	if (!set->rx_cbs || !set->tx_cbs)
++		goto err;
++
++	for (i = 0; i < TOTAL_DESC; i++) {
++		set->rx_cbs[i].bd_addr = priv->base +
++					 priv->hw_params->rdma_offset +
++					 i * DMA_DESC_SIZE;
++		set->tx_cbs[i].bd_addr = priv->base +
++					 priv->hw_params->tdma_offset +
++					 i * DMA_DESC_SIZE;
++	}
++
++	for (q = 0; q <= priv->hw_params->rx_queues; q++) {
++		set->page_pool[q] = bcmgenet_create_rx_pool(priv, end - start);
++		if (IS_ERR(set->page_pool[q])) {
++			set->page_pool[q] = NULL;
++			goto err;
++		}
++
++		for (i = start; i < end; i++)
++			if (bcmgenet_rx_alloc_cb(priv, set->page_pool[q],
++						 buf_len, set->rx_cbs + i))
++				goto err;
++
++		start = end;
++		end += priv->hw_params->rx_bds_per_q;
++	}
++
++	return 0;
++
++err:
++	bcmgenet_free_dma_set(priv, set);
++
++	return -ENOMEM;
++}
++
++/* Install a set built by bcmgenet_alloc_dma() and start the engines. The set
++ * is consumed either way, a failure frees it and leaves no datapath behind.
++ */
++static int bcmgenet_init_dma(struct bcmgenet_priv *priv, bool flush_rx,
++			     struct bcmgenet_dma_set *set)
+ {
+-	struct enet_cb *cb;
+-	unsigned int i;
+ 	int ret;
+ 	u32 reg;
+ 
+@@ -3324,14 +3389,14 @@ static int bcmgenet_init_dma(struct bcmgenet_priv *priv, bool flush_rx)
+ 	ret = bcmgenet_tdma_disable(priv);
+ 	if (ret) {
+ 		netdev_err(priv->dev, "failed to halt Tx DMA\n");
+-		return ret;
++		goto err;
+ 	}
+ 
+ 	/* Disable RX DMA */
+ 	ret = bcmgenet_rdma_disable(priv);
+ 	if (ret) {
+ 		netdev_err(priv->dev, "failed to halt Rx DMA\n");
+-		return ret;
++		goto err;
+ 	}
+ 
+ 	/* Flush TX queues */
+@@ -3347,49 +3412,21 @@ static int bcmgenet_init_dma(struct bcmgenet_priv *priv, bool flush_rx)
+ 		udelay(10);
+ 	}
+ 
+-	/* Initialize common Rx ring structures */
++	/* The set belongs to the datapath from here on */
+ 	priv->rx_bds = priv->base + priv->hw_params->rdma_offset;
+ 	priv->num_rx_bds = TOTAL_DESC;
+-	priv->rx_cbs = kzalloc_objs(struct enet_cb, priv->num_rx_bds);
+-	if (!priv->rx_cbs)
+-		return -ENOMEM;
++	priv->rx_cbs = set->rx_cbs;
+ 
+-	for (i = 0; i < priv->num_rx_bds; i++) {
+-		cb = priv->rx_cbs + i;
+-		cb->bd_addr = priv->rx_bds + i * DMA_DESC_SIZE;
+-	}
+-
+-	/* Initialize common TX ring structures */
+ 	priv->tx_bds = priv->base + priv->hw_params->tdma_offset;
+ 	priv->num_tx_bds = TOTAL_DESC;
+-	priv->tx_cbs = kzalloc_objs(struct enet_cb, priv->num_tx_bds);
+-	if (!priv->tx_cbs) {
+-		kfree(priv->rx_cbs);
+-		priv->rx_cbs = NULL;
+-		return -ENOMEM;
+-	}
+-
+-	for (i = 0; i < priv->num_tx_bds; i++) {
+-		cb = priv->tx_cbs + i;
+-		cb->bd_addr = priv->tx_bds + i * DMA_DESC_SIZE;
+-	}
++	priv->tx_cbs = set->tx_cbs;
+ 
+ 	/* Init rDma */
+ 	bcmgenet_rdma_writel(priv, priv->dma_max_burst_length,
+ 			     DMA_SCB_BURST_SIZE);
+ 
+ 	/* Initialize Rx queues */
+-	ret = bcmgenet_init_rx_queues(priv->dev);
+-	if (ret) {
+-		netdev_err(priv->dev, "failed to initialize Rx queues\n");
+-		bcmgenet_free_rx_buffers(priv);
+-		bcmgenet_destroy_rx_page_pools(priv);
+-		kfree(priv->rx_cbs);
+-		priv->rx_cbs = NULL;
+-		kfree(priv->tx_cbs);
+-		priv->tx_cbs = NULL;
+-		return ret;
+-	}
++	bcmgenet_init_rx_queues(priv->dev, set);
+ 
+ 	/* Init tDma */
+ 	bcmgenet_tdma_writel(priv, priv->dma_max_burst_length,
+@@ -3408,6 +3445,11 @@ static int bcmgenet_init_dma(struct bcmgenet_priv *priv, bool flush_rx)
+ 	bcmgenet_tdma_writel(priv, reg, DMA_CTRL);
+ 
+ 	return 0;
++
++err:
++	bcmgenet_free_dma_set(priv, set);
++
++	return ret;
+ }
+ 
+ /* Interrupt bottom half */
+@@ -3580,6 +3622,7 @@ static void bcmgenet_netif_start(struct net_device *dev, bool start_phy)
+ static int bcmgenet_open(struct net_device *dev)
+ {
+ 	struct bcmgenet_priv *priv = netdev_priv(dev);
++	struct bcmgenet_dma_set set;
+ 	int ret;
+ 
+ 	netif_dbg(priv, ifup, dev, "bcmgenet_open\n");
+@@ -3609,7 +3652,11 @@ static int bcmgenet_open(struct net_device *dev)
+ 	bcmgenet_hfb_restore(priv);
+ 
+ 	/* Reinitialize TDMA and RDMA and SW housekeeping */
+-	ret = bcmgenet_init_dma(priv, true);
++	ret = bcmgenet_alloc_dma(priv, priv->rx_buf_len, &set);
++	if (ret)
++		goto err_clk_disable;
++
++	ret = bcmgenet_init_dma(priv, true, &set);
+ 	if (ret) {
+ 		netdev_err(dev, "failed to initialize DMA\n");
+ 		goto err_clk_disable;
+@@ -4464,6 +4511,7 @@ static int bcmgenet_resume(struct device *d)
+ 	struct net_device *dev = dev_get_drvdata(d);
+ 	struct bcmgenet_priv *priv = netdev_priv(dev);
+ 	struct bcmgenet_rxnfc_rule *rule;
++	struct bcmgenet_dma_set set;
+ 	int ret;
+ 	u32 reg;
+ 
+@@ -4529,7 +4577,9 @@ static int bcmgenet_resume(struct device *d)
+ 	bcmgenet_hfb_restore(priv);
+ 
+ 	/* Reinitialize TDMA and RDMA and SW housekeeping */
+-	ret = bcmgenet_init_dma(priv, false);
++	ret = bcmgenet_alloc_dma(priv, priv->rx_buf_len, &set);
++	if (!ret)
++		ret = bcmgenet_init_dma(priv, false, &set);
+ 	if (ret) {
+ 		/* Leave the block clocked, close and suspend tear it down */
+ 		netdev_err(dev, "failed to initialize DMA\n");
 diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.h b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-index afaccb769933..b40e56872132 100644
+index 906639c1f012..1f48a67c5c01 100644
 --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.h
 +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-@@ -31,9 +31,17 @@
- #define ENET_BRCM_TAG_LEN	6
- #define ENET_PAD		8
+@@ -541,6 +541,15 @@ struct bcmgenet_hw_params {
+ 	u32		words_per_bd;
+ };
  
--/* Longest frame the MAC must accept for the default MTU */
--#define ENET_MAX_FRAME_LEN	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
--				 ENET_BRCM_TAG_LEN + ETH_FCS_LEN + ENET_PAD)
-+/* Longest frame the MAC must accept for a given MTU. ENET_PAD is slack the
-+ * driver has always carried, it rounded the default up to 1536 from 1528.
++/* Everything an open datapath needs that can fail to be allocated. Built
++ * before the running one is given up, so a failure changes nothing.
 + */
-+#define ENET_FRAME_OVERHEAD	(ETH_HLEN + VLAN_HLEN + ENET_BRCM_TAG_LEN + \
-+				 ETH_FCS_LEN + ENET_PAD)
-+#define ENET_MAX_FRAME_LEN(mtu)	((mtu) + ENET_FRAME_OVERHEAD)
++struct bcmgenet_dma_set {
++	struct enet_cb *rx_cbs;
++	struct enet_cb *tx_cbs;
++	struct page_pool *page_pool[GENET_MAX_MQ_CNT + 1];
++};
 +
-+/* The MAC keeps accepting a standard frame below the default MTU */
-+#define ENET_MAC_FRAME_LEN(mtu)	ENET_MAX_FRAME_LEN(max_t(unsigned int, (mtu), \
-+							ETH_DATA_LEN))
-+
- #define DMA_MAX_BURST_LENGTH    0x10
- 
- /* misc. configuration */
-@@ -218,6 +226,8 @@ struct bcmgenet_rx_stats64 {
- #define  RBUF_ALIGN_2B			(1 << 1)
- #define  RBUF_BAD_DIS			(1 << 2)
- 
-+#define RBUF_PKT_RDY_THLD		0x08
-+
- #define RBUF_STATUS			0x0C
- #define  RBUF_STATUS_WOL		(1 << 0)
- #define  RBUF_STATUS_MPD_INTR_ACTIVE	(1 << 1)
-@@ -248,6 +258,7 @@ struct bcmgenet_rx_stats64 {
- #define TBUF_CTRL			0x00
- #define  TBUF_64B_EN			(1 << 0)
- #define TBUF_BP_MC			0x0C
-+#define TBUF_PKT_RDY_THLD		0x10
- #define TBUF_ENERGY_CTRL		0x14
- #define  TBUF_EEE_EN			(1 << 0)
- #define  TBUF_PM_EN			(1 << 1)
-@@ -614,6 +625,7 @@ struct bcmgenet_priv {
- 	void __iomem *rx_bds;
- 	struct enet_cb *rx_cbs;
- 	unsigned int num_rx_bds;
-+	unsigned int rx_buf_len;
- 	struct bcmgenet_rxnfc_rule rxnfc_rules[MAX_NUM_OF_FS_RULES];
- 	struct list_head rxnfc_list;
- 
+ struct bcmgenet_skb_cb {
+ 	struct enet_cb *first_cb;	/* First control block of SKB */
+ 	struct enet_cb *head_cb;	/* Owns the head mapping */
 
 -- 
 2.53.0
