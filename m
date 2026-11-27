@@ -1,83 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769326;
-	b=5TxNN8bKywckD5Yqrx/t0eeU0r0AaEen0r9WmRHBkDxxBsNB3FWswVp8otItmW+A+Od2
-	 6yc7cMOcX5yz+Xp4+7fo3nDV1PBgNbzOC0UxAEvK/q5XKKRg4p76abTpwSkr8F+rpCZSw
-	 rdxws8cyuDDZ1VTqiZirf54iegDTYKQVPS1sLCWJYUMdk+/znAimLCvcFMpyj+yypTSEI
-	 rmi/g05DGmP8102bJa3Giaux5e5UahP5T9k9ma8CM95H5sITQ/64xiZwul0o/CoHSmDLk
-	 YhCuziw06naalx/HsRLLQQ4kCAb/bA7I1YA/HkLhhMQ+VS7LnFYikVcECNfF7B9hmFg==
+	t=1795769337;
+	b=k5y7HOIwsEbxvf4mfV79z8JI4zlkzWXF9uObY7owFJHot2+PQJZEd2N1ZPWARJkWMRsF
+	 4bdWxiL/06S8t3FzZcxY4+eWJkTKom6LSE39fzAfwTMMZy7u0LKUyccwFFEXwnfkMkyr8
+	 h1zvMZSOpr9OrbpYc1lAw5GCVHSF69voBkrXDWAKiVHs0OhSxFk8+f7H4pZBf/d7VUXi1
+	 UA2hUUx0p5TOnBBZfh0Shdf29ORGfVN8qswAB5a6A3pCuk3DFADkxX6qMEPOgsao/8WN8
+	 VKod8X55ZKGXib27m0YPMRhYQZJCR/4oij8ohQdHHuXjLB5ixhYCesGQnSldGIeiOIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769326;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
-	 References:In-Reply-To;
-	bh=IDez9NqT7Tj1QDvV6FYEN7zWNFn2T031QM3aseBOhj8=;
-	b=ovbKrMbqr0Hmo3+jEhBGtlC8x9YAcBVhqDjvD/nmWFHur+jCB6EL0ZFoDB/XXwpxXRU8
-	 oWitWhdPp0nihKf+441hzh4q6rcfZmpEoAvcrDuj/zC99c74IY7ICD1YcJETB3MRPkYP9
-	 mstEBW8LefwHrOjPAAVRSAXUiznj46CGoJFT6eW1pL7GQRz2lSpYDG/7ywT7BITdK5oNT
-	 Z1kllwC4SapfMI2IDDu6Eagyy1jD1CqHyo7CO9Zr2kZ3Lsziy626Q3vVydsT065CL//nO
-	 j8Gq2xxsa7lJjV/wmJ8laKPhGVRNtnpAypeU5x6gHwJFEs8c6yor+PHq/lKgL44ekcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769337;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:
+	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=JkFeBAeIFGXP9H+b0e/Iowj6DYNaFp8sLF647Rx6ZZg=;
+	b=UqFfNRYLAfVaKx2xM/7BpZOaySVSaKygkH+fd+Avc0h0ooMBeZ9fzFuTl94vLRu4P4OB
+	 eC8i5kVsxc3Ur4XD1rTZAvt69pD50ZUmIn8dYf4q1sW7kXPkYdaSMcvT8BDcgfMFE+Cyv
+	 Ud2oF5tXWfnlAXs4y2yEU1x46I6go47x8hR45yO+rwEA3gnHOqWK7qy/ND1Dq03sFFNzh
+	 V/tDQs1cTIC4f5YMX0kbvX8msYP/kG9meMDtE7fc45mjOKqJpOlQiesqH/UZRc0pyBIvP
+	 lOA2kxVfSppSog6eQgVekGCWP5fUegbg1SHmEHtgdHSBGsxkUHu0LhywwvRuIW7l4rg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dbJOZn5M;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YRYjCWbz;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FD7B606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:48:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FD7B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C513B606A335;
+	Fri, 27 Nov 2026 08:48:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C513B606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dbJOZn5M
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso76852815e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:48:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795769324; x=1796374124; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=IDez9NqT7Tj1QDvV6FYEN7zWNFn2T031QM3aseBOhj8=;
-        b=dbJOZn5M3rCgRLPPOUJ++VnJKMJQm3Ohn3x6VlLjqOyC2bNT9/mOFF1yxLOyrzF1bl
-         C+Kj5lfk/G5v+Ibl6kXxQpP75b5N2GOnPrygQfOpb+hL8pJdLWW2ruCSdOPWljpoOom9
-         3k2U5q90CgtKcvQNVpmkgFpbHw4JRD8hnkpuKZMsHjBoE3LC1jnUEnzmSEuovDxk9r9t
-         Wtqp53MEml1QkDIqwqCWvYw2/rzLoJc4/KbtnJ3GcoNMKSCSq01qjbob847q1eNmgWQu
-         Cney17f61yibRSRiKAu1tIAGEODdNaIqbSZsxA3cV2i7XAT3GC/VSTY+hR3Urp47LrxJ
-         8cOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795769324; x=1796374124;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=IDez9NqT7Tj1QDvV6FYEN7zWNFn2T031QM3aseBOhj8=;
-        b=tUrJzkOE8pscSu0kGXtPk6EDK7xd7YVtVPf/WaklkxuSMDbssVe0kYNct3ArFST7iy
-         wtA8fQ0Mv30SBaMHSGVufGlB7M1411fWUExl7qmZ6GcE7H5imVF+ihTe/dgASxVUuqwv
-         UOpsHAsmjH/oD/s0ViUFC4USX5REukb1Qp1JoJDKB1tkp1gxCTLKK/bTkDGS61ZhE5dj
-         LyQtpaDZi4Pnw98p/kmfhtm1KQ6Q20TyChLJqPjS7Jjs3ilwKdwxbAQCnRMGYlJPhnk7
-         jdyKDRQO0lwIQCUlRfEYnWqOtqPvrC6koyDVyNAMoAhyVVWDCOOO48/F6Z+kDMTH8EvT
-         dzCQ==
-X-Forwarded-Encrypted: i=1; AL+hErFnphhpA+5yamhbiu/QJGaHVFgeJ5yM1zxoCkuGyV0kpuMAgf4MBP+Znl52f0glQVVjHTOfROWAP1guMOg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9iL1SU2d2XmGK8/fXzebj6Vlr9BNspkUtE/0lct2yXzq8A5HqS
-	YraDKjVtjPz+K1mQ5NLHPhO27ZHdesEupa2GaZZIzrLoCg+OlXtustj2
-X-Gm-Gg: AZFdTZei6dF2WZI0QRe+kqMHcexnMfEjePU4Afjy5ky3uS1C7xExcSgbNON2psGW/Cu
-	I4tm7POMf9itYuZ3uiV+OTzfsjFzP1kiv0oCyp/90UT27QDrC/0PW204V/kcqQHFp8lmcl/Q+e8
-	LqLgv7x3Al86i6zSDgkV1Qtx1fo1Hht/jzQqsAyaGAiFqCKeYseE8J7RSYEOJflsZJ63URyZgP7
-	7ZLvvI2ChDzi3pnNPQazvJ8wMXezvad0Z4sol15F0iICqwjqPuRWMBwG4xMnkvI94Z5I1qejc1L
-	Ow9biSwdk4z0b65SpakCNinJZ68bM3gv/nJ5rubMcDt0lEBBlHjhXzliTecoDKyxkeHbq+H9v0+
-	rFbOda30Pl/czA7T1mMvrGMgWZ9rB+vq4rEGt0aDEa9gOSFwFIRrmdqxlFGFvgzkwV1gTvjT8tb
-	06GieeYAB5vMPkzep1g2C3f0t9upliw+IoJ0r72u/4r0zmDJbMqcqwpZZ5XSr+16LWN2jNwsAH6
-	3Vt4fYNlRjJN/UT61sPhG44+YjmKh3BDN4BDKokOyK3sEBf5tE2t5/C9pqFRkRF6UDWdCnNU358
-	i2vOrez10EpES3BTCDvv6+m/2YFVFFmAaZ3QzuQTyX82+QK7GTjZ9g7Q6YK3FreXKPP+SA==
-X-Received: by 2002:a05:600c:4f81:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb88805902mr454676765e9.7.1795769323802;
-        Fri, 27 Nov 2026 00:48:43 -0800 (PST)
-Received: from localhost ([130.192.98.149])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906635c7sm426511305e9.2.2026.11.27.00.48.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 00:48:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YRYjCWbz
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7GbMs3759042;
+	Fri, 27 Nov 2026 08:48:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=JkFeBAeIFGX
+	P9H+b0e/Iowj6DYNaFp8sLF647Rx6ZZg=; b=YRYjCWbzaY2dpjoew6GWqSJ8fls
+	4y6zl8l3QLVZ6sHElAqZlbrepe+fSqfLHoHQqhBdOI7nlrJ9e1YxPVLP+mt/xuCz
+	EWMNBYoB981Z/6UHdXdlX4BdjEvH1SPZ4v0TJ5eXCPhSRRMJPVRSizdMKOPUO6NC
+	Aa5/8N9cb9xjqBsf76aLfURRyTfGF620UNuZoHhtUkfe3Nglu8vkeoISn11Ym+JH
+	X+wnCIDONFtPg0/GZ9ySdPT/qErcaNAg6YNMNlvvNoHdQUz85TkJAY88KfKE7l6G
+	onLOnZI06hSQbo4YgX1dHV3YtLvJqLNbi6A8kaAMnejOUAy5uk4WuyE0mQw==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74g6rhvj-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 27 Nov 2026 08:48:31 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR8mSTR003713;
+	Fri, 27 Nov 2026 08:48:28 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mohis-hyd.qualcomm.com [10.147.253.64])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AR8mRem003697
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 27 Nov 2026 08:48:27 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4840500)
+	id 9B81A6AE; Fri, 27 Nov 2026 14:18:26 +0530 (+0530)
+From: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
+To: Srinivas Kandagatla <srini@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mark Brown <broonie@kernel.org>
+Cc: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org,
+        Mohit Sharma <mohit.sharma@oss.qualcomm.com>
+Subject: [PATCH v2 4/4] ASoC: qcom: q6apm-dai: Allow the mDSP IOMMU path
+Date: Fri, 27 Nov 2026 14:18:26 +0530
+Message-Id: <20261127084826.916361-5-mohit.sharma@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261127084826.916361-1-mohit.sharma@oss.qualcomm.com>
+References: <20261119164705.1594066-1-mohit.sharma@oss.qualcomm.com>
+ <20261127084826.916361-1-mohit.sharma@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,75 +94,78 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=c6f8ca06bd0087fb130def184d18448cb7c766d554c063c5f32d1cf88680;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 27 Nov 2026 09:48:36 +0100
-Message-Id: <DN5V3F9BWZNC.ZIJY7Q6XMDOM@gmail.com>
-Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
- <hyc.lee@gmail.com>, "Eric Biggers" <ebiggers@kernel.org>, "Theodore Y .
- Ts'o" <tytso@mit.edu>, "Jaegeuk Kim" <jaegeuk@kernel.org>, "Alexander Viro"
- <viro@zeniv.linux.org.uk>, "Christian Brauner" <brauner@kernel.org>, "Chuck
- Lever" <cel@kernel.org>, "Jeff Layton" <jlayton@kernel.org>, "Jan Kara"
- <jack@suse.cz>, "Alexander Aring" <alex.aring@gmail.com>, "Darrick J .
- Wong" <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
- "Amir Goldstein" <amir73il@gmail.com>, =?utf-8?q?Pali_Roh=C3=A1r?=
- <pali@kernel.org>, "Lauri Gates" <lauri.gates@gmail.com>, "Christoph
- Hellwig" <hch@infradead.org>, "Dave Chinner" <dgc@kernel.org>,
- <linux-btrfs@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
- <ntfs@lists.linux.dev>, <linux-nfs@vger.kernel.org>,
- <linux-api@vger.kernel.org>
-Subject: Re: [PATCH v2 1/4] vfs: use goto out on error in vfs_fileattr_set()
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Greg KH" <gregkh@linuxfoundation.org>, "koraynilay"
- <koray.fra@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261126163114.403846-1-koray.fra@gmail.com>
- <20261126163114.403846-2-koray.fra@gmail.com>
- <2026112647-earful-frosted-6ef3@gregkh>
-In-Reply-To: <2026112647-earful-frosted-6ef3@gregkh>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: pru62GRbObx_Ac9MDrkJvZ0-zh5stAFf
+X-Authority-Analysis: v=2.4 cv=U5kHnuru c=1 sm=1 tr=0 ts=6b0943df cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8 a=2pjKgLFfhSI-GXVsdeUA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAzNCBTYWx0ZWRfX/WKZLsHxIRnm
+ 4mGtX8Kd7yelUOiKOlnUhqXBEKoZUkbyJn8a5+RiTvFZLo8ovQef6SJTxKT/FHnKHsIcWsFV5mf
+ etl/CAFnmw9FCOm4tdN+jyoTP1ld/qo=
+X-Proofpoint-GUID: pru62GRbObx_Ac9MDrkJvZ0-zh5stAFf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAzNCBTYWx0ZWRfXwW9Cw+uaFoXj
+ HriDMrKsXgw4muBzqaSPbSVbUFJ9Ts/BYDhp82iQAlpEs3sCCmy0BsYOAFlh29iOO73vsFlX5fK
+ Z3nO3yKKHDHlrFN6geJlUPV7Q5ppU+tOQ90Wv75ZUji44mOQ2/fJdGWbTMqo65GwR0GEKMrmUls
+ sPvAFiBL66ux1Ca5X2p8K01A40TvPL9YC6UOzp1IMTpFYg68OPcR+1Bj/SsS7VkKq5K2mPRCcf2
+ KrgEQoj1+JbIfG1YWV1cUk/3wmiPP8BAFXfubcTVdJlI88m5Lqr32C7Mj//mSgoqeCx5EwIPOeY
+ at5kA8T4wO626cOVXH1QxcMQSqukD0UjMDwABYklpToNON5bQzHt6L8K6wWFtDUAHRdt1GyvMjo
+ WmCfgvNAAvWYYeVrniK9l7/BP0cIpPtipgt0BHz7P6T6xtlcL3GbuYHPMhLe3cxygSLcVOcSTz4
+ ZIVfoY2iax1tkY9CTdg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 impostorscore=0
+ adultscore=0 suspectscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270034
 
---c6f8ca06bd0087fb130def184d18448cb7c766d554c063c5f32d1cf88680
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+The q6apm DAI currently selects SCM buffer assignment solely from the GPR
+domain.  This prevents an mDSP-backed DAI from using an IOMMU, even when
+the device tree provides an iommus property for environments where the
+mDSP stream is routed through the apps SMMU.
 
-On Thu Nov 26, 2026 at 8:05 PM CET, Greg KH wrote:
-> On Thu, Nov 26, 2026 at 05:31:11PM +0100, koraynilay wrote:
->> Switch from using if (!err) { ... } to the cleaner if (err) goto out;
->> in the main body of vfs_fileattr_set().
->>=20
->> Signed-off-by: koraynilay <koray.fra@gmail.com>
->
-> Real name please.
+Use the parsed stream ID to distinguish the two memory access models.  An
+mDSP DAI without an IOMMU continues to use SCM-assigned buffers, while an
+mDSP DAI with an IOMMU follows the existing DMA/IOMMU path.  This also
+avoids requiring SCM availability for the IOMMU configuration.
 
-Hello, this is the handle I use for everything online, thus my "known
-identity", and even Linus himself in Commit d4563201f33a
-("Documentation: simplify and clarify DCO contribution example
-language") said
-> And despite the language, we've always accepted nicknames and
-> that language was never meant to be any kind of exclusionary wording.
+Fixes: bb8afd437d79 ("ASoC: qcom: q6apm-dai: add SCM buffer assignment for mDSP platforms")
+Co-developed-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+Signed-off-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+Signed-off-by: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
+---
+ sound/soc/qcom/qdsp6/q6apm-dai.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-Also, I already have a few accepted commits (here[1] and elsewhere[2])
-with this DCO, so it shuold stay like this.
+diff --git a/sound/soc/qcom/qdsp6/q6apm-dai.c b/sound/soc/qcom/qdsp6/q6apm-dai.c
+index afa4bb095e09..94302837b93b 100644
+--- a/sound/soc/qcom/qdsp6/q6apm-dai.c
++++ b/sound/soc/qcom/qdsp6/q6apm-dai.c
+@@ -1221,16 +1221,11 @@ static int q6apm_dai_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	if (apm && apm->gdev &&
+-	    apm->gdev->domain_id == GPR_DOMAIN_ID_MODEM) {
++	    apm->gdev->domain_id == GPR_DOMAIN_ID_MODEM &&
++	    pdata->sid < 0) {
+ 		if (!qcom_scm_is_available())
+ 			return -EPROBE_DEFER;
+ 
+-		if (pdata->sid >= 0) {
+-			dev_err(dev,
+-				"iommus and mDSP SCM path are mutually exclusive\n");
+-			return -EINVAL;
+-		}
+-
+ 		pdata->use_scm_assign = true;
+ 
+ 		rc = devm_add_action_or_reset(dev, q6apm_dai_scm_cleanup,
+-- 
+2.34.1
 
-Thanks,
-koraynilay
-
-[1]: https://lore.kernel.org/linux-cifs/?q=3Dkoraynilay+%22Applied+it%22+f%=
-3Ajeon
-[2]: https://sourceware.org/git/?p=3Dglibc.git;a=3Dcommit;h=3D29803ed3ce
-
---c6f8ca06bd0087fb130def184d18448cb7c766d554c063c5f32d1cf88680
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawlD5AAKCRA0bnTtJTDo
-OA8rAQDeEx1D2WxXRvyGunXEuOW+Cj+dElpy7MJchlEm/WMNBwD+JvucXkEupO3z
-6yiHSY99QVuCP3aqlN/orccezZlLGQ4=
-=mM8H
------END PGP SIGNATURE-----
-
---c6f8ca06bd0087fb130def184d18448cb7c766d554c063c5f32d1cf88680--
