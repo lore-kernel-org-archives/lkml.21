@@ -1,63 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795814512;
-	b=oCUCPO3SK2pJHEAFH/qpr58t3gej9NjZ3XfoEg4CMDeAERHKmHGCMA1xv91KoeekcI8S
-	 BiLcCygMVPqSUr9N+SZpC0Fj6z6jXr4YsndIvEeXVaU+v6wgLRoW9JiACKdQ4WCg/QOWQ
-	 NRPoB09Uj6a6xBGzy15CPD2zss/2Iza3mr8jxxVpro3V5JoydI/KVmAgCyX0BewsYK8kc
-	 /jvryj+LyUQh076zs+WWNSSo+nFCI0H87V4r7duy/Ozu7cJ+Z6k2sCYOeerk8TA204ea7
-	 F3tmk/rHEbsUyNhttB8YlTcOJGJ6+jIqiG/80qSu7fXuBTVsPOLcT12H1OmpWjBVqDg==
+	t=1795814632;
+	b=YkUl4txtaLwRIlA8xC/jVd8otLFk5XSe+djTS7r/YkRIaadk2hV3QVbYctd+9bNDbQn6
+	 Kr6VQx9juAsJQU9iT4FVbETrxdXBOTUkyjdJ/UXPftFHffjzilzbrlFxoXY4knUA9vWwq
+	 OGxtaYhfyOe1yRETb6W+9L6KPi55xlZOnXJP5x57gA7yKqhqJMEYL3x6DiHy5k7DG4CIX
+	 cBCqp23XHX+PJ/QslRnHp/C9yh8tb5lm8ITV0kfXAK00kCSCEGGwvKXiZf/cEcw4454RK
+	 A531CIo0HP9sodT+r7tya+NXtRKVdLE2ndbskLPE6/5zheTXW9dPf6qZopBEWZNiKUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795814512;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=YIRTDuQE4r/aXiKDRPP0uS7lZ5Ydoef491BfdGmULdw=;
-	b=F5TpXjvGkpPwermH61p12B9DRNVjKI9g77lLVLP72sCbBhzSGP5JCLO811U25/gihK5N
-	 bgMjn/upFHtl0B0FYRopPh7Fzby0oXSlIlU7R5eSoRZmTIIMpkbe8/qUFzUTQe1mpPRhK
-	 QBcXGjN6Wki14II00E/dY16ijCyQnZtrpVadXC9QY97l5OgN3EZAFPo0rpbbm0iFJuBdb
-	 VhjBMNJWePmzMLpKHImVA+tf7LRzGAoEKmO46NUQS04Qupd6bzijeYbnrnt1cfcchhyhR
-	 6U3HRF+Dr3yaE6V/ye27K3S9aEjIeAy1KFbQK7no4P2SDfRoHxF22+6LzZ1xtmvUFUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795814632;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=cNSMGlp0irpC9bAH2t+r59w7Ev5xHGqvqYmhkEEKr+M=;
+	b=RaQHpXxvb2H2AVX27cdAOC+LD1R5L8pSfydhJ6eVRXIkqDWTVrYY7KeiskOc4vrs6KHW
+	 LsH3LeDrMWQAtHiJyblbS8De/4V0Z/ZAgMC8qWR5liRceq1+pAR/YML8aTgDnyKzmKCG0
+	 tSLZTdXp7lTKwPo4WVIlarv74Oxaf2P8WZGTYaxE+UwZwWi+asmkZcMRYULCCpG/MruWo
+	 AcoIn1dqzbJ3QwP2FzQ7gJSH3bHvJ54DJ1n1PqxZoPE3KQYGsKqrMLMkKmoOH79tzmICv
+	 ageU16fqE+CzCFV/nXYQYC5hzTmto2rNsojh9MOFh1yZtOEaEkrWeQUKB+UxBF4FUpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GyXeg09V;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IijA1Apk;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ED76606A336;
-	Fri, 27 Nov 2026 21:21:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D73A606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:23:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D73A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GyXeg09V
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFDD91F00897;
-	Fri, 27 Nov 2026 21:21:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795814512;
-	bh=YIRTDuQE4r/aXiKDRPP0uS7lZ5Ydoef491BfdGmULdw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GyXeg09VB0wAl0TmCP+UxG6RrRmfqXEG/4IhxJ1zoEH9+INmjqQYNKNW4+b5QtRfR
-	 a3BcfF8GGG9UpO8uDuxoTgZdzukxLv6z835qNLUvGZFLqAvcsIvzNZXers5+YqN++K
-	 Vd5kyeQlCd0MtrhRzUSsUEMiaobcSmqLmrd1+G1HmEweLidfTv69X4gvyXHbzWJ8eP
-	 yYA9yyYffm5lqcZcc88Ppw9imIM8tpLNdK5ncLgOXbvjk8GQnt1xvVYxIdaelCsYTk
-	 6f6CshpkX6nsGDDWnyC0tNwO9L6M+wdB49AHjiNNsJ9Xi6fk5sUqHarMJQrYdb5Vtc
-	 tK03Xs9SeMDUA==
-Subject: Re: [PATCH net v2 3/4] net: skbuff: limit folio refcount when
- splicing pages into skbs
-From: netdev-bot+sashiko@kernel.org
-To: david@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, sdf.kernel@gmail.com, willemb@google.com, horms@kernel.org,
- akpm@linux-foundation.org, kas@kernel.org, songliubraving@fb.com,
- hannes@cmpxchg.org, riel@surriel.com, willy@infradead.org,
- ncardwell@google.com, kuniyu@google.com, pfalcato@suse.de, cel@kernel.org,
- jlayton@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, stable@vger.kernel.org
-Date: Fri, 27 Nov 2026 21:21:50 +0000
-Message-ID: <179581451032.3135.17667643003292457918@kernel.org>
-In-Reply-To: <20261126-skb_refcount_overflow-v2-3-a6f600a5634a@kernel.org>
-References: <20261126-skb_refcount_overflow-v2-3-a6f600a5634a@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IijA1Apk
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so82409915e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:23:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795814631; x=1796419431; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cNSMGlp0irpC9bAH2t+r59w7Ev5xHGqvqYmhkEEKr+M=;
+        b=IijA1Apk/LX+GHQL8a+IPGwp3W8JtVJOoEiUSZiDxVJQ6TGFrl74k5qMbEYi5yLTRJ
+         uZkmgKaEwwtBy6Z6bnNjSGQKpyL3DQb3DvPWjnlzf9IkhjzPCMmhrNH4WvvChhDUhDYP
+         YcFq0JMH8xJvyiLml7KiR7Y3hg+pXnq75RvcEk2g4Ow8c1e2GU4e2lyHt86GzOoDpFtY
+         dlJDYdKdQqmWoAQUMENrdqtq8gWbHeKFZydqirshnnrb8a3THj/EDIu+x9/i1mLZpdXK
+         zNmvjXVwc2B29G/e5zmGBgUl78GOMivpfSgAYZUcupc5t+aNtz+137DEHgiZ4wI+uOQ2
+         nraw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795814631; x=1796419431;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cNSMGlp0irpC9bAH2t+r59w7Ev5xHGqvqYmhkEEKr+M=;
+        b=216hPsgLbuMlL+ppZoZPIOc9VmEWOKxhjMGSW+BVOTIQ4HQMGIWkNLHtMFFtJWRpPC
+         n9g3W4gRVnSjRSdpftpvdJy7NY+aoDSMbCevGewiAlIdi8Y03K5W8lSgu2yvn6mKptlN
+         U/N6vSpM087pEGog68cA9tK9KG5zy2meXzUwyFYR5WmPwGFLJPorYvacH86XiMFk8ZhY
+         4TolaodE5WkHy2ypsEYerWuYqtGPfGzKcebg9s2/hxuopGb/3GGvRd7sanxDk8/YgVzu
+         i4geWXi9x/SYFZ86uNkwSG+wDfchVN8XbbrOJFYBG/JQlXN+YRKWyG0m1NqnZKtY9Lrq
+         lSzA==
+X-Forwarded-Encrypted: i=1; AL+hErEKuQ5KCJecQr/XT+cpCOqnELHqMyVt7xR0YdUHwInq7OMXgPsSd0xjvw7QHyJw3Y0KdNtxn8ZfBpx0FGY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8YOR2C0nHC4objz5fVb6O6hHGby+f5Jgo6+yj3+q5LYSTSrqkM
+	PhE4hIniHiYO/+eF5YjvmNfq9+/ucB8NX7iXa9mIWeE+/iPzTL3YCnUC
+X-Gm-Gg: AZFdTZcBVa5Xrbvlas2mvXkcZ+8y6dSpmRmc6YvlTWVN8vXXFN6ggO7AbEIA4Wj7q+C
+	70okdsiSnZUfprkfXwXfKbkFttLiAr3GU5EFXm9aIvw+moxD415MG2Vr+bpp50el0D+glphEaad
+	VCfNPFnlCS1fMCvss5dPSdh+7JSf/TDPiZ7e9UyBvRAAOZQLe2RCObfh5xuC/WlANDZvvdJQDHv
+	hFr+FPeEaEQPpGeDa8B5p7jW5aVqxPMAvypIHOcwZJsCnuS2yM7HW08v2EZ4qeucRYKS/uPKEy1
+	H+99pCdHokRuxey4mmpuMZl4B9XDpQa6KbjpE97UuHgoCTz4pMNYvnRdo2/rgQT/XvNevraonX+
+	eFj+X/hNOULKLuIPW1R38lmqtNuwzR9VaayJV22QbiDk9E+B3cxQve1a8RIkIiz0MAQAqNQQD2M
+	OwDuJIKC8iNsOJQjbrdVtkuEtSFOEtmaiOnGNVpxGpYztgep/u9QIuUey42PwPvNDN+T8IL1iuj
+	hvqJ5Qo2mM7Tu8O8RN7LIIvVkRyBQPu8bCG74TsBemQ6+MrCTOClrBMH71yFHW/R9HDGe5Dg9K4
+	5g8xOrFeRDk3OwXbWlZ1+X5XaX4CAc/3BQVnoMC+9bwuP8h9aoYnPQZWXqFHgdVzgg==
+X-Received: by 2002:a05:600c:3b8c:b0:4b7:6c16:7b43 with SMTP id 5b1f17b1804b1-4bb8881d019mr511383095e9.10.1795814630486;
+        Fri, 27 Nov 2026 13:23:50 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90655f5asm478848635e9.1.2026.11.27.13.23.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 13:23:50 -0800 (PST)
+Date: Fri, 27 Nov 2026 21:23:49 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Johan Hovold <johan@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] USB: serial: console: use isdigit() in
+ usb_console_setup()
+Message-ID: <20261127212349.1b393b5b@pumpkin>
+In-Reply-To: <20261106090304.2410-2-blum@kernel.org>
+References: <20261106090304.2410-2-blum@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,108 +100,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Fri,  6 Nov 2026 10:03:05 +0100
+Thorsten Blum <blum@kernel.org> wrote:
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+> Use isdigit() to replace the open-coded implementation.
+> 
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
+> ---
+>  drivers/usb/serial/console.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/usb/serial/console.c b/drivers/usb/serial/console.c
+> index 29f09190846e..25ea57c8fd3f 100644
+> --- a/drivers/usb/serial/console.c
+> +++ b/drivers/usb/serial/console.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/tty.h>
+>  #include <linux/console.h>
+> +#include <linux/ctype.h>
+>  #include <linux/serial.h>
+>  #include <linux/usb.h>
+>  #include <linux/usb/serial.h>
+> @@ -70,7 +71,7 @@ static int usb_console_setup(struct console *co, char *options)
+>  	if (options) {
+>  		baud = simple_strtoul(options, NULL, 10);
+>  		s = options;
+> -		while (*s >= '0' && *s <= '9')
+> +		while (isdigit(*s))
+>  			s++;
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+What was wrong with:
+		baud + simple_strtoul(options, &s, 10);
+Seems to do just what was wanted.
 
-- [High] The refcount-limit fix does not cover kernel TLS, so the case
-  the commit message uses as its example (sunrpc/nfsd sending pagecache…
+David
 
---
+>  		if (*s)
+>  			parity = *s++;
+> 
 
-net: skbuff: limit folio refcount when splicing pages into skbs
-
-This commit changes skb_append_pagefrags() to use try_get_page() instead
-of get_page(). In-kernel MSG_SPLICE_PAGES senders that pass pagecache
-pages directly, such as sunrpc, can then no longer push a folio's
-refcount past the limit. On failure it returns -EFAULT rather than
--EMSGSIZE, so TCP does not just retry with a new skb.
-
-> diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-> index 6da51ad8fd440..957335bcc5961 100644
-> --- a/net/core/skbuff.c
-> +++ b/net/core/skbuff.c
-> @@ -4714,8 +4714,13 @@ int skb_append_pagefrags(struct sk_buff *skb, struct page *page,
->  	if (skb_can_coalesce(skb, i, page, offset)) {
->  		skb_frag_size_add(&skb_shinfo(skb)->frags[i - 1], size);
->  	} else if (i < max_frags) {
-> +		/*
-> +		 * Don't use -EMSGSIZE, as callers would just retry with a new
-> +		 * skb.
-> +		 */
-> +		if (!try_get_page(page))
-> +			return -EFAULT;
->  		skb_zcopy_downgrade_managed(skb);
-> -		get_page(page);
->  		skb_fill_page_desc_noacc(skb, i, page, offset, size);
->  	} else {
->  		return -EMSGSIZE;
-
-[Severity: High]
-Does this cover sockets that have kTLS installed? The commit message uses
-sunrpc/nfsd as its example. With kTLS, though, MSG_SPLICE_PAGES never
-reaches skb_append_pagefrags().
-
-With software kTLS the call chain is:
-
-tls_sw_sendmsg()
-  tls_sw_sendmsg_splice()
-    sk_msg_page_add()
-
-sk_msg_page_add() in include/linux/skmsg.h still takes the reference
-without a check, and it has no way to return an error:
-
-static inline void sk_msg_page_add(struct sk_msg *msg, struct page *page,
-				   u32 len, u32 offset)
-{
-	struct scatterlist *sge;
-
-	get_page(page);
-	...
-}
-
-With TLS device offload, the MSG_SPLICE_PAGES branch in tls_push_data()
-passes the extracted page to tls_append_frag(). That function also uses
-plain get_page(), and the reference is held until the record is ACKed:
-
-net/tls/tls_device.c:tls_append_frag() {
-	...
-	} else {
-		++frag;
-		skb_frag_fill_page_desc(frag, pfrag->page, pfrag->offset,
-					size);
-		++record->num_frags;
-		get_page(pfrag->page);
-	}
-	...
-}
-
-nfsd reaches these paths with xprtsec=tls:
-
-- nfsd_read_splice_ok() only turns off splice reads for krb5i and krb5p.
-- So nfsd_splice_read() still puts pagecache pages into rq_res.
-- svc_tcp_sendmsg() then sends them with MSG_SPLICE_PAGES through
-  sock_sendmsg(), which goes to tls_sw_sendmsg() or tls_device_sendmsg().
-
-nvme-tcp over TLS also sends pages with MSG_SPLICE_PAGES and goes through
-the same paths.
-
-The sunrpc client does not seem to use MSG_SPLICE_PAGES, since
-XS_SENDMSG_FLAGS is MSG_DONTWAIT | MSG_NOSIGNAL. The server side is the
-case that matters here.
-
-Should sk_msg_page_add() (or tls_sw_sendmsg_splice()) and the zero-copy
-tls_append_frag() path also use try_get_page() and fail with -EFAULT in
-the same way? No other patch in the series appears to touch net/tls or
-include/linux/skmsg.h.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-skb_refcount_overflow-v2-0-a6f600a5634a%40kernel.org
