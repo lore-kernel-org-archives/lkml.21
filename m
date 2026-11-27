@@ -1,106 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795754538;
-	b=hsSvgnm2Iypkjf6ETAmeSRQhriuRD5Fe9KsyeH6p4zhmYQaz2A54KFuMWvOzV+JHCvmM
-	 iWoKMpId9t76mncwUDRYRWZSo3/ZV2v+wPDL1RzoEg7N3QD+9CVmPsm2GOSiu9szCTE5h
-	 hRSiZ1q5JnVoG4j1ZMrQNwDqiNVMUiW8qGu2CIcdyLzAfasaXucvw3a1zhN0rc7ByfwRx
-	 eYPsEeqa9M8HhRiyS52BbSrMmeg/RGFYgV+YjBgPUUvBnDFj8Uunx/zuKTE5/+/1jHtHC
-	 uMpMNt7hvfttowfoZ3Msrqnz0rLM83XBgRSL6UX9IdR9CKFcodt6Cdvqd/brMSFpnCw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795754538;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=fdJQM/wfYisv1aa9gNcAaTTKAbpS3pIa6xYkNd+SLh0=;
-	b=bumNZ0CfPl0NGFeakKAHAqiy1z8mW54n1Yp2zhqC4bYD2wf7A0x/3NQPjUqRg/NIB1TI
-	 czOgyYlWEKCJaoABVLL91JWyhiq6CqPPHApNOa8QAZnWNUyeySyrAMDG6w7kgbgwWYsK0
-	 ROKT8LE9mnXoWgt4QSDogLkzD3KMZ4+ZcbKi+0nt3I6Yx3BzrmtXRzvigEKCiydQ8etpV
-	 UC/2Z2el2VpvXpeRqrcTMuwQJ+qu7vknXM9iOWn7DujtaDff5ZCj56zVg5m9sXouVf6Uc
-	 4rzqSi1yoKlRNlgfgMDreS7d/Hizg5j6YpG122DlMd1liyevhDInz9qGONviYKm3erQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JeDTAM7d;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.12
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012012.outbound.protection.outlook.com [52.101.43.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795754559;
+	b=gZQ0MEb8fuEYa9k6cPDMQHk/+ASNw48LAP8YqNvlUkRzqvrsl4aipOyPZQD+XNOg8ddC
+	 juLmgBO3o9g8d+TyNbSNexLe+y693JRfRDb/a1LYcJO8f3tJobIGF/qno7h+VO9OCL88U
+	 HRR6d1kwyw+YdAYGKPqug3kkkNhVk/knMyueoWmklIob6sICtu18ut0WxvYVUZu/PiI66
+	 4LDozZ8+czIqXZlC7VsSfazn1uQCvzWLRAJVsirRxTbUPvNcgqtSCO4NPbbIy6gxjuz1N
+	 Sy4ACySXmNmf1GqoAPANzQyoytIV+ZtSKtX3602Kgqxdv0+yQK8z8xKz0o8o5sLY1qA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795754559;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=fTkNUFbOEJacY/AArIMMZE4synA3rFS1O0j/Gy2pLMc=;
+	b=gyqhZyzis3oq3rF6Li26+MyyRTX3EQnc7YYcpCzPyc+Ntmz2vPOO8rnfLON55vArpSJr
+	 Xe4/EpxryVjz458bf94FFziHP/drWRwlRJLSRUl/2c+n+YDaBwDJDJDVJulYa3WD0u9jW
+	 oTBxU2+u50/UfznrpejX2jz8a1I26IP4t7QnQ5sTbqg3rjTA+/xHX0Xug+kFwnWJIL1Lp
+	 yMl7ywLaEicroh/IeDpgb0IKxfHKMHE1L618NwTkYWs55LrTiq70MQk0xcAdvnudJVrzK
+	 TuWR++HAaNih6l04jEIcvZKKcGsZKsqfsg9YQPWOyJA9UC7FjlFiTCVgyoh/CHSb9aQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w4bQNgov;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD71E606A326;
-	Fri, 27 Nov 2026 04:42:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD71E606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9B29606A699
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:42:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9B29606A699
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=JeDTAM7d
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nueYcvWWLqSrgXVGQr4ZmMXIDaRb88ZmWFoWuKmB1+nl31yDzQtVHHNWE7q4XafODz1v5K9uszSl8HaND4GgGGvP8cWeuZxVbHLQjRy6EHcKkF1r4UO5AQnaGjGro+hsUOHwSiU7K/j8AeIkq2dERrBuyfaFa8J0Je7/LozoVUY8U9uIWl0oDU33+1ednhil/WNKJd4R9E5Gsmpuwl709yj+haZDLpyJXwfrb/YoSxvNJxaacnx2BhXfsDdHtPC+R6cIk7J297X0lvOapo9yZNQSVivyJxUUGMxaW9PClZYjdDZNuo53vST9Rpv7Rnvrjz4CcageknUPrkpEB1TEUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fdJQM/wfYisv1aa9gNcAaTTKAbpS3pIa6xYkNd+SLh0=;
- b=qI/OxPuPZABfFw7AGfR6tNIIqDeGOwM0Kce4wyiTtFkZAKUxAD7SucqNmr1iEPwwPDJrtx6KvsFeYaaf8ggGEYzsssD4GqNnNq15sPnGpkCjov8f01qg8kz9g559MJFPTYqggQW3p3jhSMAnzfKXEfx45bGkEP/lvX6+h+Zdqmy4BtHGEYtdzT7VQ6t2taJxPKHb/p5qYVvVxC/HPTASbeLmd2bhk4Fvg+xK/++aSiLOFwibxlMnCi2e9uf7SC9Q7zWsWKsnvKiMYGNnIX9o+0ZTsaTQnuwx2x12lv/SSwqjMyZw6Q34QvS4GCoInsKptexZRvFVlbpIU0uaB18wbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fdJQM/wfYisv1aa9gNcAaTTKAbpS3pIa6xYkNd+SLh0=;
- b=JeDTAM7dgtT0qCYHg9mJSDed1Gi7C57eP0jW95oMzEhAHSo2l8cHljipr6qoJf+wdyO6pRjxFHWCiujM9FPmivVjbmPRzLuayKvXyz2Q00aaxlxiCl4qgQS0bTX5MTWAE3KfBrZQHjpnoM+newdrIyVQpCWbvkOymkFe4Oe7aYuwkBeNkdbvnJ8TcJxJCLVfR/jkzthM+QEdKlFk7LFWipTkcR3rI9LqaocDs3xUXVDID6JWml3yJicGNwAqPm4jFSB0dNP7VazwDcMQ5LooWmKBW3wveqWulbXz/41kSkRwdQLSXsFfyhSf/rqJUPrk98fUPHmat7Af0CbadI0LVg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by DS7PPF539334D8E.namprd12.prod.outlook.com (2603:10b6:f:fc02::945) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 04:40:13 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 04:40:13 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- Svyatoslav Ryhel <clamor95@gmail.com>
-Subject:
- Re: [PATCH v8 03/12] drm/panel: panel-hitachi-tx10d07vm0baa: Convert to
- mipi_dbi_write_seq_multi()
-Date: Fri, 27 Nov 2026 13:40:10 +0900
-Message-ID: <86PXavKOQP6x9YV3szjG2A@nvidia.com>
-In-Reply-To: <20261122081820.53199-4-clamor95@gmail.com>
-References:
- <20261122081820.53199-1-clamor95@gmail.com>
- <20261122081820.53199-4-clamor95@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0035.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:29d::8) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w4bQNgov
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-14394530ec6so1439239c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:42:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795754556; x=1796359356; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fTkNUFbOEJacY/AArIMMZE4synA3rFS1O0j/Gy2pLMc=;
+        b=w4bQNgovzBqbn7wxOtFeBfzCfEE0u5Fil39UVkVXhFPypQYAdMCS1RQ+grYYbfB/GZ
+         P+5SKNxUSFFzHSISI09IXvqpBKdHMWWLped1dL9ulASEktS8UgtIuYUdUqgcjohqYb+f
+         MYLUP144mAKp0vK2ZrL0F1hwmFHh1dU66k+jG2Ld40jQowLRB7wyXe7d69ID9NU9PpO0
+         o6kKT06AUBD9IHuGQ8IBOgsmp+Zozg46EMx/CEFIXdXO5wcMs7QuKhcB9UqHwS8YkKdW
+         Alfe2fhsS/SxqXGaFNEHedVoBUVxvm9y+0pVY62nNewws/zdJyk4JKIVjnQ5fZqm6pXg
+         QZdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795754556; x=1796359356;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fTkNUFbOEJacY/AArIMMZE4synA3rFS1O0j/Gy2pLMc=;
+        b=wB9zNoVMBdxvYeGRNksgWsxwGPmm5EJBi1iCPSqal3cnHR8JGLsnWn5zydkWx5rAvc
+         MIXYP960ZTIycciNGciTq4rIdf9Ur/c2WUh/MwQNv5tG6x0Lrnt3R64VNDFlmH81bVMq
+         AxhktlONg3NHsSN3PEyKCW604hBDTL3PXbk32EqfrnNHT0iaak0V4LucG8oXbVR7Tq/a
+         rufwq4/BKx9Qeg0/XyjKByiAMetU2zrCiT9SHzUVvjpXBAj1MMDMEW7eTobo9Bu5LaGk
+         DRl1Z2Fg5eVoIut7PU9FEWst0ldh7Nhrf+mYa2q8hsvi8dt5+QHGvnYgPIcXpmDg1faC
+         l72g==
+X-Forwarded-Encrypted: i=1; AL+hErF7F9BI1UpOdWUkawmRTYDKUy92+rn80A51yB6EBKmoRJdo2mTE1y1vbeHhQNwrItHNl5TnFNgogRAPOiE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+rly9ri1yTCqUR1qIbGiV0ZX5NWL6qQSCCDl04CemmLauYVVr4
+	sU0T9AJVLcVSKU4V60BhkoWbwQOoYPhLAAeYeX+ySpxB5x2QgUFu0Oh+
+X-Gm-Gg: AZFdTZe+qOLbOSLgxIP2SmabocXdTWbb8+vdv0BdZjsYtkuDIIBnU4sbSuKt8vPDH49
+	UxkUKdBLUYPxh72cvb7PYW6oUYBIih1QTJdiHSArIl5t/0S8trSJZS3sWA4H53M7p4IyvAL2kx7
+	WRS4MAosIi9RGbjYabaDYRMrSM8apj7bvsRptQ2weIAoamJcZNst06Jh5eUlQ2jiSz8cxKWpODw
+	Dms/ue53J+BlexntOtXgg2TpWld6ApFypzH4LUJL09hFxMtGKf1uPiGa+F/NepU/OFaf4PIa/pq
+	V0mSqh/blqSDR9XX9j/TNEeCNxh6RFdJnSlMyYzr46DXEBojDi7ISGzjPzxtgo17pP8/XsH+ljd
+	pve11EG6xJJAVrY/u5j0zEbbuuy6V7aNGn1dAuuy1UdIcpvIUkhtxCbDOI/aLpu9gajrb0F0/+O
+	UGsGap0gVeW79KbY9/QlUIAzRj7FFSzT7MNPjVHI4GD2oD8ykmnS2Gf9W+WmkCwshPJGccwQIgE
+	ywjx9tKH0Wq/8OyuEyvXKfyUwWhvOLjdw4uQzlQ5fjdzRcphn9BfYWaCgAcqaxAw5zMnG3lg++S
+	FhBabmLgpL+Ee7gBWuwWDudGQ0lErGUTDdMk/JwycwEifoIJ8i/57awkJwf7/TZq
+X-Received: by 2002:a05:7022:f516:b0:143:26cf:8615 with SMTP id a92af1059eb24-1b5568ded03mr20134659c88.25.1795754555855;
+        Thu, 26 Nov 2026 20:42:35 -0800 (PST)
+Received: from carrot.home.local (madb688455.ap.nuro.jp. [219.104.132.85])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm88000388c88.9.2026.11.26.20.42.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 20:42:34 -0800 (PST)
+From: Ryusuke Konishi <konishi.ryusuke@gmail.com>
+To: Viacheslav Dubeyko <slava@dubeyko.com>
+Cc: Wang Jianjian <wangjianjian3@huawei.com>,
+	linux-nilfs <linux-nilfs@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Zheng Zheng <fengaojigui88@gmail.com>,
+	Joshua Crofts <joshua.crofts1@gmail.com>
+Subject: [PATCH 0/8] nilfs2: support GC error rollback and avoid infinite retry hangs
+Date: Fri, 27 Nov 2026 13:40:53 +0900
+Message-ID: <20261127044231.37630-1-konishi.ryusuke@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,345 +97,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|DS7PPF539334D8E:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57e326d3-837a-4165-182a-08df4c4086d6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|1800799024|10070799003|23010399003|366016|4143699003|11063799006|261009223027099003|22082099003|18002099003|921020|10067099003|56012099006|261102123227099003|261026121527099003|261026140227099003|261021123027099003|261028144727099003|261021121427099003|261022105027099003|261022113327099003|261022075727099003;
-X-Microsoft-Antispam-Message-Info:
-	BsotrAzJ56rYHq3rt8NIlSSfX+i0iQlTFiz89/zsBxT+ldBO8c8e0GL3rxVuaSbe5K9VgPYHsZh4KYqSr9ogMe6i4y7vuEEotyPnNGBUgmxGq1Al+Z20AnSq14EL6L2fEl07I9ySlzQdbKSDW3CPrVIhtgSYOOBAmohmPcchKy1FcfdJdET60HkKlBPSy496Hw67nS6jbzbW64ZhnneOL9KTmBsNRQ6Ah12wcKzh069snewAtzAROM1Vpu8g/qBR9SYaqPEMIQ3raczNvlHMxa15lv9WqhT04apXY8NqTDR1nhWpTgZ5z9ELagWV5h5hyXUt8RYr4fbE0RrpcEtoU0C7huW/lOb8pyLD5KrgUPfI7LrHUB4II9TwtnY7JW2U9UoBw7/O93ZF9SG8mN9mmMwlVw5Yw2DCDHmRlpUASFoC4/JQdnN7eNXeAWJ9ijX/F1EE8/ntAIpF3A2eIz6+/WzRy74RO74hQmRHT+9sIBZAcGC2xxxtBYPmzVPeZhJL05zRpadZlBSkomyo+SeWH3m5Q0EpWBiVK+dM9tKFxnUjEsYEoLkLOj+KcPcRPbUgY70GBmP2CE4RJHRrWDCtKv9emuJn/I9NE0jVfQtEB7PgkACxBvBbyBLsv0jzkbI+J3JxMU3tLcZafnqU9n1h/50KQ9p1vR+6tEUd9Kg4ILdpT0RbTiqsOP4UBvdiqKG0qQlvUU7PR7S/2aqfU/GYZQ==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(10070799003)(23010399003)(366016)(4143699003)(11063799006)(261009223027099003)(22082099003)(18002099003)(921020)(10067099003)(56012099006)(261102123227099003)(261026121527099003)(261026140227099003)(261021123027099003)(261028144727099003)(261021121427099003)(261022105027099003)(261022113327099003)(261022075727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?b1drK1J3ck5JcG9UQ2ZpOFV1UGlaZUpTY3gvaTd0Y3RZL1FlOUZkMnY2L1la?=
- =?utf-8?B?ZDhRK3I1UkFXdWJXbGxKVzYrMXg1UkVNdzJvUXNETGFKMVZldWo2S2JXbUNM?=
- =?utf-8?B?RFRmcENlTklvQUhRS0F2eFg4d2FNR0xlOHVZeUszYWVlc2hobDUyNkxuZzRP?=
- =?utf-8?B?VXIybkVYTlh4dWp5SXJIVUFyT05LbTZYaEZ2bkhEZnZtWkxUd1ltVVZMV0Mw?=
- =?utf-8?B?MFpacmNKelJUSFB1anVuWndid0d4dFRWYlFHL1IvbXZ1Mjh2WGRVRkxLbkRz?=
- =?utf-8?B?SWtNMVZnUkxsUVBIMlFHdVNsUEFqNWdUQ1RTQys5NkRTUVloTXJid1ZHSXRl?=
- =?utf-8?B?UTZuR2s2eDlRTTBLV2YzbGNTQytYdkNIM0ZTTUNNa0tINW5tNU1PcGplODB4?=
- =?utf-8?B?TGVLV2dOd3dPUGZWSk5xQWEwamROWkloVTZ1NXBxZkFRalZMZ0lnWGx6dGFL?=
- =?utf-8?B?TXdZWUVSQTJjKy83MUdsMkVvbUpaei9TS2tQbWYwWWdsb2ZXeUxsS2RQK2ZJ?=
- =?utf-8?B?bmgyK2YyeTQ3N0hrMXA1MklSekg1bGVZdy90N0NIOWR1WXVRbFhXdDMxek80?=
- =?utf-8?B?ZlV0V2hXRVk3R0xXWWFEZXQ4aVBhdE1yZ3JwWkU4amV6L1V4cUFuck5TcExS?=
- =?utf-8?B?RWVIOFZGc3JPV3c1Vk9XMU5jS0tqOW9tRXNNTFFpTFpSOFZ2UkpmaFdWR3hk?=
- =?utf-8?B?RjhNdVBLNFJ4VHZPVXhnSVcvWEYwbU1sVlc3YjBXYXpQR2krQm0xNVdmWDB6?=
- =?utf-8?B?ZGNVc1NleDNsbkpVNkF0Qmp2RWQ0Q0M3NHI1QnNibTg4ejhXaG11bzhEM2xX?=
- =?utf-8?B?SURwVHFvUjJNSUY4amd6eGUyUk9rQlBISURYM1RMV3RzdGRxakt4YkU4VjRq?=
- =?utf-8?B?aytpSmZ0SjJFWjFFQUVUNC9xMXdQTGZQVDZNV2xUL3gxaC9xeTBKenlJV2Zx?=
- =?utf-8?B?dW5Fa05FNU41YVJON2NnV2VxWWlXckZIYXM3enpRZTNkZysvSU9vdTRHRmlF?=
- =?utf-8?B?cEMxTGtsaGVvdlpkUE9oM0orWkRnZ3RJSzk5aC9WTzlxWjBaWHBDT0RZTEhz?=
- =?utf-8?B?aTZNTldNWm1weEJGMFptMkFiQTcrZFc0UWw2bUZpSGYvU3ZaK3AzeXoxWits?=
- =?utf-8?B?VUxJZzgxRmtKdy9LeU5rb3BFcTRhQmJKdWszc044ZWZNNjFYdTByY2FuN2p6?=
- =?utf-8?B?NUJPR3VTMFJ5OCtmVW1sMU9PSHp2MGROYXVyZjJCZmlUVWhWdlN1amt6cGxx?=
- =?utf-8?B?NENWQUhXY0E0RGZEejdzQ0lyWTNwblU0bTloOW1tZ21JTk9ielNuV2FTK1pM?=
- =?utf-8?B?NWpnZHI1VGdtMThScEp0MjhKN0pHbmljM1dta1Z2R3lwdHFSczMrK2JPMTVS?=
- =?utf-8?B?Qk5nR3FiYTVpUzlhc0gvQ25GenVUQjNGSHdyVkp4elZPVE13aFlXaDVMM044?=
- =?utf-8?B?c1VqdUR2MlkvTllCb2ROaUt1cGpQYndMTFNoUm5ZZ0dLZklyUGxNK0w4Zmlm?=
- =?utf-8?B?azhxVUVtTWszNU51YzEwK1ZhY3BrTmxxTnRNZUo2UWQ2dm11bEdzbFRGSVVa?=
- =?utf-8?B?VCtXbGd5SHpvL1l2TEt5OWtGZzhkaE5DNUlHTVRFRmM4b2xOREVxUHlTZHU5?=
- =?utf-8?B?WUJ1bnBZTjJWVTVHcFBzYVV3N2dzakVyamQ0VkRuYXZOc1ZXcG1uZ2xLVU1w?=
- =?utf-8?B?UUJiVWl4QVh5UDhUVXdBTUh5UHArZWxXYkJYL3ZjOUx6ZjFmaFhVbDI0MWc1?=
- =?utf-8?B?YnFTZEpkcTZDNE5rV2loS2pqWmhad0I0QnhIbTh5U3lYRG9XZ00rNkVtSzZv?=
- =?utf-8?B?VUlaUnlrSkhUVm5JckhmNFU3T0RWRzNvRnhPOThkSkdld1JnSkY1N1RBTjgw?=
- =?utf-8?B?bmVBcmpGVjF6ZHdGV3BJTnRudWRXNFRZRHlqNVE3TytLdHgwWmhFRlNVbGgr?=
- =?utf-8?B?UTRrbXZGNWQ2cUQ0VWc4U2cyY0dab1JWRlN1bkpSeVEyb0l0VGovaTUveVpC?=
- =?utf-8?B?bXAzWWRZY2c5TWlCQUV5anJVVzBHVHEyQnNYb3h2azh2bXJxNFRLTFk5U1lm?=
- =?utf-8?B?OVp5bzlDK0FBTlBKYlBOUmYwZ3NkbDBFTGpPWHQxOVJGait4UUtGNGdiQ3pE?=
- =?utf-8?B?UlhXSlVWOXF5cGJHQ2RWN0h2UENHWEhXOWZwOG5aZC96cG9WS1BSdlN5NC9E?=
- =?utf-8?B?RWFza2Z0Z2hVQlJqUi9mQUlhaU5vQWRLRGZqOWNaZk1RdmZIM0ZaMFMxdWJR?=
- =?utf-8?B?eXVwQlpNNGZlTlBnajU5N2dTVDNuckVCWlZMZlVQSzhRS29VUG1UWmpoVjBr?=
- =?utf-8?B?ck9WMStUVlNMRWkxZWNuT2xOcGQzNDdIL0ZxclhUS3h2aVhHbTJ0ZXAvWEcw?=
- =?utf-8?Q?T8RTD+UuNbZuNAiKmjy/kjKa8iu1nDc7h4OSAVN/W/GmO?=
-X-MS-Exchange-AntiSpam-MessageData-1: NGJdvIcxPf3b0w==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57e326d3-837a-4165-182a-08df4c4086d6
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:40:13.5781
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BN709hvJ0vhvSzFOlLUnVl2chdw3AlCPfm06X5nUR1qM9TL/Mp7VQoA8WZRKr+HpbBriUVMBy3j0hh2cIHh1sA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PPF539334D8E
+Content-Transfer-Encoding: 8bit
 
-On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
-> Switch from the internal panel command-sending macro to a generic one
-> to improve code reuse.
->=20
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> ---
->  .../drm/panel/panel-hitachi-tx10d07vm0baa.c   | 213 +++++++++---------
->  1 file changed, 101 insertions(+), 112 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c b/driver=
-s/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
-> index 318ece68b7806..c5b59a7341d8e 100644
-> --- a/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
-> +++ b/drivers/gpu/drm/panel/panel-hitachi-tx10d07vm0baa.c
-> @@ -37,19 +37,6 @@ static inline struct hitachi_tx10d07vm0baa *to_hitachi=
-_tx10d07vm0baa(struct drm_
->  	return container_of(panel, struct hitachi_tx10d07vm0baa, panel);
->  }
-> =20
-> -#define panel_dbi_command(priv, cmd, seq...) \
-> -({ \
-> -	const u8 d[] =3D { seq }; \
-> -	struct drm_panel *panel =3D &(priv)->panel; \
-> -	struct mipi_dbi_device *dbidev =3D (priv)->dbidev; \
-> -	struct device *dev =3D panel->dev; \
-> -	int ret; \
-> -	ret =3D mipi_dbi_command_stackbuf((dbidev)->dbi, cmd, d, ARRAY_SIZE(d))=
-; \
-> -	if (ret) \
-> -		dev_err_ratelimited(dev, "error %d when sending command %#02x\n", ret,=
- cmd); \
-> -	ret; \
-> -})
-> -
->  static int hitachi_tx10d07vm0baa_prepare(struct drm_panel *panel)
->  {
->  	struct hitachi_tx10d07vm0baa *priv =3D to_hitachi_tx10d07vm0baa(panel);
-> @@ -76,118 +63,120 @@ static int hitachi_tx10d07vm0baa_prepare(struct drm=
-_panel *panel)
->  static int hitachi_tx10d07vm0baa_enable(struct drm_panel *panel)
->  {
->  	struct hitachi_tx10d07vm0baa *priv =3D to_hitachi_tx10d07vm0baa(panel);
-> -
-> -	panel_dbi_command(priv, MIPI_DCS_SET_PARTIAL_ROWS, 0x00, 0x00, 0x03, 0x=
-1f);
-> -	panel_dbi_command(priv, MIPI_DCS_SET_SCROLL_AREA, 0x00, 0x00, 0x03, 0x2=
-0,
-> -			  0x00, 0x00);
-> -
-> -	panel_dbi_command(priv, MIPI_DCS_SET_ADDRESS_MODE, 0x0a);
-> -	panel_dbi_command(priv, MIPI_DCS_SET_SCROLL_START, 0x00, 0x00);
-> -
-> -	panel_dbi_command(priv, MIPI_DCS_SET_PIXEL_FORMAT, MIPI_DCS_PIXEL_FMT_2=
-4BIT);
-> -	panel_dbi_command(priv, MIPI_DCS_SET_TEAR_SCANLINE, 0x00, 0x00);
-> -
-> -	panel_dbi_command(priv, 0x71, 0x00);		/* Ex_Vsync_en */
-> -
-> -	panel_dbi_command(priv, 0xb2, 0x00);		/* VCSEL */
-> -	panel_dbi_command(priv, 0xb4, 0xaa);		/* setvgmpm */
-> -	panel_dbi_command(priv, 0xb5, 0x33);		/* rbias1 */
-> -	panel_dbi_command(priv, 0xb6, 0x03);		/* rbias2 */
-> -
-> -	panel_dbi_command(priv, 0xb7, 0x1a, 0x33, 0x03, 0x03,
-> -			  0x03, 0x00, 0x00, 0x01, 0x02, 0x00,
-> -			  0x00, 0x04, 0x00, 0x01, 0x01, 0x01);	/* set_ddvdhp */
-> -	panel_dbi_command(priv, 0xb8, 0x1c, 0x53, 0x03, 0x03,
-> -			  0x00, 0x01, 0x02, 0x00, 0x00, 0x04,
-> -			  0x00, 0x01, 0x01);			/* set_ddvdhm */
-> -
-> -	panel_dbi_command(priv, 0xb9, 0x0a, 0x01, 0x01, 0x00,
-> -			  0x00, 0x00, 0x02, 0x00, 0x02, 0x01);	/* set_vgh */
-> -	panel_dbi_command(priv, 0xba, 0x0f, 0x01, 0x01, 0x00,
-> -			  0x00, 0x00, 0x02, 0x00, 0x02, 0x01);	/* set_vgl */
-> -	panel_dbi_command(priv, 0xbb, 0x00, 0x00, 0x00, 0x00,
-> -			  0x01, 0x02, 0x01);			/* set_vcl */
-> -
-> -	panel_dbi_command(priv, 0xc1, 0x01);		/* number of lines */
-> -	panel_dbi_command(priv, 0xc2, 0x08);		/* number of fp lines */
-> -	panel_dbi_command(priv, 0xc3, 0x04);		/* gateset(1) */
-> -	panel_dbi_command(priv, 0xc4, 0x4c);		/* 1h period */
-> -	panel_dbi_command(priv, 0xc5, 0x03);		/* source precharge */
-> -	panel_dbi_command(priv, 0xc6, 0xc4, 0x04);	/* source precharge timing *=
-/
-> -	panel_dbi_command(priv, 0xc7, 0x00);		/* source level */
-> -	panel_dbi_command(priv, 0xc8, 0x02);		/* number of bp lines */
-> -	panel_dbi_command(priv, 0xc9, 0x10);		/* gateset(2) */
-> -	panel_dbi_command(priv, 0xca, 0x04, 0x04);	/* gateset(3) */
-> -	panel_dbi_command(priv, 0xcb, 0x03);		/* gateset(4) */
-> -	panel_dbi_command(priv, 0xcc, 0x12);		/* gateset(5) */
-> -	panel_dbi_command(priv, 0xcd, 0x12);		/* gateset(6) */
-> -	panel_dbi_command(priv, 0xce, 0x30);		/* gateset(7) */
-> -	panel_dbi_command(priv, 0xcf, 0x30);		/* gateset(8) */
-> -	panel_dbi_command(priv, 0xd0, 0x40);		/* gateset(9) */
-> -	panel_dbi_command(priv, 0xd1, 0x22);		/* flhw */
-> -	panel_dbi_command(priv, 0xd2, 0x22);		/* vckhw */
-> -	panel_dbi_command(priv, 0xd3, 0x04);		/* flt */
-> -	panel_dbi_command(priv, 0xd4, 0x14);		/* tctrl */
-> -	panel_dbi_command(priv, 0xd6, 0x02);		/* dotinv */
-> -	panel_dbi_command(priv, 0xd7, 0x00);		/* on/off sequence period */
-> -
-> -	panel_dbi_command(priv, 0xd8, 0x01, 0x05, 0x06, 0x0d,
-> -			  0x18, 0x09, 0x22, 0x23, 0x00);		/* ponseqa */
-> -	panel_dbi_command(priv, 0xd9, 0x24, 0x01);			/* ponseqb */
-> -	panel_dbi_command(priv, 0xde, 0x09, 0x0f, 0x21, 0x12,
-> -			  0x04);					/* ponseqc */
-> -
-> -	panel_dbi_command(priv, 0xdf, 0x02, 0x06, 0x06, 0x06,
-> -			  0x06, 0x00);					/* pofseqa */
-> -	panel_dbi_command(priv, 0xe0, 0x01);				/* pofseqb */
-> -
-> -	panel_dbi_command(priv, MIPI_DCS_SET_DISPLAY_BRIGHTNESS, 0xff);
-> -	panel_dbi_command(priv, MIPI_DCS_WRITE_CONTROL_DISPLAY, 0x40);
-> -
-> -	panel_dbi_command(priv, 0xe2, 0x00, 0x00);		/* cabc pwm */
-> -	panel_dbi_command(priv, 0xe3, 0x03);			/* cabc */
-> -	panel_dbi_command(priv, 0xe4, 0x66, 0x7b, 0x90, 0xa5,
-> -			  0xbb, 0xc7, 0xe1, 0xe5);		/* cabc brightness */
-> -	panel_dbi_command(priv, 0xe5, 0xc5, 0xc5, 0xc9, 0xc9,
-> -			  0xd1, 0xe1, 0xf1, 0xfe);		/* cabc brightness */
-> -	panel_dbi_command(priv, 0xe7, 0x2a);			/* cabc */
-> -	panel_dbi_command(priv, 0xe8, 0x00);			/* brt_rev */
-> -	panel_dbi_command(priv, 0xe9, 0x00);			/* tefreq */
-> -
-> -	panel_dbi_command(priv, 0xea, 0x01);			/* high speed ram */
-> -
-> -	panel_dbi_command(priv, 0xeb, 0x00, 0x33, 0x0e, 0x15,
-> -			  0xb7, 0x78, 0x88, 0x0f);		/* gamma setting r pos */
-> -	panel_dbi_command(priv, 0xec, 0x00, 0x33, 0x0e, 0x15,
-> -			  0xb7, 0x78, 0x88, 0x0f);		/* gamma setting r neg */
-> -	panel_dbi_command(priv, 0xed, 0x00, 0x33, 0x0e, 0x15,
-> -			  0xb7, 0x78, 0x88, 0x0f);		/* gamma setting g pos */
-> -	panel_dbi_command(priv, 0xee, 0x00, 0x33, 0x0e, 0x15,
-> -			  0xb7, 0x78, 0x88, 0x0f);		/* gamma setting g neg */
-> -	panel_dbi_command(priv, 0xef, 0x00, 0x33, 0x0e, 0x15,
-> -			  0xb7, 0x78, 0x88, 0x0f);		/* gamma setting b pos */
-> -	panel_dbi_command(priv, 0xf0, 0x00, 0x33, 0x0e, 0x15,
-> -			  0xb7, 0x78, 0x88, 0x0f);		/* gamma setting b neg */
-> -
-> -	panel_dbi_command(priv, MIPI_DCS_EXIT_SLEEP_MODE);
-> +	struct mipi_dbi_multi_context ctx =3D { .dbidev =3D priv->dbidev };
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_PARTIAL_ROWS, 0x00, 0x00, 0=
-x03, 0x1f);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_SCROLL_AREA, 0x00, 0x00, 0x=
-03, 0x20,
-> +				 0x00, 0x00);
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_ADDRESS_MODE, 0x0a);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_SCROLL_START, 0x00, 0x00);
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_PIXEL_FORMAT, MIPI_DCS_PIXE=
-L_FMT_24BIT);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_TEAR_SCANLINE, 0x00, 0x00);
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0x71, 0x00);		/* Ex_Vsync_en */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb2, 0x00);		/* VCSEL */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb4, 0xaa);		/* setvgmpm */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb5, 0x33);		/* rbias1 */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb6, 0x03);		/* rbias2 */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb7, 0x1a, 0x33, 0x03, 0x03,
-> +				 0x03, 0x00, 0x00, 0x01, 0x02, 0x00,
-> +				 0x00, 0x04, 0x00, 0x01, 0x01, 0x01);	/* set_ddvdhp */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb8, 0x1c, 0x53, 0x03, 0x03,
-> +				 0x00, 0x01, 0x02, 0x00, 0x00, 0x04,
-> +				 0x00, 0x01, 0x01);			/* set_ddvdhm */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xb9, 0x0a, 0x01, 0x01, 0x00,
-> +				 0x00, 0x00, 0x02, 0x00, 0x02, 0x01);	/* set_vgh */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xba, 0x0f, 0x01, 0x01, 0x00,
-> +				 0x00, 0x00, 0x02, 0x00, 0x02, 0x01);	/* set_vgl */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xbb, 0x00, 0x00, 0x00, 0x00,
-> +				 0x01, 0x02, 0x01);			/* set_vcl */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc1, 0x01);		/* number of lines */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc2, 0x08);		/* number of fp lines */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc3, 0x04);		/* gateset(1) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc4, 0x4c);		/* 1h period */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc5, 0x03);		/* source precharge */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc6, 0xc4, 0x04);	/* source precharge t=
-iming */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc7, 0x00);		/* source level */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc8, 0x02);		/* number of bp lines */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xc9, 0x10);		/* gateset(2) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xca, 0x04, 0x04);	/* gateset(3) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xcb, 0x03);		/* gateset(4) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xcc, 0x12);		/* gateset(5) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xcd, 0x12);		/* gateset(6) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xce, 0x30);		/* gateset(7) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xcf, 0x30);		/* gateset(8) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd0, 0x40);		/* gateset(9) */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd1, 0x22);		/* flhw */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd2, 0x22);		/* vckhw */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd3, 0x04);		/* flt */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd4, 0x14);		/* tctrl */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd6, 0x02);		/* dotinv */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd7, 0x00);		/* on/off sequence period =
-*/
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd8, 0x01, 0x05, 0x06, 0x0d,
-> +				 0x18, 0x09, 0x22, 0x23, 0x00);		/* ponseqa */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xd9, 0x24, 0x01);		/* ponseqb */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xde, 0x09, 0x0f, 0x21, 0x12,
-> +				 0x04);					/* ponseqc */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xdf, 0x02, 0x06, 0x06, 0x06,
-> +				 0x06, 0x00);					/* pofseqa */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe0, 0x01);				/* pofseqb */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_DISPLAY_BRIGHTNESS, 0xff);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_WRITE_CONTROL_DISPLAY, 0x40);
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe2, 0x00, 0x00);		/* cabc pwm */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe3, 0x03);			/* cabc */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe4, 0x66, 0x7b, 0x90, 0xa5,
-> +				 0xbb, 0xc7, 0xe1, 0xe5);		/* cabc brightness */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe5, 0xc5, 0xc5, 0xc9, 0xc9,
-> +				 0xd1, 0xe1, 0xf1, 0xfe);		/* cabc brightness */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe7, 0x2a);			/* cabc */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe8, 0x00);			/* brt_rev */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xe9, 0x00);			/* tefreq */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xea, 0x01);			/* high speed ram */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, 0xeb, 0x00, 0x33, 0x0e, 0x15,
-> +				 0xb7, 0x78, 0x88, 0x0f);		/* gamma setting r pos */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xec, 0x00, 0x33, 0x0e, 0x15,
-> +				 0xb7, 0x78, 0x88, 0x0f);		/* gamma setting r neg */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xed, 0x00, 0x33, 0x0e, 0x15,
-> +				 0xb7, 0x78, 0x88, 0x0f);		/* gamma setting g pos */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xee, 0x00, 0x33, 0x0e, 0x15,
-> +				 0xb7, 0x78, 0x88, 0x0f);		/* gamma setting g neg */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xef, 0x00, 0x33, 0x0e, 0x15,
-> +				 0xb7, 0x78, 0x88, 0x0f);		/* gamma setting b pos */
-> +	mipi_dbi_write_seq_multi(&ctx, 0xf0, 0x00, 0x33, 0x0e, 0x15,
-> +				 0xb7, 0x78, 0x88, 0x0f);		/* gamma setting b neg */
-> +
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_EXIT_SLEEP_MODE);
->  	msleep(110);
-> =20
-> -	panel_dbi_command(priv, MIPI_DCS_SET_DISPLAY_ON);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_DISPLAY_ON);
-> =20
-> -	return 0;
-> +	return ctx.accum_err;
->  }
-> =20
->  static int hitachi_tx10d07vm0baa_disable(struct drm_panel *panel)
->  {
->  	struct hitachi_tx10d07vm0baa *priv =3D to_hitachi_tx10d07vm0baa(panel);
-> +	struct mipi_dbi_multi_context ctx =3D { .dbidev =3D priv->dbidev };
-> =20
-> -	panel_dbi_command(priv, MIPI_DCS_SET_DISPLAY_OFF);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_SET_DISPLAY_OFF);
->  	msleep(35);
-> =20
-> -	panel_dbi_command(priv, MIPI_DCS_ENTER_SLEEP_MODE);
-> +	mipi_dbi_write_seq_multi(&ctx, MIPI_DCS_ENTER_SLEEP_MODE);
->  	msleep(50);
-> =20
-> -	return 0;
-> +	return ctx.accum_err;
->  }
-> =20
->  static int hitachi_tx10d07vm0baa_unprepare(struct drm_panel *panel)
-> --=20
-> 2.53.0
->=20
->=20
+Hi Viacheslav,
 
-Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
+Please apply this series for the next cycle.
+
+This patch series rectifies an early design flaw in the garbage
+collection mechanism itself and fundamentally resolves the task hang
+issue seen in the GC ioctl (NILFS_IOCTL_CLEAN_SEGMENTS).  To make GC
+safely abortable upon errors, this series strengthens the error-recovery
+and rollback logic for metadata updated during GC, specifically segment
+usage information (sufile) and virtual block address mappings (DAT).
+
+Historically, NILFS2 GC was designed around a point of no return: once
+the log writer started, it looped until a full-format log (including a
+checkpoint and a super root) was successfully written out.  Because GC
+runs exclusively while holding ns_segctor_sem for writing, any
+persistent error during GC blocked the log writer thread and write
+operations indefinitely, causing filesystem hangs.
+
+An initial fix by Joshua Crofts (commit ce5a5ad1a833) took the right
+direction by introducing an escape path when the filesystem
+transitioned to read-only mode (-EROFS).  However, two issues remained:
+
+1. Cached GC inodes were leaked when GC exited on error, which Wang
+   Jianjian addressed in the first patch of this series.
+2. Persistent errors that do not trigger read-only remounts (such as
+   -EIO or -ENOSPC) still caused infinite retry loops, as further
+   reported by Zheng Zheng.
+
+Whenever GC aborts mid-way, however, an underlying issue arises:
+bailing out of the GC loop leaves irreversible inconsistencies in
+on-disk and in-memory metadata.  While this was previously masked
+because the escape path was only taken during emergency read-only
+degradation, expanding error exits to general errors exposes this
+problem, breaking subsequent GC runs and causing userland tools such
+as "lssu -l" to fail permanently.
+
+To build upon commit ce5a5ad1a833 and make error exits safe, this
+series implements dedicated undo mechanisms for each metadata change
+performed during GC before allowing nilfs_clean_segments() to bail
+out on general errors:
+
+- Patch 1 (by Wang Jianjian) fixes the GC inode leak on error paths.
+- Patch 2 makes physical block location updates in the DAT for
+  GC-relocated blocks (other than DAT blocks themselves) reversible by
+  restoring them from the shadow mapping on error.
+- Patch 3 makes the removal of GC target segment usage entries in
+  sufile reversible by saving and restoring them on abort.
+- Patch 4 fixes an issue where stale nilfs_redirected flags remain on
+  primary DAT buffers when GC is aborted.
+- Patches 5-6 make the deletion of obsolete virtual block entries from
+  the DAT during GC reversible by saving and restoring them on abort.
+- Patch 7 defers this virtual block deletion to a safe stage so that the
+  freed entries cannot be reallocated while GC is in progress, which is
+  required now that GC can abort mid-way.
+- Patch 8 updates nilfs_clean_segments() to bail out immediately on
+  errors, retaining only a minimal bounded retry loop for transient
+  cases.
+
+Thanks,
+Ryusuke Konishi
 
 
+Ryusuke Konishi (7):
+  nilfs2: cancel the relocation of GC-targeted blocks if log writing
+    fails
+  nilfs2: restore segment usage from the save buffer when aborting GC
+  nilfs2: drop redirected buffer flag from DAT when clearing shadow map
+  nilfs2: save DAT entry blocks to shadow mapping before freeing
+  nilfs2: restore removed DAT entries when aborting GC
+  nilfs2: free virtual block numbers just before collecting DAT changes
+  nilfs2: avoid infinite retry loop on GC failure
+
+Wang Jianjian (1):
+  nilfs2: fix leak of gc inodes on error
+
+ fs/nilfs2/alloc.c   |  14 +++-
+ fs/nilfs2/alloc.h   |   3 +-
+ fs/nilfs2/bmap.h    |  23 ++++++
+ fs/nilfs2/btree.c   |   8 ++
+ fs/nilfs2/dat.c     | 181 +++++++++++++++++++++++++++++++++++++++++++-
+ fs/nilfs2/dat.h     |   5 +-
+ fs/nilfs2/direct.c  |   1 +
+ fs/nilfs2/ioctl.c   |  36 +--------
+ fs/nilfs2/mdt.c     |  41 ++++++++--
+ fs/nilfs2/segment.c | 108 +++++++++++++++++++++++---
+ fs/nilfs2/segment.h |   7 ++
+ fs/nilfs2/sufile.c  |  27 ++++---
+ fs/nilfs2/sufile.h  |  37 ++++-----
+ 13 files changed, 404 insertions(+), 87 deletions(-)
+
+-- 
+2.53.0
 
