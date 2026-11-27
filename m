@@ -1,63 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748431;
-	b=lFjJrh/i3g5v2Q4sSQkVZyP6dHI2sbmsXubY8bvrw3QVEqmaUEozQ04WhgZ+yMIyiVTp
-	 KYerwM1JYPPmAjhXXAmAuAoGLz5DvenKo6eXuX/qX9k6x2QUMq+fS2bgEM+sqNwV9rD6I
-	 rm++0/cOPuHlO4Z/4xQc9sbC5I4MOEyTjb4QHaKfEOIUXYMxHUvrTDvo4acXxwb35nyls
-	 MJJZqGw+blF2dpnxL+Ty4mYm+7bPpTzJBMR1BDLWKXm9r9ZJve+F8t03nCeEaohaSCvz6
-	 niAPzEfErtv5i3rltakxO+VdI/hukvbSlPP7lW56LmY5gF4sfsnaPjL6uLHj2ZFKBQQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748431;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=lFUIyud/tgcOJfEAUvn7F3pidLFMaTUXABN0o7xVBo0=;
-	b=rbIOr5FhmRyhWTzp0ZrNEll3qg448pe4rkQ/CiSZilE/moQsDPAU4GYLfPLNYREXcwmT
-	 L8LN882gjmyhWT0J+dOe+nZbaCezrjsn4VmlnoNLoU1Krl4rZnUDY8P0rHpdFHGw5IXMK
-	 c/OZkRIBbJoCM1lTuC57sSksMmsp1Tl7BiAytdq8i/zjPXjUlnZLwHsK1IB3IomVAMfHV
-	 7f1wnc/bU43D78MJZTjBU/2OzZp+MBTsdV/pqK+jqUJoEu6p8HClwEvskCJWeBCZEVPsH
-	 6OXeH4CUQIjJTPFFN5O0IP91IDSyX7fKcRgPagoROpd3UYe7qgaV3zNXiK8n0YaTlIA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P2A8TrBq;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795748422;
+	b=ut1OTWmlEbRolDkcWUeEnod/VOIGkBWOCdCpu819it0kIcpy2v8dLnfeC6IAht/pSXBW
+	 Nr8VTQ7uMYm3FWwWPcyG/4brPJR+SjgnoX/z76v6i5biHZ7tEKV4L3erllh0ZD+Xw6Qg8
+	 IXKK5lsWOt0X9CaHT9ChsvheIIdhwnlgYEyeTAaT4X0EjWmWwkBG7wGWr3ZhFyhdFk4E6
+	 IRBqYjBWbfhMDsrephLFThUg1Ug+6SGNFRiJYHlZEuua7A8oQN2oP+aRlXgUGQeliQCFI
+	 NQn9JUponfDEavuGI4nkP+T+MuqjtSyKyK6q9Ux1V4i77dRG8BX0/dBp6zUjMl6vb3w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748422;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=ToQWodcxbp6TDI4d7JfrnA0mE0aAS8hR2DG78GF23so=;
+	b=Q6PLhiXJsa6IwpP+NlnASDreFAGV6El00sljZqhOSN0oXdFyQMW95UKT66OAIz3jmaxx
+	 Wfxd43Eql2yftoksSL8+JhNAtKl+GVMIZ1MYw0PhaKLgJ5AjT9pCMOgwBtJmgyvwMDEq1
+	 +Y9ycVMdyeAKlTHb/hpWibTR0aEHplt/BoqbWy66NRA59hGvEGq7SqQG47qzIKJfnGW40
+	 rpdgIiCWujkefdunLF7P+2gn83bcDQHcU52xKwHxOefwoWTvQ76govN13uT7NKSQ6m2NG
+	 eXzOxtRHGngHg22+k1Xh6zeFQ26/tP9vfnnTKdDYCEr7NNzE7J7ey/zZP7ier4QD62A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iIHfEZxz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C5C6606A31E;
-	Fri, 27 Nov 2026 03:00:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AB5B606A338;
+	Fri, 27 Nov 2026 03:00:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P2A8TrBq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230801F00923;
-	Fri, 27 Nov 2026 03:00:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iIHfEZxz
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795748421;
+	b=KxHcSQFTTYCLx/YjcE7X0BuqtIR/Me8LLOaUFRAaeiz9h0Bg5zrUwoCXu3ffASnIFw7j
+	 JDaLAwwTdLloYDNM2S6nzQD7uhYTE/Vh9zUn/TMKjdlmRU7nxWgxbKDS0BfDkB1iXY5mr
+	 6r4HoWxJUWBwps9p3t3BEXEL9QHKocVoM6ULCEfzXO9AsRs0hzPZPbtOG0UL/wSouniEL
+	 J1HK2Z5vgA1vyHpo9dFDShHFtbuQDK/lLINknvfqel33v23jnIy3O0W7Bd/9TTPNoYrla
+	 5wFnk+B96E1EfqB4riWi8WDn+ihQOeNaHR4y8bSe8LQE5lsT3mm0fA9aGoKmpW1+65A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795748421;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=ToQWodcxbp6TDI4d7JfrnA0mE0aAS8hR2DG78GF23so=;
+	b=16bCMicUW9uzypO5rMVTMHefFKtQLFWrN1avylCgT8YlJEYjeDqbvEB5yBR9w5euN+4j
+	 VorPyjzkQCe/h6CwNaM+a+Yv5GCYc+aSBkzUYNEbj2wXiJ30waPVeUztTWDOGTwap9S/p
+	 bre02UjmFttMpU64tdfjjbmWilmClSSLTB36dZBffGU1IcJo7Sy8m6gvrjn+1NZ1NenZF
+	 lsQ+MhjESph2tJt3/vZtRd2EZoys7vFdOFYK+1cayln4soRlBnXaqJSiABlPhDggyUn/4
+	 4oEfBPJ+hhiPt1N/0gqK2dQG7C/HJogJ21raPCTrdxJ43eaVIwLRWFlhbPj29Nr90cg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id AFD051F00897;
+	Fri, 27 Nov 2026 03:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795748431;
-	bh=lFUIyud/tgcOJfEAUvn7F3pidLFMaTUXABN0o7xVBo0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=P2A8TrBqTqeVuSpF68QxU9E5j6WyQnj1CN1S6eIE1QgEzRFrXTqR1y12K7dmyccdx
-	 HOsecKGxRpz6W4kPsPZKAoBilop8ro2sVi07tjg4V7+fNkMSTLDsnrgt0B/iBtGaq8
-	 hb0p4x93Dp6WzhBzyguNH7oxMLbyblVi4hZ0GqbW8AKbS+pxm0CU4vmqmEeBkjphMw
-	 kMVvazTotZCMjQkEnNkuFV+SmLL5G7Pi8bQBA12BTWvYrnQmZ9+e+xKK2MCkpjWHP4
-	 KtkoL+1/ca79fjgsDoBeDdymzJCbU2aIMGSSzDfc1eDHd9HEES4bG0oZdbqNsK7tW7
-	 iAwOJEw+SZy8w==
-Subject: Re: [PATCH net-next v14 14/15] net: dsa: realtek: rtl8365mb: use PCP
- numbering on family D
-From: netdev-bot+sashiko@kernel.org
-To: namiltd@yahoo.com
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-Date: Fri, 27 Nov 2026 03:00:29 +0000
-Message-ID: <179574842969.3135.9032643822803801824@kernel.org>
-In-Reply-To: <fd7d2df4-3994-4091-a63f-7ba57310cedc@yahoo.com>
-References: <fd7d2df4-3994-4091-a63f-7ba57310cedc@yahoo.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795748421;
+	bh=ToQWodcxbp6TDI4d7JfrnA0mE0aAS8hR2DG78GF23so=;
+	h=From:To:Cc:Subject:Date:Reply-To;
+	b=iIHfEZxzUErxrAs+7fdTyUdshFbQZvhad4bYWTRrujxQ0p0ebd8aq797tVFucPMq8
+	 lf/L0A5nZqDSAA4NqDogOjb7Z/4+qICtfklj7ahUJUnMplnMVyO3PAoUK9mlMzLKph
+	 ra3gkZPGLxP+Zj325ekoNzRrjUi+AGXG6bLpeRI39rf9ZfYJnrrGVflmwXgnORLdqI
+	 Rylv225BIawdth7qQ5/TnZYoc8JtJgiImLhCfqfg37rAgQ2kIPvJ+ZPCKpZLNwRBY6
+	 cXHAa8frMOdKiebBInHKPrpO0aDpclhsXVa9gHlcWxYMvDiQS/Bl55NDIQ/pMU34rX
+	 owsrZSLLYYq9Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 320ED4B515;
+	Fri, 27 Nov 2026 03:00:10 +0000 (UTC)
+From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
+To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: amergnat@baylibre.com, me@adomerle.pw, 
+ Roman Vivchar <rva333@protonmail.com>, devicetree@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/3] soc: mediatek: pwrap: Add MT6789 support
+Date: Fri, 27 Nov 2026 03:00:09 +0000
+Message-Id: <20261127030009.10572-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,175 +89,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795748409; l=1101;
+ i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
+ bh=YvdzdmSvb+O0Tz8QIZiIDOVYHG627P6PfzDQt/Lq8Qg=;
+ b=6ol1S4ut2o32IYsWppY97ebccrQQdihnqY7cQQMQ8JdejL4H5wJdiPHLSvNOUN8CCy9Vq1Tk6
+ 0N4L6GYMyQTDB+Q5Achp3Bh8N9SBikFzrk2bdEvG0gWLoxIIcQ5DUct
+X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
+ pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
+X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
+ auth_id=1643
+X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+Reply-To: iasnezhkov@gmail.com
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+This series continues the MediaTek MT6789 (Helio G99) PMIC wrapper
+support originally posted by Arseniy Velikanov (on CC):
+- pwrap v1: https://lore.kernel.org/linux-mediatek/20250715225746.1321-1-me@adomerle.pw/
+- v3: https://lore.kernel.org/r/20261126031001.27288-1-iasnezhkov@gmail.com
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Original authorship and Signed-off-by are preserved on patches 1 and 3.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Changes since v3:
+- Split the unrelated spi-mt65xx binding patch out into its own
+  standalone submission (suggested by Roman Vivchar).
+- Add sender Signed-off-by on rebased patches 1 and 3.
 
-- [Medium] rtl8365mb_d_qos_set_untag_pcp() returns success and programs
-  nothing whenever untag_pcp == hw_prio.
-- [Low] The qmap helpers still call their index an `iprio`, but after
-  this patch the index is the chip's priority, and on family D that is…
-- [Low] The kernel-doc for realtek_ops.qos_set_port_prio in realtek.h
-  says the backend will "Set the priority of @port to @iprio, and make…
+The v3/v4 rebase and arbiter fix were prepared with an AI coding assistant.
 
---
+Arseniy Velikanov (2):
+  dt-bindings: soc: mediatek: pwrap: Add compatible for MT6789
+  soc: mediatek: mtk-pmic-pwrap: Add MT6789 support
 
-net: dsa: realtek: rtl8365mb: use PCP numbering on family D
+Ilia Snezhkov (1):
+  soc: mediatek: mtk-pmic-pwrap: Skip WDT source and init on arbiter
+    SoCs
 
-This patch adds family D implementations of the qos_iprio_to_hw,
-qos_hw_to_iprio and qos_set_untag_pcp hooks. With them, family D numbers
-its internal priorities like PCP values and converts traffic types at the
-register boundary. Family D has no untagged PCP register, so its
-qos_set_untag_pcp hook returns -EOPNOTSUPP when the untagged PCP differs
-from the one the port priority implies.
-
-Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-7067296792
-
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_qos.c b/drivers/net/dsa/realtek/rtl8365mb_qos.c
-> index b61ffdb4073ac..23e1ebbe0a591 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_qos.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_qos.c
-
-[ ... ]
-
-> @@ -239,6 +245,26 @@ int rtl8365mb_c_qos_set_untag_pcp(struct realtek_priv *priv, int port,
->  						 untag_pcp);
->  }
->  
-> +/* Family D numbers its internal priorities like PCP values */
-> +int rtl8365mb_d_qos_iprio_to_hw(u8 iprio)
-> +{
-> +	return ieee8021q_tt_to_pcp(iprio);
-> +}
-> +
-> +int rtl8365mb_d_qos_hw_to_iprio(u8 hw)
-> +{
-> +	return ieee8021q_pcp_to_tt(hw);
-> +}
-> +
-> +/* There is no separate PCP for untagged frames: it is the one the port
-> + * priority implies, so a different one cannot be set.
-> + */
-> +int rtl8365mb_d_qos_set_untag_pcp(struct realtek_priv *priv, int port,
-> +				  u8 hw_prio, u8 untag_pcp)
-> +{
-> +	return untag_pcp == hw_prio ? 0 : -EOPNOTSUPP;
-> +}
-
-[Severity: Medium]
-
-This comment says the untagged-frame PCP "is the one the port priority
-implies". The commit message only shows that for the PCP of a newly
-inserted egress tag. It also says:
-
-  "it is not known whether the chip then classifies untagged frames by
-  that priority or by PCP 0."
-
-On family C, the 1Q priority source classifies untagged frames using
-RTL8365MB_QOS_PORT_UNTAG_PCP_REG. rtl8365mb_c_qos_set_untag_pcp() sets
-that register to the dcb default prio.
-
-Family D has no such register. The vendor dal_rtl8367d_vlan_portPvid_set()
-also rejects any priority != 0. That suggests the port-based VLAN priority
-that feeds the 1Q classifier is fixed at 0.
-
-The last patch of the series wires up the family D hooks. After that,
-could this sequence leave untagged frames with the wrong priority?
-
-  dcb app add dev swpN default-prio X    (X != 0)
-    rtl83xx_port_set_default_prio()
-      qos_set_port_prio(priv, port, pcp_to_tt(X), X)
-        rtl8365mb_qos_set_port_prio()
-          rtl8365mb_d_qos_set_untag_pcp()   /* hw == X, returns 0 */
-
-  dcb apptrust set dev swpN order pcp
-    rtl83xx_port_set_apptrust()->rtl8365mb_qos_set_apptrust()
-      /* RTL8365MB_QOS_PRIDEC_1Q weighted above the port source */
-
-Suppose the 1Q classifier then uses PCP 0 for untagged frames. They would
-map through remap[0] to hw 0 (Best Effort) and leave with PCP 0 instead
-of X. Meanwhile rtl83xx_port_get_default_prio() would still read X back
-from the port priority register, so dcbnl reports a default priority
-that is not in effect.
-
-Could the hook refuse this case instead? For example, it could reject a
-non-zero untag_pcp on family D, or PCP trust could be rejected while a
-non-zero default prio is set. Or could the comment describe this as an
-unverified limitation rather than state it as fact?
-
-[Severity: Low]
-
-The qos_set_port_prio documentation in realtek.h still reads:
-
-	/* Set the priority of @port to @iprio, and make @untag_pcp the PCP
-	 * given to untagged frames on @port. @untag_pcp is an 802.1p
-	 * priority, not an iprio.
-	 */
-
-That wording treats untag_pcp as independent of iprio. This hook returns
--EOPNOTSUPP whenever untag_pcp differs from ieee8021q_tt_to_pcp(iprio).
-
-Both current callers in rtl83xx-qos.c, rtl83xx_qos_init_port() and
-rtl83xx_port_set_default_prio(), pass matching values. So the error path
-cannot be reached today. However, the restriction is only described in
-the commit message.
-
-Should the ops documentation say that a backend may reject an untag_pcp
-that does not match iprio? Otherwise a future shared-layer caller that
-sets the untagged PCP separately would work on family C and fail only on
-family D.
-
-Similarly, the comment above the apptrust table in rtl8365mb_qos.c still
-describes the family C register model:
-
-/* The 1Q source also classifies untagged frames, by the PCP given to untagged
- * frames. Ranked above DSCP, it would hide DSCP from untagged IP frames.
- */
-
-> @@ -368,8 +394,8 @@ int rtl8365mb_qos_qmap_init(struct realtek_priv *priv)
->  	struct dsa_port *dp;
->  	int prio, ret;
->  
-> -	/* The table is indexed by the chip's priority, not by the traffic
-> -	 * type.
-> +	/* The table is indexed by the chip's priority, which is the traffic
-> +	 * type on family C and the PCP on family D.
->  	 */
->  	for (prio = 0; prio < RTL8365MB_NUM_INTERNAL_PRIOS; prio++) {
->  		int tt = rtl8365mb_qos_hw_to_iprio(priv, prio);
-
-[Severity: Low]
-
-This isn't a bug, but the qmap helpers still call this index an iprio:
-
-/* qmaps: the queue id of each internal priority, one table per qmap */
-...
-#define RTL8365MB_QOS_QMAP_TBL_REG(_m, _iprio) \
-
-static int rtl8365mb_qos_set_qmap_qid(struct realtek_priv *priv, int qmap,
-				      u8 iprio, u8 qid)
-
-realtek.h defines an iprio as an internal priority that holds an enum
-ieee8021q_traffic_type value. rtl8365mb_qos_set_port_prio(),
-rtl8365mb_qos_set_pcp_prio() and rtl8365mb_qos_set_dscp_prio() all use
-iprio in that sense and convert it through qos_iprio_to_hw().
-
-rtl8365mb_qos_qmap_init() passes the hardware prio as that iprio
-argument, not tt. That did no harm on family C, where the two are equal.
-With the family D hooks they differ: Best Effort is tt 1 / hw 0, and
-Background is tt 0 / hw 1.
-
-Could the parameter, the macro argument and the qmaps comment be renamed
-to say they take the chip's priority? Otherwise a later caller that
-passes a traffic type would swap the BE and BK queue slots on family D.
+ .../bindings/soc/mediatek/mediatek,pwrap.yaml |  1 +
+ drivers/soc/mediatek/mtk-pmic-wrap.c          | 50 +++++++++++++++----
+ 2 files changed, 42 insertions(+), 9 deletions(-)
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/874b29a3-f47f-4bf2-a0f6-2f9fea712f4c%40yahoo.com
+2.54.0 (Apple Git-157)
+
+
+
