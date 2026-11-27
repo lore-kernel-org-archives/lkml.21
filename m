@@ -1,102 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.106
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795805982;
-	b=lcKNujFjM42B0S4EWdpnz13VM24xI3kbrCTtJKPcQH/wIH23Q2seQR0VkiOXxIU19p8N
-	 h+86zwQuv0508cGL2aB70CRlmnWzj5C5lEJu+Ie7mX3VA9kxeJ1KkqNDcq+YKDQ+t4Qd2
-	 ODrK3G7kUN2WfDOUlHlC8phFOHyeS8El76bdXG2AkgpXH5ysKKFHPQNSbqpausxYBT4/C
-	 fvtU5gc/CvCJujrsupDva5RCS86ZFumfHyvopIkVvobcO/RObAfgwCINBvfqFczy6Vp/q
-	 Xmil4UVAExWycY0MhHCP+a8uWQUrKMHDHAyQNsoTUBIpJ+qVtYLM0bmT7u/WIWx3wCQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805982;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=sm1CEMmc6wrRAocfz4AHDIX7fw1XlFAa+8Y+WYNOkUc=;
-	b=5FdAUDFIfR+wrOnOdwSiA8Tl6P8gz2ovUYyPQKiBhhQtgpKmTr4FBZh1vfZ/WR24/iK8
-	 Vc3Awb5zcR4eSmcKgNyUcTTe21XGWz1hO/l2oFePP0vMCHan5bWTpHzA4W4knOgDva9ou
-	 2CDFSs7LIxkmX4YDavl9T54j4GNFGBGj5zlvdXyDixBZosBbEzRuAJFA5tmwUj4u/Haos
-	 1irB9zQVvGXBZs7JpeRQNSoJ9vKkzDPwELatn63t4LZJ/QSGkCC3AhpOjR6hHxl7noKFT
-	 VDqeahV5W8VzRN8PLf/nZqeMqk2hyqbVyX/ZFpLKc4YgU9PmgTJmlRtQYbglnV1roxw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=hLMlwcWl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.106
-Received: from LO0P265CU003.outbound.protection.outlook.com (mail-uksouthazon11022106.outbound.protection.outlook.com [52.101.96.106])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795806132;
+	b=tBFU6LH4aZgSnsg2zDD2V8MAaihJUW++92ZIve4O5+xaxKknvpxZCyCPZZs1Zd+tQl7H
+	 dk0bj8/Kf0Ebwu6Nr3kvR7FNun31jIHfaMKdJME49D4BqQW0mmdTeIZoIx8h8DWHyzo2R
+	 1QfUxLwdiFug10CSOpmRY/cLDfZnVZ4VXzQUi3/6xbR0UibrZ09B/VWhYcUfWX+gWkHB7
+	 Hr7lL8B7V5m5aWnl4sMwH5tvFQGvEvgQXqR1pxy9OUywBUyflGOz5bGXJDIAfvPkp9uOd
+	 aQKAobC/SF7fxMlcig1uXDSWUBql/mFLkV8gkwe2VhMuiRapVfxd0/zr2tNZvMRGUKQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795806132;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=zkQBPyKgHhzReYEqUfH52eqklLDsrHQN3rdcMHP01SI=;
+	b=IckolRk0ga/UzrUpkHIgaiwLyRZhdipIOmiqmlR5jc45RtZzbTQ2wxH4RyiW8p+/AljS
+	 JckFjnBNwSAHa4EdH3DTQhsVbZcTAYvkfBGivD2iUnLoxZFUeR8k6gPqslS9C8+dKxhSl
+	 WNoyB4hZvUZEU6Iwf+NWlrMj0u3xpcpoEyAd7QA1n+vR/KO4aFp+OBpd9FZC1J3SMu8K7
+	 jlDxIrd7/IhkvLujReNeMHBlJ0Hh80kUqnQ8tM2n0eBFduUgywXaAJtKwEKG6fjMhqPvP
+	 Szgv6HTs+tadl/acbXXc8RXb/1gdU4YCx05NyvY+mH2Tx24qbYpTbEVFHmTcR5QPleg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ENoUf1Ar;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE463606A31F;
-	Fri, 27 Nov 2026 18:59:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE463606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A2E1606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:02:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A2E1606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=hLMlwcWl
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vlETAytEU+B04TV4PuXGhQUSAe2HUBytt/tZOKb4zdVpsBmRGNmX383A9+cTY43H+XpJUlAxPqqA2PpWwgrFim4GvexNNNMyOdUhsbf6QHfGMR0ah0PVvQaO9BNv7Y0QKcTmhy9Nf+VkBZZ05OLSzrZIQVB4L0pnJdYTJN1rbk1TG7mXfZ0dPtDQkz2P8E/vBQqCS3HUTrjvQIKpRF9JPbuZl5+IccxgJlewfXsatLjju6/+t3dXBqNW/lfE+tveQpJW7sVqdjufD1Vpl9kINOIBoNxw+Sc+Bhty8zK6+eGFYW2vPv+ZbgdBdC/7JIjYFAZ/RjLs4i3QRWKb0DRbCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sm1CEMmc6wrRAocfz4AHDIX7fw1XlFAa+8Y+WYNOkUc=;
- b=IM0eqidN7wiccn2XlcHicH8iESwMP/tirkrHcMXrDj3BO/Y897vPx78NtECzvOxY0BBDcxBqawEsFhGeoczpG80BnXmzQiDN+5Q55XavakqpvIfyT9VJoeON6zOvDSQ5LzhLFWmd35zmmhV5yZ/NTF6GY005Z/cdz5R8okzDSyvtakm5CqCV1TA2/mrvALPX8K1ftCBCEwHCWQJ6oWFdG/JGggHneBDea1rSbtcz+2Bimokx5UGu29rXARpWjQ2l7y1e5TNK3vqggZkg6vQHGUHwNYhKD93Dfzyn09XNv9owJm7VESRG4Q3CNiq3lL13DmjMUeu3zjkXC6qlbvFFoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sm1CEMmc6wrRAocfz4AHDIX7fw1XlFAa+8Y+WYNOkUc=;
- b=hLMlwcWlOG1gUk2XaPQ6h3VvYygRGpaIUkjfMJovE4QLpCQZICP/LKolsWOmtQuyYV/j8CzKMFvFPToZXAsWIqn9nByUf7yMh1AX8/h/JlYLpU1vyqEZ0T9Gafmji/+jA7aw5e3C7FAj38mH0Jzc3mO5gFDwVO/fcxQJP45Qa+M=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO0P265MB6241.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:2ab::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
- 2026 18:59:38 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 18:59:38 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 18:59:37 +0000
-Message-Id: <DN6838W1WF2T.2FLQ4AOZX5B40@garyguo.net>
-Cc: <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linaro-mm-sig@lists.linaro.org>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/2] rust: dma_buf: add dma-fence signalling sections
-From: "Gary Guo" <gary@garyguo.net>
-To: "Daniel Almeida" <daniel.almeida@collabora.com>, "Sumit Semwal"
- <sumit.semwal@linaro.org>, =?utf-8?q?Christian_K=C3=B6nig?=
- <christian.koenig@amd.com>, "Philipp Stanner" <phasta@kernel.org>, "Danilo
- Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Miguel
- Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
- <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- "Tamir Duberstein" <tamird@kernel.org>, "Alexandre Courbot"
- <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-X-Mailer: aerc 0.22.0
-References: <20261127-dma-fence-signalling-v1-0-c44e8f4910ca@collabora.com>
-In-Reply-To: <20261127-dma-fence-signalling-v1-0-c44e8f4910ca@collabora.com>
-X-ClientProxiedBy: LO4P123CA0611.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:314::10) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ENoUf1Ar
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b563e5cbc3so953088c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:02:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795806131; x=1796410931; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zkQBPyKgHhzReYEqUfH52eqklLDsrHQN3rdcMHP01SI=;
+        b=ENoUf1ArcEfIE2J7WrvZgIIMCYa4qWfn/gtvnY4g+FpJfoheJfm9CBabxVkguJTPUP
+         YQfjn7Vl3LN6DzpCxX5sW7o/Ng56wA6wxD7Q2pWnbn94mfSHn5DyMQMO5IRoTlGV5Tu8
+         Q1/0fcIA69vkPToJSVsdZpA2IXZOFCoHOi89tSVF4pihin3oEpDQiZSI5plyB2rNVkPl
+         8HAxisjmU2AreweJcKethZOCv1qYvUvtH5JwBsXSvanho6QP2iyc+g0vEs/40RdCqhcj
+         h3RiNO1IlZDS8WBJQTRBBiITDlSwLsfeQlUOSEOCgy0ZToiTU7K6AjUsqfsZdegDpI2k
+         2/6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795806131; x=1796410931;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zkQBPyKgHhzReYEqUfH52eqklLDsrHQN3rdcMHP01SI=;
+        b=owk/gkxC43gndhNBu61ldJJ3O9iE4iylyQEDnKI7CycDp7yh5BO3e3K8bj9rHhNzlQ
+         UqUt1x0fEasrGXHYW1sOrLr78OY8dGEKQFqSwWDua/hPlLEBhFxJ584zNi+fRytCfFNv
+         /0VtsnJhlvzS9XasgFAeuMBacreMCouc05+AHm+dn+DPclXb9ZxNsCNDJgPOAcMNjXGL
+         zRvcb6UxksmzC8r8xuvieHOw9laKEVjhAHC/8Xmw/QUMMziT2QG2JNonUoHXAZH5oGiK
+         YOTJgkm0yz4Z5BKa95pSIkpq9yBAXGtn4VJGobC2QwGDnfdt5MRbNnKBzdsRkFpbVSH6
+         H3AQ==
+X-Forwarded-Encrypted: i=1; AL+hErG5QBc6eS5NurzhpX9XfWAMV0ZTAkQhRS9WquQrRP4yBnBaUYk1dkAs2Ue3uSguAaRKjyxgimdI7qhbiQg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ZtXY88Kfb28LUTgvKXA5wBGGFbsvGA7RcF1QKPXTQUmlr7WqO
+	A1ZqwfUSzCH34zWwZQr47NsPKxT650U25vivHs/N55XkCF6dI1fnw87B
+X-Gm-Gg: AZFdTZf0STG9GRnR737LFIU4c+OWRx9dtlNZxHTuEINgzHavxGH9eKcqnVa7om9+Q7m
+	1wS34rMNUhBCGt9pAF1aPKdZxMxuBCgNVJG2JWYhlm/yw6Sqh71Zc5tu+gdgN48zULWdP85Arvy
+	iHRZ6mkplDHDymJh9Lkqavu5fqwqukCKaOoHI3xTY0jjqEy2kwOxYhnohC3TAqBmt5T0WEdDy3m
+	RO3PXaevAH9CwWKi/Q43Wqr/A56p6/Y8ZCyo8ROu1aSqTQac/UGRIP1vPpWTV5ZFSQGxV3i35dk
+	Q724iHGBqsuvaRPTg1FtQj/FbgiVcIwWqA56MOowCceva7wC47BlhafjlmVNYfs/XJaevcDPk0X
+	KBquo0kMEOSNOlpJ2hzsYVo2D2OPn9rhoWaX5YigY471FtU75HhouA7IDc4ELFGchPzflbFwQmx
+	EKVU3Wl0JH9hs5RsC94XiPelZgSUYHANGGGrKay+GbjtwnRFK6MMLCVoYJgX2tT1xQQVZx6iDhk
+	eLRIhR+I2aTBkvZpnWiNmS7/nDYAmuF8bEAzQsJfki309kld6HXlvwS7/Wn0Ign7tpuw78RrLbH
+	XR/vgmSQUfvV9R89+X8B
+X-Received: by 2002:a05:7023:a41:b0:1b2:67f9:43cb with SMTP id a92af1059eb24-1b5525e786cmr25527192c88.17.1795806130946;
+        Fri, 27 Nov 2026 11:02:10 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm58116574c88.1.2026.11.27.11.02.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 11:02:10 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Oscar Salvador <osalvador@suse.de>,
+	Dan Williams <djbw@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	linux-mm@kvack.org,
+	linux-cxl@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH v2] docs: Name the memory hotplug online type configs that exist
+Date: Fri, 27 Nov 2026 19:02:07 +0000
+Message-ID: <20261127190207.245175-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125193039.2437025-1-takano32@gmail.com>
+References: <20261125193039.2437025-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,122 +105,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO0P265MB6241:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0552ed27-3273-48ae-bce3-08df4cb895b5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|7416014|1800799024|10070799003|23010399003|261009223027099003|22082099003|18002099003|921020|10067099003|56012099006|261102123227099003|261026140227099003|261028144727099003|261026121527099003|261021121427099003|261021123027099003|261022115727099003|261021130227099003|261022105027099003|261022113327099003;
-X-Microsoft-Antispam-Message-Info:
-	q8L8enzbVqnjmBScYUWlHxdty6xcLu7FZvTRpb687iJzzDpferh/Bfq+qB5tX1ffPneLYD6ASjgKu15AEegqjZx5AjP+EInISFQM+5OKKoky+LBU9RgNNlGb0Uji+Quclx0mBcnX+jffhDu591ogTRykHkLlswreNIUuXBEHSHYg/c21J2jdqVDRzY9+8FqPF0W15FboqdmZXzACPgEBonCfAN4jKE1fG1t+ebfCidOo63eM0xkVdvxv6wmfwX1sRYraHDEkiO5YCcSMFotCyVfVZNPdWY8NJhPgU1NiQPTLGbvgrSSzIpKWwR2ZWuDKNrp9aES5QGknnDTZm8eqbRXW8ESJZunU0rdwZnYWbb8Tkxory2eywZ6NQ0X49UE3+RlkjeQjEhVUovGug5U7hhbP0aZYch14SNnF/xDSVS+wp2vAS48ia3s43+IhGHE7O7crf3xaFI4p33LlJBPnGO9dNEnT8x2jyDFgwNiGRGSDSbGO0E3viuNEwLLUkfytp/NPbUgJD3XO+6efZIW3UYYkJCQem3Cuzt7PwsJ906ZZ/XtSQlK83UBH6jCdjovaAzinwMdhuBOwFVxrQ0EUqayLwbMTo1E2CkRFlihiOtz9fQWomWAMzKJzCw6dsQewvvbCFkQ3mfQnMbi30DkezQ==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(10070799003)(23010399003)(261009223027099003)(22082099003)(18002099003)(921020)(10067099003)(56012099006)(261102123227099003)(261026140227099003)(261028144727099003)(261026121527099003)(261021121427099003)(261021123027099003)(261022115727099003)(261021130227099003)(261022105027099003)(261022113327099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?d0xYNnN4RmdxMk9ZODlnemRrWEV0RnIxVmNkN3BQY1hGRXJiZmlKNjBwNks0?=
- =?utf-8?B?OXhyM0RXWXZEUEZqdlFJMlNscm0xTDFVWUtVdVpHbXQ0aHYxQzR2U2tEL2hQ?=
- =?utf-8?B?aHVOcFdlRmtDbjdHU1psOWFLYkpMVTMvR0lUQUs0aEllRW5ZSitIN2pkZjU3?=
- =?utf-8?B?QkpXNktNcFFWMDVSM3ArVGdHS3U5YTdudDM2UURUN01ndHdYZzFqdnpNbmxs?=
- =?utf-8?B?UWU3TktWOHVibFlHVi9JTG5hUEZpVWovU2VXNG4rcHJoSlhoRFN4M0xOTUxr?=
- =?utf-8?B?dUJNZWovVU8yOFZGdjU3bWRQcXBMbGJINk1QNG1xamJUQm01bGpXNzhFeUhV?=
- =?utf-8?B?dzR6dWVDVlA2UlFwOXZQM1Y1b1N0ZnIwaW5ZcVB5K3dwRHVuVDE3UGxUbjhG?=
- =?utf-8?B?RmFnTGlpYzdscXU2bklEWFBPdyt1c1c0RDBXQnBLQ0swVDh5VkVlRVJEbi9l?=
- =?utf-8?B?ME5aSkhQZWZ1VUNkbVhNcHdmeVRGTzJHZWU3eVZwL3dnRHQrZDk3WkREdHlG?=
- =?utf-8?B?NndqUG1qdmpGZm1zY2YrUUpiTUYyOUN3M3FPR29aUXdTMDNzTmJqbkkyRnVx?=
- =?utf-8?B?Y1V4dHNob3FOK2VmRjFJWHp4QlBRUGxWV1AyZS9td2p3UkQ4aVBJd2pXS29y?=
- =?utf-8?B?Vys3a0owSHo0S1RVN0hBWTJjRGNWNDhyM2J6eXh3UkdRK0g2djc1UWdXNDVV?=
- =?utf-8?B?QVF2c3FGMUlGYUVrRXl5SEJWQThMdXN1Q3poNGdQWC9KWi9QalhSMGM3bmNS?=
- =?utf-8?B?enlxYzM0bkxxelNNWEJFVVhaWElIeXFzaDN0KzFZcW1zMURxU25aZ2ZMOUxp?=
- =?utf-8?B?bStYVFhFeTdsT09QaUtKTVJBWDZwNCtkMUlCeXNsL1hxWm85T0haeURyZ0J4?=
- =?utf-8?B?cTNzcVdTREt6KzE0cFpQd01qNWVic2kvSkFqTnlMcVhkakthZG4vb00wazE1?=
- =?utf-8?B?elFyZURsOHFZQ3hsWDdieEIrQUZhNVNjSHJ5d0FhalZpT29SUW1NK29qQTEx?=
- =?utf-8?B?V29vdEk0UWJMRTcxTlMyVlN4ZDFFTHZWSjBZYW83bml5NHpaQ1R1bXE5SDRi?=
- =?utf-8?B?Y0JESGY4TDFWaVoyL1FBa3RxdnBYempoVDM5dmxTYUZKSXl6RkUxakxoL2Vq?=
- =?utf-8?B?YkU5cVVtd1B0STJ1NTZzaU1HcDVoR2YrVWZjK285bDNYN3pTRHZqVUFIemZK?=
- =?utf-8?B?SlFicnRSbjl3bE1JOE41VkJxT2d2Q0laaG8xODA4alhPUmRVYzlYNEFGMWxJ?=
- =?utf-8?B?TVBtK1RhZ0RHQ0t5T0puYjhCeDF0YkVsOVdYTWRVRUdha3ZBU200clc5cldy?=
- =?utf-8?B?c2RuR1RnaDNONWVJenVDSTViTDRnSEg2QjFZV0QxcU5GS3dtT2toZE5WTGxZ?=
- =?utf-8?B?emhuMURzb21FclNQb0JQRjlqcTFKZE55UWxsNWNheFp6dG5XU0lOeVpuc2JM?=
- =?utf-8?B?ZUd6YmN1Vm9ib293WUxjUWx1UHlMZi8xUUcrbHNhQ3hCTmVhNUhlNXZidkNP?=
- =?utf-8?B?RmFSeGFEQ1pXK3drb2JIMnV3UC82bHVZRFhnMkdCUW93b0RPK2VSVGl1Y2sy?=
- =?utf-8?B?NzBoNVNDTTkwQVhneE8wZERwd2FERDZneFRSL3laNG5PZjBhVHpLdDRsWk4z?=
- =?utf-8?B?K09ueVRLMDUyRkIwTzVNUklWTUx5T2h1UHBTNk5HaFlYN1U2Ri9md3hmOWlW?=
- =?utf-8?B?YlFqYVZZSXZYVURVNklmM1h2R0F0SFgxcWNPZjhEdlhGclFIRzc2MFZnVGJu?=
- =?utf-8?B?aUJxbDB2UlQ4NzVxM0thM3dJYWE2MEpsUEpINTZyWjlXSTJGUjl4d2F6ZHF6?=
- =?utf-8?B?QTUrL3doVlQ2clBMQU1wQ3lyUGFnV29ESGFVWDVtQWYvWlpXeFQ4S1IwL3lu?=
- =?utf-8?B?Q0tHYk9VTXdqaEpHMUZIM1F2dG8wZ0d3U05zUjI4aWVsR0U5UEtsaDFWYVoz?=
- =?utf-8?B?dlQwV3k3bHdrTXAzUy82L052MVVnTmNZVU5YU2lPTTExUmN0NUZHd2pyNnhJ?=
- =?utf-8?B?WklJM0E1WkVmdEQwVUxzTTk0cXJTcE5MMHR5MmVFRTk2NnlWNG5MNVRVOWt6?=
- =?utf-8?B?QUFFeDBqbmRSZHQwSkVlVWNsQlAxaUVVRHRCcHVXQS9LdC9vU0orQkQvV1Zq?=
- =?utf-8?B?V1lSUVQrVWNzVXhCZlQ4dzhtWkt3T0pyUkhFa282dVp0OFJtUXIvS0srR1Rr?=
- =?utf-8?B?akNtNWxEU0xQK0xkYkkwQVRzTzlRZjFRLzJJTTVmQ1ZaNEx2WEI2WTBaeTJB?=
- =?utf-8?B?VVBFSTY2STMxZnR6UWt0Y2kxNUh5K0tPSVBHNmFGYnhIUnZsc05QRzRrNnBi?=
- =?utf-8?B?U293YWlJNlFRVnhMcU1iOTJYL3duTmUyM2R1dmtrbG40WWF2anZ0L1FyS1pO?=
- =?utf-8?Q?vbmzfMylgAZ+W/CMkSF9+CzMiJH34g2g8+Pcp?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0552ed27-3273-48ae-bce3-08df4cb895b5
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 18:59:38.0648
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XmNEUUrVH8vIV4R8TMU+l/zZZZjbQe5db1T3aA7EanOG4o/lfNVr/cFMxp+tyqGYqzuE9fysi7aGaocDrs06kw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB6241
+Content-Transfer-Encoding: 8bit
 
-On Fri Nov 27, 2026 at 6:30 PM GMT, Daniel Almeida wrote:
-> dma_fence_begin_signalling() and dma_fence_end_signalling() mark the
-> code that the completion of a dma-fence depends on, so that lockdep can
-> check it against the dma-fence rules. However, up until now, it was not
-> possible to use the signalling tokens from Rust. Thus, add support for
-> it.
->
-> Patch 1 adds SignallingSection, a guard that begins a section when it
-> is created and ends it when it is dropped. Patch 2 makes
-> DriverFence::signal() take a &SignallingSection, so that its callers
-> have to be in one.
+The default online type is a Kconfig choice, so the symbols it defines are
+CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE, _ONLINE_AUTO, _ONLINE_KERNEL and
+_ONLINE_MOVABLE.  There is no CONFIG_MHP_DEFAULT_ONLINE_TYPE symbol, but
+five files name one.
 
-Do you need it being a guard? You can do things like
+Where a file lists the config, name the family with a trailing _*.  Where
+it names a choice value, spell the whole symbol out: early-boot.rst gave
+the zone choices as _NORMAL and _MOVABLE, which are not suffixes.
 
-    let a =3D SignallingSection::begin();
-    let b =3D SignallingSection::begin();
-    drop(a);
-    drop(b);
+Verification: a build of the tree defines
+CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE and no bare
+CONFIG_MHP_DEFAULT_ONLINE_TYPE in include/generated/autoconf.h, and grep
+finds no reference to the bare symbol under Documentation/ afterwards.
 
-to break nesting. A closure-based approach wouldn't have this issue.
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+v2: Spell the full config names in early-boot.rst.  David Hildenbrand pointed
+    out that CONFIG_MHP_DEFAULT_ONLINE_TYPE_* with _ONLINE_KERNEL appended
+    does not parse.  The other four files keep the _* form because they list
+    the config, not one of its values.
 
-Best,
-Gary
+    Written with Hermes Agent, an LLM assistant; the author reviewed the
+    wording and the diff.
 
->
-> Patch 5 of the JobQueue series [1] changes the same signature to
-> signal(&self, res). I will rebase on top of it once it lands and add
-> the section to its callers then.
->
-> A follow-up series adds a workqueue whose work items run in a
-> signalling section. Tyr will use both.
->
-> This is based on drm-rust-next.
->
-> [1] https://lore.kernel.org/r/20261124122951.878199-2-phasta@kernel.org
->
-> ---
-> Daniel Almeida (2):
->       rust: dma_buf: dma_fence: add SignallingSection
->       rust: dma_buf: dma_fence: require a SignallingSection in signal()
->
->  rust/kernel/dma_buf/dma_fence.rs | 77 ++++++++++++++++++++++++++++++++++=
-++++--
->  rust/kernel/dma_buf/mod.rs       |  3 +-
->  2 files changed, 76 insertions(+), 4 deletions(-)
-> ---
-> base-commit: abfb640b2374e26de8ff81d488c39d8254db538e
-> change-id: 20261127-dma-fence-signalling-cae3def9aa97
->
-> Best regards,
-> -- =20
-> Daniel Almeida <daniel.almeida@collabora.com>
+ Documentation/admin-guide/kernel-parameters.txt      |  2 +-
+ Documentation/admin-guide/mm/memory-hotplug.rst      |  2 +-
+ Documentation/driver-api/cxl/linux/early-boot.rst    | 12 +++++++-----
+ .../driver-api/cxl/linux/memory-hotplug.rst          |  2 +-
+ Documentation/driver-api/cxl/linux/overview.rst      |  2 +-
+ 5 files changed, 11 insertions(+), 9 deletions(-)
 
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 176648941aec..8580099b98c1 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3948,7 +3948,7 @@ Kernel parameters
+ 			[KNL] Set the initial state for the memory hotplug
+ 			onlining policy. If not specified, the default value is
+ 			set according to the
+-			CONFIG_MHP_DEFAULT_ONLINE_TYPE kernel config
++			CONFIG_MHP_DEFAULT_ONLINE_TYPE_* kernel config
+ 			options.
+ 			See Documentation/admin-guide/mm/memory-hotplug.rst.
+ 
+diff --git a/Documentation/admin-guide/mm/memory-hotplug.rst b/Documentation/admin-guide/mm/memory-hotplug.rst
+index 0207f8725142..c7de458a962f 100644
+--- a/Documentation/admin-guide/mm/memory-hotplug.rst
++++ b/Documentation/admin-guide/mm/memory-hotplug.rst
+@@ -280,7 +280,7 @@ The following files are currently defined:
+ 		       blocks; configure auto-onlining.
+ 
+ 		       The default value depends on the
+-		       CONFIG_MHP_DEFAULT_ONLINE_TYPE kernel configuration
++		       CONFIG_MHP_DEFAULT_ONLINE_TYPE_* kernel configuration
+ 		       options.
+ 
+ 		       See the ``state`` property of memory blocks for details.
+diff --git a/Documentation/driver-api/cxl/linux/early-boot.rst b/Documentation/driver-api/cxl/linux/early-boot.rst
+index 414481f33819..c3a3def3b3c6 100644
+--- a/Documentation/driver-api/cxl/linux/early-boot.rst
++++ b/Documentation/driver-api/cxl/linux/early-boot.rst
+@@ -34,7 +34,7 @@ which dictate how memory will be managed by Linux during early boot.
+   * Linux Build config option that dictates whether the kernel supports
+     Specific Purpose memory.
+ 
+-* CONFIG_MHP_DEFAULT_ONLINE_TYPE
++* CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
+ 
+   * Linux Build config that dictates whether and how Specific Purpose memory
+     converted to a dax device should be managed (left as DAX or onlined as
+@@ -58,10 +58,12 @@ SystemRAM.  This will expose the memory to the kernel page allocator in
+ :code:`ZONE_NORMAL`, making it available for use for most allocations (including
+ :code:`struct page` and page tables).
+ 
+-If `Specific Purpose` is set and supported, :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*`
+-dictates whether the memory is onlined by default (:code:`_OFFLINE` or
+-:code:`_ONLINE_*`), and if online which zone to online this memory to by default
+-(:code:`_NORMAL` or :code:`_MOVABLE`).
++If `Specific Purpose` is set and supported,
++:code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE` leaves the memory offline,
++:code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_ONLINE_KERNEL` onlines it by default to
++:code:`ZONE_NORMAL`, and
++:code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_ONLINE_MOVABLE` onlines it by default to
++:code:`ZONE_MOVABLE`.
+ 
+ If placed in :code:`ZONE_MOVABLE`, the memory will not be available for most
+ kernel allocations (such as :code:`struct page` or page tables).  This may
+diff --git a/Documentation/driver-api/cxl/linux/memory-hotplug.rst b/Documentation/driver-api/cxl/linux/memory-hotplug.rst
+index af368c2bc9cf..df27520b193f 100644
+--- a/Documentation/driver-api/cxl/linux/memory-hotplug.rst
++++ b/Documentation/driver-api/cxl/linux/memory-hotplug.rst
+@@ -19,7 +19,7 @@ Default Online Behavior
+ The default-online behavior of hotplug memory is dictated by the following,
+ in order of precedence:
+ 
+-- :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE` Build Configuration
++- :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*` Build Configuration
+ - :code:`memhp_default_state` Boot parameter
+ - :code:`/sys/devices/system/memory/auto_online_blocks` value
+ 
+diff --git a/Documentation/driver-api/cxl/linux/overview.rst b/Documentation/driver-api/cxl/linux/overview.rst
+index 648beb2c8c83..d567353e1dab 100644
+--- a/Documentation/driver-api/cxl/linux/overview.rst
++++ b/Documentation/driver-api/cxl/linux/overview.rst
+@@ -17,7 +17,7 @@ are generated.
+ 
+     i) EFI_MEMORY_SP
+     ii) CONFIG_EFI_SOFT_RESERVE
+-    iii) CONFIG_MHP_DEFAULT_ONLINE_TYPE
++    iii) CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
+     iv) nosoftreserve
+ 
+   b) Memory Map Creation
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.53.0
 
