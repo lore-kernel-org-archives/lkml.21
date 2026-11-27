@@ -1,60 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796243;
-	b=0Ukg+XoQqPfdKNpubYdZvX9yBvP56DD8n52SDYC20svv9upOzb1pvsKnEGhcKp1o8sjM
-	 O0m8OM/DhU0y6qTuuN41WFLaVK3+NICyNVnsLQAyVt9mIbHcOxoQxXYmY/OlSp79QxI9/
-	 qZ+WI28ewfaxLCXm4FltcQrZPxiFuSaS3nHUlC4i1NwzVpMZ72g6ZB9Uuq0qeTvirJnmC
-	 qUEn5k4j5JtIJ5GYoruRq+uhQ1RP/8XZx5htjO99F0BOXEb3JF/cWwB/KA5b4KW8T+tkH
-	 VHCwxl/4H7EQYljIvnTmEGhfqtvLFgbSY5sn8Snu/+nmz7KyP+C4PwhUz09v+UbrKOg==
+	t=1795796310;
+	b=Tfo2tbCR3UpZa3GQCu6ykF6U88SO/zVHw4zRDRZ0/7W8LcMMPUqcQk2z6SadLgDmHTKS
+	 7VSR5Pwa2L9tGwzxpbzgdh+tB4H1Eh5BjOJExaxxi/wUP97z9l7T8KvdPhb7cNvJO17bc
+	 i96032b0a9mWLBgKuzFfq/huZUr50P9gvE2rgD/67mcSyjnHUZHHImrDZP7l+UYXLA1dC
+	 6phpW1XDpaprtyo4G5fEiUsZVE0LHv62ZaQcqJJe4yzBAhZaNR80UXNddggHBpXFCevDY
+	 iNhdrzpzcRltO6nZAYzWBm9maJ7GlNPBpK+kYqMT8FDP0K7oGCrubCQottN5w9nGQlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796243;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=/dzVLSTzAtZpIlTRksLK3iB4FqDeUyOeTiMZVSsykQw=;
-	b=S/Qfe4/BvGMEEbiJao3Q7A3ZVYg9ld3CIlCGhVYDAzYkqKtwgVwIj++4717v/tMNwIVb
-	 7cHo8Y8Pj7AiSdIPKZMq75upuv6zJMhWRtmBLzVl48L7XmdUPGLG2pNZ0ARPYuzUMSsde
-	 FYcHthKQkU1i2nWyxd+TmqIB0rrqVj4JuO7Z/pyXbtCDi5ZRdotEIi9WIoMbRvWUwm3rZ
-	 9PI1+tzlKBMkx3lWSbra6IyO6is58tDEdbRsrmbUyuYOaYlCefndH3H5x4tp+qPlhPzNh
-	 e07BKu4ShNTc2auo9u601CGeoKt0OB5e0sEd//0sx3FSqOHAn0/JQdpucdH+uYNS/gw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796310;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Kr13DuyWLOWEbolqswEDjBCQ2Np9FP0d95Dzadr2L70=;
+	b=OTEJwpa1wDZgEIRIWZIDkunNP5fTGVUwf7lY4/O3HhyzxdUPGbVJ3CYrAo3ePGMUyrA1
+	 DWwVXgCutHt1qAvGBjLCwQ7LuSsweiuRxPbFk/Fti4ULYEc76fv00vbtlhwoF0qLw0+V5
+	 Xmh2F8hPIqSWifrrFmtAUkHt263jjtelmQhXP7MiIycOZX25ILYWoLUSj9ItGsybkO8dj
+	 Mudf1keRznAzRvNHl60Qe/Z9XO/aK1t7BXtDV4zuOYfXfbuLuzdW+7w/dlLwZnjgavj9c
+	 eD3gOWy5JkexeQPzQ5shgB8AWBdvLkOwtzpQTfcXYDyGvcY3mMcYqDdkMBxUyRepmgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=bw3+HFFy;
-	arc=none smtp.remote-ip=185.70.43.22
-Received: from mail-4322.protonmail.ch (mail-4322.protonmail.ch [185.70.43.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ncXqvhnO;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C8AA606A31E;
-	Fri, 27 Nov 2026 16:17:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C8AA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5F5E606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:18:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5F5E606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=bw3+HFFy
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795796236; x=1796055436;
-	bh=/dzVLSTzAtZpIlTRksLK3iB4FqDeUyOeTiMZVSsykQw=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=bw3+HFFyYQSibJAWqRVnLPlholNoMj9tEn3t2soACFMU2eyOHoBOwGWI/J9jRj7w/
-	 SuWRdVrnbfegHXOIj2NPi8YSpMwdGzNpvSfkqKCpTu7a9NHfXQG+c6TY3AaFA/PZek
-	 zO9FEn8O7MR1Gy82G3LDgzvtXoKO8YO5OnbSTWemOC1yC+WDCtpqRshHZtByTHn/dN
-	 i+s7V+6z3sxAYmkdsO1bTo2PiQH+Yyj+vCKggv0MudNRzvPLTj0w8VFy/SsaUspiqg
-	 WuV3tP6d4UFWNLjV586UWPJf2Itj4o//zCrPSfajSK9pARyKKJNU1FaU9Hejit0QfW
-	 FkJbT6dR+YT4w==
-Date: Fri, 27 Nov 2026 16:17:11 +0000
-To: Andre Przywara <andre.przywara@arm.com>
-From: Norman Herms <dockseed@proton.me>
-Cc: Enzo Adriano <enzo.adriano.code@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>, Cristian Filipescu <filipescu.cristian@gmail.com>
-Subject: Re: [PATCH v6 3/5] arm64: dts: allwinner: add Radxa Cubie A7S board
-Message-ID: <IUp5Ow8SUNdgtour7we7BN_rry0fuoBNw-ucfXERukfbwTWvoWo5QjYLXAzxftTjGnsuhCCnwvxZ5fBpL6pFPL62oTr2hZddgE6XmrQ76o0=@proton.me>
-In-Reply-To: <0a7f4a31-81ac-44ee-8cd2-7b5526af7442@arm.com>
-References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-3@gmail.com> <0a7f4a31-81ac-44ee-8cd2-7b5526af7442@arm.com>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: 2bae6d665eabca9caaa9f917c67d0b69de98846a
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ncXqvhnO
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so54471415e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:18:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795796306; x=1796401106; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Kr13DuyWLOWEbolqswEDjBCQ2Np9FP0d95Dzadr2L70=;
+        b=ncXqvhnO/g9d3lXexsdqCJ7vpPUBwU2CK860KziiO5W8GasMH/nYbeIxTV2e2izn5H
+         LUD2bki6qKFSHS1G9F+YwSmyUXf35Wvw+sx76W/O1B2I/Hy3kx8mpMNfJZRVL8HB47j/
+         kP849WH/FeASXP5vXmDSwek77jvYtGEqaJWPxfIYj1gN8Q5B2Eh8D4bv3N0E7JesgwnL
+         GFKlN4OkztKvmn677yvDpGI07HJpcFeWkAnSMglR1P3hKrGbc2jmBJvp82ICULwfoYeS
+         2RQ5MhOd0V2MYAI70HRUzl7DneoVxfTtY1vY1igLRAkZbpX9OwRNiM5gddhsjyL5mZt6
+         Coow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795796306; x=1796401106;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Kr13DuyWLOWEbolqswEDjBCQ2Np9FP0d95Dzadr2L70=;
+        b=NxCtfanONo4piM4cLv7kjERaK70SRg39KgcOHrHEASrEFM5ncsPwR2hWs0ewz39PZ4
+         OvAGssgRGDG6R3lzMvtxr5Pqap98a6DkS+JeglplreWXR/G7RZSQh60YjNd62yZsBcfI
+         XVA+KPb3hZhZGUYq/flk3H4JvyY8WMr7vuLGHqh7Aeci87EgPPbTKpa+nfp0sA7YM+d4
+         3ox2BimY8NCsMKdFoVbw9qc6L7kUeBqao2j7N0C2A19WaTeDUT9jIxe68wok8gKvqour
+         unw/49ntWtLZdx8mRfcPvXlIIGm3j7vEm2247qsCRPwnItBoa5hOy2NfSIDT5J/BeegR
+         5LCQ==
+X-Forwarded-Encrypted: i=1; AL+hErE0EmJ043oQQeZOXuM180fv3nFJQNH4v3nFcCsCri0uDNDoDll8xkzbKp8h4wnGrOgqUVZhlQTS5mTUidw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9elqncGdBwlbMTsef0HuwrWG91H53cp5wS9YZGdsV2TSeFDFPD
+	7MkDYuoNYvMOswl5Tf/4jnpZ2y/tel7sbizq5W4nHadFaADVQ5bMr8zc1yEkoU4KzXA=
+X-Gm-Gg: AZFdTZcwz9J5Vmxpfa0MlYKmg70MClvH/Jc7hWhb+oQJ/BJyahvnRcNDeigERzhPgUk
+	BkevIe6RILkymT6vInmrPF40Fw3InTrPzOMajg+zDtofPCMAnhnf5cGXuvnqQy3C8mJmtZcqUCV
+	SbtmxD+Y0SY4IOknt2x6nhlkOa5NlqzEY5chSHvf4/JAvqYBrWY4LgHL2aUg5x863/C+ytgQQSa
+	Gabg3X2Pob9iRRSdBV7t9JXxrHmNyLSNJmiCdgapVFXVR2hVTjV6+Sh1pBYk0YfA2A/qVCnLIZI
+	LGR1PtF5qU+ATo1WNAAd0x7/nwkLxA32Xj9RWCGjI3in3XOD9w9GxMY+Sr3d/3buW9OBt9KqLn+
+	N0/3rtEBWKFgjKgfKgabe1mcNfipk7Vmw3nnK8Y+i78ZvKMp+hY6Olfg70oKwrBJ85fZ3/iJALt
+	8qqWj8jAo+YmPuCK2JqzHFMeUBesH1qRlM5tktooFWZUzLpT57dWufhQ4SxKxcsmlIGx0SNn04J
+	xsM/wvyqW8ijtsa+s3wrIa0S1XxEeUicDtuX/U6h15oKvC4ZqbZVllqjqYmqNXRgyH0H8PynfYr
+	dGnd6IESirKe0fGOXpmDJr2ty31bVQiscMTgcOzkIF71KmeQoemPpXD/O+FdObCWhdcJUS4NNc1
+	aV7kXf0g=
+X-Received: by 2002:a05:600d:12:b0:4bb:8143:e182 with SMTP id 5b1f17b1804b1-4bb88800168mr397614005e9.5.1795796305824;
+        Fri, 27 Nov 2026 08:18:25 -0800 (PST)
+Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba3d3679bsm109985755e9.2.2026.11.27.08.18.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 08:18:25 -0800 (PST)
+From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
+To: linux-riscv@lists.infradead.org
+Cc: daniel.lezcano@kernel.org,
+	tglx@kernel.org,
+	linux-kernel@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev,
+	=?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
+Subject: [PATCH RFC v2] clocksource/drivers/timer-clint: Add Espressif ESP32-P4 support
+Date: Fri, 27 Nov 2026 16:18:23 +0000
+Message-ID: <20261127161823.131126-1-vitorhg20080@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125233020.1380594-9-vitorhg20080@gmail.com>
+References: <20261125233020.1380594-9-vitorhg20080@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,29 +102,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Andre,
+The ESP32-P4 delivers machine-mode timer interrupts through the CLIC.
+Select the ESP32-P4 handling by compatible string, parse the two-cell
+interrupt specifier and clear the timer interrupt through mtimecmp.
 
-On the ELDO1 question: the AXP318W datasheet (V1.0, Chinese, table
-6-3) gives ELDO1 a default of 0.9 V and leaves it off at power-up, as it
-does DCDC6 and DCDC7. So 1.075 V is not the PMIC default.
+Program mtimecmp with three 32-bit writes to prevent an intermediate
+compare value from triggering an early interrupt on RV32.
 
-On the A7S we boot our own chain (U-Boot SPL calling the vendor DRAM
-init, TF-A, U-Boot), and none of the open parts writes ELDO1. That
-leaves the vendor DRAM init, which switches it on. Its value follows
-VDD2H on the 25 mV grid: with DCDC7 at 1080 mV we read ELDO1 at
-1075 mV, and with Radxa's own boot0 at 1120 mV we read 1100 mV.
+Enable the ESP32-P4 mtime counter before registering the clocksource
+so it can be used even if firmware stopped it.
 
-We have also tried VDD2L at 0.9 V on the A7S. Lowering ELDO1 from
-Linux changes the voltage after the DRAM training ran at 1.075 V,
-which can lead to errors. So we keep the value the DRAM init leaves,
-even though it does not match the schematic, as the v6 node without
-voltage bounds does. The vendor DRAM init sets all the DRAM rails
-itself, so a clean 0.9 V would have to come from there.
+Require CONFIG_RISCV_ESP32P4_CLIC for the ESP32-P4 compatible. The CLIC
+driver in this series supports a single hart, so this path leaves the
+software interrupt masked. Other CLINT compatibles retain their
+existing IPI setup.
 
-Built and measured by AI agents (Claude) on my board.
+Tested on a Waveshare ESP32-P4-Module-DEV-KIT. Verified CLINT
+clocksource selection and delivery of timer interrupts.
 
-Thanks,
-Norman
+AI assisted with driver development.
+
+Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
+---
+Changes in v2:
+- Require the ESP32-P4 CLIC configuration before probing the ESP32-P4 CLINT.
+- Explain why the single-hart CLIC path leaves the software IRQ masked.
+- Compile-tested with RV32 NOMMU, both with ESP32-P4 CLIC and with
+  generic M-mode SMP.
+
+This replaces patch 8/19 from v1 and uses the CLIC support introduced
+earlier in that series.
+v1: https://lore.kernel.org/all/20261125233020.1380594-9-vitorhg20080@gmail.com/
+
+ drivers/clocksource/timer-clint.c | 61 +++++++++++++++++++++++++++++--
+ 1 file changed, 57 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+index e56eee7..fa525e2 100644
+--- a/drivers/clocksource/timer-clint.c
++++ b/drivers/clocksource/timer-clint.c
+@@ -20,6 +20,7 @@
+ #include <linux/irq.h>
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/irqdomain.h>
++#include <linux/limits.h>
+ #include <linux/of_irq.h>
+ #include <linux/smp.h>
+ #include <linux/timex.h>
+@@ -31,6 +32,8 @@
+ #define CLINT_IPI_OFF		0
+ #define CLINT_TIMER_CMP_OFF	0x4000
+ #define CLINT_TIMER_VAL_OFF	0xbff8
++#define ESP32P4_CLINT_MTIME_CTL_OFF	0x4010
++#define ESP32P4_CLINT_MTIME_EN		BIT(0)
+ 
+ /* CLINT manages IPI and Timer for RISC-V M-mode  */
+ static u32 __iomem *clint_ipi_base;
+@@ -39,6 +42,7 @@ static u64 __iomem *clint_timer_cmp;
+ static u64 __iomem *clint_timer_val;
+ static unsigned long clint_timer_freq;
+ static unsigned int clint_timer_irq;
++static bool clint_uses_clic __ro_after_init;
+ 
+ #ifdef CONFIG_RISCV_M_MODE
+ u64 __iomem *clint_time_val;
+@@ -119,6 +123,29 @@ static int clint_clock_next_event(unsigned long delta,
+ 	return 0;
+ }
+ 
++static void esp32p4_clint_write_cmp(u64 value)
++{
++	u32 __iomem *cmp = (u32 __iomem *)clint_timer_cmp;
++
++	/* Keep the intermediate RV32 compare values from expiring early. */
++	writel_relaxed(U32_MAX, cmp);
++	writel_relaxed((u32)(value >> 32), cmp + 1);
++	writel_relaxed((u32)value, cmp);
++}
++
++static int esp32p4_clint_next_event(unsigned long delta,
++				    struct clock_event_device *ce)
++{
++	esp32p4_clint_write_cmp(clint_get_cycles64() + delta);
++	return 0;
++}
++
++static int esp32p4_clint_shutdown(struct clock_event_device *ce)
++{
++	esp32p4_clint_write_cmp(U64_MAX);
++	return 0;
++}
++
+ static DEFINE_PER_CPU(struct clock_event_device, clint_clock_event) = {
+ 	.name		= "clint_clockevent",
+ 	.features	= CLOCK_EVT_FEAT_ONESHOT,
+@@ -130,13 +157,23 @@ static int clint_timer_starting_cpu(unsigned int cpu)
+ {
+ 	struct clock_event_device *ce = per_cpu_ptr(&clint_clock_event, cpu);
+ 
++	if (clint_uses_clic) {
++		ce->set_next_event = esp32p4_clint_next_event;
++		ce->set_state_shutdown = esp32p4_clint_shutdown;
++		ce->set_state_oneshot_stopped = esp32p4_clint_shutdown;
++		esp32p4_clint_shutdown(ce);
++	}
++
+ 	ce->cpumask = cpumask_of(cpu);
+ 	clockevents_config_and_register(ce, clint_timer_freq, 100, ULONG_MAX);
+ 
+ 	enable_percpu_irq(clint_timer_irq,
+ 			  irq_get_trigger_type(clint_timer_irq));
+-	enable_percpu_irq(clint_ipi_irq,
+-			  irq_get_trigger_type(clint_ipi_irq));
++	/* The ESP32-P4 CLIC path runs on a single hart and needs no IPIs. */
++	if (!clint_uses_clic)
++		enable_percpu_irq(clint_ipi_irq,
++				  irq_get_trigger_type(clint_ipi_irq));
++
+ 	return 0;
+ }
+ 
+@@ -155,7 +192,10 @@ static irqreturn_t clint_timer_interrupt(int irq, void *dev_id)
+ {
+ 	struct clock_event_device *evdev = this_cpu_ptr(&clint_clock_event);
+ 
+-	csr_clear(CSR_IE, IE_TIE);
++	if (clint_uses_clic)
++		esp32p4_clint_shutdown(evdev);
++	else
++		csr_clear(CSR_IE, IE_TIE);
+ 	evdev->event_handler(evdev);
+ 
+ 	return IRQ_HANDLED;
+@@ -163,11 +203,15 @@ static irqreturn_t clint_timer_interrupt(int irq, void *dev_id)
+ 
+ static int __init clint_timer_init_dt(struct device_node *np)
+ {
++	bool esp32p4 = of_device_is_compatible(np, "esp,esp32p4-clint");
+ 	int rc;
+ 	u32 i, nr_irqs;
+ 	void __iomem *base;
+ 	struct of_phandle_args oirq;
+ 
++	if (esp32p4 && !IS_ENABLED(CONFIG_RISCV_ESP32P4_CLIC))
++		return -ENODEV;
++
+ 	/*
+ 	 * Ensure that CLINT device interrupts are either RV_IRQ_TIMER or
+ 	 * RV_IRQ_SOFT. If it's anything else then we ignore the device.
+@@ -179,7 +223,7 @@ static int __init clint_timer_init_dt(struct device_node *np)
+ 			continue;
+ 		}
+ 
+-		if ((oirq.args_count != 1) ||
++		if (oirq.args_count != (esp32p4 ? 2 : 1) ||
+ 		    (oirq.args[0] != RV_IRQ_TIMER &&
+ 		     oirq.args[0] != RV_IRQ_SOFT)) {
+ 			pr_err("%pOFP: invalid irq %d (hwirq %d)\n",
+@@ -212,10 +256,18 @@ static int __init clint_timer_init_dt(struct device_node *np)
+ 		return -ENODEV;
+ 	}
+ 
++	if (esp32p4) {
++		void __iomem *ctl = base + ESP32P4_CLINT_MTIME_CTL_OFF;
++		u32 val = readl(ctl);
++
++		writel(val | ESP32P4_CLINT_MTIME_EN, ctl);
++	}
++
+ 	clint_ipi_base = base + CLINT_IPI_OFF;
+ 	clint_timer_cmp = base + CLINT_TIMER_CMP_OFF;
+ 	clint_timer_val = base + CLINT_TIMER_VAL_OFF;
+ 	clint_timer_freq = riscv_timebase;
++	clint_uses_clic = esp32p4;
+ 
+ #ifdef CONFIG_RISCV_M_MODE
+ 	/*
+@@ -275,3 +327,4 @@ fail_iounmap:
+ 
+ TIMER_OF_DECLARE(clint_timer, "riscv,clint0", clint_timer_init_dt);
+ TIMER_OF_DECLARE(clint_timer1, "sifive,clint0", clint_timer_init_dt);
++TIMER_OF_DECLARE(esp32p4_clint, "esp,esp32p4-clint", clint_timer_init_dt);
