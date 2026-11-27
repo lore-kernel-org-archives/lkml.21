@@ -1,93 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795743272;
-	b=bAtP4umvFAkxUWjyfmuLxWEFtY6YTQvS5dvmHor+S0jvA30Fr3A+X2iT1OcH2N8yoweK
-	 XNRUB90zCCvp7vOK2UXfA9qEkL9FgW385+ATXrV2rBr1qp1j/Hxyr259AiYBSoKubOywE
-	 kji1ibC38u0G3gfyDmtWCYliIyhIo6f6M5hgBdNqeifNjRxj4voPqP6kK/K89SiUDlqBM
-	 CC83VI7TuQm9VX0d74rLP/SLY61t8OfvH1KWvinIqqxkPpBSxgGboADMVX81c1deZ36HN
-	 cXq2hp9Z3PP4nm2T0A+ySUIR4po9nBT8YF1LRNwYlCNBPUjBLWg0ziSZ/isOyl7Hxzg==
+	t=1795743275;
+	b=OO8USXwdZz5mo0mkinjHOaWPVJZ9YNMsdXhgk5f9/Vwu4gkxDpvbq1AYkl5cMHzjxC6l
+	 jZG9YjvMKVj2FW+8c9k+WUY7wEtgdzjOJefXuHn48LfYdHPrzDGNDa2TgYzJF0aeUw8x4
+	 lIJHL+aOETFVMMTdR1HeWvgcYAPY5x5+J6P4AI1w+8LxyCAtQpP3qmH3RtY8reQx94yAP
+	 fhkR5Pwsoip3OpdjUeI35HEVZOEVEjnwqRx2O5xK5gx+wt81YgaMY35+hoScre+Yu/qGK
+	 eAryk24AD6RTUi2EWx6dkWLIyBwzFLBu70rcHFlgI45XBJU+WsrjCabk7ZpgtI69P5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795743272;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
-	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=l7RO/X9hrpGm7U7ZvUyWBLz5rvKWH6VnYdq6Izp1zz4=;
-	b=uIhOAIBd4IA4QnxKUPI2SI96VQ/CaEbFexjl8KBaLbHnTtmCCe6gvRraubEbG/GV/v3p
-	 Fk4A1850ara76FDbtx1ZUG99efD3dOLlECllVs98Hcn5dgD/c6flVmOuz3hAjEunaDPti
-	 BcnGbFneQo9mNogJMacDiZijUho42AelLlLyklWs6E8hvpxmlwy4DzYx10D4pE1uGKUya
-	 RZ6wgfPnMB86s/K9N+NW9LL/Ow5bR7PvaMC0x/J9nu3SbXdxMDELqvT4aVK5LZMNj/db9
-	 P/PeUqPvCY8apiL3UytZkIOiTfaRMWVpUNP0q4cVjPz/4B7IvbvZtcB45kbGopn+OOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795743275;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=3IhNLLqkV+73vjMEib8YQujCA7t2AxAqWwnAELMjvVM=;
+	b=fwuH1HEHNdz7/3e6g+aDEjH+kOFhXX5w8JZ+UDhs9ot/bNUciSRzJPa2h+33PT7TlA5W
+	 6MgQ/TQ5D2k5O5oveUKwgOPAs18L94cKV6KdUd5gBbLND30TuMVbtpDdK2ZxqJXntu7TL
+	 hX5de4ZCKknLDUbuiaq891DOkBqI6vlPHPon8DTV4Bfy1AVsljVppr8aBjN5E0ZuZqWNf
+	 aZlQyKdVAHJ45n9mTMOVIsNP4QUFfiuKsjwA7k/fIaSvf9qUawl1SrRdQ52uc/zCxgq4h
+	 yr4mdrIJEWJnfEOJ7lHe3DwCNv8eG+B2bK9//9efcX2hXxz4J+vRlCOiE2XQIP/K+tA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	arc=none smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EEQ2v0EZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6288E606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:34:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6288E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1362652666b.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1795743270; x=1796348070; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l7RO/X9hrpGm7U7ZvUyWBLz5rvKWH6VnYdq6Izp1zz4=;
-        b=Zzq4TdtQDHxlk2/0GAZfU/sITg0WBdRE7Js2w4zGL9bZzaZK9/HzCNGSTFKiN+NEWG
-         Y8Oitwpp2w+96kxE6HA/b+FgPEnRIT0M+3ciT6AFZ6m4Hw8B+BSkciInk3R3Ml1qZtX1
-         uEI92xi33BYZ49B5QCQHEp9t48jGgJflte/eQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795743270; x=1796348070;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l7RO/X9hrpGm7U7ZvUyWBLz5rvKWH6VnYdq6Izp1zz4=;
-        b=GZnJm8un8N6CN+nmhZBh6AWGRYy5ansnajlsT1rD1fzhWZQ6xKvXXonq6sMPnkGTRg
-         OVWhG573jq/4Q9fOEJ44VocC4M/t0oDsA5DEy9tAZbZj4hFnol38scWvjp6QzIiWEgZG
-         xab3WpLJiyoQaKrg4CvYjsy1zAwa9eu7Go6ECpW+3nukbvNScxjzjjdbcVlSb1Yw50N0
-         XWIlcmr03NhwDM27LHzjG9Ga8Zq6J4EgcGsUl5vnIsTwm1cW/N/tR+3SDansC7LmYHEG
-         zC+6OosB7seS1FpHLoj8s/Xs2lTIqkDAW+9hgaJx+u5I+h1f+ho2eBQRRfa7xxa2kFo9
-         Y9zg==
-X-Forwarded-Encrypted: i=1; AL+hErHEvHHk3PkmQIpAfzdV7bw0uL4B7cWAwH+0pF5zdyN5FESr6GtIvnFIzEmtk3+wSOqK+ap2Kl54jUd5I7Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+57m7WqLK6NpCIMMVno8yKrLMB/3i45FkZVbHsdapclkvfNgFz
-	9jVzBdntb4p8FBsGKMraxPAITd3yoWW7O//MsxMBDaYqBh7XDUqtavMJWu3OSnn/dqGrOkjZDW9
-	7zldranXE2w==
-X-Gm-Gg: AZFdTZfTBAQpA6nkAXqh90IfxTKVIEB1Gh7tO2TBmPbSHXNFaMokXYMVWjKpZEfXK2C
-	6eSkAa0iSFWe7gzagrU9Pm24q2BnKCb0qovKqNfDc4KF4UMV1n/Rbr0PSOFqPU5Fa8aH0ateCMe
-	NFDaepFvp0YLnyzg44fMTNxJboT9Fs3W7m8CVSw/355noGd+1mmK6ZNW4oq0QPIiveZuOnNS90f
-	1TiFBGiRs/f+Jqokgr25NT8AwT6XFzU8KJcutpw4hSK0LZGH/0qbVhvWbrXey6g4ZVqMLHUc3hM
-	VdTSF7Q46l957zFFLwmhSB+5dfxb4pvip73ccJJ/fAsf6dO1LCu4oSGH0k42lGElOohXyBalqtO
-	uqZE2frGtYG1/P9c48vBoiaKyA+2HwLagsFSkjrVM9pITXUyO7uXV0629liklcu/kIw3PiyDetg
-	WGmRrfU2zwcdKbjEvTP+rbMDoP0cBsd8NO2xSeayOdL0XkX0zUkriEsIAqFM09hzLXAaWI+GzlW
-	ncJdH0U4u1lM23cQO5VSrL4J8CMcCWPnujXA/5SdUhX8Tskz4yEbgEMscrul4uNZgpZL2xlFSjt
-	s42c/FDnxfTSZReXrpJ2l1vi/euoRx2jW76RVY7L48xSeDxQ/mdZoxdEyoTbM4FxH4zmdcOb3wt
-	PXRU=
-X-Received: by 2002:a17:906:694f:b0:c50:ff1c:22be with SMTP id a640c23a62f3a-c513aace676mr1368884166b.16.1795743269771;
-        Thu, 26 Nov 2026 17:34:29 -0800 (PST)
-Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com. [209.85.218.53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad010bcsm843207466b.1.2026.11.26.17.34.29
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 17:34:29 -0800 (PST)
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1362650666b.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:34:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGz53mEOVGJWHg0M3GUrh+84nn3Jv4juW++0+V7rj/k0VrSwg7CbTV/HRwyuzLkGH26EgowRDmFYM0xZps=@vger.kernel.org
-X-Received: by 2002:a17:907:c491:b0:c25:91bc:ff55 with SMTP id
- a640c23a62f3a-c513ab0c6b4mr1782417166b.23.1795743268984; Thu, 26 Nov 2026
- 17:34:28 -0800 (PST)
-Received: from 425495914135 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 26 Nov 2026 20:34:27 -0500
-From: Linus Torvalds <torvalds@linux-foundation.org>
-In-Reply-To: <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
-References: <20261127000015.3662267-1-julianbraha@gmail.com>
- <20261127000015.3662267-2-julianbraha@gmail.com> <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 817AE606A31C;
+	Fri, 27 Nov 2026 01:34:35 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EEQ2v0EZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 891AE1F000C1;
+	Fri, 27 Nov 2026 01:34:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795743275;
+	bh=3IhNLLqkV+73vjMEib8YQujCA7t2AxAqWwnAELMjvVM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=EEQ2v0EZog/sesY3SJAX+bM/HjpuLmXhufUH48QS0HnuEdAJUsQVrjp5CF48clkrz
+	 K5zIqKgvmWIrcFC8b5M7Iko3wNQmyUDPdPq624n8fB6NL6F86UN6WkkZ1Tqh9W8rQM
+	 ru1haA0OVxD44ZAnX0unGhYYICNpoZChiKoDZ2UWKA9BYJGfsCSTEyaVf0pqROXSwh
+	 +BdDs9nzPA0gvZbn6SdwiauPUZ7bxA7j2Jxt2vV2s05N9HCtsgiHBF6F2yiq4jOlZM
+	 ptWofBPm9nyeH5VFIiUxF8xAcF7XaUYBAPQt3g21UdP2NKfZ3VIuILaRUApyQgmFYl
+	 f8w4APxmPHaNA==
+Message-ID: <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+Date: Fri, 27 Nov 2026 02:34:26 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,118 +51,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 26 Nov 2026 20:34:26 -0500
-X-Gmail-Original-Message-ID: <CAHk-=wif1CNqxe19O=oCy87TZ_KQoGcoCaOchn-dk11hKoGbOQ@mail.gmail.com>
-X-Gm-Features: Aa3M54polP77YZQv9cchX6_j00EPygNp2BPE71doDMsazM4Dd6ppL9CR6_Xn25s
-Message-ID: <CAHk-=wif1CNqxe19O=oCy87TZ_KQoGcoCaOchn-dk11hKoGbOQ@mail.gmail.com>
-Subject: Re: [PATCH 1/5] scripts: add bit count parameter back to host hash functions
-To: Julian Braha <julianbraha@gmail.com>
-Cc: nathan@kernel.org, nsc@kernel.org, samitolvanen@google.com, ljs@kernel.org, 
-	david.laight.linux@gmail.com, sashal@kernel.org, lzsx618@gmail.com, 
-	zuoan.penguin@gmail.com, petr.pavlu@suse.com, jani.nikula@intel.com, 
-	xur@google.com, sidnayyar@google.com, robertusdchris@gmail.com, 
-	acourbot@nvidia.com, linux-modules@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and
+ a cover letter
+To: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+ Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Borislav Petkov <bp@alien8.de>,
+ Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+ Security Officers <security@kernel.org>, workflows@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-2-sashal@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261126171926.2766137-2-sashal@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, 26 Nov 2026 at 17:16, Linus Torvalds
-<torvalds@linux-foundation.org> wrote:
->
-> NOTE NOTE NOTE! This is untested crap.  It shows the *concept*.  It
-> might even work.  But it might also do unspeakable things to your pets.
-> Don't trust my word for it.  Look at the code and test it.
+On 26/11/2026 18:19, Sasha Levin wrote:
+> Commit messages written by AI coding assistants are too long.
+> Maintainers keep asking for them to be cut down [1][2][3][4]: they read
+> like a copy of the assistant's analysis and bury what a reader needs.
+> When an assistant does trim, the opposite problem shows. A few lines of
+> a backtrace do not tell a reviewer how the failure was produced, and
+> Leon Romanovsky showed a case where only the full log revealed that the
+> crash came from an out-of-tree module written to provoke it [5]. Willy
+> Tarreau suggested a short quote in the changelog plus the full log
+> attached [6].
 
-Some more testing shows that it needs at least something like this on
-top..
+Shall we rather ask them not to write commit msgs at all? By writing
+commit msg we encourage - or try to encourage - at least basic
+understanding of what the patch does.
 
-With this it *might* actually work.  But when I say "some more testing",
-that "some" is still carrying a lot of weight.  Not a lot of, IOW.
-
-I did say it was untested crap.  I guess I'm more of a "high-level
-concepts guy" than detail-oriented.
-
-Users? I like to call them "Test subjects" or "Victims".
-
-              Linus
-
----
-
-
-diff --git a/scripts/include/hashtable.h b/scripts/include/hashtable.h
-index 0d8bb8eb178c..78d63eb96fc4 100644
---- a/scripts/include/hashtable.h
-+++ b/scripts/include/hashtable.h
-@@ -12,10 +12,14 @@
- 	} name
-
- #define HASHTABLE_DEFINE(name, bits) \
--	HASHTABLE_DECLARE(name, bits) =	{ { [0 ... ((1 << (bits)) - 1)] =
-HLIST_HEAD_INIT } }
-+	HASHTABLE_DECLARE(name, bits) = { { [0 ... ((1 << (bits)) - 1)] =
-HLIST_HEAD_INIT } }
-+
-+/* Define a table already declared extern with HASHTABLE_DECLARE() */
-+#define HASHTABLE_DEFINE_EXTERN(name) \
-+	typeof(name) name = { { [0 ... HASH_SIZE(name) - 1] = HLIST_HEAD_INIT } }
-
- #define HASH_BITS(name) (sizeof((name).hash_bits))
--#define HASH_SIZE(name) (1ul << HASH_BITS(name))
-+#define HASH_SIZE(name) ARRAY_SIZE((name).hlist)
-
- #define hash_head(table, key)	(&(table).hlist[(unsigned)(key) >>
-(32-HASH_BITS(table))])
-
-@@ -31,7 +35,7 @@ static inline void __hash_init(struct hlist_head
-*ht, unsigned int sz)
-  * hash_init - initialize a hash table
-  * @table: hashtable to be initialized
-  */
--#define hash_init(table) __hash_init(table, HASH_SIZE(table))
-+#define hash_init(table) __hash_init((table).hlist, HASH_SIZE(table))
-
- /**
-  * hash_add - add an object to a hashtable
-@@ -59,7 +63,7 @@ static inline void hash_del(struct hlist_node *node)
-  */
- #define hash_for_each(table, obj, member)				\
- 	for (int _bkt = 0; _bkt < HASH_SIZE(table); _bkt++)		\
--		hlist_for_each_entry(obj, &table[_bkt].hlist, member)
-+		hlist_for_each_entry(obj, &(table).hlist[_bkt], member)
-
- /**
-  * hash_for_each_safe - iterate over a hashtable safe against removal of
-@@ -71,7 +75,7 @@ static inline void hash_del(struct hlist_node *node)
-  */
- #define hash_for_each_safe(table, obj, tmp, member)			\
- 	for (int _bkt = 0; _bkt < HASH_SIZE(table); _bkt++)		\
--		hlist_for_each_entry_safe(obj, tmp, &table[_bkt].hlist, member)
-+		hlist_for_each_entry_safe(obj, tmp, &(table).hlist[_bkt], member)
-
- /**
-  * hash_for_each_possible - iterate over all possible objects hashing to the
-diff --git a/scripts/kconfig/expr.c b/scripts/kconfig/expr.c
-index 27278830de98..26b0a64b5cb5 100644
---- a/scripts/kconfig/expr.c
-+++ b/scripts/kconfig/expr.c
-@@ -16,7 +16,7 @@
-
- #define DEBUG_EXPR	0
-
--HASHTABLE_DEFINE(expr_hashtable, EXPR_HASH_BITS);
-+HASHTABLE_DEFINE_EXTERN(expr_hashtable);
-
- static struct expr *expr_eliminate_yn(struct expr *e);
-
-diff --git a/scripts/kconfig/symbol.c b/scripts/kconfig/symbol.c
-index dec65c0d1181..2afe2be78a29 100644
---- a/scripts/kconfig/symbol.c
-+++ b/scripts/kconfig/symbol.c
-@@ -971,7 +971,7 @@ bool sym_is_choice_value(const struct symbol *sym)
- 	return !list_empty(&sym->choice_link);
- }
-
--HASHTABLE_DEFINE(sym_hashtable, SYMBOL_HASH_BITS);
-+HASHTABLE_DEFINE_EXTERN(sym_hashtable);
-
- struct symbol *sym_lookup(const char *name, int flags)
- {
+Best regards,
+Krzysztof
