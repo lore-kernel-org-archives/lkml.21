@@ -1,82 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768417;
-	b=gsSTODISmso4Ag4kLvB8cN56BsUNhC0aWvwixZ6NvsckQfD+92h0Gj/8yaEPkQQ+wI0K
-	 17Vddxqlx/KS98GE5o3RvtWsY8StUGwnkogWeSsd1IOEe2oU1TYWazQiaFq8iv3jdKIaD
-	 94ioaGTtrcc6zrSsZsd45gdAsw3THMreQBQY0JmoOwseGWSv4Om0SUIPHP2ay9NP9yNNj
-	 xm2IHmuZpUFSOq0h3BLZSoPd1oA9Zvy6M8MRqOKY/PChc9fSE6t3MVaefQB8HoqJ0LYL4
-	 3v54hac5NbqOpTyeoZ2FPLDLWC2blL23r+QZrhYDz+RPrRD13wRWsI3obKnBI4uOCpA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768417;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=2adoUAJE2urbAHUCjcZJHR3qU6oXeqmDWStaP03rNfU=;
-	b=R488kVxYTxXY4G/kxOy99CH1QQPDEkopzpW74BuTaswiPH2Pw5G2g0g0JhDcRJkg5u8x
-	 R8Hqnqex4nN/EGoOGH34HCd9mv7AeVm6883ZvM2U1n/8yHta9Dpb88ry+cxMVxo/M9qhE
-	 3zIculF2QZ6P+xpsc5bjQPOSBtPfREGQ97hEKlK0xFbhul3Y8AKBSdrLwMdAXGmkdknP3
-	 Jrf097eTEPzgWKVlDr1g7mx5ES3fVPuxGe26OuukfN7IHAW+rCQpoc+mOjB9/QAg/UDVU
-	 s7/3YSYiPeMLXbv1SOFqykV2/nFOF6yUjkGvK7bW5bqFe4bR+BJg4M7nJPFh/4BIXYw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hw0K3LRk;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795768531;
+	b=SD/SUVKv/AivC1nP1pXPdKGQ1SmOnlwqDkQFx/3G5i1nqo2VA8Gs35mCNWMnSsiv3T9e
+	 QfaSe+cfckFLPDJ73iRIluyQd17zgq/fXxPzsiSTSLAwRWXa4451K2Af3UZcS6s7Nw6uS
+	 fxuzD0kUadn9rmDyuOXtVkJKmziDFQV5DU7jH3tg0u6GvnYE5+Whgx2DB62TeYjxkWtVQ
+	 3qEIq8jPfzd1yadoJmJFZtZXeWm9TC3QBKv8hNs+0iXjWZtG8DPXsRWLUzj+uKossciSN
+	 wsfyi7uUAc/xTA+heHBqOeIxN3TZzNsdpVMrmNm6eC0qBbWid2MpImgN68yzczhNKrQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768531;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=y7mPTl/ddoDpH27Ms6SdLDucsZisBPKb6oAxlPTfUnM=;
+	b=VgwED/8VP51mzj55nYGGw+kMk80YZX572bKvvyA82cwDI+3yEN2B8B3XwxJHWUPASMUN
+	 Gu2LcN8V2N66NYDyVzxezTRI29XW/eBO4NFEPWY+OLpUOByM3GBU5/ey1RJ/EW0+z+JgB
+	 hQNGqpxiD8nXkRUFe2Qw89eVDxPTzU2VgoJla5jZqtkDt8M0aWgYN+YR+dOXU9SwRp2yO
+	 JkS4pCxDKdguNI2cuJdf1BrXnPhvGHasvsG/Du5OqdKNSGrOZKgGiWy0kZeugHxOKa0PP
+	 MjhEpkcR8ipaKnUGJe8Q8vllUejWM7qhIXdkebqPSE40SP4ho8BL4uNkX4WZeB6yWBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hgLxHWyn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABC1B606A32E;
-	Fri, 27 Nov 2026 08:33:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABC1B606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9996E606A323;
+	Fri, 27 Nov 2026 08:35:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hw0K3LRk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795768417; x=1827304417;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qO1CBDql5BdqV/ZAEf8Juo9+US4w1SccOa1RJtgkBvo=;
-  b=Hw0K3LRktsAXAnM+ZnBN7Vz4D8gAn9BtPX3Rl7LlvKwYdB11YOiDxeJd
-   S3u+F0OjS6iW2f9nVpfaBdsb9uLDT6WIAGt7kGK8UVltv3N9xzQ6T720y
-   WM88QlhCt3JyBEcg1sdBcU3CsGUIr+P8VbeSblBGDNVgRSmD4xLqkDdzV
-   C18HJ1DalGbou+U03xrnQPKDfdz6r54kivoGcxMHdRZzAJBKw2TTfFnIs
-   rEEhPeEma6GdrYkHQ2WVxX5nm5GHzWuxgv+nFy3sXYn9JgXJPPVCLGG2E
-   sNoeVNB/3rC/1uHydCwc1Rs83pRvqS5ReDKBxe/yuhbO+jZbkx0o9Ihze
-   w==;
-X-CSE-ConnectionGUID: DqA+4HhuROq9L6Ug2mVdag==
-X-CSE-MsgGUID: DuLImOJdTvKsGWLVCpeX5A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4587772"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4587772"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 00:33:36 -0800
-X-CSE-ConnectionGUID: syHLHn8XT/ejptysGfyUHg==
-X-CSE-MsgGUID: BJ2OY1R6TP2HtUrSTCXDvA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="12132628"
-Received: from igk-lkp-server01.igk.intel.com (HELO e79648c3b81b) ([10.211.93.152])
-  by orviesa008.jf.intel.com with ESMTP; 27 Nov 2026 00:33:18 -0800
-Received: from kbuild by e79648c3b81b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWrO8-0000000000r-44cZ;
-	Fri, 27 Nov 2026 08:33:00 +0000
-Date: Fri, 27 Nov 2026 09:32:04 +0100
-From: kernel test robot <lkp@intel.com>
-To: Alan Pluto <alanpluto@163.com>, platform-driver-x86@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, mpearson-lenovo@squebb.ca,
-	derekjohn.clark@gmail.com, i@rong.moe, W_Armin@gmx.de,
-	corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
-	hansg@kernel.org, ilpo.jarvinen@linux.intel.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] platform/x86: lenovo-wmi-other: Add raw
- GetDataByPackage interface
-Message-ID: <20261127084625.fhboKKCu-lkp@intel.com>
-References: <20261123061120.18740-1-alanpluto@163.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hgLxHWyn
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795768531;
+	b=2YzzzCUs1qs5kQ/BT5NY9TjGYzZibvbtgT6mRVs21xiuGwa2v5LJ/dvOTG2/oTM6xj9z
+	 /ZjcAAy0rBqG+0mK7KjcEkxm8TV4M3rDVC/zyjRLMegwDRpYqnhzCxTFmfsHOQVci1LRZ
+	 dji9ErcEesaVygyiu6YRf8P1zuz4UOR7YgmceKPgaEGwHqn3BgslPzGbk4nJjsKEUnQj/
+	 WufHRcwP9J+2/x2ME46cgdI1GKs6WBjsxCEh9gpmAIYuUTIrJy7t1ceoD1jHGhfjzyHYP
+	 cuw1ES+1dQC9A7/Xct9sP5eiW7NswRqUiLdYaHDxIU8BEeoZ7wJokdFLpUkrGxDpXTQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795768531;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=y7mPTl/ddoDpH27Ms6SdLDucsZisBPKb6oAxlPTfUnM=;
+	b=lyXw91PN4Vbrn8Pwv3hgXqzpal5GkMGG+qYywS0p8Vc8OT9wkT/BySpPo2jTcVzsuOPw
+	 b8i3JgnYiwVm16SaQjLRwrjN1+umtQyHqSUXWz5AYIny3rzzhP8caVR7C/vS7AX9jqx7K
+	 zB1nygMOOr+Cp+rTCgL+kuJMG+h2XLMj3qTULQdhRbbTeB/Pq+KNeI6MAUsK77e0Qvosj
+	 hpijVWf3r3VwEi7frrqlbq31OD+jWfYJvCvVtoJw91641vQiW5Xcys/G0Y/nBl3VCOoYj
+	 P1UthKPPmLSLxXcdOuXrsyfhziSv8uIk4cdAUOjZ0TPOJbn+unaursniE/7vBAkvWkA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id D77C51F00897;
+	Fri, 27 Nov 2026 08:35:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795768531;
+	bh=y7mPTl/ddoDpH27Ms6SdLDucsZisBPKb6oAxlPTfUnM=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=hgLxHWynwiXRZV7BWNRx3E1sqJ52FHv/7IdZb8Hj6IAHi9/gPFf8Sf6lGaGUIomEh
+	 4sw6GfnLE8fApgHeQqRr1Ya+rYb78DmuA2BrFIwCsExSzhRemCI1O/5K+V4sSxj3dT
+	 34kbkys9b7IQTgPznzQxnxOoLy1Lu9R3TvfToARV3S5EWNOZN7dQvvhSxVjfpZeFLx
+	 x0/3Tl80Thx6XztAnB3q+q7715qz30/LQR8BwdiLIET0NKIFqo42MK9Y4N2HH1n+ek
+	 1adzbMiS3LFaBPbzml4sROg6bO9cDneKwpUbtA2E21vBbDBwAPoAADY5bV3guL9oc/
+	 3yvSbDVzHjYmA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 533444B63E;
+	Fri, 27 Nov 2026 08:35:28 +0000 (UTC)
+From: Murad Dadashev via B4 Relay <devnull+llamapersonaltv.gmail.com@kernel.org>
+Subject: [PATCH 00/10] wifi: mt76: mt7603: add MT7603U USB support
+Date: Fri, 27 Nov 2026 11:35:11 +0300
+Message-Id: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,51 +83,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123061120.18740-1-alanpluto@163.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL9ACWsC/x3MQQ6DMAwEwK8gn2spCRBov4J6SKgBH0iRDRUS4
+ u+EHme1uwcoCZPCqzhA6MfK35RhHwX0U0gjIX+ywRnnrXUNzmvjTblhNZCPz9jW1tSQ24vQwPv
+ /qXtnx6CEUULqp3u/LboKhRnvHM7zAgQPgch5AAAA
+X-Change-ID: 20261127-mt7603u-4fe6b9b85105
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Murad Dadashev <llamapersonaltv@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795768526; l=3763;
+ i=llamapersonaltv@gmail.com; s=20261127; h=from:subject:message-id;
+ bh=NxB3jZIIBFZlJM5Ywm3MKCBzXE8TLrTc5WJa1Gak8SU=;
+ b=Eh5i5pjPN5Tgt4edY2Bc7IKJnKGiTkgkT8NYznZPneV+eqV7WWrCGbYZPwLm5zyGFJOPfUFRs
+ cUEdjJ2nGBWAfaOHJ9zKHygrRJIO62TAR9QN4n9HKdolFO8tggR3+my
+X-Developer-Key: i=llamapersonaltv@gmail.com; a=ed25519;
+ pk=CeMIX207ioWRbMAA6A2GYgT+DpeVlKHVn7I0KjfHeCg=
+X-Endpoint-Received: by B4 Relay for llamapersonaltv@gmail.com/20261127
+ with auth_id=1664
+X-Original-From: Murad Dadashev <llamapersonaltv@gmail.com>
+Reply-To: llamapersonaltv@gmail.com
 
-Hi Alan,
+This series adds support for MT7603U USB 2.0 dongles (0e8d:7603) to the
+mt7603 driver. It follows the layout of mt7615/mt7663u: the core code
+moves into a new mt7603-common module, and the PCIe/SoC glue and the
+new USB driver become separate modules on top of it.
 
-kernel test robot noticed the following build warnings:
+Patches 1-7 prepare the shared code. Apart from the module split, the
+changes that affect MT7603E and MT76x8 are:
 
-[auto build test WARNING on linus/master]
-[also build test WARNING on v7.4-rc4 next-20261126]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+- patch 4 only passes the TSSI enable flag to the firmware when the
+  eFuse has a TSSI slope. The tested dongle sets the flag without any
+  TSSI calibration, and the firmware stops transmitting in AP mode
+  when TSSI is enabled.
+- patch 5 adds set_antenna with separate TX and RX masks. The tested
+  dongle loses about half of its two-stream frames on one TX chain;
+  "iw phy phyX set antenna 1 3" keeps both RX chains and uses one TX
+  stream.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alan-Pluto/platform-x86-lenovo-wmi-other-Add-raw-GetDataByPackage-interface/20261123-141120
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20261123061120.18740-1-alanpluto%40163.com
-patch subject: [PATCH v2] platform/x86: lenovo-wmi-other: Add raw GetDataByPackage interface
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-docutils: docutils (Docutils 0.23, Python 3.13.5, on linux)
-sphinx: sphinx-build 9.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20261127/20261127084625.fhboKKCu-lkp@intel.com/reproduce)
+Everything else that touches shared code only changes behaviour on
+non-MMIO buses: register access over USB sleeps, so WTBL updates that
+run in atomic context are deferred to work items, and PCIe-only setup
+is skipped.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261127084625.fhboKKCu-lkp@intel.com/
+Patch 8 adds the MT7603 queue mapping to mt76-usb, patch 9 adds the
+USB driver, and patch 10 adds AP mode, using an hrtimer computed from
+the TSF instead of the pre-TBTT interrupt to refill the hardware beacon
+and broadcast queues.
 
-All warnings (new ones prefixed by >>):
+The device works with the existing mt7603_e2.bin firmware.
 
-   Documentation/userspace-api/landlock:823: ./include/uapi/linux/landlock.h:24: ERROR: Unknown target name: "filesystem flags". [docutils]
-   Documentation/userspace-api/landlock:832: ./include/uapi/linux/landlock.h:256: ERROR: Unknown target name: "filesystem flags". [docutils]
-   Documentation/userspace-api/landlock:832: ./include/uapi/linux/landlock.h:279: ERROR: Unknown target name: "network flags". [docutils]
-   Documentation/userspace-api/landlock:832: ./include/uapi/linux/landlock.h:317: ERROR: Unknown target name: "permission flags". [docutils]
-   Documentation/userspace-api/landlock:832: ./include/uapi/linux/landlock.h:352: ERROR: Unknown target name: "permission flags". [docutils]
->> Documentation/wmi/devices/lenovo-wmi-other.rst:37: WARNING: Title underline too short.
+Tested on a 0e8d:7603 dongle on a Raspberry Pi 4, with the series
+backported to 6.18:
+- station mode with WPA2 on 2.4 GHz
+- AP mode with hostapd and WPA2, about 56 Mbit/s in each direction
+  with a single client at MCS 7
 
+MT7603E and MT76x8 are build tested only, as I do not have that
+hardware.
 
-vim +37 Documentation/wmi/devices/lenovo-wmi-other.rst
+Claude Code was used throughout development of this series, for parts
+of the code and changelogs, and for debugging. I reviewed the patches
+and tested them on real hardware as described above.
 
-    35	
-    36	GetDataByPackage diagnostics
-  > 37	~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    38	
+---
+Murad Dadashev (10):
+      wifi: mt76: mt7603: split core code into mt7603-common
+      wifi: mt76: mt7603: make mcu message helpers usable by other buses
+      wifi: mt76: mt7603: set beacon and CAB queue index in the TXD directly
+      wifi: mt76: mt7603: only enable TSSI with valid calibration data
+      wifi: mt76: mt7603: allow configuring TX and RX antennas separately
+      wifi: mt76: mt7603: defer WTBL updates when register access can sleep
+      wifi: mt76: mt7603: skip PCIe specific setup on non-MMIO buses
+      wifi: mt76: usb: add MT7603 queue mapping
+      wifi: mt76: mt7603: add MT7603U USB support
+      wifi: mt76: mt7603: add AP mode support for USB devices
 
+ drivers/net/wireless/mediatek/mt76/mt7603/Kconfig  |  20 +-
+ drivers/net/wireless/mediatek/mt76/mt7603/Makefile |  12 +-
+ drivers/net/wireless/mediatek/mt76/mt7603/beacon.c | 217 +++++++++++--
+ drivers/net/wireless/mediatek/mt76/mt7603/core.c   |   4 +
+ drivers/net/wireless/mediatek/mt76/mt7603/dma.c    |   1 +
+ drivers/net/wireless/mediatek/mt76/mt7603/eeprom.c |   1 +
+ drivers/net/wireless/mediatek/mt76/mt7603/eeprom.h |   2 +
+ drivers/net/wireless/mediatek/mt76/mt7603/init.c   |  40 ++-
+ drivers/net/wireless/mediatek/mt76/mt7603/mac.c    | 154 ++++++++-
+ drivers/net/wireless/mediatek/mt76/mt7603/main.c   | 103 ++++--
+ drivers/net/wireless/mediatek/mt76/mt7603/mcu.c    |  37 ++-
+ drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h |  33 +-
+ drivers/net/wireless/mediatek/mt76/mt7603/pci.c    |  28 ++
+ drivers/net/wireless/mediatek/mt76/mt7603/usb.c    | 350 +++++++++++++++++++++
+ drivers/net/wireless/mediatek/mt76/usb.c           |  17 +
+ 15 files changed, 929 insertions(+), 90 deletions(-)
+---
+base-commit: 18d0bedbb5f0538396cb7f763ed9cd1dd69c5b23
+change-id: 20261127-mt7603u-4fe6b9b85105
+
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Murad Dadashev <llamapersonaltv@gmail.com>
+
+
