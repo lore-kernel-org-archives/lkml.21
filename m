@@ -1,97 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799011;
-	b=U9FHDGsckiXXTlesqb0zQEuwzoLbaVdEKyfS5AO3TbmnRvTE1wluZ70gW8Nr5Jv8yTYd
-	 cL27PaNUeJw+F+98bIuOyX+i5EhVGii2DQBzmOBrz2A16f9FBuPc3QMbZzwcH+4Qcte7Z
-	 DflEhcO1oi2kgd0YAh5Pc4iS3NAGUE/Dsdij8+GuVrRkVWCq1/dBnGB89pCKkItbygDjt
-	 PhWgloyu4opB6XBLOMX7EWjOgz6pw9JeDWutK99QzltXH5e2ANeEO/X7VBV/P+s6g8FES
-	 eD3VIFukmP9wSir5LSNTnErZOvK+q/apOv9LThP20iKEMvsIkZBpyevh7oeniJqqEuQ==
+	t=1795799156;
+	b=g8nnlGRVUDEycD6qLC63iM0qGuCjC2q64j6kbExoCA2uXGrHO9gO3HGeWlaku3WSZQeK
+	 rBXA1k7RrJE4KsIYJB2zzSanQgFgBtSTWx05YT+Qwz3dpLWpRXormrgQ/3PkyT716KDTk
+	 B+SyNAIwzw9HB7vIKTvmg8zfu4JE56QzNr6sE9CIZPAaXpWNNSt6hEfba5FlHF0bRD8hs
+	 MyS5BbLcBzUr7GSzSIjQTWDBV851LqT16nogzJCpNjtehnACTMTfAiMNLuTYZKRN3zw16
+	 v8IaxJSks77+HJSaR0eoFjjeeRRCSwlvXwp7fpZzfVlCxs0+rNskXoR7/Rzr2xZ6rMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799011;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=n/rsmG3FiGD5JF7kMgaJyBlIxTvJ/3kpRDtF2VUvB18=;
-	b=EWv4MxDGt1ZNfpG15DFy3ff0Pn2dDktkErGsQzfLU/HyYXaNQIESS53qotFBPgXabZwE
-	 ymTlD7sLVk2QzlUMDk4A2dlkhPiAelC7osZn49X7355BP85wWlnH5z2j0inFuEx9NzH2u
-	 R+8DHVOAUpmeZOin3k5omRQG0RgsRGgza2JphHxQXxWlbgGTHqA+DdsEZZUHA5/n9kYd1
-	 5kkzv60LvKQ1OCKejP/PfJ431PJUNySywNGE+U7EV4tk11yxLUraDAN5/Ru35bPsk4Zkk
-	 CS9BH/Zm15dWhgP+E19nX7Rz4aQukfqyn7A6NhFmmE+VSKEximQBEwThJ/zifebGXAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799156;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=epMG1oEJxcH1Mz0PZ5IoUhFZrQxUMuiU/tJZjWFh0u4=;
+	b=vMDESaWLAxEX++4EBFiQC0yTw9jTlboCb85W/QyuZy9j9owusoO0QvWY5mInCRZHhjer
+	 IabxwhNjsjv/BCOVyJjJLU02LRUq1239XByyL6r//ZepkFXzyLPRPjiaTHlEbInvGYpoj
+	 0GyOw4tfbYJzWcc3+QpGpflCbB241ZQaWwi89+P4Qi2QzY3G8hs7vjL7e6iD2/kjmkwdS
+	 hfGnVKQYxsSOBPJtEBLJ2nzMYKghOijqb4VQ4U+AmTbzAW6pZfmnSrTdYfM9nvrBThYSB
+	 iBUYL9abYM32cHA95+8KZWCDNCvszvJl1J7fkf8SR1+ORQxOvxE5IVFFDnG4x4UoD2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ztnZMdZO;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srazc7DB;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BFDC606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:03:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BFDC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 530F3606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:05:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 530F3606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ztnZMdZO
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb67b3a18aso8272415e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:03:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795799010; x=1796403810; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n/rsmG3FiGD5JF7kMgaJyBlIxTvJ/3kpRDtF2VUvB18=;
-        b=ztnZMdZOX2jBt+ZK4PnUsmvjkbVGItNMycAKUDMByLEp5jSlSiLLjgcFFSUHF186at
-         fw9mYPdfwDoh4XYlxvWX5jkysSxzMUF27VEFeRga+/FMPYGW7TmH9+tAPVxp5FhJSLxC
-         IfT4FNIoKiOce25DsDklYDASSChvmvFv2RwCbVDJ1gDIAidadZaX+EQkwdQ6AqGU8X4P
-         aoUoBMTc9JwJpi8ci05YHu3wQvMSfjd2TGC3yZMqHljZ9ooxHXIRRcHumdtZRB0pkyk+
-         vRZtOE6pghMkTsJ4AYqgFrr0U9FJ7/cNZWNfLGnC1wd9SHxxvWGmx+SslBOuOFJNZD0/
-         Q1/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795799010; x=1796403810;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=n/rsmG3FiGD5JF7kMgaJyBlIxTvJ/3kpRDtF2VUvB18=;
-        b=B9AfAxQfqz+Gh/FrBSf4R5AyWPKOX/y593WdFreS1eipbFhtLXulOI3kxvDlJCxUh/
-         dyciP4pJga90DTOW8Ha/sOvswhHHwEgARZyZQysLNBlJVmkKZuJ0Vo46I4YK/F1J9Lqp
-         r/gxNph21Nf6T+5/nsvJY7N8NxUBJJu6qUHVMXLNWAl91e9BmGLIsrfQOV65mDGj7eoZ
-         ljKFl9LxaRufCiV9Uc6C6wwYjcEXB0lrftxD82Tok4KBZCC0B8g3hCLH1SpfvtgyIBv0
-         SfK7h4P9/5HqgTEFmbhq9uTC7k4LlvYtOkxtvMYFIUs0IlVmPtmYmxt/PN+N4jYYNgNf
-         Wmuw==
-X-Forwarded-Encrypted: i=1; AL+hErEMeqJFfceM07RMK+6HSK4P0bya6bQEjRtvTlNsAP8RW6sg9z0WsO8K0y30TgqFVtTk2Gk7vvCpdlOQnJs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Q30YbQRWb8GOOUQYLqEQtXtp/qf+kq/p2EJnjDxBHcbcudcTB
-	aUXJR8aJaABN+uURVEnzsFuiZtXbqCrE+7gO1PhR8By4+j3xMDNqBEow
-X-Gm-Gg: AZFdTZcERiWT7edbJlaaPQUi8TD9rj+xTDk1nKfqXktkG+Mys5LhutTBai61oqTOLg4
-	U7+zDsNIIwHc/+LURMHd54TdU355zYCpwl/LK4NHfXPMWnd9JjEYGBqsdnGVbY2cTZKsZLnp9sX
-	Us2u0I7UxWgPtK4WPPS9igNAfW9ccrnbAigJJGe5/zvwGiRe+tD2KVoSwEDqm2NS/VYgfnu6HFd
-	qCDs0w8XExe3TMbFKWiCMTgkzQPvgvJlV7trA8l4JSJXKQDfPCYNhdZr5Tw5h9wR2GiGKoaEYaZ
-	I0fIlnKuvPMecBcOwdwi9+910tnnDhO7xlMBuyAT0WSpln2XGcnTgfA1Pi14zkTmhv7x6e1qzkl
-	te/vqARavN22L+a/LytWwus2fUAe4YUylwdG7BAeYUIc+A9JV+tyUlBsLuey6mHSHYzkTqjez+7
-	sIu587AC85U7NiiboWVZJCcSCzQzW7xGSztu5/kIw2laiGwm+bQO2bbZ/pcqbyfMCVyGcIL4FvF
-	jZM8lEbAXlwg3JIOpB2GkEYflte60G52CZtMt9m/4fj++SO/j0vQCZd8gN1RvjqBfgW62IcGkwJ
-	YNTyCrPOdtjCe95dHrs337uCDFHoz7xvcpaCCqb1sxnTgomlZuHZGtUzHXSglBq9ewezpw3IERV
-	AzLb6ndPMw3CM586OBLu3
-X-Received: by 2002:a05:600c:2909:b0:4bb:b39d:d447 with SMTP id 5b1f17b1804b1-4bbb39dd4famr49921115e9.1.1795799008808;
-        Fri, 27 Nov 2026 09:03:28 -0800 (PST)
-Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-006.paris.inria.fr. [128.93.83.6])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb8533579csm607680575e9.2.2026.11.27.09.03.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 09:03:28 -0800 (PST)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Wei Yongjun <weiyongjun1@huawei.com>,
-	linux-crypto@vger.kernel.org (open list:QUALCOMM CRYPTO DRIVERS),
-	linux-arm-msm@vger.kernel.org (open list:QUALCOMM CRYPTO DRIVERS),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] crypto: qce - aead: unmap the scatterlist that was mapped
-Date: Fri, 27 Nov 2026 18:01:59 +0100
-Message-ID: <20261127170201.62667-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srazc7DB
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id AC388C2AC4C;
+	Fri, 27 Nov 2026 17:06:01 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B647D6049C;
+	Fri, 27 Nov 2026 17:05:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BE5AD11E90D96;
+	Fri, 27 Nov 2026 18:05:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795799147; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=epMG1oEJxcH1Mz0PZ5IoUhFZrQxUMuiU/tJZjWFh0u4=;
+	b=srazc7DBq+otogBqeRV2y6653RuMxbb9ubD4FxMA+QGTENZLTZ5v0QZeaSpaa69NZodljs
+	3ZGDU86Vg3KoSyAhh8ms5OMM1iU4fADwX859ddG5BLg4TGWJhkWbr1j6VoVaUUyRinj+EJ
+	cm5lRiRFqis1QkgaMf4HGoEVOKWgIRDLCfZFr/QffKrooUYMvN7wJBwjz4DZDaOjCAG++D
+	rMomtzBXfoAzRCbGzFkxnh9sJPcaUcR/gKsZFdNZ0xAgdwMXUoy3VPOLIaUkIgh4r7uToU
+	V+O7Dk9CkhAt9VS44Qihl9v9gX1xrrrwoort34F3iiBiG1qkxpHTYkHjaZEyRw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,47 +58,82 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 18:05:27 +0100
+Message-Id: <DN65NU9ZTJQH.1GRA0TZTLGY0I@bootlin.com>
+Subject: Re: [PATCH v3 0/4] drm/komeda: Use the bridge connector
+Cc: "Ayan Halder" <Ayan.Halder@arm.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Kory Maincent"
+ <kory.maincent@bootlin.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ <linux-kernel@vger.kernel.org>, <cix-kernel-upstream@cixtech.com>,
+ <Wuyi.Shen@cixtech.com>
+To: "Luo Liu" <Luo.Liu@cixtech.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "Liviu Dudau"
+ <liviu.dudau@arm.com>, "Russell King" <linux@armlinux.org.uk>,
+ <dri-devel@lists.freedesktop.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.22.0
+References: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
+In-Reply-To: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
+X-Last-TLS-Session-Version: TLSv1.3
 
-qce_aead_async_req_handle() maps rctx->src_sg, which for CCM with
-src != dst is a table built by the driver and not req->src, but its
-error path unmaps req->src. The mapping result is also checked with
-"< 0" although dma_map_sg() returns 0 on failure.
+Hello Luo,
 
-Unmap rctx->src_sg like qce_aead_done() does and treat a zero return of
-dma_map_sg() as an error.
+On Tue Nov 24, 2026 at 10:41 AM CET, Luo Liu wrote:
+> The first patch converts komeda to the new DRM bridge model. Bridges
+> following that model no longer create a connector themselves, so the
+> display driver attaches them with DRM_BRIDGE_ATTACH_NO_CONNECTOR and
+> creates one connector for the whole chain with
+> drm_bridge_connector_init().
+>
+> The second patch fixes the teardown path that the conversion exposes.
+> drm_bridge_connector_init() creates the connector with
+> drmm_connector_init(), which provides no ->destroy hook and leaves the
+> cleanup to a managed action. The drm_mode_config_cleanup() call in
+> komeda_kms_detach(), and in the komeda_kms_attach() error paths, drops
+> the connector references directly, so drm_connector_free() ends up
+> calling the NULL ->destroy pointer.
+>
+> Switching to drmm_mode_config_init() lets the core release the mode
+> configuration after the connector cleanup actions have run. The komeda
+> private objects are then finalized by walking the pipelines instead of
+> mode_config.privobj_list, which also holds the bridges that the encoder
+> cleanup releases.
+>
+> The third patch fixes a latent interrupt race found in review. The IRQ
+> is still registered after komeda_kms_detach(), and the
+> komeda_kms_attach() error path, clear drm->dev_private, so a shared
+> interrupt can reach komeda_kms_irq_handler() and dereference a NULL
+> mdev. It is independent of the conversion.
+>
+> The fourth patch fixes the tda998x bridge, which accepts the
+> connector-less attach flag but keeps using its own connector. In that
+> mode the connector is never initialised, so the bridge reads an empty
+> display_info and ELD and stays in DVI mode without sending hotplug
+> events. Use the connector provided to the detect and EDID read
+> operations, report hotplug through drm_bridge_hpd_notify() and
+> advertise interlaced mode support through the bridge.
+>
+> Changes in v3:
+> - Add a fix for the tda998x bridge, which accepts
+>   DRM_BRIDGE_ATTACH_NO_CONNECTOR but keeps using its own connector.
 
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-Fixes: 5c0ecc2e81ec ("crypto: qce - Fix some error handling path")
----
- drivers/crypto/qce/aead.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+There are two v3 series you've sent the same day. Which is the right one to
+review?
 
-diff --git a/drivers/crypto/qce/aead.c b/drivers/crypto/qce/aead.c
-index e0061bfab216..54cc6bb8fd4b 100644
---- a/drivers/crypto/qce/aead.c
-+++ b/drivers/crypto/qce/aead.c
-@@ -450,8 +450,8 @@ qce_aead_async_req_handle(struct crypto_async_request *async_req)
- 
- 	if (diff_dst) {
- 		src_nents = dma_map_sg(qce->dev, rctx->src_sg, rctx->src_nents, dir_src);
--		if (src_nents < 0) {
--			ret = src_nents;
-+		if (!src_nents) {
-+			ret = -EIO;
- 			goto error_unmap_dst;
- 		}
- 	} else {
-@@ -478,7 +478,7 @@ qce_aead_async_req_handle(struct crypto_async_request *async_req)
- 	qce_dma_terminate_all(&qce->dma);
- error_unmap_src:
- 	if (diff_dst)
--		dma_unmap_sg(qce->dev, req->src, rctx->src_nents, dir_src);
-+		dma_unmap_sg(qce->dev, rctx->src_sg, rctx->src_nents, dir_src);
- error_unmap_dst:
- 	dma_unmap_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- error_free:
--- 
-2.53.0
+Please reply to one of them saying "ignore this series, it was sent by
+mistake" or similar.
 
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
