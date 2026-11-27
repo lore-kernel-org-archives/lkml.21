@@ -1,59 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795240;
-	b=dio/WMA6FfwzICnAVuzNnipUKfEOldChZy5hglr/1Z3id/FTtIMh14bSgYkeAkYJVjKK
-	 2FJNxkbttnWq4/0s9zfVcYgXiGIJnQ24Yxc0BSUuQD7VDrOe1DEQ4jXsNVbEsBJBtIPuh
-	 ON+9mx8hUXcZ2VgBoQXvh0lkybtT0c10rPFixFSTQ/OFS8K7/Ar0Icy02I5fZSZvhZY9Z
-	 eYmRWULtj2rcpsOkl5KA0xRol/ywmVKwbmHF9xROWF0vJ3UdQzuMcdbURWonIJ/IhMxTA
-	 ZiD14OMa2Hi+jZQm2QRH1u+AFSQ8QKnzUvjDVKvJYIOXA9CRdobMxEElNhDiJB6jn7g==
+	t=1795795242;
+	b=RK9KtSjBrFY9C8b5NAyzXd7czE/FRYbOXq5xvrCjjE3O4UmAgYGqKVSNZs/cuqtdgaL3
+	 mPc+7cEbaYmazD3336pn3b863zdZx82aEGbBcjw5RDYjyaNaadwrDFFAjYK7umNR/VkGA
+	 Fl8Xb64LX93+FIvKQRkdHFDYbzyn9GFMgcMNK8FrvOFOjafv1vsukFWDrG3epuc6CKGK/
+	 u18xmSjwS/TRZ2ZkX9g4Z7c1JBrFE3unzhnI3IQMKfDMDkVxuKz2YfuEQZ5Vc2juxlSmJ
+	 ESzxHfghpfYOxCqJn42yWBFrOvCWFerE3XjUwcXhfP//L/VwT2cZ6wa0wjxipKfwzTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795240;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795242;
 	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=Swm7TiR/+vfZc/veZwMnu9F9RxStlTVfWtOZl0oEoyQ=;
-	b=OGxd7rOXD9P1S37X4BOzTTGU4oKPGvM+W/UvU+ezUJDbAZFv1Hs7PgSm8OGJNEasXryd
-	 YhNJk2LXER/qp57F/Nc4uPN143nwJrGsUMDRLx3WM7NiH2ZR3Lj1KEY1qPH8x7+o+CLgH
-	 AddXgezLfdhzfpqC0SO3+13+GtKoU4zrrHw+aCu+Rc+jAeTvHIE7tdCKB8YfA+xpsIFdw
-	 1VJmriASyRS/x7U2QPSx++0OVrPNzCs08OeoQqBjkg2aeNZ0+/fejblN3sJP3Oq+T1y+P
-	 D3itk4PSSMgXup+SH/ZRqEems1akLiluols0twHL1teLaciqzHRMdQxH+1nf4JZy2jw==
+	bh=d1iWSGi7QtNHLyP+bmfRuFtqadXveS2JDuZ8jqUHNFs=;
+	b=jpeaOm+K4BQNa3OwPPJrms0EU3q6SyMM1gDgiF4uZBDqM8oLmGDNe9yVvfPmIX/mKXLn
+	 +Gtb9GxGKiVgfbxzZlKKPYr7dY6E62jUKSOOwoLRUbrUVzH4UkkEq7gr0/sH2PHlxl+4r
+	 GIR8huJ+cRWdNkCFmaqa/5KCijTFmp0Wdo1HjekUM89mYRKGECcIZkJFaly6h4Wr2ddsg
+	 wvdJhx9oitWQr9GsOkU1swX5OVx7lKBtD6FPtsuuHwXa6yO31FiwtwuP9xZfAmzAZVb60
+	 4ENHXHLoNeGZSlrZnGWXyjg5gw7xHUYT9KQ2Ncc4uPw/AobN+ZnCvT2rb/EcqdDDb5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b="J/8ga2B2";
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=oD8EpM4H;
 	arc=none smtp.remote-ip=148.251.105.195
 Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 274C560A3823;
-	Fri, 27 Nov 2026 16:00:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 274C560A3823
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CFA2606A6A8;
+	Fri, 27 Nov 2026 16:00:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CFA2606A6A8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=J/8ga2B2
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=oD8EpM4H
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795795238;
-	bh=GeohDdPN582wuAlwBDUyFf4DkMFpTGBQIww4ODFfpFQ=;
+	s=mail; t=1795795239;
+	bh=ByL684X2Vnb9P9DlVQ5rYaQEzQJC6mcaaHtBDTMfkSI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J/8ga2B2m1e5vbf7YWXODNkBh1m7yV8roEPPQKoMZ5dACWyPjxPhIkIXr7oaX6hNb
-	 CvszbkL49g8eLkYcst3TPwqs7J+uNnxr6+dEjzuuhVKgtsKCl+36ii5Id/uOUvM/HV
-	 fmFxCtQ6cHZrMSkw22BVlVrco0lG8DcD84y2GisxK22y62Ql8epgACf4jhJfKfXsST
-	 NT14Zb9MLsIxXEoNz+C3BNgEsN7nlG9qdSN9497/ECp+CR7L77lXYai/cIi6oRNq42
-	 R6hM8lfn4m4VcGvjOxDTRSqirBKdUfOo+rXjxkJvrbKDL8z1PEMAoc6Nv9P7KNE9mE
-	 rRd5YLrejbAOA==
+	b=oD8EpM4Ht1SSgZAdhSLoB+uw9i8F3BtRJPpj8TU2nIyt9oUpU8VJhRNuQDMxlZhT5
+	 SKXn1T3t2q4xt6FWdRUPwmVsmK1ZQYkGiso2aOktDIbjdAe3GVSF1jWpACFsoEcaHP
+	 put51NyfxisRFSUx5lHG7EMcxxtIeOzBQV2/Aobj/SBOk9eOP/GIVuA4i1OQwXREeG
+	 +FjtT2tCPnehosifOEYP2XlCysH2xL22hC0NN8J37ZnGzXFkjUWxAiMBMnPBuYyzJ2
+	 MOGVjMHR4TbCwpYKRo7G89YD7gSxKrh1jbRfgChM6q5FX9tO0E6f9EEboIJ4P/DCyE
+	 oKQj71SLAWNuQ==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5533B17E047C;
-	Fri, 27 Nov 2026 17:00:37 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AC92217E057D;
+	Fri, 27 Nov 2026 17:00:38 +0100 (CET)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 27 Nov 2026 17:00:14 +0100
-Subject: [PATCH v16 11/23] scsi: ufs: mediatek: Handle misc host voltage
- regulators
+Date: Fri, 27 Nov 2026 17:00:15 +0100
+Subject: [PATCH v16 12/23] scsi: ufs: mediatek: Remove undocumented
+ downstream reset cruft
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,7 +65,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-mt8196-ufs-v16-11-6f2568f7c119@collabora.com>
+Message-Id: <20261127-mt8196-ufs-v16-12-6f2568f7c119@collabora.com>
 References: <20261127-mt8196-ufs-v16-0-6f2568f7c119@collabora.com>
 In-Reply-To: <20261127-mt8196-ufs-v16-0-6f2568f7c119@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -91,101 +91,84 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795795222; l=3082;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795795222; l=2332;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=AYwhJikfROYV074NpkA1ud2WUK1ITJjBVQ5S3jjiDUA=;
- b=L+RI7BG9hIJ1gkP1tDZ4JWQ8GmjzXq/tkhVWdFlNcmaFyw3zxAEPmLpM3ZcheFTbtayOoUjDF
- D40JhKbrZHnA6wMkulImVSucm/Bi88a/L5AAfHZW/SRg56U6vjdIDBn
+ bh=+A3NldqSEBf9ebZ6WybS45DAMnLDsRhXDpWr1MsfjRg=;
+ b=frZ/5q9Tr8kTYFlxwRLhp+vDsG4WK2NJ6LiST2MFt4LmOYeBUP+koiRrb4OPVnQe5hRUlSH8B
+ gz9vnX1nbppCxZidyHmLzOTAPmK+lck0Jltv/AOZtu4z5qAHCwU6YLb
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-MediaTek SoCs handled by this driver contain a per-SoC specific set of
-miscellaneous supplies. These feed parts of the UFS controller silicon
-inside the SoC, as opposed to the UFS card.
+The MediaTek UFS host driver's probe function allows using a
+ti,syscon-reset as a reset, without going through the appropriate
+abstractions, or by documenting this in the binding at all.
 
-Add the necessary driver code to acquire these supplies using the
-regulator bulk API. They should be kept on during suspend, so enable
-them when acquiring.
+Remove this, it's downstream code and does not belong here.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 34 ++++++++++++++++++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 33 +++------------------------------
+ 1 file changed, 3 insertions(+), 30 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 41c477f5d5f3..b68c5c0c0e8f 100644
+index b68c5c0c0e8f..e768afdbc3be 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -42,6 +42,8 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up);
- struct ufs_mtk_soc_data {
- 	bool has_avdd09;
- 	bool has_avdd09_1;
-+	u8 num_reg_names;
-+	const char *const *reg_names;
- };
- 
- static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
-@@ -1245,10 +1247,22 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
+@@ -2490,38 +2490,12 @@ MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
+ static int ufs_mtk_probe(struct platform_device *pdev)
  {
- 	struct device *dev = host->hba->dev;
- 	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
-+	int ret;
+ 	int err;
+-	struct device *dev = &pdev->dev, *phy_dev = NULL;
+-	struct device_node *reset_node, *phy_node = NULL;
+-	struct platform_device *reset_pdev, *phy_pdev = NULL;
+-	struct device_link *link;
+ 	struct ufs_hba *hba;
++	struct platform_device *phy_pdev = NULL;
++	struct device *dev = &pdev->dev, *phy_dev = NULL;
++	struct device_node *phy_node = NULL;
+ 	struct ufs_mtk_host *host;
  
- 	if (!data)
- 		return 0;
+-	reset_node = of_find_compatible_node(NULL, NULL,
+-					     "ti,syscon-reset");
+-	if (!reset_node) {
+-		dev_notice(dev, "find ti,syscon-reset fail\n");
+-		goto skip_reset;
+-	}
+-	reset_pdev = of_find_device_by_node(reset_node);
+-	if (!reset_pdev) {
+-		dev_notice(dev, "find reset_pdev fail\n");
+-		goto skip_reset;
+-	}
+-	link = device_link_add(dev, &reset_pdev->dev,
+-		DL_FLAG_AUTOPROBE_CONSUMER);
+-	put_device(&reset_pdev->dev);
+-	if (!link) {
+-		dev_notice(dev, "add reset device_link fail\n");
+-		goto skip_reset;
+-	}
+-	/* supplier is not probed */
+-	if (link->status == DL_STATE_DORMANT) {
+-		err = -EPROBE_DEFER;
+-		goto out;
+-	}
+-
+-skip_reset:
+ 	/* find phy node */
+ 	phy_node = of_parse_phandle(dev->of_node, "phys", 0);
  
-+	if (data->num_reg_names) {
-+		ret = devm_regulator_bulk_get_enable(dev, data->num_reg_names,
-+						     data->reg_names);
-+		if (ret) {
-+			dev_err_probe(dev, ret,
-+				      "Failed to get misc regulators: %pe\n",
-+				      ERR_PTR(ret));
-+			return ret;
-+		}
-+	}
-+
- 	if (data->has_avdd09) {
- 		host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
- 		if (IS_ERR(host->reg_avdd09)) {
-@@ -2439,14 +2453,30 @@ static const struct ufs_hba_variant_ops ufs_hba_mtk_vops = {
- 	.config_scsi_dev     = ufs_mtk_config_scsi_dev,
- };
+@@ -2567,7 +2541,6 @@ static int ufs_mtk_probe(struct platform_device *pdev)
  
-+static const char *const ufs_mtk_regs_avdd12_avdd18[] = {
-+	"avdd12", "avdd18"
-+};
-+
-+static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
-+	"avdd12", "avdd12-ckbuf", "avdd18"
-+};
-+
- static const struct ufs_mtk_soc_data mt8183_data = {
- 	.has_avdd09 = true,
-+	.reg_names = ufs_mtk_regs_avdd12_avdd18,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_avdd18),
-+};
-+
-+static const struct ufs_mtk_soc_data mt8192_8195_data = {
-+	.has_avdd09 = false,
-+	.reg_names = ufs_mtk_regs_avdd12_ckbuf_avdd18,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
- };
+ out:
+ 	of_node_put(phy_node);
+-	of_node_put(reset_node);
+ 	return err;
+ }
  
- static const struct of_device_id ufs_mtk_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
--	{ .compatible = "mediatek,mt8192-ufshci" },
--	{ .compatible = "mediatek,mt8195-ufshci" },
-+	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
-+	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
 
 -- 
 2.56.1
