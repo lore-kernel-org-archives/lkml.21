@@ -1,106 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.37
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795752541;
-	b=4eSOOxkFcC/nM54RzucNSHe9fW4zEv6O87Gt1QGD64z6hh0FGFWwsmOhdWPgzcuw22a5
-	 moeL9naMMmXmclWNZg+up+OEy8eJa0MF0m7/bDx6G1q1IRT+mgY+vs166vTAbHg50rrRK
-	 Um6HNCEcFMo7upLZef6NFJhZ3cs6tiUePGTaOvKRKGlfj4ZsJSD3JpdhQmZJPpIpU+lOg
-	 wqiANuVLPvJPojbfaIpmsE/XgiCk+rzzV1Te7CyO0M3lp/12datnVK3TU3OeeurC9oRLV
-	 8+xLTxWbRK0HmGGl331gSTE19ltzQ7rYbTbzFrW4S1k9AV6NL8QuHkB64jBbeJr05Kw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795752541;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=c0Q57YfrFdrvn+Tms9ZV7SeWMGFz67M1jj7rUoVoqec=;
-	b=Z8v2IBU/9ftuSFDjTr1G894eMoQoJvRHMoTDZrCJk6SgYBXFs1skDLuHJUaveefC8h9J
-	 n0v8Y6IXbRyMey4LCyhqDG7/qvmELvwalsxiaTIWRVVv79qWW3pz5aUGe+RUmNvebnOaz
-	 al9j5263vXFJWobCu/YBHsJ9RP7AmfQV2j7R9z7EIRYSFT5Z0hKtfKdeSTpfLDxmtrFjk
-	 17fML6UoOvUy/Do/BGnim9pAr8TE0EA0x7u/pdwSi3TqiIoWDhmzity3neEvxTX+sODu0
-	 aFnc4gIAiw8F4gCrTHG2BDKLOLyFswoTdjrbjE7yx/t9Hk9yKOeOct3ukViub8joKuA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=k4ASRvnd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.37
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010037.outbound.protection.outlook.com [52.101.193.37])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795752703;
+	b=a6VA+osKjEca7D5CanQDaEokkbP9oIfom0v0h3k6vfhJDhsac/oosA3p++tMbcfK5PXQ
+	 aW3ZfgQ0TYUbx/aNQ3NvjsI6v7rdXszrcJmxrIzuX3V+I7345MAu5lZDajJyoQhYsopcE
+	 We9Rv8RPfdV3MKLUZhL12w+PVGQSPL19VQQH1M0F1FsTqbBb+dpAxhccLF0WUe12V5zqZ
+	 XNknhKD4sEVjrWGmd1nhoZgO2f+ziRvep+XH8ueSwSZ1bgtCT+t/FTEViTEd+wS+ol2Ot
+	 LVmhEwCaNkrHJ5GwMkuexhDmbCFw893C7W3iLyHr3uFcEYLOpCVJyXEmXbPl6l01yrg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795752703;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=bSS+TfzotcLZLnDjx2lsRE7c4zYm7LtguQHz8ft9Q+8=;
+	b=mZG2nBnFVz/oOcE1xZQkeYe1UNw9e8I0jqQOu+zUVevGWP8rpjHTXxpkDKyv6CPkS4ZI
+	 SEwJNysZOM9iR5QhCC23IrYvVHGO8URg30lNk4whtSyQZWBHcUAGijQe6OE7NA08p6+s9
+	 pSvvYVARvpqBT+sloXdcpJPKte1ph+OWPO6AXNnrjo3zVtAj04CGs3JJDFcqsNKIePPUE
+	 fivfpNltAim567kgyuzILBDHZ6zoMXPxwpg3aLtqXxabKyTYEYLytE7ieAapxpH3rY8qq
+	 r1WOPp4VTiRMDsYZLsIc6X9fbZt7pKQTPeL60JdAgZj56b53Vz4enqFAQrAAVkbqxlg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=PM1Pb6fs;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iE+zJtoA;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A49BE606A324;
-	Fri, 27 Nov 2026 04:09:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A49BE606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45B74606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:11:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45B74606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=k4ASRvnd
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yxGE/aDsvGfUl13tPAAFymZXS0/D0R1+mPQ3alevVgSG6yG7Caavbavf9PhkiHmRnxbVgTutgo2MEDj11MxeMjjtkpFIQ2FjXQamrtW9J3bQbtmzpQdXJgJWOWtT6fnzyDgQFcncTLpItCpcN9zcb1ezWJaNwvKx7m2dKwePU87C8Le95sv/xtpOPl5pkI52a5XB5LHq4BOnjx3Au1eVVbz+bN72Sj/o3lqoiybRid0j7/43VfXHL0UU+J4jkYs7rNTGc7JVXgSOjobwdfJQ0GSwbRrYXyZwn3S7ikGRsQIyw+xuG1YtGcNlMu/kUNbb1VOzjvZiGnyRApqsZGawZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c0Q57YfrFdrvn+Tms9ZV7SeWMGFz67M1jj7rUoVoqec=;
- b=jZo0CQR8YIzDirz9cFN+SJManMkWvp2HJnncTzrFrADbfA5yO+aampl4FXcdXIj5Rh7K7yrkudMSMOMI7Af2fjmO2Hw4/65iCS/GbPiBDvq7F2CslWr2CWdB+ztak7Kuu643vom59Cu7TbGlJfhn5xqQSrX/vqDI/4subtnGHMHXs700SSF9wEOkmfkxDfeXYO6pubLxBny9SsAHJzqbyhc3Q3f93ZKolIp2hU3uAg0wuK5EQArJvJkHezEaoidM2L6Eb8VQBSRnFyadwZZ2cezhq+2hAj+kpDr6Vbj6LTprqsXEdMCfPgwblHAP5tWwfdHEzcYEWpLwB1nPjl+UMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c0Q57YfrFdrvn+Tms9ZV7SeWMGFz67M1jj7rUoVoqec=;
- b=k4ASRvnd6+QHXVoIdLs8QPjYgnoj7cAa2p0UffWKwp0rN0mIAwPSJ+MyhGfPnaCxVMdUg1XEJPTdxYrUDtmSNc2xRf/WYMqcj+z4ENZT2PCvNQtM33i87jgasJOqci9G0VfD6pjh2af2M/1ZMd2KTOgJFNk4vAxOWGrbdzb2V50=
-Received: from CH0PR04CA0114.namprd04.prod.outlook.com (2603:10b6:610:75::29)
- by DS0PR12MB7874.namprd12.prod.outlook.com (2603:10b6:8:141::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
- 2026 04:08:52 +0000
-Received: from DS2PEPF00007107.namprd05.prod.outlook.com
- (2603:10b6:610:75:cafe::69) by CH0PR04CA0114.outlook.office365.com
- (2603:10b6:610:75::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.9 via Frontend Transport; Fri, 27
- Nov 2026 04:08:51 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DS2PEPF00007107.mail.protection.outlook.com (10.167.23.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 04:08:51 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 22:08:51 -0600
-Received: from xhdipdslab46.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Thu, 26 Nov 2026 22:08:49 -0600
-From: Abhijit Gangurde <abhijit.gangurde@amd.com>
-To: <jgg@ziepe.ca>, <leon@kernel.org>
-CC: <allen.hubbe@amd.com>, <nikhil.agarwal@amd.com>,
-	<linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Abhijit
- Gangurde" <abhijit.gangurde@amd.com>
-Subject: [for-next v3 3/3] RDMA/ionic: Accept QP SQ and RQ rings as ioctl umem attributes
-Date: Fri, 27 Nov 2026 09:38:32 +0530
-Message-ID: <20261127040832.16908-4-abhijit.gangurde@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127040832.16908-1-abhijit.gangurde@amd.com>
-References: <20261127040832.16908-1-abhijit.gangurde@amd.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=PM1Pb6fs;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iE+zJtoA
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR0m0xF375629
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:11:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bSS+TfzotcLZLnDjx2lsRE7c4zYm7LtguQHz8ft9Q+8=; b=PM1Pb6fsJj8Pc+ev
+	xL8J0l09Rn8y9r22af5x99M+UJjgOb0g3vXHprxTaDn6Ely61BEyzVurS4/OQMSK
+	r6KfgTKeRE/L2faE9SoEcjsOg4172eAGDKvZxn4UTFxI2lRq7m9n18MNbwjUoVqa
+	EcEIKx5eje+XTU2OXWKlpYmwTcXN3FzH+yQ/S3FBj7bIyiP+kIama3Oxu62Einby
+	TGis3sGuwxVqiDaL8CMMe7WVwGX6VY2FOI5G20Shhc5HpWocUqFg+DjIu+QB+usT
+	POI5WEbn2OR9no7cfekly636Wu1QjqhT2UPU1spr3RRh4Rf5/HR+ZCWEISlAwNAW
+	CGt1gQ==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ymw8fam-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:11:42 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-139b62317d0so4054539c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:11:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795752701; x=1796357501; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bSS+TfzotcLZLnDjx2lsRE7c4zYm7LtguQHz8ft9Q+8=;
+        b=iE+zJtoAuDdmx62d8h3yBqLMMxwVGuT5J+cv17489mzsjtQ+9qmMyAUSTSEl0hMfSc
+         tUGYwHHu/1WKyIk7Ywl1CuWShLo5nfpnhxoEV/PyonjYvRLZPfd8kirxOKPbrOvsxql0
+         pCa8jzYBpWAoOvf8/qfi/2+pbntSSvA3jDVf/rT2j9O3TuIO2ng6IogmVuUgn0PaFDWe
+         75U5rZOxgn+qCEH/7zHvbQ4nZ0QYG6A++YxEdXywHiogd9LoiPqC5tG2Zkru/uBp2h8+
+         IKqmn9wmoLT6FLjzATgQFoNOKPSl/t4RHbutrLhEGfrMCzTvGtAF/7cjjLcDGLRe5kP/
+         9Zlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795752701; x=1796357501;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bSS+TfzotcLZLnDjx2lsRE7c4zYm7LtguQHz8ft9Q+8=;
+        b=eZFzsFP0A6BFQpUihcHh/p7nIQaChHGn5jEu38s7AtpiB7ET1jtt0N+AC418EWuNN/
+         wlj/890hnsEscZTielb+DM6lksrA36pMT5pRE4PQxPLDlwuenUw0fWnLyay5RgsgTdSQ
+         BUtKFrl3F58SejtmHng4zYJoD8l7wIq5cFExjM4TMkIUtkoWwCi8qXyLgbSQrbkJmO50
+         FXFlrJvtj7MMJW6a+jcRab8pcw5NrsCU0W0KU0SshxoE/G6etvvRfYL3PCK1W3sRLObo
+         YxEELaQqHPjGOEXGz/WyqkI4iRSimt/IiufcGwrgTl6mb0Uqi1wACgc7GrVbVLZUQdwV
+         qq5w==
+X-Forwarded-Encrypted: i=1; AL+hErE10Oawwc/MxNO1ZUnTsLnO4g16UUdaGOLcSaEXA9OjdTIOMwAu5w4hb2bmD6aKMcqTNvGMUA/VwVBHVx8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lOBamRy5x0jqgWBSBXRIvd3PsXbuaULw2nLMrzwGgzxbQ15Zp
+	aOXkme+sXRnU/V/1+daIQcMv4I3J/lGYMapxbuXopZAPuYyRoQJlfQyVgITFPgnK1bCsnuzE2qQ
+	XzbPspZriyANjri5eT/Zr6Jwa5YgZAAfr5QaxG/dGysqQF9ExoyOuOe6T9duSJcqgRBU=
+X-Gm-Gg: AZFdTZe0nWx++oKKIRR4gOKQNbeRpX1spAL8XHcWCtigmGN/aMnHvJzMSi2TFdwjokb
+	xtQSncfivGml7vlCKFaSSxFRW4J4hgA0on8G4nH+UJ3MNAE9PA8uZ3xYFqa93nZZy+Ud76HnO6k
+	PqI7tyYKdg8OZwOjnS8Z6w0puABQ3BS2mPeDxQUxQ2LkYRZgpAH14XlbvoBvbGAXCGCkBNzfXiO
+	MMg8ExEYW2AZYqFOV1b2om3qnft0bwwy5Cs8OjFaiqr6/5tMcG/cjqsiy0KSgueMi9rsnlV6TJ2
+	EZ+wM4LMtMs7sFtZifbEqEl54Vlwb4+M4n2rIDojJ3IYllBVBIAumU008MS4LjV/6OMaZ9cpiSx
+	r+G9NX/tRXZp3bCQLwvS1QxoTgsFN8vymm0cXGO3eemrer21bT0UJXVdv5KLe4Bg01Mx2/LLiHX
+	6zHTbe4w==
+X-Received: by 2002:a05:7301:152f:b0:381:c532:3d88 with SMTP id 5a478bee46e88-3857093c38bmr25839622eec.23.1795752700934;
+        Thu, 26 Nov 2026 20:11:40 -0800 (PST)
+X-Received: by 2002:a05:7301:152f:b0:381:c532:3d88 with SMTP id 5a478bee46e88-3857093c38bmr25839603eec.23.1795752700431;
+        Thu, 26 Nov 2026 20:11:40 -0800 (PST)
+Received: from [10.218.42.145] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm82327331eec.5.2026.11.26.20.11.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 20:11:40 -0800 (PST)
+Message-ID: <e8e6eb0b-9755-4f49-a4c1-03d2f0e52f73@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 09:41:35 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,233 +116,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF00007107:EE_|DS0PR12MB7874:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1ccff1c5-47d3-48aa-c327-08df4c3c2549
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|376014|10067099003|56012099006|261021121427099003|261026121527099003|261021135927099003|261021123027099003|261102123227099003|22082099003|18002099003|11063799006|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	I+SvMpvbrhJnUps6w2P0l1tQWFGf+iBe5f/wJOH1Kc/GWEsdNvfaOArtdupzil19ASuMyiOaEz8BNRZEmOHc8OqCU0prVzEoCjArfLKAD68/iM1rCcIuJcZ5RHJ4gc64FwXCRpnZ8M3dhLvCKkIjpdO/cN8xGAAR2OvXXCfccoy2NLcXdoQKMbxps1aydkefJ0srLxGb2n84We29/wrxyycxIbWFN/2mHdf0aGMGLFaD7m75/ljjO0HsVL7BY8J+Fs/uJj5oKkrlBSmyMMEwSwCeypbGtXdZzedfUctiGtZ3fYlEOktY+XpHIv5ipXj2GsP6PYak7udf8sBC55UQKEXkNhFENFhddfcS5rKPE6UxEapTtgFnfubtgc7w4M1CHqK427GSdHJlOqUSlcOq3Qbzq0pXWOwMVVMAHubxyrkHZ3lrZW/j8BDphEjiyKEnMEio7NK/xSnnNUnlXUZJkV3OIbccURayJFba8gYLN4pNYSJTmWGDV4pYqj5yehFnkYbJ13cKV9AKkpDfpJiSDbvG8/JTLbT+xdmtH3b5cHJstpPd7hUULaqa7Kw2d+EfwTap3+LVxc/ZyW1JQrBGkrls4qc5oF3Vvxkp3Sd2lSQOfd8ayI/KcHg4Zz3RTa27Aue3TLy+KW9XEReuRrUW7MFvna9oI4Cy82RnaP4OZDUbgjpPnWfEvDtgpLkET1e64Iaj4YBno0lMvSDCEGx9uQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(376014)(10067099003)(56012099006)(261021121427099003)(261026121527099003)(261021135927099003)(261021123027099003)(261102123227099003)(22082099003)(18002099003)(11063799006)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	3viMBelGb9Gi0gDgnZKYWdP/gHQaW4O/yiW4T4enT2T/E4ZKLuCGrNB1cPH8oL/30TzCW18DEpz1pJOTckbdOhvnwU2baY5LBvAe9ARXuFb/FHpcNMS+SQk8UjsCrtBKm5LlbniDlYj8BCzRbSUW+TreK2wwLh0SDPu3GaQUEZg3uxB1PBq996nknxwQs8Qt7qTmYPKUZQkQlpO5NrOOwyKOdrk3qMpPOp7rEmd/pqeATNgRPn+id/EqNOZAyXvas/qhwbpbG9Z/zNM2x0exwn7Ps/IvcG41A5ucq1jhP1lv+ClY3PPI7wKkPIn68dMo3eo2Nj6WqyUEgjkLUO+4fe7xHzb3YUYGQfpBwMl5vQ9Djl9r6/yXh6lrjAdiwIKBqMw999A7kF0OyUfCzqlKQb2usnAiyt2Zo8PVAJcMXjXSvbtqt5kWL7mFLbdH7g43
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:08:51.6774
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1ccff1c5-47d3-48aa-c327-08df4c3c2549
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DS2PEPF00007107.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7874
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: qcom: Skip ASPM enablement walk on resume
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-pci@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261126-qcom-aspm-resume-v1-1-a34625656e92@oss.qualcomm.com>
+ <b4aa73a1-ccdb-4ea7-a800-3c4ef20024dd@oss.qualcomm.com>
+Content-Language: en-US
+From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <b4aa73a1-ccdb-4ea7-a800-3c4ef20024dd@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAxNiBTYWx0ZWRfX3wUUhnihe3w/
+ uILVkCNAzPG7UsFIiac9j/LziOHsl9fd4sJfZKe0Pk4H1YH5zXWnJTC7aMiP4n+KIeF4ihEhYdo
+ NlR3xDFX5lhUxgD7Rn+++YvUe8ZT1ds=
+X-Authority-Analysis: v=2.4 cv=ZKtCCn7b c=1 sm=1 tr=0 ts=6b0902fe cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=m2VWs-Z5JUpV_CLSMugA:9 a=QEXdDO2ut3YA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAxNiBTYWx0ZWRfXyeMMnLLIf4Yi
+ zjLPxIUBYsaCCIXInUiDr2ysIJC1Q7LGzeVWtupCeFhgu/wmJdNK+iHWlukR1RUXvw74aYtTrvk
+ Od83DNFN8590EuImXc/0QS3VWluLFKCgLPG3yQ4JK7IRLuvneUYOVd2m/3Qv/vYxMrOmxOU3Q1K
+ Txcg8n0o8b65QUXvd2LcVB/n92o3bF4DqXg09pJF27rkS0gpLPlH78J3w/aK/GwtkP+IxY2MUg7
+ 11fZckJKef8k66wGv8WP9wxwdGAaZWZ677yNz8K1WhEtXoJPp5EOOsz3H6K5teg2o4JKltlCnlb
+ lPret9DF1X3XRiFyOfVG29SolGQYa9Lg9XE7HXVZNYfndksyPN5OcPoOZzUkCfvKAtnlCFdaGIp
+ B9ekWBIWWaCvCLu8QKznE3WPTl15EZlrpq9bjOB4Dc/4kh3zMrLQDlFpYFmiiKu6llGM+ya+hJf
+ nmgGJITMfd2rXAlBNPA==
+X-Proofpoint-GUID: zAfr3PoFnw92-cETqkaIo2Dk60KqnT4d
+X-Proofpoint-ORIG-GUID: zAfr3PoFnw92-cETqkaIo2Dk60KqnT4d
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
+ adultscore=0 clxscore=1015 malwarescore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270016
 
-Userspace passes each QP ring to create_qp as a
-struct ib_uverbs_buffer_desc on the core attributes
-UVERBS_ATTR_CREATE_QP_SQ_BUF_UMEM and
-UVERBS_ATTR_CREATE_QP_RQ_BUF_UMEM. Those attributes are already
-optional on UVERBS_METHOD_QP_CREATE. The get_context bit
-IONIC_CTX_CMASK_CQ_QP_BUF_UMEM tells userspace it may send them.
 
-ionic_get_user_q_umem() resolves one ring:
 
-- No attribute: validate the qdesc address and pin it with
-  ib_umem_get_va, as before.
-- VA descriptor: length equals the qdesc size and the address matches
-  the qdesc.
-- DMABUF descriptor: the descriptor locates the ring, so qdesc.addr
-  must be zero. Check queue geometry only and require a page-aligned
-  dma-buf offset.
+On 11/26/2026 6:37 PM, Konrad Dybcio wrote:
+> On 11/26/26 6:44 AM, Krishna Chaitanya Chundru wrote:
+>> qcom_pcie_host_post_init_2_7_0() walks the bus and calls
+>> pci_set_power_state(D0) and pci_enable_link_state() on every downstream
+>> device. It runs from pp->ops->post_init(), which dw_pcie_resume_noirq()
+>> invokes on the resume path in addition to the initial host init.
+>>
+>> On resume, the PCI core has not yet restored the downstream devices
+>> saved config space, so the config accesses performed by the walk fail.
+>> With a PCIe switch in the topology this is easily hit, producing errors
+>> such as:
+>>
+>> pcieport 0000:02:01.0: Unable to change power state from D3hot to D0, device inaccessible
+>> ath12k_wifi7_pci 0000:03:00.0: Unable to change power state from D3hot to D0, device inaccessible
+>> pcieport 0000:02:02.0: Unable to change power state from D3hot to D0, device inaccessible
+>> pci 0000:05:00.0: Unable to change power state from unknown to D0, device inaccessible
+>>
+>> The walk is also redundant on resume: the ASPM link state is restored by
+>> the PCI core as part of the config space save/restore. Skip the walk when
+>> the controller is resuming, which is the case while pci->suspended is
+>> still set at post_init() time.
+>>
+>> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+>> ---
+>>  drivers/pci/controller/dwc/pcie-qcom.c | 3 +++
+>>  1 file changed, 3 insertions(+)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+>> index a6a0e3ecd921..bd1ffbf5c21a 100644
+>> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+>> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+>> @@ -1174,6 +1174,9 @@ static void qcom_pcie_host_post_init_2_7_0(struct qcom_pcie *pcie)
+>>  {
+>>  	struct dw_pcie_rp *pp = &pcie->pci->pp;
+>>  
+>> +	if (pcie->pci->suspended)
+>> +		return;
+> Is this going to regress hotplugged devices?
+No it will not regress the hotplug devices, since it is taking effect after
+suspend resume.
+so before suspend if the device is enumerated the pci core will save the
+config space and restore them after resume which enables ASPM back.
+> Or do we need this bus walk anyway now that we have 
+>
+> eacf92a29af9 ("PCI/ASPM: Mask ASPM states based on Devicetree properties")
+for hotplug devices we need to relay on the CONFIG_PCIEASPM_POWER_SUPERSAVE to
+enable ASPM, controller driver is not getting a call (currently) to enable all
+ASPM with out defconfig.
 
-Any other descriptor is -EINVAL. The descriptor is copied from
-userspace once, and that validated copy is pinned with
-ib_umem_get_desc(), so the checks apply to the buffer that is pinned.
-
-Access is 0, so the VA mapping direction stays DMA_TO_DEVICE. SRQ
-creation passes no attribute bundle and keeps ib_umem_get_va. An SRQ
-QP still only checks that the RQ qdesc is zero.
-
-ionic_qp_req is not changed, so a provider that does not send the
-attributes still creates a QP on the write path.
-
-Signed-off-by: Abhijit Gangurde <abhijit.gangurde@amd.com>
----
- .../infiniband/hw/ionic/ionic_controlpath.c   | 81 +++++++++++++++----
- 1 file changed, 66 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/infiniband/hw/ionic/ionic_controlpath.c b/drivers/infiniband/hw/ionic/ionic_controlpath.c
-index 7438a8182e46..14d63aa26999 100644
---- a/drivers/infiniband/hw/ionic/ionic_controlpath.c
-+++ b/drivers/infiniband/hw/ionic/ionic_controlpath.c
-@@ -2039,10 +2039,60 @@ static void ionic_qp_sq_destroy_cmb(struct ionic_ibdev *dev,
- 	ionic_put_cmb(dev->lif_cfg.lif, qp->sq_cmb_pgid, qp->sq_cmb_order);
- }
- 
-+static int ionic_get_user_q_umem(struct ionic_ibdev *dev, struct ionic_qdesc *q,
-+				 const struct uverbs_attr_bundle *attrs,
-+				 u16 attr_id, struct ib_umem **umem_out)
-+{
-+	struct ib_uverbs_buffer_desc desc;
-+	struct ib_umem *umem;
-+	int rc;
-+
-+	if (attrs && uverbs_attr_is_valid(attrs, attr_id)) {
-+		rc = uverbs_get_buffer_desc(attrs, attr_id, &desc);
-+		if (rc)
-+			return rc;
-+
-+		if (desc.length != q->size)
-+			return -EINVAL;
-+
-+		if (desc.type == IB_UVERBS_BUFFER_TYPE_DMABUF) {
-+			/* The descriptor locates the ring, not the qdesc */
-+			if (q->addr || !IS_ALIGNED(desc.addr, PAGE_SIZE))
-+				return -EINVAL;
-+
-+			rc = ionic_validate_qdesc_geom(q);
-+		} else if (desc.type == IB_UVERBS_BUFFER_TYPE_VA &&
-+			   desc.addr == q->addr) {
-+			rc = ionic_validate_qdesc(q);
-+		} else {
-+			rc = -EINVAL;
-+		}
-+		if (rc)
-+			return rc;
-+
-+		/* Pin the copy that was checked; the attribute is user memory
-+		 * and may have changed since.
-+		 */
-+		umem = ib_umem_get_desc(&dev->ibdev, &desc, 0);
-+	} else {
-+		rc = ionic_validate_qdesc(q);
-+		if (rc)
-+			return rc;
-+
-+		umem = ib_umem_get_va(&dev->ibdev, q->addr, q->size, 0);
-+	}
-+	if (IS_ERR(umem))
-+		return PTR_ERR(umem);
-+
-+	*umem_out = umem;
-+	return 0;
-+}
-+
- static int ionic_qp_sq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
- 			    struct ionic_qp *qp, struct ionic_qdesc *sq,
- 			    struct ionic_tbl_buf *buf, int max_wr, int max_sge,
--			    int max_data, int sq_spec, struct ib_udata *udata)
-+			    int max_data, int sq_spec, struct ib_udata *udata,
-+			    const struct uverbs_attr_bundle *attrs)
- {
- 	u32 wqe_size;
- 	int rc = 0;
-@@ -2086,7 +2136,9 @@ static int ionic_qp_sq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
- 		return rc;
- 
- 	if (udata) {
--		rc = ionic_validate_qdesc(sq);
-+		rc = ionic_get_user_q_umem(dev, sq, attrs,
-+					   UVERBS_ATTR_CREATE_QP_SQ_BUF_UMEM,
-+					   &qp->sq_umem);
- 		if (rc)
- 			return rc;
- 
-@@ -2100,10 +2152,6 @@ static int ionic_qp_sq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
- 
- 		qp->sq_meta = NULL;
- 		qp->sq_msn_idx = NULL;
--
--		qp->sq_umem = ib_umem_get_va(&dev->ibdev, sq->addr, sq->size, 0);
--		if (IS_ERR(qp->sq_umem))
--			return PTR_ERR(qp->sq_umem);
- 	} else {
- 		qp->sq_umem = NULL;
- 
-@@ -2305,7 +2353,8 @@ static void ionic_rq_destroy_cmb(struct ionic_ibdev *dev,
- static int ionic_rq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
- 			 struct ionic_rq *rq, struct ionic_qdesc *qdesc,
- 			 struct ionic_tbl_buf *buf, int max_wr, int max_sge,
--			 int rq_spec, struct ib_udata *udata)
-+			 int rq_spec, struct ib_udata *udata,
-+			 const struct uverbs_attr_bundle *attrs)
- {
- 	u32 wqe_size;
- 	int rc = 0;
-@@ -2323,7 +2372,9 @@ static int ionic_rq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
- 		return rc;
- 
- 	if (udata) {
--		rc = ionic_validate_qdesc(qdesc);
-+		rc = ionic_get_user_q_umem(dev, qdesc, attrs,
-+					   UVERBS_ATTR_CREATE_QP_RQ_BUF_UMEM,
-+					   &rq->umem);
- 		if (rc)
- 			return rc;
- 
-@@ -2336,10 +2387,6 @@ static int ionic_rq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
- 		rq->q.stride_log2 = qdesc->stride_log2;
- 
- 		rq->meta = NULL;
--
--		rq->umem = ib_umem_get_va(&dev->ibdev, qdesc->addr, qdesc->size, 0);
--		if (IS_ERR(rq->umem))
--			return PTR_ERR(rq->umem);
- 	} else {
- 		rq->umem = NULL;
- 
-@@ -2425,6 +2472,7 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
- 	struct ionic_qp *qp = to_ionic_qp(ibqp);
- 	struct ionic_ctx *ctx =
- 		rdma_udata_to_drv_context(udata, struct ionic_ctx, ibctx);
-+	const struct uverbs_attr_bundle *attrs = NULL;
- 	struct ionic_qp_resp resp = {};
- 	struct ionic_qp_req req = {};
- 	struct ionic_cq *cq;
-@@ -2433,6 +2481,8 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
- 	int rc;
- 
- 	if (udata) {
-+		attrs = rdma_udata_to_uverbs_attr_bundle(udata);
-+
- 		rc = ib_copy_validate_udata_in(udata, req, rsvd);
- 		if (rc)
- 			return rc;
-@@ -2511,7 +2561,8 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
- 
- 	rc = ionic_qp_sq_init(dev, ctx, qp, &req.sq, &sq_buf,
- 			      attr->cap.max_send_wr, attr->cap.max_send_sge,
--			      attr->cap.max_inline_data, req.sq_spec, udata);
-+			      attr->cap.max_inline_data, req.sq_spec, udata,
-+			      attrs);
- 	if (rc)
- 		goto err_sq;
- 
-@@ -2530,7 +2581,7 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
- 		qp->rq.qid = qp->qpid;
- 		rc = ionic_rq_init(dev, ctx, &qp->rq, &req.rq, &rq_buf,
- 				   attr->cap.max_recv_wr, attr->cap.max_recv_sge,
--				   req.rq_spec, udata);
-+				   req.rq_spec, udata, attrs);
- 	}
- 	if (rc)
- 		goto err_rq;
-@@ -3137,7 +3188,7 @@ int ionic_create_srq(struct ib_srq *ibsrq, struct ib_srq_init_attr *attr,
- 
- 	rc = ionic_rq_init(dev, ctx, &srq->rq, &req.rq, &buf,
- 			   attr->attr.max_wr, attr->attr.max_sge,
--			   req.rq_spec, udata);
-+			   req.rq_spec, udata, NULL);
- 	if (rc)
- 		return rc;
- 
--- 
-2.43.0
+- Krishna Chaitanya.
+> ?
+>
+> Konrad
 
