@@ -1,50 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795787333;
-	b=mSd/yCw31qPZ8AG8Y5dtJjVZIeXsR69AVVct564qEe6orQnvfqEMCmpNNoGjL/d+wMmD
-	 sy8ZItttxbXNvogn7Otk3gGi6Az6qyMDQx+8YHge5Nv9bXWT9KZCb18v9ENpZbrMuMII4
-	 0Ee/Ki7uGKcS8a2SHM6IcCLMlw1302e0BuzVqRs1BrKSeFkwlVJDgcNAJEl31/rg7LYQs
-	 s5UBVa3t058JKiktHV8d+rxd+4aXBQWFeOKwQXJ0T6M2BiTShfV98p3rJ8pB2T/ZhNwbq
-	 ZB/AVdZ/kcMmwl8E0uaqOTs4xs4UbTYF8VaW/oPGhK0N8upuvflsqgBm9LibTyAA/IQ==
+	b=JyQQgR8pu222b+i0ZcA6ZBckQ9lLl/aap5cXzMu4SVTAy+pdziIVQY6RwShSDNp0FONv
+	 0a9PoErPampXAVL3r56n/V+fnNgDKE4Aokd9EsZ7G1hZsVYyXh696Cb5c6olG+NuzNq1t
+	 r0Wx710MqtbHVyqtwiN2Yt02rqCpd7GZbTdWcTH+5IM/v4xV5vtk0tXT3Bfjwk9TaFiFX
+	 sW3MKuhgjw8oTShY+LsSPBYr+Wj8+NAsCzBkABsRiPmm7+xfytu42ngff6qxfq85FOVKX
+	 OB1APjY3fmO6cm13qzPsu9ctrjowL+YEcmcZI9Nb7XHSz7zEhVDKuZ4yaTC46e873ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795787333;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=d1TIME1ipW969qGtLzmhRSD62ocT46zetBQGzZmK6KE=;
-	b=AU4uPkxuVjdElE7LVof6IDqOcnz9AzoVw4UcEo4iGQtNpEpkXCHzppDPC8zJhaKYr7Ur
-	 eONZKvJ1pLu/ftqI/KuVKg6EIj5FVdqgFWWKOFa+a7RxHeRvCXYYNmbjnhX8WmssBv/Yx
-	 bAW1csrwJt19sNffOYAL1s8Li9/BMK5WJ81G2hYwOxRs8sGkWSsGXoKsROX7cko9Kci+A
-	 zrPW/cELHuG4FDD350BkeHsdmrgdjPEqxLc4bqNlPAt61SKgK9nZbd1AxARqV6maupUM+
-	 GIcnfGDqqdBqMAQ7Kha3pvomIQTYqfwgkPOwRzfnindq0iy9DG8Mxi/LHHY5d3FeWOg==
+	bh=V/uEc4jL47bkiTzd7MGgfkd9ue145VA2nGSH2bL9Yog=;
+	b=usJLVlkt8o8Q6DjyQTud0COEu9ypgaVQhhqTmNfNa5F8KHu08HiIUblfoh+n2h4+78wf
+	 auDcLAwcrVxSpLUR8bWjyJQyPKEWA2Y3ez2oVu+fxOrkFQ+D+yb7Q+fTz9OXxUlbqmCuU
+	 TE3q9sm25fBi4rFlZFGEVWiAGv/utY6fV4Js95UOUyDnAnLYKYnJ45ZQJkLEkXdQX5qU3
+	 B9wtS3JMUXz9xfGjobbvAey7OlBg2RfRFgi/tmuyLhKFXRuIOBy3yWs0M4bmkHwzS+boI
+	 Bwa606Ke0zt5IV/XIMjjErxePOVXLO9sSN0HdPB/yLrX/wZlJMb+qjlK7s2DubHh/8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=Lwnzv71T;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=ROFeXxvy;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E112C606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1000606A31C
 	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:48:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E112C606A323
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1000606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=Lwnzv71T
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=ROFeXxvy
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
 	s=smtpout1; t=1795787326;
-	bh=d1TIME1ipW969qGtLzmhRSD62ocT46zetBQGzZmK6KE=;
+	bh=V/uEc4jL47bkiTzd7MGgfkd9ue145VA2nGSH2bL9Yog=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Lwnzv71THt81QlpvKCSbR6a1+UFylGUzhKTHmQw5G8jw8Zmh8zKd5RZofICg01Vnl
-	 CatUGcPv8s4cea4ChobOgrAWDZONh9X4+wr+PqVpDs4Dm1wF+22wEI8TLsxK6u79Ls
-	 h4OCY0/d8HLuElNcwAawOeJKyQDm7gNKNqfMr4UfNIkMhdI5wKDsEEULl+KlQAnU4K
-	 agusTtEi2h1cG6YyXYq9Sn6GcbwousYdenmr34qkqfzJvgse4B/Hvb4o+G1IMmNyKz
-	 X5kyFjf4gF1JirBacW2RPCUqM1wymEEcU8DJZmc82VxB3VOQQ/EjlZ6xgXK6NJHURS
-	 uCf04/RVyk3Ow==
+	b=ROFeXxvybAe3jEWLV6FqMC2LdifLlt5ZFXcKujaiDyN6feejz/R8+UlHm+butuhJ7
+	 LvIilcf7mofGy4v+LCjN7l1W2F+1DAnp64nfeDrF2vUxi2AWIrh5Feb3H010/yqkjO
+	 Sle8oYgQYVNSc7hZ7wIcofC0ASpzIbVtDkRMgU7uoUXXMUMVZkGbLAllO6Gs9nPsV3
+	 bfcfgLWNHTh9PDJ/zhmdj5UW5WN4Hd9a7cJ4ijwCWh/bDWmTEwAY5PyqieScHB+ByQ
+	 /HtQDHqCb4Je4g51RXzBvoClVM1v31en85ckWgCzxo9gRhkpU37xUxLVzwJ/i7fu2A
+	 PBFwfBYvMwxWw==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbZWf4ZmDzX27;
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbZWf3p0wzXFQ;
 	Fri, 27 Nov 2026 08:48:46 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: sashiko-reviews@lists.linux.dev
@@ -53,12 +53,12 @@ Cc: linux-rt-devel@lists.linux.dev,
 	hannes@cmpxchg.org,
 	mkoutny@suse.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 21/43] rtmutex: Continue the chain walk when a waiter's deadline donor changes
-Date: Fri, 27 Nov 2026 08:48:32 -0500
-Message-ID: <20261127134846.114774-4-mathieu.desnoyers@efficios.com>
+Subject: Re: [PATCH v11 17/43] cgroup/cpuset: Refuse to take a deadline task out of its root domain
+Date: Fri, 27 Nov 2026 08:48:31 -0500
+Message-ID: <20261127134846.114774-3-mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <sashiko-outbox-234553@kernel.org>
-References: <1f5dbe87dcc9405b5848044acbb7381db868418d.1795646914.git.mathieu.desnoyers@efficios.com> <sashiko-outbox-234553@kernel.org>
+In-Reply-To: <sashiko-outbox-234578@kernel.org>
+References: <2a3cf1f221564450a14f75f0f4eeebc3379a992e.1795646914.git.mathieu.desnoyers@efficios.com> <sashiko-outbox-234578@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,53 +70,26 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-> Can waiter->pi_se get out of sync with the donor that rt_mutex_setprio()
-> copies to the lock owner?
+> Should pending also be populated when root->partition_root_state is
+> PRS_ISOLATED (or via is_partition_valid(root))?
 
-Not as drawn. W blocks with task_blocks_on_rt_mutex(), which runs a
-chain walk from M before W can time out. That walk sees that the donor
-recorded in w_M differs from M's donor. So it goes on, records the new
-donor in w_M and gives it to O.
+Yes. v12 will count the CPUs of an isolated partition root as pending
+too. This alone would not cover your example, though. The second loop
+checks the cpusets of @part, the child that the write makes a
+partition root, and v11 passes NULL there. In v12, that loop will pass
+the same pending CPUs when the root is isolated. The valid children of
+an isolated root are isolated too, so the rebuild also gives their
+CPUs to the default root domain. The v11 cover listed this as a known
+limit. The v12 cover will drop it.
 
-A variant of it is real, though. rt_mutex_setprio(O, M) reads M's
-donor without M's pi_lock. If that donor changes before the read, and
-changes back after it, both later walks stop requeueing at M. The
-window is narrow.
+> Does dl_tasks_keep_without() (and dl_tasks_keep_root_domain() below) walk
+> the cpuset hierarchy and iterate every task in affected cpusets even when
+> no deadline tasks hold bandwidth or admission control is disabled?
 
-O and M are SCHED_OTHER tasks. H and W are SCHED_DEADLINE tasks, and W
-has the earlier deadline. O owns L2. M owns L1 and waits on L2, with
-w_M as its waiter. H has just blocked on L1, so M's donor is H, and
-CPU0 runs the chain walk of H. A task on CPU2 calls sched_setattr() on
-H. "Up to date" means that rt_waiter_up_to_date(w_M, M) is true, so the
-walk does not requeue w_M. [7], [11] and [13] are the steps of
-rt_mutex_adjust_prio_chain():
-
-    CPU0 (walk of H)         CPU1 (W)                  CPU2
-    [7] w_M->pi_se = &H
-        unlock M->pi_lock
-                             blocks on L1
-                             M's donor = W
-                             walk: w_M != M's donor,
-                             trylock of L2->wait_lock
-                             fails
-    [11] rt_mutex_setprio(O, M)
-         O's donor = W
-    [13] unlock L2->wait_lock
-                                                       sched_setattr(H):
-                                                       earlier deadline
-                                                       than W
-                                                       M's donor = H
-                                                       walk: w_M up to
-                                                       date, no requeue
-                             walk again: w_M up to
-                             date, no requeue
-
-O then runs on W's parameters, with a later deadline than H's, while H
-waits behind it. This is what remains of the bug that this patch fixes.
-The patch makes it rarer, and does not add it. It needs two locks, not
-three as the v11 changelog says. v12 will state it in the changelog
-and in the cover as a known limit. A fix would read the donor under the
-pi_lock, and pass a reference along the walk. That is for a follow-up.
+It does walk them. In v12, dl_tasks_keep_cpus() will skip the walk of
+the tasks when no task holds a deadline bandwidth, or without admission
+control. dl_task_keeps_root_domain() accepts any mask then. The walk of the
+cpusets stays. Each cpuset costs a mask computation.
 
 Thanks,
 
