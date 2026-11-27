@@ -1,53 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791687;
-	b=qKidx4/bktUftJ6hKAyTdcPf3rWHbaCJR0iLPwK1UnlEKT995rfso+pk5nvSy0OLoRcZ
-	 vuLud0NJwef9uzaAOL/9kpk61CVeHiIRIDP4JUnOz4WmksrMuu2P4sWCY9rvcYo9PT4/z
-	 xesjpD00aeZM9ds7Coi5veUtfcsiyEOV4HWUXWGdOz/KTXW/4kYQDrgIdpiaKrrq7oyDb
-	 K2HEfEtFiVDGpqiRM8c6L2NIV6VZcSZWHm07D1Ex5TlebEKFcPKXNuJFPzfSozoEgzZx1
-	 Ubk5+J/tIb7YV+iLwfW9Ki7+Yx1/phCK9VayyqZgCSCIB+kOawqthSpRCXYQSnMZBWw==
+	t=1795791700;
+	b=hGyNJYAllK3RWZ3NOE5GMPVSAMrgh459FoC98fOaFBE/5rxL/N3rlifqhezfWqZYnriS
+	 NIgULKLrBEBR6CNvGxM7CR5xlCh399lpyevSKDKJLwAyaJCzpaY47No4PICtUpmI/1gss
+	 5pHlYL1aypKC9yH0QCnsYVsBVZX6KgCz8/fJtm+wwB2inb4FzVDagrvDSi+gWdhaHYBhk
+	 JxvvW/3sEO05hhRlQL94VEtwkTjVrcGqZxRyoAZwGO80UPC2pBUWWbsaiKfIxbr/z75CF
+	 112OzsPIcOGPj5c7hf0/m9w3pLUpadBvZA6ZKtXrY3LFc/hauSj1l9/lEWMedP5TTqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791687;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=2zI4qNnvuMdNK0PZDx7YwEUCh5vlvy21ubx95NsYxAA=;
-	b=1Ee0XfEWHeF8OEhlmopFHlrT9tiJEiSY018QLuh7g6+06/HZ+0EctGF7YYnBQ5R/AM+i
-	 ngq+qirpIyjCQ2nH7wnJuxOLbklBLElZtZdo2syxpG0TGdLQze0RsF+8J5/CA43oROZez
-	 DRVnw/ziXEwZuGvBJMxA4xjTA2Sf7XsQsb4liI1QNLJMxrwRu9k50c3gzR6lg8JMOTjWm
-	 lWE8uRSQvrn6k6wzAJNrYIGaDrJ4d4Mdselh8vKgnU8aPvOtaNaWOpT/AlswBCt8DeH+W
-	 LnN5hEdPlhMZEpxYGHvlyNcZwk9YVBg4tPRVfeaKL5MO1IXPy8PABLyDGcEYmfIjC0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791700;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=kaEv7R/BjRnXVDpwqhtcR9qe+ZhZ8m8cezZ42dYSI4c=;
+	b=X0ThX0xnRqVXlcasdjE7Bhw9cGFal75X8bOaAFnJ5wa5UeC5HLRLyaq2alCERj3zvsr8
+	 X84LgGxlxZpgOlQehAePtJMcMdmEcdYvsOraV948cDNzRvvy4DgJUOoWDV4AWEout3GyP
+	 M8+Km0PJmkmfqAlkROWjb5L30TOOYNFMHDfa9RhSJEHn2u2ZOtRzdjNOztr4+KbYRNFvF
+	 aRrk/1BV1uMa+6D63WMOeFD6RsuCfiL6GkS56LwIqTuzHtsjwQBpIahIWOSxPVY1I3+i7
+	 3E2/osqxdxJlWy0s7TD3x31tqRVJOZHSMCj5Y1CxsLtfvMZUHPtMka+Qc9j7njzJe/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fI8JZ7js;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nFyZBs0C;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 361A9606A324;
-	Fri, 27 Nov 2026 15:01:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4C1F606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:01:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4C1F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fI8JZ7js
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25F1D1F00893;
-	Fri, 27 Nov 2026 15:01:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795791686;
-	bh=2zI4qNnvuMdNK0PZDx7YwEUCh5vlvy21ubx95NsYxAA=;
-	h=Date:From:To:Cc:Subject;
-	b=fI8JZ7jsB4e4OW2pv4P3Kc8dGM4+MBD2L8NcKzbk8D9ZhIGN+LGcOne2QCGgLKFYK
-	 BNlDiUdiaR4aPf+oDqiaq0T5UGnxWlarDKwYO6f2N9VtRDOoumQWHH34cOozDgTa8h
-	 Wlfq7v/4bkhMtCyJOpiJeUbaOK9Qhs05jAdQZsQFGd4niEyOPP6yP7w2m4d+4apIwl
-	 5WaGYgyNE6wbtpYOH0exdpGSVKxmW11DaFOXRebF/cZnAlrriCvNsedwSlEz1Num7U
-	 YAPRTyi5zJU+O4U2spLOLJdLcMFrMRoRFYQNaonpWhORocIzJH8u0h2Rp+TYtZ++MG
-	 qr3WTYnjgoKoA==
-Date: Fri, 27 Nov 2026 15:01:22 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, Kees Cook <kees+treewide@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Yige Jiang <yigejiang86@gmail.com>
-Subject: linux-next: manual merge of the leds-lj tree with the origin tree
-Message-ID: <awmbQoTloNNaeRhb@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nFyZBs0C
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so64345205e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:01:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795791698; x=1796396498; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=kaEv7R/BjRnXVDpwqhtcR9qe+ZhZ8m8cezZ42dYSI4c=;
+        b=nFyZBs0C7J3e4bI0vXvPauJ6r64YNndWq6eLYyzDQCzJVbptP2o0aZ90EisCekw/EL
+         j2Dd1RtiL4zfIl+dtEjTVhoTHomp79HlXKDPaomyaugkReD8FKpA/yREODW1Ko/dwnvk
+         XH2EPgNpBiyo33q8fEFr6zen0MR6CBcFDz8fnOXmyjomOEzGXCgqyZea9BLuWJ0LK0cx
+         keoyBsZTrOeNv3lMG3QVH5wRj/uTIE2DbWVdoHK0+14NO4FMzs/QMOuGmT+UrCgZZGeJ
+         roky9jZ3b7avcJANbXD/D4AbGqWrXvn5L4LpN+kzqKjFcQ0XcRHMMl7EMFxCNyipOJnm
+         MVfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795791698; x=1796396498;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kaEv7R/BjRnXVDpwqhtcR9qe+ZhZ8m8cezZ42dYSI4c=;
+        b=OWWUxK11u6PUsCezYStgEqK+KgOWOe4yN0DW4DyipcXtEoIPKsUPibpx4YluCQ2mbr
+         EOJtKgP5UyEqMXFgsBhsaKgLNyPLQnocQH4F9Ow7jHlUmXiBl+xMMc9puCtFiTllXFxF
+         zpWa583ESWxU8v5VDyX2r4EnCl06pmWerOvi5BDOe1sGHvm+ehs2+E4pRm6d4j77J3Fu
+         h92Xn8VRBEjrgUhsJTBiFWlzPqb6T2GJ4G8HXeec8sV4kFaqy6QwIZ3g306bWt6sjALn
+         mx+N95oe11qcYobB7pqEgVw0Bnr/4rTg+RFpPMoPiqTwR4A3mcSYgZbrDu6Z2M0fmNN1
+         rTkQ==
+X-Forwarded-Encrypted: i=1; AL+hErGEA05syqLXTsrtQL+YZSixyZS2u4gAyi+9mJORbUBP4W/lptWUXmV/8JIeA7S4EoMUIjz7QTmzdgjNZKY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BsNPe45zWQCfqQIjTwxvp8mI3V5K88r/wvH+QPcUftIxmP3lC
+	IBMP53mQOAh+Y0w1XqQeDLPJxfTTANqcjtoy5EOLZF+9iDmCxxPQdycslYTaJ5PFLwE=
+X-Gm-Gg: AZFdTZdbyx1fGS/R7ObMG+/7i8wPZpG3RXyJREqtdlBlQY9IKth2MWlBCC5rUCql8LN
+	RXp4GvCGceDlDShrBKstj5WzkzukQyXVaFUhJbB1ky9b38EHjJm4xO7hNhIkJZyu7XtnY79T5qa
+	/2Pd9Ke6HQupGALoJjIub3DUjXmPvyIjrgU+7FMo3CDaq2kEiB9CJ7qaSkI2CDCVvEWC35+rRu5
+	FhmqgwICBFMV0IdtWAnSDPLOWyVeIjfuUtiI33ZZcT+bl/6bbLSEqV2qRnMSe5wmGHVbozH5ggz
+	Ud4vh/11O+c2GCF4yKJqRZ0GNtJlOfYkCheJr/6zP3cOj65S8X+blOOB8iu/0fGkC5g4sWkuF7k
+	opDN4cWe6l73jSLiZs2k9WD0b/SZ/K1BUpuOt9derKswAD6JWnPmDqgETGI2L1XKWQ3U9LudQQE
+	l3+QJXxbIFqgw82tTWOmp/BwTY8dgPCgViXlj3eN/XBKa+lbMryYKUExA2Byp/si3WgOp48Gtb/
+	0G3A9jtvFfjdbQucFbCMpdqWwYglh9U/kABJ/aQdnJuvV0/39ra6NWI/QTPt+4Hxx1p52p+5cN6
+	Z0eHD86KfPCqr/NcZfoiBE6eaZOWKSR8NOT0/ySdA2GiKvgT
+X-Received: by 2002:a05:600c:a086:b0:4af:c210:5b3f with SMTP id 5b1f17b1804b1-4bb88817ef1mr520259335e9.24.1795791696489;
+        Fri, 27 Nov 2026 07:01:36 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm665457205e9.2.2026.11.27.07.01.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 07:01:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,85 +89,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wBKroB/oaNe25kpb"
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 0/2] clk: sophgo: sg2042: Keep gates used by
+ firmware enabled
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
+ Inochi Amaoto <inochiama@gmail.com>, Yao Zi <me@ziyao.cc>, 
+ Chen Wang <unicorn_wang@outlook.com>, Han Gao <rabenda.cn@gmail.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+In-Reply-To: <20261122-b4-sg2042-efi-rtc-v2-0-6d087e03e4e8@iscas.ac.cn>
+References: <20261122-b4-sg2042-efi-rtc-v2-0-6d087e03e4e8@iscas.ac.cn>
+Date: Fri, 27 Nov 2026 16:01:32 +0100
+Message-Id: <179579169278.2788166.8963233310700352675.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1947; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=zyZPxaWhtK89KOfIzTta5tnUxxcbXy33/Xi1h4W0PlQ=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmcs/3yNEp8maMy1+r+Wm/Ebptp0Biw5cH025W9i/gED
+ OfYsO/pKGVhEONikBVTZKnhrhZ/J6n1ZdZ0ndswc1iZQIYwcHEKwETc4xgZHr8rKXnybqH076p3
+ yxfsn5W+Vc/ixMfzHLltP1bMNnr63J7hn1LOTN7jjgU/O6XVHl+sVq8PNEq9+8Pfmct9ZveT2ru
+ dTAA=
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
+> On Milk-V Pioneer, firmware uses I2C0 for the EFI RTC and the serial
+> flash for its own image and EFI variables. Both sit behind clock gates
+> shared with devices Linux drives, so runtime PM on the Linux side can
+> turn them off under the firmware, and GetTime() returns EFI_NOT_READY.
+> 
+> Let firmware list such gates in protected-clocks on the clkgen node,
+> and keep them enabled.
+> 
+> qcom, the only current user of protected-clocks, does not register such
+> clocks at all. That would break the I2C controllers Linux uses, as the
+> DesignWare driver needs the clock rate, so here they stay registered and
+> are only kept on. I'm not sure this fits the intended use; suggestions
+> welcome.
+> 
+> Tested on Milk-V Pioneer.
+> 
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+> Changes in v2:
+> - Drop the EFI MMIO patch, Ard is taking it through the EFI tree
+> - Use protected-clocks instead of scanning reserved nodes under /soc
+>   (Krzysztof)
 
---wBKroB/oaNe25kpb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hey Krzysztof,
 
-Hi all,
+Using protected-clocks in the way proposed in this series would give it a different
+behavior/meaning compared to what introduced it in Qcom:
 
-Today's linux-next merge of the leds-lj tree got a conflict in:
+- Qualcomm skips registering listed clocks. A consumer requesting a listed ID gets NULL.
+- SG2042 still registers listed gates and marks them CLK_IS_CRITICAL.
+  A consumer gets a valid clock handle, can read its rate, but releasing its enable
+  reference won’t turn off the hardware gate.
 
-  drivers/leds/rgb/leds-pwm-multicolor.c
+Having different meaning for the same property is not ideal, is it ?
+Eventually that might be something we could fold into the framework, but that can only
+happen if the meaning is consistent.
 
-between commit:
+IMO what they are trying to do here might be more appropriate, but Qcom was there first.
+OTOH, actually registering the clock in Qcom would not be a breaking change DT wise, the driver
+would start returning a handle where it would previously have returned NULL.
 
-  4dd10fbbeb9c3 ("treewide: Convert devm_kmalloc() family to the devm_kmall=
-oc_obj() family")
+What is your view on this ?
 
-=66rom the origin tree and commit:
+-- 
+Jerome
 
-  68c7c6f993cb3 ("leds: pwm-multicolor: Manage the multi-led node reference=
-")
-
-=66rom the leds-lj tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc drivers/leds/rgb/leds-pwm-multicolor.c
-index c8395fdbcbdbc,10527a64d1982..0000000000000
---- a/drivers/leds/rgb/leds-pwm-multicolor.c
-+++ b/drivers/leds/rgb/leds-pwm-multicolor.c
-@@@ -124,18 -133,15 +133,14 @@@ static int led_pwm_mc_probe(struct plat
-  	/* count the nodes inside the multi-led node */
-  	count =3D fwnode_get_child_node_count(mcnode);
- =20
- -	priv =3D devm_kzalloc(&pdev->dev, struct_size(priv, leds, count),
- -			    GFP_KERNEL);
- +	priv =3D devm_kzalloc_flex(&pdev->dev, *priv, leds, count);
-- 	if (!priv) {
-- 		ret =3D -ENOMEM;
-- 		goto release_mcnode;
-- 	}
-+ 	if (!priv)
-+ 		return -ENOMEM;
-  	mutex_init(&priv->lock);
- =20
- -	subled =3D devm_kcalloc(&pdev->dev, count, sizeof(*subled), GFP_KERNEL);
- +	subled =3D devm_kzalloc_objs(&pdev->dev, *subled, count);
-- 	if (!subled) {
-- 		ret =3D -ENOMEM;
-- 		goto release_mcnode;
-- 	}
-+ 	if (!subled)
-+ 		return -ENOMEM;
-  	priv->mc_cdev.subled_info =3D subled;
- =20
-  	/* init the multicolor's LED class device */
-
---wBKroB/oaNe25kpb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJm0EACgkQJNaLcl1U
-h9BtVAgAhdGKAgaVJHi9+KffJw1w7Xo7vvsnkI8dD62CMtnlrRIMSgrrTp5Lu4CT
-aqphKcGSgkYUbqqYgnQ175tIX3zPzxz3FOlk6hbI7Q6wE/BLA9P7HpTeB3V3ehpp
-B3DRcxNFonOX5ybeUg+N1OKofKKNk+QACMEZg+8BYz3v5idtc1opiRy0fLaPfLTv
-oVo4pBm4wY2hsEemYdRzWuaKUsp2g8B1/611xWpKdgHCk1jJY8Tsw5H2+YSObOkp
-1aI4A5VObCQhp2M8B9EIkILI+nvIdf9HVAZczmtsKWwm1qLjHkkfmXm6O0UbTGQo
-oEVCqq4caLAw1WDnu22A7HmsHv95aQ==
-=JgEk
------END PGP SIGNATURE-----
-
---wBKroB/oaNe25kpb--
