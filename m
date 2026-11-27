@@ -1,111 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=182.48.54.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795756676;
-	b=nKvBX+tAB15N3SbOPIQE43mKdHyI51Sg87RGKjJFfvu0tbk6El5iocQcXrkST1Ju2dDP
-	 Qzk0IRSnkARWznJ6f9z9nVlS5RHY+qrPk2Q+zXeUsvfNIQ0IFoFhHn8h0QrwBo7NGjb9Y
-	 egQxLPY//H+kU9ReGV2Y2OoaRXBzzRey7CxLHAtXDy6R3jk3Plf6qaBJ22RwOM7GstbZ2
-	 dd2TdFnaVz1QfRMll+LIT1AYp+ttKdz1YN6yQoztf36G5RqjgFoP3CybrepPtPcifRCJN
-	 LeCSDgm9kLBnjY2deNjGR5gRXpvw2OauY//BeDtHXtvOMNyVyLSB9Y1O2/jSsADd8NQ==
+	t=1795756945;
+	b=5sfzNVj65OjGBUunCZtRbZPgs7AjIHgQPwLOJ8xk1p5GHDFLLfGIxEqeGtS8lSEH1fR9
+	 zjdS3TE38G61I9wYS5yev8GHhvhJ3UV+HCwomhE84+QnAspPWyB/Kc+VGgo5880MInbte
+	 LVvkD7Fxi48aQzV+pvx9fuwK35KNNhZr1EklWmGhLChWTXVFF0n/ipcdpzJss/IWOp3au
+	 VgsjN1zzogaiZ/R2gJSzEUzXcFREKhVGSIadD5eYrNT1dsIchKMbFg8CnlFZuQdM+i4kX
+	 BObUl9DrFITVAWcr1tUAfrNDLmJivCuXyWCASgfP8F3mtWegxsqr7yoZWCM+GzmjvYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795756676;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=yIWmRd44pxSJZoqqDDYPZZjasoO/WlBoNz/mYuxAQJk=;
-	b=UuJLcGTXqO+AY4ZGYfHtOetueVjEO9SRpHW3veDDpEyLMYL4LfM1z6HWYcPRH86Jx4rE
-	 401EB7EA5lxkzYdSBPaEsDknONRmmOaFfvwdCyDInl8SvW4mfSvHhcJ1mrQr6gNksE/qU
-	 eMxFqpAgdADA1DzD3l4zANHR7DnnkZcbpgiCmrR3VieNVZPhEM5i298zhj2reF7l8txGe
-	 dIWW0jajqG3YPYyO8cfkBoc5IeRnzuBrAHoEGP/l7lmko2XaGRefc4p3ZXK/JbOYwetgO
-	 Z6PJ6clKo0FmT89oxuwU6qBq1yQ7WJYIvK71xVgGVlFGk1oowGYfwC0PaSq0/otYbPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795756945;
+	h=DMARC-Filter:Received:From:Subject:To:Cc:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:Date;
+	bh=7RK5XR/M457S+yT+K41D5EZq0rrPEjENuCAa+M2OLU4=;
+	b=n9y1eqC82ItfUBakLdkX0ztgSZHz/hPj/NxIbEkcQld93i5x737p4m9DYgg5HC0PM0N8
+	 U+pmqxVBkrgsiKPTQOxe8vUttMG1dmXSh20Bd9j3gSeA+/KSnbSDh1PKIWIY7v+IaOW9R
+	 kHCqMN8hXQS2yEY19KZ71k1NsKWYx6YVKsv9fIte4KbezF6UNR2lDQAk9yxLzNoCMXgx6
+	 sNcJlNKqje/ScT+x0x0HYJOME+C1WHHAITd2DP4FTLpXH1bZ706ZxRotSlFcKuy0CwLbL
+	 1fkEbMVgLt+rPKDpmXBfCsvb5RS5RJunAyZSG0Wwiy20FDMQ9uxQPCQDY8pyVHRwkPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hYCSNqaR;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HCpbwcHT;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AADFC606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:17:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AADFC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hYCSNqaR;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HCpbwcHT
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR0mUBu376652
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:17:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=yIWmRd44pxSJZoqqDDYPZZ
-	jasoO/WlBoNz/mYuxAQJk=; b=hYCSNqaRnQmQ6oxWX9A4AYhbWnXBJfG39uBtL/
-	kjd/w6e23Jrjsxv/TuBZ2K9NbZhXFU8lexrAm/1tTAZDzEoxjPt4AnZsk0wkys/Q
-	Svcgl23yuRnujbn9DQk0W30a56x//p2AKlvoHSSq1LsE3Pqh5NCkXt1Ww1+gDOfU
-	hTEKFCXJDgWSlEnpLj0zU9T4ZiMGBNcs7ENNABQkL/4jXTagLtaAXu50OYv9BCLY
-	YVPz3dbFabcBtm3RZYSRVQdJa35NiIWIk96wYG2v2SXRWbaxL3e5c3sLTXBQ4Yub
-	If9KlfGH2di8KH99qy3YL1iozgqU6mKMQ2/mbwIucgVp30Tw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ymw8n5r-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:17:54 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93909014c85so1393760285a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:17:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795756674; x=1796361474; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=yIWmRd44pxSJZoqqDDYPZZjasoO/WlBoNz/mYuxAQJk=;
-        b=HCpbwcHTyvZzLfj5tSQprGUjUnXwojn5W62nvKdLN/thQ5KqksxE9MToQ6C83nBa4E
-         CKj4+5hj2V6V5yQJ7gR4fdrXRRpP9SAxKr6+UMT5trhS83aHDYXy7ZoBfgX3ZmrkIuoY
-         h0uZ6THZO39caOTM1t+QVx/7vwoixfwcmV1DV5S1Nyvft00PCE6/IT/p9afDjPM6oFLa
-         uE7nO2U5kUmQOA2Pv1cecwHufoRJQ2+kOPoJROfa1qoceuuFllcfw9yPqioYaIzak1M5
-         F6CeVSPCc9icJ1B1khz2Uhi4vEs/1VbL54AKQn1XrceghWAABJD9xWYjJUJRdxStoCuT
-         xnDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795756674; x=1796361474;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=yIWmRd44pxSJZoqqDDYPZZjasoO/WlBoNz/mYuxAQJk=;
-        b=CGyk3X9fBJsjjzU9elN2v/Fb23lLbuN28PohEGEhNaLcFpoy6QgqX8llWaIs8T2rOD
-         4q+Sk0fhakg+lRHGD3ZmPUG+IF1SScp6ESky0xNBkEfzYgwxFSPbJ5TXUX+NQ7QnKCzv
-         zLEudsps/WLL9VgTvtWu48YzbW5J4ncZ5Wg6ymgLn3wkE75l2r32/ZiaXQpoq7tBcqca
-         Z7DQ2/b7rnt/R5QO/GAGvVK9OrLG7JzDiqHRMIkFSBIE4l/Nq2hU94kYxaFkiyPzVb5F
-         PludOBPOLDYRXVeQwEQppICSNN3Xe+raSPq2xBBmp+CKi5b4gWCFM1yzSmCJmMjF1hTn
-         8Geg==
-X-Forwarded-Encrypted: i=1; AL+hErGkarWKpuDZVhkavQmiWOT+YvVTmiC72eCo9L4hv+XCgXXOWBd3BfrYCbT3uXgJaxoxQWPiDxG5ej5Qbzc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++5MSFKXhN4V7gDM0eRgHzxn6hF6145mJUtF33KBg7XiFNU0Ub
-	AMzaUX//fH6jZG4ln7MBnqU6GpgWxWN+DrDqoWkhyD7d+TaDKFi2au0gdqhO/tvGsl6sgcC10Ev
-	rUIgI9Iz758KHw3RoPOmRUZ/hlirIZ5HkEb67ERDdQeATcz73RdiDaqB8LEZyzlkJZb90uMo2U1
-	h+AQ==
-X-Gm-Gg: AZFdTZc6x5uDKN8H7/UZY7QW+kKApLNW7bvBJqK1txIDNeCZXsGfrV+TrqRvTwn6zv+
-	+F7iBfK7kwflTU2/FmfJzqiRa6OY7ZAAz2P3yQpIKgOhy4oZ7MLRVgH/zz4TUZBDnBXaoqYyKIC
-	8pX7TOZp1j2uRLpgR8CaL1lt61hAWBrrJlYV/VAcGiA+nwkXdzVKiywD3ORpHR0FDHY1iyD6vIi
-	JWq7/8vlI9rV4XFE4+lswwNyTwsSQmC8RiTOTEfai2Em3P5qlZK6eCIHLumuSfGpK6hxDwq9UH6
-	TR/s1gWlluB1nuVeI8UdesTB08aYFyNtskyc2lqQs+asKVSrTHpaw54lGIdRUIJ0hXM/b5qKS9g
-	ry7MosPuIZSnKigBrVO2h1zooTnvcSolGkO8tlt8bZI/KUbKWsG7e79WPWghsm8wbwWMZbY/3c9
-	iYjsgkQhwtER/FgeWzRAWsdNRC+cZ7+pox/h2v+wrxmg==
-X-Received: by 2002:a05:620a:6f0a:b0:949:7710:37ef with SMTP id af79cd13be357-949baa0f7f0mr3738381385a.61.1795756673623;
-        Thu, 26 Nov 2026 21:17:53 -0800 (PST)
-X-Received: by 2002:a05:620a:6f0a:b0:949:7710:37ef with SMTP id af79cd13be357-949baa0f7f0mr3738377885a.61.1795756673077;
-        Thu, 26 Nov 2026 21:17:53 -0800 (PST)
-Received: from WENMLIU-LAB01.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb349db3sm1725278485a.7.2026.11.26.21.17.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:17:52 -0800 (PST)
-From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 13:17:42 +0800
-Subject: [PATCH v7] media: qcom: camss: Add support for X1P42100 CAMSS
+	dmarc=none header.from=snowrabbit.org;
+	spf=pass smtp.mailfrom=snowrabbit.org;
+	arc=none smtp.remote-ip=182.48.54.220
+Received: from bambi.snowrabbit.org (bambi.snowrabbit.org [182.48.54.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7841A606A32E;
+	Fri, 27 Nov 2026 05:22:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7841A606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=snowrabbit.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=snowrabbit.org
+Received: by bambi.snowrabbit.org (Postfix, from userid 3001)
+	id CC358C9318; Fri, 27 Nov 2026 14:22:23 +0900 (JST)
+From: Showta Ishizaki <zakinko@snowrabbit.org>
+Subject: [PATCH 1/4] ufs: clear fs_clean of a 44bsd filesystem while it is
+ read-write
+To: Alexander Viro <viro@zeniv.linux.org.uk>,
+    Christian Brauner <brauner@kernel.org>
+Cc: Jan Kara <jack@suse.cz>,
+    Ali Ahmet Memis <ali@iusegentoo.com>,
+    linux-fsdevel@vger.kernel.org,
+    linux-kernel@vger.kernel.org,
+    Showta Ishizaki <zakinko@snowrabbit.org>
+Message-ID: <20261127-ufs-suj-1-v1@snowrabbit.org>
+In-Reply-To: <20261127-ufs-suj-0-v1@snowrabbit.org>
+References: <20261127-ufs-suj-0-v1@snowrabbit.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,371 +50,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-purwa_camss-v7-1-b28b72e05214@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAHUSCWsC/3XQ207DMAwG4FeZck2mOM2pu+I9EEJp4rJIdN2St
- YCmvjvuQJRK9CbS78hf7NxYwZywsMPuxjKOqaT+RME+7Fg4+tMr8hQpMymkEUrU/Dzkd/8SfFc
- KV1ZbZxtnERSjjnPGNn3ctafn75zxMhB6XYrHVK59/ry/OMJc/cFBrPARuOCIMbQm1tEhPval7
- C+Dfwt91+3pYDM3yoXQAGtCEiHpwvmmBmnCBqF+CRDCrQlFRBNagKaVwWixQei/xPqXRk2EdgG
- qGGxQUW4QZiFo1jVhZoKWsB595ar/iGmavgAB1hEizgEAAA==
-X-Change-ID: 20260409-purwa_camss-475787b87e14
-To: Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795756669; l=10578;
- i=wenmeng.liu@oss.qualcomm.com; s=20250925; h=from:subject:message-id;
- bh=vBkc3xHpvUrB/gMXuUWSTEyJ8Yz4oFONkBXbxzQOidk=;
- b=9EFIHn342I6QAsdl2C4dsBiUKkyTeeFjpKv9jO79mg3H9JCZmfvZL0TCAZLyJR8MLK2EbX3vY
- Hm35FUD35iQAVfzW5vHYC6PcYqEcANixY7L/bLJ5TNreAIyzb5MD6s3
-X-Developer-Key: i=wenmeng.liu@oss.qualcomm.com; a=ed25519;
- pk=fQJjf9C3jGDjE1zj2kO3NQLTbQEaZObVcXAzx5WLPX0=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAyMCBTYWx0ZWRfX2SDmiaDwlHBS
- 6ZZgaXaJ5HOoHZ/0bwhNEOCSpRf1vhvk4QOfFdZsJxLazoXG1bT+sqt9uS2FbBaX+EoBFbCN+ZG
- PLMZ33ywapb1mVkCXSzlO15PKp4QEXI=
-X-Authority-Analysis: v=2.4 cv=ZKtCCn7b c=1 sm=1 tr=0 ts=6b091282 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8 a=KKAkSRfTAAAA:8
- a=j7ZsQ5hsxSTuYjeljD0A:9 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAyMCBTYWx0ZWRfXzd9zmFLzIQU4
- ETL022mqMlEvAJPs5quEaLBoV4sZrpUU7kBnh2BLIeOU6PU7lRoCIRjBGH+HjqMezWhQNm3Zv2c
- IOxqgyjcIy1i6zAFJ5QtNuon9cKGd/crJBn2QPxKbo1eypx/E0WP/fC2skKzR8A5DFWmesQUpPV
- pRrpq7eHI8nDSHfm7J7cjUdF8sd4o8upkZwhqzGWGv8b9na2CjwesjMqnkMzb0NnLxBy8Uk47Lp
- UycIqtmIQspS2bfMA2vywXfZJdv5WeMyg+9oVxs+WNCLA4fgcBHa/iu1zv/45NOhFLQP7UMcgbw
- Hb2WeBfVlQQ0JKIrhOKkoW4drR64WNDVDDcjsO1uAKztcstZKYa+7m/TNZCmJzZArN65p/yNwzc
- R+YXwUAQmb3cGtZQKexca7/VYAhatVDoeFKBvot9r9SVI14k2teDKKIMnZjyRCH/2bbnBLf+V9M
- 2eTB02QChlqel8Igl0g==
-X-Proofpoint-GUID: DI7-jL1eHJQOCvwZiFdopN-DcOnTyawt
-X-Proofpoint-ORIG-GUID: DI7-jL1eHJQOCvwZiFdopN-DcOnTyawt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
- adultscore=0 clxscore=1015 malwarescore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270020
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Date: Fri, 27 Nov 2026 14:22:23 +0900 (JST)
 
-Add CAMSS support for the Qualcomm X1P42100 (Purwa) SoC.
+FreeBSD has fs_clean at 0 and NetBSD at 2 while a filesystem is mounted
+read-write, and they set it to 1 at unmount, so that fsck checks it
+after a crash.  ufs leaves it at 1, and after a crash of Linux
+fsck_ffs -p on FreeBSD does not look at the filesystem:
 
-The X1P42100 CAMSS is a cut-down variant of the X1E80100 (Hamoa)
-CAMSS. Compared to X1E80100 it has:
-- 2 x CSIPHY (CSIPHY0 and CSIPHY4) instead of 4
-- 1 x IFE instead of 2
-- only the ahb and hf_mnoc interconnect paths
+  /dev/md0: FILE SYSTEM CLEAN; SKIPPING CHECKS
 
-The CSID, CSID Lite, IFE Lite and TPG blocks are the same as on
-X1E80100, so reuse the existing CSID/VFE 680 ops and the X1E80100
-TPG and CSID wrapper resources.
+Set it to 0 when the filesystem becomes read-write, and to 1 when it
+stops being so and the rest is on the disk, if it was 1 to begin with.
+One that was not clean and was made read-write with remount stays not
+clean, as it does on the BSDs.
 
-CSID1 and CSID2 have no corresponding IFE on X1P42100, so they cannot
-drive any write master. Leave them out of the CSID resources, keeping
-the 1:1 CSID to VFE mapping CSID0->IFE0, CSID_LITE0->IFE_LITE0 and
-CSID_LITE1->IFE_LITE1.
+I copied the disk under a mounted filesystem while files were created,
+renamed and removed on it, and ran fsck_ffs of FreeBSD 15.0 on the copy.
+The filesystems were UFS1 and UFS2 with journaled soft updates, the UFS2
+with its check hashes turned off, as Linux does not keep them and fsck
+stops there first.  Without the patch fsck_ffs -p skipped all eight
+copies, and fsck_ffs -fn found 161 to 224 errors in each.  With it none
+was skipped.  After an unmount or a remount to read-only fsck_ffs -fn
+finds nothing.
 
-The CSIPHYs are handled through the PHY API, so no CSIPHY
-resources other than the lane format are needed.
-
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+Signed-off-by: Showta Ishizaki <zakinko@snowrabbit.org>
 ---
-This patch adds camss support for purwa platform.
+ fs/ufs/super.c | 53 +++++++++++++++++++++++++++++++++++++++++++++++++-
+ fs/ufs/ufs.h   |  1 +
+ 2 files changed, 53 insertions(+), 1 deletion(-)
 
-This series depends on:
-https://lore.kernel.org/all/20261127-camss-routing-fixes-v2-0-b7152f0af49a@kernel.org/
----
-Changes in v7:
-- Remove the duplicate patches and rebase on Bryan's changes.
-- Base on bryan/camss-next
-- Link to v6: https://lore.kernel.org/r/20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com
-
-Changes in v6:
-- Rebase on bryan/camss-next; drop the dt-bindings patch, already applied.
-- Include Jesse's "x1e80100: Use the lite clocks for the lite CSIDs" as a
-  dependency, already reviewed:
-  https://lore.kernel.org/all/bf48f3c809f33c060e2944e5896f8a5a93fd78ea.1795196107.git.jesse.casco@gmail.com/
-- New patch: use the HW CSID index for the CSID 680 wrapper IO path
-  config, the lite CSIDs program the wrong register since CSID2 was
-  dropped from the X1E80100 resources.
-- X1P42100: set the CSID hw_id, and use the vfe_lite_csid and
-  vfe_lite_cphy_rx clocks for the lite CSIDs.
-- X1P42100: align the clock rates with the X1P42100 camcc frequency tables.
-- Link to v5: https://lore.kernel.org/r/20261009-purwa_camss-v5-0-58c13dc7c4d2@oss.qualcomm.com
-
-Changes in v5:
-- Set line_num of IFE0 to 3. -- Bryan
-- Introduce CAMSS_CSIPHY_RES_PHY_API() to describe PHY API based csiphy
-  resources and use it for X1P42100. -- Bryan
-- Link to v4: https://lore.kernel.org/r/20261008-purwa_camss-v4-0-bcf11bf2c650@oss.qualcomm.com
-
-Changes in v4:
-- Collect R-b tags from Bryan and Krzysztof on dt-bindings patch.
-- Rebase on linux-next and add Bryan`s vfe patch.
-- Link to v3: https://lore.kernel.org/all/20260930-purwa_camss-v3-0-0fe2a5b11208@oss.qualcomm.com
-
-Changes in v3:
-- Rebased on the latest CSIPHY code.
-- Link to v2: https://lore.kernel.org/r/20260511-purwa_camss-v2-0-22608ab9126c@oss.qualcomm.com
-
-Changes in v2:
-- Based on the old version of csiphy.
-- Remove Src clk. -- Bryan
-- Extend the register block of the VFE. -- Bryan
-- Add comments for IOMMU. -- Bryan
-- Link to v1: https://lore.kernel.org/r/20260410-purwa_camss-v1-0-eedcf6d9d8ee@oss.qualcomm.com
----
- drivers/media/platform/qcom/camss/camss-vfe.c |   1 +
- drivers/media/platform/qcom/camss/camss.c     | 176 ++++++++++++++++++++++++++
- drivers/media/platform/qcom/camss/camss.h     |   1 +
- 3 files changed, 178 insertions(+)
-
-diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
-index 7183081e357846bbdbbc2c6bdf6e134d723e00da..c684de629e3a4685d4ff04b24db86c12f962b50c 100644
---- a/drivers/media/platform/qcom/camss/camss-vfe.c
-+++ b/drivers/media/platform/qcom/camss/camss-vfe.c
-@@ -2054,6 +2054,7 @@ static int vfe_bpl_align_rdi(struct vfe_device *vfe)
- 	case CAMSS_8775P:
- 	case CAMSS_KAANAPALI:
- 	case CAMSS_X1E80100:
-+	case CAMSS_X1P42100:
- 		ret = 16;
- 		break;
- 	default:
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 86bb1df811ea0e96357d18dae0a5bdce6507fb15..0404f95a35fe659c6f9d945ff5bd32ce749b0991 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -36,6 +36,13 @@
- /* Top-level CAMSS version register */
- #define CAMSS_HW_VERSION		0x0
+diff --git a/fs/ufs/super.c b/fs/ufs/super.c
+index ecf422e41..cbb034a87 100644
+--- a/fs/ufs/super.c
++++ b/fs/ufs/super.c
+@@ -599,6 +599,51 @@ static void ufs_put_cstotal(struct super_block *sb)
+ 	UFSD("EXIT\n");
+ }
  
-+/* CSIPHY resources for PHY API devices, only id and formats are needed */
-+#define CAMSS_CSIPHY_RES_PHY_API(_id, _formats)		\
-+	.csiphy = {					\
-+		.id = (_id),				\
-+		.formats = (_formats),			\
++/*
++ * FreeBSD keeps fs_clean at 0 and NetBSD at 2 or 0 while a filesystem is
++ * mounted read-write, and at 1 otherwise, so that their fsck checks it after
++ * a crash.  Use 0 here.
++ */
++static void ufs_44bsd_set_active(struct super_block *sb)
++{
++	struct ufs_sb_info *sbi = UFS_SB(sb);
++	struct ufs_super_block_first *usb1 = ubh_get_usb_first(sbi->s_uspi);
++
++	if ((sbi->s_flags & UFS_ST_MASK) != UFS_ST_44BSD)
++		return;
++	sbi->s_was_clean = usb1->fs_clean == UFS_FSCLEAN;
++	usb1->fs_clean = UFS_FSACTIVE;
++	ubh_mark_buffer_dirty(USPI_UBH(sbi->s_uspi));
++	ubh_sync_block(USPI_UBH(sbi->s_uspi));
++}
++
++/*
++ * Nothing here has repaired a filesystem that was not clean to begin with,
++ * so leave it to fsck.
++ */
++static void ufs_44bsd_set_clean(struct super_block *sb)
++{
++	struct ufs_sb_info *sbi = UFS_SB(sb);
++	struct ufs_super_block_first *usb1 = ubh_get_usb_first(sbi->s_uspi);
++	int err;
++
++	if ((sbi->s_flags & UFS_ST_MASK) != UFS_ST_44BSD || !sbi->s_was_clean)
++		return;
++	/* Everything else has to be on the disk before it is called clean. */
++	err = sync_blockdev(sb->s_bdev);
++	/* The error has been reported; fs_clean stays as that left it. */
++	if (sb_emergency_ro(sb))
++		return;
++	if (err) {
++		pr_err("(device %s): not marking the filesystem clean, error %d\n",
++		       sb->s_id, err);
++		return;
 +	}
++	usb1->fs_clean = UFS_FSCLEAN;
++	ubh_mark_buffer_dirty(USPI_UBH(sbi->s_uspi));
++	ubh_sync_block(USPI_UBH(sbi->s_uspi));
++}
 +
- static const struct parent_dev_ops vfe_parent_dev_ops;
+ /**
+  * ufs_put_super_internal() - put on-disk intrenal structures
+  * @sb: pointer to super_block structure
+@@ -712,8 +757,10 @@ static void ufs_put_super(struct super_block *sb)
+ 	UFSD("ENTER\n");
  
- static const struct camss_subdev_resources csid_res_kaanapali[] = {
-@@ -4859,6 +4866,158 @@ static const struct resources_wrapper csid_wrapper_res_x1e80100 = {
- 	.reg = "csid_wrapper",
- };
+ 	/* NULL if a remount to read-only freed the cylinder groups */
+-	if (sbi->s_ucg)
++	if (sbi->s_ucg) {
+ 		ufs_put_super_internal(sb);
++		ufs_44bsd_set_clean(sb);
++	}
+ 	cancel_delayed_work_sync(&sbi->sync_work);
  
-+static const struct camss_subdev_resources csiphy_res_x1p42100[] = {
-+	/* CSIPHY0 */
-+	{
-+		CAMSS_CSIPHY_RES_PHY_API(0, &csiphy_formats_sdm845),
-+	},
-+	/* CSIPHY4 */
-+	{
-+		CAMSS_CSIPHY_RES_PHY_API(4, &csiphy_formats_sdm845),
-+	},
-+};
-+
-+static const struct camss_subdev_resources csid_res_x1p42100[] = {
-+	/* CSID0 */
-+	{
-+		.regulators = {},
-+		.clock = { "gcc_axi_hf", "cpas_ahb", "cpas_fast_ahb",
-+			   "csid", "csid_csiphy_rx" },
-+		.clock_rate = { { 0 },
-+				{ 80000000 },
-+				{ 100000000, 200000000, 300000000, 400000000 },
-+				{ 400000000, 480000000 },
-+				{ 400000000, 480000000 }, },
-+		.reg = { "csid0" },
-+		.interrupt = { "csid0" },
-+		.csid = {
-+			.id = 0,
-+			.hw_ops = &csid_ops_680,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		},
-+	},
-+	/* CSID_LITE0 */
-+	{
-+		.regulators = {},
-+		.clock = { "gcc_axi_hf", "cpas_ahb", "cpas_fast_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx" },
-+		.clock_rate = { { 0 },
-+				{ 80000000 },
-+				{ 100000000, 200000000, 300000000, 400000000 },
-+				{ 400000000, 480000000 },
-+				{ 400000000, 480000000 }, },
-+		.reg = { "csid_lite0" },
-+		.interrupt = { "csid_lite0" },
-+		.csid = {
-+			.id = 3,
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_680,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+	/* CSID_LITE1 */
-+	{
-+		.regulators = {},
-+		.clock = { "gcc_axi_hf", "cpas_ahb", "cpas_fast_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx" },
-+		.clock_rate = { { 0 },
-+				{ 80000000 },
-+				{ 100000000, 200000000, 300000000, 400000000 },
-+				{ 400000000, 480000000 },
-+				{ 400000000, 480000000 }, },
-+		.reg = { "csid_lite1" },
-+		.interrupt = { "csid_lite1" },
-+		.csid = {
-+			.id = 4,
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_680,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+};
-+
-+static const struct camss_subdev_resources vfe_res_x1p42100[] = {
-+	/* IFE0 */
-+	{
-+		.regulators = {},
-+		.clock = { "camnoc_rt_axi", "cpas_ahb", "cpas_fast_ahb",
-+			   "cpas_vfe0", "vfe0_fast_ahb", "vfe0" },
-+		.clock_rate = { { 400000000 },
-+				{ 0 },
-+				{ 0 },
-+				{ 0 },
-+				{ 0 },
-+				{ 432000000, 594000000, 675000000, 727000000 }, },
-+		.reg = { "vfe0" },
-+		.interrupt = { "vfe0" },
-+		.vfe = {
-+			.line_num = 3,
-+			.pd_name = "ife0",
-+			.hw_ops = &vfe_ops_680,
-+			.formats_rdi = &vfe_formats_rdi_845,
-+			.formats_pix = &vfe_formats_pix_845
-+		},
-+	},
-+	/* IFE_LITE_0 */
-+	{
-+		.regulators = {},
-+		.clock = { "camnoc_rt_axi", "cpas_ahb", "vfe_lite_ahb",
-+			   "cpas_vfe_lite", "vfe_lite", "vfe_lite_csid" },
-+		.clock_rate = { { 400000000 },
-+				{ 0 },
-+				{ 0 },
-+				{ 0 },
-+				{ 400000000, 480000000 },
-+				{ 400000000, 480000000 }, },
-+		.reg = { "vfe_lite0" },
-+		.interrupt = { "vfe_lite0" },
-+		.vfe = {
-+			.is_lite = true,
-+			.line_num = 4,
-+			.hw_ops = &vfe_ops_680,
-+			.formats_rdi = &vfe_formats_rdi_845,
-+			.formats_pix = &vfe_formats_pix_845
-+		},
-+	},
-+	/* IFE_LITE_1 */
-+	{
-+		.regulators = {},
-+		.clock = { "camnoc_rt_axi", "cpas_ahb", "vfe_lite_ahb",
-+			   "cpas_vfe_lite", "vfe_lite", "vfe_lite_csid" },
-+		.clock_rate = { { 400000000 },
-+				{ 0 },
-+				{ 0 },
-+				{ 0 },
-+				{ 400000000, 480000000 },
-+				{ 400000000, 480000000 }, },
-+		.reg = { "vfe_lite1" },
-+		.interrupt = { "vfe_lite1" },
-+		.vfe = {
-+			.is_lite = true,
-+			.line_num = 4,
-+			.hw_ops = &vfe_ops_680,
-+			.formats_rdi = &vfe_formats_rdi_845,
-+			.formats_pix = &vfe_formats_pix_845
-+		},
-+	},
-+};
-+
-+static const struct resources_icc icc_res_x1p42100[] = {
-+	{
-+		.name = "ahb",
-+		.icc_bw_tbl.avg = 150000,
-+		.icc_bw_tbl.peak = 300000,
-+	},
-+	{
-+		.name = "hf_mnoc",
-+		.icc_bw_tbl.avg = 2097152,
-+		.icc_bw_tbl.peak = 2097152,
-+	},
-+};
-+
- /*
-  * camss_add_clock_margin - Add margin to clock frequency rate
-  * @rate: Clock frequency rate
-@@ -6264,6 +6423,22 @@ static const struct camss_resources x1e80100_resources = {
- 	.vfe_num = ARRAY_SIZE(vfe_res_x1e80100),
- };
+ 	ubh_brelse_uspi (sbi->s_uspi);
+@@ -1246,6 +1293,8 @@ static int ufs_fill_super(struct super_block *sb, struct fs_context *fc)
+ 		ret = -ENOMEM;
+ 		goto failed_cg;
+ 	}
++	if (!sb_rdonly(sb))
++		ufs_44bsd_set_active(sb);
  
-+static const struct camss_resources x1p42100_resources = {
-+	.version = CAMSS_X1P42100,
-+	.pd_name = "top",
-+	.csiphy_res = csiphy_res_x1p42100,
-+	.tpg_res = tpg_res_x1e80100,
-+	.csid_res = csid_res_x1p42100,
-+	.vfe_res = vfe_res_x1p42100,
-+	.csid_wrapper_res = &csid_wrapper_res_x1e80100,
-+	.icc_res = icc_res_x1p42100,
-+	.icc_path_num = ARRAY_SIZE(icc_res_x1p42100),
-+	.csiphy_num = ARRAY_SIZE(csiphy_res_x1p42100),
-+	.tpg_num = ARRAY_SIZE(tpg_res_x1e80100),
-+	.csid_num = ARRAY_SIZE(csid_res_x1p42100),
-+	.vfe_num = ARRAY_SIZE(vfe_res_x1p42100),
-+};
-+
- static const struct of_device_id camss_dt_match[] = {
- 	{ .compatible = "qcom,kaanapali-camss", .data = &kaanapali_resources },
- 	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
-@@ -6284,6 +6459,7 @@ static const struct of_device_id camss_dt_match[] = {
- 	{ .compatible = "qcom,sm8550-camss", .data = &sm8550_resources },
- 	{ .compatible = "qcom,sm8650-camss", .data = &sm8650_resources },
- 	{ .compatible = "qcom,x1e80100-camss", .data = &x1e80100_resources },
-+	{ .compatible = "qcom,x1p42100-camss", .data = &x1p42100_resources },
- 	{ .compatible = "qcom,glymur-camss", .data = &x1e80100_resources },
- 	{ }
- };
-diff --git a/drivers/media/platform/qcom/camss/camss.h b/drivers/media/platform/qcom/camss/camss.h
-index 8154fab54f99b12456cb377dc4ddfcadfcf8278e..734023839abe9ec6a89b1a5c2a0bd5e545846c0e 100644
---- a/drivers/media/platform/qcom/camss/camss.h
-+++ b/drivers/media/platform/qcom/camss/camss.h
-@@ -99,6 +99,7 @@ enum camss_version {
- 	CAMSS_8775P,
- 	CAMSS_KAANAPALI,
- 	CAMSS_X1E80100,
-+	CAMSS_X1P42100,
- };
- 
- enum icc_count {
-
----
-base-commit: 8d7367eeff00296ca3d780f8a43294539b9c6c65
-change-id: 20260409-purwa_camss-475787b87e14
-
-Best regards,
+ 	UFSD("EXIT\n");
+ 	return 0;
+@@ -1308,6 +1357,7 @@ static int ufs_reconfigure(struct fs_context *fc)
+ 				ufs_set_fs_state(sb, usb1, usb3,
+ 					UFS_FSOK - fs32_to_cpu(sb, usb1->fs_time));
+ 			ubh_mark_buffer_dirty (USPI_UBH(uspi));
++			ufs_44bsd_set_clean(sb);
+ 		}
+ 		sb->s_flags |= SB_RDONLY;
+ 	} else {
+@@ -1333,6 +1383,7 @@ static int ufs_reconfigure(struct fs_context *fc)
+ 			mutex_unlock(&UFS_SB(sb)->s_lock);
+ 			return -EPERM;
+ 		}
++		ufs_44bsd_set_active(sb);
+ 		sb->s_flags &= ~SB_RDONLY;
+ #endif
+ 	}
+diff --git a/fs/ufs/ufs.h b/fs/ufs/ufs.h
+index 541566f5b..86e045f20 100644
+--- a/fs/ufs/ufs.h
++++ b/fs/ufs/ufs.h
+@@ -26,6 +26,7 @@ struct ufs_sb_info {
+ 	unsigned short s_cg_loaded;
+ 	unsigned s_flavour;
+ 	unsigned s_on_err;
++	bool s_was_clean;	/* 44bsd: clean when it became read-write */
+ 	struct super_block *sb;
+ 	int work_queued; /* non-zero if the delayed work is queued */
+ 	struct delayed_work sync_work; /* FS sync delayed work */
 -- 
-Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+2.54.0 (Apple Git-157)
 
