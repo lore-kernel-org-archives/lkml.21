@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789668;
-	b=oguG3QBKIfek99frFeLJJbckctUM3bJxNLFwYeeDiLUJgJIE+o8+cYk/Cd1fDHYWwo40
-	 1m2WOP3B9XhXuyAMOVD2eT4hYSb+f7xvfmRDeM7ONUwOf+ib4L2Ivq6DrbJDh7qLuLL/v
-	 ti4IvtLaCAQ51l5Dv8azLguyn6eXaLS8+9g/41GBiqXeYYK6GcLkuLWFPFKHWCEL7WXQP
-	 +/YYW5huAU50tcQN3iOi2t0DR/CDrFTnLXlGxhvEJ4VZ9bC5J4fy/pLHfwMaUQJlGbVUW
-	 0gia+QVuLai1yVkG/1iho/NxXerzG+TQ6D1RwU7ou77saJDKsudKBVKU4QYqJFbe5wA==
+	t=1795789666;
+	b=olQnPS8kfdE5TLVD49pCJfpY6KfXU0bhqVf2ZDvP49KQeigeViTsQsjOe9G1ELv5+lNl
+	 Z2SswxeAsYt/LBUdx/YDPEKcv/J0O39zVH/0zl1FyrSdg0ddM+hMDYyNjp8FZWKgxJjYc
+	 9S4PiSyqXksD92HE3X9jL3fhIDSZNDWjH2Sx0BUl9Dlpg5KgvjtAYX3vOPOjt5ZmKgEzo
+	 SfOm1Nb7NFsv+rowllsDFTWLMakHMjBdVYgI4xubEd8DJnPbmIKGyomirWkEzYFvrybcJ
+	 mbu0yboLw89SEe/hP7uif7tM4dJOS6vwXV8ZBpei1bj2XxpvUNHWchOg5WJPwHECUeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789668;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=VwXzym3R0m4GeTYyG7Jd134iPUZ0NoUve7zL6cn/Qpw=;
-	b=X4hF+G0+nk1D7dsARo4wnJO5j+uIdhJUttIPYAn9aCzAjHZfqteZID1z2AjB6WuCeXCy
-	 VZnE7hU85hRGp594zr8YhxPSmvL9dBloHFiwszBn7sw5urm6x/20KygF8u2ljvHNW0OJe
-	 pOX68IVTXc+lWjAZPV3ELABVU26QDPC81sJrxXt1WgwovCqCXQCXUEN85CEZmWThI57hd
-	 SLt99kN7PEXlhgDO4ZDQ/ddzaewU7jjpWUx04dwgdv1PXrXwfgjHm14VpwaPKCamnYmdr
-	 7iJfR8DpSefRW7RkSytJSsFyOU0odcBt+75brDOlhgmK0gazxhqADNH9zp876J4InnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789666;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=UFvs3Sh13p9vwNL30rjxRs8Hqaot3198sQb8Lsn5iWU=;
+	b=oLB2A2J8mbMdN5g/4emZ96MXD2ykTVjnsbbQ84zYI1RjWwIKWo880Cl874/okXBEa89V
+	 qLsByrsxv7rlzfkRYj5uyyBt+as6bu/rntnsgS6Ysxg1kAMUYPRkRMSpdkQ04m8LvjbhT
+	 KOi7NpxNrIec0ih7fMtTZukAESZXXgtsWcVT1MjtMdpan3FZPC4PH+3rEQ0tMtfLQaPoV
+	 1pIq7S58suNcCmQM0Cv8mLGpberutHHdvHWCMme2g4F40nElmSoP8tOjCzHkeWr0jHaL6
+	 +lLivPI6j1pSat3NAp+1Fjbv1wCqSGJYAm6aDxCboK/0IVQ62uTXJbUuCB260C2DC9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HUFxZ7xN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=NteD1S8Y;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7276960A6F6E;
-	Fri, 27 Nov 2026 14:27:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2205606C2DB;
+	Fri, 27 Nov 2026 14:27:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2205606C2DB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HUFxZ7xN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E3801F00926;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=NteD1S8Y
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 9100E4E417C7;
 	Fri, 27 Nov 2026 14:27:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789667;
-	bh=VwXzym3R0m4GeTYyG7Jd134iPUZ0NoUve7zL6cn/Qpw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HUFxZ7xNnrA4YMDDgW4gkzAFy0dgupfADQtRU7/Dz+jmm8XIZwgqG51XSUnHLSWYI
-	 Ip3OOYeXBgNFXzPhnw72KfJoY6X0yEm5B/2rNl9nvzZyTWaJTxu+DbbGx6ZJlqnMC4
-	 i6N1qoyfcELdYLebRG1QBRkxjjU5fQNomBNpg7igLoP6/wK+prx5oApzDQ6ma+OW5g
-	 dQhxervHFx69a+FPlFGDGbh3wzpZTvhbtH4eNrI0rlzuVPVupGMoC/+SQupJmXEa9h
-	 GQkmEQN/F6Wui4zXihZRYSjpn0qjiUJUi3jQcOY9p2WhoaYW6o2Fum0ogH2y/eXFci
-	 RFBbavazwWlTA==
-From: bod@kernel.org
-Date: Fri, 27 Nov 2026 15:27:22 +0100
-Subject: [PATCH v8 03/10] arm64: dts: qcom: x1e80100-crd: Add pm8010 CRD
- pmic,id=m regulators
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 630666049C;
+	Fri, 27 Nov 2026 14:27:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B6D411E68FF4;
+	Fri, 27 Nov 2026 15:27:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795789661; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=UFvs3Sh13p9vwNL30rjxRs8Hqaot3198sQb8Lsn5iWU=;
+	b=NteD1S8Yj/P7aVw1HuIweq3O7KLp9amnSIsK6QkmDHxqskey209N3M+/eTBFY9B57D2I7i
+	6sT0j3eoJTJ+YTp2js9v31pzgeHhIQEKbvBTH/YhqmaNdMZn3rT26mqPNFyyxSUhAxngWn
+	nGyOXp9/HSsYJP7Un2zl3rWUavFJh2isWWuZYGGHY86Ni46sSa8+Vz8nVFwcBc/V/QdUuW
+	B6Uj2pT+DbXl5rnDI/Q78Mje3MgIGFq4lYb6Ui7rF0eyu1vFydk9TImLvhrw4WB7ORsIjC
+	2CEw8mcJq1MJbHUcLRALJ3vmbFd0G5mNk3L7MDQemBe5sn6SaKkkpp4L9USviA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Fri, 27 Nov 2026 15:22:54 +0100
+Subject: [PATCH RFC v2 32/35] spi: stm32-qspi: Reject excessive dummy cycle
+ counts
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,92 +66,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-x1e-camss-csi2-phy-dtsi-v8-3-2793b8e5138c@kernel.org>
-References: <20261127-x1e-camss-csi2-phy-dtsi-v8-0-2793b8e5138c@kernel.org>
-In-Reply-To: <20261127-x1e-camss-csi2-phy-dtsi-v8-0-2793b8e5138c@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bryan O'Donoghue <bod@kernel.org>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- linux-media@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- Daniel J Blueman <daniel@quora.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1683; i=bod@kernel.org;
- h=from:subject:message-id; bh=m98zNi8pBrUL39OVAkKx28ff1PPR76JLLWS5tNuHtOg=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrCZNRUzHbJEiXYo7gE8bVALmsMKdfvpH/CxQdM
- /GXxHc0JJuJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawmTUQAKCRAicTuzoY3I
- Opm3EACJ0NYymTZ+Kv7kiTWS4bWm2BCQ5oe6PUwZOjNjQMUcDvpiMYHEQqnMLmjDVw2lMR74rA7
- y/PRkaGyrzqyvgxgl46Z9EPAzo7P/adHe7vAzoqXlL/nS+4pThMSkpbEyDtK5QLjFqMfg6LfmfN
- 2NAOwzj6hcv4tHuy06aVQtcfLIu0ETxEqqD1RY1waBj+n+yrzaxVcOIy2C0q4wZ9DZsO0bHYFDx
- JEuZSYPw6GK26Tcrq8MgvHSin8iY6fjZRidyGje4VFVGDXW8Esd9hUgVvm/azmozfUhk39zuEnL
- yJpjntEblbABRUgKYcNgUbhYv7PM3tJKY+Pb5VUg3h8f1zFqLB1J0Wqt75dnTeij3i01y4DNFTK
- tHhiTunYCYip5HwcvCx3MkZr6Xj25KVcE0tfQvsU2gBLtvzQkhcyES7DT4ft4yk59s4WtLb4H21
- sStlIJwzyyYIG79SMAu9ZLRrezd70vl2xhTW1JI4EBZeDo4ORnqG6cV0wuZPYbOkCbNkciF0Ds5
- 8+TX7+VfvDNaQQbgSh42KGFNj2iWJDR3Pmrvx1w1NWxP/AFXqWggxg8RsPEn7y6i4H5/pe/Vcq7
- dx3u8vXjccTIhBhEV7bUa6JLTzlIzP5bNlHDSmanf2nv/O5CWWDqdCrqXATZ9mHbze8tOVD3zlM
- 0m84Dp6Gs35WUhA==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-32-5c93f5e5d630@bootlin.com>
+References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
+ Yu-Chun Lin <eleanor.lin@realtek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Chris Packham <chris.packham@alliedtelesis.co.nz>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+The controller stores the number of dummy cycles in a 5-bit field.
+Prevent field corruption by adding a proper ->supports_op() callback.
 
-Add pmic,id = m rpmh to regulator definitions. This regulator set provides
-vreg_l3m_1p8 the regulator for the ov08x40 RGB sensor on the CRD.
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Tested-by: Daniel J Blueman <daniel@quora.org> # Lenovo Slim 7x X1E80100
-Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- arch/arm64/boot/dts/qcom/x1-crd.dtsi | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/spi/spi-stm32-qspi.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/x1-crd.dtsi b/arch/arm64/boot/dts/qcom/x1-crd.dtsi
-index fcd7cef6660fd..71c819aa2d43c 100644
---- a/arch/arm64/boot/dts/qcom/x1-crd.dtsi
-+++ b/arch/arm64/boot/dts/qcom/x1-crd.dtsi
-@@ -897,6 +897,36 @@ vreg_l3j_0p8: ldo3 {
- 			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
- 		};
- 	};
-+
-+	regulators-8 {
-+		compatible = "qcom,pm8010-rpmh-regulators";
-+		qcom,pmic-id = "m";
-+
-+		vdd-l1-l2-supply = <&vreg_s5j_1p2>;
-+		vdd-l3-l4-supply = <&vreg_s4c_1p8>;
-+		vdd-l7-supply = <&vreg_bob1>;
-+
-+		vreg_l3m_1p8: ldo3 {
-+			regulator-name = "vreg_l3m_1p8";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1808000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l4m_1p8: ldo4 {
-+			regulator-name = "vreg_l4m_1p8";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1808000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l7m_2p9: ldo7 {
-+			regulator-name = "vreg_l7m_2p9";
-+			regulator-min-microvolt = <2912000>;
-+			regulator-max-microvolt = <2912000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+	};
- };
+diff --git a/drivers/spi/spi-stm32-qspi.c b/drivers/spi/spi-stm32-qspi.c
+index 993b09cc5124..751810a267ff 100644
+--- a/drivers/spi/spi-stm32-qspi.c
++++ b/drivers/spi/spi-stm32-qspi.c
+@@ -761,11 +761,17 @@ static void stm32_qspi_dma_free(struct stm32_qspi *qspi)
+ 		dma_release_channel(qspi->dma_chrx);
+ }
  
- &gpu {
+-/*
+- * no special host constraint, so use default spi_mem_default_supports_op
+- * to check supported mode.
+- */
++static bool stm32_qspi_supports_op(struct spi_mem *mem,
++				   const struct spi_mem_op *op)
++{
++	if (op->dummy.ncycles > FIELD_MAX(CCR_DCYC_MASK))
++		return false;
++
++	return spi_mem_default_supports_op(mem, op);
++}
++
+ static const struct spi_controller_mem_ops stm32_qspi_mem_ops = {
++	.supports_op	= stm32_qspi_supports_op,
+ 	.exec_op	= stm32_qspi_exec_op,
+ 	.dirmap_create	= stm32_qspi_dirmap_create,
+ 	.dirmap_read	= stm32_qspi_dirmap_read,
 
 -- 
-2.55.0
+2.56.0
 
