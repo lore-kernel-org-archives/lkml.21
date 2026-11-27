@@ -1,96 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795788844;
-	b=mAbSldRJGSiGfTGlpHERU7ormBLyT/zBkR8tvY8jbA5OgGwb+jDXcBs87+g2/4GMclxq
-	 aqC3wfB2w7yE35KCgKZhg6+axvvHLxZ9YKMqUr5/80L7pTQBsgVLA7GQkP6NeF0aGBBIy
-	 bpTq3fkwi4Cd2FG31ACjupSs2NK6Veo9bjdbX1GESnnifn4SV3pof6XsLFjqgpCiJoJb5
-	 8QBPXDmWKGoYiafQaciKEKXVw926N7LalybzeWHRs8mLrEVXnMSJ5oRvqJTnNCqN3E4UP
-	 yfzUzt7AQt7N5gHbVLWqRCQrifFa1kE9l17/pxU59SA6phSweo/1Ai74DSarPW2YPfQ==
+	t=1795788861;
+	b=BJRS2EVqbfDbd5FOPlIYLVk8hyREGN4YR35ycJZjjXZNtIk6UwGR33I61RFERYhUHSLD
+	 vv9DINVl6e36bEJ99gORkaqMci6D6eTAyS7iroai/Xqnkv9e6njAOqeOP4SUC7Ba7HToa
+	 VF/0bwMoRynJ7UGApWmWm33pVM/J1knevkwxamzINmjqUd3NQSsoBnc0bHVRanfO2OUz+
+	 o60EE3nB44cXUlapcdowI//PYB5/kD0kuvOp56yKbhqIdYT1372Ng6euk2RgOH4T7nD4l
+	 bM20vTMue1+cAaBMru0+ZiQFfEeU4jwE6LzYby0gtaQPbUYj/vH5GaNa4ELeY9q/9zA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795788844;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=4BWGfKuysLwJSXZLulJ87yZmWj/glvghmwYmsfRkDVY=;
-	b=PJUF6h1KN0avtc5ka8hR4ZRUODiKOcrpLx6RR9Imnzm/Gd6k9iBzgyBkJaE8pkPFXyzm
-	 A8eEHNHDt0cpiAVZJ9P/WC8Nog1UYmaw1DqwNvVwd5mjzgtQb1ldJYJHpY6baQW0pRf5U
-	 kJGjvVRxumkESZAiCq+/OybmlSu2QGh6QyO2n2lYA9qjX+KEBN8Py8MumgsOWFIXnchfD
-	 SaM8lsshPP65XYcDgIO9vYOzZPy1L5X9ttj/xFlxCojCt/8kRUyT1dBL0uFNu01vVRlV1
-	 oZz/GcR4/cvjaEYSiDE4QDsS5L5fk7amU1bKtaDEXrlUqrakbV67FUCBleKEoJbO2eQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795788861;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=coLdQnR70PeX5A2OvGxx7X5PSl+Sd3yaEh9fchlXrji5JulCi5gxgs3c0gJEu+Ba12/4
+	 TGutkgccceb8KzqCB2tPqRkN1zCSOCPKFjlbxe0F0p/wcd9xhvJQvWsdyHtgOh5NxfcZ1
+	 BOUBiw4k0fK/0+g2FH/fzCVO5iuhkiQazrT6beQZY9byN5Vea+0eZUs51yAaYpH1uhXEs
+	 7SNGTt8LHfyxl94PPK6lXztuJIbdUDcwNlCWsRScNavU0Nu8XXNxH5sa9EOOeTvDxk4vC
+	 ON3gyw08eBPEjsME8drjw5mkljcnvps2uLhniIia/PPbVe0DSNlMgw9dm//OL1tx1+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fMheY636;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D7BxvgIk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64006606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:14:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64006606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69F30606A31C;
+	Fri, 27 Nov 2026 14:14:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fMheY636
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so5112825f8f.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:14:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795788843; x=1796393643; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4BWGfKuysLwJSXZLulJ87yZmWj/glvghmwYmsfRkDVY=;
-        b=fMheY636nIIJKKzv5AvXhyxzHm9YhTBTwcLZsH5sMYrI7j+a2Namr5FlsDfVgke19f
-         iIMiclh220spaQWAHqaUMEXRmp14elucEmcO8HQjujQEnBxLyNT1AOnf/ppyZgO98nq/
-         MiRPYAVDvcdNdhzKg+IKlNRDrhnuOhwLIAIat+Yu2LULSLmiqPLoCSjX4pvNG6Vif2DE
-         nIZWi0VMCosAGl1F/IGsIR/eoaLWoGO6gNANeIgMl9Yr9ncyLPG8BsPCTsK+iGikyWYP
-         vO5RQcbIWDu/DGzicnCp/rDx0doX0RuWyO+7q597TpabrBeMfc72lwTfvrjpg+Zfp1E7
-         wYgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795788843; x=1796393643;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4BWGfKuysLwJSXZLulJ87yZmWj/glvghmwYmsfRkDVY=;
-        b=v8H7bgypQ3PcW33W92eBRKdZAzViBvPER/rxa7p1sDXNuSXinukGxRcSyXA7GxzLLf
-         1mfb8pR+KKVLBGbEJxWoCf5QPXWL+ruwW28u+ThdH+odTbEdJGYW2LtPae8bl5Rlaxip
-         3zTG/1mZmDKfwbG7Q+u1uWfsJzB5anxxQSP4Vuw7V4IWNIjkymeHRsCH4OvgMwmQpJ5H
-         sLaSrfrSIKlOnHXViEPZQ/ZBxKOnfg3OkasKVfR1khvv4OE5RD2lN45Cf0RUfTIBkKE1
-         Uf5mf8s9SZzW+zEmB9YoqXeDd8VyFNfe/3v5HwXx1UJEjfyLpBHjTYEry4rub83N47w0
-         u+JQ==
-X-Forwarded-Encrypted: i=1; AL+hErEm+uuvYdH+aZwHpD/ugSkSVgCydO47i3TyzCjcmEhoqe4fAlh7Ly27+WAqS9B4Izu2Lb9MXIHH2XOa4ow=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+vMVyuiD5acdC6mxZ8PQ+N5ukpfKkdWeNjLuVSTUjoRAXKBqDS
-	RNTw3Ofs2pmZ7Oos7JNM0E77CytZMjgeiry18opGq0mlTCY/vamrBn2C
-X-Gm-Gg: AZFdTZfKPZmAwTJPKLSAIyNt1hVIIIraULwkygF0eLHOLbaDyLGoBKJ1CxYOARP5MZO
-	I3lxQKLBOa/vmwsqJIm0WYTSJPfrcyZwohXwE5+H08RLwp7TmW8U3rTcQ7EPkVz/9Z389vclOQt
-	T6e8GfuvMorX/IHaneraGK5D4l6dUu77qyvs2+9zADQqdvlLEchdAPv3R0UL/1f1/knzHPrLjM2
-	WID/zChIcWFyI9eneE3vhLEslPLhLlBNdK4Q3O711C0OT990oVanjQ+g8hnrMTQmpwDL2/pNc2H
-	qModR4aLB7o9sgRqlyNPmWqMfSEwX70yljl71IkJc1/4ukuSEKPkFZKyv18ypuIHQSgbPke0Gz+
-	oAy01d2ceyQWlSAYkkMZ1Y8+0AmQCV/wdpihVkbm0P8CZhEaY0tsBAtFuKzEtFfm3occdXPChvI
-	BcGo69Ts5vOdcrV+3u0jG3LGGH8XKRh9nTA9PnAvZWUF2hyouLYFzJ5xmBx7tLP07ZEXoT36I/H
-	gaqVQJ3V7trVl/ZiZpPNbUE4KvfBHy/wr3iajvOq9sbUxavSKQYp1G4E2RjsP7MvbG8zMGQhwXz
-	OuSS70s3mnCAHdGU/2Vcx9yILusRdFdg5mw=
-X-Received: by 2002:a05:6000:454f:b0:4a6:d298:832a with SMTP id ffacd0b85a97d-4abb31ade9cmr29618487f8f.30.1795788842509;
-        Fri, 27 Nov 2026 06:14:02 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b8b7888sm47588546f8f.42.2026.11.27.06.14.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:14:02 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v14 2/3] wifi: rtw88: support channel switch in AP mode
-Date: Fri, 27 Nov 2026 15:14:01 +0100
-Message-ID: <20261127141401.1872285-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <84030084b4f24c4199a85cf05fae10b0@realtek.com>
-References: 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D7BxvgIk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBFE41F0089C;
+	Fri, 27 Nov 2026 14:14:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795788860;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=D7BxvgIkaFBMAmzqJdD7TT4+D71V/nGhxpM+/CFMdwSqR2YhJypFyAFVpzXamLKEK
+	 osRuiWR5H2T13Mapr2WrU5U5UEqVNx53YNo/3yy5zLs7p44XchA7Uj8pumagOYtUUc
+	 O2E4/Lnyz81o2pZ+LM8UXgDzU9WNClii3PvZyzh5vBvbPyo9m/Tj2uHETG0awNL1cn
+	 vvsroujG7YKoep+pl0mqKiZXx9i403VtjZhY0CU3kddEfzgloAIjqBZEgzCQIw5e8r
+	 6NDEQNEbRAQVn81zc/p+ajBhrbafvZBi3T51cX3eGgwkorxqhAJAYb1hqYoMKkmhLV
+	 mPdUx5S8hzuYA==
+From: netdev-bot+sinfo@kernel.org
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>,
+ Julia Lawall <Julia.Lawall@inria.fr>
+Subject: Re: [PATCH net v2 1/2] bcm63xx_enet: Prevent unbalanced
+ clk_disable_unprepare() call in bcm_enet_remove()
+Date: Fri, 27 Nov 2026 14:14:19 +0000
+Message-ID: <179578885926.3294.10032296145328434498@kernel.org>
+In-Reply-To: <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
+References: <7d7b20e7-6749-46c4-a6f8-462f83cd27e3@web.de>
+ <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,20 +71,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Hi Ping-Ke,
+Hi!
 
-> Have you actually tested WoWLAN with AP mode operating CSA?
-> If not, I prefer not resuming CSA.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-No. With an AP alone the WoWLAN suspend failed and cfg80211 stopped the
-AP, and with an AP next to a station on USB the resume path never ran.
-v15 drops the restart after resume and only stops the countdown on
-suspend.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-> Create a struct to hold these CSA data?
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-Will do in v15: struct rtw_csa in struct rtw_dev.
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
-Mehmet
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
