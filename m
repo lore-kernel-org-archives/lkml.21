@@ -1,103 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770983;
-	b=tyJxDzWYtFJAa9dam4JmNpb78KDesymDArfbfsjoCkv1ttfxTcfTJrmPZ0rinUtp0Lp1
-	 /nKqOOkLoFbeEbg7OhMhUv0m/cKLfILIDu7AiWHnvWOq2pQA1qT5AwDFDDt5QfcK4dG3y
-	 UBIl2Gu4SwUon8/Vk5elMx900IIDZ2CN+Qq3bIzleCx32AKCqsJxw9hBUbetZ/wZN2w5O
-	 9VfZPeVmX0cz6q75Q1cL23MCkTQixlTicWbnuGb/vB0lKCan9MWxPJhhkFiaktnk1UQrb
-	 g1hWbRWnVOgy9U8sJKT0Z7KQZJ1YTcXGyqiDGxAUMKlYs+o8kqdscMpQ+19JHns0Cag==
+	t=1795770984;
+	b=Q8ecPBNoBhiC3VlTX04eDoNfGlTgADcBktSLoc7GVDQQY83SDO1S8GiFSdfDabV2Qfnq
+	 qulVsMP2xpba3tP5AlnPv4FMy4+8w6Pgp6DNPpiX3Ei4qyo3R0w+8lbrGpezbwqCz57oM
+	 40OBheu6FMfgvktprktX+Mu5l9YDTrRGb2Kgb8XbE6hfpCbj+MOmkF011B0cay45bivR/
+	 r7wevlNFnel+MeoQGyxlqj+TVzqsoNrknCTVzgBuauXDR4dlGqxetkM1zznyj05/NIXH5
+	 yMgfijGdzu3zEsRJxp0KZ1i+icTaVlw9OPOW5A3iymCh2xxrfd88j+63vLX5UEQc+cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770983;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:In-Reply-To:References:From:Date:Subject:To:Cc;
-	bh=HcE4U4ajhU0fYFPRjlDViUPtdh5ql807zszqwyGOmGE=;
-	b=z27ixXt3cJK0hU8zBul/4x9veR/FU9Ow4qYFDExRzYVxBS/cGGqBzQM8k7/IrJfiOoH8
-	 KwtJr1AIqzp6dPWsoeWcwxH7nCS+BgI7KuzPBt4kOM55QFbTd35UpNaKwe+861UFWQb40
-	 c7b6QKSYPy1CegaUflEJ719VdJ8P1fKeMWa4spgDxvctBWUKRstrheAP9+lu0g+jhvZBh
-	 8MSc0dOhDr30VUanDAgFlsx7XzzSBakqMsXYdZYqih2mKGatFSUUJ/2DvgA34QHs1TKkh
-	 LBu3IJGNlCjO/k5QscEADbt+nuMg/YxL6vrlax4Eo7HImTV+ADxo97OnaCkKT6MguEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770984;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Fcf04Jxl6fK6hJQpv7NF6ewyNk/t7CcRJRXoJj/gHYs=;
+	b=squYU0O30MJG3d0mcj03M5VlJg7YXKCKdBVwNJYrYk274rw56BCMfnavHYa7l9/40xNC
+	 JbS/bM0PLRvefO+ifFVVo7IA27yQHYS4aBQ1BiyN0CTSL9NCZ6+HXlxI+7cjGTfqA8l3e
+	 l+aLzLoJvk18MhO+trawc0za7zSxebuDjYOiv9R/F7H4PZx+dDiFtp3efnsZtHxJnNj4r
+	 ZA3JDYedpQ8kL9l0MRMX5OVqkxci4q94t2EAglFa8griyS2zoIZKSdyR1ZHFfzWG/yDu5
+	 E9QN76TJSTfcNlMM7+xJfPYkVxBaPJFwwpBSAUk4pW5xUgBnysQkA1TsnS9Nva6UqYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hgr5fBXG;
-	arc=none smtp.remote-ip=74.125.227.131
-Received: from mail-pj2-f3.google.com (mail-pj2-f3.google.com [74.125.227.131])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="h7a/XazE";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=b0G9n9y1;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67E1F606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:16:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67E1F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65626606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:16:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65626606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hgr5fBXG
-Received: by mail-pj2-f3.google.com with SMTP id d9443c01a7336-2f0f18feff0so4371885ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:16:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=h7a/XazE;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=b0G9n9y1
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7H5NS1565696
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:16:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Fcf04Jxl6fK6hJQpv7NF6ewyNk/t7CcRJRXoJj/gHYs=; b=h7a/XazE8FBb/WvA
+	r64lseyDJH4D0lvjddy9criGTAeCYGSLTQ1WRdXiwTrF5gHCks9C78apUYIfzEYI
+	NvrNAtNOmHrSjjk4Lba4Ch6TLI7ejt3ojPT0VMTOMQs5KmrH1ZMljmd/eYAFj4h+
+	53QZ0j1aObEa2LX+HY4kul5TlGhGlBVpIFe2ubsuJjyICCoqtvk15TrciJOwdzdR
+	SJYDeWZMPqkipA65SjHB5bx9FFSoiAtDrJ+/2eSn9GwJSmN9wWZxLKCkF5NQACfv
+	T+kfAAdnprT3N6Ds3v8KikW4ZRSGWoK6orS9IpNjwmNcGAuqTrNXp1ttw9AETekK
+	EWyPCg==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74garp6x-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:16:23 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5ec78f43e7fso353369e0c.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:16:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795770982; x=1796375782; darn=vger.kernel.org;
-        h=cc:to:subject:date:from:references:in-reply-to:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=HcE4U4ajhU0fYFPRjlDViUPtdh5ql807zszqwyGOmGE=;
-        b=Hgr5fBXG0bZ3bzYqiy+3LV+7WCIIx1bGGoCLitdyX4rocGedwC5eIvB8pyCZhOpvy9
-         /Zq9BN3CfDeXnsIWRlq70Tzg8eYVFG3SMeI1xHsNVeJ+A5XNXj6Xq9q4kYaqjk3A7J5x
-         N4m8kSlcn3oQBTnMCWIV9C9b0/TuvBfhQdZoAYBz0ZW3ZUkcQTDJFLDj9WgJXUCfjsVR
-         IJTJLmgVMnR5X4j+/Doyy9ZC8PWEqJzqHSIZz+By/Zdn0ryo5lfEfeMDjClZVuxKatwB
-         d5Ygf4AhnNffkoEpkNMdhhsyadAfkD94s6D7Ra+BaiXNulsiLVicyQZMUIEV8VT8ZDbR
-         eG3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770982; x=1796375782;
-        h=cc:to:subject:date:from:references:in-reply-to:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795770983; x=1796375783; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HcE4U4ajhU0fYFPRjlDViUPtdh5ql807zszqwyGOmGE=;
-        b=fu4qdWDxwhJxSxOUVCVJ40mcotHuhhHduuAaZrdG/wNuYgRW8ANZ/BiSMSrmCDglzr
-         b9DnZYJmciVFQtmvwAy+ZpKbBMDJ3xI1DJO9a6bCh2XJujXXmI9Ho2bIvP/1+6h5EiQv
-         quU/XcuAFJ32xIbVizqmIRxxbfUZuaekhduh0zr1z3Oas+fKP1NclvwQudmvOCeRCl27
-         BTOmFd0cqZL2rUkbiEix7g/u2bPz6dRAheb0YyTq62SlMwO6yY3OxoTh2SmLHUULM/Ht
-         YS1AWa987NdGOq7wbk9RmKsZssfa9lty4PgLKV8x+W7P2GyLRDdKV0gNYpsHNFQMo29T
-         SuCw==
-X-Forwarded-Encrypted: i=1; AL+hErEfeM3ZuNSM6hc0w99RrTuJZmahe/FGKYWpGOAvwc32ksiE3rGEEWOCtX69yIPjFR28JX82sj3CSmyswHQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8bS5sWkL2QeBXxugWAbed473hlB+FQM4IYlaLJtOArzsYoYjAF
-	57q48gxfOl4DvMdAqEGKWBgJLzyuIXz0pH6J8flLaTTrgdJzOmITtnFu
-X-Gm-Gg: AZFdTZeSTBRkidlBCzJmTyfXb6W519LW63f2eSZpMJpT4+MT8W978E+StbaPHlIbB+m
-	2IWkMEYS8AzUuvaqq/TjC9YURrbENSPLJSSRZGMFMs2MOtbTPPzTRnSrR0h4AVJKE4S4UDFXNce
-	JI52e5sc9eXfOmoF7oog+/6FSvL0X2gJ04m2KRa8GVJ6JAEiWzoCrTvn47AtekYnVTLyDBUfPTV
-	OiCI5DzTVsAl7bJV2u0nCPfG7Gdkgr1IFfYSKOj4EStAg5+rX8H7ZOfmlbs8vX7wYVBvMSp+FZq
-	V7zl2llr0fJIJpMwtR6el0VuuHQzGDMB476k9d7gBRH5tfVQh4CHwLFJ1KRaRbEdYxdVTpPbj83
-	lUPO/JfcQiMSwj0zyLEt+tBmSlN4KU/xR42jjWyXKiwpqwADE+0/WOsadOXeuLYBKEw2iDkqeHb
-	vZ35ANNpngGiYMY5kPltQghu2Tjocf9otXKb6i4g4lpI+Rj1zWE4SlnhuSjsnmpFaHoBV6zimlZ
-	g53AdlB+Oit/YXaMrzC39G3zysTK4DPpm4dfXYqqErCS7iKtk8Fhwk/x4jusI9YH2Wzt7gEC24W
-	CwTNgUjQxcZvGMH08Nofc/Tte6BQ2vjFosAUjEueJWKjKYdYjKGe9/+AmCI2YDBduuvyYHKE14o
-	zLhUnzg58n3l7lAuwiZK4Z70=
-X-Received: by 2002:a17:902:d4c3:b0:2ef:e20f:3eeb with SMTP id d9443c01a7336-2f09ca84710mr142455805ad.20.1795770981749;
-        Fri, 27 Nov 2026 01:16:21 -0800 (PST)
-Received: from [169.254.212.233] (ec2-16-179-105-217.ap-southeast-2.compute.amazonaws.com. [16.179.105.217])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f10c9casm117276575ad.52.2026.11.27.01.16.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:16:21 -0800 (PST)
-Message-ID: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
-In-Reply-To: <cover.1795769101.git.n0ps1edzz@gmail.com>
-References: <cover.1795769101.git.n0ps1edzz@gmail.com>
-From: Zhou Qiuyue <n0ps1edzz@gmail.com>
-Date: Fri, 27 Nov 2026 14:39:57 +0800
-Subject: [PATCH net 2/2] xfrm: fix use-after-free in xfrm_lookup_with_ifid()
-To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-    Ido Schimmel <idosch@nvidia.com>,
-    Kuniyuki Iwashima <kuniyu@amazon.com>,
-    Steffen Klassert <steffen.klassert@secunet.com>,
-    Herbert Xu <herbert@gondor.apana.org.au>,
-    David S. Miller <davem@davemloft.net>,
-    Eric Dumazet <edumazet@kernel.org>,
-    Jakub Kicinski <kuba@kernel.org>,
-    Paolo Abeni <pabeni@redhat.com>,
-    Simon Horman <horms@kernel.org>,
-    Willem de Bruijn <willemb@google.com>,
-    Hangbin Liu <liuhangbin@gmail.com>,
-    ipsec@lists.linux.dev,
-    linux-kernel@vger.kernel.org
+        bh=Fcf04Jxl6fK6hJQpv7NF6ewyNk/t7CcRJRXoJj/gHYs=;
+        b=b0G9n9y16S4voYKJv/uzktEeyyCupLwFwg5SfcPI/RIHqBXvEJlkToP6Ud6FMAdlhl
+         rf58YOdmS3imahF00HkKr3FPkqXYvhElHWkNgUIn/gJMEnOzan5LhgMgpc9eWGGvVDeR
+         3/X6UPI//UobCTUEMzobMdaizh4+TDm33U+tYMe5FLoUnGU82COZ1yFZcvPjgwHXF3bA
+         x+kI9RqMxla8E+W72pdasAgh+Ma4SJR4MjGZN3w+tBl9Y8yD+M4xHWtVv0nrmG3dXu6Z
+         zOEZ4yyeagZ9n4zH2Kv2Ik3DVqJ929sXB3+sjiW991b3S5g4or2egNvoobDIqjo5tVwt
+         g4YQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795770983; x=1796375783;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Fcf04Jxl6fK6hJQpv7NF6ewyNk/t7CcRJRXoJj/gHYs=;
+        b=GC6vLepBzBWgN+VHq+e1TYCJNSY1LerjqnvT3APQ0bbWwvzn6aaOnKB8pIZl2udOPF
+         aYvi7LP4RR4lFoDWbhtCVX3CXiYcsk0sd+xbDgd+ho0UzTSYZLcHGiTdV+VkQl6hfX3N
+         YrlE3b3yTkvK3KHb/vBk1GI4vhrNYIiKZQYdnByQLS14Q2u8Sj8cS1bXZ0wv7JYz+gdo
+         LTdoNlNotNAr6abtAi0ntaneq+eBPWrAyQcf/riCgaKdTQJAw3Us1ylQaJ2qsVucsUs2
+         Wg6Fw8ndmGZNZOWuFpWJU0KJWKRVxny+9ZZbm5JjXhKuWTbsej7vpaJAWtbNLoo1tCFw
+         Ki4w==
+X-Forwarded-Encrypted: i=1; AL+hErEi6/4dguwxoSG/r+Dy9+O3x9EA6ZwyzH9Eo9bPzdKvjDezl9666E6V7O9lzuJnSBknd3p/gX3mSeO1Lfw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5p+tXcsXbox21jUm63Q3pV0Y/hPis8EcKaE/r5raE4tqsQx+i
+	T1l+P+jlChK9TNiJMNln1aBu36d9OXsvL7nnDynycVwyHDcLVYR/Pw9HnJJcvLtS11Xa93t67uc
+	n7wAmjHg0dSniqUYZub4y1mrp6ZF/olmFQksF+aAagwi5utuJSatQ2p+ZHpotWh5nqMU=
+X-Gm-Gg: AZFdTZcxMU4VVv0FEDi+QfVMh/dPjERmrVodFzvnt7QyiPdxOAyOy/EbYJ+P+ruRASx
+	O5dBR5X21flKZH6idqt5+rV1d9UU8w2gBSXCJEju6upq35Hh4TrrSwRpBVRI6SS2RGQRmvAmmir
+	o/gTIpM9oK8V4/EsAZGyZHnmiuTAyEEtcYqoFseySTlUsZPIr0v/D1slYiOhaIsA2erKte6TJzC
+	meMhxjdPhfbLMO4rgTsgMF4lnlhCvtm0xdq1HrcXAUUvCed+eBCGVMG6YozYd7G+MtSztRUKsHE
+	jYoypKsfR47B7BzudYIllOvIPAviuiqx5aSLqIQy0A4eOniYwL31ttnyF5lvyPf3OGQV+Sjd9g8
+	noeU24R4ijQ4FGqZosIf6BDGpHpLo1gBMkK2XoKzKMaRJ/PRpm+cXhjTZe33TWI20fZdDlK8=
+X-Received: by 2002:ac5:c00a:0:20b0:5ec:afc2:c0f6 with SMTP id 71dfb90a1353d-5ee8ae00500mr17415355e0c.2.1795770982616;
+        Fri, 27 Nov 2026 01:16:22 -0800 (PST)
+X-Received: by 2002:ac5:c00a:0:20b0:5ec:afc2:c0f6 with SMTP id 71dfb90a1353d-5ee8ae00500mr17415338e0c.2.1795770982220;
+        Fri, 27 Nov 2026 01:16:22 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6bb11ff543fsm3852235a12.2.2026.11.27.01.16.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 01:16:20 -0800 (PST)
+Message-ID: <483774ef-1125-44dc-8712-73c0850386f1@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 10:16:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,65 +114,91 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] interconnect: qcom: Add Netrani RPMh interconnect
+ support
+To: SignKirigami <prcups@krgm.moe>, Georgi Djakov <djakov@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261125-netrani-interconnect-v2-v3-0-1136e2cc6e3e@krgm.moe>
+ <20261125-netrani-interconnect-v2-v3-2-1136e2cc6e3e@krgm.moe>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261125-netrani-interconnect-v2-v3-2-1136e2cc6e3e@krgm.moe>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: 0Cg1V3unJoagS6JqEfGfP3WupCoAv2rb
+X-Proofpoint-GUID: 0Cg1V3unJoagS6JqEfGfP3WupCoAv2rb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAzNiBTYWx0ZWRfX5ajQTWJTsOLw
+ XUyBr4QzOog75b9T69mAMNd4u4HwM+vVqM3upQaPyyOsXq6IiGL3lGW3wa0NATcjsys/didNd76
+ 4osUs/qiSt1HfACVUqwX0ZzNqZkVn83LJuixYNdbLaIR18nr8PizSLSeSzqyHsFThcbL+d56a31
+ LQlyNGIJfUAZuB2ibP524bbrERUPqlzngmm7+OOT6xdM1jJX0k+EXpG1auqx1X/rFifz5iXB7mO
+ PLIOw9wM2lN5Vr4/vAeOYA4mERz0mP1BIQEX703TEYknsdu2PyhXNVzlTYdvjQtkGqs84q4qzSw
+ oYsUq02A9iwwEF9ssCVURtFv/Hig1o16+ihVEjT2qGbvdIuFXKaz2m/yQoq+Af0nTqNFnPLPMWr
+ LWrCPxZgspLtPMcUnOorbEKjy5EnXY4Ai0irBUTEwLFfNtXaFPxHFi/4pd+5mr8o6WsdFstFjhc
+ ryK7FvUh5kUJ5411K2g==
+X-Authority-Analysis: v=2.4 cv=I5bw19gg c=1 sm=1 tr=0 ts=6b094a67 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=HlFBRxzNr9Pio0NObxYA:9 a=QEXdDO2ut3YA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAzNiBTYWx0ZWRfX6VxHf8mSp2JH
+ 7rfhB++ovHoy58R0vhJ3iJI6r96q6yph+R5A0AHrULP4CQzYrwpK21LsD8IDHQQnhEQ43rzsTZa
+ 7/YKShg7+sEl3+r2bQVFVxLhE5gRA0s=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 suspectscore=0 bulkscore=0 priorityscore=1501
+ malwarescore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270036
 
-dst_dev_put() can replace a dst's device with the blackhole device and
-drop the reference to the original device.  The device can then be freed
-after the unregistering netdevice's todo work runs.
+On 11/25/26 4:45 PM, SignKirigami wrote:
+> Add a driver for the twelve Netrani RPMh interconnect providers
+> described by the previous binding patch. The provider tables define
+> the bus topology and BCM mappings used to send aggregate bandwidth
+> votes through the applications RSC.
+> 
+> Signed-off-by: SignKirigami <prcups@krgm.moe>
+> ---
 
-xfrm_lookup_with_ifid() reads dst_orig->dev directly in its no-policy
-path.  It can therefore dereference the original device after that device
-has been freed.  KASAN reported this race three times while a reproducer
-repeatedly deleted and recreated a dummy interface and exercised the XFRM
-no-policy path.
+[...]
 
-Read the device through dst_dev_rcu() in an RCU read-side critical section.
-This requires netdev_run_todo() to wait for RCU readers after flushing
-routes; that fix is a prerequisite of this patch.
+> +static struct qcom_icc_node qhm_qspi;
+> +static struct qcom_icc_node qhm_qup0;
+> +static struct qcom_icc_node qnm_a1noc_cfg;
+> +static struct qcom_icc_node xm_sdc1;
+> +static struct qcom_icc_node xm_ufs_mem;
+> +static struct qcom_icc_node xm_usb3_0;
+> +static struct qcom_icc_node qhm_qdss_bam;
+> +static struct qcom_icc_node qhm_qup1;
+> +static struct qcom_icc_node qnm_a2noc_cfg;
 
-This access was also identified during review of an earlier XFRM device
-lifetime fix and left for a follow-up.
+You don't need these forward-declarations, check newer files in
+this directory.
 
-OpenAI Codex was used to analyze the supplied KASAN traces and reproducer
-and to draft this patch and changelog.
+[...]
 
-Reported-by: Jakub Kicinski <kuba@kernel.org>
-Link: https://lore.kernel.org/netdev/20260908224901.1591334-1-kuba@kernel.org/
-Fixes: 2d151d39073a ("xfrm: Add possibility to set the default to block if we have no policy")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhou Qiuyue <n0ps1edzz@gmail.com>
----
- net/xfrm/xfrm_policy.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+> +static struct qcom_icc_bcm * const lpass_ag_noc_bcms[] = {
+> +};
 
-diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-index cea6842e6..eafd090e3 100644
---- a/net/xfrm/xfrm_policy.c
-+++ b/net/xfrm/xfrm_policy.c
-@@ -3186,8 +3186,10 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
- 	struct xfrm_policy *pols[XFRM_POLICY_TYPE_MAX];
- 	struct xfrm_dst *xdst;
- 	struct dst_entry *dst, *route;
-+	struct net_device *dev;
- 	u16 family = dst_orig->ops->family;
- 	u8 dir = XFRM_POLICY_OUT;
-+	bool is_loopback;
- 	int i, err, num_pols, num_xfrms = 0, drop_pols = 0;
- 
- 	dst = NULL;
-@@ -3312,7 +3314,12 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
- 	return dst;
- 
- nopol:
--	if ((!dst_orig->dev || !(dst_orig->dev->flags & IFF_LOOPBACK)) &&
-+	rcu_read_lock();
-+	dev = dst_dev_rcu(dst_orig);
-+	is_loopback = dev && (dev->flags & IFF_LOOPBACK);
-+	rcu_read_unlock();
-+
-+	if (!is_loopback &&
- 	    READ_ONCE(net->xfrm.policy_default[dir]) == XFRM_USERPOLICY_BLOCK) {
- 		err = -EPERM;
- 		goto error;
--- 
-2.56.0
+Please drop the empty BCM lists
 
+[...]
+
+> +static const struct of_device_id qnoc_of_match[] = {
+> +	{ .compatible = "qcom,netrani-aggre1-noc",
+> +	  .data = &netrani_aggre1_noc },
+
+And unroll these lines 
+
+You're also missing QoS settings, please add that (along with their
+clock dependencies + please make sure the platform boots succesfully
+with clk_ignore_unused)
+
+Konrad
