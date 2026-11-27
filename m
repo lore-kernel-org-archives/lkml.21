@@ -1,55 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818773;
-	b=Qg7plpjPYzj2hZtqtIwmuyN/imTURyZ39RxaIYiehuUHAwgMCDzzROkpP4G/FVysT+8l
-	 AGMxkVWyAZ8MbLkNonaLt/jhehahtb7TJ3Y3QRwgCnY1cGnEjddQ3+2nmYULfT586bHsY
-	 Fe7imQqIToc40j/XEOKJiD3q0yIUU0BtI7Xx+fLh5YronvRvkpu+46eUav7vT5NKZrBLK
-	 BuZOd88f1uYkGm5Ozr3/QCoSWOyqmscfzLESZUs25Ea/8lqSh+jWQf4xFLpCFYzvjaGUr
-	 JQjzjhGJqzT7eqysLD1RxRuEwj/S6PG7BUvHrVAtMotk3wS9FB7cCp2wIoUan8KJlDg==
+	t=1795818780;
+	b=AYWFQV3CTZsyBq+APqxF6QGPtu8IbH1fBQt6WxK8mmTwlfA3wQt4V6Se4eDG1qinEoYN
+	 GtJSm3wiD/VkhaWQ2a593GQotruraMWbPajl/3iyfeMru4MOdNXTYKXQJwi1MINyniZrp
+	 SRc5QnHpgx6+7GPD4AVXuKWUWUbK+bOg46Zfk8u8EFOf6pPIQH6dHCadVd+yNZ7blYiwF
+	 gYWKLkN0l7MxAuUVT4oPIjHJYRL7XytjCZ9/Y/BBi7KCAww5toCqq1OSXtLnRyWw7mEDX
+	 UG+x2qJGbPPRXBTSOSWzXqcM/Khtty65UQ2htj0X2xmwWHrpGny7ncaP9fH2BJ7Bn7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818773;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Ou2g7nn/DCLn1ZLnX4pv5BlxBC/pBsmXn5R2lvY25uI=;
-	b=BCES3IOzhpz0OcNmXznjyj6LjLDxV6AU6mzlv/pWYUOvW6qXjyDXdseTmRE6vTeY9Z1J
-	 CNhiWU+y34ftgJTROp0oOsLL65G2eUj0o+KxYnY0ujYbe8+tHlVN7LxNq8xM62dhgjWrl
-	 BboyqgcSXdXjNr5HOXQ2RwS0gVUFOQqtAqttKUV0JTM8v6bDbEHO6EGgqhI8qmwrGe0WX
-	 RBGzFpaHwo16vxVzU39KqwhbdzcVJhR1Vdm9xXdtubu181q/a7nAirnI4T7oWiHfjprKo
-	 o9D++1DkTpfnOxRBCidGKntJ0AyaQzvUWSgk8lE8qY2bIcdNv1iGtNbZ7R1kg2pet9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795818780;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=TInPcOiZ4I4+9DBJQQCS2zeJrPMFR72h+olev8lti9k=;
+	b=pWz2BdsUdF0b+xdlUOUdRyVeRl4f2Aq1WD/SmREmMytpkRev21FReI1+DQuJvQrgz+sB
+	 3N4o05fhXY0Eu/bDLfvFf0Dtnu52o41ljN6kauZuLxcEzQmB3yo4i+FKvfCIhVM8t2Nkk
+	 i497huTQZXCQKT1uPnZC6tPnSBbFTOzXPjUarXrSOlrllK6hSHvtBlSpuDDD4MOckcF1/
+	 C4KEECn7iJFhf4Zgf8AKIbBEcaI+cwlEpBStSqigD3CPpavUUzdSetIkJsKJcmAFL7dSt
+	 SZEC9WIfvEEADJVDS+E2F51GG0J2/gTXsPdFMbE2GjiN/8VzU6Yijaf7vm7VLlQ6XGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zh296D85;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iVAQIjl0;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E09E606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:32:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 428A8606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:33:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 428A8606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zh296D85
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C13D41F00897
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:32:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795818772;
-	bh=Ou2g7nn/DCLn1ZLnX4pv5BlxBC/pBsmXn5R2lvY25uI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Zh296D85sBb9Z0ys7EATPHcQqD+46DEjymhTHMyvsg8cctICfsEedgwaLf50mVMnl
-	 30rIvTiOoakDvoxVmLa3TT8fKTZEGNc9EjohEzlZ38uVmNeepeD/UTJgUzJeeEXXAA
-	 R+p2zBjXCYnnyBr/j/bgwfGR0IGZ3glhS7QgZC9aeezWVBR15G6QU8r5hgHDbAMS2K
-	 a8bIZMOY4eAT3Bor1FyMH6v5JNugOxlMsDM7IGbtq76iredUp6F3ri6D2JXVQQvDCi
-	 ZFLkziyr764umlHLs/WyWkVaSbF8QOjxkHJHCO20tNF6tHdq2Y0hERFYerAJzaFZJS
-	 IW4/L7N06c7KQ==
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-14394530ec6so2728702c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:32:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFB33l7tTzTw9IX9CQ3J3ZErOp5uT3HKFmm/q2M+hknMmPtXfTBKQoK2Pxyh/9TSL/75kudZHqlIeyrZus=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uOsJ/+7Z3gtwFgPEuOfWouUz9WtVfWRtkwZpNKHDzXJzSA4xo
-	DcywDvYpsnv4MlJi/LhTfW6fSigQjKlqU37nTFa9BEof+SGg7Gh1FsUrD87eYociOfpmxWpYT2N
-	PIv9UY6ZtX8Tt/QgOl9gvZ7+uMyDhDnA=
-X-Received: by 2002:a05:701b:4585:10b0:1b5:8f22:9803 with SMTP id
- a92af1059eb24-1b58f229b6bmr6669172c88.1.1795818772183; Fri, 27 Nov 2026
- 14:32:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iVAQIjl0
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-492f0a1b685so6132304f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:33:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795818779; x=1796423579; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TInPcOiZ4I4+9DBJQQCS2zeJrPMFR72h+olev8lti9k=;
+        b=iVAQIjl00Fz2PZxLYDy38wZ02cyQvqaIXPLXjZcdKiCpJX6L0ioSlDpNVvlNGMhjk4
+         jOJEakan5Xrt82wON/W9DAZuqFdhC4/g9z1/AC1/Ee2TnooVnhYZ/BSJnoKyDKe0Rsci
+         8np+SL8iE6BJi2x7WLzQod+xLixXTqtcXY9xy4ra4YF8xNVReMyDmCcodPj1HhbdTAwU
+         75gaz3QPu1WR1BtvBG36giJgCCG3EydQ5/Cf0psQylxUh+vpEEO6ioQGJ7hpEGUokq4N
+         5fHm+FygwkvMnJAOME0KHS7UbTJMQbKtDrn7/SlrrAUcACSR9fy/k5gU29Fqp6+Ou5Ac
+         olhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795818779; x=1796423579;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TInPcOiZ4I4+9DBJQQCS2zeJrPMFR72h+olev8lti9k=;
+        b=UUgyAGXgIzpKbwnldoJDdSrVdmyo278tMLhvKcFWjtIZa2FAS1J6v2+1V/i2F6K1uU
+         C51C86FnewREW/6OAZ3Sd/+Dj2KTIQjBtaQjmJAFa+wovB+GfDve24RR+NUoSWvJXT89
+         0/xDVmmPG39P+058qPY3HtMz3jFPvjmripJryoe2I07jxI9q/+ogW545Dn1ah0gy7Qhy
+         p1QERcvsm+1HuStc1zqZUEwYAPJUT8+9n26gH2UuXZ+H1fIOlTrMENaHzKpTSfjYb1kI
+         HalG6wSila5orT8/501orsskBd2BvfZCJfFl6F30ZTBGU7ePklxdQJc89rDPuy6aOE5+
+         vTGg==
+X-Forwarded-Encrypted: i=1; AL+hErEXQ1RHfbMCeMxoC9nFdSupYXmuqrOGnEwBkou6pFwoXwPY9dWueKSa58qtoryJ8LNxLzBwUu1tnDNf+SA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88psgGbRVYxAsNuL74RRLYovB0xnNZle5mTB1iJhdMhXVHo9pi
+	reDi9BiOpz8LyLpbso4x1uNat+iazub4IFvWXGwgKGOi9HlQYhRKgEHs
+X-Gm-Gg: AZFdTZf/Mz28eSfgvEAzkwN9FGoNajrx7KdxMES3hICIvG6JNLFadxAHsyOos87SiFA
+	Weo5BS+vUFRt//DcsCUAfCrJwFtRT2IXustnrDKmGYsm5tg+xpRCsBt3opOxJ7MUJOR9oI0medb
+	gf8PJSYZoESIKXItNRtBLOg7WR8ZLL4mqrFIjv/6OxR42zvon2PzjTeNgYLuA+4AxTTejsrceJu
+	f8osWumOwPe5jEz+SYH6aKjYcYTPomF0l/D35VNIPfh/4LkcGwepcgXuZc/ANGBUivA0w4F56e+
+	6fsFYbNPb4/QK38fUPGoygS6UhmRRcjxB76YvHLHKiebtn4n/GF90xBNybp36ofdseivqsR3vXk
+	85RUs+hy7lR08FmML/erEyvbt/1qdx4o9xNPYzVEn6v/6ESwYVxgGqaKp/pzAHQAkPGzpKfywTv
+	8lIdX8pIX6gUYUHzGxYeVAxpQxajuykEcx3yBNlxvQh0zs+Q0NKCFN/Vt/2KDFcnckHYg67/hoa
+	rrSijpNGA2JNYj6VpaFxJjQR6njBRV7Rjcf7kokp30kD2TDZn1BjQjSgFsoXkrxkA6y+qhSnUs+
+	KUBsuXIwxcmNQwWayoLjfvrvj9Xq8QQ6
+X-Received: by 2002:a05:6000:4617:b0:487:27f9:840 with SMTP id ffacd0b85a97d-4abb59e2898mr49754885f8f.53.1795818778612;
+        Fri, 27 Nov 2026 14:32:58 -0800 (PST)
+Received: from [127.0.1.1] ([130.61.107.245])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm50430285f8f.20.2026.11.27.14.32.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 14:32:56 -0800 (PST)
+From: =?utf-8?q?Adil_H=C3=BCsrev_Tepe?= <tadilhusrev@gmail.com>
+Date: Sat, 28 Nov 2026 01:32:53 +0300
+Subject: [PATCH v2 1/3] dt-bindings: power: supply:
+ samsung,s2mu005-fuel-gauge: add S2MU106
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,69 +92,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261126223225.2257410-1-beanhuo@iokpp.de>
-In-Reply-To: <20261126223225.2257410-1-beanhuo@iokpp.de>
-From: Chanwoo Choi <chanwoo@kernel.org>
-Date: Sat, 28 Nov 2026 07:32:14 +0900
-X-Gmail-Original-Message-ID: <CAGTfZH3UP82EoWBJVrgn9vPRWb9OSUNby=67_pBO6kD1sGa9QA@mail.gmail.com>
-X-Gm-Features: Aa3M54rDu129OStZbPS8ngAuo_8hyHfvyDi8i8AX6XevstHcoyHvOyPiPxIkwek
-Message-ID: <CAGTfZH3UP82EoWBJVrgn9vPRWb9OSUNby=67_pBO6kD1sGa9QA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/2] PM / devfreq: check the get_cur_freq() return value
-To: Bean Huo <beanhuo@iokpp.de>
-Cc: Chanwoo Choi <cw00.choi@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Bean Huo <beanhuo@micron.com>, 
-	Jie Zhan <zhanjie9@hisilicon.com>, Avri Altman <avri.altman@sandisk.com>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-scsi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261128-s2mu106-fg-v2-1-2c3142e05aaf@gmail.com>
+References: <20261128-s2mu106-fg-v2-0-2c3142e05aaf@gmail.com>
+In-Reply-To: <20261128-s2mu106-fg-v2-0-2c3142e05aaf@gmail.com>
+To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Yassine Oudjana <y.oudjana@protonmail.com>, 
+ =?utf-8?q?Adil_H=C3=BCsrev_Tepe?= <tadilhusrev@gmail.com>
+X-Mailer: b4 0.16.0
 
-Hi,
+The fuel gauge in the Samsung S2MU106 PMIC has the same direct voltage,
+current and state-of-charge registers as the S2MU005 one, but lacks the
+MONOUT averaging registers, so it is not fully compatible. Add its own
+compatible.
 
-On Fri, Nov 27, 2026 at 7:32=E2=80=AFAM Bean Huo <beanhuo@iokpp.de> wrote:
->
-> From: Bean Huo <beanhuo@micron.com>
->
-> devfreq_set_target() does not check the return value of the optional
-> ->get_cur_freq() callback, so a failing callback can leave an
-> uninitialized frequency in freqs.old for the transition notifiers.
-> Patch 1 fixes that by falling back to previous_freq, like the other two
-> callers already do. Patch 2 writes down what a driver is expected to
-> return from the callback.
->
-> v2 had four patches. Martin applied patches 3 and 4 (the ufshcd part)
-> to the SCSI tree, so this v3 only has the two devfreq patches.
->
-> Changes since v2:
-> - Patch 1: do not call ->get_cur_freq() inside the if condition. Read
->   the frequency into a local variable and only use it when the callback
->   returns 0, as Chanwoo suggested. Behavior is the same as in v2. I kept
->   the Reviewed-by tags from Avri and Jie, since only the form of the
->   code changed; please tell me if that is not OK.
-> - Patch 1 and 2: add Reviewed-by from Jie Zhan.
-> - Patch 2: add Acked-by from Chanwoo Choi. No change in the patch.
->
-> v2: https://lore.kernel.org/all/20260907192140.2701755-1-beanhuo@iokpp.de=
-/
->
-> Bean Huo (2):
->   PM / devfreq: Fall back to previous_freq when get_cur_freq() fails
->   PM / devfreq: Add more details to the get_cur_freq() comment
->
->  drivers/devfreq/devfreq.c | 12 +++++++-----
->  include/linux/devfreq.h   |  7 +++++--
->  2 files changed, 12 insertions(+), 7 deletions(-)
->
->
-> base-commit: 4ff20abe28d65a0c52f0b280008fcfb93c3ee2b2
-> --
-> 2.34.1
->
->
+Signed-off-by: Adil Hüsrev Tepe <tadilhusrev@gmail.com>
+---
+ .../devicetree/bindings/power/supply/samsung,s2mu005-fuel-gauge.yaml     | 1 +
+ 1 file changed, 1 insertion(+)
 
-Applied them. Thanks.
+diff --git a/Documentation/devicetree/bindings/power/supply/samsung,s2mu005-fuel-gauge.yaml b/Documentation/devicetree/bindings/power/supply/samsung,s2mu005-fuel-gauge.yaml
+index 05e420316a2..74dbfcacdbd 100644
+--- a/Documentation/devicetree/bindings/power/supply/samsung,s2mu005-fuel-gauge.yaml
++++ b/Documentation/devicetree/bindings/power/supply/samsung,s2mu005-fuel-gauge.yaml
+@@ -16,6 +16,7 @@ properties:
+   compatible:
+     enum:
+       - samsung,s2mu005-fuel-gauge
++      - samsung,s2mu106-fuel-gauge
+ 
+   reg:
+     maxItems: 1
 
---=20
-Best Regards,
-Chanwoo Choi
-Samsung Electronics
+-- 
+2.53.0
+
