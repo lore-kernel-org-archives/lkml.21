@@ -1,86 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795745011;
-	b=rT3IZfHj/KizFKfe6Bcwd9FVh/P7a8EZ5oeI/foN/hclvfvMQLwwrjK0zRWSIsMJqwVE
-	 kGKkDFS3AnFiQrYq6qK6cKCvzsQ+EnGdhcAqR4lV6wOD3s0XOnFAP1dQzg8vYs3SrE2Eu
-	 2WI4RVOIi6TJiHlzmI0+Mfp5hBNpfbs1J6+dmrHVCv7R+bAzENkdNTkBWH8LRzLsJ5np9
-	 ikyW2hpqikNWloGybta34d56r4+HGuzs8N/bdZ+cXgMYr/1rXPx2wdnJWwJCqrVyd3GtR
-	 uN2Two9GhkO6d2vvDVHRls/p18ozjWXWbpLxKQ/8dFC1dgds8z7fXs/UbqROHLDJQ4A==
+	t=1795745085;
+	b=bMglWXiNCeold8BvnkMjzLz3hwS7lBqCUcn8omQGieYl13lAf99Yh+jVVE+TY9mjy2kL
+	 KCG81FO8R/HQTsuEatgcYvNiFXTHBcZwtwYgd0m5n8j37N9zT7Xjshk7xJf/BcdSBNSiN
+	 YriLezPQvT8u1uIAjUdDMoaOl+WFAm4chLsXko2hmagT+HyFZ+wUa5AfkGjME54oEBuOr
+	 +oK4lmMXZj24MhNWq+8iqoZtmEAZyxq4s4IyMXEJw0hnnA0nkSVwmuiiE1oJEXs5S0Jdl
+	 0s44iMvbS/FnhFI6PoMQHTzGrD+jpXztkQYwXXIHAEIipekdlzYpO64NFd4CkYkreLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795745011;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=zinsNkA/MCmk8bh88Wgj8xpqSQkw+nXigBT68XWmIeE=;
-	b=WyFJa9zMtdqU8+q0knWN0HoEQ1HonMXnOVZWWrREg7Fs6e8qPV1UlTTH0joK9n1keCH7
-	 50Zx8wFNBvSqsV+tJsubDup2q4UnsNw5jUYmGzIBCiXfpdmTHqGXttqrxxrkCviMbiLgp
-	 zhQvy8eG3hZ1fUIoZc+aZ/tZbCPlma5rcTV6XQUnKbfgtD8FR7TNOHbgytUwcQK8e49YG
-	 3ZOfV9y3rZj010GcAvhwx1v8WyY2vENDulMFCs8Z3ZsdLK81lBGeoHZFWAZ0rjcoXrrBI
-	 3ZJjxa4sfZmplsbNtcpiaxx9Nz0hTYE7LrM6QFcTECSsyiUQ/MQ2l7jDGSPiuus2zdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745085;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=YY72A3VkTpqQHLjZtoVYV5pa4ptzRiTxzbTv3ZjemY4=;
+	b=FzMdG4q68s9l6sxXELuMlSHSnZd8CNoycitbFabepmpnMkJZ/s9TPDCebIneGFgWbEIv
+	 6Nx6MkSCmh8ZRsi3vIEmTqk4TwdefNRgDhoBIX13TN7oIPo+uj6Fi7RYAMY1uxXEBLG6n
+	 chHjabopQv/AnJgeiVAS0BucRZugbl7UOf6YCVLsN6606uzS0ORoFgWD1a/mA4x3HYkvE
+	 gxEi2m41x6/royXThR6ewAWlOaTJiKWehTx1zgyQXei4j7xk2z/7It1EkgLafT7yOMADt
+	 3i494KPB2uDlmsc9CWGLloDsKHqwVfiGE3RmclvmCsn81EQY/ZMbDtm5HxcmTMxuakw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=JUc4fyKs;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UBUhCAzT;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B858606A31C;
-	Fri, 27 Nov 2026 02:03:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B858606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01B06606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:04:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01B06606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=JUc4fyKs
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795745009;
-	bh=vbOHt71Rd2dKgPsjFkZRH/OqXPRhU2dyC/OJCjwDGrE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=JUc4fyKsJ0aDWvW23BXR8hrlSDuUC/tjT9b2H1Tv0SnbBQwYTZvIaXJoOIm0L+YrQ
-	 X4j+Tvee+eFcJSVq1P4auoIoarJw7spGV15n98wVwxXsFSLzWZ3kq4AXhhNMhHiA7s
-	 CtCNkIUn26slJNmWifJJAz13Ha07ayOtCD+ZNz7ZCMvAJBSPCa9AefROPWHXbvAK63
-	 kpYuBHlFtPhFORukZZ2iwSw8VPfUou1xQIKdyDj3zaz2R80C2Q6ez9t+r540XlYXLe
-	 I18JoyguZB0yEMfCbsakCHO6R4XRFRV91I2gl0uRFtmkeFUDT9MO0G9QMVU4AQqgp7
-	 QXQ6JaJAzmsYQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9B74117E01C2;
-	Fri, 27 Nov 2026 03:03:27 +0100 (CET)
-Message-ID: <f6e35a9c3f8240dba3ae413c52b9627f42a34b27.camel@collabora.com>
-Subject: Re: [PATCH v9 2/4] media: verisilicon: Use
- V4L2_AV1_PRIMARY_REF_NONE and V4L2_AV1_REF_FRAME_INVALID
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
- hverkuil@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com
-Date: Thu, 26 Nov 2026 21:03:26 -0500
-In-Reply-To: <20261125122825.236422-3-benjamin.gaignard@collabora.com>
-References: <20261125122825.236422-1-benjamin.gaignard@collabora.com>
-	 <20261125122825.236422-3-benjamin.gaignard@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-F4AFt9xHfzt4V+lORLb9"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UBUhCAzT
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f046b0adc0so43369605ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:04:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795745084; x=1796349884; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YY72A3VkTpqQHLjZtoVYV5pa4ptzRiTxzbTv3ZjemY4=;
+        b=UBUhCAzTgvbKAAFhnTpomsqo+O+JF9Q1BaL+C80nWqnIfOVWh3Vgi12wUMh0pi524g
+         llm1OjgSAPB+UE2p7beR83ZUn8Zzec1E/7/PDm69gA/4Ee7KNwTJUh0YaF4NSr65JlQj
+         44IaG0SChi1z46T9rXLy4uUViOq02brf15/3qHQyd0UTlVAtwCLreZ8gyms88Y+0J5nc
+         SDbDmbXX4VVELrc0TSvyz6yV94Ex4vo4X4Ro1Orhly29S9oHaOhBV0vJjv5G/nlw9caf
+         1CK1B15JO+iQaSHjcy8ILMlcIWB3bZ5azlbnnpufTGre61K5d2oyOCykYAhJDbNW4L0q
+         CFXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795745084; x=1796349884;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YY72A3VkTpqQHLjZtoVYV5pa4ptzRiTxzbTv3ZjemY4=;
+        b=acHZ+bZrfuAvLkqo8h3mz1lLstouG/61SLqIOqY50rNsY6vHxQ1XKEwmEvreGjp/ZB
+         7lawW7H6XBr0whzP8iiIstol4AKyXfkv/lq+5iRNLR6ql3pm9snO7TEZi+Il+ibD1iCu
+         K6wUqPNcdInNFwHGKaKeTQyv2b/tCxwY8HG82xkuLyrWxQDAiFvPxdOEj9Fxx+irBY1M
+         JL3kUVPRiwBiXj4JJGiwYVIkCwpHR10BnUbN/CwLcYHSAxRo8g47kQ13YbzVnG2fnwVk
+         5AEEMsg4aiTu3iUhT0RokACorq610k9GntWtKzakxI1g4YjUxce+LPkDgkvGNUCvTS6q
+         4eBw==
+X-Forwarded-Encrypted: i=1; AL+hErHV2THAoljGT9gJVcj7QPwnKdIBNlHyVaCg9ZZRsNpXd1i1n5LrTj0lNuU441tg6tEOuTzqt9JQk1StUy4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/WQ2a3EVgghyKF5I0tKzWwZF/Z9PGd7IfubOVZ7rfsjg1h8EmU
+	rYQ4R0WbH+Pi55KqF4kp4tGiJwNcEWEom8yYLrqdnOpfMAkgvz/AE1Mq
+X-Gm-Gg: AZFdTZd4i9ZmfOSqpJ1qpkQI2htiV1MIxBjcHukfXDCCXSsXY1poVOeyU3WjDvKjUUn
+	lyRiSbBuVg2JJU1QACXhwXtPGWBqJcr2SGyy7NQpWYgrrvWrI1qJfqMFl5IBfD51GSlgxmYsVUS
+	bM4ZaLMmsPWCxoTLIOnp9tZY4UB6hFn4bpaJOBohippjoqbQHOvg6lIlOXT6X1iGgRKLS+dydwi
+	akH7aqbReZ8f9iyYRifLNp2086GXd2wSWBu6yrNzTRvO//u5WZ8IW5oTz9BUswp1EiwReRXujcC
+	kW/0kerF5MjOxuF0K7N1PUTp1hlkQ6w+rbf1eTu5OflUVLEWWMT59lB581vHZ3SQIgb57xYlVPg
+	xg4UoNCZTWc5YEHcizjRSfCbp38ByUmDEHaA+iFqHrJVDJar1YAfrDOY4smLXxahFGYiKJveTcb
+	s7S3iDFl4J4HCMRiZP/Oyh1tVkqBL59ruIoI0s7ezPJoDWtuyEQxH6X/Bk4OU3Ifcu35ch0fcC0
+	y4+q2zUZxVQ97MIxFG+Rm9irjnZyptmvmyh+1ePO/VZnFLUC/kpDYDh4KBnLhs0+eYfmTlx0EFB
+	Datwq0bK8bFEUVrsIsqssJuu1++JXkEvkw==
+X-Received: by 2002:a17:903:2c50:b0:2e9:6972:54d7 with SMTP id d9443c01a7336-2f03f17e712mr197749485ad.52.1795745084230;
+        Thu, 26 Nov 2026 18:04:44 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84027sm110819175ad.7.2026.11.26.18.04.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 18:04:43 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com
+Cc: linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	leeonion.muyu@gmail.com
+Subject: Re: [PATCH v5 3/3] mtd: rawnand: r852: declare NAND_USES_DMA
+Date: Fri, 27 Nov 2026 10:04:39 +0800
+Message-Id: <20261127020439.1732176-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <87fqwnwwl6.fsf@bootlin.com>
+References: <87fqwnwwl6.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,111 +100,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-F4AFt9xHfzt4V+lORLb9
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: leeonion.muyu@gmail.com
 
-Le mercredi 25 novembre 2026 =C3=A0 13:28 +0100, Benjamin Gaignard a =C3=A9=
-crit=C2=A0:
-> Use V4L2_AV1_PRIMARY_REF_NONE and V4L2_AV1_REF_FRAME_INVALID instead
-> of local definition.
-> Since ref_frame_idx[] values have been checked inside v4l2-ctrl-core.c
-> remove the useless duplicate check.
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Hi Miquel,
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Sorry for the noise on both topics -- I had not realized how much
+review load AI-generated submissions have been putting on you.
+And I admit the quality control on my side was not tight enough
+in some places.
 
-> ---
-> changes in v9:
-> - Split core changes and drivers changes
-> - Use V4L2_AV1_REF_FRAME_INVALID
->=20
->  .../verisilicon/rockchip_vpu981_hw_av1_dec.c       | 14 ++++++--------
->  1 file changed, 6 insertions(+), 8 deletions(-)
->=20
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
-c.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> index 2a145433e6d1..087a944b3394 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> @@ -18,9 +18,7 @@
->  #define AV1_TILE_INFO_SIZE=09(AV1_MAX_TILES * 16)
->  #define AV1DEC_MAX_PIC_BUFFERS=0924
->  #define AV1_REF_SCALE_SHIFT=0914
-> -#define AV1_INVALID_IDX=09=09-1
->  #define MAX_FRAME_DISTANCE=0931
-> -#define AV1_PRIMARY_REF_NONE=097
->  #define AV1_TILE_SIZE=09=09ALIGN(32 * 128, 4096)
->  /*
->   * These 3 values aren't defined enum v4l2_av1_segment_feature because
-> @@ -123,8 +121,8 @@ static int rockchip_vpu981_get_frame_index(struct han=
-tro_ctx *ctx, int ref)
->  =09u64 timestamp;
->  =09int i, idx =3D frame->ref_frame_idx[ref];
-> =20
-> -=09if (idx >=3D V4L2_AV1_TOTAL_REFS_PER_FRAME || idx < 0)
-> -=09=09return AV1_INVALID_IDX;
-> +=09if (idx < 0)
-> +=09=09return V4L2_AV1_REF_FRAME_INVALID;
-> =20
->  =09timestamp =3D frame->reference_frame_ts[idx];
->  =09for (i =3D 0; i < AV1_MAX_FRAME_BUF_COUNT; i++) {
-> @@ -134,7 +132,7 @@ static int rockchip_vpu981_get_frame_index(struct han=
-tro_ctx *ctx, int ref)
->  =09=09=09return i;
->  =09}
-> =20
-> -=09return AV1_INVALID_IDX;
-> +=09return V4L2_AV1_REF_FRAME_INVALID;
->  }
-> =20
->  static int rockchip_vpu981_get_order_hint(struct hantro_ctx *ctx, int re=
-f)
-> @@ -142,7 +140,7 @@ static int rockchip_vpu981_get_order_hint(struct hant=
-ro_ctx *ctx, int ref)
->  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
->  =09int idx =3D rockchip_vpu981_get_frame_index(ctx, ref);
-> =20
-> -=09if (idx !=3D AV1_INVALID_IDX)
-> +=09if (idx !=3D V4L2_AV1_REF_FRAME_INVALID)
->  =09=09return av1_dec->frame_refs[idx].order_hint;
-> =20
->  =09return 0;
-> @@ -179,7 +177,7 @@ static int rockchip_vpu981_av1_dec_frame_ref(struct h=
-antro_ctx *ctx,
->  =09=09return i;
->  =09}
-> =20
-> -=09return AV1_INVALID_IDX;
-> +=09return V4L2_AV1_REF_FRAME_INVALID;
->  }
-> =20
->  static void rockchip_vpu981_av1_dec_frame_unref(struct hantro_ctx *ctx, =
-int idx)
-> @@ -1256,7 +1254,7 @@ static void rockchip_vpu981_av1_dec_set_prob(struct=
- hantro_ctx *ctx)
->  =09bool frame_is_intra =3D IS_INTRA(frame->frame_type);
-> =20
->  =09if (error_resilient_mode || frame_is_intra ||
-> -=09    frame->primary_ref_frame =3D=3D AV1_PRIMARY_REF_NONE) {
-> +=09    frame->primary_ref_frame =3D=3D V4L2_AV1_PRIMARY_REF_NONE) {
->  =09=09av1_dec->cdfs =3D &av1_dec->default_cdfs;
->  =09=09av1_dec->cdfs_ndvc =3D &av1_dec->default_cdfs_ndvc;
->  =09=09rockchip_av1_default_coeff_probs(quantization->base_q_idx,
+Thanks for your patience, and have a good day. :-)
 
---=-F4AFt9xHfzt4V+lORLb9
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawjk7gAKCRDZQZRRKWBy
-9HU2AP9Uo6Vsm4QhJ7Kzx8kbnip6CwEzPNy9N2P7ptRISEWP+wEA2FqoTfLf0U9/
-do+1ErYb2GPGhnPqwAZVhUhNqvZCoQs=
-=DbLk
------END PGP SIGNATURE-----
-
---=-F4AFt9xHfzt4V+lORLb9--
+Ping
