@@ -1,85 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821516;
-	b=CnVxUapWBmqAewXbbwQGpBz3Pjewei3KBwMC1VluGz8ZSNQ8T0RC7KjFU54/ui5DgxbI
-	 zXLiEM8jX4Pydi5LssljdZxFv2IyVX4WhfLxRLJt0wlFCX6hDRVJ63lSZR2PfLmR9mNoJ
-	 bR9JrjSVHImnKDwj9QFLDpmr0eL5QXjK7RKYHhWpjaky7EOwGdGjqwEyDtOwaidAd8A4W
-	 5Z1Q2P6EkN1XvYx0ObxLJ4PMnoAyaJOkoQzJChSxJhcC5Mo4ZLz197reAn/x3jVoKfwVU
-	 efhBYuTvUrveoBf/n74KGOMN+oRhmRTMWYwz53OeedWlE+0D9fgB4Vx9Bi9Jd59x4BQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821516;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=L68NfkLh2sSnkPajUSfsYj9MfFaavbba0O0y/vWyU0c=;
-	b=Dm8KCMUqZ5r9t5xiVWYFdb/iT8Q052AJffpyD/ERNoieemeXdRA1ZhP3UN8mxnkz1zIy
-	 j73KrDVAMP6lEb063qkKnaeWnWW1LQ5ofm4SqUIWPpDQ2Zc+Y8sfTe7ubb7kXsmbtSFSO
-	 VDMP4gupaaE+P21MmFJhpS0fsV5Gwnit9p0ZGs0Z3+RvYPpFP4VEcDPx9vERaltk6xOz7
-	 jCwiTrLN890swejSop6vJU3g/HGgpfafB1R3ZfxHogebKT/4RDUUrq8i2KqJZg5RVmBZT
-	 UYZxp4TMcKYKDULitKxEeMtPZH6MT+omorGpl1DLsgagr3GW9L8JNgPSb9KFVSnZI2w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gE2gqa1H;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795821728;
+	b=glVDgOLX5mOHfP/lcp4xImFDT2My9WYZQ/GT869VbigrNdWMaIb+emSkcHVm7E3pzQdF
+	 szL4VaBat68dMQRSjbXUTI0UysMo2B4NMSSB8s79aw4FH8UDih1uahkicTnbJb+YAzmTn
+	 DxjKr2Gd3K0T4iEwl0Tos0xKIJSb6TKRCSyiLltfqrjXALXl5E7NL58tqlAt3Bx/xI7Q1
+	 I3KbNjQgOLtzGjWZRuqojK8ibaeRcmC8dvj5fbx1jH04sKGKm84V5F0VlogTu+/zBPa9B
+	 W1Pvw3fFzE27BHWhFq8/RUrgef9yJaXK/XNnB/G4hvz8es447R+UWgYjY5LUJAOQqmQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821728;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
+	 X-ZohoMailClient;
+	bh=4Jj7arnuaVZ1PVynNzLYmGCV2upmIWevRcqZdV9tnzc=;
+	b=x5eI0frwy4Y576mwRAoVg9hWrQj4YRJkUx4cxlXA9XNyM0IaVidlF4MDbd04LtbB+Xbr
+	 /rZlEWHdfSX2GVggZr8mn5dqOId7rB3FZpifb7rVReYOzEyuwSTsJX3+KXeLiMqI5I+i9
+	 yl4GfDKxE0SoXFnqRhWUv9OzAtrfoJdhxe1O9bDd0tmGyJi036EsDzDSuqpwxwsw/30n+
+	 fd/VIlY53L3MlszW9KOdt/WBYMnSvupQrZ5nsdsQKwv1XpBYMk6ucudEDxivZtMCO62jr
+	 WjDh/WPZSEqHxK+uykK6rTDXFxKG8jexPM3Yc4YnyWUEtV2xh6Q0veyjT5UoiV9ONtw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=VnKp2xL0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97EA4606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:18:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97EA4606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7C17606A31C;
+	Fri, 27 Nov 2026 23:22:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7C17606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gE2gqa1H
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so6087229f8f.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:18:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795821514; x=1796426314; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=L68NfkLh2sSnkPajUSfsYj9MfFaavbba0O0y/vWyU0c=;
-        b=gE2gqa1HASDlw4HLZWgBBQWSdvUizr9GH8J6QVL8nNPedx6uB61BV+HUrF6Wuyw/BB
-         PcA6z+0Uj48zloEWvjEtcqzJ6IyjLWGQdrBFlb9TfOIALwBJmsi9FopHkiOS+kS0Zkuq
-         lXR9jkjMff8XjBdzfe9l+t1Ajy7tytED3MNkSNa5U+qORRIxgJl/MZxYtBhsyHaL+hu2
-         rfA67xg5fPpRqOtfSCJbWRjoq1vy3/2eACqpJWjP/ndPBC0iOXPGzPDFNi+qvLOYCeIM
-         TnX4kg0P9GQQjDzUxH9rCeI2O8r7iWh5FFSvfJ2RcZf1Az9ApjNXvlcgLK5AyXr+P9B/
-         WR+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795821514; x=1796426314;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L68NfkLh2sSnkPajUSfsYj9MfFaavbba0O0y/vWyU0c=;
-        b=Y+d5HqBJZb+lFtkqgc9w/9rKQ/gU+5VuIdWXgf+oMC4wye87beM6vB6nhUMQ51P747
-         R5slQPWHPMNea9tHSe5WKHqUTYFi7KrOdEfJH8rjvk/C7qiQx5WEpkNUqOUddNp8g0gZ
-         BBO0NDOyESfz6oTcTfVeCplCBlxpX4ZxyfZRIXgI12riwi0zqqv5LJUOXfLUIqdBGfOQ
-         PpFUd6T+VqaWm/3KPdU+icOLFTHW1b0926YuZKxg8Oob5O/bAK+jDaM9MhhqLFjQGE2C
-         ndlLzc2x0PDNkB1byhRZqWD+AJBrh9Gpm4hkLEdVxjKgOVWii9DSJzvYF+al82F3uYsi
-         HnRw==
-X-Forwarded-Encrypted: i=1; AL+hErECrAb1eYlW1R8Qwx9cLU+XsAJx+6iBh+gG+HgRnz+I6NW68j2OBnSDZSs3OYsPFf5Oll42OrpgDKeg3jA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yfiQ7bWgHKARu2v2n9tPJUdXPvFAPA1lsL/3UHPDSrRVFz2lA
-	eydLSbxOgZdob7UYEVzLiNuDismK1ZyOwMPcLQy6Jb0PGGkFvAwmYwbzbmME0FG4i7Q=
-X-Gm-Gg: AZFdTZebyYCuMMcRFYjy5aNxdaKu7us3IBin+PwxPXIlD7Dhq6MqLR4goL0e5cJvaaE
-	ann+WnVWpnwIGWarc6za6XYZvF8OQmfPF1cJU/GE2MKe6tD8Dn8Hoi+TAAKriLz/FWh2NB/3iEL
-	cmJ3j3PM5lMXqqAT7/W7gMt4sdtnh2SprXj1UdWFxzSsH1c25Ubzcu+Zcl/l7a8JnzaljlunGL8
-	ohnqsfeJHUrWb5+e+8NxpzUjxJ86PzgsS3/PTxOnw4iqTCp7oj1R+2tXbrCAoZXchQKTh8yxgk/
-	O/Z7AvAIbDdQp9Tvn1Sk6b7Ucld2Us9Ap6omeZevqu5/VXMoNXeG5tn6OVTBkpgD9kzWq0sAkD/
-	z0FWFNsHVkYNmLZ6pfraBEyK3w+fR5sbHjbPQEJxG8c6tLMxbqzjH7uQdOahWs/243dfL9aQoLW
-	8/aHbmfM5GLbvMkQvL0kzkCzxrS2AHv78+sWfmvsbql+cE2cgTHGrDa077gQu4oE8WDEiEC8qVC
-	QFfnl1g+NNXHiiOKHeDUQmb85W8wpKhTJnTwX70vAu05KmLIGqYlDmM4u4zHb9W6Kt4A1dY4gdb
-	Bm1A7KyNgQEq2krvdnEiThxOUe0=
-X-Received: by 2002:a05:6000:2b8e:b0:491:45bc:d69a with SMTP id ffacd0b85a97d-4abb3f158c5mr33838415f8f.44.1795821513578;
-        Fri, 27 Nov 2026 15:18:33 -0800 (PST)
-Received: from [127.0.1.1] ([151.42.79.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2052c8sm49822762f8f.41.2026.11.27.15.18.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 15:18:33 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=VnKp2xL0
+ARC-Seal: i=1; a=rsa-sha256; t=1795821711; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Po/7cxETW0P+0BYgx5FsM/w+XgFXuoKm5rrrcemFG/9h2/TqqfzfbHFEEQgs5HIzCqOKgrzx6Tyk9D/1xj+xGrySwcUwl0uGEo9UGZxXl1yYYwLdQ/9xP340F8ErFNdDvzi6KZCkcikberz/oQPVs5+pi84Im3ysFGfn3zJlj4g=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795821711; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4Jj7arnuaVZ1PVynNzLYmGCV2upmIWevRcqZdV9tnzc=; 
+	b=gZ4TSlynipkGnxVaqBDA8iHVFuk9zQClQWeNxQ7qUETU9e4gS4o8APpVNiBG7bOBPcrTXknfNlIOEHP98/xA4idEwRdZXPld+3czAhK/Ul84ZCijHgJOAWxPCa0uhxKtP8zCWojDUQv5BA8RYmPC8AVRfscojt5snNX+4M7qN5k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=VnKp2xL0JcyufbPgc0WQ6uGE+jKzLX+p+s6R6Xr47eeXX+3Jc7FKSkdiA5nIsoHiHzb7oTikJ2eW7ZPUjMAHa49BdmBOaWjlZj4x8zP9ua7aAW4jjhAerespBpa44TWUeD5ly2iGuh7H+xSVnqFh1pbgN5K4RvaKgsiuA7Cf9r0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=4Jj7arnuaVZ1PVynNzLYmGCV2upmIWevRcqZdV9tnzc=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795821708823875.3406304013236;
+	Fri, 27 Nov 2026 15:21:48 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 233FF180918; Sat, 28 Nov 2026 00:21:44 +0100 (CET)
+Date: Sat, 28 Nov 2026 00:21:44 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Shawn Lin <shawn.lin@linux.dev>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Jaehoon Chung <jh80.chung@samsung.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] mmc: dw_mmc: add central watchdog and convert CTO
+ onto it
+Message-ID: <awoP1p0lw0bFglKX@venus>
+References: <1787817486-137277-1-git-send-email-shawn.lin@rock-chips.com>
+ <1787817486-137277-2-git-send-email-shawn.lin@rock-chips.com>
+ <awRdY6Xw5scc5V7-@venus>
+ <5b7318ff-b41e-45f6-8127-d42eab0dcb67@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,49 +72,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 04/13] mmc: meson-gx: Fail request when descriptor
- chain DMA mapping fails
-From: Valerio Setti <vsetti@baylibre.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Heiner Kallweit <hkallweit1@gmail.com>, linux-mmc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261123191703.179283-5-lee@kernel.org>
-References: <20261123191703.179283-1-lee@kernel.org>
- <20261123191703.179283-5-lee@kernel.org>
-Date: Sat, 28 Nov 2026 00:18:21 +0100
-Message-Id: <179582150150.1958718.8445295799895434689.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=784; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=8BHON/4l5h6q1xjm/WKKH4SM6biaPJLVHJzVeZlzOuU=;
- b=owGbwMvMwCV2z3ty7kUrRgbG02pJDNlc/Ef1ln9ojoqOfGmv63j0Za3rE67Ytoe1i3aea+zbk
- Xl4U/HOjlIWBjEuBlkxRRaW6fd+F5SqPTROOFkAM4eVCWQIAxenAEykKpHhv/skRnH3ZWsKxTbM
- FxcprJMXFZi7cAO3n97ixSuES+q0PzAyPN0r92Wbun/44eYT/FZf7qt8Piy7m+G/VFx8vqJM/Qc
- PNgA=
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7u53mmt7egemklqt"
+Content-Disposition: inline
+In-Reply-To: <5b7318ff-b41e-45f6-8127-d42eab0dcb67@linux.dev>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.28.1.5.5/295.810.79
+X-ZohoMailClient: External
 
-On Mon, 23 Nov 2026 19:15:48 +0000, Lee Jones <lee@kernel.org> wrote:
-> meson_mmc_pre_req() flags eligible transfers with
-> SD_EMMC_DESC_CHAIN_MODE before mapping the scatterlist with
-> dma_map_sg().  If dma_map_sg() fails and returns 0, meson_mmc_pre_req()
-> logs an error but leaves SD_EMMC_DESC_CHAIN_MODE set with
-> data->sg_count equal to 0.  When meson_mmc_request() subsequently
-> dispatches the transfer to meson_mmc_desc_chain_transfer(), the
-> for_each_sg() loop executes zero iterations and
-> desc[data->sg_count - 1].cmd_cfg writes to desc[-1], corrupting memory
-> immediately preceding the coherent descriptor buffer before starting the
-> DMA engine.
-> 
-> [...]
 
-Reviewed-by: Valerio Setti <vsetti@baylibre.com>
+--7u53mmt7egemklqt
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/4] mmc: dw_mmc: add central watchdog and convert CTO
+ onto it
+MIME-Version: 1.0
 
--- 
-Valerio Setti <vsetti@baylibre.com>
+Hi,
+
+On Tue, Nov 24, 2026 at 08:46:54AM +0800, Shawn Lin wrote:
+> Hi Sebastian
+>=20
+> =E5=9C=A8 2026/11/23 =E6=98=9F=E6=9C=9F=E4=B8=80 23:57, Sebastian Reichel=
+ =E5=86=99=E9=81=93:
+> > Hello Shawn,
+> >=20
+> > On Thu, Aug 27, 2026 at 03:58:03PM +0800, Shawn Lin wrote:
+> > > +	if (host->wd_events =3D=3D DW_MCI_WD_DATA_EVENTS) {
+> > > +		dev_warn(host->dev,
+> > > +			 "Data timeout, state %d\n", host->state);
+> >=20
+> > This new warning is now printed during boot on RK3588 and RK3576
+> > (the other message from here are printed at info level):
+> >=20
+> > Sige 5 (RK3576):
+> > [   17.801623] mmc_host mmc2: Bus speed =3D 198000000Hz (req 200000000H=
+z, actual 198000000HZ div =3D 0)
+> > [   17.820103] dwmmc_rockchip 2a320000.mmc: Data timeout, state 3
+> > [   17.853679] dwmmc_rockchip 2a320000.mmc: Data timeout, state 3
+> > [   17.854003] dwmmc_rockchip 2a320000.mmc: Successfully tuned phase to=
+ 228
+> >=20
+> > Rock 5B (RK3588):
+> > [    3.956249] mmc_host mmc1: Bus speed =3D 198000000Hz (req 200000000H=
+z, actual 198000000HZ div =3D 0)
+> > [    4.049033] dwmmc_rockchip fe2c0000.mmc: Data timeout, state 3
+> > [    4.086338] dwmmc_rockchip fe2c0000.mmc: Data timeout, state 3
+> > [    4.093284] dwmmc_rockchip fe2c0000.mmc: Successfully tuned phase to=
+ 102
+> >=20
+>=20
+> This's a normal case on Rockchip platform that no interrupt happens
+> during tuning. Because the driver is seeking valid sample phases,
+> however, some phases could make the controller hung. So watchdog fires
+> here. Keeping it as dev_warn() only adds noise to every boot.
+> Alternatively we could downgrade the message to dev_dbg().
+
+It sounds sensible to downgrade the warning, if timeouts are considered
+normal behavior.
+
+Greetings,
+
+-- Sebastian
+
+--7u53mmt7egemklqt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmsKEIAACgkQ2O7X88g7
++ppt5g//fR67MbqXIq/UpdXSpTeUhTsLwSLg+z2kRufoOIjyDB/c1aWlruAfh4An
+RwEYv/v1g6S+MkTpQKK7mpTEYMqtNM7p0YqDdV1gX/vLQx2Ef+E/Evnmk05pODxf
+nG0d+6GxI59GEmJYjfqptLbgxwtghgu7gD94WZsdWjL1PAOSs4f9nkKocpZoSfjC
+m3OeTzlyhLzs6elCJf/gYRy+Je6J7lei22fTcyXtgm+VACtoM1eLbg6RQ/JS/nnl
+Yo+qgZgL5pqx3S8uvB/J/Xtai490uikWb2wS7hwiL1W56tKjz1ZBijDhZbq9q1eR
+mZA2JPEuSGfo8whueYVMnPXIDk6taMN4v3XJAcKawezr09swErSi2rxNdpL+27VT
+ioblJYUtdgmW96ZQSXVDOukPpddViEM0flI0LQ5vqHan3m0f64oQ3dvP00u6uM5B
+W/6Q/nGQi694R/RvhydePVlPZ0cQ4ISs5Nha1Zk170ngSVhe5ddly/tmClewktxA
+/hQUQWSXjViAIcLsvX9julqiBo2bTQhirJ/tT1ccxMzD7byUsWOKY6Ikr9frynoL
+VG3vbSV+Melhe7zRFCGygfxR9KTp9WJ2j6lNVVUV7qqS8juQxYHOYZq9IyK1BEGc
+iBpE09hAihsYdBCX3oz616caRZC97MAmtnmdxE9FkSymQ6m9gL4=
+=DYfD
+-----END PGP SIGNATURE-----
+
+--7u53mmt7egemklqt--
