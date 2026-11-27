@@ -1,60 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778470;
-	b=XZkVZpE+teE/yDQRgcyGnqdZr7b1rSr2+PAobqfEcvDs0dkZ+6a5xFySIuNDWaJ6DNOI
-	 uBlPrjWs9hCHGe3w+j4usWJpEKunryEz7YIB6I/ivI7RqR0iQjEPBaoKhdkhhyAo5VGev
-	 GyGY1UUmp2YXQNu6oCS59aindWkmfvoEGQav9qBvhhPrMSdyZ6BdB3cccqvS2KP0ZkTVn
-	 DdVTh8tua4SIjG5V77Jda1XVothKb3mnT10vBf1E7sXkNCAgMsxqJl8sLa4JL4h61FBgl
-	 UpXC0XoiePrbsAjqgj2+yhT9hdzn6OFS+1I7FZXX7QthcsPs4BJ0KPFaHgutQeRPYLQ==
+	t=1795778471;
+	b=2vVPvBGmJvGq7z2UmEQiJfB+POsjecZTQdc+/fk2SO94GNZRe2rPJYWHxGyICBk0HFvZ
+	 dmd7bmLH5EUIXi9pLEmTm8wdpsbRI89XA/BAq1YsTfIJmn8KFM790Q9VpWHuqHgYzB7Z+
+	 h5VIrphJogHQZ90p4tcDNWU97LJKB9zY0beN2kGKclGXHrZBpc7lVCvz9P4qloEIA+LUL
+	 /yo2MCpIjRvOvi9MGKv5D2HjA8Epdzb6o38qguAK9oebiyKp4XlZZVEfcnZH1INJcxFoH
+	 96dowIvfh5EWxEowT4/sTP2xFrY8UsUN2KEcrzsfRtVgYkeJ3bxiuBl366RgW8mRDZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778470;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=FGZYTUh9Dnh9HZb1Mwnhgv50c7gO4reBCDDbaHESy94=;
-	b=V0OVxWAQR/U8klzwIIg9tTr5l7mTZ+o92csiYOwDtGgKomZLc7TUfmM/xm/aMdeG6BFf
-	 SGa2tOOZ2at/3F+AutuEJh3MjX6FIyQsh8WZaQgg01TvUF4AQx9YVxzkkm8KLnxyTtbZj
-	 3YyzWZDmiYjTWvXppuVmwjp09rpzY6Mgtu95lxjt6+stPC2zSLghallgyMYLPwl6E9cbj
-	 VJH5didtrzN9sDCduZWI/m/3dq/wjSulPb9QIvJKPsLCfNtjROBE1CKOWdV+wYJ5XROmV
-	 r4FjtTfjL72rXuDguRd38lD4WCLwJy0NsxSzsPJH5S8EDyeO0ajm8HhjVy6gjdZZjCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778471;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=aaeUhKeDrrSBo/Rz/J3qjYEHU3boFvMweLYZrhK4Ugo=;
+	b=QhX8ZtI0IDAqGVO+7F+deNWiw2WVJx4M8xedO9AB59vIsfX8wpigUFBcauEgDFWmlRkH
+	 9MEH74lSRHktixXx9KrNIvsuaKnUdtNO+Y/HkO632+MikxN15wd9pZ1f0RprDXuHxexf6
+	 ywclM9zXjdKKUzSqvU1ZbJWRXy2UUNQynEy7N4zT3l1JxvZ6c9QUzhFiqElVQPvvcGuYu
+	 LFmqGJGZpc1DAt/0MrccApZss46voLbQ3Px02WHgKo+0OXXnChCjUjQvx9DGASEUes+MD
+	 tHHYRoBx5xNp3m9ArCwy5ZcsSUe8WbZx/AVFIydT1lvyZdBq89WReXjexnndPmOxuTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=uq2ifurF;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=fail header.from=linux-m68k.org;
+	spf=none smtp.mailfrom=linux-m68k.org;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YKkXEDlR;
+	arc=none smtp.remote-ip=202.12.124.138
+Received: from flow-b3-smtp.messagingengine.com (flow-b3-smtp.messagingengine.com [202.12.124.138])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 968CA606A32F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:21:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 968CA606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C662606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:21:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C662606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=uq2ifurF
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 2F6ED1A1833;
-	Fri, 27 Nov 2026 11:21:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 054726049C;
-	Fri, 27 Nov 2026 11:21:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1B00311E69316;
-	Fri, 27 Nov 2026 12:21:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795778466; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=FGZYTUh9Dnh9HZb1Mwnhgv50c7gO4reBCDDbaHESy94=;
-	b=uq2ifurFDt+OWR/OdzOTiiONHUMO3jkrjLeTYLU/+VbPV3vZAXktNr0/4VGvIyLVV6KE2Y
-	p4jid0jXBhthIHqKD0643ssYVPID5fh8Js1KOD6o+iESR7UgZ9NqkH9vhNTm/jRQC2wMqJ
-	YdsHoAKhGjTWQuA8lXBwJbXO0IFeFYVjR0ZLzt1lWhQwyp03FaNBTOFy7D1pXxgWz218cT
-	vAIFungOmLKFZHLk5MWBnu6ssCNrVAZylZkhSKkms1hm50/xoq6i930jicIVYV0Lp35guC
-	DpV420BEgeHvd9o0cFlo1O2Q+9v6MLq2JCFzpEmzhr1AL+71YsPtZIELTqBTuw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 27 Nov 2026 12:20:36 +0100
-Subject: [PATCH v2 1/4] drm/bridge: ite-it66121: check for read errors
- reading IDs
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YKkXEDlR
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.stl.internal (Postfix) with ESMTP id 0325E130332A;
+	Fri, 27 Nov 2026 06:21:08 -0500 (EST)
+Received: from ams-imap-13 ([10.64.2.33])
+  by ams-compute-02.internal (MEProxy); Fri, 27 Nov 2026 06:21:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795778468; x=
+	1795782068; bh=aaeUhKeDrrSBo/Rz/J3qjYEHU3boFvMweLYZrhK4Ugo=; b=Y
+	KkXEDlRo6tKNuDRhR2h/KtTxsT1UpDoYMhQ8VLNet8DvUTZ+6Ps8VAPVIimYi6uA
+	Yr67xiWqBfIDm4MWDxPRzuaJdd1YoTdLWoqstsFlcKn2e/XqlALHPjKI8sLty4Sb
+	mlyIaXMZbAhoe63jic4XicF5aLUhCSJljAT69EGTAyp9M01cI4L2dGbHrtgPqHrN
+	8bPHah6V178IsVumQg0u/967iVGIqPZ1t4WyKyXBmKE9MdD8E+ykb79J40k3jGBQ
+	eK0IuSZ8xSzblXUhbinRUQz2o/Ni4ONjAp+6RDj3h5vID9u3JcLEJTS1Z85rQWQJ
+	EaTJkKUmPzBmwy/jB5NpQ==
+X-ME-Sender: <xms:nmcJa4-10tpsk3mHCuQcnHUUJdj7qx1vxe4b_Of24pYCwmd2yFhrQg>
+    <xme:nmcJa7ibOLiRQuBkd5aE5G7CTF1oV8pHbW8wor7Wz1Tu0bRehvS_n3MMY-ic5JDqk
+    nSFmmaQHv-PuYI1ldiNm_b_SY9f3IR_mFdEaj34ZKvaHsM9cr39lic>
+X-ME-Proxy-Cause: dmFkZTF2U5AMYftZOt8Vglhe2SxtmTOOCyjK4LdLtv9+sbLaQnXA31oCqLj50ya8iaVp3E
+    dcBL1UjTo8PQqRZx1+ljzg3Jl1CVQDP/ZoC84r6Mb3cvYsqvzHMGbHRznsW5BYlr7AwfbM
+    V1++REkcA0/eaTGOHmmfFuR2yPltM2s0WGpTnjkZAvLJrCuNrgkh5axnsx79yuKcddyHeU
+    OhcZLugqggeywcMGthFhHue0nr8mCnPciQuv3fdLpshDOKCvhWxT1I8TtmZVP/kPZ776Qp
+    xnENCvF9zN+nVhbk46G6Fuau8m/jQdpWOuVUrysC5GX/yq0zHrkqUfFFNsIoPaVbf+ZHpD
+    eGVGV1wTL7wiQayuba+YT7uD8MPs/46Sgyr04wwfVKLS1W4zJMFnnNNAKTFEwQ0+AUPPM0
+    PDlCkn4eKhsGHaEvHLvPz3ZY4Ltug8rMjiIH3834Mi2XVXWXGfkpCe+RZW3s2Ukj0EW25p
+    egPfc976RHU5afShL1zxcxZGSAmZVeQSKKalRTJC+bhgzgKyWERGBBgmy50lUwz9J45MzA
+    XiCy0DvfaE9sW8qS6NFAuTLcd7RP5SjR1XpSVKI97RaQTjAuHMl4q/QigtekjrbkXjU4Ai
+    oWiWawGP37LnPQxK8fEBg74D1TDhkt7Q9xbxNlqbUjopENte6L9jR8AtLW7g
+X-ME-Proxy: <xmx:oWcJa9U_sadOa1t-inhe6uMYTdBHTF2LTpBsew6wYeinWOHzow8sPQ>
+    <xmx:oWcJa1tdLF9dsyPVjxwd4IcKg3nJQvkdgkUB65jwda8cOGe70Htbig>
+    <xmx:oWcJa46PQCWPDBZPSwYViMTKz-DQxV5aCzmX-uQwYBzh4a5LYtJ2og>
+    <xmx:oWcJawQyyapqNb3sLMUiuwJjCYv_WCMsip-oe4QOYiuLwghNEE33uA>
+    <xmx:pGcJa7lKTtVBt7vl6i0iEBOAsZEktPsyZSi6AsCM00AgV1ORccb5ylfy>
+Feedback-ID: i59e84a84:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 782D0F8009E; Fri, 27 Nov 2026 06:21:02 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,91 +83,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-drm-ite-it66121-log-probe-errors-v2-1-dbe9b5a3c5df@bootlin.com>
-References: <20261127-drm-ite-it66121-log-probe-errors-v2-0-dbe9b5a3c5df@bootlin.com>
-In-Reply-To: <20261127-drm-ite-it66121-log-probe-errors-v2-0-dbe9b5a3c5df@bootlin.com>
-To: Phong LE <ple@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Javier Martinez Canillas <javierm@redhat.com>, 
- Julien Chauveau <chauveau.julien@gmail.com>
-Cc: Paul Cercueil <paul.cercueil@bootlin.com>, Nishanth Menon <nm@ti.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+X-ThreadId: APurPCBPjMZg
+Date: Fri, 27 Nov 2026 12:20:42 +0100
+From: "Geert Uytterhoeven" <geert@linux-m68k.org>
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: "Robin van der Gracht" <robin@protonic.nl>,
+ "Danilo Krummrich" <dakr@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Takashi Sakamoto" <o-takashi@sakamocchi.jp>,
+ "Randy Dunlap" <rdunlap@infradead.org>, "Wang Jun" <1742789905@qq.com>,
+ "Bjorn Helgaas" <bhelgaas@google.com>,
+ "Kees Cook" <kees+treewide@kernel.org>,
+ "Pawel Zalewski" <pzalewski@thegoodpenguin.co.uk>,
+ linux-kernel@vger.kernel.org, "Andy Shevchenko" <andy@kernel.org>
+Message-Id: <8ed51f54-ed79-4b1d-913f-2b6ddad9e568@app.fastmail.com>
+In-Reply-To: 
+ <45e66776a1cb0fa54d1606b856887abe7e826ae6.1795776138.git.u.kleine-koenig@baylibre.com>
+References: 
+ <45e66776a1cb0fa54d1606b856887abe7e826ae6.1795776138.git.u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v1] auxdisplay: Use designated initializers for arrays of
+ i2c_device_data
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-it66121_probe() calls regmap_read() four times to read the vendor and
-device ID registers, without error checking. This leads to silently
-continuing using invalid ID values when any of the reads fail (which has
-happened and is being fixed [0]).
+On Fri, Nov 27, 2026, at 11:45, Uwe Kleine-K=C3=B6nig wrote:
+> While being less compact, using designated initializers allows to more
+> easily see which members of the structs are assigned which value witho=
+ut
+> having to lookup the declaration of the struct. And it's also more
+> robust against changes to the struct definition.
+>
+> The mentioned robustness is relevant for a planned change to struct
+> i2c_device_id that replaces .driver_data by an anonymous union.
+>
+> This patch doesn't modify the compiled arrays, only their representati=
+on
+> in source form benefits. The former was confirmed with x86 and arm64
+> builds.
+>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
 
-Adding error checking on all 4 regmap_read()s would be annoying, so switch
-to regmap_bulk_read().
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-[0] https://lore.kernel.org/lkml/20261105-drm-ite-it66121-fix-reset-v2-1-02039d66af29@bootlin.com/
+Gr{oetje,eeting}s,
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+                                                Geert
 
----
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m=
+68k.org
 
-Changes in v2:
-- Use just a u8 array (Javier)
-- Split v1 patch 1 in two parts (Javier)
----
- drivers/gpu/drm/bridge/ite-it66121.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/ite-it66121.c b/drivers/gpu/drm/bridge/ite-it66121.c
-index 34302db25a8e..8bc96ef006f8 100644
---- a/drivers/gpu/drm/bridge/ite-it66121.c
-+++ b/drivers/gpu/drm/bridge/ite-it66121.c
-@@ -1572,7 +1572,8 @@ static const struct it66121_chip_info it66xx_chip_info[] = {
- 
- static int it66121_probe(struct i2c_client *client)
- {
--	u32 revision_id, vendor_ids[2] = { 0 }, device_ids[2] = { 0 };
-+	__u8 chip_id_regs[4];
-+	u32 revision_id;
- 	struct device_node *ep;
- 	int ret, i;
- 	struct it66121_ctx *ctx;
-@@ -1636,19 +1637,19 @@ static int it66121_probe(struct i2c_client *client)
- 	if (IS_ERR(ctx->regmap))
- 		return PTR_ERR(ctx->regmap);
- 
--	regmap_read(ctx->regmap, IT66121_VENDOR_ID0_REG, &vendor_ids[0]);
--	regmap_read(ctx->regmap, IT66121_VENDOR_ID1_REG, &vendor_ids[1]);
--	regmap_read(ctx->regmap, IT66121_DEVICE_ID0_REG, &device_ids[0]);
--	regmap_read(ctx->regmap, IT66121_DEVICE_ID1_REG, &device_ids[1]);
-+	ret = regmap_bulk_read(ctx->regmap, IT66121_VENDOR_ID0_REG,
-+			       &chip_id_regs, sizeof(chip_id_regs));
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Error reading device IDs\n");
- 
- 	/* Revision is shared with DEVICE_ID1 */
--	revision_id = FIELD_GET(IT66121_REVISION_MASK, device_ids[1]);
--	device_ids[1] &= IT66121_DEVICE_ID1_MASK;
-+	revision_id = FIELD_GET(IT66121_REVISION_MASK, chip_id_regs[3]);
-+	chip_id_regs[3] &= IT66121_DEVICE_ID1_MASK;
- 
- 	for (i = 0; i < ARRAY_SIZE(it66xx_chip_info); i++) {
- 		chip_info = &it66xx_chip_info[i];
--		if ((vendor_ids[1] << 8 | vendor_ids[0]) == chip_info->vid &&
--		    (device_ids[1] << 8 | device_ids[0]) == chip_info->pid) {
-+		if ((chip_id_regs[1] << 8 | chip_id_regs[0]) == chip_info->vid &&
-+		    (chip_id_regs[3] << 8 | chip_id_regs[2]) == chip_info->pid) {
- 			ctx->id = chip_info->id;
- 			break;
- 		}
-
--- 
-2.56.1
-
+In personal conversations with technical people, I call myself a hacker.=
+ But
+when I'm talking to journalists I just say "programmer" or something lik=
+e that.
+                                                            -- Linus Tor=
+valds
