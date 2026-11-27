@@ -1,91 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795808274;
-	b=JPN9h68GF+UznuOidTykjvlZzeX1Xn9lVnMjiNf9lBmeU7O1bgS6OzTznbhexQmPeM2K
-	 Kj2p+us8SYatf/QA/IYpkhjS0Dwfp3Fl4muBXnH0BBjvw0C26HMKHzrkVmrW5lUGk9dLT
-	 drLQR1zABDHIvZUnHy3ctJJ5l00w+iX9i6xXxYiMi4SqSRuGmQPqXQDzbgleE2FTP1qyd
-	 3Lg6Z3RZFx7cxyENRNrNyrFhtc86KugNLVEFuqvk4QoDyCsqra4Tp+2O26qBlLm7wSD6n
-	 BzkYJUbWKrJODJyPiLSpi9i6PRJHRgimts6uHhOuyP/bVSlQCD+g84ORF0OHn/eqtng==
+	t=1795808369;
+	b=BtBBFqfoDgaXwA6M+RNdYnkj44NpdkSAfI85NqcbQfxs6U+0W0jIVzqF5aESyHOEK/jo
+	 xqiTamOrhQS3ojj78kgsGfQLkLQ8rx0Zx+0lmn6ArQkxJ5ChpFamD+GNo6UVbhEGw5IDI
+	 aeHsASkWiWbLgNr9FGeQUWGX/+ZhdTEsXtdVEk23TEh2kxQUtUzHiuB/2sQXMsagnfi4l
+	 BgVHoWH4ul3nhLK7viXiQkS2GuwEJNot0WstWHWvCmmCBGRzpbyIdRz5GiDJVolkkvXRy
+	 3o1gtOdIucYEYk8rvijFxsyJbIEGApA2heiX/fJa/dNNGgEVgU8Azy/HdZ2/9CfG3Gw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795808274;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=w4DCdH1N8UX2GtBtVnpn1DIaJ2/ES0rCVlhlxaDS3QI=;
-	b=lNwc14+/fbkB/74o3gooTYsM1J0ZFCcJzSH4w5I9e6Sl9Jr2g+uP/a51CKLQWu3b20RS
-	 Z07TbF8FYmKwmb/kkIrVIjJJK2y/BdyQIZcMAN10oXnCdnQkB5FNaVA5ZhAkxE1Rt7vtJ
-	 bgGzjc/bLUWFGYUTbGBKxk/C7T5/U6KyqCEzKCHLaGnhXXiml7SMY/Ae0w7Ec+5FYmq5E
-	 Qo46z2hhotsy71aAvVH/87Fp7IWURnpDhS61vUz3WxZGM4tXpX6gTP8TPOWvo7EgAGiol
-	 WqXZq4nxom71rhffudzS4TnmvmjeDMB45knRu8P0yAYBP8vT5jBvXSYahBl+MPzCczQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795808369;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=MM2MNnyxl9D846ZGaHkuqg5jtRzhYh+OqM1NyeJs/HE=;
+	b=v5J1MxRWbTehNy6j9Gm3fj+gV5Q9sOTsw5pdtHD1kLiB87DWaz6onbZrhL32BCmnFw5S
+	 TjU7Wx0CKnduHEkTaAhvcfd5gNtfBdRFX5ZOmQV6GeErlDKEwpM3TzI91RGnpFMXiATLI
+	 ADBdlObDGqfTK6QabUsog3OmmGZdmBPSneNOIDRx1Z4RRrX+WWST9t/k0KDVOeBlK8xqr
+	 cbdYteMYFKIDNx2e2QQXMybMYzJu+JLbNJfTw/nq23I/UcObjBhAe2G+14lxwdr7XMBjT
+	 lR2Ln+YdZvWdDQhBpF55KXrGMPKUQdXBOdAyb1KWBV/Pk70isi97QZBhfZ6fI/kyxig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bAlhb+iz;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NV5kd05X;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80F8B606A31C;
-	Fri, 27 Nov 2026 19:37:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80F8B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 221CD606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:39:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 221CD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bAlhb+iz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795808274; x=1827344274;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zE+2E/0tKXQ7uwcDPT37wQcSd57BL3umH2kOyf1J+i4=;
-  b=bAlhb+iziAkVsuGwvQPOcebXpacqpdxC9S83KGxilhaS/xqlnc+7wQZ9
-   UXZ1RkYDIHRImezCR8uvdCeY7i6ZP14ZAIGC/POztBvSdYN1xqBzAHK8d
-   GvHns7alfO6bD2D+Vt1ZvYlmVuaTXoQCSZiCeppAAhBunQjeSQakQIcwY
-   W9l/ylF3YSJfWsA4BbAi3HTvoMnnV9I7w8HY8fWOsmyDAPupxzW7lwB1H
-   +s3SJW2+Lu3l15vi5au4Sqc9910UvvXPBDxTilvPMvOLscbYUz91iDgp3
-   lPsum2bm+ZTbxQEA7cecw8Uzi+vjLrBnxdt6IBbc2Eieu9koXm5v3ktmt
-   g==;
-X-CSE-ConnectionGUID: HVssfeUnQcm6yEtcB+Sh5A==
-X-CSE-MsgGUID: qzyZDu3nQsG6D0h1cCLpeA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4628005"
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4628005"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 11:37:53 -0800
-X-CSE-ConnectionGUID: DVB8FTOOQ5GNP2Nufelj7g==
-X-CSE-MsgGUID: SBA8Mns1SkGxD8bxpMD/Vw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="14219744"
-Received: from igk-lkp-server01.igk.intel.com (HELO 146cf1e082f1) ([10.211.93.152])
-  by fmviesa011.fm.intel.com with ESMTP; 27 Nov 2026 11:37:48 -0800
-Received: from kbuild by 146cf1e082f1 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xX1lS-000000000Ks-1jDf;
-	Fri, 27 Nov 2026 19:37:46 +0000
-Date: Fri, 27 Nov 2026 20:36:54 +0100
-From: kernel test robot <lkp@intel.com>
-To: Alexandru Dadu <alexandru.dadu@imgtec.com>,
-	Alessio Belle <alessio.belle@imgtec.com>,
-	Luigi Santivetti <luigi.santivetti@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, imagination@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org,
-	Alexandru Dadu <alexandru.dadu@imgtec.com>,
-	Matt Coster <opensource@mtcoster.net>
-Subject: Re: [PATCH 3/6] drm/imagination: Save metadata from firmware
-Message-ID: <20261127203348.WkidhfEf-lkp@intel.com>
-References: <20261125-b4-commonize-fw-segment-loading-v1-3-69657fa52ac3@imgtec.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NV5kd05X
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so68881865e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:39:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795808367; x=1796413167; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MM2MNnyxl9D846ZGaHkuqg5jtRzhYh+OqM1NyeJs/HE=;
+        b=NV5kd05XjTpmJhqs8d6BgOFT/cc+m9+bvr7drRg68fhKapWZCQIieYMddEZxHd0goG
+         yIk7swGCvgbMoviHUgKlO/3aZky95FhcKiSztbtItwMCirlbGSzvJCs/3LRyFGP2CWRx
+         XLswxvYhAngUbTE9rPIBjE0SHDOBhZU12qQdVndLlZRWBjGwaC6+bgNFHRexjvq/n1hm
+         oEagRL95z/uLxolLn33n8oDp4mwrhBYf8MQqlea80ctlpLz8PR13yS4LJNYPE0qxorBb
+         sYQjx+EAsWYQQPy3clOi9KXmXrl6w9CKaV6TTibX16aeW6dv2x1dDOEqMFo5J2/PTAWj
+         rSwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795808367; x=1796413167;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MM2MNnyxl9D846ZGaHkuqg5jtRzhYh+OqM1NyeJs/HE=;
+        b=gmiXI1wBEHtB1IXYjcoTuf0pp1XZUQ7VvlhdqETIU+v5exKAIXwv4bnM1D+OgwM1IV
+         ZAus96i3lZHU3kwxsrSUj+qMVpbO8kDZ/ZdZ5KeR24RCuuTm0O6VUJR9Sp3wtuU/HgZD
+         qoTeWVPRF9IsznID6fQoIreRTnZJTcwKW40pHLCUNyM1cNmLsykfC/Z56owQzfxe4IZ7
+         wj/9Gbng1K1GEytLkgXQ4SSeYCaXJnftnxZ/7kb/XcWQs8x/wmXZEyYBvgQ4gmX+Dnem
+         M8q5PyfawvjDSq7EcIWrE+mFjVJ8w9DbnkNj3+dbBy32Eh6BN1TPIrVXXVGUgCIpupMq
+         LDhA==
+X-Forwarded-Encrypted: i=1; AL+hErEukZq1Fhc4KIESBZiFQWig8+7uQ3sP1Vhi7uEQ/Fl1vpLP1QD3ilR6nI4IjdokV7OUblxIpWG6Y4ThQWw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NNPmJ6qa0aXFB10xUaCFVzLOY+JmE3d387tq45tyNRqSXprMq
+	mYGv8/mKVQUG9MISrRQqhIX31gIxgR0VG5NZIJ05BxYgPEG37T8dUTJn
+X-Gm-Gg: AZFdTZduffJxAx9cxTvIuVCe0GOpW3slBnfy2W58RIyHXADA+ZvuBUSQfEfyYMwOVrJ
+	ub8fC+3f99IqwXTH2grF8BxdsFtgGCC2jP3zP4DujWjVRHcrW31INx0siUevCGdU4pnd5T2XNvK
+	rMO6+4qZCLHLfSB+aDjGjOn4gb80KI/fE/KdcuA2eg81ILZSEFraIys8UJk82mdqIurJw1JOPJ8
+	BPwkKXwsfHoz5nHHX0EOr56n+zx2fhCGrnM7gzJfddGDzPoy05PS9lyXMm2X90Qfv3uhD1T9gA3
+	SuxfTw86E8D2I41LfrxMbWQA/EKddzxsdaTS8YfpztOFi1ooaiHhGrr3UQIwqRjKkpgtkwJBLXD
+	agAEcL+dcl5mVpG+FJuo0smXg/+iNvynRVuaEEMX97tcEcaCfWe/TYu8ljTNpFqjhzcb0Y7koWd
+	+tvxs6gYfqxTFW7wy2bl5NFDFAOxWA/gjAWFe+3YO5/6PXC4DUETyLZhLVX3vBunEDEBpYYobVn
+	s6X2H+q7mfCJ60QHmsJVCcv58rA4XXPgpY1jeKB1ZVRMFomD+EWPEIAcvkj42v0ATVfO5VuplGA
+	jnAnkBm9WPVbeaLOv4GtiZYN2vRY32LaFTNu7een2zh+DXQ7GenOg45rTNfHlXgFP+R6ZnEALrK
+	rL9kpHuo=
+X-Received: by 2002:a05:600c:820d:b0:4bb:5de1:e923 with SMTP id 5b1f17b1804b1-4bb887c33f7mr491159125e9.4.1795808366926;
+        Fri, 27 Nov 2026 11:39:26 -0800 (PST)
+Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm839858545e9.11.2026.11.27.11.39.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 11:39:26 -0800 (PST)
+From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
+To: linux-serial@vger.kernel.org
+Cc: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev,
+	=?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
+Subject: [PATCH RFC v2] serial: esp32: Add support for the ESP32-P4 UART
+Date: Fri, 27 Nov 2026 19:39:14 +0000
+Message-ID: <20261127193914.176120-1-vitorhg20080@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125233020.1380594-12-vitorhg20080@gmail.com>
+References: <20261125233020.1380594-12-vitorhg20080@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,37 +103,367 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-b4-commonize-fw-segment-loading-v1-3-69657fa52ac3@imgtec.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Alexandru,
+Enable the ESP32 UART driver on ESP32-P4 and describe the SoC's
+register layout in the variant data. Synchronize configuration
+writes to the UART clock domain and keep baud rate requests within
+the limits of the ESP32-P4 divider.
 
-kernel test robot noticed the following build errors:
+Propagate IRQ lookup errors, including deferred probe. Serialize UART
+port registration and removal, and clear the port table entry when
+registration fails or the port is removed.
 
-[auto build test ERROR on c88084027d0e922dd925b96e5a0d184ba04a8f43]
+Tested on a Waveshare ESP32-P4-Module-DEV-KIT with the transmit
+interrupt fix applied. Verified UART receive interrupts and serial
+console operation.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandru-Dadu/drm-imagination-Remove-get_fw_obj_gpu_addr/20261125-134829
-base:   c88084027d0e922dd925b96e5a0d184ba04a8f43
-patch link:    https://lore.kernel.org/r/20261125-b4-commonize-fw-segment-loading-v1-3-69657fa52ac3%40imgtec.com
-patch subject: [PATCH 3/6] drm/imagination: Save metadata from firmware
-config: arm64-randconfig-r2102-20261127 (https://download.01.org/0day-ci/archive/20261127/20261127203348.WkidhfEf-lkp@intel.com/config)
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127203348.WkidhfEf-lkp@intel.com/reproduce)
+AI assisted with driver development.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261127203348.WkidhfEf-lkp@intel.com/
+Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
+---
+Changes in v2:
+- Remove the console setup sentence from the commit message. Patch 10/19
+  already keeps the console setup callback in regular text.
 
-All errors (new ones prefixed by >>):
+This replaces patch 11/19 and applies after patch 10/19 of the RFC.
+v1: https://lore.kernel.org/linux-serial/20261125233020.1380594-12-vitorhg20080@gmail.com/
 
->> ld.lld: error: undefined symbol: pvr_exp_fw_support
-   >>> referenced by pvr_fw_info.c:150 (drivers/gpu/drm/imagination/pvr_fw_info.c:150)
-   >>>               drivers/gpu/drm/imagination/pvr_fw_info.o:(pvr_fw_load_metadata_and_device_info) in archive vmlinux.a
-   >>> referenced by pvr_fw_info.c:150 (drivers/gpu/drm/imagination/pvr_fw_info.c:150)
-   >>>               drivers/gpu/drm/imagination/pvr_fw_info.o:(pvr_fw_load_metadata_and_device_info) in archive vmlinux.a
+ drivers/tty/serial/Kconfig      |   6 +-
+ drivers/tty/serial/esp32_uart.c | 167 ++++++++++++++++++++++++++++----
+ 2 files changed, 151 insertions(+), 22 deletions(-)
 
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index 83a37922fb07..6d3d3a342101 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -99,12 +99,14 @@ config SERIAL_EARLYCON_RISCV_SBI
+ 
+ config SERIAL_ESP32
+ 	tristate "Espressif ESP32 UART support"
+-	depends on COMPILE_TEST && OF && HAS_IOMEM
++	depends on OF && HAS_IOMEM
++	depends on RISCV_ESP32P4_CLIC || COMPILE_TEST
+ 	select SERIAL_CORE
+ 	select SERIAL_CORE_CONSOLE
+ 	select SERIAL_EARLYCON
+ 	help
+-	  Driver for the UART controllers of the Espressif ESP32xx SoCs.
++	  Driver for the UART controllers of the Espressif ESP32xx SoCs,
++	  including the ESP32-P4.
+ 	  When earlycon option is enabled the following kernel command line
+ 	  snippets may be used:
+ 	    earlycon=esp32s3uart,mmio32,0x60000000,115200n8,40000000
+diff --git a/drivers/tty/serial/esp32_uart.c b/drivers/tty/serial/esp32_uart.c
+index 8f257cf0d290..304e1345518b 100644
+--- a/drivers/tty/serial/esp32_uart.c
++++ b/drivers/tty/serial/esp32_uart.c
+@@ -6,10 +6,13 @@
+ #include <linux/console.h>
+ #include <linux/delay.h>
+ #include <linux/io.h>
++#include <linux/iopoll.h>
+ #include <linux/irq.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/printk.h>
+ #include <linux/property.h>
+ #include <linux/serial_core.h>
+ #include <linux/slab.h>
+@@ -89,6 +92,22 @@
+ 	 ESP32S3_UART_SCLK_EN | \
+ 	 FIELD_PREP(ESP32S3_UART_SCLK_SEL, XTAL_CLK))
+ 
++#define ESP32P4_UART_CLKDIV			GENMASK(11, 0)
++#define ESP32P4_UART_RXFIFO_CNT			GENMASK(7, 0)
++#define ESP32P4_UART_TXFIFO_CNT			GENMASK(23, 16)
++#define ESP32P4_UART_TXFIFO_EMPTY_THRHD_SHIFT	8
++
++/* ESP32-P4 uses a dedicated register for RX flow control. */
++#define ESP32P4_UART_HWFC_CONF_REG		0x2c
++#define ESP32P4_UART_RX_FLOW_EN			BIT(8)
++#define ESP32P4_UART_REG_UPDATE_REG		0x98
++#define ESP32P4_UART_REG_UPDATE			BIT(0)
++#define ESP32P4_UART_LOOPBACK			BIT(12)
++#define ESP32P4_UART_SW_RTS			BIT(21)
++#define ESP32P4_UART_SW_DTR			BIT(20)
++#define ESP32P4_UART_RTS_INV			BIT(18)
++#define ESP32P4_UART_DTR_INV			BIT(19)
++
+ struct esp32_port {
+ 	struct uart_port port;
+ 	struct clk *clk;
+@@ -99,9 +118,16 @@ struct esp32_uart_variant {
+ 	u32 rxfifo_cnt_mask;
+ 	u32 txfifo_cnt_mask;
+ 	u32 txfifo_empty_thrhd_shift;
++	u32 rx_flow_reg;
+ 	u32 rx_flow_en;
++	u32 loopback_mask;
++	u32 sw_rts_mask;
++	u32 sw_dtr_reg;
++	u32 sw_dtr_mask;
++	u32 mctrl_inv_mask;
+ 	const char *type;
+ 	bool has_clkconf;
++	bool needs_reg_update;
+ };
+ 
+ static const struct esp32_uart_variant esp32_variant = {
+@@ -109,8 +135,14 @@ static const struct esp32_uart_variant esp32_variant = {
+ 	.rxfifo_cnt_mask = ESP32_UART_RXFIFO_CNT,
+ 	.txfifo_cnt_mask = ESP32_UART_TXFIFO_CNT,
+ 	.txfifo_empty_thrhd_shift = ESP32_UART_TXFIFO_EMPTY_THRHD_SHIFT,
++	.rx_flow_reg = UART_CONF1_REG,
+ 	.rx_flow_en = ESP32_UART_RX_FLOW_EN,
+ 	.type = "ESP32 UART",
++	.loopback_mask = UART_LOOPBACK,
++	.sw_rts_mask = UART_SW_RTS,
++	.sw_dtr_reg = UART_CONF0_REG,
++	.sw_dtr_mask = UART_SW_DTR,
++	.mctrl_inv_mask = UART_RTS_INV | UART_DTR_INV,
+ };
+ 
+ static const struct esp32_uart_variant esp32s3_variant = {
+@@ -118,9 +150,31 @@ static const struct esp32_uart_variant esp32s3_variant = {
+ 	.rxfifo_cnt_mask = ESP32S3_UART_RXFIFO_CNT,
+ 	.txfifo_cnt_mask = ESP32S3_UART_TXFIFO_CNT,
+ 	.txfifo_empty_thrhd_shift = ESP32S3_UART_TXFIFO_EMPTY_THRHD_SHIFT,
++	.rx_flow_reg = UART_CONF1_REG,
+ 	.rx_flow_en = ESP32S3_UART_RX_FLOW_EN,
+ 	.type = "ESP32S3 UART",
+ 	.has_clkconf = true,
++	.loopback_mask = UART_LOOPBACK,
++	.sw_rts_mask = UART_SW_RTS,
++	.sw_dtr_reg = UART_CONF0_REG,
++	.sw_dtr_mask = UART_SW_DTR,
++	.mctrl_inv_mask = UART_RTS_INV | UART_DTR_INV,
++};
++
++static const struct esp32_uart_variant esp32p4_variant = {
++	.clkdiv_mask = ESP32P4_UART_CLKDIV,
++	.rxfifo_cnt_mask = ESP32P4_UART_RXFIFO_CNT,
++	.txfifo_cnt_mask = ESP32P4_UART_TXFIFO_CNT,
++	.txfifo_empty_thrhd_shift = ESP32P4_UART_TXFIFO_EMPTY_THRHD_SHIFT,
++	.rx_flow_reg = ESP32P4_UART_HWFC_CONF_REG,
++	.rx_flow_en = ESP32P4_UART_RX_FLOW_EN,
++	.type = "ESP32-P4 UART",
++	.needs_reg_update = true,
++	.loopback_mask = ESP32P4_UART_LOOPBACK,
++	.sw_rts_mask = ESP32P4_UART_SW_RTS,
++	.sw_dtr_reg = UART_CONF1_REG,
++	.sw_dtr_mask = ESP32P4_UART_SW_DTR,
++	.mctrl_inv_mask = ESP32P4_UART_RTS_INV | ESP32P4_UART_DTR_INV,
+ };
+ 
+ static const struct of_device_id esp32_uart_dt_ids[] = {
+@@ -130,10 +184,14 @@ static const struct of_device_id esp32_uart_dt_ids[] = {
+ 	}, {
+ 		.compatible = "esp,esp32s3-uart",
+ 		.data = &esp32s3_variant,
++	}, {
++		.compatible = "esp,esp32p4-uart",
++		.data = &esp32p4_variant,
+ 	}, { /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, esp32_uart_dt_ids);
+ 
++static DEFINE_MUTEX(esp32_uart_ports_lock);
+ static struct esp32_port *esp32_uart_ports[UART_NR];
+ 
+ static const struct esp32_uart_variant *port_variant(struct uart_port *port)
+@@ -143,7 +201,24 @@ static const struct esp32_uart_variant *port_variant(struct uart_port *port)
+ 
+ static void esp32_uart_write(struct uart_port *port, unsigned long reg, u32 v)
+ {
++	void __iomem *update = port->membase + ESP32P4_UART_REG_UPDATE_REG;
++	u32 status;
++
+ 	writel(v, port->membase + reg);
++
++	if (reg != UART_CLKDIV_REG && reg != UART_CONF0_REG &&
++	    reg != ESP32P4_UART_HWFC_CONF_REG)
++		return;
++
++	if (!port_variant(port)->needs_reg_update)
++		return;
++
++	/* Commit configuration to UART core clock domain. */
++	writel(ESP32P4_UART_REG_UPDATE, update);
++	if (readl_poll_timeout_atomic(update, status,
++				      !(status & ESP32P4_UART_REG_UPDATE),
++				      1, 100))
++		printk_deferred_once(DRIVER_NAME ": UART register update timed out\n");
+ }
+ 
+ static u32 esp32_uart_read(struct uart_port *port, unsigned long reg)
+@@ -173,18 +248,29 @@ static unsigned int esp32_uart_tx_empty(struct uart_port *port)
+ 
+ static void esp32_uart_set_mctrl(struct uart_port *port, unsigned int mctrl)
+ {
+-	u32 conf0 = esp32_uart_read(port, UART_CONF0_REG);
++	const struct esp32_uart_variant *variant = port_variant(port);
++	bool dtr_in_conf0 = variant->sw_dtr_reg == UART_CONF0_REG;
++	u32 conf0, dtr_conf;
+ 
+-	conf0 &= ~(UART_LOOPBACK |
+-		   UART_SW_RTS | UART_RTS_INV |
+-		   UART_SW_DTR | UART_DTR_INV);
++	conf0 = esp32_uart_read(port, UART_CONF0_REG);
++	conf0 &= ~(variant->loopback_mask | variant->sw_rts_mask);
+ 
+ 	if (mctrl & TIOCM_RTS)
+-		conf0 |= UART_SW_RTS;
+-	if (mctrl & TIOCM_DTR)
+-		conf0 |= UART_SW_DTR;
++		conf0 |= variant->sw_rts_mask;
+ 	if (mctrl & TIOCM_LOOP)
+-		conf0 |= UART_LOOPBACK;
++		conf0 |= variant->loopback_mask;
++
++	/* Software DTR and RTS/DTR inversion share a register. */
++	dtr_conf = dtr_in_conf0 ? conf0 : esp32_uart_read(port, variant->sw_dtr_reg);
++	dtr_conf &= ~(variant->sw_dtr_mask | variant->mctrl_inv_mask);
++
++	if (mctrl & TIOCM_DTR)
++		dtr_conf |= variant->sw_dtr_mask;
++
++	if (dtr_in_conf0)
++		conf0 = dtr_conf;
++	else
++		esp32_uart_write(port, variant->sw_dtr_reg, dtr_conf);
+ 
+ 	esp32_uart_write(port, UART_CONF0_REG, conf0);
+ }
+@@ -387,13 +473,37 @@ static bool esp32_uart_set_baud(struct uart_port *port, u32 baud)
+ 	return false;
+ }
+ 
++static void esp32p4_uart_limit_baud_rate(struct ktermios *termios,
++					 const struct ktermios *old,
++					 u32 min_baud, u32 max_baud)
++{
++	u32 baud = tty_termios_baud_rate(termios);
++
++	if (!baud || (baud >= min_baud && baud <= max_baud))
++		return;
++
++	if (old) {
++		u32 old_baud = tty_termios_baud_rate(old);
++
++		if (old_baud && old_baud >= min_baud && old_baud <= max_baud)
++			baud = old_baud;
++	}
++
++	baud = clamp(baud, min_baud, max_baud);
++	/* Keep the fallback exact near a standard rate outside the range. */
++	termios->c_cflag &= ~(CBAUD | (CBAUD << IBSHIFT));
++	termios->c_cflag |= BOTHER;
++	tty_termios_encode_baud_rate(termios, baud, baud);
++}
++
+ static void esp32_uart_set_termios(struct uart_port *port,
+ 				   struct ktermios *termios,
+ 				   const struct ktermios *old)
+ {
+ 	unsigned long flags;
+-	u32 conf0, conf1;
+-	u32 baud;
++	u32 conf0, flow;
++	u32 baud, min_baud, max_baud;
++	const u32 rx_flow_reg = port_variant(port)->rx_flow_reg;
+ 	const u32 rx_flow_en = port_variant(port)->rx_flow_en;
+ 	u32 max_div = port_variant(port)->clkdiv_mask;
+ 
+@@ -402,17 +512,19 @@ static void esp32_uart_set_termios(struct uart_port *port,
+ 	if (port_variant(port)->has_clkconf)
+ 		max_div *= FIELD_MAX(ESP32S3_UART_SCLK_DIV_NUM);
+ 
+-	baud = uart_get_baud_rate(port, termios, old,
+-				  port->uartclk / max_div,
+-				  port->uartclk / 16);
++	min_baud = port->uartclk / max_div;
++	max_baud = port->uartclk / 16;
++	if (port_variant(port) == &esp32p4_variant)
++		esp32p4_uart_limit_baud_rate(termios, old, min_baud, max_baud);
++	baud = uart_get_baud_rate(port, termios, old, min_baud, max_baud);
+ 
+ 	spin_lock_irqsave(&port->lock, flags);
+ 
+ 	conf0 = esp32_uart_read(port, UART_CONF0_REG);
+ 	conf0 &= ~(UART_PARITY_EN | UART_PARITY | UART_BIT_NUM | UART_STOP_BIT_NUM);
+ 
+-	conf1 = esp32_uart_read(port, UART_CONF1_REG);
+-	conf1 &= ~rx_flow_en;
++	flow = esp32_uart_read(port, rx_flow_reg);
++	flow &= ~rx_flow_en;
+ 
+ 	if (termios->c_cflag & PARENB) {
+ 		conf0 |= UART_PARITY_EN;
+@@ -441,10 +553,10 @@ static void esp32_uart_set_termios(struct uart_port *port,
+ 		conf0 |= FIELD_PREP(UART_STOP_BIT_NUM, UART_STOP_BIT_NUM_1);
+ 
+ 	if (termios->c_cflag & CRTSCTS)
+-		conf1 |= rx_flow_en;
++		flow |= rx_flow_en;
+ 
+ 	esp32_uart_write(port, UART_CONF0_REG, conf0);
+-	esp32_uart_write(port, UART_CONF1_REG, conf1);
++	esp32_uart_write(port, rx_flow_reg, flow);
+ 
+ 	if (baud) {
+ 		esp32_uart_set_baud(port, baud);
+@@ -715,29 +827,44 @@ static int esp32_uart_probe(struct platform_device *pdev)
+ 	if (IS_ERR(sport->clk))
+ 		return PTR_ERR(sport->clk);
+ 
++	ret = platform_get_irq(pdev, 0);
++	if (ret < 0)
++		return ret;
++
+ 	port->uartclk = clk_get_rate(sport->clk);
+ 	port->dev = &pdev->dev;
+ 	port->type = PORT_GENERIC;
+ 	port->iotype = UPIO_MEM;
+-	port->irq = platform_get_irq(pdev, 0);
++	port->irq = ret;
+ 	port->ops = &esp32_uart_pops;
+ 	port->flags = UPF_BOOT_AUTOCONF;
+ 	port->has_sysrq = 1;
+ 	port->fifosize = ESP32_UART_TX_FIFO_SIZE;
+ 	port->private_data = (void *)device_get_match_data(&pdev->dev);
+ 
++	guard(mutex)(&esp32_uart_ports_lock);
++	if (esp32_uart_ports[port->line])
++		return -EBUSY;
++
++	/* Console setup can look up the port during registration. */
+ 	esp32_uart_ports[port->line] = sport;
++	ret = uart_add_one_port(&esp32_uart_reg, port);
++	if (ret) {
++		esp32_uart_ports[port->line] = NULL;
++		return ret;
++	}
+ 
+ 	platform_set_drvdata(pdev, port);
+-
+-	return uart_add_one_port(&esp32_uart_reg, port);
++	return 0;
+ }
+ 
+ static void esp32_uart_remove(struct platform_device *pdev)
+ {
+ 	struct uart_port *port = platform_get_drvdata(pdev);
+ 
++	guard(mutex)(&esp32_uart_ports_lock);
+ 	uart_remove_one_port(&esp32_uart_reg, port);
++	esp32_uart_ports[port->line] = NULL;
+ }
+ 
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.56.1
+
