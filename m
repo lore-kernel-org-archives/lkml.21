@@ -1,53 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795754012;
-	b=Lko3MM+QX35IpHfmniAiCGS8QkHZZtNa+lrLBPSfKqC68NtiUTzeXL7tfQQOdRPugMrX
-	 mTO8rauu0fTTzEEFu6Unz5IcI7WUBbER7zNfyavF3ZTps3R21xO2Yu0uguoEK/gzyQ5ea
-	 AiU4HKonBQWnJPH4z2sGk+W7sYCxOnrAzdfIb56y1pTlAe7RVKtL4rkeV/HHYX8OHFXKn
-	 gIl8XNgc7bLkTGSxGWHBlpP2DFUjcveQ8jXeYqIvOMFFMoCqfN81pDNCkQW51Nq/OYxfJ
-	 EoRa8xev3kSYDumH+fCyiEp5RWgc0vaV52visyvmt8bTM9LvmozwWmxkc4x4QJM4HUw==
+	b=o+ff1ZJa8vcVcixO6J2JnojLh1Aicy+Zo6xJRk24KWElRTOInlNUCW2GBROXws8jjPsn
+	 FUhy2Q592JKbq1zifvKPO23ovelIPIvuSZO7IJGw9KjfXW5CtE9Yu4SZR0j0Ryzktbu6d
+	 qHwxmTbduXmTY2+zkAWVqePBObivE/kNRZ79zuvw9VGpXZZhkDc7XS8ZyXk5TWSSC2BC9
+	 VOEuzSAFFSvZFv0j2N1RVt0pBAtHOSVhB72aa26cNxgKcks9gGa6U62UYVb+z3d1uEHoA
+	 WQ8wVQYHBMHRp0y6Z/kcYR8fjSk09jl43SBwWh6MC29mm+JAR7XuhLyIczCGL+mO5sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795754012;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 MIME-Version:X-Received:Date:X-Google-Appengine-App-Id:
 	 X-Google-Appengine-App-Id-Alias:Message-ID:Subject:From:To:
 	 Content-Type;
-	bh=RtCl9bLKvCJGn7zLPcTxsOwpUTUjtSTIamyZWGlNDQI=;
-	b=mcFxlYnumhTFwPrC80sXesqLW+7qCl7jZpPsD+J8nWKMi8cWE9xC1tsSRRtMKgYJCoK6
-	 LUakTPJa6m+qCdwZaJCu51PHcfSgnVUUNMca6XjIzpBNFwATeeJfQY8aDBztnVyPkR6XC
-	 aesgibC4okZgB9kfwAJhM8njqVPJ4dBx4/eSh2Edh8WR6PL7mkVVbHTtuzjP0AU05I1ob
-	 tNGBV5Dv55gwMMEdIQ5bE6i4i1ArS7C9b34eo3POME5i2uysR3zuFVOJp++lobmCf3V3H
-	 /UB0q/lp98tepAUAQZm5iHyWzM+HZRJN2hOx2yJUQ8+wDWHWrg0laW/ULR1u92LjYpQ==
+	bh=Vram2VEPZ6TSrLowbma06z/hID5VuOhEI/blIWrMXAA=;
+	b=LV37DF3e+g08SegWnK+IJB9SldMav/sD681GIFrEBrSXjP8J0APbpE0NIIeQEOnxHqJj
+	 GaLBMXno6kvRkRJJsARJJUXOnuN025lejKLmbKpff8tGvKdh7VfRT6Le+21Lb9pVRuvHw
+	 +fTqF5EzD7NJlGI0aoOxO+WxzA4nSkBkJHeAz2jiiduJoJfzugtDfJyNIlTPZqsagJI3t
+	 LkXQHyk676+LfL1js+gUkK1m6DgMsuHFl2kksHVGLPt6Z4cjD7ckaTSVsikKWr+lVPbOv
+	 u0X8e/mwrbVz0BEc9Xy/OzgawuI/SN08dl6ZERLJExc7FyVEdZoXFxNZ6Z4k3LjzElg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=syzkaller.appspotmail.com;
 	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.200
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B3CD606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F3D6606A32E
 	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:33:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B3CD606A324
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F3D6606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4e778acdbc6so8890445b6e.3
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-540537f959fso7672157b6e.0
         for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:32 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795754011; x=1796358811;
         h=content-type:to:from:subject:message-id:date:mime-version
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RtCl9bLKvCJGn7zLPcTxsOwpUTUjtSTIamyZWGlNDQI=;
-        b=yuVQinYlfCGE06gtTnytmF1LyrqTxCtpReUqmcXlp7GGK9QTqUbzHcjeqsX+Ujt7fx
-         gOMQ4BKcb1fYlMgC+0ubzHqcLiRcJMBK6bVQukSt8654nBWos7C77p3PifbqMBlpKyGQ
-         ZNVjYvUDpGkMimqX4wQKFvq6WUBx6ZZ/2CQGxZVcfTvuqL4D6kTVHwqmXFOhkpgp+iCJ
-         smvKhC6XiJ17zjrhZbLcPGG7Kk8FJFQcMy/y/3mHi5I/8BxfKt7YncGZBB5+tF+bKSYh
-         26QOQ7Bcju8TGWChpUFTJpsYoH+fe/agtEfztkoTQCGDERDSkiXNmmnpuwhG9feEwcdo
-         5SOQ==
-X-Gm-Message-State: APuU4Z9qpTLvpBaHLKIr6pZdfBas0Winff7F3MSEP/MTPEr2lMfzx8ez
-	vEGPD+xcuVuuKRi9B/xbsZbhrcmfnoWc82/lsxQPC7i+zvqJDHRHqLBaSYrrNU0tVqbnC2RsP+s
-	xAP+xn6ORaITkwhz76/JWypwc5lI03Ey+hHIR4hzLbKk8q8nYntn3tDUSSkY=
+        bh=Vram2VEPZ6TSrLowbma06z/hID5VuOhEI/blIWrMXAA=;
+        b=HN0mSsslxqVxJS5190SrVEeBWpBfKSdJQIMXP4ntYgPGVmYfR/hdHZEp1zH6j3l6X6
+         zOeZ7TcjeussBbeGK02dNOik7pWaPkqPSvqj4tySBMzQUQB3LiVrOFsYVGRNXKqMwmcg
+         geddOlWlTT/z/ETkmocaujOxYKhidqIyjzmL75VroKn7kTJcUvX9+0oJ6nNJHa2CMOkW
+         TUad0gufhkSr0YXLgQ3iAlasGEyzfGVMLsEm1hk5l2itv0JTUW4sIvGpaN8bY4U02OiA
+         eNnDvOfRz8UiMkHXHA14MlhzkF3AwNL2GlDgHOy+MYngLYWr5Yt7CeUXdKbyVkmIywwI
+         7XFw==
+X-Gm-Message-State: APuU4Z+8skFchnYIwIr1GrWcHNLDZF+UFHG3bI9pdueTMEx3RXlTWKyq
+	zIkzi9j4TECS9wQrrGtadB7rxjN6MT2Nfuo4iqheN4fFoKY6Mh4OfKU3BqK0/2kZ4TzPAGFyMxQ
+	n8JNZsTEo3KOoFVRM9E93fWt2D18lh6RCwA2pLOKUAQ7QCkZZ0zEYs3S3tZ8=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,52 +57,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:23c7:b0:4f8:716d:793e with SMTP id
- 5614622812f47-57a0bb86478mr22640780b6e.46.1795754011369; Thu, 26 Nov 2026
+X-Received: by 2002:a05:6808:3084:b0:55c:844:98ff with SMTP id
+ 5614622812f47-57a0a93940fmr26505143b6e.34.1795754011609; Thu, 26 Nov 2026
  20:33:31 -0800 (PST)
 Date: Thu, 26 Nov 2026 20:33:31 -0800
 X-Google-Appengine-App-Id: s~syzkaller
 X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b09081b.904258e1.78503.002d.GAE@google.com>
-Subject: [syzbot] Monthly mm report (Nov 2026)
-From: syzbot <syzbot+liste51eef8f5d72764a3f34@syzkaller.appspotmail.com>
-To: linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+Message-ID: <6b09081b.904258e1.78503.002e.GAE@google.com>
+Subject: [syzbot] Monthly net report (Nov 2026)
+From: syzbot <syzbot+listaf042537503196db2c57@syzkaller.appspotmail.com>
+To: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
 	syzkaller-bugs@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
 
-Hello mm maintainers/developers,
+Hello net maintainers/developers,
 
-This is a 31-day syzbot report for the mm subsystem.
+This is a 31-day syzbot report for the net subsystem.
 All related reports/information can be found at:
-https://syzkaller.appspot.com/upstream/s/mm
+https://syzkaller.appspot.com/upstream/s/net
 
-During the period, 1 new issues were detected and 4 were fixed.
-In total, 73 issues are still open and 387 have already been fixed.
-There are also 38 low-priority issues.
+During the period, 4 new issues were detected and 5 were fixed.
+In total, 51 issues are still open and 1840 have already been fixed.
+There are also 35 low-priority issues.
 
 Some of the still happening issues:
 
 Ref  Crashes Repro Title
-<1>  50019   Yes   KASAN: use-after-free Read in copy_folio_from_iter_atomic (2)
-                   https://syzkaller.appspot.com/bug?extid=6cc93ec9a4035badb85f
-<2>  9208    Yes   WARNING in trace_suspend_resume
-                   https://syzkaller.appspot.com/bug?extid=99d4fec338b62b703891
-<3>  752     Yes   WARNING in ext4_mb_load_buddy_gfp
-                   https://syzkaller.appspot.com/bug?extid=fd3f70a4509fca8c265d
-<4>  380     Yes   kernel panic: System is deadlocked on memory (2)
-                   https://syzkaller.appspot.com/bug?extid=c61d6962d0b7e698439e
-<5>  313     No    INFO: task hung in migrate_pages_batch (4)
-                   https://syzkaller.appspot.com/bug?extid=f523acb98cd782b4872e
-<6>  197     Yes   INFO: rcu detected stall in sys_unshare (9)
-                   https://syzkaller.appspot.com/bug?extid=872bccd9a68c6ba47718
-<7>  155     Yes   INFO: rcu detected stall in kthreadd (2)
-                   https://syzkaller.appspot.com/bug?extid=bb0c3b50c40032b58091
-<8>  152     Yes   INFO: rcu detected stall in dentry_kill
-                   https://syzkaller.appspot.com/bug?extid=0635dc2e2c3c21a6aa04
-<9>  152     Yes   INFO: rcu detected stall in sys_sendmmsg (7)
-                   https://syzkaller.appspot.com/bug?extid=53e660acb94e444b9d63
-<10> 134     Yes   INFO: rcu detected stall in sys_setsockopt (4)
-                   https://syzkaller.appspot.com/bug?extid=6e61d59e9d2150c8492b
+<1>  21752   Yes   unregister_netdevice: waiting for DEV to become free (9)
+                   https://syzkaller.appspot.com/bug?extid=e2af46126e0644cbebdd
+<2>  1084    No    INFO: task hung in netdev_run_todo (4)
+                   https://syzkaller.appspot.com/bug?extid=894cca71fa925aabfdb2
+<3>  1017    Yes   INFO: task hung in tun_chr_close (5)
+                   https://syzkaller.appspot.com/bug?extid=b0ae8f1abf7d891e0426
+<4>  647     Yes   WARNING in inet_sock_destruct (6)
+                   https://syzkaller.appspot.com/bug?extid=5b3b7e51dda1be027b7a
+<5>  576     Yes   INFO: task hung in nsim_destroy (4)
+                   https://syzkaller.appspot.com/bug?extid=8141dcbd23a8f857798a
+<6>  31      Yes   INFO: task hung in inet6_rtm_deladdr (3)
+                   https://syzkaller.appspot.com/bug?extid=55141a0ffa0d17f01c71
+<7>  3847    Yes   INFO: task hung in addrconf_dad_work (5)
+                   https://syzkaller.appspot.com/bug?extid=82ccd564344eeaa5427d
+<8>  2081    Yes   INFO: task hung in switchdev_deferred_process_work (3)
+                   https://syzkaller.appspot.com/bug?extid=d6bbe0f5705cb8a5aa2b
+<9>  1202    Yes   possible deadlock in __dev_queue_xmit (3)
+                   https://syzkaller.appspot.com/bug?extid=3b165dac15094065651e
+<10> 1200    No    INFO: task hung in addrconf_verify_work (10)
+                   https://syzkaller.appspot.com/bug?extid=95263979a9c3af871646
 
 ---
 This report is generated by a bot. It may contain errors.
