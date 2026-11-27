@@ -1,95 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771986;
-	b=AZHL3SPmvjE453/DQ/G6dn8gY+1kBLDZGl+gSKda4JMZQ1AZfGnrBUQQT7QsZ2NDyBdT
-	 Cbf60u7ykCkCw8ov+abT5cgaMbKM7fkqlREkZV8rvMr/yYMN8DRQHr9wGoWyemCM9Yyhz
-	 i2caeENWiFn7oowAuqe0CbcIW0HMvRB0a/HWbe9a3UDyd0lBQ1JRImNbUNCBKnt9KigKU
-	 58u829sOpHIgaKEjUp8rM7jkLyjB1cteD+BIhLodCWDg0I833e65sKggpBvjCWWYu78SO
-	 OSjOBgD0qRiu4DqQBHcXhqvquWsXXdv8LnOXsWJKeRU4oX0K4RtTFrXmFw9zeghxVRA==
+	t=1795771988;
+	b=gLbfqRTK+n1Jqcou6Kd9wyRdZycbh33RrYGS6mpxokfwk+BgYTvkyhqqSlaeHZ5JY9UU
+	 NiBCC59/mn/gZFE0FgyGGDsBKcg/kkV6qhlChdwTovsXn+oPzqISZ+8UvjGr1xMqvi6d7
+	 4bySxFWVPFAJCMYXuU+YmBQCqg9KvOQbNWe9ViSfKvgvx5ozvkXGHd44dpdDa0nVwFpxt
+	 zCIrwWm90ZEJK5XCWwuFGXfzMNAWnCXFF+SpNNk8r9MZjydArN7IAYTFk5HkdjraZ1ksJ
+	 toOUNFvgebPZARU/4e+Z0aFTJIzAqv7/wI3+E0FHxv0w99s8pcpnRSO7rvF72uMXKWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771986;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771988;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Y2BhRCymTpOTyQSO9s2aQmbpmiaKmr8nd/v0xMMqhEY=;
-	b=XDLMflmg6olAb2BcNq6pRP4wBPEHgDtE3vONNp2WlbePZsjyHxOsNiXlekShcq9553Dh
-	 1kpJ9wPH5tTw64IlNeo8lfHMelIY8PVmTYw8xrI3JGk4Q7kcwvK9FZ5+OC0lQhKDPUBEh
-	 0ndpZVmJrA7z8esxIQyywjT+rSJCiAKexLjSB+EaXIMR9rNcV9FXlKnWWpo4hBxUpyncc
-	 aKlRIoFK8yeR2zPpFUiqwlP2u2jQy9DYhZQ4TXDX6054v0gQRaWMR1Lu8XoQIlHPw0Vq5
-	 rgrhz64bC9UVuKc8XDTi8UtlVBC0H3vKHigE62QXSNGJFINbv4CRm0nXyRld3d09uwA==
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=z0HAmZPkkL929InieJ6NG6YqendguBQ6bWYFHNZs/RU=;
+	b=ww25bHha6NlGZwoF/z1UDzCK8gun7YzJU6BUaqYHNT/pDIalcJBPfFJLi2zhY9ruV7vc
+	 TmYta7WSNEBhLNj7GgVtMa36vAZZ6wR1Oih7LCuoBkQOaHqRzbzH3tQhfxhtZm+3fB28K
+	 xTxGTHiLX9UFsddMx/HBTaijN5vRwcRgMauegS2HHCaILTXstPGgF8JALD9sojiQtYsEv
+	 uapl0NG0rNU34PSgyzx8+me2M+G5zZDxrqlX9q8+/mocOR4HRAeuJMlOVa8TvCE2PrWmH
+	 EateIvHym3yiscJtUjNh0wpSUkoMXjE/yTb7x2zE4WL8EQSrSmvUdrp2NgDYpMTCGTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rOzhw8Hc;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ifWl3UT8;
+	arc=none smtp.remote-ip=209.85.216.51
+Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CAA7606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:33:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CAA7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4449D606A32D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:33:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4449D606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rOzhw8Hc
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-48df4f7ccf4so562342f8f.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:33:06 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ifWl3UT8
+Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b41e5a1719so3266360a91.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:33:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795771984; x=1796376784; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=chromium.org; s=google; t=1795771987; x=1796376787; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Y2BhRCymTpOTyQSO9s2aQmbpmiaKmr8nd/v0xMMqhEY=;
-        b=rOzhw8HcLpT62bCli917E/ZbHdvWXBXvbkbJS1FM8QDt2JPaFh03u6xy9bzh4O28Nz
-         EWcVswL/bvN5E/YBjq5wZ53GwyFyHpeANg/tLd475GDo5I+yD/yOpi4cEMrQWYf5YWpF
-         9wB+Vtx4KoR0pZvGeLf2ztEVCLbpPs9oTh1kcBrxHu8tD5fsuGKmuylV+/H2BTQJW8Qk
-         1Rh9rB7LZHE8R4SiGn/pJiXgM/UCebDr3jlYGWi+UeMRS+Xc4qCXFcvC1ETfjZw9Kzt2
-         LVVviY4Gsv70olJxb48o9uPOAQOa2Wh3AMWoPp4sHG6VpLmzuhUPVA0HKv1V35xx8TCz
-         a6zA==
+        bh=z0HAmZPkkL929InieJ6NG6YqendguBQ6bWYFHNZs/RU=;
+        b=ifWl3UT8kJyC3f8Yg4b3QS+BfKyA2HKr8euTC1I/+uN+uQQkXtfJ4P5uYL6mOrGCiK
+         xT8HVo00+UAi84XWBHgMN6GnCJORydvsIHOAFRYfCrdMCM6TFW/aoiQnNkuvOh3Y1WsD
+         q7tX63D8OywcbGPq+Hz6qR0ItSkKvgLUdAe1c=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795771984; x=1796376784;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795771987; x=1796376787;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Y2BhRCymTpOTyQSO9s2aQmbpmiaKmr8nd/v0xMMqhEY=;
-        b=jv5tkpbxX6h7oTJAZzRvP3UWqRxwl81AtTEaavfoNzaKJJfIO8uxPqgaQUFW2Azl6b
-         7zcQaoZQWsQA1DBYW3uY/jjAFWqYMdC8lL8WuN8a4z5GXXIcEvYRimb+1zbK4HlzyyW9
-         j5R2TMlyJHW0xBgK2YnVoaJ+S9SixnWRp2IvR2PBoNt5hmeJTZZBehuOfJOffMOGs6e3
-         MwAfSNfcI9zqao7nppJkjLrL8GzEssS8L+3eZEXCRQW98q/LK72rtksXNPaRZ7mmEEOB
-         H6bwiw8mPMtYrgd1ZMeduNP1TXlWh22S6W5kSh1+Z5vqL9dWY6ntDkmvTfso9oHGEcpc
-         1+BQ==
-X-Forwarded-Encrypted: i=1; AL+hErGWveJRoSZMUl+n/Ib195WhHgrnVqkd8eld1XGuj5UIhcy1P1X4U0MNJm9b+sfrEDO1jfkMzTFxCzquoRQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8JxsY3r7lE9/TkPZIuV+voqNaltOF9RJ6KAqlvNfQ32POxqOnB
-	rMSKMIYsUsl0gCd/a15j7Vd1l1JMVpI9tlkyMujdcpyWG3iimnzd/CDr
-X-Gm-Gg: AZFdTZcYGd9BHLbveH1Fu58FjI/jsXTpuQzZXDywe2E4VQ6/ujjFc0TeWAXaCJ/SAlR
-	hUh7NjmMTxpViXfZhbyZCv4Dgqo1qnocIAAdeWtE7XVxkdvmJ4BNowuy59YpXYGEKaeBZth5wXT
-	6MDtlVWE2ai/TVPRarCxP8fvUrhgDMRvXMhMrUms0tjyfTz1TF0REYWgEQKA8GMolmhI9n+ATdR
-	A3xxIa45TnrdJ67+TyB96s2CcGOwIPbcR8WBBzoPVb0ly85BIamBczpIRsRMiB29TBnPU/VGtDA
-	Q/9LGRImBNumMqN52D2Pq362Df22fVcw0oFlYv4tOEGUbnOwe4g0qLzj89lUzoiGG01l/iXugT8
-	TKeA9E4BqlNHadIAmCZKu2JfV5tZWBoozCcmcU27iMu0mkIc1AtqMi3jC4QrGKPvao7fw6le/tc
-	5g0MCrAMPSsWSIkTq9C+w124tGEcrsdW+0Hto//H+e/hvAl/B8pLBuv5NkbrcH58S728FWpxdQA
-	3311JInSsCQIIVNN5mchEhD/aHXVTiCaDeHWnqMcS//MCWXOHq9j1wxziJ5ln2tZoOzvK1K9F2a
-	+3tkUQAZAoe5qjI2x6oc5wnvBLLzw6myfn+xDBJkoxx38RerzjFy6gWQ
-X-Received: by 2002:a5d:5f93:0:b0:48e:6675:3a77 with SMTP id ffacd0b85a97d-4abb400ac51mr45532503f8f.3.1795771984287;
-        Fri, 27 Nov 2026 01:33:04 -0800 (PST)
-Received: from scheduler.schedules ([85.100.65.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm38651647f8f.46.2026.11.27.01.33.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:33:03 -0800 (PST)
-Date: Fri, 27 Nov 2026 12:33:01 +0300
-From: Kayra Cizmeci <kayracizmeci@gmail.com>
-To: Li kunyu <likunyu@open-hieco.net>
-Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org, 
-	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] sched/fair: Simplify pref_llc_queued handling in
- account_llc_enqueue()
-Message-ID: <awlMqTZK8_0gmSMC@scheduler.schedules>
-References: <20261127091146.3504-1-likunyu@open-hieco.net>
+        bh=z0HAmZPkkL929InieJ6NG6YqendguBQ6bWYFHNZs/RU=;
+        b=JKJf5bZ0uJHARoV3ls8KkPAtCXa1tjXNHBWsDI2tBlCHECvkcurJJQF4whKNN3hkG8
+         ZNqTfgtdXMeZ6ywhFIz3uYgyitjMiSr+XU3IkyxG2ntGaE7V++PdV+ROaBh61dm1atg9
+         fncxHPId1syk2CDGAdZ8pFswgEVluqQrywlIfZvyxB3+EVQCaa9BEPnKooCmryfIlSm7
+         EoVF3V0plyPHrmKTXoqSWTstlzmoUWXfx7CZ52orcTH08R3Nde5eo2B3SfmhKlzwkVAu
+         M9yHB0dUIf2vXnKTP6UilRhDbj1CKsx6fdTtF0+m+gEg7TbWtcH5WNf09r/89XoRl/Md
+         UOrQ==
+X-Forwarded-Encrypted: i=1; AL+hErGyKEUeScvgRK/fYhLFC9IGVe7dgWjlDp2EDUiffpMIm1kr+w6fQ6RWI2yo/z+AZ27ecCxbS4jjwHG1RTQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9H/9g06CBDJzrkz4yuxdNl5Kr1U1j5eCWdyUaoTXYvE+Hsq5Oc
+	4jrtpFQifS8pSOa2eDolcPjLRa+FUHhX4GtvuSTG1ly7UuX6f49AWdXH7k7DidOJCI4KeUwTCmr
+	lDPOyXA==
+X-Gm-Gg: AZFdTZfu7wqNJmnrGBl7XBhzXKAEYdwSvPMGCb4qCpAGhEgh5QRtQty3YM4shcONgAo
+	1Sa1FmVjSq1iGGxtvfEhX6bBGXRDbX8mKpVJubJu0FfDkpeHtO7kxgDomJwqZV0+dVY5MyHYwsd
+	vhZ4ROw9R9aXSZ1fdmIbi/KAP2a922k001CDgGsh2XObC0dpDdZXPS26zAIey+CsQYwUoRoN8lV
+	AhwnG1qdDbxoTbkZuGTO+aLjDNVlJLew2n7H0TPz41Wdp/+rny5wKQlYAempzmRfoywHzp7NPZE
+	dvvZKhyu+0CFoUwUvwFJSyFkLM+nkJEsD7JFbiwMnZTxQlhlWC4xFDP13NrPFPAjm/z/Jdgeuf0
+	vpFw7ML4iu4RgxOUu233WvZLf3gQJYAkGlN0zkiRIQn0E63OpL5Hf+LFGg6WWhwiidv/aJECbVp
+	sdNcI2rkbcpCV/MZa6S+AfkdPD3R6vsZnIqDxbH9lRLJIPUVByqr5snLC/vVVTyvnPX8/tRG3Vk
+	6DHq/JoMx2wgm64UGMZJM5zt9QqBPRd0OjEm4kRrOqDzVau/+0AErkUECm0JJwas4so34ilBL83
+	UJUPJHtxiy7UgRhIq+56ZByOkNL1tlhTJnLgZB4diP/SvWri7GAsKurJgPuBHGtD
+X-Received: by 2002:a17:90b:3810:b0:3b1:bee2:223d with SMTP id 98e67ed59e1d1-3b41c9bc27emr22782338a91.53.1795771987386;
+        Fri, 27 Nov 2026 01:33:07 -0800 (PST)
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com. [74.125.82.44])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm21437812a91.10.2026.11.27.01.33.06
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 01:33:06 -0800 (PST)
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a2761c69fbso11215786c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:33:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGlLwI4ZI7uxG/dED8CPjvoZJjfGr+TAwVrKEvLGfZkpClBtKXgnanHgfLQS8hi67oxbZG73JqwroJmutg=@vger.kernel.org
+X-Received: by 2002:a05:693c:414e:10b0:386:a1ae:6762 with SMTP id
+ 5a478bee46e88-386a1ae6d5fmr20784587eec.36.1795771985456; Fri, 27 Nov 2026
+ 01:33:05 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,65 +94,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261127091146.3504-1-likunyu@open-hieco.net>
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com> <20260714114414.184512-38-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260714114414.184512-38-angelogioacchino.delregno@collabora.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Fri, 27 Nov 2026 17:32:28 +0800
+X-Gmail-Original-Message-ID: <CAC=S1niK0HHMLpm+i9YLTeASvhM=qDy6oD2t24pa_32wKNsuqg@mail.gmail.com>
+X-Gm-Features: Aa3M54pRArGKHVMgeqwG1e8L5StTOP94fleg1U4pb_vICTi6qu6Nmly90U-l36k
+Message-ID: <CAC=S1niK0HHMLpm+i9YLTeASvhM=qDy6oD2t24pa_32wKNsuqg@mail.gmail.com>
+Subject: Re: [PATCH v2 37/46] drm/mediatek: Prepare path builder for
+ multi-controller architecture
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
-
-On Fri, Nov 27, 2026 at 05:11:46PM +0800, Li kunyu wrote:
-> pref_llc_queued is only used once. Assign p->pref_llc_queued directly
-> at the original sampling point instead of caching the value in a local
-> variable.
-> 
-> Suggested-by: Kayra Cizmeci <kayracizmeci@gmail.com>
-> Link: https://lore.kernel.org/all/awhlwJTOLPeNqFW8@scheduler.schedules/
-
-I didn't really suggest anything. I don't know which part of my mail
-was a suggestion to you? Maybe below code is correct but I didn't
-suggest it. So please remove my tag from the patch.
-
-> Signed-off-by: Li kunyu <likunyu@open-hieco.net>
+On Tue, Jul 14, 2026 at 7:46=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> In preparation for adding support for the new display controllers
+> featuring multi-controller w/DirectLink architecture, expand the
+> path builder to recognize whether a hardware component in display
+> controller related output path is getting its input from internal
+> or from any external (to itself, but still internal to the SoC)
+> display controller component.
+>
+> When an output path is found, it is also necessary to understand
+> the enablement order (in terms of mmsys/mutex other than PM) of
+> the controllers, as that cannot be done randomly: for this, the
+> initial path builder will start storing an indication to whether
+> a component is either in a leader or in a follower controller,
+> and then a new function mtk_drm_set_path_orders(), called when
+> binding all components, when initializing KMS, takes care of the
+> looping through the path and setting up the order between all
+> of the follower display controllers.
+>
+> As of this point, no multi-controller SoCs are introduced yet,
+> so this code will not bring any functional change on any of the
+> currently supported SoCs / display controllers.
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 > ---
->  kernel/sched/fair.c | 8 +++-----
->  1 file changed, 3 insertions(+), 5 deletions(-)
-> 
-> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> index da0d9e19c457..4efc5ed5e79f 100644
-> --- a/kernel/sched/fair.c
-> +++ b/kernel/sched/fair.c
-> @@ -1521,16 +1521,13 @@ static void pref_llc_running_dec(struct rq *rq, struct task_struct *p)
->  
->  static void account_llc_enqueue(struct rq *rq, struct task_struct *p)
+>  drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |   2 +
+>  drivers/gpu/drm/mediatek/mtk_ddp_comp.h   |   2 +
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c    | 374 ++++++++++++++++++++--
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.h    |   2 +
+>  drivers/gpu/drm/mediatek/mtk_drm_legacy.c |   3 +-
+>  5 files changed, 351 insertions(+), 32 deletions(-)
+>
+[snip]
+> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
+iatek/mtk_drm_drv.c
+> index cccdd58b848a..75b3fd56d6af 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> @@ -185,17 +185,26 @@ static int mtk_drm_match(struct device *dev, const =
+void *data)
+>  static bool mtk_drm_get_all_drm_priv(struct device *dev)
 >  {
-> -	int pref_llc, pref_llc_queued;
-> +	int pref_llc;
->  	struct sched_domain *sd;
->  
->  	pref_llc = p->preferred_llc;
->  	if (pref_llc < 0)
->  		return;
->  
-> -	pref_llc_queued = (pref_llc == task_llc(p));
-> -	rq->nr_llc_running++;
-> -
->  	/*
->  	 * Record whether p is enqueued on its preferred
->  	 * LLC, in order to pair with account_llc_dequeue()
-> @@ -1545,7 +1542,8 @@ static void account_llc_enqueue(struct rq *rq, struct task_struct *p)
->  	 * p->pref_llc_queued in account_llc_dequeue() would
->  	 * be reliable.
->  	 */
-> -	p->pref_llc_queued = pref_llc_queued;
-> +	p->pref_llc_queued = (pref_llc == task_llc(p));
-> +	rq->nr_llc_running++;
->  
->  	/* Skipped while delayed; clear_delayed() adds it back on wake. */
->  	pref_llc_running_inc(rq, p);
-> -- 
-> 2.47.3
-> 
+>         struct mtk_drm_private *drm_priv =3D dev_get_drvdata(dev);
+> -       struct mtk_drm_private *all_drm_priv[MAX_CRTC];
+> +       struct mtk_drm_private **all_drm_priv;
+>         struct mtk_drm_private *temp_drm_priv;
+>         struct device_node *phandle =3D dev->parent->of_node;
+>         const struct of_device_id *of_id;
+>         struct device_node *node;
+>         struct device *drm_dev;
+>         unsigned int cnt =3D 0;
+> +       bool all_privs_found;
+>         int i, j;
+>
+> +       dev_vdbg(dev, "Populating private data for all controllers on ID%=
+u\n",
+> +                drm_priv->data->mmsys_id);
+> +
+> +       /* Avoid variable length arrays and allocate an array of pointers=
+ to privs */
+> +       all_drm_priv =3D kmalloc_array(drm_priv->data->mmsys_dev_num,
+> +                                    sizeof(struct mtk_drm_private *), GF=
+P_KERNEL);
+> +       if (!all_drm_priv)
+> +               return -ENOMEM;
 
-Thanks,
+mtk_drm_get_all_drm_priv() returns bool. Return false here or change
+it to return an int instead.
 
-Kayra
+> +static void mtk_drm_set_path_orders(struct mtk_drm_private **all_drm_pri=
+vate)
+> +{
+[snip]
+> +                               /*
+> +                                * Paths are per-output: set order for th=
+e new output
+> +                                * by finding the order of the same outpu=
+t number of
+> +                                * the previous controller and incrementi=
+ng it by one
+> +                                */
+> +                               src_path =3D &src_priv->data->output_path=
+s[i];
+> +                               src_order =3D src_path->len ? src_path->o=
+rder : 0;
+> +                               if (cur_path->order <=3D src_order) {
+> +                                       cur_path->order =3D src_order + 1=
+;
+> +
+> +                                       /* Order found: check next CRTC n=
+ow! */
+> +                                       order_found =3D true;
+> +                                       break;
+> +                               }
+> +                       }
+> +               } while (!order_found && max_iterations--);
+
+IIUC, this only works for up to a 3-controller chain, which needs at
+most 1 update (0, 1, 1 -> 0, 1, 2). When there are 4 or more
+controllers in a chain, it needs at least 2 updates (0, 1, 1, 1 -> 0,
+1, 2, 3), but the loop stops after the first update (`break` +
+`!order_found`), leaving the orders as (0, 1, 2, 1). On the other
+hand, when no updates are needed, `!order_found` spins
+`max_iterations` times unnecessarily.
+We need a loop that stops only when no more updates are needed, i.e.,
+drop `break;` and loop `while (order_found && max_iterations--)`.
+
+Regards,
+Fei
