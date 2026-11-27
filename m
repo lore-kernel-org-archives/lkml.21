@@ -1,55 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790429;
-	b=uSodes0FuS4W/hLgyDskI5tGEZbluNGMwFpUoa67EjaHNrVwo3k4qPYCLtrrJgaS3BuK
-	 OqKtwn7Tfm/tKfCSNC/VR1VYVd3qlQ3PRAQVjtIF7YeVq68rms2SLZHNFxy2zZ37D8TSG
-	 hS89zzKp7CPhIi5BhzMuQ4vb/HXGBA8TjLMzqB2SgF5S6Utb74bTaziuipVDY6znPfFQU
-	 j9U+x8KzGZKmneYeaOjswykmdKXubBNsvo78ko96ackxIzy0oG471ZQM8k0CkLx7ETDpT
-	 W98lQ1H3YrByxNRaoTY7IxrHt1b7JP8WC7Ki+ra/QbssF56YrU8+1CHmqBGP6B5DP8A==
+	t=1795790464;
+	b=pA2uqXptNbD8Fkjihw4vWImae/tlY1OCqPRC0SZ9Q4kBk2YMuyrv6EWoo6otDdBEHMiY
+	 4Ed3H6QkryJzP3dqi/TpV3r146uIihCnUHh8841nqLMAnSXHcLoLBIhJTDSu/KLmHNfit
+	 bTfJo0OsgAzHcmTdwpq3Y78cBQsKF3Kfs+zAESYhrNBMScS9PpnQwaO0fcdykGlEsRbP0
+	 C54jG7ko7Y/ykqQPkI+IbOxLP3VV8GqT8vGAAy88iYXJ1E44FnwhvizbVg8CLQNXnjODf
+	 Wu1WS1y+kwt6oS730SirLwjoZm5vyMMjzJQuoIuP3Aferem/0ZxOmEsnfqxLdw/Sg9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790429;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-AI-Review-Draft;
-	bh=1fn03CJhJTOUA2jXd7sSKs+mwit/jlaBNxTtGFqUuz0=;
-	b=R5iujyQKTU3c4o1YaZ1TNuEdcK+abeLtCiZRz2If7dWbqdLWpkNF5u27QLy8124JYS9a
-	 6tRSzhiFdKtTwKSF0wg/JTvvzPqF+dYJX9dzFSflARcQeeQ0NIoAlol9bjBSeX4CkWMI0
-	 Bbzr2RCUVe/QNVfTS8EOvOBkk9JglTrg2TANNkc1ODC315A1p9+Fb1txPvWlxtEumFnK/
-	 PSxod+SDKXi/dfDwHfh+7Pcwb/JbPQ/HJsSEH+Eoz/ZLxJpo4vwi35PAX77enmKhVN1pt
-	 0EzJbv5I8F7MhAE19kHqZGKuiQa2kT96YUEMOCGkndO+g8+uIk7YJ7TOhOqMRvec11w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790464;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=SJHcj1ye4onm2ASg3L7GIHvM+mwNs4PYz45ZKyk2REM=;
+	b=I1wN/taaiN0MsLHGK4eE/v7Kt/bf7qvssBNyydUE55fBlMHLDtFCfaJjtTLZMj7q3vOL
+	 2d5WdOQDiD/2vQb0NDUZVlvQPkcRu7rPh9ENXKtLGUI+WUCDylzy6SltoUbjpODisEcie
+	 e6wxntvYsF0QeEvyrkn82JX6feFxVEpa/+VWhCMDNlnJceAiDkNBxV8NKi6poP+jzZDCE
+	 RN1rB+lN8SCOUocppmFyhmQQGAPjMIKYq9rH9qSzh40exAHdJDnnHkRnehJxgDp1+6ulW
+	 hLtldGuoD1NMJcL0VAgo3K6TZbHHjW+Or20vo0p4t6fcn/tGObzCQMZwfbN56oN64TQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dTcVypU/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZfYYWJA+;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BnXszjpS;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D773606A31F;
-	Fri, 27 Nov 2026 14:40:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D674F606A334
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D674F606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dTcVypU/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9961F000C1;
-	Fri, 27 Nov 2026 14:40:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795790429;
-	bh=1fn03CJhJTOUA2jXd7sSKs+mwit/jlaBNxTtGFqUuz0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dTcVypU/93uXZhVhMhAeGqYTbe9VTE0wNI3PWFklkmPipQu2W/iYVX4RjpQMGDL5H
-	 TCGC+t4rw/X2OyojA8ws8e+mhwS3f6iYiUyn2jNJXWO9ZjXK/z5uLK3/K56JYttjWu
-	 Alqu1cPMOTOUCEqo6f23TiPNIOUbHaBM7X5SfRidmGr8/j0LfbQdzDZUqJdqLni0Al
-	 pXMe/lkQlAlueTANdLcP/X7/6h50XxyKHgsciR1eB4aobg2hikoHNqYFJEK0wQGMHG
-	 WwIlIVKg3ZYZpti+YhPJF503MivjX/UNHmAsCGMlGFOkQRNVD+2DZlrmrs7/vd6ciB
-	 UQB0cq/N4kKOQ==
-Date: Fri, 27 Nov 2026 14:40:23 +0000
-From: Lee Jones <lee@kernel.org>
-To: Armin Wolf <W_Armin@gmx.de>
-Cc: pavel@kernel.org, linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org, i@rong.moe
-Subject: Re: [PATCH v3 09/11] leds: Support custom sysfs groups on multicolor
- and flash LEDs
-Message-ID: <179568582911.32537.4009212823876251882@kernel.org>
-References: <20261120212431.152081-1-W_Armin@gmx.de>
- <20261120212431.152081-10-W_Armin@gmx.de>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZfYYWJA+;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BnXszjpS
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1LkM1790969
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=SJHcj1ye4onm2ASg3L7GIH
+	vM+mwNs4PYz45ZKyk2REM=; b=ZfYYWJA+vdAcFWrPAFNRo6SvLZWCqCpvXd+e9D
+	vJxuZhpkpCAFLtAZs9glaQ//3Ma97B0u9CsQQTkpeSMKiSOFLQE0ycqK7kUC/aDK
+	kaM/1tMbUJBEEZTxJlJk2VP/RddsyxnX7fcQ2qFtsBQsjO61ayhftpEyUmcjbd7F
+	zQOB1+dBKkT3Q7dL2MuCsY98A7RhUx3/yU7ALe+Ia6tpTaWy4eWDxr5/nVT/91bD
+	f8YwX4DItjQGcRbzcwMz6HXyg0U4YwXnxtN19F2Sf+VVgM4T26UZcgWDvAxYeyzt
+	vN8Bw9acS5SXEs1YKuCunzebUjq2EyzhJBYkIywl3XjZzXJA==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ru3b03g-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:03 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-375bac6bd21so7951084eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:41:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795790462; x=1796395262; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=SJHcj1ye4onm2ASg3L7GIHvM+mwNs4PYz45ZKyk2REM=;
+        b=BnXszjpSGEHr+u/tfM9wFZHyINUNM0MAhhmTX1jsplEay3WW81EkpGD5lXB5p26Dz0
+         hYxNvQyKHn3wF8E5WPyCbTniXybiTCSBoYWdkcMuBP2/Jxy6CCUWplL4SPDroWMBSA3M
+         JZkmKfbL+9sxyc9sDILjXyyuf1QoJdxwcIrxiaSXWYKH/SWswWnN1yVHVwpJpzJNYhxb
+         4RsibooCr/37JD2zCp2DCE1ZATD9StjQ8KgzQCOJ/kg8d1PhBo34fe5DFn15xcOLCKb5
+         WS0Rx4PJ3U0qxiFTnw5tf0Y8iJ9xwkhecUoyn/DCcbkZAic/Oej9QLBdaE1prVM8O1zT
+         2kJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795790462; x=1796395262;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SJHcj1ye4onm2ASg3L7GIHvM+mwNs4PYz45ZKyk2REM=;
+        b=xMHVD6Rcx+Vc4oorlWgTgkzH/DSUJh60GmfGQyNUoagmIBbIlKTkgMdadVjs/ZOXyA
+         qrpAZFnIuVwkWc2MfrFMN5UdjGTDxYGI5E00DIu3xNwQxJmSpjW8XVSDaxZQlmZMxc8O
+         gKgg2JgQmYlpCFlwmf9+tnnFJheusS86GDH2ik2qbPqhbai42rzY0yDi1miJHysz8I4X
+         xVhUtiqzyaGGLS3zTMznIYdYDGGvSeFttq90UqRzI/Cn89fdRx9TtK53Ib/gpQeLEM4s
+         66fAUaOMxuFJ9L6Dt8SZHw3uMHvkNX0NGwGrZ3myLwvOKhM48QO7Ydi/B/LX6K6cetZN
+         /27Q==
+X-Forwarded-Encrypted: i=1; AL+hErFOvIWNcPQ+2Dw9P4hyrUOKzbKmuB3NPE22B7Xkj6YN5+FfYWpadFkA3ZBZlg4ON+c06LFWIlAhqzyB/4k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mH1x3tGmhqrwWeLVRMqX9tIzP/GP8+frdcSl/761Pvb+S6DCD
+	rnNvW0xbEesdv9AZjWb8I6CCRps5idmVnN/zzG9x0PPnErRgf3t4VODD10Z0ZvhaaIi/iW+PNJb
+	Sp7SCJAePfWrtRiWct0xBkFp/ex65m1TrAgdx96NZQN9LB5FULhVfnmQ/eAbhl0afB1Y=
+X-Gm-Gg: AZFdTZcqJaKU8twmObVDBo9biR69PArHlJRmTtYLLvkGD9aZMFjd339z0rKBMHdbs4A
+	2QUJgRp7YL1M6H44eLyjMD/Bw1SA2wFnu05hBgJwU4h71OFJ1d1joZ7qn73nPlRHaqzPoAhIT24
+	25hnatw2Fg47iJba1guLm7w93hsOZ6KhrQATev8Z3Xy/0HwnF0XSp0pSG4AA/PKqZgdE+d5ay2I
+	aAVw8j7E42pi00h/YhGVQgug/fqZfba+C84eUFYFx4zYDD1+oSJWGRMqSJ0PBoz/nqVQjcjW2Oh
+	u7BxpKIq2c0KzQL3/nW70T206WqY725LxrgJxT0zf3B9MGl75x5xeV/KMi7WxLK4SB9uISoMhg+
+	G+hMjkP6ImcXlP48eXfY8LFW9RJS+nai6WQaUHkKmLy0++WqExmC0ij7WR7Mea8yIHvYOHIeLOx
+	uDArqjfg==
+X-Received: by 2002:a05:7301:b8c:b0:36a:2f6c:490e with SMTP id 5a478bee46e88-384b3986ef2mr28026544eec.6.1795790462338;
+        Fri, 27 Nov 2026 06:41:02 -0800 (PST)
+X-Received: by 2002:a05:7301:b8c:b0:36a:2f6c:490e with SMTP id 5a478bee46e88-384b3986ef2mr28026516eec.6.1795790461861;
+        Fri, 27 Nov 2026 06:41:01 -0800 (PST)
+Received: from hu-msarkar-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm82970809eec.26.2026.11.27.06.40.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:41:01 -0800 (PST)
+From: Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+Subject: [PATCH v2 0/2] PCI: qcom: Add support for firmware-managed PCIe
+ controller recovery
+Date: Fri, 27 Nov 2026 20:10:48 +0530
+Message-Id: <20261127-pcie-controller-reset-v2-0-17467b64f5f5@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,301 +116,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120212431.152081-10-W_Armin@gmx.de>
-X-AI-Review-Draft: <20261120212431.152081-10-W_Armin@gmx.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHCWCWsC/4WNQQ6CMBBFr2JmbUlbtIAr72FYQB2kBijOFKIh3
+ N2CB3Dzk5f8/98CjOSQ4XJYgHB27PwQQR8PYNtqeKBw98igpTZKKiNG61BYPwTyXYckCBmDyIs
+ 0x1NdWWkkxO1I2Lj3/nsrf8xT/UQbtrOt0ToOnj67eFZb759jVkKKs8qyIkuNbZS+eubkNVWd9
+ X2fxIByXdcvt1kPoNMAAAA=
+X-Change-ID: 20261016-pcie-controller-reset-8938e4bac060
+To: Manivannan Sadhasivam <mani@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Rama Krishna <rama.krishna@oss.qualcomm.com>,
+        Nitesh Gupta <nitesh.gupta@oss.qualcomm.com>,
+        Ayiluri Naga Rashmi <ayiluri.rashmi@oss.qualcomm.com>,
+        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+        Shazad Hussain <shazad.hussain@oss.qualcomm.com>,
+        Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795790457; l=1308;
+ i=mrinmay.sarkar@oss.qualcomm.com; s=20250423; h=from:subject:message-id;
+ bh=SRZ1ZNlotCXW9YcejmmVtLhSxwznrrgBDa/mll2wXts=;
+ b=HmTIIGhR2oznB39LmlcDi1JIhmJ6ElcnC8fA6ISPHTamLiYXPDzyXm5qGtwrPpEvR+BeppXdk
+ hBZ8dFDvef9DGx/rE7zwoTvL68z2Q+sG9eMICouI/n7CThA0ASIk2bT
+X-Developer-Key: i=mrinmay.sarkar@oss.qualcomm.com; a=ed25519;
+ pk=5D8s0BEkJAotPyAnJ6/qmJBFhCjti/zUi2OMYoferv4=
+X-Authority-Analysis: v=2.4 cv=cOF1IVeN c=1 sm=1 tr=0 ts=6b09967f cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=Vo1K_PxMkAQpuwCxzZIA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-GUID: xf42VvPLSLk_cxEgJLgessh4K6ct3kt4
+X-Proofpoint-ORIG-GUID: xf42VvPLSLk_cxEgJLgessh4K6ct3kt4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfXw9rcXCLMuPPe
+ BNc7CW0PF4QDY4OSHQqyhmKg4K8rA8Sp4VVYcaXjdvAF+rr0tDbzUdZ2WNsCbNOdf/GfoEYz/4C
+ 4lX+AcUHEnfJMvaI35s+v8zFkygsedOXBEsRktJgqmFo57XVXVjDmYVLejEOM7Eu4/r3qKAmTYY
+ /1o3mxCNutJW+t3VspfHSXuT2uZm3znYQJ6hM196nE3KiJ0r2+Afegjam9gE6gHr0CjPicd2TXN
+ LNr/mi5zuxaRzi5ob9Jr7uNqYk2erebo+OiAAjl5Yi4f/sixapktYnGP8eB1QpGfLsan4dIeOph
+ Vlie7uosVdpi2I6AMJDXOetDY0PZIaI0c12lEAwXzO3rApYUsUjVSFZpHUmnh0dLB4Nq3UHMAcU
+ RNuC1Cajpbg9FDZx7KUAgld4ohM3w7g72gKFmn3WiBUKNx3RaZEy/LU6wcDADHi1RJn1ppz2BiW
+ z1BUd12LUgeMBi2bvIA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX8tR6h7B2b+D2
+ 7xIvtks0FP6AByU7IpDZdCc946RRz9lyxIXX98Dk4Qi8WrjiMwH5l2+ZmXKeFcZ22NBl0rzerM/
+ gh31AdFgzVevDUqAjV59NOisXrpAbVE=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 impostorscore=0 phishscore=0 bulkscore=0
+ adultscore=0 spamscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270058
 
---- checkpatch.pl (7 issues) ---
-Line 6: WARNING: 'seperate' may be misspelled - perhaps 'separate'?
-Line 70: ERROR: code indent should use tabs where possible
-Line 70: WARNING: please, no spaces at the start of a line
-Line 71: ERROR: code indent should use tabs where possible
-Line 71: WARNING: please, no spaces at the start of a line
-Line 87: ERROR: code indent should use tabs where possible
-Line 87: WARNING: please, no spaces at the start of a line
-----------------------------------
+This series adds recovery support for firmware-managed Qualcomm PCIe
+controllers.
 
-???
+For these controllers, firmware manages resources such as PHY, clocks,
+resets and LTSSM through the power-domain framework.
 
-On Fri, 20 Nov 2026, Armin Wolf wrote:
+Patch 1 adds Root Port reset support by power-cycling the controller
+through Runtime PM, allowing firmware to reset and reinitialize the
+hardware.
 
-> Drivers registering multicolor/flash LEDs currently cannot use
-> led_cdev->groups due to said field being overwritten by the
-> multicolor/flash LED registration functions. Fix this by assigning
-> each LED type a seperate device type ("multicolor" and "flash")
+Patch 2 restores the DesignWare MSI configuration after resume, as MSI
+register contents are lost across the controller power cycle.
 
-"separate"
+Signed-off-by: Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+---
+Changes in v2:
+- Guard reset_root_port() registration with CONFIG_PM_SLEEP and mention
+  the same in commit text too.
+- Link to v1: https://patch.msgid.link/20261016-pcie-controller-reset-v1-0-51779736cf12@oss.qualcomm.com
 
-> that carries the sysfs attributes instead.
->
-> Also assign a device type for standard LEDs ("standard") for symmetry.
->
-> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
-> ---
->  drivers/leds/led-class-flash.c      | 107 +++++++++++++---------------
->  drivers/leds/led-class-multicolor.c |  15 +++-
->  drivers/leds/led-class.c            |   6 ++
->  include/linux/led-class-flash.h     |   5 --
->  4 files changed, 68 insertions(+), 65 deletions(-)
->
-> diff --git a/drivers/leds/led-class-flash.c b/drivers/leds/led-class-flash.c
-> index 33cfc5d082c1..2e98f030cda6 100644
-> --- a/drivers/leds/led-class-flash.c
-> +++ b/drivers/leds/led-class-flash.c
-> @@ -13,6 +13,7 @@
->  #include <linux/module.h>
->  #include <linux/slab.h>
->  #include <linux/sysfs.h>
-> +#include "leds.h"
->
->  #define has_flash_op(fled_cdev, op)				\
->  	(fled_cdev && fled_cdev->ops->op)
-> @@ -207,42 +208,56 @@ static ssize_t flash_fault_show(struct device *dev, const struct device_attribut
->  }
->  static const DEVICE_ATTR_RO(flash_fault);
->
-> -static const struct attribute *const led_flash_strobe_attrs[] = {
-> +static const struct attribute *const led_flash_attrs[] = {
->  	&dev_attr_flash_strobe.attr,
-> -	NULL,
-> -};
-> -
-> -static const struct attribute *const led_flash_timeout_attrs[] = {
->  	&dev_attr_flash_timeout.attr,
->  	&dev_attr_max_flash_timeout.attr,
-> -	NULL,
-> -};
-> -
-> -static const struct attribute *const led_flash_brightness_attrs[] = {
->  	&dev_attr_flash_brightness.attr,
->  	&dev_attr_max_flash_brightness.attr,
-> -	NULL,
-> -};
-> -
-> -static const struct attribute *const led_flash_fault_attrs[] = {
->  	&dev_attr_flash_fault.attr,
->  	NULL,
->  };
->
-> -static const struct attribute_group led_flash_strobe_group = {
-> -	.attrs_const = led_flash_strobe_attrs,
-> -};
-> +static umode_t led_flash_is_visible(struct kobject *kobj, const struct attribute *attr, int n)
-> +{
-> +	struct device *dev = kobj_to_dev(kobj);
-> +	struct led_classdev *led_cdev = dev_get_drvdata(dev);
-> +	struct led_classdev_flash *fled_cdev = lcdev_to_flcdev(led_cdev);
-> +
-> +	if (attr == &dev_attr_flash_strobe.attr)
-> +		return attr->mode;
-> +
-> +        if (attr == &dev_attr_flash_timeout.attr && fled_cdev->ops->timeout_set)
-> +                return attr->mode;
-> +
-> +	if (attr == &dev_attr_max_flash_timeout.attr && fled_cdev->ops->timeout_set)
-> +		return attr->mode;
-> +
-> +	if (attr == &dev_attr_flash_brightness.attr && fled_cdev->ops->flash_brightness_set)
-> +		return attr->mode;
-> +
-> +	if (attr == &dev_attr_max_flash_brightness.attr && fled_cdev->ops->flash_brightness_set)
-> +		return attr->mode;
-> +
-> +	if (attr == &dev_attr_flash_fault.attr && fled_cdev->ops->fault_get)
-> +		return attr->mode;
->
-> -static const struct attribute_group led_flash_timeout_group = {
-> -	.attrs_const = led_flash_timeout_attrs,
-> +        return 0;
-> +}
-> +
-> +static const struct attribute_group led_flash_group = {
-> +	.is_visible_const = led_flash_is_visible,
-> +	.attrs_const = led_flash_attrs,
->  };
->
-> -static const struct attribute_group led_flash_brightness_group = {
-> -	.attrs_const = led_flash_brightness_attrs,
-> +static const struct attribute_group *led_flash_groups[] = {
-> +	&led_flash_group,
-> +	NULL,
->  };
->
-> -static const struct attribute_group led_flash_fault_group = {
-> -	.attrs_const = led_flash_fault_attrs,
-> +static const struct device_type led_flash_device_type = {
-> +	.name = "flash",
-> +	.groups = led_flash_groups,
->  };
->
->  static void led_flash_resume(struct led_classdev *led_cdev)
-> @@ -254,30 +269,6 @@ static void led_flash_resume(struct led_classdev *led_cdev)
->  	call_flash_op(fled_cdev, timeout_set, fled_cdev->timeout.val);
->  }
->
-> -static void led_flash_init_sysfs_groups(struct led_classdev_flash *fled_cdev)
-> -{
-> -	struct led_classdev *led_cdev = &fled_cdev->led_cdev;
-> -	const struct led_flash_ops *ops = fled_cdev->ops;
-> -	const struct attribute_group **flash_groups = fled_cdev->sysfs_groups;
-> -
-> -	int num_sysfs_groups = 0;
-> -
-> -	flash_groups[num_sysfs_groups++] = &led_flash_strobe_group;
-> -
-> -	if (ops->flash_brightness_set)
-> -		flash_groups[num_sysfs_groups++] = &led_flash_brightness_group;
-> -
-> -	if (ops->timeout_set)
-> -		flash_groups[num_sysfs_groups++] = &led_flash_timeout_group;
-> -
-> -	if (ops->fault_get)
-> -		flash_groups[num_sysfs_groups++] = &led_flash_fault_group;
-> -
-> -	flash_groups[num_sysfs_groups] = NULL;
-> -
-> -	led_cdev->groups = flash_groups;
-> -}
-> -
->  int led_classdev_flash_register_ext(struct device *parent,
->  				    struct led_classdev_flash *fled_cdev,
->  				    struct led_init_data *init_data)
-> @@ -291,26 +282,26 @@ int led_classdev_flash_register_ext(struct device *parent,
->
->  	led_cdev = &fled_cdev->led_cdev;
->
-> -	if (led_cdev->flags & LED_DEV_CAP_FLASH) {
-> -		if (!led_cdev->brightness_set_blocking)
-> -			return -EINVAL;
-> +	if (!(led_cdev->flags & LED_DEV_CAP_FLASH))
-> +		return led_classdev_register_ext(parent, led_cdev, init_data);
->
-> -		ops = fled_cdev->ops;
-> -		if (!ops || !ops->strobe_set)
-> -			return -EINVAL;
-> +	if (!led_cdev->brightness_set_blocking)
-> +		return -EINVAL;
->
-> -		led_cdev->flash_resume = led_flash_resume;
-> +	ops = fled_cdev->ops;
-> +	if (!ops || !ops->strobe_set)
-> +		return -EINVAL;
->
-> -		/* Select the sysfs attributes to be created for the device */
-> -		led_flash_init_sysfs_groups(fled_cdev);
-> -	}
-> +	led_cdev->flash_resume = led_flash_resume;
->
->  	/* Register led class device */
-> -	ret = led_classdev_register_ext(parent, led_cdev, init_data);
-> +	ret = led_classdev_init(parent, led_cdev, init_data);
->  	if (ret < 0)
->  		return ret;
->
-> -	return 0;
-> +	led_cdev->dev->type = &led_flash_device_type;
-> +
-> +	return led_classdev_add(led_cdev, init_data);
->  }
->  EXPORT_SYMBOL_GPL(led_classdev_flash_register_ext);
->
-> diff --git a/drivers/leds/led-class-multicolor.c b/drivers/leds/led-class-multicolor.c
-> index 57df0b2e785b..0656ca2361b3 100644
-> --- a/drivers/leds/led-class-multicolor.c
-> +++ b/drivers/leds/led-class-multicolor.c
-> @@ -12,6 +12,7 @@
->  #include <linux/slab.h>
->  #include <linux/sysfs.h>
->  #include <linux/uaccess.h>
-> +#include "leds.h"
->
->  static unsigned int led_mc_get_max_intensity(struct led_classdev_mc *mcled_cdev, size_t index)
->  {
-> @@ -159,11 +160,17 @@ static const struct attribute *const led_multicolor_attrs[] = {
->  };
->  ATTRIBUTE_GROUPS(led_multicolor);
->
-> +static const struct device_type led_multicolor_device_type = {
-> +	.name = "multicolor",
-> +	.groups = led_multicolor_groups,
-> +};
-> +
->  int led_classdev_multicolor_register_ext(struct device *parent,
->  				     struct led_classdev_mc *mcled_cdev,
->  				     struct led_init_data *init_data)
->  {
->  	struct led_classdev *led_cdev;
-> +	int ret;
->
->  	if (!mcled_cdev)
->  		return -EINVAL;
-> @@ -176,9 +183,13 @@ int led_classdev_multicolor_register_ext(struct device *parent,
->
->  	led_cdev = &mcled_cdev->led_cdev;
->  	led_cdev->flags |= LED_MULTI_COLOR;
-> -	mcled_cdev->led_cdev.groups = led_multicolor_groups;
-> +	ret = led_classdev_init(parent, led_cdev, init_data);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	led_cdev->dev->type = &led_multicolor_device_type;
->
-> -	return led_classdev_register_ext(parent, led_cdev, init_data);
-> +	return led_classdev_add(led_cdev, init_data);
->  }
->  EXPORT_SYMBOL_GPL(led_classdev_multicolor_register_ext);
->
-> diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
-> index 2f62141268ab..161b85db04f3 100644
-> --- a/drivers/leds/led-class.c
-> +++ b/drivers/leds/led-class.c
-> @@ -654,6 +654,10 @@ int led_classdev_add(struct led_classdev *led_cdev, struct led_init_data *init_d
->  }
->  EXPORT_SYMBOL_GPL(led_classdev_add);
->
-> +static const struct device_type led_device_type = {
-> +	.name = "standard",
-> +};
-> +
->  /**
->   * led_classdev_register_ext - register a new object of led_classdev class
->   *                             with init data.
-> @@ -672,6 +676,8 @@ int led_classdev_register_ext(struct device *parent,
->  	if (ret < 0)
->  		return ret;
->
-> +	led_cdev->dev->type = &led_device_type;
-> +
->  	return led_classdev_add(led_cdev, init_data);
->  }
->  EXPORT_SYMBOL_GPL(led_classdev_register_ext);
-> diff --git a/include/linux/led-class-flash.h b/include/linux/led-class-flash.h
-> index 775a96217518..5204ef60dc4b 100644
-> --- a/include/linux/led-class-flash.h
-> +++ b/include/linux/led-class-flash.h
-> @@ -28,8 +28,6 @@ struct led_classdev_flash;
->  #define LED_FAULT_LED_OVER_TEMPERATURE	(1 << 8)
->  #define LED_NUM_FLASH_FAULTS		9
->
-> -#define LED_FLASH_SYSFS_GROUPS_SIZE	5
-> -
->  struct led_flash_ops {
->  	/* set flash brightness */
->  	int (*flash_brightness_set)(struct led_classdev_flash *fled_cdev,
-> @@ -79,9 +77,6 @@ struct led_classdev_flash {
->
->  	/* flash timeout value in microseconds along with its constraints */
->  	struct led_flash_setting duration;
-> -
-> -	/* LED Flash class sysfs groups */
-> -	const struct attribute_group *sysfs_groups[LED_FLASH_SYSFS_GROUPS_SIZE];
->  };
->
->  static inline struct led_classdev_flash *lcdev_to_flcdev(
-> -- 
-> 2.56.1
->
+---
+Mrinmay Sarkar (2):
+      PCI: qcom: Implement .reset_root_port() for firmware-managed controllers
+      PCI: qcom: Reinitialize MSI on resume for firmware-managed controllers
 
--- 
-Lee Jones
+ drivers/pci/controller/dwc/pcie-qcom.c | 42 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 41 insertions(+), 1 deletion(-)
+---
+base-commit: b810335a0699d1810683796b0e3ffe8827ddfe6c
+change-id: 20261016-pcie-controller-reset-8938e4bac060
+
+Best regards,
+--  
+Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
+
