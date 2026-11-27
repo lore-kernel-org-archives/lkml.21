@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795775875;
-	b=hmFOZUxNPiyEZrskV1qzRGqcUNSeQCShoU9or9Mn9XTEE2Apugj/VeV/DpLj16Dx6K4p
-	 PrQ2ok07HirznDQX7EGDWpajUefCWhEPWjo6JqS4SqTpL8gB4TxdzgBWEuCslyHNy+3rJ
-	 IHEzIl4yzRnN0m28A3zLUp+L7maglR8Un+RyQAcEdIfROvE3v7MHuM143ZJBA3p7H0Seh
-	 Ykuz5xgVfThl05YYgg9E1/qh6kTr86CFY6KAO5IxHqNCsDs7xuIO56KixwRGphGLiqo5Y
-	 wAsmHfaWa6N16RwP0BWwqUiEwN4yPAUyWaXrdGu9wd/uTVtlBTMQ5o0UrxX1lJJDuNw==
+	t=1795775871;
+	b=QnllamCqTdcEsxczcgTWoD/PDmsFdc/U/4GGsm6o110FSeDDTo6nKzKoIr/NY9ccpRHZ
+	 0/rV/QjPCEqLtzuoSFJnYAYt3WBtSeCMzYCp3ErmWbohn6KEh8WzYyi4c1L5fZey7K7DK
+	 mtuBO9Ei5tkazood+DT/xJfWvtrkGm/NxN68HtyInuRWGY6Fudkyvqh1z9o3H2cqLr25M
+	 lddkXOcUUTzL936+3agzzbJH5IAZFq0alBhXxDRwXXMhIIWIgAshLZx/5/C1yseFvU4EX
+	 aoFUN4f8BamLU40rlOK/FT/SkQsJIrkO6ee9CxTnzvOMcOY7t+freDCQJloFLNqo0Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795775875;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795775871;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=cH1B6Iuht9cMtUDc/M/94P//50P+MLK9IG4hanh0qHU=;
-	b=M9QY3c050mZrbXOQjVTE2erP8ycwkmPcXLrtGlW79jiCRpUBDJDBbQHpJ1hYJ69Qhsfu
-	 HPHZDY1pHY5yImZTvU0VUuVpWUXHu6CaV4UiFCXoz/N56K8tKmw63K6/4k0fjGEbVjWdR
-	 lyKR1LFh3JtqtbY7UOfsP0dN4Pxh8A2vIcS3JKyNYXMg6BnICabHB3ogrv/q6lqTzCrm7
-	 JLeXQ4Gcvw99zBQsWjL/7ysA3wf6AVO3/fpgpc51L0esBHzcmp4oarHwPXdvBXZKDKhi+
-	 hZKbmfGlfi243EDsa+vDiA17fq9hiP8YWvgcWGAdvyUC9DQ4BqzjxDlK2rlQEsLNxCw==
+	bh=eC2Iu7WVN9Kv8E55jimB5I9lAFW6apWINO+cxwm+DSo=;
+	b=fi9bltEf3RXLo8YBRVtFvRKskunInKvKPWNEeWFZWmQ0mSRpIaFR/Zwoeu+hh8Cn1MG4
+	 31M1/0L1hWDP0ZAbbufF7H/ByaKlsI6jVyok8GJjNkMN++849JQvsFMzMnyVYmpxK1DSx
+	 yMj9oE/H2lUeDp0H/cP+woG19B9+SakVD8KMesHbRK7MyQ78pWAoED86+cEErUJNZzELC
+	 C9Qzkym9MxbKwTKwAvVoJ0kGH6296pzlCeb2bMc8YP9njKGp8muJssQJFIUyj4/GGf9pS
+	 VgiZB7hr7aIy9Ww4UvMwdZQp/iY+J7Pxli5fo3fG3qxTjPbiaqx9ivikRJ7NvwC0ucA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Qz9d2wyy;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b="Ln/5wYF2";
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8452C606A68C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:37:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8452C606A68C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7ECD606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:37:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7ECD606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Qz9d2wyy
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so64299535e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:37:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Ln/5wYF2
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-491846221ffso6975307f8f.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:37:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795775873; x=1796380673; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795775869; x=1796380669; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=cH1B6Iuht9cMtUDc/M/94P//50P+MLK9IG4hanh0qHU=;
-        b=Qz9d2wyyPHyLOTwNNlmvy0vvKsc+fCT897JyhNEDpkwbUfMcc1D+zlB1WjftOG7FC+
-         6fPPYkozROf2DAhnLAJGgkibNoJ3bF4jgqn+eNrafluRRX4uYK/ebjEfoytojaynLSpU
-         Ua6mak2d1+GV0Wkh8HDSEcsBQaCuPlvd/sP9Yg9gaNubeKkQlwLbzDlO/JWZkSWYI4sj
-         d7TFi8B+XVUUwAsEGVzN6QQoKTGqTJEVQlgndb8byN7Qci1T/FCYtXwOSneCFt8IUcjl
-         BVgDR56LQJPcSLbf4IQWS8sG2qOgu+MQVHwU5lcBzrrQ99BfwVNrV/oEda5U4mW4Sjyo
-         sCkQ==
+        bh=eC2Iu7WVN9Kv8E55jimB5I9lAFW6apWINO+cxwm+DSo=;
+        b=Ln/5wYF2CDkn6CiIxcamObTnXQEn8E/T7z7PXF8E8mdvNkf9vXlQpnp/CPUEqrRtGi
+         4vrguc8TAG6e28G/6wvCEEegPXuwyfBxhn9ZhtYQgtP/Aw5bQhYqmO1vlEZgYR/whQaE
+         PVg0rQzGph9S7FHthq/NCBN657o08+om93rFjBgEJaOXKhKLoOBMY/d1tSJAtTc7nUzp
+         xxf46eilrTn7Yjw3M3X5/gXAAhAC75YvCGI3iAM73P/JPRD0cQRgsYp4fXAJCFQsJfhG
+         ZS9e6v9jgvt391jv4zJXQjNz8lEcEJOu9RXQ7wNXWjV7HNNe+UD9ib45HryPCS9tIDFC
+         +zIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795775873; x=1796380673;
+        d=1e100.net; s=20260707; t=1795775869; x=1796380669;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cH1B6Iuht9cMtUDc/M/94P//50P+MLK9IG4hanh0qHU=;
-        b=iLD3tu/V40rzhQJCLmzwJqNP/fi8OYss502Gvm+KAZv28z3NheVvoO42PuqMxo7pyQ
-         GIXbxnDsbCYfwxHcn+OMAIf5S3FhP7PSuqrCNY8uiW6zlwyD035T/qlc1YSQ6XlrkPbv
-         X7QX59iXdRIJhJZDnFo2zYyYf/J4DR2TiXfeUxt5Q+RKEC9izBYFsYsh12V+YWNSLxQH
-         CrPxlkQqC/EoMHky14ERhrX8oQpx0VqcuGPSgwQKqipzV6HleUl1S4KOQ7HXW2z+yXWW
-         c8xjbNbd8hd1Ua7G7dQcW7eUofPk3Q3HWTXERhEEs8aRjjAK3fyPNUx9PlYpa6PROtgn
-         tSjw==
-X-Forwarded-Encrypted: i=1; AL+hErEqpzt93o8DUtiBpWPdWYp/XujNmZNYrHrWliCwovkvhZ5gDTNXCQHgrUbuJ2onBbmpB0bBb1hCLMBSWaE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/NiDrfbmYxfxq4e5e4UcXV5Zrt/L2n0DXQgW7vw8TRseqPLsjY
-	veaq2t3ejvEywy7B9aA725nKntr1k7L+C/PCXzLfELntlRc/OShHahyZHIFneAKs7uQ=
-X-Gm-Gg: AZFdTZe6tCJEInRIwCuO7YWQichpkwceYdwhfmCy4jf0c3JHrRVvMVrhbqdLRojpdCn
-	YLhMCEAiGbAzGWBYtItQXP5aJTuyXXOUHBLYLk1lYpKA+GKxweRLOSle3V9WrRPIQOcrBVCYDrS
-	/6zO8S4vlSqScUC6/Q7kRl6575znIDUuoJIeQ3tVXbjaR8qy4NBhoP4asS0HcV194Uw4Tl90c/U
-	7s4EXau2rD9+x8Eo0lW/fl2RB5CqV8AHn+KlykhXObxW+glpPoraMWlcLsuXTYi+6L/AyzI14jc
-	62Wivx3FWcKZEqL5CQieWemWuSpQfsYxnXHBh9u4H3ZwFeDLj3NSpH/+yRn+1M0xyhJ30/+dKAG
-	9h7pH6cDQyCIZnDV2SymQaWOdfeozQir34zkRVUXK0UM7jd4UtLCzatLenCcAp57gh2iX03FrKF
-	SLYYaA+3Ua59nh+WS7DOVhs3GrX9Yj9J3mui4MNAbFG2V5pLAs4Hq+2b/wPxRuE33o17zHAjFq/
-	0ST3KMiIOJZvJ9dmywdSQdl8Fbea92yjN7XETy8a8fqcfAQN2r6tXO6KKdiOPkGKmJqp6eols2+
-	xS0CT6jgNl1yNE2QYFdJo+FRWdZ/5y4hfCiDw4VBcuN8kZSqUqD63iYFE/jZ+7O+Gsp9+Q==
-X-Received: by 2002:a05:600c:848d:b0:4a4:3a2d:15da with SMTP id 5b1f17b1804b1-4bb88812026mr457679215e9.15.1795775872934;
-        Fri, 27 Nov 2026 02:37:52 -0800 (PST)
+        bh=eC2Iu7WVN9Kv8E55jimB5I9lAFW6apWINO+cxwm+DSo=;
+        b=Yrxh2sGvTUzYn5ROBzNaAykZSs5sIdHV0wcZu0yUoIpLlfd618Pwdr0rPzb+mizM6V
+         vtvHFD9h9LYEdml6flJDFdVd06l8zUWek2rbeQckKUODtYq9zM9V55x59uzG0j+W06sa
+         sAz8BqVVcnHXeSqup9iAMz6qJ/zsLN/JDSlf8wNI6t5K4A8BUvy53fNAYTrFKofKMJ5U
+         IKPAJ0c/j/pQsh/v+J1TTb8Na/5oeBmIxkOLHIGBj7PfgKp5bIsxV8bcmpIh8dNQLF7c
+         O1i6g11CEdxgywjl0I69F/iUS/RNsJ80c/NFJMKqAu/oKwhaPcSJ733JX5gNh8quIEIp
+         DQSQ==
+X-Forwarded-Encrypted: i=1; AL+hErG85Fz1RC2jF8V1jjAM+q3FSGwrNQz8ft6LKygvY4Oc5UhdrY+0pT+bxlEypdjkynQdzSuU/Fd32VHif+w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KMeGKYltIfDcooFTSxmFC3nv9FNe7vVUnoodV5PXFZoGAkcwE
+	CubMrvMreNqEXdK9744ssqQIYF3KXJLfQ0C82zzyhPlj52mKlZh50xC//uyzazdW/rI=
+X-Gm-Gg: AZFdTZchB38wcYc7KF8MLEhmIohxapLJBtuNfkNbLmE49zHb2QGuM/lgj1QCvwaXU+o
+	iZMlTLs7g7MySch2QiZLFGhVjPU/VTzQRUxK/PKVjlECoxtrZyU15tz9lNOoyIYeWA0F84928rq
+	QDxsdnkcETRwAdqVk1BE3+k0HYKBp3fwFJ99g8SWMAvRbSbYGa9rqwpSZFc0VEqEYkZr7HjBZJE
+	8QNjmOkenoFFDZj9Q+YBYSFDKba0oj/1El2JN3FPJc/l8ojGLIx2bGL6pux2qDDSi4RIbqG0VZ6
+	8Qhq6fb4kWFdTj78kwmGki1N/gF5aV7uppa/zWvLkoe5ZFykNyKNZftWPHbfEp4y157FJJaYbMw
+	LETEqQvtd9tnrsyr74qTdw//q+IIdjJbY/ObO4durR4BxhceKHsAoxz67nIGUrWM71G+flk6fe2
+	NogOoFyk0qVybly/osWZFeVbET6x78W6yfOF7MrA6QzOKw5ZC2AMBcxXrWuIwaEOBK1ACteo5Oy
+	s1P8Zvve2FfZGSfTpzeK9++JEn/I0zmRjP4wiyIQb9havQH0obX3JaYVTTF80LpB/Z2BadxXYv7
+	cWD1JzoEXMhaG5KgYfwfm0Qh1Bvdlb2sY9UuTaob0AarQERU
+X-Received: by 2002:a05:6000:2409:b0:48f:d7cd:a5af with SMTP id ffacd0b85a97d-4aba56f5488mr45494272f8f.0.1795775869247;
+        Fri, 27 Nov 2026 02:37:49 -0800 (PST)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm903539005e9.0.2026.11.27.02.37.52
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989e3sm46609111f8f.52.2026.11.27.02.37.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:37:52 -0800 (PST)
+        Fri, 27 Nov 2026 02:37:48 -0800 (PST)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Fri, 27 Nov 2026 11:37:38 +0100
-Subject: [PATCH v9 4/5] mfd: axp20x: Add support for AXP318W PMIC
+Date: Fri, 27 Nov 2026 11:37:35 +0100
+Subject: [PATCH v9 1/5] mfd: axp20x: Constify axp313 and axp717 cells
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-axp318-regulator-v9-4-986b68f3c4a0@baylibre.com>
+Message-Id: <20261127-axp318-regulator-v9-1-986b68f3c4a0@baylibre.com>
 References: <20261127-axp318-regulator-v9-0-986b68f3c4a0@baylibre.com>
 In-Reply-To: <20261127-axp318-regulator-v9-0-986b68f3c4a0@baylibre.com>
 To: Andre Przywara <andre.przywara@arm.com>, Lee Jones <lee@kernel.org>, 
@@ -106,386 +106,47 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  mfd@lists.linux.dev, linux-sunxi@lists.linux.dev, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12979; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=TmuaxKN6c5g8yX7BhkplAay7oqBTL/Kggu6nA8dds+k=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmcsVVPz2lbWyzmaHrTdE3n3Xr5/0sfNC27/3xa9+2r9
- teTTefd7ShlYRDjYpAVU2Sp4a4Wfyep9WXWdJ3bMHNYmUCGMHBxCsBEBKUZGbZVBlpGvWbwORO1
- Ztb77gctV/ULd8wU7Xh2eK//ntPTljYy/JVIn2muP2/PdYOMumeiAUEubCa/bqaaPlnvEaul9YK
- 7jRsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1161; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=6WS2gG4eQGvXIRMEkRovIFW0AaWwhRZ2tj+ICuFq6Q8=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmcsVXV028an1ofFvHFk/HpnXt3P/fsXev2zlxZ7dUOs
+ YDPi3be6ChlYRDjYpAVU2Sp4a4Wfyep9WXWdJ3bMHNYmUCGMHBxCsBEpDsYGbpu7Tj6oM/doVbn
+ wJWN++XbV5faN6q1Tf69ot74o8uVjl2MDEsLpQ6s/sLV+Ul2e+2vLXk1B77N2KWs9aElb5o7a+2
+ ++xwA
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-From: Andre Przywara <andre.przywara@arm.com>
+mfd_cells array should generally be const and there does not seem to be
+anything against it for the axp313 and axp717.
 
-The AXP318W is a PMIC chip produced by X-Powers, it can be connected to
-an I2C bus.
+Constify the mfd_cells array for the axp313 and axp717 to be consistent
+with the other supported chips
 
-It has a large number of regulators: 9(!) DCDC buck converters, and 28
-LDOs, also some ADCs, interrupts, and a power key.
-
-Describe the regmap and the MFD bits, along with the registers exposed
-via I2C only. This covers the regulators and interrupts for now.
-Advertise the device using the new compatible string.
-
-We use just "318" for the internal identifiers, for easier typing and
-less churn, but use "318W" for anything externally visible. If something
-else other than the "AXP318W" shows up, that's an easy change then.
-
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Co-developed-by: Jerome Brunet <jbrunet@baylibre.com>
+Acked-by: Chen-Yu Tsai <wens@kernel.org>
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/mfd/axp20x-i2c.c   |   2 +
- drivers/mfd/axp20x.c       |  88 +++++++++++++++++++++++++++
- include/linux/mfd/axp20x.h | 145 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 235 insertions(+)
+ drivers/mfd/axp20x.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/mfd/axp20x-i2c.c b/drivers/mfd/axp20x-i2c.c
-index aac4fe03f7dd..8655a1a59c07 100644
---- a/drivers/mfd/axp20x-i2c.c
-+++ b/drivers/mfd/axp20x-i2c.c
-@@ -66,6 +66,7 @@ static const struct of_device_id axp20x_i2c_of_match[] = {
- 	{ .compatible = "x-powers,axp221", .data = (void *)AXP221_ID },
- 	{ .compatible = "x-powers,axp223", .data = (void *)AXP223_ID },
- 	{ .compatible = "x-powers,axp313a", .data = (void *)AXP313A_ID },
-+	{ .compatible = "x-powers,axp318w", .data = (void *)AXP318_ID },
- 	{ .compatible = "x-powers,axp323", .data = (void *)AXP323_ID },
- 	{ .compatible = "x-powers,axp717", .data = (void *)AXP717_ID },
- 	{ .compatible = "x-powers,axp803", .data = (void *)AXP803_ID },
-@@ -84,6 +85,7 @@ static const struct i2c_device_id axp20x_i2c_id[] = {
- 	{ .name = "axp221",	.driver_data = AXP221_ID },
- 	{ .name = "axp223",	.driver_data = AXP223_ID },
- 	{ .name = "axp313a",	.driver_data = AXP313A_ID },
-+	{ .name = "axp318w",	.driver_data = AXP318_ID },
- 	{ .name = "axp323",	.driver_data = AXP323_ID },
- 	{ .name = "axp717",	.driver_data = AXP717_ID },
- 	{ .name = "axp803",	.driver_data = AXP803_ID },
 diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
-index de6946d4bb13..67ab529ebd2c 100644
+index 50df66de24e0..4d770e718716 100644
 --- a/drivers/mfd/axp20x.c
 +++ b/drivers/mfd/axp20x.c
-@@ -42,6 +42,7 @@ static const char * const axp20x_model_names[] = {
- 	[AXP223_ID] = "AXP223",
- 	[AXP288_ID] = "AXP288",
- 	[AXP313A_ID] = "AXP313a",
-+	[AXP318_ID] = "AXP318W",
- 	[AXP323_ID] = "AXP323",
- 	[AXP717_ID] = "AXP717",
- 	[AXP803_ID] = "AXP803",
-@@ -218,6 +219,38 @@ static const struct regmap_access_table axp313a_volatile_table = {
- 	.n_yes_ranges = ARRAY_SIZE(axp313a_volatile_ranges),
+@@ -1055,13 +1055,13 @@ static const struct mfd_cell axp152_cells[] = {
+ 	},
  };
  
-+static const struct regmap_range axp318_writeable_ranges[] = {
-+	regmap_reg_range(AXP20X_DATACACHE(0), AXP20X_DATACACHE(3)),
-+	regmap_reg_range(AXP318_DCDC_OUTPUT_CONTROL1, AXP318_DCDC_MODE_CTRL1),
-+	regmap_reg_range(AXP318_DCDC_MODE_CTRL3, AXP318_DCDC_MODE_CTRL3),
-+	regmap_reg_range(AXP318_LDO_OUTPUT_CONTROL1, AXP318_IRQ_EN4),
-+	regmap_reg_range(AXP318_IRQ_STATE1, AXP318_IRQ_STATE4),
-+	regmap_reg_range(AXP318_SHUTDOWN_SRC_CTRL1, AXP318_POK_CTRL),
-+	regmap_reg_range(AXP318_WAKEUP_PWROK_PIN_CFG, AXP318_WAKEUP_PWROK_PIN_CFG),
-+	regmap_reg_range(AXP318_TS_PIN_CFG, AXP318_TS_PIN_CFG),
-+	regmap_reg_range(AXP318_TEMP_ADC_H_EN, AXP318_TEMP_ADC_H_EN),
-+	regmap_reg_range(AXP318_DIE_TEMP_ADC_H_EN, AXP318_DIE_TEMP_ADC_H_EN),
-+	regmap_reg_range(AXP318_GPADC_H_EN, AXP318_GPADC_H_EN),
-+	regmap_reg_range(AXP318_GPIO_CTRL, AXP318_WDOG_CTRL),
-+};
-+
-+static const struct regmap_range axp318_volatile_ranges[] = {
-+	regmap_reg_range(AXP318_IRQ_STATE1, AXP318_IRQ_STATE4),
-+	regmap_reg_range(AXP318_POWER_REASON, AXP318_SHUTDOWN_SOURCE),
-+	regmap_reg_range(AXP318_TEMP_ADC_H_EN, AXP318_GPADC_L),
-+	regmap_reg_range(AXP318_GPIO_INPUT, AXP318_GPIO_INPUT),
-+};
-+
-+static const struct regmap_access_table axp318_writeable_table = {
-+	.yes_ranges = axp318_writeable_ranges,
-+	.n_yes_ranges = ARRAY_SIZE(axp318_writeable_ranges),
-+};
-+
-+static const struct regmap_access_table axp318_volatile_table = {
-+	.yes_ranges = axp318_volatile_ranges,
-+	.n_yes_ranges = ARRAY_SIZE(axp318_volatile_ranges),
-+};
-+
- static const struct regmap_range axp717_writeable_ranges[] = {
- 	regmap_reg_range(AXP717_PMU_FAULT, AXP717_MODULE_EN_CONTROL_1),
- 	regmap_reg_range(AXP717_MIN_SYS_V_CONTROL, AXP717_BOOST_CONTROL),
-@@ -447,6 +480,15 @@ static const struct regmap_config axp313a_regmap_config = {
- 	.cache_type = REGCACHE_MAPLE,
- };
- 
-+static const struct regmap_config axp318_regmap_config = {
-+	.reg_bits = 8,
-+	.val_bits = 8,
-+	.wr_table = &axp318_writeable_table,
-+	.volatile_table = &axp318_volatile_table,
-+	.max_register = AXP318_WDOG_CTRL,
-+	.cache_type = REGCACHE_MAPLE,
-+};
-+
- static const struct regmap_config axp323_regmap_config = {
- 	.reg_bits = 8,
- 	.val_bits = 8,
-@@ -663,6 +705,28 @@ static const struct regmap_irq axp313a_regmap_irqs[] = {
- 	INIT_REGMAP_IRQ(AXP313A, DIE_TEMP_HIGH,		0, 0),
- };
- 
-+static const struct regmap_irq axp318_regmap_irqs[] = {
-+	INIT_REGMAP_IRQ(AXP318, DCDC8_V_LOW,		0, 7),
-+	INIT_REGMAP_IRQ(AXP318, DCDC7_V_LOW,		0, 6),
-+	INIT_REGMAP_IRQ(AXP318, DCDC6_V_LOW,		0, 5),
-+	INIT_REGMAP_IRQ(AXP318, DCDC5_V_LOW,		0, 4),
-+	INIT_REGMAP_IRQ(AXP318, DCDC4_V_LOW,		0, 3),
-+	INIT_REGMAP_IRQ(AXP318, DCDC3_V_LOW,		0, 2),
-+	INIT_REGMAP_IRQ(AXP318, DCDC2_V_LOW,		0, 1),
-+	INIT_REGMAP_IRQ(AXP318, DCDC1_V_LOW,		0, 0),
-+	INIT_REGMAP_IRQ(AXP318, PEK_RIS_EDGE,		1, 6),
-+	INIT_REGMAP_IRQ(AXP318, PEK_FAL_EDGE,		1, 5),
-+	INIT_REGMAP_IRQ(AXP318, PEK_SHORT,		1, 4),
-+	INIT_REGMAP_IRQ(AXP318, PEK_LONG,		1, 3),
-+	INIT_REGMAP_IRQ(AXP318, DIE_TEMP_HIGH_LV2,	1, 2),
-+	INIT_REGMAP_IRQ(AXP318, DIE_TEMP_HIGH_LV1,	1, 1),
-+	INIT_REGMAP_IRQ(AXP318, DCDC9_V_LOW,		1, 0),
-+	INIT_REGMAP_IRQ(AXP318, GPIO3_INPUT,		2, 6),
-+	INIT_REGMAP_IRQ(AXP318, GPIO2_INPUT,		2, 5),
-+	INIT_REGMAP_IRQ(AXP318, GPIO1_INPUT,		2, 4),
-+	INIT_REGMAP_IRQ(AXP318, WDOG_EXPIRE,		3, 0),
-+};
-+
- static const struct regmap_irq axp717_regmap_irqs[] = {
- 	INIT_REGMAP_IRQ(AXP717, SOC_DROP_LVL2,		0, 7),
- 	INIT_REGMAP_IRQ(AXP717, SOC_DROP_LVL1,		0, 6),
-@@ -884,6 +948,17 @@ static const struct regmap_irq_chip axp313a_regmap_irq_chip = {
- 	.num_regs		= 1,
- };
- 
-+static const struct regmap_irq_chip axp318_regmap_irq_chip = {
-+	.name			= "axp318w_irq_chip",
-+	.status_base		= AXP318_IRQ_STATE1,
-+	.ack_base		= AXP318_IRQ_STATE1,
-+	.unmask_base		= AXP318_IRQ_EN1,
-+	.init_ack_masked	= true,
-+	.irqs			= axp318_regmap_irqs,
-+	.num_irqs		= ARRAY_SIZE(axp318_regmap_irqs),
-+	.num_regs		= 4,
-+};
-+
- static const struct regmap_irq_chip axp717_regmap_irq_chip = {
- 	.name			= "axp717_irq_chip",
- 	.status_base		= AXP717_IRQ0_STATE,
-@@ -1061,6 +1136,10 @@ static const struct mfd_cell axp313a_cells[] = {
+-static struct mfd_cell axp313a_cells[] = {
++static const struct mfd_cell axp313a_cells[] = {
+ 	/* AXP323 is sometimes paired with AXP717 as sub-PMIC */
+ 	MFD_CELL_BASIC("axp20x-regulator", NULL, NULL, 0, 1),
  	MFD_CELL_RES("axp313a-pek", axp313a_pek_resources),
  };
  
-+static const struct mfd_cell axp318_cells[] = {
-+	MFD_CELL_NAME("axp20x-regulator"),
-+};
-+
- static const struct mfd_cell axp717_cells[] = {
+-static struct mfd_cell axp717_cells[] = {
++static const struct mfd_cell axp717_cells[] = {
  	MFD_CELL_NAME("axp20x-regulator"),
  	MFD_CELL_RES("axp20x-pek", axp717_pek_resources),
-@@ -1248,6 +1327,9 @@ static int axp20x_power_off(struct sys_off_data *data)
- 	case AXP313A_ID:
- 		shutdown_reg = AXP313A_SHUTDOWN_CTRL;
- 		break;
-+	case AXP318_ID:
-+		shutdown_reg = AXP318_SHUTDOWN_CTRL;
-+		break;
- 	default:
- 		shutdown_reg = AXP20X_OFF_CTRL;
- 		break;
-@@ -1312,6 +1394,12 @@ int axp20x_match_device(struct axp20x_dev *axp20x)
- 		axp20x->regmap_cfg = &axp313a_regmap_config;
- 		axp20x->regmap_irq_chip = &axp313a_regmap_irq_chip;
- 		break;
-+	case AXP318_ID:
-+		axp20x->nr_cells = ARRAY_SIZE(axp318_cells);
-+		axp20x->cells = axp318_cells;
-+		axp20x->regmap_cfg = &axp318_regmap_config;
-+		axp20x->regmap_irq_chip = &axp318_regmap_irq_chip;
-+		break;
- 	case AXP323_ID:
- 		axp20x->nr_cells = ARRAY_SIZE(axp313a_cells);
- 		axp20x->cells = axp313a_cells;
-diff --git a/include/linux/mfd/axp20x.h b/include/linux/mfd/axp20x.h
-index 1badb4868d17..5c307f41a31f 100644
---- a/include/linux/mfd/axp20x.h
-+++ b/include/linux/mfd/axp20x.h
-@@ -19,6 +19,7 @@ enum axp20x_variants {
- 	AXP223_ID,
- 	AXP288_ID,
- 	AXP313A_ID,
-+	AXP318_ID,
- 	AXP323_ID,
- 	AXP717_ID,
- 	AXP803_ID,
-@@ -116,6 +117,84 @@ enum axp20x_variants {
- #define AXP313A_IRQ_STATE		0x21
- #define AXP323_DCDC_MODE_CTRL2		0x22
- 
-+#define AXP318_DCDC_OUTPUT_CONTROL1	0x10
-+#define AXP318_DCDC_OUTPUT_CONTROL2	0x11
-+#define AXP318_DCDC1_CONTROL		0x12
-+#define AXP318_DCDC2_CONTROL		0x13
-+#define AXP318_DCDC3_CONTROL		0x14
-+#define AXP318_DCDC4_CONTROL		0x15
-+#define AXP318_DCDC5_CONTROL		0x16
-+#define AXP318_DCDC6_CONTROL		0x17
-+#define AXP318_DCDC7_CONTROL		0x18
-+#define AXP318_DCDC8_CONTROL		0x19
-+#define AXP318_DCDC9_CONTROL		0x1a
-+#define AXP318_DCDC_MODE_CTRL1		0x1b
-+#define AXP318_DCDC_MODE_CTRL3		0x1d
-+#define AXP318_LDO_OUTPUT_CONTROL1	0x20
-+#define AXP318_LDO_OUTPUT_CONTROL2	0x21
-+#define AXP318_LDO_OUTPUT_CONTROL3	0x22
-+#define AXP318_LDO_OUTPUT_CONTROL4	0x23
-+#define AXP318_ALDO1_CONTROL		0x24
-+#define AXP318_ALDO2_CONTROL		0x25
-+#define AXP318_ALDO3_CONTROL		0x26
-+#define AXP318_ALDO4_CONTROL		0x27
-+#define AXP318_ALDO5_CONTROL		0x28
-+#define AXP318_ALDO6_CONTROL		0x29
-+#define AXP318_BLDO1_CONTROL		0x2a
-+#define AXP318_BLDO2_CONTROL		0x2b
-+#define AXP318_BLDO3_CONTROL		0x2c
-+#define AXP318_BLDO4_CONTROL		0x2d
-+#define AXP318_BLDO5_CONTROL		0x2e
-+#define AXP318_CLDO1_CONTROL		0x2f
-+#define AXP318_CLDO2_CONTROL		0x30
-+#define AXP318_CLDO3_CONTROL		0x31
-+#define AXP318_CLDO4_CONTROL		0x32
-+#define AXP318_CLDO5_CONTROL		0x33
-+#define AXP318_DLDO1_CONTROL		0x34
-+#define AXP318_DLDO2_CONTROL		0x35
-+#define AXP318_DLDO3_CONTROL		0x36
-+#define AXP318_DLDO4_CONTROL		0x37
-+#define AXP318_DLDO5_CONTROL		0x38
-+#define AXP318_DLDO6_CONTROL		0x39
-+#define AXP318_ELDO1_CONTROL		0x3a
-+#define AXP318_ELDO2_CONTROL		0x3b
-+#define AXP318_ELDO3_CONTROL		0x3c
-+#define AXP318_ELDO4_CONTROL		0x3d
-+#define AXP318_ELDO5_CONTROL		0x3e
-+#define AXP318_ELDO6_CONTROL		0x3f
-+#define AXP318_IRQ_EN1			0x40
-+#define AXP318_IRQ_EN2			0x41
-+#define AXP318_IRQ_EN3			0x42
-+#define AXP318_IRQ_EN4			0x43
-+#define AXP318_IRQ_STATE1		0x48
-+#define AXP318_IRQ_STATE2		0x49
-+#define AXP318_IRQ_STATE3		0x4a
-+#define AXP318_IRQ_STATE4		0x4b
-+#define AXP318_POWER_REASON		0x50
-+#define AXP318_SHUTDOWN_SOURCE		0x51
-+#define AXP318_SHUTDOWN_SRC_CTRL1	0x52
-+#define AXP318_SHUTDOWN_SRC_CTRL2	0x53
-+#define AXP318_DISCHARGE_OVERTEMP_CTRL	0x54
-+#define AXP318_SHUTDOWN_CTRL		0x55
-+#define AXP318_WAKEUP_VOFF_CTRL		0x56
-+#define AXP318_POK_CTRL			0x57
-+#define AXP318_WAKEUP_PWROK_PIN_CFG	0x5d
-+#define AXP318_TS_PIN_CFG		0x60
-+#define AXP318_TEMP_ADC_H_EN		0x65
-+#define AXP318_TEMP_ADC_L		0x66
-+#define AXP318_DIE_TEMP_ADC_H_EN	0x67
-+#define AXP318_DIE_TEMP_ADC_L		0x68
-+#define AXP318_GPADC_H_EN		0x69
-+#define AXP318_GPADC_L			0x6a
-+#define AXP318_GPIO_CTRL		0x70
-+#define AXP318_GPIO_INPUT		0x71
-+#define AXP318_GPIO_OUTPUT		0x72
-+#define AXP318_PWM_CTRL1		0x73
-+#define AXP318_PWM_CTRL2		0x74
-+#define AXP318_PWM_CTRL3		0x75
-+#define AXP318_BACKUP_BATTERY_CTRL	0x76
-+#define AXP318_WDOG_CTRL		0x77
-+
- #define AXP717_ON_INDICATE		0x00
- #define AXP717_PMU_STATUS_2		0x01
- #define AXP717_BC_DETECT		0x05
-@@ -498,6 +577,50 @@ enum {
- 	AXP313A_REG_ID_MAX,
- };
- 
-+enum {
-+	AXP318_DCDC1 = 0,
-+	AXP318_DCDC2,
-+	AXP318_DCDC3,
-+	AXP318_DCDC4,
-+	AXP318_DCDC5,
-+	AXP318_DCDC6,
-+	AXP318_DCDC7,
-+	AXP318_DCDC8,
-+	AXP318_DCDC9,
-+	AXP318_ALDO1,
-+	AXP318_ALDO2,
-+	AXP318_ALDO3,
-+	AXP318_ALDO4,
-+	AXP318_ALDO5,
-+	AXP318_ALDO6,
-+	AXP318_BLDO1,
-+	AXP318_BLDO2,
-+	AXP318_BLDO3,
-+	AXP318_BLDO4,
-+	AXP318_BLDO5,
-+	AXP318_CLDO1,
-+	AXP318_CLDO2,
-+	AXP318_CLDO3,
-+	AXP318_CLDO4,
-+	AXP318_CLDO5,
-+	AXP318_DLDO1,
-+	AXP318_DLDO2,
-+	AXP318_DLDO3,
-+	AXP318_DLDO4,
-+	AXP318_DLDO5,
-+	AXP318_DLDO6,
-+	AXP318_ELDO1,
-+	AXP318_ELDO2,
-+	AXP318_ELDO3,
-+	AXP318_ELDO4,
-+	AXP318_ELDO5,
-+	AXP318_ELDO6,
-+	AXP318_SWOUT1,
-+	AXP318_SWOUT2,
-+	AXP318_RTC_LDO,
-+	AXP318_REG_ID_MAX,
-+};
-+
- enum {
- 	AXP717_DCDC1 = 0,
- 	AXP717_DCDC2,
-@@ -819,6 +942,28 @@ enum axp313a_irqs {
- 	AXP313A_IRQ_PEK_RIS_EDGE,
- };
- 
-+enum axp318_irqs {
-+	AXP318_IRQ_DCDC1_V_LOW,
-+	AXP318_IRQ_DCDC2_V_LOW,
-+	AXP318_IRQ_DCDC3_V_LOW,
-+	AXP318_IRQ_DCDC4_V_LOW,
-+	AXP318_IRQ_DCDC5_V_LOW,
-+	AXP318_IRQ_DCDC6_V_LOW,
-+	AXP318_IRQ_DCDC7_V_LOW,
-+	AXP318_IRQ_DCDC8_V_LOW,
-+	AXP318_IRQ_DCDC9_V_LOW,
-+	AXP318_IRQ_DIE_TEMP_HIGH_LV1,
-+	AXP318_IRQ_DIE_TEMP_HIGH_LV2,
-+	AXP318_IRQ_PEK_LONG,
-+	AXP318_IRQ_PEK_SHORT,
-+	AXP318_IRQ_PEK_FAL_EDGE,
-+	AXP318_IRQ_PEK_RIS_EDGE,
-+	AXP318_IRQ_GPIO1_INPUT = 20,
-+	AXP318_IRQ_GPIO2_INPUT,
-+	AXP318_IRQ_GPIO3_INPUT,
-+	AXP318_IRQ_WDOG_EXPIRE = 24,
-+};
-+
- enum axp717_irqs {
- 	AXP717_IRQ_VBUS_FAULT,
- 	AXP717_IRQ_VBUS_OVER_V,
+ 	MFD_CELL_OF("axp717-adc",
 
 -- 
 2.53.0
