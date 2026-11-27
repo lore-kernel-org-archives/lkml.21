@@ -1,59 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795804780;
-	b=g+z0LAKBS9r47g10gftPECcXm8d+cTasqajzcao9ZKVVpbMt6/Y33emFWEPu20vkQU21
-	 5+1flbZipht782CkElNE1mR3ruPX+eI4SqsVDcBW9ACt64RBx1syBDTT4PXky11q5nOQC
-	 aocMRbkBoT6Mm7EFMDLwswC+B77MQyr8v8Hi01G23WjK+kA+YfI6qImiWKC8eEvC7QSe7
-	 MGcXz9kEufpBYVP9MIjGE1+y5LCr3/Lse2yiR9LwY7+8C65CfX7Rlv6jJ5ATUS1kf3Jps
-	 wtfRC78ciA4QiAxn715dt90uCsKT+3HG59i7cetwL1aA5om/I5HcIwAUdb8aQQmICOQ==
+	t=1795804790;
+	b=vrxDfAv4VY9OIs9nL74IHad9GXXkKjyh0dbcm0fEkWjikKh6WtvMrWC1mJejQEFVM7w+
+	 GZ05Id8Vs5y+t4cyMW+Tf7jKh+u+PDFlc0V4oUkCHhdxnZlxLQYiVdZ8ZNWEocpPh+Z9R
+	 FrMyydIh0msEhRgox6uUxciv+6V4m/iVb5vRwfzA3wbbu+Nx1VpTu09q08dmaNYrh1kYf
+	 zAVYY5nmKbZfd4eZAbmXMhjLVY63FqNFK7bjHwrFbkpi045PT+sj00rGdepnPp/PpFFKM
+	 rawmkKWbwicom6qgIEy3r7AzKzvlK7CKV4lefVw3c4oWz0kOUgSbUdvD5Vgb5w83thg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795804780;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795804790;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=89RMRIKWWNaBea6ane5hEPw20FRJlePAyLcF62QfklU=;
-	b=4FzraDkoY4zX6c5PmMUMXoW4sFKKlqBwCEq+rAUA6hbONOLumsCih7GGjkGrE+oiPrwr
-	 L2L0qkrXsjk8bF2ScTTc00NI9MjNodCzoensiyf0dOBFLjjxjhwyvvg9pgJ/NUTVUn/Uw
-	 2gL0rsK5hZMs6kVuBk8I2MvQb9fRu1NHBXPAoTqCQ0Gaprea/z/j1sYVnDaCNrs6gSf7K
-	 vAUAiSOC5g6KEzQdgtOvceFPYLx2+cw3aMd8l6E3ZIXQHuglKqm7xLIOXLOtFzmJrWLtR
-	 /cs5+qEDJ+9pIsg21O7lJC0scKeizsUeoGvclFlDMLXGaNBA/i874CJstAbb3vEPG1g==
+	bh=S9jVPwgFepzrO5B1dhh6/eEaFVKQZKqWzI0TGHjI56c=;
+	b=QuVKPkftHqlN9KESS6sUj29JOpWdJ01iX6GGtGe3btmiYLuO7rwtPq9ThvfndKv6oEcs
+	 DoJhc5YpZmuXOpufaImZ9c41Yoer2n0AXwdmOUBLRvl+doVi3iH+8XjzIU+dYjchAcaT6
+	 FT1vTex+lxn+IIdUP2qs09Uh57yekU0JQQG+xKMwbgd2+baVGr7gSye2ztgmqMbM2KZdh
+	 dJ3/+AMEelulysKyY48BG+ADZ7H8GwLgfITpoRmvkoAlV/8h9tf7bb6zyqJ5wmKYyemXd
+	 clZbWrFz6DFWZNutxjWyYjOJLqT5Mrin264lipbHEhZNdDdGTTpXobk1mC+gq45aHhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQtt4+ii;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fPkH2Y0i;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4A2960A2611
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:39:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B78560A5BE0
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:39:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQtt4+ii
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD9981F000C1;
-	Fri, 27 Nov 2026 18:39:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fPkH2Y0i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD3741F02EC2;
+	Fri, 27 Nov 2026 18:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795804779;
-	bh=89RMRIKWWNaBea6ane5hEPw20FRJlePAyLcF62QfklU=;
+	s=k20260515; t=1795804789;
+	bh=S9jVPwgFepzrO5B1dhh6/eEaFVKQZKqWzI0TGHjI56c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jQtt4+iiEUJaEq4hN4+2BgJ/ay4ze84LOlKVtro/iTenbCE1eN2aDuzgDJURlAOf8
-	 TVPK50fxKHgOU/dC4u4faJ0/0YodGF6xqo5MSJDE/gDcrj/WdgLkcLJTQBHhW7T9Z5
-	 pduIqiWoMC8fTzOXJHqj39wz5KHPmpnLE9cn1Zot2NCtojXvrWBzA6x2UL2xg88xqz
-	 GlzLTtQY3CATZt0aJ57EwRkuvDgK9NR9mSs9crgc9aVdjus9DeVmGVBLH9xtvqJhef
-	 Lze5GUh7LuEpnIGh89tdxKBjlOnBielMN5Tc7cw2nHRESU7MZKl03W8u4wnjRSBKrY
-	 dx8RVnw2j+vyA==
+	b=fPkH2Y0ihg4rmhOwGPiPiT8Djr/sMYUEUqWdi0JlboxWoigSrpXpGPeSy45CfC8S6
+	 qkXifzbA8Km9ye9b+wm7zTuCqR3JlcftWEnHRCp+jYpR/KbA2aA/D4SXpv3mqo8PI9
+	 MruzK7otx+SCqlByzZ25/JHFgqUfVjgbFBXll2zrL1lW7gZAtgdIm1tqIBVst1gm4h
+	 7X/zpAccLeOYJdBmP9X8YqCNvmEWkeCW7/YMJcfjgYLgjIlscHTUit3vLiN3+69Wfw
+	 K/yOHbngcAMs5YXhdZt/bsywmYZCeySE4c8NO6CDkv4q8pess73x3n3wkLWefS16K2
+	 mFOJ+kKTmuZIQ==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Thorsten Blum <blum@kernel.org>
-Cc: kernel-team@android.com,
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: patching: Use uintptr_t in aarch64_insn_patch_text_nosync()
-Date: Fri, 27 Nov 2026 18:39:12 +0000
-Message-ID: <179580147175.1460223.17763348667928173059.b4-ty@kernel.org>
+	Thomas Gleixner <tglx@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>
+Subject: Re: [PATCH v3 0/8] arm64: arch_timer: Improve errata handling
+Date: Fri, 27 Nov 2026 18:39:16 +0000
+Message-ID: <179579367840.1286378.13094933579176079407.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261104095943.97344-3-blum@kernel.org>
-References: <20261104095943.97344-3-blum@kernel.org>
+In-Reply-To: <20260802165327.385217-1-maz@kernel.org>
+References: <20260802165327.385217-1-maz@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,16 +69,21 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-On Wed, 04 Nov 2026 10:59:43 +0100, Thorsten Blum wrote:
-> Use uintptr_t for tp instead of casting it multiple times and pass addr
-> directly to aarch64_insn_write().
+On Sun, 02 Aug 2026 17:53:19 +0100, Marc Zyngier wrote:
+> This is the third version of this series addressing a couple of
+> embarrassing bugs in the prolific arm64 timer errata handling
+> department. See below for the changes since v2.
 > 
+> Time is hard. Timers are harder. As a consequence, we have plenty of
+> broken counter/timer implementations in the wild, and an
+> infrastructure to deal with them.
 > 
+> [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied PMU fix to arm64 (for-next/perf), thanks!
 
-[1/1] arm64: patching: Use uintptr_t in aarch64_insn_patch_text_nosync()
-      https://git.kernel.org/arm64/c/df82e34e4a18
+[1/8] clocksource/drivers/arm_arch_timer: Add read_sched_clock_is_arch_counter() predicate
+      https://git.kernel.org/arm64/c/71c11e8be95d
 
 Cheers,
 -- 
