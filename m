@@ -1,82 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770072;
-	b=vzrS0eFlYYCIGhKWjOGOlCZ6Eb7y9HJemoY+VMfQUK+VeXD8cJJqI7xZE/7b/qpaNlM5
-	 Gm/yvcZ/3FJPZrynnn+FRtSSnYAj/i+qRQbtFz1Fzdop+eteBAPS+0w1NP/5zQtq97WS/
-	 t11+KFsARkRuyJMg+FpSq7XI2IHejshkTvAM1JMYyPH6W2c5vYK1bhCiyq4elaFxl+LT9
-	 ETUhvT+Z454nyuy3yntkB2CWWb8qjWTfrM7rrPtGRhO3CwXMaWXWiqzW+VcETyDn/5W3l
-	 uNErWXw2HyE2dtpz1heP7Kh7OosOsK8GUH3nnYOFcLrtV6OIcg/2WfAqrTtbCKH6Kyg==
+	t=1795770074;
+	b=RbFhcIzLzklWlb9M5rXlV0S/P5GNl4WEhEy6hrkXCsZnQNUtZhmpr0JlUTwGwALH3ewt
+	 M+WRgIbIJXSRqUG3hT05mxJdS/N/e7wd176UJaI1+usauDPXNRdlOAEHpUVImFuHUmi/1
+	 wIEGQyfYGd8VrbbPfHTTPiXeXpPMnAcky98UG685lmefms+294t2arr6P7l5D5RU/z3Nv
+	 kC8xGF2g8iXn7kuH+v0jkbJoJq339xOl6QYMuD1OCHFKszpWU8p/RQV2/vwrnwWxypG+c
+	 YU3+0MHU9EEYY2gpOxo2LWbLidR8lyHsjJ3BAyZ1gjPUJUPyAHO1shmUt5pLXhX84zg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770072;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770074;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=yGfxGis/8g0KaCRnCd2Ma8RfczzUtJnT7BRnU64wFQA=;
-	b=HuX2BWVTiYKGzOXYZ0vTdLLnHi1pdwURSCpACw68FA6JlI6eWPy3Mv7cGgHW1ltv2yHl
-	 /gTQ362PcfzWEDiH7fLbKig/YxGwzciDgieJpjcOjECLXweg+Hs33VD3Y2m1YKIXlE3i5
-	 xasCfPCgIQZInQQDTQrO3L6TPmQerCSUW4FfggzpU5IayKnKvCZyf+YReruumKEjWBuZM
-	 NbR3QwUtmYDgFcTo7i9FEulf6KwtCu2ekTZTfj3tWiTX8zwkh4k+ZrvQmHIhTyf8enKUc
-	 +p9FRHijUjBpoRwBqc/rkG9jJSFYzIoX4QOffns+OsvJ4FokvjJh9zZ0eGXF1Po37qw==
+	 Date:Message-ID:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=/+WYvR/9EaXmxOqqFc/IFig4eapx8xrmhOZ5R/PhDkc=;
+	b=MaPjrrtuJuqNeMNjrEG2x/wBv5zeEHx7zahUgbIBTsf8WP17axUTgVtRqv1xjhF0kNUH
+	 wTge4y7FCflWTSyFht8v+iJXN4RalSRI3ntJDervpt9BfBV53Efc1JqRnsK1k/jF5aBcE
+	 EH2ufVG6cjh8ykNPblK+jF35j4lMkj+WsYP1RtYhRUdHfGTDgXZVnwJUT6WY5sqxoMG9g
+	 5RP3IZANyQF8e1maZAvTsPyBTlMchZsPJIRliGiUJ/2PCJzLcJ24t6J6oXstEmKXJy3yV
+	 H4X26FJWulRsBYJVQMDIShO8UfTS+/KHz5GoKOkl8QVq+38N7jybWdg2hRQjrpoMx3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=kylinos.cn;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 701AE606A6A0
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:01:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 701AE606A6A0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6304606A688
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:01:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6304606A688
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f07a960666so55079375ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:01:02 -0800 (PST)
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f04244c3d0so61919175ad.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:01:10 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770062; x=1796374862;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yGfxGis/8g0KaCRnCd2Ma8RfczzUtJnT7BRnU64wFQA=;
-        b=lj5eIq2qKodWks4R1pmEfh7rmGvtJlzfOV11U+ud53OYhxy/oep6auJosJ4cXW02Ny
-         VxVr++I8MgamVUs07oFyp6Ac2pnalSQpGvixJ3U+6JI653r+TbNaQlJMFskR9JMQZSFc
-         Iar2CTDSRm7ZkimdM2/gNtjf5QN0LAM3N6d1T07Wux4/nuW15ZD8LXEKyqwmWqaVu1fg
-         e8WDX9oZ9HHbZJjsS1LypO1dP4Fj1DcTEA0N7E59AqmqgfK+akibWN8zBQezbBuTV6lc
-         gS0h4u2r2zPmHRFSGZM491hM4opgHplwJ5mSO53quapASH1E6zd98wrGFrPPrVzbdNXm
-         AKog==
-X-Forwarded-Encrypted: i=1; AL+hErEtjbZkNEzqF2sAal6L0T71GNQBJoGCx2C/lEHNnCRtrO2MJ4ri4yqOsM2WIUq8OUAl0TcM2EmQvZJgm6Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+QQcQH7qFs21Lk+vfV4HjNvkNiFg01B95fnMtuUROkaeG41+nx
-	A6RuRQ7LhJmJOQh37R3W/ZY3q/l+wpgbkh97HPW3vt7rOgiVfvxo56Q6
-X-Gm-Gg: AZFdTZdwxQL6RMfxtgKq4ZYdCoq8FBKp1Rq0sMskUmHhD0akjxmN9W4pf2gyiWrHw0z
-	avocYEm/3J6Xowsk3akYEazYmf8XzhZpknsNzmHbz9pjICArI+gTdYfPBNx8qJLmNLrEPRZynQi
-	E9LCYg7hVlwiuSOstI+I1HlauJ3+FmncAU10YgxKvMDrkgqUg8KeRhOpTg1dejGWO7CkTb11pgx
-	BIOZk/4qTlKbEJShpWlvPQw1AsUJIBIpF/vMnh6t4huQBGQjLYh4QMO7ruWKNRe+aaQ0xdZDr+p
-	lIQ4+6xOgPGEe3Z6z/wFVX/jq2pw1dJMV3SQ+uw4Mow7f+qp5InxFNUmaJL1P3k0U63heCqn70D
-	tj+DSLeG0a9JGa+53AAx7x3dw6Gffxvm/LM7NumFu4dlnMYu1sUspGJ8PUlHLWduO/DMV2+m8YM
-	Sk2hnSm+M8cHTHdc7QCFKB+Gkw8x3U3p18RhpizBvAedX8anzNjIMwTpQDeR36/toMpm+ipiXim
-	iOGXtk3zK35wt2zVEyR8nGNaTZs0RsYZBXim9zBCFGfyDR+/ix5RlBKIRw90etvS0lCAZsYPDK0
-	wquJKi9gERoYptoLmiM66rWv3Hfp0YV1jLetA+0tyKHnA61rAc793+VtPbSfMxTJX/k+NOp4XRk
-	8HmA6QG+Ec66jUeaWvQHtCvTYSlq4fbplUKOqynEhF0V6Mg==
-X-Received: by 2002:a17:902:dacb:b0:2f0:25ea:8fca with SMTP id d9443c01a7336-2f03f11e6f1mr266297825ad.26.1795770060116;
-        Fri, 27 Nov 2026 01:01:00 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795770070; x=1796374870;
+        h=mime-version:content-transfer-encoding:content-type:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/+WYvR/9EaXmxOqqFc/IFig4eapx8xrmhOZ5R/PhDkc=;
+        b=wjLSppdpno2aCijKkAlWl5rG4l2Nqj35UL0h/DgOiogxXdXRP678qXk2SO6f8KMlSG
+         avEx1sxu4L+5/Y83LFDl9hBA45azbDRghYamZTON2OASqwxBsWONdxvpT//LQn6ODhhb
+         GVXCQZAu+dp/IdzibkPSnshDLqP/df9d7M8NjjkFKhHT0W2cxwXtjHPEKtZSZw3L5BlA
+         yUrqdRl3fsOWW/ojPqc56SDsTB5YoZqOysk7Bof6LXCknT2dTuDYTUX789EwioVWjaog
+         otihRkqmfjvYcH+jCPyiXwJ9wiEKmTRemDZfU9DZAhIrGhnpCVSKOG1YXRBG3aLpB0hP
+         C+yQ==
+X-Forwarded-Encrypted: i=1; AL+hErFWuLUvBT5Y1P4nPbg+3cd/ZJ4VrIXElAsU6vtSupRkozt30AgdhNcbVSDw9hiacaxLpZrV10ULPNd77kY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8lkw7ZQJM+41s3YK3J037v8A1F3gmccPe90dfP18n0aVZpG8dS
+	ZKWAZnP8+iD+Dp+G6luBp2WIWNVMGrS/NVgQ4SX73MMCdL9eTKJc5b8L
+X-Gm-Gg: AZFdTZcA/YCqwEuP+SvhNQd0eZps0+StA2kP3VcMeRVhtZNcGkg5vo2kJ1KOtgMSyB6
+	b3DuSJ1zcau7xM2NSgB6fg8nOVR/RTIgVTD8k/ed6Q2nUgWrdEmyU5gfK9rq1zT+5Aw49h9RmN4
+	xICOAkGClgAfp1uk+DR9Jw146HJ6QYtuQxIEtnslDaQjIbIfcCDX9XYHhWKB4/2XtHD/uN/xNAO
+	bi68b8cfnFx2wn+Eh6fcHa/CiSU3KtI6MoEZqOJKKjeub/uepNiRaK1X9Me0Wdub46bIunrxhfo
+	yTcH2+c6xYstcyQOsota13+Tk0QJEZ6igDcF6A1KjdOGIKx3a/g35Y83JKfoJ/EEAsT9kqf9gcJ
+	MG5cJn5xqmoLNQI9zcG2Eap7yD3bJ5W4EM9sNvnqr4gGCGdFMBDvoEVGvq1Gyxmw0EY1UyOG27g
+	ADUKrvjL+JUtNgTb8/cNW0IEgZqXeezemXxK9Y02MtwI8FTVxkFACVx3XugMhOjub9nIaSj+1K9
+	khxs+UjcGX09/d2sCXn701WHa8cBmXSwplh1SL5/D9sJ3FYrR1BsFEmwbW0BP6VTPrK0ZNHqjYv
+	1KH6v9t9q/t4js9g5D5uH0RyXu+DXudREFHFZEjUlXTGd4AzLfpLLsDeR+h9Dip3WKWyoQ7X3Oh
+	Gl4yDf1V/d5AVa4WI1gRx2EoHB87dziGnL1n94PFL3AgduQ==
+X-Received: by 2002:a17:903:1a2b:b0:2ed:99b9:7fd8 with SMTP id d9443c01a7336-2f03f1403acmr262673985ad.30.1795770069602;
+        Fri, 27 Nov 2026 01:01:09 -0800 (PST)
 Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([216.236.36.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm117050725ad.57.2026.11.27.01.00.56
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm117050725ad.57.2026.11.27.01.01.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:00:59 -0800 (PST)
+        Fri, 27 Nov 2026 01:01:09 -0800 (PST)
 From: Hongyu Xie <xiehongyu1@kylinos.cn>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Samuel Thibault <samuel.thibault@ens-lyon.org>
-Cc: speakup@linux-speakup.org, linux-kernel@vger.kernel.org,
- chris@the-brannons.com, kirk@reisers.ca, w.d.hubbs@gmail.com,
- stable@vger.kernel.org
-Subject: [PATCH RESEND v3 4/4] speakup: Serialize synth clearing against
- locked readers
-Date: Fri, 27 Nov 2026 17:00:55 +0800
-Message-ID: <179577005597.23588.2542403252088469180@kylinos.cn>
-In-Reply-To: <179577002884.23588.802785530849276690@kylinos.cn>
-References: <179577002884.23588.802785530849276690@kylinos.cn>
+To:
+ Greg KH <gregkh@linuxfoundation.org>, Alan Stern <stern@rowland.harvard.edu>
+Cc: Oliver Neukum <oneukum@suse.com>, oliver@neukum.org,
+ Hans de Goede <hansg@kernel.org>, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND v2 0/3] usb: core: fix three use-after-free windows in
+ the USB anchor protocol
+Date: Fri, 27 Nov 2026 17:01:06 +0800
+Message-ID: <179577006613.23588.1120308700542393912@kylinos.cn>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -89,263 +85,225 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-speakup_key() checks the global synth before taking
-speakup_info.spinlock, but do_spkup() and its handlers dereference
-synth inside that lock: speech_kill() calls synth->is_alive(), and
-the flush path reaches synth_start() reading synth->alive.
-synth_release() clears synth under spk_mutex, which does not
-serialize against the key path, so a speakup key pressed while the
-synth is being removed can pass the unlocked check and oops on the
-stale pointer:
+Anchors are usually embedded in driver-private structures, and
+several anchor API returns -- a non-zero
+usb_wait_anchor_empty_timeout(), usb_kill_anchored_urbs(),
+usb_poison_anchored_urbs() and usb_scuttle_anchored_urbs() --
+license the caller to free that memory.  The wakeup protocol backing
+this license has three windows in which a URB giveback or unanchor
+still touches the anchor after the caller has been told it is
+unused:
 
-    CPU0 (speakup key)             CPU1 (rmmod -> synth_release)
-    ------------------            ----------------------------
-    speakup_key():
-      if (!synth)                  mutex_lock(&spk_mutex)
-        return  /* passes */       synth_release():
-    spin_lock(&speakup_info.         ... drain in-flight catch_up() ...
-        spinlock)                   synth->release(synth)
-    do_spkup():
-      speech_kill():
-        synth->is_alive()
-        /* synth whose release() already tore down its I/O */
+ 1. The waiter's condition check and the giveback's
+    suspend_wakeups decrement plus wake_up() were not serialized,
+    so the waiter could return while a giveback was still in
+    flight.  Reported by syzbot repeatedly since 2019; patch 1
+    references the two reports this analysis is built on.
 
-Close the window on both sides: clear synth under
-speakup_info.spinlock in synth_release() and in the do_synth_init()
-probe-failure path, and recheck it after acquiring the lock in every
-reader that dereferences it there - do_spkup() at entry, the console
-notifier paths after their trylock, do_handle_shift(),
-do_handle_spec(), the speakup_key() special-handler dispatch,
-synth_direct_store(), and the /dev/synth and /dev/synthu write
-paths.  The unlocked checks that used to gate these paths only
-duplicated the in-lock recheck, with a window a clear could still
-slip through, and are dropped; the only behavior difference is that
-an empty write to /dev/synth or /dev/synthu with no synth loaded now
-returns 0 instead of -ENODEV, which is harmless.  The speakup thread
-keeps its existing fence: synth_release() drains the catch-up count
-before clearing.
+ 2. __usb_hcd_giveback_urb() captured urb->anchor at the top of
+    the function but incremented suspend_wakeups only after DMA
+    unmapping and the usbmon hooks.  A concurrent unanchor could
+    empty the anchor with suspend_wakeups still zero, so the waiter
+    returned and freed the anchor underneath the pending increment.
+    No syzbot report is attributed to this interleaving; it was
+    found by extending the analysis of patch 1.
 
-Two sites of this shape remain, preexisting.  The cursor_done()
-timer callback dereferences synth inside the lock with no synth
-check at all; closing it needs the cursor_timer lifetime handled
-against synth teardown, which is beyond this series.  The serial
-read buffer handler (synth_readbuf_handler()) has the same shape but
-cannot run in this tree: the only registration chain goes through
-spk_serial_synth_probe(), which has no callers, and any
-registration from outside the tree is still serialized by the
-free_irq() in the serial synth release path, which runs before the
-in-lock clear.
+ 3. usb_unanchor_urb() and the giveback read urb->anchor and only
+    then acquire anchor->lock; between the two the anchor can
+    already have been freed.  The gap is as old as
+    usb_unanchor_urb() itself and cannot be closed with a
+    reference count: the first dereference of the freshly read
+    pointer would have to be the increment itself.
 
-Fixes: 2067fd92d75b6 ("staging/speakup: Move out of staging")
-Suggested-by: Samuel Thibault <samuel.thibault@ens-lyon.org>
-Cc: stable@vger.kernel.org
-Cc: Samuel Thibault <samuel.thibault@ens-lyon.org>
-Reviewed-by: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Patch 1 completes the locking protocol for the waiter/wakeup side.
+Patch 2 folds the giveback's pointer capture, the increment and the
+unanchor into a single anchor->lock critical section.  Patch 3
+turns the wakeup protocol into a lifetime protocol: the lockless
+anchor reads run in RCU read-side critical sections, urb->anchor is
+published with rcu_assign_pointer(), and every return that lets the
+caller free the anchor first waits one synchronize_rcu() and
+touches nothing on the anchor after it.
+
+Patch 3 changes contracts, stated up front:
+
+ - usb_kill_anchored_urbs(), usb_poison_anchored_urbs() and
+   usb_scuttle_anchored_urbs() may now sleep even on an empty
+   anchor: the empty-anchor retry blocks on the anchor's wait queue
+   instead of busy-waiting.  usb_scuttle_anchored_urbs() is the
+   only contract change among the three (the others already slept
+   transitively through usb_kill_urb()/usb_poison_urb()), and all
+   three carry a might_sleep() so an atomic-context caller is
+   caught at the call site with debugging configurations enabled.
+   All in-tree callers already sleep.
+
+ - usb_wait_anchor_empty_timeout() returns 1 on success instead of
+   the remaining jiffies, and a successful wait -- including one
+   with a zero timeout -- pays one RCU grace period.  The condition
+   itself is unchanged from the wakeup-protocol fix.
+
+ - The safe-to-free license is per caller: a caller that frees on
+   its own successful return must first wait for any other
+   in-flight teardown calls to return.  The kerneldoc of all four
+   teardown returns states this proviso alongside the no-new-URBs
+   one.
+
+ - The cost is one grace period per successful teardown exit.  On
+   x86-64 real hardware, 100 consecutive successful waits on an
+   empty anchor cost 3.8 us per call on the base kernel and 3.9 us
+   with this series (+4.3%); per call site, a usbtmc synchronous
+   read converges on a kill and a scuttle and pays two grace
+   periods, btusb pays one per anchor it stops, and zd1211rw one
+   per command batch.  It is small next to the URB I/O these paths
+   bracket, but it is the price of the free-after-return guarantee.
+
+Why the retry loop must not busy-wait: on !PREEMPT_RCU kernels
+whose scheduler tick reports no quiescent state for a spinning
+process context (the v6.6 stable tree, for one; the 7.3 base of
+this series adds process context only with CONFIG_PREEMPT_COUNT),
+a busy retry stalls every grace period that still awaits that
+CPU's quiescent state for as long as it spins, and under real-time
+scheduling it can starve the very completion path it is waiting
+for.  On PREEMPT_RCU builds the tick reports from process context
+and the window self-heals, which is why the v1 test kernels never
+showed it.  Current mainline x86 can no longer build a !PREEMPT_RCU
+kernel at all (since 7dadeaa6e851); the exposure is the stable
+backports of this series and older kernels.
+
+The sleeping retry keeps the re-drain behavior of the busy loop it
+replaces: usb_anchor_urb() wakes the anchor's wait queue (gated by
+waitqueue_active(), so the per-submission hot path stays off the
+wakeup machinery when no drain is sleeping; both the wakeup and the
+sleepers' condition evaluation run under anchor->lock, so the gate
+cannot lose a wakeup), and the wait also ends -- without declaring
+the anchor unused -- when a URB is anchored after the drain, so the
+drain restarts and tears the late arrival down too.  A
+late-anchored URB cannot strand the teardown.
+
+No fields are added to struct usb_anchor or struct urb, and no
+driver changes are needed.
+
+Testing:
+
+ - A QEMU/KASAN attack harness reproduced each window separately
+   (deterministic arming for the two giveback windows, a forced
+   free inside the read-to-lock gap for the third) and verified
+   that each patch closes its own window with zero reports under
+   identical pressure.  The v2 kernel reruns the full matrix with
+   zero reports and keeps the zero-timeout contract (empty anchor,
+   timeout 0, returns 1).
+
+ - The livelock boundary is driven directly: a waiter thread bound
+   to CPU0 calls usb_wait_anchor_empty_timeout() on a shared anchor
+   while a killer thread bound to CPU1 calls
+   usb_kill_anchored_urbs(), round after round, on v6.6 (the
+   stable-backport representative, where PREEMPT_NONE x86 is still
+   selectable) with PREEMPT_NONE and no PREEMPT_DYNAMIC.  The v1
+   kernel wedges in the first waiter-first round -- kill rounds
+   stop completing and RCU stall warnings follow -- while the v2
+   kernel completes every round; both complete every round on
+   preemptible configs.
+
+ - The late-anchor liveness of the sleeping retry is probed
+   directly: a scuttle thread is parked in the empty-anchor wait
+   behind a manual suspend_wakeups pin, a never-submitted URB is
+   anchored after it sleeps, and the pin is dropped.  The
+   intermediate v2 kernel (before the re-drain fix) never returns,
+   while the final v2 kernel wakes, drains the late arrival and
+   returns.
+
+ - The full stack also ran on real x86-64 hardware with KASAN
+   kernels built from the same base, on two machines.  The base
+   kernel hits every probe: both deterministic windows fire within
+   100 iterations (hundreds of probe arm hits), and the natural
+   free-race variants hit within 2000 iterations with zero window
+   widening -- one of them with no arming at all on the second
+   machine.  The kernel with all three patches runs the identical
+   workload with zero reports (the attack still executes there,
+   its probes arm hundreds of times too, only the windows are
+   gone), and completes the kill-in-parallel-with-wait rounds
+   (10/10) and the loser-path late-anchored-URB drain on real
+   hardware as well.
+
+checkpatch: 0 errors, 0 warnings for all three patches.
+
 Signed-off-by: Hongyu Xie <xiehongyu1@kylinos.cn>
 ---
- drivers/accessibility/speakup/devsynth.c | 13 ++++++----
- drivers/accessibility/speakup/kobjects.c |  8 +++---
- drivers/accessibility/speakup/main.c     | 31 ++++++++++++++++++------
- drivers/accessibility/speakup/synth.c    |  4 +++
- 4 files changed, 41 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/accessibility/speakup/devsynth.c b/drivers/accessibility=
-/speakup/devsynth.c
-index e3d909bd0480..5a32d3bbf7b8 100644
---- a/drivers/accessibility/speakup/devsynth.c
-+++ b/drivers/accessibility/speakup/devsynth.c
-@@ -20,8 +20,6 @@ static ssize_t speakup_file_write(struct file *fp, const ch=
-ar __user *buffer,
- 	unsigned long flags;
- 	u_char buf[256];
-=20
--	if (!synth)
--		return -ENODEV;
- 	while (count > 0) {
- 		bytes =3D min(count, sizeof(buf));
- 		if (copy_from_user(buf, ptr, bytes))
-@@ -29,6 +27,10 @@ static ssize_t speakup_file_write(struct file *fp, const c=
-har __user *buffer,
- 		count -=3D bytes;
- 		ptr +=3D bytes;
- 		spin_lock_irqsave(&speakup_info.spinlock, flags);
-+		if (!synth) {
-+			spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+			return -ENODEV;
-+		}
- 		synth_write(buf, bytes);
- 		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
- 	}
-@@ -47,9 +49,6 @@ static ssize_t speakup_file_writeu(struct file *fp, const c=
-har __user *buffer,
- 	u16 ubuf[256];
- 	size_t in, out;
-=20
--	if (!synth)
--		return -ENODEV;
--
- 	want =3D 1;
- 	while (count >=3D want) {
- 		/* Copy some UTF-8 piece from userland */
-@@ -84,6 +83,10 @@ static ssize_t speakup_file_writeu(struct file *fp, const =
-char __user *buffer,
- 		/* And speak this up */
- 		if (out) {
- 			spin_lock_irqsave(&speakup_info.spinlock, flags);
-+			if (!synth) {
-+				spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+				return -ENODEV;
-+			}
- 			for (in =3D 0; in < out; in++)
- 				synth_buffer_add(ubuf[in]);
- 			synth_start();
-diff --git a/drivers/accessibility/speakup/kobjects.c b/drivers/accessibility=
-/speakup/kobjects.c
-index e1860f8d9d42..45a8e9fbd8de 100644
---- a/drivers/accessibility/speakup/kobjects.c
-+++ b/drivers/accessibility/speakup/kobjects.c
-@@ -416,9 +416,6 @@ static ssize_t synth_direct_store(struct kobject *kobj,
- 	char *unescaped;
- 	unsigned long flags;
-=20
--	if (!synth)
--		return -EPERM;
--
- 	unescaped =3D kstrdup(buf, GFP_KERNEL);
- 	if (!unescaped)
- 		return -ENOMEM;
-@@ -426,6 +423,11 @@ static ssize_t synth_direct_store(struct kobject *kobj,
- 	string_unescape_any_inplace(unescaped);
-=20
- 	spin_lock_irqsave(&speakup_info.spinlock, flags);
-+	if (!synth) {
-+		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+		kfree(unescaped);
-+		return -EPERM;
-+	}
- 	synth_write(unescaped, strlen(unescaped));
- 	spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-=20
-diff --git a/drivers/accessibility/speakup/main.c b/drivers/accessibility/spe=
-akup/main.c
-index e9b7c2761f6f..60be4d4df363 100644
---- a/drivers/accessibility/speakup/main.c
-+++ b/drivers/accessibility/speakup/main.c
-@@ -1166,9 +1166,13 @@ static void do_handle_shift(struct vc_data *vc, u_char=
- value, char up_flag)
- {
- 	unsigned long flags;
-=20
--	if (!synth || up_flag || spk_killed)
-+	if (up_flag || spk_killed)
- 		return;
- 	spin_lock_irqsave(&speakup_info.spinlock, flags);
-+	if (!synth) {
-+		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+		return;
-+	}
- 	if (cursor_track =3D=3D read_all_mode) {
- 		switch (value) {
- 		case KVAL(K_SHIFT):
-@@ -1763,11 +1767,15 @@ static void speakup_con_write(struct vc_data *vc, u16=
- *str, int len)
- {
- 	unsigned long flags;
-=20
--	if ((vc->vc_num !=3D fg_console) || spk_shut_up || !synth)
-+	if ((vc->vc_num !=3D fg_console) || spk_shut_up)
- 		return;
- 	if (!spin_trylock_irqsave(&speakup_info.spinlock, flags))
- 		/* Speakup output, discard */
- 		return;
-+	if (!synth) {
-+		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+		return;
-+	}
- 	if (spk_bell_pos && spk_keydown && (vc->state.x =3D=3D spk_bell_pos - 1))
- 		bleep(3);
- 	if ((is_cursor) || (cursor_track =3D=3D read_all_mode)) {
-@@ -1792,11 +1800,15 @@ static void speakup_con_update(struct vc_data *vc)
- {
- 	unsigned long flags;
-=20
--	if (!speakup_console[vc->vc_num] || spk_parked || !synth)
-+	if (!speakup_console[vc->vc_num] || spk_parked)
- 		return;
- 	if (!spin_trylock_irqsave(&speakup_info.spinlock, flags))
- 		/* Speakup output, discard */
- 		return;
-+	if (!synth) {
-+		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+		return;
-+	}
- 	speakup_date(vc);
- 	if (vc->vc_mode =3D=3D KD_GRAPHICS && !spk_paused && spk_str_pause[0]) {
- 		synth_printf("%s", spk_str_pause);
-@@ -1811,9 +1823,13 @@ static void do_handle_spec(struct vc_data *vc, u_char =
-value, char up_flag)
- 	int on_off =3D 2;
- 	char *label;
-=20
--	if (!synth || up_flag || spk_killed)
-+	if (up_flag || spk_killed)
- 		return;
- 	spin_lock_irqsave(&speakup_info.spinlock, flags);
-+	if (!synth) {
-+		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
-+		return;
-+	}
- 	spk_shut_up &=3D 0xfe;
- 	if (spk_no_intr)
- 		spk_do_flush();
-@@ -2087,6 +2103,8 @@ static spkup_hand spkup_handler[] =3D {
-=20
- static void do_spkup(struct vc_data *vc, u_char value)
- {
-+	if (!synth)
-+		return;
- 	if (spk_killed && value !=3D SPEECH_KILL)
- 		return;
- 	spk_keydown =3D 0;
-@@ -2115,10 +2133,9 @@ speakup_key(struct vc_data *vc, int shift_state, int k=
-eycode, u16 keysym,
- 	u_char shift_info, offset;
- 	int ret =3D 0;
-=20
--	if (!synth)
--		return 0;
--
- 	spin_lock_irqsave(&speakup_info.spinlock, flags);
-+	if (!synth)
-+		goto out;
- 	tty =3D vc->port.tty;
- 	if (type >=3D 0xf0)
- 		type -=3D 0xf0;
-diff --git a/drivers/accessibility/speakup/synth.c b/drivers/accessibility/sp=
-eakup/synth.c
-index 1af80eb116af..aef482f8b14e 100644
---- a/drivers/accessibility/speakup/synth.c
-+++ b/drivers/accessibility/speakup/synth.c
-@@ -519,7 +519,9 @@ static int do_synth_init(struct spk_synth *in_synth)
- 	pr_warn("synth probe\n");
- 	if (synth->probe(synth) < 0) {
- 		pr_warn("%s: device probe failed\n", in_synth->name);
-+		spin_lock_irqsave(&speakup_info.spinlock, flags);
- 		synth =3D NULL;
-+		spin_unlock_irqrestore(&speakup_info.spinlock, flags);
- 		return -ENODEV;
- 	}
- 	synth_time_vars[0].u.n.value =3D
-@@ -585,7 +587,9 @@ void synth_release(void)
- 	for (var =3D synth->vars; var->var_id !=3D MAXVARS; var++)
- 		speakup_unregister_var(var->var_id);
- 	synth->release(synth);
-+	spin_lock_irqsave(&speakup_info.spinlock, flags);
- 	synth =3D NULL;
-+	spin_unlock_irqrestore(&speakup_info.spinlock, flags);
- }
-=20
- /* called by: all_driver_init() */
+RESEND note:
+
+ - Resending v2 (originally posted on Nov 3 during the 7.4 merge window:
+   https://lore.kernel.org/r/179367244039.76534.2082245841677015355@kylinos.c=
+n)
+   as a standalone thread, rebased onto v7.4-rc3 to resolve a context
+   conflict with commit d58dffe9ee2c ("USB: core: amend
+   usb_get_from_anchor() kernel-doc") with no code changes.  Alan,
+   Oliver -- could you please take a look at the anchor locking and RCU
+   lifetime changes when you have a chance?
+
+Changes in v2 (patches 2 and 3; patch 1 is unchanged):
+
+ - Patch 2's usb_unanchor_urb_and_suspend_wakeups() race-loser
+   path cleared the local anchor variable before the shared
+   unlock, so the documented lose-the-race return unlocked
+   &NULL->lock -- a near-NULL fault with the real anchor left
+   locked.  v2 unlocks, in each branch, the anchor that branch
+   locked.  (Found by our own review of the v1 series.)
+
+ - The kill/poison/scuttle empty-anchor retry waits on the
+   anchor's wait queue and takes the same grace-period exit as
+   usb_wait_anchor_empty_timeout() instead of busy-waiting,
+   removing the self-deadlocking busy loop on !PREEMPT_RCU
+   kernels (review feedback on v1).
+
+ - The retry keeps the re-drain behavior of the busy loop:
+   usb_anchor_urb() wakes the anchor's wait queue and the
+   teardown wait ends on a late-anchored URB, so the drain
+   restarts for it instead of stranding a teardown that would
+   previously have killed it (review feedback on the v2 draft).
+   The wake is gated by waitqueue_active() so the per-submission
+   hot path stays off the wakeup machinery when no drain is
+   sleeping.
+
+ - The teardown functions no longer take suspend_wakeups pins of
+   their own: the pins of an earlier v2 draft let a concurrent
+   kill/poison/scuttle make a zero- or short-timeout wait on an
+   empty anchor spuriously return 0 (review feedback on v1).  The
+   wait condition is again the giveback-only check, each teardown
+   exit waits its one grace period and touches nothing after it,
+   and concurrent teardown calls remain governed by the per-caller
+   proviso, as in the baseline.
+
+ - The safe-to-free kerneldoc of the four teardown returns now
+   also excludes concurrent in-flight teardown calls on the same
+   anchor, states the completion-callback recursion ban, and
+   notes that a manually held suspend_wakeups pin holds up a
+   teardown until released; kill/poison/scuttle carry
+   might_sleep() (for kill and poison it covers the empty-anchor
+   entry path); in-code comments spell out that
+   usb_anchor_check_wakeup()'s success does not by itself license
+   freeing, and why the waitqueue_active() gate is safe under
+   anchor->lock.
+
+ - The anchor documentation now matches the new contract: the
+   deallocation section of
+   Documentation/driver-api/usb/anchors.rst states that freeing
+   requires a successful teardown return with no concurrent
+   anchoring or in-flight teardown, and the wait section
+   describes the 0/1 return values and the one-grace-period
+   overrun.
+
+ - Cover letter: per-call-site grace-period cost enumeration, the
+   livelock test evidence, and the two-machine real-hardware
+   results.
+
+ Documentation/driver-api/usb/anchors.rst |  23 +-
+ drivers/usb/core/hcd.c                   |  10 +-
+ drivers/usb/core/urb.c                   | 388 ++++++++++++++++++++++++++++-=
+--
+ drivers/usb/core/usb.h                   |   1 +
+ include/linux/usb.h                      |   7 +-
+ 5 files changed, 382 insertions(+), 47 deletions(-)
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 --=20
-2.32.0
-
+2.39.5 (Apple Git-150)
