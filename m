@@ -1,70 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795757349;
-	b=llyrUNxD6cN7XCsYz8aqQC6JQMYbkJ9LAYRt8D/Kfe+1+zhlWT8bLU99e8npJrBAAktk
-	 TSiRVGeBVbB6VXata5oQJZ18xVBcf5Ez4Gg/Wah4xOVGajq6d6BxEl0GPAAI1MAUJxln6
-	 XCF2pIUSEig7zM3eXKcLmQRnmjbK7YQcCsgBIijL4ED3HUByTyUPmPr2qRi2JCrhg2Y/S
-	 T202OHt4iKZwY5p2TK9lDjFvaa7p4VPpZYRxB0gT2H1cjX/bwG17m/bHZjGukqGYXcl8H
-	 ts1w1/Jyn7udbuguJk1NA3bwS+ht1kVDwMazG+Lj06YHRh+5iNFyMWEqWorUjMLBO3A==
+	t=1795757512;
+	b=iCQlRACAtukVAt4y9MnFegCMyOWB9RD7lknZVx9bGRw5kPSNjwlx5oP7frgjHPMp3ReI
+	 545nlCWqkGbW5hW2dzQkztVkUn6hnS7dwIYsJaD0cn0pOu3wAiqbIVT+leljj1FUPfFHZ
+	 X6VV05RlfzzbVYgs3l8FCVDNwwfUfRbc0fe6zPQHv1iRN9Fn1dXIavtavJ0tW7AYFlqR+
+	 ltQYMCsKA3shvzMTOTcz1yKNuatQjPquFzIjoSes60P2Kyez6MzdgUOAPaB3AWK+8sNna
+	 X06Ase74L9Ek6JEQ1Hshp9M/F1sC/t81DBN2tOXmL8cvRhlZIIZMvozrTYuUeIik+dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757349;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=4KRbKbSS4txsXMmx7aNLIAcb7TQXx/+yCJ2Kow7a3pM=;
-	b=nkafb1Zq3rkqWrlfGXvF8wWGQ+I8Ua0XZcsk3S/DPI3hgIFq5Qv78PSWsCIhL/0Sy+LW
-	 YFqgj+IaIDSPkUEmqMLNP1fc4D9d0KebWaL+ZHHX+4CjvkgCOikM4q89iC7DE1gtuy5EX
-	 XODdLMY5c9tlHuGGjFpOHOMP7tuh63bWOf/u6xIkFyQOMceUq5/4y7lV7WAFkewmR9x8e
-	 yd+I12kFDGh55srnpy0SNJDx+O8nvmbkHjJSrsVIvTdQcH3hMSHNwLTT8Im22hEUxF9T+
-	 dC8A6gcEq1weU3fEyz8CMh/znAgDkh4POBzQoKWP6YAuaUDIMx3Dya8p6H8/RX2TQjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757512;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=awgfQdrx3SqBYwG9uD9SmzAQ1+NjHmqwgyl3lIWiT7Y=;
+	b=sSEjKpk//3i2BfkSG4evILu3B+xuA274qidQDeKF/fgjPg64Pxvgm5aAyHHUnHiPfZO3
+	 wR+l7+2vOaJNN7OztNKARCARqvjlNlZ70zNWICY5KXEiBGHxBP26H6WflFpYIwugIpOu+
+	 g5oIPBecZuM1oq1N56/gQk5ptXQ3wszLH4BlTThbC+EVFc0f1oPsU1nmH/hkiAne2iZJA
+	 j9ZFz3zMk6mj11bOyU+PTH7sK5y7UVLZWLo+/j8LlsU2Q8u/chYCsK1jqyogtjMDvKVKV
+	 ruZj+TukhxbfQQhH4RMUg39930V3tesjI6bJ28KDhW6d7ozgQm4O3AyoP3cyXyxeQiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=1wt.eu;
-	spf=pass smtp.mailfrom=1wt.eu;
-	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=YKxpuIPv;
-	arc=none smtp.remote-ip=51.159.59.229
-Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="cVsul8Y/";
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18112606A31C;
-	Fri, 27 Nov 2026 05:29:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18112606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D68E1606A31C;
+	Fri, 27 Nov 2026 05:31:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D68E1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=YKxpuIPv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1795757345; bh=4KRbKbSS4txsXMmx7aNLIAcb7TQXx/+yCJ2Kow7a3pM=;
-	h=From:Message-ID:From;
-	b=YKxpuIPvxZn6uIWz2Tri4r+Wl5/tQVetTcJlhWrzGdnarLQMnjA8UAAD3jH5oUg/Z
-	 Hw4+2XupBr/qgyP60n1gdy3OhBbfY6SWIjGun9TGefzkf2sSna2/B/UdsfyPcBcnaE
-	 Q83sTE+YvjvpAtwR+SixkCzsCADwe1/8DQ57YPgM=
-Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id 0946AC0960;
-	Fri, 27 Nov 2026 06:29:05 +0100 (CET)
-Date: Fri, 27 Nov 2026 06:29:04 +0100
-From: Willy Tarreau <w@1wt.eu>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-        Linus Torvalds <torvalds@linux-foundation.org>,
-        Leon Romanovsky <leon@kernel.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Borislav Petkov <bp@alien8.de>, Marc Zyngier <maz@kernel.org>,
-        Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>,
-        Andrew Lunn <andrew@lunn.ch>, Jonathan Cameron <jic23@kernel.org>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Theodore Ts'o" <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
-        Security Officers <security@kernel.org>, workflows@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] docs: security-bugs: ask AI-assisted fixes for their
- cover letter
-Message-ID: <awkVIG1fGfgGX-nr@1wt.eu>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-3-sashal@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=cVsul8Y/
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR5V7qM4658193, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795757467; bh=awgfQdrx3SqBYwG9uD9SmzAQ1+NjHmqwgyl3lIWiT7Y=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=cVsul8Y/zzdq9FT4Gk17zjDiMwDqN6P2+uSFtOfUaqthjF1T48AUuhEwcN5irgaEx
+	 MCzkp/I9cLCSEgfe8ZAz1SoOZnypETGNObeDMLRcRHuwkxHpQGYS1DVLs9XH8FvQkB
+	 dR2NaZQ4QS0Ggr70MnFZs4ogbMuFyMImP4R6kRTAdy3+IlOAaef+sA78CJ8etvuMvf
+	 f1o+ryIHmUed0c1f7WgyZndso7q/i0yFL12ZXDoA1W/1gfgq2tqJQAjlwV8K8X6xtc
+	 sFrla2VHPfJ86YpTS1Hn70mGBbd6SJkPy/XDJ9SrNMDf/Pgs9oBpmBMDVpnsiF6vlT
+	 jQFXaJnBunl/A==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR5V7qM4658193
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 27 Nov 2026 13:31:07 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 27 Nov 2026 13:31:08 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 27 Nov 2026 13:31:07 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 27 Nov 2026 13:31:07 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Mehmet Fide <mehmet.fide@gmail.com>
+CC: Luka Gejak <luka.gejak@linux.dev>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>, Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>, Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>, Brian Norris
+	<briannorris@chromium.org>, "linux-wireless@vger.kernel.org"
+	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "mehmet.fide@screeningeagle.com"
+	<mehmet.fide@screeningeagle.com>
+Subject: RE: [PATCH rtw-next v4 1/4] wifi: rtw88: free the reserved pages of
+ an interface on firmware recovery
+Thread-Topic: [PATCH rtw-next v4 1/4] wifi: rtw88: free the reserved pages of
+ an interface on firmware recovery
+Thread-Index: AQHdeeywzneCTeaBk0KoOS+FtDby37dBa+Jw
+Date: Fri, 27 Nov 2026 05:31:07 +0000
+Message-ID: <c7e381abd0d14e27b1d391926bebe7d4@realtek.com>
+References: <20261121191528.591334-1-mehmet.fide@gmail.com>
+ <20261121191528.591334-2-mehmet.fide@gmail.com>
+In-Reply-To: <20261121191528.591334-2-mehmet.fide@gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,70 +93,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126171926.2766137-3-sashal@kernel.org>
 
-On Thu, Nov 26, 2026 at 12:19:25PM -0500, Sasha Levin wrote:
-> coding-assistants.rst asks for a cover letter with the evidence behind
-> every patch an AI assistant prepares. A fix for a security bug needs
-> that evidence as much as any other fix, so name the cover letter in the
-> summary of that procedure and in the list of recipients.
-> 
-> The cover letter goes where the patch goes, which usually includes a
-> public list, while the reproducer goes to the maintainers only. Say
-> that the reproducer and the steps to trigger the problem stay out of
-> the cover letter, which only mentions that a reproducer exists.
-> 
-> "Length" asks for short reports. With the complete output in the cover
-> letter the report has no reason to carry it.
-> 
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
->  Documentation/process/security-bugs.rst | 17 +++++++++++------
->  1 file changed, 11 insertions(+), 6 deletions(-)
-> 
-> diff --git a/Documentation/process/security-bugs.rst b/Documentation/process/security-bugs.rst
-> index c7dfecc87764c..0423a814c6a1e 100644
-> --- a/Documentation/process/security-bugs.rst
-> +++ b/Documentation/process/security-bugs.rst
-> @@ -233,8 +233,8 @@ At the very least, when using an AI assistant to find and report bugs, make the
->  assistant read this file and threat-model.rst before proceeding, and have it
->  follow the procedure described in coding-assistants.rst: work on an up-to-date
->  mainline tree and note the commit ID, verify the bug is real, write a fix,
-> -build it warning-free and checkpatch-clean, commit it with a Fixes tag, and
-> -identify the maintainers with get_maintainer.pl.
-> +build it warning-free and checkpatch-clean, commit it with a Fixes tag,
-> +identify the maintainers with get_maintainer.pl, and write the cover letter.
->  
->  On top of that procedure, the AI assistant **MUST**:
->  
-> @@ -244,10 +244,15 @@ On top of that procedure, the AI assistant **MUST**:
->     the description of the problem, the reproducer or its status, and the
->     triggering conditions.
->  2. Start the report with a temporary section listing the recipients' addresses
-> -   (maintainers+list for the patch, maintainers only for the report and
-> -   reproducer), and with instructions reminding the reporter to check that
-> -   their email client is properly setup (see email-clients.rst), and leave it
-> -   to the reporter to remove that temporary section.
-> +   (maintainers+list for the patch and its cover letter, maintainers only for
-> +   the report and reproducer), and with instructions reminding the reporter to
-> +   check that their email client is properly setup (see email-clients.rst), and
-> +   leave it to the reporter to remove that temporary section.
-> +3. Keep the reproducer, and the steps that trigger the problem, out of the
-> +   cover letter that coding-assistants.rst asks for. The cover letter goes
-> +   where the patch goes, which usually includes a public list, so it only says
-> +   that a reproducer exists. With the complete output in the cover letter, the
-> +   report itself can stay short.
->  
->  A more detailed process is covered at https://github.com/masoncl/kres.git.
+Mehmet Fide <mehmet.fide@gmail.com> wrote:
+> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+>=20
+> After a firmware crash, mac80211 adds the interfaces again without
+> removing them first. rtw_ops_add_interface() then reinitializes the
+> reserved page list, and the pages allocated before the crash leak:
+>=20
+> unreferenced object 0xffff0000cbe22c60 (size 96):
+>   comm "hostapd", pid 25545, jiffies 4296463067
+>   backtrace (crc cbdc21c4):
+>     kmemleak_alloc+0xcc/0xe4
+>     __kmalloc_cache_noprof+0x234/0x3bc
+>     rtw_add_rsvd_page+0x38/0xa8 [rtw88_core]
+>     rtw_add_rsvd_page_bcn+0x30/0x58 [rtw88_core]
+>     rtw_ops_add_interface+0x144/0x2cc [rtw88_core]
+>=20
+> mac80211 zeroes the driver data of a new and of a removed interface, so
+> track in struct rtw_vif whether the list was initialized, and free the
+> old pages when the interface is added again. Until then the pages stay
+> on the list, so a download before the reconfiguration, from the beacon
+> update work or a WoWLAN suspend, still finds them.
+>=20
+> Fixes: 5c831644e1f4 ("rtw88: handle and recover when firmware crash")
+> Suggested-by: Zong-Zhe Yang <kevin_yang@realtek.com>
+> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Good points above. And the cover letter might help for one case we've seen
-a few times: among the few reporters who follow the rules (patch to the list,
-report+repro private), a few forgot to mention the patch had been posted
-publicly so we asked for the patch again. If a maintainer (or security team)
-receives a 2/2 message, it's more obvious that 1/2 was posted somewhere else.
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
 
-Reviewed-by: Willy Tarreau <w@1wt.eu>
-
-Willy
