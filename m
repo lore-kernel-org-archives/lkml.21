@@ -1,94 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773957;
-	b=r86musaJrJjM9akBjTdjrzcCPmp6rfrQ282sxxpo47W0o4J8iRj9aYXIVnEYSZ7A6L1h
-	 LS/S7k2mzlf7XD89YbEdjWDBiyNy4/6tWt5PUVYB4llO/K1ld890C6ijtAJuFfGX5XwWU
-	 iRD/+2u53PXKzNomOmVBa5rfiopp9+GhOevhUOXg4Ms4P0LSTUkrVaT3URRplO9+WJdVL
-	 1ERFNUkK96wPo4uvSzxiWcfMOt9g3/iQpRn/gd4qBW9Afm86HCSBnjoO8s0W5ku5FcP1l
-	 eKcRhXjxZAkiDdgS8DPEKQP2q7lJE/rYtJtsHjA6lSTVhQ1nGj6ogK2wL1lByZCNwCw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773957;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=4sUtHkEAgz2Bzeie97BrPsCB0u2qEGYsKwyaUvKGuaY=;
-	b=o20PBpElv93z/rCCtu2KTH5MJGoGQD3H/vHyyjw3v07iKl16Wk3anZFdYyht102d+2wy
-	 wxl5/8UeNIF21S6AJt2bJuSc3H8ZVQqgiUjcNmogMdok8Gr36ChF0tmJNhOyz+jPqvSUM
-	 s40uAmiTKZtzfRIHSAIkcxP3OPqYynsqfUisZrnbseoRMI5B6l8Q32yiGFVBDasw5Nmbk
-	 qZzxSv43AP0bfEIUeEdF99HwdUB+cw0xltbvUx+WiGuNA7UKvXvBKew7rssMN7X+x9Vrh
-	 9xeaG3P7r3ZkoUTLRZxZpYnRM7QzqowAQ8OgvQ8GqPbuRLIxtb+eocN6OWqo+DPczGg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="P3agtGr/";
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795774043;
+	b=xjcdU9e2CcWWmXNYzFK3OB4p8cDtL/Yw5dF8QKNIhH2mYQOL0Ez7oYgZJyTP3YuQ8Nqr
+	 Ibf691QKYO/xoXXiFQ5YXFwXxvqwr6zDdUvA1K80JhBioOSnBe75CCow3Qfo9EtSaRoMx
+	 u2AANN15MkfsX33qyoyYBmS0WeAhi1ZBBIPCcEVOBpSHYnrdHxfFJp6LuIB97eOkLFVfO
+	 aqoHbF5bb64gvDjCcX4FK7ONRLG8T0QmclGrPPKUb/yESya96y4lwH72Q7WVgEPP1HSeC
+	 kvyPMQRQD1zXN+sntNjmMuOk5TvO18cwTB0zzXaJpjrHkihuX+5q4+jee3wGgElzYhw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774043;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=M1iyI/0Mp18Cb7k2NsVPz111uBIRPwyZKwcAIivI8ro=;
+	b=fpHhGFQOQeBBOnWM/ESOV2uYfYPAiNZkqsPTv+vtyxoNeckQgyxmTaH4nTPttGk5IzpZ
+	 Tg1ZLKzLOdSyVi+lpphs0+oezznXLbn33i5S0X+mGDAT4tnW+ElxrC1Eo/tevq+/mtONr
+	 f7R7xj6iT3thC1KJ5zTfmpOH9vqDtxkDM5EbOkBwVPOSkehZCnzfgNWs56I3WtKJ3hNIH
+	 wslapS5mvD0bQAF3itP/JwKcX3NDWti40PCARg3wbXWRlN90oxkgUlfPjrc/FAouB2gUf
+	 xDixOLKNyyy7Si43rSDmB1YFrL95cQwVSSb2ZjFwrMOVcKa0RARTLHRzV4XIJg+i/rQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=viISSJNK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E76BC606A31C;
-	Fri, 27 Nov 2026 10:05:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E76BC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B871606A327
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:07:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B871606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=P3agtGr/
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7YjhH1236336;
-	Fri, 27 Nov 2026 10:05:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=4sUtHkEAgz2Bzeie97BrPsCB0u2qEG
-	YsKwyaUvKGuaY=; b=P3agtGr/Tb5vAxhGYNalRfAfYCY3JAS+VZ9ZzBOLbLFP/D
-	RQU7nAoms7iACyO/06vDUgZGcXYDfYFnyQ8C5oIwnkrDMg+iRPX/nip6tk8jmXfR
-	eiGgYEFm0PlGWC22TNnzXuQl8H+evIbrQ5IPDNFauSfdWK4FeAj/J4NzNVylRdje
-	y7AeksALd2mczoIdz4HDVCEVfhRpsSocxiDuq93g93doIDydzKTkVPkJ1myZHixy
-	gsCtfxdySwpa77JtLoCWc1DKPl6tyL/YelTfi0ieLrDJLbsiOh30JWG++xda5hg0
-	Oac3hE0xYuL9M4HggKS+pvqnXtGJxguvYP35hfUw==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4vbnc-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 10:05:25 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7K2PH2385215;
-	Fri, 27 Nov 2026 10:05:24 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5kfa9s88-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 10:05:24 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARA5JVW43254218
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 10:05:19 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 804912014D;
-	Fri, 27 Nov 2026 10:05:19 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C8D4D20146;
-	Fri, 27 Nov 2026 10:05:16 +0000 (GMT)
-Received: from li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com (unknown [9.123.6.5])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 27 Nov 2026 10:05:16 +0000 (GMT)
-Date: Fri, 27 Nov 2026 15:35:14 +0530
-From: Gautam Menghani <gautam@linux.ibm.com>
-To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Cc: linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-        linux-kernel@vger.kernel.org, chleroy@kernel.org,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>,
-        Mukesh Kumar Chaurasiya <mkchauras@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCHv3 4/4] powerpc/kvm-hv-pmu: Free hostwide stats buffers if
- perf_pmu_register() fails
-Message-ID: <awlVyNGoCPys6lFX@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
-References: <cover.1795441238.git.ritesh.list@gmail.com>
- <a9e4029d0e11b3c944f4b4cb781fc5ff1696709b.1795441238.git.ritesh.list@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=viISSJNK
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3ab4354db11so78634791fa.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:07:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795774042; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DmE+JgHTPm6goxlJ875g+MKbrG6asSTOqT2Jw+Uvy0Pxvi/MEDVWsljDyHd+JekrxQ
+         kyF2VDDf+mMLpM9NkPWq5Qo17rnstIi0uyOrwlOfIPw9pBNvhz7IV5zW2Pb/k6azJNHt
+         y2VAz3BRzwvU8AvhfhFqiHt5JhbEg3ZbkN+QpHnLX2LS183+CDf2SemQGD5Brvb9X2VC
+         J1mp4eOc6cE4ykEHJa4xNMe71QYsxldYuMsdK3uW9PJXXYi3/HBGNGrQ4/GTDvQEOdR+
+         p6kYUHptzouFvlCz6Wd7e30j1xWipyEsMALfZsOo3ZvqU8fuaXNtpQA7eH7x79wPLVQd
+         rdaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=M1iyI/0Mp18Cb7k2NsVPz111uBIRPwyZKwcAIivI8ro=;
+        fh=2myFdOPh2EG9naieDbd9aF8QYvV00xIQ9OFsxLoyWvQ=;
+        b=suYGKxKkvIUrKi6BH4xFrSc23O8D5StbUbnFXx7IUoNcFXCxiHhjcia5fYwsf0/IjR
+         LlU/d0iFJDk9H5A+g4Ei8nSA313tHLrGfg9ascZu8XCcaJwKUw4h5UmL+iJrT4Io0YIs
+         Zb1yKM8C0FEuFHc8xn8qzt7Ta4ZTaDT2fl4RqBe1iJWkMDpmLwtltg1j3yyjiEbEv191
+         YGAbfP0efAvRwGFfNVetf0K+PCIYVwGn2l9LPiOt2JPnKaD2yyod3pZg2RH6cVGgYa1U
+         azE/jzs7FnZO0tkjQAcA4e0JBZNmuLpS/NTrx+Brdc0wRpoeY/k7mLvuWPb08GMx3nIA
+         TDAg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795774042; x=1796378842; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=M1iyI/0Mp18Cb7k2NsVPz111uBIRPwyZKwcAIivI8ro=;
+        b=viISSJNKKrCfVwgnqpcx21D5A8sjYsUe1xgoHbLgF/1WiqVhFBhinvCjHO3hb5SdGi
+         DDjy+sCxNpLd0qJPAvrpD9ieDpS+Zx+l+bbrKVtgq7b5uQR+8+qlgOW5rUzfc7VgHQAf
+         yLq5uRXkAQSsAlnVGHeJKNh709/p4DwEsY5RriTwk9+pp3Wi7aKM+kjKmllDH9Bi3++6
+         gvOMnjwO+ztJzqSX/DeIQYicCdCzEJkSamEPekUsvUnBKo4eis3Ft4hIi7kmnpAf4A75
+         TsKnET2Kw/eOBh2scDOAHP0Bxy5IE6g6sCGxzVXj7guCtWF4Zq3liE4xCqczhwqiR4bT
+         dJDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795774042; x=1796378842;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M1iyI/0Mp18Cb7k2NsVPz111uBIRPwyZKwcAIivI8ro=;
+        b=tXsr7oPFFrpqM/+ECFkuQ+963vOxUnqng6oxU/XIkjKagPlUpR43cZFVYany00WCla
+         6/1+v8IIWiLTf7GJVbwcQfEaMM+y8b8ysfl9pSAHqvrXerKvrqzTvBCEs4AhaaOxbxIu
+         3l3n1heoy/ZOExmjmg50DQggiOx4UWWVhe+eHt6nVeReiKIdF2MeAz/Q7xnkMEOnl/xA
+         9XQuXserfLjLkBXEj6sewam5/ZxQE7R32gtw/MdIw6MwRQRi2u9OeKBI53C2GHdNREus
+         RSwNmwwLhSfrJVQDlOnKDz3GybXYwu/KEwAAWqP40v+2kwUdopHhZx/tO3HKwXAQyE0E
+         nGvw==
+X-Forwarded-Encrypted: i=1; AL+hErEtj9mlvistZSUrjj6txqGyJ4dwRhdkgXeKqKZmZQWH+HVhtRA7NiCoLHaxboSSDwGJIERjwNX3nexmL+g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NDyCAF2px00XuNe8i3U5+FKkWGW2HepAjy571DrFUkrMldJPI
+	xDcsgTG7ix7EdxkF0OSJOl3vnzZwK+2cDBXYi/FItHLmNYPUpR07DF7Z0mmnaaH48ygWO+txGA1
+	PTqWPgzzqqqSJtOm7b94AAB+5g4niLi8=
+X-Gm-Gg: AZFdTZcf5E0r+0Jrb7G37QDrTbffHTpd0raTXZb1vPcfXCC8eIluo+l7LwX91GF2xXx
+	fKCiJL8g4etiFMudRQZc6SaVPamCphKPfRWtuFgVkiJS/iRo6kYNDr3N9K3NBkQTmK/MiLeV/Hd
+	RCP0Vk7ktKKxeOY0RGdueI+1dZN8DRgHBuarSBoas0vKlqrnRo7BmfF8rWQqhUszNZCbDGjPPnK
+	o5Wag3n51/9vHamqYG6mHSkWJDzZlA7HScpNwCaUhqIgU5KaWywhNlpZtwYDOp6uPUBci13gS7A
+	eTQtzNTzgdCLZgVSTFz0ecNMnhXOjCb9x06a/Be3zUcc0YzUvN48j+9nhM4B9S9pi5VQNQGUo98
+	vcHQprTK1Z9l0s9TK9Wl3+exPf6DqKW0QA0iP3vRhAhk+LKZotSHJVhFipGzvGC8m3qHj3Wpbzf
+	DJxQLorNbkNBrs34pDKq9W+Gdib3byn30=
+X-Received: by 2002:a05:651c:a344:b0:3ac:436e:4084 with SMTP id
+ 38308e7fff4ca-3ae7f9b2126mr75337521fa.4.1795774041405; Fri, 27 Nov 2026
+ 02:07:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,71 +105,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a9e4029d0e11b3c944f4b4cb781fc5ff1696709b.1795441238.git.ritesh.list@gmail.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0MCBTYWx0ZWRfX+JjBivEm+mg9
- wIVe5z7/J5UzxA5fsTT9cn9E0IPGY5vlSE2eT0YvLUeNyu5wNHcRLxuOgbNFtjiEEZNhDNDNviC
- wQJkWz0YBUGEV1UftKn378QATlvlsRI=
-X-Proofpoint-GUID: Gae63ZoM4M0MEZcwXONP_BTOUFUriXXx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0MCBTYWx0ZWRfX1o3JZ4DF8G+L
- 6E+ojIrguBU1/WbA5RuRe9xA0OzkMy1ePrdhuDzqEuBiEHBWDgunVdwHf0sY++VqCnn3QhNirKY
- 2wdVXCZcb1u4ZJFJ3I83n1M08XtFvT3nanffCiRiCZ/nL65YMtAr36MUkH7JWJ0AC9bVLtGHaAC
- EhDfn5fiBlhP9oPQbX+qecftvUhnHatzomTK6J5JvU7rIvpASeR9rVOc0LiSR3MLJSdigLyHdu4
- 8Lvykwta2NFW9iCFRDW5X3M8KkrKRQjvPXuE74GcwOKvl2DTR9cTAdAAmygYYt0x70+0k3UtADk
- EZBLc1kjO9177JvpR0LwtuRD2+9szvP/FmHWBL6JugYfzGQDW0eSwo8+FakylLxDwt0RmlDHKWG
- BoMFNXSr1lpf7+uEuyx2yzaCmQ9U807xNpOVuMNlYKzajU0Dl2WDXH7/9gbl19sQpqvRxaFZ2Hw
- T2FKhjYuB8UADc1J8UA==
-X-Proofpoint-ORIG-GUID: AOBb8rh6oP4nLjFdaCov8rvSaCx3sRDZ
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b0955e5 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=wwyHm5RKODv18j-RS84A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270040
+References: <20261121-at550-rfc-v1-v2-0-b0309d0789b2@gmail.com>
+ <20261121-at550-rfc-v1-v2-10-b0309d0789b2@gmail.com> <awQEjpz2572Y9wsB@monoceros>
+In-Reply-To: <awQEjpz2572Y9wsB@monoceros>
+From: =?UTF-8?B?57Gz55Sw5oKg56KB?= <yogo.0917.sabu@gmail.com>
+Date: Fri, 27 Nov 2026 19:07:09 +0900
+X-Gm-Features: Aa3M54qQEDKdWrHJxIfU9kb7QVNH017aRUBBckb6jwRibhb7ERXk9zIWhsR6uho
+Message-ID: <CAJGK9zbBc94aMeXLuUZXrPOT+TbcD6HAejS1PgaCU-wO=ysY0Q@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 10/13] mmc: sdhci-at550: add SiRF AT550
+ programmed-I/O host driver
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Russell King <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-doc@vger.kernel.org, soc@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 07:21:53PM +0530, Ritesh Harjani (IBM) wrote:
-> kvmppc_register_pmu() calls kvmppc_init_hostwide(), which allocates
-> gsm_l0_stats and gsb_l0_stats. It then registers the pmu. If
-> perf_pmu_register() fails we return without freeing them.
-> 
-> Call kvmppc_cleanup_hostwide() on that error path.
-> 
-> Fixes: f0c9c49c5067 ("powerpc/kvm-hv-pmu: Implement GSB message-ops for hostwide counters")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-> ---
->  arch/powerpc/perf/kvm-hv-pmu.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
-> index a58634f656e9..ec05b4855736 100644
-> --- a/arch/powerpc/perf/kvm-hv-pmu.c
-> +++ b/arch/powerpc/perf/kvm-hv-pmu.c
-> @@ -402,8 +402,10 @@ static int __init kvmppc_register_pmu(void)
-> 
->  		/* Register the pmu */
->  		rc = perf_pmu_register(&kvmppc_pmu, kvmppc_pmu.name, -1);
-> -		if (rc)
-> +		if (rc) {
-> +			kvmppc_cleanup_hostwide();
->  			goto out;
-> +		}
-> 
->  		pr_info("Registered kvm-hv pmu");
->  	}
-> --
-> 2.39.5
-> 
-> 
+On Mon, Nov 23, 2026 at 10:17:35AM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
+>
+> On Sat, Nov 21, 2026 at 09:43:20PM +0900, Yuugo Yoneda via B4 Relay wrote=
+:
+> > diff --git a/drivers/mmc/host/sdhci-at550.c b/drivers/mmc/host/sdhci-at=
+550.c
+> > new file mode 100644
+> > index 000000000..11c9de0c9
+> > --- /dev/null
+> > +++ b/drivers/mmc/host/sdhci-at550.c
+> > @@ -0,0 +1,51 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/* Standard SDHCI PIO only: do not assume CPU/PCI DMA address equivale=
+nce. */
+> > +#include <linux/mmc/host.h>
+> > +#include <linux/mod_devicetable.h>
+> > +#include <linux/module.h>
+> > +#include <linux/platform_device.h>
+>
+> <linux/platform_device.h> already provides of_device_id without the
+> implied dependencies you get by including <linux/mod_devicetable.h>. So
+> please drop the latter.
 
-Reviewed-by: Gautam Menghani <gautam@linux.ibm.com>
+Hi Uwe,
+
+Thanks, I'll drop <linux/mod_devicetable.h> here as well in v3.
+
+Best regards,
+Yuugo
