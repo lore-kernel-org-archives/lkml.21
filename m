@@ -1,83 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790874;
-	b=ME1tYnXxrOOCAhstkpaUozC+NhdiFH7Iayyub9/5qIk6GpHBQqltk5m76vmCHiBjyMKS
-	 vnTQoS5ivZLPcsTOZfCN8k3F9HRJ42ZbJ0vErD/FQZW2WeGF0NPQqgELmzhR9WoyrG4Bb
-	 JRJXsQWcNtY27ZKRvyN3ndoRI5rgVexUPOCvPiwUhsKfop3YJTTq13/FsCEEHS+UFEAXL
-	 ++S25nTTn89ZW7Fwcy5NitOAEH9Pyt/J77EQlg1pRsvCzFVmoS/dA0g7fqUsSZnP2BHIy
-	 7gUmg10tWRGkh0y7EnUNDx7wSD0VjUfMVxWQJDZF7k2SvrOKAi7F3NLPVWvi+p2Xu8g==
+	t=1795790885;
+	b=JNaKtl036KbdmbfEZ4d+soyMW25R2vrB4Hi+3FbEZi3HIXfPC7Smxc+lGHLRsw/B7+hE
+	 AxQ2Xk42jQcqP60x5iL40755ZqciaVAzmPRBUcgF3ngjLboLY3LcfB7abZbcxDyYQVWEH
+	 h5YqF15bvCzcBQPfWJn/7l2KcI/lZ8FTt3NrY08EHbAoTaZx7+a53KDrxGhWa6AuuGoC9
+	 ZJTOwqXjWiWyEJ1pLfPIOROQSBb5S7S6zxRKVMGClWf0EzO7BbQc4e6EKxdLMnCOx4G7C
+	 /hTnBmFjBtosOGnezkFKmOcb66IkiSbbGYQNP0lnbTVmIZgHHJAcEOL/m0TTn0Ciu7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790874;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:Cc:In-Reply-To:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:X-Mailer:Thread-Index:
-	 Content-Language:X-CMS-MailID:X-Msg-Generator:Content-Type:CMS-TYPE:
-	 X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:References;
-	bh=LigbDYHgFUyhETTkgekQg93P9iKK9kMEZK/QoESy0XE=;
-	b=AHWIpJTreZFk3r+6sSls/kT4fuA+frRozDQjBC4j+xrc1rNN97iGC4D/Bdk3oo/UZG+o
-	 H9z4VrEdnU4nzOMTp9OoYRk8Ha3gWSUstOLhPyjlrFv1wJwa/0Lv1p/wW2zZjAoL66t7E
-	 EieT3Kn8fdLsMLT2/4G0Mr0Yf2Vh+qXJ3ezbIci4pRmcIDkOvkbXpMFSmGMeW9YwPuNhM
-	 K58Kq5oVnwHZCdL2IqskIYdD4NU3bWxmJxTej4q3DPY4EDOUTNtqcl/miOad21kcylv1Y
-	 hTuIXV8h9XgZ29aFAwJen3i6PdwHbGM7tVpM6tlgpv2Glsc26MBwa6RdkjkcbJzLnmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790885;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=2HEQDA4gVt20dFQGz8DujoonrchvVQJDi8wajEEgsZo=;
+	b=prNaNHGkrj4cdh4/v05wqdpxWpQTmvSarLm3nz9kp3Y6lKBAfi75/Tv6w3M2sA7gIHTW
+	 PvJR+3VeM8BC+LBRuc35tnHtldejw+Pm058KkLL3R4HRPh6czapyQgXebtHlhF1Avqhxr
+	 2e8lTEgaCYkE8jyAbl97iRTq7Fj0uSlOQSgB3MzvVQpBzRP/PkYCrfqfAmcRjbLju0Rxd
+	 BcPj8alLQvND0zsmC4PckcIcT6fVqq84uj9URKGCClpVr5j7/8cDPwG5zzU+2i9E0wiyD
+	 ha7cv+9+sYtO/VjAqTUmiuwvs5/Y+0wnj1RIDhwJfVSykAfJCsVnq8RGKb5S1sxiSfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=sIbjzqZ6;
-	arc=none smtp.remote-ip=203.254.224.33
-Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=EnTsigEW;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A03606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:47:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98A03606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7D01606A31E;
+	Fri, 27 Nov 2026 14:48:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7D01606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=sIbjzqZ6
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261127144750epoutp0312c31acc939dc49c81949de82e912114~r7khK8ArS2104221042epoutp03Y
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:47:50 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261127144750epoutp0312c31acc939dc49c81949de82e912114~r7khK8ArS2104221042epoutp03Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795790870;
-	bh=LigbDYHgFUyhETTkgekQg93P9iKK9kMEZK/QoESy0XE=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=sIbjzqZ641dRkba/PO0L2PZ/V2F+oqYTeIritnuJjc/vA9WhmIQjSJp3l60NRP5tQ
-	 lv3vpu2MBtWR9tyz+7YyytgzzNwodVWAiZOGwirlprkZoWqyaARQqcFclSbHW5wU/Q
-	 OPq/FJ/cvYwDi/yJfwmvMz+Ea3e8MG+YVt4KenJQ=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20261127144749epcas5p49e7591462797aaed3ad3aebe6d3ce918~r7kfprcBC2671426714epcas5p4v;
-	Fri, 27 Nov 2026 14:47:49 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4jbbqm2VM4z6B9m5; Fri, 27 Nov
-	2026 14:47:48 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20261127144747epcas5p3ea5291d4421b9dd1c7b5bd9f689d7639~r7kd9qO0n2159821598epcas5p3p;
-	Fri, 27 Nov 2026 14:47:47 +0000 (GMT)
-Received: from SRIBCU13LG9P71 (unknown [107.108.208.92]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127144743epsmtip11a938de5238cc75244ef9229b378d8a2~r7kaaIVkO2293022930epsmtip1S;
-	Fri, 27 Nov 2026 14:47:43 +0000 (GMT)
-From: "Irlanki Sandeep" <irlanki.s@samsung.com>
-To: "'Kuniyuki Iwashima'" <kuniyu@google.com>, <ameryhung@gmail.com>
-Cc: <netdev@vger.kernel.org>, <bpf@vger.kernel.org>, <kuba@kernel.org>,
-	<cpgs@samsung.com>, <edumazet@google.com>, <davem@davemloft.net>,
-	<pabeni@redhat.com>, <ncardwell@google.com>, <ast@kernel.org>,
-	<alexei.starovoitov@gmail.com>, <ameryhung@gmail.com>,
-	<daniel@iogearbox.net>, <andrii@kernel.org>, <corbet@lwn.net>,
-	<linux-kernel@vger.kernel.org>, <lorenzo@google.com>, <maze@google.com>,
-	<sporeba@google.com>, <motomuman@google.com>, <madhan.raj@samsung.com>,
-	<srihari.k@samsung.com>, <g.pokhra@samsung.com>, <r.kumawat@samsung.com>,
-	<raj.kumars@samsung.com>, <ts413.lee@samsung.com>,
-	<ramyashree.s@samsung.com>, <daeil2.hwang@samsung.com>,
-	<sharmasagarika@google.com>, <irlanki.s@samsung.com>
-In-Reply-To: <av8pip2n63ZBofcE@google.com>
-Subject: RE: [PATCH bpf-next v9] bpf: tcp: add ecn_init callback to
- bpf_tcp_ops for per-connection ECN
-Date: Fri, 27 Nov 2026 20:17:42 +0530
-Message-ID: <000001dd7e7e$448c3000$cda49000$@samsung.com>
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=EnTsigEW
+Received: from ideasonboard.com (unknown [93.65.100.155])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 74CC8C51;
+	Fri, 27 Nov 2026 15:45:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795790727;
+	bh=yWOhzqyWbQUYFV44H2oX7BtFxg7r1XPxlIFKOBjLIYI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EnTsigEWY2Z2zGQwEqem1lxzRh8RyfH7Zrawl5oIjoZUqtKWGkxcQ454Y9BnrwUIK
+	 r5DOwvCjBSuKoC31ZLFnwkdU0iYY5Xob56jLieyOYjHLpU4VfNe+xpny3w/sgTw7AV
+	 JZslZXduq2a6diLQ31/axVCGPJQ/WOLdQcOFvvtA=
+Date: Fri, 27 Nov 2026 15:47:59 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Hans Verkuil <hverkuil+cisco@kernel.org>
+Cc: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, 
+	Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, linux-media@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] media: rcar-vin: Return unused buffers correctly
+Message-ID: <awmU8zyMfRN9teIr@zed>
+References: <20261121-vin-fix-vb2-v2-1-602a3d876853@ragnatech.se>
+ <e44f2383-0a7b-411c-ba42-5f19156d2a08@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,84 +64,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQLz+NqzmYpujPtDh8x08WfmcH857AK2nUVDAsdHS6ECyy+hMbTSuHvQ
-Content-Language: en-in
-X-CMS-MailID: 20261127144747epcas5p3ea5291d4421b9dd1c7b5bd9f689d7639
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-065,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261116151200epcas5p4218c26338b3e9580a9e232be400aecc5
-References: <DM6GLQVDXGWL.1ZV7PCL5B2B0K@gmail.com>
-	<CGME20261116151200epcas5p4218c26338b3e9580a9e232be400aecc5@epcas5p4.samsung.com>
-	<20261116151331.500313-1-irlanki.s@samsung.com>
-	<av8pip2n63ZBofcE@google.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e44f2383-0a7b-411c-ba42-5f19156d2a08@kernel.org>
 
-Hi Kuniyuki,
+Hi Hans
+   thanks for checking
 
-Thanks for the review. v10 is posted as 0/2, 1/2 and 2/2.
-
-> Why can't ip-rule (or VRF) be used with a per-route attribute ?
-
-Routes and rules select traffic by destination, interface, mark, uid
-range, protocol and port, not by cgroup or application. A uid or mark
-rule can separate apps, but the existing per-route ECN bit
-(RTAX_FEATURE_ECN) only force-enables classic ECN, so selecting AccECN
-would need a new route feature. VRF separates traffic by routing table
-and interface, not by application on the same route.
-
-> Also, a route attribute would work with syncookie.
-
-Correct. Syncookie connections do not run the callback, so with this
-series they use the sysctl; the route bit still applies via
-cookie_ecn_ok(). ip-sysctl.rst documents this. An automated review of
-v10 pointed out that the commit message is wrong about syncookies. It
-says no request_sock is created, but a request_sock is allocated; it just
-has no listener, so sk_to_full_sk() returns NULL and the program is
-skipped. v11 will fix the commit message and add a comment at the call
-site. I consider the fallback acceptable, since syncookies only come into
-play under load. If you think the per-connection policy should also cover
-the syncookie path, I'm happy to discuss options.
-
-> This is simple, but one concern would be that we end up adding more
-> single-purpose stateless callbacks during 3WHS, which could be more
-> expensive than stateful solution.
+On Fri, Nov 27, 2026 at 03:17:44PM +0100, Hans Verkuil wrote:
+> On 21/11/2026 12:54, Niklas Söderlund wrote:
+> > Unused VB2 buffers should be returned with state DONE not ERROR when
+> > stopping.
 >
-> For stateful use case w/ per-socket field, rwnd_init() + kfunc would
-> suffice (and we have such a use case).
-
-The cost concern is valid. The callback runs at most once per side per
-handshake, and since v10 on the passive side only for SYNs that request
-ECN.
-
-For the stateful alternative, rwnd_init() + kfunc works on the active
-side, because rwnd_init() runs in tcp_connect_init() before
-tcp_ecn_send_syn(). On the passive side it does not, because
-tcp_ecn_create_request() decides the ECN bits before rwnd_init() runs,
-so a field set there would not affect that SYN-ACK. If your per-socket
-use case is active-side only, rwnd_init() + kfunc is viable for it, and
-we can discuss it as a follow-up.
-
-> nit: reverse xmas tree order
-
-> Please avoid calling it if not needed,
-> !tcp_accecn_syn_requested && !th_ecn
+> Why? With 'unused' I assume you mean buffers that have no data in them, i.e. they
+> have never been used to capture video.
 >
-> also nit: reverse xmas tree
+> So ERROR is correct for that. The state DONE is reserved for buffers that return
+> a valid payload.
+>
+> It's standard behavior to return any unused queued buffers as ERROR when we stop
+> streaming. That prevents userspace from trying to use their contents.
 
-Done in v10. The declarations in tcp_ecn_send_syn() and
-tcp_ecn_create_request() are reordered. tcp_ecn_create_request() now
-returns before calling tcp_ecn_init_bpf() unless the SYN requests AccECN
-or carries ECE+CWR.
+I probably mis-interpreting the:
 
-> Please split selftest into a separate patch.
+ "I/O returns to the same state as after calling ioctl VIDIOC_REQBUFS
+  and can be restarted accordingly."
 
-Done in v10. The selftests are in their own patch (2/2).
+part from
+https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/vidioc-streamon.html
 
-Thanks,
-Sandeep
+(also because I now understand a buffer with FLAGS_ERROR is safe to
+requeue according to
+https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/vidioc-qbuf.html#vidioc-qbuf
 
+ "It is recommended that drivers indicate recoverable errors by setting
+ the V4L2_BUF_FLAG_ERROR and returning 0 instead. In that case the
+ application should be able to safely reuse the buffer and continue
+ streaming."
+
+>
+> Jacopo, I'm dropping this one from your PR.
+
+Fine, thanks for checking the PR!
+
+>
+> Regards,
+>
+> 	Hans
+>
+> >
+> > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> > ---
+> > Changes in v2:
+> > - Link to v1: https://patch.msgid.link/20260828-vin-fix-vb2-v1-1-97eb1f4f75c9@ragnatech.se
+> > ---
+> > * Changes since v1
+> > - Fix unused buffers returned in rvin_stop_streaming() too.
+> > ---
+> >  drivers/media/platform/renesas/rcar-vin/rcar-dma.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
+> > index 5e515d16c164..d3d1af47f8b1 100644
+> > --- a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
+> > +++ b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
+> > @@ -1434,7 +1434,7 @@ void rvin_stop_streaming(struct rvin_dev *vin)
+> >  	for (unsigned int i = 0; i < HW_BUFFER_NUM; i++) {
+> >  		if (vin->buf_hw[i].buffer)
+> >  			vb2_buffer_done(&vin->buf_hw[i].buffer->vb2_buf,
+> > -					VB2_BUF_STATE_ERROR);
+> > +					VB2_BUF_STATE_DONE);
+> >  	}
+> >
+> >  }
+> > @@ -1449,7 +1449,7 @@ static void rvin_stop_streaming_vq(struct vb2_queue *vq)
+> >  	dma_free_coherent(vin->dev, vin->format.sizeimage, vin->scratch,
+> >  			  vin->scratch_phys);
+> >
+> > -	return_unused_buffers(vin, VB2_BUF_STATE_ERROR);
+> > +	return_unused_buffers(vin, VB2_BUF_STATE_DONE);
+> >  }
+> >
+> >  static const struct vb2_ops rvin_qops = {
+> >
+> > ---
+> > base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+> > change-id: 20260828-vin-fix-vb2-28e1bb24a618
+> >
+> > Best regards,
+> > --
+> > Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> >
+> >
+>
