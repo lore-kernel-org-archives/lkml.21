@@ -1,79 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795793331;
-	b=UG7wZSHY0t8u0mEcETb7t18p3l2Ghn2s/kGiO38Ll94VUMvm+qlliM6Kw5wgaPL4bfQa
-	 NsKqZhfinW8TxfyfOWYQgDB35TfL7krG/s8h33YrNk+dh9Pr5FBJ0WJgNafk/R/p5LldV
-	 8N5UHfwDQhf1Q7/at5EiqbyE49pekARsB34a9GHdcMtnAYuK9GgyLmwbNijbVJ6CdqI4x
-	 2FoVyuCvwotpjawc7Mrynvdh0LJonTeMlBAECXQadub7u5d2/C2UzYeVIs+u7ZjGofaWC
-	 CI8bhJgen7RiIQ5j1TTZC8PTsJW4ysDsEhWytCnhRXriHBdKr8spHPB5as3HKeWa1yQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793331;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=374ysFWtVRClnUmPAs3lO/U7P7j8x9D1aB2dlUEw5IQ=;
-	b=duLlEECQvUsrRymafxBK3amrQLpdxleg9xauM754RRIJ4ykLOCaczgp/04pSCZaaI3/8
-	 ZdNb04oHfTeKhRa47fBt8nepRuRf2O5nFa/DRQDsKrKf8sSrEzZpWpm6DX/ZQWcBEn/Oo
-	 TcYM3jfta4KLFUDFPVe203gVZM1t4aJifofhBdRF1eODzaUZjorI6F96FNOdmPdjHV4CG
-	 V49pd6ILz2IkDp76UyzOdLgoBZkNnIjxr6Zjq0y/CTwF7p1Ho/INWkPW/XpNYX0PAhDmh
-	 o4ZswsHQvfbb34WoNXB7yWpymQY0Nf1jxs758A6TXwuX1RZP8Q6fI6lVlXm2WxwWRxA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K3bBrTWB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E52ED60A2626;
-	Fri, 27 Nov 2026 15:28:50 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795793336;
+	b=IPGdkoDXS393mCKpmGlqkxsIrXrHQ70vAnvKTER1ZHuurpgevqJPUFu4iYZ21xBhCAN4
+	 nfz1aDNzvjuoBpDk6yGTeYJGNUJawdPtnfOZvGTGF6N8F+9XvJD9Jg8CnfcPLBDXiRW8m
+	 6mSEt0sg2tBQXNmufuSaOHtGbu51FQ48t3iq2yOnByU9BsSvV6s8fAQuucvxw/fLFeLX/
+	 UfTHQd8FogXrkZxQT5Xwvgk+PzlXpKLEL1QkLmjomm7xqP23Z8uMZqB6OhWm+dF3PmAit
+	 b/JpXPKJJQWGah/6J/xnJboGM/QcLkh9/2CcgRPHKYC2jclOfZMIDPldJQTJs9iOG2w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793336;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=N8r7Otei+XSQJ5qNWiGsPFaP8lhiVxL0XWwhCZpynbE=;
+	b=V8dWbB2BrTJCK+0AADeDKI3kzU5FhZm+1B61bZ/PEod21t14n7a+nzICUndjnlbKBG1D
+	 9PsfOgXw+mihlaPvJwh+VeWDS/8NJGBClg17Vt7ahJH/2/JYQByWG9uwQK+Tc6XLtQ6+G
+	 FuVDDrCOuSZq/5IzvBh9yqHoEcEF7CqquhTm9uxzq7DTHV51TE3Ey8Ln7HFOWXBwfW5j7
+	 P3y5CmMcqqJs57Rmow3N5+kKf7Qpy3pCa12zcS0fFYdf70k6Hb1KxHAI02OqswoAGNpIG
+	 wD1T0BS2l5BuRqTnt/QXHGEdgfB6TBUvktiXR0nk/PcxJtNB/NjVKZqDG1Fje9foZ5A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=SjjeWAMt;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id BA84160A380C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:28:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA84160A380C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K3bBrTWB
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795793330;
-	b=AmgYiPDlCg/SgIMBXMty5/Is7A5k0ADRysqaOncauqMH8RfKD2AcPPttOFpWMsu5pOiN
-	 y6o1KjCf/2YCX5dL5ufmBztde411BgS9WfPvg+l857Dhto6YWb6kAqihHQPpeW37Y8yj8
-	 ZK+ogTxMbXbRsbnqQat/oD5CPMqEnLrfRnE8XQ5Jra6IFQ7kqMJ+OxYLLtYFy8ACJqzgy
-	 l9XE+MCq1N0OJFfs+S6GB8Md275Ihw+px6fXGXVvi6XA7Y/S48sJDKFNDExcTOVC3yZPG
-	 doJAv+i4c2DuFCF+D21dA/Jpy6TagYQd4UNpBz/0a4LDd4LLPOsawcHXJn29hR41jRQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795793330;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=374ysFWtVRClnUmPAs3lO/U7P7j8x9D1aB2dlUEw5IQ=;
-	b=tp3je8Pzcb36iHYRJboUGR+NS8TdWZnRYPqm4Wg7K4dfpaWjqmcT38sY6+hls7CjG2Qw
-	 ofGSMObd5PHbpfUr81jq2w5DUP9rIwhriDyEkgeiG5sgilAiTk3u10ICPmG6HaDGUFNDC
-	 DEApEHHyfdPD0zh3TfQFTnkN/YpZa5tsBkfhfWm2tCKNGEL4WPfgZpXZxn5a5P0cR8V0b
-	 N4T+SvR5FfNdh76O0+VyjgHX1zgHT44Py6cCDSAoWQNigWNnUBc4/3TeV/W7nlzmxJhZA
-	 lKTW5QJMqRK0voanhavuVHfG+jS+bowT9P8k9huA9v9rkbVkBO7tPl8bS8c8RG2uhMQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6FB9D1F00923;
-	Fri, 27 Nov 2026 15:28:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793330;
-	bh=374ysFWtVRClnUmPAs3lO/U7P7j8x9D1aB2dlUEw5IQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=K3bBrTWBZJIczWteXDvzP/z5v2kh9dlyqdwxLIt4x5oRTWL6jm1yzcH4z3s8oYb3J
-	 Zic6kvio5v23XP0DP9Am7Sp+OcL1EUJWjD1MpB7A5qT3UWYJOE+kxAtY0Iqxbe2hpb
-	 hua4J7kP7zBvRRVibvV0gHCpfpn38NVy21RVFZBslC4ozN/2O78lAHMSyq81CdyxSl
-	 9LTIxen7C149x/gJTp7V0WuZsnv7PMQgtz7dBw9SC94RH4+Nvg2UQVCwA234YvLfUA
-	 VZCeN4EgBjRvVEZGYapESJjIMuZAZHUImrG7uEE+PyVSSqPjRdZ4D1OSWLr1YyVEXK
-	 NEqdL4kgNvQfw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7663A4DC80;
-	Fri, 27 Nov 2026 15:28:29 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Fri, 27 Nov 2026 16:27:06 +0100
-Subject: [PATCH v5 05/12] phy: amlogic: meson-hdmi-tx: Add GXBB, GXL, GXM
- and G12A support
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=SjjeWAMt
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F73C1E8D;
+	Fri, 27 Nov 2026 07:28:52 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E50A3F632;
+	Fri, 27 Nov 2026 07:28:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795793334; bh=/J/nROVIoZfoB1kVaPX0p0IurFF2MGHYOgFXul0PDkE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=SjjeWAMtp20zvUXg+ogHMN48NpR5QpTddtKSBt9GdLAe/1Xcizztwq4rWfpfrgpTi
+	 IpaxNy8bkLQgh8Z/mx9UEvtvZMye/mij4trOgS4hstyejOwzkdjMnufkl4pS7EZzPt
+	 Ij6bYEJSbijZ6/5cT67xT45dYYAxwyj/5iSRbu68=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+Date: Fri, 27 Nov 2026 15:28:36 +0000
+Subject: [PATCH RFC v2 6/6] selftest: attestation: add
+ firme_attestation_test selftest
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,535 +57,327 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-meson-drm-create-hdmitx-phy-v5-5-88c43eb95468@aliel.fr>
-References: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
-In-Reply-To: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Ulf Hansson <ulfh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=16124;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=NTBs97DfwG0vi9rOD5s28+413MIcEak0TE0xF2PdIi0=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbnwn4O/Umn15S81tm86OvJwMS7rw4+mfjt1eZ/EtO7m
- J73Pv1+uaOUhUGMi0FWTJGlf67liXeXj575ukc9BWYOKxPIEAYuTgGYSO1mRoZjHsLyOe8+Mge9
- MN6wfOm+6Yuu2b7iL7wv5TBt25MF9077MDL8mC16cYa18vnXXp3MSzfsW35w5m9BPr55P/lneYr
- 8PGDLDwA=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Reply-To: linux-kernel-dev@aliel.fr
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-firme_interface-v2-6-ab88b2d0b4e0@arm.com>
+References: <20261127-firme_interface-v2-0-ab88b2d0b4e0@arm.com>
+In-Reply-To: <20261127-firme_interface-v2-0-ab88b2d0b4e0@arm.com>
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki Poulose <suzuki.poulose@arm.com>, 
+ Steven Price <steven.price@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jiri Pirko <jiri@resnulli.us>, 
+ GONG Ruiqi <gongruiqi1@huawei.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ Mark Brown <broonie@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9210; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=/J/nROVIoZfoB1kVaPX0p0IurFF2MGHYOgFXul0PDkE=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBrCaGpLeJqr102GJNW8A2fQ89QeQhR9OEC9d1DG
+ nmVSNkqCKeJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCawmhqQAKCRBt1cPRWsUx
+ M0ktDADHeqR92777tLtYurePe/KD3Jsn/dV6dtVAi9x1oX/EHilUgdp83LTDBhaOd9gI9ZlOof8
+ sz9wl3Gx3LEGIz3Wu/WCLtC2JxRDuw+0LhMHhTi8QvCGclzoAMurlDcDTgBA2rnpP0cDVYnT4Hi
+ lTrMTX3fGgQVy1OvoB4uBiZXjf+idXQ+vKFku1kirgzkzAg+0ora9O/u3c7DmWblwnC00HTBjA+
+ sfGRNGx2wNsskCFLLInyQOsKTpOqzpvsHXpNM7Ptj6kbLTwmI63O7sv1itFtM8B97dRcdv3terV
+ O+FaVFcAkwu5S5oOGf7PYuVPquPgulPVM/vu0Xmm46T//Acm07HoK8QYVlesUuUVTFj9cYIJnvC
+ XiXjUeH/F6kpQ7Yr+hrqKigICkk2sUSvKqBGU6WHIzLYBAyt4eRPW8vZXtbanx1EQmQeq81v3Wl
+ aMvVKm/bYUXzQ6hoFIKhg3I6aa1MVa97ymUZU6n2axd0WPB1z/2Mzb3d9MHxkJU0oXH9g=
+X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
+ fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Add firme attestation selftest to test evidence-get interface
+for getting platform attestation token.
 
-Extend the Meson8 HDMI TX PHY driver  for the HDMI TX PHY found on
-Amlogic GXBB, GXL, GXM and G12A SoCs. The PHY is controlled through
-the HHI_HDMI_PHY_CNTL0..5 registers of the same HHI system controller,
-but differ in the analog settings, in the CNTL1 enable bits
-(FIFO enable and FIFO write enable on GXBB and newer) and in the
-presence of CNTL3 to CNTL5. The PHY node is a child of the HHI syscon,
-so the regmap is still obtained from the parent syscon.
-
-To support this, move the Meson8 hardcoded values into per-SoC match
-data (register init values, rate table and maximum TMDS character
-rate). The TMDS clock is now only requested on Meson8, the only SoC
-where it is needed.
-
-The driver now implements the generic PHY HDMI configuration options:
-.validate() accepts only 8 bpc and a TMDS character rate covered by
-the per-SoC table, .configure() programs the analog settings matching
-that rate, and .power_on()/.power_off() handle the reset sequence and
-the return to the initial state. The Meson8 behaviour is preserved,
-except that the analog settings are now programmed from .configure()
-instead of .power_on(), and that the reset sequence uses
-read-modify-write updates of the CNTL1 enable bits.
-
-The per-SoC register values and rate thresholds for GXBB and newer are
-taken from the existing HDMI TX code in meson_dw_hdmi.c, so that the
-PHY handling can be moved out of the display driver.
-
-For DTs that do not provide a "phys" property on the HDMI TX node,
-export meson_hdmi_phy_create_legacy() so that the display driver can
-still create the PHY itself. It is marked as deprecated and will be
-removed together with the fallback in meson_dw_hdmi.c.
-
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- drivers/phy/amlogic/phy-meson-hdmi-tx.c | 341 ++++++++++++++++++++++++++------
- include/linux/phy/phy-meson-hdmi-tx.h   |  19 ++
- 2 files changed, 305 insertions(+), 55 deletions(-)
+ tools/testing/selftests/attestation/.gitignore     |   1 +
+ tools/testing/selftests/attestation/Makefile       |  10 +-
+ .../selftests/attestation/firme_attestation_test.c | 232 +++++++++++++++++++++
+ 3 files changed, 241 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/phy/amlogic/phy-meson-hdmi-tx.c b/drivers/phy/amlogic/phy-meson-hdmi-tx.c
-index e4e606ab4eef..158b13e26a55 100644
---- a/drivers/phy/amlogic/phy-meson-hdmi-tx.c
-+++ b/drivers/phy/amlogic/phy-meson-hdmi-tx.c
-@@ -1,18 +1,27 @@
- // SPDX-License-Identifier: GPL-2.0+
- /*
-  * Amlogic Meson HDMI TX PHY driver
-- * (Meson8/8b/8m2)
-+ * (Meson8/8b/8m2, GXBB / GXL / GXM / G12A)
-  *
-  * Copyright (C) 2021 Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-+ * Copyright (C) 2026 Ronald Claveau <linux-kernel-dev@aliel.fr>
-+ *
-+ * GXBB+ support Based on meson_dw_hdmi.c:
-+ * Copyright (C) 2016 BayLibre, SAS
-+ * Author: Neil Armstrong <narmstrong@baylibre.com>
-+ * Copyright (C) 2015 Amlogic, Inc. All rights reserved.
-  */
+diff --git a/tools/testing/selftests/attestation/.gitignore b/tools/testing/selftests/attestation/.gitignore
+index 8f2cf420b7c19..e10d0c9e4723c 100644
+--- a/tools/testing/selftests/attestation/.gitignore
++++ b/tools/testing/selftests/attestation/.gitignore
+@@ -2,3 +2,4 @@
+ attestation_test
+ ima_attestation_test
+ tdx_attestation_test
++firme_attestation_test
+diff --git a/tools/testing/selftests/attestation/Makefile b/tools/testing/selftests/attestation/Makefile
+index eb35544afef6f..d4875652b4a14 100644
+--- a/tools/testing/selftests/attestation/Makefile
++++ b/tools/testing/selftests/attestation/Makefile
+@@ -3,12 +3,14 @@ CFLAGS += -Wall -O2 $(KHDR_INCLUDES)
+ CFLAGS += -I../../../ctlv/libctlv
+ LDLIBS += -lpthread
  
- #include <linux/bitfield.h>
- #include <linux/bits.h>
- #include <linux/clk.h>
-+#include <linux/delay.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/phy/phy.h>
-+#include <linux/phy/phy-hdmi.h>
-+#include <linux/phy/phy-meson-hdmi-tx.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
+-TEST_GEN_PROGS := attestation_test ima_attestation_test tdx_attestation_test
++TEST_GEN_PROGS := attestation_test ima_attestation_test tdx_attestation_test \
++		  firme_attestation_test
  
-@@ -22,26 +31,167 @@
-  * Magic register values in the driver below are taken from the vendor
-  * BSP / kernel.
-  */
--#define HHI_HDMI_PHY_CNTL0				0x3a0
--	#define HHI_HDMI_PHY_CNTL0_HDMI_CTL1		GENMASK(31, 16)
--	#define HHI_HDMI_PHY_CNTL0_HDMI_CTL0		GENMASK(15, 0)
--
--#define HHI_HDMI_PHY_CNTL1				0x3a4
--	#define HHI_HDMI_PHY_CNTL1_CLOCK_ENABLE		BIT(1)
--	#define HHI_HDMI_PHY_CNTL1_SOFT_RESET		BIT(0)
-+#define HHI_HDMI_PHY_CNTL0	0x3a0 /* 0xe8 */
-+#define HHI_HDMI_PHY_CNTL1	0x3a4 /* 0xe9 */
-+#define  PHY_CNTL1_INIT		0x03900000
-+#define  PHY_INVERT		BIT(17)
-+#define  PHY_CNTL1_SOFT_RESET	BIT(0)
-+#define  PHY_CNTL1_CLOCK_EN	BIT(1)
-+#define  PHY_CNTL1_FIFO_EN	BIT(2)	/* GXBB and newer */
-+#define  PHY_CNTL1_FIFO_WR_EN	BIT(3)	/* GXBB and newer */
-+
-+#define HHI_HDMI_PHY_CNTL2	0x3a8 /* 0xea */
-+#define HHI_HDMI_PHY_CNTL3	0x3ac /* 0xeb, GXBB and newer */
-+#define HHI_HDMI_PHY_CNTL4	0x3b0 /* 0xec */
-+#define HHI_HDMI_PHY_CNTL5	0x3b4 /* 0xed, G12A */
-+
-+/* The code resets the PHY 3 times in a row */
-+#define PHY_RESET_COUNT		3
-+
-+struct meson_hdmi_phy_rate {
-+	unsigned int min_rate;	/* TMDS character rate, in Hz */
-+	u32 cntl0;
-+	u32 cntl3;		/* only used if has_cntl3 */
-+	u32 cntl5;		/* only used if has_cntl5 */
-+};
+ LIBCTLV_DIR := ../../../ctlv/libctlv
+ BINDINGS := ctlv_attestation_user_gen.c \
+ 	    ctlv_attestation_sim_user_gen.c \
+-	    ctlv_attestation_tdx_user_gen.c
++	    ctlv_attestation_tdx_user_gen.c \
++	    ctlv_attestation_firme_user_gen.c
  
--#define HHI_HDMI_PHY_CNTL2				0x3a8
-+struct meson_hdmi_phy_data {
-+	const struct meson_hdmi_phy_rate *rates;
-+	unsigned int num_rates;
-+	unsigned int max_rate;	/* Hz, TMDS character rate maximum */
-+	bool has_tmds_clk;	/* Meson8 only */
-+	bool has_cntl3;
-+	bool has_cntl5;
-+	u32 cntl0_init;
-+	u32 cntl1_init;
-+	u32 cntl1_en;		/* CNTL1 enable bits (clock, fifo, ...) */
-+};
+ EXTRA_CLEAN = $(OUTPUT)/libctlv
  
- struct meson_hdmi_phy {
--	struct regmap		*hhi;
--	struct clk		*tmds_clk;
-+	struct regmap *hhi;
-+	struct clk *tmds_clk;	/* optional, Meson8 only */
-+	const struct meson_hdmi_phy_data *data;
-+};
-+
-+/* Meson8, Meson8b, Meson8m2 */
-+static const struct meson_hdmi_phy_rate meson8_rates[] = {
-+	/* 2.97Gbps */
-+	{ 297000000, 0x08c31e8b },
-+	/* below 2.97Gbps, down to 250Mbps */
-+	{ 25000000,  0x08c34d0b },
-+};
-+
-+/* GXBB */
-+static const struct meson_hdmi_phy_rate gxbb_rates[] = {
-+	/* 5.94Gbps, 3.7125Gbps */
-+	{ 371250000, 0x33353245, 0x2100115b },
-+	/* 2.97Gbps */
-+	{ 297000000, 0x33634283, 0xb000115b },
-+	/* 1.485Gbps, down to 159Mbps */
-+	{ 15900000,  0x33632122, 0x2000115b },
-+};
-+
-+/* GXL / GXM */
-+static const struct meson_hdmi_phy_rate gxl_rates[] = {
-+	/* 5.94Gbps, 3.7125Gbps */
-+	{ 371250000, 0x333d3282, 0x2136315b },
-+	/* 2.97Gbps */
-+	{ 297000000, 0x33303382, 0x2036315b },
-+	/* 1.485Gbps */
-+	{ 148500000, 0x33303362, 0x2016315b },
-+	/* 742.5Mbps, down to 159Mbps */
-+	{ 15900000,  0x33604142, 0x0016315b },
-+};
-+
-+/* G12A */
-+static const struct meson_hdmi_phy_rate g12a_rates[] = {
-+	/* 5.94Gbps, 3.7125Gbps */
-+	{ 371250000, 0x37eb65c4, 0x2ab0ff3b, 0x0000080b },
-+	/* 2.97Gbps */
-+	{ 297000000, 0x33eb6262, 0x2ab0ff3b, 0x00000003 },
-+	/* 1.485Gbps, down to 159Mbps */
-+	{ 15900000,  0x33eb4242, 0x2ab0ff3b, 0x00000003 },
-+};
-+
-+static const struct meson_hdmi_phy_data meson8_data = {
-+	.rates = meson8_rates,
-+	.num_rates = ARRAY_SIZE(meson8_rates),
-+	.max_rate = 297000000, /* HDMI 1.4b limited to 4k@30 */
-+	.has_tmds_clk = true,
-+	.cntl0_init = 0x08418d00,
-+	.cntl1_init = 0x0,
-+	.cntl1_en = PHY_CNTL1_CLOCK_EN,
-+};
-+
-+static const struct meson_hdmi_phy_data gxbb_data = {
-+	.rates = gxbb_rates,
-+	.num_rates = ARRAY_SIZE(gxbb_rates),
-+	.max_rate  = 600000000, /* HDMI 2.0 */
-+	.has_cntl3 = true,
-+	.cntl0_init = 0x0,
-+	.cntl1_init = PHY_CNTL1_INIT | PHY_INVERT,
-+	.cntl1_en = PHY_CNTL1_CLOCK_EN | PHY_CNTL1_FIFO_EN |
-+		    PHY_CNTL1_FIFO_WR_EN,
-+};
-+
-+static const struct meson_hdmi_phy_data gxl_data = {
-+	.rates = gxl_rates,
-+	.num_rates = ARRAY_SIZE(gxl_rates),
-+	.max_rate  = 600000000, /* HDMI 2.0 */
-+	.has_cntl3 = true,
-+	.cntl0_init = 0x0,
-+	.cntl1_init = PHY_CNTL1_INIT,
-+	.cntl1_en = PHY_CNTL1_CLOCK_EN | PHY_CNTL1_FIFO_EN |
-+		    PHY_CNTL1_FIFO_WR_EN,
-+};
-+
-+static const struct meson_hdmi_phy_data g12a_data = {
-+	.rates = g12a_rates,
-+	.num_rates = ARRAY_SIZE(g12a_rates),
-+	.max_rate  = 600000000, /* HDMI 2.0 */
-+	.has_cntl3 = true,
-+	.has_cntl5 = true,
-+	.cntl0_init = 0x000b4242, /* Bandgap */
-+	.cntl1_init = PHY_CNTL1_INIT,
-+	.cntl1_en = PHY_CNTL1_CLOCK_EN | PHY_CNTL1_FIFO_EN |
-+		    PHY_CNTL1_FIFO_WR_EN,
- };
+@@ -25,6 +27,9 @@ $(OUTPUT)/ima_attestation_test: ima_attestation_test.c $(BINDINGS) $(LIBCTLV)
+ $(OUTPUT)/tdx_attestation_test: tdx_attestation_test.c $(BINDINGS) $(LIBCTLV)
+ 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ $(LDLIBS) -o $@
  
-+static const struct meson_hdmi_phy_rate *
-+meson_hdmi_phy_find_rate(const struct meson_hdmi_phy_data *data, u64 rate)
++$(OUTPUT)/firme_attestation_test: firme_attestation_test.c $(BINDINGS) $(LIBCTLV)
++	$(CC) $(CFLAGS) $(CPPFLAGS) $^ $(LDLIBS) -o $@
++
+ $(LIBCTLV): FORCE
+ 	$(Q)mkdir -p $(OUTPUT)/libctlv
+ 	$(Q)$(MAKE) -C $(LIBCTLV_DIR) CC="$(CC)" OUTPUT=$(OUTPUT)/libctlv/ \
+@@ -33,3 +38,4 @@ $(LIBCTLV): FORCE
+ FORCE:
+ 
+ .PHONY: FORCE
++
+diff --git a/tools/testing/selftests/attestation/firme_attestation_test.c b/tools/testing/selftests/attestation/firme_attestation_test.c
+new file mode 100644
+index 0000000000000..3a893466dbe56
+--- /dev/null
++++ b/tools/testing/selftests/attestation/firme_attestation_test.c
+@@ -0,0 +1,232 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <errno.h>
++#include <fcntl.h>
++#include <stdbool.h>
++#include <stdlib.h>
++#include <string.h>
++
++#include <linux/bits.h>
++#include <linux/hash_info.h>
++
++#include "../kselftest_harness.h"
++#include "ctlv_attestation_firme_user_gen.h"
++
++static const char *error_text(const struct ctlv_error *error)
 +{
-+	unsigned int i;
++	static char text[512];
 +
-+	if (rate > data->max_rate)
-+		return NULL;
-+
-+	for (i = 0; i < data->num_rates; i++)
-+		if (rate >= data->rates[i].min_rate)
-+			return &data->rates[i];
-+
-+	return NULL;
++	return ctlv_error_str(error, text, sizeof(text));
 +}
 +
-+/* Fallback to init mode: CNTL1 first, then CNTL0 (order matters) */
-+static void meson_hdmi_phy_set_init_state(struct meson_hdmi_phy *priv)
++static void dump_pat(const void *pat, __u64 pat_size)
 +{
-+	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL1, priv->data->cntl1_init);
-+	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL0, priv->data->cntl0_init);
++	__u64 i;
++
++	if (!TH_LOG_ENABLED)
++		return;
++
++	fprintf(TH_LOG_STREAM, "FIRME PAT:\n");
++	for (i = 0; i < pat_size; i++) {
++		if (!(i % 16)) {
++			if (i)
++				fprintf(TH_LOG_STREAM, "\n");
++			fprintf(TH_LOG_STREAM, "\t");
++		}
++		fprintf(TH_LOG_STREAM, "%02x ", ((uint8_t *)(pat))[i]);
++	}
++	fprintf(TH_LOG_STREAM, "\n");
 +}
 +
- static int meson_hdmi_phy_init(struct phy *phy)
- {
- 	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
++static int firme_evidence_get(struct ctlv_dev *dev, __u64 id,
++			    const unsigned char *challenge, size_t challenge_length,
++			    void *output, size_t output_length,
++			    struct ctlv_reply **reply, struct ctlv_error *error)
++{
++	struct ctlv_msg *request;
 +	int ret;
- 
--	return clk_prepare_enable(priv->tmds_clk);
-+	/* No-op if there is no clock (GXBB and newer) */
-+	ret = clk_prepare_enable(priv->tmds_clk);
++
++	ret = ctlv_attestation_evidence_get_request_new(&request);
 +	if (ret)
 +		return ret;
++	ctlv_attestation_evidence_get_challenge_put(request, challenge,
++						    challenge_length);
 +
-+	meson_hdmi_phy_set_init_state(priv);
++	ctlv_attestation_evidence_get_objects_start(request);
++	ctlv_attestation_evidence_get_objects_id_put(request, id);
++	ctlv_attestation_evidence_get_objects_data_put_va(request, output, output_length);
++	ctlv_record_end(request);
 +
-+	return 0;
- }
- 
- static int meson_hdmi_phy_exit(struct phy *phy)
-@@ -53,33 +203,64 @@ static int meson_hdmi_phy_exit(struct phy *phy)
- 	return 0;
- }
- 
--static int meson_hdmi_phy_power_on(struct phy *phy)
-+static int meson_hdmi_phy_configure(struct phy *phy,
-+				    union phy_configure_opts *opts)
- {
- 	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
--	unsigned int i;
--	u16 hdmi_ctl0;
-+	const struct meson_hdmi_phy_rate *r;
-+
-+	r = meson_hdmi_phy_find_rate(priv->data, opts->hdmi.tmds_char_rate);
-+	if (!r)
-+		return -EINVAL;
-+
-+	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL0, r->cntl0);
-+	if (priv->data->has_cntl3)
-+		regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL3, r->cntl3);
-+	if (priv->data->has_cntl5)
-+		regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL5, r->cntl5);
-+
-+	/* Disable clock, (and fifo, fifo_wr where present), release reset */
-+	regmap_update_bits(priv->hhi, HHI_HDMI_PHY_CNTL1,
-+			   priv->data->cntl1_en | PHY_CNTL1_SOFT_RESET, 0);
- 
--	if (clk_get_rate(priv->tmds_clk) >= 2970UL * 1000 * 1000)
--		hdmi_ctl0 = 0x1e8b;
--	else
--		hdmi_ctl0 = 0x4d0b;
-+	return 0;
++	ret = ctlv_msg_err(request);
++	if (!ret)
++		ret = ctlv_attestation_evidence_get(dev, request, reply, error);
++	ctlv_msg_free(request);
++	return ret;
 +}
 +
-+static int meson_hdmi_phy_validate(struct phy *phy, enum phy_mode mode,
-+				   int submode, union phy_configure_opts *opts)
++FIXTURE(firme_attestation)
 +{
-+	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
- 
--	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL0,
--		     FIELD_PREP(HHI_HDMI_PHY_CNTL0_HDMI_CTL1, 0x08c3) |
--		     FIELD_PREP(HHI_HDMI_PHY_CNTL0_HDMI_CTL0, hdmi_ctl0));
-+	if (mode != PHY_MODE_HDMI || submode != PHY_HDMI_MODE_TMDS)
-+		return -EINVAL;
- 
--	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL1, 0x0);
-+	if (opts->hdmi.bpc != 8)
-+		return -EINVAL;
- 
--	/* Reset three times, just like the vendor driver does */
--	for (i = 0; i < 3; i++) {
--		regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL1,
--			     HHI_HDMI_PHY_CNTL1_CLOCK_ENABLE |
--			     HHI_HDMI_PHY_CNTL1_SOFT_RESET);
--		usleep_range(1000, 2000);
-+	if (!meson_hdmi_phy_find_rate(priv->data, opts->hdmi.tmds_char_rate))
-+		return -EINVAL;
-+
-+	return 0;
-+}
- 
--		regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL1,
--			     HHI_HDMI_PHY_CNTL1_CLOCK_ENABLE);
--		usleep_range(1000, 2000);
-+static int meson_hdmi_phy_power_on(struct phy *phy)
-+{
-+	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
-+	u32 en = priv->data->cntl1_en;
-+	u32 mask = en | PHY_CNTL1_SOFT_RESET;
-+	int i;
-+
-+	/* Reset PHY 3 times in a row */
-+	for (i = 0; i < PHY_RESET_COUNT; i++) {
-+		/* Enable and software reset */
-+		regmap_update_bits(priv->hhi, HHI_HDMI_PHY_CNTL1,
-+				   mask, mask);
-+		fsleep(2000);
-+
-+		/* Enable and unreset */
-+		regmap_update_bits(priv->hhi, HHI_HDMI_PHY_CNTL1,
-+				   mask, en);
-+		fsleep(2000);
- 	}
- 
- 	return 0;
-@@ -89,9 +270,7 @@ static int meson_hdmi_phy_power_off(struct phy *phy)
- {
- 	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
- 
--	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL0,
--		     FIELD_PREP(HHI_HDMI_PHY_CNTL0_HDMI_CTL1, 0x0841) |
--		     FIELD_PREP(HHI_HDMI_PHY_CNTL0_HDMI_CTL0, 0x8d00));
-+	meson_hdmi_phy_set_init_state(priv);
- 
- 	return 0;
- }
-@@ -99,41 +278,90 @@ static int meson_hdmi_phy_power_off(struct phy *phy)
- static const struct phy_ops meson_hdmi_phy_ops = {
- 	.init		= meson_hdmi_phy_init,
- 	.exit		= meson_hdmi_phy_exit,
-+	.configure	= meson_hdmi_phy_configure,
-+	.validate	= meson_hdmi_phy_validate,
- 	.power_on	= meson_hdmi_phy_power_on,
- 	.power_off	= meson_hdmi_phy_power_off,
- 	.owner		= THIS_MODULE,
- };
- 
--static int meson_hdmi_phy_probe(struct platform_device *pdev)
-+static struct phy *meson_hdmi_phy_alloc(struct device *dev,
-+					struct regmap *hhi,
-+					struct clk *tmds_clk,
-+					const struct meson_hdmi_phy_data *data)
- {
--	struct device_node *np = pdev->dev.of_node;
- 	struct meson_hdmi_phy *priv;
--	struct phy_provider *phy_provider;
--	struct resource *res;
- 	struct phy *phy;
- 
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!res)
--		return -EINVAL;
--
--	priv = devm_kzalloc_obj(&pdev->dev, *priv);
-+	priv = devm_kzalloc_obj(dev, *priv);
- 	if (!priv)
--		return -ENOMEM;
-+		return ERR_PTR(-ENOMEM);
- 
--	priv->hhi = syscon_node_to_regmap(np->parent);
--	if (IS_ERR(priv->hhi))
--		return PTR_ERR(priv->hhi);
-+	priv->hhi = hhi;
-+	priv->tmds_clk = tmds_clk;
-+	priv->data = data;
- 
--	priv->tmds_clk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(priv->tmds_clk))
--		return PTR_ERR(priv->tmds_clk);
--
--	phy = devm_phy_create(&pdev->dev, np, &meson_hdmi_phy_ops);
-+	phy = devm_phy_create(dev, NULL, &meson_hdmi_phy_ops);
- 	if (IS_ERR(phy))
--		return PTR_ERR(phy);
-+		return phy;
- 
- 	phy_set_drvdata(phy, priv);
- 
-+	return phy;
-+}
-+
-+/*
-+ * DEPRECATED: only for DTs without a "phys" property on the HDMI TX node.
-+ * Remove together with the fallback in meson_dw_hdmi.c.
-+ */
-+struct phy *meson_hdmi_phy_create_legacy(struct device *dev,
-+					 struct regmap *hhi,
-+					 enum meson_hdmi_phy_soc soc)
-+{
-+	static const struct meson_hdmi_phy_data *const soc_data[] = {
-+		[MESON_HDMI_PHY_GXBB] = &gxbb_data,
-+		[MESON_HDMI_PHY_GXL]  = &gxl_data,
-+		[MESON_HDMI_PHY_G12A] = &g12a_data,
-+	};
-+
-+	if (soc >= ARRAY_SIZE(soc_data))
-+		return ERR_PTR(-EINVAL);
-+
-+	return meson_hdmi_phy_alloc(dev, hhi, NULL, soc_data[soc]);
-+}
-+EXPORT_SYMBOL_GPL(meson_hdmi_phy_create_legacy);
-+
-+static int meson_hdmi_phy_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	const struct meson_hdmi_phy_data *data;
-+	struct phy_provider *phy_provider;
-+	struct clk *tmds_clk = NULL;
-+	struct regmap *hhi;
-+	struct phy *phy;
-+
-+	data = of_device_get_match_data(dev);
-+	if (!data)
-+		return -EINVAL;
-+
-+	/* The PHY node is a child of the HHI syscon */
-+	hhi = syscon_node_to_regmap(dev->of_node->parent);
-+	if (IS_ERR(hhi))
-+		return dev_err_probe(dev, PTR_ERR(hhi),
-+				     "failed to get HHI regmap\n");
-+
-+	if (data->has_tmds_clk) {
-+		tmds_clk = devm_clk_get(dev, NULL);
-+		if (IS_ERR(tmds_clk))
-+			return dev_err_probe(dev, PTR_ERR(tmds_clk),
-+					     "failed to get TMDS clock\n");
-+	}
-+
-+	phy = meson_hdmi_phy_alloc(dev, hhi, tmds_clk, data);
-+	if (IS_ERR(phy))
-+		return dev_err_probe(dev, PTR_ERR(phy),
-+				     "failed to create PHY\n");
-+
- 	phy_provider = devm_of_phy_provider_register(&pdev->dev,
- 						     of_phy_simple_xlate);
- 
-@@ -141,7 +369,10 @@ static int meson_hdmi_phy_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id meson_hdmi_phy_of_match[] = {
--	{ .compatible = "amlogic,meson8-hdmi-tx-phy" },
-+	{ .compatible = "amlogic,meson8-hdmi-tx-phy",     .data = &meson8_data },
-+	{ .compatible = "amlogic,meson-gxbb-hdmi-tx-phy", .data = &gxbb_data },
-+	{ .compatible = "amlogic,meson-gxl-hdmi-tx-phy",  .data = &gxl_data },
-+	{ .compatible = "amlogic,meson-g12a-hdmi-tx-phy", .data = &g12a_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, meson_hdmi_phy_of_match);
-diff --git a/include/linux/phy/phy-meson-hdmi-tx.h b/include/linux/phy/phy-meson-hdmi-tx.h
-new file mode 100644
-index 000000000000..fe76a5f7efdb
---- /dev/null
-+++ b/include/linux/phy/phy-meson-hdmi-tx.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef __PHY_MESON_HDMI_TX_H
-+#define __PHY_MESON_HDMI_TX_H
-+
-+struct device;
-+struct regmap;
-+
-+enum meson_hdmi_phy_soc {
-+	MESON_HDMI_PHY_GXBB,
-+	MESON_HDMI_PHY_GXL,	/* GXL and GXM */
-+	MESON_HDMI_PHY_G12A,
++	struct ctlv_dev *dev;
++	struct ctlv_error error;
++	__u64 pat_id;
++	__u64 max_challenge_size;
++	__u64 max_token_size;
 +};
 +
-+/* DEPRECATED: compat for DTs without "phys" on the HDMI TX node */
-+struct phy *meson_hdmi_phy_create_legacy(struct device *dev,
-+					 struct regmap *hhi,
-+					 enum meson_hdmi_phy_soc soc);
++FIXTURE_SETUP(firme_attestation)
++{
++	const struct ctlv_hdr *caps, *evidence, *obj, *format, *challenge;
++	struct ctlv_reply *reply;
++	__u64 value, class;
++	__u32 obj_count = 0;
++	int ret;
++	bool got, known;
 +
-+#endif /* __PHY_MESON_HDMI_TX_H */
++	ret = ctlv_open("ctlv-attestation-firme", 0, O_RDWR, &self->dev);
++	if (ret)
++		SKIP(return, "no FIRME attestation device: %s", strerror(-ret));
++
++	ASSERT_EQ(0, ctlv_attestation_device_get(self->dev, NULL, &reply,
++						 &self->error))
++	{
++		TH_LOG("%s", error_text(&self->error));
++	}
++
++	caps = ctlv_attestation_device_get_caps_get(ctlv_reply_root(reply));
++	ASSERT_NE(NULL, caps);
++
++	evidence = ctlv_attestation_device_get_caps_evidence_get(caps);
++	ASSERT_NE(NULL, evidence);
++
++	ctlv_attestation_device_get_evidence_objects_for_each(obj, evidence) {
++		obj_count++;
++	}
++	EXPECT_EQ(1, obj_count);
++
++	obj = ctlv_hdr_find(evidence, CTLV_ATTESTATION_T_DEVICE_GET_EVIDENCE_OBJECTS);
++	ASSERT_NE(NULL, obj);
++
++	got = ctlv_attestation_device_get_objects_class_get(obj, &class, &known);
++	ASSERT_TRUE(got);
++	ASSERT_EQ(class, CTLV_ATTESTATION_EVIDENCE_CLASS_SIGNED);
++
++	got = ctlv_attestation_device_get_objects_id_get(obj, &value);
++	ASSERT_TRUE(got);
++	self->pat_id = value;
++
++	got = ctlv_attestation_device_get_objects_max_length_get(obj, &value);
++	ASSERT_TRUE(got);
++	self->max_token_size = value;
++	ASSERT_NE(0, self->max_token_size);
++
++	format = ctlv_hdr_find(obj, CTLV_ATTESTATION_T_DEVICE_GET_OBJECTS_VENDOR_FORMATS);
++	ASSERT_NE(NULL, format);
++
++	got = ctlv_attestation_device_get_objects_vendor_formats_get(format, &value);
++	ASSERT_TRUE(got);
++	EXPECT_EQ(value, CTLV_ATTESTATION_FIRME_EVIDENCE_VENDOR_FORMAT_PLATFORM_ATTESTATION_TOKEN);
++
++	challenge = ctlv_hdr_find(obj, CTLV_ATTESTATION_T_DEVICE_GET_OBJECTS_CHALLENGE_LENGTHS);
++	ASSERT_NE(NULL, challenge);
++
++	got = ctlv_attestation_device_get_challenge_lengths_max_length_get(challenge, &value);
++	ASSERT_TRUE(got);
++	self->max_challenge_size = value;
++	ASSERT_NE(0, self->max_challenge_size);
++
++	ctlv_reply_free(reply);
++}
++
++FIXTURE_TEARDOWN(firme_attestation)
++{
++	if (self->dev)
++		ctlv_close(self->dev);
++}
++
++TEST_F(firme_attestation, discovery_and_construction_fields)
++{
++	const struct ctlv_hdr *caps, *evidence;
++	const struct ctlv_hdr *info;
++	struct ctlv_reply *reply;
++	__u64 flags, unknown, value;
++	bool got;
++
++	EXPECT_TRUE(ctlv_dev_inherits(self->dev, "ctlv-attestation"));
++	ASSERT_EQ(0, ctlv_attestation_device_get(self->dev, NULL, &reply,
++						 &self->error))
++	{
++		TH_LOG("%s", error_text(&self->error));
++	}
++	caps = ctlv_attestation_device_get_caps_get(ctlv_reply_root(reply));
++	ASSERT_NE(NULL, caps);
++	evidence = ctlv_attestation_device_get_caps_evidence_get(caps);
++	ASSERT_NE(NULL, evidence);
++	got = ctlv_attestation_device_get_evidence_flags_get(evidence, &flags,
++							     &unknown);
++	ASSERT_TRUE(got);
++	EXPECT_EQ(0, flags);
++	EXPECT_EQ(0, unknown);
++
++	info = ctlv_attestation_device_get_info_get(ctlv_reply_root(reply));
++	ASSERT_NE(NULL, info);
++
++	got = ctlv_attestation_firme_device_info_version_get(info, &value);
++	ASSERT_TRUE(got);
++	TH_LOG("FIRME attestation version: %lld.%lld\n",
++		(value & __GENMASK_ULL(31, 16)) >> 16,
++		value & __GENMASK_ULL(15, 0));
++
++	ctlv_reply_free(reply);
++}
++
++TEST_F(firme_attestation, firme_pat_get)
++{
++	void *challenge, *pat;
++	struct ctlv_reply *reply;
++	const struct ctlv_hdr *root, *result;
++	unsigned int index;
++	__u64 pat_size;
++	bool got;
++	int ret;
++
++	ASSERT_EQ(0, posix_memalign(&challenge, 8, self->max_challenge_size));
++	ASSERT_EQ(0, posix_memalign(&pat, 8, self->max_token_size));
++
++	for (index = 0; index < self->max_challenge_size; index++)
++		((uint8_t *)challenge)[index] = index;
++
++	ret = firme_evidence_get(self->dev, self->pat_id,
++				 challenge, self->max_challenge_size,
++				 pat, self->max_token_size,
++				 &reply, &self->error);
++	if (ret == -EIO || ret == -ETIMEDOUT || ret == -EOPNOTSUPP) {
++		free(pat);
++		free(challenge);
++		SKIP(return, "FIRME PAT get service unavailable: %s", strerror(-ret));
++	}
++
++	ASSERT_EQ(0, ret)
++	{
++		TH_LOG("%s", error_text(&self->error));
++	}
++
++	root = ctlv_reply_root(reply);
++	got = ctlv_attestation_evidence_get_evidence_generation_present(root);
++	EXPECT_FALSE(got);
++
++	result = ctlv_hdr_find(root, CTLV_ATTESTATION_T_EVIDENCE_GET_RESULTS);
++	ASSERT_NE(NULL, result);
++
++	got = ctlv_attestation_evidence_get_results_length_get(result, &pat_size);
++	ASSERT_TRUE(got);
++	ASSERT_GT(pat_size, 0);
++	ASSERT_LE(pat_size, self->max_token_size);
++	TH_LOG("FIRME PAT size: 0x%llx\n", pat_size);
++
++	dump_pat(pat, pat_size);
++
++	ctlv_reply_free(reply);
++	free(pat);
++	free(challenge);
++}
++
++TEST_HARNESS_MAIN
 
 -- 
-2.56.1
-
+2.43.0
 
