@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762600;
-	b=ztQlXu6vTEr9/5+MTwB5cen/Sayg3nM03lU0nuyDq9Mhz1x6PYI849Vyftxyyy/7521Y
-	 m9b3weWPjB0i+M6ds5ZssYue4/E/mOWr4ntxcJJyq6DP6BzSSVDcyVGe8oeDvWml4YZdi
-	 K2YY1DFjskJuc0jFdVkHxPlL0Ww1RRTdMWo+pdpe3tv8yx26lNZomyaH0h+sTCCEdHPTw
-	 cDLqws3hJM2FeAhmK/2tfCCUrNJ48kp8V1u5AjvJecPRM7PkBRhT9QPWJjvOlEjizaa2R
-	 uvbhXpZ8TPRoKAMaaXz4tHGwwn6Vs6nHzxJGipjSgmIZfGwvQmsP9ZQcGhdyPsKRiVw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762600;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=BNzlDlFPcvqkkSeMo4X8TCyh3TwwPWVSFa47pgzVUaM=;
-	b=e+iu4on86juhQVxUuB9uC/7pFhUnoev3IwaP4hrstmcqvRH3vQzt+kv2FR3o45psIqiZ
-	 tX/uGf1Kd7WdSC7eSTAf+WO0cH7KCOnD5DyyRx8rGd/kfinQ3bn+25ysRJN0OT7F7avSG
-	 NbMb43IATiFITGHW4BTKSzYYUuWA2F9GpPeFExm+pYfag2P35mXka5wqRsbXr2cJhR1Kd
-	 zCLt0mQbKxVEqQmLDtBq5kuvXrkDCV9bLbScNuSjTOpNhuUuFkwjqhPD2jPCW+IPVJJ4C
-	 bGfmNom77i89E4bHryW8pzILHQvi0WMfBT2w2g5FvH/JbBlGFxzYp/m9YG9MPR9GKIA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWmKQ5AA;
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795762621;
+	b=Dc1KXvoHfJL2iIEhwkcrpKYpcZFaUlPvP7BfCLH/Xagm+I3M2ETeZJ5Zke77RIniLban
+	 LB0JiF1eVwCIV6+Emi2V13LYz1hms37HODlUPdRhIcvjmyo/Szoy/gODLjUV7bQvFZm4D
+	 jxfac5TEfmgju7N9y7JhbnrEdCNAbNwfmlwsMYduIdVrwexa5ALMiwtt+BRkuZyLSwu0D
+	 l8E0zRo0VNIlw7hdHIGVMI7SVoUeuigp1Np+s/7VUIjarRY4oZmROQvykJjVFTvFb38uV
+	 ViBM+aMHmStMN7M1sJ98P//pcfffBLrtvgsWVvJhJJxTdc7kmOvVLC92oOgfy1HnVoQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762621;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:In-Reply-To:
+	 References:Subject:Message-Id:Date:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=x4fHTVWl4dJ9p7O0xHJAFFulkEaP2kpZKe0/PzusFbs=;
+	b=wupLTVvnKz0+MWW0Y/RxemIEYOG/Rx76CoRsuV81TxXxXhux3fVrVaNr3c8tHAA+Zf1p
+	 Kv/pPcN5T+8r6G+v6gc9pYusB6a1mhl8t3MDr5RUIfAMARJbycUnjvyMR6hf0Uy8lITk/
+	 1wkMTMPOc32mh8uAZeT8nFJvdqlHOcIzRdTuR1O1XjMPJI2Ylkr7s8h9oZyVu99zDrHc9
+	 MDtuR53QVkjIEr3ZSwWXJtXW4BP0iAF/JY0iL4R1A9q0B++Se5eoa/LPPNmafUPy2Xp57
+	 jlT6gudIvRBCaUNO95IeYDQVAvDUmn7RDMuL4QOXTaehAZ4HqkhJ2rjDl83fva8Phcg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ADm3X3H1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.43
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012043.outbound.protection.outlook.com [52.101.48.43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3324606A31E;
-	Fri, 27 Nov 2026 06:56:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3324606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2851606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:57:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2851606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWmKQ5AA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795762600; x=1827298600;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=q4wWwKEJt+Fmd9rHF4mSHyulkd1InNpZ23yH0MiQ/MA=;
-  b=lWmKQ5AAGuH00Nnioqs+3w6ICfZLnFwGzf2tMdG6vrGURtVA4sryPegu
-   yq7T/vjaNaA8+1d6PtcTQqPeYB1f0jmhnMzt/kGpOAk7jJAboxlhruhXA
-   Nd2iAu/u5qRxuk7s6ZnLy4fFZjxLoC88tukwV4MydzERfa5pqAWWMgTHe
-   pJyWRSdNNBfaLreEKWX0UgU27PI89VJZmLYgxtOTk6BLJEOEoUDTmx3AA
-   tyZzMsSXyP2SV61/q5kK3FLH5bZ53yCLPhUBDAkalMxbN+3mn7vOmP970
-   IH/kG1+eZ3KkMXeN2jsUXEPVWcJfYmBde4KtjDkrZSMKcrVt3qlcEdxPT
-   w==;
-X-CSE-ConnectionGUID: 2kiQplX5TGSVHqMYeKGNng==
-X-CSE-MsgGUID: 74hGTyltQZ6oyE06aFkxIg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4684792"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4684792"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 22:56:39 -0800
-X-CSE-ConnectionGUID: dtiZKUw9SDW9Na3YbDJATA==
-X-CSE-MsgGUID: GE1v8WysQyO0/HmhIUs1lA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="12576530"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 26 Nov 2026 22:56:35 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWpsl-00000001VVi-2tw3;
-	Fri, 27 Nov 2026 06:56:31 +0000
-Date: Fri, 27 Nov 2026 14:56:03 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lukas Zapolskas <lukas.zapolskas@arm.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Akash Goel <akash.goel@arm.com>,
-	Karunika Choo <karunika.choo@arm.com>,
-	Chris Diamand <chris.diamand@arm.com>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	Mihail Atanassov <mihail.atanassov@arm.com>
-Subject: Re: [PATCH v8 1/3] drm/panthor: Add perf setup and session management
-Message-ID: <20261127145121.RsArEiu5-lkp@intel.com>
-References: <20261126-panthor-performance-counters-v8-1-6e7db0ec33f5@arm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ADm3X3H1
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PIvamcIzGowZ2OXJzF7Qekmyvdmpb4GPdd/NNYjTIwiiCJC0BxaI3+YpUP3VoK9NWWDsN35Sc8DgoDCNDAZgQHslnAGYC1B6bJFUbxykfzOl0jQzRmHf+A0E5JfObKlbDRmmnbinTQHx+KUkKDLJU18mVSYYMHDlDBsNigXKulD4MKVOcMXS9azL8bTV/Msd+sUzdkhMiobQnaYet9INgLxBy36N6TgD3UCUHlspl/LWu55zI9QHsfwL56xc4KGapLBkebeWhM/T7gCcyK4S4BCUjhjA5GAURMzGsGUHJnn4d1KK4WEXqWhk7ThBCKppXBL03zMrglqgtUs5jDXJAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x4fHTVWl4dJ9p7O0xHJAFFulkEaP2kpZKe0/PzusFbs=;
+ b=o3GoDfA1hMezEIPxD6fA2XFsERwS3Q9kd58DBSotg45CD51iZzYKzsOegyjwh6qa0ffQoso1CDKWSpS+74DomqZDrmErEuQ7WXeWLMO8lycB1FNAJkWaPrBY50Cdk0HftdJMZs0rjrvSRBM7ZK1YvbTWq+uIzYgInxk0NvXakB6xLVS7g8Fo5nCt0YdNYYo+HYXvrqJBYNxCVuGKN+pzWHVw+ZgmLOLq03yy78OLtMfs0BhvfP/GxPMypbWGk7Maawk3hZnSyJ54PyDAMteCYjN8OM5jBUd9goKP7EddJPBah/qb4L12wWcJJtJUnDencVBuMxBoSNw/4E4KRsGzFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x4fHTVWl4dJ9p7O0xHJAFFulkEaP2kpZKe0/PzusFbs=;
+ b=ADm3X3H1ssLf80hQRZBwzWA1rdCXx6iTg1WSN6n0fdfQAUt89WBgcWw5ZA1uFLgqE2jzQQaN4nP/Wx4RZOE5EMa1CiPFmtqANq7n3MUps5po8C3VFOArIIxYTFmBQIVNT6lBOeUydttH98k2+pCaqKSq3LbqaUO356ryQHJILdGJ8Rwsta27kpTsYGGrbORy4cHBXQZW36qJ/rbYz6CyL7RIdki6z6qND7wKh5wmVaT38WEnn1n6A4chHStWaZMRJAJAEWVja+fo/pmX2Yvhfg/Wptprd21uqb9IqmSVcFNMfhGBNpeXnLdYle5rfNbiSgbWpG1qXxHPz8wjvkdIog==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MW4PR12MB6873.namprd12.prod.outlook.com (2603:10b6:303:20c::17)
+ by CY8PR12MB7170.namprd12.prod.outlook.com (2603:10b6:930:5a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Fri, 27 Nov
+ 2026 06:56:58 +0000
+Received: from MW4PR12MB6873.namprd12.prod.outlook.com
+ ([fe80::a338:bd2c:3a38:ece1]) by MW4PR12MB6873.namprd12.prod.outlook.com
+ ([fe80::a338:bd2c:3a38:ece1%5]) with mapi id 15.21.0662.001; Fri, 27 Nov 2026
+ 06:56:57 +0000
+From: Alexandre Courbot <acourbot@nvidia.com>
+To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Eliot Courtney <ecourtney@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>, Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>, nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+References: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+Subject: Re: [PATCH 0/7] gpu: nova-core: merge `load` and `boot` for falcons
+Message-Id: <179576241741.1176041.10572955959825926061.b4-ty@b4>
+Date: Fri, 27 Nov 2026 15:53:37 +0900
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TY4PR01CA0046.jpnprd01.prod.outlook.com
+ (2603:1096:405:372::18) To MW4PR12MB6873.namprd12.prod.outlook.com
+ (2603:10b6:303:20c::17)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,107 +95,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126-panthor-performance-counters-v8-1-6e7db0ec33f5@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR12MB6873:EE_|CY8PR12MB7170:EE_
+X-MS-Office365-Filtering-Correlation-Id: b220a1b7-fa6f-418b-c9e9-08df4c53a0f2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|376014|10070799003|1800799024|23010399003|11063799006|261009223027099003|18002099003|22082099003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info:
+	Tf05TLYs5B/y1OkT/Up7s6EVpnAgXoUFwIT0ItkduJEIZzm8eRRJEpOMCIq3ZgPsHFeTmCg9tuWCJE5OlTXTKPTcSWvEsAzSoNw9Exa4wo5+7KsmGNpUnDcExd3hpjcT9ljP669C6YkY1IJ3SbjmAfcLN8jbEbsoLQWAteDHIcUsmnMt/zS/ZeE+jaP1CAOSwfCS1wtPFMhjIhGy3+PDMvEKUtXpTKAy18MNdluHOo6MdXvFoKbJZQbqV+ZhdRoS19YuCl8g3h5cWW0eQz0Loq8oYABxr0AsvEEbOnCs22yMSE1piDUlYWewUm2kZGUQaYN0/s9jVZu1Rwllrlm+jH/WEoPHZRn20WM/awfkI0+mf353oUKaqIi+nEypF1qq7uurWGl07nPCOiCGeTwyXKlVsH1kHAUjKzMtChgsAAcWGnf9WUQtWjT8L1Dbho05ZGkaPFKKR+qCUMo/ubZmnvriUlYV7eOnZKUJAZVzgm5paJN9Io8DQXINDwCbQSyfyTy9cKR4nuXOXIaA8z9Ws7gSzNQWXy3xuJQxGrmOYVB+BwkttE2Ge5RSBls5GUHu+e9xVDbiHWRs1ygAur7h2/0kGzK9cTtMDtbxoE9FFGp23V2nruTMFEM3YRoOFTWifCP3WbIWiBdNXbV78PjiDsUcTlP7OvpvcpHgtIJS8ig=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB6873.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(10070799003)(1800799024)(23010399003)(11063799006)(261009223027099003)(18002099003)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ck5VSHFJajh0cCtMQVU3QUFLd3dnUmw0dkVwNkNYM0g4c2xQbHNGZk91ZlJo?=
+ =?utf-8?B?ODZ3M2NoRmhoU0kwdUhUUStJVnZCc0EyTXRrMGU4VVdFWFY2Wm82cFZlVFJN?=
+ =?utf-8?B?VjRxK01uYmhHUCtqczRVMTJJZHBjSWpNMHNZR2hoNnM1K3RxczlZK0JWSHdX?=
+ =?utf-8?B?VlBrUVZlVUNxdndDd3hRamE3VHR0QUR2dnpBdEhSaVFsYzlQYW5lU3NkKyti?=
+ =?utf-8?B?QUc0elNuNDhUK3dhOU1FOHQ2MGV4T1BjeFFqNE1ScmNjdk5kSk5QR1ZESVZq?=
+ =?utf-8?B?eEl1QjVOWm9tam5aN3RkUGlIU1IxZE53RnlkeGFhcCtMS05hTzB2MGlET3FH?=
+ =?utf-8?B?dUduQUlFRXJZemd0NmN4WHUzN0JqUEJpREh2VUtvOUhuTjR5cFpQN09VeXNr?=
+ =?utf-8?B?S0R0UUNIM1JINmxTazBOak9ONks3eVdHOWF6Z3ozS1pSOGNGNFVUZmcvMVUx?=
+ =?utf-8?B?aFFHNzZYdkJGYXlNbE5qdC8yZ0R5aTQxclVpNTlYSTdLY3V6VUFteEhueHA3?=
+ =?utf-8?B?MjI1MEhxNjRLeGRWbllNcnhuKzlWWlIvc1dadVArVEViL0lEd3doaWJGeVpH?=
+ =?utf-8?B?TkRyekNDTVJkbkJDczB0dWQzSS9zUWdPVDJIa3Y2K1dNT2lpRTRON2YzeFZ1?=
+ =?utf-8?B?MkFzNk0xbDlHRkwyMnpZbTdDZmgxRkNNbXM1eHo3c3duWUhBaWR1TlhLMDJq?=
+ =?utf-8?B?OTRvRVcxS2k0Vy9EZTd6eFREN041QmRBR0toU1ZxUkwwVDE0cEY1empRM0JH?=
+ =?utf-8?B?dGtKMEplNHd0N1VuKzd0VlAzcG5WN1Z0OG0vcmNyY1dESEtGU2VDTG5KREls?=
+ =?utf-8?B?SmRYRkxDSTV0cXpxTWowbitZcER4bG1ocFZuZXVEdGFjaTgyT2s3T0NrOGts?=
+ =?utf-8?B?R0RUN2VpVDkzeXFYSm9vejNkK0p2RDJVVitGMkdYeFNsVkpRcXdidFlrY0c0?=
+ =?utf-8?B?UVhvQzJINmV3Ly9XTitNdDh4Wk92Ris0L0M4b3NTS2dLKzUzRFRGQndGdTFR?=
+ =?utf-8?B?WFkwcXdKQkgzRDdyUlhUTkhlWnJMemIzRTBYRHJ1MGNCVWYvRUE0dG9BZGVy?=
+ =?utf-8?B?a2phN052ekhERTZjekdsUVdjU294ZlZld3YyZUc3SmZOWVdndHUwV2hqY0tj?=
+ =?utf-8?B?TWkzQmJLS3lVMGYwZE1MRFFuZ0k3RWZ0aTBPaTE5L2l2cDV6SFNaMGFJTXVo?=
+ =?utf-8?B?anlFdjdqWkdnYnlJRWRaamwrN0pWbTBoNW5UMDE3U3JxanVweUpwOWEwVTlj?=
+ =?utf-8?B?NkRmZWZBYUMvMXFZN3RsczRaREc3NnF2N2dIemxLQTRueXg4dzlYQjV5aUJZ?=
+ =?utf-8?B?VE1MaXg3c3ROc09xTVFTL2hQeVMxQVNCTmViR1B6RmxRbTZlbjNRUnVvY3Ry?=
+ =?utf-8?B?SkpmbVFyRlFmNkdoM0RVMFdlQW9OK2FMSC96d3RtMWRUQmZCMGt6YkN3clJ6?=
+ =?utf-8?B?clhjVFRhMXZUbGtUNnAzZGtJK1hudXRFUExHdE5JS1pXd0F6S014Q1FWN0Va?=
+ =?utf-8?B?c3pOa3F4RXoxSll2QURjOHZxWUVhMDNwVWxBS0E5cDUvZzI5R2dVZ0c4aEJY?=
+ =?utf-8?B?TzVvWExkYUVtODhTdEU0S0xqVi9wV3pTZGZJRUt4SlhTb25QdFpkYXk4Z2Vu?=
+ =?utf-8?B?VlI3TFNwSWl3SjRuei9sckhKa2xjZ0xMbDViSEFZYjB3OWlCd1N4SkRxampQ?=
+ =?utf-8?B?MktEb2J5dWhYVEVBS2ROT0hHME1QM1B5ODVEdnNXU1U0Vm1yVE51Z0xpVnQx?=
+ =?utf-8?B?SVJTai9sWVpDQTRzRU5nKzA0RjlwWU9lNFMrbWQ5ZGszNnJhVGJ3cTNCbTJR?=
+ =?utf-8?B?V3h3eElSM3dRa0FNYmRiY3k2SnVPRlFIZ3Y1aXkrMWxmMmNzRW1NM3VBUzZF?=
+ =?utf-8?B?T1ZIdEQ2bGU0Y2RrMkJSVEZReGNHUkMxVENXT2RrQlkzd1ZKODRraUwySzA2?=
+ =?utf-8?B?Y1h1STJJWFlSQVRBcVJ1c0h6YVRoWXdTMmEvR3gxNWlEYVdrcmFFeW9CVjRI?=
+ =?utf-8?B?SFlTRmFQamlaWGVEV05peVN1Y0txVkhLRzVXVkd3YkY5Q2xRemhvMWpXNFA1?=
+ =?utf-8?B?dFlIYkFiK3R0N05LNnlCSGVTVS9SZkJramtSc1BNTVhRRFkxNGVEampWcUx0?=
+ =?utf-8?B?eEQ0SXRkdXd6YVJMTkwyUUlzTGY1NkltQ0hNRjA2VFJtYVlGWHJPUjFwWlVQ?=
+ =?utf-8?B?RncrY001L0lyOXpnYno1ZUhoWXBYaUlET0hYV1VHbTc1akFXREZjWlVvdERq?=
+ =?utf-8?B?QU0zWUZwNkg2a2JmMjZVaExWWmg3MC9zUFB4L09PaUN5QTIyU2JLNDNCZWk1?=
+ =?utf-8?B?bHZvamViTlVET1hBWUtjU0dIOUFDNENjTE5wS0ZkV1EyU1gzbnJZM0diUnJs?=
+ =?utf-8?Q?wQpjpjvBw0x2+3PrxFnnMGQA7IA/QrPwwcKtq23yeWloW?=
+X-MS-Exchange-AntiSpam-MessageData-1: hgv9CblloeEx2Q==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b220a1b7-fa6f-418b-c9e9-08df4c53a0f2
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB6873.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 06:56:57.9040
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +G3+2DsSJFpRnmdupiZApW928b4NOuCidhAMmkQK84hBTpQ92AKs8gLEt/AaXDuQPlckWzZD1JOlcrDANLImLg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7170
 
-Hi Lukas,
+On Thu, 26 Nov 2026 17:20:09 +0900, Eliot Courtney wrote:
+> Currently, loading the firmware and booting it is split into two
+> separate steps. Load is always called in combination with boot. Rewrite
+> the process to basically look like:
+> 
+> falcon.boot(<the firmware you want>, ...)
+> 
+> Additionally, add a segment source for firmware already in the
+> framebuffer (this is for HS binaries).
+> 
+> [...]
 
-kernel test robot noticed the following build warnings:
+1 and 2 applied to drm-rust-next, thanks!
 
-[auto build test WARNING on 97429bac371273886238bfcf63d78e7405cacb46]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Lukas-Zapolskas/drm-panthor-Add-perf-setup-and-session-management/20261126-205737
-base:   97429bac371273886238bfcf63d78e7405cacb46
-patch link:    https://lore.kernel.org/r/20261126-panthor-performance-counters-v8-1-6e7db0ec33f5%40arm.com
-patch subject: [PATCH v8 1/3] drm/panthor: Add perf setup and session management
-config: i386-allyesconfig (https://download.01.org/0day-ci/archive/20261127/20261127145121.RsArEiu5-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261127/20261127145121.RsArEiu5-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261127145121.RsArEiu5-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from include/linux/device.h:15,
-                    from include/linux/dma-mapping.h:5,
-                    from include/linux/dma-buf.h:21,
-                    from include/drm/drm_gem.h:38,
-                    from drivers/gpu/drm/panthor/panthor_perf.c:6:
-   drivers/gpu/drm/panthor/panthor_perf.c: In function 'panthor_perf_bo_get':
->> include/drm/drm_print.h:615:46: warning: format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'size_t' {aka 'unsigned int'} [-Wformat=]
-     615 |         dev_##level##type(__drm_to_dev(drm), "[drm] " fmt, ##__VA_ARGS__)
-         |                                              ^~~~~~~~
-   include/linux/dev_printk.h:110:30: note: in definition of macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ^~~
-   include/linux/dev_printk.h:154:56: note: in expansion of macro 'dev_fmt'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                        ^~~~~~~
-   include/drm/drm_print.h:615:9: note: in expansion of macro 'dev_err'
-     615 |         dev_##level##type(__drm_to_dev(drm), "[drm] " fmt, ##__VA_ARGS__)
-         |         ^~~~
-   include/drm/drm_print.h:628:9: note: in expansion of macro '__drm_printk'
-     628 |         __drm_printk((drm), err,, "*ERROR* " fmt, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~
-   drivers/gpu/drm/panthor/panthor_perf.c:254:17: note: in expansion of macro 'drm_err'
-     254 |                 drm_err(ddev,
-         |                 ^~~~~~~
-   include/drm/drm_print.h:615:46: warning: format '%lu' expects argument of type 'long unsigned int', but argument 4 has type 'size_t' {aka 'unsigned int'} [-Wformat=]
-     615 |         dev_##level##type(__drm_to_dev(drm), "[drm] " fmt, ##__VA_ARGS__)
-         |                                              ^~~~~~~~
-   include/linux/dev_printk.h:110:30: note: in definition of macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ^~~
-   include/linux/dev_printk.h:154:56: note: in expansion of macro 'dev_fmt'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                        ^~~~~~~
-   include/drm/drm_print.h:615:9: note: in expansion of macro 'dev_err'
-     615 |         dev_##level##type(__drm_to_dev(drm), "[drm] " fmt, ##__VA_ARGS__)
-         |         ^~~~
-   include/drm/drm_print.h:628:9: note: in expansion of macro '__drm_printk'
-     628 |         __drm_printk((drm), err,, "*ERROR* " fmt, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~
-   drivers/gpu/drm/panthor/panthor_perf.c:254:17: note: in expansion of macro 'drm_err'
-     254 |                 drm_err(ddev,
-         |                 ^~~~~~~
-   In file included from <command-line>:
-   drivers/gpu/drm/panthor/panthor_perf.c: In function 'session_read_extract_idx.isra':
-   include/linux/compiler_types.h:702:45: error: call to '__compiletime_assert_559' declared with attribute error: Need native word sized stores/loads for atomicity.
-     702 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                                             ^
-   include/linux/compiler_types.h:683:25: note: in definition of macro '__compiletime_assert'
-     683 |                         prefix ## suffix();                             \
-         |                         ^~~~~~
-   include/linux/compiler_types.h:702:9: note: in expansion of macro '_compiletime_assert'
-     702 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/compiler_types.h:705:9: note: in expansion of macro 'compiletime_assert'
-     705 |         compiletime_assert(__native_word(t),                            \
-         |         ^~~~~~~~~~~~~~~~~~
-   arch/x86/include/asm/barrier.h:69:9: note: in expansion of macro 'compiletime_assert_atomic_type'
-      69 |         compiletime_assert_atomic_type(*p);                             \
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/barrier.h:176:29: note: in expansion of macro '__smp_load_acquire'
-     176 | #define smp_load_acquire(p) __smp_load_acquire(p)
-         |                             ^~~~~~~~~~~~~~~~~~
-   drivers/gpu/drm/panthor/panthor_perf.c:378:16: note: in expansion of macro 'smp_load_acquire'
-     378 |         return smp_load_acquire(&session->control->extract_idx);
-         |                ^~~~~~~~~~~~~~~~
-
-
-vim +615 include/drm/drm_print.h
-
-d05386a3fdf373 Jani Nikula 2025-01-23  612  
-fb6c7ab8718eb2 Jani Nikula 2019-12-10  613  /* Helper for struct drm_device based logging. */
-fb6c7ab8718eb2 Jani Nikula 2019-12-10  614  #define __drm_printk(drm, level, type, fmt, ...)			\
-d05386a3fdf373 Jani Nikula 2025-01-23 @615  	dev_##level##type(__drm_to_dev(drm), "[drm] " fmt, ##__VA_ARGS__)
-fb6c7ab8718eb2 Jani Nikula 2019-12-10  616  
-fb6c7ab8718eb2 Jani Nikula 2019-12-10  617  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+[1/7] gpu: nova-core: falcon: make pfalcon private
+      commit: e91da12099a5536c6a1852c6fb7800ef6460103d
+[2/7] gpu: nova-core: gsp: remove unnecessary start of `gsp_falcon`
+      commit: abfb640b2374e26de8ff81d488c39d8254db538e
