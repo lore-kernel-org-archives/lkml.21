@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.145
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760080;
-	b=JmIZHfmzWbQYbSnP/O56wZHh58u4U35UnsVy6fsUHmromcx+xjdOvB3DtImHUyU9fQcf
-	 BtQrHsHr8Uvn7w7k8dY7vDn+vLBM0G6YwRjSuzHfaHzXaKwW294G88s0/bnyVj75zzbax
-	 Uaci2368NzSbMN2OiM6ggz/KCyO12tHYzVTI0ULMM5yU6QWgSlkj5KjiFpAX0KJ2jkRhc
-	 uDWMcndtRzoly1aVNpJgWDmDyHWEPWIPMaA1k0fR8g7uGHRd/uah8Fj9W/apZoj4AfydT
-	 e+ayF84jJiGPg/ubsUcov0ftll9ErzemSFKHTlILdWbXkHjknk+sLPC5EJvx5feS6jA==
+	t=1795760174;
+	b=GqM/jCtssBrjcCyPwnZpUt24HivrqUvGqQnaSYG4FfQu5Y5/dyr+xDNEwY87ot9Bz49W
+	 I7VGdNSij8OLBqAWWF16tb24TXppGn9tMKL1HvBUsUbxt19ymaXzf0fmUIeapdJX4dPYo
+	 /JF67TdiXcqGKeU4D26M4kRKf51SG8nKWZdNi9PocabvUU0BoykTFeMZcH5J60uhS+VIe
+	 vQZN3Fdyzjioq1qhpIPJF3YY4UMGJiYFtDUaBq2EWE3542FCMRTYDke4JVhiWTB4Qyb/w
+	 KPa50UXrsKgp4bKvrIalHSf+iv5LvB4HuXbtbtQVqaCvIEm/rqPIGeLeNnCoODAsVFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760080;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=D5JALuXk+z3NB80L41dOGExzEM0kYbAD7jHhu16MDp0=;
-	b=aJ4R/wlphF8AUro2KPp+VYBK1cYfxGAmSUz/KoXTK+kA6wmNQ/7rslikV1ChNZOzuVlh
-	 SQKUfYbjKLG9HzNaBEVEU/74LtGeaU+qGv0N4QQrJu3wClq7Xdd48k6R7NxZKMLgLFKhG
-	 vKmNEsigyqiq1jiHH+5KixybjeRvWdHRCApTZ2ZmHLrWQ7V3s5t+X4gmQ5ECuBAVLzW2K
-	 VVxcd1WB7c9w24DDi6itxmEfua3j020ic5b9ylnT+xhJMkCA3XdPRIdYinYDQmT216zZk
-	 OrYpdeHi1jhUNwbY6TvettswfV1bt0JK+/lgBoyXhcsITlRkhP8iow76pNLf/j/4Dkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760174;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
+	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=X8R2jVPAbg0n788QmPKLlwnnELii8hcncXSvxX3WBQk=;
+	b=Kyhk+cLRKOAhcJ33xYroRw+Ng4D/zz6ELKxTh8PL3GwLWu0A1+6TdB2UXvFwBhhSUKam
+	 FCb6tnMxJkzX8HGfG9BJd72UfOUvUCe0Qv+mWLjHJFZrDFh2qXDihecP+wX7I5kLa0vuh
+	 cCjsiiH5ADFMAaXVV/orVNXM8itYB2s1hcmT+RNFtsauUUyL6K4ioo2H56NPMkR6DORXG
+	 EMXNWGPdMT2+idnl9Mf5TAbwf29LkLxiGJv+85iQxHIryT5JxFRbhif2VL7LcX5cdcqaj
+	 F15golRmJv8GgnZhr72aIIHH5ROB6jjdQCDsUljgbKs+GcXKQt3x/kaDvQMI2kJdZVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rr1dmFCc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.145
+Received: from out28-145.mail.aliyun.com (out28-145.mail.aliyun.com [115.124.28.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30550606A31E;
-	Fri, 27 Nov 2026 06:14:40 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rr1dmFCc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C9E1F0089B;
-	Fri, 27 Nov 2026 06:14:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795760079;
-	bh=D5JALuXk+z3NB80L41dOGExzEM0kYbAD7jHhu16MDp0=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=Rr1dmFCcBDQ4mVlo/pUKE6pffpzb7p5k8cP9R70VQ8ILZ/izVTDRdHf7SHblFVIAu
-	 8KGF2ziqf1i2qWMKlVepL0imJ3o39EyVs4IR81u2qMWfAiCcFoDnTVN0V+18dfA7Hr
-	 0pehxZwLHRBxy95qIdYGwZk0bXaq39MdkJ0cSUbQFCzcI0m0iO83VWgOeq0Ehmm92R
-	 mdD27qCY6p4/o8503bGODGTT4/JCmuhmIfHitvv+1syO6mzPIPt3Ij0NDclAhOy8RX
-	 nw/Xp4ubITxlMy4gqHNUdECXsc/0Y6t3EJyGlVlIrOxXuMx19h3kDLHD12gPgbtNPa
-	 SL9d3QkRVVxww==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 58620CE0A35; Thu, 26 Nov 2026 22:14:39 -0800 (PST)
-Date: Thu, 26 Nov 2026 22:14:39 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Zqiang <qiang.zhang@linux.dev>
-Cc: frederic@kernel.org, neeraj.upadhyay@kernel.org, joelagnelf@nvidia.com,
-	urezki@gmail.com, boqun@kernel.org, rcu@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] srcu: Fix comments for
- srcu_dereference_check()/srcu_dereference()
-Message-ID: <e2e3ba2a-64e5-47fe-95a5-7028b6b52ce5@paulmck-laptop>
-Reply-To: paulmck@kernel.org
-References: <20261126084241.17569-1-qiang.zhang@linux.dev>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC809606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:16:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC809606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07715728|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0448431-0.000307616-0.954849;FP=13823113615508278782|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033071069091;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.kBKQPB6_1795760160;
+Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.kBKQPB6_1795760160 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Nov 2026 14:16:01 +0800
+Subject: Re: [PATCH] sched/fair: Use task_delayed everywhere in
+ __dequeue_task()
+To: Kayra Cizmeci <kayracizmeci@gmail.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+ dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+ mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
+ linux-kernel@vger.kernel.org
+References: <20261126164036.1938852-1-vincent.guittot@linaro.org>
+ <awhlwJTOLPeNqFW8@scheduler.schedules>
+From: Li kunyu <likunyu@open-hieco.net>
+Message-ID: <a3bffa08-0754-7bee-f566-d4bb2018689a@open-hieco.net>
+Date: Fri, 27 Nov 2026 14:16:05 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,48 +58,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126084241.17569-1-qiang.zhang@linux.dev>
+In-Reply-To: <awhlwJTOLPeNqFW8@scheduler.schedules>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 04:42:41PM +0800, Zqiang wrote:
-> These are SRCU-specific primitives and their checks are against
-> SRCU read-side critical sections. this commit therefore fix comments
-> "outside of an RCU read-side critical section" to "outside of an
-> SRCU read-side critical section".
+Hi Kayra,
+
+On 2026/11/27 1:22, Kayra Cizmeci wrote:
+> On Thu, Nov 26, 2026 at 05:40:36PM +0100, Vincent Guittot wrote:
+>> Reuse task_delayed instead of checking flags bit
+>>
+>> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+>> ---
+>>  kernel/sched/fair.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+>> index 731d78155e65..942140247f76 100644
+>> --- a/kernel/sched/fair.c
+>> +++ b/kernel/sched/fair.c
+>> @@ -8354,7 +8354,7 @@ static bool __dequeue_task(struct rq *rq, struct task_struct *p, int flags)
+>>  	update_curr_eevdf(cfs_rq);
+>>  	update_entity_lag(cfs_rq, se);
+>>  
+>> -	if (flags & DEQUEUE_DELAYED) {
+>> +	if (task_delayed) {
+>>  		WARN_ON_ONCE(!se->sched_delayed);
+>>  	} else {
+>>  		bool delay = task_sleep;
+>> -- 
+>> 2.53.0
+>>
 > 
-> Signed-off-by: Zqiang <qiang.zhang@linux.dev>
-
-Good eyes!
-
-Reviewed-by: Paul E. McKenney <paulmck@kernel.org>
-
-> ---
->  include/linux/srcu.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> As I see and know, cleanups attend to get lost in sched's traffic.
+> I don't like that. So I'll review this :-).
 > 
-> diff --git a/include/linux/srcu.h b/include/linux/srcu.h
-> index 380b5964fcb4..87e5535556c6 100644
-> --- a/include/linux/srcu.h
-> +++ b/include/linux/srcu.h
-> @@ -294,7 +294,7 @@ static inline void __srcu_read_lock_must_hold(const struct srcu_struct *ssp) __m
->   *	really are in an SRCU read-side critical section.
->   * @c: condition to check for update-side use
->   *
-> - * If PROVE_RCU is enabled, invoking this outside of an RCU read-side
-> + * If PROVE_RCU is enabled, invoking this outside of an SRCU read-side
->   * critical section will result in an RCU-lockdep splat, unless @c evaluates
->   * to 1.  The @c argument will normally be a logical expression containing
->   * lockdep_is_held() calls.
-> @@ -317,7 +317,7 @@ static inline void __srcu_read_lock_must_hold(const struct srcu_struct *ssp) __m
->   *	really are in an SRCU read-side critical section.
->   *
->   * Makes rcu_dereference_check() do the dirty work.  If PROVE_RCU
-> - * is enabled, invoking this outside of an RCU read-side critical
-> + * is enabled, invoking this outside of an SRCU read-side critical
->   * section will result in an RCU-lockdep splat.
->   */
->  #define srcu_dereference(p, ssp) srcu_dereference_check((p), (ssp), 0)
-> -- 
-> 2.17.1
+> Reviewed-by: Kayra Cizmeci <kayracizmeci@gmail.com>
 > 
+> Thanks,
+> 
+> Kayra
+> 
+
+This is interesting to me as well - I'm going through the latest code to get up
+to speed, and may follow up with questions or a patch.
+
+Reviewed-by: Li kunyu <likunyu@open-hieco.net>
+
+-- 
+thanks,
+kunyu
