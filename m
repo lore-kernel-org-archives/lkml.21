@@ -1,64 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.108.101.136
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795823039;
-	b=A8Ac03AE9Ayfp0f1onYXX5eVflHKBN0NKhlpRU6Bnrj0s+vihn/F9+LrYZVzM5VbnpRu
-	 q6WKa4MN5J+mMKtkBjvRFz6tYFCOy3KFdhMyJomUTjdpVL6ETx2hp97ecD6OihxBvDL9k
-	 OfuOjF5we63eXpYZ/3Aw46XPKGNbmba1soYdqitjt5Z7ORbEH2rwzE8nimiICL4vd/Zd9
-	 nCysXF/s+eGZF+abZnjp53bDbBOWFOo4RR1jGWptyFgWR3u0PM8e7FI1xbXZ1R5wKWITt
-	 3/vWEmwORkLNy81QVBPdXialX5ufUTgJZcKpViQI2oIeOootIeiXU1UZels9hVlszXg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795823039;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=hyH5xctCfSmUQx/A63BfRYH7Qc0jBej0X1hV87nxors=;
-	b=EP0w53sujfJZsuDPvf9HhTb94x/IPNq6DxVEA5y8yyVoz4Zs43FBdPmke/HnuqAPyskz
-	 kQszxHWHkjGiBMmPwNywIhW5eoE8pf/fVfYqKr9u2ZQLjglxaY6Y5OIKyBW6FHDYheV1U
-	 ruyGOyqyJ/FIwB12jSuBYTXGEXfaDbhyDs12+cGi4MU6+dK44pdQdog6zIukDpYItVaF/
-	 pgD/erkhryyzhUl+bOcN7417o/RXWN/pj5MDYeAXI91j9PKiF/royX6rVZbzzj/Pn47dN
-	 mJDX4WqXEaPiDc5JL4RFne3rkPyH/rGZgvmG6QlVu7PFCE8N6aiSOgPQsGsGzadt/zQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=vitkazik.cz;
-	spf=pass smtp.mailfrom=vitkazik.cz;
-	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=ed25519-sha256 header.s=v1-ed25519-20261107 header.b=3vrt049d;
-	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=rsa-sha256 header.s=v1-rsa-20261107 header.b=vOEWq44Y;
-	arc=none smtp.remote-ip=78.108.101.136
-Received: from mail.vitkazik.cz (unknown [78.108.101.136])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795823087;
+	b=AbWs+s5p5qcDLNftGA4zVsVssXwwR4O7jtC5I0ettMe+Jt5dDkmQlzSJ9xvT/t6jWobV
+	 T65dMMyg9XlcLaDmdqm4JMfOBKuvQ8s6L8LuNekhUGnWtzWOYE97Q25qOOLF8Hl3GxAU1
+	 UngUzu8FCvC8Eh1jPkT+djoTziAnnyPQZSqjFhSccgaWiFopatUxHqFB2jQ8/7BPDLutz
+	 jKLzqkD0KlWNixm3Khj6FSXGDkQ1ZY/7UB5nfcFW++vuN/GbZYOKElluiS47hA6rD2pr0
+	 RwCLcwrHydli314QAKZtpYrBiW++jR0Ifs/N988NbXXGvaxVe5MNkiZttaXXjgtxtWA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795823087;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=NyFa5+QRGdiGBA7vzS8aDyP7lR2va9y9iB0GSwTVIec=;
+	b=wxJ4/3aDJrpBUfAEsqqJG6s8/Pyrbxyt+cBeXYDZ7sgmbkzK8jBFea+qQuHi7GXpTN97
+	 gHCyKNwNJkp5kJUYslrUT/C4H1xT2lVqQyZTQLA2N/ljxho1tb/PYDSFvbGLPsHq+mpgI
+	 b5bJBCQ1HQ3UCff4qNg1MKTeA6OECdHfT9VRd/tZ9qO6aRAEqg5MKvZBo38uxgm3Wgw6D
+	 cEDCRJfVY3sQxya6mk8fffBMlrw+nEeUZdzUKZl4ML7GRVHMgS2x1/yA0yTqmNtj+aikQ
+	 mZO0bRPeZ7+t8InWFq2WswgRglacKdciLQiVjcrkx/ENsEKqLZcpkc2HlYY0wWhok0g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=niSETPpG;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA6CC606A31C;
+	Fri, 27 Nov 2026 23:44:47 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=niSETPpG
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795823087;
+	b=TF1PNK2ea/XuB35zXA8eAW2g9SsyJz09gzY6d2mKRXwmwWFR7BJrhiNHFxaaTyLLQEV7
+	 mlVSq8bmYZDW15KOAm/8O1uXCSMmlwwtFPJr+y/qrBSc7r1FNsbQHe5fkTQl9jkFkn6ss
+	 p0K2auFXQadnWpZIaj263416zQ3+oWcXAkIMPm4avsZaLSID1DhmDJOpFKkyRPosflIm3
+	 y4X1EHsJd9EvUxrZcnkGSPVRW/rf/F9O3k/n6hQXPqBUNYnwEVT+O6KRJa90lA0JFRoaN
+	 T1NuYgFC2M1IcAJPFLrAQ7GXgGDxiz8YH3sammsORQa7bBQMRPDW0J0Ju7d9SiwOhdQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795823087;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=NyFa5+QRGdiGBA7vzS8aDyP7lR2va9y9iB0GSwTVIec=;
+	b=Gphd5qGNbw2sowCrkAiPzKx9DD18Utr5TGBBmufzgI3AfBX6CbCvdJzJgl7jzH/G64FS
+	 jNuT2Jp2XBQcnylIEzyILHlpl2oASgT26dIcdhwhgZn+8vcU3Ln149P5cXecjLOmUR6K6
+	 YQCMGKZ3s2iJc7Vwn1oys2nvu6G0qH+e/9E0oSvfAS6FlsnrbO8EX/rGVME2TZB2anxzp
+	 mknndOWFeTJ2CmjVv1bOHSqF8rKpxFuDBdzXrvW8cVLsKvtoMeKQPjD5lXDoKqwzqKDeU
+	 Gv1Ioj1PHGxW/2te919htzyGUG02RqQBcHFmdTNn23a32JC9qHdO6NrvEw4NdFduWhQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3D57606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:43:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3D57606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vitkazik.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vitkazik.cz
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=ed25519-sha256 header.s=v1-ed25519-20261107 header.b=3vrt049d;
-	dkim=pass (2048-bit key, unprotected) header.d=vitkazik.cz header.i=@vitkazik.cz header.a=rsa-sha256 header.s=v1-rsa-20261107 header.b=vOEWq44Y
-DKIM-Signature: v=1; a=ed25519-sha256; s=v1-ed25519-20261107; d=vitkazik.cz; c=relaxed/relaxed; r=y;
-	h=Message-ID:Date:Subject:To:From; t=1795823030; bh=hyH5xctCfSmUQx/A63BfRYH
-	7Qc0jBej0X1hV87nxors=; b=3vrt049dWpX4YUJfs90CfIcbtHU/GLnzfXgfI50wm0yjDw/e77
-	e2vM/Hj2wKlLlNQeI7sCDXzOulMpHqZvlaAw==;
-DKIM-Signature: v=1; a=rsa-sha256; s=v1-rsa-20261107; d=vitkazik.cz; c=relaxed/relaxed; r=y;
-	h=Message-ID:Date:Subject:To:From; t=1795823030; bh=hyH5xctCfSmUQx/A63BfRYH
-	7Qc0jBej0X1hV87nxors=; b=vOEWq44Y/9Kyp7Cf58NHxARHNku8nULR6CQtw+GemC7E56dAxz
-	1MxMBJaq3OGgVNu1ulnPxEl5y1AiszGueNhw8lECmUI3sLUuBGukdk8iiuuR/ZJn1qjBk6ogomr
-	el9wfqfquINls3q3AkZdxrIUi+GaR9xx2JOwuwktK3+mzoYjASC6hR2LYeIvyi7xNs1QXVkIWko
-	n99/jX8V3U3Iw6nMrDXzjXTgdGtCNVIiNvBdQT+lZnYJWgveeTIULN2k6P9+wekGBzq2BDB6ymM
-	R2viY1k/jLir3UmWJHF8fOXhLdlgT0TT8CLtulyXeXXXPeGeWesf+PBSrH1p14++Ezw==;
-From: =?UTF-8?q?V=C3=ADt=20Kaz=C3=ADk?= <vitkazik@vitkazik.cz>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com
-Cc: tudor.ambarus@linaro.org,
-	m.felsch@pengutronix.de,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?V=C3=ADt=20Kaz=C3=ADk?= <vitkazik@vitkazik.cz>
-Subject: [PATCH v2] mtd: spinand: micron: add support for MT29F1G01AAADD
-Date: Sat, 28 Nov 2026 00:43:01 +0100
-Message-ID: <20261127234301.262679-1-vitkazik@vitkazik.cz>
-X-Mailer: git-send-email 2.56.1
+	by smtp.kernel.org (Postfix) with ESMTPS id B58DC1F00898;
+	Fri, 27 Nov 2026 23:44:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795823087;
+	bh=NyFa5+QRGdiGBA7vzS8aDyP7lR2va9y9iB0GSwTVIec=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=niSETPpGN8HUgBTzUnazdJM9gLA9btDIZGirmV8G5QWmV/wNWTGd3PFax+6S+nHKA
+	 fEWUgohc8iHKmqhSj0JNrSzdxp0eggY7e6iEFZkTy9g7d71LyUtcB3ek4pMT3N+FPH
+	 lIrfS8W7tG/mgviJt83rPs3VykTAmJTVO5T0IWpCCwsp+rNwJDOcClHYqmaPzU3w/I
+	 isJAhN83G7VNHcZJGDoulrB0GhQ0VTTjFG1lhC7zldhZkxLT/kmGTt8erdPizFPGZ1
+	 5l3HVpkMOzkAGzt6yweIAZyNouBy4MqfMwbpGfKCS1xAIPTYq4iME7H+MaJsujuenq
+	 zOHinfKOakEGw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 4125E4DE96;
+	Fri, 27 Nov 2026 23:44:44 +0000 (UTC)
+From: Patrick Fischer via B4 Relay <devnull+admin.tsv-stahl-riesa.de@kernel.org>
+Date: Sat, 28 Nov 2026 00:44:38 +0100
+Subject: [PATCH v2 1/2] thermal: tegra: soctherm-fuse: Fix shifted_cp
+ extension
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,82 +83,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261128-upstream-soctherm-t114-v2-1-abba0b143037@tsv-stahl-riesa.de>
+References: <20261128-upstream-soctherm-t114-v2-0-abba0b143037@tsv-stahl-riesa.de>
+In-Reply-To: <20261128-upstream-soctherm-t114-v2-0-abba0b143037@tsv-stahl-riesa.de>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Svyatoslav Ryhel <clamor95@gmail.com>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, linux-pm@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Patrick Fischer <admin@tsv-stahl-riesa.de>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795823083; l=1488;
+ i=admin@tsv-stahl-riesa.de; s=20261020; h=from:subject:message-id;
+ bh=IcjQLi3EWU6uv5WDPVnI7H+1UDXjOHTlhu+GBJlQqns=;
+ b=PgIHvzOtSW3OLtcWYAoN4ygEWEv/nJyAbtlhH6pa0gTNCPLy+U1zvXYZZwcGageMbNMYQlO8u
+ 0JhS/246hv/CTm7TdNmTUGdL2OxuIp7B8e+EgZmYlUhDG78kgtkD1kj
+X-Developer-Key: i=admin@tsv-stahl-riesa.de; a=ed25519;
+ pk=D+v6EloYcEY9PIUHFyTM5sqcGIU/fIXzLUdkR8vjAtk=
+X-Endpoint-Received: by B4 Relay for admin@tsv-stahl-riesa.de/20261020 with
+ auth_id=1251
+X-Original-From: Patrick Fischer <admin@tsv-stahl-riesa.de>
+Reply-To: admin@tsv-stahl-riesa.de
 
-Add support for the Micron MT29F1G01AAADD (M68A), a 1Gb 3.3V SPI NAND
-with 2048+64 byte pages, 64 pages per block, two planes and 4-bit
-on-die ECC.
+From: Svyatoslav Ryhel <clamor95@gmail.com>
 
-The 64 spare bytes are split into four 16-byte sections, each with
-2 reserved bytes, 2 bytes of unprotected metadata, 4 bytes of
-ECC protected metadata and 8 ECC bytes. Add a layout that exposes
-only the ECC protected bytes 4-7 of each section as free OOB space.
+The shifted_cp value in tegra_calc_shared_calib() should be passed to
+sign_extend32() similarly to how shifted_ft is handled. This omission
+caused malfunctions in the GPU and memory thermal zones, which was
+observed on the Tegratab.
 
-Tested on a Motorola NCAP-500 (Atheros AR7242) running OpenWrt
-with kernel 6.18.64, using UBI with UBIFS.
-The chip is detected correctly:
+Tegra124, Tegra132 and Tegra210 are not affected: SHIFT_CP is in the
+low six bits of their fuse word, so sign-extending the whole word gives
+the same result. Only Tegra114 has SHIFT_CP in bits [15:10].
 
-  spi-nand spi0.1: Micron SPI NAND was found.
-  spi-nand spi0.1: 128 MiB, block size: 128 KiB,
-  page size: 2048, OOB size: 64
-
-Signed-off-by: Vít Kazík <vitkazik@vitkazik.cz>
+Fixes: 48fc33b95159 ("thermal/drivers/tegra/soctherm-fuse: Prepare calibration for Tegra114 support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
+Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
 ---
-v2:
-- expose only bytes 4-7 of each section as free OOB space
+ drivers/thermal/tegra/soctherm-fuse.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- drivers/mtd/nand/spi/micron.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
-
-diff --git a/drivers/mtd/nand/spi/micron.c b/drivers/mtd/nand/spi/micron.c
-index 36f6cbbd7462..34a8ea77c3fe 100644
---- a/drivers/mtd/nand/spi/micron.c
-+++ b/drivers/mtd/nand/spi/micron.c
-@@ -134,6 +134,24 @@ static const struct mtd_ooblayout_ops micron_4_ooblayout = {
- 	.free = micron_4_ooblayout_free,
- };
+diff --git a/drivers/thermal/tegra/soctherm-fuse.c b/drivers/thermal/tegra/soctherm-fuse.c
+index 8d37cd8c9122..2de1d0cb676e 100644
+--- a/drivers/thermal/tegra/soctherm-fuse.c
++++ b/drivers/thermal/tegra/soctherm-fuse.c
+@@ -102,7 +102,7 @@ int tegra_calc_shared_calib(const struct tegra_soctherm_fuse *tfuse,
  
-+static int micron_m68a_ooblayout_free(struct mtd_info *mtd, int section,
-+				      struct mtd_oob_region *region)
-+{
-+	if (section >= 4)
-+		return -ERANGE;
-+
-+	/* 2 bytes for the BBM + 2 bytes of non-ECC protected memory */
-+	region->offset = (section * 16) + 4;
-+	region->length = 4;
-+
-+	return 0;
-+}
-+
-+static const struct mtd_ooblayout_ops micron_m68a_ooblayout = {
-+	.ecc = micron_4_ooblayout_ecc,
-+	.free = micron_m68a_ooblayout_free,
-+};
-+
- static int micron_select_target(struct spinand_device *spinand,
- 				unsigned int target)
- {
-@@ -404,6 +422,16 @@ static const struct spinand_info micron_spinand_table[] = {
- 		     SPINAND_ECCINFO(&micron_8_ooblayout,
- 				     micron_8_ecc_get_status),
- 		     SPINAND_SELECT_TARGET(micron_select_target)),
-+	/* M68A 1Gb 3.3V */
-+	SPINAND_INFO("MT29F1G01AAADD",
-+		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x12),
-+		     NAND_MEMORG(1, 2048, 64, 64, 1024, 20, 2, 1, 1),
-+		     NAND_ECCREQ(4, 512),
-+		     SPINAND_INFO_OP_VARIANTS(&x4_read_cache_variants,
-+					      &x1_write_cache_variants,
-+					      &x1_update_cache_variants),
-+		     0,
-+		     SPINAND_ECCINFO(&micron_m68a_ooblayout, NULL)),
- 	/* M69A 2Gb 3.3V */
- 	SPINAND_INFO("MT29F2G01AAAED",
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x9F),
+ 	shifted_cp = (val & tfuse->fuse_shift_cp_mask) >>
+ 		     tfuse->fuse_shift_cp_shift;
+-	shifted_cp = sign_extend32(val, 5);
++	shifted_cp = sign_extend32(shifted_cp, 5);
+ 
+ 	shared->actual_temp_cp = 2 * NOMINAL_CALIB_CP + shifted_cp;
+ 	shared->actual_temp_ft = 2 * tfuse->nominal_calib_ft + shifted_ft;
 
-base-commit: ec1e844b9486302a488abc03ea918db60709766e
 -- 
 2.56.1
+
 
