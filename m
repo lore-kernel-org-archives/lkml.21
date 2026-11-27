@@ -1,60 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777454;
-	b=gFoe8Xy+A41fGvleQH+BWYVzFdlZe1435G1NVO6pxmvSG/1utNP7CmSO8BhUHz86XR+b
-	 Txl8bybVh0yek0/NlCDgKCHzPoNt9VkTAD7nPi1eY0ucKYK6iMj15ELlIKG2rMNYr0a1E
-	 iozP2aJkGqQAcPNi0Rr02sb4TZekfNWG4C+n9TlAohdtHvrQBkQYRuVXTa5Jnqk/WERcW
-	 VkTHB+Zah86OO201ZeogmzET2/BNmPeGQG+3oZ6ALxuB6TBwfmujcwD3x2JdR6hSLJ/JC
-	 +hr/QoksGK/cbE+4OhTXlKqo88GT0EnVxYf7INtZbZINflMLs51RT6wh5vojht5527w==
+	t=1795777452;
+	b=hU7BxliWXVRIocvgiQOcoO4ic2rhqGSTRMnjKBttBZzuQv2lAg9Wj46/5puMZGjnnnzk
+	 YLX/+LZs0f+NJ0YiBf7jmxkisE6lKduwRKnk5g2+EdqRlo9MdHXq9zciC9nlcDCDNoA/Y
+	 6XBvY1AuCMb26pu7/cy6yoE+XoNbBEGnJHLUmkNhxSvqUHO1BhEgVDYeABfshv7xRoTEt
+	 WvcAjooEfRJth0E959Fg0C5Dnl28LKQE7XPMBkHW8osZ9cNtT2eolXK+Bzc5DH/U0XPHW
+	 kFyon94REomyxH7Xdq0HvErfDvTnfO9t34ccC3bdarlH2vApcj7YiYRxIKMYyiysQZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777454;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777452;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 X-HM-Tid:X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=ds4sm9si83a81aIQG4knnSuuijkX5GS60QybAJGIn3Y=;
-	b=cz98+l7pgi68XG+5/WoddoGEHhNt8ybgrbfnPWWKrhoUDcuO98Rw6qgsI+B+5XvYgWUU
-	 A5mThwnpT7ElEQG0Jblnq9Inpzwf0TonucfnUszF5diplW9Q2NzVip1lkTo45BzeWg+q/
-	 GDdLORkvygLDsWTk+I8nZtJ+Zy00Lt/WnnK+G5nH67Iazp9q5eRAkCycJswlUmbyzoCSJ
-	 rKSyCi2tGtRGZqLJAWJH++PSAy//uQWP++GeD62gUv99yADWmUAuGex7fUZcXPxYScBUl
-	 S5Qzt4jqF2fk+Of0qau69S03UYKTyXnvo4TJdxlwmF8j3EMxyWgeORNkLJJ4LiKvW1A==
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=YdfK4Qp5Bx9gzFSwkUXW3KuZo6hwNcU1xldTy43PvIA=;
+	b=01IhcXoRCKZSor6MnSEx1AjNQ/jJk4/mtWssOI5ytvqqQZOlRA5W2S5Ii8f8AVr30Q++
+	 Pj0Mj/C4qxkDjw9/8Y8wq+rhNM+/xq6vW/n7TlOu5JSmSxodxjHnOQVT/E7dP5W2PF5vm
+	 YYR+2Sx5eJQXOEp6yu1wM1cqX0hu3tvhF+8ryvn51vdnHLTy33OYPrUnTB0lBmKuJvy4Q
+	 2uAU0MMelFhGkBsm0brwCNylMOQXWBEXPQc6VU4tviT35IDTPcKrLhOOCjvThNQtLPchw
+	 yzlP/0AKhYDaEDqfu2wQYAg6ZiEsXsSeTsF00KKezk6e2d0AT0aoowdoQTkm13sUEpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.sdu.edu.cn;
 	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=W7Ka+ecY;
-	arc=none smtp.remote-ip=45.254.49.198
-Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=gifcjVT7;
+	arc=none smtp.remote-ip=45.254.49.197
+Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C671606A33E;
-	Fri, 27 Nov 2026 11:04:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C671606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A18EF606A327;
+	Fri, 27 Nov 2026 11:04:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A18EF606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=W7Ka+ecY
+	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=gifcjVT7
 Received: from user.localdomain (unknown [223.80.110.101])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5641a2c39;
-	Fri, 27 Nov 2026 19:04:02 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5641a2c40;
+	Fri, 27 Nov 2026 19:04:06 +0800 (GMT+08:00)
 From: Tian Xuechen <202300460064@mail.sdu.edu.cn>
 To: vkoul@kernel.org
 Cc: Frank.Li@kernel.org,
 	Frank.li@oss.nxp.com,
 	dmaengine@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	vz@mleia.com,
-	piotr.wojtaszczyk@timesys.com,
-	manabian@gmail.com,
-	robh@kernel.org,
-	saravanak@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 1/3] dmaengine: of: Add managed DMA router registration
-Date: Fri, 27 Nov 2026 19:03:58 +0800
-Message-Id: <20261127110400.379397-2-202300460064@mail.sdu.edu.cn>
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH v2] dmaengine: qcom: gpi: Use managed APIs to register the DMA engine
+Date: Fri, 27 Nov 2026 19:04:06 +0800
+Message-Id: <20261127110406.379425-1-202300460064@mail.sdu.edu.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261127110400.379397-1-202300460064@mail.sdu.edu.cn>
-References: <20261127110400.379397-1-202300460064@mail.sdu.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,72 +57,59 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa21cad339203a2kunm13da2c70394a81
+X-HM-Tid: 0aa21cad42b803a2kunmf7f0fd8d394a91
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSRkeVk8dTRgfSUlJHk1IHlYeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGBhNVh4dHR9JTUNLQ0JMGlYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVQ0tVSkpLVUpLSllXWRYaDxIVHRRZQVlPS0hVSktJQk
 	NDTFVKS0tVS1kG
 DKIM-Signature: a=rsa-sha256;
-	b=W7Ka+ecYvyw4V8c6uiTg2flQXAlY6YfUwjGS2RAdLmNEwTFsjVqeKUHR5sXB63kdRAfIOZzTtf1NPxHcGFi0Aezp4k+14h6iAKuivYneUMXUKDj+sBzKhbtZA4yOmJIdE/9WE33hkpCwmrXQV7+ft5jGLChKhbB3wCOuQtrG8MY=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
-	bh=ds4sm9si83a81aIQG4knnSuuijkX5GS60QybAJGIn3Y=;
+	b=gifcjVT7idZS6u1faDHGrESt5ugSlj21VSzAzW6Ks0dh1gzGlg0GfARY1R1yzwK/iVB0aUg0KemUJs3d+QGsKU0JiOxSpiwU9vtwvBaXsJz/deIM3PGdpXHPF8NThtwqAfYW19RiZOl7z8d/o3zlECgqIJLloDQ24J9Mjty0VIw=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
+	bh=YdfK4Qp5Bx9gzFSwkUXW3KuZo6hwNcU1xldTy43PvIA=;
 	h=date:mime-version:subject:message-id:from;
 
-Add devm_of_dma_router_register() to unregister a router when its
-device is detached. Reuse the controller cleanup action, since routers
-share the same OF registry. If registering the cleanup action fails,
-remove the newly registered router immediately.
+The GPI driver leaves the DMA device registered if OF controller
+registration fails, and leaves both registrations in place on unbind.
+Use the managed registration helpers so the OF controller and DMA
+device are unregistered before their backing storage is released.
+
+This issue was found by our static analysis tool under development.
+
+Fixes: 5d0c3533a19f ("dmaengine: qcom: Add GPI dma driver")
 
 Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
 ---
 Changes in v2:
-  - Add the reusable managed router helper.
+  - Update the subject as requested by Frank Li.
+  - Align the managed OF registration call continuation.
 
- include/linux/of_dma.h | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ drivers/dma/qcom/gpi.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/of_dma.h b/include/linux/of_dma.h
-index 16b08234d03b..7f9198ea9627 100644
---- a/include/linux/of_dma.h
-+++ b/include/linux/of_dma.h
-@@ -64,6 +64,21 @@ extern int of_dma_router_register(struct device_node *np,
- 		struct dma_router *dma_router);
- #define of_dma_router_free of_dma_controller_free
+diff --git a/drivers/dma/qcom/gpi.c b/drivers/dma/qcom/gpi.c
+index 665d8a0bbaf8..f0cfc9b254f4 100644
+--- a/drivers/dma/qcom/gpi.c
++++ b/drivers/dma/qcom/gpi.c
+@@ -2293,14 +2293,14 @@ static int gpi_probe(struct platform_device *pdev)
+ 	gpi_dev->dma_device.device_resume = gpi_resume;
  
-+static inline int
-+devm_of_dma_router_register(struct device *dev, struct device_node *np,
-+			    void *(*of_dma_route_allocate)
-+			    (struct of_phandle_args *, struct of_dma *),
-+			    struct dma_router *dma_router)
-+{
-+	int ret;
-+
-+	ret = of_dma_router_register(np, of_dma_route_allocate, dma_router);
-+	if (ret)
-+		return ret;
-+
-+	return devm_add_action_or_reset(dev, __of_dma_controller_free, np);
-+}
-+
- extern struct dma_chan *of_dma_request_slave_channel(struct device_node *np,
- 						     const char *name);
- extern struct dma_chan *of_dma_simple_xlate(struct of_phandle_args *dma_spec,
-@@ -103,6 +118,15 @@ static inline int of_dma_router_register(struct device_node *np,
+ 	/* register with dmaengine framework */
+-	ret = dma_async_device_register(&gpi_dev->dma_device);
++	ret = dmaenginem_async_device_register(&gpi_dev->dma_device);
+ 	if (ret) {
+ 		dev_err(gpi_dev->dev, "async_device_register failed ret:%d", ret);
+ 		return ret;
+ 	}
  
- #define of_dma_router_free of_dma_controller_free
- 
-+static inline int
-+devm_of_dma_router_register(struct device *dev, struct device_node *np,
-+			    void *(*of_dma_route_allocate)
-+			    (struct of_phandle_args *, struct of_dma *),
-+			    struct dma_router *dma_router)
-+{
-+	return -ENODEV;
-+}
-+
- static inline struct dma_chan *of_dma_request_slave_channel(struct device_node *np,
- 						     const char *name)
- {
+-	ret = of_dma_controller_register(gpi_dev->dev->of_node,
+-					 gpi_of_dma_xlate, gpi_dev);
++	ret = devm_of_dma_controller_register(gpi_dev->dev, gpi_dev->dev->of_node,
++					      gpi_of_dma_xlate, gpi_dev);
+ 	if (ret) {
+ 		dev_err(gpi_dev->dev, "of_dma_controller_reg failed ret:%d", ret);
+ 		return ret;
+
+base-commit: 2e02fb103be058cf8b2fb24112a74a2715e090f0
 -- 
 2.43.0
 
