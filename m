@@ -1,81 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760534;
-	b=4jksNADW/9LUA8O4+GgfvuZkrOuNxnhxv+LQHHktZeW8mq31IG4WD11z7XRx18tuJsn9
-	 UZVt++SUzXCexigrDqWZFRAWXU+yvYObvDTRYrDDc9UT5tcgIJ832Nyk7K9Tfr5l8A9jQ
-	 dtbOoSHFxARvxcHvpxmkZRSHZz77DDOeEHzuHqcIX6EZAVBKNifLUiFM1rQPCGVksc0Dk
-	 s9Qb7kEo4sH8B0Ub0YiwYZUBE5dTfOULxqNMq217srby96bcgZpc+TMs1K0voJ5gv4KV7
-	 SAvFNKFSsNhnUJ2jlCe4jRVBmap6meoDjqE2PDBi3J99u9gH4n52Yurm8J20yJMQiNg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760534;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=ZMwop0OEMpyal3RAc7tFLnBFdF1UGDC4gKKK5+n2XIY=;
-	b=BQurrOzj2sJzPp5f2v8oiVf8DUWGC+hs7Gutw4Guw8L99nl9iC7mxRyV/I9JS9506Sxr
-	 hFRg0T5WXmANDkzQO6DGXjNQdFBdyFL3GJrnIUw9SgPOL+e0ESu/aS5iJXDELvMZcGAY1
-	 BX+d9Pz5z5cU6+ToEGkIBQ1cHa+m1+sIHdzAZzRTaAjsxMf8ApRK4OIovY8T9Jl2EU+X9
-	 C5fzOWhqM2BuVo6yThXqzGORFkLoqKgUtFAV+XuUgup6b438NwGB5JmCORYlPrlB6dWog
-	 vjRdLEI7D+svoSq/v5/U5QIh97G/fYcbpDfUcIKkJBo9Rs9nwN1SgNHieLNQLDHU8jA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GgckzaFA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795760576;
+	b=XK0O/1K4ryxAcsCM2P5bkAr/WaBBZwOHrviecjkRayZIn4xYBdwhiWFzKIhWl+8yWVxD
+	 NRT62ubFjZ9alf4YXRrSkI487hVnFfBj9RZXEpa2BLxElzvFnkH6xZjelsdjrvymNjSYs
+	 7k+ag0nfwSGYVtMn9RhlHTtU/y3w0edyaPFPzwfjKKO2KFD77VZdYRzBhBVyJQtK55V+V
+	 M3h72X7SiAJOC3nbbfHZ+MMH8tRbS3Ip5COPe8al0UwGUM/ZRBvAGenrjlKwn3GICLn2X
+	 QMwb3mdPrcwrIILaYzmrwRBC3tTTRztTsCNylBOgjkuBDpUoQ8/gnPzLh9SF4NWgoog==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760576;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=dfnN/uu3Aq+rPgKrXYP2GTTCf0Y5Z3zOpVPbQM6MYtg=;
+	b=pnZpi/tCUg3St28ltoI9OwaecRX8rp5V62m4CjEvi7AOpsWwNqUlEva3QW4zO/c2CNMk
+	 1wGZBmfriUmDClSilMejoaJSVv/Zv6M8BUL1z/DauXb+F+KwPly+muMejxSuSnSvwgYl6
+	 idUtaLZU/PWszA5j+46TxWq6VOnfStLtuUnU8B2oSMUAaWNW5NjMji6IGVqZtvXwAZyck
+	 ndrrdpELsoR/JHYncnVqRlz4zmXjMRj4UKzamcCG96/R+37UcooB/0elYCoNROiXJ/O33
+	 VckxitPHCqR+zS+4HBKolnLJODwoKtShQHO5+Zv8ZyhI5pciEYZp2d2E0s6YXf/rH5g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=IvQgDmET;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.49
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010049.outbound.protection.outlook.com [52.101.85.49])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id CE8D4606A31C;
-	Fri, 27 Nov 2026 06:22:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E80D7606A31C;
+	Fri, 27 Nov 2026 06:22:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E80D7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GgckzaFA
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id CE5991F00893;
-	Fri, 27 Nov 2026 06:22:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795760534;
-	bh=ZMwop0OEMpyal3RAc7tFLnBFdF1UGDC4gKKK5+n2XIY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GgckzaFAspuAAlHJ4238QvFssP0pA8oSbPk/bpGIaGb9NunqeDWyFrKx+FnfmoImY
-	 Ae6B3iaFl63J9CFPOxXzE7TF0yymkmtsbVWHx541J1K3bs1YjjD0TmEr60dI0ZHMg5
-	 53SWmhzSVBbSWWb9fP0PG1NkklJgAQOf+LA2k0lF2BmtyiTruGHxe1jXKfR64Xv8Hu
-	 6ekVfz280AMLR3vQoMW7rHKLUtCQP48HqMEHB4lRlZN8vk1Koonh7belp2iGfZ0yUF
-	 1K1+Mv63DoF3AyguSlX/wg3VaG9jtEP3WtZsQsGo3jOACy196K94lfZhILGMmUENRO
-	 lEPbOvNRhx9gQ==
-Date: Fri, 27 Nov 2026 08:22:10 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: dm-devel@lists.linux.dev, linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
-	Jonathan McDowell <noodles@meta.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: Re: [PATCH v5 00/17] KEYS: trusted: asymmetric keys
-Message-ID: <awkhklUCPgE2GYMh@kernel.org>
-References: <20261127055602.2357884-1-jarkko@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=IvQgDmET
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nd4BcuuayT0BfB5+e8VxRWUh1QU4CZv6yUDJcGzSFdsrTEKwJ35kf5m0mhwQY/ejnrYN57fIIJh9YeznPEGGdCku0o5kxQlVUJRhyXe9pjyRtgKByRXMGXO7OG5ztuQy2IouHwFNBZrJkt1c3KOaM4onq2b3z8GBC55zblCyOYnvAo/3LWXMsG3/E/tJIlENzN9k83TZAygNT6YTHHIbGVtylVZ98Q/LATDkpFGaayksMm0JwwOwtWCkIvPqFAZIN6mTSwrwUeu1IcoZdKmWzSfOspL3/NSRd60WDJlnN1w6EZU9CcZGiJbTrlKQjynyCqCt/hxP3H2Amze6Zzq0oA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dfnN/uu3Aq+rPgKrXYP2GTTCf0Y5Z3zOpVPbQM6MYtg=;
+ b=n6hj6bgeFnmoVoo7deB00jr5hf3GmC4uEX+ocXvYIR/xqneFoxC/sgZsAOFCpJH5T4lIvpdAqys8nEBlh+WQoIuzOxRY76SbiJfaCznCzrVmogfOz7ACf8blEoG6cJACfuH0P+26s9UHueOPFAV8thybJBTNd3XnnU/V3mTG/FLWDT0VsaPcceLW2bP8wWazcvThVljvyTRj4pvYwqEO7Ehujx7hVGEyWU+Ozf0YgpWKHMqaZcxEX7jmXzjN/5+M8MZ6+syHBatEgW2/b4oNem34+kc/0p9QHHayL1tWusVg8n4LUWahVQlNLv7e7xlDHPJZOrKo+EdWJdll+qAT4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dfnN/uu3Aq+rPgKrXYP2GTTCf0Y5Z3zOpVPbQM6MYtg=;
+ b=IvQgDmETq38p1xZeq+x71uvqDywP5PhtCDevWrBWDL2pTnbqJ7+WKlhpVw3JF4XFfne7xH6sL3ZelIeNvjW0EP91PET4LFZEX8gMZQvQ3GZNgQZJPqIA/WdKd8FiBOSSMWFTsgg48v+7qKiJrlIkZPe8yXM/+h3yrCHmQEXh+ugVLkRAnx8snsZ7VxL57w1AqrvALc206dMRmVusUzwa73gqN95+jU1Go6BtFgpGz1xKeqi4nqjfQkp3dqnIXPMdJdcIb1sTlnh0MDzf/JLSbbJUZ5MIjJ0FG48va7HXQZJh6jh4zrxNt9jKE59+O0g7bgbNNUyWlNM71LuxmTBuGw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by CY8PR12MB7611.namprd12.prod.outlook.com (2603:10b6:930:9b::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 06:22:51 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 06:22:51 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Svyatoslav Ryhel <clamor95@gmail.com>
+Subject:
+ Re: [PATCH v8 10/12] drm/tegra: rgb: Parameterize configuration based on bus
+ flags
+Date: Fri, 27 Nov 2026 15:22:47 +0900
+Message-ID: <XPGRUNopQCaIq1yDhISpSg@nvidia.com>
+In-Reply-To: <20261122081820.53199-11-clamor95@gmail.com>
+References:
+ <20261122081820.53199-1-clamor95@gmail.com>
+ <20261122081820.53199-11-clamor95@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TY6P301CA0023.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:3bf::15) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,190 +110,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261127055602.2357884-1-jarkko@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|CY8PR12MB7611:EE_
+X-MS-Office365-Filtering-Correlation-Id: b2f2a4b8-b824-4f3e-0ce5-08df4c4edd2c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|10070799003|366016|4143699003|6133799003|22082099003|18002099003|3023799007|921020|11063799006|10067099003|56012099006|261026140227099003|261026121527099003|261102123227099003|261028144727099003|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info:
+	qT+GFGbNrr9Ul0DkByoiIeV6r/wu6S6fBPtUzXRRJbvErZMg8p4K73I4tM1P8wsp0aw49eVfFm5gkC/KjDgJBxD6b4ENJw3LNpzhRjpU+JsjofscubRdc/cnd8uQr4bsRwWaSKP95jmJhrTvh220j4L4jU1zSMjO3b5OLoCN9mVZvhk0kHU7sfMeVjubnP6k11x500cmp986ovFJ3I73KWVVnhf5HyNzi/+hVmqXv2QEydB+lG8TtkTgbp2mYTYftzKRGAoPuvkPIJ2Zxx3TsrADQSnvPpI8tCMqfoLvKCWej57424ngXPwImthcoN2gWekJM/1Vu+xeYPTSjgc2ODtjcWEEX43Ge9VTnmZ7NprRF9IKZ1tSmtyIFQTHcV2yb1wNb2VpytBUVJ5ALRc13mk1bds36Z/EHMKsKBR6VW7Y1TCH8jwv3q6EAJ7+n0AoZHybH5OCVJYBEXQLqSp/l45Wu2GrRAeDIbAoQ2b1whUZHo2CPJpM9HwXaX6mwnADK6bZiDMG2HLmC5AWZQM5a3F4M/ezCkDYORI1haLFOmhTwu7LC5J2UqFk80gpy/mZlaNlxJij7MGqNceUtCFv/mhEMAey6zg+CsMw3bZPrJci+JHtYq9am4bst5czc2h5Z6b4OyGSYLAsSCHEpF3AueAXRk6k7LZznI0BFlEJ0P2lYrFrpyiXmAdI1P6baZu1Cn9VJEHvsKKBfCXGoCkOvw==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(10070799003)(366016)(4143699003)(6133799003)(22082099003)(18002099003)(3023799007)(921020)(11063799006)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261102123227099003)(261028144727099003)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?S3dITE50RDF2RTUvbmJFRmc5OFNja2lOdTA2dmZkVjFHWDgwREFUMG1SUFd4?=
+ =?utf-8?B?MzZLLytOSldLYmRRc1hkSjd4YjM4dFlpbUhmU2RLcFBQbGtZVVhOeHdlNGVO?=
+ =?utf-8?B?bmtDRXYzaFdIdnlwdVZNNVFVQXBuSytpOStyNDNSV24zUU0zclJaQ1dIVGNG?=
+ =?utf-8?B?cGx4UzBIWTFwWDFyQXAyT2RpS2VqWkhqOHUzMjVEaVVjdGxnZXJ0dC9sT3Ju?=
+ =?utf-8?B?dEp0ZWJpY1hjSUZzclBXRUFDN2tDaGpxYzNBcDl6b3FMWUgvMnJHQlVxeEdZ?=
+ =?utf-8?B?NWRFODloR2JxVzM3ZDdrclhUTHVIMmNkSE42eW8wZnpqeFdCbG9UUkJMMjVS?=
+ =?utf-8?B?NmNLUnFMMHFDZzJDQlZlV3U0dkFUalhDYVlQeTdxQ1Avd2ZvZWVwSHgvazcr?=
+ =?utf-8?B?bXpJajV4UTB5MTd6T292eElMWCtrbFVuMUZ4SVhoeWFmUVFDMDRzb0VMUmE2?=
+ =?utf-8?B?aGdna1I4OFhELyt0bHR1bnB3bDhUbUdSdGFSTTlUWktxaUx1enpIQkRpbXp4?=
+ =?utf-8?B?RlVaRm1tV1d2MEU2aTBKZVdZQnRvY2lubVZvOVdxSmNPZ2VMRTUvZVoyRDFZ?=
+ =?utf-8?B?RDlKZ3k3MW56MzRlYzlJWktJdGJTYzlLeXZZMGN6VmFSc29sZ2dpNG9wWDly?=
+ =?utf-8?B?aW9tMnRtRUVvdk5WMlB0cytFd0pTWG9aWkdVeC9yNXpWei9XR0NPS1dsK3Bt?=
+ =?utf-8?B?Szk3V1IwZTJvN1J5NVlDanNleU1rVlRZdis3WVM2bHZRN2NiSlFZaWpDVCtV?=
+ =?utf-8?B?aysyN1FaZStvclZ1VStoNm5ybzh1dmNvL0VrcnJBUklZR1RYZ0RLMll0WGR1?=
+ =?utf-8?B?bUdRMWNRYmpXdmpMZm1UMzZnbFkydE1RbUFOU1pWM3lNRTZNZ2dMaDhHR3FN?=
+ =?utf-8?B?ZUNZbnUzR2YyanBHbTdTK2c2ejJBMm1ZZEFWTzNBUGk1SzVtSFVud1RVeHhZ?=
+ =?utf-8?B?MjB1YmhJL2RtRW91S0thK3Q1N3JlY29vZnFBZTFLV0R3UEUxUHFZL1F6ME4v?=
+ =?utf-8?B?VTBkSUVOK0FyU1hPU3NhTXVHN1p3WWM5cW8ybjlJNnFQRm03Z1pCQ05EYlJ4?=
+ =?utf-8?B?cm9tQitMS2xRNWI0dEoraU93MnlwcVZHbTIxZGdHeVdCdnVNNXQ1dXVYTFEw?=
+ =?utf-8?B?SXdNN3A0VHh4NWtVMjdCUVI4QlErUjdFNGYzRGkwMnIrK1lzdlduZEtkeFJD?=
+ =?utf-8?B?S05XaDE2UkJocXFGT0E2b1ZmdGRaMWNLVjg0c0IxM05sUG9KSEhOSzBPQ252?=
+ =?utf-8?B?ZFhsT21pNGg2dmhrbXBCTG1SSEVCdGtzM3NMVWs1dWJDWEpzYWxEbHFPdEZG?=
+ =?utf-8?B?YmlPQUdGUWVzakJPSkl0WDN0eHpIQVdqMm5TNStLdjcrMjAxYm0vVTdvU3BQ?=
+ =?utf-8?B?R1QwaVFueG1yblNTaFpud0dNeTg5YlVYaVZmRGhaNmxxT09UZC9hWUlRdE5u?=
+ =?utf-8?B?enVDMHlqaG9kS1VYamJ3MWdFMkI4NkRwemlqRjkxbjNKOU93eDM2UXFldnJz?=
+ =?utf-8?B?OFgyM2xQWW9HRTFzWDh2UDFKc2t2QjYyTUxOWFZxTFdNVlZKV3ROWlErSk5M?=
+ =?utf-8?B?SVNHbUtGY0lYV1N3RjNhS0FCcE45YkJqNTl6MUhiNEdGZFhZTEw5QjlWUDg4?=
+ =?utf-8?B?U3VkNUlpSjRLTjJRUUdIYmNMSDRpVitMRktXZ0Q4bTExZzk4K3p5TEF4WG9U?=
+ =?utf-8?B?OHR5bFRYZnN4VFB1eVU1NHlJVmdvK0o0MC91bUJvK3UxcWx0NkVSOW1XQTll?=
+ =?utf-8?B?OW5qTkNRUENGRXV2citJUlZ0WXBmS2JpdFh5ME92SUZtQnVackRtSERmM1M2?=
+ =?utf-8?B?dTFDU0lndy82OVRXSEZKUEVrMHZPTlIzL2NjWnNXcXIza3JSTzAzUXZJcWdX?=
+ =?utf-8?B?NGk2eTJ4SVY1U1lMWUlHVEI4UW52VWVqaGZ3RzZBZ3BUU3o4MWFrZG1zRVpM?=
+ =?utf-8?B?M0pCZ25DdGJmYnI4OXZ3QUdGajBJcUxZMk1TY0RWOEUrTEpDYzJKWUt5aHhy?=
+ =?utf-8?B?NHhuQW55QzMvNDlTcEd4TEpNM0hNVUcyV3ZiT2pWVGdJZFRDVEdlNDRqbytz?=
+ =?utf-8?B?UGlPcEhOSXVTM3hqV2NNbDB3M2JSa2NZbmpmbDY4d3ErTzZvNDlEK241YkZw?=
+ =?utf-8?B?ZFRRZC9Idk5ZSVRrRXlLczZLaE9TRldqdkFvWnplNTRQUGFmalJPZ1ZqMG8w?=
+ =?utf-8?B?T01nZXF1bTZ4NmVHeWdFNnFTTHpDUUNERmlNVi9FUVVxQll5YXpjQVc2NUJG?=
+ =?utf-8?B?eWpCdVlidGd2SmhQSVZVRmY1ZkFTbjdyaERjM201clF0SFdvTEltSHBXL3B5?=
+ =?utf-8?B?WEkrNnR0WWl3NnpjbnhhMW5MNTBjL1VJdHJoNk1BaG1BTmNaaEdxdDBDdm5i?=
+ =?utf-8?Q?eBvLuIy/+GGUIoYVXGCew+7aFEicMcRfSdm8etEXnuMgz?=
+X-MS-Exchange-AntiSpam-MessageData-1: nuRa647IaurvQw==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2f2a4b8-b824-4f3e-0ce5-08df4c4edd2c
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 06:22:51.3497
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gSGWKu7kUdq4Vi9TxiWy6nu+InvFGo5aOlDCZR/OrfG+34ez1DHWITYDPAaTsXeHh1kFuR/g1WQjzNgH/ozWcg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7611
 
-On Fri, Nov 27, 2026 at 07:55:45AM +0200, Jarkko Sakkinen wrote:
-> OVERVIEW
-> ========
-> 
-> Extend TPM 2.0 trusted keys to load ASN.1 TPMKey [1] asymmetric keys
-> (OID_TPMLoadableKey, 2.23.133.10.1.3) and expose keyctl pkey-operations
-> directly on key_type_trusted. In addition there are some TPMKey
-> interoperability fixes.
-> 
-> I.e. this my old series with a twist: instead of introducing a separate
-> subtype for asymmetric keys, factor out pkey-operations into a separate
-> CONFIG_KEYCTL_PKEY-feature, and wire asymmetric operations to
-> key_type_trusted.
-> 
-> This work was originally derived from [3], is direct offspring of [2],
-> and folds in the prerequisite tpm2-sessions and tpm-buf cleanups from
-> [4].
-> 
-> [1] https://www.hansenpartnership.com/draft-bottomley-tpm2-keys.html
-> [2] https://lore.kernel.org/linux-integrity/20240520184727.22038-1-jarkko@kernel.org/
-> [3] https://lore.kernel.org/all/20200518172704.29608-1-prestwoj@gmail.com/
-> [4] https://lore.kernel.org/linux-integrity/20261116005105.1573016-1-jarkko@kernel.org/
-> 
-> CHANGES
-> =======
-> 
-> v5:
-> - tpm / trusted: Fold in the tpm2-sessions and fallible tpm_buf_read*()
->   patches [4] (adding Jonathan McDowell's Reviewed-by to "tpm2-sessions:
->   Drop TPM2_NAME_SIZE"), resolve handle names with tpm2_read_public(),
->   and replace the custom tpm2_read_*() / tpm2_skip_bytes() helpers with
->   tpm_buf_read_u{16,32}() in tpm2_asym_parse_*_public().
-> - trusted: Split "KEYS: trusted: Add asymmetric key support for TPM2"
->   into a framework patch ("KEYS: trusted: Add asymmetric key
->   operations", adding optional asym_* callbacks on struct
->   trusted_key_ops and HAVE_TRUSTED_KEYS_ASYMMETRIC) and the TPM2 backend
->   patch.
-> - trusted: Move "KEYS: trusted: Validate public_len before reading key
->   attributes" to patch 01/17 and add the Fixes tag for e5fb5d2c5a03.
-> 
-> v4:
-> - KEYS: Turn CONFIG_KEYCTL_PKEY into a hidden helper symbol selected per
->   subsystem: add off-by-default CONFIG_ASYMMETRIC_KEY_PKEY for software
->   asymmetric keys, and switch TURRIS_SIGNING_KEY,
->   TURRIS_OMNIA_MCU_KEYCTL, and TURRIS_MOX_RWTM_KEYCTL from
->   CONFIG_ASYMMETRIC_KEY_TYPE to CONFIG_KEYCTL_PKEY (remaining default y).
-> - trusted: Default CONFIG_TRUSTED_KEYS_ASYMMETRIC to y and select
->   CONFIG_KEYCTL_PKEY.
-> - trusted: Split "KEYS: trusted: Factor out TPM2 blob loading" into
->   separate patches for public_len bounds checking, the private backend
->   pointer in trusted_key_payload, and TPM2 blob loading.
-> 
-> v3:
-> - KEYS: Move CONFIG_KEYCTL_PKEY factoring to the beginning of the series
->   and make it an off-by-default prompt instead of selecting it from
->   CONFIG_ASYMMETRIC_KEY_TYPE.
-> - trusted: Make CONFIG_TRUSTED_KEYS_ASYMMETRIC depend on
->   CONFIG_KEYCTL_PKEY instead of selecting it.
-> - trusted: Use unsigned int instead of u16 for data_len and min_len in
->   tpm2_unseal_cmd().
-> - asn1: The reason for not supporting implicit tags was that it follows
->   what other functions do in asn1_encoder.c, and is that way coherent.
-> 
-> v2:
-> - lib/asn1_encoder: Remove unreachable !bytes_len branch in
->   asn1_encode_integer_bytes().
-> - tpm: Bounds-check ECC coordinates, defer state updates until after
->   validation, and verify subsequent TPM2_RH_NULL primaries against
->   chip->null_key_name in tpm2_parse_create_primary().
-> - trusted: Reject trailing or truncated TPM2B bytes in tpm2_key_decode() so
->   tpm2_load_cmd() and tpm2_asym_load() pass the same blob length.
-> - trusted: Avoid 32-bit param_size wraparound in tpm2_asym_rsa_decrypt()
->   and tpm2_asym_parse_signature().
-> 
-> VERSIONS
-> ========
-> 
-> v4: https://lore.kernel.org/keyrings/20261126205021.2200819-1-jarkko@kernel.org/
-> v3: https://lore.kernel.org/keyrings/20261125180616.1854753-1-jarkko@kernel.org/
-> v2: https://lore.kernel.org/keyrings/20261124194043.1651679-1-jarkko@kernel.org/
-> v1: https://lore.kernel.org/keyrings/20261124120044.1481752-1-jarkko@kernel.org/
-> 
-> Cc: dm-devel@lists.linux.dev
-> Cc: keyrings@vger.kernel.org
-> Cc: linux-crypto@vger.kernel.org
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-integrity@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-security-module@vger.kernel.org
-> Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Cc: Alasdair Kergon <agk@redhat.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Benjamin Marzinski <bmarzins@redhat.com>
-> Cc: David Gstir <david@sigma-star.at>
-> Cc: David Howells <dhowells@redhat.com>
-> Cc: David Laight <david.laight.linux@gmail.com>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: David Woodhouse <dwmw2@infradead.org>
-> Cc: Eric Biggers <ebiggers@kernel.org>
-> Cc: Herbert Xu <herbert@gondor.apana.org.au>
-> Cc: Ignat Korchagin <ignat@linux.win>
-> Cc: James Bottomley <James.Bottomley@HansenPartnership.com>
-> Cc: James Morris <jmorris@namei.org>
-> Cc: James Prestwood <prestwoj@gmail.com>
-> Cc: Jarkko Sakkinen <jarkko@kernel.org>
-> Cc: Jason Gunthorpe <jgg@ziepe.ca>
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Cc: Jonathan McDowell <noodles@meta.com>
-> Cc: Lukas Wunner <lukas@wunner.de>
-> Cc: Marek Behún <kabel@kernel.org>
-> Cc: Mike Snitzer <snitzer@kernel.org>
-> Cc: Mikulas Patocka <mpatocka@redhat.com>
-> Cc: Mimi Zohar <zohar@linux.ibm.com>
-> Cc: Paul Moore <paul@paul-moore.com>
-> Cc: Peter Huewe <peterhuewe@gmx.de>
-> Cc: Randy Dunlap <rdunlap@infradead.org>
-> Cc: "Serge E. Hallyn" <serge@hallyn.com>
-> Cc: Shuah Khan <skhan@linuxfoundation.org>
-> Cc: Sumit Garg <sumit.garg@kernel.org>
-> 
-> Jarkko Sakkinen (17):
->   KEYS: trusted: Validate public_len before reading key attributes
->   KEYS: Factor out KEYCTL_PKEY
->   tpm2-sessions: Drop TPM2_NAME_SIZE
->   KEYS: trusted: Open code tpm2_buf_append_auth()
->   KEYS: trusted: Remove dead branch from tpm2_unseal_cmd
->   tpm2-sessions: Re-orchestrate tpm2_read_public() use
->   tpm-buf: Make tpm_buf_read*() fallible
->   KEYS: trusted: Allow ASN.1 TPM2 sealed data shorter than MIN_KEY_SIZE
->   lib/asn1_encoder: Add asn1_encode_integer_bytes()
->   tpm: Export tpm2_create_primary()
->   tpm: Add persistent hierarchies to tpm2_create_primary()
->   KEYS: trusted: Extend TPMKey support
->   KEYS: trusted: Reject zero-length keys in symmetric consumers
->   KEYS: trusted: Add private backend data to trusted_key_payload
->   KEYS: trusted: Factor out TPM2 blob loading
->   KEYS: trusted: Add asymmetric key operations
->   KEYS: trusted: Add asymmetric key support for TPM2
-> 
->  .../security/keys/trusted-encrypted.rst       |   25 +-
->  crypto/af_alg.c                               |    2 +
->  crypto/asymmetric_keys/Kconfig                |   11 +
->  crypto/asymmetric_keys/asymmetric_keys.h      |    2 +
->  crypto/asymmetric_keys/asymmetric_type.c      |    4 +
->  drivers/char/tpm/Kconfig                      |    2 +-
->  drivers/char/tpm/tpm-buf.c                    |   56 +-
->  drivers/char/tpm/tpm-sysfs.c                  |    2 +-
->  drivers/char/tpm/tpm2-cmd.c                   |    9 +-
->  drivers/char/tpm/tpm2-sessions.c              |  524 ++++---
->  drivers/firmware/Kconfig                      |    1 -
->  drivers/md/dm-crypt.c                         |    2 +-
->  drivers/platform/cznic/Kconfig                |    3 +-
->  include/keys/trusted-type.h                   |   19 +-
->  include/keys/trusted_tpm.h                    |   18 +-
->  include/linux/asn1_encoder.h                  |    3 +
->  include/linux/tpm.h                           |   20 +-
->  include/linux/tpm_buf.h                       |    6 +-
->  include/linux/tpm_command.h                   |   13 +
->  lib/asn1_encoder.c                            |   56 +
->  security/keys/Kconfig                         |    3 +
->  security/keys/Makefile                        |    2 +-
->  .../keys/encrypted-keys/masterkey_trusted.c   |    5 +
->  security/keys/internal.h                      |    2 +-
->  security/keys/keyctl.c                        |    2 +-
->  security/keys/trusted-keys/Kconfig            |   15 +
->  security/keys/trusted-keys/tpm2key.asn1       |   19 +
->  security/keys/trusted-keys/trusted_core.c     |  103 +-
->  security/keys/trusted-keys/trusted_tpm1.c     |   24 +
->  security/keys/trusted-keys/trusted_tpm2.c     | 1329 +++++++++++++++--
->  30 files changed, 1872 insertions(+), 410 deletions(-)
-> 
-> -- 
-> 2.47.3
-> 
+On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
+> Parameterize configuration based on bus flags passed from the bridge or
+> panel. The list of supported flags includes now pixel clock polarity,
+> display enable (DE) polarity, and data alignment.
+>=20
+> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> ---
+>  drivers/gpu/drm/tegra/rgb.c | 39 +++++++++++++++++++++++++++++++++----
+>  1 file changed, 35 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/tegra/rgb.c b/drivers/gpu/drm/tegra/rgb.c
+> index d48d498068ac8..faecd6f94359f 100644
+> --- a/drivers/gpu/drm/tegra/rgb.c
+> +++ b/drivers/gpu/drm/tegra/rgb.c
+> @@ -5,6 +5,7 @@
+>   */
+> =20
+>  #include <linux/clk.h>
+> +#include <linux/media-bus-format.h>
+>  #include <linux/of.h>
+> =20
+>  #include <drm/drm_atomic_helper.h>
+> @@ -106,6 +107,7 @@ static void tegra_rgb_encoder_enable(struct drm_encod=
+er *encoder,
+>  	struct tegra_output *output =3D encoder_to_output(encoder);
+>  	struct tegra_rgb *rgb =3D to_rgb(output);
+>  	struct drm_connector_state *conn_state;
+> +	struct drm_bridge_state *bridge_state;
+>  	struct drm_crtc_state *crtc_state;
+>  	struct drm_connector *connector;
+>  	struct drm_display_mode *mode;
+> @@ -117,12 +119,21 @@ static void tegra_rgb_encoder_enable(struct drm_enc=
+oder *encoder,
+>  	crtc_state =3D drm_atomic_get_new_crtc_state(state, conn_state->crtc);
+>  	mode =3D &crtc_state->adjusted_mode;
+> =20
+> +	/* Get but flags from the bridge state. */
 
-Surprsingly after rebase and splitting asymmetric operations to their
-own patch Sashiko found nothing to complain about.
+s/but/bus/
 
-Most of the stuff is number of years old just piggybacked into this
-huge patch set.
+> +	bridge_state =3D drm_atomic_get_new_bridge_state(state, output->bridge)=
+;
+> +	if (bridge_state)
+> +		bus_flags =3D bridge_state->input_bus_cfg.flags;
+> +	else
+> +		bus_flags =3D DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
+> +			    DRM_BUS_FLAG_DE_HIGH |
+> +			    DRM_BUS_FLAG_DATA_MSB_TO_LSB;
+> +
+>  	tegra_dc_write_regs(rgb->dc, rgb_enable, ARRAY_SIZE(rgb_enable));
+> =20
+>  	value =3D DE_SELECT_ACTIVE | DE_CONTROL_NORMAL;
+>  	tegra_dc_writel(rgb->dc, value, DC_DISP_DATA_ENABLE_OPTIONS);
+> =20
+> -	/* configure H- and V-sync signal polarities */
+> +	/* configure H- and V-sync and pixel clock signal polarities */
+>  	value =3D tegra_dc_readl(rgb->dc, DC_COM_PIN_OUTPUT_POLARITY(1));
+> =20
+>  	if (mode->flags & DRM_MODE_FLAG_NHSYNC)
+> @@ -135,11 +146,31 @@ static void tegra_rgb_encoder_enable(struct drm_enc=
+oder *encoder,
+>  	else
+>  		value &=3D ~LVS_OUTPUT_POLARITY_LOW;
+> =20
+> +	if (bus_flags & DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE)
+> +		value &=3D ~BIT(PIN_LSC0);
+> +	else
+> +		value |=3D BIT(PIN_LSC0);
 
-Br, Jarkko
+I think this is the wrong way around: SAMPLE_POSEDGE means that the=20
+pixel data is sampled on a rising edge. That is, it should be driven on=20
+the low edge so it's ready for sampling in time for the rising edge.
+
+LSC0_OUTPUT_POLARITY says that the value "LOW" (a bit confusingly, 1)=20
+corresponds to a data transition on the falling edge, i.e. sampling on=20
+the rising edge.
+
+Section 31.9.6 states this a bit more clearly: "an active low pixel=20
+clock means that the data changes on the falling edge of the clock, to=20
+be latched on the rising edge".
+
+> +
+>  	tegra_dc_writel(rgb->dc, value, DC_COM_PIN_OUTPUT_POLARITY(1));
+> =20
+> -	/* XXX: parameterize? */
+> -	value =3D DISP_DATA_FORMAT_DF1P1C | DISP_ALIGNMENT_MSB |
+> -		DISP_ORDER_RED_BLUE;
+> +	/* configure DE signal polarities */
+> +	value =3D tegra_dc_readl(rgb->dc, DC_COM_PIN_OUTPUT_POLARITY(3));
+> +
+> +	if (bus_flags & DRM_BUS_FLAG_DE_LOW)
+> +		value |=3D BIT(PIN_LSPI);
+> +	else
+> +		value &=3D ~BIT(PIN_LSPI);
+> +
+> +	tegra_dc_writel(rgb->dc, value, DC_COM_PIN_OUTPUT_POLARITY(3));
+> +
+> +	/* configure DATA order and alignment */
+> +	value =3D DISP_DATA_FORMAT_DF1P1C | DISP_ORDER_RED_BLUE;
+> +
+> +	if (bus_flags & DRM_BUS_FLAG_DATA_LSB_TO_MSB)
+> +		value |=3D DISP_ALIGNMENT_LSB;
+> +	else
+> +		value &=3D ~DISP_ALIGNMENT_LSB;
+
+DRM_BUS_FLAG_DATA_LSB_TO_MSB does not seem the correct thing to check=20
+here. According to the TRM, DISP_ALIGNMENT doesn't swap between LSB/MSB=20
+bit ordering in a classical way, instead:
+
+  // DISP_DATA_ALIGNMENT =3D 0 (MSB)
+  LD[23:0] =3D {R[1:0], G[1:0], B[1:0],
+              R[7:2], G[7:2], B[7:2]};
+=20
+  // DISP_DATA_ALIGNMENT =3D 1 (LSB)
+  LD[23:0] =3D {R[7:0], G[7:0], B[7:0]};
+
+I suppose MSB is more natural for 18-bit panels and LSB for 24-bit=20
+panels depending on the layout. So the correct value depends on how the=20
+panel is wired to the SoC on the board. Hence, I think we should=20
+describe this with a new property in device tree under rgb/dbi or=20
+endpoint node. Something like 'nvidia,rgb888-wiring' for LSB? And=20
+document that this means the above kind of wiring - not all RGB888=20
+panels use it.
+
+> +
+>  	tegra_dc_writel(rgb->dc, value, DC_DISP_DISP_INTERFACE_CONTROL);
+> =20
+>  	tegra_dc_commit(rgb->dc);
+> --=20
+> 2.53.0
+>=20
+>=20
+
+
+
+
