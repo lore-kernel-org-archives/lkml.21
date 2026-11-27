@@ -1,53 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795814270;
-	b=PLTCgtPuFomnIViti0ItY6948B+oE2vEJSeH8Mn5YqX64uG8e7vN/+TZF/OTo6SIwyRJ
-	 yFf0f6PfWQ1DiqI+Wr7+TYQYB5gWjtRLbRFWHdpbpDwC+G2w1REWnistkFSzA+Yv8DpcJ
-	 kn82cvCFckE7aMIRwH1H7yPZIsDrcWawvvhKI6MrvFaHn9DtstImZCB13VY3T9hi0ae2Y
-	 ZO4A/R1LYZhf9RlydTHnsMzDKaavNRLURR0yljwamPDQ+6d/gK1LZQc0EyQaZ60j5ZGmN
-	 b1u+cpXZQ+dM9PVwnsvmJejGTNI3CwrxE653UoF+4wW5eQJPOzejXI/HtTZR/p/UnlA==
+	t=1795814510;
+	b=1pfH9gBeHEBSiHTF9SJ4FfN7TOIbbOgEppSRAt7dZzaU4oUf5S6t+v18+BJC3br1Dfx7
+	 wXgl+cPejS5+IXqOIlOFUS8PPA1VXo3642fPHrTCPJAJOtFKu5N8ezU1CagEvytHcgoE1
+	 D6SInQpfAV6svfhZGWM1Jdgi3EAGN+7FLWW4OouXcqvHOIx/xL9J/Vn9aJZsxP+1LORvi
+	 Tr4W+rbgcjm38cz5f8zcVGooCZDT3FK6irtSuP1th2vb7lBK1J1dg0Al7dSgU/FjzVNHc
+	 zQjRo+IDAm4rX4PVe20nK+5JUyMxb32iIcAaL0i5QgpIr8pr/zm8AfKbjTq2Gb6elXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795814270;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=rorQilyNNY+SEgTQ0X7b5jv6kJLvy6ZObjLWebOaxzI=;
-	b=btaFYAZ0UP/Ft/0vQ3N3REtrdVLItT9gG48ms7evSqfKGatZDaFeSoApFNtHxhz1qK25
-	 K2wJxfNWrIp3/ZvmP8CX10h2RRMcOVapYpykDry1e8lvum8pKX+70qMtZ7NEMB9hPsHVW
-	 8bSSDMWHD0uNzPTalE+UXHfeUXkh+VCQ+nXFllMhTvTunpD7aGsD6zF6NUPLwFNZwmdbM
-	 bEU93PF1NlsMsRz9tu6uzLMWbTowHCiLxLZ3wOupghOosi8UKPK1GBSYA3yu3HUJlh9eU
-	 /DnXLo6mplh2QA4BjS5iZoHfuxz9YV23EprH0R23xlmgCo0nLGUMgtCXTxz/C8yniTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795814510;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wctQaa4+oug07SAylojzJ054zlJWMzb1RewZ5KzRtMM=;
+	b=niojBkin54vIMAVLDp2p/xI76JX7M2pHChat0xsAtQTvV8ymyF8dAr9yGGS9vgqZjoUp
+	 GARV2+DErQkAP5YTl2Tcp0jbMoVkvWA++E/2lgFr0tfZsjLzDvXUm80zcRHJWiLRl4xjf
+	 5IqrFtHtxOnZd8D2TF7N0o4cKrvLHbZ+Gs2gL3a6Vb+htOhRu1eIwrGCF0lqJgEuqbXmS
+	 ZP8Dc9IYsSrTktkgdJGOQ99gz/FJ7dMSmSStA2nDesJC2D82k+DJwq7JtAIhpzhsCc0X8
+	 DusiWtbzE7/4bqAHAOFlMjL3eyeC6k352IVYmtCXJj7r/AYhRV/eWo29WkWVqW0hKOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=io1xOm2w;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hRXebOuc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E104E606A31C;
-	Fri, 27 Nov 2026 21:17:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C04D606A31C;
+	Fri, 27 Nov 2026 21:21:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=io1xOm2w
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABD91F00893;
-	Fri, 27 Nov 2026 21:17:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hRXebOuc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C866E1F000C1;
+	Fri, 27 Nov 2026 21:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795814269;
-	bh=rorQilyNNY+SEgTQ0X7b5jv6kJLvy6ZObjLWebOaxzI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=io1xOm2w2dgp76TCzlPjiV4ENq+foiuRtkOJcYUD6/u1rJFuS2s19yMAG1io830aO
-	 E5XXTCMNTIC1EVP++dOKKJMH2JN9RzFSDlNRmXhefwEJ/ISh3/JQHjJU7A2oT7qkzm
-	 Qp+BwK4fb6Iy1FuwU7arqICSMm9yMzyGjiQ8HSDfNoPFNld1T2RhRBg3xkA6JLw5GB
-	 eFLXD2R1s6q8Y9XRTgwLAy56QOFugpv3C71ZpmKxxPhuOhXsCfwzYhUEsxOHHrH8ut
-	 dQno72+4bJuG1WcKmHUvHl7d50a0w1bUriZnZW+ZeaoCjBXbdHJQ6iXoWQnfNpkBMb
-	 nbrKs+v1rfRDQ==
-Date: Fri, 27 Nov 2026 11:17:48 -1000
-Message-ID: <d9173a4ad2d24937ae5310a3066c19f7@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Kuba Piecuch <jpiecuch@google.com>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCHSET sched_ext/for-7.4-fixes] sched_ext: Enforce SCX_CAP_BASE in core-sched task selection
-In-Reply-To: <20261126213212.3930589-1-jpiecuch@google.com>
-References: <20261126213212.3930589-1-jpiecuch@google.com>
+	s=k20260515; t=1795814510;
+	bh=wctQaa4+oug07SAylojzJ054zlJWMzb1RewZ5KzRtMM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hRXebOucKI08nPo50le2NMBN0BGP0AOzDoAaNNdAVq/25QRPg/rw23aHbEoViCREm
+	 /NZCQ3uhllGjJK+ZRwnDUjC/ZtK9mMiih/hHP5rRAOzgkgmkhFg3T/EC5lVCo8Qo0W
+	 pq630FIjzLNkW2UHfHSC6rFXS8cmRUtgYXJU5Yehn0kLMV7MuZjmpr78JT6ZHJvSDp
+	 o0FXXLVX9qDdZ6neEI4fd/tDmEMuQ7NTkJb2D0BIxO56sKN8QZB0/ECB0C1+LRI8MC
+	 zU5zv1o103+rmQt5IHgcE7paB8sUha2P4oLZiLf5h06eDI/pfATOxWHJGVgC2U3fvD
+	 0OWuxDUgrGFiA==
+Subject: Re: [PATCH net v2 1/4] net: skbuff: limit folio refcount when copying
+ skb frag references
+From: netdev-bot+sashiko@kernel.org
+To: david@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, sdf.kernel@gmail.com, willemb@google.com, horms@kernel.org,
+ akpm@linux-foundation.org, kas@kernel.org, songliubraving@fb.com,
+ hannes@cmpxchg.org, riel@surriel.com, willy@infradead.org,
+ ncardwell@google.com, kuniyu@google.com, pfalcato@suse.de, cel@kernel.org,
+ jlayton@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+Date: Fri, 27 Nov 2026 21:21:48 +0000
+Message-ID: <179581450836.3135.326843222571201832@kernel.org>
+In-Reply-To: <20261126-skb_refcount_overflow-v2-1-a6f600a5634a@kernel.org>
+References: <20261126-skb_refcount_overflow-v2-1-a6f600a5634a@kernel.org>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,17 +67,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
 
-> Kuba Piecuch (2):
->   sched_ext: Enforce SCX_CAP_BASE in core-sched task selection
->   selftests/sched_ext: Add sub_core_caps test for core-sched
->     SCX_CAP_BASE
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Applied 1-2 to sched_ext/for-7.4-fixes.
+Low priority / nit picks for your consideration:
 
-Thanks.
+- [Low] Concern: this commit converts only pskb_expand_head(),
+  __pskb_copy_fclone(), skb_zerocopy() and pskb_carve_inside_*() to the…
 
 --
-tejun
+
+net: skbuff: limit folio refcount when copying skb frag references
+
+This commit adds skb_frag_try_ref() and skb_frags_try_ref(). Both take
+frag page references with try_get_page(), so they refuse a new reference
+when the folio refcount is at its limit. The commit converts
+pskb_expand_head(), __pskb_copy_fclone(), skb_zerocopy() and
+pskb_carve_inside_*() to these helpers, and those functions now fail when
+a reference can't be taken.
+
+> Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
+> try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
+> skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
+> and their callers handle that.
+
+[Severity: Low]
+This isn't a bug, but could the commit message mention the frag reference
+sites that still use plain skb_frag_ref() at this point in the series?
+
+In net/core/skbuff.c, these still take unchecked references:
+
+skb_segment():
+    skb_frag_ref(nskb, skb_shinfo(nskb)->nr_frags);
+
+skb_try_coalesce():
+    skb_frag_ref(from, i);
+
+skb_shift():
+    skb_frag_ref(tgt, to);
+
+skb_split_no_header():
+    skb_frag_ref(skb1, k);
+
+Outside skbuff.c, the same applies to tcp_clone_payload() in
+net/ipv4/tcp_output.c, and to iptfs_skb_add_frags() and
+iptfs_consume_frags() in net/xfrm/xfrm_iptfs.c.
+
+The next patch in the series, "net: skbuff: limit folio refcount when
+rearranging skb frags", converts skb_segment(), skb_try_coalesce(),
+skb_shift() and tcp_clone_payload().
+
+That patch also explains why skb_split() is left unchanged. Each split
+allocates a new skb that is charged to the socket, and the references are
+dropped once the data is acked.
+
+The cover letter (merge 25f5c92e1ac0) leaves IP-TFS reassembly out on
+purpose, because it needs one new inner skb per additional reference.
+
+Would a short note saying that the remaining callers are converted, or
+skipped on purpose, in the follow-up patch be worth adding here?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-skb_refcount_overflow-v2-0-a6f600a5634a%40kernel.org
