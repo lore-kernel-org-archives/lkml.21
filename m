@@ -1,61 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795803516;
-	b=GcyKfNcAfwWyGCMQbLAJOqx4uklHEYbX9PSK30P6l9ro37k8eQ4qDHlQEuUnPjJcbK7a
-	 hcf3djMQTAx6YEUEnBQxgS4sCAeEOPpgO6XllO8K24st8feWjz3m0uT5NHspJngmFmokp
-	 c95Btp3iuLxJcs4Hjuh5VaeTc3HJHePpJxYhJGHq3/X/C4e3B+Z9N4/Gv9uFEWEHM4hUt
-	 vZxuN+Wsapa+agh4ZAlzaBAIwyOBRVxL7MhMyh7B+XBc/baPsQ0oES2rTOKdjgEwwakoI
-	 lruJMvwo65qqQNMD/j3GL30iyG7HHSH5h+XYwU6rDNNl/MlR3Fowy1ICuhQbyC9iUoQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803516;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BCJg5KdEXOKerir7HvXSyinpM8/rio61Rq/LE65yPLM=;
-	b=YdwhZGf7Xi72EpTDwLS3BxSrYPZ42KXy3mdXBJ0gEcUtgSH3MJNp8pIPCi0oa3dBT0WG
-	 CHwAjlosnFfEvEB82Ww2W89fxd+2ze33nm8ByYS7FS62+acJRMJVXJVXOXuJS9FOOgaKz
-	 dsa0mfDNgFUQo/vvDaHiZ9c/bPcuYt3Rq1Sb2EoSjGBgjDogsWpGAma3zs+4zRD087aVm
-	 rhyb/sy/pZnTbI/4j/KZThWFunjOI1REYsIfGUnzOqzaeQVeIZGbpx/54uOMM3BCECozG
-	 pgCx0Qs0fiLfutGuOU4aPPLHOk3XIIaT27AcFWxeXivlNElFbo6c456s9jafOoOTyag==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EytNRt3G;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795803529;
+	b=EW2mlT/kqykq0NbcTliPtmTJtjgdalgj0N0lDqNlEOCL3mIb3QYwhAawVyoUVEr/5Myi
+	 rYLOZ7f7zZ3DOzKOETskbbSsjKkmtC2dAnRPaDbNq3bMHmdPhb/52GpdqKam548K05FU5
+	 FQA3HQgaxmFfwca58luwEUPJNxulQqHMn+k9cjVd0x7ltEOVde1Pl3rslH3tlAYwB1qRs
+	 9ZnfrQHXsrfSBcGN2sLH6WYYM6IhKqslSly/eLaqf1IwKfFlZeTrnh3LMZL7q7tYympof
+	 AWb7KWUBMFZX/gPNVZ5Q8eEfWnb4T3OPnQINhQqw5ReL9iLBTjr66aBApsLC44p9Rvg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803529;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=CnX7HINTr588U0bg9W4nQOssNhFb49IVZppErEdXcp8=;
+	b=pPdsLygne4WoWPpbyBwH+0gUCB4yNxdOdV7fHdZj2wGl8C6HN0F+OtNNWw4Z1mQ3FBBB
+	 dq8HQyjHb1kC4K9XEgS5ELBSRUOQyvxbJ2HSpooXBbDgbPj62APQK1G9Z07ozOBEiX4TJ
+	 V63A5cLhhL+wDg1/x7stQQdmlXm4yXI2P3B1jgzlYo7eEZYGA9wT8ziV6rD18S2CqNQpQ
+	 GxdxdkGJ+gn+99Y5FMs0kzO98UMeR9dV9RX4S8nFffaJAV48jBRr+bjsWn4vBwVq4Wtkc
+	 o7ZQd0Kzb7rrWoHbVaILnykfkxUuTQj0wL9sCj4pu6xv1yw5RPwjh7rvl7/cpbBUPpg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ftII0uZv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.46
+Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com [209.85.219.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C15D606A31C;
-	Fri, 27 Nov 2026 18:18:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BACC6606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:18:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BACC6606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EytNRt3G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246CB1F000C1;
-	Fri, 27 Nov 2026 18:18:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795803516;
-	bh=BCJg5KdEXOKerir7HvXSyinpM8/rio61Rq/LE65yPLM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EytNRt3GLG1J4r9JmqWz3/UC047RRfvPn8JBxshF6cPJyM6l1xlItsB7ZaQonsPra
-	 ZQxqYnqPKFTVeUH8m7UPYWiNilvJJVX8JtWkG+EQoCPNKFWTc6l5C6ITsmxEXLlD1C
-	 /RkDfJWqScN01jgK292syU+NVOeAVmXMhFSO9YuddVzCZ5662N0QLZhbswNiZqZttT
-	 rM8OJ2IBN+IH8p2LV1Rt8Ew48cT6YASosd0+heGbyh8PSMFIJGznr+nsqV0SlEtFIF
-	 n/pEDUyT/zjNyBOsORemwXoE6rGV4wcPu1x8iyu+yiiKVw+UFW6CMbfe+J+VbDgzE/
-	 UI/dbv2wkwktg==
-Date: Fri, 27 Nov 2026 18:18:31 +0000
-From: Conor Dooley <conor@kernel.org>
-To: marouene.boubakri@oss.nxp.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Radu Rendec <radu@rendec.net>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/8] dt-bindings: riscv: add OpenHW Group CVA6 APU
- boards
-Message-ID: <20261127-matriarch-phonics-1e87aaec99e4@spud>
-References: <20261126164632.978624-1-marouene.boubakri@oss.nxp.com>
- <20261126164632.978624-6-marouene.boubakri@oss.nxp.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ftII0uZv
+Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-92123f02faeso87647536d6.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:18:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795803528; cv=none;
+        d=google.com; s=arc-20260327;
+        b=aIAlje0sMyJWQzh3T6rfoPtGrJq2fZy2Szgoas36azudTUwWrwYvGeqR1k7PLQRrb3
+         pCghpz1vkX7eHhzkY0ouox8JIfHCwpiHNd6wFyhgbu9dfINtpZu1K2bEl4Q61sncHDeO
+         /natjcupLiHIgpxzCcLWhTEgCmgDPr1b85bVEbvN6ovpmGQGikMxkYgvEWri2xZ2jsqQ
+         X/E/ZuK/E8Hl5yuShDlkzucuqh1qCrU32dUkoeTS1cnaZldrD0JlN20YTY9rkrxnyfAl
+         KLwCuXdlX0ri4jRo6BA1WU5pXTPCt26cA+WxnBLwHYMC5j4504zj31ihyJ2haMzr9Byp
+         WLUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CnX7HINTr588U0bg9W4nQOssNhFb49IVZppErEdXcp8=;
+        fh=Xd7nSXrQFvdIAw0HCbH9cvy2lFSJcGWE6FwxJ5Rzkbc=;
+        b=jCSwrQQLSz+SV77Bab60ZOOX1v0R5Qyi6ldER5jhTj/mHUFeDPcqcMPUPBb/w9Cpj5
+         RMJa9aXokSiuDmxe1eNIW19Xy5meqyCqD3fnmpNiTZ5iC1CPfa+XvVtCduCjoUhNJsFr
+         9KDp3BGgskKUeMeHwmEgSLR3dlzG7DgEFMKj3uHgBcKI/MwOac8d+xuB77UjVE7sk/zK
+         i2kwRtN7CF5+KpS68TZkxFaWbzTuPXTOjzmC5YzyfTXT5QKZKAWdn5yasa3LdBMyZx1I
+         6Heqbvl26wVGBwKEbp3u/DNpbY1A/rNd1HMB9s2bJBhZqKJuU5sOcgQU6qwMsstAR+Np
+         Ij8g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795803528; x=1796408328; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CnX7HINTr588U0bg9W4nQOssNhFb49IVZppErEdXcp8=;
+        b=ftII0uZvL4qz8CEV4FYd3uFfw7yYEmkDAmIILC3TzCPzP+i5Cc9V+9BUYy5xYOipNI
+         14txHmg0ix4e+Jp2iJtCgue2/t8a/NkQkqvZVOaVZG6daSfKypA94/Z7JgU5UsXfON3G
+         nQGn6NR5qgxeqmIus5/uRt1vJj1caPeMfX7HRwnt/K1wAbUNblRivOsDyg4uTQcO/BWq
+         eN8gLVONRHG7hjosv7QuESlg0Y1CDXoM8Js7cHuVcYJPUpNmcWr1AmGOl3klrbvvSkDN
+         brjnQ4f9hxaMuIqf+4QSAaARLORg1L+CKN46Z+aDPqX9DaJBY9E2vLIIYUAaTRkFpSh+
+         /nQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795803528; x=1796408328;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CnX7HINTr588U0bg9W4nQOssNhFb49IVZppErEdXcp8=;
+        b=wa2OntZDyqocmhVBf3vHHr75Tp7O4I2h2JsZoJL09BnvPKHqZSBq/e1fG/zvVhFBGt
+         SeOet8FNSkS5QsdQS/tcPeHd8oeXccRE4Cy5t5fgrcfgiWU/8TCBc9uE78RA/JqXMmIF
+         5VGJzfQIftDidN8ovrNF7A4mTm7xNpyrq/gWent9GChzhjPmMpLkTpCeq9OuhKWLBLMa
+         HWpQh13Qp4U5zKhTkRPyb+SLwXOaD9ajkva3Xzz/ImXqBeVnlUTa5xkSlfzelUi+D9b7
+         6xvXtCbuLBGtXp2nfWMDX+/0U9NBaV2zSq4/XsD35he0mdrXubbpTAJC3UdkSQhaFJ6w
+         Mz7A==
+X-Forwarded-Encrypted: i=1; AL+hErGWTt/i2LTAEvnUtqLYcfJDjCimSgzH+5JC/c5EYtulP20n9eS01jgCulEoq41BFAj+O22nY5CfOOoXQc0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8e2uKvrjVDPls0XX5X+4ldBI+XSiwAUvMauOx5VG/cPYC7Vtku
+	HeOEMmqWF9kcS52F7WZQnEYbSStHrvHLulOr4t0sYNw7S35ez71zAuEpdgh4QZYIrAqM6qdHG0H
+	tqhZfozPpK/DpfvyTnJZl1h7Xq6vFJlk=
+X-Gm-Gg: AZFdTZdu+eagICjzz9BopTmtD4BJzzrcMJRbr7pYM5Qb11pPomUNnt8S2P7EPg24L7M
+	QPA9vn7pC3VS6lH8sSafurE4ePgyfYaXZ5g9ndOaO2kwAdu8Kly7SOsVUlJhisSUgwIkyNYYTr3
+	nqGQ5TUbm3JYldTBTfzvhyS8T4CFTgYEL2FGd8f4cfDxU7QUSjkO9IyykgxOOyF4+zt5vVKNetr
+	N9fQvvzqkLur0PPTf54f3ODl/5HtIiHy1kbBzBtrE2htWCvMm1ZlhgpNSzjdipUcCjOl5zrIEqR
+	m1ACurPxt8ljg3c+7Uslgg+925Me0z6pZvIGfHXGhod6F+1Y8A5JJJ9nrzBY9vmuEsv2AgtmjLV
+	B3MI0Q19qw962S1nRJwN1FFk3+8mGMmGH3AOO
+X-Received: by 2002:a05:6214:8605:b0:91f:808:3ca3 with SMTP id
+ 6a1803df08f44-9213497c81fmr482391956d6.1.1795803527693; Fri, 27 Nov 2026
+ 10:18:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,27 +104,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="udVk4Ha3Io07rmnV"
-Content-Disposition: inline
-In-Reply-To: <20261126164632.978624-6-marouene.boubakri@oss.nxp.com>
+References: <20261126214756.39027-1-artem122novak@gmail.com> <awk74XffmMjYTJ2j@ryzen>
+In-Reply-To: <awk74XffmMjYTJ2j@ryzen>
+From: Artem Novak <artem122novak@gmail.com>
+Date: Fri, 27 Nov 2026 12:18:36 -0600
+X-Gm-Features: Aa3M54oZ8HUGbd8-fH22ZUEZRMgFxjOe_Amsq0wahO5RnRYzQOIFu-_S1bcSZv8
+Message-ID: <CAPufuhYk8dZP6JOgmhqDOa1JXpY5w-GCLnPkeLe_+brxNb9utA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/4] ata: add missing newlines to error messages
+To: Niklas Cassel <cassel@kernel.org>
+Cc: dlemoal@kernel.org, linus.walleij@linaro.org, viresh.kumar@linaro.org, 
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
---udVk4Ha3Io07rmnV
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Hey Niklas,
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+On Fri, Nov 27, 2026 at 2:14=E2=80=AFAM Niklas Cassel <cassel@kernel.org> w=
+rote:
+>
+> This series does not apply.
+>
+> Please base it on:
+> https://git.kernel.org/pub/scm/linux/kernel/git/libata/linux.git/log/?h=
+=3Dfor-next
+>
+> or linux-next.
+>
 
---udVk4Ha3Io07rmnV
-Content-Type: application/pgp-signature; name=signature.asc
+I've rebased the series onto libata for-next for v4.
+Thanks.
 
------BEGIN PGP SIGNATURE-----
+Artem
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawnJdwAKCRB4tDGHoIJi
-0k1oAP9/1/ilB4QcXZSXlaI5y8jSA/cUMi1Sc4LNhWV6uVzcegD/YMas2mYSVM2y
-FXkenTlmKxUNzYatb53FiJer/ZIePAw=
-=chay
------END PGP SIGNATURE-----
+>
+> Hello Artem,
+>
+> On Thu, Nov 26, 2026 at 03:47:52PM -0600, Artem Novak wrote:
+> > This series adds missing trailing newlines to error and warning message=
+s
+> > in four ATA drivers.
+> >
+> > The changes are formatting-only and do not alter driver behaviour.
+> >
+> > Changes in v3:
+> > - Carry Damien's Reviewed-by tag on all four patches; it was
+> >   inadvertently included only on the sata_dwc_460ex patch in v2.
+> >
+> > Changes in v2:
+> > - Fix an additional missing newline in sata_dwc_error_intr(), as pointe=
+d
+> >   out by Damien Le Moal.
+> > - Add Damien's Reviewed-by tag to the sata_dwc_460ex patch.
+> >
+> > Artem Novak (4):
+> >   ata: pata_arasan_cf: add missing newline to warning
+> >   ata: pata_pxa: add missing newline to DMA warning
+> >   ata: sata_dwc_460ex: add missing newlines to error messages
+> >   ata: sata_gemini: add missing newlines to error messages
+> >
+> >  drivers/ata/pata_arasan_cf.c |  2 +-
+> >  drivers/ata/pata_pxa.c       |  2 +-
+> >  drivers/ata/sata_dwc_460ex.c | 10 +++++-----
+> >  drivers/ata/sata_gemini.c    |  4 ++--
+> >  4 files changed, 9 insertions(+), 9 deletions(-)
 
---udVk4Ha3Io07rmnV--
+>
+> Kind regards,
+> Niklas
