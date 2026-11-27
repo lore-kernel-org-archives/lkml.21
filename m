@@ -1,54 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.20.114.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760307;
-	b=39kEfMAgCL3gRjNJp2kCllhql4Q3IpIY7gOK8ZzN7QQ2S349RAH7ri+0T/fsBWuNvqwB
-	 +R6OE+lre4haOCDBbWgyMnqp24DtbdT4R3LGepbcAR1VnBhmLHJANnaiO7jGI9WVSiNX8
-	 orXGesXnz4kiQ30ozKO1VT25kuFBZr8CEK6e5BPHmKAQonplpdw1C27gR79IW6gd2vra6
-	 ZPk33Bs3DIb/k41hd58l0DMsY43I7lKJO2bOSOXS7tSOgVFMbN3XYzjxyGvY6BdaaiZIW
-	 qGERP6z+rxvi1IrdhU4ZiaIRcQgv3RTNmCCb+S1/Z3KiPVJylikusCWIiYS0hRiPI/w==
+	t=1795760445;
+	b=WFeqJCKzbNun1Tmkqz2F11yaIlD3PYpn0lcV9VLTYyIt4wQPQygz/o7+DljqKS7Qy6Uu
+	 PChEqlE2vVMoWTNtGEJOFDHSBtjfKeffpWACRy1pqMs33cLg9biU8xSQ10u2E1Ejwiesb
+	 EYRPGVZZGmepRUQuP39SLX/yN36QuKvSoymFYLdv/YN2Wl7Wq/5lpGES0g2+t1OpyXi73
+	 8Hql7Usls1+oVVX82yc31UoxJz1SVBXPXP7FqUYdNIFuIYL6/EV22RxmCEDqjYopJgjRm
+	 qepNZLLUBXiu10QMzr8KlKYI0M3t/x7Lw+Hrp+G6CLHaAOSrpUSqjJlmAXflpLkSg7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760307;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Xall2LvYqrNEWJ3haGr3baDKY0fqS4yjvxamjxNnjGY=;
-	b=Wobj+OzJkLsCOxqTwOIoXIqIsSxtPMwvWbRx9jy1TuLRmvhTvrijZkciz44piQK7ZEI5
-	 zkZdZnJQEL7GyodUKk+07tFP7BF3nc7YAQvUbyMyy5oux8ysRSrVQj1vR8XCs2T1H8t2C
-	 8jsHpfnE8NKIRbB/lETnEQDzzqVBCis10z7QIPTwxL80tSKUqRAOdsPvoKVvqSDX/oJz/
-	 8Nh5l8LpOL+e5QIIRVve7noJ5hZfKMkA8RGIrd2aakf1JwVHoTnaO4y26AE9JkkJhjSxh
-	 F+O4enPAeFybc1vSq72WHgCVGFvS2ssd1jAXAemMGJZQpTXKRAP9qN6d+PaIADHMCGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760445;
+	h=DMARC-Filter:Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-ID:X-B4-Tracking:
+	 X-Change-ID:To:CC:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=LnZjqQyDMjBGiHlj10jOuYrhXkC8SlmCFuLag3OZXEI=;
+	b=zpoEzkILY6VAZV+B7NoqpBsr6C8riXOMLpIYShycZMTzZonszFP0/fjrC9K8oY5Vmwm7
+	 rcBpB17ru13aa9Vf3cBj+rKy7CNgPVjE8t8POWol7/MpsqMqLmrdlF2nin64354c5wRip
+	 FSPTlk6ftgjIelWJSiEj+6jyydIuTEt285ty9TTY/V8lfrjbt7GKO5eKyVt9gbuBDLxix
+	 v20n5fEgEVtY8egV3iBSvNwF8887B3lgmsUo0vcv8XUjRTpej2nlQ62GU0MpmKlyd+4dI
+	 0806ioJkLvqTDccLvf7zjdBoRFV+GBudUZwReeDK6VC++Qxvbl6oTiCKMj6ITFyVgow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO;
-	arc=none smtp.remote-ip=95.215.58.39
-Received: from mta1.migadu.com (out-39.mta1.migadu.com [95.215.58.39])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=aspeedtech.com;
+	spf=pass smtp.mailfrom=aspeedtech.com;
+	arc=none smtp.remote-ip=211.20.114.72
+Received: from twmbx01.aspeedtech.com (mail.aspeedtech.com [211.20.114.72])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98285606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:18:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98285606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=kS24aWEDVFAGZg9av7QpzpXRdTf89yuZQQWrd8Pe7YI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795760304; v=1; x=1796365104;
- b=sKr55MTON/+6jrOYoyP4mbHJKogHVXu9Sy8xuEmw89uAYd4PLeivI6FcOlRQwTBLAeu3cSVF
- uh7hEohrUeSmHTgPd+SFC4C0L1YiokNOradNPZrh86Ik6+ihBWo4j2q8XICHqB01t4IjwRlu1z1
- xSzqw+oyTwgaacapk//YEWLo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7a6dd275991888ae;
-	Fri, 27 Nov 2026 06:18:24 +0000
-X-Mizu-Trace-ID: 7a6dd275991888ae
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <d5c55d47-8651-4c75-a0b6-2734a1394a9e@linux.dev>
-Date: Fri, 27 Nov 2026 15:18:02 +0900
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AA12606A31C;
+	Fri, 27 Nov 2026 06:20:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AA12606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aspeedtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aspeedtech.com
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Fri, 27 Nov
+ 2026 14:20:36 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
+ Transport; Fri, 27 Nov 2026 14:20:36 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Date: Fri, 27 Nov 2026 14:20:02 +0800
+Subject: [PATCH] i3c: master: mark OF bus child nodes OF_POPULATED to avoid
+ legacy I2C rescan
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,132 +49,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-To: gang.yan@linux.dev, netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Matthieu Baerts
- <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>,
- Geliang Tang <geliang@kernel.org>, David Ahern <dsahern@kernel.org>,
- Ido Schimmel <idosch@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>,
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
- Phil Sutter <phil@nwl.cc>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- Xuanqiang Luo <luoxuanqiang@kylinos.cn>, david.laight.linux@gmail.com
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
- <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-In-Reply-To: <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20261127-i3c-master-of-populated-v1-1-29d2a6a5509c@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIABEhCWsC/x3MQQqAIBBA0avErBvIKRK6SrQwG2ugUrQiiO6et
+ HyL/x9IHIUTdMUDkS9J4vcMVRZgF7PPjDJlA1XUKkUapba4mXRwRO8w+HCu5uAJiV2lLY2jbmr
+ IdYjs5P7P/fC+H1xNdcNpAAAA
+X-Change-ID: 20261127-i3c-master-of-populated-2ef07c2bb743
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li
+	<Frank.Li@nxp.com>, Peter Yin <peteryin.openbmc@gmail.com>
+CC: <linux-i3c@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795760436; l=3487;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=61bYkC444y6LURoBfsYDeMvfueN3HRxEzlGVlaACKDY=;
+ b=FdCau5Fvp3+HsyVTTucMRi5NsIe6YzcG+tMM4dNypDzwIJwK/IsTiZez6gljMhHu+1liAhf4p
+ 1i7ZbgmrXnJCYb3xzdlngYtdQ1v/V/v8w6RdRquc9n2VFq0tKG/ivPU
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 
-On 2026/11/26 at 17:48 gang.yan@linux.dev wrote:
-> November 24, 2026 at 9:06 PM, "Xuanqiang Luo" <xuanqiang.luo@linux.dev mailto:xuanqiang.luo@linux.dev?to=%22Xuanqiang%20Luo%22%20%3Cxuanqiang.luo%40linux.dev%3E > wrote:
-> 
-> 
->>
->> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
->>
->> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
->> passes the address of one of its locals to another function needs a stack
->> canary. The canary is set up and checked on every call, also when the
->> local is only used on a path that almost never runs.
->>
->> This series removes the canary from functions of the TCP/IPv4 fast paths,
->> by returning results by value, by using storage that is not on the stack,
->> or by not calling a function that has nothing to do.
->>
->> Patch 1 returns the two mptcp_space() values in a structure, so that
->> __tcp_select_window() no longer needs a canary.
->>
->> Patch 2 changes ip_neigh_gw4() to take a pointer to the address, like
->> ip_neigh_gw6(), so that ip_finish_output2() no longer needs a canary.
->>
->> Patch 3 uses pskb_may_pull() in icmp_filter(), so that
->> raw_local_deliver() no longer needs a canary.
->>
->> Patch 4 turns skb_try_coalesce() into an inline wrapper over a function
->> returning its results by value, so that its callers no longer need a
->> canary because of it.
->>
->> Patch 5 returns the result of the TCP receive coalescing by value, so
->> that tcp_rcv_established() and tcp_data_queue() no longer need a canary.
->>
->> Patch 6 calls bpf_skops_write_hdr_opt(), which needs a canary, only if a
->> BPF program reserved room for TCP options.
->>
->> The bloat-o-meter numbers are from gcc 16.2 on x86_64. The functions
->> named in patches 1 to 5 also lose their canary with clang 23.1.6 on
->> x86_64, with and without ThinLTO, and on arm64.
->>
-> 
-> Hi Xuanqiang,
-> 
-> Thanks for this series. Besides the code size, do you have any runtime perf
-> numbers (TCP_RR, cycles per packet...)? I think it may help the maintainers
-> judge the real gain.
-Hi Gang,
+Commit f26ecaa0f0ab ("i3c: master: dw-i3c: Fix missing of_node for
+virtual I2C adapter") made the DesignWare I3C master's virtual legacy
+I2C adapter reuse the I3C bus platform device's of_node, so consumers
+can resolve the adapter by phandle. i2c_register_adapter() reacts to
+any adapter with a non-NULL of_node by unconditionally calling
+of_i2c_register_devices(), which walks every child of that node and
+requires a "compatible" property to build a modalias.
 
-I omitted runtime numbers from the cover letter because earlier cross-NIC
-TCP_RR runs were within boot-to-boot noise, and I did not want to overstate
-the gain. I re-ran the full 6-patch series against its base commit
-(a4c450594f5d) in a tighter setup on an x86_64 server (Hygon C86-4G,
-ConnectX-5 10GbE mlx5, GCC 12.3, CONFIG_STACKPROTECTOR_STRONG=y, identical
-.config, nokaslr, boost off, isolated CPUs/IRQs, busy_read=0, 3 alternating
-boots per kernel x 4 runs):
+The I3C core already owns and fully parses every child of the bus node
+via fwnode_populate_i3c_bus()/i3c_master_add_of_dev(), for both native
+I3C devices (no "compatible" needed per the i3c.yaml binding) and
+legacy-I2C-under-I3C devices (registered explicitly through
+master->boardinfo.i2c in i3c_master_i2c_adapter_init()). Since neither
+path marks the node OF_POPULATED, the generic of_i2c_register_devices()
+walk that now runs afterwards treats every child as unclaimed:
 
-1. Single-CPU loopback 1-byte TCP_RR (both endpoints on 1 CPU running the
-    kernel under test, 99.9% busy with no cross-CPU lock contention; each
-    RR counts 2 TX + 2 RX = 4 Tcp InSegs+OutSegs):
-    - instructions:k / tx:  33,562.3 -> 33,410.6 (-151.8, -0.45%, CV 0.01%)
-    - instructions:k / seg:  8,372.8 ->  8,336.1 ( -36.8, -0.44%, CV 0.02%)
-    - branches:k / tx:       7,627.9 ->  7,604.4 ( -23.5, -0.31%, CV 0.03%)
-    - cycles:k / tx:        48,883.8 -> 48,613.8 (-270.0, -0.55%)
-    - throughput:           52,804   -> 53,068 tps (+0.50%)
+ - native I3C-only nodes have no "compatible", so of_i2c_get_board_info()
+   fails the modalias lookup and logs "of_i2c: modalias failure" /
+   "Failed to create I2C device" noise for a device that is already
+   correctly registered on the I3C bus.
 
-2. Cross-host 10GbE mlx5 8-flow 1-byte TCP_RR (server CPU-bound on 1 app
-    CPU + 1 IRQ CPU, client pinned on a fixed peer kernel):
-    - instructions:k / pkt: 12,040.6 -> 11,946.0 ( -94.6, -0.79%, CV 0.43%)
-    - cycles:k / pkt:       19,652.2 -> 19,450.1 (-202.1, -1.03%, CV 0.52%)
-    - throughput:           79,455   -> 79,883 tps (+0.54%)
+ - legacy-I2C nodes do have "compatible", so of_i2c_register_devices()
+   silently creates a duplicate i2c_client for the same address that
+   i3c_master_i2c_adapter_init() also registers from boardinfo.i2c.
 
-3. Loopback small-write TCP_STREAM (-m 512 -D, 2 CPUs):
-    - instructions:k / seg:  5,805.6 ->  5,713.7 ( -91.9, -1.58%)
-    - cycles:k / seg:        8,538.5 ->  8,416.8 (-121.7, -1.42%)
-    - throughput:            641.8   ->  650.5 Mbit/s (+1.37%)
-    (Note: in the 2-CPU / multi-flow cases above, perf shows part of the
-     larger per-packet drop comes from fewer spinlock-slowpath and idle-loop
-     samples in addition to the direct TCP path savings; test 1 isolates
-     the direct instruction/branch reduction.)
+Mark each OF bus child OF_POPULATED once i3c_master_add_of_dev() has
+accounted for it. ACPI-described children are left untouched, since
+OF_POPULATED and of_i2c_register_devices() only apply to the
+devicetree case. fwnode_populate_i3c_bus() always runs before the I2C
+adapter is registered, so of_i2c_register_devices() sees the flag
+already set and skips these nodes entirely, without disturbing the
+of_node propagation from f26ecaa0f0ab.
 
-4. perf record (cycles:k and instructions:k) confirms
-    bpf_skops_write_hdr_opt() drops from 0.04-0.12% to 0.00% across all
-    profiled workloads, with consistent drops in tcp_rcv_established(),
-    __tcp_transmit_skb(), and __tcp_select_window().
+Fixes: f26ecaa0f0ab ("i3c: master: dw-i3c: Fix missing of_node for virtual I2C adapter")
+Cc: stable@vger.kernel.org
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+ drivers/i3c/master.c | 24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
 
-One caveat to be transparent: on a loopback 1-byte UDP_RR control (which
-only exercises patch 2's ip_finish_output2() canary removal),
-instructions:k/tx changed by the expected -23.2 insns/tx (-0.07%) and
-branches:k/tx was flat (+0.02%), yet wall-clock tps/cycles still shifted
-by -0.80%/+0.68% due to fixed code-layout/IPC differences under nokaslr.
+diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
+index 01e05bad8661..f025c9e9a046 100644
+--- a/drivers/i3c/master.c
++++ b/drivers/i3c/master.c
+@@ -3353,15 +3353,25 @@ static int fwnode_populate_i3c_bus(struct i3c_master_controller *master)
+ 		return 0;
+ 
+ 	fwnode_for_each_available_child_node_scoped(fwnode, child) {
+-		if (is_of_node(child))
++		if (is_of_node(child)) {
+ 			ret = i3c_master_add_of_dev(master, child);
+-		else if (is_acpi_device_node(child))
+-			ret = i3c_master_add_acpi_dev(master, child);
+-		else
+-			continue;
++			if (ret)
++				return ret;
+ 
+-		if (ret)
+-			return ret;
++			/*
++			 * Claim the node so that i2c_register_adapter(),
++			 * called later for the legacy I2C adapter sharing
++			 * this same of_node, does not also run
++			 * of_i2c_register_devices() on it: every child here
++			 * is already fully accounted for, whether it ends up
++			 * I3C or legacy-I2C boardinfo.
++			 */
++			of_node_set_flag(to_of_node(child), OF_POPULATED);
++		} else if (is_acpi_device_node(child)) {
++			ret = i3c_master_add_acpi_dev(master, child);
++			if (ret)
++				return ret;
++		}
+ 	}
+ 
+ 	/*
 
-So the reliable runtime signal here is the deterministic drop in kernel
-instructions and branches (~152 insns / ~23.5 branches per loopback TCP_RR)
-and the disappearance of bpf_skops_write_hdr_opt() from the profile, while
-wall-clock TCP_RR tps/cycles (~0.5%) remain in the same range as
-code-alignment effects on this machine.
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261127-i3c-master-of-populated-2ef07c2bb743
 
-Thanks,
-Xuanqiang
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
+
