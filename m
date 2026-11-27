@@ -1,76 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=43.163.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773543;
-	b=tDTMcemrfkJuXDHqMOUaqKS5B+gi1CwPdYvrIwZbTyl+d6b7C2QaEFTPFTk2+7quBksC
-	 SQn2xuMR2Qjoy+oLFpWTxfZ54vcP7V5Zv409PtgFx/SaI+couM3HT0HPxl9astI2/jwIi
-	 QFWKeMCCiyjt04La6O5b+x9ViLjxh0j9oHj73V9KdU1Y4QgKJVnk/zsNPAfylK/Az33wZ
-	 FSSPnydkYM6QSrFqswrMLwfHD1hsDx5buZXuFAWt0Sb0QNcFSmUe3P5IvLHhNCfPSEf/g
-	 X7rL2/Mw8jqe+I1NkInD+WrJSNLBmWxwdQNsbY7JeiK1j4hhMF95bFNeGlnuerQad9Q==
+	t=1795773545;
+	b=UASIUHbSNAKNyBLehUqhWP3QVybcOF6WgohyR8C7Px8Uzsr5fLVK0xwk/j/GEoPW/xM8
+	 J/ecb2NVJuv6qL/hfReQJThSmu+/Ss7bQ30kZSxHgOmaRUnIBat6ArlSZJ/NfL0OyxD8J
+	 LIEgqZ6tw3FPqP0dmNOzYCnHnpIBqnDU2TCDkqghAwKtviHeYvPH/fuMMFvITZHm9AHZ3
+	 7c8JF+PJ636B2G2utQTja4moRyIOWQWAYIC7kFHABgigU81VMWAnpecER6r9137jPvXTe
+	 vaKGR0wdtGZHftQkr/yXqg7XX4jDTAEQw92zEg3lZd1ClioexrZZz+Rz9HLmPAn0G5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773543;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773545;
 	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
 	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
 	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=HS1h1bZTmMeyGAoFJ9k7WiesLziPXfI0iGAFPkyd0U8=;
-	b=PsLWX9+uOjVOR46fr3Y1i+s3AtmGeagcTjyqWM+MVCrR4R37qbAUGx2Z0/PjRh5WCIO9
-	 3RpO5UJfCqfBzEZ872/0tX2ALwqfsIQXgFAwP9/NClbiPt7+F2hQ0t1vl/uDNKkjZsjBr
-	 OH/IP9UVNmrg9feO9q471WUEPeA4a6NY4xjfStxTgJtHmyXhWwv2K+9ou1KtLHduKdcZi
-	 MTxYIUW21MyqYACSRzt88wjVM95ZU89U4eaTnNLajPC8hgMu6tGryNI8Z4fmCcP0hmKDp
-	 vnv13ldIC5AAop/D0HEjCzKy3oIXLO9/8zqkHMjJ15qQGSd28Rk05pfLtyNPLVjP4Pw==
+	bh=baJ0mjyslci1WDPJ+WAvlMf5kc9rL/LQw0lo569JThw=;
+	b=zI8QIUsqPEdnqwN6S0z63gQy1S4wZ17CgQIvUF/fuCBDntrAlECeCK2qiXDTqyrjK/4y
+	 cgIMBf/5TrH32a2FRc6y3L3ij0DigF0aHuesh4cWnjbxxGv7ACjfcmJAFPcdgibfpCGVk
+	 pZFKrslm/k1E5UhAM21UJz5jWn1fN/9ecp+23PGT2Lcap7Hr006pVHGQvj/crXb+OOD+6
+	 P6KjtoELdxzsFRC+DEeknVxQaT2sCgfMUL5d5TV+NLRohyWlWgR4+6h8oeGoUuCki+5Q+
+	 r9tRsntUufHnk6tzC5FHhuPyGv6yxzw121XDD4PcDQHozRRtDADVxEp7NZ9lHSWUcCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=qq.com;
 	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="R/X+MprA";
-	arc=none smtp.remote-ip=43.163.128.53
-Received: from xmbghk7.mail.qq.com (xmbghk7.mail.qq.com [43.163.128.53])
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=bPXTnPmy;
+	arc=none smtp.remote-ip=162.62.57.49
+Received: from out162-62-57-49.mail.qq.com (out162-62-57-49.mail.qq.com [162.62.57.49])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B18CF606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:59:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B18CF606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D5B6606A687
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:59:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D5B6606A687
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=R/X+MprA
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=bPXTnPmy
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795773531; bh=HS1h1bZTmMeyGAoFJ9k7WiesLziPXfI0iGAFPkyd0U8=;
+	t=1795773538; bh=baJ0mjyslci1WDPJ+WAvlMf5kc9rL/LQw0lo569JThw=;
 	h=From:To:Cc:Subject:Date;
-	b=R/X+MprA1iiYsbVn2QorYQD4I5+6eLG6x84toLp/nIL/uCoJ7IiQsU5MqGVGgEpzC
-	 BUB9O/51DNOMUYPwuyK2pL3ZGiU0nzWZqSNlHsRKVae5gDi+O2XAfpSZuRshYyuQFt
-	 mrWA/yHrEjVX42dh+3MTsUcndbyEOeFcXI+CAhvk=
+	b=bPXTnPmy/W6KudIujZzit3pDAEr8pWumOZWpGLDIFHCP6mos/eoX4TAFYT0GAZrQM
+	 hgc7M5KCEIxyEidh4uSMFrLJe44g07e1FHMLieQJoFWy6U2rE0zh2Q6xchdojxSeK7
+	 hoDvq23bvi13zWfFWvkIALT+iAIX4BVEUIDLNtDI=
 Received: from shuai-VMware-Virtual-Platform.. ([39.165.245.102])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id EB0908DD; Fri, 27 Nov 2026 17:58:48 +0800
-X-QQ-mid: xmsmtpt1795773528tjyzhcp99
-Message-ID: <tencent_D498CB0489BB9C74184B927C7393282E9806@qq.com>
-X-QQ-XMAILINFO: NbgegmlEc3JuK4QQFK/DEJQKnRWlXqelqaw1sONkFVjW2acjdeHZTr0FvYhkqq
-	 i7lx3s3jTO+kfSEOwXC/dh5zINJKrdRKazWcucLlzXiT7w/7UtpiujZzBbjpaNJnQxPye1e3CX7l
-	 V8wBP5rfOYSLdtwgR6+vUWXXd2x/lSb9Yv7mm1bh2BuhCsE599cLNgk33ZUf9fkeeBOIVArml+xY
-	 9eoc+4DRsOxYTxJfF5iylk/pu+8kA3oP4VglMi+H3wlB7cPhIBOkH4tUYW7qd3kWpEddhmaLLHkU
-	 mfdQNrBRhH7Qdn0fWfTMHBx/eXvCygrjMrDNu1x+zPyq+tO67HjmpZAyq9OKYZWAdullKfr8CSED
-	 2in8tWCNRnvh9Sp6yVeeZnLnUkWmVgQrSGlAh55AP0ZNcyQL4JkfqzDmgiHPTcbDn8y/prMeZ9NC
-	 75ZrWKuFeQvs6oKWzPmIT1bPEOjy4v1fstbfxTSHQRmgd9uBEgvi7N/ni5S1TSKKlWzzARNXX/Ai
-	 W05N1vXgAwvr1cm5NjAZ2pM5uVx7TvAK8OJ67jf4v4gn0yVCjx9hYkoxSISmXs6v30TIJz+Z7IC6
-	 L5RDTVV0d/5GKiz7U34iVr4iOY8KVcwdVMXdS1CZKJgAo5sbdlqqTLWKwjrv4tSVHbAoLKBhLlLo
-	 7vrZvmEPabxaUsvQnpKBm3qT339DQ8GhpN9Ztnv2XEWdpXiYVuOtrWBAwBR/2hJakQgpKXjdjPX1
-	 pQE97mu5V0lf6u3dYnhVr3M4eGnxBhFbsiUkRbbWKNSWjQ6mm6ohDFBIZxgWhxfNrVUcjR9/KhI6
-	 q7FHppxkYynwxtdtXjNp3x1DSoQlT1AJm+Pz0LedBXnXdWGLcNKHYYKff+3jHb1hE9xvYp0AFYbl
-	 9l2N0d56NfStC+d0NHIiJPG6MqxL/af8zru88V6ENuVoWdVYEfuULc6YRRHMPDjAg6dasMCX6yLc
-	 09nxnPI6pjLCSh+K627UKGBDzaXDr9Psw/NyDUsqAh5gMinYoO4p1KotP0gBrfXeHmFIInHlOq+x
-	 vAlZnDlMJuVc7j/76GsNAZcNWAUnznlExBMoQcJG5POV02Eo83hvvsuNwtI2o=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
+	id EB83566F; Fri, 27 Nov 2026 17:58:56 +0800
+X-QQ-mid: xmsmtpt1795773536t7hof9yn8
+Message-ID: <tencent_17D1FD4EFA98C54A1EA1E90D37406C602205@qq.com>
+X-QQ-XMAILINFO: OVFdYp27KdlJQ6Sfm5w8eYU/Xk+Y1uGIhZj1xhO5GXZdFMMMFadOMDiz1w59Dc
+	 Mh8IqvXH8lV8GTB9yHoAS3y2hdTDfsqaXM08duaBAHwr2Z3nn0sLB4zPHKsHNzeRil7FL4+KYKy9
+	 F6gpOrI9bJap/oHnvXiWSro8R58kO8qEC7ToLszQ4tq/Ev6zAUyCv/zfvZa6nMR19Jzn17brkPP8
+	 6HCA9/byNxNT41Cvzir86Ei3iZPJozJoo8acRhee3QwTLx8dXVZHVV6QMWx1gOQW8BEOQHuNHIT0
+	 eH6v7Vb/EVhEgK54++5niZM5sK0R8gtdqd/+PJT0VIhJ/XLuXyMZyYi6gD2KXdnxSw+VzZHZTwww
+	 S1htuhzXjaUV0bRoiexdvh6zvfLwrAvk/81rZWRGCUPW/h/EsXk+0xnZStJsJgON98DKfobakfUz
+	 IJx2gv5N5huboB6tJ89Ihol6P+UZqdVud3egh+QUtmpDqG4rJ4wMt41eqbRiII1ocFgSlthdSl5C
+	 dnkePYsMwMryOc4pmrXPcyUpT63HwlYo7OfgVX1A5z3QM2ZYa/dpSL/c1aNhHKGb7VrvXU4s8JEa
+	 Ms72KWt3h59iqAkJvxuY8slDLN+BQIderrDQ8Jxg52SvpFjkR27Fi6AvnDFUzkQIBzhCuniHG9ro
+	 71t6WwN9zFjIcmRZTFLLMhkPDF8VjSx15ed/gAqmNH862zFJPf0WEz81b5lLWd6mJM0lquqMnDXD
+	 LdBjQQ8xVI9Ej3pfIijK5MR/og+vdnNp7kD7ceiUbZbPQ/3vrZfWiPobaJY1F2aASh/M0jD5UKHO
+	 XMiVA/7kU2kpL5gCb7et/moYyhJyTgOQrXkxi8Gh1YYSlq8jMegCJus3SRk7cBrgMvmto/OUyx+V
+	 DIOPdJJRNE6/nAzMFnauYlg5poH+LW1eJYo/2fVqHvpyiGen2iv/Otix9itWwUFHTdakH/HOOAJe
+	 t24dAPHaYtPlV8L9TcBswH8MkYSB+rgLCkuilPtPGEg9qhodEeIyoQsRC+K1BSJVjdrzFGsfukFb
+	 2la3AqqHy3hBIGFeXNnjdRPx+R+4venb2BNOuba1w7pmL+9NzdrNbeKLTAFcujvVxX0esGug==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
 From: Shuai Liu <847807867@qq.com>
-To: dm-devel@lists.linux.dev
-Cc: agk@redhat.com,
-	snitzer@kernel.org,
-	mpatocka@redhat.com,
-	bmarzins@redhat.com,
+To: ntfs3@lists.linux.dev
+Cc: almaz.alexandrovich@paragon-software.com,
 	linux-kernel@vger.kernel.org,
-	syzbot+1eda626824b6334f5ad3@syzkaller.appspotmail.com,
+	syzbot+d7aeb9ab7b1cc022914e@syzkaller.appspotmail.com,
 	Shuai Liu <847807867@qq.com>
-Subject: [PATCH] dm snap: clear pointers in alloc_area() error paths
-Date: Fri, 27 Nov 2026 17:58:48 +0800
-X-OQ-MSGID: <20261127095848.769985-1-847807867@qq.com>
+Subject: [PATCH] fs/ntfs3: handle proc_create_data() failure in ntfs_create_procdir()
+Date: Fri, 27 Nov 2026 17:58:56 +0800
+X-OQ-MSGID: <20261127095856.770026-1-847807867@qq.com>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -83,37 +80,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-alloc_area() vfrees ps->zero_area and ps->area on allocation failure
-but leaves the dangling pointers.  When the snapshot constructor then
-calls free_area() as part of teardown, it vfrees the same buffers
-again, triggering a WARNING in vfree().
+proc_create_data() may fail and return NULL, but ntfs_create_procdir()
+assigned sbi->procdir unconditionally.  This let ntfs_remove_procdir()
+call remove_proc_entry() for missing entries, triggering a WARNING
+at fs/proc/generic.c:742.
 
-Set those pointers to NULL after vfree().  vfree(NULL) is a no-op,
-so free_area() is safe to call multiple times.
+Check both proc_create_data() results.  If either fails, remove the
+one that succeeded plus the parent dir and leave sbi->procdir NULL.
 
-Reported-by: syzbot+1eda626824b6334f5ad3@syzkaller.appspotmail.com
-Fixes: 7c9e6c17325f ("dm exception store: refactor zero_area")
+Reported-by: syzbot+d7aeb9ab7b1cc022914e@syzkaller.appspotmail.com
+Fixes: 7832e123490a ("fs/ntfs3: Add support /proc/fs/ntfs3/<dev>/volinfo and /proc/fs/ntfs3/<dev>/label")
 Signed-off-by: Shuai Liu <847807867@qq.com>
 ---
- drivers/md/dm-snap-persistent.c | 2 ++
- 1 file changed, 2 insertions(+)
+ fs/ntfs3/super.c | 23 ++++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/md/dm-snap-persistent.c b/drivers/md/dm-snap-persistent.c
-index b587ee7330562..9f5ade4f51cec 100644
---- a/drivers/md/dm-snap-persistent.c
-+++ b/drivers/md/dm-snap-persistent.c
-@@ -194,9 +194,11 @@ static int alloc_area(struct pstore *ps)
+diff --git a/fs/ntfs3/super.c b/fs/ntfs3/super.c
+index 29aabdc8a8012..6beb850fc1dbf 100644
+--- a/fs/ntfs3/super.c
++++ b/fs/ntfs3/super.c
+@@ -626,18 +626,31 @@ static const struct proc_ops ntfs3_label_fops = {
+ static void ntfs_create_procdir(struct super_block *sb)
+ {
+ 	struct proc_dir_entry *e;
++	struct ntfs_sb_info *sbi;
++	struct proc_dir_entry *volinfo, *label;
  
- err_header_area:
- 	vfree(ps->zero_area);
-+	ps->zero_area = NULL;
+ 	if (!proc_info_root)
+ 		return;
  
- err_zero_area:
- 	vfree(ps->area);
-+	ps->area = NULL;
+ 	e = proc_mkdir(sb->s_id, proc_info_root);
+-	if (e) {
+-		struct ntfs_sb_info *sbi = sb->s_fs_info;
++	if (!e)
++		return;
++
++	sbi = sb->s_fs_info;
  
- err_area:
- 	return r;
+-		proc_create_data("volinfo", 0444, e, &ntfs3_volinfo_fops, sb);
+-		proc_create_data("label", 0644, e, &ntfs3_label_fops, sb);
+-		sbi->procdir = e;
++	volinfo = proc_create_data("volinfo", 0444, e, &ntfs3_volinfo_fops, sb);
++	label = proc_create_data("label", 0644, e, &ntfs3_label_fops, sb);
++
++	if (!volinfo || !label) {
++		if (volinfo)
++			remove_proc_entry("volinfo", e);
++		if (label)
++			remove_proc_entry("label", e);
++		remove_proc_entry(sb->s_id, proc_info_root);
++		return;
+ 	}
++
++	sbi->procdir = e;
+ }
+ 
+ static void ntfs_remove_procdir(struct super_block *sb)
 -- 
 2.43.0
 
