@@ -1,22 +1,23 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.25
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.37
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795752959;
-	b=fg7YuvjuEHW8SuUPW/+3mROkUwl13qGcqcCxAphtKJ99AKLvk+piyVgGQy4+D1P8j7Ql
-	 LaVsVx2uMwkTA5yIVyASgaFhyS5dhmQZCIN5xi+Qdbl0KX268bsB2/IXG7pu8Ik7+j87R
-	 09Kmtysv4IZ0zFTb2MSgXgq7OcLeXVTFqinYxucC5IJfIgHtXgvnc1BMPx7LpCnMO7B0F
-	 5gGVOiF6cTPe5znQV9UdEzBC7Yt2Jl4LP6i1G+Ytd0ykzc7DAlzFyUkdAR7Hfa5Mo0Wwn
-	 fu5235k8F1gi6/esUSwKSY2ZZ65+vSH9bKSPF/jhE77I95puM5/wiEAy9h9X4lk6jiQ==
+	t=1795752969;
+	b=Qn0Bm/OnzqQBjUF6Pu3kNjx7O1fS46RIKvakscpPvyMn+Xlmycl9C0eCNqe4B5eiNB5G
+	 X+hIyrYVJnk8EwAVSrUXkde+kspe5edBynymalvxtsxFAs6Voh1yw3R8AckOxZsLq7RQk
+	 rQPnSHxlUXW+7L3qBna/GLiylb5LluLxGCRr9cNqG7UNo2aPOaloZZ/Bi0QXBuywd4spi
+	 Zmv+a6MoGVPhVmVJFflxY3VCpmA/ilBO03L5kVYDj8PzOHre5Y+kyWA4Av7TH+RDbeOqO
+	 Gylpn5AYDvljEweuxTSiL1F/bJvTDHylu6MYIPgiqzitHcZy4St9U2prln5xv8B7Vcw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795752959;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795752969;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
@@ -24,79 +25,81 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=CczS2gSEWOAA0ynUxZllFT+5n8yR5fbIXnl/iYmkE/A=;
-	b=Z5aXv8IVkP3fu7PK2ZQYmj4V6JEJcmjeJms2kUXuIiDmi7sBJsUvlCIfzJ/atiUDnbkz
-	 W4wmXrXri3mWRdeDBHVQDWXl4J4w0Qh3Islo9aSjZ229XAeq2VAACLiLs+5B5NGMHk36k
-	 iMwh7fPU5ZtzslEOBWrOBwheuoeN4+qO1tLeEB6k2J0apYf/zpeGkUlwIkCZRelUXyB+7
-	 M3A1WzrbCRAD4ClyGrs8RO8GA0pj8iDJuNZ5klhABnLrkw1ilBmu5BMvbqb2rY1XPVJ5e
-	 FNOLVYj7mH/OowtgK4aMi6cU17HyjIbe2IAc1fAI4hSH5kA5+CCZ6HEdZkt7p5yQXog==
+	bh=dXhEJk/Jur0ZEZYH48KkkowpoRBO5sE/GD2SPVNOM/g=;
+	b=FmpBi5fSJu0oVIspNcWF3o7H09s7B/73fmpjcZ/OXbrUVX3A0cABqs/cTCgFMpYWuyIb
+	 7pk5qcP5eNQWXwsiewGIZaprwe5w6OOerXLHQeijGpZxZ1xGDUf0m5kfZIOu8EA7Tm6Mi
+	 zzsDdl4+5RxuuO4+gT5wxokR5TaEaY/x2ioth35MNeo3XL2vNm9CLwJHPAHBE/D/6EdkQ
+	 SxWciKcQ2ic7o2ytfo5syEmPoPdthPMcH5uP8GArjqIp8Td0u+ETqtTbLsO12UdU9G7DM
+	 4ErP2/nKOCsKXccWNsBOt31mHlCevBIgIgSvAGjN+UagOAbR085aNomUO7Ja52dFfQA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ayubFQvj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.25
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010025.outbound.protection.outlook.com [52.101.193.25])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Oj6YUZXS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.37
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012037.outbound.protection.outlook.com [52.101.43.37])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EACF606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:15:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EACF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D130606A31E;
+	Fri, 27 Nov 2026 04:16:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D130606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ayubFQvj
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Oj6YUZXS
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ujdMdI9sMfvLicKD20sHykXF8jr8tZ/ayZJxmtmcNJPWfDOODVmGZJOZBHnTMVVXVfKMu1PP+3+/yezcbludtlZMeaj41rNSYJFS897VefaytMNFc4iMZ6NQ8VYqdLq0vRediu6H49HMfzwaTlUabZ2mYKbjSm67WYWrKRRKq78Hb/iKXkhDQwRmeloTupB+9GyhKsRy+5WtsQ6K4raB+DzcqzWALRgR/GMoFybXFVZgeqL1ROTAWUnBjkHXikDtWE++abO2+N0TFbgm0oSEPhVCreaJIyBvnMz3lsnr5iJyIbbbRjIrDGyVM0EOTi3y4tseCpJmVn1bgDvFmcBc4g==
+ b=m6kBGk+2yaUs2Uo75EP7EoeDFNg5D+1+mDXBZoB+7rj+MapXxlhM918cfBL9UPhxVZeF2mOaJ0YCGnb8Ca5I1x51b9PQOPYWPeaclo70l+syjnraQnDeh7DGS/RekymwkiYlyUMrLGSTdzfaqPEHugMhBA9JtCILHbOzW278V/1WLqPoREo+HgJg8e2i7GsuRzIZN3pXFb3T10cLyrIXpj+6SqAEdtpzUz1JU4ycbfzBEfV2CFPVpHihsju0BiyJzS9lEbty807kp2zuvKoeIdu/0qqIKuyC7LX+F2d/UeCFXlU7MWF5gaKB7CQNWTo9GFGk9wQWxTrHNy2LoCys5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CczS2gSEWOAA0ynUxZllFT+5n8yR5fbIXnl/iYmkE/A=;
- b=mc4H8JYlz5qzw43O6vc6dZjQFue0P8x7z4ynrmvZ9yJkIaEpctTO2uCey0gVVvDk02hAl0G1W45NSb+hVvjuo1x3hj/KwaI/qRubwVoDFd6phpKGgkRupqeb8VMEvw+GqnGzUVUrIISx3GMPAedBCaMlCRYNTmaqVUEGDMXyXvQwwd6ZpUutKvJI2sFSPVcGZcRO4TIE2Z6TT2rwW3WvJqaYfhR0bvJuYn8ycijU70hTClN2Nmcq6xg0fNsGYYHcug35XXvsTitnclYf+IJCWG9C3FazbUrSJYm3XtNYTvlViYW3OhR6air/PBQnB8FWI/HvKCd+Uj6xp6YPkBqFOQ==
+ bh=dXhEJk/Jur0ZEZYH48KkkowpoRBO5sE/GD2SPVNOM/g=;
+ b=kbkknUAwS9XAeY1ta+82ji9KR7gyycMHhfGRLqnzDnS311MtPVJvMphhW3MQRA7TTkKv4EkolbRxThwT9Ooau7zV7L/UZJ/eO6PzrxsxN5h5VzRKRsj7yWvf/o8lngXmZ5U2uMY6sxG4/5q8+MMH2gZQ10jh+hfCWKTPh+Pbj0BLa3PnYG+MMmCGU82c02lArImDmTw604AhMDdWD2es2XWtU6Z0TE3jBgLqAQceNekitgtmGa+LLr2HQWnRBq2FL2fyjOC5vidGGTO5C68SWPtATGEWfHPHZ1q9Tt4Sals71iwzHl4sn5WAX0nk+ZtY0yoDQZjolquegjByWIPY5g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CczS2gSEWOAA0ynUxZllFT+5n8yR5fbIXnl/iYmkE/A=;
- b=ayubFQvj8r18u5xhn8qhtmnLt0GBlfv+iodjr2+JP+QAHdren4Xiypj7uHwErFx8nFOKvhokRHT6B+w/Xy9s9QkvAVYnfrTzODjRuoJk/l5CwjyTHbQKX0jo98CRcJISS4828oFSp75Nnc/wjIe4cer5kwo3Z96opATOVvKYPm8=
+ bh=dXhEJk/Jur0ZEZYH48KkkowpoRBO5sE/GD2SPVNOM/g=;
+ b=Oj6YUZXSSFdNpbnY78IhSAHH9ysYzpPPZsULix4XBvUcp1ixrA4GPcEN+1kN8BmLK4gGSzdanX5uBBA3sS80nTtBPNPa7Q02WQX7d5eDVmfsMMk0RE2IaLoWBi8dPZaaQGAU3bA63Vrjjt9uPeSsb3/oUyKc3guHc4sdWDwrqlirT3DyicQgwqdYKKULlVRQierNAeLxo/cr2qEAqAlVhmhePLeBvDkzXu3WgIp+2C+1jAaUna/6X1jtmtRvqQ7Y84McfBe9nCku64iJsIxomWZij44dB4l6flRMDqrLrTI3yHWz3rxvC9ZXrM8FVoBuQcxPTqGTzIierupGtMYJaA==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from BL4PR12MB9505.namprd12.prod.outlook.com (2603:10b6:208:591::16)
- by DS7PPF539334D8E.namprd12.prod.outlook.com (2603:10b6:f:fc02::945) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by CH3PR12MB8584.namprd12.prod.outlook.com (2603:10b6:610:164::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 04:15:56 +0000
-Received: from BL4PR12MB9505.namprd12.prod.outlook.com
- ([fe80::73aa:eb8c:a86b:5a83]) by BL4PR12MB9505.namprd12.prod.outlook.com
- ([fe80::73aa:eb8c:a86b:5a83%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 04:15:55 +0000
-Message-ID: <6e27254c-17eb-4858-9b19-8c4503974b30@amd.com>
-Date: Fri, 27 Nov 2026 09:45:49 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] iommu/io-pgfault: reject partial faults after device
- removal
-To: Qihang <q.h.hack.winter@gmail.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>,
- Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261117015409.25492-1-q.h.hack.winter@gmail.com>
- <56be2b4e-aefb-413b-8f72-0bea1f9e96db@linux.intel.com>
- <CAH78GvuUtU=zhe-Qbn9k73D3U5n1Ye1=8wtQqR7vCEpDzgNUJg@mail.gmail.com>
- <aceb9e9f-7ba3-48e2-8945-95179f22581d@linux.intel.com>
- <CAH78Gvubo20uU4ntOxzd-+B6GHpUovL_wYQt9yahF-8=x3sEVA@mail.gmail.com>
- <4420a997-82e9-43e6-8ceb-5ede44594c51@linux.intel.com>
- <ecc47f2f-d0ff-4aa5-9d46-6a0b9ed8c468@amd.com>
- <CAH78Gvvf92NrPTYU=hMs92FavwX67NpgeHBRqZ6TDziNg45-tA@mail.gmail.com>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <CAH78Gvvf92NrPTYU=hMs92FavwX67NpgeHBRqZ6TDziNg45-tA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0239.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::16) To BL4PR12MB9505.namprd12.prod.outlook.com
- (2603:10b6:208:591::16)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Fri, 27 Nov
+ 2026 04:16:04 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 04:16:04 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Svyatoslav Ryhel <clamor95@gmail.com>
+Subject:
+ Re: [PATCH v8 01/12] drm: Add MIPI DBI bus support for MIPI DBI Type A and B
+Date: Fri, 27 Nov 2026 13:16:00 +0900
+Message-ID: <tWBq0CmbQN-l5IJnxter_A@nvidia.com>
+In-Reply-To: <20261122081820.53199-2-clamor95@gmail.com>
+References:
+ <20261122081820.53199-1-clamor95@gmail.com>
+ <20261122081820.53199-2-clamor95@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TY4P286CA0038.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:2b2::16) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,119 +110,631 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL4PR12MB9505:EE_|DS7PPF539334D8E:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69f9d348-1ce5-4cbe-61f9-08df4c3d21ea
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|CH3PR12MB8584:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2239ff9e-e994-4248-0c08-08df4c3d2703
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|4143699003|11063799006|261009221227099003|261009223027099003|22082099003|18002099003|10067099003|56012099006|261102123227099003|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003;
+	BCL:0;ARA:13230040|1800799024|366016|10070799003|23010399003|7416014|376014|6133799003|18002099003|3023799007|22082099003|921020|56012099006|261022075727099003|4143699003|11063799006|261022113327099003|261026121527099003|261028144727099003|261021123027099003|261102123227099003|261026140227099003|261009223027099003|261021121427099003|261009221227099003|261022105027099003|261102130727099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	ojsTiP04ZGOLnEHVFHbCITGdUYDDgmQ4w9rMtz/IAQHbaA3JZ4mh3n7x5j+bnEwjGzBgGlV92hZBtLvD41yPO4eunr+Zuq6HDb6hsbxexuux6wQyY1XOhIcFZ5dYvz/4a9sKvMyp98th1KKM8N1VUIOqW9lRueCVwfC0Z5AjVHM4cUP2sDOL5olcPtmbLu2GsE57MUD7ScGUNfZDgaYAuMEBjyvzaTRhQ34e3lYr9gPOY9og2T7hZr/iv3vX+778ijs2SZUmU4KH6/xOko08p6PaeadK4yygSpz9n3mUfKxUMEBrS8Q6uftUkexYnKXs2H843FdmtXIDv+vrk4/sg+oyuMSnmRxc8EpO8aj9y9HwbB7L5d9c16EICgsbkQEp7EvczLqLbOXIDJENlT3+NY9AdVmFEdEeTqJXDfhABTVCQkOf3JULTgNxlN0XVk5RaMp+mJJzGXW3mniO9roG70YoU5mRuIuYduR31HWd4K3VCHRqb0a/Y5K3ssJNG0UC0idXbLCmbd2VQfb032KfasIIURQ/HvA7NjsMUBX1eRcs590Am+NJhkyp0B+KGcuMUza0APUJkygiI4bErpeFIeTG96nYI78xUySOtz7e/P4XFxT22i74hULopEh/LZ2i
+	cQNteqpulF4L6PTn4eoicKpyXfAo1Mzk4rKrjylqYIYdqdzcJ+0yAdCOodeNZo5PmNJ87ROVzJTXQaQC7vh14V7/YZsiCp+GaBE3UUTFNidK3tzPpvEEVP2IEfICbDFKIKu5YLnTkMVK6srolhLhrk517hmd/O2DbTKNuN0WwMtJMYlduhg/Ihck9423eYyffels3eZIVs5t8ni7RYyb+tOOQ3yxYxjTgXZcJRoQ+zO9e2pv3Y5eqlGrCDStuJhwZv73k1pAwE81BWav7Yk7UrXQW+uELLi5/hMKoCJXMHGih1xrNvWn6fu4SqufbL3A/PCCQtJXI0FcU7x7x8OWHTxKcqnalF1vZce6S49usX5qqgqnQSVEouHd4ZbI+UJToqDrsGXWE0NEWaqHJS5gI8TOZN/rBX8FGTeu0TFxqMTl4W4DdLoMZXDLDR5+1ZZUHgShcLiK+tRs1q4cGFOKNhnO4Ll1aX8QfplYLJ3zOrQ7rs4UIfgQPN86gozviJyAVdHE+DPyeHFs07Lv5UaTn7Cld11jUQZ/7TSHaUut43pdU7J2dGc2u82DI0NLukM/bXQqfqStZEPFbHzOEsUD1u4OoRoIKQHG9dXTfdkRZ5yKTl0Z3bN/8OD0AOSEIXmZXpvyR0k+2ffDhli1/weaEK35Y67uADVSD7YVpPj3xFgjFfGoARqkKyiBrAfJ7F6YH/pPIhyHTzP5l86tIoInCQ==
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9505.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(4143699003)(11063799006)(261009221227099003)(261009223027099003)(22082099003)(18002099003)(10067099003)(56012099006)(261102123227099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(23010399003)(7416014)(376014)(6133799003)(18002099003)(3023799007)(22082099003)(921020)(56012099006)(261022075727099003)(4143699003)(11063799006)(261022113327099003)(261026121527099003)(261028144727099003)(261021123027099003)(261102123227099003)(261026140227099003)(261009223027099003)(261021121427099003)(261009221227099003)(261022105027099003)(261102130727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?WDRQQjcyUE03YytCRGxUVG9JSGl2b3g4bFlGZ2xJNzVsY1c3WVBqWlBJK3JS?=
- =?utf-8?B?bXkzUXptQ2FCSVBpWlBvUlpheERQZnQ1Y1AwU0xVdCt0R1Y1M05ZWkR2K1d1?=
- =?utf-8?B?THVGNm9Sa3k5Ui9HeHRnMTZsNXBxRUJtVzFIM2RHUjZ1VENTaHNTYXYxQU5t?=
- =?utf-8?B?akJidkdyRGFvaGVyditjS2lnLzZzWkxHRUphbHB5NGNSWnNUelYzMFZEWVNn?=
- =?utf-8?B?bFlFU2pIQ1BCS2JXUDA1ZldKaDh1V0RBOUJHVStTcmo4MmtMbVFtL1JDOXE1?=
- =?utf-8?B?L1lhY3JCWDZ5SXp1QzNwdjRHVFJoWmxrY0JVc2ljb2pTQlhhTWl6aGZMSVQz?=
- =?utf-8?B?Z3E3T1pWSWR4MXpHRDR5VVBrM2U2SDlhSy9ST2E3VHlRVytlV3c4TzFIaWhv?=
- =?utf-8?B?UHpqYXRJMkNxUWVXbmozM0tTYkVLSWhqVWw5YmFwQnRFWTBTcXdjMm5JbnJQ?=
- =?utf-8?B?SVVlMktTeWlnZkVLKzhXWDRmWmQ1a0xUeEhjeU8yOU53Mk00bXdFMDJjK1dn?=
- =?utf-8?B?ejZ5YVVYZlRTVThMU2RVK3RtOHV4MkdJbzBycm5vdnlBOWZCN0lEem52TkNo?=
- =?utf-8?B?MGhUNjhTZytFK041UHdtdGpzVTJSdlkwZllpMmdmdXlxZ3VGNXhnWFYyZkxo?=
- =?utf-8?B?d0xqaVp2b2MvNkh4cDRkSFQxSnUwemF4UDExNkx3MDQybUw0TTZ0SmRLdC9J?=
- =?utf-8?B?T29wbGRiZm1lL2xldXRmUlN2ZjFlaTdMelhVQllqU0pCSnFGdnFZR21XL1hE?=
- =?utf-8?B?RjNDMUJQYjBKa1ZuWVdlaDNDU2RFelBWL3V3WjhiM3pLZmNsTFVjaGJoV2Z0?=
- =?utf-8?B?WHZZemx4SkZ3MUg2ZDdFdzdiOVVCaG05OVo0NFRCa1FCN2tqTGJZRHR3RWRJ?=
- =?utf-8?B?aTlwSzMvNTljNkdmb1JmYXQ4K3huVlNJbTdCcERMczBCMTNCcWJsRXpnN1U1?=
- =?utf-8?B?UUViLzZVMkQxZ2VQa0NFejQvYXA0Z0xnTUo2QVZXYnp3bkxDR3pOM09jUTFt?=
- =?utf-8?B?bXVFOEJSVTVVWS9WbVFvQjZySjR0NFFVTFhIUlByZ2V6SUFuUFRPNmdlNmx1?=
- =?utf-8?B?VzNzS2IxYVEyc0JzcVZ6U09vRlpyeGRGQWt4NVJ4K0J5bWtLVW8vTUdsZk1q?=
- =?utf-8?B?K0x1QURSK1ZlODBQYVEzV3krRWF0d0FGZENaY3BIeG5QN2lXeEVjcWVtTjA4?=
- =?utf-8?B?c0hONkRXNEpiUmd1WkU5amRsNko4MkViRUFUd2JZOVpHMzlKU1RER0drc2pD?=
- =?utf-8?B?eldOWmpTeXRGaS9TTituNkpmSUREUU5ianFqVnFwTWNGdjlCckE3V1JYYnpP?=
- =?utf-8?B?VkdhSjVqajJYZnNBaHVsbTEzYmxlOGVES1NNTzRraWdtRWZTeWgzbjh1azlo?=
- =?utf-8?B?UnJ3TlpFQmh6Yk9RaTFCSmcyQjlCeStrb21mTEIwRmtZVHRyZ3d5alVqMElF?=
- =?utf-8?B?TEtSbUtzQzNzdk9OSHRLeHlNYXVYZmkxV3N1Wnhkc1BNTU5vVFJnSVlLMU9p?=
- =?utf-8?B?cHBDbk5pQlVZYVVxRmRoaFI4VUlzQTUzUGVxdlJGeWFCNGdBbHFVUFNYVVZF?=
- =?utf-8?B?WWRlRUlubFlMWmZPWEIyT3c1QzZDUzlPWUhES2p5aXZPak14VHNQTmgxdy9i?=
- =?utf-8?B?RDdaV0pmSVowUExpb1Z6dTJrM3RZN0dxdXB0TUljMGFpTzJBL3FuamR1c3Ez?=
- =?utf-8?B?ZHFMcTNBUXJXRFRwTVFhREIxSGFyY1hRTmZrcE1RVVNrQksyT0o4LzllcEtY?=
- =?utf-8?B?NlJVcWZaQmVzaGtHOFRvWGp4cVVjV05Db0Y2RTRVRHZxbEtFa1BoVEFDQTlr?=
- =?utf-8?B?SnpHSGx4RDV0c0s0ZUlSVGRkTkV6SkJoa2lXWmU5di9DeFN6TUxnREZhOERY?=
- =?utf-8?B?ZER0UHpwNDhHVXRxaE55QU5hUFZVV2ZURGpvV2xvblhseE42djNwdzVUdUZp?=
- =?utf-8?B?Q2E5UDNsS2lSUmE2dzhVajhSL05sQWZwYnhhY3loNzdCSFptM1N0Q1c5RjJ4?=
- =?utf-8?B?dXVzNzlaNmJtUm9wRWtDbnFRdmNIaGdDK3hKRWZ1ejdrSkxVcjF1eU4rQ1VI?=
- =?utf-8?B?Vnh2NVlBVUFXSHBUZDJheVgyMmZrWEZVSXd1dXFpbnQzUUw2YUE3Z2VWdG9h?=
- =?utf-8?B?RzJ4RW9tNFV0anFvdVNWQWhUZW5Oem1NeDF5elUzelpid2o5emVidDNOL05u?=
- =?utf-8?B?NEw1YXRvVVUyZ1c3L0dad1VOd2lhTkxMaDF4VFRTTGlIeTNpUE5WTUtuODF1?=
- =?utf-8?B?V2g2S0w1MEVVelpCWkY3cFZrWllpZ1dtYmhUZkZTUVpIQitoTGVLRm4xVU8r?=
- =?utf-8?Q?kTpKhoQgTPBhc8pKkc?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69f9d348-1ce5-4cbe-61f9-08df4c3d21ea
-X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9505.namprd12.prod.outlook.com
+	=?utf-8?B?ZDRhM0RhNnlVelFCSXhWTlR4U0RHZWFVT2ZWMVZEZUhMNEMxUE5FZnhJUTl3?=
+ =?utf-8?B?eTlzWWxnUUVIL1JTNkVhNFJYMFJ0Ny83bWc0ZmZIbFlnUDRqazJmcG5rZnJG?=
+ =?utf-8?B?RDgyYktucDNCYUpHK3h5a09FazBIb0lZWGFVOVpwVXZmZXZkRVB4M0JMMDgy?=
+ =?utf-8?B?dzJyQms0NDRpY1E2Y1RVcE10WDA4a0pQVVBwaExkVWdPNkZVZHl6aDB1R0Vz?=
+ =?utf-8?B?T29IUUpEVnN0clRrbWlZa25TaCtBRWJFY2FZRG50K0Fma25uSlNDRmNaUFFL?=
+ =?utf-8?B?ZXVUbDh0ZzFvS2J6d3daR3F5YUtNQlhJRzhhUWI2UHQ5blA5d1Rva1ozblZO?=
+ =?utf-8?B?RGE3TVRNSlg1b0o0ejlCcURqNjhFMVR1Y215MnZmSEtpcEpiTUxsNWoxT1Jo?=
+ =?utf-8?B?Qnd4Zk1lb0FCMmMvRHZRU3h4OTUrdnJhM3JtRWprZFJmRXArVE1zUE5CWTRp?=
+ =?utf-8?B?eUlzMjVTY2E1bFRCdGdDaXVjVDZDUisxeldVaWlublZZZXdpUFgzS1RYVjUv?=
+ =?utf-8?B?TFJwSmljN2ZTRUZkZ09lRjVwZ0MwbGF5aExsMW96S3d5M2IwdWNndkZtclJr?=
+ =?utf-8?B?SmxYb21MQndGSy9PbEZLOTYrbFYzRDJieVlCQXk0QnBzMEVJMFQrZy9sQnhv?=
+ =?utf-8?B?bkhWeFQycng3RGQvSEhYa3Y3dVZ2TkxFUGVhZ0xRZUVsYTAwQWFBc0JSSTN3?=
+ =?utf-8?B?ZjBxcjBmbWsxNUZhcFRBbERSeFljVVJyT1hPbjgzbEcvbno1Q2RJRmNibXRj?=
+ =?utf-8?B?WW9ZK01oV0FVdi9LWjV4eEdBTlNoQitNaUk1NXBGb0RWU0lzZlZyNmw2VStI?=
+ =?utf-8?B?eU42L2hjd3QxdlYvY1RnKy8zeXdPVWNnamJnaE9KU3MyQlF5MUdhK1J1cEo4?=
+ =?utf-8?B?NHNubGI0UGNlZ1grcHRCODc2akwreXV4Y0dwblNCbU9DelUydHJXMmZHcDVV?=
+ =?utf-8?B?enYyUm1wRTQ2b3hqVDdnYUU1UEFlbnJaZG5JR3RrNURUdHgwUis3VWZMNWh0?=
+ =?utf-8?B?ejROTkIyVTJoVjY2UHdWYnhKUFYxbUNNRGgyVlFNS0VGWTFiVzZJenhOMGxS?=
+ =?utf-8?B?VGZnSldKQzRoaGl3QVpFL0k2V1lJMlBEczAwWU0vNThBdlJmODhNVFNseEll?=
+ =?utf-8?B?clNvL3gxTFNRemEzREdzREYxcWwxbDRYeGxBa1NBYm9ma0FVZ1IwN2hBY3V6?=
+ =?utf-8?B?clJraU93cWFnaGh2UVVpU2hnVW1IT1Y2MEZHTW93QmlOdjhXR1pRdGc3YjBq?=
+ =?utf-8?B?ZzY4aEVjZDFrMGNzampBZTdDMmk5bml1YzNwemgvb0djdGs3aUpSSXQxMFVX?=
+ =?utf-8?B?TSttcXpOSmI2dWc5VU9Hd2FjZ2xzK0U4QktOOTc5Tzg3UHlNbnhVZHVoSmZr?=
+ =?utf-8?B?M2h2ejNPenREanpjNFE3a1RuV2dLQk40ZFlENTdRdVh5dXc3Qmw4QmVUaWlS?=
+ =?utf-8?B?T2k0MERoa3lzSHpmbEpQUVFQY2J1cnlTYkFRUm5vU1l5aXhuNHJLb2tSZUxo?=
+ =?utf-8?B?T2lPV0hrUWxqT0tTb0FjQlNaRDd2SXcxZmxWcG01a1UxR3pBd2JabDJPRFQ2?=
+ =?utf-8?B?TE5LQ245aHJGaXY2QjcwRTVIeTZGd3hSUEZrWTFlL3FhSGdIYU43dzBIYndC?=
+ =?utf-8?B?dWp2aTZBZHRKN2ZSNFlzdHpZUTA2RkluWmFxay9VdFdWUmFBaFBwWHpDdEVC?=
+ =?utf-8?B?bUdCcFRFamFhdW15SmZiTTdXa2owU2drMUZXYS9VWkxqV3dyekowdGRoZWI5?=
+ =?utf-8?B?U3FHL3ptM3oxMHRYNzQyeG4rSkR3STBHblpZblNra2JvL2JzWjdlOUpsY21M?=
+ =?utf-8?B?aEgwSzE2dEZOT254bGtBTW05ek85clZUNlU4elRwTjdNczJ1NVdIQ2JGN1hj?=
+ =?utf-8?B?bTh5VUFkYWRIRjhVRWY0Nk1ULzlMeGJIU2l4VlFzUmFiUWdOSnhDUkFrZnlT?=
+ =?utf-8?B?cmRiWWF1cFBxQlAzbVpPeDJpTGhxNEliZElBazNIWGYrT3d0WFF6YUFubHNz?=
+ =?utf-8?B?enhSempCejRBRVdWWldYMG9HZGt3aElBeHRJcXJaNDQxeFpoQnZhN0xWMnNt?=
+ =?utf-8?B?QlFzYjZaeUlvNDNTclpBaFE2TG5uSDlTLzl3MFMrUitFQURpeGRjV0hQVjg1?=
+ =?utf-8?B?cEZhQmx5QXRmQXNmZnhOeFBxZ3IwdzhiRmlERnNjeXpsVTVvdUxRMEg1U0gv?=
+ =?utf-8?B?d0VPekN3SmkyT0pUb3VjMFBOTHozTGhicnVWS2I2WEF4SXFTT2RvUG1vd0dB?=
+ =?utf-8?B?WXlEMGlYQXJhUURUb0orRFNSSW81NVB0MERpcWw4aFZXNjE5MWdhQjUrRzdz?=
+ =?utf-8?B?M1QvVUFjcGphbDR1QTY1RURXNVdjUmVlalZjVVJiQjY4S2NKZWVsbExDbmFs?=
+ =?utf-8?Q?5noku/R5xdNUA0uRApjqAisXGeCKpuiSTfATc6urdoDzA?=
+X-MS-Exchange-AntiSpam-MessageData-1: 313EXTQEkOalKQ==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2239ff9e-e994-4248-0c08-08df4c3d2703
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:15:55.7404
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:16:04.2904
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vvuT1BmLQktOd4BS+jEXCxZj1gJwS1hStcdMVEqaxkEwhaHuxvi7yVvoC/wlVbyYddBT9VK7K/2xJ4BGJ7nyAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PPF539334D8E
+X-MS-Exchange-CrossTenant-UserPrincipalName: kLz6lTqOjqUJjWJdM2BlZdRvdPCVtQFWhHpKbkVUgCUGoah07oyNYpCUzAzvflAMEXwMygjknIak3mwoJ3pmig==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8584
+
+On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
+> The MIPI DBI bus allows modeling DBI hosts and peripherals using the Linu=
+x
+> driver model. DBI hosts are registered by their respective drivers. Durin=
+g
+> registration, DBI peripherals are created from the device tree nodes
+> provided by the host.
+>=20
+> DBI hosts expose operations that can be used by peripheral drivers to
+> access associated devices.
+>=20
+> This implementation adds support for MIPI DBI Type A and Type B only.
+> Type C support existing in drm_mipi_dbi.c was not altered. The framework
+> is modeled to closely resemble the existing MIPI DSI setup for seamless
+> integration.
+>=20
+> Suggested-by: Mikko Perttunen <mperttunen@nvidia.com> # preliminary sketc=
+h
+> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> ---
+>  drivers/gpu/drm/Makefile           |   2 +-
+>  drivers/gpu/drm/drm_mipi_dbi_bus.c | 287 +++++++++++++++++++++++++++++
+>  include/drm/drm_mipi_dbi_bus.h     | 148 +++++++++++++++
+>  3 files changed, 436 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/gpu/drm/drm_mipi_dbi_bus.c
+>  create mode 100644 include/drm/drm_mipi_dbi_bus.h
+>=20
+> diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+> index 2c6bc093a923a..880f0dc930b85 100644
+> --- a/drivers/gpu/drm/Makefile
+> +++ b/drivers/gpu/drm/Makefile
+> @@ -166,7 +166,7 @@ obj-$(CONFIG_DRM_KMS_HELPER) +=3D drm_kms_helper.o
+> =20
+>  obj-y			+=3D tests/
+> =20
+> -obj-$(CONFIG_DRM_MIPI_DBI) +=3D drm_mipi_dbi.o
+> +obj-$(CONFIG_DRM_MIPI_DBI) +=3D drm_mipi_dbi.o drm_mipi_dbi_bus.o
+>  obj-$(CONFIG_DRM_MIPI_DSI) +=3D drm_mipi_dsi.o
+>  obj-y			+=3D arm/
+>  obj-y			+=3D clients/
+> diff --git a/drivers/gpu/drm/drm_mipi_dbi_bus.c b/drivers/gpu/drm/drm_mip=
+i_dbi_bus.c
+> new file mode 100644
+> index 0000000000000..4b51de5bdf0b5
+> --- /dev/null
+> +++ b/drivers/gpu/drm/drm_mipi_dbi_bus.c
+> @@ -0,0 +1,287 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * MIPI DBI devices with command transport through parallel interface
+> + *
+> + * Copyright 2026 Mikko Perttunen <mperttunen@nvidia.com>
+> + * Copyright 2026 Svyatoslav Ryhel <clamor95@gmail.com>
+> + */
+> +
+> +#include <linux/err.h>
+> +#include <linux/init.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/slab.h>
+> +
+> +#include <drm/drm_mipi_dbi.h>
+> +#include <drm/drm_mipi_dbi_bus.h>
+> +
+> +/**
+> + * DOC: overview
+> + *
+> + * There are three MIPI DBI implementation types:
+> + *
+> + * A. Motorola 6800-type parallel bus
+> + *
+> + * B. Intel 8080-type parallel bus
+> + *
+> + * C. SPI-type with three options:
+> + *
+> + *    1. 9-bit with the Data/Command signal as the ninth bit
+> + *    2. Same as above, except it is sent as 16 bits
+> + *    3. 8-bit with the Data/Command signal as a separate D/CX pin
+> + *
+> + * This library provides a framework for MIPI Display Bus Interface (DBI=
+)
+> + * compatible display controllers using Type A and Type B. This
+> + * implementation closely matches existing DSI framework behavior to
+> + * allow seamless integration.
+> + *
+> + * Type C options 1 and 3 are covered by drm_mipi_dbi.c with
+> + * mipi_dbi_spi_init().
+> + */
+> +
+> +static int mipi_dbi_match(struct device *dev, const struct device_driver=
+ *driver)
+> +{
+> +	return of_driver_match_device(dev, driver);
+> +}
+> +
+> +static int mipi_dbi_uevent(const struct device *dev, struct kobj_uevent_=
+env *env)
+> +{
+> +	return of_device_uevent_modalias(dev, env);
+> +}
+> +
+> +static const struct dev_pm_ops mipi_dbi_device_pm_ops =3D {
+> +	.runtime_suspend =3D pm_generic_runtime_suspend,
+> +	.runtime_resume =3D pm_generic_runtime_resume,
+> +	.suspend =3D pm_generic_suspend,
+> +	.resume =3D pm_generic_resume,
+> +	.freeze =3D pm_generic_freeze,
+> +	.thaw =3D pm_generic_thaw,
+> +	.poweroff =3D pm_generic_poweroff,
+> +	.restore =3D pm_generic_restore,
+> +};
+> +
+> +static const struct bus_type mipi_dbi_bus_type =3D {
+> +	.name =3D "mipi-dbi",
+> +	.match =3D mipi_dbi_match,
+> +	.uevent =3D mipi_dbi_uevent,
+
+These two callbacks are just direct wrappers so I believe we should be=20
+able to set them to of_driver_match_device / of_device_uevent_modalias=20
+directly.
+
+> +	.pm =3D &mipi_dbi_device_pm_ops,
+
+I think we can drop setting .pm as well. These callbacks will fall back=20
+to the same code (driver callbacks) if we don't set the bus PM ops.
+
+> +};
+> +
+> +static void mipi_dbi_device_release(struct device *dev)
+> +{
+> +	of_node_put(dev->of_node);
+> +	kfree(to_mipi_dbi_device(dev));
+> +}
+> +
+> +static void mipi_dbi_device_unregister(void *data)
+> +{
+> +	struct device *dev =3D data;
+> +
+> +	of_node_clear_flag(dev->of_node, OF_POPULATED);
+> +	device_unregister(dev);
+> +}
+> +
+> +/**
+> + * devm_mipi_dbi_device_register() - create a managed peripheral MIPI DB=
+I
+> + *				     Type A or B device.
+> + * @dev: device to tie the MIPI-DBI device lifetime to
+> + * @host: DBI host to which this device is connected
+> + * @np: device tree node associated with the panel MIPI DBI device
+> + *
+> + * This function is called by DBI host driver to create panel device.
+> + * It automatically calls mipi_dbi_device_unregister() when @dev is
+> + * unbound. It does not automatically free passed device node pointer,
+> + * it must be put manually.
+> + *
+> + * Returns:
+> + * A pointer to the newly created MIPI DBI device, or, a pointer encoded
+> + * with an error.
+
+For brevity, I would just use 'an error pointer'.
+
+> + */
+> +struct mipi_dbi_device *
+> +devm_mipi_dbi_device_register(struct device *dev, struct mipi_dbi_host *=
+host,
+> +			      struct device_node *np)
+> +{
+> +	struct mipi_dbi_device *dbidev;
+> +	int ret;
+> +
+> +	if (!host || !host->dev || !host->dbi || !host->dbi->command ||
+> +	    !host->ops || !host->ops->attach || !host->ops->detach || !np)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (!of_device_is_available(np))
+> +		return ERR_PTR(-ENODEV);
+> +
+> +	dbidev =3D kzalloc_obj(*dbidev);
+> +	if (!dbidev)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	if (of_node_test_and_set_flag(np, OF_POPULATED)) {
+> +		kfree(dbidev);
+> +		return ERR_PTR(-EBUSY);
+> +	}
+> +
+> +	dbidev->host =3D host;
+> +	dbidev->dbi =3D host->dbi;
+> +	device_initialize(&dbidev->dev);
+> +	dbidev->dev.parent =3D host->dev;
+> +	dbidev->dev.bus =3D &mipi_dbi_bus_type;
+> +	dbidev->dev.release =3D mipi_dbi_device_release;
+> +	device_set_node(&dbidev->dev, of_fwnode_handle(of_node_get(np)));
+> +
+> +	ret =3D dev_set_name(&dbidev->dev, "%s:%s", dev_name(host->dev), np->fu=
+ll_name);
+> +	if (ret)
+> +		goto put_device;
+> +
+> +	ret =3D device_add(&dbidev->dev);
+> +	if (ret)
+> +		goto put_device;
+> +
+> +	ret =3D devm_add_action_or_reset(dev, mipi_dbi_device_unregister,
+> +				       &dbidev->dev);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	return dbidev;
+> +
+> +put_device:
+> +	of_node_clear_flag(np, OF_POPULATED);
+> +	put_device(&dbidev->dev);
+> +	return ERR_PTR(ret);
+> +}
+> +EXPORT_SYMBOL_GPL(devm_mipi_dbi_device_register);
+> +
+> +static void mipi_dbi_detach(void *data)
+> +{
+> +	struct mipi_dbi_device *dbidev =3D data;
+> +
+> +	dbidev->host->ops->detach(dbidev->host, dbidev);
+> +	dbidev->attached =3D false;
+> +}
+> +
+> +/**
+> + * devm_mipi_dbi_attach() - managed attach of peripheral DBI device to i=
+ts MIPI
+> + *			    DBI Type A or B devices.
+> + * @dev: device to tie the MIPI-DBI device lifetime to
+> + * @dbidev: DBI peripheral
+
+Add a return value description. Otherwise inevitably someone will send=20
+an autogenerated oneline fix to add it.
+
+> + */
+> +int devm_mipi_dbi_attach(struct device *dev, struct mipi_dbi_device *dbi=
+dev)
+> +{
+> +	int ret;
+> +
+> +	if (dbidev->attached)
+> +		return -EBUSY;
+> +
+> +	ret =3D dbidev->host->ops->attach(dbidev->host, dbidev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dbidev->attached =3D true;
+> +	return devm_add_action_or_reset(dev, mipi_dbi_detach, dbidev);
+> +}
+> +EXPORT_SYMBOL_GPL(devm_mipi_dbi_attach);
+> +
+> +/**
+> + * mipi_dbi_write_buffer_multi() - mipi_dbi_command() w/ accum_err but f=
+or
+> + *				   MIPI DBI Type A and B
+> + * @ctx: context for multiple DBI transactions
+> + * @cmd: command to be sent
+> + * @data: buffer containing data to be transmitted
+> + * @len: size of transmission buffer
+> + *
+> + * Acts like mipi_dbi_command() for MIPI DBI Type C but for Types A and =
+B
+> + * and deals with errors in a way that makes it convenient to make sever=
+al
+> + * calls in a row.
+> + */
+> +void mipi_dbi_write_buffer_multi(struct mipi_dbi_multi_context *ctx,
+> +				 u8 cmd, const u8 *data, size_t len)
+> +{
+> +	struct mipi_dbi_device *dbidev =3D ctx->dbidev;
+> +	struct device *dev =3D &dbidev->dev;
+> +	ssize_t ret;
+
+mipi_dbi_command_stackbuf returns an int, so this can be an int as well.
+
+> +
+> +	if (ctx->accum_err)
+> +		return;
+> +
+> +	ret =3D mipi_dbi_command_stackbuf(dbidev->dbi, cmd, data, len);
+> +	if (ret < 0) {
+> +		ctx->accum_err =3D ret;
+> +		dev_err(dev, "sending dcs data %*ph failed: %d\n",
+> +			(int)len, data, ctx->accum_err);
+> +	}
+> +}
+> +EXPORT_SYMBOL(mipi_dbi_write_buffer_multi);
+> +
+> +static int mipi_dbi_drv_probe(struct device *dev)
+> +{
+> +	struct mipi_dbi_driver *drv =3D to_mipi_dbi_driver(dev->driver);
+> +	struct mipi_dbi_device *dbidev =3D to_mipi_dbi_device(dev);
+> +
+> +	return drv->probe(dbidev);
+> +}
+> +
+> +static int mipi_dbi_drv_remove(struct device *dev)
+> +{
+> +	struct mipi_dbi_driver *drv =3D to_mipi_dbi_driver(dev->driver);
+> +	struct mipi_dbi_device *dbidev =3D to_mipi_dbi_device(dev);
+> +
+> +	drv->remove(dbidev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mipi_dbi_drv_shutdown(struct device *dev)
+> +{
+> +	struct mipi_dbi_driver *drv =3D to_mipi_dbi_driver(dev->driver);
+> +	struct mipi_dbi_device *dbidev =3D to_mipi_dbi_device(dev);
+> +
+> +	drv->shutdown(dbidev);
+> +}
+
+This could be simplified slightly by making these (probe, remove,=20
+shutdown) bus-level callbacks (set on mipi_dbi_bus_type). Then the=20
+callback assignments in __mipi_dbi_driver_register are not needed. The=20
+'if's do have to move into the bus-level callbacks. This also cleans up=20
+the remove callback return type.
+
+> +
+> +/**
+> + * __mipi_dbi_driver_register() - register a driver for MIPI DBI Type A =
+or B devices.
+> + * @drv: DBI driver structure
+> + * @owner: owner module
+> + *
+> + * Return: 0 on success or a negative error code on failure.
+> + */
+> +int __mipi_dbi_driver_register(struct mipi_dbi_driver *drv, struct modul=
+e *owner)
+> +{
+> +	drv->driver.bus =3D &mipi_dbi_bus_type;
+> +	drv->driver.owner =3D owner;
+> +
+> +	if (drv->probe)
+> +		drv->driver.probe =3D mipi_dbi_drv_probe;
+> +	if (drv->remove)
+> +		drv->driver.remove =3D mipi_dbi_drv_remove;
+> +	if (drv->shutdown)
+> +		drv->driver.shutdown =3D mipi_dbi_drv_shutdown;
+> +
+> +	return driver_register(&drv->driver);
+> +}
+> +EXPORT_SYMBOL_GPL(__mipi_dbi_driver_register);
+> +
+> +/**
+> + * mipi_dbi_driver_unregister() - unregister a driver for MIPI DBI Type =
+A or B devices.
+> + * @drv: DBI driver structure
+> + */
+> +void mipi_dbi_driver_unregister(struct mipi_dbi_driver *drv)
+> +{
+> +	driver_unregister(&drv->driver);
+> +}
+> +EXPORT_SYMBOL_GPL(mipi_dbi_driver_unregister);
+> +
+> +static int __init mipi_dbi_bus_init(void)
+> +{
+> +	return bus_register(&mipi_dbi_bus_type);
+> +}
+> +subsys_initcall(mipi_dbi_bus_init);
+> +
+> +static void __exit mipi_dbi_bus_exit(void)
+> +{
+> +	bus_unregister(&mipi_dbi_bus_type);
+> +}
+> +module_exit(mipi_dbi_bus_exit);
+> +
+> +MODULE_DESCRIPTION("MIPI DBI devices with command transport through para=
+llel interface");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/drm/drm_mipi_dbi_bus.h b/include/drm/drm_mipi_dbi_bu=
+s.h
+> new file mode 100644
+> index 0000000000000..6f00a8eef9c67
+> --- /dev/null
+> +++ b/include/drm/drm_mipi_dbi_bus.h
+> @@ -0,0 +1,148 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * MIPI DBI devices with command transport through parallel interface
+> + *
+> + * Copyright 2026 Mikko Perttunen <mperttunen@nvidia.com>
+> + * Copyright 2026 Svyatoslav Ryhel <clamor95@gmail.com>
+> + */
+> +
+> +#ifndef __DRM_MIPI_DBI_BUS_H__
+> +#define __DRM_MIPI_DBI_BUS_H__
+> +
+> +#include <linux/device.h>
+> +#include <linux/module.h>
+> +
+> +struct device_node;
+> +struct mipi_dbi;
+> +struct mipi_dbi_device;
+> +struct mipi_dbi_host;
+> +
+> +/**
+> + * struct mipi_dbi_host_ops - DBI bus operations for MIPI DBI Type A and=
+ B.
+> + * @attach: attach DBI device to DBI host
+> + * @detach: detach DBI device from DBI host
+> + */
+> +struct mipi_dbi_host_ops {
+> +	int (*attach)(struct mipi_dbi_host *host, struct mipi_dbi_device *dev);
+> +	void (*detach)(struct mipi_dbi_host *host, struct mipi_dbi_device *dev)=
+;
+> +};
+> +
+> +/**
+> + * struct mipi_dbi_host - DBI host device for MIPI DBI Type A and B.
+> + * @dev: driver model device node for this DBI host
+> + * @dbi: MIPI DBI interface
+> + * @ops: DBI host operations
+> + */
+> +struct mipi_dbi_host {
+> +	struct device *dev;
+> +	struct mipi_dbi *dbi;
+> +	const struct mipi_dbi_host_ops *ops;
+> +};
+> +
+> +/**
+> + * struct mipi_dbi_device - DBI peripheral device for MIPI DBI Type A an=
+d B.
+> + *			    This structure describes a peripheral DBI device,
+> + *			    an endpoint for DSC commands and video data, and must
+
+DCS commands
+
+> + *			    be paired with a DBI host device for MIPI DBI Type A
+> + *			    and B. This layout is built to closely resemble
+> + *			    the DSI framework.
+> + *
+> + *			    If your device is MIPI DBI Type C (with an SPI
+> + *			    control bus) and incorporates DBI within, you
+> + *			    should use the mipi_dbi_dev structure and Type C
+> + *			    framework from drm_mipi_dbi.c.
+
+I don't think we need to talk about the DSI or Type C frameworks here.=20
+drm_mipi_dbi.c already mentions it's for Type C.
+
+> + * @dev: driver model device node for this peripheral
+> + * @dbi: MIPI DBI interface
+> + * @host: DBI host for this peripheral
+> + * @attached: the DBI device has been successfully attached
+> + */
+> +struct mipi_dbi_device {
+> +	struct device dev;
+> +	struct mipi_dbi *dbi;
+> +	struct mipi_dbi_host *host;
+> +	bool attached;
+> +};
+> +
+> +/**
+> + * struct mipi_dbi_multi_context - Context to call multiple MIPI DBI fun=
+cs in a row
+> + * @dbidev: Pointer to the peripheral MIPI DBI Type A and B device
+> + * @accum_err: Storage for the accumulated error over the multiple calls
+> + *	       Init to 0. If a function encounters an error then the error co=
+de
+> + *	       will be stored here. If you call a function and this points to=
+ a
+> + *	       non-zero value then the function will be a noop. This allows c=
+alling
+> + *	       a function many times in a row and just checking the error at =
+the
+> + *	       end to see if any of them failed.
+> + */
+> +
+> +struct mipi_dbi_multi_context {
+> +	struct mipi_dbi_device *dbidev;
+> +	int accum_err;
+> +};
+> +
+> +#define to_mipi_dbi_device(__dev)	container_of_const(__dev, struct mipi_=
+dbi_device, dev)
+> +
+> +void mipi_dbi_write_buffer_multi(struct mipi_dbi_multi_context *ctx,
+> +				 u8 cmd, const u8 *data, size_t len);
+> +
+> +/**
+> + * mipi_dbi_write_seq_multi() - transmit a command with payload
+> + *
+> + * This macro will print errors for you and error handling is optimized =
+for
+> + * callers that call this multiple times in a row.
+> + *
+> + * @ctx: context for multiple DBI transactions
+> + * @cmd: command to be sent
+> + * @seq: buffer containing data to be transmitted
+> + */
+> +#define mipi_dbi_write_seq_multi(ctx, cmd, seq...)				\
+> +	do {									\
+> +		static const u8 d[] =3D { seq };					\
+> +		mipi_dbi_write_buffer_multi(ctx, cmd, d, ARRAY_SIZE(d));	\
+> +	} while (0)
+> +
+> +struct mipi_dbi_device *
+> +devm_mipi_dbi_device_register(struct device *dev, struct mipi_dbi_host *=
+host,
+> +			      struct device_node *np);
+> +int devm_mipi_dbi_attach(struct device *dev, struct mipi_dbi_device *dbi=
+dev);
+> +
+> +/**
+> + * struct mipi_dbi_driver - DBI driver for MIPI DBI Type A and B.
+> + * @driver: device driver model driver
+> + * @probe: callback for device binding
+> + * @remove: callback for device unbinding
+> + * @shutdown: called at shutdown time to quiesce the device
+> + */
+> +struct mipi_dbi_driver {
+> +	struct device_driver driver;
+> +	int (*probe)(struct mipi_dbi_device *dbi);
+> +	void (*remove)(struct mipi_dbi_device *dbi);
+> +	void (*shutdown)(struct mipi_dbi_device *dbi);
+> +};
+> +
+> +static inline struct mipi_dbi_driver *
+> +to_mipi_dbi_driver(struct device_driver *driver)
+> +{
+> +	return container_of(driver, struct mipi_dbi_driver, driver);
+> +}
+> +
+> +static inline void *mipi_dbi_get_drvdata(const struct mipi_dbi_device *d=
+bi)
+> +{
+> +	return dev_get_drvdata(&dbi->dev);
+> +}
+> +
+> +static inline void mipi_dbi_set_drvdata(struct mipi_dbi_device *dbi, voi=
+d *data)
+> +{
+> +	dev_set_drvdata(&dbi->dev, data);
+> +}
+> +
+> +int __mipi_dbi_driver_register(struct mipi_dbi_driver *drv, struct modul=
+e *owner);
+> +void mipi_dbi_driver_unregister(struct mipi_dbi_driver *drv);
+> +
+> +#define mipi_dbi_driver_register(driver) \
+> +	__mipi_dbi_driver_register(driver, THIS_MODULE)
+> +
+> +#define module_mipi_dbi_driver(__mipi_dbi_driver) \
+> +	module_driver(__mipi_dbi_driver, mipi_dbi_driver_register, \
+> +			mipi_dbi_driver_unregister)
+> +
+> +#endif /* __DRM_MIPI_DBI_BUS__ */
+
+__DRM_MIPI_DBI_BUS_H__
+
+> --=20
+> 2.53.0
+>=20
+>=20
 
 
 
-On 11/25/2026 1:33 PM, Qihang wrote:
-> Thanks, Vasant. Patches 11 and 12 cover the teardown paths I was
-> missing.
-> 
-> One question on patch 12: when the completion wait in dev_update_dte()
-> returns, can a PPR accepted under the old DTE still appear in the log
-> after the drain has observed it empty?
-
-I am calling the drain after dte update happens. So if anything in pending in
-buffer , it will be cleared. I will post v2 soon. Please take a look.
-
-If anything is pending, I can sort it out in the followup series that I am
-preparing.
-
--Vasant
-
-
-> 
-> Happy to pick this up when you post the follow-up series.
-> 
-> On Tue, Nov 24, 2026 at 4:53 PM Vasant Hegde <vasant.hegde@amd.com> wrote:
->>
->> On 11/22/2026 1:09 PM, Baolu Lu wrote:
->>> On 11/21/2026 10:13 AM, Qihang wrote:
->>>> Hi Baolu,
->>>>
->>>> Thanks for confirming the VT-d ordering bug. I'll keep this series
->>>> withdrawn and won't resend it.
->>>>
->>>> I still have one question about AMD. detach_device() calls
->>>> iopf_queue_flush_dev() just before amd_iommu_iopf_remove_device().
->>>> That flush only waits on the iopf workqueue, while the PPR IRQ thread
->>>> runs amd_iommu_poll_ppr_log() and reports the fault through
->>>> iommu_report_device_fault() directly. What ensures that the thread has
->>>> finished reporting faults for this device, and cannot report another
->>>> one, before the device is removed from the IOPF queue?
->>>
->>> + Vasant
->>
->> Yes. Its a bug in AMD driver. In fact we have bunch of issues in AMD driver.
->>
->> Below series fixes some of them.
->>
->> https://lore.kernel.org/linux-iommu/20261105044801.399466-1-vasant.hegde@amd.com/
->>
->> I have another series which handles draining. I will post it once above series
->> settles.
->>
->> -Vasant
->>
 
