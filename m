@@ -1,108 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790362;
-	b=SIK2REXyksYDx9BL9TWqb4eEjtnCM/0CiYEh1Q3NKAPODb3GbmgcoU0Y85+B/KTE0sea
-	 vJPhGiSnfhL6YEutiBuAvbgje5QBCnKcWrBh+C79N5TLuUlwIS2juduHOV2PUxmCP2PDE
-	 0jRsruClyTeqHWW6Ur7MlfqtN/k9qASjkDCqi4y2/1HhPWhX53UFyC1f13W+4AQTf6Bge
-	 m1IFrezgT0nxQyFIFYb8+G5NbloCmypE/PkshGxmxClGsa8o9sTtwK2eNTdjukZw5yeyu
-	 O+uSINPXf0s+mpBhdC8HZhEtaecHPHnglIdYRj8aLmsEh3n3zPlVWR5Wzb1Yt/IF5mg==
+	t=1795790386;
+	b=L3hdIYfuxNQNQlLvkKWPSe9kfwrlUuuE927qjJ1KV9i8fEJZqDIzAdb1nzK5sOrjwDji
+	 SH62WiBLwBdD1uVWdJ6qoZHXInbQlZEsSBY907mXwRhq31ov0wja2NDz++J8pRAQ9VI2Z
+	 PCraNgUGvT9/AzYUI2xz9/guDAJZkNaG31s6jbhD2qZI+eCKeFlvmKRQDmWxLo/AZuW1l
+	 6Zo/yX1oKNshzDcCAIe74gMtJjhLfVoI8a6AL+18oq7LrWSDSRLEAu/wLErixMlt5U54B
+	 UmdX1cxOV1sLk74/XsQx+m5npl/urIeEfe/b3KVakop7sf30YFcsCuBs92Uw8NzxqxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790362;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
-	b=ttuykFtUjeGrEKnvBq5ZWJ6a4D2wz0CfxpF6QnIXJgUwjTKH8NFIKl+BXnGg0xNEVTN6
-	 Zqw4ZJf8ZFb34by/wl28zgkc1zgszO+bO+91clJbQy4N1NDe6R/PRVWUrmBguxT0wU7//
-	 hXd7b3OWhP0qrEtHZndc4caEPErpTis9cuo/BNvyFHZ4rDUpgxWJKxDpE4QSy6KvQ+H+8
-	 E51WSd/ebvDUyeqmLZlcK7xH3hxnRmp/q7r2l+70REP2XcNbZ2kKEELM3rVaQ23BtNIe0
-	 RV/+Q6bopG1a2ycKQFc7rk9lm3VOT87Uc1vX8dLmRC4VoUZ1Mpqrw446F+ukUHTf3JQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790386;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=PN86BsZ1PH/DrkXq+czzN5cIE8/yJRupytTCddGChE8=;
+	b=HX2De1EwaxzEkcXwEkVb8H7nZcn7t0Z7K7jGlqmFkJaHWDjxA0c3d/4uUMKbTees33+t
+	 UrZZ7DSxPmVz4//VLRWgbl0hh4jMQftCITOIkXCpFNvHhJWLCQea5GsCYyJbCy4Tf4WKQ
+	 LC0wIAou+dLqlLD76+8zmQc4Ibp3qA2Ws8AYomigYj0KVqH2nQ8ncuwFNoJdIPDjLK6z4
+	 3a5Es0EMfkRvkda37X5VQc6VoQICP4vKbn10vbLau+fktfTzuwZVqn5kWHLf327AsU2W/
+	 Pvv8lkA3vxMxdIqFQI9flgvEed7IDX7P0Q5yCpmIdnvBCGxYxOa7a1KwQgq+YApNS5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=VKZ2y8TL;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Ru5sHkWd;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=AgrmKHEW;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=cLVNsPqV;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=t5DNb8b7;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4A5C606A86F;
-	Fri, 27 Nov 2026 14:39:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4A5C606A86F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30D71606A33D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:39:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30D71606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=VKZ2y8TL;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Ru5sHkWd;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=AgrmKHEW;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=cLVNsPqV
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id DF787229A6;
-	Fri, 27 Nov 2026 14:39:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795790360; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
-	b=VKZ2y8TLdNbcG9jkSSrh77gTAUw31/gkqWqHa8PQnHxP1g60+tBWlSOsCWYz4ZCeU/1Z3f
-	528x+Pj5QZ7H0K+et7jKMHGtk0VjG34S3vjnbCskn63fi19w0ElxaGgU99maK5boOyhX1E
-	sjckOwBUiag6hjc85cnobJ297UN0zRw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795790360;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
-	b=Ru5sHkWd6RysQtT2XX+hx1W4oiGdr+yTI+Ku6WG+fZVhO8xePUuEC8acHjgdf+AAomeCaI
-	hv2iFHZGz/DIQbDQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=AgrmKHEW;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=cLVNsPqV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795790359; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
-	b=AgrmKHEWLvzbe79xh/L2Tfs3t/WH24xoUgCSSi8gFqeZ/rlFrURk00IDTGjWEu9afenVry
-	1s26Esim4AAl7r48kNjDDFbjdb/IQ05jr+ji91OJndd6YAsYPnUZJjF3WK6KzFCHC4o4Bv
-	ZgIcZ8ZxfEPsYazx6I/WfzwXszj8m80=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795790359;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
-	b=cLVNsPqVZgKv4iRerH6vV6ARvIUv8JU3NJjNObkybOmRBt4kNrcqkXZCrkxdrNYy/0Gqr4
-	RPIREk91nb5nclAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A860B13432;
-	Fri, 27 Nov 2026 14:39:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id APQhIReWCWuzXQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 14:39:19 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 3C95951054; Fri, 27 Nov 2026 15:39:19 +0100 (CET)
-Date: Fri, 27 Nov 2026 15:39:19 +0100
-From: Jan Kara <jack@suse.cz>
-To: Zhao Gongyi <zhaogongyi@bytedance.com>
-Cc: Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Jan Kara <jack@suse.cz>
-Subject: Re: [PATCH] block/partitions: lock the mapping while reading a
- partition sector
-Message-ID: <hnlbum2fxqy7fztaxepiedgxc6jxb65r6avascrtq5qvfqsflq@fezcrhv4cmq5>
-References: <20261127074500.89094-1-zhaogongyi@bytedance.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=t5DNb8b7
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 91FCF1A183B;
+	Fri, 27 Nov 2026 14:39:44 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 664A66049C;
+	Fri, 27 Nov 2026 14:39:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78E0B11E6907F;
+	Fri, 27 Nov 2026 15:39:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795790383; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=PN86BsZ1PH/DrkXq+czzN5cIE8/yJRupytTCddGChE8=;
+	b=t5DNb8b7kRQmeROkgq54uqsl3RIWeb0Pqjhktx6Cyq8DG3doMvrA3EitFVC5CPCtZXkvl6
+	umtkD33iCGfEteA1fNByUu6lf2fbM2WSQoStmuYLcWOboA+BDQkTf93Bhkp+DYx77OUhzV
+	Lrgdk9VehHlh0HWNNZU4TuRNnr+PuixskVW0z1dDL/bEq6SQ05QkaVhqQad32bBGroF31p
+	QpEhjrD+KdQyfwZd3dSO6HBqPIi2NPTaRrN7pA8Kui7TRqkZRKiubrHwbEuCDPogpCBfrn
+	sc4Epar1YBs5q0vKqPygrYZ1KsuWup3FJ7uzmUKYAg2cyBaDnbhSRfjJ+OrZAw==
+Message-ID: <29aaf251-f785-42b7-89dd-525fc77029f7@bootlin.com>
+Date: Fri, 27 Nov 2026 15:39:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,101 +62,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127074500.89094-1-zhaogongyi@bytedance.com>
-X-Rspamd-Queue-Id: DF787229A6
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	TO_DN_SOME(0.00)[];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email];
-	RCVD_COUNT_THREE(0.00)[3];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	DKIM_TRACE(0.00)[suse.cz:+]
-X-Spam-Score: -13.01
+User-Agent: Betterbird (Linux)
+Subject: Re: [PATCH net-next] net: pse-pd: fix bogus budget evaluation
+ strategy check in IRQ handler
+To: netdev-bot+sashiko@kernel.org
+Cc: o.rempel@pengutronix.de, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org
+References: <20261126143012.1595919-1-kory.maincent@bootlin.com>
+ <179578982915.3135.16459182795663099712@kernel.org>
+From: Kory Maincent <kory.maincent@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <179578982915.3135.16459182795663099712@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri 27-11-26 15:45:00, Zhao Gongyi wrote:
-> A concurrent BLKBSZSET and BLKRRPART reproducer reports
-> "Unable to handle kernel NULL pointer dereference" in
-> create_empty_buffers(). The relevant call trace is:
-> 
->   create_empty_buffers
->   block_read_full_folio
->   blkdev_read_folio
->   read_cache_folio
->   read_part_sector
->   msdos_partition
-> 
-> read_part_sector() calls read_mapping_folio() without the mapping's
-> invalidate_lock. The race can allocate a folio at the old minimum order
-> and then create buffer heads using the new block size. When the folio is
-> smaller than the block size, create_empty_buffers() dereferences NULL.
-> 
-> Hold the shared invalidate_lock across the read, pairing with the
-> exclusive lock in set_blocksize().
-> 
-> Fixes: 3c20917120ce ("block/bdev: enable large folio support for large logical block sizes")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
 
-Looks sensible. The partition rereading code tends to get called from
-unexpected places at times so I was pondering for a while whether it
-doesn't get called in a context where we could not grab invalidate_lock but
-I didn't find anything. So feel free to add:
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+On 11/27/26 15:30, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The commit message says the bogus check "does not prevent the
+>    TPS23881 from working properly" and sends the fix to net-next for that…
+> - [Medium] With the early return removed, the simultaneity check at the
+>    top of pse_set_config_isr() (`(notifs & DISCONNECTION) && ((notifs &…
+> 
+> --
+> 
+> net: pse-pd: fix bogus budget evaluation strategy check in IRQ handler
+> 
+> This patch removes a check in pse_set_config_isr() that compared the PSE
+> event notification mask against PSE_BUDGET_EVAL_STRAT_DYNAMIC. That
+> constant and ETHTOOL_C33_PSE_EVENT_DETECTION are both BIT(2). As a result,
+> any notification that included the detection event was skipped.
+> 
+>> The mistake went unnoticed because ETHTOOL_C33_PSE_EVENT_DETECTION and
+>> PSE_BUDGET_EVAL_STRAT_DYNAMIC are both BIT(2) and, when only the
+>> detection event is reported, the function performs no action anyway.
+>> The check does not prevent the TPS23881 from working properly, but when
+>> a controller reports the detection event together with other events,
+>> the whole notification handling is skipped instead of processed.
+> 
+> [Severity: Medium]
+> Is the statement that the check does not affect the TPS23881 accurate?
 
-								Honza
+...
 
-> ---
-> Testing (arm64 QEMU/KVM, GCC 8.3, KASAN/KCOV/UBSAN disabled):
->   Unpatched: the reproducer triggered a NULL dereference in
->   create_empty_buffers() in 3/3 runs.
->   Patched: no crash in 5/5 runs with the same reproducer.
+> The note below the cut line says the fix goes to net-next because the
+> TPS23881 works fine with the check. Since a classified PD on an
+> admin-enabled TPS23881 port could be left unpowered, should this go to net
+> instead, so that the Fixes: tag leads to a stable backport?
+
+I didn't face any issue with the TPS23881 driver but I am only testing 
+it on my desk, so I may have miss issue with it.
+
+>> diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
+>> index 0477cf6787bd3..ae31175921a07 100644
+>> --- a/drivers/net/pse-pd/pse_core.c
+>> +++ b/drivers/net/pse-pd/pse_core.c
+>> @@ -1291,9 +1291,6 @@ static int pse_set_config_isr(struct pse_controller_dev *pcdev, int id,
+>>   {
+>>   	int ret = 0;
+>>   
+>> -	if (notifs & PSE_BUDGET_EVAL_STRAT_DYNAMIC)
+>> -		return 0;
+>> -
+>>   	if ((notifs & ETHTOOL_C33_PSE_EVENT_DISCONNECTION) &&
+>>   	    ((notifs & ETHTOOL_C33_PSE_EVENT_DETECTION) ||
+>>   	     (notifs & ETHTOOL_C33_PSE_EVENT_CLASSIFICATION))) {
 > 
->  block/partitions/core.c | 2 ++
->  1 file changed, 2 insertions(+)
+> [Severity: Medium]
+> With the early return gone, the DETECTION part of this check can now be
+> reached. A DETECTION | DISCONNECTION mask used to return 0. It now
+> returns -EINVAL, and pse_isr() reports that to user space:
 > 
-> diff --git a/block/partitions/core.c b/block/partitions/core.c
-> index b5c59b79ca7cb..a36eeb235d5e0 100644
-> --- a/block/partitions/core.c
-> +++ b/block/partitions/core.c
-> @@ -721,7 +721,9 @@ void *read_part_sector(struct parsed_partitions *state, sector_t n, Sector *p)
->  		goto out;
->  	}
->  
-> +	filemap_invalidate_lock_shared(mapping);
->  	folio = read_mapping_folio(mapping, n >> PAGE_SECTORS_SHIFT, NULL);
-> +	filemap_invalidate_unlock_shared(mapping);
->  	if (IS_ERR(folio))
->  		goto out;
->  
+> drivers/net/pse-pd/pse_core.c:pse_isr() {
+>      ...
+> 			ret = pse_set_config_isr(pcdev, i, notifs);
+> 			if (ret)
+> 				notifs |= ETHTOOL_PSE_EVENT_SW_PW_CONTROL_ERROR;
+>      ...
+> }
 > 
-> base-commit: 5a29cfaf51105039d156dd8a61d2783e8b653667
-> -- 
-> 2.39.5 (Apple Git-154)
+> Is this change to the ethtool PSE netlink notifications intended? The
+> commit message does not mention it.
+
+Yes it is.
+
+> Can the TPS23881 produce this mask?
+> 
+> - tps23881_irq_event_over_current() ORs in OVER_CURRENT | DISCONNECTION.
+> - tps23881_irq_event_detection() ORs in either DETECTION or
+>    DISCONNECTION, depending on the signature result.
+> - tps23881_irq_handler() merges several interrupt rounds into one
+>    notifs[] word and loses their order.
+> 
+> An over-current shutdown followed by re-detection could be merged this
+> way. So could an invalid detection followed by a valid one.
+
+This is PSE core policy an what should we do if we have detection and 
+disconnection event from the driver on the same interrupt. So it is not 
+related to this fix.
+
+Anyway I think we should keep the warning in the core and maybe do 
+something in the TPS23881 driver to prevent such case. IMHO this is not 
+the core to decide.
+
+Regards,
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
