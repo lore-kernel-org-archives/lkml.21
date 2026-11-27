@@ -1,139 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.140
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795817105;
-	b=MZAUq/IucFNAY2OpsCrgpWUGm67cDMzhBl3zULbt8oB0IoLYPKZPO2UsINCSnW2pMoMl
-	 4+wBJBbmTxlXQNO3wzmGISW8Dn5s1jftqsPpNBkKzH039riuzTNXFqeXpYzMrHXGjZMDt
-	 d8X4SSQ/a0kaCKHkHVbuQxpJOvMfHyAbRjBCbmYNnml+lfhCaid0Z22ksog63r4elChk8
-	 SJaxn5ljMmuk/2br8oDmw8aQKt8viWjlKxzR1RmbDMq/9+0vDfoZkbmAkrziyOfxytD7L
-	 9Q7Ij6KHc9JS7Uv1oHUTQA066Wsa5ERHy/P4PPQGM1sOIRoPgrxgvwlJtngCY+hc2Wg==
+	t=1795817126;
+	b=hNJ0nig1yNAiw8KPWr/7re6fLkuBO+37zPbNqiVg3JHGwM+kmE1SIU5msugOgT7jyA/6
+	 M90E1KD8XRvTSYYwZa+UUaUAquSLgw75XtATFWG4FWONJEgkMjO6q+mAemD24iyzx5nJA
+	 HTaIZ2MKBtgpHW8R5J8FwmJk/p4vG2UMApmICL1s6XNr1NjpSAIs0Cc96k6C2h2gKav6p
+	 ZUdBzpLH2hmo0Vei7lxDPBX3a4AUvwzJOiuvenkwUgDV+K3NyBTFyuYdLRWMHwCfGsobM
+	 nSI2jblye+0YoJoKuSoKBPQ0yB1b3TZHdFbEQU6DJmRRViCHbs8KVXL5dh+HP/L+syw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795817105;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ruSTi2KXnNElVne/1XJA5zErngKPBaYI+3TNP5Q+jOA=;
-	b=C30MvHl/ELtQ1S9yUiyWZ6h3S4I6Zevb0Yu7RXyYrK/n1+NSDl97kQ5FF20Z2/H+xpfz
-	 tFgm372nCe/HeBYu3IgPCKq9ODDb5MKkFV/GUwOL1PpsC0OZ6NMXSppvymk+RpRBHTalA
-	 wYI4o/vWVgjbglw9Pfk6MzzqG8hjel6qKsGiHiMErccExGO/Ouu+BBWAbLoKSEJX8XcL9
-	 HUSGz/HzsQABcmNO/t8tkORFUI4yCbRxcqY9VnDI4VCcaPwNVafMvlTBSD/ZTq7u9CvHr
-	 TjUgrt1YoFyiFY3G7wW3Vk8vyR3J7hcJQAKPOycYwv5Lod38T5kJWw23mzHcDDKpLew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795817126;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
+	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=cS1qBES1VuLe2M/hg/1JmxoAVCdTAa567ydVE58sAFc=;
+	b=Od2Md8M5YME2POfPc+V0uB0i/3EFhMWjnUHUnzxeHATqGot7uMfAI9K2EW1h7nU6jIWE
+	 pC8kNP5tPNchScxAIv3oDniw50nHuzYS4w76yXxjeHfRST4dS2HcBHOO+oKvQl9JBXCC3
+	 VWIKq4U2NM7w1N+pYM7K7cs5C3zFUF0ui3LEou4p98ftqAMFf82yYQzvFBQcHmq6hiTo+
+	 +8pb6FUG2Wm2pbfTaR5yrqvjWw9Jm9F+XcDXrEfNa8LMWLit6ld6BmeVDCU5TtZl0Q8Fj
+	 x/UUJ+S1vHSeC/DJ5OS+E52yCcFVMIJ3OqZjUnWSo93AdDNMOxMw5qB4aYgCNT88GXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shazbot.org;
-	spf=pass smtp.mailfrom=shazbot.org;
-	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=H2Cmp6h+;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1Rp09Bfw;
-	arc=none smtp.remote-ip=202.12.124.140
-Received: from flow-b5-smtp.messagingengine.com (flow-b5-smtp.messagingengine.com [202.12.124.140])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=FbTcjs8L;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZzPHVtN3;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=FbTcjs8L;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZzPHVtN3;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB64C606A68D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:05:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB64C606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B481606A334;
+	Fri, 27 Nov 2026 22:05:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B481606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=H2Cmp6h+;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1Rp09Bfw
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.stl.internal (Postfix) with ESMTP id 471E9130335F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:05:04 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Fri, 27 Nov 2026 17:05:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795817098;
-	 x=1795824298; bh=ruSTi2KXnNElVne/1XJA5zErngKPBaYI+3TNP5Q+jOA=; b=
-	H2Cmp6h+LZGx9f0bQnDfTD/mrFYtXbkzK+rXTkUYR5pU021YammeG2K3MeYucaFM
-	NmgMdpTE9MXujDVHLvXUNk0z9yqRkXpJpUYFdfNtPQcK1+ybgPrO+THRJyb0QbfM
-	NZYtfuwCRSBym+06RvCpT8HXTeWNdoQ/JpteGKuPSsa7lQ1QQ1eNda2XsGujwS1n
-	769FI7ntsYsQVdOZyNETx1l2kw0SOie8DcrNR5kJyc4N1IpuQp1nJxNyTJP6Qv8x
-	5KpATTU5XacwMY/h0d9W1k07cuco7/KcfXCxV5nqyuofPfi5i9u8oUyEpA3fM8Fb
-	D0lKdjC7VtSUmizrLe+K0w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795817098; x=
-	1795824298; bh=ruSTi2KXnNElVne/1XJA5zErngKPBaYI+3TNP5Q+jOA=; b=1
-	Rp09BfwURwtupcfc9BQnP0xBC2kpqHBoXafW0PQRhRS5Yy8uyPJgI1oHOW9SMyBx
-	nL1rh18j+qXSRsMczrcOEWcmE1jGgI9PDQPWAqrb7VlrIZ7AfOqH6lOgqCvTfG6s
-	fLWKm6g8DnKe5yFiszv0oYotaHBlUv2Jsj21jdeTrus8VKxCwNdf4qUEtItt4Mvo
-	Lyq7q7og5HC7V+NHiENtaXKa9I+X9w3pnrENY9qMOD/se58JWkJBK3QSmYO8DzvJ
-	LWyY9Tx4xkiI86zgzmcd4QDCFpB1pw6c1dBzVbSmdpapEP3qO+LX4wTI6J/c1toz
-	2WIUsY/Wa8LnKHpfHrnrw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=shazbot.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795817098; d=shazbot.org;
-	mf=PGFsZXhAc2hhemJvdC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:HjQBlV8D9VnLJeikDEWP3kOFQWbD3OHJiEzb8RPKZECi8i3
-	4jPa+WlFaNAhmgZfZZz3zBUtsK+z4Rqc9gMyziBtbv5A5/xlM7Z/70Lm0HPYzCba
-	V6yLpKpiAcHQlOSU+FCK05On7gn9kQWUAjxBwgTDiuHrm+YscgufKecLflcpy8FZ
-	IIa3yJ+ZT4mNaZDtESSYJJt7Vmh8YpsUNX7tod5jH98+ozjTbwr5/EBv0uwuiCYY
-	hdf+w7/nJeL0BunY5cD+M59gbmaqw6/wLj90jcq7Pl4kwemTtobG3ukoXDKLhSNe
-	ocSFJaX3B56RP/qcIblBip2RLUCAduAbqel4GsA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:0/gjl7sT3nacJr3v+xNspH0IHXx9HtVAOimrDYWjgp4=:VtKoA94nBuwKQPdehHAdkaiDSgvkIeIqZH8gzxzVZf0=;
-X-ME-Sender: <xms:if4Ja32y9uccKKWgA6awKiUv1jsGnifiarSTqXHKpNdk2405PeVa-Q>
-    <xme:if4Ja1GuK9qZubZpc7tiETesteIEMXaSGyYLu30X-k5SNhajo8yHNgT85hpYffCf1
-    zQx1bYlsDGKWPYzWa-O90ieHdbQSF-drzGxgCt_PpFLo9B-f6y17pU>
-X-ME-Received: <xmr:if4JawKWiEMjKTJcNjQKUk2MQpn-Q8JrYKNspHnC9IxfAIyb4LhLqZcKXYNV0g>
-X-ME-Proxy-Cause: dmFkZTFjoLBAvKIejJlSbE4Q3c7bkxlwYcgKg00iy/1FtMqgE0UdHsF+zkRGYeqeIRPxUo
-    Iwd9jRHRKNfQ9hDSzZCbQRpCbytMCSe5RbXFr5dsjvcES8LL1AaH39Ywx2JBlqO1XAK980
-    fT1E3+bKrWsl1e2eZp2tDDY6Em9VuPuj/fcK3NR5NhAMehQQcp1ZK6MkNzHoSfXTPUKBnk
-    xz35R79TqFIpzvcDmSZksFlk95TX8eYyGE7JxUOXuRvieaCQa2CuWVJ5K/gfCk9HehMrYk
-    oIep/2Sm621WsrtQQS+Cbkh8XXCK+vBZcwj+I7FB7jnkybhrFuKbwwbbjXImziG4O2TZfh
-    AbKogQ7P03x0oUsBf5l4zFHiJP39hzK/oDWZksyVD81l7WlsrRfLhL0KRIGhmeAsStmO7Q
-    qJw1PoIvQU4ttXMOHScaWA7aaPwxD3fzXavZXikiAWp6fHurIZMOn84YvIuOrCeUKJ6e0k
-    xEMBmiG+vu0+/y8Fi57kiWtYHq4BN6Ausxugj7ol0vbMIvod7U2rqAtptPnlIu4eulW+QY
-    TRhnuM9D3d+v/B29vt9UF1NG4zzseTSKWMPA9cA+Xh0svixSfX1tZFbDi36vLGCVCYMBSp
-    A/A4Uc7hTuwMLCW688CoK/C/58IQhbeb/r89C3k2DgnProwfkI5fSp15bvvg
-X-ME-Proxy: <xmx:if4Ja5PAN6NdHFNG7OZ7_UnTCfMxe3tG6bpy35Zf_MAgXQB53LFk1A>
-    <xmx:if4Jazon5onLn2WLqaJA6_cFMlo3NtcZmEPrBEei0ykviuniNnmcBQ>
-    <xmx:if4Ja6ffYlYIoFiPFJLmYci-181LdzyKk_cEIWYn6UsmVwoUr7EvlA>
-    <xmx:if4Ja0bJpmV5ratTRzHTZVYYzR4YxwwakIDTYkn9TpxNkFodqK3sjQ>
-    <xmx:iv4Ja4aTdJ5d9t4-fak9OuiXx4z4FAU3UYUlLPKdqc_oOGilNnuxnd4C>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 17:04:54 -0500 (EST)
-Date: Fri, 27 Nov 2026 15:04:52 -0700
-From: Alex Williamson <alex@shazbot.org>
-To: Simon Song <xinmengs@nvidia.com>
-Cc: dakr@kernel.org, acourbot@nvidia.com, kvm@vger.kernel.org,
- rust-for-linux@vger.kernel.org, nova-gpu@lists.linux.dev,
- linux-pci@vger.kernel.org, jgg@nvidia.com, yishaih@nvidia.com,
- skolothumtho@nvidia.com, kevin.tian@intel.com, airlied@gmail.com,
- simona@ffwll.ch, ojeda@kernel.org, alex.gaynor@gmail.com,
- boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
- lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu, jhubbard@nvidia.com, ecourtney@nvidia.com,
- cjia@nvidia.com, smitra@nvidia.com, kjaju@nvidia.com, alkumar@nvidia.com,
- ankita@nvidia.com, aniketa@nvidia.com, kwankhede@nvidia.com,
- targupta@nvidia.com, linux-kernel@vger.kernel.org, zhiwang@kernel.org,
- zhiw@nvidia.com, boqun@kernel.org, daniel.almeida@collabora.com,
- tamird@kernel.org, work@onurozkan.dev, jgg@ziepe.ca, bhelgaas@google.com,
- kwilczynski@kernel.org, dri-devel@lists.freedesktop.org, peter@colberg.org,
- alex@shazbot.org
-Subject: Re: [PATCH v3 9/9] vfio/nova-vgpu: add the Rust VFIO variant driver
-Message-ID: <20261127150452.03a1c163@shazbot.org>
-In-Reply-To: <ad773f07-bf03-4042-b79b-f82cc2d64579@nvidia.com>
-References: <20261119215046.2892839-1-xinmengs@nvidia.com>
-	<20261119215046.2892839-10-xinmengs@nvidia.com>
-	<20261124201931.55c65263@shazbot.org>
-	<abc4a0e3-2478-4b12-8a06-ffc81196bd20@nvidia.com>
-	<20261125230830.48e768b7@shazbot.org>
-	<ad773f07-bf03-4042-b79b-f82cc2d64579@nvidia.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=FbTcjs8L;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZzPHVtN3;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=FbTcjs8L;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZzPHVtN3
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 874DE22A2C;
+	Fri, 27 Nov 2026 22:05:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795817123; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cS1qBES1VuLe2M/hg/1JmxoAVCdTAa567ydVE58sAFc=;
+	b=FbTcjs8LvvXAB9Ongw+Qi71nreN/kKlpgxFckFaDvMRrl/OI/DU5AOoGOPVO66uEPe0hp8
+	bZpdpNWlffmfCNUUC4NCa/1zwSXjdkXmke61tw70dToD/tkD4SqwpPBd3MqWsistyTh2Pe
+	Up2ZmS484gQ/GTcNpv155H3u3Lqi5+o=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795817123;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cS1qBES1VuLe2M/hg/1JmxoAVCdTAa567ydVE58sAFc=;
+	b=ZzPHVtN3zcptr6CJ2gr/McwDyEAZP73QxOp9iWITyPWJ6/PJ5zYUcbgcLr0AAZ85uIxnMs
+	8nuElFGm/PiJKzBw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=FbTcjs8L;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ZzPHVtN3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795817123; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cS1qBES1VuLe2M/hg/1JmxoAVCdTAa567ydVE58sAFc=;
+	b=FbTcjs8LvvXAB9Ongw+Qi71nreN/kKlpgxFckFaDvMRrl/OI/DU5AOoGOPVO66uEPe0hp8
+	bZpdpNWlffmfCNUUC4NCa/1zwSXjdkXmke61tw70dToD/tkD4SqwpPBd3MqWsistyTh2Pe
+	Up2ZmS484gQ/GTcNpv155H3u3Lqi5+o=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795817123;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cS1qBES1VuLe2M/hg/1JmxoAVCdTAa567ydVE58sAFc=;
+	b=ZzPHVtN3zcptr6CJ2gr/McwDyEAZP73QxOp9iWITyPWJ6/PJ5zYUcbgcLr0AAZ85uIxnMs
+	8nuElFGm/PiJKzBw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7D93D134E8;
+	Fri, 27 Nov 2026 22:05:21 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id yNJJE6H+CWvTIAAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Fri, 27 Nov 2026 22:05:21 +0000
+Date: Fri, 27 Nov 2026 22:05:19 +0000
+From: Pedro Falcato <pfalcato@suse.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+	Jan Harkes <jaharkes@cs.cmu.edu>, coda@cs.cmu.edu, David Rheinsberg <david@readahead.eu>, 
+	Hugh Dickins <hughd@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, David Hildenbrand <david@kernel.org>, 
+	Jann Horn <jannh@google.com>, Alex Shi <alexs@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, David Rientjes <rientjes@google.com>, 
+	Rik van Riel <riel@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, Arnd Bergmann <arnd@arndb.de>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	codalist@coda.cs.cmu.edu, linux-mm@kvack.org, Andrei Vagin <avagin@gmail.com>, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	Chris Mason <mason@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH 1/4] coda: never point a file's f_mapping at a
+ container's mapping
+Message-ID: <awn9xtkK5k_dB2r_@pedro-suse.tail5790ac.ts.net>
+References: <20261127-mlock-madvise-mprotect-ai-fixes-v1-0-e46b2b1eb435@kernel.org>
+ <20261127-mlock-madvise-mprotect-ai-fixes-v1-1-e46b2b1eb435@kernel.org>
+ <20261127124428.f1f66c6244d3e5c2811f56de@linux-foundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -143,56 +124,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127124428.f1f66c6244d3e5c2811f56de@linux-foundation.org>
+X-Spamd-Result: default: False [-13.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[32];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_CC(0.00)[kernel.org,cs.cmu.edu,readahead.eu,google.com,infradead.org,cmpxchg.org,redhat.com,suse.com,lwn.net,linuxfoundation.org,rere.qmqm.pl,arndb.de,canb.auug.org.au,arm.com,coda.cs.cmu.edu,kvack.org,gmail.com,vger.kernel.org];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	R_RATELIMIT(0.00)[to_ip_from(RLrsmib7z51yjcgqxjkjha4j4m)];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -13.51
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 874DE22A2C
 
-On Fri, 27 Nov 2026 16:35:10 -0500
-Simon Song <xinmengs@nvidia.com> wrote:
-
-> On 11/26/2026 1:08 AM, Alex Williamson wrote:
-> > On Wed, 25 Nov 2026 21:45:13 -0500
-> > Simon Song <xinmengs@nvidia.com> wrote:
-> >   
-> >> On 11/24/2026 7:19 PM, Alex Williamson wrote:
-> >>>> +
-> >>>> +    fn reset_prepare(rd: &NovaVgpuRegData<'_>) {
-> >>>> +        // PCI holds the device lock, and VFIO may hold its memory lock. Open and
-> >>>> +        // close release this mutex before entering the VFIO core.
-> >>>> +        let mut state = rd.state.lock();
-> >>>> +        state.resetting = true;
-> >>>> +        if state.active {
-> >>>> +            if let Some(vgpu) = &rd.vgpu {
-> >>>> +                if let Err(error) = vgpu.api.reset(vgpu.gfid) {
-> >>>> +                    state.reset_error.get_or_insert(error);
-> >>>> +                }
-> >>>> +            }
-> >>>> +        }
-> >>>> +    }    
-> >>>
-> >>> This seems very wrong, why are we calling the PF driver reset in
-> >>> reset_prepare()?  Isn't there still an FLR happening between prepare
-> >>> and done?  Does it do anything?
-> >>>     
-> >> It will not reset the PF, vgpu.api.reset will reset this vgpu instance behind this VF,
-> >> the PF driver would ask firmware to reset the instance and scrub its memory, then FLR
-> >> follows  
-> > 
-> > PF reset is not the question.  We're calling into the PF driver to reset
-> > the VF, but we should not be doing that from reset_prepare().  This
-> > also still doesn't explain what the FLR that follows the PF initiated
-> > VF reset actually does.  Why can't we just use FLR?  Do we need a
-> > device specific reset quirk?
-> >   
-> FLR resets the VF itself, and firmware stops VF channels and reset registers,
-> but doesn't reset vGPU state inside the firmware, and only PF driver can ask firmware to do that
+On Fri, Nov 27, 2026 at 12:44:28PM -0800, Andrew Morton wrote:
+> On Fri, 27 Nov 2026 19:45:40 +0000 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> I agree it doesn't belong in reset_prepare, in next respin, I moved it to reset_done(), so it runs
-> after FLR
+> > Coda file systems stack differently from other stacked file systems.
+> > 
+> > On mmap(), coda_file_mmap() switches both the Coda inode's i_mapping and
+> > the Coda file's f_mapping for the mapping of the container file. This
+> > causes two problems.
+> > 
+> > Firstly, the container file may not remain pinned, at which point this may
+> > result in a dangling reference in coda_file->f_mapping, and so a
+> > use-after-free in mmap() or lseek().
+> > 
+> > This can happen when you open the same inode across two files, mmap()'ing
+> > in one, which assigns the i_mapping, and open()'ing another, which assigns
+> > that i_mapping to the file's f_mapping, if the cache manager gave the two
+> > files different containers. Each file pins only its own container.
+> 
+> Yeah, I hit this while getting
+> tools/testing/selftests/mm/memory-failure.c to work on all Linux
+> filesystems.
+> 
+> > --- a/fs/coda/file.c
+> > +++ b/fs/coda/file.c
+> > @@ -182,7 +182,6 @@ coda_file_mmap(struct file *coda_file, struct vm_area_struct *vma)
+> >  
+> >  	cii = ITOC(coda_inode);
+> >  	spin_lock(&cii->c_lock);
+> > -	coda_file->f_mapping = host_file->f_mapping;
+> >  	if (coda_inode->i_mapping == &coda_inode->i_data)
+> >  		coda_inode->i_mapping = host_inode->i_mapping;
+> >  
+> 
+> I had this change.
+> 
+> > @@ -248,6 +247,19 @@ int coda_open(struct inode *coda_inode, struct file *coda_file)
+> >  
+> >  	host_file->f_flags |= coda_file->f_flags & (O_APPEND | O_SYNC);
+> >  
+> > +	/*
+> > +	 * On mmap coda_inode->i_mapping is updated to point at the mapping of
+> > +	 * the mmap()'d file's container, and do_dentry_open() propagates that
+> > +	 * to coda_file->f_mapping.
+> > +	 *
+> > +	 * However coda_file's container may differ, in which case the lifetime
+> > +	 * of that mapping may not match that of coda_file.
+> > +	 *
+> > +	 * To avoid a dangling pointer, reassign the mapping to the canonical
+> > +	 * one.
+> > +	 */
+> > +	coda_file->f_mapping = &coda_inode->i_data;
+> > +
+> >  	cfi->cfi_magic = CODA_MAGIC;
+> >  	cfi->cfi_mapcount = 0;
+> >  	cfi->cfi_container = host_file;
+> 
+> But not this one.
+> 
+> Is it truly needed, or is it a future-safe defensive thing?
+> 
+> If the latter, Tested-by-me:.  If the former, Mostly-tested-by:me. 
+> Either way, Acked-by:me.
+> 
+> 
+> It's always seemed a big wart that file->f_mapping even exists.  We
+> should get that via file->f_inode->i_mapping!  But you-know-what tells
+> me that "/dev/mem sets the opened file's f_mapping to the shared
+> I/O-memory mapping; /proc/bus/pci does the same.  Their f_inode still
+> identifies the device or proc entry" so sigh.
 
-Both seem like an abuse of the setup/cleanup wrappers.  Is this a gap
-in FLR support?  If so, this is why we have device specific reset
-support in PCI-core.  Depending on the PF driver is going to be a
-challenge though.  When and where specifically do we need this firmware
-state reset?  Isn't the firmware already involved in the FLR?  Thanks,
+FWIW, I think it's a rather nice part of the Linux VFS design: "file" and
+"inode" are separated well enough to allow for these kinds of shenanigans
+without awful hacks (and, yes, this is also present for something standard
+like a block device on /dev; /dev is a tmpfs mount, so the inode is tmpfs, but
+the mapping and fops cleanly point to block).
 
-Alex
+But stacked filesystems, admittedly, do give me motion sickness.
+
+-- 
+Pedro
