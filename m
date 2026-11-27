@@ -1,98 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.68
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795762172;
-	b=AFSYIFnYFu+ayAopjrUsDheYjKtwpIjAaJ7uPfseccvkS2gtNObH2BafHgmZcjx7Ck50
-	 xdAgpwja3ZSfY0mFQWW8tJlJooLSU4lbxeeFH2pdlx/ITNKnnsDaEs5N2kdhnR8wJHd8Y
-	 kEkBnxnOVC1BuzPpvHDUwRCmSWz/CMYwNiZk7FHgvYRyHKnlI5jjCqXudSOK6qs3PlIT4
-	 hV7wFttlucQ2l7BELjojCxN3++3y0nvHhiaIckDeP+E31Vg3AhqzckTIxxr+/RBARyHo4
-	 sS08VKiKLpBq9Iknprfd65voVyQUsh3dCv8rZotfa0LejPZpnul1F0RmInldYqxMimA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762172;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=KUh/G4+K01ZSvLjSdE4gIEoFRX9BS/YGGqbDPj1g0OU=;
-	b=W4oUag4uX5f948PtQL8b8LJ9gSfPkW5uFQSQg1qcpKt0w937sjiLm0ItE3YBuXnHXxNJ
-	 tFMCNG+N/KFROrcyD0jGEZXG9dCDU7lLCGuh750uyIyIAeZXOAAmK0N9Z3Qogt44c5qVB
-	 ZrGpva/1QQ5ngUUgMr0sCtXYA1XGA78eggGCAlEYWZSbesXIQ4J8AdyIdQpJcEVY+xsVO
-	 VNKDSJzVgYisB3ytjKVI4MIfXWkhQp0KxnOSO7CMJoLxRnVEpVq+H+KDCnvGHFn6dED+w
-	 ef4KbKxs/PX2qgQsgaUNexwSZzjGtHwySDk0iry0xLwwxNXUGsB4hBojIjXYSkC9Y0g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Qw0l3nFp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.68
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013068.outbound.protection.outlook.com [40.93.201.68])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795762180;
+	b=BDcsXhNwJySJQIigoTW6ZV1mjm+iSB032iMkWppNh4/+ogDrCySbq/wyAucwyKUSCbMO
+	 iotxYVYh0nQ2ZENqszYfmndfkCcIl2z0ykAu3MIJwzkzAm8scZXlgwBWPuU6uy1yK9+zP
+	 to0v0SQI8o508FVsc1D65Gm+R0fYbne4ZTpgZSEsr4DkDPuvkqv6IizcNW9m+oGVo23tU
+	 5kXuXy3zKohwIAsDjefJIrIEKCDKPAlFtxMJ8XpiUjqwDaZuTWdEDIMreijGgpJ0sRL+r
+	 mp0Jk47Kavzf0bSeK47dQT6bbb78XNuZ/GA5h3ioJ1jsmFtGnGxQMLYwmLHLtzz57kQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762180;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Organization:
+	 Content-Transfer-Encoding;
+	bh=g3YFHw/tSEqLXgBqxpE4Iab2b4xURFYtdJJcC7WJWIU=;
+	b=bwj10Wag+FJQCtNhhzihjet30E/W7ry9CAeGrXytgm2PjvDmRgLzFdvES44HJZLARI0i
+	 u3aYdU8gaQgOL0GRKws8er12zMZ1hjDLcCgZu8siQnbS6ono6oCM62ffaVfLX9Cn/copl
+	 7s0ki4SoGDmQf3ioJHgzBQZzbXS/6ExoL8k6b6z3ogdDiw/DKGygYGqwmatREED8Y/Uaf
+	 WmfB04YEte2KmNGWxWMDJrekkl63Vih9qCB02xbcyJHEnwSmK0yHR7lswI5sWSOv6/IhR
+	 AC8+tfxtr7Wb6nAXMm84Z6tq8T9VXEuDhV35mBrmfvG5IBrpC04LzcjnKEOKbjTWXXw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XSqQePbn;
+	arc=none smtp.remote-ip=192.198.163.10
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64CE9606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:49:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64CE9606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1B72606A321;
+	Fri, 27 Nov 2026 06:49:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1B72606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Qw0l3nFp
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lwv1TcxlveIXkOhc9H0dr3oEznwerVoj3tVe8goesQx6zeP9nJ/91PToJNlGG6gWqs+89RUBwiUlrTGJBmgGh8rvpEsH2dSy5JydrO1rCLtABlBfokgPf+1Tg0qEFUhphwHrHteb3vRkxcK2TRKO2RH1FAw4IBgCd1gTPcXBaZZq0i8DN+oa3Y0dxD7QW6BO1lsFmWcPYmX5PzY9JQ70q0rncOotfeSdLN1Bd2YdBaDTZ9Nb0A0XtJcGGBKDZ3oNJldDndXpEpvCh0UyBT4/WmSI/sg831oWknMtwHZpvaICqjN+GYMc+DmzTQB83Ken/wcmhokkvZpmFOAEJiG8gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KUh/G4+K01ZSvLjSdE4gIEoFRX9BS/YGGqbDPj1g0OU=;
- b=UMjPwaqtLktrjn8v3JkYz9lb1h13vEOCZTbJBCnE1TlrUdlvCdjDKpwP73okUr3KKk66Rl6/KriKrvZrk13JZy17sfOwWRX405SnDkXy2G7x2P8+2FvC+DRur8WLJrbjObHDconZbXlsGNlogGpzN28Nw8D4bNR3RJ25lcftvsTWgsHINfBXbs9QDXWX4O4nAIWfIK/ymh7t+p1iFPsdhZNCvDmU11Kg99huvdTPVZ5+QnCW0i2JnrCGtxPJrEpkpv8bxof9FQHhsVUEkJO09glaA6inchFaA5rzl7628MRZhS+LVuj/RXZcXSEEuTKYBM66IxPNnRhBS2K1P7oA0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KUh/G4+K01ZSvLjSdE4gIEoFRX9BS/YGGqbDPj1g0OU=;
- b=Qw0l3nFpYLdz4tJWLUZrc3qxhZ7X3GPIkPFH5+pSjWf3XwQj6uLHjSaajMhLfN44NmgVNpf9nHCnbjY9VuIARaMTI4KQI3Y+2ONCn3o1BYo/Kym+hUNhBTimqTjAJSHXTRlAHocCLjKKcjnbmWmE73xXDv0d4wokw+YUnJsNDly33oBQ07ZN/JuCPX2lMaA3aLPGTE5aHJ8YTPD70kLWPnTBB6TKX90zCbcp0/ZMRgms4Ng/zqT+XUbKLSsusY1AypNgOJ3ECnRarla051P87RXULwrN+KJ7mJh5oQSY9tKvPcvQrmf05DhNDeTUyspodboGtaw1Ws1dMo6D2f+XfA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MW4PR12MB6873.namprd12.prod.outlook.com (2603:10b6:303:20c::17)
- by SA1PR12MB6971.namprd12.prod.outlook.com (2603:10b6:806:24e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
- 2026 06:49:26 +0000
-Received: from MW4PR12MB6873.namprd12.prod.outlook.com
- ([fe80::a338:bd2c:3a38:ece1]) by MW4PR12MB6873.namprd12.prod.outlook.com
- ([fe80::a338:bd2c:3a38:ece1%5]) with mapi id 15.21.0662.001; Fri, 27 Nov 2026
- 06:49:26 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 15:49:22 +0900
-Message-Id: <DN5SK4W2GLHQ.507PW8U3EG0C@nvidia.com>
-Cc: "Danilo Krummrich" <dakr@kernel.org>, "Alice Ryhl"
- <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "John Hubbard" <jhubbard@nvidia.com>, "Alistair Popple"
- <apopple@nvidia.com>, "Timur Tabi" <ttabi@nvidia.com>,
- <nova-gpu@lists.linux.dev>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/7] gpu: nova-core: falcon: separate staging data for
- DMA from its location
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Eliot Courtney" <ecourtney@nvidia.com>
-References: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
- <20261126-boot-rework2-v1-4-99a1dc6c7cc4@nvidia.com>
-In-Reply-To: <20261126-boot-rework2-v1-4-99a1dc6c7cc4@nvidia.com>
-X-ClientProxiedBy: TY4PR01CA0017.jpnprd01.prod.outlook.com
- (2603:1096:405:2bf::14) To MW4PR12MB6873.namprd12.prod.outlook.com
- (2603:10b6:303:20c::17)
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XSqQePbn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795762179; x=1827298179;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=wMVVDYYiB7wfceZ8fdWQGXCrFPFCMsX5gelPJcZRVFI=;
+  b=XSqQePbn43eu36TvyNYsCBHSQzzcbpOSr10GK5WHlQm1PflBGaDgDmkY
+   nRjhMe8yIg98UK8IfYeb612N1vYy/RvbkffGywfYcjCF1vtthP7DT2BW+
+   fPaZGG74JWSOE4KMYRs+Ce2CMQZplRhClNRsF9I3hoPh0sBB7MwRnZsO/
+   XtAAYZ2MfLG1Ocjbwn3zyyGji41FowA9OCScx6QSHVM2gy4KgrzW+G1+F
+   BQ4x9SUBb+/Y8SDiGplnqBrWWywlACElnaQjI4HSuPLkNWBSvbOQd1UBy
+   xewgD83eDNV3q+NhRIbgY/ihHGNJAlChWfiqr9oUIq19FsJboYmet+A5n
+   A==;
+X-CSE-ConnectionGUID: 52efiIu6TeqLFN1oDsBmtw==
+X-CSE-MsgGUID: 8VntYjVlS2iOLZ552UrCHg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4557174"
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="4557174"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 22:49:38 -0800
+X-CSE-ConnectionGUID: k15tcmmzQoCbF53pndWDHg==
+X-CSE-MsgGUID: +ubeb3rhSBOMH6yjgJd54A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="12940761"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO ahunter6-desk) ([10.245.245.50])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 22:49:35 -0800
+From: Adrian Hunter <adrian.hunter@intel.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Ricky Wu <ricky_wu@realtek.com>,
+	Tabby Kitten <nyanpasu256@gmail.com>,
+	WisdomWebMan <wisdomwebman@proton.me>,
+	linux-pm@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] misc: rtsx: Avoid wakeup events from runtime resume during system sleep
+Date: Fri, 27 Nov 2026 08:49:22 +0200
+Message-ID: <20261127064922.13791-1-adrian.hunter@intel.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,80 +85,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR12MB6873:EE_|SA1PR12MB6971:EE_
-X-MS-Office365-Filtering-Correlation-Id: ee5f3a9b-fcf4-4b68-696a-08df4c5293b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|10070799003|366016|376014|23010399003|1800799024|4143699003|18002099003|22082099003|11063799006|10067099003|56012099006|261026121527099003;
-X-Microsoft-Antispam-Message-Info:
-	NKs7wFsf3TlUzDlHBgnvy0WWlrER50u3yjmY1e6M1rp2r0Ak53BnBGcC6HLPmQP81dCB1/N977fjdznfL2aksHKl+E9Ukrnq+ikjjlV3o42x7X8aS2aTrCFB5srkMXmxcFfwJG3GoW0onEREYEQQ0s6leQfDr4dpArqNA73EggahdHAoC9FmyJwK4Eg3XZdddZAl0nDf0sep0WvkfPrjIPjWscGvaLwsWsb2YxdpyMJtHdxVNDqeEQx26AM7KYIkERF8bxmBwYnIaEngSOwRpyOib9HVlJxeBXdNps2Zzz5vukVPLQrDJ3Ro4D0biJEEYGSIgU3VNrl3qBXvXcoagKAi948uwSzyb9tQO/Tl2MOXfpyGRbnlX9F1SNs5fTFckwQyMjUGRLS2YWwblk5g1D5vvxsZxJl5JaydGP/AdJYNQjUPYS2BWQoqEfrp3Al4PZ42YuMxLJoixkGnsFOF3cCa29UeIvcBTYpiMdzIc1xh2iDhKhuEKZ9R64BbOBaaO+cSAqOvAOMWlCPE8o9nQL3UCvq+cG3keTViUx4WvZXX76c/IFkfVsH2IOl0mJa7bgMV84Foniri6ZLOHlvwAifVSXhqwLWdu1ab+52YTssCyA+TOh3PO/cLB9U27k+QJJ6m5I1z42DK3bqBy+CyLg==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB6873.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(23010399003)(1800799024)(4143699003)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006)(261026121527099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?bnVPZ0dPNWNua3Q2dUw0d2NwYmpXMUpVcjM1dlZVR2lTV0NCcnBQWEd0ZSt0?=
- =?utf-8?B?NmtoVEk0MmNrMkFVNk9LSXRwa2xpYkJ0SGlEVlVFRzFvRllrZUcrVFZURkZx?=
- =?utf-8?B?UWsybzBvOTAzeG5hcDVYMFpLUXVYTEJUUkYwNDFTREhYNVdhOGdyclErOHYr?=
- =?utf-8?B?dzk4dkhXM2ZRYmtXdDFFdzFMUnNyUFdTNGpXclRUTUdVQ0tLRmswZ2NIQVJF?=
- =?utf-8?B?OTl1dFFQQnRGUlJOSHp2TXJXV3RUK25icjF1Rm4yZGtSQU5yZFBSOE1yYlJx?=
- =?utf-8?B?MGsxVVljYU9zSTg2L01uNDZmSEVyVHVSSU11cGhMWS8vYXVrQTBCbllqa0tm?=
- =?utf-8?B?di85cnNOdFRFTkowUjJyWjNwK1h0ZDVad1JjU29NY3ZOZGs3RCtoQi96bTR3?=
- =?utf-8?B?Z1JsRGduUDNQWHJLTXM4Z3M1YTNFZWtTQTRsMW1IeDRFSzFxS3Q3ZXc5RU4v?=
- =?utf-8?B?RGNlbzJ1S29iS2pRbjVHSisrckxPM0k4czJMQXdiYmo3SWxTTXRnRW5JOTZR?=
- =?utf-8?B?VGRqd2VKblVydnN3alcwTS9tSzlOY3NIbWw4NWhLc0NyU1NBaXczMWxQejJn?=
- =?utf-8?B?ZDArbnp4TDFGWk1wc3lLblBERHBERFhyUjZOY0d1YWQ1Q1lrMlQ1Rk9hTnpU?=
- =?utf-8?B?UnNYY0hibHVEWE42ZSthSzlpNC82alNGOG1hYjdlWUhiTnlYNDhxQVZucHBQ?=
- =?utf-8?B?dVpCZTZHZ1o4N2FNVm45QjV5TlpMeno0MjRQZFN5RWoyeUR2TkEyVklUdC9G?=
- =?utf-8?B?dm1aQXJhb0VKcng5SURqYzY4VXIxaVQzSThpeWZVTXJnQlNDN3pyRWQwV05o?=
- =?utf-8?B?YTVDSFlhdFc0ZG40WlNVd2oxdUp5R2U2NDFvbTBPMmJRWjJ0eFhEM2tLeE9K?=
- =?utf-8?B?OHVEdjQrTk1HWHNVRTA1NisydEl4cUVNN1RwdndsVEpId0JBcm1wWlFYWU9P?=
- =?utf-8?B?Nmg0NlZ2UkJNVWx1a01TcmtDVEdBTjNqektIQVVtay91QlpBc3pqd3FhbmVK?=
- =?utf-8?B?Zk4wU0pwd2hLSjlQSTZBc1FSalBWSUFyVHI4WjhKc28vMWQwZTZyOG43S0I3?=
- =?utf-8?B?cVQ4MWJFdUJpcnlDbTZZcjlCd3dXZ0VENFVmZjl3aG9UbXV6RklFSk9jMk93?=
- =?utf-8?B?UXQ0YitrSGFRdEY3QzFnbGdHRTdnM1d1QWlOWUlhTEdLeUtSbVh3b0JyRFNt?=
- =?utf-8?B?RzFrNHM3dC9BU1JlN3ljV05USXhNbEg5eFFMVDR2cnJMTVhldFdMWXRWeVNF?=
- =?utf-8?B?K05JK0Q2SktLWFZzMDlzL2k3OHUrZkJudUdCM2xOL3lOdDR3SGpPZkl3R0tr?=
- =?utf-8?B?eTZ2ZDlJVGx4aGZNY0JEZTVFb0o4VUxpOVAyeFJTb1FjN0dkdUNQZ0tPdUd3?=
- =?utf-8?B?Rlk3SG02enNVTDdQSkxhTVV3VHBCOE5HQWZOQlBtb0tDV3QwYTI1M01BMFdS?=
- =?utf-8?B?NzE4eFhRSHBHQzdHK1FMNTVnYzBPTlg5eUk0SnpxczdSazZ6L3M2aVkvcUdz?=
- =?utf-8?B?NUw4UVpPWE50a2MyeXBjMTBWU08vdS9maGZKVWF3eWNINStiZjJ6RFFzRVVx?=
- =?utf-8?B?RVIrUXU5WlNJbHh6eC9GMURpcmFpTHBvZUI2OXNrTlpHdjFDa1U2akM0V2g1?=
- =?utf-8?B?UjY5c2dFeFVKeDZUMmtGSFVtb2JHeHNLaUdJbjFpdUtJVGFTVWFCOGJSUUwx?=
- =?utf-8?B?WDVIaURVN2lUZm5ubzZsZzhMMk1rS0UwZlpnMnB4ak1lTk9pTWw3QjJxRkxW?=
- =?utf-8?B?MnFaR2xMMTR4eko0ekpqTERCTzgrOWd5Q2oyMit2SExJZEd0ZlJaZlE5VGRy?=
- =?utf-8?B?SStIdU1vV1pTY0p6L1k0VElYMzhLUnEvMzVIb0JnWXc5eDRINW41K09wa0Za?=
- =?utf-8?B?MXBGaHFFT0dlcFNLTjZkVExKcVQ1ZVhVVUVRNEFiTGU1d2FySjdldkUrMk1u?=
- =?utf-8?B?L2NYUjh6RkJoODR4N3J5clllYWxOZkQyWGYyUkVZY1FsSk1xL0ZQNHA5Vmg4?=
- =?utf-8?B?UUprTXJtODB3M21ZM3JtTEdXZEIxUnQxbUp5ZWZkbzZ4WmUvNFJYcklEN2tO?=
- =?utf-8?B?NG1NZkdSQnN2SEo0KzU2Y1BlQnluRGFQcUlWNDV0Wk5vMkN4V0h1OGl1OWs0?=
- =?utf-8?B?ODltL0tsWHpZWTZveTYzSm9ORXRMU3dXUW54WE9Ed29DcUloeUlacUpEM1dl?=
- =?utf-8?B?TXhCY3g3NTBMRmVKS2p1ZGJKcmZTaWorZFZQcVd6Z0NCMGpOS3A4UGFkeHMr?=
- =?utf-8?B?WmtjZ2FDd3ViRnBMUWxIcUJrVDdQZlVOYkVjbUhvcnk0c3dFRXBrdmhHQlR0?=
- =?utf-8?B?QnNZWkZhTjdEZktlaW4zKytBakdOQnp3MysvY0huRGRTVEwzTFUzY0NuNHRQ?=
- =?utf-8?Q?HWQOzWGh16nx7WtVKiYno+vNAIh4W7oLNPfhlqp07dwzA?=
-X-MS-Exchange-AntiSpam-MessageData-1: CTGh0TNE/5OElQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee5f3a9b-fcf4-4b68-696a-08df4c5293b6
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB6873.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 06:49:26.2578
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A7L4L6DSAD+iM2rES1wCL8CKLNO6CK3Z/yvBPgIJ5N+OxdWRzgLcrlHo7MPf/j9KQBZtxfFBCvXYGM0Q6CwgUg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6971
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+Content-Transfer-Encoding: 8bit
 
-On Thu Nov 26, 2026 at 5:20 PM JST, Eliot Courtney wrote:
-<...>
-> @@ -634,38 +652,44 @@ fn dma_wr(
->          Ok(())
->      }
-> =20
-> +    /// Returns a DMA object with `data` at `offset`, padded with zeros =
-up to
-> +    /// the next multiple of `MEM_BLOCK_ALIGNMENT`.
+Userspace such as KDE Plasma writes /sys/power/wakeup_count before
+entering system sleep, so that the kernel aborts the transition if a
+wakeup event is reported.  On machines with a Realtek PCIe card reader,
+suspend then fails:
 
-nit: doclink to `MEM_BLOCK_ALIGNMENT`.
+  PM: Wakeup pending, aborting suspend
+  PM: active wakeup source: mmc0
+
+During a system sleep transition, the card reader gets runtime resumed,
+for example by mmc_claim_host() in mmc_queue_suspend(), or by
+pci_pm_suspend() and pci_pm_freeze().  rtsx_pci_runtime_resume() then
+calls the SD slot card_event() callback, which calls mmc_detect_change(),
+which reports a wakeup event that aborts the transition.  Plasma writes
+wakeup_count before hibernation too, so hibernation is affected as well.
+
+The rescan is not needed then, because the mmc host class .complete()
+callback always triggers a rescan at the end of the transition,
+including when it is aborted.
+
+Skip card_event() while dev->power.is_prepared is set.  The PM core sets
+it after the PCI device is prepared and clears it before the device is
+completed.  The PCI device is prepared before, and completed after, its
+mmc host descendant, so every skipped card_event() is followed by that
+rescan.
+
+Fixes: 5b4258f6721f ("misc: rtsx: rts5249 support runtime PM")
+Reported-by: Tabby Kitten <nyanpasu256@gmail.com>
+Closes: https://lore.kernel.org/linux-mmc/a242799a-d427-48e1-85ef-923f34df843a@gmail.com/
+Reported-by: WisdomWebMan <wisdomwebman@proton.me>
+Closes: https://lore.kernel.org/linux-mmc/MiymQuzpi87stsM7XA5bfyMV6n_W41wNq15OMA_RnicheHtlyXzpdRw6_hg8wwrkFdSclRgrh6ZqKLg1xpBSUA7cBxO6sX0eIPHg3Mx2tw0=@proton.me/
+Cc: stable@vger.kernel.org
+Signed-off-by: Adrian Hunter <adrian.hunter@intel.com>
+---
+
+
+	Note, this patch has not been tested at all, however WisdomWebMan
+	offered to do testing.
+
+
+ drivers/misc/cardreader/rtsx_pcr.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/misc/cardreader/rtsx_pcr.c b/drivers/misc/cardreader/rtsx_pcr.c
+index c6e602523538..4b9585c961df 100644
+--- a/drivers/misc/cardreader/rtsx_pcr.c
++++ b/drivers/misc/cardreader/rtsx_pcr.c
+@@ -1800,7 +1800,13 @@ static int rtsx_pci_runtime_resume(struct device *device)
+ 
+ 	rtsx_pci_init_hw(pcr);
+ 
+-	if (pcr->slots[RTSX_SD_CARD].p_dev != NULL) {
++	/*
++	 * card_event() triggers a rescan to catch card changes made while
++	 * runtime suspended, but mmc_detect_change() reports a wakeup event
++	 * that can abort a system sleep transition. Skip it then: the mmc host
++	 * class .complete() callback rescans anyway.
++	 */
++	if (pcr->slots[RTSX_SD_CARD].p_dev != NULL && !device->power.is_prepared) {
+ 		pcr->slots[RTSX_SD_CARD].card_event(
+ 				pcr->slots[RTSX_SD_CARD].p_dev);
+ 	}
+-- 
+2.53.0
+
