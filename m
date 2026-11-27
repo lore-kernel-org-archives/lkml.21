@@ -1,115 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795797637;
-	b=UoE5ImRtHVLcag2D1aIyzix4KbRkO8OWbs99j5efArO7+K2pDYPLVv/D305kddEwGkKU
-	 5blhWWXjDv3bY3pvlHHB9Sv00jyrIOL7GETg0GfT3P/YY0voRPkwUDkyLHdNJd5T8Nu99
-	 zgmF3eDlrVh666iYlxypL1BJdWIqk7Bh6jDH7VcJTzTx0RTlTQH/gHQ2ZkQkwTosBpH1p
-	 GV4PPUuXsRKuq5jcfCTzqiD4Um9WblIKWNxH8hz0mwU8RA3a+Qx4SfBh5m7d7ZjNHYOwv
-	 22NDDr8paVIw6DSZLyMAkhjvkuhE6QusoP7P9hIydiBxf0b2wec9hVgmpJ6MaQBvpUA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797637;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795797650;
+	b=WHoCA+mk6iCBlaJY1THcA90xJVtqtIwiIuGgXfL+h/+utsU60jldZybuuQ/WinhAvliE
+	 26oX4pnrcBtyOVXWkZjdhG5YTQKagLt3DmglmrwbjvRKSLbgt0h1qBpOGzP3f/T9th05r
+	 eBzZifOnS3EqKHnh6hKxG/Svin6wY8b8GPmfy93XHTBNf/STWjBG0dZWwNUC953bqU0dN
+	 nUVAzLOlFRnzQ6ikslPdoRhmuH3RMSLE8STWhkK43/it/AkZ0DgShmiuLLNDAKZc+OeC8
+	 vQ4dbtx5cxYr1y0eKxOBIxbNclKO3B4h6/Vw1HUFqHlSPijTcWS1hnxc7J1VZrOalIw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797650;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=XUwqQ76NdAJUSx0nAgTzca4PsZDjn9b3TAqsJayi8ig=;
-	b=NdzM5guptt/AlnK/yvil2biIbzAiRjUGNg3ZBr57+ek3vP3DkmBFf8nFAfHgZ2R9sMF3
-	 cx97tlvBknm/lWgxRHtYMV2WvOYvgPEX+ggaLzZofpRmEE9Aav5/ODtNe1kOm2hDvXWFS
-	 0bnCSweIOg4jST21WVYHujSu3cDEbDwdne5h1uMqpM0Q/tecZ9PNdqug7JIjZ4pfI3SPm
-	 Ldcfnx3JT7UjTNcR/zuGb9mSpMNApTXysbXU13imMRCATx55W00cgBbCgqVTKIkljClWA
-	 2omLdtuWw/QkUSPL/lqLzWkAGDRe+LgxFYzH15iZaxArRkP5ul5KOUDpHvbE0wcwGOw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=v8D0HPG5;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
+	b=KD98cjPhSTevkrB/JCoD0czceL8uu8enb+r4niLOwJJwm8myBjVRjxqYGFJDmb/5ey1k
+	 P7oDyOMMx6ZRygs2NOqDGO93x/D1lf0LCwYjJyH78gi3DvNvXnt8EkdzullvT2GXspoRS
+	 7xTRshhzIcJf/XNxdYKsGs4H202ncscU/bPCVHK2q02GqajKq/jL+kQVQly2IK30NJj0w
+	 miLr3nY1PgXwkYaJ5yYwbifW4+UoYN4WAzo0wDjyBAFRV6LR2y7XgFSRuEYfWKZJt+Pv/
+	 OobdhUEHPMmcV6K8gdvJGsoUaH8CyLBAv2hh38TP2HI48uJJiMfuL5z04MUQnH4FSKg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uXpGyVUU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.169
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07571606A69F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:40:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07571606A69F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DBCC606A693
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:40:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DBCC606A693
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=v8D0HPG5
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cd61cef87f1so3911027a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:40:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uXpGyVUU
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94958650b09so781442885a.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:40:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795797647; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eHkgER5mrAPcsoFlZvqM/zNTx4pXixBuPyiK0iu6r2wGmdJHGtNvGO9Bf9fZE3+7TT
+         QrfSFZa2XBaiutWhJb44arTm6/Y0ITNeXQ0Hy6zHidaXOuoaNV04Pztb5Jz0COb/8Sv3
+         qUtRhaM+hwmm/TuJrP6kZZiSr0IrzbdgB++3wx37vUGAt4yuYoS4svRSnAZ3fL/SBduh
+         dX3FDIVT9si+bCeXI68B5/h7x7oz2ynYnV1xNvgfgyN1dekQAKCPWD1ehs7BBQySg4mr
+         paUy0XwrEnOSJF5AwcgYbtyXTN2V4P65cbaeINQg6G9cEhTQpPKQzLPb8rHMRb5/x6LF
+         5Tbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
+        fh=GhWcjlYapv98fkynYcUR/cFEQf46lKlIygfJ+llJaiM=;
+        b=IJelWFtO+3W3Zy9sRoujIqebM5VgEXaYOW2VMqG4FllyVj5h8M3W9DDdJzhSWH6YHk
+         +D5ox3Xbwo6O2+mkcDCLAfNmNFuRPEbMxgJ5iycYNdHJzl8cVXLxzj5WyiZD9GvAL1+C
+         3zAlQic9ZJevm+d/SBemZe+hpQ+V3HSdv1TIDCh3CtA+cD1dn9RhYHnnB5Hp7fiWSYpb
+         ZG9jDBzIdn/4/pDoP+cNN56IyLbAQL6MCZLFU6qEDN66iNb8wFzO+H6iziiRgM9jxIen
+         OJP3OghhpdwcCm39Uau7dtInLJQxxbOzZhg1HiRWAMUxOPOydHKxwgDt73bF2jF5nePL
+         96fw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795797634; x=1796402434; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XUwqQ76NdAJUSx0nAgTzca4PsZDjn9b3TAqsJayi8ig=;
-        b=v8D0HPG5SrMDtS67IZb1pkHKSk/WlmWSmt2FKBx36gm+wJx09D8v27+i3x3gQasJjs
-         pPT5bu/fX/ox451LY4xXYl/XhrM7lleWf0ZS2dF7Ul4nFXJq2VVHy+OA6FJz3ONYxANm
-         IH+OR2Bcmfbtg798BqCiM41ezaxq/eGjlnZuEf2kOQZFDIONKAuTTHePZ98l6j87afJB
-         y8FFSg6MAHYDqykdlRcZdsn7rrmSO2qpu4Ek8NkhBvh4T51cPlTK/oiuF8haWlBjs7iB
-         j0EcxYKSmJameVcx85RNRVqe6RWB7I/v7iBBNDixhsH6eboth6dqjJvP2zz2ca+hKlOw
-         o0Pg==
+        d=gmail.com; s=20260707; t=1795797647; x=1796402447; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
+        b=uXpGyVUU+HT9/mcL1vE5JHKOo8nLBz/gaz5KEYZt/mIPeLtFYLgQkFSNcnvX+KiV0d
+         EWzuPZ5DghT0s9dbZY+pdaalvx+Q/M2KO76wP5hUbSkXqpI4gxU8wF2py84L90CLac2b
+         a4uQcF+UTl9SH2PT8Zp/90Pk7IJEv+uErh1HgwPSJjnifwCDM7VhJrpWeZ1JGpsAQ9AP
+         Ar2PPJ/k9A2Dd7fcfZ8vy5Rq4FG+GGpN8kxw0WxtW17yklKlDaQnB4oMFT3zYnJx7GAa
+         O6/yRfvw1NIJa/NvHiTdF8tMNrLWE/7SpAGbBt+sMm/PL6BhjTwvzJr88SnAxUrK5+zR
+         hnYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795797634; x=1796402434;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=XUwqQ76NdAJUSx0nAgTzca4PsZDjn9b3TAqsJayi8ig=;
-        b=L9jhUy4yN21nlmqlTJaXYhmlGtq4TWAoctktztNTFh1QGofrW4kVSyrF0Ce8aaL9WV
-         ADU5iVlrlZWkX6NHBybsWG8maFWuLlObRpaiv0AGojJFWs8oKdOx5gMlPbVTqRO+jxo2
-         /Tk/z8v/48MsTtk4ndn0a7z3V/hFqGfAMOftPzXVm/UAA3C/dxo42bRCntTFKETugy1V
-         gzpxlHv6Lx0AgyfCIVh5ix4F3xqivX9doz/749LY3/mEDzAdx19i4QBS+6YPg6A+Grxr
-         yQCkfu7+NjjRlCDAempRmokZ4nsYkiXmZ9bdB/2/Vmy9FNlITSdT5CrL+bqeoA2nxfX1
-         iPww==
-X-Gm-Message-State: APuU4Z/QvsVCmmXFxMXYgshvIGgfdEXXAwSxSfBmOgWUQkQejFU4Kxsp
-	vVOcrqMAXhn5i0WEgbp+TfBvUfwCp5q0RhGaIh7cIbaYBL4bBqaL/w8RwGsWgVm8fl8=
-X-Gm-Gg: AZFdTZeAffrhHSGkpGgj9JrPPq1/Hlqh38NF/eS+PH8+yJ9YEMvpo3qTKCsRAMjl8Ld
-	uSTyhCTsyChipPq+6br3yc7XyqULmMzrmwGwKC0o18IailhJNQ2T02LaITHsQ5IsbTobLoRu/9a
-	avfhrkrugldhJ+ONn3nTIICrnqFHMvzwenb6CvOYQbpBmvMY87jPIoD3fFPlcvcwgCefoPBvt1R
-	CWGM0pZ3d2r58ne27PhfIQWtl17Ju3vuIPqCKmCjAa26lbk8dF4qE/rxXj/1CKWSQadrtmCtHAK
-	wsOMJGfhrRMBHVVrphd+0NEhoxXSMVw4KKrfNYeWKBCnQfgeZKnx0kL4ydM69k8Z6LglibNuJty
-	T73SYM1rEaIotlpm6kFm+LUynds7i5fdzLtOFQgaX0bQoMSVOLSmB/hz0xGlR1Cs7gaHghcbtGL
-	Grb3mzrtysyy8s+Ff8lQ+O/Yhr3hz9dy1rui8rJo81rCU6xYDiMSQqtzBsQHZRrZ+BPVzcKPIZI
-	Zqo64QRy5y37aUK2zk7NCUVWHlKItLyxvC9UZ9i0EN8zBxtylSJE9Fg/cfOU2DnQmGlQmclgbYY
-	nWcmNVoNjNcg+N5xRRtdSI98AGSmcQ7v
-X-Received: by 2002:a17:90b:224e:b0:3b4:22d:e066 with SMTP id 98e67ed59e1d1-3b41c7d6061mr24239538a91.5.1795797634227;
-        Fri, 27 Nov 2026 08:40:34 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:6d00:8302:1937:74ad])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm38838830a91.4.2026.11.27.08.40.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 08:40:33 -0800 (PST)
-Date: Fri, 27 Nov 2026 10:40:30 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Lee Jones <lee@kernel.org>
-Cc: linux-kernel@vger.kernel.org, "Rob Herring (Arm)" <robh@kernel.org>,
-	Sjur =?iso-8859-1?Q?Br=E6ndeland?= <sjur.brandeland@stericsson.com>,
-	Alex Elder <elder@kernel.org>, Andrew Davis <afd@ti.com>,
-	Beleswar Padhi <b-padhi@ti.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Brian Swetland <swetland@google.com>,
-	Clement Leger <cleger@kalray.eu>,
-	Daniel Baluta <daniel.baluta@nxp.com>, De Leon <x0095078@ti.com>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Guzman Lugo <fernando.lugo@ti.com>,
-	Hari Kanigeri <h-kanigeri2@ti.com>, Hari Nagalla <hnagalla@ti.com>,
-	HyeongJun An <sammiee5311@gmail.com>, imx@lists.linux.dev,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	Loic Pallardy <loic.pallardy@st.com>, Mark Grosen <mgrosen@ti.com>,
-	Ohad Ben-Cohen <ohad@wizery.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rishabh Bhatnagar <rishabhb@codeaurora.org>,
-	Robert Tivy <rtivy@ti.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Siddharth Gupta <sidgup@codeaurora.org>, Suman Anna <s-anna@ti.com>,
-	Tero Kristo <t-kristo@ti.com>, Uday Khare <udaykhare77@gmail.com>
-Subject: Re: [PATCH 00/10] remoteproc: Assorted bug fixes across remoteproc
- core and drivers
-Message-ID: <awmyfo4HYoQ2dqKT@p14s>
-References: <20261123172140.3547896-1-lee@kernel.org>
+        d=1e100.net; s=20260707; t=1795797647; x=1796402447;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
+        b=DiRKGwURq0Vqc6Nr8AaHx/q0vDiJOAYFUq8HVOBDq11f3Fgo42XnTeXVyrmjxHnn5g
+         LFrnxH02DOloWY5t5XPZ23QC6pPGQ8aD7213fqdOcF0ZeHSRc3LV/j4SOSgP2YoIZkgc
+         yeo4+cykyiNqd3O5TmbpxozCUkKsmaXVYeipyQDayDGztI6SkRqi0qypIAZ+cQ5yR1zB
+         f8PgxH0MAK4AGaD4tIaxemYtkONml37jaicJ1HIHUoy5mJC1xrMDbjZQOEjoQXrQ9P5v
+         5Dk9/4Uqbqa1GmJIlRXEHvRmVa/b1DcL3DDG8XOQyMpSHbzGJ6O9Mir0enutxdI8Zdfv
+         Cw8Q==
+X-Forwarded-Encrypted: i=1; AL+hErFmZhLpihpzB0oPisRSMVgdroCIWd5FxB/q1yCyIGwqnEHC7QgLIX5wkY5yPJ9Eh8n9mdUuzWZZCF3W6po=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88sls7srPIpN8K+gSevLmFsdVaMbHVP+OUveXprXgMqo0hp3R5
+	Rie1h7sl4w1iAWwe07nTrL7bz8WHHnBTz7OidZdKt70Z2ggiGJo86yL7vi1Cq+CJ+gjPVqSSvVv
+	d7+M2qtAaLyZHVrl6xCB9TuxX2FUB6i8=
+X-Gm-Gg: AZFdTZenQT1tKAlB1o87JrxEkXtZ7q/buGq5m38TIxzTsPQvennG0Is59jJnTw/lJa6
+	gABEZvo1wgC5r5kA0C+IB4kvnBNUoN47IyqEm4bFTyIPB+MTYgItG4l4TP4FRopwLwCrpzFErPT
+	33A7VhUB+IDNm0UEORf3T6yLy2GnX7W0KlFP/EBSD/f/3xCuK+zgm4XcQC2K4ldJ83ADfTk3eJs
+	WHANnztoTOLsbU8H4WzW6qPIrhBTTxlQm++p5xYnjigwgzDCicbvtA7HNjqxmpDHIdSghvbwzwV
+	161pQ7zQYHVE7cAT9cIXlYXa9Mrpk21uCDt7uEd+1WZh8UibnDnlr6xZhW7CT8GxM6kHB+36pUS
+	w5hOcM2zQvld29ENg+reHTTVMMfVTPzUDsArhr5ZjcnAsb52zYt6lLBkdfI4tkGFN31zeZALgKR
+	r73n/5okb3z7Iq
+X-Received: by 2002:a05:620a:4556:b0:93e:c691:a1c with SMTP id
+ af79cd13be357-949bab3d32emr4186387785a.76.1795797647019; Fri, 27 Nov 2026
+ 08:40:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,84 +105,218 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261123172140.3547896-1-lee@kernel.org>
+References: <20261125123146.379057-1-hikmahgumelar@gmail.com>
+ <20261125123146.379057-8-hikmahgumelar@gmail.com> <eae86bfe27d119c6170b25de5a917df3@mainlining.org>
+In-Reply-To: <eae86bfe27d119c6170b25de5a917df3@mainlining.org>
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+Date: Fri, 27 Nov 2026 23:40:34 +0700
+X-Gm-Features: Aa3M54psm_9QUNpDWsKD_Jig5hkKXFvslF5p_cQzzBmVdpcTVqPaadJIGqde-h0
+Message-ID: <CADA=zOMpnGjPuH63CdPKNMyVVmO7Rr7fB+EP=3MS4825kkgdtA@mail.gmail.com>
+Subject: Re: [PATCH v4 7/7] arm64: dts: qcom: msm8953-xiaomi-tissot: enable
+ front and rear cameras
+To: =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	u.kleine-koenig@baylibre.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+Hi Barnab=C3=A1s,
 
-On Mon, Nov 23, 2026 at 05:20:44PM +0000, Lee Jones wrote:
-> These issues were reported by Sashiko.
-> 
-> None of these changes have been tested on physical hardware.
-> 
-> Cc: "Rob Herring (Arm)" <robh@kernel.org>
-> Cc: "Sjur Brændeland" <sjur.brandeland@stericsson.com>
-> Cc: Alex Elder <elder@kernel.org>
-> Cc: Andrew Davis <afd@ti.com>
-> Cc: Beleswar Padhi <b-padhi@ti.com>
-> Cc: Bjorn Andersson <andersson@kernel.org>
-> Cc: Brian Swetland <swetland@google.com>
-> Cc: Clement Leger <cleger@kalray.eu>
-> Cc: Daniel Baluta <daniel.baluta@nxp.com>
-> Cc: De Leon <x0095078@ti.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Frank Li <Frank.Li@nxp.com>
-> Cc: Guzman Lugo <fernando.lugo@ti.com>
-> Cc: Hari Kanigeri <h-kanigeri2@ti.com>
-> Cc: Hari Nagalla <hnagalla@ti.com>
-> Cc: HyeongJun An <sammiee5311@gmail.com>
-> Cc: imx@lists.linux.dev
-> Cc: Iuliana Prodan <iuliana.prodan@nxp.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-arm-msm@vger.kernel.org
-> Cc: linux-remoteproc@vger.kernel.org
-> Cc: Loic Pallardy <loic.pallardy@st.com>
-> Cc: Mark Grosen <mgrosen@ti.com>
-> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
-> Cc: Ohad Ben-Cohen <ohad@wizery.com>
-> Cc: Oleksij Rempel <o.rempel@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rishabh Bhatnagar <rishabhb@codeaurora.org>
-> Cc: Robert Tivy <rtivy@ti.com>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Shengjiu Wang <shengjiu.wang@nxp.com>
-> Cc: Siddharth Gupta <sidgup@codeaurora.org>
-> Cc: Suman Anna <s-anna@ti.com>
-> Cc: Tero Kristo <t-kristo@ti.com>
-> Cc: Uday Khare <udaykhare77@gmail.com>
-> 
-> Lee Jones (10):
->   remoteproc: core: Fix integer overflow in rproc_check_carveout_da()
->   remoteproc: k3: Fix integer overflow in k3_rproc_da_to_va()
->   remoteproc: omap: Fix integer overflow in omap_rproc_da_to_va()
->   remoteproc: elf_loader: Fix overflow in rproc_elf_load_segments()
->   remoteproc: imx_rproc: Avoid stale mailbox pointers on request failure
->   remoteproc: imx_rproc: Register SCU cleanup after resource acquisition
->   remoteproc: qcom: Clear glink->node on allocation failure
->   remoteproc: qcom: Skip unregistering uninitialised SSR subdevice
->   remoteproc: imx_dsp_rproc: Fix pointer stride in
->     imx_dsp_rproc_memset()
->   remoteproc: imx_dsp_rproc: Fix off-by-one bitmask for trailing bytes
+Thanks for the review and the notes on msm8953-xiaomi-tissot.dts.
+
+- I will add the blank line before vreg_cam_avdd.
+- Noted on OV5675 variants; for now this series focuses on S5K5E8 and
+  OV12A10, and OV5675 can be a separate follow-up later.
+- I had already moved vdd_l23-supply into the regulators node in newer
+  revisions, and I will double-check its placement and parent supply
+  against the board DTS.
+
+Also, following review feedback, I am splitting this work into separate
+series for s5k5e8, ov12a10, and the MSM8953/tissot changes.
+
+Best regards,
+Hikmah Gumelar
+
+Pada Jum, 27 Nov 2026 pukul 23.34 Barnab=C3=A1s Cz=C3=A9m=C3=A1n
+<barnabas.czeman@mainlining.org> menulis:
 >
+> On 2026-11-25 13:31, Hikmah Gumelar wrote:
+> > Enable CAMSS, CCI, CSIPHY0/CSIPHY2 ports, and the OmniVision OV12A10
+> >
+> > rear and Samsung S5K5E8 front image sensors on the Xiaomi Mi A1.
+> >
+> > Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+> > ---
+> >  .../boot/dts/qcom/msm8953-xiaomi-tissot.dts   | 124 ++++++++++++++++++
+> >  1 file changed, 124 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
+> > b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
+> > index fccb9c4360ca..87db6b18d191 100644
+> > --- a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
+> > +++ b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
+> > @@ -74,6 +74,108 @@ vph_pwr: vph-pwr-regulator {
+> >               regulator-always-on;
+> >               regulator-boot-on;
+> >       };
+> nitpick: add an empty line here
+> > +     vreg_cam_avdd: regulator-cam-avdd {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vreg_cam_avdd";
+> > +             regulator-min-microvolt =3D <2800000>;
+> > +             regulator-max-microvolt =3D <2800000>;
+> > +             gpio =3D <&tlmm 62 GPIO_ACTIVE_HIGH>;
+> > +             enable-active-high;
+> > +             pinctrl-0 =3D <&cam_vreg_avdd_default>;
+> > +             pinctrl-names =3D "default";
+> > +     };
+> > +};
+> > +
+> > +&camss {
+> > +     vdda-supply =3D <&pm8953_s3>;
+> > +     status =3D "okay";
+> > +
+> > +     ports {
+> > +             port@0 {
+> > +                     reg =3D <0>;
+> > +
+> > +                     csiphy0_ep: endpoint {
+> > +                             clock-lanes =3D <7>;
+> > +                             data-lanes =3D <0 1 2 3>;
+> > +                             remote-endpoint =3D <&rear_cam_ep>;
+> > +                     };
+> > +             };
+> > +
+> > +             port@2 {
+> > +                     reg =3D <2>;
+> > +
+> > +                     csiphy2_ep: endpoint {
+> > +                             clock-lanes =3D <7>;
+> > +                             data-lanes =3D <0 1>;
+> > +                             remote-endpoint =3D <&front_cam_ep>;
+> > +                     };
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +&cci {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&cci_i2c0 {
+> > +     camera@10 {
+> > +             compatible =3D "ovti,ov12a10";
+> > +             reg =3D <0x10>;
+> > +
+> > +             clocks =3D <&gcc GCC_CAMSS_MCLK0_CLK>;
+> > +             assigned-clocks =3D <&gcc GCC_CAMSS_MCLK0_CLK>;
+> > +             assigned-clock-rates =3D <24000000>;
+> > +             pinctrl-0 =3D <&cam_sensor_rear_default &camss_mclk0_defa=
+ult>;
+> > +             pinctrl-names =3D "default";
+> > +
+> > +             reset-gpios =3D <&tlmm 33 GPIO_ACTIVE_LOW>;
+> > +             powerdown-gpios =3D <&tlmm 39 GPIO_ACTIVE_LOW>;
+> > +
+> > +             avdd-supply =3D <&vreg_cam_avdd>;
+> > +             dvdd-supply =3D <&pm8953_l2>;
+> > +             dovdd-supply =3D <&pm8953_l6>;
+> > +
+> > +             rotation =3D <270>;
+> > +             orientation =3D <1>;
+> > +
+> > +             port {
+> > +                     rear_cam_ep: endpoint {
+> > +                             data-lanes =3D <1 2 3 4>;
+> > +                             link-frequencies =3D /bits/ 64 <216000000=
+>;
+> > +                             remote-endpoint =3D <&csiphy0_ep>;
+> > +                     };
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +&cci_i2c1 {
+> > +     camera@2d {
+> > +             compatible =3D "samsung,s5k5e8";
+> xiaomi-tissot can come with ov5675 also.
+> > +             reg =3D <0x2d>;
+> > +
+> > +             clocks =3D <&gcc GCC_CAMSS_MCLK1_CLK>;
+> > +             assigned-clocks =3D <&gcc GCC_CAMSS_MCLK1_CLK>;
+> > +             assigned-clock-rates =3D <24000000>;
+> > +             pinctrl-0 =3D <&cam_sensor_front_default &camss_mclk1_def=
+ault>;
+> > +             pinctrl-names =3D "default";
+> > +
+> > +             reset-gpios =3D <&tlmm 129 GPIO_ACTIVE_LOW>;
+> > +
+> > +             avdd-supply =3D <&pm8953_l22>;
+> > +             dvdd-supply =3D <&pm8953_l23>;
+> > +             dovdd-supply =3D <&pm8953_l6>;
+> > +
+> > +             rotation =3D <90>;
+> > +             orientation =3D <0>;
+> > +
+> > +             port {
+> > +                     front_cam_ep: endpoint {
+> > +                             data-lanes =3D <1 2>;
+> > +                             link-frequencies =3D /bits/ 64 <418000000=
+>;
+> > +                             remote-endpoint =3D <&csiphy2_ep>;
+> > +                     };
+> > +             };
+> > +     };
+> >  };
+> >
+> >  &hsusb_phy {
+> > @@ -154,6 +256,7 @@ &pmi8950_wled {
+> >  };
+> >
+> >  &rpm_requests {
+> > +     vdd_l23-supply =3D <&pm8953_s3>;
+> It should be placed under vdd_l9_l10_l17_l18_l22-supply =3D <&vph_pwr>;
+> >       regulators {
+> >               compatible =3D "qcom,rpm-pm8953-regulators";
+> >
+> > @@ -302,6 +405,27 @@ gpio_hall_sensor_default: gpio-hall-sensor-state {
+> >               bias-pull-up;
+> >       };
+> >
+> > +     cam_sensor_front_default: cam-sensor-front-default-state {
+> > +             pins =3D "gpio129";
+> > +             function =3D "gpio";
+> > +             drive-strength =3D <2>;
+> > +             bias-disable;
+> > +     };
+> > +
+> > +     cam_sensor_rear_default: cam-sensor-rear-default-state {
+> > +             pins =3D "gpio33", "gpio39";
+> > +             function =3D "gpio";
+> > +             drive-strength =3D <2>;
+> > +             bias-disable;
+> > +     };
+> > +
+> > +     cam_vreg_avdd_default: cam-vreg-avdd-default-state {
+> > +             pins =3D "gpio62";
+> > +             function =3D "gpio";
+> > +             drive-strength =3D <2>;
+> > +             bias-disable;
+> > +     };
+> > +
+> >       ts_int_default: ts-int-default-state {
+> >               pins =3D "gpio65";
+> >               function =3D "gpio";
 
-Other than patches 7 and 8 that will be handled by Bjorn, I have applied this
-set.
 
-Thanks,
-Mathieu
- 
->  drivers/remoteproc/imx_dsp_rproc.c         | 10 ++++---
->  drivers/remoteproc/imx_rproc.c             | 33 ++++++++++++++--------
->  drivers/remoteproc/omap_remoteproc.c       | 11 +++++---
->  drivers/remoteproc/qcom_common.c           |  5 ++++
->  drivers/remoteproc/remoteproc_core.c       |  7 ++---
->  drivers/remoteproc/remoteproc_elf_loader.c |  6 ++--
->  drivers/remoteproc/ti_k3_common.c          | 27 +++++++++++-------
->  7 files changed, 61 insertions(+), 38 deletions(-)
-> 
-> -- 
-> 2.56.1.750.gf70dc682cf-goog
-> 
+
+--=20
+Best regards,
+Hikmah Gumelar
