@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.120
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796095;
-	b=1GUJUh23nEtTq4La140gQ+KgXh4B2IAZoECVEzYNBKCMORdFA6SY3akGmaSBcKT4RFMn
-	 q7Oeyas353LDPdu9c9MLUmiW1BvCP8NyE7snivmsbtGhREH1RDl5OL3rXlUvNXiK5gQDT
-	 YsgkinQgHtJ2AtlvAXDeZW3vrISZHdg+26buzKyiV+c8MtpOLr+7jVHJ+YyyTmjcQB7Os
-	 7gKZqe0dO7NbptM6JP2MiocDpm8mPkW0WoZ/weE5yEqG1EUEk94HxAzQ+ym4YeMDvvhXZ
-	 3o/ioD599FTODGzXI6dP8W7QJh+GlSQ+ugpz3nkYA+FtUhT0/I4qE7GArDbYU+FjycA==
+	t=1795796243;
+	b=0Ukg+XoQqPfdKNpubYdZvX9yBvP56DD8n52SDYC20svv9upOzb1pvsKnEGhcKp1o8sjM
+	 O0m8OM/DhU0y6qTuuN41WFLaVK3+NICyNVnsLQAyVt9mIbHcOxoQxXYmY/OlSp79QxI9/
+	 qZ+WI28ewfaxLCXm4FltcQrZPxiFuSaS3nHUlC4i1NwzVpMZ72g6ZB9Uuq0qeTvirJnmC
+	 qUEn5k4j5JtIJ5GYoruRq+uhQ1RP/8XZx5htjO99F0BOXEb3JF/cWwB/KA5b4KW8T+tkH
+	 VHCwxl/4H7EQYljIvnTmEGhfqtvLFgbSY5sn8Snu/+nmz7KyP+C4PwhUz09v+UbrKOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796095;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796243;
 	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
 	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=FEdI9V/yoQOW10FCJ74NuO1V0ayU3vrNQof9cU67IpU=;
-	b=SzMT7YHtY3HWsIDbb4SjDUyEOsK2NQB/vCJfPL2ciR40Lh47yNufFnoki0ohfiMmYeVl
-	 TjcoC6MSvunFMfLzxzMCze8EGY1emn7gqcVlHxmTckrQRsCBsIv8h3lSZfFGNsEl/NLJ6
-	 zmnOwWJ0PSOQ6bpvqcl5y3z7NVpKE7PtCifrBs1ZtMzX2qp6QGV0Mu1Q9UqH1cvbsMEkI
-	 m+Ed1XBLT2K/QCHsw/4qMU1FReSpwYh9lGMJWktvwI4JV+vqQqLsGIlZvzvuzxIBievqt
-	 PDVT7o1fWYSIBnuoWkbt+wFkBAUH4URvlGZxprw4Z5ZvZivHCidVT14TEp2RonUzyRQ==
+	bh=/dzVLSTzAtZpIlTRksLK3iB4FqDeUyOeTiMZVSsykQw=;
+	b=S/Qfe4/BvGMEEbiJao3Q7A3ZVYg9ld3CIlCGhVYDAzYkqKtwgVwIj++4717v/tMNwIVb
+	 7cHo8Y8Pj7AiSdIPKZMq75upuv6zJMhWRtmBLzVl48L7XmdUPGLG2pNZ0ARPYuzUMSsde
+	 FYcHthKQkU1i2nWyxd+TmqIB0rrqVj4JuO7Z/pyXbtCDi5ZRdotEIi9WIoMbRvWUwm3rZ
+	 9PI1+tzlKBMkx3lWSbra6IyO6is58tDEdbRsrmbUyuYOaYlCefndH3H5x4tp+qPlhPzNh
+	 e07BKu4ShNTc2auo9u601CGeoKt0OB5e0sEd//0sx3FSqOHAn0/JQdpucdH+uYNS/gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=proton.me;
 	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=B8F4Skwn;
-	arc=none smtp.remote-ip=79.135.106.120
-Received: from mail-106120.protonmail.ch (mail-106120.protonmail.ch [79.135.106.120])
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=bw3+HFFy;
+	arc=none smtp.remote-ip=185.70.43.22
+Received: from mail-4322.protonmail.ch (mail-4322.protonmail.ch [185.70.43.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3551A606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:14:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3551A606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C8AA606A31E;
+	Fri, 27 Nov 2026 16:17:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C8AA606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=B8F4Skwn
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=bw3+HFFy
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795796081; x=1796055281;
-	bh=FEdI9V/yoQOW10FCJ74NuO1V0ayU3vrNQof9cU67IpU=;
+	s=protonmail2; t=1795796236; x=1796055436;
+	bh=/dzVLSTzAtZpIlTRksLK3iB4FqDeUyOeTiMZVSsykQw=;
 	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
 	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
 	 Message-ID:BIMI-Selector;
-	b=B8F4SkwngNpJBbClQHWmc+rF3O97uOB++PzO6parsGiba6RaLURy87PfdkvMFX+b8
-	 aSLZTIT7jrK/nPSUSxMTkP7IFP7e++J2HGRgDgrO3X6n8K/39fMdHoSVOoG/OUkanA
-	 hFWaOFpA0h4g/qP9rSaq7B3A76qO8DFXx6/6jZuFX87hEsAJc/mie2rsHmMj3GYYah
-	 saH/50e0H97kAtzjqEp+b1+Ak0u6AvnvQQh0VVFbDxs2Xqg2mfN1lUWEQwQmXfTfnD
-	 qwobchlyJNUILAzebZw4zYJyvAFHvXiRTH8iGW5oQ6xUUgLqXaT7/aM98FGxiryw+F
-	 CTR3Piee2teHQ==
-Date: Fri, 27 Nov 2026 16:14:30 +0000
-To: Enzo Adriano <enzo.adriano.code@gmail.com>
+	b=bw3+HFFyYQSibJAWqRVnLPlholNoMj9tEn3t2soACFMU2eyOHoBOwGWI/J9jRj7w/
+	 SuWRdVrnbfegHXOIj2NPi8YSpMwdGzNpvSfkqKCpTu7a9NHfXQG+c6TY3AaFA/PZek
+	 zO9FEn8O7MR1Gy82G3LDgzvtXoKO8YO5OnbSTWemOC1yC+WDCtpqRshHZtByTHn/dN
+	 i+s7V+6z3sxAYmkdsO1bTo2PiQH+Yyj+vCKggv0MudNRzvPLTj0w8VFy/SsaUspiqg
+	 WuV3tP6d4UFWNLjV586UWPJf2Itj4o//zCrPSfajSK9pARyKKJNU1FaU9Hejit0QfW
+	 FkJbT6dR+YT4w==
+Date: Fri, 27 Nov 2026 16:17:11 +0000
+To: Andre Przywara <andre.przywara@arm.com>
 From: Norman Herms <dockseed@proton.me>
-Cc: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>, Cristian Filipescu <filipescu.cristian@gmail.com>
+Cc: Enzo Adriano <enzo.adriano.code@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>, Cristian Filipescu <filipescu.cristian@gmail.com>
 Subject: Re: [PATCH v6 3/5] arm64: dts: allwinner: add Radxa Cubie A7S board
-Message-ID: <z51JFKDjnRGxR5v8f-2sigY7Ih39S9_hQJF-C7-0jwRzGvAZcyniqmAsBFOyj_Vci0JDoXGMbuWcop6uSGRMUon5bqjJFMIjMk9jN8TbaLU=@proton.me>
-In-Reply-To: <20261126-a733-cubie-a7s-dt-v6-3@gmail.com>
-References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-3@gmail.com>
+Message-ID: <IUp5Ow8SUNdgtour7we7BN_rry0fuoBNw-ucfXERukfbwTWvoWo5QjYLXAzxftTjGnsuhCCnwvxZ5fBpL6pFPL62oTr2hZddgE6XmrQ76o0=@proton.me>
+In-Reply-To: <0a7f4a31-81ac-44ee-8cd2-7b5526af7442@arm.com>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-3@gmail.com> <0a7f4a31-81ac-44ee-8cd2-7b5526af7442@arm.com>
 Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: 30faa459dffd9b54a9225b7bf2b8ef2cec020c68
+X-Pm-Message-ID: 2bae6d665eabca9caaa9f917c67d0b69de98846a
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,53 +67,24 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-Hi Enzo,
+Hi Andre,
 
-Tested v6 patches 1-3 on a Radxa Cubie A7S. Same kernel as for v5
-(sunxi/for-next 2ba07dfcd45b plus the dependencies; pinctrl at v3,
-whose code is the same as v4), same own firmware and the same 2 MiB
-bad-DRAM reservation. dtbs_check with W=3D1 and W=3D2 is clean.
+On the ELDO1 question: the AXP318W datasheet (V1.0, Chinese, table
+6-3) gives ELDO1 a default of 0.9 V and leaves it off at power-up, as it
+does DCDC6 and DCDC7. So 1.075 V is not the PMIC default.
 
-Results are the same as with v5:
+On the A7S we boot our own chain (U-Boot SPL calling the vendor DRAM
+init, TF-A, U-Boot), and none of the open parts writes ELDO1. That
+leaves the vendor DRAM init, which switches it on. Its value follows
+VDD2H on the 25 mV grid: with DCDC7 at 1080 mV we read ELDO1 at
+1075 mV, and with Radxa's own boot0 at 1120 mV we read 1100 mV.
 
-- PMIC: all bounded rails are within their bounds, and the registers
-  read the same as before (DCDC7 1080 mV, DCDC9 1240 mV, ELDO1
-  1075 mV). The new vcc5v0-sys -> ps-output -> ldo2v5-input chain
-  probes, and eldo-input now reports its fixed 1.24 V.
-- PMU: counting and overflow interrupts work on all 8 CPUs.
-- MMC0: High Speed, 50 MHz, 3.3 V. Repeated reads and a 64 MiB
-  write/readback matched, no mmc errors.
-- EEPROM reads the same contents as before. Warm reboot and power-off
-  (0 W at the plug) work. No warnings in dmesg.
-
-On the bot's IO bias concern: with the pinctrl dependency applied,
-GPIO_POW_MOD_SEL reads 0x05555555 (all auto) and SGPIO_POW_MOD_SEL
-0x00055555, PF stays on 3.3 V, and GPIO_POW_VAL reads the same as
-U-Boot leaves it (PC/PE/PK 1.8 V, the other banks 3.3 V).
-
-There is still no watchdog node, so I stopped our U-Boot's 16 s
-watchdog at 0x7021000 by hand again.
-
-The cover lists CPU/cache topology as untested: all eight CPUs are in
-one cluster, as described. Patch 2/5 mentions the shared L3, but the
-DTSI has no cache nodes, so the kernel falls back to reporting L2 as
-shared by all eight CPUs as well (index2 shared_cpu_list 0-7).
-
-The EEPROM probes as writable. It holds Radxa's factory data, and
-our own DT reads the MAC address from it at 0x9e, so read-only might be
-worth considering.
-
-Card hotplug, listed as untested in the cover, works with Vinicius'
-"do not switch the mux to read IRQ lines" fix (a256b8c8083e) on top:
-pulling the card gives "card removed" and reinserting it gives "new
-high speed SDXC card". Without that fix the PF6 level follows the card,
-but the card detect interrupt never fires, so the A7S needs it for
-hotplug.
-
-Not tested: the power key, as the AXP318W driver has no power key
-support yet. Otherwise the same gaps as for v5.
-
-Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+We have also tried VDD2L at 0.9 V on the A7S. Lowering ELDO1 from
+Linux changes the voltage after the DRAM training ran at 1.075 V,
+which can lead to errors. So we keep the value the DRAM init leaves,
+even though it does not match the schematic, as the v6 node without
+voltage bounds does. The vendor DRAM init sets all the DRAM rails
+itself, so a clean 0.9 V would have to come from there.
 
 Built and measured by AI agents (Claude) on my board.
 
