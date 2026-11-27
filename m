@@ -1,67 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762237;
-	b=x/I/TJqfGqAID1bTko7FXYuhn6rbuaMI/qawxWeni8oILtI2maG4EmfFB8AQXMZaeybo
-	 wfpD+kGc4gl7qq62+1xKTBUdBw/PPyo0STXl3bj+Bpi0Q5/uUdtnUoZDQEzU8v2zwucIe
-	 5P41VnjeZGqzW1xIeuYxE2Mdf0FKBzNFnvgSY9gen1e4F9DnaVyZxunuXE/Y8SSojsGwQ
-	 myhn8112S67guirlSGGifKzwHYBoU6QDIupMWp7U3vQhwLu1YjYyQvR9NfIV2moHH8EgT
-	 iCXvbPDI+/DaDYJ9rdA9wdvAKXCJYXOC8i2cAv1qpuCZlfWJWffXSdyiCUBrs/G9Hrw==
+	t=1795762290;
+	b=P4YETK66iZOfSzRXm1XyhFsP/zd4nNfu0ocVP1K5nQXMu22IYOxvhNbGzQAQuUaM9qkK
+	 MxfAd1gLaiH9lbsFEN2OfhTTxhOkY8nxZjgjpEH0Uuj3uRgeWRRx+tiPz9CDGliMqQGAk
+	 zh0NbrLc0MthWonFN/k0nEJeeTdMsWN0i3CpkLktLA8sKBgJZcpXKoF1p7LiEGr0OgusS
+	 QF3101go2o4qu0zaMwLHPOJddyCEuHa5XjhxK5Ac6aCl4NvqkKklkc+83KnmQkjpSHsDT
+	 DEdlKUGQie054foOn+LiZNnkrpBU3e+LBmu87zJCQj+NHbvhUJ3h0Yh8KG2pS2qRMCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762237;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy;
-	bh=KZFupaYaw2l2hiD+l4s1N1CQ+SbjqIzWQZ47VhByxFY=;
-	b=2RA8Suv26tQICuIB/9MhqIRXXYoDG/stKgU428NhKZD0KxumfJk1B9T2fNW0UJ6x0YWM
-	 +D0OzMCCkh3fgC0Tr7+J22ZOSXMi33xXgktzgy66FdJkoNBz6Onn/nXu/Ybdyc5q8WD9e
-	 t4dexwiQ+C0pODt7iHX9o09zMlcAZJS9r4zk9jdDR8UERro7TOsEAWPHgh4d+L8G0Hoeb
-	 LOqgpS0Gc5L3BtFGd7iGAfGRNBe+Gd9Bc8hHhKJzWrR1ntkkxTMkR9AeihcF9WieQcZsL
-	 PlMaay6o3xvg0g25CU+rXo/H3oi8wK1e9kCqdnMqBuOwWWfcyjvZcngMNbkR5hD3tIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762290;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=cvnXua/nHcgLtSt6EsGSNHAA3wqFqcuIHEJ28ikFwvc=;
+	b=2tA3UP9MAQeZl0TL30RB2rt1woW2Znet4S4OJf93kt53Z/ZWZG8SZV21EsZfUJOuqaOm
+	 JaI3fzH2bA9w3PkVt3MRFySo39zhbQvWtAB55mpsBQ9eMIswTeUem8hpnkgN+2obFMuhm
+	 J1OMeJ+Z2gNCB1S8vjX19rceWTmBKC1uGzwaLL54G51h4x9eZS/jkilNtToo9dNimpCpx
+	 OPhLB8tEOogomiH7Y4fUt5m3pbiBFrY0KCAgmiKA6Xrb1myQxN4lswBAzPXBre8LtJOtr
+	 6JPMbt2+dEF4P3AyBMM4pG+Pfs2l8Hy8viXHOhVjMeCEq2n3tmQwMeOAc3HR/FuG40w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=jbsJnURw;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=hvAGFlmQ;
+	arc=none smtp.remote-ip=54.204.34.129
+Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77943606A31C;
-	Fri, 27 Nov 2026 06:50:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77943606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D6BE606A31E;
+	Fri, 27 Nov 2026 06:51:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D6BE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=jbsJnURw
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KZFupaYaw2l2hiD+l4s1N1CQ+SbjqIzWQZ47VhByxFY=;
-	b=jbsJnURw+andRErr8ZkNglhEAFuDQ7RrG3MdggxEX4WGqLQoJ2+bGYEN5PI/Y8QfB3xEjNYSg
-	IpgdhRfkjncQ7jEKhEC2n+LzYODCLjfeYtLnZASLkjn5oFjp0RGVmWTjUPcZlHW8n/CLVoPtI11
-	jDWHVdS8DKjbg+tQgAQ8sPc=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jbPDd1skxz1prRJ;
-	Fri, 27 Nov 2026 14:50:09 +0800 (CST)
-Received: from whupemk100010.china.huawei.com (unknown [7.152.184.41])
-	by mail.maildlp.com (Postfix) with ESMTPS id 65DFD4058C;
-	Fri, 27 Nov 2026 14:50:27 +0800 (CST)
-Received: from octopus.huawei.com (10.67.174.191) by
- whupemk100010.china.huawei.com (7.152.184.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 14:50:26 +0800
-From: Cai Xinchen <caixinchen1@huawei.com>
-To: <zohar@linux.ibm.com>, <roberto.sassu@huawei.com>,
-	<dmitry.kasatkin@gmail.com>, <eric.snowberg@oracle.com>,
-	<paul@paul-moore.com>, <jmorris@namei.org>, <serge@hallyn.com>,
-	<amir73il@gmail.com>, <caixinchen1@huawei.com>
-CC: <linux-integrity@vger.kernel.org>,
-	<linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>, <lujialin4@huawei.com>
-Subject: [PATCH RESEND v2] ima: initialize the real inode attributes of the iint cache
-Date: Fri, 27 Nov 2026 15:21:29 +0800
-Message-ID: <20261127072129.2162668-1-caixinchen1@huawei.com>
-X-Mailer: git-send-email 2.18.0.huawei.25
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=hvAGFlmQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795762237;
+	bh=cvnXua/nHcgLtSt6EsGSNHAA3wqFqcuIHEJ28ikFwvc=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=hvAGFlmQyR4qWebKCdX5v85Oa8VBibWkYhFH2ehoMJk97btFeWJYvnObHEoyR12ou
+	 Y6j0GlV4cqC9hgOCJ/wxZoeka+OuwfoGS6yNiobt2gZmxC7W6TURzbdmw/+zydNLS9
+	 x8uS5zEEKLdui11AvoOUiimVC0ciKWe+cCPOe0Kc=
+X-QQ-mid: zesmtpgz7t1795762172t89614fbe
+X-QQ-Originating-IP: Yv7xVc8yer1gpMf4TXe0Q8fpjF4+3IvlLh59L2vth1g=
+Received: from localhost.localdomain ( [1.85.7.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 14:49:29 +0800 (CST)
+X-QQ-SSF: 0002000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 10414204801948035402
+EX-QQ-RecipientCnt: 15
+From: jiazhenyuan <jiazhenyuan@uniontech.com>
+To: tytso@mit.edu,
+	adilger.kernel@dilger.ca,
+	libaokun@linux.alibaba.com,
+	jack@suse.cz,
+	ojaswin@linux.ibm.com,
+	ritesh.list@gmail.com,
+	yi.zhang@huawei.com,
+	linux-ext4@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	gouhao@uniontech.com,
+	niecheng1@uniontech.com,
+	guanwentao@uniontech.com,
+	caina@uniontech.com,
+	zhaoshuang@uniontech.com,
+	wangqing@uniontech.com
+Subject: [PATCH 1/2] ext4: fix buffer head leak in ext4_ext_precache()
+Date: Fri, 27 Nov 2026 14:49:25 +0800
+Message-Id: <20261127064926.135945-1-jiazhenyuan@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,51 +79,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- whupemk100010.china.huawei.com (7.152.184.41)
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz5b-0
+X-QQ-XMAILINFO: NGizNBd3uSau65nQ5TIxSPLGqCKj77fqhIOOuxLxSbDFxssUq7MVpyWV
+	bdHyj7ESCzFuzXsRLbAEKkcAWPXRyZG8lZPyDqn23de33Y3C75sxboDTdC07lAuaGRDEjzC
+	0Q36pXmxl79EhYFHpsGEQhUMxTX8J6cG41bk7WOqROFCQ6VaiV8t7fs/AsqrfGUP4r+5GFF
+	y2vaDHGACpKuRQMY7dMlIc4CcE6i3MZEKyaIxzjNvAu8yFzLoacTam2BxsPlRg41Y6MXlPD
+	Ght5u1553vyeJn8/CBwfVN6+F9SQmu4iOpShCcDlIprldDBF3ODxJ79/S9PNRTORBowtpKl
+	UoKxxBPfUJLSiq5wEVgDuSeMR1fRd4CO95FxYaKVh+Q0HXJY9S6/h2egg7VFw+SdtBBrO0R
+	djQOj5ttFTDrVIB0Bart/ZzBZUT6uaYCMa/5OxaPFH0YGGFHHzH3UigNzUABxhCBLN+Tzv1
+	uBVzR6abMRFwZg/rPSTpWLr8ZKfe+3hn/koeqk5hYh0Ufp32oW15sZIjzBf8492cknZ+1vn
+	ymsWlG4iNrcfBjnvlnoL/69B7DK1lHdr2EvSVOjOwOXkHUCwECUfCHKgdRfFIKzJrHhDInc
+	ccg+LLm6Xy/IixvpeWQcq9e/QbnpaWX216bybnBOzcgQCx9wAtADf2GfnLSoe16xceEdrPB
+	cEFOnRgh7dEy54JHIbfawWPG9gog2GBbOkx9PY+nNbdP9ih0Ai9CeWwShdwZlMz+OgW+nEH
+	HACeN+xY2WHm9rehnhZqX+H+H9MDbZu71Z4LPlqJNsW5BsAlXLD2zGAiKB+kMJfm2N3yB3y
+	TYoePLwLUUH+EzD7I8s7Q2xRdVhkvIR3iK8+ved+pDH/VjUmg+yv0QXUNzOld+zDOYlYtq+
+	lPS49v0uETxoxy3LarzY8RoerhE8bnmKmmiNPpyPFQmArNEzCLwCq4AKC+XYwhYrBRYUKKz
+	AHRYKHnKzDREIuh5AxUTs//c8BvE/06CBkeCgFy+WWVbgPuaeowwe2TIIbVpAwtzIjBWD1J
+	o+YLmgU1k6zt5tpR3yL96B2031e4x5uN9H4IRi5cFtsU9CJohz9wp3R5yd16UYBwSKBXhmu
+	I4SkvZoQiOK8SA8XXgc5UMneS0Y+CSZbQ3zyt5FJzgB
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 
-ima_iint_cache objects are allocated with kmem_cache_alloc() from a
-dedicated slab whose constructor only runs once, when the slab is first
-created; the constructor does not run again when a freed object is
-reallocated.  ima_iint_init_always() resets all iint fields except
-real_inode.ino and real_inode.dev, which therefore keep the values of
-the previously freed iint.
+ext4_ext_precache() stores each successfully read child extent block in
+path[1..depth].p_bh. During normal traversal, these references are
+released as the loop backtracks. If a later read fails, traversal breaks
+to out and calls ext4_free_ext_path() before all ancestor references
+have been dropped.
 
-integrity_inode_attrs_changed() reads those fields in
-process_measurement() to detect changes to the backing file on stacked
-filesystems.  The fields are normally written by
-integrity_inode_attrs_store() from ima_collect_measurement(), but the
-IMA_HASH path sets IMA_HASHED without calling it, so on the next file
-open the stale, uninitialized ino and dev are read.  Depending on the
-residual values, IMA may skip re-evaluating a file whose backing data
-or metadata changed, or needlessly re-evaluate it.
+path[0].p_depth is not initialized, so ext4_ext_drop_refs() only
+releases path[0].p_bh. Since the root block is inline and path[0].p_bh
+is NULL, buffer heads held by path[1..depth] are leaked.
 
-At allocation time there are no valid real-inode attributes yet, so
-clear the entire real_inode structure.  On stacked filesystems the
-first comparison against the underlying real inode will then fail until
-ima_collect_measurement() stores the real inode's attributes, which is
-the safe, conservative direction.
+Set path[0].p_depth to the inode's extent depth so cleanup covers the
+entire traversal stack.
 
-Fixes: b836c4d29f27 ("ima: detect changes to the backing overlay file")
-Signed-off-by: Cai Xinchen <caixinchen1@huawei.com>
+Without this patch, the KUnit test added in the following patch reports:
+
+    # test_ext_precache_read_failure_bh_leak: EXPECTATION FAILED at
+    # fs/ext4/extents-test.c:1568
+    Expected atomic_read(&bh->b_count) == 2, but
+        atomic_read(&bh->b_count) == 3 (0x3)
+
+Fixes: 7869a4a6c5caa ("ext4: add support for extent pre-caching")
+Cc: stable@vger.kernel.org
+Signed-off-by: jiazhenyuan <jiazhenyuan@uniontech.com>
 ---
- security/integrity/ima/ima_iint.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ fs/ext4/extents.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/security/integrity/ima/ima_iint.c b/security/integrity/ima/ima_iint.c
-index 00b249101f98..c25f41a4dede 100644
---- a/security/integrity/ima/ima_iint.c
-+++ b/security/integrity/ima/ima_iint.c
-@@ -59,7 +59,7 @@ static void ima_iint_init_always(struct ima_iint_cache *iint,
- 				 struct inode *inode)
- {
- 	iint->ima_hash = NULL;
--	iint->real_inode.version = 0;
-+	memset(&iint->real_inode, 0, sizeof(iint->real_inode));
- 	iint->flags = 0UL;
- 	iint->atomic_flags = 0UL;
- 	iint->ima_file_status = INTEGRITY_UNKNOWN;
+diff --git a/fs/ext4/extents.c b/fs/ext4/extents.c
+index b65b0261ee5c..4c775aa41459 100644
+--- a/fs/ext4/extents.c
++++ b/fs/ext4/extents.c
+@@ -638,6 +638,8 @@ int ext4_ext_precache(struct inode *inode)
+ 		return -ENOMEM;
+ 	}
+ 
++	path[0].p_depth = depth;
++
+ 	path[0].p_hdr = ext_inode_hdr(inode);
+ 	ret = ext4_ext_check(inode, path[0].p_hdr, depth, 0);
+ 	if (ret)
 -- 
-2.18.0.huawei.25
+2.20.1
 
