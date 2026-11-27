@@ -1,118 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795750041;
-	b=u+xq4ZePNViXD5DXtGlRKn2PZhJlq+0eWPDc1d88j9M0a9agyuSmTLmXPm/Z2Gjo45cy
-	 zXa84rk8yzxnA9jwrhecHX37MobAaZf00KsdB+yrhJ2bgH6Ij3dX/slfpQe1x5bOSxUfn
-	 NmCmCeBsLpG5HnNx/eb/R6/gecxp0x4PHPX+zibm0yASsy4am/RGYkx7XTCLkiy60GJlw
-	 Tf4gyKlKv2AleSEusSWIG0wIOWbaF9EZflpoCLzY4kUSdYJd0F2EKLMl/e3vaaozItc04
-	 qbPOQaEE2QXbbNgr+UCnXccCJPkt5Mo1iB+d35QqDb2arPg8S+fo8M936HWfs61265Q==
+	t=1795750130;
+	b=lIU686Yx+MO6NQr18YoBQZHxyTCNf/Wx447nya3XNprUYYUhgozuMqJDQGDnLI9TqO8Q
+	 asoEYFpLacBvuR2lVEEmUYYpPpiruyFj3vcp7/wWpa2J0K7w3QfM2kTdftsNrVu6A5A+l
+	 1r/nx17kl3jShS9S3LdzVPf8Hgobhr8mzEpdaj2euEu1NiP/4+J00NAB9Udmh2yUQeMKK
+	 Ju5tFrK9fTw9IiAQGxPVd6NjSXrHk9bbRaRnntICz7+CZAY6bLq5W8T+W3R1FM8Bq/Yy1
+	 SFs0uFiqCY+XZTN2r9tN6tI8pF4dfDAmHVYicuQIp5eiwz12HHJoCxLHXj5/gmzqxpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795750041;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=lWjOfWNHNdRxPfF8k84mdElHbK5NDVQUwa7j1kPx5vw=;
-	b=sps9BlPjpBtkvY8R+adNjS8/ivozd5PpVLiIZJtRLHGyKoUJPHzf/NTje9NHOtogosbA
-	 V0zcewRkMNYsZvrbeXv9ACCi30xIglfutesimUaggRD7KjGGQVCue+4xj4eWgSmmXIsLt
-	 tuAAcz4OK8S8sKPz63rQboqVIbeMRiMe1IXlY23U+nB14xTP/r6cPQdu0Fitje6zhylOk
-	 8+W/H4zOAc/YQuzynZQpNoWxfaJ7vzVTixWQL9zrNI0SkmuPhtsrWS52NeKF38WXp3vxP
-	 OPrZ3p33HJn14B2/lfV2EVeWLh/Ag/WMlABRGp6+QWHWyoNyBzNFhUs9PPFz0ymuqAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795750130;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=BJAlSzI5UcEx5OP48wuU5Wx76cjwhu4AHNtHYsq6++U=;
+	b=Gsjxbhobdr97+vIdwyZpkxJnt9Ln+xsMqxLu3uNsdNW3u71lmywpZ8wxSgvixupFzNNK
+	 WEaA2867u8+YAQGrxQwfi1MF0HbAuzDGiA7Z1NnqsjQeAj0jis/CpfsG2z8p1rLQT1LKq
+	 RjzXpiEhb5TBNfQehuPlenTsEnOqE8jP4bU0xjT3nLHRY6n5EEPO4bM2idnsTa9ueSRhV
+	 Fc1e/sa3k571tEWS620aGOmNWXguAYA04t4QDifQQYMrI4FhHBLWwyjmke93p6E6WyXH1
+	 iPn7V4hE+N2ZoRt2bG6Kvk4wCqfjzHux1ILKOd+0KsdnHqmivjKIyYS4kZ1pwBL9znA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dV8RB8ec;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HxZBYfH9;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=squebb.ca;
+	spf=pass smtp.mailfrom=squebb.ca;
+	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=WT7GFo2w;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xotrWsQd;
+	arc=none smtp.remote-ip=202.12.124.151
+Received: from fout-b8-smtp.messagingengine.com (fout-b8-smtp.messagingengine.com [202.12.124.151])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB082606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:27:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB082606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35E2F606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:28:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35E2F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dV8RB8ec;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HxZBYfH9
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR0mAJd376357
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:27:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=lWjOfWNHNdRxPfF8k84mdElH
-	bK5NDVQUwa7j1kPx5vw=; b=dV8RB8ecrhzQSjUR94UL3XVZzpiQdqU1P24NrI2v
-	x6IwxvhylGK4dIsN8apuPYG5pbRcOTF4Uemvye95Cp1FdOpoSbfnM24eZKzHeee0
-	iWnq8ZEkrI7lWRqNTerQNQNdD4b4br3ciWDrq8QWYUZqIffWtWUMlUtDKnHAp+EM
-	tW5MMGtz33mZLodP/+C6yFKmL06gTDfHVXTtjmowQPQ3vgjxsgEToDHFIHs9CVf5
-	jnKzapbUZecpD72ny+JFnnbXqPJSHMoBsMLnoDkg4f00D1i8KvswPNP7XUBrQOpl
-	BzRZ0SBy5ZO/8CJC58qjeNRMDV+PeWHchZjTw9Sthun2wQ==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ymw8bmm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:27:19 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-341eff9e381so11053501eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:27:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795750039; x=1796354839; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lWjOfWNHNdRxPfF8k84mdElHbK5NDVQUwa7j1kPx5vw=;
-        b=HxZBYfH9G0k07lU2nJ8LUEVE1TW/zGFklLxlF7xmTgB2GWxv0fbkf204JXHWv0S1Xp
-         0YZRLcXCm/w1qeyIfRvcnTCWkZURAWjVVIth9CDSV7vJ4rTfBRMLj62SoUfa9FpHBJ/0
-         hueLtxYpg9DZwzoHWLAqb+E0SVpt8ppiLhuAYuA8ZXZIZivGdA6c0jWemk5XxI+YG2L2
-         DQuJhRfSa6joV0RR/TGZVRCxRxwlIFVAdkZ0/xDulKG6COi3C7nR60erCeDIZq9lULZi
-         Ypypkh9PxqXcURI0IqSuC9bWPwGv4wINdo2LQP++qUIMpe+0+bCUZ0Nu7krWcBisy8aj
-         RvTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795750039; x=1796354839;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lWjOfWNHNdRxPfF8k84mdElHbK5NDVQUwa7j1kPx5vw=;
-        b=TXyyA7HlncnAS6f9pYYqqozeW5CeuVUIdiHxCrE1AsZrBebjJezV10SMZ+8mm86O2V
-         85h3AZTx37aRsh/CTtBouDJ8VC+uRCSqkq/Tts2OgfbqDAfLwqCkihyia5eWg6Th7cWo
-         ytUNPieKWSesrN87Y4oBqzU1IBaTXQpWYzKCiAQUodam6vNpO9gNnvTwOrW1Ctrstuh4
-         nV6DO2cJfpVFORFKpVXGZATpmSzXNHLUxQsEhC8D9dfgp6fDyvKYRQeQ7B3p0F5D4QO/
-         2Ww0kU7SJPLCFBOmEgHZnlK14rVf0kwnWSC9wdaPbL0oHHKk8Z/xafcCKQWBTPieEFXX
-         G43g==
-X-Forwarded-Encrypted: i=1; AL+hErHXM2GWET429Y81/FrPFGVTSE2NAiEjH/MUtq7IbzDWbo17xN83h+EOQvU3W/kwVOQ1zuDuklNX2tSQDH8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rb25hxshlqFHdAOkhmmAfRrrxSHWWJnYGDiUoNGjUXWkgOsGx
-	7AskG1S6IKjEwV+y9/mRdS08syU1VCkKhXDlBBTtmvp/HeRW2TR4stf48EP7e372XJJxDD4QGrs
-	ORsWg8tuzX9AD+mvzJbtoLWb/04s6Vco/+PpuBmHrfv15FI+yikvPx2WnmWkdTtf/Vz8=
-X-Gm-Gg: AZFdTZfO48AQqK2xu3HC1wUkj8bZw+1gzLoOVp2noh/eDpyjHR7G3qP2pVDUpFEt6RJ
-	5mZCkmn6mNKR2JeKoIzmfkiQs79HHdbTQAMmWrZ4G1g89hChj99bRLgLs0eoSFkmUXXmgMMqTJm
-	tLMjJBnFbFg8ojYBfGt06WAIYwRfhPIMhWPxjq4wPyAFRzIlTvwY7jqsWWNDPlQ3PDvyfWpaV7x
-	Gc5jrw0KG1NY5wlAeALmO3bwLAGlOjiVMZLDpn7Uitg6qIGFGcCEgov+qJHOWu2F3HM8iV7tCgx
-	9crkFHShM6VgvLHCh80RNshDaS7zN2EyuzR/wo3NU83N0XXNXr4hRufXqIRhbfv6jt1ae1hvmTn
-	eoiANhsyU9q0JVXVZk+FsquHq9el9YkaNdHbF6laILk5z1omXmRSMClX2M8xowNFVGCJnaHD7kE
-	1qcPammUNbYCD5nThEbTsVQ10=
-X-Received: by 2002:a05:7301:e0c8:b0:386:c724:cc68 with SMTP id 5a478bee46e88-386c724ceb2mr8473566eec.2.1795750038546;
-        Thu, 26 Nov 2026 19:27:18 -0800 (PST)
-X-Received: by 2002:a05:7301:e0c8:b0:386:c724:cc68 with SMTP id 5a478bee46e88-386c724ceb2mr8473542eec.2.1795750038026;
-        Thu, 26 Nov 2026 19:27:18 -0800 (PST)
-Received: from hu-petche-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm70364105eec.6.2026.11.26.19.27.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 19:27:17 -0800 (PST)
-Date: Thu, 26 Nov 2026 19:27:16 -0800
-From: Peter Chen <peter.chen@oss.qualcomm.com>
-To: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2] usb: dwc3: qcom: Add support to skip phy management
- by USB core
-Message-ID: <awj4lKkHFwticf_d@hu-petche-lv.qualcomm.com>
-References: <20261126-xhci-skip-phy-init-v2-v2-1-004f9c5597e5@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=WT7GFo2w;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xotrWsQd
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfout.stl.internal (Postfix) with ESMTP id 7112B1D0053F
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:28:49 -0500 (EST)
+Received: from stl-imap-02 ([10.204.2.93])
+  by stl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 22:28:49 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795750129;
+	 x=1795836529; bh=BJAlSzI5UcEx5OP48wuU5Wx76cjwhu4AHNtHYsq6++U=; b=
+	WT7GFo2w+kqLUx6NcDahsXKguYj27RccnqzFe6zvdQ7KfYK0Ul3GyX6bUuy/WaeQ
+	b5wvOmHZJ8gDCm4t519COkfZ8p0OlIAIXug1++8bkqH+XNxJo4AP8hWsmc9w3OqO
+	LTpon/pEqhMgMu/PQo8CIzcHGFDTJphku2esUDnho6HC5hN5pT4PojcubBXvxIzb
+	3cAvSnTBmpVzCCwIu2U3mBYtH3hQlQbdSxsZ6Zfh6hffcAmKG7HPUc3+PXTQXetF
+	A9fYpZnjPlscdwn2lgaBwJGX1n1vSJr95F6zFY1JP6aaKMWEcfVTAIlbFBSfBFJ/
+	rVvK2q4Sj+vfEAuEiktoyA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795750129; x=
+	1795836529; bh=BJAlSzI5UcEx5OP48wuU5Wx76cjwhu4AHNtHYsq6++U=; b=x
+	otrWsQdom14JCw+Fzv97dpOnqCVPHK8bQ3dHISJdmWh/C5KfJsf7m26rXKKH5Uv1
+	KWsg0t5a2PB+FZu53qu4QXk4o9a6bfY4TS6WegStq0ORCo2221554nfQOWWTPpMC
+	m0Mt9l9tkG1aqPyWKD8TEZB94J2xfPxUqN9YDFrwMAV/M7n7LSK7WVAFDidkee5o
+	08qV257BY+WoFFQ3pBRtwIuI+StQtJm8er/jbaSTmkfXRS7b3Ufqw4jjlOcptXK/
+	7/x2pF1xChMbYSqP2XPp3TSjoNi8pSYCfH/NsK4ndw/mheUUHHrs3Gco6in/sJY/
+	zYRtIF3rmN3Sg+y8wn4tQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=squebb.ca a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795750129; d=squebb.ca;
+	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:ZR81DZnaTLjP9kNmLjQJ8JgtVuRN9P6YgMehQpDgCUkUuSF
+	g8dQFcFbQC87h5Aw5eZ9cFQKl9SEKRBU8I8zhw9W/nhuIfTSjjrXzLFLJ3kh3kz7
+	pULsY4dlDScsbnJ6yYnRde80UkjmcoictkazJr3RMd+VAHtADbnu1dhLQdoeHOlp
+	7HX6M9P7CAjc6aGRY3Zu81H3lVGRN8Rv6utjHcVL8LPrdvLGJcfRoIidcNCS3GWt
+	7OaHiBK46XwcNc1IIrCBOCY2hV/MJuUeuSQxI3mt+jGRVhaJ2Kl7PjNoPheP3bXQ
+	CzNQVC2tVtyC3L0WDLiTujYDGVRtF0qQ8r8BRoQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:D95H2mg59jOiOrFT89uL5ascvol8l5pfttyPizF8yic=:Upyl/7R1fGO+Fkbu3+o5xlesaHhR7inoKKSSwpwhVdY=;
+X-ME-Sender: <xms:7_gIa56tPGt48fZwGqFIt-okcbomrZdzdTtm95j7-KkqIhpu7rKOMA>
+    <xme:7_gIaxu0CBqY8bgyAfh7DtFhuSeno_OxNMw1uVMZI_9PnLMc6cqmM4wahWjCR-1xs
+    Emv2ZT6AfoogIzzJCu-JljVQuJ5Ioi0WwBaSTtx2_CK1gWQBnNX-2k_>
+X-ME-Proxy-Cause: dmFkZTG01xXJrmqprHWG8VsiOMWao6tIoBjZJv+z/tOB0VVJOQdd3wb80aBasX09ouZT8R
+    VbZ4N71HPlJQEbv2QCUOk4UwYTGbXOe6kIawLe5JkXxrBASX+JerCTHUslSveUadCuygLb
+    HIUFV8uf7EdIpBdgW/dH7uxlAbB+iiFoXHNxTC3Pldtjo4EqwNkxlzvCXvfZuJtjisQSVB
+    UQVn/ow0PpihClCa3wUc3UmoE6dMoXhHmJIQB3quixxKlPWQkE1017XWt0JafqrXX8gbP0
+    eFMQpfkql9+IC8mvuQvO36tcNBiWHupe8BtayMU4OyRKYXYubl1mJoHcwdHH9oF4iT1NMN
+    U54jqO4CvfFJuYlqww+tjlXTYxuGC4fV2Jxhmvp1JWchpP9h4h/amBNo8/AtynuPJ1JS5p
+    Zil4yuZqR34UTGg85Gt1aS2pHaedKL5097nc/Fi/6gIHNjLs3sRukIqfeOlYwwoRPoZYt7
+    +zrV2ypXvBvo6I2noMftk5XL4eXEelRVo2axTtgZg6YG03D4s9r7Weu1UYDLZGkNQCbtX9
+    KdNmLq6y7pZbmeGYiv0u+sWVpuyvcSqy4g/kGp7iOaf8nXgbNaVCRuPOvivEXa+GRGqwVV
+    N2sTdQNcQQgp3URI2F1eypIbuf+WTG7+vw0jPr0vt675ozlM8iBkSGXEJVZQ
+X-ME-Proxy: <xmx:7_gIaykX6IZVeMMCeRaTyptGORmD_nEBbEUPGSjcBOngDyUF7KwlmA>
+    <xmx:7_gIa_0pb7YCaf0RDXrYZALiP1RazvP6aQefU3C9ccu3vD43SalUww>
+    <xmx:7_gIa7eXCjyDvDssOWe9bvm9Ewp0DNVlxajfQDSyRfE_hAcl-E0geA>
+    <xmx:7_gIa5YT92XWJouqxk8X2AZHTYdwEeSjXoq-5mh2fZYDLeA3JZ6WNg>
+    <xmx:8fgIa1faPU2RXfGaRq5grHzc9X-0tyDpmexDfZkoUcr8sjYMxlFuqe13>
+Feedback-ID: ibe194615:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id 6D56A2C0008C; Thu, 26 Nov 2026 22:28:47 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,158 +115,175 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126-xhci-skip-phy-init-v2-v2-1-004f9c5597e5@oss.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAxMyBTYWx0ZWRfXwGcepABbXTR4
- V1amAwHrw36hpziZDhvXA3mdQKytspO9avYqxbgSi5FUqpG2tQ+dLxIWun2sYvt7n+6Yeqc6tAx
- SJKXCp03bXPbs6mjYaDXTUckWMYRs0A=
-X-Authority-Analysis: v=2.4 cv=ZKtCCn7b c=1 sm=1 tr=0 ts=6b08f897 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=jIQo8A4GAAAA:8 a=k3uclAftMG0p3JNzI7AA:9
- a=CjuIK1q_8ugA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAxMyBTYWx0ZWRfX/xmXuRXaMCp3
- NjLjQNSRaY753xzJgdToT5vLB8lzm+1GA+R6dBJIYE4C0Gj7Pg6hmws8p/lE2nrN8pc3GmqFmMJ
- IzTdMnTVAb5YqNn8XVDqXTBKL60Alov+HFgSjwBMoqlx8Hn1sGGMeUuAAMTBea2QRSurUDVO7yF
- 6TusRba7UvDeRZZGc56PigL0gcI9Pm6CYcXILYzd0KYEpaFXPgzOFsj5xtZChB5avOMAnsNhWZ/
- m6MG+16cSqr4lrAtVTnFu0fOh37/KMbUlH2/t5DYe3yWvm96PV8UjlOpOXWh3XDSr97K0Fg8DPs
- QjHaLQgOASy7IaWvaDk4vw61TI5XTAE+G1xCXxx9lF0DS3b3A4V9ahaEDb0L0XFSLFStE5WSOb7
- 8CBptUV4Ot5oq/TA96Eqf7hPI4d3OxQNmgwRTJrLaJNMlfaqbiHvEc2zl6P7MbfUzcMx/jScnkp
- fEqbsxKb1F8leDnsCxA==
-X-Proofpoint-GUID: D6J6aL3E7xSuFqnqI4wsi5W-cFIh6lTE
-X-Proofpoint-ORIG-GUID: D6J6aL3E7xSuFqnqI4wsi5W-cFIh6lTE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
- adultscore=0 clxscore=1015 malwarescore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270013
+X-ThreadId: AjretoapAb9R
+Date: Thu, 26 Nov 2026 22:28:27 -0500
+From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
+To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
+ "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
+ "Hans de Goede" <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: 
+ "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
+ ibm-acpi-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Message-Id: <c1fccfb9-edfd-4287-a8dd-6cd9f51170ff@app.fastmail.com>
+In-Reply-To: <20261125-thinkpad-acpi-hotkey-poll-v1-3-6dee57519c2e@gmail.com>
+References: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
+ <20261125-thinkpad-acpi-hotkey-poll-v1-3-6dee57519c2e@gmail.com>
+Subject: Re: [PATCH 3/8] platform/x86: thinkpad_acpi: simplify hotkey open/close and
+ poll setup
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On 26-11-26 22:05:56, Krishna Kurapati wrote:
-> DWC3 driver does manage phys itself sufficiently for Qualcomm platforms.
-> If xhci-skip-phy-init is not set, the HCD core does a phy_init and phy_
-> exit is done only when roothub is being destroyed. Due to this, during
-> system suspend in host mode, although phy_exit is done by DWC3 core, the
-> init_count on phy is never down to zero since HCD core also did an init.
-> consequently causing phy's exit routine to not be called. Hence, add
-> support to skip phy management by USB core.
-> 
-> Some Exynos platforms still do rely on USB core for phy_calibrate calls,
-> hence disable USB core management for Qualcomm platforms only.
-> 
-> Signed-off-by: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
-
-Reviewed-by: Peter Chen <peter.chen@oss.qualcomm.com>
-
-Peter
+On Wed, Nov 25, 2026, at 6:11 PM, Dmitry Torokhov wrote:
+> Since commit 38b9ab80db31 ("platform/x86: thinkpad_acpi: Move subdriver
+> initialization to tpacpi_pdriver's probe."), tpacpi_subdrivers_release()
+> is registered via devm_add_action_or_reset() before tpacpi_inputdev is
+> registered. Because devres resources are unwound in reverse order,
+> tpacpi_inputdev is always unregistered (closing any open handles and
+> preventing new opens) before hotkey_exit() is called. Combined with
+> hotkey_kthread() no longer exiting early on TPACPI_LIFE_EXITING, the
+> lifecycle guards in the input callbacks are unnecessary.
+>
+> Drop the obsolete tpacpi_lifecycle checks and BUG() from
+> hotkey_inputdev_open() and hotkey_inputdev_close(), as well as the
+> redundant driver mask check in hotkey_inputdev_close() (which
+> hotkey_poll_setup() already evaluates).
+>
+> Also call hotkey_poll_setup() directly inside the existing hotkey_mutex
+> critical sections in hotkey_init() and hotkey_resume(), and remove the
+> now-unused hotkey_poll_setup_safe() wrapper.
+>
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 > ---
-> Initially, a patch was sent adding software_node properties [1]. But it
-> was causing a bootup issue as mentioned in [2]. Hence a revert was sent
-> to fix it [3]. This patch uses a different approach as opposed to adding
-> sofware node properties and was tested on sm8750 mtp.
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 52 +++++++++--------------------
+>  1 file changed, 15 insertions(+), 37 deletions(-)
+>
+> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
+> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> index 659a2c5d1982..e5f78107bd1a 100644
+> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> @@ -2546,12 +2546,6 @@ static void hotkey_poll_setup(const bool 
+> may_warn)
+>  	}
+>  }
 > 
-> Changes in v2:
-> - Rebased on top of Thinh's latest patch series [4]
-> - Removed Thinh's ACK since code changes are different in this version
-> 
-> Link to v1:
-> https://lore.kernel.org/all/20260914-xhci-skip-phy-init-v1-1-9c46b31a5a39@oss.qualcomm.com/
-> 
-> [1]: https://lore.kernel.org/all/20260723-dwc3-skip-init-quirk-v1-1-97682bb44ebd@oss.qualcomm.com/
-> [2]: https://lore.kernel.org/all/cbb4ae94-7862-4d91-b01d-0d7f18d49a45@packett.cool/
-> [3]: https://lore.kernel.org/all/20260909-xhci-fixes-revert-v1-1-7cc97fa0f307@oss.qualcomm.com/
-> [4]: https://lore.kernel.org/all/cover.1795559405.git.Thinh.Nguyen@synopsys.com/
-> ---
->  drivers/usb/dwc3/core.h      | 3 +++
->  drivers/usb/dwc3/dwc3-qcom.c | 7 +++++++
->  drivers/usb/dwc3/host.c      | 5 ++++-
->  3 files changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-> index d103a637a4f7..9b9714fdba9e 100644
-> --- a/drivers/usb/dwc3/core.h
-> +++ b/drivers/usb/dwc3/core.h
-> @@ -1139,6 +1139,7 @@ struct dwc3_glue_ops {
->   * @usb2_gadget_lpm_disable: set to disable usb2 lpm for gadget
->   * @needs_full_reinit: set to indicate the core may lose power and need full
->   *			initialization during system pm
-> + * @skip_phy_init: set to skip xHCI PHY initialization on host init
->   * @disable_scramble_quirk: set if we enable the disable scramble quirk
->   * @u2exit_lfps_quirk: set if we enable u2exit lfps quirk
->   * @u2ss_inp3_quirk: set if we enable P3 OK for U2/SS Inactive quirk
-> @@ -1408,6 +1409,8 @@ struct dwc3 {
->  		unsigned		usb2_gadget_lpm_disable:1;
->  		unsigned		needs_full_reinit:1;
->  
-> +		unsigned		skip_phy_init:1;
-> +
->  		unsigned		disable_scramble_quirk:1;
->  		unsigned		u2exit_lfps_quirk:1;
->  		unsigned		u2ss_inp3_quirk:1;
-> diff --git a/drivers/usb/dwc3/dwc3-qcom.c b/drivers/usb/dwc3/dwc3-qcom.c
-> index ef38308023aa..3fe2e0fb3eb7 100644
-> --- a/drivers/usb/dwc3/dwc3-qcom.c
-> +++ b/drivers/usb/dwc3/dwc3-qcom.c
-> @@ -636,6 +636,12 @@ static struct dwc3_glue_ops dwc3_qcom_glue_ops = {
->  	.pre_run_stop	= dwc3_qcom_run_stop_notifier,
->  };
->  
-> +static void dwc3_qcom_fixup_properties(struct dwc3 *dwc,
-> +				       struct dwc3_properties *props)
-> +{
-> +	props->skip_phy_init = true;
-> +}
-> +
->  static int dwc3_qcom_probe(struct platform_device *pdev)
+> -static void hotkey_poll_setup_safe(const bool may_warn)
+> -{
+> -	guard(mutex)(&hotkey_mutex);
+> -	hotkey_poll_setup(may_warn);
+> -}
+> -
+>  static void hotkey_poll_set_freq(unsigned int freq)
 >  {
->  	struct dwc3_probe_data	probe_data = {};
-> @@ -745,6 +751,7 @@ static int dwc3_qcom_probe(struct platform_device *pdev)
->  	probe_data.dwc = &qcom->dwc;
->  	probe_data.res = &res;
->  	probe_data.ignore_clocks_and_resets = true;
-> +	probe_data.fixup_properties = dwc3_qcom_fixup_properties;
->  	ret = dwc3_core_probe(&probe_data);
->  	if (ret)  {
->  		ret = dev_err_probe(dev, ret, "failed to register DWC3 Core\n");
-> diff --git a/drivers/usb/dwc3/host.c b/drivers/usb/dwc3/host.c
-> index c5674161b2b0..3fb8be8be590 100644
-> --- a/drivers/usb/dwc3/host.c
-> +++ b/drivers/usb/dwc3/host.c
-> @@ -130,7 +130,7 @@ static int dwc3_host_get_irq(struct dwc3 *dwc)
->  
->  int dwc3_host_init(struct dwc3 *dwc)
+>  	lockdep_assert_held(&hotkey_mutex);
+> @@ -2568,10 +2562,6 @@ static void hotkey_poll_setup(const bool __unused)
 >  {
-> -	struct property_entry	props[6];
-> +	struct property_entry	props[7];
->  	struct platform_device	*xhci;
->  	int			ret, irq;
->  	int			prop_idx = 0;
-> @@ -174,6 +174,9 @@ int dwc3_host_init(struct dwc3 *dwc)
->  	if (dwc->usb2_lpm_disable)
->  		props[prop_idx++] = PROPERTY_ENTRY_BOOL("usb2-lpm-disable");
->  
-> +	if (dwc->skip_phy_init)
-> +		props[prop_idx++] = PROPERTY_ENTRY_BOOL("xhci-skip-phy-init-quirk");
+>  }
+> 
+> -static void hotkey_poll_setup_safe(const bool __unused)
+> -{
+> -}
+> -
+>  static void hotkey_poll_stop_sync(void)
+>  {
+>  }
+> @@ -2579,21 +2569,12 @@ static void hotkey_poll_stop_sync(void)
+> 
+>  static int hotkey_inputdev_open(struct input_dev *dev)
+>  {
+> -	switch (tpacpi_lifecycle) {
+> -	case TPACPI_LIFE_INIT:
+> -	case TPACPI_LIFE_RUNNING:
+> -		scoped_guard(mutex, &hotkey_mutex) {
+> -			hotkey_input_enabled = true;
+> -			hotkey_poll_setup(false);
+> -		}
+> -		return 0;
+> -	case TPACPI_LIFE_EXITING:
+> -		return -EBUSY;
+> -	}
+> +	guard(mutex)(&hotkey_mutex);
 > +
->  	/**
->  	 * WORKAROUND: dwc3 revisions <=3.00a have a limitation
->  	 * where Port Disable command doesn't work.
+> +	hotkey_input_enabled = true;
+> +	hotkey_poll_setup(false);
 > 
-> ---
-> base-commit: a431ab75251f0ae5b7019efe7221b851716c2c3c
-> change-id: 20261126-xhci-skip-phy-init-v2-6d0b35508b0b
+> -	/* Should only happen if tpacpi_lifecycle is corrupt */
+> -	BUG();
+> -	return -EBUSY;
+> +	return 0;
+>  }
 > 
-> Best regards,
-> --  
-> Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
+>  static void hotkey_inputdev_close(struct input_dev *dev)
+> @@ -2601,11 +2582,7 @@ static void hotkey_inputdev_close(struct input_dev *dev)
+>  	guard(mutex)(&hotkey_mutex);
 > 
+>  	hotkey_input_enabled = false;
+> -
+> -	/* disable hotkey polling when possible */
+> -	if (tpacpi_lifecycle != TPACPI_LIFE_EXITING &&
+> -	    !(hotkey_source_mask & hotkey_driver_mask))
+> -		hotkey_poll_setup(false);
+> +	hotkey_poll_setup(false);
+>  }
 > 
+>  /* sysfs hotkey enable 
+> ------------------------------------------------- */
+> @@ -3571,22 +3548,23 @@ static int __init hotkey_init(struct 
+> ibm_init_struct *iibm)
+>  		res = hotkey_mask_set(((hotkey_all_mask & ~hotkey_reserved_mask)
+>  				       | hotkey_driver_mask)
+>  				      & ~hotkey_source_mask);
+> +		if (!res) {
+> +			hotkey_user_mask = (hotkey_acpi_mask | hotkey_source_mask)
+> +						& ~hotkey_reserved_mask;
+> +			vdbg_printk(TPACPI_DBG_INIT | TPACPI_DBG_HKEY,
+> +				    "initial masks: user=0x%08x, fw=0x%08x, poll=0x%08x\n",
+> +				    hotkey_user_mask, hotkey_acpi_mask, hotkey_source_mask);
+> +			hotkey_poll_setup(true);
+> +		}
+>  	}
+>  	if (res) {
+>  		hotkey_exit();
+>  		return res;
+>  	}
+> -	hotkey_user_mask = (hotkey_acpi_mask | hotkey_source_mask)
+> -				& ~hotkey_reserved_mask;
+> -	vdbg_printk(TPACPI_DBG_INIT | TPACPI_DBG_HKEY,
+> -		"initial masks: user=0x%08x, fw=0x%08x, poll=0x%08x\n",
+> -		hotkey_user_mask, hotkey_acpi_mask, hotkey_source_mask);
+> 
+>  	tpacpi_inputdev->open = &hotkey_inputdev_open;
+>  	tpacpi_inputdev->close = &hotkey_inputdev_close;
+> 
+> -	hotkey_poll_setup_safe(true);
+> -
+>  	/* Enable TrackPoint doubletap event reporting by default. */
+>  	tp_features.trackpoint_doubletap_enable = 1;
+> 
+> @@ -4024,6 +4002,7 @@ static void hotkey_resume(void)
+>  		if (hotkey_status_set(true) < 0 ||
+>  		    hotkey_mask_set(hotkey_acpi_mask) < 0)
+>  			pr_err("error while attempting to reset the event firmware interface\n");
+> +		hotkey_poll_setup(false);
+>  	}
+> 
+>  	tpacpi_send_radiosw_update();
+> @@ -4033,7 +4012,6 @@ static void hotkey_resume(void)
+>  	keyboard_attached_on_screen_notify_change();
+>  	hotkey_wakeup_reason_notify_change();
+>  	hotkey_wakeup_hotunplug_complete_notify_change();
+> -	hotkey_poll_setup_safe(false);
+> 
+>  	/* restore previous mode of adaptive keyboard of X1 Carbon */
+>  	if (tp_features.has_adaptive_kbd) {
+>
+> -- 
+> 2.56.1.839.g22a8290db9-goog
 
--- 
+I think this is all good.
+Just to check - how much testing have you done? I'll see if I can put the series through a few platforms just in case (but I can't see any issues with the code)
 
-Thanks,
-Peter Chen
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Mark
