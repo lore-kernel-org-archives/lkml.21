@@ -1,58 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790386;
-	b=L3hdIYfuxNQNQlLvkKWPSe9kfwrlUuuE927qjJ1KV9i8fEJZqDIzAdb1nzK5sOrjwDji
-	 SH62WiBLwBdD1uVWdJ6qoZHXInbQlZEsSBY907mXwRhq31ov0wja2NDz++J8pRAQ9VI2Z
-	 PCraNgUGvT9/AzYUI2xz9/guDAJZkNaG31s6jbhD2qZI+eCKeFlvmKRQDmWxLo/AZuW1l
-	 6Zo/yX1oKNshzDcCAIe74gMtJjhLfVoI8a6AL+18oq7LrWSDSRLEAu/wLErixMlt5U54B
-	 UmdX1cxOV1sLk74/XsQx+m5npl/urIeEfe/b3KVakop7sf30YFcsCuBs92Uw8NzxqxQ==
+	t=1795790429;
+	b=uSodes0FuS4W/hLgyDskI5tGEZbluNGMwFpUoa67EjaHNrVwo3k4qPYCLtrrJgaS3BuK
+	 OqKtwn7Tfm/tKfCSNC/VR1VYVd3qlQ3PRAQVjtIF7YeVq68rms2SLZHNFxy2zZ37D8TSG
+	 hS89zzKp7CPhIi5BhzMuQ4vb/HXGBA8TjLMzqB2SgF5S6Utb74bTaziuipVDY6znPfFQU
+	 j9U+x8KzGZKmneYeaOjswykmdKXubBNsvo78ko96ackxIzy0oG471ZQM8k0CkLx7ETDpT
+	 W98lQ1H3YrByxNRaoTY7IxrHt1b7JP8WC7Ki+ra/QbssF56YrU8+1CHmqBGP6B5DP8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790386;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=PN86BsZ1PH/DrkXq+czzN5cIE8/yJRupytTCddGChE8=;
-	b=HX2De1EwaxzEkcXwEkVb8H7nZcn7t0Z7K7jGlqmFkJaHWDjxA0c3d/4uUMKbTees33+t
-	 UrZZ7DSxPmVz4//VLRWgbl0hh4jMQftCITOIkXCpFNvHhJWLCQea5GsCYyJbCy4Tf4WKQ
-	 LC0wIAou+dLqlLD76+8zmQc4Ibp3qA2Ws8AYomigYj0KVqH2nQ8ncuwFNoJdIPDjLK6z4
-	 3a5Es0EMfkRvkda37X5VQc6VoQICP4vKbn10vbLau+fktfTzuwZVqn5kWHLf327AsU2W/
-	 Pvv8lkA3vxMxdIqFQI9flgvEed7IDX7P0Q5yCpmIdnvBCGxYxOa7a1KwQgq+YApNS5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790429;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-AI-Review-Draft;
+	bh=1fn03CJhJTOUA2jXd7sSKs+mwit/jlaBNxTtGFqUuz0=;
+	b=R5iujyQKTU3c4o1YaZ1TNuEdcK+abeLtCiZRz2If7dWbqdLWpkNF5u27QLy8124JYS9a
+	 6tRSzhiFdKtTwKSF0wg/JTvvzPqF+dYJX9dzFSflARcQeeQ0NIoAlol9bjBSeX4CkWMI0
+	 Bbzr2RCUVe/QNVfTS8EOvOBkk9JglTrg2TANNkc1ODC315A1p9+Fb1txPvWlxtEumFnK/
+	 PSxod+SDKXi/dfDwHfh+7Pcwb/JbPQ/HJsSEH+Eoz/ZLxJpo4vwi35PAX77enmKhVN1pt
+	 0EzJbv5I8F7MhAE19kHqZGKuiQa2kT96YUEMOCGkndO+g8+uIk7YJ7TOhOqMRvec11w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=t5DNb8b7;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dTcVypU/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30D71606A33D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:39:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30D71606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D773606A31F;
+	Fri, 27 Nov 2026 14:40:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=t5DNb8b7
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 91FCF1A183B;
-	Fri, 27 Nov 2026 14:39:44 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 664A66049C;
-	Fri, 27 Nov 2026 14:39:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78E0B11E6907F;
-	Fri, 27 Nov 2026 15:39:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795790383; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=PN86BsZ1PH/DrkXq+czzN5cIE8/yJRupytTCddGChE8=;
-	b=t5DNb8b7kRQmeROkgq54uqsl3RIWeb0Pqjhktx6Cyq8DG3doMvrA3EitFVC5CPCtZXkvl6
-	umtkD33iCGfEteA1fNByUu6lf2fbM2WSQoStmuYLcWOboA+BDQkTf93Bhkp+DYx77OUhzV
-	Lrgdk9VehHlh0HWNNZU4TuRNnr+PuixskVW0z1dDL/bEq6SQ05QkaVhqQad32bBGroF31p
-	QpEhjrD+KdQyfwZd3dSO6HBqPIi2NPTaRrN7pA8Kui7TRqkZRKiubrHwbEuCDPogpCBfrn
-	sc4Epar1YBs5q0vKqPygrYZ1KsuWup3FJ7uzmUKYAg2cyBaDnbhSRfjJ+OrZAw==
-Message-ID: <29aaf251-f785-42b7-89dd-525fc77029f7@bootlin.com>
-Date: Fri, 27 Nov 2026 15:39:37 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dTcVypU/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9961F000C1;
+	Fri, 27 Nov 2026 14:40:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795790429;
+	bh=1fn03CJhJTOUA2jXd7sSKs+mwit/jlaBNxTtGFqUuz0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dTcVypU/93uXZhVhMhAeGqYTbe9VTE0wNI3PWFklkmPipQu2W/iYVX4RjpQMGDL5H
+	 TCGC+t4rw/X2OyojA8ws8e+mhwS3f6iYiUyn2jNJXWO9ZjXK/z5uLK3/K56JYttjWu
+	 Alqu1cPMOTOUCEqo6f23TiPNIOUbHaBM7X5SfRidmGr8/j0LfbQdzDZUqJdqLni0Al
+	 pXMe/lkQlAlueTANdLcP/X7/6h50XxyKHgsciR1eB4aobg2hikoHNqYFJEK0wQGMHG
+	 WwIlIVKg3ZYZpti+YhPJF503MivjX/UNHmAsCGMlGFOkQRNVD+2DZlrmrs7/vd6ciB
+	 UQB0cq/N4kKOQ==
+Date: Fri, 27 Nov 2026 14:40:23 +0000
+From: Lee Jones <lee@kernel.org>
+To: Armin Wolf <W_Armin@gmx.de>
+Cc: pavel@kernel.org, linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org, i@rong.moe
+Subject: Re: [PATCH v3 09/11] leds: Support custom sysfs groups on multicolor
+ and flash LEDs
+Message-ID: <179568582911.32537.4009212823876251882@kernel.org>
+References: <20261120212431.152081-1-W_Armin@gmx.de>
+ <20261120212431.152081-10-W_Armin@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,126 +59,301 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net-next] net: pse-pd: fix bogus budget evaluation
- strategy check in IRQ handler
-To: netdev-bot+sashiko@kernel.org
-Cc: o.rempel@pengutronix.de, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org
-References: <20261126143012.1595919-1-kory.maincent@bootlin.com>
- <179578982915.3135.16459182795663099712@kernel.org>
-From: Kory Maincent <kory.maincent@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <179578982915.3135.16459182795663099712@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120212431.152081-10-W_Armin@gmx.de>
+X-AI-Review-Draft: <20261120212431.152081-10-W_Armin@gmx.de>
 
+--- checkpatch.pl (7 issues) ---
+Line 6: WARNING: 'seperate' may be misspelled - perhaps 'separate'?
+Line 70: ERROR: code indent should use tabs where possible
+Line 70: WARNING: please, no spaces at the start of a line
+Line 71: ERROR: code indent should use tabs where possible
+Line 71: WARNING: please, no spaces at the start of a line
+Line 87: ERROR: code indent should use tabs where possible
+Line 87: WARNING: please, no spaces at the start of a line
+----------------------------------
 
+???
 
-On 11/27/26 15:30, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message says the bogus check "does not prevent the
->    TPS23881 from working properly" and sends the fix to net-next for that…
-> - [Medium] With the early return removed, the simultaneity check at the
->    top of pse_set_config_isr() (`(notifs & DISCONNECTION) && ((notifs &…
-> 
-> --
-> 
-> net: pse-pd: fix bogus budget evaluation strategy check in IRQ handler
-> 
-> This patch removes a check in pse_set_config_isr() that compared the PSE
-> event notification mask against PSE_BUDGET_EVAL_STRAT_DYNAMIC. That
-> constant and ETHTOOL_C33_PSE_EVENT_DETECTION are both BIT(2). As a result,
-> any notification that included the detection event was skipped.
-> 
->> The mistake went unnoticed because ETHTOOL_C33_PSE_EVENT_DETECTION and
->> PSE_BUDGET_EVAL_STRAT_DYNAMIC are both BIT(2) and, when only the
->> detection event is reported, the function performs no action anyway.
->> The check does not prevent the TPS23881 from working properly, but when
->> a controller reports the detection event together with other events,
->> the whole notification handling is skipped instead of processed.
-> 
-> [Severity: Medium]
-> Is the statement that the check does not affect the TPS23881 accurate?
+On Fri, 20 Nov 2026, Armin Wolf wrote:
 
-...
+> Drivers registering multicolor/flash LEDs currently cannot use
+> led_cdev->groups due to said field being overwritten by the
+> multicolor/flash LED registration functions. Fix this by assigning
+> each LED type a seperate device type ("multicolor" and "flash")
 
-> The note below the cut line says the fix goes to net-next because the
-> TPS23881 works fine with the check. Since a classified PD on an
-> admin-enabled TPS23881 port could be left unpowered, should this go to net
-> instead, so that the Fixes: tag leads to a stable backport?
+"separate"
 
-I didn't face any issue with the TPS23881 driver but I am only testing 
-it on my desk, so I may have miss issue with it.
+> that carries the sysfs attributes instead.
+>
+> Also assign a device type for standard LEDs ("standard") for symmetry.
+>
+> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+> ---
+>  drivers/leds/led-class-flash.c      | 107 +++++++++++++---------------
+>  drivers/leds/led-class-multicolor.c |  15 +++-
+>  drivers/leds/led-class.c            |   6 ++
+>  include/linux/led-class-flash.h     |   5 --
+>  4 files changed, 68 insertions(+), 65 deletions(-)
+>
+> diff --git a/drivers/leds/led-class-flash.c b/drivers/leds/led-class-flash.c
+> index 33cfc5d082c1..2e98f030cda6 100644
+> --- a/drivers/leds/led-class-flash.c
+> +++ b/drivers/leds/led-class-flash.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/module.h>
+>  #include <linux/slab.h>
+>  #include <linux/sysfs.h>
+> +#include "leds.h"
+>
+>  #define has_flash_op(fled_cdev, op)				\
+>  	(fled_cdev && fled_cdev->ops->op)
+> @@ -207,42 +208,56 @@ static ssize_t flash_fault_show(struct device *dev, const struct device_attribut
+>  }
+>  static const DEVICE_ATTR_RO(flash_fault);
+>
+> -static const struct attribute *const led_flash_strobe_attrs[] = {
+> +static const struct attribute *const led_flash_attrs[] = {
+>  	&dev_attr_flash_strobe.attr,
+> -	NULL,
+> -};
+> -
+> -static const struct attribute *const led_flash_timeout_attrs[] = {
+>  	&dev_attr_flash_timeout.attr,
+>  	&dev_attr_max_flash_timeout.attr,
+> -	NULL,
+> -};
+> -
+> -static const struct attribute *const led_flash_brightness_attrs[] = {
+>  	&dev_attr_flash_brightness.attr,
+>  	&dev_attr_max_flash_brightness.attr,
+> -	NULL,
+> -};
+> -
+> -static const struct attribute *const led_flash_fault_attrs[] = {
+>  	&dev_attr_flash_fault.attr,
+>  	NULL,
+>  };
+>
+> -static const struct attribute_group led_flash_strobe_group = {
+> -	.attrs_const = led_flash_strobe_attrs,
+> -};
+> +static umode_t led_flash_is_visible(struct kobject *kobj, const struct attribute *attr, int n)
+> +{
+> +	struct device *dev = kobj_to_dev(kobj);
+> +	struct led_classdev *led_cdev = dev_get_drvdata(dev);
+> +	struct led_classdev_flash *fled_cdev = lcdev_to_flcdev(led_cdev);
+> +
+> +	if (attr == &dev_attr_flash_strobe.attr)
+> +		return attr->mode;
+> +
+> +        if (attr == &dev_attr_flash_timeout.attr && fled_cdev->ops->timeout_set)
+> +                return attr->mode;
+> +
+> +	if (attr == &dev_attr_max_flash_timeout.attr && fled_cdev->ops->timeout_set)
+> +		return attr->mode;
+> +
+> +	if (attr == &dev_attr_flash_brightness.attr && fled_cdev->ops->flash_brightness_set)
+> +		return attr->mode;
+> +
+> +	if (attr == &dev_attr_max_flash_brightness.attr && fled_cdev->ops->flash_brightness_set)
+> +		return attr->mode;
+> +
+> +	if (attr == &dev_attr_flash_fault.attr && fled_cdev->ops->fault_get)
+> +		return attr->mode;
+>
+> -static const struct attribute_group led_flash_timeout_group = {
+> -	.attrs_const = led_flash_timeout_attrs,
+> +        return 0;
+> +}
+> +
+> +static const struct attribute_group led_flash_group = {
+> +	.is_visible_const = led_flash_is_visible,
+> +	.attrs_const = led_flash_attrs,
+>  };
+>
+> -static const struct attribute_group led_flash_brightness_group = {
+> -	.attrs_const = led_flash_brightness_attrs,
+> +static const struct attribute_group *led_flash_groups[] = {
+> +	&led_flash_group,
+> +	NULL,
+>  };
+>
+> -static const struct attribute_group led_flash_fault_group = {
+> -	.attrs_const = led_flash_fault_attrs,
+> +static const struct device_type led_flash_device_type = {
+> +	.name = "flash",
+> +	.groups = led_flash_groups,
+>  };
+>
+>  static void led_flash_resume(struct led_classdev *led_cdev)
+> @@ -254,30 +269,6 @@ static void led_flash_resume(struct led_classdev *led_cdev)
+>  	call_flash_op(fled_cdev, timeout_set, fled_cdev->timeout.val);
+>  }
+>
+> -static void led_flash_init_sysfs_groups(struct led_classdev_flash *fled_cdev)
+> -{
+> -	struct led_classdev *led_cdev = &fled_cdev->led_cdev;
+> -	const struct led_flash_ops *ops = fled_cdev->ops;
+> -	const struct attribute_group **flash_groups = fled_cdev->sysfs_groups;
+> -
+> -	int num_sysfs_groups = 0;
+> -
+> -	flash_groups[num_sysfs_groups++] = &led_flash_strobe_group;
+> -
+> -	if (ops->flash_brightness_set)
+> -		flash_groups[num_sysfs_groups++] = &led_flash_brightness_group;
+> -
+> -	if (ops->timeout_set)
+> -		flash_groups[num_sysfs_groups++] = &led_flash_timeout_group;
+> -
+> -	if (ops->fault_get)
+> -		flash_groups[num_sysfs_groups++] = &led_flash_fault_group;
+> -
+> -	flash_groups[num_sysfs_groups] = NULL;
+> -
+> -	led_cdev->groups = flash_groups;
+> -}
+> -
+>  int led_classdev_flash_register_ext(struct device *parent,
+>  				    struct led_classdev_flash *fled_cdev,
+>  				    struct led_init_data *init_data)
+> @@ -291,26 +282,26 @@ int led_classdev_flash_register_ext(struct device *parent,
+>
+>  	led_cdev = &fled_cdev->led_cdev;
+>
+> -	if (led_cdev->flags & LED_DEV_CAP_FLASH) {
+> -		if (!led_cdev->brightness_set_blocking)
+> -			return -EINVAL;
+> +	if (!(led_cdev->flags & LED_DEV_CAP_FLASH))
+> +		return led_classdev_register_ext(parent, led_cdev, init_data);
+>
+> -		ops = fled_cdev->ops;
+> -		if (!ops || !ops->strobe_set)
+> -			return -EINVAL;
+> +	if (!led_cdev->brightness_set_blocking)
+> +		return -EINVAL;
+>
+> -		led_cdev->flash_resume = led_flash_resume;
+> +	ops = fled_cdev->ops;
+> +	if (!ops || !ops->strobe_set)
+> +		return -EINVAL;
+>
+> -		/* Select the sysfs attributes to be created for the device */
+> -		led_flash_init_sysfs_groups(fled_cdev);
+> -	}
+> +	led_cdev->flash_resume = led_flash_resume;
+>
+>  	/* Register led class device */
+> -	ret = led_classdev_register_ext(parent, led_cdev, init_data);
+> +	ret = led_classdev_init(parent, led_cdev, init_data);
+>  	if (ret < 0)
+>  		return ret;
+>
+> -	return 0;
+> +	led_cdev->dev->type = &led_flash_device_type;
+> +
+> +	return led_classdev_add(led_cdev, init_data);
+>  }
+>  EXPORT_SYMBOL_GPL(led_classdev_flash_register_ext);
+>
+> diff --git a/drivers/leds/led-class-multicolor.c b/drivers/leds/led-class-multicolor.c
+> index 57df0b2e785b..0656ca2361b3 100644
+> --- a/drivers/leds/led-class-multicolor.c
+> +++ b/drivers/leds/led-class-multicolor.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/sysfs.h>
+>  #include <linux/uaccess.h>
+> +#include "leds.h"
+>
+>  static unsigned int led_mc_get_max_intensity(struct led_classdev_mc *mcled_cdev, size_t index)
+>  {
+> @@ -159,11 +160,17 @@ static const struct attribute *const led_multicolor_attrs[] = {
+>  };
+>  ATTRIBUTE_GROUPS(led_multicolor);
+>
+> +static const struct device_type led_multicolor_device_type = {
+> +	.name = "multicolor",
+> +	.groups = led_multicolor_groups,
+> +};
+> +
+>  int led_classdev_multicolor_register_ext(struct device *parent,
+>  				     struct led_classdev_mc *mcled_cdev,
+>  				     struct led_init_data *init_data)
+>  {
+>  	struct led_classdev *led_cdev;
+> +	int ret;
+>
+>  	if (!mcled_cdev)
+>  		return -EINVAL;
+> @@ -176,9 +183,13 @@ int led_classdev_multicolor_register_ext(struct device *parent,
+>
+>  	led_cdev = &mcled_cdev->led_cdev;
+>  	led_cdev->flags |= LED_MULTI_COLOR;
+> -	mcled_cdev->led_cdev.groups = led_multicolor_groups;
+> +	ret = led_classdev_init(parent, led_cdev, init_data);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	led_cdev->dev->type = &led_multicolor_device_type;
+>
+> -	return led_classdev_register_ext(parent, led_cdev, init_data);
+> +	return led_classdev_add(led_cdev, init_data);
+>  }
+>  EXPORT_SYMBOL_GPL(led_classdev_multicolor_register_ext);
+>
+> diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
+> index 2f62141268ab..161b85db04f3 100644
+> --- a/drivers/leds/led-class.c
+> +++ b/drivers/leds/led-class.c
+> @@ -654,6 +654,10 @@ int led_classdev_add(struct led_classdev *led_cdev, struct led_init_data *init_d
+>  }
+>  EXPORT_SYMBOL_GPL(led_classdev_add);
+>
+> +static const struct device_type led_device_type = {
+> +	.name = "standard",
+> +};
+> +
+>  /**
+>   * led_classdev_register_ext - register a new object of led_classdev class
+>   *                             with init data.
+> @@ -672,6 +676,8 @@ int led_classdev_register_ext(struct device *parent,
+>  	if (ret < 0)
+>  		return ret;
+>
+> +	led_cdev->dev->type = &led_device_type;
+> +
+>  	return led_classdev_add(led_cdev, init_data);
+>  }
+>  EXPORT_SYMBOL_GPL(led_classdev_register_ext);
+> diff --git a/include/linux/led-class-flash.h b/include/linux/led-class-flash.h
+> index 775a96217518..5204ef60dc4b 100644
+> --- a/include/linux/led-class-flash.h
+> +++ b/include/linux/led-class-flash.h
+> @@ -28,8 +28,6 @@ struct led_classdev_flash;
+>  #define LED_FAULT_LED_OVER_TEMPERATURE	(1 << 8)
+>  #define LED_NUM_FLASH_FAULTS		9
+>
+> -#define LED_FLASH_SYSFS_GROUPS_SIZE	5
+> -
+>  struct led_flash_ops {
+>  	/* set flash brightness */
+>  	int (*flash_brightness_set)(struct led_classdev_flash *fled_cdev,
+> @@ -79,9 +77,6 @@ struct led_classdev_flash {
+>
+>  	/* flash timeout value in microseconds along with its constraints */
+>  	struct led_flash_setting duration;
+> -
+> -	/* LED Flash class sysfs groups */
+> -	const struct attribute_group *sysfs_groups[LED_FLASH_SYSFS_GROUPS_SIZE];
+>  };
+>
+>  static inline struct led_classdev_flash *lcdev_to_flcdev(
+> -- 
+> 2.56.1
+>
 
->> diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
->> index 0477cf6787bd3..ae31175921a07 100644
->> --- a/drivers/net/pse-pd/pse_core.c
->> +++ b/drivers/net/pse-pd/pse_core.c
->> @@ -1291,9 +1291,6 @@ static int pse_set_config_isr(struct pse_controller_dev *pcdev, int id,
->>   {
->>   	int ret = 0;
->>   
->> -	if (notifs & PSE_BUDGET_EVAL_STRAT_DYNAMIC)
->> -		return 0;
->> -
->>   	if ((notifs & ETHTOOL_C33_PSE_EVENT_DISCONNECTION) &&
->>   	    ((notifs & ETHTOOL_C33_PSE_EVENT_DETECTION) ||
->>   	     (notifs & ETHTOOL_C33_PSE_EVENT_CLASSIFICATION))) {
-> 
-> [Severity: Medium]
-> With the early return gone, the DETECTION part of this check can now be
-> reached. A DETECTION | DISCONNECTION mask used to return 0. It now
-> returns -EINVAL, and pse_isr() reports that to user space:
-> 
-> drivers/net/pse-pd/pse_core.c:pse_isr() {
->      ...
-> 			ret = pse_set_config_isr(pcdev, i, notifs);
-> 			if (ret)
-> 				notifs |= ETHTOOL_PSE_EVENT_SW_PW_CONTROL_ERROR;
->      ...
-> }
-> 
-> Is this change to the ethtool PSE netlink notifications intended? The
-> commit message does not mention it.
-
-Yes it is.
-
-> Can the TPS23881 produce this mask?
-> 
-> - tps23881_irq_event_over_current() ORs in OVER_CURRENT | DISCONNECTION.
-> - tps23881_irq_event_detection() ORs in either DETECTION or
->    DISCONNECTION, depending on the signature result.
-> - tps23881_irq_handler() merges several interrupt rounds into one
->    notifs[] word and loses their order.
-> 
-> An over-current shutdown followed by re-detection could be merged this
-> way. So could an invalid detection followed by a valid one.
-
-This is PSE core policy an what should we do if we have detection and 
-disconnection event from the driver on the same interrupt. So it is not 
-related to this fix.
-
-Anyway I think we should keep the warning in the core and maybe do 
-something in the TPS23881 driver to prevent such case. IMHO this is not 
-the core to decide.
-
-Regards,
 -- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
-
+Lee Jones
