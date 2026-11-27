@@ -1,69 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795745960;
-	b=t2omvGTNng8+PnV+f2P7w9N5oBd9TDpEWH0K3V0iMKtbH0NRdsuIj6yH5BLaedAhYVsE
-	 oneZi07JkZpErhg4We5EBHoOifA+I1fClS7QFyztYZFaqPabol1Ka/H+cLOoPJO0PNsk3
-	 a6jW6Y+YjxiU0s7lv86sh6wNo05WSj8/lv4JtmDbBlDtWTIQ4bDS4q6dfdwWylNiXjm6U
-	 VOZy7uk2r2ZxVOmxnC2fF0xU9NC/56Xz1Rz3BujDLbAz2mhs16PDaNtrl3W2M6v36Hjxi
-	 F8Qji8ZF8DFMfXzNR1SbRvXTT5dsQG0fwflw+J6m1eHzba0bNdYzvWE+Sf+o9nPntWQ==
+	t=1795745976;
+	b=1pIJU69L+HgPKfOWq46MAsmiz0/D4jc0j9/yqYAtsrUUxNxGAAM09uRKgPJRkzKwTmK6
+	 zPI8XhQFHW87Fr0L5f0Fd9ochtFe8NqnMVpZ1yXAJWL9Lchnu3mn9qqvDxtLS5IsAOuML
+	 EsC773FDIJTWEOo7urzGd3OJ8NDfigijJ6p1/cCw6Z8B6wiulnj7AgXylUMdFdaOPnlCj
+	 QC7skbIYJJIyY61cH4O9ZojZmCA/eWUISZl5Wpgb9XlpSVE6odgUIykg87YHljM8VF9O2
+	 iBQ+IWYsWbic0YtpIdQNcAF8HH5tJXM2e28BBH3CcWBDAyHblbIqBynJ9gt0xLgr8eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795745960;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zbr7ENnf2fb+We9gjXvF41JxeJ/00DoKsyJi5Boh3ls=;
-	b=10Z1refbMZXrHAfmRcjMzHMoTv82eRaciV6fyXk9KQkmh9Mobrp4DGdsu6/VT1BHz3R1
-	 AbF/0DQTVdGYXgx0eD/4321nrigOXQQs2vYS7IlXGKuh78aJSah7P0Yxivu+G3T3KdPQp
-	 L1gOgaPiOBwQAaPDxvavw79FFkCCBwI2udN1+9SBiuS+anYUg/ZWSomfTC5InBtLEcanf
-	 WU1QKkmQ31BnyhovEtJ/HvkNnoorHZ5a7Dgnoft+H99W5vAf4x6ACUrj8IjeoOW4XojH8
-	 /iwkvslRxt6rU23/2TrjXX+NTUgmfZgJEMFvsLxyd7GnYUPi9lYCvNIuWHnnJ2yFGdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745976;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:References:Content-Type:Date:
+	 Message-ID;
+	bh=lEdmfvtDYf59q6HkpOhInvb9oPzLhNZI7PhqbULg+04=;
+	b=s293HJ6PQtLTClZDCqtEGI4j4kCpza5+oO+6V131xWW6iMoZQOIkNVX5Gv3pNsn0nYdX
+	 UyW6VcKhRCHNL8oRWfbNP0Qk4vGudOn9ktQDH+d9byGF3IVPPNnm2AQvxFJSIsrEktLmK
+	 zlEQzHvhddS4jK6O+RAf5ceuDbr7XYW/DuOc48IYrzqXojzK9zZPo3TldaJwN8kpVkOH7
+	 E42wkOzxNn4LAxBnjW/Th2pcr5mDiRktIt1PBwit7sLeDtR40ZH8AvRhLdNuoGD/hLRsN
+	 bWEpfjkhl3MdLkM+nwhMdaMdOFpBNgT8Ih3SKLgJ+RgCycqpL9mWlNrHOYNo8LiiweQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TX5A5p4n;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RuETlU2K;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 753CB606A31E;
-	Fri, 27 Nov 2026 02:19:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4997A606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:19:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4997A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TX5A5p4n
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A97861F00898;
-	Fri, 27 Nov 2026 02:19:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795745959;
-	bh=zbr7ENnf2fb+We9gjXvF41JxeJ/00DoKsyJi5Boh3ls=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TX5A5p4nLMl5H0s5XFcEFJ+I+FgWKv2uAf09LixHdFgl6H4KgbVsti5qpvvjeboAR
-	 UHhVmMC65NS32hZ3DFyh/QmHlUWSnF8MqATwuGVjX6ch589cxE5f9YSZJUTfMV+RAv
-	 syEI0KQEkP2XK/fOsRhRBbhdo6xy82o15wF9XVtmaDEY211TWbqatuGsg0FCQMiJSk
-	 fPGiUskpGcXDmvTqq2mbhyE9EYj4eXViDNHiLhIeLlFY6AxPrZIXz3BWeIynSoZFYq
-	 58ie8S95NV9t4MkZVHEqavLOgGxPTi+7R2JM9CDxyc3CiiBY8rIjt9o3ZqF7Rtdd4n
-	 B7KLLJlmN76eQ==
-Date: Thu, 26 Nov 2026 21:19:18 -0500
-From: Sasha Levin <sashal@kernel.org>
-To: Borislav Petkov <bp@alien8.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Willy Tarreau <w@1wt.eu>, Leon Romanovsky <leon@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
-	Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
-	Security Officers <security@kernel.org>, workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
- and a cover letter
-Message-ID: <awjopqoCJqwChwnF@laps>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
- <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RuETlU2K
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b487f44ee0so3091316a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:19:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795745975; x=1796350775; darn=vger.kernel.org;
+        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lEdmfvtDYf59q6HkpOhInvb9oPzLhNZI7PhqbULg+04=;
+        b=RuETlU2K0Im3LWwSCZsjXpTfzQDYQZzZMMpPj+SbYZ9+PWzz3db55pzowT4+8J8naF
+         ztOgPM8LC6rTQTl7QaPZ93E1tNbS4Tq5LJbNb5bljqFAfubbt9TKAjJPweJMLmjahY+p
+         Y8pAQkHIPxe6gHSrxYM89LJvA02TOe09B5lhCNSB+UsHmHFfmLqnciaL9Q4pupj+uqpH
+         IDAa0flcB3YYM0Hw3VfuY8xDkWh2jrybPzNvCUbTBoi3eUjVvX7Sain9Ag01RoD/4zba
+         reC9A02CM7CvjTv4bs+k9LEu7xs0xodivigL2R5dnIHMLR6BshW0mE5KxFac/wcA1EIz
+         +2rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795745975; x=1796350775;
+        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=lEdmfvtDYf59q6HkpOhInvb9oPzLhNZI7PhqbULg+04=;
+        b=OE22YX7YhRx9aWLPmuadheXADYXbqOA/2/bb+FLvkw6zWvjf6jxRa4tDfRsWhp18g+
+         iBybNNIrnkMpIFj7wtSWF3g8VBGGTSJskZChNEA8TMLJqKQnBgxsYOEkzuGT4NEgCU/L
+         fWZlvsluDIZ8nXrTPrxVrPtZkpoUQ0NSYec/qooMLFL0lSzzRB9eBLTzlFkFSaxIvfsM
+         sgl8HAjU15uDcKN8Pde+3mRnjGX9UNIpFhewKFe/XC7CQRrWmfWbGIHaaId/VJ6EMWw4
+         5h9CzU3TrQ82fvYIBnE5bLE0I2hm8yAkaVc2Cn90klxnOMOBw2KYrc+BBsKAa0YJ+78X
+         v0iQ==
+X-Forwarded-Encrypted: i=1; AL+hErHbP4e/58h8/z4HAxMx+DK6mFEJJAzbbBhqMfngYp7ErtskOmklYggMJo2yQcwxNsxDPxZwmp+hXyOv1Mk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ONdksR0LQU+5eaT9xOHFEIpU+deOzzNCUMint8CFjv3zy3T6+
+	mrejEmdRgKyLs9XdTmSXwJahUG6u5Cjg5KZ9pEG8QUAaJnO2TtOm1Sdj
+X-Gm-Gg: AZFdTZc/4FprCBVjpJiM3Ujluub/Qg6AdsONJDrNlcC7AGPqoenNbKtrwlLuFTOPnNt
+	VhUSsO1xnJb+35k/yzmv9ZpciRdf5Z779d6QRR5op7RSeDkNgIPvWu9i07jw0obqbRoHWNlFX29
+	B1vhs27VLdw1COW2npQOn6UsW3IJRBmdkeHBdpCDwIK3O9eC+c/fqUG3aYhChspl2wE/npKpZLr
+	aqhlQmY9MLvV3+MbmwYsPhpmiS5a2qKHcYjOiDZV98DZZ8CJi1Oz+6WhWtSVNXvDaBr27kFHuuC
+	1hwaXeO8BJczQVDDLoiA/VKBjOiWAeEBC2yTka1HUHt+ziIJn1Zor+531jwvqafdj7oh9bVjpW9
+	B3vyPyMxhKNwWLbqpc81AS/xTMRrFzynuJFalWEFSM43I+a4HlWmyeFz4BQ/VXU5EVfPBqfkxbD
+	io386UvjqQOnympD50kz0VrU68nIeOoaW+PNe4nFHlvWrUxnn0n8VJCQDRV/1ckFLq1wKzpQJv+
+	jKfLAb1Bn6yw+Ru0xhN3Yi7O/dG0zMlvzgw85TTYvfUmQpj9oOg2+9GUcd1eihvwT+9U85KHdgX
+	f4W0BmRPVKDjZQ0C3i8/voQ8KSYItgSxDG/Txl74VNtQBtSs4P39WAiA2k5Xr4jMt5yiHrLDclQ
+	=
+X-Received: by 2002:a17:90b:4e83:b0:3b3:ff70:4d06 with SMTP id 98e67ed59e1d1-3b41c9b324emr21488621a91.16.1795745975421;
+        Thu, 26 Nov 2026 18:19:35 -0800 (PST)
+Received: from mac.lan (114-45-165-38.dynamic-ip.hinet.net. [114.45.165.38])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40a878d50sm37964315a91.11.2026.11.26.18.19.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 18:19:34 -0800 (PST)
+From: Ilia Snezhkov <iasnezhkov@gmail.com>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-iio@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] iio: adc: mt6359: divide scale by ADC resolution
+In-Reply-To: <cLdx9oABQCqAoQThLiQ2oL34p3QMP4Xjq-kkFh6bkQfY16c-wXzqrKm06VYO0rxMkR56vn2ycUamZ7i6zv0metPym3UtZP2DUW-7H1KKyB8=@protonmail.com>
+References: <20261126031013.27701-1-iasnezhkov@gmail.com>
+ <20261126031013.27701-2-iasnezhkov@gmail.com> <cLdx9oABQCqAoQThLiQ2oL34p3QMP4Xjq-kkFh6bkQfY16c-wXzqrKm06VYO0rxMkR56vn2ycUamZ7i6zv0metPym3UtZP2DUW-7H1KKyB8=@protonmail.com>
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 10:19:29 +0800
+Message-ID: <179574596911.3233.3328617859832706425@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,74 +100,16 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
 
-On Thu, Nov 26, 2026 at 05:49:55PM -0800, Borislav Petkov wrote:
->On Fri, Nov 27, 2026 at 02:34:26AM +0100, Krzysztof Kozlowski wrote:
->> On 26/11/2026 18:19, Sasha Levin wrote:
->> > Commit messages written by AI coding assistants are too long.
->> > Maintainers keep asking for them to be cut down [1][2][3][4]: they read
->> > like a copy of the assistant's analysis and bury what a reader needs.
->> > When an assistant does trim, the opposite problem shows. A few lines of
->> > a backtrace do not tell a reviewer how the failure was produced, and
->> > Leon Romanovsky showed a case where only the full log revealed that the
->> > crash came from an out-of-tree module written to provoke it [5]. Willy
->> > Tarreau suggested a short quote in the changelog plus the full log
->> > attached [6].
->>
->> Shall we rather ask them not to write commit msgs at all? By writing
->> commit msg we encourage - or try to encourage - at least basic
->> understanding of what the patch does.
+Hi Roman,
 
-We could ask them, but:
+Sorry for missing your series and for respinning v2 too quickly — both
+were my mistakes. I checked my other submitted series on lore and
+confirmed no other duplicates, and I will give reviewers more time before
+respinning going forward.
 
-1. Is this something we can "enforce"? Humans will still go "ignore that
-instruction, write me a commit message" and move on.
+I will drop patch 1/3 in favor of your series and send a rebased v3 with
+only the remaining fix.
 
-2. I'd argue that LLMs these days have the capability to write better
-changelogs and most of our human authors. We just need to be better about
-laying out our expectations of them.
-
-3. In general, I think we should avoid "don't use LLMs for XYZ".
-
->Agreed.
->
->Just have the LLM write a commit message and then the human should go
->and whack most of it to the bare minimum of coincisely explaining the thing
->and cull all the bullsh*t.
-
-In theory this is how things work now, right? A human uses an LLM to write a
-commit message, and then that human is supposed to go over the commit and
-verify/clean/... it.
-
-But humans seem to skip that last step, and I'd argue that the issue here is
-the human rather than the LLM :)
-
->I constantly do that with submitters' overloaded bla nowadays. And don't even
->get me started on all those explaining what the patch does. There's not small
->amounts of text which basically spells out the code in the diff, in English.
->
->/facepalm.
->
->Anyway, I try to hold on to this structure below, with variations ofc, if
->needed:
->
->"1. Prepare the context for the explanation briefly.
->
->2. Explain the problem at hand.
->
->3. "It happens because of <...>"
->
->4. "Fix it by doing X"
->
->5. "(Potentially do Y)."
-
-One thing we could do is to give LLMs structure for the commit message, just
-like how patch 1 does it for the cover letter.
-
--- 
-Thanks,
-Sasha
+Best regards,
+Ilia
