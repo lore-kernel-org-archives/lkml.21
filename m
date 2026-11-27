@@ -1,70 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.194
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765484;
-	b=ymzAqI/mFCPmW7Nvq1jDoR8rO7cBs2h5F4EVKFk+dNIczp2mR9ahYWgz+eTNCwICbbzC
-	 JlPmUlxS15XROZqx+nP2wftxrhx36qq02YmekyI0w+S6fdRGdF5UPhknp7jK4hHLBGKAA
-	 bNW7EGX9aEcapKaYguGzjUe5E328kcYX82MkK5WxKlz2/3Zk8mQqci+wRKW+puqNHerQJ
-	 wpIuIDnDbTxAptGgsLK8afufRlI1z77mdjjdjxK2K5qX51LWSVzNX34YqtghWTXo9GBh5
-	 zQqa6GvKpKPruWqlhYIdJo/1EEaIZbRdSL/pRLZMtnEy9TRkxOY943XHtA48z7sEZbA==
+	t=1795765494;
+	b=SssZxUKhdL7WCvoW9oB0aCuvrHEH9+jq75I2bEl6BzNv8QgnEi1yD6IVFie7uKxQtYGV
+	 mwYW8nEkToCmyJ4oxLf3v6oSQgElscI2g11jSLkaFDCt1dYPLvHga5GbObn1uLmLDUGV7
+	 H0FiYQGdlngEipvpXin4YcIm4/IqFVJRCz7rXJoUxG6u42l42w9XHHniZK2NACjm46tYA
+	 l0QTnnXdiv23QvizKNA2R10o2h7GCBnoLpj0o9lhllpzBpBqCKt9fgBrUWsG/JWZuBHGj
+	 fIgRXDSJm9WLtKiaeg16f019wbWU/8s2g7hLh/ko8DU/jACRSTo0GmUS/cjO60F4Nww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765484;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765494;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=32F+dteGpI4OSC7Oxea+gbzCBa3IpwvHXw14v4GKoqg=;
-	b=neHhX/EHVxSjJb1+7xikSHgtfEUu6/2qiUzg1E/ylUHREECoxXrR2gTjDmZIJs8PVMH6
-	 22WM0TDrahBBDXBcNLP1XDvqqKcTjbXWRzPiZ9YyyO5A+dKvJrEH5DEyJJT5oJY3gCkRN
-	 ECuQ/OyEuKbl0fniNz5FHunB65sTVACeTN+cATyq8mjB0HOT34PYTGl/Q1f8Cq5sCuwzv
-	 HQ4GC8unXT7UjS4ikIxjNoGUdFJMJW1AmyaI7Yy/rj8zmKdfbPUdH6V1mevKG+IDLldFk
-	 Ct/NvtoDkSu21g7SMeJyj7eSRJZCtgIoK1GYBpGJgQd6QpyKu3JZHv+Z7J6I4WkLP+w==
+	bh=AkPj4oI+ltkrZRHSxgCmt4zkHipFyLYUmu0JR09yQLY=;
+	b=k2G4IzxLr42O18/QFMJh9aJhSPGxch9mXDVYASAAAwmTnULve6VRKrV/57fOQCDo6R5C
+	 LnTZ6Wd2Yaq0A4oEa6TYVhpeFqOEWc/d2bF3dGKbhLKymmbIXKWgUnqiaIolwv/BXUUkk
+	 RhhNaALpvugsZFOrdMkN8HxZmCo3CF4WzFV0Q4aeyvoK3sh+JlmesJUJFYvKj2ADZ/sOn
+	 gaOm5+j+TCss40ucn+nkZscEVGtiQkECxaQIbf5dPbyk3BCUNzphKfPNEqRWM1QpDSONV
+	 Oy2CDfvIrk3UFC4nXO66Lm0XDhiAh4v8T/8Id9/8pWlXtBn6n0/CsuTeU/r46znRBtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=smmb1TdP;
-	arc=none smtp.remote-ip=91.218.175.139
-Received: from mta0.migadu.com (out-139.mta0.migadu.com [91.218.175.139])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=yinhe.ht;
+	spf=pass smtp.mailfrom=yinhe.ht;
+	dkim=pass header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=lN6ua0BT;
+	arc=none smtp.remote-ip=115.124.28.194
+Received: from out28-194.mail.aliyun.com (out28-194.mail.aliyun.com [115.124.28.194])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D8AA606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:44:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D8AA606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15232606A327;
+	Fri, 27 Nov 2026 07:44:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15232606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yinhe.ht
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yinhe.ht
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=smmb1TdP
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=k+kNS9/yC5H3dUfVUZLdt6GwIbmdmFem0AL769/L13M=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795765481; v=1; x=1796370281;
- b=smmb1TdPoZBHG+Rxs+wEUarNd/4GBEorRh8Gl6zJE0TZ9g98jDTdg/fRsgQEHzuK7PDrLcfp
- zZpadWz+FeA2K4gdq1qlfsYuLMdp7cBwhdSBSl1sZJ1863dbmuEARb8Ex74ZHGVL3jBjq0hCa6y
- Hja/itUcflgwF/HVbOe0og7g=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id bf1ec0af72a262ed;
-	Fri, 27 Nov 2026 07:44:41 +0000
-X-Mizu-Trace-ID: bf1ec0af72a262ed
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
+	dkim=pass (2048-bit key) header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=lN6ua0BT
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=yinhe.ht; s=default;
+	t=1795765484; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=AkPj4oI+ltkrZRHSxgCmt4zkHipFyLYUmu0JR09yQLY=;
+	b=lN6ua0BT7YBA/EmcQ4SuNBv5JMFIfzTl3g67KX3GiQIACIvd83woqu9oKVCakVmCqb3wHF7R81IVumziZ+Pmxs+pNvlmFOtU6D0xpHpue+SYXhDW9q6i3NVuyjuW9wx0kIuaeZIRRjUtOoAQcFCQ18Yinv4HSyD1FTMg0C/aYEvE1r8oPQZTyt2Aa92QcPzt55RLlkuGoZOkf6nkxDJxRhnz7p8FdGRSvu+dvOJ5Qcb6tT6+zFrSCxk57A775+4v3szJ7l00bKLEawcolWK3B+J/Y8xvrPez7oHNLBTCTMGW+a5k9WvvntvVUGGLAsBqThm3ihWU4Epn2vZdnU+hcA==
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07439788|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00398301-0.000560933-0.995456;FP=7816901128200203774|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=chunyuzhiqiang@yinhe.ht;NM=1;PH=DS;RN=8;RT=8;SR=0;TI=SMTPD_---.kBFoym2_1795765483;
+Received: from galx..(mailfrom:chunyuzhiqiang@yinhe.ht fp:SMTPD_---.kBFoym2_1795765483 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Nov 2026 15:44:44 +0800
+From: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
+To: Kees Cook <kees@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>
+Cc: Tony Luck <tony.luck@intel.com>,
+	"Guilherme G . Piccoli" <gpiccoli@igalia.com>,
 	Mark Brown <broonie@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 04/10] arm64: sysreg: Don't run the end-of-file checks after an error
-Date: Fri, 27 Nov 2026 07:44:20 +0000
-Message-ID: <20261127074426.50739-5-fuad.tabba@linux.dev>
+	linux-spi@vger.kernel.org,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v2 2/4] nvmem: add panic write support
+Date: Fri, 27 Nov 2026 15:39:11 +0800
+Message-ID: <20261127073913.353407-3-chunyuzhiqiang@yinhe.ht>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127074426.50739-1-fuad.tabba@linux.dev>
-References: <20261127074426.50739-1-fuad.tabba@linux.dev>
+In-Reply-To: <20261127073913.353407-1-chunyuzhiqiang@yinhe.ht>
+References: <20261127073913.353407-1-chunyuzhiqiang@yinhe.ht>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,43 +68,148 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-fatal() ends the run with exit, but awk still runs the END rule after
-it, and END checks the file as though it had been read to the end. An
-error inside a block leaves that block open, so the error is followed by
-a second, bogus one about a missing terminator.
+Add a reg_write_panic callback to nvmem_config and a matching
+nvmem_device_write_panic() consumer API.  The callback is used after the
+system has panicked, when the write must not sleep, take locks, allocate
+memory or touch a GPIO that may sleep.
 
-Skip the END checks once fatal() has run.
+Providers that can write from panic context implement the callback;
+others leave it NULL and the API returns -EOPNOTSUPP.  The regular
+nvmem_device_write() path is unchanged.
 
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+This patch was prepared with AI assistance; the submitter must review it
+before submission.
+
+Signed-off-by: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
 ---
- arch/arm64/tools/gen-sysreg.awk | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/nvmem/core.c           | 44 ++++++++++++++++++++++++++++++++++
+ drivers/nvmem/internals.h      |  1 +
+ include/linux/nvmem-consumer.h |  9 +++++++
+ include/linux/nvmem-provider.h |  3 +++
+ 4 files changed, 57 insertions(+)
 
-diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index 8ce4981273dd3..c4fa27cd9beff 100755
---- a/arch/arm64/tools/gen-sysreg.awk
-+++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -19,6 +19,7 @@ function fatal(msg) {
- 	}
- 	printf "\n"
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index d976c0d6603ba..0db0c16dee427 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -959,6 +959,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
  
-+	__fatal = 1
- 	exit 1
+ 	ops->reg_read = config->reg_read;
+ 	ops->reg_write = config->reg_write;
++	ops->reg_write_panic = config->reg_write_panic;
+ 
+ 	nvmem->owner = config->owner;
+ 	if (!nvmem->owner && config->dev->driver)
+@@ -2110,6 +2111,49 @@ int nvmem_device_write(struct nvmem_device *nvmem,
  }
+ EXPORT_SYMBOL_GPL(nvmem_device_write);
  
-@@ -116,6 +117,10 @@ BEGIN {
- }
- 
- END {
-+	# fatal() exits before the whole file is read, and exit still runs END.
-+	if (__fatal)
-+		exit 1
++/**
++ * nvmem_device_write_panic() - Write to a given nvmem device during panic
++ *
++ * @nvmem: nvmem device to be written to.
++ * @offset: offset in nvmem device.
++ * @bytes: number of bytes to write.
++ * @buf: buffer to be written.
++ *
++ * This is the panic-time counterpart of nvmem_device_write().  It must not
++ * sleep, take mutexes, allocate memory or touch a GPIO that may sleep.  The
++ * provider's reg_write_panic() callback is responsible for using a
++ * non-sleeping bus path.
++ *
++ * Return: length of bytes written or negative error code on failure.
++ */
++int nvmem_device_write_panic(struct nvmem_device *nvmem,
++			     unsigned int offset,
++			     size_t bytes, void *buf)
++{
++	struct nvmem_operations *ops;
++	int rc;
 +
- 	if (__current_block_depth != 0)
- 		fatal("Missing terminator for " block_current() " block")
++	if (!nvmem)
++		return -EINVAL;
++
++	if (nvmem->read_only)
++		return -EPERM;
++
++	if (offset > nvmem->size || bytes > nvmem->size - offset)
++		return -EINVAL;
++
++	ops = rcu_dereference_raw(nvmem->ops);
++	if (!ops || !ops->reg_write_panic)
++		return -EOPNOTSUPP;
++
++	rc = ops->reg_write_panic(nvmem->priv, offset, buf, bytes);
++	if (rc)
++		return rc;
++
++	return bytes;
++}
++EXPORT_SYMBOL_GPL(nvmem_device_write_panic);
++
+ /**
+  * nvmem_add_cell_lookups() - register a list of cell lookup entries
+  *
+diff --git a/drivers/nvmem/internals.h b/drivers/nvmem/internals.h
+index bc7a99f5aefbf..1c32947abe705 100644
+--- a/drivers/nvmem/internals.h
++++ b/drivers/nvmem/internals.h
+@@ -12,6 +12,7 @@
+ struct nvmem_operations {
+ 	nvmem_reg_read_t	reg_read;
+ 	nvmem_reg_write_t	reg_write;
++	nvmem_reg_write_t	reg_write_panic;
+ };
  
+ struct nvmem_device {
+diff --git a/include/linux/nvmem-consumer.h b/include/linux/nvmem-consumer.h
+index 34c0e58dfa266..2a23c24fa5210 100644
+--- a/include/linux/nvmem-consumer.h
++++ b/include/linux/nvmem-consumer.h
+@@ -75,6 +75,8 @@ int nvmem_device_read(struct nvmem_device *nvmem, unsigned int offset,
+ 		      size_t bytes, void *buf);
+ int nvmem_device_write(struct nvmem_device *nvmem, unsigned int offset,
+ 		       size_t bytes, void *buf);
++int nvmem_device_write_panic(struct nvmem_device *nvmem, unsigned int offset,
++			     size_t bytes, void *buf);
+ ssize_t nvmem_device_cell_read(struct nvmem_device *nvmem,
+ 			   struct nvmem_cell_info *info, void *buf);
+ int nvmem_device_cell_write(struct nvmem_device *nvmem,
+@@ -215,6 +217,13 @@ static inline int nvmem_device_write(struct nvmem_device *nvmem,
+ 	return -EOPNOTSUPP;
+ }
+ 
++static inline int nvmem_device_write_panic(struct nvmem_device *nvmem,
++					   unsigned int offset, size_t bytes,
++					   void *buf)
++{
++	return -EOPNOTSUPP;
++}
++
+ static inline const char *nvmem_dev_name(struct nvmem_device *nvmem)
+ {
+ 	return NULL;
+diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
+index 6063fe5b7784a..382ea91837e31 100644
+--- a/include/linux/nvmem-provider.h
++++ b/include/linux/nvmem-provider.h
+@@ -94,6 +94,8 @@ struct nvmem_cell_info {
+  * @of_node:	If given, this will be used instead of the parent's of_node.
+  * @reg_read:	Callback to read data; return zero if successful.
+  * @reg_write:	Callback to write data; return zero if successful.
++ * @reg_write_panic: Callback to write data during panic; must not sleep,
++ *		allocate, use DMA or wait for interrupts.
+  * @size:	Device size.
+  * @word_size:	Minimum read/write access granularity.
+  * @stride:	Minimum read/write access stride.
+@@ -128,6 +130,7 @@ struct nvmem_config {
+ 	struct device_node	*of_node;
+ 	nvmem_reg_read_t	reg_read;
+ 	nvmem_reg_write_t	reg_write;
++	nvmem_reg_write_t	reg_write_panic;
+ 	int	size;
+ 	int	word_size;
+ 	int	stride;
 -- 
 2.47.3
 
