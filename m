@@ -1,45 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.143
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780754;
-	b=P5f22B0AvyO5Q7t9pENrhqTSfjp8Qh3HpW7z73MLNOL84c/qEhFRli4AeKmEtpENHCID
-	 FMO+ivBmrfWtRhO7Tophoj6mX340Poqg8zD+RoEJ78MIbA/Qg5a0lASl9R09hzUJLeNXH
-	 adz2LGHjg0k/4LpZV321XVZn7mvBVei0rwwcsMeDPCx7AzMD/94dqqt/Jaw7wey8TL0fn
-	 5SxqmhBS1rVkw8kHHq9bl/gNtJwyZPy3wdmAM/Ai65GCvG2rngJvOzNCROAo193mzJ8Qv
-	 RnvdtG7nGWjx6GwhD9qvYEc8cgZjPnkqXT5X0jm8YvWM9/wpYhZCsq6w0R2DcRX6nbw==
+	t=1795780773;
+	b=z9WgPmZoc6mrZoLZMhP3y+cLf0WBgxVTmZ6RBeBqYVxVww0GwaXifKZDYgWUuZnJXkcQ
+	 K+/IR/8IQpy25rAdV4PY28cZKgcaF8kKZw+pK3p9X6I2izKWC+of4pJsE5AFvnyTlfeKa
+	 kim5SAuWV/AcbwEUOek270cJpnCDhHkP6vIw/gW7yltMKZnTXfqhDmT65WddIOz/i/1Dv
+	 Vz5e3CSSW+3Qxe0e8BPl0Dg4JGh9kQHZqeIyPexUZ5eHR1ZHYhYozaI8M20CVCNTiPAts
+	 yMiJMxPg5bwEp2FU5Pmd+lLAwJCrDPt3Kd6Sgz8XRXOnSmUORa414VjNebDbjl57ucg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780754;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=X4kfaiVur+cv7ACUutyaSv/1OtD9q8Aja3Q/LtqseRo=;
-	b=t4CiQXYgK4/umfX3y1FzDazv6s9SoOSQlmfAaZraKYHM5gY3KUqbR1WXa6hxSe/l/sh1
-	 l5D2DWk+7QpnwxMpk/YHScQixZxBCimrJk0xdg+BkpyAyDe20d769tl1Xj/rQu4/4eCxM
-	 CLCrirR5CSLTdhTL382xrHeq/Xi0hzR4C0bkYHqhiqvRj0UxSVDIMhaq3w2haaqTr/IRe
-	 bejQHiw6jQrnEJ9ugfc/6RysQqTv77HEzop1RsdwmNu9ETUzBuIzeNikc6iWX9GjSt43L
-	 RF/dfvouxNqbumWV6Rpr1S92E5sMALRBA/Rxkm0e+IlI7T0qkyjj4LsuDlak/IAKBhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780773;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=9yn1iJxsbh46IrDULLLZ6bzkEUJL0/EuHJ2oxf+uClA=;
+	b=Lzqxucf4hW72sb3Naqo2NHVPukYV8BSPSyZd4zlUCforRC0kfc58LmWOLM8RIsnQqdbt
+	 ywz5TNBTH4Hp5pGOjsKb1FGkZPeq12PABB22JqcZ/ir5m5OcgX5INEioPjV1NT7zNlk9p
+	 PQvgHhDY3ZCFDrdVpfZLNlDnCXcEw0JDJvpl86inMB57pi9HPr6Hp+N4Y3JgwqDSpdV36
+	 SYGyC/NTbmimL2f9X90pcw+ETRPPJHGuQjMlccL53Bpexjphi2mST5miFIh2cg5KL9L7T
+	 bqsaT7u49tQRm74BiJesKod3iFRa/p1mNxRYiGNiy57Fo23RI4t0mBQvSD5MCGLWYMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqG3yN7n;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BGsNUWsP;
+	arc=none smtp.remote-ip=91.218.175.143
+Received: from mta0.migadu.com (out-143.mta0.migadu.com [91.218.175.143])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8E5D606A33E;
-	Fri, 27 Nov 2026 11:59:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73ABA606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:59:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73ABA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqG3yN7n
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D8F1F02809;
-	Fri, 27 Nov 2026 11:59:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795780753;
-	bh=X4kfaiVur+cv7ACUutyaSv/1OtD9q8Aja3Q/LtqseRo=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=dqG3yN7nISyTWtF1R2GwmK98IjcPUPf+g/u6Xa+7tGyAu9kGwKnSdd8+pR/OCTM5r
-	 C+MRnamg2GnJpQdCm9K8ZqZQ0XVy4O8Uc9hsptJSsOar7xU/8PakvVGrMMVW7Z1Xj7
-	 nrsUWYoCh904bs216H+OOK94HEL9/ozFGAlEgtr/2XGQBsov6ThBTzI6lX4nlYfmTs
-	 GeSDJAuuxzgx01KiytAAGWaSkZYOFwJ3SooyCh+HhLudozH4+laiTE2LL8JKYEFjOD
-	 UXhp3f74E9cQaacOLzQLKJtswJu3mnKtnhYfytrHk98ybqxSpqtVAyEcLF4xfCFtVi
-	 6fqewrC/vb/fA==
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BGsNUWsP
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=pzIAnmEIIV52PbP4rMlcMPnsFdTKL6Y+oHxJNALrQ00=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795780770; v=1; x=1796385570;
+ b=BGsNUWsPXVDDkkjnVAXiqlkAM4O6VUER6ZzyrMEP+j3honaVJFBTAUYfuPE9Z7MDdcilLSOy
+ 2W4nPZig5iRX6fKec+2bUUD+H7rzg9Go5QE5XVmVmr18khr2vB2BPEBUfN2grczj5SbYcnv50Mz
+ gFwccPHf17jCpaG6JreChbEw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 101eb2955bf02fce;
+	Fri, 27 Nov 2026 11:59:30 +0000
+X-Mizu-Trace-ID: 101eb2955bf02fce
+X-Migadu-Flow: FLOW_OUT
+From: Luka Gejak <luka.gejak@linux.dev>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: linux-wireless@vger.kernel.org,
+	Luka Gejak <luka.gejak@linux.dev>,
+	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Ahmet Zeren <niko3x@proton.me>
+Subject: Re: [PATCH RFT rtw-next v2 2/2] wifi: rtw88: honour the retry count and NO_ACK of injected frames
+Date: Fri, 27 Nov 2026 12:59:29 +0100
+Message-ID: <20261127115929.40205-1-luka.gejak@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261127-b4-rtw88-inject-v2-2-f9701b9243a3@proton.me>
+References: <20261127-b4-rtw88-inject-v2-0-f9701b9243a3@proton.me> <20261127-b4-rtw88-inject-v2-2-f9701b9243a3@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,89 +69,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] phy: exynos5-usbdrd: fix HS phy init count imbalance
- on Exynos2200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Soheyb <soheyb_boulaa@proton.me>
-Cc: Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261109221522.2796426-1-soheyb_boulaa@proton.me>
-References: <20261109221522.2796426-1-soheyb_boulaa@proton.me>
-Date: Fri, 27 Nov 2026 17:29:04 +0530
-Message-Id: <179578074498.13164.12931562027223515149.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2175; i=mani@kernel.org;
- h=from:subject:message-id; bh=p6d2iEwVEUY+/j47JyZwmjKq5uIbHpo82iXyjlHo0f8=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCXCM24kKb+8h2Bep4TN9AXjsVrm4SL3mhUnSz
- vXEi2WOU/GJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawlwjAAKCRBVnxHm/pHO
- 9dQBB/0WrkCe5N23g0EgwH46xNiAYn2oau5oIDzwdoaiNTY0dT5C0USIEWwisI6MZz+rl8gt/J7
- pTKxPbPQ0USEwZeyqgJ3r16Yz4Cd4yyJZ0pEHBpmNE+GZrBSATHRsDLjcxf424gLe/s29izVto8
- redXPK8wu/48rx32TsUgqD/yzR3fv5H4H/UNLukf3J3dmvpBeX+Hs6bUnemnp0Jjk1IEwRoTcVA
- IqUu20NINdpwqNn5q60FO0xVZ6sTBKBJQmc6oW9L9bJsioKSYbfTqw+9rqWnOXfGG0Kc+72ZSxn
- Iu3sjdAw4F27Jwv95OrJg/YYk81I+3uRm4VqpuAcmqknzZSJ
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-09 22:15 +0000, Soheyb wrote:
-> exynos2200_usbdrd_utmi_init() calls phy_init() on the high-speed phy,
-> but exynos2200_usbdrd_phy_exit() never calls phy_exit() on it. The init
-> count of the high-speed phy therefore never drops back to zero: after
-> the first init, every later phy_init() of it returns early, and its
-> clocks and supplies stay enabled across an exit of the UTMI phy.
-> 
-> When the high-speed phy loses power while the controller is suspended,
-> it is thus not set up again on resume, and the DWC3 core soft reset
-> times out:
-> 
->   dwc3 11210000.usb: DWC3 controller soft reset failed
-> 
-> Exit the high-speed phy when the UTMI phy exits, first, in the reverse
-> order of the init.
-> 
-> Fixes: cc52a697f87e ("phy: exynos5-usbdrd: support Exynos USBDRD 3.2 4nm controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Soheyb <soheyb_boulaa@proton.me>
-> ---
-> Tested on a Google Pixel 9 (Tensor G4) with an out-of-tree port that
-> uses the Exynos2200 phy ops and powers the USB block off in system
-> sleep: without this change the soft reset failed on the first resume;
-> with it, USB came back after each of two system sleeps. Not tested on
-> Exynos2200 hardware.
-> 
->  drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> index 087d552..0bee928 100644
-> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> @@ -1486,6 +1486,13 @@ static int exynos2200_usbdrd_phy_exit(struct phy *phy)
->  	u32 reg;
->  	int ret;
->  
-> +	/*
-> +	 * The UTMI init initializes the high-speed phy; exit it in turn, so
-> +	 * that the next init sets it up again after it lost power.
-> +	 */
+Hi Ahmet,
 
-Same comment as Ivaylo. Code is self explanatory, so comment here is a noise.
-LLMs tend to insert comments even when not needed. So you should trim them or
-ask them to not add comments where not really needed.
+Thanks for the update. One comment below.
 
-With the comment removed,
+On November 27, 2026 12:00:00 PM GMT+03:00, Ahmet Zeren
+<niko3x@proton.me> wrote:
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+[ ... ]
+>  	info = IEEE80211_SKB_CB(skb);
+>  	ieee80211_tx_info_clear_status(info);
+> -	if (acked)
+> +	if (acked && info->flags & IEEE80211_TX_CTL_NO_ACK)
+> +		info->flags |= IEEE80211_TX_STAT_NOACK_TRANSMITTED;
+> +	else if (acked)
+>  		info->flags |= IEEE80211_TX_STAT_ACK;
 
-Please respin.
+As far as I can see, ieee80211_add_tx_radiotap_header() sets
+IEEE80211_RADIOTAP_F_TX_FAIL for a unicast frame whenever
+IEEE80211_TX_STAT_ACK is clear. So with this change the monitor capture
+can show a failed transmission even when CCX reports success.
 
-- Mani
+Could we check for IEEE80211_TX_STAT_NOACK_TRANSMITTED there too? For the
+test in the cover letter, I think we need the raw CCX result to tell
+whether the firmware actually reported retry exhaustion.
 
-
+Best regards,
+Luka Gejak
