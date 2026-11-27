@@ -1,45 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778631;
-	b=SlOC0voA5xBVCvF6mx8cAegrZLFAE9KwwEsM/0IiQRhrb8LtFWAEMWi6FwtnxEFh7n/g
-	 aXtBEmHOKBrLOXm5CL4aXXQajoW7Klxz9L07V1pmR/pMLuQcMoUe6pAgXKFW078uLDmYd
-	 KnMAGahfShpzKwCW7pipdPawvtt8vQrlq1+aKDuUbiYl+mEazKoIgbiiKazAxeZ4RlGF+
-	 R+k9ZgDXYau4uPERU6SVWSENSxj3kfULgfw29F96b/KWt25AimHSOg48LscdTvXQXlWsi
-	 S7s+lz9Oau9Tp9t1OBN48RCCpUkQ7AP2YxBNcKjYVSavmm4QF7rvGgOojTGz0vsuuzw==
+	t=1795778669;
+	b=2PsxNNN6dmcQqEl+BqmO4EspepPeCLR9wGwlCOAKabsDq9F9+4jYNOhMsXw2uqW4tROh
+	 fLw2X6oc9Rp1jbadvhfeCXGuOhmzO611lBJNsEMiMm6syQeu/g/2twuKVTXgkCTnawWzv
+	 HnaVZlDQkALjd8cTAnVhIQLdyAoOK8Peex/RijL2w+TtV/qjHuqQ6OEgL0vhFcov/t1X2
+	 a17hpPmn3j7NG5LrfTPN5SdkplVjKKzzYGukYyYgPVszLtuzg55qcpexMprK7+sRkIPPQ
+	 4hDsg+sdNfV4m0ANv2/BdMuFBJrKXCX5Ognvuu2PDs7tVMBeG1Og3ieecjdnxySh5GQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778631;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=mK5RhtnnNWXMlCTquZ9NQFJvoEWITHzyteXLzq6fXPM=;
-	b=f13+hMZLWaB8J9dNRBgvKldM2vvkJe82AEvF4S8SniyEw8NruIX+5iMBTSFJh808S8T2
-	 bRC7X2lp1aExGBbF0n34E1teuc1OA2Ki6WyDwGak/zIFs3YHQcsy0wKqsjUTvitzidvxk
-	 pBl3B4VnzuXivOyWt1TBnKPmVwnFz6t6KHarz0NKL1NzNL4RHdUJ1rEQct8ILFhvnSd/n
-	 IpRU1BDiQyuMNIldVxiOELi59xaGh/dcKBD/sNiACwQ0r12hvqQUQbVgXL8vNrdELeegK
-	 bL7hG70j//ud47L3cRUQ745eipwa0S1+9eA6DX3D8kgRa7xd7wlNeoomK1zS+NAdMKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778669;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=T9EauWO6cQ2WfpHoCweGwNuAL/bymTltRgB04eRJXrU=;
+	b=ViylIpD0UZM1GLrMHPMqdYxOzZimsYevku97Y7UIkI7ciA7vmmMemlOSEArpVivEdBDv
+	 Nk6PfrGjpHhL94ytxOPGdtAIJpTX+pf2vrMWT5X+VaeClOu2hyJSsoNf4bm6LWY6ax6xr
+	 GfXZ4sYtAq+HwqTOOlW3/3w4U5EdCXgmPlkSIJQQbmveD4Lo+xfc+fN/JY578HQokScA0
+	 ENI9oZa65dJ+l1Ut6v09jGdvk+C+IznXF3Q/M8Bs5wtcQvmtspPWNTiMc4Eermmo3aAcg
+	 64GQ1f4L0v4GP3m/svfn/MibpF3pzmtT7xNYnue6TLeFQLaAyFwwujRV17QeDckgC3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W+U5vf3Q;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 315F0606A31E;
-	Fri, 27 Nov 2026 11:23:50 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="n/GcYhyF";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6798C606A31C;
+	Fri, 27 Nov 2026 11:24:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6798C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W+U5vf3Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D0331F0089F;
-	Fri, 27 Nov 2026 11:23:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795778629;
-	bh=mK5RhtnnNWXMlCTquZ9NQFJvoEWITHzyteXLzq6fXPM=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=W+U5vf3Qzp36jc0/5Aov1uzc4wuKic+K0qqBbW7kF7vSMOdhoVZtKSjb7d0n5PSYc
-	 8b4dchosUJExuyylsCUY3YM0kwojmL8sGdWuouYObx49XLUHj4L8YvRFB+ci4BtTrj
-	 dWpzYQgk5OcY1wwUfBoS3QTJp7KJ7iN3yfnYYB2/r2KQ6RCQ9GpXn2vv/7PyOS/zSi
-	 jJSBVQWXF4uX71m9WRhaFKeDlICgfraUAuI/lqE99mAjp92Xv+4k85CFrCQLxe7Efd
-	 hbAigLfW6LqMNAfwqpKjUOMPRBaN533voPFNNnJn57ZZpY1hFss7Z+sC6bDGVxGwuT
-	 9+hIphD2dO1NA==
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=n/GcYhyF
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1F85152B;
+	Fri, 27 Nov 2026 03:24:25 -0800 (PST)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 568983F632;
+	Fri, 27 Nov 2026 03:24:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795778668; bh=ElfG0zfwSKVhwzHS3lUakxTIG4KBhbx2STHreNU7ca4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n/GcYhyFjXnGZ05+0HmsOhEouFkUBNZJZnREWcBBYEYuJ1UiwwsIFkQa2gz9QrcnK
+	 2O96p/rgEtjPJhflYAbG1IAWB5NouXC2E+U1y7TiTuEY5GiY3sxYhB3bjL+KZkx5sL
+	 MKcfLY+XRJyus9eAfxFYyw0sgV1FXh3NSITUHfsM=
+Date: Fri, 27 Nov 2026 11:24:26 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Puranjay Mohan <puranjay12@gmail.com>, vladimir.murzin@arm.com,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Rob Herring <robh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Stephane Eranian <eranian@google.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for
+ bpf_get_branch_snapshot()
+Message-ID: <20261127112426.GC861809@e132581.arm.com>
+References: <20260810164622.1829843-1-puranjay@kernel.org>
+ <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
+ <CAEf4BzapC=7YM2QLMyKKfyOWGgBTfEJmPPN8e9Jf5xT9SutBTQ@mail.gmail.com>
+ <dfa8362e-0dad-4f23-9d2e-dde03cb5facc@linaro.org>
+ <CAEf4BzZ=ahQNtA-1KdZFRONXMOEkV9Nb1OUY==JRQCarkbMM0Q@mail.gmail.com>
+ <5c7f4a5f-fe5e-4367-9c60-86f1818346e8@linaro.org>
+ <20261126180214.GB809232@e132581.arm.com>
+ <9a471409-04c2-4f6e-aec9-0b23bb9b69f0@linaro.org>
+ <20261127111128.GB861809@e132581.arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,64 +91,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 0/3] phy: qcom: carry live SS-link state without
- growing enum phy_mode
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Tapas Rana <tapas.rana@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Abel Vesa <abelvesa@kernel.org>, 
- Wesley Cheng <wesley.cheng@oss.qualcomm.com>, 
- Esteban Urrutia <esteuwu@proton.me>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>, 
- Ronak Raheja <ronak.raheja@oss.qualcomm.com>, 
- Faisal Hassan <faisal.hassan@oss.qualcomm.com>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- prashanth.k@oss.qualcomm.com, linux-arm-msm@vger.kernel.org, 
- linux-phy@lists.infradead.org, linux-usb@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <23b5c705-cd55-4c0c-9c95-c61afb286416@oss.qualcomm.com>
-References: <20261106082716.128968-1-tapas.rana@oss.qualcomm.com>
- <23b5c705-cd55-4c0c-9c95-c61afb286416@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 16:53:39 +0530
-Message-Id: <179577861920.3421.4340993862938053001.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=742; i=mani@kernel.org;
- h=from:subject:message-id; bh=DNaiOmAIsM3RjZZ86nfFogAtVyk1ZOvfNvmFkm/aqf8=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCWg+Wjg+B/qLCJCqKXlBRo9OqyZhTZKnMSEwK
- yHRUc8xjnGJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawloPgAKCRBVnxHm/pHO
- 9eJtCACQWXnzV18kNd1oaSofDwCYBTC8k3efRtOM1oFjre1l0Oo4QWqHQo/bnYQgpd6/CNdUl4B
- rTzEs6mmT1zxkvCnl/dDUIDhqIn78dsEJJtsCoVu/W79FeCPyb3aNAJfK5lfOS+Kldi5B0pJ5tm
- 2FaS5yfOfGzkn9Hj23LlCCFZRArEA1RJUgkR7DSnKkbE+X83E5/BsJGOLPY8A+loFfGxp6yA2Mn
- bdfqNfKI+upVS7SSdOc+5TlCH9HeDq8VPLgtUakWX0OgNP23IHi98oH7vO9TcQm5qyZNbjSERIm
- Wv42K8UjdyJZCujtrcJCz1W2yFo5F9FMsCEJtpgUS7y/twrT
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127111128.GB861809@e132581.arm.com>
 
-On 2026-11-06 16:06 +0100, Konrad Dybcio wrote:
-> On 11/6/26 9:27 AM, Tapas Rana wrote:
-> > QMP PHY drivers always enable receiver detection (ARCVR_DTCT_EN) in
-> > autonomous mode, and additionally enable LFPS detection (ALFPS_DTCT_EN)
-> > when a SuperSpeed link is present; otherwise they fall back to
-> > receiver-detect event selection (ARCVR_DTCT_EVENT_SEL). This choice is
-> > made by comparing phy_mode against
-> > PHY_MODE_USB_HOST_SS/PHY_MODE_USB_DEVICE_SS. However, dwc3 core only
-> > calls phy_set_mode()/phy_set_mode_ext() with the base
-> > PHY_MODE_USB_HOST or PHY_MODE_USB_DEVICE, never the _SS/_HS/_FS/_LS
-> > submodes. 
+On Fri, Nov 27, 2026 at 11:11:28AM +0000, Leo Yan wrote:
+
+[...]
+
+> > If any sampling BRBE event gets scheduled then the snapshots just start
+> > skipping and returning empty.
 > 
-> Without much more insight, this sounds like the place to fix it then
-> 
+> BPF program can be attached to interrupt handlers (even it can be
+> attached to PMU interrupt handler). As you suggested, we can use per-CPU
+> flag to return an empty snapshot for the nested call.
 
-+1
+I should have distinguished the two cases in my previous reply.
 
-- Mani
-
-
+BRBE driver could return an empty snapshot if a sampling event is active
+on the CPU. In free-running mode, a nested call could do the same while
+another snapshot is in progress on that CPU.
