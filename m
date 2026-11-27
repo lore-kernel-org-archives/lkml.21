@@ -1,108 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783362;
-	b=ZWHis1VPkgJZTAny9fMqyZcrGKvXNyJRInoCAn6ekZAzeWkviSGeRhcd9X46c3eB4IZ1
-	 Qs6qyf1oYmmQ3KjYVdDMnC6hrb3eVZPCLXPVq/fLy+j/CHG0MMRiGsW7Z0WDyAWSwPFjU
-	 vm/cxKz1fUmHSTAyfZUk4pV3p0+J9ILlp0yW7bffQPKxIPu8G9/5yB1CEHt2cbg0VfqaE
-	 lcAKDuiuwhS6XsP96kBkfaHQp3ho3dRfdWg0C3FJE7CMuU727F4RE2ihXUNH8jH4X0Gjn
-	 h7GqsYk5z8obdJcA7kTWtyi7ATeZLjDDry8cix7Gp/jWItLKjy8SXxU+o3Vq0pW74eQ==
+	t=1795783399;
+	b=01j6elvuXu4Sc6nNEm9JAoSPXf9Amu3ajvNUVbmQcCHsgqzOk60lboI7oOwKoOcIBLi4
+	 5YPGvxIpPsihbXyVi/SpFAc794KvuYSZB21lIVEibxFugOq3yFSQ0h9zZIDVxM1PxaMNS
+	 GNLQZI1q97WX1/G0Al3sJa21F31JUFyr/DPLv9/6HefuITWHaaIpahoduN7gE+gDFoJhH
+	 D5Ri227sXALmljImcW8mXENVia1ZFNYg/WEW3/c8xQ2Ic8A80ibPuzJ0mJh+j/BHi/xB2
+	 G/sJyn46YmEU7xeF/kGXBpX+QFEdKg4Dp9kaqVFU5VU69evOARH73KqqD6JLFe9H7fA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783362;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=69WYYzr2raKy4GZhRJJIx91GBcacgavIFPmAXCyscrM=;
-	b=Faw+fmzJk5hV7v2+crYa3qcge8jGHfPwwn7WDmFGE+zMjumTExH0A7Sg/qIwzJZWqN9B
-	 adZ3p40xxxQOp7aXuKuCRS7vAdHu2HmhRFnRGxKpkIHsKEehiMWP5SlSv/EVj8f+IOgAs
-	 H15qqCUWM+/09VMOyeIsj3bF1gQsUaSWPoYBwzRFLP4OIDov0sUAw8gNtWHvOOjfEqh18
-	 uKpeU8MrsQBhTaU3AEtftJzrMGsNAAKszfOcGFL6Tvs+X+1VRJW8/IcV2cNsN+R7eXwNm
-	 6uu3lCPLoHYxv6fqA7d7nCBUBBZFuezOUxmEUKVQZpWglIMG3gj6p8nbyl8Mbmvs8jQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783399;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Received:MIME-Version:
+	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:X-Sender:
+	 Content-Type:Content-Transfer-Encoding:X-Spam-Report:X-Spam-Score:
+	 X-Spam-Bar:X-Rspamd-Score:X-Rspamd-Action:X-Rspamd-Bar;
+	bh=SW7JHhiu41wfPquSMxR+o4KbZ3UG60Y+QaqGLDrhNjA=;
+	b=VJPM3Q4QapC7Qx+0zWdx1LHZOVyiMbAOjj1WV20+bvoXh9urWoEhy0QlPrTpRrElllw5
+	 tVz98FfSuxX+Irc9nUG+3hEwQGE1IXJJUy17LztfG6PK80qCDz0Ea8oNUPk7PhbCmGSWS
+	 B0Yauo8Hw07rmcsB4eC9KQvD1jRnBYb0m3FMial8SaCEB5h9wksnTitAwT6M/tBLT6hLE
+	 3wAtaAsNn0Pr+eKAMJdziulZuVMkbAutt45EWVu4j+vEAxwDn4tv1aYoaLsk14BAtDArn
+	 Ha6MDf0bNA6VSvOjHG8OtoGHU74DOVF2lOY025K4V7mro6iHnb1IX9Vg7mEDS5ZIw0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="B/dZVh/W";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=mIrb7wzj;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=M1p+lQ2N;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F58606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:42:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F58606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4217F606A31F;
+	Fri, 27 Nov 2026 12:43:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4217F606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=B/dZVh/W;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=mIrb7wzj
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795783361;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=69WYYzr2raKy4GZhRJJIx91GBcacgavIFPmAXCyscrM=;
-	b=B/dZVh/W5IsUnkRIhZuDRVmhBZTPB2zjnZfJGbqZGjFsgXvnnu0dUZlZrN2vlBFva8mZ/n
-	luLiw1nw2HUjvK05ebLxt9jnGY46wzK7e5MIFBaltPfhT/y0K7SAck8eyjtqnj1bqCTQuT
-	A49Qz62zMbWjIBWn7vBWnIGDx6DM1kg=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-586-WDK8YporPO6s0Iy9pdPeEA-1; Fri, 27 Nov 2026 12:42:37 +0000
-X-MC-Unique: WDK8YporPO6s0Iy9pdPeEA-1
-X-Mimecast-MFC-AGG-ID: WDK8YporPO6s0Iy9pdPeEA_1795783356
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4ba078abd78so54156655e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:42:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795783356; x=1796388156; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=69WYYzr2raKy4GZhRJJIx91GBcacgavIFPmAXCyscrM=;
-        b=mIrb7wzjO+Qx/rOHTaJMbrY2yvfrKxBuFQ7FW3EgTTJKVHbMB9Xd4afVBBx89q17bX
-         1e7iWantFienpWSC3hOgmrEF6b0GG5kuN33wJ7WF6aOlKHI1fuoLoKXgdnJZwhmY8iR4
-         3tcQLAPRHWCbqLXxJNgSk1EOrQIk8sCgfkUxZLqBxhMGdgQLiww6afb/XT0pZYicdGzk
-         rwVdK/W3bkOyXJzvhTnaBv9MHb0e+KJ5qR2+s+9vRsbmqxzYU11mxKG8Y5r/DmaJuA2z
-         pfadq7FY1ZRi/UGQD/iiWQlmEkJ4R3wiJunWqde3F6NgNPINMQ7bqa7uLU0SS/zJbhPM
-         Ebrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795783356; x=1796388156;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=69WYYzr2raKy4GZhRJJIx91GBcacgavIFPmAXCyscrM=;
-        b=lDbb+QzenOpOxnxwu7HHnv6tkiKfKMhZUJzfxLR8lIheUNB6OQY/9mGQ4WRzUZD5Gl
-         crtDXRea9b5RgdLa+djtJVI+xb2uEtWIBRJujRkxTUjh2a3EaUTBjwbtLWh/AH/s2+9Z
-         RW//6C7YDdl0s8sOw+CahNkskfOevvXg3RiLhdc8cVFM3YNIKoGAHPhxfe9LfdH7Dmqb
-         vrY2rEZmhdd1saVVxtD33yxBwxdDk/jyDKyoZkIWUVUHdi8ihoE6Ww/Z5W7A+QidcheZ
-         Xjynif6px4qGZqtnqySURGc1uO0f586kvaBShhFVkM1iJw+42YqGJwYEf0LMeSA3kz6F
-         rpXw==
-X-Forwarded-Encrypted: i=1; AL+hErFnAB5tYqKgLHW/v+i7AF7zfMDWfKQaSf8EiurIjlFjBMkmPco9u14aWt1WtDsXxYaUyv//ECDkzB4dHCo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9HmQc7Mvs5svlZES26f5VnubjPhvcEW/jvnynmpMUzxqV8MGum
-	epawdXdFk8AMdOyWfzNo82CbmuV9moQJ7rb0AcvBh6CQox1V1ZvDSZxSy7ryIYrzl8Y3TuZnak6
-	1jBHiA6i6YPUSI2i1d9FGBdVKgPO4+KW//Xy+01paJpkzXovZ4Ds0umBveBXnJgwwYQ==
-X-Gm-Gg: AZFdTZeUevkjB7CwUDIcjI9DSMmml9cKwH57rtOPtxit+cbFZXb0IHUrsAzn/Vet1Dk
-	UN7O2nu/7uXxqOLIkOEzU+6ryHYBeAHIaRtszy44ySYQL83cYCW2ONKZRzTz2ZzEAKE0sQz08RT
-	IkCaWN4Ojl3m2to6Lqw4Z2nUmMxNvK/lqdpVq8vol6LilwIkvMCRouYRnVIJ+BDoR8eXhGCJwKX
-	HmnOaJrDJ36Jt2/vVbfnmu9bziP9Bvq76NgpslxCu8RoK4PZJdz1lcbjmwsynkF67JHbwBI2jF8
-	zB3VHFfaRI7ilZ/Ylxg/TEqeIap/JQiVTcXKL6066zmUxSMkglukFay9PF7JRHbcDI0jMQnSPBS
-	BZg8IIrqeSpbvnowz1iT2rAPJyMd5hkMbXMoR9O0jWgui6kbCLMh03laDCSFHJX2eXlamjtMJem
-	Q0+BJIRpnBSVu8KykUQ4MX
-X-Received: by 2002:a05:600c:3ba9:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb8881c741mr568979995e9.6.1795783356045;
-        Fri, 27 Nov 2026 04:42:36 -0800 (PST)
-X-Received: by 2002:a05:600c:3ba9:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb8881c741mr568979345e9.6.1795783355534;
-        Fri, 27 Nov 2026 04:42:35 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9? ([2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm1250929405e9.4.2026.11.27.04.42.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:42:35 -0800 (PST)
-Message-ID: <1084ab13-d5c9-4154-b314-c7513b533c50@redhat.com>
-Date: Fri, 27 Nov 2026 13:42:33 +0100
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=M1p+lQ2N
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:Message-ID:Subject:Cc:To
+	:From:Date:MIME-Version:From:Reply-To;
+	bh=SW7JHhiu41wfPquSMxR+o4KbZ3UG60Y+QaqGLDrhNjA=; t=1795783397; x=2111143397; 
+	b=M1p+lQ2N6zAZO5LqctvioCV5yBrQL0nK4dJ4VrC9m0SUDSIYYPk2bdY2mKTyyCEqFta7MPWmBow
+	2EmbOr4C6JdWHUTtP+jaEEcLqE1+BmL1LHfymhy4l3n1s11sJd8cDK91BspsDSKw6carYxmKu93kY
+	boKZOZi8AnhCAUn6O8q04gbQtGhVZfG3xzQZue+YTTVLZcvsZHq7N61qxboWOg/JB64rOpSoeBPH0
+	dj4iD7utbM+JsQrcBlTpnJsNReFKaTbjE8hS1i2BsickSz38HVJLg1BUzp1/AaZ0mnXKOkglC5qHw
+	sNO/qXyt/XeWHbEvF0kWplyFQW9/juvn9hsQ==;
+Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
+	by fanzine2.igalia.com with esmtps 
+	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1xWvIJ-00000004nMP-3A2c;
+	Fri, 27 Nov 2026 13:43:15 +0100
+Received: from webmail.service.igalia.com ([192.168.21.45])
+	by mail.igalia.com with esmtp (Exim)
+	id 1xWvII-0000000HOUt-3AJa;
+	Fri, 27 Nov 2026 13:43:15 +0100
+Received: from localhost ([127.0.0.1] helo=webmail.igalia.com)
+	by webmail.service.igalia.com with esmtp (Exim 4.98.2)
+	(envelope-from <uajain@igalia.com>)
+	id 1xWvII-00000003lhK-2bSy;
+	Fri, 27 Nov 2026 13:43:14 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,62 +66,225 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] drm/panic: Simplify QR error correction exponent
- reduction
-To: peder.bergan@gmail.com, Javier Martinez Canillas <javierm@redhat.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261126-perf-drm-panic-qr-v1-0-51856937dc4d@gmail.com>
- <20261126-perf-drm-panic-qr-v1-3-51856937dc4d@gmail.com>
-Content-Language: en-US, fr
-From: Jocelyn Falempe <jfalempe@redhat.com>
-In-Reply-To: <20261126-perf-drm-panic-qr-v1-3-51856937dc4d@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Date: Fri, 27 Nov 2026 12:43:14 +0000
+From: Umang Jain <uajain@igalia.com>
+To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Cc: Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel-dev@igalia.com
+Subject: Re: [PATCH v4 1/1] acpi: battery: Read Battery charge time("_BCT")
+ for Steamdeck devices
+In-Reply-To: <CAJZ5v0hu=6CxHc4LiUvX=82-St=xjLCtdgHZr_0iobnpbfLRuQ@mail.gmail.com>
+References: <20261116102752.520062-1-uajain@igalia.com>
+ <20261116102752.520062-2-uajain@igalia.com>
+ <CAJZ5v0hu=6CxHc4LiUvX=82-St=xjLCtdgHZr_0iobnpbfLRuQ@mail.gmail.com>
+Message-ID: <a447bf956dd45a8cef95a013f38dc19c@igalia.com>
+X-Sender: uajain@igalia.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spam-Report: NO, Score=-4.9, Tests=ALL_TRUSTED=-3,BAYES_00=-1.9,KAM_DMARC_STATUS=0.007
+X-Spam-Score: -48
+X-Spam-Bar: ----
+X-Rspamd-Score: -0.4
+X-Rspamd-Action: no action
+X-Rspamd-Bar: /
 
-On 11/26/26 17:53, Peder Bergan via B4 Relay wrote:
-> From: Peder Bergan <peder.bergan@gmail.com>
-> 
-> Reed-Solomon error correction reduces the sum of two GF(256) exponents
-> modulo 255 for each generator coefficient. Both exponents are below
-> 255, so the sum needs at most one subtraction.
-> 
-> Use a conditional subtraction for the reduction. In the x86-64
-> userspace benchmark, this replaces a multiply-and-shift sequence with
-> a comparison and conditional moves. On top of the first two patches,
-> the change saved about 32 us per version-40 encode with raw input and
-> 31 us with a URL.
+Hi Rafael,
 
-Thanks for your contribution.
-This code is executed only once when a panic occurs, so optimizations 
-are clearly not a priority.
-But this series looks good, and keep the code simple.
+Sorry for late reply.
 
-Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
+On 2026-11-20 13:35, Rafael J. Wysocki (Intel) wrote:
+> On Mon, Nov 16, 2026 at 11:26 AM Umang Jain <uajain@igalia.com> wrote:
+>>
+>> Valve steamdeck devices can report battery status as
+>> charging, even when low-powered power supply is connected
+>> to the device. The battery status is reported as charging
+>> through sysfs, even though in reality, it is discharging.
+>>
+>> To address this, introduce a battery quirk for Valve Steamdeck devices
+>> ACPI_BATTERY_QUIRK_VALVE_STEAMDECK. This is required to detect
+>> if a low-power supply unit is connected to the device.
+>> To handle this case, read out Battery charge time ("_BCT")
+>> as it is reported accurately on these devices and use that
+>> information for report charging vs discharging status.
+>> Battery charge time ("_BCT") with an eligible power supply unit
+>> will have valid values whereas with a low-powered supply unit,
+>> it shall report ACPI_BATTERY_VALUE_UNKNOWN. Use this as a
+>> differentiator to determine, whether the battery of steamdeck
+>> devices is really charging or not.
+>>
+>> Signed-off-by: Umang Jain <uajain@igalia.com>
 > 
-> Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
-> ---
->   drivers/gpu/drm/drm_panic_helper_qr.rs | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
+> Sashiko has feedback on this:
 > 
-> diff --git a/drivers/gpu/drm/drm_panic_helper_qr.rs b/drivers/gpu/drm/drm_panic_helper_qr.rs
-> index 1d96ae855052a..4ba2e3de5a6b6 100644
-> --- a/drivers/gpu/drm/drm_panic_helper_qr.rs
-> +++ b/drivers/gpu/drm/drm_panic_helper_qr.rs
-> @@ -569,7 +569,10 @@ fn error_code_for_blocks(&mut self, offset: usize, size: usize, ec_offset: usize
->               }
->               let log_lead_coeff = usize::from(LOG_TABLE[lead_coeff]);
->               for (u, &v) in tmp[i + 1..].iter_mut().zip(self.poly.iter()) {
-> -                *u ^= EXP_TABLE[(usize::from(v) + log_lead_coeff) % 255];
-> +                // Both exponents are below 255, so at most one subtraction is needed.
-> +                let sum = usize::from(v) + log_lead_coeff;
-> +                let index = if sum >= 255 { sum - 255 } else { sum };
-> +                *u ^= EXP_TABLE[index];
->               }
->           }
->           self.data[ec_offset..ec_offset + self.ec_size]
-> 
+> https://sashiko.dev/#/patchset/20261116102752.520062-1-uajain%40igalia.com
 
+I'll post the feedback here and then reply.
+
+> Should _BCT be evaluated inside acpi_battery_get_state() using an exclusive
+> evaluation helper instead of directly in acpi_battery_get_property()?
+> Evaluating _BCT here bypasses the cache_time rate-limiting in
+> acpi_battery_get_state(), so every sysfs status read or uevent executes the
+> method on the embedded controller.  In addition, all other battery control
+> methods in this driver (_BIF, _BIX, _BST, and _BTP) serialize execution
+> under acpi_exclusive_eval_lock via acpi_evaluate_object_exclusive() or
+> acpi_execute_simple_method_exclusive(), whereas acpi_evaluate_integer() runs
+> unlocked.
+
+I agree on the part that battery control methods are evaluated in
+acpi_battery_get_state(),
+however we are not trying to determine and store "_BCT" here. We are
+just using to get
+the proper charging status for the steamdeck device using _BCT. We
+rejected the idea of "_BCT"
+being evaluated globally for all devices in previous reviews, which
+would be fit in get_state().
+We just bind _BCT evaluation to steamdeck's quirk case.
+
+Regarding question of rate-limiting calls on every sysfs status read or
+uevent, I don't
+think it's necessary either, since get_property() calls are executed on
+every power supply
+changes from power_supply_core.c - hence as soon as you unplug and plug
+or even replug a
+low-powered charger it will go through acpi_battery_get_property() code
+paths (since power
+supply is effectively changed) and update the correct charging status.
+We don't need to
+constantly call/evaluate _BCT again in this case, since a charger won't
+suddenly change from
+low-power to high-power one or vice versa.
+
+I agree with usage acpi_evaluate_integer_exclusive() though. I will
+include it in next revision.
+
+> Does this overwrite POWER_SUPPLY_STATUS_NOT_CHARGING with
+> POWER_SUPPLY_STATUS_DISCHARGING when the battery is full and its charge rate
+> is zero?
+
+When the battery is full in steamdeck case, it is correctly inferred:
+i.e. acpi_battery_is_charged() returns TRUE.
+
+Hence the branch
+```
+else if (battery->state & ACPI_BATTERY_STATE_CHARGING) {
+...
+...
+    if (test_bit(ACPI_BATTERY_QUIRK_VALVE_STEAMDECK, &battery->flags)) {
+    ...
+    }
+}
+```
+is _not_ executed at all and instead the branch
+
+		else if (acpi_battery_is_charged(battery))
+			val->intval = POWER_SUPPLY_STATUS_FULL;
+
+is evaluated instead and status is correctly updated to "Full". So no,
+it would not overwrite.
+
+> When acpi_battery_is_full(battery) is true and battery->rate_now is 0, the
+> preceding else branch sets val->intval to POWER_SUPPLY_STATUS_NOT_CHARGING.
+> Because the quirk check sits outside the if branch, it still runs, and
+> _BCT(100) returns 0xffffffff (ACPI_BATTERY_VALUE_UNKNOWN) when the battery
+> is already at 100% and not actively charging.  Moving the quirk check inside
+> the branch that sets POWER_SUPPLY_STATUS_CHARGING would avoid this
+> regression.
+> 
+> Please let me know what you think about it.
+
+Hope the explanations clarifies things.
+
+I'll send a v5 if there are no more things to discuss?
+The only change in v5 would be use of acpi_evaluate_integer_exclusive()
+instead
+of acpi_evaluate_integer() for evaluating the _BCT.
+
+> 
+>> ---
+>>  drivers/acpi/battery.c | 49 +++++++++++++++++++++++++++++++++++++++++-
+>>  1 file changed, 48 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/acpi/battery.c b/drivers/acpi/battery.c
+>> index 6edea559a5bc..458c2b23a05a 100644
+>> --- a/drivers/acpi/battery.c
+>> +++ b/drivers/acpi/battery.c
+>> @@ -94,6 +94,15 @@ enum {
+>>          * on a full charge, but showing degradation in full charge cap.
+>>          */
+>>         ACPI_BATTERY_QUIRK_DEGRADED_FULL_CHARGE,
+>> +       /*
+>> +        * Valve steamdeck devices can get discharged even when battery status
+>> +        * is charging. This happens typically when low power supply unit is
+>> +        * connected. To accurately determine this scenario, we shall read
+>> +        * battery charge time ("_BCT") and set this quirk. This is the key
+>> +        * differentiator to determine whether the steamdeck is actually
+>> +        * charging or not.
+>> +        */
+>> +       ACPI_BATTERY_QUIRK_VALVE_STEAMDECK,
+>>  };
+>>
+>>  struct acpi_battery {
+>> @@ -234,7 +243,7 @@ static int acpi_battery_get_property(struct power_supply *psy,
+>>                                         : POWER_SUPPLY_STATUS_DISCHARGING;
+>>                                 return 0;
+>>                         }
+>> -               else if (battery->state & ACPI_BATTERY_STATE_CHARGING)
+>> +               else if (battery->state & ACPI_BATTERY_STATE_CHARGING) {
+>>                         /* Check the rate and capacity to validate the status. */
+>>                         if (!acpi_battery_is_full(battery) ||
+>>                             (battery->rate_now != ACPI_BATTERY_VALUE_UNKNOWN &&
+>> @@ -244,6 +253,27 @@ static int acpi_battery_get_property(struct power_supply *psy,
+>>                                 /* Full and zero rate. */
+>>                                 val->intval = POWER_SUPPLY_STATUS_NOT_CHARGING;
+>>                         }
+>> +
+>> +                       if (test_bit(ACPI_BATTERY_QUIRK_VALVE_STEAMDECK, &battery->flags)) {
+>> +                               unsigned long long bct;
+>> +                               acpi_status status;
+>> +                               union acpi_object arg0 = { ACPI_TYPE_INTEGER };
+>> +                               struct acpi_object_list args = { 1, &arg0 };
+>> +
+>> +                               arg0.integer.value = 100;
+>> +                               status = acpi_evaluate_integer(battery->device->handle, "_BCT",
+>> +                                                              &args, &bct);
+>> +                               if (ACPI_FAILURE(status))
+>> +                                       acpi_handle_debug(battery->device->handle,
+>> +                                                         "_BCT evaluation failed: %s",
+>> +                                                         acpi_format_exception(status));
+>> +                               else if (bct > ACPI_UINT32_MAX)
+>> +                                       acpi_handle_debug(battery->device->handle,
+>> +                                                         "_BCT value is invalid");
+>> +                               else if (bct == ACPI_BATTERY_VALUE_UNKNOWN)
+>> +                                       val->intval = POWER_SUPPLY_STATUS_DISCHARGING;
+>> +                       }
+>> +               }
+>>                 else if (battery->state & ACPI_BATTERY_STATE_CHARGE_LIMITING)
+>>                         val->intval = POWER_SUPPLY_STATUS_NOT_CHARGING;
+>>                 else if (acpi_battery_is_charged(battery))
+>> @@ -1150,6 +1180,23 @@ static void acpi_battery_quirks(struct acpi_battery *battery)
+>>                 set_bit(ACPI_BATTERY_QUIRK_DEGRADED_FULL_CHARGE, &battery->flags);
+>>                 battery->capacity_now = battery->full_charge_capacity;
+>>         }
+>> +
+>> +       if (test_bit(ACPI_BATTERY_QUIRK_VALVE_STEAMDECK, &battery->flags))
+>> +               return;
+>> +
+>> +       /*
+>> +        * For Valve Steamdeck devices, determine _BCT presence as well before
+>> +        * setting its battery quirk.
+>> +        */
+>> +       if (dmi_name_in_vendors("Valve") &&
+>> +           acpi_has_method(battery->device->handle, "_BCT")) {
+>> +               const char *name;
+>> +
+>> +               name = dmi_get_system_info(DMI_PRODUCT_NAME);
+>> +               if ((name && (!strncmp("Jupiter", name, 7))) ||
+>> +                   (name && (!strncmp("Galileo", name, 7))))
+>> +                       set_bit(ACPI_BATTERY_QUIRK_VALVE_STEAMDECK, &battery->flags);
+>> +       }
+>>  }
+>>
+>>  static int acpi_battery_update(struct acpi_battery *battery, bool resume)
+>> --
+>> 2.55.0
+>>
