@@ -1,101 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795797650;
-	b=WHoCA+mk6iCBlaJY1THcA90xJVtqtIwiIuGgXfL+h/+utsU60jldZybuuQ/WinhAvliE
-	 26oX4pnrcBtyOVXWkZjdhG5YTQKagLt3DmglmrwbjvRKSLbgt0h1qBpOGzP3f/T9th05r
-	 eBzZifOnS3EqKHnh6hKxG/Svin6wY8b8GPmfy93XHTBNf/STWjBG0dZWwNUC953bqU0dN
-	 nUVAzLOlFRnzQ6ikslPdoRhmuH3RMSLE8STWhkK43/it/AkZ0DgShmiuLLNDAKZc+OeC8
-	 vQ4dbtx5cxYr1y0eKxOBIxbNclKO3B4h6/Vw1HUFqHlSPijTcWS1hnxc7J1VZrOalIw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797650;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795797665;
+	b=obE83DscDVurw6cHbBk16nFa72M2NZ4qLAgCxFhwTdR2qLxAjmjZtwmnKe0s26famXhs
+	 rN7beKYstByN9DqcQJ2iud/xEb+zRiQwKtJpsepXZ9BWv2+v8R05eRGD08HeGElaclbMy
+	 GChlkvc4E/feGOG8EU8uLX2ViioIhZ/f4yunMz5tsp2rzXiiSAli0BkYcx9zcjIYab2yf
+	 eZcjEnhGCQoMCT8Ou3N8NiQEq0fyUhc5ac2QFRnAa+qos52HLHrPccWRHdw4S6t7rLVxj
+	 Ra1PkVXN6LMPVPoU0lzMJvYt2M/VmA0MgZJ26/z6NeGtfc8B09uhayNgaRPEUq74Uzw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797665;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
-	b=KD98cjPhSTevkrB/JCoD0czceL8uu8enb+r4niLOwJJwm8myBjVRjxqYGFJDmb/5ey1k
-	 P7oDyOMMx6ZRygs2NOqDGO93x/D1lf0LCwYjJyH78gi3DvNvXnt8EkdzullvT2GXspoRS
-	 7xTRshhzIcJf/XNxdYKsGs4H202ncscU/bPCVHK2q02GqajKq/jL+kQVQly2IK30NJj0w
-	 miLr3nY1PgXwkYaJ5yYwbifW4+UoYN4WAzo0wDjyBAFRV6LR2y7XgFSRuEYfWKZJt+Pv/
-	 OobdhUEHPMmcV6K8gdvJGsoUaH8CyLBAv2hh38TP2HI48uJJiMfuL5z04MUQnH4FSKg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=E+7zW6UhfI3gqV3DdfYb2mC8T84sI8f66dxP7719aj8=;
+	b=DlqjOyalEotbsmwvMB09EVEzB87iMaYPEuP0nsgHNWgYsnjvIRNfPuGExSOzxZumL+4u
+	 SpkpDZl4ptqq7D9QM7LrFXBYYbUieor6HxiDXD/8BY3LiXtTS0vLzKA6nEX4RXd22hoz5
+	 HyxTabXpqpqvGt3+CpOXj/vAbdptNL3YC7kPpUTKxWUleH7z03YcYHzQggGPd7BEItmF/
+	 rnRoBu3BxP6scYLUeNSVOWIYfN/wOnjqAErUu469QZWOuulWPEFygCJ6IRMrsBXlH8xQQ
+	 m7o/iqwM4UtmaIbX8A0M9dTKYOQ34MakfTxT+FEUbih0u5L2IZ+BbPsJRKu/faF+miA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uXpGyVUU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.169
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wyqoVg0m;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DBCC606A693
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:40:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DBCC606A693
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2533606A6A0
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:41:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2533606A6A0
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uXpGyVUU
-Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94958650b09so781442885a.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:40:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795797647; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eHkgER5mrAPcsoFlZvqM/zNTx4pXixBuPyiK0iu6r2wGmdJHGtNvGO9Bf9fZE3+7TT
-         QrfSFZa2XBaiutWhJb44arTm6/Y0ITNeXQ0Hy6zHidaXOuoaNV04Pztb5Jz0COb/8Sv3
-         qUtRhaM+hwmm/TuJrP6kZZiSr0IrzbdgB++3wx37vUGAt4yuYoS4svRSnAZ3fL/SBduh
-         dX3FDIVT9si+bCeXI68B5/h7x7oz2ynYnV1xNvgfgyN1dekQAKCPWD1ehs7BBQySg4mr
-         paUy0XwrEnOSJF5AwcgYbtyXTN2V4P65cbaeINQg6G9cEhTQpPKQzLPb8rHMRb5/x6LF
-         5Tbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
-        fh=GhWcjlYapv98fkynYcUR/cFEQf46lKlIygfJ+llJaiM=;
-        b=IJelWFtO+3W3Zy9sRoujIqebM5VgEXaYOW2VMqG4FllyVj5h8M3W9DDdJzhSWH6YHk
-         +D5ox3Xbwo6O2+mkcDCLAfNmNFuRPEbMxgJ5iycYNdHJzl8cVXLxzj5WyiZD9GvAL1+C
-         3zAlQic9ZJevm+d/SBemZe+hpQ+V3HSdv1TIDCh3CtA+cD1dn9RhYHnnB5Hp7fiWSYpb
-         ZG9jDBzIdn/4/pDoP+cNN56IyLbAQL6MCZLFU6qEDN66iNb8wFzO+H6iziiRgM9jxIen
-         OJP3OghhpdwcCm39Uau7dtInLJQxxbOzZhg1HiRWAMUxOPOydHKxwgDt73bF2jF5nePL
-         96fw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wyqoVg0m
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c50e26763a4so411840366b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:41:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795797647; x=1796402447; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
-        b=uXpGyVUU+HT9/mcL1vE5JHKOo8nLBz/gaz5KEYZt/mIPeLtFYLgQkFSNcnvX+KiV0d
-         EWzuPZ5DghT0s9dbZY+pdaalvx+Q/M2KO76wP5hUbSkXqpI4gxU8wF2py84L90CLac2b
-         a4uQcF+UTl9SH2PT8Zp/90Pk7IJEv+uErh1HgwPSJjnifwCDM7VhJrpWeZ1JGpsAQ9AP
-         Ar2PPJ/k9A2Dd7fcfZ8vy5Rq4FG+GGpN8kxw0WxtW17yklKlDaQnB4oMFT3zYnJx7GAa
-         O6/yRfvw1NIJa/NvHiTdF8tMNrLWE/7SpAGbBt+sMm/PL6BhjTwvzJr88SnAxUrK5+zR
-         hnYg==
+        d=gmail.com; s=20260707; t=1795797663; x=1796402463; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=E+7zW6UhfI3gqV3DdfYb2mC8T84sI8f66dxP7719aj8=;
+        b=wyqoVg0mb44j0zMIWvMwh/4zrhAI9LNAIrn8wwBtad2W00i9yBL/CQrHiWxjU/EmWC
+         6hFKl2/FfbacLRLrOo+vb+cNQMqPePZqO54rRmvCRpKvO59m2WHLaft5e5ogbGSyqrwV
+         oHZLGtqGEu1kCF41JCx54Gvpx4gksqR1oQmL57y8vzA66Dkmmst79HpM66E4xH+szXVS
+         KiL2bHKq40B+U3UHyLEONkpSIXV5DSgR/DjemxPns1dmu1f9nMjhejzWsgL1RW/c/3po
+         CvovmWVZTZ4JDwViZvXiCpUYZPf/SsQt0IslEw772ZIn/yi3czS2iOfgZGHfUDeIQ9aU
+         NeLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795797647; x=1796402447;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IPle5l7CKPa/6OPjdxH6qQiH/tYsSSvVtMd6mjA4rsg=;
-        b=DiRKGwURq0Vqc6Nr8AaHx/q0vDiJOAYFUq8HVOBDq11f3Fgo42XnTeXVyrmjxHnn5g
-         LFrnxH02DOloWY5t5XPZ23QC6pPGQ8aD7213fqdOcF0ZeHSRc3LV/j4SOSgP2YoIZkgc
-         yeo4+cykyiNqd3O5TmbpxozCUkKsmaXVYeipyQDayDGztI6SkRqi0qypIAZ+cQ5yR1zB
-         f8PgxH0MAK4AGaD4tIaxemYtkONml37jaicJ1HIHUoy5mJC1xrMDbjZQOEjoQXrQ9P5v
-         5Dk9/4Uqbqa1GmJIlRXEHvRmVa/b1DcL3DDG8XOQyMpSHbzGJ6O9Mir0enutxdI8Zdfv
-         Cw8Q==
-X-Forwarded-Encrypted: i=1; AL+hErFmZhLpihpzB0oPisRSMVgdroCIWd5FxB/q1yCyIGwqnEHC7QgLIX5wkY5yPJ9Eh8n9mdUuzWZZCF3W6po=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88sls7srPIpN8K+gSevLmFsdVaMbHVP+OUveXprXgMqo0hp3R5
-	Rie1h7sl4w1iAWwe07nTrL7bz8WHHnBTz7OidZdKt70Z2ggiGJo86yL7vi1Cq+CJ+gjPVqSSvVv
-	d7+M2qtAaLyZHVrl6xCB9TuxX2FUB6i8=
-X-Gm-Gg: AZFdTZenQT1tKAlB1o87JrxEkXtZ7q/buGq5m38TIxzTsPQvennG0Is59jJnTw/lJa6
-	gABEZvo1wgC5r5kA0C+IB4kvnBNUoN47IyqEm4bFTyIPB+MTYgItG4l4TP4FRopwLwCrpzFErPT
-	33A7VhUB+IDNm0UEORf3T6yLy2GnX7W0KlFP/EBSD/f/3xCuK+zgm4XcQC2K4ldJ83ADfTk3eJs
-	WHANnztoTOLsbU8H4WzW6qPIrhBTTxlQm++p5xYnjigwgzDCicbvtA7HNjqxmpDHIdSghvbwzwV
-	161pQ7zQYHVE7cAT9cIXlYXa9Mrpk21uCDt7uEd+1WZh8UibnDnlr6xZhW7CT8GxM6kHB+36pUS
-	w5hOcM2zQvld29ENg+reHTTVMMfVTPzUDsArhr5ZjcnAsb52zYt6lLBkdfI4tkGFN31zeZALgKR
-	r73n/5okb3z7Iq
-X-Received: by 2002:a05:620a:4556:b0:93e:c691:a1c with SMTP id
- af79cd13be357-949bab3d32emr4186387785a.76.1795797647019; Fri, 27 Nov 2026
- 08:40:47 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795797663; x=1796402463;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=E+7zW6UhfI3gqV3DdfYb2mC8T84sI8f66dxP7719aj8=;
+        b=KCm88isvDO0Ohina1yoWzWk1te0QS0OWBQGGSjb1a86m5PW6oQIxXZfDia9uJf6MNc
+         58YZhDPUa3YxFh4UhxDfUeBp3j1PuaLfy1MPlhbFnTQ7EHpL8n5TfGKL1a3tKKfGMHhh
+         ctvtG241x4x8Ap8np4Yd1pHfllv3jIud4M30hPCkx1BWOqO10PRz2AG/CJGISiSuR4jR
+         qcI6ZFV1gDQe8bMTDgQCKCkNgJhQXFWTN2LXjeZI7wpgaRvSNJTXOU/MykhoNFEWMTus
+         oi8Y7lpq4wdUJIi3NvGkYNkp74sq4wCFe7YqFgROXKzxblCYESjxR1bAF/7jI2yQOkFi
+         dLpw==
+X-Gm-Message-State: APuU4Z8iz4nhslBNDTQywXiNZ5E4ECaYWvwoT2BF5V+Y66QL85niA6t0
+	+RzBS/BTiFMagg5GojR6OdCIkLIkov9WWgGhAB+1DVlPu9MQoKmwNNwj
+X-Gm-Gg: AZFdTZe/4hKofRa/9B+Bp5p0rqh0uASwJQCvLuJCB+5Ukswx7WvXkz/nwx9SZVbFVHK
+	/B9Q+7IZmWJcT6e1X0SUvj6raO40mT137Rv1SUMIOm3JbeZu1GShym9+8BBX0daawlPZCV/OKpT
+	8j5IPHQMPb0wjqwt97M/iGDEUFu9qHHMTMs3spCnNOh/U/mHDhA7u52vAqvRqHNFncd5mEzusAg
+	29PMlliBuuaMiE3ChR7QNfKmDIgyPu6SJ+imM/UFIY1VA/5au5CvDbT7fHMiPZvLUqbOEF4xWLR
+	UNq3hu+rU5jsCIGY4pL8bsQ1MhpoWiZjHa+0ydm0iV/8+QAqCE/zE2ESbNjgcAWVQuDMdX3l8IG
+	/2Lh/f6gcejFqPS0hsAbbtuD5bHHVip9YCXg4Zi7aZwvXirsm9lrbN0N/6wLXAJIKOyMtgtF1nH
+	xiVIdnDi9oxoTm35DlmNXHt/GmnGIqFBtREDHSOkMQ3ykvWDXEHexNqNNCIjjS3NpH3O8Tb7SPT
+	3lcf0r9GyN1vCFITU61kXx2vqjkO51FseTQWQCnR9QaK423Uq7axKHFTQDpNvT8iFIv8x1JolwK
+	z95h+WwYCnQexnKItcokFYPvPTtRtOkfIuIBe0Wx5jVEfR1UdKZbhfKB9AFSgw9hCSQIUhwu02p
+	qDZi2auFSr5rbRpa5wEj0NzyT/QwuCyE=
+X-Received: by 2002:a17:906:d263:b0:c2e:4fa2:f3f7 with SMTP id a640c23a62f3a-c513aacbdc7mr1986868866b.22.1795797662955;
+        Fri, 27 Nov 2026 08:41:02 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae66674sm885397966b.15.2026.11.27.08.41.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 08:41:02 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	mfd@lists.linux.dev
+Subject: [PATCH v1 0/6] mfd: max8907: for Lee
+Date: Fri, 27 Nov 2026 18:40:38 +0200
+Message-ID: <20261127164044.285910-1-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,218 +96,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125123146.379057-1-hikmahgumelar@gmail.com>
- <20261125123146.379057-8-hikmahgumelar@gmail.com> <eae86bfe27d119c6170b25de5a917df3@mainlining.org>
-In-Reply-To: <eae86bfe27d119c6170b25de5a917df3@mainlining.org>
-From: Hikmah Gumelar <hikmahgumelar@gmail.com>
-Date: Fri, 27 Nov 2026 23:40:34 +0700
-X-Gm-Features: Aa3M54psm_9QUNpDWsKD_Jig5hkKXFvslF5p_cQzzBmVdpcTVqPaadJIGqde-h0
-Message-ID: <CADA=zOMpnGjPuH63CdPKNMyVVmO7Rr7fB+EP=3MS4825kkgdtA@mail.gmail.com>
-Subject: Re: [PATCH v4 7/7] arm64: dts: qcom: msm8953-xiaomi-tissot: enable
- front and rear cameras
-To: =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	u.kleine-koenig@baylibre.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi Barnab=C3=A1s,
+These are all MFD related patches collected from my MAX8907 related
+patchsets.
 
-Thanks for the review and the notes on msm8953-xiaomi-tissot.dts.
+Svyatoslav Ryhel (6):
+  mfd: max8907: Remove platform_data based probing
+  mfd: max8907: Switch to resource-managed versions of helpers
+  mfd: max8907: Convert to use device managed poweroff handler
+  mfd: max8907: Add restart handler
+  mfd: max8907: Add ADC client support
+  mfd: max8907: Add ADC cell
 
-- I will add the blank line before vreg_cam_avdd.
-- Noted on OV5675 variants; for now this series focuses on S5K5E8 and
-  OV12A10, and OV5675 can be a separate follow-up later.
-- I had already moved vdd_l23-supply into the regulators node in newer
-  revisions, and I will double-check its placement and parent supply
-  against the board DTS.
+ drivers/mfd/max8907.c                 | 243 +++++++++++++++-----------
+ drivers/regulator/max8907-regulator.c |   8 +-
+ include/linux/mfd/max8907.h           |  57 +++++-
+ 3 files changed, 193 insertions(+), 115 deletions(-)
 
-Also, following review feedback, I am splitting this work into separate
-series for s5k5e8, ov12a10, and the MSM8953/tissot changes.
+-- 
+2.53.0
 
-Best regards,
-Hikmah Gumelar
-
-Pada Jum, 27 Nov 2026 pukul 23.34 Barnab=C3=A1s Cz=C3=A9m=C3=A1n
-<barnabas.czeman@mainlining.org> menulis:
->
-> On 2026-11-25 13:31, Hikmah Gumelar wrote:
-> > Enable CAMSS, CCI, CSIPHY0/CSIPHY2 ports, and the OmniVision OV12A10
-> >
-> > rear and Samsung S5K5E8 front image sensors on the Xiaomi Mi A1.
-> >
-> > Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
-> > ---
-> >  .../boot/dts/qcom/msm8953-xiaomi-tissot.dts   | 124 ++++++++++++++++++
-> >  1 file changed, 124 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-> > b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-> > index fccb9c4360ca..87db6b18d191 100644
-> > --- a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-> > +++ b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-> > @@ -74,6 +74,108 @@ vph_pwr: vph-pwr-regulator {
-> >               regulator-always-on;
-> >               regulator-boot-on;
-> >       };
-> nitpick: add an empty line here
-> > +     vreg_cam_avdd: regulator-cam-avdd {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "vreg_cam_avdd";
-> > +             regulator-min-microvolt =3D <2800000>;
-> > +             regulator-max-microvolt =3D <2800000>;
-> > +             gpio =3D <&tlmm 62 GPIO_ACTIVE_HIGH>;
-> > +             enable-active-high;
-> > +             pinctrl-0 =3D <&cam_vreg_avdd_default>;
-> > +             pinctrl-names =3D "default";
-> > +     };
-> > +};
-> > +
-> > +&camss {
-> > +     vdda-supply =3D <&pm8953_s3>;
-> > +     status =3D "okay";
-> > +
-> > +     ports {
-> > +             port@0 {
-> > +                     reg =3D <0>;
-> > +
-> > +                     csiphy0_ep: endpoint {
-> > +                             clock-lanes =3D <7>;
-> > +                             data-lanes =3D <0 1 2 3>;
-> > +                             remote-endpoint =3D <&rear_cam_ep>;
-> > +                     };
-> > +             };
-> > +
-> > +             port@2 {
-> > +                     reg =3D <2>;
-> > +
-> > +                     csiphy2_ep: endpoint {
-> > +                             clock-lanes =3D <7>;
-> > +                             data-lanes =3D <0 1>;
-> > +                             remote-endpoint =3D <&front_cam_ep>;
-> > +                     };
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&cci {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&cci_i2c0 {
-> > +     camera@10 {
-> > +             compatible =3D "ovti,ov12a10";
-> > +             reg =3D <0x10>;
-> > +
-> > +             clocks =3D <&gcc GCC_CAMSS_MCLK0_CLK>;
-> > +             assigned-clocks =3D <&gcc GCC_CAMSS_MCLK0_CLK>;
-> > +             assigned-clock-rates =3D <24000000>;
-> > +             pinctrl-0 =3D <&cam_sensor_rear_default &camss_mclk0_defa=
-ult>;
-> > +             pinctrl-names =3D "default";
-> > +
-> > +             reset-gpios =3D <&tlmm 33 GPIO_ACTIVE_LOW>;
-> > +             powerdown-gpios =3D <&tlmm 39 GPIO_ACTIVE_LOW>;
-> > +
-> > +             avdd-supply =3D <&vreg_cam_avdd>;
-> > +             dvdd-supply =3D <&pm8953_l2>;
-> > +             dovdd-supply =3D <&pm8953_l6>;
-> > +
-> > +             rotation =3D <270>;
-> > +             orientation =3D <1>;
-> > +
-> > +             port {
-> > +                     rear_cam_ep: endpoint {
-> > +                             data-lanes =3D <1 2 3 4>;
-> > +                             link-frequencies =3D /bits/ 64 <216000000=
->;
-> > +                             remote-endpoint =3D <&csiphy0_ep>;
-> > +                     };
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&cci_i2c1 {
-> > +     camera@2d {
-> > +             compatible =3D "samsung,s5k5e8";
-> xiaomi-tissot can come with ov5675 also.
-> > +             reg =3D <0x2d>;
-> > +
-> > +             clocks =3D <&gcc GCC_CAMSS_MCLK1_CLK>;
-> > +             assigned-clocks =3D <&gcc GCC_CAMSS_MCLK1_CLK>;
-> > +             assigned-clock-rates =3D <24000000>;
-> > +             pinctrl-0 =3D <&cam_sensor_front_default &camss_mclk1_def=
-ault>;
-> > +             pinctrl-names =3D "default";
-> > +
-> > +             reset-gpios =3D <&tlmm 129 GPIO_ACTIVE_LOW>;
-> > +
-> > +             avdd-supply =3D <&pm8953_l22>;
-> > +             dvdd-supply =3D <&pm8953_l23>;
-> > +             dovdd-supply =3D <&pm8953_l6>;
-> > +
-> > +             rotation =3D <90>;
-> > +             orientation =3D <0>;
-> > +
-> > +             port {
-> > +                     front_cam_ep: endpoint {
-> > +                             data-lanes =3D <1 2>;
-> > +                             link-frequencies =3D /bits/ 64 <418000000=
->;
-> > +                             remote-endpoint =3D <&csiphy2_ep>;
-> > +                     };
-> > +             };
-> > +     };
-> >  };
-> >
-> >  &hsusb_phy {
-> > @@ -154,6 +256,7 @@ &pmi8950_wled {
-> >  };
-> >
-> >  &rpm_requests {
-> > +     vdd_l23-supply =3D <&pm8953_s3>;
-> It should be placed under vdd_l9_l10_l17_l18_l22-supply =3D <&vph_pwr>;
-> >       regulators {
-> >               compatible =3D "qcom,rpm-pm8953-regulators";
-> >
-> > @@ -302,6 +405,27 @@ gpio_hall_sensor_default: gpio-hall-sensor-state {
-> >               bias-pull-up;
-> >       };
-> >
-> > +     cam_sensor_front_default: cam-sensor-front-default-state {
-> > +             pins =3D "gpio129";
-> > +             function =3D "gpio";
-> > +             drive-strength =3D <2>;
-> > +             bias-disable;
-> > +     };
-> > +
-> > +     cam_sensor_rear_default: cam-sensor-rear-default-state {
-> > +             pins =3D "gpio33", "gpio39";
-> > +             function =3D "gpio";
-> > +             drive-strength =3D <2>;
-> > +             bias-disable;
-> > +     };
-> > +
-> > +     cam_vreg_avdd_default: cam-vreg-avdd-default-state {
-> > +             pins =3D "gpio62";
-> > +             function =3D "gpio";
-> > +             drive-strength =3D <2>;
-> > +             bias-disable;
-> > +     };
-> > +
-> >       ts_int_default: ts-int-default-state {
-> >               pins =3D "gpio65";
-> >               function =3D "gpio";
-
-
-
---=20
-Best regards,
-Hikmah Gumelar
