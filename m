@@ -1,50 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.19.206
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.37.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768372;
-	b=gh6HYEHxMxb0eAvQ8Ct2wRH8EKX2cnY+cDO/JCi+gXdl11REyUpFkOD22Wrj6fbHWVGX
-	 QBCDPbUlfrlm7bZF35oxuTEUUKQWqvsIw9MHGspj2bbT5LdRcr/0LZr6TM1BasUjeqjJQ
-	 7K5/JopAT5PqQLxhsx8lLuXVWCPmVdHE0J46yD+JGihoT83/3M2tXjZqV1nRxs8Vbfz0p
-	 0tBEj/FwgnbLT1vAFUtc77WYpz6z2k01XcN3P8Rb42eYp5sWWAMVe9MGUPeuIcmgNCYWm
-	 9SG62GJgKuuaR+DWMsrlpaR3IiyK+8CBXhZgYtZZtHKlbnqz08qY57ENeYUr4x9W4Wg==
+	t=1795768380;
+	b=dv9Yt9xWGl2Or1QYFa3mwt6Je1c6PVE6Jn9wwQDRT9pxHcZ0dpJWQOe2kFXy1iG4HHQa
+	 OwKC8XUgUkOIquNmKg5wiqV1UefTKPWXQdG2ALmEKhR88+wRxwopAk3ELxI+BLo1VofaQ
+	 6q+xyXUKh5WlX53htU794Fq/IV11apuOEdQ6QsethHZSJdfW5hkrwZn8DJi+RXT3N05A1
+	 +94U27e8Y8AUPrO7ygDmozKBInOYb2Lt6pY+mPWXKg8mZEdjnynE8r0LEO48Fz2+189y4
+	 68K8ynR1UeQF8wYGVLD+qcS5U1kdTZ6z5VbGZ/412KcsbBThyb3Dg3AXmWPOk7wBqVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768372;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
-	 X-QQ-RECHKSPAM;
-	bh=HfHISjpzMYBVFK8WE1t9sONuYzF5gB/6tJYmJRiF+7I=;
-	b=s41EqVSYeWBvFsnRisN+abkGEGjmtCFMYQ+BEG+TKz/dhUgVts/kXyJqhgxVdhDIGl0i
-	 t66LqlQDjJhCPMYm/oZp3dUYPlvwSZRQqKMpn2o7fHoumCkpLZTgm82CQBff5G78D8oKM
-	 DO/QgxMvscT2IUU7nhMZhAMeks1PWzZZ2g1/3013V112scIZ26AVvtQ8E/MlPzsdbELwi
-	 4XoBJ6WUZHnDAN2OhVC4FzHn/Me3aoncFn1JZBELtVj1GaOm8fZSvz3hZ9H/X37QxcyMn
-	 eXiHJezI8dgINqGtfpZznKG+bq8lx4t9v1lb1NrYQ+X96AQAINIVPm9rpG1gqPptGHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768380;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=x7T2hvQbWIwodUQErSaaCwrbt5ZR0SaoWTUBnFNg5fA=;
+	b=d9FNM88WeRJ4CF+1XElh+ZkDR1rkxk7yVAEpCNetc/bFL+3ICIEh5JMjqfUMB3uuk9Sa
+	 /QBL8Jsusar9XXZ0o+EbxSg2OYfNp3+zqUKXxfKypjSxUAj4zKpsRhXpnKy0ZtHOyf430
+	 UwIXbKGZ0e4VvAI5op0DJWOXE7kfRWjh6LFWAjtnWrBGW7r4mBz55LO8Yj4lnDmMDtBaK
+	 PrQeFas7mlhBz2gmJAVQDhjiXQitfEc6rrjawD1g+2it9Oq4ynApjSfoV2HIKz7WMw183
+	 xht47PexR0P3441ShgRKdmpuvoGQT9I7lhpDCfK0dRZWAXVEY+ob4tNv2gC88kGQdag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=radxa.com;
-	spf=pass smtp.mailfrom=radxa.com;
-	arc=none smtp.remote-ip=54.207.19.206
-Received: from smtpbgbr1.qq.com (smtpbgbr1.qq.com [54.207.19.206])
+	dmarc=pass header.from=fujitsu.com;
+	spf=pass smtp.mailfrom=fujitsu.com;
+	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=Swf+ci1q;
+	arc=none smtp.remote-ip=139.138.37.100
+Received: from esa12.hc1455-7.c3s2.iphmx.com (esa12.hc1455-7.c3s2.iphmx.com [139.138.37.100])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDE32606A31C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A65606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:32:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A65606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=Swf+ci1q
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1795768379; x=1827304379;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ImbUcSS8Q6xOASEFymtw22SRZBZBBDi6HTSnPwkGl+s=;
+  b=Swf+ci1qpuk6l/o5dMuF019GxotmipzbLFNlAozGaL1kdRUsjPFg0eRu
+   WOI0Bk5mj1L2TXHPTbDBkkzN/WTpvSWHtHCeT19SPiOphoHNAaEXuHaMM
+   J9g5MuK3TBcWouOEZ+VO2UxAqOuGe0tGkhiMGAsnyh9TBPehyQKPzsi6P
+   +UnqgVKxFNr3uTStC58K5mC3vHFAoue8oFSP4WOPgMlxMSrWrL8Ps2/Dl
+   oqvBx2NwnOrnFpmaZmQgyGxkrL6/szxAdgo5e8OheKtdCmKGS4gVriV6+
+   z+1OcTBeqNyIYNLUhNbRO7XPdBhjd01h7j8NAzSvufXE1EpKw/iOEYPFT
+   g==;
+X-CSE-ConnectionGUID: Bs7a9QndRNWKibFPNdybUg==
+X-CSE-MsgGUID: TaJy122oSPGv/zvwFsUnLQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="241071013"
+X-IronPort-AV: E=Sophos;i="6.27,236,1786978800"; 
+   d="scan'208";a="241071013"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 17:32:52 +0900
+Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 717651C01696
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:32:52 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id 286861400635
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:32:52 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.69.152])
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with SMTP id 4F4DA14063B5;
 	Fri, 27 Nov 2026 08:32:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDE32606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=radxa.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=radxa.com
-X-QQ-mid: zesmtpip4t1795768350t8040eae2
-X-QQ-Originating-IP: 75HLWjuk4Nno8aIqpZG0chT4xEadJNgSr6HyFlW0Z5g=
-Received: from [192.168.30.32] ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 27 Nov 2026 16:32:24 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13343494202343594793
-EX-QQ-RecipientCnt: 11
-From: Xilin Wu <sophon@radxa.com>
-Date: Fri, 27 Nov 2026 16:32:21 +0800
-Subject: [PATCH v2] arm64: dts: qcom: sc8280xp: Add missing Iris pixel
- stream ID
+Date: Fri, 27 Nov 2026 17:32:47 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v6 6/8] dma: swiotlb: Centralize memory-encryption pool
+ sizing
+Message-ID: <awk97nvn_HKgONmF@FCCLS0092175.localdomain>
+References: <asYZFXGyafRjjBS0@arm.com>
+ <asYiOgskwi8JYLe_@willie-the-truck>
+ <yq5awlrt3dwo.fsf@kernel.org>
+ <yq5av77c92oo.fsf@kernel.org>
+ <aseRzPshcoys7AJS@arm.com>
+ <yq5ao6d48dqr.fsf@kernel.org>
+ <auR0fT1yrKQ9wbm8@FCCLS0092175.localdomain>
+ <yq5a8q3d9oe6.fsf@kernel.org>
+ <avRKiCBs81XSYMqW@FCCLS0092175.localdomain>
+ <yq5a33t6qrvc.fsf@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,100 +95,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-sc8280xp-iris-iommu-v2-1-34692fff579f@radxa.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NwQqDMBBEf0X23JSYVA099T+Kh5isdQsayapYx
- H9vtPcypwcz8zZgjIQM92yDiAsxhSGBumTgOju8UJBPDEqqMpdaCnZGGbmOgiKxoND3s7C21W1
- TVNXNGUjLMWJL6/n6rH/Mc/NGNx1XR6MjnkL8nNolP3r/DUsuUjBZTFGqRvtHtH61Vxd6qPd9/
- wKBpJ3oyAAAAA==
-X-Change-ID: 20261030-sc8280xp-iris-iommu-aaf3fb5774c8
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, dragon@radxa.com, Xilin Wu <sophon@radxa.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2020; i=sophon@radxa.com;
- h=from:subject:message-id; bh=y11Z0kgyIQp2jPwye+LZpBJTXg4J82IwwMcP+0ER91U=;
- b=owGbwMvMwCVmdFg0fe08Iz/G02pJDNmcDhL7N/xzbNvyYNojgVa7ThW+8xclrjZ0JS0Ir7HUt
- IrgfjCro5SFQYyLQVZMkUUhnmEue2XutadipXowc1iZQIYwcHEKwETuMDMyXFD3cyz0ZP7rNslp
- 3om+gM1skw9Vui8X4fqplH/sjc9cBUaGuXXNyZe2XlJJ/bHIL9zfLFhRY4HQqhiTf1uiAzc1sy1
- iAAA=
-X-Developer-Key: i=sophon@radxa.com; a=openpgp;
- fpr=205F009D07796DD6E516752E32C31567AD9E324E
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: N9XwYzVBzkV5GMPvHgQeyy74wEx47d9ECuwZZhhSj0PS8B5Wn5qAcD0W
-	V/3C//phonusEa+rYfYU956qf3981DJRGVkQ8ct8IYkr0hb15BjkC53GZaKCEWsCepk8Ydt
-	ddjPsEJ88wtMZVCVxiVdjoxq9TYP3fGE+pYiJlSDOvXjm21qyOCYhhxXTsI+InTWVGuGnIh
-	oUiUc2+VCqBOTs1vJnn0iaEnvfxueIL5xDztfjW+xKizSuPu88FXe9zGpnAxzVweZ9bCH7e
-	1Oe+9/B3JCC/XCnevKf+qCQXVYmjA13ObpxXQ5gw2RT8vOwySjj8QqYySnVP3GjdS9zU++J
-	BAhyVrzp+LV4e/SIah/tqMZoLvqLnsUIWwoABAfHqZWQcNsAoHzoPRBBLWrG6/powHkSMUV
-	fUbWiNPK7Ol4T+l8kwaQcal6PZNafFDEALJcg4mkq2mmMWHU7hLBNZgWXGnDHjogAxu2ZWu
-	XfPhc0sZzT7sejAKM7dZf+acr9k1P4hqJcDCarPv+xNBEHNS/ob7e1xCPjpV06O6PANIdkG
-	A+32kmAjq0A+uouMrCuDwsSNaK/XL6gMJ90ex3gmP7WWZAitZKcEL29pjb1CTMuKjN+H639
-	qF9uqm9kU5aVGeWFiUerM+M4W5spp+qSL8MKvuWBR/GYPvextaJ9jjedI7LPIhgkZ33d7xD
-	qBqvfQwuCf4hUei/bW2KQLlTnXDurR4Y69HECPdepHrhXZtgG7JEk2RPaqaIh4pFP7slZHU
-	Z1bCf4wWdYDybivenEAZhvklgAYduKuEfgN1tb9pjucBAE3wfNLq2NGYsEc0WXuBi8YiSuc
-	HX0yM9LTdRQbPoDfNBqaI64PEwf6gcOHdPCObCZjakVgyrQStS78Y8+tVQXyZKePhuwn9HC
-	z0OD5+ctrFmYcdgnEbxekcEmvzMYAZngtlb5zko5mo5DCphmOeNfNE0j+d53ZgYecbyIQbQ
-	3uZ+4p0q7RqYugTQ6IzOMGfjaiQYHU1L752sTS8BmJkOILg1aL9kgMdEomlqtKWrMDR8nX2
-	HgLt0aBlaHNEX0l82mmQtuHy248GUzXVMvcXVauDUqg4/otM+A
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <yq5a33t6qrvc.fsf@kernel.org>
 
-The Iris VPU on SC8280XP uses separate stream IDs for its non-secure
-non-pixel and pixel traffic, 0x2a00 and 0x2a07 respectively. This is
-the same split as 0x1940/0x1947 on SM8550 and later platforms. Only
-0x2a00 is described today.
+On 11/12 15:43, Aneesh Kumar K.V wrote:
+> Kohei Enju <enju.kohei@fujitsu.com> writes:
+> 
+> > Hi Aneesh,
+> >
+> > On 11/01 09:47, Aneesh Kumar K.V wrote:
+> > [...]
+> >> >
+> >> > Hi Aneesh,
+> >> >
+> 
+>  [ ... 35 lines skipped ... ] 
+> 
+> > Overall, I would prefer the dynamic sizing approach. However, I believe
+> > the initial pool size still matters.
+> >
+> > Also, as Catalin pointed out earlier in the following message:
+> >
+> >     https://lore.kernel.org/all/ann6noRzoPLL9kDY@arm.com/
+> >
+> > the arm64 adjustment also reduces the target size used for dynamic
+> > pool allocation, since both the initial pool and dynamic allocation
+> > currently use default_nslabs.
+> >
+> > I am testing the patch below to decouple the initial pool size from the
+> > dynamic allocation target. It adds swiotlb_adjust_initial_size() for
+> > callers that only want to reduce the initial allocation, while keeping
+> > the existing swiotlb_adjust_size() semantics for callers that want to
+> > adjust both sizes.
+> >
+> 
+> Should we instead update the logic so that reducing the swiotlb size
+> leaves the dynamic allocation size unchanged, while increasing it also
+> bumps the dynamic allocation size?
 
-The Gen1 HFI firmware sends all non-secure traffic through 0x2a00, so
-this went unnoticed. The Gen2 HFI firmware puts pixel traffic, such as
-writes to decoded picture buffers, on 0x2a07. No SMR matches that
-stream, so the SMMU raises an unidentified stream fault, which TZ
-treats as fatal and resets the SoC:
+Sorry for the late response.
 
-  SMMU:>> 0x15000000 NonSec Global Fault: NSGFSR=0x80000002, NSGFAR1=0x0, NSGFAR0=0xcfc03000, NSGFSYNR0=0x2, NSGFSYNR1=0x2a072a07, NSGFSYNR2=0x0, NSCR0=0x280406
-  Fatal Error type: TZBSP_ERR_FATAL_SMMU_FAULT
+That makes sense for the arm64 and RISC-V cases. However, for
+plat_swiotlb_setup() in arch/mips/cavium-octeon/dma-octeon.c, I'm not
+sure whether we also want to preserve the dynamic allocation target when
+reducing the initial pool size.
 
-Add the pixel stream ID so both streams are attached to the Iris
-device.
+Do we want that change on Octeon too? If not, I'd prefer a separate API
+so that we can preserve the existing behavior and explicitly update only
+the callers that need to reduce the initial pool size independently of
+the dynamic allocation target.
 
-Signed-off-by: Xilin Wu <sophon@radxa.com>
----
-Changes in v2:
-- Explain that 0x2a07 is the non-secure pixel stream and why only the
-  Gen2 firmware uses it
-- Quote the TZ log of the fault
-- Reword the subject
-- Rebase on next-20261126
-- Link to v1: https://patch.msgid.link/20261030-sc8280xp-iris-iommu-v1-1-1e3fb8562b3d@radxa.com
----
- arch/arm64/boot/dts/qcom/sc8280xp.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/qcom/sc8280xp.dtsi b/arch/arm64/boot/dts/qcom/sc8280xp.dtsi
-index 703b4f4e2059..328f64af863a 100644
---- a/arch/arm64/boot/dts/qcom/sc8280xp.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sc8280xp.dtsi
-@@ -4266,7 +4266,8 @@ &config_noc SLAVE_VENUS_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
- 					     "video-mem";
- 
- 			operating-points-v2 = <&iris_opp_table>;
--			iommus = <&apps_smmu 0x2a00 0x400>;
-+			iommus = <&apps_smmu 0x2a00 0x400>,
-+				 <&apps_smmu 0x2a07 0x400>;
- 			memory-region = <&pil_video_mem>;
- 
- 			status = "disabled";
-
----
-base-commit: a9c48428cbd8d96b26f92631d0db6f8519c5fcc5
-change-id: 20261030-sc8280xp-iris-iommu-aaf3fb5774c8
-
-Best regards,
---  
-Xilin Wu <sophon@radxa.com>
-
+Thanks,
+Kohei
