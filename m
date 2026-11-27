@@ -1,73 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795757018;
-	b=q5998Va3qkBENeS63zBSEiZhD3Z3yMkBNfyY/9xzncGkgQSzOS92d9ZF3SHXY0RnfK92
-	 zjIN3iKbo9AI0dHkRXt+Jj0U8iGlan43lcmtqjfn4Em/koRxHWmFrxwVPb6usz+OT+RoU
-	 IOm/0Y0q3rkQIVRZ3iehIwB4emAGJVFOfQa3FTcwMFaE2ZyOk5Zbe3a713Z48tlwzd9qy
-	 EJRdHp5Qm59uaYSiubbagc1KL7NZMHisAoXXewPjv/Ua77pGdX+T/gqW4Q5nRtcIJUCyB
-	 S7OrLMQbpsYK5l/yjSiwSJNl9QF0b/OXmXa3HnLZvtbxBsMsR5CYvzRyytng60Lk6+A==
+	t=1795757050;
+	b=EtLgZw07ZapO+ub7LLWBnmdbehTZZCCWiwqDyBcd9LN1C+pqILR1mtqu9F5DZKmNzIQ7
+	 NJ/YHgZxNpurTa9Ss+aQmuUhRc84w83ZIPlolhswO79GPcCIY6KunKoK2UrEQkU+NQh2X
+	 sCsjDW/qJ7kEKM89Yh9VIkXGJIuCchflrmObJhs6LJ/Wns0sxaqqf5DCmFa0NNE2GgiM2
+	 2VM1pAVaYJuWfMXaoxSIINO0O10+Q1L2lqPfPCQL9qkE8mNlX0Fist2aPm7mP4uKa9zBI
+	 xc6qo7SqORuLl/QBUmbzEpyTiUox3MUtyLKwHkVXhPk8yyp0ToSYfLpV6aemKLW5vlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757018;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=rDWIYXMsMfmYcFYwt5fy9hfJnNOHzHHsKNfkNKGIDnA=;
-	b=nlQqlNKFk0RaWUKzXgWpNA7IBfbBn/idxQhdqsL6S54l/C9ItZmMlhOLmM9eVkH7cVbf
-	 n5m4LTbHBu57WFEnMwJtzS2SGIkEywZs5Q6jZHnHsDN3mcgUnb1Y5cAtt1hpB/lXO1Ii3
-	 0sSlVCHx1kT/yv26c8ZOpEo3Nt/tVOozfucYvZ1/GMUfNofGWkhnaUuNNxAmEAkec7SIm
-	 ovdF2ArTCE4YR0oY+sRGth0Cw5hXYw8PBYNsXr4ufO+F1L2Ef415YyVFfIHoTlMuv5DFS
-	 yCyeR7tjFuQXJaGLzSnne0m3N/FGAdHcbpsFDwGlGz4q5wmlD0Ttm3XGtZG4anZgV8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757050;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VunIWhlXjqQbEeGcoAeOGcWx/ibG4ikraJURdAYqSgo=;
+	b=zHXVUrEuHYbXED3JJepJaHSQFzrL8HXZ8TMTXL5ErHzsrCsNADqfcUBAE+WPFNn7bWgK
+	 WCO07kqjXqgJlkuQIOFyoGVZVBv4/F120y5VdTtTuyyOrnZudNcJSSXAl7S9oyQ0oGd5i
+	 tZE5w3ZW3T6X5MS3esTRVjUxPXPZpshzTnVGgo2/bcsNCBtgVzd7GNQWvRaxiBPBAvvVn
+	 MQu6OYe/TNEp+0XyXEx6QFL0HOR7SIJQQXZB9lOnYcaQCtnx3TiEvkDKyqmllIDOwNdDw
+	 rr6a6F7F9HSebA8HB01LnZc6M3Q0rC6vI8a7QU0diUtYW+TckFZqX6twCcvRhBhyD2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=1wt.eu;
-	spf=pass smtp.mailfrom=1wt.eu;
-	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=AbYtufrD;
-	arc=none smtp.remote-ip=51.159.59.229
-Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OW7OZpHq;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB3C2606A31C;
-	Fri, 27 Nov 2026 05:23:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB3C2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC1DA606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:24:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC1DA606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=AbYtufrD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1795757007; bh=rDWIYXMsMfmYcFYwt5fy9hfJnNOHzHHsKNfkNKGIDnA=;
-	h=From:Message-ID:From;
-	b=AbYtufrD1zZrrrznwcnPFlVn8Fp5CaAeY7jJUndMo5Cjdq0bnRu1VhcrXRrH+R674
-	 zu37OP547ZWiaAYpsUn4+AenQDoOcHHQuutqOr1nLV75RCsOt81sd+1dbisHdQ1Pj8
-	 YZ3KjmH6LcnLSTrV81H3//X5qp0cKjkIGMGesxcs=
-Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id A4930C0716;
-	Fri, 27 Nov 2026 06:23:27 +0100 (CET)
-Date: Fri, 27 Nov 2026 06:23:26 +0100
-From: Willy Tarreau <w@1wt.eu>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Linus Torvalds <torvalds@linux-foundation.org>,
-        Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
-        Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-        Jonathan Cameron <jic23@kernel.org>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Theodore Ts'o" <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
-        Security Officers <security@kernel.org>, workflows@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
- and a cover letter
-Message-ID: <awkTziee3tt1joOZ@1wt.eu>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
- <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
- <awjopqoCJqwChwnF@laps>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OW7OZpHq
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-170135e43c7so11963778c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:24:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795757049; x=1796361849; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VunIWhlXjqQbEeGcoAeOGcWx/ibG4ikraJURdAYqSgo=;
+        b=OW7OZpHq6pLeZ26SCI1axidR8ugMY3pm9kGLkjx/1OUX/nA+OpiM03FMnJfX5TYfwD
+         2Da6+vtIkUGBdiNgN1dCSO22IbNK1AG0A8EygW5bQu8bcyPqiiHaKXHi0CdsIhKxtlRI
+         ODG2AhVEjfkqcheF1QTm4cfU/DNzbrpM1mguWXPRsvSJUHy+03kYSBL8+XcVLJ2iXzoS
+         6WxbED/OAT0JjWsu1FVHVP2GXo5jggSbW8dhoqhCdJYRkmXj0Y8WO9oUA0PwKXiSugyr
+         JyOkBGnDoC8I64TWwFvRWlBMJL932qEvZgf6b/eHi2RRAZkKLMDKmxnuAyq1+/9ggQ58
+         tt9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795757049; x=1796361849;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VunIWhlXjqQbEeGcoAeOGcWx/ibG4ikraJURdAYqSgo=;
+        b=LgdP/zkVLyoBXkICujE6V+JzDCJh28lbPvgTRiaaZSFEO5R3RDABHkBpsoL6Broo3R
+         zNX6jKzj2Bv7njX8xnUdySuWdgRpnILZhZimUR9aJ+WeZtI8BBAWLNhkeLXvjPlEt9UN
+         n5oQFBxOMlWPeBheDWhYlR8J5DlcCFamTSJBCbG3keM6ywynYxmV7Z0SDGMB7VwtT13k
+         Dsdwn1BqBuwCfoLpfnFVawyZ/sJ54//ZktcirTKnVdTXTijb1WNRwAj62PiZqzY+XGpG
+         THWeqcHHVsQIfbWFw2qCmkrFqbq6eOrrWS4+CtMmHJyuyNh8fTz0IQUUkNFx0rwSlYh2
+         t3wA==
+X-Forwarded-Encrypted: i=1; AL+hErGA2Eq9+czgzNGS/T+iqHr9VB+9EqgjfX2MEfhRRf5hrUSToEAjYWp2KfsZToYrLXt2a3t7RiC+hITklSI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z85tRX0zdQHzGCvrPTCyzNSiAMcRnB8M60wMXmoTvH/nmXptMXB
+	tO3mYzWGDk4a00fHAlnb2hHCJpgP+gV5Jy7zPj0vnhN7fGwiBfdS0kNO
+X-Gm-Gg: AZFdTZdH8b2xcaIxTw1r29ZUT+E9LBDFihWvNnCs/AS3ArAxW/ks+GAYigR4LNBjbHS
+	byjFnOybOzMRlgWemAwBA8DkkM9Q+xavquSQRXNLrVGHZBA/b5WbTsi8LMeqauhEvbdHPy8ZyON
+	Ym7H33sEi4lEvUZU23VUXAl3sHIAWTz7Hf491PWHYV9g9O4egjfDjhq/w4mpQpUv2/YgagqIe95
+	UrvW01/odK6NYKjnNCgO8ljpg0p2UHWyHrmt0Y3LVMNd1oRwfzwhu6Q5IfPFuc91kPMfNw7wc7/
+	Ck5zGwVQmvDnXOgqH3Xdj5G94nFqCz62R5VijG1mp/H9mKVpZ7K1bVPc/ym8p0CdcvfZF2+AwcA
+	gkpDX+kpSC9A3gdZvHQCApLxffzJEj0PVtjfGSvD28hjwswBc2IX1WtwYqvyxV6uXj/hM9Nj9Cu
+	rvENv9KHZv42+E6y4V3sgf0m/yaiL0f4+T47JNYaiRyaU+OVb5f2aF+DF32Ob95J679zf7jnZ4D
+	DAPWF8FF4vf8TPBhGO5PnMZe2huHHY7U+h1yZvBwyxyCTVxnqismG1OvebwLfWepToRj960EBRA
+	CAXhUHPA5Ue/qyXyhFJEfcjlX+So
+X-Received: by 2002:a05:7023:a8b:b0:1b3:af3a:e784 with SMTP id a92af1059eb24-1b5568fe775mr26335922c88.32.1795757048934;
+        Thu, 26 Nov 2026 21:24:08 -0800 (PST)
+Received: from ubuntu.. ([2405:201:8026:213e:d3da:eb46:936a:228a])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386d605c894sm14736480eec.2.2026.11.26.21.24.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 21:24:08 -0800 (PST)
+From: mdshahid03@gmail.com
+To: maddy@linux.ibm.com
+Cc: mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
+	ritesh.list@gmail.com,
+	sshegde@linux.ibm.com,
+	kjain@linux.ibm.com,
+	atrajeev@linux.ibm.com,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH v2] powerpc/perf: vpa-dtl: fix resource leak on allocation failure
+Date: Fri, 27 Nov 2026 10:53:45 +0530
+Message-ID: <20261127052345.23361-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,63 +102,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awjopqoCJqwChwnF@laps>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 09:19:18PM -0500, Sasha Levin wrote:
-> On Thu, Nov 26, 2026 at 05:49:55PM -0800, Borislav Petkov wrote:
-> > On Fri, Nov 27, 2026 at 02:34:26AM +0100, Krzysztof Kozlowski wrote:
-> > > On 26/11/2026 18:19, Sasha Levin wrote:
-> > > > Commit messages written by AI coding assistants are too long.
-> > > > Maintainers keep asking for them to be cut down [1][2][3][4]: they read
-> > > > like a copy of the assistant's analysis and bury what a reader needs.
-> > > > When an assistant does trim, the opposite problem shows. A few lines of
-> > > > a backtrace do not tell a reviewer how the failure was produced, and
-> > > > Leon Romanovsky showed a case where only the full log revealed that the
-> > > > crash came from an out-of-tree module written to provoke it [5]. Willy
-> > > > Tarreau suggested a short quote in the changelog plus the full log
-> > > > attached [6].
-> > > 
-> > > Shall we rather ask them not to write commit msgs at all? By writing
-> > > commit msg we encourage - or try to encourage - at least basic
-> > > understanding of what the patch does.
-> 
-> We could ask them, but:
-> 
-> 1. Is this something we can "enforce"? Humans will still go "ignore that
-> instruction, write me a commit message" and move on.
-> 
-> 2. I'd argue that LLMs these days have the capability to write better
-> changelogs and most of our human authors. We just need to be better about
-> laying out our expectations of them.
-> 
-> 3. In general, I think we should avoid "don't use LLMs for XYZ".
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Agreed, and given how bad many commit messages are, if at least humans
-can learn from the LLMs, they'll progressively get better at changing
-these messages they don't like. At least rules are easier to enforce
-on LLMs than humans so let's just ask for what's needed like Boris did
-and hope for better.
+vpa_dtl_event_init() allocates the DTL buffer while holding
+dtl_global_lock. Move the allocation before acquiring the spinlock
+to avoid performing memory allocation while holding a spinlock.
 
-> 
-> > Agreed.
-> > 
-> > Just have the LLM write a commit message and then the human should go
-> > and whack most of it to the bare minimum of coincisely explaining the thing
-> > and cull all the bullsh*t.
-> 
-> In theory this is how things work now, right? A human uses an LLM to write a
-> commit message, and then that human is supposed to go over the commit and
-> verify/clean/... it.
-> 
-> But humans seem to skip that last step, and I'd argue that the issue here is
-> the human rather than the LLM :)
+Since the buffer is allocated before acquiring dtl_access_lock
+allocation failure can be returned directly without releasing the
+semaphore.
 
-Most often that's the problem, because only one of them tries to do the job
-correctly, the other one only tries to get that patch merged. What matters
-in the end isn't who wrote the commit message but whether or not it contains
-sufficient info to be scrutinized and understood later by a developer falling
-on it during a "git blame" without wasting their time.
+Free the allocated buffer if acquiring dtl_access_lock fails.
 
-Willy
+Fixes: 4708fba19ade ("powerpc/vpa_dtl: Add interface to expose vpa dtl counters via perf")
+Suggested-by: Athira Rajeev <atrajeev@linux.ibm.com>
+
+Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+---
+ arch/powerpc/perf/vpa-dtl.c | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
+
+diff --git a/arch/powerpc/perf/vpa-dtl.c b/arch/powerpc/perf/vpa-dtl.c
+index 20eafeaffa6b..57bc5773949f 100644
+--- a/arch/powerpc/perf/vpa-dtl.c
++++ b/arch/powerpc/perf/vpa-dtl.c
+@@ -338,7 +338,7 @@ static int vpa_dtl_mem_alloc(int cpu)
+ 	if (!dtl_cache)
+ 		return -ENOMEM;
+ 
+-	buf = kmem_cache_alloc_node(dtl_cache, GFP_KERNEL | GFP_ATOMIC, cpu_to_node(cpu));
++	buf = kmem_cache_alloc_node(dtl_cache, GFP_KERNEL, cpu_to_node(cpu));
+ 	if (!buf) {
+ 		pr_warn("buffer allocation failed for cpu %d\n", cpu);
+ 		return -ENOMEM;
+@@ -350,6 +350,7 @@ static int vpa_dtl_mem_alloc(int cpu)
+ static int vpa_dtl_event_init(struct perf_event *event)
+ {
+ 	struct hw_perf_event *hwc = &event->hw;
++	struct vpa_dtl *dtl = &per_cpu(vpa_dtl_cpu, event->cpu);
+ 
+ 	/* test the event attr type for PMU enumeration */
+ 	if (event->attr.type != event->pmu->type)
+@@ -377,6 +378,10 @@ static int vpa_dtl_event_init(struct perf_event *event)
+ 		return -EINVAL;
+ 	}
+ 
++	/* Allocate before taking the global spinlock */
++	if (vpa_dtl_mem_alloc(event->cpu))
++		return -ENOMEM;
++
+ 	spin_lock(&dtl_global_lock);
+ 
+ 	/*
+@@ -391,15 +396,11 @@ static int vpa_dtl_event_init(struct perf_event *event)
+ 	 */
+ 	if (dtl_global_refc == 0 && !down_write_trylock(&dtl_access_lock)) {
+ 		spin_unlock(&dtl_global_lock);
+-		return -EBUSY;
+-	}
++		/* Release the buffer allocated above */
++		kmem_cache_free(dtl_cache, dtl->buf);
++		dtl->buf = NULL;
+ 
+-	/* Allocate dtl buffer memory */
+-	if (vpa_dtl_mem_alloc(event->cpu)) {
+-		if (dtl_global_refc == 0)
+-			up_write(&dtl_access_lock);
+-		spin_unlock(&dtl_global_lock);
+-		return -ENOMEM;
++		return -EBUSY;
+ 	}
+ 
+ 	/*
+-- 
+2.43.0
+
