@@ -1,59 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773122;
-	b=ctXS2SrqEMc0zc9oGoyPXswctsy1QEvXsgDnOVbXFN/QqjT/mBovZyjIhEsLmPnd/CNq
-	 EqYDlxXqU9Bym40AUZmOG/EZTnA+5BMCz/odWxsSlR75Ru4o30UqR2kqD7frnF1r7KZoZ
-	 VX1N9VLh3hr3QQGkMWSCSV2tGPsgwV88xOCXzvRH/HPWNDzF3uZTKNlvhRHI3W6O05GDu
-	 d2wNJlpV4aanrh3L2mAF5wK6KvWDwDER5i3fsbkDktHs+NlwYTX4EsFbJkiO0RCptUpfV
-	 XlbwyJHZqZ7ZG1WHj37GSqqX7hfMR1vtApta/rGMxPZrbJD2vD6uKPv+6ojv+gWekKg==
+	t=1795773123;
+	b=fcsLAzHFpiwAE282PRsYcHcDwWU6inKK/fjuus/GUTbK0fpcmNzYFCODoBJrPTajRBKk
+	 xlkaciVf2cb+qdzRNxSSA4OHGb1shJ2ABtJ948N8jHHsHWDXwHbP7fJAsSr/mR7dCvZOe
+	 dRHYdQ8i042dIr2gYHcI+sUTnZpaKeb25aghVCYmXJe36bPsDZaJhq2oPEI+OJ75kdFGO
+	 U6kOHgOHZvYBl/AcNGv+wlrEYnn1Fox3+CsEqOTwJ6P1qdTILqfOtM5StQKAzXrZeH/w4
+	 YUyibqaJ4Y/BIGC23+oMeKaRXeC3GmMebSpWqZX9y2Bc8DeIKzXmRENpIlD7+RFXV9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773122;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=O6L939f9X0Bf0f8CrwpPeKq7uGGEz23ogLG/rkd1zBs=;
-	b=pbGnoJtiKKGqU6Wo3/q07vZ8YjmcINp/o/RRmhgPQTwnjcfO99MloEWgfGQJm04UPHD1
-	 f5aw404o8pUlAW3MepcuuTcnS9Tn64oEKNIQ7u6HSXnEhEd+ZOW9gfsddF3cv4Rt9oame
-	 c0C/PdtAoAysP4GKrXm3p/JsxV/rNBYgxAnzP3AsXVA3ji0X7M6EgrGBzj9NhbRXpHiHZ
-	 xZlA3q1MTN3ne2HJ8H022o48FkvJTEAkvmxpFErodhffERLEAekrnaSTJUOrf1KTJh+4P
-	 vpQEaOPW70kn086bQli6wFMGEo7/ZaqtZYRzn0XDfL3TqgPfrQ8QaxlXrFftTeID3Uw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773123;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=PjPTqWnvIamPM9Ups0KMlBv18X4d4v7KC1zyehi+ktY=;
+	b=e4arJzEsaWSJwKnmwOZ9+t7L+ZkCOEWlIxTElgjs2wUojcWH+DsRs+52ahiEuy91yZb4
+	 jj6UpyLPaCC0AveGONLz2R6GC+IHuLjyPNMam2XPIaz8qF9H3cN1yHR7Jy0xDfQM7lvh5
+	 w29IjMMrvrH92XlmaZx/iQqk6cz2cDcIK5qVKQH4UI6uXp9EqQjDmlioy/WLyklh2MxVz
+	 Syb6Wrqb35Ypl8izGuk4/7aF0AN4swdN5U7GkwUP/sUQmUVMlU0UVtWNcrVP984cr7Dqv
+	 XnrFQNcKNLDyzpZolC0/0GPhhksrZkB+6ATRQuG++MZT7APfh9O2wnXB/F10zPHSYVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YAZn7BJi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZrBP5ORw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E329D606A329
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:52:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAB0C606A32A;
+	Fri, 27 Nov 2026 09:52:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YAZn7BJi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE861F000C1;
-	Fri, 27 Nov 2026 09:52:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZrBP5ORw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5092D1F0089A;
+	Fri, 27 Nov 2026 09:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795773121;
-	bh=O6L939f9X0Bf0f8CrwpPeKq7uGGEz23ogLG/rkd1zBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YAZn7BJiJI427OpNFSlP+H/uM4G1EUDdaY4bRj71kLl3+iPW3mj4xQ/Dpe66mT8/M
-	 q7ELSN9Dqf+RgZIEcokTnUvqDANZagzcCIYraEjdLaO+YaWrFVXlvoRs9VDymmYCPf
-	 L6UeE/+WM7412/FvIhViKQuGE+hOARvjofUO76YvcKrdxYbBoo8/ewgwVymZkmLUTM
-	 gvT4pfQa0N6k5B/FNqK9RBdwPuPiXiBejCDcxjiCpRHgxvqpiZT9JPwt5vGlUeqMyb
-	 SE3jSrcDDs9kwh6JEMC87djW6rXSeVSVj5bnKwyDoSQKB/YKI26xpQjZXYYa73L7Ig
-	 ysM7h+VbK2SEw==
-Date: Fri, 27 Nov 2026 15:17:51 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Nikolay Borisov <nik.borisov@suse.com>
-Cc: x86@kernel.org, mhocko@suse.com, kas@kernel.org, ljs@kernel.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>, 
-	Ingo Molnar <mingo@kernel.org>, Vishal Annapurve <vannapurve@google.com>, 
-	Kirill Shutemov <kirill.shutemov@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Pedro Falcato <pfalcato@suse.de>
-Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential
- guests
-Message-ID: <awlDUT0n3Uo4mjld@blrnaveerao1>
-References: <20261124160025.738362-2-nik.borisov@suse.com>
- <8e8bda1f-dbcc-4f24-bc75-0b68bcc1a40c@suse.com>
+	s=k20260515; t=1795773123;
+	bh=PjPTqWnvIamPM9Ups0KMlBv18X4d4v7KC1zyehi+ktY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=ZrBP5ORwQoM0DziMdayXiLFW/01wWPi8Ng8JVcUqk5UweoHHHaiAcjNrBtPxInKtW
+	 9zTV/SHgWhzErFgqz5eJmlTYq5W4JyMWa6FmfkZ9OY3ybavw2R72y+fu3dlu3YqdA0
+	 3k5fbvOe191cMjwLURrHwDJ/tNtxRxpryjcTOXq/u0/vTTSHoNcREJbTYpjWRqkMTS
+	 Uadx5+De7GE0733zJ8jXWPqaC1Dz/VTGX7EthFphtOsZfYZp8LxSdqS1gc4+KwrWOs
+	 14nriZmUjDlyWf9PK/vfhXuegbczShKsYjGK9HRM6THUJnJbXV4n0ux8cpmLohNxgg
+	 3SdGvzSlBUA3A==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, Charles Keepax <ckeepax@opensource.cirrus.com>
+Cc: linux-sound@vger.kernel.org, mfd@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, patches@opensource.cirrus.com
+In-Reply-To: <20261120145115.2256537-1-ckeepax@opensource.cirrus.com>
+References: <20261120145115.2256537-1-ckeepax@opensource.cirrus.com>
+Subject: Re: (subset) [PATCH v2] mfd: cs42l43: Stop using legacy SoundWire
+ IRQ callback
+Message-Id: <179577312209.50005.10107814136641055755.b4-ty@b4>
+Date: Fri, 27 Nov 2026 09:52:02 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,55 +59,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8e8bda1f-dbcc-4f24-bc75-0b68bcc1a40c@suse.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
-On Thu, Nov 26, 2026 at 10:28:02AM +0200, Nikolay Borisov wrote:
+On Fri, 20 Nov 2026 14:51:15 +0000, Charles Keepax wrote:
+> When removing the cs42l43 driver on SoundWire the core will warn of
+> too many retries on the SoundWire alert. This is caused by the use
+> of the legacy SoundWire IRQ callback to clear INT_STAT_GEN1. This
+> implementation defined SoundWire alert bit is used to tie the cs42l43
+> internal interrupts into the SoundWire alert mechanism. However,
+> the legacy SoundWire IRQ callback is gated by the probed flag inside
+> the core and that is cleared before the driver's remove callback
+> is called. This means that any IRQs triggered during the driver
+> remove process will not clear INT_STAT_GEN1 leading to the device
+> being stuck in the alert state until it is removed from the bus.
 > 
-> > diff --git a/mm/char-mem.c b/mm/char-mem.c
-> > index c5761ddedbd7..5d383befd87d 100644
-> > --- a/mm/char-mem.c
-> > +++ b/mm/char-mem.c
-> > @@ -30,6 +30,7 @@
-> >   #include <linux/uio.h>
-> >   #include <linux/uaccess.h>
-> >   #include <linux/security.h>
-> > +#include <linux/cc_platform.h>
-> >   #include "internal.h"
-> > @@ -609,6 +610,15 @@ static int open_port(struct inode *inode, struct file *filp)
-> >   	if (rc)
-> >   		return rc;
-> > +	/*
-> > +	 * Enforce encrypted mapping consistency and avoid unaccepted
-> > +	 * memory conflicts, "lockdown" /dev/mem for confidential
-> > +	 * guests.
-> > +	 */
-> > +	if (IS_ENABLED(CONFIG_STRICT_DEVMEM) &&
-> > +	    cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> > +		return -EPERM;
-> > +
-> >   	if (iminor(inode) != DEVMEM_MINOR)
-> >   		return 0;
-> 
-> Having taken a 2nd look I think a consensus solution would be if this check
-> is moved inside devmem_is_allowed() for x86. That way /dev/mem could be
-> opened but reads will simply return -EPERM. That way x86-specific checks
-> don't leak into the generic mm code.
+> [...]
 
-I arrived at the same conclusion. I believe the reason Dan chose to do 
-it in open_port() is to mimic lockdown-style semantics so that userspace 
-could detect and fall back (to using /sys/firmware/dmi/tables, for 
-instance).
+Applied, thanks!
 
-But, as far as I can tell:
-(a) userspace should be able to deal with -EPERM from read()/mmap() too,
-(b) and the tool failing is better than it crashing, or worse crashing 
-the guest.
+[1/1] mfd: cs42l43: Stop using legacy SoundWire IRQ callback
+      commit: 597bd4ba343df842694bf0b761ffcd3e3caff985
 
-So, I think we can move the check to devmem_is_allowed() and reject all 
-accesses for CoCo guests.
-
-
-- Naveen
+--
+Lee Jones [李琼斯]
 
