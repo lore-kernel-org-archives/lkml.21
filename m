@@ -1,91 +1,136 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790181;
-	b=cH+xm1imMoEP+Ti5L4nGKmJjKna97DSsXt4P6vWjSIoIpoSm/X8qyb/SI+HW6gToddXq
-	 D2I7P1cD4E/KLeabg2Q21PzjedIU+c/In43qsXq1lxs54zRBRlsUVzVf2PgM0zUSBqguT
-	 a7xOrSGi/WyumO768ECDik1eBdg5ryFAYPbZ+tus722w89/kmuvPzlKPJa5Xd934JTEUs
-	 9gF1kU1Art6CVCZpdU1U0qUEQ5ugzMtq9NXk0N4lUKMzBy1fhs1lkpHTpp+UM56F4q90n
-	 veOvknswa9JP7DDBaHKBbIeIHf320YVIqPUPF4+Jm33IqUY/fpwZQ8IbDL/ZFxGw4tw==
+	t=1795790193;
+	b=4tEbvz5cgF8WcKDyZ0+O43u0PjMSBVRnlnZZppAjHQ526arCeLRSjqqz+cBON1ZHDKqW
+	 CveQp4m44v1z8G1n03ckDgYgG3TAtyjTL6kVrJur7jMNNZGcsQGEYN08dL9Xa8rSLoKSL
+	 q02BWk2Q4CKHWwlSjwoTMm9xCX4veL4SyeP7NclouHNBKEwFzlPupdwxqUYuVJL1xiCVS
+	 K9HQuUxCfkzI1wieU8IWLFZY1/tk831eiMXSBKRsLHoVVnbzFzP1Xy2vHrZ7bjESBDNHF
+	 TANWKlbqqO5ZAM30alAg8FWZTPZejZ1yuUXOmjPbVw3h6ERR7KeS/CX0kUvaMuAIkPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790181;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=W/HUcRyGs0GZWi7BvHmivXGxJq9IWwmNRdxpeU4bEQk=;
-	b=PLQY0/DfZC18dSas0vjSknUHXShQTpzr+WCYRcoNbv1loh4LXAL8EYY25P2yeO0j5El4
-	 NezAU2XQG5F5hKLzBFOV9TVD+uTLUN3ub6pdeDqiMgConljZ/QvXoVEFevl/qHjo3W7SX
-	 VUZ4kpqN6CjGq1hateGZTZR+wt4DB6hzp/088BOQ9d5fIJdh060e+RTUAlEYuIJM/+RAK
-	 0AustvdlvRLLHQTAB7oxEN+7RznYQST6TWMfh/xC1dIPwJVs/twPfrgNhr+4wYlABbZ8G
-	 NTpZId+f/DETqCBl7R76D3AiyhQfoYOL+Tc58eeA++kxYfG7Y9nMXbnxt1FpHBWNg2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790193;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=AHaTSm6CqCBOKkE+cKbRMkVfAAPiwIJkTVx8GjdxHPs=;
+	b=p/+SwBxVHwMabGfidVNzhEiwSzr42fKSEMdWpVxS1HQRMFjNbiW0LO7SEF4MorlFaykM
+	 uRnlvyydFKra8bz1G0eiAsoCxXQ0mDbvxqxBfEk/qC/pXxJhLBtW67oe38Tk2ItOLm/cB
+	 RbNJMHZLFwNLhIn2QastI2o2uFYNlK5N3/6CnyM84QAukGw08S3DWtIwYNguP8MkkQgKA
+	 n11ei86v4hOzHcTwB7nk07jU+OKaSPgyFfoLVm0lZMt3jZpkHXnYRv4hLgXaMVrFd8Nlr
+	 jZ6HIJ0cEWjLq5WwYuXCMliOF9bIz23gK+fmFW6mDoabvT/jXJ4e8NLbJlzXa2w70gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=WnVBhCsC;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="f+lGq/KT";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=i64iKlwG;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B809860A6F7B;
-	Fri, 27 Nov 2026 14:36:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B809860A6F7B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D44656075FD8
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:36:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D44656075FD8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=WnVBhCsC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795790177;
-	bh=W/HUcRyGs0GZWi7BvHmivXGxJq9IWwmNRdxpeU4bEQk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WnVBhCsCipQq3JjU4a/dzcJcPFxmpw7zbjvZ1hr/aIBbvsk2iTMY8kYo3n2SWCg+j
-	 gvzhVgDUOC78Svf1AvWc7YjrVbM2OyEyLUAemTqfMgFAPPVf6X9xsfvk9VRC+DTdtz
-	 6u8prV2TQzS0+74sK3qUbv+eM8f954iz8Ar8xhuC/rhe1pu49L4/SiEgIYv+NS4/A2
-	 GPT1yT0/y4NT9irZY1JWj+Z5te2ldPkmqgMq0ki459g4KF8PYHibRQpROqZSkj1sdd
-	 7HNSIu/rVAZmnkXnTXDco7Cy+RMdegSuyYRSWn26dzi1jskQ4JeG18UPkgWqNXwVhP
-	 G2JtJvi/TVX5w==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbbZT51gbzXZQ;
-	Fri, 27 Nov 2026 09:36:17 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	tommaso.cucinotta@gmail.com,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: [PATCH v12 24/43] selftests/sched: Test the rtmutex chain walk in deadline_bw_test
-Date: Fri, 27 Nov 2026 09:35:51 -0500
-Message-ID: <f3d2e2e38c316d204af63f46b06861cf12eb6b5d.1795771148.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f+lGq/KT;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=i64iKlwG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795790191;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=AHaTSm6CqCBOKkE+cKbRMkVfAAPiwIJkTVx8GjdxHPs=;
+	b=f+lGq/KTgJFHp/ihjEJBuiMr9Cuxmph03oK4KYDYY0Gm3lacRjqUOssKqA37dqBtihmzU0
+	x5t+3o7ivF0wohoGa0IaeBpvAJlZLuDsphKvbNNmx+xus++eL5hjWOTCJ1m4xwcZCCt+Sa
+	N2XBT1eVMAa/I6pqe6K846hyZFMdiV8=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-92-2ILhEZGeOf-7D-tg_3doJA-1; Fri, 27 Nov 2026 14:36:28 +0000
+X-MC-Unique: 2ILhEZGeOf-7D-tg_3doJA-1
+X-Mimecast-MFC-AGG-ID: 2ILhEZGeOf-7D-tg_3doJA_1795790188
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e4d1e29f3so6732885f8f.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:36:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795790187; x=1796394987; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AHaTSm6CqCBOKkE+cKbRMkVfAAPiwIJkTVx8GjdxHPs=;
+        b=i64iKlwGKrIvI054OWHT2Y9Y1gv1AmT0UOp4ovkEMwuzDimg4spZDCi+95cELWfrLn
+         C5mkKs6VSvkXU9B0Ipzwo2lqFFKSWwSKAboKhuVXzChz9uJ+/1fm6RjlIJuXCwt4994E
+         UDfTbwwm57RcIHcGqav6oM2fJtuMlKe9uwEf955l+cmPEUgdSnZv9MVY8Y0ZDiXCaJVA
+         VKbQc6sKToY9A7Q0NolpvbpagC6SEmHD1Uxf+8Z1Pgx06sOxcgQQ/Z6VNN+u3yCVZ9po
+         0d4jVyj94OOBVb6envEO/GC+90MnxDSO+bxg/Qn4xiSH0EXAglob2Opb+Ot5FMESI5ks
+         NtmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795790187; x=1796394987;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=AHaTSm6CqCBOKkE+cKbRMkVfAAPiwIJkTVx8GjdxHPs=;
+        b=yae5UM+tbHe9ypCfwlIp4szxNDdfN6iudftfiuvKxDbTKYU/ypwoZvDl7rlU1RWsB/
+         +fPX9dFDhTsMLLOqj1nHcVP2zV1tMvaRFoZ5oLBVwIzyqzeCEYRTGd1/g6YYgMpz5k4o
+         lLw3l0yrYCT+7sUU+mfkvAQvcG4YWaKnETRgcJkpcjQTkWbGHYAwZxl0dTtZ1vGEMLlb
+         0dYklqFkMz+KYwkNyRJ75yTaiQ2UPODuC5xUMakJH6Cqsk09HCFiVYejPSJDA46WqQNa
+         tC0R8J4kobVGblIG4b4yZaa62NpuYT0AFtuaDVCySsgQf4CVdhJ2hK08sdpOl+uJPy6S
+         lP2w==
+X-Forwarded-Encrypted: i=1; AL+hErHcdEYSocBlVzjqgZHGqT6cdgesXRsSIuVGck3ChhFXVh9ySY4H3E6UouroSb922Dign5+/IYLvjvfDAzA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zp/rz6xYHIabUWW6Di4V4m+MbutudzMBhAs7M0ZV+hDF6kSJN
+	j+gFKxN2ZDHlRJbxMsS7bhDfCzu+85b0g8g+IuHHYHVvsIVoxH/W35jiig4OtK87bRzZsCYtX7E
+	hFCe37H43iWpqOJPgj/BJPttLhK1CkNjzKdEjE6uQkGeQOyiepY01V0kJnrod/OSrwQ==
+X-Gm-Gg: AZFdTZcqBqZUQeRJrlMqNpZlMrP57XvU0EEQT/fpTEYCoicU/1BESN6e2coKkzBzte8
+	WvDZs1cu5PF2RSctYlLzQ8ZxQwub8YReu8QBoxHrfbmbRKgcSI1O0gahAC9a4Ko56IhlVDWjdup
+	6GzKkrayVbsUgDWO3fguoUka8XdQRrzYzJz7QS2zc4Vz6yqH0HZ5WjEnHYqnX12PT4bwqC7x7IN
+	8FAbtaq4BOLxFI6/7PrTuHuWmhq5afwFmV7q2fBT2gvaygdQ5Aw1DNL9/97jBaRyNDD7LESBI4t
+	vRRvTzg5A20vIR1xY6hm1/uCt/l6lhhXPhdVEuPav9i+qi3Xx+u4fKPVkC38HAnLJiDbM/Cf7xu
+	uE1aCk8NUwrTKpT/Ps9SXjsRg9zPTh8UW+I1uCMOJTsmhcJ9pqXzTtMQvg9MM1OredbdQjk9MCq
+	52
+X-Received: by 2002:a5d:64c9:0:b0:491:92e5:b5c2 with SMTP id ffacd0b85a97d-4abb1baaaa5mr50096513f8f.15.1795790187584;
+        Fri, 27 Nov 2026 06:36:27 -0800 (PST)
+X-Received: by 2002:a5d:64c9:0:b0:491:92e5:b5c2 with SMTP id ffacd0b85a97d-4abb1baaaa5mr50096474f8f.15.1795790187167;
+        Fri, 27 Nov 2026 06:36:27 -0800 (PST)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm48633531f8f.3.2026.11.27.06.36.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:36:26 -0800 (PST)
+Message-ID: <b3aab99c30da8fbfe8d2a7b1bac7795d2e1d04e2.camel@redhat.com>
+Subject: Re: [PATCH v5 3/4] rv: collect per-edge dwell time for per-cpu
+ DA/HA monitors
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Tobias Schaffner <tobias.schaffner@siemens.com>, Steven Rostedt
+	 <rostedt@goodmis.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers	 <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, 	linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ rpm@xenomai.org, jan.kiszka@siemens.com, Shuah Khan	
+ <skhan@linuxfoundation.org>
+Date: Fri, 27 Nov 2026 15:36:25 +0100
+In-Reply-To: <adebe91c-09cf-40b3-9780-998cea432226@siemens.com>
+References: <20261127113609.650286-1-tobias.schaffner@siemens.com>
+	 <20261127113609.650286-4-tobias.schaffner@siemens.com>
+	 <edac7605937c5fd1a02458e171ddfa4d5e6c1a36.camel@redhat.com>
+	 <adebe91c-09cf-40b3-9780-998cea432226@siemens.com>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
+ cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
+ T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
+ eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
+ 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,349 +140,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Add pi_chain_top_moves and pi_chain_top_moves_rt to deadline_bw_test.
-They test the two rtmutex fixes earlier in this series. In both, a
-chain walk changes the top waiter of an owner to a waiter of another
-lock it holds. The walk must go on to the next owner. That owner must
-then get the new donor, or the new priority. The first case uses
-deadline tasks, the second RT tasks. The comment above each
-case gives its scenario.
+On Fri, 2026-11-27 at 15:13 +0100, Tobias Schaffner wrote:
+> On 11/27/26 14:57, Gabriele Monaco wrote:
+> > On Fri, 2026-11-27 at 12:36 +0100, Tobias Schaffner wrote:
+> > > Hook the edge-stat facility into the DA/HA layer, so that any per-cpu
+> > > automaton monitor also reports how long it lingers in each state.
+> > >=20
+> > > Account a transition as soon as its state change is committed. An HA
+> > > constraint that rejects the transition can therefore reset the monito=
+r
+> > > without leaving an accounting window for nested events.
+> > >=20
+> > > Signed-off-by: Tobias Schaffner <tobias.schaffner@siemens.com>
+> > > ---
+> >=20
+> > Looks good to me, thanks!
+> > I'm taking the series.
+>=20
+> Thanks for all the support! I will continue with the missing bits for
+> per_task and maybe also per-object and global monitors soon.
 
-On v7.4-rc2, in 8 VMs of 8 CPUs, pi_chain_top_moves_rt fails in every
-VM.
-pi_chain_top_moves passes there. It fails with the first series, until
-"rtmutex: Continue the chain walk when a waiter's deadline donor
-changes" and "rtmutex: Do not stop the chain walk at an owner whose top
-waiter changed". It needs both.
+Great, thank you for the nice addition.
+On the long run we may also want to have this integrated in the rv tool, pe=
+rhaps
+to do some filtering, aggregation, or pretty-printing.
 
-The cases run in P, a cpuset partition root. With CONFIG_RT_GROUP_SCHED,
-P can have no RT runtime. sched_setscheduler() then refuses SCHED_FIFO
-with EPERM, and pi_chain_top_moves_rt skips.
+One thing at a time though ;)
 
-With the fixes up to here, both cases pass wherever they run.
-
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
----
- .../sched/deadline/deadline_bw_test.c         | 297 ++++++++++++++++++
- 1 file changed, 297 insertions(+)
-
-diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-index 87fa1a7d420f..a403122191b8 100644
---- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-+++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-@@ -2522,6 +2522,301 @@ static int pi_chain_donor_leaves(void)
- 	return ret;
- }
- 
-+/*
-+ * The threads of top_moves(): O, M, W, Z and Y. top_tid[] holds their
-+ * tids. top_lock is L1'. top_y_ns is the CPU time Y gets in O's window,
-+ * or -1.
-+ */
-+enum { TM_O, TM_M, TM_W, TM_Z, TM_Y, TM_N };
-+static _Atomic pid_t top_tid[TM_N];
-+static pthread_mutex_t top_lock;
-+static atomic_int top_err, top_rt, top_m_locking, top_w_locking, top_y_stop;
-+static _Atomic long long top_y_ns;
-+static sem_t top_o_go, top_m_go;
-+
-+/* The priority /proc shows for a SCHED_FIFO task of priority @p. */
-+#define FIFO_TASK_PRIO(p)	(-1 - (p))
-+
-+/*
-+ * O: take pi_lock2 (L2), and sleep until top_o_go. With Y (@arg), spin
-+ * 200ms and measure the CPU time Y gets meanwhile. Then unlock L2.
-+ */
-+static void *top_o(void *arg)
-+{
-+	uint64_t t0, y0;
-+
-+	if (pthread_mutex_lock(&pi_lock2)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[TM_O] = gettid_();	/* O holds L2 */
-+	sem_wait_sig(&top_o_go);
-+	if (arg) {
-+		y0 = cpu_time_of(*(pthread_t *)arg);
-+		t0 = now_ns();
-+		while (now_ns() - t0 < 2 * PERIOD)
-+			;
-+		top_y_ns = cpu_time_of(*(pthread_t *)arg) - y0;
-+	}
-+	pthread_mutex_unlock(&pi_lock2);
-+	return NULL;
-+}
-+
-+/*
-+ * M: take pi_lock (L1) and top_lock (L1'). At top_m_go, block on L2,
-+ * which O holds. Unlock L2, L1 and L1' once it gets L2.
-+ */
-+static void *top_m(void *arg)
-+{
-+	if (pthread_mutex_lock(&pi_lock)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	if (pthread_mutex_lock(&top_lock)) {
-+		pthread_mutex_unlock(&pi_lock);
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[TM_M] = gettid_();	/* M holds L1 and L1' */
-+	sem_wait_sig(&top_m_go);
-+	top_m_locking = 1;
-+	if (pthread_mutex_lock(&pi_lock2))
-+		top_err = 1;
-+	else
-+		pthread_mutex_unlock(&pi_lock2);
-+	pthread_mutex_unlock(&pi_lock);
-+	pthread_mutex_unlock(&top_lock);
-+	return arg;
-+}
-+
-+/*
-+ * W and Z: W blocks on L1', Z on L1. @arg is 1 for W. With top_rt, W
-+ * becomes SCHED_FIFO 50 and Z SCHED_FIFO 20. Otherwise W becomes a
-+ * deadline task of 2ms every 80ms and Z one of 5ms every 200ms. The main
-+ * thread switches W to SCHED_OTHER while it waits.
-+ */
-+static void *top_waiter(void *arg)
-+{
-+	int w = (long)arg;
-+	struct sched_param sp = { .sched_priority = w ? 50 : 20 };
-+	uint64_t runtime = (w ? 2 : 5) * NSEC_PER_MSEC;
-+	pthread_mutex_t *l = w ? &top_lock : &pi_lock;
-+
-+	if (top_rt ? sched_setscheduler(0, SCHED_FIFO, &sp) :
-+		     set_deadline(0, runtime, 40 * runtime)) {
-+		/* With RT group scheduling, P can have no RT runtime. */
-+		top_err = top_rt && errno == EPERM ? 2 : 1;
-+		return arg;
-+	}
-+	top_tid[w ? TM_W : TM_Z] = gettid_();
-+	if (w)
-+		top_w_locking = 1;
-+	if (pthread_mutex_lock(l))
-+		top_err = 1;
-+	else
-+		pthread_mutex_unlock(l);
-+	if (set_other(0))
-+		top_err = 1;
-+	return arg;
-+}
-+
-+/* Y: become a deadline task of 30ms every 100ms, and spin. */
-+static void *top_y(void *arg)
-+{
-+	if (set_deadline(0, 30 * NSEC_PER_MSEC, PERIOD)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[TM_Y] = gettid_();
-+	while (!top_y_stop)
-+		;
-+	return arg;
-+}
-+
-+/*
-+ * A chain walk must go on past a task whose top waiter moves to another
-+ * lock. The priority of that task changes, and the next owner must
-+ * follow.
-+ *
-+ * L1 is pi_lock, L1' is top_lock and L2 is pi_lock2. All threads run on
-+ * the CPU of P. W and Z set their own policy when they start. With @rt,
-+ * W is SCHED_FIFO 50 and Z SCHED_FIFO 20. Without @rt, W is a deadline
-+ * task of 2ms every 80ms and Z one of 5ms every 200ms. W has the earlier
-+ * deadline. O and M are SCHED_OTHER. Without @rt, Y is a deadline task
-+ * of 30ms every 100ms. It spins all along.
-+ *
-+ * 1. O takes L2, and sleeps.
-+ * 2. M takes L1 and L1', and sleeps.
-+ * 3. W blocks on L1'. W boosts M.
-+ * 4. M blocks on L2. M passes W on to O.
-+ * 5. Z blocks on L1. W stays the top waiter of M.
-+ * 6. The main thread switches W to SCHED_OTHER. The chain walk requeues
-+ *    W on L1'. Z on L1 becomes the top waiter of M, and Z boosts M. The
-+ *    walk must go on to O. Z must boost O too.
-+ *
-+ * With @rt, the case reads O's priority. It must be the one of Z. With
-+ * the walk stopped at M, O keeps the priority of W.
-+ *
-+ * Without @rt, W sleeps and has run almost nothing. So its parameters
-+ * are cleared at once. 250ms later, the main thread wakes O up. O
-+ * measures the CPU time Y gets over the next 200ms, and unlocks L2.
-+ *
-+ * With Z as its donor, O gets 5ms every 200ms. Y runs at the start of
-+ * each of its periods, and gets its 60ms. With W as its donor, O runs on
-+ * cleared parameters. Each refill gives it no runtime and a deadline of
-+ * about now. O then runs before Y until Y's deadline is past. Y runs
-+ * only then, one period late, and gets about 30ms. The case fails if Y
-+ * gets less than 45ms.
-+ *
-+ * W does not exit before O unlocks L2. It waits for L1', which M
-+ * releases after it gets L2.
-+ */
-+static int top_moves(int rt)
-+{
-+	int ret = KSFT_FAIL, i, have[TM_N] = { 0 };
-+	int boost = rt ? FIFO_TASK_PRIO(50) : DL_TASK_PRIO;
-+	pthread_mutexattr_t a;
-+	pthread_t t[TM_N];
-+	long long y_ns;
-+	int err, o_prio = 0;
-+
-+	if (pi_init())
-+		return KSFT_SKIP;
-+	if (pi_init_lock2()) {
-+		pi_fini();
-+		return KSFT_SKIP;
-+	}
-+	err = pthread_mutexattr_init(&a);
-+	if (!err) {
-+		err = pthread_mutexattr_setprotocol(&a, PTHREAD_PRIO_INHERIT);
-+		if (!err)
-+			err = pthread_mutex_init(&top_lock, &a);
-+		pthread_mutexattr_destroy(&a);
-+	}
-+	if (err) {
-+		ksft_print_msg("no third priority inheritance mutex: %s\n",
-+			       strerror(err));
-+		ret = KSFT_SKIP;
-+		goto out_lock2;
-+	}
-+	if (sem_init(&top_o_go, 0, 0) || sem_init(&top_m_go, 0, 0)) {
-+		ksft_print_msg("sem_init: %s\n", strerror(errno));
-+		goto out_lock3;
-+	}
-+	for (i = 0; i < TM_N; i++)
-+		top_tid[i] = 0;
-+	top_err = 0;
-+	top_rt = rt;
-+	top_m_locking = 0;
-+	top_w_locking = 0;
-+	top_y_stop = 0;
-+	top_y_ns = -1;
-+	if (!rt) {
-+		have[TM_Y] = !pthread_create(&t[TM_Y], NULL, top_y, NULL);
-+		if (!have[TM_Y] || wait_for(1000, top_tid[TM_Y] || top_err)) {
-+			ksft_print_msg("Y never became a deadline task\n");
-+			goto out;
-+		}
-+	}
-+	have[TM_O] = !pthread_create(&t[TM_O], NULL, top_o,
-+				     rt ? NULL : &t[TM_Y]);
-+	if (!have[TM_O] || wait_for(1000, top_tid[TM_O] || top_err)) {
-+		ksft_print_msg("O never took L2\n");
-+		goto out;
-+	}
-+	have[TM_M] = !pthread_create(&t[TM_M], NULL, top_m, NULL);
-+	if (!have[TM_M] || wait_for(1000, top_tid[TM_M] || top_err)) {
-+		ksft_print_msg("M never took L1 and L1'\n");
-+		goto out;
-+	}
-+	have[TM_W] = !pthread_create(&t[TM_W], NULL, top_waiter, (void *)1L);
-+	if (!have[TM_W] ||
-+	    wait_for(1000, (top_w_locking &&
-+			    proc_state_of(top_tid[TM_W]) == 'S') || top_err)) {
-+		ksft_print_msg("W never blocked on L1'\n");
-+		goto out;
-+	}
-+	sem_post(&top_m_go);
-+	if (wait_for(1000, (top_m_locking && prio_of(top_tid[TM_O]) == boost) ||
-+			   top_err)) {
-+		ksft_print_msg("O was not boosted through M\n");
-+		goto out;
-+	}
-+	have[TM_Z] = !pthread_create(&t[TM_Z], NULL, top_waiter, (void *)0L);
-+	if (!have[TM_Z] ||
-+	    wait_for(1000, (top_tid[TM_Z] &&
-+			    proc_state_of(top_tid[TM_Z]) == 'S') || top_err)) {
-+		ksft_print_msg("Z never blocked on L1\n");
-+		goto out;
-+	}
-+	sleep_ns(10 * NSEC_PER_MSEC);	/* the chain walk of Z is done */
-+	err = top_err ? -EINVAL : set_other(top_tid[TM_W]);
-+	if (err) {
-+		ksft_print_msg("W cannot leave its class: %s\n",
-+			       strerror(-err));
-+		goto out;
-+	}
-+	if (rt) {
-+		sleep_ns(10 * NSEC_PER_MSEC);
-+		if (prio_of(top_tid[TM_M]) != FIFO_TASK_PRIO(20)) {
-+			ksft_print_msg("Z does not boost M\n");
-+			goto out;
-+		}
-+		o_prio = prio_of(top_tid[TM_O]);
-+	} else {
-+		sleep_ns(250 * NSEC_PER_MSEC);
-+	}
-+	ret = KSFT_PASS;
-+out:
-+	/* Let every thread end: O unlocks L2, then M unlocks L1 and L1'. */
-+	sem_post(&top_m_go);
-+	sem_post(&top_o_go);
-+	for (i = TM_O; i < TM_Y; i++)
-+		if (have[i])
-+			join(t[i]);
-+	top_y_stop = 1;
-+	if (have[TM_Y])
-+		join(t[TM_Y]);
-+	y_ns = top_y_ns;
-+	if (top_err == 2) {
-+		ksft_print_msg("SCHED_FIFO refused in P\n");
-+		ret = KSFT_SKIP;
-+	} else if (top_err) {
-+		ksft_print_msg("a thread of the chain failed\n");
-+		ret = KSFT_FAIL;
-+	} else if (ret == KSFT_PASS && rt && o_prio != FIFO_TASK_PRIO(20)) {
-+		ksft_print_msg("O runs at priority %d, not %d: W still boosts it\n",
-+			       o_prio, FIFO_TASK_PRIO(20));
-+		ret = KSFT_FAIL;
-+	} else if (ret == KSFT_PASS && !rt &&
-+		   y_ns < 45 * (long long)NSEC_PER_MSEC) {
-+		ksft_print_msg("Y ran %lld ms of 200: W is still the donor of O\n",
-+			       y_ns / (long long)NSEC_PER_MSEC);
-+		ret = KSFT_FAIL;
-+	}
-+	sem_destroy(&top_o_go);
-+	sem_destroy(&top_m_go);
-+out_lock3:
-+	pthread_mutex_destroy(&top_lock);
-+out_lock2:
-+	pthread_mutex_destroy(&pi_lock2);
-+	sem_destroy(&holder_go);
-+	pi_fini();
-+	return ret;
-+}
-+
-+/* W and Z are deadline tasks. */
-+static int pi_chain_top_moves(void)
-+{
-+	return top_moves(0);
-+}
-+
-+/* W and Z are SCHED_FIFO tasks. */
-+static int pi_chain_top_moves_rt(void)
-+{
-+	return top_moves(1);
-+}
-+
- /* cpuset moves, from the main process, outside P */
- 
- /* Shared with the processes of a case: atomic in shared memory. */
-@@ -10219,6 +10514,8 @@ static const struct p_case {
- 	{ "return_asleep_new_params", return_asleep_new_params, MEASURED_IN_P },
- 	{ "deboost_blocked_keeps_order", deboost_blocked_keeps_order, MEASURED_IN_P },
- 	{ "pi_chain_donor_leaves", pi_chain_donor_leaves, MEASURED_IN_P },
-+	{ "pi_chain_top_moves", pi_chain_top_moves, MEASURED_IN_P },
-+	{ "pi_chain_top_moves_rt", pi_chain_top_moves_rt, MEASURED_IN_P },
- 	{ "move_asleep", move_asleep, FROM_OUTSIDE },
- 	{ "move_throttled", move_throttled, FROM_OUTSIDE },
- 	{ "move_non_contending", move_non_contending, FROM_OUTSIDE },
--- 
-2.47.3
-
+Cheers,
+Gabriele
