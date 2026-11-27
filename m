@@ -1,62 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798921;
-	b=uo7iQeUkHRSM7DI2nnEhY6rCuXfH8d7uHpXyS6shAP9tcKBhUPcVhrFqENqE4AUMKMpU
-	 6IgZ8gX29ntZYyH08BVIrVcb04ooGeHrfvb/52MMARdgWHIJdQ22SN2FBw8XG42/BN6TJ
-	 sEBZSRwuwJHlJs6iqs1tVu7Edxic2hG4elM5zUHTPSnni/liM1qRg3Pcp+z/wbn/j9Cs8
-	 6g2bo/whzvvm3ewcJo6v4I6OAAxgI3rL1g0+SwInGFyyfNHuN3/nYaXlce3dQawFm5lbn
-	 77QrVyOXTZxBIWCScMmmHzWjVWMSofiwP61Mh4zlGQSsUuUCtasQ+hi1LbAk5yrCrrA==
+	t=1795798928;
+	b=oqFeycllHg7nZL7xy9huDxbNFe8Nwv7SDtiv4KZ2dWSHtR7+GqMrjVZ81jwIN0fs6G/h
+	 67SVyMiRyLiIo+4no7f2FXx1fqd8g53OSTDKkli+dZga9dw+jAk+05qBCmsebF0ivNyqP
+	 MU7VUR2uCXqOcKaA5IJ6to68LR1yWEKp4i0Sw7C/oRQRP70fx0zP6UBOim0wxkv3bAGIG
+	 FZkD8gblJpj2nE8SJAFQyCpjLVde54mPMzE1UrnCv99XuzuylgeSig5DxyPzuB97GJfiY
+	 AWd9IOnUfhXh3GO7IzrNSg4xWVoBr5VfrjJk+QLfC6SGzrAZU13tSejJEj/W6VET5dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798921;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798928;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=MC0ZOrLDH4fTK8u/4XFXAJb6CALxPf5Qbceq2GSaxAM=;
-	b=gBrSrwp4eo1ID/0nGRJzEmJ/hL8nCvUcFf4dUPA6zTsRVMua49qz64XeAHGTWzj2nzHc
-	 ChqjcWSz0EIEDmfTuhV5Pwom5NbuckFKtnV+AZGs3C/DMjIJG53xsYXwGvQDIJskw+Gk/
-	 DUZts5tLurDO2DWyNIDlVMN8py+rBHuFNQuHUhL2TwDbS8AXR1hclDprg4e5SwanLp5P1
-	 iKlrMcesut+HOUu2k8vYb7vT2tq6CxpB7kv9L9XNO6VLyjmKnpjWJGLTscNhBzJVaPZH8
-	 hE0vrVpHJjzJquty3mXTQi6mCjD4PgMrBTyxcuE3AZ6oa9HwBJdwO3XfQ59W8vO8cLQ==
+	bh=/LGARDRlCQR5YMbXvrXQVY0jCQlxcPo9K7YPb7MYHRY=;
+	b=X9sS+g6gXarsArNOO7v9aXupZtB4T3m7gYrKyOF+7DT8IkrPtVRQ2sFe5Cg8fUrVa4GE
+	 kvPVxUQfz74lnvZcunMyG3+DKXQ7DXrpZjNjvzq49aY0WtOU+qE5dYHvHw9BC87k3gIwd
+	 o+5ewz31s1uP2A7+aTDWSM0aFSZlcxQcCAYdaHAlZTHSdKZ1BT7gqCv6RWQ7BsAdFwcGg
+	 s1ZhpY5x/YhKdWRkcEd1zCKQqmIfzUAZy0Nq0VjpdLrV/xsRtAsWtfwWjZ5uIOwTj00Ka
+	 nD9a7/QoPSI0ksA73ijKLFZs+ImbpA5MHSCrxGbq86aFJaLziXJhE5RgKu7GZjCMbBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZkstVbq1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X6YkAm9j;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9570D606A31C;
-	Fri, 27 Nov 2026 17:02:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DD2F606A32A;
+	Fri, 27 Nov 2026 17:02:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZkstVbq1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33E8E1F00897;
-	Fri, 27 Nov 2026 17:02:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X6YkAm9j
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCEE1F00924;
+	Fri, 27 Nov 2026 17:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798921;
-	bh=MC0ZOrLDH4fTK8u/4XFXAJb6CALxPf5Qbceq2GSaxAM=;
+	s=k20260515; t=1795798927;
+	bh=/LGARDRlCQR5YMbXvrXQVY0jCQlxcPo9K7YPb7MYHRY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZkstVbq1dDX42iHvaob/roKuZQoYRKqnnSnBpPEByQBf8G77Fr6HFdiopnEN1Wpdm
-	 hVg1IGOArp/DlJQnkOoq6DBlH7cQMmS3lOCcQZHGNpgbpeEwEKysPxujO7ET8p/Wm1
-	 /821Ji7wy8lGW+ZprYo9otQhrBLmKvg+O9hv+DKCDzbdzdwgKP0A4w2pau9PZjcdp5
-	 yATzxPCqa8A4U6F6RYezv5Ps4zvyZ5EFkTp8d/L9ARfsvaBk8Pu/Xf5WH6/b/zDcJn
-	 CCRIelqYNfys/F9wm83CDXZRKM4/qqqb2M7j8erjgHq9uujIfv3KRLk1Wp2AblOxtS
-	 3SYR/LKlY0L/w==
+	b=X6YkAm9jQ9CAmkNODzphRN0HUZFzXYEjEJF9aBsfRuWfOQ4Ni0sOPXI4+jzTo4qy3
+	 iXH0BUHJId/oncqRS7Yt/Eksnh3Q5yUmnEHewLW1MDlzmBwv0pqUKGKlDyywhvPedx
+	 iA4TMADB6cOAFddmSuWjnzJNQb5OdvuIJ3cb3CzowJr7udPUqFRfI4YmP1tA1iGg1X
+	 lFbwonCS1gB/gQTTq4jfV6p9QoB527YwNCXOGYY53i9Y7wTsUxJgDsRwz3tkFVxp5R
+	 Jxzntwgj8jw/74EXmHtqx2A6rIXkIRsHrspapd/RBKx8LYLkGgX0QERx090IkCjY9b
+	 fxQeVJc9drzJA==
 From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	sungbyeongchan <tjdqudcks0424@naver.com>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>
 Cc: Sasha Levin <sashal@kernel.org>,
-	Kuba Piecuch <jpiecuch@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Tejun Heo <tj@kernel.org>,
-	David Vernet <void@manifault.com>,
-	Andrea Righi <arighi@nvidia.com>,
-	Changwoo Min <changwoo@igalia.com>,
-	Sashiko <sashiko-bot@kernel.org>,
-	sched-ext@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6.18.y] sched_ext: Read exit_kind before flushing in scx_flush_disable_work()
-Date: Fri, 27 Nov 2026 12:01:04 -0500
-Message-ID: <2026-11-26-1-daily-reply-0016@kernel.org>
+	stable@vger.kernel.org,
+	patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	torvalds@linux-foundation.org,
+	akpm@linux-foundation.org,
+	linux@roeck-us.net,
+	shuah@kernel.org,
+	patches@kernelci.org,
+	lkft-triage@lists.linaro.org,
+	pavel@nabladev.com,
+	jonathanh@nvidia.com,
+	f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com,
+	rwarsow@gmx.de,
+	conor@kernel.org,
+	hargar@microsoft.com,
+	broonie@kernel.org,
+	achill@achill.org,
+	sr@sladewatkins.com,
+	Francesco Dolcini <francesco@dolcini.it>
+Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
+Date: Fri, 27 Nov 2026 12:01:08 -0500
+Message-ID: <2026-11-26-1-daily-reply-0020@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125134541.3432982-1-jpiecuch@google.com>
-References: <20261125134541.3432982-1-jpiecuch@google.com>
+In-Reply-To: <20261126173920.GA180459@francesco-nb>
+References: <20261126173920.GA180459@francesco-nb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,13 +83,20 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-> scx_disable_workfn() sets exit_kind to SCX_EXIT_DONE before it tears the
-> scheduler down. scx_flush_disable_work() reads exit_kind after syncing
-> disable_irq_work and flushing disable_work, so it can observe DONE from
-> a disable_work that was queued after its flush and return while the
-> teardown is still running:
+> According to claude the issue is
+>
+> commit e498eb93f961 ("virtio_ring: use shadow flags when detaching split descriptors")
+>
+> and those commits should be dropped
 
-Queued for 6.18, thanks.
+Right, I've dropped all three from the 6.18 queue.
+
+6.18 lacks 03f05c4eeb7b ("virtio_ring: determine descriptor flags at one
+time"), so the desc_extra shadow flags of the last descriptor in a direct
+chain keep VRING_DESC_F_NEXT unless its buffer needs unmapping. With the
+shadow flags as the loop condition, detach_buf_split() then walks past
+the end of the chain into the free list. 7.3 has 03f05c4eeb7b and keeps
+the patch.
 
 -- 
 Thanks,
