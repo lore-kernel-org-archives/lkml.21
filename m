@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796888;
-	b=a+TJ6plqf8HkzLKLLfuRLhEwouKUBsnwLU2hPRddg7uyG+3D3jg7oTw5AFYXyiIaiwH5
-	 c31Hpm/P2u4ZTfJTmhuRrTm2Hf/wn3KAFK4ypkMbQGbvdRdQzFlx7lPPCPGCqnC1bFMAV
-	 h4G8K6Vb7xFuXqx02MvPhTR2/avSILeLEcBCmhzOKEJrskYCCOKMBAoo/cZKBk8stPc9Z
-	 h5xTcEfHq0TjOWpaCPT5z+dhbqP8Alfo70crwNNogYeI3DNR4UNmzLqxu4Rad6KWP5boI
-	 wzfEHToPBfZKJQ0d08Hf6afd6Vm+m56zP76WX5xFW+s9gYLupZT0yQ4TzNTBrs3zk7A==
+	t=1795796988;
+	b=lEtKqSRV5OKcgnqR/4ABVa9Tv0B3tfM/bihseY7ZvOIC3eRDK2VysWwBlAd6NQRljHAX
+	 jiauFMSqHAX4oBpvfzBoQaVtT2t248eJekCMFC1UtUKPL14Fs8e6HBMxvIJ7lsszfxgJe
+	 dTeIl3sFqTGwbpqz4pVcxLPomF6iQgxoOxAb2ZkSZyai5osUEGaM1Xl50XkLRiSER1n87
+	 Ndk4DGywIenfgecLbf3tR7D5hgzy/MHPNxuMR8W9XFPvlX/oqeV4OGGOHAjiLCGKJ6q9E
+	 IFq25JTyDwpvMq3GzVqfCigeL8fZRuXvgk2HpMOv45UQPtFeonmyzOKX2IyM9zodpBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796888;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=c4qt7wJmo33DH5hr5919v3DQD2BX8Lp+y10YBFjPKmk=;
-	b=Yyj4QCg7GMEQ0mUMMNClOccsyT7/ywOO0tduvnTFzV3YQtvhtIk/3BdOhzfiJ6nFZLrO
-	 /CDedh/gVnTai0dXPORTgTTiO8a/bopWXGSXUit5JHUnOEefwm0ppp6EWDWTS8C0I7u9W
-	 FtJG79oWUD2e8HX36AQUHujAI6FwXPWux7ZubtqgtMlZ0biOqzOZZlZcIRVC51kQ8hcEh
-	 73h1jHK9wIl1BtcKNQHiryveSCzZ0yqXvRpBv493K6J1r0apoDxw6szlU/2YtRISr899t
-	 3/68xbp3OhPTKaomE20Ec7AMf7y4Xy1nOb8n7xDmXEUqelr6LUSNxp1XOvuY+4ovhig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796988;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=fskTL15wnb1o0Xx+IZq2KDKqa5bO2z7H3uOd3UTFjjo=;
+	b=29kAWVi7xVKJpdUasyvrmDKH2LLv4eS3rhG7DIdwihd1N4XZEMJxOHiWjBR/H2mp/Icz
+	 Tee4J/qHpCnzrm+JmkYAoafv3ho2fSK6mjSTpqO0GmJJ4JDik+MERVMdGybUk4Pd1RETD
+	 GDw4woNBWH47hniDtz/NVWIBvIpOYY+YAarsdKAo3/MMkePMWyniSSkrpmkaA/+tP1eUh
+	 S4eaE7JalRjtrwJP9Gyoi8+hHwFRX5bhoXJ/7xx0ngje5rJo8EmNYqCGWybnKG6jdzdK3
+	 5pJ/CY4H65BGvlrVPb4vS7v5GW3u7qXu2i4n/MlyQ6idNBD6tlJFnqbJZSoNL9yxmPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tDBgDGsD;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4CC48606A323;
-	Fri, 27 Nov 2026 16:28:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CC48606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=dQ6L40eg;
+	arc=none smtp.remote-ip=210.118.77.11
+Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA6CC606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:29:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA6CC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tDBgDGsD
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 925061570;
-	Fri, 27 Nov 2026 08:28:03 -0800 (PST)
-Received: from [10.57.71.121] (unknown [10.57.71.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCB863F632;
-	Fri, 27 Nov 2026 08:28:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795796886; bh=uvuUXT6/oqsW0UDpUW3bxTylCGwKduT/Ak8GOkRy0JI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tDBgDGsDThNcbZ/lRt+L05X+6ny7A+3HRqTsQbrQsJ2FvfB/00IVOcWQzTiPzD1C3
-	 UIxSjIS/Jj4KtHiTh778z9A54Dxs9VRSk16Yiuh6Eb6+a2vsIyCvRZTOGpVDmc4Jhv
-	 iF5991BtBv4GBMMLieU7slocKD2Zui4XCnT02ssA=
-Message-ID: <3a46bcc3-33bb-4c9d-a3e5-44144406dbda@arm.com>
-Date: Fri, 27 Nov 2026 16:28:01 +0000
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=dQ6L40eg
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261127162944euoutp01ece98cea7278da82c449153c35989fb5~r89fg-Gtz3119231192euoutp01d
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:29:44 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261127162944euoutp01ece98cea7278da82c449153c35989fb5~r89fg-Gtz3119231192euoutp01d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795796984;
+	bh=fskTL15wnb1o0Xx+IZq2KDKqa5bO2z7H3uOd3UTFjjo=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=dQ6L40egfVigO5T6FlJni35+Jp68j+lHagaeh179VYPbpc3ae0mUelEupkmesuKXZ
+	 rKt9U6Xyk8Bl4qNnb5RdJhUHu6oNqQN5c6mR0MPUOeD9uvI8IUBlmE5DGO84mmCcRX
+	 KAjfZPbKz2NY4cwW2yxyXY053kgPtdf1PJHKJXwY=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261127162944eucas1p20258c79e44d891dc99d178f690906ef2~r89fFj1xM3022230222eucas1p25;
+	Fri, 27 Nov 2026 16:29:44 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261127162942eusmtip180948ab3b1d37be87c3161bd7750304d~r89drFbc71011010110eusmtip1I;
+	Fri, 27 Nov 2026 16:29:42 +0000 (GMT)
+Message-ID: <99691ff4-7652-4050-adca-3ec941dde4b2@samsung.com>
+Date: Fri, 27 Nov 2026 17:29:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,82 +64,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v3 3/8] arm64: acpi: Enable ACPI CCEL support
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, Steven Price <steven.price@arm.com>,
- Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
- Pawel Chmielewski <pawel.chmielewski@intel.com>,
- Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <shuah@kernel.org>, Len Brown <lenb@kernel.org>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Mark Brown <broonie@kernel.org>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Gavin Shan <gshan@redhat.com>,
- Sudeep Holla <sudeep.holla@kernel.org>
-References: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
- <20261127-arm_cca_mr-v3-3-df3230afce8f@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261127-arm_cca_mr-v3-3-df3230afce8f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 4/4] iommu/dma: restore flush queue use in
+ dma_iova_destroy()
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>, Joerg
+	Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Leon Romanovsky
+	<leon@kernel.org>, Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Honglei Huang
+	<honghuan@amd.com>, prakash.gupta@oss.qualcomm.com, Alex Williamson
+	<alex@shazbot.org>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, Abhinav Kumar
+	<abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, Mauro Carvalho
+	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+	stable@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261127151717.GO114472@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261127162944eucas1p20258c79e44d891dc99d178f690906ef2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a
+X-EPHeader: CA
+X-CMS-RootMailID: 20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a
+References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+	<CGME20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a@eucas1p2.samsung.com>
+	<20261127115849.2780625-5-m.szyprowski@samsung.com>
+	<20261127143740.GM114472@nvidia.com>
+	<feec2436-ad15-4aa6-a53f-800869bfac21@samsung.com>
+	<20261127151717.GO114472@nvidia.com>
 
-On 27/11/2026 15:32, Yeoreum Yun wrote:
-> From: Suzuki K Poulose <suzuki.poulose@arm.com>
-> 
-> Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
-> As per UEFI specifications NVS memory is reserved for Firmware use even
-> after exiting boot services. Thus map the region as read-only.
-> 
-> Cc: Sami Mujawar <sami.mujawar@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   arch/arm64/kernel/acpi.c | 11 +++++++++++
->   1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index 681aa2bbc3995..3d6335db882d3 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -354,6 +354,17 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
->   			prot = PAGE_KERNEL_RO;
->   			break;
->   
-> +		case EFI_ACPI_MEMORY_NVS:
-> +			/*
-> +			 * ACPI NVS marks an area reserved for use by the
-> +			 * firmware, even after exiting the boot service.
-> +			 * This may be used by the firmware for sharing dynamic
-> +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
-> +			 * as read-only.
-> +			 */
-> +			prot = PAGE_KERNEL_RO;
-> +			break;
-> +
+On 27.11.2026 16:17, Jason Gunthorpe wrote:
+> On Fri, Nov 27, 2026 at 03:45:15PM +0100, Marek Szyprowski wrote:
+>
+>> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+>> index 0e329ecd7dfa..106da975bf0f 100644
+>> --- a/drivers/iommu/dma-iommu.c
+>> +++ b/drivers/iommu/dma-iommu.c
+>> @@ -1892,11 +1892,12 @@ static void __dma_iova_free(struct device *dev, struct dma_iova_state *state,
+>>   */
+>>  void dma_iova_free(struct device *dev, struct dma_iova_state *state)
+>>  {
+>> -       struct iommu_iotlb_gather iotlb_gather;
+>> -
+>> -       iommu_iotlb_gather_init(&iotlb_gather);
+>> -       iotlb_gather.queued = state->__size & DMA_IOVA_USE_FQ;
+>> -       __dma_iova_free(dev, state, &iotlb_gather);
+>> +       /*
+>> +        * Nothing is linked any more and every dma_iova_unlink() has already
+>> +        * invalidated the IOTLB synchronously, so there is no deferred
+>> +        * invalidation to wait for and the IOVA can be reused right away.
+>> +        */
+>> +       __dma_iova_free(dev, state, NULL);
+>>  }
+>>  EXPORT_SYMBOL_GPL(dma_iova_free);
+> That makes sense, but I'm a little lost why we needed the
+> DMA_IOVA_USE_FQ ?
+>
+> If any queued gather was ever created then the ultimate free has to
+> also be queued. But the comment implies that queued gathers were never
+> created in this case?
 
-Unfortunately this breaks some platforms, where the NVS must be mapped
-R/W. Thats why we dropped this patch.
 
-https://lore.kernel.org/all/20251124103329.363afcc6@foz.lan
+Indeed there is no point caching domain->iova_cookie->fq_domain once the
+dma_iova_free() doesn't use the gather. Now fq_domain can be directly
+checked in dma_iova_destroy(). This simplifies things a lot. I will send v2
+soon.
 
-Cheers
-Suzuki
-
->   		case EFI_ACPI_RECLAIM_MEMORY:
->   			/*
->   			 * ACPI reclaim memory is used to pass firmware tables
-> 
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
