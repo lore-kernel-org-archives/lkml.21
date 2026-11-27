@@ -1,36 +1,35 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=182.48.54.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795756951;
-	b=tc9fG7+g5Sk5R4gZk9BbMMDWgs6AB9j9018ytRxNKInNTOZuWaJTUb4/5JBQq5eTJdSi
-	 aioYw+g+SnhaGXESeIWlIJLZXEKDV36e50yTTHqsAQitGeqqXm84xXgALE34l4zXpOUJV
-	 ZILVYh15R0kRziHGUYfueiV3PKmFVE20nDgIDzUMl8dSsBS4+oJY+gLtNbWixwUa/nvnx
-	 xCkJt/1qpfzKcCUovlDwv86giiav8d9yTMKuDeusIIrlsLPI9eNmiNeWDYbRVQgcGObBl
-	 hJbGbOJTgY9WPx3zWVQC9ekY/QF8vfvGOjs16iMR2eh7I0RtaD7Ousnv98wvkpUGh/w==
+	t=1795756943;
+	b=PHWphWTxDF8DeazZve5GL0YFFBOgPvswQdlq3jCxcLR9AbU4DiEK0xShkTSamT0FpP42
+	 k17mBiVVOtEhjab+/wQcodNfyPXMiDozq0uMfO5kUWpF/MERVdywAeyi24sMg9t4LWyaM
+	 WpvC9KOw54bN0Ib6uHb4t9hvwGuGWecfP1Lvr2oRd1FTRMm5ad0cA1gmqrsMbK1k/gImp
+	 bdWpOnjYeqIFLS2wnGCzuKsVHpuaXXH1QlA8YhjRCjd372Ug09aZTc9tr4sxAj+YseSTp
+	 jMu77PqxW731m49UGgp1GM+z4a5VGH/fbzNBN9t72H4lYTLz5FJixzMfQiR9LrTJZgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795756951;
-	h=DMARC-Filter:Received:From:Subject:To:Cc:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:Date;
-	bh=ltXkE7mwzP9g+X9pU6NJuXSGJbWkJKiU2bpHIKU/k9Q=;
-	b=CXjM2RZJL4UslIj5gz9dBkenv857HvG7fA8Iv2/DoAXZGA1q2CcJH6N7UR7TcrczlAR5
-	 7futCM5dRR31RXgBjm9+Qh8STv9DUFitKAGh7sryzXssa4vQwKdKlIk/Nvnp0uA0befYv
-	 LsQldymcoYBLHTqIixE+opZaDvaNCwUbtg5YFLXBm5S3alLbKO9I6tPu2Gef+0mmjhyin
-	 TsqrDEE3jKCk0JGVD/elbe1q8KOPv9v0uEpQ6V/MFtYSXRUm7wcP+l/bzb3KeoLv2paH1
-	 eCS2wpVH1tYg26LI14Nn/274ar5519ZSZnAg+J7BwbA7p50fSJPNQAQlm3WYY1BjLww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795756943;
+	h=DMARC-Filter:Received:From:Subject:To:Cc:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Date;
+	bh=ZVzkz6cxPM/IifJCHIDhlGXAsKcYOygkvb4Ppz+DZWs=;
+	b=nQauntr7r5di/O5X+SxaqJ6UQEjpD9lqM5ggWMcCNWKDpuJZ35JXSYl6njqPOG2YdmZp
+	 bkfGdLuTRtRQlBTrFYdDUUQn8itM/sAzv+fKByOabzK3gQrtyZxaIRtJWkAEnaILfhmSp
+	 CVsHDbhLnlot00LlOPAnSzJex9RH0WcenOs7VxB59JD2pzJOQckLqWSTyYajK8CiLPr4a
+	 s3EDlZ6a14ODuI3a1C1/GwbcKudRyI/Om2ixbnJ7g+Y+7tc1dTbCYb9mfIqe3lsuvpKxc
+	 53FcycdTl8/mIeBnTNv/cvEfE9hxaVMA9gnNwrgPA2LR2Ju4IJRYDazrfUOKwNTCuRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=snowrabbit.org;
 	spf=pass smtp.mailfrom=snowrabbit.org;
 	arc=none smtp.remote-ip=182.48.54.220
 Received: from bambi.snowrabbit.org (bambi.snowrabbit.org [182.48.54.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id BCB26606A329;
-	Fri, 27 Nov 2026 05:22:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCB26606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E33E1606A31C;
+	Fri, 27 Nov 2026 05:22:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E33E1606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=snowrabbit.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=snowrabbit.org
 Received: by bambi.snowrabbit.org (Postfix, from userid 3001)
-	id 14263C935F; Fri, 27 Nov 2026 14:22:30 +0900 (JST)
+	id B1F54C9314; Fri, 27 Nov 2026 14:22:20 +0900 (JST)
 From: Showta Ishizaki <zakinko@snowrabbit.org>
-Subject: [PATCH 3/4] ufs: let FreeBSD see that its soft updates journal is out
- of date
+Subject: [PATCH 0/4] ufs: fs_clean and fs_mtime of a 44bsd filesystem that is read-write
 To: Alexander Viro <viro@zeniv.linux.org.uk>,
     Christian Brauner <brauner@kernel.org>
 Cc: Jan Kara <jack@suse.cz>,
@@ -38,9 +37,7 @@ Cc: Jan Kara <jack@suse.cz>,
     linux-fsdevel@vger.kernel.org,
     linux-kernel@vger.kernel.org,
     Showta Ishizaki <zakinko@snowrabbit.org>
-Message-ID: <20261127-ufs-suj-3-v1@snowrabbit.org>
-In-Reply-To: <20261127-ufs-suj-0-v1@snowrabbit.org>
-References: <20261127-ufs-suj-0-v1@snowrabbit.org>
+Message-ID: <20261127-ufs-suj-0-v1@snowrabbit.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,91 +49,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Date: Fri, 27 Nov 2026 14:22:30 +0900 (JST)
+Date: Fri, 27 Nov 2026 14:22:20 +0900 (JST)
 
-fsck on FreeBSD uses the journal of a filesystem with journaled soft
-updates when the time stored with the journal is fs_mtime, and then does
-not do the full check.  FreeBSD sets fs_mtime at each read-write mount.
-ufs does not, so after a crash of Linux fsck recovers from a journal
-that has nothing of what Linux wrote, and marks the filesystem clean.
+After Linux crashes with a FreeBSD UFS mounted read-write, fsck_ffs -p
+of FreeBSD 15.0 says
 
-Set fs_mtime when the filesystem becomes read-write.
+  /dev/md0: FILE SYSTEM CLEAN; SKIPPING CHECKS
 
-With only fs_clean cleared, fsck_ffs -p of FreeBSD 15.0 used the journal
-and marked clean all eight of the copies from the first patch, and
-fsck_ffs -fn then found 154 to 225 errors in each.  With this it says
+and fsck_ffs -fn then finds 161 to 224 errors in it.  ufs leaves
+fs_clean at 1 while the filesystem is read-write.
 
-  Journal timestamp does not match fs mount time
+Patch 1 keeps fs_clean at 0 while a 44bsd or ufs2 filesystem is
+read-write.  Patch 2 reads 2, which NetBSD leaves after a crash, as not
+clean.  Patch 3 sets fs_mtime, without which FreeBSD's fsck recovers
+from its soft updates journal and marks the filesystem clean.  Patch 4
+keeps ufs_error() from storing 0xff, which the BSDs read as clean.
 
-goes on to the full check, and asks for a manual fsck.  This is about
-fsck_ffs -p; I did not look at the background fsck of a filesystem with
-soft updates only, or at gjournal.
+What changes for a user of Linux alone: after a crash the filesystem is
+mounted read-only the next time, as one that FreeBSD left unclean is
+today.  It can still be made read-write with remount, and then stays not
+clean until a fsck on a BSD.
 
-Signed-off-by: Showta Ishizaki <zakinko@snowrabbit.org>
----
- fs/ufs/super.c  | 26 ++++++++++++++++++++++++++
- fs/ufs/ufs_fs.h |  4 +++-
- 2 files changed, 29 insertions(+), 1 deletion(-)
+The filesystems were UFS1 and UFS2 with journaled soft updates.  Six
+processes created, renamed and removed files, the device was suspended
+with dmsetup, and its backing file was copied; eight such copies for
+each kernel.  The UFS2 had its check hashes turned off in the image, as
+Linux does not keep them; with them on fsck_ffs -p stops at the cylinder
+group hashes with and without the patches.
 
-diff --git a/fs/ufs/super.c b/fs/ufs/super.c
-index c204af7ce..716867fac 100644
---- a/fs/ufs/super.c
-+++ b/fs/ufs/super.c
-@@ -599,6 +599,31 @@ static void ufs_put_cstotal(struct super_block *sb)
- 	UFSD("EXIT\n");
- }
- 
-+/*
-+ * FreeBSD's fsck takes the soft updates journal as current when the time
-+ * kept with it is fs_mtime, and then skips the full check.  FreeBSD sets
-+ * fs_mtime at each read-write mount; do the same, as the journal knows
-+ * nothing about what is written here.
-+ */
-+static void ufs_44bsd_set_mtime(struct super_block *sb)
-+{
-+	struct ufs_sb_private_info *uspi = UFS_SB(sb)->s_uspi;
-+	struct ufs_super_block_first *usb1 = ubh_get_usb_first(uspi);
-+	struct ufs_super_block_third *usb3 = ubh_get_usb_third(uspi);
-+	time64_t now = ktime_get_real_seconds();
-+	__fs64 mtime;
-+
-+	/* Without these the place belongs to fields of the old superblock. */
-+	if (uspi->fs_magic != UFS2_MAGIC &&
-+	    !(usb1->fs_flags & UFS_FLAGS_UPDATED))
-+		return;
-+	memcpy(&mtime, usb3->fs_un2.fs_44.fs_mtime, sizeof(mtime));
-+	if (now == fs64_to_cpu(sb, mtime))
-+		now++;
-+	mtime = cpu_to_fs64(sb, now);
-+	memcpy(usb3->fs_un2.fs_44.fs_mtime, &mtime, sizeof(mtime));
-+}
-+
- /*
-  * FreeBSD keeps fs_clean at 0 and NetBSD at 2 or 0 while a filesystem is
-  * mounted read-write, and at 1 otherwise, so that their fsck checks it after
-@@ -613,6 +638,7 @@ static void ufs_44bsd_set_active(struct super_block *sb)
- 		return;
- 	sbi->s_was_clean = usb1->fs_clean == UFS_FSCLEAN;
- 	usb1->fs_clean = UFS_FSACTIVE;
-+	ufs_44bsd_set_mtime(sb);
- 	ubh_mark_buffer_dirty(USPI_UBH(sbi->s_uspi));
- 	ubh_sync_block(USPI_UBH(sbi->s_uspi));
- }
-diff --git a/fs/ufs/ufs_fs.h b/fs/ufs/ufs_fs.h
-index b8dc354ae..c5e9c6aab 100644
---- a/fs/ufs/ufs_fs.h
-+++ b/fs/ufs/ufs_fs.h
-@@ -937,7 +937,9 @@ struct ufs_super_block_third {
- 			__fs32	fs_qfmask[2];	/* ~usb_fmask */
- 		} fs_sunx86;
- 		struct {
--			__fs32	fs_sparecon[50];/* reserved for future constants */
-+			__fs32	fs_sparecon[23];/* reserved for future constants */
-+			__fs32	fs_mtime[2];	/* last mount or fsck time */
-+			__fs32	fs_sparecon2[25];/* reserved for future constants */
- 			__fs32	fs_contigsumsize;/* size of cluster summary array */
- 			__fs32	fs_maxsymlinklen;/* max length of an internal symlink */
- 			__fs32	fs_inodefmt;	/* format of on-disk inodes */
+Without the patches fsck_ffs -p skipped all eight as clean, and
+fsck_ffs -fn found 161 to 224 errors in each.  With patch 1 alone it
+recovered all eight from the journal and marked them clean, and -fn
+found 154 to 225 errors.  With all four it says "Journal timestamp does
+not match fs mount time" for all eight, goes on to the full check and
+exits with 8, asking for a manual fsck; -fn reports 139 to 240 errors.
+
+After an unmount fsck_ffs -fn finds nothing with any of the three.
+After a remount to read-only it finds one without the patches, FREE BLK
+COUNT(S) WRONG IN SUPERBLK, and none with them.  fs_clean goes
+1, 0, 1, 0, 1 over mount read-only, remount read-write, read-only,
+read-write, unmount.  A filesystem with 0 that is remounted read-write
+has 0 after the unmount, and FreeBSD checks it.  One with 2 is mounted
+read-only and keeps 2.  After ufs_error() fs_clean is 0, and 0 after
+the unmount; it was 255.
+
+Not tried: the background check that fsck -F leaves a filesystem with
+soft updates only to, gjournal, write errors, and a filesystem made by
+NetBSD.  That the BSD kernels read 0xff as clean is from their sources.
+
+Patches 1, 7 and 8 of "ufs: correctness fixes for valid on-disk
+filesystems" by Ali Ahmet Memis (2026-08-01) touch the same places.
+Patch 1 there names the fields in fs_sparecon, fs_mtime among them, as
+patch 3 here does for that one.  Patch 7 there refuses to remount
+read-write a filesystem that is not clean; patch 1 here lets it through
+and leaves it not clean at unmount, as the BSDs do after a forced mount.
+Patch 8 there refuses UFS2 with a journal read-write; patch 3 here
+leaves it writable and has FreeBSD's fsck ignore the journal.
+
+This is on the fs/ufs of next-20261125.  Patch 2 applies to Linus' tree
+(4dce97c6c265) as well; the others are on top of the sb_emergency_ro()
+changes in next.
+
+Showta Ishizaki (4):
+  ufs: clear fs_clean of a 44bsd filesystem while it is read-write
+  ufs: do not take a filesystem NetBSD has mounted for clean
+  ufs: let FreeBSD see that its soft updates journal is out of date
+  ufs: leave fs_clean of a 44bsd filesystem at 0 after an error
+
+ fs/ufs/super.c  | 102 ++++++++++++++++++++++++++++++++++++++++++++++--
+ fs/ufs/ufs.h    |   1 +
+ fs/ufs/ufs_fs.h |   4 +-
+ 3 files changed, 103 insertions(+), 4 deletions(-)
+
 -- 
 2.54.0 (Apple Git-157)
 
