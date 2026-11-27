@@ -1,117 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795810483;
-	b=bZOVOG9+R87mgghEaXKf83CpZWkzL55aFaPnoGpfHECLfbs3TsltetJgiJsUu+28ptHw
-	 sLyRyVtOWDbBbIV76nX9QhipL2AQbYrYIGzCt3c1dVEgE3HxFHwVmw9Tow68dJHhuDYpv
-	 Vnb1r9/kVx6VCOpB4h6rRvO0VmLfxO9p63iXIYt4AFnIFoX4tuM39cE4XfFMlkip61poR
-	 apomrCM0Sq3cYgulx16Rd4ltdyqjKqkuEw107e8Mk6lkh3Drim5t8ENhxj6ogzbSlVQnF
-	 04k8Q61LFLyEOZRJq2Clxl4hPrc2MywxMXPliD+y2czR/8dusK/fCPmbDHQnaVKCGTA==
+	t=1795810550;
+	b=UJhuu5WNLjgoDxfMYzdYF7u+8SR6raBzobV6rlg9hy9PDExTKfJJz/4fquzwgNZt4+od
+	 gsCzLPfO3XZNFjMH4Tu0iyF1LNsW3X5+90teOaXLsHktryheey991v+chFxuS8wjG7xST
+	 OQUWQHbig3SHZkOuZWNmAc13OIkOvqgthuo5J0LGlYFF4+mhpy5W0pCeb0ZlD6ufBqOZ7
+	 qhmaHFNFWf9WjGnlbEa/ZVKZgVkV86p/YCmcoqaWGUhChHIA8kbi7Hdxq20cWRbSC3Fb/
+	 /PZVydr55kqcGhBtYgJuu8zgoWknpMAseex31i5QGcYn7OBozFBZVxhnTNIEcIgE3Xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795810483;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=UAs3m0+hmOGS9KUATaDf0cRtbK0/lffklyzWvZCuBu4=;
-	b=i9jqsPmQeSQVulK3NolaHS06Cnjd68/eA+VIj+KQY2/gxPn2WIRdu31IKWi+nei1r43M
-	 LiRnBKiMLar/Erffa4NhbFposso39+LIuu8uuj63oFxJ1dmxxC3lVwk1T2iI2l0CpkcMV
-	 y9O/Y1wLlciu1YE+n21ESmwNtNv6MEzAeKPGz+rgFaSBFlqRD1XMrgtlBRTH0lX79qrx7
-	 DbIxOyHXzk7SdcMarwqgPvYhGz0vj5Voi8cRK1/FpkSZono/RgAIdpfdQ/rFL0hwfmRfC
-	 eWVcVaml4xv08VkMONAkIrkvzkbw23SLDqz6Pgwpm84fDmKZIManZbRn31ff2yF9VHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810550;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=0zRhM/O1T4txkzF9sfL+DPW1cvJF0Hj1I6FpvxqvriM=;
+	b=JR/f+yW2rh0UEy1okbQWBtA0HN+Iq70eRbYUD+4PoKInEVV9b1LwAQ6/7QI/1pQ2HZD+
+	 M14H/ut3Ja392/P7DgW/nPjOJ2CVTGyU7QLeKQKojEK46McXdFsnVzZR+ZRcQPLTFuIXb
+	 MqKWuxff7sgD3b6Tl2qymLYsbwb0fV/W2qw5tVq/px0j031rytGpJYZ2tpgdv1EkPNaJk
+	 MUX6RLdHhWXAAUAO8QyKpjdemgMe/BYVHe1TdG44mmhPw09Pd0RlWjJsu6nzGzEdWvCEo
+	 i+FkpqA6JhutWWtIwZ+bGRi0xGG8HKbbvQDS1/ZKxEa+sHRGlrpBxwTZ7V52pcgQC+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hZJOpbl0;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Hd0zUjHF;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TnCBFtQF;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CCAE606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:14:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CCAE606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EF0B606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:15:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EF0B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hZJOpbl0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795810481;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UAs3m0+hmOGS9KUATaDf0cRtbK0/lffklyzWvZCuBu4=;
-	b=hZJOpbl0XSS4tJkcA7FEkUjI8rkfqFezRmLxtAnNBMBmOtgrHAkmdj8uEgfDod5JS5+CZX
-	SkcTfe1tx5TKhc2pqchau/2sRFvTjFXSKgtUvVepe+VkSYuWfJagkFD3qfpGP8aKWTgXic
-	xEepbD1Hr1KnEQVeYYExYDzdBi+mdSE=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-668-MpJrS3IPM6OR1U2olx6NDQ-1; Fri,
- 27 Nov 2026 20:14:36 +0000
-X-MC-Unique: MpJrS3IPM6OR1U2olx6NDQ-1
-X-Mimecast-MFC-AGG-ID: MpJrS3IPM6OR1U2olx6NDQ_1795810472
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 417D81800361;
-	Fri, 27 Nov 2026 20:14:32 +0000 (UTC)
-Received: from vschneid-thinkpadt14sgen2i.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6C08D5B1;
-	Fri, 27 Nov 2026 20:14:22 +0000 (UTC)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	x86@kernel.org
-Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Han Shen <shenhan@google.com>,
-	Rik van Riel <riel@surriel.com>,
-	Jann Horn <jannh@google.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Tomas Glozar <tglozar@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Daniel Wagner <dwagner@suse.de>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Dan Beimborn <Dan.Beimborn@qube-rt.com>,
-	"Pak Hung Vincent Chiu" <pak-hung.chiu@qube-rt.com>
-Subject: [PATCH v10 10/10] context_tracking,x86: Quiesce kernel text patching IPIs when tracking CR3 switches
-Date: Fri, 27 Nov 2026 21:12:21 +0100
-Message-ID: <20261127201221.434876-11-vschneid@redhat.com>
-In-Reply-To: <20261127201221.434876-1-vschneid@redhat.com>
-References: <20261127201221.434876-1-vschneid@redhat.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Hd0zUjHF;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TnCBFtQF
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARJRjgO1381751
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:15:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0zRhM/O1T4txkzF9sfL+DPW1cvJF0Hj1I6FpvxqvriM=; b=Hd0zUjHFc90UyaV9
+	FvI74kpFZEacBrMJduuxJA7JpnJa9Kr1MBfKZFcKjiblzgevThnrz394i/77Dhoo
+	KPLDysWGNfbCp9dyB/cJe+acmbagwI1huIQACist6e29hxSyZhbf1LvVkZKpcsHW
+	RCi19RuCkIG5FlrwYksumJRabch8akoluNcrkx0/zgFdfDxhi2szZtJd+GGpAS5M
+	oiPiM+zmV7bJQPJF5zfSOVd2mjAgNpmPUL73DAXR+5LDTaVEUKtRrdauf3VQoIzP
+	E7cCTGlOqOffMRX1Av9HnjySTp+CfWUu2sTRpKI8ZAvYKdYeASmxd2AcLWep4PU4
+	aIA/OA==
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j7g1s8384-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:15:49 +0000 (GMT)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5eabb3a1bd8so6693548e0c.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:15:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795810548; x=1796415348; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0zRhM/O1T4txkzF9sfL+DPW1cvJF0Hj1I6FpvxqvriM=;
+        b=TnCBFtQFaLPb/1y31LcMuA5lVGjUMqh1PuyStWhGwqHLUTLqacxmriCxJbOHYZkaMY
+         qsF59MdsBrVH1HIHZgo2EklqplTnnZZBDi1vEXWRvnat60rjjxtzXgZv8xLm82hZbkER
+         u6TWA46M1hQzxTfYnLaZMMFNNNWqdRZEP3zYEYWqkaGuxhKMRticcUt/aSeukA4Hg1EG
+         5W3RFaD1wJ/j94lD2TeJThM1APWQMvup9Q3N5+GgCBIBaqtba4iLaJ/X+qYJ8/LVa0iM
+         tymFZ93lSY70r14eGw7C7R7zMXDR8zscyTG8NokaAKa9UmAIlEhuXLpmUyBBrnCxOHkA
+         bPVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795810548; x=1796415348;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0zRhM/O1T4txkzF9sfL+DPW1cvJF0Hj1I6FpvxqvriM=;
+        b=nHU1bhkCWDNmsIpR8MEsX65D7K5Pl891tZYZMGk9z10GeJErGWl62JNzEdEwsAu9fR
+         SMg9FXwpkOiNUNxwLPpa84XpQwwkw9kZfc2I8udfo727DdtzESGy3dK0i671UEf5GCXd
+         roQHzNcYO11wDCMoBeQ5p76SfS9PNDAJkg5EOhArtr1z9PUVNs5uS8WyRY+v5ltg0r2c
+         ft3IR6Ac6FG7Cbcyk5BA5AUHRtlcS+U/3SOXdCaE6Hp7HStU+8tD8I+05ApgA8UvtoGn
+         XUY0QTVqRL1FCXANLJx9Gr0aQXLXZNC8f3Z5YGSPTBRWYB0lsau3NFWV8gRo+vLe5fNH
+         samg==
+X-Forwarded-Encrypted: i=1; AL+hErH5CqoTNImsg80LTzpPmRTDCaVbUK9cAwMYDmat+l7Nlv+uI9+D17jAX0HzvjNxmUUTrol41qBOfEYyhi4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8SiS1WyECtbb8zK2CzNW3Jv7RMU05zC1Ua9erWwDk6S727yPz2
+	tZTZS86dqL0uDObW4/SsdwXUzEc8FJ2H3XMWEc0u5oBgeuTjeT6uX0Y92Dff3l/z4NRM8+j3Qa9
+	PPT9i93nwUwDciLuVPYWx4Whd86g4lwC0d+bB7Xa1XV3cpFU3wtp8HBZ8W+M/uWI2re8=
+X-Gm-Gg: AZFdTZf/v/c6y+MXnv4/WgGelTzHpXyNqh3oUoL/NqgWbRmrmccWUSFIpnVZpSUb3YB
+	paJPBAgr7eChLMIwbPzVEI51mmuZEO18o4HPCUHoIT6pZ2VoeWKKVCccSDyHB+un6xC4YEb9D3e
+	glxLxgDLGvQ/g3RfEu+yWJOkdwgPJQNZZ79rEWDfBkdXuTlLN7qnUVMNPWh0voESSI8uGRO6I5Z
+	yisOfqtOvg/iTIhnrJAspPliakOyo+GqRqaPouwkDEB84Imvjn71q7MbAcaKy81wlG807/gHHZv
+	rF0vW40U7E/6X7OjA6OHSt8JIToXn+5ja13FC+LYpXADTlAqrgKzcoBEk9AgJLwBZllyheaFpCU
+	YouAOgrXO72OUZ1S3F4FCLVUmggLjfWbU3aNI53PetTclQNcv07iwliY/O12yzYTeyQE61VGYj9
+	JMB+pHhQLruRY2Ot+9rE0t0E9YLgBvvQb50TZ/SAAzxtc66Qa4uLb3E1LMR8/kdw==
+X-Received: by 2002:a05:6122:209f:b0:5c7:fbb5:6ea0 with SMTP id 71dfb90a1353d-5ee8af0c762mr16859613e0c.4.1795810548069;
+        Fri, 27 Nov 2026 12:15:48 -0800 (PST)
+X-Received: by 2002:a05:6122:209f:b0:5c7:fbb5:6ea0 with SMTP id 71dfb90a1353d-5ee8af0c762mr16859568e0c.4.1795810547434;
+        Fri, 27 Nov 2026 12:15:47 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8050fddfsm64591511fa.16.2026.11.27.12.15.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 12:15:46 -0800 (PST)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 22:15:25 +0200
+Subject: [PATCH v2 1/3] drm/msm/a3xx: report CP protected mode faults
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,273 +116,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-a3xx-fix-me-v2-1-839408d293ed@oss.qualcomm.com>
+References: <20261127-a3xx-fix-me-v2-0-839408d293ed@oss.qualcomm.com>
+In-Reply-To: <20261127-a3xx-fix-me-v2-0-839408d293ed@oss.qualcomm.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2176;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=+geKBFg39jc42lSGhUHzJ7znn8vxsTpvFubSIenP6p4=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBrCeTotaSyqqXnFqCiPhSQ9CqNVoraO6tLNj98/
+ XYAigPtnLqJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCawnk6AAKCRCLPIo+Aiko
+ 1d6DB/43fdupC+YfUjJito55k/+MkyO2SkJwWHB09TjFQ3JnVxmLfMPVfyog4cOdh15VPtNDSUD
+ 3nN99aLXG1XncAxvtWfmyiZ2OFNAuiJLibze25T26yPPLRU7MdW595uy8GjoDlNYxTl9ur8d6Je
+ hZRegMbyifgFyeclevAN4r3ZeRmTPqUhZCe2s1R3DH2NDEKfvAStET/kzaaAT4nZ6tWnhw2XdRf
+ yDO5YcTS2yhNEnOjuP/c9kpRRhlhA9abpRMUZRWArOipnxjONMMQzwDGSxU0pYbYjw3TeI2Z/YR
+ miGVojtzYfJ5HQTt61c0hZUZkquA/zrzgOzbvZ5fkGlxg+3r
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Authority-Analysis: v=2.4 cv=FYOiV5+6 c=1 sm=1 tr=0 ts=6b09e4f5 cx=c_pps
+ a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=e5mUnYsNAAAA:8
+ a=EUspDBNiAAAA:8 a=mspBB8xj_tKF7Wn_8mAA:9 a=QEXdDO2ut3YA:10
+ a=hhpmQAJR8DioWGSBphRh:22 a=Vxmtnl_E_bksehYqCbjh:22
+X-Proofpoint-GUID: 1GiwbIW4B2T4wQcH-a1XEPNXe0gRfrHj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA4MCBTYWx0ZWRfXwEVn5aFEtAbe
+ vcOVdpse2NvsX199rSDBdQODpyD4LuaZlYBUr2mlBksn6b4ya+Mvl2HqJ5rk9VIpci/vFMsgMza
+ wIuiJxViI94lSFHGFwvmMH2U/qdscnX9dismDiXafK3+2uJ/tD+yXsB6VgXe5nLKkzvDi6Qragk
+ nCihf+OPbrV6eqwt4rE9qHpdmlSRgBHANsCiqHms1Z56wW68E2CVN4BqgSkYPJ82+WwsbjiuGU0
+ LPLJFCIm6yICcco7KcsBY69AIL6vFRUP16lE/MiQQ89zKMp069hTM/lWRPWPJY3cO8BDLe35v3O
+ CDcC6Fo9eNKpHL+vDXlG07P4jIq1ZcVn3RQxUi/2oREDEDkgeG6oL+xYtGRrkui0F7cWl2Sc/Fr
+ 0qTcxhBUtb7voLqXGLuTOi8Ru0UqVsCXGFFNo0NLSZeGLXclvw7beEex6W0VgHa+kS98RZt37Oy
+ 1o5W3cp5EQsQOgmG/wg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA4MCBTYWx0ZWRfX3ZZ/GYkuKiiE
+ yk7WLMl0MfPVglS6safTxHlJPN0lJihEE8ACLCu9YeuK+BroGb8TFoUngbVR1toYqK8u7npyxOt
+ 80xMpDSZFghj3mSSUwloaR8UL2lNaM0=
+X-Proofpoint-ORIG-GUID: 1GiwbIW4B2T4wQcH-a1XEPNXe0gRfrHj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_04,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270080
 
-text_poke_bp_batch() sends IPIs to all online CPUs to synchronize
-them vs the newly patched instruction. CPUs that are executing in userspace
-do not need this synchronization to happen immediately, and this is
-actually harmful interference for NOHZ_FULL CPUs.
+a3xx_irq() acks every interrupt without looking at it, so a write to a
+protected register shows up only as a hangcheck timeout with no hint of
+which register was hit. Print the faulting address the way a4xx and a5xx
+already do.
 
-As the synchronization IPIs are sent using a blocking call, returning from
-text_poke_bp_batch() implies all CPUs will observe the patched
-instruction(s), and this should be preserved even if the IPI is quiesced.
-In other words, to safely postpone this synchronization, any kernel
-instruction leading to the execution of the postponed instruction
-sync must *not* be mutable (patchable) at runtime.
-
-This means we must pay attention to mutable instructions in the early entry
-code:
-- alternatives
-- static keys
-- static calls
-- all sorts of probes (kprobes/ftrace/bpf/???)
-
-The early entry code is noinstr, which gets rid of the probes.
-
-Alternatives are safe, because it's boot-time patching (before SMP is
-even brought up) which is before any IPI quiescing can happen.
-
-This leaves us with static keys and static calls. Any static key used in
-early entry code should be only forever-enabled at boot time, IOW
-__ro_after_init (pretty much like alternatives). Exceptions to that will
-now be caught by objtool.
-
-The postponed instruction sync is the CR3 RMW done as part of
-kPTI when switching to the kernel page table:
-
-  SDM vol2 chapter 4.3 - Move to/from control registers:
-  ```
-  MOV CR* instructions, except for MOV CR8, are serializing instructions.
-  ```
-
-Leverage the new kernel_cr3_loaded signal and the kPTI CR3 RMW to quiesce
-sync_core() IPIs targeting NOHZ_FULL CPUs.
-
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- arch/x86/include/asm/text-patching.h |  5 +++
- arch/x86/kernel/alternative.c        | 59 +++++++++++++++++++++++++---
- arch/x86/kernel/kprobes/core.c       |  4 +-
- arch/x86/kernel/kprobes/opt.c        |  4 +-
- arch/x86/kernel/module.c             |  2 +-
- include/asm-generic/sections.h       | 14 +++++++
- 6 files changed, 77 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/msm/adreno/a3xx_gpu.c         | 9 ++++++++-
+ drivers/gpu/drm/msm/registers/adreno/a3xx.xml | 5 ++++-
+ 2 files changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/include/asm/text-patching.h b/arch/x86/include/asm/text-patching.h
-index ea09381070e82..25dc52f423cc0 100644
---- a/arch/x86/include/asm/text-patching.h
-+++ b/arch/x86/include/asm/text-patching.h
-@@ -33,6 +33,11 @@ extern void text_poke_apply_relocation(u8 *buf, const u8 * const instr, size_t i
-  */
- extern void *text_poke(void *addr, const void *opcode, size_t len);
- extern void smp_text_poke_sync_each_cpu(void);
-+#ifdef CONFIG_TRACK_CR3
-+extern void smp_text_poke_sync_each_cpu_quiescable(void);
-+#else
-+#define smp_text_poke_sync_each_cpu_quiescable smp_text_poke_sync_each_cpu
-+#endif
- extern void *text_poke_kgdb(void *addr, const void *opcode, size_t len);
- extern void *text_poke_copy(void *addr, const void *opcode, size_t len);
- #define text_poke_copy text_poke_copy
-diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-index 582c6d8307d15..283c94394c0b9 100644
---- a/arch/x86/kernel/alternative.c
-+++ b/arch/x86/kernel/alternative.c
-@@ -9,6 +9,7 @@
- #include <linux/cleanup.h>
- #include <linux/kgdb.h>
- #include <linux/mmap_lock.h>
-+#include <linux/sched/isolation.h>
+diff --git a/drivers/gpu/drm/msm/adreno/a3xx_gpu.c b/drivers/gpu/drm/msm/adreno/a3xx_gpu.c
+index 160d302e16a3..bd4b3ef7bc12 100644
+--- a/drivers/gpu/drm/msm/adreno/a3xx_gpu.c
++++ b/drivers/gpu/drm/msm/adreno/a3xx_gpu.c
+@@ -419,7 +419,14 @@ static irqreturn_t a3xx_irq(struct msm_gpu *gpu)
+ 	status = gpu_read(gpu, REG_A3XX_RBBM_INT_0_STATUS);
+ 	DBG("%s: %08x", gpu->name, status);
  
- #include <asm/text-patching.h>
- #include <asm/insn.h>
-@@ -16,6 +17,7 @@
- #include <asm/ibt.h>
- #include <asm/set_memory.h>
- #include <asm/nmi.h>
-+#include <asm/tlbflush.h>
- 
- int __read_mostly alternatives_patched;
- 
-@@ -2636,11 +2638,46 @@ static void do_sync_core(void *info)
- 	sync_core();
- }
- 
-+static void __smp_text_poke_sync_each_cpu(smp_cond_func_t cond_func)
-+{
-+	on_each_cpu_cond(cond_func, do_sync_core, NULL, 1);
-+}
+-	// TODO
++	if (status & A3XX_INT0_CP_REG_PROTECT_FAULT) {
++		u32 val = gpu_read(gpu, REG_A3XX_CP_PROTECT_STATUS);
 +
- void smp_text_poke_sync_each_cpu(void)
- {
--	on_each_cpu(do_sync_core, NULL, 1);
-+	__smp_text_poke_sync_each_cpu(NULL);
- }
++		dev_err_ratelimited(gpu->dev->dev,
++			"CP | protected mode error | %s | addr=0x%8.8X | status=0x%8.8X\n",
++			val & A3XX_CP_PROTECT_STATUS_WRITE ? "WRITE" : "READ",
++			FIELD(val, A3XX_CP_PROTECT_STATUS_ADDR), val);
++	}
  
-+#ifdef CONFIG_TRACK_CR3
-+/*
-+ * This returns true if the IPI must be sent to @cpu;
-+ *
-+ * do that if @cpu is a housekeeping CPU, or if it is already executing
-+ * in kernelspace.
-+ */
-+static bool kernel_cr3_poke_quiesce_cond(int cpu, void *info)
-+{
-+	if (housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE))
-+		return true;
-+
-+	return atomic_read(&per_cpu(kernel_cr3_loaded, cpu)) & KERNEL_CR3_IN_KERNEL;
-+}
-+
-+void smp_text_poke_sync_each_cpu_quiescable(void)
-+{
-+	/*
-+	 * Pairs with the MOV CR3 serializing instruction in SWITCH_TO_KERNEL_CR3
-+	 *
-+	 * Ensures any previous operations are visible on a remote CPU
-+	 * entering the kernel and updating CR3, if this one decides to quiesce
-+	 * the IPI.
-+	 */
-+	smp_mb();
-+
-+	__smp_text_poke_sync_each_cpu(kernel_cr3_poke_quiesce_cond);
-+}
-+#endif
-+
- /*
-  * NOTE: crazy scheme to allow patching Jcc.d32 but not increase the size of
-  * this thing. When len == 6 everything is prefixed with 0x0f and we map
-@@ -2808,6 +2845,7 @@ noinstr int smp_text_poke_int3_handler(struct pt_regs *regs)
-  */
- void smp_text_poke_batch_finish(void)
- {
-+	void (*sync_fn)(void) = smp_text_poke_sync_each_cpu_quiescable;
- 	unsigned char int3 = INT3_INSN_OPCODE;
- 	unsigned int i;
- 	int do_sync;
-@@ -2844,11 +2882,20 @@ void smp_text_poke_batch_finish(void)
- 	 * First step: add a INT3 trap to the address that will be patched.
- 	 */
- 	for (i = 0; i < text_poke_array.nr_entries; i++) {
--		text_poke_array.vec[i].old = *(u8 *)text_poke_addr(&text_poke_array.vec[i]);
--		text_poke(text_poke_addr(&text_poke_array.vec[i]), &int3, INT3_INSN_SIZE);
-+		void *addr = text_poke_addr(&text_poke_array.vec[i]);
-+
-+		/*
-+		 * There's no safe way to defer IPIs for patching text in
-+		 * entry, record whether there is at least one such poke.
-+		 */
-+		if (is_kernel_entrytext((unsigned long)addr))
-+			sync_fn = smp_text_poke_sync_each_cpu;
-+
-+		text_poke_array.vec[i].old = *((u8 *)addr);
-+		text_poke(addr, &int3, INT3_INSN_SIZE);
- 	}
+ 	gpu_write(gpu, REG_A3XX_RBBM_INT_CLEAR_CMD, status);
  
--	smp_text_poke_sync_each_cpu();
-+	sync_fn();
- 
- 	/*
- 	 * Second step: update all but the first byte of the patched range.
-@@ -2910,7 +2957,7 @@ void smp_text_poke_batch_finish(void)
- 		 * not necessary and we'd be safe even without it. But
- 		 * better safe than sorry (plus there's not only Intel).
- 		 */
--		smp_text_poke_sync_each_cpu();
-+		sync_fn();
- 	}
- 
- 	/*
-@@ -2931,7 +2978,7 @@ void smp_text_poke_batch_finish(void)
- 	}
- 
- 	if (do_sync)
--		smp_text_poke_sync_each_cpu();
-+		sync_fn();
- 
- 	/*
- 	 * Remove and wait for refs to be zero.
-diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
-index 133ff20caccd4..84cbc92853259 100644
---- a/arch/x86/kernel/kprobes/core.c
-+++ b/arch/x86/kernel/kprobes/core.c
-@@ -785,7 +785,7 @@ void arch_arm_kprobe(struct kprobe *p)
- 	u8 int3 = INT3_INSN_OPCODE;
- 
- 	text_poke(p->addr, &int3, 1);
--	smp_text_poke_sync_each_cpu();
-+	smp_text_poke_sync_each_cpu_quiescable();
- 	perf_event_text_poke(p->addr, &p->opcode, 1, &int3, 1);
- }
- 
-@@ -795,7 +795,7 @@ void arch_disarm_kprobe(struct kprobe *p)
- 
- 	perf_event_text_poke(p->addr, &int3, 1, &p->opcode, 1);
- 	text_poke(p->addr, &p->opcode, 1);
--	smp_text_poke_sync_each_cpu();
-+	smp_text_poke_sync_each_cpu_quiescable();
- }
- 
- void arch_remove_kprobe(struct kprobe *p)
-diff --git a/arch/x86/kernel/kprobes/opt.c b/arch/x86/kernel/kprobes/opt.c
-index 3f8fea52619f9..87979b93e1dd0 100644
---- a/arch/x86/kernel/kprobes/opt.c
-+++ b/arch/x86/kernel/kprobes/opt.c
-@@ -508,11 +508,11 @@ void arch_unoptimize_kprobe(struct optimized_kprobe *op)
- 	       JMP32_INSN_SIZE - INT3_INSN_SIZE);
- 
- 	text_poke(addr, new, INT3_INSN_SIZE);
--	smp_text_poke_sync_each_cpu();
-+	smp_text_poke_sync_each_cpu_quiescable();
- 	text_poke(addr + INT3_INSN_SIZE,
- 		  new + INT3_INSN_SIZE,
- 		  JMP32_INSN_SIZE - INT3_INSN_SIZE);
--	smp_text_poke_sync_each_cpu();
-+	smp_text_poke_sync_each_cpu_quiescable();
- 
- 	perf_event_text_poke(op->kp.addr, old, JMP32_INSN_SIZE, new, JMP32_INSN_SIZE);
- }
-diff --git a/arch/x86/kernel/module.c b/arch/x86/kernel/module.c
-index 33080ad889b71..ce8acafc932ed 100644
---- a/arch/x86/kernel/module.c
-+++ b/arch/x86/kernel/module.c
-@@ -194,7 +194,7 @@ static int write_relocate_add(Elf64_Shdr *sechdrs,
- 				   write, apply);
- 
- 	if (!early) {
--		smp_text_poke_sync_each_cpu();
-+		smp_text_poke_sync_each_cpu_quiescable();
- 		mutex_unlock(&text_mutex);
- 	}
- 
-diff --git a/include/asm-generic/sections.h b/include/asm-generic/sections.h
-index 0755bc39b0d80..7496d26a85a4c 100644
---- a/include/asm-generic/sections.h
-+++ b/include/asm-generic/sections.h
-@@ -199,6 +199,20 @@ static inline bool is_kernel_inittext(unsigned long addr)
- 	       addr < (unsigned long)_einittext;
- }
- 
-+/**
-+ * is_kernel_entrytext - checks if the pointer address is located in the
-+ *                      .entry.text section
-+ *
-+ * @addr: address to check
-+ *
-+ * Returns: true if the address is located in .entry.text, false otherwise.
-+ */
-+static inline bool is_kernel_entrytext(unsigned long addr)
-+{
-+	return addr >= (unsigned long)__entry_text_start &&
-+	       addr < (unsigned long)__entry_text_end;
-+}
-+
- /**
-  * __is_kernel_text - checks if the pointer address is located in the
-  *                    .text section
+diff --git a/drivers/gpu/drm/msm/registers/adreno/a3xx.xml b/drivers/gpu/drm/msm/registers/adreno/a3xx.xml
+index 21b00a17ef3e..fd2faf134e5a 100644
+--- a/drivers/gpu/drm/msm/registers/adreno/a3xx.xml
++++ b/drivers/gpu/drm/msm/registers/adreno/a3xx.xml
+@@ -758,7 +758,10 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
+ 	<reg32 offset="0x0445" name="CP_PERFCOUNTER_SELECT" type="a3xx_cp_perfcounter_select"/>
+ 	<reg32 offset="0x045c" name="CP_HW_FAULT"/>
+ 	<reg32 offset="0x045e" name="CP_PROTECT_CTRL"/>
+-	<reg32 offset="0x045f" name="CP_PROTECT_STATUS"/>
++	<reg32 offset="0x045f" name="CP_PROTECT_STATUS">
++		<bitfield name="ADDR" low="2" high="19"/>
++		<bitfield name="WRITE" pos="24" type="boolean"/>
++	</reg32>
+ 	<array offset="0x0460" name="CP_PROTECT" stride="1" length="16">
+ 		<reg32 offset="0x0" name="REG"/>
+ 	</array>
+
 -- 
-2.56.1
+2.47.3
 
