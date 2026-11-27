@@ -1,97 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.128
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768822;
-	b=poNr8P2bU0Tzi+MtrfVUp98W5vslLqtB4hcBcFZfP8H8BGOxnz4UhTFvGRUEIwEkjirQ
-	 FfX0rn82+vwL7iKca8h1linBnfm+ibu+azPT0Tb8NwzYGQgu6whGHsyG+ZUEz6uDp18Ay
-	 LC+MBT3TNgi72cSbs/vB2MLRhvPpYS5yTzKAmAxwfo+CY7TMyaJICNWSYO6RAxMqhbi66
-	 K7XEDjd1nTLWXeapEHQ6ks47H0rCfwtoP9w2KxcRkDY5adq1paHQW6SA/yoKbZcOUlCt7
-	 9a+uzDW6uTjW0DxJcVkQ5JGpjIWwv00FgAPtAa9mpmYKqk5ziRb7EjuHSo+laviBoWg==
+	t=1795768867;
+	b=V0V5Muc1PT/dePb30aBC2jNJytghs2prgSPPqsr5ZQeVRT2Adhtjx+AQKJ/q7rpvzYiq
+	 G4I5krhfIDHPHiTNR4t2Tczrc/CDzHYmjr8Z2luD3DQuLpftlAQgI935+XgU9sZmkKhHs
+	 /5Xvn4Cj5Y8I/4TKrgMCVAUjgUQ9ijaSxj5hXuOpuUVnn9n5HGi2saplXFhGrzbz7ed5L
+	 4nUva7Npyumu7knaIzrb6vi7ojTP9db00AdNXcPYRxKX9K4Wh/7Pbaji8c4bhPNsNSFPH
+	 eZANOmk95J0ZL/lMz8uY3OTZqmnzN+MJ192T061c6zjX0ekl8o2PqSKD3T6NgZ5j8Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768822;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RaXn0nW5iYEOBqaP2byxUSX/NlNAuk/kYgFWwG+1N3Q=;
-	b=5s2lcvpUeQealPfI+qP241k8JfEI56NXLDqbO3s4hChtQWhAX8zOA3WA1KPlAGXQUsBB
-	 UuSO+LQN4W5ZPsQ6XLukerghh6V0OtdFUaSOeyNEEKDxjNITS3qoA51cFtAUObMAFo03I
-	 APHTjyJxTOXxUMYvGjjwp6Uc5aUGJMuzoXGAt4bTHERlwxgvuj4NwjXL9NC6E2fuSfYTg
-	 DBE9t3ioMsKVe/k31athypCBWAVQjB45mzcHu9GKGdb2WlPBRoFAm8NRhGU4s03fOA+Bg
-	 d8YmRAqoE60JP3Z4+blG5YmHdi/IPR+QhcGkOsnq1DmyrW62K0FyMP3T7eGXJhbKCKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768867;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=FAZ1Ie2a5PV9PZg9qSZ/uFMXiu3UXlY8gqilin0ejXQ=;
+	b=GMgezegVankUve30O675DaMB/tJKsUA87bUF/vXR2DCAkb0JKcKut2lrmznXjO+280Go
+	 k+fA8EeyzINkzV7/wYpB11KIJ4iDiwiNTD/LzJQ+X/OzN9J1B3jIApPUhUYyFyorK5fHW
+	 F4xHBzNVOxKZs/dpPk0iVwHJPpAQSHgfB6jR11iUas5Rh0kfe+p+fcrv/G7lAL2FiSxVt
+	 uUPBcJEL2Rpjdj1lD3qNF1S5oT0uz5PA8W11N5MjeEzZ8R5GikHDOJ33y9lAcly0sXxAo
+	 qNmcJoMpwII/oeDWydKOsxuEj/w+1bSR/Kaj8Yp/DMeaIZvV8PStPULQzmzjyeCgAjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="wq4sQCs/";
-	arc=none smtp.remote-ip=74.125.227.128
-Received: from mail-pj2-f0.google.com (mail-pj2-f0.google.com [74.125.227.128])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mXdrElBP;
+	arc=none smtp.remote-ip=95.215.58.116
+Received: from mta1.migadu.com (out-116.mta1.migadu.com [95.215.58.116])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B145606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:40:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B145606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2D17606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:41:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2D17606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wq4sQCs/
-Received: by mail-pj2-f0.google.com with SMTP id 98e67ed59e1d1-3b094d5f1b4so1396161a91.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:40:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795768821; x=1796373621; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RaXn0nW5iYEOBqaP2byxUSX/NlNAuk/kYgFWwG+1N3Q=;
-        b=wq4sQCs/NiZDAY+AnQCLyK+EYZjXho0TEAgueQ0YEg65yI8SNAzG7bv1aj8HcwLTRy
-         wZQddn+xO6cPgdbzlKeBOO7X5ND16aHIUx4q0+Llc4IOADLOxesC9Q+Wk6YB74uQ0Mgz
-         Kr+ZiRLcQe/8Bk1OKY/72j/HyczldS5X7zLjAtnP5Cg7Xdl4Z5XFBBshOLtLJmzGatZ9
-         m4DlUYjrI3mgLdihMsLoCOAYR/3HRoTzqQpAFyeUwf17vt48OZN6xNwSSVgmOzUu1TFM
-         BINHWDA6YsRYJMzXiJEhffDwdDBbaeBlWpbu82r6i5ShzZ4rP8Xj6JP2Yuu/3fDL5Nw8
-         E8Yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795768821; x=1796373621;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RaXn0nW5iYEOBqaP2byxUSX/NlNAuk/kYgFWwG+1N3Q=;
-        b=OqNB1VZWZxcCmxdq6e9gtLvmlFA+4VtvSQNSE8/msUrNHBDCDP5pznA26N9C1A3gwy
-         mRWN++oCvUfcrD0mGJ5Ilhxml3anCnHInTK87KfpCmyOvZJ7VrqqvLyr+KQPjq6s+qzW
-         6wCIfPOhr1X1TyydegRYYmIypNyf0favfvPnfv2BQ1t/SWeaF/MLWIiu2h9BYf3KnYBa
-         iq3y0M9B1yQThJQKVkoqjOIiOKPFqoTwAg/9ewxicS5uCbFtcWo+Xjuq4fzioCYegb0E
-         09lbTakoMQ4E4MngwRIQDDQBP67eW8P3kB0xZPYYGT/d0Rz/Mf7lyWCuRsUcvn4P7/hb
-         7H0w==
-X-Forwarded-Encrypted: i=1; AL+hErENcRxjEvs7+Ht8Pesv5Cex6P4Gr+iRPqfOd/fjv/8GjKcrD5SyE5S6gGLAPnN0YFsDXmOM1vTdaz25cI4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/cIjRDoL2vJdHSXZMCJHcuJX0Vn6rLbMOOGqnqU/1cgezI4meR
-	ZnfWPSlfkPmNeYkjxzzzNgTuQkZDVbTVHTDsBxiIye+IVopeUT8+oVZa
-X-Gm-Gg: AZFdTZeQrCYEN9yl/b9u/s9Z9EYnDt/YbVVc++cPYuaAgxsoO5q7k/x9i4wNaKi9du0
-	eVKkvvMxUnk012PJB7fUdaJh/5B7fhNihX3b2K/3NuCfqx9MZ6vbSE6ejU419fyAvCk8ESzh903
-	EHscQGy8wuMV35LKUaUn2JpnU6bUIB/eaI8A3FbjSrojsZL5QIKEgzJt7FwhdFAxD0LfWY4L6+j
-	/j0Q86nk51EC0KXQ1yXYHSJmKTmbFDYVZrYNSqPN/wjGJ4SFGD8EVn8XUcyJtHbyfFdf1Ouw/Ri
-	83Kg2ziMgB+gUrdhEh2vll/MC0LtDvxG1jUPlIIAdF2rXCsWlR3DZWmvTvxmsUZdWroaCb/foDe
-	sNyfRQkjAcILvioAxWyShePtdos9ONZjFjx5NfPJbJsM1gulT0DypECmYQxsthO0OPJ94kXvhwC
-	BC72oZ/Srqs4a45ZIoVpBBt88PB+P2gssJhB+M2u3xxlpwfxyC5pbSnYYHS0dSBsn5zdL42RJ9C
-	cEChssTvtfgfgMHqrd90gXVM+bRUjXawuBLswlGlp3EYADMG4PU5iHcVZqieOd4cuNG6l+waT9u
-	d4NmaQGslPDyxeRry8g2Dd+rnDpLXF8OCfyj6G/R7AMClenn1fIpWNdI0FEYoWEGwdNvbgitp8C
-	MrbT4fe62eQg=
-X-Received: by 2002:a17:90b:3d92:b0:3ac:7842:bd50 with SMTP id 98e67ed59e1d1-3b41c8dd1a2mr22960427a91.15.1795768820844;
-        Fri, 27 Nov 2026 00:40:20 -0800 (PST)
-Received: from localhost ([39.144.138.111])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm39724097a91.4.2026.11.27.00.40.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 00:40:20 -0800 (PST)
-From: jianyungao89@gmail.com
-To: linux-xfs@vger.kernel.org
-Cc: cem@kernel.org,
-	djwong@kernel.org,
-	sandeen@redhat.com,
-	bfoster@redhat.com,
-	ast@kernel.org,
-	ishiyama@hpc.is.uec.ac.jp,
-	linux-kernel@vger.kernel.org,
-	Jianyun Gao <jianyungao89@gmail.com>
-Subject: [PATCH] xfs: remove redundant ASSERT in __xfs_bunmapi
-Date: Fri, 27 Nov 2026 16:40:16 +0800
-Message-Id: <20261127084016.18418-1-jianyungao89@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mXdrElBP
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=8nByk3lQkziV+ndmJCL42CLKc9ffPkb9kguxLpVEBMs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795768865; v=1; x=1796373665;
+ b=mXdrElBP/pXgCaDw4GN5gO13UfMuk+7GBuvMNmF0y46Ar4BA8s63rWGib5C/pEgH/UBsk8ps
+ KG6fMWyigm3Xpzor00o1hIju4/7Mc4+gItrJXIVEs+73i4DC4bf6IgWOsA4sksXFFGtLPSvx4II
+ pkMiNfJtLnndZhSVxwk6UX/4=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id b3551a7f456a19a0;
+	Fri, 27 Nov 2026 08:41:04 +0000
+X-Mizu-Trace-ID: b3551a7f456a19a0
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: mark.rutland@arm.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	anshuman.khandual@arm.com,
+	tabba@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: Use symbolic constants for the ccmp NZCV immediates
+Date: Fri, 27 Nov 2026 08:41:01 +0000
+Message-ID: <20261127084101.295792-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,39 +75,105 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Jianyun Gao <jianyungao89@gmail.com>
+The ccmp instructions in the EL2 setup code, reset_pmuserenr_el0 and
+the hyp vectors give the flags to set when their condition fails as a
+raw NZCV immediate, #4 or #8. Which condition that leaves true for the
+branch that follows has to be worked out from the pseudocode each time.
 
-In __xfs_bunmapi(), the code checks if the fork is in btree format and
-then immediately asserts the same condition:
+Define CCMP_NZCV_EQ and CCMP_NZCV_LT from the PSR bits, named for the
+condition each leaves true, and pass those instead.
 
-    if (ifp->if_format == XFS_DINODE_FMT_BTREE) {
-        ASSERT(ifp->if_format == XFS_DINODE_FMT_BTREE);
-        cur = xfs_bmbt_init_cursor(mp, tp, ip, whichfork);
+No functional change intended.
 
-The ASSERT was originally meaningful when the if-condition tested a
-different property (the XFS_IFBROOT flag), serving as a cross-check
-that IFBROOT implies BTREE format.  commit ac1e067211d14 ("xfs: remove
-XFS_IFBROOT") replaced the flag check with a direct format comparison,
-making the ASSERT tautological.  Remove it.
-
-Fixes: ac1e067211d14 ("xfs: remove XFS_IFBROOT")
-Signed-off-by: Jianyun Gao <jianyungao89@gmail.com>
+Suggested-by: Will Deacon <will@kernel.org>
+Link: https://lore.kernel.org/all/asIQ1ZwUjkmNJbRP@willie-the-truck/
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- fs/xfs/libxfs/xfs_bmap.c | 1 -
- 1 file changed, 1 deletion(-)
 
-diff --git a/fs/xfs/libxfs/xfs_bmap.c b/fs/xfs/libxfs/xfs_bmap.c
-index dcd5faf3428e..f2627ec2dd24 100644
---- a/fs/xfs/libxfs/xfs_bmap.c
-+++ b/fs/xfs/libxfs/xfs_bmap.c
-@@ -5166,7 +5166,6 @@ __xfs_bunmapi(
+Notes:
+    Changes in v2:
+    - Moved the CCMP_NZCV_* definitions out of the ARM64_S390_COMMON block
+      (Catalin).
+    - Rebased onto v7.4-rc3.
+    - Collected Reviewed-by tags from Anshuman and Catalin.
+    
+    v1: https://lore.kernel.org/all/20261009072147.474952-1-fuad.tabba@linux.dev/
+    
+    Based on v7.4-rc3.
+
+ arch/arm64/include/asm/assembler.h | 2 +-
+ arch/arm64/include/asm/el2_setup.h | 4 ++--
+ arch/arm64/include/asm/ptrace.h    | 4 ++++
+ arch/arm64/kvm/hyp/hyp-entry.S     | 2 +-
+ 4 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 020670814bda6..64a54f27c1b06 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -474,7 +474,7 @@ alternative_else_nop_endif
+ 	mrs	\tmpreg, id_aa64dfr0_el1
+ 	ubfx	\tmpreg, \tmpreg, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
+ 	cmp	\tmpreg, #ID_AA64DFR0_EL1_PMUVer_NI
+-	ccmp	\tmpreg, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF, #4, ne
++	ccmp	\tmpreg, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF, #CCMP_NZCV_EQ, ne
+ 	b.eq	9000f				// Skip if no PMU present or IMP_DEF
+ 	msr	pmuserenr_el0, xzr		// Disable PMU access from EL0
+ 9000:
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 12a5001812911..7a23189cf437c 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -137,7 +137,7 @@
+ 	mrs	x1, id_aa64dfr0_el1
+ 	ubfx	x0, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
+ 	cmp	x0, #ID_AA64DFR0_EL1_PMUVer_NI
+-	ccmp	x0, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF, #4, ne
++	ccmp	x0, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF, #CCMP_NZCV_EQ, ne
+ 	b.eq	.Lskip_pmu_\@			// Skip if no PMU present or IMP_DEF
+ 	mrs	x0, pmcr_el0			// Disable debug access traps
+ 	ubfx	x0, x0, #11, #5			// to EL2 and allow access to
+@@ -422,7 +422,7 @@
+ 	mrs	x1, id_aa64dfr0_el1
+ 	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
+ 	cmp	x1, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF
+-	ccmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9, #8, ne
++	ccmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9, #CCMP_NZCV_LT, ne
+ 	b.lt	.Lskip_pmuv3p9_\@		// Skip if < PMUv3p9 or IMP_DEF
  
- 	logflags = 0;
- 	if (ifp->if_format == XFS_DINODE_FMT_BTREE) {
--		ASSERT(ifp->if_format == XFS_DINODE_FMT_BTREE);
- 		cur = xfs_bmbt_init_cursor(mp, tp, ip, whichfork);
- 	} else
- 		cur = NULL;
+ 	orr	x0, x0, #HDFGRTR2_EL2_nPMICNTR_EL0
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index ad0ad30b36cda..346ad105d34c2 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -26,6 +26,10 @@
+ 
+ #define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
+ 
++/* CCMP NZCV immediates that make the named condition hold */
++#define CCMP_NZCV_EQ		(PSR_Z_BIT >> 28)
++#define CCMP_NZCV_LT		(PSR_N_BIT >> 28)
++
+ #if ARM64_S390_COMMON == 1
+ 
+ /* Additional SPSR bits not exposed in the UABI */
+diff --git a/arch/arm64/kvm/hyp/hyp-entry.S b/arch/arm64/kvm/hyp/hyp-entry.S
+index 03f97d71984c4..8621eacd13738 100644
+--- a/arch/arm64/kvm/hyp/hyp-entry.S
++++ b/arch/arm64/kvm/hyp/hyp-entry.S
+@@ -46,7 +46,7 @@ el1_sync:				// Guest trapped into EL2
+ 	mrs	x0, esr_el2
+ 	ubfx	x0, x0, #ESR_ELx_EC_SHIFT, #ESR_ELx_EC_WIDTH
+ 	cmp	x0, #ESR_ELx_EC_HVC64
+-	ccmp	x0, #ESR_ELx_EC_HVC32, #4, ne
++	ccmp	x0, #ESR_ELx_EC_HVC32, #CCMP_NZCV_EQ, ne
+ 	b.ne	el1_trap
+ 
+ 	/*
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-2.34.1
+2.47.3
 
