@@ -1,89 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795806598;
-	b=mJLya60z3oYkFB/5TohNVbD4wdwR1iAdOGNSh2bV5ISwy7/nNkuyL0ZgmgsrGmewZe5f
-	 3wzbGZOP7FNBv9lAKOEsl6wkJ7tax3Ycr0LYFmBixQloa1tc/6SKDthkuXY0fHkZwFAy6
-	 lF9KiMCmlpxW4N5bW298SfzRCTBL1sf6BcOvf2yQLAuh0POR3KSKLcNm92a0vufCiLF14
-	 23am3R6jLn8usseB0usQb4H3H9R6f9zUExNSASWFaY1yFPGnVZmr0aUX25cXrYfjkpwXA
-	 jWIWjdSCR/9ndNT0wdo3sUuy3oQ0iMEan+AXnDLvnnvJjVJltmc9ypSuYA67uwMSaiA==
+	b=TDxk6kG6+E/rZnmj1WBCX8nkxYw52SbhMmx9yQKFPDVJNkn+ly9nbyphCpTOTfEzvGsR
+	 R74QTSVQaQ3rxwFgW7PZE7RY8mTwqMl4uDT8H23NE+qwFozjLcv7F8gOu3NW/SaWmvFFf
+	 seQ/9W1mRpeoJzgaKfj8erOPG0ErswYiFF15mBibYM3l9p4dKXJbHm9NGxHfheW2YaqnR
+	 mElSVPdrFDxYiKdNxBYvruIrEh+d/Vigdo91dQ/XG/jQ4bZ70I4OX0KamRJ2e/JhQVhq2
+	 IhrS9hazfg13yH9K5cTN06KCNDhtR6kZcBgmGuhPR2r2h1cmw1yokOedsp6ZAwuHWIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795806598;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=jnEBKmIjlMDJzz7/vlO75PN6QRpLxAhezHtALAyCDMU=;
-	b=jBF8dfFrT7BCYHmHMDNZqFHWzGpEBLehhwdD8sy9Szb/a9TX76bf0jpYwHV6XEi8lOsK
-	 L09Ou1QhXzjPxkm4iv1v/L4L/RSr8DXNssH6f+kRtv9mxLTQokeAvzYVMoCPlUHQwj+l/
-	 bcjBLSlpR5IMg77GUSr6T67UkSn3t14zrYHtst/iie889DpkkNQOqyqkw+RDhOByT0GzC
-	 jVwWNIr+oFE4QwrVKIIy8GkQUPsC18yu7214UNJr/vTAa5ry4UE9o6tFyfrjN9biY3vUS
-	 qNYs2FE1WW7M5ZWNnwj8gNuI0cu+/0/+9DMGI2PZ+aDbKOi5jAyDC4sWX3qUxxIjmJg==
+	bh=U0mDUtMC+UWGZUbp+/6kngYQYdcHCcyFlHG1lR13jwk=;
+	b=z001KEEqT5qxNZozlkNq6/QbPpzA0Yfussvhp42mIaRB/Hx9II9Kr5ozF+E3vbZ4KbRU
+	 /SNBYI0X/oP/S1KlP/e8hLm0Aos+XfeBA5SXKms6NZFH8tIz6dwPWVG7sFRUcW8CFPX9O
+	 7u92mlYRYKMf68pdxvGajCgyjSDDcKdJ0t4QsK2Aop5Y27XtM0xTwtfZYJ9kQHmIQwI+C
+	 rYcFRX87t0VrDbNpSh5N8cP+K3MzQwMkYdsA2dCR7TJFUpkUIiDY6xJu+hmx0gGeiSGMg
+	 OGdUam15bSGM6SYEVFZzCl/7lI3fX+1E2nFjQgP/wp/RM2AH67dB1tHGlf7uT1UqL/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Q6nMvkMS;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=t1IeGCRZ;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC046606A339
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:09:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC046606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 377DD606A683
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:09:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 377DD606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Q6nMvkMS
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c51a02ad3acso559362366b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:09:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=t1IeGCRZ
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c5127c7abd5so1286944166b.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:09:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795806596; x=1796411396; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795806597; x=1796411397; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jnEBKmIjlMDJzz7/vlO75PN6QRpLxAhezHtALAyCDMU=;
-        b=Q6nMvkMS/6xOHo8tE/uE7YyMfPdgwFb3iQHYfy7BS9+nniOwVyvXwLl7Gc+Y8gOBEp
-         0xEWlBwnjHE1USHlsTzxhx1IVyxw8fN6u/S5+m/LVu3nkAFdbjnNP/macFHfBr1XHPJp
-         DRqz7Y/njOVaLTmYQwOxAqzDAjOqV8+9JSJ/D5Y9F567spN+79C3nBx78HIl4iO4BHZe
-         smXyOxA1OjQ37FA6Oj2ObUtFNBLWWOqyJTROPMq6v9lfnfYX2jvGP5vVOG/yUCgbIjn1
-         hM0EN3tkLvA4ftyqUk4PF2f8H+cLRRuHqQSlGHEa1tb3KOInDPPxBm7xXGf2rYFGbB61
-         whlg==
+        bh=U0mDUtMC+UWGZUbp+/6kngYQYdcHCcyFlHG1lR13jwk=;
+        b=t1IeGCRZ/lvgaOLnwNNmsq9E3E1xueXDnAYLXr3+EurSjEscFyEs2gqVIggnq+Z958
+         B8f1/UN6PbxLTVQEjgGK2N1xqr/AQSU99qs6UvT9rBD7VjKbzUA/jGHs/hs0GhbC0Dsj
+         ek0gaok5GZNKll1aM7IrpHYay2ELOEE5YzGO9pKfVDkt1nWr264eDXPMWS2FQY7yqvsk
+         mZvHe/yqaW7qD+s19/FCHOsATOIl0JSVMiOAs2TVgECrSiD+B7o5rhV39VodsXOofsYi
+         40WhxVCWZ0YmechQxer0l+QWYQJl3/Y3Iv6/kIatP6ddHTUQousOlyG8de29NuDy9cg0
+         PGEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795806596; x=1796411396;
+        d=1e100.net; s=20260707; t=1795806597; x=1796411397;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jnEBKmIjlMDJzz7/vlO75PN6QRpLxAhezHtALAyCDMU=;
-        b=mpPuQPs+u8dMEon8h/h9bB7Yf+iUbBP28ApumIVaYWvVv8f43thn1Ws86i1cFNNiRv
-         eaPcMrdRvwgDIynBo3/PmFf3bQjTthw5QoNWkBF6UFyMpXdW/awEwPiY0x35CyARN+EN
-         DkSRS6F7OQ8My6dIbuvQElZ/8J/DWtBlBLLo+PRPXLcrIgsEadEJ8qrN1GeMmNozqKm7
-         JuCciUVk7/LveNbJSpgU7UU0uXKVkU/2cV9KaPxWUMEVV5kynfB8zcueL9+B0Mn4Bi9f
-         LnCy4FfXod77lgyKIGSi8XkEKWiCKPd+C6gUZNEdKx+m1nfrlsxqD15cn9raVbrRzMsf
-         BKEw==
-X-Forwarded-Encrypted: i=1; AL+hErFjX1LHh1vnM2adg7PFn1Z/OAm1B9cLGT88B+lR/5Op/0SeENams62HeX9RbMVgUrSs9cGmzVEIwzw7Akc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yqKYcRFq97OGcJNr3HnGzZWUtg4QsM6bEOKkq5JyTSt4I9Oea
-	wYMFZxUYRULVoidCGy1d1uA7i5xv+LHoT4qO26/eSzghCxQjdK32pA9BjWYel716TJtyA+TS5i0
-	nESs5/B4=
-X-Gm-Gg: AZFdTZfR25Fcf1mm74XKxvt7LuRa2ddnk68yh0sk7sZZE2GcvKsYngD5Lu2Ou/1P+zU
-	xluDXfp+oXclFCIYykRKf+g93SsZ4k6KVglmGeZYGIFZTVS0vGI2a3vQEJkejPAVnTdFs3BOiUP
-	1CLdnDjGMHlDRbDYePpyxkkH/8cBUaAVqn4xQSPrYkqYXXJtvn5vO3EUiRYv7G69vZMx98HCJ/o
-	7/BGElysLwAze5AZSDEcSk62Dpr16KpTe7hw4DoeTjh3VezUdhE6JwTx/W+rAcsDO/LG4BuWjfg
-	QD0kCX6Jwjj/skjJVL+RJGIb/frD2N9NHDc+4UE2fSUP7InawXxPRGxJx+FKTYXjXeUy4ST2aa+
-	0+youZjGa/QeZ8XVy97/cjCUbT5JSsdMvgQ0lNVW2FIIbvKLXWxSOs7tFNUOClI9mNUZTumW3kf
-	kVgRmca5rtS+mfTLtoo5fxUcEHJkQqlytfcJLSy+ujSeZFVggO/yYYuG4ALDZD52UGc5HTrldQm
-	R2Gp/7aF6axsIKt2TXHJiVaTrGV+MqyibtAQun3YAyQXOXc+d1wKn2krgnn6xvldeMOlRmRNEfe
-	eqIRvkM2cGjws29ioIWnVnfhdBThoUmW7Zru+rGNVnPq2P6CZEZxiIo7dZU87A7kx0g7RtpaD8T
-	mNllXqh/PeREGav9i3w==
-X-Received: by 2002:a17:907:1187:b0:c49:903e:1e19 with SMTP id a640c23a62f3a-c513a8595d0mr1656720366b.26.1795806596148;
+        bh=U0mDUtMC+UWGZUbp+/6kngYQYdcHCcyFlHG1lR13jwk=;
+        b=QLQObq/YtV9q6s7Qzw/o9j6biZaMr2nofBQa+FPNNcYUBnYQDdijQAEbSgOzaWr2jE
+         bn2sk1wfq6+E8rb+xa2R9yTsOsxuinnI2P0mePmaHVyt//rLVFcEVn6w5q5mcFMImqby
+         yRq9vi5Iv+AAR+aZ+N8rcUKeSSiyp68H1NSiFc+m2tBJfnyquOgs8prgb1IHOnEojjed
+         NCq6BTA8GGhJ8MsKsDzMfjpJTD4d45IYyWd6Se6HXC9Klx82x89hP5gIQVC66zAlJD8X
+         4KBInqV2y/2wa8fjsDoho6OSoDp/DeRP/zUDcEkQc4m8SpmnV6mKVs6ZHMEdbs6xRz5P
+         kgfQ==
+X-Forwarded-Encrypted: i=1; AL+hErFqS/4IEAASOkGNHYAiF2F3zp8rhowlBxNRaPE5ENN+9y7U6FZzfQyNe/w3BwHKywpRyLJQZNd4d1E7CEw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MTFSq9OVAVhtn8enfxXwQnNuLpGNLvxsrqpn/KsluyeRHQkhr
+	MRsqNPfg9mqmMZnD806khN6SuXPPpOFi7i9ffJcuQmAR7AJYZFpAoQGdXnTwlvfRf6xTiNAYlh0
+	mebTPgPs=
+X-Gm-Gg: AZFdTZc+Nwh85Z3jfqsfgSP8tP8tNhBYXbxAEqb26/LVu4KqMh22NQSvRPhJFSFYfQR
+	ZLqts/sN8m2XcKYpMwoA8wbpJk+tozcEmb6CLw2YVdBqphJ9Rflt2mLa3uaueLkfYTXRHDDgIV3
+	C0UUDxDcSVkR3wytU5JVeU8IV03+7ODkZ1JfWZ9Hdi5nNJPxzoUOA+Hje9WA33Lxnsq1CppGh8Y
+	5PL9HhDdZwR9vZi2xVasPWxBURcQlLn95Bo53/g99aZImNp/3UO5mEXGtOm84KsW6TsRzBPEV+x
+	O9IUxLx5u00LK2FY0bU2ksr3yxAq6s2CrgGhJRD8msKwSLyHhKKsLjCSbFX5ASSwbyGVoGYvI24
+	OulyLkRDAOg9Bq4hBUJRX2PhxWh3w0JjIfaM+tBsPA9ETkRyQ6Sk1/5oKJu46O6pq0fXIlWWVI7
+	0SRpo+yVV5UdZwXddtyySUQqrwyQbUBHMM19YINHKjbiwzClzkGQMx7P936rJ+Q5fPFKEtKp4kJ
+	fLkOtp0/PfPREB1vQyJzJydzcWV5BaEyDLAqsYu30MirK1BvGdRbvDgp1qG1j3hjgmC6K9Gpa4S
+	SRQKeYp2MNHzJPFB2uHfkehs0BJzgFRy4JUoBAac973SBlPWBt/YDBk9NqJIc9EZxaTUuYqDVpY
+	5fh28lu/Mg8z7za3QhQ==
+X-Received: by 2002:a17:907:a890:b0:c50:9432:b7e3 with SMTP id a640c23a62f3a-c513aace654mr2369091766b.42.1795806596623;
         Fri, 27 Nov 2026 11:09:56 -0800 (PST)
 Received: from puffmais2.c.googlers.com (226.124.90.34.bc.googleusercontent.com. [34.90.124.226])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afe85fdsm909175266b.69.2026.11.27.11.09.55
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afe85fdsm909175266b.69.2026.11.27.11.09.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 11:09:55 -0800 (PST)
+        Fri, 27 Nov 2026 11:09:56 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 27 Nov 2026 19:09:53 +0000
-Subject: [PATCH 2/6] power: supply: max77759: report charge voltage in uV
+Date: Fri, 27 Nov 2026 19:09:54 +0000
+Subject: [PATCH 3/6] power: supply: max77759: disable AUTOIBUS for
+ CHGIN_ILIM
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261127-max77759-charger-fixes-v1-2-b364a0862d72@linaro.org>
+Message-Id: <20261127-max77759-charger-fixes-v1-3-b364a0862d72@linaro.org>
 References: <20261127-max77759-charger-fixes-v1-0-b364a0862d72@linaro.org>
 In-Reply-To: <20261127-max77759-charger-fixes-v1-0-b364a0862d72@linaro.org>
 To: Amit Sunil Dhamne <amitsd@google.com>, 
@@ -109,83 +110,57 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  stable@vger.kernel.org
 X-Mailer: b4 0.14.3
 
-The max77759 charger power supply reports constant_charge_voltage_max
-in millivolts instead of microvolts (for example
-POWER_SUPPLY_CONSTANT_CHARGE_VOLTAGE_MAX=4300 instead of 4300000 in
-sysfs), violating the power_supply ABI.
+Programming CHGIN_ILIM in CHG_CNFG_09 leaves hardware automatic input
+current limit selection (AUTOIBUS) in whatever state earlier firmware
+left it, so the programmed input current limit depends on bootloader
+setup. On Pixel 6 the bootloader already leaves CHG_CNFG_09 at 0xbb
+with bit 7 set, so there is no behavioural change on the only in-tree
+board, but boards whose firmware leaves AUTOIBUS enabled are not
+guaranteed to honour CHGIN_ILIM.
 
-POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE_MAX is defined in microvolts,
-but chg_cv_prm_ranges, CHG_FV_DEFAULT_MV, get_float_voltage(), and
-set_float_voltage_limit() operate in millivolts, and
-max77759_charger_init() divides constant_charge_voltage_max_uv by 1000.
+set_input_current_limit() updates only CHGIN_ILIM (bits [6:0]) in
+CHG_CNFG_09 and never sets bit 7 (NO_AUTOIBUS).
 
-Convert chg_cv_prm_ranges and the float-voltage helpers to microvolts
-so the driver reports and programs CONSTANT_CHARGE_VOLTAGE_MAX in uV.
+Define MAX77759_CHGR_REG_CHG_CNFG_09_NO_AUTOIBUS (BIT(7)) and set it
+together with CHGIN_ILIM whenever programming the input current limit.
 
 Fixes: 70d7dd27f6dc ("power: supply: max77759: add charger driver")
 Cc: stable@vger.kernel.org
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/power/supply/max77759_charger.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ drivers/power/supply/max77759_charger.c | 5 ++++-
+ include/linux/mfd/max77759.h            | 1 +
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/power/supply/max77759_charger.c b/drivers/power/supply/max77759_charger.c
-index a75005c0b582..6876ae0a8188 100644
+index 6876ae0a8188..49ab1766cc5d 100644
 --- a/drivers/power/supply/max77759_charger.c
 +++ b/drivers/power/supply/max77759_charger.c
-@@ -25,7 +25,7 @@
+@@ -355,8 +355,11 @@ static int set_input_current_limit(struct max77759_charger *chg, int ilim_ua)
+ 	linear_range_get_selector_within(chgin_ilim_ranges, ilim_ua, &regval);
  
- /* Default values for Fast Charge Current & Float Voltage */
- #define CHG_CC_DEFAULT_UA			2266770
--#define CHG_FV_DEFAULT_MV			4300
-+#define CHG_FV_DEFAULT_UV			4300000
- 
- #define MAX_NUM_RETRIES				3
- #define PSY_WORK_RETRY_DELAY_MS			10
-@@ -60,10 +60,10 @@ static const struct linear_range chgcc_limit_ranges[] = {
- 	LINEAR_RANGE(200000, 0x3, 0x3C, 66670),
- };
- 
--/* Charge Termination Voltage Limits (in mV) */
-+/* Charge Termination Voltage Limits (in uV) */
- static const struct linear_range chg_cv_prm_ranges[] = {
--	LINEAR_RANGE(3800, 0x38, 0x39, 100),
--	LINEAR_RANGE(4000, 0x0, 0x32, 10),
-+	LINEAR_RANGE(3800000, 0x38, 0x39, 100000),
-+	LINEAR_RANGE(4000000, 0x0, 0x32, 10000),
- };
- 
- /* USB input current limits (in uA) */
-@@ -310,14 +310,14 @@ static int get_float_voltage(struct max77759_charger *chg)
- 	return ret ? ret : val;
+ 	return regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_09,
++				  MAX77759_CHGR_REG_CHG_CNFG_09_NO_AUTOIBUS |
+ 				  MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM,
+-				  regval);
++				  MAX77759_CHGR_REG_CHG_CNFG_09_NO_AUTOIBUS |
++				  FIELD_PREP(MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM,
++					     regval));
  }
  
--static int set_float_voltage_limit(struct max77759_charger *chg, u32 fv_mv)
-+static int set_float_voltage_limit(struct max77759_charger *chg, u32 fv_uv)
- {
- 	u32 regval;
- 	bool found;
- 
- 	linear_range_get_selector_high_array(chg_cv_prm_ranges,
- 					     ARRAY_SIZE(chg_cv_prm_ranges),
--					     fv_mv, &regval, &found);
-+					     fv_uv, &regval, &found);
- 	if (!found)
- 		return -EINVAL;
- 
-@@ -555,10 +555,10 @@ static int max77759_charger_init(struct max77759_charger *chg)
- 		return ret;
- 
- 	if (power_supply_get_battery_info(chg->psy, &info)) {
--		fv = CHG_FV_DEFAULT_MV;
-+		fv = CHG_FV_DEFAULT_UV;
- 		fast_chg_curr = CHG_CC_DEFAULT_UA;
- 	} else {
--		fv = info->constant_charge_voltage_max_uv / 1000;
-+		fv = info->constant_charge_voltage_max_uv;
- 		fast_chg_curr = info->constant_charge_current_max_ua;
- 	}
- 
+ static const enum power_supply_property max77759_charger_props[] = {
+diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
+index 7c0b13219d51..79d248df4c9f 100644
+--- a/include/linux/mfd/max77759.h
++++ b/include/linux/mfd/max77759.h
+@@ -102,6 +102,7 @@
+ #define MAX77759_CHGR_REG_CHG_CNFG_07                  0xc0
+ #define MAX77759_CHGR_REG_CHG_CNFG_08                  0xc1
+ #define MAX77759_CHGR_REG_CHG_CNFG_09                  0xc2
++#define   MAX77759_CHGR_REG_CHG_CNFG_09_NO_AUTOIBUS    BIT(7)
+ #define   MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM     GENMASK(6, 0)
+ #define MAX77759_CHGR_REG_CHG_CNFG_10                  0xc3
+ #define MAX77759_CHGR_REG_CHG_CNFG_11                  0xc4
 
 -- 
 2.56.1.839.g22a8290db9-goog
