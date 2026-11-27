@@ -1,89 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.19.12.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783226;
-	b=NewUsXC/nzqnHTIWKihlBGAGr2G6oFeA9s9SKSNRXxptMzbsLTns5QtAI0ZhCHyf2xdC
-	 kNOffaCOVqSwKhJMjHiY6H9vDm/NGrkrV0Kj2S0u1o3wJJKFbabWHGyJzydLibATh7hgD
-	 sBRE6I3WVy3g9ludcqGfOEy97ocmb88EO7jFUKZbCHSV6hoME+1bYLfK2i3imDurUX3Ob
-	 5tTPlWrn5hhAIqFL4jyphQ31pGsLfZitzStHnPjxG/fSkD+7H/WP/DKf4aX9WHrYGt4cJ
-	 JZfbwKuPJCRpbYAnLIfdlARBo/zo5rgua6ZBsFdsFTqfmtOHmUj/MfqqgEswjBzccuw==
+	t=1795783279;
+	b=ZVJ69OyUEsLjlj96iLc5MjTsk6gia68SMhlAljBL+WWlybis0BOqG7+hM630qyWa6IVT
+	 ChIErD3omMxJ6Shs0kV+lmGNrjOLJnrqpV4Rt3263CNAxsd0HLFeZ2kilnZ8JriOO5zGJ
+	 oWm1WcOyZqe3KpfcncETG5KZiQnI0NVfA0Ggq56Z6bFDnGtswbJ/NuV61MSjs6IhI2M6U
+	 TlyAkK8hzllWOL/zwxdYvxB9u0wbmmCVTPHqs319K7LDSwZ/SMkWZ6jJ67iVTsquNJ2mQ
+	 TmgLcUGA9FEcbuxGQWz4WAY/IFZi+26mM5Yg1uKEqA1xV6OoQ79VlEfhhh1zw0l+FdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783226;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
-	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
-	bh=a1h7on8HImX2X0LgBMc3cNbmT/5TZPxb20/cpZcLkUw=;
-	b=a0SZDW+d6eM6lds/D82E9RGdnwLHScFZg6cVMP+l4WQ/H4qB8lrb8NmS13/xbmq9fnph
-	 KzZi6pGTRD0WxtfwYNJ92FlKvnJarN4lzXHkTz/+MuhpATbCT4MUcab3KfHO4AxNHszTb
-	 2Dp50Jizstka4vt0e2fJW519LsFjURcYqn1/C+dzL44F3D4parR6wllsx6ykSo41ub3FT
-	 3gWacSzldShWJE4R4XIwSVbpJtbbXWojyBYveZAXApfvM+ss7wjB0FCvMlMfMi3BYL5we
-	 D8lZ1wA+cH38LPDrczxnzR4ayKmgA809LldU81HSgtAD2VM8wsAgGSlcpcxbA95u1Mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783279;
+	h=DMARC-Filter:From:X-Lima-ML-UUID:DKIM-Signature:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=eX6gJ0iscZo1BB9Xa3fh4lrVWE3eJqEgbd+v9mVJVrQ=;
+	b=UCgEYzQDqOaN5wfxO0KXSKHGQ6AXW7e43reCuZIgVSNKp2/Is8Q2tIbaLZcpRUimTTPr
+	 OUtw021NsTO3kTxg615vCt+BVuaHs2OpgHXMiZUDV3n2/DIaEbZC0zJMeX+NZ2lknIL6h
+	 kAPNAH4Ba8GvqgJpbDi4ItZII9KpRrpDqPUOCdyJGyu3EOxy0KGMDwt0wVlxytOv6aK02
+	 RN4vAkMnRYexVwMjGjUf0ZIsOqyBhtQq5osJUE8RUEOqLhHk8ogutYTk2akWqCe/PT6bY
+	 AZ83dofV6DjirdKxjvlpXdGOrzCawACcZBBVfwUB2vqe/Wn/PcxBdjoD+oMRUHI46RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=norik.com;
-	spf=pass smtp.mailfrom=norik.com;
-	dkim=pass header.d=norik.com header.i=@norik.com header.a=rsa-sha256 header.s=default header.b=MDGAnUER;
-	arc=none smtp.remote-ip=46.19.12.180
-Received: from cp2.siel.si (cp2.siel.si [46.19.12.180])
+	dmarc=none header.from=deq.rocks;
+	spf=none smtp.mailfrom=deq.rocks;
+	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=V1FLBP22;
+	arc=none smtp.remote-ip=91.216.248.207
+Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06690606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:40:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06690606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=norik.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=norik.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A12D606A31F;
+	Fri, 27 Nov 2026 12:41:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A12D606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=norik.com header.i=@norik.com header.a=rsa-sha256 header.s=default header.b=MDGAnUER
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Unsubscribe-Post:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=a1h7on8HImX2X0LgBMc3cNbmT/5TZPxb20/cpZcLkUw=; b=MDGAnUERglQnqyyCJ5069e0ocB
-	H8j/V19yzpMwApbLBuukG7lBOK8yLeJIGfIglr00DoxaHZvkTPiSNorYeMBXfEGJUVbEZNIOufvot
-	Zo7gmKgCxeKunFu5bdOCqQa3SGRzqhTRtrHMkzD/Fmtvra99wClJfFzPbSG4ICyLkNavez3lUKNe1
-	S9Gc+92o7D33gbEk0fNqvHtbNYGD6yhw90HmrfYS06TEavP7hW/xTzbpPzLIqOfnnyxa5QHwC/kRI
-	QeIh/f/2iB/KTjONoS/P29Ay/k06+Y5U3zNwZKOYdK7gU6dugJJ+uHg3OLsUyweOPFSdw9ofEYX8W
-	OBH7T/Uw==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:55190 helo=localhost.localdomain)
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1xWvFW-00000004Q4L-1Qqr;
-	Fri, 27 Nov 2026 13:40:21 +0100
-From: Andrej Picej <andrej.picej@norik.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
-	regressions@lists.linux.dev
-Cc: tessolveupstream@gmail.com,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	marex@denx.de,
-	valentin@compulab.co.il,
-	philippe.schenker@toradex.com,
-	alexander.stein@ew.tq-group.com,
-	dri-devel@lists.freedesktop.org,
+	dkim=pass (2048-bit key, unprotected) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=V1FLBP22
+From: Andre Eikmeyer <dev@deq.rocks>
+X-Lima-ML-UUID: f84dbf45-9960-419e-84e1-fcf5f671425f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
+	s=securedbylima-20251205; t=1795783268;
+	bh=8RNe0Rwtih60NEpEg71UxdWReXv1JDIgl698y5PYhOM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=V1FLBP22VeOaPyHa7WHncaY1jgwElfaHgJpLhLnqpwuX69rAbukzZMqHexTev5H8y
+	 i/qYblposHEF4p4ZRwD19jMaZXDMqjPNwZu+YLIuYdDq2Ng69MdbTiQthxJQC5hKsT
+	 wj6CMECvWTdU7cL4bcaTjDBoH3SgiogdUw0DEJOG95xNjnjIGRA8WqDjYavcb0SvCc
+	 WwNmwUijTREsJmU6zGyKSQ3eqlLoRrxo6+0oeQrRHwGIM5sjLaP607UWdifsVmsMew
+	 tH9AiMcX3Q3xD0UoEMrkQ0DpQ5wYXwreafhDmFttrMyneefB47k4FkvDJ1Qps83xfw
+	 f1/oy79AJoe3A==
+To: arend.vanspriel@broadcom.com
+Cc: linux-wireless@vger.kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
 	linux-kernel@vger.kernel.org,
-	Teresa Remmet <t.remmet@phytec.de>,
-	upstream@lists.phytec.de
-Subject: Re: [PATCH v3 1/1] drm: bridge: ti-sn65dsi83: Fix DSI mode flags for stable LVDS output
-Date: Fri, 27 Nov 2026 13:40:12 +0100
-Message-Id: <20261127124012.3664549-1-andrej.picej@norik.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <DMTXMG427D7Z.MVUAQQE9B08W@bootlin.com>
-References: <DMTXMG427D7Z.MVUAQQE9B08W@bootlin.com>
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Aditya Garg <aditya.garg@linux.dev>,
+	Andre Eikmeyer <dev@deq.rocks>
+Subject: [PATCH wireless-next v3 0/6] wifi: brcmfmac: AWDL for AirDrop on Apple T2 Macs
+Date: Fri, 27 Nov 2026 13:40:58 +0100
+Message-ID: <20261127124104.233236-1-dev@deq.rocks>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,87 +68,92 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cp2.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
 
-Hello Luca, Francesco, Ernest,
+This series adds AWDL support to brcmfmac, so Linux on the Apple T2 Macs
+can send and receive files over AirDrop with Apple and latest Google or
+Samsung devices.
 
-On Fri Nov 13, 2026 at 9:15 AM CET, Luca Ceresoli wrote:
-> I hoped to get better info from Ernest. The commit looks correct so chances
-> are that regression is caused but other bugs (incorrect timings, inaccurate
-> clocks, etc).
+On these Macs the Apple firmware runs AWDL itself. The host creates an
+AWDL interface and sets its parameters, the firmware keeps the AWDL
+schedule and carries the AWDL frames and data. Election, peer discovery
+and AirDrop run in user space, which talks to the driver through vendor
+commands and events of the Broadcom OUI. As discussed on v1, vendor
+commands are the exception agreed for AWDL, so the vendor header
+becomes ABI with this series.
 
-I see the same regression on another board, the PHYTEC phyBOARD-Polis
-i.MX8MM with the PEB-AV-10 adapter. This board also had a clock problem,
-but with that fixed, the display is clean without
-4af021a97773 and glitches constantly with it. Details below, following
-your list.
+The user space side is t2-drop, published under GPL license
 
-> * accurate description of what hardware breaks, with pipeline components
+  https://github.com/kaiT2en/KaiT2en-Fedora/tree/main/apps/t2-drop
 
-i.MX8MM LCDIF (mxsfb) -> samsung-dsim (4 lanes, video burst mode) ->
-SN65DSI83 (single-link LVDS, LVDS clock taken from the DSI clock) ->
-EDT ETML1010G3DRA panel, DT overlay
-imx8mm-phyboard-polis-peb-av-10-etml1010g3dra.dtso.
+Tested on a MacBookPro15,1 (BCM4364, firmware 9.30.514.0.32.5.94) with
+a MacBook Air M4 as peer. AirDrop in both directions with varying file
+sizes up to 2GB.
+v2 runs on the BCM4364 and BCM4377 machines of the T2 Linux community.
 
-> * panel timings (or, better, panel datasheet URL with that info)
+Changes in v3:
+- awdl.c and awdl.h are ISC
+- Patch 3: keep the abandoned AWDL interface until its late event is
+  claimed, and take an interface event that arrives right after the
+  timeout instead of failing
+- Patch 5: remove an AWDL interface the firmware removed on its own from
+  a work item with RTNL and the wiphy mutex. Then send AWDL_STOPPED.
+  Answer a START dropped before system sleep with -ECANCELED. Document
+  that SET_SYNC fails with -EBADE while the firmware does not know a new
+  master yet
+- All patches except 3 and 5 are acknowledged by Arend
 
-panel-simple edt_etml1010g3dra, typical values: 72.4 MHz, 1280x800,
-hfp 72, hbp 86, hsync 2, vfp 15, vbp 21, vsync 2.
+Changes in v2:
+- Drop v1 patch 1, wireless-next matches the firmware capabilities as
+  whole words already
+- Rebase on wireless-next, patches 1, 2 and 4 have Arend's Ack
+- Patch 3: remove an AWDL interface that shows up after the interface
+  event timed out, tie the network device to the wiphy device in sysfs
+  and keep its name, keep the AWDL address out of the ARP offload table
+  of the primary interface, kernel-doc for the return values
+- Patch 4: add the AWDL header in brcmf_netdev_start_xmit(), so tx and
+  rx count the bytes of the Ethernet frame, kernel-doc. The MTU stays at
+  1500, the firmware takes full size frames with the added header
+- Patch 5: document where the parameter tables come from and the
+  firmware versions they are used with, fail AWDL_START when awdl,
+  awdl_config or slot_bss are rejected, return firmware errors from
+  SET_FRAMES and SET_SYNC, a quirk in feature.c instead of the chip
+  check, reject AWDL_STOP while a start is queued, AWDL_STOPPED with
+  -ENOLINK when the firmware removes the interface, UNSPEC first in the
+  vendor events
+- Patch 6: abstract event codes for the AWDL events, mapped and
+  registered by the WCC vendor module, log dropped events
 
-> * exact kernel version (upstream kernel tag or SHA-1)
+v2: https://lore.kernel.org/all/20261125190254.176055-1-dev@deq.rocks/
+v1: https://lore.kernel.org/all/20261104151547.70333-1-dev@deq.rocks/
 
-v7.4-rc2 (9d66f26fefac), and Frank Li's imx/fixes (acba37c2e2df, based
-on v7.4-rc1).
+Andre Eikmeyer (6):
+  wifi: brcmfmac: move the interface_create definitions to fwil_types.h
+  wifi: brcmfmac: detect AWDL support of the firmware
+  wifi: brcmfmac: create and remove the AWDL interface
+  wifi: brcmfmac: add the AWDL data path
+  wifi: brcmfmac: add vendor commands for AWDL
+  wifi: brcmfmac: pass AWDL frames and role changes to user space
 
-> * clocks used and measured on the lines
+ .../broadcom/brcm80211/brcmfmac/Makefile      |    3 +-
+ .../broadcom/brcm80211/brcmfmac/awdl.c        | 1163 +++++++++++++++++
+ .../broadcom/brcm80211/brcmfmac/awdl.h        |  123 ++
+ .../broadcom/brcm80211/brcmfmac/cfg80211.c    |   49 +-
+ .../broadcom/brcm80211/brcmfmac/core.c        |   82 +-
+ .../broadcom/brcm80211/brcmfmac/core.h        |    7 +
+ .../broadcom/brcm80211/brcmfmac/feature.c     |   32 +
+ .../broadcom/brcm80211/brcmfmac/feature.h     |    8 +-
+ .../broadcom/brcm80211/brcmfmac/fweh.c        |   19 +
+ .../broadcom/brcm80211/brcmfmac/fweh.h        |    7 +-
+ .../broadcom/brcm80211/brcmfmac/fwil_types.h  |   46 +
+ .../broadcom/brcm80211/brcmfmac/vendor.c      |   90 ++
+ .../broadcom/brcm80211/brcmfmac/vendor.h      |  109 ++
+ .../broadcom/brcm80211/brcmfmac/wcc/core.c    |   39 +
+ 14 files changed, 1723 insertions(+), 54 deletions(-)
+ create mode 100644 drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.c
+ create mode 100644 drivers/net/wireless/broadcom/brcm80211/brcmfmac/awdl.h
 
-Clocks read from the registers, not measured on the lines:
-- LCDIF pixel clock: 72.375 MHz (video_pll1 144.75 MHz / 2, set by the
-  DT fix [1])
-- DSI: 434.4 Mbit/s per lane (samsung,burst-clock-frequency = <434400000>,
-  DSIM PLLCTRL 0x0155541F), so the SN65DSI83 runs its LVDS clock at
-  434.4 / 2 / 3 = 72.4 MHz
 
-Without [1], the pixel clock is exactly 72.4 MHz, and the panel shows
-line glitches even with 4af021a97773 reverted (about 12 per minute).
-That is a separate, older problem of this board, which [1] fixes.
+base-commit: 18d0bedbb5f0538396cb7f763ed9cd1dd69c5b23
+-- 
+2.56.0
 
-> * difference observed before/after the patch on the cables and in software
-
-                         4af021a97773 applied   reverted
-  without [1]            constant glitches      ~12 glitches/min
-  with [1]               constant glitches      clean (50 display starts)
-
-The glitch is a missing line for one frame. The SN65DSI83 does not
-report an error (register 0xE5 stays 0). In software, 4af021a97773
-changes the DSI mode flags from 0x2e3 to 0x283, and DSIM_CONFIG from
-0x1670707F to 0x1610707F, so the HFP and HBP blanking packets are
-sent.
-
-> * any other detail of your investigation
-
-I think, but I'm not sure, that the HFP/HBP packets don't fit into the
-line time, because the DSI link runs at exactly 72.4 MHz * 24 / 4 =
-434.4 Mbit/s per lane and has no headroom. As a quick test, a 724 Mbit/s
-link with the SN65DSI83 DSI clock divider changed to 5 by hand was clean
-with 4af021a97773 applied. That can't be set up properly without the DSI
-link-rate negotiation discussed for patch 2/2.
-
-Unlike on Ernest's board, disabling burst mode does not help here: with
-patch 2/2 applied on top (DSIM_CONFIG 0x1210707F), the SN65DSI83
-reports CHA_SYNCH_ERR (0xE5 = 0x80) and the driver resets the pipe
-about once per second.
-
-[1] https://lore.kernel.org/all/20261127093953.3541816-1-andrej.picej@norik.com/
-
-Best regards,
-Andrej
