@@ -1,86 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795778389;
-	b=MgJQhN6zt9KLm+OEuqMt1rZZhz47QXJy1eDEXreeMbT+1kXW1h5yqOnwKyYhsUO59bMl
-	 Eb9GiTaNKPhKrXfjcOhi+xnBpxSewEV97Bxq6Aeb6/hsFqH5dlGhCM4DGubDEuvN65ae1
-	 RFauyjkDe+rUtJSktldi7ZR50GiPbHv7NAyB3uFM3o/fjovRtSegrSa58+fYUT5Edj5A0
-	 SNjeNXetLRaUL/LraDvm8ixGu4I+4JyfS0FeJAz/hMmyC6lKMOklJ7lYmvIHXQwzBndNf
-	 CF5etP/1406N8B0CVKQhE2/Gjx2Atc7XoJ+IwJtifZylTVXaC19qHYaQZ2uaIVUHiVQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778389;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=rRork88nwVcPoZLZ8YOGPPsgLg0KW2kZByQIjPw7eqA=;
-	b=xr3EyH2f3/hFWbaKQ5i7HmBhUiVRSPk5f/iTbRTCULXwibqOgjUL8maG9kiZy7ysYYCx
-	 OjkOEhEjPwoH9yVUKx8K8DxnQNhfGf3DHl5zvmYoKT3o0Q0gBIRckE7vHgAyCTuvSaqqn
-	 ApwKgy7XwwsuXttBCfYo17f5wCpYyTWoLSCs6zLdN68S/Mze+SQ+bynTqvNCK6YfyT3m5
-	 jbKQtjvOcZOfp3NsP4YCcz8XrSlWIEab87+85XeK4385ryGy8bUKCAvQFfB1KzvCE18rN
-	 Re12A0V9T+n1nZvnUH41IcRbJLuqCxlea91lKkg1ssXGJSkg98NXVWaGJaux0MIZxfA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=GZeDJ47k;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795778409;
+	b=R8+PdaNpRz+6Oz1L/B435WNqV9X3aiBJkvo/JTerrnkUTufU02bMLnTMJcqAWGjvsAks
+	 chllo73D365BdoggPb9BPHK6u+zoRCDlR3VuJJ/FyaSj1ltna9W3Ua2sPi80bk1SXdkZ3
+	 dhJWPj/vhTCvCib5+dt6y6Dz4j03zxHWWjNHKg7DJ7lLhwzp78rqiM5SngxKqOOnKHeXZ
+	 WcP7TB6YLR1h8ZLO49E7j+7be0bCYQANImsXWX7coCRrR6tfuhg5F4k9H8jXuFs5dubiE
+	 dhLxaYv/YgaoVhNBGHWx9AFdcOpdO+aeA7fRn3KSYr7eY5EYhn4N+faRj4x3jMZSpVw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778409;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=2ETb1QafyRI6/oHfjDrfqCfUkUUni7k0hQ6WfP0vU/8=;
+	b=EfFEIw/icZacO9YsCh5wTJJa+UYSkouMRkuuedcHD9BdJHtfoTw/opmf/EUE8moNEfp/
+	 H6Wpybp2MVZGlukYXRMPDnppE2BDfCcr2eYApsmQP/vbSisecE/nU5tFdfVUFb4bY3E+U
+	 6CHR1EMw9ar8wNGlDQh0CXaKEd9ICVn0vfTtptJwMRITro5PZDPZ7+QA8k+wTB8x/3U7p
+	 gIJtbUQU/OR6/z7eMQN15erg607wDsQ2EzTQBiIssu3ig3pRomoSXeDkZ/mBAvN85uvar
+	 bpavPIp6AT5rRB2HrA1qOKOdBhgSlmebu90Xw9k7EhHK6O/g7Tt7qeX7TQRbGjlP4vg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X3TTtCYE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 843D4606A31E;
-	Fri, 27 Nov 2026 11:19:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 843D4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B975606A31C;
+	Fri, 27 Nov 2026 11:20:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=GZeDJ47k
-Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.4.pengutronix.de [10.9.0.3])
-	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9A6D32058CE;
-	Fri, 27 Nov 2026 12:19:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795778386;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rRork88nwVcPoZLZ8YOGPPsgLg0KW2kZByQIjPw7eqA=;
-	b=GZeDJ47kB2nbC0ZjqBXm1F5FDJG9PuuSfDNNJYrIEz8Vt5sJw86f59AgJrLpzqgYwj75E+
-	U+Xtfx44mpPPbb9pV9ABCFnNM1RhI3IFnV092/BdlJqG1oIVPUrHaUkg0OHiCJVjbV0xRg
-	pdW6hC01CXu/lbPXu+/j1NMQc/j05rLdVqqpnG05EoptVdhgVY8wc18HR0rMFkbeNdQbbH
-	O4xpAHDiHM8RPwMsnL8d7ppgjZ8FuXcjLFI5GGyUCkk6eZgVskd1y54V/pQinWW4darjtL
-	8PpfXn5Ivc6FGTRB11aiQ8WtYBGufB1gLGtZ/dcvfeiBMFYJPx8ecU1SjdcTfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795778386;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rRork88nwVcPoZLZ8YOGPPsgLg0KW2kZByQIjPw7eqA=;
-	b=EYd1BEl9s3PL36MDS4nqYHQocch6KfVbbqC0tDjlPBp78vG/3/WFKXWRbhGwAoXPoGgExh
-	jcloKECu8H6g8D6PtI5IXXh0eTbkrVxbyPNkZyIOKJt0tCHhVeXVsSY75hsoJSkTEhIiZs
-	kMbO9bFsbrzxG0K0u4zZTFpaaOSSvghz9ToZard0MnxQ2fQT3HiZH3IYvcYb885ovAG6xP
-	H/HMqHS5EBPAJzNQm65QdXuNFUFKt6jruvC54qBa0KQROhF6pdgnB2zVBAV0HCc+I50dnJ
-	GZ9QMztdR989+xfLvEBgjzROlE0wkU4fr9iHv/lgLu76CE8lru674InBe8dcRA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795778386; a=rsa-sha256;
-	cv=none;
-	b=MoZI2zEqVMdN2h5RaVJb/Nkot/DcqzJRXpdrWZkQ/tS+dzoTAtwNkeiv5eg+s/RSTLdlqs
-	Hp8XW9p/2aV92fmThC5CzFsgtefQUPDGrnnmUb8zptVwJVnaLc4G1/ytpoVRTrJd78oYPf
-	69+TvSXOS5Kx7K/v0TEH43kqZg/be4WtSghx8N4dNwszSjdqM3espRb8iF3PdV4dimJFku
-	CpvHP6v8NnkIuNkHjcToo1uHhU0dAk05SWU/WdW4BDq+sLR75iNYxctbh9qFCxtF589/MI
-	4GJcTrRMIuiBr84FqbyKzK6rdzaPLD6OE9MoCCKll7qkPf6YzIsdJ3du8NRowg==
-Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
-	id 7D9371BF7BF; Fri, 27 Nov 2026 12:19:46 +0100 (CET)
-Date: Fri, 27 Nov 2026 12:19:46 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Hui Peng <benquike@gmail.com>
-Cc: robin@protonic.nl, mkl@pengutronix.de, mailhol@kernel.org,
-	kernel@pengutronix.de, socketcan@hartkopp.net,
-	linux-can@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] can: j1939: return 0 instead of user value in
- j1939_sk_setsockopt_flag()
-Message-ID: <awlnUrAP4PGtg4OO@pengutronix.de>
-References: <20260919213632.3313825-1-benquike@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X3TTtCYE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B7A91F000C1;
+	Fri, 27 Nov 2026 11:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795778408;
+	bh=2ETb1QafyRI6/oHfjDrfqCfUkUUni7k0hQ6WfP0vU/8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=X3TTtCYEl/CNkWbszOL2/NTMFsJu73ACHXYum+HEh6WIPYXMg2ynyTzq+I8Cd4qOY
+	 EOzIRa8w69HfAYLkkI22528BwZDYPEZvCdnWgzsrYySdtZSMd9BFPNHFdllshGY7Xl
+	 0v+M0Ox7zmAQ8C610RyONIuZrWe4GrJgdJowCy+mF0zjfRZekmSS44aEeJ2OARFZ+V
+	 fHoygLNWwMA5lI9B0pCf8Q5ocEYgCESOKLWFzT8kIZmq1CeI2Mu18Lp+5kngfoC5XL
+	 pWGMUb9NdIhocvWFxtw0sBuV8KG7ogq2vvaAwBafk4pO7FE/HIyKMfWSfOEalQ1MDA
+	 yBLOwW8BM+bkQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 717AB38003E0;
+	Fri, 27 Nov 2026 11:20:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,35 +53,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260919213632.3313825-1-benquike@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v8 net-next 0/9] net: dsa: netc: add PTP support for NETC
+ switch
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179577840725.924205.8910316217595010398.git-patchwork-notify@kernel.org>
+Date: Fri, 27 Nov 2026 11:20:07 +0000
+References: <20261119030534.1892935-1-wei.fang@oss.nxp.com>
+In-Reply-To: <20261119030534.1892935-1-wei.fang@oss.nxp.com>
+To: Wei Fang (OSS) <wei.fang@oss.nxp.com>
+Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ richardcochran@gmail.com, linusw@kernel.org, linux@armlinux.org.uk,
+ wei.fang@nxp.com, imx@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
 
-Hi Hui,
+Hello:
 
-thank you, and sorry for the long silence.
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-On Sat, Sep 19, 2026 at 09:36:32PM +0000, Hui Peng wrote:
-> In `j1939_sk_setsockopt_flag()`, after copying the integer option value
-> `tmp` from userspace and updating `jsk->state`, the function returns
-> `tmp` instead of `0`.
->
-> If a caller passes a negative integer (e.g., `-1`) to enable
-> `SO_J1939_BROADCAST` or `SO_J1939_PROMISC`, `if (tmp)` sets `jsk->state
-> |= flag` and then returns the negative value as an error code from
-> `setsockopt()`. If a caller passes a positive non-zero integer (e.g.,
-> `1`), `setsockopt()` violates POSIX by returning `1` instead of `0`.
->
-> Return `0` on success in `j1939_sk_setsockopt_flag()`.
->
-> Fixes: 9d71dd0c7009 ("can: add support of SAE J1939 protocol")
-> Assisted-by: LLM
-> Signed-off-by: Hui Peng <benquike@gmail.com>
+On Thu, 19 Nov 2026 11:05:25 +0800 you wrote:
+> From: Wei Fang <wei.fang@nxp.com>
+> 
+> This patch set adds PTP timestamping support to the NETC switch, so that
+> the switch ports can be used for IEEE 1588 PTP synchronization.
+> 
+> The NETC switch has no time registers of its own and instead shares the
+> PTP time of the NETC Timer, which is a separate PCIe function driven by
+> its own driver. The first 3 patches prepare the Timer driver for this
+> role: tidy up its 64-bit register access, drop an ineffective reset, and
+> export netc_timer_get_current_time() so the switch driver can read the
+> current PTP time across the driver boundary in a race-free way.
+> 
+> [...]
 
-Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Here is the summary with links:
+  - [v8,net-next,1/9] ptp: netc: use ioread64_lo_hi/iowrite64_lo_hi for 64-bit register access
+    https://git.kernel.org/netdev/net-next/c/1f1bfb52b44b
+  - [v8,net-next,2/9] ptp: netc: remove unnecessary pcie_flr() call in probe
+    https://git.kernel.org/netdev/net-next/c/0dd839917efe
+  - [v8,net-next,3/9] ptp: netc: export netc_timer_get_current_time() for cross-driver use
+    https://git.kernel.org/netdev/net-next/c/9b844ef56d60
+  - [v8,net-next,4/9] net: dsa: netc: tie setup resources and reset to DSA setup/teardown
+    https://git.kernel.org/netdev/net-next/c/f320f1e55e65
+  - [v8,net-next,5/9] net: dsa: netc: use entry ID instead of pointer to track host flood rule
+    https://git.kernel.org/netdev/net-next/c/bc6680acf83a
+  - [v8,net-next,6/9] net: dsa: netc: check return value of ntmp_ipft_delete_entry()
+    https://git.kernel.org/netdev/net-next/c/585b422eaa71
+  - [v8,net-next,7/9] net: dsa: netc: enable ingress port filtering lookup by default
+    https://git.kernel.org/netdev/net-next/c/26b51309ef3d
+  - [v8,net-next,8/9] net: dsa: netc: add PTP two-step timestamping support
+    https://git.kernel.org/netdev/net-next/c/d2c3f304034e
+  - [v8,net-next,9/9] net: dsa: netc: add PTP one-step timestamping support
+    https://git.kernel.org/netdev/net-next/c/8b5aba6d328e
 
-For next time: CAN patches go to linux-can and the CAN maintainers
-only, please do not send them to netdev.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Regards,
-Oleksij
+
