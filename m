@@ -1,92 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793018;
-	b=5ZpG1dPSfjuXi2kUJQHY4KJd6SF4rGB7p5tc3QyA+48LNPABKN9LzOtW3XFUUQoR8d5Y
-	 y2RRn/GvPgGKXZj2XxvSyYB1RiZyA/dxV0ljZ+ujLBjxSKM0ecJkMZ1/ExBjZXI3mr88j
-	 S0EVqOSpl6fBuXBNvPK3EQ6PR2omRHaJK52EOno8LNm51ybruWfRX8vakz6tWAUAS15zR
-	 9vIXZKP1WU/SuU0DUK+4f0VCs702JsUVjvMgRn9FSM//Gn72HftktER53yQwoZQBO6rKs
-	 mNARXJ62pI/7ipLj1q/GaeTKcdWtBSeAIS/3f+njV1B/nJsyM/rjkroVO6A3fUqVSXg==
+	t=1795793019;
+	b=EphCpLXyEIgGybaYFnkwi2t1wzhfLG2HEutKWph7WoQ4vm5dRLtlGgSE4KfFIGkEtQOE
+	 Va+VsU8dqLzw0zcmqQQA4dM1C2NnESGlONd4fmzhSuSi0i9646GIA7vf/1WXjP8df7n5a
+	 GQZQvEx26+gUZpffEa0K89wQZrOj+hDdni0ODnEI858gcQPxKWSkOT271/aLrV4BayBac
+	 Pu6FwMgSx3SC6BTieD6WK6//pjELKJDjtbz0qePgHcfKK+MVo6PEBm1ud+5giKDqaRjk8
+	 eLQ6E0lVELNdNcI+333GkE3k0t7b4fu/tVlb7QxOPeeA6FwnEo0J31Ef2zjtEbMH3Yg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793018;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=+fupf6lvO00F5v0Mc4Ym4lHQfcOxw66+HeSzTfZRHb8=;
-	b=CnUTKekPdZ5WDjDh4WH6mwZxyQXB3w56AbO6YqwELl5VV3L024GnmeQWGySZGG/ogW+g
-	 ClYEKFEeaOn5OsOZAGsG0N56Sib48zvh5JGlUJj6O/Ha7zUKI8cTEoX6piUm0GIz1dvyG
-	 pvbhT2Ufjt4DUvMuFaXemSjc1qj8hM7aYazDTXyBpjIO/LfnCewgSIo21JAnvu4FKz4zj
-	 V+m3z/V69tuv8LEVJ45yGNZ/ZSTqcAGa3T8EnD48euuCeJY8o4eT9quNNjyN5ejm5sjwU
-	 eSc3CRwRy4po8ExXm0dPumMbOFGXSvUEM/3PMctTgNBTyszOTdlA6Zz1AggVGefSdDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793019;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=WsBNj7VIMT9Rex1IplHHRSQ8v1QyTHdnKiIH/swHccM=;
+	b=nRl4+h7gbe1YYyLPYBt46avtoimH+APyoOB3EoVfqPaIC5jFiUM2p+N12AJjUWNcTkUT
+	 lCAzqwzKvPKEPyYhS0FLfuIIZ0q59KcBMAbBMKtnvUcwpWseOQ8PhvU+n0ZO3f74d//0n
+	 3O4r76NsBW/XaY2B1zz2nojSlffcGTSHNjViuXE6+/3qbCONTm2ItTek5PkEffVq0KVeU
+	 9WEtmBBE0+yITVoHwbVVpNmu60r4DZBBAVXPWTApLvWb02zfMK6VKCXI5ZOQfvXiuZ4AI
+	 e3hypYZiYOPSOrOdv4Tn697glc/NpvjCPjS5oScpvS6A3+L0g/FrptLKMIHmbj46Ctw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="fMdgU/V6";
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=QboAQD4h;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35FE3606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 945BE606A32E
 	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:23:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35FE3606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 945BE606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=fMdgU/V6
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4r283266648;
-	Fri, 27 Nov 2026 15:23:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=+fupf6lvO00F5v0Mc
-	4Ym4lHQfcOxw66+HeSzTfZRHb8=; b=fMdgU/V6s/HCosDjUoQzos+hQs1whF73U
-	akPMHje6Xeq0NkpMaRZhSJ5Slws9xVxBoBqErnqwCjXmr8LXLH5CtSxfiKILeUQw
-	D32pIKTnBMnNMhFYhsmzwlk+VsbN5jLDtkk4CLadRs8xn5k5WfWAHxsi1iD/vWeq
-	1a4neTQbf7ykVGalO9n5heFcVEtGSdkgUKxQGu+e4OAnuPuP7X50gOIJrgiEPU7B
-	9qGLNQPEGIHXjS0AfpjVLr4PWgDP+7LzgrcUnZptwHGU1M6VTXuLYmEnBYDnki1h
-	Ej8CTXsoBoJHg78E1Orl/bq3orLXbvhV/CogQ2EtYNDKda05z+ZKQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fkxdjt-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:23:11 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4ENm1180971;
-	Fri, 27 Nov 2026 15:23:10 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j6rhckr61-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:23:10 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARFN6an53412098
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 15:23:06 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E468B2004F;
-	Fri, 27 Nov 2026 15:23:05 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 30D3020040;
-	Fri, 27 Nov 2026 15:23:00 +0000 (GMT)
-Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.16.105])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 27 Nov 2026 15:22:59 +0000 (GMT)
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-To: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
-Cc: sshegde@linux.ibm.com, christophe.leroy@csgroup.eu, ritesh.list@gmail.com,
-        tim.c.chen@linux.intel.com, yu.c.chen@intel.com,
-        gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
-        johan@kernel.org, sudeep.holla@kernel.org, peterz@infradead.org,
-        tglx@kernel.org, kprateek.nayak@amd.com, srikar@linux.ibm.com
-Subject: [PATCH v2 2/6] cacheinfo: Support unified caches described by d-cache properties
-Date: Fri, 27 Nov 2026 20:52:38 +0530
-Message-ID: <20261127152242.306333-3-sshegde@linux.ibm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261127152242.306333-1-sshegde@linux.ibm.com>
-References: <20261127152242.306333-1-sshegde@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=QboAQD4h
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so66494115e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:23:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795793017; x=1796397817; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=WsBNj7VIMT9Rex1IplHHRSQ8v1QyTHdnKiIH/swHccM=;
+        b=QboAQD4h6FlTh638/qbZrEca1ePBYi6iOTg6zCke7lOWUX02RSXg2kC0DTkf0WL/X7
+         QuLCFyjBvBQkwvNgg+u+Mp2F3LldzbTRpqZ+vVlZTiR9F4uJAT7/sdATkGx+EVlLnAUK
+         UX0d7swOYtyUzViymj1dadNl96yl46ox+3A1u/SNyW55NorFWw8ha2Rp/4vJqoAyTVpf
+         Ma2mWvQuQI/EDdpGK6P0tEmrf32JZuVqOvElsl1HnUsekBZeSiDnYoAAYP+gp2A6gVB/
+         bVjkNaMrVRt6MQ9xUvw3j0qQkpP796bZPoLKWZTIruGhHH0eOSaG5T2GRg4kZ00e7TtI
+         d0nA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795793017; x=1796397817;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WsBNj7VIMT9Rex1IplHHRSQ8v1QyTHdnKiIH/swHccM=;
+        b=PHDOIcqba8e/1+bUiCgyKkG0f7OskvnPN/CujsJRdw3h1X9k+dfmsJjNvhAF1JSYLW
+         nYlDrRB6d4RiIav1nRHiXB05Ff1wQkG/Dj6B3bPEe7A1wp8y7enePqrirosRGHKDK8fL
+         3IUpdV4BohIUaC9O/bqria3rqkcCCw3ufahQFTtSh7UUQWZOedTzdnad7BfvJjPQ1AMj
+         pBC8GPMAHxPCRsWtjAijvbJEyffBRB5z64dY9PhPvEESHcHptRM+79RYDEISLZYN7r0t
+         pZ9pExW2tI8whBBnYkFwkPocBbfl0NT75EiQdLU8nrPYNe/B/sC5HqOfyb849F2zjWkh
+         iqlQ==
+X-Forwarded-Encrypted: i=1; AL+hErHYD+GCMhg5yeXlE1Y8ZmAf/ZSc0n8ve2FRm7kbiS/2vzYKQkgn9ZOh5GdhLTwKW9GstoMqsOKGUl3zcTQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ItI58k4fLNKU6eMDA0AVrtM1WHOQpQl7YLEP8TmkpfRweD4Xl
+	Waev7w8eg6JNHJ7mAvw5/MDCHK5gBNqAB0nlWcFhwffD4SVjqgh2nCsMYCnS5YHy5Hg=
+X-Gm-Gg: AZFdTZfvFgjq6z/52ko93xpkIsPEDP7udYSWOZmg+MI6LVvOOjjB6SupTUJU8597LI9
+	oK+it1UQ9Gu5n/LRNfNR6uH5XfIRuFVdAZbJQQ69L6nl9sedETJWoQvhYeOMBnp43xPrmMBEpI1
+	u6I6svGnggiyIvuGm/Fnq12s8N68r6wsPr5zCpxgFvdzbWEvFiBCrTF3P9p78EnJikYhjURVrWz
+	yyttM/lagH3Sm4rDisJ50l/tYu+TjH+UHYhLOyaVqzrvstHbiwekQ+KFc8da+858U3vhV3ui/IE
+	VlmTgZYHt1GibbDw2MzCHvvOqspGhPmDjypZ4fkIVxyq5fcDAdWku66B5vz/LkMig5ZyiFiznwl
+	f/1q53Iwvq6TpRbnwxG0iqGdqkItMZu5fsev2BuOSJ/L92KlQRiq8kjmAXfIC21/xWBwtJXnP3F
+	b7rii8jVWPPLvGbcDlUfclm1JjCoGCCLh2Ta140kC20p6qLy1HoDcZDvpmQTpdAirpitKyjBPJh
+	iZVaQdqfi00yXODT5GNPy86OWZgfzwcVJJN08+Zs/bPGoPqy784yYGzYa3Vik3EGRlrCKxyUXmG
+	DhX4X9nv8eVWu35OYOXUidtLxn4RfhJ83q3NrlUKc3OoBERA
+X-Received: by 2002:a05:600c:4f81:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb88805902mr482584215e9.7.1795793016430;
+        Fri, 27 Nov 2026 07:23:36 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm403008435e9.0.2026.11.27.07.23.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 07:23:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,122 +89,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA2MCBTYWx0ZWRfX7A/2KmqAbOdk
- lqlvw18444F9iqfmDKXp4+mDdsvlFf/TLM8yfM2T5D7gAqgFGaEz26sjssO/q1fcy8pKS+xaA1G
- maENqq5c8AtDaIBIpj2xNA3NZrJmrlAdPHtjI9+3Q2X6BgfHdqLKu/1eamJ0iI1QZ99K556oEv/
- mYW4L4qs8Qk1IoaJ7k9QA6ggWBlyejVnr0zR7wFeAp5HpnaNbfihF8oEy6Yw2dh9N3Y5ekKvQX8
- IBaZQODGbsoUVn5sOrbeaLvUSZBVxtkxsMGOYFaCFlrXzMG5o+frpAmPVtCqnzqzM665tsVISzx
- nni15/5cHQ66DS04zQh0Hxz5F1MR1XrbsNvHKfEC21Q+UhcbOqIMGsyXrLntsw4+3RrfGMmeG7Q
- IiKja4tOky7YAonVdpc6KVWi8oHrs+esb1xv4kLMnx0wy2VTD3DjhiCUIDsx7jRuoA/3BsmO0RU
- XzCKJfBaSiFJrKfQkaQ==
-X-Proofpoint-ORIG-GUID: c-0GeN-vVU-5ogbCifPbbxvHpe5sxh5A
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA2MCBTYWx0ZWRfX+GRTnyrVbpjR
- 8Dv/xwEmwzw+4v0rYJbza/zsgMAs3c8Q/Y5TfPy/nl5fDhEHAfJf8UOvFHRhUnUJT42TXNlZTWq
- hZZ0rLulStqbctovcyASOZKopmkOPHw=
-X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b09a060 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=t_fYOQ62Ex-2Ni1ZEtoA:9
-X-Proofpoint-GUID: RuOKydFePPLanC_e1rO2aHKrnu8v2VEX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
- bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270060
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 1/6] clk: starfive: jh7110-sys: Fix memory leak in
+ reset controller register
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Changhuang Liang <changhuang.liang@starfivetech.com>, 
+ Brian Masney <bmasney@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <179579266081.2809466.15729395589845750540.b4-review@b4>
+References: <20261123112053.20400-1-changhuang.liang@starfivetech.com>
+ <20261123112053.20400-2-changhuang.liang@starfivetech.com>
+ <179579266081.2809466.15729395589845750540.b4-review@b4>
+Date: Fri, 27 Nov 2026 16:23:34 +0100
+Message-Id: <179579301418.2809466.2771229024752123171.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=581; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=Vst0VQm1vcSZ7OfH3CNMLMaYl5sNZoVSXY6fEdIrm0c=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmcC8qOOV6JqahZuVC1YoPfnyUabkl6O6p0QvLXS+2c5
+ pa4zXNZRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACaybzEjw8GazYsXiQc0lB4L
+ cP+a8ElOj3NzsajI3W7Wi+c/FlYf3M/IcCmQ+8aHyZke7Md4fv0MdC5S9PwjXBjd9CTS67x3OyM
+ PCwA=
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-PowerPC device trees commonly describe a unified cache using d-cache-*
-properties.
+On 2026-11-27 16:17 +0100, Jerome Brunet wrote:
+> > auxiliary_device_init() returns an error before device_initialize() is
+> > called, so the release callback never runs on this path and the rdev
+> > allocated in jh7110_reset_controller_register() is leaked.
+> > 
+> > Free rdev when auxiliary_device_init() fails.
+> > 
+> > Fixes: d1aae0663023 ("clk: starfive: Avoid casting iomem pointers")
+> 
+> sashiko is right about this tag, this needs fixing
+> I'll do it while applying the change
 
-For example, Power11 L2 and L3 cache nodes have cache-unified together
-with properties such as:
+Arf I got confused , you've already fixed it up. Sorry about that
 
-  d-cache-size
-  d-cache-line-size
-  d-cache-sets
-
-They do not provide the corresponding cache-size, cache-line-size and
-cache-sets properties expected by generic cacheinfo for a unified cache.
-
-When a unified cache node does not contain cache-size but contains
-d-cache-size, select the data-cache property set. This only changes which
-device-tree properties are read. The cache leaf remains
-CACHE_TYPE_UNIFIED.
-
-[Both draft changelog and code are written by LLM under guidance]
-Assisted-by: LLM
-Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
----
-A Subsequent optimization if the series is in an acceptable shape.
-
-Cache the idx first and then use it in cache_size, cache_get_line_size
-and cache_nr_sets.
-
- drivers/base/cacheinfo.c | 24 +++++++++++++++++-------
- 1 file changed, 17 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index 10a9bbce899e..4a23377e9312 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -148,11 +148,21 @@ static const struct cache_type_info cache_type_info[] = {
- 	},
- };
- 
--static inline int get_cacheinfo_idx(enum cache_type type)
-+static inline int get_cacheinfo_idx(enum cache_type type, struct device_node *np)
- {
--	if (type == CACHE_TYPE_UNIFIED)
--		return 0;
--	return type;
-+	if (type != CACHE_TYPE_UNIFIED)
-+		return type;
-+
-+	/*
-+	 * Some device-tree bindings describe unified caches using
-+	 * d-cache-* properties. Select the data-cache property set
-+	 * without changing the cache leaf type.
-+	 */
-+	if (!of_property_present(np, "cache-size") &&
-+	    of_property_present(np, "d-cache-size"))
-+		return CACHE_TYPE_DATA;
-+
-+	return 0;
- }
- 
- static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
-@@ -160,7 +170,7 @@ static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
- 	const char *propname;
- 	int ct_idx;
- 
--	ct_idx = get_cacheinfo_idx(this_leaf->type);
-+	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
- 	propname = cache_type_info[ct_idx].size_prop;
- 
- 	of_property_read_u32(np, propname, &this_leaf->size);
-@@ -172,7 +182,7 @@ static void cache_get_line_size(struct cacheinfo *this_leaf,
- {
- 	int i, lim, ct_idx;
- 
--	ct_idx = get_cacheinfo_idx(this_leaf->type);
-+	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
- 	lim = ARRAY_SIZE(cache_type_info[ct_idx].line_size_props);
- 
- 	for (i = 0; i < lim; i++) {
-@@ -194,7 +204,7 @@ static void cache_nr_sets(struct cacheinfo *this_leaf, struct device_node *np)
- 	const char *propname;
- 	int ct_idx;
- 
--	ct_idx = get_cacheinfo_idx(this_leaf->type);
-+	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
- 	propname = cache_type_info[ct_idx].nr_sets_prop;
- 
- 	of_property_read_u32(np, propname, &this_leaf->number_of_sets);
 -- 
-2.52.0
+Jerome
 
