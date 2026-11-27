@@ -1,54 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.103
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795745720;
-	b=v0F7pbOneg5cDF/0dguK0MhwYKb8HpYo23ax3W+Xd9LjYwrdqW4n6Ye6VQQxAmSoqlwn
-	 BR666EvUTT6acISWTKvylbij/HTOlRGXuCeoN9AZJ1IGj+1+ye9B1rgsp3T2X6bGUyArr
-	 b+vpk2YYqyJ4MGSxRUJ1VUedTknBwbg8Lx/AyubPMfBIZYpQ5iPodyC+NGjysWjgJiKwO
-	 qNJsXtupmLGc8hDYG1yFIze//jISJcfZ0YftRfC+HBvSkn6dxZPy7yzOF9rpioyx2+poT
-	 2bOtNG412XshNp7g8/SCdZ2c85oth9AAkI4ij4yf1oQYU08y58aD3dPCXMda+cLPECw==
+	t=1795745764;
+	b=Rf2ywEqVCWjHPHg9g7FvdOJTvpnjsYqaLFI2uX4QHRacsw9/7X0EbEHKE8vDIBWNPdek
+	 boOyUWJzzlNklIuablusXJvAt8Gk+V7FmsHJxIAJXMrl62vsu2AOS4KquPwws/9Hq/cig
+	 meH9Ne85F2W10u50+uIncF6zU3BMIblA+P7Lety0q/tiTbwUR0FfpvCurTo9keYMqzClW
+	 4cViJ2nlk+MBS4YLMZ+FeAE8yrZUFS56TciWoAsLgb8DP7XDBmnOem66ucQ7XeDKP3/CV
+	 t5fNONk2izJwicGynG0nzVibdYb2zNe3OQZiNhpuQFhpCzTxVeMxsvrzZySJC1PAWpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795745720;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=oBOKoaA48rE8EF/1cfxHdI1AQ5POAWxUBxC+DwiRvrc=;
-	b=18WFm8LVIsV3idMlur5XeWudKgdrD2PFtb9h7pZMAI7Pgrc0+hfoWg1omPu6GLjKbGRy
-	 OOtyjHErv/UFhSbcSfLEWAxlzE2TDxTrchcxh0aofHz/I7Mbr+OkutDzQbcJw9UguRPFl
-	 vE+nnNmA+/XRnWZWanrsMQ6KUnyvXW16QNtDs+Zpuc8b3tNC8zP3OsNevjTwS99meEwy0
-	 aR3NXm/bFmHl3Z8UYmFSZWUwjOEfn9Q5vgLBrhGFxKoql9tj0Td/skiToiulga4BR2AT1
-	 ESQQwUbBMNQw5OG+iXLhaH6+roAAPrCzAX32FNdsG6H5/SL7Abt99vMrTDrePcYLWlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745764;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ZYwW11y1BuE79hCP7Uw1MSeobFbL0BdeC26vggEbpMI=;
+	b=vn3YyYI6PuI5Nxj1a0xUoMwA2wOi6vnqqvjppcUvB1iQa0NvpOL2DK1hyVY4rq+UUtIK
+	 Y7cuKoWAPMeMm1Rxkpio9ti0G16DNLFH6bAiXD6BpyWw4GSA7Id0Tag4jh1MLi7c0gxFK
+	 gK7bGBXBNN8V8dpaa/Za90fEMyPSM0jSn93uPPGAnjik9kXuDwZvbOesktfu7JeUQ9Lge
+	 XM9jroglVbhkZyzm0FOZbcy/xiPkJYQEUATYfBucFrl286skHQzTkTIvXykoyQD14VW9c
+	 4OnyBvF/3koH7kFGIn/89fg/fSyRrKXGcOFtX4hJwDjzpMiD30DXZyqvAGT48v5m+Cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Vhtr0wvK;
-	arc=none smtp.remote-ip=91.218.175.103
-Received: from mta0.migadu.com (out-103.mta0.migadu.com [91.218.175.103])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYOP3VhH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E872F606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:15:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E872F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2498F606A31C;
+	Fri, 27 Nov 2026 02:16:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Vhtr0wvK
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=c4X+gqMxgHivpxeHUP0pL4+jrGpSF5DB2qBHND7Atd4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795745717; v=1; x=1796350517;
- b=Vhtr0wvK5D+MgFYXopkQY3QlGnEpdp82rS3J+/4yEfqlgfxZWGvOJVGOeK/mDEDfUhPR+lJs
- 0jIYJzfZ8d0Ba+tCtZiy4pAD3rJzWoNYT7Mt5ehS9MXypJC8fhSfZYxG5+9bRw8eon4Ru/Fd0QF
- Xdj2knaOVinklxelOqkvxW28=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 60c40adf911d4eda;
-	Fri, 27 Nov 2026 02:15:14 +0000
-X-Mizu-Trace-ID: 60c40adf911d4eda
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <bc6e38f6-1412-49d0-95e2-76d5e9fc3858@linux.dev>
-Date: Fri, 27 Nov 2026 10:15:07 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYOP3VhH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C38D1F00893;
+	Fri, 27 Nov 2026 02:16:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795745763;
+	bh=ZYwW11y1BuE79hCP7Uw1MSeobFbL0BdeC26vggEbpMI=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=SYOP3VhHuxIYwjalx2Obow679j42AqATwdXi4unlbZmuvtN8OrGBh1r4rlZqKS4GY
+	 g/qpf6Tdm/OQ4ab+AlVqpHVjZuA1Wi+RGcc4333U0KTnBuZZkEkp3kElNYl98DTplZ
+	 yahxQKaOfSlwz64LX2FNFNckKQ5jGM9xzMLOaD960k0LlXd5YjqeIC9Lifns+M+b35
+	 WOOxUHEGK10czZi/cw7l57kg29G4L7xq/pSa8mMQS2I9tUbs+S/ydFD2CA789Ahpd+
+	 2OHXZHGXLCCn4s1Grqt03GNDO3pF82U1hOnWleUmT8H3N8VVfg8rc/kAtcFFWiDb0b
+	 P7yDTMRDbWPIw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,93 +49,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under
- cpuset_mutex
-From: Ridong Chen <ridong.chen@linux.dev>
-To: longman@redhat.com, frederic@kernel.org, tj@kernel.org,
- peterz@infradead.org, mingo@redhat.com, juri.lelli@redhat.com,
- vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- kprateek.nayak@amd.com, hannes@cmpxchg.org, mkoutny@suse.com
-Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- guopeng.zhang@linux.dev, mathieu.desnoyers@efficios.com,
- Ridong Chen <chenridong@xiaomi.com>
-References: <054a53a3-c038-48fe-ac01-fc24fd8065d0@linux.dev>
- <20261117083915.2971979-1-ridong.chen@linux.dev>
-In-Reply-To: <20261117083915.2971979-1-ridong.chen@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 2/7] ASoC: cs35l41: Prevent software reset when
+ using SPI
+From: Mark Brown <broonie@kernel.org>
+To: Stefan Binding <sbinding@opensource.cirrus.com>
+Cc: Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, patches@opensource.cirrus.com
+In-Reply-To: <20261125115124.9130-3-sbinding@opensource.cirrus.com>
+References: <20261125115124.9130-1-sbinding@opensource.cirrus.com>
+ <20261125115124.9130-3-sbinding@opensource.cirrus.com>
+Date: Fri, 27 Nov 2026 02:15:58 +0000
+Message-Id: <179574575897.838304.8691157769089102804.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1394; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=H+0hH3VrvG0QH/NhB5QAIRBccSjoGg9S67lk3ifRPAA=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5nj/4oH0snPdvUMIK4aMOs1gtw2et1LfwnbdIWcsp5
+ LqobUVGRykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACbCsYWR4eFPwbyUvVftL4do
+ TDgza0575aq5fkdT60Kky+KnX5i2r4fhn+qLv2W3e6b/kMgWv/hOcN8H07orB7leFW1ffGuN4k4
+ eC04A
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-
-
-On 11/17/2026 4:39 PM, Ridong wrote:
-> From: Ridong Chen<chenridong@xiaomi.com>
+> If there is any SPI Bus activity during a software reset, even if the
+> chip select is not set for that Amp, the amp may not boot.
 > 
-> Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
-> holding cpus_read_lock") calls housekeeping_update() after dropping
-> cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
-> switched and freed outside of those locks. But readers holding either
-> lock may still access it without rcu_read_lock() as allowed by
-> housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
-> for them:
+> This affects both CS35L41 ASoC and HDA drivers. For HDA this also
+> affects system resume.
 > 
->    CPU A                                  CPU B
->    rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
->                                             mutex_unlock(&cpuset_mutex)
->                                             cpus_read_unlock()
->      mutex_lock(&cpuset_mutex)
->      p = housekeeping_cpumask(DOMAIN)
->                                             housekeeping_update()
->                                               rcu_assign_pointer()
->                                               synchronize_rcu()
->                                               kfree(old)
->      access p <- UAF
+> Whilst the driver needs the amp to be reset when coming out of system
+> suspend, the driver will always toggle the reset GPIO off and on to
+> ensure this occurs. If a reset GPIO is not defined for the amplifier,
+> the amplifier will not probe - unless the amp is using a shared reset.
+> In the case of a shared reset, the GPIO will control resets for both
+> amps anyway.
 > 
-> Fix it by moving the pointer switch into housekeeping_publish(), which
-> is called before dropping the locks. Then CPU A either finishes before
-> CPU B switches the pointer, or only sees the new cpumask:
+> Link: https://bugzilla.kernel.org/show_bug.cgi?id=221161
+> Fixes: 9bfbc1af0713 ("ALSA: hda: cs35l41: Add common wait_for_boot api and reset_and_boot api")
 > 
->    CPU A                                  CPU B
->                                           cpuset_update_sd_hk_unlock()
->                                             housekeeping_publish()
->                                               rcu_assign_pointer()
->      mutex_lock(&cpuset_mutex) <- wait
->                                             mutex_unlock(&cpuset_mutex)
->                                             cpus_read_unlock()
->      p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
->          <- new cpumask                       synchronize_rcu()
->                                               kfree(old)
-> 
-> The rest of housekeeping_update(), including the workqueue flushes,
-> still runs without those locks.
-> 
-> Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without holding cpus_read_lock")
-> Signed-off-by: Ridong Chen<chenridong@xiaomi.com>
+> Signed-off-by: Stefan Binding <sbinding@opensource.cirrus.com>
 
+> @@ -1627,27 +1640,35 @@ int cs35l41_reset_and_boot(struct device *dev, struct regmap *regmap)
+>  {
+>  	int ret;
+>  
+> -	ret = regmap_write(regmap, CS35L41_SFT_RESET, CS35L41_SOFTWARE_RESET);
+> -	if (ret) {
+> -		dev_warn(dev, "Failed to write software reset: %d\n", ret);
+> -
+> +	if (cs35l41_is_spi_regmap(regmap)) {
 
-Hi Frederic, Tejun,
-
-There are two fixes for the HK_TYPE_DOMAIN UAF after commit
-a84097e625f2, and neither is in linux-next yet:
-
-[1] Waiman's v2, which takes cpus_read_lock and cpuset_mutex once
-     before kfree(old), so readers holding either lock are done
-     before the old cpumask is freed.
-	
-[2] This patch, which switches the pointer before dropping the
-     locks, so readers holding either lock only see the new cpumask.
-
-Waiman said either one works. Frederic, since this is your
-housekeeping code, which one would you prefer? Tejun, could you
-apply the chosen one to cgroup/for-7.5?
-
-If it is this one, I will send a v2 rebased onto for-7.5, as it now
-conflicts with housekeeping_set_cpu() from commit 884e88175b95.
-
-[1] https://lore.kernel.org/all/20261117051853.2429410-1-longman@redhat.com/
+What happens if for example we suspend but the suspend is aborted before
+a shared reset controller actually asserts reset, or if someone unloeads
+and reloads the driver?
 
 -- 
-Best regards
-Ridong
-
+Mark Brown <broonie@kernel.org>
