@@ -1,79 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777386;
-	b=BF1UtyCDxjRMJKQqly8LJEjU/hIyQB/wY5hoLVzA+epP+N/Ew3mjuz/Vi+EykLCjFzyI
-	 dg4ea781CBqS149cQ8Sb0mzas8L6lnup86YT2PPZj4a3mVLp2hwSTd6LmAX+rsM2yjrcH
-	 YTcMX64wG7GYZYL0/fU9dSnAqdSjKTu2m9oaBwSLiCKa7InkcUbj93BRZA+WsoIXnT/y1
-	 +sJrjU4j9SGSEwRevnmcU71yrxBvM5g+uCLUFmd7VKcBpXGzWraDTZ15G2vmb3gmMujCU
-	 VE0TuXvE4tSF3DdwVKDseZEZeylrj/SoXk4hgcAdwktQiT98dqoE/M+Ov/ZtSrc3Xvw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777386;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=IU/hlSkS0ZlcXAiMbavSZF/m8ZJfmUnU74uO4s48uCk=;
-	b=K3dOIxNjDsxpj0vsziJcrOq5QS6npzDAO5LRec/diEIEDgoKn73BDb2v+oaztiIstERt
-	 NdjIjVCJUJLkXCxQf4Yy7u3G0aN16D50a8m2ZsxDu3EbmedLJJWrOudtkBWqfPqU20IRj
-	 n8jtRu3Xj7p03MGC21w28A62lTISqIJN6xgg87+H5yDLBrxPpwwNicI+BtPCrai1wnjtj
-	 Lk1rrnUnGlyoTbkD2vTWP5UBDguAP7cDXqIPLVbGhA7dNTHGATg0u83zQOKlOfrwR5Rlk
-	 5oBOeuXu24BQFSkC1FvKZPd00xn+3ytuR0a9LKrCEDs1YOi3kCntUDb3rggTRQUcRjw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fl6vAUL0;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795777393;
+	b=H2ILfRBHHI+3jnxsc5uZDl6tNqon/qcASsPp+BDW4pJZB0r1JgpzbwOzBGcv0BdfL6vA
+	 IzdKKplxUrfjsrvUGkYB6cPfcd4lyB9XAPIC7pEJVWCJdvgVnWI+GBZCrQw8Zc+ye8iJP
+	 wd4PPjLtoQn+6CGXOOU2mgw7hJGhur23N+EzkRfpTLXn4cV2SutbicOy9h7P5HZ5FhIym
+	 pabq8zuMDLJFmo5RMo1G3ikYmv8vmycXlphXT/LBSgDZ2pPupzVFz9OW4ntQhzaArnBVX
+	 NjPe11e7+He1NKI5GD20Y4IM+CU4aTicegBuUPy0aXAEkWdUj/ED35CQnV8MuKYnqjQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777393;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=B7A358oFSEjkW+WXOoTSL18z3KDDUiMpQuX3wB/0PQM=;
+	b=hGJ0wHh6CgNN/DdcxB7qDwsD7KPj5dCt1cIOmyuyai4dD07wc0mLW2fHZQCfoYk+w/ge
+	 Erzcm9yFQB2ciVgEXAozAXatRi/72CnwW2u3bQFX0kavK/Gksoja4o3DE/TN3H0k5keXx
+	 KpqwVQUnv2NAP8L0OMoJbmdNoY1EvPnRfvZxb63hljciFEgwhWey1B0Fuzrtyeu3TrUJR
+	 9woQDvmQuE6tyLkMqNUQhK1pXvYuyDvU8qAVjkTZGKh78UjAxU5U8cOaa2wb1DUS3CtsE
+	 bAgGobJdKKQ5wPO3lHfOGJvsCmchp1aHpA/w8mcu4EhKLP3YHjpx2RsktNNNbDpgejQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OBXrW5vV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AAEA606A332;
-	Fri, 27 Nov 2026 11:03:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AAEA606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91907606A31C;
+	Fri, 27 Nov 2026 11:03:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fl6vAUL0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795777385; x=1827313385;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=60sMrvoiY0fFSRxnoXqAX03tCYSyAzPXmO7RCFfJfFc=;
-  b=Fl6vAUL0xB6W3fLdAPECl76hCBEFCT8+872WrlWTd1ojXX0WQYSlAC07
-   JM+rUUkwP3Sq1Kl4S83AcejPNeG2Ga9sZiwYOIZmD9Ii43v6c7AaUrf7t
-   6DKoW7FTj+/pS6fywR1r1MquzBJ+SLiXsu4ncboTC0FcQszJXBxAO6ClL
-   bguN6KGJgxMn9Z548dYVHoFZcl6jQ/1lM1S3Zbxrwj5G8e4XFhmdoifag
-   5auppPfQtz2nRs9QkOdhgj63nV5Cr3Q1bZHlWhfBJ+bPYURYE9nsOgLFn
-   ha1ZoVZsOSJf8kyA6bRuIbxrPVgWC+0pBskKFL9d/nyph6kNgH+BstQKT
-   A==;
-X-CSE-ConnectionGUID: pZAtlUuLTByjaepr8yn9Kg==
-X-CSE-MsgGUID: BBeYqqpqQkq1bilAPnQJvg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4544007"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4544007"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:03:04 -0800
-X-CSE-ConnectionGUID: cYAF2QrxRg6hEMuKfrKzlg==
-X-CSE-MsgGUID: MhyoIV2vRTOWhnRaWT6q/A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="14049140"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:03:03 -0800
-Date: Fri, 27 Nov 2026 13:03:00 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Joshua Crofts <crofts@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: dac: rohm-bd79703: Fix full-scale voltages
-Message-ID: <awljZLpARRVUFqbI@ashevche-desk.local>
-References: <0723d51fa973f0204e1c436c08a784b7b1cca795.1795699121.git.mazziesaccount@gmail.com>
- <3ec029d6-d53d-4cd9-8582-a15cfd3eb4d1@kernel.org>
- <036d044a-67ef-4716-aa0a-cdf3108c12e4@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OBXrW5vV
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795777392;
+	b=NsXVtEyCKMCLOtesv21AEhZhtFTFUZ50E0qG/bJ9qxUZNae2nMb5MXbW4BD1D+sxcvuT
+	 4h26LiSQlOtp3KazxBxKDgRSpfEBzFOUEe4f0SgIva+bxSfu8R8ho6A2wa4HfpwJYPBu1
+	 j8A6XEkvLQwMUkdKl/ziv8FN/2kr/OGxAlKrKs41wVPJc6YtrB9k0pjJ/Z8IQtOITVXX6
+	 9qlCzxPb32X8cc3BAWSn1b1z1CY8aMLobrY4jv6y16gjQQLLbGqr9UOVUT2hh8n4zs+Xt
+	 PyUsC8hCM5oOxC4bdXZO8peOS4HpgBwQCc6HczoKltyOIsjOPMeGQLHyG9oSF2wSlpw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795777392;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=B7A358oFSEjkW+WXOoTSL18z3KDDUiMpQuX3wB/0PQM=;
+	b=KJCqUR02lSdvgVtmJaNNcT7fogXmKisJXXH45WNWfX+1mQ+4MV/pJ0yvQt3GoeCE0ODp
+	 K1Lcux9lRhasT1i+PWmV7r2owre91PL+VRAuXfc1dxVA8sNElYXVve2cPgcNz39Hk5BQc
+	 vP585SJUEZmb2mXlgGd8Kv7KcPO/waknn1twdcLET2fdocOH3hF31svQpPDQlzwpCYM3v
+	 tf4jLB0wvwjlckb88kruG+rA7wTR3+y4eb9tGiRmxNCeaAPplbqKGA6A+/r+ghdPBeAOJ
+	 /VUDOhBvAiwKx92LzuArwcMvUUACRFwS4U5v/Cr/X8Qum/W1YqCJMk3kbNWQt5vaY7A==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5812D1F00919;
+	Fri, 27 Nov 2026 11:03:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795777392;
+	bh=B7A358oFSEjkW+WXOoTSL18z3KDDUiMpQuX3wB/0PQM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=OBXrW5vV8sm35lGzdZAo3O/hM+39bQH9O2DI6ELrZ9dzwM/mfmgZLd8g1ugSUuQWK
+	 pLaWoyk9Vc3v2kQOZqFQ5NnMPxnWYDnuzunRF0fScm4vvXD7JSxXelVB5a3qLL5yq4
+	 N6ieOp2kyt40Teu+Y9v64QHEtm1EOPMflJwz1WctuHFO88LLhvU+oiXchN/yPydkK5
+	 Tkjwnb3h4P1Of4ii5Eqi3Ledm9XEBGLFiEy+0g4kK3VmsP/BCmWXNJbJ1fQp3Mg+V0
+	 L5/XK8Bd5R/VOFJ+7/78RpUuMBNSA2M1InFxbYUa2N3HD15aaacFY915q3sSqRTcRp
+	 ioUvMqoY5rCWg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D9AEA4B766;
+	Fri, 27 Nov 2026 11:03:04 +0000 (UTC)
+From: Nick Dowsett via B4 Relay <devnull+nick42d.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 19:02:52 +0800
+Subject: [PATCH v2 4/4] rust: wmi: add Buffer and Device::invoke_method()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,89 +82,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <036d044a-67ef-4716-aa0a-cdf3108c12e4@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-rust-wmi-v2-4-5bfafabd6a6e@gmail.com>
+References: <20261127-rust-wmi-v2-0-5bfafabd6a6e@gmail.com>
+In-Reply-To: <20261127-rust-wmi-v2-0-5bfafabd6a6e@gmail.com>
+To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Armin Wolf <W_Armin@gmx.de>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ platform-driver-x86@vger.kernel.org, Nick Dowsett <nick42d@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795777382; l=5608;
+ i=nick42d@gmail.com; s=20261127; h=from:subject:message-id;
+ bh=O7obddgUP9HSPTKHNV9B4ghMFjoxhu9TL4QbXxN6nhQ=;
+ b=ILzk/2gDAqgHkX1N5roGOVEY0CXYH74RLORgX8pqavcxaa8WJXa9N0CPB4mchPQsiYHfBF5JO
+ d57RdFYPiQCDDklXsNOWs32G9eQsucnlYVg48dyuTvmcndK0OFRC4WV
+X-Developer-Key: i=nick42d@gmail.com; a=ed25519;
+ pk=rewGRrQm8GTjt8ii+wLiI2tUWP5gtTF4pntVEMNXrj8=
+X-Endpoint-Received: by B4 Relay for nick42d@gmail.com/20261127 with
+ auth_id=1660
+X-Original-From: Nick Dowsett <nick42d@gmail.com>
+Reply-To: nick42d@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 27, 2026 at 08:34:22AM +0200, Matti Vaittinen wrote:
-> On 26/11/2026 15:31, Joshua Crofts wrote:
-> > On 26-Nov-26 14:23, Matti Vaittinen wrote:
+From: Nick Dowsett <nick42d@gmail.com>
 
-...
+- Adds safe `wmi::Buffer` RAII abstraction wrapping an owned
+  `struct wmi_buffer`.
+- Implement `Device::invoke_method()` - safe abstraction for
+  `wmidev_invoke_method`.
+- Also implement `Sync` for `Device<device::Bound>`.
 
-> > > +	int vcc_mv;
-> > 
-> > _mV is the preferred style to denote SI unit variables.
-> 
-> I have discussed this before, and I disagree. Regular variables have been
-> lower case since forever. Capitals have been used to scream "Note me, here
-> is something unusal you need to pay attention for" (like macros). In my,
-> admittably not always humble enough, opinion, the whole "denote SI units" is
-> stupid. I haven't yet seen an engineer who wouldn't understand the meaning
-> of vcc_mv in this context. And, to be very blunt, if I saw such an engineer,
-> I would rather him stay away from the driver code. On the other hand, I have
-> seen engineers who have spent long time with kernel code, stop reading to
-> wonder "Hey, we have capitals here, what's special with this
-> variable/member". So for me a change from vcc_mv to vcc_mV makes this worse.
+Signed-off-by: Nick Dowsett <nick42d@gmail.com>
+---
+ rust/kernel/wmi.rs | 101 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 100 insertions(+), 1 deletion(-)
 
-And I disagree with your argumentation because the scope of discussion here is
-more than just millivolts. We have (in practice!) already a problem with mHz
-versus MHz. Yes, in real life. So, that's why it's better to follow SI for all
-SI registered units and stop messing with the multipliers.
-
-> > > +	int vfs_mv;
-
-...
-
-> > > +	data->vcc_mv = ret / 1000;
-> > 
-> > Better to do ret / (MICRO / MILLI).
-> 
-> This is another thing I've discussed also in the past. If you genuinely stop
-> to think this, why would MICRO / MILLI be better than 1000? Which one brings
-> smaller cognitional load, huh? And assigning the result to variable vcc_mv
-> makes units explicit in any case. And speaking of SI units and scientific
-> accuracy, what actually is MICRO? What is MILLI?
-
-Then what prevents you from adding a new multiplier to units.h?
-
-...
-
-> Micro is 10^-6! Milli is 10^-3. So, this becomes "ret / (10^-6 / 10^-3)",
-> which is plain incorrect. So, instead of making things better, this
-> obfuscates stuff even further. So please, let's not spread this madness any
-> further.
-
-Because kernel does not work in float, it works in integer space. We don't
-have fractions without keeping a multiplier in mind. I do not consider this
-a madness.
-
-> (So actually, this should be 1_PER_MICRO / 1_PER_MILLI - and that'd
-> be even more cognitive load. When did our goal changed from making
-> easy-to-understand -code back to making fancy-looking code, which is harder
-> to understand, while claiming it to be an improvement? That's what these
-> discussions really look to me.)
-> 
-> I agree on using MEGA for 1000000 and even 10 * KILO. This makes sense as
-> when the amount of zeroes increases, counting them becomes harder -
-> especially with old eyes like mine. But using (MICRO / MILLI) instead of
-> 1000, that's, in my opinion, just plain stupid. Intentional obfuscation of a
-> perfectly clear thing.
-> 
-> I am ready to discuss these points when I submit new features, and I've done
-> this quite a lot in the past with Andy ;) But with a fix for a pretty severe
-> bug potentially causing unexpected voltages being driven out of a device -
-> which may cause a havoc to hardware. I'd rather get this fixed ASAP. Maybe
-> you can send an improvement patch with suggested styling "fixes" if you feel
-> really strongly about them, and we can continue discussion there? I am sure
-> Andy will also join us ;)
-
-Yep, with my full disagreement with you :-)
+diff --git a/rust/kernel/wmi.rs b/rust/kernel/wmi.rs
+index 235c4a2cef6a..3cd5bed6066f 100644
+--- a/rust/kernel/wmi.rs
++++ b/rust/kernel/wmi.rs
+@@ -17,7 +17,9 @@
+ };
+ use core::{
+     marker::PhantomData,
+-    ptr::NonNull, //
++    ops::Deref,
++    ptr::NonNull,
++    slice, //
+ };
+ 
+ /// Type alias for [`driver::Registration<Adapter<T>>`], the registration of
+@@ -229,6 +231,11 @@ unsafe impl Send for Device<device::Normal> {}
+ // - All methods on `&device::Device<Normal>` are thread safe.
+ unsafe impl Sync for Device<device::Normal> {}
+ 
++// SAFETY:
++// - As per `&Device<Normal>`, but `&Device<Bound>` also has the method `invoke_method()`,
++//   which wraps the internally synchronised `bindings::wmidev_invoke_method()`.
++unsafe impl Sync for Device<device::Bound> {}
++
+ // SAFETY:
+ // - By the type invariant, all instances of `Device` are reference-counted.
+ // - Increments to the reference count keep the object alive in memory at least
+@@ -258,6 +265,71 @@ fn as_raw(&self) -> *mut bindings::wmi_device {
+     }
+ }
+ 
++impl Device<device::Bound> {
++    /// Calls `wmidev_invoke_method`.
++    ///
++    /// # Examples
++    ///
++    /// ```
++    /// # use kernel::{device::Bound, prelude::*, wmi};
++    /// const METHOD_ID: u32 = 0xB105;
++    /// const METHOD_ARGS: [u8; 1] = [0];
++    /// fn method_returning_u32(wdev: &wmi::Device<Bound>) -> Result<u32> {
++    ///     let output: wmi::Buffer = wdev
++    ///         .invoke_method(0, METHOD_ID, &METHOD_ARGS, size_of::<u32>())?;
++    ///     let output_as_bytes: [u8; 4] = output
++    ///         .get(..size_of::<u32>())
++    ///         .and_then(|buf| buf.try_into().ok())
++    ///         .ok_or(ENODATA)?;
++    ///     let output_u32 = u32::from_le_bytes(output_as_bytes);
++    ///     dev_dbg!(wdev.as_ref(), "WMI output: {}\n", output_u32);
++    ///     Ok(output_u32)
++    /// }
++    /// ```
++    #[inline]
++    pub fn invoke_method(
++        &self,
++        instance: u8,
++        method_id: u32,
++        input: &[u8],
++        min_output_size: usize,
++    ) -> Result<Buffer> {
++        let mut out_buf = bindings::wmi_buffer::default();
++        let in_buf = bindings::wmi_buffer {
++            length: input.len(),
++            // NOTE1: Even if the input slice is empty, this will create a dangling pointer
++            // rather than a null pointer as Rust references are always non-null.
++            // NOTE2: The input parameter to wmidev_invoke_method is expected to be read-only,
++            // however, we cast to a mutable pointer here purely to meet the type definition of
++            // `wmi_buffer`.
++            data: input.as_ptr().cast_mut().cast::<c_void>(),
++        };
++        // SAFETY:
++        // - By type invariants, `self.as_raw()` points to a valid, live `wmi_device`.
++        // - `out_buf` and `in_buf` are pointers to valid, live `wmi_buffer`s.
++        // - `in_buf` contains a pointer to an allocation behind a Rust reference (which therefore
++        //   lives as long as this method call) with length less than or equal to the allocation
++        //   size, or contains a dangling pointer with length 0.
++        // - The allocation in `in_buf` will not be mutated - the C implementation declares the in
++        //   parameter as const.
++        let status = unsafe {
++            bindings::wmidev_invoke_method(
++                self.as_raw(),
++                instance,
++                method_id,
++                &raw const in_buf,
++                &raw mut out_buf,
++                min_output_size,
++            )
++        };
++        error::to_result(status)?;
++
++        // INVARIANT: `wmidev_invoke_method` was confirmed to succeed. On success
++        // it returns a `wmi_buffer` satisfying `Buffer`'s invariants, which we
++        // hand to the caller as the new owner.
++        Ok(Buffer(out_buf))
++    }
++}
+ impl<Ctx: device::DeviceContext> AsRef<device::Device<Ctx>> for Device<Ctx> {
+     #[inline]
+     fn as_ref(&self) -> &device::Device<Ctx> {
+@@ -274,3 +346,30 @@ fn as_ref(&self) -> &device::Device<Ctx> {
+         unsafe { device::Device::from_raw(&raw mut (*self.as_raw()).dev) }
+     }
+ }
++
++/// An owned, 8-byte aligned output buffer.
++///
++/// # Invariants
++/// - `self.0.data` is a pointer to an 8-byte aligned owned buffer of length
++///   at least `self.0.length` and freeable with `kfree()`.
++pub struct Buffer(bindings::wmi_buffer);
++impl Deref for Buffer {
++    type Target = [u8];
++    #[inline]
++    fn deref(&self) -> &[u8] {
++        if self.0.length == 0 {
++            return &[];
++        }
++        // SAFETY: By the type invariant, `self.0.length != 0` guarantees `self.0.data`
++        // points to an owned buffer of length at least `self.0.length`.
++        unsafe { slice::from_raw_parts(self.0.data.cast::<u8>(), self.0.length) }
++    }
++}
++impl Drop for Buffer {
++    #[inline]
++    fn drop(&mut self) {
++        // SAFETY: By the type invariant, `self.0.data` is exclusively owned and
++        // freeable with `kfree()`.
++        unsafe { bindings::kfree(self.0.data) };
++    }
++}
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.56.1
 
 
