@@ -1,58 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.78.201
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798633;
-	b=kOntBb0VnugKdnV1ItQRYAwYIVx8Hh+dyVwkv9SKONu5UaFIiJk8HZk3ekz9KjlsRQFv
-	 yrNIGMRswFtcou5rTBRne1hsuL6Vp4uZPVKQwdUgk/0w/ByTkLfhn0oK+R1Zw4o4enajt
-	 btcNgLu4rXzIXzM/bumBkhJi0HAyMVzukvhMwjBQJtLv0vRs0j+kJIMq8lg95DACcKmY8
-	 cyH99QqKcjDf8vH/ow7zHagMpMwrQ21SQxZUeMZ1RvHKQeQefoBxmThocG/n53vL6ao2F
-	 jNXFPMrF11lbHZVMl6Wge2j5jt6GQ+jM4xNMxrVlbgu4dbOFdsQ/XFyfyGMjs3ktvTA==
+	t=1795798634;
+	b=dFlUbWA9I/OE8k+5yzlQunGhzKqxbfGlaJpT8iYrQfoDR3/r7F0t+DlaeclElPPlLo3N
+	 vtawaRe6S0UfKft0XryOM9ta186gSi08wIynbUsUKocn96MqMQU0MazXKNk32KzdVwld0
+	 gY6hE5P9dyNpHavVUZE7Hh7PsBDjv2MY5MSkwG1UlK9+XPyJzMhPA20SRLPMd63YD9wvj
+	 L421aA9UGCbRgYRUKUzm7//n70dHz0xvSKug+NlUayV5pMVcLtBJCQLFIrvfUKd5dCmzr
+	 ZjKbROg8OcVRiK6IlC1oxkIvqkwqnoweffBp/n9JLHvrgl8fqgx8z40sVszjo056neQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798633;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Info-Out:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-JNJ:X-Apple-Category-Label;
-	bh=gO1bZ2nlZS0bURwAHAug1W0UNmJkzhac+JzOuVeKqjY=;
-	b=nx8/sFmKuykyu5wg4OTGf8WSroUi36/azzcCVGtStQMN8K26xW5SDhqDm64LZVoWMSGG
-	 YbtV94jjiY+Tl0TEs+vEuo2dj9R1PPCeqb44qP7mnqdAVG/wN3gcCKS+8B82Upe5JheP6
-	 tz0OSChCzyjtOg9XT95Ew4/esdXz4/15oXccPUsQkvqp71k8tihYihg040FZcbbXBMWo7
-	 rAXmi6JdhisyYFwpt2ulAUx3Hi3c33R1+6emBrW6xx3+PvqAJHY9IR7vpBn2vJ7GtciVi
-	 cC+9bQLmvjNSwdiVD4NQMk2Dv41j6lEAHZMtxS6xvO7Kq5IJtDmI4EPWAulJ8FwJTUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798634;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=8DFfV8aBZKMYXzcp6drGNYa5ur5Ni8CtyOsBIJLVXME=;
+	b=14lG+pIvoVgvqOPshBZHXZib1mwWq+9KwNhuxRN10oKSHb+ZgUVIk+M12jw5WswVnVFi
+	 FxRi1f45vPomZ7F9kalpIh6kgSSxqujFwoBmPW5CKk/K0U6WoB2u2zllOZT8E1VESPeSs
+	 ZJ3b3osBwMxD3lfC6u7g86FieDL6GbyVrYOGQE6ylPVQfQn4PhF5Z1k9+Cbo/wpGtCnO2
+	 QWCy+7LpkpS8ZUQkbDKNLx4L2tsAwEYJdKJsxJ+tvJxLtleZxGTMMM8kZZSlnUKokttkd
+	 9QUjNkO7Uymh56kRG1sPqhp6bVZnJkwhicgX0A2n9DxR8M/loEA/4ZeQ07tCmFXJppA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=icloud.com;
-	spf=pass smtp.mailfrom=icloud.com;
-	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=j986ny4c;
-	arc=none smtp.remote-ip=57.103.78.201
-Received: from outbound.st.icloud.com (st-2004e-snip4-11.eps.apple.com [57.103.78.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jAjrz9+7;
+	arc=none smtp.remote-ip=209.85.167.47
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24FB3606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:57:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24FB3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D2BF606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:57:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D2BF606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=j986ny4c
-Received: from outbound.st.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-1a-100-percent-4 (Postfix) with ESMTPS id 631EE180A456;
-	Fri, 27 Nov 2026 16:57:10 +0000 (UTC)
-X-ICL-RepId: 01a21df0-7fc5-704b-b057-d95ccea61656
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795798631; x=1827334631; bh=gO1bZ2nlZS0bURwAHAug1W0UNmJkzhac+JzOuVeKqjY=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=j986ny4cx/54vw79Xk0+QCzUthwaBKXHAuSrIA1pgIxciYN06+QMbCO2ugNfOX//i2ObDPr7AzKGZlKDDqCPqDH58EUpNpSn5eXIofEpAwxD+yOm3t+dYwJ733pLttKMthQniqYrhq9YlDafN15vqiWRknG9cGB+192rDE2yUPMuz3N8ZmretdLJEs3hEjwOEy2xtg9arAICo5aCcwGihxvI9BBSrdv2lvSWcsshecwV7XFaOJz4+CvlcTB0qUuBHluKrjVgU5YcUajsqGJAjTTRsz++Oj2pS/7ccyKakQMINXrkh7WObb8zjLCvFVSwzfzBd8fZBipuveoa/JNKLA==
-Received: from machine.netbird.cloud (unknown [17.156.216.30])
-	by p00-icloudmta-asmtp-us-east-1a-100-percent-4 (Postfix) with ESMTPSA id EBF491816209;
-	Fri, 27 Nov 2026 16:41:05 +0000 (UTC)
-From: Marcelo Niendicker Grando <marcelogrando@icloud.com>
-To: linux-input@vger.kernel.org
-Cc: jikos@kernel.org,
-	bentiss@kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jAjrz9+7
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c102ad8420so4426363e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:57:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795798633; x=1796403433; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8DFfV8aBZKMYXzcp6drGNYa5ur5Ni8CtyOsBIJLVXME=;
+        b=jAjrz9+7Cfcz9ViRDJZZK0VgzK7FPMiHo+kgNCzIaaBnxHgfHlkRP+cBKqU2C4+8hP
+         u5X209k3/o310sWnaf3VYYrAA2HPOVcY+iyYOUo8WlmSSOitR5l7TpnGm/EqM1RHia6K
+         cKxgsR+2NOiIgV80oWzM9iG8KaDKC86Fx6NpxVkDTSlOyZpQbsjA5B3Iz1sgpf/1xaes
+         9kz6Y3OXXmlx+lGtSCBu8BXHU/XMpYZTSAwXx26vTthA70IU0yqfz9WwOfNXI7YtoDtJ
+         CigILaCPT/olvg7TXvBFMi+Hi0H9VqUWTnJvw6a6GYWGzTs6/3orhnxU3cdXbyLOIZJR
+         yD/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795798633; x=1796403433;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8DFfV8aBZKMYXzcp6drGNYa5ur5Ni8CtyOsBIJLVXME=;
+        b=yGitZ4bYN+Xsb0NovjH7qGWvxOiFzQYqrzvGTVpVUUpKbaSpowjX9V0+2CW1tvPHLr
+         ZklW5YoqDcNM5Ow8PsdZMMOn7P2et51N2OXb8svqpixMIJeQn6tki6GqHHbGF9GOHRjm
+         TsK8e4WkkzZ6lqFPIPHR1N1QblPsNIISKkCXhTbtdCDHhAxlQGOd3hvLM6mzmNoK/KrN
+         aoZJNI4swMdj1GbjlTpwiZ6aC5dLNT8Q28km49MSn/nQ/dD3T9cH18V3l8R+/IIfIOkX
+         auo4qaelWSZp0OMW3UldGMPPTrbusyBx/XiI/3nYOqdn8xGHG+EC5Qauobh1FaaJfFdX
+         iSxQ==
+X-Forwarded-Encrypted: i=1; AL+hErH6fOOq3YPBgex01roO/h+GBEm04IwMdS4/NealTTRQplpctSekwg6UjWLqBjpepI4zl+t5aIN2H1N3fvQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HfxbEwhew67WUZZ63ZHdHqaPPXi3vLwcaoCvGgjG5Yh8QQErx
+	Zcb2SH3JMuD38KzGtYSR5D+aboZ2/v+gV9VZikMd2RVsPZqsecaPJBkT
+X-Gm-Gg: AZFdTZcseptv45ROfJ/oyKLHj21DicAmyORVA3Ni3YKCS/ndpACYwVERl8q9zPe/0Db
+	/g7x66XM0ll6XRCGy7eTzQSWHKFLFHjyMkkOXImGnki1NMKwZECRtsKtjd8Ae2UoukBCDA6DQsT
+	h3pNwTKTmeWkyAuXD8QxQZ9oj1whe6xXg3F6c96vTtKN6yVceQwCn7Sv3cl7FI3PwgD2d6KdS9i
+	JEMJsAuSXu+6s1fyzrSqnMuDSjoPnQMBuN/qNZWX3+6dxFddRPzYXoHmHb52t6Xe6Q3uebq3kf9
+	SPo+HcFjap6hfNI4VOHywpCShTTtyAO+0crNXlonSnH/NddIot9JGtZD9p56A3rkRhfITJpWL66
+	dXnh0m+/ExT2G4fg70UT5fPTC+6VWA0jhWctTDC11Cwj+SsVP7LapzYA6ZNL6T9/t7Up+5bhQu1
+	A/OUJheNAydxla1h+ikc3W8wFY9VtIQvbGj72UcEUm0+PZn82gGfc3tE0S+Z5MGFqaBw0ZuE4gl
+	WlIkX1VF3qNMXxC3C5aTm05u5RaFQ9cVZS2reqkWGwyEVX5hdixev9ONmSfCFickWTai9Rc/OxZ
+	rHDlW8kYfv8gyiIdj4zu5EEmf72xQryMrA/2C0bY+4KBjhiW3IjBYa2TxxaQGxe59pTUq/6l4q7
+	5aTmxwECVQmJlz/x6
+X-Received: by 2002:a05:6512:3e13:b0:5c1:4793:bf31 with SMTP id 2adb3069b0e04-5c1bc8495damr8087724e87.58.1795798632553;
+        Fri, 27 Nov 2026 08:57:12 -0800 (PST)
+Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04096asm6045081e87.47.2026.11.27.08.57.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 08:57:11 -0800 (PST)
+From: Magnus Lindholm <linmag7@gmail.com>
+To: richard.henderson@linaro.org,
+	mattst88@gmail.com,
 	linux-kernel@vger.kernel.org,
-	Marcelo Niendicker Grando <marcelogrando@icloud.com>
-Subject: [PATCH] HID: asus: add support for the ASUS Zenbook A14 (UX3407QA) keyboard
-Date: Fri, 27 Nov 2026 13:40:52 -0300
-Message-ID: <20261127164052.59518-1-marcelogrando@icloud.com>
-X-Mailer: git-send-email 2.56.1
+	linux-alpha@vger.kernel.org
+Cc: linmag7@gmail.com,
+	m.szyprowski@samsung.com,
+	kuba@kernel.org,
+	u.kleine-koenig@baylibre.com
+Subject: [PATCH v4 1/2] alpha: parse early parameters before reserving contiguous memory
+Date: Fri, 27 Nov 2026 17:55:49 +0100
+Message-ID: <20261127165626.1352471-2-linmag7@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261127165626.1352471-1-linmag7@gmail.com>
+References: <20261127165626.1352471-1-linmag7@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,104 +104,42 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Info-Out: v=2.4 cv=EZZd0/mC c=1 sm=1 tr=0 ts=6b09b666
- cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
- a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10
- a=5yNoK_3RFYUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=kibvr5HLtuNvmma_iept:22
- a=FWZx5dj72HHvF9NkQXT7:22 a=v3ZZPjhaAAAA:8 a=kSQo2tbCKcx2xoj0uy8A:9
-X-Proofpoint-GUID: QTnzNswZs7ep3ov9bCN-1M8PO2HXnsCm
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA2NyBTYWx0ZWRfX1i6zd6eSNdGX
- gHxckjvcGiT9wy3Iu4oxZWX6Z4isJxzYB7djuUZlqKTjn9egXc7O3J6+ZdVl1cc157lPFchCDib
- RsnCuiQPBvNKaurx5jAqCrGPRfspWTU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA2NyBTYWx0ZWRfX+i7h7rRDO5+Q
- hFZ2IQOsYSizCvK5vF5CHwV6obUF4tnz7K1kL4aeqoFa9hrC5G2GlrY7suU7Y7ufGRiorKKZxZ2
- cCj2Qi4U65QtSil7UH6wTdSTUsEza/XF+WbeQjNDr7bWJORDANXS/MT2eEXIcODfxPC3TxO+mXF
- RnKFN9sl+LoiCUmBPVabqTS1Cg2lopjQ/B2q4VRgTLp/XUUq7h2zpxRjvKHVtNPx650gYyc/mPs
- cYbbwfdCp1KM65UllhLaBkutXgOruKtZGLl1dUlN5jgEEsCVtxFOhfe0+WFCM6tM203xlxVBP/I
- um/bgBt0/wPnscGviDrR8HgjKnrfwUe+STkxC0QdMR53TFtERFM+wwnIQnty/c=
-X-Proofpoint-ORIG-GUID: QTnzNswZs7ep3ov9bCN-1M8PO2HXnsCm
-X-JNJ: AAAAAAAB3tQIC8KdXE8SHN21D38rz8Hm56mUy+Kp3XBuo3GKUNO/3YAJGTVaBHkWXSeOaY
- yOuFBX55jjItsgSmJucedjJLD4G0i1sYHuG2wx8q+7ev3zTLHGNfkyO+ZFvPY+oDOa4v7Y
- AZwXPBXzEtVrW3uAUVwsdAwCGVxtCbAu62gtCY0vS9Kqg/JliOfHzqq/e/o0XMALFN5DO3
- R5MZe7vfh2+e+u7CDCJCCIkp81IEcNPCxkyPy8VyAg3BvGWu5LCDl6OenfG7THcc70YCjq
- VI8E8wZ6pGjGwMhIOjbTJYtRBv0I5b5DaHJiw40t6MeZoxErtpLi7ftXSMy+RkcHf/8bgP
- LZ+dJJVo4ozodgi6Kg7Akp/Ni2JQx28aRm6lzw25YUUY7nt94gSg9ZrTtPDp2qAyZnPaVJ
- 2eXsJnOgcmNSY04czLQa0JdQemxVvQV26XdBsWa5PxKyVlwYE57uJT2KIFNro/BgeyLCWd
- h689cXwDsl2fPRzwNmm13nrG54L750IzPVDaekEFKJyEAjRoChOTO+i1f8Avae5Y5VsjZO
- Rb5rxLlzRNnb7z8UjkhG0VwHUDFsivXaeZ8fckLIsGk94KJ05tRs2Gpui9UAfVsLW0LJ0n
- VrI0b41yu184ifHzKFGFOXfHJT/hre5i5hAjA1gOJUMf++/2QWbTIQPzRw4MAOo7FjwB2W
- 05LBczS9JPqRpVHn6fOtcnGNxID2WESvNiaAoQInlJhihES/W8woGz+Ns1mql3+rM5T1Kd
- pN9BSxfuIybwoZi5hqb+M7Rff4VV/ygJ4KtuqikK9QPgEmJFcE7/UJWi+mnfuvqt7xTXAT
- D8FOekaCj2pCz+Te+mcgMXjxqpOzyLzVZpLXPxCY77RY60pZnUrOa+3f8TRu6xVz9CK+RQ
- 6NRuFcPKKSsl1rkENdcubB7OzbPhE8oXZucZNBmTlq013BT0BxnHUBqSk3Xe3mEbMpjTJ/
- d/HjKyM5/8q61j2rNiZW12QTRT968mExxZEUrwYugpxZF1p91p5hFoXCPdwJVcdsx5cQyM
- rgZHdBzOE+1gYts06y9jWo4no4ANHVcey1EzP9ailOCAJ/KWPrUcrKJRDaLMkYINAx3flq
- GvhGPkuEqrE8iVSLbWBtvwQIuiy2TglrXP3+CAi2jSpozOkWuQI0qkxl4ft1P6fUizOR5N
- T4x7VWunkUKEnv2wQQuEUEs8hsHJgZaCXLYsh+s/IolGyDvpI5Qv8Q3QcfV71h0FjpbD8f
- oLqdLcoItDvNtgiPVLMha/fR4PhToA+pS4uyUvohFA8ofvZ/
-X-Apple-Category-Label: MTY0OTI3MDQ4MjU6JGNhdGVnb3J5JF9QZXJzb25hbCw=
 
-The internal I2C keyboard of the ASUS Zenbook A14 UX3407QA (Snapdragon X,
-x1p42100) enumerates as 0B05:0220. It is currently driven by hid-generic,
-which ignores the vendor report 0x5a (usage page 0xff31) the keyboard uses
-for its Fn hotkeys, so Fn+F5/Fn+F6 (brightness) and the other Fn hotkeys
-do nothing.
+Run parse_early_param() in setup_arch(), after machine initialization
+and before further memory reservations. This lets the subsequent CMA
+reservation honor cma= before start_kernel() reaches its normal call.
 
-Bind it to hid-asus, which already maps these reports. Tested by binding
-the device to hid-asus at runtime via new_id with driver_data 0: the
-brightness hotkeys work and normal typing is unaffected.
+Initialize jump labels first so early handlers can safely change static
+keys. The later jump_label_init() call in start_kernel() is harmless.
 
-Signed-off-by: Marcelo Niendicker Grando <marcelogrando@icloud.com>
+The parser uses boot_command_line and guards against repeated calls.
+This moves all early parameter handlers, not just the CMA handler.
+
+Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
+Reviewed-by: Matt Turner <mattst88@gmail.com>
 ---
-Notes (not for the commit log):
+ arch/alpha/kernel/setup.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-- dmesg after binding (the handshake warning looks harmless, the keyboard
-  works afterwards):
-    asus 0018:0B05:0220.0002: input,hidraw1: I2C HID v1.00 Keyboard [hid-over-i2c 0B05:0220] on 0-0015
-    asus 0018:0B05:0220.0002: Asus handshake 5a returned invalid response: 00 00 ... 00
-- Report descriptor (132 bytes):
-    05010906a1018502050719e029e71500250175019508810295017508810395057501
-    050819012905910295017503910395067508150025650507190029dd8100c0050c09
-    01a101850319002a3c021500263c02751095018100c00631ff0976a101855a19002a
-    ff00150026ff0075089505810019002aff00150026ff007508953fb100c0
-- The keyboard backlight answers the usual ASUS 0x5a feature reports
-  (init 5a d0 8f 01, level 5a ba c5 c4 <0-3>), sent from userspace via
-  hidraw. I did not add QUIRK_USE_KBD_BACKLIGHT: hid-asus now hands the
-  backlight to asus-wmi through asus_hid_register_listener(), and asus-wmi
-  is x86-only, so on this arm64 laptop the listener returns -ENODEV. Getting
-  the backlight working here would need a fallback LED in hid-asus when
-  asus-wmi is absent; I'm happy to test patches for that.
-- DMI: ASUSTeK COMPUTER INC. ASUS Zenbook A14 UX3407QA_UX3407QA, BIOS UX3407QA.308 03/12/2025
-
- drivers/hid/hid-asus.c | 2 ++
- drivers/hid/hid-ids.h  | 1 +
- 2 files changed, 3 insertions(+)
-
-diff --git a/drivers/hid/hid-asus.c b/drivers/hid/hid-asus.c
-index 4f5749c..d410907 100644
---- a/drivers/hid/hid-asus.c
-+++ b/drivers/hid/hid-asus.c
-@@ -1813,6 +1813,8 @@ static const struct hid_device_id asus_devices[] = {
- 	{ HID_I2C_DEVICE(USB_VENDOR_ID_ASUSTEK,
- 		USB_DEVICE_ID_ASUSTEK_I2C_ZENBOOK_KEYBOARD),
- 	  I2C_KEYBOARD_QUIRKS | QUIRK_FILTER_CAMERA_COMPANION },
-+	{ HID_I2C_DEVICE(USB_VENDOR_ID_ASUSTEK,
-+		USB_DEVICE_ID_ASUSTEK_I2C_ZENBOOK_A14_KEYBOARD) },
- 	{ HID_I2C_DEVICE(USB_VENDOR_ID_ASUSTEK,
- 		USB_DEVICE_ID_ASUSTEK_I2C_TOUCHPAD), I2C_TOUCHPAD_QUIRKS },
- 	{ HID_USB_DEVICE(USB_VENDOR_ID_ASUSTEK,
-diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
-index 8590252..367602a 100644
---- a/drivers/hid/hid-ids.h
-+++ b/drivers/hid/hid-ids.h
-@@ -222,6 +222,7 @@
- #define USB_DEVICE_ID_ASUSTEK_T304_KEYBOARD	0x184a
- #define USB_DEVICE_ID_ASUSTEK_I2C_KEYBOARD	0x8585
- #define USB_DEVICE_ID_ASUSTEK_I2C_ZENBOOK_KEYBOARD	0x4b42
-+#define USB_DEVICE_ID_ASUSTEK_I2C_ZENBOOK_A14_KEYBOARD	0x0220
- #define USB_DEVICE_ID_ASUSTEK_I2C_TOUCHPAD	0x0101
- #define USB_DEVICE_ID_ASUSTEK_ROG_KEYBOARD1 0x1854
- #define USB_DEVICE_ID_ASUSTEK_ROG_KEYBOARD2 0x1837
+diff --git a/arch/alpha/kernel/setup.c b/arch/alpha/kernel/setup.c
+index 9fda01b73b18..f21a7c8f5213 100644
+--- a/arch/alpha/kernel/setup.c
++++ b/arch/alpha/kernel/setup.c
+@@ -26,4 +26,5 @@
+ #include <linux/errno.h>
+ #include <linux/init.h>
++#include <linux/jump_label.h>
+ #include <linux/string.h>
+ #include <linux/ioport.h>
+@@ -580,4 +581,8 @@ setup_arch(char **cmdline_p)
+ 		alpha_mv.init_arch();
+ 
++	/* Early options may change static keys and configure DMA CMA. */
++	jump_label_init();
++	parse_early_param();
++
+ 	/* Reserve standard resources.  */
+ 	reserve_std_resources();
 -- 
-2.56.1
+2.43.0
 
