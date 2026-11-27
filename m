@@ -1,49 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799468;
-	b=iYnIZ9OTjNdoNmH3/8gcksSCDtD7CAFcKZjTAIlLGO9E4sv3XFRbkdR2MBRbOH6BTvVW
-	 GSdZfn3p0ZrP0pGm/gsqu72iV14CjKrfxhnKoceJ+BbBYrZY9ArZ8APDVGiSq3/VcO89v
-	 Q6jJAiWgpV05FYy+WfT6HFLL+e9P2MLdlg4lcsNYpS9ndgEQDpynTyj2mPTW4E4wVgszq
-	 6H6a9qAn3y1PjDXk87zFy2UpPjbSOYtzaCknc7A9TgXrcZwiujtk4oAgVJrK4O6qSpjAe
-	 EwTv2Nvz3kzvs42ZAVBm/LRQGqC+fJlxwrPJV+xnPyZtnvKOyIliCTcRa3TsBSeXPmA==
+	t=1795799486;
+	b=vlPaKmK17KXejveArJhha15+fQj91+r5fT2uUbaSPtOHWDLp9DtK5BwEa2aNG/5dZQcL
+	 JDY+OETwYr6/5Xden5Zgzl9tF986/B5mWk59+24m/73k9fO0pLlZWeFQiERHPX1wdgmMZ
+	 kh/0gHBCsKxGw2KghKu8Pt3XGKyc3K4qtqaj4nNUB1Jx4+yYTlocdDIZlwkfOi1qlbqpR
+	 QKNJt21uEroPkAJ4IowjtCnjk7FPgV1QdzhUwBpgF4JeZ4PrdTZmngPtV6TLOPasvcS9y
+	 FH3ky9cDU6nf5NWFZcPuY5GDsqqEio+78DU3Ta7DDZsDmL47Onue4EMEJ1jrzDsxWyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799468;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=istvK8Vo0dRH+5Ab3OL0OyFKa13o+bNLAyZJ8VHCKOU=;
-	b=m8IpOH2mDmZl5eCXKUqvk/WK+W7p/8LaOujRIuWYpgFIrktMsVOye9y54KgAjeGfVyhj
-	 t4y7sIVvq6oo8IBBqxSXs9PPkxdflm96EPLDpkhmLVjJFolhP/1VhEtZfjdIQRh7c2WCX
-	 k7rJlZ/Vx+MEwer9C5ayJ0zrtO5xuZGLXWfNeIddvLwMK5m0PWl2qUMO40PA0GgqBqmSq
-	 lcNhD6huG/R7BN9mIEfiNfqstuTFfYvycIe6Ha2Hhwd+T6yfEi8wsc/HXGJX4h5BlyP+S
-	 56qDISH9sIRDfZyoPgsfsEhteYhVZOBNWlUc9dIzC4HAtsMuxEzLjJKOKUSYCl7hXEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799486;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=apzcDRIHeBZ/dYrq4Jwj+dpEblyzUsti3DhR06LQJUw=;
+	b=wPR9q0lk9GZW7/i2hHbYGLOgtuQCJw+E8Wjc+tYw0D1mE8MZWEkWbbJq85q1rjNuKceU
+	 tBb/m6oV6MZ+8KUo23KzB4C40PbVqCFbKAJ53z0mipcHlWRlXLdQQ2+LfR5LlAFtp7suT
+	 miKWczY6yYP1PUE6B10Dj39PGjHNWIXdwG18C2/dwGNcwdMpZql1PkJuNnamHmJE+RG5Q
+	 gTApRsElsA8PPCEW9FjrC8cKh1GjusjMnQkIJXeynA5VHuQS/rVuNwkfxLo1t7sVqxP4B
+	 PJj5kjj9I0edhvWVMXm7svGP6+9vHlSLTWlcDrM1uXJIOTjq81RpQ7naGlmCoQdxawg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=larR9y8f;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5B20C606A31E;
-	Fri, 27 Nov 2026 17:11:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B20C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=l65UF0NS;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A17EA606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:11:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A17EA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=larR9y8f
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAFB81575;
-	Fri, 27 Nov 2026 09:11:04 -0800 (PST)
-Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 420CB3F632;
-	Fri, 27 Nov 2026 09:11:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795799467; bh=FCVTxmg2sdNe51AfMa4AF6QW/CSqjRWXIVeiCqPpDFA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=larR9y8fPCMYOCR0QN4mHid/9x1bOSkf3g8gr9pqbONVSj3e673DCXSSg/l2cnTvN
-	 JaxYZpMAYZrMUW/1vbOiD2LDb/qn+eJDY2NNo3KV4x5DjPuj/bs1vq1gNUQLsJRjpi
-	 Fc574CcHhAAl0stGrYBgNePEgsCr94bmezg9WkeY=
-Message-ID: <1eb33e7a-38ba-43c1-bf8d-477d75071e7a@arm.com>
-Date: Fri, 27 Nov 2026 17:11:03 +0000
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=l65UF0NS
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E6247C2AC4C;
+	Fri, 27 Nov 2026 17:11:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D25896049C;
+	Fri, 27 Nov 2026 17:11:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EA11111E90B4E;
+	Fri, 27 Nov 2026 18:11:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795799477; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=apzcDRIHeBZ/dYrq4Jwj+dpEblyzUsti3DhR06LQJUw=;
+	b=l65UF0NSWu7TOYLbvatZe7UIP8pCbmLdWgTlDTZJ89o7apX8FdGQEUx2uV3NYdtopv06jY
+	HBBrxdLdfTD0MCZ1Kikq1i/zhxHVZpktJWTMwjy4+t69uxIe/qMLAo0/ro29J6dbP5EZXn
+	SXqkQ0YsV3oFeq0n7+C6jRZ0+YlruomLs6NNfDOJ7QcebX19UmcSjlF6cKiRT4+HekSlY/
+	VvL3ittbcZm5m4eHnKuS90K6pKAvvvY7LiwQSQL/NRJCsAM9DAV4y+IERn+HNxalKY+o9Q
+	uWNMLEoVKnDcOKw+3GdKFFDHP8yKq2kGNLhT4cOAwy4+N7LAUnoPUfi8Xht6nQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,69 +58,42 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 3/3] arm64: dts: allwinner: a523: drop the PA
- GPIO interrupt
-To: Pablo Mazzini <pmazzini@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev
-References: <20261124215048.42074-1-pmazzini@gmail.com>
- <20261124215048.42074-4-pmazzini@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20261124215048.42074-4-pmazzini@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 18:11:06 +0100
+Message-Id: <DN65S64HJVP6.1UPREYZ04SVM1@bootlin.com>
+Subject: Re: [PATCH 0/2] drm/bridge: lt9611uxc: fix firmware update
+ verification
+Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Sam Ravnborg"
+ <sam@ravnborg.org>, "Dmitry Baryshkov" <lumag@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.22.0
+References: <20261125-b4-lt9611uxc-fw-verify-v1-0-7aed8dec8018@oss.qualcomm.com>
+In-Reply-To: <20261125-b4-lt9611uxc-fw-verify-v1-0-7aed8dec8018@oss.qualcomm.com>
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi,
+On Wed Nov 25, 2026 at 12:13 AM CET, Dmitry Baryshkov wrote:
+> The firmware update verifies the flash backwards: it reports a failure
+> when the read-back matches the image and success when it does not. The
+> read-back itself is also broken, as it never switches the flash into
+> read mode. Updating an SM8350-HDK bridge from firmware 0x41 to 0x43
+> printed "updates successfully" even though the comparison had failed.
+>
+> Fix both.
 
-On 11/24/26 22:50, Pablo Mazzini wrote:
-> The PA IRQ bank is not implemented, and the driver now numbers the IRQ
-> banks from PB. Drop its interrupt.
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-"the driver" probably refers to the Linux driver, but DTs live in a 
-different world, and are independent from any driver implementations, so 
-this is not a good argument.
-The real reason is that the binding changed, to only count implemented 
-banks, even though this is not explicitly stated there.
-
-> This reverts commit 6b81aa0c8a4f ("arm64: dts: allwinner: a523: Add
-> missing GPIO interrupt").
-
-I think that deserves a fixes tag. Backports are somewhat questionable 
-for DT patches, but it helps for U-Boot, which would import tagged DT 
-changes only.
-
-> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
-
-The change itself is fine:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> ---
->   arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index 85ef492ffeae..fc4d714a96ea 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -129,8 +129,7 @@ gpu: gpu@1800000 {
->   		pio: pinctrl@2000000 {
->   			compatible = "allwinner,sun55i-a523-pinctrl";
->   			reg = <0x2000000 0x800>;
-> -			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
-> -				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>,
-> +			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>,
->   				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
->   				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
->   				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
-
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
