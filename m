@@ -1,71 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795805908;
-	b=ojZHVllYeMPMwfa0ItKRLF0Nq9PPnmILDQvudqtTz4gC2Nr59sKectLdQuT2zcr31VoN
-	 cLN3i+6J/h6wvQu4LFCIb3wxlnXoCSyxfMRHRKOG0CO2eguqZy+254zIeZNrD3vem5Fi0
-	 udklIjnlGXky3sAG0KlT7rcA41uq/RKSsGPhZCWjpwwETpj1guJiKYp2f2/3TKGOJrraB
-	 IMuQ+95IrtRsobxualR6OvfQXXZMjVEnVFcFT4moVgDqnhfBPIKTtJle3jcLMBCVndSsf
-	 SqfPDxxY/vNKkjBYmML3ciku1KsAMT49Ec2OcdrDVhTjTXu4XJX8SUe9VcNqEtxLdRg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805908;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=UYAk5OCIDhY0tZYkh0/pBMWL6d4j8z+mQiO9Q3KCzDk=;
-	b=o5RoE5N50/ZNuEwOIfa6EfHZeYkWQRJZkl4JOsyW/nRwGhJ0g5cOiuL5jLBNG+4y6myQ
-	 KvFS5LnxFet+Wc/rzO8dcHSY2A+ZqPX/+yPI9/v2l+4FPLxjU9fTi/O/VSuAMme9Lujxl
-	 SCQh8jB94Powjwz3qPmBt5IOuW8IIhwrn0iI0EKB9OnXBYGY9sYJm0fpEUthex/cOItB4
-	 k4bIli5V3FkvJQGtZnLgGGvyfGStESDzYp11w0lNxGyjVL6lx3TrcmQKf2covQFxzM/3/
-	 xZUdeVnAwcwjRjT/VYppdEZmwTrQ1vGKjIjH1zgSeMZuSs4Zcu3UWg8TLITstuLrlmg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=SNI4So+B;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795805916;
+	b=K9NOk3+WKkDud7yZGnAX/QTUyJ5tkg6lBj9dvbqz04R091U7gMNrabx9H308cOsrQLzI
+	 2oFcMIYbzu9jT00ZP09jl78xFHPoAfdKcaS5uENSHTBD3I+j6CcUj7o5qsU6u+/Dnm9dn
+	 YMYMSJVhKYAPps1opIbNnX/sCTWU3hgdUdtEnAiGnCiTHA9g89pFHWJel4GYWgyoy70fL
+	 3Y2OxpMk7Yeexgwrzqoy/NDXKdYNHGIOQyXq8zyEaMMRv9FFJrPmTptFiIhgFb41O5T62
+	 nOx0Fo0e6XfKLC5wekQMrgxmRlAqI9UwzJuC6mPJvstX8zN/Gs2FNAX/wgA8gwdLBmA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805916;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=pcIA7yNtdSv4ODO4Q44pRru7yd7KZ91x7RtnWUq1Rhg=;
+	b=n3ccrBEQSZAjLbVQ2rb2wUOIM+yu1x606sfsmpMy4XiBcrOqS5txWLBjh5/vbUSFyIkf
+	 RJ3FYsI8WTMp9K3A3Ati4vs6mhidSi3m+DYOw0L+ipV8EJpZOYnj2JZgDlXJZs322Lij6
+	 /NOA8Zl7C5ebqFRv+QEZEEDnsdIWa7obv9CKEp0YS1SIM0GBFxT3Km1qDjIvxcs25P5D2
+	 SJGOksZRfGLOPnsG+fsu0S5PYG/+QGsWWQT9owY+j02GnEJCTjLr9GTTvAWw4g7Ny1LLt
+	 sD5y7foKWEBbQCjrq06yYNrfnzK6CvB6o1QWEQhVN+Py6hfaL9o7hbgHtXCZeUhjxRg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ky4DvDkA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 701FC60A2600;
-	Fri, 27 Nov 2026 18:58:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 701FC60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821EA606A6A9;
+	Fri, 27 Nov 2026 18:58:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 821EA606A6A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=SNI4So+B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795805905;
-	bh=UYAk5OCIDhY0tZYkh0/pBMWL6d4j8z+mQiO9Q3KCzDk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SNI4So+BitHYFar+JbOHww1CKeitCAqdJK/Klo0ZOYcQlaDWsReJ2pr5sLXyylvUl
-	 VDPkd+3EzOKqzpdBg03sXWZg5p4W+1U8YGuxgyk7Rwx1elkwaa0tKGWI2MvIMZkSNp
-	 TrXcAGHQpQr5ofktCUPCEAUtyvWB+BIBjVzydciDutyyzY+DnD9teTYV3M3vf/biDn
-	 LWAJrkgF82R9FwEcFmvQ1bcL3ufgKbS1R7QeJ35ds207R5H9HbTOLxFDwrgXu+Mzls
-	 X4WnAvnVtzZmUpc1gVPZZ1yK/OJlmUU9FfgVLzHZvyUqBJ2FSdd40uBLjcNPtNMHfL
-	 Zcrj4sj9Nhgnw==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbjNx55VDzXmP;
-	Fri, 27 Nov 2026 13:58:25 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Aniket Gattani <aniketgattani@google.com>,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	bpf@vger.kernel.org,
-	Naveen N Rao <naveen@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH v2 16/16] selftests/membarrier: Check the core serialization of the sync core command
-Date: Fri, 27 Nov 2026 13:58:21 -0500
-Message-ID: <20261127185822.158216-17-mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
-References: <20261127185822.158216-1-mathieu.desnoyers@efficios.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ky4DvDkA
+ARC-Seal: i=1; a=rsa-sha256; t=1795805873; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ic8O5ek6uhBGxRPS/P7cgl9ddcp+1l3QWrXbZ3PHyb0hWaZY+x+nulGS+pHwRYaBcPBb29vNNAvqi/jj2zLk1lPdjDvPNgUYsR8xc4pjUBUGq0DDIx3X4+jbHSrqjSkRq6yNB5dT7vHVmdqzvSbw53d35CA8iLdkK5LiGZB6cyk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795805873; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pcIA7yNtdSv4ODO4Q44pRru7yd7KZ91x7RtnWUq1Rhg=; 
+	b=PV96wTjBIp/vQ0JPsgwzbCRCkEwaZzQLo/neVdK3pPRTEQy1bBMxjqCz02dzz5tL+xrGb+pvfSLKrZ3JSvUAeXgsaB+HW9NiRNZnl67Z5TO9qOG/wzyIgYkgNXrA6EHE5sd5NY5eESg7pW59Xujg6V0y6o/2ucrVIpIDuyCnrX0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=ky4DvDkAEc/EZfdEnQqsOMgVKmNHK+wwm/CJMA7TxepLn0JnNdoZp2wgStqviXs1huFB1XWNGtMEsr8a/AqkUcEjyATwgJA5DvFFtkzi7bsVue5NATWDCY/GmGVa8+A97c1niJwqjFH0qAaYJg9pCHUw0N6hTej0LqIQlWcfoYQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=pcIA7yNtdSv4ODO4Q44pRru7yd7KZ91x7RtnWUq1Rhg=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795805868900911.1464793688865;
+	Fri, 27 Nov 2026 10:57:48 -0800 (PST)
+From: Daniel Almeida <daniel.almeida@collabora.com>
+Date: Fri, 27 Nov 2026 15:57:38 -0300
+Subject: [PATCH] rust: workqueue: add DmaFenceQueue and DmaFenceWork
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,349 +59,315 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-dma-fence-work-v1-1-4a4f55ce51b5@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22OyU7DMABEfyXyGaN4iWNHCPEfqAcv42DIQu0kI
+ FX9d9KUAweOI828NxdSkBMK6aoLydhSSfO0B/ZQEf9mpx40hT0TXnPFGG9pGC2NmDzo15w/aHQ
+ CClyoxoDso8+MmL4P4Ovpnsvq3uGXG+W3kXFed9Nyr5ERpdjD1FVPdxEzNK9lORznFSvoJmlN2
+ 7r1Shsjjaxf+nnuBzz6eXwmf+921T9nS+onOwxp6qm3EAHRWGvabmO3rbMFdAeNaekq66JTsnZ
+ ctBJcBegYNQtSay9M0LyRwTVCg5yu1x+yAEfMQAEAAA==
+X-Change-ID: 20261127-dma-fence-work-fb3e6e23659e
+To: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Philipp Stanner <phasta@kernel.org>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linaro-mm-sig@lists.linaro.org
+X-Mailer: b4 0.15.2
+X-ZohoMailClient: External
 
-MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE promises more than a
-memory barrier. Each running sibling thread of the caller executes a
-core serializing instruction after the call starts, and before it
-runs user-space code again. A thread which is not running executes
-one before it resumes user-space. This supports memory reclaim by a
-JIT compiler.
+Work on a dma-fence signalling path must run on a workqueue with
+WQ_MEM_RECLAIM, since memory reclaim can wait for dma-fences. It must
+also run in a signalling section, so that lockdep can check it.
 
-On x86, the kernel serializes the core in the IPI handler and in the
-scheduler. membarrier_test_barrier counts the memory barriers of each
-thread, but not these instructions.
+Add DmaFenceQueue, an OwnedQueue that is always created with
+WQ_MEM_RECLAIM, and DmaFenceWork, a ScopedWork that can only be bound
+to a DmaFenceQueue and whose work function runs in a
+SignallingSection. The work function receives the section, so it can
+signal fences with DriverFence::signal().
 
-Count them as well. These are the instructions, for x86-64:
+There are no users yet. Tyr will use them.
 
- - sync_core() in ipi_sync_core(),
- - the writes to CR3 in switch_mm_irqs_off(),
- - sync_core() in finish_task_switch().
-
-sync_core() issues SERIALIZE or IRET. An IRET cannot be probed, so the
-instruction before it is probed instead.
-
-The sync core test case then checks two more things:
-
- - A call makes each target execute a core serializing instruction
-   in the IPI handler. A check where the target was scheduled out is
-   dropped.
-
- - A target can be scheduled in after a task of another mm or after
-   a kernel thread. The scheduler then executes a core serializing
-   instruction before the target is scheduled out again.
-
-These checks are skipped with page table isolation. The kernel then
-serializes the core with the write to CR3 of each return to
-user-space, in entry code which cannot be probed.
-
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 ---
- .../membarrier/membarrier_test_barrier.bpf.c  |  11 +-
- .../membarrier/membarrier_test_barrier.c      | 102 +++++++++++++++++-
- .../membarrier/membarrier_test_barrier.h      |   6 ++
- 3 files changed, 112 insertions(+), 7 deletions(-)
+DmaFenceWork is built on ScopedWork, so this depends on the workqueue
+series that adds OwnedQueue and ScopedWork [1]. It also needs
+SignallingSection from [2].
 
-diff --git a/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c b/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c
-index 46cfba13f00f..ce18089f8dab 100644
---- a/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c
-+++ b/tools/testing/selftests/membarrier/membarrier_test_barrier.bpf.c
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Count the memory barriers which membarrier relies on, for each
-- * registered thread.
-+ * Count the memory barriers and the core serializing instructions which
-+ * membarrier relies on, for each registered thread.
-  *
-  * See membarrier_test_barrier.c.
-  */
-@@ -40,6 +40,7 @@ struct {
- 
- /* What the scheduler owes to the thread which it switched to. */
- #define OWES_BARRIER	1
-+#define OWES_SYNC_CORE	2
- 
- struct cpu_state {
- 	/* Slot, plus one, of the thread which this CPU last switched to. */
-@@ -111,6 +112,8 @@ int barrier_site(struct pt_regs *ctx)
- 		slot = state->slot;
- 		if (mask & (1U << MBT_SWITCH_MM))
- 			state->owed &= ~OWES_BARRIER;
-+		if (mask & (1U << MBT_SYNC_CORE_SWITCH))
-+			state->owed &= ~OWES_SYNC_CORE;
- 	} else {
- 		slot = slot_of(bpf_get_current_task_btf());
- 	}
-@@ -131,13 +134,15 @@ int BPF_PROG(sched_switch, bool preempt, struct task_struct *prev,
- 	/* The CPU leaves the thread which it last switched to. */
- 	if (state->owed & OWES_BARRIER)
- 		count(state->slot, 1U << MBT_SCHED_IN_MISSED);
-+	if (state->owed & OWES_SYNC_CORE)
-+		count(state->slot, 1U << MBT_SYNC_CORE_IN_MISSED);
- 	count(slot_of(prev), 1U << MBT_SCHED_OUT);
- 	slot = slot_of(next);
- 	state->slot = slot;
- 	state->owed = 0;
- 	/* The cases which need a barrier after the store to rq->curr. */
- 	if (slot && next->mm && prev->mm != next->mm) {
--		state->owed = OWES_BARRIER;
-+		state->owed = OWES_BARRIER | OWES_SYNC_CORE;
- 		count(slot, 1U << MBT_SCHED_IN);
- 	}
- 	return 0;
-diff --git a/tools/testing/selftests/membarrier/membarrier_test_barrier.c b/tools/testing/selftests/membarrier/membarrier_test_barrier.c
-index 88c5dbf5d7c7..082f048541b0 100644
---- a/tools/testing/selftests/membarrier/membarrier_test_barrier.c
-+++ b/tools/testing/selftests/membarrier/membarrier_test_barrier.c
-@@ -36,6 +36,9 @@
-  * must then execute a memory barrier after the store to rq->curr,
-  * before the target is scheduled out again.
-  *
-+ * The sync core command is checked in the same way, with the core
-+ * serializing instructions.
-+ *
-  * The instructions are found by their bytes in the kernel text, which
-  * is read from /proc/kcore. The list is for x86-64. It depends on what
-  * the compiler inlines into the functions it names.
-@@ -94,6 +97,10 @@ struct target_stats {
- 	atomic_ulong sched_in;
- 	/* Scheduled in without a barrier after the store to rq->curr. */
- 	atomic_ulong sched_in_missed;
-+	/* Checks where the target did not serialize its core. */
-+	atomic_ulong sync_core_missed;
-+	/* Scheduled in without a core serializing instruction. */
-+	atomic_ulong sync_core_in_missed;
- };
- 
- struct shared {
-@@ -126,6 +133,9 @@ struct target {
- static struct shared *shared;
- static int shared_fd;
- 
-+/* The targets of this process also check the sync core guarantee. */
-+static bool check_sync_core;
+This is based on drm-rust-next.
+
+[1] https://lore.kernel.org/r/20261119-rust-workqueue-v4-0-707c68994940@google.com
+[2] https://lore.kernel.org/r/20261127-dma-fence-signalling-v1-0-c44e8f4910ca@collabora.com
+---
+ rust/kernel/workqueue/dma_fence.rs | 211 +++++++++++++++++++++++++++++++++++++
+ rust/kernel/workqueue/mod.rs       |  10 ++
+ 2 files changed, 221 insertions(+)
+
+diff --git a/rust/kernel/workqueue/dma_fence.rs b/rust/kernel/workqueue/dma_fence.rs
+new file mode 100644
+index 000000000000..066eff3250ce
+--- /dev/null
++++ b/rust/kernel/workqueue/dma_fence.rs
+@@ -0,0 +1,211 @@
++// SPDX-License-Identifier: GPL-2.0
 +
- static int sys_membarrier(int cmd, unsigned int flags, int cpu_id)
- {
- 	return syscall(__NR_membarrier, cmd, flags, cpu_id);
-@@ -191,6 +201,11 @@ enum match {
- 	MATCH_CR3,
- 	/* Instruction with a LOCK prefix. */
- 	MATCH_LOCK,
-+	/*
-+	 * SERIALIZE or IRET, as issued by sync_core(). An IRET cannot be
-+	 * probed: the instruction before it is probed instead.
-+	 */
-+	MATCH_SYNC_CORE,
- };
- 
- struct site {
-@@ -206,15 +221,21 @@ struct site {
- #define IPI		(1U << MBT_IPI)
- #define SYSCALL		(1U << MBT_SYSCALL)
- #define SWITCH_MM	(1U << MBT_SWITCH_MM)
-+#define SYNC_CORE	(1U << MBT_SYNC_CORE)
-+#define SYNC_CORE_SWITCH (1U << MBT_SYNC_CORE_SWITCH)
- 
- static const struct site sites[] = {
- 	{ "ipi_mb", MATCH_MB, IPI },
- 	{ "ipi_sync_core", MATCH_MB, IPI },
-+	{ "ipi_sync_core", MATCH_SYNC_CORE, SYNC_CORE },
- 	{ "ipi_rseq", MATCH_MB, IPI },
- 	{ "membarrier_global_expedited", MATCH_MB, SYSCALL },
- 	{ "membarrier_private_expedited", MATCH_MB, SYSCALL },
--	/* Switch to another mm: write to CR3. It is a full barrier. */
--	{ "switch_mm_irqs_off", MATCH_CR3, SWITCH_MM, true },
-+	/*
-+	 * Switch to another mm: write to CR3. It is a full barrier and
-+	 * it is core serializing.
-+	 */
-+	{ "switch_mm_irqs_off", MATCH_CR3, SWITCH_MM | SYNC_CORE_SWITCH, true },
- 	/* Switch to the mm which the CPU kept in lazy TLB mode: smp_mb(). */
- 	{ "switch_mm_irqs_off", MATCH_MB, SWITCH_MM, true },
- 	/*
-@@ -222,6 +243,8 @@ static const struct site sites[] = {
- 	 * locked instruction of this function counts as well.
- 	 */
- 	{ "finish_task_switch", MATCH_LOCK, SWITCH_MM, true },
-+	/* membarrier_mm_sync_core_before_usermode() */
-+	{ "finish_task_switch", MATCH_SYNC_CORE, SYNC_CORE_SWITCH, true },
- };
- 
- struct probe {
-@@ -320,6 +343,7 @@ static void scan_function(const struct site *site, const struct ksym *sym,
- {
- 	unsigned char *text;
- 	size_t i, left;
-+	int32_t imm;
- 
- 	text = malloc(size);
- 	if (!text || !read_kernel(sym->addr, text, size)) {
-@@ -351,6 +375,24 @@ static void scan_function(const struct site *site, const struct ksym *sym,
- 			if (insn[0] == 0xf0)
- 				probe_insn(site, sym, addr);
- 			break;
-+		case MATCH_SYNC_CORE:
-+			/* SERIALIZE is 0f 01 e8. */
-+			if (left >= 3 && insn[0] == 0x0f && insn[1] == 0x01 &&
-+			    insn[2] == 0xe8) {
-+				probe_insn(site, sym, addr);
-+				break;
-+			}
-+			/*
-+			 * iret_to_self() is "pushq $1f; iretq; 1:". Probe the
-+			 * push.
-+			 */
-+			if (left < 7 || insn[0] != 0x68 || insn[5] != 0x48 ||
-+			    insn[6] != 0xcf)
-+				break;
-+			memcpy(&imm, insn + 1, sizeof(imm));
-+			if (imm == (int32_t)(addr + 7))
-+				probe_insn(site, sym, addr);
-+			break;
- 		}
- 	}
- 	free(text);
-@@ -630,8 +672,9 @@ static bool check_call(const uint64_t *counters, struct target_stats *stats)
- 	unsigned long done = atomic_load(&shared->done);
- 	uint64_t ipi = counter(counters, MBT_IPI);
- 	uint64_t sched_out = counter(counters, MBT_SCHED_OUT);
-+	uint64_t sync_core = counter(counters, MBT_SYNC_CORE);
- 	unsigned long started = atomic_load(&shared->started);
--	bool by_ipi, scheduled;
-+	bool by_ipi, scheduled, serialized;
- 	int spins = 0;
- 
- 	/* A call is in flight. */
-@@ -643,6 +686,7 @@ static bool check_call(const uint64_t *counters, struct target_stats *stats)
- 	}
- 	by_ipi = counter(counters, MBT_IPI) != ipi;
- 	scheduled = counter(counters, MBT_SCHED_OUT) != sched_out;
-+	serialized = counter(counters, MBT_SYNC_CORE) != sync_core;
- 	if (scheduled) {
- 		atomic_fetch_add(&stats->by_sched, 1);
- 		return true;
-@@ -654,6 +698,8 @@ static bool check_call(const uint64_t *counters, struct target_stats *stats)
- 		atomic_fetch_add(&stats->by_ipi, 1);
- 	else
- 		atomic_fetch_add(&stats->missed, 1);
-+	if (check_sync_core && !serialized)
-+		atomic_fetch_add(&stats->sync_core_missed, 1);
- 	return true;
- }
- 
-@@ -664,7 +710,8 @@ static void run_target(const struct target *target)
- 	const uint64_t *counters;
- 	long deadline = now_ms() + target->ms;
- 	unsigned long checks = 0;
--	uint64_t first_ipi, first_sched_in;
-+	uint64_t first_ipi, first_sched_in, first_sync_core_missed;
-+	uint64_t first_sched_out;
- 
- 	/*
- 	 * Register before moving to the CPU. The BPF program then sees
-@@ -681,6 +728,18 @@ static void run_target(const struct target *target)
- 	atomic_fetch_add(&shared->ready, 1);
- 	while (!atomic_load(&shared->registered) && !atomic_load(&shared->stop))
- 		sched_yield();
-+	/*
-+	 * The scheduler serializes the core of a registered process
-+	 * only. The target may have been scheduled in before the
-+	 * registration. So wait until it is scheduled out, and count
-+	 * from there.
-+	 */
-+	first_sched_out = counter(counters, MBT_SCHED_OUT);
-+	while (check_sync_core &&
-+	       counter(counters, MBT_SCHED_OUT) == first_sched_out &&
-+	       !atomic_load(&shared->stop))
-+		usleep(1000);
-+	first_sync_core_missed = counter(counters, MBT_SYNC_CORE_IN_MISSED);
- 	first_ipi = counter(counters, MBT_IPI);
- 	first_sched_in = counter(counters, MBT_SCHED_IN);
- 	while (!atomic_load(&shared->stop)) {
-@@ -700,6 +759,10 @@ static void run_target(const struct target *target)
- 			 counter(counters, MBT_SCHED_IN) - first_sched_in);
- 	atomic_fetch_add(&stats->sched_in_missed,
- 			 counter(counters, MBT_SCHED_IN_MISSED));
-+	if (check_sync_core)
-+		atomic_fetch_add(&stats->sync_core_in_missed,
-+				 counter(counters, MBT_SYNC_CORE_IN_MISSED) -
-+				 first_sync_core_missed);
- }
- 
- static void *target_thread(void *arg)
-@@ -826,6 +889,9 @@ static void sum_stats(int first, int nr, struct target_stats *sum)
- 		sum->ipis += atomic_load(&stats->ipis);
- 		sum->sched_in += atomic_load(&stats->sched_in);
- 		sum->sched_in_missed += atomic_load(&stats->sched_in_missed);
-+		sum->sync_core_missed += atomic_load(&stats->sync_core_missed);
-+		sum->sync_core_in_missed +=
-+			atomic_load(&stats->sync_core_in_missed);
- 	}
- }
- 
-@@ -838,6 +904,8 @@ static void sum_stats(int first, int nr, struct target_stats *sum)
- 	       __sum.by_ipi, __sum.by_sched, __sum.ipis);		\
- 	EXPECT_EQ(__sum.missed, 0);					\
- 	EXPECT_EQ(__sum.sched_in_missed, 0);				\
-+	EXPECT_EQ(__sum.sync_core_missed, 0);				\
-+	EXPECT_EQ(__sum.sync_core_in_missed, 0);			\
- 	EXPECT_GT(__sum.by_ipi + __sum.by_sched + __sum.missed, 0);			\
- } while (0)
- 
-@@ -919,8 +987,34 @@ TEST(private_expedited)
- 		     MEMBARRIER_CMD_PRIVATE_EXPEDITED);
- }
- 
-+/*
-+ * With page table isolation, the kernel serializes the core with the
-+ * write to CR3 of each return to user-space. This write is in the entry
-+ * code, which cannot be probed.
-+ */
-+static bool page_table_isolation(void)
-+{
-+	char *line = NULL;
-+	bool pti = false;
-+	size_t len = 0;
-+	FILE *f;
++//! Work items and a workqueue for the dma-fence signalling path.
 +
-+	f = fopen("/proc/cpuinfo", "r");
-+	if (!f)
-+		return false;
-+	while (!pti && getline(&line, &len, f) >= 0)
-+		pti = !strncmp(line, "flags", 5) &&
-+		      (strstr(line, " pti ") || strstr(line, " pti\n"));
-+	free(line);
-+	fclose(f);
-+	return pti;
++use crate::{
++    alloc::AllocError,
++    container_of,
++    dma_buf::SignallingSection,
++    prelude::*,
++    sync::LockClassKey, //
++};
++
++use super::{
++    OwnedQueue,
++    Queue,
++    ScopedWork,
++    ScopedWorkItem, //
++};
++
++use core::{
++    ops::Deref,
++    ptr, //
++};
++
++/// A workqueue for work done on a [dma-fence signalling path].
++///
++/// Memory reclaim can wait for a dma-fence, and signalling that fence can depend on work queued
++/// here, so the queue is created with `WQ_MEM_RECLAIM`. That flag reserves one execution context
++/// per queue, so work items that depend on each other need separate queues.
++///
++/// [dma-fence signalling path]: https://docs.kernel.org/driver-api/dma-buf.html#dma-fence-signalling-annotations
++pub struct DmaFenceQueue(OwnedQueue);
++
++impl DmaFenceQueue {
++    /// Allocates a new unbound workqueue.
++    #[inline]
++    pub fn new_unbound(name: &CStr) -> Result<Self, AllocError> {
++        Ok(Self(Queue::new_unbound().mem_reclaim().build(name)?))
++    }
++
++    /// Allocates a new ordered workqueue, which runs one work item at a time, in the order they
++    /// were queued.
++    #[inline]
++    pub fn new_ordered(name: &CStr) -> Result<Self, AllocError> {
++        Ok(Self(Queue::new_ordered().mem_reclaim().build(name)?))
++    }
 +}
 +
- TEST(private_expedited_sync_core)
- {
-+	check_sync_core = !page_table_isolation();
-+	if (!check_sync_core)
-+		TH_LOG("page table isolation: core serialization not checked");
- 	test_private(_metadata,
- 		     MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED_SYNC_CORE,
- 		     MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE);
-diff --git a/tools/testing/selftests/membarrier/membarrier_test_barrier.h b/tools/testing/selftests/membarrier/membarrier_test_barrier.h
-index d615ad1d9e8a..7c31d8cba544 100644
---- a/tools/testing/selftests/membarrier/membarrier_test_barrier.h
-+++ b/tools/testing/selftests/membarrier/membarrier_test_barrier.h
-@@ -24,6 +24,12 @@ enum {
- 	 * the scheduler executed no memory barrier in between.
- 	 */
- 	MBT_SCHED_IN_MISSED,
-+	/* Core serializing instruction of the membarrier IPI handler. */
-+	MBT_SYNC_CORE,
-+	/* Core serializing instruction of the scheduler. */
-+	MBT_SYNC_CORE_SWITCH,
-+	/* Like MBT_SCHED_IN_MISSED, for a core serializing instruction. */
-+	MBT_SYNC_CORE_IN_MISSED,
- 	MBT_NR_COUNTERS,
++/// Trait for types that can be used as [`DmaFenceWork`] items.
++///
++/// Like [`ScopedWorkItem`], except that the work function runs in a [`SignallingSection`], which
++/// it receives.
++pub trait DmaFenceWorkItem: Sized + Sync {
++    /// Called when the work item is executed.
++    fn run(work: &DmaFenceWork<'_, Self>, section: &SignallingSection);
++}
++
++/// The data of the [`ScopedWork`] inside a [`DmaFenceWork`].
++///
++/// # Invariants
++///
++/// An `Inner<T>` only ever exists inside the `work` field of a [`DmaFenceWork<'_, T>`].
++#[pin_data]
++struct Inner<T> {
++    #[pin]
++    data: T,
++}
++
++impl<T: DmaFenceWorkItem> ScopedWorkItem for Inner<T> {
++    fn run<'a, 'wq>(work: &'a ScopedWork<'wq, Self>) {
++        let section = SignallingSection::begin();
++
++        // SAFETY: An `Inner<T>` only ever exists inside the `work` field of a
++        // `DmaFenceWork<'wq, T>` (type invariant), so `work` is the `work` field of a live
++        // `DmaFenceWork<'wq, T>`.
++        let work: &'a DmaFenceWork<'wq, T> =
++            unsafe { &*container_of!(ptr::from_ref(work).cast_mut(), DmaFenceWork<'wq, T>, work) };
++
++        T::run(work, &section);
++    }
++}
++
++/// A work item on a [dma-fence signalling path].
++///
++/// Wraps a [`ScopedWork`] that is bound to a [`DmaFenceQueue`] and whose work function runs in a
++/// [`SignallingSection`].
++///
++/// [dma-fence signalling path]: https://docs.kernel.org/driver-api/dma-buf.html#dma-fence-signalling-annotations
++///
++/// # Examples
++///
++/// ```
++/// use kernel::{
++///     dma_buf::SignallingSection,
++///     workqueue::{
++///         new_dma_fence_work,
++///         DmaFenceQueue,
++///         DmaFenceWork,
++///         DmaFenceWorkItem, //
++///     },
++/// };
++///
++/// struct MyWork {
++///     value: u32,
++/// }
++///
++/// impl DmaFenceWorkItem for MyWork {
++///     fn run(work: &DmaFenceWork<'_, Self>, _section: &SignallingSection) {
++///         pr_info!("value = {}\n", work.value);
++///     }
++/// }
++///
++/// #[pin_data]
++/// struct MyData {
++///     #[pin]
++///     work: DmaFenceWork<'wq, MyWork>,
++///     wq: DmaFenceQueue,
++/// }
++///
++/// fn init_data() -> impl PinInit<MyData, Error> {
++///     // Define `my_work` outside the `unsafe` block.
++///     let my_work = MyWork { value: 7 };
++///     try_pin_init!(MyData {
++///         wq: DmaFenceQueue::new_unbound(c"my-wq")?,
++///         // SAFETY: `MyData` is only ever pin-initialized, and `work` is declared before `wq`,
++///         // so `work` is dropped before `wq`.
++///         work <- unsafe { new_dma_fence_work!(wq, "MyWork", my_work) },
++///     })
++/// }
++/// # pin_init::stack_try_pin_init!(let data =? init_data());
++/// # data.work().enqueue();
++/// # Ok::<(), Error>(())
++/// ```
++#[pin_data]
++#[repr(transparent)]
++pub struct DmaFenceWork<'wq, T: DmaFenceWorkItem> {
++    #[pin]
++    work: ScopedWork<'wq, Inner<T>>,
++}
++
++impl<'wq, T: DmaFenceWorkItem> DmaFenceWork<'wq, T> {
++    /// Creates a pin-initializer for a new work item bound to `queue`.
++    ///
++    /// Use [`new_dma_fence_work!`] to automatically provide the lock class key.
++    ///
++    /// # Safety
++    ///
++    /// The caller must ensure that the destructor of the initialized `DmaFenceWork<'wq, T>` runs
++    /// before the memory it lives in is reused and before `'wq` or any lifetime in `T` expires.
++    /// In particular, the value must not be leaked, e.g. via [`core::mem::forget`] or by leaking
++    /// the allocation that contains it.
++    #[inline]
++    pub unsafe fn new<E>(
++        queue: &'wq DmaFenceQueue,
++        name: &'static CStr,
++        key: Pin<&'static LockClassKey>,
++        init: impl PinInit<T, E>,
++    ) -> impl PinInit<Self, E> {
++        let data = try_pin_init!(Inner { data <- init }? E);
++
++        // INVARIANT: The `Inner<T>` is created inside the `work` field of this `DmaFenceWork`.
++        try_pin_init!(Self {
++            // SAFETY: Dropping a `DmaFenceWork` drops its `work` field, and `Inner<T>` has the
++            // lifetimes of `T`, so the caller's guarantee covers the requirements of
++            // `ScopedWork::new`.
++            work <- unsafe { ScopedWork::new(&queue.0, name, key, data) },
++        }? E)
++    }
++
++    /// Enqueues this work item on its bound workqueue.
++    ///
++    /// Returns `false` if the work item is already pending on the workqueue.
++    ///
++    /// The work item will be submitted using `WORK_CPU_UNBOUND`.
++    #[inline]
++    pub fn enqueue(&self) -> bool {
++        self.work.enqueue()
++    }
++}
++
++impl<T: DmaFenceWorkItem> Deref for DmaFenceWork<'_, T> {
++    type Target = T;
++
++    #[inline]
++    fn deref(&self) -> &T {
++        &self.work.data
++    }
++}
++
++/// Creates a [`DmaFenceWork`] pin-initializer with a new lock class.
++///
++/// This macro expands to a call to [`DmaFenceWork::new`], which is `unsafe`, so the invocation
++/// must be wrapped in an `unsafe` block.
++///
++/// # Safety
++///
++/// The caller must uphold the safety requirements of [`DmaFenceWork::new`]: the destructor of the
++/// initialized `DmaFenceWork` must run before the memory it lives in is reused and before the
++/// bound [`DmaFenceQueue`]'s lifetime or any lifetime in the inner type expires.
++#[macro_export]
++macro_rules! new_dma_fence_work {
++    ($queue:expr, $name:literal, $init:expr $(,)?) => {
++        $crate::workqueue::DmaFenceWork::new(
++            $queue,
++            $crate::c_str!($name),
++            $crate::static_lock_class!(),
++            $init,
++        )
++    };
++}
++pub use new_dma_fence_work;
+diff --git a/rust/kernel/workqueue/mod.rs b/rust/kernel/workqueue/mod.rs
+index d80fced7f333..328a6fce4d8d 100644
+--- a/rust/kernel/workqueue/mod.rs
++++ b/rust/kernel/workqueue/mod.rs
+@@ -219,6 +219,16 @@
+     ScopedWorkItem, //
  };
  
--- 
-2.47.3
++#[cfg(CONFIG_DMA_SHARED_BUFFER)]
++mod dma_fence;
++#[cfg(CONFIG_DMA_SHARED_BUFFER)]
++pub use self::dma_fence::{
++    new_dma_fence_work,
++    DmaFenceQueue,
++    DmaFenceWork,
++    DmaFenceWorkItem, //
++};
++
+ /// Creates a [`Work`] initialiser with the given name and a newly-created lock class.
+ #[macro_export]
+ macro_rules! new_work {
+
+---
+base-commit: abfb640b2374e26de8ff81d488c39d8254db538e
+change-id: 20261127-dma-fence-work-fb3e6e23659e
+prerequisite-message-id: <20261119-rust-workqueue-v4-0-707c68994940@google.com>
+prerequisite-patch-id: 2423b22dfde216dce30af3deb7eb7177505f5b96
+prerequisite-patch-id: f5e24f7b3717f2ab0445b5395c7f12b554861d78
+prerequisite-patch-id: 0bf6ae4abcef7090d0e48921d6ec627a59dc6a7a
+prerequisite-patch-id: cba4cd096a4df20f4597e9ea639881213c18a41b
+prerequisite-patch-id: 97b26feddfa5b675204c9e8e75f3ad2958ec268a
+prerequisite-change-id: 20261127-dma-fence-signalling-cae3def9aa97:v1
+prerequisite-patch-id: 0c6f8b7108a5757d863b43508c42b57b132a42c7
+prerequisite-patch-id: 82b6ae2b11186087986a05bd8a98f1c79c46ea2d
+
+Best regards,
+--  
+Daniel Almeida <daniel.almeida@collabora.com>
 
