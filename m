@@ -1,59 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795256;
-	b=NA2C/MGFo51GY2cCYpJYVq3o+PGfUf+jEHt8Y37YYhhaHJjKA84StpaB+sGDp5wRsTIp
-	 oweMOjNP6mGKzfhEIOkuF1mYVxbgEq+D765/O4dFLaylBh3HlU3NTvWetyUUvgS65kkRr
-	 UxIPBMAwh43RMnlzd8d1NndWI+6L0ANK5OjwWsX9rEgN9GB2NNctq1h1kOFG5SBQhMBLq
-	 5X59P242ryC1Yhg3a2cTsUUDzjWHSs/t8eyCJKBJvH4eHclfQn4MzzjCJip/dnRdfq8sk
-	 sSrpTvXAj5SxvLZ5hr0BKCKQhREiYOqRaH5wUIWCOiiyAw6jl+A2csix6tGWYT7FEcw==
+	t=1795795332;
+	b=XK7KYEfmbgT+RC+fN0FmAcFYPgGSo9Y21cnkCHrBZ0Wg9wv7WpDoNBHLv0FCp9Hfg9vb
+	 Qb3z6ZXMx3EYz0cWYL5igD8/7yDuSM/iJLBLUWvLQhuXNVHI4rzXDNnL8M7Rfng6Lx2FM
+	 pW3KxPtSW9kYDj3pnfUeQbDk19imw6g3UhjDKjNvcVIzzbyfI14+yVmYQN/JQvAJ/F/cT
+	 PMFyCa3qCMczKj7kf0/XdhgciADrvp+7fyfoKhRW9qq6ySBD9IUEGo6+/o94JFwpD9Fdi
+	 g65a09N0o0mnbRKuntqQUDr5HVPzjPTD156Mpl2APDQdsrM3Fq0ih2GxWOqUMPo4Yvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795256;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gE3yKnlohnWoJO9J2ZC7iGcbBKT8ggwgyLdq3uH8Caw=;
-	b=niC71+BlQPbN2lmZvOT37rYAaRG36Nl34tgr4HRuZuqq+mUKQKwYolEBWGYEG83L0OwT
-	 IGAwiecezAWcPlzdi9n9f1rTcUH9kTd7l76AeZBJj8HuTbgId1X5iROwl3NKwEdM+RJbX
-	 mQOHtxm2Y9V3maxxLkobomXjzL7E+EkbARm3HBKWf1fhM+538XC4h6phWI6JELWu3CF9g
-	 SL5FXpjdy1e2aqe30ckHLoq647F7yFeWMtUlX+uzMWjiassp/n3f5eHx5XDZIIrQTph9r
-	 mOgmc4iPZGK+gQuJDMGdJ/nFmvGI/yv+Y9YaQNwW9+wG4SSebxd74ypJUKBGkYdVZjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795332;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=bRsuVcrQyfmLz+pq40jwwjKSrSxpTonxyuhsiPTJNsQ=;
+	b=QIFk64DdNF9NPNvyDFjtSditaW+crqa7l8JJHjU8Y0b0VekNNSzIo0RYRSU0mfSCFJkf
+	 k9/r/qClm2eaGliN+7Cs1UT9Ti2fRScUj2rlg46lj9FYlSm26RRP39Ia7EuVmp2T6BhNu
+	 ue9tGMfSaTvasXFpX4qY5+z8qvLDALZ3KHPYrcF6p+s153U8zzjk/y9RMbuy57F/N1py/
+	 3LSKS6nzQQnsVlPXZnAEcq4Sj3OQvI426LH0iOUrWAfbjOoWO9En0QFW4sq57v2zFK1Kj
+	 MHkw/Q9ig3VhomsDcSrwSfWBsVYsCLsNqtInPPTgqCXXGn8pmIK5Z6NA89pkTvKd0aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VTHSAgER;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=iL3iZ2Tr;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 622B0606C21D;
-	Fri, 27 Nov 2026 16:00:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 622B0606C21D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AB71606A339;
+	Fri, 27 Nov 2026 16:02:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AB71606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VTHSAgER
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795795254;
-	bh=yHEPc9SkCperUq2H+yblKT0WinHaz9Qyg0VM8DkDmis=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VTHSAgERASeLFCgp5nF6VY2s5zsL6XOXkKYsnE/SwYBoVw7nDVrEZnQnTWB6IOxe+
-	 0HBMVtqhywvqMNvA2ZUv08QA0mA0JijLe7ww3R/w3qGaLQ1h/L9qcy1RSaEMcr4vmK
-	 XCfutEd21UcstmF1iG8nscrZ5o8fNqpzcbZUgo5+JQy1+6pN/t/siJNpxBz809Sjfe
-	 Bhk4+IcrUEC5yxqSYgp3ihs5kBIZ5uhUYJeNO3H0m2S+bxML32sQdwQ69W9H1Jg3U/
-	 tK3XsxB3BJevc1EOsrAqo92IBhkeYcn4tqsb/cBmNQZSqXHltK7cphHayjTeSzVmhO
-	 UCpW4JlkwB3BA==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B658417E0E37;
-	Fri, 27 Nov 2026 17:00:53 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 27 Nov 2026 17:00:26 +0100
-Subject: [PATCH v16 23/23] scsi: ufs: mediatek: Add MT8196 compatible,
- update copyright
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=iL3iZ2Tr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=bRsuVcrQyfmLz+pq40jwwjKSrSxpTonxyuhsiPTJNsQ=;
+	b=iL3iZ2TrqhQiQMK7KMAOkx5JWJxVgyAO27j7yzgnMZ/cWff6Z4NGLzezIn4vxb
+	sA+XkIW8d4r5TzIR8fFRz8bD+/YlaK8gzvs5qAVAkIiZSyaWZQxSMalaeRDRi6cd
+	pUMbk3SpB9K8jo7Upc4eI0a2gi3O09uj/HO0bs0P169uw=
+Received: from [IPV6:240e:b8f:91b3:d000:4e56:5474:4160:163a] (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDXtiMwqQlrKSDnKg--.18141S2;
+	Sat, 28 Nov 2026 00:00:49 +0800 (CST)
+Message-ID: <65f6df0c-1bf2-4a1d-8049-44dea14b70f4@163.com>
+Date: Sat, 28 Nov 2026 00:00:51 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,108 +54,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-mt8196-ufs-v16-23-6f2568f7c119@collabora.com>
-References: <20261127-mt8196-ufs-v16-0-6f2568f7c119@collabora.com>
-In-Reply-To: <20261127-mt8196-ufs-v16-0-6f2568f7c119@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Chun-Hung Wu <chun-hung.wu@mediatek.com>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795795222; l=2479;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=ng8074+Xw5koEENCrcN0XOyaB5QdfK4doK2YMnCe4lE=;
- b=KVukKp/RT+P7D5ALPKGHtOnnnFJHPcg8DqXicg37NF+bsKZkNJmKoATzH9pgN58tbLFQ0M1rg
- oLtIFhpvK8fC1inKEz0DikAAHFsxuFiNDYPZrjjGrOKqXDHOEDhgUyt
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC] PCIe host controller async probe vs PHY request_module
+ deadlock
+To: Shawn Lin <shawn.lin@rock-chips.com>, andrew@lunn.ch,
+ hkallweit1@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, bhelgaas@google.com, mani@kernel.org,
+ linux@armlinux.org.uk, netdev@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261127074329.747914-1-18255117159@163.com>
+ <00ca72a9-ff50-4842-8aa9-d68416212e8b@163.com>
+ <2587e8fc-018d-426a-8459-4e88e733a38c@rock-chips.com>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <2587e8fc-018d-426a-8459-4e88e733a38c@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDXtiMwqQlrKSDnKg--.18141S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrur18AF1DJr4DXF1rCw47XFb_yoW3ArbE93
+	47CFy09w1rKF4j9a1ktrs3urs0qw1jga45Gr92qr43GryrAFZrGan2y3sxXa4xJFZ2kFyI
+	qF9Iq3y7tFn09jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjFAp7UUUUU==
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xKTN2sJqTIjHgAA3Z
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The MT8196's UFS controller has a new compatible. Add the necessary
-struct definitions to support it.
 
-Also update the copyrights and authors, without tabs following spaces to
-avoid checkpatch errors, to list myself as having contributed to this
-driver after the preceding rework patches.
+On 11/27/26 23:01, Shawn Lin wrote:
+> Hi Hans
+> 
+> 
+> 在 2026/11/27 星期五 16:02, Hans Zhang 写道:
+>> Hi all,
+>>
+>> The patching process under discussion：
+>>
+>> https://patchwork.kernel.org/project/netdevbpf/ 
+>> patch/20261124070753.25972-1-18255117159@163.com/  (include v3 patch)
+>> https://patchwork.kernel.org/project/netdevbpf/ 
+>> patch/20261124070753.25972-1-18255117159@163.com/
+>>
+> 
+> This had been discussed for several times and the lastest one I
+> remembered  is from here:
+> 
+> https://lists.infradead.org/pipermail/linux-rockchip/2026-March/068879.html
+> 
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/ufs/host/ufs-mediatek.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+Hi Shawn,
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index a16c67559712..a9bbb89cfad5 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1,9 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * Copyright (C) 2019 MediaTek Inc.
-+ * Copyright (C) 2026 Collabora Ltd.
-  * Authors:
-- *	Stanley Chu <stanley.chu@mediatek.com>
-- *	Peter Wang <peter.wang@mediatek.com>
-+ *      Stanley Chu <stanley.chu@mediatek.com>
-+ *      Peter Wang <peter.wang@mediatek.com>
-+ *      Nicolas Frattaroli <nicolas.frattaroli@collabora.com> (Major cleanups)
-  */
- 
- #include <linux/arm-smccc.h>
-@@ -2291,6 +2293,10 @@ static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
- 	"avdd12", "avdd12-ckbuf", "avdd18"
- };
- 
-+static const char *const ufs_mtk_regs_avdd12_ckbuf[] = {
-+	"avdd12", "avdd12-ckbuf"
-+};
-+
- static const struct ufs_mtk_soc_data mt8183_data = {
- 	.has_avdd09 = true,
- 	.reg_names = ufs_mtk_regs_avdd12_avdd18,
-@@ -2303,10 +2309,18 @@ static const struct ufs_mtk_soc_data mt8192_8195_data = {
- 	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
- };
- 
-+static const struct ufs_mtk_soc_data mt8196_data = {
-+	.has_avdd09 = true,
-+	.has_avdd09_1 = true,
-+	.reg_names = ufs_mtk_regs_avdd12_ckbuf,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf),
-+};
-+
- static const struct of_device_id ufs_mtk_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
- 	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
- 	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
-+	{ .compatible = "mediatek,mt8196-ufshci", .data = &mt8196_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
+Thank you for your reminder. I missed the discussion of this series. But 
+it seems that I haven't witnessed the final plan being implemented.
 
--- 
-2.56.1
+Best regards,
+Hans
+
 
