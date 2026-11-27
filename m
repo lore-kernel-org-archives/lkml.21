@@ -1,62 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795792696;
-	b=D7+/Z4kbRdJ9Ue0/tq7L95J10Pt1Wn91ik4Ezl6SPuBjTLBBr6qqdKN4ynAjK5hw/3nn
-	 cjsRNQSVDN799jCg8Zu3hCWRcZycEdyxz5Qz/EtcqndRFNhXB6P1EDsiNY/fZyUzH5eQu
-	 Dk3Zm7NcU9DcXy36oz6YCythRIVCGe/AXphlubPbGcv3XXiwVouz4Tc6k1BAcN5YnYa90
-	 OX1qbyVnFv4OqRLwa+ZWlupQEUCiJULAHotP+QhkTwa2JCmOMzz3i2DTYouB2VIt2DpBF
-	 WVoigyFJTJjINMWtzhpMQsDBKXI42sr722dDzSyjICWGRgpPMV3J0mHiX5JFd0/DAdA==
+	t=1795792758;
+	b=M8zwRpWrCdPjACLW5EkIvxntqJ+1TIhHAQF/yh9gT6Ts3EpZyo1OEEHV83o2wA6VG1Qg
+	 eUsPISPCQY+R3uqxZplcvKX9LdAk4J7zq+YS3Tu4pPWKqTPCLK6d8+RQXvLQhle8lTM8G
+	 UxvyaC3J4gxkIb3s9+tDhNT8bfOQoMy132tpBd6KaTPSu9J+8W9NOSAx0DdAsBkyfj8UO
+	 TZnxjhM/4Br+GgjJFxb8BJeBYKng5QNnQa1sh6UKlWc93W8JCaS6OX+6iseR86w6DD6HK
+	 xclxOZempQCS96+cqk+ygq9XoGSyrNhHfMnyL6cc11cWy/94So38sVolL/MWHbovD0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792696;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=4N5oFs5XGGfdpJJghwLFB6jh87JUfQpfrYkhGaeqDvk=;
-	b=OYNn4oGcpizpWUuC7D50yydfYIa6/TSw59adJidw1QoFSD7Z8lzaAk8hmNXIZxUgLLPn
-	 5EBP6BkzHnoqbvNGTku8lodpvpAtUryAnacCSvx53rrPzRZxdAlPJjMThpKs/sjt3Dns6
-	 NsEqWNNwtm+ZhyR3oLUzf9BVCkz9C0r8/Z/nBtS1C0Zr7uzd/UXsvhuz+jKlguDsLTlZy
-	 oDoaO03Ulz0kr9sCTW/FGZlG0wGr85YO3QejwkENKypAyYi9JpBR6bZYsynjfZ+Hekkry
-	 /lGdZcHkbDeHCu8Lo01jj47LxdqxAul6QsXeLZX6IOu6wnMDSygH398wCaSzU0SZCqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792758;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 User-Agent:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
+	bh=bEoLKWSEn34IGvUQS8bq69ZXl72O1X3UYsphHbW3p4U=;
+	b=kapqMM3E/ZvR5dtVPpK/fOEkvd++Uok+kNYARi4EzrC1LuqQaPtaImXtuSKSxprT0hVU
+	 2EE8KlJnVFlpsPwseZ935ptcgfCsBw9XTOOzbNMe0DJLWyHxvPa/3yiyIGpo6MPnTcMXi
+	 PmgWBPBbRxxYB8/hL7pOUj/hC1A0Kb7HoOiWb2IuFiiMdBo0G51Reo48dFXOZvKUvGzAy
+	 3H1KHxoCgp64w6nGGHpNZrzp/6OC5y2SvlpMwJvoHZION20iojp3koIS+Rd6ZNP1M6k1z
+	 Y1GjQHfi0jaaf1U0ek46JzBKqC533k+nSUmY3wGmaSV5G5kCatI3uHOmxkf5r/Vp/MQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HpQ0YQxA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=u1jENU2J;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Liyui8Yd;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Aa5wsK6W;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=zNqiXOsq;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2F5A606A31C;
-	Fri, 27 Nov 2026 15:18:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FC0E606A31C;
+	Fri, 27 Nov 2026 15:19:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FC0E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HpQ0YQxA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB59A1F00893;
-	Fri, 27 Nov 2026 15:18:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795792696;
-	bh=4N5oFs5XGGfdpJJghwLFB6jh87JUfQpfrYkhGaeqDvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HpQ0YQxAnusmuRaNs4tTcwEQ/b1d6koqApQDvRHKjYGaKhTnuPdhXDNDkBGXYB96s
-	 EJUCRJdN7iHUTiKxIJ2+iDj/sTwBIJdsortJKvb2OccZLqYF4CIm9ZVB1UNTuxJ7Cg
-	 bGFgEinKOfyEJaY/YsRoPj9Uk2fINqD/WWlgihUCxE9M9g/RZTcl9eKkb/CPrE82l3
-	 mZfyOGubCvh+47ZOHO/b2Z72JWUDCTiIuo4EZNJrGSrRh3jNcx9iysHb2GEFltEdwj
-	 rpHbLgO2WXeWHpaiadfvygOieEaGCE9vQ1lfe2O8Lvxj5r/oRVNLqSFvO8BRWGcX3W
-	 a4yolim8zvXLw==
-Date: Fri, 27 Nov 2026 17:18:13 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Sibi Sankar <sibi.sankar@oss.qualcomm.com>, will@kernel.org,
-	robin.murphy@arm.com, honghuan@amd.com,
-	Jason Gunthorpe <jgg@ziepe.ca>, joro@8bytes.org,
-	prakash.gupta@oss.qualcomm.com, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] Revert "iommu/dma: simplify dma_iova_destroy() and drop
- the free_iova helper"
-Message-ID: <20261127151813.GZ774860@unreal>
-References: <CGME20261125135138eucas1p141ba6b5e09623562e2033e290fba811c@eucas1p1.samsung.com>
- <20261125135120.1126571-1-sibi.sankar@oss.qualcomm.com>
- <a3722347-4b88-41ad-926b-455530020c6b@samsung.com>
- <20261125183419.GB774860@unreal>
- <c5e4fc4e-0e63-47cf-8b88-93ecfb3646de@samsung.com>
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=u1jENU2J;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Liyui8Yd;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Aa5wsK6W;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=zNqiXOsq
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 3348D1FD59;
+	Fri, 27 Nov 2026 15:19:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795792755; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bEoLKWSEn34IGvUQS8bq69ZXl72O1X3UYsphHbW3p4U=;
+	b=u1jENU2JCSXGjp64N5RzZBNeGbNfGx7AR4unoVT3VthJEr/Q0uwjjAryc4g0p5i1Kne3bc
+	VcGKag4cDftc+tWw/vJ9NXUd5lpDtZjKG4ikv2ZUvuYs4+X9ulnfuxUD5Gb77Nw4nHoT/0
+	FpoQEjIYqAmOxZLMfPl9XvaqYJS1NZA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795792755;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bEoLKWSEn34IGvUQS8bq69ZXl72O1X3UYsphHbW3p4U=;
+	b=Liyui8YdzrPTaCrh+xaMG+e5lsyxgjikaPk/5v4kEbvNeVd0xf6KPWs3z4CSVuhw22i5H3
+	QJZ+upL/RmsGZ0DA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795792754; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bEoLKWSEn34IGvUQS8bq69ZXl72O1X3UYsphHbW3p4U=;
+	b=Aa5wsK6WC+EGc1uSP6HgGVR4VQynnXNhS8iz1rXpi36Jt5Ud9BUBEmXw/2qFu/Zs0DE6Sa
+	FJdLKLkh5FmAVc0dF4QW4oLrZsijHMyz60d7uBFgdWkwgG3YfxJv8xKTH5IcxCxf+84tog
+	LaIv5zhLdpXYxYC6uGwyd94tzyUlJjs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795792754;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bEoLKWSEn34IGvUQS8bq69ZXl72O1X3UYsphHbW3p4U=;
+	b=zNqiXOsqYLE90LrselIkHAYw87c245L+Kgfwo8mP6EBMoxvdpKtZ55aghwwFSz/Fb2b/L3
+	qz9nyKyUjl4zY7BQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E2C2913432;
+	Fri, 27 Nov 2026 15:19:13 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id baieLXGfCWsUCQAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Fri, 27 Nov 2026 15:19:13 +0000
+Date: Fri, 27 Nov 2026 16:19:13 +0100
+Message-ID: <87y0aemhe6.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Linux Sound Mailing List <linux-sound@vger.kernel.org>, Linux Kernel
+ Mailing List <linux-kernel@vger.kernel.org>
+Subject: [GIT PULL] sound fixes for 7.4-rc5
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,87 +107,220 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=ISO-8859-15
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <c5e4fc4e-0e63-47cf-8b88-93ecfb3646de@samsung.com>
+X-Spamd-Result: default: False [-12.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_DN_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[kernel.org,gmail.com,vger.kernel.org];
+	RCPT_COUNT_FIVE(0.00)[5];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[kode54.net:email,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.30
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-On Fri, Nov 27, 2026 at 12:28:16PM +0100, Marek Szyprowski wrote:
-> On 25.11.2026 19:34, Leon Romanovsky wrote:
-> > On Wed, Nov 25, 2026 at 06:21:06PM +0100, Marek Szyprowski wrote:
-> >> On 25.11.2026 14:51, Sibi Sankar wrote:
-> >>> This reverts commit 1acce29926d93f3eba427696fe3da6451504dae2.
-> >>>
-> >>> Before this commit, dma_iova_destroy() unmapped through
-> >>> __iommu_dma_iova_unlink(..., free_iova=true), which set
-> >>> iotlb_gather.queued from cookie->fq_domain, skipped iommu_iotlb_sync()
-> >>> and freed the IOVA with the queued gather, exactly like
-> >>> __iommu_dma_unmap(). After it, dma_iova_destroy() calls
-> >>> dma_iova_unlink() and then dma_iova_free():
-> >>>
-> >>>   - dma_iova_unlink() never marks its gather as queued and always calls
-> >>>     iommu_iotlb_sync() after iommu_unmap_fast().
-> >>>   - dma_iova_free() passes a NULL gather to iommu_dma_free_iova(), so
-> >>>     the IOVA goes straight back to the allocator through
-> >>>     free_iova_fast() and never through queue_iova().
-> >>>
-> >>> DMA-FQ domains therefore get strict invalidation on this path. That
-> >>> includes the block layer's blk_rq_dma_map() path, which NVMe uses for
-> >>> all data transfers, so iommu.strict=0 has no effect on NVMe I/O.
-> >>>
-> >>> hw/sw details: Qualcomm Glymur CRD: SMMUv3 with no RANGE_INV,
-> >>> 	       4K pages; NVMe SSD on PCIe Gen5 x4
-> >>>
-> >>> Fio sequential read/write numbers:
-> >>>   Domain                          seq write    seq read
-> >>>   DMA (strict)                    2694 MiB/s   2693 MiB/s
-> >>>   DMA-FQ (lazy), flush queue      2707 MiB/s   2803 MiB/s
-> >>>     bypassed (this regression)
-> >>>   DMA-FQ (lazy), flush queue      10.6 GiB/s   11.9 GiB/s
-> >>>     used by dma_iova_destroy()
-> >>>
-> >>> Fixes: 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop the free_iova helper")
-> >>> Cc: stable@vger.kernel.org # v7.3+
-> >>> Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
-> >>
-> >> The performance data clearly shows that the flush queue was there for
-> >> the reason. Together with this revert it would probably make sense to
-> >> apply the v1 of the reverted patch:
-> >>
-> >> https://lore.kernel.org/all/20260701092033.422867-1-honghuan@amd.com/
-> >>
-> >> Leon, do You see any other option?
-> > These numbers shows clearly that we had iotlb_gather.queued != 0
-> > and never performed iommu_iotlb_sync(domain, &iotlb_gather); while
-> > destroying mapped IOVA.
-> >
-> > I agree with you, v1 is the easiest solution, however my preferred one
-> > is to cache gather when it is created and keep it in dma_iova_state 
-> > structure for whole life cycle of that struct.
-> 
-> I've played with the code (using LLM ;) and there are some issues with this
-> approach:
-> 
-> 1. tso_dma_map_completion_save() copies the struct dma_iova_state by value,
-> what breaks internals of the struct iommu_iotlb_gather.
-> 2. adding iommu_iotlb_gather to dma_iova_state increase the struct size
-> from 16 to 64 bytes, what lands in every NVMe request, RDMA rw contexts,
-> TSO maps and HMM.
+Linus,
 
-I had that idea before AI era and before TSO was converted to use
-dma_iova_state. :)
+please pull sound fixes for v7.4-rc5 from:
 
-> 
-> I've decided to put only the 'use_fq' bit in the __size entry and baked the
-> fix. It looks quite nice. This approach solves both above issues, although
-> it requires to also fix some drivers which already pokes __size directly
-> instead of calling dma_iova_size().
-> 
-> I will post this in a few minutes.
-> 
-> Best regards
-> -- 
-> Marek Szyprowski, PhD
-> Samsung R&D Institute Poland
-> 
+  git://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git tags/sound-7.4-rc5
+
+The topmost commit is e79163b531eca7f3fdc05031f4b43b6f7c51d3bc
+
+----------------------------------------------------------------
+
+sound fixes for 7.4-rc5
+
+A collection of various small fixes across the sound subsystem.
+Mostly the device-specific quirks and driver fixes as usual, along
+with a few race and deadlock fixes in ALSA core and ASoC drivers.
+
+Here are the highlights:
+
+* ALSA core:
+- Fix potential ABBA deadlock at snd_pcm_action_nonatomic()
+- Prevent hw_params/hw_refine changes during PCM buffer access
+- Simplify PCM buffer access gate with auto-cleanup helpers
+- Fix deadlock regression at OSS device unregistration
+- Refine slave hw_params after setting format in PCM OSS
+- Protect slave timer instance flags with the timer lock
+
+* HD-audio:
+- Fix unbalanced display power reference on delayed probe failure
+- Fix NULL pointer dereference on unbind in TAS2781 SPI driver
+- Revert for regression on Higole F9B due to generic SSID conflict
+- Device-specific quirks and fixups (ASUS, Acer, Lenovo, HP, Infinix)
+
+* USB-audio:
+- Fix playback URB list corruption
+- Add quirk flags for Logitech PRO X 2 LIGHTSPEED headset
+- Generic implicit feedback quirks for Elgato XLR Dock and Wave:3
+- Native DSD support for Fosi Audio DS2 and iBasso Macaron
+
+FireWire:
+- Abort in-flight transactions on bus reset in FCP and Fireworks
+
+* ASoC:
+- Tegra: Add Tegra268 ADMAIF driver and dt-bindings support
+- NXP / FSL: Fixes for fsl_asrc and fsl_easrc regarding memory safety,
+  pair/context ownership, repeated hw_params, and FIFO drain bounds check
+- SOF: Reject out-of-range enum control values
+- AMD: ACP70 ACPI flag overrides (LG gram, Lenovo) and ACP6x DMIC quirks
+  (HP, MSI, Xiaomi)
+- Codec fixes for Everest ES8326 (clock, calibration delay, pop noise),
+  Awinic AW88166 and AW88399
+
+----------------------------------------------------------------
+
+Abhiraj Dutta (2):
+      ALSA: hda/realtek: Add quirk for HP Spectre x360 2-in-1 Laptop 16-f2xxx
+      ALSA: hda/realtek: Fix duplicate LEDs on HP Spectre x360 16-f2xxx
+
+Akhil Arul (1):
+      ALSA: hda/tas2781-spi: Set tas_hda->dev in probe
+
+Alen Ti¨ljar (1):
+      ASoC: amd: yc: Add DMI quirk for HP 255R G10 (board 8D22)
+
+Andrea Di Pietro (1):
+      ALSA: hda/realtek: Enable mute LEDs for HP OmniBook 7 14-hg0xxx
+
+Anupama Kunkulagunta (2):
+      ASoC: dt-bindings: tegra: Add Tegra268 ADMAIF support
+      ASoC: tegra: ADMAIF: Add Tegra268 support
+
+Arnav Kapoor (1):
+      ASoC: SOF: control: reject out-of-range enum values
+
+Arshdeep Singh (1):
+      ALSA: hda/realtek: Add quirk for HP Pavilion 15-cs3xxx
+
+Dennis Rijsdijk (1):
+      ALSA: usb-audio: Add generic implicit feedback quirk for Elgato Wave:3
+
+Gianluca Boiano (1):
+      ALSA: usb-audio: Enable native DSD for Fosi Audio DS2
+
+Hengyu Liang (1):
+      ALSA: pcm: oss: Refine slave hw_params after setting format
+
+JaeHoon Kim (1):
+      ASoC: amd: acp: Add ACP70 ACPI flag override for LG gram 15Z95U
+
+James Barnette (1):
+      ALSA: usb-audio: Add generic implicit feedback quirk for Elgato XLR Dock
+
+James X. Nelson (1):
+      ASoC: amd: yc: Enable DMIC on MSI Crosshair A18 HX A8WGKG
+
+Kai Vehmanen (1):
+      ALSA: hda: intel: Release i915 power also when delayed probe fails
+
+Marco Giunta (2):
+      ASoC: aw88166: fix backup restoring the RE value instead of saving it
+      ASoC: aw88399: fix register used to disable I2S TX
+
+Markus Paltian (1):
+      ASoC: amd: acp: Add Lenovo IdeaPad Slim 5 16AKP10 to ACP70 override table
+
+Mikolaj Kucharski (1):
+      ASoC: amd: yc: Add DMI quirk for Xiaomi REDMI Book 14 2025 (AMD)
+
+Oleg Antonyan (1):
+      ALSA: hda/realtek: Fix headset mic on ASUS Zenbook S 13 UX5304MA
+
+Parmjot Singh (1):
+      ALSA: hda/realtek: Enable mute LEDs on HP Envy x360 15-ew0xxx
+
+Rongen Wang (1):
+      ALSA: timer: Protect the slave instance flags with the timer lock
+
+Sophiel Zhou (1):
+      ALSA: usb-audio: Enable native DSD for iBasso Macaron
+
+Stefan Ghetu (5):
+      ASoC: fsl_asrc_m2m: fix out-of-bounds write when draining the output FIFO
+      ASoC: fsl_asrc: fix pair ownership on repeated or failed hw_params
+      ASoC: fsl_asrc_dma: release DMA channels on repeated hw_params
+      ASoC: fsl_easrc: fix context ownership on repeated hw_params
+      ASoC: fsl_asrc_m2m: allow only one task at a time per stream
+
+SungHwan Jung (2):
+      ALSA: hda/realtek: Fix mic mute LED on Acer Predator PHN16-71
+      ALSA: hda/realtek: Fix distorted headphone audio on Acer Predator PHN16-71
+
+Suyuan Wang (2):
+      ALSA: firewire-lib: Abort the FCP transaction on a bus reset
+      ALSA: fireworks: Abort the transaction on a bus reset
+
+Takashi Iwai (7):
+      ALSA: pcm: Fix potential ABBA deadlock at snd_pcm_action_nonatomic()
+      ALSA: pcm: Simplify PCM buffer access gate with auto-cleanup helpers
+      ALSA: pcm: Avoid hw_params/hw_refine changes during PCM buffer access
+      Revert "ALSA: hda/realtek: Fix silent speaker on Higole F9B"
+      ALSA: hda/realtek: Fix regression on another Lenovo Legion 16IRX9H model
+      ALSA: oss: Fix deadlock at unregistering (again)
+      ALSA: usb-audio: Don't queue playback URBs after stop
+
+William Alberto Jimenez Muñoz (1):
+      ALSA: hda/realtek: Add quirk for ASUS VivoBook X509UA
+
+Zhang Yi (4):
+      ASoC: codecs: ES8326: Modify Clock Configuration
+      ASoC: codecs: ES8326: issue about capture pop
+      ASoC: codecs: ES8326: Modify the Initialization Configuration
+      ASoC: codecs: ES8326: Adjust the delay during calibration
+
+chris@kode54.net (2):
+      ALSA: usb-audio: Ignore trailing whitespace in quirk_flags
+      ALSA: usb-audio: Add quirk flags for Logitech PRO X 2 LIGHTSPEED
+
+sandrees2007-ctrl (1):
+      ALSA: hda/realtek: Add quirk for Infinix BL51A7H
+
+---
+ .../bindings/sound/nvidia,tegra210-admaif.yaml     |  22 ++++
+ sound/core/oss/pcm_oss.c                           |   3 +-
+ sound/core/pcm_compat.c                            |   3 +
+ sound/core/pcm_lib.c                               |   7 +-
+ sound/core/pcm_local.h                             |  26 +++++
+ sound/core/pcm_native.c                            | 125 ++++++++++++---------
+ sound/core/sound_oss.c                             |  35 +++---
+ sound/core/timer.c                                 |  50 +++++++--
+ sound/firewire/fcp.c                               |   5 +-
+ sound/firewire/fireworks/fireworks_transaction.c   |   4 +-
+ sound/hda/codecs/realtek/alc269.c                  |  33 +++++-
+ sound/hda/codecs/side-codecs/tas2781_hda_spi.c     |   1 +
+ sound/hda/controllers/intel.c                      |   5 +-
+ sound/soc/amd/acp-config.c                         |  14 +++
+ sound/soc/amd/yc/acp6x-mach.c                      |  22 ++++
+ sound/soc/codecs/aw88166.c                         |   2 +-
+ sound/soc/codecs/aw88399-lib.c                     |   2 +-
+ sound/soc/codecs/es8326.c                          |   8 +-
+ sound/soc/fsl/fsl_asrc.c                           |  22 ++++
+ sound/soc/fsl/fsl_asrc_dma.c                       |  27 +++--
+ sound/soc/fsl/fsl_asrc_m2m.c                       |  30 +++--
+ sound/soc/fsl/fsl_easrc.c                          |  10 ++
+ sound/soc/sof/control.c                            |   5 +
+ sound/soc/tegra/tegra210_admaif.c                  |  66 +++++++++++
+ sound/soc/tegra/tegra210_admaif.h                  |  18 +++
+ sound/usb/endpoint.c                               |   3 +
+ sound/usb/quirks.c                                 |  13 ++-
+ 27 files changed, 443 insertions(+), 118 deletions(-)
+
