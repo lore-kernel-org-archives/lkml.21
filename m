@@ -1,51 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793326;
-	b=5XRCJNNZfknIzJTuX9nm3vE+wc5XNn2e2/v6ztdcohIal22fRDkIlt5etyWL2xsLVWEV
-	 an2gKbvBTu3/4KuDkzdIC4vqvzWNUTJKN4y3ZLx7Dx+v12tfjihyIJZhSF6HMOtaMvXOU
-	 AXwqVVYEJ8ZjGa0bat0CmKnP/7y8lLAszXcVqJBqRwFqwAPXwXbW7c5DJbc843jEi49c9
-	 U6Fumw/STXzXBJ3M55dc6z2UbccbV8u+iTHPdWBqnjEb/iiNEvN1aO9EG+fJVnv1uZ800
-	 w1Zz0wsE5X/ka7zITmKml249u5GeLTfxASTgG8tL/pHfflZsGa35rUr5xXdKhdK9AWQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793326;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=n5QOWqz98WETddy/xPJM95XLYHo5x8BVA/7Mf5x39YM=;
-	b=Wqcq03E3fJQdD0rxnH4lNrgfYP4qxZzT/Zj15Np/0ZseXOgF/SySFq87/52hp1nSS44O
-	 eG12U2+34dVDxZ8R6iGBpH0vTl0O6yLUpmuDaWNrsfj+24Nlr2TmOPKcyuTrTM83ynNMP
-	 LwIHCYPHMHPm942EcmN7NK4lPrXL4xe1bE5xnToOKebg5UhxmgEQiRQzc/GLBofVZzkXJ
-	 o21AZTKzSibqo4qIkk2zHY2zifwPndEYbm6lF038FjpluIFNG4zNyy7oR4x8g06sTFCFi
-	 pcXwym8IeA4SIXHIx5Bv43k0gPrBWqm5hxWgaT89MIo3+o7Y9RUyfXlEE9UzyqN7/fw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mtNWrcVf;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 243FE606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:28:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 243FE606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795793323;
+	b=VdvQV4APXY8zeTECZBTTk+8c1L5iJRABcoeI7NEypOY+LugQYHP+H7PRq9IJ6rZPzs5I
+	 kZ3FHthHpV4nAENsiEUWUIjGxYpiKuiG/Jpafy8eCcqZfrROaZMHUx3qsBQ7vqj/1fKWU
+	 kn8mFJQs/BBVh5FkM47BTRnJNxMOpn1bxraLSS+5kXN88EcnCJzk+5kIChvTLHubf2qXy
+	 RhCX4RTIHQLPZM7E9EsVeKW8u8T4Uz7Rzjsf8Efxl5B/e3aJgqBO/7tZ33IMJsPl+oZ0Z
+	 DI6EjL3NQt7swbbYzQ3c7Bi6OTVWQ8LYQFPD+jLP3i2MqZBLCDTTTqjQiuhcC1prD7g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793323;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=R1lgErtkHGkez/v6nABySb2ir4YTlwoSE0mnN6tPgq4=;
+	b=455FSwDguf0mSX7LC91JQWlulmOWOGI2FycihbIIkegNvpFq2zwr/kzDfqAUCXiRlGF0
+	 fKT39688q+1YIaThEegNCud2nplEcnMhEKbauDekMVxQhw1mUnuGeWHtQN6TG4wIdOriK
+	 Cyl2NJGg5aoFzrpYTe2wWwPgLq/lPisUsyMG7oM+8NZ9Lnsg9nETUnV1BoNI42VoSVNMt
+	 JDYB0wanxv7H8lM8vDVExrwdphKoKCRLbI9x3GQpXD0XBYY3F648gSOjheyGiXOjkgA/y
+	 KIb9azmDrqf9/oMBzYxTEww3hnFw7FOCOuU7fGOvxyZwS+WPua31Me+LdC2tQBEszVw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FLE4iApO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B082606A6B1;
+	Fri, 27 Nov 2026 15:28:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mtNWrcVf
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E97B1758;
-	Fri, 27 Nov 2026 07:28:42 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD86D3F86F;
-	Fri, 27 Nov 2026 07:28:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795793325; bh=JglaiMYxV68JeQA8tVJeZqG7XSW3ZxuoF4A2M/ZC180=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=mtNWrcVfbF7devqgzq1H1I9Sg0XmLAl9d0EeXYvgfP+Mq88HkBvuDBjGCkkthvU03
-	 6MhybUn/hp4pvM1kvoq32vYawL9ZuUm3l4ej9iHiPlC79ZhRitzbSdLdMXluALs2Qk
-	 QMrWneemFkpnfhtDN976W9rLxyYDrwtKnnLjY7aY=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Fri, 27 Nov 2026 15:28:31 +0000
-Subject: [PATCH RFC v2 1/6] firmware: arm-smccc: introduce match function
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FLE4iApO
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795793323;
+	b=WdC6IXHk6trPlkrAR2QsR9lj5usy6j2F89t1ZLE3CCKrcK8dgC9ctYZoYWMk6SctCJGF
+	 doq5+xb7mnjnxCfWYtXXCb9fmTBR+SGuPJEO9gGREvtz7nMERKydJ+Q85K9Sn51rQnK/0
+	 nzfrsXNZNgv/q1UyxVY5MKcWKWZ6mextmgmnld4A2tx/UEbcNDC0p5VKROsfM6Na002tZ
+	 8FlzDK0qwppOrFKveoGTgdVkg/ETSVf9wNurU1p47QEtCZCzPPZubYnMuEqBuztpqK4Td
+	 AFR+xjRi9HrKhwYgYsKK6T2FOO+z5LBekZD7F0byIbXjb3y7J4DQ9qLc7jxuKhBldvA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795793323;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=R1lgErtkHGkez/v6nABySb2ir4YTlwoSE0mnN6tPgq4=;
+	b=IjEv4HDzRWKhXpxasx9MMBmZ7QCl8fCq6Bry2HU7J9qjXe3tkbl66hOHgX3J4Zh3oMjc
+	 wsCsLHbY61b7qHlptr+5s1keYiHmOluwfyxmbJeLxhqpkbTLt91nfSwH3V/2NVIdabED/
+	 uetWDrDh/iEih0Cx0m7+Q1DuWpK+4rL0dhJ6wDZ5NRFDzxAcEWA1C6/1zfFMcae28B54S
+	 JRBze7yVQE+1/l7dMplWSv6By2nNDqP0owBHScFORXgUeZ61y5IYtLX2n/SpZFk/pVkxr
+	 mqnrPrlR/Hwkrsxiq9SLJQcXVYBxxGQnwhJSa3lZ70zDq/8hK34T3sobdTZOkZZkTxQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id CCC661F00930;
+	Fri, 27 Nov 2026 15:28:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795793323;
+	bh=R1lgErtkHGkez/v6nABySb2ir4YTlwoSE0mnN6tPgq4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=FLE4iApO5VS4qhNp1J7g7eBku6/UwX3SpdqmIsb0go8XYgyvLxCrHwKWIt3V9PhXk
+	 PLyBWQN6FiOg25JOWthQX00xE6fq21oS4Fp/01VsnUhmTzRKkJMtDDGotXiitci9Hd
+	 /lIqaWdSRfqhJoy1x5D8Imd3UKUv1WX1EuOMVeerxFNIkdegq/DGrmdOUyT0tLM/0i
+	 7JmEf+15qs1WYOWUm/2SNHdiEuFDaFjXsGY39uH3gp3eS/D+w9Y87MG0vh77deNrCJ
+	 5X6jKAC6CIAJ2wP630NSimxF96Cb3kp8sz3+E2t8ZCREf1XUVS46p2OHbd9dlS+IOh
+	 tiD0ghLGs07IA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 556534DC7C;
+	Fri, 27 Nov 2026 15:28:29 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Fri, 27 Nov 2026 16:27:05 +0100
+Subject: [PATCH v5 04/12] phy: amlogic: rename Meson8 HDMI TX PHY driver to
+ be SoC-generic
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,168 +84,246 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-meson-drm-create-hdmitx-phy-v5-4-88c43eb95468@aliel.fr>
+References: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
+In-Reply-To: <20261127-meson-drm-create-hdmitx-phy-v5-0-88c43eb95468@aliel.fr>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Ulf Hansson <ulfh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7248;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=+Sa3VAnyG7mxwHscfV5CH9pZg3lPumtOGpHuVXBmS/s=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbnwt5Xj6Wd3k9onfpsRdnRCCPpnnW/HmjKPD90eolYd
+ 5uxzR+VjlIWBjEuBlkxRZb+uZYn3l0+eubrHvUUmDmsTCBDGLg4BWAiTv8Z/odJNgW9vOv6aJ3G
+ 83mrjEsrFwq/6Jkd/vbhwVn7E4+sqlrPyPBk65wnz87aNnB23V2+7uAkueadGtN3qiZ8sEjdmrl
+ v9jNWAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Reply-To: linux-kernel-dev@aliel.fr
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-firme_interface-v2-1-ab88b2d0b4e0@arm.com>
-References: <20261127-firme_interface-v2-0-ab88b2d0b4e0@arm.com>
-In-Reply-To: <20261127-firme_interface-v2-0-ab88b2d0b4e0@arm.com>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki Poulose <suzuki.poulose@arm.com>, 
- Steven Price <steven.price@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jiri Pirko <jiri@resnulli.us>, 
- GONG Ruiqi <gongruiqi1@huawei.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- Mark Brown <broonie@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5014; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=JglaiMYxV68JeQA8tVJeZqG7XSW3ZxuoF4A2M/ZC180=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBrCaGnfaJzKSUVnbH1nkN2rxh2Z6kBBDuIxhuD6
- tiPsuJAsvmJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCawmhpwAKCRBt1cPRWsUx
- M4XrC/4mKpWhvvxt4VAeRDVGgpwNgfWIomTya92cHMv+N8rZMjqkND1I71EAfVQAPVSJGI35ukD
- 5G0CIHbG5s0LJgVf9eVrDm/0UZ9rM/z3xWnbVKeese7f0u3xfSdxHjhtko4VkrUaZezKigQyg/V
- RAqnz0gVlFatTQpdxiP7+kHJ4zrr9ThqXNHXzRl/mtaXIq8Oibsghk+dP1mys4IjacTAygLVmb/
- DQW2KLLbKLFiddPiFWmFHIiQTqWqmC9KbP0Lx8EGr+oyj07wobBzHo4KFpKWW2uDFoQywLb88I9
- inq6BNqWW8TCnOfPpLV6AfQu1c+Ey2iu0GoZeVHTBPk7ZSloFpvovQVCxPGYCbIaYncFnOUI1qm
- jQhWzH1e0SG6ycanvkjUYLpxUPj4xdhWbifNV3TceqwhJ17Rq6Y8vZLxWW8D/pBO3vNeEOn2QLr
- ML6U4M+ysTECiVPnl7hZDs8XGpjrILiURfDXx2ZmAhJTwZHMFfXn+iG3dHkp7rlTo6F3A=
-X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
- fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 
-Somce of protocol based on the smc is not enough to match smccc-device
-and smccc-driver with func_id only.
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-For example, firme interface will create smccc-device per service
-and this requires to chech whether firme smccc-device is for each
-service.
+The HDMI TX PHY driver is currently named after the Meson8 family
+(Meson8, Meson8b and Meson8m2), but the same IP block is found, with
+SoC-specific register programming, on the newer GXBB, GXL, GXM and
+G12A SoCs.
 
-To resolve this, add match function and match parameter for device
-which is set at the time of smccc-device creation so that smccc-driver
-could match proper smccc-device with match parameter and driver specific
-match function.
+In preparation for adding support for these SoCs, make the driver
+generic:
 
-This match parameter is defined under smc func-id. IOW, devices which
-share the func-id should have the same type for module parameter so
-that each driver under the same func-id can check extra one with
-match parameter type.
+ - rename phy-meson8-hdmi-tx.c to phy-meson-hdmi-tx.c
+ - rename the Kconfig symbol PHY_MESON8_HDMI_TX to PHY_MESON_HDMI_TX
+   and update the Makefile accordingly
+ - drop the "(ARCH_MESON && ARM)" dependency in favour of
+   "ARCH_MESON", since the driver is no longer ARM32-only, and
+   select GENERIC_PHY
+ - rename the phy_meson8_hdmi_tx_* symbols to meson_hdmi_phy_*
+ - update the platform driver name, the Kconfig help text and the
+   module description
+ - drop the unused <linux/property.h> include
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+No functional change intended: the only supported compatible remains
+"amlogic,meson8-hdmi-tx-phy".
+
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- drivers/firmware/smccc/bus.c   | 24 ++++++++++++++++--------
- drivers/firmware/smccc/smccc.c |  3 ++-
- include/linux/arm-smccc-bus.h  |  5 ++++-
- 3 files changed, 22 insertions(+), 10 deletions(-)
+ drivers/phy/amlogic/Kconfig                        |  9 ++--
+ drivers/phy/amlogic/Makefile                       |  2 +-
+ .../{phy-meson8-hdmi-tx.c => phy-meson-hdmi-tx.c}  | 54 +++++++++++-----------
+ 3 files changed, 33 insertions(+), 32 deletions(-)
 
-diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
-index 0357a7c48af0b..4a1182153bef8 100644
---- a/drivers/firmware/smccc/bus.c
-+++ b/drivers/firmware/smccc/bus.c
-@@ -11,15 +11,20 @@ static int arm_smccc_bus_match(struct device *dev,
+diff --git a/drivers/phy/amlogic/Kconfig b/drivers/phy/amlogic/Kconfig
+index ce7ba3eb2a8e..294996869e83 100644
+--- a/drivers/phy/amlogic/Kconfig
++++ b/drivers/phy/amlogic/Kconfig
+@@ -2,14 +2,15 @@
+ #
+ # Phy drivers for Amlogic platforms
+ #
+-config PHY_MESON8_HDMI_TX
+-	tristate "Meson8, Meson8b and Meson8m2 HDMI TX PHY driver"
+-	depends on (ARCH_MESON && ARM) || COMPILE_TEST
++config PHY_MESON_HDMI_TX
++	tristate "Meson HDMI TX PHY driver"
++	depends on ARCH_MESON || COMPILE_TEST
+ 	depends on OF
++	select GENERIC_PHY
+ 	select MFD_SYSCON
+ 	help
+ 	  Enable this to support the HDMI TX PHYs found in Meson8,
+-	  Meson8b and Meson8m2 SoCs.
++	  Meson8b, Meson8m2, GXBB, GXL, GXM and G12A SoCs.
+ 	  If unsure, say N.
+ 
+ config PHY_MESON8B_USB2
+diff --git a/drivers/phy/amlogic/Makefile b/drivers/phy/amlogic/Makefile
+index 91e3b9790c03..2611ec8a056d 100644
+--- a/drivers/phy/amlogic/Makefile
++++ b/drivers/phy/amlogic/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+-obj-$(CONFIG_PHY_MESON8_HDMI_TX)		+= phy-meson8-hdmi-tx.o
++obj-$(CONFIG_PHY_MESON_HDMI_TX)			+= phy-meson-hdmi-tx.o
+ obj-$(CONFIG_PHY_MESON8B_USB2)			+= phy-meson8b-usb2.o
+ obj-$(CONFIG_PHY_MESON_GXL_USB2)		+= phy-meson-gxl-usb2.o
+ obj-$(CONFIG_PHY_MESON_G12A_USB2)		+= phy-meson-g12a-usb2.o
+diff --git a/drivers/phy/amlogic/phy-meson8-hdmi-tx.c b/drivers/phy/amlogic/phy-meson-hdmi-tx.c
+similarity index 68%
+rename from drivers/phy/amlogic/phy-meson8-hdmi-tx.c
+rename to drivers/phy/amlogic/phy-meson-hdmi-tx.c
+index f6b5df74a58f..e4e606ab4eef 100644
+--- a/drivers/phy/amlogic/phy-meson8-hdmi-tx.c
++++ b/drivers/phy/amlogic/phy-meson-hdmi-tx.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * Meson8, Meson8b and Meson8m2 HDMI TX PHY.
++ * Amlogic Meson HDMI TX PHY driver
++ * (Meson8/8b/8m2)
+  *
+  * Copyright (C) 2021 Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+  */
+@@ -13,7 +14,6 @@
+ #include <linux/of.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+-#include <linux/property.h>
+ #include <linux/regmap.h>
+ 
+ /*
+@@ -32,30 +32,30 @@
+ 
+ #define HHI_HDMI_PHY_CNTL2				0x3a8
+ 
+-struct phy_meson8_hdmi_tx_priv {
++struct meson_hdmi_phy {
+ 	struct regmap		*hhi;
+ 	struct clk		*tmds_clk;
+ };
+ 
+-static int phy_meson8_hdmi_tx_init(struct phy *phy)
++static int meson_hdmi_phy_init(struct phy *phy)
  {
- 	const struct arm_smccc_device_id *id_table;
- 	const struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-+	const struct arm_smccc_driver *smccc_drv = to_arm_smccc_driver(drv);
+-	struct phy_meson8_hdmi_tx_priv *priv = phy_get_drvdata(phy);
++	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
  
--	id_table = to_arm_smccc_driver(drv)->id_table;
-+	id_table = smccc_drv->id_table;
- 	if (!id_table)
- 		return 0;
+ 	return clk_prepare_enable(priv->tmds_clk);
+ }
  
--	while (id_table->func_id) {
--		if (smccc_dev->func_id == id_table->func_id)
--			return 1;
--		id_table++;
-+	for (; id_table->func_id; id_table++) {
-+		if (smccc_dev->func_id != id_table->func_id)
-+			continue;
-+		if (!!smccc_dev->match_params != !!smccc_drv->match)
-+			continue;
-+		if (smccc_drv->match && !smccc_drv->match(smccc_dev))
-+			continue;
-+		return 1;
- 	}
+-static int phy_meson8_hdmi_tx_exit(struct phy *phy)
++static int meson_hdmi_phy_exit(struct phy *phy)
+ {
+-	struct phy_meson8_hdmi_tx_priv *priv = phy_get_drvdata(phy);
++	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
+ 
+ 	clk_disable_unprepare(priv->tmds_clk);
  
  	return 0;
-@@ -103,7 +108,7 @@ static void arm_smccc_release_device(struct device *dev)
- 	kfree(smccc_dev);
  }
  
--static struct device *arm_smccc_device_alloc(u32 func_id)
-+static struct device *arm_smccc_device_alloc(u32 func_id, void *match_params)
+-static int phy_meson8_hdmi_tx_power_on(struct phy *phy)
++static int meson_hdmi_phy_power_on(struct phy *phy)
  {
- 	struct arm_smccc_device *smccc_dev;
+-	struct phy_meson8_hdmi_tx_priv *priv = phy_get_drvdata(phy);
++	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
+ 	unsigned int i;
+ 	u16 hdmi_ctl0;
  
-@@ -112,6 +117,7 @@ static struct device *arm_smccc_device_alloc(u32 func_id)
- 		return NULL;
- 
- 	smccc_dev->func_id = func_id;
-+	smccc_dev->match_params = match_params;
- 	smccc_dev->dev.bus = &arm_smccc_bus_type;
- 	smccc_dev->dev.release = arm_smccc_release_device;
- 	device_initialize(&smccc_dev->dev);
-@@ -119,14 +125,16 @@ static struct device *arm_smccc_device_alloc(u32 func_id)
- 	return &smccc_dev->dev;
+@@ -85,9 +85,9 @@ static int phy_meson8_hdmi_tx_power_on(struct phy *phy)
+ 	return 0;
  }
  
--struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id)
-+struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id,
-+						   void *match_params)
+-static int phy_meson8_hdmi_tx_power_off(struct phy *phy)
++static int meson_hdmi_phy_power_off(struct phy *phy)
  {
- 	int ret;
+-	struct phy_meson8_hdmi_tx_priv *priv = phy_get_drvdata(phy);
++	struct meson_hdmi_phy *priv = phy_get_drvdata(phy);
  
- 	if (!name)
- 		return ERR_PTR(-EINVAL);
+ 	regmap_write(priv->hhi, HHI_HDMI_PHY_CNTL0,
+ 		     FIELD_PREP(HHI_HDMI_PHY_CNTL0_HDMI_CTL1, 0x0841) |
+@@ -96,18 +96,18 @@ static int phy_meson8_hdmi_tx_power_off(struct phy *phy)
+ 	return 0;
+ }
  
--	struct device *dev __free(put_device) = arm_smccc_device_alloc(func_id);
-+	struct device *dev __free(put_device) = arm_smccc_device_alloc(func_id,
-+								       match_params);
- 	if (!dev)
- 		return ERR_PTR(-ENOMEM);
- 
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-index 5dc768ac4143a..93658120114d3 100644
---- a/drivers/firmware/smccc/smccc.c
-+++ b/drivers/firmware/smccc/smccc.c
-@@ -136,7 +136,8 @@ static int __init smccc_devices_init(void)
- 		if (!smccc_probe_smccc_device(smccc_dev))
- 			continue;
- 
--		sdev = arm_smccc_device_register(smccc_dev->device_name, smccc_dev->func_id);
-+		sdev = arm_smccc_device_register(smccc_dev->device_name,
-+						 smccc_dev->func_id, NULL);
- 		if (IS_ERR(sdev))
- 			pr_err("%s: could not register device: %pe\n",
- 			       smccc_dev->device_name, sdev);
-diff --git a/include/linux/arm-smccc-bus.h b/include/linux/arm-smccc-bus.h
-index 05c0c850510e0..b7b44c9b67ec3 100644
---- a/include/linux/arm-smccc-bus.h
-+++ b/include/linux/arm-smccc-bus.h
-@@ -12,6 +12,7 @@
- struct arm_smccc_device {
- 	struct device dev;
- 	u32 func_id;
-+	void *match_params;
+-static const struct phy_ops phy_meson8_hdmi_tx_ops = {
+-	.init		= phy_meson8_hdmi_tx_init,
+-	.exit		= phy_meson8_hdmi_tx_exit,
+-	.power_on	= phy_meson8_hdmi_tx_power_on,
+-	.power_off	= phy_meson8_hdmi_tx_power_off,
++static const struct phy_ops meson_hdmi_phy_ops = {
++	.init		= meson_hdmi_phy_init,
++	.exit		= meson_hdmi_phy_exit,
++	.power_on	= meson_hdmi_phy_power_on,
++	.power_off	= meson_hdmi_phy_power_off,
+ 	.owner		= THIS_MODULE,
  };
  
- #define to_arm_smccc_device(d) container_of_const(d, struct arm_smccc_device, dev)
-@@ -22,6 +23,7 @@ struct arm_smccc_driver {
- 	const char *name;
- 	int (*probe)(struct arm_smccc_device *sdev);
- 	void (*remove)(struct arm_smccc_device *sdev);
-+	bool (*match)(const struct arm_smccc_device *sdev);
- 	const struct arm_smccc_device_id *id_table;
+-static int phy_meson8_hdmi_tx_probe(struct platform_device *pdev)
++static int meson_hdmi_phy_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
+-	struct phy_meson8_hdmi_tx_priv *priv;
++	struct meson_hdmi_phy *priv;
+ 	struct phy_provider *phy_provider;
+ 	struct resource *res;
+ 	struct phy *phy;
+@@ -128,7 +128,7 @@ static int phy_meson8_hdmi_tx_probe(struct platform_device *pdev)
+ 	if (IS_ERR(priv->tmds_clk))
+ 		return PTR_ERR(priv->tmds_clk);
+ 
+-	phy = devm_phy_create(&pdev->dev, np, &phy_meson8_hdmi_tx_ops);
++	phy = devm_phy_create(&pdev->dev, np, &meson_hdmi_phy_ops);
+ 	if (IS_ERR(phy))
+ 		return PTR_ERR(phy);
+ 
+@@ -140,21 +140,21 @@ static int phy_meson8_hdmi_tx_probe(struct platform_device *pdev)
+ 	return PTR_ERR_OR_ZERO(phy_provider);
+ }
+ 
+-static const struct of_device_id phy_meson8_hdmi_tx_of_match[] = {
++static const struct of_device_id meson_hdmi_phy_of_match[] = {
+ 	{ .compatible = "amlogic,meson8-hdmi-tx-phy" },
+ 	{ /* sentinel */ }
  };
+-MODULE_DEVICE_TABLE(of, phy_meson8_hdmi_tx_of_match);
++MODULE_DEVICE_TABLE(of, meson_hdmi_phy_of_match);
  
-@@ -31,7 +33,8 @@ struct arm_smccc_driver {
- int arm_smccc_driver_register(struct arm_smccc_driver *driver,
- 		struct module *owner, const char *mod_name);
- void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
--struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id);
-+struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id,
-+						   void *match_param);
- void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
+-static struct platform_driver phy_meson8_hdmi_tx_driver = {
+-	.probe	= phy_meson8_hdmi_tx_probe,
++static struct platform_driver meson_hdmi_phy_driver = {
++	.probe	= meson_hdmi_phy_probe,
+ 	.driver	= {
+-		.name		= "phy-meson8-hdmi-tx",
+-		.of_match_table	= phy_meson8_hdmi_tx_of_match,
++		.name		= "meson-hdmi-tx-phy",
++		.of_match_table	= meson_hdmi_phy_of_match,
+ 	},
+ };
+-module_platform_driver(phy_meson8_hdmi_tx_driver);
++module_platform_driver(meson_hdmi_phy_driver);
  
- #define arm_smccc_register(driver) \
+ MODULE_AUTHOR("Martin Blumenstingl <martin.blumenstingl@googlemail.com>");
+-MODULE_DESCRIPTION("Meson8, Meson8b and Meson8m2 HDMI TX PHY driver");
++MODULE_DESCRIPTION("Amlogic Meson HDMI TX PHY driver");
+ MODULE_LICENSE("GPL v2");
 
 -- 
-2.43.0
+2.56.1
+
 
