@@ -1,72 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795784940;
-	b=Mj3Pl61m2VgmGLVt146nlIyn8DhX5fA6BS5qMZnDpoq+uiKXSennH8jIW6nQB5nDifOE
-	 /K/yOSPi3bbEViOd2OIqBwAwz0rjPiV8v7uWszAnIgHE1iEh3bSK8XFBtv8w+B8pzv9Y2
-	 aig1mH+bgsFesH+hhohbzDBmXrQPaZDWFi6T/poDxKNhTkHWu4rJUS8LRcfJWxrjwXrEY
-	 iiH2MDRIBd5o7qBNHBgaL9joLLWwo1Z9CRvn6JVm68zt40kZmDM6x2oIKlyi3xMBeyHf5
-	 Bw8WYRUDV9ZUbfYm57Sf0oRRd9svgas/BpppN5EKxgdyLnIzPCUOy3iZ1ZjREAbDF9w==
+	t=1795784959;
+	b=y5xtFNJxe5nGcj6zY6XAPxTTZ4wC7DX9xynIpFWOEUy4ldUi5xd2YOKOzHIYKbbAFIW2
+	 ldjnq+1YUPo0ujPnBw+m02XNboN6icxmKpshUSw3JnhvV2R9tnb6oO6qH82l970chrqNC
+	 O6UfqK1Tk4by5FYT4Ft4wzlDdNhB/WeQfJ/1nUDNZxZpq4E/YiTQ2X5fuVU3Oc2r8SQ6a
+	 uJzLjC02E9fuFGAtUHHRqc/oQE1Xv9h2h/K6d25gRJ9yusIrNcjMCkR/yb6AVmFQXB+cf
+	 WDkBTRvu0A7dcWGB7DCvmtMMu88GQpSoNiWuRsEvqy/IQZTPlpIazIgQtfOyk1dT/zA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784940;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=xpYGwpzhSFj5mhADUVjX+MmKt0XMajSbA4YBk2TSp28=;
-	b=bxUsh1rGhm7jMYahFsYk5A+ylyPzPFb5NwAZ9c+N/7SRqcRwzMD+PT7mQUI0W3fm0yik
-	 ClbdPLv+x5Jg/tysoJ0NXDINs7cXMw6lYwuqrrcjVOnxHUToty8fSYJ0QIBkHShrB+ndF
-	 lRu2XWwU0O5tnuO0C0gkW/zDeVTVOVcuQYXikLxBj6Fil0AwadR7UjAUBHMidOQSSmt37
-	 VAazhx8Di5IokikwAE0srgLgbuZzHXuk2OhyOX0sDKlScHBYjyBu2/Xk/mbRI0u4hKy7y
-	 o1k23UeI9GuTHPlWGH81sA8MFg6tM8HuTZxltqwcnLTRnT5NA2hstJhxIsjyL8uIFZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784959;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qHbHYz43YWfZNtecSxmfo42fT9cp3l2S8acs9GzZ4jY=;
+	b=JJ3s8jqSBEeiUpU+nbyydIzvMTwI/IuQXNDVU8cMukCxV8tNtmLsNHWBEUiTL0HnEcEo
+	 Wa1hb/zai/wAc+oJXFbDY4c02m3N3sjw6mh7xMfKSvrlIeHuPnOoW56ZpamAAKYab9FX/
+	 TjOQV7kQorMf9NWsDDWu3JogNAn6fFXu5l+r43opE8HVADc6/T4z2ys1idWbL+//GBh+Y
+	 BUkSw3ezhvzkMDAfItpbE1HezFq+Fq6Ao/wQF59LnD9qj7EhJexqJCDp1ZsGS4G5bPXsz
+	 iFUyoNLzY9XJj14ErbELyESLuPmoMQ/xyFLXsyfMycHUc6uOEVGLt/aIyAeYlHlLSpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elver.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NX3QRZWf;
-	arc=none smtp.remote-ip=209.85.221.69
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cSQRCE9r;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C3C7606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:09:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C3C7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elver.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C299C606A31C;
+	Fri, 27 Nov 2026 13:09:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NX3QRZWf
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48c6a1d4034so4682821f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:09:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795784939; x=1796389739; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xpYGwpzhSFj5mhADUVjX+MmKt0XMajSbA4YBk2TSp28=;
-        b=NX3QRZWfnFEkj/AZGNnWoVh+ECESLbUA6XXt3Ff0rW99OaP48k31e/FBihUguiRFFR
-         PKU+esbL+LA0uwdi/MdbdIX35UZ8wQ2HNoZt6jZABFQugqAOcu4tAMFRs0+dH33dFqtA
-         4WDVnRRMgGh1og8uKz6MGx2vFUf+vY+PVgHJZ3h7P/1WWt2kGa/sbI7JScjGiV7as2Nm
-         FT7kgtXbLsYYpRLM14/bJZtlW4j+uDRwx9Tp4Yl5XxGXeop963IgnW1eYWVE88QLltTm
-         loNTzQDuUzB5UthY7QH1yY++EKTaRysMh1oqZxTtTNDuFIOVE2eNx66761d+jLDlim2Z
-         R3pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795784939; x=1796389739;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xpYGwpzhSFj5mhADUVjX+MmKt0XMajSbA4YBk2TSp28=;
-        b=1XC2dKJMyKlwVG9g0SztWsKxLkhFTebRs8wDm+X/+PaXxVi41QZp9oLYlNh7AdgQYd
-         KYZcKwCQHjJRPawX6pQy/eo8GRi8+f4WepkhwHN174+defbb39gCvY301VAwH9Zapdiw
-         PkFBeSM1yWSeFlGUctesIjGsL+YD2zMzoU+WTu3j7Lsxq/yRNZY2EaooOHqd46JlFk3d
-         BkNcArqJ8rr3WqAurguFndtEOhXnYlvG4wI5MbthJdSMDjIXgld0AD1fzHCJ+741gz+b
-         rMBAxcLAIuywJIJ/Mloa0UILFPvjfGM1BIlORBo3RMJ6c/mCy6Xo28djtMbbpIkgLKew
-         SyaQ==
-X-Forwarded-Encrypted: i=1; AL+hErGrtth6ibVkrGw/Y1OuEJGYaJPUczrYExzSYN7+ZeU8WiwB5jBu0DefD2SNf9nacLM0GrkCxVRLTWVGKPs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9kLklfRI+4RFE+X6pKk+miPA5D6kNamvLJZZM8AeVWE73mbrrx
-	qpuV9QcI1eP3wbATDM0PRkADWH9rcKG18RkiciDVe+rElmMh8m8ICfNEknkbQBn9682651K7JtY
-	9Og==
-X-Received: from wrmk12.prod.google.com ([2002:adf:e3cc:0:b0:49b:2420:f8db])
- (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5c05:0:b0:4b7:6ea2:472d
- with SMTP id ffacd0b85a97d-4b76ea247b3mr25042347f8f.7.1795784938541; Fri, 27
- Nov 2026 05:08:58 -0800 (PST)
-Date: Fri, 27 Nov 2026 13:08:32 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cSQRCE9r
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EC701F000C1;
+	Fri, 27 Nov 2026 13:09:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795784959;
+	bh=qHbHYz43YWfZNtecSxmfo42fT9cp3l2S8acs9GzZ4jY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cSQRCE9rtZWbqs8BskTfYhaLYnl4o3V65Leu8Y3BSZ23IXSzi6NNdUvEAN83FudU1
+	 vpbuBzm6ryzEC5VP26oO/V/MsRfa+53D5YLRl+Mr14crccXQuDiutKKWxUz2hrOO4N
+	 3rPKL4eBBwSmCjTWhp48fdnr5sYNI1Og/nmPLnAJ/2fbSjhirmN0fDJZd7Am//+wJE
+	 k16dOvqA2pfGde6rTks4Ctm+wVdJbl2YfqsVXfbyDT548hRwUTdmB/RR4IExxOS6lf
+	 FThf1XFd8RW2zn4MF94XF8wW65TXPTINu2xDyZGiO3AXU6T2mGw0SIIQC8QkIdlIcy
+	 x8CoGvHq9idhg==
+Date: Fri, 27 Nov 2026 13:09:11 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Christoffer Dall <christoffer.dall@linaro.org>, Jintack Lim <jintack.lim@linaro.org>, 
+	Wei-Lin Chang <weilin.chang@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Usama Arif <usama.arif@linux.dev>, stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Top up the mmu memcache on user fault for NV
+Message-ID: <awl76RV-OOU7i0xm@gremlin>
+References: <20261126-fix-nv-cache-topup-v1-1-a22c936872fe@kernel.org>
+ <awlwTGHVjoO72YFw@LeoBrasDK>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,269 +62,70 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261127130850.3343364-1-elver@google.com>
-Subject: [PATCH v2] kcsan: Detect cross-CPU races on {READ,WRITE}_ONCE_THIS_CPU()
-From: Marco Elver <elver@google.com>
-To: elver@google.com
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Alexander Potapenko <glider@google.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, kasan-dev@googlegroups.com, 
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Dmitry Vyukov <dvyukov@google.com>, linux-arch@vger.kernel.org, 
-	Kunwu Chan <kunwu.chan@gmail.com>, Thomas Gleixner <tglx@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awlwTGHVjoO72YFw@LeoBrasDK>
 
-READ_ONCE_THIS_CPU() and WRITE_ONCE_THIS_CPU() identify accesses to
-per-CPU data that are intended to race only with other contexts on the
-same CPU. So far they are plain READ_ONCE() and WRITE_ONCE(): no marked
-accesses involving them are reported, incl. from other CPUs.
+On Fri, Nov 27, 2026 at 11:58:04AM +0000, Leonardo Bras wrote:
+> On Thu, Nov 26, 2026 at 05:28:29PM +0000, Lorenzo Stoakes (ARM) wrote:
+> > The S2 user fault path tops up the MMU memcache (used for page table
+> > pre-allocation as the point at which page tables are installed may not
+> > allocate) except when:
+> >
+> > * It's a permission fault AND
+> > * dirty page logging is disabled AND
+> > * pKVM is disabled
+> >
+> > At which point it is assumed no page table will be allocated.
+> >
+> > However nested virtualisation adds another edge case - the mapping size of
+> > a shadow S2 is clamped to that of the guest's own S2. If the guest
+> > hypervisor replaces a block mapping with a table, a permission fault on the
+> > shadow block has to be mapped at PAGE_SIZE, which requires a page table to
+> > collapse the block into.
+>
+> Can you please expand on how would that happen?
+>
+> IIUC when a guest hypervisor replaces a block mapping with a table, it
+> calls a tlbi in the range, and L0 will trap and remove the Shadow S2 entry,
+> then next access shouldn't be a permission but a translation fault.
+>
+> What am I missing?
 
-Make the new accessors assert exclusivity but ignore same-CPU accesses:
-READ_ONCE_THIS_CPU() asserts no concurrent writers,
-WRITE_ONCE_THIS_CPU() asserts no concurrent accesses.
+That's a great point, actually :)
 
-For KCSAN to ignore racing accesses from other contexts on the same CPU,
-introduce KCSAN_ACCESS_THIS_CPU, which makes KCSAN keep interrupts
-disabled while the watchpoint is set up. A value change without a racing
-access is not reported for these accesses, since it may be due to a
-permitted write from an NMI on the same CPU.
+But nothing really enforces that L1 does that for sure, even a bug could produce
+that, and you really want to avoid the host getting in bother in that case.
 
-With that, any racing accesses (incl. marked ones) from other CPUs
-involving READ_ONCE_THIS_CPU() and WRITE_ONCE_THIS_CPU() will be
-reported as "KCSAN: assert: race ...".
+(The host kernel has to behave properly no matter what guests do).
 
-Suggested-by: Kunwu Chan <kunwu.chan@gmail.com>
-Tested-by: Kunwu Chan <kunwu.chan@gmail.com>
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Paul E. McKenney <paulmck@kernel.org>
-Signed-off-by: Marco Elver <elver@google.com>
----
-v2:
-* Avoid unknown-origin reports from NMI (Kunwu).
-* Fix flaky test (remote_read) (Kunwu).
----
- include/asm-generic/rwonce.h | 22 ++++++--
- include/linux/kcsan-checks.h |  1 +
- kernel/kcsan/core.c          | 10 +++-
- kernel/kcsan/kcsan_test.c    | 99 ++++++++++++++++++++++++++++++++++++
- 4 files changed, 126 insertions(+), 6 deletions(-)
+I was able to (get claude to) repro this easily.
 
-diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
-index 3dc65a3310fb..e2d563096738 100644
---- a/include/asm-generic/rwonce.h
-+++ b/include/asm-generic/rwonce.h
-@@ -66,11 +66,25 @@ do {									\
-  * which are intended to race only with accesses from other execution
-  * contexts on the same CPU, e.g. task and interrupt context.
-  *
-- * For now, these are simple wrappers around READ_ONCE() and
-- * WRITE_ONCE().
-+ * With KCSAN, concurrent writes (for READ_ONCE_THIS_CPU()) or any concurrent
-+ * accesses (for WRITE_ONCE_THIS_CPU()) from other CPUs are reported.
-  */
--#define READ_ONCE_THIS_CPU(x)		READ_ONCE(x)
--#define WRITE_ONCE_THIS_CPU(x, val)	WRITE_ONCE(x, val)
-+#define READ_ONCE_THIS_CPU(x)						\
-+({									\
-+	auto __tc_p = &(x);						\
-+	kcsan_check_access(__tc_p, sizeof(*__tc_p),			\
-+			   KCSAN_ACCESS_ASSERT | KCSAN_ACCESS_THIS_CPU);\
-+	READ_ONCE(*__tc_p);						\
-+})
-+
-+#define WRITE_ONCE_THIS_CPU(x, val)					\
-+do {									\
-+	auto __tc_p = &(x);						\
-+	kcsan_check_access(__tc_p, sizeof(*__tc_p),			\
-+			   KCSAN_ACCESS_ASSERT | KCSAN_ACCESS_WRITE |	\
-+			   KCSAN_ACCESS_THIS_CPU);			\
-+	WRITE_ONCE(*__tc_p, val);					\
-+} while (0)
- 
- static __no_sanitize_or_inline
- unsigned long __read_once_word_nocheck(const void *addr)
-diff --git a/include/linux/kcsan-checks.h b/include/linux/kcsan-checks.h
-index e135dacaa90f..afe50fe351fa 100644
---- a/include/linux/kcsan-checks.h
-+++ b/include/linux/kcsan-checks.h
-@@ -20,6 +20,7 @@
- /* The following are special, and never due to compiler instrumentation. */
- #define KCSAN_ACCESS_ASSERT	(1 << 3) /* Access is an assertion. */
- #define KCSAN_ACCESS_SCOPED	(1 << 4) /* Access is a scoped access. */
-+#define KCSAN_ACCESS_THIS_CPU	(1 << 5) /* Ignore races from same-CPU accesses. */
- 
- /*
-  * __kcsan_*: Always calls into the runtime when KCSAN is enabled. This may be used
-diff --git a/kernel/kcsan/core.c b/kernel/kcsan/core.c
-index 26755add7cdb..b3e0c2627712 100644
---- a/kernel/kcsan/core.c
-+++ b/kernel/kcsan/core.c
-@@ -567,9 +567,13 @@ kcsan_setup_watchpoint(const volatile void *ptr, size_t size, int type, unsigned
- 	 *	1. Races of the reordered access with interrupts. To avoid, if
- 	 *	   the current access is reorder_access, disable interrupts.
- 	 *	2. Avoid races of scoped accesses from nested interrupts (below).
-+	 *
-+	 * Similarly, KCSAN_ACCESS_THIS_CPU accesses may only race with
-+	 * interrupts on the same CPU: disable interrupts, so that only races
-+	 * with other CPUs are detected.
- 	 */
- 	is_reorder_access = find_reorder_access(ctx, ptr, size, type, ip);
--	if (is_reorder_access)
-+	if (is_reorder_access || (type & KCSAN_ACCESS_THIS_CPU))
- 		interrupt_watcher = false;
- 	/*
- 	 * Avoid races of scoped accesses from nested interrupts (or scheduler).
-@@ -685,7 +689,9 @@ kcsan_setup_watchpoint(const volatile void *ptr, size_t size, int type, unsigned
- 		kcsan_report_known_origin(ptr, size, type, ip,
- 					  value_change, watchpoint - watchpoints,
- 					  old, new, access_mask);
--	} else if (value_change == KCSAN_VALUE_CHANGE_TRUE) {
-+	} else if (value_change == KCSAN_VALUE_CHANGE_TRUE &&
-+		   /* May be due to a permitted write from NMI on this CPU. */
-+		   !(type & KCSAN_ACCESS_THIS_CPU)) {
- 		/* Inferring a race, since the value should not have changed. */
- 
- 		atomic_long_inc(&kcsan_counters[KCSAN_COUNTER_RACES_UNKNOWN_ORIGIN]);
-diff --git a/kernel/kcsan/kcsan_test.c b/kernel/kcsan/kcsan_test.c
-index 1c8853f14dae..1edf9f3539d4 100644
---- a/kernel/kcsan/kcsan_test.c
-+++ b/kernel/kcsan/kcsan_test.c
-@@ -22,6 +22,7 @@
- #include <linux/kcsan-checks.h>
- #include <linux/kernel.h>
- #include <linux/mutex.h>
-+#include <linux/percpu.h>
- #include <linux/sched.h>
- #include <linux/seqlock.h>
- #include <linux/spinlock.h>
-@@ -337,6 +338,7 @@ static struct {
- 	long val[8];
- } test_struct;
- static long __data_racy test_data_racy;
-+static DEFINE_PER_CPU(long, test_pcpu_var);
- static DEFINE_SEQLOCK(test_seqlock);
- static DEFINE_SPINLOCK(test_spinlock);
- static DEFINE_MUTEX(test_mutex);
-@@ -403,6 +405,42 @@ static noinline void test_kernel_assert_access(void)
- 	ASSERT_EXCLUSIVE_ACCESS(test_var);
- }
- 
-+static noinline void test_kernel_read_this_cpu(void)
-+{
-+	sink_value(READ_ONCE_THIS_CPU(test_var));
-+}
-+
-+static noinline void test_kernel_write_this_cpu(void)
-+{
-+	preempt_disable();
-+	WRITE_ONCE_THIS_CPU(*this_cpu_ptr(&test_pcpu_var), 42);
-+	preempt_enable();
-+}
-+
-+/* Plain reads of other CPUs' instances. */
-+static noinline void test_kernel_read_remote_cpus(void)
-+{
-+	int this_cpu = get_cpu();
-+	int cpu;
-+
-+	for_each_online_cpu(cpu) {
-+		if (cpu != this_cpu)
-+			sink_value(per_cpu(test_pcpu_var, cpu));
-+	}
-+	put_cpu();
-+}
-+
-+static noinline void test_kernel_reset_this_cpu(void)
-+{
-+	long *p;
-+
-+	preempt_disable();
-+	p = this_cpu_ptr(&test_pcpu_var);
-+	if (READ_ONCE_THIS_CPU(*p))
-+		WRITE_ONCE_THIS_CPU(*p, 0);
-+	preempt_enable();
-+}
-+
- #define TEST_CHANGE_BITS 0xff00ff00
- 
- static noinline void test_kernel_change_bits(void)
-@@ -1223,6 +1261,64 @@ static void test_assert_exclusive_access_scoped(struct kunit *test)
- 	KUNIT_EXPECT_FALSE(test, match_expect_inscope);
- }
- 
-+/* Test that remote writes racing with READ_ONCE_THIS_CPU() are reported. */
-+__no_kcsan
-+static void test_this_cpu_remote_write(struct kunit *test)
-+{
-+	struct expect_report expect = {
-+		.access = {
-+			{ test_kernel_read_this_cpu, &test_var, sizeof(test_var), KCSAN_ACCESS_ASSERT },
-+			{ test_kernel_write_atomic, &test_var, sizeof(test_var), KCSAN_ACCESS_WRITE | KCSAN_ACCESS_ATOMIC },
-+		},
-+	};
-+	bool match_expect = false;
-+
-+	KCSAN_TEST_REQUIRES(test, !IS_ENABLED(CONFIG_KCSAN_IGNORE_ATOMICS));
-+
-+	begin_test_checks(test_kernel_read_this_cpu, test_kernel_write_atomic);
-+	do {
-+		match_expect = report_matches(&expect);
-+	} while (!end_test_checks(match_expect));
-+	KUNIT_EXPECT_TRUE(test, match_expect);
-+}
-+
-+/* Test that remote reads racing with WRITE_ONCE_THIS_CPU() are reported. */
-+__no_kcsan
-+static void test_this_cpu_remote_read(struct kunit *test)
-+{
-+	struct expect_report expect = {
-+		.access = {
-+			/* Address unchecked: may be any CPU's instance. */
-+			{ test_kernel_write_this_cpu, NULL, 0, KCSAN_ACCESS_ASSERT | KCSAN_ACCESS_WRITE },
-+			{ test_kernel_read_remote_cpus, NULL, 0, 0 },
-+		},
-+	};
-+	bool match_expect = false;
-+
-+	begin_test_checks(test_kernel_write_this_cpu, test_kernel_read_remote_cpus);
-+	do {
-+		match_expect = report_matches(&expect);
-+	} while (!end_test_checks(match_expect));
-+	KUNIT_EXPECT_TRUE(test, match_expect);
-+}
-+
-+/*
-+ * Test that races between task and interrupt on the same CPU's instance are not
-+ * reported; the test threads' timers access the same per-CPU instance as the
-+ * interrupted thread. Only meaningful with CONFIG_KCSAN_INTERRUPT_WATCHER=y.
-+ */
-+__no_kcsan
-+static void test_this_cpu_local_noreport(struct kunit *test)
-+{
-+	bool match_never = false;
-+
-+	begin_test_checks(test_kernel_write_this_cpu, test_kernel_reset_this_cpu);
-+	do {
-+		match_never = report_available();
-+	} while (!end_test_checks(match_never));
-+	KUNIT_EXPECT_FALSE(test, match_never);
-+}
-+
- /*
-  * jiffies is special (declared to be volatile) and its accesses are typically
-  * not marked; this test ensures that the compiler nor KCSAN gets confused about
-@@ -1485,6 +1581,9 @@ static struct kunit_case kcsan_test_cases[] = {
- 	KCSAN_KUNIT_CASE(test_assert_exclusive_bits_nochange),
- 	KCSAN_KUNIT_CASE(test_assert_exclusive_writer_scoped),
- 	KCSAN_KUNIT_CASE(test_assert_exclusive_access_scoped),
-+	KCSAN_KUNIT_CASE(test_this_cpu_remote_write),
-+	KCSAN_KUNIT_CASE(test_this_cpu_remote_read),
-+	KCSAN_KUNIT_CASE(test_this_cpu_local_noreport),
- 	KCSAN_KUNIT_CASE(test_jiffies_noreport),
- 	KCSAN_KUNIT_CASE(test_seqlock_noreport),
- 	KCSAN_KUNIT_CASE(test_atomic_builtins),
--- 
-2.56.1.839.g22a8290db9-goog
+But actually I think there's another case too, even assuming everything's
+well-behaved:
 
+* vCPU B: Writes to a read-only shadow block -> permission fault, exits
+  to the host.
+
+* vCPU A: Concurrently does its break/TLBI/make on the L1 S2, replacing
+  the block with writable pages. The TLBI clears the shadow block.
+
+* vCPU B: Now handles the fault. It's still a permission fault as far as
+  the ESR is concerned so we skip the top-up, but the L1 S2 now says
+  page rather than block, so we go to map a page and have to allocate
+  page table(s) for it.
+
+This needs the mapping size to have changed (otherwise we just try to relax
+permissions, which doesn't allocate) which can happen when splitting,
+replacing pages with a THP page, etc.
+
+In general I think just topping up regardless is the better route, but for
+a backport this is the least big change to fix this.
+
+>
+> Thanks!
+> Leo
+
+--
+Cheers, Lorenzo
