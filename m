@@ -1,94 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794167;
-	b=RYhMeVwFgyqQWA8QDj8G39ekXejPkI80rQMnyNzU2S6w65O2er2v8enQA4AYzX2BK87L
-	 i4Y2G9FnaGV4xV/rWz3KD8C/85n/fdphdVL2w9v7l8yHwstw/ugYML2/3yCBIxsl8mx13
-	 fTykdFG3WEvEskz+WUgNLUFbVmJSIHJdrl44x/i/1DkNG/P/b4aurT0YDofWyt7h6Sa5h
-	 98w+hA5eYcQMc15Vpv3vG0YjLIDoCPqzlvW6mz4tWqYwWQAfmvVvCjXRrZpJLTI5RX6A6
-	 Fpdq5BWDrcM2iz0E5VEurgKP0Ou6qYUY9UCCjcL3See2fAv0V9GDsrbBxFFeBz+ue2g==
+	t=1795794176;
+	b=nuYhcws/ZyDzrNgND9/y26I602Nf2zPeBwhGGipNxc3PM66Rg/CKSEV7iGNAXc/lEwrI
+	 gDZaORqvccPzDpOaH/LB3WoY1DZAwjIDYNfg8H4g/2fC0L+S6DvTF3swMFGlhHIayVRBI
+	 6I6H6xc373MoqRl4XKN9A93Y9HBUntvHSHHc2EajtJeTTyqWCWbdhg3QRfN7N3tql8R44
+	 5TO4Q8j4b7MzpvgD6Y2lm0aMzcaKwQUlBH5/55STlQiutBpTAUl6zA4kzay4nrKas9Q5C
+	 WDIqBGSoAwP5pdiMMuhm/M98Eb+iC/G6L6d9P+jGU+g5XQWTnS1KqdqcjDErS0evt4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794167;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Spamd-Result:X-Spam-Score:X-Spam-Level:
-	 X-Spam-Flag;
-	bh=ecZdHBCCTAPsfnJCfwhM/cgtRShTHrDKKf57XOoxtbY=;
-	b=gZO0v0E2KS2yn+oKfokfe0bZyhhCFC7eWoZkPPwU1CdX8huZ33VD7ReGBYbSVWtjjFNK
-	 ux9EV7Erhmufjc1Zoz4KRu36I/VqjWMHI+S2NGVME5BMROwYoYJLlIiLIQg5S/Z1BDX02
-	 3Oab7MDstj8Ii46mr3zQgtQPIYLHcrPlOZ202l1eehvrGWMjw4HEvOzVvJeNPtNxoZ4w1
-	 Rs+mccidO4y0W5E70p6pvvpTFXD3eFCos3UC8f0VnQt1qlvNm0OFjryyROdL1+uHyC8iy
-	 gTRMLBExTHkZE/Ors3MjuZtsqEM/WN816tBjTI4PedNjZ2LkvHheEBegXoRlhh+N/FA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794176;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=OV2n5pxa5jJDsl6ZNt1F2bG/AP7YeCoOJ/QFDfKpbKA=;
+	b=MZDHog8ClKKK0G/+vQbw/nT/Bk8S0MqFLAxIGPGysfH9Qd4YIhV4iIGuKTO99n88rG6O
+	 fszTRDRS77CP67GyEeMuznCxbyVI9E3UOygm/9veW0EY4AgP0mNYlCA2ukh0RtnE4LeiT
+	 dqAS64qp4LImNv9RrfkoHHSYttPs4NFHNrON0F+ls4Qz5vlto49x3rXWgG+leMeCpaqhS
+	 kBg96FFCyu8zP4JQAjBIVz5KM48Bg1o/e6trmPoL0d+1KYpOgJ52FQtDBK2NXu3N8HEVb
+	 EQ9ysyelX9tXTlf4DKg+sdfI6ERyPmoR5pNWwInihG824I4Q9Cee/PPBZwwhCYZI2Ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=Ruw3WlOL;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b="k0/uIzxQ";
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XFjdwkHp;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ABC6606A31C;
-	Fri, 27 Nov 2026 15:42:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ABC6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C40FB606A31E;
+	Fri, 27 Nov 2026 15:42:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C40FB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=Ruw3WlOL;
-	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=k0/uIzxQ
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 2054D1FE20;
-	Fri, 27 Nov 2026 15:42:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795794165; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=ecZdHBCCTAPsfnJCfwhM/cgtRShTHrDKKf57XOoxtbY=;
-	b=Ruw3WlOLeTi4R9iaT882GnTIBzAajzwk25GoPa3nGOlB5QKultAD7DvKGgYUSyFIDRiLCY
-	iuunlhV3WJJasAVjGvMMavpkp797nxEm+kXP85mDwSwz5cq+ACNz8uhWjDE0DUcXf+uDdT
-	ij2M8gaZ4AvpsGVH5IPuJ+uPOZvf9zU=
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795794164; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=ecZdHBCCTAPsfnJCfwhM/cgtRShTHrDKKf57XOoxtbY=;
-	b=k0/uIzxQe8NrlxUye48KCMH8JhPUsN8HG+/7+ZDeD3b0CgGJVWlnPEUie9CKanDgpIzI3w
-	LbSYn0jniesNcQNGVYCijEE90AMsIXYe0qcNb5+r0Yg9VcTQkOBKhFRb0oK2TI57GSsst8
-	4Fda9sZdEdBY+VXXwFN3sy2BayBDQAI=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 05ECA134E8;
-	Fri, 27 Nov 2026 15:42:42 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id jFUGMvKkCWtvIQAAD6G6ig
-	(envelope-from <nik.borisov@suse.com>); Fri, 27 Nov 2026 15:42:42 +0000
-From: Nikolay Borisov <nik.borisov@suse.com>
-To: x86@kernel.org
-Cc: mhocko@suse.com,
-	kas@kernel.org,
-	naveen@kernel.org,
-	linux-kernel@vger.kernel.org,
-	Dan Williams <dan.j.williams@intel.com>,
-	Kees Cook <kees@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Kirill Shutemov <kirill.shutemov@linux.intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Nikolay Borisov <nik.borisov@suse.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] x86/devmem: Drop /dev/mem access for confidential guests
-Date: Fri, 27 Nov 2026 17:42:12 +0200
-Message-ID: <20261127154211.21360-2-nik.borisov@suse.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XFjdwkHp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795794176; x=1827330176;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zianHThyPvkAVR9BQPrSJltJpqoR7uriQ3b2GnIuynw=;
+  b=XFjdwkHpnLlTaxQnW//NMvBlShfd4b/HcZZP69kRq58VBMfDQdrDE8St
+   bEq2h6pgUmyecUkKriVrZb7CmS357C7VfpoyyoD7E/3MSOFxgl4r4j2c9
+   H7S4PK4/onyvWSIFPCbXfwoZBIaACpA5Q3HEbB1I+ccR6MO34g6/0T8dD
+   SLv79j1IvUbzYnCZ7TsZL2B3s784w0ICD1i4NJeaphJWCX2bynrjNHsa+
+   oGlEUbKY04R394wtxWkpcd8JaSeG+Z4ls2ifRHC9mERzRNwIgzbDzq1CZ
+   tBqxu37YJYD5sCjROk2rnA1TwOe8sGQAu60RbwdtFXrv/OBzc5Oj3sIPK
+   w==;
+X-CSE-ConnectionGUID: sAEqj8rTQHOTksXRaKbPpw==
+X-CSE-MsgGUID: AHXBT0KQRLqdDV8CeDTrag==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4620573"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4620573"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:42:55 -0800
+X-CSE-ConnectionGUID: z+B7l+ODToiG4kg6U2qD3Q==
+X-CSE-MsgGUID: h9sYtBs3SmyNxEnyvK5L4Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12287977"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:42:52 -0800
+Date: Fri, 27 Nov 2026 17:42:50 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Kent Gibson <warthog618@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>, linux-gpio@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] gpiolib: release the chip's own lines before
+ numbing it on removal
+Message-ID: <awmk-lfmMw8GG21o@ashevche-desk.local>
+References: <20261127-gpiolib-ownlines-v2-0-aambrozewicz@nvidia.com>
+ <20261127-gpiolib-ownlines-v2-2-aambrozewicz@nvidia.com>
+ <awltlfkwFWv8O4pG@ashevche-desk.local>
+ <20261127124429.3423977-2-aambrozewicz@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,150 +87,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-11.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.998];
-	MIME_GOOD(-0.10)[text/plain];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,arndb.de:email,arm.com:email,intel.com:email,imap1.dmz-prg2.suse.org:helo];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[16];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[]
-X-Spam-Score: -11.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127124429.3423977-2-aambrozewicz@nvidia.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-From: Dan Williams <dan.j.williams@intel.com>
+On Fri, Nov 27, 2026 at 02:44:30PM +0200, Adrian Ambrozewicz wrote:
+> On Fri, Nov 27, 2026 at 01:46:29PM +0200, Andy Shevchenko wrote:
+> > On Fri, Nov 27, 2026 at 09:49:26AM +0200, Adrian Ambrozewicz wrote:
 
-Nikolay reports that accessing BIOS data (first 1MB of the physical
-address space) via /dev/mem results in a "crash" / terminated VM
-(unhandled SEPT violation). See report [1] for details.
+...
 
-The cause is ioremap() (via xlate_dev_mem_ptr()) establishes an
-unencrypted mapping where the kernel had established an encrypted
-mapping previously. The CPU enforces mapping consistency with a fault
-upon detecting a mismatch. A similar situation arises with devmem access
-to "unaccepted" confidential memory. In summary, it is fraught to allow
-uncoordinated userspace mapping of confidential memory.
+> > >  	gpiochip_irqchip_remove(gc);
+> > > -	acpi_gpiochip_remove(gc);
+> > >  	of_gpiochip_remove(gc);
+> >
+> > I need to look closer for ACPI bits, but above doesn't sound right. Why
+> > of_gpiochip_remove() is not associated with ACPI counterpart? Wouldn't it bring
+> > a completely different experience on the same platform depending on the
+> > firmware in use (DT or ACPI)?
+> 
+> Thanks for the review. acpi_gpiochip_remove() releases the OpRegion
+> connections with gpiochip_free_own_desc(), which skips ->free() once
+> the chip is numbed. of_gpiochip_remove() releases no lines; the DT hogs
+> are freed by gpiochip_free_hogs(), which commit 5018ada69a04 ("gpio:
+> Move freeing of GPIO hogs before numbing of the device") already moved
+> ahead of the numbing. So both now free their lines before it.
+> 
+> To keep the two calls paired, for v3 I plan to split the OpRegion
+> release out of acpi_gpiochip_remove() and move only that ahead of the
+> numbing. Would that work for you?
 
-While there is an existing mitigation to simulate and redirect access to
-the BIOS data area with STRICT_DEVMEM=y, it is insufficient.
-Specifically, STRICT_DEVMEM=y traps read(2) access to the BIOS data
-area, and returns a zeroed buffer.  However, it turns out the kernel
-fails to enforce the same via mmap(2), and a direct mapping is
-established. This is a hole, and unfortunately userspace has learned to
-exploit it [2].
+At least it sounds like a better idea.
 
-This means the kernel either needs: a mechanism to ensure consistent
-plus accepted "encrypted" mappings of this /dev/mem mmap() hole, close
-the hole by mapping the zero page in the mmap(2) path, block only BIOS
-data access and let typical STRICT_DEVMEM protect the rest, or disable
-/dev/mem altogether.
+> > > - * This is called only from gpiochip_remove()
+> > > + * acpi_gpiochip_free_interrupts() below finds nothing once
+> > > + * gpiochip_free_own_lines() has run; it is for the error paths before that.
+> >
+> > This doesn't sound right either. Why the common method of freeing ACPI event
+> > interrupts can't be shut down here and this one called when we need to remove
+> > the IRQ chip altogether?
+> 
+> The event IRQs cannot wait for the irqchip removal: the numbing ends
+> with gpiochip_free_remaining_irqs(), which frees them, and
+> acpi_gpiochip_free_interrupts() then frees them again ("Trying to free
+> already-free IRQ"). The irqchip cannot go before the numbing either:
+> the character device frees its IRQs only after it.
 
-The simplest option for now is to disallow access to /dev/mem via devmem_is_allowed.
-Require confidential guest userspace to jettison legacy dependencies on
-/dev/mem similar to how other legacy mechanisms are jettisoned for
-confidential operation. Recall that modern methods for BIOS data access are
-available like /sys/firmware/dmi/tables.
+This sounds like something is wrong in the cleanup flow. Why double free
+appears in the first place? Is the acpi_gpiochip_free_interrupts() call
+placed at incorrect function in the tear down flow?
 
-Now, this begs the question what to do with PCI sysfs which allows
-userspace mappings of confidential MMIO with similar mapping consistency
-and acceptance expectations? Here, the existing mitigation of
-IO_STRICT_DEVMEM is likely sufficient. The kernel is expected to use
-request_mem_region() when toggling the state of MMIO. With
-IO_STRICT_DEVMEM that enforces kernel-exclusive access until
-release_mem_region(), i.e. mapping conflicts are prevented.
+> So for v3 I plan to drop acpi_gpiochip_free_interrupts() and this
+> comment from gpiochip_irqchip_remove(), and call it from
+> gpiochip_remove() and the error paths instead. Is that what you had in
+> mind?
 
-Cc: x86@kernel.org
-Cc: Kees Cook <kees@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>
-Cc: Vishal Annapurve <vannapurve@google.com>
-Cc: Kirill Shutemov <kirill.shutemov@linux.intel.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Link: https://sources.debian.org/src/libdebian-installer/0.125/src/system/subarch-x86-linux.c/?hl=113#L93 [2]
-Reported-by: Nikolay Borisov <nik.borisov@suse.com>
-Closes: http://lore.kernel.org/20250318113604.297726-1-nik.borisov@suse.com [1]
-Fixes: 9aa6ea69852c ("x86/tdx: Make pages shared in ioremap()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Dan Williams <dan.j.williams@intel.com>
-Signed-off-by: Nikolay Borisov <nik.borisov@suse.com>
----
+Perhaps. I can't see it clearly in my mind, maybe when v3 is out it will
+be more obvious.
 
-V2:
- * Move the check to x86's devmem_is_allowed implementation to avoid touching
- generic code
+-- 
+With Best Regards,
+Andy Shevchenko
 
- * Very slightly reword the 1st sentence of the 5th paragraph to not mention "lockdown",
-
- arch/x86/Kconfig   |  4 ++++
- arch/x86/mm/init.c | 10 ++++++++++
- 2 files changed, 14 insertions(+)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 3159852fd6b3..1490e0019c71 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -901,6 +901,8 @@ config INTEL_TDX_GUEST
- 	depends on X86_X2APIC
- 	depends on EFI_STUB
- 	depends on PARAVIRT
-+	select STRICT_DEVMEM
-+	select IO_STRICT_DEVMEM
- 	select ARCH_HAS_CC_PLATFORM
- 	select X86_MEM_ENCRYPT
- 	select X86_MCE
-@@ -1490,6 +1492,8 @@ config AMD_MEM_ENCRYPT
- 	bool "AMD Secure Memory Encryption (SME) support"
- 	depends on X86_64 && CPU_SUP_AMD
- 	depends on EFI_STUB
-+	select STRICT_DEVMEM
-+	select IO_STRICT_DEVMEM
- 	select DMA_COHERENT_POOL
- 	select ARCH_USE_MEMREMAP_PROT
- 	select INSTRUCTION_DECODER
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index 079f8c7e9e3c..8768508f3c6d 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -8,6 +8,7 @@
- #include <linux/kmemleak.h>
- #include <linux/sched/task.h>
- #include <linux/execmem.h>
-+#include <linux/cc_platform.h>
- 
- #include <asm/set_memory.h>
- #include <asm/cpu_device_id.h>
-@@ -866,6 +867,15 @@ void __init poking_init(void)
-  */
- int devmem_is_allowed(unsigned long pagenr)
- {
-+	/*
-+	 * Enforce encrypted mapping consistency and avoid unaccepted
-+	 * memory conflicts, "lockdown" /dev/mem for confidential
-+	 * guests.
-+	 */
-+	if (IS_ENABLED(CONFIG_STRICT_DEVMEM) &&
-+	    cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-+		return 0;
-+
- 	if (region_intersects(PFN_PHYS(pagenr), PAGE_SIZE,
- 				IORESOURCE_SYSTEM_RAM, IORES_DESC_NONE)
- 			!= REGION_DISJOINT) {
---
-2.56.0
 
