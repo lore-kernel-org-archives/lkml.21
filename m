@@ -1,55 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.16.166
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795759450;
-	b=F7ZN8605LDuTfCdShgjop5wI4UNZ6Y2nNwi8o8RBJ0oi9aOOxTUiURZOvxapUh78J+aa
-	 GZrb/Jp+bQFBRrZNyMTh2sJZ7aKRBTUwY5pz9/mXAOho1n3dUUR8TAaqjJoVElt8DYmdZ
-	 g9oiR9Z2YCAAw2Y29YFsLfG5mlv/9aRNi4VKReJ57wo6FFrY1+rG174UZwmNpWY6HbY1P
-	 v8FoM6r9lsvh6cgTXI2CTZfSygoUtarwBanM+xxQf5jkXoLruNWsBmhb/n2dYgx4zCI42
-	 5WlD2pjfvP2lgRUg1mxDB9NiM+v9Ib/DisNWUsf0ohlTmjAw1qQs5/N3dMHkDc64Xng==
+	t=1795759463;
+	b=i0i054/YgpLDLcwV2/unAylztBNJlCUjEDxdeJIzV179mGKVSdDMWQi0Yh+zPYIFnHe4
+	 vIs7008nMzeG02ejFgouH2klQ8uEMwdSlWMcGaAHZjEq01C40jX3/fNP4etjhjgEfUcYX
+	 wem9qfuNl4YHrDeEJ89Ogv+Kd7yWSlxL1ZTVMTY+FXqTR+CkR84XWW81sT7QoA6/Uxu+K
+	 VipULXKs3nuA8/kaZyrPHt02IaLv1H5aYLwGl4VxZnOIIjS6dfxnmH53UmQEz5M/wyrhx
+	 7RrnXMUJt1fyMOjUINWL+OxkAy5zoncCC6fPKky1Ug9Ev7uNOiMnum7gm9I3NDoXkNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759450;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Mime-Version:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:
-	 Content-Transfer-Encoding:X-Mailer:References:In-Reply-To:
-	 X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=7MogPv/8rDNnLROh2lJqUbjxxMwzFQktEETGe7LKoj8=;
-	b=nk2az2u7SKjjAzvJrx8zWUDHgy1t/RvfYG2oksFgbvGUxQ0V3NUKrWYpoR/0e/ji8HBa
-	 2wEAYsSjVbCYECb4oh7Ny7LnRwPe4vzswnRWrkLmdG5bj+ihwZbQ/ryipSGfsiLNk37N9
-	 eTBuKuhEZxe8Ym6uCRtmp1JEap1OHqTSwqzaGlCCpUR5sBS26l4Ik6ivrGwcTDToXDnlj
-	 UHaVttMGYH7HpuWO2tB5d8zBwX+P5uobj+288UZBVl3+teyvCua3n8keZGefcxZcws3ed
-	 /8n2mNBzs8MMtvpSTb5Zn+x7k6seCSVOMkd7x0pDUWKHHIrVrs7a5iz/JpnqDjM8t4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759463;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=U4HHDYIdWf0fz8S6410uXcXdDyUbeJMfeULhc7w7ooc=;
+	b=Z1gYGCRHhPM9SUFGl8m05CwHKMC01U5FTU9syJXJPNSnLkpF2YRUHVjy0z6XQivwlMBI
+	 qVsRK3/WQHNW/9Ku+QLGSaBqbDH4IleCew7j5z9EI5lQ9j5xellZr1ZV9kEpzXi+0nCSF
+	 r0lshcncVwa9L2xA3ED7rT7icTIl0pq/6UpjTHYGpnGM9tQ+HQBpskxsarEyspg7/iQCR
+	 KdX57Wlaz41ITE9054TpkPgGAP8xUnJhSaCVB7aoG5Sl9kHdI8xsMNoJoSb0GFszfrWIm
+	 YDLQQXe8LALG5z85mFCqyIyePg8FaiHgxsc0lYUqLPVI7znQIcXlM3WJq1FUQUywS+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux.spacemit.com;
-	spf=none smtp.mailfrom=linux.spacemit.com;
-	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=fQRe4unV;
-	arc=none smtp.remote-ip=54.206.16.166
-Received: from smtpbgau1.qq.com (smtpbgau1.qq.com [54.206.16.166])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="qT/Wz5Ue";
+	arc=none smtp.remote-ip=115.124.30.124
+Received: from out30-124.freemail.mail.aliyun.com (out30-124.freemail.mail.aliyun.com [115.124.30.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 949C1606A32F;
-	Fri, 27 Nov 2026 06:04:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 949C1606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F06BB606A321;
+	Fri, 27 Nov 2026 06:04:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F06BB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=fQRe4unV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1795759444;
-	bh=7MogPv/8rDNnLROh2lJqUbjxxMwzFQktEETGe7LKoj8=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=fQRe4unVSaMutyUFFbFnEzLjoSpRNosDYRzBfghNaF1HWM2fwV+0ZahHu/aupnMHx
-	 rELmk7cPrbEVvMk3YrOyE6eARPkM883dL9PE1oiaHHrxwk+LvOPNwQ+N1ODYjjJOZY
-	 KhIw2YKbzHCD9oeI1q0y0XhxLEMKgKC98rTK70ac=
-X-QQ-mid: esmtpsz16t1795759443te5c7fabc
-X-QQ-Originating-IP: w9ScYnFOG3tL2kivETE6oRptnE7ii6xkMYvcHsfyRpU=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 27 Nov 2026 14:04:01 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5566147713049927069
-EX-QQ-RecipientCnt: 13
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=qT/Wz5Ue
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795759458; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=U4HHDYIdWf0fz8S6410uXcXdDyUbeJMfeULhc7w7ooc=;
+	b=qT/Wz5Ue/SioA3mHn7QtQaoaTJMi0LCg297+T52I8+Ih3qxBwj+0zqEyH8vkUXMpoyp2GkfpICH7mqeW5VDuWWSml8lch/PPzTP2XmLgzAgUsP9GFoiKtNPz9HQQFLMk+rQgMku1aLLWMCcp0H0kGvGhZwGxPMibwYZ+/zVeB1A=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=jiangtianfeng@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0XFWwdI-_1795759449;
+Received: from h68d07384.sqa.eu95.tbsite.net(mailfrom:jiangtianfeng@linux.alibaba.com fp:SMTPD_---0XFWwdI-_1795759449 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Nov 2026 14:04:17 +0800
+From: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+To: rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	christian.loehle@arm.com,
+	ananthu.cv@oss.qualcomm.com,
+	pierre.gondois@arm.com,
+	zhongqiu.han@oss.qualcomm.com,
+	jiangtianfeng@linux.alibaba.com
+Subject: [RFC PATCH v3] cpufreq: Keep global boost enabled after partial enable
+Date: Fri, 27 Nov 2026 14:03:59 +0800
+Message-ID: <20261127060407.732709-1-jiangtianfeng@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261127014937.413500-1-jiangtianfeng@linux.alibaba.com>
+References: <20261127014937.413500-1-jiangtianfeng@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,74 +66,107 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=511ec13c2b7141be0104885f7a52a1b4dfa31b6f2847b9143b414700b4f6;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 27 Nov 2026 06:04:00 +0000
-Message-Id: <DN5RLE33ZA2I.31YRV21UEQO2T@linux.spacemit.com>
-Cc: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/4] riscv: dts: spacemit: k3: Add alias for MicroSD
- Card
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yixun Lan" <dlan@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
- <20261125-09-k3-dt-minor-misc-v1-3-dd887a8eb326@kernel.org>
-In-Reply-To: <20261125-09-k3-dt-minor-misc-v1-3-dd887a8eb326@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OP4XZE5B6RmKaJdagxurECd7FpYuEi6MPXkSg+ld0bWMH10JMmm8YyMB
-	N/251yJ8dTuEhuFUTW9Hr42tckvHs/tGSHb+eIi1+JaG6utz1hPx/B1fby57TwPISGcBUDJ
-	ari59Xvzf6lZL219KVOY/UXs3kOX/2UM0xFF9cgnfUHghg1juzoBpWWVBIZPacAhEeLBTIF
-	Cob1DgDoGEJ3y4PbaqbuNSfbyrDhhSqvJ6/YHDhjhjJZ9jejywSj5/PTYQAYk7rWJgAAphw
-	q1ejPh+KSRhel4n7sOOXRzETChoJxkUPoQwtG5PI0PTzbNwA09SMYF1g0oiwpWjH2W+TluA
-	Uzs06iq8od58G3Hn2dUbPBMQMfzUwrFAZtwOxZNPqCIMjvrXsmezpmQf5cwS+F5TNuUAWA0
-	zSsomKwWz1PkrZSCtNjqIPAKlWnB2LNVTmT3L7iQ5IL0+MqdCD4p9r2jEvpDAheeIbHEVv+
-	ND7pM3vMOC305N0zWqaYB5fn1RN/SxLNfxarzCm2D+n5Jor16xvcATXP24vU1EopaeQPZGS
-	ZX2PIChwQHX8caLcrZ1PRsYfP8JvUcLQrYUPMW3Q8m+WXWavQyHekFyzA24xkgu46s/8hrJ
-	596OTnHAOWIhiFX/Pm/GKVy5lz+GWrE8jEUWvyT6mIHAsA0PlJjrMa4+HJXBAX789HV4zc3
-	9/cHAK3DjglFmisOWIjmcgFiB8UFXobYHcP9L72OXPHoEWOI3vS/yiDCGZyX2WUDVN4bKQT
-	Jx3zvSupUTvkEEFCSZezWmR4lgbheqvyNznfTmY8ImkIC0S7SywMzJom6f1j6RHhhXsl+dx
-	wEDJlVsZISYet1vcOKt28imcYOFuut3FhzZ8nSrvs2ocMtV5zVCe4tRqiqefrADO4h8XCOn
-	8ZNh7JjwabBwfWZTK72I17rYUzIhD7N/j03K69XEf1Stej7Z9cAta3sQlBYyMpSJ12xXVPZ
-	sN7DGbXr50ww6mG9Eo1DhIdrkBThrJLropKlSCjwa6aKnmEYrtPttx8Xc6nC7W5lPFHNbUH
-	VLYYvvPrpr/6xmHT9c9d6GaCETUfj0HnY6UPh6IHAtaVaRVbVfGBel0NWdhCAS36tS7L1nl
-	WQDrHFBS5b+lcUprdYeBFXUrqeqlUnIZyQVY3t3EFtE/gFjMASHLoo=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---511ec13c2b7141be0104885f7a52a1b4dfa31b6f2847b9143b414700b4f6
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+When global boost is enabled from the disabled state, a failure after
+one or more policies have been updated successfully currently restores
+the global flag to 0 without rolling back those policies. This leaves
+them locally enabled, with their boost-related driver/QoS updates
+retained, while the global flag rejects per-policy sysfs writes.
 
-On Wed Nov 25, 2026 at 7:46 AM GMT, Yixun Lan wrote:
-> Add an alias to the MicroSD Card for CoM260-IFX board.
->
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Keep the global flag enabled if at least one policy_set_boost() call
+succeeded, while preserving the existing error return path. Global
+boost = 1 grants permission to boost; it does not require every policy
+to have boost enabled. The mixed per-policy state is therefore valid
+and individual policies remain accessible through per-policy sysfs.
 
+Restore the previous global state on disable and when no policy was
+enabled successfully. After a partial enable, keep global boost enabled
+so users can repair individual policies through sysfs. Do not roll back
+earlier policy updates.
 
---=20
-Troy Mitchell
+Qoder, an AI coding assistant, helped analyze the issue, develop the fix
+and state matrix, and draft this description.
 
+Fixes: 218a06a79d9a ("cpufreq: Support per-policy performance boost")
+Signed-off-by: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+---
+This RFC discusses the user-visible partial-success semantics: a failed
+write of 1 can leave the global flag readable as 1 when at least one
+policy was enabled successfully.
 
---511ec13c2b7141be0104885f7a52a1b4dfa31b6f2847b9143b414700b4f6
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes in v3:
+- Correct the changelog and comment to describe restoration on disable
+  or when no policy was enabled successfully, and local repair after a
+  partial enable.
+- No code-logic change from v2.
+- Link: https://lore.kernel.org/linux-pm/20261127014937.413500-1-jiangtianfeng@linux.alibaba.com/
 
------BEGIN PGP SIGNATURE-----
+Changes in v2:
+- Remove goto/out_err from the function using cleanup guards.
+- Simplify the restoration condition to !state || !policy_success.
+- Link: https://lore.kernel.org/linux-pm/20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com/
 
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCawkdUCEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC/ntwEAta30V/NVIohc
-hMoxmKN0JKEAvLmQLLUpsNQ2ycAEFqwA/jDC2OlAs1T+oRQtn9mzwDtIxwKOZTqN
-V0t3Xn2x+akI
-=E6T9
------END PGP SIGNATURE-----
+No normal in-tree trigger for the partial-enable sequence has been
+identified. Same-state global writes already provide a resynchronization
+mechanism. The same-state disable/resync failure noted by Zhongqiu is
+left for separate discussion instead of expanding this patch.
 
---511ec13c2b7141be0104885f7a52a1b4dfa31b6f2847b9143b414700b4f6--
+This AI-assisted draft requires human review and DCO sign-off before
+submission.
+
+Validation:
+- mainline ARM64 defconfig build of the complete Image
+- checkpatch.pl
+- eight-case old-global/request/success state matrix
+- independent static control-flow and locking review
+
+NOT_RUN:
+- runtime fault injection or reproduction with multiple policies
+- global/local concurrency, hotplug, lockdep or KCSAN testing
+- CPPC, SW frequency-table, ACPI or AMD hardware frequency/QoS testing
+
+ drivers/cpufreq/cpufreq.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+index 4332cb114070..57f1874e087a 100644
+--- a/drivers/cpufreq/cpufreq.c
++++ b/drivers/cpufreq/cpufreq.c
+@@ -2887,6 +2887,7 @@ static int cpufreq_boost_trigger_state(int state)
+ 	struct cpufreq_policy *policy;
+ 	unsigned long flags;
+ 	bool boost_enabled;
++	bool policy_success = false;
+ 	int ret = -EOPNOTSUPP;
+ 
+ 	guard(mutex)(&cpufreq_boost_mutex);
+@@ -2911,6 +2912,8 @@ static int cpufreq_boost_trigger_state(int state)
+ 		ret = policy_set_boost(policy, state);
+ 		if (unlikely(ret))
+ 			break;
++
++		policy_success = true;
+ 	}
+ 
+ 	cpus_read_unlock();
+@@ -2918,9 +2921,12 @@ static int cpufreq_boost_trigger_state(int state)
+ 	if (likely(!ret))
+ 		return 0;
+ 
+-	write_lock_irqsave(&cpufreq_driver_lock, flags);
+-	cpufreq_driver->boost_enabled = boost_enabled;
+-	write_unlock_irqrestore(&cpufreq_driver_lock, flags);
++	/* On failure, restore old state unless partial enable needs local repair. */
++	if (!state || !policy_success) {
++		write_lock_irqsave(&cpufreq_driver_lock, flags);
++		cpufreq_driver->boost_enabled = boost_enabled;
++		write_unlock_irqrestore(&cpufreq_driver_lock, flags);
++	}
+ 
+ 	pr_err("%s: Cannot %s BOOST\n",
+ 	       __func__, str_enable_disable(state));
+-- 
+2.47.3
+
