@@ -1,57 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.29
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798846;
-	b=HfCGmVLZRe3s+dP4VO+SPAHk/K7Ghpfu2w/skP30NXTjWu0ZAnjj5ROBi338+11yQoWy
-	 WWEvIWl9Yvqj/uHY8dIDLym/Zh+JVyCrlsgUCZblO/zfchlenUl3CQ9voayzYi4qFB+nD
-	 FfBDQrootBHRxx+tDXgzuxJf3e0mK+fI0HVrgoCBtHFGqunJFlS5Wc1QNqv3XJl+NB5F4
-	 bAWCfY2sq9Vmtu5e+ywfwr59UrYo6yJH1hHHBFPlD6dg/8fp+Up/eKUjwpvE7pOXhcEfL
-	 P1a0ZFWPomAAwIU4lZtDDq6t1qdnxG4VgFCDLm6zoIqwMEyOERC7gdRcJw8IuI8lbPA==
+	t=1795798904;
+	b=aLf8l5Ig3TTAYIqQJPVY+MF/BEDQqpMw6Fa9E+mULE7qh8c8UMyi7Ti4gLNDyPjXlwKc
+	 zbjRdx1toEL/NU62Rs9wGGOP3cVYkFSpSjV96aSinfc23BtSSAdzqwt14kKylmHF/qf3I
+	 1PRF/7r336l0Ae5EtSdpMGZHceUoqSIaFkOplL+v2LmYiq2Bngb9JjYm35xQdX76ntenB
+	 G9w3wqeZmYXEfCB0l5tAYrhP8EHYS870n6zQBaOll7bokRuSCycp8z0DvFL9kVmgJJpKc
+	 BQd/zF6aidGKK/eKLARFSeB9LbcYtAl82lbSf24zyxt39HSslWPDjNu4ibHZlepRz0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798846;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=U1yLLCVNt57u5GF+uQ4RZt1RrCY+NCxvna0eB8L6VaY=;
-	b=eopg7Qk7BU54vgW4hxDbD688XTeUIva2JjrvXWk0nRAoABg2x1unbJEs+QZn/LMaEn4/
-	 7LlzPl8DhMx6KLjtPlgGKtk4ZrSiX8L+N5tH0zLhsxKQcKLzzmrVeRpZkPeyLDGwLb+u1
-	 vYuuwkmeryyuGCnLzH139mytHzPS3ikNTuNMxQ4DDTPYunDkgDoK7/fcL/qGWa6jQ/ld4
-	 Z0gk/WoxBjTcdADEwvYl/yfj8ZiRLsaGwi6tEkpWc1R/efiShfYBIWXNhDLId+SFdIFOI
-	 h3SclphnYLp/11D51REj1NShkhLTVbhe98PDihNwJokhrvrrAogx7bEjGThluCjplgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798904;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=EGUm1WARozo+i2X1STejQqT6PhwjcryBll7NJyIlqmk=;
+	b=TE/8Cn4SuAx7FEII9ieE4MlU2d/uvMn3ZWuocNq7pyvTlTNpS7M1mTtGuS7faMGXggYv
+	 fuST8lOZCln5+oGGMZfKO2qNEWr1SYLsEY2kxdbDaDW09x9yT0lsD4BanqmcBCQnT9Pru
+	 tEuiI9seWJn4FnSM9G1ZJaVuFEtJtHPAab/0axFRssje8SGzU7sn3+c/pXALRfG/bfFS8
+	 DaODewgriNPtftBvNsZ8T/YGFQzhXY3t+CcCzlqSUcBvyomaFGf7R9skfZPnMpmMHKNLU
+	 UpjwGFKtvIoWKwgTmygrYlcOQhGZs1W8oA6v0WtaaJkPg+/MAlHxoHNhBAmPL9bjPLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	arc=none smtp.remote-ip=79.135.106.29
-Received: from mail-10629.protonmail.ch (mail-10629.protonmail.ch [79.135.106.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hTf850uv;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14A1C606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:00:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14A1C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795798823; x=1796058023;
-	bh=U1yLLCVNt57u5GF+uQ4RZt1RrCY+NCxvna0eB8L6VaY=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=VYTx6d9ZdxGH5l81XvuuWIPnYHtdFZItIsvM6pQWRUqF3Iqn2pTfo7abM7gjUKzh2
-	 Irp6q3gykmkf+v6rBYbl25atF1ZxmiCHkOnTNvCbVu1QuG4F/a0+6QmtaKygRbK4wd
-	 N67LVxwJPkt64LR4XoRrjya++TNX+BjrCjftMEuy5qv0i9PX+nmuRY11sF4AAB0ZsU
-	 oXZITO8llruZdsdF2Rd522JCHjXLL77ne2Sg2VpJlyLwDdaEkbEYF0iY6JU5+8BzXo
-	 6W2/C8dzKBwVHW8bPud1NaAp2IyDyGzriunuLvzGOKZ5OOt/oweW4Eo8x5sXMnxPy5
-	 7m6Ll2rpGWWJQ==
-Date: Fri, 27 Nov 2026 17:00:13 +0000
-To: Andre Przywara <andre.przywara@arm.com>
-From: Norman Herms <dockseed@proton.me>
-Cc: Enzo Adriano <enzo.adriano.code@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>, Cristian Filipescu <filipescu.cristian@gmail.com>
-Subject: Re: [PATCH v6 3/5] arm64: dts: allwinner: add Radxa Cubie A7S board
-Message-ID: <AzjLG4iAqXVYU5xs3jzLGCHNElMjyalfu_xCbgGLeyvgkAXIXMDFHCm4LUyEe1sq6C4gcLhjyje0myr_eNKHhYEmWpoAVHJF0YHgGW7cDVA=@proton.me>
-In-Reply-To: <fcdd57ea-8f03-45ce-886e-f0efb6f23d3a@arm.com>
-References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-3@gmail.com> <0a7f4a31-81ac-44ee-8cd2-7b5526af7442@arm.com> <IUp5Ow8SUNdgtour7we7BN_rry0fuoBNw-ucfXERukfbwTWvoWo5QjYLXAzxftTjGnsuhCCnwvxZ5fBpL6pFPL62oTr2hZddgE6XmrQ76o0=@proton.me> <fcdd57ea-8f03-45ce-886e-f0efb6f23d3a@arm.com>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: e1853d72c46332b596795337445d7c8e003b41de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79087606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:01:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79087606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hTf850uv
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-492f0a1b685so5961034f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:01:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795798902; x=1796403702; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EGUm1WARozo+i2X1STejQqT6PhwjcryBll7NJyIlqmk=;
+        b=hTf850uvrjJbgZ6iJ/69YwJSmu8EtRtoHJcKFmM4cCRRUC33GwLuUB/cnLsIAwYn9n
+         PXADskx87Ee5EDDMcjHGUVDoNm6Wnnw5Ke6YZfsRoZEyqRFbnwWv/P5Znn9TZuJNdcH7
+         iJrInWT9qkTAg/lfEDdTHy/+CSp/GHpgZ9/+AdeaiudqtUFlMgM+i25yWIhCZIhq7abZ
+         rJ0ZJoBnEsQjH9SE7pb9Po6n2FK1huLCBZuJP4LavJzl5LHdL/rkXcyplTL+4uts48wk
+         rKLS8+o57VVc6Mec38BebgVEOtcp6XWa/UnGU2flaexyhtZzuYjDBbZStIpNPqq41r4D
+         9DKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795798902; x=1796403702;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EGUm1WARozo+i2X1STejQqT6PhwjcryBll7NJyIlqmk=;
+        b=238M4Q7uNCSgQM/xdGuoow4f+akAUBKiR6cDKamM7XTiBzOLrhKh3HhfHbWwrN4XeX
+         1C9Kf37+1Bq8AHIi/43EApLiIFFmQLcUlRibWSd5gvUl/bbVl20JDXc+0brFwZEZ1mqW
+         Ac7Sko/V/J5JjkLqD7DtUIbbr+iSvNT8hj6Ae5Wb023qk9nNKwFS1fRu3lieYMyXCco7
+         DHK/2TpmAy4Cgv/9I7tcDeU72kT8inCioBLIZ3QBFzWGH9Iena5kPr6sCUEJfl1o+vfK
+         q0t/30xREsLsw6YJqnu78KWM/FIVqxxSCGcrlvNK/XiWMj4mXM1ukC657/r5l4Vfadzj
+         xYQg==
+X-Forwarded-Encrypted: i=1; AL+hErGaCipPIybGpusWt6uph8QIQfLzD6i+/MnCVBjyAxX+rLK7Za2LA4VRdmTFyJTIr6A/0kjtgj1dwvNF2lc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7lvUBdDn7IG+jAFkL0WcFYCTLmS4ayhufw735fd3oYc2q5B24
+	wNW4qV0Ib766CUkjb0XqCjBT/KsrdfMNapsnoT4v2P7LwxHuwqICpvpX
+X-Gm-Gg: AZFdTZd5YEmN+0oh7BOV5exXdy/44sgdNfIgSaM2Uba2RzREqz9FR4oIUv7o4f8p0G5
+	o/ZOgoda34ZaEdD+qCBNHcnzQBOd7UdzzaI2DfknrIz39zExVbGY+DnKclRStOmCnFNWMqsKRkm
+	y0PjpJYsWHTU6qu8fecXcN+ydB4vD8sjKcf2aRuIRu0uENAEP+9JxeQNpsU3VArAz0ZmPJ50bVX
+	4rWu90LV47yP0JgJXKWwxqJipRkYGviFT5Kf6/2BEYBaHzoH4ADkSVogRHpMpzd5AsO+9hFv9de
+	lPhLRzBq21LHJeAeBPe7O/G2//FgKE3swFH+qIXh42UR8teKskdjQ62wyaihk1RzQjShLV6Qws3
+	ZjpYI6hLyCvgLvIU3O8UsjR/Zd5xH1XMI7sZ9ZkLVjmGlla4mWIv0xjt5SbW5QPM/jlGg1qz8f7
+	Lz0XVEtH4CmPYLUaAKEwWaXI6R0ECWIZZ7t3sNFZbbrFPJJFEjCTPy/USy23K+Yj3fw2+ncsO2y
+	ytOOEgOnTusC3nakLTBVBU6fBZJhPUJUBmIXpe/NWs6AICjhiH0ARV99rma5Qu+kKYxoO365/h9
+	9LF/YDayXME8NqNtuz1mGUblu/A6npcyt3+w3lVp470icWIIOr0CkwSbGS70JbkJ3hFplYyWuvx
+	Qhp+/54acDFNQCRsV2dAs8MGw8LYUQyzDzLD4tDXLbHMvdUElOqYChCJ61Cp81jdZ/cSh0iu64D
+	U=
+X-Received: by 2002:a05:600c:6749:b0:4bb:5f95:c014 with SMTP id 5b1f17b1804b1-4bb8880f283mr510208915e9.19.1795798902154;
+        Fri, 27 Nov 2026 09:01:42 -0800 (PST)
+Received: from othello.home (103.153.90.146.dyn.plus.net. [146.90.153.103])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm407300475e9.0.2026.11.27.09.01.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 09:01:41 -0800 (PST)
+From: Cassio Neri <cassio.neri@gmail.com>
+To: thomas.weissschuh@linutronix.de
+Cc: jstultz@google.com,
+	tglx@kernel.org,
+	sboyd@kernel.org,
+	mlichvar@redhat.com,
+	alexandre.belloni@bootlin.com,
+	linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
+	cassio.neri@gmail.com
+Subject: Re: [PATCH v2 4/4] rtc: test: Remove test_rtc_lib.c
+Date: Fri, 27 Nov 2026 17:01:52 +0000
+Message-ID: <20261127170152.41109-1-cassio.neri@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260903-time-time64-to-tm-v1-4-660be972adfc@linutronix.de>
+References: <20260903-time-time64-to-tm-v1-4-660be972adfc@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,40 +105,6 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi Andre,
-
-> Regardless I wouldn't want to leave it completely unbound, but instead
-> provide some limits. I guess for VDD2L, potentially the same as VDD2H,
-> it should be 0.87V - 1.12V, which seem to be limits Google turns up for
-> those LPDDR5 specified values.
-
-That covers what we have read on the A7S: ELDO1 (VDD2L) at 1.075 V
-with our chain and at 1.1 V with Radxa's own boot0 (V0.6034, and the
-same on Radxa's Debian image).
-
-In June we also stepped ELDO1 on an A7S in 25 mV steps, with memtester
-at each step: no errors from 575 mV up to 1.2 V, where we stopped on
-purpose, and a crash at 550 mV. That was after the training at
-1.075 V, so it says nothing about training at other voltages, but
-0.87 V - 1.12 V sits well inside it.
-
-Radxa's boot0 also sets DCDC7 (VDD2H) to 1.12 V, above the 1.1 V
-maximum that v6 gives vcc-dram. On a board booted with Radxa's loader,
-the regulator core would bring VDD2H down to 1.1 V at probe, i.e.
-after the training. We have seen exactly that on ELDO1 with an early
-test DT of ours that gave it a fixed 0.95 V, on a board with Radxa's
-boot0:
-
-  [    1.792706] vcc09-vdd2l: Bringing 1100000uV into 950000-950000uV
-
-with the DRAM already trained and in use. With our chain DCDC7 is at
-1.08 V. So 1.12 V as the maximum for both rails would also cover the
-vendor chain.
-
-Built and measured by AI agents (Claude) on my boards.
-
-Thanks,
-Norman
+These changes look excellent to me.
