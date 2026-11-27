@@ -1,106 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795757090;
-	b=YnuqgilqqhhgJAXD6a4FYh3Kqbfv8N5CzAsiLnRXgbH40ijfaDQgHcLNylA7E3Ly8zwK
-	 aFGIzH7dQnRA4+jALMjhrM+qRfLMK4ZXd/yBEguTjgl12uKxlWuBC0VwkWm+/wmxMd52M
-	 QvUUIa6qyW8ZOidbJtHn+MFORhtR3Vd7AdCa7PPyfHiCeMyazlH10cFyTC0yTrsJTgXDJ
-	 CUCiRlZHmT/HVnS3oHXvJ7hXidIGl43/pLtKU8FPIdJsbZWhwHvxvBx0s+cCfWtMIvnCI
-	 edFgQubP4e5JAxncDXxmBU+v7C13ZcXBzANMBMxCzcUl8fP7omQnUwAaKWurWsLgKrQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757090;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OcW1wa8yNSPpf4GQG7xYqrDfB/Q49hlkLmnT91a1PMM=;
-	b=t/VcyhmGlImibU2xvF8AP/W4FX1+/58wNL+/MyEJhkW7JQyh+B+MF0A2GI2Kk2802pi/
-	 1OQnKEw6YcSUkHkLXS/z7w22OIyTTBnj/Q28/xCt/ABwmqORy3GHq6t8CRMq3kghRm2PJ
-	 pGjhN98ZMXDfwkyH50T+fn8NV2fVIsxyeAUNaMZd1vbZepZdlowi1hzDxmWh3vt9OWXmh
-	 z+FR5o9AHHcNiDLbMFvegg/PHBkpv6iNZdjjiO/XDZRuzjZrBVzzB74YWlZdPozQx/j11
-	 TQpq7EGIKSSZX7F6CT2Ee2SKYtQAUHu43jluaoaJntmaXDAIrVwCZN9zxoIpgxN2uVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jhq3Rn4j;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.46
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010046.outbound.protection.outlook.com [52.101.61.46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795757294;
+	b=qJ6maYXIrPKHFVXJiX3Mpc6ueNzh0ZqrHVxQWTNTg63lbb9PCZjqQwqNMyaYMcX8KBzx
+	 7Lmq7QgZ4l6leOirS7fn+Pk0t323uI0V2tP2o58KvPiyTD3jZVrjS1oQqjnQNOi/VpPme
+	 pa2EeqWgqVlWkUkNTjlxO6MRiTajQdmqQQBsr4Nohc3D/PYZz+6vwWNQOREnV0lM93jHz
+	 9LKVDe1PlXyB+amUOuG0lK/e0ImpkqT8+ncf9Za6dLKLkXPskBf5JOfsQwrdTqnVkXGfR
+	 BByHpHGqfbaWIKTM7zmpTPBA9XJ/eEwCzmXBN3XLxXH79QLUsCfKgdlnGGtS+hNREcQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757294;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
+	b=5XCGfAV5kq36NUD1VioWk0AcbBgLpJOk5sqocAjWB/jsR0813G+RfuxhbFBgOhZ8AVHn
+	 G+XtyCZcWIovuF5sIak6dy5Va3HofuPX1zoLhWKIwLsUUz9dKojREdaWcovJOcYWhsOMk
+	 mllITVBqOSsS9zs0bKuMIwxQ8xWGVS2JsO/i7GhGgdjP2uejrRJNDGOLhF0z3pIaitrT4
+	 Y8d3nE0OmNFaIgrBqVOPKHN6t7WHo33pat7XS1FlPTg1W3yvi7GZL9Oe2859R+EZ0oW1+
+	 nCtarHPxp8CCxKvbCdaW/e/4YUnvHEVlGFZROuPf3rwCKoYEArJBymg3xECboVaHpUw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.tenstorrent.com;
+	spf=pass smtp.mailfrom=tenstorrent.com;
+	dkim=pass header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=Y8tUjz61;
+	arc=none smtp.remote-ip=74.125.224.43
+Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB398606A31E;
-	Fri, 27 Nov 2026 05:24:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB398606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA0E4606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:28:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA0E4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=oss.tenstorrent.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tenstorrent.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jhq3Rn4j
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qDn9JV8D7/SiJUQKLHzNhhXtty7eGEgl0SjBIsDXc3M+lj5cjn1legWX8bUeGoWPjrSJhUaWduP7mo1J+Xi9rgyGStcEOAiaMDQa5GWjJTx6/6ch6my6p92ksPFmVCsG286c+AOZ4hhhK9LN4XBZLw2pO2QxFpa9BmGvbroq3V9xE9tUvuX9jxOVHzgig3ljD5PatIbnnCF0IJXAXnjfxac1CR8/vtWdNXqE1qsqBoSHVYT9RZ5TIJSX5mAjgep7TuWEMDW864vLkSmvzfIZBE2xjAJ+w6mAXxf2xaga8FL5vJZo7MZQjsaKwxlsjjw13zmzY09YJlr2Gn2fwP32Fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OcW1wa8yNSPpf4GQG7xYqrDfB/Q49hlkLmnT91a1PMM=;
- b=MyRjyMfu8nSMF+sNQjggrXq9mo6UkqFMNh+QU6FTSFR8VApUIMB8bn5jPubR0a5yTK+A1yL9oRONqXKfpYTGfCVqcVV8iQ0oyNyfsbjzmkDkMWEUANyLfdsq2CiozavMulHk3Ksnq2A2QzIUdpRjhWM3Q/sv3T9KRWJhs9xp6fU5V3aO85S2padVNt1ftYVXe/JKvUWAJUDy+wE+F2UJafYWqi6IfTNqlA2GaUimL56OnB0sh/cdKGgcwHc+i16Q4k9VIvDCGeP3o1TY/BFtlf6rZXrh0mhP3ekJfDWB32Fhmh6N1MbmtwNiUDrZeQR9Ak7p/H0JmDGgMM7ksKXtFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OcW1wa8yNSPpf4GQG7xYqrDfB/Q49hlkLmnT91a1PMM=;
- b=jhq3Rn4jkxgkE9nijH5SNiTAo2yUSY/58GtU9O3GcAKNw7ky8hGhN6kuZhk4ppB1sThwejbG5+D2rdDnUVfTouTGHCG/lhyYTXeiYU4l2CjxP/oqa2B8esj99EJN9wVBI57OZe9CC5BABtNyCDRSFtZTz5vWOQeL07fNnK3xTND9IopDapn/LPZn0dVLl3Z69TjnbLhSBNvY3IvdbnhBmWwy8FfDtv9AmPnOUnbbx1hbtj0S3A33ICs7evbmbG/BKsU/2N0FdfEpyamSy864qwhUeSbamcr9N/rYKYQjBanVGynFHN32kH4Cs8xUZUNOB/5bxcYnyvzXt47CFerx8A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by MW5PR12MB5597.namprd12.prod.outlook.com (2603:10b6:303:192::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 27 Nov
- 2026 05:24:45 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 05:24:45 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- Svyatoslav Ryhel <clamor95@gmail.com>
-Subject:
- Re: [PATCH v8 09/12] drm/tegra: Convert to use atomic versions of
- drm_encoder_helper_funcs
-Date: Fri, 27 Nov 2026 14:24:41 +0900
-Message-ID: <mxfdX1kqQz209wWYqFOofg@nvidia.com>
-In-Reply-To: <20261122081820.53199-10-clamor95@gmail.com>
-References:
- <20261122081820.53199-1-clamor95@gmail.com>
- <20261122081820.53199-10-clamor95@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: OSTPR01CA0036.jpnprd01.prod.outlook.com
- (2603:1096:604:21b::9) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=Y8tUjz61
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-67db5e13b0cso6881352d50.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:28:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1795757293; x=1796362093; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
+        b=Y8tUjz61NtA4sx85w1w5WdFO9U3qKQ5pf7I44awrwEgGTG/yTpfKVWDCkwqW2ByJ29
+         YzfzBn3FXcJpxILij1V8VvLCfr2Ddml4kzdGHLaUdxZMN7bLfP6NPM89/SKl13C8Q6qM
+         HHuBDOyV4UOaEoyZmOmk/AZgdwaRSPjz4kZk8wyd1PoknCo73+Hckob+WL+jDKNPM0+t
+         GgCP8XVSbwvq+kZuj2hFcPfxdFXbVuH4UyVv2saTQTTcljkyGSOPzr/CzNL4hZJRn7IQ
+         f5wh9jSAt4kDN0kM7SojsykF3sb4lQgQlTz3wPOzBj4OJVMdPJi3QHKSOsnN01h9tQEQ
+         FrEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795757293; x=1796362093;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
+        b=S3U6DVVcrfQf41rKFsar4BTiegREVkW1Xwdc4JObO6vBbdswRuBZgQ+A7RmR/u6H6r
+         xgK/jzAMzhr414oqy2GV0tuKkIpbkvJZk95YnF5DI2XbkS+QezrOJY8lv5CT0ic+pE1j
+         G5Hxyz9Mu3M0YTbmijq/a740/C5rOysCVDYk1/JADPJVfYMK438ofoLiSL6BhCE0gJth
+         29iwfNd04iIUsND69lPygneCL5FaX+WfpTqMFZbTyhWr75YeQltvRAHcqF2Z1z8pwpm/
+         u+Ygm/ihR14yBOt22f9YG1PiXQn3EQpVZ1Af/SYudnwNh7UMYo9A7A8MPkOjg91waLky
+         iDTQ==
+X-Forwarded-Encrypted: i=1; AL+hErHYc6Jttl1Nx/aDGOPxV7FYOzj70wF24QZ3HgsJkI0BCPj3odB3P+a1fO4V0Vp3ECfbi/bLPU67Iov+7d0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OKrsGCcOHD+h9Fe6dxAoKdylCSKXQY8GBqgN7lEF4+NLej2JP
+	4t5E8ReqZhTpEjwTp5pSpCkeNLuh0rlTUs+niM0xIYBVFJ4LysgkgrurVOJFWvHcOdg=
+X-Gm-Gg: AZFdTZcXvKutpqdOC2BKkiEPfxf6TjCfQSv+snpkNbQeAhC1QA0pQYi0qWu7kHjvvdS
+	r06FcTEz/32MAmC50ubO1H2eHI2ApWcs//1+ArL+xXfmF/oGDYJ5Xfz8+6xh8yH5W+qeRsikzDg
+	Twdlf2+sLJCjZQLfvYgoCKmZstwmnIh8qlDgRB9XhCvX/AkstJJkwRFXanB+9BdKb6VdsiGweEf
+	dLu8PkLwiSPV8gi6clmq9TvhKcBihvO2eQHwpteER3GpvrL1m1a3A/kXQSkbHT4vD3VGAk5EoUL
+	RQBOakSRDGAkemvhkVP5oBe1dloTytfmrKB+8TuQAQD2vwlDBWeDPcey+fx5TR7BBxMYjXshTzP
+	cdNQSV+ZNyO6MWt4TssRzQyc8pVwqFQhPzFYqzi0uXNNpLrr4jxRvrPMZDucHGFu1kRCw9aayId
+	eIem4hwqxHmLu8D40vplGWh4//+lICJzbcSSXQGbt/R9XS18uwNeBlENE/unBZFTQ5hPg6jY4uG
+	tMK3gU3S1/UsLgdrA+52br8hP2zx01+RZX2s8ZPXBbcAKrPsPq+uyq9pqhFzSBJgjtOT+Vy4s/7
+	1enUAvtA72vJp7n3AwjmljfckyMVYIWXbrhcZ0b/Xyz1uJ0vCm/xFiieg0mluk+ncTfBGgq5C8U
+	dqWicrIWOYEgvm/GPE+rP
+X-Received: by 2002:a05:690e:4594:20b0:67c:6ce7:c513 with SMTP id 956f58d0204a3-67df44da548mr5273707d50.82.1795757292881;
+        Thu, 26 Nov 2026 21:28:12 -0800 (PST)
+Received: from toolbox ([2600:1700:220:59e0:e3a5:f585:4070:c566])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33d64a0sm11238363d50.22.2026.11.26.21.28.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 21:28:12 -0800 (PST)
+Date: Thu, 26 Nov 2026 23:27:47 -0600
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+	Inochi Amaoto <inochiama@outlook.com>, Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
+	Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Anup Patel <anup@brainfault.org>, Guodong Xu <docular.xu@gmail.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	Conor Dooley <conor.dooley@microchip.com>, Bo Gan <ganboing@gmail.com>
+Subject: Re: [PATCH v3 6/6] riscv: dts: spacemit: k3: Replace incorrect CLINT
+ node with ACLINT nodes
+Message-ID: <yf2dawzefycxhhs7zkua3v3hoirals3wtr6rheh4li33eq7r4i@yb7cem4r6x3z>
+References: <20260918-k3-aclint-v3-0-cf4fd4050e14@pigmoral.tech>
+ <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,342 +106,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|MW5PR12MB5597:EE_
-X-MS-Office365-Filtering-Correlation-Id: 052e5f8b-c966-4d71-44de-08df4c46bf6f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|10070799003|376014|1800799024|366016|7416014|22082099003|6133799003|10063799003|18002099003|3023799007|921020|261022075727099003|4143699003|56012099006|261028144727099003|11063799006|261009223027099003|261022105027099003|261021121427099003|261021123027099003|261026140227099003|261102123227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	MTnMz/Afxv1Aloj1bEg4+qIh0W7gAKvnip/sKTSk14/WDgRBp0nBgl0d27C93/ezhlnQAHqrmosKtle2nogp8EkxX3CiiLC+vtfZCiAm5W94A78mCEc17dSYCD/jt2rSCxib1gChn9GPYvJ+ANxurVmniibb8L1d1lHtARTF1J2HkWRVM165KC3g3ib+M0ECgBPIOpfJ9O9Ur5royBl0zCB5pU8QoT1ieUDh7sxUSMbo62d0S7goWL2h9lb6ob0pOfwE0gbv2exgAWxqmbNq1C5M9nBKJq7uH3I7B/SZD6IHmLKV0h8DZ2b7b2K2lsDgwbcvoYmIC7F3v1FCMBpgnwtu0lg2376oc0CZqGnashR9qo91PSHE7tAkItaVPz3vMj1RqU4YM0D6IbiNz6pUq1ZDMgTSTN1jG77504cXk3FCvT74yfwWUoCIplxb7ToS8rl+gdKoMYS47Fp31hPSYK2KUJJzYPKvV1562SQ+J9mIIa6cpRTfUjoGKAZU9Y8ZtfFbC2Uo6FjmUKx+gBz5i6loNB5/BR4bys6loOx+REuDUijZXcOThLvE22npQQ/pP38LnaOSNPxejLKd2Vd7bCGRDsM48L3XkJb5aJSe9JSqovD3usF6vVyobQOdYd4hiVKv+EPoMdXWRKo4RnLRO9d53FuWAhD+yMEOD74o8aC1Clr+TqG/dye9s+Az0xMNDTHOA9AUiERZw9irBNEVpg==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(376014)(1800799024)(366016)(7416014)(22082099003)(6133799003)(10063799003)(18002099003)(3023799007)(921020)(261022075727099003)(4143699003)(56012099006)(261028144727099003)(11063799006)(261009223027099003)(261022105027099003)(261021121427099003)(261021123027099003)(261026140227099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?OWloT1NkVHoyVDlKWjBjWXZ6TUhVMEJxMGw2a1JhRHlDOUxSUzhFY0FXWVlM?=
- =?utf-8?B?a1VMTU1uek1ySkhnTjdlVmM5ZlFLVFlsVVBiL09EK1BrcTF0MStDUm8wNjRX?=
- =?utf-8?B?a29tVmtLZUJXcjE4b1NxVUg5RGJVd1ZoZFpOV0VnZXBrdVk4Y3kvdWd2SENu?=
- =?utf-8?B?RzhOSUdKNXJveWtjbXVQdEx0dm5SUUxRTVpmSlhKZ2hZQmlzRzZHU1hKMmdN?=
- =?utf-8?B?ZHF1amxIcURHUTc3RklNdE94WkZTRjZNaDF5Z3dDbDU0OXRLc3R2Vjl2S2ky?=
- =?utf-8?B?bk91OXI5bm04ZGZsM204akg2Y3VFU01JU0w2Z0lJWlJCQmRERGpicWdUeno4?=
- =?utf-8?B?MGpTWlB3Y3RTSzdJWC9SWnovb2pRSm1xS3V4Nm41OWJCN3FHaURFbDVKdEFk?=
- =?utf-8?B?ODV1WDBqSmNmeW1TeWZLaXVaUFA5SzYxL2c0dVZQOWlNK2I2dFhDT2ZnNUs1?=
- =?utf-8?B?bXNibm1MSmVDTEw2d1JJU05OMUxQU25oS2hnSmJGdHRTM0xXVkpYUlNnUmJ1?=
- =?utf-8?B?Qy9oM1BqZWNuMElOOW1IcVc1K2xoVlRRSzc5V3E0VTBHaHBSODJxbFAxdU9h?=
- =?utf-8?B?MWV6WGtZL1JrUHkyaDJ3K0dTUUptVWFoNzdyNW9NUUNEaTlETTd2MnJvTTE4?=
- =?utf-8?B?dzBJS0g3RWtkMlhScWdIQllxNTVYUWF3WjNRNTd5a1FMdzdzVjArZkVTZ0NU?=
- =?utf-8?B?TFpJTHVsQlFLM290RnZDODRZdzM1UUVzeXJoZ3ZtK2pIQVZyd1Z5WkY0cnBB?=
- =?utf-8?B?KytuZjc3QTdtNit3aEkram1jTkp2Z2FsUFhaMndtVFZuUmxiNDFFeVNveVE5?=
- =?utf-8?B?WlJYRldTanhFeVEwUWEzbm9jNFAxVFQ3T2t3ejY3MWVGaWxYYXdaSlREUGpz?=
- =?utf-8?B?T1R5WVV5eFBsaWtGa2ZoLzl1c3F6WTRhMnk3SktQWk1wRDF0Q05COFJnNkxh?=
- =?utf-8?B?U0xnT3EybGxuaE50RElVc1FhU3hySTl3RjBVQ1pmSnJ5RHZZaE9teGNYVmky?=
- =?utf-8?B?NEdKOFdRbHV1SEVzKzFKODRYUkxOc0hLTERwQ1kyaENzQS9RT2d0cC9Ud2I1?=
- =?utf-8?B?WHZPd05zbGFLTGt2UUd0c0JXeW95WCt0WndIRjB4R0d2NXBjaUMycjZ4ZGRp?=
- =?utf-8?B?bjlxVVVabEZpS3RnVHFuaDg4VDE0NjQ2RC9EcExSZnV5R2wxbzBmQ1pkWWF2?=
- =?utf-8?B?QXdOS0lWNllvYW1BOWJyRTlNUkdKNE11Y0crYW9GZVpzMm5RemZlWmZVTE5G?=
- =?utf-8?B?aUc1RjduSEdQZ1U2NjNPUlgyeXVQb01iZWIxUnZuWkQ0RmJrV2hsVXJBUXl5?=
- =?utf-8?B?S0hwbkN2LysrOFZXdUdZUzVjZGkrZ2xpMllqdUlnZHRWYWgwYzUyaG9MV2Yv?=
- =?utf-8?B?azFuM1MvM0lVdkhhTEo5NmlrQ3JkSjdRY3lQempERjBkVGNZRmJETit3Qmd4?=
- =?utf-8?B?Tk83Wk5CazlOcStFcHNRVEdsVnR2Nkt3c3M0VUJmZkJMeENhcDhrQUF5OUln?=
- =?utf-8?B?a3hlUVNjN3VoQ0NVWnJOT0dqV3VrQTZsdUU4d01GWkZHYmZNOHZuUml0SllU?=
- =?utf-8?B?NHVvYTdaR2ZNaXNoOHJTZ1RhV3dtSTlOR0pydklKN1pCc2o2bmpxVU42cExk?=
- =?utf-8?B?Q1FXaTljQzlDVlhPZElRZllhckE1Ly9yd3JUVkVuQmErUXlMQUV0OEE0VkNq?=
- =?utf-8?B?aDl6YzhJaHlVVFk2LzBsYjROem1LTmc3RS9GcEpUUzNWbUVTbWtvQzdEZkN4?=
- =?utf-8?B?MHJMZGQ4NXVCSWx4ZFFGSVVLNm1oNllnUzJBUFpGQzdmWTRiZXRlUnFGb2oz?=
- =?utf-8?B?SkthdGhiMG45dDNIbklVTTc4OEdOcFZTdVRvOTRwM3ZadFJjenNpZklNbE45?=
- =?utf-8?B?RUhjMWZZWjFaZWQ2L1M4YSt4cEN6QlpPZEFuL2ExY3R6Y3FBSkhvK0IvUllS?=
- =?utf-8?B?bGdiZzVGdU1iS1dwckZ1L2RJRVI1Sm1nNkN6bW5HTU1sMm5kNjRTV05aanNt?=
- =?utf-8?B?Y0JWNHpvUmMzdmdSOUZSdjZManVvbHdkVS93REE5NSs5S21yUWxqcVowZjVt?=
- =?utf-8?B?bi9BUWZUUE1ReFE0Vm5yRnd5NVZTdG8vbUhhZldqV3BXTU9LY0piSnh5MDFH?=
- =?utf-8?B?ejZLUW5HUVgxM1ZPeW14Z1MxT3B3eTZ5ek9hd3lpZlJCb1VBVTlOa2RWWS9s?=
- =?utf-8?B?WFNYb2VPdXQzQlZBSUswdFJTQURtS0VFbUROWCtGZWhXbFp3US96aHFXaG5W?=
- =?utf-8?B?OVlPSzVDMXpMU0ozbXd5K0ZIMklmU2M4OHVZQ3N4TkkwaFZGY1U2S3hwMldn?=
- =?utf-8?B?WjZKVHdJUkV2bFZZUUFmMFY1UXVlTmV5L3RnZUtXcXF6Tjhvc0pWZlF2K3JJ?=
- =?utf-8?Q?Pw+watB6yDZICcSR09MRw5s3Pa7cthZxWbwdFJ/JqUYKv?=
-X-MS-Exchange-AntiSpam-MessageData-1: C22mCmioxOehYQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 052e5f8b-c966-4d71-44de-08df4c46bf6f
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 05:24:45.3867
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OSOq1sAtlJFYfcA0zWLKsASZICTDhsTGPcDB7zKClbH2puu25q7pZz4HHurk5tu0I6YiZMp0f2Id3qZMDmUgng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5597
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
 
-On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
-> Switch to using the atomic versions of the enable() and disable()
-> operations.
->=20
-> This is required for acquiring the next bridge state without causing
-> crashes, in order to properly set up the encoder.
+Hi Junhui,
 
-This is a bit vague. I'd make an explicit reference to RGB needing=20
-access to the bridge state, which is not possible with the non-atomic=20
-functions, and then explaining that DSI / HDMI / SOR are converted for=20
-consistency.
-
->=20
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+On Fri, Sep 18, 2026 at 12:29:38AM +0800, Junhui Liu wrote:
+> The K3 implements separate ACLINT MSWI, MTIMER and SSWI devices. The
+> existing CLINT node at 0xe081c000 incorrectly describes the SSWI
+> register space in the non-secure window as a legacy CLINT.
+> 
+> The ACLINT register space is mapped at two base addresses: a secure
+> window at 0xf1810000 and a non-secure window at 0xe0810000. The
+> secure window exposes all three components, while the non-secure
+> window only exposes SSWI; the MSWI and MTIMER offsets are reserved
+> there. Moreover, depending on the eFuse configuration, the non-secure
+> window may be entirely inaccessible, whereas the secure window is
+> always available.
+> 
+> Replace the CLINT node with the three ACLINT devices, all using
+> secure-window addresses: MSWI and MTIMER for machine-level firmware
+> such as OpenSBI, and SSWI for supervisor software interrupts.
+> 
+> Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 SoC")
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 > ---
->  drivers/gpu/drm/tegra/dsi.c  | 20 +++++++++++++++-----
->  drivers/gpu/drm/tegra/hdmi.c | 20 +++++++++++++++-----
->  drivers/gpu/drm/tegra/rgb.c  | 23 +++++++++++++++++------
->  drivers/gpu/drm/tegra/sor.c  | 18 +++++++++++++-----
->  4 files changed, 60 insertions(+), 21 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/tegra/dsi.c b/drivers/gpu/drm/tegra/dsi.c
-> index 6d6adc485e51e..cd61070072beb 100644
-> --- a/drivers/gpu/drm/tegra/dsi.c
-> +++ b/drivers/gpu/drm/tegra/dsi.c
-> @@ -855,7 +855,8 @@ static void tegra_dsi_unprepare(struct tegra_dsi *dsi=
-)
->  		dev_err(dsi->dev, "failed to suspend: %d\n", err);
->  }
-> =20
-> -static void tegra_dsi_encoder_disable(struct drm_encoder *encoder)
-> +static void tegra_dsi_encoder_disable(struct drm_encoder *encoder,
-> +				      struct drm_atomic_commit *comm_state)
->  {
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
-> @@ -919,16 +920,25 @@ static int tegra_dsi_prepare(struct tegra_dsi *dsi)
->  	return 0;
->  }
-> =20
-> -static void tegra_dsi_encoder_enable(struct drm_encoder *encoder)
-> +static void tegra_dsi_encoder_enable(struct drm_encoder *encoder,
-> +				     struct drm_atomic_commit *comm_state)
->  {
-> -	struct drm_display_mode *mode =3D &encoder->crtc->state->adjusted_mode;
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
-> +	struct drm_connector_state *conn_state;
->  	struct tegra_dsi *dsi =3D to_dsi(output);
-> +	struct drm_crtc_state *crtc_state;
-> +	struct drm_connector *connector;
->  	struct tegra_dsi_state *state;
-> +	struct drm_display_mode *mode;
->  	u32 value;
->  	int err;
-> =20
-> +	connector =3D drm_atomic_get_new_connector_for_encoder(comm_state, enco=
-der);
-> +	conn_state =3D drm_atomic_get_new_connector_state(comm_state, connector=
-);
-> +	crtc_state =3D drm_atomic_get_new_crtc_state(comm_state, conn_state->cr=
-tc);
-> +	mode =3D &crtc_state->adjusted_mode;
+>  arch/riscv/boot/dts/spacemit/k3.dtsi | 43 +++++++++++++++++++++++++-----------
+>  1 file changed, 30 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> index c3f2dce0969c..74831974435e 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> @@ -1261,19 +1261,6 @@ saplic: interrupt-controller@e0804000 {
+>  			riscv,num-sources = <512>;
+>  		};
+>  
+> -		clint: timer@e081c000 {
+> -			compatible = "spacemit,k3-clint", "sifive,clint0";
+> -			reg = <0x0 0xe081c000 0x0 0x4000>;
+> -			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+> -					      <&cpu1_intc 3>, <&cpu1_intc 7>,
+> -					      <&cpu2_intc 3>, <&cpu2_intc 7>,
+> -					      <&cpu3_intc 3>, <&cpu3_intc 7>,
+> -					      <&cpu4_intc 3>, <&cpu4_intc 7>,
+> -					      <&cpu5_intc 3>, <&cpu5_intc 7>,
+> -					      <&cpu6_intc 3>, <&cpu6_intc 7>,
+> -					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+> -		};
+> -
+>  		/* sec_i2c3: 0xf0614000, not available from Linux */
+>  
+>  		mimsic: interrupt-controller@f1000000 {
+> @@ -1305,5 +1292,35 @@ maplic: interrupt-controller@f1800000 {
+>  			riscv,num-sources = <512>;
+>  			status = "reserved";
+>  		};
 > +
->  	err =3D tegra_dsi_prepare(dsi);
->  	if (err < 0) {
->  		dev_err(dsi->dev, "failed to prepare: %d\n", err);
-
-The function also uses encoder->crtc and tegra_dsi_get_state. Should=20
-these be changed to conn_state->crtc and to_dsi_state(conn_state)?
-
-Similarly for HDMI / SOR.
-
-> @@ -1059,8 +1069,8 @@ static const struct drm_encoder_funcs tegra_dsi_enc=
-oder_funcs =3D {
->  };
-> =20
->  static const struct drm_encoder_helper_funcs tegra_dsi_encoder_helper_fu=
-ncs =3D {
-> -	.disable =3D tegra_dsi_encoder_disable,
-> -	.enable =3D tegra_dsi_encoder_enable,
-> +	.atomic_disable =3D tegra_dsi_encoder_disable,
-> +	.atomic_enable =3D tegra_dsi_encoder_enable,
->  	.atomic_check =3D tegra_dsi_encoder_atomic_check,
->  };
-> =20
-> diff --git a/drivers/gpu/drm/tegra/hdmi.c b/drivers/gpu/drm/tegra/hdmi.c
-> index e8c4347f09e69..a78279810dd82 100644
-> --- a/drivers/gpu/drm/tegra/hdmi.c
-> +++ b/drivers/gpu/drm/tegra/hdmi.c
-> @@ -1166,7 +1166,8 @@ tegra_hdmi_connector_helper_funcs =3D {
->  	.mode_valid =3D tegra_hdmi_connector_mode_valid,
->  };
-> =20
-> -static void tegra_hdmi_encoder_disable(struct drm_encoder *encoder)
-> +static void tegra_hdmi_encoder_disable(struct drm_encoder *encoder,
-> +				       struct drm_atomic_commit *comm_state)
->  {
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
-> @@ -1209,18 +1210,27 @@ static void tegra_hdmi_encoder_disable(struct drm=
-_encoder *encoder)
->  		dev_err(hdmi->dev, "failed to suspend: %d\n", err);
->  }
-> =20
-> -static void tegra_hdmi_encoder_enable(struct drm_encoder *encoder)
-> +static void tegra_hdmi_encoder_enable(struct drm_encoder *encoder,
-> +				      struct drm_atomic_commit *comm_state)
->  {
-> -	struct drm_display_mode *mode =3D &encoder->crtc->state->adjusted_mode;
->  	unsigned int h_sync_width, h_front_porch, h_back_porch, i, rekey;
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
->  	struct tegra_hdmi *hdmi =3D to_hdmi(output);
-> +	struct drm_connector_state *conn_state;
-> +	struct drm_crtc_state *crtc_state;
->  	unsigned int pulse_start, div82;
-> +	struct drm_connector *connector;
-> +	struct drm_display_mode *mode;
->  	int retries =3D 1000;
->  	u32 value;
->  	int err;
-> =20
-> +	connector =3D drm_atomic_get_new_connector_for_encoder(comm_state, enco=
-der);
-> +	conn_state =3D drm_atomic_get_new_connector_state(comm_state, connector=
-);
-> +	crtc_state =3D drm_atomic_get_new_crtc_state(comm_state, conn_state->cr=
-tc);
-> +	mode =3D &crtc_state->adjusted_mode;
+> +		aclint_mswi: interrupt-controller@f1810000 {
+> +			compatible = "spacemit,k3-aclint-mswi";
+> +			reg = <0x0 0xf1810000 0x0 0x4000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu1_intc 3>,
+> +					      <&cpu2_intc 3>, <&cpu3_intc 3>,
+> +					      <&cpu4_intc 3>, <&cpu5_intc 3>,
+> +					      <&cpu6_intc 3>, <&cpu7_intc 3>;
+> +		};
 > +
->  	err =3D host1x_client_resume(&hdmi->client);
->  	if (err < 0) {
->  		dev_err(hdmi->dev, "failed to resume: %d\n", err);
-> @@ -1460,8 +1470,8 @@ tegra_hdmi_encoder_atomic_check(struct drm_encoder =
-*encoder,
->  }
-> =20
->  static const struct drm_encoder_helper_funcs tegra_hdmi_encoder_helper_f=
-uncs =3D {
-> -	.disable =3D tegra_hdmi_encoder_disable,
-> -	.enable =3D tegra_hdmi_encoder_enable,
-> +	.atomic_disable =3D tegra_hdmi_encoder_disable,
-> +	.atomic_enable =3D tegra_hdmi_encoder_enable,
->  	.atomic_check =3D tegra_hdmi_encoder_atomic_check,
->  };
-> =20
-> diff --git a/drivers/gpu/drm/tegra/rgb.c b/drivers/gpu/drm/tegra/rgb.c
-> index 227a178f761bd..d48d498068ac8 100644
-> --- a/drivers/gpu/drm/tegra/rgb.c
-> +++ b/drivers/gpu/drm/tegra/rgb.c
-> @@ -90,7 +90,8 @@ static void tegra_dc_write_regs(struct tegra_dc *dc,
->  		tegra_dc_writel(dc, table[i].value, table[i].offset);
->  }
-> =20
-> -static void tegra_rgb_encoder_disable(struct drm_encoder *encoder)
-> +static void tegra_rgb_encoder_disable(struct drm_encoder *encoder,
-> +				      struct drm_atomic_commit *state)
->  {
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_rgb *rgb =3D to_rgb(output);
-> @@ -99,12 +100,22 @@ static void tegra_rgb_encoder_disable(struct drm_enc=
-oder *encoder)
->  	tegra_dc_commit(rgb->dc);
->  }
-> =20
-> -static void tegra_rgb_encoder_enable(struct drm_encoder *encoder)
-> +static void tegra_rgb_encoder_enable(struct drm_encoder *encoder,
-> +				     struct drm_atomic_commit *state)
->  {
-> -	struct drm_display_mode *mode =3D &encoder->crtc->state->adjusted_mode;
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_rgb *rgb =3D to_rgb(output);
-> -	u32 value;
-> +	struct drm_connector_state *conn_state;
-> +	struct drm_crtc_state *crtc_state;
-> +	struct drm_connector *connector;
-> +	struct drm_display_mode *mode;
-> +	u32 bus_flags, value;
-> +
-> +	/* Get mode flags */
-> +	connector =3D drm_atomic_get_new_connector_for_encoder(state, encoder);
-> +	conn_state =3D drm_atomic_get_new_connector_state(state, connector);
-> +	crtc_state =3D drm_atomic_get_new_crtc_state(state, conn_state->crtc);
-> +	mode =3D &crtc_state->adjusted_mode;
-> =20
->  	tegra_dc_write_regs(rgb->dc, rgb_enable, ARRAY_SIZE(rgb_enable));
-> =20
-> @@ -201,8 +212,8 @@ static const struct drm_encoder_funcs tegra_rgb_encod=
-er_funcs =3D {
->  };
-> =20
->  static const struct drm_encoder_helper_funcs tegra_rgb_encoder_helper_fu=
-ncs =3D {
-> -	.disable =3D tegra_rgb_encoder_disable,
-> -	.enable =3D tegra_rgb_encoder_enable,
-> +	.atomic_disable =3D tegra_rgb_encoder_disable,
-> +	.atomic_enable =3D tegra_rgb_encoder_enable,
->  	.atomic_check =3D tegra_rgb_encoder_atomic_check,
->  };
-> =20
-> diff --git a/drivers/gpu/drm/tegra/sor.c b/drivers/gpu/drm/tegra/sor.c
-> index ebac9068b670f..45a9ea94c4355 100644
-> --- a/drivers/gpu/drm/tegra/sor.c
-> +++ b/drivers/gpu/drm/tegra/sor.c
-> @@ -2203,7 +2203,8 @@ static void tegra_sor_hdmi_scdc_start(struct tegra_=
-sor *sor)
->  	}
->  }
-> =20
-> -static void tegra_sor_hdmi_disable(struct drm_encoder *encoder)
-> +static void tegra_sor_hdmi_disable(struct drm_encoder *encoder,
-> +				   struct drm_atomic_commit *comm_state)
->  {
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
-> @@ -2244,13 +2245,17 @@ static void tegra_sor_hdmi_disable(struct drm_enc=
-oder *encoder)
->  	host1x_client_suspend(&sor->client);
->  }
-> =20
-> -static void tegra_sor_hdmi_enable(struct drm_encoder *encoder)
-> +static void tegra_sor_hdmi_enable(struct drm_encoder *encoder,
-> +				  struct drm_atomic_commit *comm_state)
->  {
->  	struct tegra_output *output =3D encoder_to_output(encoder);
->  	unsigned int h_ref_to_sync =3D 1, pulse_start, max_ac;
->  	struct tegra_dc *dc =3D to_tegra_dc(encoder->crtc);
->  	struct tegra_sor_hdmi_settings *settings;
-> +	struct drm_connector_state *conn_state;
->  	struct tegra_sor *sor =3D to_sor(output);
-> +	struct drm_crtc_state *crtc_state;
-> +	struct drm_connector *connector;
->  	struct tegra_sor_state *state;
->  	struct drm_display_mode *mode;
->  	unsigned long rate, pclk;
-> @@ -2259,7 +2264,10 @@ static void tegra_sor_hdmi_enable(struct drm_encod=
-er *encoder)
->  	int err;
-> =20
->  	state =3D to_sor_state(output->connector.state);
-> -	mode =3D &encoder->crtc->state->adjusted_mode;
-> +	connector =3D drm_atomic_get_new_connector_for_encoder(comm_state, enco=
-der);
-> +	conn_state =3D drm_atomic_get_new_connector_state(comm_state, connector=
-);
-> +	crtc_state =3D drm_atomic_get_new_crtc_state(comm_state, conn_state->cr=
-tc);
-> +	mode =3D &crtc_state->adjusted_mode;
->  	pclk =3D mode->clock * 1000;
-> =20
->  	err =3D host1x_client_resume(&sor->client);
-> @@ -2657,8 +2665,8 @@ static void tegra_sor_hdmi_enable(struct drm_encode=
-r *encoder)
->  }
-> =20
->  static const struct drm_encoder_helper_funcs tegra_sor_hdmi_helpers =3D =
-{
-> -	.disable =3D tegra_sor_hdmi_disable,
-> -	.enable =3D tegra_sor_hdmi_enable,
-> +	.atomic_disable =3D tegra_sor_hdmi_disable,
-> +	.atomic_enable =3D tegra_sor_hdmi_enable,
->  	.atomic_check =3D tegra_sor_encoder_atomic_check,
->  };
-> =20
-> --=20
-> 2.53.0
->=20
->=20
+> +		aclint_mtimer: timer@f1814000 {
+> +			compatible = "spacemit,k3-aclint-mtimer";
+
+I think you'll need to also include the "riscv,aclint-mtimer" compatible
+here so that this DT can be used with upstream OpenSBI. OpenSBI doesn't
+include the spacemit specific compatible. OpenSBI boot prints this
+currently.
+
+Platform Timer Device       : --- @ 0Hz
+
+> +			reg = <0x0 0xf1814000 0x0 0x8000>;
+> +			reg-names = "mtimecmp";
+> +			interrupts-extended = <&cpu0_intc 7>, <&cpu1_intc 7>,
+> +					      <&cpu2_intc 7>, <&cpu3_intc 7>,
+> +					      <&cpu4_intc 7>, <&cpu5_intc 7>,
+> +					      <&cpu6_intc 7>, <&cpu7_intc 7>;
+> +		};
 
 
-
-
+Regards
+Anirudh Srinivasan
