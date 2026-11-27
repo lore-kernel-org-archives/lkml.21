@@ -1,78 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795772889;
-	b=BHpswR6vlYHvez8hTteZou8/O43RA14bUbyQVL5R4pamPlYPQb5bhr5wT40cDo5a6NmN
-	 ir8lpKzMoVITzDha6doUWcqDubHIgE97dxoxuATCvrM0XUlDAtE2dQ3e09CGQITQfA/nO
-	 Sz4YOrP4bneEWhREbwprgmCQ8PhWhA3KXL/xKRjYAR2xBmaxjRotmRsL3yNfKrFbr8fRo
-	 R2dHyGai3EGNnhtJM7rUDbOes1xT04JRdVa0KjoPARH/ug5XoyDVsXNx6IsnenkyxsVbW
-	 Z3lJIArQqAir/SDPtJZDT/mOcoOySa3u/PukJ6k+YhIxDOIF6PUXecn5682zxrmtpsg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772889;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=PZM7oYzEYwdzU2au18qxONpg2XyJj1yftpo2bjWYQAs=;
-	b=kRVZkPyE4koGc0+VzebKGvsXjJxUC8iw/nNrGyJJdwIPwVJo+qRFwqW7/SD+2anEL3lJ
-	 j0lbQatEcHsMoUb4B9O84BMzr2iPL4PESEFdP5H8Zf5x4X0zBF46jD6FXAL95QZDQyQxw
-	 AIzilspfMnUvgzm9mA1j9lB71tYqOpY/PzazxkKxdz7OWzJ5JPL+L+eqvcw4ayinBuSFH
-	 8345osOThkSh56Gur+ZrmtKLKkLcl5WffKqSrJD7/UZXDvjfwC8xyDMq/KtQ5jor9IH2n
-	 9DZD2Vq1rGKRbg/X49EcZCQOYQ46dDNPaR8tQ8CuRYzFnKYOSAvczqU2T9LgN8oSMTQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hXx0RluR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795772891;
+	b=3Nb/se1yYk0b+BXSorbYJ13ZIIQt85ttjj9efHgccKeshHoCL129E0onH2q3R/DB3Clr
+	 FRi1rjNwXJNidZCtZkoU7Ajv/AQMMUHZpj9s3GjBJWUD9MzARYgor+xSY4JZSffIR0A4p
+	 zkKqKpRoWdLMN32BG+YazfQ5z9Wog/zrC5Qy1joLY2jDkIfZOYp3MuRamWvzYANj9wem9
+	 AwfEHLmXuslvKQcZdh6qBYxwrzcjjm5t1VugrfhhuffjhMwYCbqldwiTSA9Y5MQwArgG/
+	 rUdVLmm7rpjVljeJnkt/m89zPiek2leXcnTnbp3xwL3FsWj8iEFPFaQC0RnVXpVNNLA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772891;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=0g7WYB6uoahgDBa/G7HAgtzGq2iMqoL02xTsrofOnbE=;
+	b=EyZu/IV/bq5+jcPEhzC0lgQMcllw3FZLQ1niTrvZv5C1kKd3NfYijM7fr3y3p9FIOCXs
+	 UONwW8+pXY+KTIq2P85ANM5ARb0soJ0rjbcS1JHA8EIJWfAym8wzYEo6ZtmCHrWnWn1M4
+	 Oz2UPaw0Ig5WvC25S6YLiD0GTyJptombdBj+m+dZ0JKZNlSNUIQ/x1Mmpz79PmdoQ2KYp
+	 UUVM/DzTOP5Jkp+NTNwV2BTEwaItS4Lg72CtP/Jw46sFt7ZJhnMN7ssMvhOJX4HbjkDIp
+	 WihsjBOsYrIkPbYH5MgCnucqFZitEUMbU4NYtGUtwd3H5nsmqy14GzsECjzDbY95kgQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K2ST3CQa;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59960606A33A;
-	Fri, 27 Nov 2026 09:48:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18EB1606A336;
+	Fri, 27 Nov 2026 09:48:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hXx0RluR
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795772888;
-	b=mbf638isd9WZRZC9lHuTpiA1KWebOZiqNgEPtLg3k9HAL8Vw/9ki1NNX6+ye6tinwvcY
-	 hhX1LujMXgdVo2cDES26qZt5HcG+K7olEXfjpfjmZvWkBdNXFF/afls1JJsQ9AFGA+B0M
-	 /6IKomoqgqed7Au2dOvERi9yCQaRXFasuu+ZoTZx56J7ve1CjVZZ3BorHXRPOIpBY68mh
-	 F5JgJG1MPOypMNfa87bueJv5pF9vD6qUPZ8EFxwLGdMgwpGrUSmMmujuXAVbW9dYFSN32
-	 sIIAodq16+hCGSW8X/mEn/r4syIz25I68CrzBZQ9Q4/1jZd0woQZJxWaPXwJtTVURqQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795772888;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=PZM7oYzEYwdzU2au18qxONpg2XyJj1yftpo2bjWYQAs=;
-	b=0r7aaP5Fg7sMwx+TIli1y3tIS/aIbV22S9J8zeQsIrve3+vZ+nw+I+wSsX/jYPksyx72
-	 FtAPc8/SjE24u67q1cKZsKgVLP08/rmZ76zYaNQ64M2XSkoUUkwosGXk25EZlmYjGXz1P
-	 4Y9XMf7yaC+/FQQflxs56IW2vGeN8kAu9dTv8160fHpqCetTCARa40EThRDrD3FQCxy/B
-	 2E+Rg3kppxahdQbmJ7FZuae7UR8jNloyV7eftoGfOOiRrNfmCTZsOfsl80HByIYSY+oYu
-	 sp9bAdW7BYKMVENy88EBELXg1prGazlkYTR7z6teV1MLzHZ8u2lHK5sttAQOGr27AEA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id EBB651F00899;
-	Fri, 27 Nov 2026 09:47:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K2ST3CQa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 296401F00898;
+	Fri, 27 Nov 2026 09:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795772888;
-	bh=PZM7oYzEYwdzU2au18qxONpg2XyJj1yftpo2bjWYQAs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=hXx0RluRoIOsH92W/+efRqX44PGYFQIeKTmOS9JgjAhZIYdIVLsRxyO17M850GjZf
-	 O5SbGYM6vokP/xFlCuWIEbgrWtcHllloGyHOapmYIb0nyJLPnt8+ugL4YaZh1wBWhW
-	 nFNafjOFb5pWaJihbgQTyNW5ryOVJ6/2nDkQy0VSVfd6AdzuNJCBqvp8UkA28c8I3C
-	 uhC/yYwSnDtW4bF73xFg2rbPlhLpbNyrG32IYeYV0N8GYz9oq1JHR+PScPizYdjbYb
-	 dUOVN48KUnFimlDJeZaVigb5Wkmq9a0n55bOf8IKAQvAImnLUaGEydCFAkBf1FiTYU
-	 90AbPIf3qDQkA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 76CAB4B6C9;
-	Fri, 27 Nov 2026 09:47:56 +0000 (UTC)
-From: Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org>
-Date: Fri, 27 Nov 2026 09:47:45 +0000
-Subject: [PATCH v2 2/5] iio: buffer: add iio_attr_to_buffer() helper
+	s=k20260515; t=1795772890;
+	bh=0g7WYB6uoahgDBa/G7HAgtzGq2iMqoL02xTsrofOnbE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=K2ST3CQax1RGy7nJk8oNQk+zQ/mAb4WUwQlvbave292QHfi4nG0yFLFw2Lv00jzbM
+	 xMoKqRpkmYh63bMHdfV+DgiRPTc4TX9rkdrXwpDrw7OqSFJcUeAmL+OneNFwfM8kVe
+	 Sh8QBNdULnf4dp1mmdCrsOFx00sZfFskDO6a7piRVuYXBc3kcKqaUksB9q9fTgoZyB
+	 5B3/yeN1gU1r1iLGOpicK4Mv1hkwvfwOmdJQ9BGCHU9XQwHS/0MdToPSLyQM7t9pY6
+	 aXG7H5tTp5Lb6YKwSwcHsQftKP70kNY9CCzMpZF3rfeVs0aRCVenuRTgwfeYfn8ial
+	 XLmOleYyz++Ew==
+Subject: Re: [PATCH net v2 2/2] wireguard: selftests: remove a peer under load
+From: netdev-bot+sashiko@kernel.org
+To: apasichnik9@gmail.com
+Cc: Jason@zx2c4.com, wireguard@lists.zx2c4.com, netdev@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Fri, 27 Nov 2026 09:48:09 +0000
+Message-ID: <179577288974.3135.10854019193613008297@kernel.org>
+In-Reply-To: <20261126094722.73025-3-apasichnik9@gmail.com>
+References: <20261126094722.73025-3-apasichnik9@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,110 +63,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-iio-core-attr-review-v2-2-e0aed1e8a81c@analog.com>
-References: <20261127-iio-core-attr-review-v2-0-e0aed1e8a81c@analog.com>
-In-Reply-To: <20261127-iio-core-attr-review-v2-0-e0aed1e8a81c@analog.com>
-To: linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
-Cc: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795772875; l=3151;
- i=rodrigo.alencar@analog.com; s=default; h=from:subject:message-id;
- bh=z0/ZhH1JujFCeJIP+q1ZFyWSGE6ClMob85zW1bLHCIE=;
- b=X3Kdpmm5PWlbvnczml4Fu50JOjG2krSo/JGxluHrFfmaGvtyoRkkFoUGz9M3aFuEUMY4qxslo
- TxUhnWPnbQcAs/BibMdXRwL9Tu5kXysKXV37CsXZMkbc47WcdBRaD2f
-X-Developer-Key: i=rodrigo.alencar@analog.com; a=ed25519;
- pk=ULeHbgU/OYh/PG/4anHDfLgldFItQHAhOktYRVLMFRo=
-X-Endpoint-Received: by B4 Relay for rodrigo.alencar@analog.com/default
- with auth_id=561
-X-Original-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
-Reply-To: rodrigo.alencar@analog.com
-Content-Transfer-Encoding: 7bit
 
-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Buffer implementations providing their own attributes through
-struct iio_buffer::attrs need to find the buffer an attribute belongs
-to. The DMAengine buffer does that with to_iio_dev_attr(attr)->buffer,
-which depends on the IIO buffer core wrapping those attributes into its
-own copies and on the layout of struct iio_dev_attr.
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-Add iio_attr_to_buffer(), so buffer implementations no longer depend on
-how the IIO core keeps track of the buffer, and use it in the DMAengine
-buffer.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Signed-off-by: Rodrigo Alencar <rodrigo.alencar@analog.com>
----
- drivers/iio/buffer/industrialio-buffer-dmaengine.c |  2 +-
- drivers/iio/industrialio-buffer.c                  | 15 +++++++++++++++
- include/linux/iio/buffer_impl.h                    |  3 +++
- 3 files changed, 19 insertions(+), 1 deletion(-)
+- [Medium] Raising CONFIG_LOG_BUF_SHIFT from 18 to 20 leaves almost no
+  headroom for the log volume the new loop in…
+- [Low] The commit message gives the test's ability to detect the
+  regression only for 1 vCPU ('Without the previous patch it fails in…
+- [Low] The new loop in netns.sh (lines 213-222) relies on fixed waits at
+  two points and checks neither result.
 
-diff --git a/drivers/iio/buffer/industrialio-buffer-dmaengine.c b/drivers/iio/buffer/industrialio-buffer-dmaengine.c
-index 7ecb9d875b8e..2e04cd5e3411 100644
---- a/drivers/iio/buffer/industrialio-buffer-dmaengine.c
-+++ b/drivers/iio/buffer/industrialio-buffer-dmaengine.c
-@@ -226,7 +226,7 @@ static const struct iio_dma_buffer_ops iio_dmaengine_default_ops = {
- static ssize_t iio_dmaengine_buffer_get_length_align(struct device *dev,
- 						     struct device_attribute *attr, char *buf)
- {
--	struct iio_buffer *buffer = to_iio_dev_attr(attr)->buffer;
-+	struct iio_buffer *buffer = iio_attr_to_buffer(attr);
- 	struct dmaengine_buffer *dmaengine_buffer =
- 		iio_buffer_to_dmaengine_buffer(buffer);
- 
-diff --git a/drivers/iio/industrialio-buffer.c b/drivers/iio/industrialio-buffer.c
-index 4294101810fd..2d7759325eb3 100644
---- a/drivers/iio/industrialio-buffer.c
-+++ b/drivers/iio/industrialio-buffer.c
-@@ -69,6 +69,21 @@ static const char * const iio_endian_prefix[] = {
- 	[IIO_LE] = "le",
- };
- 
-+/**
-+ * iio_attr_to_buffer() - Get the IIO buffer a buffer attribute belongs to
-+ * @attr: Device attribute of the buffer, as passed to its show/store callbacks
-+ *
-+ * Only valid for attributes registered through &struct iio_buffer.attrs or
-+ * created by the IIO buffer core.
-+ *
-+ * Returns: Pointer to the IIO buffer.
-+ */
-+struct iio_buffer *iio_attr_to_buffer(struct device_attribute *attr)
-+{
-+	return to_iio_dev_attr(attr)->buffer;
-+}
-+EXPORT_SYMBOL_GPL(iio_attr_to_buffer);
-+
- static bool iio_buffer_is_active(struct iio_buffer *buf)
- {
- 	return !list_empty(&buf->buffer_list);
-diff --git a/include/linux/iio/buffer_impl.h b/include/linux/iio/buffer_impl.h
-index 9442c165561a..c259dfdf46a2 100644
---- a/include/linux/iio/buffer_impl.h
-+++ b/include/linux/iio/buffer_impl.h
-@@ -9,6 +9,7 @@
- #include <uapi/linux/iio/buffer.h>
- #include <linux/iio/buffer.h>
- 
-+struct device_attribute;
- struct dma_buf_attachment;
- struct dma_fence;
- struct iio_dev;
-@@ -197,6 +198,8 @@ void iio_buffer_put(struct iio_buffer *buffer);
- 
- void iio_buffer_signal_dmabuf_done(struct dma_fence *fence, int ret);
- 
-+struct iio_buffer *iio_attr_to_buffer(struct device_attribute *attr);
-+
- #else /* CONFIG_IIO_BUFFER */
- 
- static inline void iio_buffer_get(struct iio_buffer *buffer) {}
+--
+
+wireguard: selftests: remove a peer under load
+
+This adds a loop to netns.sh that removes and re-adds a peer ten times
+while a UDP iperf3 flood keeps its receive queue busy. The final
+created/destroyed object check should then catch peers or keypairs that
+queued packets keep alive. It also raises CONFIG_LOG_BUF_SHIFT from 18 to
+20 in the qemu kernel.config so the log can hold the extra output.
+
+> The loop adds about 13 seconds to a run. Without the previous patch it
+> fails in every run with 1 vCPU.
+
+[Severity: Low]
+The detection rate is given only for 1 vCPU, but the qemu harness uses
+4 vCPUs by default:
+
+tools/testing/selftests/wireguard/qemu/Makefile:
+NR_CPUS ?= 4
+...
+		-smp $(NR_CPUS) \
+
+With 4 vCPUs, NAPI and the decrypt workers get more CPU time to drain
+rx_queue before napi_disable(). The loop may therefore catch the
+regression less often in a default run.
+
+Could the commit message give the detection rate with the default
+NR_CPUS? Or it could say that NR_CPUS=1 is needed to reproduce the
+regression reliably.
+
+> diff --git a/tools/testing/selftests/wireguard/netns.sh b/tools/testing/selftests/wireguard/netns.sh
+> index a8f550aecb35d..8303802c02f27 100755
+> --- a/tools/testing/selftests/wireguard/netns.sh
+> +++ b/tools/testing/selftests/wireguard/netns.sh
+> @@ -207,6 +207,20 @@ n0 iptables -F INPUT
+
+[ ... ]
+
+> +for ((i = 0; i < 10; ++i)); do
+> +	n1 iperf3 -s -1 -B 192.168.241.1 &
+> +	pids=( $! ); waitiperf $netns1 $!
+> +	n2 iperf3 -Z -t 2 -b 0 -u -l 64 -P 4 -c 192.168.241.1 >/dev/null 2>&1 &
+> +	pids+=( $! ); sleep 1
+> +	n1 wg set wg0 peer "$pub2" remove
+> +	kill "${pids[@]}" 2>/dev/null || true; wait "${pids[@]}" || true
+> +	n1 wg set wg0 peer "$pub2" preshared-key <(echo "$psk") allowed-ips 192.168.241.2/32,fd00::2/128 endpoint 127.0.0.1:2
+> +	n1 ping -c 1 -W 1 192.168.241.2
+> +done
+
+[Severity: Low]
+Does anything confirm that the peer is actually under load when it is
+removed?
+
+The fixed sleep 1 is the only ordering between starting the flood and
+the removal. The client's output goes to /dev/null, and wait ... || true
+throws away its exit status.
+
+The iperf3 UDP streams might not start within that second, which is
+possible on slow TCG targets. The iteration would then remove an idle
+peer and the final object check would still pass. The leak this loop
+targets would go unnoticed.
+
+Checking wg show wg0 transfer, or rx_bytes on n1, before the removal
+would catch that.
+
+Separately, can the single ping abort the whole run? It needs a full new
+handshake plus a round trip within 1 second. It also runs under set -e
+with no retry.
+
+If a handshake packet is lost or late, the next attempt only comes after
+REKEY_TIMEOUT (5 seconds). The ping then fails and netns.sh exits.
+
+Right after the removal, up to 1024 queued packets may still be draining.
+About 1000 KERN_DEBUG lines are also going to the console, because
+init.c writes 9 to /proc/sys/kernel/printk.
+
+Other places in netns.sh already use a single 1-second ping after a
+handshake without trouble. This is a timing concern rather than an
+observed failure.
+
+> diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
+> index 368fd9d600c83..c69a408a5a94c 100644
+> --- a/tools/testing/selftests/wireguard/qemu/kernel.config
+> +++ b/tools/testing/selftests/wireguard/qemu/kernel.config
+> @@ -67,7 +67,7 @@ CONFIG_SYSCTL=y
+
+[ ... ]
+
+> -CONFIG_LOG_BUF_SHIFT=18
+> +CONFIG_LOG_BUF_SHIFT=20
+
+[Severity: Medium]
+Does 1 MiB leave enough headroom for what the new loop can log?
+
+netns.sh sets message_cost to 0, and WIREGUARD_DEBUG=y defines DEBUG.
+In wg_peer_remove(), peer_make_dead() takes the peer out of allowedips
+first. NAPI then keeps draining peer->rx_queue until napi_disable().
+
+Each packet handled in that window fails the source check and logs a
+line:
+
+drivers/net/wireguard/receive.c:wg_packet_consume_data_done() {
+    ...
+	net_dbg_skb_ratelimited("%s: Packet has unallowed src IP (%pISc) from peer %llu (%pISpfsc)\n",
+    ...
+}
+
+The only limit on the per-peer queue is in wg_prev_queue_enqueue():
+
+	if (!atomic_add_unless(&queue->count, 1, MAX_QUEUED_PACKETS))
+
+MAX_QUEUED_PACKETS is 1024, so one removal can log about 1024 of these
+lines. Each record takes about 96 bytes in the printk data ring: about
+86 bytes of text plus the 8-byte block id, rounded up.
+
+Ten removals can then use 10 * 1024 * 96 = 983,040 bytes. That is about
+94% of the 1,048,576-byte ring. Even with the commit message's estimate
+of about 1000 lines per removal, it is still about 91%.
+
+That leaves roughly 65-88 KiB for everything else netns.sh logs, from
+the run's start to its end. This covers the "created" lines from
+configure_peers at the start, the handshake and keepalive debug lines,
+and about 80 netlink-test peers. n2's original "Peer N created" record
+has to survive the whole run.
+
+If the ring wraps, the object check at the end of netns.sh would see a
+"destroyed" record without its "created" record. It would then report
+"merely destroyed", which is the failure this change is meant to
+prevent.
+
+The rest of the log has not been measured, so this rests on the
+arithmetic above.
+
+Would setting a non-zero message_cost while the loop runs avoid relying
+on such a thin margin? A larger shift such as 21 would also work.
 
 -- 
-2.43.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126094722.73025-1-apasichnik9%40gmail.com
