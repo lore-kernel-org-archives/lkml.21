@@ -1,77 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.128
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762296;
-	b=N0Wd1IPrYK40TGvxvuePiwd7WwYfaqJg8ejbBPC1NH6RDX/wSWbqf3k50WDhguMn0+/L
-	 D/H25Xe3v1Aeqscudrl7I8w/MCZua+5ALfA9iB1Wh0AJZwyxDumDb0lTRxfPfyee8UcID
-	 TMYO94J0l/8+9VvNcQRer279xULiXZMuD2p8k3i2ujQwbl798xwV5E0WNVhoNcR3ZLhfg
-	 CcCI1lQKnes5BcF1lDQrgZGvlLbqnQuWntT1V9xq/YLT+vQjX9ufqFDGit7bhBzEfKRqI
-	 ZR29tp/enc6OIn+16aw6iNdIVKp6gmXbvYfVfxUrVXpMEBr8vJQnxaJXgYwOMDWTvDA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762296;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=SynGTo3BWRH0dGUeUJpv8ilMoszn4n3lErGm8wxDGSI=;
-	b=uPXpCJDO/2PTsriLw++1TiGWDCiU0UNgczlpvDW+dqn+010vqfcdoMIHZHQogKaC0ylF
-	 3j0AxZWHUzAEyq7Gk5H1PvFpb6882imYonkDZew2fXKIDZ67yXmUdO7Avj+MrzZrwmODW
-	 OdWSzFYnIVGynC3a10G7YiOhIPUUeMoqIrQkK7zXLuDIs2NgY1RpYeJxNhMXtxZ6Tc9N2
-	 Ay+dyi+u+Y+S/wp+EQF2fIr99fg/AQYbkVc8U9MiFN2QoNvwUZJw7VgUD1hjaNz4BfPtk
-	 FpIOra18X6eJvaDylQTWo74yn2nGHp099P1S4L6OEyCA8OXv6R5LuC7hdIAGJW+c/Jw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=GGMICwFj;
-	arc=none smtp.remote-ip=54.254.200.128
-Received: from smtpbgsg2.qq.com (smtpbgsg2.qq.com [54.254.200.128])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795762373;
+	b=Keg8g7utf0Ho7Ec9ljCk9Xch48XzRmp8WoZnR5D+5oF9rVpcZBBWnmcaeEJG51b9IOhA
+	 stkZO+lp124g9J3XkXALDGpoy85iHMNcoCLrWCU72V6svIa5+pw/1F150HVbzoD/68qUS
+	 G/EJAKNIDX86psXDkxymIzWNqAiXbsQn9YIvlu7FCdZZTmOL8oau7na55qVOqt5iNRz4g
+	 Lq6GtGgEvP9RAF9HVdnzC4zyYEW3Yzp4UGpERQluRQND2Wi0vCRyZ6c1VGqgIG+zAYffd
+	 S5GFAPeb3/uvxPbswIdQoJfO16QTvuCBdr2xJSY9uS6s3JDx3o1cbq5/+GCOQk+Ee4Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762373;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=MNeHYtelmuSre1UuhlkxnQnbrEWwCRImfv7AOAKbTvw=;
+	b=3CL6KC786ngaHAPe8isaDuDw3wAKQlJ3bJp1IErvpPtuAqPINYMbZvcsmCy/XIp/KUlc
+	 0bts2AWonVv2jGb3Kxb4xJeStoCo4rBuOL+P/vPcdS3xoNh9vP24hZ0OQ2pjiJOCdqnzR
+	 v4PVPDqGaypv8/uh718xQRk9012tPOC0VTdSgo6ti3hR1fV4EYFt9lxcEl8EnMCP7fzpE
+	 tpVqzLZA66LkYuaSX6paFfrM/HR81QkKCYc7q6xqDcmDD4Mqcl0KHr2N2KcZ2dDoKsXNv
+	 qL8L2XvJ0V2PeLN2f+A/6EfmWPy9WW/z+PxnDUQoitlPm6aRxuMmkJPfZJGhriZ39ww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fQ9VvL/X";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E64D3606A31E;
-	Fri, 27 Nov 2026 06:51:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E64D3606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34B6A606A31C;
+	Fri, 27 Nov 2026 06:52:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=GGMICwFj
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795762246;
-	bh=SynGTo3BWRH0dGUeUJpv8ilMoszn4n3lErGm8wxDGSI=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=GGMICwFjNLH11CIfyk1cRl1fg6uHmJEeFgcgV/sVE1struo0Gen9J/RfDNmIVenXC
-	 IOCfaUwMb0xI9nyvkLvU7NXiIhG9/vO/DxFD0oL7hkO3TPhI7+a5NP5RnlkhUYrC0a
-	 RYgE+/jH4hxIADnBIqR2dYE+0uHBEt+Ew0QPhofA=
-X-QQ-mid: zesmtpgz7t1795762181t57916097
-X-QQ-Originating-IP: W2xlnhcEqUEpbG6a/tVvO7RtSioXCmuweiXMwjttYck=
-Received: from localhost.localdomain ( [1.85.7.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 27 Nov 2026 14:49:34 +0800 (CST)
-X-QQ-SSF: 0002000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 6821860110329211317
-EX-QQ-RecipientCnt: 15
-From: jiazhenyuan <jiazhenyuan@uniontech.com>
-To: tytso@mit.edu,
-	adilger.kernel@dilger.ca,
-	libaokun@linux.alibaba.com,
-	jack@suse.cz,
-	ojaswin@linux.ibm.com,
-	ritesh.list@gmail.com,
-	yi.zhang@huawei.com,
-	linux-ext4@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	gouhao@uniontech.com,
-	niecheng1@uniontech.com,
-	guanwentao@uniontech.com,
-	caina@uniontech.com,
-	zhaoshuang@uniontech.com,
-	wangqing@uniontech.com
-Subject: [PATCH 2/2] ext4: add KUnit test for ext4_ext_precache() buffer head leak
-Date: Fri, 27 Nov 2026 14:49:26 +0800
-Message-Id: <20261127064926.135945-2-jiazhenyuan@uniontech.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20261127064926.135945-1-jiazhenyuan@uniontech.com>
-References: <20261127064926.135945-1-jiazhenyuan@uniontech.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fQ9VvL/X
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795762372;
+	b=CVidcvXGu7eyZB54dOXUbPER1+9VFv45Rqc9JluQU7MQ25ocHkcfHqaFSk9YrsWlGgNC
+	 XgQgQy/B8HqTWpJi4UIA/C/l071xeitn5vR8fMoz3Aa9egz7LvQdPnYT030MOQ9UOYdpj
+	 IwVCfv8D7WLKQ2kWYBqnMT3Fqc29pja7E6F6Gw54IcZA2wzqZ7DB6OrMe2Vb7zVlaEA4M
+	 kYY8Qbwgdcl9YL/DD3LmPpRLVbDYRPyOM9xlQfCmvL17MD8oJLub99xcrVz/ZUA/oFyk3
+	 7rkm25njC73ImHqPCSqmg1Dt/2PLPXmIQOXfIXIDET+bHYLtebuiDj8QTNP2VYCw6iw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795762372;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=MNeHYtelmuSre1UuhlkxnQnbrEWwCRImfv7AOAKbTvw=;
+	b=0nsFFtjkU6XbsslpvAeOap7MkSDv8VRf8L7dDk4KMwmcC4LTe6Cd0k494rXy3Qnm4LRJ
+	 LsOMxRUmy6eeXUbyVQZ+Zlq257YdO+Xm4ImGGWLmynb3QuK8BwloxzWC8T4j9UN0G27CI
+	 UH96ERqiTFkfUupRW5FHtGOn7oxfvOEul2xV5UZt7weljye4sj2UDM4YOZpFE8wn16jFk
+	 6IqHHb9YuePAzF4cI95bIImXxgoX/JNOC8c/9pIFG79Ne72lva6GPkoIhDfAmr+XmX6Nt
+	 uZsnmx1vzrMGXsHC5a8R4tbpLV7BH2SQdlKY7eP3S8AlEZjbzwdSJUWN9EiQSTgAVWA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 1BF7A1F00897;
+	Fri, 27 Nov 2026 06:52:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795762372;
+	bh=MNeHYtelmuSre1UuhlkxnQnbrEWwCRImfv7AOAKbTvw=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=fQ9VvL/XaFNu0FU7Y0hMVDAqgLsUIVeGBoGWgbtvNFLl0L5aby7INe4HuC5ibOWYd
+	 czvUzUo5bVPyPgjJMpkfQHlSiqFoThCBqIQcFFxZ+qVXXsv0ObIcagACcBkUscnF8d
+	 qv/jJ7L2yxjTLvleYQiiM9Bc9CXv92f6DdmBZmV2feOIsTIuih0Mw/Pfevc0Xme+e/
+	 mhPRj/4utbMFbTZHWEVDdUI9JIzVJcHwZEIWxBxdoWbmoppPcHu1EPnejNq3otSvkE
+	 R+TVpomDyLoQzYRZNXJCGO5W+0Ovak/D9N/PbuznQk3cwp2FBUSYoHI6w4jK8LnN1s
+	 kJVkAI2TlR66g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8EFA54B5BB;
+	Fri, 27 Nov 2026 06:52:48 +0000 (UTC)
+From: Anh Nguyen Hoang via B4 Relay <devnull+anhnh.4work.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 00:52:48 -0600
+Subject: [PATCH] parisc: pci-dma: Handle allocation failures in
+ arch_dma_alloc()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,184 +83,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz5b-0
-X-QQ-XMAILINFO: NGKAM81q4BTsBqyUCXkaJ4K4aXwawbibtrWHVw8iHPIkIpraF+XN70Db
-	jXC6fKNS9cOjpty1z/VZs9uf0kaqNlHorJzKrIh6OUBBRCMz+bRg6r0vdWsuMktFazkdo5e
-	IZts2tGAmmDbEhuDfHzN5CVKfsWsc1Eye+zl4LbzTiql+ClsbcWYFSsm5IqnINjHSzUbSXx
-	66Bwoyh+h/jiBxSdNGRyi8rlFAmcsGBJ98MJKmKYQNgDv6gSbvmARZYqm+KSVhEdgCw/ovF
-	CcqcTrff5D0smEVy8aP83M0cIQ4JZjORsDw9h7iyLwYm3/qYGd2KRzsaGSGhvz7tq03UAbu
-	2DSl9abDO1rwPh8r0nYoPDw8f+waDzjJ3jfee8MIdse/0BcqJ1HRO/PLQHTrRJ82YEr8Nlz
-	ceVGqoXdL9A4+oG7NX64D7y6gdTcJK/3LQsjikW/P50EqVqXvLnZypuv6kl847qMtEhX3bD
-	is2+EvFWlrcT1LS8xul/SH4ofljgogZ60w8y2fpIeohIgLbIX1z6rKQ9G13HZ4R8F8+fK6L
-	jWp6+UQzNrVTmhQft9Fdx3Hqs3KNcGt2XWYqQ/uXCEEDXUz3KVHBVBWfxgM70rECfjT1l72
-	LjanxNLTYTzfLRGPCemHRJJBR+Tt6gbe/PqzJ7vINGQVSv4jNxeh10WxjpHsZyRHJ/n50oR
-	xT+0eFG3UIShk6Q9QIFSxPvQIFu0yPh/Mht+6hsnHpQw7sU+NYroX/WE9DTp7ZEBX6Evkln
-	u3ZCKzfMSnZ5KU5dR+ADrJNK4GYT3TF3DiQsloWVkfPcMT6dBQakgzblkOgxGk2hmcoJ2uH
-	RYcD4+WXffO0xJfF1OItnNJlOlYSpWU75HzhVCmaDZbasT3UGSF+k4Y/y+4IKd/ignEeeR7
-	WUC7rXFqJXstQotnpTSHhFMGru+N2n+rQh5vG2o8UIx5YvX0ojwiAQdQyMazzACzwxdyoxM
-	awxLtKUE8WKg4TzfsVqCjosuaHVhYJE9n9wwp+AEtuzNGmQBqicpc3w5hmkqxIuTROJCU9U
-	vnyA/PbBoMUEchbCoO4WiUr6dTKrAlPBy5Yx3dQV/1yefExoU/mdlIV9J/AaUq7jpXSDNPg
-	jM2dsLSgnJm9F7fQ1TX+uOKZStRAzBVQQfwzT+EytKGQ4M0QTQqHZjuFG07IOrxa3CF2Ftb
-	vcEX
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-kbug-l001-v1-1-db0b44ec71d5@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAL8oCWsC/yXM0QpAMBSA4VfRubba2Qp5FbmwOeMgtCEl7264/
+ OrvvyCQZwpQJhd4OjjwMkdgmoDtm7kjwW00KKkyRJWL0eydmKREYYwutEanXG4h9qsnx+f3qur
+ fYTcD2e0dwH0/vn+DrW0AAAA=
+X-Change-ID: 20261127-kbug-l001-bb38331f2f7c
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Anh Nguyen Hoang <anhnh.4work@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795762368; l=3623;
+ i=anhnh.4work@gmail.com; s=20261127; h=from:subject:message-id;
+ bh=LbWh1p0JWyiyRtWO0aSmkJ1gB8M+YbXem8D4tGZGGVc=;
+ b=DJdh6gcbpAwHy70+KQkuktnNPas6c90im+HCxTO8qLwfHB4z5hX/Xy5hEyRxfG6wQMj8OIxBf
+ 3IsrWwsnSBeBw7oJQclHGzpPhL9uUtAV+O0Drfs3mZfRC/gaaQ/bRT9
+X-Developer-Key: i=anhnh.4work@gmail.com; a=ed25519;
+ pk=9NJ/0SKqaFZmt1/I5XY11TZSNY2ys6RWB3gvqzrLHmI=
+X-Endpoint-Received: by B4 Relay for anhnh.4work@gmail.com/20261127 with
+ auth_id=1662
+X-Original-From: Anh Nguyen Hoang <anhnh.4work@gmail.com>
+Reply-To: anhnh.4work@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Add a KUnit regression test that builds a depth-2 extent tree with two
-leaves under a shared intermediate index block. Hold a reference to the
-index block, make the second leaf read fail, and verify that its
-buffer-head reference is released after ext4_ext_precache() returns.
+From: Anh Nguyen Hoang <anhnh.4work@gmail.com>
 
-Using a per-block failure flag is needed because a global getblk failure
-would fail the first metadata read before any ancestor reference is
-held.
+arch_dma_alloc() does not check the return value of __get_free_pages().
+If the allocation fails, the function carries on with paddr == 0: it
+calls flush_kernel_dcache_range(0, size), maps __pa(0) uncached into
+the range reserved by pcxl_alloc_range(), stores __pa(0) in *dma_handle
+and returns the non-NULL virtual address of that range.
 
-Signed-off-by: jiazhenyuan <jiazhenyuan@uniontech.com>
+The return value of map_uncached_pages() is ignored as well. It returns
+-ENOMEM when pte_alloc_kernel() fails, in which case the returned
+virtual range is left unmapped.
+
+In both cases dma_direct_alloc() passes the non-NULL address on, so the
+driver is told that the coherent allocation succeeded and then uses a
+buffer which is not backed by the pages it expects, or not mapped at
+all.
+
+Check both results. If the page allocation fails, release the reserved
+PCXL range and return NULL. If the mapping fails, additionally free
+the pages. Call unmap_uncached_pages() there too, so that the error
+path does not depend on how far the walk got before it failed; it
+skips empty page directory entries and clearing an empty PTE is
+harmless.
+
+This only affects machines with a PCX-L or PCX-L2 CPU, the only ones
+for which arch_dma_alloc() does not return NULL right away.
+
+Found by an automated code scan and confirmed by code inspection.
+Reproduced in qemu (B160L, PCX-L2) with page allocation fault
+injection: without this change a failed page allocation makes
+dma_alloc_coherent() return a valid looking address with DMA handle
+0xf0000000, and a failed page table allocation is reported as success
+too. With this change both return NULL.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Assisted-by: Claude:claude-fable-5-2
+Signed-off-by: Anh Nguyen Hoang <anhnh.4work@gmail.com>
 ---
- fs/ext4/extents-test.c | 101 ++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 100 insertions(+), 1 deletion(-)
+Tested in qemu-system-hppa 11.1.3 (B160L, PA7300LC) with
+generic-32bit_defconfig plus FAIL_PAGE_ALLOC. A test-only initcall calls
+dma_alloc_coherent() and fails one chosen page allocation through
+current->fail_nth.
+Before: a failed __get_free_pages() returns vaddr 0x00048000 with DMA
+handle 0xf0000000 (__pa(0)); a failed page table allocation also
+returns success.
+After: both return NULL (300 and 297 injected failures), with no leaked
+PCXL ranges or pages.
+No Cc: stable added; please add it if warranted.
 
-diff --git a/fs/ext4/extents-test.c b/fs/ext4/extents-test.c
-index 6458345ea958..2815156d7b3d 100644
---- a/fs/ext4/extents-test.c
-+++ b/fs/ext4/extents-test.c
-@@ -82,6 +82,7 @@ static struct kunit_ctx {
- 	struct dentry k_dentry;
+Testing:
+- Compile-tested on parisc (allmodconfig, W=1):
+  arch/parisc/kernel/pci-dma.o; no new warnings.
+- checkpatch.pl --strict: no errors or warnings.
+---
+ arch/parisc/kernel/pci-dma.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/arch/parisc/kernel/pci-dma.c b/arch/parisc/kernel/pci-dma.c
+index bf9f192c826e..6e2d340921fe 100644
+--- a/arch/parisc/kernel/pci-dma.c
++++ b/arch/parisc/kernel/pci-dma.c
+@@ -412,12 +412,22 @@ void *arch_dma_alloc(struct device *dev, size_t size,
+ 	size = 1 << (order + PAGE_SHIFT);
+ 	vaddr = pcxl_alloc_range(size);
+ 	paddr = __get_free_pages(gfp | __GFP_ZERO, order);
++	if (!paddr)
++		goto out_free_range;
+ 	flush_kernel_dcache_range(paddr, size);
+ 	paddr = __pa(paddr);
+-	map_uncached_pages(vaddr, size, paddr);
++	if (map_uncached_pages(vaddr, size, paddr))
++		goto out_unmap;
+ 	*dma_handle = (dma_addr_t) paddr;
  
- 	bool fail_getblk;
-+	ext4_fsblk_t fail_getblk_pblk;
- } k_ctx;
- 
- /*
-@@ -336,7 +337,9 @@ static struct buffer_head *ext4_ext_getblk_stub(struct inode *inode,
- 	struct kunit_meta_block *slot = NULL;
- 	int i;
- 
--	if (k_ctx.fail_getblk || !k_ctx.meta_blocks)
-+	if (k_ctx.fail_getblk || !k_ctx.meta_blocks ||
-+	    (k_ctx.fail_getblk_pblk &&
-+	     pblk == k_ctx.fail_getblk_pblk))
- 		return NULL;
- 
- 	for (i = 0; i < EXT_MAX_META_BLOCKS; i++) {
-@@ -1364,6 +1367,74 @@ static void setup_depth1_two_leaf_tree(struct kunit *test, struct inode *inode)
- 	brelse(bh1);
+ 	return (void *)vaddr;
++
++out_unmap:
++	unmap_uncached_pages(vaddr, size);
++	free_pages((unsigned long)__va(paddr), order);
++out_free_range:
++	pcxl_free_range(vaddr, size);
++	return NULL;
  }
  
-+/*
-+ * Helper to construct a depth-2 tree with two leaves under a shared
-+ * intermediate index block:
-+ *   Root (pblk none): index -> 500
-+ *   Index 0 (pblk 500): leaf 0 -> 600, leaf 1 -> 601
-+ *   Leaf 0 (pblk 600): [10, 15) -> 1000
-+ *   Leaf 1 (pblk 601): [40, 45) -> 2000
-+ */
-+static void setup_depth2_shared_index_tree(struct kunit *test,
-+					   struct inode *inode)
-+{
-+	struct ext4_extent_header *root_eh = ext_inode_hdr(inode);
-+	struct ext4_extent_header *index_eh;
-+	struct ext4_extent_header *leaf_eh;
-+	struct ext4_extent_idx *idx;
-+	struct ext4_extent *ex;
-+	struct buffer_head *bh;
-+
-+	ext_reset_tree(inode);
-+
-+	root_eh->eh_depth = cpu_to_le16(2);
-+	root_eh->eh_entries = cpu_to_le16(1);
-+	root_eh->eh_max = cpu_to_le16(ext4_ext_space_root_idx_test(inode, 0));
-+	idx = EXT_FIRST_INDEX(root_eh);
-+	idx->ei_block = cpu_to_le32(10);
-+	ext4_idx_store_pblock(idx, EXT_META_BASE_PBLK);
-+
-+	bh = ext4_ext_getblk_stub(inode, EXT_META_BASE_PBLK, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, bh);
-+	index_eh = ext_block_hdr(bh);
-+	index_eh->eh_magic = EXT4_EXT_MAGIC;
-+	index_eh->eh_depth = cpu_to_le16(1);
-+	index_eh->eh_entries = cpu_to_le16(2);
-+	index_eh->eh_max = cpu_to_le16(2);
-+	idx = EXT_FIRST_INDEX(index_eh);
-+	idx[0].ei_block = cpu_to_le32(10);
-+	ext4_idx_store_pblock(&idx[0], EXT_META_BASE_PBLK + 100);
-+	idx[1].ei_block = cpu_to_le32(40);
-+	ext4_idx_store_pblock(&idx[1], EXT_META_BASE_PBLK + 101);
-+	brelse(bh);
-+
-+	bh = ext4_ext_getblk_stub(inode, EXT_META_BASE_PBLK + 100, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, bh);
-+	leaf_eh = ext_block_hdr(bh);
-+	leaf_eh->eh_magic = EXT4_EXT_MAGIC;
-+	leaf_eh->eh_depth = 0;
-+	leaf_eh->eh_entries = cpu_to_le16(1);
-+	leaf_eh->eh_max = cpu_to_le16(1);
-+	ex = EXT_FIRST_EXTENT(leaf_eh);
-+	ex->ee_block = cpu_to_le32(10);
-+	ex->ee_len = cpu_to_le16(5);
-+	ext4_ext_store_pblock(ex, 1000);
-+	brelse(bh);
-+
-+	bh = ext4_ext_getblk_stub(inode, EXT_META_BASE_PBLK + 101, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, bh);
-+	leaf_eh = ext_block_hdr(bh);
-+	leaf_eh->eh_magic = EXT4_EXT_MAGIC;
-+	leaf_eh->eh_depth = 0;
-+	leaf_eh->eh_entries = cpu_to_le16(1);
-+	leaf_eh->eh_max = cpu_to_le16(1);
-+	ex = EXT_FIRST_EXTENT(leaf_eh);
-+	ex->ee_block = cpu_to_le32(40);
-+	ex->ee_len = cpu_to_le16(5);
-+	ext4_ext_store_pblock(ex, 2000);
-+	brelse(bh);
-+}
-+
- /*
-  * Verify multi-level (depth 1) extent lookup and tree navigation helpers:
-  * ext4_ext_next_allocated_block(), ext4_ext_next_leaf_block(),
-@@ -1471,6 +1542,33 @@ static void test_ext_precache(struct kunit *test)
- 	KUNIT_EXPECT_EQ(test, ext4_es_pblock(&es), 2100ULL);
- }
- 
-+/*
-+ * Verify that a failed precache traversal drops the buffer-head reference
-+ * held for the ancestor extent block. The shared depth-1 index block is
-+ * deliberately held by the test; failing the second leaf leaves it
-+ * referenced by path[1]. A missing path depth causes ext4_free_ext_path()
-+ * to leak that reference.
-+ */
-+static void test_ext_precache_read_failure_bh_leak(struct kunit *test)
-+{
-+	struct inode *inode = &k_ctx.k_ei->vfs_inode;
-+	struct buffer_head *bh;
-+	int err;
-+
-+	setup_depth2_shared_index_tree(test, inode);
-+	bh = ext4_ext_getblk_stub(inode, EXT_META_BASE_PBLK, GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, bh);
-+	KUNIT_ASSERT_EQ(test, atomic_read(&bh->b_count), 2);
-+
-+	k_ctx.fail_getblk_pblk = EXT_META_BASE_PBLK + 101;
-+	err = ext4_ext_precache(inode);
-+	k_ctx.fail_getblk_pblk = 0;
-+
-+	KUNIT_EXPECT_EQ(test, err, -ENOMEM);
-+	KUNIT_EXPECT_EQ(test, atomic_read(&bh->b_count), 2);
-+	brelse(bh);
-+}
-+
- /*
-  * Verify ext4_can_extents_be_merged() rules for written/unwritten state,
-  * logical and physical contiguity, and maximum length limits.
-@@ -3519,6 +3617,7 @@ static struct kunit_case extents_test_cases[] = {
- 	KUNIT_CASE(test_find_extent_root_binsearch),
- 	KUNIT_CASE(test_find_extent_multilevel_and_navigation),
- 	KUNIT_CASE(test_ext_precache),
-+	KUNIT_CASE(test_ext_precache_read_failure_bh_leak),
- 	KUNIT_CASE(test_can_extents_be_merged),
- 	KUNIT_CASE(test_insert_extent_merge_and_nomerge),
- 	KUNIT_CASE(test_insert_extent_grow_and_merge_up),
--- 
-2.20.1
+ void arch_dma_free(struct device *dev, size_t size, void *vaddr,
+
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261127-kbug-l001-bb38331f2f7c
+
+Best regards,
+--  
+Anh Nguyen Hoang <anhnh.4work@gmail.com>
+
 
