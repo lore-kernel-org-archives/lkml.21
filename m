@@ -1,52 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.231
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794018;
-	b=W4OMEOSJe9LHxLc/xrb41Po0Rlj3ESv89jKYq+Pto6nB7PWYw+qqgdwSH67p8oYQy1Jp
-	 GC55DqSqtIMCMj7rUN/1gbb+oe5N6N0MMi00jZMTV1+pzbPI0Ey0w3cvjSEjaNmn/gDLY
-	 YJEptbT8ikuTens6lCWvlxcz6lPk9jt4/cQyVkbPzDRxIJhMAKHqq7vh/a7mQCs9fFII/
-	 dFsg42k87n/HiJfQKgbamikbuOVNNUGv+J3tDUUoWGUAdiXlflNPYD6N5MisKRTDkPYVf
-	 GU0GMNOrJsk061bvqNF/VAzZ/tyRlZs43kPBn8MGekzhm0YO8uuKqwQQO4TeO/t6SFg==
+	t=1795794069;
+	b=F9ZFBe7NH7SMgYKCqbKs8Byv7D8z7hf2TUtvnwMxN/gJSC3iwO0klsj+3ZV5y02aKmAa
+	 vuBZA/f4KQsHGbV88IGqrR5KrzrxnlGzZYR7FGXWLpTzYGuoe41xNQCSKholpXX3auuQp
+	 qM6BGshNLrs268DSbboXnSmlsgaQ2Vu4UcDBlhI79jaeay65pNhkAM2QOhFNLLDCNjHoT
+	 NS+HFj63D35EMAB2tGjEAPKa6QulcPcCfKTOeGMrjad/HJ+KfiQJU+Zf7v7Mly4PVaLst
+	 +gUtb6idHFS7euqW4EMjCweENTqYQi5zQo02vZNRVHQk4a6L+3kj/Nc0LS7XCB3bB1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794018;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=e5/rGv6kRlTybcojKPwoDm9EwkOD0brZRsjX9dNYirM=;
-	b=E0ijfi6/6C3MiiHMLhhLhXpxc1SOZ6LmOlOZ/AdMArmCvsJJQSyl5Knwhba4r4VOBrqE
-	 ggp+FJOl+Pm3g0/3zfR2c41oQN4YoFCpykf+RcTBHQh9xBacepWHwPNIVY2zHeefuRjUH
-	 yHN2ZN/if5FmqEkLkP4mUmt3lMlvnMRykEsu2piiVrhKXJIYV7zP7B5a4dtptqV7otnrV
-	 FIQeH029GBS15jE7DG6AAjRleao3WQ04PLWs5y3mkMSfUsNIvOXqsIYp5CUeDoJj96I3x
-	 3RdhblRDUXV6xczVORwX+/v/7/75Ztn1WA8VhVJapc2Jp5AYoa4dfUBMWytNqumhmFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794069;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=zTeGEeYubIuGfiie/NnBel4Xijl6Dj7t6gEULam6Lc8=;
+	b=A9zeKBdMr3NKECwxzcijwPma95Aa46VQkzXWIPk1Y2Z3YkPfHk3JAPUqJFmxVsr4O+Cq
+	 v24szyqFpTKC03uVP/4MeveRm9m2n4TPo9PFsRpnVCB2Z0rI3wyilAv6yrUUOh/3n4fT3
+	 Xc+HCXR2adL1aPJCDxcPCThX2kS7GPKlFrTA/TLKd762onK17PBGu79vA1YzRUG8+T7lb
+	 rpPBepV1EA6Uqz7Cl6wEyJPEWMIcV/087UAP3PGo35AZXlaG0QAaQEKXf2OPtW8xXAAG4
+	 GLtwZYSo8NAAIFO1VcjjUByk1ePy9sYnxjtdUjPVSo2nty6iKY5jDXyoKJX2iNtxXQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KZheMvId;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=cJOpl0D5;
+	arc=none smtp.remote-ip=91.218.175.231
+Received: from mta0.migadu.com (out-231.mta0.migadu.com [91.218.175.231])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 44FD0606A31E;
-	Fri, 27 Nov 2026 15:40:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDA67606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:41:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDA67606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KZheMvId
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 02CC71F000C1;
-	Fri, 27 Nov 2026 15:40:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795794017;
-	bh=e5/rGv6kRlTybcojKPwoDm9EwkOD0brZRsjX9dNYirM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KZheMvIdeKcFQh1TUVFvP5jn0rlkPW16af+06C+RuvEJXf0q5LddewqgBsQcA0wak
-	 N3OQZK67V/uGYDw0xFPMoo2cPExvAK74jyplyP+82orQH3Pfuz6UJ/Y6gHdJIou2Lk
-	 ND0Bk7xitB7I/UCVgVttxzCmjYkFqv8gymp2/C36OP0a7qGG0V66aMas5BGmt/2e3Y
-	 ol/0lbtIQNSIUnaxBZm1Tim0pem9H1IjhUeNQoK8sMnYK+DamvO7xcTi8ZouFGWNu9
-	 rD7ZLuUXoflvUj86fAQ3pCQp+63Ab91F+MiDNEHQU5wqvVEootqyoioWtj3fes/KdO
-	 hnoLj9dqBlsCQ==
-Date: Fri, 27 Nov 2026 16:40:15 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: =?utf-8?B?TcOgeGlt?= Pedraza Padilla <maximpedraza@gmail.com>
-Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pwm: tiecap: Implement .get_state() and keep a running
- PWM
-Message-ID: <awmjxhnTVT_ZVzPN@monoceros>
-References: <20261116142251.1296742-1-maximpedraza@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=cJOpl0D5
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=D7LzFkhrlPQer8Lrs7O6LLemqF5OXFeGJoFOpPJ4gPo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795794062; v=1; x=1796398862;
+ b=cJOpl0D5OSfcQqez6bcfCZyocvBCdviNPMu7xXzrW3rxCi7bGixjVd73vMe5JMKb3B+H+luq
+ W5mo8RtX8Cg6oQ5YDJre4nAUcjgffv4gqoHS+0UQAqQd3i1s594vnGrVvLROCT//DI3K3N6MCGM
+ 3zX7oZhRG9SWzVc7yRHgi3kQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 944c59f8ed2ff705;
+	Fri, 27 Nov 2026 15:41:01 +0000
+X-Mizu-Trace-ID: 944c59f8ed2ff705
+X-Migadu-Flow: FLOW_OUT
+From: George Guo <dongtai.guo@linux.dev>
+To: mpilaniy@redhat.com
+Cc: rppt@kernel.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	chenhuacai@kernel.org,
+	ardb@kernel.org,
+	shuah@kernel.org,
+	ilias.apalodimas@linaro.org,
+	akpm@linux-foundation.org,
+	baoquan.he@linux.dev,
+	ruirui.yang@linux.dev,
+	guodongtai@kylinos.cn,
+	kernel@xen0n.name,
+	graf@amazon.com,
+	liukexin@kylinos.cn,
+	loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	linux-efi@vger.kernel.org
+Subject: Re: [PATCH v6 1/8] efi: Pass KHO state to the next kernel in a configuration table
+Date: Fri, 27 Nov 2026 07:40:54 -0800
+Message-ID: <20261127154054.43755-1-dongtai.guo@linux.dev>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <99670aa8-a33c-4a36-b8dd-66b02c6b6159@redhat.com>
+References: <99670aa8-a33c-4a36-b8dd-66b02c6b6159@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,62 +84,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bdvxcrzwalea6q3h"
-Content-Disposition: inline
-In-Reply-To: <20261116142251.1296742-1-maximpedraza@gmail.com>
+Content-Transfer-Encoding: 8bit
 
+Hi Mukesh,
 
---bdvxcrzwalea6q3h
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: tiecap: Implement .get_state() and keep a running
- PWM
-MIME-Version: 1.0
+Thanks for the review, and sorry for the slow reply.
 
-Hello,
+On 2026/11/4 20:24, Mukesh Pilaniya wrote:
+>> +			pr_warn("Could not map UEFI KHO table!\n");
+> This is a Linux EFI configuration table, not a __UEFI KHO table__, so
+> IMHO; UEFI wording is wrong here.
 
-On Mon, Nov 16, 2026 at 03:22:51PM +0100, M=E0xim Pedraza Padilla wrote:
-> The driver has no .get_state(), so a PWM left running by the bootloader,
-> for instance for a backlight, is seen as disabled and the consumer may
-> turn it off before enabling it again, which makes the screen flicker.
->=20
-> Read the state from the hardware. While the PWM runs, .apply() writes
-> the shadow registers, loaded at the end of the period, so read those to
-> stay consistent with it, and copy the active values into them at probe
-> in case the bootloader didn't set them.
->=20
-> A running PWM also holds the runtime PM reference ecap_pwm_enable()
-> takes, so take it at probe. Switch to devm_pm_runtime_enable() so the
-> remove callback can go.
->=20
-> Assisted-by: Claude:claude-opus-5-5
-> Signed-off-by: M=E0xim Pedraza Padilla <maximpedraza@gmail.com>
+Agreed. v7 changes it to:
 
-I applied this to
+	pr_warn("Could not map KHO config table!\n");
 
-	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for=
--next
+>> +	if (status != EFI_SUCCESS)
+>> +		efi_err("Failed to install KHO config table!\n");
+> When install_configuration_table fails, the pool allocation made
+> just above using efi_bs_callis never freed, so a page of
+> EFI_LOADER_DATA is leaked until ExitBootServices, This is a minor leak
+> so mentioned here for review completeness.
 
-Thanks!
+Will fix in v7. The pool is freed when the install fails:
 
-Best regards
-Uwe
+	if (status != EFI_SUCCESS) {
+		efi_err("Failed to install KHO config table!\n");
+		efi_bs_call(free_pool, kho);
+	}
 
---bdvxcrzwalea6q3h
-Content-Type: application/pgp-signature; name="signature.asc"
+>> + * The EFI stub installs this table zeroed on a cold boot. It stays
+>> + * in place across kexec; the running kernel rewrites it just before
+>> + * each kexec, and the next kernel reads it during early boot.
+> This statement is only true for the LoongArch and on arm64/riscv/x86 no
+> table exists, so the comment describes a kernel-wide invariant that does
+> not hold.
 
------BEGIN PGP SIGNATURE-----
+Right. I don't want to name only LoongArch here, because x86 is
+expected to use the same table in a follow-up series. v7 rewords it
+as:
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsJpFsACgkQj4D7WH0S
-/k4lgAf+IUruhqIkdBuXZzieTlnu3xUfA3htvqfePjIzp2t52fpxh78TUqFmriSL
-mNizpkWDwF5a7YYW/vzHQyQfPg3F4TGRHWy25OgFgI/mhkhVcxTAcLuYxSgP8R63
-LHONFotFgdmks5c8JOz2BYmgFV8TW/QWqLwDuherUWKTFPPz3O/UUqtaQ3QwpVhS
-57TMdYCpwErNrEpCezOFDJclqc2u/761i+r0FR5NWCvr4xBC2kjkYl8RIgz/mY6E
-/95kI8uHZbsnKq1/U/KHq2Huq+z0N1Qd+mpM4y6PNhFdaFc52aYNjziAATh+XIvJ
-c2mAVKwFqO+WNeIx5ineesZRgCseug==
-=u+AR
------END PGP SIGNATURE-----
+ * Only installed by the EFI stub of architectures that pass KHO state
+ * this way (currently LoongArch); elsewhere the table does not exist.
+ * The stub installs it zeroed on a cold boot. It stays in place across
+ * kexec; the running kernel rewrites it just before each kexec, and the
+ * next kernel reads it during early boot.
 
---bdvxcrzwalea6q3h--
+Thanks,
+George
