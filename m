@@ -1,89 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744228;
-	b=M30pESNsou4njAvDdW4ghXAJUPj8EiqI2/XtbhLHXupmKCWHfesmpDbcKNxkh7T5mkwn
-	 AaF3LuYnYFuhbt/u1YdUS4BTEOedGOI072NsucxnXzdD3PznjTTVwWYtuUDyxrR6zBpcL
-	 vVzwCzcki4nXaQFTRf7zrNsQj+WOt2k9UJuYrOlyYHC01UTxQ37zSnfRVDn7u38qn1pOk
-	 GKbVa2F2CF8uWbtOucd0YEQDfNeaHggcoHl1NloYD8Pu1z0GTeKJSx+IvtHxLfqIDjnP0
-	 YjsNWaNufvlXDr1IWFUR3IV8O8BLkSvBMDZOb7NYY81W86JiA+3ItCY9ip3dQpWAFLw==
+	t=1795744232;
+	b=z5A0fqYhqUDiLiIelwQ94Em9j025tkjqFqI+o7S7W6gPKvTc9QCQF356/S8Ed9zCvj9z
+	 UaCnHijqZOeiDYX1rgMuPjAZ2MFfFLaLq3CBJdhgeehO3nqt4+ABWd7fAjsmv1Ivg/wrh
+	 NJ9YEAeBo313xmg6KgA+iyWBA6ss5rZvqtb5Hw8qmS6vqb7Py1C7vQm3h3uXHTM7PdGhi
+	 dW1SGvbcAAq9W3KjknSudHJ0Ob3MTBloOxmRC/6sYH6v72USfB68hABggLjSIrtvaw96U
+	 xRodSLF50Pnzg2XtF6VfgBHl5oi6bzzp3ETgLQaRI5eSdg5SOAvVE0/dkeT9a7ZiwJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744228;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=uUavxelTZRtFV0GBlnXp7zzHRPVbuF2ydfagKIyAC6I=;
-	b=LtGSO9UUwwinF12xqB2Fo2aj6gek7B6r5HvxKVDgHEKrpZN/02io4EXcepee5yn4A94s
-	 Tu6E1C+kedGCq2lGrHPYAEfKypWYoaRTgJSINw9LICCXCjDYr7EoNzFtTSVVi+0YDJHxB
-	 Y9fZF6Wdeop0i/WGso2ZA7jYDzqGyl5qZSBA3YgyqfjX3KwHefTKwLGl7G5C9bNUvzuI3
-	 LalgH08MSRx6m+7HRPFdw/hIuB5yGD0PKgsL7EwqLbKhOL5XYSEFoNthnsV0UsCCpIVC1
-	 QJnxpAeb+pgz/A3qJhA+WLO062xE5uys1f8QWO6+Zjox7qDbs3WBhhLks8YqSqwqiUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744232;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8K5+4appvpPjc/4gczbfc2dznCgXlEjjQIi6x5SE9gc=;
+	b=okIDqRrNMd9iRUtyYHq3IPZz5KnpBUMhzx91RAPISRyZ4rG3gZGrRnuW+tC/8gs4cb6E
+	 wUlQBKzDZZEC8m05h2eZEDqct8SamaiG8xd2C2VgU3dt+jekSqIcKR+mtGsaXEDVa2yxO
+	 csUgUnJYfGVogtSX/bPzrPW4994oLx1UfOCsUZxI5k25hiqdjZ1xkF+vjJw9X7WK6ol6u
+	 UK2iOULM+ZE2YrXq2vjuQRU0lio61ECnv7Ju9awJgGfGPWc434Z88MvBREb/dpLhDTB+T
+	 JVWrhkM3QpIssRO8dwxTfU1tMWD91v8NCAmGnD0sBm4H0WZLeecqZh6lyOzigTp9y7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=X4oontNW;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9599F606A31C;
-	Fri, 27 Nov 2026 01:50:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9599F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=X4oontNW
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 21AB640E0219;
-	Fri, 27 Nov 2026 01:50:25 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id F4nSUESuFsq6; Fri, 27 Nov 2026 01:50:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795744221; bh=uUavxelTZRtFV0GBlnXp7zzHRPVbuF2ydfagKIyAC6I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X4oontNWub6DK1ACbhGnPPvfWTxg+N6xqcMDviD75yX9EOkr8tU59KFI4Yhlzk5+L
-	 h2I/Lj3fJmJ206MHZ+KRKFEjB64R3PFTG73Ztt33Wqo+ug4QmVKv6mBc3iCknmJW81
-	 LqmUvJyEb/mvJNs18coEcFjuQS8D+VZO3dXL7TnCgebDHxjPVtF95ascABpPCLf/WU
-	 QeLX4m4xNB1ELRX5X2+9Drhx8Jc9HGwChSOZSrT/rdZHpqSQWeDmBCEVIeMNOUXeGe
-	 ZVOJVMLWd8q5UmJbvoC9CNW7za/kpNgugmHzQ9IY2n5LF8cryNiaF8Cq2R+XalE5eR
-	 3qBpV0IAjbTOGdfeChDe8mtomBDSskLmgTefyyPTOFSeLAebi3gtnQFhDVVZVBDX/Z
-	 +zhSKFRJ2v8+a5JCcmdj1SA+eDCszsH4ZYd7f9LCL9OCy83G6bbzDG6GHgTBJBDC4g
-	 BvlEYq6gbkao+0P3n3k8B+vT49sRO7JHBMvzcQl6kfMoNskNH9ENOZsjCsG1gwfNNy
-	 zKJzaUboJjp9HchAawT05gX45+MkRu4BB6FfAoHQedUMx4EljFfoXV98BGowihRaCZ
-	 KwuUsuo3vORov9p9wTYnHJ5Mpi4/O8T4HwhRP/8KV0iT3KsRRNXyKxfTY273DcAvbI
-	 +Szu+RaH8qccVC0ilMwkNhkM=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2ABD140E00C2;
-	Fri, 27 Nov 2026 01:49:57 +0000 (UTC)
-Date: Thu, 26 Nov 2026 17:49:55 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Willy Tarreau <w@1wt.eu>, Leon Romanovsky <leon@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
-	Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
-	Security Officers <security@kernel.org>, workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
- and a cover letter
-Message-ID: <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E43C6606A32A;
+	Fri, 27 Nov 2026 01:50:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E43C6606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: e9d40e92ea0411f19a56ed5b684f684d-20261127
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:d4ee9c87-fa57-4d6a-839f-c178f32cc09d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:0289858c2fe404d16d2b5601a5d87868,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|102|136|865|898,TC:nil,Content:0|15|50|99|10
+	0|102|156,EDM:-3|-100,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:
+	nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e9d40e92ea0411f19a56ed5b684f684d-20261127
+X-User: huxiaoying@kylinos.cn
+Received: from thinksys.. [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <huxiaoying@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1910115924; Fri, 27 Nov 2026 09:50:24 +0800
+From: Tom Hu <huxiaoying@kylinos.cn>
+To: linux-kernel@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	Rong Zhang <i@rong.moe>
+Cc: Mark Pearson <mpearson-lenovo@squebb.ca>,
+	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	"Derek J . Clark" <derekjohn.clark@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	xiaoying_hu@126.com
+Subject: [PATCH v4 2/2] platform/x86: thinkpad_acpi: Default charge_stop to 100 when unsupported
+Date: Fri, 27 Nov 2026 09:50:18 +0800
+Message-Id: <20261127015018.81906-2-huxiaoying@kylinos.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261127015018.81906-1-huxiaoying@kylinos.cn>
+References: <6066c701-55c8-494f-9348-f9835b258b44@app.fastmail.com>
+ <20261127015018.81906-1-huxiaoying@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,56 +76,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 02:34:26AM +0100, Krzysztof Kozlowski wrote:
-> On 26/11/2026 18:19, Sasha Levin wrote:
-> > Commit messages written by AI coding assistants are too long.
-> > Maintainers keep asking for them to be cut down [1][2][3][4]: they read
-> > like a copy of the assistant's analysis and bury what a reader needs.
-> > When an assistant does trim, the opposite problem shows. A few lines of
-> > a backtrace do not tell a reviewer how the failure was produced, and
-> > Leon Romanovsky showed a case where only the full log revealed that the
-> > crash came from an out-of-tree module written to provoke it [5]. Willy
-> > Tarreau suggested a short quote in the changelog plus the full log
-> > attached [6].
-> 
-> Shall we rather ask them not to write commit msgs at all? By writing
-> commit msg we encourage - or try to encourage - at least basic
-> understanding of what the patch does.
+From: huxiaoying <huxiaoying@kylinos.cn>
 
-Agreed.
+When the EC does not provide GET_STOP, stop_support stays clear and the
+cached charge_stop is never probed, so it remains 0.  charge_start is
+still validated against that value, which rejects every level above 0
+even though the start threshold is supported.
 
-Just have the LLM write a commit message and then the human should go
-and whack most of it to the bare minimum of coincisely explaining the thing
-and cull all the bullsh*t.
+Default the cached charge_stop to 100 in tpacpi_battery_probe().  The
+store path already limits charge_start to [0, 99], so the
+`value > charge_stop` cross check can then never trigger when no stop
+threshold is known, and stop_support does not have to be consulted in
+that path.  A successful GET_STOP probe overwrites the default with the
+value reported by the EC.
 
-I constantly do that with submitters' overloaded bla nowadays. And don't even
-get me started on all those explaining what the patch does. There's not small
-amounts of text which basically spells out the code in the diff, in English.
+Suggested-by: Rong Zhang <i@rong.moe>
+Link: https://lore.kernel.org/all/d776d4ca05cd2378e344881b82725fda168f6556.camel@rong.moe/
+Reviewed-by: Rong Zhang <i@rong.moe>
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Signed-off-by: huxiaoying <huxiaoying@kylinos.cn>
+---
+Changes in v4:
+- Resend of v3 with the trailer block actually corrected: the previous
+  export came from the unamended commit, so the duplicated Reviewed-by:
+  tag was still present.  Link: now points at the original suggestion.
+- No code changes.
 
-/facepalm.
+Changes in v3:
+- Add the missing Link: tag after Suggested-by (Rong Zhang).
+- Fix the duplicated "Reviewed-by:" prefix on Mark Pearson's tag.
+- No code changes.
 
-Anyway, I try to hold on to this structure below, with variations ofc, if
-needed:
+Changes in v2:
+- Default charge_stop to 100 in tpacpi_battery_probe() instead of
+  guarding the cross check with stop_support
 
-"1. Prepare the context for the explanation briefly.
+ drivers/platform/x86/lenovo/thinkpad_acpi.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-2. Explain the problem at hand.
-
-3. "It happens because of <...>"
-
-4. "Fix it by doing X"
-
-5. "(Potentially do Y)."
-
-And some of those above are optional depending on the issue being
-explained."
-
+diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+index 8fc5569..0c27e0b 100644
+--- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
++++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+@@ -9698,6 +9698,14 @@ static int tpacpi_battery_probe(int battery)
+ 	memset(&battery_info.batteries[battery], 0,
+ 		sizeof(battery_info.batteries[battery]));
+ 
++	/*
++	 * If the EC does not provide GET_STOP, stop_support stays clear and
++	 * charge_stop is never probed.  Default it to 100 (no upper limit)
++	 * so that the cross check in tpacpi_battery_store() does not reject
++	 * every charge_start value.
++	 */
++	battery_info.batteries[battery].charge_stop = 100;
++
+ 	/*
+ 	 * 1) Get the current start threshold
+ 	 * 2) Check for support
 -- 
-Regards/Gruss,
-    Boris.
+2.34.1
 
-https://people.kernel.org/tglx/notes-about-netiquette
