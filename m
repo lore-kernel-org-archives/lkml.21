@@ -1,52 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777452;
-	b=hU7BxliWXVRIocvgiQOcoO4ic2rhqGSTRMnjKBttBZzuQv2lAg9Wj46/5puMZGjnnnzk
-	 YLX/+LZs0f+NJ0YiBf7jmxkisE6lKduwRKnk5g2+EdqRlo9MdHXq9zciC9nlcDCDNoA/Y
-	 6XBvY1AuCMb26pu7/cy6yoE+XoNbBEGnJHLUmkNhxSvqUHO1BhEgVDYeABfshv7xRoTEt
-	 WvcAjooEfRJth0E959Fg0C5Dnl28LKQE7XPMBkHW8osZ9cNtT2eolXK+Bzc5DH/U0XPHW
-	 kFyon94REomyxH7Xdq0HvErfDvTnfO9t34ccC3bdarlH2vApcj7YiYRxIKMYyiysQZw==
+	t=1795777457;
+	b=0hudUgLOE6ujN7hwBvfqISrr72vzyTWBlM8UNM/xVuW8X6cbwQs7TRCBGNJkIDMsunyd
+	 dqWLrzl+3DwKZJPlBbPggnp+eM9PLVTssZc4bHuo3u+RVT3dtNLCAel6gwQlYq2OVk7H/
+	 dryGsBi46qrJij+dDA6FfpRZsm2z/1dmYx85fSlK46po/hbZBSbSL7SMInhAVmOxpT5E+
+	 rKln8e5p12EYzilHkZTDo85tYvQdY2BQuTlvVgTBYgGH+AmKdLl46M7L0sUmBLlhIrczk
+	 FQk4LDEpkjGNn3O5Ongwrm4h1wnMlW/VO45mz1oW01gsjjUwUeWX1F1GiQvoWr+I1+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777452;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=YdfK4Qp5Bx9gzFSwkUXW3KuZo6hwNcU1xldTy43PvIA=;
-	b=01IhcXoRCKZSor6MnSEx1AjNQ/jJk4/mtWssOI5ytvqqQZOlRA5W2S5Ii8f8AVr30Q++
-	 Pj0Mj/C4qxkDjw9/8Y8wq+rhNM+/xq6vW/n7TlOu5JSmSxodxjHnOQVT/E7dP5W2PF5vm
-	 YYR+2Sx5eJQXOEp6yu1wM1cqX0hu3tvhF+8ryvn51vdnHLTy33OYPrUnTB0lBmKuJvy4Q
-	 2uAU0MMelFhGkBsm0brwCNylMOQXWBEXPQc6VU4tviT35IDTPcKrLhOOCjvThNQtLPchw
-	 yzlP/0AKhYDaEDqfu2wQYAg6ZiEsXsSeTsF00KKezk6e2d0AT0aoowdoQTkm13sUEpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777457;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Type:X-Last-TLS-Session-Version;
+	bh=6NKUvD1Ed99mxfzfNReRRwThedF/NAx/DiLTbVVTE1g=;
+	b=KQ4VtqQJnAF1Oqnk4I+QP9NPuHzMcefRwLMIo+pP2NvfVgK3tacHokfaK49KLtIZCAMO
+	 idROwyB/L0IaVn6GYz6pic+jcXRZuWYUBBISBpNoSsIp1Mv3g8VVGeWz1wL9/xWyvr9N5
+	 Qn65U8Bc0fLwzt38cMlf1du/G5RgZGXoQkWWj5t37T/FmXsd54dh1PYN1mcifhLznHlIS
+	 CgmIbhDh6EDJD/DzMZYrh2J8AZlyZjtzbynvcMQXqQK9wXacYK1UB0qACldalpUnL7C1K
+	 l1M/Z4DitPLZAgVhxVRsu17gZRsJreFcIa7M+KaHhEvh2QXQYRWR3vv9fqugBMMuprw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=gifcjVT7;
-	arc=none smtp.remote-ip=45.254.49.197
-Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nCPWiDEg;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A18EF606A327;
-	Fri, 27 Nov 2026 11:04:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A18EF606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC9EA606A336
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:04:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC9EA606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=gifcjVT7
-Received: from user.localdomain (unknown [223.80.110.101])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5641a2c40;
-	Fri, 27 Nov 2026 19:04:06 +0800 (GMT+08:00)
-From: Tian Xuechen <202300460064@mail.sdu.edu.cn>
-To: vkoul@kernel.org
-Cc: Frank.Li@kernel.org,
-	Frank.li@oss.nxp.com,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH v2] dmaengine: qcom: gpi: Use managed APIs to register the DMA engine
-Date: Fri, 27 Nov 2026 19:04:06 +0800
-Message-Id: <20261127110406.379425-1-202300460064@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nCPWiDEg
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 62B871A17B9;
+	Fri, 27 Nov 2026 11:04:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3125C6049C;
+	Fri, 27 Nov 2026 11:04:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 49EFC11E6823C;
+	Fri, 27 Nov 2026 12:04:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795777450; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=6NKUvD1Ed99mxfzfNReRRwThedF/NAx/DiLTbVVTE1g=;
+	b=nCPWiDEgUkTHOfK5ELkH2WFeTZasPyScnvEtG4GGbCkz/Sf8PxuOdnuI9zvK7ZqOsDmSUc
+	mCx2AJIH40ns7zRmao2OL/6G3rBlrdb5Dapi30r9lMewLVyyrDHRYJCG3wpB11UUs0la38
+	cgrd/W312pbB/609uGorVZ56xqz4Ga1TQLyx1myhatYe/lKsq134SHVVpokrJ8axOeDDPe
+	9UYvn+MTkR2fC2XAIOOyCLk3VqkvTJwlyrIChpNDGXCNZ6ZoZb/WX91Gxb1+fx1HWDeHLF
+	Rkah0ITus5uGJD6GJHA2+RooyBTCK3sMFQ1ReJGAu9QHOjSy9KBhjm2kF6GX4Q==
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: Ajit Singh <blfizzyy@gmail.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heikki.krogerus@linux.intel.com,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ajit Singh <blfizzyy@gmail.com>
+Subject: Re: [PATCH v2 2/2] usb: typec: mux: tusb1046: Support no-hpd
+Date: Fri, 27 Nov 2026 12:04:07 +0100
+Message-ID: <8GefllIVTJGWT_cZWRnqVg@bootlin.com>
+In-Reply-To: <20261126093819.76480-3-blfizzyy@gmail.com>
+References:
+ <20261126093819.76480-1-blfizzyy@gmail.com>
+ <20261126093819.76480-3-blfizzyy@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,60 +71,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa21cad42b803a2kunmf7f0fd8d394a91
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGBhNVh4dHR9JTUNLQ0JMGlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVQ0tVSkpLVUpLSllXWRYaDxIVHRRZQVlPS0hVSktJQk
-	NDTFVKS0tVS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=gifcjVT7idZS6u1faDHGrESt5ugSlj21VSzAzW6Ks0dh1gzGlg0GfARY1R1yzwK/iVB0aUg0KemUJs3d+QGsKU0JiOxSpiwU9vtwvBaXsJz/deIM3PGdpXHPF8NThtwqAfYW19RiZOl7z8d/o3zlECgqIJLloDQ24J9Mjty0VIw=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
-	bh=YdfK4Qp5Bx9gzFSwkUXW3KuZo6hwNcU1xldTy43PvIA=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: multipart/signed; boundary="nextPartGcDusM00RYWb_OsjnSb5mA";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+X-Last-TLS-Session-Version: TLSv1.3
 
-The GPI driver leaves the DMA device registered if OF controller
-registration fails, and leaves both registrations in place on unbind.
-Use the managed registration helpers so the OF controller and DMA
-device are unregistered before their backing storage is released.
+--nextPartGcDusM00RYWb_OsjnSb5mA
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: Ajit Singh <blfizzyy@gmail.com>
+Subject: Re: [PATCH v2 2/2] usb: typec: mux: tusb1046: Support no-hpd
+Date: Fri, 27 Nov 2026 12:04:07 +0100
+Message-ID: <8GefllIVTJGWT_cZWRnqVg@bootlin.com>
+In-Reply-To: <20261126093819.76480-3-blfizzyy@gmail.com>
+MIME-Version: 1.0
 
-This issue was found by our static analysis tool under development.
+On Thursday, 26 November 2026 10:38:19 CET Ajit Singh wrote:
+> When HPD_IN has no usable hardware signal, set HPDIN_OVERRIDE over
+> I2C in DisplayPort Alt Mode so the device treats HPD_IN as asserted.
+> Clear the override when leaving DisplayPort mode, and preserve the
+> existing register value on boards without no-hpd.
+> 
+> Signed-off-by: Ajit Singh <blfizzyy@gmail.com>
+> ---
+>  drivers/usb/typec/mux/tusb1046.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/drivers/usb/typec/mux/tusb1046.c
+> b/drivers/usb/typec/mux/tusb1046.c index 34ef81f75693..50a856c8245d 100644
+> --- a/drivers/usb/typec/mux/tusb1046.c
+> +++ b/drivers/usb/typec/mux/tusb1046.c
+> @@ -21,6 +21,7 @@
+>  /* General register bits */
+>  #define TUSB1046_GENERAL_FLIPSEL BIT(2)
+>  #define TUSB1046_GENERAL_CTLSEL  GENMASK(1, 0)
+> +#define TUSB1046_GENERAL_HPDIN_OVERRIDE BIT(3)
+> 
+>  /* Mux modes */
+>  #define TUSB1046_CTLSEL_DISABLED          0x0
+> @@ -32,6 +33,7 @@ struct tusb1046_priv {
+>  	struct i2c_client *client;
+>  	struct typec_switch_dev *sw;
+>  	struct typec_mux_dev *mux;
+> +	bool no_hpd;
+> 
+>  	/* Lock General register during accesses */
+>  	struct mutex general_reg_lock;
+> @@ -44,6 +46,7 @@ static int tusb1046_mux_set(struct typec_mux_dev *mux,
+>  	struct i2c_client *client = priv->client;
+>  	struct device *dev = &client->dev;
+>  	int mode, val, ret = 0;
+> +	bool dp_active = false;
+> 
+>  	if (state->mode >= TYPEC_STATE_MODAL &&
+>  	    state->alt->svid != USB_TYPEC_DP_SID)
+> @@ -67,9 +70,11 @@ static int tusb1046_mux_set(struct typec_mux_dev *mux,
+>  	case TYPEC_DP_STATE_C:
+>  	case TYPEC_DP_STATE_E:
+>  		mode = TUSB1046_CTLSEL_4LANE_DP;
+> +		dp_active = true;
+>  		break;
+>  	case TYPEC_DP_STATE_D:
+>  		mode = TUSB1046_CTLSEL_USB3_AND_2LANE_DP;
+> +		dp_active = true;
+>  		break;
+>  	case TYPEC_STATE_SAFE:
+>  	default:
+> @@ -80,6 +85,13 @@ static int tusb1046_mux_set(struct typec_mux_dev *mux,
+>  	val &= ~TUSB1046_GENERAL_CTLSEL;
+>  	val |= mode;
+> 
+> +	if (priv->no_hpd) {
+> +		if (dp_active)
+> +			val |= TUSB1046_GENERAL_HPDIN_OVERRIDE;
+> +		else
+> +			val &= ~TUSB1046_GENERAL_HPDIN_OVERRIDE;
+> +	}
+> +
+>  	ret = i2c_smbus_write_byte_data(client, TUSB1046_REG_GENERAL, val);
+> 
+>  out_unlock:
+> @@ -131,6 +143,7 @@ static int tusb1046_i2c_probe(struct i2c_client *client)
+> return -ENOMEM;
+> 
+>  	priv->client = client;
+> +	priv->no_hpd = device_property_read_bool(dev, "no-hpd");
+> 
+>  	mutex_init(&priv->general_reg_lock);
 
-Fixes: 5d0c3533a19f ("dmaengine: qcom: Add GPI dma driver")
+Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
 
-Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
----
-Changes in v2:
-  - Update the subject as requested by Frank Li.
-  - Align the managed OF registration call continuation.
 
- drivers/dma/qcom/gpi.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+--nextPartGcDusM00RYWb_OsjnSb5mA
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
-diff --git a/drivers/dma/qcom/gpi.c b/drivers/dma/qcom/gpi.c
-index 665d8a0bbaf8..f0cfc9b254f4 100644
---- a/drivers/dma/qcom/gpi.c
-+++ b/drivers/dma/qcom/gpi.c
-@@ -2293,14 +2293,14 @@ static int gpi_probe(struct platform_device *pdev)
- 	gpi_dev->dma_device.device_resume = gpi_resume;
- 
- 	/* register with dmaengine framework */
--	ret = dma_async_device_register(&gpi_dev->dma_device);
-+	ret = dmaenginem_async_device_register(&gpi_dev->dma_device);
- 	if (ret) {
- 		dev_err(gpi_dev->dev, "async_device_register failed ret:%d", ret);
- 		return ret;
- 	}
- 
--	ret = of_dma_controller_register(gpi_dev->dev->of_node,
--					 gpi_of_dma_xlate, gpi_dev);
-+	ret = devm_of_dma_controller_register(gpi_dev->dev, gpi_dev->dev->of_node,
-+					      gpi_of_dma_xlate, gpi_dev);
- 	if (ret) {
- 		dev_err(gpi_dev->dev, "of_dma_controller_reg failed ret:%d", ret);
- 		return ret;
+-----BEGIN PGP SIGNATURE-----
 
-base-commit: 2e02fb103be058cf8b2fb24112a74a2715e090f0
--- 
-2.43.0
+iQIzBAABCgAdFiEETFOGm0tqZfYwVxBymGofZEoxB4MFAmsJY6cACgkQmGofZEox
+B4OToA/+NznQcGmkDaz3HQCbsPpHI6YkQgmZWkwuc7o3KqaxOB5BZ8RAjCrSv1pp
+RghhPOq7K7tenje4+/bZX55ma03/BXAwd3Q3ubZ56ZJnxTBh9TwTPZuIXXFWRtbk
+os+M1o1fohvmtIMD6E8IBiQs44jwMgYNr/2ja+vSH+leP23MkdU7KdqOGO/M5wKA
+22Zbi+V1ELygCIZRPz+WSvVRUy3Mycc3e3axWlxgTa1MQ0HHx2A8SKq/bMD2e7TJ
+MfQNVwpYCLXp0ynWrafnfvPXzGXbb1siXOKBbXizykdU6jvnzhX7lY6LMKXGhwKs
+uQeuYa06B9p5mSVHcJanAlonPQ+KCbAJS3SU1MHwi4fH8P9bbI7tskhP8GCRGicg
+w2BGt6Lhk1ePf4XCNO1Sh/ya3TPfbbb2otSwn1YC33sxQQI3QhwzK5spgkty252C
+QLWlCKKHHJelBxSUWctfrjAwRxyyL67BgfBtUgaMaUg2MSV+e5fZ6e9N7tp/8i0J
+7fkFf3jymITze+7mqpFChxHRiyehqxdE8Fiu3004xuXPKUB9Vh+rU+14/w5Vd1EF
+uWEglHbv/XEow4Khawg8mStVkoaDOJ0Mi+/no9J6EJGQdwlJ/NpDmuM8fsL50bBH
+Nz4B6FW3VfgTCAGVekM+RiVsAIO7/98gDu95Xl4Pph9K0fpwN30=
+=q8hy
+-----END PGP SIGNATURE-----
+
+--nextPartGcDusM00RYWb_OsjnSb5mA--
+
+
 
