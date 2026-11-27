@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790181;
-	b=KR0B2jw+jSyu5EoU2ex8zrADljb9TpgVeQKH9XM10Ek4644e+3hZKbGyNWhoBSm5EMFA
-	 DOWSD8/KvkA4Z3QnaebHVuiKniokQqrIljdu0CvZG2XBO+iPrRolMu8hvIx5whWBuqiHa
-	 GWry4RenbVEEXdTb4+5RtuwZSr8TTms4f1h1fd0dXTg2X7F19uj2fLpvyTvpjVhz0dwb6
-	 CkjvrTEG3/5N1Ulw6k/KJp9+GQtnXp0iv4dMVQxJjwm4tIYNVUDcf2GtBm5hDMgQjb1b8
-	 jfSwpNLokuC8VniogFcJEOS+2++epvRqmNoIpdioBbUn4W266ie1WLFihY9cZdc9tug==
+	t=1795790177;
+	b=GgFd6uzWAWYeS0m1ICIOtZstlNsKa+mvwXtxftpvjDOiYp3yDDWu7cOeNC88YcK+JRjC
+	 2KGcaQ3Bsy3JGPzVJFQwGvaNneZEds1/lqx52h0wgQrbUX4ocK7htzY7h59fZ7xkiPZwG
+	 DD514a+ykj6tIdrD602B/j9t8x7L05yeG8bTYTTb4SNklGnyDg0QznS2pmT/VGewtOndI
+	 Fh+8Wgymd+Py2j+BWedYtlnhpl7SWiNw6GxXrAjreXxAmMlgnZVkMGSlBXFBf7BsGYaNq
+	 4Y5RW1N4fUQDD5Z/jYvD02S2t+7PcXrqFv43QD35W+aBvNkfNUq+SFCKmBfcnEhYOjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790181;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790177;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Ry99OMTiwFo0Y6L9H0f8fH9hxM/vVOZ9nU4+HYBhPMc=;
-	b=xIzNab7+o+Ew7t7A8/GjX42Kp+EvFQvhoI8p0DWM54D8p+Q5GEE4c8BddoRjRANaMHzt
-	 nEIWfRSzT9B6h1SSkbDLXsdiCMEFHut2z8NfR6pq9f3HcvMmAUno7htV4dYU1U9weBew8
-	 nqQTWHnvmBfaPpMvCkK6bpHKBcH5asN7ZAdoTAfM4VRhPxEj/6j0Ux6KtyUyptS3YlyLf
-	 aB01cjmCIR3O4PiDhbmlr3hKbXXOHrBLTOBhsevJHM2sTkNYPRWzxzqSPgFMgneJcUjMW
-	 0MiRKaawUjltUkqmpeJFixY/avnKvodqjjHFWA4QmQVelHZXv1d9QCGCAlR42NFlioQ==
+	bh=F/0ZXZ248yq4kJ5ThhFr2mxlWVc3QcOwqs4pgKtEuc0=;
+	b=LFuMSzDm2a42jakbi9KOJKNG40Zi3+QhpkWyOSuoQKc/JreHL86biY6BSUtUco72GG/J
+	 XSpTzYfXgp/6klQhH3O8d8VxKjdQBo5b8Lluld9Pkxd2Hc3Eg4hlu3w7LgV0nYxZ47mWy
+	 c3zySF48dHcaHVfMLYTDl9/mjsYjoi3gBJJ7iQosN41uQF26FMII7PwmgNe/tq9MxlyiV
+	 ZPyyslkisMLVYa2XRQ+G/8altApDDK0D94jDnZHIFSUJ14IjJYaFF9zIJiORcKM3IaEXR
+	 dds3M6MtUSxAl40FIG/gAEqLtk0PDfdKECF4gk7qRI8+8rceOx+iQowmJPVPMptaCZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=kJKqrX0H;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=iew95eVd;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9F7260A6F41;
-	Fri, 27 Nov 2026 14:36:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9F7260A6F41
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2B0F606A332;
+	Fri, 27 Nov 2026 14:36:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2B0F606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=kJKqrX0H
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=iew95eVd
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795790177;
-	bh=Ry99OMTiwFo0Y6L9H0f8fH9hxM/vVOZ9nU4+HYBhPMc=;
+	s=smtpout1; t=1795790175;
+	bh=F/0ZXZ248yq4kJ5ThhFr2mxlWVc3QcOwqs4pgKtEuc0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kJKqrX0HgzPcWkKygBH2pjubJ9APr8rVRg8RxX4o8mCuTTAhKPYVgWBkDraPjeY40
-	 3cnpsrKTSlOz4G5LEI3/9tSI8Q6qSZBzkEy+Qt+68f63GrjJgEC88LpzJ/k8mKarYe
-	 kXCx22jZsf6PtcZjvnPxbLO2AjZ0DweLZxg24KrpQkpxJG0yPT+Xc+TFqc2hjCFYXz
-	 JS4OMRRRohot3Ja23UtsklQr4Z3DmjR6ZrwDKzY4LIALynBDcFj0YtbDYH5MPnfH0H
-	 F7Diw19xZ3rb7rUTttKX21czeLv1tgU+Ayw3UYwo9L/GjzEtl1oVuNYwchwYfxjoyC
-	 8tUlWS8OFGLWw==
+	b=iew95eVdssUWc+QtfbGU6nJ2LZrkZ8cuEkhXAJKsPKCXYOs33hUitaYkSG3di7188
+	 v62Jiupl2+s1OIbEnNqVkwlVpXh2ccgqFHtVgTYJaems7xEmM6NJ2V8Foem12eYlkW
+	 4f0t9WFP+JxdzolwNemoitkZClhU3zWPWiMY4sKeDMAkGFF8ULu4iwJY3KXp7K/5VK
+	 Y6T44BQVlqAKcGhixLVX1KO1ji2kdmwZqhk8xeavM4oxfigqyaGgSrzNQdOWbx965t
+	 CWPQqg5mCDuyMf/J+DrLo0K3OJvDPR8RHWhBTG5UyhCOj+zwsIjoPdJzOVZEnjN8La
+	 yAtKj5ZKch7bQ==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbbZT1RcHzXZL;
-	Fri, 27 Nov 2026 09:36:17 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbbZR05czzXFV;
+	Fri, 27 Nov 2026 09:36:15 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -81,9 +81,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v12 21/43] rtmutex: Continue the chain walk when a waiter's deadline donor changes
-Date: Fri, 27 Nov 2026 09:35:48 -0500
-Message-ID: <4ff1888678bd9e45a325d1300c8642f665211faf.1795771148.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v12 09/43] sched: Make deadline policy and affinity changes wait for a cpuset attach
+Date: Fri, 27 Nov 2026 09:35:36 -0500
+Message-ID: <43274f50e7cf073b6e52908815fe1decdb62b914.1795771147.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
@@ -98,184 +98,280 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A task boosted by a SCHED_DEADLINE waiter runs on the parameters of a
-donor, dl.pi_se. The top waiter can itself be a boosted task without
-deadline parameters of its own. So the donor follows the chain since
-commit 2279f540ea7d ("sched/deadline: Fix priority inheritance with
-multiple scheduling classes"). rt_mutex_setprio() copies the donor of
-the top waiter to the owner. The owner at the end of a chain then
-points at the deadline task at its head. That task waits on no lock the
-owner holds.
+__sched_setscheduler() takes cpuset_mutex for a change that involves
+SCHED_DEADLINE. Commit 710da3c8ea7d ("sched/core: Prevent race condition
+between cpuset and __sched_setscheduler()") added that lock. It keeps
+the cpuset code from changing the root domains while the deadline
+admission test runs.
 
-The chain walk stops at a task whose waiter has the same sort keys as
-the task: the priority and the deadline. Then "there is no further
-priority adjustment necessary". Before 2279f540ea7d, this was enough.
-The refill read the parameters of the owner's own top waiter, which is
-blocked and so alive.
+But a cpuset attach drops cpuset_mutex between cpuset_can_attach() and
+cpuset_attach(). A sched_setattr() can run in between. Take a process
+in the root cgroup. It has deadline threads, and a thread T that is not
+a deadline task. The process is moved into a partition root P:
 
-But the donor of a blocked task can change while its keys stay the
-same. The task keeps a deadline priority. It sleeps, so no refill
-moves its deadline. The walk then stops one lock too early, and the
-next owner keeps the old donor. Three changes do this:
-- A boost by a waiter with an earlier deadline than the current
-  donor. The diagram below shows it.
-- A deboost. A deadline task, boosted by a waiter with an earlier
-  deadline, blocks on a second lock. When that waiter leaves,
-  rt_mutex_setprio() makes the task its own donor again.
-- A policy change in __setscheduler_dl_pi(). rt_mutex_adjust_pi() then
-  skips the walk.
+  echo PID > P/cgroup.procs              sched_setattr(T, SCHED_DEADLINE)
 
-M and O are SCHED_OTHER tasks. W and Z are SCHED_DEADLINE tasks. Z has
-the earlier deadline. L1, L1' and L2 are rt_mutexes:
+  cpuset_can_attach()
+    lock cpuset_mutex
+    reserve room in P for the deadline
+      threads: T is not one of them
+    unlock cpuset_mutex
+                                         lock cpuset_mutex
+                                         admit T in the root domain it
+                                           is still in
+                                         unlock cpuset_mutex
+  cpuset_attach()
+    lock cpuset_mutex
+    move T to P, where nothing is
+      reserved for it
+    unlock cpuset_mutex
 
-  O            M                       W                       Z
+The attach still moves the bandwidth of T. It is freed in the root
+domain T left, and P has no room reserved to count it. No root domain
+counts it any more, and P can admit deadline tasks beyond its capacity.
+In testing, P was a one-CPU partition root, which admits 95%. With two
+deadline threads of 20% and a T of 30%, P then admitted five more tasks
+of 10%, where it had room for two.
 
-  locks L2     locks L1 and L1'
-                                       blocks on L1'
-                                         rt_mutex_setprio(M, W)
-                                           M->dl.pi_se = &W->dl
-               blocks on L2
-                 rt_mutex_setprio(O, M)
-                   O->dl.pi_se = &W->dl
-                                                               blocks on L1
-                                                                 rt_mutex_setprio(M, Z)
-                                                                   M->dl.pi_se = &Z->dl
-                                                                 chain walk at M:
-                                                                   keys equal, stops
-                                       times out on L1'
-                                       exits
+Fix this by making these calls wait until no cpuset attach is in
+progress:
+ - sched_setattr() and sched_setscheduler() on a deadline task
+ - sched_setattr() that makes a task a deadline task
+ - sched_setaffinity() on a deadline task
 
-O runs on W's parameters, with a later deadline than Z's, while Z waits
-for it. After W exits, O's next refill would read W's freed task_struct.
-Setting up the deadline tasks needs CAP_SYS_NICE. The timeout of a
-FUTEX_LOCK_PI needs no privilege.
+They take cpuset_mutex only when no attach is in progress, as
+cpuset_partition_write() and cpuset_hotplug_update_tasks() already do.
+A policy change then comes before the attach and is part of its
+reservation, or comes after it.
 
-Fix this by recording the donor in the waiter with the sort keys, in
-waiter_update_prio(). rt_waiter_up_to_date() compares both. The walk and
-rt_mutex_adjust_pi() use it. A new donor then takes the walk on to the
-next owner, and rt_mutex_setprio() gives that owner the new donor. The
-waiter's copy is only compared, never dereferenced. A task without a
-deadline priority is always its own donor, so its walks do not change.
+sched_setaffinity() needs the wait for a later patch of this series,
+"cgroup/cpuset: Reserve the bandwidth in the root domain a task moves
+to". That patch reserves the bandwidth of the task on one CPU of its
+new affinity, and records that CPU with the task. A new affinity in
+between could leave that CPU out. cpuset_attach() would then move no
+bandwidth, and the task would stay counted in the root domain it left.
 
-A known limit remains. A walk records the donor of a blocked task in
-its waiter, then drops the pi_lock of that task. At the owner of the
-next lock, rt_mutex_setprio() reads that donor again, without that
-pi_lock. A new waiter of the task can change the donor in between. A
-sched_setattr() can then change it back, before the walk of the new
-waiter passes. Both walks then find the waiter up to date, and stop
-requeueing there. The owner would keep the donor of the new waiter
-until a later change of the chain. This can happen on a chain of two
-locks. "sched/deadline: Hold a reference on the deadline donor of a
-boosted task", later in this series, keeps the task_struct of that
-donor alive. This was found by reading.
+sched_setaffinity() tests the policy with no lock, before it decides to
+wait. A sched_setattr() can make the task a deadline task right after
+that test. The new SCA_DL_NOWAIT flag tells __set_cpus_allowed_ptr()
+that the caller did not wait. It then tests the policy again under the
+runqueue lock, where the mask changes. For a deadline task, it returns
+-EAGAIN, and sched_setaffinity() starts over and waits.
 
-The case pi_chain_top_moves of deadline_bw_test, added later in this
-series, needs this patch and the next one. If one of the two is
-missing, another deadline task gets 30ms of 200ms in every run, in
-place of 60ms. With both, it passes. The older case
-pi_chain_donor_leaves has W leave SCHED_DEADLINE in place of exiting.
-It passes on v7.4-rc2, and without this patch.
+After a race with a cpuset update, __sched_setaffinity() sets the mask a
+second time, within the cpuset. That second change cannot start over.
+So it clears SCA_DL_NOWAIT and waits for an attach itself. It reads the
+cpuset mask again after the wait, since the attach can move the task.
 
-The Sashiko AI review of this series found the deboost case.
+For user-space, the calls listed above can now wait for the move of any
+process. The wait is not interruptible: a signal does not end it.
+Outside that window, the results of these calls are unchanged. When P
+has no room for the three threads, the move and the sched_setattr() no
+longer both succeed:
+ - If the sched_setattr() comes first, the move fails with EBUSY.
+ - If it comes after, sched_setattr() asks P for room, and fails with
+   EBUSY.
 
-Fixes: 2279f540ea7d ("sched/deadline: Fix priority inheritance with multiple scheduling classes")
+Four cases, added to deadline_bw_test later in this series, test this:
+ - move_became_deadline: the case above, with room in P. It fails
+   without this patch.
+ - move_became_deadline_no_room: two threads of 30% and a T of 40%.
+   Without this patch, the move and the sched_setattr() both succeeded.
+ - move_affinity_changed fails once the bandwidth is reserved on one
+   CPU, if sched_setaffinity() does not wait.
+ - move_affinity_became_deadline covers the second test of the policy.
+   Its window is a few instructions wide. A delay added after the first
+   test, for testing only, widens it. The case then fails without the
+   second test in 3 guests of 3. It passes with it.
+
+Fixes: 710da3c8ea7d ("sched/core: Prevent race condition between cpuset and __sched_setscheduler()")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: stable@vger.kernel.org # v5.15+
+Cc: stable@vger.kernel.org
 ---
- kernel/locking/rtmutex.c        | 22 ++++++++++++++++++++--
- kernel/locking/rtmutex_api.c    |  2 +-
- kernel/locking/rtmutex_common.h |  3 +++
- 3 files changed, 24 insertions(+), 3 deletions(-)
+ include/linux/cpuset.h  |  2 ++
+ kernel/cgroup/cpuset.c  | 11 ++++++++
+ kernel/sched/core.c     | 10 +++++++
+ kernel/sched/sched.h    |  2 ++
+ kernel/sched/syscalls.c | 59 +++++++++++++++++++++++++++++++++++------
+ 5 files changed, 76 insertions(+), 8 deletions(-)
 
-diff --git a/kernel/locking/rtmutex.c b/kernel/locking/rtmutex.c
-index 5a9534c715b8..c78dfe9c93fc 100644
---- a/kernel/locking/rtmutex.c
-+++ b/kernel/locking/rtmutex.c
-@@ -369,10 +369,12 @@ static __always_inline void
- waiter_update_prio(struct rt_mutex_waiter *waiter, struct task_struct *task)
- {
- 	lockdep_assert_held(&waiter->lock->wait_lock);
-+	lockdep_assert_held(&task->pi_lock);
- 	lockdep_assert(RB_EMPTY_NODE(&waiter->tree.entry));
- 
- 	waiter->tree.prio = __waiter_prio(task);
- 	waiter->tree.deadline = task->dl.deadline;
-+	waiter->pi_se = task->dl.pi_se;
+diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+index db1cc2fc0324..5d0c01a25354 100644
+--- a/include/linux/cpuset.h
++++ b/include/linux/cpuset.h
+@@ -73,6 +73,7 @@ extern void cpuset_init_smp(void);
+ extern void cpuset_force_rebuild(void);
+ extern void cpuset_update_active_cpus(void);
+ extern void cpuset_lock(void);
++extern void cpuset_lock_no_attach(void);
+ extern void cpuset_unlock(void);
+ extern void lockdep_assert_cpuset_lock_held(void);
+ extern void cpuset_cpus_allowed_locked(struct task_struct *p, struct cpumask *mask);
+@@ -192,6 +193,7 @@ static inline void cpuset_update_active_cpus(void)
  }
  
- /*
-@@ -433,6 +435,21 @@ static __always_inline int rt_waiter_node_equal(struct rt_waiter_node *left,
- 	return 1;
+ static inline void cpuset_lock(void) { }
++static inline void cpuset_lock_no_attach(void) { }
+ static inline void cpuset_unlock(void) { }
+ static inline void lockdep_assert_cpuset_lock_held(void) { }
+ 
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 51b6be460794..ce9c57617f49 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -378,6 +378,17 @@ static void wait_attach_done_lock(void)
+ 	}
  }
  
-+/*
-+ * Return true if @waiter is up to date with its task @task. Compare the
-+ * sort keys and the deadline donor, which rt_mutex_setprio() copies from
-+ * @task to the lock owner. A boost or a deboost of @task can change its
-+ * donor and leave its keys as they were. The owner must then get the new
-+ * donor: the old one can exit. The caller holds @task->pi_lock, which
-+ * protects @task->dl.pi_se. @waiter->pi_se is never dereferenced.
++/**
++ * cpuset_lock_no_attach - Acquire cpuset_mutex with no task attach in progress
++ *
++ * A task attach drops cpuset_mutex between cpuset_can_attach() and
++ * cpuset_attach(). Use this to keep a change out of that window.
 + */
-+static __always_inline bool
-+rt_waiter_up_to_date(struct rt_mutex_waiter *waiter, struct task_struct *task)
++void cpuset_lock_no_attach(void)
 +{
-+	return rt_waiter_node_equal(&waiter->tree, task_to_waiter_node(task)) &&
-+	       waiter->pi_se == task->dl.pi_se;
++	wait_attach_done_lock();
 +}
 +
- static inline bool rt_mutex_steal(struct rt_mutex_waiter *waiter,
- 				  struct rt_mutex_waiter *top_waiter)
+ static inline void check_insane_mems_config(nodemask_t *nodes)
  {
-@@ -824,12 +841,13 @@ static int __sched rt_mutex_adjust_prio_chain(struct task_struct *task,
- 
- 	/*
- 	 * If the waiter priority is the same as the task priority
--	 * then there is no further priority adjustment necessary.  If
-+	 * then there is no further priority adjustment necessary. The
-+	 * task must also pass on the same deadline donor.  If
- 	 * deadlock detection is off, we stop the chain walk. If its
- 	 * enabled we continue, but stop the requeueing in the chain
- 	 * walk.
- 	 */
--	if (rt_waiter_node_equal(&waiter->tree, task_to_waiter_node(task))) {
-+	if (rt_waiter_up_to_date(waiter, task)) {
- 		if (!detect_deadlock)
- 			goto out_unlock_pi;
- 		else
-diff --git a/kernel/locking/rtmutex_api.c b/kernel/locking/rtmutex_api.c
-index eb18b094473c..6bdbd36bac94 100644
---- a/kernel/locking/rtmutex_api.c
-+++ b/kernel/locking/rtmutex_api.c
-@@ -510,7 +510,7 @@ void __sched rt_mutex_adjust_pi(struct task_struct *task)
- 	raw_spin_lock_irqsave(&task->pi_lock, flags);
- 
- 	waiter = task->pi_blocked_on;
--	if (!waiter || rt_waiter_node_equal(&waiter->tree, task_to_waiter_node(task))) {
-+	if (!waiter || rt_waiter_up_to_date(waiter, task)) {
- 		raw_spin_unlock_irqrestore(&task->pi_lock, flags);
- 		return;
+ 	if (!cpusets_insane_config() &&
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index bd5f3dfa50ac..c0a714dde425 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -3195,6 +3195,16 @@ static int __set_cpus_allowed_ptr_locked(struct task_struct *p,
+ 		goto out;
  	}
-diff --git a/kernel/locking/rtmutex_common.h b/kernel/locking/rtmutex_common.h
-index c38b7bdea7b3..c0f391c352e3 100644
---- a/kernel/locking/rtmutex_common.h
-+++ b/kernel/locking/rtmutex_common.h
-@@ -43,6 +43,8 @@ struct rt_waiter_node {
-  * @pi_tree:		node to enqueue into the mutex owner waiters tree
-  * @task:		task reference to the blocked task
-  * @lock:		Pointer to the rt_mutex on which the waiter blocks
-+ * @pi_se:		The deadline donor of @task when @tree was last updated.
-+ *			Only compared, never dereferenced.
-  * @wake_state:		Wakeup state to use (TASK_NORMAL or TASK_RTLOCK_WAIT)
-  * @ww_ctx:		WW context pointer
-  *
-@@ -54,6 +56,7 @@ struct rt_mutex_waiter {
- 	struct rt_waiter_node	pi_tree;
- 	struct task_struct	*task;
- 	struct rt_mutex_base	*lock;
-+	struct sched_dl_entity	*pi_se;
- 	unsigned int		wake_state;
- 	struct ww_acquire_ctx	*ww_ctx;
- };
+ 
++	/*
++	 * sched_setaffinity() tested the policy with no lock, and did not
++	 * wait for a cpuset attach in progress. @p became a deadline task
++	 * since: let the caller wait and try again.
++	 */
++	if ((ctx->flags & SCA_DL_NOWAIT) && task_has_dl_policy(p)) {
++		ret = -EAGAIN;
++		goto out;
++	}
++
+ 	/*
+ 	 * Check under the same lock that __sched_setscheduler() holds for
+ 	 * its admission test, so that p cannot become SCHED_DEADLINE
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 61c73c7d3f27..f4cd35811b96 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -2975,6 +2975,8 @@ extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
+ #define SCA_DL_CHECK		0x10
+ /* The caller made room for the deadline bandwidth in the new root domain. */
+ #define SCA_DL_BW_RESERVED	0x20
++/* The caller did not wait for a cpuset attach: -EAGAIN for a deadline task. */
++#define SCA_DL_NOWAIT		0x40
+ 
+ extern void update_group_capacity(struct sched_domain *sd, int cpu);
+ 
+diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+index 41c568fc514e..4e0e6a326e5b 100644
+--- a/kernel/sched/syscalls.c
++++ b/kernel/sched/syscalls.c
+@@ -564,10 +564,15 @@ int __sched_setscheduler(struct task_struct *p,
+ 	 * information. Do not take cpuset_mutex when pi is unset: the
+ 	 * caller is normalize_rt_tasks(), which holds tasklist_lock and
+ 	 * cannot sleep.
++	 *
++	 * Wait for a task attach in progress. cpuset_can_attach() reserved
++	 * the bandwidth of the deadline tasks it saw, and cpuset_attach()
++	 * moves them. A task that enters or leaves the class in between
++	 * would not match that reservation.
+ 	 */
+ 	if (pi && (dl_policy(policy) || dl_policy(p->policy))) {
+ 		cpuset_locked = true;
+-		cpuset_lock();
++		cpuset_lock_no_attach();
+ 		dl_accounting_lock();
+ 	}
+ 
+@@ -1254,6 +1259,23 @@ int __sched_setaffinity(struct task_struct *p, struct affinity_context *ctx)
+ 
+ 	cpuset_cpus_allowed(p, cpus_allowed);
+ 	if (!cpumask_subset(new_mask, cpus_allowed)) {
++		bool locked = false;
++
++		/*
++		 * A sched_setattr() may have made @p a deadline task since
++		 * the first call. SCA_DL_NOWAIT would then skip the second
++		 * call. Wait for a cpuset attach in progress instead, as
++		 * sched_setaffinity() does for a deadline task. That attach
++		 * can move @p to another cpuset: read its mask again after
++		 * the wait.
++		 */
++		if (ctx->flags & SCA_DL_NOWAIT) {
++			ctx->flags &= ~SCA_DL_NOWAIT;
++			cpuset_lock_no_attach();
++			locked = true;
++			cpuset_cpus_allowed(p, cpus_allowed);
++		}
++
+ 		/*
+ 		 * We must have raced with a concurrent cpuset update.
+ 		 * Just reset the cpumask to the cpuset's cpus_allowed.
+@@ -1282,6 +1304,8 @@ int __sched_setaffinity(struct task_struct *p, struct affinity_context *ctx)
+ 		 */
+ 		ctx->flags &= ~SCA_DL_CHECK;
+ 		__set_cpus_allowed_ptr(p, ctx);
++		if (locked)
++			cpuset_unlock();
+ 		retval = -EINVAL;
+ 	}
+ 
+@@ -1297,6 +1321,7 @@ long sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+ 	struct affinity_context ac;
+ 	struct cpumask *user_mask;
+ 	int retval;
++	bool dl;
+ 
+ 	CLASS(find_get_task, p)(pid);
+ 	if (!p)
+@@ -1326,13 +1351,31 @@ long sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+ 		return -ENOMEM;
+ 	}
+ 
+-	ac = (struct affinity_context){
+-		.new_mask  = in_mask,
+-		.user_mask = user_mask,
+-		.flags     = SCA_USER,
+-	};
+-
+-	retval = __sched_setaffinity(p, &ac);
++	/*
++	 * Wait for a cpuset attach in progress before changing the affinity
++	 * of a deadline task. cpuset_can_attach() reserved the bandwidth of
++	 * the task for the CPUs it moves to, and cpuset_attach() moves it
++	 * there. A new affinity in between could change those CPUs.
++	 *
++	 * The policy is tested here with no lock. A task that becomes a
++	 * deadline task after this test is found under its runqueue lock,
++	 * with SCA_DL_NOWAIT. Wait and try again then.
++	 */
++	for (;;) {
++		dl = task_has_dl_policy(p);
++		ac = (struct affinity_context){
++			.new_mask  = in_mask,
++			.user_mask = user_mask,
++			.flags     = SCA_USER | (dl ? 0 : SCA_DL_NOWAIT),
++		};
++		if (dl)
++			cpuset_lock_no_attach();
++		retval = __sched_setaffinity(p, &ac);
++		if (dl)
++			cpuset_unlock();
++		if (dl || retval != -EAGAIN)
++			break;
++	}
+ 	kfree(ac.user_mask);
+ 
+ 	return retval;
 -- 
 2.47.3
 
