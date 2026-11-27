@@ -1,50 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770427;
-	b=ImfD0mFy9qyoxBF6wYf2yFSzmU8ja6ZXyQ4ZfZMM7MB+xgVnhHbtj5hgCUgi8ubuKDCg
-	 GDzXD+lYV+QZWAaGzz/gginCD3jRLNqX7+UIkF8ZRJqTH2MDhe8iQMksStDYCj8hhAzSk
-	 8vU0yCzb/r/R9Q+Ao49972wH9FevaHgePIxrT5GO2cCZ9lLZuegit3+/JL1gluXqPelmn
-	 sJQa4po/1XgTVmXeY46qtYOacYfefFOWN2x8XjgRmVp93pidEXwu9FYvo+LgbAGtrE8MD
-	 LnRKXHK5IvmdsbTH5nM8wEGlEv6LvbJyF2CGh3mi5JS8l0WCS/MMgQ9i4RtcSwKSihw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770427;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=NXCYAJxsQbgh2UjiFPTabP51WfJqGvz/GwVf98o9QN8=;
-	b=OKELE/fRqW4qZkCZd91FT+jfijEX/aAagUFoL0G5ZVY8Kq4U9AfPx+LQdGEbwEaQsrNQ
-	 sg8lpGyhFKudpQz9v8/Hd4AJQyj0sI/thc5S/6Q2f0+XFm8CQSqcGYDb8Pc816fmaZz8S
-	 WTasGUrs1K65Xi6KDoywk6UnaS/+CFhXyKDFsfrVSOBwlkSA/cB/XY1nP/5Hm8L2A5r/8
-	 8fUNjWzX5C4bpDvMhTCCYED4uDsNwC2u8FauNNwunWhaeISNHCMXgSmB11tlF2g9wvfwA
-	 9RSpF6od1oGhu637eiXkUOgsoDBP/K/BwfxENulHjMC/fz5wS0Ndqce08MIwMGVOXKw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=qHBhc1Qm;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.181
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795770428;
+	b=kGInyqQBlnpHxy917c0i2fnNIsnu+Lf3n6/eL+iKaU50+ubhpyjIgXxZBrAA1M0ugILw
+	 HCfAg1WrSpBRxkFiogS61dNz/GfU2nrOLx1uiV8Sq8mg1qAvt6qYroG2jG+LGy8pvKpE3
+	 PP98FUFDOeBNNorDDVq+d1CNYqiB6vw9R/hYzbPU4clzp2QwMNxeNuBkcGWLM9HADM1pw
+	 sYYCXLUvq4TuhQ2mWhREmEF8OKFRTRMp3AqBR2EYLoIqqk31MtDKAjHUjqGzWWFgz5x91
+	 A+/M6lsK4h3AouotJ/hADgV8PFbhpP6a7SZ6XzR57QCqyzltG3YT8aea7sGcyPJ2B6g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770428;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=6H4dcPiNwtNqTPtP0IJs0JFDcABvS0AB4nns+YiLCVQ=;
+	b=AEdufRseXBe4iEFYOFjNGKCJCfgMz9v79DbyaAx9G7CLiT1hJ3/ZOIS1Jm7hjjmV87V1
+	 x/A1D88nivdAMKUG3re7oDiWfdsml4bRUCNh1W1Ib8GJi2i86CaOmYBTt7WBJoSUk5fbE
+	 Iw30OsqWzOKwh5njJ15Nrf1lGsgM6N7/+LdiD4X4hNkREKhfZdPiM2I8NNUtbBAhlK51T
+	 UnPsYSy6jtkdo4jmrYDQi1sIuDxXBLaNbLVxsISrQKj/nYZGdJIjOr+Qw7Mk/kJcsxzOg
+	 obFwk6e/WoA9nEEFn6A6vqZLiQezWx7yH8Ax0drUP2yxHR23/sD97Hrg/oPLNMQB8bw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WUkXZndU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 291C6606A31C;
-	Fri, 27 Nov 2026 09:07:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 291C6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5927606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:07:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5927606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=qHBhc1Qm
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 18C44BA;
-	Fri, 27 Nov 2026 10:04:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795770262;
-	bh=IyB6MEpvfevxD6X3VEaRcGsC0fCwQLyTFTNTgaTGi2g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qHBhc1QmMoT+YmmTHHfMT6i4l8vyhVWqeEC6VaYsQO6HWvMXNrOcknztWaeW9dGPc
-	 lCrFaU8/LsGOWNYkJSlkIumBGiDkf9a1YpHYcXJ+NHpkNvHMvmhgWboUldrodQJl+i
-	 lPpTpNMEaYGqNL7f2jWIb/C/Z9+u77QC35+EhA/I=
-Message-ID: <4fbeef8c-1dc8-4cac-a4af-835037c3dc4b@ideasonboard.com>
-Date: Fri, 27 Nov 2026 11:06:53 +0200
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WUkXZndU
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-38699cf08dfso9781073eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:07:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795770427; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UJ8xRD0EmsvMyYq1hNQg8ShfzUMISYL+XCCA2rmnPr0qY7F90EXhqXKmuc2pbbYVvP
+         yLGHLSp5hxc2CQdgmSpIT3OKaFGSHlh4km47CrXduyB9POUnKAW4BkRrrYnZgPQjqNhC
+         5cl2tISHhHXr1AgQm/ls8vO0j4avJVT2L40036hgFjvyWHhtP0liiueyhD+mZ++TtX8s
+         MSVeUrnJJXxN//SnOlFpxDKb/qOxhLnjxoXHsQsZ+lMMt1ICTvNb0Z3J9LkSfP97u5yF
+         3PVcRUP432VsTm0v3C4CyQh+NAUmV5Rxdk5FkKD+6JPaG60lF748qVYgM8GNOKqJG8w2
+         +x8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6H4dcPiNwtNqTPtP0IJs0JFDcABvS0AB4nns+YiLCVQ=;
+        fh=rabu8nCR7ELDckMRX638YIQ/EV9x/aMo2l3PHG2oM6E=;
+        b=S0tGq972h9cyLuySsH+zBBr2Tx/W+PjqoRY/sxsgEJsq5YhBNJInLITeGvB9fqPHVh
+         Fn3MnEQE6MQeyTzj5yfULJzj7vKuNHGl4Bm4jY/h9AJbDwQiRB9MBwhtqaDKNYHfYQKR
+         Ke845r2R0+lZvl2qdJxiTDNaPE61lUHVf3Apo+V7zkL0G27+S8LhPuekQ7TcTaXo27cP
+         Oipz/9nrcLB8ajKyoSvVs+AoQhNEDz6ZkHRrYILN09nH+2I2ZuA2GDB7k9Q2M6e/4o6F
+         rnii63DUvz0ybqku4cVP2a5NI4OvoWaGNA6loZM7xiAA1raHnUc9dPBoyj9I8QaFMEM+
+         y5eg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795770427; x=1796375227; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6H4dcPiNwtNqTPtP0IJs0JFDcABvS0AB4nns+YiLCVQ=;
+        b=WUkXZndU5vztGay4OyxxYahZGc2X2LJGoDUh6lxxFp4PLh1+SI5+RFt4bADUtnHa9I
+         K9/f05vCxJvLop4V+FOH7c1slIvzFOc9LdiTFJsa+d9w7h4pNdjDhuAoy5O2o0JR521O
+         ItGbOMsWDpymKKAoyolrjcmXkEiA/ikVF4dA6k26SjoP4K3EhcFrHWA65+M2XhGp7i7m
+         TIUziDc90Af4jQnAy9WTLBcAftH+4MfiknxxCOgDh/gLv5AL9SWQ66Dbh+DZDq7XdQOr
+         3MihB85sPcrBtIQHPVmb/XJj8/mYooa8E4PxzAWtHjYcZiSh2qEuVbNv3ZU32YdTFDOu
+         KCBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795770427; x=1796375227;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6H4dcPiNwtNqTPtP0IJs0JFDcABvS0AB4nns+YiLCVQ=;
+        b=PTaRZKA3o0K2gUhDHgt1A8jxZplNVDNLlQL93AdTATibDQwf/VChjZDmGsvvu/ovNc
+         EEyud/OBhjKi/XXeRxZpdjoLt2JHcA/IomyRjOvManhYUQtuDUNMUFxOOd9GcDGqmYw9
+         06oqoABR7/+Ubx/okhh1gCydH2U6z/sGjSGFZva6BfnpNY7w9QR+cPG2pRTwwjp8/0xk
+         9SJnfdkitILiklNdpbx0MrDCd/vi8SmQT8Ukwbm/CEHq1bJ67Y4ES31i5D++idb1a7DZ
+         qfohKcdG2bLVkaoDvNgNI3EFPn8GbbPFS4ZCaWVJkYj9IV4MsEIIWniakdv8SVqvG0VO
+         Bt+w==
+X-Forwarded-Encrypted: i=1; AL+hErFG/GohqjVwPLMJln5btHJp9vqrNW23ila5lXXTmco/jgZ67P2r+XVOCqC4nYWPOnYloWRSweIvuh8JCr4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yAlC4jygexPKGiYMk4BhW67LtvtDEWMSX/VOm/S5z0B2zMMPP
+	jt3HjjOD4hDCKC7o3seteYCg1hRZIraa+NOlNb6ANp+BtYwP1pHJEKolv5Xl2BjupBaRxEe3GF5
+	pQdLkoltmNjmTQY2cf71vzFDbs3sGjNA=
+X-Gm-Gg: AZFdTZf31zfarkrHyYVpdq5ZlzUOhP1+zykvOYp0hoj01ZKh3K1cB/zGfF/Xj26LHjy
+	FZdossIV8kv/405vlhAhXAJzB7kBBS3rwZ2A7zg5bFPDOr2V9yTOpgnjuP8Zq/l3Ilfno51KE4Z
+	DRIDedtuF8Z/w7+l8Qi3Q2wqCbysulf9OKBII2ylKxtsfHWifrkmNcwMPKfIqhak1A5OSd7EQHA
+	x9sHGelOhUBahWPKfUXvz7lN3a6N2P+p8F6ZlnFUsoVoIFMqwp3LMuRlu9ZPEGMmpQGmHmtZJ3v
+	zMAr0lS58AqvCoDVmAozb/Mr3KFlYhA8akN6zH7lurk/5AocKr1awQ/ASME4eloW5HofjQ/mfkH
+	ocABkTQFoKDuNXiEOoVt8NH79cndK+wfi4NGBmOfEeL1+wvELElD1jrogh1HCLpYktv03cn1EDX
+	AEkQnt33O2S8p7oHWlH2sg2nAEOdVR0vTigXllf1BacYKR/6UOV74=
+X-Received: by 2002:a05:7300:7c08:b0:384:3123:a0cb with SMTP id
+ 5a478bee46e88-3856ff5b880mr37174086eec.27.1795770426652; Fri, 27 Nov 2026
+ 01:07:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,153 +105,633 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: core: Add genpd_dev_pm_attach_by_node()
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@kernel.org>,
- Len Brown <lenb@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>,
- Ulf Hansson <ulfh@kernel.org>, Devarsh Thakkar <devarsht@ti.com>,
- linux-pm@vger.kernel.org, driver-core@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261023-pm_attach_by_node-v1-1-4dbaccdf8b0e@ideasonboard.com>
- <CAPx+jO_FC1t_UaDfQDPOCy+V-Zdc1b5h5krrppGvYiW-LsD3LQ@mail.gmail.com>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <CAPx+jO_FC1t_UaDfQDPOCy+V-Zdc1b5h5krrppGvYiW-LsD3LQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261122081820.53199-1-clamor95@gmail.com> <20261122081820.53199-2-clamor95@gmail.com>
+ <tWBq0CmbQN-l5IJnxter_A@nvidia.com>
+In-Reply-To: <tWBq0CmbQN-l5IJnxter_A@nvidia.com>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Fri, 27 Nov 2026 11:06:54 +0200
+X-Gm-Features: Aa3M54qofa0pqiM1Dvoc66ojfiJZlQDUZe0zEd9SwZRHvUIcdW_EA1BtcZ2GzCQ
+Message-ID: <CAPVz0n2G2Bw6xyD4zYrEWNZj-SMGXLUeUFOHU6PBy_vketU_JQ@mail.gmail.com>
+Subject: Re: [PATCH v8 01/12] drm: Add MIPI DBI bus support for MIPI DBI Type
+ A and B
+To: Mikko Perttunen <mperttunen@nvidia.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+=D0=BF=D1=82, 27 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 06:1=
+6 Mikko Perttunen <mperttunen@nvidia.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
+> > The MIPI DBI bus allows modeling DBI hosts and peripherals using the Li=
+nux
+> > driver model. DBI hosts are registered by their respective drivers. Dur=
+ing
+> > registration, DBI peripherals are created from the device tree nodes
+> > provided by the host.
+> >
+> > DBI hosts expose operations that can be used by peripheral drivers to
+> > access associated devices.
+> >
+> > This implementation adds support for MIPI DBI Type A and Type B only.
+> > Type C support existing in drm_mipi_dbi.c was not altered. The framewor=
+k
+> > is modeled to closely resemble the existing MIPI DSI setup for seamless
+> > integration.
+> >
+> > Suggested-by: Mikko Perttunen <mperttunen@nvidia.com> # preliminary ske=
+tch
+> > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> > ---
+> >  drivers/gpu/drm/Makefile           |   2 +-
+> >  drivers/gpu/drm/drm_mipi_dbi_bus.c | 287 +++++++++++++++++++++++++++++
+> >  include/drm/drm_mipi_dbi_bus.h     | 148 +++++++++++++++
+> >  3 files changed, 436 insertions(+), 1 deletion(-)
+> >  create mode 100644 drivers/gpu/drm/drm_mipi_dbi_bus.c
+> >  create mode 100644 include/drm/drm_mipi_dbi_bus.h
+> >
+> > diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+> > index 2c6bc093a923a..880f0dc930b85 100644
+> > --- a/drivers/gpu/drm/Makefile
+> > +++ b/drivers/gpu/drm/Makefile
+> > @@ -166,7 +166,7 @@ obj-$(CONFIG_DRM_KMS_HELPER) +=3D drm_kms_helper.o
+> >
+> >  obj-y                        +=3D tests/
+> >
+> > -obj-$(CONFIG_DRM_MIPI_DBI) +=3D drm_mipi_dbi.o
+> > +obj-$(CONFIG_DRM_MIPI_DBI) +=3D drm_mipi_dbi.o drm_mipi_dbi_bus.o
+> >  obj-$(CONFIG_DRM_MIPI_DSI) +=3D drm_mipi_dsi.o
+> >  obj-y                        +=3D arm/
+> >  obj-y                        +=3D clients/
+> > diff --git a/drivers/gpu/drm/drm_mipi_dbi_bus.c b/drivers/gpu/drm/drm_m=
+ipi_dbi_bus.c
+> > new file mode 100644
+> > index 0000000000000..4b51de5bdf0b5
+> > --- /dev/null
+> > +++ b/drivers/gpu/drm/drm_mipi_dbi_bus.c
+> > @@ -0,0 +1,287 @@
+> > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > +/*
+> > + * MIPI DBI devices with command transport through parallel interface
+> > + *
+> > + * Copyright 2026 Mikko Perttunen <mperttunen@nvidia.com>
+> > + * Copyright 2026 Svyatoslav Ryhel <clamor95@gmail.com>
+> > + */
+> > +
+> > +#include <linux/err.h>
+> > +#include <linux/init.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_device.h>
+> > +#include <linux/pm_runtime.h>
+> > +#include <linux/slab.h>
+> > +
+> > +#include <drm/drm_mipi_dbi.h>
+> > +#include <drm/drm_mipi_dbi_bus.h>
+> > +
+> > +/**
+> > + * DOC: overview
+> > + *
+> > + * There are three MIPI DBI implementation types:
+> > + *
+> > + * A. Motorola 6800-type parallel bus
+> > + *
+> > + * B. Intel 8080-type parallel bus
+> > + *
+> > + * C. SPI-type with three options:
+> > + *
+> > + *    1. 9-bit with the Data/Command signal as the ninth bit
+> > + *    2. Same as above, except it is sent as 16 bits
+> > + *    3. 8-bit with the Data/Command signal as a separate D/CX pin
+> > + *
+> > + * This library provides a framework for MIPI Display Bus Interface (D=
+BI)
+> > + * compatible display controllers using Type A and Type B. This
+> > + * implementation closely matches existing DSI framework behavior to
+> > + * allow seamless integration.
+> > + *
+> > + * Type C options 1 and 3 are covered by drm_mipi_dbi.c with
+> > + * mipi_dbi_spi_init().
+> > + */
+> > +
+> > +static int mipi_dbi_match(struct device *dev, const struct device_driv=
+er *driver)
+> > +{
+> > +     return of_driver_match_device(dev, driver);
+> > +}
+> > +
+> > +static int mipi_dbi_uevent(const struct device *dev, struct kobj_ueven=
+t_env *env)
+> > +{
+> > +     return of_device_uevent_modalias(dev, env);
+> > +}
+> > +
+> > +static const struct dev_pm_ops mipi_dbi_device_pm_ops =3D {
+> > +     .runtime_suspend =3D pm_generic_runtime_suspend,
+> > +     .runtime_resume =3D pm_generic_runtime_resume,
+> > +     .suspend =3D pm_generic_suspend,
+> > +     .resume =3D pm_generic_resume,
+> > +     .freeze =3D pm_generic_freeze,
+> > +     .thaw =3D pm_generic_thaw,
+> > +     .poweroff =3D pm_generic_poweroff,
+> > +     .restore =3D pm_generic_restore,
+> > +};
+> > +
+> > +static const struct bus_type mipi_dbi_bus_type =3D {
+> > +     .name =3D "mipi-dbi",
+> > +     .match =3D mipi_dbi_match,
+> > +     .uevent =3D mipi_dbi_uevent,
+>
+> These two callbacks are just direct wrappers so I believe we should be
+> able to set them to of_driver_match_device / of_device_uevent_modalias
+> directly.
+>
 
-On 25/11/2026 14:50, Ulf Hansson wrote:
-> On Fri, Oct 23, 2026 at 8:17 PM Tomi Valkeinen
-> <tomi.valkeinen@ideasonboard.com> wrote:
->>
->> genpd_dev_pm_attach_by_id() and genpd_dev_pm_attach_by_name() attach a
->> virtual device to a PM domain listed in the OF node of the passed
->> device.
->>
->> Some hardware blocks are described in a child node of a main device.
->> They have no device of their own, but they do have a PM domain of their
->> own. Neither function can attach that domain, as both parse only the OF
->> node of the device.
->>
->> An example case is TI's display subsystem and its OLDI (LVDS)
->> transmitters:
->>
->> dss@30200000 {
->>      power-domains = <...>;
->>
->>      oldi-transmitters {
->>          oldi@0 {
->>              power-domains = <...>;
->>          };
->>
->>          oldi@1 {
->>              power-domains = <...>;
->>          };
->>      };
->> };
->>
->> The OLDI TX blocks are not part of the DSS IP, but they are not quite
->> real devices either as they don't have registers of their own, and are
->> instead controlled via DSS registers.
->>
->> Add genpd_dev_pm_attach_by_node(), which is similar to
->> genpd_dev_pm_attach_by_id() but instead of looking for the power-domains
->> from the passed device's DT node, the DT node is passed explicitly. Also
->> add a matching wrapper function dev_pm_domain_attach_by_node().
->>
->> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->> ---
->> This is a new try for managing the OLDI power domains. Previously I
->> tried using auxiliary device/driver for OLDIs, and handling the PDs the
->> normal way:
->>
->> https://lore.kernel.org/all/20260529-beagley-ai-display-v3-12-7fefdc5d1adf%40ideasonboard.com/
->>
->> Then I realized an issue, mentioned in
->> Documentation/driver-api/driver-model/driver.rst: "-EPROBE_DEFER must
->> not be returned if probe() has already created child devices".
-> 
-> I don't follow. How is this a problem? Why not create the child
-> devices at a later point?
+May you specify a bit more please?
 
-The problem the above text refers to is (as far as I understand):
+> > +     .pm =3D &mipi_dbi_device_pm_ops,
+>
+> I think we can drop setting .pm as well. These callbacks will fall back
+> to the same code (driver callbacks) if we don't set the bus PM ops.
+>
 
-The main driver probes, and creates a child device, which probes 
-successfully. That causes the flag for "run deferred probes again" to be 
-set. The main driver then continues its probe, but, for some reason, 
-must return -EPROBE_DEFER. But as the above-mentioned flag is set, so 
-probes are ran again, resulting in the same sequence, again and again.
+Noted.
 
-Creating the child device later is difficult. We have display pipelines 
-which contain multiple independent devices. All those devices must have 
-probed and their bridges/panels registered to the DRM framework so that 
-the main DRM driver can finish its probe. If parts of the pipeline are 
-missing, we return -EPROBE_DEFER and wait for the missing parts to appear.
+> > +};
+> > +
+> > +static void mipi_dbi_device_release(struct device *dev)
+> > +{
+> > +     of_node_put(dev->of_node);
+> > +     kfree(to_mipi_dbi_device(dev));
+> > +}
+> > +
+> > +static void mipi_dbi_device_unregister(void *data)
+> > +{
+> > +     struct device *dev =3D data;
+> > +
+> > +     of_node_clear_flag(dev->of_node, OF_POPULATED);
+> > +     device_unregister(dev);
+> > +}
+> > +
+> > +/**
+> > + * devm_mipi_dbi_device_register() - create a managed peripheral MIPI =
+DBI
+> > + *                                Type A or B device.
+> > + * @dev: device to tie the MIPI-DBI device lifetime to
+> > + * @host: DBI host to which this device is connected
+> > + * @np: device tree node associated with the panel MIPI DBI device
+> > + *
+> > + * This function is called by DBI host driver to create panel device.
+> > + * It automatically calls mipi_dbi_device_unregister() when @dev is
+> > + * unbound. It does not automatically free passed device node pointer,
+> > + * it must be put manually.
+> > + *
+> > + * Returns:
+> > + * A pointer to the newly created MIPI DBI device, or, a pointer encod=
+ed
+> > + * with an error.
+>
+> For brevity, I would just use 'an error pointer'.
+>
 
-And the OLDIs here are not really independent devices. They don't have 
-register space, and OLDI configuration is done via DSS registers. Yet 
-they don't fit very well inside the DSS either, as they are clearly an 
-outside IP, an external encoder. So the aim has been to represent them 
-as separates child DT nodes, which allows setting OLDI properties and 
-the media graph, but there's no compatible string and it's the tidss 
-driver that fully manages the creation/cleanup.
+Noted
 
-Here a simple pipeline could be:
+> > + */
+> > +struct mipi_dbi_device *
+> > +devm_mipi_dbi_device_register(struct device *dev, struct mipi_dbi_host=
+ *host,
+> > +                           struct device_node *np)
+> > +{
+> > +     struct mipi_dbi_device *dbidev;
+> > +     int ret;
+> > +
+> > +     if (!host || !host->dev || !host->dbi || !host->dbi->command ||
+> > +         !host->ops || !host->ops->attach || !host->ops->detach || !np=
+)
+> > +             return ERR_PTR(-EINVAL);
+> > +
+> > +     if (!of_device_is_available(np))
+> > +             return ERR_PTR(-ENODEV);
+> > +
+> > +     dbidev =3D kzalloc_obj(*dbidev);
+> > +     if (!dbidev)
+> > +             return ERR_PTR(-ENOMEM);
+> > +
+> > +     if (of_node_test_and_set_flag(np, OF_POPULATED)) {
+> > +             kfree(dbidev);
+> > +             return ERR_PTR(-EBUSY);
+> > +     }
+> > +
+> > +     dbidev->host =3D host;
+> > +     dbidev->dbi =3D host->dbi;
+> > +     device_initialize(&dbidev->dev);
+> > +     dbidev->dev.parent =3D host->dev;
+> > +     dbidev->dev.bus =3D &mipi_dbi_bus_type;
+> > +     dbidev->dev.release =3D mipi_dbi_device_release;
+> > +     device_set_node(&dbidev->dev, of_fwnode_handle(of_node_get(np)));
+> > +
+> > +     ret =3D dev_set_name(&dbidev->dev, "%s:%s", dev_name(host->dev), =
+np->full_name);
+> > +     if (ret)
+> > +             goto put_device;
+> > +
+> > +     ret =3D device_add(&dbidev->dev);
+> > +     if (ret)
+> > +             goto put_device;
+> > +
+> > +     ret =3D devm_add_action_or_reset(dev, mipi_dbi_device_unregister,
+> > +                                    &dbidev->dev);
+> > +     if (ret)
+> > +             return ERR_PTR(ret);
+> > +
+> > +     return dbidev;
+> > +
+> > +put_device:
+> > +     of_node_clear_flag(np, OF_POPULATED);
+> > +     put_device(&dbidev->dev);
+> > +     return ERR_PTR(ret);
+> > +}
+> > +EXPORT_SYMBOL_GPL(devm_mipi_dbi_device_register);
+> > +
+> > +static void mipi_dbi_detach(void *data)
+> > +{
+> > +     struct mipi_dbi_device *dbidev =3D data;
+> > +
+> > +     dbidev->host->ops->detach(dbidev->host, dbidev);
+> > +     dbidev->attached =3D false;
+> > +}
+> > +
+> > +/**
+> > + * devm_mipi_dbi_attach() - managed attach of peripheral DBI device to=
+ its MIPI
+> > + *                       DBI Type A or B devices.
+> > + * @dev: device to tie the MIPI-DBI device lifetime to
+> > + * @dbidev: DBI peripheral
+>
+> Add a return value description. Otherwise inevitably someone will send
+> an autogenerated oneline fix to add it.
+>
 
-DSS -> OLDI -> panel
+Noted
 
-If the panel hasn't been registered, tidss will defer. But tidss needs 
-OLDI to be there too, when it binds the display pipeline, otherwise it 
-could never finish.
+> > + */
+> > +int devm_mipi_dbi_attach(struct device *dev, struct mipi_dbi_device *d=
+bidev)
+> > +{
+> > +     int ret;
+> > +
+> > +     if (dbidev->attached)
+> > +             return -EBUSY;
+> > +
+> > +     ret =3D dbidev->host->ops->attach(dbidev->host, dbidev);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     dbidev->attached =3D true;
+> > +     return devm_add_action_or_reset(dev, mipi_dbi_detach, dbidev);
+> > +}
+> > +EXPORT_SYMBOL_GPL(devm_mipi_dbi_attach);
+> > +
+> > +/**
+> > + * mipi_dbi_write_buffer_multi() - mipi_dbi_command() w/ accum_err but=
+ for
+> > + *                              MIPI DBI Type A and B
+> > + * @ctx: context for multiple DBI transactions
+> > + * @cmd: command to be sent
+> > + * @data: buffer containing data to be transmitted
+> > + * @len: size of transmission buffer
+> > + *
+> > + * Acts like mipi_dbi_command() for MIPI DBI Type C but for Types A an=
+d B
+> > + * and deals with errors in a way that makes it convenient to make sev=
+eral
+> > + * calls in a row.
+> > + */
+> > +void mipi_dbi_write_buffer_multi(struct mipi_dbi_multi_context *ctx,
+> > +                              u8 cmd, const u8 *data, size_t len)
+> > +{
+> > +     struct mipi_dbi_device *dbidev =3D ctx->dbidev;
+> > +     struct device *dev =3D &dbidev->dev;
+> > +     ssize_t ret;
+>
+> mipi_dbi_command_stackbuf returns an int, so this can be an int as well.
+>
 
-It is possible to create the DRM bridge entity for the OLDI without any 
-OLDI device/driver, which allows creating the display pipeline. But the 
-OLDI bridge code has to be able to enable the OLDI power domain, and I 
-think the only way to use PDs currently is via devices.
+This is deliberately void, errors are accumulated in context. This
+repeats DSI approach.
 
-So if we created the OLDI DRM bridge as mentioned above, then later in 
-tidss probe we could create a device for OLDI, which probes and binds. 
-That can then be used to control the PD, but there would be no other use 
-for it. And the sequence feels like doing it backwards.
+> > +
+> > +     if (ctx->accum_err)
+> > +             return;
+> > +
+> > +     ret =3D mipi_dbi_command_stackbuf(dbidev->dbi, cmd, data, len);
+> > +     if (ret < 0) {
+> > +             ctx->accum_err =3D ret;
+> > +             dev_err(dev, "sending dcs data %*ph failed: %d\n",
+> > +                     (int)len, data, ctx->accum_err);
+> > +     }
+> > +}
+> > +EXPORT_SYMBOL(mipi_dbi_write_buffer_multi);
+> > +
+> > +static int mipi_dbi_drv_probe(struct device *dev)
+> > +{
+> > +     struct mipi_dbi_driver *drv =3D to_mipi_dbi_driver(dev->driver);
+> > +     struct mipi_dbi_device *dbidev =3D to_mipi_dbi_device(dev);
+> > +
+> > +     return drv->probe(dbidev);
+> > +}
+> > +
+> > +static int mipi_dbi_drv_remove(struct device *dev)
+> > +{
+> > +     struct mipi_dbi_driver *drv =3D to_mipi_dbi_driver(dev->driver);
+> > +     struct mipi_dbi_device *dbidev =3D to_mipi_dbi_device(dev);
+> > +
+> > +     drv->remove(dbidev);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void mipi_dbi_drv_shutdown(struct device *dev)
+> > +{
+> > +     struct mipi_dbi_driver *drv =3D to_mipi_dbi_driver(dev->driver);
+> > +     struct mipi_dbi_device *dbidev =3D to_mipi_dbi_device(dev);
+> > +
+> > +     drv->shutdown(dbidev);
+> > +}
+>
+> This could be simplified slightly by making these (probe, remove,
+> shutdown) bus-level callbacks (set on mipi_dbi_bus_type). Then the
+> callback assignments in __mipi_dbi_driver_register are not needed. The
+> 'if's do have to move into the bus-level callbacks. This also cleans up
+> the remove callback return type.
+>
 
->> The PD virtual devices used in this patch's approach do not hit the
->> issue as they don't get a driver, so they are not probed. The tidss
->> driver's OLDI part can then use normal pm_runtime_get/put functions to
->> manage the OLDI PDs.
-> 
-> Sorry, but this makes no sense to me. Considering the above statement
-> about -EPROBE_DEFER and child devices, it sounds like we need to
-> manage some kind of cleanup in both solutions, right?
+I have added these to match DSI behavior as more established framework.
 
-Yes, but with PD virtual devices there's no probe, so they don't cause 
-the "do deferred probes again" flag to be set. It's not the cleanup as 
-such that causes the problem.
+> > +
+> > +/**
+> > + * __mipi_dbi_driver_register() - register a driver for MIPI DBI Type =
+A or B devices.
+> > + * @drv: DBI driver structure
+> > + * @owner: owner module
+> > + *
+> > + * Return: 0 on success or a negative error code on failure.
+> > + */
+> > +int __mipi_dbi_driver_register(struct mipi_dbi_driver *drv, struct mod=
+ule *owner)
+> > +{
+> > +     drv->driver.bus =3D &mipi_dbi_bus_type;
+> > +     drv->driver.owner =3D owner;
+> > +
+> > +     if (drv->probe)
+> > +             drv->driver.probe =3D mipi_dbi_drv_probe;
+> > +     if (drv->remove)
+> > +             drv->driver.remove =3D mipi_dbi_drv_remove;
+> > +     if (drv->shutdown)
+> > +             drv->driver.shutdown =3D mipi_dbi_drv_shutdown;
+> > +
+> > +     return driver_register(&drv->driver);
+> > +}
+> > +EXPORT_SYMBOL_GPL(__mipi_dbi_driver_register);
+> > +
+> > +/**
+> > + * mipi_dbi_driver_unregister() - unregister a driver for MIPI DBI Typ=
+e A or B devices.
+> > + * @drv: DBI driver structure
+> > + */
+> > +void mipi_dbi_driver_unregister(struct mipi_dbi_driver *drv)
+> > +{
+> > +     driver_unregister(&drv->driver);
+> > +}
+> > +EXPORT_SYMBOL_GPL(mipi_dbi_driver_unregister);
+> > +
+> > +static int __init mipi_dbi_bus_init(void)
+> > +{
+> > +     return bus_register(&mipi_dbi_bus_type);
+> > +}
+> > +subsys_initcall(mipi_dbi_bus_init);
+> > +
+> > +static void __exit mipi_dbi_bus_exit(void)
+> > +{
+> > +     bus_unregister(&mipi_dbi_bus_type);
+> > +}
+> > +module_exit(mipi_dbi_bus_exit);
+> > +
+> > +MODULE_DESCRIPTION("MIPI DBI devices with command transport through pa=
+rallel interface");
+> > +MODULE_LICENSE("GPL");
+> > diff --git a/include/drm/drm_mipi_dbi_bus.h b/include/drm/drm_mipi_dbi_=
+bus.h
+> > new file mode 100644
+> > index 0000000000000..6f00a8eef9c67
+> > --- /dev/null
+> > +++ b/include/drm/drm_mipi_dbi_bus.h
+> > @@ -0,0 +1,148 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> > +/*
+> > + * MIPI DBI devices with command transport through parallel interface
+> > + *
+> > + * Copyright 2026 Mikko Perttunen <mperttunen@nvidia.com>
+> > + * Copyright 2026 Svyatoslav Ryhel <clamor95@gmail.com>
+> > + */
+> > +
+> > +#ifndef __DRM_MIPI_DBI_BUS_H__
+> > +#define __DRM_MIPI_DBI_BUS_H__
+> > +
+> > +#include <linux/device.h>
+> > +#include <linux/module.h>
+> > +
+> > +struct device_node;
+> > +struct mipi_dbi;
+> > +struct mipi_dbi_device;
+> > +struct mipi_dbi_host;
+> > +
+> > +/**
+> > + * struct mipi_dbi_host_ops - DBI bus operations for MIPI DBI Type A a=
+nd B.
+> > + * @attach: attach DBI device to DBI host
+> > + * @detach: detach DBI device from DBI host
+> > + */
+> > +struct mipi_dbi_host_ops {
+> > +     int (*attach)(struct mipi_dbi_host *host, struct mipi_dbi_device =
+*dev);
+> > +     void (*detach)(struct mipi_dbi_host *host, struct mipi_dbi_device=
+ *dev);
+> > +};
+> > +
+> > +/**
+> > + * struct mipi_dbi_host - DBI host device for MIPI DBI Type A and B.
+> > + * @dev: driver model device node for this DBI host
+> > + * @dbi: MIPI DBI interface
+> > + * @ops: DBI host operations
+> > + */
+> > +struct mipi_dbi_host {
+> > +     struct device *dev;
+> > +     struct mipi_dbi *dbi;
+> > +     const struct mipi_dbi_host_ops *ops;
+> > +};
+> > +
+> > +/**
+> > + * struct mipi_dbi_device - DBI peripheral device for MIPI DBI Type A =
+and B.
+> > + *                       This structure describes a peripheral DBI dev=
+ice,
+> > + *                       an endpoint for DSC commands and video data, =
+and must
+>
+> DCS commands
+>
 
-In some ways this does feel a bit like a work-around to the framework 
-limitation. Representing OLDI with the aux-bus feels quite correct, I 
-think. But then, all that plumbing just to enable/disable the PD...
+Nodes
 
-So, what I'm basically trying to do in this patch is to provide an API 
-that allows enabling/disabling a PD that's not in a DT node managed by a 
-Linux device.
+> > + *                       be paired with a DBI host device for MIPI DBI=
+ Type A
+> > + *                       and B. This layout is built to closely resemb=
+le
+> > + *                       the DSI framework.
+> > + *
+> > + *                       If your device is MIPI DBI Type C (with an SP=
+I
+> > + *                       control bus) and incorporates DBI within, you
+> > + *                       should use the mipi_dbi_dev structure and Typ=
+e C
+> > + *                       framework from drm_mipi_dbi.c.
+>
+> I don't think we need to talk about the DSI or Type C frameworks here.
+> drm_mipi_dbi.c already mentions it's for Type C.
+>
 
-> Perhaps if you provide a user of dev_pm_domain_attach_by_node() this
-> becomes more clear.
-I have pushed my branch to korg:
+I was explicit since Thierry and Maxime were very clear that
+differences are not described enough.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/tomba/linux.git/log/?h=b4/beagley-ai-display
+> > + * @dev: driver model device node for this peripheral
+> > + * @dbi: MIPI DBI interface
+> > + * @host: DBI host for this peripheral
+> > + * @attached: the DBI device has been successfully attached
+> > + */
+> > +struct mipi_dbi_device {
+> > +     struct device dev;
+> > +     struct mipi_dbi *dbi;
+> > +     struct mipi_dbi_host *host;
+> > +     bool attached;
+> > +};
+> > +
+> > +/**
+> > + * struct mipi_dbi_multi_context - Context to call multiple MIPI DBI f=
+uncs in a row
+> > + * @dbidev: Pointer to the peripheral MIPI DBI Type A and B device
+> > + * @accum_err: Storage for the accumulated error over the multiple cal=
+ls
+> > + *          Init to 0. If a function encounters an error then the erro=
+r code
+> > + *          will be stored here. If you call a function and this point=
+s to a
+> > + *          non-zero value then the function will be a noop. This allo=
+ws calling
+> > + *          a function many times in a row and just checking the error=
+ at the
+> > + *          end to see if any of them failed.
+> > + */
+> > +
+> > +struct mipi_dbi_multi_context {
+> > +     struct mipi_dbi_device *dbidev;
+> > +     int accum_err;
+> > +};
+> > +
+> > +#define to_mipi_dbi_device(__dev)    container_of_const(__dev, struct =
+mipi_dbi_device, dev)
+> > +
+> > +void mipi_dbi_write_buffer_multi(struct mipi_dbi_multi_context *ctx,
+> > +                              u8 cmd, const u8 *data, size_t len);
+> > +
+> > +/**
+> > + * mipi_dbi_write_seq_multi() - transmit a command with payload
+> > + *
+> > + * This macro will print errors for you and error handling is optimize=
+d for
+> > + * callers that call this multiple times in a row.
+> > + *
+> > + * @ctx: context for multiple DBI transactions
+> > + * @cmd: command to be sent
+> > + * @seq: buffer containing data to be transmitted
+> > + */
+> > +#define mipi_dbi_write_seq_multi(ctx, cmd, seq...)                    =
+       \
+> > +     do {                                                             =
+       \
+> > +             static const u8 d[] =3D { seq };                         =
+         \
+> > +             mipi_dbi_write_buffer_multi(ctx, cmd, d, ARRAY_SIZE(d)); =
+       \
+> > +     } while (0)
+> > +
+> > +struct mipi_dbi_device *
+> > +devm_mipi_dbi_device_register(struct device *dev, struct mipi_dbi_host=
+ *host,
+> > +                           struct device_node *np);
+> > +int devm_mipi_dbi_attach(struct device *dev, struct mipi_dbi_device *d=
+bidev);
+> > +
+> > +/**
+> > + * struct mipi_dbi_driver - DBI driver for MIPI DBI Type A and B.
+> > + * @driver: device driver model driver
+> > + * @probe: callback for device binding
+> > + * @remove: callback for device unbinding
+> > + * @shutdown: called at shutdown time to quiesce the device
+> > + */
+> > +struct mipi_dbi_driver {
+> > +     struct device_driver driver;
+> > +     int (*probe)(struct mipi_dbi_device *dbi);
+> > +     void (*remove)(struct mipi_dbi_device *dbi);
+> > +     void (*shutdown)(struct mipi_dbi_device *dbi);
+> > +};
+> > +
+> > +static inline struct mipi_dbi_driver *
+> > +to_mipi_dbi_driver(struct device_driver *driver)
+> > +{
+> > +     return container_of(driver, struct mipi_dbi_driver, driver);
+> > +}
+> > +
+> > +static inline void *mipi_dbi_get_drvdata(const struct mipi_dbi_device =
+*dbi)
+> > +{
+> > +     return dev_get_drvdata(&dbi->dev);
+> > +}
+> > +
+> > +static inline void mipi_dbi_set_drvdata(struct mipi_dbi_device *dbi, v=
+oid *data)
+> > +{
+> > +     dev_set_drvdata(&dbi->dev, data);
+> > +}
+> > +
+> > +int __mipi_dbi_driver_register(struct mipi_dbi_driver *drv, struct mod=
+ule *owner);
+> > +void mipi_dbi_driver_unregister(struct mipi_dbi_driver *drv);
+> > +
+> > +#define mipi_dbi_driver_register(driver) \
+> > +     __mipi_dbi_driver_register(driver, THIS_MODULE)
+> > +
+> > +#define module_mipi_dbi_driver(__mipi_dbi_driver) \
+> > +     module_driver(__mipi_dbi_driver, mipi_dbi_driver_register, \
+> > +                     mipi_dbi_driver_unregister)
+> > +
+> > +#endif /* __DRM_MIPI_DBI_BUS__ */
+>
+> __DRM_MIPI_DBI_BUS_H__
+>
 
-The commit that uses this patch is:
+Noted
 
-"drm/tidss: oldi: Add power domain support"
-
-And the dts file that has the OLDI nodes is:
-
-"arm64: dts: ti: k3-am62p-j722s-common-main: Add support for DSS"
-
-  Tomi
-
+> > --
+> > 2.53.0
+> >
+> >
+>
+>
+>
+>
