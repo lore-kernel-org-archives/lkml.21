@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748433;
-	b=Bhm5QRytyAK1tP2Civ9UZWxt4DhwwqMHFmfsBlAwBzlGASTKGvm512TDQP6NSeMLWKzg
-	 3295vx9KLX87QcCqc+WA2TX/CAYIh/KBQllFgroVPuSsvXVbUzJPK7mgCjBFULx0QJuZe
-	 ITB67a8r9dfcgSTVNGYKGq5r9z7wGmPiyOw1F4+w5/v42t1WbZk1vGANN98FKFNiC7Z19
-	 ltBs4h4FBhj4+1C2YoIHYG6RmDjtMyPULFKPW4iCbdZTSb0GFej6AoGskUB4q7SaS2tt1
-	 CPworkYmWEkIfY23V8JpKTgOXfqoJJhxPYJbymieohnsmd978OqaWVPJLq94W33AWBw==
+	t=1795748429;
+	b=LrXjfvfUzScs+ENaMvBsqPZxvxE5cqfCFmSrNLRMjiHgVxfJf6L4xUetTTIOZsgDGyZg
+	 RUECRGFfAAN6wA8kaZOKZ3rSOo3/NNIndrUWSIpRhBnvnTn9HGWsOfWhbJOUzdDyN7ifl
+	 cVBKslseNpsy2szr2YLP+sPs41hfYW5jRvNP4g/9nqpSD0KNk71wkRIi6bGgFit9PSl6j
+	 zMVsf1H9pA+lkY7iqeEOFWkB1nR46Plo0GnmeVyImbfRiW1xTRKDhetlqlvhaUe4G2MyW
+	 4UM6zg4YUFIdeA/zeKyXl5dL5fSAoNyxzXUuDlRbJ4JJA/ycQVGgMCpGSNbE5EAqitQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748433;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748429;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=jXFQ0K89s9Gh1OqiFSLVns5VpXQ4VzKQdNsk9uLikbE=;
-	b=Kp8pY+F55U3abacwsTR+8AN370nKINVoVPRguPSpAH/XSBnJBlZMxASZy7jkhwlK4GYI
-	 yuf8nhAMCjaVRSSS/TS37Kh5ohnc4+iwtYq0Kk18C4A8LClJM4OlsUt6fZy055BxsMfU1
-	 tcFDjoL42HXhaLUcBFfuhQaG2sLgIfa4BLK1wJLtY8cVCKGTnCZJgAuOxkqxMl+6oQzmL
-	 CNZ0XeZtpSOQzdsst+YIiWEMISLcyl+1CmPEp1gM+8eltak3A/b+rrIqQddv4ETcPiy9s
-	 /a0BebQtWdVZBB+OoyxUGcDP+VevzL11BTmpxZedkB06M9ZouQDclhLYOaS5IgfZj/Q==
+	bh=R0Vs5cMh1I8sELTgtzEauSmU6SnbuXs/YWY69nxtdIo=;
+	b=2d+fXl6h1ZU0Znbx8JjWmlyLPpVukyMdT/49W2T2EasAeB4y6KHJ4Zi9CS7a6G0d6xD1
+	 qIvA5gtqURdA+y3Zps03RzCYrMGOeOxyWBTqfytWYt+bZAUdWpdjTF4iHYxF2A9u0PpwA
+	 +bMZ+ktjkcSRwxk/Hohoyqz1WDKGKcvO13L0PjHOoOLVaptsAoAiFgLBRlXvGTJ5NXBpn
+	 HJQ825fwi6gmR6F7cwL5pMRvTc7fxHfPDK+JqKXDaDrifLBuO/9jLSE7Mm8+XhSo6Z4zs
+	 auaAF4xoDXrKV3LfsTdJlQqQlEsic6aQcowx2fIuu4wxUbXyLUy/rCwKKBz9pW9e5wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oByRuSRc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CIshqDiN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ED01606A326;
-	Fri, 27 Nov 2026 03:00:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87EA1606A697;
+	Fri, 27 Nov 2026 03:00:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oByRuSRc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4857D1F0093A;
-	Fri, 27 Nov 2026 03:00:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CIshqDiN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152481F00A22;
+	Fri, 27 Nov 2026 03:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795748433;
-	bh=jXFQ0K89s9Gh1OqiFSLVns5VpXQ4VzKQdNsk9uLikbE=;
+	s=k20260515; t=1795748429;
+	bh=R0Vs5cMh1I8sELTgtzEauSmU6SnbuXs/YWY69nxtdIo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oByRuSRc/lgE9bYBaYZ6M4fLAF5suAe+IcHO+QjBfOtFQb3CGrsx+4d4t73ocjzdw
-	 wzOUGov8O3DCZiREJ0Mh2vTkv+4AHCNe1kgMDAPYM6ae+hjzSzbX6IcD/hxIabiPna
-	 rQV1oBacgSzHO7ipy6ULQ7xSLPrEKDqmhi2LBFBR0ws7QBXm2b8Q1TZMY7nyDU++v3
-	 NoXvDj0XZo6zQs+pCXPoZ9x0i4o5U8jXR1ZPC4OV4LHX56wM5gtLhwq+Nq4c7tE2DP
-	 HDHBfg/op/p3cV78lK/NiP1r26nVQQB48/2CwrNh4e2tPvzCyBUm3+pB0k3jtlF5Mq
-	 tqUfl/he7LEWw==
-Subject: Re: [PATCH net-next v14 15/15] net: dsa: realtek: rtl8365mb: add
- support for RTL8367S-VB
+	b=CIshqDiNIElgldUMIWCCu6vOprXOUWlxNMRuFgeUDR1NZ5/BVpyIk0ERfSTu0uSiR
+	 4V+lt/T9RpPvzRuQkydqPr5K1+g4yfNySyHUIf7qfpxl/5hbGgd9v3kP/d8BsTmMrV
+	 GePB6Alm/0YXguMm0lIaUPvvpEmMo/+WgzbdPI4mR7RC1GMgRZYHD1Ng/5UKGr+8NR
+	 rQPeh02/kt3wtp4JTFyHodYzdtrDR/Qf9WKvaDZGymT8aBYXndo9dAUdyA5HObeK8a
+	 4FM+YMF5TKspMkDaRugjWO/dA6ElRenOajKTpeW+qKjswIzchzeFApsG5TgMkOF6Zf
+	 Ht/Mb3g8MOr7A==
+Subject: Re: [PATCH net-next v14 13/15] net: dsa: realtek: rtl8365mb: refactor
+ QoS priority handling
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -51,11 +51,11 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
  o.rempel@pengutronix.de
-Date: Fri, 27 Nov 2026 03:00:31 +0000
-Message-ID: <179574843188.3135.8470436383588006481@kernel.org>
-In-Reply-To: <abe7ed42-694c-435b-b573-b0341aa10971@yahoo.com>
-References: <abe7ed42-694c-435b-b573-b0341aa10971@yahoo.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 03:00:27 +0000
+Message-ID: <179574842763.3135.17585827427222955504@kernel.org>
+In-Reply-To: <5540b093-3ecf-4ba8-99ee-84197a037f11@yahoo.com>
+References: <5540b093-3ecf-4ba8-99ee-84197a037f11@yahoo.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -68,107 +68,122 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In drivers/net/dsa/realtek/rtl8365mb_main.c, the new
-  rtl8365mb_family_d sets .jam_table = rtl8365mb_init_jam_8365mb_vc.
+- [Low] This patch splits the QoS code into two value spaces.
 
 --
 
-net: dsa: realtek: rtl8365mb: add support for RTL8367S-VB
+net: dsa: realtek: rtl8365mb: refactor QoS priority handling
 
-This adds the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip
-table as the first family D chip. It also adds a rtl8365mb_family_d
-family_info that selects the family D code added earlier in the series.
-The chip reuses the RTL8365MB-VC init jam table, followed by the common
-jam table.
+This patch moves two pieces of QoS handling behind three new
+rtl8365mb_family_info hooks: the conversion between an 802.1Q traffic
+type and the chip's priority, and the programming of the untagged-frame
+PCP. The hooks are qos_iprio_to_hw, qos_hw_to_iprio and
+qos_set_untag_pcp. Family C keeps its existing behaviour through an
+identity mapping, and rtl8365mb_qos_qmap_init() now iterates over chip
+priorities and converts each one back to a traffic type.
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-> index 639e6b62a2fc3..eef591eed0c91 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_qos.c b/drivers/net/dsa/realtek/rtl8365mb_qos.c
+> index 5b9e1abe75c8b..b61ffdb4073ac 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_qos.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_qos.c
 
 [ ... ]
 
-> @@ -835,6 +847,27 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
->  	.qos_set_untag_pcp = rtl8365mb_c_qos_set_untag_pcp,
->  };
+> +/* Convert an internal priority (an 802.1Q traffic type) to the value the
+> + * chip uses. Return the value or a negative errno.
+> + */
+> +static int rtl8365mb_qos_iprio_to_hw(struct realtek_priv *priv, u8 iprio)
+> +{
+> +	return rtl8365mb_get_family_info(priv)->qos_iprio_to_hw(iprio);
+> +}
+
+[ ... ]
+
+> @@ -306,19 +366,27 @@ int rtl8365mb_qos_qmap_init(struct realtek_priv *priv)
+>  {
+>  	unsigned int nq = priv->ds.num_tx_queues;
+>  	struct dsa_port *dp;
+> -	int iprio, ret;
+> +	int prio, ret;
 >  
-> +static const struct rtl8365mb_family_info rtl8365mb_family_d = {
-> +	.family = RTL8365MB_FAMILY_D,
-> +	.jam_table = rtl8365mb_init_jam_8365mb_vc,
-> +	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
+> -	for (iprio = 0; iprio < RTL8365MB_NUM_INTERNAL_PRIOS; iprio++) {
+> -		int tc = ieee8021q_tt_to_tc(iprio, nq);
+> +	/* The table is indexed by the chip's priority, not by the traffic
+> +	 * type.
+> +	 */
+> +	for (prio = 0; prio < RTL8365MB_NUM_INTERNAL_PRIOS; prio++) {
+> +		int tt = rtl8365mb_qos_hw_to_iprio(priv, prio);
+> +		int tc;
+>  		u8 qid;
+>  
+> +		if (tt < 0)
+> +			return tt;
+> +
+> +		tc = ieee8021q_tt_to_tc(tt, nq);
+>  		if (tc < 0)
+>  			return tc;
+>  
+>  		qid = rtl8365mb_qos_tc_to_qid(nq, tc);
+>  		ret = rtl8365mb_qos_set_qmap_qid(priv,
+>  						 RTL8365MB_QOS_QMAP_DEFAULT,
+> -						 iprio, qid);
+> +						 prio, qid);
 
-[Severity: Medium]
-Is it safe to write the RTL8365MB-VC jam table to family D silicon?
+[Severity: Low]
+This isn't a bug, but should the remaining names and comments be updated
+to match the new split between iprio (traffic type) and hw (chip
+priority)?
 
-With this change, rtl8365mb_setup()->rtl8365mb_switch_init() writes
-rtl8365mb_init_jam_8365mb_vc and then rtl8365mb_init_jam_common to the
-RTL8367S-VB. It does this with plain regmap_write() right after the reset,
-and nothing filters the writes for family D.
+The loop now passes the chip priority to rtl8365mb_qos_set_qmap_qid().
+The callee still calls that argument iprio, and so does the register
+macro it uses:
 
-The new header comment says family D registers differ in the VLAN table,
-the ext interface and RGMII setup, the SerDes and the LUT. The
-RTL8365MB_D_LUT_CFG2_REG comment also says 0x0A32 is the EFID register on
-family C but the aging timer on family D.
+static int rtl8365mb_qos_set_qmap_qid(struct realtek_priv *priv, int qmap,
+				      u8 iprio, u8 qid)
+{
+	u32 reg = RTL8365MB_QOS_QMAP_TBL_REG(qmap, iprio);
 
-Some jam writes hit registers that family D only partly reprograms later.
-The common table writes the LUT config:
+#define RTL8365MB_QOS_QMAP_TBL_REG(_m, _iprio) \
 
-rtl8365mb_init_jam_common[] = {
-    ...
-	{ 0x03Fa, 0x0007 }, { 0x08C8, 0x00C0 }, { 0x0A30, 0x020E },
-    ...
-	{ 0x1D32, 0x0002 },
-};
+In the same file, rtl8365mb_qos_set_pcp_prio() and
+rtl8365mb_qos_set_dscp_prio() use iprio for the traffic type before
+converting it, so the same parameter name now means two different
+things.
 
-rtl8365mb_d_lut_init() then clears only two bits of it:
+A few register comments also still describe their contents as an
+internal priority, although after this patch they hold the converted hw
+value:
 
-	ret = regmap_update_bits(priv->map, RTL8365MB_D_LUT_CFG_REG,
-				 RTL8365MB_D_LUT_CFG_IPMC_HASH_MASK |
-				 RTL8365MB_D_LUT_CFG_BCAM_DISABLE_MASK, 0);
+/* qmaps: the queue id of each internal priority, one table per qmap */
+/* 802.1p (PCP) -> internal priority remap */
+/* DSCP -> internal priority, one table for the whole chip */
 
-That means bits 1, 2, 3 and 9 of 0x0A30 keep their family C values on a
-family D LUT.
+rtl8365mb_qos.h has the same wording:
 
-The VC table also writes the interface select register:
+/* Internal priority -> queue id tables (qmaps) */
 
-	{ 0x18E0, 0x4004 }, { 0x122B, 0x241C }, { 0x1305, 0xC000 },
+At this commit, the comment at the top of rtl8365mb_qos.c ("The chip's
+eight internal priorities carry 802.1Q traffic types") also conflicts
+with the new "not by the traffic type" comment above.
 
-On family D, rtl8365mb_pcs_config() skips that register:
+The later patch "net: dsa: realtek: rtl8365mb: use PCP numbering on
+family D" rewrites the top-of-file comment. It leaves the
+rtl8365mb_qos_set_qmap_qid() parameter, the RTL8365MB_QOS_QMAP_TBL_REG()
+argument and the register and header comments unchanged.
 
-	if (!is_d) {
-		val = sds_mode << RTL8365MB_DIGITAL_INTERFACE_SELECT_MODE_OFFSET(id);
-		...
+On family D the two value spaces really are different, so would renaming
+these (for example to hw_prio, matching qos_set_untag_pcp) make it
+harder to pass the wrong one later?
 
-So the EXT0 mode field and bits 15:14 stay as the jam left them.
-
-Other entries, such as 0x1303, 0x1304, 0x13EB, 0x121E..0x123A, 0x18E0,
-0x1349, 0x0301 and 0x1D32, have no family D definition in the driver.
-
-The commit message says neither table was compared with the vendor RTL8367D
-init, and testing covered only SGMII/HSGMII on port 6.
-
-Could a wrong pad, MAC or LUT control value here break untested setups such
-as RGMII/MII on port 7? Could it leave the LUT configured differently from
-what the driver assumes?
-
-The 0x13F9 entry mentioned in the commit message looks less worrying. The
-family D RGMII path clears the EXT1 RGMII TX delay field (bits 5:3), and
-the other value lands in the EXT2 field (bits 8:6), which family D does not
-have.
-
-Would it make sense to give family D its own jam table, or none, until it
-can be checked against the vendor RTL8367D init sequence?
+>  		if (ret)
+>  			return ret;
+>  	}
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/874b29a3-f47f-4bf2-a0f6-2f9fea712f4c%40yahoo.com
