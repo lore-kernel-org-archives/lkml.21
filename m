@@ -1,78 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795761558;
-	b=vTjt843z6IAHwZbB3vGEqwPZQBIQFtEyHyUL++8J9vR8A2hiwlIFxzX7MH05sPHu3XdZ
-	 SUNgktyMecAkg7HvNkHWuexezyeP96TRQl7hx1TRLxNRXPQFGw4/bTWx7zhmn6s6wlZnE
-	 zNmarSmn1Rq9n6pWiVN9s/F4OBm4M6+G2QwpatgIJhj1eMJg9UWe0MXJuNhjY3ZtLQRTl
-	 PG1stm4JCmznU+oC8gaCXOwN0wvf0Ey5gFkhjNUT0fjmzZNL0CGNiXQAwY7imGvyxY5WZ
-	 qJod3l+x4NT2bB8ZvCUq4MY3GlGBf93hjnUnfaAGaQfPg2Fr/Uj04773hwnXwDsSQEQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761558;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rWMp0RZgvnnYmHR76LXWmpYYURibs72iO4Pe9ZHYHMk=;
-	b=sAnk65VOUWY9BM+DWdZ9mrWJ5DnC9a04KA4fiPVNdrkZlaCJK7gmNRGGyVEVUz8M6tq1
-	 mtd+BF3Kx+omF6/xByJz4OkGoHvYsqaeM1cvfdyhCadKCwPNFrbiF1U7oPgRtz9w74Lfa
-	 6/csftRkAMkCpi8OLBAltk++Y1J7WBsqwa1q/X4K+Pv5gLqq+cLzBqyKlkUYXrUqC2He3
-	 shWxC5xLQhA8Q5IdSLbiiTdSeRKfqkmE4CqwNOv+7FiKD0XBruccjuxAvso2XdeTqvvBd
-	 Idzp417PcpRNgoHKqDz3/NDkWM9dG577uvEarr2F5+JvL4XJW16PIVFVVwPJPAjnTiw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uf0+sb25;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26CA6606A31C;
-	Fri, 27 Nov 2026 06:39:17 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uf0+sb25
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795761557;
-	b=OTcaJMlRoexeCt9NXtc06zNBGzOVUk+uE4ABnF93isTZe5EvoI60+DyjxG3k7hocLSSD
-	 XjK2w1Dj8ycOr3s1N7o461cW/N3/0ogejJcMvvkHCRboRH9dEIl6aI1LZe0FGuPEkSx8c
-	 tPasoziEQApP9UusLxI8cCPvWq8AnMIsAX2SyUXVyGghyhWFYXHUvodsvHtgVDVcZbzwA
-	 zyMQ5+/m/TLAZrJzQ/rtt0Nn0H/D2BH3lUFuowRLTa9N/9UCJUMpU4DSvGs6mPvMX4eol
-	 mL4BnAC+TzTP/hD1jnI5YrkNE303Pp4k8mtAF1P8jZgEsUucJi54W6VPwYVujvfkFrg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795761557;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rWMp0RZgvnnYmHR76LXWmpYYURibs72iO4Pe9ZHYHMk=;
-	b=uGqOLv+3zjpeP7LOO8dCQHjh1xfQBFTYPzSYij5BvmtrmiDvw2SQSI9Fqo4BY2mMQmld
-	 d3gTQHO+8QQEww3Ggr+jz2MrKunqcORo24NCnK4ni3pdYgc36H5yXTVrxlD+eD2qfLj6d
-	 UxRIH9UEorTn8A48OZqyJPhqBZlIC4WoPDiizOk2q6ZuDFOZZsNGD7QbFrO74ph0xV/9k
-	 pSMaFvZM0Ipf3WfkI4UKU0HIh1llb/Rw3sqD3g1/znRT/v3m6IneZbt8ulUHfzAzOQ06W
-	 WxZ1p72bh/IF8CFaS4ByEnFlPf4KXHoYeYgCfmib1QeYAYcrZ3wfB8QIPwM/X0F6jhQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795761625;
+	b=cB7gzj7/VlslO9SIpWhNhYQZgKoAPb7lrpT4dDng6xaSSnLg0HhEsxuA3k/xrZa0sZhp
+	 K8UYoNpmAMw9ootDtubBasr2trnfOAvJ8TdWOj4VxH9KPUYzLde7m13iglqJuheD+9r8Y
+	 bCNpc8qEW8XzZ4yVE/QSYRnh7Kg/ENRYHJWw66vT2W0mnY/pY7w/6etWVDBf2ZDJgRmWn
+	 KhCp0S16o86klH6EBG+slVHTFrsxy0t9X2VCIbUc7YuthTjBG+oeSn5TYWxXUVVizvyMN
+	 LCzmSTkOh72WzBWfQ3fKfg1Z3W6GcbmNAZl+GHkvcvuBqN05bSJicamjOVy06sI0YVg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761625;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YSTvwPI8uJayXDJex6KW3iyWn5M4RVNCOcwWBDWJ9y0=;
+	b=G5JWvFSOB+JL9PVq+dpdrqxQ9nVsV+f1jwTzqWlGf5mgUiz/VuYugAZ5nE0EzRhkuZ7/
+	 WIfEzTZnFWoHOY2TsU+sp847vhzoQHNFBlYMLYSYSVOPQhr0R2fUKAsNCC+0qm016Xndc
+	 ZOIXVNdfCSDMQxs6Zk8NlFqa/NzgDfDyT/6e8h5eUS8+U4zaeTR4+WtWNDIEeRu9DNFfr
+	 6zjwX2WeM5qtLAtR7PP8lKi/GXlQasxNMdOK08rkk+lYptut8oH5TNhfnFV/KWHUm3U6P
+	 xCuyT9DOjEcrhTupHHdJjq1hGcLkcNGm1GwjGvsSsmGnUTp1r1OT0V+q3S99d3Ta5zA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=n98iRn4T;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w5Vzkwen;
+	arc=none smtp.remote-ip=103.168.172.144
+Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 15F121F00934;
-	Fri, 27 Nov 2026 06:38:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795761557;
-	bh=rWMp0RZgvnnYmHR76LXWmpYYURibs72iO4Pe9ZHYHMk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Uf0+sb25g71iqjnzJdjvhJMxAyCvlvtnWv6NPbz0GDdu8nRpM3M1CKtn8A29ut82H
-	 LIM5pJ7L/RurpCpVBYwRaJEEqhWUabv8kvfuphCDjg4JhJiZVMWBvWTRYcblm7tjQq
-	 CO37a3iDnOlXe0GnqBJE8Mdlabakkj988+O9HvX14myYYp6FSEecRado6/R70phZCZ
-	 gZ/2wsdIVkxNgAzkIbH5oawqnBo6jNgBJ/EtsE1NLqNtvbFCrPqPtMPfu6WqpeeZl3
-	 yt+/DsefWaAPzxtcHWc+xtqN3rHNn2TQPLjcMVc0nvD00OSHlnlH1wsJexRJCtBeNP
-	 s43fjsp4jjlcg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 136274B5DC;
-	Fri, 27 Nov 2026 06:38:47 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 27 Nov 2026 08:38:46 +0200
-Subject: [PATCH RFC 09/10] coresight: cpu-debug: Remove the panic notifier
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A443606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:40:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A443606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=n98iRn4T;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w5Vzkwen
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id B168CEC0B27
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:40:22 -0500 (EST)
+Received: from phl-frontend-02 ([10.202.2.161])
+  by phl-compute-10.internal (MEProxy); Fri, 27 Nov 2026 01:40:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795761622;
+	 x=1795848022; bh=YSTvwPI8uJayXDJex6KW3iyWn5M4RVNCOcwWBDWJ9y0=; b=
+	n98iRn4TVZgilWz0YrmbLZpAztSGdQOZPRYuS4Rev8/xIydYRU0P/t/iSYWP8dg+
+	oaY2hnqdFouBixlIL9NJh7BkXfxe3ksxd5LZi37wEGdEwL2bR32ihATdAHeLRo7i
+	tEKy7jcL1kP6M2LJLjJCx/jZ8szhtwlGlRtAsfJxlZWjJ8R1xo4Dr7wdIqdNKImm
+	/v4lLZ/ysf8ajyme/uGCRWIKHEeawSqXnRA2Xib0PONc9itlP3OLks7nUqsMbyfN
+	FQf7qlkqJ1WHZyTH8aFbAUSBl9JSqNztU3p/7d/6zc4uYfSVCWMl90fyXMtO9x2Y
+	cRsJn68ba83J2zue8V8yDQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795761622; x=
+	1795848022; bh=YSTvwPI8uJayXDJex6KW3iyWn5M4RVNCOcwWBDWJ9y0=; b=w
+	5Vzkwen1m9+TuVD+skmXOj4DcOrF1OR8FH+dYjiyBwKU7w+oYoGFTaCfIeVEDX2O
+	qJ6YF5v9TaE6LtNPQdWFiXNuAb5aDH5hmoLNNL7h8XpjEa/6tyu3xTXDEG5ffcSG
+	eVWiFEortCtzyNkW2nr0cZbLspTqcXIzazQf9M1eUZB2MGWh19/iVsHanoUqWlGD
+	qvyo8cktREqiZFsjTJj8r7COlg+bJYshB02ppDaV2PcJXgNS7TRgPiL5J+WQNxe9
+	0UcOjMnFKAk0rlBS9Kc2m6XpXakS/GxxKpxOOAsDsMJgxBo13IZ+nX7Auzc6oOrd
+	HvOVviv8orJIU6fYYYWFA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795761622; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:kU0LmR8Ccd7SU36kTbcrfrAyK2p7qSbXFlYeQ9us5jpDwho
+	z3WEdN0uo4ftIdQkW5zvehCfXChnY9yxZ/WCp7r5uMzufpe5W7hQg9VelxNU7CFs
+	ERrjyl12Iu5QXoYq0L0BPb+tgF1DI8Yg0lu4Zss1bYrx3bV8pDf3J8k0CzDLVLac
+	EjoKtiBiNsT/zCLq4lK8xhE2QVEQDSl2zRPwxteNPm8IEeRHKBeP40ZmqPLYvFZS
+	eMXoTTwIpHv86RiFshZqWfsS00xbKeLJh/eEQ8EBvGdW1vAKDPgIeyNAQT8TH6GD
+	34t/TBZiKpss4DtxJ5Yd3zGy4Lsc06Ae2guCcuw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:W2snzuKcscKbgP75bzxbIrqywLLxG0vnng6g5T/Juqo=:8mlGRY+HP0m41SDgzy8rHCGzA3Ad7xjs/rZ7OB0AGfE=;
+X-ME-Sender: <xms:1SUJaz8Xx7zho4Ht4w7tSBYOFf6YNNeVcSPdgD8-bcJlQn7sDNYP9g>
+    <xme:1SUJa7nOviuKMPRdDvnBQTvyCKFTVrqyzZmVgxSJqtogR64iVyPnilIURnOEcDMDz
+    JdfyAwPBBF-lzuW5XspjY3I4TPkzSzNOMYUvt_KYPzF2Qqaw-qMB_a6>
+X-ME-Received: <xmr:1SUJa8ghmBeX1a1xrkv_cn1vPuW6lJYzU3RQFGZep-L_dCo5adOUMn6v06DN90G7HKM3UoKQSzt3aPss4MLW9Nvt8PBUmtly>
+X-ME-Proxy-Cause: dmFkZTE9K/2WQmeS5DN3A/bfu9z7ombAqQKJIFl1b4Zop3LZ+5VKIpR6WSaXj+3ARfi5/i
+    v9bOAnaBcTJC3No7DFIbkQjMCj+amHIcxVRy1Sc7ZW5lQE2oXc9oE8wGfllp/25CkZ+ojA
+    1VSH60pQscP5sYO3lRaoV9+xIjE4hKoLU2+NcdUT2EKo7ZlkxpaUQ1QUxfsuLOiDAaZFHx
+    ri8EvllyZm0VXehzVTjyXg5WtUV/tn1K5U5Xsy6CeewJiFrjmCwRlvVNO6zuYKh1pwENs/
+    NuzlFAq3QdvAtfwJdGrYC2WiRp5s7W5Ddc41K3a7jiTF5YNfd8rX/GFrr9byVlLpntIvOr
+    bumARZP+WTsmGzwxA730xkk4hW2q2C4AagOBKcVO0PtToezbOzEIZ9hQQK1F+40RG5xisk
+    5NKx6P2C8g1swI71QxlRp1QMamJ94tP7RX4KvNn/cW18m9vTGSx6WxhcLpuwJdUpb8Yux3
+    GJmQAnim/D/NfQhZf5Bu4oW1br0/+YI/DfSsBiE7g8kI6V3ts3RS4Qea3iYHFLcmDOjykb
+    00RQ9EdnKk8ZwQIlsj2PsuboO/Zj/+XeBDIbrolWInnuXAskJwXs/lrogVc/K46AaNWnjX
+    PyLBs0WlqgU71mEcO3O7XpR+t06hWojHP79zcVSmh4aEHVLAZwJ9ggEGenlw
+X-ME-Proxy: <xmx:1SUJazb88qGKnMbFCU52Ol0xOwTG9uxWS4CHh0-AqGYIQZtv_jRX9w>
+    <xmx:1SUJawGgQRToldsiMR1VX24XZ_EaiQqO2HceC_LbToyP3_ZF9n1jRQ>
+    <xmx:1SUJawad-bRWb200xNgkPxuy0G7LUHWEOOGeeL1EXpM3EHii2Kh_Fg>
+    <xmx:1SUJax1hrVAclJ-aLft9oVcp-bmE4fnWQx_X-dcMJRE7L03wt2yfig>
+    <xmx:1iUJa0Dl3qOJfZMM0c0QaxMz2pvpGCFOUrr9bt3th39jjjjjXrkx2XG2>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 27 Nov 2026 01:40:19 -0500 (EST)
+Message-ID: <603e9158-d907-4d7d-9ddd-bf8eb3bd1f99@pobox.com>
+Date: Thu, 26 Nov 2026 22:40:18 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,276 +119,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-b4-coresight-cpu-debug-lockup-v1-9-69d3ad1e0fc8@iav.lv>
-References: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
-In-Reply-To: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Leo Yan <leo.yan@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
- Feng Tang <feng.tang@linux.alibaba.com>, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10556; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=69Z8TmRBXxQ+yhXG6sdog2ItaDNEiEq/4FhCjNot2/E=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDNmcqsUhskr6LisTfE7LW9nqzH7lsE3+T0tN5P1zbIH9a
- 74dez6ho5SFQYyLQVZMkWXCIY1bGUuu/vX3MH8AM4eVCWQIAxenAEyEXZCRof1t+Lwb7vcudflM
- /ushvlb3+e8lvNkx79su38uIKw1kPcrIsEo8bkd07Y5J4uJyF/dsOzLj3PcPs/Zud0tw/CG+taP
- YlBcA
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Reply-To: iav@iav.lv
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261126105725.767748294@linuxfoundation.org>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <20261126105725.767748294@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-From: Igor Velkov <iav@iav.lv>
+On 11/26/26 2:58 AM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.18.66 release.
+> There are 990 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.66-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-The CPUs that ignore a backtrace request are dumped from the backtrace
-stall notifier. When the hard lockup detector finds another CPU locked
-up, it sends such a request to that CPU before it panics, and the panic
-notifier then dumps the same CPU once more.
+I took 6.18.65 and applied the stable-queue as of commit
+936541b23bb407322981540c7964c73f2ae436f0 ("drop 13 patches, add 2 and
+fix 1 based on RC review feedback"). That's the current stable-queue
+as of this writing and includes the changes that were made after
+6.18.66-rc2.
 
-The panic notifier also reads every possible CPU through the EDPRCR
-power request. On the platforms where that is not safe it raises an
-SError in the middle of the panic.
+Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working well,
+no regressions observed.
 
-Remove it. This changes what a panic prints: the dump no longer covers
-every CPU and no longer comes with every panic. "panic_sys_info=all_bt"
-brings back the dump of the CPUs that do not respond, as the kernel
-then requests a backtrace from all CPUs before it stops them.
-
-Without SMP there is no backtrace request to ignore and the driver
-would do nothing, so make it depend on SMP.
-
-The example output in the documentation came from the panic notifier;
-replace it with a dump of a CPU locked up by LKDTM HARDLOCKUP on
-RK3399.
-
-Suggested-by: Leo Yan <leo.yan@arm.com>
-Link: https://lore.kernel.org/r/20261118104917.GW9176@e132581.arm.com
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
- .../trace/coresight/coresight-cpu-debug.rst        | 47 +++++++++---------
- drivers/hwtracing/coresight/Kconfig                |  8 ++--
- drivers/hwtracing/coresight/coresight-cpu-debug.c  | 55 +---------------------
- 3 files changed, 29 insertions(+), 81 deletions(-)
-
-diff --git a/Documentation/trace/coresight/coresight-cpu-debug.rst b/Documentation/trace/coresight/coresight-cpu-debug.rst
-index e25177b3b857..d841c2fb610e 100644
---- a/Documentation/trace/coresight/coresight-cpu-debug.rst
-+++ b/Documentation/trace/coresight/coresight-cpu-debug.rst
-@@ -20,9 +20,8 @@ The debug module provides sample-based profiling extension, which can be used
- to sample CPU program counter, secure state and exception level, etc; usually
- every CPU has one dedicated debug module to be connected. Based on self-hosted
- debug mechanism, Linux kernel can access these related registers from mmio
--region when the kernel panic happens. The callback notifier for kernel panic
--will dump related registers for every CPU; finally this is good for assistant
--analysis for panic.
-+region when a CPU does not respond to a backtrace request. The driver then
-+dumps the related registers of that CPU, which shows where it is stuck.
- 
- 
- Implementation
-@@ -34,20 +33,23 @@ Implementation
-   this feature is not supported then registration will fail.
- 
- - At the time this documentation was written, the debug driver mainly relies on
--  information gathered by the kernel panic callback notifier from three
--  sampling registers: EDPCSR, EDVIDSR and EDCIDSR: from EDPCSR we can get
--  program counter; EDVIDSR has information for secure state, exception level,
--  bit width, etc; EDCIDSR is context ID value which contains the sampled value
--  of CONTEXTIDR_EL1.
-+  information gathered from three sampling registers: EDPCSR, EDVIDSR and
-+  EDCIDSR: from EDPCSR we can get program counter; EDVIDSR has information for
-+  secure state, exception level, bit width, etc; EDCIDSR is context ID value
-+  which contains the sampled value of CONTEXTIDR_EL1.
- 
--- The driver also dumps the CPUs that do not respond to a backtrace request.
-+- The driver dumps the CPUs that do not respond to a backtrace request.
-   A CPU that is locked up with interrupts masked does not respond unless the
-   request is delivered as an NMI. A CPU that the scheduler does not report as
-   idle is sampled without the EDPRCR power request, and only if EDPRSR shows
-   it accessible (powered, out of reset, OS Double Lock clear). An idle CPU is
--  sampled the way the panic notifier does it, with the power request, unless
--  the "skip_idle" parameter is set. Idle is what idle_cpu() reports: the CPU
--  runs its idle task and has no task waiting to run.
-+  sampled with the power request, unless the "skip_idle" parameter is set.
-+  Idle is what idle_cpu() reports: the CPU runs its idle task and has no task
-+  waiting to run.
-+
-+- A panic by itself does not produce the dump. With "panic_sys_info=all_bt"
-+  the kernel requests a backtrace from all CPUs before it stops them, and the
-+  CPUs that do not respond are dumped.
- 
- - The driver supports a CPU running in either AArch64 or AArch32 mode. The
-   registers naming convention is a bit different between them, AArch64 uses
-@@ -164,7 +166,7 @@ on a system that keeps running, for example on SysRq-l or on an RCU stall
- warning. If the idle states are to stay enabled there, set
- "coresight_cpu_debug.skip_idle=1" in the kernel command line or write '1' into
- /sys/module/coresight_cpu_debug/parameters/skip_idle: the driver then does not
--sample the idle CPUs. The dump on panic still reads every CPU.
-+sample the idle CPUs.
- 
- If you want to limit idle states at boot time, you can use "nohlt" or
- "cpuidle.off=1" in the kernel command line.
-@@ -194,16 +196,13 @@ Documentation/admin-guide/pm/cpuidle.rst)::
- Output format
- -------------
- 
--Here is an example of the debugging output format::
-+Here is an example of the debugging output format, for CPU1 locked up with
-+interrupts masked::
- 
-+  After 10 seconds, these CPUS still haven't responded to the NMI: 1
-   ARM external debug module:
--  coresight-cpu-debug 850000.debug: CPU[0]:
--  coresight-cpu-debug 850000.debug:  EDPRSR:  00000001 (Power:On Reset:No DLK:Unlock)
--  coresight-cpu-debug 850000.debug:  EDPCSR:  handle_IPI+0x174/0x1d8
--  coresight-cpu-debug 850000.debug:  EDCIDSR: 00000000
--  coresight-cpu-debug 850000.debug:  EDVIDSR: 90000000 (State:Non-secure Mode:EL1/0 Width:64bits VMID:0)
--  coresight-cpu-debug 852000.debug: CPU[1]:
--  coresight-cpu-debug 852000.debug:  EDPRSR:  00000001 (Power:On Reset:No DLK:Unlock)
--  coresight-cpu-debug 852000.debug:  EDPCSR:  debug_notifier_call+0x23c/0x358
--  coresight-cpu-debug 852000.debug:  EDCIDSR: 00000000
--  coresight-cpu-debug 852000.debug:  EDVIDSR: 90000000 (State:Non-secure Mode:EL1/0 Width:64bits VMID:0)
-+  coresight-cpu-debug fe432000.debug: CPU[1]:
-+  coresight-cpu-debug fe432000.debug:  EDPRSR:  0000000b (Power:On Reset:No DLK:Unlock)
-+  coresight-cpu-debug fe432000.debug:  EDPCSR:  lkdtm_HARDLOCKUP+0x14/0x38 [lkdtm]
-+  coresight-cpu-debug fe432000.debug:  EDCIDSR: 00000000
-+  coresight-cpu-debug fe432000.debug:  EDVIDSR: 90000000 (State:Non-secure Mode:EL1/0 Width:64bits VMID:0)
-diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-index 6a4239ebb582..3bacb33af615 100644
---- a/drivers/hwtracing/coresight/Kconfig
-+++ b/drivers/hwtracing/coresight/Kconfig
-@@ -148,11 +148,13 @@ config CORESIGHT_CTCU
- config CORESIGHT_CPU_DEBUG
- 	tristate "CoreSight CPU Debug driver"
- 	depends on ARM || ARM64
-+	depends on SMP
- 	depends on DEBUG_FS
- 	help
- 	  This driver provides support for coresight debugging module. This
--	  is primarily used to dump sample-based profiling registers when
--	  system triggers panic, the driver will parse context registers so
-+	  is primarily used to dump sample-based profiling registers when a
-+	  CPU does not respond to a backtrace request, as when it is locked
-+	  up with interrupts masked; the driver will parse context registers so
- 	  can quickly get to know program counter (PC), secure state,
- 	  exception level, etc. Before use debugging functionality, platform
- 	  needs to ensure the clock domain and power domain are enabled
-@@ -166,7 +168,7 @@ config CORESIGHT_CPU_DEBUG_DEFAULT_ON
- 	bool "Enable CoreSight CPU Debug by default"
- 	depends on CORESIGHT_CPU_DEBUG
- 	help
--	  Say Y here to enable the CoreSight Debug panic-debug by default. This
-+	  Say Y here to enable the CoreSight CPU Debug dump by default. This
- 	  can also be enabled via debugfs, but this ensures the debug feature
- 	  is enabled as early as possible.
- 
-diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index ffbdad1204a4..5c5a1f6a6e33 100644
---- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-+++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -20,7 +20,6 @@
- #include <linux/moduleparam.h>
- #include <linux/nmi.h>
- #include <linux/notifier.h>
--#include <linux/panic_notifier.h>
- #include <linux/platform_device.h>
- #include <linux/pm_qos.h>
- #include <linux/rcupdate.h>
-@@ -420,44 +419,6 @@ static void debug_init_arch_data(void *info)
- 	}
- }
- 
--/*
-- * Dump out information on panic.
-- */
--static int debug_notifier_call(struct notifier_block *self,
--			       unsigned long v, void *p)
--{
--	int cpu;
--	struct debug_drvdata *drvdata;
--
--	/* Bail out if we can't acquire the mutex or the functionality is off */
--	if (!mutex_trylock(&debug_lock))
--		return NOTIFY_DONE;
--
--	if (!debug_enable)
--		goto skip_dump;
--
--	pr_emerg("ARM external debug module:\n");
--
--	for_each_possible_cpu(cpu) {
--		drvdata = debug_drvdata_locked(cpu);
--		if (!drvdata)
--			continue;
--
--		dev_emerg(drvdata->dev, "CPU[%d]:\n", drvdata->cpu);
--
--		debug_read_regs(drvdata);
--		debug_dump_regs(drvdata);
--	}
--
--skip_dump:
--	mutex_unlock(&debug_lock);
--	return NOTIFY_DONE;
--}
--
--static struct notifier_block debug_notifier = {
--	.notifier_call = debug_notifier_call,
--};
--
- /*
-  * Dump the CPUs that did not respond to a backtrace request. This can run
-  * in NMI context.
-@@ -633,27 +594,15 @@ static int debug_func_init(void)
- 	debugfs_create_file("enable", 0644, debug_debugfs_dir, NULL,
- 			    &debug_func_knob_fops);
- 
--	/* Register function to be called for panic */
--	ret = atomic_notifier_chain_register(&panic_notifier_list,
--					     &debug_notifier);
--	if (ret) {
--		pr_err("%s: unable to register notifier: %d\n",
--		       __func__, ret);
--		goto err;
--	}
--
- 	ret = nmi_backtrace_stall_notifier_register(&debug_stall_notifier);
- 	if (ret) {
- 		pr_err("%s: unable to register stall notifier: %d\n",
- 		       __func__, ret);
--		goto err_stall;
-+		goto err;
- 	}
- 
- 	return 0;
- 
--err_stall:
--	atomic_notifier_chain_unregister(&panic_notifier_list,
--					 &debug_notifier);
- err:
- 	debugfs_remove_recursive(debug_debugfs_dir);
- 	return ret;
-@@ -662,8 +611,6 @@ static int debug_func_init(void)
- static void debug_func_exit(void)
- {
- 	nmi_backtrace_stall_notifier_unregister(&debug_stall_notifier);
--	atomic_notifier_chain_unregister(&panic_notifier_list,
--					 &debug_notifier);
- 	debugfs_remove_recursive(debug_debugfs_dir);
- }
- 
+Tested-by: Barry K. Nathan <barryn@pobox.com>
 
 -- 
-2.43.0
-
-
+-Barry K. Nathan  <barryn@pobox.com>
