@@ -1,65 +1,69 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773213;
-	b=b3GvQYhNs6ND23wepxkX39pbPZ7nBCaC9Ndo+MEmjHpWftVYP9FNgHmDJg5i1I1FKByn
-	 DIiGOptm93pQ1neraEDXg/+v8LCQ5gBA/m+CKb+AlHIHh6YGjM+9WILSlQ7ADB9bgT1WQ
-	 38S0IRnneevpYAovbNYPP0ZSEqDPG+LIKWVeCCcSc2Jjx/PF+azLNNZjeAxZ0q/xlnOMD
-	 NcOYnUtMW8a0GZRV4QzOJJtsw843GUfR2Ym8CZFTc3aWFErIiyvnAInyyoXeicVRTuvCQ
-	 0FhK4N7Xob2lqQh0mleHCTJInAZnU1WQRs7OI9OIFzFvuXcWapTUYMLwuFumVbMtiCg==
+	t=1795773256;
+	b=m/Iy6YeLJLmfBPF4pFfPki6JKswACkBjzdnJHQv2HzdSd50SivqVFduyUGfLTnkBWDlM
+	 ocd8G39j0mxI0LhAgkps2w4ti6Uff9hTfN0kkCSFy84428FC77XQC2kEHa4JKllEC0J+l
+	 X0J74E5QY6S5Fo4HpWRNbiH43DLaisFUZ9iPEkSt+Nxo0hF1SO3ewLdjpdwxOGvIktQS2
+	 ay1J30cLbaw01h6qMJ+tMhf21sDXTLdgnKydq2F+IQbtonCE66cjlOovRxjSVlunwpgNU
+	 QwYFaUYJlYkcu6pX5hGOfGzJ3S8twwrLtk/jlrbdkFSljpE1FPH8ZaGlycyGEhsomxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773213;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773256;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BhtTwakQWtgSZJXOvwDEeFMMlQVjXPLF5C6qOnOHtgU=;
-	b=TBLcrBOvbN70HJ8N/feY3JChr6lQq2B5FgrPsQ64DqOrd/tMCwFcgTGcbKkypP4AS2kx
-	 rcd7aoT4Yo3aMoqJv5BWDw9YKbZmmn5stF5nk/r20xY32TzUmfmhw4nbQgqResIrwjJSn
-	 BmBF17Rf3DPcPA1PRtpd7nRfDe70PdRscK/2V0zwaRV5pZfOZCJR+jNmHixSnptBrG9Fe
-	 VxDShzfU9IWjcBxdekmY09J8MRffDYk7wXqjX5olCY0a/pESuUGyqheRBbM8L5hSrg2xg
-	 hu0YnRuNoJLK5r/OizVVM6XV0yTEuFXlbUCNSEwhG2VDv64BvMWXrlCpkerknzFymLg==
+	bh=yxFBnFdCaHevvOVTv0wLuGOLSxnn8rj9jL0cPT6weB8=;
+	b=1gPWq+PfTo65RPnu+Qjf6Q/gHlDJdW4RkWvIidxKncp4Urz0m6FeHC0TfZ/+sqNm59/N
+	 kM84hQCYLyub7Tbb/+h2L8Pps+CgziJHUlyAX0VdbGZO7wZ6r6msR/HNMKvhJuxvsoHtM
+	 UDhiHMbsx6EQt2PLGILyD+09li2UEgLJtU1i9ZVZfYYNK9Gddb4tEh+5jmBWirR1kecUP
+	 8B3zslHK9aXPu38Iyr9Qq+X9CCGOVdzfOcsS9wu0DD/xC/5DCpmrmP3cK8/Cg3naNZajI
+	 5vpvt9kIsQ8R0zcVHaRO7O4XpWeNtbekFjMqIbsiiCenKHUNYQtN/nrMVne0KNO2mzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pny9fciZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZbfQDkco;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63619606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:53:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C930606A333;
+	Fri, 27 Nov 2026 09:54:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pny9fciZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00B471F000C1;
-	Fri, 27 Nov 2026 09:53:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZbfQDkco
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6B1F1F0089A;
+	Fri, 27 Nov 2026 09:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795773212;
-	bh=BhtTwakQWtgSZJXOvwDEeFMMlQVjXPLF5C6qOnOHtgU=;
+	s=k20260515; t=1795773255;
+	bh=yxFBnFdCaHevvOVTv0wLuGOLSxnn8rj9jL0cPT6weB8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Pny9fciZjUcKNV2chnlD3t7RI59NfzSFH65ftRtNycfh4D+BNgeca6d2IsvVbykh8
-	 Peu8ty5dyLYc2Qh5ID6blrya7kMNZ32VlsDJQvIOoDW96httkIkSW+++xIdLf63scU
-	 WrwmzuyR6zjWGyIkolH9zGSrD/H4ql4trv6nqJMLyWb1YMDs39YpGbSQiVZZd470g9
-	 FdP0SLTJfTTH30vL8e2+siKB4OujF07gZYNeFUP08xE+Eb80zZ1zMf+moMW1jF54kF
-	 PGRx8c9KQSm9fAQVt1Hdw3QEPtnvhCmsl1pOPDaSZJ+QmLOQNL1bt/wVWwn4IsmEhI
-	 3zfeQL/Vb4hsQ==
-Date: Fri, 27 Nov 2026 10:53:29 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: =?utf-8?B?TcOgeGlt?= Pedraza Padilla <maximpedraza@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-Message-ID: <awlJD_6Ff2oGQ2bM@houat>
-References: <20261116142707.1299360-1-maximpedraza@gmail.com>
- <20261116142707.1299360-4-maximpedraza@gmail.com>
- <avs2dagfmQkv00H0@houat>
- <20261118212114.150992-1-maximpedraza@gmail.com>
- <20261124141119.441163-1-maximpedraza@gmail.com>
- <awau4IF7KE7hUg6U@houat>
- <20261125133150.507558-1-maximpedraza@gmail.com>
+	b=ZbfQDkco2Uodyxv/BRjJOPNFLb7WhqACLqAmAzPYRsTkjfcxuT1+OVu4oBDiudi9A
+	 DxcOrhcadM3v7vySdCCD7fcWBl/Lz0/KraoSkfw5WRXVpBQGS3tfxfX01cHwkJ+kgU
+	 iNyxSP92dc81tKP8HXJMkTbQ7vvKaWTQfBLRzsoyzU576RwcuYqmaKGCVqFE2weWRM
+	 hgwasrgHbY1e/GB4b7gQm7dZdDKCexdrMHtGI08siakS41/RyVRHlDbfb3qPLph19U
+	 ancjFFveDm06fTHdAagvg8CzLbnS/tPBD3yBBWRM2yRwCCjzgQB0iGaENQp/mYXhwh
+	 3MaSrSfRuEbIw==
+Date: Fri, 27 Nov 2026 09:54:07 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Willy Tarreau <w@1wt.eu>, Sasha Levin <sashal@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>, 
+	Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Jonathan Cameron <jic23@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Theodore Ts'o <tytso@mit.edu>, 
+	Security Officers <security@kernel.org>, workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
+ and a cover letter
+Message-ID: <awlR9pQUjodcLjZK@gremlin>
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-2-sashal@kernel.org>
+ <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+ <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
+ <awjopqoCJqwChwnF@laps>
+ <awlCy3vDs0fKx1ku@gremlin>
+ <awlNYsu1y8EhYgor@1wt.eu>
+ <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,86 +73,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="fzwyrulvhvot56sy"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125133150.507558-1-maximpedraza@gmail.com>
+In-Reply-To: <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org>
 
+On Fri, Nov 27, 2026 at 10:44:56AM +0100, David Hildenbrand (Arm) wrote:
+> I'm not even sure what we are discussing here and why. I work through crappy LLM
+> generated commit messages all day. Yes, I also use AI to clean them up and it's
+> exhausting.
+>
+> So as usual: in the right hand it is very useful, In the wrong hands it's not.
+>
+> Why are we so focused on generalizing things here? Don't we have better things
+> to do?
 
---fzwyrulvhvot56sy
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-MIME-Version: 1.0
+Yup exactly. I'm exhausted from the review and filtering of AI company fixes
+I've done this cycle, and you've done about 10x as much as me so heaven knows
+how tired you are.
 
-Hi,
+I've dropped a bunch of reviewerships because if this keeps going, I'm going to
+burnout completely.
 
-On Wed, Nov 25, 2026 at 02:31:49PM +0100, M=E0xim Pedraza Padilla wrote:
-> On Wed, Nov 25, 2026 at 11:07:17AM +0100, Maxime Ripard wrote:
-> > > The tidss approach rounds the clock to the closest standard refresh r=
-ate.
-> > > Panels driven by tilcdc often don't use one: with the timings from its
-> > > datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), which =
-would
-> > > be read back as 60 Hz and 35.19 MHz. The adopted mode would then never
-> > > match the panel mode, even with U-Boot programming exactly the same o=
-ne.
-> >
-> > This is *very* surprising. Do you have the datasheet available somewher=
-e?
->=20
-> You were right to be surprised, I got it wrong, sorry. The datasheet
-> counts the sync pulse within the back porch: a line is 1056 clocks
-> (800 + 46 + 210) and a frame 525 lines (480 + 23 + 22), so 60.06 Hz at
-> 33.3 MHz. The board DT added the sync lengths on top of the porches,
-> hence the 56.8 Hz. The bootloader had the same mistake, and also ran the
-> panel at 16.94 MHz.
->=20
-> With the timings fixed, and the bootloader programming the same mode as
-> the kernel, the readout adopts exactly the DT mode (33300 kHz, 60 Hz),
-> and the first commit from userspace with that mode doesn't need a
-> modeset at all.
+And to me the TL;DR is 'this bad thing you are dealing with on a daily basis -
+is not bad, it's good, and we should have more of it, but only if you hold it
+right'.
 
-Awesome :)
+For fairness's sake, here's what Sasha said word-for-word:
 
-> > > So the readout keeps the actual rate (rounded to the nearest kHz), and
-> > > tilcdc's CRTC compare hook accepts a 1% difference on the pixel clock
-> > > before calling drm_atomic_helper_crtc_compare_state(). [...]
-> >
-> > Yes, that's why we need the above mentionned helper, and more generally
-> > why a lot of drivers allow some deviation from the clock.
->=20
-> If it helps, I can write that helper: dispc_find_closest_refresh_rate_fro=
-m_clk()
-> turned into a DRM helper, with the tolerance as a parameter since drivers
-> want different ones (5% for tidss, 0.5% for most). Something like:
->=20
-> 	int drm_mode_set_clock_from_rate(struct drm_display_mode *mode,
-> 					 unsigned long rate,
-> 					 unsigned int tolerance);
->=20
-> with the tolerance in per mille, so 0.5% can be expressed. It would fill
-> mode->clock with the ideal clock of the closest standard refresh rate, or
-> return an error if none is close enough. tidss would then use it, and so
-> would tilcdc instead of its own compare hook. I'm also fine with you
-> folding it into your series if you'd rather do it yourself, just let me
-> know.
+	'I'd argue that LLMs these days have the capability to write better
+	changelogs and most of our human authors. We just need to be better about
+	laying out our expectations of them.'
 
-This is part of v10 now, together with some unit tests.
+Which I think is fair to say runs rather counter to our experience, certainly
+mine, at least.
 
-Maxime
-
---fzwyrulvhvot56sy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawlTGAAKCRAnX84Zoj2+
-dsusAX4polzpDxLM/JzsPTZ+aWWNCgNuR3Pls8tn7dg+ZaT49xEUpX3up2WAlDhe
-LX/H/OEBgNgVsDrYu+c3dmtUbaLwAjl7aODJRJ8YMj1eHFBQ5UftUpVr9aK575y5
-wc+LXEq75g==
-=JxUI
------END PGP SIGNATURE-----
-
---fzwyrulvhvot56sy--
+--
+Cheers, Lorenzo
