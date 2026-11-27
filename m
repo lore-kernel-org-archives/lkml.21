@@ -1,98 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795804953;
-	b=jh9Cg5nus6a5cPvNJ0Q0+6TjkNIFg1a2OEDxyHEQldbUjnwnOkAI7KgV07hDFUPYB4Sl
-	 gpjgLeOwTaHYY09OHdxr1BiSQUada3wGRUGR3Zw9bYpoHTIHG9Y8SGFkrmDWuEGop+f30
-	 0rLZ086v8t+WbcnBZG0FikNVTEYbGMuBzYh9rGHKnz/zfj6v2vBt26wa8KoFadOKH9oH9
-	 ah0+Oh1n/uj4cvIZb3/hZxIZBC8iFAnmwiht2o3n199AbWaMmgCVgLR6FMHylMuzGb/IF
-	 OqcTcOHKZODxMuWS6tRLYWRaD9LXj5IOx6X80yeHhmSN1VbKJwYtbBKPPzs8mPntZ8Q==
+	t=1795804962;
+	b=MzJnHaDpu4YBKKHnQFxx4RJO7flIy8vxezxvaYffIidrlD77I/HAORMu8+X60VCiPJR7
+	 OaU4IFQ+zkyGDJXiY7G1ERFkBiL33dOnpeIbkuNCVytQevEsYbSqCMv4rQimcnqdnxSC6
+	 VNcA/qGQiXf9fS1NGmHi0+vvsOrymcuBhQBg/Nh35/Y44QQQycb3kgEuQyAcsOaNgNQYW
+	 CtrhmioWoesrCLUVAyOErHOO64eE56LkTBrMuLQJL3eTIcYel/JOUnu6nO1FxzoEmcY8d
+	 ynhJh9hoSwSAi1wRPeFKiOjRGRMoeY6Z8zU1h61MhMb/Q+D3xdZKTZzv3y2vgyP4SDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795804953;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=vWsF7/sGRnQcNHhIssCpGPPEwDUF/AFXvsQJ0lFQQ60=;
-	b=RlK4W2PqvbbCDS/KLiIgedSnNX+KSxuK6+PBeL42Od5ze1RyBUSnXEoaar/R3BWomgSJ
-	 W54IMfpWv96vanw9yMGLAqJoPs12SGprkkcFtquxqurwEUB1VIndf+xVxiM/iv8it7lVi
-	 esa4BiRGLAFMmXJuOauT0mzJmnr0xyHXCafVod/Vb2XY792vGWW/YltZNv/Iqx545ieWI
-	 U64CLxQ4OE6EYtNGFn1LrkUNZbVTo2tOLsIpwlN3k7ej+Rsw/x8Ra3NCzmUcg8G0F+iEZ
-	 KuXNEsy04awppBwfINZssllDZnTTf5vyBjTAr2K/5v9baOjwT+g9grzUQa28UUd+JHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795804962;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=uTqOBQx0vgXwv13YeoLejNYHejF6xrAHQ5+KN1ozPjA=;
+	b=TFaKt0RLuL2LoRqzyplJywlTNRoDUYd4+uh5b3FRZtI4a4419WBDXzOkFCyhZRmNT/uu
+	 h0ENsd8Q0rCqcisTDD3Cg4BZw6PprXkMlPIgJDW9Vz/NfaMaWwku1OsoQSxFC+rn1X2w1
+	 RMmaeQdhYqzx0m5KtwNd3ztHHKoHXQ1HXJ3Wqv2g6xAyu5hpzEoK89YIi69XngofTPevW
+	 /C42DdUkD8q5cIl9CHoSipYiCxSfrD1u0R8ielHO2TTBaRpzia0JsPgoiStYEIixVE/ac
+	 VM28XV+XUgOL607JoZ8T1D2gxDCKbfN+vqxWNbeUvEGYgx+C7AAEhML99OsbVBVuQcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WSpsqNGR;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LRVKjS51;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3174606A680
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:42:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3174606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32D44606A32D;
+	Fri, 27 Nov 2026 18:42:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WSpsqNGR
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f04bea9a93so73459495ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:42:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795804952; x=1796409752; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vWsF7/sGRnQcNHhIssCpGPPEwDUF/AFXvsQJ0lFQQ60=;
-        b=WSpsqNGRs44xK3Qs/oFYox+a1jTv0CydTsHh+xqeHY/b5X5TLsuiZVePyFrd6XZHQO
-         oOq6jmtEcLbFVp1Co2JsOnDs8ikB7LCeVQwgzqaWninE/yOJJk42h4EQ444NdVDkMjdF
-         LG5wklvV8K3KtjIc4Epb/8NscMJv73T59YwqXLc2pVE9V52aWYIm7Rsy3snIx9xQhfd2
-         0WvoKmPaCpt3nohcAgpUSllwcdTYfCW1k26op1bMCr09yvqnazTb75aAEVpLbKg2+C2h
-         ymofPkK8HSWhesXBO6qE6sIu6Ae/IDO0xRPPQ0JdLDo1+EEImz+jhq9EGOy3m+EmTsNB
-         ieWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795804952; x=1796409752;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vWsF7/sGRnQcNHhIssCpGPPEwDUF/AFXvsQJ0lFQQ60=;
-        b=pxbYPCCqNe3rrGuQS6aylhj2Su9BcrnDAOsDuLAuowrWp9fXTzIco92oe9m4n7lswf
-         E9cenxQSb7s3Ihrso+TDVzoIJ/QNI8QirXULcDq2QGZqw41YqL/azZEQD36I1C/lavHA
-         M8B+be9dkq11IekdwWJsmg+qExIw59f+7m1JjVxRarliQcq0GcNon+DVTOziFWWg/25i
-         ORWJiKnFH9rKUQQS9cYx1M/wBGeDIF0SXapB8NKFLU4YolCAlLt5qiIv7V5ign8ky74x
-         THwL8brcqGPgUpHNhf8lEy8bcKR+eW7AzIL6muTJf1mfR99ReCjmABPifrokgfTSqbKb
-         qPew==
-X-Forwarded-Encrypted: i=1; AL+hErEXbOx0heoJ/QqlAm6dC+KS7om3qJxWTnKwEZ6gfNHpsO6Cq2Vtv2/Jq6jlzQo0rHx5S4Zb9yYmqpzj760=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VvCzGwPBndNC+ReAzZwS0pFEq/YgxqZU/yg0BWsJlP5loRbuL
-	AMJObu+FE2FVOvVW/jVBWlqAYgNfDx+J3ozUPPmGVUdRoDGcYlLu9rlJ
-X-Gm-Gg: AZFdTZcYupctGqeiiM46l51pDbnI+GNNr0YtbcLPYdqlOl0dCU/Xypu8/xNJS5aWF72
-	G5JIjIUHDI4EyW2klI5M2nL1DpIdU3jxRAy7oFKukPc4LPOELRpxPczdShGmfZ9kMG849jaoQqd
-	8tlWLbOX8/XXXEYoa5qMjYVM4F1DkjbU435QIkV9/fZiYDvLb16wd80sQFLVQKL5twwvMkzjLB2
-	rEILyXN/q7jqEhsvM+L2tU0vaPE3Sq1sTxaYbH65UbvgCaUMdBwT7nkXL144PT4hhF4NlRctbGj
-	OwYWKJ+nUaXyJ1ubAROcNa4CUgtrmxymsUGUehOZ5IG40MjPAdjp1MnkiLXrNKjny2kKSiCbCKV
-	PJY7s+dWrxfUKoJS3rjnhPGRW+iMQWeN9ft9wRnWU/4V0OjZ8eTxRpwmrbw7qOs9Maem7U+hMXB
-	PexksXVxVtt5Kme29XB2yCemcFwNwQ/oANo1Mm8F5bWRQfU3kTVENc9Yb/ZLVN9d6T7uZ/MhjIt
-	RAM+5KGS1V5L27Wq6J0xo2Sx70T1QiruMTz/DKPz0Ax74azosBSRYVzg4MmfWFQx1Jl8c03Wog4
-	sKMpkMk7n2wyB8COcSGcJU820n5OBvqvpoVkjzqoadOdiIuoJS4=
-X-Received: by 2002:a17:90b:248f:b0:3b4:2394:7cb8 with SMTP id 98e67ed59e1d1-3b423947e12mr18091674a91.48.1795804951932;
-        Fri, 27 Nov 2026 10:42:31 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4dfbe54a2sm19149071a91.17.2026.11.27.10.42.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 10:42:31 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: artem122novak@gmail.com
-Cc: cassel@kernel.org,
-	dlemoal@kernel.org,
-	linusw@kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vireshk@kernel.org
-Subject: [PATCH v5 1/4] ata: pata_arasan_cf: add missing newline to warning
-Date: Fri, 27 Nov 2026 12:42:25 -0600
-Message-ID: <20261127184228.185827-2-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261127184228.185827-1-artem122novak@gmail.com>
-References: <20261127181619.183139-1-artem122novak@gmail.com>
- <20261127184228.185827-1-artem122novak@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LRVKjS51
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 329241F0092B;
+	Fri, 27 Nov 2026 18:42:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795804961;
+	bh=uTqOBQx0vgXwv13YeoLejNYHejF6xrAHQ5+KN1ozPjA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LRVKjS51t9MIhg2Gdqh8Xm/yZ71TJqurLZdEHmLcUEEKJuvdnR57wwUZJZSipiFXQ
+	 EVqAwGDzGvilud6FHXhzB5NPktTp72SbeUpb9hzctFan2HEY3nTd4OnNZP/T2i4tVS
+	 OBxLiX9v1O0/SyTVErbbEb9PZsgF9yTc743l3zzCT+poL59q1we+sb1+qrmLanvzWn
+	 AkwUGU1gHTnbGOC7T6e6S4g8EbKadStJSlntrWU6HG6z+aeovdYWmTZr2aL8lupFbb
+	 2yUWqaiFWDmFS7tUXtK49QAKeaf8kWnOMO6boUMpL9l3np5rn8fM+JXOoLGBo4d5w7
+	 YIAjV9R/tBDcA==
+Date: Fri, 27 Nov 2026 18:42:35 +0000
+From: Will Deacon <will@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org
+Subject: Re: [PATCH 1/2] perf: arm_spe: Order padding before publishing AUX
+ head
+Message-ID: <awnPG6QADpRAgEzx@willie-the-truck>
+References: <20261015-add_barriers_for_perf_aux_output_skip-v1-0-5847d0578859@arm.com>
+ <20261015-add_barriers_for_perf_aux_output_skip-v1-1-5847d0578859@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,30 +66,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261015-add_barriers_for_perf_aux_output_skip-v1-1-5847d0578859@arm.com>
 
-Terminate the clock-rate failure warning with a newline so that
-subsequent kernel messages are properly separated.
+On Thu, Oct 15, 2026 at 04:51:58PM +0100, Leo Yan wrote:
+> The driver fills alignment gaps and calls perf_aux_output_skip(), which
+> publishes the new aux_head without a memory barrier. A userspace
+> consumer on another CPU can therefore observe the new head before the
+> padding stores become visible.
+> 
+> Add smp_wmb() between the padding stores and perf_aux_output_skip().
+> 
+> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+> Assisted-by: LLM
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/perf/arm_spe_pmu.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+> index b70f3fedf0282baba1395ce1116272ec5f961ea8..e105462ec5f38eab4776b0a654ba7c8a84f70f71 100644
+> --- a/drivers/perf/arm_spe_pmu.c
+> +++ b/drivers/perf/arm_spe_pmu.c
+> @@ -487,8 +487,11 @@ static void arm_spe_pmu_pad_buf(struct perf_output_handle *handle, int len)
+>  	u64 head = PERF_IDX2OFF(handle->head, buf);
+>  
+>  	memset(buf->base + head, ARM_SPE_BUF_PAD_BYTE, len);
+> -	if (!buf->snapshot)
+> +	if (!buf->snapshot) {
+> +		/* Order the padding stores before publishing the new aux_head. */
+> +		smp_wmb();
+>  		perf_aux_output_skip(handle, len);
+> +	}
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
----
- drivers/ata/pata_arasan_cf.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This looks correct to me, but I wonder if it should be handled by
+perf_aux_output_skip() instead? arm_spe_pmu_pad_buf() is called from a
+bunch of places in the driver, including in conjunction with
+perf_aux_output_end(), which looks like it already has the necessary
+memory barrier. So doing it here seems weird inconsistent to me.
 
-diff --git a/drivers/ata/pata_arasan_cf.c b/drivers/ata/pata_arasan_cf.c
-index 5e02d227ddda..61977f0ed84c 100644
---- a/drivers/ata/pata_arasan_cf.c
-+++ b/drivers/ata/pata_arasan_cf.c
-@@ -318,7 +318,7 @@ static int cf_init(struct arasan_cf_dev *acdev)
- 
- 	ret = clk_set_rate(acdev->clk, 166000000);
- 	if (ret) {
--		dev_warn(acdev->host->dev, "clock set rate failed");
-+		dev_warn(acdev->host->dev, "clock set rate failed\n");
- 		clk_disable_unprepare(acdev->clk);
- 		return ret;
- 	}
--- 
-2.56.1
-
+Will
