@@ -1,59 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789563;
-	b=Cp5oTpxBmHK19sHvRVP0iO0tHhkgyXHieoK6iTCLeoafZ9ZK2E0d8CjRpCS5gz36ip+8
-	 t0hKYqswXiKIg4aYXwm3r3GkfUF1ZdgPh9XfhdT/Zpx+LGQmvbyJaoAuMiEvfOZkv6CvY
-	 Ni9oDvC06KWuTIj/TcoLY1rkS/8WHsoGPcl+sJ5gWiEUIaPa4AWrQq/9kb92XhRIE+I5/
-	 TVV8aWS/GRfJwCd6EjjgABrXKMmKQ6EW8iW+BoXdEIZTbn1lQwtOLqtVT6rdKMc1Fg+Bv
-	 vZkp0CX8FPp40rvBaJT+P9nXhxiGySTCnAXyz0x5OPHVJBNj96gvM8Iz4EMcTk5KAWg==
+	t=1795789558;
+	b=0VO7dP4BkxmweVJvD+4CjV7x8lIQUnefgeJT/LhADbqvD33tNkYzQ7fKMJUsHHxlD8su
+	 7Vs98Bvr2ohs//AQa4MTr5Tsg3bMdCv3i7A4/39WGaGw41CgeJfy+nTvdnnMSzg7X+r+P
+	 glrdxgf7n+eImpgfwa6XG7Ii0P8dXVMR0PvA0ac7sdlsoVjRoKTtEq83svNxzaTDKDUMU
+	 YRR0uvev3jDzJ35bn2wxI0IVDb9RyUtiXWHL7OmrZYMjDaGdS3EiGMvH4qf5dsLoIPIsS
+	 0voSAkUpmbGsR8tnP7IrHLrtjf8tFnmEEY+pwZgXTDMmCQTwccVah/XvMoZWwIBhv+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789563;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=PiBNWoqH2zie2QW5L9CTTLxi83g0iqOaBLwfJeY29Ck=;
-	b=nqkyCA7uVpVhJPrkmHm0FUTHF6sMMzS5hQ9b+3gW6YdOm7DquUdHo8SMyteAYLI8c5dl
-	 GlWHlPN/ZOM1faVWNwuB04mxNr0Qvgk+dYQzdyuDSAHYYqy8gRBToTh3RIxc3/SZBc4KS
-	 QEuLPB7TeNsIVg1OfGVHmizLtlgIMboZ7LaDhjSToTdb5ekI8i8fQjVAxetGuddJrCT3O
-	 UEnW4MJs1qLTzCSDGjfEw6D+0kA42/yHcEgNMWhj3o5grL5KWNILMClhG1w9iTwLddiVm
-	 tt2mwrsbq9DjFmqAjdue9G4+RLkKQzty5gOFQIh4IwFdQ19WmJnOOWBIwgcMDVYhF3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789558;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CUYUcZ8zVrccdQp8eylc+qilfxVX7jnZyDSPYCH5vsQ=;
+	b=P1e+ZS1dramSAxiuiEdrmwajOg1klr2xaQjtSgF8XRTAtvLlMmRyoM9zAbFmUYhlmlJ7
+	 eg+68RgbIKVay3wAwf9y0HFcPgKy2k+nRJ7Z5JRa5rzHCiKtFgX4tLECb7FDAote2zXY0
+	 3LE9TIOyfJq4DTtcMDQD6ThX+MkYZVNbuFGVj+8ssmjV+nqi+IR082G0JO3kpBE7uDc1c
+	 oPVg1BHxs90WtxNU33J/ez31Hi/AjYAlibUbVVNK9+xrDq3snVb0Dl3e36ysPpyKEmIFF
+	 NR2gD7+mHgh1tcNKCPbQPv6v/IJ6D2moqU8rXl6G0kONcAccrYaBopJJs8JoWaI46Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hnB3HhFJ;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=PNoPGUYd;
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A541606A326;
-	Fri, 27 Nov 2026 14:26:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A541606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A69606E13A
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:25:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98A69606E13A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hnB3HhFJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id EEC1E1A0440;
-	Fri, 27 Nov 2026 14:26:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BFDAA6049C;
-	Fri, 27 Nov 2026 14:26:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 90ACC11E68FDF;
-	Fri, 27 Nov 2026 15:25:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795789558; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=PiBNWoqH2zie2QW5L9CTTLxi83g0iqOaBLwfJeY29Ck=;
-	b=hnB3HhFJhf4zGU0zpC6VqpiHx+byjW2HUGZCf4Qyaq1vE/bjZJhYoFxanpA2wmLeIrbuaG
-	0Xx7wq1gSL2Ft8dveHN+EYbUNnuICpHAlMEKo/SP3mprwK7EsXZk6KdaGh5YT4DoVZQAxg
-	Pwm58K0Dc4IIUZx5vsvKa4FT3K96uoFf2GuP6560wYeNZFiQkLjPUdBcv2ZKIyGbkUqi8e
-	6S+9NtIGqz2OmATyF4t1N2WM8rpfZchUtih5TEG9xA1wb5bAvvN8/vQWfSiT17o96r7TPV
-	0AtxLT9qRF5M1a3Ge0N6Ge/deHqomKtoIDPvmRrseP2zuYDUjqirHpQYfujKFg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 27 Nov 2026 15:22:42 +0100
-Subject: [PATCH RFC v2 20/35] spi: nxp-xspi: Consume dummy cycles directly
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=PNoPGUYd
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cde1479f76fso4357852a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:25:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1795789557; x=1796394357; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CUYUcZ8zVrccdQp8eylc+qilfxVX7jnZyDSPYCH5vsQ=;
+        b=PNoPGUYd72bdVRNz6j5xAK9fj1N/kgvqWgnVi+dggqk/FcbIEE3jmb3pEonFHHWsQI
+         7TjQT8NVt2gY+sd52p5CjR07Wt8Mw7WRm5WiIUoT3i9eLTw5wYHp8ZxvOxbDJkBwi/8d
+         cF/urv3guhCw71osZosrgSwWuTHFwLD8s9sqb404M+SqyeGfnPfShOlb1XHsskrjbCAZ
+         xTE94+issUodeM8Ea44WxzBe8LFNVXPIqZxL6zyUP4BoIYW2Mom7a3rdjVDtjpcCo4Eu
+         OWovmwPB/T1z3kVlKyWj0BGfl9hYXgekn3omCY8LR3ZM7tJ1dRq/OO2v4mtrXma8jfel
+         Rh3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795789557; x=1796394357;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CUYUcZ8zVrccdQp8eylc+qilfxVX7jnZyDSPYCH5vsQ=;
+        b=BQURMdbNze60lJMbyD6bhpy5Pp6lDwMmSubfPGtDEP+/b+QURr+r+c9DC6YPPohyWE
+         +4DA9H8Vb5X1CegsdBFso7W2M90ydLzOqjvjILPMEzKTbC8MxwDAqZnP8oGlHu++e7yv
+         jlf71R1BVOlznlSqeRmnhhuiwf3tkfzCLaH3e6b5bbofy4gAGvecZtSIx0Yz96OCz2dt
+         qNz/Klk1qudUPNMC7W81JLSKRFx6eTofW0JeEpRtDtHzBHo2z/yLftS0epRFl8LpXmPi
+         OORhl6k8HNewKNyjWWkmrcr2dBSV0aEzM005P8Fx/QZ6A6TD1Kk2zQU+dPzjGmz4SuOr
+         2a/Q==
+X-Forwarded-Encrypted: i=1; AL+hErGwAgQnfL3Oz5b0AIqKlas7O3fdGK5VzKpScRbuLiZWVM+0d/KsSOfra6GSzbTNzUnaWuyHrQ2hVpqZ2Jo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OTWbmUgwNp88XGdBsaMnSMhSSxPnFFayQCeYB/EedXwmRlzYO
+	Wn9kCuu3P7klGjuEu1GWG4roGOnUd2AFROgBoMqtHaz3uyyysrGgv60wr2MWDdRbVP8=
+X-Gm-Gg: AZFdTZfWJfpjg9fb17IOJoFJoe9VT9ePyHY8C2q+OBEB5kBMtG1TxZOoZS73ogXW98u
+	6TgZ+P83OCXHf10f7Qa7aX6Z6DsT4hY1xFTkjSUPlwNtwmN/VuT1whICFnVvg/nEDf84iZlFNBS
+	RdbRWghUoj9UAJ8/CMUgPavSA+JffolVTBoBX9pyd7tcap8ZBPeXTVpdWCYrDCHL+U7Bo9U33rx
+	M6SDHvkkyaOq0IyVOYxASQ/ygkSuCmeq3Tp3KvbQTVIo6DgLDeJjp+ZEP/FlNHTNGyeDjbZoRyf
+	eMEw0bVcU5DzO5sxBIa7jxyYEJHWwwRdviUFeMC1CIvVMBPi57dm5PPsEOofVFH+L1ZBoEANc/V
+	v/R5H3NY0Z2z5wv5D537ZYJ5cArSF/MmEmGZZZF9Ip+tB/Ns4+waTGXSK5ubr501H8tuUuQ6QJb
+	6GtuvTmGrE8cdVrjb9WiajE25cjd5KLhNGrRbQSxtYdtht8Qlkn+xLplLRw/+Fdi29so88Gz7vq
+	VD9vt3jt8iQnSZg2QoUK1r53K8vY3X2d7jod0ImY1UBLDEwXW+pgm2rzltwCDMU1/kRYQKp0Ot2
+	GIHu3pAnwTLuAVc5AmsaGNDRsaXhV5bgc7qFFOe+T+u0bPmnFL6txQkvrg==
+X-Received: by 2002:a17:90b:4b86:b0:3b5:35eb:5e94 with SMTP id 98e67ed59e1d1-3b535eb5ff2mr2981408a91.41.1795789556690;
+        Fri, 27 Nov 2026 06:25:56 -0800 (PST)
+Received: from rmustafin-laptop ([27.79.41.63])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4dfbe54a2sm18324629a91.17.2026.11.27.06.25.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:25:56 -0800 (PST)
+From: Rustam Mustafin <rmustafin@cloudlinux.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Hopps <chopps@labn.net>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Rustam Mustafin <rmustafin@cloudlinux.com>,
+	Sashiko <sashiko-bot@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: iptfs: report the too big error to the frame's own socket
+Date: Fri, 27 Nov 2026 21:25:50 +0700
+Message-ID: <20261127142550.66326-1-rmustafin@cloudlinux.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,104 +106,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-macronix-upstreaming-spi-mem-cycles-v2-20-5c93f5e5d630@bootlin.com>
-References: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-In-Reply-To: <20261127-macronix-upstreaming-spi-mem-cycles-v2-0-5c93f5e5d630@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
- Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
- Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
- Yu-Chun Lin <eleanor.lin@realtek.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Yogesh Gaur <yogeshgaur.83@gmail.com>, 
- Chris Packham <chris.packham@alliedtelesis.co.nz>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- Michal Simek <michal.simek@amd.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alvin Zhou <alvinzhou@mxic.com.tw>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- linux-trace-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-The controller programs the dummy phase in clock cycles, but the driver
-converts the legacy dummy byte count into cycles. Advertise the
-dummy_cycles capability and use op->dummy.ncycles directly.
+iptfs_is_too_big() calls xfrm_local_error() when its sk argument is set,
+but xfrm_local_error() reports to skb->sk and dereferences it. vxlan
+passes its tunnel socket as sk for a forwarded frame that has no
+skb->sk, so an oversized forwarded frame on an IP-TFS SA with dont-frag
+oopses:
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
+  RIP: 0010:xfrm_local_error+0x92/0x190
+  Call Trace:
+   iptfs_output_collect+0x2c2/0x1170
+   udp_tunnel6_xmit_skb+0x713/0xd90
+   vxlan_xmit_one+0x1ebc/0x3490
+   ip6_forward+0x1573/0x35c0
+
+Check the frame's own full socket instead, as xfrm4_tunnel_check_size()
+does, so a forwarded frame gets the ICMP error. Drop the now unused sk
+argument.
+
+Reproduced on a KASAN kernel with vxlan forwarding over an IP-TFS SA;
+with the fix the oops is gone and an ICMPv6 Packet Too Big is sent. The
+xfrm_state.sh, xfrm_policy.sh, xfrm_policy_add_speed.sh,
+vrf-xfrm-tests.sh, pmtu.sh and ipsec selftests pass with and without the
+fix.
+
+Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/179551712630.3135.52212996809224784@kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
 ---
- drivers/spi/spi-nxp-xspi.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+Assisted by Claude Opus 5.5 (claude-opus-5-5).
 
-diff --git a/drivers/spi/spi-nxp-xspi.c b/drivers/spi/spi-nxp-xspi.c
-index 38c8d6269aad..8b836662a5da 100644
---- a/drivers/spi/spi-nxp-xspi.c
-+++ b/drivers/spi/spi-nxp-xspi.c
-@@ -392,7 +392,7 @@ static bool nxp_xspi_supports_op(struct spi_mem *mem,
- 	if (op->addr.nbytes)
- 		ret |= nxp_xspi_check_buswidth(xspi, op->addr.buswidth);
- 
--	if (op->dummy.nbytes)
-+	if (op->dummy.ncycles)
- 		ret |= nxp_xspi_check_buswidth(xspi, op->dummy.buswidth);
- 
- 	if (op->data.nbytes)
-@@ -408,8 +408,7 @@ static bool nxp_xspi_supports_op(struct spi_mem *mem,
- 		return false;
- 
- 	/* Max 32 dummy clock cycles supported */
--	if (op->dummy.buswidth &&
--	    (op->dummy.nbytes * 8 / op->dummy.buswidth > 64))
-+	if (op->dummy.ncycles > 64)
- 		return false;
- 
- 	if (needs_ip_only(xspi) && op->data.dir == SPI_MEM_DATA_IN &&
-@@ -453,12 +452,10 @@ static void nxp_xspi_prepare_lut(struct nxp_xspi *xspi,
- 	}
- 
- 	/* Dummy bytes, if needed */
--	if (op->dummy.nbytes) {
-+	if (op->dummy.ncycles) {
- 		lutval[lutidx / 2] |= LUT_DEF(lutidx, LUT_DUMMY,
- 					      LUT_PAD(op->data.buswidth),
--					      op->dummy.nbytes * 8 /
--						/* need distinguish ddr mode */
--					      op->dummy.buswidth / (op->dummy.dtr ? 2 : 1));
-+					      op->dummy.ncycles);
- 		lutidx++;
- 	}
- 
-@@ -1307,6 +1304,7 @@ static const struct spi_controller_mem_caps nxp_xspi_mem_caps = {
- 	.dtr = true,
- 	.per_op_freq = true,
- 	.swap16 = true,
-+	.dummy_cycles = true,
- };
- 
- static void nxp_xspi_cleanup(void *data)
+A KASAN reproducer (single VM, vxlan forwarding over an IP-TFS SA) is
+available on request.
 
+ net/xfrm/xfrm_iptfs.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 0313a43aa8a9..ccdde630a825 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -1813,7 +1813,7 @@ static int iptfs_get_cur_pmtu(struct xfrm_state *x, struct xfrm_iptfs_data *xtfs
+ 	return pmtu;
+ }
+ 
+-static int iptfs_is_too_big(struct sock *sk, struct sk_buff *skb, u32 pmtu)
++static int iptfs_is_too_big(struct sk_buff *skb, u32 pmtu)
+ {
+ 	if (skb->len <= pmtu)
+ 		return 0;
+@@ -1824,7 +1824,7 @@ static int iptfs_is_too_big(struct sock *sk, struct sk_buff *skb, u32 pmtu)
+ 	if (skb->dev)
+ 		XFRM_INC_STATS(dev_net(skb->dev), LINUX_MIB_XFRMOUTERROR);
+ 
+-	if (sk)
++	if (skb_to_full_sk(skb))
+ 		xfrm_local_error(skb, pmtu);
+ 	else if (ip_hdr(skb)->version == 4)
+ 		icmp_send(skb, ICMP_DEST_UNREACH, ICMP_FRAG_NEEDED, htonl(pmtu));
+@@ -1908,7 +1908,7 @@ static int iptfs_output_collect(struct net *net, struct sock *sk, struct sk_buff
+ 		/* If the user indicated no iptfs fragmenting check before
+ 		 * enqueue.
+ 		 */
+-		if (xtfs->cfg.dont_frag && iptfs_is_too_big(sk, skb, pmtu)) {
++		if (xtfs->cfg.dont_frag && iptfs_is_too_big(skb, pmtu)) {
+ 			trace_iptfs_too_big(skb, xtfs, pmtu, was_gso);
+ 			kfree_skb_reason(skb, SKB_DROP_REASON_PKT_TOO_BIG);
+ 			continue;
 -- 
-2.56.0
+2.52.0
 
