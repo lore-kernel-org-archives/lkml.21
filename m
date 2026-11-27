@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776991;
-	b=0syOu3bSQBEmnxfTiNvgMLdnUQPecVyVErRsxkinrB6UzAr9gsVHqWQNZ6MYQpjr9gJv
-	 AFrckAfMKw2+8LdL3V4MV5So974VicwHdtHABoJMCqAa8tnCE0vMjBH5FPtzBIO93A4KV
-	 0my89I56Qq4hi/ZQJX+kypEy9cvM/QZX6IPDU3n5Y3dENlrgyiUjDpm7OC3NQqWYPTT5E
-	 XveKRNeNlCsWt6Mz5rn1i/jLvQlHJyk+bfW/FP8PfbwTGsBTQeWZTrr4GnWZ4DwJPybt7
-	 fr9JdzhkqVm+4722mZNtUtzSxjcQ95gYA67f37IZf08otyoTxns4j2540w8f0/+3b8w==
+	t=1795777004;
+	b=gJ0gy6lZHiaEWwRZkO7iNm9n0P3uL8KMqXgKKBZ62tPVTVg5AwbzkZ2HHvJ1kwyOiU2T
+	 pkLNF5JDuhjugoemXoreACwhgdvaHSIiIRjXLOix/CnyKaMzZhM8Hr6gu3DH3lPragIWZ
+	 Kly2NuzdAzhjj7Dws3NHQcia0MOR5WeqE9Mk+35+vGPI7QrxE0XgI3nO4hK+EiIJBZUl0
+	 Fn5orVxmrOeJf/2gcvOH79m132aA5NDhF3MyZXVaaJG7a+tqPAbrzNwegvRqtKHpOZSpm
+	 N7p4ZwuoxZ9NrwBNaEZBzIcTkBSTCmG2stcoDIcQL4Tc8jidJPelHGeF1MKamL/LkwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776991;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=1P9jh/3dNVPHo3/JRb6QOjFyR52ByPWaY+Xbs/2Psnw=;
-	b=ONMi/m/Ar6j+zlQQQ0rLGrNSEKVowo1BioKIbVSavo70Mk2yYB6SpXhwe7ksbx/Q5bzw
-	 bXAxm64NjNBJ30H3MCaf63CNFCz1fkR2ZsPBDcX6ObmeTIpHlrTl3xnwEAdXOLcKs4J7U
-	 82i7Sez9iVHDkxnEsHWeKB/PFfAKk3XNkVLWoa+k+MKEjOnp5aIo2PyjSFSnSa5PEKjN4
-	 CDNpKsbARdsiERfxcdAJyIRw0QVTSWK2jl7c9bjzzti0FrFZaCKiaRWn9GAL/T1LXW2G1
-	 OAlgxsISaAHCzqNV+6qEaagNZmXAutOVFfM+PmVDYcyR9kG/NZo8q9xX97ch5RL/E9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777004;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ixpJ8FVsaUtzbYGvKZMv3iePyio0tQ1UpoRhwVro58s=;
+	b=I3cbhl2IIleW68M6KqPUcifeXFrfAsBQQ+udM63toZLd+y+otcGpjoQn7cp8iJMCfoJp
+	 XwBwLp4jgO6k55ayzNYHROcFm6EbV536t+DOd7MwlbEjaKBEvSp2UA+W9wJIj+P9ivbGO
+	 oiqk74gu77Pmdq+D1PKt59jwbAbwB9TNCgYGj7kFjtXw5lMuHFXf6gHMFaVEik2g9/90q
+	 j7amZid6ep1VZWN6OpuEyR4mGoMcYrtPMkgriYff/6rUgpzWAZjpPfeb0zIxpsDBZtkYH
+	 jE4WmE/qFCS6M7b1aLc3I027e6yLe3nrMRr0bLoOLqN7lBDw4JiWLP4HVbUIgL0AHtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=dyb5RJbM;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dV7E1/xo";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9763B606A69A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:56:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9763B606A69A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04C11606A327;
+	Fri, 27 Nov 2026 10:56:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=dyb5RJbM
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so80531635e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:56:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795776990; x=1796381790; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1P9jh/3dNVPHo3/JRb6QOjFyR52ByPWaY+Xbs/2Psnw=;
-        b=dyb5RJbMSTNIthJgsi/N2ySzW1R3mcY+ZvZe6M9AuUMbmlx2TUCqkrG2xu3erNO2t+
-         Qoj9vIYm2Fdngl22sNhHrSlriisnh2LFEUQqXdYF6mSfhVxPdTknYvcBiynXMFaSR+wG
-         WnCOHJTLxU8GWrIjotHjCKr0AWZuFkiFCDMF98GVoeoJyg2WPjK6644T4whLKPa3QPV0
-         VFP1nA5/mud1GwPgrX7H1aMp2ftpoQlR1vr3Jj0gbxdP2IX1nO5tLsBKPIcxsGi98L8N
-         WBKsN0ILSfkYkl0WsTMR2/rxCZqw4WtQ988KHlu8QZXS6aLMpHItXNprbyyTSPNXrAp4
-         6tZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795776990; x=1796381790;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1P9jh/3dNVPHo3/JRb6QOjFyR52ByPWaY+Xbs/2Psnw=;
-        b=GR5dX9KBS/zoUtPRJiwG6b9dcyzy6l1DYVf9Z58HvdubkIytIRN+pBhHft7ruTLy7S
-         66AF0/OdNgg/UNBt6TLtz93SHuaYaqI5Yw/XQcFJzSCFUR4DT6nbCO+dPmu26sPgI0ch
-         Sve7loCaMltid9AtiDfjhebkBKXFWvZc/XPcb7J777/69LaePqd3YqK0aULsvoXooCke
-         ea1UgaoIMtmZ1rJ5u7EqQRrm4VUs3aguIa3PPOibNsCehy1UjjnuSJjY+e+7hTKElaYi
-         SVXxdLHftcBzk+z3+JCRg8/wZpoVPPo2t7AN6iN1XGk22U+zBN4Y+IuOUe+FgTsAAID6
-         fBOA==
-X-Forwarded-Encrypted: i=1; AL+hErH3yJuMtyA7jZjgZzclbI1y3rZ87QJ7cWN3bFRPLzm7x3wOP4Gd7IWt8MMYonzlk7kvhKw+bu4zQpmFM5Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88H1AHAzgodMYusbsMV6e0PeFn1AtoaHdjWEnLYvqu8IVv3aYG
-	dkkKbmEzKlLySm1/7KT4mqxYAzXCgtJza6SlOP3hs/WcCMSKZKkYObw/SKkP8b9o6rc=
-X-Gm-Gg: AZFdTZd5SjLoctNso++KepJCIGtsTaajW6FaT9Ghzb3gZCYtAz2hwhz351WlNcCizXn
-	bmI1VryhhPtWo0uRkgsjxpR+/iZP2qdRb4Ch0llZ2CX6Pb5GujZsNria2AcpqrkzihGUXGqNYh2
-	lOn+VlpXDmWi886tO3K5hXsZeNUnWiZA2cJAAZqKlmnFZL4xAO/bIXOplZ4cM+/72R9kEydFGoZ
-	2PeZ1y8lfzwFuvfZ5UkBkz1zYRx8aFG0CwQnsDPD7wzOTblchVax77/Yn+jVh8vR+tP/QL0IvoH
-	RQ1WpePaHG96Zpg8npPp/FNPxrvqO1e+/SdGLR4XMIOksSve4sCg/JIIY55K3DaD183vRT2B1g2
-	Kv+zkZTxPfEhsyFYdMID1c3GvyUO/G86whnfuUD5LB/V3nnU9Dpw1mwVlLT60Zm0jiMaUTH0aeL
-	YbWuzf2mcU4xpTPI2h11wo81DzV0Uy5V+97lBU9gzcHigvHV5ZpGTJr+Zg2/1YIeak8codCPZ4/
-	2HQf63kmrAjELsHdHANvsXKAJpxx1Zs2yDyXnxwiiDJhOL95zMUUlCYyGh3BowF8zxOC6ZmU1Kj
-	fctGzmk9F73dDrK+JL3yBJiImbyQ6ewqtw==
-X-Received: by 2002:a05:600c:6744:b0:4bb:afae:150d with SMTP id 5b1f17b1804b1-4bbafae24acmr75249945e9.33.1795776990010;
-        Fri, 27 Nov 2026 02:56:30 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906c089dsm408746585e9.1.2026.11.27.02.56.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 02:56:29 -0800 (PST)
-Message-ID: <9a471409-04c2-4f6e-aec9-0b23bb9b69f0@linaro.org>
-Date: Fri, 27 Nov 2026 10:56:27 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dV7E1/xo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC6BB1F00898;
+	Fri, 27 Nov 2026 10:56:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795777003;
+	bh=ixpJ8FVsaUtzbYGvKZMv3iePyio0tQ1UpoRhwVro58s=;
+	h=From:To:Cc:Subject:Date;
+	b=dV7E1/xohDKd6dZZp3jQtSYpClT4BgLczWrsqp2uTk90zW4T9rl7RjRRbdBWS3dbb
+	 foptU5l3/U2XrmTRXAM2VWlN8LLDFQGfBkRxzlZ1RthW2PGE8oWXXhtQaFJ8LeSBuq
+	 wiq89m6iKeoql26dWs8Kz+CxfWTCCGHMMf9tHfbsFp4/zhaVVTxAufKEE2x8po9MyJ
+	 AxhYnLOsZFDVFHCpnkLdMm+kg39NWhUGtA1/lsuZ4YFhvjSjHtcHEs+1nKQ2ptpRbN
+	 x6Y+uBqBpt/ux2Vvj9tGAWBhVT9xPG0wQBuj1PfCotveI2I/FY39Gt5cvYrCKSMzFL
+	 QzZlE60psmvAw==
+From: Chao Yu <chao@kernel.org>
+To: jaegeuk@kernel.org
+Cc: linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Chao Yu <chao@kernel.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/3] f2fs: fix to account entry_cnt for all write bios
+Date: Fri, 27 Nov 2026 10:56:41 +0000
+Message-ID: <20261127105640.537608-4-chao@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,90 +58,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for
- bpf_get_branch_snapshot()
-To: Leo Yan <leo.yan@arm.com>, Puranjay Mohan <puranjay12@gmail.com>
-Cc: vladimir.murzin@arm.com, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, bpf@vger.kernel.org,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- Rob Herring <robh@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Shuah Khan <shuah@kernel.org>,
- Breno Leitao <leitao@debian.org>, Ravi Bangoria <ravi.bangoria@amd.com>,
- Stephane Eranian <eranian@google.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif
- <usama.arif@linux.dev>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel-team@meta.com,
- Andrii Nakryiko <andrii.nakryiko@gmail.com>
-References: <20260810164622.1829843-1-puranjay@kernel.org>
- <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
- <CAEf4BzapC=7YM2QLMyKKfyOWGgBTfEJmPPN8e9Jf5xT9SutBTQ@mail.gmail.com>
- <dfa8362e-0dad-4f23-9d2e-dde03cb5facc@linaro.org>
- <CAEf4BzZ=ahQNtA-1KdZFRONXMOEkV9Nb1OUY==JRQCarkbMM0Q@mail.gmail.com>
- <5c7f4a5f-fe5e-4367-9c60-86f1818346e8@linaro.org>
- <20261126180214.GB809232@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261126180214.GB809232@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+From: Chao Yu <chao@kernel.org>
 
+Commit f32744a8b83d ("f2fs: introduce max_atc_write_bio_entry_cnt")
+tracks the number of entries queued to a write bio via entry_cnt, so
+that f2fs_write_end_io() can offload the completion of a write bio with
+too many entries to sbi->wq if it is called in atomic context.
 
-On 26/11/2026 18:02, Leo Yan wrote:
-> On Thu, Nov 26, 2026 at 12:39:52PM +0000, James Clark wrote:
-> 
-> [...]
-> 
->>>>> Mark, Will, you guys seems to be designated as maintainers for
->>>>> drivers/perf/arm_brbe.c, can you please take a look and give your
->>>>> feedback as well? This is important and useful feature for newer arm64
->>>>> CPUs, it would be great to get access to this functionality that we
->>>>> had on x86-64 side for a long while now. Please help get this upstream
->>>>> or, if it's not in the right shape, guide Puranjay towards a better
->>>>> implementation. Thank you!
-> 
-> ...
-> 
->> + Vladimir
->>
->> Hi Mark, Will, Vladimir,
->>
->> Any thoughts on this approach where NMIs need to be disabled? Alternatively
->> we could do something like track where the PMU interrupts and BPF snapshots
->> overlap and then discard the BRBE buffer and make sure they don't trample on
->> each other etc, but it looks like it would be significantly more
->> complicated.
-> 
-> Could we restrict bpf_get_branch_snapshot() on arm64 to a free-running
-> BRBE mode? On a given CPU, at least one active event would have to
-> request a branch stack, and every such event would have to be a
-> counting event.
-> 
-> This seems to fit in this series. The selftest opens a CPU-cycles event
-> with PERF_SAMPLE_BRANCH_STACK and sample_period = 0, then takes the
-> snapshot from an fexit program.
-> 
-> Counting events can still generate overflow interrupts for bookkeeping.
-> It requires to refactor the PMU driver to leave BRBCR_ELx.FZP clear so
-> an overflow doesn't freeze BRBE. The interrupt handler could service the
-> counters without touching BRBE and losing the branch records.
-> 
-> Thanks,
-> Leo
+However, entry_cnt is only increased in f2fs_submit_page_write() and
+f2fs_submit_cache_write(), it misses below write paths:
+- f2fs_submit_page_bio(): single folio write bio.
+- add_bio_entry(): the first folio of an IPU write bio.
+- add_ipu_page(): folios merged into an IPU write bio.
 
-Yeah I think this is a pretty good idea. It looks like it would avoid 
-having to disable NMIs. You only need a local_irq_save() to avoid new 
-events from reconfiguring BRBE while taking a snapshot, and you don't 
-have to disable the PMU counters either.
+So entry_cnt of these bios is less than the actual number of folios,
+and a merged IPU write bio, which may contain up to BIO_MAX_VECS folios,
+will never be offloaded to sbi->wq, then it may be completed in atomic
+context with high latency. Let's fix to account entry_cnt in all above
+paths.
 
-If any sampling BRBE event gets scheduled then the snapshots just start 
-skipping and returning empty.
+Cc: stable@vger.kernel.org
+Fixes: f32744a8b83d ("f2fs: introduce max_atc_write_bio_entry_cnt")
+Signed-off-by: Chao Yu <chao@kernel.org>
+---
+v2:
+- rebase to the latest dev-test branch, which supports subpage block,
+  no logic change.
+
+ fs/f2fs/data.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
+index cdc9e6e8633c..6be0cadc511e 100644
+--- a/fs/f2fs/data.c
++++ b/fs/f2fs/data.c
+@@ -959,6 +959,9 @@ int f2fs_submit_page_bio(struct f2fs_io_info *fio)
+ 			fio_lblk, fio, GFP_NOIO);
+ 	bio_add_folio_nofail(bio, data_folio, bio_len, bio_offset);
+ 
++	if (!is_read_io(fio->op))
++		F2FS_BIO(bio)->entry_cnt++;
++
+ 	if (fio->io_wbc && !is_read_io(fio->op))
+ 		wbc_account_cgroup_owner(fio->io_wbc, fio_folio, bio_len);
+ 
+@@ -1030,6 +1033,7 @@ static void add_bio_entry(struct f2fs_sb_info *sbi, struct bio *bio,
+ 	bio_get(bio);
+ 
+ 	bio_add_folio_nofail(bio, folio, len, offset);
++	F2FS_BIO(bio)->entry_cnt++;
+ 
+ 	f2fs_down_write(&io->bio_list_lock);
+ 	list_add_tail(&be->list, &io->bio_list);
+@@ -1077,6 +1081,7 @@ static int add_ipu_page(struct f2fs_io_info *fio, struct bio **bio,
+ 					fio_folio->mapping->host,
+ 					fio_lblk, fio) &&
+ 			    bio_add_folio(*bio, folio, bio_len, bio_offset)) {
++				F2FS_BIO(*bio)->entry_cnt++;
+ 				ret = 0;
+ 				break;
+ 			}
+
+base-commit: 9ad6c58bfbe5882b1aa0cbe2393dbfca89d2c199
+prerequisite-patch-id: 23bb28339e4f35a111279d46493ac1e04fc66d58
+prerequisite-patch-id: aaf2ca8ae4a7422c58daa02714ad9a5b4578bccc
+prerequisite-patch-id: 207a76a8bede95d1b0ec30dc2323963da5f6ff3f
+prerequisite-patch-id: baa9eb03ece0f1f0155a2226b99946327ceb3e33
+prerequisite-patch-id: 1eca125a4d02fba284eaad33e37de978ec89a7d0
+prerequisite-patch-id: b4566514d95142b9291270f2b64205f69c9b6edc
+prerequisite-patch-id: b8f7552919f622aedea1b119674eec9cc93d8671
+-- 
+2.49.0
+
