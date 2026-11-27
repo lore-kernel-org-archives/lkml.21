@@ -1,65 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798934;
-	b=1blkmRMVpOQEOFWDcyw6Jq2Mml6BIGys8gtLUObFE1mK63sLqyo2MLCdxCELh41R2xpo
-	 PfelN6gnaCEpAlJ4tySyIruBjeaO12hU6Mm0zoAtYgne36PpRBlpiyfGQ2ZRRuzjV3oJ/
-	 HxcTlRuzwAlUO/NVB/6dE61eEfe54U2bShloEdwpPbiHEKsc7WpsbbqYnK8E+ThLWfB77
-	 HQjEVT3Qp9BpiOFB8vWvS8o68LBTQ6AQ9mIKsNdhJC5ulODmsSSuNwSg2fuSJi3pm14F9
-	 SAeX+7/wFesB7KLB0Fm1lSiz6G130vytQLmfZCFM6lq/sNZBBFpK4AdKzlDtfYCvdUg==
+	t=1795798944;
+	b=CWNms0LsoQAs2xTeBaMka4brByYHZvxJgWRoMjvkXwUOcziSJvJlT8VY7jbQmuunGXQa
+	 7HNLHy2F8t1fefwnUd5eqWZMnWm99bHtjTYYZ+MiU9FHXYSDGySEgg8g1WohZ9kDnsiCw
+	 2LUp8Kx9TrxryQjwX67ZLMDqQZpcYFMmJy9iXyYuS/ShEHfNr6o2DteW54/iLkBrSehzD
+	 LMuTZ+/7t7qbgVbbr55pn12F7M/Xoel5/TEpt3eksJXciry6A5JfO09tJlJWy37eMjsc0
+	 IaErTaw+Y3Mnd7DSn6yg6KJuEjczWLsUqDfhXH2mAar6wyJMzPx+/0fwy8gLo/4wwlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798934;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798944;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=JmeBKnM5EkB+JVMoe/M6Hb5kobFiHhZOn7PpQ72bZh0=;
-	b=AJD8b8AkSGKcJFtbPEMLYOdGLdZKMMY69alvnoxLSQRfst5KXNeYzRSBeEoHo5Edm06d
-	 32rCjoJrUzzAZ/TzoxISf6Ejm0tWsvlWfXf0UAnNnvk4CLerGghCVskjy5SQfX1/3awTy
-	 fjhFKsHkkfKZSTsVWvaBlxNwgLUQVuWUHUt+tgB93AHjKPJ7j7MCaIEnMgsaG6B4R2glu
-	 gpzAzqiiGwAHBfbWNOrCLD20UNE06SK/79deFgCZTl7Su6V0Ga/6jIPWfXSuIkiXIzzZH
-	 UI/CKJg1HA3c1KHYUne+zDmIAMsOJYJhLuk150NXXm1a4xFLskkp02ycgtb1JK/QL8A==
+	bh=KxLg6Gx/zGlioMjDG7k4tE06ODo1W3pNMbUCbFfp87Y=;
+	b=hqout/7AmYXK5Xef8K0ULxrjdv4ca6sqjLBDIIbCsmriY7e5lYLQnam/aiiZov9jZwm8
+	 uLUyMQPjsl/VpZaVH95jZfuCTm8Bd7iFS26RUG7f2u4bWUQcLy0+K7YbxqH1IXSgNqKsb
+	 TxOi0bf2RSkzgjI0XZhiqKp73zRtaAlHLRZXz747vhliBk3CZ/acaN1YwH3LvbaQbWidI
+	 29v9tMUGDeQLmECdV2B8sX3JCI6Ajj0E1P4AfHq0FZ9orp1hjalv5L9ajRiFptstKZAXS
+	 EnPWDLsRf6gYiAhaK4stZjCSgZvA8rimf7cHcBiyKIHH5WhpWwZGat0+WDTnDhdNSiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BICnhE9D;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZBYG0roX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03418606A335;
-	Fri, 27 Nov 2026 17:02:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F026606A321;
+	Fri, 27 Nov 2026 17:02:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BICnhE9D
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AA71F00927;
-	Fri, 27 Nov 2026 17:02:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZBYG0roX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 967F11F00936;
+	Fri, 27 Nov 2026 17:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798933;
-	bh=JmeBKnM5EkB+JVMoe/M6Hb5kobFiHhZOn7PpQ72bZh0=;
+	s=k20260515; t=1795798943;
+	bh=KxLg6Gx/zGlioMjDG7k4tE06ODo1W3pNMbUCbFfp87Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BICnhE9DMRpOrTSvT2WYPdrkSUHdg2GTorvjgb9yi5DexdMmLPeNpzriwqgkqJv7M
-	 UF8FXb0xdpo2svvYz6sP/DbQgGPoOn7dlom7tPxLRfJBvsEfMuSFPt663hM6qzYc5R
-	 o7OgtTJhFUv1WutV2qbCAOWjZua6/8STiY0Wh00ZsWdmjq8YXmPrOmojHp1qCuzFEZ
-	 QDDSmwrJvI3tvLOXmRZMMk+fVmhZDhn3l6/kXBJ0u2Uvg68VBTnj3QzwPDdK57MuCk
-	 G5pEnJAr3qRmUcpW2C8wSXxdBRdukkA3P3Iy2KhowbLVCQgt4QM6TWL+aQQyj5IFKD
-	 bUZt5h0C2pl3A==
+	b=ZBYG0roXlSFQCiyazn2M6kil0iU0nWj+gXJJ8FjOwJGMNnIO4++FGk70E6LvTcGLI
+	 pbGF8iqEAGEK/zRYx21P8HMuk1c2Tab1ZU7jI9pFwuxmfEED0vAwixWew1YjHqa4cK
+	 IP6YuRLcvu7MTlSh3ubjMezkAcJwMxGA2EFqZMtKW/eNUoc1NJVvLH2LdeUBnvlWza
+	 NtRJqvjCQrUD+8EWSVlZ2mkiYbfCMszP0LR2lig+fjt9uozxiWmBYzl3qo2La8TbIA
+	 LW0ytFjitfhYIWaid4WO+Yg4jdbGmzCPKQ8AWI6boJ6d4rceYl6KkmSQlFMMY8VSNQ
+	 IsMqNhea9ZK7Q==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: Sasha Levin <sashal@kernel.org>,
-	Petr Vaganov <petrvaganoff@gmail.com>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Johan Hedberg <johan.hedberg@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	netdev@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Song Liu <song@kernel.org>,
+	Kyle Huey <me@kylehuey.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-Subject: Re: [PATCH 6.12] Bluetooth: hci_core: Fix not checking skb length on hci_scodata_packet
-Date: Fri, 27 Nov 2026 12:01:11 -0500
-Message-ID: <2026-11-26-1-daily-reply-0023@kernel.org>
+	linux-perf-users@vger.kernel.org,
+	bpf@vger.kernel.org,
+	alexander.shishkin@linux.intel.com,
+	Luo Gengkun <luogengkun@huaweicloud.com>
+Subject: Re: [PATCH stable/linux-6.6.y 0/9] perf/bpf: Fix NULL pointer dereference
+Date: Fri, 27 Nov 2026 12:01:17 -0500
+Message-ID: <2026-11-26-1-daily-reply-0029@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125093035.224140-1-petrvaganoff@gmail.com>
-References: <20261125093035.224140-1-petrvaganoff@gmail.com>
+In-Reply-To: <20261126043458.2394658-1-luogengkun@huaweicloud.com>
+References: <20261126043458.2394658-1-luogengkun@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,11 +80,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-> This fixes not checking if skb really contains an SCO header otherwise
-> the code may attempt to access some uninitilized/invalid memory past the
-> valid skb->data.
+> We hit the following problem on x86:
+>
+> 	BUG: kernel NULL pointer dereference, address: 0000000000000000
 
-Queued for 6.12, thanks.
+Queued the series for 6.6, thanks.
 
 -- 
 Thanks,
