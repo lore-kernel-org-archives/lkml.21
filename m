@@ -1,77 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821817;
-	b=QpA4aVvrzzxuSXUQu3IN253BYYOI+rCRwV3u1D+4nSR/sv9MKQHzEDLcDAiomCEnOiNr
-	 ECd3B2PEPBm9wVgsD1flEJNbxYpQp3ahGkagdKfpDykKkA3GIu5WS75kmk3hI9zM5BpAv
-	 5PxGi3KsSwai7XK6Yyah6fPRcE/+CkhZ7t0fPEk3E5EbfPEFAvw15pNzmU/kIehBe1VqK
-	 Jn+qMANUllMnX6qS4CLAO4E41+YzrB+ccfZX4eWGFiOBx+dSy6bXWhVxpk1gLb2yPLaK6
-	 SnmTsBNxTmhjMI2w9MoB9Vkgn4iHkztDlaFbNix6I3Mvq6hliG+9ReBBuDLp6esVvWg==
+	t=1795821842;
+	b=dOBvpHFQmUFrTJLNMHPdBHv9tR05fuK0XwTgzjpWQ0MwFlp/+k2cVfO2rTKxIn6fIOBN
+	 ABaSBkWFVf5jxDiR1huSpfLR9DJeOuB6KlWTA/642dWSO6s/Wae4S0exyEtXnWlHnvMQI
+	 8apbuTuIhHuz9OUV7ZZo6yLpSblzp84a7Pb/19Kg2n3FD18PLOJNO6HKO2TOkb4v/ojyy
+	 H+ggRsoh6T0MfZi6Y4mT/Mheoy9YVp2JfxY3LgHMjMMMtkrL391Ng8pDNrbqZPywMtyIr
+	 ZRb6AkSz882LPbNplsBc11WsLUAxvOKKvIrKF06FuX3h89ep6YH+JEP614rQjuXbL9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821817;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=E+cJLBHvdBF1tF2dc5WrNqVuBPNxJGnHZIyQiOUrjoU=;
-	b=ITDSQ3eTvuybcPTNwEtYmNAppX3QXCilN8Ry0JW0KmBysWAjKriWy0V/1VCGoMJ0NicS
-	 vHrMUiX6QP7hHA2lAcLpRswM5G3uC0QyRv4hkl96FNLFJd3mGyvA1SztithWE26h2cBAD
-	 wo4p3SEQeRW+KjBvB23BhlJekuIs7jLlbrenMUoM2uy53IfwzPcDD9DmOx9pCUBydfG2O
-	 lSZyiUEZpTlc40Ba0nBbPTqMRkEWiYsQdZv3m5TZRqahJ+Xi2djYLbTk6+X53J8foZZyu
-	 VE7ilr1OpiroCg4HXx8MvgRkiBUaty2CS8lsAFDqi7PtPaovolF0nj9aBFGU1mRFGdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821842;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=tr+ptdFAOHmNGIVwaASfOid//+Rw4qYWo/QDPFKYOHw=;
+	b=TheLE8TTpBHIXRCqh7GKJrNg4PUOjTFokx1zgZTjLwmyB5tb+Sn51ShbAdEG1xlZHeN1
+	 UEJEc5MxXeR4vxiamRzwkrBRRldZrDT8d8Oua51+pF88g7bJ9DsgvtlCakQJVweMFeME7
+	 000X3fP4OU7M2EI2/b4YvbPRElpK2EaNd2OLQtPof9dxdwVzA1oMY5V6nd3HnVtyqGp0c
+	 aGiFundEJZkYQssfahjMWVQuFM6GDdFfv2Rv0StRcyFwBBi3zw9NyIXuGVyVuCnZOKokL
+	 YHoOm+8ornKEXHhWN8W6JdjGy85X0pSJ+8NNvvmq5Y4Dj66Ov8DuaE7ZWswBAT1zgRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=KbCKHkc7;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NrwafniQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA8EC606A31C;
-	Fri, 27 Nov 2026 23:23:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA8EC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B3BD606A31E;
+	Fri, 27 Nov 2026 23:24:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=KbCKHkc7
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 819D740E0240;
-	Fri, 27 Nov 2026 23:23:28 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id my8Rg2w-vlF5; Fri, 27 Nov 2026 23:23:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795821804; bh=E+cJLBHvdBF1tF2dc5WrNqVuBPNxJGnHZIyQiOUrjoU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KbCKHkc7UBEL66mPCv7Dcnfb4iMQfp1AQkuxGQ2QX/JSy1s8msoOeGO41sodAcqjP
-	 bMjYD5CkCHSzJzcaUUFXDYgjVvO+9wvLufqLkAPsxcFYEEgJizSiScXwxFBq7lsMhJ
-	 qEriNxzU0A3KepQgsBHDMmYcJ8Ck08iwrz8dRRaWJA8t1CJ40nnOX6ltfHAfokzQe9
-	 qyBvaXY4FR/rB8d90bolGbt+0SA7bZ54LKfdzvDfbSdm5tnUmiAQ7yLIW5tUNont1R
-	 /xF9aAGx2wxCOm89bt3W1geb+vfwa6Gew076yZqFrzzSLBN9DUHzb5+mksevc/Uj95
-	 DOYEb7JO6wf/pHKGn+lG33Z5dmPYXgmZXxh3ZWe+3yfizy9jGwRVTJp5KWvi1zg03s
-	 kKo8FBiIUWxu/QwH9EAzzNI9qGNtZa+eWEE9VpGTogKn7eU2ArWCx5NRop+zwtl+/4
-	 EPdNXMlJ4RGzLgkrZCDOtj7PgymTWKvOtALa1uZXznG/0NqLniM/Hw7JPmbQVMPupP
-	 nkTEX4s2CUW6hjIvI4/Bk0V1m0JGXQcZuHaRMCmhh0okELsQmff55fGo/uDu8Q7Z88
-	 MHhMySo6ICULMMG3QgZnQ4W8LWkNERtFpk70RHRgmGCCTt17NnQp+BjtS9zTU0dwhE
-	 EMW4x0h2PFD441yN93UHAbz0=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id D862F40E01E1;
-	Fri, 27 Nov 2026 23:23:13 +0000 (UTC)
-Date: Fri, 27 Nov 2026 15:23:10 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Qunqin Zhao <zhaoqunqin@163.com>
-Cc: tony.luck@intel.com, linux-edac@vger.kernel.org, chenhuacai@kernel.org,
-	zhaoqunqin@loongson.cn, linux-kernel@vger.kernel.org,
-	Wang Jinwei <wangjinwei@loongson.cn>,
-	Dongyan Qian <qiandongyan@loongson.cn>,
-	Chao Li <lichao@loongson.cn>, Huacai Chen <chenhuacai@loongson.cn>
-Subject: Re: [PATCH v8 3/4] EDAC/loongson: Get DIMM size from ACPI _DSM method
-Message-ID: <20261127232310.GQawoQ3plxyLGp8raz@fat_crate.local>
-References: <20261118030330.25779-1-zhaoqunqin@163.com>
- <20261118030330.25779-4-zhaoqunqin@163.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NrwafniQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E702C1F00899;
+	Fri, 27 Nov 2026 23:24:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795821841;
+	bh=tr+ptdFAOHmNGIVwaASfOid//+Rw4qYWo/QDPFKYOHw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NrwafniQmUNQ91WV8B0N3prb+CnnuIl4xRxkTgXMZcXQ4dUYEPGwtZF/Iv/U/2IAb
+	 ug/SqFVMdiC+70zOMsuyoa/Xx++Wug1O/2pR2WPeLlrgVimGJyfXBjEUq0FB8kzim6
+	 HmU33JcVCZezX5VQxcXhijbrgdD4ZbyGjyyc1gvHbhqYOng9j2n3SEsl7IPXtLLP6W
+	 KsGzdK5P8zPTKnpi4bt5TORRavWRv/Ic7g8JQb41O+lMU3tfm1znZlNVUoWZO84mD/
+	 0p7/KzUqz+1fa5Dt9JqrP5getFOFK26mQvFacasxmXS0Q6hTTWy2PqYB+A5Isd36gl
+	 4S3KXVXwAx96g==
+Subject: Re: [PATCH net-next] rxrpc: Reject unsecured calls to userspace
+ services with a minimum level
+From: netdev-bot+sashiko@kernel.org
+To: bugs@stellman-greene.com
+Cc: dhowells@redhat.com, marc.dionne@auristor.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-afs@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 27 Nov 2026 23:24:00 +0000
+Message-ID: <179582184048.3135.8278153392391816452@kernel.org>
+In-Reply-To: <20261126224137.55862-1-bugs@stellman-greene.com>
+References: <20261126224137.55862-1-bugs@stellman-greene.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,192 +64,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118030330.25779-4-zhaoqunqin@163.com>
 
-On Wed, Nov 18, 2026 at 11:03:29AM +0800, Qunqin Zhao wrote:
-> From: Wang Jinwei <wangjinwei@loongson.cn>
-> 
-> Add support to retrieve DIMM size from ACPI _DSM method instead
-> of using hardcoded values.
-> 
-> 1. Add loongson_get_dimm_size_acpi() to call ACPI _DSM method
->    to Get DIMM size in MB.
-> 
-> 2. Update dimm_config_init() to use the size from ACPI, with
->    fallback to default 1 MB if ACPI method fails.
-> 
-> 3. Add ACPI UUID and DSM function definitions for EDAC.
-> 
-> The DIMM size is passed from UEFI through ACPI OperationRegion
-> and _DSM method, enabling correct display of memory size in
-> /sys/devices/system/edac/mc/mc*/size_mb.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Please, do not talk about *what* the patch is doing in the commit message
-- that should be obvious from the diff itself. Rather, concentrate on the
-*why* it needs to be done and why your patch exists.
+Critical: 0 · High: 1 · Medium: 1 · Low: 2
 
-It is perfectly fine to explain non-trivial aspects of the code the patch is
-touching but do not regurgitate what it does.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-See also https://docs.kernel.org/process/submitting-patches.html for
-additional inspiration.
- 
-> Cc: Dongyan Qian <qiandongyan@loongson.cn>
-> Cc: Chao Li <lichao@loongson.cn>
-> Signed-off-by: Wang Jinwei <wangjinwei@loongson.cn>
-> Signed-off-by: Qunqin Zhao <zhaoqunqin@loongson.cn>
-> Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
-> ---
->  drivers/edac/loongson_edac.c | 32 ++++++++++++++++++++++++++++++--
->  1 file changed, 30 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/edac/loongson_edac.c b/drivers/edac/loongson_edac.c
-> index 4ee9dcb3d5..413ca654b4 100644
-> --- a/drivers/edac/loongson_edac.c
-> +++ b/drivers/edac/loongson_edac.c
-> @@ -13,6 +13,8 @@
->  #include "edac_module.h"
+- [High] The fix is incomplete.
+- [Medium] After this patch, RXRPC_MIN_SECURITY_LEVEL means different
+  things depending on rx->sk.sk_kern_sock, and the documentation does…
+- [Low] The new reject path in rxrpc_get_incoming_security() returns NULL
+  without calling rxrpc_direct_conn_abort() with its own reason.
+- [Low] The commit is described as a fix for a security-policy bug (a
+  service minimum security level that is not enforced for unsecured…
+
+--
+
+rxrpc: Reject unsecured calls to userspace services with a minimum level
+
+This patch makes rxrpc_get_incoming_security() refuse incoming calls with
+security index RXRPC_SECURITY_NONE when a userspace service socket has set
+RXRPC_MIN_SECURITY_LEVEL above RXRPC_SECURITY_PLAIN. Kernel sockets are
+exempted, because kAFS and rxperf set RXRPC_SECURITY_ENCRYPT on the sockets
+they serve on.
+
+> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+
+[Severity: Low]
+This isn't a bug, but should this have a Fixes: tag? The changelog
+describes the patch as a fix for a security policy bug.
+
+The patch also deliberately changes behaviour for existing userspace
+services. Could the changelog say whether it is meant for stable?
+
+> diff --git a/net/rxrpc/security.c b/net/rxrpc/security.c
+> index 2bfbf2b2bb37a..52015c73c583c 100644
+> --- a/net/rxrpc/security.c
+> +++ b/net/rxrpc/security.c
+> @@ -138,6 +138,11 @@ const struct rxrpc_security *rxrpc_get_incoming_security(struct rxrpc_sock *rx,
 >  
->  #define ECC_CS_COUNT_REG	0x18
-> +#define LOONGSON_EDAC_DSM_UUID "65d0431b-7eb8-46df-b914-b7d568553140"
-> +#define LOONGSON_EDAC_DSM_FUNC_GET_DIMM_SIZE   1
-
-Are you serious? Can you make that define longer?!?
-
-Didn't I already told you to zap all those "loongson" prefixes from static
-objects?
-
+>  	_enter("");
 >  
->  /* Memory controller index invalid due to inability to read it from ACPI, etc */
->  #define MC_IDX_INVALID		BIT(16)
-> @@ -68,13 +70,39 @@ static void loongson_check(struct mem_ctl_info *mci)
->  			     0, 0, 0, 0, 0, -1, "error", other_detail);
->  }
+> +	if (sp->hdr.securityIndex == RXRPC_SECURITY_NONE &&
+> +	    rx->min_sec_level > RXRPC_SECURITY_PLAIN &&
 
->  static void dimm_config_init(struct mem_ctl_info *mci)
->  {
->  	struct dimm_info *dimm;
-> +	struct device *dev = mci->pdev;
->  	u32 size, npages;
+[Severity: High]
+The commit message gives the root cause as:
 
-This tree's preferred ordering of variable declarations at the beginning of
-a function is reverse fir tree order::
+  rxrpc_get_incoming_security() doesn't check rx->min_sec_level
 
-	struct long_struct_name *descriptive_name;
-	unsigned long foo, bar;
-	unsigned int tmp;
-	int ret;
+This check only covers security index NONE, though. Will a userspace
+service socket with RXRPC_MIN_SECURITY_LEVEL set to RXRPC_SECURITY_ENCRYPT
+still accept rxkad or rxgk calls negotiated at a lower level?
 
-The above is faster to parse than the reverse ordering::
+In rxkad_verify_response(), the level comes from the client's RESPONSE
+packet. It only gets an upper bound check:
 
-	int ret;
-	unsigned int tmp;
-	unsigned long foo, bar;
-	struct long_struct_name *descriptive_name;
+net/rxrpc/rxkad.c:rxkad_verify_response() {
+    ...
+	level = ntohl(response->encrypted.level);
+	if (level > RXRPC_SECURITY_ENCRYPT) {
+		...
+	}
+	conn->security_level = level;
+    ...
+}
 
-And even more so than random ordering::
+rxgk_verify_response() does the same thing with the token level:
 
-	unsigned long foo, bar;
-	int ret;
-	struct long_struct_name *descriptive_name;
-	unsigned int tmp;
+net/rxrpc/rxgk.c:rxgk_verify_response() {
+    ...
+	conn->security_level = token->rxgk->level;
+    ...
+}
 
-I went and did it for you ontop again.
+Neither of these compares the level against rx->min_sec_level. Apart
+from the setters and this new check, min_sec_level is only read in the
+client call setup paths, rxrpc_kernel_begin_call() and
+rxrpc_new_client_call_for_sendmsg().
 
-Please make sure you go over the changes I did and keep them in mind next time
-you send patches.
+An authenticated client could answer the CHALLENGE with level
+RXRPC_SECURITY_PLAIN or RXRPC_SECURITY_AUTH. Its calls would then reach a
+service that requires ENCRYPT. At PLAIN level the data has no integrity
+protection either.
 
----
-From: Wang Jinwei <wangjinwei@loongson.cn>
-Date: Wed, 18 Nov 2026 11:03:29 +0800
-Subject: [PATCH] EDAC/loongson: Get DIMM size from ACPI _DSM method
+That seems to contradict Documentation/networking/rxrpc.rst, which
+describes the option as "the minimum security level required for calls
+on this socket".
 
-Retrieve DIMM size from the ACPI _DSM method instead of using hardcoded
-values.
+The gap is only mentioned below the --- line, so the note won't end up
+in git history. Should the negotiated level also be checked where the
+connection gets secured, in rxkad_verify_response() and the rxgk verify
+path?
 
-The DIMM size is passed from UEFI through ACPI OperationRegion and _DSM
-method, enabling correct display of memory size in:
+> +	    !rx->sk.sk_kern_sock)
 
-  /sys/devices/system/edac/mc/mc*/size_mb
+[Severity: Medium]
+With this exemption, RXRPC_MIN_SECURITY_LEVEL means different things
+depending on sk_kern_sock. Is that split meant to be documented?
 
-  [ bp:
-   - Massage commit message, drop text explaining what the patch does
-   - Zap insanely long define
-   - Zap loongson prefix from more static objects
-   ]
+For userspace service sockets, the option now also rejects incoming
+NONE calls.
 
-Signed-off-by: Wang Jinwei <wangjinwei@loongson.cn>
-Signed-off-by: Qunqin Zhao <zhaoqunqin@loongson.cn>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
-Link: https://patch.msgid.link/20261118030330.25779-4-zhaoqunqin@163.com
----
- drivers/edac/loongson_edac.c | 32 ++++++++++++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+For kernel sockets that use rxrpc_sock_set_min_security_level(), it is
+still only the level used for outgoing client calls:
 
-diff --git a/drivers/edac/loongson_edac.c b/drivers/edac/loongson_edac.c
-index d9c86d7e721b..250eba136655 100644
---- a/drivers/edac/loongson_edac.c
-+++ b/drivers/edac/loongson_edac.c
-@@ -13,6 +13,7 @@
- #include "edac_module.h"
- 
- #define ECC_CS_COUNT_REG	0x18
-+#define DSM_UUID		"65d0431b-7eb8-46df-b914-b7d568553140"
- 
- /* Memory controller index invalid due to inability to read it from ACPI, etc */
- #define MC_IDX_INVALID		BIT(16)
-@@ -68,13 +69,40 @@ static void loongson_check(struct mem_ctl_info *mci)
- 			     0, 0, 0, 0, 0, -1, "error", other_detail);
- }
- 
-+static u32 get_dimm_size_acpi(struct device *dev)
-+{
-+	acpi_handle handle = ACPI_HANDLE(dev);
-+	union acpi_object *obj;
-+	u32 size_mb = 1;
-+	guid_t guid;
-+
-+	if (!handle)
-+		return size_mb;
-+
-+	if (guid_parse(DSM_UUID, &guid))
-+		return size_mb;
-+
-+	/* 1 = DSM get DIMM size */
-+	obj = acpi_evaluate_dsm(handle, &guid, 0, 1, NULL);
-+	if (!obj)
-+		return size_mb;
-+
-+	if (obj->type == ACPI_TYPE_INTEGER)
-+		size_mb = (u32)obj->integer.value;
-+
-+	ACPI_FREE(obj);
-+
-+	return size_mb;
-+}
-+
- static void dimm_config_init(struct mem_ctl_info *mci)
- {
-+	struct device *dev = mci->pdev;
- 	struct dimm_info *dimm;
- 	u32 size, npages;
- 
--	/* size not used */
--	size = -1;
-+	size = get_dimm_size_acpi(dev);
-+
- 	npages = MiB_TO_PAGES(size);
- 
- 	dimm = edac_get_dimm(mci, 0, 0, 0);
--- 
-2.53.0
+net/rxrpc/sendmsg.c:rxrpc_new_client_call_for_sendmsg() {
+    ...
+	cp.security_level	= rx->min_sec_level;
+    ...
+}
 
+The in-tree kernel users already depend on this client-only meaning.
+afs_open_socket() sets ENCRYPT on the CM service socket, and that socket
+must accept unsecured fileserver callbacks:
+
+fs/afs/rxrpc.c:afs_open_socket() {
+    ...
+	ret = rxrpc_sock_set_min_security_level(socket->sk,
+						RXRPC_SECURITY_ENCRYPT);
+    ...
+}
+
+rxperf does the same.
+
+Documentation/networking/rxrpc.rst uses the same words for the sockopt
+and for rxrpc_sock_set_min_security_level(): "the minimum security level
+required for calls on this socket". It doesn't cover the new service
+side enforcement or the kernel socket exemption.
+
+A userspace program built like kAFS uses one socket to make encrypted
+client calls and to accept unsecured callbacks. With this patch, its
+incoming calls will be aborted.
+
+It could bind a separate client socket to the same transport address as
+a workaround. Existing programs would still break with no indication of
+why.
+
+Should Documentation/networking/rxrpc.rst be updated to describe this
+behaviour?
+
+> +		return NULL;
+
+[Severity: Low]
+The other two NULL returns in rxrpc_get_incoming_security() call
+rxrpc_direct_conn_abort() with their own reason, but this one doesn't.
+Will this rejection be traced as rxrpc_abort_service_not_offered?
+
+The caller falls through to this code:
+
+net/rxrpc/call_accept.c:rxrpc_new_incoming_call() {
+    ...
+unsupported_security:
+	read_unlock_irq(&local->services_lock);
+	return rxrpc_direct_conn_abort(skb, rxrpc_abort_service_not_offered,
+				       RX_INVALID_OPERATION, -EKEYREJECTED);
+    ...
+}
+
+So trace_rxrpc_abort reports "service not offered" even though the
+service is bound and listening. The peer gets a generic
+RX_INVALID_OPERATION abort.
+
+This fallback in rxrpc_new_incoming_call() also overwrites the abort
+codes set by the existing NULL paths in rxrpc_get_incoming_security().
+That part is older than this patch.
 
 -- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126224137.55862-1-bugs%40stellman-greene.com
