@@ -1,54 +1,144 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791055;
-	b=GBdvsWsLNbSm5f8AB+cLiq/vaD0cxCC8umYp5HBd4B5v+qBNuBs69l99mwPb3VbDh+0B
-	 XL1l9CEwZwW1Ct27/WB7YoZOikTW5tMjb6IF2WoFlBnyWZuByVHURVF6ZKeYRhTE1lEnu
-	 enSTzhLXN+t5O9dmSOJXoZZKNoE4iJO+g3cVgJ8FSAsZlCHmWQW403MpPlj4rIojy2wu/
-	 EFLMet3QmfuBWQeOS5gvg0DV19QRivqIcwVjch/h93izxA9vZe2X/qyqMdLGbdFnLY8Ss
-	 70ZntuGlapPqTRbYCtOqZw3kxiGNBKXrDwtOdLT88x9n2+JnbqKzmdQ3a+1Po9NcjBg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791055;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=IrVDsii1JVOpjs2e48kpePLg5m25U+wrVAxdhOnIiFY=;
-	b=xBjeCCMj0R7Nhp1JBaCzGIiMOay8qqBSkbUh2Dqwl6NydWUW/yscedG2zjL/qyeEItbJ
-	 tojPfBcMQc5GLyFO6EoMv57EJXUb2jRN0fVkVNTc144julw5B/19KS4knzh/ogmvC86kT
-	 x3D2q7nuJQFQU0RHWAuizlTKUfdeo8XIT25CkrjiqgjzvStVMsKuavbVyjxtuypU5xo+o
-	 X3wSR8bs5RBsIQGLTs2JkbwN4X4Fv6ywKSH7CoFDYiKPIMwWqTlymyCgkV/TheqZJcYny
-	 MjaNoPGWGzUeUMGYpSzQwliVLOJnjJr72y6zjH8sn3IUCCNMohY4Xhastb33rfjb+1w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=We8nHwte;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795791053;
+	b=U0USxk2AoyiwwQ0grOTX/7l0gpnWHXtw8CNuXch2UiV5/JXN09Lgmwvu+P8ZE4HU2k4g
+	 qC7I34HJXK5RngA2kjo6vHfmxVC9w4bb3o/PkUCg7Obv9XoxfQB5cYUTcLIHf1eK4ZRx7
+	 /13AT+YLIvqeK20N/xJEiqf+Rsvt2y+bPr94M+eKwYU8GYVjxKvOMnt85s6N3o/vmMBcr
+	 pwsairDb8OmVUrZCmJ6Gn6PLOFi3bTA9uEJ+XKmQqho5A6YCGfMj0+kSuCwncgVVQkhxZ
+	 +6j29pGfvHsnRf5VMKlv1pULMCP1V4N9sdjB7tzSxR6bGH4O6yF1Wl01frlqwPbKkUw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791053;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:Received:Received:Message-ID:Date:User-Agent:Subject:To:CC:
+	 References:From:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=aUd3T02Gc74duTmodEL7iM50DPzhk1ccT05XBht+77M=;
+	b=v8AyB5byDFepCvXqAycMD3kFeVWzydLrKnRd2gPKM6enTk5k45fSlH6WULn6ICTWoZyE
+	 1XJ9HBtpSjcQJj9mmxKMbu8jHHPXTVdSwY0grRX+1GtZOe4BEgQtQHTOICIEVP54jX53l
+	 duAwke/rjzFt18QJtQslUADet1+k6Q/kGW7MP8iKxYDfKXboU53L/0IWckfWztSAolKq9
+	 jUV2HzZu6Y57NbOPOEYMHknE16DopdCPRb7bm7S0OIKcFtgNw2ZFHt0CULCs7LNL011pO
+	 net5ioBIz24GQRfP4Ja0bnTtzYh0GzSLuoRdN32NhV1LesHGjMc7puSzbJsZUDKL4uA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnNZJ8hv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9E17606A321;
-	Fri, 27 Nov 2026 14:50:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26E79606A32C;
+	Fri, 27 Nov 2026 14:50:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26E79606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=We8nHwte
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC2C51F0089A;
-	Fri, 27 Nov 2026 14:50:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795791055;
-	bh=IrVDsii1JVOpjs2e48kpePLg5m25U+wrVAxdhOnIiFY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=We8nHwteqUtxMC81QILBlfv4maEKnWA+dXlsu/sHXnziPRlRX7Ut6LaTFZKV0wZqF
-	 +MiJ+wqU20pO29Qt4+djPoLkLpv5LUHybH02P9DUojaJ6vNI61kU/2T8vOMc3wgUzN
-	 2NFUdave+Dn3vL4qQySXdfOfsCIN1kQBGDFEbaBKvwfJ1SBaczfp/eOnFwqupXMHPn
-	 9ADYS/8HEQ7PvrAqTGCWNV+Qh6nVuS9UWUq2//NzLrgX8BZtYEdtdrnJpL7TBj71fq
-	 flHjaIsO2iCK0SN0i5NryDhfqb/a1P3NYnqpG7mKlZAVFYld3LHnnG3GltSBqefjpJ
-	 rcyL86nQO8YBg==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: snambakam@microsoft.com, Steven Rostedt <rostedt@goodmis.org>, linux-trace-kernel@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: [RFC PATCH 1/5] bootconfig: Add multi-config ID helpers and xbc_init_configs() support
-Date: Fri, 27 Nov 2026 14:46:15 +0000
-Message-ID: <20261127144614.61194-2-mhiramat@kernel.org>
-X-Mailer: UndineD 0.1
-In-Reply-To: <20261127144614.61194-1-mhiramat@kernel.org>
-References: <20261127144614.61194-1-mhiramat@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnNZJ8hv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795791053; x=1827327053;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=fnSC2nvMGZ7fvY3oROjbD97/wxW30z9c9EF/yrrlcwE=;
+  b=bnNZJ8hv29CYa7zr0Vxmp/XJwiZ4TvP+Y6Rx17sCglspzSW6X2husLcc
+   08PjnhGHVYbPKr+ExjKAUStgfe1yc0mWVqotX0o/yP+4i+6pGMoUmW9Ts
+   PgDKW7xInHYKo3b4Jh5R6PNILiGuS74aTbtOCupxLLCdejA0YS/9et+Q1
+   alU3yDmrhGQSxLH7VR69s1Ei311HpnAFMS6DbmDN2QNvXWfSjIGwwUG4r
+   H1rPlEoTUnC7rNcUVsOgxnX1ib77dAZEZH/qmBBCfOzgFmYNxvOw1jBHW
+   W1bRsBmYk1wx9tLRqQr4EMbcnQ6/bVDa1KbleVsmQMfHjPei8RZZgpi97
+   A==;
+X-CSE-ConnectionGUID: ysvXFK1SSJyVYbsexbRSuA==
+X-CSE-MsgGUID: 0n0oPVHOSrKxmrH59MrfYA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4614985"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4614985"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:50:52 -0800
+X-CSE-ConnectionGUID: ykY4GW1VSjGp/4wSDKvgZw==
+X-CSE-MsgGUID: Nd8Tk76KTPCJ5W6PeWrP/A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12445261"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:50:52 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 06:50:51 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 06:50:51 -0800
+Received: from PH0PR06CU001.outbound.protection.outlook.com (40.107.208.71) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 06:50:51 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TdhBF1y/YMwZTxlDJ4VOSiFyZ8RPRHEKzZPe7iTMu5tQyzNhASCwl2l3ulhTnlMjjGsQHcICBXLroNdPEOckU5E0aqXi8LjBGVxEM0pMFq3rkqOqXWkN52/k4+RXfYRZksvVulU05geQa6uuWCNotQJmzsv/xmIvBA1V8Kxk6tlEdqLTUgt9Ilid6hCGx6y19nwS6a+jL7HSfb9OVm1ROjQ2ZtMRyBMu5gQ+uWBPOrNZl80SwqUQ5NplN/0+YEKIcqE+pNAL3iVxPpgLMEnMmqbykzf0o9cChbJv38+0wBL5se97bK+c00RO18FwfdpMLvY0RQou3I2SBFzx4QwxSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aUd3T02Gc74duTmodEL7iM50DPzhk1ccT05XBht+77M=;
+ b=ORBSWkDxSvUC2S9Q0dbClZXbmm9dRh7y94twTCiP5X56rBhittUL3m3Zt50xJ/aCYLaEzB7+o5L17bfnzumGs4c3wLS70QqeSgh6JJZpWjk6/HwRSQWMMtkwrXcVC2WRE+rSThQuECb2fkmS5SXKiLev9iucbTRCnYR4F39Cc0V+w40BTSZ0lpR2rdfDLxUUczPkJlDGCYGTEg8yUCj/NFV9ouXc1frDOawmJMcSme83GR8nAy7oPLhyQXKe9nyEdo8NTb5fCS8ipsJ2N+jPFYTrH5l7+ZnVn1781rMkYrlkENsUHNRK0cXZzP/ufkt6nF/VizsfVItbU7fBS8QW3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
+ by SJ0PR11MB4941.namprd11.prod.outlook.com (2603:10b6:a03:2d2::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
+ 2026 14:50:47 +0000
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 14:50:46 +0000
+Message-ID: <c0b3a1c9-29ac-4833-84b8-59e5776b0726@intel.com>
+Date: Fri, 27 Nov 2026 15:50:38 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v5 1/4] ice: stop the service task before the PF is
+ unloaded
+To: Petr Oros <poros@redhat.com>
+CC: Tony Nguyen <anthony.l.nguyen@intel.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, <netdev@vger.kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Aleksandr Loktionov
+	<aleksandr.loktionov@intel.com>, Simon Horman <horms@kernel.org>, "Michal
+ Swiatkowski" <michal.swiatkowski@linux.intel.com>, Grzegorz Nitka
+	<grzegorz.nitka@intel.com>, Paul Menzel <pmenzel@molgen.mpg.de>, "Wojciech
+ Drewek" <wojciech.drewek@intel.com>, Marcin Szycik
+	<marcin.szycik@linux.intel.com>, Martyna Szapar-Mudlaw
+	<martyna.szapar-mudlaw@linux.intel.com>, Ivan Vecera <ivecera@redhat.com>,
+	Jacob Keller <jacob.e.keller@intel.com>, Jesse Brandeburg
+	<jbrandeb@kernel.org>, Rinitha S <sx.rinitha@intel.com>, Aaron Ma
+	<aaron.ma@canonical.com>, <intel-wired-lan@lists.osuosl.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261127085714.1207361-1-poros@redhat.com>
+ <20261127085714.1207361-2-poros@redhat.com>
+From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261127085714.1207361-2-poros@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU2PR04CA0314.eurprd04.prod.outlook.com
+ (2603:10a6:10:2b5::19) To LV3PR11MB8508.namprd11.prod.outlook.com
+ (2603:10b6:408:1b4::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,551 +148,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|SJ0PR11MB4941:EE_
+X-MS-Office365-Filtering-Correlation-Id: 37bc416e-02f8-4651-7224-08df4c95d1ac
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|261022105027099003|10067099003|11063799006|56012099006|5023799004|261021123027099003|261026121527099003|261028144727099003|261022075727099003|261021121427099003|261026140227099003|261102123227099003|261009223027099003|22082099003|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: TlbOhaclP0OaDErBqE3gkN1El8k+NSfonSs/3VwKDLHaKYrNVWNgBnh8EJkuKhQbcjDWtxoXh+PsBC77MSQIwpAnf9BFyqo3i80uKqXnO7e911ZltD+VcGLtXvwezZSZnwxbBJOE4DMR4AjjadQ12MnwnZAsGKniyByTzyps1dVtI47tw/WCx0bWNpbgISnu6yJFkU+inIyDwmS09GSa7zirfjDoR3KnolZRBS18vckzaIXH/gXKzAhwB8Eg5745dlaksLCBN8vMAXrJpqTLLj21agN+wl4pP0k/0TKeYysZMNGF9p77cvacG6101wX05KfPud4XfdfMPp7I67dprwCTlIKugod594jTZL1TTbgqWJUEbpuoOfp0+q9bla+Z9MnqBWtQNCN3JKzcEux8G1FITj3nPjo2oM+3SAjAweqIyRudU6ZMPNU76LAkBOhwbDRVrYGUHjTz8tv1U5I4SBt0T7cEScvTkKCvBRm9imJ2yUc0sy7gYwXexiBmiylKafkqEFPADnf9mSuJlOlV04lkhYXqF2BXf3vWwdaHyqsdv795kODFZX5waYfVtEnBEghtBSH4bGlPGj56bQDCqDEoCSEhQVTrb5+Ni7a+p+76IoQCynuZyzLX3iFOFmC/v04eED57LwnqA2izaYAfcuHXcsczOIFuRStzULyH9HA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(261022105027099003)(10067099003)(11063799006)(56012099006)(5023799004)(261021123027099003)(261026121527099003)(261028144727099003)(261022075727099003)(261021121427099003)(261026140227099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UUJra2VEdU1mVmFMcFdrS0xhVnpNaFI5dzQwTzV5OVBRcjhBeHhOVlVkb0U2?=
+ =?utf-8?B?ajQ4cllkbHlTTDhMK3hyUjluZXJaTExHL1c1VzdQUW5KRW9PWTkyNnYrMWFX?=
+ =?utf-8?B?QXdOVU5vQTBuS3UzL3pqam51ZWtmTFl0MXJvamErQ2FsbENZQkFBQXlrRkt2?=
+ =?utf-8?B?YlVtbUhER3IyUFY3VTBzR25OSTBQdXpEOXlZb21kekttdGJZVDFFeVZGbEdO?=
+ =?utf-8?B?d0xLbHVqb3ZQNVkvVlpici9aN2luRzhHWkdtOVB0NHhZazBHeXVINmx1dkdv?=
+ =?utf-8?B?Um1LUm9mRUx6a3V5Wk5VSjdWTXpEc3lyWTdFdHhmR0NjVStuUzM1cVFLNGwz?=
+ =?utf-8?B?UGRuQmg2aUkvK2h2SndvbXJSL3lEaWdrKzEvNVlLR01wVFh5UkRnV1ZiaWdu?=
+ =?utf-8?B?SU1yVGhudUdkRFdoN1czMjFVbDZUZzlXRVhGY0p3Rmw4a05xVCtZNDV2SXpJ?=
+ =?utf-8?B?dEF6cGNsM0pVeDVVc0dENTEvS3hNOFdZZVUrUFp1cU4zL0xCaUdibW02WkZi?=
+ =?utf-8?B?cmxTZ2w3a0NvcnhJYVh2am1jMGxNS3lkaFo5UEthdHNjeDBwUUZmQTdRd0Mv?=
+ =?utf-8?B?K1ZIU2tTdEtyR2YyZTJZSWEwYnlrSlByVXhLLzZmai8zd1diWXpLOXl0VXYy?=
+ =?utf-8?B?UVJsQVhQaFYxSHZCdlp3NHAwdGxHSThYUHFNY3ZSVU9selhzeVVWeFhCOElD?=
+ =?utf-8?B?Y1draGxHZFRCdmJsQnlKMXI1TXY0M01BdnR4N1NZdUVaOVFwUTRVVlAxTkRm?=
+ =?utf-8?B?UHZLV2ZydFhUZFlCa0xWOTFWNm9tTmR5c2krMzhFWmo4WENOQ0paZjYzc0hu?=
+ =?utf-8?B?TVRCV014TGU3S1BHSWhvSks5MmpYL1hCaGpxV1hkTy96bEN6SEV0S3dqb1hp?=
+ =?utf-8?B?Z0dJcERvc01wUzN1MWxVS21zeWRwRWNtYmRaL3RvQ1ZBcGJ0QUJrSitnVnpT?=
+ =?utf-8?B?V0JqeXJaQi9YSWVFNjJwSXpheG9DQlg1VnFQdWw2NVBGMHRSYkNkNm5UMjlk?=
+ =?utf-8?B?MjVOU09NSExpSlREY1B5cnhZTFJCbDNibUVsVTNZdDVoUDZBaEs1TUpuU0hl?=
+ =?utf-8?B?MElsamJtT3V1OUN2cTdxOWZSZ2JLOVF3dnZNc1c5czJWeWlnVWZHZXlKUXZ0?=
+ =?utf-8?B?UmdBZlVJTUtIWklRbE5GQU01YVVpRisrNHNOQldPbjZyYTRja24xcEFRbTlm?=
+ =?utf-8?B?K3ZyaUFhYTB5U25xUyt1b04xYjZzSktLN05xNFNOaDNQeHg1NU80RTZJcjZk?=
+ =?utf-8?B?Rm1QdUtIc21mOUpQWUlWUjg0VWFDaUljOWg3RjV0OGtKM2g3d2wzbm9zSy9y?=
+ =?utf-8?B?cHdDcDdpeXBDeXdLZG9abzFKV3VQOXpZdFV2SVhwSE5Td0Q4aEdob3FiWTJD?=
+ =?utf-8?B?UjZiYm05RTJXYlRHRm5KcDI3dkppbDhlTndGRFl5dWdCekZiU1R2RmFMbHFi?=
+ =?utf-8?B?TkJmSWFqRi9wLzVoUFBYcGdrUUdicWxoOG40VjQzNUlyMmdaazluRjd2eVNo?=
+ =?utf-8?B?TFdTQ2JOZ1BkekhiYWg1aTRMNWZHTFlTdXd6dWkyeDd0N1RDcnkvaGY2TjlP?=
+ =?utf-8?B?NXBtOStrNUNzN2pmU0JtcVNMR0YxdlJyVDRDR3UybWtyTEphb0EyVmRCbjNi?=
+ =?utf-8?B?cmlEaWxMNXBSUE1XSG1tZUl6bk51QTB4eVJHUEFMSDlWbU9NNExtaHJ0YVcz?=
+ =?utf-8?B?bU02WVNjcUdtcEEwQm1VbE8zemFRdldGUGJEaEwxUWxnVHpwc3hIZVV0dlQ2?=
+ =?utf-8?B?RGlHR1hlQkZHajFBeE1qQS9WOHY5VTdRbGovWXBmbDZhQUJ2NFQwdVJPdmcy?=
+ =?utf-8?B?cGZSZmtEdFlUMzQwTkRDbm80eVBmYmY4cU9kS3hDWFB2RU5BL0NJdUJPWkhJ?=
+ =?utf-8?B?UUhyN1JrSzUyL3prdmR6NGdLOE9XRFZDaitkZjBxWkdUdGlNMGpFOW9Pa3Bn?=
+ =?utf-8?B?emFRYzl6czAzNzV3aHEwK1R6TGxoRlJBZXR1RU1EOWZ5ZnNMTW5DWFJqWjV5?=
+ =?utf-8?B?VmtvTTdzajIzTlViNnVVcXo5YlVORll3Y2FBUWxNYkZQVGpMbWgxcVczRXFV?=
+ =?utf-8?B?TXBDSXdRS2VSOE5HVzZjZ3hMdjN4T1JMUUsxVVNCbDhtLzVKUVhpMU80TFVT?=
+ =?utf-8?B?V2cyL2Y0QkhrV2w2UW1sS2NxbzhNUDBPalJNQU42ZEZScUVFQ1VOS3NFSFk0?=
+ =?utf-8?B?SmVZMmdFUWNwSjg2R1ZnQ1BGREw5L3huVGVJUkI3cjlVU01Ga1RKUm0xQU5D?=
+ =?utf-8?B?UzdBK0FkZ3hTVkFDc2lod0FHUk1EdzF1cnZtSmJaWkFHWGFLaW9Ib1VTRitG?=
+ =?utf-8?B?OFhDOXlhZzJVUnhsVXIvOU1weVBEVHRVeis5T09uWHNEakEwOEpicmlxZEo5?=
+ =?utf-8?Q?lXAybNCBOEEJqI/c=3D?=
+X-Exchange-RoutingPolicyChecked: cXidooGmfFCCslk7VMkl2G+6M2gKlsJ8GUTfSbkWFNf7dWQUB1g1t7neIsLK3Z6px+Vbl2oQAwMDkeEkveo89OUfDWnJkFdhn55tPzpTByhkR+jk73pUyCvhAlWVjmDpr9LlbNH8oGI0pMoIGofiYPDJ/G15ws44qjJHRJsxrZi9Tv8n0W6W2rvDwxk+sqlKYlS4hZZWOJrcJOAp//rGuAFLZcVGsOvclOzKFHQMGxNCUewQQa1cViDJrjkbm2iA8AF0e9MtJNmgWmvRiowqgQ4+Oh1KPkjx2Jb33ZWL+rdK6BWWmZcfni2774lIgpi8rwfgqtCII253T7vGgG4OTw==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37bc416e-02f8-4651-7224-08df4c95d1ac
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 14:50:46.3095
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s0AFsXK20ArYD+SJ84Fx/Xut2xAl+fvVyUU/HnqjQNmO+GlK3OTnB0Bz464TNKzkoPicvmnsfh5MJ5Xmszic0tT0RKwZ0sDjxBRITWFnwNY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB4941
+X-OriginatorOrg: intel.com
 
-To allow bundling multiple bootconfig files in a single initrd (such as
-in a Unified Kernel Image) and selecting a subset at boot, each attached
-config needs an identifier and the parser must be able to merge multiple
-selected configs into the XBC tree.
+On 11/27/26 9:57 AM, Petr Oros wrote:
+> Commit 8a37f9e2ff40 ("ice: move ice_deinit_dev() to the end of deinit
+> paths") moved the service task stop and the cancel of the AdminQ event
+> waiters from after ice_free_vfs() to the end of ice_remove(). Since then
+> a queued or running service task can still walk pf->vsi[] while
+> ice_remove_arfs(), ice_unload() and ice_deinit() free the aRFS filters,
+> the netdev, the LAG and the VSIs. A last run that takes longer than a
+> timer period also arms the service timer again after the stop at the
+> end has deleted it, and the timer then fires after the PF is freed.
+> 
+> Stop the service task and cancel the waiters after ice_free_vfs() again.
+> The stop in ice_deinit_dev() stays and deletes a timer armed by the last
+> run. As before that commit, a devlink flash that is still running when
+> the driver is removed fails, at the latest when its next AdminQ wait
+> times out.
+> 
+> Found by AI code review. Validated on an E810-C (FW 8.1.1, ICE COMMS
+> package 1.3.55.0) with a test-only 12 s delay in ice_sync_fltr_subtask()
+> after it took the VSI pointer, armed right before a promisc change and
+> rmmod ice. Without this patch KASAN reports a slab-use-after-free in
+> ice_vsi_fltr_changed() on the freed main VSI, and the kernel then faults
+> in call_timer_fn() on the timer function of the unloaded module. With it
+> rmmod waits for the run and nothing is reported. Also tested by removing
+> the driver during switchdev sessions and with four VFs bound to iavf. No
+> kernel selftests cover this.
+> 
+> Fixes: 8a37f9e2ff40 ("ice: move ice_deinit_dev() to the end of deinit paths")
+> Signed-off-by: Petr Oros <poros@redhat.com>
+> ---
+> v5:
+> - New patch. The uplink resync in patch 3 queues a filter sync when a
+>    switchdev session ends, and a session that still runs when the driver
+>    is removed ends in ice_remove().
+> ---
+>   drivers/net/ethernet/intel/ice/ice_main.c | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
+> index 47c6798c97e8f1..6dede87b78944f 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_main.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
+> @@ -5387,6 +5387,9 @@ static void ice_remove(struct pci_dev *pdev)
+>   		ice_free_vfs(pf);
+>   	}
+>   
+> +	ice_service_task_stop(pf);
+> +	ice_aq_cancel_waiting_tasks(pf);
+> +
 
-Store each named block's identifier as an in-band first-line comment
-("#BOOTCONFIG-ID: <id>\n") rather than changing the 20-byte trailer
-footer, keeping checksum and size framing unchanged. Restrict IDs to
-1..31 bytes matching [A-Za-z_][A-Za-z0-9_.-]* so leading digits remain
-unambiguously reserved for 0-based index selection and "," / "+" remain
-available for command-line list syntax. Track the ID length in
-struct xbc_config so xbc_parse_id_header() never needs to mutate initrd
-or rodata memory in place.
+makes sense, thank you!
+Reviewed-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+(would be fine for me to pick this particular patch directly to netdev
+too, have not read the rest of the series through)
 
-Because struct xbc_node stores a 15-bit offset into a single xbc_data
-buffer, xbc_init_configs() pre-calculates the combined size of all
-enabled configs (up to XBC_DATA_MAX) and allocates xbc_data once without
-realloc. Each config slice is separated by a NUL byte and parsed with a
-fresh last_parent and brace_index so comments, quotes, and unclosed
-braces cannot bleed across files, while any parse error offset is mapped
-back to the offending config index and file-local byte offset.
-
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- include/linux/bootconfig.h                  |  29 ++
- lib/bootconfig.c                            | 355 ++++++++++++++++++--
- tools/bootconfig/include/linux/bootconfig.h |   4 +
- tools/bootconfig/main.c                     |   2 -
- 4 files changed, 356 insertions(+), 34 deletions(-)
-
-diff --git a/include/linux/bootconfig.h b/include/linux/bootconfig.h
-index f745068c07cd..899cb7ac6b64 100644
---- a/include/linux/bootconfig.h
-+++ b/include/linux/bootconfig.h
-@@ -31,6 +31,21 @@ bool __init cmdline_has_extra_options(void);
- #define BOOTCONFIG_FOOTER_SIZE	\
- 	(sizeof(uint32_t) * 2 + BOOTCONFIG_MAGIC_LEN)
- 
-+#define BOOTCONFIG_ID_PREFIX		"#BOOTCONFIG-ID: "
-+#define BOOTCONFIG_ID_PREFIX_LEN	16
-+/* Maximum length of bootconfig ID including NUL */
-+#define BOOTCONFIG_ID_MAX		32
-+/* Maximum number of stacked bootconfig files in initrd */
-+#define XBC_CONFIG_MAX			32
-+
-+struct xbc_config {
-+	const char *name;
-+	size_t name_len;
-+	const char *data;
-+	size_t size;
-+	bool enabled;
-+};
-+
- /**
-  * xbc_calc_checksum() - Calculate checksum of bootconfig
-  * @data: Bootconfig data.
-@@ -322,6 +337,20 @@ static inline int __init xbc_node_compose_key(struct xbc_node *node,
- 
- /* XBC node initializer */
- int __init xbc_init(const char *buf, size_t size, const char **emsg, int *epos);
-+int __init xbc_init_configs(const struct xbc_config *cfgs, int count,
-+			    const char **emsg, int *epos, int *err_idx);
-+
-+/* Multi-config ID and selection helpers */
-+bool __init xbc_valid_id(const char *id, size_t len);
-+int __init xbc_parse_id_header(const char *data, size_t size,
-+			       struct xbc_config *cfg);
-+int __init __xbc_enable_configs(struct xbc_config *cfgs, int count,
-+				const char *spec, bool *seeded, bool warn);
-+static inline int __init xbc_enable_configs(struct xbc_config *cfgs, int count,
-+					    const char *spec, bool *seeded)
-+{
-+	return __xbc_enable_configs(cfgs, count, spec, seeded, true);
-+}
- 
- /* XBC node and size information */
- int __init xbc_get_info(int *node_size, size_t *data_size);
-diff --git a/lib/bootconfig.c b/lib/bootconfig.c
-index 9ae9a215b1da..fe27e72c9ee5 100644
---- a/lib/bootconfig.c
-+++ b/lib/bootconfig.c
-@@ -1034,13 +1034,6 @@ static int __init xbc_verify_tree(void)
- 	size_t len, wlen;
- 	struct xbc_node *n, *m;
- 
--	/* Brace closing */
--	if (brace_index) {
--		n = &xbc_nodes[open_brace[brace_index - 1]];
--		return xbc_parse_error("Brace is not closed",
--					xbc_node_get_data(n));
--	}
--
- 	/* Empty tree */
- 	if (xbc_node_num == 0) {
- 		xbc_parse_error("Empty config", xbc_data);
-@@ -1085,13 +1078,15 @@ static int __init xbc_verify_tree(void)
- }
- 
- /* Need to setup xbc_data and xbc_nodes before call this. */
--static int __init xbc_parse_tree(void)
-+static int __init xbc_parse_tree(char *data, size_t size)
- {
- 	char *p, *q;
- 	int ret = 0, c;
-+	struct xbc_node *n;
- 
- 	last_parent = NULL;
--	p = xbc_data;
-+	brace_index = 0;
-+	p = data;
- 	do {
- 		q = strpbrk(p, "{}=+;:\n#");
- 		if (!q) {
-@@ -1134,12 +1129,219 @@ static int __init xbc_parse_tree(void)
- 	} while (!ret);
- 
- 	if (!ret) {
--		while (p < xbc_data + xbc_data_size - 1 && *p == '\0')
-+		while (p < data + size && *p == '\0')
- 			p++;
--		if (p < xbc_data + xbc_data_size - 1)
-+		if (p < data + size)
- 			ret = xbc_parse_error("Unexpected data after null character", p);
- 	}
- 
-+	if (!ret && brace_index) {
-+		n = &xbc_nodes[open_brace[brace_index - 1]];
-+		ret = xbc_parse_error("Brace is not closed",
-+				      xbc_node_get_data(n));
-+	}
-+
-+	return ret;
-+}
-+
-+/**
-+ * xbc_valid_id() - Validate a bootconfig identifier string
-+ * @id: Identifier string (not required to be NUL-terminated)
-+ * @len: Length of @id in bytes
-+ *
-+ * A valid bootconfig ID has length 1..BOOTCONFIG_ID_MAX - 1, starts with an
-+ * ASCII letter or underscore (digits are reserved for index numbers), and
-+ * contains only ASCII letters, digits, '_', '-', or '.'.
-+ *
-+ * Return: true if @id is valid, false otherwise.
-+ */
-+bool __init xbc_valid_id(const char *id, size_t len)
-+{
-+	size_t i;
-+
-+	if (!id || len == 0 || len >= BOOTCONFIG_ID_MAX)
-+		return false;
-+
-+	if (!(('a' <= id[0] && id[0] <= 'z') ||
-+	      ('A' <= id[0] && id[0] <= 'Z') ||
-+	      id[0] == '_'))
-+		return false;
-+
-+	for (i = 1; i < len; i++) {
-+		char c = id[i];
-+
-+		if (!(('a' <= c && c <= 'z') ||
-+		      ('A' <= c && c <= 'Z') ||
-+		      ('0' <= c && c <= '9') ||
-+		      c == '_' || c == '-' || c == '.'))
-+			return false;
-+	}
-+
-+	return true;
-+}
-+
-+/**
-+ * xbc_parse_id_header() - Parse optional #BOOTCONFIG-ID header from a block
-+ * @data: Bootconfig block buffer (may have trailing NUL padding)
-+ * @size: Size of @data in bytes
-+ * @cfg: Output descriptor to populate
-+ *
-+ * Strip trailing NUL padding from @data and check if line 1 starts with
-+ * "#BOOTCONFIG-ID: <id>\n". If present, validate <id> and point @cfg->name
-+ * at <id> with @cfg->name_len set, and @cfg->data past the newline.
-+ * Otherwise set @cfg->name to "" (@cfg->name_len = 0) and @cfg->data to @data.
-+ *
-+ * Return: 0 on success, or -EINVAL if a malformed ID header is present.
-+ */
-+int __init xbc_parse_id_header(const char *data, size_t size,
-+			       struct xbc_config *cfg)
-+{
-+	const char *id, *nl;
-+
-+	while (size > 0 && data[size - 1] == '\0')
-+		size--;
-+
-+	cfg->enabled = false;
-+	if (size >= BOOTCONFIG_ID_PREFIX_LEN &&
-+	    !memcmp(data, BOOTCONFIG_ID_PREFIX, BOOTCONFIG_ID_PREFIX_LEN)) {
-+		id = data + BOOTCONFIG_ID_PREFIX_LEN;
-+		nl = memchr(id, '\n', size - BOOTCONFIG_ID_PREFIX_LEN);
-+		if (!nl || !xbc_valid_id(id, nl - id))
-+			return -EINVAL;
-+		cfg->name = id;
-+		cfg->name_len = nl - id;
-+		cfg->data = nl + 1;
-+		cfg->size = size - (size_t)(cfg->data - data);
-+	} else {
-+		cfg->name = "";
-+		cfg->name_len = 0;
-+		cfg->data = data;
-+		cfg->size = size;
-+	}
-+
-+	return 0;
-+}
-+
-+static int __init xbc_parse_index(const char *p, size_t len)
-+{
-+	unsigned int idx = 0;
-+	size_t i;
-+
-+	for (i = 0; i < len; i++) {
-+		if (p[i] < '0' || p[i] > '9')
-+			return -EINVAL;
-+		idx = idx * 10 + (p[i] - '0');
-+		if (idx >= XBC_CONFIG_MAX)
-+			return -ERANGE;
-+	}
-+
-+	return (int)idx;
-+}
-+
-+/**
-+ * __xbc_enable_configs() - Update enabled flags on bootconfig entries from spec
-+ * @cfgs: Array of bootconfig descriptors
-+ * @count: Number of entries in @cfgs
-+ * @spec: Selection spec (NULL for default, "" to clear, "[+]<id_or_idx>,...")
-+ * @seeded: Tracks whether a prior selection has already been applied
-+ * @warn: If true, log pr_err() when a requested ID or index is not found
-+ *
-+ * Update @cfgs[i].enabled according to @spec:
-+ * - NULL: clears all entries and enables @cfgs[0] (default).
-+ * - "": clears all entries.
-+ * - "+...": keeps existing enabled flags (seeding @cfgs[0] if !*@seeded),
-+ *   then enables listed IDs/indices.
-+ * - "<id_or_idx>,...": clears all entries, then enables listed IDs/indices.
-+ *
-+ * An empty comma-separated token selects @cfgs[0]. Numeric tokens select by
-+ * 0-based index; identifier tokens match @cfgs[i].name.
-+ *
-+ * Return: 0 if all requested entries matched, or -ENOENT if any was missing.
-+ */
-+int __init __xbc_enable_configs(struct xbc_config *cfgs, int count,
-+				const char *spec, bool *seeded, bool warn)
-+{
-+	const char *p, *comma;
-+	int i, idx, ret = 0;
-+	size_t len;
-+
-+	if (!spec) {
-+		for (i = 0; i < count; i++)
-+			cfgs[i].enabled = false;
-+		if (count > 0)
-+			cfgs[0].enabled = true;
-+		if (seeded)
-+			*seeded = true;
-+		return 0;
-+	}
-+
-+	if (*spec == '\0') {
-+		for (i = 0; i < count; i++)
-+			cfgs[i].enabled = false;
-+		if (seeded)
-+			*seeded = true;
-+		return 0;
-+	}
-+
-+	if (*spec == '+') {
-+		spec++;
-+		if ((!seeded || !*seeded) && count > 0)
-+			cfgs[0].enabled = true;
-+		if (seeded)
-+			*seeded = true;
-+		if (*spec == '\0')
-+			return 0;
-+	} else {
-+		for (i = 0; i < count; i++)
-+			cfgs[i].enabled = false;
-+		if (seeded)
-+			*seeded = true;
-+	}
-+
-+	p = spec;
-+	while (1) {
-+		comma = strchr(p, ',');
-+		len = comma ? (size_t)(comma - p) : strlen(p);
-+		if (len == 0) {
-+			if (count > 0) {
-+				cfgs[0].enabled = true;
-+			} else {
-+				if (warn)
-+					pr_err("bootconfig: default config not found\n");
-+				ret = -ENOENT;
-+			}
-+		} else if (p[0] >= '0' && p[0] <= '9') {
-+			idx = xbc_parse_index(p, len);
-+			if (idx >= 0 && idx < count) {
-+				cfgs[idx].enabled = true;
-+			} else {
-+				if (warn)
-+					pr_err("bootconfig: '%.*s' not found\n",
-+					       (int)len, p);
-+				ret = -ENOENT;
-+			}
-+		} else {
-+			bool matched = false;
-+
-+			for (i = 0; i < count; i++) {
-+				if (cfgs[i].name_len == len &&
-+				    !memcmp(cfgs[i].name, p, len)) {
-+					cfgs[i].enabled = true;
-+					matched = true;
-+				}
-+			}
-+			if (!matched) {
-+				if (warn)
-+					pr_err("bootconfig: '%.*s' not found\n",
-+					       (int)len, p);
-+				ret = -ENOENT;
-+			}
-+		}
-+		if (!comma)
-+			break;
-+		p = comma + 1;
-+	}
-+
- 	return ret;
- }
- 
-@@ -1161,49 +1363,84 @@ void __init xbc_exit(void)
- 	brace_index = 0;
- }
- 
-+static size_t __init xbc_config_slice_size(const struct xbc_config *cfg)
-+{
-+	if (!cfg->enabled || !cfg->data || cfg->size == 0)
-+		return 0;
-+
-+	return cfg->size + (cfg->data[cfg->size - 1] != '\0' ? 1 : 0);
-+}
-+
- /**
-- * xbc_init() - Parse given XBC file and build XBC internal tree
-- * @data: The boot config text original data
-- * @size: The size of @data
-+ * xbc_init_configs() - Parse enabled XBC configs and build XBC internal tree
-+ * @cfgs: Array of bootconfig descriptors
-+ * @count: Number of entries in @cfgs
-  * @emsg: A pointer of const char * to store the error message
-- * @epos: A pointer of int to store the error position
-+ * @epos: A pointer of int to store the error position (local to failing config)
-+ * @err_idx: If non-NULL, set to index in @cfgs of the failing config on error
-  *
-- * This parses the boot config text in @data. @size must be smaller
-- * than XBC_DATA_MAX.
-- * Return the number of stored nodes (>0) if succeeded, or -errno
-- * if there is any error.
-- * In error cases, @emsg will be updated with an error message and
-- * @epos will be updated with the error position which is the byte offset
-- * of @buf. If the error is not a parser error, @epos will be -1.
-+ * Concatenate all enabled entries in @cfgs into a single buffer of at most
-+ * XBC_DATA_MAX bytes and parse each slice into the XBC tree.
-+ * Return the number of stored nodes (>0) if succeeded, or -errno on error.
-  */
--int __init xbc_init(const char *data, size_t size, const char **emsg, int *epos)
-+int __init xbc_init_configs(const struct xbc_config *cfgs, int count,
-+			    const char **emsg, int *epos, int *err_idx)
- {
--	int ret;
-+	size_t total_size = 0, slice_size;
-+	int i, ret = 0;
-+	char *dst;
- 
- 	if (epos)
- 		*epos = -1;
-+	if (err_idx)
-+		*err_idx = -1;
- 
- 	if (xbc_data) {
- 		if (emsg)
- 			*emsg = "Bootconfig is already initialized";
- 		return -EBUSY;
- 	}
--	if (size > XBC_DATA_MAX || size == 0) {
-+
-+	for (i = 0; i < count; i++) {
-+		if (!cfgs[i].enabled || !cfgs[i].data || cfgs[i].size == 0)
-+			continue;
-+		if (cfgs[i].size > XBC_DATA_MAX) {
-+			if (emsg)
-+				*emsg = "Config data is too big";
-+			return -ERANGE;
-+		}
-+		slice_size = xbc_config_slice_size(&cfgs[i]);
-+		if (slice_size > XBC_DATA_MAX - total_size) {
-+			if (emsg)
-+				*emsg = "Config data is too big";
-+			return -ERANGE;
-+		}
-+		total_size += slice_size;
-+	}
-+
-+	if (total_size == 0) {
- 		if (emsg)
--			*emsg = size ? "Config data is too big" :
--				"Config data is empty";
-+			*emsg = "Config data is empty";
- 		return -ERANGE;
- 	}
- 
--	xbc_data = xbc_alloc_mem(size + 1);
-+	xbc_data = xbc_alloc_mem(total_size);
- 	if (!xbc_data) {
- 		if (emsg)
- 			*emsg = "Failed to allocate bootconfig data";
- 		return -ENOMEM;
- 	}
--	memcpy(xbc_data, data, size);
--	xbc_data[size] = '\0';
--	xbc_data_size = size + 1;
-+
-+	dst = xbc_data;
-+	for (i = 0; i < count; i++) {
-+		slice_size = xbc_config_slice_size(&cfgs[i]);
-+		if (!slice_size)
-+			continue;
-+		memcpy(dst, cfgs[i].data, cfgs[i].size);
-+		dst[slice_size - 1] = '\0';
-+		dst += slice_size;
-+	}
-+	xbc_data_size = total_size;
- 
- 	xbc_nodes = xbc_alloc_mem(sizeof(struct xbc_node) * XBC_NODE_MAX);
- 	if (!xbc_nodes) {
-@@ -1213,7 +1450,17 @@ int __init xbc_init(const char *data, size_t size, const char **emsg, int *epos)
- 		return -ENOMEM;
- 	}
- 
--	ret = xbc_parse_tree();
-+	dst = xbc_data;
-+	for (i = 0; i < count; i++) {
-+		slice_size = xbc_config_slice_size(&cfgs[i]);
-+		if (!slice_size)
-+			continue;
-+		ret = xbc_parse_tree(dst, cfgs[i].size);
-+		if (ret < 0)
-+			break;
-+		dst += slice_size;
-+	}
-+
- 	if (!ret)
- 		ret = xbc_verify_tree();
- #ifndef __KERNEL__
-@@ -1222,6 +1469,23 @@ int __init xbc_init(const char *data, size_t size, const char **emsg, int *epos)
- #endif
- 
- 	if (ret < 0) {
-+		if (xbc_err_pos >= 0) {
-+			size_t off = 0;
-+
-+			for (i = 0; i < count; i++) {
-+				slice_size = xbc_config_slice_size(&cfgs[i]);
-+				if (!slice_size)
-+					continue;
-+				if ((size_t)xbc_err_pos >= off &&
-+				    (size_t)xbc_err_pos < off + slice_size) {
-+					if (err_idx)
-+						*err_idx = i;
-+					xbc_err_pos -= (int)off;
-+					break;
-+				}
-+				off += slice_size;
-+			}
-+		}
- 		if (epos)
- 			*epos = xbc_err_pos;
- 		if (emsg)
-@@ -1233,3 +1497,30 @@ int __init xbc_init(const char *data, size_t size, const char **emsg, int *epos)
- 
- 	return ret;
- }
-+
-+/**
-+ * xbc_init() - Parse given XBC file and build XBC internal tree
-+ * @data: The boot config text original data
-+ * @size: The size of @data
-+ * @emsg: A pointer of const char * to store the error message
-+ * @epos: A pointer of int to store the error position
-+ *
-+ * This parses the boot config text in @data. @size must be smaller
-+ * than XBC_DATA_MAX.
-+ * Return the number of stored nodes (>0) if succeeded, or -errno
-+ * if there is any error.
-+ * In error cases, @emsg will be updated with an error message and
-+ * @epos will be updated with the error position which is the byte offset
-+ * of @buf. If the error is not a parser error, @epos will be -1.
-+ */
-+int __init xbc_init(const char *data, size_t size, const char **emsg, int *epos)
-+{
-+	struct xbc_config cfg = {
-+		.name = "",
-+		.data = data,
-+		.size = size,
-+		.enabled = true,
-+	};
-+
-+	return xbc_init_configs(&cfg, 1, emsg, epos, NULL);
-+}
-diff --git a/tools/bootconfig/include/linux/bootconfig.h b/tools/bootconfig/include/linux/bootconfig.h
-index 6784296a0692..ac26cf8cbf8b 100644
---- a/tools/bootconfig/include/linux/bootconfig.h
-+++ b/tools/bootconfig/include/linux/bootconfig.h
-@@ -49,6 +49,10 @@ static inline char *strim(char *s)
- #define __init
- #define __initdata
- 
-+#ifndef pr_err
-+#define pr_err(fmt, ...) fprintf(stderr, fmt, ##__VA_ARGS__)
-+#endif
-+
- #include "../../../../include/linux/bootconfig.h"
- 
- #endif
-diff --git a/tools/bootconfig/main.c b/tools/bootconfig/main.c
-index c85e58fcb6b0..6f68e02f6385 100644
---- a/tools/bootconfig/main.c
-+++ b/tools/bootconfig/main.c
-@@ -15,8 +15,6 @@
- 
- #include <linux/bootconfig.h>
- 
--#define pr_err(fmt, ...) fprintf(stderr, fmt, ##__VA_ARGS__)
--
- static void show_xbc_error(const char *data, const char *msg, int pos)
- {
- 	int lin = 1, col, i;
--- 
-2.43.0
+>   	if (!ice_is_safe_mode(pf))
+>   		ice_remove_arfs(pf);
+>   
+> @@ -5407,7 +5410,6 @@ static void ice_remove(struct pci_dev *pdev)
+>   	ice_deinit_hw(&pf->hw);
+>   
+>   	ice_deinit_dev(pf);
+> -	ice_aq_cancel_waiting_tasks(pf);
+>   	set_bit(ICE_DOWN, pf->state);
+>   }
+>   
 
