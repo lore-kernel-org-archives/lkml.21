@@ -1,80 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777747;
-	b=jvXLQeGkRvZLY1qPz1uLrwLBO/whlXRv4Tec7JqGSaZp9PtLq61pFtcmCxCg6X9fqpXo
-	 5Z+yiNhYnScQf3UUv29hXhmT8u9Qsc/+gDESDy6PCycoRTI+/A81bCXSrYyL0w/+kUTwy
-	 L7o99smHBy6saOHFipC/b/rI+DTkwMfkyMKL8/TfRfRyniPCkefc9FWJyQeWNfiMt6/HP
-	 NajfBg+4Li6gzPIG/2I2Va+jq7Rn4Jlv8CkOBtrnEwv55lUFBCHo8whvRoBSFFxqoWaWm
-	 Y3tJZ+6P+I/v3bEEImaW+rfygLWuKt37gxCpnpwNCZ0JY5Dl1xQcNZqUtKYLg2AyuNQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777747;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795777876;
+	b=uyIEM11asb8CFN7Cqeh3OlaM0yBSA8Kj5DA/Pw0PuqM2RaNBamg2vAcXk3zLe6rqKCPU
+	 WqaQxw55aZnGNAE9KCA5ISaj4huSNN9FzlxJ1tRx2m/xTWIFUkixuh+ByCRON5xxfkv98
+	 vfFJq3OP+Hhdq8UR02+MQL49oSuSccdG6oOwLb/C9NmbDf0cWxdrPHPHGjbWQn+9moMpP
+	 jlH9WvkZFokRAac849jpsFY5LVzAgw5/udvGHXGLAVUCMOO6+mLCO6clTtUrIim9aEErh
+	 DbWJGuVRkvQZiD4yqpOo5FxxBJdzPvDDZfHtyKr+MmIayTw+loUe4GFSrv0UuNQuiWQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777876;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=QWQrWZSqsVK72t3F2YybUVFJXqGqffaUTRwEo5NpGRY=;
-	b=sQX6bJladbtXHMnH2SW4n4zfcoQcGQ4A6oCgDhoPaz1qGiF0DgJbKbb7dfYuZNz9Rutn
-	 xkc9K9XmPXwePSALHOwK1g+s3GzHf1iewouClfvxWLFumCXC76G+YIPg9oirza6cx85UI
-	 L2MrTTTz6kXb7K2iEvnwmCJ8SNGAKOd/AG7tva0OYFWufZFeIUw1dZXLQ1k02AVydAqz9
-	 56WabA6sB0m8QPTYE56WPGlRcel90oNRLS9dPOVcm+GC1E/1ALzomTspz4WDEmnPIf/7+
-	 T5/rkGB9e89gZN9rFFAABntNSQfqjBq5EUs9qcB701mkmgVqPD119O9if4HzX2NZjrQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UcgBRZAk;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
+	 X-ZohoMailClient;
+	bh=+37UfqKqX+TJbR+xq7UVWHeaqVYwEZPU+usFmpTGwuo=;
+	b=FrzNzvz5jCxeMNYpOY4hqyBVAkoVf69VWb7QIE/WQbwU73emWuN2OlIk2MTKXRWOXYO4
+	 pghRWCcEeHPB8JMdF11vmGcer33Xk5SUGN3jRwmuviAh9RczVlJWPISQvAB287UpGHZRR
+	 PLBE6prkyrYjoEQvsX/j+PdVF1Io6pR2pWYfNOZZ5lD9khlHpSMaNAlH6v5YRKVuuPczq
+	 5vX5HLiErCxRVnIPjXAzZLIPZyldqk/0iq+x26HBIUlCsMqy2Py5WgaltA80tWz0dRWzC
+	 BUJesN6tUzvvnbYKkYwUbfS1WpY4sjQyaBm8JeoS/bUygGDS4mp2ZqMgxoKbv4z4BMw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=fnizvGli;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9417D606A32A;
-	Fri, 27 Nov 2026 11:09:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9417D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17832606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:11:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17832606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UcgBRZAk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795777747; x=1827313747;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ktKVlkAVYIRLZkVlUsZsKpsQTE93/EMkxf8Vfar7JXU=;
-  b=UcgBRZAkGVQFwk13UdtN6FlqthVSOhBRjnztWzonR1UB5dggXRD9jEY2
-   hqaMcEXCIyMJi7pwvkSczQE89IyMLE7nMU3Zu4HqsDiY6KbxLoDfE5+3o
-   vnOf935TGdFAKTYfElwTS57EQqp8GMeghaE15PZ+jN1XuVi2SOYEYbRLn
-   Z/w2appWY+2UQZCnaAuexJaYGoJ4VrthgtrK2UddTMMWmqcWyKw8WVGSL
-   dol+Y2CqMs32yvFZIr+/RXkF0oRNWIK2TdJpurLHg3mL1XA3JIjclAvFV
-   rn2C7dXfRd14m7+yJql4K7e5fktxsmQBOor1FUxRmF5upGn7bsE0FGFTQ
-   Q==;
-X-CSE-ConnectionGUID: PrIvl6iaTgyawQ3eg3CTIw==
-X-CSE-MsgGUID: hX3LQY2VSLi00iuUNQk31Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4544486"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4544486"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:09:06 -0800
-X-CSE-ConnectionGUID: +jLDKlUfRHWHYIKSUTqp2A==
-X-CSE-MsgGUID: cz8kT8clRMWHLr/PB+h77Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="14050738"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:09:04 -0800
-Date: Fri, 27 Nov 2026 13:09:01 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: sanjayembeddedse@gmail.com
-Cc: Jiri Kosina <jikos@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, linux-input@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/7] iio: magnetometer: hid-sensor-magn-3d: drop
- redundant probe error messages
-Message-ID: <awlkzVRCTNaA4-gJ@ashevche-desk.local>
-References: <20261127-19-oct-hid-iio-unified-print-framework-v2-0-3f476fe1a940@gmail.com>
- <20261127-19-oct-hid-iio-unified-print-framework-v2-3-3f476fe1a940@gmail.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=fnizvGli
+ARC-Seal: i=1; a=rsa-sha256; t=1795777829; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=a8kmxRhuP5lxuxlojNXAIhQ1L+75cRsEbByPLn3ftBHMUj9oG9mTx7PArvI5a+ZS6iWDmDyu4JpuvZkCC6p54iVlkOLudBQAYIPpQdCQGpv75aE7/N2eiAV2OBpAA9mOVCCxGxfxQaHaAbw1hyNpfqwj2zjKpoDxnatTON/cHYw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795777829; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+37UfqKqX+TJbR+xq7UVWHeaqVYwEZPU+usFmpTGwuo=; 
+	b=PWuZco1L4rVObSyiC+jWQeRLyLZONNIywFAOSO76as126ZRJ/eE+MqdPExL73bPaVbSOQyLRCdZVsvEudybloNDqRCpowUMVSihqQkv9KTDVzOG9UQgpqgZ8jdCBhQ+y/vsH147LXvWOnZrYW2qfsN9NKw0fX1+eUr8vVaNUW4A=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=fnizvGliRm6udOM5RoPw6WuI/I4rXFx18OTEGxxtyOWVCNDKJYkD/l3zc4wfinBMONiA+k+XK6c6sg5vvgsto4mXqA4N6vbC6cTzt1te0TdSrfUyJX6LLVlTZwNEepk0cDFMw4x5G5d1CdgNv50MdxCgpKkF16VZJ9JN/2xyEOQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=+37UfqKqX+TJbR+xq7UVWHeaqVYwEZPU+usFmpTGwuo=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795777826148667.3884646870919;
+	Fri, 27 Nov 2026 03:10:26 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 94313180918; Fri, 27 Nov 2026 12:10:21 +0100 (CET)
+Date: Fri, 27 Nov 2026 12:10:21 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andyshrk@163.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH v3 0/3] drm/rockchip: vop2: Add 8K support for RK3588 vop2
+Message-ID: <awljo3X3KWpSovjx@venus>
+References: <20261116084555.1061-1-kernel@airkyi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,47 +73,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xz5roaz37kmfattc"
 Content-Disposition: inline
-In-Reply-To: <20261127-19-oct-hid-iio-unified-print-framework-v2-3-3f476fe1a940@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-
-On Fri, Nov 27, 2026 at 04:03:58PM +0530, Sanjay Chitroda via B4 Relay wrote:
-> 
-> The probe path emits error messages for conditions where the failure is
-> either already conveyed by the returned error code or can be identified
-> from the existing debug messages in the magn_3d_parse_report().
-> 
-> Remove the redundant error messages to reduce log noise and simplify the
-> error handling code.
-
-...
-
-> -	if (attr_count <= 0) {
-> -		dev_err(&pdev->dev,
-> -			"failed to find any supported usage attributes in report\n");
-> +	if (attr_count <= 0)
->  		return  -EINVAL;
-> -	}
-
-What is the meaning of attr_count < 0 value? Does it hold the error code already?
-
-...
-
-> static int magn_3d_parse_report(struct platform_device *pdev,
-
-> -	if (*chan_count <= 0) {
-> -		dev_err(&pdev->dev,
-> -			"failed to find any magnetic channels setup\n");
-> +	if (*chan_count <= 0)
->  		return -EINVAL;
-> -	}
-
-Same question here.
-
--- 
-With Best Regards,
-Andy Shevchenko
+In-Reply-To: <20261116084555.1061-1-kernel@airkyi.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.7.7.1.5.4/294.473.96
+X-ZohoMailClient: External
 
 
+--xz5roaz37kmfattc
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 0/3] drm/rockchip: vop2: Add 8K support for RK3588 vop2
+MIME-Version: 1.0
+
+Hi,
+
+On Mon, Nov 16, 2026 at 04:45:52PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> This series adds support for 8K output on the RK3588 VOP2. HDMI is not
+> ready yet, but I believe many people might be interested in this.
+>=20
+> 8K output on the RK3588 is done by splicing two VPs together, with VP0
+> outputting the left half of the screen and VP1 the right half. In
+> addition, 8K planes have to be split in half as well to stay within the
+> width limit of a single plane. Similarly, there are a few post-processing
+> details that need to be handled.
+>=20
+> Note that splice mode is not only usable for 8K output. This means the
+> mode can be tested at 4K and even lower resolutions, by simply changing
+> this one line:
+>=20
+> -#define VOP2_MAX_VP_OUTPUT_WIDTH    4096
+> +#define VOP2_MAX_VP_OUTPUT_WIDTH    (3840 / 2) /* for 4K test */
+>=20
+> And yes, this has been tested at 4K over HDMI on the RK3588 EVB1 :)
+
+I've done this test for 4K over USB-C DP AltMode (using my pending
+patches to get that working in the first place) on the RK3588 EVB1
+(I disabled the HDMI interfaces and routed USB-C to VP0) and it
+works:
+
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+Greetings,
+
+-- Sebastian
+
+>=20
+> Changes in v3:
+> - Link to v2: https://lore.kernel.org/all/20261029081429.862-1-kernel@air=
+kyi.com/
+> - Cast the result of drm_format_info_min_pitc() to u32 to avoid 64bit div=
+ision.
+> - Rework the left-window splice check to avoid pulling an unrelated CRTC
+>   into non-modeset commits, and use the new CRTC mode instead of the
+>   stale splice_mode flag(Sashiko).
+> - Reserve the splice partner window when the partner VP has no CRTC, so
+>   it cannot be assigned as another VP's primary plane(Sashiko).
+> - Only set the partner VP's CFG_DONE while the new state is in splice
+>   mode; do not force it when leaving splice mode(Sashiko).
+> - Program the main and splice video ports in a single layer-mixer pass,
+>   and apply the YUV overlay mode to both VPs(Sashiko).
+>=20
+> Changes in v2:
+> - Link to v1: https://lore.kernel.org/all/20261022071737.508-1-kernel@air=
+kyi.com/
+> - Missing removal of the replaced line(Heiko).
+> - vop2_win_get_pstate(): use the left window's state only in splice mode(=
+Sashiko).
+> - Reject splice windows already in use by another CRTC(Sashiko).
+> - Check the splice partner via drm_atomic_get_crtc_state() instead of the=
+ runtime flag and unlocked read(Sashiko).
+> - Set splice_mode_right/left_vp before the error paths of vop2_crtc_atomi=
+c_enable()(Sashiko).
+> - Validate each split half against the min width 4 and max input width; a=
+lign NV20/NV30 like NV15(Sashiko).
+> - Latch overlay registers at the left VP's vsync; don't wait for the part=
+ner's own cfg-done(Sashiko).
+> - Program the color key on the window actually being updated(Sashiko).
+>=20
+> Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+>=20
+> Chaoyi Chen (3):
+>   drm/rockchip: vop2: Use drm_format_info_min_pitch() for plane offsets
+>   drm/rockchip: vop2: Skip UV plane setup for packed YUV formats
+>   drm/rockchip: vop2: Support 8K output by splicing two video ports
+>=20
+>  drivers/gpu/drm/rockchip/rockchip_drm_drv.h  |   5 +
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 579 +++++++++++++++++--
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  66 ++-
+>  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 370 ++++++++----
+>  4 files changed, 857 insertions(+), 163 deletions(-)
+>=20
+> --=20
+> 2.53.0
+>=20
+
+--xz5roaz37kmfattc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmsJZRgACgkQ2O7X88g7
++pqU3Q//R1kUfPIEKaFvN9LmvJDBrOItlO/k7Nwle8vs14eDYVet8bkNUiE5T2mJ
+PLBSzoc0w9KM1+wGCNzlysIH89dh8o8RZzQPpg+6v+D4TRijTLAuhfA11r6SfVkm
+wtcag4MCwgcMTcVxf7V1bT34sum/Kxnpg4rPw7GpAb3CD0Mu+c0BbWig+ndNp7QS
+iXSi9PECwLWP5o2YSY/GdV6dXy2B74QofXUJmw9ve31fNyNQDI8mj4AyObHgSPbV
+Dk0p9SGCij1ImqyESt8jeMM2sgAspQbKJs2nKxvY6C2L1yzK9zuPbIaooPwTKNfl
+IyJ+c+6rcMWltQRTFkWaNiiWIDPkUxDki2qit3rju8FSxDe5yM3jZTVbTDOYECVA
+e2ysSTjqk9EPMPcpE3UbTJ4w4TVNErIz6vrCmjTpJ67da4kV5iTiBpX1QRRT6poj
+wrWR45O+HzASyAdGbeAjDoibZnrGMBSXSXQl+2VPR2RV6irK8faUn+owW/UvHnxr
+OUinP9Ek67fNCpr7y15V+hBUihSI79IOBK3IR5XAt3l2gFTN39NMiif9UZkX9lDZ
+M6SoADc/lYTfmbScC4QpPQxuMoYuV4IEhcUEC3Jnyp/BPmJ36dY3lll4xac1SESA
+AtW3pXF1WiPxGoY2Ndb5iJ0tn18hzXC10qY56vp6esS/et7zcQg=
+=cg/c
+-----END PGP SIGNATURE-----
+
+--xz5roaz37kmfattc--
