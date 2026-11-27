@@ -1,85 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795750172;
-	b=QH67BOgacpvudWLLl20YmojfmR+1bRDS5ijJ9/tOQ09onB4kb3sxCQnyehQwy6YlXVYa
-	 lP8dIihe0hP038Zp1Tff0ea1Yp1gen901i3lOSgSBSQ/xLZiLZUiYqG8g9DHBloet/Shv
-	 7AZzFDXkvryORnTxmvgkGDxd9Z52nzYrgOBdJIPr2mDRaCHVrI6dUogywCyS1wpjQIeKn
-	 HrjlGO9N5Ccqzqny2Lp19nbdE7r3bkdJ053MglrUru01XwPz2wZ5KWl1DWKMes35Ej3Pj
-	 c70ZPwKyGhMdaAWYBW3FcNnkleVYjI4GfY53At2hWBtrAPtZfeiGVKhP5HewTaHxwaQ==
+	t=1795750226;
+	b=uG52hzlY3Nh4IpgYpG4lDgCEZUjviNB1HB2h+Kj9hR7U85eQCx2cy+n9N7S8YJHFhDAi
+	 C2QNsajFmKikyrq4eFmSRpL0xOrRGkmAUbOLwljLVu0PuNKlvihREwlNQAhQr1v2id89E
+	 avCCbO66yWPchnMln0ZCH+1HDTyPLpEK3koodvYzXxVDXuMEYl9068mC9Ah/D7gEUmOGT
+	 UCGH9qm6063foKYHOpNaqMTOqzB9req4LNFvy2EdDW/kLRcQOAYjU9yY9JeBCHbiWQlIe
+	 XkFrL6Xa1t0Prlx5you1fyOb85omSAXcglnP3B29i7Homti1a5irrxUuQAv9LkTew/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795750172;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=hBFZyIMzTpRCClztXW2d7H8DbxXWA8BTfhf8v4D8rVo=;
-	b=qwq4Ln93OzFTjUccM7QlqKqESBFYnvvrgf6tn2uG59Z8x1f++/jD20lW2J1RQcU5yj8G
-	 0KUg+esDnpoIuoVaJgoQl4ItuhXDkjJhgChQ70hM3gJYNTODiXwjveCjqHTPDzaogoAm8
-	 aT4Jgx1jTN11mVuQ8Z2iABgb5WfZxzsUxCJgbu+zFfKLSerqLR/DN913oGMPe9eX4Efx5
-	 y/IBvEzn72jzEMuRxG8qYG+uAPcDxKq0dOvgmlQxCnNFM5Xd0TFC8UhfwVZuk/+rpA92P
-	 07M5h9O685bxIJ5FVc1nYX82f39JRjmXyqWbKAXnC6Nm7oSj/CyMvqTkMyROCbWaPDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795750226;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=2F2hxqVE/hInKFHBY2zMbzmQ4nNGWwOBoQq6/i9B19g=;
+	b=OEw+6TEU6+8QaoHwI6MSGtUO93lYOZH+pf+5m1pwS1XS5jjO1RPUlGA+tIhzhCstQr3l
+	 7bHk5QcP0Vmhq/PxbIzI2QS8cZFxuwWo1z/656cNE0+WUhEliI/3SD88t/6r0lqcCXynm
+	 1ZMztVPb6TP7UG4OL91dmbK+wm3oCCP0DDwMYfCxRgPiwLJfUe3nEN4cENBQhPd/Z3DrW
+	 p9ujtp34dbsFSnzyJZu7SZTHdKLYes96uOgNrsBhs6TnORX5nZxybd7IYJ7j1281g8ElD
+	 7v3PcToF7VHMN5G2TGSPOBP6QN0pDuiDslGG8VxDkZ+rrATkVePkmsrYMXEFYAkj+Zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=LU4wVOAW;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1667606A31C;
-	Fri, 27 Nov 2026 03:29:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1667606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mQtb4kDv;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5BC3D606A31E;
+	Fri, 27 Nov 2026 03:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BC3D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=LU4wVOAW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795750169;
-	bh=6hgTPZ4zy0eISHNyVPO+zkIjKtXrw/0PSMG7EQRo1SE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=LU4wVOAWnPKkeebBDv587cHKEP/uG+yyEJOIQrZ/KK0ctY2Nn/SKtC4Q9QxGoU74v
-	 sRoc2XDxgbRGgiz+03OablSFVT92/FVhb21rpwbJ/Yj9BMkjwStjouTU/0cL9IBr2c
-	 FRDUHyDqPW+8kRa9Y4Zn7szzwvE5txv1iTPR4DPFbznroeOwSLcI2lUvnq9MTrjC+3
-	 wDS9QBkCsF5RVDem3PNmt+Jp80VWxqwJNm3e3ltoTTIfIiILqe3sKY3V/oT5ErVgJ3
-	 noHe8Qhq5rxfaZk1DT68Qs7/9JSQqH4xhaCVyU/gJV97OFEztjstXZ8/q0+L56o51G
-	 p18WuL1LYolHw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1D54D17E02F2;
-	Fri, 27 Nov 2026 04:29:27 +0100 (CET)
-Message-ID: <4cfa6a26c53daa3ab188c1cf8251888d176c0045.camel@collabora.com>
-Subject: Re: [PATCH v4 0/5] media: Add fdinfo support for v4l2 drivers
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner	 <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, kernel@collabora.com, 
-	linux-arm-kernel@lists.infradead.org, Christopher Healy <healych@amazon.com>
-Date: Thu, 26 Nov 2026 22:29:26 -0500
-In-Reply-To: <20261125-v4l2-add-fdinfo-v4-0-2dc73fad9932@collabora.com>
-References: <20261125-v4l2-add-fdinfo-v4-0-2dc73fad9932@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-VcyGQLmGUJ6o2ePG/wFB"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mQtb4kDv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=mQtb4kDvfQ+C90Tn9jTcKpwd6Osu5dAK47bsr1q3lCpPadmpNWunL5Uf7rcuHark2txo1qbownT7a
+	 BXhPI8JYsN991FEBHoyDwTjxE/9nI+TfFfLJ0/kP1jwV2CoQ7dpx8Qz3q3WRGcQ4PBjPE56GUUwANK
+	 V8PKPtWJr214oJrk=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b08f931227-9db65;
+	Fri, 27 Nov 2026 11:29:53 +0800 (CST)
+X-RM-TRANSID:2ee26b08f931227-9db65
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from localhost.localdomain (unknown[10.55.1.72])
+	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46b08f930695-8422d;
+	Fri, 27 Nov 2026 11:29:53 +0800 (CST)
+X-RM-TRANSID:2ee46b08f930695-8422d
+From: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
+To: Dongsheng Yang <dongsheng.yang@linux.dev>,
+	Zheng Gu <cengku@gmail.com>
+Cc: tongzhiwei@cmss.chinamobile.com,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	dm-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] dm-pcache: fix use-after-free of cache segments on teardown
+Date: Fri, 27 Nov 2026 11:29:29 +0800
+Message-ID: <20261127032934.484-1-tongzhiwei@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.45.0.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,141 +71,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-VcyGQLmGUJ6o2ePG/wFB
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+NOTE: this fix is found by LLM but reviewed by human.
 
-Hi Detlev,
+pcache_cache_stop() (called from dm_pcache_dtr() BEFORE
+backing_dev_stop()) freed cache->segments via cache_exit().  An
+inflight KMEM writeback completion can still be in flight then: its
+late callback path
 
-This series have sufficient valid sashiko report to be worth making a v5.
+  req_complete_fn -> backing_dev_req_end -> writeback_end_req ->
+  writeback_ctx_end -> cache_pos_advance
 
-Nicolas
+dereferences dirty_tail.cache_seg (== &cache->segments[id]), already
+freed -> use-after-free.  backing_dev_stop() is the authoritative
+drain (wait_event(inflight_reqs == 0) + flush_work(req_complete_work))
+but ran after the free.
 
-Le mercredi 25 novembre 2026 =C3=A0 10:11 -0500, Detlev Casanova a =C3=A9cr=
-it=C2=A0:
-> fdinfo is useful to poll information from the driver.
-> Unlike the ftrace interface, it lets userspace tools get a snapshot of
-> the state of the driver at their own pace, instead of getting events for
-> each driver status change.
->=20
-> This works better to get information like HW usage time or clock
-> frequencies, as well as memory usage.
-> This patch set focuses on mem2mem drivers that are per-frame based and
-> an implementation is proposed for the Verisilicon Hantro and Rockchip
-> rkvdec drivers, limited to main clock frequency and HW usage time, as
-> well as HW cycles counting in Hantro.
->=20
-> Even though it is not used yet, per core fields are appended with=20
-> `-<core_id>` to support multi-core drivers.
->=20
-> To ease support in drivers, a v4l2_metrics struct is added.
-> It stores metrics information and provides helper functions to write
-> the fdinfo file in a standard way.
->=20
-> An example of usage of this from userspace is implemented in v4l2top:
->=20
-> https://github.com/cazou/v4l2top (Check the upstream branch)
->=20
-> checkpatch.pl warning: The 2 arguments in the show_fdinfo callback
-> definition are kept unnamed to match with the rest of the struct
-> definition.
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
-> Changes in v4:
-> - Rebase on master branch
-> - Add missing documenation fields
-> - Fix missing indentation spaces
-> - Link to v3: https://patch.msgid.link/20260706-v4l2-add-fdinfo-v3-0-d556=
-568cf38e@collabora.com
->=20
-> Changes in v3:
-> - Rename the fdinfo key prefix from "media-" to "v4l2-", and "stats" to
->   "metrics"
-> - Restructure the documentation to have mandatory and optional keys
-> - Add core ID to fields
-> - Add HW cycles count support
-> - Add ABI documentation
-> - Link to v2: https://patch.msgid.link/20260617-v4l2-add-fdinfo-v2-0-d298=
-e98ce06a@collabora.com
->=20
-> Changes in v2:
-> - Simplify key/value pairs by removing repeated <eng> suffix
-> - Add media type support
-> - Add v4l2_stats helpers
-> - Add support in rkvdec too
-> - Link to v1: https://patch.msgid.link/20260612-v4l2-add-fdinfo-v1-0-7232=
-11abc861@collabora.com
->=20
-> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> To: Philipp Zabel <p.zabel@pengutronix.de>
-> To: Detlev Casanova <detlev.casanova@collabora.com>
-> To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-> To: Heiko Stuebner <heiko@sntech.de>
-> Cc: kernel@collabora.com
-> Cc: linux-media@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-rockchip@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
->=20
-> ---
-> Christopher Healy (2):
->       docs: media: add documentation for V4L2 driver usage metrics
->       media: hantro: Add per-context fdinfo usage metrics
->=20
-> Detlev Casanova (3):
->       media: v4l2: Add callback for show_fdinfo
->       media: v4l2-core: Add v4l2-metrics interface
->       media: rkvdec: Add per-context fdinfo usage metrics
->=20
->  Documentation/ABI/testing/procfs-fdinfo-v4l2       | 129 +++++++++++++++=
-++++
->  .../userspace-api/media/drivers/index.rst          |   1 +
->  .../media/drivers/v4l2-usage-metrics.rst           | 137 +++++++++++++++=
-++++++
->  drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  19 +++
->  drivers/media/platform/rockchip/rkvdec/rkvdec.h    |   1 +
->  drivers/media/platform/verisilicon/hantro.h        |   4 +
->  drivers/media/platform/verisilicon/hantro_drv.c    |  19 +++
->  drivers/media/platform/verisilicon/hantro_hw.h     |   1 +
->  .../platform/verisilicon/rockchip_vpu981_regs.h    |   1 +
->  .../media/platform/verisilicon/rockchip_vpu_hw.c   |   6 +
->  drivers/media/v4l2-core/Makefile                   |   2 +-
->  drivers/media/v4l2-core/v4l2-dev.c                 |  12 ++
->  drivers/media/v4l2-core/v4l2-fh.c                  |   3 +
->  drivers/media/v4l2-core/v4l2-metrics.c             |  78 ++++++++++++
->  include/media/v4l2-dev.h                           |   2 +
->  include/media/v4l2-fh.h                            |   3 +
->  include/media/v4l2-metrics.h                       |  47 +++++++
->  17 files changed, 464 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-> change-id: 20260610-v4l2-add-fdinfo-a790fceab329
->=20
-> Best regards,
-> -- =20
-> Detlev Casanova <detlev.casanova@collabora.com>
->=20
->=20
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+Drop the cache_exit() call from pcache_cache_stop() and free
+segments/seg_map from dm_pcache_dtr() instead, after backing_dev_stop().
+The free is a local static cache_exit() in dm_pcache.c (not exported);
+cache.c's static cache_exit() is left untouched for the start-failure
+error path (pcache_cache_start's cache_exit: label, reached only when
+cache_init() succeeded).
 
---=-VcyGQLmGUJ6o2ePG/wFB
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+The other resources the late completion touches (cache_dev mapping,
+req/bvec pools, task_wq, backing dm_dev) are already released after
+the drain, so relocating segments/seg_map closes the only UAF window.
 
------BEGIN PGP SIGNATURE-----
+Fixes: 1d57628ff95b ("dm-pcache: add persistent cache target in device-mapper")
+Cc: stable@vger.kernel.org
+Signed-off-by: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
+---
+ drivers/md/dm-pcache/cache.c     | 2 +-
+ drivers/md/dm-pcache/dm_pcache.c | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawj5FgAKCRDZQZRRKWBy
-9J18AQDp3IR3pfQcKcnw6xF/dT5LdRqqiaES0m1nfecWo2kNDQD+PU71pmZPqO7l
-9h7qqg6hjHADUqOEf75xVTKCdu68FQU=
-=mSs1
------END PGP SIGNATURE-----
+diff --git a/drivers/md/dm-pcache/cache.c b/drivers/md/dm-pcache/cache.c
+index b0b3e21677de..c41f7b7d1d04 100644
+--- a/drivers/md/dm-pcache/cache.c
++++ b/drivers/md/dm-pcache/cache.c
+@@ -453,7 +453,7 @@ void pcache_cache_stop(struct dm_pcache *pcache)
+ 	if (cache->req_key_tree.n_subtrees)
+ 		cache_destroy_req_keys(cache);
+ 
+-	cache_exit(cache);
++	/* cache_exit() is called from dm_pcache_dtr() after backing_dev_stop(). */
+ }
+ 
+ struct workqueue_struct *cache_get_wq(struct pcache_cache *cache)
+diff --git a/drivers/md/dm-pcache/dm_pcache.c b/drivers/md/dm-pcache/dm_pcache.c
+index 645fc27d82ba..b7abe585098e 100644
+--- a/drivers/md/dm-pcache/dm_pcache.c
++++ b/drivers/md/dm-pcache/dm_pcache.c
+@@ -351,6 +351,12 @@ static void defer_req_stop(struct dm_pcache *pcache)
+ 	}
+ }
+ 
++static void cache_exit(struct pcache_cache *cache)
++{
++	kvfree(cache->seg_map);
++	kvfree(cache->segments);
++}
++
+ static void dm_pcache_dtr(struct dm_target *ti)
+ {
+ 	struct dm_pcache *pcache;
+@@ -364,6 +370,7 @@ static void dm_pcache_dtr(struct dm_target *ti)
+ 
+ 	pcache_cache_stop(pcache);
+ 	backing_dev_stop(pcache);
++	cache_exit(&pcache->cache);
+ 	cache_dev_stop(pcache);
+ 
+ 	pcache_destroy_args(pcache);
+-- 
+2.43.0
 
---=-VcyGQLmGUJ6o2ePG/wFB--
+
+
