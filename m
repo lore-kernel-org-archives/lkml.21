@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795804610;
-	b=sYgGXR4dVpY/YPkfZOf0T0lI6GDMBkMV74tUM6hwL3V1dxlihyHh1vB/W2MP38UqaRAI
-	 pq0HlbrR+04ONA6FAwYrt7GCKFwfWMBAbKe2K97vxZG1VBaUi1XCExu5u6F0LNzygb8le
-	 s0pL14aJ8SL91OAurpLJavN9fvAO2w/jihvPcVJAiMR7wg/tNb9LaZsfcTo2WLz4tE+rr
-	 mwj6z45lXwoC763Rafw60VP/Px7NxccT6DeUSeX60gnM5mYA14EkG613TZijwAI9yFV5z
-	 tJV6B2D/LzFLaAsiJingOsc8kL/4fsxWI+TzbGxIeuLSpGAZAHNZyJsSWclcpJ6/t0Q==
+	t=1795804616;
+	b=2xNvJ5p7xZm4b5I5Q0PY18SPo/cB36PcgQPJbZoBpSnk1JoCAmmVzImjQvbTOQqrXvLG
+	 ncRIa7pdA3Fw1RQe+MFYgAz1MZOjd2PepCfGxU0+jBcYDo8QNrLX5UXnGyYeBRxx+oMBb
+	 7oUBDqL5FqfoeIV2NXtCWLVljrXj59j8kOQSD/qyOPSec0sf4Ag7cAvS17dw1X/Q+wU/y
+	 WGh3AnScpl9IPHyuEHEb5yOho/ax/VPX21Up5OAiAfhSOeSpAH3KsOoT+/7hcPV92LC06
+	 4akGBBun5OhsG8K1GiQouPNG9GccRiHvS065R5ege6HFr+YfFfx7qs/fWSbGRxnA71Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795804610;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=c9OS2azmNlSLBcd4n3RTnzdEGHNMnl37QCh2ccSxVD4=;
-	b=ZoyU0sCYB54N4JUkH1EVtEzIdlN7kxyENRFwxLfqj32itGCoA0iUNNl43bG9Q/x2NV9C
-	 SVcqtKhJlspOtsHf/Oh0ixlQ+HpOpIHIi1K0jq5icFXAcJ9g0gMeC/CszbpC5DGowmuJ9
-	 CcG/mcZH6oFUeKeyU0N1NPMmKNITE/epU3WdYY7S5Uzetnj5oeYKXOcxUibJbjSTq80FD
-	 DkViIhDgKvekDFMrk1gsRUvTrS/D8Gkcvs/SBI1XxEfoDFzXUrzf2uEQA33Ws5Y+Vp92u
-	 7v75GjnZCe6MVG5dJspaSn1VKk5+37qbVuA0Gn42WqPZl1LeJn0L9aiKD6vrYlUPaRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795804616;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=G8NnEquHh6JPrt5WKM/35q0o6NTyLXSxP+cYgYnFdys=;
+	b=kTNUpiX7mGMlTjyZNdo3OWbbOJTJN1x8BdXmwb+z1BjOwoj2Oi9WFjwpMnShM/B2tn47
+	 8FvDC7wvKC8AhR2ZXor3EKEdrrkcmk/ygwHsdGWnXNFbnNTLZ90HYbBPWxNthcdE/lrs5
+	 lq+loYf2dxe6qulWgAUzWDS8Hbs8bLL96UuPqai7cWh1UWm/liPq6JvGpu29I0vRXKdgj
+	 12cLR+Wrc97pIb8HE19rdtIpGp5iW5wz47MqDGoPI3wsl4PGeYX2DCmDQEI/Ama/HZtgh
+	 9Zf7Nxklw1ygm1gaVx98JJBQta6RvvRZIMbDDz1fTzJGdTYRcT/btePjHoV9Bcr9d5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ds20111+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1320606A334;
-	Fri, 27 Nov 2026 18:36:50 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=b43+c8Cg;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6B3C7606A32C;
+	Fri, 27 Nov 2026 18:36:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B3C7606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ds20111+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09581F0092C;
-	Fri, 27 Nov 2026 18:36:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795804610;
-	bh=c9OS2azmNlSLBcd4n3RTnzdEGHNMnl37QCh2ccSxVD4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Ds20111+2KN1q2dkFSUuBH4U60j093SvnLq2b8/CA+dHItrCf4DjINOje1lXgIKWp
-	 9Vi4lIDAnYt01OFbCGSXp3vXNOzTfN/HH/tl9IHO4SIFHGFsCC+bUkXaLartZ/mnJl
-	 iyI3MYbG2eJ9VOHzi7YWNUxjPwn1fTnwd77Zv6KBSUh0NYRiBESCgTbm1OxPHiFzM0
-	 CQHvZ1MnxV5vgMXsuXC1+g+T8bggC1n2FAQGbt7tH7cGAKvrKIXOcNiUKV8EtuXNLa
-	 MuS2Wga9GNkBlbswf2h08r5BZTODEKNrUSHjQ2ba9jcqpmMeQ6VdijTNCVi5gWm1LZ
-	 Taaz/uuZBxNJA==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Uday Khare <udaykhare77@gmail.com>,
-	Jerome Neanne <jneanne@baylibre.com>,
-	Mal Nadar <m.nirmaladevi@ltts.com>,
-	Esteban Blanc <eblanc@baylibre.com>,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 3/8] regulator: tps6594-regulator: Use dedicated handler for external regulator IRQs
-Date: Fri, 27 Nov 2026 18:35:43 +0000
-Message-ID: <20261127183624.3341010-4-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-In-Reply-To: <20261127183624.3341010-1-lee@kernel.org>
-References: <20261127183624.3341010-1-lee@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=b43+c8Cg
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5EAC1575;
+	Fri, 27 Nov 2026 10:36:52 -0800 (PST)
+Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A6D623F86C;
+	Fri, 27 Nov 2026 10:36:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795804615; bh=6ifu5kHm5pa1d98fpL6HG21zQD2uf+dZa/ElH6oL+Po=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b43+c8Cg4WzasHC2UHK7/jdi18rQBwVZBc/LIiJEKn5ZFBSfL2YVSHmum9dYopHpX
+	 8OWP0Rbke/ucNh6SaIdyrIob3sYstfEZM9D3p0mCkQ6rySMpwS42Nm/47wYzESNUpd
+	 ZwDmP+375fMIpueHrm7xRx9WdUlVnu4x5+fy59Hs=
+Message-ID: <5cde8317-61c0-4405-915f-44fcc3c54389@arm.com>
+Date: Fri, 27 Nov 2026 18:36:49 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,63 +53,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/5] arm64: dts: allwinner: add Radxa Cubie A7A board
+To: Enzo Adriano <enzo.adriano.code@gmail.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Pablo Mazzini <pmazzini@gmail.com>,
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+ Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ Cristian Filipescu <filipescu.cristian@gmail.com>,
+ Norman Herms <dockseed@proton.me>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+ <20261126-a733-cubie-a7s-dt-v6-5@gmail.com>
+ <1jik1ild9n.fsf@starbuckisacylon.baylibre.com>
+ <4c9ea902-24fd-4065-82b7-41d6df43b082@arm.com>
+ <20261127-a733-dt-v6-04-reply@gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20261127-a733-dt-v6-04-reply@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-External regulator and VMON interrupts are registered with a pointer to
-struct tps6594_ext_regulator_irq_data, which has no rdev member, yet
-they reuse tps6594_regulator_irq_handler().  That handler casts the
-pointer to struct tps6594_regulator_irq_data and reads irq_data->rdev
-out of bounds before passing it to regulator_notifier_call_chain().
+Hi Enzo,
 
-Add a dedicated tps6594_ext_regulator_irq_handler() that operates on
-struct tps6594_ext_regulator_irq_data and logs the trap without calling
-regulator_notifier_call_chain().
+thanks for taking care and making the changes!
 
-Fixes: f17ccc5deb4d ("regulator: tps6594-regulator: Add driver for TI TPS6594 regulators")
-Closes: https://sashiko.dev/#/bug/linux-e6806c5e-76ed-41e2-924e-7110aa9f7d58
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/regulator/tps6594-regulator.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+On 11/27/26 19:07, Enzo Adriano wrote:
+>> Ah, indeed, good catch.
+> 
+> Thanks. v7 uses <&reg_bldo1> for vcc-pk-supply, with a note in the
+> patch.
 
-diff --git a/drivers/regulator/tps6594-regulator.c b/drivers/regulator/tps6594-regulator.c
-index 1bbad407acb7..66052753610f 100644
---- a/drivers/regulator/tps6594-regulator.c
-+++ b/drivers/regulator/tps6594-regulator.c
-@@ -509,6 +509,23 @@ static irqreturn_t tps6594_regulator_irq_handler(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
-+static irqreturn_t tps6594_ext_regulator_irq_handler(int irq, void *data)
-+{
-+	struct tps6594_ext_regulator_irq_data *irq_data = data;
-+
-+	if (irq_data->type->event_name[0] == '\0') {
-+		/* This is the timeout interrupt no specific regulator */
-+		dev_err(irq_data->dev,
-+			"System was put in shutdown due to timeout during an active or standby transition.\n");
-+		return IRQ_HANDLED;
-+	}
-+
-+	dev_err(irq_data->dev, "Error IRQ trap %s for %s\n",
-+		irq_data->type->event_name, irq_data->type->regulator_name);
-+
-+	return IRQ_HANDLED;
-+}
-+
- static int tps6594_request_reg_irqs(struct platform_device *pdev,
- 				    struct regulator_dev *rdev,
- 				    struct tps6594_regulator_irq_data *irq_data,
-@@ -827,7 +844,7 @@ static int tps6594_regulator_probe(struct platform_device *pdev)
- 		irq_ext_reg_data[i].type = irq_type;
- 
- 		error = devm_request_threaded_irq(tps->dev, irq, NULL,
--						  tps6594_regulator_irq_handler,
-+						  tps6594_ext_regulator_irq_handler,
- 						  IRQF_ONESHOT,
- 						  irq_type->irq_name,
- 						  &irq_ext_reg_data[i]);
--- 
-2.56.1.839.g22a8290db9-goog
+Yes, thanks.
+
+> On a different point: shall v7 rename osc32k-clk to clock-osc32k, as on
+> the A7S and A7Z? The schema still accepts the old name (deprecated), and
+> CHECK_DTBS is clean.
+
+Yes, it would be great if you could change that, too.
+
+> Also, is no-1-8-v on &mmc0 fine with you? It ties to Jernej's question
+> on 2/5 [1] and your reply [2].
+
+With no vqmmc, and vmmc pointing to a 3.3V regulator, I think it doesn't 
+matter, no one would negotiate 1.8V anyway. And we didn't use that 
+property before. I am not even sure it is correct for the A733, since 
+the host controller DOES support 1.8V, it's just not "wired up" yet.
+So unless someone screams, please leave it out (and feel free to do the 
+same on the A7S). Eventually we will need to drop that property anyway.
+
+Cheers,
+Andre
+
+> 
+> [1] https://lore.kernel.org/r/p3YaXlLJTguQBGnWyMpb1w@gmail.com
+> [2]
+> https://lore.kernel.org/r/9ab5f851-1b56-49ed-bfdd-46abdbdda1c0@arm.com
+> 
+> Enzo
 
