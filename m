@@ -1,53 +1,134 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795787808;
-	b=yIFfPGLJUUSQRRlgQP0G65w859jlQOuinwVCTYxh586qHkAV/9LQcmlp4KieXF1BPx2b
-	 iY0xX/UY7rDLUKwxvCIrl3nrWi/+qiiZaA8wbFQe21Sl3baNJD3sZumbZmkzQbE9SZ7im
-	 jOYj6zIbUOLeU7puaWmZZRvZcDj3XZs7UOX6fyKewySFFQ+vPIOQgRMpDyquKCtIcLU5h
-	 d0/7VeMLptSCQb3vNCIm8Exv/kxeIIxEVvxamgTkR68QQd+sqWKEYj8UIk5p0tRn9kf7l
-	 BdkbE6IOiVwnLfwiLFMJjTkrSHkkbPq2z4eAewOqfYhGv5xps50F9GkO+PkfaeB9eKQ==
+	t=1795787869;
+	b=3404BI/VRLW+h764Lxmxxy070TM1hjH0cer4UL/0JLSj3Ij/8K5jUpHsQRn/wULyFYjN
+	 EiteMsTn/nhOQP9UW1P13M8MdnhGhXgxHe5OO1D95gB1oIAMTkhsSo6UzBYCzMcUBNNH2
+	 iSZJcrEu0eg/+wTyYd9kU4iIdVujDk8FtqIWmBfBptv6tLQezW7lE/WhCY2f68+scujjF
+	 UniwDg/pHa2i8vMhVWGlG+gHqNc+5DyWzzrpKvZFjLUhRtVmWQdTLEh6oIym9VdCQ46nM
+	 yL/2pfvyM+Cx1d2u1F/m0ZKkm4UT8QhCiybiPDLo+EQIQTE2m6YtgAZ0Oxl60Spq6cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795787808;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=K60IL4s35LTiidUbi1xENnyiLT/P0TF2GJqZQKSTayY=;
-	b=nGwpTS+EXODelH8FqS4d+jd4ewrZHI1H5iz4lgDnWxjdsX3qNgQakMKmxcWX4uvS1/Ac
-	 pfnBY5aaBp+GpXBI8t5b/8JgY+rMOfiPUA2ZK2mSiIKwqg4qAL85QIBuwmthuVTtPDIix
-	 EJyYYjwKzyCPcm4GzFIM7RwlArDmb8ymhTAnoSe7JS2c3cmjfdt57DylDM+qfob8dxXTc
-	 T9yFsQvUMMenw0/AQu4gz8rKkrrp+1rH+MGX/AZfwv3tf7P9EToril7XYoAVuPb7D2YgG
-	 eunygsJE7QIMeE/VaBlNxeyeA6XA0xNuiNIxSkKY2sc/DTF1Ae/Zel6Ta/3ZzLNHUlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795787869;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=3oP3CW/xz/aHM7zel7M/7IDDZYm2mTSBClBR98IIqkA=;
+	b=DMx5NVLrTlu4qcWfJno7Qlbg9tN+bEdYL1tfSrN+bwjj2VqpnYN7YzYRFYUReJ9waaqj
+	 saTp3N4HLi1k8reqlGRrR5CNwsvSYyO4eLP0EpMUMDAIACVIbPBblVxPJxpZlN0lDgj9P
+	 uxVt5a9D7HXsSdko3VGqFdux35fJtQFqUdUrgBLBtidHSHv2HO5vjR7IxOSXjjGodwunF
+	 dPhYqhnRryHgeV9GjlOJyAZ5B835M2ADwKfxp0jGM4T3tMhlfqLpy3XHgi//pXkcsdqPl
+	 IgE7gN2iF934tt0FkJ6ta7nsBuVg6epJqoCar/QqdL1e4irGjD+cv5qfzS/7M8fm8eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=1yPYNboi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="h/SKOEax";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=syvQW9kB;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3781E606A323;
-	Fri, 27 Nov 2026 13:56:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76208606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76208606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=1yPYNboi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72F251F000C1;
-	Fri, 27 Nov 2026 13:56:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795787807;
-	bh=K60IL4s35LTiidUbi1xENnyiLT/P0TF2GJqZQKSTayY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=1yPYNboi9b8CUiEPajfuzek5/mL0GmWJQ6460VUGZbH+uZXpc5V6Mxr/O082QIF7s
-	 rwIgviLa2w3WH7g/RddLLZpMvWECqWcs0AbfbjAQs9NeK9UBrli7VADdjR6S7FrRDb
-	 1vITsqM+KPjm44PxTpnyG3JEa1Udc9ztWBBzVU4w=
-Date: Fri, 27 Nov 2026 14:57:07 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Hongyu Xie <xiehongyu1@kylinos.cn>
-Cc: Alan Stern <stern@rowland.harvard.edu>,
-	Oliver Neukum <oneukum@suse.com>, oliver@neukum.org,
-	Hans de Goede <hansg@kernel.org>, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] usb: core: Fix use-after-free in anchor wakeup
- protocol
-Message-ID: <2026112752-comic-stream-65a3@gregkh>
-References: <179578612505.44635.14553263875690325600@kylinos.cn>
- <179578613111.44635.6383445613775882412@kylinos.cn>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h/SKOEax;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=syvQW9kB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795787867;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=3oP3CW/xz/aHM7zel7M/7IDDZYm2mTSBClBR98IIqkA=;
+	b=h/SKOEaxCPsyyGbpY+bBx86VuXtzqlioYHh1XhMvmzqjqZmnpEUDdMPwJY60g4Fdy68//j
+	xm2iLX9L6DzRY86yLcgkWx59lUdfz0RnsZiyLtZ8rIiec4SF7tksDup/eIuyU9qEYEOe7a
+	wnw4HhdVj6L1iac23u2yfJB04vsoDs4=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-596-OJCuE98VNlumOEt8iE2SOw-1; Fri, 27 Nov 2026 13:57:45 +0000
+X-MC-Unique: OJCuE98VNlumOEt8iE2SOw-1
+X-Mimecast-MFC-AGG-ID: OJCuE98VNlumOEt8iE2SOw_1795787863
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a799d93bc3so3873253f8f.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:57:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795787863; x=1796392663; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3oP3CW/xz/aHM7zel7M/7IDDZYm2mTSBClBR98IIqkA=;
+        b=syvQW9kB0xvHhNdTXGv8tBK6tjGYn9XgLN2VtoTwWJl+sOp7HW/GUi7CBFXnrzcv+u
+         w1A2UYfesPsHsioyxICWPOn2SMQxZAfCw2WPU3yFtqkbETu7HF2QHKxT+MKEvb2+Mads
+         /bd4BaBFC3uUHNxcs7Lxba4Oc+XiuL7umfByHYFm9pEa66M4uoeC8kKlPbPrbKQ23DL6
+         19G4C7VH0VeW6vjBHeJihqJ43fTVtEJMiTw3xWhKyesTwqVai1dqLZzJzGXlfRoongkt
+         MoeI0VbicUDB41u1eoDFDASoiegU5FS8VQF3mxwuK80ti5ykY47Of9QYbjRS+QLasZt/
+         tnxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795787863; x=1796392663;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=3oP3CW/xz/aHM7zel7M/7IDDZYm2mTSBClBR98IIqkA=;
+        b=pYqewlENu2cCa2bFsPJJylFeXGpzD0Es2NwMEifEnHYNc5+QOHyseTsS3W5peP8zfo
+         KEfPL2BPjz9ftxB3oZCLXnBT4019OfTn8Wkds2CigQAOI3s2yF98zHppQCnqRghd/DKz
+         i4uVCQjir4+OjaT0dfBfXfjccc0c932URxnxq78V0dQzpxM/KdEMkejRlLFa/CtbdOEa
+         uUUpkYql/hDFZWQyhcsNaESMnzwTDqFNADKg+8wSgIKYnXl/1YG1qwDTjxxFJaLYu4gR
+         /IoquNsP7tANnY4CV1e83D1gWh6SizoUPljt/Yv3jTv8aivvRuxALY3jBTDYvKLZ/kIm
+         bnvA==
+X-Forwarded-Encrypted: i=1; AL+hErGXfQ/5uBGYPINp0nXrDYsDOWlyz0asfILUssDvmgFgObL6RKsxtgmL3a/5RQhfUXBDF+WA66mPKs5U5po=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JNmBahY3xi3W2BaggRyyP/xmeiKYwq+nqRqtWzhSSKKnrAxFn
+	HQ0Z0MvrVoWeX9Lt4ZASsFZRJIablWXIhLo9D9JlqIEO66yCfR7hb1HvrSWZbJ3DRqy9TiU5j9C
+	c5Jo8L27hbfAFBANU49rdt5V/SqDkrUUDT1KyrvhPjEjTTCOSnnNIYfpdZcdBzBxOOA==
+X-Gm-Gg: AZFdTZdqJZyhffTnS+gpD7NDp3joBgFJqn+aGCh3hZN5vT2GhKUOOuuX3OxZyF31tUX
+	xrkYwdgh94D074ElylsywHYgZz8wSTKwWJsdaF6Nr2SIqYGGoSGwnfNL9CyKnYNTBjqj7N2oJZ6
+	7Z9l3HJmV3ij9qXLpLILRzuxYHyUFpZ4eshkiT4KSTnZFc8ByDmPut+/B1zRXQFmVkEEefWQOb9
+	e/y5XYArYzgE7BoaSzUwIiGoaevZi+kLZLC+db4WqmDnWyOT3m7DpmNqDMVgT4KjwHDlOTRf+z3
+	fMcymHH9x1FAL4tFLNJWDueVdT9kpNoW62JHuw2PG/VzypCgcPfTCfe2FcovoyUrpi79FZOvQQS
+	F3zsubo+d3DQH191FmxtGIQUjPXzGqSr8ZrxBlbvdQnAaQs7vXuC9GRxXlWucogdi60X9M9cFBl
+	NB
+X-Received: by 2002:a05:6000:2883:b0:4a7:a52f:a2be with SMTP id ffacd0b85a97d-4abb3678d88mr42566706f8f.13.1795787863443;
+        Fri, 27 Nov 2026 05:57:43 -0800 (PST)
+X-Received: by 2002:a05:6000:2883:b0:4a7:a52f:a2be with SMTP id ffacd0b85a97d-4abb3678d88mr42566654f8f.13.1795787863040;
+        Fri, 27 Nov 2026 05:57:43 -0800 (PST)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c50sm46662344f8f.37.2026.11.27.05.57.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 05:57:42 -0800 (PST)
+Message-ID: <edac7605937c5fd1a02458e171ddfa4d5e6c1a36.camel@redhat.com>
+Subject: Re: [PATCH v5 3/4] rv: collect per-edge dwell time for per-cpu
+ DA/HA monitors
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Tobias Schaffner <tobias.schaffner@siemens.com>, Steven Rostedt
+	 <rostedt@goodmis.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers	 <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, 	linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ rpm@xenomai.org, jan.kiszka@siemens.com, Shuah Khan	
+ <skhan@linuxfoundation.org>
+Date: Fri, 27 Nov 2026 14:57:40 +0100
+In-Reply-To: <20261127113609.650286-4-tobias.schaffner@siemens.com>
+References: <20261127113609.650286-1-tobias.schaffner@siemens.com>
+	 <20261127113609.650286-4-tobias.schaffner@siemens.com>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
+ cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
+ T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
+ eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
+ 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,197 +138,256 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179578613111.44635.6383445613775882412@kylinos.cn>
 
-On Fri, Nov 27, 2026 at 09:28:51PM +0800, Hongyu Xie wrote:
-> usb_wait_anchor_empty_timeout() and the anchor cleanup helpers
-> promise that once they return successfully (non-zero, for
-> usb_wait_anchor_empty_timeout()), no URB giveback is in flight for
-> the anchor any more, so the driver may free the memory holding it
-> (xpad, for example, embeds irq_out_anchor in its private structure
-> and kfrees it in xpad_disconnect()).
-> 
-> Two windows break this promise: the waiter can observe "anchor
-> list empty and suspend_wakeups == 0" while a giveback is still
-> about to access anchor->wait.
-> 
->  1. usb_anchor_resume_wakeups() decrements suspend_wakeups -- which
->     makes the wait condition true -- and only then calls
->     wake_up(&anchor->wait), with nothing in between serializing the
->     two.  A waiter returns, the driver frees the anchor, and the
->     late wake_up() touches the freed wait queue head.
-> 
->  2. __usb_unanchor_urb() wakes waiters while holding anchor->lock,
->     but usb_wait_anchor_empty_timeout() evaluated the same condition
->     without the lock, so it could observe the emptied urb_list in
->     the middle of that critical section and return before the
->     wake_up() and the spin_unlock() had run.  Reading the two
->     condition fields locklessly could likewise observe a stale
->     suspend_wakeups value after the giveback's unanchor on weakly
->     ordered systems.
-> 
-> Complete the locking protocol that commit fbc299437c06 ("usb:
-> core: Solve race condition in anchor cleanup functions")
-> established for the kill/poison/scuttle helpers:
-> usb_wait_anchor_empty_timeout() now evaluates the condition under
-> anchor->lock (a self-locking wrapper around the lockless check),
-> and usb_anchor_resume_wakeups() performs the suspend_wakeups
-> decrement, the wakeup check and the wake_up() within a single
-> anchor->lock critical section.
-> 
-> With the decrement and the wake_up() atomic with respect to the
-> locked condition check, a waiter can only observe the condition
-> true after every giveback that has incremented suspend_wakeups has
-> stopped accessing the anchor: the guarantee that the wakeup is
-> delayed until the completion handler has run now extends to the
-> anchor memory itself.
-> 
-> syzbot has reported this race repeatedly since 2019, most
-> recently as:
-> 
-> 	BUG: KASAN: slab-use-after-free in register_lock_class+0x8d1/0x980 kernel/locking/lockdep.c:1333
-> 	[...]
-> 	__wake_up_common_lock+0x25/0x1e0 kernel/sched/wait.c:105
-> 	__usb_hcd_giveback_urb+0x3ac/0x530 drivers/usb/core/hcd.c:1653
-> 
-> 	Freed by task 7828:
-> 	[...]
-> 	kfree+0x14a/0x380 mm/slub.c:4390
-> 	xpad_disconnect+0x359/0x490 drivers/input/joystick/xpad.c:2194
-> 
-> and:
-> 
-> 	BUG: KASAN: use-after-free in register_lock_class+0xe6a/0x1120 kernel/locking/lockdep.c:1336
-> 	[...]
-> 	__wake_up_common_lock+0xb4/0x130 kernel/sched/wait.c:136
-> 	usb_anchor_resume_wakeups drivers/usb/core/urb.c:958 [inline]
-> 	usb_anchor_resume_wakeups+0xbe/0xe0 drivers/usb/core/urb.c:951
-> 	__usb_hcd_giveback_urb+0x2df/0x5c0 drivers/usb/core/hcd.c:1674
-> 
-> 	Freed by task 3889:
-> 	[...]
-> 	kfree+0x173/0x390 mm/slab.c:3786
-> 	xpad_disconnect+0x1cb/0x530 drivers/input/joystick/xpad.c:1905
-> 
-> Both reports lack a reproducer; the analysis was verified
-> by walking the two stacks against the code, not at runtime.  All
-> in-tree callers of usb_wait_anchor_empty_timeout() (and every
-> driver which frees an anchor after the anchor cleanup helpers) are
-> equally affected; xpad is merely the one syzbot found.
-> 
-> Fixes: 6ec4147e7bdb ("usb-anchor: Delay usb_wait_anchor_empty_timeout wake up till completion is done")
-> Fixes: 51a2f077c44e ("USB: introduce usb_anchor")
-> Reported-by: syzbot+7f5e98b052c766f47f68@syzkaller.appspotmail.com
-> Closes: https://lore.kernel.org/r/00000000000090170a0614431f47@google.com
-> Reported-by: syzbot+59d3714b44d79d02f944@syzkaller.appspotmail.com
-> Closes: https://lore.kernel.org/r/00000000000038435e05e9f94cd4@google.com
-> Cc: stable@vger.kernel.org
-> Cc: Alan Stern <stern@rowland.harvard.edu>
-> Cc: Oliver Neukum <oliver@neukum.org>
-> Cc: Hans de Goede <hansg@kernel.org>
-> Signed-off-by: Hongyu Xie <xiehongyu1@kylinos.cn>
+On Fri, 2026-11-27 at 12:36 +0100, Tobias Schaffner wrote:
+> Hook the edge-stat facility into the DA/HA layer, so that any per-cpu
+> automaton monitor also reports how long it lingers in each state.
+>=20
+> Account a transition as soon as its state change is committed. An HA
+> constraint that rejects the transition can therefore reset the monitor
+> without leaving an accounting window for nested events.
+>=20
+> Signed-off-by: Tobias Schaffner <tobias.schaffner@siemens.com>
 > ---
->  drivers/usb/core/urb.c | 51 +++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 45 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/usb/core/urb.c b/drivers/usb/core/urb.c
-> index ae0d61b5081f..bb1778d9e9db 100644
-> --- a/drivers/usb/core/urb.c
-> +++ b/drivers/usb/core/urb.c
-> @@ -139,19 +139,39 @@ void usb_anchor_urb(struct urb *urb, struct usb_anchor *anchor)
->  }
->  EXPORT_SYMBOL_GPL(usb_anchor_urb);
->  
-> -static int usb_anchor_check_wakeup(struct usb_anchor *anchor)
-> +/* Callers must hold anchor->lock */
-> +static int __usb_anchor_check_wakeup(struct usb_anchor *anchor)
 
-Mark this so the tools catch it when that lock is not held.
+Looks good to me, thanks!
+I'm taking the series.
 
->  {
->  	return atomic_read(&anchor->suspend_wakeups) == 0 &&
->  		list_empty(&anchor->urb_list);
->  }
->  
-> +/*
-> + * Same check as __usb_anchor_check_wakeup(), but takes anchor->lock. It is
-> + * meant for waiters which do not hold the lock: the critical section
-> + * serializes with the URB giveback path, so once the check succeeds no
-> + * giveback that has incremented suspend_wakeups will touch the anchor
-> + * anymore and the caller may free the memory holding the anchor.
-> + */
-> +static int usb_anchor_check_wakeup(struct usb_anchor *anchor)
+Reviewed-by: Gabriele Monaco <gmonaco@redhat.com>
+
+> =C2=A0.../trace/rv/runtime-verification.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 30 ++++++++++++++
+> =C2=A0include/linux/rv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +-
+> =C2=A0include/rv/da_monitor.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 | 40 +++++++++++++++----
+> =C2=A0include/rv/edge_stat.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 5 ++-
+> =C2=A0include/rv/ha_monitor.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 2 +-
+> =C2=A05 files changed, 69 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/Documentation/trace/rv/runtime-verification.rst
+> b/Documentation/trace/rv/runtime-verification.rst
+> index c700dde9259c..ac16b5532e86 100644
+> --- a/Documentation/trace/rv/runtime-verification.rst
+> +++ b/Documentation/trace/rv/runtime-verification.rst
+> @@ -229,3 +229,33 @@ For example::
+> =C2=A0=C2=A0=C2=A0 nop
+> =C2=A0=C2=A0=C2=A0 [panic]
+> =C2=A0=C2=A0=C2=A0 printk
+> +
+> +**monitors/MONITOR/stats**
+> +
+> +Present only when the kernel is built with CONFIG_RV_EDGE_STAT=3Dy and
+> *MONITOR*
+> +is a per-cpu deterministic or hybrid automaton monitor. The file exists =
+while
+> +the monitor is enabled and reports how long the automaton dwells in each
+> state
+> +before leaving it, timed with local_clock() and accounted per outgoing e=
+dge
+> and
+> +per CPU.
+> +
+> +- The first line is a header naming the columns.
+> +- Each following line describes one edge on one CPU::
+> +
+> +=C2=A0=C2=A0 cpu edge label valid count sum_ns max_ns
+> +
+> +=C2=A0 *label* is "state:event", *valid* is 1 if the model defines the e=
+dge and 0
+> +=C2=A0 otherwise, *count* is the number of times the transition was comm=
+itted, and
+> +=C2=A0 *sum_ns* and *max_ns* are the total and worst dwell in nanosecond=
+s. An
+> +=C2=A0 invalid edge always reports a zero count.
+> +
+> +The counters are reset each time the monitor is enabled. A monitor that
+> starts
+> +on an event leaving its initial state does not know since when it was in=
+ that
+> +state, so this first transition is neither counted nor timed.
+> +
+> +For example::
+> +
+> +=C2=A0=C2=A0 # cat monitors/wip/stats
+> +=C2=A0=C2=A0 # cpu edge label valid count sum_ns max_ns
+> +=C2=A0=C2=A0 0 0 preemptive:preempt_disable 1 4210 95501200 183200
+> +=C2=A0=C2=A0 0 1 preemptive:preempt_enable 0 0 0 0
+> +=C2=A0=C2=A0 0 4 non_preemptive:preempt_enable 1 4208 3812900 42600
+> diff --git a/include/linux/rv.h b/include/linux/rv.h
+> index bf75cf2300ee..d83d1a98344e 100644
+> --- a/include/linux/rv.h
+> +++ b/include/linux/rv.h
+> @@ -33,7 +33,7 @@ typedef unsigned int da_state_t;
+> =C2=A0 */
+> =C2=A0struct da_monitor {
+> =C2=A0=09bool=09=09monitoring;
+> -=09unsigned int=09curr_state;
+> +=09da_state_t=09curr_state;
+> =C2=A0};
+> =C2=A0
+> =C2=A0#ifdef CONFIG_RV_LTL_MONITOR
+> diff --git a/include/rv/da_monitor.h b/include/rv/da_monitor.h
+> index 6fc5ef8142ac..942b35428ccd 100644
+> --- a/include/rv/da_monitor.h
+> +++ b/include/rv/da_monitor.h
+> @@ -17,6 +17,7 @@
+> =C2=A0#include <rv/automata.h>
+> =C2=A0#include <linux/rv.h>
+> =C2=A0#include <rv/kunit.h>
+> +#include <rv/edge_stat.h>
+> =C2=A0#include <linux/stringify.h>
+> =C2=A0#include <linux/bug.h>
+> =C2=A0#include <linux/sched.h>
+> @@ -105,6 +106,14 @@ static inline void da_monitor_reset(struct da_monito=
+r
+> *da_mon)
+> =C2=A0=09da_monitor_reset_state(da_mon);
+> =C2=A0}
+> =C2=A0
+> +static inline void __da_monitor_start(struct da_monitor *da_mon, da_stat=
+e_t
+> state)
 > +{
-> +	unsigned long flags;
-> +	int wakeup;
-> +
-> +	spin_lock_irqsave(&anchor->lock, flags);
-> +	wakeup = __usb_anchor_check_wakeup(anchor);
-> +	spin_unlock_irqrestore(&anchor->lock, flags);
-
-guard()?
-
-
-
-> +
-> +	return wakeup;
+> +=09da_mon->curr_state =3D state;
+> +=09da_monitor_init_hook(da_mon);
+> +=09/* Pairs with smp_load_acquire in da_monitoring(). */
+> +=09smp_store_release(&da_mon->monitoring, 1);
 > +}
 > +
->  /* Callers must hold anchor->lock */
->  static void __usb_unanchor_urb(struct urb *urb, struct usb_anchor *anchor)
->  {
->  	urb->anchor = NULL;
->  	list_del(&urb->anchor_list);
->  	usb_put_urb(urb);
-> -	if (usb_anchor_check_wakeup(anchor))
-> +	if (__usb_anchor_check_wakeup(anchor))
->  		wake_up(&anchor->wait);
->  }
->  
-> @@ -835,7 +855,7 @@ void usb_kill_anchored_urbs(struct usb_anchor *anchor)
->  			usb_put_urb(victim);
->  			spin_lock_irq(&anchor->lock);
->  		}
-> -		surely_empty = usb_anchor_check_wakeup(anchor);
-> +		surely_empty = __usb_anchor_check_wakeup(anchor);
->  
->  		spin_unlock_irq(&anchor->lock);
->  		cpu_relax();
-> @@ -874,7 +894,7 @@ void usb_poison_anchored_urbs(struct usb_anchor *anchor)
->  			usb_put_urb(victim);
->  			spin_lock_irq(&anchor->lock);
->  		}
-> -		surely_empty = usb_anchor_check_wakeup(anchor);
-> +		surely_empty = __usb_anchor_check_wakeup(anchor);
->  
->  		spin_unlock_irq(&anchor->lock);
->  		cpu_relax();
-> @@ -927,12 +947,23 @@ EXPORT_SYMBOL_GPL(usb_anchor_suspend_wakeups);
->   */
->  void usb_anchor_resume_wakeups(struct usb_anchor *anchor)
->  {
-> +	unsigned long flags;
+> =C2=A0/*
+> =C2=A0 * da_monitor_start - start monitoring
+> =C2=A0 *
+> @@ -113,10 +122,18 @@ static inline void da_monitor_reset(struct da_monit=
+or
+> *da_mon)
+> =C2=A0 */
+> =C2=A0static inline void da_monitor_start(struct da_monitor *da_mon)
+> =C2=A0{
+> -=09da_mon->curr_state =3D model_get_initial_state();
+> -=09da_monitor_init_hook(da_mon);
+> -=09/* Pairs with smp_load_acquire in da_monitoring(). */
+> -=09smp_store_release(&da_mon->monitoring, 1);
+> +=09__da_monitor_start(da_mon,
+> da_state_entered(model_get_initial_state()));
+> +}
 > +
->  	if (!anchor)
->  		return;
->  
-> +	/*
-> +	 * The decrement, the wakeup check and the wake_up() must happen
-> +	 * under anchor->lock: usb_wait_anchor_empty_timeout() waiters
-> +	 * evaluate the same condition under the lock and may free the
-> +	 * anchor once they observe it true, so this function must not
-> +	 * touch anchor->wait after that.
-> +	 */
-> +	spin_lock_irqsave(&anchor->lock, flags);
+> +/*
+> + * da_monitor_start_unaccounted - start monitoring without accounting
+> + *
+> + * Like da_monitor_start(), for a monitor that has been in its initial s=
+tate
+> + * since an unknown time. The first transition is neither counted nor ti=
+med.
+> + */
+> +static inline void da_monitor_start_unaccounted(struct da_monitor *da_mo=
+n)
+> +{
+> +=09__da_monitor_start(da_mon, model_get_initial_state());
+> =C2=A0}
+> =C2=A0
+> =C2=A0/*
+> @@ -276,6 +293,11 @@ static inline void da_monitor_reset_state_all(void)
+> =C2=A0 */
+> =C2=A0static inline int da_monitor_init(void)
+> =C2=A0{
+> +=09int retval =3D rv_edge_stats_create(rv_this.root_d);
+> +
+> +=09if (retval)
+> +=09=09return retval;
+> +
+> =C2=A0=09da_monitor_reset_state_all();
+> =C2=A0=09return 0;
+> =C2=A0}
+> @@ -287,6 +309,7 @@ static inline void da_monitor_destroy(void)
+> =C2=A0{
+> =C2=A0=09da_monitor_reset_all();
+> =C2=A0=09da_monitor_sync_hook();
+> +=09rv_edge_stats_remove();
+> =C2=A0}
+> =C2=A0
+> =C2=A0#ifndef da_implicit_guard
+> @@ -689,9 +712,11 @@ static inline void da_trace_error(struct da_monitor
+> *da_mon,
+> =C2=A0static inline bool da_event(struct da_monitor *da_mon, enum events =
+event,
+> da_id_type id)
+> =C2=A0{
+> =C2=A0=09enum states curr_state, next_state;
+> +=09da_state_t old;
+> =C2=A0
+> -=09curr_state =3D READ_ONCE(da_mon->curr_state);
+> +=09old =3D READ_ONCE(da_mon->curr_state);
+> =C2=A0=09for (int i =3D 0; i < MAX_DA_RETRY_RACING_EVENTS; i++) {
+> +=09=09curr_state =3D da_state_of(old);
+> =C2=A0=09=09next_state =3D model_get_next_state(curr_state, event);
+> =C2=A0=09=09if (next_state =3D=3D INVALID_STATE) {
+> =C2=A0=09=09=09react(curr_state, event);
+> @@ -699,7 +724,8 @@ static inline bool da_event(struct da_monitor *da_mon=
+,
+> enum events event, da_id_
+> =C2=A0=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 model_get_event_na=
+me(event), id);
+> =C2=A0=09=09=09return false;
+> =C2=A0=09=09}
+> -=09=09if (likely(try_cmpxchg(&da_mon->curr_state, &curr_state,
+> next_state))) {
+> +=09=09if (likely(da_state_try_commit(&da_mon->curr_state, &old,
+> +=09=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 next_state, event)))=
+ {
+> =C2=A0=09=09=09if (!da_monitor_event_hook(da_mon, curr_state, event,
+> next_state, id))
+> =C2=A0=09=09=09=09return false;
+> =C2=A0=09=09=09da_trace_event(da_mon,
+> model_get_state_name(curr_state),
+> @@ -752,7 +778,7 @@ static inline bool __da_handle_start_run_event(struct
+> da_monitor *da_mon,
+> =C2=A0=09if (!da_monitor_enabled())
+> =C2=A0=09=09return 0;
+> =C2=A0=09if (unlikely(!da_monitoring(da_mon)))
+> -=09=09da_monitor_start(da_mon);
+> +=09=09da_monitor_start_unaccounted(da_mon);
+> =C2=A0
+> =C2=A0=09__da_handle_event_common(da_mon, event, id);
+> =C2=A0
+> diff --git a/include/rv/edge_stat.h b/include/rv/edge_stat.h
+> index 8b99e8520e1e..16c28aedabdd 100644
+> --- a/include/rv/edge_stat.h
+> +++ b/include/rv/edge_stat.h
+> @@ -145,7 +145,10 @@ static void rv_edge_stats_remove(void)
+> =C2=A0=09rv_this_stats_file =3D NULL;
+> =C2=A0}
+> =C2=A0
+> -/* A zero timestamp marks resets, which can run on a different CPU. */
+> +/*
+> + * A zero timestamp marks an unknown entry time: resets can run on a
+> different
+> + * CPU, and da_handle_start_run_event() starts in a state entered earlie=
+r.
+> + */
+> =C2=A0#define da_state_entered(s)=09da_state_pack((s), local_clock())
+> =C2=A0
+> =C2=A0static __always_inline void
+> diff --git a/include/rv/ha_monitor.h b/include/rv/ha_monitor.h
+> index 6e1c7fe5449a..78d1bb80aefd 100644
+> --- a/include/rv/ha_monitor.h
+> +++ b/include/rv/ha_monitor.h
+> @@ -312,7 +312,7 @@ static inline void __ha_monitor_timer_callback(struct
+> ha_monitor *ha_mon)
+> =C2=A0=09if (unlikely(READ_ONCE(ha_mon_destroying)))
+> =C2=A0=09=09return;
+> =C2=A0=09/* Ensure consistent curr_state if we race with da_monitor_reset=
+ */
+> -=09curr_state =3D smp_load_acquire(&ha_mon->da_mon.curr_state);
+> +=09curr_state =3D da_state_of(smp_load_acquire(&ha_mon-
+> >da_mon.curr_state));
+> =C2=A0=09if (unlikely(!da_monitor_handling_event(&ha_mon->da_mon)))
+> =C2=A0=09=09return;
+> =C2=A0
 
-guard()?
-
-And please reduce the llm-generated comments and changelog spam, it's
-not helpful.  It can, and should, be much smaller.  Delete all of the
-changelogs and write them on your own please.
-
-thanks,
-
-greg k-h
