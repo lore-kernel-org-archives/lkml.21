@@ -1,155 +1,136 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.42.128
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795770675;
-	b=ZRqqlJVfwfT8ILsdf5Pxwiu8X52gRKWTcsdnzVt6m2uYPtr18xx7sFBulnPKg29Z0HDN
-	 OyeshxspcmgJ1EBFYhjeNrEL8dcy83QURshn8XNMSl1TQuW0bzk160GpkB8fQregfzgKL
-	 x2gKF8HJ2+2QV/P1AUkBaLvjIXu0ufjE8qUIp/9ITycGtsmOPo7tODKpz4MvmdcyOnG0d
-	 jrjQoJkrUiB6LZrH8LWHfWjO897BwrcxD/75XMPACWQqq4chk6Qujyq6MTznykfu8taJu
-	 pwsg/r0/MtAc6Z0JHuJHhBSb5/QxanO0WqCSa1Te1KmcdxNvFPmQugO7jpSmaxSes/w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770675;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=LjAlYwYi7B7kKqWVkdE7SlsmuDPsMv5rQC3tuStj3l8=;
-	b=DhMq3AmxRvm+h4w8jQqM/dSccPPooWq0nzkEH0CLea7HLax4lTcfUFbKvMJcWAgf19i/
-	 UfaeIx17RkxXzpBSh9VI/KyLJVl6/7nAl4rwLK8ytjmAMSvofZYAwPWgOZmGdITVS8IHD
-	 abFSBsYOr11q+DDDZWCnHkkv7T2NCE7TEH+3bH6vFtBA6sr6FmHMWBwGfI8mMdz5SuoU4
-	 t0naZycZFwQD+x5vcCaxumKHnjHl8oMODRaKR7UuSaAohsg5K0ggoQHSWd+6dB/OfaPyj
-	 xTqrFNH1wKe2mBms6w36dtI9W/V+H0ERCBMKLH5QYfUoWkMIYGhzffkn2org+52BX9A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chipsnmedia.com;
-	spf=fail smtp.mailfrom=chipsnmedia.com;
-	dkim=pass header.d=chipsnmedia.com header.i=@chipsnmedia.com header.a=rsa-sha256 header.s=selector2 header.b="UtoE/mMU";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.42.128
-Received: from SE2P216CU007.outbound.protection.outlook.com (mail-koreacentralazon11021128.outbound.protection.outlook.com [40.107.42.128])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795770710;
+	b=hMFpGZPe9MJN6n91DrmQ/74LqZzcoIx1ADucDw6oecV9OWYvQvxczNOX7YX5SIaI5rS/
+	 WAr/F0r1F1ua8gfccQymbKQTKxPmDTtVdJ0ImYm5o1CVjj4BT8jVheEpwKtFP+X5cPFlk
+	 8asQouQR6bW0Zc4U0PVNEBOQMWehbDfisfQs/R0GeN8tHWBIEinkUbsouBuezDLDX9OnN
+	 CGO+GdVmz9fVG1z1eSfgJzRq+fYcLiGLjwoXZUMTICChNAVvQWfc8rhGr79NrgchQOt90
+	 N0JDX3k2TUjmLVdf5qVNH9N0rZC1W/I6B9tzQDranrNp+i/5saNHpntbRgA7C0bIViw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770710;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=KYv8xSJwG5HpoyohHqCmo+JiohLfJNH5RWZtYUbNyvU=;
+	b=3MnfeapMkeRpoam1nMRATD0MAiVPNx0KCOQ2Rbvw+Tb0wrckKYzfaBrC+JIeD/Bv8Oy4
+	 EHUmechdnkoUHFPnUX2tHp+LKWvCcGhDmB2A5Qppwdj/12Fke9YP6hVAbIH6fjQmNHUMx
+	 4sQbMzEKPzjplk0yOPVKIgQPyGVIyfBT5RJ2G/IgNbJ9OKaTIlwZWFra1MOPTPrZU0NIX
+	 IsoFbLTY374zDU2Kpu1iWPMRN0eZH5jlg3G4JySE1y+44/CSui71m/JAjAGFeF/MVEF+M
+	 Qgk2j3r2w9qwKrv6igkW7CzD+yrRYpPBCUe7jqj9JBFZL4iCeLejaGv5uSaAdKAKw8A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="cIZ/rdiO";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="DQg2/qcV";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBA26606A31C;
-	Fri, 27 Nov 2026 09:11:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBA26606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chipsnmedia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=chipsnmedia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BF43606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:11:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BF43606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=chipsnmedia.com header.i=@chipsnmedia.com header.a=rsa-sha256 header.s=selector2 header.b=UtoE/mMU
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xyTkocFjmHkowpAEhmcPIZ9RoRZOmwelsXHyXSMQFv16QSWL2ipfkGDMSV9Afrb2dTFyD38xLWmlvGGmr8p1bvUNQMYvECLidngGklIBh8zAijjF95HD8ai2SZQtv1dqRPX0UizorYQtftPXE9ssp91y+dQgfoy0f6H4YUqDpmhKq1QGie8pkNaSSgSqnY17W/MHeWrybHaxZzmhjZsTPqZqFZplx7+Bxn0Pk945ckbDhO46rguw8IOivfrnHRxv9W/gj3pl9RRG3+7Triyu9dlORYuKIl7trO9jXTPz+ONYXMOkGDC2CNO5yJuvUXcUKwLm3z/ZnZcXucX+fa0jzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LjAlYwYi7B7kKqWVkdE7SlsmuDPsMv5rQC3tuStj3l8=;
- b=JDzlqcURYFpPnZifZHY8RcpqsMIpRLNgDkWuauRN4EuCbBeQ8f4PEYyM4wSpRKCt5El2Hb7dHhQMhcdE4rASg+BwrwHYBwkK3pNk0YCcdZosVg8qny6pSz4kv1p7zB36+7sfH05Xhu4yCH5hK47h0b18jyy4hLvNZ9nMk+1UI60O/iHbNZop2+6xlO3JqtxzYYb1m3Bkf3xmR9L1BLep90vdjS6BhKj1BWtqrl1Oj0k5Ea3G9mON0We8WyDLENGJNT+fmatZ9azzTuKHHcZ7ElBgw2VyhOZPQquxwmsv6KW6JEWm7A3uE7aJ10U4PTAsedLUUaY3sm6kp6tztgAlrA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LjAlYwYi7B7kKqWVkdE7SlsmuDPsMv5rQC3tuStj3l8=;
- b=UtoE/mMUpnxYcmkby2JcungEC5ARA0B3syfyWUk7v19xT+4dN0J6wqcVDkC/Hcund9hwyk6wKdbOIz8moQD7ntv600aTd2oZ+xTCIF1OCyoFdpCY2vXhrjdxEWs1FBK2DTzLTee+mx593KAtY/Aa73vV6+dhKDIG0r69P0eDPtktaQ527TmtBUT8HelX1u+8kUWjXel6rYhr78XRwIRv15olXFsxYdf+UcJYffAKahLFwXdn3fHltgQRF85vFhANDhnLli4ZvvD2l+BJc6t+zDZZXX+HCcl6d/dgtGxC9PtIEF7Gwcxyt8EwJ7YuyCqVioDOLmaGj3w9g2KdhgpcaA==
-Received: from SLXP216MB1148.KORP216.PROD.OUTLOOK.COM (2603:1096:101:f::14) by
- SE5P216MB3160.KORP216.PROD.OUTLOOK.COM (2603:1096:101:2fc::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.9; Fri, 27 Nov 2026 09:11:10 +0000
-Received: from SLXP216MB1148.KORP216.PROD.OUTLOOK.COM
- ([fe80::8f6c:834c:6cef:7be]) by SLXP216MB1148.KORP216.PROD.OUTLOOK.COM
- ([fe80::8f6c:834c:6cef:7be%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 09:11:10 +0000
-From: "jackson.lee" <jackson.lee@chipsnmedia.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
-	"bob.beckett@collabora.com" <bob.beckett@collabora.com>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "lafley.kim"
-	<lafley.kim@chipsnmedia.com>, "b-brnich@ti.com" <b-brnich@ti.com>,
-	"hverkuil@xs4all.nl" <hverkuil@xs4all.nl>, Nas Chung
-	<nas.chung@chipsnmedia.com>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v2 5/9] media: chips-media: wave5: finish a job only once
-Thread-Topic: [PATCH v2 5/9] media: chips-media: wave5: finish a job only once
-Thread-Index: AQHdcAs8g9f2aQxc8kindy0oxPf/Y7dBOb0AgACEemA=
-Date: Fri, 27 Nov 2026 09:11:10 +0000
-Message-ID:
- <SLXP216MB1148C28B27443A92A5BBAFC2ED412@SLXP216MB1148.KORP216.PROD.OUTLOOK.COM>
-References: <20261109052853.110-1-jackson.lee@chipsnmedia.com>
-	 <20261109052853.110-6-jackson.lee@chipsnmedia.com>
- <44f3c5e0117b9a3242bf247102df5000d009b721.camel@collabora.com>
-In-Reply-To: <44f3c5e0117b9a3242bf247102df5000d009b721.camel@collabora.com>
-Accept-Language: ko-KR, en-US
-Content-Language: ko-KR
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SLXP216MB1148:EE_|SE5P216MB3160:EE_
-x-ms-office365-filtering-correlation-id: f0709dc0-de33-4dd4-8101-08df4c6660dd
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|4143699003|18002099003|22082099003|10067099003|56012099006|261021135927099003|261021123027099003|261026121527099003|38070700021;
-x-microsoft-antispam-message-info:
- 4Yp3S158tf548FU2XjkfPbC2J7kSLb/7wZucvuJqRHBR2jEheNLjoEzgS1OlA+qaOiggwKYkyNvBm4lvQX1AzVzgXyHi+IWSeG0xTm0Qa1pOolJSi70OjsLW/4xrg1+13bFwY6GPjYM49iWFBRlFLlhya9MS4Rp5k7W/kpmRKPlMWX0RZJs8Y1bCWmCpgn8lAfR8pirtVHSvt15Ur93u97fVytHbKLM5yzd5xrV2SZGX/mnrWrz7LH/StYAvccdHtiIS/tKQSoG4Cogr5KLFEUfNTfDVgrIylSH6AzFzTgAdiSfgrFBYQSEvbiSKmTfX9965bFKHD90uHO4uZYiP69mUj2RWuqUHa3snh+KVu2yQlACjwNBM7so+4NAVJTrUDvRZLqV4oN3V2Ixrogj8J879pwjWRsI0CZt79RSN2mkUzy1YtoCKz5tG48f90RanzFj0cLV5NvazECCj2WJJvSUuH9k/MdJSicm9SiZogrG3zgmE183O35ZIf4vUoEPApDMn+ADskVIuwyePzdb3NqsySStuyLGvraSWTY/EHebOrqFLRleaqfsC7ZKSjtLFMZJearXuTVG7mPuNpMach/S+SxkpEjMprRfvaCXRi8AM3SlANidDft8Gxw/77FD+CrS0vuMrtB22AUBJCdLzrgKeNPmVaQ2S6GSZpG8BQhdWpwk5TYua+9PP86HwWllpiFaMFmJ3Pw5qhEZiTEvcikouLo1u5/B/GwxtZ8lwxHQ=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SLXP216MB1148.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(4143699003)(18002099003)(22082099003)(10067099003)(56012099006)(261021135927099003)(261021123027099003)(261026121527099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?c1Ywa3ZqYUlzTEEwcHJXTWhLQnpCdDQ5Z1lHL0pvMTliQWFBM3kzLzBwYWV4?=
- =?utf-8?B?c0dRRDh1TTQ5S1NRQzZqMlU5a1ZXMGJGcEFsYWsrZVVHejdpOTN6NDdEWjht?=
- =?utf-8?B?VzVlTFl1YkNML0NheENrV3BEaTExT2IyWUJremJDTWhQUzBWQWJPZDdZc0t4?=
- =?utf-8?B?ZzhaTTZmSlZsY05mRzNNOFhmYnRJS2toaDh2czBYUG5YRTJ5d29yUWR6SDBV?=
- =?utf-8?B?U1hLYjVTRC9Fa2tzU2Rzd01EZGF6a3A3Snl3NkdmZm91cjVxaXpCbFFDWFRK?=
- =?utf-8?B?SGppeUE5K0pFZWRrUDQrZWEyUFErVC9ySkhpb0xRRzJlUFNyWVVvc3ovTGd5?=
- =?utf-8?B?b0RYY0cwclErWWZCdStRMWYxZEJOckFMZUVDQ0VQWGZJeG5HVkVheUJ5OHRn?=
- =?utf-8?B?cXhpV1MvRFB6Z2VjaFdQSWswWEpTQk4wZE16MmZva041NjVPL1VYQ21lZWwy?=
- =?utf-8?B?S2hPUjZyS01yd3g1aFJ6TW5WZW1UTSt6QW9BVVNaYk1BaXdtRXFOWUNvc0gr?=
- =?utf-8?B?UUhqSm51SVpsVzRrM0NSblVvOVprSW84di9pYndTQ2JnaTlaRmI4N2F2dk9a?=
- =?utf-8?B?STJvT1pCU1MxZ3hoaEtxWklSZHZ6cG5yejBiUVR0S0lDWjJNQmtpZHVVeWNs?=
- =?utf-8?B?MkpHWlJ1M3JaeitmTTdmMmExQlplVmhuVWU0TjM1NStRUjdlNURoaHd6UzB0?=
- =?utf-8?B?c2RoeFJTZ0JFOXFIRTQxeVdGQVVYRXQxWFJMNkJqN1dLODk1bUZoc1AzY2lo?=
- =?utf-8?B?ZWxESkNNcjMvT1ltZ1dNREZnVk5FSWRFdnExc1V0ai81V1lsbDhwKzc1cE9G?=
- =?utf-8?B?VmJzemxsc3FOTVA1Q0oyL2ZCT2EzL0g3R24xVVE4aGxZcFQxYk1xUzhFak1C?=
- =?utf-8?B?OGZWTGI1dnN4SzVmZndNWWhxUGVjczNpeXdmVndVcnR5MSsrUE4xd0s1amZV?=
- =?utf-8?B?NjQ1S2VYM0VBU3k3d0ZVV1VrWnlnL2FYMlVsKytWSDEvQ0JQMzQ1Q1NBSzgx?=
- =?utf-8?B?d0ZKYWlteDlzN1ViUHdhcjVocTZwUDJBcFB2cWQyei9YSU1ZQWlXeVVDVmxV?=
- =?utf-8?B?U0U4SGQzZ2JjTzN4ZWlvNjN0Q2daeU94dDRRcWt4Mk5WRUF1TnBnN29wWU85?=
- =?utf-8?B?OHZEOCtGbGE1VklSSllBZEFwbXFycmNkWUFOb096UTZsbnZkWkt2RHVOd3h3?=
- =?utf-8?B?em00VjZraXJRQWFzeEVGb0RZNW5kQm12ZTBLTU92OFFhdGJ0WS9ORy92ZDZB?=
- =?utf-8?B?ekZHVXZqQkVKSjErWUF2T0Z6LzFkQjJ2OXFFRkp1amZFeXNnTjB1b0tSQzR3?=
- =?utf-8?B?VWlleUNxWm5KWWliLzh4cklISnRxdnErbDJRTEVwTnBiem1qcFhiSUhtV2Zt?=
- =?utf-8?B?VCtUNmdwVmlibVlaQzBnRXVTenR0QzhpTThQVHJ3ZCt3bm56MWZEODdBYUFP?=
- =?utf-8?B?aUhRUGpnN2tQZmpERVFCeHFKaE1kMjFBQlNKSmxxYndsSThhSjhqL0d0cksx?=
- =?utf-8?B?MzRnZzQ4MlhDUWkycXdROFBsSG40Y0U3c25JeFNqOXo5bTJMREVSTkdBZzQ2?=
- =?utf-8?B?b3haQkE5SDlSdjNLU0Q3djRIN3p1ZHI1ZVpjSmMrRE5CeUJzTDBna0Ixb2th?=
- =?utf-8?B?NjVBWFgrZW1QaGFiMG03VG54S3krTHIxSHpBZzNvdDhubGVIZEpydkpuR0ZP?=
- =?utf-8?B?MEdRUEZaK0J2cVlSQmZOandRMmRBbTc2Tjk5b1p3WTRydmtHamxSek5mN2ZH?=
- =?utf-8?B?eUg4amQxdmJjWC82WUMwanRZanhPbEw1Y1J6MEYydDJiQmRrTG9qZUk1ajBL?=
- =?utf-8?B?NUUzUm9hMWpzb0RXY2RmbzhGcHM2elZzNEtMbENJenhOT0NYMFNQV2pyZSt0?=
- =?utf-8?B?QjR2R2RRL3RDMkt3bWZ3VXB3N2JKMGtKNHZPV2dFemtsMUxEaG94cVY3SFZI?=
- =?utf-8?B?QmlVcHZPWHNSZ29KZkl6TEIwSHRORmNibEVncDFFK1BQNWFOUWhhU0d3cmh1?=
- =?utf-8?B?cittVTZjRFZSODVwd1l0N2taa0t3dmdjVTZSTFFrU3ZIbStlRlpRTzNnYTYr?=
- =?utf-8?B?NHV6TTV1R1F4VGF1NTY4eWpOak5KQWJlTnM0bFRwUVl0WDhhNnloV2ZDR3RT?=
- =?utf-8?B?bDhOTWo4UWJBVUdpSitMaFJHTW9CWW03Ung3KzUvenNuWVRuWlhCMi9tc1E4?=
- =?utf-8?B?bk8zT1EwMUNJeWNQeG84dGdyR2lscGZyS0hwcjJFSjlTYVlmbmgwcXZXWU93?=
- =?utf-8?B?TlF2bVNTL3dLMjJVWlNQVkd4TXJmdGNGc0k1VDJ1NzUyT2doZDR1QlY0OTRC?=
- =?utf-8?B?L05UK0E2MndlL1NQS0hJa1NtSDg3aEhsV1czRFhpaG9wNzRyUFU3Zz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=cIZ/rdiO;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=DQg2/qcV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795770708;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=KYv8xSJwG5HpoyohHqCmo+JiohLfJNH5RWZtYUbNyvU=;
+	b=cIZ/rdiO5tuKDrezWxFJPtDsWcI8vrlrfxhaVlH9uMLe5Tav8AZ8FdTBbCcO8FADkHOfw0
+	YmOoPbwh/2A18QNlb9jGhkD8dxD0I2pBkNy0mAbHCymGqjYJheSwJG8DYfpVz7AZFxGniB
+	2yGz6BIbS9UGoCAQA5w9SNmYfsgf2Xc=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-596-fS2UIBaKMfSo-CZmZ8J5Nw-1; Fri, 27 Nov 2026 09:11:46 +0000
+X-MC-Unique: fS2UIBaKMfSo-CZmZ8J5Nw-1
+X-Mimecast-MFC-AGG-ID: fS2UIBaKMfSo-CZmZ8J5Nw_1795770705
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a009f82bedso55232595e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:11:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795770705; x=1796375505; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KYv8xSJwG5HpoyohHqCmo+JiohLfJNH5RWZtYUbNyvU=;
+        b=DQg2/qcVg36wwJAdrdEE7778GvKNUXbR/CLzEGvvm9pdjh0NmxuER5C/sxT8e2a+iy
+         beuVjqf6oyL2ep7FpLAwcWzrRkI5f3oeL9D+kVPdjYrcfdscDm5yiuBEUpoYDlynwd1L
+         aoFboG74nIuWCzy36PiHwqqbXtaH6m7cOLNqkQXTnlIAd96rdug+SAb0sb4Q3sTFn75A
+         RWkAifTA6IXh2+mvVFVkWCre/GPwyUSUrJ3mzui5VH3eADkvyDqi3MA4hkCM+m2nIqHF
+         gHhOrTJIbSJzfMY9Wsxf3LeySlhFl7M5TncYUSWmB2bE4t21oL4PkFgzUuiofvEPHR7H
+         b7bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795770705; x=1796375505;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=KYv8xSJwG5HpoyohHqCmo+JiohLfJNH5RWZtYUbNyvU=;
+        b=a5fr+MXJ7zw3rr+QEFNVc8lVOF9/zRToOTC3LmhfINEZ9wjnBfgB25cQhN+I5/1Jir
+         Nug6dCCpE0AqYgXGPEojxTXows9YBV+68CwYuZbOMDBJidE3pqXRWnV9muwrnHiXuCqt
+         +k4oLS8K8eEvamTD7Q8wtn/oqeyHwTGNr/XMZF7kjmj5EmZuuF1JY1KJy71iutbFt2Mb
+         Nxn55EJDL7m+Z+/6umhIw27Mzy9loOWPuJVzUSAtPppfbYefOJBet33AwI2a/Lwi2H3G
+         o3fjTWnbHejC2gT4oMiqevUFuZJN+TQqeHqp3i4cDMmGmTe1lEgiIKDV9IJMMGH1TfbY
+         xAfA==
+X-Forwarded-Encrypted: i=1; AL+hErECJYthZXE/+UFNDqtcymvjfj6onvatr/c1AjUu/0uSx9znFNI5oLkJ9iQyQGWb6beaIIGRxuY/+/x4kF8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fhLAe4q8k9MCq4dxPhmb+E+Tqh0SFfc1lDlruU6rjTzPzIrdC
+	H0axuNgaNEOW1q42chRs+wWHAjfGpLV3K2kNOUM67rwMpBGGtaIDEqqAGdLqow2yf/brQdaT0bP
+	pqGxyCpr5DZ9OjcEs4H38w7N2Wmrk5ANxnMF/y5EQR+wGi3xrhBCajgeiKkiImb0qiw==
+X-Gm-Gg: AZFdTZfLhlmkUg70JWzlyo8Qf30OzS7NtSc0BQNfZIjNAM4lCx+0D4EfuQjXWlmc1K7
+	44KztQS/2hTPeSiNyaMnZsk+B0nlmnIhqc/poJ6Kv1eu5aniJmcRTLc3DUNJbziObjE0ZP9Y8kr
+	OCk2CWiSVQuR7MLs1SgjoAjodAsKC9z8avofx6sL8PVjbfVO81Wg9ob3XtMEN9mvhex9qRO4Rsg
+	Tr1Fi+xS6NFVf1XPdrX724dGOW0x07lnu6SOGY7db1ktkEkrRDpheZ7WFzhsMX8SfoGVBBen9Jh
+	Eaq5GG55ucw5hRg1WSkxW8Fb9dHMMaaOWoQmvO8NnZ5360fFppR7Umzlcxkr2oWfdUFuZoPi0Ou
+	9UsQKAlPIznJv4XKIdWdfINhMo+cWxF4IKR8DV9bh6YufJAFPxvhEOnwt21xE8cE3YOk8ujmBEe
+	WN
+X-Received: by 2002:a05:600c:1d8c:b0:4bb:5345:606b with SMTP id 5b1f17b1804b1-4bb8882358dmr473340405e9.31.1795770705338;
+        Fri, 27 Nov 2026 01:11:45 -0800 (PST)
+X-Received: by 2002:a05:600c:1d8c:b0:4bb:5345:606b with SMTP id 5b1f17b1804b1-4bb8882358dmr473339795e9.31.1795770704923;
+        Fri, 27 Nov 2026 01:11:44 -0800 (PST)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm614629245e9.9.2026.11.27.01.11.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:11:44 -0800 (PST)
+Message-ID: <c28787b366061c55ea1849680703fa0bab1a0fef.camel@redhat.com>
+Subject: Re: [PATCH v4 3/4] rv: collect per-edge dwell time for per-cpu
+ DA/HA monitors
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Tobias Schaffner <tobias.schaffner@siemens.com>, Steven Rostedt
+	 <rostedt@goodmis.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers	 <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, 	linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ rpm@xenomai.org, jan.kiszka@siemens.com, Shuah Khan	
+ <skhan@linuxfoundation.org>
+Date: Fri, 27 Nov 2026 10:11:42 +0100
+In-Reply-To: <9a1df2a6-27fb-4029-866d-c115d9f0b5f7@siemens.com>
+References: <20261127070545.64265-1-tobias.schaffner@siemens.com>
+	 <20261127070545.64265-4-tobias.schaffner@siemens.com>
+	 <6ee9fd02caec10b09c8f25913a2c0e619f5dd4e7.camel@redhat.com>
+	 <9a1df2a6-27fb-4029-866d-c115d9f0b5f7@siemens.com>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
+ cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
+ T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
+ eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
+ 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -159,33 +140,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SLXP216MB1148.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0709dc0-de33-4dd4-8101-08df4c6660dd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 09:11:10.4926
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 6B7MwsWlS7kGg9t3FQ2Q1Zu+jJ/Gf9kxIu3Fz6pH3ASpcKsw/vygsTG2gr+/DSg3TvVavRC2vPO9LCueobXUSVbloTngM1JHJ2+ptZMTpgQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE5P216MB3160
 
-SGkgTmljb2xhcywNCg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQo+ID4gK3N0YXRpYyB2b2lk
-IHdhdmU1X2RlY19maW5pc2hfam9iKHN0cnVjdCB2cHVfaW5zdGFuY2UgKmluc3QpDQo+ID4gK3sN
-Cj4gPiArCWlmICghdGVzdF9hbmRfY2xlYXJfYml0KFdBVkU1X0pPQl9SVU5OSU5HLCAmaW5zdC0+
-am9iX2ZsYWdzKSkNCj4gPiArCQlyZXR1cm47DQo+ID4gKw0KPiA+ICsJdjRsMl9tMm1fam9iX2Zp
-bmlzaChpbnN0LT52NGwyX20ybV9kZXYsIGluc3QtPnY0bDJfZmgubTJtX2N0eCk7DQo+ID4gK30N
-Cj4NCj4gVG8gbWUsIHRoZSBjb21wbGV4aXR5IGlzIGEgc2lkZSBlZmZlY3Qgb2YgaG93IHRoZSBw
-ZXJmb3JtYW5jZSBpc3N1ZSB3YXMNCj4gYWRkcmVzc2VkIHdpdGhvdXQgZG9pbmcgYSByZWRlc2ln
-bi4gSSdtIGZpbmUgbGV0dGluZyB0aGlzIGdvLCBidXQgaXQgd2lsbA0KPiBnZXQgaGFyZGVyIGFu
-ZCBoYXJkZXIgd2l0aG91dCBhIHByb3BlciBjbGVhbnVwIGFuZCByZWRlc2lnbi4NCg0KQWdyZWVk
-LCBhbmQgdGhhbmtzIGZvciBsZXR0aW5nIGl0IGdvLiBPbmNlIHRoaXMgc2VyaWVzIGlzIHNldHRs
-ZWQsIHdlDQp3aWxsIGxvb2sgYXQgcmV3b3JraW5nIHRoZSBkZWNvZGVyIGpvYiBmbG93IHNvIHRo
-YXQgZWFjaCBqb2IgaGFzIGENCnNpbmdsZSwgY2xlYXIgb3duZXIgaW5zdGVhZCBvZiBndWFyZGlu
-ZyBldmVyeSBwbGFjZSB0aGF0IGZpbmlzaGVzIGl0Lg0KDQo+ID4gKwlzdHJ1Y3QgZGVsYXllZF93
-b3JrIHVuc3RhbGxfd29yazsgLyogcmVsZWFzZXMgYSBzdGFsZSBlbXB0eV9xdWV1ZSBwYXJrICov
-DQo+DQo+IFRoaXMgbWlnaHQgYmVsb25nIHRvIHBhdGNoIDYuDQoNCllvdSBhcmUgcmlnaHQuIHVu
-c3RhbGxfd29yayBpcyBvbmx5IHVzZWQgZnJvbSBwYXRjaCA2OyBpdCBlbmRlZCB1cCBoZXJlDQp3
-aGVuIHRoZSBwYXRjaGVzIHdlcmUgc3BsaXQuIEkgd2lsbCBtb3ZlIGl0IHRvIHBhdGNoIDYgaW4g
-djMuDQoNCkJlc3QgcmVnYXJkcywNCkphY2tzb24NCg==
+On Fri, 2026-11-27 at 10:03 +0100, Tobias Schaffner wrote:
+>=20
+> Fair. Sorry for not having this on my radar.
+>=20
+> Do you agree that 3 is the cleanest option? I would prefer it over
+> always having one wrong sample (option 1) and making sure that no event
+> slips in between start and reset (option 2).
+
+Yes, good point and agreed. It also compiles exactly to your previous solut=
+ion.
+Feel free to shape it the way you find cleaner and give the new function a
+better name if you see it fit, but you got the gist of it.
+
+Thanks,
+Gabriele
+
+>=20
+> Best,
+> Tobias
+>=20
+> > What do you think?
+> >=20
+> > Thanks,
+> > Gabriele
+> >=20
+> > > =C2=A0=C2=A0{
+> > > -=09da_mon->curr_state =3D model_get_initial_state();
+> > > +=09da_mon->curr_state =3D state;
+> > > =C2=A0=C2=A0=09da_monitor_init_hook(da_mon);
+> > > =C2=A0=C2=A0=09/* Pairs with smp_load_acquire in da_monitoring(). */
+> > > =C2=A0=C2=A0=09smp_store_release(&da_mon->monitoring, 1);
+> > > @@ -276,6 +278,11 @@ static inline void da_monitor_reset_state_all(vo=
+id)
+> > > =C2=A0=C2=A0 */
+> > > =C2=A0=C2=A0static inline int da_monitor_init(void)
+> > > =C2=A0=C2=A0{
+> > > +=09int retval =3D rv_edge_stats_create(rv_this.root_d);
+> > > +
+> > > +=09if (retval)
+> > > +=09=09return retval;
+> > > +
+> > > =C2=A0=C2=A0=09da_monitor_reset_state_all();
+> > > =C2=A0=C2=A0=09return 0;
+> > > =C2=A0=C2=A0}
+> > > @@ -287,6 +294,7 @@ static inline void da_monitor_destroy(void)
+> > > =C2=A0=C2=A0{
+> > > =C2=A0=C2=A0=09da_monitor_reset_all();
+> > > =C2=A0=C2=A0=09da_monitor_sync_hook();
+> > > +=09rv_edge_stats_remove();
+> > > =C2=A0=C2=A0}
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0#ifndef da_implicit_guard
+> > > @@ -689,9 +697,11 @@ static inline void da_trace_error(struct da_moni=
+tor
+> > > *da_mon,
+> > > =C2=A0=C2=A0static inline bool da_event(struct da_monitor *da_mon, en=
+um events
+> > > event,
+> > > da_id_type id)
+> > > =C2=A0=C2=A0{
+> > > =C2=A0=C2=A0=09enum states curr_state, next_state;
+> > > +=09da_state_t old;
+> > > =C2=A0=20
+> > > -=09curr_state =3D READ_ONCE(da_mon->curr_state);
+> > > +=09old =3D READ_ONCE(da_mon->curr_state);
+> > > =C2=A0=C2=A0=09for (int i =3D 0; i < MAX_DA_RETRY_RACING_EVENTS; i++)=
+ {
+> > > +=09=09curr_state =3D da_state_of(old);
+> > > =C2=A0=C2=A0=09=09next_state =3D model_get_next_state(curr_state, eve=
+nt);
+> > > =C2=A0=C2=A0=09=09if (next_state =3D=3D INVALID_STATE) {
+> > > =C2=A0=C2=A0=09=09=09react(curr_state, event);
+> > > @@ -699,7 +709,8 @@ static inline bool da_event(struct da_monitor *da=
+_mon,
+> > > enum events event, da_id_
+> > > =C2=A0=C2=A0=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 model_ge=
+t_event_name(event), id);
+> > > =C2=A0=C2=A0=09=09=09return false;
+> > > =C2=A0=C2=A0=09=09}
+> > > -=09=09if (likely(try_cmpxchg(&da_mon->curr_state, &curr_state,
+> > > next_state))) {
+> > > +=09=09if (likely(da_state_try_commit(&da_mon->curr_state, &old,
+> > > +=09=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 next_state, even=
+t))) {
+> > > =C2=A0=C2=A0=09=09=09if (!da_monitor_event_hook(da_mon, curr_state,
+> > > event,
+> > > next_state, id))
+> > > =C2=A0=C2=A0=09=09=09=09return false;
+> > > =C2=A0=C2=A0=09=09=09da_trace_event(da_mon,
+> > > model_get_state_name(curr_state),
+> > > @@ -737,7 +748,7 @@ static inline bool __da_handle_start_event(struct
+> > > da_monitor *da_mon,
+> > > =C2=A0=C2=A0=09if (!da_monitor_enabled())
+> > > =C2=A0=C2=A0=09=09return 0;
+> > > =C2=A0=C2=A0=09if (unlikely(!da_monitoring(da_mon))) {
+> > > -=09=09da_monitor_start(da_mon);
+> > > +=09=09da_monitor_start(da_mon,
+> > > da_state_entered(model_get_initial_state()));
+> > > =C2=A0=C2=A0=09=09return 0;
+> > > =C2=A0=C2=A0=09}
+> > > =C2=A0=20
+> > > @@ -751,8 +762,9 @@ static inline bool __da_handle_start_run_event(st=
+ruct
+> > > da_monitor *da_mon,
+> > > =C2=A0=C2=A0{
+> > > =C2=A0=C2=A0=09if (!da_monitor_enabled())
+> > > =C2=A0=C2=A0=09=09return 0;
+> > > +=09/* In the initial state since an unknown time: do not time it. */
+> > > =C2=A0=C2=A0=09if (unlikely(!da_monitoring(da_mon)))
+> > > -=09=09da_monitor_start(da_mon);
+> > > +=09=09da_monitor_start(da_mon, model_get_initial_state());
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0=09__da_handle_event_common(da_mon, event, id);
+> > > =C2=A0=20
+> > > diff --git a/include/rv/edge_stat.h b/include/rv/edge_stat.h
+> > > index 8b99e8520e1e..16c28aedabdd 100644
+> > > --- a/include/rv/edge_stat.h
+> > > +++ b/include/rv/edge_stat.h
+> > > @@ -145,7 +145,10 @@ static void rv_edge_stats_remove(void)
+> > > =C2=A0=C2=A0=09rv_this_stats_file =3D NULL;
+> > > =C2=A0=C2=A0}
+> > > =C2=A0=20
+> > > -/* A zero timestamp marks resets, which can run on a different CPU. =
+*/
+> > > +/*
+> > > + * A zero timestamp marks an unknown entry time: resets can run on a
+> > > different
+> > > + * CPU, and da_handle_start_run_event() starts in a state entered
+> > > earlier.
+> > > + */
+> > > =C2=A0=C2=A0#define da_state_entered(s)=09da_state_pack((s), local_cl=
+ock())
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0static __always_inline void
+> > > diff --git a/include/rv/ha_monitor.h b/include/rv/ha_monitor.h
+> > > index 6e1c7fe5449a..78d1bb80aefd 100644
+> > > --- a/include/rv/ha_monitor.h
+> > > +++ b/include/rv/ha_monitor.h
+> > > @@ -312,7 +312,7 @@ static inline void __ha_monitor_timer_callback(st=
+ruct
+> > > ha_monitor *ha_mon)
+> > > =C2=A0=C2=A0=09if (unlikely(READ_ONCE(ha_mon_destroying)))
+> > > =C2=A0=C2=A0=09=09return;
+> > > =C2=A0=C2=A0=09/* Ensure consistent curr_state if we race with da_mon=
+itor_reset
+> > > */
+> > > -=09curr_state =3D smp_load_acquire(&ha_mon->da_mon.curr_state);
+> > > +=09curr_state =3D da_state_of(smp_load_acquire(&ha_mon-
+> > > > da_mon.curr_state));
+> > > =C2=A0=C2=A0=09if (unlikely(!da_monitor_handling_event(&ha_mon->da_mo=
+n)))
+> > > =C2=A0=C2=A0=09=09return;
+> > > =C2=A0=20
+> >=20
+
