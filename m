@@ -1,83 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795802798;
-	b=gns5h+5+5FSsqlb2sC8gFq0tj3DPwZZMCSuyfEycXYZ6lcmwr/7wXciVxawDK4Fn89vH
-	 5F23DUFGK08MUsOAr5E5Zy8N2ODFRFKrVTS2maXB1lkpx9meF/TRa6o+iSg2lcmHhPzgr
-	 2IySfGaqWZCYErN7OMeKNqoDUr0qEvQsQSGjAJ6M3eQZG3oJJQj71tUJ8QPcZXP381iz4
-	 C1zXixt8dxBVPmiD5bATOFJh977n9N3QzrpfZdiwfbsqqnIP8QbkjyxGZ+cBVUlYymU/j
-	 /crupPZm3fwftTR5bqhcZrULJhyTscs8F0QNBTTZmG3oHHpmbRui8Sec2iAdyV+UI6g==
+	t=1795802814;
+	b=zkIw7QLOKBg4+Boh2A9Me0Shnerwe7SUevfZ1cQyo/OSlkINTJq7WYzj3VwUhPbf/to2
+	 JG8M7odLW2uIlVYMokvbBJoRxdfLrwbkqhq3JsiAXj9A+HmXOjU/8EYCTVCicsde9ReTk
+	 R3Xpc1N8j/RrOMErfvq4PIrAtzB6LA2EiNiegk92IwR0JnzGM2qxCxtXAFTnrf/pfWn3L
+	 wJ0hT/4A019aEqdxFjMESTkUHmIgKAPbeaR57XQhoHjhMi6Qd7/SvDKdKkHd63grGeJJN
+	 chdM+8GwcEKm7CNJgFwlLeRIaU5Y02BdF8Kl4sewkyZC80K+ge9PdktMHtwowIZBKuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795802798;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795802814;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
-	 References:In-Reply-To;
-	bh=31lkBKO8oQ3sa6c4sPU8C1+DntgMuazBHbo8HSmfOrA=;
-	b=YPh4RHsTnvYY9PZWUBllR7cJOEnHNPdQDki1CIqmgf4cmZspynR6CzRaRqchb05AQUX4
-	 s7G6NIJiYf9uswhIbQnz4G/iGBByeHAA44f/n1IouL8Z1WnMgO+Snft1FsZmOc/gMy+/1
-	 RhN+io/1NBi3xGqP40NjRSHV2gtVeC/BAx54c4R6BfZGbNC5bdIi9wZV7mYXfrJ351HSS
-	 FiTsQy9JH/7qqJuFlL6uhFLMb+yvY/W88sUPcONm1lHImUXKb7xC+gZ4Xa+PJ9AbGIvb1
-	 9i19JfNwVwHoURzRn7DozHDV8gYM6wsFFaitvOUE8+FGJaiq+Y5MnCl/shqzxuroDww==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Type:MIME-Version:Content-Transfer-Encoding;
+	bh=JMhmizF9rm/NvUf9wXz1bzC79f1tk9PLdnrYZqqxQsQ=;
+	b=YYfNg180iDS3I5SyDpOHDRirrzN+TtTqg1UZjIicl4l0VeCUkt+d+PZgD72QBAVBQX0M
+	 mim0KAkZ59X7RuzCZ8GfS+1NLZxEhF1+dApoX8gpZN9SFvyvnHVhTPFPFz0iCIm8bpUsS
+	 XpxyS2L/TcFc7vb66/I0CluVo6Aw//09NFkWkEXWceJnI0Sn4kMziu7joqaknDWpFeG4j
+	 rnSvmjebc1rt+hLAODmT693p6I3lP67LubhO6HqIHJlGBLDUKpI9c0LrQ+FL+byPZZQu+
+	 iig0AIUiNBY82CJu/22LPweXNGtigNl/v1dQS8/xWGOOpE3OshJfjZyGgkwpmwvYKTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gtOjgV7k;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y9TTNwVj;
+	arc=none smtp.remote-ip=209.85.161.42
+Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09822606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:06:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09822606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CE91606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:06:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CE91606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gtOjgV7k
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso102663715e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:06:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y9TTNwVj
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-6d68de53053so6156533eaf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:06:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795802795; x=1796407595; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=31lkBKO8oQ3sa6c4sPU8C1+DntgMuazBHbo8HSmfOrA=;
-        b=gtOjgV7kQRPDJZxzHD5ysYcKBIp1wluCgKbD4A8k17RCVgasxJdU1GV+jVyh0WPzUT
-         +Q/ve92Tzv2/ub7GIYZe70pSbaTvhdI8kA8AMDz2HtS/Ry+MFm4UiGxsHcahVRg75WMT
-         t/wSSU4K80PUANTU3YB4OPbnzq8Uy+S1zPuebou8cJqYR7NMskfeUqdR+r443eHCjrqV
-         WeaBY0njy3dxba1R8lmilwhLmhtZ5jVA63UUIjbFv+yVIhLNhr5WzHLp8OUXgWWeq7RM
-         ru2IOyoe73DlDU6K+SF3IPEyUrje5RVMGeJ3rfVKiDOQv6iNyTD/kE1Lr76k2brIPhQq
-         q3jA==
+        d=gmail.com; s=20260707; t=1795802813; x=1796407613; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JMhmizF9rm/NvUf9wXz1bzC79f1tk9PLdnrYZqqxQsQ=;
+        b=y9TTNwVjP6UCmujUMGevJiEol0AFP2ky/lNt5rQkZNqfDtyPQhhWpcRFKHicGdhgtg
+         USPGFmEp6lLjnKVzq0KAJ7E7zLCCHNdQ+lFzNMNu4JP9vgPbAeOs7iOGBuXKAEEK4ZJT
+         emmzmgphfL9jW8KmUU3sHoVnpNfJrK9OCye+FQMb36vnUnB+OIE2OugGUIwieK+Idtub
+         HVegVKuQBjrv/w/ZGFuogmr4POtDyN8FXdgqkG3QVpwpoQ+9iuVcxfts5p+Vk3yrV4Cg
+         LAvV4R3Dc5ZmAmOvQAJJQzVH8EsK6rZpOXsI2g9D+fa1fTYvaEK8YbLmGLHGHdf2ejm/
+         ahhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795802795; x=1796407595;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=31lkBKO8oQ3sa6c4sPU8C1+DntgMuazBHbo8HSmfOrA=;
-        b=vPV4bNpDYDCcSPbq3WBafCstM7BRfMiS6lpt3GJyoc2N1fryCWYHdxIcdLJO8aekEh
-         Lv5iK9YhkKC0nI85adojgGwXQkkATuIwtxZ1GINR6z5kkAcI8s6R9D7dKd62CTSOJc54
-         vt05hTe7+Ow/WopU65ZabbCLC0hoDlkfWHpoc8Pi/7SzVs8w8muc7gJovC+4n5lfY0O5
-         ANqiuTyHW+LROlZJVDVll6uMG1mGeFEOpRJYfell/h1eogta9QuazSqxGR3i9WzNr7GA
-         iDoANEHxozAjJJjp+c9eoa2TE2V8qnl9qslvWw5lChxSUm+GSxug/iQ3xgRbu24bhiMD
-         ZX8g==
-X-Forwarded-Encrypted: i=1; AL+hErH3RRBNyAEaGQPEMn5mrNzQDu6mXNT0bykDYdCmPD6gJl2G8yAr7QxQ25jTYhUJPYpZqrjuepT0MYffJko=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9uwWhP7f2wXhm35JMlg3xcUN9CrgQ4BzW/eLot1WFhsJNOpLh0
-	D6k5/Vc9WZ3k4+SJaTRKcgnyoPsFlJdwA/qgiQgbPJEL0ov1xP+Kncli
-X-Gm-Gg: AZFdTZccc0aGuDTXJAOjBO+z+Pg6//nUL1TVdXXoX/Iv/bXQE+mC4e/3H6h+qphxgbM
-	rvRYsqaueuWLdjwVjzHGLW9Jljrg+1e1hhgfgkrt4pwaiG6xTPvNr7ABzvGQmVoJuBAaxD+bSLY
-	WtBoHrKl4Z1hcT5RM6r1SmraN33XGgg7QSZLZqfueuX8JSUKxcHQgkOGUSS32uvq4KN5hX67779
-	aqSmrIQ1whQyhp8KocHXRhvfpYOlbhl0b+bMLR7VDx+ICpgYd/BAV3PlC2fp7j9eJyJuSpQ4xBM
-	y6gCNAu5Xkv7CIa+udjfE3ekfMQqZq+Z20kv9u3ZeNgNdo9GzrK1yjpMWQA7FS6aSdbEhiFB3Ff
-	uDnTtbL0AOGhg1FHsrzOxPiOYgXb+czZ2TUv/Sm1w///c4x0WyTsACO66vcIc4re/lxuvJsPbpt
-	skl16y4nPei/47RI7fgM3P3oULN052q5J4wLR8OkSXgp9ejIOwY8i60tXlAB7aNRo/4eqIaQR0a
-	iQJq6QeqO+vMnClpPcW+6AGlgcVCtoahStwvCbOOeIIgGumMTLj3RKwwwPXfTucRimLFoynt7mC
-	Y+HC0i/SZB+I3a6frRxK9bLhhA==
-X-Received: by 2002:a05:600d:a:b0:4bb:aa4f:c01d with SMTP id 5b1f17b1804b1-4bbaa4fc151mr135668155e9.1.1795802795080;
-        Fri, 27 Nov 2026 10:06:35 -0800 (PST)
-Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm791527715e9.3.2026.11.27.10.06.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 10:06:34 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795802813; x=1796407613;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JMhmizF9rm/NvUf9wXz1bzC79f1tk9PLdnrYZqqxQsQ=;
+        b=lIxGgqYnHFu5qTY59onUvKlO4XeXB6/ZWJEqggdvBYCH0C3qJPsqogi2Ldc2nENzqM
+         Apkyaxg8kcsiPYFM6lR/IFggfqSWy+hH7V13UYPsK342TOJsghTf6GmbZEg2gmDz8AjV
+         jKmJDv5z0uM5kHVtLhOlPXGU3cZ9M4nW/LWxGOmyqYfSBJlW8qLGx60f8gI6VCoNdiEf
+         sBtAm6dgtFFTDPRnFMDn6hzXi+0WvnU51ggONE4bJyf1yJqjBjTD6igXR63DI2AdJq6r
+         +zoJYVTmy5ccFiGJHWwUY5gTksrqaHNcqYQmp+/XAxP+7mxe1EzllSsglMtsJy6d0WLC
+         E7KA==
+X-Forwarded-Encrypted: i=1; AL+hErEEnj4PX6+22fHP2nJ4L79oRCGL6SGaCg0WICpHuAbrcxYxWQ7KcbAntvmiX/P84TDP7LweJyXmy8OQ4n0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yNM7oEmddodFqnWYIbb2DqHuVAdlzrj43rtLb7Lsx/fCub4az
+	9lOFv+bJlUqLJnHYDQRibepeZ2+zf8v0VjT3hALGeSagDiUQMi88OIB2
+X-Gm-Gg: AZFdTZdevkLAgBokXdI8vj77DkyE1HLOa7KjNRUHROn4dRS3jye9QJALlXB1vQ5QYvm
+	7IsPaInSvfxqQN+pRHnOqsFNrnpAdfjiREv3xD5YiY3y0c8WtK/JTsGNNsXTVxoaDxsu/sKDiyq
+	zvKcggu7MKBIFm/o8RVIwLJOnWgYgAMxGtvJ+p41dsuvhweyBJHkeqQf3FzZLNmeBtYz5nKBV5o
+	hYTugs8Xn7+4TiP2WZZx7o3favco5qrneaKnKOxbN9UhQT55HmW97cUe1EL9uyjaxvWBbjeZwY4
+	4X7FELGoRcosuKyxkrdk7t0V7LoNp9Hu+v85TcIchQuCKPKr3jv+/YkwGVsEB/YXulvUDHR5X7B
+	4pBfuDb3gIFQARUJphesUVe/yPDBEOHgrJvy6AAFFSEcKKBFzWS718N81LVEBnJXpaqOeIRGGof
+	lQMDY2Z5ooHXANuxi8cRAFEs8S3L5X7CXuQeRcAAglYm1/x4tzvOtJ9Lp5xTCEKQS91OhnH2P/6
+	ZVfqj2KvrpgcIbdSMTp1y9qvDN0bwdHELPjU1dTfSAW091jpORCHUOBYejZE1KgaVp15moMfNlL
+	XZOIFGr0uGhqyoaCVz/nztDkNYQb5+CTfcvRXDWbPRoh/+V84Q0ayz0AJlMrnYryoIdmFLUhxIM
+	u7pFktg==
+X-Received: by 2002:a05:6820:a74d:10b0:708:c97f:5541 with SMTP id 006d021491bc7-71b394868bbmr14209997eaf.37.1795802813364;
+        Fri, 27 Nov 2026 10:06:53 -0800 (PST)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f6d33sm17220715a34.18.2026.11.27.10.06.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 10:06:52 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: andre.przywara@arm.com
+Cc: jernej.skrabec@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	wens@kernel.org,
+	samuel@sholland.org,
+	Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>,
+	Cristian Filipescu <filipescu.cristian@gmail.com>,
+	Norman Herms <dockseed@proton.me>
+Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
+Date: Fri, 27 Nov 2026 13:06:50 -0500
+Message-ID: <20261127-a733-dt-v6-01-reply@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <9ab5f851-1b56-49ed-bfdd-46abdbdda1c0@arm.com>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-2@gmail.com> <p3YaXlLJTguQBGnWyMpb1w@gmail.com> <9ab5f851-1b56-49ed-bfdd-46abdbdda1c0@arm.com>
+Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,334 +117,33 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=5a3f61e607b661bce23953d8b2acf29cca7bc4b24c3dca1ea3d419584a61;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 27 Nov 2026 19:06:30 +0100
-Message-Id: <DN66YKVRVRU7.1062V6NCL4LUW@gmail.com>
-Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
- <hyc.lee@gmail.com>, "Eric Biggers" <ebiggers@kernel.org>, "Theodore Y .
- Ts'o" <tytso@mit.edu>, "Jaegeuk Kim" <jaegeuk@kernel.org>, "Alexander Viro"
- <viro@zeniv.linux.org.uk>, "Christian Brauner" <brauner@kernel.org>, "Chuck
- Lever" <cel@kernel.org>, "Jeff Layton" <jlayton@kernel.org>, "Jan Kara"
- <jack@suse.cz>, "Alexander Aring" <alex.aring@gmail.com>, "Darrick J .
- Wong" <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
- <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
- Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
- <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
- <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
-Subject: Re: [PATCH v2 3/4] vfs: add xflags mask to fileattr API
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
- <koray.fra@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261126163114.403846-1-koray.fra@gmail.com>
- <20261126163114.403846-4-koray.fra@gmail.com>
- <CAOQ4uxhA+93bo5WseLxe7cAvJHJ8eQodoQHLwh=iToyEVkeXEA@mail.gmail.com>
-In-Reply-To: <CAOQ4uxhA+93bo5WseLxe7cAvJHJ8eQodoQHLwh=iToyEVkeXEA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---5a3f61e607b661bce23953d8b2acf29cca7bc4b24c3dca1ea3d419584a61
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+> But it's still compatible to the D1 MMC controller, isn't it? As in: a
+> driver capable of supporting the D1 MMC IP can also drive the A733 MMC.
+> I think the voltage regulator is a separate problem: it's external to
+> the MMC IP. The vqmmc supply property is documented and usable, and the
+> availability of the regulator it points to is a separate issue.
+> The same as the H616 and A523 have the voltage switch already, but are
+> still compatible to the A100 and D1, respectively.
 
-On Fri Nov 27, 2026 at 6:48 PM CET, Amir Goldstein wrote:
-> On Thu, Nov 26, 2026 at 5:31=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
-wrote:
->>
->> Add fa_xflags_rw_mask and fa_xflags_ro_mask to struct file_attr, both
->> __u64 to match fa_xflags' size, and bump FILE_ATTR_SIZE_LATEST to
->> FILE_ATTR_SIZE_VER1, which is now 40 bytes.
->>
->> Add equivalent masks and a has_masks selector to struct file_kattr, so
->> we can know when a user of this API (userspace or filesystem) supports
->> them.
->>
->> This lets filesystems advertise their support for specific xflags, like
->> statx.stx_attributes_mask does, and userspace can specify only which
->> xflags it wants to change without needing a RMW cycle.
->>
->> These masks have the following semantics:
->> - fsx_xflags_rw_mask:
->>   * for filesystems: advertise which xflags they support changing
->>   * for userspace:   specify which xflags it wants to modify
->> - fsx_xflags_ro_mask:
->>   * for filesystems: advertise which xflags they support only reading
->>   * for userspace:   ignored
->>
->> And they should be filled according to the following:
->> - GET:
->>   each filesystem that wants to implement this new API fills the masks
->>   according to its supported read-write and read-only xflags,
->>   then:
->>   * for boolean xflags: it fills fsx_xflags with the current on-disk val=
-ue;
->>   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and the
->>     xflag value in the struct field;
->> - SET:
->>   userspace fills the rw_mask with the bits of the xflags it wants to
->>   change, then:
->>   * for boolean xflags: it provides the xflag value as a bit in fa_xflag=
-s;
->>   * for value xflags: it sets the xflag bit to 1 in fa_xflags and then
->>     provides the value in the struct field; if the xflag bit is set to 0
->>     instead, this informs the kernel to unset/clear that value.
->>
->> Add AT_FILE_ATTR_MASKS at_flags option that userspace needs to pass
->> (with usize >=3D FILE_ATTR_SIZE_VER1) in order to be able to use masks,
->> otherwise legacy RMW semantics are used.
->>
->> If AT_FILE_ATTR_MASKS is not specified:
->> - on GET, zero fa_xflags_rw_mask and fa_xflags_ro_mask and strip new
->>   xflags added in or after VER1, so older programs doing RMW don't pass
->>   them back;
->> - on SET, reject non-zero fa_xflags_{rw,ro}_mask with -EINVAL.
->>
->> If AT_FILE_ATTR_MASKS is specified on SET with fa_xflags_rw_mask =3D 0,
->> return early as a no-op after permission and support checks.
->>
->> To make both legacy and new programs interact correctly with both legacy
->> and new/upgraded filesystems, add:
->> - xflags_to_flags() / flags_to_xflags(): use fileattr_fill_*() to
->>   convert xflags to their flags counterpart and vice-versa;
->> - fileattr_set_mask_to_legacy() / fileattr_set_legacy_to_mask(): convert
->>   between legacy read-modify-write API and modern rw_mask/ro_mask API.
->>
->> Also add the missing FS_XFLAG_PROJID xflag, to allow userspace to set
->> the projid using file_[gs]etattr() by leveraging the new masks.
->> In order to prevent the legacy FS_IOC_FSSETXATTR from accepting
->> FS_XFLAG_PROJID, add a FS_FILE_ATTR_XFLAGS_MASK to support new xflags
->> and use it to validate/clamp both the _xflags fields and the masks.
->>
->> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
->> Signed-off-by: koraynilay <koray.fra@gmail.com>
->> ---
->>  fs/file_attr.c             | 332 +++++++++++++++++++++++++++++++++----
->>  include/linux/fileattr.h   |   7 +
->>  include/uapi/linux/fcntl.h |   6 +
->>  include/uapi/linux/fs.h    |   7 +-
->>  4 files changed, 320 insertions(+), 32 deletions(-)
->>
->> diff --git a/fs/file_attr.c b/fs/file_attr.c
-> ...
->
->> +/*
->> + * Convert legacy RMW input format without masks, coming from userspace=
-, to new
->> + * input format with masks, for filesystems that already support masks.
->> + */
->
-> The term "legacy" is always a bit ambiguous so best to avoid if possible
->
-> So maybe something more explicit like v0_to_v1
-> ...
+Agreed, and the manual backs it. The A733 User Manual v1.00, section
+11.3.1, lists SDR 200 MHz at 1.8 V IO for SMHC0, but the SMHC register
+list has no voltage control. The Port F pad voltage is chosen in the
+GPIO block: GPIO_POW_VAL_SET_CTL at 0x0200_0070, bit 0
+VCC_PF_PWR_VOL_SEL (0 = 1.8 V, 1 = 3.3 V, reset 1), section 18.14.6.3.
+So vqmmc for mmc0 would be a regulator provided from the pinctrl side.
 
-Ah ok.
+On the A7S (schematic v1.10, sheets 4 and 7) both Port F supplies are
+fixed rails: VCC-IO, 3.3 V from SWOUT2, and VCC18-PF, 1.8 V from CLDO5.
+There is nothing to point vqmmc at today.
 
->> @@ -283,20 +485,62 @@ int vfs_fileattr_set(const struct mnt_idmap *idmap=
-, struct dentry *dentry,
->>         if (!inode_owner_or_capable(idmap, inode))
->>                 return -EPERM;
->>
->> +       if (fa->has_masks && !fa->fsx_xflags_rw_mask)
->> +               return 0;
->> +
->>         inode_lock(inode);
->>         err =3D vfs_fileattr_get(dentry, &old_ma);
->>         if (err)
->>                 goto out;
->>
->> -       /* initialize missing bits from old_ma */
->> +       if (old_ma.has_masks) {
->> +               old_ma.fsx_xflags_rw_mask &=3D FS_FILE_ATTR_XFLAGS_MASK;
->> +               old_ma.fsx_xflags_ro_mask &=3D FS_FILE_ATTR_XFLAGS_MASK;
->> +       }
->> +       old_ma.fsx_xflags &=3D FS_FILE_ATTR_XFLAGS_MASK;
->> +
->> +       /* Convert between formats and initialize missing bits from old_=
-ma */
->>         if (fa->flags_valid) {
->> -               fa->fsx_xflags |=3D old_ma.fsx_xflags & ~FS_XFLAG_COMMON=
-;
->> -               fa->fsx_extsize =3D old_ma.fsx_extsize;
->> -               fa->fsx_nextents =3D old_ma.fsx_nextents;
->> -               fa->fsx_projid =3D old_ma.fsx_projid;
->> -               fa->fsx_cowextsize =3D old_ma.fsx_cowextsize;
->> +               if (!old_ma.has_masks) {
->> +                       /* FS_IOC_SETFLAGS */
->> +                       fa->fsx_xflags_rw_mask =3D 0;
->> +                       fa->fsx_xflags |=3D old_ma.fsx_xflags & ~FS_XFLA=
-G_COMMON;
->> +                       fa->fsx_extsize =3D old_ma.fsx_extsize;
->> +                       fa->fsx_nextents =3D old_ma.fsx_nextents;
->> +                       fa->fsx_projid =3D old_ma.fsx_projid;
->> +                       fa->fsx_cowextsize =3D old_ma.fsx_cowextsize;
->> +               } else {
->> +                       err =3D fileattr_set_legacy_to_mask(fa, &old_ma)=
-;
->> +                       if (err)
->> +                               goto out;
->> +               }
->> +       } else if (!fa->has_masks) {
->> +               if (!old_ma.has_masks) {
->> +                       /* FS_IOC_FSSETXATTR / file_attr VER0 */
->> +                       fa->flags |=3D old_ma.flags & ~FS_COMMON_FL;
->> +               } else {
->> +                       err =3D fileattr_set_legacy_to_mask(fa, &old_ma)=
-;
->> +                       if (err)
->> +                               goto out;
->> +               }
->>         } else {
->> -               fa->flags |=3D old_ma.flags & ~FS_COMMON_FL;
->> +               /* file_attr VER1 */
->> +               if (old_ma.has_masks) {
->> +                       /*
->> +                        * Don't preserve non-common flags since filesys=
-tems
->> +                        * with masks only use xflags
->> +                        */
->> +               } else {
->> +                       /*
->> +                        * Filesystem doesn't support _mask API yet, swi=
-tch to
->> +                        * old rmw format.
->> +                        * PROJID is supported like the legacy masks, bu=
-t will
->> +                        * be stripped during conversion.
->> +                        */
->> +                       err =3D fileattr_set_mask_to_legacy(fa, &old_ma)=
-;
->> +                       if (err)
->> +                               goto out;
->> +               }
->
-> I stand behind my earlier comment - this is too much for open coding
-> here. I won't suggest a better factoring I am sure you will figure out
-> one by yourself. focus on readability and reviewability please.
+Unless Jernej still prefers dropping the node, v7 keeps mmc0 with the D1
+fallback and no-1-8-v on all three boards. The Port F switch can follow
+when it exists.
 
-Hmm, ok, I'll try.
-Can I keep the comments though? (changing them a little maybe)
-I think it's important to have them since we're dealing with bitwise
-operations and a not so easy to understand logic.
+Jernej, if your "emmc" meant SMHC2, I can also drop the unused mmc2
+node; no board enables it.
 
->>         }
->>
->>         err =3D fileattr_set_prepare(inode, &old_ma, fa);
->> @@ -390,7 +634,8 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char _=
-_user *, filename,
->>         BUILD_BUG_ON(sizeof(struct file_attr) < FILE_ATTR_SIZE_VER0);
->>         BUILD_BUG_ON(sizeof(struct file_attr) !=3D FILE_ATTR_SIZE_LATEST=
-);
->>
->> -       if ((at_flags & ~(AT_SYMLINK_NOFOLLOW | AT_EMPTY_PATH)) !=3D 0)
->> +       if ((at_flags &
->> +            ~(AT_SYMLINK_NOFOLLOW | AT_EMPTY_PATH | AT_FILE_ATTR_MASKS)=
-) !=3D 0)
->>                 return -EINVAL;
-...
->>  int copy_fsxattr_to_user(const struct file_kattr *fa, struct fsxattr __=
-user *ufa);
->> diff --git a/include/uapi/linux/fcntl.h b/include/uapi/linux/fcntl.h
->> index e43e3de3e9ee..a6ecca6f5e63 100644
->> --- a/include/uapi/linux/fcntl.h
->> +++ b/include/uapi/linux/fcntl.h
->> @@ -191,4 +191,10 @@ struct delegation {
->>  #define AT_EXECVE_CHECK                0x10000 /* Only perform a check =
-if execution
->>                                            would be allowed. */
->>
->> +/* Flags for file_getattr(2) / file_setattr(2). */
->> +#define AT_FILE_ATTR_MASKS     0x001   /* Advertise knowing and being a=
-ble to
->> +                                          handle the struct file_attr f=
-ields
->> +                                          fa_xflags_rw_mask and
->> +                                          fa_xflags_ro_mask */
->> +
->
-> I prefer AT_FILEATTR_
-> This is consistent with other AT_<SYSCALL> using a single word.
-> And there is no risk of misunderstanding what FILEATTR refers to.
-
-Ah ok, I used FILE_ATTR because all UAPI references to fileattr are
-with _: struct file_attr, file_([gs]et)attr.
-
->
->>  #endif /* _UAPI_LINUX_FCNTL_H */
->> diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
->> index a13c7b32a1bd..63d88ebe3420 100644
->> --- a/include/uapi/linux/fs.h
->> +++ b/include/uapi/linux/fs.h
->> @@ -238,10 +238,13 @@ struct file_attr {
->>         __u32 fa_nextents;      /* nextents field value (get)   */
->>         __u32 fa_projid;        /* project identifier (get/set) */
->>         __u32 fa_cowextsize;    /* CoW extsize field value (get/set) */
->> +       __u64 fa_xflags_rw_mask;/* supported writeable xflags (get) / fl=
-ags to set (set) */
->> +       __u64 fa_xflags_ro_mask;/* supported read-only xflags (get) */
->>  };
->>
->>  #define FILE_ATTR_SIZE_VER0 24
->> -#define FILE_ATTR_SIZE_LATEST FILE_ATTR_SIZE_VER0
->> +#define FILE_ATTR_SIZE_VER1 40
->> +#define FILE_ATTR_SIZE_LATEST FILE_ATTR_SIZE_VER1
->>
->
-> Man... we really need a bot to review all UAPI changes
-> Please someone tell the bot to check
-> NO LATEST/LAST/ALL constants in UAPI headers!!!
->
-> Your patch does not introduce this constant in UAPI but if we change
-> it we risk spreading different versions in installed headers.
-
-You mean someone having different versions of the header, each with a
-different FILE_ATTR_SIZE_LATEST?
-
-> Honestly I see no reason for FILE_ATTR_SIZE_VER* to be in UAPI
-> either. For other UAPIs those constants are not in the UAPI header:
->
-> ~/src/linux$ git grep SIZE_LATEST include/linux/
-> include/linux/fcntl.h:#define OPEN_HOW_SIZE_LATEST      OPEN_HOW_SIZE_VER=
-0
-> include/linux/seccomp.h:#define SECCOMP_NOTIFY_ADDFD_SIZE_LATEST
-> SECCOMP_NOTIFY_ADDFD_SIZE_VER0
-> include/linux/xattr.h:#define XATTR_ARGS_SIZE_LATEST    XATTR_ARGS_SIZE_V=
-ER0
->
-> So please move those contacts before adding/changing them
-> (can be in the same patch IMO).
-
-Should I move them to fs/linux/fileattr.h?
-If so, all of them or only VER1/LATEST? (since they're maybe used by
-some userspace program already (?))
-
-> This is a high level review.
-> I did not look at the details of the conversions and validations
-> Will do that for v3.
-
-No problem, there are already many issues to fix before looking at the
-actual implementation.
-
-Thanks,
-koraynilay
-
-> Thanks,
-> Amir.
-
-
-
---5a3f61e607b661bce23953d8b2acf29cca7bc4b24c3dca1ea3d419584a61
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCawnGpgAKCRDmj22qf5IG
-XJC+AQD6rT0x9Y4hNSrZsuWrnS6U/9AJpmN8qD+WhFPWqpdK6AEAvcMy7n9UkdCP
-E9IT921CF76ZCCOLHHb0fYGaVgrMHwg=
-=30Fr
------END PGP SIGNATURE-----
-
---5a3f61e607b661bce23953d8b2acf29cca7bc4b24c3dca1ea3d419584a61--
+Enzo
