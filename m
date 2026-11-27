@@ -1,47 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786285;
-	b=sASbrm2HbEt2uiDfZW0gFNhDXyWtl2Msp8NNxiTSWO6jlm9w3zYgW4jbDVttzfV0hAdS
-	 QTWAj/PEyTapksj2nYo63RMH50eCCTr67IoJlBHgUStASvY8mi6dCuygmINCXARYmxsmP
-	 98P3PhvAdQw4GVuRS/CQazJNgw+i754D/woENq3vGFNyWW0k1OzRADUG9Z1YMy+JR7P9i
-	 ANEKg/hzXuGmN6OFvMyUM5di5S4jc1BdZ2a5Puq8Ov+4xwVFi1QQwjlmV1lCJg7Lwy1Ld
-	 ssRKn7W74rKQXYKJ/xEt3/QSsrz5/yY3uOcH+T4OZxFgHEt8ktPxcGt7hRDOQYyKl2A==
+	t=1795786303;
+	b=mHyegOv3jNGrP38E9uj50l9EpSkfW+nlpvSP30XGi8lGcK5R/yfqoWJy141CV52ftrC7
+	 hqbWMRSIk9X3HRkn8Gkemadrl5isS/6zoofafsTUVRajc8f5eL6n4FpM7aA8lcg/YxCvQ
+	 fORHckBypsuVjrnKAhffOCPOwo6mNskAuCfT3DMRoxEqZXtSWZ5F/gK0HKRKrYWFXhweW
+	 a7PHwV2sBBJ/jpZ7ae+aSAAPklpk4suMqVuBXLlUBUkPJche+qP2D7pAa5IzMKXg1/U6P
+	 38FWrosHW9nTsuRbw50CbRWpOOjRRT+joQxId3bVJJSaFOfdTlZIysbMsu6BYzYBKgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786285;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=0z6sSTU/TdAcuzF7iA/kyixYbv3IzU2XlDp1SQnjzNQ=;
-	b=j0TT/0Rh4dch4/JI4e4UIgXzpHI4RPO+diqkDZODa16kWFX94fY0YrJpoRjPZHOUAXrd
-	 rlQaMZAp2Z4M7iTH/AhHeX1LWZFlQ0jlet5Vc8zP9L+Gj3QrjE78cWh0GOokZHeNPGvZk
-	 bnsYh4UONl8YKPPorLQd1ktpP0tJZHgYILOtuMwJvO5ZdD0uI9UEeYZD7GfnCgbyaTim6
-	 Mw5FjnON7QwB+iCz90omi82BXH5Fouq4UUz6SBjGE/uzSyvVMFj/JJvXf6tU3UMcVCHRc
-	 jsjxI4wPXDX8t1/qDgSA9lTW2y8iJBSmxoMraTht56mj0o1WaJT6f5/jHBT8VOISLEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786303;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=;
+	b=UfaXsBWDFbKjdbBOgwha113yOkf/ajTIpTpkFX62RY2cMg9yII/daUKqcg6NfFKbU2hi
+	 ZUV2rFzboWQlBwShavQyEg18jIt5Aqfw7syXy4rF2VkZU45lqRi+YfCgcLn0KnZGDuROe
+	 dJoLcm8bjmrN9B9+6Mt7Vdnmb1Py13bPFzodYtivtkAO/bMJsVxZMkrWh9KPBcjdg0hda
+	 3Md9osyCOLN3aFkxWDbMpc+AxFCifGeUw5wKBmU+I/1VPxtZSa/RRY4vFq41JKMwiuzVV
+	 zkdaCOznhpsa3CxrkdQg+mUg9Q3L2/z6UY5Cn/Mkg7dA7VBKJCUF4fnfGoRn5MrqN6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WDdSKGXy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=evH8njkL;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Klei1wBo;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5348C606A31F;
-	Fri, 27 Nov 2026 13:31:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54DA2606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54DA2606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WDdSKGXy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD0D51F00897;
-	Fri, 27 Nov 2026 13:31:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795786284;
-	bh=0z6sSTU/TdAcuzF7iA/kyixYbv3IzU2XlDp1SQnjzNQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WDdSKGXyUuZx9rzbH1QdVdWzt3KPhTCJSal9jfcn0PGNUuL0RA9MFTOTtlpbfx0Vd
-	 O500zjSpXoEgIjneIZ9K/JtzQ7ubAb8b/7eXV8+v42Qko3luodLBoLEA/xw00NIWnl
-	 KUFWRnHVScvRlE5I2CPlYlEWgjt0ZSddF+16jkLamDkim/nV1S+yODiKNU8P8cjFc+
-	 lbvXUQIi9umJd23ENeH4KYdp1eUsGOkMUvBGFeVeYKHIsQ3pzHHhCIgaKBAwsnRwiW
-	 /ue+A8m7rgdEGTxGJ9t9Y8DHPz+PLpiSE6FlK7JQ60EI3FVxuFLjWYuKsJzSNt5fYK
-	 9qMe+gWP1o6Bw==
-Message-ID: <9c524f3b-d27a-4360-aa56-d6ca4ac1a6ed@kernel.org>
-Date: Fri, 27 Nov 2026 14:31:12 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=evH8njkL;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Klei1wBo
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARChHOa3150649
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=; b=evH8njkL/TLzgNau
+	KHzfI8iNVD1HdH3UOaNX994fNRKQqHHPUQ13YPOoMUuxFpkUhGSvvMyY5Jq+529A
+	Xti2KksoHv3nDG9PnOnUSD1Oom3GwQAKqeddfQEzixm8vMW+W2AGScO6ZyG+aU0p
+	k8jAgFRbhtrd/8VD8l7Z7HltCT+CXaaSRD/p/DCTgSdZVvvUjr+2zLuZJR4T6r9k
+	umS3LHcbCJ683Z6woHLB4Yniy2cyWYLAHQi/rM42ucvj/n0PpHTYsf/OQ84y/XDG
+	BsxLKvh8ll29YwoQWnXVaMrLI8Ih1cmcmjChWGLO14VSkj4Rz2jQCCMXwja6sCCS
+	EJpcyw==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf93qs9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:31:42 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b55f4f3bb8so4844568c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:31:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795786302; x=1796391102; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=;
+        b=Klei1wBoKGZ8Ivh01hemdBW/PrNYRdfKTuraEU6fSvXSF4ZxipSQe2YuLmOb9Qlg7T
+         tmJPfohF5ntitehP6RJjIu1r/5x5C41G6Z3UbKWku+1LXZjDV6D7fszIRz7B29TLooAF
+         N+QAahCkUEdHmL3krzVELef6FxORJFXVIrubuOrTDoKs2qC6jrW1SZfnE37cwnuPuzSf
+         okJJPgAtd6QFr3ISPNQJlsXLEyXEEolR/l7Uegg55m7kkES02fZQ3f0aB0DkQ4tGpng9
+         ri2zW6Bc/7ddHRDceLOBCGn9TMjKOG3I8moEkgx3htN0FatpPYgRyfh5/fUcpuVhQIE9
+         gSSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795786302; x=1796391102;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fw8zVa2/GdShruq/BrQ7DJy4AOp9EJw924iesQ7tk+c=;
+        b=pgJfeqtYoIVxzWa61CeQX/U17eZs62NnOTbrx9B/HMKwIEt4dVsfPy1QHbYAhUTUgu
+         fbDQCC/KxvrIvlDgrRKAMNo4bJhGwgF8+fHtp0H5FV3cvbCDtJgC3eWmdkYivDC6x+gs
+         +xQXTDvuDfGQjS951aUeY6iNMcB4ngBJxxeKbUtQ3dg27d+OrGhtIQGkeCRGMnoZ7Xdu
+         vfhIB6AhaTQtaDGgLPM2wG0uNeGBjXlcocXZoUIPuCyCRPqhdR9uET2iehYDyMZJg5gm
+         5WBC4fc/YyJnuKWeW6i7INb3mazZuxRaXuNrQg6YGV6uwVY7EfGbz8EbONI9vzJ2u0HS
+         jJNg==
+X-Forwarded-Encrypted: i=1; AL+hErEM8ClERJDEFX/brWtplBmo1oX/MxpK52/oTaiTotQcX/75u9AomXmFIROMrL7f+jLrPzvBCb0V9jyIGZE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fa/2WCuqVjyr2jMF3kBYFLv6Yve2Lr+RukqdUDIk2Luhvksbf
+	IU0ZMaR8y86wR+u4m9LsQ+iUlNkjI24TcIoWwMO/PLUiqJKC1bM21B1ilUfNxuyX4AEuDLsyXqw
+	LoxOGQotQI/m/FjES93AySYFDIDWXG8gVfj5N4gt4OV5iIIdAYPVXVUYlfBQDvqtO+sU=
+X-Gm-Gg: AZFdTZcaM60HVsI3kjwd7tLvKNQPXc8acNKNy58HD5EsUH2/DMeg0NpoIn2pA9MFqxC
+	wmLedlrtJd8r4pXbi47LR9PV8wd7JCy1Mue1whnsxh1ohqi6ixnBmaUqJiFgft49dyMDQDU7hlj
+	0Q0L3S3oqdAtvoK1sQDQXVuoppP00mJKsDVM+zItQ1AQodqwkw5YZZ1+wOlmcubck1HcG/ZeT9e
+	KP0d7BCVeO8ihszuGRkQTke9jFmay23Pd3wxfPCtX6wWhvqqv7ImZV9d/oa2w+SwaOWUVl5bwhL
+	CTpNPC5c8D/DFpWN4jAatqTv5nFbE6dgfMlWJ0i+Yu4cyLugQ50QB0MtElgkIaoBglcRFAA+b2b
+	+J8fGLYku1VHOaJ/CCSYS5hKUULrI9RQUJPDuUmULKbay5uKZS9TQ3UOCzgRGfxIQlSARezcVhg
+	lRQ1vfCA==
+X-Received: by 2002:a05:7022:e981:b0:1b4:caae:3324 with SMTP id a92af1059eb24-1b5568ac1d5mr30974316c88.21.1795786301670;
+        Fri, 27 Nov 2026 05:31:41 -0800 (PST)
+X-Received: by 2002:a05:7022:e981:b0:1b4:caae:3324 with SMTP id a92af1059eb24-1b5568ac1d5mr30974289c88.21.1795786301163;
+        Fri, 27 Nov 2026 05:31:41 -0800 (PST)
+Received: from [10.206.111.23] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm43708473eec.18.2026.11.27.05.31.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 05:31:40 -0800 (PST)
+Message-ID: <c1a5a27d-5b59-41f9-976e-68a7961e9936@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 19:01:33 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,119 +117,75 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
-To: Pedro Falcato <pfalcato@suse.de>, Tal Zussman <tz2294@columbia.edu>
-Cc: Christoph Hellwig <hch@infradead.org>, Miklos Szeredi
- <miklos@szeredi.hu>, fuse-devel@lists.linux.dev,
- John Hubbard <jhubbard@nvidia.com>, Jan Kara <jack@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Peter Xu <peterx@redhat.com>,
- Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org,
- linux-nfs@vger.kernel.org, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>,
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>,
- Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
- <4f096d70-6f94-4148-8f47-242b8551e5f9@nvidia.com>
- <awWNyDZT2SVu2Zp9@pedro-suse.tail5790ac.ts.net>
- <55114986-0ba1-4a80-8498-bf674d64e01b@kernel.org>
- <away88BuU8ibcTA5@infradead.org>
- <d088452f-1118-4a06-bc16-1942e523e0fc@kernel.org>
- <20261126022418.3620783-1-tz2294@columbia.edu>
- <50045fa1-0b46-402f-baf0-a08d05282410@kernel.org>
- <awmE8VSlF2VTHLGu@pedro-suse.tail5790ac.ts.net>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v2 2/5] media: iris: allow larger capture buffer pools on
+ HFI gen2
+To: Xilin Wu <sophon@radxa.com>,
+        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Bryan O'Donoghue <bod@kernel.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>, dragon@radxa.com,
+        Chris Obbard <chris.obbard@oss.qualcomm.com>,
+        Deepak Sikri <sikrid@qti.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Loic Minier <loic.minier@oss.qualcomm.com>,
+        Jason Pettit <jason.pettit@oss.qualcomm.com>
+References: <20261127-iris-va-fixes-v2-0-385e8636c22d@radxa.com>
+ <20261127-iris-va-fixes-v2-2-385e8636c22d@radxa.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <awmE8VSlF2VTHLGu@pedro-suse.tail5790ac.ts.net>
-Content-Type: text/plain; charset=UTF-8
+From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+In-Reply-To: <20261127-iris-va-fixes-v2-2-385e8636c22d@radxa.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: M2ks2vncPMiOJnUJ5LIbbBe8ehgI5Y8S
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MyBTYWx0ZWRfXxCo92fvgT2O3
+ lwfsyd2jJO6mmmiFuHHLBCq4EJMeuC7iWodhexvlUMjVJzkCdAmfDRjyREDAdPJZP0n+XxoRTZD
+ 1t3I+s1ZVaAh116zVipYAZVrWkMV+58cdzxJUhl/rS7E6WeYPkyLEY3GI9sCJtHYyAKUatPeLi4
+ mXuovXWlaASMddfqMR3pqmuwsdraiB+kRvtoG8rMgPWze2z30DklIjC7PEDVn4tprcCeZD1I8qB
+ vRM9sW6IGu7Kbif0pdT6+g1GSpsmYr16KjKmjGwronePYcxzSZjLuE5BApNukAPnjygn3omFhXs
+ isMktJLLHQWmgIKe9VqnDRWF6Ql7yuAfBgMaOXthLfeOabJ3rpTXgt6QhKNQ7tiyAvPB55s9aIl
+ isMTy1iD5QlmEMZABhOrmYDtzNphMpR/aGvO/dfEQKr24mOe549yhsxoy19tnH0AE5yqrJN1q/+
+ 991QRWG2WM4sKYKzUwA==
+X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b09863e cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=ksxQWNrZAAAA:8 a=EUspDBNiAAAA:8 a=jXj6vGqe9ollWG7NQzIA:9 a=QEXdDO2ut3YA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22 a=l7WU34MJF0Z5EO9KEJC3:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MyBTYWx0ZWRfX8utdsEjpAfJV
+ 44ufqXH242OCi8vTzjVzKbUxhJw6bp2OdzuNSwyTtN1dO/xBkoILguBED/yAbyB9H+4hN4/6sDe
+ lmUSrNEbycITlYjwYa0B3ykm5zvtYJA=
+X-Proofpoint-GUID: M2ks2vncPMiOJnUJ5LIbbBe8ehgI5Y8S
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-27_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270053
 
-On 11/27/26 14:30, Pedro Falcato wrote:
-> On Thu, Nov 26, 2026 at 07:43:37AM +0100, David Hildenbrand (Arm) wrote:
->> On 11/26/26 03:24, Tal Zussman wrote:
->>> +CC Miklos
->>>
->>>
->>> Coincidentally, I sent out a patch to convert fuse_copy_fill() to use
->>> iov_iter_extract_pages() a few days ago in order to remove its usage of
->>> set_page_dirty_lock() and address a different race. I think it should
->>> address the fuse side of this issue as well.
->>>
->>> https://lore.kernel.org/all/20261120-fuse-copy-fill-pin-v1-1-72a0d888f140@columbia.edu/
-> 
-> Awesome!
-> 
->>
->> Oh, nice! I was assuming the usual "we use put_page() on some random hidden path
->> or core code" would make that harder.
-> 
-> Right.
-> 
->> I recall that's the reason why vmsplice
->> still uses FOLL_GET years after we discussed that it should be using
->> FOLL_PIN|FOLL_LONGTERM.
-> 
-> You almost gave me a heart attack, before I remembered these vmspliced pages
-> aren't writable :) That's a battle for another day!
 
-Haha, sorry :)
+On 11/27/2026 5:10 PM, Xilin Wu wrote:
+> vb2 limits a queue to 32 buffers unless the driver sets
+> max_num_buffers. Clients with deep decode pipelines, such as VLC with
+> frame threading, can need more CAPTURE buffers than that.
+> 
+> HFI gen2 firmware takes the number of host buffers for each port
+> through HFI_PROP_BUFFER_HOST_MAX_COUNT. The encoder caps set it for
+> both ports, while the decoder caps only set it for the bitstream port.
+> 
+> Add OUTPUT_BUF_HOST_MAX_COUNT to the HFI gen2 decoder caps, and size
+> the CAPTURE queue from that capability when the platform provides it.
+> Platforms without it, such as HFI gen1, keep the vb2 default.
+> 
+> Signed-off-by: Xilin Wu<sophon@radxa.com>
+> ---
+>   drivers/media/platform/qcom/iris/iris_hfi_gen2.c | 30 ++++++++++++++++++++++++
+>   drivers/media/platform/qcom/iris/iris_vidc.c     |  8 +++++++
+>   2 files changed, 38 insertions(+)
 
--- 
-Cheers,
-
-David
+Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
