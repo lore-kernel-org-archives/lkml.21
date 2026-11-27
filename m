@@ -1,85 +1,85 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795737630;
-	b=MlzQR63Ki27H7qmzjQpQipteZ3rS4Heelsgoijmy2o1Sx7gVykKlmctzcNV4oEhpEQ0y
-	 ojrDxFYtDSuhmAPLzFxXclaW2EbaRelnrU62winv/MvTQHuw65/qxoRBDQR9hXae0JuWN
-	 320GnFVtqLR4xpUn0N0rxjDmytLfDw6JDo1jzwL+Rz6EkPqq2JvGUR/en+6zCkLVQL5uV
-	 BvbGre33NfuaXl01xw6dq8+FZFKQJ3BRpWM5zDzJgz+sIN6/4RvmieEWc0E/8cO4CCca5
-	 ADQMrXc3j2I5iMohFymWibpNAuOEJ7cLKEog2EYN26klC1nsXFMrawMCTiYxH3M3kcg==
+	t=1795737637;
+	b=0tCndZ/1R4vSGxt8tXX4l8p7c12cVu0vNGZrfiUHtsFrh/WcvGLI96/FjpWORybufoED
+	 ZwPeN+10F1iAm5JQbrb1f+cvmkbprl090uxOB7QY+7CG0K/7Tmtk9qaU4DIDv4+aUN+F0
+	 FpIsPq4KYz1GhC7IXRiHgbI+W0G/9QjuvMKBPhyKMRKqrpP+UktxKIGWmUKdSGodHqLAd
+	 1zlIHy3HtSZQXMGx239BzZNFLtinJUotWbyivry9EYokDDiyZAXbUvLIoxFF4tJaqpiXL
+	 f3KSIuzY3WSMXAcqhDVRHX88iUqpO1Oiy+9aInk71CmrGJJmbAfYc9bd0l25BzPeDeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795737630;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795737637;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=BeaediEPiyvNCVsEZncQlv8H37LBayA0CIHeGsXXEqs=;
-	b=1vE7dz8Hht0Y+LvojsgX9c+1q0f+WTID+HS7ifr5RoHqWlblY2bp0BR1fupNSq2kzNRY
-	 yjKfbYHcKgtZgI341+dvE8MGApTGPxCbtv6PuZt9w5Sg8eIHjCxiFJ+JJCKi2XGu0w2ID
-	 T2u1COgaQD5AmKGQn853zulpdkxVfL+761wJmnsb7rzz1keJe6RFeAMu6vIR+8qFu9dlL
-	 a8Uilai/DDv+1nbsziaSrGQ1AjIXPSEqBNPvCs4dOk2ieBMBPEfPg3limXRxtud12As5R
-	 V3uqEQbH1c9o4/9Rf42bZ3siRiRFB+YT2dbfDiA8TiWp0tO1YK/w+FhUxOLxogeAW2Q==
+	bh=bI5wgKSxHmXVhcmMGt1XWUXhGqSxXd41m+lLl/fjbr4=;
+	b=NGd0pC5NH8MqJ+DPXMgpUv3QvKShXcP4X+BsiVgSK0jPcwB5L3PwXw/xwX2Yfa/C8bXs
+	 36F2BUKq0OWgdfz3IP34XGK+YPeVnidOwIy86kzrinHvgf0EldiBXhcEataM4ygE3tA+r
+	 z1EgRS60hQhcLqZbN7BEHQsxSV2/IFsdF4Li0yeEmPUFjWD6krrQo8o6VFt6xjxHSWjoE
+	 tykE6PdrXSod5nLXy5TO3ADZNcfe7Vgrfqp4e2KfbNEYgPE3jBnPeAQUvDb9KsAWHivKB
+	 M2HdhNztmAXGCJNqgUIlaKOX8xMNltm/Uiazv82Eqcl/3D1BYM6TuDhlJ/4i4BP4DWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieiPBByc;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QHUw1TNk;
 	arc=none smtp.remote-ip=209.85.221.53
 Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BFBC606A685
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:00:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BFBC606A685
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6321606A334
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:00:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6321606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieiPBByc
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-490f38e9688so5242245f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:00:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QHUw1TNk
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so6909445f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:00:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795737628; x=1796342428; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795737635; x=1796342435; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BeaediEPiyvNCVsEZncQlv8H37LBayA0CIHeGsXXEqs=;
-        b=ieiPBBycSaIialON0r3egXgkOds8V+lp3Rx2UO+1Y0rc9nyNj3E8dmAyRMl2/P9BD+
-         PFavVZZmNjPcy7UAGi2wzMcobZ2cJAlGDv6z2NcQ2h/93ltnk/WP52gnS4fQqtwyBm51
-         JqSI9cstk3F74SB1inEcLmKqWtQ5P3Pynl7ma6L4ZLchz00VchONifCfcSvxYRGEuDVt
-         MTYR2mBKPkbYTv3mB1WR8QnfVdLFNnmSdLxkcK9nDw/rVstI0vvaFQlTTXWkrTlfl1T4
-         NXGMmYwxxS2+y2mrp9fs6RC0GPtI4QyfsZGg4gMlis+dVpm+L+R/pcwBgk4EGuKQ3HbA
-         82Ig==
+        bh=bI5wgKSxHmXVhcmMGt1XWUXhGqSxXd41m+lLl/fjbr4=;
+        b=QHUw1TNkXmTEOzQX8Nylpr11eeDYM5iLjNsukKHMgqk9V42oWhGyTLN+7wxZwRyM/w
+         3csjlbjRDgpgcdzNVGtjc6xfg7iGxplIXyqnVoDNO9456MxYBoXS+Ek22/v6q7/8VJHA
+         GzFR9sPBhg5pU+0egnAVpxipNLbXkj26Ol0V2GILslRJB+Gt3vIW4ckBRQW47yHxb1Bx
+         39SWXFGql0DWFd+CppzSC7mg92CTrdd6fyQeBO8+a4A5A8pyokNg4D6Ng+JdFVzRiRbG
+         BOOQl6M9H2JKfoQdZwiFMygnid5IGGZtPxuVlaeXlU5lm91lKTF88Ox3ZGXvxg1KAaLg
+         Qocg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795737628; x=1796342428;
+        d=1e100.net; s=20260707; t=1795737635; x=1796342435;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=BeaediEPiyvNCVsEZncQlv8H37LBayA0CIHeGsXXEqs=;
-        b=ELkb83+7FfnlaksvKji0Njz/ltkGW6z8pbT0wEZSzph1ZwRIAIlx2o2Ouxx7SdlFn9
-         uRgcFAtEm/Bh7WfEWXY6bbugZGEWUGtdYleI7wjHDPLfiF4IJyWekqrSekD9HddwhNdk
-         c0nT17JIrRhpzcJG8smz+qxwLSI/q4mage2weTb8RMeyz1D4gtDfZ0oemThgbkpadm2h
-         UVogCqWNbxdVq7Bt2Mb3sEgyoLTz1bw9MMNkiTREAHBP5EQbFp95VwJLIfhH/CN6/tEF
-         MZ8qy9wQNwn+qWCQHiC6ZabOAGmXB7gtCOZhotT/X9sNRcmQFpeuseeXhHCO5Glic4a2
-         v8og==
-X-Forwarded-Encrypted: i=1; AL+hErEgAgr+5sNdLI0ppyvfb4rvpyOxCgbQg3eUBf+08M5Yk79NVq32NXHMPMqSdf/CLmCZ1KhrnVpvus2Ccjg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QP0apbikrU2zjDOtnuYY53cu4CXKDTE7XU07wbtE4wqxRC2vx
-	ijhs82zK2AGxsMmAfnFUr/2qdcelr5FcjvNfggNwcoNNwSTIdqWtLK8D
-X-Gm-Gg: AZFdTZefQf6VFb5fLueG+HckdZSOl0pCw8sKOsKtxwZP4wNLhdcvGI4WBxAaqACq3zB
-	y0OTq6b8k1Mbz2XyN+m5Uhqpl4uHr6EtajU3AgAAdbga2jF0FIrmpyZiFSz0B+JiAFaFjqEqU6x
-	8aSQY7Cij8HE1eJ8cz/eqyTwzuC3X9udHNGz89agTuyih22c8oftNX9EsTzgbo0Q2nPFtjnbw16
-	0ATCU6jDZJ+RJhBVQXiDsObo9/4rw96qE5sOuahTUSXYeAGx2SCjfgO7jhVlaNf67xqfTA3EaZd
-	ssP2wfJR497ti1dD5z4zxP0T8SnNVjq/s0bmDIRXc8gnukoLv4jigbedpFR+IlXJ/NOZQLUWi+V
-	BSF0lRBIS2DO07Cu/AhqqABuPzolUVXpQK+Xy80GHoHz2tLPciGgPaDlgJoUaKLnQn7gTIA2WPP
-	7RP6wjm+BPv8D8RcO3JGM1rxYibT07Un4xyraCCDkVweuySZDTx3hx50ZW9HaiVGS/8PX77it33
-	yQ61OH6ww4YCmzcXP2P+tsvY0+U4UCHLtANZgIEx0UaETe80IP0Z3orqT8PPfjNVPKn648bVGuZ
-	ingMLjUlvuej8Sa+CYf/ofSy4aPoI5NF+bjawp0lnjbhJGAtqZfnfuFjtjbASx8voaSs+PYlO1g
-	xKKxkISA/Fl4q5TuntA==
-X-Received: by 2002:adf:e00e:0:10b0:4bb:c87d:62bd with SMTP id ffacd0b85a97d-4bbc87d6304mr6603804f8f.23.1795737628291;
-        Thu, 26 Nov 2026 16:00:28 -0800 (PST)
+        bh=bI5wgKSxHmXVhcmMGt1XWUXhGqSxXd41m+lLl/fjbr4=;
+        b=wtu5lFoecY2x2dbzMZoeBJB9riXjvX+c3xwht3D7Eo0eHZ39LLsn3XEioONKEP8zhC
+         mBeUPAdmUEp4q8TF3TMqd/nEaVOfYrAIYsSiGzT8ZQMQoUgZnsrapTVmajjnirpqiGwB
+         mQRGnRprj2Cc3eNUTNa+fjNE4zYvftQctl6NU6j79HW4pW1CIcTDCSwwmss90q/wV3Py
+         6SqLJe9FagJkDx+jKqrjQ+PGQiCFkFwSXxOvJcclftDpPrUvFmpEECC73pnke+7RUryi
+         1iiLFpdqTWLK7wgpFZcFAIDBCpE+paHVI6XA+Lu6S24YsuQxD32VU9f+yubI96BRrYZS
+         7mEw==
+X-Forwarded-Encrypted: i=1; AL+hErH6dywOzBE2TZj7L10sjbO1myNTWIq+HCgljwTxgWM6qcarE632ExrfzlfuC6Qxerb6ARLqwhjArLQl0hE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9C2uWS5Ll6LP9oYSkji5spo9EwkYG6/boivMQkLjDyYeCQ5gvi
+	hPFqgA8YL9xztMHJYHeOkBQn+EhAmdwlt5zcYLzdPjzQdo+dlZRKRo+E
+X-Gm-Gg: AZFdTZd5o/F5fAVVxn2GP5UiKesnIqvBTSvVXo3g64/iMTbkg3w5aEQA8dCh1wHJ1+t
+	BXvtHElBbuFBX5CQcd7ggF+utZB8dJGLXQ1DPZ3+rSvDudQAlqyUDk2lqbGJkVwUqICMIQM7ppd
+	Z0UoI4yj1OO5Fj4Wv6iA7QavclGz/FX9UA/LwqEtSuK3qvvQijjXiUTlrXE2v/w7lwDYsvbTc4k
+	vpp14k9YqmN6AZZrb8XKWmU2wpTXf6ivv3WCVYb0zH1Yk/DcfVFGumQvzEN3NcT8ggw/2l53IKA
+	gK6aIr8g789EOx6l9wfKsFHqJX9T4S9364AcTWvqOKf16Je79gYpMMlXovzt3Fi95Ts5LfsKWvt
+	++2gMy8O1XEWhHW3p0NXq7lVeZT1TdilnIzCL/VN7xJQjslU686bX+PJz6kHVMeKfGDkaWmk4HP
+	hTKou+nnQ7Il9TuCzrCQBiEeT3YpgFeX3EvG9r0Hxm5eD8zu0tV1SmkeSoDgWI5hbnG3Oqphz6A
+	6oOP1JzpfjYfQUuIb3L+Ypernidhb/zY/AfF9k5MTeh3BtS6KAwfnqQOAHOejvJFFCmawODJ0VX
+	FZVt3X1tsI89PxcYKpQAQFR86JVhMR+4MR7OMsgpzjdNObFBd7u081tT4S/MYaCrmg67vRD1X8X
+	xsX6oEoB2HILa5LyoDQ==
+X-Received: by 2002:a05:6000:4b15:b0:48d:df08:307c with SMTP id ffacd0b85a97d-4abb8ac0d92mr39000455f8f.44.1795737635110;
+        Thu, 26 Nov 2026 16:00:35 -0800 (PST)
 Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm45536616f8f.29.2026.11.26.16.00.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm45536616f8f.29.2026.11.26.16.00.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 16:00:27 -0800 (PST)
+        Thu, 26 Nov 2026 16:00:34 -0800 (PST)
 Sender: Julian Braha <julian.braha@gmail.com>
 From: Julian Braha <julianbraha@gmail.com>
 To: nathan@kernel.org,
@@ -101,9 +101,9 @@ Cc: samitolvanen@google.com,
 	linux-kbuild@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Julian Braha <julianbraha@gmail.com>
-Subject: [PATCH 2/5] scripts: restore support for 64-bit pointers in host hash functions
-Date: Fri, 27 Nov 2026 00:00:12 +0000
-Message-ID: <20261127000015.3662267-3-julianbraha@gmail.com>
+Subject: [PATCH 5/5] kconfig: replace XOR with addition for expr_lookup() key generation
+Date: Fri, 27 Nov 2026 00:00:15 +0000
+Message-ID: <20261127000015.3662267-6-julianbraha@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261127000015.3662267-1-julianbraha@gmail.com>
 References: <20261127000015.3662267-1-julianbraha@gmail.com>
@@ -118,59 +118,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This partially reverts commit f93d6bfbd2f7 ("kconfig: use hash table to
-reuse expressions").
+As Linus noted when reporting the 'make oldconfig' performance issue [1],
+XOR of the hash_ptr() values will clear the shared bits, increasing hash
+table collisions when l == r. In Kconfig, this happens when two sides of
+an expression are equal, for example 'range 1 1' in fs/erofs/Kconfig.
 
-When the kernel's hash headers were copied over for host usage, hash_ptr()
-was also simplified to remove the bit count parameter, with only the "fast
-32bit" path in use.
+Let's replace the XOR usage with addition, as Linus suggested.
 
-With the bit count parameter restored, let's restore support for passing a
-64-bit pointer to hash_ptr(), rather than truncating to 32 bits.
-
-Like other headers in tools/, use __SIZEOF_LONG__ to check the host word
-size, as opposed to the in-kernel BITS_PER_LONG.
-
+Link: https://lore.kernel.org/all/CAHk-=wi_GuySe0L-uCAM2+nScCLYGBp5BLi6UUPR1gALmNM_3w@mail.gmail.com/ [1]
+Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
 Signed-off-by: Julian Braha <julianbraha@gmail.com>
 ---
- scripts/include/hash.h | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ scripts/kconfig/expr.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/scripts/include/hash.h b/scripts/include/hash.h
-index ae0d3fc8d470..08e901b8a43d 100644
---- a/scripts/include/hash.h
-+++ b/scripts/include/hash.h
-@@ -12,17 +12,29 @@ static inline unsigned int hash_str(const char *s)
- 	return hash;
- }
+diff --git a/scripts/kconfig/expr.c b/scripts/kconfig/expr.c
+index 8dc73acb08ad..e30554807d12 100644
+--- a/scripts/kconfig/expr.c
++++ b/scripts/kconfig/expr.c
+@@ -35,7 +35,7 @@ static struct expr *expr_lookup(enum expr_type type, void *l, void *r)
+ 	struct expr *e;
+ 	int hash;
  
-+#if __SIZEOF_LONG__ == 4
-+#define hash_long(val, bits) hash_32(val, bits)
-+#else
-+#define hash_long(val, bits) hash_64(val, bits)
-+#endif
-+
- /* simplified version of functions from include/linux/hash.h */
- #define GOLDEN_RATIO_32 0x61C88647
-+#define GOLDEN_RATIO_64 0x61C8864680B583EBull
+-	hash = hash_32((unsigned int)type ^ hash_ptr(l, 32) ^ hash_ptr(r, 32), 32);
++	hash = hash_32((unsigned int)type + hash_ptr(l, 32) + hash_ptr(r, 32), 32);
  
- static inline unsigned int hash_32(unsigned int val, unsigned int bits)
- {
- 	return bits ? (val * GOLDEN_RATIO_32) >> (32 - bits) : 0;
- }
- 
-+static inline unsigned int hash_64(unsigned long long val, unsigned int bits)
-+{
-+	return bits ? (val * GOLDEN_RATIO_64) >> (64 - bits) : 0;
-+}
-+
- static inline unsigned int hash_ptr(const void *ptr, unsigned int bits)
- {
--	return hash_32((unsigned int)(unsigned long)ptr, bits);
-+	return hash_long((unsigned long)ptr, bits);
- }
- 
- #endif /* HASH_H */
+ 	hash_for_each_possible(expr_hashtable, e, node, hash) {
+ 		if (e->type == type && e->left._initdata == l &&
 -- 
 2.56.0
 
