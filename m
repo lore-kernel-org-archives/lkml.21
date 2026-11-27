@@ -1,50 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795787334;
-	b=5KjtubCFV33ySBsMKmH9Uqybvs9I+bAvAluyVmQg1f/Zy6xYjZNu4ayfMFzeIxCS5vAJ
-	 QTPap4i6mqoK0s7/36H/AZVjOgD//Tqx5hnjii1uZ+Dys1t42ThQzf2kGbjEtcplYFSTr
-	 8cdwzqUpAseL7aWCWoJjUyCq9/g2DowOntYz5SVSFopbpbO0x3O37eYGiNyFHDQGk0EFw
-	 XGBD3opwUQsqeXzJ5BtfX6fXlqqiCeVTEFfxHybXZQSlt1wKWnjcf9DiZZmx/ruOZeua6
-	 wtg7xVbJEIiRUwQ2nbPh55oEMQ7N/6cipZ3Qb8HUcwSBVxgwVgsSaBP8IH6pylOThxQ==
+	b=pUg5Xi/PVbQVr4XgS/gqbsj+jvtjcvIq+6bGEi2REBn3HIeBIBVJLaIwFa/awZX9QlUc
+	 +HTQB+ddVO5ucdwAlYQRjUiv4Px0WLJb8VfYKWbLPgGio3fPSNTwTaO7M8VhWL5Tl1J3M
+	 jALmvZIS6/ddZJVwPolGZOs79Ffz4i4NMgzRSCVa01maqdjBrTXnkKQDSQ71Y65ILGdLx
+	 q7WrqRv/cqHOuPqbKZHsFxRFfqfuyfl/cRWpRpDcHqkEUSghcQ4ax3nWFcJVurvz2xBOa
+	 8c7tW2Yo4gI+Hzw7BJmlc8qia1pilUhRS7QMUd5ZahdoYHNZSE8XcSGj+cByVT4lzKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795787334;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=chWFFd+vD0y9/nhQZ34fFbbmxFzOzG9ZqIiZq4Y9r7s=;
-	b=VGh8vB+IOGJ/OzShBqT28lHeQy5oRGMnIaESo78JNl6Vxy5I/7GGKyMhM0aNNsJrjTo5
-	 b4NcviUEAmm/U+VjXQ6hL9zGspiUIc8Pw2i6s9gZLSjL4Ayp0SX+ncbuHGS3HGcQZDj38
-	 e+WpsmLfKIYfm6uFnhlM6N6Q8zJjAldKykgOO/2c/MjtZf9SKl0EAxpLPB7g1iQi4J1Qs
-	 oPBDsWY4fj/Tz7JrVJgcWvhZFc6zb0ytgvISCZ/KOX5h142nCe3DkNQacyl0ZC7K7oRvF
-	 rs4srszmy5uTyu26st2h+oCKqGZdq+xw2RvtM9K9m1ST82TI2TpCSBmhRpgddOt12Eg==
+	bh=qzIOS4pabhM2WpxHXsERXfIb8DwXiiYzW+Mp1StwL9I=;
+	b=02sAFEbiiqght4kYZBtBixSKrDIXkhWzH6Zw/0nvcxW3cgGxwMuc2Wu1Sm+Zyi1ApNSL
+	 3cKbzrf9k9DqQRwqqgIg5tx9lQEGxTwEf0y4l4dSzvDS0VrrENJeKJ2IrP/mSmrjZyO80
+	 IPx1M06zboqcXEiwicXNQt/OYIRYC1zWKdpG9c9H46jeppGo+/kwDNXUH5IQA7Azjryy0
+	 wH1+Wz92FpT1UlR9Eeo08fAR8VMUTzYgevT6K8UijL+WvtE8MTx0zWeE7t5gzVNNNCvX7
+	 mWwJIECNaDrP0QoNgXc5gLbc7kV7JEBYwSIj3sBRGOhDjUdW4M1rQQi6WDX5h1VBaDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=ga7hLuHl;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=YxpMIhgf;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75E37606A692
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75E4B606A693
 	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:48:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75E37606A692
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75E4B606A693
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=ga7hLuHl
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=YxpMIhgf
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
 	s=smtpout1; t=1795787327;
-	bh=chWFFd+vD0y9/nhQZ34fFbbmxFzOzG9ZqIiZq4Y9r7s=;
+	bh=qzIOS4pabhM2WpxHXsERXfIb8DwXiiYzW+Mp1StwL9I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ga7hLuHl9hsckytxeCy/RcQeH7IXkB28Qvk7B3aAjfcpMrcF0qNmr8rYu8tJJwhQH
-	 d3hkgyNrIcL+2/Os7QxaX6h2gHh1gEfnhWjchObysyu8yIdjgJaS0ou305cLoeG/AP
-	 gkKGQt/ZAoZpsJ24XIcLbkFCcopaPyJEWJagIQYfunQztgaMoMjb38bQDznWASooiN
-	 VXUqPMeKzwEjsssTwrq8bw+i544v5iZNZFBCvKy/GYX1kpG/dfi2zI1cVjENKam8H8
-	 AZ3R9OJdB4J+b6pJ02y8HjCHKvUnnrpXVRfURbIR7/LIKS4cD44amS2P4E6rVXii6a
-	 a5wmEMG0PoVEQ==
+	b=YxpMIhgf66tUp7B/033wbHsUdWWe1ixTwqe1NvAhwM32m9+EmXSFwV3SwmBZL+unI
+	 ZgcjRVoq37p3hP1mP4xWCINB+sbWGOANv0wvecBp20JlV19oieYIS0SSJJcsDFBu9p
+	 o7AxXEzezv9HWszB4fldfYN6Spfai8lUcBPYH9uv/rbsTSM2xZdEPEwNk0bnHpyDGg
+	 Mlnd0u7UGvR3wwgZtTn38jSVjCf8hxDQ8ueDDrKqtWiKZk/lsRRzknODWhsU5PSQB8
+	 UknkOpBvJp7BO5KhrprwysH8iKp6fYblPQjJgGyNzg182nbxfsn9hE/eYtBUcptOs9
+	 OAaoBIQoEjsJw==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbZWg45R0zXPC;
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbZWg2MxWzXSC;
 	Fri, 27 Nov 2026 08:48:47 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: sashiko-reviews@lists.linux.dev
@@ -53,12 +53,12 @@ Cc: linux-rt-devel@lists.linux.dev,
 	hannes@cmpxchg.org,
 	mkoutny@suse.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 37/43] sched/deadline: Keep the debt of a task across a change of parameters
-Date: Fri, 27 Nov 2026 08:48:40 -0500
-Message-ID: <20261127134846.114774-12-mathieu.desnoyers@efficios.com>
+Subject: Re: [PATCH v11 32/43] sched/deadline: Start a period for a task requeued onto an rt_mutex
+Date: Fri, 27 Nov 2026 08:48:38 -0500
+Message-ID: <20261127134846.114774-10-mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <sashiko-outbox-234632@kernel.org>
-References: <33e066447added164bbf6c39e0e4de022d7ecc7e.1795646914.git.mathieu.desnoyers@efficios.com> <sashiko-outbox-234632@kernel.org>
+In-Reply-To: <sashiko-outbox-234598@kernel.org>
+References: <ea269b2ab986ea98f5df5ace2a80c4b4d9d7e55f.1795646914.git.mathieu.desnoyers@efficios.com> <sashiko-outbox-234598@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,69 +70,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-> Should dl_in_constrained_gap() check that dl_se->deadline is non-zero
-> first, as dl_proxy_block() does?
+> Can releasing task->pi_lock here before task->pi_blocked_on is set race
+> with sched_setattr() or PI boosting on another CPU?
 
-Yes, in the first dl_period after boot. v12 will test for a deadline of
-0 in dl_in_constrained_gap().
+Yes. v12 will also call dl_proxy_block() in task_blocks_on_rt_mutex(),
+under the pi_lock of the task, for a task that is not current.
 
-> Does dl_drop_boost_out() fit the period with different rules from the
-> ones switched_from_dl() just used to arm inactive_timer?
+> Does the uncontended FUTEX_CMP_REQUEUE_PI fast path in
+> futex_proxy_trylock_atomic() also need to call dl_proxy_block() on the
+> new owner?
 
-Yes. In v12, dl_drop_boost_out() will call dl_setattr_place() with run
-= false, as dl_zerolag_period() does. Out of the class, the task does
-not go on in its job, and is not throttled. The inactive timer and the
-period then agree.
+No. From patch 38 on, dl_waiter_boosts() decides the boost. Until the
+new owner wakes up, it compares the waiter with now + dl_deadline if
+the owner's deadline is 0 or has passed. That is the deadline the
+owner's wakeup gives it. What remains is an owner whose deadline is
+ahead, but whose runtime would overflow it at the wakeup. It can miss
+a boost, as on v7.4-rc2.
 
-> When a throttled constrained-deadline task leaves SCHED_DEADLINE, can
-> replenishing it here in dl_task_timer() cause inactive_task_timer() to
-> hold its bandwidth for an extra period?
+> When a boosted sleeping task has dl_se->deadline == 0 and
+> dl_se->dl_runtime > 0, does replenish_dl_new_period() here record
+> own_deadline = 0 via dl_note_donor_refill()?
 
-Yes, and it errs on the safe side: see my reply on patch 26.
+Yes, as on patch 28. dl_end_held_boost() puts that deadline of 0 back
+only in the first dl_period after boot. Later, it starts a period of
+the task's own instead. In v12, dl_note_donor_refill() will hold no
+boost for a deadline of 0: see my reply on patch 28.
 
-> Does testing (flags & ENQUEUE_CLASS) here run update_dl_entity() on a
-> period that dl_setattr_period() has already fitted?
+> Should the boosted branch in dl_proxy_block() also check
+> dl_entity_overflow(dl_se, rq_clock(rq)) as update_dl_entity() does?
 
-It can, but the debt lost is below about 2us. dl_entity_overflow()
-truncates each factor to a multiple of 1024ns. A false overflow needs
-a debt smaller than that error. v12 will leave it as it is.
-
-> What happens if a sleeping task with a new constrained deadline wakes up
-> before *deadline?
-
-It is enqueued unthrottled with no runtime, and runs until the next
-tick. The comment above dl_setattr_place() says that its wakeup
-throttles it: that is wrong in v11. In v12, the enqueue will throttle
-such a task until its next period (see my reply on patch 31). The
-comment is then right.
-
-> When a boosted task's bandwidth is reduced before any donor refill, does
-> deferring the fit until deboost or refill repay the debt at the old
-> bandwidth instead of the new one?
-
-Yes for the first part. Until the deboost or the first refill, the
-time since the change counts at the old bandwidth. The cover lists
-this with the known limits. Its entry says: "a change of a boosted task
-applies at its deboost, or at the refill that holds the boost".
-
-The second part is not a problem. After a change back to the old
-parameters, the fit goes from the old parameters to the same ones, so
-it changes nothing.
-
-> If a sleeping task has dl_non_contending set and sched_setattr() changes
-> its period without changing dl_bw, can the old inactive_timer fire too
-> early if the task then leaves SCHED_DEADLINE?
-
-Yes. v12 will re-arm the inactive timer in __setparam_dl() after such
-a change.
-
-> Does zeroing or clamping dl_se->own_runtime before calling
-> dl_setattr_place() corrupt the debt calculation?
-
-Yes. In v12, the fit will get the runtime left even past the deadline.
-Only an overrun is still saved as 0, since it comes from the boost.
-Without a fit, the runtime left past the deadline is still dropped, as
-before.
+Yes. v12 will add the overflow check to the boosted branch.
 
 Thanks,
 
