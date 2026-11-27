@@ -1,77 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795815149;
-	b=Py4NMFm8OatKqgcTsKRlcmqPpfLuQWg/chT9z3EiAZ//O6tsAQyUlfjAnmk46WgWUYDk
-	 5txP7hPwhi/3DIMqbCsv8SCXLQiviyDqDy+CNiOTywC+UEa08xbgr4FIEDlRQnDUJFaVd
-	 4wE4L1KsXTCNHjE8QnfbpVeF8jmJgS7OdLdoD8tZsxxq/vwD7PO0LBGgVM2qB6zYknFbe
-	 YsiH3DmH5MhlmphpyVYaMWepQvh4QJCHIhsSuN2SAqZrrWvltFeOyxS/ENFXJvGOqhwoA
-	 rN7EKGtKEh9tBjUC5ln9eQGZ8cywt38tge0dkMkQk9oN77/YrXCPoF4LbfJxbU38GxA==
+	t=1795815323;
+	b=pERI3wZd3jxQkZ6W6Rvr+/f8CWfh5AqX86gARaraF0/FEMOiIreB26tMzm9I9ZedWf4I
+	 ENoutFN4I71DSXN0OVgpQXW/vVmmPInBA+3/aWZALsvLEG6pFnfYmRyeWX1Puog7N4wl6
+	 Ms8OQlc1Ahz0vDIeEBOKSBnE/sIXYmpY6yhV8CpYq+OFL8mdwVu6belK2rGDRGxqJXdIK
+	 OaBFhgFkApE8d/IjVzAnMUIQYShKAfiE/3932vhJoMbcjWmRebKJUfGD4eZzV3scHE1ia
+	 mn/yKl0SPtrlVAnj9btbvPTMK+zQ9aw9nmRsbqVdKpEJJdy3wFItnHbXFw8EOx/tVzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795815149;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=BcWNEbop8X9pAgA1aqt8kxzcuLnmPOjWaLM+6XmIGRU=;
-	b=mXfM3m/vKtxziEzQfo6iKdzHyEeOEgEyf7PvpIEuQ7r36ME7qZy7edQFtTX03LHXPWdm
-	 tI0Yl8rUFPPcKIOSINpy2Rx3g4vgJS1SlFNPeVLvd9qAHE3nzmlFd4Hsgfws8sGeGa576
-	 ZjIZKZBbXcSPUvZ2SxlL8JcvnDiaVRYASViBqH5Y8rp9UUyZOdzOII69lbdJcaO9Nt0BE
-	 ftBhSpdAOKp/gRarcrULShGpJoGFfGfPs+8++DWboWlMPxmrLJ3xsrpPPATQVPZjgc90X
-	 FN9Jziy96vYjpW03V7Cdtxf3+UTRYgtp9hEOUH1kr0iybPi5bxFaOU8lkJAKGXca9rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795815323;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
+	bh=EQrz89klcZs/Qlp8lS07CFDPryf2anjS7GMBb/fd0mM=;
+	b=34BLrputxP6UtmWc1pVPQj66jkCtV5M66rqnuzFmLcQkbRjYqYagRwP8RD06WStdhvvW
+	 ICBKeA2emaIl6rW2L1E3vlN2lH+Lap9gtU1BcaZuSCdi4zcW33LdU6dvFgYJJUJuQWl3f
+	 w9FrGU4Aubv5bhv+uzaEgKLWIQO/EttD6/5AyNlai+cTZQ5EnhKYz49wjMQKayxopzB/0
+	 YTh/GxGeTVeaAefi6dbvj6MdOug2xCrUbMNClzlSUn+rrMY0emLG0V1PfN/xZ2MOqzl9l
+	 OBN3cCQXzsGNRMZ4apmQyKfiOEhmDmuO8dWAe7qtEvhfB8MziCjxzkAPt+keXlepSxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.net;
-	spf=pass smtp.mailfrom=gmx.net;
-	dkim=pass header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=PScG9Bhp;
-	arc=none smtp.remote-ip=212.227.17.22
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gJmt1T6L;
+	arc=none smtp.remote-ip=209.85.128.181
+Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com [209.85.128.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3AE1606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:32:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3AE1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B42C606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:35:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B42C606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=PScG9Bhp
-DKIM2-Signature:  i=1; m=1; t=1795815147;
- mf=PHdhaHJlbnN0QGdteC5uZXQ+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.net;
- s=s31663417:rsa-sha256:t6Oqjfc0h2upctautSXrmdUW7bvF
-   FF/s8FtmrotrCZQgbRNxSPwitPFMFx3LG+No56YOaOAqZ4URiGai7ezfSmmniP2UpuVHQRt/2tv
-   Wrl2dq/uVF3vEdpCEedUNIaf31U9VSk8rxZ/3XjK39LOJyh3cEDt/r5XRSEAlblWs7zWGixi6e1
-   Udzw7SzftvFJ8l0xeH7tE+aS2siz1ToBKvlbuk+AZFpHweaLaRnBV4pp7BvBFrCqstwf16mMj4s
-   jQqlnHvIma8+7RYvf03LGfeUuOVdn5bnM7iekPFA5TYpgcghjJLOU829TJsqcCB1AmDvv5pjohn
-   KQ56qeAQAr6CVg==;
-Message-Instance:  m=1;
- h=sha256:
-   h1sOHa0ku1ngysJ7Y3fij0bajjdO16KY0cg/J6k04+s=:
-   Hs5loM0Yg8o37fCg11XNmI4DGNwRcSOQ5wVKMM4Nz1k=,
-  sha512:
-   CgEd2KNfNkP7zpgohjevnCuLfaQmuBragH9LW9PAJSKlug2F9OwVGW/ybccaUVGM213mES3EgzVi6K2gDMOnjg==:
-   +suc8X9bSIDlngfNJ7+zmR6KRiMI4wIyJe8bAAtvpI2XGQjClO6YbucA4Uo7v0XR5W3sR6rD9GTBqVZNEEXvEw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1795815109; x=1796419909; i=wahrenst@gmx.net;
-	bh=BcWNEbop8X9pAgA1aqt8kxzcuLnmPOjWaLM+6XmIGRU=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=PScG9Bhpf+ldOrFY1J55IZvlZrKMxba9jMu7ZCRHDfMeKTmJ5qyoM2qMoHWKnUZz
-	 ySPTr0WJy4HIVSjJJQHW4EA35E6VaFpen3WlDrE47ANcU/8DxSvtdkHtGDw8Cp8vw
-	 jX6PtLPe0HRR40ImKpa5RUnthmRnP+cZnzJ6tGMpg11cbl4/YF2D24vaohH5z/2kB
-	 SfqpaqdAFfXrnH/N/M6tb9rskWAl2Mso1jCLkgHp4nxYkAQJSBA7MGHf7STFtCMOO
-	 1NGF2XbIDvQkrRNHwSAyXFkRLJ8RLh6g1RPNCCqTNBORTza7cpjHgQsYPQqW2n2pS
-	 7WTC0j5xg1EVliqjBw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MHG8m-1xkChx0xY8-00BhCH; Fri, 27
- Nov 2026 22:31:49 +0100
-Message-ID: <95404e33-369c-4cf3-b9ad-75d6ea8dff18@gmx.net>
-Date: Fri, 27 Nov 2026 22:31:47 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gJmt1T6L
+Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-8b32daac9d7so47063927b3.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:35:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795815322; x=1796420122; darn=vger.kernel.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=EQrz89klcZs/Qlp8lS07CFDPryf2anjS7GMBb/fd0mM=;
+        b=gJmt1T6LVHWivgVkfjKL96ESjtD4uzqN2mIySSbeGeETVuTDTa+krMQWo2MSLHyU4B
+         C8lrDd7YCFBkEJS10Yd86FqpM2zkzwQEI0WW7936umLjkl4I8K8siCcJZLy4kX24+dZb
+         lWOrBZekr+010DWeZXfVeBkFd5ayWxSayBphR4ZEG0Tmg/xWh1fS7yvMtWFrANDcGSn+
+         sR0JCoRbzWmTwV9H/r43hO9bsAwLi/hUbNgAMHtCk3yzflL5maA1RZ6B8Xmg5VLQoVNp
+         xaQLxVd3U0brwMiqHFQ/bvCMEU2WDvB2i8RtLiz+sE39r3oYtyk8rr00UwLMVcxmRBrU
+         qsOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795815322; x=1796420122;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EQrz89klcZs/Qlp8lS07CFDPryf2anjS7GMBb/fd0mM=;
+        b=GpZBcuNlP02qx71SPMMNk5KZlp9sqmBAUu5SSF3eR2fyTYZ0SZjepn6N1A2Ggq2gOV
+         7Ob+eAkkXJ4r0heTcrxosNEzVX/eBPXhUCnMmol5ZyVi6DNZ5xUq4pIBuZQRsTfn60IU
+         V24rlb07U1OVxYlNmN2J+N1n7V+rhy1ezur4qO64As6sj7Ad6p2kH1RbmxMEhc3ljv/F
+         jrxFKFruKbstav5HmCJf7ma/CqJmQmYQYGhd1quZceE9dkyJvXVYhQXj+pnz8S8NiUYH
+         Gh4FBWfQptJp2CFcscBDLzC4j48k5uOSKvRlWiIWQBabbcH5e9GMe+4HI0/ZvdWZgTmx
+         Iq5w==
+X-Forwarded-Encrypted: i=1; AL+hErFHYSgCbUrplVJo7j7NLsRsO6MUHHGvHKr9B+tzxmyJwstug5xzKONQaoaasYgtBtOKcMxgIRRanTL8U/s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+txSt1nniXlWGRbPMrl9xCUwy2WVyJ/VJkv8hR8nqbL0d0G61e
+	6FpragFhFThRTBUS0hQcGMlymEtJyRiL5SpMVDNr/+s3oY+Vi8kc4ciK
+X-Gm-Gg: AZFdTZdRCmO5nw2yyOy2hdpDrNaylzOWaKP7VY8BFpVz/BqwJ87IR3uCFdnlS4iRmaZ
+	wZCaIg+L5UmewyAL/5f7C0oUFOOObWRE09JhpyMui5SNdmEFKt1czKzHRcVS0J8ALtrB7aDVKMI
+	3bB2Q60ijrG2necOOtNPnWyO6pzFtHxA6HlrGhMdVKbfU3vYrU3qyoJboZKe/MA10kIpg8Ei7rP
+	hagDr9rMoZVBhdtGn3NyPK1YolNk26YGjCD3A8rbK/0J2iNLqVwFdTulm0YmcM1by+F/VTkLrAl
+	Nm7N/S9i894C4+xIirjlixUE7KYrJix+uhOygFHGMh6OddbY/qdk40VYVB1I8So2KxefvIOKEZx
+	ElXwejC9oKFRP1alco1lupNalysFLW2m54oXPGSyZTE/dLhob7eL142zuOPdxfYPzIP+lUoR/Sq
+	monrL5j1ehMbo1xtjuzAjbjSXJVg7+OxXg6fvvOEMnR5oGZtpYUa8xBadjozVCWYAS8AvVqMDHe
+	vEKpEut2syuTMt5s+b4cUUYTdJYkijpWOUgpoiRsesEtxB2ETXqqHxI6UJDplHvkl/eWwUWI+M+
+	Nwpi70swJVW2dlcXlwu9wb4vC30r0eHOrQ==
+X-Received: by 2002:a05:690c:618a:b0:873:5c6b:a321 with SMTP id 00721157ae682-8b5204e6f36mr98786027b3.27.1795815321952;
+        Fri, 27 Nov 2026 13:35:21 -0800 (PST)
+Received: from [10.138.10.6] ([149.102.242.31])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b59a06f3e9sm5227397b3.25.2026.11.27.13.35.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 13:35:19 -0800 (PST)
+Message-ID: <648c686f-c20a-418d-9314-4b269321406a@gmail.com>
+Date: Fri, 27 Nov 2026 16:35:02 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,280 +91,185 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/28] dt-bindings: dma: brcm,bcm2835-dma: Document
- dma-channel-mask and DREQ flags
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Saenz Julienne <nsaenz@kernel.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Phil Elwell <phil@raspberrypi.com>, Dom Cobley <popcornmix@gmail.com>,
- Maxime Ripard <mripard@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261123145728.29082-1-andrea.porta@suse.com>
- <20261123145728.29082-7-andrea.porta@suse.com>
- <e2d27b2e-db69-4fac-b7f3-28961a9e094c@gmx.net> <awhL0itLEAIsK4HR@apocalypse>
- <ba983cd0-68d7-4184-ab75-d79f2666520c@gmx.net> <awnSy5BOabcnj73I@apocalypse>
+Subject: Re: [PATCH v13] crypto: qce - split the crypto driver into core and
+ crypto parts
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Thara Gopinath <thara.gopinath@gmail.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ Stanimir Varbanov <svarbanov@mm-sol.com>,
+ Eneas U de Queiroz <cotequeiroz@gmail.com>,
+ Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+ Eric Biggers <ebiggers@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, brgl@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20261127-qce-fix-self-tests-v13-1-80b601792901@oss.qualcomm.com>
 Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <awnSy5BOabcnj73I@apocalypse>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:z/t3xRPcPSrfrNYakv8qwSeOOECkHRheAD7HRNpMxBsNMdKfIFa
- dJlemLEgMjsjzvtXeuf75FxtHe7Zr9nSe7ND9vGGwuNDinJcqX03OZAAo+9JXOGgnsszhhN
- Wz5fbhrfDHk4e0cOmZhOSr1L5KlEcXWJfLLYW/hUnv9hblo1TFcI6wCAgRg3TyOMvsUqXQ7
- 7zlS2V79hzOAdXU/M4ptA==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:2lQSWTbWgdk=;p5JiDylrwJu0Fb4jd2hQ5W7bFGw
- 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
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <20261127-qce-fix-self-tests-v13-1-80b601792901@oss.qualcomm.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------7UCWzSlEgqpg8FMa7inF0hPF"
 
-Hi Andrea,
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------7UCWzSlEgqpg8FMa7inF0hPF
+Content-Type: multipart/mixed; boundary="------------tOssjR4UVAwtbChK5nkfVU7f";
+ protected-headers="v1"; hp="clear"
+Message-ID: <648c686f-c20a-418d-9314-4b269321406a@gmail.com>
+Date: Fri, 27 Nov 2026 16:35:02 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13] crypto: qce - split the crypto driver into core and
+ crypto parts
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Thara Gopinath <thara.gopinath@gmail.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ Stanimir Varbanov <svarbanov@mm-sol.com>,
+ Eneas U de Queiroz <cotequeiroz@gmail.com>,
+ Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+ Eric Biggers <ebiggers@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, brgl@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20261127-qce-fix-self-tests-v13-1-80b601792901@oss.qualcomm.com>
+Content-Language: en-US
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <20261127-qce-fix-self-tests-v13-1-80b601792901@oss.qualcomm.com>
 
-Am 27.11.26 um 19:58 schrieb Andrea della Porta:
-> Hi Stefan,
->
-> On 19:23 Fri 27 Nov     , Stefan Wahren wrote:
->> Hi Andrea,
->>
->> Am 26.11.26 um 16:10 schrieb Andrea della Porta:
->>> Hi Stefan,
->>>
->>> On 18:49 Mon 23 Nov     , Stefan Wahren wrote:
->>>> Hi Andrea,
->>>>
->>>> Am 23.11.26 um 15:56 schrieb Andrea della Porta:
->>>>> The available channels are currently described by the vendor specific
->>>>> brcm,dma-channel-mask property, while the generic dma-channel-mask
->>>>> property from dma-common.yaml carries exactly the same information.
->>>>> Allow the generic property and mark the vendor one as deprecated,
->>>>> requiring at least one of them, so that device trees can provide both
->>>>> for compatibility with older kernels.
->>>>>
->>>>> The single specifier cell is also not limited to the DREQ number: the
->>>>> driver interprets some of the upper bits as per-channel flags (AXI
->>>>> priorities, wide accesses, burst and write-response handling). Document
->>>>> the meaning of those bits.
->>>>>
->>>>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
->>>> this patch should before the bcm2835-dma patches which modify the dma-cell
->>>> behavior.
->>> Ack.
->>>
->>>>> ---
->>>>>     .../bindings/dma/brcm,bcm2835-dma.yaml        | 26 ++++++++++++++++---
->>>>>     1 file changed, 23 insertions(+), 3 deletions(-)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
->>>>> index c9b9a5490826..f619e395cf0d 100644
->>>>> --- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
->>>>> +++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
->>>>> @@ -37,15 +37,30 @@ properties:
->>>>>         maxItems: 16
->>>>>       '#dma-cells':
->>>>> -    description: The single cell represents the DREQ number.
->>>>> +    description: |
->>>>> +      The single cell contains the DREQ number in bits 0-4, optionally
->>>>> +      combined with the following per-channel flags:
->>>>> +        bits 16-19: AXI priority
->>>>> +        bits 20-23: AXI panic priority
->>>>> +        bit 24: use wide (128-bit) source reads
->>>>> +        bit 25: use wide (128-bit) destination writes
->>>>> +        bit 27: do not wait for AXI write responses
->>>>> +        bit 28: wait for outstanding writes before signalling completion
->>>>> +        bit 29: do not pause the channel when the debug signal is asserted
->>>>> +        bit 30: use multi-beat bursts
->>>> No strong opinion, but mixing DREQ number with per-channel flags is ugly
->>> I agree it isn't pretty, but it is the encoding the downstream DTBs have been
->>> using for years. Switching to #dma-cells = <2> (or introducing new exotic properties)
->>> would mean supporting both formats in the driver: I'm trying to play nice here in
->>> order to not break compatibility with downstream DTBs, which I think should be wise.
->>> The header I'll add in v4 with the definitions for these flags at least makes the
->>> device trees readable.
->> as I said I don't have strong opinion about this.
->>
->> Imho adding these configuration bits to the DREQ number was a downstream
->> hack. Furthermore providing some kind of compatibility with downstream was
->> never intended and cannot be guaranteed.
-> Fine then, let's move those flags to teh second dma cell.
-since I'm not a maintainer, maybe we should wait for at least one of them.
+--------------tOssjR4UVAwtbChK5nkfVU7f
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Best regards
->
-> Thanks,
-> Andrea
->
->> Best regards
->>>>>         const: 1
->>>>> +  dma-channel-mask:
->>>>> +    maxItems: 1
->>>>> +
->>>> I think, the dma-channel-mask stuff should be a separate change.
->>> Ack.
->>>
->>> Regards,
->>> Andrea
->>>
->>>> Best regards
->>>>>       brcm,dma-channel-mask:
->>>>>         $ref: /schemas/types.yaml#/definitions/uint32
->>>>> +    deprecated: true
->>>>>         description:
->>>>>           Bitmask of available DMA channels in ascending order that are
->>>>>           not reserved by firmware and are available to the
->>>>>           kernel. i.e. first channel corresponds to LSB.
->>>>> +      Use the generic dma-channel-mask property instead.
->>>>>     unevaluatedProperties: false
->>>>> @@ -54,7 +69,12 @@ required:
->>>>>       - reg
->>>>>       - interrupts
->>>>>       - "#dma-cells"
->>>>> -  - brcm,dma-channel-mask
->>>>> +
->>>>> +anyOf:
->>>>> +  - required:
->>>>> +      - dma-channel-mask
->>>>> +  - required:
->>>>> +      - brcm,dma-channel-mask
->>>>>     examples:
->>>>>       - |
->>>>> @@ -96,7 +116,7 @@ examples:
->>>>>                             "dma14",
->>>>>                             "dma-shared-all";
->>>>>             #dma-cells = <1>;
->>>>> -        brcm,dma-channel-mask = <0x7f35>;
->>>>> +        dma-channel-mask = <0x7f35>;
->>>>>         };
->>>>>     ...
+On 11/27/26 12:38 PM, Bartosz Golaszewski wrote:
+> Most users don't want to enable the crypto features of the Qualcomm
+> Crypto Engine driver. However, they still want it to scale down the
+> interconnect votes to 0 when unused. Additionally, more features for
+> this IP will be supported in the future (for instance: for secure media=
 
+> playback use-cases) but this functionality will most likely require a
+> new in-kernel API.
+
+Nit: Can we use "restricted" instead of "secure"?  From the user's
+perspective, the media isn't any more secure than any other.  It's just
+inaccessible as cleartext.
+--=20
+Sincerely,
+Demi Marie Obenour (she/her/hers)
+
+--------------tOssjR4UVAwtbChK5nkfVU7f--
+
+--------------7UCWzSlEgqpg8FMa7inF0hPF
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEopQtqVJW1aeuo9/sszaHOrMp8lMFAmsJ95EACgkQszaHOrMp
+8lPc4RAAkjo4oj5lZM2B0agq3ylWBi3FLO62xloO/K6JPntFoksgw+zCLsWzWfwk
+VNPnbsI7WU6k3sl5bMnRAYTmCXTkmKA1CTfcfjBremHY4z09iOfYVPKzqmWWDb0J
+cgMkygPL9s8W6hOfQhyjjhvK8kKnd+/EIxMx5R/NArH2XvqTUH8uc1FfJ+EP6t2V
+Z02IW1SMnDiXEgGhBpH2r2tI5dkzBon9f8sWyLNdu4IQryMsgUTE2/cyQH5WEHoK
+xfFgI9KXv/aJUI//Qsfq5XS0Da5oq0Ccfl+ZSecVqx0Z6HnUhunDmq9f8bkp0eIP
+ecWll3MSSEHlpwlqHzeuCWJ0BzJ1a6FQmc+dRrbL40+ItWFu6wht+x6GoDaNlzeE
+tje7VqRFnE5ovwNAg9tigucUM3WKEEN5PCJfHsnx4Z88r0FK7vr5MMHmuMqwSIlT
+CvrREmoQTLmR1EKGD0KqjaEl5ObT3y9y+uifFMQ/tNf+hzhjE+tn3gfM2x/9/Ojd
+v+AFz24yxAM306lpUBtKCTJSwTUeTKsqe0WeDoPQDFZiUFzvzjArvpX0aH0BnJmA
+tOWtjCRbFnZFoU2im5JVYSeQxZ4+w6xXNfYf6O8D4/tpiFbXUMfg1udWpkzlDtea
+dAzpjn59+9ybBZgzXs4M/Cgw5BpaeOuBvKQupr5cSKk4zXGoOfk=
+=SDP1
+-----END PGP SIGNATURE-----
+
+--------------7UCWzSlEgqpg8FMa7inF0hPF--
