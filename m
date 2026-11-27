@@ -1,112 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789666;
-	b=sRhGayIxHQL2w3Rv3Typi4gZJaAx+Ta+sFydllS0y/kR6F/4OdfBq9ao7MiqY4HzAm27
-	 QODIA1w9V4C7Nu9zrecD7I6z0Xu1v5LFsizyjwtNUnGHq3Nvh6o8p3plCuBZ86BI/V+6J
-	 AXX9ay4i6TFQxKWV/Vr23f0cGmpmNuHlNKxVhOJOz5iyDjvUFpSUD2ottScPMx8xQtAqK
-	 VRqf5hp/xiKN+Wfnt5yX66+MsXc5i8T7gTOIj+BMkEftks23rDOtAEgJgbJ9hq2so1i4n
-	 /P2izNKf5fBRB7ZKGzyYT9GygyS4Jymhe3iyejrfOgD4/3vbzg6g5l1B1V3+JkVHFZg==
+	t=1795789664;
+	b=MjtalVCUSteOJIkexClUVN0NLo5vO52Q7V1CSCag8LQ1q5S2iqp0Pknud1l60r8R/ksQ
+	 hS9xv6yfhJO1vAjeY6vO3BoZkCIYFbwwTMsvVID41q17zsAGzRjeznoNWgw5+DZYHLV3s
+	 uCPF0fop7hdOmsMb6998FCQFDHsT5OcoOi0b/Uk8F5YbkuFd+FZUebjjxet9ikL7K+4uq
+	 a9/sWsMW3W3SBAbcZetUrbBBHWXXGKpcJ8pp7GfU9v+RLe0BAoisDTdUy/WMwpCfFaUAm
+	 6i8KwSzNSnvYDTJyhZt+jjZTYH8aJfiKMDGLxsz12ZvK4DyguQWBXWCV73ynezpL92Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789666;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=uEMw2lhJoodtkrvH+DpCLwm1Juvj6SN0Fvh2M0KWgiM=;
-	b=PNQ1NIqo80mOicf/MqgGbpKVZ4777TBw3lliQv2x2kCnSUHEHjVqKUnRoI1nQ9bZgXYq
-	 b/HOj0DSJzc1Z/xfl4vyY/brpU9WE75dMjS2Uhr/8LnelWKAXmCH0bGLf2A/OPyv355Ch
-	 UYh0cYKrPN5ykbZboufS2FvHBYjvWTQYiiYosozU47fXSA/aBOxZDPikjDy5dYkpJNUAx
-	 Z4YLd/iDE/G5C/z4HYwPKAS2Suhfqj2pF3CfDI/wNpFFGXIqGU9yMxrlxZ3Zl2YR/jkbF
-	 o3Qp9/qJ/ao5lc51xcrlxQB6pP6gV0/Ygsmj/Iwuzy4Yy6fUdYD58KJBLrxYYxc8Kmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789664;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=2YZ1uzGRJnGibO4mXL47MXOcQ9yjYqWYQwccdUWZ/CI=;
+	b=BZ/REEfdhNAhrJ68k2ENc5q8F6YeCMZCbE/AilQm7zJ2hvFi9z8tT6HvTqkMcK3c/CFf
+	 1hnnmXo3UWYYuA0ctIT7y8y6FDA/ywUnr7qEOoI1ERtW4N3c5Th+P8jKi4QgpMnB/Zdqi
+	 QYHLxqQPk4w4tw7Qr7DiTeVb1YZnPnftdsKIbaC9yE1r/GsOpG4cb1qWgIMZqrDPJOSMy
+	 ow/iD/cPmoV/PAOafz62jitSmndqMsD9s06U/N2jCVvTS5PPRS6zZ/REPTdqI5Uu4jTr2
+	 iQS+H1G/S7Bh1k3F/GNZg98RDLepdkiMLXzSrwLLEtV5RPiCk/yzw94G3nHRekbw0eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="ENXDvpX/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HDBFhm+e;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nDKQQ3P4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74B95606C2E4
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:27:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74B95606C2E4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A360606C2CA;
+	Fri, 27 Nov 2026 14:27:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ENXDvpX/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HDBFhm+e
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1Li43089135
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:27:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	uEMw2lhJoodtkrvH+DpCLwm1Juvj6SN0Fvh2M0KWgiM=; b=ENXDvpX/Uc/bNtqe
-	pcF4/Zxmz8OgmagkMXxBJsfDARQgpgXFnNyfIRQcKrJogS9UzgiqWyfdIlQZ77ZV
-	NZs7M3bUnpNnXIe2UMYN+9pC1itEvKM0Kn1EnPrLtGpbK+5DN1Esne7euDa9uedj
-	57oDXiCBtcy4UjUP4hem6XHHAh+i15whdQND0Ri/naQQpR5EfuH4MJpDh/PZTdVS
-	omcVLiPscNIc8U9bO1K96TNHhsBqxg3X8TfNfLaA+RBL9o6FQJEvZH0BDnNcN2qm
-	WZDS9A1r9ijQTzIggfdppDblXwk9B0E/F/5zZN4j3dyR+LzXqov1MYK8xHfnktvp
-	WtNi7Q==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74gh9s4n-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:27:44 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2f02c63901aso73048445ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:27:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795789663; x=1796394463; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uEMw2lhJoodtkrvH+DpCLwm1Juvj6SN0Fvh2M0KWgiM=;
-        b=HDBFhm+eulxJrsL0pIsZe7Fvp0B1F8E38vBTmN6fzwyKcctJDxwMFmhDrloAvegzpB
-         JCaWlqPfjq60srwbkJw6xD9EiCK20DuoT0j5sxa0vOC3K4ElLy+ZdbPrJZ/eXslZVXkt
-         0cnALDvTKyzUj3uottGsFBRnVJuJXupXCyiSLTvAghL1dzjus/g6zkLtiTAZ5wd3GgSE
-         uXuHm9xWB0WaR/FPxSAFUIZ3eX/urRw1mmevD/KBB3nzxLIRcWH5OAZd5PjcsFDnWLmZ
-         M++48rEkrJc1zjFCIwFd/kL0YApAK+BaWbEuZFkqIrSYOrxK40rJQM7IhLg+BLAJVlXF
-         5I8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795789663; x=1796394463;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uEMw2lhJoodtkrvH+DpCLwm1Juvj6SN0Fvh2M0KWgiM=;
-        b=mnnHE5CddvIjIAVQSYjMaueSmUQlkINKGDwY3nz1g2o3L9dyZ+U72+5mqx11LdpPwP
-         GF4GD94rJbBAG0EN0QKQZaZAEkRxLzRyavpotpdMI0etloPkHrGOPo2wHd+OktMN92IG
-         E1EjjT/uApLUbqB+F/q9RA70W7Un0ffgpdS/W66TY2iXK8VEsTC0jj12Kbdk6p32E8nW
-         EOk9QpWZXQlZLYPOKs5d3YPrR2qIq5gLG4pqvGNofn+iYm1raCTnYiHq1gr6LLGTJnBC
-         WmQJCNTQWvpzb9SPyexmAt2zyRh+QlSHtlrb30rw69N6IObLE3bYWFd3GD0UB3/RCvsB
-         6f2Q==
-X-Forwarded-Encrypted: i=1; AL+hErGeXvgCgzjdInjfLMzpCKbsSLqG3sWND9P0+DQF0kEKUNe2FnsDZSR+s2ecfsmbLAbaA5GLnW4yi89ipe0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/zPXo+JKPHSm5jFBztot0AzgEqT44iiuN+vVeafU1dxhbMnaD9
-	wZxQbycflT0vePGoDpFtsmzhDzpbPFJhh6KWLQYjG35JB1uj32gKIgruQtGP6zoMULfx3bPBLbb
-	Kogq4HcDKFRiz9nAHKdAg1/9PwABlWhN1wrNMWFMvJakWcI137c4NE3jx5l3e2MXvUdM=
-X-Gm-Gg: AZFdTZevCZxD/V0BU5FVG31/kMWSfL9sTptd4lQDBZpCK3yS/m2MuveeWqN8pj/IPAW
-	kEKX0c5oWeTyP8zPYjjv50Xce+is6JQO9LWuEZAaSNvSThEr2jZizD8oAVbYjwXWbIliicpMLA0
-	RKuMsFXIVN/dG9MIasgzeXO4G4dTldk4FMHHLmd+CSuX3WPESCcX+6SVKsy2JMUym8qHY4XmBOq
-	Umv+3fVtkkrDk0g2SuwGybB800K14C2rYMO1Lx7hj2zDc+GySHPKyAqh/EBYF9DjacpvqlQd+mX
-	OBzLnWDkIQApkw5EQDZp1B8CYJscsYi67iFFas7QqNsRTDsnVypN1KJF43yyDmdD11XCoHemO4Z
-	6HJ46bLDlXz9pWUCAZdYV/VSFdDEGpAFO3Zs9cV75EAi2diEXMC/eh+1rmyZLtuKQ53XdCYbf90
-	FEcvwTqiVjZg==
-X-Received: by 2002:a17:903:2984:b0:2ef:f656:2db8 with SMTP id d9443c01a7336-2f03f1a49ccmr254184805ad.30.1795789662032;
-        Fri, 27 Nov 2026 06:27:42 -0800 (PST)
-X-Received: by 2002:a17:903:2984:b0:2ef:f656:2db8 with SMTP id d9443c01a7336-2f03f1a49ccmr254184385ad.30.1795789661500;
-        Fri, 27 Nov 2026 06:27:41 -0800 (PST)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84285sm120324055ad.3.2026.11.27.06.27.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:27:41 -0800 (PST)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 19:56:56 +0530
-Subject: [PATCH v28 03/10] firmware: psci: Introduce command-based resets
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nDKQQ3P4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DDB11F00A26;
+	Fri, 27 Nov 2026 14:27:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795789663;
+	bh=2YZ1uzGRJnGibO4mXL47MXOcQ9yjYqWYQwccdUWZ/CI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=nDKQQ3P4oGw/L4U35lFFrm7gY2/z89GZrnk0w7BvlamNwKb9bUSvUxhDKJuYuxQNn
+	 Mo4ra10+uvMiryYWDjGVWYQj/X64kczzNVzlCoPAO0esXr+mzkzAFL2kifRqYszuQx
+	 RmS3J8cDrS+F8X3Crh/LK1CJXBVxulWeof4TawNucBs38MMNbXuz+YvFDYINJThO8F
+	 c6vxJaDnzmhKIMa7kq8sTLl1L0MdP8UdHICeovw0AimH8rTGNp3iVRjW8h/7mvT19g
+	 TK9kPSvE8MGBe+aNk9oiUs11/asX/zckJQqC1zyLhkv3VluUWt+ye5lBmSqPvGDMAv
+	 7/wPauRGJlSgA==
+From: bod@kernel.org
+Date: Fri, 27 Nov 2026 15:27:21 +0100
+Subject: [PATCH v8 02/10] arm64: dts: qcom: x1e80100: Add CAMSS block
+ definition
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,314 +55,445 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-arm-psci-system_reset2-vendor-reboots-v28-3-da05a33b08d8@oss.qualcomm.com>
-References: <20261127-arm-psci-system_reset2-vendor-reboots-v28-0-da05a33b08d8@oss.qualcomm.com>
-In-Reply-To: <20261127-arm-psci-system_reset2-vendor-reboots-v28-0-da05a33b08d8@oss.qualcomm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>,
-        Ulf Hansson <ulfh@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>
+Message-Id: <20261127-x1e-camss-csi2-phy-dtsi-v8-2-2793b8e5138c@kernel.org>
+References: <20261127-x1e-camss-csi2-phy-dtsi-v8-0-2793b8e5138c@kernel.org>
+In-Reply-To: <20261127-x1e-camss-csi2-phy-dtsi-v8-0-2793b8e5138c@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Bryan O'Donoghue <bod@kernel.org>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ linux-media@vger.kernel.org, Lloyd Hazlett <lloyd.hazlett@gmail.com>, 
+ Liviu Nicoara <lnicoara@thinkoid.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795789617; l=8137;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=yfPrLsKko5Gv66TXus9j/mTCGhTszpPbkRWeO3+zgec=;
- b=7HYOK+PPPPXBwd4SUWKSfEGXzBTJKTJ2b4gfvPygJje8l2n2eJnuLu0kf5Y1hZyVYrhBnYjpX
- fYNaFs8568kDs7TN5J3NJh1EY/gurtcePAzCcidLObeMvlQTgo/lA8p
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=ssWsJFX3OM9pkdoe4+guOfGPaulHOFt0GVnVlB6on+s=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfX1R/0jwIr8WB2
- eFRl76qnevN5+5ZHn/YC3vLV/baBBBbCebWlfeflg8SwqL6gkHsobCLb4pDjYARFMUdOKoZmvLF
- tLv4CnPlcS0JVwesE7CN5cr2z+bTpPI=
-X-Proofpoint-GUID: XQYeiseIAyBIleoP2-mvbBJweOTWkU74
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NyBTYWx0ZWRfX1h6mEr07CkWO
- 6UVA9s/Rd+xnxLAfJThaciK4adeadY+6XQRiruYnsNtSDyYL3PjgOfyHQlsKaCZhYnhxvwv7tac
- GJmEUkmaaa8GAyc7vBRjv/7HxdxqQ98qq+OwYsSB5Z4YNc7FMT8Oyw0UU2WjtTKh3X0duyF55Si
- qzuKWIC1RsGB/aYN6aKlwttikcQJslRS2K1DJJalWntmeROgcL+3giuWwjXRS5JzMJ0oi4BjcSI
- jW3IqKsTWZjeSJOVmTmVG6pDj6fnZqZgCj87zPiKJHba5SyXEBqRQmXcpgqmKLjxnrBYe9jfk+a
- vsNN537K3vEIdZOKspOWT4g/ig/fQNVM/gyiXh/3OSPMSGtR6AiYbZFeTqSz3LpCcMYmbPVeazy
- SV9dHgJDR9E012FYkkQtPI7BwcXfE8ub+3IBO3xnGAnEEDVBNsOyOO/SECeUkZwrRyyPr4m0LfU
- B9fdSm3ziPgIvNfsnWQ==
-X-Authority-Analysis: v=2.4 cv=U5kHnuru c=1 sm=1 tr=0 ts=6b099360 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=njxsUegImOJjkw56WvUA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-ORIG-GUID: XQYeiseIAyBIleoP2-mvbBJweOTWkU74
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 malwarescore=0 suspectscore=0 spamscore=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611270057
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10574; i=bod@kernel.org;
+ h=from:subject:message-id; bh=+nDFqDlPjUbAcTsswvuGMv0fueZOCq9CuR5z9UtidR8=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrCZNQ94GIiFtNftlN9Vi2tsNdQSjUneCo7R6D2
+ ku4UJ4jYduJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawmTUAAKCRAicTuzoY3I
+ OrDAD/4zL/CIYfAmW1gKABHJTcnkl+M6wBvE7JM+0wv7rkE9dio7FRm1bJSX7PMlTAj8Nnt/5vr
+ lU140JI+JYMViflNOq07Xq/7+8kcEUmOCOXPcQNz3BxoMhl1HBD0omUR7kfoq4YU62cUj2GaAim
+ TPDd83tRfA22xVwIEBMy1mPVcJf7DvKfdVSC85hONUQI/BhMzw/376cLHrp8MV/97Ca0BNMlCVv
+ FoVvxHWxy011PlcA1Mn+bl8i92dv1lu82V4bKAzH1NYVt2aCX8EnZgQBc8wTNz2uDVX2VqvmN51
+ ulO+jwPz1GOJaOqIzxSIAqPGPEPiHBoQ9+oqq4NF0vWztd6Wl9ckBPZT/5MbJrQypw//5zkqsUb
+ h1yK3kGg40zvCw3CjOVrBmYfcD71bQZhHFPU/qoCv1/HzwikPkEGBD62Ba6zMPMEHtIa0mYCAGY
+ eL0EKeugr1CkTZoZTvvVAO9xCjwNy9euHmrnTneC3LRuNc/h2Hdt1XmDs5GHd9//wZM65eZAjI+
+ vlBmFiCY/oH5XGgb7XuQ7DRNr8mK8LOsvX72dlhEkYK6Lz+KIpOrb2+ppeBLeSyGLybbGRYbhWP
+ jzYEtgzL7bMKVDxpOt04pCJc6TWnEzqOZGAd3vnnERpYEpLALmKcbIzz8GWOG5esehmwdiZoa5U
+ MC6iRgUsl3cpQLA==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-PSCI currently supports only two resets - SYSTEM_RESET and SYSTEM_RESET2
-ARCH WARM reset. The reset patch is selected based on the Linux
-reboot_mode variable. The PSCI specification now includes SYSTEM_RESET2
-for vendor-specific resets but there's no mechanism to issue these
-through psci_sys_reset().
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
-Add a command-based reset mechanism that allows reboot-mode drivers to set
-the PSCI reset command by passing a reset_type and a cookie.
+Add dtsi to describe the x1e80100 CAMSS block
 
-Add support for the following reset commands:
-  - SYSTEM_RESET2 vendor-specific resets.
-  - SYSTEM_RESET2 ARCH WARM reset and SYSTEM_RESET (reset_type = 0 and
-    cookie one of psci_standard_resets).
-Unsupported commands fall back to the regular PSCI reset path.
+4 x CSIPHY
+3 x TPG
+2 x CSID
+2 x CSID Lite
+2 x IFE
+2 x IFE Lite
 
-Default to the existing reboot_mode-based reset flow unless a reset
-command is configured. If a kernel panic() or a emergency_restart()
-occurs after a reset command is set but before the final PSCI reset is
-issued, ignore the reset command and follow the normal reboot_mode-based
-reset path.
-
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Tested-by: Lloyd Hazlett <lloyd.hazlett@gmail.com>
+Tested-by: Liviu Nicoara <lnicoara@thinkoid.org> # Dell XPS 13 9345
+Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 ---
- drivers/firmware/arm/psci/psci.c | 117 ++++++++++++++++++++++++++++++++++++++-
- include/linux/psci.h             |  15 +++++
- 2 files changed, 130 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/qcom/hamoa.dtsi | 370 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 370 insertions(+)
 
-diff --git a/drivers/firmware/arm/psci/psci.c b/drivers/firmware/arm/psci/psci.c
-index 01b1ea6a1c655..2ee3b01011a46 100644
---- a/drivers/firmware/arm/psci/psci.c
-+++ b/drivers/firmware/arm/psci/psci.c
-@@ -11,17 +11,22 @@
- #include <linux/cpuidle.h>
- #include <linux/debugfs.h>
- #include <linux/errno.h>
-+#include <linux/kconfig.h>
- #include <linux/linkage.h>
-+#include <linux/mutex.h>
- #include <linux/of.h>
-+#include <linux/panic.h>
- #include <linux/pm.h>
- #include <linux/printk.h>
- #include <linux/psci.h>
- #include <linux/reboot.h>
- #include <linux/slab.h>
- #include <linux/suspend.h>
-+#include <linux/wordpart.h>
+diff --git a/arch/arm64/boot/dts/qcom/hamoa.dtsi b/arch/arm64/boot/dts/qcom/hamoa.dtsi
+index 08ec53d01b802..32a273320cf58 100644
+--- a/arch/arm64/boot/dts/qcom/hamoa.dtsi
++++ b/arch/arm64/boot/dts/qcom/hamoa.dtsi
+@@ -668,6 +668,50 @@ smem_mem: smem@ffe00000 {
+ 		};
+ 	};
  
- #include <uapi/linux/psci.h>
++	csiphy_mxc_opp_table: opp-table-mxc {
++		compatible = "operating-points-v2";
++
++		opp-300000000 {
++			opp-hz = /bits/ 64 <300000000>;
++			required-opps = <&rpmhpd_opp_low_svs_d1>,
++					<&rpmhpd_opp_low_svs_d1>;
++		};
++
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
++			required-opps = <&rpmhpd_opp_low_svs>,
++					<&rpmhpd_opp_low_svs>;
++		};
++
++		opp-480000000 {
++			opp-hz = /bits/ 64 <480000000>;
++			required-opps = <&rpmhpd_opp_low_svs>,
++					<&rpmhpd_opp_low_svs>;
++		};
++	};
++
++	csiphy_mxa_opp_table: opp-table-mxa {
++		compatible = "operating-points-v2";
++
++		opp-300000000 {
++			opp-hz = /bits/ 64 <300000000>;
++			required-opps = <&rpmhpd_opp_low_svs_d1>,
++					<&rpmhpd_opp_low_svs_d1>;
++		};
++
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
++			required-opps = <&rpmhpd_opp_low_svs>,
++					<&rpmhpd_opp_low_svs_d1>;
++		};
++
++		opp-480000000 {
++			opp-hz = /bits/ 64 <480000000>;
++			required-opps = <&rpmhpd_opp_low_svs>,
++					<&rpmhpd_opp_low_svs_d1>;
++		};
++	};
++
+ 	qup_opp_table_100mhz: opp-table-qup100mhz {
+ 		compatible = "operating-points-v2";
  
-+#include <asm/barrier.h>
- #include <asm/cpuidle.h>
- #include <asm/cputype.h>
- #include <asm/hypervisor.h>
-@@ -51,6 +56,15 @@ static int resident_cpu = -1;
- struct psci_operations psci_ops;
- static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
+@@ -5626,6 +5670,332 @@ cci1_i2c1: i2c-bus@1 {
+ 			};
+ 		};
  
-+struct psci_system_reset_cmd {
-+	u32 reset_type;
-+	u64 cookie;
-+};
++		camss: isp@acb7000 {
++			compatible = "qcom,x1e80100-camss";
 +
-+static struct psci_system_reset_cmd reset_cmd_data;
-+static struct psci_system_reset_cmd *reset_cmd;
-+static DEFINE_MUTEX(reset_cmd_mutex);
++			reg = <0 0x0acb7000 0 0x2000>,
++			      <0 0x0acb9000 0 0x2000>,
++			      <0 0x0acbb000 0 0x2000>,
++			      <0 0x0acc6000 0 0x1000>,
++			      <0 0x0acca000 0 0x1000>,
++			      <0 0x0acb6000 0 0x1000>,
++			      <0 0x0ace4000 0 0x2000>,
++			      <0 0x0ace6000 0 0x2000>,
++			      <0 0x0ace8000 0 0x2000>,
++			      <0 0x0acec000 0 0x2000>,
++			      <0 0x0acf6000 0 0x1000>,
++			      <0 0x0acf7000 0 0x1000>,
++			      <0 0x0acf8000 0 0x1000>,
++			      <0 0x0ac62000 0 0xf000>,
++			      <0 0x0ac71000 0 0xf000>,
++			      <0 0x0acc7000 0 0x2000>,
++			      <0 0x0accb000 0 0x2000>;
++			reg-names = "csid0",
++				    "csid1",
++				    "csid2",
++				    "csid_lite0",
++				    "csid_lite1",
++				    "csid_wrapper",
++				    "csiphy0",
++				    "csiphy1",
++				    "csiphy2",
++				    "csiphy4",
++				    "csitpg0",
++				    "csitpg1",
++				    "csitpg2",
++				    "vfe0",
++				    "vfe1",
++				    "vfe_lite0",
++				    "vfe_lite1";
 +
- bool psci_tos_resident_on(int cpu)
- {
- 	return cpu == resident_cpu;
-@@ -80,6 +94,64 @@ static u32 psci_cpu_suspend_feature;
- static bool psci_system_reset2_supported;
- static bool __maybe_unused psci_system_off2_hibernate_supported;
- 
-+static u32 psci_get_sys_reset_fn(const struct psci_system_reset_cmd *cmd)
-+{
-+	switch (cmd->cookie) {
-+	case PSCI_SYSTEM_RESET2_ARCH_WARM_RESET:
-+		if (psci_system_reset2_supported)
-+			return PSCI_FN_NATIVE(1_1, SYSTEM_RESET2);
-+		return 0;
-+	case PSCI_SYSTEM_RESET_COLD_RESET:
-+		return PSCI_0_2_FN_SYSTEM_RESET;
-+	default:
-+		return 0;
-+	}
-+}
++			clocks = <&camcc CAM_CC_CAMNOC_AXI_NRT_CLK>,
++				 <&camcc CAM_CC_CAMNOC_AXI_RT_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
++				 <&camcc CAM_CC_CPHY_RX_CLK_SRC>,
++				 <&camcc CAM_CC_CSID_CLK>,
++				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
++				 <&camcc CAM_CC_CSIPHY0_CLK>,
++				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY1_CLK>,
++				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY2_CLK>,
++				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY4_CLK>,
++				 <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
++				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
++				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
++				 <&camcc CAM_CC_IFE_0_CLK>,
++				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_1_CLK>,
++				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
++			clock-names = "camnoc_nrt_axi",
++				      "camnoc_rt_axi",
++				      "core_ahb",
++				      "cpas_ahb",
++				      "cpas_fast_ahb",
++				      "cpas_vfe0",
++				      "cpas_vfe1",
++				      "cpas_vfe_lite",
++				      "cphy_rx_clk_src",
++				      "csid",
++				      "csid_csiphy_rx",
++				      "csiphy0",
++				      "csiphy0_timer",
++				      "csiphy1",
++				      "csiphy1_timer",
++				      "csiphy2",
++				      "csiphy2_timer",
++				      "csiphy4",
++				      "csiphy4_timer",
++				      "gcc_axi_hf",
++				      "gcc_axi_sf",
++				      "vfe0",
++				      "vfe0_fast_ahb",
++				      "vfe1",
++				      "vfe1_fast_ahb",
++				      "vfe_lite",
++				      "vfe_lite_ahb",
++				      "vfe_lite_cphy_rx",
++				      "vfe_lite_csid";
 +
-+/**
-+ * psci_set_reset_cmd() - Configure the PSCI reset command
-+ * @reset_type: PSCI SYSTEM_RESET2 reset_type, or 0 for a standard reset selector
-+ * @cookie: Vendor-defined SYSTEM_RESET2 cookie, or a value from
-+ *	    enum psci_standard_resets when @reset_type is 0
-+ *
-+ * For vendor-specific SYSTEM_RESET2 resets, @reset_type and @cookie
-+ * must contain platform-defined values.
-+ *
-+ * For standard resets, @reset_type must be 0 and @cookie must be a
-+ * value from enum psci_standard_resets.
-+ *
-+ * The reset command may be configured only once per boot cycle.
-+ */
-+int psci_set_reset_cmd(u32 reset_type, u64 cookie)
-+{
-+	if (!reset_type && !cookie)
-+		return -EINVAL;
++			interrupts = <GIC_SPI 464 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 466 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 431 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 122 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "csid0",
++					  "csid1",
++					  "csid2",
++					  "csid_lite0",
++					  "csid_lite1",
++					  "csiphy0",
++					  "csiphy1",
++					  "csiphy2",
++					  "csiphy4",
++					  "vfe0",
++					  "vfe1",
++					  "vfe_lite0",
++					  "vfe_lite1";
 +
-+	if (!IS_ENABLED(CONFIG_64BIT) && upper_32_bits(cookie))
-+		return -EINVAL;
++			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
++					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
++					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
++					<&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
++					<&mmss_noc MASTER_CAMNOC_ICP QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
++			interconnect-names = "ahb",
++					     "hf_mnoc",
++					     "sf_mnoc",
++					     "sf_icp_mnoc";
 +
-+	scoped_guard(mutex, &reset_cmd_mutex) {
-+		if (reset_cmd)
-+			return -EBUSY;
++			iommus = <&apps_smmu 0x800 0x60>,
++				 <&apps_smmu 0x820 0x60>,
++				 <&apps_smmu 0x840 0x60>,
++				 <&apps_smmu 0x860 0x60>,
++				 <&apps_smmu 0x18a0 0x0>;
 +
-+		reset_cmd_data.reset_type = reset_type;
-+		reset_cmd_data.cookie = cookie;
-+		/*
-+		 * Publish the command only after both fields are fully initialized.
-+		 * Readers run from the atomic restart notifier path and must not block.
-+		 */
-+		smp_store_release(&reset_cmd, &reset_cmd_data);
-+	}
++			power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
++					<&camcc CAM_CC_IFE_1_GDSC>,
++					<&camcc CAM_CC_TITAN_TOP_GDSC>;
++			power-domain-names = "ife0",
++					     "ife1",
++					     "top";
 +
-+	return 0;
-+}
++			status = "disabled";
 +
-+bool psci_has_system_reset2_support(void)
-+{
-+	return psci_system_reset2_supported;
-+}
-+EXPORT_SYMBOL_NS_GPL(psci_has_system_reset2_support, "PSCI");
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
- static inline bool psci_has_ext_power_state(void)
- {
- 	return psci_cpu_suspend_feature &
-@@ -306,8 +378,25 @@ static int get_set_conduit_method(const struct device_node *np)
- 	return 0;
- }
- 
--static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
--			  void *data)
-+static void psci_handle_reset_cmd(const struct psci_system_reset_cmd *cmd)
-+{
-+	u32 psci_sys_reset_fn;
++				camss_csiphy0_in_port: port@0 {
++					reg = <0>;
++				};
 +
-+	/* PSCI_1_1_RESET_TYPE_VENDOR_START identifies vendor reset types. */
-+	if ((cmd->reset_type & PSCI_1_1_RESET_TYPE_VENDOR_START) &&
-+	    psci_system_reset2_supported) {
-+		/* PSCI SYSTEM_RESET2 Vendor-specific reset */
-+		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-+			       cmd->reset_type, cmd->cookie, 0);
-+	} else {
-+		/* Retrieve the psci reset function from reset_cmd */
-+		psci_sys_reset_fn = psci_get_sys_reset_fn(cmd);
-+		if (!cmd->reset_type && psci_sys_reset_fn)
-+			invoke_psci_fn(psci_sys_reset_fn, 0, 0, 0);
-+	}
-+}
++				camss_csiphy1_in_port: port@1 {
++					reg = <1>;
++				};
 +
-+static void psci_handle_reboot_mode(void)
- {
- 	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
- 	    psci_system_reset2_supported) {
-@@ -320,6 +409,30 @@ static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
- 	} else {
- 		invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
- 	}
-+}
++				camss_csiphy2_in_port: port@2 {
++					reg = <2>;
++				};
 +
-+static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
-+			  void *data)
-+{
-+	const struct psci_system_reset_cmd *cmd;
++				camss_csiphy4_in_port: port@3 {
++					reg = <3>;
++				};
++			};
++		};
 +
-+	/* The function psci_handle_reboot_mode follows reboot_mode based
-+	 * reset flow and psci_handle_reset_cmd uses reset_cmd based reset flow.
-+	 *
-+	 * The reset_cmd is configured at the reboot_notifier phase.
-+	 * If panic() or emergency_restart() occurs between the reboot_notifier
-+	 * and this final reset, skip command-based reset and let reboot_mode drive
-+	 * the reset flow.
-+	 *
-+	 * The function psci_handle_reset_cmd invokes non-returning PSCI SYSTEM_RESET
-+	 * calls to reset the device. If it returns, either the reset failed, or the
-+	 * command was unsupported. Fallback to reboot_mode based reset flow.
-+	 */
-+	cmd = smp_load_acquire(&reset_cmd);
-+	if (data && cmd && !panic_in_progress())
-+		psci_handle_reset_cmd(cmd);
++		csiphy0: phy@ace4000 {
++			compatible = "qcom,x1e80100-csi2-phy";
++			reg = <0 0x0ace4000 0 0x2000>;
 +
-+	psci_handle_reboot_mode();
- 
- 	return NOTIFY_DONE;
- }
-diff --git a/include/linux/psci.h b/include/linux/psci.h
-index 4ca0060a3fc42..e81b1cdeca519 100644
---- a/include/linux/psci.h
-+++ b/include/linux/psci.h
-@@ -8,6 +8,7 @@
- #define __LINUX_PSCI_H
- 
- #include <linux/arm-smccc.h>
-+#include <linux/errno.h>
- #include <linux/init.h>
- #include <linux/types.h>
- 
-@@ -21,6 +22,16 @@ bool psci_power_state_is_valid(u32 state);
- int psci_set_osi_mode(bool enable);
- bool psci_has_osi_support(void);
- 
-+/**
-+ * enum psci_standard_resets - Standard reset selectors for PSCI reset
-+ * @PSCI_SYSTEM_RESET_COLD_RESET: Standard SYSTEM_RESET command.
-+ * @PSCI_SYSTEM_RESET2_ARCH_WARM_RESET: SYSTEM_RESET2 architectural warm reset.
-+ */
-+enum psci_standard_resets {
-+	PSCI_SYSTEM_RESET_COLD_RESET = 1,
-+	PSCI_SYSTEM_RESET2_ARCH_WARM_RESET,
-+};
++			clocks = <&camcc CAM_CC_CSIPHY0_CLK>,
++				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>;
++			clock-names = "core",
++				      "timer",
++				      "ahb";
 +
- struct psci_operations {
- 	u32 (*get_version)(void);
- 	int (*cpu_suspend)(u32 state, unsigned long entry_point);
-@@ -45,8 +56,12 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void);
- 
- #if defined(CONFIG_ARM_PSCI_FW)
- int __init psci_dt_init(void);
-+int psci_set_reset_cmd(u32 reset_type, u64 cookie);
-+bool psci_has_system_reset2_support(void);
- #else
- static inline int psci_dt_init(void) { return 0; }
-+static inline int psci_set_reset_cmd(u32 reset_type, u64 cookie) { return -EOPNOTSUPP; }
-+static inline bool psci_has_system_reset2_support(void) { return false; }
- #endif
- 
- #if defined(CONFIG_ARM_PSCI_FW) && defined(CONFIG_ACPI)
++			operating-points-v2 = <&csiphy_mxc_opp_table>;
++
++			interrupts = <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>;
++
++			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>,
++					<&rpmhpd RPMHPD_MMCX>,
++					<&rpmhpd RPMHPD_MXC>;
++			power-domain-names = "top",
++					     "mmcx",
++					     "mx";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				csiphy0_in_port: port@0 {
++					reg = <0>;
++				};
++
++				csiphy0_out_port: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
++		csiphy1: phy@ace6000 {
++			compatible = "qcom,x1e80100-csi2-phy";
++			reg = <0 0x0ace6000 0 0x2000>;
++
++			clocks = <&camcc CAM_CC_CSIPHY1_CLK>,
++				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>;
++			clock-names = "core",
++				      "timer",
++				      "ahb";
++
++			operating-points-v2 = <&csiphy_mxc_opp_table>;
++
++			interrupts = <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>;
++
++			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>,
++					<&rpmhpd RPMHPD_MMCX>,
++					<&rpmhpd RPMHPD_MXC>;
++			power-domain-names = "top",
++					     "mmcx",
++					     "mx";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				csiphy1_in_port: port@0 {
++					reg = <0>;
++				};
++
++				csiphy1_out_port: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
++		csiphy2: phy@ace8000 {
++			compatible = "qcom,x1e80100-csi2-phy";
++			reg = <0 0x0ace8000 0 0x2000>;
++
++			clocks = <&camcc CAM_CC_CSIPHY2_CLK>,
++				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>;
++			clock-names = "core",
++				      "timer",
++				      "ahb";
++
++			operating-points-v2 = <&csiphy_mxc_opp_table>;
++
++			interrupts = <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>;
++
++			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>,
++					<&rpmhpd RPMHPD_MMCX>,
++					<&rpmhpd RPMHPD_MXC>;
++			power-domain-names = "top",
++					     "mmcx",
++					     "mx";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				csiphy2_in_port: port@0 {
++					reg = <0>;
++				};
++
++				csiphy2_out_port: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
++		csiphy4: phy@acec000 {
++			compatible = "qcom,x1e80100-csi2-phy";
++			reg = <0 0x0acec000 0 0x2000>;
++
++			clocks = <&camcc CAM_CC_CSIPHY4_CLK>,
++				 <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>;
++			clock-names = "core",
++				      "timer",
++				      "ahb";
++
++			operating-points-v2 = <&csiphy_mxa_opp_table>;
++
++			interrupts = <GIC_SPI 122 IRQ_TYPE_EDGE_RISING>;
++
++			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>,
++					<&rpmhpd RPMHPD_MMCX>,
++					<&rpmhpd RPMHPD_MXC>;
++			power-domain-names = "top",
++					     "mmcx",
++					     "mx";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				csiphy4_in_port: port@0 {
++					reg = <0>;
++				};
++
++				csiphy4_out_port: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
+ 		camcc: clock-controller@ade0000 {
+ 			compatible = "qcom,x1e80100-camcc";
+ 			reg = <0x0 0x0ade0000 0x0 0x20000>;
 
 -- 
-2.34.1
+2.55.0
 
