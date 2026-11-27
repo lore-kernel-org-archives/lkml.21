@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795788413;
-	b=Bm5bO5Yi02/SLM2wvI4hDlDiiIcF3lFDLDF1NKPhvHMpdN/k8R7opf2+5Z2rDczI8cjy
-	 DKkHkQdx5haURBDafSCOSxY8jAXYJ0OQ5RdeEKQSWnn7EInK3vJmplKUdTYkrYavZE4Kd
-	 JHnvDuNgACYpa2HsEcG7xOb4oeaIC08kChlFgX4pEcwY+96EudPfHiMcO9l8NGzeMzxxH
-	 TK0B23/X+7Cq+RscCc2ltM/nP7ZpZJPqvf/S/NG8nDKB6GF2xEvshcPVwktsm66/SIwNc
-	 vEA9c4olSyb1kCydlJFLu485q0IMATeTMk1YtMDLYwqwWXv1r0WPK+0lS4jJu6TKL7w==
+	t=1795788428;
+	b=Q84KLzh+e3sQK8U1cbnk0bCKs+TO0y0LSTmyJAmfoiWsM17OK+FuyJOhjtdpgz7Eifzk
+	 9bHxzs1rlsBMUvg5uatGhuF6pSy0ZHZQ45zo2d5WFmVvabJpIRHc2IvKYGwquA6GPGWg/
+	 0kVWzTbaZt/lVuWBXr5t73GXI8ufebaYQg+qNIuwojLOBN6RZjk8k5++Zi7hFg5Zveotq
+	 D07ZPR30MIcBAuIURbrwaiEgkEscuQXCjccKNegb5c9t7yNrhwgLSaARx1mAeM2ob2wD8
+	 61Dj27FwvOPm5h96QIBoQlKh1T53qRCbN3ZgBIsyaF58dVGImU0GR4O+EzgfAVvAN5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795788413;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795788428;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=b3QBz+aegQrt01l7VTRnuNY+RfHIeGxGfCG2oZRvtFo=;
-	b=ji3+pWgNf19dgG/Jzga9HIeXmJQw1J8f4+Xuvy11RUckFJJSImlGsli6AvYzLFWMZRBs
-	 KtLvNONcdO3yfWk9G3w3+Ys/KkrD9MbuBelRRyIKuv0CjuIVABq8xAkeHSJ7XqslAk4Od
-	 zmwxrmB1bJuM4ztH6TFvYajwpP+SBxDW8mSptNiM2hKBTiANILsy4tke+nHchEAZE8DPB
-	 D4B1ui8+eeTM7/4KCi7nmiRG4k2LhvkocXDi2IbsNqRTO8OkBb3QsxGX50+G5nKIr5SBC
-	 ViD0BFYYcMMEQDxSgjoqv2Q27m6tcQFp1HGzoTR4efqf45vU5Wj4+OGI4GBqmfb0apw==
+	bh=prqg+9+C9OZ8PzG7e/SKDZecuZaCZLp73YjumQbdiU0=;
+	b=5b3L8M4bkVvt44B7fBjfUHoIzAD5K+/PR6KetyA/4hHd32PrUErzsVnfoVtB/cI2kF7u
+	 yhM0cbrU92tma3q2gLqsjo2mdDThPYqldtEnfuiJekDceFzVeK2CoO7O1qmuerq1Dk+RL
+	 EpLo9EKcjCv4Wmb4f6hVhzCx7Pl2U/vyjNnkMSDYOWyvLyJX06VCqz1qN8H4wSfN3gf7I
+	 dBYV9Ngi/H2C3e3MSa/IfOsWpOHHfQTGPG4djd4TP7L5dw5fb9BhvRkN8Tyx+m9dcZweq
+	 h58egbO+vW0gDtqY9fmh9qafDJ1551HrLl6LV75JmVKkrOfzdCuP6NT9VS38UIFmobg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zj1i5W4Y;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WluSVrhM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD546606A337;
-	Fri, 27 Nov 2026 14:06:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81E57606A31F;
+	Fri, 27 Nov 2026 14:07:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zj1i5W4Y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC0EB1F0089A;
-	Fri, 27 Nov 2026 14:06:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WluSVrhM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D261F00898;
+	Fri, 27 Nov 2026 14:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795788413;
-	bh=b3QBz+aegQrt01l7VTRnuNY+RfHIeGxGfCG2oZRvtFo=;
+	s=k20260515; t=1795788428;
+	bh=prqg+9+C9OZ8PzG7e/SKDZecuZaCZLp73YjumQbdiU0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Zj1i5W4Y/dg12S8AQc2m82FMuai8HTzI5EM5YkF4iXK16Zed7Dc0FvFT3lVmr/kwy
-	 rCIDVlSwYdkoqPgH9u7tE0kAVJKZ2ScgPd/my7c7cYNYTbE7Y2jxk98bb9k11SHOLq
-	 5yJbwgnP4vbOtA/i50Ki77MwBYoY9spM0u/8qLrUt9qlGT1he8jtXFW9MIFQriXXBn
-	 +b2i/3DbF06X+2KY5LrShfKF9EtO31AqHe7ejWABjT+tvzZ7gsJBh2hMZ2zrHic2iT
-	 +FOFHrnG+KY1wFX+40x9dRLcweAJ3Bg8n6Ggh4hcy3tmtvaMOj0Nbk0Nda4e6KfDpx
-	 zveEyY4/IebSA==
+	b=WluSVrhM26loZJ82d5WTlntzlSI7z764lstfJsoSo+F67X0TWsat7WFCo2lHSal6q
+	 CXZX1TEeoiyJhhS/meskFdEfs72gcw5+UgBEbSaH9phrDN6lcwz7GI4M83T0DtGPyy
+	 nMW4BqBFn03tFHvAv74vJN9fiefL+VxiX2+nPlyrazIgTfM/0FnCXghN1mV+agl7Hc
+	 9adM7/o3QM+HEtZQtsYKIpJfhrWJk+ygkBD3rVfkDVVO0IqTMcARJ949HDQHGl7rTh
+	 L4YL1rZF7kkZCRMq6b3SJ2IElhPX4r0xrinpLo4IiSqe/ZDSePsve0YTcVffpPOfa8
+	 pLqApiCKhk3lA==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
 	Andrew Jeffery <andrew@codeconstruct.com.au>,
@@ -52,13 +52,14 @@ To: lee@kernel.org,
 	Maulik Shah <maulik.shah@oss.qualcomm.com>,
 	jordan_hargrave@dell.com,
 	tomer.maimon@nuvoton.com,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
 	openbmc@lists.ozlabs.org,
 	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-Subject: [PATCH v3 06/12] pinctrl: nuvoton: Unmap GPIO bank registers on error in NPCM7xx and NPCM8xx
-Date: Fri, 27 Nov 2026 14:04:54 +0000
-Message-ID: <20261127140602.2790001-7-lee@kernel.org>
+Subject: [PATCH v3 08/12] pinctrl: nuvoton: npcm7xx: Fix fwnode_irq_get() error check in npcm7xx_gpio_of()
+Date: Fri, 27 Nov 2026 14:04:56 +0000
+Message-ID: <20261127140602.2790001-9-lee@kernel.org>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261127140602.2790001-1-lee@kernel.org>
 References: <20261127140602.2790001-1-lee@kernel.org>
@@ -73,102 +74,46 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-npcm7xx_gpio_of() and npcm8xx_gpio_fw() map each GPIO bank's registers
-via unmanaged fwnode_iomap() without unmapping them if a subsequent step
-in the loop, pinctrl registration, or GPIO registration fails.
+Commit 693c9ecd8326 ("pinctrl: nuvoton: Reduce use of OF-specific APIs")
+replaced irq_of_parse_and_map(), which returns 0 on failure, with
+fwnode_irq_get(), which returns a negative errno on failure (including
+-EPROBE_DEFER), while leaving the !ret check unchanged.  As a result,
+negative error codes are stored in pctrl->gpio_bank[id].irq and passed
+as large unsigned IRQ numbers when registering the GPIO chip instead of
+aborting or deferring probe.
 
-Register a devres action after each fwnode_iomap() call so the bank
-mappings are released automatically on probe failure or device teardown.
+Check for ret < 0 and propagate the error code, matching the NPCM8XX
+driver.
 
-Fixes: 3b588e43ee5c ("pinctrl: nuvoton: add NPCM7xx pinctrl and GPIO driver")
-Fixes: acf4884a5717 ("pinctrl: nuvoton: add NPCM8XX pinctrl and GPIO driver")
-Closes: https://sashiko.dev/#/bug/linux-cf83b9c0-f3a2-4dc8-95a0-af6fafb6d092
+Fixes: 693c9ecd8326 ("pinctrl: nuvoton: Reduce use of OF-specific APIs")
+Closes: https://sashiko.dev/#/bug/linux-95c9d7d3-32bb-4f4e-ab7f-84872957de4f
 Cc: stable@vger.kernel.org
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
 v2 => v3:
  - Rebase onto pinctrl/for-next; no functional changes.
 
- drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c | 13 +++++++++++++
- drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c | 13 +++++++++++++
- 2 files changed, 26 insertions(+)
+ drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c b/drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c
-index 2eb7782b90a6..08eb9aca36b8 100644
+index 08eb9aca36b8..ffa2fba023af 100644
 --- a/drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c
 +++ b/drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c
-@@ -7,6 +7,7 @@
- #include <linux/gpio/driver.h>
- #include <linux/gpio/generic.h>
- #include <linux/interrupt.h>
-+#include <linux/io.h>
- #include <linux/irq.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
-@@ -1821,6 +1822,13 @@ static const struct pinctrl_desc npcm7xx_pinctrl_desc = {
- 	.owner = THIS_MODULE,
- };
+@@ -1871,10 +1871,9 @@ static int npcm7xx_gpio_of(struct npcm7xx_pinctrl *pctrl)
+ 		fwnode_handle_put(args.fwnode);
  
-+static void npcm7xx_gpio_iounmap(void *data)
-+{
-+	struct npcm7xx_gpio *bank = data;
-+
-+	iounmap(bank->base);
-+}
-+
- static int npcm7xx_gpio_of(struct npcm7xx_pinctrl *pctrl)
- {
- 	struct gpio_generic_chip_config config;
-@@ -1835,6 +1843,11 @@ static int npcm7xx_gpio_of(struct npcm7xx_pinctrl *pctrl)
- 		if (!pctrl->gpio_bank[id].base)
- 			return -EINVAL;
- 
-+		ret = devm_add_action_or_reset(dev, npcm7xx_gpio_iounmap,
-+					       &pctrl->gpio_bank[id]);
-+		if (ret)
-+			return ret;
-+
- 		config = (struct gpio_generic_chip_config) {
- 			.dev = dev,
- 			.sz = 4,
-diff --git a/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c b/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c
-index dc76ad9e58e6..40315e89b839 100644
---- a/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c
-+++ b/drivers/pinctrl/nuvoton/pinctrl-npcm8xx.c
-@@ -7,6 +7,7 @@
- #include <linux/gpio/driver.h>
- #include <linux/gpio/generic.h>
- #include <linux/interrupt.h>
-+#include <linux/io.h>
- #include <linux/irq.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
-@@ -2453,6 +2454,13 @@ static int npcmgpio_add_pin_ranges(struct gpio_chip *chip)
- 				      bank->chip.gc.ngpio);
- }
- 
-+static void npcm8xx_gpio_iounmap(void *data)
-+{
-+	struct npcm8xx_gpio *bank = data;
-+
-+	iounmap(bank->base);
-+}
-+
- static int npcm8xx_gpio_fw(struct npcm8xx_pinctrl *pctrl)
- {
- 	struct gpio_generic_chip_config config;
-@@ -2467,6 +2475,11 @@ static int npcm8xx_gpio_fw(struct npcm8xx_pinctrl *pctrl)
- 		if (!pctrl->gpio_bank[id].base)
- 			return dev_err_probe(dev, -ENXIO, "fwnode_iomap id %d failed\n", id);
- 
-+		ret = devm_add_action_or_reset(dev, npcm8xx_gpio_iounmap,
-+					       &pctrl->gpio_bank[id]);
-+		if (ret)
-+			return ret;
-+
- 		config = (struct gpio_generic_chip_config) {
- 			.dev = dev,
- 			.sz = 4,
+ 		ret = fwnode_irq_get(child, 0);
+-		if (!ret) {
+-			dev_err(dev, "No IRQ for GPIO bank %u\n", id);
+-			return -EINVAL;
+-		}
++		if (ret < 0)
++			return dev_err_probe(dev, ret,
++					     "No IRQ for GPIO bank %u\n", id);
+ 		pctrl->gpio_bank[id].irq = ret;
+ 		pctrl->gpio_bank[id].irqbase = id * NPCM7XX_GPIO_PER_BANK;
+ 		pctrl->gpio_bank[id].pinctrl_id = args.args[0];
 -- 
 2.56.1.839.g22a8290db9-goog
 
