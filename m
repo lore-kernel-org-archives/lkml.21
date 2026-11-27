@@ -1,66 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795779427;
-	b=YY+WtSlNgdwMPixwvVqqsiJsnmV50OF2HRhFUCkgWVwwPS059TCApxI8lyjacoh61NIu
-	 bbHXe5ic91VoUchCDm7caFRDuKtJ1HByevBGD0B/8avsz0bm8VtOCph8VuaUbdzFPGEeN
-	 uVXqvmgif7WIBAkOANiOZPnQMy8wab/RTJjLwci3wxMkwcYm9Ycbl4JCHN+MaFS3vV1G5
-	 +8lacHuRb7HPhGXple1zgWLrpwE03KMGSHp1Tm0mYJ6f6qQiFQFi/h5uDlPLmTDBDiP8m
-	 k3QqKjtwsLuYfHXyYxIAr7lVzXs8F0x432Gs4PbuKr21l+7xZOkcu+L0mdBYR3CdDSA==
+	t=1795779441;
+	b=ufilrrUV+6KG7sEMXOU3UHtbKXdVR1/Ou/kJC1Ecq5+GT3NjbcyIqcj43mKfHd1S7QEN
+	 XXjaC0LaZ5MYCNIQ6Mxy63DHT+E70y4JJXssphhkdTlS13pDYF2glg8SkWiBTnAo3CGrx
+	 T1RVBzalUGbbBKlwEbQrOhE17foBMAa7riD8CdLchRo5CAlr7026plhfEFqGwLgbroA5p
+	 ny/9uY7z7/VAUUkdYg6xkoHSU5eFRfxjMfCmD4m1MjWCfuvf3fL75VQJ57YjEmbZDnPii
+	 hkFWKTtpl3yBZ6dz80xAer8N9zTtxGiAEg9gQ2+zploUi8Q+/LJBpuQVuEHjtwfkvpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795779427;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=rq/f9lFvbKOsyeAv0AQkPXaXsc6C44TDCVVQHKNDSpY=;
-	b=D2RKm4UcencY2I4uCdkp/bl6Sz9FEHsrCGGnX4voeOu3sGmYpDJ9nVqGALBDWDWJQiW3
-	 l2wKtRJrubOe6sG4r2En2mFET8djUSkZeZZI/bCHiY6BoZ2PYC7UKhcepCad1uHSpYu7U
-	 P0vHwCX4lmxKTgyL4cH6rjE4Ca1Emaf5uoNJLiYrx2KxSHrkAkHPdDIc+zG5ljW+rUyqM
-	 ldoFJ+TUCycJ8gqviQHL40K39OoT0DgMdofr6uvyhVUHoPMX7Fh6UejQ2pa8FsS7LqIYV
-	 auELxZJWeiOxdeOXmpPwlwbMEf9gZ+S7xT3p+kxv8BMRYC3dbPNk4IWZdnDgKqqiNlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795779441;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Last-TLS-Session-Version;
+	bh=3q5ApM8WktUE9IkZYWmOP2hMeTSODz8wONx8qHbI4pg=;
+	b=Ujq/BAK7xld5YZ9EL2Lw9Xme5De8IJgVmaRIboQ1xxojjCGd4UC7d9hd73L4RqWx0NiA
+	 NDZUSIW/3zwPF/wehbaIC+VZimWvrUtOp2diiGNG/7PTtDbkI/Y7IMyiCfn/1PEk7+obi
+	 i9tHLs1NX/Kst9IdQqcbopmG9kdOZTm0WzTXEUMZh4H1n/EYek/DsI1pejFkOwn93rRyo
+	 7oM2Ow4tiG8IwhVM3VgM2MNV1Tj6N1p7boPwPsKoeFz1r4vcrV6XkKa8RmXSMIcrG+rif
+	 lBIXJP5Mb6nUM3FSE34y2/uIt6sVwZe/Dm65tf8cyLmCvLhHnyhLvCiDJuc2kuPnlqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qE1MB7Rq;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 30CE4606A31C;
-	Fri, 27 Nov 2026 11:37:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30CE4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=nabladev.com;
+	spf=pass smtp.mailfrom=nabladev.com;
+	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=J6vksQMv;
+	arc=none smtp.remote-ip=178.251.229.89
+Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E44AB606A31C;
+	Fri, 27 Nov 2026 11:37:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E44AB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qE1MB7Rq
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69F841756;
-	Fri, 27 Nov 2026 03:37:02 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DFAD93F632;
-	Fri, 27 Nov 2026 03:37:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795779425; bh=VaL97qzaUmOSKTZ/hgP4z/MhSjBcXOvVasIuwl15ZDM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qE1MB7RqAPGz0qVbB1y9yXcqxh2QipFGWiHzbGQ/g36VDd7oSlwiwZP3Hmfv0U4Vc
-	 55l2f/5EMEJEtsYhiFBmHUxPadbIz/k/Nvl8CGpei6qloV0vEX+YgFX3OXYmzNVvfG
-	 jRskp9GXyUfwG1MzdZhYEso83Xb86fxlDjj3ybho=
-Date: Fri, 27 Nov 2026 11:37:02 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
-	Mukesh Ojha <quic_mojha@quicinc.com>,
-	Mamatha Inamdar <mamatha4@linux.vnet.ibm.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] perf kvm: Don't create an empty perf.data in live
- mode
-Message-ID: <20261127113702.GD861809@e132581.arm.com>
-References: <20261125-james-perf-kvm-live-file-v1-0-946f478ce2a1@linaro.org>
+	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=J6vksQMv
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 54F4610AB1B;
+	Fri, 27 Nov 2026 12:37:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1795779434;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=3q5ApM8WktUE9IkZYWmOP2hMeTSODz8wONx8qHbI4pg=;
+	b=J6vksQMvV33ikptLVFeCswmmc+y5SgXiAIDuwB48p13O9dA9OCIiqc6fOhkrFYbBJslUyp
+	ZOeLyblsraDUSZ6LmJU7yHHL1OknAqshGZQP8x0BVSWXLQzrKU50UdXB3mjD4D2r9ZDcen
+	jLBMh65/YRceqh6hxDdV7M5qHD/cERR/1kJtOkzmppeHMowXdT5DP0XCoQwM3N+ESK2ena
+	md5ljxu64FKATTGTzSYNQfI58mOqaVJToid1Z/4QY/9mHvXNDUusALHAwKAZOfmzyqeGxq
+	lr6oHUpmHJenifGKwLRFEfObW8tZg8LuDWd/ctyE5IbIDfGn/YkW93jv3waXWQ==
+Date: Fri, 27 Nov 2026 12:37:12 +0100
+From: Pavel Machek <pavel@nabladev.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 5.15 000/318] 5.15.227-rc2 review
+Message-ID: <awlraBknK5kgEyHs@duo.ucw.cz>
+References: <20261127052515.841545444@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,21 +67,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="Tb6Ne9dYHzdTQEK0"
+Content-Disposition: inline
+In-Reply-To: <20261127052515.841545444@linuxfoundation.org>
+X-Last-TLS-Session-Version: TLSv1.3
+
+
+--Tb6Ne9dYHzdTQEK0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125-james-perf-kvm-live-file-v1-0-946f478ce2a1@linaro.org>
 
-On Wed, Nov 25, 2026 at 03:12:13PM +0000, James Clark wrote:
-> Running the perf tests drops an empty perf.data file in the cwd which
-> gets in the way sometimes, especially when the tests are run as root.
-> 
-> Fix an existing error path bug to appease Sashiko, then fix the empty
-> data file.
-> 
-> Assisted by Claude Opus 5.5.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+Hi!
 
-For the series:
+> This is the start of the stable review cycle for the 5.15.227 release.
+> There are 318 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+CIP testing did not find any problems here:
+
+https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/tree/linux-5.15.y
+
+Tested-by: Pavel Machek (CIP) <pavel@nabladev.com>
+
+Best regards,
+                                                                Pavel
+
+--Tb6Ne9dYHzdTQEK0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCawlraAAKCRAw5/Bqldv6
+8sCMAJ4qfXaaA6hyepE1tk27JBVs3wDLxwCfdAO/St4Gn5h2J3EneJW6sxiPmt0=
+=wVrc
+-----END PGP SIGNATURE-----
+
+--Tb6Ne9dYHzdTQEK0--
