@@ -1,66 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.111
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795739575;
-	b=oYRLwxDSUWm+8f7Yw4EIG/E559JVmH6nchH8L27d1MnjYUoX/yL67unm1UJlfQGNdJa0
-	 gwdEDR1bF9GBLnBWtFaGdmyJlw67KDFRO/yuuf7qlPCAmyBt/laeMCUMVc6TnXI9Sai2G
-	 VXncv/MJ5kzW1vPIhEdMLpwer0/heV5cVQaJs6lpgcX5Xl428wfzvUoOW6TS1M/cIznIL
-	 DF47BExnirqN/WelqEjY+Uti3qTd7AYEJUv9GyknT20Ouc784tgG6V6whUHcxKcImMCXc
-	 u6sQr6mMgvfohPJ62us5hbfa8eQkHuEEyB6JuLSyDMfhwm255DHlnNL5K+S52PgoLRQ==
+	t=1795739681;
+	b=Wl/uyDwyz0fjDCQxHYYA3aI8oD64QojF6S0FPLzBHWP5u4MLZxZQ26UChEd/C6hP5OPr
+	 qcjjNC1osnEOz3O6iToiyus8XMpibTKu92wpJSKcILTNtpP6hj7baqtGqt5ramv8dxnFH
+	 RX6f/+P7hH4ByUY0QYbupKpfpzFHLaU/jbiiSqJwS1C7em6cs5tt8opnQRsxxKdcWAwkk
+	 QvtnXWNXpAkRv774TtAmIaTMllWoA1YRrG17r9LVo+JzX10/ISFdtGCJKPxKmabnsKQBq
+	 MSpTI1iIxjKDvpaVuG34M8i9S7KG9iyIQZY+hcnNaqN6alH1UPl97XEchGe3nMwz8ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795739575;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Y/VaSmPm1p19a5o3iTOi8KEaRCqj1m9Qx4cpltOCUKQ=;
-	b=LXz+3QCvQanjpopVv7w8DNx89mNPgF7j2lYHJ7YcVSPnnw4wWDJwwkwY232mQgtgyH8o
-	 nApw0Lf6OvkpTgL5ck9wOg5mi5gvUMdi2jJL5Qw0BQ2vst67HPe4mmPC4GtaC8n+c54KC
-	 Crd5liRINNZs2aMlhO5FItdtaQ6T9hd8/HFBMncXXGfCu8r41Wrbn6o3nAp2HlBiIPqBM
-	 zGXfT32EaYM33nRNQRHq/QHKsm4vFPaDY45pxmbAPN5EFrEuOLKM/P4DWFSMMUjEng0Lp
-	 2oyPO8G09L9qarR5ZaOyd0YPvImJIb9gXF8BqcLn1H15/peFuhtuxF0xvynaMVKLjYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795739681;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=UxLK7bEGjfkMqxlP1HJ5La/tP438DtL+DH1p4KN3J0s=;
+	b=YHDpbzHlWuEZbF6K+7DEzFhFvsR47inZA8durUqijRAv/LC+7a9Rp/GggUdCrvGetme6
+	 tG4sn0XHiSQ0L3oILb33GJGkXgmlyf7Np6NqF4m9kYdtrGgzWYEhlnMz7X8WOSZLk7jRf
+	 NVpUvUBrtfx8QIKd5X8YwINzvyy+tmzZlQebNQTcfaYOnJASBvwWjoMOtfFITADzom7zI
+	 kU6QC6yh2EwO6GRtgs7phU1myLAg/4FqAMrdmc7m9dCkMvEik4Cle09ewk4bIq4X4xZVw
+	 d3Jj0CD8bh0anCabp3DFGiNYKlr+TAh09HBLVrhqOAC8xNffsFyGHA1nxGPuSwIg23A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b="o/2pr7u3";
-	arc=none smtp.remote-ip=79.135.106.111
-Received: from mail-106111.protonmail.ch (mail-106111.protonmail.ch [79.135.106.111])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Rx7pqdVk;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1615606A6AA
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:32:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1615606A6AA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60175606A31E;
+	Fri, 27 Nov 2026 00:34:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60175606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=o/2pr7u3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795739572; x=1795998772;
-	bh=Y/VaSmPm1p19a5o3iTOi8KEaRCqj1m9Qx4cpltOCUKQ=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=o/2pr7u3WeU45cO5JjBaRSY0B1noSo2yxtTD2YYKWEHPzQwz1mrVr5BOIvPLvqgsc
-	 Uf6Wsp/mkk5hVWvjq2KmbpFxK0kNmBD04mlWCRy3CgTpNkhJIg3YyAvvxuxytqTHOY
-	 JrsphckybEJjNa/ZSI5d7/cSVkYm6bE8Gu68hQPyMz3DgBa+JxZtrufKX8x9TuoTI/
-	 mmCkcNf5NTECK0QAndmpbfE8Wt/fewsWZmjK5IBONC56gI/WgzZBvd60oCFxHFQI3P
-	 iyiIU1HhQ4aPNMYE2hWI2jke898WeE07papXIg3Oya7XfRdppNc9rBgvQ45R2Q5NWK
-	 kvsUqcdsekSEw==
-X-Pm-Submission-Id: 4jbDsH2lcXz2ScQJ
-From: Miroslav Cimerman <mc@raidlab.org>
-To: Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fygo.io>
-Cc: Li Nan <magiclinan@didiglobal.com>,
-	Xiao Ni <xiao@kernel.org>,
-	NeilBrown <neil@brown.name>,
-	Mariusz Tkaczyk <mtkaczyk@kernel.org>,
-	Kenta Akagi <k@mgml.me>,
-	linux-raid@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 7/8] md/raid1,raid10: hold writes that skip a newly failed device
-Date: Fri, 27 Nov 2026 00:32:30 +0000
-Message-ID: <20261127003231.1180197-8-mc@raidlab.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261127003231.1180197-1-mc@raidlab.org>
-References: <20261127003231.1180197-1-mc@raidlab.org>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Rx7pqdVk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795739678;
+	bh=UxLK7bEGjfkMqxlP1HJ5La/tP438DtL+DH1p4KN3J0s=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Rx7pqdVkj0ocJelprcXaH823psQ1knCRA4MNRSWCEsup440aoNYQlf3OJLzN6oTbt
+	 /kYZepCmQUxh0vNqeqyx6mBHA53XsmoDbB4l//L97o6hRHlzaconxazSY9WiWgLoQl
+	 dSzqkV4kdVjZsnCk91ItkyyX5KdkloRIN21Mp45FYvo+DubVk6YzwWG0o+8XHNt+Ic
+	 hNkd8ZdJoUfpGRwLQTNlyTTUvZloB4p+E69ETrbEaOPG88S662Ydvh1omG7KdHkVdB
+	 iq8I0ISJMOlAqVKxP6nrwPmuBDk/NShCFP6mWnFBp1TOIahmx6LUAzxJexksz03Hrx
+	 VLNEZfOR0YQ5A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7922017E085F;
+	Fri, 27 Nov 2026 01:34:36 +0100 (CET)
+Message-ID: <d40e63eac201d9517c008d559a32b2cef9cc6137.camel@collabora.com>
+Subject: Re: [PATCH v2 1/9] media: chips-media: wave5: Ensure Atomic Access
+ to src_buf list
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: "Jackson.lee" <jackson.lee@chipsnmedia.com>, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl, bob.beckett@collabora.com
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	lafley.kim@chipsnmedia.com, b-brnich@ti.com, hverkuil@xs4all.nl, 
+	nas.chung@chipsnmedia.com, stable@vger.kernel.org
+Date: Thu, 26 Nov 2026 19:34:33 -0500
+In-Reply-To: <20261109052853.110-2-jackson.lee@chipsnmedia.com>
+References: <20261109052853.110-1-jackson.lee@chipsnmedia.com>
+	 <20261109052853.110-2-jackson.lee@chipsnmedia.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-lviUndxDktS7N+jzCjqk"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,104 +89,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-A device can fail between the wait for blocked devices and the device
-selection of a write. The selection skips Faulty devices, so the write
-completes before the superblock records the failure. Before the commits
-below, the selection waited for a Blocked device.
+--=-lviUndxDktS7N+jzCjqk
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Give the write to a Faulty device while its failure might not be
-recorded: while it is Blocked, or after MD_BROKEN. raid1_submit_write()
-fails the copy at once, and the write is held. Waiting for Blocked
-again would miss MD_BROKEN: md_update_sb() clears Blocked even when the
-superblock write failed.
+Le lundi 09 novembre 2026 =C3=A0 14:28 +0900, Jackson.lee a =C3=A9crit=C2=
+=A0:
+> From: Brandon Brnich <b-brnich@ti.com>
+>=20
+> feed_lock was introduced in decoder performance improvements. This was
+> used to ensure atomic access to the driver's avail_src_buf list during
+> fill_ringbuffer, streamoff_output, and buf_queue. While this protected
+> the drivers available src bufs, the v4l2_m2m_src_bufs were not being
+> protected at driver level. Three separate threads have access to remove
+> buffers: start_decode fail path, streamoff_output, and finish_decode.
+>=20
+> In streamoff_output(), replace the inst_src_buf_remove() loop with
+> list_for_each_entry_safe(). inst_src_buf_remove() takes feed_lock
+> itself, so calling it while streamoff_output() holds feed_lock would
+> take the same mutex twice and deadlock. Unlink each entry with
+> list_del_init() directly instead.
+>=20
+> In wave5_handle_src_buffer(), feed_lock does not serialize against
+> v4l2_m2m_buf_queue(), which buf_queue calls after dropping feed_lock and
+> which adds to the ready queue under rdy_spinlock only. Walking the ready
+> queue with v4l2_m2m_for_each_src_buf_safe() therefore races with
+> VIDIOC_QBUF. The loop only ever looks at the head of the queue, so peek
+> it with v4l2_m2m_next_src_buf(), which takes rdy_spinlock, instead.
+>=20
+> Fixes: a176ac5e701f ("media: chips-media: wave5: Improve performance of d=
+ecoder")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+> Signed-off-by: Jackson Lee <jackson.lee@chipsnmedia.com>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
 
-This needs "md/raid1,raid10: hold writes that fail on a faulty device"
-and "md/raid1,raid10: fail held writes when the array fails".
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Fixes: 88ed59c4cc6c ("md/raid1: factor out helper to handle blocked rdev from raid1_write_request()")
-Fixes: f2e7e269a752 ("md/raid10: pull the code that wait for blocked dev into one function")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
----
- drivers/md/raid1-10.c | 12 ++++++++++++
- drivers/md/raid1.c    |  9 ++++++++-
- drivers/md/raid10.c   | 13 +++++++++----
- 3 files changed, 29 insertions(+), 5 deletions(-)
+--=-lviUndxDktS7N+jzCjqk
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-diff --git a/drivers/md/raid1-10.c b/drivers/md/raid1-10.c
-index 341a9785e3f2..f8fa9cdc4080 100644
---- a/drivers/md/raid1-10.c
-+++ b/drivers/md/raid1-10.c
-@@ -125,6 +125,18 @@ static inline void raid1_submit_write(struct bio *bio)
- 		submit_bio_noacct(bio);
- }
- 
-+/*
-+ * Give a write to a Faulty device while its failure might not be recorded:
-+ * Blocked is set until it is, and after MD_BROKEN it might never be.
-+ * raid1_submit_write() fails the copy, and the write is held.
-+ */
-+static inline bool raid1_write_to_faulty(struct mddev *mddev,
-+					 struct md_rdev *rdev)
-+{
-+	return test_bit(Blocked, &rdev->flags) ||
-+	       (!mddev_is_dm(mddev) && test_bit(MD_BROKEN, &mddev->flags));
-+}
-+
- static inline bool raid1_add_bio_to_plug(struct mddev *mddev, struct bio *bio,
- 				      blk_plug_cb_fn unplug, int copies)
- {
-diff --git a/drivers/md/raid1.c b/drivers/md/raid1.c
-index f596b36ec6e1..508673e8c02e 100644
---- a/drivers/md/raid1.c
-+++ b/drivers/md/raid1.c
-@@ -1524,8 +1524,15 @@ static bool raid1_write_request(struct mddev *mddev, struct bio *bio,
- 			write_behind = false;
- 
- 		r1_bio->bios[i] = NULL;
--		if (!rdev || test_bit(Faulty, &rdev->flags))
-+		if (!rdev)
-+			continue;
-+		if (test_bit(Faulty, &rdev->flags)) {
-+			if (raid1_write_to_faulty(mddev, rdev)) {
-+				atomic_inc(&rdev->nr_pending);
-+				r1_bio->bios[i] = bio;
-+			}
- 			continue;
-+		}
- 
- 		if (test_bit(WriteErrorSeen, &rdev->flags)) {
- 			sector_t first_bad;
-diff --git a/drivers/md/raid10.c b/drivers/md/raid10.c
-index 519b6ac0accd..6ea84eb8bf87 100644
---- a/drivers/md/raid10.c
-+++ b/drivers/md/raid10.c
-@@ -1387,14 +1387,19 @@ static bool raid10_write_request(struct mddev *mddev, struct bio *bio,
- 
- 		rdev = conf->mirrors[d].rdev;
- 		rrdev = conf->mirrors[d].replacement;
--		if (rdev && (test_bit(Faulty, &rdev->flags)))
-+		r10_bio->devs[i].bio = NULL;
-+		r10_bio->devs[i].repl_bio = NULL;
-+
-+		if (rdev && test_bit(Faulty, &rdev->flags)) {
-+			if (raid1_write_to_faulty(mddev, rdev)) {
-+				r10_bio->devs[i].bio = bio;
-+				atomic_inc(&rdev->nr_pending);
-+			}
- 			rdev = NULL;
-+		}
- 		if (rrdev && (test_bit(Faulty, &rrdev->flags)))
- 			rrdev = NULL;
- 
--		r10_bio->devs[i].bio = NULL;
--		r10_bio->devs[i].repl_bio = NULL;
--
- 		if (!rdev && !rrdev)
- 			continue;
- 		if (rdev && test_bit(WriteErrorSeen, &rdev->flags)) {
--- 
-2.53.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawjQGQAKCRDZQZRRKWBy
+9IZ5AP98Z3GvX2FF3bIELxWZnxpqmQtWHS3t3ye/G0lPEqghNAEA5WsLbWgQohCz
+tDSNAwYifK9be/W0sS9UARcbIXX73gw=
+=fkGs
+-----END PGP SIGNATURE-----
+
+--=-lviUndxDktS7N+jzCjqk--
