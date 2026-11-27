@@ -1,81 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763500;
-	b=A68nEl8Dw6nn12vz1CTLW4mt45/ftnO7ihiRinLNGpwDql0a/neHAMcsDQMaX9YugThS
-	 VjyHGmAMyyKyPvcEFVoFZe3tAEP9UyNKqfaEL4XInvSfwcqi9UEErHBrCETNtLhlSgVNS
-	 H2/rEekeq6YZ81ilIba8mCrF5RMQ2Nxxi6w5KcIYQJi7Vr+N65gAaxE18B2TxCMuYda/3
-	 MTWhn5ORL5oUyjrWpzRcw986YP7lyL+DfflxCtjnGqxW/PIH/Bhxz7/cDfhj26Jrg2xMW
-	 AVUrEqSUYfLVV/Ma3mkQc/RogMtjodokTjvJx0/0QghTUnSw9LQEFYE7XfMos1VjZRw==
+	t=1795763545;
+	b=cCBVVRoIgQZ6vUToNffFGZAgw7/a4UBwxEgY8kS3ydclvD1FP3uoR7I5aX1fF+cBQtsb
+	 qP/IepHEU+FVcseLH8YfVWM7XwuvrxS51n2QKR29Wcs18nRFarXdJorUZk1iESLVyHK50
+	 PuF1BSzbiIYAV5fPWR5YfIOgKk+ATEncjacx1gv8QSR5Yhr0yXbO5s7yTsl1xqMI/AYBH
+	 Os22SR1kzvjDKAjgBPdTDWKdPPkjNdk1jhQKRoc+ncPIvtKtseNoBlaXRR/bZA07N6zcZ
+	 iQdN8KjVAGYiuXXjwAnSjNQ0jRijUtYQefQHUYEqA9EFhyf5oxh8PCo7fNpZcL0Ze3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763500;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=Va5FgObBSo28d6Jf/jN7EWIhO+eUVFZbVP9yj6KGRfc=;
-	b=s79CWWgLodaxBOI/fO+keCwJglxm2OvW8/Un+TstrXRjHYsjl+FaBb7SF3MfHD1nI3y3
-	 q5w0PVT8oAzGX+PKLOCaPJriuFioJpyykX25+FuHoHdjGy/Qm26xK45yn7i34dNOK4syU
-	 po2teUxPpHhH8QT3SzmNxfanKqqGYTUiBIleLXE8c/UHI7EGPV+XCBrMBJbxBRX4xL9NR
-	 TBIQqRzA6k1LdMjrsb31+vR9IqEWfUwH4B9u9YyVzT2PVz1cLOC92RGajZxOee503nMGX
-	 HgaJkevnei5dunXwU5fZKyHv8ugpPelYGiLTAbcGWLF1S1ak7u1MXIH+gG4vjiN9EHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763545;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=lC2ySosyz7nHdF6RRzKEvdsOMwNMDKMcwfeeuRXhTu0=;
+	b=y1e4mpUoYKQRyIxWVGnu/GKrtExS7Qiq8Vb+pmRsji4gPL0Fs5AYHtIjTQbH5Mv2vGjX
+	 tb1ER+HwFRtt7p8qqjYmYViHtv7PsmmEOttfS8PzZoKnlAHxqoaDqjX1znSv12D/ywex8
+	 F5npP4hJlZWc35jN/V9CXr4Z3wNZioxmiyFe+qPoD6X/Mbv8hC4+APDVQWpSUQ6WZiVD/
+	 Fejz7pFpoNGqggnWQpwVY9z6SrK1dISsInO8qeMrAKxsaqkNz2yjxGBDu/m5q9dSuX0b4
+	 KZfRZf+EVhjJ5q1coEB0AFrJu3belhQ7yDkifWEM1hztmVNUvrCl3FBXTOP0swmY1OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=vTt1d81Y;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CB2B606A31C;
-	Fri, 27 Nov 2026 07:11:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CB2B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=vTt1d81Y
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR7BSjB4749831, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795763488; bh=Va5FgObBSo28d6Jf/jN7EWIhO+eUVFZbVP9yj6KGRfc=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=vTt1d81YKcOo0GRwOB454gkesZrNgt02r2dNQb6Tv3DFe0rHmuHq1/TiUa4BnxPS9
-	 4LDs9CUqS0NThRvpK4uNsthQx4S9+TSNowqhINtQbPu4c14PX2tpRctFjTs0qsJmaB
-	 1eCF35Qc1bH40BwtlZlN45RSjTaoJJ/YobaXZvrdZRHo0E6vniWTpoOg284PhL7OBh
-	 NrwKlQ9ylPLABF+uItUGVEnJhU2BQ551OxsIOXcgE3MAaaN8h0AcWF/s1SJ+VSwGCD
-	 08P6n9N8AGnvq1wdYoeC1FKj5lBfW5A/cb7YNTMSz0ydS7FNvy1UrPC29l/m/unmDW
-	 xaHDBX2WbxwJA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR7BSjB4749831
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 27 Nov 2026 15:11:28 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 15:11:28 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Fri, 27 Nov 2026 15:11:28 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: =?utf-8?B?6qeBU3dhcG5pbCBTaGluZGXqp4I=?= <shindeswapnil028@gmail.com>
-CC: "kvalo@kernel.org" <kvalo@kernel.org>, "linux-wireless@vger.kernel.org"
-	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] wifi: rtw88: pci: Power off MAC and disable interrupts on
- shutdown
-Thread-Topic: [PATCH] wifi: rtw88: pci: Power off MAC and disable interrupts
- on shutdown
-Thread-Index: AQHdfgkcjP7Pr8ogOkmROGqrlIhcubdBRICA//+zUgCAAIiKgA==
-Date: Fri, 27 Nov 2026 07:11:27 +0000
-Message-ID: <7b6eb43826cb440f9f9386310cb037bb@realtek.com>
-References: <20261127004822.8536-1-shindeswapnil028@gmail.com>
- <24cb6dca77d3456fb5893ce37b0bd1c7@realtek.com>
- <CAJEWX79Jini8C44xiP_O41--eWEhcpZnMiK84Wp8dqmtO-D5Qw@mail.gmail.com>
-In-Reply-To: <CAJEWX79Jini8C44xiP_O41--eWEhcpZnMiK84Wp8dqmtO-D5Qw@mail.gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEF2C606A31C;
+	Fri, 27 Nov 2026 07:12:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEF2C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: deefc868ea3111f19a56ed5b684f684d-20261127
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
+	HR_TO_NAME, SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS
+	DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF
+	GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:d31af603-6962-42ba-b076-0fe41b692c2c,IP:10,
+	URL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
+	ION:release,TS:10
+X-CID-INFO: VERSION:1.3.19,REQID:d31af603-6962-42ba-b076-0fe41b692c2c,IP:10,UR
+	L:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:10
+X-CID-META: VersionHash:7db8b62,CLOUDID:fe77f6b0d702056796441b369be54daf,BulkI
+	D:261127151219SBY5NT0L,BulkQuantity:0,SF:17|19|38|66|78|81|82|102|127|153|
+	850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP:-2,URL:0,File:nil,RT:nil,Bu
+	lk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:
+	0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: deefc868ea3111f19a56ed5b684f684d-20261127
+X-User: maguicai@kylinos.cn
+Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
+	(envelope-from <maguicai@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 644476794; Fri, 27 Nov 2026 15:12:13 +0800
+From: Guicai Ma <maguicai@kylinos.cn>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>
+Cc: linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Guicai Ma <maguicai@kylinos.cn>
+Subject: [PATCH v2] crypto: af_alg - wake up waiters on zero-length final message
+Date: Fri, 27 Nov 2026 02:12:11 -0500
+Message-ID: <20261127071211.2778867-1-maguicai@kylinos.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120083244.1156396-1-maguicai@kylinos.cn>
+References: <20261120083244.1156396-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,32 +83,169 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-6qeBU3dhcG5pbCBTaGluZGXqp4IgPHNoaW5kZXN3YXBuaWwwMjhAZ21haWwuY29tPiB3cm90ZToN
-Cj4gSGkgUGluZy1LZSwNCj4gDQo+IFRoYW5rIHlvdSBmb3IgdGhlIHJldmlldyBhbmQgc3VnZ2Vz
-dGlvbi4NCj4gDQo+IEkgdGVzdGVkIGNhbGxpbmcgcnR3X2VudGVyX2lwcyhydHdkZXYpIHVuZGVy
-IHJ0d2Rldi0+bXV0ZXggaW4NCj4gcnR3X3BjaV9zaHV0ZG93bigpICh3aXRoIEVYUE9SVF9TWU1C
-T0wocnR3X2VudGVyX2lwcykgYWRkZWQgaW4gcHMuYywNCj4gcnVubmluZyBhbG9uZ3NpZGUgdGhl
-IGNvbXBhbmlvbiBidHVzYiBzaHV0ZG93bi9hdXRvc3VzcGVuZCBmaXgpIG9uIG15DQo+IFJUTDg3
-MjNERSBsYXB0b3A6DQo+IA0KPiAtIENvbGQgYm9vdDogV2ktRmkgYW5kIEJsdWV0b290aCBib3Ro
-IHdvcmsuDQo+IC0gV2FybSByZWJvb3QgIzEgKFdpLUZpIE9OLCBCbHVldG9vdGggT04pOiBCb3Ro
-IFdpLUZpIGFuZCBCbHVldG9vdGggd29yay4NCj4gLSBXYXJtIHJlYm9vdCAjMiAoQmx1ZXRvb3Ro
-IHRvZ2dsZWQgT0ZGIG1pZC1zZXNzaW9uLCBXaS1GaSBPTik6IEJvdGgNCj4gICBXaS1GaSBhbmQg
-Qmx1ZXRvb3RoIHdvcmsgY2xlYW5seSAobm8gLTE2IE1BQyBwb3dlci1vbiB0aW1lb3V0IG9yIC03
-MQ0KPiAgIFVTQiBlbnVtZXJhdGlvbiBlcnJvcikuDQoNCkdvb2QgdG8gaGVhciB0aGF0Lg0KDQo+
-IA0KPiBVc2luZyBydHdfZW50ZXJfaXBzKCkgaXMgaW5kZWVkIG11Y2ggY2xlYW5lciB0aGFuIG1h
-bnVhbGx5IGNsZWFyaW5nIHRoZQ0KPiBpbnRlcm5hbCBmbGFncyBhbmQgY2FsbGluZyBydHdfcG93
-ZXJfb2ZmKCksIGFuZCBpdCBhbHNvIG5vdGlmaWVzIEJUDQo+IGNvZXggdmlhIENPRVhfSVBTX0VO
-VEVSIGJlZm9yZSBlbnRlcmluZyBQQ0lfRDNob3QuDQo+IA0KPiBSZWdhcmRpbmcgY29tbWl0cyAw
-NTIwMjc0NmVkNzAgYW5kIDQ0NDkyZTcwYWRjODoNCj4gLSAwNTIwMjc0NmVkNzAgc2V0cyBCSVRf
-VVNCX1NVU19ESVMgaW4gUkVHX0hDSV9PUFRfQ1RSTCwgd2hpY2ggZG9lcyBub3QNCj4gICBwb3dl
-ciBvZmYgdGhlIFdpLUZpIE1BQyBiZWZvcmUgNDQ0OTJlNzBhZGM4IHRyYW5zaXRpb25zIHRoZSBk
-ZXZpY2UgdG8NCj4gICBQQ0lfRDNob3TigJRsZWF2aW5nIFJFR19BUFNfRlNNQ08gYWN0aXZlIGFj
-cm9zcyB3YXJtIHJlc2V0ICgtRUJVU1kpLg0KDQpTbyBib3RoIG9yIGVpdGhlciBvbmUgY29tbWl0
-IGRvbid0IGhlbHA/DQoNCj4gLSBDYWxsaW5nIHJ0d19lbnRlcl9pcHMoKSByaWdodCBiZWZvcmUg
-cGNpX3NldF9wb3dlcl9zdGF0ZShwZGV2LCBQQ0lfRDNob3QpDQo+ICAgY2xlYW5seSByZXNvbHZl
-cyB0aGF0IHdoaWxlIGtlZXBpbmcgYm90aCBjb21taXRzIGludGFjdC4NCj4gDQo+IFdvdWxkIHlv
-dSBsaWtlIG1lIHRvIHNlbmQgYSBbUEFUQ0ggdjJdIHRoYXQgZXhwb3J0cyBydHdfZW50ZXJfaXBz
-KCkgaW4NCj4gcHMuYyBhbmQgY2FsbHMgaXQgZnJvbSBydHdfcGNpX3NodXRkb3duKCkgaW4gcGNp
-LmM/DQoNCklmIHRoaXMgaXMgdGhlIG9ubHkgd2F5IHRvIGZpeCwgcGxlYXNlLiANCg0KLS0tDQoN
-CnB3LWJvdDogY3INCg0K
+af_alg_data_wakeup() checks !ctx->used before waking readers, which
+does not match the condition af_alg_wait_for_data() waits on:
+
+	ctx->init && (!ctx->more || (min && ctx->used >= min))
+
+When a zero-length final sendmsg() (without MSG_MORE) sets ctx->init
+and clears ctx->more while ctx->used remains 0, af_alg_data_wakeup()
+skips the wakeup and leaves the reader sleeping forever.
+
+Move the condition into a shared af_alg_data_ready() helper, pass min
+through af_alg_sendmsg() to af_alg_data_wakeup(), and use the helper on
+both the waiting and waking sides.
+
+Fixes: 2d97591ef43d ("crypto: af_alg - consolidation of duplicate code")
+Cc: stable@vger.kernel.org
+Suggested-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+---
+v2:
+- Move the wait condition into af_alg_data_ready() and use it on both
+  sides, as suggested by Herbert.
+
+Tested with two-threaded AF_ALG tests on gcm(aes) and ecb(aes)
+(zero-length final sendmsg, MSG_MORE sub-block and multi-chunk sends).
+
+ crypto/af_alg.c         | 13 +++++++------
+ crypto/algif_aead.c     |  4 ++--
+ crypto/algif_skcipher.c |  5 +++--
+ include/crypto/if_alg.h | 15 ++++++++++++++-
+ 4 files changed, 26 insertions(+), 11 deletions(-)
+
+diff --git a/crypto/af_alg.c b/crypto/af_alg.c
+index ab84c4488a15..d6104a6ee510 100644
+--- a/crypto/af_alg.c
++++ b/crypto/af_alg.c
+@@ -912,8 +912,7 @@ int af_alg_wait_for_data(struct sock *sk, unsigned flags, unsigned min)
+ 			break;
+ 		timeout = MAX_SCHEDULE_TIMEOUT;
+ 		if (sk_wait_event(sk, &timeout,
+-				  ctx->init && (!ctx->more ||
+-						(min && ctx->used >= min)),
++				  af_alg_data_ready(ctx, min),
+ 				  &wait)) {
+ 			err = 0;
+ 			break;
+@@ -931,14 +930,15 @@ EXPORT_SYMBOL_GPL(af_alg_wait_for_data);
+  * af_alg_data_wakeup - wakeup caller when new data can be sent to kernel
+  *
+  * @sk: socket of connection to user space
++ * @min: minimum request size if partial requests are allowed
+  */
+-static void af_alg_data_wakeup(struct sock *sk)
++static void af_alg_data_wakeup(struct sock *sk, unsigned int min)
+ {
+ 	struct alg_sock *ask = alg_sk(sk);
+ 	struct af_alg_ctx *ctx = ask->private;
+ 	struct socket_wq *wq;
+ 
+-	if (!ctx->used)
++	if (!af_alg_data_ready(ctx, min))
+ 		return;
+ 
+ 	rcu_read_lock();
+@@ -965,10 +965,11 @@ static void af_alg_data_wakeup(struct sock *sk)
+  * @size: size of message from user space
+  * @ivsize: the size of the IV for the cipher operation to verify that the
+  *	   user-space-provided IV has the right size
++ * @min: minimum request size if partial requests are allowed
+  * Return: the number of copied data upon success, < 0 upon error
+  */
+ int af_alg_sendmsg(struct socket *sock, struct msghdr *msg, size_t size,
+-		   unsigned int ivsize)
++		   unsigned int ivsize, unsigned int min)
+ {
+ 	struct sock *sk = sock->sk;
+ 	struct alg_sock *ask = alg_sk(sk);
+@@ -1119,7 +1120,7 @@ int af_alg_sendmsg(struct socket *sock, struct msghdr *msg, size_t size,
+ 	ctx->more = msg->msg_flags & MSG_MORE;
+ 
+ unlock:
+-	af_alg_data_wakeup(sk);
++	af_alg_data_wakeup(sk, min);
+ 	ctx->write = false;
+ 	release_sock(sk);
+ 
+diff --git a/crypto/algif_aead.c b/crypto/algif_aead.c
+index 5574e2d70539..137a947f0620 100644
+--- a/crypto/algif_aead.c
++++ b/crypto/algif_aead.c
+@@ -64,7 +64,7 @@ static int aead_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
+ 	struct crypto_aead *tfm = pask->private;
+ 	unsigned int ivsize = crypto_aead_ivsize(tfm);
+ 
+-	return af_alg_sendmsg(sock, msg, size, ivsize);
++	return af_alg_sendmsg(sock, msg, size, ivsize, 0);
+ }
+ 
+ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
+@@ -87,7 +87,7 @@ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
+ 	size_t usedpages = 0;		/* [in]  RX bufs to be used from user */
+ 	size_t processed = 0;		/* [in]  TX bufs to be consumed */
+ 
+-	if (!ctx->init || ctx->more) {
++	if (!af_alg_data_ready(ctx, 0)) {
+ 		err = af_alg_wait_for_data(sk, flags, 0);
+ 		if (err)
+ 			return err;
+diff --git a/crypto/algif_skcipher.c b/crypto/algif_skcipher.c
+index 291dbd698932..cece9cf387cc 100644
+--- a/crypto/algif_skcipher.c
++++ b/crypto/algif_skcipher.c
+@@ -63,7 +63,8 @@ static int skcipher_sendmsg(struct socket *sock, struct msghdr *msg,
+ 	struct crypto_skcipher *tfm = pask->private;
+ 	unsigned ivsize = crypto_skcipher_ivsize(tfm);
+ 
+-	return af_alg_sendmsg(sock, msg, size, ivsize);
++	return af_alg_sendmsg(sock, msg, size, ivsize,
++			      crypto_skcipher_chunksize(tfm));
+ }
+ 
+ static int algif_skcipher_export(struct sock *sk, struct skcipher_request *req)
+@@ -113,7 +114,7 @@ static int _skcipher_recvmsg(struct socket *sock, struct msghdr *msg,
+ 	int err = 0;
+ 	size_t len = 0;
+ 
+-	if (!ctx->init || (ctx->more && ctx->used < bs)) {
++	if (!af_alg_data_ready(ctx, bs)) {
+ 		err = af_alg_wait_for_data(sk, flags, bs);
+ 		if (err)
+ 			return err;
+diff --git a/include/crypto/if_alg.h b/include/crypto/if_alg.h
+index 0d51428c1da4..cb0951f33612 100644
+--- a/include/crypto/if_alg.h
++++ b/include/crypto/if_alg.h
+@@ -244,12 +244,25 @@ static inline bool af_alg_readable(struct sock *sk)
+ 	return PAGE_SIZE <= af_alg_rcvbuf(sk);
+ }
+ 
++/**
++ * af_alg_data_ready - Is there enough TX data to proceed?
++ *
++ * @ctx: socket context of connection to user space
++ * @min: minimum request size if partial requests are allowed
++ *
++ * Returns: true => data is ready, false => not ready
++ */
++static inline bool af_alg_data_ready(struct af_alg_ctx *ctx, unsigned int min)
++{
++	return ctx->init && (!ctx->more || (min && ctx->used >= min));
++}
++
+ unsigned int af_alg_count_tsgl(struct sock *sk, size_t bytes);
+ void af_alg_pull_tsgl(struct sock *sk, size_t used, struct scatterlist *dst);
+ void af_alg_wmem_wakeup(struct sock *sk);
+ int af_alg_wait_for_data(struct sock *sk, unsigned flags, unsigned min);
+ int af_alg_sendmsg(struct socket *sock, struct msghdr *msg, size_t size,
+-		   unsigned int ivsize);
++		   unsigned int ivsize, unsigned int min);
+ void af_alg_free_resources(struct af_alg_async_req *areq);
+ __poll_t af_alg_poll(struct file *file, struct socket *sock,
+ 			 poll_table *wait);
+-- 
+2.47.3
+
