@@ -1,100 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795801738;
-	b=3w4xTbVJcPRRCgQj4Mxuh5XovT0qZWPsn4N/VV5mNNc49EMuch1S8uSWkCE9MnKpXl34
-	 LB1FItan4+dMoqGGEdfeeZ/4S3IsJJz9qBlrmR4/rZD/1dnMT3up0xgJoVBLEG8emqWtx
-	 jVF5UFDSkBj0qn+3J0OdYyV9oG8PNOzFcEls6gyR6Te0ndcX0A2g0qlABJiVK776Td9hP
-	 zM5XtizsSZC7WEq8DB8cGk9rzfpTkIAby+2UIsj68GPLXU6EP2TTh0FDLwUbqvAdl6O+A
-	 tLSYawg0KTSAGIe4Nu/tmWazbidZi04jfBL/1TqQ5EK1L2pahXkkgmXiWnuStIK7kDw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801738;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=4NP3xmdcvcjCS2SZQyHbU7Q7bT0EyXEC69nEAnrWWLo=;
-	b=C0oD4DTGIpmLIVyoauyNBr7uU2rs0wOIT1ERk7bmVPW2aBdS63BM7B4A69kex2PknGO0
-	 A60po/IZ3Rrvldl8ZjpAd2W0zsAgzE9mY1WRc/kG57mt61ew+Uyk2XTp4jZAVFlnCusLf
-	 p4bdqB/CuNQpB7T3GnYtby4IwSe3dXtSn3uPenfsLkG9I5lCKtphsuFOtjK7A/brZFgCl
-	 m/rODm1kNmy+cidLl8mv/68/Ckuw/SVVQ4hEYQpjt4+boS1iMWKDe2Psi+/7r1PJazO/1
-	 MYTq39fZYhLm01JrzqytbxMRgQrJzTBqtWGKPNGO0MuSMqMC8bezWVqyGKVG0ioikSw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jywcCjsi;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795801766;
+	b=H1/r9h+kqHTnNvbA1qrTAb27FTIN5byVFyV3sNMNfmm+P8Ab9rXwq0kBfu0j7gUqGbxd
+	 9Bxu0zmTr6V3AyuOQ1rO4+Ju/DUH2uwhqqXr0t+g1oj99HHazrDi+/PFArUU/wTOan+iB
+	 va3LCCZM25iD8bB1EjEZmOxLN/C3UFIrscj+yVikOCTjb33/0n6Vxmwk+o1qORRZqGoH9
+	 p05w2NqPzUOZ8OMxbPymZRjr69k9aXgZk83ZAaebEGAuh+qI7BNN1T1oHtyLO/2bwPI6w
+	 hDSTsFF93FnAS7ao0XdgZ96Lhu2BmTyDLHJ0464Ti57cfzxJq6cRipTId2NaVCB0eDw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801766;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Mime-Version:Content-Type:
+	 Date:Message-Id:Subject:Cc:From:To:References:In-Reply-To:
+	 X-Scanned-By;
+	bh=Y/Gw+uO8dNWe1Q6KWKNGi2gbav0cIn6VvyubnYQMPkg=;
+	b=2BdwDfPcXPXwea3V0k4GQCqa2d2Tygm3ISLfFoKHrJNA6pfJSpdKEq8KYXayw6yI58xp
+	 wRhHn+xqdc/kk6oWSjHthCX6OiT2ZFH49HejfXHsH5vZAcApSWUo3JHPxMHj4jx0//RIA
+	 nihJMSgLE1YoCFEbfshkadob1UvY117DOxSEWijsSZ4cJehxdmWhTmA2c0mcB3n7UNqe0
+	 9LSSCgPtXAhhUyIebI3srcV1lDzgjRTbuN3+fLwdoLpI1utlf3kddRpXMZhG4TEZ3nTYW
+	 jkhd43iD2GpIFL3Mywf6svTGP3PI1YVkZY2zlVim2WxnEiDJHhi+HzHd6NQX5lz/Vkw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iDSeg5dC;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3831606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:48:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3831606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB586606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:49:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB586606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jywcCjsi
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so1054164766b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:48:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795801736; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cmlshgmysHnGy9KgEMjEH5/M5t+SU5TwQ4bW1nJl0CPaanu6pJZNf8U6pcYvg22fJN
-         WGgI2PlVxJNQre1lK3+dGX3rvJaPZy12yKYNScemtHGYAODQ5UtFv2TnMhSFQ/Dof4Dp
-         mCY2zsQc7k5b7kqjYiZOKCPyCtIlOOuj0DirCE5r20MG/AarHGZCP4PbMYIY/OWK81V0
-         SBBEGuUEPYNw2l6yQdOFf7+xRKCdv+l38zY/XLZMChGpmS4yAMeyneTVYKDxv0YPLNQz
-         za7wgsK0Zh8RqjDK514B19Wafek+PPlICy2qRYUrqjA0uj/N1hDaKMK5Bi+1AV0avyrb
-         sHoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4NP3xmdcvcjCS2SZQyHbU7Q7bT0EyXEC69nEAnrWWLo=;
-        fh=vi1r4FQ9ac3QtlqqbTO049IF0EhCSSS8POnVkIrykiw=;
-        b=a+gF8T0v+jU+A1oYQ6rbnrJeUkEWo92W//vha2+D6Jrfdc2D9vg12FJ2loBYwzvpXs
-         vBEzcQAk2inEFg5fgOR8KG0oWtQLG4N9jD2nNWe5CuHOuv8mtsL5xEj48XkioPQiTAMJ
-         Dl4yGSTdQxHJ7L6C5Vd+yICDmYX2UwxosqBtTjeRv03or3Ifjw5GOgkmmj10DLYPWMwK
-         BK4bd4VyOQYE4IhBITx0NrCJHz6H72nowEcy9hhwzYqCbNun2XALK+mZwzxIUTYAY5E0
-         EChyXTVSJ6BBgdce59HcYHLxS4JTEULW91F7C8L6Kyf9so0mQ8hME5wQknVMYYEL2KX+
-         QpHQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795801736; x=1796406536; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4NP3xmdcvcjCS2SZQyHbU7Q7bT0EyXEC69nEAnrWWLo=;
-        b=jywcCjsiFCZrPcjxACDnJ5FdOK31KjFc3GBaicfYGk7iiBC6UG3K0qMaAjw9Ar7fSH
-         Q0PGguglpEzEJ3+8LOwFG6a/YmHegNfY0vOdp44ZCDyC4NnFmSxzLJCBPRevj8rLQ/jl
-         wJ1boUAUclJI/vR8Mdz/j4JHWRtxPKvkIhIn7jHB0eTf7hoI5D0xXtEJK7OMu2IcPtjL
-         43D3LGlw1FWKEj4Dl/eo2Oba5rUgKCSsnOknaOLB2xtGlhIWPble2Vn3nE8ULGJigqiW
-         aCccX2I5jSQzy13X0wKwYpT7zY1QnyY/znLD+P+sbQwP/ZsF77XT3taKYms8g2oIJxc8
-         TlKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795801736; x=1796406536;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4NP3xmdcvcjCS2SZQyHbU7Q7bT0EyXEC69nEAnrWWLo=;
-        b=Lbzv47jUFA7G2PbVFUn2Ne9YyWQ4/YgBGVkd3Op4/Ib3vyG60zpb7ypzS7ouGY2EdC
-         W3xdVwseiptGNkH+4hnvPMxbiK7170IIrN3v7LpphE5Da51pxuQrA4sPlasGXyH9DZSW
-         e2gcNrnfggFbRrnkt63p9WLzrW06mpUlpnOCwbRmUP1nMr5HH9UJxunU02e0tefHZJHM
-         /PR4w3iOMkXmXQyMvExwblbGJKV/8evNWFywXDODXcGF5+N4tGDPq0R+JthtUIo1OqD5
-         7Vpu7EPCYqqGQMT9bvdTyZRwfD9Re7TAQ6g5EcBYF1RQZkzh187Owc2Ii0zqHUd9xcia
-         hxww==
-X-Forwarded-Encrypted: i=1; AL+hErG1qO5no5sr6OfWapCOVq7313O5BZEnOsYYZvwQzRdO78jmJXHx9ZSJKwNIY+HkucZjrLGEmWgk/1MhLzM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92B2gl1UzLSBfOPsRwOPzQOREh9BfgjWceqEJ6kp9Xroiya8Xx
-	C80HhRsLHwB+1OZ5rio5iN6tCd+lMiAf4OUk5bwcYDfgMVTmA8O1q3OG79gBUAAGPkbStxa2hQA
-	5WeAVxwsvcrK0eySIVFlyOUkatylx7ks=
-X-Gm-Gg: AZFdTZcc9Q2M0TxgrqXuOReu6NOQK1g2O53wijwf8Q1Tu+7gPug7UyJlaUEJgaBBK65
-	kXAn5Hcp16GLtZ39F22sEjn3/UtvfXThEU048M1bRfXWOpN4LghTnWfYZmfW0OE8mJ2yEFdYAZR
-	1EcDhLZ1G3Ru537Cx1QJwIiOW8s71RKX3fFU3PwZLWvWpWR0kJVm89doSKwL7j3Y+95a27RwQEq
-	ySHlqk2GUSfy/RgwRjJ+xyXFitl3CDN7yriGO8FRs4FF3Txu/CgaGKc4jjKgUv1bcFz2LbXclRu
-	qCoyI5HjNdKene9PkjnxkHPG2OYy8Hp5CRKcPUotkBZdYQgJgDeaZ4BLst0lt/Rxg2iXSSOPpCU
-	F8dvmcqZZPlyj0VnB8MU1GLfYAdzqCx6IUfmDgOUwL6atmWKzzjFkicKWHHB2iuw/4QijqQ==
-X-Received: by 2002:a17:906:fa82:b0:c50:4b6e:329 with SMTP id
- a640c23a62f3a-c513a5eaea2mr1670240066b.15.1795801736044; Fri, 27 Nov 2026
- 09:48:56 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iDSeg5dC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795801765;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y/Gw+uO8dNWe1Q6KWKNGi2gbav0cIn6VvyubnYQMPkg=;
+	b=iDSeg5dCq3uzOalMtbjAJY+4GvD+IJARxZgCrMDho508psj+wdpdOA5pF4a2fSrwNJ49IY
+	S08VWb+TFUQTYH3vdKCZvy0GG4GGKkBVuywL6zBy3dTapZl/zg0/ibDSMNsgwMuQA3sFL0
+	MR2Dt9Dq7mIupF5JFmYuQfKbPCIrQEw=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-634-RW6IK39hMkGI2nB0A7B1LA-1; Fri,
+ 27 Nov 2026 17:49:20 +0000
+X-MC-Unique: RW6IK39hMkGI2nB0A7B1LA-1
+X-Mimecast-MFC-AGG-ID: RW6IK39hMkGI2nB0A7B1LA_1795801759
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2196E195604A;
+	Fri, 27 Nov 2026 17:49:19 +0000 (UTC)
+Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EAE5630002C2;
+	Fri, 27 Nov 2026 17:49:17 +0000 (UTC)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,409 +67,292 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261126163114.403846-1-koray.fra@gmail.com> <20261126163114.403846-4-koray.fra@gmail.com>
-In-Reply-To: <20261126163114.403846-4-koray.fra@gmail.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Fri, 27 Nov 2026 18:48:44 +0100
-X-Gm-Features: Aa3M54rplZXRDBhv3WQRBlPtKHvT79Bv4I4ULdt4TzjSZUQl0v3AcaIQB8R9sLk
-Message-ID: <CAOQ4uxhA+93bo5WseLxe7cAvJHJ8eQodoQHLwh=iToyEVkeXEA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] vfs: add xflags mask to fileattr API
-To: koraynilay <koray.fra@gmail.com>
-Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
-	Eric Biggers <ebiggers@kernel.org>, "Theodore Y . Ts'o" <tytso@mit.edu>, Jaegeuk Kim <jaegeuk@kernel.org>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Alexander Aring <alex.aring@gmail.com>, "Darrick J . Wong" <djwong@kernel.org>, 
-	Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
-	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Fri, 27 Nov 2026 14:49:13 -0300
+Message-Id: <DN66LCLCYBP5.O2KSAOOS8SYO@redhat.com>
+Subject: Re: [PATCH 1/3] certs: blacklist: define skid: entries and add
+ is_key_blacklisted()
+Cc: "Jarkko Sakkinen" <jarkko@kernel.org>, "David Howells"
+ <dhowells@redhat.com>, "Roberto Sassu" <roberto.sassu@huawei.com>,
+ =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
+ <keyrings@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+From: "Bruno Meneguele" <bmeneg@redhat.com>
+To: "Mimi Zohar" <zohar@linux.ibm.com>, <linux-integrity@vger.kernel.org>
+References: <20261106173149.707244-1-zohar@linux.ibm.com>
+ <20261106173149.707244-2-zohar@linux.ibm.com>
+In-Reply-To: <20261106173149.707244-2-zohar@linux.ibm.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+
+--e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
 
-On Thu, Nov 26, 2026 at 5:31=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
-ote:
+On Fri Nov 6, 2026 at 2:31 PM -03, Mimi Zohar wrote:
+> A "tbs:" blacklist entry is only compared against certificates being
+> added to a keyring or presented in a signature chain, so it does not
+> stop a key that is already loaded from being used as a trust anchor.
 >
-> Add fa_xflags_rw_mask and fa_xflags_ro_mask to struct file_attr, both
-> __u64 to match fa_xflags' size, and bump FILE_ATTR_SIZE_LATEST to
-> FILE_ATTR_SIZE_VER1, which is now 40 bytes.
+> Define a new "skid:<hex>" blacklist entry, holding a Subject Key
+> Identifier, and add is_key_blacklisted(), which looks up the SKID of an
+> asymmetric key in the system blacklist.  Entries are added like "tbs:"
+> and "bin:" entries and are subject to CONFIG_SYSTEM_BLACKLIST_AUTH_UPDATE=
+.
 >
-> Add equivalent masks and a has_masks selector to struct file_kattr, so
-> we can know when a user of this API (userspace or filesystem) supports
-> them.
+> blacklist_vet_description() now uses a prefix table, since the prefixes
+> no longer all have the same length.  "tbs:" and "bin:" entries behave
+> as before.
 >
-> This lets filesystems advertise their support for specific xflags, like
-> statx.stx_attributes_mask does, and userspace can specify only which
-> xflags it wants to change without needing a RMW cycle.
+> For example, to add an entry for a certificate (the signed string must
+> not include a trailing newline):
 >
-> These masks have the following semantics:
-> - fsx_xflags_rw_mask:
->   * for filesystems: advertise which xflags they support changing
->   * for userspace:   specify which xflags it wants to modify
-> - fsx_xflags_ro_mask:
->   * for filesystems: advertise which xflags they support only reading
->   * for userspace:   ignored
+>   skid=3D$(openssl x509 -in cert.pem -noout -ext subjectKeyIdentifier |
+>          sed -n '2s/[ :]//gp' | tr A-F a-f)
+>   printf 'skid:%s' "$skid" > skid.txt
+>   openssl smime -sign -binary -noattr -in skid.txt -signer signer.crt \
+>           -inkey signer.key -outform DER -out skid.p7s
+>   keyctl padd blacklist "skid:$skid" %:.blacklist < skid.p7s
 >
-> And they should be filled according to the following:
-> - GET:
->   each filesystem that wants to implement this new API fills the masks
->   according to its supported read-write and read-only xflags,
->   then:
->   * for boolean xflags: it fills fsx_xflags with the current on-disk valu=
-e;
->   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and the
->     xflag value in the struct field;
-> - SET:
->   userspace fills the rw_mask with the bits of the xflags it wants to
->   change, then:
->   * for boolean xflags: it provides the xflag value as a bit in fa_xflags=
-;
->   * for value xflags: it sets the xflag bit to 1 in fa_xflags and then
->     provides the value in the struct field; if the xflag bit is set to 0
->     instead, this informs the kernel to unset/clear that value.
+> The SKID is also the hex string in the description of the key on a
+> keyring, and its last four bytes are the key ID in the security.ima
+> xattr, so an entry is easy to correlate with the key it revokes:
 >
-> Add AT_FILE_ATTR_MASKS at_flags option that userspace needs to pass
-> (with usize >=3D FILE_ATTR_SIZE_VER1) in order to be able to use masks,
-> otherwise legacy RMW semantics are used.
+>   # keyctl show %:.ima | grep 073d
+>   927946571 --als--v  0  0   \_ asymmetric: test signing key: b7809c3372a=
+07fe87248dcec7ff047a40fb3073d
+>   # keyctl show %:.blacklist | grep skid
+>   1014808518 ----s--v 0  0   \_ blacklist: skid:b7809c3372a07fe87248dcec7=
+ff047a40fb3073d
 >
-> If AT_FILE_ATTR_MASKS is not specified:
-> - on GET, zero fa_xflags_rw_mask and fa_xflags_ro_mask and strip new
->   xflags added in or after VER1, so older programs doing RMW don't pass
->   them back;
-> - on SET, reject non-zero fa_xflags_{rw,ro}_mask with -EINVAL.
->
-> If AT_FILE_ATTR_MASKS is specified on SET with fa_xflags_rw_mask =3D 0,
-> return early as a no-op after permission and support checks.
->
-> To make both legacy and new programs interact correctly with both legacy
-> and new/upgraded filesystems, add:
-> - xflags_to_flags() / flags_to_xflags(): use fileattr_fill_*() to
->   convert xflags to their flags counterpart and vice-versa;
-> - fileattr_set_mask_to_legacy() / fileattr_set_legacy_to_mask(): convert
->   between legacy read-modify-write API and modern rw_mask/ro_mask API.
->
-> Also add the missing FS_XFLAG_PROJID xflag, to allow userspace to set
-> the projid using file_[gs]etattr() by leveraging the new masks.
-> In order to prevent the legacy FS_IOC_FSSETXATTR from accepting
-> FS_XFLAG_PROJID, add a FS_FILE_ATTR_XFLAGS_MASK to support new xflags
-> and use it to validate/clamp both the _xflags fields and the masks.
->
-> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
-> Signed-off-by: koraynilay <koray.fra@gmail.com>
+> Signed-off-by: Mimi Zohar <zohar@linux.ibm.com>
 > ---
->  fs/file_attr.c             | 332 +++++++++++++++++++++++++++++++++----
->  include/linux/fileattr.h   |   7 +
->  include/uapi/linux/fcntl.h |   6 +
->  include/uapi/linux/fs.h    |   7 +-
->  4 files changed, 320 insertions(+), 32 deletions(-)
+> Changelog v1:
+> - Addressed Sashiko issues: drop Kconfig change, linking issues when
+> blacklist support configured, but without CONFIG_ASYMMETRIC_KEY_TYPE
+> configured.
 >
-> diff --git a/fs/file_attr.c b/fs/file_attr.c
-...
+>  certs/blacklist.c             | 83 ++++++++++++++++++++++++-----------
+>  include/keys/system_keyring.h | 12 +++++
+>  2 files changed, 70 insertions(+), 25 deletions(-)
+>
+> diff --git a/certs/blacklist.c b/certs/blacklist.c
+> index fa561c12eabf..9158bd9f9fc9 100644
+> --- a/certs/blacklist.c
+> +++ b/certs/blacklist.c
+> @@ -32,6 +32,7 @@
+>
+>  static const char tbs_prefix[] =3D "tbs";
+>  static const char bin_prefix[] =3D "bin";
+> +static const char skid_prefix[] =3D "skid";
+>
+>  static struct key *blacklist_keyring;
+>
 
-> +/*
-> + * Convert legacy RMW input format without masks, coming from userspace,=
- to new
-> + * input format with masks, for filesystems that already support masks.
-> + */
+Hi Mimi,
 
-The term "legacy" is always a bit ambiguous so best to avoid if possible
+the script certs/check-blacklist-hashes.awk needs to be updated to allow "s=
+kid:"
+hash type too, otherwise build fails with "unknown prefix":
 
-So maybe something more explicit like v0_to_v1
-...
+$ echo '"skid:3afbecd5ee1d3d787c61270797e5c85065d030cc"' > certs/blacklist.=
+txt
+$ scripts/config --set-str SYSTEM_BLACKLIST_HASH_LIST certs/blacklist.txt
+$ make certs/
+  DESCEND objtool
+  GEN     certs/blacklist_hash_list
+Unknown prefix (item 1): skid:3afbecd5ee1d3d787c61270797e5c85065d030cc
+make[3]: *** [certs/Makefile:21: certs/blacklist_hash_list] Error 1
+make[2]: *** [scripts/Makefile.build:572: certs] Error 2
+make[1]: *** [/home/brdeoliv/git/linux/Makefile:2244: .] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-> @@ -283,20 +485,62 @@ int vfs_fileattr_set(const struct mnt_idmap *idmap,=
- struct dentry *dentry,
->         if (!inode_owner_or_capable(idmap, inode))
->                 return -EPERM;
->
-> +       if (fa->has_masks && !fa->fsx_xflags_rw_mask)
-> +               return 0;
-> +
->         inode_lock(inode);
->         err =3D vfs_fileattr_get(dentry, &old_ma);
->         if (err)
->                 goto out;
->
-> -       /* initialize missing bits from old_ma */
-> +       if (old_ma.has_masks) {
-> +               old_ma.fsx_xflags_rw_mask &=3D FS_FILE_ATTR_XFLAGS_MASK;
-> +               old_ma.fsx_xflags_ro_mask &=3D FS_FILE_ATTR_XFLAGS_MASK;
-> +       }
-> +       old_ma.fsx_xflags &=3D FS_FILE_ATTR_XFLAGS_MASK;
-> +
-> +       /* Convert between formats and initialize missing bits from old_m=
-a */
->         if (fa->flags_valid) {
-> -               fa->fsx_xflags |=3D old_ma.fsx_xflags & ~FS_XFLAG_COMMON;
-> -               fa->fsx_extsize =3D old_ma.fsx_extsize;
-> -               fa->fsx_nextents =3D old_ma.fsx_nextents;
-> -               fa->fsx_projid =3D old_ma.fsx_projid;
-> -               fa->fsx_cowextsize =3D old_ma.fsx_cowextsize;
-> +               if (!old_ma.has_masks) {
-> +                       /* FS_IOC_SETFLAGS */
-> +                       fa->fsx_xflags_rw_mask =3D 0;
-> +                       fa->fsx_xflags |=3D old_ma.fsx_xflags & ~FS_XFLAG=
-_COMMON;
-> +                       fa->fsx_extsize =3D old_ma.fsx_extsize;
-> +                       fa->fsx_nextents =3D old_ma.fsx_nextents;
-> +                       fa->fsx_projid =3D old_ma.fsx_projid;
-> +                       fa->fsx_cowextsize =3D old_ma.fsx_cowextsize;
-> +               } else {
-> +                       err =3D fileattr_set_legacy_to_mask(fa, &old_ma);
-> +                       if (err)
-> +                               goto out;
-> +               }
-> +       } else if (!fa->has_masks) {
-> +               if (!old_ma.has_masks) {
-> +                       /* FS_IOC_FSSETXATTR / file_attr VER0 */
-> +                       fa->flags |=3D old_ma.flags & ~FS_COMMON_FL;
-> +               } else {
-> +                       err =3D fileattr_set_legacy_to_mask(fa, &old_ma);
-> +                       if (err)
-> +                               goto out;
-> +               }
->         } else {
-> -               fa->flags |=3D old_ma.flags & ~FS_COMMON_FL;
-> +               /* file_attr VER1 */
-> +               if (old_ma.has_masks) {
-> +                       /*
-> +                        * Don't preserve non-common flags since filesyst=
-ems
-> +                        * with masks only use xflags
-> +                        */
-> +               } else {
-> +                       /*
-> +                        * Filesystem doesn't support _mask API yet, swit=
-ch to
-> +                        * old rmw format.
-> +                        * PROJID is supported like the legacy masks, but=
- will
-> +                        * be stripped during conversion.
-> +                        */
-> +                       err =3D fileattr_set_mask_to_legacy(fa, &old_ma);
-> +                       if (err)
-> +                               goto out;
-> +               }
+It seems to be just a single line of code and the file documentation:
 
-I stand behind my earlier comment - this is too much for open coding
-here. I won't suggest a better factoring I am sure you will figure out
-one by yourself. focus on readability and reviewability please.
+-       if (!match(part1[1], "^(tbs|bin):(.*)$", part2)) {
++       if (!match(part1[1], "^(tbs|bin|skid):(.*)$", part2)) {
 
->         }
+At the same time, I noticed you also dropped the Kconfig documentation chan=
+ge
+for CONFIG_SYSTEM_BLACKLIST_HASH_LIST when you fixed Sashiko's report.
+
+> @@ -40,36 +41,30 @@ extern __initconst const u8 revocation_certificate_li=
+st[];
+>  extern __initconst const unsigned long revocation_certificate_list_size;
+>  #endif
 >
->         err =3D fileattr_set_prepare(inode, &old_ma, fa);
-> @@ -390,7 +634,8 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char __=
-user *, filename,
->         BUILD_BUG_ON(sizeof(struct file_attr) < FILE_ATTR_SIZE_VER0);
->         BUILD_BUG_ON(sizeof(struct file_attr) !=3D FILE_ATTR_SIZE_LATEST)=
-;
->
-> -       if ((at_flags & ~(AT_SYMLINK_NOFOLLOW | AT_EMPTY_PATH)) !=3D 0)
-> +       if ((at_flags &
-> +            ~(AT_SYMLINK_NOFOLLOW | AT_EMPTY_PATH | AT_FILE_ATTR_MASKS))=
- !=3D 0)
->                 return -EINVAL;
->
->         if (!(at_flags & AT_SYMLINK_NOFOLLOW))
-> @@ -399,7 +644,10 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char _=
-_user *, filename,
->         if (usize > PAGE_SIZE)
->                 return -E2BIG;
->
-> -       if (usize < FILE_ATTR_SIZE_VER0)
-> +       if (usize !=3D FILE_ATTR_SIZE_VER0 && usize < FILE_ATTR_SIZE_VER1=
-)
-> +               return -EINVAL;
-> +
-> +       if ((at_flags & AT_FILE_ATTR_MASKS) && usize < FILE_ATTR_SIZE_VER=
-1)
->                 return -EINVAL;
->
->         CLASS(filename_maybe_null, name)(filename, at_flags);
-> @@ -424,6 +672,17 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char _=
-_user *, filename,
->                 return error;
->
->         fileattr_to_file_attr(&fa, &fattr);
-> +       /*
-> +        * Caller doesn't know about masks, so it also doesn't know about
-> +        * xflags added in or after VER1.
-> +        * Zero out the masks and strip VER1+ xflags.
-> +        */
-> +       if (!(at_flags & AT_FILE_ATTR_MASKS)) {
-> +               fattr.fa_xflags &=3D FS_XFLAGS_MASK;
-> +               fattr.fa_xflags_rw_mask =3D 0;
-> +               fattr.fa_xflags_ro_mask =3D 0;
-> +       }
-> +
->         error =3D copy_struct_to_user(ufattr, usize, &fattr,
->                                     sizeof(struct file_attr), NULL);
->
-> @@ -443,7 +702,8 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const char __=
-user *, filename,
->         BUILD_BUG_ON(sizeof(struct file_attr) < FILE_ATTR_SIZE_VER0);
->         BUILD_BUG_ON(sizeof(struct file_attr) !=3D FILE_ATTR_SIZE_LATEST)=
-;
->
-> -       if ((at_flags & ~(AT_SYMLINK_NOFOLLOW | AT_EMPTY_PATH)) !=3D 0)
-> +       if ((at_flags &
-> +            ~(AT_SYMLINK_NOFOLLOW | AT_EMPTY_PATH | AT_FILE_ATTR_MASKS))=
- !=3D 0)
->                 return -EINVAL;
->
->         if (!(at_flags & AT_SYMLINK_NOFOLLOW))
-> @@ -452,7 +712,10 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const char _=
-_user *, filename,
->         if (usize > PAGE_SIZE)
->                 return -E2BIG;
->
-> -       if (usize < FILE_ATTR_SIZE_VER0)
-> +       if (usize !=3D FILE_ATTR_SIZE_VER0 && usize < FILE_ATTR_SIZE_VER1=
-)
-> +               return -EINVAL;
-> +
-> +       if ((at_flags & AT_FILE_ATTR_MASKS) && usize < FILE_ATTR_SIZE_VER=
-1)
->                 return -EINVAL;
->
->         error =3D copy_struct_from_user(&fattr, sizeof(struct file_attr),=
- ufattr,
-> @@ -460,9 +723,9 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const char __=
-user *, filename,
->         if (error)
->                 return error;
->
-> -       error =3D file_attr_to_fileattr(&fattr, &fa);
-> -       if (error)
-> -               return error;
-> +       if (!(at_flags & AT_FILE_ATTR_MASKS) &&
-> +           (fattr.fa_xflags_rw_mask || fattr.fa_xflags_ro_mask))
-> +               return -EINVAL;
->
->         CLASS(filename_maybe_null, name)(filename, at_flags);
->         if (!name && dfd >=3D 0) {
-> @@ -479,6 +742,13 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const char _=
-_user *, filename,
->                         return error;
->         }
->
-> +       if (at_flags & AT_FILE_ATTR_MASKS)
-> +               fa.has_masks =3D true;
-> +
-> +       error =3D file_attr_to_fileattr(&fattr, &fa);
-> +       if (error)
-> +               return error;
-> +
->         error =3D mnt_want_write(filepath.mnt);
->         if (!error) {
->                 error =3D vfs_fileattr_set(mnt_idmap(filepath.mnt),
-> diff --git a/include/linux/fileattr.h b/include/linux/fileattr.h
-> index 09e32b84e02a..725efac15e76 100644
-> --- a/include/linux/fileattr.h
-> +++ b/include/linux/fileattr.h
-> @@ -35,6 +35,10 @@
->         (FS_XFLAG_COMMON | FS_XFLAG_RDONLY_MASK | FS_XFLAG_VALUES_MASK | =
-\
->          FS_XFLAG_DIRONLY_MASK | FS_XFLAG_MISC_MASK)
->
-> +/* Flags only for fa_ fields */
-> +#define FS_FILE_ATTR_XFLAGS_MASK \
-> +       (FS_XFLAGS_MASK | FS_XFLAG_PROJID)
+> +static bool blacklist_prefix_valid(const char *desc, size_t len)
+> +{
+> +	return (len =3D=3D sizeof(tbs_prefix) - 1 &&
+> +		!strncmp(desc, tbs_prefix, len)) ||
+> +	       (len =3D=3D sizeof(bin_prefix) - 1 &&
+> +		!strncmp(desc, bin_prefix, len)) ||
+> +	       (len =3D=3D sizeof(skid_prefix) - 1 &&
+> +		!strncmp(desc, skid_prefix, len));
+> +}
 > +
 >  /*
->   * Merged interface for miscellaneous file attributes.  'flags' originat=
-es from
->   * ext* and 'fsx_flags' from xfs.  There's some overlap between the two,=
- which
-> @@ -45,6 +49,8 @@ struct file_kattr {
->         u32     flags;          /* flags (FS_IOC_GETFLAGS/FS_IOC_SETFLAGS=
-) */
->         /* struct fsxattr: */
->         u32     fsx_xflags;     /* xflags field value (get/set) */
-> +       u32     fsx_xflags_rw_mask; /* supported writeable xflags (get) /=
- flags to set (set) */
-> +       u32     fsx_xflags_ro_mask; /* supported read-only xflags (get) *=
-/
->         u32     fsx_extsize;    /* extsize field value (get/set)*/
->         u32     fsx_nextents;   /* nextents field value (get)   */
->         u32     fsx_projid;     /* project identifier (get/set) */
-> @@ -52,6 +58,7 @@ struct file_kattr {
->         /* selectors: */
->         bool    flags_valid:1;
->         bool    fsx_valid:1;
-> +       bool    has_masks:1;
->  };
+> - * The description must be a type prefix, a colon and then an even numbe=
+r of
+> - * hex digits.  The hash is kept in the description.
+> + * The description must be a type prefix ("tbs", "bin" or "skid"), a col=
+on and
+> + * then an even number of lower-case hex digits.  The hash (or, for "ski=
+d", the
+> + * Subject Key Identifier) is kept in the description.
+>   */
+>  static int blacklist_vet_description(const char *desc)
+>  {
+> -	int i, prefix_len, tbs_step =3D 0, bin_step =3D 0;
+> -
+> -	/* The following algorithm only works if prefix lengths match. */
+> -	BUILD_BUG_ON(sizeof(tbs_prefix) !=3D sizeof(bin_prefix));
+> -	prefix_len =3D sizeof(tbs_prefix) - 1;
+> -	for (i =3D 0; *desc; desc++, i++) {
+> -		if (*desc =3D=3D ':') {
+> -			if (tbs_step =3D=3D prefix_len)
+> -				goto found_colon;
+> -			if (bin_step =3D=3D prefix_len)
+> -				goto found_colon;
+> -			return -EINVAL;
+> -		}
+> -		if (i >=3D prefix_len)
+> -			return -EINVAL;
+> -		if (*desc =3D=3D tbs_prefix[i])
+> -			tbs_step++;
+> -		if (*desc =3D=3D bin_prefix[i])
+> -			bin_step++;
+> -	}
+> -	return -EINVAL;
+> +	const char *colon =3D strchr(desc, ':');
+> +	int i;
 >
->  int copy_fsxattr_to_user(const struct file_kattr *fa, struct fsxattr __u=
-ser *ufa);
-> diff --git a/include/uapi/linux/fcntl.h b/include/uapi/linux/fcntl.h
-> index e43e3de3e9ee..a6ecca6f5e63 100644
-> --- a/include/uapi/linux/fcntl.h
-> +++ b/include/uapi/linux/fcntl.h
-> @@ -191,4 +191,10 @@ struct delegation {
->  #define AT_EXECVE_CHECK                0x10000 /* Only perform a check i=
-f execution
->                                            would be allowed. */
->
-> +/* Flags for file_getattr(2) / file_setattr(2). */
-> +#define AT_FILE_ATTR_MASKS     0x001   /* Advertise knowing and being ab=
-le to
-> +                                          handle the struct file_attr fi=
-elds
-> +                                          fa_xflags_rw_mask and
-> +                                          fa_xflags_ro_mask */
+> -found_colon:
+> -	desc++;
+> +	if (!colon || !blacklist_prefix_valid(desc, colon - desc))
+> +		return -EINVAL;
 > +
-
-I prefer AT_FILEATTR_
-This is consistent with other AT_<SYSCALL> using a single word.
-And there is no risk of misunderstanding what FILEATTR refers to.
-
-
->  #endif /* _UAPI_LINUX_FCNTL_H */
-> diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
-> index a13c7b32a1bd..63d88ebe3420 100644
-> --- a/include/uapi/linux/fs.h
-> +++ b/include/uapi/linux/fs.h
-> @@ -238,10 +238,13 @@ struct file_attr {
->         __u32 fa_nextents;      /* nextents field value (get)   */
->         __u32 fa_projid;        /* project identifier (get/set) */
->         __u32 fa_cowextsize;    /* CoW extsize field value (get/set) */
-> +       __u64 fa_xflags_rw_mask;/* supported writeable xflags (get) / fla=
-gs to set (set) */
-> +       __u64 fa_xflags_ro_mask;/* supported read-only xflags (get) */
+> +	desc =3D colon + 1;
+>  	for (i =3D 0; *desc && i < MAX_HASH_LEN; desc++, i++) {
+>  		if (!isxdigit(*desc) || isupper(*desc))
+>  			return -EINVAL;
+> @@ -160,6 +155,10 @@ static char *get_raw_hash(const u8 *hash, size_t has=
+h_len,
+>  		type_len =3D sizeof(bin_prefix) - 1;
+>  		type_prefix =3D bin_prefix;
+>  		break;
+> +	case BLACKLIST_HASH_SKID:
+> +		type_len =3D sizeof(skid_prefix) - 1;
+> +		type_prefix =3D skid_prefix;
+> +		break;
+>  	default:
+>  		WARN_ON_ONCE(1);
+>  		return ERR_PTR(-EINVAL);
+> @@ -244,6 +243,40 @@ int is_hash_blacklisted(const u8 *hash, size_t hash_=
+len,
+>  }
+>  EXPORT_SYMBOL_GPL(is_hash_blacklisted);
+>
+> +#ifdef CONFIG_ASYMMETRIC_KEY_TYPE
+> +/**
+> + * is_key_blacklisted - Determine if a key is blacklisted by its SKID
+> + * @key: The key to be checked, e.g. a trust anchor found in a keyring
+> + *
+> + * Unlike a "tbs:" entry, which is only compared against certificates be=
+ing
+> + * added or presented in a chain, this checks a key that is already load=
+ed, so
+> + * that keys that cannot be unlinked from their keyring can still be rev=
+oked.
+> + * The identifier is taken from the key itself, not from the caller.
+> + *
+> + * Returns -EKEYREJECTED if the key's Subject Key Identifier is blacklis=
+ted,
+> + * 0 if it is not (or the key has no SKID), or another negative error.
+> + */
+> +int is_key_blacklisted(const struct key *key)
+> +{
+> +	const struct asymmetric_key_ids *kids;
+> +	const struct asymmetric_key_id *skid;
+> +
+> +	if (!key || key->type !=3D &key_type_asymmetric)
+> +		return 0;
+> +
+> +	kids =3D asymmetric_key_ids(key);
+> +	if (!kids)
+> +		return 0;
+> +
+> +	skid =3D kids->id[1];
+> +	if (!skid || !skid->len)
+> +		return 0;
+> +
+> +	return is_hash_blacklisted(skid->data, skid->len, BLACKLIST_HASH_SKID);
+> +}
+> +EXPORT_SYMBOL_GPL(is_key_blacklisted);
+> +#endif
+> +
+>  int is_binary_blacklisted(const u8 *hash, size_t hash_len)
+>  {
+>  	if (is_hash_blacklisted(hash, hash_len, BLACKLIST_HASH_BINARY) =3D=3D
+> diff --git a/include/keys/system_keyring.h b/include/keys/system_keyring.=
+h
+> index a6c2897bcc63..2ac1dae2063a 100644
+> --- a/include/keys/system_keyring.h
+> +++ b/include/keys/system_keyring.h
+> @@ -15,6 +15,8 @@ enum blacklist_hash_type {
+>  	BLACKLIST_HASH_X509_TBS =3D 1,
+>  	/* Raw data hash */
+>  	BLACKLIST_HASH_BINARY =3D 2,
+> +	/* Subject Key Identifier of a key (not a hash) */
+> +	BLACKLIST_HASH_SKID =3D 3,
 >  };
 >
->  #define FILE_ATTR_SIZE_VER0 24
-> -#define FILE_ATTR_SIZE_LATEST FILE_ATTR_SIZE_VER0
-> +#define FILE_ATTR_SIZE_VER1 40
-> +#define FILE_ATTR_SIZE_LATEST FILE_ATTR_SIZE_VER1
+>  #ifdef CONFIG_SYSTEM_TRUSTED_KEYRING
+> @@ -92,6 +94,16 @@ static inline int is_binary_blacklisted(const u8 *hash=
+, size_t hash_len)
+>  }
+>  #endif
 >
+> +#if defined(CONFIG_SYSTEM_BLACKLIST_KEYRING) && \
+> +    defined(CONFIG_ASYMMETRIC_KEY_TYPE)
+> +extern int is_key_blacklisted(const struct key *key);
+> +#else
+> +static inline int is_key_blacklisted(const struct key *key)
+> +{
+> +	return 0;
+> +}
+> +#endif
+> +
+>  struct pkcs7_message;
+>  #ifdef CONFIG_SYSTEM_REVOCATION_LIST
+>  extern int add_key_to_revocation_list(const char *data, size_t size);
+> --
+> 2.56.0
 
-Man... we really need a bot to review all UAPI changes
-Please someone tell the bot to check
-NO LATEST/LAST/ALL constants in UAPI headers!!!
 
-Your patch does not introduce this constant in UAPI but if we change
-it we risk spreading different versions in installed headers.
 
-Honestly I see no reason for FILE_ATTR_SIZE_VER* to be in UAPI
-either. For other UAPIs those constants are not in the UAPI header:
 
-~/src/linux$ git grep SIZE_LATEST include/linux/
-include/linux/fcntl.h:#define OPEN_HOW_SIZE_LATEST      OPEN_HOW_SIZE_VER0
-include/linux/seccomp.h:#define SECCOMP_NOTIFY_ADDFD_SIZE_LATEST
-SECCOMP_NOTIFY_ADDFD_SIZE_VER0
-include/linux/xattr.h:#define XATTR_ARGS_SIZE_LATEST    XATTR_ARGS_SIZE_VER=
-0
 
-So please move those contacts before adding/changing them
-(can be in the same patch IMO).
+--
+Bruno Meneguele
+PGP Key: http://bmeneg.com/pubkey.txt
 
-This is a high level review.
-I did not look at the details of the conversions and validations
-Will do that for v3.
 
-Thanks,
-Amir.
+--e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777
+Content-Type: application/pgp-signature
+
+-----BEGIN PGP MESSAGE-----
+
+wsCpBAEBCABdBYJrCcKcCRBh1GQVH5GiQzUUAAAAAAAcABBzYWx0QG5vdGF0aW9u
+cy5vcGVucGdwanMub3JnEsYLSdME4OnumBKUuDqa4BYhBHVqOp0252XWw5l7rWHU
+ZBUfkaJDAABKogf9GFxVptXl/MrZOfzQGOGFT/B6iALGAAoKkZiVEHgsHB0MfH2m
+EbC0R7CpPjUmEDDfweR92J3Wu2NUUuYwcMxVH4YIqQbawoonD9aEku7G3URGaPWA
+qSBKYwoxbTG3/467wDf92snxLFDgC1bC4ofQwz9ynfvH9/9tuQznekWdaJ7G43c1
+42zygjLsyu748GGailNEjW/MrZTbSDvLjN6eOo89p2VhvvnDx5qGwzQv+b/bjF2p
+kt22schgopEOmmylq2RWUeHRTFlUNkhhlnw9JmRQaO021ImDHAB9BA0wsHnH/Wle
+uTcgB09hgZLG+Q0diUgv63eRitCw9ugUwCpdVw==
+=tSap
+-----END PGP MESSAGE-----
+--e2767366775068f5a60759cf64536a5c74e96766aee942698b581447a777--
+
