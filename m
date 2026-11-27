@@ -1,86 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.72
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795738013;
-	b=cwQqQnDvbaqb308HkKVMjyLWkdY96DrEuHbG6wGtQutMgZRuD5i4S1vfF+4jjPY1H/MF
-	 BBIUQJvJ/kpX1ycLtSR/U8XkkZeGDfg+KfPz7g6jehIdThoNk5Iw4qcHaGQdZac8vqN16
-	 YTN/SU/18HQv0Bl+Oo6GZBfQ6uCwvSBr0HmBtdqWjMxZJ3o7a2o8EuqhEROvscalmDcqL
-	 JGuuEIsoYzDgJJ+vaHln6//0r+BctE32Uo4BSVNT5SZRU5dSWuc9zpaVxODzGWVsHmXHX
-	 FF0C119qMXUqW9sWdr6hYTwEefyxj1ndUxVU4/IzruqIfXNzc4Xe++hk+4ZY60qZe5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795738013;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Content-Language:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=JHqtsUs0ik0BieRJ8Sc/408xRW33ZRqGcrC9WKJdgzo=;
-	b=JxacVuJGC0fRJc/Tpk3tN4Z9Kg0yGzCcEi2VjfJRdt12HjDi8g9Lwy8vRoQGZdKFiDeS
-	 /kJht80/n9p+tmAkGAURmU9ft3ze55zvmOFb3SSY2mT9bNvMoS3Dy++5PW7h8FBM6FqDt
-	 W9uW05F6lzcpLC+6TlRWVZaMdBtOb6aLA7eBtDQxxajwz0uQ141umoccu1rBxwlemOl36
-	 F7DeXyfME0nxzGa4DX9D9TuK6rWTRFR5dl1PUBr/8XdXRq9Jf3vYYbuDhOXnJkyQAEtsd
-	 IA2Za6bLTwt9WC8/WeSWfU/tSSlXAn/ewtrVbcVVfmH7MhkLqTyuHC0sowhUHyGy+uQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZWwaX2+7;
-	arc=none smtp.remote-ip=74.125.225.72
-Received: from mail-wr2-f8.google.com (mail-wr2-f8.google.com [74.125.225.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.105
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795738167;
+	b=Pvgl77h5JJR7JWAh/ojd/RDl40hU1xCsnNSxLAJ00xuAHDXrUwj4tIEyVbiGEdMkhwvS
+	 RP52lBiofjv2w5/89ddPpPqC7l/qiby3Lm6ZaltwaxOg8rjmXu3IsZEwtJM0T6lS6VKCR
+	 KuvfIqD063pN5mgoe7aRUgzy6pq+tR99LlqlMliwffQ+KoMDlpQ3XaPkphS4rZvgq9fdj
+	 cIW+J4oeHufXshUKxlRCQR/PrBVDEejgPN0Bwmh2CPjEl1/wX6r8TEvv+oil6Q5YkoWG3
+	 ksa6r63U8ylxoPrJCkMTvNITiqx6qKEjTUbwfW+VOa8eqTzbTPKypdZ87GAA1VIjxsQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795738167;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=79yzjHbikM5imavsJp5NdxHJkc8vhY1gukKR1ZCLk3s=;
+	b=MLnot263CHdLg6YSNc2thamtxBB07TJzhVo0rS17M2Vw9frnufBi6f7ammmGDyHxKxz/
+	 C2x5i8Sn4dzm3Q6diiReIy6hm3KfiHGXiZfq7Q0XL8TSwgX7R3pHhhZohztsB82p+5dvh
+	 lZ9jkrsxjRJJZdqtn+fpjurrGNWXau+DNgRNaoBRN/0GaTbTOBBIZMi7Iix72+QhF5ORf
+	 KCJnx2IP9lie78Qe6ACmt8JtV14kTdM9tk4KjMtbFep1Uuam96QpXnR2wIoPkEWgvWaWi
+	 Puy8Fj3g7FITmP226x7Il5aksidHNZb4yBOluHOi8F0DKR2lzH54+mtKgQmKXUdX6fA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=0fGc5YO2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.105
+Received: from CWXP265CU009.outbound.protection.outlook.com (mail-ukwestazon11021105.outbound.protection.outlook.com [52.101.100.105])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47E94606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:06:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47E94606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 373E5606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:09:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 373E5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZWwaX2+7
-Received: by mail-wr2-f8.google.com with SMTP id ffacd0b85a97d-48df4afd489so1894880f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:06:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795738011; x=1796342811; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:subject:from:cc:to
-         :content-language:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JHqtsUs0ik0BieRJ8Sc/408xRW33ZRqGcrC9WKJdgzo=;
-        b=ZWwaX2+7knnSf6gqOs/CRMa6UnjvPEZVk2LeRHDhDaCeihSDirr9SwYF4i/tbGU+Vx
-         NUzMTYpztY68nE5fxvkG6/VxLvhjw+LbAgLzdtrcpRIBFMkA8xRi2NcrSyEXTPTvarC1
-         hhAcYLjGGiaoi9NpZ21n7Jh+G+gZi82O9J9EDJ1rlN9iWZBsy55V8xMMPmJIlBVOs2pW
-         HeRRrIdr27MGala7oZ3geUnEjiG452fyXSxRVJmPl7OAjD1e4QOQMbFMYEAnldzLYbB7
-         gQWK7Bk8K1K/+pWZtvmcqTTI+kd6p9YEBlrPUE2TuSSY2GLFJZGr/1f608tlnLkl+jFu
-         KE0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795738011; x=1796342811;
-        h=content-transfer-encoding:content-type:subject:from:cc:to
-         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JHqtsUs0ik0BieRJ8Sc/408xRW33ZRqGcrC9WKJdgzo=;
-        b=ZNlPL0luhzBpROdVdRDvq5oze3DxGi0vGrPaEgtQMkvDDy1I5CBavef8O/Ctp4rGpq
-         I1vQ7NIg0rZzR4aixVh5e15M8ytbQidTkfgFuZNj67CaDdKuuU4te/RQWHYI1ZeZzrVH
-         IOqKnI1bmzYLWSe68RtpTIxrrP8EPmWemIvzPd/9YLXcEDmn5Sq2BgqRRHNAvhXszwCr
-         3xxSipHO2+BUUBddTiznFW+SXYEsS6aSMWJcLJRI+Wa8PPCHR/hiI5mDJiV/UjSrtb28
-         +IQiMUJ81IyehgCLWF+csVz36mP7nUf1jT4oPL5DExqgDbb39tycbA0B803wo2i4JJ2T
-         YOBg==
-X-Forwarded-Encrypted: i=1; AL+hErG7ExShBAL77TTLNLSNJPpOV/SLMEzpIODVQ2fcKhFXIXammhwLl2hFvknUH9OyGCzHRpobEZ7HrrAh+ZM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92PH1PtYxB/pM2n6vro3cAnyau9kOvEIGKdq9mu8NOgwdIxL1N
-	sINf7qbdZXS9R/ZPt3mfhp2VJZ/BPeilbguYcASAAoEXeiYMfbH1FEfV
-X-Gm-Gg: AZFdTZd25kJBBba2JTppqyWdjv1xBYZqq0zuhykmKafTg5zKnv6wpbeteEJiQrHUat9
-	U4Rn3mb9xT/ZbxFCBgHAGvGYUwTCjpXoKil9abBPo+sr1qSh8ZPL+1y7DoFW/GAsdOgUU8LrtxG
-	GdwLUN4Nt4C9HMOcFcQ9Nw6fonO9IwjB23QlqZx4w3iaiqbUVqmjRN+lBaanfckj9mYLKGGXQWc
-	sZSfMFqXjQ0vNEvxFHWwWVLdLue9SqYjkKV36KUS2OlbxyfsAhCuVCVDsdtEcX9Ux+QGDF34QrY
-	HSbPfoOErulyfz8HYPV2i2hAr+A6V+fqewmXMEql0TPB2iLGF8fvbRO65W7iYJGlVNE5OkGkrx+
-	67Y2n1PQxjnBuaw11jxBCemcToIupNFwNprOA38Z9rpQgb4Q0KnWiT6ezAcy9TYwgrkY+2TuvUb
-	L1ICkfvl/RMk4FLBnSqDb3bTjaAZqTSeJhjMlERpT0OQaSFL/KasKJ6TYJE6qKJpJb2fW/GHyCq
-	vWDUD0UMGspQK3uhBhedt+34gXyw2IA8EuJAbzaDfcgc5rjGm4i7gvxFhfrY4jxw1GlKVGyRcaQ
-	tEm8E/akH0ZQQmgHKbxTc4ChMlqtfNyVy7gaHH4ALnszQZI7Phq+C+bcaQ==
-X-Received: by 2002:a05:6000:4381:b0:4a6:5a2a:f5a3 with SMTP id ffacd0b85a97d-4abaa9773abmr47659974f8f.3.1795738011470;
-        Thu, 26 Nov 2026 16:06:51 -0800 (PST)
-Received: from [192.168.1.11] ([31.94.68.154])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm45145550f8f.11.2026.11.26.16.06.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 16:06:49 -0800 (PST)
-Message-ID: <59629f46-5add-4fc8-aefc-c9e02b4d59d0@gmail.com>
-Date: Fri, 27 Nov 2026 00:06:48 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=0fGc5YO2
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yguUEusCLVBgYRonqrOdyG8VD9nwl2TAlf6gL/ak9cNPdRqQGPW5Qw6A2OMaYX75qjAiP7zvFY80Das21t/AtrCWHOmKTQ+/3DxOSqfGemKqz6hV5wVA1GSEzlYpetrPW0lGA71uX6VO1pqiUtPEcNWhsapOri3pJm/ke7Smos9bmop/7gpGfLvCrRhYUQ+WiKpU5md6JS7qcP9Y7ra0cTQCsW/QOQFUTwZpxaQW7r39i3K3DFPp9LiEow/xVjGdFyurGnyJjxF+tXn0pUGzS28CkEKHdlYVZvXqGL80W30Kz532/kt0goKf8OmmsCDneURt7WqoJsOPjnVHNAATrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=79yzjHbikM5imavsJp5NdxHJkc8vhY1gukKR1ZCLk3s=;
+ b=XzmOcaxIXs+X8l3/HOSXNknxrBSeS/dqxflq0GXYdPN5/NQPZxH0+riH0pH8cBNF+FC2ghW2VcrIt1URR/amKhvMGFkJWh9/MRG37WZtSX7OHvLs5Xtp6dyfTn1C6jr5Vnv7gSYfdgdxfs+Kvp9yias8N7iGoEQaNPCthemplbkzPAwQ5lkjCEe0sXUM/uWFSvcx9CykLtcq+J+qdSuB+/UQMiIawFKnbEBSuXwXhBm4B8wWRZme+5B7qcvUXFkl5kDJ3g8Tbi16Q4RkaHOCez3Yzrc3TNPmbHmkDCD9UD4V+xWj/x6IvSEfCZyOKk5FXes3m0uUzS+N3h2HqPqXUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=79yzjHbikM5imavsJp5NdxHJkc8vhY1gukKR1ZCLk3s=;
+ b=0fGc5YO2dyuDtaV/uiNauQbwJGvwySiUO97agQWY3eaf2mkHrkSP5HFbjTRjnTYdgf3OhgVjCVfiVm0uQzD3pAZD8Ncpzeg30jZ0ag9BpFXfQtHvm9tbSNtLzRZrgzxgFztYYMRwTDMI7AZpH/q7n2Az9w/NeOGOr3/YxowXIYU=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by LOYP265MB2336.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:121::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
+ 2026 00:09:21 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 00:09:21 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 00:09:20 +0000
+Message-Id: <DN5K1U7A1D4F.SDTIDLS3S54J@garyguo.net>
+Cc: <nova-gpu@lists.linux.dev>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] rust: gpu: buddy: tie allocations to the allocator
+ lifetime
+From: "Gary Guo" <gary@garyguo.net>
+To: "Danilo Krummrich" <dakr@kernel.org>, <acourbot@nvidia.com>,
+ <aliceryhl@google.com>, <airlied@gmail.com>, <simona@ffwll.ch>,
+ <lossin@kernel.org>, <gary@garyguo.net>, <ecourtney@nvidia.com>,
+ <jhubbard@nvidia.com>, <matthew.auld@intel.com>,
+ <arunpravin.paneerselvam@amd.com>, <joelagnelf@nvidia.com>
+X-Mailer: aerc 0.22.0
+References: <20261126221108.3768637-1-dakr@kernel.org>
+In-Reply-To: <20261126221108.3768637-1-dakr@kernel.org>
+X-ClientProxiedBy: LO4P123CA0431.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18b::22) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,89 +101,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: "amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>
-Cc: Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Mario Limonciello <mario.limonciello@amd.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- Richard Lane <richardlanedev@gmail.com>
-From: Richard Lane <richardlanedev@gmail.com>
-Subject: [PATCH v4 3/3] drm/amd/display: report synced displays to PowerPlay
- on DCE <= 10
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LOYP265MB2336:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebd12d1e-ea9a-4fc8-4e77-08df4c1aaf7f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|23010399003|366016|261009223027099003|18002099003|22082099003|921020|10067099003|260925022911599003|260925021911599003|260925021311599003|56012099006|261028144727099003|261102123227099003|261026140227099003|261022105027099003|261021121427099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info:
+	oeG2vB/1tuKseXmZ5EXXdhc/FA4E47oqOZMVltCrgrd4vER/gKtFbUuGM81fNo0HMwU7gRST4KTl0NE/vWKeGUOTnOpvhGuLOJDmtZu330u/dTg+ocPInyYAB+zqjGHt6YCC28riWA2wiktH6A4F11gHGRHEeJu06vWSnIZ8wA+CfuQapkNZXMhZL+G35GPvrbHK4EyEOMXWBihDFSpgmsykvzqyqm7UdImoeONZqSIxHbJZ8I1+KUZ1U7xUs7VqrIjwt6gwkCk4rO+ysFfqrlUf5HgYUHTME75jOn+EtIT2iFIvjW0C5QGkYxt61IWujzktgwuOFjIDG3caFJBIzzQVjzoop1awq6I4hnwX3qx0ylWK0cNWDnr/2bHI/rureVpagQXCmO/m7qBgUh8BxkIULgA2YWfUo+eqA1U9y7gMslJ3W3v3uCoJEZH3X1tW3PNcz+P5N3hv0FCBR6duiRfs9Db5GYCHEe/ckN1o5YtaQBmwJBOVVJVLJLGgcXyLgkGm6OyLKcE48LIPLu8i2yOfwhSbe2Xa2v/dBMPFHVNZMYeVamue0nI8XVWv8k7cwkZIYtgI2l13x4wnStCY4bm/2cRZoTh8BSOU1GDnTUcfYArHfreuouASc9ThdW2ILHpXxlijtjc3ae6A92CZmZYtW4ESFHjrvI6NMbyTTAk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(23010399003)(366016)(261009223027099003)(18002099003)(22082099003)(921020)(10067099003)(260925022911599003)(260925021911599003)(260925021311599003)(56012099006)(261028144727099003)(261102123227099003)(261026140227099003)(261022105027099003)(261021121427099003)(261021123027099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?UFJ1Qnd1YmVvVktPL21heU41Y1h1cnJLMUROMDVYMUd2Qk9WbmxZSUptVU03?=
+ =?utf-8?B?WFFSZDUyS05xVS9RUUNUelpKUjdQV2JFaElsNWlxTWRhdnZteE5uZjZKd203?=
+ =?utf-8?B?ZVZkOXRvLzI0OVFIWTNFMUdtck9tVkhMeVpZUUtYZFdMelAvOVcyQ2ZhUDNn?=
+ =?utf-8?B?c2IveEhkYUFGdmc1TFdYVDcwZ0RhbTd4cGZmL3RnR2o4Vkpkd2JYS0Vsdzls?=
+ =?utf-8?B?VHlNemtrb3JxNlFQelZLSEthTU1yUnlSNytvUFpaZFl3TFpSb1pPcEtIeGRr?=
+ =?utf-8?B?c0Y0citkc09JRkQ2UStIVnJEY0lCbldza3oveThtVVNUL1VMdUp6d292ZjUz?=
+ =?utf-8?B?d2VFc3lteXdoOVJnUnAwQVA3c3ZPNllKdHk2bHprcUdXaTk1dytkTDJCQ2tF?=
+ =?utf-8?B?NVAyUDBtbWZORXRVNHVLc25zbG9UNnp0dnRhQmpRaVQxUFNxSXpxYWxEeWJY?=
+ =?utf-8?B?L0p1anpIZCtRem56STRqQi9ubEh0Z3NyWDZNMHJLMVB1NTdBL3hJTllhc1pZ?=
+ =?utf-8?B?U25ta2ltek5YZDFxQzBqN2Fya3FERk5nRnFDcDhxeG1lMnU4dUFIZ1NIanhZ?=
+ =?utf-8?B?c3ZzQUc4TGZLZGdwQ0lSMElValNubXdJYTROaGh2eDROaXFEZGFBb3NYd1lx?=
+ =?utf-8?B?TGNSbTQxRUJ5eFEwaTZGbFM4RXgvY240cUtOVWVqb3FjdjRqZVVlYVlzZXZ4?=
+ =?utf-8?B?K2ZSS1YvRHdEcUxnbThPdWhYMWZ4L2w4UjJvOU16dUhjQTZhZGdzWHU3MURN?=
+ =?utf-8?B?RnVnUCtoMEF3cVhnWXRWR3dRSFdMdmF2bnNBWENyLytNMGd6cEN1VUFSQWVm?=
+ =?utf-8?B?Z040anI1emFKajhYNGtvYklvN1R2ZFZHVnlnNEYzVExOR3J6OEh4bkM0eXph?=
+ =?utf-8?B?TmFNWmoyZGk3aTJuMCtZTXR3dng2TU1jOUtTSytFVHRQWDRnODNXQWo3cmNK?=
+ =?utf-8?B?dFZDa1dVRFQzbTJsTzQxSU54VFRDZ3JkU1F5N0hMWjZXOWZuOFN0eThhQVZ5?=
+ =?utf-8?B?SlRCdXZnRk53c2N4T3JTQmRrNG1WcXQ3Ync3R3dWS3VvalRSUExhWTd3aTIz?=
+ =?utf-8?B?Z1V4SjQvUkRGbzkzSkdac3hmYlV4SE1Jb0E2SmdhUlpkSHNFM1ArVWpzUllQ?=
+ =?utf-8?B?TEZrVUtkVXlLUmxlM0VDd0N0cmNDTUxTL3Q4ajVxN0NXMmVPWTljd25kOGRD?=
+ =?utf-8?B?cWZ3K2ZEaDdySTQrTkJ4RGtsYzBsMEl1bHVGQjFRanoxMmtackFzd3RHZlFI?=
+ =?utf-8?B?QTkzSlpuWThSYmVFdzVjNXB2VmxYMGtqd2ljeTRJTUJSVVRwUmdhMTQvYVdy?=
+ =?utf-8?B?U3NtaHk0dVFaL2VoaURVUmI4bnM1YTRXWjZ2NjdQVnlGa3ZkZHk1U2MvVUN0?=
+ =?utf-8?B?alVhZWlnWXpNYzA5YVVCRVBBQjFabkZQS2pEWUZ4UW82VFR0QWFWeFJlSXZi?=
+ =?utf-8?B?TytsU2VPU1F1cEdyaDVpUkFQRis1OGgwR1hYdktzWjhVaEx0aWVROHpOS2du?=
+ =?utf-8?B?SlV0NlZ5WWIrZWRDTkM2azU2K1M5Sm0vSUlDY1Bwa1g2dFF1ODYzeFF0QmE5?=
+ =?utf-8?B?N1h2MitiYjN1UkVnc01FWno2VmFTVStpejNPN0FLWURHd0ZWTnNCczZVYU9K?=
+ =?utf-8?B?L3ZVUXJHQ0N3N3NzZ0cwU1NKQlZPbCtkaXpGYlRYN2pmMzcrOVBKRDlFYTdz?=
+ =?utf-8?B?Njg3a2dSMFNWU2tXcG9pVE5mL2I1ZVptVUVrN1JkcERCOWIyV2tEMmN5dWN4?=
+ =?utf-8?B?R05CUXgxNFZWVGQxS1NxaEJMZi9oQ3lDT2pGWTMrLzNDTXZmWWFkT052V2dC?=
+ =?utf-8?B?UWJCUyticnBaKysvSnVCTDV3L05JMlEzM3doYVlsQzRaYWhWa3dFQXd0bndv?=
+ =?utf-8?B?Yzgzc0dHbDBBcUFzREd4U1ZVMFBxbzludFRzOS8zd1E5WkoxKzVjQk1xNWhv?=
+ =?utf-8?B?UDVKaHVhN1poTzFZN3ZBakc2ekVQNmNQdCtlL1ZEaWttMjBoM2Q0aXNKcnFM?=
+ =?utf-8?B?ZVJEQ2lGemJVT0c2UmhpVEFidWtzUFZYVVZTSE1OU1hPYk5FWjR2L3lVei91?=
+ =?utf-8?B?b3J3dmI5aTNGVlNxUGpYVHhmNEVpNlhEZzk1eGhoemJUZlpkWC9nM21iL1RW?=
+ =?utf-8?B?VW10akF2akxKR2lxVTc3bGRGTVlJeWNIVjdQaEVVd29hUVBkRHRmdzVRdWE0?=
+ =?utf-8?B?bGdQaFBZYnZpL2swZjYyRzU4bGM5Vmx3QW1oUGwrQ09yZllmcVdxKzlkTUVK?=
+ =?utf-8?B?YWJaVE5UTTlhcmp5OEhIdVhXcVhkUEFOblArdWx5YU1vTGFDcmdKcWFpQTdr?=
+ =?utf-8?B?NDVFNGc0QVVtQmdpdzVOVG5Bc2szaTJWTUMwY1BaTVNHeVBnNXNSQT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebd12d1e-ea9a-4fc8-4e77-08df4c1aaf7f
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 00:09:20.9299
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MR8wBzkkWXGSCZUS4TKGoSkYrxNfbPz0GRPKhh7kaDBkRSqxNooTe1uaSxztt4Agaw7nXlkD70wg4HxlWqDLLg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LOYP265MB2336
 
-On DCE 11.0 and 11.2, bw_calcs() computes all_displays_in_sync via
-resource_are_streams_timing_synchronizable(), and
-dce11_pplib_apply_display_requirements() copies it to
-pp_display_cfg->all_displays_in_sync.
+On Thu Nov 26, 2026 at 10:11 PM GMT, Danilo Krummrich wrote:
+> Let the allocator's lifetime constrain the lifetime of its allocations,
+> rather than having allocations keep the allocator alive through
+> reference counting.
+>
+> This also removes an unnecessary allocation and allows GpuBuddy to be
+> embedded directly in driver private data.
+>
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+> ---
+> Depends on [1].
+>
+> [1] https://lore.kernel.org/nova-gpu/20261126213652.3716162-1-dakr@kernel=
+.org/
+> ---
+>  drivers/gpu/nova-core/driver.rs           |   2 +-
+>  drivers/gpu/nova-core/gpu.rs              |  51 +++++----
+>  drivers/gpu/nova-core/mm.rs               |   9 +-
+>  drivers/gpu/nova-core/mm/bar_user.rs      |  20 ++--
+>  drivers/gpu/nova-core/mm/pagetable/map.rs |  43 ++++----
+>  drivers/gpu/nova-core/mm/vmm.rs           |  12 +-
+>  rust/kernel/gpu/buddy.rs                  | 128 ++++++++++++----------
+>  7 files changed, 147 insertions(+), 118 deletions(-)
+>
+> diff --git a/drivers/gpu/nova-core/driver.rs b/drivers/gpu/nova-core/driv=
+er.rs
+> index d6bc972d47c7..f8f5d74d2742 100644
+> --- a/drivers/gpu/nova-core/driver.rs
+> +++ b/drivers/gpu/nova-core/driver.rs
+> @@ -133,7 +133,7 @@ fn probe<'bound>(
+> =20
+>              gpu <- Gpu::new(pdev, bar, bar1).pin_chain(|_gpu| {
+>                  #[cfg(CONFIG_NOVA_CORE_SELFTESTS)]
+> -                _gpu.run_selftests(pdev);
+> +                _gpu.as_ref().run_selftests(pdev);
+>                  Ok(())
+>              }),
+> =20
+> diff --git a/drivers/gpu/nova-core/gpu.rs b/drivers/gpu/nova-core/gpu.rs
+> index 2f0399100885..65290cedde11 100644
+> --- a/drivers/gpu/nova-core/gpu.rs
+> +++ b/drivers/gpu/nova-core/gpu.rs
+> @@ -1,5 +1,10 @@
+>  // SPDX-License-Identifier: GPL-2.0
+> =20
+> +#![expect(
+> +    clippy::multiple_bound_locations,
+> +    reason =3D "pin_data generates additional outlives bounds for the bo=
+rrowed MM field"
+> +)]
 
-However, DCE 6, 8, and 10 (including iMac15,1 on DCE 8 and iMac17,1 on
-DCE 10) use dce100_validate_bandwidth()—which does not call
-bw_calcs()—and dce_pplib_apply_display_requirements() in
-dce_clk_mgr.c, leaving pp_display_cfg->all_displays_in_sync unset
-(false). Because PowerPlay is not informed that the streams have
-synchronized vertical blanking intervals, SMU7 prevents MCLK switching
-at idle or causes modeset underflows.
+Please use `allow` so it won't cause a semantic conflict in case I fix it t=
+his cycle.
 
-Set context->bw_ctx.bw.dce.all_displays_in_sync in
-dce100_validate_bandwidth() using
-resource_are_streams_timing_synchronizable() and copy it to
-pp_display_cfg->all_displays_in_sync in
-dce_pplib_apply_display_requirements(), matching the existing DCE 11
-flow.
+I'll take a look of the rest later.
 
-Signed-off-by: Richard Lane <richardlanedev@gmail.com>
----
- .../gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c  | 3 +++
- .../drm/amd/display/dc/resource/dce100/dce100_resource.c | 9 +++++++++
- 2 files changed, 12 insertions(+)
+Best,
+Gary
 
-diff --git a/drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c b/drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c
-index d891b3bfe2a1..1dd302ad19aa 100644
---- a/drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c
-+++ b/drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c
-@@ -320,6 +320,9 @@ static void dce_pplib_apply_display_requirements(
- {
- 	struct dm_pp_display_configuration *pp_display_cfg = &context->pp_display_cfg;
- 
-+	pp_display_cfg->all_displays_in_sync =
-+		context->bw_ctx.bw.dce.all_displays_in_sync;
-+
- 	dce110_fill_display_configs(context, pp_display_cfg);
- 
- 	if (memcmp(&dc->current_state->pp_display_cfg, pp_display_cfg, sizeof(*pp_display_cfg)) !=  0)
-diff --git a/drivers/gpu/drm/amd/display/dc/resource/dce100/dce100_resource.c b/drivers/gpu/drm/amd/display/dc/resource/dce100/dce100_resource.c
-index 97ea22af5d2b..0d25c2ddb661 100644
---- a/drivers/gpu/drm/amd/display/dc/resource/dce100/dce100_resource.c
-+++ b/drivers/gpu/drm/amd/display/dc/resource/dce100/dce100_resource.c
-@@ -888,6 +888,14 @@ enum dc_status dce100_validate_bandwidth(
- 		/* TODO implement when needed but for now hardcode max value*/
- 		context->bw_ctx.bw.dce.dispclk_khz = 681000;
- 		context->bw_ctx.bw.dce.yclk_khz = 250000 * MEMORY_TYPE_MULTIPLIER_CZ;
-+		context->bw_ctx.bw.dce.all_displays_in_sync = context->stream_count > 1;
-+		for (i = 1; i < context->stream_count; i++) {
-+			if (!resource_are_streams_timing_synchronizable(
-+				    context->streams[0], context->streams[i])) {
-+				context->bw_ctx.bw.dce.all_displays_in_sync = false;
-+				break;
-+			}
-+		}
- 	} else {
- 		/* On DCE 6.0 and 6.4 the PLL0 is both the display engine clock and
- 		 * the DP clock, and shouldn't be turned off. Just select the display
-@@ -900,6 +908,7 @@ enum dc_status dce100_validate_bandwidth(
- 			context->bw_ctx.bw.dce.dispclk_khz = 0;
- 
- 		context->bw_ctx.bw.dce.yclk_khz = 0;
-+		context->bw_ctx.bw.dce.all_displays_in_sync = false;
- 	}
- 
- 	return DC_OK;
--- 
-2.55.0
+> +
+>  use core::ops::Range;
+> =20
+>  use kernel::{
+> @@ -383,7 +388,11 @@ unsafe fn new(
+> =20
+>  /// Structure holding the resources required to operate the GPU.
+>  #[pin_data]
+> -pub(crate) struct Gpu<'gpu> {
+> +pub(crate) struct Gpu<'gpu>
+> +where
+> +    // Hide the borrowed memory manager's resource lifetime so `Gpu` rem=
+ains covariant.
+> +    exists<'gpu_mm>: 'gpu,
+> +{
+>      pub(crate) spec: Spec,
+>      /// GSP event interrupt registration, and the enable of its subtree.
+>      ///
+
