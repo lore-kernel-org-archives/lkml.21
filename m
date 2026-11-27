@@ -1,84 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795742188;
-	b=GtgXSjLBd/EEyjCQ1+/5W3GkbxAf/sDM3H6AZl6mnDZ1wKb3xl0roY24JA1ZbCWSHZA1
-	 TWg8NZOvCFlkuACCByBlj683Im4sc1wl8JXSHcfK8S8/nugLGiyjrJ3QhWi8QF9I9HkqX
-	 y55fpvf/ae9KnLIcC5RE5N0yXig7TyWS8gINZbcKHRl8GzF/vNif6xP5g4FrYUP3Xfq/C
-	 nSG8L4fjx7Chl4/vL+duP5FhA3B1GpvPKJXY4JNvD57/NaWqdAGaq+7nx3e7jcfxb8ofo
-	 ggycnvHV5nyOVEg/BiRuaSTCned2cm6qVJrS/qukeV6HFguUxXddDyH5ydUXLH2msBQ==
+	t=1795742203;
+	b=ZxNNQmHRsiramtEvMKjHMtUtKEwT98lZZLKKZ9vNWIVBhI7DXJRjNvxlvJgm/oNp58VA
+	 rlOWbHgBqgrvYT95OI7xdXn8ukQq4cI8xid/hlZa9hPjdoSqFenrMBiumBAVOpsTyPfXm
+	 BDW9RBsziWxZv43O6GUS+Ddas/TxHtfBSaK3dh4AJKVDVtOThMEUJJP9heafsZjZcO2Bk
+	 EENFZADNBZ8WB+oCwdCbwj0B3DW5assUiZsBFg2olQ817r1u9iKs5lAEld5Ftgxeq8MKf
+	 oCVOSPgy3lSQhImE+HmAVosHO00YeOvuaYdhr7cLUcjk+iyTyF5Ss8hkZKV8AyHhrNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795742188;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=uoROFmhP1WYJ0D7qo7bgDD0qrvZazeRoAO22rJ7paFI=;
-	b=Q69VuC7nurjTapIKybXYypZPd6TXw3sDkpaSJ+ULa7d0MGazishRMqkKJKr0LE2S49Eu
-	 p+8T1RxZcKTU3BWmpsWzZ/u/TPU196pW8qSVf7RdwfxcpnQjytnvVon24fSi0tGbwgaM3
-	 GhQfmvwy5mosw2PCCbnEdd4SxAnGVhsfMHc585qQbbjFRfGmYhNfplAg20JscS4BuIwLi
-	 aDlDQvHIB0vjuMH3rjuBH2TUaMbcEwMV+JY7mxpXgzOv/diQwwBAEVVHzoZByvQd7S6Sy
-	 2b0ngk4H7aIODjfZ2k+YLS9AHIZ9JpU/PlJ9hwzX2MQK5xN6rOhswWTssy+EWN9Ahmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795742203;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=8bbUmiQgAFFMiiHpm/ItVaw+U4JGgk2HKsFlETCS458=;
+	b=Xo+rH6LYC9N0Q5Mx8pVKtu0durv/2WXjw3bkLO+FdehxcpT72yN3kV10ZiGXjoFUj1Rq
+	 oXA5Wm9l27/NhjHDju5tiqXRoBHovlYS+3StZGhSfXOrpX0NT8v4mt8ufrJbphDQ5s/4U
+	 6SCRPNXX+261GBn3VlnG1+NvLwEA8jkmE8DR025wzGSEE8j4XW0SbJR+MQPHz7WNHxYWM
+	 1NyzBW+4pY2tWMDbizydhziQ7s4tML+A7QE9KIfdREfc8VK+ivnopKiy77Sru7z4NaR1E
+	 8jpBLeJo6OSoJRkejQavAKTomDbRHcpTDsT4C0xMAtFQtHkuC3YmvuU6TYIAWvl+/2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dl3KjdNS;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=KH4SBpje;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06CD0606A31E;
-	Fri, 27 Nov 2026 01:16:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06CD0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71396606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:16:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71396606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dl3KjdNS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795742186;
-	bh=fnxwTCBIp/6YoseXa/LQt+NHKClglW/6bHL9ddm0ZqM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=dl3KjdNSiZycpI+uXT0jRnYMJ+k41eJauRhiAyE79eA0MtMLv6tnn1jPXX+rBshuW
-	 /cbOglNAFnWkksUMFhNsHobZHXfpqFD74RJ3yq1u4N6lvZKmMGxP14JtpWcrlnta3u
-	 bSX7fjPBjKMcaDS4WBP80mtK0w+xR5jaDOpuRVNX9hUmjbUrwhREhe7qfyn9wBQS4M
-	 BHAmNzGLd0FJLvd6vPuwEd5q5GqjMbhfANs/EzNN+nCJKDHx/XHqQe+5sRYcsUfz6u
-	 cOWcS0ICiNIGfTKdbHDbq4nOwTpXv2ebbIUsIO1V5IFvkf6VygA68FaL8S1ls/febq
-	 ibdhrWSTTyJLg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4F64D17E0CF4;
-	Fri, 27 Nov 2026 02:16:24 +0100 (CET)
-Message-ID: <44f3c5e0117b9a3242bf247102df5000d009b721.camel@collabora.com>
-Subject: Re: [PATCH v2 5/9] media: chips-media: wave5: finish a job only once
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: "Jackson.lee" <jackson.lee@chipsnmedia.com>, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl, bob.beckett@collabora.com
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	lafley.kim@chipsnmedia.com, b-brnich@ti.com, hverkuil@xs4all.nl, 
-	nas.chung@chipsnmedia.com, stable@vger.kernel.org
-Date: Thu, 26 Nov 2026 20:16:22 -0500
-In-Reply-To: <20261109052853.110-6-jackson.lee@chipsnmedia.com>
-References: <20261109052853.110-1-jackson.lee@chipsnmedia.com>
-	 <20261109052853.110-6-jackson.lee@chipsnmedia.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-GVO2R+Bz5ri09iN1whnj"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=KH4SBpje
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c51d016c75dso94617566b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:16:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795742201; x=1796347001; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8bbUmiQgAFFMiiHpm/ItVaw+U4JGgk2HKsFlETCS458=;
+        b=KH4SBpje5a1K1izWHZbKoh9WQgsePIfD8zgQOlEaZZCMQFINzScAhbDsL/f8ivlQCe
+         E2Mmypxsw0SaiNc5cvFABdhvqp2xqsZZjzKXX2anMnhhJ9VWCF+e6WVe2PFMhd+RkjQ1
+         BeLp4EyVmkOZU6IxqnlHcl6tt4QcJ9bILEX3k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795742201; x=1796347001;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8bbUmiQgAFFMiiHpm/ItVaw+U4JGgk2HKsFlETCS458=;
+        b=HtePljS3GjCyccaaSVqT/gxWU9W9m1n78IIsJ5OkYqEydDn58yQjnPAn+GdXtFBZfT
+         4GDRuDqs7Femo0M1rI80Te37Zs9sbVfwSzBRWUI2+p+J3yrXkM2cldMS0+UjId2s7+vQ
+         JsTe7EODCZlsG4YHL251E7uwFCFlEmllF7s3io5f1alBYUYGVmCEKdBqF3KKM+DPJiNf
+         YCi1t4hXkG0+OkAh3k8m+WU+f2S82p6rayt/H1VcxsWZuGPY7SUISI4A1CtAYhFagqbk
+         4Gfj4xtBe40YMmbkGlwOV/JJfsQv4zQjipCs08KgKrtTS7naQYZAzqLROhPpXIlWho5a
+         6BtQ==
+X-Forwarded-Encrypted: i=1; AL+hErG2zFSK4O2anjSjHgm+vx2dTCi3WqXUGk95nRvd/UmCxllrALTkE1QlnZU4fqt4rl77QgSGT1GrFWdoA/U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8TjgmR5+C9EJfee+nj609K8JJ7gBsRuRLG5nOj7lOWG5WxrBiu
+	YfqhcdMLp3N/NBzYj6ZjUfLjkNq6Cevy7jTL9nWpiJjyUYTLkD3YKtWs9D2AdKB+m+M1K7yFDFe
+	+dE5yX04=
+X-Gm-Gg: AZFdTZfI9A3jWGooi0Ka04pO632qkl+UREIjGRO/LSVYo+l5AC+Ye49EtYBF97TYIP4
+	XKMXyBKFy95UPavRvKFKfDi3csmVQCHcHBwZJ5TSk5WHH+WtpKrJlXm4eT0rjVyMZLymn5l5eBS
+	1Ld0tWvPxyKPh8Y4BNiXgr2Pzx/LUN/WxsxfaytmfXkdmXTiJWzqGTK4pJLDGkcFpDruKz/S5k9
+	fovSz9F263dVJrNdijDlAO871yVEVekRB1q6/JPLO+rCemi7NPdElwWgv85XpGk9utKBGizlndK
+	nRuhB3cwpclD/1YIRy3iUtnST2979zIoMJHGTKjzpUdP023ato6t/StUQJ9BHtEkI7QUykHoub/
+	pe8cz0W3tBtlK0Qf7A4YzSU4ngap05vuj8biEeKcacwQ5hKkvT38VxefhKEtFr9M06twGKDtd/X
+	LO7elfoDo0sbl5cleGijoSgLd/D14iDO4I5ySHNqSRWrqzvcVRu+4ruCJb7Kf9IgWaajEjAiNas
+	GDtUwDE8FzHzYLBRFJVs1bzIR5Fz4hUnxQYHzvO6xYSKLOnqnGPNlug8LBXKTnChisG8YPColop
+	QP/RJ/aH9aSQm5/sTMM85lVvirbZdYc5A4jYJlTGhib7bv3IJuL1Yn4Pr38zqkMr/0+JpcYfQzk
+	FpA8=
+X-Received: by 2002:a17:907:f447:b0:c51:3b74:9d07 with SMTP id a640c23a62f3a-c513b74a25fmr1899510366b.18.1795742200692;
+        Thu, 26 Nov 2026 17:16:40 -0800 (PST)
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com. [209.85.208.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b022e84sm821117266b.84.2026.11.26.17.16.40
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 17:16:40 -0800 (PST)
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6a642495d81so11773360a12.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:16:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEZ2Ax68NTLMc0z3aqpY+Sb6XYq5BR9NJeFa9UTQWXzSbd/+c7obqev8HI39PHGSpZYm+yVjXj7HavQIzs=@vger.kernel.org
+X-Received: by 2002:aa7:db57:0:b0:6b7:e3d8:20ec with SMTP id
+ 4fb4d7f45d1cf-6ba37d17fd2mr11839925a12.11.1795742200042; Thu, 26 Nov 2026
+ 17:16:40 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 26 Nov 2026 19:16:39 -0600
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <20261127000015.3662267-2-julianbraha@gmail.com>
+References: <20261127000015.3662267-1-julianbraha@gmail.com> <20261127000015.3662267-2-julianbraha@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,314 +99,306 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-GVO2R+Bz5ri09iN1whnj
+Date: Thu, 26 Nov 2026 19:16:39 -0600
+X-Gmail-Original-Message-ID: <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
+X-Gm-Features: Aa3M54pgWyN5s5G-VkTeo0uIphvPKUryXChPTRM1O_ZDzrMUc6h0lLQONKzLQHo
+Message-ID: <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
+Subject: Re: [PATCH 1/5] scripts: add bit count parameter back to host hash functions
+To: Julian Braha <julianbraha@gmail.com>
+Cc: nathan@kernel.org, nsc@kernel.org, samitolvanen@google.com, ljs@kernel.org, 
+	david.laight.linux@gmail.com, sashal@kernel.org, lzsx618@gmail.com, 
+	zuoan.penguin@gmail.com, petr.pavlu@suse.com, jani.nikula@intel.com, 
+	xur@google.com, sidnayyar@google.com, robertusdchris@gmail.com, 
+	acourbot@nvidia.com, linux-modules@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le lundi 09 novembre 2026 =C3=A0 14:28 +0900, Jackson.lee a =C3=A9crit=C2=
-=A0:
-> From: Jackson Lee <jackson.lee@chipsnmedia.com>
->=20
-> v4l2_m2m_job_finish() checks that the context owns the current job, but
-> not which job it is, so a second finish from the same context clears
-> m2m_dev->curr_ctx all the same. v4l2_m2m_try_run() picks the next job
-> under job_spinlock, drops it, and only then reads curr_ctx again to hand
-> its priv to device_run(). A stray finish landing in that window makes
-> that read return NULL and the decoder oopses:
->=20
->   Unable to handle kernel NULL pointer dereference at virtual address
->   0000000000000358
->   Workqueue: events v4l2_m2m_device_run_work [v4l2_mem2mem]
->   pc : v4l2_m2m_try_run+0x78/0x140 [v4l2_mem2mem]
->=20
-> The decoder finishes jobs from seven places: device_run() itself, the
-> completion IRQ, and job_abort(). None of them tracked whether a job was
-> still outstanding, so the same job was finished twice whenever the IRQ
-> and device_run() both reached the end. Instrumenting the call sites over
-> 150 s of a three-stream run counted 63 finishes with no job to finish,
-> two of them a plain double finish.
->=20
-> Take ownership of the slot once per device_run() and let only the winner
-> call in; whoever loses the race now returns without touching the shared
-> state. Also compare v4l2_m2m_get_curr_priv() against this instance rather
-> than testing it for NULL, which let one instance finish another's job.
->=20
-> job_abort() must not end a job that device_run() is still running or is
-> about to run. v4l2_m2m_try_run() sets TRANS_RUNNING before it calls
-> device_run(), so v4l2_m2m_cancel_job() can get there first, and a finish
-> from job_abort() then releases cancel_job()'s wait early: try_run()
-> reads a curr_ctx that is already NULL, or release() frees the instance
-> under device_run(). Hold a per-instance run_lock across device_run() and
-> take it in job_abort(), which then finishes through the same ownership
-> check. The only job left for it to end is one device_run() handed over
-> to the DEC_PIC completion after EOS; device_run() finishes every other
-> one itself. job_abort() no longer returns early on a failed state
-> switch, so that held job is still ended and streamoff cannot hang on it.
->=20
-> start_decode() no longer finishes the job when it fails: device_run()
-> does that on its way out, as for any run that queued no DEC_PIC.
->=20
-> Fixes: a176ac5e701f ("media: chips-media: wave5: Improve performance of d=
-ecoder")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jackson Lee <jackson.lee@chipsnmedia.com>
-> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-> ---
->  .../chips-media/wave5/wave5-vpu-dec.c         | 93 ++++++++++++++-----
->  .../platform/chips-media/wave5/wave5-vpuapi.c |  1 +
->  .../platform/chips-media/wave5/wave5-vpuapi.h |  3 +
->  3 files changed, 73 insertions(+), 24 deletions(-)
->=20
-> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c b/d=
-rivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
-> index a314813a6b4d..3ecf535f5622 100644
-> --- a/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
-> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpu-dec.c
-> @@ -102,6 +102,29 @@ static const struct vpu_format dec_fmt_list[FMT_TYPE=
-S][MAX_FMTS] =3D {
->  =09}
->  };
-> =20
-> +/* bit in vpu_instance.job_flags */
-> +#define WAVE5_JOB_RUNNING=090
-> +
-> +/*
-> + * Hand the shared job slot back, exactly once per device_run().
-> + *
-> + * v4l2_m2m_job_finish() only checks that the *context* owns the current=
- job,
-> + * not which job it is, so a second finish from the same context clears
-> + * m2m_dev->curr_ctx -- and it may do so for the job v4l2_m2m_try_run() =
-has just
-> + * put there and is about to hand to device_run(), which then dereferenc=
-es NULL.
-> + *
-> + * device_run(), the completion IRQ and job_abort() all reach for this a=
-nd any
-> + * of them may get there first, so ownership is taken atomically and onl=
-y the
-> + * winner calls in.
-> + */
-> +static void wave5_dec_finish_job(struct vpu_instance *inst)
-> +{
-> +=09if (!test_and_clear_bit(WAVE5_JOB_RUNNING, &inst->job_flags))
-> +=09=09return;
-> +
-> +=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, inst->v4l2_fh.m2m_ctx);
-> +}
+On Thu, 26 Nov 2026 at 16:00, Julian Braha <julianbraha@gmail.com> wrote:
+>
+> Accordingly, adjust the callers of 'hash_32()' and 'hash_ptr()' to use
+> the additional parameter. This is a pure refactor (no functional changes),
+> so pass 32 to preserve the existing behavior.
 
-To me, the complexity is a side effect of how the performance issue was
-addressed without doing a redesign. I'm fine letting this go, but it will g=
-et
-harder and harder without a proper cleanup and redesign.
+I think this is the wrong approach.
 
-> +
->  /*
->   * Make sure that the state switch is allowed and add logging for debugg=
-ing
->   * purposes
-> @@ -245,8 +268,7 @@ static int start_decode(struct vpu_instance *inst, u3=
-2 *fail_res)
->  =09=09mutex_unlock(&inst->feed_lock);
->  =09=09set_instance_state(inst, VPU_INST_STATE_STOP);
-> =20
-> -=09=09dev_dbg(inst->dev->dev, "%s: pic run failed / finish job", __func_=
-_);
-> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
-> +=09=09dev_dbg(inst->dev->dev, "%s: pic run failed", __func__);
->  =09}
-> =20
->  =09return ret;
-> @@ -375,7 +397,7 @@ static void wave5_vpu_dec_finish_decode(struct vpu_in=
-stance *inst)
->  =09ret =3D wave5_vpu_dec_get_output_info(inst, &dec_info);
->  =09if (ret) {
->  =09=09dev_dbg(inst->dev->dev, "%s: could not get output info.", __func__=
-);
-> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
-> +=09=09wave5_dec_finish_job(inst);
->  =09=09return;
->  =09}
-> =20
-> @@ -388,7 +410,7 @@ static void wave5_vpu_dec_finish_decode(struct vpu_in=
-stance *inst)
-> =20
->  =09if (!vb2_is_streaming(dst_vq)) {
->  =09=09dev_dbg(inst->dev->dev, "%s: capture is not streaming..", __func__=
-);
-> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
-> +=09=09wave5_dec_finish_job(inst);
->  =09=09return;
->  =09}
-> =20
-> @@ -469,13 +491,13 @@ static void wave5_vpu_dec_finish_decode(struct vpu_=
-instance *inst)
->  =09}
-> =20
->  =09if (inst->sent_eos &&
-> -=09    v4l2_m2m_get_curr_priv(inst->v4l2_m2m_dev)) {
-> +=09    v4l2_m2m_get_curr_priv(inst->v4l2_m2m_dev) =3D=3D inst) {
->  =09=09struct queue_status_info q_status;
-> =20
->  =09=09wave5_vpu_dec_give_command(inst, DEC_GET_QUEUE_STATUS, &q_status);
->  =09=09if (q_status.report_queue_count =3D=3D 0 &&
->  =09=09    q_status.instance_queue_count =3D=3D 0)
-> -=09=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
-> +=09=09=09wave5_dec_finish_job(inst);
->  =09}
-> =20
->  =09if (inst->queuing_fail) {
-> @@ -1685,6 +1707,9 @@ static void wave5_vpu_dec_device_run(void *priv)
->  =09int ret =3D 0;
->  =09bool cmd_issued =3D false;
-> =20
-> +=09mutex_lock(&inst->run_lock);
-> +=09set_bit(WAVE5_JOB_RUNNING, &inst->job_flags);
-> +
->  =09dev_dbg(inst->dev->dev, "%s: Fill the ring buffer with new bitstream =
-data", __func__);
->  =09pm_runtime_resume_and_get(inst->dev->dev);
->  =09if (!inst->retry) {
-> @@ -1809,36 +1834,55 @@ static void wave5_vpu_dec_device_run(void *priv)
->  =09 * stalling every instance sharing the VPU.
->  =09 */
->  =09if (!inst->sent_eos || !cmd_issued)
-> -=09=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
-> +=09=09wave5_dec_finish_job(inst);
-> +=09mutex_unlock(&inst->run_lock);
->  }
-> =20
->  static void wave5_vpu_dec_job_abort(void *priv)
->  {
->  =09struct vpu_instance *inst =3D priv;
-> -=09struct v4l2_m2m_ctx *m2m_ctx =3D inst->v4l2_fh.m2m_ctx;
->  =09int ret;
-> =20
-> -=09ret =3D set_instance_state(inst, VPU_INST_STATE_STOP);
-> -=09if (ret)
-> -=09=09return;
-> -
->  =09/*
-> -=09 * job_abort() runs from the STREAMOFF path and may be called while t=
-he
-> -=09 * device is runtime suspended. Setting the EOS flag talks to the
-> -=09 * firmware (send_firmware_command() accesses VPU registers), so the
-> -=09 * device must be resumed first; otherwise the register access faults
-> -=09 * with an asynchronous SError.
-> +=09 * v4l2_m2m_cancel_job() calls this while the context owns the runnin=
-g
-> +=09 * job and then sleeps until a finish clears TRANS_RUNNING. Ending th=
-e
-> +=09 * job from here while device_run() is still executing -- or is about
-> +=09 * to be entered, v4l2_m2m_try_run() having set TRANS_RUNNING already=
- --
-> +=09 * releases that wait early: try_run() then reads a curr_ctx that is
-> +=09 * already NULL, or release() frees the instance under device_run().
-> +=09 * So wait for device_run() to return first.
->  =09 */
-> -=09pm_runtime_resume_and_get(inst->dev->dev);
-> +=09mutex_lock(&inst->run_lock);
-> =20
-> -=09ret =3D wave5_vpu_dec_set_eos_on_firmware(inst);
-> -=09if (ret)
-> -=09=09dev_warn(inst->dev->dev,
-> -=09=09=09 "Setting EOS for the bitstream, fail: %d\n", ret);
-> +=09ret =3D set_instance_state(inst, VPU_INST_STATE_STOP);
-> =20
-> -=09pm_runtime_put_autosuspend(inst->dev->dev);
-> +=09if (!ret) {
-> +=09=09/*
-> +=09=09 * job_abort() runs from the STREAMOFF path and may be called whil=
-e the
-> +=09=09 * device is runtime suspended. Setting the EOS flag talks to the
-> +=09=09 * firmware (send_firmware_command() accesses VPU registers), so t=
-he
-> +=09=09 * device must be resumed first; otherwise the register access fau=
-lts
-> +=09=09 * with an asynchronous SError.
-> +=09=09 */
-> +=09=09pm_runtime_resume_and_get(inst->dev->dev);
-> =20
-> -=09v4l2_m2m_job_finish(inst->v4l2_m2m_dev, m2m_ctx);
-> +=09=09ret =3D wave5_vpu_dec_set_eos_on_firmware(inst);
-> +=09=09if (ret)
-> +=09=09=09dev_warn(inst->dev->dev,
-> +=09=09=09=09 "Setting EOS for the bitstream, fail: %d\n", ret);
-> +
-> +=09=09pm_runtime_put_autosuspend(inst->dev->dev);
-> +=09}
-> +
-> +=09/*
-> +=09 * With device_run() out of the way, the job is either already finish=
-ed,
-> +=09 * still to be run -- device_run() then finds the instance stopped,
-> +=09 * issues nothing and finishes it itself -- or held for a DEC_PIC
-> +=09 * completion after EOS. Only the last one is left for us: end it now
-> +=09 * rather than leave streamoff or release() waiting on that IRQ.
-> +=09 */
-> +=09wave5_dec_finish_job(inst);
-> +=09mutex_unlock(&inst->run_lock);
->  }
-> =20
->  static int wave5_vpu_dec_job_ready(void *priv)
-> @@ -1920,6 +1964,7 @@ static int wave5_vpu_open_dec(struct file *filp)
-> =20
->  =09spin_lock_init(&inst->state_spinlock);
->  =09mutex_init(&inst->feed_lock);
-> +=09mutex_init(&inst->run_lock);
->  =09INIT_LIST_HEAD(&inst->avail_src_bufs);
-> =20
->  =09inst->codec_info =3D kzalloc_obj(*inst->codec_info);
-> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.c b/dr=
-ivers/media/platform/chips-media/wave5/wave5-vpuapi.c
-> index 397da200a9ed..c7e61e2b78eb 100644
-> --- a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.c
-> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpuapi.c
-> @@ -286,6 +286,7 @@ int wave5_vpu_dec_close(struct vpu_instance *inst, u3=
-2 *fail_res)
->  =09wave5_vdi_free_dma_memory(vpu_dev, &p_dec_info->vb_task);
-> =20
->  =09mutex_destroy(&inst->feed_lock);
-> +=09mutex_destroy(&inst->run_lock);
-> =20
->  unlock_and_return:
->  =09mutex_unlock(&vpu_dev->hw_lock);
-> diff --git a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.h b/dr=
-ivers/media/platform/chips-media/wave5/wave5-vpuapi.h
-> index 7b08fef58217..2d515c9028a5 100644
-> --- a/drivers/media/platform/chips-media/wave5/wave5-vpuapi.h
-> +++ b/drivers/media/platform/chips-media/wave5/wave5-vpuapi.h
-> @@ -826,6 +826,9 @@ struct vpu_instance {
->  =09struct mutex feed_lock; /* lock for feeding bitstream buffers */
->  =09bool queuing_fail; /* if there is the queuing failure */
->  =09bool empty_queue;
-> +=09unsigned long job_flags; /* bit 0: a device_run() job is ours to fini=
-sh */
-> +=09struct mutex run_lock; /* held across device_run(); job_abort() waits=
- on it */
-> +=09struct delayed_work unstall_work; /* releases a stale empty_queue par=
-k */
+I'd suggest hiding the size of the hash table in the table itself, sinc
+ethey are all constant sizes.
 
-This might belong to patch 6.
+You can do it with some typedef tricks - not exactly pretty macros, but
+the end result ends up pretty nice from a user standpoint.
 
-Nicolas
+Something like the appended TOTALLY UNTESTED patch.  It builds, but it's
+literally a quick hack.
 
->  =09struct vpu_buf bitstream_vbuf;
->  =09dma_addr_t last_rd_ptr;
->  =09size_t remaining_consumed_bytes;
+What it does is to turn each hashtable into a 'union' type that has the
+hashtable head array (as 'hlist[]'), and then a special 'hash_bits[]'
+array.
 
---=-GVO2R+Bz5ri09iN1whnj
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+And the 'hash_bits[]' array isn't actually used as an array, it's
+literally just used for its size: it's the number of bits the hash table
+has.
 
------BEGIN PGP SIGNATURE-----
+So now you can take such a hashtable type, and always turn it into the
+number of bits with just
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawjZ5gAKCRDZQZRRKWBy
-9OueAQDqpFGgwJ8W1jTtpkk5RN03PhgujXm4WKjOco2NhcddnAD7BoIetzstKYvS
-PSBZLG2RjCLJzwQA7eTDLaMOfi1y0wc=
-=6eWI
------END PGP SIGNATURE-----
+   sizeof(hashtable.hash_bits)
 
---=-GVO2R+Bz5ri09iN1whnj--
+so now the hash table itself inherently carries its size in bits with it
+- no need for 'ilog2()' or any other crap to calculate the bits.
+
+And at that point, you can now just use the high bits of the hased
+value, and you don't need to pass in any hash table sizes.
+
+You can actually even pass pointers to these things around, but you have
+to do it with that original named type, because the size is carried in
+the *type* itself, and it's not just an anonymous array.  Nothing in the
+tree does that
+
+We can't use this trick in the kernel, because the kernel hash tables
+aren't all fixed sizes.  But for the scripting code, this should make
+the hashing really syntactically simple because the size is always
+there.
+
+NOTE NOTE NOTE! This is untested crap.  It shows the *concept*.  It
+might even work.  But it might also do unspeakable things to your pets.
+Don't trust my word for it.  Look at the code and test it.
+
+              Linus
+
+---
+
+ scripts/gendwarfksyms/die.c           |  2 +-
+ scripts/gendwarfksyms/gendwarfksyms.h |  2 +-
+ scripts/gendwarfksyms/kabi.c          |  2 +-
+ scripts/gendwarfksyms/symbols.c       |  4 ++--
+ scripts/gendwarfksyms/types.c         |  2 +-
+ scripts/genksyms/genksyms.c           |  2 +-
+ scripts/include/hashtable.h           | 23 ++++++++++++-----------
+ scripts/kconfig/expr.c                |  2 +-
+ scripts/kconfig/internal.h            |  8 ++++----
+ scripts/kconfig/symbol.c              |  2 +-
+ scripts/kconfig/util.c                |  2 +-
+ scripts/mod/modpost.c                 |  2 +-
+ 12 files changed, 27 insertions(+), 26 deletions(-)
+
+diff --git a/scripts/gendwarfksyms/die.c b/scripts/gendwarfksyms/die.c
+index 052f7a3f975a..d475f4a71207 100644
+--- a/scripts/gendwarfksyms/die.c
++++ b/scripts/gendwarfksyms/die.c
+@@ -9,7 +9,7 @@
+ #define DIE_HASH_BITS 16
+
+ /* {die->addr, state} -> struct die * */
+-static HASHTABLE_DEFINE(die_map, 1 << DIE_HASH_BITS);
++static HASHTABLE_DEFINE(die_map, DIE_HASH_BITS);
+
+ static unsigned int map_hits;
+ static unsigned int map_misses;
+diff --git a/scripts/gendwarfksyms/gendwarfksyms.h
+b/scripts/gendwarfksyms/gendwarfksyms.h
+index 32cec8f7695a..ad6ff6b8a5c3 100644
+--- a/scripts/gendwarfksyms/gendwarfksyms.h
++++ b/scripts/gendwarfksyms/gendwarfksyms.h
+@@ -208,7 +208,7 @@ void die_map_free(void);
+
+ /* A cache for addresses we've already seen. */
+ struct cache {
+-	HASHTABLE_DECLARE(cache, 1 << CACHE_HASH_BITS);
++	HASHTABLE_DECLARE(cache, CACHE_HASH_BITS);
+ };
+
+ void cache_set(struct cache *cache, unsigned long key, int value);
+diff --git a/scripts/gendwarfksyms/kabi.c b/scripts/gendwarfksyms/kabi.c
+index e3c2a3ccf51a..61b68a6d13a5 100644
+--- a/scripts/gendwarfksyms/kabi.c
++++ b/scripts/gendwarfksyms/kabi.c
+@@ -87,7 +87,7 @@ struct rule {
+ };
+
+ /* { type, target } -> struct rule */
+-static HASHTABLE_DEFINE(rules, 1 << RULE_HASH_BITS);
++static HASHTABLE_DEFINE(rules, RULE_HASH_BITS);
+
+ static inline unsigned int rule_values_hash(enum kabi_rule_type type,
+ 					    const char *target)
+diff --git a/scripts/gendwarfksyms/symbols.c b/scripts/gendwarfksyms/symbols.c
+index 42cd27c9cec4..1f302c993a84 100644
+--- a/scripts/gendwarfksyms/symbols.c
++++ b/scripts/gendwarfksyms/symbols.c
+@@ -9,9 +9,9 @@
+ #define SYMBOL_HASH_BITS 12
+
+ /* struct symbol_addr -> struct symbol */
+-static HASHTABLE_DEFINE(symbol_addrs, 1 << SYMBOL_HASH_BITS);
++static HASHTABLE_DEFINE(symbol_addrs, SYMBOL_HASH_BITS);
+ /* name -> struct symbol */
+-static HASHTABLE_DEFINE(symbol_names, 1 << SYMBOL_HASH_BITS);
++static HASHTABLE_DEFINE(symbol_names, SYMBOL_HASH_BITS);
+
+ static inline unsigned int symbol_addr_hash(const struct symbol_addr *addr)
+ {
+diff --git a/scripts/gendwarfksyms/types.c b/scripts/gendwarfksyms/types.c
+index 9c3b053bf061..adf2e82410bb 100644
+--- a/scripts/gendwarfksyms/types.c
++++ b/scripts/gendwarfksyms/types.c
+@@ -100,7 +100,7 @@ static void type_expansion_append(struct
+type_expansion *type, const char *s,
+  * const char *name -> struct type_expansion *
+  */
+ #define TYPE_HASH_BITS 12
+-static HASHTABLE_DEFINE(type_map, 1 << TYPE_HASH_BITS);
++static HASHTABLE_DEFINE(type_map, TYPE_HASH_BITS);
+
+ static int __type_map_get(const char *name, struct type_expansion **res)
+ {
+diff --git a/scripts/genksyms/genksyms.c b/scripts/genksyms/genksyms.c
+index 83e48670c2fc..d1b8f36d63c7 100644
+--- a/scripts/genksyms/genksyms.c
++++ b/scripts/genksyms/genksyms.c
+@@ -24,7 +24,7 @@
+ #include "genksyms.h"
+ /*----------------------------------------------------------------------*/
+
+-static HASHTABLE_DEFINE(symbol_hashtable, 1U << 12);
++static HASHTABLE_DEFINE(symbol_hashtable, 12);
+ static FILE *debugfile;
+
+ int cur_line = 1;
+diff --git a/scripts/include/hashtable.h b/scripts/include/hashtable.h
+index 45abcb12bfce..0d8bb8eb178c 100644
+--- a/scripts/include/hashtable.h
++++ b/scripts/include/hashtable.h
+@@ -5,15 +5,19 @@
+ #include "array_size.h"
+ #include "list.h"
+
+-#define HASH_SIZE(name) (ARRAY_SIZE(name))
++#define HASHTABLE_DECLARE(name, bits)			\
++	union {						\
++		struct hlist_head hlist[1 << (bits)];	\
++		char hash_bits[bits];			\
++	} name
+
+-#define HASHTABLE_DECLARE(name, size)		struct hlist_head name[size]
++#define HASHTABLE_DEFINE(name, bits) \
++	HASHTABLE_DECLARE(name, bits) =	{ { [0 ... ((1 << (bits)) - 1)] =
+HLIST_HEAD_INIT } }
+
+-#define HASHTABLE_DEFINE(name, size)						\
+-	HASHTABLE_DECLARE(name, size) =						\
+-			{ [0 ... ((size) - 1)] = HLIST_HEAD_INIT }
++#define HASH_BITS(name) (sizeof((name).hash_bits))
++#define HASH_SIZE(name) (1ul << HASH_BITS(name))
+
+-#define hash_head(table, key)		(&(table)[(key) % HASH_SIZE(table)])
++#define hash_head(table, key)	(&(table).hlist[(unsigned)(key) >>
+(32-HASH_BITS(table))])
+
+ static inline void __hash_init(struct hlist_head *ht, unsigned int sz)
+ {
+@@ -26,9 +30,6 @@ static inline void __hash_init(struct hlist_head
+*ht, unsigned int sz)
+ /**
+  * hash_init - initialize a hash table
+  * @table: hashtable to be initialized
+- *
+- * This has to be a macro since HASH_SIZE() will not work on pointers since
+- * it calculates the size during preprocessing.
+  */
+ #define hash_init(table) __hash_init(table, HASH_SIZE(table))
+
+@@ -58,7 +59,7 @@ static inline void hash_del(struct hlist_node *node)
+  */
+ #define hash_for_each(table, obj, member)				\
+ 	for (int _bkt = 0; _bkt < HASH_SIZE(table); _bkt++)		\
+-		hlist_for_each_entry(obj, &table[_bkt], member)
++		hlist_for_each_entry(obj, &table[_bkt].hlist, member)
+
+ /**
+  * hash_for_each_safe - iterate over a hashtable safe against removal of
+@@ -70,7 +71,7 @@ static inline void hash_del(struct hlist_node *node)
+  */
+ #define hash_for_each_safe(table, obj, tmp, member)			\
+ 	for (int _bkt = 0; _bkt < HASH_SIZE(table); _bkt++)		\
+-		hlist_for_each_entry_safe(obj, tmp, &table[_bkt], member)
++		hlist_for_each_entry_safe(obj, tmp, &table[_bkt].hlist, member)
+
+ /**
+  * hash_for_each_possible - iterate over all possible objects hashing to the
+diff --git a/scripts/kconfig/expr.c b/scripts/kconfig/expr.c
+index 2b91d16bf14f..27278830de98 100644
+--- a/scripts/kconfig/expr.c
++++ b/scripts/kconfig/expr.c
+@@ -16,7 +16,7 @@
+
+ #define DEBUG_EXPR	0
+
+-HASHTABLE_DEFINE(expr_hashtable, EXPR_HASHSIZE);
++HASHTABLE_DEFINE(expr_hashtable, EXPR_HASH_BITS);
+
+ static struct expr *expr_eliminate_yn(struct expr *e);
+
+diff --git a/scripts/kconfig/internal.h b/scripts/kconfig/internal.h
+index d0ffce2dfbba..dc571d54c18e 100644
+--- a/scripts/kconfig/internal.h
++++ b/scripts/kconfig/internal.h
+@@ -4,16 +4,16 @@
+
+ #include <hashtable.h>
+
+-#define SYMBOL_HASHSIZE		(1U << 14)
++#define SYMBOL_HASH_BITS	(14)
+
+-extern HASHTABLE_DECLARE(sym_hashtable, SYMBOL_HASHSIZE);
++extern HASHTABLE_DECLARE(sym_hashtable, SYMBOL_HASH_BITS);
+
+ #define for_all_symbols(sym) \
+ 	hash_for_each(sym_hashtable, sym, node)
+
+-#define EXPR_HASHSIZE		(1U << 14)
++#define EXPR_HASH_BITS		(14)
+
+-extern HASHTABLE_DECLARE(expr_hashtable, EXPR_HASHSIZE);
++extern HASHTABLE_DECLARE(expr_hashtable, EXPR_HASH_BITS);
+
+ void expr_invalidate_all(void);
+
+diff --git a/scripts/kconfig/symbol.c b/scripts/kconfig/symbol.c
+index 4ced4dd6485b..dec65c0d1181 100644
+--- a/scripts/kconfig/symbol.c
++++ b/scripts/kconfig/symbol.c
+@@ -971,7 +971,7 @@ bool sym_is_choice_value(const struct symbol *sym)
+ 	return !list_empty(&sym->choice_link);
+ }
+
+-HASHTABLE_DEFINE(sym_hashtable, SYMBOL_HASHSIZE);
++HASHTABLE_DEFINE(sym_hashtable, SYMBOL_HASH_BITS);
+
+ struct symbol *sym_lookup(const char *name, int flags)
+ {
+diff --git a/scripts/kconfig/util.c b/scripts/kconfig/util.c
+index 0809aa061b6a..80969620d24b 100644
+--- a/scripts/kconfig/util.c
++++ b/scripts/kconfig/util.c
+@@ -14,7 +14,7 @@
+ #include "lkc.h"
+
+ /* hash table of all parsed Kconfig files */
+-static HASHTABLE_DEFINE(file_hashtable, 1U << 11);
++static HASHTABLE_DEFINE(file_hashtable, 11);
+
+ struct file {
+ 	struct hlist_node node;
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index 75374c64b8cc..87c8044d23f9 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -234,7 +234,7 @@ struct symbol {
+ 	char name[];
+ };
+
+-static HASHTABLE_DEFINE(symbol_hashtable, 1U << 10);
++static HASHTABLE_DEFINE(symbol_hashtable, 10);
+
+ /**
+  * Allocate a new symbols for use in the hash of exported symbols or
