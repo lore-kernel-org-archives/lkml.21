@@ -1,86 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795775443;
-	b=s1ZaZKtjcyKuOQ0VZaz9nHgF5h/7aCYYNBbOfTO/EI7H5VWgUW8gwJs72JmuxN+zDv5s
-	 pp7jPIDseu9Dm1ayaTQ1CV4TLd+cGpZXnLhZ6N8fodtUSW2YBD784NCBlhoIoPI8BPxsA
-	 YppELl6Zu1GsRSsiP5l4OXdPWZ725UgnbZ115RApcOc7VxtBf5A6tnIHJ/Eexuz7HvWDA
-	 lYAYJfo3XhIpPBzgl2yTt0BFMY1l55YDQykfc7ogw02D2iFJBl/yeD0NaXbnbBM9FlT3Q
-	 3g19Gtb8RKHFZbptqw0U4oOoPZXGwGa3apxNKcEdciWiIULzx3ybr8wYPVoXwGObWyA==
+	t=1795775529;
+	b=0fbBnmmSairSnDwudIFIx/xqC+yoY0xFwA4M1TpPPEQKKMD9GT9GQEACLGU2VrrbnJdu
+	 K1sCt0TiEzNvh4m8LGi7aQ/+SB1X1JXtc2wOG6jUGzq4t+ib6to//OkWwZBb1ZbL8IDqp
+	 tUWlLZzCxpm5Yhk9JtNuE9kj2mrC+88EiCSRKusov9WGZAos7V4+YTtfhgFQgN+oXsNbW
+	 KcDNg9asXWV2SiS5Jb8BjGO9ju4dhAlwMJx5ZYUv2vy+skNtMInXua5XiGLjW9khJr2sj
+	 isgXqwCLCkK5ctL42l9zHb31sQNGzvFGeh4raqAGmz8jlJ8pVrof1LLreFzpGLbemfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795775443;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
-	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
-	 X-MBO-RS-META;
-	bh=R1bwRJul72ZLviTaCPZunjtVUaFqJfdRWa3psjhNQOw=;
-	b=MpmAVwhBZWvdHOpklGnhwfV6i6BRDQLU1mS/m6tnbBTZ67pDVjuqEaTb/9Smk6dcXbNu
-	 p9Jtlf6p9HE22ZEIsODpALrm7IlhluVNkcSoQVV30BjpSq0K5P+Ao4exY7o20L7/VZmHf
-	 0K0BR6Um9aJE0fiJ3Yn23ThQkRCf7V05DiEOPwMA1qdxuHIQze0JWX8thHaFAwTjQzGdb
-	 ky8tU8GoI6GDoK3B61qB41OYtviwsfR10TDnBjC6P26tTwO1TO4C80rVwLbEvLz4UWBNl
-	 ODtf7y6Sqz1W2vYkgjFKoLkrbVpJjNWBZ84ElorEMKbIsMDyjVV3d4ytox4QWh1JIPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795775529;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=06zzXwIW3I1VPFNgtYMvEWIBr/XXYDkHvtUDGSNv6OE=;
+	b=Ef2dbBITRaGt8Znk8MPyaaMlNQQYLMaIztGmqyavGCw0JQPzNo0Gfo1Mvf8rrpuxXdde
+	 xRqVhs+JwNjIKplCad2h9y2xFXjz40ME5jKh+gGdJw9oma+yJqN0Ki5TwUH0MJ8kGjlf7
+	 edkuf3eX0BaEfvtKu0sqV3vVnFrmgByxbofSueme3rciXN/iGIhdVsTFt7+ZPrzcMV0cN
+	 G2jU74PrbiTTBYWFn1EMYpMZrUvHfFtAI9Wk7R7r5G+O+piS//d+Iw1r/TC1bnqaMj/Qj
+	 pY/PYJz0LrqCwiOOz3wgokg6VVWGHD3++olXrJzhayRQ8gb5x1tnDx3vlG2z8xdw1Cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=EI0Z9TmD;
-	arc=none smtp.remote-ip=80.241.56.151
-Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA24606A338;
-	Fri, 27 Nov 2026 10:30:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BA24606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="F+URV/Gd";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 73D1C606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:32:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73D1C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=EI0Z9TmD
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jbV6q2vQrz8vhc;
-	Fri, 27 Nov 2026 11:30:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795775431; h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R1bwRJul72ZLviTaCPZunjtVUaFqJfdRWa3psjhNQOw=;
-	b=EI0Z9TmDP8tgkkM57uthb7S46C7I+kQkQguRgJExpjhlwr6/Q+UK/kAUoJ+0qqIWwOEQx2
-	H4g/xJ2XHFSjo2LVgri8aJU6epGehYpsSKHm2Wf+OinDBwdLsfcOYTAoQ5hhb9qHeNmFgb
-	eaT9/tz2Dn1qg8xuRhHJa7Xb4zRHbWUmF2IsttmEy3sHLXpmG6LzchcggJCFhjOBVPjB4X
-	WXQh+CHjziPsJUKzZyX6ejvYy7a9RNQRae4DUZ7FCoG7AHaifIJOyW3MGESIC+6Tdjakro
-	tV4nZ6l3X1ydgRfICoxLC/ypDUwBFwlD7jUEjZOhtHXKVoHlHhCsNOer+6jGEg==
-Message-ID: <69845631bb184d86b4af8b4143b3b7adf726e0ca.camel@mailbox.org>
-Subject: Re: [PATCH 3/3] drm/amdgpu: Hot-fix timestamp misordering
-From: Philipp Stanner <phasta@mailbox.org>
-Reply-To: phasta@kernel.org
-To: Tvrtko Ursulin <tvrtko.ursulin@igalia.com>, Philipp Stanner	
- <phasta@kernel.org>, Sumit Semwal <sumit.semwal@linaro.org>, Christian
- =?ISO-8859-1?Q?K=F6nig?=	 <christian.koenig@amd.com>, Alex Deucher
- <alexander.deucher@amd.com>, David Airlie <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, Matthew Brost	 <matthew.brost@intel.com>, Danilo
- Krummrich <dakr@kernel.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann	 <tzimmermann@suse.de>, "Mario Limonciello (AMD)"
- <superm1@kernel.org>,  Aurabindo Pillai <aurabindo.pillai@amd.com>,
- Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>,  Gustavo
- Padovan <gustavo.padovan@collabora.com>, Chris Wilson
- <chris@chris-wilson.co.uk>, Luben Tuikov	 <ltuikov89@gmail.com>, Shashank
- Sharma <shashank.sharma@amd.com>, "Paul E . McKenney" <paulmck@kernel.org>,
- Gary Guo <gary@garyguo.net>
-Cc: linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	stable@vger.kernel.org
-Date: Fri, 27 Nov 2026 11:30:18 +0100
-In-Reply-To: <71b2506f-8534-468e-881d-1abf8f8224d9@igalia.com>
-References: <20261126172046.2473303-2-phasta@kernel.org>
-	 <20261126172046.2473303-5-phasta@kernel.org>
-	 <71b2506f-8534-468e-881d-1abf8f8224d9@igalia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=F+URV/Gd
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAC9B1756;
+	Fri, 27 Nov 2026 02:32:04 -0800 (PST)
+Received: from [10.57.71.121] (unknown [10.57.71.121])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 253083F86C;
+	Fri, 27 Nov 2026 02:32:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795775527; bh=chASf/urfNl2ikaVYJ/SelPybEFH9i/SJ8m0tJNVg6Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=F+URV/Gd0w5wHeP6hZoLc/b4BtVw11ZkT6FJyv32CDUg64mLIoHFo0ZNv9Uipo/ip
+	 ePSVsVR78Bp9xytPsTnwGfIcptZux/ivBAR9s2R1pPrYyIu3tXw9dlAaiJvbshoxtr
+	 7GQWVFzLgHTs2WDC9PJZFFsy2dsEs+N94eeogbG0=
+Message-ID: <bf5fbffb-6d78-4485-be56-7a213648953d@arm.com>
+Date: Fri, 27 Nov 2026 10:32:04 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,28 +53,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MBO-RS-ID: 74d278230c8cbc92940
-X-MBO-RS-META: 6gy6o1iytwz9kk1ncbnnpkypaffiyik5
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/23] coresight: trbe: Drop redundant disables
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org
+References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+ <20261016-trbe_enable_disable_irq_handle_refactor-v2-10-3f57cf3199b1@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-10-3f57cf3199b1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, 2026-11-27 at 09:57 +0000, Tvrtko Ursulin wrote:
+On 16/10/2026 17:55, Leo Yan wrote:
+> The IRQ handler has a common point that disables TRBE before dispatching
+> the fault action. Once execution reaches the overflow handling or
+> truncate path, the trace buffer has already been stopped.
+> 
+> The __arm_trbe_enable() error path does not need a disable there either,
+> as TRBE is already in disabled state.
+> 
+> Remove TRBE disable from the truncate helper and from the overflow
+> failure path. The truncate helper only needs to mark and end the AUX
+> output, so rename it to trbe_truncate_event() to reflect its remaining
+> purpose.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-> Not sure the fixes target is strictly correct since timestamp access=20
-> goes even further back, but I guess it is good enough for GPU stats.
->=20
-> Please just add some sort of an impact assessment and bug description to=
-=20
-> the commit text. With that:
->=20
-> Reviewed-by: Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
-
-Thx for your review
-
-I was considering, though, to minimize churn by not fixing amdgpu for
-old kernels and simply take it aboard with the misc-next series.
-
-Reason would be that amdgpu only ever runs on x86, which doesn't
-reorder loads with loads, so this should in practice never be broken -
-right @AMD?
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
 
-P.
+> ---
+>   drivers/hwtracing/coresight/coresight-trbe.c | 15 +++------------
+>   1 file changed, 3 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index dd9c9330bb0c739795f300dafc6ce34e72fbf280..4a041bbc6e970d72a7d735e15f7221037cb091d6 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -301,18 +301,10 @@ static void trbe_report_wrap_event(struct perf_output_handle *handle)
+>   	perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
+>   }
+>   
+> -static void trbe_stop_and_truncate_event(struct perf_output_handle *handle)
+> +static void trbe_truncate_event(struct perf_output_handle *handle)
+>   {
+>   	struct trbe_buf *buf = etm_perf_sink_config(handle);
+>   
+> -	/*
+> -	 * We cannot proceed with the buffer collection and we
+> -	 * do not have any data for the current session. The
+> -	 * etm_perf driver expects to close out the aux_buffer
+> -	 * at event_stop(). So disable the TRBE here and leave
+> -	 * the update_buffer() to return a 0 size.
+> -	 */
+> -	trbe_drain_and_disable_local(buf->cpudata);
+>   	perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+>   	perf_aux_output_end(handle, 0);
+>   	*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
+> @@ -1024,7 +1016,7 @@ static int __arm_trbe_enable(struct trbe_buf *buf,
+>   	trbe_enable_hw(buf);
+>   	return 0;
+>   err:
+> -	trbe_stop_and_truncate_event(handle);
+> +	trbe_truncate_event(handle);
+>   	return ret;
+>   }
+>   
+> @@ -1117,7 +1109,6 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
+>   		 * is able to detect this with a disconnected handle
+>   		 * (handle->event = NULL).
+>   		 */
+> -		trbe_drain_and_disable_local(buf->cpudata);
+>   		*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
+>   		return -EINVAL;
+>   	}
+> @@ -1208,7 +1199,7 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
+>   		trbe_handle_spurious(handle);
+>   		break;
+>   	case TRBE_FAULT_ACT_FATAL:
+> -		trbe_stop_and_truncate_event(handle);
+> +		trbe_truncate_event(handle);
+>   		truncated = true;
+>   		break;
+>   	}
+> 
+
