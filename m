@@ -1,62 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.221
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.0.225.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795746669;
-	b=AToj0gWLJBSRL2khqYYfm621Ps3dnSE/QfLA4l3t0cFl0qyb5dsO3K7dyFvKnqhH02Lw
-	 kFr57N4tEF1U3ID2EuFZgslZBlqdJ9cR1vQRLmwYisGBL7D/uhLPD1ILkBGQEUgeUUx+A
-	 gvSG5fBBkiwODdmGE1WCzMRRPJr7RxrUwCUwayJgNaDyauhu7CQrd64YbsUs67gbH0yVB
-	 DCki49O6cq2zwvVX4bvYoRQX4NeBZhsKfzd/0ZXcplN+a60fPbliR7hwkjXUrIOYe2/hF
-	 y//Aa8Bm0uda/yEsu3KfS1RDQffpNo8i5BrXCOI++bQcq6IJmDtRlONkxWDoqHo5HNw==
+	t=1795746687;
+	b=HnJAL9HS1TcRUYtjq8IadkXcPa4pd/9X8m1Gm09dyinytJainGv33jYk32Kk7QFvj0sU
+	 K50rz3uBygAPPNPBMJNFYmsk8DOr+/tVtD0TDoM+bP8zb/yVfDDcW+O4TizUkOSM8Ui/X
+	 M8iEPQuYJi9U8l+hXR6hG1F4iwCBigZ3OkSDHFLH+orDmRqpHORgbWcdLbZ23XMQLqJx2
+	 fzQFobwY5CsW/YPtqjcK7uo8SMsyl616z2s7eLfjewr9wYetoglgqmvCA3eyCGX0k78wZ
+	 rRIuMZkA1QYkjG3ZylfmdCrXbTi8FMJ8a7u/FP4jbpZfx3pn7xtwZ3HZN16WOnZ0cUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795746669;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer;
-	bh=Eh8C429NYRB84ph6Okmue8COMMyeDf/G0j10ZZ+41x4=;
-	b=LxjLOjbksMHFciLKPhsCWLMsiVAH3zEfHuhfnb3ceWvccvPLUWtOILyJmXhMSRNx4v6c
-	 dlB4IkD3jBVlyoKQop0vXP2BSfo9wGH8a5NEXIP+S0K3IhanZvCE+6ANuju76nvWSzDC7
-	 3Sqq8dQAZ4Bgalqe6cmfhzSbQT2Cf0wf8J4PAZ4MachP8yoiCRBGf4URSJrnKiikGErl6
-	 Zvwz9i21frtypa02WTiiNVxDiLXGsFXdzVfH/GYiVJoSJS9HsEadtbd8O9zyzOpvUfbzD
-	 /Iwrsr0iN/GUt9jonqJ/py70zdnBlHlFR6ptta+kkQsrhaP33qIaxygPi4BnhPnU6qA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795746687;
+	h=DMARC-Filter:Received:Received:Received:X-Eyou-Smtpauth:
+	 X-Eyou-EnvelopeSender:X-Eyou-From:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Eyou-Sender;
+	bh=dA87UcbQhmaj2fqLijX+wxuez2/12e/CLRHVZbI7N7w=;
+	b=XSMiYcWlwSpuNDSbwXnpxOYSJoBoYx6phyx5FW+Lg5GjDG8thkpcG7VfqeJROjU0PWdd
+	 MH9IRHjDUMoPeSVlTvIHSnJBpBoeUpmY/2OB+8HJa+27jeALb4kqx5nGtuR20Q/LQoqfL
+	 g10htnwe0NOA/OdnbVZv2rQlxN1cJCmOVeXezFuhWqrSGaS2k6n8f9zSYngpqA9TUWtOI
+	 DkdFoT784gJy7st2DnolawMw65c2+maDkX9VdMg9t/gYPVOpTArty6CCzcHV/dgSFuhRn
+	 qhgs15R4e7rxoAhIcyshj4yWuMrutVGJEX+BBXuxmErI9c+n6+dIprZP/T1tGLfOPJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BZkOh5i6;
-	arc=none smtp.remote-ip=91.218.175.221
-Received: from mta0.migadu.com (out-221.mta0.migadu.com [91.218.175.221])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 112C2606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:31:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 112C2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BZkOh5i6
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=UchmUJbpElyPXtiD+OkQfEDCqKbO9cZFRhnY5TgkKns=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795746667; v=1; x=1796351467;
- b=BZkOh5i6xOPaBjR6TkTxhuTswTlzDEn/4BuN5qa/jns0L01kl9fu1ChzW3NIjvardxAuz2Lu
- PapTkZmEjnuJOqtqEpuFXHhjlIwT53fpePtAAfrJ+xKnvJPoX60xDmhECkg7You4Kv/FGnUrrvU
- 3axbSUK5EoQgrYHLbrFd/IP0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e7f9c2afca020d17;
-	Fri, 27 Nov 2026 02:31:07 +0000
-X-Mizu-Trace-ID: e7f9c2afca020d17
-X-Migadu-Flow: FLOW_OUT
-From: Zqiang <qiang.zhang@linux.dev>
-To: linusw@kernel.org,
-	brgl@kernel.org,
-	paulmck@kernel.org
-Cc: linux-gpio@vger.kernel.org,
+	dmarc=none header.from=zhaoxin.com;
+	spf=pass smtp.mailfrom=zhaoxin.com;
+	arc=none smtp.remote-ip=210.0.225.12
+Received: from mx1.zhaoxin.com (MX1.ZHAOXIN.COM [210.0.225.12])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 13B02606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:31:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13B02606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zhaoxin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zhaoxin.com
+Received: from zhaoxin.com (unknown [127.0.0.1])
+	by mx1.zhaoxin.com (MTA) with ESMTP id 4jbHTw60QbzbKS9L;
+	Fri, 27 Nov 2026 10:31:16 +0800 (CST)
+Received: from zhaoxin.com (unknown [10.28.140.201])
+	by mx1.zhaoxin.com (MTA) with ESMTP id 4jbHTt5PwvzbKS9L;
+	Fri, 27 Nov 2026 10:31:14 +0800 (CST)
+Received: from zjh-os.zhaoxin.com (zjh-os.zhaoxin.com [10.28.44.129])
+	by zhaoxin.com (8.30) with ESMTP4db20fd4ad44ca33462eecd045475130
+	Fri, 27 Nov 2026 10:31:15 +0800
+X-Eyou-Smtpauth: jonaszhou-oc@zhaoxin.com
+X-Eyou-EnvelopeSender: jonaszhou-oc@zhaoxin.com
+X-Eyou-From: jonaszhou-oc@zhaoxin.com
+From: "=?UTF-8?B?Sm9uYXNaaG91LW9j?=" <jonaszhou-oc@zhaoxin.com>
+To: anshuman.khandual@arm.com
+Cc: jonaszhou-oc@zhaoxin.com,
+	akpm@linux-foundation.org,
+	urezki@gmail.com,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	qiang.zhang@linux.dev
-Subject: [PATCH] gpiolib: Use srcu_barrier() instead of synchronize_srcu() in gpiodev_release()
-Date: Fri, 27 Nov 2026 10:31:01 +0800
-Message-Id: <20261127023101.27568-1-qiang.zhang@linux.dev>
-X-Mailer: git-send-email 2.17.1
+	jianhuizzzzz@gmail.com
+Subject: Re: [PATCH] mm/vmalloc: avoid false sharing with drain_vmap_work
+Date: Fri, 27 Nov 2026 10:31:03 +0800
+Message-ID: <20261127023103.1833448-1-jonaszhou-oc@zhaoxin.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <gdy3cvqeppwda5zydfl3cq37gmihrbizbnio5bnandkl2brnt4@vw5s5wcbejoq>
+References: <20260825104659.100134-1-jonaszhou-oc@zhaoxin.com> <gdy3cvqeppwda5zydfl3cq37gmihrbizbnio5bnandkl2brnt4@vw5s5wcbejoq>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,55 +62,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
+X-Eyou-Sender: <jonaszhou-oc@zhaoxin.com>
 
-The gpio_desc_label object are freed asynchronously via call_srcu() on
-gdev->desc_srcu (see desc_set_label()). to drain these pending SRCU
-callbacks before cleanup the SRCU structure, gpiodev_release() currently
-calls synchronize_srcu(&gdev->desc_srcu).
+> Should the test be performed again on latest RC kernel ?
 
-However, synchronize_srcu() only waits for a grace period to elapse and
-for its own wakeme_after_rcu callback to be invoked. it does not guarantee
-that callbacks queued on other CPUs have actually been invoked by the time
-it returns. The following race may happen:
+Yes. I retested on v7.4-rc4 (b6a9fa34ce41) on the same dual-socket
+Xeon Silver 4208. In the unpatched x86-64 builds I tested, GCC placed
+the two variables next to each other, with 32-byte alignment for
+drain_vmap_work and 8-byte alignment for the vmap_nodes pointer.
+Whether they share a 64-byte cache line depends on the kernel config.
+After I set CONFIG_RSEQ=n, drain_vmap_work and vmap_nodes shared the
+same cache line.
 
-              CPUA                                        CPUB
-call_srcu(desc_srcu, desc_free_label)
+With 16 workers, SMT off and the CPUs fixed at 2.0 GHz, the mean
+worker times over 10 runs were:
 
-                                               gpiodev_release()
-                                               ->synchronize_srcu()
-                                                 ->call_srcu() queue wakeme_after_rcu()
+  test                  unpatched    patched    reduction
+  fix_align_alloc_test    6.129 s    5.365 s       12.47%
+  fix_size_alloc_test     4.836 s    3.850 s       20.39%
+  no_block_alloc_test     4.840 s    3.882 s       19.79%
 
-SRCU GP end
-timer_reduce(delay_work)
+> s/away/cacheline away/ instead ?
 
-                                               SRCU GP end
-                                                synchronize_srcu() return
-                                               ->cleanup_srcu_struct()
-/* timer still pending! */                        ->for CPUA timer_delete_sync() return true
-                                                    and cblist not empty. tigger WARN_ON()
+Agreed. I'd make the cache-line separation and the reason for it
+explicit in the comment:
 
-This commit therefore use srcu_barrier() instead of synchronize_srcu() on
-gdev->desc_srcu,  it entrains a barrier callback on every CPU that has callbacks
-queued and waits until all of them have been invoked.
-
-Signed-off-by: Zqiang <qiang.zhang@linux.dev>
----
- drivers/gpio/gpiolib.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index c09342fc52cb..5dd4d142cf52 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -898,7 +898,7 @@ static void gpiodev_release(struct device *dev)
- 	struct gpio_device *gdev = to_gpio_device(dev);
- 
- 	/* Call pending kfree()s for descriptor labels. */
--	synchronize_srcu(&gdev->desc_srcu);
-+	srcu_barrier(&gdev->desc_srcu);
- 	cleanup_srcu_struct(&gdev->desc_srcu);
- 
- 	if (gdev->line_state_wq)
--- 
-2.17.1
+  /*
+   * Keep drain_vmap_work and vmap_nodes on separate cache lines.
+   * CPUs queuing the work write its pending bit, while CPUs allocating
+   * or freeing vmap areas read vmap_nodes.
+   */
 
