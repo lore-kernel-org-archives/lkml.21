@@ -1,79 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795762373;
-	b=Keg8g7utf0Ho7Ec9ljCk9Xch48XzRmp8WoZnR5D+5oF9rVpcZBBWnmcaeEJG51b9IOhA
-	 stkZO+lp124g9J3XkXALDGpoy85iHMNcoCLrWCU72V6svIa5+pw/1F150HVbzoD/68qUS
-	 G/EJAKNIDX86psXDkxymIzWNqAiXbsQn9YIvlu7FCdZZTmOL8oau7na55qVOqt5iNRz4g
-	 Lq6GtGgEvP9RAF9HVdnzC4zyYEW3Yzp4UGpERQluRQND2Wi0vCRyZ6c1VGqgIG+zAYffd
-	 S5GFAPeb3/uvxPbswIdQoJfO16QTvuCBdr2xJSY9uS6s3JDx3o1cbq5/+GCOQk+Ee4Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762373;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=MNeHYtelmuSre1UuhlkxnQnbrEWwCRImfv7AOAKbTvw=;
-	b=3CL6KC786ngaHAPe8isaDuDw3wAKQlJ3bJp1IErvpPtuAqPINYMbZvcsmCy/XIp/KUlc
-	 0bts2AWonVv2jGb3Kxb4xJeStoCo4rBuOL+P/vPcdS3xoNh9vP24hZ0OQ2pjiJOCdqnzR
-	 v4PVPDqGaypv8/uh718xQRk9012tPOC0VTdSgo6ti3hR1fV4EYFt9lxcEl8EnMCP7fzpE
-	 tpVqzLZA66LkYuaSX6paFfrM/HR81QkKCYc7q6xqDcmDD4Mqcl0KHr2N2KcZ2dDoKsXNv
-	 qL8L2XvJ0V2PeLN2f+A/6EfmWPy9WW/z+PxnDUQoitlPm6aRxuMmkJPfZJGhriZ39ww==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fQ9VvL/X";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795762434;
+	b=dFHm56/ugqIpLnAzfD8X12Ox+IMJdVgK03dU+mQbpMksA1kv9zGfBT0OmnwD7ICsOycM
+	 clVCmJxHddvHwk0JQbmySQce/OfMtAEbqeLBATzIRnuqbTl2ldPjwiOWWrNnHtI0n24cz
+	 5+rEdRCcC7AJ2kFQ9XjfDEv7931d442U3aIetU5G/eOO7enicEYdu8VLFip8GuzWHw1Np
+	 JpSW2auxWD8zEgFkDFycKy2mrTWpl/OnjKaXQUr2JMMmXcor2E5uAiQG6Zeo92PwICVzO
+	 l5PFL98156IpcFSCfsK5Aap6MImmzSRXyvHzvsmkS2XwyoYp6srUPXKWVm81eTsxD+g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762434;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=CeHxjipdZ2d0rn+6lilOW4bTUv1soutBDy7ycEHy7Oc=;
+	b=f/7geAjPDILSiLFefP/Z9Dzp/6x+SM3d0tp7229nBY1P9lOE+hciQlBLQKPQ1Dy/sZGi
+	 Ld3dn5gkuYnVkXS6rV7YMHjRgOIDx9VD6LTcyzKO7IfshbXbxgKqAYmL6y9CxQ/jMj0vC
+	 ZcCqSp9lkd0FAOkFJumSAd45nTWBaMIoaffoZRWUGfG0VpNfIYaLvDRCEvVJxe0bl6gha
+	 26mTGVczeOJ+AESpZGR73WVuZ4CIXxonfLmUOsf5d9mSAz2W3Wcwc4wDOwZpl26a7PLWx
+	 peW9vbOVGwjgYF51SdpSxF/lJrR48ZEnNS6QUDY648WEDiL4NgZMf+jvjqH/KkrX0JQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=lpflKu7Y;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34B6A606A31C;
-	Fri, 27 Nov 2026 06:52:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 406CF606A327;
+	Fri, 27 Nov 2026 06:53:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 406CF606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fQ9VvL/X
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795762372;
-	b=CVidcvXGu7eyZB54dOXUbPER1+9VFv45Rqc9JluQU7MQ25ocHkcfHqaFSk9YrsWlGgNC
-	 XgQgQy/B8HqTWpJi4UIA/C/l071xeitn5vR8fMoz3Aa9egz7LvQdPnYT030MOQ9UOYdpj
-	 IwVCfv8D7WLKQ2kWYBqnMT3Fqc29pja7E6F6Gw54IcZA2wzqZ7DB6OrMe2Vb7zVlaEA4M
-	 kYY8Qbwgdcl9YL/DD3LmPpRLVbDYRPyOM9xlQfCmvL17MD8oJLub99xcrVz/ZUA/oFyk3
-	 7rkm25njC73ImHqPCSqmg1Dt/2PLPXmIQOXfIXIDET+bHYLtebuiDj8QTNP2VYCw6iw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795762372;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=MNeHYtelmuSre1UuhlkxnQnbrEWwCRImfv7AOAKbTvw=;
-	b=0nsFFtjkU6XbsslpvAeOap7MkSDv8VRf8L7dDk4KMwmcC4LTe6Cd0k494rXy3Qnm4LRJ
-	 LsOMxRUmy6eeXUbyVQZ+Zlq257YdO+Xm4ImGGWLmynb3QuK8BwloxzWC8T4j9UN0G27CI
-	 UH96ERqiTFkfUupRW5FHtGOn7oxfvOEul2xV5UZt7weljye4sj2UDM4YOZpFE8wn16jFk
-	 6IqHHb9YuePAzF4cI95bIImXxgoX/JNOC8c/9pIFG79Ne72lva6GPkoIhDfAmr+XmX6Nt
-	 uZsnmx1vzrMGXsHC5a8R4tbpLV7BH2SQdlKY7eP3S8AlEZjbzwdSJUWN9EiQSTgAVWA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1BF7A1F00897;
-	Fri, 27 Nov 2026 06:52:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795762372;
-	bh=MNeHYtelmuSre1UuhlkxnQnbrEWwCRImfv7AOAKbTvw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=fQ9VvL/XaFNu0FU7Y0hMVDAqgLsUIVeGBoGWgbtvNFLl0L5aby7INe4HuC5ibOWYd
-	 czvUzUo5bVPyPgjJMpkfQHlSiqFoThCBqIQcFFxZ+qVXXsv0ObIcagACcBkUscnF8d
-	 qv/jJ7L2yxjTLvleYQiiM9Bc9CXv92f6DdmBZmV2feOIsTIuih0Mw/Pfevc0Xme+e/
-	 mhPRj/4utbMFbTZHWEVDdUI9JIzVJcHwZEIWxBxdoWbmoppPcHu1EPnejNq3otSvkE
-	 R+TVpomDyLoQzYRZNXJCGO5W+0Ovak/D9N/PbuznQk3cwp2FBUSYoHI6w4jK8LnN1s
-	 kJVkAI2TlR66g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8EFA54B5BB;
-	Fri, 27 Nov 2026 06:52:48 +0000 (UTC)
-From: Anh Nguyen Hoang via B4 Relay <devnull+anhnh.4work.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 00:52:48 -0600
-Subject: [PATCH] parisc: pci-dma: Handle allocation failures in
- arch_dma_alloc()
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=lpflKu7Y
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 831EB4C952;
+	Fri, 27 Nov 2026 17:53:43 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795762423;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=CeHxjipdZ2d0rn+6lilOW4bTUv1soutBDy7ycEHy7Oc=;
+	b=lpflKu7YWOcwgnwRTA4NJuOzQEK07a1daCx/LmjMlulNVlVBJ0nzdAWOk+GbA8JZaRNwkm
+	jwrZjBUROl+2mP/RWHTXiNzjEocg8dALM88b0eIMW5zsKWRGlaLwsOh/IESU0aqPgpX0c8
+	aljPWW5m0gu22blGkcxUz+VcKYjMNITJf7X6zrxY7wmNkVvjpi5Mn4S9fHywImOskYOKRU
+	9fsHzUf6UeFzHZW9G3dfxvGnR16kXCFOnSzUBV3hHDXTf7OG8WLpmoUQuqxKtweNbvZNyh
+	gAtjFsYqZgakHWtEwPitFs4IH/3XqjtXof+QPonx2TsrB31ii74m891WBr4Lxg==
+X-GPT-Reason: legitimate; the email is a technical software patch
+	for the Linux kernel as evidenced by the subject line, the use
+	of the kernel.org URL domain, and the highly specific technical
+	content regarding "arm64: dts: allwinner" support; the sender "alastair@d-silva.org" matches
+	the "alastair@d-silva.org" personal mailbox listed in the environment
+	context; there are no phishing indicators, urgency, or marketing
+	elements, and the content perfectly aligns with a technical contribution
+	workflow.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: [PATCH v2 0/2] arm64: dts: allwinner: Add Xunlong OrangePi 4 Pro support
+Date: Fri, 27 Nov 2026 17:53:41 +1100
+Message-ID: <20261127065343.1449675-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,122 +81,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-kbug-l001-v1-1-db0b44ec71d5@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAL8oCWsC/yXM0QpAMBSA4VfRubba2Qp5FbmwOeMgtCEl7264/
- OrvvyCQZwpQJhd4OjjwMkdgmoDtm7kjwW00KKkyRJWL0eydmKREYYwutEanXG4h9qsnx+f3qur
- fYTcD2e0dwH0/vn+DrW0AAAA=
-X-Change-ID: 20261127-kbug-l001-bb38331f2f7c
-To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Anh Nguyen Hoang <anhnh.4work@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795762368; l=3623;
- i=anhnh.4work@gmail.com; s=20261127; h=from:subject:message-id;
- bh=LbWh1p0JWyiyRtWO0aSmkJ1gB8M+YbXem8D4tGZGGVc=;
- b=DJdh6gcbpAwHy70+KQkuktnNPas6c90im+HCxTO8qLwfHB4z5hX/Xy5hEyRxfG6wQMj8OIxBf
- 3IsrWwsnSBeBw7oJQclHGzpPhL9uUtAV+O0Drfs3mZfRC/gaaQ/bRT9
-X-Developer-Key: i=anhnh.4work@gmail.com; a=ed25519;
- pk=9NJ/0SKqaFZmt1/I5XY11TZSNY2ys6RWB3gvqzrLHmI=
-X-Endpoint-Received: by B4 Relay for anhnh.4work@gmail.com/20261127 with
- auth_id=1662
-X-Original-From: Anh Nguyen Hoang <anhnh.4work@gmail.com>
-Reply-To: anhnh.4work@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Anh Nguyen Hoang <anhnh.4work@gmail.com>
+Add initial devicetree support for the Xunlong OrangePi 4 Pro board
+(Allwinner A733 / sun60i-a733).
 
-arch_dma_alloc() does not check the return value of __get_free_pages().
-If the allocation fails, the function carries on with paddr == 0: it
-calls flush_kernel_dcache_range(0, size), maps __pa(0) uncached into
-the range reserved by pcxl_alloc_range(), stores __pa(0) in *dma_handle
-and returns the non-NULL virtual address of that range.
+This series enables the UART0 serial console, SD card (MMC0), and the
+AXP318W PMIC on R-I2C0. Audio, WiFi, USB, and Ethernet are omitted for
+follow-on series.
 
-The return value of map_uncached_pages() is ignored as well. It returns
--ENOMEM when pte_alloc_kernel() fails, in which case the returned
-virtual range is left unmapped.
+This series is rebased on linux-next (next-20261125) and builds on the
+following unmerged prerequisite series:
+- [PATCH v2] clk: sunxi-ng: a733: Keep SCP firmware bus clocks enabled
+  https://lore.kernel.org/r/20261112-a733-fwclk-v2@gmail.com
+- [PATCH RESEND v3 0/3] pinctrl: sunxi: number the IRQ banks from the first one that has IRQs
+  https://lore.kernel.org/r/20261124215048.42074-1-pmazzini@gmail.com
+- [PATCH v4] pinctrl: sunxi: use automatic voltage detection on A733
+  https://lore.kernel.org/r/20261125-a733-pinctrl-v4@gmail.com
+- [PATCH v8 0/5] regulator: Add X-Powers AXP318W PMIC support
+  https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
+- [PATCH v2 0/4] serial: 8250_dw: Allwinner A733 UART support
+  https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
+- [PATCH v6 0/5] arm64: dts: allwinner: add A733 and Radxa Cubie A7 support
+  https://lore.kernel.org/r/20261126-a733-cubie-a7s-dt-v6-0@gmail.com
 
-In both cases dma_direct_alloc() passes the non-NULL address on, so the
-driver is told that the coherent allocation succeeded and then uses a
-buffer which is not backed by the pages it expects, or not mapped at
-all.
+Tested on OrangePi 4 Pro:
+- make dt_binding_check and make CHECK_DTBS=y pass with zero warnings.
+- Boots cleanly to /bin/sh over UART0 (ttyS0 base_baud = 1500000) with
+  RTC, pinctrl, AXP318W PMIC, MMC0, and PMUs initialized.
 
-Check both results. If the page allocation fails, release the reserved
-PCXL range and return NULL. If the mapping fails, additionally free
-the pages. Call unmap_uncached_pages() there too, so that the error
-path does not depend on how far the walk got before it failed; it
-skips empty page directory entries and clearing an empty PTE is
-harmless.
+Changes in v2:
+- Rebase onto linux-next (next-20261125); drop the allwinner,sun60i-a733-i2c
+  binding patch now already merged in linux-next, and drop merged CCU v7
+  and pinctrl v1 dependencies.
+- Update prerequisite dependencies to pinctrl voltage-mode v4 and A733
+  SoC DTSI v6.
+- Fix &hosc clock-frequency from 24 MHz to 26 MHz to match hardware.
+- Add base-commit and prerequisite-patch-id metadata footer for b4 and
+  patchwork CI tracking, plus full prerequisite series titles.
+- Link to v1: https://lore.kernel.org/r/20261125124407.4098345-1-alastair@d-silva.org
 
-This only affects machines with a PCX-L or PCX-L2 CPU, the only ones
-for which arch_dma_alloc() does not return NULL right away.
+Alastair D'Silva (2):
+  dt-bindings: arm: sunxi: Add Xunlong OrangePi 4 Pro
+  arm64: dts: allwinner: Add Xunlong OrangePi 4 Pro board
 
-Found by an automated code scan and confirmed by code inspection.
-Reproduced in qemu (B160L, PCX-L2) with page allocation fault
-injection: without this change a failed page allocation makes
-dma_alloc_coherent() return a valid looking address with DMA handle
-0xf0000000, and a failed page table allocation is reported as success
-too. With this change both return NULL.
+ .../devicetree/bindings/arm/sunxi.yaml        |  5 ++
+ arch/arm64/boot/dts/allwinner/Makefile        |  1 +
+ .../allwinner/sun60i-a733-orangepi-4-pro.dts  | 75 +++++++++++++++++++
+ 3 files changed, 81 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Assisted-by: Claude:claude-fable-5-2
-Signed-off-by: Anh Nguyen Hoang <anhnh.4work@gmail.com>
----
-Tested in qemu-system-hppa 11.1.3 (B160L, PA7300LC) with
-generic-32bit_defconfig plus FAIL_PAGE_ALLOC. A test-only initcall calls
-dma_alloc_coherent() and fails one chosen page allocation through
-current->fail_nth.
-Before: a failed __get_free_pages() returns vaddr 0x00048000 with DMA
-handle 0xf0000000 (__pa(0)); a failed page table allocation also
-returns success.
-After: both return NULL (300 and 297 injected failures), with no leaked
-PCXL ranges or pages.
-No Cc: stable added; please add it if warranted.
 
-Testing:
-- Compile-tested on parisc (allmodconfig, W=1):
-  arch/parisc/kernel/pci-dma.o; no new warnings.
-- checkpatch.pl --strict: no errors or warnings.
----
- arch/parisc/kernel/pci-dma.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
-
-diff --git a/arch/parisc/kernel/pci-dma.c b/arch/parisc/kernel/pci-dma.c
-index bf9f192c826e..6e2d340921fe 100644
---- a/arch/parisc/kernel/pci-dma.c
-+++ b/arch/parisc/kernel/pci-dma.c
-@@ -412,12 +412,22 @@ void *arch_dma_alloc(struct device *dev, size_t size,
- 	size = 1 << (order + PAGE_SHIFT);
- 	vaddr = pcxl_alloc_range(size);
- 	paddr = __get_free_pages(gfp | __GFP_ZERO, order);
-+	if (!paddr)
-+		goto out_free_range;
- 	flush_kernel_dcache_range(paddr, size);
- 	paddr = __pa(paddr);
--	map_uncached_pages(vaddr, size, paddr);
-+	if (map_uncached_pages(vaddr, size, paddr))
-+		goto out_unmap;
- 	*dma_handle = (dma_addr_t) paddr;
- 
- 	return (void *)vaddr;
-+
-+out_unmap:
-+	unmap_uncached_pages(vaddr, size);
-+	free_pages((unsigned long)__va(paddr), order);
-+out_free_range:
-+	pcxl_free_range(vaddr, size);
-+	return NULL;
- }
- 
- void arch_dma_free(struct device *dev, size_t size, void *vaddr,
-
----
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-change-id: 20261127-kbug-l001-bb38331f2f7c
-
-Best regards,
---  
-Anh Nguyen Hoang <anhnh.4work@gmail.com>
-
+base-commit: 9437046953b2fb3bf55b36582450ea0267df82a7
+prerequisite-patch-id: 19691099774bd3dc41f56585c03ddefb7bdc6f9c
+prerequisite-patch-id: 85db03df3394cdcb2780a0da122a74b2c1fe220d
+prerequisite-patch-id: a3e883da50bf03e8f522444def66fec7f996ffbe
+prerequisite-patch-id: c6889699a6dc13c336ce4cf4659e21b551e9a9fc
+prerequisite-patch-id: ef2f0344452092edb2221b93c44a3e82cb896a2d
+prerequisite-patch-id: c598480f753e36b7f6230129b864c559b9f185d5
+prerequisite-patch-id: f86b468a896a40f132adfcba885700327dff1bc5
+prerequisite-patch-id: a733e6bbf6de77dd9f260e65912894fd4d97aa78
+prerequisite-patch-id: 090c5ff78d4e2150804aa8d294581cd338b1e971
+prerequisite-patch-id: af0aebcae7c38d58354925119c412178b5821b5e
+prerequisite-patch-id: beb8a098ba14724e316ff243bdf8e00e729243c1
+prerequisite-patch-id: 63342c5ec38e8eb9e55c8c74d3c5a81a630d5f69
+prerequisite-patch-id: 1dc8d70f80674c98b2b15d09556dd27f643b20da
+prerequisite-patch-id: 4555860586ef50f27bf787a23f6ba693e9c3b0d6
+prerequisite-patch-id: 0279f281cd59cf54bceee39b0fa4d0b6a7b87c48
+prerequisite-patch-id: 14424bd8324b6cae2b8c4d6840df0db626d1385f
+prerequisite-patch-id: 7b42728bc8271e5dfd57fffec47a7f5745eff357
+prerequisite-patch-id: 74f5c7d066477024a374a789b3180e841398fb07
+-- 
+2.53.0
 
