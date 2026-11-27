@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795792333;
-	b=obtgL1ENb52BOBWqV+xc3MZiU+KFGEnZod8vokogfhU3bisJ6XjCST7VKDTFXsesLHr/
-	 8+Km9AWNzEyxrbI+xd3JcCoiACFP3J7zvd31NzRufFeIEm+9IJ+97EAKjCy38Hh1N4Gbu
-	 cswl9Hjgd9z4IqeqGRqJgZjrfPvFG9EjpXMK5X1mDwnQrBiOgnr4LQxOV8X3fo9ZAJRIs
-	 mmwmQ9HJ2mbGqohbE5Qh849VScX+qENEkUL++9HIl33V5CuTZaAG1wpucGy04POkBx1uv
-	 FlesIINPqTCJRQw6UmjFpO2uYCrLFwcqgTDe9rkTTcZwUvNb5gxPCZMsn1l93DHvqow==
+	t=1795792332;
+	b=BUGnCu1MV+Z3aaIn/hpPe6yH4ZL2vtzyfMEz1gMEjzUpJKea25Q1UQIscCrjZO+pIX85
+	 v3lZmCX3mJhCDC4vVQa5M5Md55NVor4sEv135tPjwAGhM+iBtWqju+GIZ9oxcMH94mdWK
+	 SlOe+m3eoB+6dwDW6m9ElGBEPC9wnFKRUdT9EkWRj6KNkZAwKqqPaOzXIGHvPFmHgLvLy
+	 yywjFg8swkOQGlHI0sLp7vzYRJNsy++tf2xwFLaoFHPkOjL22PT5glTFYoBLdXjPfxnbz
+	 2hUex+0xtOSP5te6ObmtNsH3IrEYbAIHFtAeE/ugq4ScBjHqda+XZP5hYbPACXmzUEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792333;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792332;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0pyZKqnDWMuc95St72Xgy3CQJky567UxPOLvnlQg5vw=;
-	b=QFKQZFyFn76cp8uDng08aiJx1UjwJljEoHFjuDsGuDMXxoSrgwp6GdSxetsTGZ02YwB5
-	 yL+K0QJG06/umm61sDhh9/UTMegxqlTpDm+wrvnjH7f7eaVBpgAPs7RMsQuA+j9wHosuG
-	 Qo0vF70SN7ALJCnRBdlCTLJMXSqkBqQE4BQOrAfk7Elf17rs4DrQUvY4ASZkWbuKFxDxw
-	 Z5FdXiNmLop24GZfG6tLjPbj6pUWNUjhBjt/PXS/gS95xzEGCRfXrV82GzR+DYhVKdKqx
-	 G338QR3cNyfaK1b9gyH5jhjTBiBgebrJvFG63+DG9IyJXja4SHTr/HntDDzFNsrElwQ==
+	bh=yWSjcEYYlYAmdYuP3+fGqSKyGg+3xIkQlvbIfZyBFiU=;
+	b=JwW6GUTL+O/Q8jONeCPrYb/NZs64Hi2/MTYPrPUviYT100asnONSU9NwbxR/EESbRYfi
+	 VH0LMlfiGuBMoqzCO2S1wmxBplRaGZwJ12Wr3lembg9ydXtoWsphBdlP4LcmYlMz6v1oS
+	 QbClBl0lTEi1H8kuPZfODzRB+gE1sB1PqHb7b1dMoXP3+cRAP0vhLdHymfUAPYGnQmI13
+	 49t0ExmS3KGlrzDclKYnOhCI2Ut7G9zwNHLkpFIFLKjdoDi7qm67UB4U1mrUqYvMclbG4
+	 iJtHZ2ekMabuueULsLboX/xP1z6B41msLmzNzCZZCtKPNYC1r4DjL2NPD2TLEyZNa6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JCuqdHno;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=EqZAqUEX;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0C32360A2613
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:12:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C32360A2613
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7B5DA606A6BC
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:12:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B5DA606A6BC
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JCuqdHno
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=EqZAqUEX
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A086E1DB5;
-	Fri, 27 Nov 2026 07:12:09 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25EEF1D70;
+	Fri, 27 Nov 2026 07:12:08 -0800 (PST)
 Received: from e144440.cambridge.arm.com (e144440.arm.com [10.2.199.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 237B63F632;
-	Fri, 27 Nov 2026 07:12:11 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BB073F632;
+	Fri, 27 Nov 2026 07:12:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795792332; bh=MxCYFbgbltrmMMr0MHqOOsTbz5t4vRUGRW7Vw3l2Y7M=;
+	t=1795792330; bh=DwvUUy/1RnTz32AMXT9X1m9COrhuDJWS/hb3hMlp0EI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JCuqdHnoNNtfuX/W8z7GpIPrdn5rStcDNgIcn42t7WOmlHpBZhcchQHWCjOO1We6P
-	 mjZ334e2vZCMWS5p0UpEhE6oVIOr2Mz8lEBkWbCnPstO4lEyN04kGKKRv6KXpyUI8c
-	 P7RgJoXCuiEX7VEKdI4D8DCvifO+TZGVNbSiciOI=
+	b=EqZAqUEXaiLOKoLyqRWfagrkndJyfcIuB8FwEUgbQhXo0mhkIxh+0BD4uHfeSJcSp
+	 Jb5xkD02VPXbt2uZxgD3SoqN6ESfkqI5jrmF4WRKTTHx73i3hv+0S6CPqscvqqc07i
+	 2cbOXIyNLWBQhVuui8mK9LWAloP1DVS304uZJd2U=
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,9 +50,9 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] arm64: cpufeature: Enable BBML3 on Cortex-A320, A520 and A720
-Date: Fri, 27 Nov 2026 15:11:56 +0000
-Message-ID: <20261127151157.406111-4-ryan.roberts@arm.com>
+Subject: [PATCH v2 2/3] arm64: cpufeature: Document BBML3 exclusions
+Date: Fri, 27 Nov 2026 15:11:55 +0000
+Message-ID: <20261127151157.406111-3-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261127151157.406111-1-ryan.roberts@arm.com>
 References: <20261127151157.406111-1-ryan.roberts@arm.com>
@@ -67,45 +67,145 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Cortex-A320, Cortex-A520 and Cortex-A720 advertise BBML2 and are known
-not to raise conflict aborts for mapping-granularity changes. They can
-therefore use the BBML3 semantics, but their MIDRs are missing from the
-allow list.
+Several CPUs advertise BBML2 and are known never to raise a conflict
+abort, but cannot safely use the BBML3 no-abort semantics because of
+hardware errata. Omitting their MIDRs from the allow list hides the
+reason for the exclusion and makes it difficult to tell whether a CPU
+has simply not been added yet.
 
-Commit a7ac60414475 ("arm64: cpufeature: Extend bbml2_noabort support
-list") named A520(AE) and A720(AE), but added only the AE MIDRs. The
-non-AE CPUs have distinct MIDRs and need their own entries. Cortex-A320
-can now be identified using its new MIDR definition.
+Document the excluded CPUs and their erratum numbers above
+supports_bbml3_list[]. Record the errata in silicon-errata.rst with N/A
+Kconfig entries.
 
-Add all revisions of these three CPUs to the allow list. The reviewed
-SDENs identify no BBML3 exclusion erratum for them.
+Keep C1-Ultra and C1-Premium enabled from r1p1, where erratum 3683289 is
+fixed. Also explain that Cortex-A510 can generate conflict aborts and
+therefore does not meet the BBML3 requirements, independently of errata.
 
-Cortex-A510 remains excluded because it can raise conflict aborts.
-
-Link: https://support.arm.com/documentation/SDEN-2877630/0000?lang=en&rev=0000-06
-Link: https://support.arm.com/documentation/SDEN-2444153/0000?lang=en&rev=0000-12
-Link: https://support.arm.com/documentation/SDEN-2439421/0000?lang=en&rev=0000-17
+Link: https://support.arm.com/documentation/109180/13-0/?lang=en
+Link: https://support.arm.com/documentation/111077/10-0/?lang=en
+Link: https://support.arm.com/documentation/111078/10-0/?lang=en
+Link: https://support.arm.com/documentation/111287/10-0/?lang=en
+Link: https://support.arm.com/documentation/SDEN-2055130/18-0?lang=en&rev=18.0
+Link: https://support.arm.com/documentation/SDEN-2332927/13-0?lang=en&rev=13.0
+Link: https://support.arm.com/documentation/SDEN-1775101/23-0?lang=en&rev=23.0
+Link: https://support.arm.com/documentation/SDEN-1775100/23-0?lang=en&rev=23.0
+Link: https://support.arm.com/documentation/SDEN-1982442/21-0?lang=en&rev=21.0
+Link: https://support.arm.com/documentation/SDEN-1401781/23-0?lang=en&rev=23.0
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/kernel/cpufeature.c | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/arch/arm64/silicon-errata.rst | 16 ++++++++++++++
+ arch/arm64/kernel/cpufeature.c              | 23 ++++++++++++++++++++-
+ 2 files changed, 38 insertions(+), 1 deletion(-)
 
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index bffaa46c664b..64ad29d00243 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -159,6 +159,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A78C     | #4193794        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-A710     | #3696244        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A710     | #2119858        | ARM64_ERRATUM_2119858       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A710     | #2054223        | ARM64_ERRATUM_2054223       |
+@@ -197,6 +199,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1C      | #4193792        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-X2       | #3696244        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X2       | #2119858        | ARM64_ERRATUM_2119858       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X2       | #2224489        | ARM64_ERRATUM_2224489       |
+@@ -205,6 +209,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X2       | #4193788        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-X3       | #3696239        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X3       | #3324335        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X3       | #4193786        | ARM64_ERRATUM_4118414       |
+@@ -215,6 +221,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X4       | #4118414        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-X925     | #3043240        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X925     | #3324334        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X925     | #4193781        | ARM64_ERRATUM_4118414       |
+@@ -231,6 +239,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N1     | #4193800        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Neoverse-N2     | #3696250        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N2     | #2139208        | ARM64_ERRATUM_2139208       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N2     | #2067961        | ARM64_ERRATUM_2067961       |
+@@ -245,12 +255,16 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N3     | #4689341        | ARM64_ERRATUM_3821522       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Neoverse-V1     | #3696285        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V1     | #1619801        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V1     | #3324341        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V1     | #4193790        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Neoverse-V2     | #3696242        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V2     | #3324336        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V2     | #4193787        | ARM64_ERRATUM_4118414       |
+@@ -279,6 +293,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | C1-Ultra        | #4193780        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | C2-Ultra        | #4196850        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | MMU-500         | #562869,        | ARM_SMMU_MMU_500_CPRE_ERRATA|
+ |                |                 | #841119,        |                             |
+ |                |                 | #826419,        |                             |
 diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 710d44a30d29..1c4e809f73e4 100644
+index a8a1a73ba1b8..710d44a30d29 100644
 --- a/arch/arm64/kernel/cpufeature.c
 +++ b/arch/arm64/kernel/cpufeature.c
-@@ -2037,8 +2037,11 @@ bool cpu_supports_bbml3(void)
+@@ -2010,7 +2010,28 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+ 
+ bool cpu_supports_bbml3(void)
+ {
+-	/* CPUs that support BBML3 but dont advertise through ID_AA64MMFR2_EL1 */
++	/*
++	 * CPUs that support BBML3 but don't advertise through ID_AA64MMFR2_EL1.
++	 *
++	 * The following CPUs advertise BBML2 and are known not to raise
++	 * conflict aborts, but are excluded because of errata that can cause a
++	 * load or store to livelock when changing mapping size without
++	 * break-before-make:
++	 *
++	 *   3043240: Cortex-X925
++	 *   3043263: Cortex-X4
++	 *   3053180: Neoverse-V3 and Neoverse-V3AE
++	 *   3683289: C1-Ultra and C1-Premium (before r1p1)
++	 *   3696239: Cortex-X3
++	 *   3696242: Neoverse-V2
++	 *   3696244: Cortex-A710 and Cortex-X2
++	 *   3696250: Neoverse-N2
++	 *   3696285: Neoverse-V1
++	 *   4196850: C2-Ultra
++	 *
++	 * Cortex-A510 also advertises BBML2 but can generate conflict aborts,
++	 * independently of errata, so it does not meet the BBML3 requirements.
++	 */
+ 	static const struct midr_range supports_bbml3_list[] = {
+ 		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_RIGEL),
- 		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
- 		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A320),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
- 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
 -- 
 2.43.0
 
