@@ -1,47 +1,73 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801885;
-	b=EkKzgSPNOEHBtOuGECFpiJcRRqlIu189eMxjIHZfYpyId8liPDhzejGCaXyD3cDLccGz
-	 b3LURojOaPkGWknfMsvrmxJS5sN1cDCI2vy3d68r9baszxYJYap6WPJVS6FPgAn66dgb4
-	 uehwrY26VpiJgSEYcGgJfc7rjDELVlfkcx3+5KGQ4mdkH3o5JJa7Je5+9e7AlNma2omOR
-	 1jBxxMGsmI1G9K04MN6niNMr4Fw5nGT7YPns+GFr0qZdgDITDyeJrWuNZTfF+Azp1b46h
-	 o3PCos8EwNA2oQtfmiiRFE7AM2RNIW3sKXFzwyUqhpJ9wnLkuLOBWtLrhkncCEuZ9Tw==
+	t=1795801892;
+	b=mFqAJMNsE+bOjwCdDuxnVgbgt1bP4L9lZaVseeDhwEilF/gK0qGk30oVuaRExK2A5Jk/
+	 yxgmrUfSth5ftl8ztUyoUPWNmXzzWuBg7ZOrI5io4QKTylh6cKZiHKqzVsvJL56wjVA21
+	 Nsylo5zJtiUOapRKp64DrmTJtW2JgKwyqUXp4IxOOdsbh9R24p9BoxLfHhxdalPIrAOQo
+	 Q7C44DdPkYqDfFzVg2XRwecrtIl5f5MwRXkrKjsiy3v62iNe15ugXX+1N1CbHqAlW/if2
+	 +RjUrUHXVLEnEi5F7GwJomyIMZTCu8pRRY3ZmL8/DUCuR7SZplSWFqw44UmkhifaFQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801885;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=vZUCFIgUPUAkwneDlYHb0hMYoy5QBl/Pl9WSaWIz7y4=;
-	b=Czd94mC8YHZnTL4vEOvfgm/sAw1haZsvhjVFBBp+R6n1fn/9x/6p889TtDWsJdODruf/
-	 +Bn63ikB2lxNT3QEIiaYb7pP5SCiDB44XEwED97hoxTPkrHOfbABDRHE6/DgJNtk6H5Ba
-	 OV4NpyESsTZXp6IdYEdm4yMpCzm2s6zrb/jCUK/NCmS4YxMhcmL7tulJqPs4txWO6Di2J
-	 HR5LquCXG9uVlxflHmepH5GVPmpDEPV+WLMAjdfYmBpT4BeQQsn9dVkg2XSkwQYAa3dcB
-	 MFpmLV6Hhs7k2sT9CG/jbatrCe0SHyGgWyof6n2ao2L2aCc0qBpX857btFGtzbKZbkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801892;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=vaTm8zyMYvne9oPsZa0I6jcRniOKGde2BII9Cy3AZb8=;
+	b=39QULR1BH4RNh85YFsHXZqWXza/zKSh/Pufs294J2PB/vS54pkMQsLA8ShwIotnaXBoD
+	 8JHO9hoYQmRY+NPT29ev1dVp2EDTqUSyktqNRB+a/TgYrmE0fK4da/j4CPK8FLHcphqfo
+	 XyDgSEN90MpkFBA38j3aQb8uVSPsWU51PouCKW8FIclem5nIGSrO1qQXN8y+NrAoL2D6U
+	 YsLVLtee7ShVDa3GIU7MWiEXVF3TfaLRtkG8+vZ6vk5+uHezc3C4L2RUNu+rCRPNebTRo
+	 cFa5ICDicunQPByPTu1C7h8tpUHvYuXjfpn54MaG7dDXlt6RI3vVWf5VDwKViTQ5Mvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sh+Z9zUQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y3esDjJI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09533606A31C;
-	Fri, 27 Nov 2026 17:51:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 171F6606A31C;
+	Fri, 27 Nov 2026 17:51:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sh+Z9zUQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79E2A1F00893;
-	Fri, 27 Nov 2026 17:51:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y3esDjJI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC4461F00923;
+	Fri, 27 Nov 2026 17:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795801884;
-	bh=vZUCFIgUPUAkwneDlYHb0hMYoy5QBl/Pl9WSaWIz7y4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Sh+Z9zUQOQDS9AA3I7rOGEsY+9NzfIRIxL8zeELyYOpYS72uhYMcJ8VVWvTQCy7Vb
-	 F5BBiD9Or6/F298ntI4IOSetQnzPF5Y832xSkqxhbZL5SfJqjRLh7t/SC9u8W7doiD
-	 aWgnfbbR/TYzuKGlTOyo3sZsdcTqNe3pIg4Y16aSanJTWbzjm7/eY0npPkkdhPo7x6
-	 pSwqiQkMwaKotrc0REto9UhN2vOACFz0hPV11ulDklYGa7zJC5iJtjLxIbGZy9H/OH
-	 Mg7K31FTEYZMI764ZwnPe2h9fjOKm3RHVJ+J0BJnHiS0+6yEnjBaW/XXqqCPBep5FM
-	 GjVhr8e7lHDMg==
-Message-ID: <33de19df-1729-4d1c-a6ce-e10e240e0c57@kernel.org>
-Date: Fri, 27 Nov 2026 18:51:17 +0100
+	s=k20260515; t=1795801891;
+	bh=vaTm8zyMYvne9oPsZa0I6jcRniOKGde2BII9Cy3AZb8=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=Y3esDjJIzF9Up6hlH1AcD5hSKTw4TMIZkXVJ4XOT8UHBoEqHugiSRBVf2zjTs099t
+	 ta6Q+DgSzflJNgrLbIn6SCMhaPBdzsDeJ+AHXU7QHx8yJiu6jnO47zeZd9d+l1bwQ8
+	 d6rxHN8B6viOqEZeCGtArwy+5MBkryIP4E5LmLnZAPMw82uTUAAlADHSbwI37UEzq5
+	 BcuPWD0sGuH2qJPDgIOR7FlREuXlu38rSLZ+7bJtNArbrmo1I221OVdGuvxzUiPWyP
+	 lYiSd3pPmHZfrd7PeqW7Kg8+fekvWOcjTBmWVF6WAm9/C4RYph6jim3fTb0VzbDqIN
+	 9xM1N3sYkhn/A==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 03ABDF40066;
+	Fri, 27 Nov 2026 12:51:29 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Fri, 27 Nov 2026 12:51:30 -0500
+X-ME-Sender: <xms:IcMJa1BhQ_IoHMFIJ21_IM2SR33uXCcL86dAL-fOK4F5qobu75xbZQ>
+    <xme:IcMJa-UibaFqtsZUwcRp5MkCrE907PllAh4VIVchq8mErOAVxChnNr8SjKxM9hHn2
+    iJ840EgUXiNDsoAg9O2Ew-w0wwI91GnDlzQ1mn7HrANQlg2evRK5dn6wQ>
+X-ME-Proxy-Cause: dmFkZTEWY3vXFk6Qj2qtZa3/yffkiMiEG82uJyPASb2q0GY5Qy5oukiV/d76RKewOepQX1
+    dauwntytq7LYtWbmiMIgTdMOK8zATV8LTOIILM6xnrmjq2pkW3IpAjy/b0Seuw4mpQWLgM
+    makgjwig14S/t6nwwl3mrxjpiPSW9uDf9WCo4FxWqmT78HiDwZDZW7yLDRquN7H9Njt6vi
+    JLybuGpNc91CWCvp6ytq47tmtcZQefPWdpkoXofiPQ0rsIMYN6IlBrYl10mJMr4xfwvJPg
+    m+ncp88DOezGX0RLLfH/IaJtjeonXJAJwLxeVu2ITf5FrpbJ0HYgYnQrGbWWpIdBQ/xIuD
+    TlJlYSTyT/UZ4bKL5XDzyYplljaSAzNqmrLtKFR/wtG4y3qCwSAYXeeR0xDMlixtfdNvnr
+    g6A0VM9vPRtXpiKGOxvmx3N8g5Z7CGhEgcs6Fz16KiwQvFQxEi+2SKI1nypdA/7HvKCMr+
+    ixNsz580kf/5q0GsPJWAQZLSfauEvWyXlZla7lygpDKrakSc6zQlI2uXhIgjm3ZfdjStxY
+    oewtJzzjB2PkV6Sdd333uDmqeAX9VlmNH7tDc/prMjbGHYqXsiWr9vsgLwxF5esDluskF6
+    q9nN/RoY9Y3oNQb8lVn34iQAyfuH5C0j4i0BFIkJbeoYN8Qf/D2FshtczdTw
+X-ME-Proxy: <xmx:IcMJa_li-4YRPiKEExkBLv3Wu3CXF_T5W5Ss1XG01JRBOKHUurfgFw>
+    <xmx:IcMJa7l1qRxQf0O08tfQW_hLIwJs7eEnuwurUI64AG07fpRw2c5WmA>
+    <xmx:IcMJa0V1FrMqrS3SZmy_BB14ryMme9BMWghWHskuzF_lX61R-QtZ7g>
+    <xmx:IcMJa5-DosFbiQ8bvLfJg4iZQGwoUAbzlHnNvO05l6lY1SSUhSwpgA>
+    <xmx:IcMJaxqkvUgBhvJtZXqYr_UlDePmqfHhHZ-4CclZNcUwfNUp3H7RizyS>
+Feedback-ID: ieff94742:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D13ED700069; Fri, 27 Nov 2026 12:51:29 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,122 +77,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and
- a cover letter
-Content-Language: en-US
-To: Sasha Levin <sashal@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Willy Tarreau <w@1wt.eu>,
- Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Jonathan Cameron <jic23@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Theodore Ts'o <tytso@mit.edu>, Security Officers <security@kernel.org>,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
- <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps>
- <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu>
- <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin>
- <20261127133756.455469-1-sashal@kernel.org> <awmJ2c87NSDjtSwp@gremlin>
- <20261127143124.1039470-1-sashal@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Autocrypt: addr=vbabka@kernel.org; keydata=
- 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
-In-Reply-To: <20261127143124.1039470-1-sashal@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-ThreadId: AisSLPdYCdlo
+Date: Fri, 27 Nov 2026 09:51:09 -0800
+From: "Andy Lutomirski" <luto@kernel.org>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>,
+ "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, bpf@vger.kernel.org
+Cc: "Puranjay Mohan" <puranjay@kernel.org>,
+ "Andrii Nakryiko" <andrii@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, kkd@meta.com, kernel-team@meta.com,
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>
+Message-Id: <7c7695ad-86c4-4b52-b705-71dac267cad2@app.fastmail.com>
+In-Reply-To: <DN5K8Y9824AE.3GPOE0WP9ELFN@gmail.com>
+References: <20261009024925.3169077-1-memxor@gmail.com>
+ <20261009024925.3169077-2-memxor@gmail.com>
+ <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+ <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
+ <5f46d1c1-fdce-4f3b-9d56-675a822b2d65@app.fastmail.com>
+ <DN4X9KVYMONH.VHKD1QED1BUQ@gmail.com>
+ <03275761-8de2-41be-92fd-8e3012a87eeb@app.fastmail.com>
+ <DN5K8Y9824AE.3GPOE0WP9ELFN@gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for user
+ address faults under SMAP
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 11/27/26 15:31, Sasha Levin wrote:
-> On Fri, Nov 27, 2026 at 02:20:15PM +0000, Lorenzo Stoakes (ARM) wrote:
->>On Fri, Nov 27, 2026 at 08:37:56AM -0500, Sasha Levin wrote:
->>> Very much the case. But we can't stop the "wrong hands" from using it, so we
->>> need guardrails around them that make it produce what we, as a community, think
->>> is the right thing.
->>
->>These aren't guardrails, you are just trying to modify the output of
->>something that's broken here IMO.
-> 
-> I see this as the beginning of a guardrail. It'll take us some time to get to
-> something like checkpatch for LLMs, but we have to start somewhere.
-> 
->>I think a placeholder works better, personally.
-> 
-> I don't think we can really instruct LLMs not to write the message. The human
-> will just turn around and tell it to ignore that instruction and write the
-> commit message anyway.
-> 
->>+10. Write the cover letter described in "Cover letter" above from what the
->>+    previous steps produced. This part is not optional, not even for a single
->>+    patch or a one-line fix.
->>
->>BTW this seems to be instructing LLMs to generate cover letters for single
->>patches which I don't personally love to see.
->>
->>And it therefore gives the LLM double the chance to post awful word
->>salad. So I'd prefer not to have that clause ideally.
-> 
-> The single patch cover letter was something that was floated during LPC and the
-> Maintainers Summit. The other option I was thinking about is a git note
-> attached to the patch: format-patch puts it below the "---" and git am discards
-> it, so it never lands in the tree. I'm open to suggestions though.
 
-b4 tracks the cover letter (with to/cc list and its own metadata) as an
-empty commit preceding the series itself, regardless of whether it's a
-single patch or a series. IIUC the empty commit is less easy to lose than
-git note, but that's probably not the crucial part.
 
-If you then do 'b4 send' and it's a single patch, it indeed puts it below
-the '---' line. So git am discards it.
-I think it makes a lot of sense? If there is a single patch, it should be
-self-descriptive anyway, there isn't much information necessary to explain
-the whole series, if there's no series. So you might consider some extra
-info/context useful for reviewing, but not important enough for a commit log
-you want to see doing a git blame later (but it's still reachable via Link:
-anyway). So putting it below the --- should be good enough.
+On Thu, Nov 26, 2026, at 4:18 PM, Alexei Starovoitov wrote:
+> On Thu, Nov 26, 2026 at 09:30 AM Andy Lutomirski
+> <luto@kernel.org> wrote:
+>> Okay.  So maybe there should be a nice patch set to *fix* it.
+>
+> In a perfect world, yes, it would be nice to fix, but no one stumbled
+> on it since the probe_read_kernel appeared in 2009, so it's worth
+> fixing only if it doesn't kill tracing as a feature.
+
+You mean no one knows they stumbled upon it.
+
+> Kernel observability is a mandatory feature. Looking at 3 options:
+>
+
+
+
+>> 1. Walking a little list or table to validate the address (which may
+>>    require some sort of synchronization and obviously needs to be NMI-
+>>    safe -- for systems that use TLB-flush IPIs, blocking interrupts
+>>    could probably do most of the hard work, and otherwise a little
+>>    flag set while a read is in progress that can block the change of
+>>    an address from safe to unsafe would do it.
+>
+> walk and the synchronization makes it unusable due to NMI,
+
+I think it=E2=80=99s workable.
+
+When adding a safe range, you just add it. When removing a safe range,
+you invoke RCU and it remains allocated as safe until RCU synchronizes.
+A straightforward implementation would immediately unmap unsafe vm_areas
+but defer releasing the vm_area itself until after a grace period. On
+systems where the TLB flush is guaranteed to wait for NMI (x86 with
+neither AMD=E2=80=99s nor Intel=E2=80=99s remote flush extensions) even =
+that is
+unnecessary.
+
+The NMI walk uses your favorite wait free data structure, e.g.
+latch_tree (actually intended for approximately this use case!) or
+XArray (would need to verify that deadlocks are not possible but
+probably faster).
+
+> but we we can give uncached ioremap() a different range vs vmalloc()
+> then it might be practical with a single range check.
+
+That also seems sensible.  One could do this and the above.
+
+>
+>> 2. Allocate a PKS key for the purpose and use it.  (Only works on
+>>    systems that have PKS.)
+>
+> My research showed that the effort to get PKS into the kernel stalled
+> years ago, and it's intel only feature.
+>
+>> 3. Use an entire mm for the purpose and treat it as a user access.
+>>    This is probably the cleanest solution but it will be
+>>    slooooooooow.
+>
+> You mean like use_temporary_mm() with direct cr3 writes ? If every
+> read needs mm switch that might expose intel HW bugs. I remember div
+> bug and I bet there are more lurking in the hw. I'd rather not push
+> the hw limits.
+
+We switch mm all the time. The issue you will hit is that it=E2=80=99s k=
+ind of
+expensive and that the extra pagetable synchronization is complex.  I
+don=E2=80=99t expect hardware issues.
+
+>
+> As a summary I don't see a practical improvement for
+> probe_read_kernel. Maybe there is an option 4 and 5.
+>
+> The main point that it's orgonal to this patchset.
+
+Except that the patchset is adding arch support to speed up a use case t=
+hat isn't even correct.
+
+>
+> btw I'm planning to explore PKU for other bpf needs if writes to PKRU
+> register are fast enough.
