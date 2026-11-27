@@ -1,78 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.180.195.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767000;
-	b=mIH63H9q8lvn2fgf1VDxW7tv8CXUhE/SuBg/G5xIM1b/Q6IQvlR0i8FgBuZexMfpIaet
-	 TNUb7+mmyOjl5h4PoHCd2XXy5qhjYW9z5yVWG4N2iiwdK1jm1uR6rImetxwI2waLWsHLp
-	 BVZ3+rSU3umCFvqMpRjeO4ga2oAiZ2p3MZTYu2KsLh4qhKM8aeWCzar9aVhHpwsmr2vTT
-	 +731fZDYVHqbDbi+8z5v32P8xSweVBulQxvfgejV+Ih7+Dt0i4XZiqfaPPE69iaTg2LT5
-	 V+ZyZp7ENncm++ejx9VlNn9z4mqYEml/padWMMu7WldKUyOlZfzAh5husxl7zmft6/A==
+	t=1795767024;
+	b=Ou8ndJ3lJf681GndtemXacWu+8ICvEWwqjJQhBxMB307HTUI7SJuYufbtrmcJLE2/SSL
+	 ONKP91ujSdbuFW4dUzck5IN3jym2lwW/EGBYwI4GgtJ9A4isgjjo70PoWuVvy1Y8z3wvk
+	 1ATQTo2brgUH+IQTNKlDpKuwLeEQhej+p6cm7S6u/SrPTpUP4OPsWps0cPatMlHKM+Ta4
+	 shipYRC4+iEvN1M01w4YZnms1sDXeNivGFHPdBb6UtYYdmeWgFdqiW8qalfQ/77HcFcZW
+	 J5N/p/pmqTvwSa/FRUBh+L0AKlopbzjxVKR/0b0AE5mcfnEcbmidJstJO5S0vgy1B1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767000;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
-	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
-	bh=kGDZTSe8FBEiw1NeL5xE+4psEWcXfLroX1F8Vi2sKUY=;
-	b=P3TwT0XRTwq7q+ABbULwhENX3AWhAnazPwetXXDFT4lvErNOgG4ggUUR1Ja6HletQBci
-	 gnORWxPvv9E8cFVXJwlrHE/YcJXTt4YV7ZrIBWQnKTa0pfiuHnyUz2bQH4jwCE9BQMqdZ
-	 wgQsG5x2ME4fgGncw2X4bdYM8w9BlfvGgc0VZptpWA0dXcN39auEjfWhh5mPkDmYtlN+6
-	 5o8m0zeq7XuWvsxmEItIForQAiea6dVHLXJ51WY0yLQEBe1MhIU+cP7bExeCQBqjmfxC8
-	 2qgDhqPSlDY+od5MXLI26EKujJK0BzFv3dZto577v6pNOc9Us3LyfWb8oHIkSqbjA4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767024;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:Sender:
+	 X-CM-SenderInfo;
+	bh=z2WPS4JyLBQjVa8az6zNUmfoJeGYnzi48maeQui2YGk=;
+	b=oMSGjN8ua4YW2xoCPcmXplch6KIdHGg3vmP2wUJ2Z4h3KY7ONYyzxBTt+mVhjNdqzjrI
+	 /fsKKL9aOI9bLDhV0T43RKkzsOjkFvFBmXMRT8oXBIgJf2dsOkTHjeMvaL4ZZNN1Yy9sk
+	 O6gnTxLW5M+60Oa656ZfS/5zawG33kZbYj3eXLVF3Jj3qWyhLXvSCjONkLz08luAjAIf1
+	 kSJnGtzDRd/PHq9lIUBAObY6MFbxwUEuCTVf2uUTTdtl/S4ZEW+IkB5NaUhqPPmyl4uXw
+	 vlHv9WZBam03fqbn0BhEIgOUYnaByo7BoqXTSZHeno2+XE0XOWO3EIwZ0Q43j63WQAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mkio.de;
-	spf=pass smtp.mailfrom=mkio.de;
-	dkim=pass header.d=mkio.de header.i=@mkio.de header.a=rsa-sha256 header.s=default header.b=Ec47iRhK;
-	arc=none smtp.remote-ip=207.180.195.6
-Received: from mail-relay.contabo.net (mail-relay.contabo.net [207.180.195.6])
+	dmarc=fail header.from=xiaomi.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=V4DWH0yz;
+	arc=none smtp.remote-ip=117.135.210.8
+Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60BAF606A327;
-	Fri, 27 Nov 2026 08:09:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60BAF606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mkio.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mkio.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16494606A321;
+	Fri, 27 Nov 2026 08:10:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16494606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=xiaomi.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mkio.de header.i=@mkio.de header.a=rsa-sha256 header.s=default header.b=Ec47iRhK
-Received: from pxmg2.contabo.net (localhost.localdomain [127.0.0.1])
-	by mail-relay.contabo.net (Proxmox) with ESMTP id 878F07C169E;
-	Fri, 27 Nov 2026 09:09:52 +0100 (CET)
-Received: from m2731.contabo.net (m2731.contabo.net [193.34.145.203])
-	by mail-relay.contabo.net (Proxmox) with ESMTPS id 51B237C16FF;
-	Fri, 27 Nov 2026 09:09:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mkio.de;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kGDZTSe8FBEiw1NeL5xE+4psEWcXfLroX1F8Vi2sKUY=; b=Ec47iRhKy7Ew1zCCTaV+YbYXoj
-	X+H7iIJJeLcmDfOkcGa2DEH9tBEZb+tTxl6lXTiuWgh/7pxEa/Tl7BZdUYMFg3/SXfXhwqXw14nMU
-	aW04O3DdWiRzXFDa7dkkknaMm/NKcKhshZ7CvLQVsGV901jcluBL7p3BQhnmXO/w2yic9VJSw4Rb0
-	K753xnTSWp2jEJf7jAWS2EsIqZHrg3S0ReQh/c0P7kwkYS1NIIM7UF9RKO6VSWfKsqHm2genOM/GP
-	onJaFfdyes7GR1RwWcb4/A9fEBTB+C0Ej8eRE7dxWSUPVStilcxl70ZBBwv6fabZL9sP9S/5kih7r
-	zcEa3yiA==;
-Received: from ip-078-042-120-089.um17.pools.vodafone-ip.de ([78.42.120.89]:61676 helo=p14s.int.kistler.com)
-	by m2731.contabo.net with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <mk@mkio.de>)
-	id 1xWr1i-00000005IPR-2biI;
-	Fri, 27 Nov 2026 09:09:52 +0100
-From: Markus Klotzbuecher <mk@mkio.de>
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-spi@vger.kernel.org,
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=V4DWH0yz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=z2
+	WPS4JyLBQjVa8az6zNUmfoJeGYnzi48maeQui2YGk=; b=V4DWH0yz4Hxc2E44OV
+	3qnKP624PPmfYc2UKZj/j4RHu4IvoUIlpmO4VdqRjF/UWsiC6ipP9NCGzYEstCXs
+	HCFGgJBFVTQQZc0ZdJmp4U6pUC/wM8d+QVCuYrTD8zDZT+VZwOIZN47swrwxwiTp
+	PQuOVlTqiJeXWHPT0Ss5MOh1Y=
+Received: from nzzhao-ThinkCentre-M760t.mioffice.cn (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3Pwd_OglrliZsEA--.60259S2;
+	Fri, 27 Nov 2026 16:08:33 +0800 (CST)
+From: Nanzhe Zhao <zhaonanzhe@xiaomi.com>
+To: sashiko-bot@kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Tangquan Zheng <zhengtangquan@oppo.com>,
+	linux-mm@kvack.org,
+	linux-block@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	dmaengine@vger.kernel.org,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>
-Subject: [PATCH v2] spi: omap2-mcspi: skip the TX drain wait in duplex
-Date: Fri, 27 Nov 2026 09:09:49 +0100
-Message-ID: <20261127080949.1997223-1-mk@mkio.de>
-X-Mailer: git-send-email 2.53.0
+	Jens Axboe <axboe@kernel.dk>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Minchan Kim <minchan@kernel.org>,
+	Kairui Song <kasong@tencent.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Yosry Ahmed <yosry@kernel.org>,
+	Chengming Zhou <chengming.zhou@linux.dev>,
+	Chris Li <chrisl@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Ying Huang <ying.huang@intel.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kanchana P Sridhar <kanchana.p.sridhar@intel.com>,
+	Wajdi K Feghali <wajdi.k.feghali@intel.com>,
+	Bala Seshasayee <bala.seshasayee@linux.intel.com>,
+	Nick Terrell <terrelln@fb.com>,
+	Barry Song <baohua@kernel.org>,
+	Bo Zhang <zhangbo56@xiaomi.com>,
+	sashiko-reviews@lists.linux.dev
+Subject: Re: [RFC PATCH v4 1/4] mm: zsmalloc: support objects compressed based on multiple pages
+Date: Fri, 27 Nov 2026 16:08:22 +0800
+Message-ID: <20261127080831.3599864-1-zhaonanzhe@xiaomi.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <sashiko-outbox-216088@kernel.org>
+References: <20261115024455.1465726-1-zhaonanzhe@xiaomi.com> <20261115024455.1465726-2-zhaonanzhe@xiaomi.com> <sashiko-outbox-216088@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,175 +87,176 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - m2731.contabo.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - mkio.de
-X-Get-Message-Sender-Via: m2731.contabo.net: authenticated_id: mk@mkio.de
-X-Authenticated-Sender: m2731.contabo.net: mk@mkio.de
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-CM-TRANSID:_____wD3Pwd_OglrliZsEA--.60259S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuFykWr4rXFyxtrykWr47CFg_yoWxXFWDp3
+	WxCanrAr4rXFy8J3y7Ar4kAanIywsxKF48KayrurWfuFWrJ3s2gFy7Kry3XF48ArsrA3yx
+	Xws2yw43Aa1rCw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U9XocUUUUU=
+Sender: nzzhao@126.com
+X-CM-SenderInfo: xq22xtbr6rjloofrz/xtbBowHLm2sJOoG5ZwAA31
 
-k3-udma completes a transfer towards a PDMA peer only once the peer has
-drained (udma_is_desc_really_done()). If it has not at the ring
-interrupt, k3-udma defers that check to a delayed work on the system
-workqueue. The McSPI depends on this: it prepares TX with
-DMA_PREP_INTERRUPT, and its TX callback clears the DMA write request,
-which has to stay set until the PDMA has passed on every byte. On
-PREEMPT_RT the kworker runs at normal priority, so each DMA transfer
-waits behind other tasks, for several ms under load.
+> [Severity: High]
+> Does this break compilation at this commit?
+>
+> obj_allocated() only takes two arguments (zpdesc and obj) and returns the
+> handle pointer, so passing &handle fails to build until commit "zram: support
+> compression at the granularity of multi-pages" reverts this line back to the
+> two-argument call.
 
-Commit e8e2f92b1553 ("dmaengine: ti: k3-udma: Respond TX done if
-DMA_PREP_INTERRUPT is not requested") lets a consumer skip that check
-when it knows by other means that TX is done. Its first version was
-posted together with a McSPI change that waited for EOW instead [1],
-which was not applied.
+Yes, patch 1 breaks compilation on its own. I will fold the mm/zsmalloc.c
+change from patch 2 into patch 1 to keep bisectability intact:
 
-In host mode full duplex with the FIFO enabled the RX completion proves
-that every TX word has been shifted out, so once omap2_mcspi_rx_dma()
-has returned the PDMA holds no TX data. That is what k3-udma requires
-of a consumer that does not set DMA_PREP_INTERRUPT. Prepare TX there
-with DMA_CTRL_ACK only and without a callback, clear the write request
-after RX, and do not wait for the TX completion. Without the FIFO the
-RX DMA stops one word short and omap2_mcspi_rx_dma() reads the last
-word by PIO, so these transfers keep the callback and the drain check,
-as do target mode and TX-only transfers. K3 limits a transfer to 4095
-bytes, so with 8-bit words its DMA transfers always use the FIFO.
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -1698,2 +1698,3 @@ static struct zs_handle *find_alloced_obj(struct size_class *class,
+-		if (obj_allocated(zpdesc, addr + offset, &handle))
++		handle = obj_allocated(zpdesc, addr + offset);
++		if (handle)
+ 			break;
 
-On an AM625 with PREEMPT_RT, a device on McSPI2 at 50 MHz and four
-transfers every 2 ms, two of them, 344 and 367 bytes, via DMA: the
-cyclic thread missed its deadline 217 times in 10 minutes idle and 1864
-times in 30 minutes under load without this change, and 0 and 1 times
-with it. No data errors in about 893k checked loopback updates.
+> [Severity: High]
+> Does calling memcpy_to_page() here trigger VM_BUG_ON(offset + len > PAGE_SIZE)
+> when writing a multi-page object that spans two zpdescs?
+>
+> For a multi-page class, page_size is larger than PAGE_SIZE, so off + sizes[0]
+> equals page_size and exceeds PAGE_SIZE in the first memcpy_to_page() call
+> (and sizes[1] can also exceed PAGE_SIZE in the second call).
 
-Link: https://lore.kernel.org/r/20220822091531.27827-1-vaishnav.a@ti.com [1]
-Signed-off-by: Markus Klotzbuecher <mk@mkio.de>
----
-Changes in v2:
-- Use the new path only with the FIFO enabled. Without it,
-  omap2_mcspi_rx_dma() reads the last RX word by PIO and TX may still
-  be active when it returns (reported by Sashiko).
+Agreed. I will replace it with kmap_local_zpdesc() and memcpy():
 
-v1: https://lore.kernel.org/r/20261125162045.1222271-1-mk@mkio.de
-
-Notes:
-- Tested on 6.18.56 PREEMPT_RT with commit c126e07bde21 ("spi:
-  omap2-mcspi: handle DMA setup failures") backported and with commit
-  a8e3a6453f2a ("spi: omap2-mcspi: lock the DMA request bit updates"),
-  now in spi for-7.4. That commit also fixes the CHCONF
-  read-modify-write race Sashiko reported on v1. On spi for-next the
-  callback is set through dmaengine_desc_set_callback() (commit
-  29fcd5d436c4); compile-tested there. v2 not rerun: on the tested
-  setup every DMA transfer uses the FIFO, so it runs the code tested
-  with v1.
-- Independent of a8e3a6453f2a; applies to for-7.5 alone and on top of
-  it. The v2 change does not affect the tested setup (AM625, 8-bit
-  words), where DMA always uses the FIFO.
-- The 2022 thread asked about TX data left in the PDMA when the IP stops
-  transmitting (externally clocked bus, delays). In host full duplex the
-  RX completion means every word was shifted out, whatever the delay;
-  an externally clocked bus is target mode, which keeps the drain check.
-  RX EOW is not used as the signal because RX data may still be in
-  flight to memory then.
-- omap-dma and edma complete a slave_sg descriptor regardless of
-  DMA_PREP_INTERRUPT; there the only change is that the write request is
-  cleared after RX instead of from the TX callback. Not tested on those.
-- As far as I can tell this is the first user of the k3-udma opt-out
-  from e8e2f92b1553, whose message gives the McSPI as the example.
-- On AM625, PEER_BCNT wraps below zero after the early decrement and is
-  back at 0 once the PDMA has drained, so a following transfer starts
-  from clean counters.
-
- drivers/spi/spi-omap2-mcspi.c | 38 +++++++++++++++++++++++++++++------
- 1 file changed, 32 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/spi/spi-omap2-mcspi.c b/drivers/spi/spi-omap2-mcspi.c
-index 061d50c65dfd..3f543b3b410c 100644
---- a/drivers/spi/spi-omap2-mcspi.c
-+++ b/drivers/spi/spi-omap2-mcspi.c
-@@ -413,6 +413,22 @@ static void omap2_mcspi_tx_callback(void *data)
- 	complete(&mcspi_dma->dma_tx_completion);
- }
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -1270,16 +1270,18 @@ static void obj_write(struct size_class *class, struct zspage *zspage,
+ 	} else {
+ 		/* this object spans two pages */
+ 		size_t sizes[2];
++		void *dst;
  
-+/*
-+ * In host full duplex with the FIFO enabled the RX completion proves that
-+ * every TX word was shifted out, so TX needs neither a callback nor
-+ * k3-udma's peer drain check, which it defers to a kworker. Without the
-+ * FIFO the RX DMA stops one word short and omap2_mcspi_rx_dma() reads the
-+ * last word by PIO, so keep the TX callback and its wait.
-+ */
-+static bool omap2_mcspi_tx_duplex(struct spi_device *spi,
-+				  struct spi_transfer *xfer)
-+{
-+	struct omap2_mcspi *mcspi = spi_controller_get_devdata(spi->controller);
-+
-+	return mcspi->fifo_depth > 0 && xfer->tx_buf && xfer->rx_buf &&
-+	       !spi_controller_is_target(spi->controller);
-+}
-+
- static int omap2_mcspi_tx_dma(struct spi_device *spi,
- 			      struct spi_transfer *xfer,
- 			      struct dma_slave_config cfg)
-@@ -421,6 +437,7 @@ static int omap2_mcspi_tx_dma(struct spi_device *spi,
- 	struct omap2_mcspi	*mcspi;
- 	struct omap2_mcspi_dma  *mcspi_dma;
- 	struct dma_async_tx_descriptor *tx;
-+	unsigned long flags = DMA_PREP_INTERRUPT | DMA_CTRL_ACK;
+ 		sizes[0] = page_size - off;
+ 		sizes[1] = size - sizes[0];
  
- 	mcspi = spi_controller_get_devdata(spi->controller);
- 	mcspi_dma = &mcspi->dma_channels[spi_get_chipselect(spi, 0)];
-@@ -429,14 +446,18 @@ static int omap2_mcspi_tx_dma(struct spi_device *spi,
- 	if (ret)
- 		return ret;
- 
-+	if (omap2_mcspi_tx_duplex(spi, xfer))
-+		flags = DMA_CTRL_ACK;
-+
- 	tx = dmaengine_prep_slave_sg(mcspi_dma->dma_tx, xfer->tx_sg.sgl,
- 				     xfer->tx_sg.nents,
--				     DMA_MEM_TO_DEV,
--				     DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-+				     DMA_MEM_TO_DEV, flags);
- 	if (!tx)
- 		return -EIO;
- 
--	dmaengine_desc_set_callback(tx, omap2_mcspi_tx_callback, NULL, spi);
-+	if (flags & DMA_PREP_INTERRUPT)
-+		dmaengine_desc_set_callback(tx, omap2_mcspi_tx_callback, NULL,
-+					    spi);
- 
- 	return dma_submit_error(dmaengine_submit(tx));
- }
-@@ -672,6 +693,8 @@ static int omap2_mcspi_txrx_dma(struct spi_device *spi,
- 					 &rx_submitted, &dma_started);
- 		if (ret)
- 			goto out;
-+		if (omap2_mcspi_tx_duplex(spi, xfer))
-+			omap2_mcspi_set_dma_req(spi, 0, 0);
- 	} else if (tx) {
- 		if (mcspi->target_aborted) {
- 			ret = -EINTR;
-@@ -686,9 +709,12 @@ static int omap2_mcspi_txrx_dma(struct spi_device *spi,
+-		memcpy_to_page(zpdesc_page(zpdesc), off, src, sizes[0]);
++		dst = kmap_local_zpdesc(zpdesc);
++		memcpy(dst + off, src, sizes[0]);
++		kunmap_local(dst);
+ 		zpdesc = get_next_zpdesc(zpdesc);
+-		memcpy_to_page(zpdesc_page(zpdesc), 0, src + sizes[0], sizes[1]);
++		dst = kmap_local_zpdesc(zpdesc);
++		memcpy(dst, src + sizes[0], sizes[1]);
++		kunmap_local(dst);
  	}
- 
- 	if (tx) {
--		ret = mcspi_wait_for_completion(mcspi, &mcspi_dma->dma_tx_completion);
--		if (ret || mcspi->target_aborted)
--			goto out;
-+		if (!omap2_mcspi_tx_duplex(spi, xfer)) {
-+			ret = mcspi_wait_for_completion(mcspi,
-+							&mcspi_dma->dma_tx_completion);
-+			if (ret || mcspi->target_aborted)
-+				goto out;
-+		}
- 
- 		if (spi_controller_is_target(mcspi->ctlr)) {
- 			ret = mcspi_wait_for_completion(mcspi, &mcspi->txdone);
 
-base-commit: 266ae6df1980a5a5c58735ae114ae62a2acad8db
--- 
-2.53.0
+> [Severity: Medium]
+> Should these helpers use zone_stat_add_folio() and zone_stat_sub_folio()
+> instead of the double-underscore variants?
+>
+> __zone_stat_add_folio() and __zone_stat_sub_folio() require preemption or
+> interrupts to be disabled, whereas alloc_zspage(), zs_free() ->
+> __free_zspage_lockless(), and zs_page_migrate() call these helpers in
+> preemptible context with no locks held, triggering preemption-disabled
+> assertions and racy per-CPU vmstat updates.
 
+Agreed. I will switch to the non-preemption-disabled variants:
+
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -345,4 +345,4 @@ static inline void zpdesc_inc_zone_page_state(struct zpdesc *zpdesc)
+ {
+-	__zone_stat_add_folio(zpdesc_folio(zpdesc), NR_ZSPAGES);
++	zone_stat_add_folio(zpdesc_folio(zpdesc), NR_ZSPAGES);
+ }
+
+ static inline void zpdesc_dec_zone_page_state(struct zpdesc *zpdesc)
+ {
+-	__zone_stat_sub_folio(zpdesc_folio(zpdesc), NR_ZSPAGES);
++	zone_stat_sub_folio(zpdesc_folio(zpdesc), NR_ZSPAGES);
+ }
+
+> [Severity: Medium]
+> Can ZSMALLOC_MULTI_PAGES_ORDER=9 overflow the 24-bit first_obj_offset field
+> on 64 KiB page systems?
+>
+> With 64 KiB pages, order 9 gives a 32 MiB zpdesc, while
+> set_first_obj_offset() masks offsets with FIRST_OBJ_PAGE_TYPE_MASK (16 MiB)
+> and only checks BUILD_BUG_ON(PAGE_SIZE > SZ_16M):
+
+Agreed. I will check ZS_MAX_ALLOC_SIZE instead of PAGE_SIZE:
+
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -551,3 +551,3 @@ static void set_first_obj_offset(struct zpdesc *zpdesc, unsigned int offset)
+ {
+ 	/* With 24 bits available, we can support offsets into 16 MiB pages. */
+-	BUILD_BUG_ON(PAGE_SIZE > SZ_16M);
++	BUILD_BUG_ON(ZS_MAX_ALLOC_SIZE > SZ_16M);
+
+> [Severity: High]
+> Can the last base-page size class exceed PAGE_SIZE when
+> CONFIG_ZSMALLOC_MULTI_PAGES is enabled?
+>
+> Previously, ZS_MAX_ALLOC_SIZE was PAGE_SIZE, which clamped class
+> ZS_PAGE_SIZE_CLASSES - 1 to PAGE_SIZE when PAGE_SIZE - ZS_MIN_ALLOC_SIZE was
+> not a multiple of ZS_SIZE_CLASS_DELTA (such as on 16 KiB and 64 KiB page
+> kernels). With ZS_MAX_ALLOC_SIZE raised to ZSMALLOC_MULTI_PAGES_SIZE, class
+> ZS_PAGE_SIZE_CLASSES - 1 gets size == PAGE_SIZE + 32 on 16 KiB and 64 KiB
+> page systems...
+>
+> Should sizes for i < ZS_PAGE_SIZE_CLASSES be clamped to PAGE_SIZE, and should
+> the multi-page classes start at i - ZS_PAGE_SIZE_CLASSES + 1?
+
+Yes. I will clamp base size classes to PAGE_SIZE, start multi-page classes
+at i - ZS_PAGE_SIZE_CLASSES + 1, and adjust get_size_class_index() accordingly:
+
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -211,4 +211,4 @@
+ #define ZS_MULTI_PAGES_SIZE_CLASS_DELTA	(ZSMALLOC_MULTI_PAGES_SIZE >> (CLASS_BITS - 1))
+ #define ZS_MULTI_PAGES_SIZE_CLASSES	(DIV_ROUND_UP(ZS_MAX_ALLOC_SIZE - PAGE_SIZE, \
+-					      ZS_MULTI_PAGES_SIZE_CLASS_DELTA) + 1)
++					      ZS_MULTI_PAGES_SIZE_CLASS_DELTA))
+ #define ZS_SIZE_CLASSES		(ZS_PAGE_SIZE_CLASSES + ZS_MULTI_PAGES_SIZE_CLASSES)
+
+@@ -586,5 +586,5 @@ static int get_size_class_index(int size)
+ 		idx = ZS_PAGE_SIZE_CLASSES;
+-		idx += DIV_ROUND_UP(size - PAGE_SIZE,
+-				    ZS_MULTI_PAGES_SIZE_CLASS_DELTA);
++		idx += DIV_ROUND_UP(size - PAGE_SIZE,
++				    ZS_MULTI_PAGES_SIZE_CLASS_DELTA) - 1;
+ 		return min_t(int, ZS_SIZE_CLASSES - 1, idx);
+ 	}
+
+@@ -2305,4 +2305,4 @@ struct zs_pool *zs_create_pool(const char *name)
+ 		if (i < ZS_PAGE_SIZE_CLASSES)
+-			size = ZS_MIN_ALLOC_SIZE + i * ZS_SIZE_CLASS_DELTA;
++			size = min_t(int, ZS_MIN_ALLOC_SIZE + i * ZS_SIZE_CLASS_DELTA, PAGE_SIZE);
+ #ifdef CONFIG_ZSMALLOC_MULTI_PAGES
+ 		if (i >= ZS_PAGE_SIZE_CLASSES)
+-			size = PAGE_SIZE + (i - ZS_PAGE_SIZE_CLASSES) *
++			size = PAGE_SIZE + (i - ZS_PAGE_SIZE_CLASSES + 1) *
+ 			       ZS_MULTI_PAGES_SIZE_CLASS_DELTA;
+
+> [Severity: Low]
+> Does the format string need a trailing space after the third "%5u" to match
+> the header and Total lines? Without it, all subsequent columns in each
+> class row are shifted left by one character.
+
+Agreed. I will add the trailing space:
+
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -670,2 +670,2 @@ static int zs_stats_size_show(struct seq_file *s, void *v)
+-		seq_printf(s, " %5u %5u %5u", i, class->size,
++		seq_printf(s, " %5u %5u %5u ", i, class->size,
+
+> [Severity: Low]
+> The kernel-doc comment above zs_huge_class_size() is missing an @type entry
+> for the new parameter.
+
+Agreed. I will document @type:
+
+--- a/mm/zsmalloc.c
++++ b/mm/zsmalloc.c
+@@ -1292,2 +1292,3 @@
+  * @pool: zsmalloc pool to use
++ * @type: zsmalloc type (base page or multi-page)
 
