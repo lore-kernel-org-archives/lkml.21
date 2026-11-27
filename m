@@ -1,70 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795008;
-	b=u/Z8CJSVxBJNzX76lDxGCCmGe8r5slmIXMVqjcMLAPDMfpJc87dIplzaIWbaOTvlVnqG
-	 A1CR4cZElVWvZGGO1moWxYQ4dt9yOhHb7ofAD1BXhOzY8xpPpUm+d3WDwTfA16/Q0wCN4
-	 Df0RdlQRdpsLh/COtLLJMm5SzeTHNNHO579AJyuNbUwptALCNF6Ek+R7PEwKLqD7j3uSa
-	 As7RSB03qLGwKXx0fTe+6amgb71gFLnZlyJXAOw+dD/HlkXArK3cw/ape76m+ywkenrcD
-	 29ipOsHba1iWxNUn+0Wxqu7/o9rcDe9cDW+MNPCK3C4VHaJw5j1+aE8AYZVWOCUYhDw==
+	t=1795795045;
+	b=f3/5ktHDTQq89b22AOdC/yylzQ9PCE21eP1WBfwxayLsuupquB66Q3VKORuj+8tPvBbw
+	 Gx0yrNkt0FRBXPZprDXFRQdysXjQOfO9qvq8ek17s+DfyXC82RpKzEjHPuiTmvtiUAYWQ
+	 U2Gny5DLnmKyF5hinXh7RU8SRVvHlx/YI/uvz9GSUwucmSBVseQoscvw/Trd+m47XmRKg
+	 ZbLj/+vV1o27ThzPM86xoj28UI4EOawS/x5Hrvn7kzUeTPtDD/OqlpN/wSSdrvfsnXGqB
+	 fhXp/idZj8k2xngqV21Wgn7zl7NKYYstuzPhaaILPR131GRwvTyTsh9i4F89RjhruKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795008;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:Date:Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=GinYeuNS3zfPdQXqlusCQKkgNkcFSglZQRXMNJzrcEw=;
-	b=Q2eg8OTB2Pv90yuRBO9Jg8YP0eS0kfLYrIRjx9ZfTQXpsLPGw2BPhQICEAqr4MWI+TJC
-	 zemhpJMT2vcdcoZ9E9KdKE1CrXXEzwIaqusPuKHfpfptscFKN4Pe/yiYYZnWRLy+oU6Zg
-	 sTurnofbXSFdtXavnMEk7LK1hUFCQTLt3ZFDQ+YO6v+6QZWPflTm/4FEnqdrR1DDWVhM4
-	 JCAXDEJbWYGh7kiYOuElhAjup4RnTFAwPzqeFzd4ptQ7NDuZNnH2p0aOCor0Ma4Gj1KVW
-	 Np8zFhevfhscJdEsjKdTiOj5zAsV6bUn0+ledtRZUp/yvGi4wdlW+y6gQn5yO+4SBPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795045;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=/p+JFPSCLoZqNqzY8Xr6x+8qcMRi6OZN2NUOCbmiccY=;
+	b=rdO+HpmPFaD+az1QTgFQ+Br0KrM6i1ea9VLdB3ALF3+JgYpfPfxOSWVZUAIUIEAf37QB
+	 oyhBCNGxokU/tHnEKDk/m7qfMNyMzR1A6ZMuz9/ey+djt48R6sF1u6zG+ZJyzgd1Rvd0d
+	 jw6qpKT3+bKG12VNqSh5o1ZwSHjC+7b99ZpLgZEszchSG4BJjUrHofwuOeyyxKud3R1mM
+	 DstPr86grzfgvOMhyhcdKX/aPiPQodUFHQOoZ/FG48ThR6s/ByStWZzb+7WLo0a1l76BG
+	 AoE+y1Z0Ymr/7pM6hsPGwreJ9/S7ONCGcWJ+abzIBB27uK5CapMBhNRlJtqbKyQ9/ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="vw+/4wI1";
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JbpS0VvJ;
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28ECC606A32A;
-	Fri, 27 Nov 2026 15:56:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28ECC606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0186606A31C;
+	Fri, 27 Nov 2026 15:57:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0186606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vw+/4wI1
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 891841A183B;
-	Fri, 27 Nov 2026 15:56:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5587F6049C;
-	Fri, 27 Nov 2026 15:56:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D2F2A11E90CB9;
-	Fri, 27 Nov 2026 16:56:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795795004; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=GinYeuNS3zfPdQXqlusCQKkgNkcFSglZQRXMNJzrcEw=;
-	b=vw+/4wI1eNKzgBTkcg+mP0sLawsTJWyL33ypf6d3M7itaBDh+KtfxdJLyA2dMsahd5+noR
-	yT8uVa2XmLT+IB/N38ogtHxa10ag25dpmqTPGJokWuac7ci8Q4CjPBomCgL9OjQkxUV5cp
-	ZUDItJABgC2hzlHAJ5gtQr5sMli0R2Mkph5DgUk+Z5BY8+sz9vcIfsYppNVVOboojGugHT
-	sV3JNYlJc/I+1LlPAg0xZ8YBM8xE4uavD/B9LzMxxPSbo0zAPzUJ8Bvcx/jL867ol14m1b
-	qvNa6qAo1SmPcbFbIdKCPEfX7z9AJEdhmia/469paM7fjVO29XvFcPwDl+DZ4Q==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Udaya Kiran Challa <challauday369@gmail.com>, andrew@lunn.ch,
- sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, lee@kernel.org
-Cc: skhan@linuxfoundation.org, me@brighamcampbell.com,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Udaya Kiran Challa
- <challauday369@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, kernel
- test robot <lkp@intel.com>
-Subject: Re: [PATCH v4 2/2] ARM: dts: kirkwood: Rename netxbig LED child
- nodes to led-*
-In-Reply-To: <20261027172052.129283-1-challauday369@gmail.com>
-References: <20261027172052.129283-1-challauday369@gmail.com>
-Date: Fri, 27 Nov 2026 16:56:41 +0100
-Message-ID: <871p861d52.fsf@BLaptop.bootlin.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JbpS0VvJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795795045; x=1827331045;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=V+01+EG9ZvJ1k9CcSpXuvtDcOK4UV1iH4HuybqANQEE=;
+  b=JbpS0VvJi/oTe/4YVefpl7BRuA2BgfN5UJt7a28s42xwO7UBiBVM5vvv
+   3uSJwtZibQ8eFyQoFJIvQdQupYGpdn52Vy2NIT7/tPBsIlGLQGBpzV8Hy
+   xyLINiYCTjoXAhsZQxVK9lXFSJpn6tVsHYeEdRwQoeTXYfd2BB8UTbkX7
+   PmDWsj+IIEozyk7gWWvpuuoAweo8/LQEE51d2slOuYWNR+vh/QMNl8gRH
+   txUZBuB0vqtVxGns5rFfcTQ14sNsuANl4o5qmSCtpEWHUhh+pc923VUF7
+   8lTppr7ffQCnAv6WwVD5T0dqoxDeRg4S1WuWZOK8X02EpM8x4gA/6c89G
+   A==;
+X-CSE-ConnectionGUID: F6QDf29JS7aiQyFXawCDAA==
+X-CSE-MsgGUID: IRdKWV45Rs2grdr4//l8Vg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4728774"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4728774"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:57:24 -0800
+X-CSE-ConnectionGUID: aHNZatWGQHWfQmmeyyrSQA==
+X-CSE-MsgGUID: e6gJiaGOStW5EkBtqI3K+Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="14187888"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:57:22 -0800
+Date: Fri, 27 Nov 2026 17:57:19 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Joshua Crofts <crofts@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: dac: rohm-bd79703: Fix full-scale voltages
+Message-ID: <awmoX6cXt140LTDk@ashevche-desk.local>
+References: <0723d51fa973f0204e1c436c08a784b7b1cca795.1795699121.git.mazziesaccount@gmail.com>
+ <3ec029d6-d53d-4cd9-8582-a15cfd3eb4d1@kernel.org>
+ <036d044a-67ef-4716-aa0a-cdf3108c12e4@gmail.com>
+ <awljZLpARRVUFqbI@ashevche-desk.local>
+ <9291049f-987e-4402-b32c-12c33c7aaa33@gmail.com>
+ <awly0_hYZ07aeRYV@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,170 +86,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awly0_hYZ07aeRYV@ashevche-desk.local>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Udaya Kiran Challa <challauday369@gmail.com> writes:
+On Fri, Nov 27, 2026 at 02:08:51PM +0200, Andy Shevchenko wrote:
+> On Fri, Nov 27, 2026 at 01:46:12PM +0200, Matti Vaittinen wrote:
+> > On 27/11/2026 13:03, Andy Shevchenko wrote:
 
-> Rename the LED child nodes in kirkwood-netxbig.dtsi and
-> kirkwood-net5big.dts from descriptive names (e.g. blue-power, red-sata0)
-> to generic led-* names to match the new YAML binding schema.
->
-> Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
-> Fixes: 59cf91cf87ab ("dt-bindings: leds: lacie,netxbig-leds: Convert to D=
-T schema")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202610270710.aWUm0pbv-lkp@i=
-ntel.com/
-> Signed-off-by: Udaya Kiran Challa <challauday369@gmail.com>
-> ---
->  arch/arm/boot/dts/marvell/kirkwood-net5big.dts  | 14 +++++++-------
->  arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi | 14 +++++++-------
->  2 files changed, 14 insertions(+), 14 deletions(-)
+...
+
+> > No. There is zero reason to use capitals in variable/member names when
+> > intent is clear. It only hurts reading with zero real benefits.
+> 
+> It's clear for *you* or somebody else who is not the first day in IIO
+> development, always put yourself into the position of unprepared reader.
+> SI is known for much longer than computer even exist.
+
+Correction: SI as a modern system is known from 1960 (updated in 2019),
+but the early prototype was published in 1901 and extended in 1921. The
+whole idea began in 1875 on conference in Paris for the standard metre
+and kilogram.
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Applied on mvebu/dt
-
-Thanks,
-
-Gregory
-
->
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-net5big.dts b/arch/arm/bo=
-ot/dts/marvell/kirkwood-net5big.dts
-> index 2497ad26b5b6..49deeb40f4e2 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-net5big.dts
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-net5big.dts
-> @@ -85,8 +85,8 @@ g762_clk: g762-oscillator {
->  		};
->  	};
->=20=20
-> -	netxbig-leds {
-> -		blue-sata2 {
-> +	leds {
-> +		led-0 {
->  			label =3D "netxbig:blue:sata2";
->  			mode-addr =3D <5>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -96,7 +96,7 @@ NETXBIG_LED_SATA 1
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		red-sata2 {
-> +		led-1 {
->  			label =3D "netxbig:red:sata2";
->  			mode-addr =3D <5>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -105,7 +105,7 @@ NETXBIG_LED_ON 2
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		blue-sata3 {
-> +		led-2 {
->  			label =3D "netxbig:blue:sata3";
->  			mode-addr =3D <6>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -115,7 +115,7 @@ NETXBIG_LED_SATA 1
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		red-sata3 {
-> +		led-3 {
->  			label =3D "netxbig:red:sata3";
->  			mode-addr =3D <6>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -124,7 +124,7 @@ NETXBIG_LED_ON 2
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		blue-sata4 {
-> +		led-4 {
->  			label =3D "netxbig:blue:sata4";
->  			mode-addr =3D <7>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -134,7 +134,7 @@ NETXBIG_LED_SATA 1
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		red-sata4 {
-> +		led-5 {
->  			label =3D "netxbig:red:sata4";
->  			mode-addr =3D <7>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi b/arch/arm/b=
-oot/dts/marvell/kirkwood-netxbig.dtsi
-> index d4edf2727388..23e8e8b4597d 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-netxbig.dtsi
-> @@ -115,7 +115,7 @@ &gpio1 13 GPIO_ACTIVE_HIGH
->  		enable-gpio =3D <&gpio0 29 GPIO_ACTIVE_HIGH>;
->  	};
->=20=20
-> -	netxbig-leds {
-> +	leds {
->  		compatible =3D "lacie,netxbig-leds";
->=20=20
->  		gpio-ext =3D <&netxbig_gpio_ext>;
-> @@ -123,7 +123,7 @@ netxbig-leds {
->  		timers =3D <NETXBIG_LED_TIMER1 500 500
->  			  NETXBIG_LED_TIMER2 500 1000>;
->=20=20
-> -		blue-power {
-> +		led-0 {
->  			label =3D "netxbig:blue:power";
->  			mode-addr =3D <0>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -133,7 +133,7 @@ NETXBIG_LED_TIMER1 3
->  			bright-addr =3D <1>;
->  			max-brightness =3D <7>;
->  		};
-> -		red-power {
-> +		led-1 {
->  			label =3D "netxbig:red:power";
->  			mode-addr =3D <0>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -142,7 +142,7 @@ NETXBIG_LED_ON 2
->  			bright-addr =3D <1>;
->  			max-brightness =3D <7>;
->  		};
-> -		blue-sata0 {
-> +		led-2 {
->  			label =3D "netxbig:blue:sata0";
->  			mode-addr =3D <3>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -152,7 +152,7 @@ NETXBIG_LED_SATA 1
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		red-sata0 {
-> +		led-3 {
->  			label =3D "netxbig:red:sata0";
->  			mode-addr =3D <3>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -161,7 +161,7 @@ NETXBIG_LED_ON 2
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		blue-sata1 {
-> +		led-4 {
->  			label =3D "netxbig:blue:sata1";
->  			mode-addr =3D <4>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> @@ -171,7 +171,7 @@ NETXBIG_LED_SATA 1
->  			bright-addr =3D <2>;
->  			max-brightness =3D <7>;
->  		};
-> -		red-sata1 {
-> +		led-5 {
->  			label =3D "netxbig:red:sata1";
->  			mode-addr =3D <4>;
->  			mode-val =3D <NETXBIG_LED_OFF 0
-> --=20
-> 2.34.1
->
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
