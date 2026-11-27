@@ -1,115 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.155
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767343;
-	b=Ef2fMLWCmR6+obOH28GlBTuqxlDTAKSqDueQHiPpo+Y0/r/y1B8DvNf4uQf5+0qFMLIa
-	 USr8nSL4LY5HaFErrXlN9bzU4fLGwgLJ/n6dbYV3UIzuRvWa3c66Ji4uOoZxtg1lX/3Ri
-	 y/8/48IgS0Zc9bbBFqblYcMkFDQfce2vVaIHnyP+L4ZtMm3LkFhHdAApxWT3jhwnLk1NV
-	 rSCuus14mey/bkn+ZDtx+9yPdScXpWWqwAFNSJ8PVaUBVutZ3VAClij6mMGZ0BZeMC0u6
-	 v3fXfwNHOZDEbD2Qy6r5zNAJwKKRoc2tyjncFgs29RCG7YQ5o+btckJ94E7rAqWkZlg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767343;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ytZq8gj6jCwazQwgzUyu2K3mPeB6wXaHJj8qdDD6SE0=;
-	b=HW8Mq+3T7Ka955flhe25cDeqTegJV5XAiTqWe6pDe9fOaZt9PfNZL+nLFC4Br5ex233V
-	 ufq69itA5VFwus0EjUB5yrBghJMumQAbqxrRpFFQA5j+tGNcrbmtd0RBV0GcMwRQtASNb
-	 e2amCdm4E1JwVvJzIy/GTYtPR3o5tjQpq4ou+c45C5+WLqVQbabHmJ/7d2Tr8pyLV2DYp
-	 AGi+0mGJz/lcdygctnbAFR2w0pDRAY/PK5X8wZ1fkwFLYt/GFszp49pLbTxCCVAupnqBy
-	 FIOnuxq+H3HDFnf+feBNl4LD99yYpbP9vbTbY1TwDibI81kGmDKwtYknl3XJxcUWldQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pobox.com;
-	spf=pass smtp.mailfrom=pobox.com;
-	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=RW6cxThq;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=qCayskzQ;
-	arc=none smtp.remote-ip=103.168.172.155
-Received: from fhigh-a4-smtp.messagingengine.com (fhigh-a4-smtp.messagingengine.com [103.168.172.155])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.14
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795767375;
+	b=aNbh/zvHauEpsImzdvYOBSR0ox+0gPJe/uk7/dD+Xoif1+uyvc6NCI3NBzW4fw/N+FIk
+	 x22peFiMlARbnHePIjnJywtYAUkSVZ6xuJklQt5CORIIK7uIjVW0Pxc2LQY5HkPDGHWuU
+	 gYS8gHLK5x0hDet22PvsCTkDE5JcW+/3qHN6XeSBPhTjmQnKYzOlKgdOgfVfDS2Dn7ESd
+	 EFGKa80ivONoLnChxm7QLsFqtLWd7oalS9O1/qJL7EGg+515P9FBepKqS+UIN0QVTkVn/
+	 FW6k4nW4RGxtpDwe+pkkANWInFmoC3OgHpL9o5l9HnmpVlPVzU9cw4hvbF3d0Jugasg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767375;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-AtpMessageProperties:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=CeoyH9OfgA7rt7oM2F7FPn4xVXkfy15w73Tz7bphlhs=;
+	b=X1f2jVwvKECe+QLhvEdgzDoFrfc0DxTWgem9BId+2I7XZ2QX+IB79jSWY0YzIaQtRkCH
+	 fVyLlMjxlLU+f8na4qSS6lOUGS9w2aw9f5gU7RD2PryAgMMCfbUTRs0Q6VrxvTjQuWUhy
+	 6WQiWLPUQdKkUNT93fCF9ScptFolmZimSTFQVezXB0MoreEf9h5GO1Hn+noUuZf5OPoVu
+	 nkHPjB6PvL6xP/nhqlNrj13Z9ymSqTiHRIfjm9wpf0UCntm1evfr4jXH23zcXiBPjVG6W
+	 j35MUjyACO8XmFpcZzSblnkaz6BLZVDaBqtN5iFhz8DlMyDz7MBxR/m+9VHvrGt1cIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=altera.com;
+	spf=pass smtp.mailfrom=altera.com;
+	dkim=pass header.d=altera.com header.i=@altera.com header.a=rsa-sha256 header.s=selector2 header.b=GIxbaxf1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.14
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013014.outbound.protection.outlook.com [40.93.201.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09BCB606A327
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:15:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09BCB606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65F67606A321;
+	Fri, 27 Nov 2026 08:16:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65F67606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=altera.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=altera.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=RW6cxThq;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=qCayskzQ
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 3B8EB1400359
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:15:41 -0500 (EST)
-Received: from phl-frontend-02 ([10.202.2.161])
-  by phl-compute-03.internal (MEProxy); Fri, 27 Nov 2026 03:15:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795767341;
-	 x=1795853741; bh=ytZq8gj6jCwazQwgzUyu2K3mPeB6wXaHJj8qdDD6SE0=; b=
-	RW6cxThq+soCVGgX3gm33NtBEea1iyXO57J38LTNBSFDRRlRgEAtG78vKf2uhuNz
-	/HaRmZuJLoijVoswbA+w/90u3/vmMZeGpJ+/BLrOXq6Xz7L3U2ZsHKefY8OHaEJP
-	7xwAlQoIJImHyPI4MD5oglGfO+3V1wqPVUisJbv+vsT3OJk4mte1eOP2fVZguML1
-	Gton9t3aZHDTURGgjayuEsUQn4EoI8D0wxgrzfleAO4AzVrhLooOmQJU/5fNVDnZ
-	doTxPOqbLRlaPurH1/gXkeIRmupcsZmqiP2pCOsYtSI+rFT49fNWrmo91Cp4iT1i
-	YMw4EPRzBno1LeC8laP1Qw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795767341; x=
-	1795853741; bh=ytZq8gj6jCwazQwgzUyu2K3mPeB6wXaHJj8qdDD6SE0=; b=q
-	CayskzQZYS1R3sTMrBCdIqxoKglFI98aToa8t/RIffUmV4o2Arm2riP6qrdnYvmt
-	H8SyVAgGSy1kEZNK4+YnONTgBlj9NAXgxbGDx5DGruTwqKYSzdbJ/jeTPWHpBYcb
-	3+GBkAr7XNjQKbMRDsBgNULtOXjwfnbvELPSwmx0SBly1j/ddpc+Xc5j6EHudGW5
-	tyWXNLBSktzNrjQJJw+0qxqmoSmAE9Y6alrgSTb8GfT1HhqvZXXhLm2SW8mnk/kC
-	tvRxaPoGe0crwfQgAUBhZ7p+z1wI2tlLfDotbdNmPGzaGb1EeQiJlSAxh8KwNQIM
-	Kp/qIAk33R+O8ijE52qFg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=pobox.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795767341; d=pobox.com;
-	mf=PGJhcnJ5bkBwb2JveC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:nR+EH8szqTuM1vj8ulHZQ/CozFib81IrrrnwGTQQboqr+RD
-	B8RV8eGT1cXfH/0sLSOfCGmdn4+dt749UibU/8LnB+pMZ7zh2xSz0yP9cMLIvMZP
-	6pcwjQD3nR+ngFCf/By7JTgO6OlwU56QeFnII9BbzNnSQb4cIHur3Z4Tf/MeUSP0
-	cKvWmrRXebbuxXZUzrqnZytzzf5yXKGpKAE8X+Gh3udnip7jPxVZUQxk1n4LtzOH
-	srARjum7nDgsMH5/V+rzlgSbXHy+i/dPwxg2mo1RACT0/ooq0KopsAd3JUR8XMQ+
-	p22MuEmeewlLBFJgQEglWUAScUK2/H1W8b72HsA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:FPRd9GZgnMs8zbGUlSebgY3SYWizgEq7VJFit7v/JhA=:f8OBJqF8fqCHZSGbC5+3aoXQGyzwkDj3BkithDi3hoo=;
-X-ME-Sender: <xms:LDwJaztM8Vn1tum7-_wkKSIfw0xlmJUzITBvUjB5cwRxO0M3PxHQoQ>
-    <xme:LDwJawXGoWKzKoNV5J-XUGLKveGzrfVfuixr_3-t052xffu-O7Uw3TXG0gD1EcIgQ
-    BNJl6RMeVEo2qA-7urXEr2uswVu9GU2uiDe8aUe5wsyFEuWRDObUFWQ>
-X-ME-Received: <xmr:LDwJayS1eUJTI5Jmcjvt6Smhv203uhwwYQtA3ql01uZSbv6RwLs5hPmclWiI8ywbTNecExV3AyqKEWllaeoE0I0TXgF_gXrY>
-X-ME-Proxy-Cause: dmFkZTFECgzKvlvUqKsDDiGrTI8oVMB7++oRRRSxRaWMMuN1mAnK7KWj6y93eho2RNep1b
-    Jr+l+Ua9ZZ5a8l+j8ak/p+JCIYVUy1w+XEgTyz55LucdKidQTESivejNXFa1QpLxZj4q9G
-    IMwUL6QDD9oM3yChYIaRc74Y/Q7MRXw2U4DrIDvfCapZ40Wfk4TFZPHIvq46nzogawf4+5
-    RX/KavW3M0hxuxdrbK/N2MJ/f94pdJIFGS+Nh8qg8O9ggQLicBzXvt+p9DrdK4pwelDpEb
-    /QQ3TqQhTpij4jhFuWtNMfCYAR+YRBXk4AD4dniJtk7rqWa6LXlyn3kxcFm/3sB81VWJgp
-    sLAZ+NtfUQslZgvpfK+uo7Vdm3mwimZ5mua304gJQFo+MmWRQtRNcDPbLFAAuxfgPG0MbF
-    Aji85MX8rtYAQRAh+SmacutqcgdjZSvSyqYHbaJUgHHeCaT01y+h6OXNdOIzJNobZ9PdVH
-    im3hGQn/Xp+hC9dLTOoVJ7GuyDKoJI549aaIWRVU7103DBqmlPz8Xiki8HA2VjTZP1K6jb
-    tKtAfy0MOfTuEAuBEapZz73ko3PVzK4HxEUbts+Aohatit30KZ6o44rHOF/yNcvwgGWALM
-    /IWCgpenJ8A2JUgHgsDglvKGLoHl6oARLFpy+V3elGrmiC00WgVcDPCDQeQw
-X-ME-Proxy: <xmx:LDwJa2JiMy9KE1RlCDEmns2Ewhpo9ZnMjEOKAloVN2U6PAMKB8thMQ>
-    <xmx:LDwJa72oCG3iqu4yqku1wTXRs6IlNUNj71OYTnQ3vtwFBXraBDKQBA>
-    <xmx:LDwJaxI94Wifl5zQulNanTvj2hu2hBwO17yl7xKjqyVVm7C1V-9X0Q>
-    <xmx:LDwJazlOJ_c9W-g_jt5jnlIs5EnXPxt4nOqRfaYZ5bUaAesCyXF9PQ>
-    <xmx:LTwJa-C78qja8B59fPran9KD8mtLCTykAh2OTRVVmUlDutz2jZS-QCcY>
-Feedback-ID: i6289494f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 03:15:37 -0500 (EST)
-Message-ID: <8c4cdc80-2741-4f3f-9e2f-ee1e696bee6f@pobox.com>
-Date: Fri, 27 Nov 2026 00:15:36 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=altera.com header.i=@altera.com header.a=rsa-sha256 header.s=selector2 header.b=GIxbaxf1
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h98O2LU/1LXCKAGlwjC9dbblJtB2fl+oijwxYSTv1J7jdQjKTY2sGO4fIjl/wjt0vVw0z1G9SNvlIS1ZktH8+FPYXzryHHXWn5yp8FFqxOHlU9kNGG172ygeftOtyt6R/NGQWonY+HiDfXeWxDJ1Q7rx6B8tytAQw+hltQGlcr+TNUmeXnPV/mdgsFucOZhhF/XFyDAqIx4Q3C92pCHL0qnjtwoiPzMkQPvg7PVRvbqXM31QrB+OfuM/BN/eRAa3Uoj/gKP2iO1uGIHLJh5UP7JS4ksbsMCDZy1JTv+KmzM0xRTKNGzQU+mI7Jbn6oiCS/y7HGKEMrcSdXnYce21ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CeoyH9OfgA7rt7oM2F7FPn4xVXkfy15w73Tz7bphlhs=;
+ b=MH1yDFgImlaWJDpMhi3XSSpwe8x8hW5pypxJr/y8NOE5/qvlXQgZ/S/keRaTdn53H1h8kNxHabsaxHzoDYTpRH+CE2Fz9oBie2FJferbjRkGeanyLljm6iqwKbeHp2Rbh5qHiGERsHzb+a12h8/0h8F2wjzKD7jGJzBLWqNZtDM62GKB3A2nLMd+KtDitz0+eD6jRlLRfI4MQIMQbaNNxxvIsHyfvEEsl34oe7DKsF6A52buRwGqfcQTKMMneF7TkBP9N/GtWgPOCAa/KE4Ulptu+L/T3Gffx+ocCqx3fA1HuHYKkbN4S3XD8jHreK2lPXbbtyNOZHgvK7mbf1XBsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CeoyH9OfgA7rt7oM2F7FPn4xVXkfy15w73Tz7bphlhs=;
+ b=GIxbaxf1/mYV6zudQ2o7E/rHn8u/NJMFOJoFQ8Qel0Ob1eN/h5HeX3ipzADYOCEtbZsO+0C9MwFsZfklCHWn/HDedDfRKDz0WUhaM3UrYpcqrbzpG+AuTAs+gHJVrnUb5f4JLjoWaUgsViSM75zV+bPvHjNk+QUr5baeLUhvccQHdlZGJH7/7wLv7dNCgIUn52llhGPbb+ZdMEIh8KV5afTXic0ikm5PDhSt09cLHqVjxZfpIyD6lPXRG/eeymagUNdxJpyiYdSiVyUbo89Re5IarY2pXJOgmxDBKquF+mwv9AzPJzUXND6pRFyU6D5t1Ca0e4Q3zzzbWZ7/BsOACA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DS3PR03MB097838.namprd03.prod.outlook.com (2603:10b6:8:546::7)
+ by CH9PR03MB998594.namprd03.prod.outlook.com (2603:10b6:610:339::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 08:16:11 +0000
+Received: from DS3PR03MB097838.namprd03.prod.outlook.com
+ ([fe80::fa39:2c18:c265:1d59]) by DS3PR03MB097838.namprd03.prod.outlook.com
+ ([fe80::fa39:2c18:c265:1d59%6]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 08:16:11 +0000
+Message-ID: <80b90b90-5f3c-47eb-9891-561249ac5f0e@altera.com>
+Date: Fri, 27 Nov 2026 16:16:04 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/2] Add FCS Random Number Generator (RNG) driver
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Dinh Nguyen <dinguyen@kernel.org>, linux-kernel@vger.kernel.org,
+ Olivia Mackall <olivia@selenic.com>, Eric Biggers <ebiggers@kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, Frank Li
+ <Frank.Li@nxp.com>, Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
+ linux-crypto@vger.kernel.org, muhammad.nazim.amirul.nazle.asmade@altera.com,
+ tze.yee.ng@altera.com, chee.nouk.phoon@altera.com,
+ genevieve.chan@altera.com, adrian.ho.yin.ng@altera.com
+References: <cover.1795167624.git.hang.suan.wang@altera.com>
+ <awkLTH9XLvWLBjdJ@gondor.apana.org.au>
+Content-Language: en-US
+From: "Wang, Hang Suan" <hang.suan.wang@altera.com>
+In-Reply-To: <awkLTH9XLvWLBjdJ@gondor.apana.org.au>
+Content-Type: text/plain; charset=UTF-8
+X-ClientProxiedBy: SJ0PR05CA0207.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::32) To DS3PR03MB097838.namprd03.prod.outlook.com
+ (2603:10b6:8:546::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,52 +103,179 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.12 000/815] 6.12.120-rc2 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261126105709.009001842@linuxfoundation.org>
-Content-Language: en-US
-From: "Barry K. Nathan" <barryn@pobox.com>
-In-Reply-To: <20261126105709.009001842@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PR03MB097838:EE_|CH9PR03MB998594:EE_
+X-MS-Office365-Filtering-Correlation-Id: 91019fa5-f376-46a3-bdbd-08df4c5eb249
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|10067099003|56012099006|260925022911599003|260925021911599003|260925021311599003|261026121527099003|261026130827099003|261026135527099003|261026140227099003|261028144727099003|261022115727099003|261022113327099003|261022105027099003|261022075727099003|261021130227099003|261021135927099003|261021133027099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|55112099003|18002099003|11063799006|4143699003|6133799003|4133799003;
+X-Microsoft-Antispam-Message-Info:
+	xrvfJ9lVvg6BqTS7yIdR5FiegNsxMrGot3zwMbX3Lw6rkUnI29xEEIAPn+xTsNpwaU1UZM3BDbf1oowCqi6PiJsL/i7TD9JahrnXtr8iKBcJ7rQ7yexMEJ/IN3HXVOh9w1AaQ9YRgAhAVdPv5QXuuvJ9MU/K7chTvIy1IC1xg/6aZVIkLzwfldHoBwxzp8qGh1sYVjAoZbANomtD2A7ZSqAfDsu4slJgroxM/vfQ27yj7Tp27e+a9PtJA2UnGdXUEEe261i//X/M6i7GfB/PSDBDGXk7Xue3I+66BxSG68NQYDuFvcL1Eg8oKQRIRKLKxEUz8BhLUChYIrlU+5mBHgrN7lQTgEsNBw1cqi+ci5jJvA2OYpcQRuanEprslm3HkAuogd5YOgd20SJNMqnanb0jKKrd9yizSn2fHJaHjddYAP7wYCMxKbE2F8XbNwVQriytAbSDGnJ8IWQSmtLeOoiZ4Wsyy9gdMa/pc7szRq4vGS+9Ct+LPPcEIN3ouaWNsGFDrg9PLvohCkuYX7d61RVVBQO+dGkGPUakyjwbl/z35Zu48ttalDLSDVoTsDTdAhhCI9p9F6/2Vsq3RaITHbKwtO7YFnNgp22bEd2IPsc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS3PR03MB097838.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(10067099003)(56012099006)(260925022911599003)(260925021911599003)(260925021311599003)(261026121527099003)(261026130827099003)(261026135527099003)(261026140227099003)(261028144727099003)(261022115727099003)(261022113327099003)(261022105027099003)(261022075727099003)(261021130227099003)(261021135927099003)(261021133027099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(55112099003)(18002099003)(11063799006)(4143699003)(6133799003)(4133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?d3RENlhWRHRpNUdhTWFFNlNMZ1NHOGhwcUNvMVgxakNlanRPTFp4c08yUy9J?=
+ =?utf-8?B?YkZQc3hLcWNIM0pNTDFZK0pyaWM4R1NrNVhZK04zcm5OcGRBb25lQVl1emZN?=
+ =?utf-8?B?SENGSWNSeURlUHpEK3VxVE9OQlVlSlVmVkFUdUx5bDgrdElmZ3UrSStWd2RM?=
+ =?utf-8?B?dVZWWTF2eUg4K1RTd05QbTlLOEZqczJGeHFXTnJkTGh6SFVERmNHa3dDemQx?=
+ =?utf-8?B?ZlIvclVKcFhyZjR2dEx3SVZWbytoUU1UQlRIK2FnOElvMzFiOGNFUDR3REV2?=
+ =?utf-8?B?ZnZ4UExOQk9nNWVJMlVwaHE4RVlNQkNxYThQWmM4Z2xuYWh3NXRWSUVkdWEz?=
+ =?utf-8?B?NldYUjBoRmdMTUhxOTkrOXFSK3RNQ25McWkzUW5uMnJsdlBBcXN4enZIcWEx?=
+ =?utf-8?B?SE9CUUdlejVMSnpwNnVNaEhsR05kZWUvdmxzcWFxejlaRTdTV25jbDFYcVBk?=
+ =?utf-8?B?QldWbTZLdmZXZ3RkN09kUHJaSzVnYVpDNUM4UzBiN0k4TUl3YkV0QVRVL2JV?=
+ =?utf-8?B?RzVramxnQTMzVkFEalpmZEo0d0RXY3VTSTBPQnB1aTBHK2J1bVJoQkhkMStE?=
+ =?utf-8?B?bVU2ckJlUjZCcGllRDFMWGxxYm9odDFIalR3M0dwSTZYMXZKZURNSmxQK0hP?=
+ =?utf-8?B?cFRQTUg2bVZkS3NqTWpyTkM3SnlCaldBZnptbWdUazJtaUxBS1JKUmRkemRK?=
+ =?utf-8?B?a0Z3V0JHQS9aUTRkNFptUVc0YzZRWFFiaW9tNzdDSmhGYTNKZWpKa25tVC9W?=
+ =?utf-8?B?bjcyMThPdEd5d0gxZm1GOEtaeEZTaDU1MFlzWERrOElIMkw1c0dDVTVQT0VJ?=
+ =?utf-8?B?OEZvSWpiT01xQXpJbUNCQ096ekFZejBiSDVWWm8zdG5qK2VPalhVR3FBa0xn?=
+ =?utf-8?B?aWZId2xmVkpmTUNabExUcTVDeGRkZjBOZjdkb2ticDZyUjBVeGlQVVI5RmNy?=
+ =?utf-8?B?SXZuWWNnYkhxVXRZTGNrems2UjBaZ3JpbDZYU1Y3YjFmMWpIakhMdjJpTHg1?=
+ =?utf-8?B?Vyt1YnlEV052MXZCamJ2N1V2c2Rjb0RyVENvazdCd3FqOVdlYVFkb05VTUVD?=
+ =?utf-8?B?ZkFiRDN0OUNmM3psVEFwR3dkV0dVb09KS3Z1Vm82VWlmMVlPU1RqdE9pWEha?=
+ =?utf-8?B?L3F2eUJCSTdtRlBPalpjcU1UOWxOREN3b2Nybmp2RUlpK1o5ZFRjL3dZTFFM?=
+ =?utf-8?B?emxUTjJHK1FTdWJ0REFTbjE1Sy9nV3JqenRlanp3MnlERzEvNFF4Ry9yMVBF?=
+ =?utf-8?B?SHBQUUlNY0haWkNxbEtyaVFyTEJxcUlHekIvLy9STWczLzNQLzhOcG5Ydm5v?=
+ =?utf-8?B?R0tGaml0YzRZRFpOaHM3VXdVd3dvVHVyNmgyWWVoSGFJL2ZBajhJM0k3Ykw4?=
+ =?utf-8?B?emI3R0Fua09nbXUwVnd0dmVCcVZaTXk3M3JaV0hTRDFaNnNJKzdIYXFrR0g5?=
+ =?utf-8?B?dGcrTURjL1J2S3ZLazZGSDlsVXlSVmNEbXExK05LT244Y3V4Z1k2YXMrUm1a?=
+ =?utf-8?B?Z2d4QUx5Kzg1QXpjWU5RSUtVaWFyQTJhVFJUdk5ldFUzT1JDeFhoRWlMZjBu?=
+ =?utf-8?B?Vi8rc3MxWDNsSG5ERXVaZlI1MCtQTjN2emcrYzB0R3J4TFVML1pWeXc0NmtH?=
+ =?utf-8?B?SVlzWjkzV0h0aFZZS3dIYXFHYlZLWGc0amRuSUxxaHNDTFJib2xmWjBVU25Z?=
+ =?utf-8?B?bnRhckVsWGk5amlNNC9xa0FuTE10anhidW5scTdUQVNWMzBteVdYejFhK0pk?=
+ =?utf-8?B?akRzTWtxQytpdXg3NHlLQ1YyMjdzVUczVWQycDFKOWVNM3FidVpyNDhFbExS?=
+ =?utf-8?B?OTBBYzlNNVk2M0Y3TmtRWVBveVQvZE91dStPRzRuUEowZEM2Z2hGbVJ4bDBr?=
+ =?utf-8?B?YjYvdGZJVE0rMytOdU4xMGdTaXlJTm54cjYzZHFIby83Yi92SE13VDVURmQ5?=
+ =?utf-8?B?NXorNmxRcFpaRTJ3TCtNdXN0TUVXZ2QxSkc5SE5IbGM3cmpsaVZnVEhBd25v?=
+ =?utf-8?B?N1NXdmlvY0ozWktvc2g1d2daOVFMeXF0WEExenNnWEpxS0hKWmhkbnYzYzFQ?=
+ =?utf-8?B?S3pkdnBPdlZEOU5Qc1RxckVDUEJtMEkwdWdIYjBNaUNtVFJnV0VrQ0ozejBy?=
+ =?utf-8?B?NG40cVpPdDZzbm9rMVd5WUh2YXRtWUZnd29rQ2tGQzlENDFmL2JXVFlscmRC?=
+ =?utf-8?B?OVVlZmdtREdoV1NobndFV1MwekMydXBCaXgvbmtDSGpQZUtUR0o5aG9raWRN?=
+ =?utf-8?B?b0FnUTFyUy9mZUhyTkZKMm5IYzl1bUxLTnFlS3djbGRNNE9zZU04eldNamN6?=
+ =?utf-8?B?RWpqMW5oZi9LbUVURFBSRml5U014N0c1Z1IzQ05WNER6V0plbHJZdz09?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91019fa5-f376-46a3-bdbd-08df4c5eb249
+X-MS-Exchange-CrossTenant-AuthSource: DS3PR03MB097838.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 08:16:11.2435
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: THTUOWqHaolOWOKM7HzvoQ/Ds4JcHu/BtwWXlCwCZaNnmlg3DGutDCzr5S7ws76oF9DXy7RPMYCuRCdMg2dxXeMJDMJ8uDIzUHp6KZgb0HQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH9PR03MB998594
 
-On 11/26/26 2:58 AM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.12.120 release.
-> There are 815 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+
+
+On 27-Nov-26 12:47 PM, Herbert Xu wrote:
+> On Fri, Nov 20, 2026 at 01:51:31AM -0800, hang.suan.wang@altera.com wrote:
+>> From: Hang Suan Wang <hang.suan.wang@altera.com>
+>>
+>> This series adds a hw_random front-end for the random-number service of
+>> the Altera SoCFPGA Crypto Service (FCS).
+>>
+>> The driver owns no session or service-layer state: every request goes
+>> through the FCS core, which serializes access to the SDM crypto session
+>> and forwards it to the SDM through ATF.
+>>
+>> The SDM is the hardware security controller in Altera SoCFPGA devices. Host
+>> software reaches it through the existing stratix10-svc mailbox, which uses
+>> Arm Trusted Firmware SIP SMC calls.
+>>
+>> The Agilex FPGA series generator is an SP 800-90A compliant DRNG hardware
+>> block in the SDM, in particular, Agilex 7 is SP 800-90A compliant DRBG
+>> generation flow and is seeded with the TRNG hardware block.
+>>
+>> Unlike existing hw_random drivers, this RNG produces data only while an
+>> SDM crypto session is open (for example, via FCS_IOC_OPEN_SESSION on
+>> /dev/socfpga-fcs). The session belongs to the file that opened it, not
+>> to this driver. With no session open, socfpga_fcs_core_engine() returns
+>> -ENOTCONN and the error is passed through unchanged: read() on
+>> /dev/hwrng fails with that error, and the hw_random entropy thread treats
+>> it as a transient failure and retries. The open and close session ioctl
+>> was added in the previous series:
+>> https://lore.kernel.org/all/179492434088.3111216.6016447945055810112.b4-ty@kernel.org/
+>>
+>> The ATF accepts only a non-zero, 4-byte-aligned length, from 4 bytes up
+>> to 4080 bytes per request.
+>>
+>> hwrng.quality is left at 0. The hw_random core documents 0 as the maximum
+>> (1024 bits of entropy per 1024 bits of input), and with the default
+>> quality of 1024 that is the value applied at registration. That matches
+>> a conditioned SP 800-90A DRNG, so the driver does not publish a separate
+>> estimate.
+>>
+>> The series is organized as follows:
+>> Patch 1 (prerequisite) extends the stratix10-svc service layer with the
+>> FCS command codes and matching SIP SMC function IDs.
+>>
+>> Patch 2 adds the RNG driver: socfpga-fcs-rng hw_random driver. Add
+>> FCS_DEV_RANDOM_NUMBER_GEN_EXT in the FCS core. The socfpga-fcs-rng child
+>> device registered by the FCS driver. Also, add MAINTAINERS entry for
+>> this new driver.
+>>
+>> Testing:
+>> Built for arm64 (defconfig + CONFIG_HW_RANDOM_SOCFPGA_FCS=m).
+>> Tested on an Agilex 5 SoC FPGA board
+>> root@testsocfpga# ./fcs_client -R dbg.bin -j 64 && hexdump -C dbg.bin
+>> 00000000 15 fc 77 a9 86 17 0b b5 91 b3 db ce a9 39 48 f1 |..w..........9H.|
+>> 00000010 65 00 80 9a 63 b8 1e 99 df 56 6f b4 ef 66 73 f9 |e...c....Vo..fs.|
+>> 00000020 91 66 c6 94 94 38 f1 9f cd 3a c7 6e b1 63 1d e2 |.f...8...:.n.c..|
+>> 00000030 03 ec 29 01 4f 27 4a de e7 7e 67 95 c2 44 e7 04 |..).O'J..~g..D..|
+>> 00000040
+>>
+>> Set timeout to 1000s for operation: rngtest
+>> cat /dev/hwrng | rngtest -c 2000 2>&1
+>> rngtest 6.17
+>> Copyright (c) 2004 by Henrique de Moraes Holschuh
+>> This is free software; see the source for copying conditions. There is NO 
+>> warranty;
+>> not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+>>
+>> 	rngtest: starting FIPS tests...
+>> 	rngtest: bits received from input: 40000032
+>> 	rngtest: FIPS 140-2 successes: 1998
+>> 	rngtest: FIPS 140-2 failures: 2
+>> 	rngtest: FIPS 140-2(2001-10-10) Monobit: 0
+>> 	rngtest: FIPS 140-2(2001-10-10) Poker: 0
+>> 	rngtest: FIPS 140-2(2001-10-10) Runs: 1
+>> 	rngtest: FIPS 140-2(2001-10-10) Long run: 1
+>> 	rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
+>> 	rngtest: input channel speed: (min=495.429; avg=52178.721; 
+>> 								   max=10000000000.000)bits/s
+>> 	rngtest: FIPS tests speed: (min=47.329; avg=70.926; max=91.699)Mibits/s
+>> 	rngtest: Program run time: 807497698 microseconds
+>>
+>> ---
+>> Hang Suan Wang (2):
+>>   firmware: stratix10-svc: add FCS random-number command for Agilex 5
+>>   hwrng: socfpga-fcs - Add FCS random number generator driver
+>>
+>>  MAINTAINERS                                   |   1 +
+>>  drivers/char/hw_random/Kconfig                |  12 ++
+>>  drivers/char/hw_random/Makefile               |   1 +
+>>  drivers/char/hw_random/socfpga-fcs-rng.c      | 133 ++++++++++++++++++
+>>  drivers/firmware/socfpga-fcs-core.c           |  71 +++++++---
+>>  drivers/firmware/socfpga-fcs.c                |  33 +++++
+>>  drivers/firmware/stratix10-svc.c              |   8 ++
+>>  include/linux/firmware/intel/socfpga-fcs.h    |  23 ++-
+>>  include/linux/firmware/intel/stratix10-smc.h  |  46 ++++++
+>>  .../firmware/intel/stratix10-svc-client.h     |   1 +
+>>  10 files changed, 300 insertions(+), 29 deletions(-)
+>>  create mode 100644 drivers/char/hw_random/socfpga-fcs-rng.c
+>>
+>> -- 
+>> 2.43.7
 > 
-> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
-> Anything received after that time might be too late.
+> Sashiko failed to apply your patches.  Please rebase and resubmit;
 > 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.12.120-rc2.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.12.y
-> and the diffstat can be found below.
+> https://sashiko.dev/#/patchset/cover.1795167624.git.hang.suan.wang%40altera.com
 > 
-> thanks,
-> 
-> greg k-h
+> Thanks,
 
-I took 6.12.119 and applied the stable-queue as of commit
-936541b23bb407322981540c7964c73f2ae436f0 ("drop 13 patches, add 2 and
-fix 1 based on RC review feedback"). That's the current stable-queue
-as of this writing and includes the changes that were made after
-6.12.120-rc2.
+Sure, will rebase and resubmit as v2
+thanks.
 
-Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working well,
-no regressions observed.
-
-Tested-by: Barry K. Nathan <barryn@pobox.com>
-
--- 
--Barry K. Nathan  <barryn@pobox.com>
