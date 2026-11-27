@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783813;
-	b=Bg9lzDAEMxz1CjiqDG6xsjYyGVkosnq+16TTWdhufMjtAz7Xo/YxLpEgALwiPYQcWa0M
-	 9XNIIT8JbOBxjOUDVoMAPsOZ3K32JyGQlNGyNHwUixRQv9LxAjXY133mBgk5Bej9pU6kP
-	 JHKLtAmg/uaFTgcJut1FOlxAVoi8uZf9K09Pr2Ml+n5lK4VRC01bP+IuMYe7HsmapKgUq
-	 4EXXQ+6RYfhHhLrE0VHjt7kNYqZBtfSKcBVaY+1QF5P7ybQd4JO0yMYbSaxlVgaXQpAEa
-	 wxKChvn4feoTpPNYpDlnP9aUBmDbj7VdCy732XNLq3X7R9GkO52H21ZFHPjIUnWq+2A==
+	t=1795783828;
+	b=RYhhZ/jyj7BHCxuBaCcfSLhC5+84GI7+n68f56kmBn9a9d14eE5h/2rbb/qKdcOI3TFZ
+	 el0rV/HW59Cw1oOgWCm6hmxm7WEZeFwtfXvSN3aqWX+X5KKmKnFTYVXGWVci+CidBtu+9
+	 NCSq7aK/gEk41Dpu7FMWI+5bHc47seAx4A0P2b2pZjbdWICV1FDA1QC85dl/jD4d0RxsD
+	 MFeMls7moBzOUOemfrzfUDxBwy7M6yfephjIbnL+GMJufSjsM02BAQ4ysOHngddAqH/Nn
+	 fM7N1zGVM7LN6PPEYiTbHde08Yb7RA9cD+LGvIr7volhUIHT7oky2nsN/ETFbeSUgsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783813;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type;
-	bh=FnO1x2d+/C83Q2nzhrZlov1274fH/sTNuAJTsOOpadI=;
-	b=oIR67sTMCzKZkcD5tzamwuOgRdF8zGa/KKQ07KelYztKCdCJtmOidUF36An/IMxJ82zq
-	 ocjXhEcDMcCMnZ4REJBVOwwLohfv0rC60iyWq3ssDUEa0woAoteUxrwzkvMPz//D53KMJ
-	 7dBV2ckeiG3k46/dCI/6LHdDkAA4GwRbTJkT60DlXLwhhtI6i2RgcJrP1+rJEL9Tksug9
-	 HDpR9POK5FxKDW5uE2XDFxktQEBk174BFK9Qh7e4SVQkPjuQyrSEvKmo9xx0p2pX/xLCx
-	 b0ivf7nKPAIXLOJsJyMxufu6xtXhj0uxGQSJgQ7fiORpO4lIzIAc5C9TN9J7n/blQOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783828;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=W33ZWbAqogJ53umhTfYSfZyh9+/3Wp9/3r8GuyQJTHo=;
+	b=kxmlOEAoZF/LiNQ7ZBR0Jp82V6FxVC/Oz6Vlf4qSS7nCYnu+Skb37orgPK7kdzggtcpt
+	 OS3qQEC+Lfvhka3KrKpnHj4t2l1m6oXscJWhxIrTYbl4/N55d9BIe76gm1QS6oUr8zQBW
+	 29wyiC9ImhEgJUezQyK0aIuwAusk+V7JZcVWsms2AMocSnY/ivTOBM3lqhfnldw1qrFkx
+	 c9jTMPMOaw56/SMjlwzOnxZ7zvRvU+zLa2xByq5EKucsd4skHp841sGnIaoP1wXiDisOl
+	 eHn1Zk+tm8ddZlH7vd31q6m3R9fzzQNaeC8usrQVVzN4X+vxQOivE7RDkptKxEc+KCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e9ZhQYbE;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AirIuTDj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8156E606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:50:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8156E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C862606A324;
+	Fri, 27 Nov 2026 12:50:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e9ZhQYbE
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48e09aa5264so4720765f8f.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:50:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795783812; x=1796388612; darn=vger.kernel.org;
-        h=content-type:in-reply-to:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=FnO1x2d+/C83Q2nzhrZlov1274fH/sTNuAJTsOOpadI=;
-        b=e9ZhQYbE6j7PdWndI6E/2lrL2HAR+5o3DKCqdxs+8QL88rGptmUYZUjO3wQoUmxHp2
-         veL+isNGvrK0WolaksoAQX4UHCAOGcet8/S3f12ygEWaEUmFPMNBdUhl3TZp3WAEGqf3
-         4JT/Ef0JQEMP4Oe+fJBC0GH5e7tP42q+y8WCvFT+61J0p9Q9z3xO55YzUId+Pxj6K19T
-         zx7Vr0wDZVwA57cWGopIVIqQ7y4uI+eAr0pS5Ht7IXmXMtfPzr9WE/niv/XqviILKLo7
-         7sNEuxs7jD+uDSpbiduWphjj9Cgkl4SrtM8rQjSZJ7JL/mrssShWA0D4c/n94T9oWNSh
-         /6ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795783812; x=1796388612;
-        h=content-type:in-reply-to:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FnO1x2d+/C83Q2nzhrZlov1274fH/sTNuAJTsOOpadI=;
-        b=SE2fb3dvJ51wzbAyg5CNyA1TKrc6YdQiQD1f1EK+GoymFM1lnveP+CEonBcMh+xHOO
-         0rnXdRPmJD97uzzeS8k0JqG1rqRTJ4w+DUU8LpTPBThbwhb5sgjZls2HIRretmpXRz5q
-         kNTn9zjFmj1XRh+e6msvuAJBRZicZaVcSAzMCR3E2mPxwftp6V6E+kqZ/sxg2sawVCCi
-         3Xge4nNJ5XUbAH42MNyTkp0G0uVn5FiiHp7xZxq9OcFq9fcsU0qJOBYfA1KwnSmV6G2C
-         IXF2SiLhh6YWdlUKLky2xUiBw1dbtCeG6nxyV/pTTdK2RNnXOFUWSfjROXN3cMT8ljwe
-         kHcg==
-X-Forwarded-Encrypted: i=1; AL+hErHadZwBTijG+i1ormdch5T7UTIraerxESF3kobu2lVoMzffGM3xPMZ36OmFtdbev3L44Nu1VNUHesqf9MM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8gs6dGQ7LNSRM+6nkY3K82YH2iWA5aHZ9beTkQK0Iy70bPX334
-	uyJKB3bNG7Rsk/xvPmkYKK0ZGTrX7k5tCMCC2kzelECfC/CI6oFHZY/9
-X-Gm-Gg: AZFdTZdt/l3EF3BGhkiar5+wXENmlcOXyGJLdttO2w+e6sv/14qyTvAJA1JT8KoLcgo
-	bl83klrIk2lJnPqL0Vv/CJa9yKgfTnr2Yid8RKlUtbHD3FP80FGjZVySWRlbbuMOjUeQFmE6Gdb
-	1uraFIQST90khdKR4UKj2fSv/MQUFywaVFHJ9ZGxCJt90jO/qTxGFMZ59LwaoqEwAmtONr5s/y3
-	1kgCwqB76vCJZEdBg9Iqv/BAc63hmEIAnSwd/Wuu/nAvG3B7BwuMSKdhu8s21eIseE1+hPwR4fO
-	dq413mRz9oraBpEtYZmMWGk3qwHeI8jNpFUTFXLrZhCR8D34jlw4ZNj1brByzKIojFTB62VC6EW
-	XCsnpdC1+wP3n/3hgQ0c/7I8YnJJCxUcrxVEWucJr5s7qibYFtzISNEFGcga4qgcM2bB2rINpec
-	qQXndjQSprEN6OtC7KhJPEIvWYgY2Lymx2SOCmhyJBDvCkzcjkprU7xX7qe78+3C2CXYAShgZt0
-	ytZPMrhqI/X+Rh32mYfoVBumWFN9MgyeC5Pp4GuLkfxvnWT/FUOiHddb3Fo4mcQcsVq+aJh8+Ev
-	mOLOCWN1x59AwQgauUonQOqADGOdf4njSCWqeHt75ornmmjDwYMRtnXDyA1jdB0uekFMLUNTUO+
-	m/D9IvuyPMl8fXI9klw==
-X-Received: by 2002:a05:6000:41d3:b0:48e:d36:77 with SMTP id ffacd0b85a97d-4abaa97737emr47215381f8f.4.1795783811629;
-        Fri, 27 Nov 2026 04:50:11 -0800 (PST)
-Received: from [192.168.0.41] (bl22-190-205.dsl.telepac.pt. [2.83.190.205])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm47852629f8f.16.2026.11.27.04.50.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:50:10 -0800 (PST)
-Sender: Julian Braha <julian.braha@gmail.com>
-Message-ID: <d9151015-1316-42fc-89b1-d93cb0249d6e@gmail.com>
-Date: Fri, 27 Nov 2026 12:50:08 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AirIuTDj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4891F1F00893;
+	Fri, 27 Nov 2026 12:50:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795783827;
+	bh=W33ZWbAqogJ53umhTfYSfZyh9+/3Wp9/3r8GuyQJTHo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AirIuTDjfRmTVGbK9JnkyMy8E7eo/GJzZRq6q9zZ1QriAI5LEXxLatau5rUsP0ZvK
+	 fGqi5id/In9k2+a+86QnYvRJ1byLqiG6zKOA3fcUHRvFaHWKcQBYTa1pbeMnBbBcGA
+	 ktwgzM22czpKsVCCUWI2XEsguGJ2IFpuhWWiHfMvKtt/3VLZibK/WakTB0LgdvrwdJ
+	 we2BZOUKBrWEJ8NKpoPh5V8cOuz6CR/iMpP/o731SHG5Ed/8AfzA6HooEgL1miqWuL
+	 znaMPoqy1G4sYY0VqnZbzroe2CE4NqaQKU6U9xaFRM2T7ielA/ZfY5B2oxNg4TCWeV
+	 /Iosxnb5pZw7g==
+Date: Fri, 27 Nov 2026 12:50:23 +0000
+From: Mark Brown <broonie@kernel.org>
+To: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-spi@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+Subject: Re: [RFC PATCH v2 0/1] spi: fsl-lpspi: add atomic transfer support
+Message-ID: <2353f854-7cc0-41d7-a1db-37d6f72e4c8b@sirena.org.uk>
+References: <20261127073454.351296-1-chunyuzhiqiang@yinhe.ht>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,130 +58,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] scripts: add bit count parameter back to host hash
- functions
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: nathan@kernel.org, nsc@kernel.org, samitolvanen@google.com,
- ljs@kernel.org, david.laight.linux@gmail.com, sashal@kernel.org,
- lzsx618@gmail.com, zuoan.penguin@gmail.com, petr.pavlu@suse.com,
- jani.nikula@intel.com, xur@google.com, sidnayyar@google.com,
- robertusdchris@gmail.com, acourbot@nvidia.com,
- linux-modules@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261127000015.3662267-1-julianbraha@gmail.com>
- <20261127000015.3662267-2-julianbraha@gmail.com>
- <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------jQ00QMhwmgorNfZxtX025rYx"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Wp/eDE65bMRInR4B"
+Content-Disposition: inline
+In-Reply-To: <20261127073454.351296-1-chunyuzhiqiang@yinhe.ht>
+X-Cookie: Sank heaven for leetle curls.
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------jQ00QMhwmgorNfZxtX025rYx
-Content-Type: multipart/mixed; boundary="------------OtdfgwIauxllpYjoIU7uHsIu";
- protected-headers="v1"; hp="clear"
-Message-ID: <d9151015-1316-42fc-89b1-d93cb0249d6e@gmail.com>
-Date: Fri, 27 Nov 2026 12:50:08 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] scripts: add bit count parameter back to host hash
- functions
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: nathan@kernel.org, nsc@kernel.org, samitolvanen@google.com,
- ljs@kernel.org, david.laight.linux@gmail.com, sashal@kernel.org,
- lzsx618@gmail.com, zuoan.penguin@gmail.com, petr.pavlu@suse.com,
- jani.nikula@intel.com, xur@google.com, sidnayyar@google.com,
- robertusdchris@gmail.com, acourbot@nvidia.com,
- linux-modules@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261127000015.3662267-1-julianbraha@gmail.com>
- <20261127000015.3662267-2-julianbraha@gmail.com>
- <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <CAHk-=wjcmmgrJy6rknMOTJ76O92QSAMSUaUPKC6N=pASPsxPmA@mail.gmail.com>
 
---------------OtdfgwIauxllpYjoIU7uHsIu
-Content-Type: text/plain; charset=UTF-8
+--Wp/eDE65bMRInR4B
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On 11/27/26 01:16, Linus Torvalds wrote:
-> On Thu, 26 Nov 2026 at 16:00, Julian Braha <julianbraha@gmail.com> wrot=
-e:
->> Accordingly, adjust the callers of 'hash_32()' and 'hash_ptr()' to use=
+On Fri, Nov 27, 2026 at 03:34:53PM +0800, ChunYuZhiQiang wrote:
+> This is a resend of the fsl_lpspi follow-up to Heiko Stuebner's "spi:
+> Implement a atomic transfer as a last resort" series.  v1 was based on an
+> earlier revision of that series and no longer applied; this version is
+> based on current broonie/spi for-next, where Heiko's v4 is applied
+> (for-next 63083539d2bf).
 
->> the additional parameter. This is a pure refactor (no functional chang=
-es),
->> so pass 32 to preserve the existing behavior.
-> I think this is the wrong approach.
->=20
-> I'd suggest hiding the size of the hash table in the table itself, sinc=
+Please don't send cover letters for single patches, if there is anything
+that needs saying put it in the changelog of the patch or after the ---
+if it's administrative stuff.  This reduces mail volume and ensures that=20
+any important information is recorded in the changelog rather than being
+lost.=20
 
-> ethey are all constant sizes.
->=20
-> You can do it with some typedef tricks - not exactly pretty macros, but=
-
-> the end result ends up pretty nice from a user standpoint.
->=20
-> Something like the appended TOTALLY UNTESTED patch.  It builds, but it'=
-s
-> literally a quick hack.
->=20
-> What it does is to turn each hashtable into a 'union' type that has the=
-
-> hashtable head array (as 'hlist[]'), and then a special 'hash_bits[]'
-> array.
->=20
-> And the 'hash_bits[]' array isn't actually used as an array, it's
-> literally just used for its size: it's the number of bits the hash tabl=
-e
-> has.
->=20
-> So now you can take such a hashtable type, and always turn it into the
-> number of bits with just
->=20
->    sizeof(hashtable.hash_bits)
->=20
-> so now the hash table itself inherently carries its size in bits with i=
-t
-> - no need for 'ilog2()' or any other crap to calculate the bits.
->=20
-> And at that point, you can now just use the high bits of the hased
-> value, and you don't need to pass in any hash table sizes.
->=20
-> You can actually even pass pointers to these things around, but you hav=
-e
-> to do it with that original named type, because the size is carried in
-> the *type* itself, and it's not just an anonymous array.  Nothing in th=
-e
-> tree does that
->=20
-> We can't use this trick in the kernel, because the kernel hash tables
-> aren't all fixed sizes.  But for the scripting code, this should make
-> the hashing really syntactically simple because the size is always
-> there.
-It's a fair point - I see why it was simplified in the first place.
-
-Will take a close look at your code. Thanks!
-
-- Julian Braha
-
---------------OtdfgwIauxllpYjoIU7uHsIu--
-
---------------jQ00QMhwmgorNfZxtX025rYx
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+--Wp/eDE65bMRInR4B
+Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-wnsEABYIACMWIQT6qjll++tIFxF8TUPElYPCBXNxIAUCawl8gQUDAAAAAAAKCRDElYPCBXNxILMM
-AQCI30PiL/2psxDIoyOwHOQ9RY6h7g5E5tfq+Gq63YwniQEAhEr91ZFvAJF3tQJGNDhi8qqDWe5b
-5WTY6N2nBSYumAg=
-=nk8c
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJfI4ACgkQJNaLcl1U
+h9Bq/ggAhaW3p2gDhiNaCetn04LlSdl1cazk/E6ADdSZ8g08WxgJSNxRrrQhOMqI
+z5gmc6z0ul/a1ZXPCTq7Kex8PrdmTqxTxc5QF/kiMA5B3JTUcvCuqnUj4Gonp+k6
+X5mbgV9RKlxnkX2vCxFH4RlM8wLbq2ypJkHMue7Ax4PbzEf7PCpR4bx8Hg4kOQQ1
++xIx9Noo0+4ZBSqU/+H0Sx/P46WRclVm7PafYucz/8l3h42L0hqxjuKUOBvyCMtJ
+xxTXs17dchB9X7anOsXahtDUOOxWwjjcVZDPDZN3OYi8zyciHwL9KPNJ/uUkV4LO
+OLqW35ipe9Q8b1sqjQ5FOj5HeaCdDw==
+=t356
 -----END PGP SIGNATURE-----
 
---------------jQ00QMhwmgorNfZxtX025rYx--
+--Wp/eDE65bMRInR4B--
