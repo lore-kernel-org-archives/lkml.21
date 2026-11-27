@@ -1,60 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791153;
-	b=c5XrFSysA6lk2N7bIgf3xknOk4Qdp8JQqgUDqN0T8sL31sbWy8DCjsIOc/FRu6a/DulP
-	 zxJZF318ZSCGWHnO9CsI5qxHLmNsSOe+XGVsF4Lhi459nXAq89ubWS2ShoqqJ/RSW055p
-	 V7CKoVjzV+07m3apnCDHK7rUzSfigt002TyQvhie33pEpnrjUGbcrpZm7r/eBDzHM1PVI
-	 shugHK0xailW7z+5ZXz7kJKfdctT/p0OYKvHyp5lqSZ/Ot/g39I3mLkC5P7/YwSQW06MX
-	 QN+UaTDjmyyOqVOItZBznpXnj9oo113QViMKToJ+fQ4gRLoj5jZMDOVvkkQfaNqIukA==
+	t=1795791159;
+	b=WwO5cEGFdzk3KpEsSsjeifdL/h5Wa0h8PyPibzvGIRJC4pkP04r3m6fRMwOdUvkgilVM
+	 klQHrALhPfa7SBVHuwT6hH7c1QvGAaw8FDXkx0payv58cI+ZWwnyYMB0hm2Qz705mXids
+	 cNRn3gL54fJ8hKjgDdpExQco0g70ANGfLCqbLwd03gQo5nTZWmHYKL8P8Ij/C9rB1N9Fp
+	 HV+eEIpETbhtysz6MHtTj0ap6cERVcrZbZEaBNNDSApUZwH5RMB4t3I/v8SOZkhuj2cnE
+	 2JGvd6kaQc/PD8CuqNBhXEvYbPIGRlieYFiGj+TWw3wPVLxtWLUy0wTlyrI2SPy+6Dw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791153;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=TI+JLkq35PD/7jmEqoWqvfXhE2Ug1oyIciBP2hglf3I=;
-	b=ziyefp5wWw3mIgRmVB16fY0K7HJr3W2EspAmVbOb641h+RjWQhZCZiy+iMmDc8hL8i5u
-	 e62wzrMHQ0CddVT5c6VqQPujYYxGCHMmCjC28lEP41AVmlDjX/DTFjZg3fkSuOQN38h/Q
-	 NYvyWDAXva8TwgdtJR6bV8RVns9GQUbUbN1+U2cRefsXgMdi/0SczU8RyfQu4LC3rjMHP
-	 KGdnAX05iocBvU/BRP1qtjW5y5WxRoQgk4y3Ecewa6KD4FZ663nRnGlLaXsMG1SDetZ7u
-	 FaK8JLg+ykf5tWD5cUSSzQRGxPnhhqRVznfk9w8ZY4hWkmCn3O1uga9dQYh47qV+0Cw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791159;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=b5/LXc/PV1p41Z52dor0O1yla1SUxwvD4thgwYAExNU=;
+	b=rhDYLdRxAtiBkDJsKtFvOBWIsUyaHkET7B0MFZpYhBdETzER2/dc7JGdqZjkrkQy70Kz
+	 6L6a0PUGyH/ZxINU3DhzNxfXfhmQkTKWnI0Kjv3ClJaO8BZ2JGPMNUlpWsZfYYB59Pd7B
+	 b4YEy7rMYk2zOBn3BCJBG87rZDEmbtbD0S/NSti13SfGwsFm+wdS446PERCghZfAvH1Y5
+	 vYmmcgum4aPPUMRBSP1iN3WVCyU8WMZTGhbX3p7hqQDYoKXRMrmDQM+kibrbhmFmOVTvM
+	 4IXbt0k6fL2hHiieTp2yqR1q2PSBXRNSrSl4INMWNK28nvMBTI2uEM2muluoRImb2sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IELTKO+K;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zEvitNEh;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE3B7606A31E;
-	Fri, 27 Nov 2026 14:52:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA632606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:52:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA632606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IELTKO+K
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA5821F0089B;
-	Fri, 27 Nov 2026 14:52:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795791153;
-	bh=TI+JLkq35PD/7jmEqoWqvfXhE2Ug1oyIciBP2hglf3I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IELTKO+KhBDgZw83AHHGNyEvCPJ5W+mSxiEtQ0AE7IWHeQje/3sptqGrtItjJVKjB
-	 6HVTL+0zoRLvCmHB7lGRCJDpdYQ8KpfarakL7VWVpMy3LThyTci/JsEMRjJ7sNxofr
-	 zLW1Gfr9saiwlQ+R69Wq0+p/M5GKg39BRuh2CqbjVF7peu4f9Obss3p1uicUQtcmm8
-	 7MDeACAn/R7cRlPDf1w2mwWbGAHPxtKeSYqySas4sAeP3JqjhtOhbSq5kBXC1b6UTx
-	 ZyhfXseA7QttGmP69zopTPkIs8ePkEDoWNFm6pNetRl7qqUZuie5PrCRlKdOK9OoWP
-	 ROAgB7FPoCSWw==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Marek Vasut <marek.vasut@gmail.com>,
-	Russell King <linux@arm.linux.org.uk>,
-	Uli Luckas <u.luckas@road.de>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2 3/3] Input: matrix_keypad - only stop and start active device across sleep
-Date: Fri, 27 Nov 2026 14:51:56 +0000
-Message-ID: <20261127145209.2884170-4-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-In-Reply-To: <20261127145209.2884170-1-lee@kernel.org>
-References: <20261127145209.2884170-1-lee@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zEvitNEh
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso3728989f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:52:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795791157; x=1796395957; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b5/LXc/PV1p41Z52dor0O1yla1SUxwvD4thgwYAExNU=;
+        b=zEvitNEhQnnkiFfqCrFSmJe+hMVBkZHMIbQ5+wsYaBcP4NLZ8235SkJx4KWb4zRgBE
+         Evucn/5SOg8iMaEsllXq8vuYyz5PyaDLKgYdYdtvv3nFi/U0muzua4n0zVnwLzuWb6Kd
+         ntEjM7TioiNmYpGx33RLXlkzd4VcEMUICJKt/yxZr0douR0fJSAQkiEOgIPuLHzV+3dA
+         T5n20yuKRVEFok4okMDbnQYmIdTCsIKDRM36AS7o2UkeiiIv+/OyRyT+HafxNOHNldNk
+         e8Zq/RzwshKW2MJdL8QRcLmqXs3VR+9emZfnU8/XvzzfPyjZKfAHuslC6kupR9RqU0Ub
+         lbLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795791157; x=1796395957;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b5/LXc/PV1p41Z52dor0O1yla1SUxwvD4thgwYAExNU=;
+        b=ZLRKFKWQ4pHy19BcNZC2F+dAOQ9EgQd0/piaVhvaEHR0U94rpbS32UpN9OC5vxpvSY
+         8x/lPH647etF+mJfwC2E5h+0fD6C2E0VLNB1gl/Om7WkhwENJLo/qLuLnLgzDrTLt4QD
+         iAUO01tMaGzIglvFGrGaSqh2ZPVJstiTKxpFIun6xHAxAEUHizpHyJ6G/mrx6LPgNiaW
+         Jq4+91UckBZbP7y+dbS/JtusgqsZlmlzcqzH1PUlUwbByUfkSD8S34S9KriwxFpxz9lB
+         K/O7SuAS8HrnQMm5J9d0MBumqNVHqv5RNqYlGNZuowDL2PuVYICN88XbeBn81QWC7vbH
+         W41A==
+X-Forwarded-Encrypted: i=1; AL+hErEhO6Oll3fCPCtYjvaBPJ3QtJ7Aa65+LvUsHHTO3ECdq0nDp4njr0GN0Ni9tCYIjsdjBcCXn7N0V3hKMfw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9N+sY1fnGG1tLrwCAau3POKQPUj5sNhN/o+dDMm9mKW4Hn8vWq
+	085jcQzOSgfnV7ETfsd46zIw601nUlzobovhY5y+d8WtvqxpqQrwBe9C
+X-Gm-Gg: AZFdTZcgkALDW+LxtFMjgNi3FUOHqAhEc9RYtWz51bih2X5ldC0EbV2AGaKgi3XrRTP
+	ApnGc/KbqYqSPPenI8BSCEJ/zpFA79jfNzrzK8dG02wQ3B3IL/jlSEHc4wFtpIc3sKWVdrCpQEk
+	2cQqJSpJsKa+SMmdUqmn36xc0W9Ksz3CR6DLxmOctfkn+vOn+k+bgU5utqV1PMLmnqE1XWgjaLR
+	Yn95szR4M3iZs91KUT4GaJmB9tcBqmZ3mJ0eaKwXBFvHPRJrdi1xLkyvN9OxFu7PtfQBYcH3+RD
+	NpDFXHnpyeD9Q0WcMbpKiixCWMFaa9g4tlsd8pQGsaNRPUw7f30qeh7UKroeFFCI+slnIgE4koK
+	2nIj0nwOMxX6Lg8uSZPz42AKYsICqZE/HJiiSEvIOc6gKDY4voGJQZy3nX1raAoZ1ltX95rNhEP
+	lYNUwRrGvvvkKgjsrgoDG78CxwiXEdlVsMU+D6itZGTi1xMZilXuHzkyfwWiYqiXME+5XD3JW9g
+	LVa3bmJn5hYy7b2h/jeg88hrn/HKC0G8BQziywoAhZkIbHxMIUjOcBXQHvUTeSGwqXWK2MlxOuL
+	VTgqrNfilf87vHRiSH62TwTYed+5Tv1JExJlx0Dz8toJdOULGcFxxUpxvD49NcClXrW2nG9BCyH
+	GCNpGvUaLyHmtSMzhwmPb90OP
+X-Received: by 2002:a05:6000:4916:b0:4a5:e50:ea5e with SMTP id ffacd0b85a97d-4abaf64bdfbmr40825861f8f.9.1795791156957;
+        Fri, 27 Nov 2026 06:52:36 -0800 (PST)
+Received: from emanueleg-nb (host-87-4-46-207.retail.telecomitalia.it. [87.4.46.207])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm54475280f8f.55.2026.11.27.06.52.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:52:36 -0800 (PST)
+From: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
+To: Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Sebastian Reichel <sre@kernel.org>
+Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] power: reset: tdx-ec-poweroff: fix return value on command failure
+Date: Fri, 27 Nov 2026 15:52:12 +0100
+Message-ID: <20261127145216.2058830-1-ghidoliemanuele@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,63 +101,72 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-matrix_keypad_suspend() and matrix_keypad_resume() unconditionally call
-matrix_keypad_stop() and matrix_keypad_start() without holding
-input_dev->mutex or checking whether the input device is active.
+From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-When the keypad has no open users (or is inhibited), row interrupts are
-already disabled and keypad->stopped is true.  Suspending calls
-disable_row_irqs() a second time, unbalancing the IRQ disable depth, and
-resuming clears keypad->stopped and schedules keypad->work.  If the
-device is subsequently unbound while still unopened, Input core skips
-the close callback (matrix_keypad_stop()) during unregistration, leaving
-keypad->work pending or running after devres frees struct matrix_keypad.
+When the power-off or restart command cannot be sent to the embedded
+controller, the handlers return NOTIFY_BAD. NOTIFY_BAD includes
+NOTIFY_STOP_MASK, so the sys-off notifier chain stops and lower priority
+handlers are never called. The system then halts instead of powering off
+or restarting.
 
-Acquire input_dev->mutex in both sleep callbacks and only stop or start
-scanning when input_device_enabled() is true.
+Fix this by returning NOTIFY_DONE in the error path too, so the next
+handler can take over.
 
-Fixes: bab7614d6d1b ("Input: add support for generic GPIO-based matrix keypad")
-Closes: https://sashiko.dev/#/bug/linux-340f2a74-becb-415d-b1c2-6da8f05a8bd8
+A failed write does not guarantee that the EC did not receive the
+command. To avoid running the next handler while the EC may still be
+acting on it, wait EC_CMD_TIMEOUT_MS unconditionally.
+
+Fixes: 18672fe12367 ("power: reset: add Toradex Embedded Controller")
 Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
+Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 ---
-v1 => v2:
- - Update the Fixes tag to commit bab7614d6d1b ("Input: add support for generic GPIO-based matrix keypad").
+ drivers/power/reset/tdx-ec-poweroff.c | 22 ++++++++++------------
+ 1 file changed, 10 insertions(+), 12 deletions(-)
 
- drivers/input/keyboard/matrix_keypad.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/input/keyboard/matrix_keypad.c b/drivers/input/keyboard/matrix_keypad.c
-index 21c7df4e2e7b..370c08e6e264 100644
---- a/drivers/input/keyboard/matrix_keypad.c
-+++ b/drivers/input/keyboard/matrix_keypad.c
-@@ -268,7 +268,10 @@ static int matrix_keypad_suspend(struct device *dev)
- 	struct platform_device *pdev = to_platform_device(dev);
- 	struct matrix_keypad *keypad = platform_get_drvdata(pdev);
+diff --git a/drivers/power/reset/tdx-ec-poweroff.c b/drivers/power/reset/tdx-ec-poweroff.c
+index b4f1c87f5651..5d025a724392 100644
+--- a/drivers/power/reset/tdx-ec-poweroff.c
++++ b/drivers/power/reset/tdx-ec-poweroff.c
+@@ -79,14 +79,13 @@ static int tdx_ec_power_off(struct sys_off_data *data)
  
--	matrix_keypad_stop(keypad->input_dev);
-+	guard(mutex)(&keypad->input_dev->mutex);
+ 	err = tdx_ec_cmd(regmap, EC_CMD_POWEROFF);
+ 
+-	if (err) {
++	if (err)
+ 		dev_err(data->dev, "Failed to send power off command\n");
+-	} else {
+-		mdelay(EC_CMD_TIMEOUT_MS);
+-		WARN_ONCE(1, "Unable to power off system\n");
+-	}
+ 
+-	return err ? NOTIFY_BAD : NOTIFY_DONE;
++	mdelay(EC_CMD_TIMEOUT_MS);
++	WARN_ONCE(!err, "Unable to power off system\n");
 +
-+	if (input_device_enabled(keypad->input_dev))
-+		matrix_keypad_stop(keypad->input_dev);
- 
- 	if (device_may_wakeup(&pdev->dev))
- 		matrix_keypad_enable_wakeup(keypad);
-@@ -281,10 +284,13 @@ static int matrix_keypad_resume(struct device *dev)
- 	struct platform_device *pdev = to_platform_device(dev);
- 	struct matrix_keypad *keypad = platform_get_drvdata(pdev);
- 
-+	guard(mutex)(&keypad->input_dev->mutex);
-+
- 	if (device_may_wakeup(&pdev->dev))
- 		matrix_keypad_disable_wakeup(keypad);
- 
--	matrix_keypad_start(keypad->input_dev);
-+	if (input_device_enabled(keypad->input_dev))
-+		matrix_keypad_start(keypad->input_dev);
- 
- 	return 0;
++	return NOTIFY_DONE;
  }
+ 
+ static int tdx_ec_restart(struct sys_off_data *data)
+@@ -96,14 +95,13 @@ static int tdx_ec_restart(struct sys_off_data *data)
+ 
+ 	err = tdx_ec_cmd(regmap, EC_CMD_RESET);
+ 
+-	if (err) {
++	if (err)
+ 		dev_err(data->dev, "Failed to send restart command\n");
+-	} else {
+-		mdelay(EC_CMD_TIMEOUT_MS);
+-		WARN_ONCE(1, "Unable to restart system\n");
+-	}
+ 
+-	return err ? NOTIFY_BAD : NOTIFY_DONE;
++	mdelay(EC_CMD_TIMEOUT_MS);
++	WARN_ONCE(!err, "Unable to restart system\n");
++
++	return NOTIFY_DONE;
+ }
+ 
+ static int tdx_ec_register_power_off_restart(struct device *dev, struct regmap *regmap)
 -- 
-2.56.1.839.g22a8290db9-goog
+2.53.0
 
