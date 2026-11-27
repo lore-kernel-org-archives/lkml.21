@@ -1,105 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.68
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795755405;
-	b=yWHvZ5NWpe5ycDx9bPdUsK1ezl5NzwZ19W0NJuCqJ/D3HCyB0f8j3Oy83H30qPhRWVuG
-	 ih7JufDwnLMpBUKGM4ov9oSmpiF2nweB0DUMRV2O+X1YCN5EOqAAvZd2LNLiOqhvVJ3Ab
-	 4s7vZa79NCwEAEmKC5ooVW8LdJhnd1DLfZ745Tr+rUdee8XhYPe9Q+QE3qsOHGpV6Arqu
-	 bayC2aBub3B5IVBFDW6Q5l7PWEKR8EIRQGeKO6pWGX8NQfqcVv9kjVPdMsVuT0BBPz57W
-	 I7q9VOafRx70fYSPwP19Xfw4FMA3F/9Y0KtPeHwJlA+mKQZZsMZvjQ9YNSO0onaHxJQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795755405;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=irGQC7zuBG+4smKYfdjZ2ooZS2o+R8gHo7UswdRdjHA=;
-	b=3bEpC9RjVHVA2VhdRvX8XC5BQZoNztwCnJdDK3RQglk/XzlxqRoOnykHYludWAd9SSJG
-	 5S1ETrX2Yl2ZdcNw1L5zI2c9NajCDSK1EubfUXZGeMLWDXOxRtCiS1VS+CPitKK+A+xuC
-	 xXKmQKx0vZeHRiCMVE+Fmr9bOiBhJEaMnO9LVIWBocH2N3Lhcp/cvCvOSarjyyCqJxHd8
-	 P8xrD2pIDB/FMOzcOo2LqAGMQehwPyuxXqyArkgEllnJn4ADuyrAPjZi+7lfUB7NxTYDx
-	 XbGOvONQKnEJDHu8jqHWrRFfCJVQ+nQSC/Lr5oA8ElopoLD0MV6Ni8u8u/Zsa5Kjdbg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tsYiaz6h;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.68
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011068.outbound.protection.outlook.com [52.101.57.68])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795755445;
+	b=b2B0QK2scuhvsIEkIvZ8yZsQ1IDJ5nCUQ2ZZjqJecodI1MeN8EWgFO3R8+wBBPZxljvf
+	 5/tOsPoqh5JmkAspUO1USGoU4WmvNHcjr49eYv/pMgZ4BRMLoHgthNlbTvda7gS9ubT+e
+	 CIThiocDL0Iv1EgBhDuVVkDVqM67c3KWWHlOWBZOMzlMeSd+VH8mgscihooT5kudvbIt7
+	 aRtuEHtU26V2da9eMWFge7XCurO73FZceFNPtH2PEe++AyIvTh3v8WbvWuUs4AJndLtbX
+	 9Pydi3PyS22rORFQ5l0xRmf5lIachTAylJJHpEfHDbeLjFkeaLr2jGlANp8b0Tp+x6w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795755445;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=uaerF5GYfxUofLkoNjb0f+t6pkLErAZHu2T58vS20sA=;
+	b=FN6BCnxQVDC5XcUR7ZDdrI2+uOBFUC/qq7jaQWRXZI8mSYpXcVue0wYjNrZjiZSvX6tW
+	 1i+UELPrPLvC5Yfy7YZ3rcgsblgA9krmxgDWDxFLWTUMgZesy8FR7DsyNQdiuSW6N1wvD
+	 NjuUYM2xVM9HmEXxEMcKfRWqNhU/lZfElQjXAHGafYDr2yqKKFsDLWrt0BGbQRrSssCAG
+	 o9fWMkYs9RTWw0XNtdM7/6lu+CXm2xCHD5ZiyZSu8+5bKmicjneq30cDCTF3C3gRsYkvc
+	 xXMEfTAkRDGr5aAvI6pVB19pRrvJSJzSGsEiDIiKIgK01ruXisfHbxhjjivP7xv/9nA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="S6IeXs/p";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QjXVd2TF;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43860606A31C;
-	Fri, 27 Nov 2026 04:56:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43860606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D447606A327
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:57:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D447606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tsYiaz6h
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=klkNnOZS2tI8j7BcTt/WQ5SJ/3Z2Rln0/hkAZEQBKHbNNTWLOu5RzIzgWdTyWDyRPL7QmY5UtJTqP+JFBCQsXz4+6nQzNL0FbOq89oYLrHECatNozhskxMx97uJrTp8rhZ0nqsIkGmfPYP53ceIHCqMCJ8EvltsyH6ZkJ9QRT1o4WmVQ0i/n/HQfYRcejRU4thFNyTHKp+lRfsxjpec6YeF7mpzu4kvl0e2tD/TAyhM/F3x5++xdOYlPTRCLstRu3svNLqkdcEXpjIUZ8m91lTdQXTpcsJbEH7t8KHAzDeYOBal+kkDg39n7X+nvaatKu4eFn/LJJ6IYX0svrJk3fA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=irGQC7zuBG+4smKYfdjZ2ooZS2o+R8gHo7UswdRdjHA=;
- b=Q89rFZ8l4o7iE0FQQjrihqs/1TlvADDiTyhes0XAzQAcFEfq36tyds/o1I4eAnW+m8mvAiDCj5atU3w3gtdnORjN/B1o65YYe/0pdc9CVxeK6kTEBmAgUUF8FR9jpHoxBAivVlvVzspTAorc7THcucSpgpAK9jWZuVe5TwJg3g5DIFrFn/YJjd9ItLcqp1bCFRpIF7EULaao/4Z+aMIcb7Ng/EOJ+diiT6931YYf+SnT1pbKmPQ4AQ5qPzrja9Spul8KMt9aJ9qnwV9BbswyxmvRmUuKw2oT9U21xQnNdj/MjltuC685KtnrhhbZ2PyXv17ebXy/6IdGeTnIbCrQ1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=irGQC7zuBG+4smKYfdjZ2ooZS2o+R8gHo7UswdRdjHA=;
- b=tsYiaz6h0BsQOClzJWDkZkBKIsTRUBgmioF+A9H1FnoW3rps4oGEdhn6evHtHH5Pux6UqvlUIZIovCufBsrpH6x6/MUG2O35XTd79ciYTCrm7/UJAbIHoHRKCcX/OezwOEnlDHr0XvU1MeplnzFJxPGLTnkCgYeBrjiMU5426da4kVdul6RMjc6TeckTmcEuDZz3knvgXDKhObkOCEysCpCG9LUn/5hoCtdSpNUuBKLXVfLF6mfK4moiuntA2bHXmrRcdQqOnnV8qFiHWNWFa0LHARpY3jtCGSzI6hWSIU9ZkMCPWvqbjE9FiAArFwWdM+o9SJoeSyBUGCyOaeDmJg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by PH0PR12MB8098.namprd12.prod.outlook.com (2603:10b6:510:29a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Fri, 27 Nov
- 2026 04:56:41 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 04:56:41 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- Svyatoslav Ryhel <clamor95@gmail.com>
-Subject:
- Re: [PATCH v8 06/12] drm/tegra: dc: Add elements required by Tegra MIPI DBI
-Date: Fri, 27 Nov 2026 13:56:37 +0900
-Message-ID: <CQmBXmddTJ6v1iTnbDfQLA@nvidia.com>
-In-Reply-To: <20261122081820.53199-7-clamor95@gmail.com>
-References:
- <20261122081820.53199-1-clamor95@gmail.com>
- <20261122081820.53199-7-clamor95@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYWPR01CA0018.jpnprd01.prod.outlook.com
- (2603:1096:400:a9::23) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=S6IeXs/p;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QjXVd2TF
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQJwDTs3864425
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:57:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	uaerF5GYfxUofLkoNjb0f+t6pkLErAZHu2T58vS20sA=; b=S6IeXs/pSUBYaqQu
+	FwD2R9cR2UKQKmgvl/YB+crrny/HAA7AOkgtpsyhxTNx8BPCr5qak8SXK57tCBts
+	OAmG4NJp6+keeZIUBHTII8syQtY/kNHIdsdi1UIDJ0ycXI5YXKtqUSR6g3qfsMNp
+	Sd/QDhpMohM4svwcdN8C2dtgbjwf/5lPd5H8YNw1ZfEtuNh2nF/5Q+riE/P0Ka94
+	M/iOWHE6d2cy4Q41eBlcJbIB3+SgdCyNLC+0WTN/a/2Ac7tdHN9stQTxdzAWqkdX
+	Jqv1guP4eEqiCzlH5uz0qACWYnH3qOZ/p/eQ+lLwN8TZIQHbLiH4YAyDxT3MR69x
+	dVo5PA==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u55s7bp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:57:23 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-544019b1831so150333131cf.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:57:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795755442; x=1796360242; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=uaerF5GYfxUofLkoNjb0f+t6pkLErAZHu2T58vS20sA=;
+        b=QjXVd2TFdIU92y3x7EqElBSjLFz3BPolXLxLOryHDGf+JPY2BkaazV/COGKjFKWNNo
+         O0hi4KC5muqg47YGUpVtuGvKgkWNt77P4wIf7GFr00b4FiNygJIa/BXlnVcFm13+iAT8
+         6nYQHiNUCUER3bSw0rEgthlCyXBX0ANke7V/WteU+XU1UW1A83gv+kGCV94D/Qck+cfm
+         978Ajuppl+yjzadYVAO+ZODeD2kg08jpCtObTowyb57xiogL0C8WYamd3OsKSgWuyFpc
+         BArM5iVkp1hui4JIACF5g9Jpjcb0gJHlMdqwth/oKl7clL3jSmaChUd4ibCyWZXF9iZJ
+         gg4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795755442; x=1796360242;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uaerF5GYfxUofLkoNjb0f+t6pkLErAZHu2T58vS20sA=;
+        b=t66UtuAqscuqmwzde96y9psEvkOcuoiLhtx7z0UuJ2SpfMkFxEjZ2VKoIl7yCKsDzr
+         lcUZVOKNVb6XI//70r/wjkJwQAnrm6ouafWhuY4bcqiAQThod7GY4vevRUC5OBSp7BdS
+         CN6khde7rDguzpiLUacVOmKIyP+O/xMTnJCVqbnSZ2eUt8cmfhRYKTA5xsdrCMcMhCew
+         g5o0FJNr2u8Rd5ybDZvs1OvRyq2apfmj+4obVtYlSEEmnRzK9Lpg7RYb3d0gMHC+HXAj
+         0PJXzw+VY7qm18IjM3S02IA85Ts+hxUQzvk6nfTGQJyhKZHfF2xta0+tn961hD8o1UFW
+         /cFg==
+X-Forwarded-Encrypted: i=1; AL+hErGOlEivbD0Vg0MWABOlCg0ZHmfRxuoYxUrrWRRcAWQVYfkMN67ijLUrrnnR5t5BzLEsZr4EpCtBmm6GIuI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/cMc4Ba+L6Hmle0tb3BL72Pc6mIbZNY9lBHMxoacZfZN0EPHjs
+	2EBg4jkOEJcMKFPS+S9Px/r1ZIGkMRP17E+tzAVXFZG66usXSLQ/Y5ulPBWey3gMGegpXbISpqg
+	m95puU/ucT1Z/NgqW6mX0PHggx+uVikV8WlUOvReXdBSDzmvZ46sds0Ig3dJGTpeNBe4=
+X-Gm-Gg: AZFdTZe4SNjSftPtYm7sGbcm55pQJ0Mu533iK/NisFdCfedPWF6o2wsUPNwDMQ0jGN+
+	+OzvYctUsAuo84BeHnSidjpQVfJhLxKoQJMceZ/1/FazktvSA28W8lkgSxPNBmhFGOEtG/UBgW8
+	nHHfbBNrlw7Olnwh7U7oUrBu1LrcbRPQHWAPtOegikWnKswIvkJnFya6AjgKShAPJPu/uQidHkA
+	cJz/kbG/2YAa3G922ZlFFFwC5TnmUV/QFBA72/4a3Rlz26ussgkYQa0HKzTrwcXM/tECfvuZPxL
+	vr3YoSKeGXLKqGbU70ypoKN5QRMFuJzySc/xDly7JfGuZAFGD1qlIwAS5H/x3H2Q4AGkW5vyJBO
+	8af+mD6h3tvUeUbyufQqzA0xmy+hhWojAcx8PvozO/Q1kKKpHTTHXf6JkNtSZsY21aB6dscscmj
+	jfsdWzQlipBiBHpFQokzu4tjBWgEl2fZngGTXb
+X-Received: by 2002:a05:622a:580e:b0:53e:35dc:9bd2 with SMTP id d75a77b69052e-55d76b30ea1mr381983311cf.66.1795755441683;
+        Thu, 26 Nov 2026 20:57:21 -0800 (PST)
+X-Received: by 2002:a05:622a:580e:b0:53e:35dc:9bd2 with SMTP id d75a77b69052e-55d76b30ea1mr381983011cf.66.1795755441154;
+        Thu, 26 Nov 2026 20:57:21 -0800 (PST)
+Received: from [10.111.164.147] (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55dc8895b8bsm21379401cf.10.2026.11.26.20.57.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 20:57:20 -0800 (PST)
+Message-ID: <3d104bb0-dee1-4374-9d2c-ddaedd414f4f@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 12:57:15 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,345 +114,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|PH0PR12MB8098:EE_
-X-MS-Office365-Filtering-Correlation-Id: f977c383-df6c-47bb-5acf-08df4c42d381
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|7416014|10070799003|376014|1800799024|10067099003|4143699003|261026121527099003|56012099006|921020|11063799006|261009223027099003|261021121427099003|261022075727099003|261028144727099003|261022105027099003|261021123027099003|261102123227099003|261026140227099003|18002099003|6133799003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	SW9VDjEmkl7VSL7BYLz/XDrgcb9roIs527kEqeGMDFXXZczd8qIpWEAkXPVBz7meXkNpV0GkR3GhsJa5T9rHywVEdZxiVc7kCtMu+CP2DkTeR6YMa5KOV4+g7YnI3lOBdq4JX2q7Gwu/2FZ9lDmCZi1KDUiBpAKh40PNLSnx216E9u91P01shx7G0ptUoErncnpGaJnUROLUCttiihtQMITM73F3BOQbPcqOefTdGnXvknimaX7Yh5S+CzuQYx07PY76+SLGD5jzwpsx3d9fpmJ7U2iBeLgGUGNr9ybv6dwGMifv4bCtWNoM/K3waPP13ceOTMOHv9mE8JptfQn9ye4pPGGdOR1yjWu6/WY/aHZJ/5iCXh+wdxKiSXB+Wnp2LYuAqw2krwJAJDxAILMtd8yEe4+RBKhijRIVtixMivXh7y3fEE7CQ4OZ0EZ3OH/rqjW6xN2pYD7kkhTQtytj1w0EemDnvX80b/8meUtQvRVDMmsAcqxsV9wvVYW3IWF28rFeIyVwylSx8NL/fhIFZqPDpvUor1cAAiKgUz892Orl5JhPAXbuh8d8TWZISVVFICPP3Q4naEBe7fnUebEA/KqBB/Jn15YNKc+GLLo3JqOuGqp3l2s/wgk65mfhJogWLWJQpmDS06ID3MT2fFHACc58yXPSh/OaHQLsSbFmTyQATXnuWq5t0yQZhLUFkOTbu4ujLcW12u5QQlaaIuiuRg==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(10070799003)(376014)(1800799024)(10067099003)(4143699003)(261026121527099003)(56012099006)(921020)(11063799006)(261009223027099003)(261021121427099003)(261022075727099003)(261028144727099003)(261022105027099003)(261021123027099003)(261102123227099003)(261026140227099003)(18002099003)(6133799003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Y1c1TzhjYXRKV1Y4dkZIa0VySkJwYk91KzVneDdUN28vbjAyVnN2YmJSOHpL?=
- =?utf-8?B?emVBZW5seGRlUzIvY1NWOU1jWElUZ1dTYWNxZ1pyR0pvV2NJeXNMUUdaazZt?=
- =?utf-8?B?SDZLL2IrUmJhQ1lhR094aCttYzFuOVlSNThLUElicEtCYStGYXNxNkdEOXRJ?=
- =?utf-8?B?OU5ha3NWaEg2WHIzYVdvRTRhS0FVYXBjNDU5THpSVTRPTGludG5KVzZuZmd6?=
- =?utf-8?B?YnQ0T3JpcmFGZU5OTFVTYTBQeG94UXdXd1NrOE9yQ3N1L3QvenZYbjRoVDVo?=
- =?utf-8?B?WTVYeE5QYU4xNFhSckZQV3dka1VmWWgzakQ0ZWtGYW0zZFBSRDNkTkh3cTJ5?=
- =?utf-8?B?VWFWdEdxSjJtZWQ5NEJKODNnZE5FZHIyeWJzdXU0emh0STgyaGpVekdEV0ZG?=
- =?utf-8?B?c0FXOG9rSVQvekVYcG05YVNydUFNcXViZldLWmR6QURtREFhYVM0VHEvRnRv?=
- =?utf-8?B?SGY5Q0plV2lNK29mQzM3VFU2Y0VKcXhZR2NKVzJGSmNMQXA5UlI0ZnQzOEsx?=
- =?utf-8?B?bkFFSWxlbmZaZHNrVStNS3JrZEgxSmRrOEZCWWJNWkp2eDV0RTBrZWM3UUR1?=
- =?utf-8?B?NXpsWUNROHEwUGs5LzZmTENVNnZ3L3d2djhXZmJ5dXhDL0pZa3ppTVFWZnMw?=
- =?utf-8?B?OVNPZVhhR245aXdzNWNRK0V1OUJRUUJZcGQxRzdxM242cHZRRk5TS1ljWFdr?=
- =?utf-8?B?SVdCUElWM3ZmSHF6KzdiZGJERDRvNEhKbFlvaVBLR3hDTUFZdTVWdCs4VGoz?=
- =?utf-8?B?NFowRXpkMmZueDdUZTJweStmTUE1YURqamZNakFKak9kZXRWc2xnUzluZG9S?=
- =?utf-8?B?T3dOajByU0l5eEdIcVNlOFZoVHJjdmg0UUN0dGd1ck1LYWF1a3F2enUzcjlH?=
- =?utf-8?B?a3poZmhpYklaSE5kaElOYVlPN3kvSHprZFE0ejFUQzZZRmxIM0tRNTZJTndy?=
- =?utf-8?B?NFp1VkR3TlRzYVREdGJNWmJZa3JlQnYvMnNvUTAzVWZtaG5JTW9XdWhseUVo?=
- =?utf-8?B?VmhhbzB5aFF1NlcvM1FPTnB2VFRUUGFwRVM3d21PSmxDQ2FJb2pFZkx1dUIv?=
- =?utf-8?B?RlVKOHdScCthbndCQkZKUjExd0k1TTF1WnlQYi8xajFHRzExWE1SUnM0WkNy?=
- =?utf-8?B?bUFWSGlJSkRENU1kYm5jZTZtRjhKalQ2TFo5NTBGcmdhbjdKMGNsNis2VjVB?=
- =?utf-8?B?Rk16U1ZGYjJ3Y3FxNGxCRkwyVzVIVmhwcEdSSWtoaUhKNGpYSWNpUzVoODly?=
- =?utf-8?B?YkNoSGRiU1FvNU50NmlYNlNaUEdjYlJzQ3M4Q1hnVkRJZjJxSWY3MmIzWG9a?=
- =?utf-8?B?NFhpZzNsYTFETVY5YlBmZjV6dzNiV1YzZ0dINjUrdFlYQkx5OVJDemVuK3R5?=
- =?utf-8?B?SVZvU0VVMkpYa1lKOEF3TzV4TzJQT1JvczYvSzFUeUdnMVY1ZGdOS2M3WEJl?=
- =?utf-8?B?L1FnNVZpSW1ZY01yYXBWMzBoZFBvTlQyajBaMDVLVjViUHdsdmJlekFSUGZK?=
- =?utf-8?B?ZWpHWkVrSlJVcWptalc3cFJTSjlJT2xNL01wOWRBMC9jMVdHUFpmSTI4OWdC?=
- =?utf-8?B?L05KR01DRFdReFNnL0ZOcDl3NWQvYzRtV3lsaUxMdUlnbENHamxNTTBkOVpC?=
- =?utf-8?B?YWl1RDNSK2ptK3pNVHRZMGNRWDVvN21LMWdBbStXNkhiTnhMektxc0hlQnNv?=
- =?utf-8?B?ZW1KcG9scnB2MUNqMVI0Q2JqcU5XVDlzMW9FMmJZODhpYkw5SWNjV25VYjNV?=
- =?utf-8?B?aDVzQ1BNQUpZU2NCS3prVVNyQjBnZ2prL0w2UjREcnBwclZPY3hyN0NzbjZ6?=
- =?utf-8?B?aU16WE1nYVp1VlJGSzZLRWNRUzZnVkt4T1VvOXYrZUxncEhIRTVZNk5LTWxC?=
- =?utf-8?B?WG12bTNnVTlvWnFzU2hzMlhaNm13aVo3cklMZ2FPeFU0Z3dxb1FHTDYyNTlh?=
- =?utf-8?B?eExtTmQ4Y0o0YWZsRnp1aVBWM0I1Yld4WDc5dDBNUXV1enZRallTUko1eHMr?=
- =?utf-8?B?TG10SmZlZ0FzQ1pUT3lnV0tnRDhpcUIvR3hzQ3kwSTAwSm9sMWVPY2EyUWM2?=
- =?utf-8?B?bDFWeHl1SWhscVc3Rm83ZVFjQ0hEYWRId0N2bnF2aXR1bUswNXI4NThqS1Uv?=
- =?utf-8?B?U0MvVDBWMk1kUGdNcDBrQjFDSDBxenJBaE81R3l5UFpDNVN1VHdMYUZCY211?=
- =?utf-8?B?RmhwWW5ab0IzOVE1ckJtUzkycDl1UnhsYkZrdG5mUVlaTjlOUDQvMlJ4dkJn?=
- =?utf-8?B?ZWxCOVpaMFl1WXBjeWp4UTBLRU1MbC9PdWtoY2lpYnd2aGRtNG5EOHB3UlhY?=
- =?utf-8?B?eVpVZnh2bENJaDgvZkc1Uk9abEJJRDN1eXBYblpPdWZOM2F2RWhuMldHV1dG?=
- =?utf-8?Q?ctM9ee1L0wVzgKvhckBkn8FGG6FpI08TfzKiHo6I0VmGJ?=
-X-MS-Exchange-AntiSpam-MessageData-1: 4pEqlRzU9S/mLQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f977c383-df6c-47bb-5acf-08df4c42d381
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:56:41.1191
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XVImXkwBfFZMBZeTbN14ae4ZsSPHLzkwq1RaCwzpvCmdtDIMegVXS/YY1cpf2FcAGk0JiLWKVzYEWKQG8Svkfw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8098
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] media: qcom: camss: Two routing fixes
+To: bryan.odonoghue@linaro.org,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Bryan O'Donoghue <bod@kernel.org>,
+        Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+References: <20261127-camss-routing-fixes-v2-0-b7152f0af49a@kernel.org>
+From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+In-Reply-To: <20261127-camss-routing-fixes-v2-0-b7152f0af49a@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAxOSBTYWx0ZWRfX8WnM4oRBHFXV
+ F4bFgWuezGMqRBEnQ0nOkYW1jnWcD/2KgjE8KDZGm+sec+maql06KG1WynFFuUc4pSkNV4q2NU7
+ JF9Q0xhNPbtelgNhoPCilk1cvBsHybc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAxOSBTYWx0ZWRfX/mToPmjkZi+U
+ iK3f4sxYlQnTkIojoyC13IgtbIvD8xvmT/cpTCwWrtFzvQdyZX5NDWgwwVX97QDSeQ86t3I7THU
+ 52VwVPc3BtKjUILoiN4DXjmK6mtLxNivV8Xl771OCoySFpaHGwO/bi1M5udzsbYZ/xUZlAidk6b
+ 1mJCbzMz4qZuscHeqtKKaRkVoSXZ5bnJv9W468gkI7kcRxs+SbpmgUnfnt4d27ctcsjt+IXSzNk
+ 7ZvwrP3uXCKWsDceKnYL6AqKz3Vp4105dFH4YNKk5tZnaKEvbeCNGYcWE7p6Cdeelm+n2/xXxse
+ ZJ952WFbXQ81aJGQ3jVexuyRKuTURx4xzF8qs3OxHFb7yAJq5Wtz22JQrptOmvmB1uAWhUWpgU/
+ 5CjJnLsw9VOW2vEN/CMcvBGxuqiW5VEcqo/cRVeZ5Z88RybbzEUzfWSuaDK9dLQX7ZmFFaLyB6z
+ nr15d5waWsfaTl3u4xQ==
+X-Proofpoint-ORIG-GUID: mywG97SEn8JLKl1mycw-8azMnKzaf1lQ
+X-Authority-Analysis: v=2.4 cv=Z795j3RA c=1 sm=1 tr=0 ts=6b090db3 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=bC-a23v3AAAA:8 a=VwQbUJbxAAAA:8 a=e5mUnYsNAAAA:8 a=KKAkSRfTAAAA:8
+ a=EUspDBNiAAAA:8 a=NqBOXpl7M472BNfDCCEA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22 a=FO4_E8m0qiDe52t0p3_H:22 a=Vxmtnl_E_bksehYqCbjh:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: mywG97SEn8JLKl1mycw-8azMnKzaf1lQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270019
 
-On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
-> Add DC register definitions with additional fields in preparation for
-> adding the 8-bit CPU interface (MIPI DBI).
 
-Maybe also mention that some whitespace cleanup has been done.
 
->=20
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+On 11/27/2026 12:15 PM, bryan.odonoghue@linaro.org wrote:
+> v2:
+> 
+> I reviewed-by and then wasn't very happy with adding a new field
+> to CSID resources hw_id because this means we would have two
+> identifiers despite already using csid->id to mean index and hwid.
+> 
+> Bite the bullet and make the conversion.
+> 
+> This is the way - bod.
+> 
+> - Adds a precursor patch which provides a .id in place of CSID.
+> 
+> - Converts from using csid->id as both hardware identifier and index
+>    Instead helper functions make clear and explicit do you mean csid_index()
+>    or csid_hwid().
+> 
+>    Several callsites need to be updated to make this happen, but that's
+>    life. I'm a big fan of patch granularity however the differentiation
+>    between index and hardware id must be done simultaneously.
+> 
+>    Follows the precedent of csiphy.id - bod, Wengmeng
+> 
+> - Straight drop of CSID2 retained. This is the right thing to do, CSID2 is
+>    useless dead silicon, already RB by several community members.
+> 
+> - Link to v1: https://patch.msgid.link/20261122-camss-routing-fixes-v1-0-0deeeaca2622@kernel.org
+> 
+> - Applies to camss-next from
+>    https://gitlab.freedesktop.org/linux-media/users/bodonoghue.git
+> 
+> v1:
+> 
+> This series lands late-enough in the kernel cycle and applies against the
+> camss-next branch staging to linux-media/next.
+> 
+> Link: https://gitlab.freedesktop.org/linux-media/users/bodonoghue/-/tree/camss-next
+> 
+> First up a patch drops the declaration of CSID2 from x1e/Hamoa since this
+> CSID doesn't have a corresponding VFE it is entirely useless and violates
+> our 1:1 mapping between VFE and CSID. Since CSID2 routes nowhere there's no
+> reason to keep it around.
+> 
+> Second is a fix for a longstanding error in CAMSS which as stemmed from
+> the original development of post ISPIF devices. These devices have a 1:1
+> mapping between CSID and VFE so the mapping we have given to user-space
+> which declares each CSID as connecting to each VFE is just plain wrong on
+> these devices and has always been.
+> 
+> So the second patch addresses that longstanding issue but, I've been
+> holding off on fixing this for a while since I believed it might require
+> extensive surgery, but in the end its quite simple to do.
+> 
+> Finally the third patch is a tidy-up patch which inverts our current logic
+> of continuously adding new elements to the src_pad_code switch for new SoCs
+> filtering those SoCs down to a default: statement. In fact is is the old
+> SoCs which are the exceptional case so, just do the switch for the old and
+> the default for the new.
+> 
+> To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+> To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+> To: Mauro Carvalho Chehab <mchehab@kernel.org>
+> To: Hans Verkuil <hverkuil@kernel.org>
+> Cc: linux-media@vger.kernel.org
+> Cc: linux-arm-msm@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Bryan O'Donoghue <bod@kernel.org>
+> 
 > ---
->  drivers/gpu/drm/tegra/dc.h | 194 ++++++++++++++++++++++++++++++++++---
->  1 file changed, 183 insertions(+), 11 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/tegra/dc.h b/drivers/gpu/drm/tegra/dc.h
-> index 0cb0515968b35..e8913c5530a2d 100644
-> --- a/drivers/gpu/drm/tegra/dc.h
-> +++ b/drivers/gpu/drm/tegra/dc.h
-> @@ -272,14 +272,150 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
->  #define  DC_COM_CRC_CONTROL_WAIT (1 << 1)
->  #define  DC_COM_CRC_CONTROL_ENABLE (1 << 0)
->  #define DC_COM_CRC_CHECKSUM			0x301
-> -#define DC_COM_PIN_OUTPUT_ENABLE(x) (0x302 + (x))
-> -#define DC_COM_PIN_OUTPUT_POLARITY(x) (0x306 + (x))
-> -#define LVS_OUTPUT_POLARITY_LOW (1 << 28)
-> -#define LHS_OUTPUT_POLARITY_LOW (1 << 30)
-> -#define DC_COM_PIN_OUTPUT_DATA(x) (0x30a + (x))
-> -#define DC_COM_PIN_INPUT_ENABLE(x) (0x30e + (x))
-> -#define DC_COM_PIN_INPUT_DATA(x) (0x312 + (x))
-> -#define DC_COM_PIN_OUTPUT_SELECT(x) (0x314 + (x))
-> +
-> +#define DC_COM_PIN_OUTPUT_ENABLE(x)		(0x302 + (x))
-> +#define DC_COM_PIN_OUTPUT_POLARITY(x)		(0x306 + (x))
-> +#define LVS_OUTPUT_POLARITY_LOW			BIT(28)
-> +#define LHS_OUTPUT_POLARITY_LOW			BIT(30)
-> +#define DC_COM_PIN_OUTPUT_DATA(x)		(0x30a + (x))
-> +/* Pin unmask is 1 bit above position of the pin in the OUTPUT_DATA regi=
-ster */
-> +#define PIN_UNMASK(x)				BIT((x) + 1)
-> +#define DC_COM_PIN_INPUT_ENABLE(x)		(0x30e + (x))
-> +
-> +/*
-> + * The definitions below describe pin positions in the DC_COM_PIN_OUTPUT=
-_ENABLE(x),
-> + * DC_COM_PIN_OUTPUT_POLARITY(x), DC_COM_PIN_OUTPUT_DATA(x), and
-> + * DC_COM_PIN_INPUT_ENABLE(x) registers. The comment before each group i=
-ndicates
-> + * the index of the register (the x value).
-> + */
-> +
-> +/* 0 */
-> +#define PIN_LD0					0
-> +#define PIN_LD1					2
-> +#define PIN_LD2					4
-> +#define PIN_LD3					6
-> +#define PIN_LD4					8
-> +#define PIN_LD5					10
-> +#define PIN_LD6					12
-> +#define PIN_LD7					14
-> +#define PIN_LD8					16
-> +#define PIN_LD9					18
-> +#define PIN_LD10				20
-> +#define PIN_LD11				22
-> +#define PIN_LD12				24
-> +#define PIN_LD13				26
-> +#define PIN_LD14				28
-> +#define PIN_LD15				30
-> +
-> +/* 1 */
-> +#define PIN_LD16				0
-> +#define PIN_LD17				2
-> +#define PIN_LPW0				16
-> +#define PIN_LPW1				18
-> +#define PIN_LPW2				20
-> +#define PIN_LSC0				24
-> +#define PIN_LSC1				26
-> +#define PIN_LVS					28
-> +#define PIN_LHS					30
-> +
-> +/* 2 */
-> +#define PIN_LHP0				0
-> +#define PIN_LHP1				2
-> +#define PIN_LHP2				4
-> +#define PIN_LVP0				8
-> +#define PIN_LVP1				10
-> +#define PIN_LM0					16
-> +#define PIN_LM1					18
-> +#define PIN_LDI					20
-> +#define PIN_LPP					22
-> +
-> +/* 3 */
-> +#define PIN_LSCK				0
-> +#define PIN_LSDA				2
-> +#define PIN_LCSN				4
-> +#define PIN_LDC					6
-> +#define PIN_LSPI				8
-> +#define PIN_LSDI				10
-> +
-> +#define DC_COM_PIN_INPUT_DATA(x)		(0x312 + (x))
-> +
-> +/*
-> + * DC_COM_PIN_OUTPUT_SELECT(x) is a set of 7 registers that allow select=
-ing
-> + * one of 7 functions for each pin using 3 bits. Clearing all bits sets
-> + * the pin to its primary function, while setting them to 1 configures i=
-t
-> + * as a GPIO output. Other functions are unique to each pin. For details=
-,
-> + * check "23.7.17 DC_COM_PIN_OUTPUT_SELECT0_0" in the Tegra30 TRM.
-> + */
-> +#define DC_COM_PIN_OUTPUT_SELECT(x)		(0x314 + (x))
-> +#define PIN_OUTPUT_SELECT_MASK(x)		(0x7 << (x))
-> +#define PIN_OUTPUT_SELECT_PRIM(x)		(0 << (x))
-> +#define PIN_OUTPUT_SELECT_OUT(x)		(1 << (x))
-> +#define PIN_OUTPUT_SELECT_F2(x)			(2 << (x))
-> +#define PIN_OUTPUT_SELECT_F3(x)			(3 << (x))
-> +#define PIN_OUTPUT_SELECT_F4(x)			(4 << (x))
-> +#define PIN_OUTPUT_SELECT_F5(x)			(5 << (x))
-> +#define PIN_OUTPUT_SELECT_F6(x)			(6 << (x))
-> +#define PIN_OUTPUT_SELECT_F7(x)			(7 << (x))
-> +
-> +/*
-> + * The definitions below describe pin offset in the DC_COM_PIN_OUTPUT_SE=
-LECT(x)
-> + * registers. The comment before each group indicates the index of the r=
-egister
-> + * (the x value).
-> + */
-> +
-> +/* 0 */
-> +#define PIN_OUTPUT_SELECT_LD0			0
-> +#define PIN_OUTPUT_SELECT_LD1			4
-> +#define PIN_OUTPUT_SELECT_LD2			8
-> +#define PIN_OUTPUT_SELECT_LD3			12
-> +#define PIN_OUTPUT_SELECT_LD4			16
-> +#define PIN_OUTPUT_SELECT_LD5			20
-> +#define PIN_OUTPUT_SELECT_LD6			24
-> +#define PIN_OUTPUT_SELECT_LD7			28
-> +
-> +/* 1 */
-> +#define PIN_OUTPUT_SELECT_LD8			0
-> +#define PIN_OUTPUT_SELECT_LD9			4
-> +#define PIN_OUTPUT_SELECT_LD10			8
-> +#define PIN_OUTPUT_SELECT_LD11			12
-> +#define PIN_OUTPUT_SELECT_LD12			16
-> +#define PIN_OUTPUT_SELECT_LD13			20
-> +#define PIN_OUTPUT_SELECT_LD14			24
-> +#define PIN_OUTPUT_SELECT_LD15			28
-> +
-> +/* 2 */
-> +#define PIN_OUTPUT_SELECT_LD16			0
-> +#define PIN_OUTPUT_SELECT_LD17			4
-> +
-> +/* 3 */
-> +#define PIN_OUTPUT_SELECT_LPW0			0
-> +#define PIN_OUTPUT_SELECT_LPW1			4
-> +#define PIN_OUTPUT_SELECT_LPW2			8
-> +#define PIN_OUTPUT_SELECT_LSC0			16
-> +#define PIN_OUTPUT_SELECT_LSC1			20
-> +#define PIN_OUTPUT_SELECT_LVS			24
-> +#define PIN_OUTPUT_SELECT_LHS			28
-> +
-> +/* 4 */
-> +#define PIN_OUTPUT_SELECT_LHP0			0
-> +#define PIN_OUTPUT_SELECT_LHP1			4
-> +#define PIN_OUTPUT_SELECT_LHP2			8
-> +#define PIN_OUTPUT_SELECT_LVP0			16
-> +#define PIN_OUTPUT_SELECT_LVP1			20
-> +
-> +/* 5 */
-> +#define PIN_OUTPUT_SELECT_LM0			0
-> +#define PIN_OUTPUT_SELECT_LM1			4
-> +#define PIN_OUTPUT_SELECT_LDI			8
-> +#define PIN_OUTPUT_SELECT_LPP			12
-> +
-> +/* 6 */
-> +#define PIN_OUTPUT_SELECT_LSCK			0
-> +#define PIN_OUTPUT_SELECT_LSDA			4
-> +#define PIN_OUTPUT_SELECT_LCSN			8
-> +#define PIN_OUTPUT_SELECT_LDC			12
-> +#define PIN_OUTPUT_SELECT_LSPI			16
-> +#define PIN_OUTPUT_SELECT_LSDI			20
+> Bryan O'Donoghue (3):
+>        media: qcom: camss: csid: Add and enumerate an id field for CSID entries
+>        media: qcom: camss: csid: Stop using csid->id as both index and identifier
+>        media: qcom: camss: x1e80100: Fix CSID2 routing to nowhere
+> 
+>   .../media/platform/qcom/camss/camss-csid-1080.c    |  2 +-
+>   drivers/media/platform/qcom/camss/camss-csid-340.c |  6 +-
+>   drivers/media/platform/qcom/camss/camss-csid-680.c |  4 +-
+>   .../media/platform/qcom/camss/camss-csid-gen3.c    |  4 +-
+>   drivers/media/platform/qcom/camss/camss-csid.c     | 34 +++++---
+>   drivers/media/platform/qcom/camss/camss-csid.h     | 18 ++++
+>   drivers/media/platform/qcom/camss/camss-csiphy.c   |  2 +-
+>   drivers/media/platform/qcom/camss/camss.c          | 98 +++++++++++++++++-----
+>   8 files changed, 126 insertions(+), 42 deletions(-)
+> ---
+> base-commit: 91ff71dce5e770e7965cb3b09c87f6d334c6c4c5
+> change-id: 20261122-camss-routing-fixes-b178bdb84f20
+> 
+> Best regards,
+> --
+> ---
+> bod
 
-It becomes apparent here that the PIN_* and PIN_OUTPUT_SELECT_* are kind=20
-of redundant as the pins are in the same order, the stride (and thus=20
-register indexing) is just different. Hence, I think it would be cleaner=20
-to have ..
+Tested CSID0 and CSID_LITE0/1 RDI capture with the OG0VA1B sensor.
 
-#define PIN_LD0		0
-#define PIN_LD1		1
-...
+Tested-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com> # Purwa EVK
 
-and then
-
-#define PIN_REGISTER_INDEX(pin)		((pin) / 16)
-#define PIN_SHIFT(pin)			(((pin) % 16) * 2)
-
-#define PIN_SELECT_REGISTER_INDEX(pin)	((pin) / 8)
-#define PIN_SELECT_SHIFT(pin)		(((pin) % 8) * 4)
-
-This will also simplify the tegra_dbi_idx tables since they can just=20
-store the pin index, and the register index (and shift) can be=20
-calculated based on that.
-
-> =20
->  #define DC_COM_PIN_MISC_CONTROL			0x31b
->  #define DC_COM_PIN_PM0_CONTROL			0x31c
-> @@ -303,9 +439,15 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
->  #define  UNDERFLOW_REPORT_ENABLE (1 << 0)
-> =20
->  #define DC_DISP_DISP_SIGNAL_OPTIONS0		0x400
-> -#define H_PULSE0_ENABLE (1 <<  8)
-> -#define H_PULSE1_ENABLE (1 << 10)
-> -#define H_PULSE2_ENABLE (1 << 12)
-> +#define H_PULSE0_ENABLE				BIT(8)
-> +#define H_PULSE1_ENABLE				BIT(10)
-> +#define H_PULSE2_ENABLE				BIT(12)
-> +#define V_PULSE0_ENABLE				BIT(16)
-> +#define V_PULSE1_ENABLE				BIT(18)
-> +#define V_PULSE2_ENABLE				BIT(19)
-> +#define V_PULSE3_ENABLE				BIT(20)
-> +#define M0_ENABLE				BIT(24)
-> +#define M1_ENABLE				BIT(26)
-> =20
->  #define DC_DISP_DISP_SIGNAL_OPTIONS1		0x401
-> =20
-> @@ -456,6 +598,22 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
->  #define DC_DISP_SHIFT_CLOCK_OPTIONS		0x431
->  #define  SC1_H_QUALIFIER_NONE	(1 << 16)
->  #define  SC0_H_QUALIFIER_NONE	(1 <<  0)
-> +#define  SC0_H_QUALIFIER(x)			(((x) & 0x7) <<  0)
-> +#define  SC1_H_QUALIFIER(x)			(((x) & 0x7) << 16)
-> +#define  SC_H_QUALIFIER_DISABLE			0
-> +#define  SC_H_QUALIFIER_NONE			1
-> +#define  SC_H_QUALIFIER_HACTIVE			2
-> +#define  SC_H_QUALIFIER_EXT_HACTIVE		3
-> +#define  SC_H_QUALIFIER_HPULSE			4
-> +#define  SC_H_QUALIFIER_EXT_HPULSE		5
-> +#define  SC0_V_QUALIFIER(x)			(((x) & 0x7) <<  3)
-> +#define  SC1_V_QUALIFIER(x)			(((x) & 0x7) <<  19)
-> +#define  SC_V_QUALIFIER_NONE			0
-> +#define  SC_V_QUALIFIER_RSVD			1
-> +#define  SC_V_QUALIFIER_VACTIVE			2
-> +#define  SC_V_QUALIFIER_EXT_VACTIVE		3
-> +#define  SC_V_QUALIFIER_VPULSE			4
-> +#define  SC_V_QUALIFIER_EXT_VPULSE		5
-> =20
->  #define DC_DISP_DATA_ENABLE_OPTIONS		0x432
->  #define DE_SELECT_ACTIVE_BLANK  (0 << 0)
-> @@ -493,6 +651,20 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
->  #define DC_DISP_CURSOR_POSITION_NS		0x441
-> =20
->  #define DC_DISP_INIT_SEQ_CONTROL		0x442
-> +#define SEND_INIT_SEQUENCE			BIT(0)
-> +#define INIT_SEQUENCE_MODE_SPI			BIT(1)
-> +#define INIT_SEQUENCE_MODE_PLCD			0
-> +#define INIT_SEQ_DC_SIGNAL_SHIFT		4
-> +#define INIT_SEQ_DC_SIGNAL_MASK			(0x7 << INIT_SEQ_DC_SIGNAL_SHIFT)
-> +#define NO_DC_SIGNAL				0
-> +#define DC_SIGNAL_VSYNC				1
-> +#define DC_SIGNAL_VPULSE0			2
-> +#define DC_SIGNAL_VPULSE1			3
-> +#define DC_SIGNAL_VPULSE2			4
-> +#define DC_SIGNAL_VPULSE3			5
-> +#define INIT_SEQ_DC_CONTROL_SHIFT		7
-> +#define FRAME_INIT_SEQ_CYCLES_SHIFT		8
-> +
->  #define DC_DISP_SPI_INIT_SEQ_DATA_A		0x443
->  #define DC_DISP_SPI_INIT_SEQ_DATA_B		0x444
->  #define DC_DISP_SPI_INIT_SEQ_DATA_C		0x445
-> --=20
-> 2.53.0
->=20
->=20
-
-
-
-
+Thanks,
+Wenmeng
