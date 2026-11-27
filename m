@@ -1,79 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795792966;
-	b=ECNKFNHOmGxMxiEkLRgNjVNgAVfYWyJV5iKgpAK5ZnRuVWt9uybgNaoK+EFp/dRSsHGg
-	 G+CpfunxvCYf0l4kdD22fx7BR+Xi9TtIQPiQ5j7qfwaXMQssUGIT2iabGP5koiko4nxhA
-	 l8QgRxy01djAHyq0GG+Awjrsyt5+N2yOjYiZBla9j4Xb26qFWo6tfuDf/cb43j9E8ZUtq
-	 o0mTl+uCquUgJ9T3aUEmUUYgsv8K5KNFpG+jG0jGE+17KIaZ6F/YQ42xAxTP1CoFn8Qvo
-	 fB/9vnaTzByUUV5hJ+foWhzCPtWYhjm3g3qB+13Le4Z/Mf8naPTS9Orvz9PNli6anGA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792966;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=JqX1UC6kwIb0brNhPGfSFAacJXmA2iM0S4sE9CFXj80=;
-	b=lfCcSSLkbX5nbFGPEgU9VMgEWSNM+hUTZDacaChSo9dF0+FVTbOs0IL/4afAqlrd/C3P
-	 nstpk0FE/fGSIRfI1GyYkiTe6SBa8q56LGelpeS9qgOBSp2u37zq568VZ9w7HtfhcW6qb
-	 pJA62RT5z24A2+6SZ/ytnBPyn82KI6OJalDmVXmuoSlS5s3UmK/zp/gZad5YkRSlRIUE1
-	 DtFdo6ZwmA72PiikfF32szAiotKSRICjLkDXE/maGQIXQF6juD32ImS/VJE52JAlJZal1
-	 N4OKJNqQCJKu3vies41F478Yy7jElZXa9jeJO9ntqenVAduyj2z5/2qmIVJEzRnKeLw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bN5x7BYj;
-	arc=none smtp.remote-ip=91.218.175.5
-Received: from mta0.migadu.com (out-5.mta0.migadu.com [91.218.175.5])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.32
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795792991;
+	b=B/Ogu9/Bx3ECwxF4/ommt3hl79YYkFOgAWgjBKiX6pJa4S72pOKGcoxlPXcFeiS4NwGV
+	 ssDtaI/dJEMNa/Iv1vAtnMFKgmPb45YC925FtMK6PfmTGUHSVmeZq4eDal69alITTGvaA
+	 BH8Gl21A5dSluE30l0ShFbStzt0mZBc58PVQ35zEskEKglUIa0OUh2R/FQaUB3Xut4b4k
+	 YqLj/3yAqbvwFdIQmtf0F+OLmCjp3t8Ukvy4wD7uhdXuCHSnxO4msF4eWCy3MBBa/9J6f
+	 tgsZxeKW1iTYubs5NOUmStu90b6AFdxIKXT/cmzqsQJxh98hT+u9odfB0Rt850yV0XA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792991;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=TR8WuSpJ49a6bUwxYj7koKPKhjs/tl7qJzMILnCRYCI=;
+	b=4Hu3WOlke5Af80lNiaORkyJqlZHgcD5UJmXcjic1WgAFOBfFHzDHrVJspnNoUFTxen0M
+	 QEKwsC8pp9dWVMSg9Dt/N58yRZzm7cZDP+IjLsUvCJ9TTOZqieEsyUb15c2sZLpnqA3/v
+	 VfEdSwVArJTZKi6K4Y4zS2mFEn9bM4mbH+n4Cb3dnXKjyYLbBpX3tbs4I7XWBgPgfMneL
+	 cZ+AHsL3NcCNGmV7ijFCRKBmMooItkDvHJUdAsSYpsBQt4xJFYLiszX+rT7OkBDdL6TwZ
+	 MapDkRQ9s7XITJs/C1oH7H4Mcl3PUZIydH1pxsBGPPUm4vWdWH6hUlyaaruEBGAsVEA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Tg7rVAXB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.32
+Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012032.outbound.protection.outlook.com [52.101.66.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE9C3606A335
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:22:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE9C3606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5227F606A31E;
+	Fri, 27 Nov 2026 15:23:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5227F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bN5x7BYj
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=jaHAG3arDq1i/w2Er13DYrLBHLaFInp5P2f0Du89gkg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795792960; v=1; x=1796397760;
- b=bN5x7BYj2oK08SzQHjqVYp64DRBjpUUZfEUYY9fjLfbpfsmSQZkZm7POVtIieOppUpkYTW4z
- 8PfEY+pgs4FA2VtgugiGGxteSv++SQqbywZa2dYsYg/Q4MK8g3FsMLI3CW6RTIJja2+4y95gZ1v
- CK7NZzmvL+TNPthyBueRtRGE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 07c1014b8ba360ff;
-	Fri, 27 Nov 2026 15:22:40 +0000
-X-Mizu-Trace-ID: 07c1014b8ba360ff
-X-Migadu-Flow: FLOW_OUT
-From: Usama Arif <usama.arif@linux.dev>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Usama Arif <usama.arif@linux.dev>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Christoffer Dall <christoffer.dall@linaro.org>,
-	Jintack Lim <jintack.lim@linaro.org>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Top up the mmu memcache on user fault for NV
-Date: Fri, 27 Nov 2026 07:22:36 -0800
-Message-ID: <20261127152237.108363-1-usama.arif@linux.dev>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261126-fix-nv-cache-topup-v1-1-a22c936872fe@kernel.org>
-References: 
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Tg7rVAXB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FTSRnfQYwx+8VjrO7G8swAU0pbpRpz+87oL5eeTFRgU3for9gbGyC70GsmuH63kdqK3+AEqVdGlYCI8Kuj6tl2ixccJDlsV4GllMve84qY6ZRNhWmoG4MpB9/ZbaFsiRuUb7bIh5Hx220oUusfBBAEKGErNf4GY+Lwh+FlNyNZqxbghK6KXlmSNri9aEVxUwSH2xv8MrJYnmM03mYkFo9+sNKY5WXN5/srKVsurF5gvpTpRUyHV6hzO8alhIzKdG/ZX7mSRzg4v+zpo1Xrqt2YTaGvQzty5ZztxE4HjZMuuye+JhEbXzC1uiDz+HH6Ss3oCw427SP8BdcMJnf4FNDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TR8WuSpJ49a6bUwxYj7koKPKhjs/tl7qJzMILnCRYCI=;
+ b=DivuabKsY40UH/akiK2ApWc2psX53oKtV5zUjRrzosiWeK99zEuvBrKw6crckx7IMyijMdyRXoqMDRFNDBkNY+mfyyiNknK5epetPTTLWij8xFltHTeWqJH31NQmugfzOpQPL5No6qdfYaAR2hCmC7lnj9pjCr5gET4WfGtgbxJJpqQ17UcUY9/KNASQ88GnIp75A4br9e1X81CKtihwDm9qN44x6VigMtM8skjYc2KMzrdTgCUq7XHY1W2qqbtTD+O+nk7OuJHZ3HBseoLge8Nw9Yd0K/rA7LBfRcZtLD8HnSFleTm4/xdM5ia+38Qm3hldmw/T+kTfILJHI5iksw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TR8WuSpJ49a6bUwxYj7koKPKhjs/tl7qJzMILnCRYCI=;
+ b=Tg7rVAXBfq0RUCJ8SCZ72arRIjNa9jRhopgRX7pPripMoCoxAn+Osi6zCUMEq5bi8zdP0nOVS1BP+9AG4BMhxCyoZQic2WNtaNohGl8SZwJZYWzFKIY9+E4O41yIM43SJRIVdb7EAwY+I5N/5MPPvpWyrRZQ7i7zT/aFNforBqepIGEDTLUSn5wU3qQl3l855SzlJ/O1b+GxIZQe5mA8A5hbzircPwY+71ZgF1bJh4Oxr+UHDGwiutvuh2TaZ2hvMcnXGCGkxTOZqewoEwurkrzOmwDwglBxX1Cz2nwFfsUef5a2JssNBbuF1/xtFGzgxcGhh4+N2XWHbyklMJpO8w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DBAPR04MB7303.eurprd04.prod.outlook.com (2603:10a6:10:1af::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
+ 2026 15:23:08 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 15:23:08 +0000
+Date: Fri, 27 Nov 2026 09:22:56 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Tian Xuechen <202300460064@mail.sdu.edu.cn>
+Cc: vkoul@kernel.org, Frank.Li@kernel.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, vz@mleia.com,
+	piotr.wojtaszczyk@timesys.com, manabian@gmail.com, robh@kernel.org,
+	saravanak@kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] dmaengine: lpc32xx-dmamux: Use managed DMA router
+ registration
+Message-ID: <awmgUCQ27j85pwhI@SMW015318>
+References: <20261127110400.379397-1-202300460064@mail.sdu.edu.cn>
+ <20261127110400.379397-4-202300460064@mail.sdu.edu.cn>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127110400.379397-4-202300460064@mail.sdu.edu.cn>
+X-ClientProxiedBy: PH8PR21CA0012.namprd21.prod.outlook.com
+ (2603:10b6:510:2ce::6) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,98 +100,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DBAPR04MB7303:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef02c493-07da-410c-0d36-08df4c9a5749
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|366016|376014|7416014|1800799024|23010399003|4143699003|18002099003|22082099003|11063799006|10067099003|56012099006|261026140227099003|261028144727099003|261102123227099003|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info:
+	pAL3lZgWbACYaqMWp6WxToUpdYK9wl2Woog9qAbagvlSI5pjyIIM6Q6cPqo5DIpH/JNf9qL4C1clA0wepBLUYoBe8+g2ixRVHGQxZTIfmeyQRprV4Q68IXRdIctphzfojm5/XK5KFK91DJzgtHrf6A0ubuaIIZ+A2JqCoCA3j8VFYc/VUIfJuKg+3qn9BywuusHDv8x8W3OROl04YeJuHrf7rgECXmP1drxKwp8FOhmJeOpBT56d4FCGMPuWADMa9kfH85BVLIHLP1QYV6hR2KpyLRORGI5BQaGFSGVIFqp5Z7PGInfMh+M08IPL0mN3rsXP4cEYX7bviG9o4vm1v6K+TZTfKiprv4p5cZi/PIe9VC4W84PQNqi2paBLrVSA+fgTslyPdLi5zLiDMIWakboFR14mmTx0XlY273l5kUO7cu/B1NWsYzcF2SQIthPJjkkrrbCN0Aj2vtE/VQ3n8NslGSQYjr/PpTX2fOkUAQDqehcfPWfGZsuhtzvMXRkItRc+57l+wlk4L7cI9xyXz4ZlQSwNYsyjRqSucKYgceWaiLLo5TfDU/Q0muvyS5gyDYZgYPJ+7+M7WKI1frpnDyzXCExvEm0yTeElZQff7MBinqkaUtFxXKpCd6y16Wv4PlOaQIu4SoL1bn+6nAIEigQC56UXkGnwNIVHyehH+Qo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(1800799024)(23010399003)(4143699003)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006)(261026140227099003)(261028144727099003)(261102123227099003)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?RMZF/ZYno6a9CSigJpG2T4AGnv84oUgkdfYruu5W+J44o5hAyYeRSGmjpvj1?=
+ =?us-ascii?Q?viKagDBgRd0WkeSEzivsdAUJgJ9ZAaFBIbJ2XxPh4TI0uU11VbqXOPKlKPX6?=
+ =?us-ascii?Q?bivG19jKuQ5pjBDr8qBt5Dw8f8mxj/Ze9g6y/zhjzUBvMocsJWdSy4U9wVfc?=
+ =?us-ascii?Q?+G/5vNBnzG8jOdGMQNZt7p5k9zcTHC9iK6Ms3mfkbxzbPqjS6ylcJwDt0QTC?=
+ =?us-ascii?Q?UGpDyc7G5eFw+KIOb0t/9v+xOfNzkU/BnxWaaUKfzZTmFvkf0aJ8wKk2j9Cz?=
+ =?us-ascii?Q?QX0nUYDwBFzVtPb22T8Lidf6KLYhQPLonv5SfANJOeaYijauMuh0MM0M0/4w?=
+ =?us-ascii?Q?yyVH4o1ebiqFAN68O+VuVDrbqLOuzRRVJCHj0oA9VKfoIrPK7w58CS/gSaFk?=
+ =?us-ascii?Q?GJ34LxO3TWno4JB9IsCn+d8w/r5JeFKJxQHHz4llImA02bjkRH/21aFmgYle?=
+ =?us-ascii?Q?VQYVhn8HJL1yl8D+4mrdd9M4DAANAhocg03jtLS8dnqnRdmQ9pgIyQ4wsmpv?=
+ =?us-ascii?Q?l63K+fvnr15WZKDf/Gffav6Aa+fE9/aExavA3Q6aEzrD/qZwGvMidGsJ6Mxv?=
+ =?us-ascii?Q?MonyORQNn7zQEpOLF2ySb+4X2gBsKsVATj5VZMut0PQz9nqgxlQqsn3GSq63?=
+ =?us-ascii?Q?WPsZx326FZnaO74H/yu1dK8zzRpo4LkGKFpVAK5aiyf4m+/747m1iMj5Uuu7?=
+ =?us-ascii?Q?CYga3qlndwJ3QlPstBENq/vYGPDTCG17xrL/A0a8Mxkcd7Jt35KTT3yWELYa?=
+ =?us-ascii?Q?kpNggj5eTbPqVrErV9WsHFCSFY6N2oxGyxXIEBKgGz0m06Vz34Q2Tc8dpd+5?=
+ =?us-ascii?Q?vXuviyM2+XS0fy8pqY3KOCCh2hqiZjLPCHaQL3jlLpeoCsYN1yPw4S3QXutW?=
+ =?us-ascii?Q?JDX0ERXQ1oeaIAiYZQoJ99wW6OYuGmeNFyAfUpqgUzOF+j+5ev1RPi376vfz?=
+ =?us-ascii?Q?UOOO88IzfoUvWtMBBnJQAmAkgMh0SJ4NnkYBP2fTIeOBZMKTqyyplBUmEl27?=
+ =?us-ascii?Q?DvihNNArYmJX0GGKosnbHTDKZd7ltI29rWaNQNzbC5ugdkT1GK8uEbf8DVY6?=
+ =?us-ascii?Q?tHaLTycezVc84yLRv+DcdFR/WzTFDeMF8SC7bFi50kVEk46BZdPgD6zMm2qM?=
+ =?us-ascii?Q?J6qhgbpIvpfXH+K4KV3tT2EXXj2hsW4xdhWhlbbkqA768EvQSvGT7zmK1BwA?=
+ =?us-ascii?Q?92WZzKfIe2zfxFCg8f2Tgp561tZfAZn6zzrztzN2xt1mC5kNxFJGk2VluQ8U?=
+ =?us-ascii?Q?YrLXsSYb3H52kIrwHl75HBTv+buIkIJ/gwc88QNQKyPWb5p1G9p9vKS6yWlP?=
+ =?us-ascii?Q?CPgbWxcyoxJCCg+pb5EaSejB0IbuiOrcF8gf4GzUk1I3RXYXddbJJVdo3Z1q?=
+ =?us-ascii?Q?TwSdRav9eWYYaUckgL7nUY50Kqgff17t4rRk92LgdKlz9FIQ/66+8neRHsSz?=
+ =?us-ascii?Q?Vp9R0NCOjHyl2DyQo5nluzUWMbSQoIVJqti22UO2Q3yr7at1QT/i2RVbTLAL?=
+ =?us-ascii?Q?QH8wMUEEF7LvSS2/ReiDm7DD4wr1Ka6oIN2sk7J0/knIULXNnj8Jq6AECkul?=
+ =?us-ascii?Q?wqfZwMwQugZIZfjYv3VhEn1srrzxKptNtDR8qbfdb7E2SmuNrXsqvMW/6Ihh?=
+ =?us-ascii?Q?IKzENBKO7MsoXS2LDYy22ix/ywX7Nkk0TlCXWfk1voYUFW9p3RerJxVDMtRw?=
+ =?us-ascii?Q?iVvAw0PeMO9jrA54oNIaEL9kXbV7Odcj9CXISyfBaORAAgZQ/xZGzp+Y2Nag?=
+ =?us-ascii?Q?TgxfBmG7i1rLQqr0o46wRLVG6T/y+c6Wm1PXJ8N1BO/CWkuzj06f?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef02c493-07da-410c-0d36-08df4c9a5749
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 15:23:08.4973
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N9yTt3XUfLpPl4+8fmnDKZ85OVoR5QqcSy5avDFFu73wVVc29fxsnbdFpq0ScXG/kcxcbcXdek7kLzh4xG1GUuKIfbM8WDuZtEG7hu/+s6A8g6TJZpDFLQut6vr6QGdh
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7303
 
-On Thu, 26 Nov 2026 17:28:29 +0000 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
-
-> The S2 user fault path tops up the MMU memcache (used for page table
-> pre-allocation as the point at which page tables are installed may not
-> allocate) except when:
-> 
-> * It's a permission fault AND
-> * dirty page logging is disabled AND
-> * pKVM is disabled
-> 
-> At which point it is assumed no page table will be allocated.
-> 
-> However nested virtualisation adds another edge case - the mapping size of
-> a shadow S2 is clamped to that of the guest's own S2. If the guest
-> hypervisor replaces a block mapping with a table, a permission fault on the
-> shadow block has to be mapped at PAGE_SIZE, which requires a page table to
-> collapse the block into.
-> 
-> With the memcache empty, kvm_mmu_memory_cache_alloc() hits its
-> guest-triggerable WARN_ON(!nobjs) and falls back to a GFP_ATOMIC allocation
-> under mmu_lock, with a BUG_ON() if that fails.
-> 
-> Therefore, also top up the memcache for permission faults taken on a
-> shadow S2.
-> 
-> Note that dirty logging had a similar issue, addressed in commit
-> 56fd1fc526e6 ("KVM: arm64: Top up stage-2 memcache for dirty logging
-> faults").
-> 
-> Fixes: fd276e71d1e7 ("KVM: arm64: nv: Handle shadow stage 2 page faults")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+On Fri, Nov 27, 2026 at 07:04:00PM +0800, Tian Xuechen wrote:
+> The DMA router remains in the OF registry after its device-managed
+> data is released. Use managed registration to remove the routing
+> entry before the router data is freed.
+>
+> This issue was found by our static analysis tool under development.
+>
+> Fixes: 5d318b595982 ("dmaengine: Add dma router for pl08x in LPC32XX SoC")
+>
+> Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
 > ---
->  arch/arm64/kvm/mmu.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index a0d4981ebb99..e09a8f2c0482 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2256,16 +2256,18 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
->  
->  	/*
->  	 * Permission faults just need to update the existing leaf entry,
-> -	 * and so normally don't require allocations from the memcache. The
-> -	 * only exception to this is when dirty logging is enabled at runtime
-> +	 * and so normally don't require allocations from the memcache. One
-> +	 * exception to this is when dirty logging is enabled at runtime
->  	 * and a fault needs to collapse a block entry into a table.
->  	 * Under pKVM a permission fault can also collapse pages into a block,
->  	 * which needs a fresh mapping object, and the hypervisor requires the
->  	 * min-pages memcache even when the install allocates nothing.
-> +	 * With nested, a shadow stage-2 block may also need to be collapsed
-> +	 * into a table if the guest's own stage-2 mapping has become smaller.
->  	 */
->  	memcache = get_mmu_memcache(s2fd->vcpu);
->  	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
-> -	    is_protected_kvm_enabled()) {
-> +	    is_protected_kvm_enabled() || s2fd->nested) {
->  		ret = topup_mmu_memcache(s2fd->mmu, memcache);
->  		if (ret)
->  			return ret;
-> 
 
-Thanks for the fix!
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-On the narrow condition being the smaller backport: I don't think it
-is. The hunk already conflicts on 7.3, where topup_mmu_memcache() still
-takes the vCPU, and the condition looks different on 7.2 and older, so
-every stable tree needs a small manual backport either way.
-
-A permission fault can also allocate outside NV. For example, take an
-exec permission fault on a THP block, where the VMM replaces that
-memory with 64K hugetlb pages before the fault looks up the VMA:
-
-  - the MMU notifier unmaps the block, and mmu_seq is read afterwards
-  - kvm_s2_resolve_vma_size() forces PAGE_SIZE for the CONT_PTE hugetlb
-  - PAGE_SIZE != perm_fault_granule, so kvm_pgtable_stage2_map() runs
-    and allocates a table, with no top-up
-
-That one is narrow and VMM-driven, but topping up for every fault would
-cover it too, and it costs a single comparison when the cache already
-holds enough pages.
-
-> ---
-> base-commit: 012e4bc01e339a65dc7c59181b5efb33b171d12c
-> change-id: 20261126-fix-nv-cache-topup-9ab1fd829014
-> 
-> Cheers,
-> -- 
-> Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> 
-> 
+> Changes in v2:
+>   - Use devm_of_dma_router_register() instead of a remove callback.
+>
+>  drivers/dma/lpc32xx-dmamux.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/lpc32xx-dmamux.c b/drivers/dma/lpc32xx-dmamux.c
+> index 33be714740dd..3218be8e8eae 100644
+> --- a/drivers/dma/lpc32xx-dmamux.c
+> +++ b/drivers/dma/lpc32xx-dmamux.c
+> @@ -180,8 +180,9 @@ static int lpc32xx_dmamux_probe(struct platform_device *pdev)
+>  	dmamux->dmarouter.dev = &pdev->dev;
+>  	dmamux->dmarouter.route_free = lpc32xx_dmamux_release;
+>
+> -	return of_dma_router_register(np, lpc32xx_dmamux_reserve,
+> -				      &dmamux->dmarouter);
+> +	return devm_of_dma_router_register(&pdev->dev, np,
+> +					   lpc32xx_dmamux_reserve,
+> +					   &dmamux->dmarouter);
+>  }
+>
+>  static const struct of_device_id lpc32xx_dmamux_match[] = {
+> --
+> 2.43.0
+>
