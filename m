@@ -1,57 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795818;
-	b=2ecXH2D9YgtSOe2F/tbm1WsJ6B4oTeroQ0HVNtYXFTUI8iQhl4w1e2uoWdJa7NH8ClMl
-	 i6K1Ehd8kotgnssXVmMg0VcM0C7zIZpPR1MMcnKvGHUt86f5GXqYSDIK2nds1HVbYUCTz
-	 9YoEMesHsW5w/3+BbUg3wIsfUI9qr2JmLgEngAd4CupR9minvPsKj3mAK6fAdHlkzyzx9
-	 kjf6DBQesZylumNplpdStPLiXkMwVW0NI8G4Auxjj52S1kXGDquyP12YVhlTa156SB8Al
-	 E05UoFHSNfMN1PHE10JoXxsM44XoX0HuDsH8rvvdO/6/XZ+EJbu8tFPVcY9E2nZug0A==
+	t=1795795845;
+	b=2UA7hRt5hUwCIdFJAz4THdEFE1pTbbQ3U8393k+guvKouRDfvNBYUC0RlpKYHSty/aZ1
+	 jLpXqLXIViwcDpLXlSUdIPXddUSYhUXUIIeGIx8NQFXzdso4mMljKitWonG6kCTbuugpz
+	 sBGvVXzOo8rHKJLT7VoxGtsDiGrdCZlZfh0TfiTydYU+frnBd9ey6cZRdMJBsbphHMhyg
+	 OU13iin33VyjSDho+hkltEhA1KwPHZR8ugRkjSGWWSrM8FY9uqZHtxrQU/M65A+iJF/E3
+	 tUKO81KjKJyssqqTDi49KXe3kDrwSWewmKe9kDKrOMkM4hc3s6EY/LMRbkHfNy8cyTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795818;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=ysjzaGfyQv2jqsZ99fyhOe4MrbAd+SNTztSkbg/92so=;
-	b=QQpsvt5d8KUwKJC3Y0q2TKcDmH9iInwr64HEwfWEuI/XrwGxAs9/hBjrIvfw3+a8ZyA9
-	 jigFXJiV2oqVNCFDp/dXKCVj5beFaj7/tciyQoCVle87t9TdZbERKZnDN8j+s3aqhSoYk
-	 U1oTMq1lFOl6+PdxxbzqVOJv9eE45Cjn8pvqb6DOOJy/P9g9fp/sfiVD16N320TVMkp9u
-	 0rFFWEK4AtwpoylSlphndbj2Dfb13tspP+vzaRbGsdebVK382mSMZMUGh06DwIjmKY20u
-	 F7ubWEQjcvyhG02jmVNJqXuz4HXjnMNOioMP+GumCykMJMmt0iqWs2Gpz9ooCDJKWgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795845;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=iVhsmly2cOT49BUGNNoiSt8eC/rvBwIir2jFZoGobdk=;
+	b=WMCqt1CK7aXisdubVNAXNpbE5YQRAl4FgTT4Pg+Rra7XFQLL/xBxjEG7Dv4oV5nHNPEZ
+	 iwBBoDCuUnCG0ZEc2cYzxWudIoXo6jfwjmCV+FRW9zAiJxNlDWX3+jYJMJsNhcuo2mvTO
+	 y0H2eLk6iuIpJB0FmIaCgdHm6w/76JDv4BfmaMCBz2oX/imHSP5vSqlup7bHRuCbWRzM1
+	 Vzs7H2Krdu21vYbesp6/in8kIfbU68nUX4FLVuNd50PzEIKAPC33eb65kkoHaBxp4Stb/
+	 g8gvWN/sYIfh/16R03u6QU47rk4rT3dZgWdF+sYA4nofynM0llrQbwnns5ZzUbJM1kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mVbnTWvp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GisTdvnI;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B42B606A338;
-	Fri, 27 Nov 2026 16:10:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC795606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:10:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC795606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mVbnTWvp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12C421F00929;
-	Fri, 27 Nov 2026 16:10:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795818;
-	bh=ysjzaGfyQv2jqsZ99fyhOe4MrbAd+SNTztSkbg/92so=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=mVbnTWvp4ZBjjYOUhvdan7q4yV+dfy1U9EhcRkEv3WvQhecWV/b4UL3VgbOTUsCBW
-	 ls0mL7YMGK7P0d03iChPKXw2h34eTxFzEdg2ApVaymLZ7DoX3o1dJyM+5Q9DimQdZJ
-	 +0U2w0dpVVhT+bcQtZTK5YDK11bdFTtckILxKtIlI3mowlFIaMIYIZ9V2jvvoKcrYA
-	 EXUW/AY59iVAdoJrlX5M9xsXKFhuFqHXsuTJTOaSYDAg2OGVDP9CUO1K8V3sR4W3J5
-	 rqZAf5UlOeQ5XafF7Ty0z1ipTqNr9qMeWG6ePxWyxhKGpU5LwxZ4uR9ZQuPeh+0ryA
-	 6jv9uzFOfPkKA==
-Message-ID: <sashiko-outbox-237842@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v12 18/43] selftests/sched: Test the root domain of a
- task in deadline_bw_test
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <bd056b300844440d73b5b27b5d36d1b9491fa0e3.1795771148.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
- <bd056b300844440d73b5b27b5d36d1b9491fa0e3.1795771148.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 16:10:17 +0000
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GisTdvnI
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-49d05d51553so58377255e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:10:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795795842; x=1796400642; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iVhsmly2cOT49BUGNNoiSt8eC/rvBwIir2jFZoGobdk=;
+        b=GisTdvnIDRCUhv3R+I2OJ0AwssL5m38E6DNw06NjxXL9Rt2ti1b5mU01ujDGI39Wch
+         dI/SW4E4vevX5f3TxBlg8fUsT312YaEiUyl1R3ulTQadSYfBbl2bOByJnjkOoPGMfg+c
+         xTo7vvZ+MEFNWDt5xJ05IPOLT+hBTG1JLadCU4mH7FH6oMNkRt3/lq1FxzzlVxtaBYAs
+         xQmRKPQpd7dd9gXi5cer2vjteUh/4trlioaMxreIlG5SRyaWT1dIcpZ0H2FFLl9EiFr9
+         xMYYi8bqixWie4TzIOcHbscp1pQGiJXKQ0EtTBaNEBCqlBqhwbGX5kr2+KEQMjUB00qT
+         YOkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795795842; x=1796400642;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iVhsmly2cOT49BUGNNoiSt8eC/rvBwIir2jFZoGobdk=;
+        b=yLEq2WCX1KNdn41dQh80x5MgOcqWMGUANTFAJ1nIe/LNqFmnHB5V+BeI0qjbTG6y1N
+         lnfUNcm8Awmi1dDywumQJY3Slc4pNeEgRttSkv3mTEbOIdISe/sFO9a3VQnPvsTcRe1P
+         ci2Qm954bGitHmRai2Aj0H4TG5O2QpYa9ITyVI/cyoOcW4Qxbrhh5TsI4+JRUvOS0O3f
+         RH9H+CKaepQxgGw8M5LMTx2NnToLsbBSGrmM+/BO+JzSaL+AR9C9UcJSlhcaViwxt72H
+         bozQca63jaUzZzxv932ZxMcF43Pi/xzr7EyRfobtuJqhBaXuwdzuZSODj6b1PKtjvzDz
+         Y9Lg==
+X-Forwarded-Encrypted: i=1; AL+hErG0dHy0kh37Emv9Ui7pz8pvMoeikcBcrQ3/yvq4Bt1jUTs2Nqp095Y23wAhLJ6MIMZ7t8WIWbsRauMck+M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/d63Xu37wmxG/odOn4aqYd4Xu2/BHrWrPabzS9Hjvx1mnmDKLJ
+	iSicV45FccRzu0f/9m4kzC2wO1a1heukP+7kefPjsRbzaj1tdVN1M7NE8IC0Cu4Yfe4=
+X-Gm-Gg: AZFdTZdgtvN2i4QZl9kxklsAKev1vXhl+Zkq4FsNYK1uoBuxzg5+pUiYjkeOImQZaQ0
+	HHpabc5IfeJwmH76gp8iHnYw8KEQdhR7x7wC8EgUnVNnW6hCTy9yiPxF8lqXj+vJUV7mi1Siw+d
+	1Bkk/DlINNJ96oosCnkCbJO6DpMvRXCEdcK1uUqcxALvHqpKTHMPT037sWqUp5jX0H2pV4e1BA6
+	l7FRVYk4B+qvSmjcuGbqGPAHGmTISGNozkMeygR8YkWXaUT/gbwsPgGZ+7bMl8fN6DeFcSPq6mr
+	cNepOdZCIWdNb4Ii3lPOI3fLt2C/9pjsJtRNBsYDsWBTPZpQvd1dRQ4MofPQBzLG30ImK2J9Zo4
+	q/sawrN5w3fEgsnew8MgxKwig3ZIGWEzHiHZ0Z6EMPInAd8BS/QvceqjzOOc1rKYuEdXtokMUN/
+	HIr6gtKgs3o1pf+UdIEMKGD+4GdW44Qr4rY2GqLTEdPUdSLfAk1Z7PYHXvd6/BvM6AYW1lQhI3K
+	LADQ9JNYDmPKZmst5xQkhtMJTUw8TIyzhpsNemqK1A4+dkotNx5jyZOFRiqSERQIdOppSFHjTGz
+	ztFx/ubUK8OEaZHJrxdAMzda+y2Lrc8=
+X-Received: by 2002:a05:600c:3b9e:b0:4a1:cf60:dcc3 with SMTP id 5b1f17b1804b1-4bb88820687mr578562595e9.29.1795795841986;
+        Fri, 27 Nov 2026 08:10:41 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a12acsm733027025e9.8.2026.11.27.08.10.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 08:10:41 -0800 (PST)
+Date: Fri, 27 Nov 2026 17:10:38 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: binoy@vt.edu
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Miroslav Benes <mbenes@suse.cz>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>,
+	rcu@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>,
+	Jaidev Shastri <jaidevshastri@vt.edu>
+Subject: Re: [PATCH v4 2/3] livepatch: Include exiting tasks in the transition
+Message-ID: <awmrfuzTlVWgGgEM@pathway.suse.cz>
+References: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
+ <20261126-klp-series-v3-v4-2-2ad73e9c9254@vt.edu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,80 +111,372 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-klp-series-v3-v4-2-2ad73e9c9254@vt.edu>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Low] selftests/sched: hotplug_user_mask_refused() fails when nisol >
-  2
---
+On Thu 2026-11-26 11:41:33, Binoy Ravindran via B4 Relay wrote:
+> From: Binoy Ravindran <binoy@vt.edu>
+> 
+> The transition walks tasks with for_each_process_thread(). A
+> self-reaping task is unhashed in exit_notify() but keeps running the rest
+> of do_exit(), so the walk never sees it. The transition can then
+> complete, and with atomic replace the previous patch module can be
+> freed, while that task is still executing, or about to return into, the
+> previous module's copy of a patched function. This is the race discussed
+> in the thread linked below.
 
-commit 1feed7a3b20fcb7febc6347a6bcad087b2151e55
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+I would use [1] to reference the discussion, see below.
 
-selftests/sched: Test the root domain of a task in deadline_bw_test
+> An exiting task is on an RCU-tasks exit list from exit_tasks_rcu_start(),
+> before exit_notify(), until exit_tasks_rcu_finish(). Make every step of
+> a transition also visit the tasks on these lists, using the helpers from
+> the previous patch.
 
-This commit adds 32 test cases to deadline_bw_test covering SCHED_DEADLINE
-root domain bandwidth accounting across CPU hotplug, cpuset changes,
-partition roots, and CPUs isolated with isolcpus=3Ddomain.
+I would start another paragraph here.
 
-> diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/=
-tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> index f50d45dd57994..87fa1a7d420fd 100644
-> --- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> +++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-[ ... ]
-> @@ -7048,100 +7599,1873 @@ static pid_t task_from(int cpu, int all, uint6=
-4_t runtime, uint64_t period, int
-[ ... ]
-> +static int hotplug_user_mask_refused(void)
+> klp_init_transition(), klp_start_transition(),
+> klp_complete_transition(), klp_reverse_transition() and
+> klp_force_transition() only set fields and flags. They walk the exit
+> lists in place, under tasklist_lock, and skip tasks that are still
+> hashed, so that each task is visited exactly once.
+
+I was confused by the meaning of "tasks still hashed".
+
+Later I realized that it pointed to __unhash_process() function.
+I heard about this function for the first time. I have never
+met a term "hashed process" before. I never needed to study pids this
+deeply.
+
+Honestly, I think that "hashed task" is a term invented by LLMS.
+It does not mean much. It is just a "poorly" chosen helper
+function name in kernel/exit.c. There is no counter part
+in kernel/fork.c...
+
+Instead, I would write something like: "skip tasks which are still
+accessible via the for_each_process_thread() walk, so that each
+task is visited only once."
+
+BTW: Would it hurt to process the same task twice?
+
+     I think that it should not be a big deal. It looks like an
+     optimization. But the dependence between pid_alive(),
+     for_each_process_thread(), and task_list lock is pretty
+     tricky. I am not sure if it is worth relying on it.
+
+Also I would start another paragraph here.
+
+> klp_try_complete_transition() may inspect a task's stack, so it takes a
+> snapshot with a reference on each task. If the snapshot cannot be
+> allocated, or more tasks start exiting than it has room for, the
+> transition is treated as incomplete and retried. An exiting task must
+> therefore switch, like any other task, before the transition can
+> complete.
+> 
+> Fixes: d83a7cb375ee ("livepatch: change to a per-task consistency model")
+> Link: https://lore.kernel.org/all/20250127063526.76687-1-laoar.shao@gmail.com/
+
+This points to the cover letter of a patchset. Many things were
+discussed there. It might be better to mention here the mail
+where the discussion about livepatching do_exit() started.
+
+Also I would use:
+
+[1] https://lore.kernel.org/...
+
+instead of "Link: " so that [1] can be used as a reference in
+the text above.
+
+> Assisted-by: Claude:claude-opus-5-5
+
+This is not needed.
+
+> Signed-off-by: Binoy Ravindran <binoy@vt.edu>
+> --- a/kernel/livepatch/transition.c
+> +++ b/kernel/livepatch/transition.c
+> @@ -74,6 +75,54 @@ static void klp_synchronize_transition(void)
+>  	schedule_on_each_cpu(klp_sync);
+>  }
+>  
+> +/*
+> + * Tasks past exit_notify() are off the task list but still run do_exit() and its
+> + * callees, possibly from this patch's or a replaced patch's code, so the
+> + * transition must cover them too. The try step inspects stacks, which needs a
+> + * reference on each task, so klp_try_switch_exiting_tasks() works on a
+> + * snapshot of the exit lists.
+> + *
+> + * The other steps run with tasklist_lock held and skip tasks that are still
+> + * hashed, so every task is visited exactly once: an exiting task can be on
+> + * both lists until release_task() unhashes it.
+
+I would be more explicit here.
+
+  * Important: Both for_each_process_thread() and rcu_tasks_exit_list
+  *	must be traversed under tasklist_lock. It prevents calling
+  *	__unhash_process() so that pid_alive() can be used to detect
+  *	whether the task has already been proceed in
+  *	for_each_process_thread() cycle.
+
+But as I have said, I am not sure of it is worth it.
+
+> + */
+> +static void klp_exiting_init(struct task_struct *t, void *arg)
 > +{
-> +	int fd[2] =3D { -1, -1 }, err, cpu, ret =3D KSFT_SKIP;
-> +	long long def0, hk0, def, hk, bw;
-> +	char buf[64];
-> +	pid_t pid =3D -1;
+> +	if (pid_alive(t))
+> +		return;	/* still on the task list: already visited */
+> +	t->patch_state = *(int *)arg;
+> +}
 > +
-> +	if (fallback_cpus(0) || !cpu_hotpluggable(fb_h)) {
-> +		ksft_print_msg("needs isolcpus=3Ddomain: 2 isolated, 2 housekeeping CP=
-Us, hotplug\n");
-> +		return KSFT_SKIP;
+> +static void klp_exiting_start(struct task_struct *t, void *arg)
+> +{
+> +	if (pid_alive(t))
+> +		return;	/* still on the task list: already visited */
+> +	if (t->patch_state != klp_target_state)
+> +		set_tsk_thread_flag(t, TIF_PATCH_PENDING);
+> +}
+> +
+> +static void klp_exiting_complete(struct task_struct *t, void *arg)
+> +{
+> +	if (pid_alive(t))
+> +		return;	/* still on the task list: already visited */
+> +	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
+> +	t->patch_state = KLP_TRANSITION_IDLE;
+> +}
+> +
+> +static void klp_exiting_clear_pending(struct task_struct *t, void *arg)
+
+The name of other callbacks seems to follow the name of the function
+where they are called. This one is called in klp_reverse_transition()
+so I would call it:
+
+	klp_exiting_reverse();
+
+> +{
+> +	if (pid_alive(t))
+> +		return;	/* still on the task list: already visited */
+> +	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
+> +}
+> +
+> +static void klp_exiting_force(struct task_struct *t, void *arg)
+> +{
+> +	if (pid_alive(t))
+> +		return;	/* still on the task list: already visited */
+> +	klp_update_patch_state(t);
+> +}
+
+That said, the names look a bit confusing. It feels like these
+callbacks are initializing, starting, completing, ... some exit.
+
+I would use:
+
+   + prefix: "klp_exit_task_*" to make it more clear
+	that it is manipulating a task in some exit state.
+
+   + same suffix as the caller, .e.g "init_transition" to
+	make it clear which stage of the transition it
+	manipulates.
+
+So, rename:
+
+  + klp_exiting_init	 -> klp_exit_task_init_transition
+  + klp_exiting_start	 -> klp_exit_task_start_transition
+  + klp_exiting_complete -> klp_exit_task_complete_transition
+  ...
+
+
+> +
+>  /*
+>   * The transition to the target patch state is complete.  Clean up the data
+>   * structures.
+> @@ -123,6 +172,7 @@ static void klp_complete_transition(void)
+>  		WARN_ON_ONCE(test_tsk_thread_flag(task, TIF_PATCH_PENDING));
+>  		task->patch_state = KLP_TRANSITION_IDLE;
+>  	}
+> +	rcu_tasks_visit_exiting(klp_exiting_complete, NULL);
+>  	read_unlock(&tasklist_lock);
+>  
+>  	for_each_possible_cpu(cpu) {
+> @@ -419,6 +469,35 @@ static void klp_send_signals(void)
+>  	read_unlock(&tasklist_lock);
+>  }
+>  
+> +/*
+> + * Try to switch every task on the exit lists. Returns false if one of them
+> + * could not be switched yet, or if the snapshot could not be taken in full.
+> + */
+> +static bool klp_try_switch_exiting_tasks(void)
+> +{
+> +	struct task_struct **xt;
+> +	bool complete = true;
+> +	int i, n, max;
+> +
+> +	/*
+> +	 * Size the array from a count taken now, plus slack for tasks that
+> +	 * start exiting before the copy is made. If even more arrive, report
+> +	 * an incomplete walk: klp_try_complete_transition() runs again later.
+> +	 */
+> +	max = rcu_tasks_snapshot_exiting(NULL, 0) + 64;
+> +	xt = kvmalloc_array(max, sizeof(*xt), GFP_KERNEL);
+> +	if (!xt)
+> +		return false;
+> +	n = rcu_tasks_snapshot_exiting(xt, max);
+> +	for (i = 0; i < min(n, max); i++) {
+> +		if (!klp_try_switch_task(xt[i]))
+> +			complete = false;
+> +		put_task_struct(xt[i]);
 > +	}
-> +	if (cs_setup())
-> +		return KSFT_SKIP;
-> +	snprintf(buf, sizeof(buf), "%d,%d,%d,%d", fb_i1, fb_i2, fb_h, fb_k);
-> +	if (cs_make(cs_b, buf) || write_file(cs_b, "cgroup.subtree_control", "+=
-cpuset"))
-> +		goto out;
-> +	snprintf(buf, sizeof(buf), "%d", fb_h);
-> +	if (cs_make(cs_c, buf) || fallback_totals(&def0, &hk0) || pipe(fd))
-> +		goto out;
-> +	ret =3D KSFT_FAIL;
-> +	mv_state[0] =3D 0;
-> +	mv_state[1] =3D 0;
-> +	pid =3D fork_child("a deadline task");
-> +	if (!pid) {
-> +		cpu_set_t set;
-> +		char c;
-> +
-> +		CPU_ZERO(&set);
-> +		CPU_SET(fb_i1, &set);
-> +		CPU_SET(fb_i2, &set);
-> +		if (sched_setaffinity(0, sizeof(set), &set) ||
-> +		    set_deadline(0, 10 * NSEC_PER_MSEC, PERIOD)) {
-> +			mv_state[0] =3D -1;
-> +			_exit(1);
-> +		}
+> +	kvfree(xt);
+> +	return complete && n <= max;
+> +}
 
-[Severity: Low]
-Will set_deadline() fail with EPERM here when more than two CPUs are
-isolated with isolcpus=3Ddomain (nisol > 2)?
+I did not check this function. I think that we will do it another way,
+see my reply to the 1st patch.
 
-In the root cgroup, __sched_setscheduler() requires the task's affinity
-mask to be a superset of def_root_domain.span, which contains all nisol
-isolated CPUs rather than just fb_i1 and fb_i2.  Adding all isol[0..nisol-1]
-CPUs to set before set_deadline() (as spin_offline() does), and then
-narrowing the mask to fb_i1, fb_i2 and fb_h afterwards, would allow the
-test to pass when nisol > 2.
+>  /*
+>   * Try to switch all remaining tasks to the target patch state by walking the
+>   * stacks of sleeping tasks and looking for any to-be-patched or
+> @@ -450,6 +529,8 @@ void klp_try_complete_transition(void)
+>  		if (!klp_try_switch_task(task))
+>  			complete = false;
+>  	read_unlock(&tasklist_lock);
+> +	if (!klp_try_switch_exiting_tasks())
+> +		complete = false;
+>  
+>  	/*
+>  	 * Ditto for the idle "swapper" tasks.
+> @@ -489,6 +570,13 @@ void klp_try_complete_transition(void)
+>  	/* Done!  Now cleanup the data structures. */
+>  	klp_resched_disable();
+>  	patch = klp_transition_patch;
+> +	/*
+> +	 * A task can leave the exit lists unswitched after the snapshot. It
+> +	 * runs with preemption disabled until its final switch, so wait until
+> +	 * every CPU has switched context.
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
-t.mathieu.desnoyers@efficios.com?part=3D18
+Just imagine that you see this comment 2 years from now without
+the fresh context. "exit list" sounds a bit vague. Also "the snapshot"
+is a term that was not mentioned anywhere else.
+
+I would be more precise. I suggest something like:
+
+	* There might still be tasks which were already removed from
+	* rcu_tasks_exit_list and were not checked above. They run with
+	* the preemption disabled until they finally stop in TASK_DEAD state.
+	* Make sure that they stopped running and will never run again.
+
+Now the question is why we need to call it here and not,
+for example, in klp_start_transition() or klp_reverse_transition().
+
+IMHO, we need it here to avoid removing the ftrace trampolines and
+the livepatch module when the code still might be in use.
+
+BTW: Do we need it in all situations, for example, when the 1st
+     livepatch gets enabled? In this case, nothing is removed.
+
+Anyway, we should explain in the comment why exactly we need
+the synchronization here.
+
+> synchronize_rcu() is not enough:
+> +	 * __schedule() reports the quiescent state before switch_to().
+
+I would say that synchronize_rcu() is not enough by definition.
+We are waiting for tasks which are not longer visible for RCU.
+
+But I agree that the comment above rcu_tasks_postgp() might be confusing.
+I guess that RCU does not care about tracking the rest of __schedule().
+
+So, it makes sense to keep the comment here. I would just add it into
+a separate paragraph (after an empty line).
+
+> +	 */
+> +	klp_synchronize_transition();
+
+Hmm, I would move this up, above the comment: "/* Done!  Now cleanup
+the data structures. */". Let's be on the safe side and
+make sure that all tasks are safe before we start the clean up...
+
+Or is there any reason why it is done here?
+
+>  	klp_complete_transition();
+>  
+>  	/*
+> @@ -526,6 +614,7 @@ void klp_start_transition(void)
+>  	for_each_process_thread(g, task)
+>  		if (task->patch_state != klp_target_state)
+>  			set_tsk_thread_flag(task, TIF_PATCH_PENDING);
+> +	rcu_tasks_visit_exiting(klp_exiting_start, NULL);
+>  	read_unlock(&tasklist_lock);
+>  
+>  	/*
+> @@ -579,6 +668,7 @@ void klp_init_transition(struct klp_patch *patch, int state)
+>  		WARN_ON_ONCE(task->patch_state != KLP_TRANSITION_IDLE);
+>  		task->patch_state = initial_state;
+>  	}
+> +	rcu_tasks_visit_exiting(klp_exiting_init, &initial_state);
+>  	read_unlock(&tasklist_lock);
+>  
+>  	/*
+> @@ -590,6 +680,16 @@ void klp_init_transition(struct klp_patch *patch, int state)
+>  		task->patch_state = initial_state;
+>  	}
+>  
+> +	/*
+> +	 * A task that has passed exit_tasks_rcu_finish() is on neither list but
+> +	 * may still call patched code until its final switch, which it makes
+> +	 * with preemption disabled. This returns only after every CPU has
+> +	 * switched context, so every such task is gone. synchronize_rcu() is
+> +	 * not enough: __schedule() reports the quiescent state before
+> +	 * switch_to().
+> +	 */
+> +	klp_synchronize_transition();
+
+Why exactly do we need the synchronization here, please?
+
+We should not need this for livepatching of do_exit(). We do not care
+which do_exit() implementation is used by the about-to-die processes
+at this stage.
+
+The only problem might be if we want to livepatch a function which
+is called in do_exit() after the process gets removed from the
+rcu_tasks_exit_list. It might be only:
+
+  + raw_spin_unlock_irqrestore_rcu_node()
+  + lockdep_free_task()
+  + do_task_dead()
+  + set_special_state()
+  + __schedule()
+
+They all might start calling klp_ftrace_handler() and could need to
+see consistent state current->patch_state.
+
+But wait! If this is the problem then we might need to call
+klp_synchronize_transition() in each stage which calls
+rcu_tasks_visit_exiting(). Otherwise, the klp_ftrace_handler()
+might see some inconsistence and trigger a WARN() or
+use an inconsistent task->patch_state.
+
+>  	/*
+>  	 * Enforce the order of the task->patch_state initializations and the
+>  	 * func->transition updates to ensure that klp_ftrace_handler() doesn't
+> @@ -642,6 +742,7 @@ void klp_reverse_transition(void)
+>  	read_lock(&tasklist_lock);
+>  	for_each_process_thread(g, task)
+>  		clear_tsk_thread_flag(task, TIF_PATCH_PENDING);
+> +	rcu_tasks_visit_exiting(klp_exiting_clear_pending, NULL);
+>  	read_unlock(&tasklist_lock);
+>  
+>  	for_each_possible_cpu(cpu)
+> @@ -714,6 +815,7 @@ void klp_force_transition(void)
+>  	read_lock(&tasklist_lock);
+>  	for_each_process_thread(g, task)
+>  		klp_update_patch_state(task);
+> +	rcu_tasks_visit_exiting(klp_exiting_force, NULL);
+>  	read_unlock(&tasklist_lock);
+>  
+>  	for_each_possible_cpu(cpu)
+
+Best Regards,
+Petr
+
+PS: It is an amazing work for a newcomer.
