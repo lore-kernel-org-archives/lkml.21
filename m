@@ -1,66 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.245
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795755072;
-	b=4B+egJKczUMBdrbHkXh93rs5JyQpn6daL6vnhIi0ly5/07s6g96GushkcahThMLljb0s
-	 PIEZwKQp0BTGgMF7OX1PEceNaCYvWMncSdmhudZ+5S8Xp2ib6N7vZw7yM2AqE2/YdGADu
-	 zWqknsC4W7DMHqgil8kLWlCEuELdq1++eCOPZJRswH8huKKQQhxjo2Ah8x2lJc8S4c2Wc
-	 6yfw0C/pvdpp1jeI6axdZ9HJTR7tTXXsl9LBJrTXFN6gJ9jfyQxyuBB4IBszDsZdQK5zP
-	 dSSbrJUE6WkR/J93dHCirR0l7rqDSCTrj3LUZjx+8coSuux0PpR/P2o2n6it5OvxQHw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795755072;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=r+zl2OxSNHXAEG7sUZ66NUVaTdjkd8Y/67M1UrdLLDo=;
-	b=C5+K70s9m8573Kf0roj8yiBMdPorGb2xHu8+kCldfEE3OqxXL5zze02PYw7+K8BThf60
-	 v0P6iRCE2r0QXZRoNV8bI6zcSgMVgR1qSIRlWNhd+wKCGHEGnDT/eUSgaZgxokIsHOFY8
-	 CYnl4tS+nhLFg4eoUUFpKcwu9D1Y4t+MmzWSS3LI4VsjOCcpt930eD4jxXpAAVbKIYR8N
-	 Jxp+kxDj60nrNxl2pDLQqRi1R4WDE1rYTu1P05DWWkH4neC5DDaDjBrkXxiyK7vo/mmh0
-	 HQxhjiSjiqyWqTBoBRdS+sVcgaEIgCuy373g98t/o8DZzzdIcXlKoHAiXpqNY1phuCQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TflqBf0P;
-	arc=none smtp.remote-ip=95.215.58.245
-Received: from mta1.migadu.com (out-245.mta1.migadu.com [95.215.58.245])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.68
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795755405;
+	b=yWHvZ5NWpe5ycDx9bPdUsK1ezl5NzwZ19W0NJuCqJ/D3HCyB0f8j3Oy83H30qPhRWVuG
+	 ih7JufDwnLMpBUKGM4ov9oSmpiF2nweB0DUMRV2O+X1YCN5EOqAAvZd2LNLiOqhvVJ3Ab
+	 4s7vZa79NCwEAEmKC5ooVW8LdJhnd1DLfZ745Tr+rUdee8XhYPe9Q+QE3qsOHGpV6Arqu
+	 bayC2aBub3B5IVBFDW6Q5l7PWEKR8EIRQGeKO6pWGX8NQfqcVv9kjVPdMsVuT0BBPz57W
+	 I7q9VOafRx70fYSPwP19Xfw4FMA3F/9Y0KtPeHwJlA+mKQZZsMZvjQ9YNSO0onaHxJQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795755405;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=irGQC7zuBG+4smKYfdjZ2ooZS2o+R8gHo7UswdRdjHA=;
+	b=3bEpC9RjVHVA2VhdRvX8XC5BQZoNztwCnJdDK3RQglk/XzlxqRoOnykHYludWAd9SSJG
+	 5S1ETrX2Yl2ZdcNw1L5zI2c9NajCDSK1EubfUXZGeMLWDXOxRtCiS1VS+CPitKK+A+xuC
+	 xXKmQKx0vZeHRiCMVE+Fmr9bOiBhJEaMnO9LVIWBocH2N3Lhcp/cvCvOSarjyyCqJxHd8
+	 P8xrD2pIDB/FMOzcOo2LqAGMQehwPyuxXqyArkgEllnJn4ADuyrAPjZi+7lfUB7NxTYDx
+	 XbGOvONQKnEJDHu8jqHWrRFfCJVQ+nQSC/Lr5oA8ElopoLD0MV6Ni8u8u/Zsa5Kjdbg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tsYiaz6h;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.68
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011068.outbound.protection.outlook.com [52.101.57.68])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 480D3606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:51:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 480D3606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43860606A31C;
+	Fri, 27 Nov 2026 04:56:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43860606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TflqBf0P
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=fEspHw4t5fpXm+0QjasgULIFVTPbdXf2a8mYT7wPvsY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795755069; v=1; x=1796359869;
- b=TflqBf0PbHA9OU1yCcMqTjV+JsLPMx9fh/RM9h/LjCB3s8RL4bjuxDBt76D4o96TJMq+uChH
- kNIsH1MzCbubF99verDiVTVCtaCO7qtQHAOvE+T3/RD+goEPGS41YtgOG5jjC/3QhEMTePPi/tf
- E/fVWc7JJ0vaJd4+ud8dldPY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 520e6476b5f0411c;
-	Fri, 27 Nov 2026 04:51:08 +0000
-X-Mizu-Trace-ID: 520e6476b5f0411c
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] tcp_metrics: fix zero snd_cwnd_clamp from a half updated entry
-Date: Fri, 27 Nov 2026 12:50:58 +0800
-Message-ID: <20261127045059.142247-1-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tsYiaz6h
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=klkNnOZS2tI8j7BcTt/WQ5SJ/3Z2Rln0/hkAZEQBKHbNNTWLOu5RzIzgWdTyWDyRPL7QmY5UtJTqP+JFBCQsXz4+6nQzNL0FbOq89oYLrHECatNozhskxMx97uJrTp8rhZ0nqsIkGmfPYP53ceIHCqMCJ8EvltsyH6ZkJ9QRT1o4WmVQ0i/n/HQfYRcejRU4thFNyTHKp+lRfsxjpec6YeF7mpzu4kvl0e2tD/TAyhM/F3x5++xdOYlPTRCLstRu3svNLqkdcEXpjIUZ8m91lTdQXTpcsJbEH7t8KHAzDeYOBal+kkDg39n7X+nvaatKu4eFn/LJJ6IYX0svrJk3fA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=irGQC7zuBG+4smKYfdjZ2ooZS2o+R8gHo7UswdRdjHA=;
+ b=Q89rFZ8l4o7iE0FQQjrihqs/1TlvADDiTyhes0XAzQAcFEfq36tyds/o1I4eAnW+m8mvAiDCj5atU3w3gtdnORjN/B1o65YYe/0pdc9CVxeK6kTEBmAgUUF8FR9jpHoxBAivVlvVzspTAorc7THcucSpgpAK9jWZuVe5TwJg3g5DIFrFn/YJjd9ItLcqp1bCFRpIF7EULaao/4Z+aMIcb7Ng/EOJ+diiT6931YYf+SnT1pbKmPQ4AQ5qPzrja9Spul8KMt9aJ9qnwV9BbswyxmvRmUuKw2oT9U21xQnNdj/MjltuC685KtnrhhbZ2PyXv17ebXy/6IdGeTnIbCrQ1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=irGQC7zuBG+4smKYfdjZ2ooZS2o+R8gHo7UswdRdjHA=;
+ b=tsYiaz6h0BsQOClzJWDkZkBKIsTRUBgmioF+A9H1FnoW3rps4oGEdhn6evHtHH5Pux6UqvlUIZIovCufBsrpH6x6/MUG2O35XTd79ciYTCrm7/UJAbIHoHRKCcX/OezwOEnlDHr0XvU1MeplnzFJxPGLTnkCgYeBrjiMU5426da4kVdul6RMjc6TeckTmcEuDZz3knvgXDKhObkOCEysCpCG9LUn/5hoCtdSpNUuBKLXVfLF6mfK4moiuntA2bHXmrRcdQqOnnV8qFiHWNWFa0LHARpY3jtCGSzI6hWSIU9ZkMCPWvqbjE9FiAArFwWdM+o9SJoeSyBUGCyOaeDmJg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by PH0PR12MB8098.namprd12.prod.outlook.com (2603:10b6:510:29a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Fri, 27 Nov
+ 2026 04:56:41 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 04:56:41 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>, devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Svyatoslav Ryhel <clamor95@gmail.com>
+Subject:
+ Re: [PATCH v8 06/12] drm/tegra: dc: Add elements required by Tegra MIPI DBI
+Date: Fri, 27 Nov 2026 13:56:37 +0900
+Message-ID: <CQmBXmddTJ6v1iTnbDfQLA@nvidia.com>
+In-Reply-To: <20261122081820.53199-7-clamor95@gmail.com>
+References:
+ <20261122081820.53199-1-clamor95@gmail.com>
+ <20261122081820.53199-7-clamor95@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TYWPR01CA0018.jpnprd01.prod.outlook.com
+ (2603:1096:400:a9::23) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,89 +109,345 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|PH0PR12MB8098:EE_
+X-MS-Office365-Filtering-Correlation-Id: f977c383-df6c-47bb-5acf-08df4c42d381
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|7416014|10070799003|376014|1800799024|10067099003|4143699003|261026121527099003|56012099006|921020|11063799006|261009223027099003|261021121427099003|261022075727099003|261028144727099003|261022105027099003|261021123027099003|261102123227099003|261026140227099003|18002099003|6133799003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	SW9VDjEmkl7VSL7BYLz/XDrgcb9roIs527kEqeGMDFXXZczd8qIpWEAkXPVBz7meXkNpV0GkR3GhsJa5T9rHywVEdZxiVc7kCtMu+CP2DkTeR6YMa5KOV4+g7YnI3lOBdq4JX2q7Gwu/2FZ9lDmCZi1KDUiBpAKh40PNLSnx216E9u91P01shx7G0ptUoErncnpGaJnUROLUCttiihtQMITM73F3BOQbPcqOefTdGnXvknimaX7Yh5S+CzuQYx07PY76+SLGD5jzwpsx3d9fpmJ7U2iBeLgGUGNr9ybv6dwGMifv4bCtWNoM/K3waPP13ceOTMOHv9mE8JptfQn9ye4pPGGdOR1yjWu6/WY/aHZJ/5iCXh+wdxKiSXB+Wnp2LYuAqw2krwJAJDxAILMtd8yEe4+RBKhijRIVtixMivXh7y3fEE7CQ4OZ0EZ3OH/rqjW6xN2pYD7kkhTQtytj1w0EemDnvX80b/8meUtQvRVDMmsAcqxsV9wvVYW3IWF28rFeIyVwylSx8NL/fhIFZqPDpvUor1cAAiKgUz892Orl5JhPAXbuh8d8TWZISVVFICPP3Q4naEBe7fnUebEA/KqBB/Jn15YNKc+GLLo3JqOuGqp3l2s/wgk65mfhJogWLWJQpmDS06ID3MT2fFHACc58yXPSh/OaHQLsSbFmTyQATXnuWq5t0yQZhLUFkOTbu4ujLcW12u5QQlaaIuiuRg==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(10070799003)(376014)(1800799024)(10067099003)(4143699003)(261026121527099003)(56012099006)(921020)(11063799006)(261009223027099003)(261021121427099003)(261022075727099003)(261028144727099003)(261022105027099003)(261021123027099003)(261102123227099003)(261026140227099003)(18002099003)(6133799003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Y1c1TzhjYXRKV1Y4dkZIa0VySkJwYk91KzVneDdUN28vbjAyVnN2YmJSOHpL?=
+ =?utf-8?B?emVBZW5seGRlUzIvY1NWOU1jWElUZ1dTYWNxZ1pyR0pvV2NJeXNMUUdaazZt?=
+ =?utf-8?B?SDZLL2IrUmJhQ1lhR094aCttYzFuOVlSNThLUElicEtCYStGYXNxNkdEOXRJ?=
+ =?utf-8?B?OU5ha3NWaEg2WHIzYVdvRTRhS0FVYXBjNDU5THpSVTRPTGludG5KVzZuZmd6?=
+ =?utf-8?B?YnQ0T3JpcmFGZU5OTFVTYTBQeG94UXdXd1NrOE9yQ3N1L3QvenZYbjRoVDVo?=
+ =?utf-8?B?WTVYeE5QYU4xNFhSckZQV3dka1VmWWgzakQ0ZWtGYW0zZFBSRDNkTkh3cTJ5?=
+ =?utf-8?B?VWFWdEdxSjJtZWQ5NEJKODNnZE5FZHIyeWJzdXU0emh0STgyaGpVekdEV0ZG?=
+ =?utf-8?B?c0FXOG9rSVQvekVYcG05YVNydUFNcXViZldLWmR6QURtREFhYVM0VHEvRnRv?=
+ =?utf-8?B?SGY5Q0plV2lNK29mQzM3VFU2Y0VKcXhZR2NKVzJGSmNMQXA5UlI0ZnQzOEsx?=
+ =?utf-8?B?bkFFSWxlbmZaZHNrVStNS3JrZEgxSmRrOEZCWWJNWkp2eDV0RTBrZWM3UUR1?=
+ =?utf-8?B?NXpsWUNROHEwUGs5LzZmTENVNnZ3L3d2djhXZmJ5dXhDL0pZa3ppTVFWZnMw?=
+ =?utf-8?B?OVNPZVhhR245aXdzNWNRK0V1OUJRUUJZcGQxRzdxM242cHZRRk5TS1ljWFdr?=
+ =?utf-8?B?SVdCUElWM3ZmSHF6KzdiZGJERDRvNEhKbFlvaVBLR3hDTUFZdTVWdCs4VGoz?=
+ =?utf-8?B?NFowRXpkMmZueDdUZTJweStmTUE1YURqamZNakFKak9kZXRWc2xnUzluZG9S?=
+ =?utf-8?B?T3dOajByU0l5eEdIcVNlOFZoVHJjdmg0UUN0dGd1ck1LYWF1a3F2enUzcjlH?=
+ =?utf-8?B?a3poZmhpYklaSE5kaElOYVlPN3kvSHprZFE0ejFUQzZZRmxIM0tRNTZJTndy?=
+ =?utf-8?B?NFp1VkR3TlRzYVREdGJNWmJZa3JlQnYvMnNvUTAzVWZtaG5JTW9XdWhseUVo?=
+ =?utf-8?B?VmhhbzB5aFF1NlcvM1FPTnB2VFRUUGFwRVM3d21PSmxDQ2FJb2pFZkx1dUIv?=
+ =?utf-8?B?RlVKOHdScCthbndCQkZKUjExd0k1TTF1WnlQYi8xajFHRzExWE1SUnM0WkNy?=
+ =?utf-8?B?bUFWSGlJSkRENU1kYm5jZTZtRjhKalQ2TFo5NTBGcmdhbjdKMGNsNis2VjVB?=
+ =?utf-8?B?Rk16U1ZGYjJ3Y3FxNGxCRkwyVzVIVmhwcEdSSWtoaUhKNGpYSWNpUzVoODly?=
+ =?utf-8?B?YkNoSGRiU1FvNU50NmlYNlNaUEdjYlJzQ3M4Q1hnVkRJZjJxSWY3MmIzWG9a?=
+ =?utf-8?B?NFhpZzNsYTFETVY5YlBmZjV6dzNiV1YzZ0dINjUrdFlYQkx5OVJDemVuK3R5?=
+ =?utf-8?B?SVZvU0VVMkpYa1lKOEF3TzV4TzJQT1JvczYvSzFUeUdnMVY1ZGdOS2M3WEJl?=
+ =?utf-8?B?L1FnNVZpSW1ZY01yYXBWMzBoZFBvTlQyajBaMDVLVjViUHdsdmJlekFSUGZK?=
+ =?utf-8?B?ZWpHWkVrSlJVcWptalc3cFJTSjlJT2xNL01wOWRBMC9jMVdHUFpmSTI4OWdC?=
+ =?utf-8?B?L05KR01DRFdReFNnL0ZOcDl3NWQvYzRtV3lsaUxMdUlnbENHamxNTTBkOVpC?=
+ =?utf-8?B?YWl1RDNSK2ptK3pNVHRZMGNRWDVvN21LMWdBbStXNkhiTnhMektxc0hlQnNv?=
+ =?utf-8?B?ZW1KcG9scnB2MUNqMVI0Q2JqcU5XVDlzMW9FMmJZODhpYkw5SWNjV25VYjNV?=
+ =?utf-8?B?aDVzQ1BNQUpZU2NCS3prVVNyQjBnZ2prL0w2UjREcnBwclZPY3hyN0NzbjZ6?=
+ =?utf-8?B?aU16WE1nYVp1VlJGSzZLRWNRUzZnVkt4T1VvOXYrZUxncEhIRTVZNk5LTWxC?=
+ =?utf-8?B?WG12bTNnVTlvWnFzU2hzMlhaNm13aVo3cklMZ2FPeFU0Z3dxb1FHTDYyNTlh?=
+ =?utf-8?B?eExtTmQ4Y0o0YWZsRnp1aVBWM0I1Yld4WDc5dDBNUXV1enZRallTUko1eHMr?=
+ =?utf-8?B?TG10SmZlZ0FzQ1pUT3lnV0tnRDhpcUIvR3hzQ3kwSTAwSm9sMWVPY2EyUWM2?=
+ =?utf-8?B?bDFWeHl1SWhscVc3Rm83ZVFjQ0hEYWRId0N2bnF2aXR1bUswNXI4NThqS1Uv?=
+ =?utf-8?B?U0MvVDBWMk1kUGdNcDBrQjFDSDBxenJBaE81R3l5UFpDNVN1VHdMYUZCY211?=
+ =?utf-8?B?RmhwWW5ab0IzOVE1ckJtUzkycDl1UnhsYkZrdG5mUVlaTjlOUDQvMlJ4dkJn?=
+ =?utf-8?B?ZWxCOVpaMFl1WXBjeWp4UTBLRU1MbC9PdWtoY2lpYnd2aGRtNG5EOHB3UlhY?=
+ =?utf-8?B?eVpVZnh2bENJaDgvZkc1Uk9abEJJRDN1eXBYblpPdWZOM2F2RWhuMldHV1dG?=
+ =?utf-8?Q?ctM9ee1L0wVzgKvhckBkn8FGG6FpI08TfzKiHo6I0VmGJ?=
+X-MS-Exchange-AntiSpam-MessageData-1: 4pEqlRzU9S/mLQ==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f977c383-df6c-47bb-5acf-08df4c42d381
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 04:56:41.1191
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XVImXkwBfFZMBZeTbN14ae4ZsSPHLzkwq1RaCwzpvCmdtDIMegVXS/YY1cpf2FcAGk0JiLWKVzYEWKQG8Svkfw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8098
 
-tcp_init_metrics() takes snd_cwnd_clamp from the cached TCP_METRIC_CWND
-when that metric is locked, i.e. the route has "cwnd lock N".
+On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote:
+> Add DC register definitions with additional fields in preparation for
+> adding the 8-bit CPU interface (MIPI DBI).
 
-tcpm_suck_dst() refreshes a cached entry in place. It writes tcpm_lock
-first and only then updates TCP_METRIC_CWND from
-dst_metric_raw(dst, RTAX_CWND). Readers only hold rcu_read_lock(), so
-when an entry that had no cwnd metric (value 0) is refreshed from a
-route with a locked cwnd we can have:
+Maybe also mention that some whitespace cleanup has been done.
 
-  CPU0                                 CPU1
-  tcpm_suck_dst()                      tcp_init_metrics()
-    WRITE_ONCE(tm->tcpm_lock, val)
-                                         tcp_metric_locked(tm, TCP_METRIC_CWND)
-                                           -> true
-                                         tcp_metric_get(tm, TCP_METRIC_CWND)
-                                           -> 0, not updated yet
-                                         tp->snd_cwnd_clamp = 0
-    tcp_metric_set(tm, TCP_METRIC_CWND,
-                   dst_metric_raw(dst, RTAX_CWND))
+>=20
+> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> ---
+>  drivers/gpu/drm/tegra/dc.h | 194 ++++++++++++++++++++++++++++++++++---
+>  1 file changed, 183 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/tegra/dc.h b/drivers/gpu/drm/tegra/dc.h
+> index 0cb0515968b35..e8913c5530a2d 100644
+> --- a/drivers/gpu/drm/tegra/dc.h
+> +++ b/drivers/gpu/drm/tegra/dc.h
+> @@ -272,14 +272,150 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
+>  #define  DC_COM_CRC_CONTROL_WAIT (1 << 1)
+>  #define  DC_COM_CRC_CONTROL_ENABLE (1 << 0)
+>  #define DC_COM_CRC_CHECKSUM			0x301
+> -#define DC_COM_PIN_OUTPUT_ENABLE(x) (0x302 + (x))
+> -#define DC_COM_PIN_OUTPUT_POLARITY(x) (0x306 + (x))
+> -#define LVS_OUTPUT_POLARITY_LOW (1 << 28)
+> -#define LHS_OUTPUT_POLARITY_LOW (1 << 30)
+> -#define DC_COM_PIN_OUTPUT_DATA(x) (0x30a + (x))
+> -#define DC_COM_PIN_INPUT_ENABLE(x) (0x30e + (x))
+> -#define DC_COM_PIN_INPUT_DATA(x) (0x312 + (x))
+> -#define DC_COM_PIN_OUTPUT_SELECT(x) (0x314 + (x))
+> +
+> +#define DC_COM_PIN_OUTPUT_ENABLE(x)		(0x302 + (x))
+> +#define DC_COM_PIN_OUTPUT_POLARITY(x)		(0x306 + (x))
+> +#define LVS_OUTPUT_POLARITY_LOW			BIT(28)
+> +#define LHS_OUTPUT_POLARITY_LOW			BIT(30)
+> +#define DC_COM_PIN_OUTPUT_DATA(x)		(0x30a + (x))
+> +/* Pin unmask is 1 bit above position of the pin in the OUTPUT_DATA regi=
+ster */
+> +#define PIN_UNMASK(x)				BIT((x) + 1)
+> +#define DC_COM_PIN_INPUT_ENABLE(x)		(0x30e + (x))
+> +
+> +/*
+> + * The definitions below describe pin positions in the DC_COM_PIN_OUTPUT=
+_ENABLE(x),
+> + * DC_COM_PIN_OUTPUT_POLARITY(x), DC_COM_PIN_OUTPUT_DATA(x), and
+> + * DC_COM_PIN_INPUT_ENABLE(x) registers. The comment before each group i=
+ndicates
+> + * the index of the register (the x value).
+> + */
+> +
+> +/* 0 */
+> +#define PIN_LD0					0
+> +#define PIN_LD1					2
+> +#define PIN_LD2					4
+> +#define PIN_LD3					6
+> +#define PIN_LD4					8
+> +#define PIN_LD5					10
+> +#define PIN_LD6					12
+> +#define PIN_LD7					14
+> +#define PIN_LD8					16
+> +#define PIN_LD9					18
+> +#define PIN_LD10				20
+> +#define PIN_LD11				22
+> +#define PIN_LD12				24
+> +#define PIN_LD13				26
+> +#define PIN_LD14				28
+> +#define PIN_LD15				30
+> +
+> +/* 1 */
+> +#define PIN_LD16				0
+> +#define PIN_LD17				2
+> +#define PIN_LPW0				16
+> +#define PIN_LPW1				18
+> +#define PIN_LPW2				20
+> +#define PIN_LSC0				24
+> +#define PIN_LSC1				26
+> +#define PIN_LVS					28
+> +#define PIN_LHS					30
+> +
+> +/* 2 */
+> +#define PIN_LHP0				0
+> +#define PIN_LHP1				2
+> +#define PIN_LHP2				4
+> +#define PIN_LVP0				8
+> +#define PIN_LVP1				10
+> +#define PIN_LM0					16
+> +#define PIN_LM1					18
+> +#define PIN_LDI					20
+> +#define PIN_LPP					22
+> +
+> +/* 3 */
+> +#define PIN_LSCK				0
+> +#define PIN_LSDA				2
+> +#define PIN_LCSN				4
+> +#define PIN_LDC					6
+> +#define PIN_LSPI				8
+> +#define PIN_LSDI				10
+> +
+> +#define DC_COM_PIN_INPUT_DATA(x)		(0x312 + (x))
+> +
+> +/*
+> + * DC_COM_PIN_OUTPUT_SELECT(x) is a set of 7 registers that allow select=
+ing
+> + * one of 7 functions for each pin using 3 bits. Clearing all bits sets
+> + * the pin to its primary function, while setting them to 1 configures i=
+t
+> + * as a GPIO output. Other functions are unique to each pin. For details=
+,
+> + * check "23.7.17 DC_COM_PIN_OUTPUT_SELECT0_0" in the Tegra30 TRM.
+> + */
+> +#define DC_COM_PIN_OUTPUT_SELECT(x)		(0x314 + (x))
+> +#define PIN_OUTPUT_SELECT_MASK(x)		(0x7 << (x))
+> +#define PIN_OUTPUT_SELECT_PRIM(x)		(0 << (x))
+> +#define PIN_OUTPUT_SELECT_OUT(x)		(1 << (x))
+> +#define PIN_OUTPUT_SELECT_F2(x)			(2 << (x))
+> +#define PIN_OUTPUT_SELECT_F3(x)			(3 << (x))
+> +#define PIN_OUTPUT_SELECT_F4(x)			(4 << (x))
+> +#define PIN_OUTPUT_SELECT_F5(x)			(5 << (x))
+> +#define PIN_OUTPUT_SELECT_F6(x)			(6 << (x))
+> +#define PIN_OUTPUT_SELECT_F7(x)			(7 << (x))
+> +
+> +/*
+> + * The definitions below describe pin offset in the DC_COM_PIN_OUTPUT_SE=
+LECT(x)
+> + * registers. The comment before each group indicates the index of the r=
+egister
+> + * (the x value).
+> + */
+> +
+> +/* 0 */
+> +#define PIN_OUTPUT_SELECT_LD0			0
+> +#define PIN_OUTPUT_SELECT_LD1			4
+> +#define PIN_OUTPUT_SELECT_LD2			8
+> +#define PIN_OUTPUT_SELECT_LD3			12
+> +#define PIN_OUTPUT_SELECT_LD4			16
+> +#define PIN_OUTPUT_SELECT_LD5			20
+> +#define PIN_OUTPUT_SELECT_LD6			24
+> +#define PIN_OUTPUT_SELECT_LD7			28
+> +
+> +/* 1 */
+> +#define PIN_OUTPUT_SELECT_LD8			0
+> +#define PIN_OUTPUT_SELECT_LD9			4
+> +#define PIN_OUTPUT_SELECT_LD10			8
+> +#define PIN_OUTPUT_SELECT_LD11			12
+> +#define PIN_OUTPUT_SELECT_LD12			16
+> +#define PIN_OUTPUT_SELECT_LD13			20
+> +#define PIN_OUTPUT_SELECT_LD14			24
+> +#define PIN_OUTPUT_SELECT_LD15			28
+> +
+> +/* 2 */
+> +#define PIN_OUTPUT_SELECT_LD16			0
+> +#define PIN_OUTPUT_SELECT_LD17			4
+> +
+> +/* 3 */
+> +#define PIN_OUTPUT_SELECT_LPW0			0
+> +#define PIN_OUTPUT_SELECT_LPW1			4
+> +#define PIN_OUTPUT_SELECT_LPW2			8
+> +#define PIN_OUTPUT_SELECT_LSC0			16
+> +#define PIN_OUTPUT_SELECT_LSC1			20
+> +#define PIN_OUTPUT_SELECT_LVS			24
+> +#define PIN_OUTPUT_SELECT_LHS			28
+> +
+> +/* 4 */
+> +#define PIN_OUTPUT_SELECT_LHP0			0
+> +#define PIN_OUTPUT_SELECT_LHP1			4
+> +#define PIN_OUTPUT_SELECT_LHP2			8
+> +#define PIN_OUTPUT_SELECT_LVP0			16
+> +#define PIN_OUTPUT_SELECT_LVP1			20
+> +
+> +/* 5 */
+> +#define PIN_OUTPUT_SELECT_LM0			0
+> +#define PIN_OUTPUT_SELECT_LM1			4
+> +#define PIN_OUTPUT_SELECT_LDI			8
+> +#define PIN_OUTPUT_SELECT_LPP			12
+> +
+> +/* 6 */
+> +#define PIN_OUTPUT_SELECT_LSCK			0
+> +#define PIN_OUTPUT_SELECT_LSDA			4
+> +#define PIN_OUTPUT_SELECT_LCSN			8
+> +#define PIN_OUTPUT_SELECT_LDC			12
+> +#define PIN_OUTPUT_SELECT_LSPI			16
+> +#define PIN_OUTPUT_SELECT_LSDI			20
 
-So tcp_init_metrics() sets snd_cwnd_clamp to 0, which is what commit
-363c8c79220d ("net: ipv4: add zero check for snd_cwnd_clamp") tried to
-prevent.
+It becomes apparent here that the PIN_* and PIN_OUTPUT_SELECT_* are kind=20
+of redundant as the pins are in the same order, the stride (and thus=20
+register indexing) is just different. Hence, I think it would be cleaner=20
+to have ..
 
-With an mdelay() added after the tcpm_lock write to widen the window,
-I can hit:
+#define PIN_LD0		0
+#define PIN_LD1		1
+...
 
- WARNING: ./include/net/tcp.h:1580 at tcp_init_transfer+0xc16/0xd50
- Call Trace:
-  <TASK>
-  tcp_finish_connect+0xec/0x2f0
-  tcp_rcv_state_process+0x8ae/0x3060
-  tcp_v4_do_rcv+0xbe/0x580
-  __release_sock+0x1a2/0x1d0
-  release_sock+0x133/0x150
-  inet_stream_connect+0x5d/0x80
-  __sys_connect_file+0xad/0xf0
-  __sys_connect+0xa8/0xe0
-  __x64_sys_connect+0x42/0x60
-  x64_sys_call+0x2554/0x27e0
-  do_syscall_64+0xe4/0x470
-  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-  </TASK>
+and then
 
-Writing the value before the lock bit does not help, changing the route
-the other way (from "cwnd lock N" to no cwnd) then gives the same 0,
-since the lock bit and the value are read separately.
+#define PIN_REGISTER_INDEX(pin)		((pin) / 16)
+#define PIN_SHIFT(pin)			(((pin) % 16) * 2)
 
-Commit 363c8c79220d ("net: ipv4: add zero check for snd_cwnd_clamp")
-already rejects a locked cwnd of 0 from the route config, so a 0 here
-can only come from a half updated entry. Just ignore it and keep the
-current snd_cwnd_clamp, like we already do for TCP_METRIC_SSTHRESH.
+#define PIN_SELECT_REGISTER_INDEX(pin)	((pin) / 8)
+#define PIN_SELECT_SHIFT(pin)		(((pin) % 8) * 4)
 
-Fixes: 51c5d0c4b169 ("tcp: Maintain dynamic metrics in local cache.")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-Found by sashiko:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261019222531.1073-1-kj2864%40nyu.edu
----
- net/ipv4/tcp_metrics.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+This will also simplify the tegra_dbi_idx tables since they can just=20
+store the pin index, and the register index (and shift) can be=20
+calculated based on that.
 
-diff --git a/net/ipv4/tcp_metrics.c b/net/ipv4/tcp_metrics.c
-index ae551546422f..fe29fd433eb6 100644
---- a/net/ipv4/tcp_metrics.c
-+++ b/net/ipv4/tcp_metrics.c
-@@ -494,9 +494,11 @@ void tcp_init_metrics(struct sock *sk)
- 		goto reset;
- 	}
- 
--	if (tcp_metric_locked(tm, TCP_METRIC_CWND))
--		tp->snd_cwnd_clamp = min(tcp_metric_get(tm, TCP_METRIC_CWND),
--					 TCP_MAX_SND_CWND);
-+	if (tcp_metric_locked(tm, TCP_METRIC_CWND)) {
-+		val = tcp_metric_get(tm, TCP_METRIC_CWND);
-+		if (val)
-+			tp->snd_cwnd_clamp = min(val, TCP_MAX_SND_CWND);
-+	}
- 
- 	val = READ_ONCE(net->ipv4.sysctl_tcp_no_ssthresh_metrics_save) ?
- 	      0 : tcp_metric_get(tm, TCP_METRIC_SSTHRESH);
--- 
-2.43.0
+> =20
+>  #define DC_COM_PIN_MISC_CONTROL			0x31b
+>  #define DC_COM_PIN_PM0_CONTROL			0x31c
+> @@ -303,9 +439,15 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
+>  #define  UNDERFLOW_REPORT_ENABLE (1 << 0)
+> =20
+>  #define DC_DISP_DISP_SIGNAL_OPTIONS0		0x400
+> -#define H_PULSE0_ENABLE (1 <<  8)
+> -#define H_PULSE1_ENABLE (1 << 10)
+> -#define H_PULSE2_ENABLE (1 << 12)
+> +#define H_PULSE0_ENABLE				BIT(8)
+> +#define H_PULSE1_ENABLE				BIT(10)
+> +#define H_PULSE2_ENABLE				BIT(12)
+> +#define V_PULSE0_ENABLE				BIT(16)
+> +#define V_PULSE1_ENABLE				BIT(18)
+> +#define V_PULSE2_ENABLE				BIT(19)
+> +#define V_PULSE3_ENABLE				BIT(20)
+> +#define M0_ENABLE				BIT(24)
+> +#define M1_ENABLE				BIT(26)
+> =20
+>  #define DC_DISP_DISP_SIGNAL_OPTIONS1		0x401
+> =20
+> @@ -456,6 +598,22 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
+>  #define DC_DISP_SHIFT_CLOCK_OPTIONS		0x431
+>  #define  SC1_H_QUALIFIER_NONE	(1 << 16)
+>  #define  SC0_H_QUALIFIER_NONE	(1 <<  0)
+> +#define  SC0_H_QUALIFIER(x)			(((x) & 0x7) <<  0)
+> +#define  SC1_H_QUALIFIER(x)			(((x) & 0x7) << 16)
+> +#define  SC_H_QUALIFIER_DISABLE			0
+> +#define  SC_H_QUALIFIER_NONE			1
+> +#define  SC_H_QUALIFIER_HACTIVE			2
+> +#define  SC_H_QUALIFIER_EXT_HACTIVE		3
+> +#define  SC_H_QUALIFIER_HPULSE			4
+> +#define  SC_H_QUALIFIER_EXT_HPULSE		5
+> +#define  SC0_V_QUALIFIER(x)			(((x) & 0x7) <<  3)
+> +#define  SC1_V_QUALIFIER(x)			(((x) & 0x7) <<  19)
+> +#define  SC_V_QUALIFIER_NONE			0
+> +#define  SC_V_QUALIFIER_RSVD			1
+> +#define  SC_V_QUALIFIER_VACTIVE			2
+> +#define  SC_V_QUALIFIER_EXT_VACTIVE		3
+> +#define  SC_V_QUALIFIER_VPULSE			4
+> +#define  SC_V_QUALIFIER_EXT_VPULSE		5
+> =20
+>  #define DC_DISP_DATA_ENABLE_OPTIONS		0x432
+>  #define DE_SELECT_ACTIVE_BLANK  (0 << 0)
+> @@ -493,6 +651,20 @@ int tegra_dc_rgb_exit(struct tegra_dc *dc);
+>  #define DC_DISP_CURSOR_POSITION_NS		0x441
+> =20
+>  #define DC_DISP_INIT_SEQ_CONTROL		0x442
+> +#define SEND_INIT_SEQUENCE			BIT(0)
+> +#define INIT_SEQUENCE_MODE_SPI			BIT(1)
+> +#define INIT_SEQUENCE_MODE_PLCD			0
+> +#define INIT_SEQ_DC_SIGNAL_SHIFT		4
+> +#define INIT_SEQ_DC_SIGNAL_MASK			(0x7 << INIT_SEQ_DC_SIGNAL_SHIFT)
+> +#define NO_DC_SIGNAL				0
+> +#define DC_SIGNAL_VSYNC				1
+> +#define DC_SIGNAL_VPULSE0			2
+> +#define DC_SIGNAL_VPULSE1			3
+> +#define DC_SIGNAL_VPULSE2			4
+> +#define DC_SIGNAL_VPULSE3			5
+> +#define INIT_SEQ_DC_CONTROL_SHIFT		7
+> +#define FRAME_INIT_SEQ_CYCLES_SHIFT		8
+> +
+>  #define DC_DISP_SPI_INIT_SEQ_DATA_A		0x443
+>  #define DC_DISP_SPI_INIT_SEQ_DATA_B		0x444
+>  #define DC_DISP_SPI_INIT_SEQ_DATA_C		0x445
+> --=20
+> 2.53.0
+>=20
+>=20
+
+
+
 
