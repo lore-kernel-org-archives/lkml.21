@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795774052;
-	b=XTJD++tvKCBtCyAlyOy/4wN5v5X1eXb5KKil03C9iAsa/io+RKCpieqp2lQ61yfvIRTt
-	 88KcAKYVHgALVm884vnHIU49ZrTdWt/5sDPGW/skWL2K45cWSKqW6UC8lHgZIBsbBQltw
-	 6+r8S+e5m2BTlcvJsQayvNweEUnw97ocL5kHEK/6yn5+yz4PPZYQ2eS/I6mZ4H5xJjpx6
-	 anNU3PUL7r9lTycG3Bk92Dj2yiLOycABLt/liUpdPJuezyZLwsbbvRRPB//1+ZTbBp7OM
-	 I/3NVxaArOWCL9wWHWajf1k2rxbw4PNMdA3dytqU+PF/qd1Us9xRcjHFhlV780KNr2Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774052;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795774066;
+	b=O8SPHhwLMOZmJaGLdGsEge9oqn3y4b8/ZLu2yhG0h/X4tkAiRBPFNhSZKwcr6Q8lf7CN
+	 rDp1WaBX2QOHIJ05WEzN9f5igkv0gQ0Dk321AH16qJDs7FaBVHhQ1Z/3IaGVWVMrNtQy8
+	 9E0Ow/kMvNIcO7UCIxMao8Pw7lRncKHE/ql+s4EablzrMvWD0glXBRzbWIFktTCwPVMaf
+	 vGlr3i6OTgxTJiHFxBp/DrbbHir02NsY43FS3MRdYJ+7OEKROvcosyME3cmqXSZO/aWTY
+	 kStNNpVi2p8bkN8/sBHoolW+E8ncVEhpeSeGvTfARkrP8gLoqg6EFobA+hLRupfw3cA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774066;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=S/PXjXpl1KxRCCiW3qKqRyfY2HAeEsAmwu7iETB2+Lk=;
-	b=V9kF6YksYRX8hMO+mWNaDq0E/6J5oJvvmIco5cYeHGFxuaUXbiXPvygLgOmtTD+ruZ/f
-	 lPGwxid8z4a5BqnVY95mZlnYFzOBMNFqSy1lNJsZGTrI2Op4OfmqOphjahZEBbIBNxYpd
-	 T3yCRybMC25Hk8zixAiannB5vgaqHtpVgckK63DObnyWgzI9ueN3TD6Yl5nC9Q82YAsyN
-	 kL0yETWpAbnQ5zA//5mZh7Eui7sUQDUM+PkHwT0ci+nU7Tud+vqb7gwuLtRGrShYdPCKi
-	 HfIRVeSxUI9EsNXtQuKi5ayyweySStuiFFmaAyGkhLdue4QZ6UL4ziCJEfu5ECRNpjw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=2TsM750EvEyHCTYANfGa2Nzz7ULmsTnF7jQbx8T+XDI=;
+	b=ozun2UXK7UMW1hMPlg9TppviwwTDnmUxYHNSa8QhD3PbJz96TNmIUqVxGvUHIh5PbQA7
+	 53gMuhLN6m/jsAWfoBq7UcfOTaKJcIIpRtU2JY/FmzkQQfkwY7l64hU2hUaVZRwHATThL
+	 JFPHcJhoZvx4paZYvb6FAZKzZdlDBb0a85t2CZnhz/vu2sRL4WYT+GJOHRKZVab8AxJ8S
+	 ioOWka7/pcyj7UcQBz66SBaLGsmRVf5iRQR008rxSVolfU1nqL+IT/NjcunCPWTRUqf7K
+	 RSrIuwQ7NB8IUt/mXYL+biiW9ibG4MRScklKIAIVxGWhMGp7zm2F40BIBW+qRJy7HKg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T8ZERY7z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.42
-Received: from mail-lf1-f42.google.com (mail-lf1-f42.google.com [209.85.167.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BU2ZaTq0;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C115606A336
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:07:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C115606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E42DE606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:07:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E42DE606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T8ZERY7z
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso7130201e87.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:07:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795774050; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oUsIKtFV54LjFTXq3vwgrrBxzEEbRu2tFthimNmwJVn+lh+/VoL//nL6PdjveI4ELL
-         yWmt1TdUgOVfBjFC7nMEGbOXba0kV8n1qhQhfH+i7HCuwhJrGJiL13sp1zs8a9t/Hovj
-         6QMcfulWlDclVGqWdjuGAinEB3uwBABCkO59gZd/ohoNkz91cHFj8cqGezcO6g9rxHty
-         p1dmY9v3lDEW01S1bnQiClZxLTSuge1GtG6T9YzY45ZDAkTAkj0dqsPtEUQuSfn3jmEc
-         fJBSzj3zuWf9omO7+S8KtNC2bEA+fKJc8uWxgytJBef4fdNY+zhAAA8Ci787rP88tpAV
-         RwHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=S/PXjXpl1KxRCCiW3qKqRyfY2HAeEsAmwu7iETB2+Lk=;
-        fh=s/bKc8MWkFgxlBFIc29niBPbwK82Nd5sseN4u92bT34=;
-        b=nhI1hE60iCQRKjELN3QBJaqfW+shpyQugKvHJLKIWQS3lJxVmUKj08b+8k4C56nalm
-         /jadbMl6H4BxCaMmgMA3XLQMB51L9Lk7BDTYQ2OD+lKHgNsP+IBWZTm6zHRudL5p87BN
-         wyoxMCj09FFAcd0aGW1nWNqs12JzS3DodNU9Zr4NFfpR4HIurHv6DPwDKZ1Aoa3ZaeKU
-         3l6V/hjvlDnDoGe+8NwNdSJmxvSrL0q7YTOOvAVXekTrYZn+9RF9HiKk9fPA4rbqEc+h
-         kG9MzRd1KMvkHzjXH4VA5q3E9fFt9xBKuW2WyiVivoUUQMMVzHFYJYumHPZiumVoReCh
-         XCOQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BU2ZaTq0
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso61359495e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:07:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795774050; x=1796378850; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=S/PXjXpl1KxRCCiW3qKqRyfY2HAeEsAmwu7iETB2+Lk=;
-        b=T8ZERY7zD/vy0H1Rb2du90/b67CWcF96NyZsqFxOi/RYxzLhB+qwyRH8qcWPBraa8v
-         mW2zbzSP49Foraqc+NQDAmXZ1wubTXXFWND6ZtkJhZsKeALOmqaWo2ukNLoEvE2+62ZK
-         6cLWHCumugFsUXIOtnP1I6tOsdCFTb7E+KqpznZQ9CJe95VPa1CX5Q3G6qZlNTsxFj7I
-         +oKRx6WVXOXR0C9HVFtpTdRHu+eXoKolZFYEVFXpOd1/gQmHnPvjxoxPAEZfwuB0CqQj
-         ZwCKClrm4FF4FjWeUhiqnMc9RPcBVLJs6R10KN7KtdHAmOMrEx1LzrMDpPSd3zjZIM7o
-         EtSA==
+        d=gmail.com; s=20260707; t=1795774064; x=1796378864; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2TsM750EvEyHCTYANfGa2Nzz7ULmsTnF7jQbx8T+XDI=;
+        b=BU2ZaTq0d6nf1kovPAqoaEy2B2Z5juQ86UZVsyi7FuGSzKihaXuQNzdd9WoQLSo0aM
+         P/cXUEp9Cq6z31xzVzvNqN4PsDGGRlJA9l0YVzY8kORBXq0HCy9XTMBUlgYoBKEB/+kH
+         IL0Ddpwbyvi/NKWtVoybkKI/qsVd/SO//vMsn0OIWuTdk/ogGN/eMjoxufZ9tTUMRgJu
+         aIr9AGk4gLT81BSknWgNFrXZ0ecEPnsWBwvpyBWSn/8bQUJ0Ge98uGy+cLaAMIeiDyeL
+         5IbxBwpY4v/lcrhdUGRT/qtIIUmL0RpW4dv6yYQ7ZN/jacHFp8DvBkpzBY6C/gSIlzjS
+         qaRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774050; x=1796378850;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=S/PXjXpl1KxRCCiW3qKqRyfY2HAeEsAmwu7iETB2+Lk=;
-        b=ahc4P4GQe6bAABntHVwGdjqMvI1TZquhkGlGwMuSV3ktOrFdPbCZTVC8WBaY966GTB
-         lBcBzbjH19sD9MX4smaFFm7vjr6BD8VViCvB5sWIAdufSPyNcA4QBesBW3gRVRyYtiLW
-         /7hcUgpl0NR1aW6lP3eQllQqpwpd893o5PiIG4izD4xevFJRKBh8ZmswOwcvTc9Hi5/D
-         Y01qVU0z33ycf9qYiCBCLAsdF+Yf5c0gXU5HrvbAhp4ixy4OBmyTqbfB5txeKgTk3tts
-         xhGrnMVtqKR40ns49ePNr1FjIj4rOC+SpyQbHsBSXxi6cNUGh6QcUluLAA2BESvyzgm2
-         D5Cg==
-X-Forwarded-Encrypted: i=1; AL+hErEV9Mt5GrAuF6Tsr/BoOaFCFX4HbyKNrRuxdJ2jXLl9sKZH1Ggk+UgbzGCxKCNc0zfLDo2E8YTnpg6VFYs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+ppFldAn7cSQS7Z95EYG1dkQpnICrSMHK6hr5cG+5xzuxBvI8
-	N59iL+vhrocObGqHsIJquspbsehCELXUnu9tGS6gTDEXuKU+bSDUOkHFTopamcQ66lkoi2wqsmD
-	Onc7SYHfh2ZRVdjsy9mkZHxFDizLFpM4=
-X-Gm-Gg: AZFdTZeTXqWNSe3LhCQAhef+UJwvU3FyHsKoGIBvyVpZ5IzYXc7gkHKl7EmmzARhSh8
-	iJLc4+akMK2CBmjQIkZLAY1LwlUrcEGqxhruayR9UB8VLzc92UWzyW62NkPpD+jCN5iewPz3ER5
-	KbEpEOJspWciGR9gwmD5yvA8gO4o8nzdt3BYeTNHbjnedNoDWRnrLwEYSeEWoNJiAmPXcTtfn0y
-	leo5jEnnlN6R89YSD5LI9yMSHRUEw4pa8KxBLBymAwjJebrUKibQELAYJi40RBF8+qOgnaNnz7x
-	HIuz8f80KNvj/R5rYcC4RwQoMjeY+WPHU3J++xTi+LW3y5WtrzhcmtbV/mZEYH4DI7qUMoIsV9f
-	b3Asa1240nZrmrkhvnQeGaJrZ2qK0tBWWP15vWHW06lsSf6Vld0d4/Nzhq4dLb+xEl1yIooggx6
-	WD7DiFM3LFm+u6NBUFMD2kbW7zeeRc91g=
-X-Received: by 2002:a05:6512:10cd:b0:5bf:f8fc:7b5e with SMTP id
- 2adb3069b0e04-5c1bc89c61fmr6700305e87.55.1795774050347; Fri, 27 Nov 2026
- 02:07:30 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795774064; x=1796378864;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2TsM750EvEyHCTYANfGa2Nzz7ULmsTnF7jQbx8T+XDI=;
+        b=IYVdTYnAng1tG+93ulI/GHNIJDbUFVvxueJKGKqjcOpWXIr51IjtWxgYgwCUIPd+as
+         mvKOUsd8Y/aRGQ8AxHJ8wbs8brtQ1+fgqm6ln1DX9ys28d/aGNCsi944kOnryiTaxavc
+         iCqQ5HYhbwcB7Jv0S+aDzvAYHKiKM4j/xSUHIIAGR8MCFT1Nqo+NljwJVoMQewS4gcKs
+         daT0w4bYzUmY3LC9ICntmPIRcEtA2xKf/f8IeLHKZzj28qR3RmrbRYsmIjUNEw+7osJ/
+         F38YSZ63PgUXBzUxv3Nmq53fsprdIhUkuZpR32TgdGlQ0irOILLK1pPLOM9PanlYVwhw
+         n8Zw==
+X-Forwarded-Encrypted: i=1; AL+hErGhLOjJKU2TDWaPvSWfcy4q2hPOSPlfzsxj+U115T7fYMZ3IyQ4SbqWMHUQfPKcsTEbZUOuWmQvHfNkq6A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8DWUYgXRWoE02WGy6vognl8WGcltOy3ZidTJ16pjgzbulIdVZj
+	ngpUFNqR3bf5kr30D1LPDO1YGzD62puYA3v8RCtxxjHjYSmfwrzYnktG
+X-Gm-Gg: AZFdTZdtDRdWgTTU02jnZ5y+CB90+GsOySDgJrcVB5EvsnsAwMEAjNxu0fjsLFg3eFQ
+	03BvJJXi89HKE0EVnc488s5gl+tUjSdV/b8mVsENjOBjsCS8oh4WKL5OUrJJOrMyx1PCMgJD/d3
+	e36w+qNKleapoMwi9FM6WSIArGFjT7eDfPR59TZFCJeHLuADpUCLnnspWc7g1HW3GB1Vfk8sadA
+	ji5guyPlxj6OLIHD9lUM1jLnBISnW+ht76G3uySlnwEZQvjNOui98M7IzTwt+wcRgosDO4vrgy2
+	ZlGxdXjejFIQ5a/GEnD306t2O6pP8IHxzS3q2SeOdZO0rsmdaeTv52LzsyUsCCiIgTOzLOezTvZ
+	nExwz4Xv9MflDV5GYZLHAtZt8X3eISEqgtKwZ5K1eGYiNFkeKobcYK/Jp19DakpU3ty/hPZvf25
+	AyM/ySWu2nb5eooqTFFbLU9micRvKV8BslD3V/XuK+eifDNw+/VlxY3X5MTufZMRZfE/r4OgrqX
+	hz8dgffY5+bvpDRkUqC16I0Um6gwZ4V+gUDUDn5kuf15YRKJmV6wCPHF3oYO0CQEQjfkodaNmIl
+	xrx6O2EEYTLtBRZePXgXGSNpBM2V1PNfgNGMLKRiIqDQKMo=
+X-Received: by 2002:a05:600c:4514:b0:4bb:6823:3d3c with SMTP id 5b1f17b1804b1-4bb888169d0mr516683475e9.20.1795774064226;
+        Fri, 27 Nov 2026 02:07:44 -0800 (PST)
+Received: from localhost.localdomain ([2a04:ee41:4:b2de:1ac0:4dff:fe0f:3782])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba6a0d65fsm196561955e9.3.2026.11.27.02.07.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 02:07:43 -0800 (PST)
+From: Anton Protopopov <a.s.protopopov@gmail.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Rob Herring <robh@kernel.org>,
+	Aksh Garg <a-garg7@ti.com>,
+	linux-pci@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Anton Protopopov <a.s.protopopov@gmail.com>
+Subject: [PATCH] PCI: j721e: Properly check the error of a syscon lookup
+Date: Fri, 27 Nov 2026 10:19:13 +0000
+Message-ID: <20261127101915.1348807-1-a.s.protopopov@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,61 +104,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121-at550-rfc-v1-v2-0-b0309d0789b2@gmail.com>
- <20261121-at550-rfc-v1-v2-8-b0309d0789b2@gmail.com> <awQEP9bHA0RPfRUA@monoceros>
-In-Reply-To: <awQEP9bHA0RPfRUA@monoceros>
-From: =?UTF-8?B?57Gz55Sw5oKg56KB?= <yogo.0917.sabu@gmail.com>
-Date: Fri, 27 Nov 2026 19:07:18 +0900
-X-Gm-Features: Aa3M54o3XA2vGbw-lT3h-QsKcDE27T0mWx-80FMotXTw-keuMBkBtHCZ9WsWU5c
-Message-ID: <CAJGK9zaVJ-42c-AnZuXBW1uskvmRQv1ePHQsx=BMz55RfznomA@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 08/13] Input: add polled SiRF AT550 resistive
- touchscreen driver
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Russell King <linux@armlinux.org.uk>, 
-	Arnd Bergmann <arnd@arndb.de>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-doc@vger.kernel.org, soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 10:16:56AM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> Hello,
->
-> On Sat, Nov 21, 2026 at 09:43:18PM +0900, Yuugo Yoneda via B4 Relay wrote=
-:
-> > diff --git a/drivers/input/touchscreen/at550-ts.c b/drivers/input/touch=
-screen/at550-ts.c
-> > new file mode 100644
-> > index 000000000..89c2d2701
-> > --- /dev/null
-> > +++ b/drivers/input/touchscreen/at550-ts.c
-> > @@ -0,0 +1,124 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/* SiRF AT550 coordinate acquisition. Layout cross-checked with AT551 =
-draft. */
-> > +#include <linux/bits.h>
-> > +#include <linux/input.h>
-> > +#include <linux/input/touchscreen.h>
-> > +#include <linux/io.h>
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/module.h>
-> > +#include <linux/platform_device.h>
->
-> <linux/platform_device.h> already provides of_device_id without the
-> implied dependencies you get by including <linux/mod_devicetable.h>. So
-> please drop the latter.
+The syscon_regmap_lookup_by_phandle_optional() function returns NULL
+only when the property is missing (-ENODEV). On other errors it returns
+an error pointer. The j721e_pcie_ctrl_init() function checks only for
+NULL and passes an error pointer to j721e_enable_acspcie_refclk(),
+which uses it as a regmap. Propagate the error instead.
 
-Hi Uwe,
+Fixes: 82c4be4168e2 ("PCI: j721e: Enable ACSPCIE Refclk if "ti,syscon-acspcie-proxy-ctrl" exists")
+Signed-off-by: Anton Protopopov <a.s.protopopov@gmail.com>
+---
 
-Thanks for pointing this out. I verified both built-in and modular
-builds without <linux/mod_devicetable.h>, and I'll drop it in v3.
+(Accidentally bumped into this while working on BPF stuff.)
 
-Best regards,
-Yuugo
+ drivers/pci/controller/cadence/pci-j721e.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index 822602836b12..fdae51e368e0 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -334,6 +334,8 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+ 						"ti,syscon-acspcie-proxy-ctrl");
+ 	if (!syscon)
+ 		return 0;
++	if (IS_ERR(syscon))
++		return PTR_ERR(syscon);
+ 
+ 	return j721e_enable_acspcie_refclk(pcie, syscon);
+ }
