@@ -1,97 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.38
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795795434;
-	b=2dZDWoWkIRFu3KqO9QNrsmzfv+nqikB9c12g7FKNtQP8d7Tl+SAWAHXkRtntSxPaD7dq
-	 MzCpPYPn45JJ3Dd2DPn9TCJn9Sd0dysqkzkOSTTPCGRsBqZJoyLU7A6KQXEAJQ+ZwhZgQ
-	 /Z7umV6CR9kyRGN1SHvfufXFTPXcn8hH1lKw7cqUAojRgBuWw5yheVmuGbqds+R708rLz
-	 er7pIfXCm8ZLOGxgSqKkWuuo6csG43RJnnIxLdAMdnIHVkm5etRqCkdCFlYxy/N6KM3nY
-	 NvETu4izL0TW7sK7Pe5n/Eu9eST/ZlmablSMqAgVY4mkjdFtZqcTLjsD+1iovijfcSA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795434;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=bLT7WPdi2uPiBxugEi1g3oorIIuyZp16E8WWzZYitPI=;
-	b=SIHH+bE3wZ18w6WWXmMJbTsZMtDrGZjY0/GtQeVKx3LBwfQ3MlFJjYFkRW2u/vQJ42ba
-	 3z+AVxxoys3wnyQzmKjwb/LpouMOB/ocGFMxAv75y2XcMiAXky/sjpHCn6uwCAIJxoad9
-	 6qDFh5U9Du3K76h3DKgp4Qn6B+h9whoBlkp8iquqznRTW3UQ0skWrGRy+1q9HWKkxWm4v
-	 v2DVd/ya7PwB9OUwtreSuuakkz2y0vYkVmFps9NN3VoXJL6Hl4dgHfyGArHslukoKn9Vj
-	 w9yRzHSRsYYQ6eYV4k1X+jTbTHqvBAnVD7MqY1Me9ZiyiWcnhA5TTw/O0fUiDjmZ0Jw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=renesas.com;
-	spf=pass smtp.mailfrom=renesas.com;
-	dkim=pass header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=LZSDclCN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.38
-Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011038.outbound.protection.outlook.com [52.101.125.38])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795795459;
+	b=Rwt4i5FfeqbX0fbKK6cBuo6jIRcWMNxQo6SkkJIIeQNBSRzMDcjt0rlp10FnrVbrTAQ2
+	 C/A8CI+DAm91lohJ1tLEcPUUTDzPvdeOnOv6UDKPSRsvUSJRQl2XPyPSPQErFi1eKstjy
+	 +qo+zxOEnCTHxKUwQ7xgUE5eX5MHwD3/Z/aUnsBgyUdtQVWIwaLTWFPsnbt0qnNEIQrL/
+	 GkGYlDULjdLmxnrlVfwtJ9/Z66TEo+qOPfnNKzWT+MrXQQyAxiRXG3U0IROpKSm+MBnc9
+	 ur3+XR5PzbnsOGRgGb/hx6C1ath8cmjSyzo+XrRBto+HBGQEiOfPB3XbjcgEOtgvWBQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795459;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=8JIF4556REnzPGgIsVx9mFzE6WZEsCyWiN0cVXIRkOo=;
+	b=Ocyi+FS7b6gvgVgdt0oG0pNiprigDYlwUvHubInuHlkYitoix51XZTlz6GxImjnh4MSO
+	 iZpSqG+jVsKApRltD/v8jZete71CmmCCUmFM4lkRanQRjTGKH0aFNOnMHP9bFrNPbff2c
+	 xP/gJ4aJ+SC6Ncr24vLwV7YrURs7Q5vlGg89RYgIn+qgdH9k3K8iKU38ZUqcnosZhaeuS
+	 92vVtREY1ApBbLcBNdmPn+IonulTTJUvPPZWJkhnSOLpUg4BJUHKNB+P5rRc3Yx9F94Pn
+	 WFy30lAi1ICUmCn1rmVuCwKv65PKCHvQGAB1aPlxzIVqreu+aiVzKzIoh1O9oCDUCPQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GduA3EoZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 976CA606A31E;
-	Fri, 27 Nov 2026 16:03:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 976CA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=renesas.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=renesas.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8726A606A31E;
+	Fri, 27 Nov 2026 16:04:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=LZSDclCN
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eKpXgpijVfVrSLezuR99tuTOHaD3c+5lX612/mzGAVXCJmEC5pEoeYAyxVNxPF0RQupTGnL65Eagvq+7zUMakDZ5Nmse5rpfRUvKflawB5bCMjHI/nP6qSl53xmtc3gMZGlq2qFFKYfwNk4LVilwRyEEYMrjdBH5BeaPCbT9MI1ymLcdZWE8hR2xrpPbVwt6JB7IDBj4OJb89lWn+x77odqbbdOCXtRWhQZFPlPBD58o5nn6UkdhWHEw7/VDobjQRNeDOAJvx9/Jq/DrdUu2cVNUdHs6O3TrCkc3XYuNTYNS0W75boVtGEbZfzIeDqa7ZkMUuS/wBp5oSBm93x798g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bLT7WPdi2uPiBxugEi1g3oorIIuyZp16E8WWzZYitPI=;
- b=tNC0wjJLAYzWgjtGI6KgbVdNOhRSQqiMbeyvtAuWHF2vUOMdxsHRze9N/HL55EzAElZF2q8tss/P9z172hQZd+teKGdiMpM3BfCLoimz4YetrFrpgXmIWJLk1oBfl2PC6JdhZEgh4ODJrglzacmKd7LT+gJV2rmZiSR/hCwIUnOI7yZYlaoVkOFUpafNO2UJT0u8f/QKzvhmDIRztPbQBV/WuUt49iiE6bg7hhv5mp8py3AQUBpA0rycdoU/W5jZZcjEZ22s3wNR4laBW4Ga36H3a8AGnkmz6jylRbsTrfmAh/2oAA4ZI/BIlYgdZ0XVWA9Xz6xLSqeWLlQ4NDT7nQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 8.62.32.50) smtp.rcpttodomain=bp.renesas.com smtp.mailfrom=renesas.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bLT7WPdi2uPiBxugEi1g3oorIIuyZp16E8WWzZYitPI=;
- b=LZSDclCNXvsL6+fHEeZzMTFWkvcJbEWm46j5Kb1gSo6EagIIUImxBDVemNHm9y2Os4LwKPUbGbXUI70LWGykXCVGVIJZ3cXdu3IVQHpL/P6UOCogK5iUcrDurmCCFtZJq1cwsVGiTuO5dZh7oavmTn5piE0neje7MrJMRNs35Xs=
-Received: from OS7PR01CA0253.jpnprd01.prod.outlook.com (2603:1096:604:24b::10)
- by OS7PR01MB18246.jpnprd01.prod.outlook.com (2603:1096:604:4bf::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Fri, 27 Nov
- 2026 16:03:50 +0000
-Received: from OS1PEPF0000D213.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:604:24b:cafe::37) by OS7PR01CA0253.outlook.office365.com
- (2603:1096:604:24b::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.11 via Frontend Transport; Fri,
- 27 Nov 2026 16:03:50 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=renesas.com;
-Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
- 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
-Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
- OS1PEPF0000D213.mail.protection.outlook.com (10.167.240.20) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5
- via Frontend Transport; Fri, 27 Nov 2026 16:03:50 +0000
-Received: from [192.168.1.200] (DEU-5CG63502GH.adwin.renesas.com [10.226.92.79])
-	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id 1BA90300029D;
-	Sat, 28 Nov 2026 01:03:43 +0900 (JST)
-From: Diogo Ivo <diogo.ivo.sx@renesas.com>
-Date: Fri, 27 Nov 2026 16:03:09 +0000
-Subject: [PATCH 3/3] tty: serial: sh-sci: set the RSCI RX FIFO trigger to
- half the FIFO on G3L
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GduA3EoZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133CE1F00925;
+	Fri, 27 Nov 2026 16:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795795458;
+	bh=8JIF4556REnzPGgIsVx9mFzE6WZEsCyWiN0cVXIRkOo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=GduA3EoZ1ZOcoIoF3MmCCawrahTCpElIybzkT6ggVNtnkStHy6vszVlJdUhFEbhuW
+	 wHWX0qTdiHwCvpq8Isyx4dz9RdWRq2O3yqobrcm378aYEqLuo6QAi8A5cGqlDzER60
+	 K8QeqoAx92vJRDrBel2pKmBUryrKbYu7/xf5WALEDY/eMtZ5IEZf6vuTs7gFH1Y6iz
+	 mMIuSFgnGS17GUjqhJPRh5UAn1Evsqn6THoKVxY6BwS290RCaOUGtL5Bmd6ydMtaFb
+	 bw5IkLMLVpnso4vpEKSA8Z8i4ITO8X+ilekqwo2o4u33YmLDKXT2XlnoW8IRONViQs
+	 ogi50j+vqsnmw==
+Subject:
+ Re: [PATCH net v3] can: j1939: reject an out-of-range data packet offset
+From: netdev-bot+sashiko@kernel.org
+To: piyus@iiitd.ac.in
+Cc: robin@protonic.nl, o.rempel@pengutronix.de, mkl@pengutronix.de,
+ socketcan@hartkopp.net, mailhol@kernel.org, linux-can@vger.kernel.org,
+ kernel@pengutronix.de, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kapil@presceralabs.ai, kuba@kernel.org
+Date: Fri, 27 Nov 2026 16:04:17 +0000
+Message-ID: <179579545761.3135.18369632186646303264@kernel.org>
+In-Reply-To: <20261126150339.2110025-1-piyus@iiitd.ac.in>
+References: <20261126150339.2110025-1-piyus@iiitd.ac.in>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,98 +64,315 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-divo-ssgrlpcsrc-2996-rsci-rx-fixes-v1-3-cad6ce9f83bc@renesas.com>
-References: <20261127-divo-ssgrlpcsrc-2996-rsci-rx-fixes-v1-0-cad6ce9f83bc@renesas.com>
-In-Reply-To: <20261127-divo-ssgrlpcsrc-2996-rsci-rx-fixes-v1-0-cad6ce9f83bc@renesas.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Thierry Bultel <thierry.bultel.yh@bp.renesas.com>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Biju Das <biju.das.jz@bp.renesas.com>, 
- Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, Diogo Ivo <diogo.ivo.sx@renesas.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795795401; l=1537;
- i=diogo.ivo.sx@renesas.com; s=20240529; h=from:subject:message-id;
- bh=J6q0ITBZ4TpFdU+l+gbI6MX33obAswgOIoXbFANvxvs=;
- b=6YvEwcZZ5FhRnwsM7NHM35FI4lYT1wp6Gn1KZO9RjO+6Bn/Dfv/BbNTxhaSnN3PS7U50su9Pu
- hLGHM4OQDY9BZ1/LTY7KRzosa+cku4MKVoX1QhaYO4vkjMRVrqDc8Yq
-X-Developer-Key: i=diogo.ivo.sx@renesas.com; a=ed25519;
- pk=BRGXhMh1q5KDlZ9y2B8SodFFY8FGupal+NMtJPwRpUQ=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS1PEPF0000D213:EE_|OS7PR01MB18246:EE_
-X-MS-Office365-Filtering-Correlation-Id: 853a5bfb-0993-47dd-3e92-08df4ca00724
-X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|23010399003|36860700016|376014|1800799024|6133799003|18002099003|22082099003|56012099006|261028144727099003|11063799006|261021123027099003|261022105027099003|261009223027099003|261102123227099003|261021121427099003|261026140227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	BICiSwHYP+R6+1b9GKFVoEC8V9lnKB1tNX0SRc7F/zt3ERKSFXAhF+FxkyfcEunnWsTTm4V19yVDp+zg04k+ODjtM4N0LOvenfnLeL+8eCQPi7JtrtbpxspJ/2GkYbELBIaPMKqclIl9b8uOmtnicjfDww4p2FpIw0jMM8ow/Lf1FMETkIC6eqiejrv3UErcoKA1kZmJVdC1Rjn6I3cJmR+7Mo6Vv2nEirqDWSeAK5t4NPNa84tks9E0/18WoF6Ah3OsvIfuWpL9+b15/NRB+Y/GeqR8X2XFrrwTrAYfj3hLgPyj9ae/2mPaVeFxl3oLHiBZHM3pmAFy8SblnPS/AE34HalqmWEa13hUQJZ3QtNhgtkJQe0Np5ux3IbhJe5pgGR2xfMi1HVC4O0hdcNU9csIOPxfLK0ea/x134noOjTLXQl76TcQViF5uSDWF4WV/s5tpVsyV6eWHUVIK9LHyO0CyaTbgqy3JPDcsq+RDlAz13sbxrljQSo7UU9hDJYRmRF/KZQPgQtbgiFXanVjhQV6cPvE/9dNWC4Mop3rkzKM132hdcmRdKXkdfQvXdQoRpewhRvyctQ66F2mPwDb2kMuqQHipiKji7gEyla72ludEy2t2gzskGgNarLPk+QOKzrsoOy2bN++C+y8V+yIx9FAc6BNL3UzFvellVWSHDc6qYDykbVTev323r77QQhclOjsPWB0BLXUJyXsWIyp/A==
-X-Forefront-Antispam-Report:
-	CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(376014)(1800799024)(6133799003)(18002099003)(22082099003)(56012099006)(261028144727099003)(11063799006)(261021123027099003)(261022105027099003)(261009223027099003)(261102123227099003)(261021121427099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	HWcxQhB+1EkbprFeK/7mpQL7xWpxnWJ9290gO7s/0aRGTAx82QYNjsM6Y3BVyYebwqCVLSnzioWau4PGKYQ7Njf8EbzGXgkQSjM/bWVhhd6YQHxMF6Zrvy9nYHW2Xf1FBydifbW9NyGS06a/Tp14diKrxP3ix+fjNFkcGe5YRkpfF+V4lUxmKL6rA8CCown3+Sn3CsY2VoW51xKV9APk5lD4mUE/cUk0GFipRp6zuR9f74/q+vAJf03gRJ5Q1sc+P3hir+xPqzJojRSaaCujPWFuwiLoy+g6xL9pbuEW5Op6Z3o9coaVN+Dc2QQz6rmYlPtr4VT3koVOAzpHvABul4wonrKkV8JDmYqMdK3qxmUhKa5Qor3XP8hGDCwlqyRcujfBfRBnn77hRZJv/M9ieJ7VvWapmoA4DQnJ190kNSv3ATFazoEFwqlSCsoFRV9Q
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 16:03:50.7561
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 853a5bfb-0993-47dd-3e92-08df4ca00724
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D213.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB18246
 
-From: Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>
+Thank you for your contribution! Sashiko AI review found 7 potential
+issue(s) to consider.
 
-The RSCI port types ask for a RX FIFO trigger equal to their FIFO size,
-which rsci_scif_set_rtrg() clamps to fifosize - 1. RDRF is raised once
-the FIFO holds at least RTRG bytes, so the receive interrupt arrives
-with a single byte of space left, causing overruns at 115200 baud on
-RZ/G3L.
+Critical: 0 · High: 1 · Medium: 2 · Low: 4
 
-Every other port with a FIFO triggers at half of it, SCIF at 8 of 16 and
-HSCIF at 64 of 128. The only exceptions are SCIFA and SCIFB which set it
-to 1 because they have no hardware FIFO timeout and a higher trigger
-would leave bytes in the FIFO.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Trigger at half the FIFO (16 of 32) for RSCI_PORT_SCIF32_SINGLE_TCLK.
+- [High] The v3 notes say the patch fixes a session leak, but it fixes
+  only one path into it, and the patch's own new cancel makes another…
+- [Medium] The new check in j1939_xtp_rx_eoma_one() stops a cancelled
+  session from being completed, but only on the EOMA path.
+- [Medium] j1939_xtp_rx_dpo_one() reads `was_dying = session->state >=
+  J1939_SESSION_WAITING_ABORT` (transport.c:1852) without the…
+- [Low] The new `session->state >= J1939_SESSION_WAITING_ABORT` check in
+  j1939_xtp_rx_eoma_one() (transport.c:1426) reads the state without…
+- [Low] Both new comments are wrong about RX_ABORT.
+- [Low] The changelog says that for an out-of-range offset "the lookup
+  returns NULL and the copy and the completion run on it".
+- [Low] The main changelog, above '---', describes only the DPO range
+  check and the offset-0 lookup.
 
-Cc: stable@vger.kernel.org
-Fixes: 8f18d3cbd920 ("serial: sh-sci: Add support for RZ/G3L RSCI")
-Signed-off-by: Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>
-Co-developed-by: Diogo Ivo <diogo.ivo.sx@renesas.com>
-Signed-off-by: Diogo Ivo <diogo.ivo.sx@renesas.com>
----
- drivers/tty/serial/sh-sci.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--
 
-diff --git a/drivers/tty/serial/sh-sci.c b/drivers/tty/serial/sh-sci.c
-index dcd97f9b5268..1ab0e5677791 100644
---- a/drivers/tty/serial/sh-sci.c
-+++ b/drivers/tty/serial/sh-sci.c
-@@ -3348,10 +3348,10 @@ static int sci_init_single(struct platform_device *dev,
- 		sci_port->rx_trigger = 64;
- 		break;
- 	case PORT_SCIFA:
--	case RSCI_PORT_SCIF32_SINGLE_TCLK:
- 		sci_port->rx_trigger = 32;
- 		break;
- 	case RSCI_PORT_SCIF32:
-+	case RSCI_PORT_SCIF32_SINGLE_TCLK:
- 		sci_port->rx_trigger = 16;
- 		break;
- 	case PORT_SCIF:
+can: j1939: reject an out-of-range data packet offset
+
+This patch rejects an ETP DPO whose data packet offset is not below
+session->pkt.total. The session is cancelled, and it is deactivated if it
+was already waiting for its abort. The patch also makes
+j1939_session_completed() look the receive message up at offset 0, and
+makes j1939_xtp_rx_eoma_one() ignore an EOMA on a session in WAITING_ABORT.
+
+Link: https://lore.kernel.org/all/179553126874.3135.14817947057284289051@kernel.org/
+
+> j1939_session_skb_get_by_offset() then looks for a buffered skb at
+> pkt.dpo * 7, and j1939_xtp_rx_dat_one() copies into the session's skb at
+> that offset.  An offset past the session's packet count has no skb behind
+> it, so the lookup returns NULL and the copy and the completion run on it.
+
+[Severity: Low]
+Is the part about the copy accurate? j1939_xtp_rx_dat_one() already checks
+the bounds and checks for NULL before the memcpy:
+
+	se_skb = j1939_session_skb_get_by_offset(session, packet * 7);
+	if (!se_skb) {
+		netdev_warn(priv->ndev, "%s: 0x%p: no skb found\n", __func__,
+			    session);
+		goto out_session_cancel;
+	}
+
+The NULL only seems to reach the old j1939_session_completed(), which passed
+the result of j1939_session_skb_get() straight to j1939_sk_recv().
+
+Could the changelog also say how completion is reached after a bad DPO? That
+would be an EOMA with sa equal to our address, either the echo of our own
+EOMA or a spoofed one.
+
+> diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
+> index 8fcfd13e5e6f8..54e7ae9a88c3e 100644
+> --- a/net/can/j1939/transport.c
+> +++ b/net/can/j1939/transport.c
+> @@ -1242,10 +1242,15 @@ static void j1939_session_completed(struct j1939_session *session)
+>  	struct sk_buff *se_skb;
+>  
+>  	if (!session->transmission) {
+> -		se_skb = j1939_session_skb_get(session);
+> -		/* distribute among j1939 receivers */
+> -		j1939_sk_recv(session->priv, se_skb);
+> -		consume_skb(se_skb);
+> +		/* the whole message, not the window the peer's last DPO
+> +		 * happened to name
+> +		 */
+> +		se_skb = j1939_session_skb_get_by_offset(session, 0);
+> +		if (se_skb) {
+> +			/* distribute among j1939 receivers */
+> +			j1939_sk_recv(session->priv, se_skb);
+> +			consume_skb(se_skb);
+> +		}
+>  	}
+
+[Severity: Medium]
+The EOMA hunk below stops a session in WAITING_ABORT from being completed.
+However, j1939_xtp_rx_dat_one() also calls j1939_session_completed(), and
+its BAM final branch has no state check:
+
+	if (final) {
+		j1939_session_timers_cancel(session);
+		j1939_session_completed(session);
+
+Can a cancelled BAM receive session still deliver its data here?
+
+Take a BAM followed by one malformed DAT (skb->len != 8) or one with a bad
+sequence number. That cancels the session: the state becomes WAITING_ABORT
+and J1939_ERRQUEUE_RX_ABORT is queued.
+
+j1939_xtp_rx_dat_one() never checks the state, and last_cmd (BAM or 0xff)
+still passes the last_cmd switch. So the in-order DATs that arrive inside
+the 500 ms abort window keep raising pkt.rx.
+
+When pkt.rx reaches pkt.total, the abort timer is cancelled and the message
+goes to j1939_sk_recv(). The sockets would see RX_ABORT, then the data, then
+another RX_ABORT from j1939_session_destroy().
+
+Would a state check in j1939_session_completed(), or under the list lock at
+deactivation, cover both callers?
+
+> @@ -1418,6 +1423,18 @@ j1939_xtp_rx_eoma_one(struct j1939_session *session, struct sk_buff *skb)
+>  
+>  	netdev_dbg(session->priv->ndev, "%s: 0x%p\n", __func__, session);
+>  
+> +	if (session->state >= J1939_SESSION_WAITING_ABORT) {
+
+[Severity: Low]
+This check also applies to transmit sessions. Before this patch, a TX
+session in WAITING_ABORT that got the peer's EOMA was completed and
+deactivated at once. Now it waits for its abort echo or for the 500 ms
+abort timeout.
+
+The changelog above the '---' only describes the DPO range check and the
+offset-0 lookup. Two changes are explained only in the version notes, which
+git am drops: this EOMA check, and the forced deactivation on a second bad
+DPO. Could both be described in the permanent changelog?
+
+The version notes also say:
+
+  The delivery itself predates this series -
+  j1939_session_completed() always called j1939_sk_recv() - but v2 is
+  what made it reach a whole message, so the state test belongs here.
+
+Is that right? Before the series, j1939_session_skb_get() looked up offset
+pkt.dpo * 7. A receive session's skb_queue holds a single skb at offset 0
+sized total_message_size (see j1939_session_new()).
+
+So any in-range dpo, including 0, already returned the whole message. An
+EOMA on a session cancelled for any other reason already delivered it. That
+would make this hunk a separate fix that matters for stable on its own.
+
+> +		/* This session has been cancelled and is waiting for its abort
+> +		 * to go out.  Completing it here would hand its data to the
+> +		 * receiving sockets and queue a second RX_ABORT, so leave it to
+> +		 * the abort path.
+> +		 */
+> +		netdev_info(session->priv->ndev,
+> +			    "%s: 0x%p: EOMA on a cancelled session\n",
+> +			    __func__, session);
+> +		return;
+> +	}
+> +
+>  	session->pkt.tx_acked = session->pkt.total;
+>  	j1939_session_timers_cancel(session);
+>  	/* transmitted without problems */
+
+[Severity: Low]
+The state check above reads session->state without active_session_list_lock.
+What happens if j1939_tp_rxtimer() or j1939_tp_txtimer() cancels the session
+on another CPU after the check but before the
+j1939_session_timers_cancel() and j1939_session_completed() calls here?
+
+That cancel sets WAITING_ABORT, sends an abort and queues
+J1939_ERRQUEUE_RX_ABORT. This CPU then cancels the new abort timer and
+completes the session, so j1939_session_completed() still hands the message
+to the sockets.
+
+Does the check need to happen under the list lock, together with the state
+change (deactivating the session or marking it as completing)? The message
+would then be delivered only if that change succeeded.
+
+> @@ -1823,14 +1840,36 @@ static void j1939_xtp_rx_dpo_one(struct j1939_session *session,
+
+[ ... ]
+
+> +	dpo = j1939_etp_ctl_to_packet(dat);
+> +	if (dpo >= session->pkt.total) {
+> +		bool was_dying = session->state >= J1939_SESSION_WAITING_ABORT;
+
+[Severity: Medium]
+was_dying is read without the list lock and before the timers are
+cancelled. Can a timer callback move the session from ACTIVE to
+WAITING_ABORT in between?
+
+For example, j1939_tp_rxtimer() can fire on another CPU for the 750 ms DPO
+timeout or the 1250 ms CTS timeout. Under the lock it re-arms the same
+rxtimer:
+
+			j1939_session_get(session);
+			hrtimer_start(&session->rxtimer,
+				      ms_to_ktime(J1939_XTP_ABORT_TIMEOUT_MS),
+				      HRTIMER_MODE_REL_SOFT);
+			__j1939_session_cancel(session, J1939_XTP_ABORT_TIMEOUT);
+
+j1939_tp_txtimer() can do the same on errors, through j1939_session_cancel().
+
+Back here, j1939_session_rxtimer_cancel() waits for the callback and then
+cancels the abort timer it just armed. j1939_session_cancel() sees
+WAITING_ABORT and arms nothing. The stale was_dying == false then skips the
+deactivation.
+
+Would the receive session be left on the active list with no timer?
+
+The comment below cites j1939_xtp_rx_rts_session_active() as its model, and
+that function checks session->state after the cancel. Could this decision
+also be made after the cancel? For example, j1939_session_cancel() could
+report whether it armed the abort timer.
+
+> +
+> +		netdev_info(session->priv->ndev,
+> +			    "%s: 0x%p: data packet offset %u is not below the %u packet(s) of this session\n",
+> +			    __func__, session, dpo, session->pkt.total);
+> +		j1939_session_timers_cancel(session);
+> +		j1939_session_cancel(session, J1939_XTP_ABORT_FAULT);
+> +		if (was_dying)
+> +			/* The cancel above is a no-op once the state is
+> +			 * WAITING_ABORT, so it does not restart the timeout
+
+[Severity: Low]
+Is the cancel really a no-op here? j1939_session_cancel() queues RX_ABORT
+outside its state guard:
+
+	j1939_session_list_unlock(session->priv);
+
+	if (!session->sk)
+		j1939_sk_errqueue(session, J1939_ERRQUEUE_RX_ABORT);
+
+So on the was_dying path every matching socket gets another RX_ABORT.
+j1939_session_destroy() then queues one more, because session->err is set.
+
+The new comment in j1939_xtp_rx_eoma_one() has a similar problem:
+
+	 * to go out.  Completing it here would hand its data to the
+	 * receiving sockets and queue a second RX_ABORT, so leave it to
+	 * the abort path.
+
+The abort path also ends in j1939_session_destroy(). That function queues
+RX_ABORT whenever !transmission && session->err, on the completion path as
+well. Should both comments be corrected?
+
+> +			 * this function just cancelled.  Deactivate instead,
+> +			 * as j1939_xtp_rx_rts_session_active() does, or the
+> +			 * session stays on the active list with no timers and
+> +			 * holds its skb and netdev references for good.
+> +			 */
+> +			j1939_session_deactivate_activate_next(session);
+> +		return;
+> +	}
+
+[Severity: High]
+This covers a second bad DPO. j1939_xtp_rx_dat_one() runs the same sequence
+without any deactivation:
+
+ out_session_cancel:
+	kfree_skb(se_skb);
+	j1939_session_timers_cancel(session);
+	j1939_session_cancel(session, abort);
+	j1939_session_put(session);
+
+j1939_xtp_rx_cts_one() does the same:
+
+ out_session_cancel:
+	j1939_session_timers_cancel(session);
+	j1939_session_cancel(session, err);
+
+Can the DAT path be reached right after this rejection? Take an ETP receive
+session after the echo of our own CTS, with last_cmd ==
+J1939_ETP_CMD_CTS:
+
+j1939_xtp_rx_dpo_one()      /* dpo >= pkt.total */
+  j1939_session_cancel()    /* WAITING_ABORT, 500 ms timer armed,
+                               last_cmd unchanged */
+
+Then the peer sends its next DAT:
+
+j1939_xtp_rx_dat_one()
+  switch (session->last_cmd) -> default: goto out_session_cancel
+  j1939_session_timers_cancel()   /* kills the abort timer */
+  j1939_session_cancel()          /* already WAITING_ABORT, arms nothing */
+
+A malformed DAT (skb->len != 8) gets there as well.
+
+The echo of our own abort does not clean this up. It carries only
+J1939_ECU_LOCAL_SRC, so j1939_tp_cmd_recv() calls
+j1939_xtp_rx_abort(priv, skb, true). That only matches sessions with
+transmission == true.
+
+When the last bound socket closes, __j1939_rx_release() calls
+j1939_priv_set(ndev, NULL), and j1939_netdev_notify() can no longer find
+priv.
+
+Would the session then keep its skb, its priv reference and its
+netdev_hold() for good, with unregister_netdevice() waiting on it?
+
+The underlying sequence existed before this patch: two bad DATs also
+strand a session. The new DPO rejection makes it reachable with the
+follow-up frame a sender would normally send. j1939_session_cancel() is
+where the re-arm is skipped:
+
+	if (session->state >= J1939_SESSION_ACTIVE &&
+	    session->state < J1939_SESSION_WAITING_ABORT) {
+		j1939_tp_set_rxtimeout(session, J1939_XTP_ABORT_TIMEOUT_MS);
+		__j1939_session_cancel(session, err);
+	}
+
+Would it be better for j1939_session_cancel() itself to deactivate the
+session, or re-arm the abort timer, when the session is already in
+WAITING_ABORT? That would cover every caller and replace the was_dying
+special case here and the similar one in j1939_xtp_rx_rts_session_active().
 
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126150339.2110025-1-piyus%40iiitd.ac.in
