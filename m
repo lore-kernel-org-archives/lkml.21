@@ -1,69 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772332;
-	b=R6t93gB0XXCsQG394AgUubuVt2XFuHX63kCbkb1qMnxvKS8ocKhteAZ8BT75l1TW7IhS
-	 L0n4cuEtQyzEe71k4dGctLgJWkij973DiV/+dKOntFiOP7eydKSk1xYocs80Ueaa/DaRi
-	 WNemY1yej+LZv/Uw91/1Eg0iFlrymV7lY9/l/kh3F6X4f0PXhqo+9573JkDBx8QcyA/hf
-	 YIH8X5RVilPfNCF6ZjFl4FE/6iY/cmDA2Fe4CNgyWaZcasVeBm2vWmzYDJ6E4+5NCV+MZ
-	 ME2hGCJ2pz+11Y+UtZXy+x1rxj3bjjhmRQB4XNVxMdBalHbipUqovhPr5twHiFICaWw==
+	t=1795772343;
+	b=kgWYPK23MEQgo/XeAY2fo6DGYF7WtAkL19953yF//GVxeO+uA6j6xGL5IKryaOTYUbPs
+	 sutY1N1Z1gl/sgWV/FC/p/zzhhaDZZj83EbFPifMLmtPWzSHDKlj2V1UScwCDCxKzf4Nb
+	 XBBiGXVRaO4OCuOAM1VjE0DIVnlcuZGZGVBMzZCWqz7dxKcVjybGnXiael2DNBynoqv2k
+	 uwXG1NRW25RwmuKVjV6vIl9efENcfjxui7dY6Qh1QWKARlnD3UH+zsTJWImduhoyfFHbH
+	 +E9F+4nYD9Jhocidh+nCIA6uubU1ngFdm0xn73EZO92WVLwxX7xK9W748M3cnQNOeiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772332;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=af07nmAT2WSeLQ3r8HG4fx8NCBpnVFPXtLomeeFOOx0=;
-	b=rI9HqBRweQyAlWJ/pQHqquEfy1ljuzHNUPDPrh5p/BOzfouOyxiYOEmFt0aXNxDgxpnq
-	 L3SnwcGKNLq+Z5EIGKOXcOu8bYI1UEY8i+0Gtx4wUU8W02+brjH+d94R/XWDKJ3qaL5au
-	 Ym1Uvgg0VatMo5q5ytwEFQMSkl+dQTw7rt/9EFo9WklZ4dfftgJp3coXmVRYf78uNaos3
-	 alDw1+XQUqRCih/ovFJOSwjXxMB6Z2v9CV6nCfJhIvg8KsM96IoKaVrt0wrd7jdEUbWpI
-	 4UpJMWZf4QJr54NEIaFJidyd0TDMyCJHTnQx3uZGpKAx/SxwDl5+L65KnnraEY4FHNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772343;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=mfJqk98mJdcmdV025H5HNC/7B5mh3WsSXVf02Dyg9eE=;
+	b=Pmd8w66u7EQChiZA50mGAgae5+4avjtpjD0qF5LPLylZAn/aaLQOV00EplEIaZgON//t
+	 NHa+U1mNUycGt9ghzjU/MK6Bqi4/3nfV6TeFwQiPCywd61gik+CGN0QeKt/5DKQKoO4qj
+	 QSzhty4i9SfmdisUH5P363N49u4hX6mnGwkK9+Vt67tT7yx60y1VNA+HhePgiVD7PoCzk
+	 nf2j6t8mot7gAjHwPOewmc6+h1fANiDGaETVNvCmn6SXyVn9W0Cy9bs5kw+c/7dd8rzOl
+	 c6X1ml3Q+1D8Tun8+sijUdELynC48PC++FKYV9RUlKJt13XYxjWRBCcvZcStdpK7i0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cWVclR63;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZH05icf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93D3F606A31C;
-	Fri, 27 Nov 2026 09:38:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC404606A31C;
+	Fri, 27 Nov 2026 09:39:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cWVclR63
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2F241F00893;
-	Fri, 27 Nov 2026 09:38:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZH05icf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E8A1F00897;
+	Fri, 27 Nov 2026 09:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795772331;
-	bh=af07nmAT2WSeLQ3r8HG4fx8NCBpnVFPXtLomeeFOOx0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cWVclR636p/2K+YGUB2W5gV8J7QwvbdUU3viSXljAXhzwcn4L4LHTV8BTqb8q9N4o
-	 lazqnwsJamhj3bTqgh40aP+oNJh9XKiB4uiwv5U0OTwqS25N7uATauO2PO17AR5XHG
-	 5bONlfA2nj6uy5ErTPZubyDLwVRPOpltuP9x31nwaSpqk6Nd4L3IdBe99iZEw8gNaK
-	 mzo3IUGTRDkPAZlEa3x0LJMbt1dmE/I77DaEumph0uBC3YscMjQTlH9nQdFd82jTjv
-	 N+NsOIcwxT38RNB2mpctX6l6tlp/xx+saGoYOs7U1OPRTPZ+BJ2uuK1M3uGlxhD3YU
-	 S1ouDaX5VQBCw==
-Date: Fri, 27 Nov 2026 09:38:43 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Sasha Levin <sashal@kernel.org>, Borislav Petkov <bp@alien8.de>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Leon Romanovsky <leon@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>, 
-	Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-	Jonathan Cameron <jic23@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Theodore Ts'o <tytso@mit.edu>, 
-	David Hildenbrand <david@kernel.org>, Security Officers <security@kernel.org>, 
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
- and a cover letter
-Message-ID: <awlOYxw29ANZOA1X@gremlin>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
- <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
- <awjopqoCJqwChwnF@laps>
- <awlCy3vDs0fKx1ku@gremlin>
- <awlNYsu1y8EhYgor@1wt.eu>
+	s=k20260515; t=1795772343;
+	bh=mfJqk98mJdcmdV025H5HNC/7B5mh3WsSXVf02Dyg9eE=;
+	h=Date:From:To:Cc:Subject;
+	b=fZH05icfdHa5AtsNECAIl41e360zqCv2UpE09GpN+8S3I5cZCXPEOtyCSAC5xwGHj
+	 ImRUS+yPZS+V92OqZTdULAIJS4X6LfYQvmdSAwljcYsIUTMQ0U9ibQzg+10S1ODu65
+	 dY71gfb7YFfwuhljRyy1z3vfNx6aUiCmvSxwll9B3l7qU4IuZ3cu4BaW++fXbqqGjS
+	 MuL7VOqVk0vh8OviinV8/BF3ByHhxwZuyWw+7ukU/4tEXdu7b4HTS7UHwrQZlea1PY
+	 8Q9N+8ue/KCp03XFa14vducrgtkR61fe4g6EfeLzMm7eyCNU6tMYMUyAsHul60QCaq
+	 9CZY1fWO1yNqw==
+Received: from johan by xi.lan with local (Exim 4.100.2)
+	(envelope-from <johan@kernel.org>)
+	id 1xWsQ0-00000001yjk-3KWq;
+	Fri, 27 Nov 2026 10:39:00 +0100
+Date: Fri, 27 Nov 2026 10:39:00 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] USB serial fixes for 7.4-rc5
+Message-ID: <awlPtNqbTB-dyXBI@hovoldconsulting.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,76 +60,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awlNYsu1y8EhYgor@1wt.eu>
 
-(for some reason this didn't get to my inbox, not sure if filtering broken or
-something?)
+The following changes since commit f11fe7603df07fbb9fa02b0d385c1696c87a6dab:
 
-On Fri, Nov 27, 2026 at 10:29:06AM +0100, Willy Tarreau wrote:
-> On Fri, Nov 27, 2026 at 09:18:34AM +0000, Lorenzo Stoakes (ARM) wrote:
-> > +cc Laurent who is probably interested in this and AI policy stuff in general.
-> >
-> > On Thu, Nov 26, 2026 at 09:19:18PM -0500, Sasha Levin wrote:
-> > > 2. I'd argue that LLMs these days have the capability to write better
-> > > changelogs and most of our human authors. We just need to be better about
-> > > laying out our expectations of them.
-> >
-> > Strongly disagree with this, it doesn't match what I see in practice at all.
-> >
-> > I'd say that >50% of my review work is of AI-generated patches now, and the
-> > commit messages and comments are consistently appalling + seriously painful to
-> > deal with.
->
-> Note that every word in Sasha's message counts. *capability* doesn't mean
-> that it is commonly exploited. Commit messages are horrible most of the
+  Merge tag 'usb-7.3-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb (2026-11-16 07:55:02 -0800)
 
-I addressed that in my reply. I have explored this with frontier models, and in
-fact seen people dedicate serious resource to adding skills explicitly for this,
-with no meaningful improvement in either case.
+are available in the Git repository at:
 
-> time but when properly explained over long sessions they can get amazingly
-> better. The other word was *most* of our humans authors. The Linux kernel
+  https://git.kernel.org/pub/scm/linux/kernel/git/johan/usb-serial.git tags/usb-serial-7.4-rc5
 
-Completely disagree based on fairly extensive review experience. Commit messages
-from humans are orders-of-magnitude better, it's not even close.
+for you to fetch changes up to d091d9a05f78af9332785f1767467a0a88d24233:
 
-Pre-2026 worst patches commit messages were incomparably better vs. 2026-onward
-AI-patches-of-any-quality.
+  USB: serial: f81232: drain work on failed open (2026-11-17 13:34:10 +0100)
 
-I continue to believe this is a fundamental consequence of how LLMs work.
+----------------------------------------------------------------
+USB serial fixes for 7.4-rc5
 
-> community isn't the largest set of commit message authors and is already
-> doing very good at this. Look at many other projects to see absolute
-> horrors like "update" or "rebase" for the most verbose ones, when it's
-> not just "-".
+Here are couple of fixes for long-standing issues that could cause
+trouble, for example, when open() races with disconnect.
 
-Yup, we established a great culture for commit messages. I fear that we are
-destroying that with slop.
+Both have been in linux-next with no reported issues.
 
->
-> Whenever I was given commit messages by an LLM, I had to reword them,
-> but some were very close to what I could have written. And I must admit
+----------------------------------------------------------------
+Haowen Tu (1):
+      USB: serial: f81232: drain work on failed open
 
-I'm happy you've had that experience :) but it runs so counter to my own and
-other's I have spoken to that I have to reflect that in the discussion.
+Johan Hovold (1):
+      USB: serial: mct_u232: fix NULL-deref on open() failure
 
-> that a few times when I only reworded a part of the message first and
-> came back to it later, I was no longer very sure where I stopped. *This*
-> is a good indication that they can get better than what you usually face
-> (or that mine are terrible as well, in which case we're back to first
-> point and I'm part of "most").
-
-They can get better, yes, but in my experience consistently remain
-appalling. Perhaps excluding rather mechanical changes.
-
-Of course I am happy to be proven wrong in future, but for a policy going
-forwards, that policy should reflect reality.
-
-And I think you missed a key point I made - that this is _crucial_ stuff as it
-is the commit message(s) that give you an overview for review.
-
-This stuff alone contributes to maintainer burnout. Let's try and take action
-that pushes back on that.
-
---
-Cheers, Lorenzo
+ drivers/usb/serial/f81232.c   | 3 +++
+ drivers/usb/serial/mct_u232.c | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
