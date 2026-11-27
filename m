@@ -1,79 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748407;
-	b=S3lfJ578YExY0gKuw2egSplIcWVDzFuTWEpepFzEQKXifoyJmTjjfDyIoVi9vRmGdA1N
-	 y2hym5C5hrc5uAdOUYerkLy4gFPdOoTVqmhyVN/LwEUd5zNRER/Lk2QbBPV5+PxUslWja
-	 rA9Ip1I0k0RbEhmQG++3wJv9YiDXy1hUDgFTQZVFPo3Aq42FNZATpeAeEHFoi8VaIKzGk
-	 Y4+HdZq5VD89R20hg7eDPUt3AnggdAvXF9gj7HYQ9MwXfR8huIJHDvodUYKhHXNWm8HFT
-	 KH0kcvXSPg3q/qF3Kd37UTlvlLu+B32mGZNsLp5X2UJsr08H4yzWHI9yTGePGv+qC2A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748407;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=cXL13ZdaJrq8Pxpnq5CNNNCF9aHaOxDVvF8l/dqqouA=;
-	b=EUl8pWhPuXm8JeuvDxIXxmnwmQj2gIFNUgm9x0PL0gx4pSPGN4b0DA4azXwVdWiexm58
-	 +qd8eBnkVSkeGF5p7+q5mKHdBel/IzjbfFH/4gFaRLeSKG6kadN4W065c9vCFYUd0KiaX
-	 JwF4LRz0tivpZzc6FFVoad4Gsd/9cuOVylIUAU587aIPR5m9e9Vz7EFz4Y0IqZB33k8D1
-	 BFr/1fVi7N/tMSc3VWIMtW2j45bAZ0Gi/EGU51oZDfWjh09t9kFJ6/o2fXuBUh/WH+OO/
-	 0bZL43yiJJSBV7nu3/ylPZy4q4o/0cn60LftSSJEKT1EzDCorUudZCcOCDNBd4GEAjA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Fr637zHa;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795748417;
+	b=1Hdbw9Ukiea/Jh1ut3PpsSQktB5n+cmRQWvb0aWGBXl65sf0q6qb3wZJ/yBPI3gxEs85
+	 m7dzaKfLFX/k8BvpnOFmVPI16M+v+KI9jbALvfOXEXBhvHAlLvF+nixlrrxXZIr3LyfTb
+	 u8VZnhWWgImKkQeAAiOMI5aTBL2Wwu1ePVejwfpMV4APoECgJQONtrW9iMJbWxovLhLVr
+	 9Mt8G7OekgqTrhec/Ovn8G28tFZFbt1ZC4kTQ0ollgxFwG7T0Wrqe1HoMOpU9Pe4VnDn7
+	 fWxUr4G28pLmVSXzHBlj2NGrBj/O/iuuSjMuZiJf6jYYtGTHcpgWYqIo9PrtAU7j5qA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748417;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=k+jbIvtsoA5ttuBvQq7PJd9IGCgNHtDBZAmmWPn6zSw=;
+	b=j+wIx+YudQ+WK9mYaqCRPpiSqmklB7s3+wYzKJv11gHRfCGzsE8KZIgH73qV3aWG9u3X
+	 W79rQwQI3Weg0BQAKgq4j9dSS7biEPdpYmnbaQgG9wfJs19tCNL1EGhR/L8bqaYwS3i+x
+	 Rfzspaix40eV2Us4RMj5OnQk10nxHp7v3OL1yGnS4uHiqcV5/BEy4ysiCU7ePxb+UyYQE
+	 o5dTjIzAbYjGGYUhMQtvIEShmh7k1uJt8W2qryKDbdcGgzqgHC5n8ac4mEcK1mt0EWxOJ
+	 RjXd3MdlttkIK0eQJnWmBT1k368skAcolf4aDhojBO0qi5IeuWLK9bqHD8G2CZIHvDA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V3JedMTx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88C2F606A324;
+	Fri, 27 Nov 2026 03:00:17 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V3JedMTx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795748416;
+	b=wwCpmow9d0PBuYYVdZpM8+4wPm0bSrkfkfZHaPHdFmVi8iT5c8XfeqApQpRk24y7rAHO
+	 h0uboscmHqVAIy8JNrYR7WYt9dj5KwJAeI8z8SYhY1qQgkUuh46AQOJmEaQyjRzEuuaUL
+	 duwrqcFTXTjR/aMXYE1cHAqbZcoOR5GiMKA2nSIBWHgwgk2tjGzvSsOXAGIL4uEliS1iZ
+	 o2cela7Ew/IZ10EDuDH+3N0lKYh2JAtA3Gz4iRpGrwc0AlhJoXnbyueyUD/XzDfFxapfv
+	 g80X1X6qqhhbw7mGEtntjitl4OAiv4XBWSKPhXDSTZAq5j5FtEjxxe/yN2WyVCnzQVA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795748416;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=k+jbIvtsoA5ttuBvQq7PJd9IGCgNHtDBZAmmWPn6zSw=;
+	b=TS76d20v8kH8017SaileXGTcZGkqU8Xm1w+oaBW+ScHc5QLD6H8BXMRwI0A9vtRRebTG
+	 6x3GfTitVwuEcHHkxSCC7FQn2auavRNAKf29URNW05QlP3nh2H2tIBrFV22+53gB+YTjz
+	 ajdm+lZd52/5uGMK1K00bKi/7PKbv5X3hC4n/3oLd+X978Rjh0JojpafWO7roe4K+hd8v
+	 9c8/IOj1jMXWURuUTCd3bEUP1vYSeG2mpwHphxMzzi0+gf1OEYlul8abgUYiAaHYG52LI
+	 BGCHDfl8XOTDwE22bf8ho5Touxa9jra5hvatxxY2PRmnGKkzp0wKHAdI7ptQmW6+qdA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 989B9606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:00:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 989B9606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Fr637zHa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795748405;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cXL13ZdaJrq8Pxpnq5CNNNCF9aHaOxDVvF8l/dqqouA=;
-	b=Fr637zHaFJl1/Hb8Fu5IKgdgdljI57wYmAhpEfX2r96UAjJvm8oijVGP7vFmFEeZp2DvL4
-	AsNsiU6dCyXROw+FXOsOjOcTtIvQiW3bYNLdDgX2JPud5LFdHiSCcjGNJa7yGnaVgzvr+s
-	3pR39Li5fmqwrl8bxTKkVV98rAouC3s=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-554-hP5MrW1yPRqequ3ZQpQFRA-1; Fri,
- 27 Nov 2026 03:00:00 +0000
-X-MC-Unique: hP5MrW1yPRqequ3ZQpQFRA-1
-X-Mimecast-MFC-AGG-ID: hP5MrW1yPRqequ3ZQpQFRA_1795748399
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D5AA7193FAA5;
-	Fri, 27 Nov 2026 02:59:58 +0000 (UTC)
-Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 343595B1;
-	Fri, 27 Nov 2026 02:59:57 +0000 (UTC)
-From: Bruno Meneguele <bmeneg@redhat.com>
-To: linux-integrity@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	keyrings@vger.kernel.org,
-	zohar@linux.ibm.com,
-	roberto.sassu@huawei.com,
-	dhowells@redhat.com,
-	bauerman@linux.ibm.com,
-	Bruno Meneguele <bmeneg@redhat.com>
-Subject: [RFC PATCH 8/8] ima: check the digest of every modsig signer against the blacklist
-Date: Thu, 26 Nov 2026 23:59:11 -0300
-Message-ID: <20261127025912.1383750-9-bmeneg@redhat.com>
-In-Reply-To: <20261127025912.1383750-1-bmeneg@redhat.com>
-References: <20261127025912.1383750-1-bmeneg@redhat.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 1045E1F0089C;
+	Fri, 27 Nov 2026 03:00:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795748416;
+	bh=k+jbIvtsoA5ttuBvQq7PJd9IGCgNHtDBZAmmWPn6zSw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
+	b=V3JedMTxAsvglOV43PIzfUPsq6MGEyNy/WH3NqHSxoRKQyo6lBNTZpADUVDZ8Qk6+
+	 GYhOSoPdyCELR57KRTAG61/Htj2ytmfDgrPs66uzXFKD5WQnk0Nq8hpQPf3KK/0vwK
+	 rsVp695T4oIpO5v2dU2wVcgIjm9oqh0f6n7n76buvmb1zr2OrmM773aJHT+cBrw0YU
+	 iJMXyBNFbfy8s1+67fFwMZ0EgDsUk9L3GidvT/XShO5dXmLiutje8HY4yNaVJj5+M9
+	 lVul92F9ElzD5znmRj/RJf+zpSfZcu7WEZLhd2HlviUYBEJm+aDmBtgf7pXo0Dy9+f
+	 4SZMyP+vEyxSw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 94E4F4B51D;
+	Fri, 27 Nov 2026 03:00:10 +0000 (UTC)
+From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
+To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: amergnat@baylibre.com, me@adomerle.pw, 
+ Roman Vivchar <rva333@protonmail.com>, devicetree@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v4 3/3] soc: mediatek: mtk-pmic-pwrap: Add MT6789 support
+Date: Fri, 27 Nov 2026 03:00:12 +0000
+Message-Id: <20261127030009.10572-4-iasnezhkov@gmail.com>
+In-Reply-To: <20261127030009.10572-1-iasnezhkov@gmail.com>
+References: <20261127030009.10572-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,51 +91,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795748409; l=3175;
+ i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
+ bh=NkY1FVDX7FjjqkBkHmoH1ehvqe1/nLA6VmrfCr/ta2c=;
+ b=5J42c+jAlqFobqnw9AtxUXhtNt5XynWPXY/H9xofwzlCrAqb6ERd4/yB7oOFjvGnQc9lBV6co
+ IPomQk+Oi8+DjsVjWPXb1Q5BGowO3XWBInC41KYIYGQE3GcUWWRVUrx
+X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
+ pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
+X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
+ auth_id=1643
+X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+Reply-To: iasnezhkov@gmail.com
 
-When checking the binary blacklist, traverse every signer content digest
-appended to the file. If one digest fails (-EPERM), the content is deemed
-blocked.
+From: Arseniy Velikanov <me@adomerle.pw>
 
-Signed-off-by: Bruno Meneguele <bmeneg@redhat.com>
+Add PMIC-Wrapper support for the MediaTek MT6789 (Helio G99) SoC.
+
+MT6789 uses the PMIF-SPI arbiter interface with bank 3 interrupt
+registers (INT_EN at 0x450, INT_FLG at 0x458, INT_CLR at 0x45C, mask
+0x180000) and WACS2 software interface at 0x880..0x8A8. Register offsets
+and wrapper parameters are verified on live MT6789 hardware (iKKO
+MindOne, MT6366 PMIC).
+
+Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
- security/integrity/ima/ima_appraise.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+Changes since v2:
+- Added PWRAP_INT_FLG (0x458) and PWRAP_INT_CLR (0x45C) matching bank 3
+  PWRAP_INT_EN (0x450).
+- Depends on patch 2/3 so probing does not write wdt_src to offset 0x0.
+- Updated with an AI coding assistant.
 
-diff --git a/security/integrity/ima/ima_appraise.c b/security/integrity/ima/ima_appraise.c
-index 8aeec2778984..a62dc1aa93b4 100644
---- a/security/integrity/ima/ima_appraise.c
-+++ b/security/integrity/ima/ima_appraise.c
-@@ -432,18 +432,23 @@ int ima_check_blacklist(struct ima_iint_cache *iint,
- 	const char *sig_algo;
- 	const u8 *digest = NULL;
- 	u32 digestsize = 0;
-+	unsigned int i, count;
- 	int rc = 0;
+ drivers/soc/mediatek/mtk-pmic-wrap.c | 29 ++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+index 6b0d462..f3b97fb 100644
+--- a/drivers/soc/mediatek/mtk-pmic-wrap.c
++++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+@@ -640,6 +640,19 @@ static const int mt6779_regs[] = {
+ 	[PWRAP_WACS2_VLDCLR] =		0xC28,
+ };
  
- 	if (!(iint->flags & IMA_CHECK_BLACKLIST))
- 		return 0;
++static const int mt6789_regs[] = {
++	[PWRAP_INIT_DONE2] =		0x0,
++	[PWRAP_TIMER_EN] =		0x3E4,
++	[PWRAP_INT_EN] =		0x450,
++	[PWRAP_INT_FLG] =		0x458,
++	[PWRAP_INT_CLR] =		0x45C,
++	[PWRAP_WACS2_CMD] =		0x880,
++	[PWRAP_SWINF_2_WDATA_31_0] =	0x884,
++	[PWRAP_SWINF_2_RDATA_31_0] =	0x894,
++	[PWRAP_WACS2_VLDCLR] =		0x8A4,
++	[PWRAP_WACS2_RDATA] =		0x8A8,
++};
++
+ static const int mt6795_regs[] = {
+ 	[PWRAP_MUX_SEL] =		0x0,
+ 	[PWRAP_WRAP_EN] =		0x4,
+@@ -1316,6 +1329,7 @@ enum pwrap_type {
+ 	PWRAP_MT2701,
+ 	PWRAP_MT6765,
+ 	PWRAP_MT6779,
++	PWRAP_MT6789,
+ 	PWRAP_MT6795,
+ 	PWRAP_MT6797,
+ 	PWRAP_MT6873,
+@@ -1852,6 +1866,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
+ 	case PWRAP_MT7622:
+ 		pwrap_writel(wrp, 0, PWRAP_CIPHER_EN);
+ 		break;
++	case PWRAP_MT6789:
+ 	case PWRAP_MT6873:
+ 	case PWRAP_MT8183:
+ 	case PWRAP_MT8195:
+@@ -2302,6 +2317,19 @@ static const struct pmic_wrapper_type pwrap_mt6779 = {
+ 	.init_soc_specific = NULL,
+ };
  
- 	if (iint->flags & IMA_MODSIG_ALLOWED && modsig) {
--		if (ima_get_modsig_signer_count(modsig) == 1 &&
--		    !ima_get_modsig_digest(modsig, 0, &hash_algo, &digest,
--					   &digestsize, &sig_algo))
--			rc = is_binary_blacklisted(digest, digestsize);
--	} else if (iint->flags & IMA_DIGSIG_REQUIRED && iint->ima_hash)
-+		count = ima_get_modsig_signer_count(modsig);
-+		for (i = 0; i < count && rc != -EPERM; i++) {
-+			if (!ima_get_modsig_digest(modsig, i, &hash_algo,
-+						   &digest, &digestsize,
-+						   &sig_algo) && digestsize)
-+				rc = is_binary_blacklisted(digest, digestsize);
-+		}
-+	} else if (iint->flags & IMA_DIGSIG_REQUIRED && iint->ima_hash) {
- 		rc = is_binary_blacklisted(iint->ima_hash->digest, iint->ima_hash->length);
-+	}
- 
- 	if ((rc == -EPERM) && (iint->flags & IMA_MEASURE))
- 		process_buffer_measurement(&nop_mnt_idmap, NULL, digest, digestsize,
++static const struct pmic_wrapper_type pwrap_mt6789 = {
++	.regs = mt6789_regs,
++	.type = PWRAP_MT6789,
++	.arb_en_all = 0x777f,
++	.int_en_all = 0x180000,
++	.int1_en_all = 0,
++	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
++	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
++	.caps = PWRAP_CAP_ARB,
++	.init_reg_clock = pwrap_common_init_reg_clock,
++	.init_soc_specific = NULL,
++};
++
+ static const struct pmic_wrapper_type pwrap_mt6795 = {
+ 	.regs = mt6795_regs,
+ 	.type = PWRAP_MT6795,
+@@ -2448,6 +2476,7 @@ static const struct of_device_id of_pwrap_match_tbl[] = {
+ 	{ .compatible = "mediatek,mt2701-pwrap", .data = &pwrap_mt2701 },
+ 	{ .compatible = "mediatek,mt6765-pwrap", .data = &pwrap_mt6765 },
+ 	{ .compatible = "mediatek,mt6779-pwrap", .data = &pwrap_mt6779 },
++	{ .compatible = "mediatek,mt6789-pwrap", .data = &pwrap_mt6789 },
+ 	{ .compatible = "mediatek,mt6795-pwrap", .data = &pwrap_mt6795 },
+ 	{ .compatible = "mediatek,mt6797-pwrap", .data = &pwrap_mt6797 },
+ 	{ .compatible = "mediatek,mt6873-pwrap", .data = &pwrap_mt6873 },
 -- 
-2.55.0
+2.54.0 (Apple Git-157)
+
+
 
