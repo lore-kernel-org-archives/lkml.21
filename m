@@ -1,57 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795775714;
-	b=NWZC+WNHow0OFcrPH4+nn0s37ltAs6+VuBp5gfOSPi8Nt8fwx7HsoXOZcQMRHYnN5gMp
-	 SfqYEsXMO6tup24u26csc0mxj8Ok1rpI0M8QYp3KSogrEQU/R6Nuoc0EKhNM6uQaEPGJx
-	 o9BE23DXa4OacLJ2Kgr+4ligH03kNrhg4Ct/nRlQklfhvlHb9Vc/DEqWrjP1Bvj8GA2fG
-	 Cx9bPOjC7C/P8hiIFFOkso+F2LnWcw8ttb57zU4JbyyeA8kI5HLiCjaVHQuWMsemohFU4
-	 Ux1nzEdJ0gkvwP1Ub7e2j06wgYLycMYB9D2ncYYgW2zMO1ClHfS9cEJ10gNKCO3N7Aw==
+	t=1795775782;
+	b=PsnnXkSClFi8aBTtLXhuoow7KMjlcXEev7KYh8ZWaQ7e+dZH954rlYpwz+oymrnBvZ99
+	 ThFednZ03v8AdRDuAcS3GgzhKXysLr1/dQopMYTAeSWuCmRoNqAXw7N8j1mFOud7GRNew
+	 7Leuv4uWAHc0zUan8faGrjqvOKaJilidBGlXHjDyL7tXQTticQp/8XkDCK8Ub0QAuUZCS
+	 iLlZBwUg4oD96hW9qtcWqnF6HeOrI5AJmk27/u7aTMnZFHlABy051BBW9UwCv5ffGwJN1
+	 lgUKj6mq4G9XcPJOObtaRsrp5DhU1g1aucpbxasnqcWGdQDUktOrGAG4auLzIeA0nLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795775714;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=952yiB3XKkKJx2jlcE2T9cBcHOdTpffUYRnjcZrOm9g=;
-	b=c7iQkgYFRa2icB21npIw2BfD6crb89j9ib4thVNV/pcXZTW2XTpTUMsmQP6qBGZV3umJ
-	 2ZWzVVvNObSEqkLVA9PywEhKhmWbSVGcjt3J5htM1w58feWVkUiyj2z9V1ggdF7wsjXdX
-	 nLVsgOfs2K7ATPgLiIOmaSuNuo+Cmj/PqwAHjSyquxBERuP7uLORXNo+v3a4qdomt/HcC
-	 KVkH3UXREL6IyZjt04J3FJDIqw8ulZxRWipd0/PdQPYOENGkhRHCoOZoUhBd116fhtfEK
-	 FpYsu+TDIuKL2KkI7dt2WzXowvNrUb5B8DmG5KEW1j0esHf2wumMOMxHCZ7PJKpanTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795775782;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=iCTbyzZob8FXKeEZRFMgEo/F2TymOMg6sLKTzhBxgFI=;
+	b=pbYwBzBGDOpXRRFnD3zorq/VS9syu+RBIrhbdW10BteaW8de8odQBWrm9jOiTSxtu98v
+	 RaC+6N6W90w0emGMV+obnqXS7rPEIZnlvUWwn8yqlYSCegiu1fGUREU7ZUzeyFaoFD2wl
+	 F+rI9mlDeht0j+bCavicyJ7T/B1gwYwIyKynPF25Lm6OQU3W6hRael8PXGYj3czFMxq56
+	 6EroWHtK7mp6Mf7Bo4MQV2J5gG4fommE6iQU1rPNLVqKIhg3HsATA5wfI1bBiXx9OrnOK
+	 iJPsPSCF+vf5WMRQ7mKy5uTBpL8VIUmWtYiTTzUGm2DVmHR3xniLxhLfvaqO7EVJASA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Jky6L6vz;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6C514606A31C;
-	Fri, 27 Nov 2026 10:35:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C514606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ik5G0Fci;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1218606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:36:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1218606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Jky6L6vz
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1CA31756;
-	Fri, 27 Nov 2026 02:35:10 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3570A3F86C;
-	Fri, 27 Nov 2026 02:35:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795775713; bh=+viwC7r5nVf1JXawcduVmmgm0qbQG3S33zlJBCPnFiI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jky6L6vzghiEMhFKHHd5yU67Vr0X5oRfMhikFrwX0Wt0vtfvZvBS4TvR+HVfA0olM
-	 alltWBqxSOw0cH1itYcRnd/9jAy2h7DfSn8CiL0obkWJxUs9ecoNGlmLJhrUi7zcx3
-	 AQpDkyyMjlEZ3PbmjW+wwOYBYl+rdAWZH6YsFRQ0=
-Date: Fri, 27 Nov 2026 10:35:11 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Ping Li <leeonion.muyu@gmail.com>
-Cc: will@kernel.org, mark.rutland@arm.com, robh@kernel.org,
-	james.clark@linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf: arm_spe: Probe PMSNEVFR and PMSDSFR filter bits
- independently
-Message-ID: <20261127103511.GA861809@e132581.arm.com>
-References: <20261123073719.3190149-1-leeonion.muyu@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ik5G0Fci
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so61658285e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:36:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795775780; x=1796380580; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iCTbyzZob8FXKeEZRFMgEo/F2TymOMg6sLKTzhBxgFI=;
+        b=Ik5G0FciQpGYL334LoqWbf3SmW1Rn/ZTUFXdMWWLEK+D4HilKeCz/3t31YZCGkw1Jl
+         eITA0U3xgUDxmPvXfLGO2azz7MM37/41jCZn2que7SSaPIm8O4vJzBC4JeetYAhIB2sq
+         xTaseH5BGl6ALyfmCp+dfbySZ47UV+UQz5Hx5rIUzCtjw5iNrPsu5RomWst/jP3CHH4+
+         0qFR/raZpMaJSdTKSs5/JSXiMAfo1GKXRLnSCrM8XjnXVhZjiof7tsTQqnohpMIHHgGQ
+         ap6pdQFqtsnm9MFoUkgltL/qHtoGl5RlIvjNm+QJNK42yPh63KxDlWqff30kTL5KvuD7
+         bYrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795775780; x=1796380580;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=iCTbyzZob8FXKeEZRFMgEo/F2TymOMg6sLKTzhBxgFI=;
+        b=MlTkhq1SixMM8KcSSgTUOwIhAtXX2hi1m3roi6CB2fiBWf5WA8rZMy8YLnDhv8Dv7B
+         J1Y8NcBoKvMWNtcBRHEceWnlJmvO0d3sfPR6WKqFx7qG3bqxjMaGlpl9T0LGBXGX8iQg
+         Z2B+k6BUqbJ3WYU88UxA+FAVdaQIA/5zs0wfoyN8suWy3JEHPkjWkoHnOVOl+LdJLUEI
+         N5zx1LqMxBmy3b6ZxWrdidLCiKfaKlEry3AXkCZ9I5W3bbD/mSf2rEwnLaSYmyDJKKCq
+         eoVDChh8URh79Da/HcgY5hqkxpJ80jXOpn5cfa+o2AgInN/BSozxPB5ighgUzyhingnH
+         RgUw==
+X-Forwarded-Encrypted: i=1; AL+hErGxuD6NKtSQf5BzusQXDi/wreMCpyv5MCjtKrtlG5WDKMNm62crXQl73oUwlPOA2/GSuvky/p83Mjje62w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/p4cZxGvqBfqZF2XNPrOZl8usmIeM++kw4WL4WGapeYStmr2U
+	8wj/UPuAFwtkMrO8gJTRz/VK9NdiVW//yjkmyjf7lrzkZAAP3DjWyUa2
+X-Gm-Gg: AZFdTZcFez6D/vSgmOrzqI/r+nnJ9/sDMQXakuCy3axTirwHlraJzYnK4L3wea5Lpny
+	z0IyXqlxyi8L0fsiVTkow/NES0HNVIw4Cy62uNUrh+ShXVzU3GBuvDkrQZlbT6fQCmbI1OBL3Km
+	yNnr50/+/hHGDR6rSqnzGxo9Jx48cjPoBst2nXHv3aJK6YjZqNs6UKyyY2kMsXFAlTXb8lSbgSY
+	LUNny4juCuklzjVPiM8ESkDX4pT2qdvfH2IUXpEzUKrqYUVM1hSM8qZpodGMejxVa8uukfuJXZ5
+	MBADp+tRoiak1mXg54TFBA/o1sls0ZwUiAW+h3im+D/srFV+TNHBjMwcyyCusOkBgRYmWJkA6Qr
+	DW5BokCah7VGnL7sLGuN49j4WDBKl80g9fuB8kemHdtOZOMFi9cDRglcQ1xdp4nfaVMb/iRGVhE
+	HMt+XBM8wG4c8OIkK4vXh1h9DbUPpGaXE/l6cBsYJHQgDH4333PLdkDG2ugQmNGZ1yizi6dCxhp
+	aU7kBUNMxjwbpRmL6Z8PWDysQ4XAPq3dLr25F4gaMp5D+T+P+d+6C1E/O51lb/bdngNzPEsDszN
+	cIxnpLBOtmOCf3Lag8gOcTtSQd+pfmA=
+X-Received: by 2002:a05:600c:8b76:b0:4bb:b796:66f8 with SMTP id 5b1f17b1804b1-4bbb7966874mr14558915e9.21.1795775780152;
+        Fri, 27 Nov 2026 02:36:20 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm670160975e9.10.2026.11.27.02.36.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 02:36:19 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v7 13/43] drm/vkms: Add error handling in plane config creation
+Date: Fri, 27 Nov 2026 11:36:00 +0100
+Message-ID: <awldBcp6Ci4FoQX5@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126-vkms-all-config-v7-13-21194cda2468@bootlin.com>
+References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com> <20261126-vkms-all-config-v7-13-21194cda2468@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,97 +126,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261123073719.3190149-1-leeonion.muyu@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 03:37:19PM +0800, Ping Li wrote:
-
->   * The inverse event filter is written verbatim to PMSNEVFR_EL1, so
->     if PMSNEVFR_EL1 implements a different set of bits to PMSEVFR_EL1
->     then a filter using bits that are RAZ/WI is accepted and silently
->     has no effect, while a filter using bits that are writable in
->     PMSNEVFR_EL1 but not PMSEVFR_EL1 is wrongly rejected with
->     -EOPNOTSUPP.
-
-I don't worry "PMSNEVFR_EL1 implements a different set of bits to
-PMSEVFR_EL1", I would expect both have the same res bits in
-implementation.
-
-A possible case is FEAT_INV_FILT_EVT is not implemented, current code
-uses pmsevfr_res0 to validate invert event filter, it can silently pass
-check and start event, so it miss the chance to report error in the
-first place.
-
->   * PMSDSFR_EL1 holds an inclusion mask which the driver exposes
->     inverted, so a set config4 bit requests that a data source is
->     excluded and a cleared bit requests that it is included. Bits
->     that are RAZ/WI are stuck at 0, so their data sources cannot be
->     included while the data source filter is active: exclusion
->     requests are always honoured, but inclusion requests for such
->     sources are silently dropped.
-
-Arm ARM DDI 0487 M.b, D24.7.10 says unsupported data source bits are
-RAZ/WI, so probing PMSDSFR_EL1 separately makes sense.
-
-> Discover the supported filter bits of PMSNEVFR_EL1 and PMSDSFR_EL1
-> separately, probing each register only when the corresponding feature
-> (FnE / FDS) is implemented. Validate the inverse event filter against
-> the PMSNEVFR_EL1 mask, and reject data source filter configs which
-> ask to include a data source whose PMSDSFR_EL1 bit is not implemented.
-> For missing features, keep a full mask so that filter requests are
-> still rejected alongside the pre-existing feature checks.
+On Thu, Nov 26, 2026 at 12:28:56PM +0100, Louis Chauvet wrote:
+> Properly route the error path of vkms_config_create_plane() through a
+> fail label to simplify future work.
 > 
-> Runtime-tested on Cortex-A78AE (SPEv1.0, which implements neither
-> FnE nor FDS) and on an SPEv1.2 CPU implementing FnE (but not FDS):
-> the PMU probes cleanly with the per-register discovery in place,
-> event filter configs are validated per-bit against the probed masks
-> with unimplemented bits rejected using -EOPNOTSUPP, and sampling is
-> unaffected. The PMSNEVFR_EL1 probe path itself is exercised on the
-> SPEv1.2 CPU, where the register happens to implement the same bits
-> as PMSEVFR_EL1. Only the FDS path lacks coverage on hardware
-> implementing the feature.
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/vkms/vkms_config.c | 12 +++++++++---
+>  drivers/gpu/drm/vkms/vkms_config.h |  2 +-
+>  2 files changed, 10 insertions(+), 4 deletions(-)
 > 
-> Fixes: 8d9190f00a975 ("perf: arm_spe: Add support for SPEv1.2 inverted event filtering")
-> Fixes: e6a27290d800 ("perf: arm_spe: Add support for filtering on data source")
-
-Please split the two fixes so each can be backported independently.
-
-> Tested-by: Ping Li <leeonion.muyu@gmail.com>
-
-Drop your own Tested-by tag.
-
-> @@ -818,13 +820,22 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
->  	if (arm_spe_event_to_pmsevfr(event) & spe_pmu->pmsevfr_res0)
->  		return -EOPNOTSUPP;
+> diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
+> index 8cd4fe6551fb..c5d90f7e934a 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.c
+> +++ b/drivers/gpu/drm/vkms/vkms_config.c
+> @@ -421,13 +421,16 @@ void vkms_config_register_debugfs(struct vkms_device *vkms_device)
+>  			      ARRAY_SIZE(vkms_config_debugfs_list));
+>  }
 >  
-> -	if (arm_spe_event_to_pmsnevfr(event) & spe_pmu->pmsevfr_res0)
-> +	if (arm_spe_event_to_pmsnevfr(event) & spe_pmu->pmsnevfr_res0)
->  		return -EOPNOTSUPP;
+> -struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config)
+> +struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_config *config)
+>  {
+>  	struct vkms_config_plane *plane_cfg;
+> +	int ret;
 >  
->  	if (arm_spe_event_to_pmsdsfr(event) != U64_MAX &&
->  	    !(spe_pmu->features & SPE_PMU_FEAT_FDS))
->  		return -EOPNOTSUPP;
+>  	plane_cfg = kzalloc_obj(*plane_cfg);
+> -	if (!plane_cfg)
+> -		return ERR_PTR(-ENOMEM);
+> +	if (!plane_cfg) {
+> +		ret = -ENOMEM;
+> +		goto fail;
+> +	}
 >  
-> +	/*
-> +	 * The data source filter is exposed inverted, so validate the
-> +	 * value written to PMSDSFR_EL1 (~config4) rather than config4
-> +	 * itself.
-> +	 */
-> +	if (ATTR_CFG_GET_FLD(attr, inv_data_src_filter) &&
-> +	    (arm_spe_event_to_pmsdsfr(event) & spe_pmu->pmsdsfr_res0))
-> +		return -EOPNOTSUPP;
+>  	plane_cfg->config = config;
+>  	plane_cfg->default_pipeline = false;
+> @@ -437,6 +440,9 @@ struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config)
+>  	list_add_tail_rcu(&plane_cfg->link, &config->planes);
+>  
+>  	return plane_cfg;
+> +
+> +fail:
+> +	return ERR_PTR(ret);
+>  }
+>  EXPORT_SYMBOL_IF_KUNIT(vkms_config_create_plane);
+>  
+> diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
+> index 95e5c3694742..8f038562afd4 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.h
+> +++ b/drivers/gpu/drm/vkms/vkms_config.h
+> @@ -314,7 +314,7 @@ void vkms_config_register_debugfs(struct vkms_device *vkms_device);
+>   * The new plane configuration or an error. Call vkms_config_destroy_plane() to
+>   * free the returned plane configuration.
+>   */
+> -struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config);
+> +struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_config *config);
+>  
+>  /**
+>   * vkms_config_destroy_plane() - Remove and free a plane configuration
+> 
+> -- 
+> 2.56.0
+> 
 
-Could we group it with the FDS check?
-
-  reg = arm_spe_event_to_pmsdsfr(event);
-  if (reg != U64_MAX) {
-          if (!(spe_pmu->features & SPE_PMU_FEAT_FDS))
-                  return -EOPNOTSUPP;
-
-          if (reg & spe_pmu->pmsdsfr_res0)
-                  return -EOPNOTSUPP;
-  }
-
-Thanks,
-Leo
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
