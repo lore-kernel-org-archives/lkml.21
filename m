@@ -1,60 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.85
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765466;
-	b=tpYocY+8B7Av3GMWwFtePfknxnyWe+BywGPrV4vwJehilesiSXQiELRWF6CtRLvZchBf
-	 HO8r9CZ+UL1iLUpflhJd+66gN5lStPj0yEPjVa8UsL/Ak0FtzTMT/CCE6fI/9b9pFrwf8
-	 oCGOfkaSF2dDDU8f/rLgqEtdu6OyG8qvyc6tX62DZxoFCH8Ur6gkTWI/xF6Y7G0ZMoetX
-	 JaKTXf6n5CPI7EjYry659Lt21NDsdT0z10AP7nLHB9khK1ExS2aziPvC8596kmQoCITDt
-	 CP8/qtFykD6uWVIOI+uGJleY4hbwyDHQZF6RsABZsUXSzu9ougKnsqwl05kOtL2TX+w==
+	t=1795765472;
+	b=wkxtoFAPwu4sqk5b9lMO4r6dlu2gfWhidF3KaAWssU7OE3xKWJEbkPCPMTG+xm6t+05c
+	 Ol3Nn831kmd7tZND6EhkqZ8VlQT+UtfUEpffLt3JqKGndBogWW8Co3NCDoQAZJtdFVIHG
+	 49PV7FL66mBr/USvFQF8fDt3eYMDamroPSYyv/687/yV9aSkI2R2PNbyHmBsdbNpAjdBc
+	 WItzQTuRlAkACRACpLC7XMO2/HJw9jfN1cE/hoTZ92tWdwmdVNECe29/Ytbru1NNt67fV
+	 OqhFRlCIk+gSWILtreIAeAGTUnYtwQh4rJsK4smhiP+3n741TXss2bpbaC9FOQy+U2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765466;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:From:User-Agent:MIME-Version:To:CC:Subject:References:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=exyqA4xjQHJ8t9SqDedkQRc8moWZMY9lB2uphlyg/ec=;
-	b=I5bb9qVT3z6bK1P7ic64CJHCRv8Q69fcjRPNCtQsGAAmfnpIz6kyJSiJUniyHObLkKLu
-	 nCwGe4LVBw08FAIw77/DtJABoKg5CYbMkYhgr+O2j9SxL5nBgkuCqm9yeBdOZCOGS3Vyn
-	 L8SvqlJfU5Q3ze21oThJHi0NWYOjW9CH5oLsDbbhb+XYySRsnyYB0DAese96Hci7VsiwX
-	 Yc/KiyD3sXLMakzi10Wn+5eDHrpsTxl6nMNrOc6tE+qwhlHcCNZWSxsi1Heqq5EPUfbyN
-	 +MeTfmQZsZqBVG1xS5egzBSsFez7JFgj8b+ygzcDTtDq6Wb8SMLlVC/eE+LN69RXGSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765472;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=PfLWt/mhe3ijyWglwaB5IfQna8Vw7CnfYmlMan//v7I=;
+	b=j3PZdQjCsuS7BIHFFERe/DXIiaTbccQAo6za83LbxML/7OR38Rl00Fyk6ybacGZnp23h
+	 UUWEAeXtPFPBpM0CifGCulvNtwC4xspEBR20VQ1smqS0Q9k540G1Tz0igQjKFi2jfJx/y
+	 TVxy87pqwAHaFscs4fzJuP3XiWWyzfmSzRVlHKHfOFED5mme8Fk0nC7K0N45WoIZvubjP
+	 B5ejbgZZ9qTolmPu5MQnRCni0KPVmgZV4TSQF90EzDkCYd1xAn6gEfAdDwxT0STM21Sl3
+	 qk3QNOHWJyMVpSQd8k765gtR9JufvZSMfDrRINfkH6/p7IvG2XeJ1kS5idQDIyCmN+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=hisilicon.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=aQBJ8MHJ;
-	arc=none smtp.remote-ip=113.46.200.217
-Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eyNj+ChP;
+	arc=none smtp.remote-ip=95.215.58.85
+Received: from mta1.migadu.com (out-85.mta1.migadu.com [95.215.58.85])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF2E6606A31C;
-	Fri, 27 Nov 2026 07:44:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF2E6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=hisilicon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E467606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:44:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E467606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=aQBJ8MHJ
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=exyqA4xjQHJ8t9SqDedkQRc8moWZMY9lB2uphlyg/ec=;
-	b=aQBJ8MHJprkEys9KsARq71TnWg1b+SkJLCo+KannvjVX0ckEamBuo0cnCDhf8rakTUP93K+x7
-	1M3LaVSMu4s4dLJiVq0OS1WwxiGa9N8mSv+EE5tXETySWF6ZB06WaiWjJ42vzaEje+p+N8VXOPk
-	dgz5qNat3d6MPTFfSSQ21c0=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jbQPq32HQzcb49;
-	Fri, 27 Nov 2026 15:43:11 +0800 (CST)
-Received: from kwepemk200006.china.huawei.com (unknown [7.202.194.72])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6766740575;
-	Fri, 27 Nov 2026 15:44:20 +0800 (CST)
-Received: from [10.67.112.178] (10.67.112.178) by
- kwepemk200006.china.huawei.com (7.202.194.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 27 Nov 2026 15:44:19 +0800
-Message-ID: <6B0934D3.3020302@hisilicon.com>
-Date: Fri, 27 Nov 2026 15:44:19 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eyNj+ChP
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=c3dqd6wqmYVEYEGzelsBMY/LDII+k4nQoLCuh/aV6oU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795765469; v=1; x=1796370269;
+ b=eyNj+ChPVw3fY497U85aRDDOfPiXTDCeakn9BkTCplR9jAnum73wcZOGDODUFuGi/b4nDdxo
+ mlmsFzVuC6cHENErWzxT4ZePkvSEO8iu3KTarLzNZTFaTU9D8RAn685Q0y8LyCGM1uc+bZunSjx
+ Ebumy5dBIlhga1S6xZpjKoX8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ec8fbecf27420b5a;
+	Fri, 27 Nov 2026 07:44:29 +0000
+X-Mizu-Trace-ID: ec8fbecf27420b5a
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v2 00/10] arm64: sysreg: More input checks in the sysreg generator
+Date: Fri, 27 Nov 2026 07:44:16 +0000
+Message-ID: <20261127074426.50739-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,33 +71,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-To: "Rob Herring (Arm)" <robh@kernel.org>, Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Guodong Xu <guodong.xu@linux.dev>
-CC: <mfd@lists.linux.dev>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<xuwei5@hisilicon.com>
-Subject: Re: [PATCH 00/12] arm64: dts: hisilicon: DT warning fixes
-References: <20261111-dtbs-hisi-v1-0-6c9f5f80716c@kernel.org>
-In-Reply-To: <20261111-dtbs-hisi-v1-0-6c9f5f80716c@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200006.china.huawei.com (7.202.194.72)
+Content-Transfer-Encoding: 8bit
 
-Hi Rob,
+Hi folks,
 
-On 2026/11/12 3:40, Rob Herring (Arm) wrote:
-> Another batch of DT schema warning fixes for HiSilicon platforms. This 
-> fixes most of the remaining warnings on HiSilicon platforms.
-> 
-> It's best if the whole series is taken together.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Changes since v1 [1]:
+  - Split the TRFCR_ELx.TS change into its own patch. (Steffen)
+  - Reworded the leading-zero error message. (Steffen)
+  - Collected tags from Steffen and Mark Brown. (thanks!)
 
-Thanks!
-Series applied except the patch 02.
-Maybe I will send the PR in the next cycle since the patch 03 depends on patch 02.
+After finding yet another bug in the sysreg file, I think it's time to
+stop filling potholes and have the generator reject them instead.
 
-Best Regards,
-Wei
+The bug is in MPAM1_EL12. Its Fields line refers to a SysregFields
+block that doesn't exist, so its RES0, RES1 and UNKN masks expand to
+undefined names. The masks aren't used yet. Patch 1 fixes it.
+
+The rest of the series adds checks to gen-sysreg.awk for input it
+accepts while the kernel still builds: a Sysreg and a SysregFields with
+the same name (Mark Rutland's suggestion [2]), a Fields or Mapping
+target that isn't defined, an enum value not written at its field's
+width, a macro defined twice, an encoding that's out of range or has a
+leading zero, and a bit position with a leading zero. Three patches
+prepare for the checks. One removes a range check that can never fail,
+one stops the end-of-file checks from running after an error, and one
+drops the leading zeros from the TRFCR_ELx.TS values.
+
+With gawk, mawk and busybox awk, the generated header is the same
+before and after the series, apart from the MPAM1_EL12 lines and the
+number of digits in the TRFCR_ELx.TS values.
+
+Based on Linux 7.4-rc3 (aebb727447640).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20261123075219.369042-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/aLF9mSCs1B2gk8BU@J2N7QTR9R3/
+
+Fuad Tabba (10):
+  arm64: sysreg: Map MPAM1_EL12 to MPAM1_EL1
+  arm64: sysreg: Remove the dead range check from parse_bitdef()
+  arm64: sysreg: Reject a Sysreg and a SysregFields with the same name
+  arm64: sysreg: Don't run the end-of-file checks after an error
+  arm64: sysreg: Reject a Fields or Mapping line with an undefined
+    target
+  arm64: sysreg: Drop the leading zeros from the TRFCR_ELx.TS values
+  arm64: sysreg: Reject an enum value not written at its field's width
+  arm64: sysreg: Reject a macro name defined twice
+  arm64: sysreg: Reject an out-of-range register encoding
+  arm64: sysreg: Reject a bit position written with a leading zero
+
+ arch/arm64/tools/gen-sysreg.awk | 48 ++++++++++++++++++++++++++-------
+ arch/arm64/tools/sysreg         | 16 +++++------
+ 2 files changed, 47 insertions(+), 17 deletions(-)
+
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.47.3
+
