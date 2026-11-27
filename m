@@ -1,66 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777171;
-	b=YrF92jJh+0cnRqWV6dJNfWUba74aKSivtUfPzy1d3JqHT+4x9umG9lIbFDVYv3wCmf9Q
-	 3ysnm5ju7iRgkyKkkI49N7DYv3HoQiEe5PRXzoP2ndtXomFIs3u5Obt+sqMxtrgIlZ1g6
-	 gBQuoknIWbsd7FAfr6b1xLEjeX17P3bH71RQqgnGg/3mx2GP6t7kT6HcD7hX/X6a7NH/O
-	 KM+Y23/uIszW6pq9p2buszxi2zZ6taAxP8zai8Z5aunXYKQeFQkuNbo7NMXqFmEVPxGMz
-	 6C7iTfdFB7MSPRCcs7in60squweVdq/XDgeUdXGV2/ULD4z+9l0VNMRHkEmwpwGlSug==
+	t=1795777192;
+	b=wWEjDIm5cZvZJcWbyvjF5Fled3DtlJ7VA61WAisk9SdzAoM+sTS2N7s/3t8Lfx3kc6LU
+	 I3OxtJbBBNSRr/yENjIxoYtZlmIe0IVsL+MgEIR9dmzuO96dvUyWN17JdqcWyEZ9wFMSu
+	 tU8PHTVGi5NKhgoCQ1BxFKl1VTf+r7ajd3YV9UiLV+Od0MfBv0TgGhsl2ksYsLm1j89rb
+	 Bj9e7FAzNu5haoijOGGH0+nsO0QVyGI6qr0HDFFhxl0iTkgNEdAZCRSCVmafyTyIBHf8G
+	 LPO/VUKntdp2XSTsc6HAd/iBt5jf29xGBHFw/axWo1ogVgcEMXiaq8w4aEmRnHsvcuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777171;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=dsaVeXoBel9W4ls6UNrg3pQcg2DJDSo41c91+5f7WsI=;
-	b=0wt9VXvcifLTlRNmnsun5OMs+uvf9FIAVD5xfIPtXygm9iB0f4AorizjRzs4zKafG4MR
-	 J4AlanQ5x03Cd8M+4JIGKdbsURACYQvrUb7vaM9U0qKp7WosptMnpOlYmAeXuoinDl1gx
-	 2HNiIegLoHcH1xjsJMfWBIRiV6u9bjySMT4roV/2f6h5T7SBxPlsUgXAQkYrP5bYG8l9X
-	 US4Q37GRwt+ibeUyIrT1MKZyX5+sdN1NJPeBMQRDBHAD5h/SSu5H8l5O9knYv9H/kI11W
-	 6XnskaQwDZ1fqtW57ZXzvcL/UvlRhPgm0KB60pUN0frWzRqF1WU1bem2sG1pTybNhGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777192;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=eDmbQxvOAV6AoLiIpCNO1W0wBoR3l1azQOV++NzOhOg=;
+	b=eCx73ADJUhsiKDgjgc0RwLYgyF/VPZAQnYEfSIWhPxwHnBEiW4BvlpYpGpJipf5bwbJ/
+	 G6YofOlPAChOtJ7nlAYfbjTlYMi1Kxiyyc5McE97Wa0VIFqjwXlA8cd0GfiTUY65we2Sb
+	 8wG4rMvfaCMdU31hME6gEIr/vAoVw9OKl+z//RO4omsN2j+OysnGf1Q6GVI/Qakx7+sbX
+	 fGKN6m6AUQ0f7inDKU+0RSUt8BqfsGD9o+TIEkP3RHbdqJt5BOslHJ6OmMHAH7hhIzCeb
+	 DMQAd3x9hCsDTF6LzDBu0u6ZSvI0oeT7GhfBuVRJzgsmuDu+0cM9XVVMVjl3Enfl8SA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="k5GA0a/6";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ACccuzUZ;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 279B0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:59:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65A2E606A329
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:59:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65A2E606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k5GA0a/6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 623A91F000C1;
-	Fri, 27 Nov 2026 10:59:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795777170;
-	bh=dsaVeXoBel9W4ls6UNrg3pQcg2DJDSo41c91+5f7WsI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=k5GA0a/6KnIWGYAqabz7IGnjq4PLk8KCtV/aToW9sariEo3xpD8o6bm7WNZtOZyfR
-	 uK7WFbamM4Ez4zFd+qZdWSzP6JV3SzmRmqWvP/Mvynhro29EJ0ENmFB3r1VNFuWLfX
-	 65dJ9xTLJHPqmfW/b38ffrSemEz8it2qCisL+nXEAKTRnfbOCgwBMxHYAt1t9EnN1O
-	 rbx8OeltMpB6IX87UO/r5o6FuNKIp0v6Evkp68gedMFKYvB6xgd4DeKGGNKG+K1ekY
-	 Xwvih6zsEQKls1SVPv4tiqfZOc90X7/offjcNkAC9HozAcoEQu4+0VPVKjqQyQBckJ
-	 yKH3yKJJXiF0A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xWtfs-000000041wA-0p77;
-	Fri, 27 Nov 2026 10:59:28 +0000
-Date: Fri, 27 Nov 2026 10:59:27 +0000
-Message-ID: <86tsl2y1yo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Amrit Anand <amrit.anand@oss.qualcomm.com>
-Cc: tglx@kernel.org,
-	radu@rendec.net,
-	linux-arm-kernel@lists.infradead.org,
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ACccuzUZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795777190;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eDmbQxvOAV6AoLiIpCNO1W0wBoR3l1azQOV++NzOhOg=;
+	b=ACccuzUZV6cmFHEwlox24Zdsrp+Fyn6kf3aIcNiZUEjc7y3vGEDNNHa6wKPISwypXPWIuE
+	t84k4oyEMgqA/0O1qg2nwVeWLWEyfS3IGligmIY6W7NB6hHMWyydPA3XObK8ov/bdN346I
+	sTfs0DPe8MEc8GBMqhP5N0kLtYJwZAo=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-448-oodBcF41MqmwaMAc8hNtZQ-1; Fri,
+ 27 Nov 2026 10:59:42 +0000
+X-MC-Unique: oodBcF41MqmwaMAc8hNtZQ-1
+X-Mimecast-MFC-AGG-ID: oodBcF41MqmwaMAc8hNtZQ_1795777180
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 956741800548;
+	Fri, 27 Nov 2026 10:59:40 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id E9DBB30000D3;
+	Fri, 27 Nov 2026 10:59:37 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Fri, 27 Nov 2026 11:59:40 +0100 (CET)
+Date: Fri, 27 Nov 2026 11:59:36 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: akpm@linux-foundation.org, brauner@kernel.org, adobriyan@gmail.com,
+	jannh@google.com, jack@suse.cz, sforshee@kernel.org,
+	me@black-desk.cn, linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] irqchip/gic-v3-its: Export its_cpu_init for hibernation restore path
-In-Reply-To: <20261127061711.1837870-1-amrit.anand@oss.qualcomm.com>
-References: <20261127061711.1837870-1-amrit.anand@oss.qualcomm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+Subject: Re: [PATCH] proc: also check the opener's capability for
+ oom_score_adj and oom_adj
+Message-ID: <awlimNsIKMMa6vN-@redhat.com>
+References: <20261126045222.20770-1-dennylin0707@gmail.com>
+ <awgPDmEbGpJsT_iS@redhat.com>
+ <awhFQzXfWnDh1mKe@redhat.com>
+ <CAGEkeHeWU1=HjMX=GETdRnWkr-xqTBZp7p8RDdtTiUVw3+qBfQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,33 +83,28 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: amrit.anand@oss.qualcomm.com, tglx@kernel.org, radu@rendec.net, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAGEkeHeWU1=HjMX=GETdRnWkr-xqTBZp7p8RDdtTiUVw3+qBfQ@mail.gmail.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-On Fri, 27 Nov 2026 06:17:11 +0000,
-Amrit Anand <amrit.anand@oss.qualcomm.com> wrote:
-> 
-> After hibernation restore on affected systems, MSI users can observe
-> timeout/failure symptoms consistent with ITS LPIs not being fully
-> re-initialized for restored CPUs.
-> 
-> Export its_cpu_init() so restore code can invoke ITS per-CPU
-> re-initialization explicitly at the required point in resume flow.
-> This also avoids relying on fragile probe-based invocation.
+On 11/26, Hungyu Lin wrote:
+>
+> On Thu, Nov 26, 2026 at 03:42:11PM +0100, Oleg Nesterov wrote:
+> > I just noticed that __set_oom_adj() has more CAP_SYS_RESOURCE checks below.
+> >
+> > Shouldn't we unify them or even factor out?
+>
+> The checks below only decide whether a successful write also sets
+> oom_score_adj_min. The checks above already prevent a write through
+> an fd opened without CAP_SYS_RESOURCE from lowering it, so I left
+> them as they are.
+>
+> I can factor out the common check in the two rejection paths in a
+> separate patch on top of this one if you like.
 
-No. Never. The design of GICv3 completely *prevents* things like
-hibernation from working *at all*. Why do you think we have all this
-crap about pre-allocating tables? Pretending that hibernation works
-with GICv3 is simply asking for memory corruption.
+No, up to you, I don't really understand this code anyway,
 
-You are just trying to paper over a much bigger issue, and this sort
-of hack is simply not acceptable.
+Oleg.
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
