@@ -1,60 +1,153 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795815932;
-	b=XvULyymsEU8AHTbk3rsTtROqQnASoXdOHEV73RP96WtMntS8lbUhtskrkmNd+3/qsZ+S
-	 88b9hr4kbPhYa6trpvlBDrWuGKTaltE8csgH5Ef1EK6U6K3xcEQhq2qlaAL62t35D6qfe
-	 e8BJVU5Og33T8N9+TQ760Knii0LNvyCqe2WiYH8tJvJzWO1ge4NEjqsHpdBV3qlW+sA6H
-	 4Dw0wDzao8Yi0pC7A1VilHW1GolLWSlUPztSWD8JN/jRkdaiVjfvHFYW3KaSPaI7pH4/x
-	 zPdAnIkSrNrNipwK+7uZrwkHbBmUDpHACFIRnXObb+rAVVw/BoXnG0ZXPOrONhKPyXA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795815932;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=BNrifp1kWATWRvaBQ2bytNLRuqg6oOfSlN4TIwDqn4Q=;
-	b=Lk+JgirrlvuCR+bdG07ejqvxd8IDO1Bo1cNo0UXQJA0CMey7wlh32oUvumYtx8zwCrT8
-	 GDhNyEM0dIi9XHqhIT6VKeXBXBgxK+FCXoQu8LUc6o2EdQ4s4PvAdOnSFv3KCG3nJ34HX
-	 CVw0VSGcpuZzv1IEGxj31A6Bo8FNcPJZo9Vob/E6Hs4qlhvOaxHd2S1hotUDMZRn4GD4r
-	 9wBisNpkRLpH6/rE60i6ptyDecSTTSi1PgZAkKVkJsAQZyVj9sbeaSAPIdbV7/o0Bz/3b
-	 W9u9XgA9NeqK1KJfPTdQHlB5uYARUg27E8nNGr0s9upRvdTqHoU7BH/V7nbz3Q/zjJw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=dfNlnXV1;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.110
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795815929;
+	b=HmJ6MJwIoiwkyCJZPwdAxTQMMDKRLpwEm1RwByYvy5jodNz0alBQHoq6/8H1rOK1YLJU
+	 +xsVPWepKg/+UeO0lNwWz6y+9hwywmxVjy2Uqz1B1TBQio+bWlwyNkXfgiHL2cmNJNSlk
+	 4NLq30LvqnKGgGvdIortcV2v57NIvxEfeNxmyQm6ySy6VrabsM4UHjkDiAC6m4fOrpfKf
+	 9a+/X/h938C0HE1wWV9V+Um41UmMfbMyRmXQrQZ0ZRdJdEfNgX3y17Z9UTFIGhdTa+Itr
+	 ogq/0g8IGG1SPiR7iPKcWofh9RjkfQaGHbGgfgNyHb5sXc7oNzSvMdkU3bGJi+TwYUg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795815929;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 dlp-product:dlp-version:dlp-reaction:x-ms-publictraffictype:
+	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=SzeaLheTQi3E8HeznqEOl3qenX5Ejye0IztpI7ef7s8=;
+	b=sZjpGjXatnYX9GJRaGH94zLxxlhy1pyKy02tWRRmlwjAoY9NxaD12riz7TiQ8Aj7CHYk
+	 Amm7AsVYSQFSuIkmSaZKDQFOrXXeJuqzhCYMa6F0tw2t+1CV+E1KX6XiQUpUxyUpmjWIR
+	 HMtueUUU0oPOj9k6g86oGKsTicqLG4bPZcI2V1IVeO/Vshiz4b2dJqXjyRyi83Hmf7OBn
+	 AFXB4XFOF+JCErP01a5ZkhD9Xl7mMRXpP5bdeFiWM3ZIqiGwTZ9xstnjSPllTzIn6LBh7
+	 kHbc2/CI5RqVvC2b1Gq0nVjQb1wB39ReAlvSXk8UQA1ffoQb0JJ3G2DK7abVyiP6FSg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rambus.com;
+	spf=fail smtp.mailfrom=rambus.com;
+	dkim=pass header.d=rambus.com header.i=@rambus.com header.a=rsa-sha256 header.s=selector1 header.b=2rLcXxMJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.110
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11022110.outbound.protection.outlook.com [52.101.53.110])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69AEA606A329
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:45:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69AEA606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B0A9606A32F;
+	Fri, 27 Nov 2026 21:45:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B0A9606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=rambus.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=rambus.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=dfNlnXV1
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DC17AC2AC50;
-	Fri, 27 Nov 2026 21:45:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F09906049C;
-	Fri, 27 Nov 2026 21:45:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A0F6411E90F67;
-	Fri, 27 Nov 2026 22:45:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795815925; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=BNrifp1kWATWRvaBQ2bytNLRuqg6oOfSlN4TIwDqn4Q=;
-	b=dfNlnXV1FuxojAdZP8iTP9vhCL2OSj+5gaAOJLuStRgy+JEqirCvl81aLFBJ9GC7h51VOi
-	NiisGnatRFOiid1DIRNTF5j+YlNnKZKJ7h+NbHxjr8F5VWxLGxzSEGGyANofMYvt5I92W9
-	R/G+aNuZO/0lPIJeIYFbfpIgc3FiXo8ou9vG2p3C9qxqQR7Pw9fk5K7wYBIfoXVAAGdJBT
-	P6O2tg1KArkgDV5ObjO35d4Vco5qSDT/l1Imx7O59nJvkz5CFGRlMDB4HFzRMSyrIxvg7q
-	TmHjq73jQbi9mdDDzI2xzadSGeJfA6pKAcU59YBJf1eyuUpIvsh3LMH9hr9ZiQ==
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Date: Fri, 27 Nov 2026 22:44:43 +0100
-Subject: [PATCH net-next v9 3/3] net: macb: distribute evenly Tx SRAM
- segments
+	dkim=pass (2048-bit key, unprotected) header.d=rambus.com header.i=@rambus.com header.a=rsa-sha256 header.s=selector1 header.b=2rLcXxMJ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=psug5ii55beSuR4706yBNuvwNF9cvgVCwe7zoHheMz8dAQ+1MBZ8tImCByhsAgEi7Jejh437ZS+cvCRWVyQceg/9n+LVcQBO/wwBeItKTjt82j1YEgfzo0iGctFK0SyFftjsXELB2ZJ2xkPwnka0oavF5dxM1/xXqglLXSfYcaBOwolLa5gSAxh+MhdVuce6T2oLROghAU4NmgNj1f6fIk11abRtZnX9DZzgMdbX+DeCj+nHhY2m7X4e9zU5SILM2HoGU0Hy2LYZA6eRgkE5x7efIu36DTXyIoYIzv7J2mV7SkwuteEoeolUhfcOdXvBViMaVMAWavHopOKJ9+8wMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SzeaLheTQi3E8HeznqEOl3qenX5Ejye0IztpI7ef7s8=;
+ b=imW6xCwG2LVqVKQ44VAA2l2Tch+H+HCYQnAXCV+fIeV0LAVZ9x+1y8tS4dMTMD5fKtWFfJdl1qxXgYpSYerhizwcyVxU/D6cr6dvaitXo0w+xf/0PVdSPaQncxaE2ckTdAhA0aA2r7FTFsJ9ueESdJdd2tCspWCwg0Xx3NJawUgxq61htpjCgyFE7T+W+cnyWpVcgMsca43TZ1eWwV755xhS/I3pLHw8JTjgbitHeF3utXuV7kDr2HAOTgNgZcq8gWh6rXwVPKQvQDgGIg3CWQ4pA/3C2aBx+b2uLxQl62/WE9Wpe3nFHjet47c/HxjtOVxyLhI1NiE4LQ3BMhILxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
+ dkim=pass header.d=rambus.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SzeaLheTQi3E8HeznqEOl3qenX5Ejye0IztpI7ef7s8=;
+ b=2rLcXxMJLoz0+rQsAVFWQZDClEjCAK7ghZp1Y+4nwHNJSHoiyvkb0LTT3h1bIwrnzXqh6KAFAmGvJF/1Z6NAra1BbQpGN9J4i6FR0n3C6OnYXb0uKh0YiUjXtnqhv49u4UrL4hvqBi7CQqWEuvOn7qgWxc+Z8i192ZuLpxAim0+QlK1uM15NXdMBrGz+YuXIIEzquFJriRhc1jo6hgXqp1tbOh40amJcbHikmYpz46iHJ3MWk3oI+WWfytB4Yk93h2lSOitLYIrYNPnkd0GGuyjfZhl5CeDk2Fl9C4AIBz4n8+i8ioVLwEmAJ7iPw2uOaW2KJx4zsXZT2DCcTGgFkQ==
+Received: from CO6PR04MB8347.namprd04.prod.outlook.com (2603:10b6:303:136::22)
+ by BY5PR04MB7025.namprd04.prod.outlook.com (2603:10b6:a03:22f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 21:45:23 +0000
+Received: from CO6PR04MB8347.namprd04.prod.outlook.com
+ ([fe80::b435:8025:e6cc:5233]) by CO6PR04MB8347.namprd04.prod.outlook.com
+ ([fe80::b435:8025:e6cc:5233%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 21:45:22 +0000
+From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+CC: "Krishnamoorthy, Saravanakrishnan" <skrishnamoorthy@rambus.com>,
+	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>, "Nguyen, Thi"
+	<thin@rambus.com>, "David S. Miller" <davem@davemloft.net>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: RE: [PATCH v9 4/5] crypto: cmh - add AES skcipher/aead/cmac
+Thread-Topic: [PATCH v9 4/5] crypto: cmh - add AES skcipher/aead/cmac
+Thread-Index: AQHdd4WKoO3M2PtYEkOUUVNuyGpd2rdBYNYAgAEhJjA=
+Date: Fri, 27 Nov 2026 21:45:22 +0000
+Message-ID:
+ <CO6PR04MB8347789202CBBBA316F00661D7412@CO6PR04MB8347.namprd04.prod.outlook.com>
+References: <20261118-cmh-b4-a-v9-v9-0-70385613fd50@rambus.com>
+ <20261118-cmh-b4-a-v9-v9-4-70385613fd50@rambus.com>
+ <awkHPjWDibjxrb7F@gondor.apana.org.au>
+In-Reply-To: <awkHPjWDibjxrb7F@gondor.apana.org.au>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+dlp-product: dlpe-windows
+dlp-version: 11.14.1.396
+dlp-reaction: no-action
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=rambus.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO6PR04MB8347:EE_|BY5PR04MB7025:EE_
+x-ms-office365-filtering-correlation-id: 24c04fdb-4890-4ad7-a977-08df4ccfbd50
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|38070700021|10067099003|56012099006|261026121527099003|18002099003|22082099003|11063799006|4143699003;
+x-microsoft-antispam-message-info:
+ iSsGFdLLDjnpKfeVCGAbkerZg/B5cNDGn5yED7tBh8vBVJQaFb7WRBIanlp2fkNNzGhz95Q36wFVfiNoY8qCOJbCSyD3+3gKaPD6AU0h2huZ7JrbAUtJtkHMvKGpXT1WLXHczmd1zVWwd97BNmoz4BxlSlBD658Xdsrgwvkw83OAwTt9c2FX3+bleSDCsnBdRlUGKM3rKLWeZQ236xnhxN3Bx1nxDTY+IUJkkpmxzVFn8oJHzZLDANP6f4XsH7B5gryYO8wK4OYtvHzQ7dhzIDTgeO/wHk7hz4kiI/iSEfJBMNKXQfNbxHCEbiyp4ri4xbVYmuSu/ilNQ8mEI4rBIvLB9wcejF6t/rjr+cL1/6WVBq5/YjgyilB+iKHq94UzKxlBafZCVF1nDbD7NDDgqNi4MsAMGH6yuwXybzXgbMRPwCl5EObWEsy7KrjAI8t0lUNgu640Uud/XcLfMJI8lsLCh145fyrU9tYfpl+Qk5e4sS3ptURrw/Kw49RCO9E83kdtxmMnfC96FvfEdcNAPAFB041wwq1AQYb+KQakxiOSTlJznvq2drEBBikpVxbR7vXq8wDoF2gfka/sPIVQqSzMzHk0Q8XeimiZ1jfuBjP9PdWpaMF5Gcep3TZncG7MJfe1AM1yY53Uv7Sz2OvS9qSTTk6xNsJTu4/wM1oUtEeWF2v2jjvJ/WuffP0oeWsm+tscVbois7JVAj2beeFypQ==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR04MB8347.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(38070700021)(10067099003)(56012099006)(261026121527099003)(18002099003)(22082099003)(11063799006)(4143699003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?/+DfCiVAGDOxyTpiBtNjqBJAbYLmZRO4pf3N0Va8PR1x/CX8FXabuMM6KX3X?=
+ =?us-ascii?Q?4ByWJ0jkYwJMBvXTGvhzsdClw3HPfhEm1RC2Rsz7z49vmpLYADsNt/kGP7nt?=
+ =?us-ascii?Q?Wmn8GCy4MapKzkbMwydc/Q0Gy5//Mzg8YMHQCtLwvTA8LsZgqM41rmkU+HHT?=
+ =?us-ascii?Q?KEpTy2icsD8GQiJGeyYDX1kSPxPWDbbZ/Wsn2WlUz9FXep/quECBOnPZwu6x?=
+ =?us-ascii?Q?D+pyOypSzVB2RkZEYFXt+0cWvJRo4/KmA7WG3WECCsyQJKu+je9RDveyOcFb?=
+ =?us-ascii?Q?lghGoenA3YVPYaq7pFuLSu4ZIQQ1ltU9Mvoa+wH1k1E5LwvBwHVaBPC8z23/?=
+ =?us-ascii?Q?W4Y8zra8U2IcLCZ2kAMvMUMtxsuirDEahqD7mJ+DxnjqFC+KG7jSk1HDGj+z?=
+ =?us-ascii?Q?p6etYBuErIC/Ta5KvGBO7qmnLxuvyTcK1t4K4LK5vXVfHatB5cG/qNiD4YMu?=
+ =?us-ascii?Q?5IjI+XAo74DOwWdWuKM4TfeUtcuyVPCokAoGkxLz6w8nEfNZdXffjasnxsyJ?=
+ =?us-ascii?Q?VCeGPBBlxMBi8Fm0lw7j298neBri/jN15f9I+dS5SNW0r8DlLIlbbBOH6cO8?=
+ =?us-ascii?Q?kuX9E396qIMgTK6X3tT0kQr3BRCsjLhEIHOxnhWjpvFG/78fRT0g0/8GEqv+?=
+ =?us-ascii?Q?5+UClhCM/xotBzs8XGDw1hzsyAQaetu1mzQUL9FJJdLm0CAplFjS0deUD90n?=
+ =?us-ascii?Q?c1F5KNNQ30OkbppZ9DhfVhVdPkhuoutmp5HwI9jqcogJtrBdcJ3gXVe81VZq?=
+ =?us-ascii?Q?TrKSgb9eFMUFIZCIVwG8NCZkEzLMAgxyx1yW8ZEVpw8OCwMj6u59plBX30zB?=
+ =?us-ascii?Q?l76OPCkvMNlv28PoM8AMgTvDYrZspZokMkVcCd4sc68gbDnVB0w619taJuns?=
+ =?us-ascii?Q?QSgAZ5O8QHEMsXrisadyaJi2KQTWwtQgqP3X+EqHrBW5rOBfrlzhlR8dEQ+1?=
+ =?us-ascii?Q?4kxnCcKhFV9BzeQsDEHQKDE6jV4anz/4Gjin42U/C9YFwEOx2zx7zwCsdbu2?=
+ =?us-ascii?Q?qjnWuFNvn68v21Q7TMBJjVsp9V2UnP+Si4zUYoHW01CiElDOWLyA+Z9tqYnK?=
+ =?us-ascii?Q?mAuemaP6SUt4Su4lO3r9qjC1Ofz5WC1ecANskgkohrO0Z7763vCoqiNIEsWQ?=
+ =?us-ascii?Q?IDMDwGfoHnPm3awmc5Vt6WqFiu3gwhwPc6WuEnSYBd2DAM2LWrd3Bzbkzf2a?=
+ =?us-ascii?Q?IEhPK15Qaqtuk/nGRykAOgtv2+RGj45ZmdBSKilERMeIPLat54U9SxRijqxC?=
+ =?us-ascii?Q?8PTRwugZlwkUYneuPZhPlvSZ8MKku7Bu/hI4t8YJvAo9PhDucLHMihge+DDc?=
+ =?us-ascii?Q?+RBGqACQvP22RMFzhEMS/l/90TgZDVFgeU0MrcCJ8yATtpqtMQSDHywh+5lp?=
+ =?us-ascii?Q?S/LXLOceKwv2jQqg0cZxxTow0R3NAw1pmfVoqc7kcRl//veFZTGki6m8Vf4S?=
+ =?us-ascii?Q?6iADVtX5p3+T6lEnHvSwbyinehaVraYEpwcxnhbTuzgzOrKN58oF9KDnPf+1?=
+ =?us-ascii?Q?ejq2s/pYN75zVUUkW3XO8WJx4WnMRwSUmdN541CpFE71zdbsMLKzstKFGS93?=
+ =?us-ascii?Q?xi5JhGCF+RuyvEBxaVGchTkggJlqakCN4aMGaRf8CvF1xfQ8nYkZeOCM4N6O?=
+ =?us-ascii?Q?aZZODOSNYz0vVodomMlwcse24LZ474PgnPAYXW5SRj07X+vzFe5DyZNXxoSA?=
+ =?us-ascii?Q?hFF8Jomo/6QFt7/8ib+EbidsLnjYPi7MAlrZ+JdEozjEoPJOHtWs0k6hrPA8?=
+ =?us-ascii?Q?Wjt9zG+GNA=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,232 +157,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261127-macb-set-channels-v9-3-0b3addec7886@bootlin.com>
-References: <20261127-macb-set-channels-v9-0-0b3addec7886@bootlin.com>
-In-Reply-To: <20261127-macb-set-channels-v9-0-0b3addec7886@bootlin.com>
-To: Conor Dooley <conor.dooley@microchip.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Nicolai Buchwitz <nb@tipi-net.de>, Paolo Valerio <pvalerio@redhat.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Vineeth Karumanchi <vineeth.karumanchi@amd.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB8347.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24c04fdb-4890-4ad7-a977-08df4ccfbd50
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 21:45:22.7736
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8Oa2Ye5ETb5CLIjebRH0zNSit3RjG9MQlw610TcJ8iuDV9JK3DaIKLSQYVX6GackmhuW/J3EdVD8OfaBoFbQXc+2MSyXQrzNjOYRq9k8BLc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR04MB7025
 
-GEM has registers to configure the Tx SRAM segments distribution across
-active queues. The reset value is appropriate (even spread) but we need
-to care if/when number of active queues is modified (or if we inherited
-unevenly initialised hardware from bootloader).
+On Fri, Nov 27, 2026 at 12:29:50PM +0800, Herbert Xu wrote:
+> Please don't use embedded fallback requests.  Put them on the stack
+> instead with HASH_FBREQ_ON_STACK.
 
-To distribute segments, we take as input the number of queues (current
-context num_queues) and the number of segments (found inside DCFG6).
-Its output is a number of segments for each queue, formatted as
-powers-of-two. For example, 2 for queue 0 means it has 2^2=4 segments.
+Will do in v10.  cmac(aes) is NO_FALLBACK and allocates its own
+fallback, so it will use HASH_REQUEST_ON_STACK on that tfm, as will
+cmac(sm4) and xcbc(sm4) in a later series; the hashes and HMAC there
+will use HASH_FBREQ_ON_STACK.
 
-We define register offset GEM_TXQSEGALLOC_UPPER which is never used.
-It shall be used when an IP supports >8 number of queues.
+The ccm(aes) fallback request will stay in the request context, as the
+generic ccm template's reqsize can exceed MAX_SYNC_AEAD_REQSIZE.
 
-Note that the manual mentions explicitly that only active queues are
-taken into account. So when we write 0x1 in TXQSEGALLOC and a single
-queue is active, this means we assign (1<<1) == 2 segments to the
-first (active) queue and none on the others.
-
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
----
-
-Special note to Sashiko:
-
-In gem_sram_distribute_segments(), if num_queues > num_segments,
-we write 0 to TXQSEGALLOC_LOWER.
-
-This translates to allocating 1<<0 == 1 segment per (active) queue.
-Yes, in theory, this is problematic.
-
-In practice, the hardware designers have thought about the # of queues
-and # of segments long enough (a few seconds) to never create less
-segments than queues, which would make zero sense.
----
- drivers/net/ethernet/cadence/macb.h      | 14 ++++++
- drivers/net/ethernet/cadence/macb_main.c | 73 +++++++++++++++++++++++++++++++-
- 2 files changed, 85 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index d60b06e41b83..f8335b9fd129 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -194,6 +194,10 @@
- /* Screener Type 2 match registers */
- #define GEM_SCRT2		0x540
- 
-+/* Tx queue segment allocation */
-+#define GEM_TXQSEGALLOC_LOWER	0x05A0
-+#define GEM_TXQSEGALLOC_UPPER	0x05A4
-+
- /* EtherType registers */
- #define GEM_ETHT		0x06E0
- 
-@@ -545,6 +549,8 @@
- #define GEM_PBUF_CUTTHRU_SIZE			1
- #define GEM_DAW64_OFFSET			23
- #define GEM_DAW64_SIZE				1
-+#define GEM_SEGMENTS_BIT_SIZE_OFFSET		16
-+#define GEM_SEGMENTS_BIT_SIZE_SIZE		4
- 
- /* Bitfields in DCFG8. */
- #define GEM_T1SCR_OFFSET			24
-@@ -657,6 +663,13 @@
- #define GEM_CMPCEN_OFFSET			30 /* Compare C Enable */
- #define GEM_CMPCEN_SIZE				1
- 
-+/* Bitfields in TXQSEGALLOC (Q0 at 2:0, Q1 at 6:4, etc.) */
-+#define GEM_TXQSEGALLOC_MASK(q_) \
-+	({ \
-+		typeof(q_) q__ = (q_); \
-+		GENMASK(4 * (q__) + 2, 4 * (q__)); \
-+	})
-+
- /* Bitfields in ETHT */
- #define GEM_ETHTCMP_OFFSET			0 /* EtherType compare value */
- #define GEM_ETHTCMP_SIZE			16
-@@ -785,6 +798,7 @@
- #define MACB_CAPS_USRIO_HAS_MII			BIT(26)
- #define MACB_CAPS_USRIO_HAS_REFCLK_SOURCE	BIT(27)
- #define MACB_CAPS_USRIO_HAS_TSUCLK_SOURCE	BIT(28)
-+#define MACB_CAPS_TXQSEGALLOC			BIT(29)
- 
- /* LSO settings */
- #define MACB_LSO_UFO_ENABLE			0x01
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 93599cfc43d6..b4963a632884 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -3325,6 +3325,69 @@ static u32 macb_dbw(struct macb *bp)
- 	}
- }
- 
-+/*
-+ * Distribute evenly available segments across active queues. The computation
-+ * is complex because (1) segments are counted in powers of two and (2) a queue
-+ * can only use up to 128 segments. There are four types of cases:
-+ *  - Sharing all segments equally is doable. Take num_queues=4 and
-+ *    num_segments=16. Each queue will get 2^2=4 segments.
-+ *  - Sharing all segments is doable. Take num_queues=5 and num_segments=16.
-+ *    Three queues will get 2^2=4 segments and two will get 2^1=2 segments.
-+ *  - Sharing all segments is not doable because not enough queues are
-+ *    available. Take num_queues=1 and num_segments=256; queue 0 can only
-+ *    have 128 segments.
-+ *  - Sharing all segments is not doable because not enough segments are
-+ *    available. Take num_queues=4 and num_segments=2.
-+ *
-+ * We start by computing the power each queue will have. For num_queues=5 and
-+ * num_segments=16, each queue will have at least 2^1 segments. That leaves us
-+ * with remaining_segments=6. If we increase the power for a queue, we get a
-+ * delta of 2 (2^2-2^1). The first three queues will therefore be advantaged
-+ * and each have 2^2 segments. The remaining 2 queues will only have 2^1
-+ * segments.
-+ */
-+static void gem_sram_distribute_segments(struct macb *bp)
-+{
-+	unsigned int num_segments, pow, remaining_segments, i;
-+	unsigned int num_queues = bp->ctx->num_queues;
-+	unsigned int num_advantaged_queues = 0;
-+	u32 val = 0;
-+
-+	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
-+		return;
-+
-+	num_segments = 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG6));
-+
-+	/* When growing the max # of queues, make sure to write into
-+	 * TXQSEGALLOC_UPPER too.
-+	 */
-+	static_assert(MACB_MAX_QUEUES == 8);
-+
-+	/* pow=0 for all queues. ilog2(0) is dangerous. */
-+	if (num_queues >= num_segments)
-+		goto writel;
-+
-+	pow = min_t(unsigned int, ilog2(num_segments / num_queues), 7);
-+	remaining_segments = num_segments - num_queues * (1U << pow);
-+
-+	/* We can only distribute remaining segments if (1) there are remaining
-+	 * segments and (2) we did not reach the max segments per queue (2^7).
-+	 */
-+	if (remaining_segments != 0 && pow != 7) {
-+		unsigned int delta = (1U << (pow + 1)) - (1U << pow);
-+
-+		num_advantaged_queues = remaining_segments / delta;
-+	}
-+
-+	for (i = 0; i < num_advantaged_queues; i++)
-+		val |= field_prep(GEM_TXQSEGALLOC_MASK(i), pow + 1);
-+	for (i = num_advantaged_queues; i < num_queues; i++)
-+		val |= field_prep(GEM_TXQSEGALLOC_MASK(i), pow);
-+
-+writel:
-+	gem_writel(bp, TXQSEGALLOC_LOWER, val);
-+}
-+
- /* Configure the receive DMA engine
-  * - use the correct receive buffer size
-  * - set best burst length for DMA operations
-@@ -3458,6 +3521,8 @@ static void macb_context_swap_end(struct macb *bp,
- 	/* Re-arm normal interrupt processing before enabling IRQs. */
- 	bp->irq_quiesced = false;
- 
-+	gem_sram_distribute_segments(bp);
-+
- 	macb_configure_dma(bp);
- 
- 	if (bp->link_up) {
-@@ -3523,6 +3588,8 @@ static void macb_init_hw(struct macb *bp)
- 	if (bp->caps & MACB_CAPS_JUMBO)
- 		bp->rx_frm_len_mask = MACB_RX_JFRMLEN_MASK;
- 
-+	gem_sram_distribute_segments(bp);
-+
- 	macb_configure_dma(bp);
- 
- 	/* Enable RX partial store and forward and set watermark */
-@@ -6241,6 +6308,7 @@ static const struct macb_config zynqmp_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
- 		MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
-+		MACB_CAPS_TXQSEGALLOC |
- 		MACB_CAPS_USRIO_HAS_MII,
- 	.dma_burst_length = 16,
- 	.init = init_reset_optional,
-@@ -6308,7 +6376,7 @@ static const struct macb_config versal_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
- 		MACB_CAPS_NEED_TSUCLK | MACB_CAPS_QUEUE_DISABLE |
--		MACB_CAPS_QBV |
-+		MACB_CAPS_QBV | MACB_CAPS_TXQSEGALLOC |
- 		MACB_CAPS_USRIO_HAS_MII,
- 	.dma_burst_length = 16,
- 	.init = init_reset_optional,
-@@ -6319,7 +6387,8 @@ static const struct macb_config versal_config = {
- static const struct macb_config eyeq5_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_QUEUE_DISABLE |
--		MACB_CAPS_NO_LSO | MACB_CAPS_EEE | MACB_CAPS_QBV,
-+		MACB_CAPS_NO_LSO | MACB_CAPS_EEE | MACB_CAPS_QBV |
-+		MACB_CAPS_TXQSEGALLOC,
- 	.dma_burst_length = 16,
- 	.init = eyeq5_init,
- 	.jumbo_max_len = 10240,
-
--- 
-2.56.1
-
+Thanks,
+Alex
