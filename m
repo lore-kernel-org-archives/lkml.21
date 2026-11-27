@@ -1,79 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795784035;
-	b=ytSmH0RfdOu2ZtVQZttqrgeZkc7G/Qfhkv/jrNBj8rsX1TJ8l/1A+Nys3QHv3oApJSU4
-	 eY1zGc4h2k+ROh0XArB8B3lRR8TnSVUWbbQvUrXmNsnxqgMDLV1C5bXHlyTORW+s6GVhX
-	 41o2KRYZkX9GZZjX00o0AklAHLW6+X8LiZTdw7+7TXwW7JW9O4yDQIHnNDp5Ew4iy8yAt
-	 kFP9PJD9SPeYGSSCpggDkAOHLynt4KjXu59DTSevBGpJOMoh6AlDrTS0GkC/xKeH8+GyP
-	 FDnG9JxQFYgJXlSKs2F3eBI84Dg/wwT4M5iLv+3KhvpQMwKFSrRsXYFdoZuh12GoJrA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784035;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	b=Nzl4lysMZM6Zpz7R8lTj6nKBAg5UUXGn3TPhUXf6xx5V4ytbCw0g1u8S9JkZqC9esA9Y
-	 TIpg4HQS6s7/nBGhSDbWEk3i6R1CW/1ZO80zvPIeYZ3KGws3CDayUWVIYkXyd57ZdehE/
-	 UnPWvLQbpFjAEmUx3SoFEbHdKtHc4t7L3vNOQh4vEwN9G2DtBRWiLJgxiHkkO1gk331v2
-	 ISs0GC6Ms0QUNaN8Eg2McUaoemzZqsFeNQPofH9g8zRK+OT/KDbyApBCmhyrYy3gZf+HC
-	 erHVVXJ9b3bb+Pi95lz7Wz1IVtRcO1fyYBJajd0gHtMAYlKO0rsZJJQzqMrEDW9DXxQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SSVWwg7z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D85DB606A698;
-	Fri, 27 Nov 2026 12:53:55 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SSVWwg7z
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795784035;
-	b=U3SbJhjHMlaPwjdfye9YLBKsC6lZ/JIj3H0KltIK7twEfxWR95AllUMkf+4EEGmjgmH2
-	 jws6fw8+b8oVR8YOitgHhiYHulR5fFCwZWnq5DoZ6hNXf1osz6fvG8JRnx0o4v99QNYnB
-	 B60fYWie7T6K3WMp5RnGiKtaDdACQoqOQM+63LUl0QESHrtNlGCCLE/fkBfpuzYG3rj5Y
-	 lKHpAq4KQyN7FwIlJS8qksYG6FhgNf+oZXtWk9GMo81IaKThel8oJ7zonMNUzhWXFB/94
-	 u82UgGTZcLPPdLBtg/09eOE2v6ctytBvnzyBJErD9o3LFPn/4SPDmFiRbWLOryGzyQw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795784035;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	b=HvOFH5kiYiC9bCABfom2DMhEsaVhuZeOKEf/UF6rlN1OvJc/n54FcvzmsdTSucf9No3D
-	 aaUGyyBG/xWxrb/HEG2utxqUE+LlzT7/vQSaX7eqQn5/bglPvhQFuADHSDXaQYj7VQFis
-	 WT6RJKXz7rEJW7l+MnlnESlAkT2Yf3LnJgShzFBvH7tQhcUEWkGfQv8PXi7pYeqsUD9UO
-	 IxZlz71wjpoQOJs4BpiCnsk9DSDyw0ZVGvQ5q/0lI9cRakjgnHPHcpz5Bk5dO56JpzXM2
-	 spVtozYTEzepWRjUvluh/0UXQQNWOWEHwZmxOLQueLPfy14HmKAUkPeBqP8Y3ZqDSIQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795784080;
+	b=R5oE3xiQupDktGO/wgTUjbBdFOKSIlipMutc+rJ1DIzvr0NhFjHZFP95lmtXFhRpA85H
+	 AqJoUC0CKZ+GZCxX2rPyKgQdpMDSmWFD9gzR7L+KoFn1DIEtxogdIkzm5yfbz4t+9OnxZ
+	 RdKLOrD2fgma41aPp3TL0LxadhEzBsae6NAvtjiukUFSt7rgwHrnP6ajZbUk/9Xk4Y0Ba
+	 i0zENu9uvgXqc3Xki/Y8zWJKar//eS8esAXrit30LR6jE4E4XDhGgek3Tnq+6Y0tYBncp
+	 /xB3sqCtjKqY+qcpEf2qzV7Y7+/6okgPn0pYaTsneDk/ghjjXEaRM5JEzBN3S6eBv2Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784080;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=TQkVH1jjDAMiibOHHeNRFPOznvXK/0Z03BJFc8UEQVY=;
+	b=ebx9CXV+0e8bOol2+SSYHQ/0gkY11I+moNb6SnJyf6Pv40nQb57vlu1ddcK4qNe5G7LX
+	 jQdeUC8fjM22keya9mJ5Gvu58KHDIvEYcCEHKYNU4h8cxaOysGiWUzhap+JwHazojwn3T
+	 4yUr6XFwvuMHRA+VulEZOtr/8pffKWprLk9zm/7ddtPGSvSzKJHyZSxS/FwB28YxYi0f5
+	 QVZl3LI6cYzeErPK/VRublh9Lh/QT1H8STpdkQi1T2vkf49GpT1vfd5q5Un6FJF2Bq0Pz
+	 kkOadCj50Pxl4DAgbA0Ov5BTuYz3Fe0xMPb3OB3NbI4ZzEMnuUOdGYOOv5xqgwpRL1A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SIP3eZ2D;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4702D1F00897;
-	Fri, 27 Nov 2026 12:53:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795784035;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=SSVWwg7zocvsz3XbGX9HmYewyBy5TBnwBR8I2wDNVAHoailOuWWlGj+YwMI/SuJe+
-	 QcapfLNGIbJxIIYgWTU46ulw5/s7TeTxFTstPLutJI4qyaBxLA/NlTKRIqnhOUSLbF
-	 jWxPGogVt0dqPRWI2L2mufs0kZO1skglYHg38az1LSsfYdNYNOVsXEX1pjX1rM0BpW
-	 fpzpSEZjIkTK55cKtas8NpN0BDCW7yV0wTI3jqGaUeofwmo0jbxkS8685NMraf0k++
-	 nGEFu7OrMhutzpaLgkWpOLCUiBBh0GEBLR0J6XwShH/2jIxvmvKtWdBRZk4oRDDCPJ
-	 sp//XZUjj5uTg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CA98D4B7A9;
-	Fri, 27 Nov 2026 12:53:44 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 15:53:44 +0300
-Subject: [PATCH net-next v4 1/3] dt-bindings: net: Add Cortina CS7542
- network engine
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24787606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:54:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24787606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SIP3eZ2D
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so52035275e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:54:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795784078; x=1796388878; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TQkVH1jjDAMiibOHHeNRFPOznvXK/0Z03BJFc8UEQVY=;
+        b=SIP3eZ2DsdAMoRu4vPpjQzKjQZx9t/i9WRmXaY62bUIwbPnLOWxW3Q6lJYqWrSPQcG
+         EtdUrY4749Yzrqs1BuVP6qxHYZ20BeFyoMWUC+rGNnm969fFoZB5pKQiL/CqVL165xIJ
+         dP9GgOtWWGUS6ISVPvSYQ3z5Zh5eiMSIvJ/5IvxIxj+jLdzlJkXPNgui9YDGocQytf0M
+         5s2VGUHqVvcuw1jNWbjDg7ptd7SCws6xdjNoSHiwI4G2PcseGXEFpJjfijhbzSpHsNE0
+         ez/NsQj+w/kT2j/mXHvujRoQOALhqgcmeXVMPl5YSvoX3SVDaSPrwQJpizSqG2NcuLCf
+         Mweg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795784078; x=1796388878;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TQkVH1jjDAMiibOHHeNRFPOznvXK/0Z03BJFc8UEQVY=;
+        b=f8Rqod0hAv7FqH+iJMC/R8mJcFaLaugEdMdAxcwLrFreqs2Qju8jQekQYqpL03cQ0J
+         RWyzN9RuqpTckjkF7KzzrFMlrdt5oGmSW+Q+F9TK7z9Vuo1eHakFMsezgFUlSxTL1vfV
+         Y2Vqf8PMjH1I5gHlJ0zT43t8FZRd81hTKmOG3mAbXgXoXAqk7EdJiAPtHyXypfUPv6sc
+         LbP7lsdfiVfebIB5DYTUZgSmphJnr0A/gKszDTAFczM30cnvJo9DOQa7pv/w8oPBiLwr
+         ysrSb0lSMCZ8wpop9BD19emMbWnLGsBrCMj5O34No1aVHEWWHCL18gMk3KoO5J2KugbN
+         sD9A==
+X-Forwarded-Encrypted: i=1; AL+hErEJAPh3TWvZqag66iMGIxXBLtUkb981Dya54BfJhqfaowqA1x5gkAeiamsbPR5iFIK1AVdje70W7DeYcd8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IKvtWJkeKAnztO9qDzSlLJ1qPPMvF4FUixdrOxD0bu6g9IvZH
+	V9/cfCxR92ZUbdEAo6IAx+02vaIh46vaT0zadeD+uw0FyJOAwecGPT5k
+X-Gm-Gg: AZFdTZdszd4LLV//DD9OQyNlO+FNcTfyCJZStbVf60EM4XoSH4XWgZgQ/nYoO9LYFJg
+	ho9gfEqe2263a/YvRYFjN+huDTwVQ1DTdO4hAPuzxJnhdmdUPc+dXCSJvXUq4oqJVqnbp2A2Nl7
+	CT2MhXAYVPjRYQLM+USA7Q9IsUkuw78PXB1NFgZLC5u3QPsoUv5eDZR9jF/hbh3ltRqgmiwW+Tt
+	CPA+qkLROPm1nAirssxfOA4pmuhdLo+fd7VBnhkzb12M4nu7q2SGB5gE64IJJYZofLslvoTGOnV
+	h8jwsfPzQNVCk84BIFY1lFMnvI7nXtrXBqfKVtd32x7aCR3+3Zh24o4GGREBQFbZQwlmMBI5P1v
+	RO2KFVJTjsYdfJ0XThWbEtiZvW13XxgDy9kN6hEtCCYTSAij3ImKBdPES+71tfAbbF0Ka3dJTV5
+	EmA9MihvqgVDo0XmcVqaBmKWf+TGMCYiNLnpcbHxjB1qZ5cvijWQdvTVCLbaGuEYixMK6jub9mO
+	NAuxfZueAaN8+Bm7jbp3/Ciww91bwW68a7+u9QLagE/V9N2v5nEFkOMMDTU2kzNCIfdv0Zz832T
+	32It25MphgrBxrZlqc7XEWMxNJhYIIguo4lKMchiu3nXEhBnWiKNcZ8pgf7TYHK9key5ylpoP/7
+	YkAbC+XM=
+X-Received: by 2002:a05:600c:5246:b0:4a7:9006:b176 with SMTP id 5b1f17b1804b1-4bb887fe892mr527018685e9.7.1795784078292;
+        Fri, 27 Nov 2026 04:54:38 -0800 (PST)
+Received: from [192.168.68.89] (host-87-4-46-207.retail.telecomitalia.it. [87.4.46.207])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm47880489f8f.16.2026.11.27.04.54.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 04:54:37 -0800 (PST)
+Message-ID: <2b6444b1-c81f-4ea6-8981-9bd4bdcbab2c@gmail.com>
+Date: Fri, 27 Nov 2026 13:54:36 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,221 +91,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-b4-cs7542-ethernet-v4-1-ea4d8cd6ef18@gmail.com>
-References: <20261127-b4-cs7542-ethernet-v4-0-ea4d8cd6ef18@gmail.com>
-In-Reply-To: <20261127-b4-cs7542-ethernet-v4-0-ea4d8cd6ef18@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Russell King <linux@armlinux.org.uk>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795784023; l=5895;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=gW8wVv5EV4Zs86pnqMUV410Pvkh5hZkkf0TYPGZzyKQ=;
- b=rydaq6M37exzwTMABHibeNXrQCRh+Ws4WtRNELtWTCKMia89Dt/dgQe8nYkGQdnqN/+Fz5nek
- ddpd3QcgfUaDVUL1a55HHYySFlgTeqkMkRICXw+fxbhR5nnJnxXlE5q
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
+From: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Francesco Dolcini <francesco@dolcini.it>
+Cc: sungbyeongchan <tjdqudcks0424@naver.com>,
+ "Michael S. Tsirkin" <mst@redhat.com>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, stable@vger.kernel.org,
+ patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261125143822.072087159@linuxfoundation.org>
+ <20261126173920.GA180459@francesco-nb> <20261126174236.GA183126@francesco-nb>
+ <2026112702-donator-rebuff-16b2@gregkh>
+ <9e86f015-0f0e-4897-80b2-9662b96a98f8@gmail.com>
+Content-Language: en-US
+In-Reply-To: <9e86f015-0f0e-4897-80b2-9662b96a98f8@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-
-Describe the CS7542 network engine register windows, interrupts, GMACs
-and reserved queue-manager memory. Require exclusive ownership of the
-seven NI/FE/TM/SCH/QM/DMA/NI-XRAM reset controls from the global provider.
-The shared DMA line includes both LSO and SSP. Use rgmii-id for the
-example switch peer which inserts RX and TX clock delays.
-
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- .../bindings/net/cortina,cs7542-ethernet.yaml      | 162 +++++++++++++++++++++
- 1 file changed, 162 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml b/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-new file mode 100644
-index 000000000..c5ba9b30e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-@@ -0,0 +1,162 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/cortina,cs7542-ethernet.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cortina Systems CS7542 network engine
-+
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
-+
-+description: |
-+  The CS7542 network engine contains three GMACs, the network interface (NI),
-+  forwarding engine (FE), queue manager (QM), traffic manager (TM), scheduler,
-+  CPU XRAM interface and packet DMA. The CPU datapath uses the DMA-LSO TX
-+  queue and QM-managed RX buffers. The complete DMA-LSO/SSP register block
-+  and the combined reset domain must be exclusively owned by this device;
-+  a separate SSP DMA consumer cannot operate concurrently. A NAND controller
-+  using PIO does not consume that DMA block.
-+  The three GMAC station addresses share their first five bytes in NI
-+  registers; only the last byte is independent for each port.
-+
-+properties:
-+  compatible:
-+    const: cortina,cs7542-ethernet
-+
-+  reg:
-+    items:
-+      - description: NI registers
-+      - description: Complete DMA-LSO and DMA-SSP registers
-+      - description: FE registers and indirect table interfaces
-+      - description: QM registers
-+      - description: TM registers
-+      - description: Scheduler registers
-+      - description: CPU XRAM
-+
-+  reg-names:
-+    items:
-+      - const: ni
-+      - const: dma
-+      - const: fe
-+      - const: qm
-+      - const: tm
-+      - const: sch
-+      - const: xram
-+
-+  interrupts:
-+    items:
-+      - description: GMAC0 CPU receive queue interrupt
-+      - description: GMAC1 CPU receive queue interrupt
-+      - description: GMAC2 CPU receive queue interrupt
-+
-+  interrupt-names:
-+    items:
-+      - const: eth0
-+      - const: eth1
-+      - const: eth2
-+
-+  cortina,global-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Global control syscon for network drive strength and status.
-+
-+  resets:
-+    items:
-+      - description: Network interface reset.
-+      - description: Forwarding engine reset.
-+      - description: Traffic manager reset.
-+      - description: Scheduler reset.
-+      - description: Queue manager reset.
-+      - description: Shared DMA-LSO/SSP reset, exclusively owned by this consumer.
-+      - description: Network interface XRAM reset.
-+
-+  reset-names:
-+    items:
-+      - const: ni
-+      - const: fe
-+      - const: tm
-+      - const: sch
-+      - const: qm
-+      - const: dma
-+      - const: xram
-+
-+  memory-region:
-+    maxItems: 1
-+    description: |
-+      Reserved no-map DDR region used by the packet queue manager. Initial
-+      support uses the upper 64 MiB of the 512 MiB DDR layout at 0x1c000000.
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+patternProperties:
-+  "^ethernet-port@[0-2]$":
-+    type: object
-+    $ref: ethernet-controller.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      reg:
-+        maxItems: 1
-+      phy-mode:
-+        enum: [rgmii, rgmii-id, rgmii-rxid, rgmii-txid]
-+    required:
-+      - reg
-+      - phy-mode
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - interrupt-names
-+  - cortina,global-syscon
-+  - resets
-+  - reset-names
-+  - memory-region
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/cortina,cs7542-reset.h>
-+
-+    ethernet@f0010000 {
-+        compatible = "cortina,cs7542-ethernet";
-+        reg = <0xf0010000 0x500>, <0xf0090000 0x800>,
-+              <0xf0020000 0x4000>, <0xf0030000 0x400>,
-+              <0xf0040000 0x800>, <0xf0060000 0x100>,
-+              <0xf0400000 0x100000>;
-+        reg-names = "ni", "dma", "fe", "qm", "tm", "sch", "xram";
-+        interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "eth0", "eth1", "eth2";
-+        cortina,global-syscon = <&global>;
-+        resets = <&global CS7542_RESET_NI>,
-+                 <&global CS7542_RESET_FE>,
-+                 <&global CS7542_RESET_TM>,
-+                 <&global CS7542_RESET_SCH>,
-+                 <&global CS7542_RESET_QM>,
-+                 <&global CS7542_RESET_DMA>,
-+                 <&global CS7542_RESET_NI_XRAM>;
-+        reset-names = "ni", "fe", "tm", "sch", "qm", "dma", "xram";
-+        memory-region = <&qm_reserved>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-port@1 {
-+            reg = <1>;
-+            /* Fixed MAC-to-switch link; peer inserts RX/TX clock delays. */
-+            phy-mode = "rgmii-id";
-+            fixed-link {
-+                speed = <1000>;
-+                full-duplex;
-+            };
-+        };
-+    };
-
--- 
-2.53.0
 
 
+On 11/27/26 13:13, Emanuele Ghidoli wrote:
+> Hello Greg,
+> 
+> Reverting e498eb93f961 ("virtio_ring: use shadow flags when detaching
+> split descriptors") on top of 6.18.66-rc2 fixes the issue. The tree at
+> e498eb93f961 itself works fine, so it seems to break only in combination
+> with a later patch in the queue. Still investigating.
+> 
+> The "Device Manager" is TI firmware on an R5F core that serves Linux's
+> TI-SCI power/clock requests. Linux talks to it via remoteproc/rpmsg,
+> which runs on virtio_ring. With rc2 the rpmsg channels to it are never
+> created, and I2C transfers start timing out.
+> 
+> Kind regards,
+> Emanuele
+
+Hello Greg,
+
+Correction to my previous mail: the "tree at e498eb93f961" I tested was
+mainline (v7.4-rc1+27), not the stable queue, sorry for the noise.
+
+On the stable queue:
+- 44b6e54e4a0a (patch 203): OK
+- 22944d517ff8 (patch 204, "virtio_ring: use shadow flags when detaching
+  split descriptors", upstream e498eb93f961): broken
+- 6.18.66-rc2 with 22944d517ff8 reverted: OK
+- 6.18.66-rc2 with this change: OK
+
+-       if (!indirect && vring_need_unmap_buffer(vq, &extra[prev]))
++       if (!indirect)
+                vq->split.desc_extra[prev & (vq->split.vring.num - 1)].flags &=
+                        ~VRING_DESC_F_NEXT;
+
+According to an AI-assisted analysis (Claude), not verified in depth by
+me, the patch relies on 03f05c4eeb7b ("virtio_ring: determine descriptor
+flags at one time", v7.0-rc1), which is not in 6.18.
+
+Please drop 22944d517ff8 from 6.18.
+
+Kind regards,
+Emanuele
