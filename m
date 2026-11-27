@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774821;
-	b=3jCW2MA/dSQ/TMwBxkbaklRABE61Ve7uek6dicuvkDBdwGah8CW0J86xCgDD+goIwYO4
-	 nxrqEniGqx8nKLMYQeRr2bbog15Q84iLeBl3BtSVNMUR3KXgQgQO4MQ7F1lk/wzYBuPwb
-	 YgWusZhsFpkF7Cv6cUiOJ57Lp9qRqtsRAduhx2kYoc1Ql3L3MVG1172CZOb7OsBSdmPk3
-	 E2eYLfP6jLh4A6GVKoxuL9XvQd7Q2otZArja2vFfC3vMq0ecFjGvW5asgiBIDrMdIhCt9
-	 HMqNwshAqCEhdIlGFHheSgOBGcivCpWJy1zYOxhda6hg5G4LqRsmib853ayJHDky8qQ==
+	t=1795774832;
+	b=0Pm1FIFPmWrSDdpgiZum7T+3EYfTki1F4Q8JELxnUrTdJripV041Hqi4FkFCZPFnjb9n
+	 xPRcm9o1WYxA6lpXY5CaBbTh7FrHDCDyJbeNgk3CHWARP8NQUy/vCSNVLrK7b1NMcKtXl
+	 w2EHp4mC6WI1bW4OGcdG6gI9/TgiKbAS/IYR191YNI3TSSu1cfpHCfhdID1Q1+KW6g1SS
+	 E0/xbooKELbe6MPkLR+E6SlXLkLPyNWUJ/iOb0JVvz04jsuTEci2V29AWkL26EP4xGJX3
+	 sMsrxVzKPX9wdTUVpohRWI8CiOK+wBMw3/E8JuzFpRIV08+VR7Q7sACcscpbx9+dyFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774821;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774832;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=G26qrvYEnf3XkTM55Hz4I7jUepmcpg76jzpe7qYVv+8=;
-	b=UarLrUkT6xHj/BA/eQuH5zg5yyjNbJuRQEXUW5nfCoTPEv0ohfXSAMIMVP3p/RxQ2zmB
-	 5fugQBQcDHv018QqoYAKXsvnH3k6+xtoKRzWDD2WhOWt4FHwhi46Ex9xZbtA6IuAROQaw
-	 z905ef3F9wioynRU5UgQvPADMY9Ac9or5ga+oqexNs3/ESQhw8LWt18pu1/jfxUb4kNPe
-	 BBR3JkStyHXa+ezqD2fKq2QRpujcczN7Evtq4nJOUe+xCpPeMQKxtqiRNi+vbkoKaZPEQ
-	 An5iAfTVbn/2MqhHy5z7kdL5k0NiDVPu3/gsz6oWwilBfifdkeYapfQAM9Tg7gwXG4w==
+	bh=jdnt2/a/ZbMnN00rqXnxGWnUTsU4G3OMV0NCuzfNtiM=;
+	b=HRm8CKHC0lvHKTQ2b2FzKlIEV10twgFSG7mr2jmJszZU+DMDDYqq+AorZLr0NxH7t1Yu
+	 iS+kniex0+luSe+1duPRXbaHZ4rqbBxOzvVXGAetnKWqaNSFlR+5o7ykVTo5ZoM/lBcoo
+	 +MxTa4dqJSZ2JOiQDEeqXUQE9BMdRGRwgJuC0J+VM2KJwbkOBe+FyIC8dAsKLRqwBP6kd
+	 WopJtek07qm7DHmqbJ0uezlk1SoeLaQfnQ0ZSEg9QO71DuU0UCSV01Lqe/Q1h3t1hbGdF
+	 SzafSL1uvWG/7FfMTWIxjbJfs0uGe8Wx5tJqyFKOcmp/7F3Nua8+5330ZVV5l/fuikQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="LUnVub/z";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nQFUykQf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35BD606A326;
-	Fri, 27 Nov 2026 10:20:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7294606A331;
+	Fri, 27 Nov 2026 10:20:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LUnVub/z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C79191F000C1;
-	Fri, 27 Nov 2026 10:20:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nQFUykQf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 648C71F008A0;
+	Fri, 27 Nov 2026 10:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795774820;
-	bh=G26qrvYEnf3XkTM55Hz4I7jUepmcpg76jzpe7qYVv+8=;
+	s=k20260515; t=1795774832;
+	bh=jdnt2/a/ZbMnN00rqXnxGWnUTsU4G3OMV0NCuzfNtiM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LUnVub/zJIjk7WOXcRX5o1E4BdvdmyLM5vpiIh5/ter7Tb65pG/l+AV+eDQ2lcZw+
-	 VP+Zz0UhqUgM7AYzSAyvW9RxL/hplY81ph4uDZayrH+w59EWU//MCs+3Kkc35mxf12
-	 ooMxv9IVyZciKc+XcSrq5ODhSVpWES1vENRifb/xBefZWOYbql3hDZVJAjlMjkvL3E
-	 efIO9eYIt5p3sOup71mmUXPyIyecDmeHEiMe2yIyWGbm30ex94ENNJgQOxxtCOo7EE
-	 s5HIk9OZphLGDJmqcfpYXmwsPXDs3xBNu1TdMRj4OxjvNIpL9GcFqVYEthMNb6yrL5
-	 vWZJgIgich70g==
+	b=nQFUykQfesqG/I9SJFTuoB2Oq6I92Vw2E0PuaZqxx6mjXpvhxB3BXNBHyuc+IkVy0
+	 ZCPhMkc8JvUtfgvKg+IU3PJNf7Df9mCKgpx+4w5UuaiNLC6VCkkIe86RhlRWy63gC2
+	 Hfq8cZq/ZDYc8/AbTbMd4OTQROVHUwuuZjO8n+oB1X4NzovL7B/TzTNx6gF4m/0zFw
+	 DGYVes8EXPCCRI+oBphIdnpKmGsSS7v7QIrDSg7uzO2oY0ZJbYyttGqt1MWRGiUHU2
+	 yA1ruSDPP059L3Rz3annSE1CjlmnzPCpNh+Z6J3DxEyx4chTIxHW6xpwbIkHqqo6I/
+	 jM1ZPK5Oawtiw==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sumit Semwal <sumit.semwal@linaro.org>,
 	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -64,9 +64,9 @@ Cc: linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	amd-gfx@lists.freedesktop.org,
 	intel-gfx@lists.freedesktop.org
-Subject: [RFC PATCH 3/8] dma-buf: dma-fence: Ensure ordering with locks for timestamps
-Date: Fri, 27 Nov 2026 11:18:08 +0100
-Message-ID: <20261127101812.2706432-5-phasta@kernel.org>
+Subject: [RFC PATCH 5/8] drm/amdgpu: Stop using dma_fence internals
+Date: Fri, 27 Nov 2026 11:18:10 +0100
+Message-ID: <20261127101812.2706432-7-phasta@kernel.org>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261127101812.2706432-2-phasta@kernel.org>
 References: <20261127101812.2706432-2-phasta@kernel.org>
@@ -81,79 +81,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The memory ordering in dma_fence_timestamp() is currently being done
-manually with acquire functions. It can be done more elegantly with the
-fence's spinlock. This also allows for removing the TIMESTAMP bit in the
-long run.
+amdgpu_ctx_fence_time() directly accesses a fence's internal timestamp,
+not ensuring memory ordering.
 
-Use locking in dma_fence_timestamp().
+Make the code more robust and readable by using the (now improved)
+dma_fence_timestamp() function.
 
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
 ---
- drivers/dma-buf/dma-fence.c |  9 ---------
- include/linux/dma-fence.h   | 24 ++++++++++++------------
- 2 files changed, 12 insertions(+), 21 deletions(-)
+I think this should, contrary to my previous statements, be fine since
+the lock taken is the s_fence lock, whereas this function's caller holds
+a distinct fctx lock.
+---
+ drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/dma-buf/dma-fence.c b/drivers/dma-buf/dma-fence.c
-index c947aec1bf91..ab02afdb0f18 100644
---- a/drivers/dma-buf/dma-fence.c
-+++ b/drivers/dma-buf/dma-fence.c
-@@ -378,15 +378,6 @@ void dma_fence_signal_timestamp_locked(struct dma_fence *fence,
- 	list_replace(&fence->cb_list, &cb_list);
- 
- 	fence->timestamp = timestamp;
--	/*
--	 * TODO:
--	 * This is a temporary hotfix to prevent misordering until we
--	 * can completely remove the TIMESTAMP bit.
--	 *
--	 * The counterpart of this barrier are the test_bit_acquire()s in
--	 * dma_fence_timestamp().
--	 */
--	smp_mb__before_atomic();
- 	set_bit(DMA_FENCE_FLAG_TIMESTAMP_BIT, &fence->flags);
- 
- 	list_for_each_entry_safe(cur, tmp, &cb_list, node) {
-diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
-index 29c4332c8662..1c1aa4c7635a 100644
---- a/include/linux/dma-fence.h
-+++ b/include/linux/dma-fence.h
-@@ -680,23 +680,23 @@ static inline void dma_fence_set_error(struct dma_fence *fence,
-  * dma_fence_timestamp - helper to get the completion timestamp of a fence
-  * @fence: fence to get the timestamp from.
-  *
-- * After a fence is signaled the timestamp is updated with the signaling time,
-- * but setting the timestamp can race with tasks waiting for the signaling. This
-- * helper busy waits for the correct timestamp to appear.
-+ * Return:
-+ * The fence's timestamp if the fence is already signaled, the current time
-+ * otherwise.
-  */
- static inline ktime_t dma_fence_timestamp(struct dma_fence *fence)
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.c
+index 2f0349233695..9d6d92cb9734 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.c
+@@ -170,6 +170,7 @@ static unsigned int amdgpu_ctx_get_hw_prio(struct amdgpu_ctx *ctx, u32 hw_ip)
+ /* Calculate the time spend on the hw */
+ static ktime_t amdgpu_ctx_fence_time(struct dma_fence *fence)
  {
--	/*
--	 * The test_bit_acquire() calls order against the
--	 * smp_mb__before_atomic() in dma_fence_signal_timestamp_locked().
--	 */
-+	unsigned long flags;
-+	ktime_t ret;
-+
-+	dma_fence_lock_irqsave(fence, flags);
- 	if (WARN_ON(!test_bit_acquire(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags)))
--		return ktime_get();
-+		ret = ktime_get();
-+	else
-+		ret = fence->timestamp;
-+	dma_fence_unlock_irqrestore(fence, flags);
++	ktime_t scheduled_ts, finished_ts;
+ 	struct drm_sched_fence *s_fence;
  
--	while (!test_bit_acquire(DMA_FENCE_FLAG_TIMESTAMP_BIT, &fence->flags))
--		cpu_relax();
--
--	return fence->timestamp;
-+	return ret;
+ 	if (!fence)
+@@ -177,15 +178,15 @@ static ktime_t amdgpu_ctx_fence_time(struct dma_fence *fence)
+ 
+ 	/* When the fence is not even scheduled it can't have spend time */
+ 	s_fence = to_drm_sched_fence(fence);
+-	if (!test_bit(DMA_FENCE_FLAG_TIMESTAMP_BIT, &s_fence->scheduled.flags))
++
++	if (dma_fence_timestamp(&s_fence->scheduled, &scheduled_ts) != 0)
+ 		return ns_to_ktime(0);
+ 
+ 	/* When it is still running account how much already spend */
+-	if (!test_bit(DMA_FENCE_FLAG_TIMESTAMP_BIT, &s_fence->finished.flags))
+-		return ktime_sub(ktime_get(), s_fence->scheduled.timestamp);
++	if (dma_fence_timestamp(&s_fence->finished, &finished_ts) != 0)
++		return ktime_sub(ktime_get(), scheduled_ts);
+ 
+-	return ktime_sub(s_fence->finished.timestamp,
+-			 s_fence->scheduled.timestamp);
++	return ktime_sub(finished_ts, scheduled_ts);
  }
  
- signed long dma_fence_wait_timeout(struct dma_fence *,
+ static ktime_t amdgpu_ctx_entity_time(struct amdgpu_ctx *ctx,
 -- 
 2.56.0
 
