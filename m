@@ -1,65 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795751358;
-	b=tJJZDcAi+Vbgccujuy1zZcbuxqBFObZhy8weK27l8aMA5saufWLrbKu7AYdVTT9SySxs
-	 dk6imqqUJ13qp97I8YGoxYdjbCsvOHGwK6vcrmjhOTZZA+QJH+SDEOKNu8/5Kn2CiEnSV
-	 +hTSXuEj/PMW+ZZw6s3Z/SepGrtZa6iQ7FJX1mwsNy5OLtElKLa+BaVP9MGrvtPhRtRGo
-	 90mQAGnHCHmLg5rjGCs3cCLzBb7VoVaeYJnQkCS9tvvSq52F1K2UtEbKMlFCKxhHb0L6u
-	 nz0A3n01DTAGElWHubocd0UcfrA1m0QfGXVhqeM7ozBs3Fku8ZhbF6DAScP4GOPuzjw==
+	t=1795751435;
+	b=cCJhEG3bczXiB1jz5jZ0/caGDs2tC43wyFQ6I7zeV0n72OO5cmPwVTm0DM7j9pm31I6Y
+	 0Y0fYgquVJanymBSKLTxaGcZqY3b0tfAFlZZzY7AwiMQwnVFQzZRpuqQGnJk4eceKlxna
+	 9E9GAn92aotnxoRTNE6HkJsIkwR1Uh0ksBp1imxCeGbPiV9nPhWbDr2JKfPecVmpEXWG+
+	 zIIgz0HIUhkzZVtSREIllDjncHZ86lItOoqI6tlVxn37Ex2v4EPkFGVeTXanDWaLUYNwi
+	 Z9SV6yASh6478aOf2TZxgLnu2BnsAznDxUBVNDtzzopdFfVqdQthnw130ckzHl+H56w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795751358;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=xT6pD/hv9oqc/Rzgrbiwofpup13QY7DlN78228L1ofk=;
-	b=GgGQIf0pnr7X/0s8vD0RFNQ0QCkVSmDbkhXimLTl0T0xh69j4Ey80TAfHzPmUlX0JvfD
-	 B3Qd2Tlp+2Ct22D9ccLUJ/QBe1OPPQqak28RSHvtV/bxj+tPhKzK8c6pL0v3XllNIXsfw
-	 ynMLTwRPuSNUxOAb1d831iwMlbgnt5bSXu7/1DJnFOAL85xCzB/2SO6hPE1d1/KFXP9AG
-	 zdxuQ5t/xir/TxXCt1YfKWwpiuiIxExlbhhfT9Y+7088JYmf1Gz6vivhaytZ7xOuxEBp7
-	 H/mt0TJASMuHi+pkBTZo6ywsjR83AAH5Iir4Cp1FPRCL6SGT0xgS7/DxGjsHqgUUvIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795751435;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=ZYsqMNDA+kD5cV72E9fL8r6yOmNjuoz60L28eZpvDOE=;
+	b=kytozQAi2MBcTOVErRxMeTNZBnsq7CbsbKlFtZBFvAi5HQ+uTCWSuFqeLU4ubWBHrxVY
+	 cCsqle2O98NTojbry559N6TH/BKKFTb+LaslomREqU2ovFAlUjDj/bSnS9t+BHGjqUiLR
+	 /I9/9Nx4Q7WhO9A9xXEfzsuuUHa8AFLwgEJ3SX3qm2Y0erEaOZLStfLceQITl7k+XeHJk
+	 CFB22n9SWAn7p1cot1rTLacRieHDBnZ31QxQAsEoPlHyfS2XfyfssDRWbm9IZDxg4vUqd
+	 o9PsvEPP8eKuKWb3s3b4fRivW5oV3E8dKwiFmnNb7i294dkbIUr+uploy1z2uR7qfIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=swyT18N2;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id AB03F606A323;
-	Fri, 27 Nov 2026 03:49:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB03F606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=swyT18N2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=swyT18N2sbLPo0/OI6CBHn3b40kC2mXpl6kHaYpM2gqbX5SLpP1guDMEerc1NIPCWlIGsBmjH+D0U
-	 ja2Z0yboLSybLF66wKJSNlhdrN1ceHAdd0cnEWEu+VcxfZ4uPrYYD/44upvcAvKw5Q1IeVYGTSdAS6
-	 0aD7ze1NE6Q6TY6Y=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56b08fdb4c64-5eb75;
-	Fri, 27 Nov 2026 11:49:08 +0800 (CST)
-X-RM-TRANSID:2ee56b08fdb4c64-5eb75
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b08fdb1330-84e32;
-	Fri, 27 Nov 2026 11:49:08 +0800 (CST)
-X-RM-TRANSID:2ee16b08fdb1330-84e32
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-input@vger.kernel.org,
+	dmarc=none header.from=kaihong.com;
+	spf=pass smtp.mailfrom=kaihong.com;
+	arc=none smtp.remote-ip=115.124.28.219
+Received: from out28-219.mail.aliyun.com (out28-219.mail.aliyun.com [115.124.28.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1912D606A31C;
+	Fri, 27 Nov 2026 03:50:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1912D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.1057066|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.00636292-0.00524632-0.988391;FP=7095139096082257836|1|1|2|0|-1|-1|-1;HT=maildocker-contentspam033037006180;MF=wangjichen@kaihong.com;NM=1;PH=DS;RN=4;RT=4;SR=0;TI=SMTPD_---.kB6E6If_1795751424;
+Received: from ubuntu.example.org(mailfrom:wangjichen@kaihong.com fp:SMTPD_---.kB6E6If_1795751424 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Nov 2026 11:50:24 +0800
+From: Wang Jichen <wangjichen@kaihong.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] Input: sidewinder: use scnprintf() for the comment and physical path
-Date: Fri, 27 Nov 2026 11:49:04 +0800
-Message-ID: <20261127034904.288-2-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <20261127034904.288-1-chenaibing@cmss.chinamobile.com>
-References: <20261127034904.288-1-chenaibing@cmss.chinamobile.com>
+Cc: syzbot+8769efb8c3d52870334c@syzkaller.appspotmail.com
+Subject: [PATCH] media: em28xx: check media_device_init() before register
+Date: Fri, 27 Nov 2026 03:50:23 +0000
+Message-Id: <20261127035024.3598938-1-wangjichen@kaihong.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,50 +53,51 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-sw_3dp_id() appends the PnP information to the caller's comment buffer
-with snprintf(), and sw_connect() composes the physical path of each
-device as "%s/input%d" from gameport->phys, which is a 32 byte string.
-Both strings can be truncated, which is acceptable for informational
-text, but with W=1 the file does not build:
+em28xx_init_dev() ignored -ENOMEM from em28xx_media_device_init() while
+em28xx_usb_probe() still called media_device_register(NULL) under
+CONFIG_MEDIA_CONTROLLER.
 
-  drivers/input/joystick/sidewinder.c:538:58: error: '%s' directive
-    output may be truncated writing up to 8 bytes into a region of size
-    between 5 and 21 [-Werror=format-truncation=]
-  drivers/input/joystick/sidewinder.c:727:29: error: '/input' directive
-    output may be truncated writing 6 bytes into a region of size between
-    1 and 32 [-Werror=format-truncation=]
-
-Use scnprintf() so that the writes are explicitly bounded and the file
-builds warning free.
-
-No functional change.
-
-Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
+Reported-by: syzbot+8769efb8c3d52870334c@syzkaller.appspotmail.com
+Closes: https://syzbot.org/bug?extid=8769efb8c3d52870334c
+Signed-off-by: Wang Jichen <wangjichen@kaihong.com>
 ---
- drivers/input/joystick/sidewinder.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/media/usb/em28xx/em28xx-cards.c | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/input/joystick/sidewinder.c b/drivers/input/joystick/sidewinder.c
-index 7f37d18c8..f6f76108d 100644
---- a/drivers/input/joystick/sidewinder.c
-+++ b/drivers/input/joystick/sidewinder.c
-@@ -535,7 +535,7 @@ static void sw_3dp_id(unsigned char *buf, char *comment, size_t size)
+diff --git a/drivers/media/usb/em28xx/em28xx-cards.c b/drivers/media/usb/em28xx/em28xx-cards.c
+index 8440eafad..8618f4077 100644
+--- a/drivers/media/usb/em28xx/em28xx-cards.c
++++ b/drivers/media/usb/em28xx/em28xx-cards.c
+@@ -3944,7 +3944,9 @@ static int em28xx_init_dev(struct em28xx *dev, struct usb_device *udev,
+ 	else
+ 		dev_info(&dev->intf->dev, "chip ID is %s\n", chip_name);
  
- 	pnp[7] = rev[8] = 0;
+-	em28xx_media_device_init(dev, udev);
++	retval = em28xx_media_device_init(dev, udev);
++	if (retval)
++		return retval;
  
--	snprintf(comment, size, " [PnP %d.%02d id %s rev %s]",
-+	scnprintf(comment, size, " [PnP %d.%02d id %s rev %s]",
- 		(int) ((sw_get_bits(buf, 8, 6, 1) << 6) |		/* Two 6-bit values */
- 			sw_get_bits(buf, 16, 6, 1)) / 100,
- 		(int) ((sw_get_bits(buf, 8, 6, 1) << 6) |
-@@ -723,7 +723,7 @@ static int sw_connect(struct gameport *gameport, struct gameport_driver *drv)
+ 	if (dev->is_audio_only) {
+ 		retval = em28xx_audio_setup(dev);
+@@ -4438,11 +4440,13 @@ static int em28xx_usb_probe(struct usb_interface *intf,
+ 	 * topology will likely change after the load of the em28xx subdrivers.
+ 	 */
+ #ifdef CONFIG_MEDIA_CONTROLLER
+-	/*
+-	 * No need to check the return value, the device will still be
+-	 * usable without media controller API.
+-	 */
+-	retval = media_device_register(dev->media_dev);
++	if (dev->media_dev) {
++		/*
++		 * media_device_register() may fail; the device remains usable
++		 * without the media controller API in that case.
++		 */
++		media_device_register(dev->media_dev);
++	}
+ #endif
  
- 		snprintf(sw->name, sizeof(sw->name),
- 			 "Microsoft SideWinder %s", sw_name[sw->type]);
--		snprintf(sw->phys[i], sizeof(sw->phys[i]),
-+		scnprintf(sw->phys[i], sizeof(sw->phys[i]),
- 			 "%s/input%d", gameport->phys, i);
- 
- 		sw->dev[i] = input_dev = input_allocate_device();
-
+ 	return 0;
+-- 
+2.34.1
 
