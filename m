@@ -1,54 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796867;
-	b=WiT1inp/vBDi5syTNuNkdNLx+MpAOMd2UvKNZ+evd1Blmh/rE4PjpzMvrbfYS0c/eLLF
-	 IyJ1+K6pgvATNhb1F+YDu16MDHG73VRlZqbzHTsdIPpFjmTd5vLyCHtXXGsbIit4rs0HD
-	 vnVxhkKDHDc9bIQHGYnXF/m5HaCJD846TIHEARlp8JHlMJzg5ttMEkbPTclORZtgZOMDn
-	 +zqNx/jRhkb+JHdKDlbDo3QuNzBxdtYcst6ihk+51LxygfxsRMhpWSs3tDvNNnwc9ZcGx
-	 laAacCPYjZ/J7hDzbaRqk5XwiHqRqDPjg57sTYrDELcO4nZvmzYP89pvItmgENYU01Q==
+	t=1795796887;
+	b=DDUlOmWXCfIP9IROxMhagVsDOeWsty8GiQs4Z78GNKWGWrTJprhid/VV1MDfmO8ToPK1
+	 5S/IHhNd5eC5vv5JagD9k7cAdyJSJnXJjlncmB7vbMt280oghrdhQU/az8o/94GjAbfFk
+	 v67Xbb6tQryxN9/Oe/sreemlaimnYGao0afR9vhGBnM/cAUeZjg7JTsXo2X5FpT1r2lxw
+	 h9JNPLCTZsBr8QhPC54XNoiTSTx/pUihYdHIKcq0sNzYUFZTRGkfGCM37a5ttZ5mp3V7F
+	 EceoVe4CiKYWJMKYdwYh8Dr1P4Dv60Kdevy0volZm+xxdf1dTmzZXyIllaS5GHPSmPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796867;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=VaEAs2JpnZX/wCopgOCtsrHcdnJ8AK5BNMT03LjZSPs=;
-	b=LcpH6ugqxJeeN/1k68NEXGhjamff5htTexb+Uqe8CdQDQrtuRED1iYa79t4Amu+jZhMJ
-	 B0DVABQm10p2rUpU2ZA7J2wTae1wPYycjMKnAb8cadixS493+/YjYGy79b8per59UgQR4
-	 yZCd1rs/Lq+J3KNG+RKs6zktwU9cWfBNozctOSzPEd2/6g4q3fLfpchvdzFLiHpf063oL
-	 /NcHD8OcqXxWBHei3ga29oViwXiZDBAxtjSFNyWeVX/uUOwQKiLOxRns+uARDYmXAYxdN
-	 X5faQyLhEe+GeD30XzJlbpdAypquxlE1b7ArcOsfJn9W3Z8QcsHzZWDz3ukIrPIUdHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796887;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=RE449hdXjDfZ9lfTsQ/wHKgoP0IBy8MiOMaH0f+BiYI=;
+	b=nQQ1fzRhUrPj8dbEFz6YskRC1IwZUd/GYXKBk9irlvDPKLXti4ANyOeZ6dRZQpz9VXAU
+	 wORd8PR0PtvyGbJVooSl0hcjGs1f2EMvQ0MiiRp2IjSl//p6wQt62PObcAhPMQdC+lQeq
+	 haX9jZFbCtJLKaE9Jnsl3AO+i2WHiJ91M02KycOxNL0lQDDv4oElL4FzUkRsQYISSSRVP
+	 3xoqUOWaohWub4SxKttJ2xaGpPT5HUG7iCyfFEL2pw+JbmF06XtNq2RnvkUjaWiTfrN31
+	 7bvRvtpp9FfZWu3K6Kc0qjhILXgZ2e1qDz64RqvSbcgxk62NZA7V3NnLhTU4wMjXT/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wSBlN8+6;
-	arc=none smtp.remote-ip=91.218.175.112
-Received: from mta0.migadu.com (out-112.mta0.migadu.com [91.218.175.112])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=2gPJlDFG;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 298D5606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:27:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 298D5606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 692C0606A31E;
+	Fri, 27 Nov 2026 16:28:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 692C0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wSBlN8+6
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Rf/MCpoYMsHhZVqN9YRHgJpiVwU0YEKm9+BlNtnxvdI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795796864; v=1; x=1796401664;
- b=wSBlN8+6CURYpQ1D0VQIh2YyHNh83TwUAONbJyBL5tUf1D7B2KBBvHws1ZV575NwoYlEn3lG
- rcLT/nJTaB55wTpY1F+/Lm8lYPYBZnF12QmL4oYT9wxhUHqB+fVbI8cxF/reUV5nX3xy3OZ0zp0
- G1N6LI8y5fMd4Juj1SJOERsQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 40760d7bb28af9f0;
-	Fri, 27 Nov 2026 16:27:44 +0000
-X-Mizu-Trace-ID: 40760d7bb28af9f0
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <63e62346-fabf-4426-88a3-056e1d909fab@linux.dev>
-Date: Fri, 27 Nov 2026 16:27:39 +0000
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=2gPJlDFG
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=RE449hdXjDfZ9lfTsQ/wHKgoP0IBy8MiOMaH0f+BiYI=; b=2gPJlDFGUs6opx3O3g2ST85Zve
+	zHN6dHn7VCgUUDSClLyFvuRYA0KOG/Sm69uNSo+oaZN7V/IdHFvuj0X/q52xTcYCAkXML+BmuBX/2
+	H4XC9I+wl3/kT+67WW5NWPLsbU8jy1oSbOofIYBKOEk5nbelBcSb/KPpg66vet/uJlT0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xWynU-001plE-1v; Fri, 27 Nov 2026 17:27:40 +0100
+Date: Fri, 27 Nov 2026 17:27:40 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Sasha Levin <sashal@kernel.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Willy Tarreau <w@1wt.eu>, Borislav Petkov <bp@alien8.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Theodore Ts'o <tytso@mit.edu>,
+	Security Officers <security@kernel.org>, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
+ and a cover letter
+Message-ID: <71acea69-b7ad-4090-ac57-8d562c5c3bfb@lunn.ch>
+References: <awjopqoCJqwChwnF@laps>
+ <awlCy3vDs0fKx1ku@gremlin>
+ <awlNYsu1y8EhYgor@1wt.eu>
+ <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org>
+ <awlR9pQUjodcLjZK@gremlin>
+ <20261127133756.455469-1-sashal@kernel.org>
+ <awmJ2c87NSDjtSwp@gremlin>
+ <20261127143124.1039470-1-sashal@kernel.org>
+ <awmU4L01OH9kWEVv@gremlin>
+ <20261127153902.1320179-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,100 +88,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH for 7.4-rc2+ 1/7] powerpc/book3s64/mm: don't count
- invalidated PMDs in page table check
-To: Zi Yan <ziy@nvidia.com>, David Hildenbrand <david@kernel.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Kiryl Shutsemau <kas@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Rik van Riel <riel@surriel.com>, Vlastimil Babka <vbabka@kernel.org>,
- Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>,
- Kyle Zeng <kylebot@openai.com>, Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Andrew Donnellan <andrew+kernel@donnellan.id.au>,
- Rohan McLure <rmclure@linux.ibm.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org
-References: <20261015-anon_vma_uaf_fix-v1-0-7b977303b42b@nvidia.com>
- <20261015-anon_vma_uaf_fix-v1-1-7b977303b42b@nvidia.com>
-Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20261015-anon_vma_uaf_fix-v1-1-7b977303b42b@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127153902.1320179-1-sashal@kernel.org>
 
+> One question though: what stops you from ignoring the cover letter altogether
+> and looking only at the commit message? We can have AI explicitly tag a
+> "slopped" cover letter if it'll make it easier...
 
+Some subsystems 'git am' a patchset into a branch, and then merge the
+branch into there -next tree. The cover letter is used as the commit
+message in the merge commit, since it is supposed to explain the big
+picture of what the patshset does.
 
-On 15/10/2026 11:13, Zi Yan wrote:
-> pmdp_invalidate() replaces a huge PMD with an invalidated one
-> (_PAGE_PRESENT cleared and _PAGE_INVALID set) and calls
-> page_table_check_pmd_clear() on the old entry. This decreases the page
-> table check map count. When the invalidated entry is later replaced with
-> set_pmd_at(), as MADV_COLD, page_mkclean_one() and change_huge_pmd() do,
-> page_table_check_pmds_set() in set_pmd_at() clears it a second time and
-> decreases the map count because pmd_user_accessible_page() still counts it
-> as a live user mapping. The same happens when it is cleared with
-> pmdp_huge_get_and_clear(). Then the map count underflows and hits BUG_ON()
-> in page_table_check_clear().
-> 
-> Found by code inspection and confirmed in QEMU (pseries, POWER9, 64K
-> pages, CONFIG_PAGE_TABLE_CHECK_ENFORCED=y): MADV_COLD or mprotect() on
-> an anonymous THP hits the BUG_ON() with both the radix and the hash MMU.
-> 
-> Fix it by only counting entries that are hardware valid, so an
-> invalidated entry is skipped, as the patch "riscv: mm: exclude invalid
-> THP PMDs from page table check" did for riscv.
-> 
-> Fixes: 641d47d4c963 ("powerpc/mm: support page table check")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Zi Yan <ziy@nvidia.com>
-> To: Madhavan Srinivasan <maddy@linux.ibm.com>
-> To: Andrew Donnellan <andrew+kernel@donnellan.id.au>
-> To: Rohan McLure <rmclure@linux.ibm.com>
-> To: Pasha Tatashin <pasha.tatashin@soleen.com>
-> To: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-> Cc: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-> Cc: Shrikanth Hegde <sshegde@linux.ibm.com>
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  arch/powerpc/include/asm/book3s/64/pgtable.h | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-> index dff8790a047db..392474972777c 100644
-> --- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-> +++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-> @@ -1091,7 +1091,8 @@ static inline bool pmd_access_permitted(pmd_t pmd, bool write)
->  #define pmd_user_accessible_page pmd_user_accessible_page
->  static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
->  {
-> -	return pmd_leaf(pmd) && pte_user_accessible_page(mm, addr, pmd_pte(pmd));
-> +	return pmd_leaf(pmd) && pte_hw_valid(pmd_pte(pmd)) &&
-> +	       pte_user_accessible_page(mm, addr, pmd_pte(pmd));
->  }
->  
-
-LGTM.
-
-It fixes the double decrement in the page-table checker
-and preserves how kernel walkers recognize the temporarily
-invalid PMD.
-
-Acked-by: Usama Arif <usama.arif@linux.dev>
-
-
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> 
-
+	Andrew
