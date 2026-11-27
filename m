@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795782538;
-	b=JclNqJi0pciy6kc8z+cxOiKN3FXn40mMNX9UrPCdJAQtqhOIdvIb80FK344CEbCqnZfm
-	 0z8zZr9XhYunX/zgE90pZC+dtfgyHWX4CoiZw7A8+Z/c2z2q6UHBYzACa65I+Smh1ihPi
-	 27xbAka/YrBdIEnAI3vw22SvTlchxmelsz5LDR3XtdBIGS54fhdDhP5ip+VA41oDlqj46
-	 lS5gfrgUXDjRQLfuZn5bek3svxcRUjGDeExSi1eIxjBW4S8RRBJq5w5HwRESb+6hOA30l
-	 R5vVJEjztV2rIqQVlZ9c2M+/JnXpuhYT0VPyqYIqOL+SEGNI7hQOfYkdCmyhuNYGzXQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795782538;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=3iHq8357jseZEPfEyY2Z08chWi95v8Y1kHGpmZ69UH8=;
-	b=w/rpXedukh5Mq2J3/nQI6J/Tw5/c55IXoHJCCGwbEJGYg/D5PTBJulYyVzsdTFJTQ59c
-	 Speup7uXENO5BwrIC0t9ai2OtKyamDVvUvvxZ3iY7SaN7SIylzfyCy/ldlbdX4hAQuhvR
-	 rvSNO149c+HwGGCi3hkWgXP5YHOOAcn6v+6OmZPZD4Jhgq35PIL3IV3moij9xVrhg9CR2
-	 ps0wtvU87I7+mmolwbVHe/xDkIouVcCxmxwB8Hl2kTguTb3/Ld4bNQQwxnNQ354RF1Oy/
-	 0ULJ0Pn7TWxJMhQGcfcud0n3FhUKL05+aKLoN6weU6NbWLP04jksr2FMTWmsBa+gUnA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iseZnTaF;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YX9UkW9u;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795782569;
+	b=5MHOeR2252756vbBUjgf7jfl0XXaLp1SuQslq96HU5HlEETxIsRv/q2nP5JlaTHN811H
+	 C9Id/+IwooWrqEiuhZzXlo6sDJ3ih/bvYblwx+0n+NoivUrB4pAY3m6/hWIMFlZiqVniS
+	 1EX00T/Wj5Aa8cd1gFgJPV41IOgNbXw1vxuyKUUbNLATZH/xpJJIsk2VcyJxmTmiT8SG2
+	 rn1OxVhr/1W/i4qpdOEVC3P/0+nrYgfxIZbFjkOQR9SCpVu3b4PtMMm0yPUg67ivXdBIY
+	 iaXyhzBFRKGiqRQTcQbdbqTIUaAfcWFJk6ZP8fxbT3aY0hBp0CDnaNxnHGmGBS/AumA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795782569;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+	b=y9rEVZMkXdVdOTeeH71ccNGR7WDEMPbmidAIJgjIXe0uMt5TByUUiBw0a9yRgnOOa6zw
+	 VX183uUUMKfFoN1oj+m3HCrhp39eVdLqtnz7Z9GVsWL5P32y/Aetlo+ZCMmpPQFfgwwCa
+	 osEFruRP0V2gwcaUWAa1MMgflnxto2gZwtiVdp2+5iCZIWg5FwMiq55OIoJuMBoISb0Uv
+	 rQfXURI5jbybafjnpLzopoQNuKgmKvRTPimrRzx5xNujCc6Q5/ufulNox2N0MWclMzoQv
+	 JFfYO5QOLYzCQ5X64E0kOoQQZBp6Dl+OAT3BSWeBNdb+TEg+BtQAH+ZWBhp4aThXs1Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IDtGKepm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.177
+Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com [209.85.160.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A197A606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:28:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A197A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5688B606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:29:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5688B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iseZnTaF;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YX9UkW9u
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApDsG2677325
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:28:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3iHq8357jseZEPfEyY2Z08chWi95v8Y1kHGpmZ69UH8=; b=iseZnTaFgCFpXMMw
-	ec54HP9LDjwx4J65rptPmYVSvR9ZcDicWkOail3UnLs0byHjKYWMNo1GFxsXMMaT
-	AAsG1do/JGmeBEBCBMETqd0rhVBErVyd3aUJADH0blpW0W+mOJYvmWtJpQrsP7yQ
-	3B/VgyhcB6JI86zaF3nys3t5LqLc/3ygda+RvP3K4DnRHmHIhN6Mxf+mJfy2FXIq
-	a6o/ZmXfdS0TriFMKF6Z64/acVmkRUOyMgXtaHa+CVseJKoBS7qsdwfBSNVRo8pR
-	laT65WJvAbSB9odsyCvwEcSfISbtiCw3URmyrXkSfyvoDXX8g3h8+m8KsxAvmQ6k
-	JdpzLw==
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74gh9cq1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:28:56 +0000 (GMT)
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-154e9d2d94fso4684274c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:28:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IDtGKepm
+Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-55dd1f9b760so134701cf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:29:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795782568; cv=none;
+        d=google.com; s=arc-20260327;
+        b=l/Nc9SDvng5avKIVNQWhUmgAMUTlCvLM8hdAKS0rtWA60XBGs3xzZBu5IYNy3YmdRD
+         ezqrVTk3fv82qDHL45VKFdduY+QKQjqw/7IJkwOH6CzLa4Ou/ns4NUIS9twOxIaaPXaj
+         yIGQ7My+F1UTV31HOoat0LGWcW2mRuLGEJuRsqwmACC6XNNB/GZRKsD8hwZP2tx7kXJL
+         YjLK5PuYnSlPvMvYpFGUSxltjS/vSJtUnJtc/N+kpiT27GtnxutNUYcWJVBAWQRmnrXH
+         sya/jb5uX7SFKHYCSMQEoT4ogiHh+FWWpb+JPDmSHNvSIY3ZAgF7S6Zb71cpq9lvEXNb
+         nVkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+        fh=nU6IM58idONzKY3idJ5fNSAYCcZcz3A8h2Enoa/kPs0=;
+        b=M3qh3WsA3VOslkBEy84/ZS4Qzc97ybMkaBIe/EaTyKMG++VFdfZYn5NrqZFqt5TsJi
+         6mQFLWWK3vO59H42vpmbR+g02rh9RJaQAyOQhsu8229rAZVNsAav9pKym9LMaVnozOXx
+         Hx+7td+hSbEKn2q9Fy4Jo65iQYiefs8KUvbskDJ9+WMk92HYwYNGZs0UPu389W/ht44H
+         DN0K4QNk/745aczI/EsLVPFRLOrXQepejbvhGOqE9N2/UpDL43nnjf+qCsNJiJSkcD2b
+         iP03Ju39C6sTcnukjK8shhlUTL95FFd2NHp0bdBkN8zb//CgwaEys+/PhMEHVifH94Ae
+         8LWA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795782535; x=1796387335; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3iHq8357jseZEPfEyY2Z08chWi95v8Y1kHGpmZ69UH8=;
-        b=YX9UkW9uWFJ0yjsQxmstXaXn1XAWYR/psowJD+faKQZrWab5k7NnRFhYS0lv/fR4xi
-         DTsRPPsoF4xAWtYxNPBUddBktADoTeKoz51IPqXjdwopHmdt/aLAjhX12JrTvkzZxr/i
-         7/k+B7x3dkSNbNwUQgQDMm1rfJMjBRnZaIUXpRccm6+162euk6F1wcWdexZ5wi9irC9d
-         fHFUfVpoxcKk+3tLJkh2QZjG3dABoGJ8PBCMnamq89zaWCL+W+QMhbWqrZuAFFzr9A0N
-         PyEYh+VFkyYcuD2EHudkWb6MU/hMNx5xb6TmfZjuTpz1KLncAvhF70mPL/YfddFo38aN
-         mNFg==
+        d=google.com; s=20260707; t=1795782568; x=1796387368; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+        b=IDtGKepmhQShYR7D/olwV/obTk+1pmvySEjMhbDi/ma/1i93QiS/JtjUrgxBSMhQ0k
+         JL+ilsf6MgB7rL0RhzqkxVfHwpWehnk7Fk4Q747FAHE3PcGDe+yn84ff6jYRMPlMbx0e
+         QokdEvRzq0preycHEpMBQ2Lohvx+Zw/uSsx2DMrkiT1qcSSKYLtRImSCVnyuzNksYALX
+         NtWTa/1okzanV5FHK0NJqjKm441asfoZ8MYagjrt+QkZuqm+fqNCuiCSxrGhrELhPKIE
+         fk/8Dwyrnu3Us/ZvtQsa36mEXHtFs/36/ZYUVzpvU3JIUzDhbiIDtqOBlvidXDxzNxSY
+         eJ7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795782535; x=1796387335;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3iHq8357jseZEPfEyY2Z08chWi95v8Y1kHGpmZ69UH8=;
-        b=faU3s1ZpOm9JM7JvEqF9ewG3i64vrGbvvgGg2emAAZ/6K8RyhOX0ll4boxJ+qrbHpV
-         fiHloAqd52kqcMBw/nWS9oYF0elfgiQSIZfzsH5kQX8VgXWtn9wk4dUhgQqeybpeqi4J
-         kJH90nyUr/MmO2+8K2HmAQUg9yqthi+XCQL3PTf6Sh/6E8Fxm9vbMH9DhNS3WOsiE58N
-         +jlEyrTElYO7aCUu+tS4jrpQf6XPbZ5MrG3lF5sMyR7Zx4Tt47IgwYws+nEO1geVg9uV
-         Yxy+IoLu8iNzLv53m5gmRzYoV+hRs17YC++BzGGQjVd0pV5+EHiKz4PPrhUQ/y4duV7Q
-         8eXQ==
-X-Forwarded-Encrypted: i=1; AL+hErF1p9LIiGxwFhVuOvJg9zip8DaUoz2vE+WgwicdFek3kxFKrNUE+3Umaw6b2ZMrQJjbS8E9VvS1Ijj4nYQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++0IHX7v3dzxf0FUMekiq+5LulzlsTf5lyEtfZiXRVmwcckD06
-	vEZs/xL8UhKUpxv5hAw7YPQXPhvQlGGp8EeYySo+dSjCKsU5zHNPj4JSjKyQZZB+xeAr4HpgUw2
-	XF6+HABtLSxNiuwDR+lWNrICRYBQTTJE+27jNliYc7ZGU3ZXYTGfTEHWh7vpAB5zHPu4=
-X-Gm-Gg: AZFdTZc+LogYdnJ2hUSs9WrnOe4xCAjXc2kZT6pFveK6zljZW0p0dr/iSAI4fWBPsuo
-	s14PDh/BVtx9AvqNglaaj636lMBidnfYNxUbAxjjN9gd1Z70dJNivzpgHAbjx5NunvON6XOck3Y
-	GgukuBWAgaF/uWjtF0KqCa/uMg8W6ZoBzeQY3PGZEChQfS80T0uElcypYSEYC65a+0frnJ1URoi
-	wBNvLsdLHk0Chlg6WKuk7Cr5hfA+x5zTT/27gGrzRk+lVqmPPTD4v1Ws4C/jFYPECgFCp8n/e4F
-	ZhMhKk72x6b9vVxwSuRcuJ2PKAeV4cG+hO9f7osS4P0ItltMGxol8jFzOO2AhewOr0r1fTZd3oS
-	kCNq+ac3ElBQhYfIGsafkFQXuF0heaslIHxQgUg6x4M7vSnvGpKqR2+Ihn0QYI3F0mKU4cl4u5i
-	Pdn5ER
-X-Received: by 2002:a05:7022:ec17:b0:166:862b:9bcc with SMTP id a92af1059eb24-1b55689ad7amr31111925c88.18.1795782535502;
-        Fri, 27 Nov 2026 04:28:55 -0800 (PST)
-X-Received: by 2002:a05:7022:ec17:b0:166:862b:9bcc with SMTP id a92af1059eb24-1b55689ad7amr31111888c88.18.1795782534930;
-        Fri, 27 Nov 2026 04:28:54 -0800 (PST)
-Received: from [10.206.111.23] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm68351064c88.5.2026.11.27.04.28.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:28:54 -0800 (PST)
-Message-ID: <704a4e68-ee5f-4ed3-a975-49c0b131d6b2@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 17:58:48 +0530
+        d=1e100.net; s=20260707; t=1795782568; x=1796387368;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+        b=R/uRzQmqV78NZWDHiCDfZqiEtHHExLlwBsEsDYo5wocAG36ouQhew6xSXZgVIRMHOK
+         avkZOoMu/nEYE1dCi3ITzd1bsrMnnrDTfWsMOvGFfQLuXgw691fXJH8xwJndOKd/nTJN
+         Q5FMX4pYkt3drnvdoJ1/jW37SiJRJgJI+ZzheQKuhCta2l5R0tUDszulXsFjIJa44DIe
+         1iG5NXBoWqZnVVRO9M70LvKiKFg0C/kh6l2en825/ya+tfDaIXdOxna4LW9Z1zW06dew
+         O7ki6e1WezHQoI1Q2ZK7lcFgoQ6pHApe9toyfLhLz28O5n27Nm1UvroDJTFMbZVMwZhb
+         7q/w==
+X-Forwarded-Encrypted: i=1; AL+hErFQGHiym9s9645gJFoowOfxdXvj7Eqm8wLMC34zSh03aq++YxGQMtIPsTlOIvrkkMLvIOWbGA1W4gDepQw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6Ugf6OSiNAA60dV9al/ClmfJwLuILjp73e+1XnHO07kEcSGj5
+	dUwtRaffhtTWFoKjYtvtKy02tk0Y3zbGbVIW5lSyIbiyQ5/LEITTSBX0VTI3YtVEaEag8mvoGeS
+	iCIDe6UludPHmd0L+gTzWieP6/3L8l+Ab15+VuBLU
+X-Gm-Gg: AZFdTZejNT1WuqHdIXkonSW5PX2mZSBIMrNQVKEfqeyjYNie2Msz+d+ZxstmJ28N1bS
+	gdBBdK2iRuEZAOUiq4wkVT27XTO5Du84Zunk8hnTygEl3k70H6vZX15k3A8acAfIKy0sDJTCd8E
+	ADW/+FuMJ7Qef8BnBnoHBWcYn7glsy8+4mDk3UFevv7frtizaINe2o8AeY8nJxWsuVYd4o+pYgG
+	+lBiqmmFn6GsfpM8Q7wZvxfELkhA08wTdFphnpz/xpU/hHitTTT1qacRjgCj4YR9yzMmLz07Lec
+	57YZp8FQFHIEtlzY3WUVVhsyGyHG01h8mginVj9qtjtX5rU1MaUMzPbT1pLffVUIKsZ5f0cNAd3
+	cp87xBzytLZjrBMhKat5gmQq13M1tQfGCdmmygg==
+X-Received: by 2002:a05:622a:a14:b0:536:6ae9:f55f with SMTP id
+ d75a77b69052e-55d8900bdcfmr34062041cf.7.1795782567558; Fri, 27 Nov 2026
+ 04:29:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,103 +104,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] media: iris: Fix use-after-free on unbind with
- open sessions
-To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil <hverkuil@kernel.org>,
-        Stefan Schmidt <stefan.schmidt@linaro.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Hungyu Lin <dennylin0707@gmail.com>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        sashiko-bot <sashiko-bot@kernel.org>, stable@vger.kernel.org
-References: <20261119-iris-handle-unbind-v3-0-52d467a13907@oss.qualcomm.com>
- <20261119-iris-handle-unbind-v3-3-52d467a13907@oss.qualcomm.com>
-Content-Language: en-US
-From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <20261119-iris-handle-unbind-v3-3-52d467a13907@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0OSBTYWx0ZWRfX4cpkfPugoT6Q
- NT931jMmY+n5ak6FVu8YFVayDW5rzpizXhB0vjw89vEGc9Ehx0ar4fZJ00qzqYndyqT2+K26u27
- mj60nrW9964brgWy781WMLrkaltkF6M=
-X-Proofpoint-GUID: xQgiK_awnGujNmaP7d15YLm8eq7Ulq6v
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0OSBTYWx0ZWRfX+MDEec9Kkubs
- haUHvRmCT+r1duVHoFLOgk+9SsMuofUNnI+cad+FcjF0YuLEgMlKoMzWz1hhM/Ysfezov8M3ae9
- GTIMtx+TntbdaQ4SU1uqpMbntg6o4ft2yM8stjBL7iJRLLZHIrip6WUNa6jfjVAzO9Czr/ngaVl
- C1joaV7td3JE1RRkWF0mUdhi/DvfXQgBKgPsfkMLnY7GkxJ3HT+B6ghXtEgyzUMruzG30y9g91Z
- oCkgXaWj3jptQ8zhps3W2ZYwvrrpcC2pq7RAQDYJCmY4wqIymr7A6cdWkv2ngwyPS57mhHz4IrV
- QXcp6P3v6e9+ZfKW5BFH1eFLN8ZbMf/XQ0hLs5WXe3P+cnoO4//s1w0+qHMG/T4VpvCj2cTE5OX
- 9zMen+bu3WZA6IZ1UkLEdqj37jqRN1ezbKPZhuTyz3dkSVLx5isd9P6chNT9SpxLBVhhKXqg3Yd
- LXrkvpJsRw2HoinG9Dw==
-X-Authority-Analysis: v=2.4 cv=U5kHnuru c=1 sm=1 tr=0 ts=6b097788 cx=c_pps
- a=kVLUcbK0zfr7ocalXnG1qA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=g8Q9F2srHmfhVmvwUhAA:9 a=QEXdDO2ut3YA:10
- a=vr4QvYf-bLy2KjpDp97w:22
-X-Proofpoint-ORIG-GUID: xQgiK_awnGujNmaP7d15YLm8eq7Ulq6v
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 malwarescore=0 suspectscore=0 spamscore=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611270049
+References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
+ <20261120135013.GO3115493@ziepe.ca> <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
+ <1f10002ea9ee16a17087bd06e4a1685a973fdf6e.camel@linux.ibm.com>
+ <CAMP57yVZx=s-JXHfQfd_ouv2jV6MMsJXpxVLkQQHG=7qfFVJfA@mail.gmail.com> <d42bd9452d00a0b2a5b7d6652d556c9fc8d2c830.camel@linux.ibm.com>
+In-Reply-To: <d42bd9452d00a0b2a5b7d6652d556c9fc8d2c830.camel@linux.ibm.com>
+From: Luigi Rizzo <lrizzo@google.com>
+Date: Fri, 27 Nov 2026 13:28:50 +0100
+X-Gm-Features: Aa3M54o01jhZM9dCQYVFb8_-yMQWCkVYamRB04RwDLjyCo_Cf-5r3I24fRo_Jr4
+Message-ID: <CAMOZA0JMZ8wUrV08YznFUH7AkmyqXcNdzfd26KsoTtzqt69SVA@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+Cc: Naman Gulati <namangulati@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
+	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
+	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	Christoph Hellwig <hch@lst.de>, Dragos Tatulea <dtatulea@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
+	iommu@lists.linux.dev, netdev@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Catching up on a few comments:
 
-On 11/19/2026 5:15 PM, Vishnu Reddy wrote:
-> The driver can be unbound through sysfs while a client has a video
-> session open. The core is devm allocated and freed when remove()
-> returns, so the open sessions then use freed memory.
-> 
-> Only the core structure needs to outlive remove(), because it is the
-> only thing the file operations of an open session still use. Allocate
-> it with kzalloc and tie it to the reference count of its v4l2_device,
-> which every registered video device holds. It is freed when the last
-> file descriptor is closed. The other devm resources (register mapping,
-> response packet, clocks, power domains, interconnects) are only used by
-> the power on/off sequence, the clock and bandwidth votes and the
-> interrupt handler. All of them are released with the unbind, after the
-> core is shut down.
-> 
-> To make sure nothing uses them afterwards, set a removing flag at the
-> start of iris_remove(). It makes core init, new sessions, command
-> writes and the clock and interconnect votes fail with -ENODEV, so a
-> client still holding a file descriptor cannot power the hardware on or
-> vote for resources that are gone. A client waiting for the firmware
-> only times out and returns an error without touching them. Runtime PM
-> is also disabled explicitly in iris_remove() instead of with devm,
-> because its callbacks use the core.
-> 
-> Callers that hold a runtime PM reference, such as iris_open(),
-> iris_hfi_queue_cmd_write() and iris_scale_power(), can still be running
-> when remove() starts, as video_unregister_device() does not wait for
-> them. Take an rw_semaphore for read around the reference and wait for
-> it in iris_remove(), so that the references are dropped before runtime
-> PM is disabled and the unbind releases the resources of the device.
-> 
-> Fixes: 38506cb7e8d2 ("media: iris: add platform driver for iris video device")
-> Reported-by: sashiko-bot<sashiko-bot@kernel.org>
-> Closes:https://lore.kernel.org/all/20260926064921.976721F000FF@smtp.kernel.org
-> Cc:stable@vger.kernel.org
-> Signed-off-by: Vishnu Reddy<busanna.reddy@oss.qualcomm.com>
-> ---
->   drivers/media/platform/qcom/iris/iris_core.c      |  5 +++
->   drivers/media/platform/qcom/iris/iris_core.h      |  4 ++
->   drivers/media/platform/qcom/iris/iris_hfi_queue.c | 18 ++++++++-
->   drivers/media/platform/qcom/iris/iris_power.c     | 24 +++++++++++-
->   drivers/media/platform/qcom/iris/iris_probe.c     | 48 ++++++++++++++++++-----
->   drivers/media/platform/qcom/iris/iris_vidc.c      | 15 ++++++-
->   6 files changed, 102 insertions(+), 12 deletions(-)
+On Thu, Nov 26, 2026 at 9:46=E2=80=AFPM Niklas Schnelle <schnelle@linux.ibm=
+.com> wrote:
+>
+> On Mon, 2026-11-23 at 09:50 -0800, Naman Gulati wrote:
+> > On Mon, Nov 23, 2026 at 2:10=E2=80=AFAM Niklas Schnelle <schnelle@linux=
+.ibm.com> wrote:
+...
+> > > I think that approach would also align with Jason's idea to keep thin=
+gs
+> > > within the network stack and to work with the tools we have until the=
+ir
+> > > limits become very clear.
+> >
+> > Hi Niklas,
+> >
+> > I have been working on this idea exactly - extending the network
+> > page-pool with a memory provider that allocates large pages, splitting
+> > them into N smaller pages that all share a single IOMMU entry. I
+> > breifly shared my approach in the v1 PMD series [1]. I'm readying a
+> > short RFC to share shortly, would appreciate your feedback.
+> >
+> >
+> > [1] https://lore.kernel.org/netdev/CAMP57yWvHO0pWCR3-9q1gtwVe8WV4Y6i69t=
+rmw+BJRVYf3JB1g@mail.gmail.com/
+> >
+>
+> Hi Naman,
+>
+> This does look more contained, but I'd say you should still go simpler
+> and fewer steps per series. Some thoughts:
+...
+> - This is still a LOT of churn, my gut says much of the benefit should
+> be possible with much less churn. It's really too much to follow but a
+> cursory look makes me feel like there is duplication between rx and tx,
+> which is weird since for the pre-mapping they should be quite similar.
+> There also seems to be very little integration with the existing page
+> pool, rather it seems to set up a parallel mechanism for the pre-mapped
+> buffers. Really in a first step I think we "just" want to use a more
+> efficient DMA mapping and contiguous memory chunks for the page pool
+> and also keep the page pool API unchanged as much as possible.
 
-Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+The implementations seem large because they expose limitations
+in the current kernel code (or our understanding of it;
+but the proof is in the pudding). Networking for one, since you
+mention it: the tx path allocates memory in many places without any
+hint on how the memory will be used (loopback or device with IOMMU ?
+cleartext or encrypted?).
 
+If we limit to the easy parts (e.g. just network RX) we may avoid
+some churn but we will not resolve the problems arising
+from reasonably strict IOMMU deployments on large systems:
+- IOTLB thrashing (network traffic uses separate PTEs for
+  rx buffers, rx headers, tx_buffers, tx headers). Rx buffers
+  are only 25..50% of the total. See [1] for some data.
+- per-buffer VM exits on overcommitted VMs (same problem as above)
+- IOMMU unmap serialization (with strict DMA, I measured over 10us under lo=
+ad)
+- swiotlb copy cost (on tx and a backlogged queue, most of the copies
+  happen on the TX softirq handler).
+
+Also we will not be able to see what is lacking in the current kernel
+code to address all the above.
+
+What I wanted to do with my series (Request-For-Comment, for a reason)
+was to identify the components we presumably need (meaning: implement,
+or figure out where they already exist and actually do what we need)
+and get an idea of how intrusive the changes would be.
+
+Then it is completely fair to say that the goal is not worth the effort
+and should not be pursued, or to take the low-hanging fruits out of it.
+
+cheers
+luigi
+
+[1] Here is an experiment with a system using bidirectional TCP
+traffic on multiple NICs, where IOTLB thrashing becomes a bottleneck.
+Below is how total throughput (TCP payload TX+RX across all NICs)
+changes using 2MB mappings for different regions.
+We really need to cover them all to recover the performance
+of identity mode
+
+Use of 2MB mappings         total TCP throughput Gbps
+-----------------------------------------------------
+none                                  440
+rings                                 572
+rx_buf rings                          577
+rx_buf tx_hdr                         572
+rx_buf tx_buf                         649
+rx_buf rx_hdr                         674
+rx_buf rx_hdr tx_buf                  716
+rx_buf tx_buf tx_hdr                  734
+rx_buf rx_hdr tx_buf tx_hdr rings     744
+identity mode                         744
+------------------------------------------------------
