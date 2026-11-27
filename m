@@ -1,54 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795785577;
-	b=sVvU5ZILTJgie/xqKjCOHvgyPTMoF/Qk9Lh1OKsvmj5Mt2VgbIeC4FAbRZ+96eOxzo8S
-	 RUH9wY8kUq8/Vher/y/0FjjmeMPz9L9rDMRpYf98koi7WEhfrERGyGg8eL+3By4MKyeX8
-	 6NIMNRRD977QhM9f2kJAD+5JWPszh7HEzwjhDQ3Wn5mq1hFrnGKlP96ySNKoJMvTEz7Nl
-	 cofxbzBO935IFQFkMaOhHsPLvs9YwduVnV/s49D1vLM4e8cupxcnx8XEDKZuTmmTaq8+H
-	 U4QxxVXycMMPH9oE+iopUHMJUZ7OzDuu8E/QLGAunKOIF+NGv4ZyIVbUMT4ZXoKLGWg==
+	t=1795785619;
+	b=kq9dSS0f1VSdNO46PGaciGLNGR1G1+YMVoNOKTaTDSc+gymQrz98O5+kFMpgK9LAQWon
+	 yalJ9VsJyBaBqlsc/RuBtF8O5nO7kbqn5fX7Jl4RwXXpL5ljBBA90GfvXii5UAkgYvBO5
+	 YS2teVHsS9HhFY0kJy1bHdwYcTumPVqxNrprfYHEqiohaEeCItNYGieismGIpaLzIXivD
+	 xR2bPME90HVOMH+0iNbKbzvYhSOBB/s8H1GwUcozI7vIV4avqfM6meUc63BTUq/1YAC3m
+	 2b7DUpGxfy4EVKHILEpexqcOthnPQoeBZ+/7V0TDnRDxuihT5RorAiqaUxtV436FZYA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785577;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785619;
 	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
 	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=SY2tTRtiqzTHvXGQ5QTsdsPt0UxHnzMGtbeuKwj2TvA=;
-	b=g+9D/1X+J8apeWEqSrfpGbAHvy3F5xf/W1XUMmaRrOhqUV5RPZCTwBe7psbWfoRFKo1F
-	 6W8Mf2F/KTSpo0pCkcCIDdjSxPBRfr12YPk0zivRxxGblHHaO1zC1SJ+Cix7e0hOkg+GB
-	 Q3RToCdS4RqKB5pHDA07n6hN1iZ+qA/3mhtK0xaqw8lrcmLhwq/hA4zu8AWqm30zR+qox
-	 wX7cFSFefXIUtMKLXIHA6u0e2v0fjctIj7clcqBueKSfZMbmXraGdQVkJt86Rg/PmiZic
-	 lLQCN5Q2c8a/D1W7xF82OCrAA0RSdp2p32XYY5HblQlXsv6mQDuWgF6t9tqA/MWrW/Q==
+	bh=t3bmZhMlLLLChKiQYVURV/Tny2pVJcAegEMm5bEYllA=;
+	b=AQAd7kjrfKtcXnW1c4SIfq/ce+6dNcVf7Z5/7D6zBzZTCwo0ZOQb+iDtKygDUaWvj9yJ
+	 HOv5716wl/9pnp5VzVSlLOJN5juzdW7l/4GtwBjC0kEOZiyN5Dxy9Hr/eeScgOqlAE2lo
+	 XGGyWcwlb59qEv8wfXyHSVDJGHostSHMXqXTetm11K+SKa+FjnlXv6CU8VVXHv1JPfxx+
+	 UC0y2augz1WH2VdkG2/4jfVnTRG+RaEuun+dyATSnyOEuZwtT4XqhSHMFzvHs8hmOgrU8
+	 Afh22j5WraCZ7x0d1FA6JH5k0wigz0rbuGUwMXL3mTT4rGmryZfdLAZwobmy74fM1LA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=fjbmhK+G;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=IztbIJC3;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3D02606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:19:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3D02606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 650D5606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:20:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 650D5606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=fjbmhK+G
-ARC-Seal: i=1; a=rsa-sha256; t=1795785553; cv=none; 
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=IztbIJC3
+ARC-Seal: i=1; a=rsa-sha256; t=1795785601; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ExGPjq9IDnRlB6hWxXSGQX7ogKjPd23U9QB0EvvQKYI2wamK7QK8W7uDMaTyWkBaiBSvsUC0Rg25zqIklTzuCRmhy666D5dZHgfJDBw+T8K2eKtwg8tUsp2RYvKmuFnNbY5r3swJ5p2iq7nNgNaB1p3yFnrOAARLSQDeJCdF1Y4=
+	b=PZc+IvajhshC54TAHOFTMmDH2mve+1jfOAsQkwp1C/mRnWLYl+Ef10yP4o8fNhhDff8Ob+w2l0nX13lPkFmsFYttLCZqbC3WTsZetDDui1aMaeqiCFnQLy4/VM8FxGeTQUUj4Cbnm4DZi5a+6v4u/MR4TYRLxctV4CzpNh/ZmgA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795785553; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SY2tTRtiqzTHvXGQ5QTsdsPt0UxHnzMGtbeuKwj2TvA=; 
-	b=N9pMmMqyqGSbC11VrwobCh0Ufuih+GCofny6P2f+NB29EO70v3+ZCkdif7phU75wi067sBAUJGaA+5bjYE2EFG63S15S6imY0OzavzhQp8/glPs/eyzNXC2N1TyYXqPZfcYgpIdhwXHy0eLMRmlWyn03qvGaEdJX//oxxk1nESw=
+	t=1795785601; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=t3bmZhMlLLLChKiQYVURV/Tny2pVJcAegEMm5bEYllA=; 
+	b=ICqQyiL2vq0cpK6WNAENZCQ+YBy2NXOZAVfGLbzrjwNr2o6svO/HKeYqVgQEVugno8+eh3JSmBJUXI18S80usLpG8fD3hEp7ptn6Osjc2xKiXczCKVNuvU3qrJcnHdVnwr6H7POjJ3x2DGrVp+qHiXqjJsCVKQ9HKnyDz0dwGQc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
 	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=fjbmhK+GqS73MX/08cVjaAwQ7iL3tx9bfClgvoIpt47AfwApP5c9hSD79eOQULd+Wuamcm31HrgzZ6Nx2dIG6Yb5LvYIJxjENVRmCc6sBxvT9gX78UGb4NSuGSnMOf42U+co0QeWMIaBR2x59x5DJ8JmOGF7cdlt0Z44kvBVLZc=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=SY2tTRtiqzTHvXGQ5QTsdsPt0UxHnzMGtbeuKwj2TvA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795785550255124.78204008607634;
-	Fri, 27 Nov 2026 05:19:10 -0800 (PST)
-Message-ID: <f90f752c-d9f8-4280-bed1-1059c075e42d@collabora.com>
-Date: Fri, 27 Nov 2026 16:19:05 +0300
+DKIM-Signature: a=rsa-sha256; b=IztbIJC3g4yrB4jKc/9Up1BLK/zgg6JzSywiNdLaBvhK8OuUHH7hDElgLGYtc7sVBA3zI3EFVeeiMZiZmOjmchaxJLXt4wE2EWlvdax/pqRXxCMSXhOS0M/rmgTly03NCHQLpeMgSKeAW3t4fixWZMIzMYxrbXvt1ax29XgnEyk=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=t3bmZhMlLLLChKiQYVURV/Tny2pVJcAegEMm5bEYllA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 17957855989751007.5771783185683;
+	Fri, 27 Nov 2026 05:19:58 -0800 (PST)
+Message-ID: <152ed8fa-c32f-4502-8852-c6a9c6f60872@collabora.com>
+Date: Fri, 27 Nov 2026 16:19:54 +0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,8 +59,8 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v10 1/4] drm/virtio: add VIRTIO_GPU_CAPSET_ROCM
- capability
+Subject: Re: [RFC PATCH v10 2/4] drm/virtio: add userptr blob resource to the
+ UAPI
 To: Honglei Huang <honghuan@amd.com>,
  Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
  David Airlie <airlied@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>
@@ -69,64 +69,91 @@ Cc: Gurchetan Singh <gurchetansingh@chromium.org>,
  dri-devel@lists.freedesktop.org, virtualization@lists.linux.dev,
  linux-kernel@vger.kernel.org
 References: <20261106082625.812860-1-honghuan@amd.com>
- <20261106082625.812860-2-honghuan@amd.com>
+ <20261106082625.812860-3-honghuan@amd.com>
 Content-Language: en-US
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-In-Reply-To: <20261106082625.812860-2-honghuan@amd.com>
+In-Reply-To: <20261106082625.812860-3-honghuan@amd.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-ZohoMailClient: External
 
 On 11/6/26 11:26, Honglei Huang wrote:
-> Add a new GPU capability set VIRTIO_GPU_CAPSET_ROCM to support ROCm
-> compute workloads in virtualized environments.
+> Add a userptr address field so userspace can request a blob backed
+> by an existing process mapping. A non-zero userptr selects that
+> path; probe VIRTGPU_PARAM_USERPTR before using the field.
 > 
-> ROCm (Radeon Open Compute) is AMD's open-source software platform for
-> GPU compute and HPC workloads.
-> 
-> ID 7 is already used by the OpenCL capset (VIRCL), and gfxstream's
-> rutabaga_gfx has already claimed IDs 7-9 ahead of any spec or kernel
-> header update, so ROCm uses ID 10 to avoid a further collision. A
-> matching virtio-gpu specification change is in progress to register this
-> assignment.
-> 
-> Also add the matching VIRTGPU_DRM_CAPSET_ROCM alias in virtgpu_drm.h for
-> consistency with the other capability sets exposed through
-> DRM_IOCTL_VIRTGPU_GET_CAPS.
+> GPU-readonly backing is requested with the virtio CREATE_BLOB wire
+> flag VIRTIO_GPU_BLOB_FLAG_USE_READONLY (also
+> VIRTGPU_BLOB_FLAG_USE_READONLY). The device MUST NOT write such a
+> resource. The guest pins without FOLL_WRITE only when the device
+> advertised VIRTIO_GPU_F_BLOB_READONLY (VIRTGPU_PARAM_BLOB_READONLY).
 > 
 > Signed-off-by: Honglei Huang <honghuan@amd.com>
 > ---
->   include/uapi/drm/virtgpu_drm.h  | 1 +
->   include/uapi/linux/virtio_gpu.h | 1 +
->   2 files changed, 2 insertions(+)
+>   include/uapi/drm/virtgpu_drm.h  | 10 ++++++++++
+>   include/uapi/linux/virtio_gpu.h |  5 +++++
+>   2 files changed, 15 insertions(+)
 > 
 > diff --git a/include/uapi/drm/virtgpu_drm.h b/include/uapi/drm/virtgpu_drm.h
-> index 95587e12ae..9b886e9772 100644
+> index 9b886e9772..c890c754d8 100644
 > --- a/include/uapi/drm/virtgpu_drm.h
 > +++ b/include/uapi/drm/virtgpu_drm.h
-> @@ -170,6 +170,7 @@ struct drm_virtgpu_3d_wait {
->   #define VIRTGPU_DRM_CAPSET_VENUS 4
->   #define VIRTGPU_DRM_CAPSET_CROSS_DOMAIN 5
->   #define VIRTGPU_DRM_CAPSET_DRM 6
-> +#define VIRTGPU_DRM_CAPSET_ROCM 10
->   struct drm_virtgpu_get_caps {
->   	__u32 cap_set_id;
->   	__u32 cap_set_ver;
+> @@ -99,6 +99,8 @@ struct drm_virtgpu_execbuffer {
+>   #define VIRTGPU_PARAM_SUPPORTED_CAPSET_IDs 7 /* Bitmask of supported capability set ids */
+>   #define VIRTGPU_PARAM_EXPLICIT_DEBUG_NAME 8 /* Ability to set debug name from userspace */
+>   #define VIRTGPU_PARAM_BLOB_ALIGNMENT 9 /* Device alignment requirements for blobs */
+> +#define VIRTGPU_PARAM_USERPTR 10 /* CREATE_BLOB userptr field is supported */
+> +#define VIRTGPU_PARAM_BLOB_READONLY 11 /* VIRTGPU_BLOB_FLAG_USE_READONLY is honored */
+>   
+>   struct drm_virtgpu_getparam {
+>   	__u64 param;
+> @@ -187,6 +189,7 @@ struct drm_virtgpu_resource_create_blob {
+>   #define VIRTGPU_BLOB_FLAG_USE_MAPPABLE     0x0001
+>   #define VIRTGPU_BLOB_FLAG_USE_SHAREABLE    0x0002
+>   #define VIRTGPU_BLOB_FLAG_USE_CROSS_DEVICE 0x0004
+> +#define VIRTGPU_BLOB_FLAG_USE_READONLY     0x0008
+>   	/* zero is invalid blob_mem */
+>   	__u32 blob_mem;
+>   	__u32 blob_flags;
+> @@ -206,6 +209,13 @@ struct drm_virtgpu_resource_create_blob {
+>   #define DRM_VIRTGPU_BLOB_FLAG_HINT_DEFER_MAPPING        0x0001
+>   	__u32 blob_hints;
+>   	__u32 pad2;
+> +
+> +	/*
+> +	 * Non-zero selects the userptr path and is valid only with
+> +	 * VIRTGPU_BLOB_MEM_GUEST. Must be 0 otherwise. Probe
+> +	 * VIRTGPU_PARAM_USERPTR before using this field.
+> +	 */
+> +	__u64 userptr;
+>   };
+>   
+>   #define VIRTGPU_CONTEXT_PARAM_CAPSET_ID       0x0001
 > diff --git a/include/uapi/linux/virtio_gpu.h b/include/uapi/linux/virtio_gpu.h
-> index 4f530d9005..e22049835e 100644
+> index e22049835e..af95374758 100644
 > --- a/include/uapi/linux/virtio_gpu.h
 > +++ b/include/uapi/linux/virtio_gpu.h
-> @@ -321,6 +321,7 @@ struct virtio_gpu_cmd_submit {
->   #define VIRTIO_GPU_CAPSET_VENUS 4
->   #define VIRTIO_GPU_CAPSET_CROSS_DOMAIN 5
->   #define VIRTIO_GPU_CAPSET_DRM 6
-> +#define VIRTIO_GPU_CAPSET_ROCM 10
+> @@ -72,6 +72,10 @@
+>    * must be aligned to that value.
+>    */
+>   #define VIRTIO_GPU_F_BLOB_ALIGNMENT      5
+> +/*
+> + * VIRTIO_GPU_BLOB_FLAG_USE_READONLY
+> + */
+> +#define VIRTIO_GPU_F_BLOB_READONLY       6
 >   
->   /* VIRTIO_GPU_CMD_GET_CAPSET_INFO */
->   struct virtio_gpu_get_capset_info {
+>   enum virtio_gpu_ctrl_type {
+>   	VIRTIO_GPU_UNDEFINED = 0,
+> @@ -415,6 +419,7 @@ struct virtio_gpu_resource_create_blob {
+>   #define VIRTIO_GPU_BLOB_FLAG_USE_MAPPABLE     0x0001
+>   #define VIRTIO_GPU_BLOB_FLAG_USE_SHAREABLE    0x0002
+>   #define VIRTIO_GPU_BLOB_FLAG_USE_CROSS_DEVICE 0x0004
+> +#define VIRTIO_GPU_BLOB_FLAG_USE_READONLY     0x0008
+>   	/* zero is invalid blob mem */
+>   	__le32 blob_mem;
+>   	__le32 blob_flags;
 
-Could you please give a link to the spec change discussion? Please send 
-it to virtio-comment ML if haven't been done yet.
+Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
 -- 
 Best regards,
