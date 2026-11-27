@@ -1,123 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795790652;
-	b=Y0FP7hrp4g4sUWd1bRDL0Zdx1VGiuqJgqa7uUB0pw2toB4pk0DkFZCQr4Cv5TZZZkrBP
-	 VZWS06D09LXyBhuIIBmaha8VdXjCTRKbIHONvMvsQABYDL61ee5kYis3ri7jIUEHZMuyI
-	 CNGLGx2D7Ewbmq979yjGYdFD2OIe4g113uEfZaISwcNjm+br8YroQDq6G3BzOoJ5Dze+g
-	 WAFBUDM7eFIj1sODVL8QK4d9YagYBlypEzI5uxhE3p/0R421TPxhE89XYy9wX1iiVbAUB
-	 nS61H2PQlZIu9dgRfh1moCzMIJkgRDCgcq5gxS8l7vfmxLifFRriSb8mrZ2p4O7WlTQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790652;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=pmXq4cx53aUwMhwc/UEGREZga34tC+gW3KcyCWNtHZQ=;
-	b=e/KZvjB0JBUYlIt0Bluyr0ml+BUyTJP1WsO5pAvviaq13rs5K2UUVuBNO5gaOcrbvx3g
-	 4t0ZHNje/lRQP7MGIVXpLa2Iye60DynpAMAgTXEBj88EFaG7gzmD4YFAo4dZUipTPSe7r
-	 nboy3o34XYi4G5yTifzMZ8Rc5/d0nB1CdHyIRg1r7lpHoe44qIX/MCfCxdZu2yJOe28QC
-	 oF+cAML+kBtg2N2LW/zdsR0d4AaixFOgggmiaz2YRqV7aAPjfpkPXal6BFjTqCwV8ONqy
-	 A8JBopPcjbFv/0BwL3kKX34SlLjhlUXAWui6J4VNZrT1KHJawj4rGCTOXn5FxZJv5Ug==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=o1LybMnF;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LYzJqxaz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795790726;
+	b=MYkcA4mm6A2zjo/3XbCZwglpHnclmXMEWRcrU6rjWtbknwzdgQj6NeFwKfKWn9ge2z5E
+	 C7tdTWaorbr5cdtelsvOA1W4+GxWOnGQgFixwspWw/tHcDRcgA7HnOxx//N+GtJtJdpWO
+	 QtrbEVRy6U797V6USIy22qwGjlfGk6GJwZvWcihbbegJlWPA2vyp29hkRRQP+Mk+mCD68
+	 9m6or3XTHFQ61T/yQ7eX00FLTea3/xUWZAC/cjlDjY0GSwi8+TbYNPPmodnbpKg1lNjq9
+	 3+X/Vgbl7hC9tVYgmJohoAsCFxABePyUxeeEWNQ29SOXHkAX61ZdcS6NScLutQpzn3Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790726;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=LO23VuR8oz1He3kunSDVbm/R/AJdXLqeSuquj/Un54I=;
+	b=jN8Sv/7p9vkNQE4QyVpnAFi4nS5ogc7nIqoY7wlxvLdxNfKCJOJND4DBIeEL29E7M1ji
+	 OmJSbKp8kGQBHeybhK5E23J/haN+dfwp2vsSvKseZKNwdkcQ5Q9n/tDX2/dOXyY8U8DCY
+	 PJb9V5Sz3YMqDt9T856SobA2LE4J9TTx9SHYYyZt6AZoBbc5H24CLzhXjo3Pzij7fE1QI
+	 JREwA9Zzu92AbIyIFVcP2zcVwiXVxoLWo4GZfRCHRyNmEKAtiUrXAKAuRf/sdHaaYBXje
+	 7rBn6zjXWjHbWM/+0cMtrd2N8ae1j0XiEsKEAajDgIQjep3d39zloZQzva+E4HKdcAw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=tH0WWuAW;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B07C7606A335
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:44:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B07C7606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F080606A682
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:45:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F080606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=o1LybMnF;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LYzJqxaz
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1ffP4019024
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:44:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	pmXq4cx53aUwMhwc/UEGREZga34tC+gW3KcyCWNtHZQ=; b=o1LybMnFRa+q79+V
-	ekVA4miAUH6PmcFrPXvFjVQ8gPcGrgdAdQgVYMMohiAs5KTTGLs9wRmBzmFIyGAR
-	j7eoITOl0kE42BTLSS9ytyByV8FZv8UAaUCTabK8cAoAHpJMnXsxDtIcZP9SPlI7
-	ukRBmMXS6h/cJihq8GfSh3KtNSSGD+IHIBXyjJ0GV2rx7klf6IgWEdQHGRgw1/5v
-	Zuc4IzPCS05eQrAflhuVMJ8USxnRc8GvxHS+28zCoooFPIA4RrIZ+q+XfU4dLYNi
-	kKnF8cCLHm58FFz3MYF4OIt8LHZl/9Bxcl2oIpx3t78rngF5XPwEaxD5nFplt3Ur
-	q/SYDA==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73dha41t-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:44:10 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso4738210a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:44:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795790650; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Zq5pHbTIf9RzrTY3X4yTfGDk/jBgyWlQXdyQeCsMyPeChDzCLy4MZjc4YEyohTohQH
-         7yYiS1rcel5OiSBphYLVV1L7ELuTdmwwkbPXeb+ubfJjSHMHGW0g62MV/qRgCb0kc5cH
-         qgT0JCzfhIht40vXTNp0MFyV9fhHx5ouRtiqPZMVh+F68DeBponzbqS9a8+RwRTR1Nib
-         Jnz/7M12Wft7tRKROEuqLP9VFF8lZ1YTTjeJyCZQnfci6Sh6f/8OkdLIJ4+pNkVkfLWF
-         ZrWcH2J3TofwU/kIsIhSA3ZLemVq/YBmRcSxz/R14bL/3vft3yaz9pIc1OKbbwfDwlz5
-         +U2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pmXq4cx53aUwMhwc/UEGREZga34tC+gW3KcyCWNtHZQ=;
-        fh=tZAjT+8bauT8KrABWieq2Xw+VmJltfhgMIIyVcYNWuI=;
-        b=kbrvDPlRZ0CDK1j+oOjZ66srTYfSRlnAgSG3Mffma41nXIwPJraukZquXd3TCXUOew
-         GhZaBSIIo7VMwjfYGJ2ePZMgB5nBxkLUjgkStXjyy/4ZITnoF5eX/SHIwsl8ifO00fBB
-         xRyeJ/26oLGC+P+iuKs/7986FA/ydCDATXkUjeqEOWRXfY5ElKBlsPn98PUW+dxmOMOU
-         dgvdAoir5MduT7oVLjElJEsp2QLTef16am+D9j1A0p4x/CEBQi3N4p1ktDfooVERSmnQ
-         KxZQ1d2Dj+bkypc5VnTGS36sVLk33wXdHuUHfT/+NQn8ARyXIpoD+0z3hMff9/uMX/gA
-         RB2w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795790650; x=1796395450; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pmXq4cx53aUwMhwc/UEGREZga34tC+gW3KcyCWNtHZQ=;
-        b=LYzJqxazovw/e3wTvv0whYtn4VBANGtVVN0VCGLsv1PFK8e6jCrz6Ce4p+4JAwC6Kn
-         MJJHLjN18V4Tj6PFBfO1KXqQAO0+ojMUVoVQFML1urZR0KD34YFlBNoXdxy/K43drMJu
-         ZMENt3vp9gng3L0azPcEwlNR4trfewe7d5LmdZ/Vp0Se2YZBn9mkCgqxRmaqxIidJB9/
-         ebhdrEyE7n0GGZ5tFotuuE/sav++QNgp0AYVZlxJbTXMgImswYvJiu8gEcArXC7sd11B
-         UcQXc0DIa+LTKRpwvaKSal0J+vU898SMcgVx+5p4L50TXxsvXHSFuzYhu8CZbhncfbbW
-         RQdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790650; x=1796395450;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pmXq4cx53aUwMhwc/UEGREZga34tC+gW3KcyCWNtHZQ=;
-        b=NCnA8gdP0R90PSkXnJv/BsCeBHsfXwN329/ldqCDbyuFLLUAsh0JbKjmPxqJL+M6fD
-         RFtaa7hvjpoYdzrJD9FVHj+bD9PE/uwzx22gpBsuqy7QDiQV/+1yHiY42+eQTFKYF6IY
-         +I7ioFvqVoxxzGNyeI+ndGd9fvvuG3GfgWtP2i/5fsYQC21eWr6FkdY04doGY+9rgcgb
-         +rz2Tutpqccn8y0B1gPgBnU+YI+2MjglaAOO1LvMYEt56sjat1S+nebmpAz+8FyBZRdL
-         z2SWfp4Y0uh+WW3BU8CH+bRFJo/0ZDdL4xlct7SfzKM9JccYjIXNoqDI4o0cEEbhqjRL
-         mwng==
-X-Forwarded-Encrypted: i=1; AL+hErGo9/nTzBzeFAk8zuD5LstjlvNhhhQ2JvT2+Jbeo+kSSIFK3vWQVpijWr1Rj2ahrqZe8TzJ/HnhHeg61Wk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8AqJQk53M+TOXAYbQEXzhCd8A6wVp4S/QddnQg62kdE0OmQDx7
-	Oj1u3qyHBf8kk/9CTV/Q77zW+VFzO7oIHuwBd4o4CFWC9yZv5XCzCvxAe2B2QBNFg7lyqdIh3E/
-	P+efNiYuKYdwHmbhNS83fyCzKUINVVO1q3YL++XPjgf5c2e/EhEyEqMunvbfdgFgJKvKOEgqeNd
-	xNUFseIlRj0/IsYz1PHa/dzrZv3p6NN1dSMWubY4YtnA==
-X-Gm-Gg: AZFdTZfbdTPLR0zFt4e5aRoqn6rxsbAfuFo5H+X0HFHprqe3qCKQFW1S0Brn/CfE8w7
-	qZYMANP+8I4ZI2lAkorHxvPzpM+ooj08XInHWK7pbErJXMTNs1qNoqJOxvE/Ydicn3YofDbGgmj
-	osO6r/M5VoDBhD9UN1LpmGKQPxPf9pthS+xMN10zN1aHI789XfGaZwdIQ/aQ==
-X-Received: by 2002:a05:6a20:af1f:b0:3fb:3d85:ef56 with SMTP id adf61e73a8af0-40295495278mr14267545637.66.1795790649545;
-        Fri, 27 Nov 2026 06:44:09 -0800 (PST)
-X-Received: by 2002:a05:6a20:af1f:b0:3fb:3d85:ef56 with SMTP id
- adf61e73a8af0-40295495278mr14267522637.66.1795790649103; Fri, 27 Nov 2026
- 06:44:09 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=tH0WWuAW
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261127144518euoutp02027c92d95d1b07e86569023cdac5abd8~r7iTZf2H70488504885euoutp02d
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:45:18 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261127144518euoutp02027c92d95d1b07e86569023cdac5abd8~r7iTZf2H70488504885euoutp02d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795790718;
+	bh=LO23VuR8oz1He3kunSDVbm/R/AJdXLqeSuquj/Un54I=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=tH0WWuAWuzPYHQm+soNKBsCky89aAJhBeNMAl+NLBMauK5hFl+uh1UAcu8tbLdEG8
+	 nfJHn+PQMz0l0380GnH9tpUphr2qR24lltrW+TLLa0SnHNNvRebMYggDeIzGPDKUTM
+	 7619QSF/iwix+iDn0+A0kvV6ZYYjAB+a2KaAoYZs=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261127144518eucas1p22cf8f824453316c6bfb1f0a0066453b3~r7iTA2KY93155031550eucas1p2D;
+	Fri, 27 Nov 2026 14:45:18 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261127144515eusmtip242d75ac11ad94c4e4ca4316ca179bbe6~r7iQ-8K-m1223712237eusmtip2d;
+	Fri, 27 Nov 2026 14:45:15 +0000 (GMT)
+Message-ID: <feec2436-ad15-4aa6-a53f-800869bfac21@samsung.com>
+Date: Fri, 27 Nov 2026 15:45:15 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,145 +64,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125182053.3915833-1-kamal.dasu@broadcom.com>
-In-Reply-To: <20261125182053.3915833-1-kamal.dasu@broadcom.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 15:43:57 +0100
-X-Gm-Features: Aa3M54qM6x7CvrBi3F_w95jH3rk5p3lMNpHZ4R4dB4h4-G4B4KSdfHnhwL7kMsY
-Message-ID: <CAPx+jO-iz4bWj32mAQy548YA+RpKN5jVNzAg4y7m1-1PTFwwig@mail.gmail.com>
-Subject: Re: [PATCH v14 0/6] mmc: core: Keep the card powered across suspend
- when firmware needs it live
-To: Kamal Dasu <kamal.dasu@broadcom.com>
-Cc: linux-mmc@vger.kernel.org, Ulf Hansson <ulfh@kernel.org>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Wolfram Sang <wsa+renesas@sang-engineering.com>,
-        Oleksij Rempel <o.rempel@pengutronix.de>, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Shawn Lin <shawn.lin@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX3w1RPfGch9oj
- KXJhL0B1imuqlUeF9Hi0cQLP8eT4C7k7NVxmX1edsznn0u41Kn1HCA9G7J+GuDQ8tEqNdXCyfi1
- m0PZEZO2NqtD7OmG7/YANsrcTPMWy+A9HQdz10K2dap7ua1LD7JIR9e+T6u9WevvSbUGjhBJpZY
- nmdpeuRfR4g5l5aelp9riI7diRBMg7KapRYy9/Cscemcg+O6DKdkZtRl3+cSM5N6/1O9T0cnIBF
- AJYyHOjr1KyVlgpTz2d+PteivWIiAQ917o6z7d3i8Yja4Tvt4dWtgH8kDvde7xWvJz5MZQx47+8
- SGqNRogfHeCujGops5Ox8ltf3cqmtOneCrF+66GFQA0Wslg3OMZH+7kGps8gAR3eTrLG5AbtS1/
- sewhun5xCVr4OHDruGeaU0rvCnCd0X+4iGX6D6Q4shE7NHkXicsMcs/J/j9nmZp1z6lE0Y1QT44
- PwmMK3U+uhkMatm6a6g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX9RcJ/rhU3dap
- KjgfKDNN4MOl2t/p7O7FpMiVkzmWC6bH3kfuqAI9qRuKUj5F5l8h/fMPbsrf3GYxE7Us3rzGAOJ
- XKqUeVXvvXo4gGby7DbrsQdihmAd3sc=
-X-Authority-Analysis: v=2.4 cv=FfiiV5+6 c=1 sm=1 tr=0 ts=6b09973a cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8 a=Q-fNiiVtAAAA:8
- a=14t6xIGfFiX4SUP_uEsA:9 a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-GUID: hW-a3tqyrbbij5gKWNN0lV9ZbYlkR4nx
-X-Proofpoint-ORIG-GUID: hW-a3tqyrbbij5gKWNN0lV9ZbYlkR4nx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
- clxscore=1015 spamscore=0 impostorscore=0 adultscore=0 bulkscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611270058
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 4/4] iommu/dma: restore flush queue use in
+ dma_iova_destroy()
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>, Joerg
+	Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Leon Romanovsky
+	<leon@kernel.org>, Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Honglei Huang
+	<honghuan@amd.com>, prakash.gupta@oss.qualcomm.com, Alex Williamson
+	<alex@shazbot.org>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, Abhinav Kumar
+	<abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, Mauro Carvalho
+	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+	stable@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261127143740.GM114472@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261127144518eucas1p22cf8f824453316c6bfb1f0a0066453b3
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a
+X-EPHeader: CA
+X-CMS-RootMailID: 20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a
+References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
+	<CGME20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a@eucas1p2.samsung.com>
+	<20261127115849.2780625-5-m.szyprowski@samsung.com>
+	<20261127143740.GM114472@nvidia.com>
 
-On Wed, Nov 25, 2026 at 7:21=E2=80=AFPM Kamal Dasu <kamal.dasu@broadcom.com=
-> wrote:
->
-> Background: on brcmstb boards with a Kioxia 016G01 eMMC, firmware accesse=
-s the
-> card directly during resume from Suspend-to-DRAM, before the kernel's own
-> resume path runs, in order to load boot code using hard wired logic that =
-is not
-> field updatable. The card needs to stay powered and responsive for that a=
-ccess
-> to succeed, and since it is never power-cycled, it also needs to be reset
-> before the kernel reuses it after resume.
->
-> v13: https://lore.kernel.org/linux-mmc/20261113211143.3759154-1-kamal.das=
-u@broadcom.com/
->
-> Changes in v14:
->         - Patch 6: Clear MMC_PM_KEEP_POWER in mmc_host_class_complete() w=
-hen
->         MMC_CAP2_RESET_AT_RESUME is set. The flag is set in
->         mmc_host_class_prepare() but was only cleared in mmc_resume(), so=
- it
->         stayed set if system suspend was aborted after prepare (reported =
-by
->         Sashiko).
->         - Patches 1-5: No changes.
->         - Tested with CQE enabled.
->
-> Review feedback addressed so far, including Sashiko's AI review comments:
->         - v14, patch 6: MMC_PM_KEEP_POWER is set in mmc_host_class_prepar=
-e()
->         and was only cleared in mmc_resume(). It is now also cleared in
->         mmc_host_class_complete(), so it doesn't stay set after an aborte=
-d
->         system suspend.
->         - v13, patch 3: CQE is turned off explicitly when the card is kep=
-t
->         powered, as the cache flush may not send any command that does so=
-.
->         - v12, patch 6: An error from _mmc_hw_reset() in mmc_resume() is
->         propagated instead of being dropped.
->         - v12, patch 6: reset-card-at-resume without keep-power-in-suspen=
-d
->         makes the host probe fail in mmc_validate_host_caps(), instead of=
- only
->         warning, as the card would otherwise be powered off and system su=
-spend
->         refused (Ulf).
->         - v11, patch 6: The host is claimed around the card reset in
->         mmc_resume(), as it sends commands to the card.
->         - Earlier series, before Ulf's rework: Sashiko noted that the DT =
-schema
->         allowed reset-card-at-resume without keep-power-in-suspend. Patch=
- 2
->         keeps the "dependencies" entry that enforces the pairing.
->
-> Tested on a brcmstb board with a Kioxia 016G01 eMMC, running S3 suspend/r=
-esume
-> (pml -d) with the DT properties set as below:
->
->   keep-power-in-suspend  reset-card-at-resume  Result
->   no                     no                    board resets on resume
->   yes                    no                    board resets on resume
->   no                     yes                   host probe fails with -EIN=
-VAL
->   yes                    yes                   resumes, card re-enumerate=
-d
->
-> Kamal Dasu (2):
->   dt-bindings: mmc: Extend keep-power-in-suspend beyond SDIO
->   dt-bindings: mmc: Add reset-card-at-resume property
->
-> Ulf Hansson (4):
->   mmc: core: Add option to keep an eMMC powered on at system suspend
->   mmc: core: Split sdio_set_host_pm_flags()
->   mmc: core: Move and split reset functions for eMMC
->   mmc: core: Add support for resetting an eMMC at system resume
->
->  .../bindings/mmc/mmc-controller-common.yaml   |  10 +-
->  drivers/mmc/core/core.c                       |  10 ++
->  drivers/mmc/core/core.h                       |   1 +
->  drivers/mmc/core/host.c                       |  26 ++++
->  drivers/mmc/core/mmc.c                        | 111 ++++++++++++------
->  drivers/mmc/core/sdio_io.c                    |   7 +-
->  include/linux/mmc/host.h                      |   1 +
->  7 files changed, 123 insertions(+), 43 deletions(-)
->
+On 27.11.2026 15:37, Jason Gunthorpe wrote:
+> On Fri, Nov 27, 2026 at 12:58:48PM +0100, Marek Szyprowski wrote:
+>> Commit 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop
+>> the free_iova helper") turned dma_iova_destroy() into dma_iova_unlink()
+>> followed by dma_iova_free(). Before it, the destroy path marked its
+>> IOTLB gather as queued for DMA-FQ domains, skipped iommu_iotlb_sync()
+>> and handed the IOVA over to the flush queue, exactly like
+>> __iommu_dma_unmap(). After it:
+>>
+>>   - dma_iova_unlink() never queues its gather and always calls
+>>     iommu_iotlb_sync() after iommu_unmap_fast(),
+>>   - dma_iova_free() passes a NULL gather to iommu_dma_free_iova(), so
+>>     the IOVA goes straight back to the allocator via free_iova_fast().
+>>
+>> DMA-FQ domains therefore get strict invalidation on this path. This
+>> includes blk_rq_dma_map(), which NVMe uses for all data transfers, so
+>> iommu.strict=0 has no effect on NVMe I/O. On a Qualcomm Glymur CRD
+>> (SMMUv3 without RANGE_INV, 4K pages, NVMe on PCIe Gen5 x4) sequential
+>> fio throughput drops from 10.6/11.9 GiB/s (write/read) to the strict
+>> mode level of ~2.7 GiB/s.
+>>
+>> Instead of reverting, decide once in dma_iova_try_alloc() whether the
+>> IOVA space is going to be released through the flush queue and record
+>> it in a new DMA_IOVA_USE_FQ flag in dma_iova_state::__size, next to
+>> DMA_IOVA_USE_SWIOTLB, so struct dma_iova_state does not grow.
+>> dma_iova_destroy() then unmaps with a gather queued according to that
+>> flag, skipping the sync for flush queue domains, and passes the same
+>> gather to the IOVA free, so the IOVA space (and any page table pages
+>> released by the unmap) goes through queue_iova() again. dma_iova_free()
+>> honours the flag as well. The whole reservation is still freed, keeping
+>> the size fix of the reverted commit.
+>>
+>> A gather must always be retired, either by iommu_iotlb_sync() or by
+>> handing it to the flush queue together with the IOVA, and the IOVA must
+>> never be returned to the allocator while a queued invalidation for it is
+>> still pending. To keep that obvious, the internal unlink helper only
+>> unmaps into a gather supplied by its caller, and each caller retires it
+>> right away: dma_iova_destroy() syncs or queues it together with the IOVA
+>> free, exactly like __iommu_dma_unmap(), while dma_iova_unlink() always
+>> uses a never queued gather and syncs it, as the unlinked range remains
+>> owned by the caller and may be linked again immediately.
+>>
+>> Fixes: 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop the free_iova helper")
+>> Reported-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+>> Closes: https://lore.kernel.org/all/20261125135120.1126571-1-sibi.sankar@oss.qualcomm.com/
+>> Suggested-by: Leon Romanovsky <leon@kernel.org>
+>> Cc: stable@vger.kernel.org # v7.3+
+>> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> ---
+>>  drivers/iommu/dma-iommu.c   | 103 ++++++++++++++++++++++++++----------
+>>  include/linux/dma-mapping.h |   8 ++-
+>>  2 files changed, 83 insertions(+), 28 deletions(-)
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-The v14 series applied for next, thanks!
+Thanks!
 
-Kind regards
-Uffe
+
+What about the issue pointed by sashiko.dev? My LLM said that this will fix it:
+
+
+diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+index 0e329ecd7dfa..106da975bf0f 100644
+--- a/drivers/iommu/dma-iommu.c
++++ b/drivers/iommu/dma-iommu.c
+@@ -1892,11 +1892,12 @@ static void __dma_iova_free(struct device *dev, struct dma_iova_state *state,
+  */
+ void dma_iova_free(struct device *dev, struct dma_iova_state *state)
+ {
+-       struct iommu_iotlb_gather iotlb_gather;
+-
+-       iommu_iotlb_gather_init(&iotlb_gather);
+-       iotlb_gather.queued = state->__size & DMA_IOVA_USE_FQ;
+-       __dma_iova_free(dev, state, &iotlb_gather);
++       /*
++        * Nothing is linked any more and every dma_iova_unlink() has already
++        * invalidated the IOTLB synchronously, so there is no deferred
++        * invalidation to wait for and the IOVA can be reused right away.
++        */
++       __dma_iova_free(dev, state, NULL);
+ }
+ EXPORT_SYMBOL_GPL(dma_iova_free);
+
+@@ -2190,12 +2191,13 @@ void dma_iova_destroy(struct device *dev, struct dma_iova_state *state,
+        struct iommu_iotlb_gather iotlb_gather;
+
+        iommu_iotlb_gather_init(&iotlb_gather);
+-       iotlb_gather.queued = state->__size & DMA_IOVA_USE_FQ;
+
+        /*
+         * We can be here if the first call to dma_iova_link() failed and
+-        * there is nothing to unlink, so let's be more clear.
++        * there is nothing to unlink, so let's be more clear. Only queue the
++        * gather if there is an unmap whose invalidation can be deferred.
+         */
++       iotlb_gather.queued = mapped_len && (state->__size & DMA_IOVA_USE_FQ);
+        if (mapped_len)
+                __dma_iova_unlink(dev, state, 0, mapped_len, dir, attrs,
+                                &iotlb_gather);
+
+
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
