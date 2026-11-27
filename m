@@ -1,60 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.92
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768250;
-	b=nN/IFeGaWvWFkYK/21cJ+qZopaKE4ADPLOI0SBnFerDrN6RIhXc8t1pddWz/90t24S/F
-	 pZHDoIc1hDC3ZgciWulZ8VOkNliN5VeDFVYbptFk5hA3DU3fSrd+l6tpILedxS0hd8hJh
-	 c3BaIe41nMg+KppAmCsU9y2eRAe8yVGP/Ic88XZw2fKIJuTYNFhQGnELsAALxx4L0O6qM
-	 3F9Kykklhna4YXnebN5gXxlu1K5awkMUtF7k0//AvDa6VFc35HGZS151Q0LI45s5X0VZV
-	 C8wFtnQmMRBcwBjl6TTtysbtFDek86u7Nl2nosT4SpgpZ31wnNChrdG4rSbTnEp1rTQ==
+	t=1795768307;
+	b=unGAgZAoLBPF9ZKqvMZu3kfoZ0M5RqwahauQH21SVgak6LGFovAzVJX8FsuOVYC3Da9r
+	 yiwT0F0vCZKAqPJbO82/ClveVQb4x99NJl8UqQp1pzRT4SpGgPODgA4UUPCmQSPw0bYja
+	 EC8DQ61zORuEAc7f4mF32sBhFYr58ajAr2cZrG3yse+KKaRgOkect9VnrCz7+G+h/nbAO
+	 1HSnACO3SQsihaG/8CF9ftsj5nH9jde9UyZWInxMvnDWHVMGZTwynjXIJlNWWgUWBk14Q
+	 Eb5vq6HQJsF5/TgiJsQxSuRrcKRm+y++qiynqI+bYX8p4VUK+DpfaQ5r+G+4HyfnsgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768250;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=SKhezHpydXqIPJNJm+VGSWCrhsoJDu4hJDPwIDrJ9Lg=;
-	b=T40KLIlT7LRUtM/8aTQ1MDYahBfEZ06vdnD66yf46j/jFIY3ZnmMV6m5ImVRAqtVqPNs
-	 ehoPcgMkYb4meOEsX0ywPMD34UmH/SnK6e/IdEeuLn1In3J9Vlyh2krwu6t5DL4th1zGj
-	 pn8F1jjRXtndmGxTXqIFij6t65IxuANEI+DkTNlUS56oG3HwILh6ebseGXQAwn6FmfjQb
-	 P1uDCtwfFUfJLSRp2jrhIYHJdS7kyJCsapia1qrLDdMXhsgGcWLkcSVGDuS12bWwjxoBX
-	 unngsZy0uejyzENO17XHOj4VxxVdEq/jAPOaPLpYupzeta+WHU70ao9E8g7e7NBrphA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768307;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Message-ID:Date:
+	 MIME-Version:User-Agent:Reply-To:Subject:To:Cc:References:From:
+	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=T3JRsePsI5O9c5ehwpEKTpRAID64ByI4bpnYu60TJTI=;
+	b=3e7BJOpkz/Nm0pYXFtqZna2vWztmY9xjuVwmGbUfg+JTiTiTTHMiHG+bEOzCyi4+ZOs2
+	 5RWHJiAFHOiI2OYGD27oWdxb6ziePZdchVrA7NMCt9UDf8tJbWQDOcr5JZMgfthF3MduL
+	 OZF5quLDtfyM7rDhN8EpScRTNf+X+NF9Dl8HVQ61QbOCwywf5Y0de+s2kVN37lv6L/mZz
+	 nQ9Bt48zYNQIk/QpUsCYPy5LRAYgZptIcXZDWyBPTn9ajMjMrqeqTtOhCIP3HfcDumw1n
+	 K47Atz6rzfSmZ9KzuS7asK1lTwM9s2okR8ltE68R8jK1XjalPFPoMQafWxbt5US0/uQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BTPx2S+E;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=radxa.com;
+	spf=pass smtp.mailfrom=radxa.com;
+	arc=none smtp.remote-ip=54.254.200.92
+Received: from smtpbgsg1.qq.com (smtpbgsg1.qq.com [54.254.200.92])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA71A606A31E;
-	Fri, 27 Nov 2026 08:30:50 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BTPx2S+E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3922E1F000C1;
-	Fri, 27 Nov 2026 08:30:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795768249;
-	bh=SKhezHpydXqIPJNJm+VGSWCrhsoJDu4hJDPwIDrJ9Lg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BTPx2S+EGlZjm3KfcLpfIEgmE6e43JbEtkrOnX+whJH+UDx1OKqadCEs4PIcqpCEQ
-	 3pStgyQzrCAFYdIDESQgPNVsXcDG5D0D60+XS2DzRr9vR4imD9m0uBYpf0cTDfnXfn
-	 TeiNSU5BEFUUq5eKuBrYeiO/xwRP5nNB8Jl84ZZ6WiADu4BroSQXZPRe6gD6+vDy4I
-	 BGwT2cRAKlUKsn08b6lLeyAwC3wwn4yVZQTIHBExi75gvmME0bBMt+MbTURY1YcAaM
-	 tBeO//vvYes9C4Ok52o4ZhXHL5ip0YH8v0bwvNU2bTdh5YZAe5elM++jHY9718xNI7
-	 DfHo4vwJ6rDXA==
-Subject:
- Re: [PATCH v3] net: ethtool: do not call get_regs() for zero-length dumps
-From: netdev-bot+sashiko@kernel.org
-To: 25031212351@stu.xidian.edu.cn
-Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, horms@kernel.org, byu@xidian.edu.cn,
- wencheng@xidian.edu.cn
-Date: Fri, 27 Nov 2026 08:30:48 +0000
-Message-ID: <179576824874.3135.15886004303093318921@kernel.org>
-In-Reply-To: <20261126082748.2798-1-25031212351@stu.xidian.edu.cn>
-References: <20261126082748.2798-1-25031212351@stu.xidian.edu.cn>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89977606A31C;
+	Fri, 27 Nov 2026 08:31:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89977606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=radxa.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=radxa.com
+X-QQ-mid: zesmtpip4t1795768272t4b518488
+X-QQ-Originating-IP: XjVtevCzh7+3jY/n6XA24JOwPh0WvZ8QMdFxg0M7Ets=
+Received: from [127.0.0.1] ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Nov 2026 16:31:10 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2578010382317610991
+EX-QQ-RecipientCnt: 11
+Message-ID: <A31EF798FBEB36C7+17454013-501a-429a-8918-1087baefd339@radxa.com>
+Date: Fri, 27 Nov 2026 16:31:09 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,109 +51,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Reply-To: sophon@radxa.com
+Subject: Re: [PATCH] arm64: dts: qcom: sc8280xp: add missing Iris IOMMU SID
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dragon@radxa.com
+References: <20261030-sc8280xp-iris-iommu-v1-1-1e3fb8562b3d@radxa.com>
+ <e1d97fe8-3af1-4429-978e-9f2ce59e87b1@oss.qualcomm.com>
+From: Xilin Wu <sophon@radxa.com>
+Organization: Radxa Computer (Shenzhen) Co., Ltd
+In-Reply-To: <e1d97fe8-3af1-4429-978e-9f2ce59e87b1@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: MWdgP8+gtiFRmzvIErMxHEabx7xJLhK9hv6GUlpJw+f2avNaqYm6oHtL
+	58gKDrE5AXuKoAroX5pLpataOy8bH4RnqD7ukBZWS5+f/r54L9uC1uSqC02Mq2yQATV08Uu
+	XLeY56KKIaMuhXx6JkO5CJ/0YVr2Xtawy/lYpg5hMr1P6Jr+v+t8TkIHH2zs1vhs0pMIIpZ
+	A9kOv3HJ44HQ6zdNZxn+Zksm/DrQUcJiFSiX4QE38v2ngZtuw8nrM755yXWB+YojDc2jmvd
+	82NKym4XJgZSot5+NRR2ughoU+cwtjCn4zPHlAkR75urWYzvSyPanxLfoQj98J4jSYcI6Ye
+	HrKklbQPe6TcDzCIx1D95NRyhXTnzR2pZe0L7CiXngH+OTET27uD6AN5mW8HZsvdpk3FIUN
+	Yn0We14DYitZI6fe1KDEJ9tAtrgVDOdfLJpKdmtQQybUBKmDyUVVVre+sE8+HvDSndG4Sfb
+	lMKcWrZUGcb/fGlWm5ru0H6B6BvMY8d5mIcQ23kcK90AySyLir7MzgTWj9AAjt5dDP5qIZT
+	r2gnV92BtHgA4nSo4kgJAQ8wvQ53fWDOQ4hIqAahIhla2A/i31XC66ribJF1vYyCYTdxz7+
+	kAOBQ88vIot3yHX2hoGt5gPRwaBGSVbya21wgDq3rugSi9ZEqdF4ar8Rz9/d8lF21/q37ue
+	azY+z9DBOIMYLnD/GLVtBMWthCOQvw/w10Cw8E7lUJZr0DuES1f43WhU0mB/4JbjEIciAXU
+	Fmq9CyRPEM08b7NZ/9xq+T3SnUdkek5Z7evHDxm1tG6WCdOZkk75SGgw35vk5JOrYeM1epb
+	KVET/dBjuHjU13KN2fSNNKLgcAgTgkGnqTi9G5kbTyWzVUBGdUePJaUkAfxxt60BCzXcX27
+	P7aoV6kUu+JnEes4iPhYGRN+pKswmLFzvWR968tZ69wGIuNqejgoX37wLmINsmyxmwhcagz
+	GQCuwYI72C2+5zFsoF5Xirqf+IpqoaUazIST/ABD7O3Ym+zxwPuMWo4ZdV3wMbX9qG80KX2
+	RWnOczyn7SL0unhKgIndOQ/iNAVF7IwFJksdYYymDAPMsCoEy1ueExCXb7CAF5s6Dm/k89m
+	A==
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 10/30/2026 8:54 PM, Konrad Dybcio wrote:
+> On 10/29/26 5:14 PM, Xilin Wu wrote:
+>> The Iris VPU on SC8280XP can issue memory transactions using stream ID
+>> 0x2a07. With only the 0x2a00 SID described in the IOMMU list, those
+>> transactions are not attached to the Iris IOMMU domain and can trigger a
+>> non-secure SMMU global fault during video decode.
+>>
+>> This was observed while decoding H.264, where the faulting address fell
+>> inside a DPB buffer mapped for the Iris device.
+>>
+>> Add the missing 0x2a07 stream ID so both Iris access paths are mapped by
+>> the SMMU.
+>>
+>> Note that the issue was observed using Gen2 HFI firmware.
+>>
+>> Signed-off-by: Xilin Wu <sophon@radxa.com>
+>> ---
+> 
+> Any chance you're running into this?
+> 
+> https://lore.kernel.org/linux-arm-msm/20260926-vpu_iommu_iova_handling-v5-0-0322ca5dc10c@oss.qualcomm.com/
+> 
+> Konrad
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Sorry for the late reply. But I don't think so. That series is about 
+context faults on the non-pixel stream when an IOVA lands below 
+0x25800000. What I see is an unidentified stream fault for SID 0x2a07, 
+at an IOVA well above that boundary. This is from the TZ log, captured 
+with a minidump:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+   SMMU:>> 0x15000000 NonSec Global Fault: NSGFSR=0x80000002, 
+NSGFAR0=0xcfc03000, NSGFSYNR0=0x2, NSGFSYNR1=0x2a072a07, NSCR0=0x280406
+   Fatal Error type: TZBSP_ERR_FATAL_SMMU_FAULT
 
-- [Medium] The patch adds an early `if (!regs.len) return 0;` in
-  ethtool_get_regs() (net/ethtool/ioctl.c:1782-1784).
+0x2a07 is the VPU's non-secure pixel stream, the counterpart of 0x1947 
+on SM8550. The Gen1 firmware sends all non-secure traffic through 
+0x2a00, but the Gen2 firmware puts pixel traffic on 0x2a07. No SMR 
+covers that stream today, so TZ resets the SoC.
 
---
-
-net: ethtool: do not call get_regs() for zero-length dumps
-
-This patch adds an early return in ethtool_get_regs() when the
-user-supplied regs.len is zero, so the driver's get_regs() callback is
-never called for zero-length dumps. The commit message says this does
-not remove a way to query the dump size, because the size comes from
-ETHTOOL_GDRVINFO.regdump_len.
-
-> diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
-> index 80b7930b3fe0d..e8af861ee5de3 100644
-> --- a/net/ethtool/ioctl.c
-> +++ b/net/ethtool/ioctl.c
-> @@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
->  	if (copy_from_user(&regs, useraddr, sizeof(regs)))
->  		return -EFAULT;
->  
-> +	/* A zero-length dump has nothing to fill in. */
-> +	if (!regs.len)
-> +		return 0;
-> +
->  	reglen = ops->get_regs_len(dev);
->  	if (reglen <= 0)
->  		return reglen;
-
-[Severity: Medium]
-The early return sits before ops->get_regs_len() and its error check.
-It also comes before the copy_to_user() of the struct ethtool_regs
-header. For a request with len == 0, this seems to change
-ETHTOOL_GREGS in a few ways userspace can see.
-
-First, is a negative errno from get_regs_len() now reported as success?
-ethtool_get_drvinfo() only fills in regdump_len when the driver
-returns a positive length:
-
-net/ethtool/ioctl.c:ethtool_get_drvinfo() {
-    ...
-	if (ops->get_regs_len) {
-		int ret = ops->get_regs_len(dev);
-
-		if (ret > 0)
-			rsp->info.regdump_len = ret;
-	}
-    ...
-}
-
-So when get_regs_len() fails, ethtool(8) sends GREGS with
-len = regdump_len = 0. One example is bnxt_get_regs_len(), which does
-this on a VF:
-
-	if (!BNXT_PF(bp))
-		return -EOPNOTSUPP;
-
-Before this patch, "ethtool -d" on a bnxt VF failed with "Operation not
-supported". With the early return, the ioctl succeeds and ethtool(8)
-prints an empty dump. dsa_conduit_get_regs_len() passes on negative
-errors from the conduit in the same way.
-
-Second, the header is no longer written back for len == 0. Several
-get_regs() implementations set regs->version, and some also overwrite
-regs->len with the full dump size. lan743x_get_regs() is one:
-
-	regs->version = LAN743X_ETH_REG_VERSION;
-	regs->len = regs_len;
-
-emac_get_regs(), axienet_ethtools_get_regs() and
-dsa_conduit_get_regs() do something similar. mcs7830_get_regs(), the
-driver named in the changelog, sets regs->version.
-
-On those devices, a GREGS call with len == 0 used to return the
-version and the full length in the header, because the data
-copy_to_user() moved 0 bytes. Does that conflict with this part of
-the commit message?
-
-    This does not remove a way to query the dump size: the
-    uAPI tells users to obtain it from ETHTOOL_GDRVINFO.regdump_len,
-
-The struct ethtool_regs kernel-doc in include/uapi/linux/ethtool.h
-also describes @version as a driver-supplied output, with no
-exception for len == 0. The new comment says there is "nothing to fill
-in", but the header still has fields to fill.
-
-Could the zero-length check go after the get_regs_len() call and its
-"reglen <= 0" check, so errors still reach userspace? Copying the
-header back to userspace, or documenting the new behaviour in the uAPI
-header, would cover the version and len cases. Since this is tagged for
-stable, the commit message could also mention the change in behaviour.
+I'll send a v2 with a clearer commit message. When SC8280XP moves to the 
+context bank subnodes, 0x2a07 would go into the pixel node.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126082748.2798-1-25031212351%40stu.xidian.edu.cn
+Best regards,
+Xilin Wu <sophon@radxa.com>
