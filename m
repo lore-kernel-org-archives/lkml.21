@@ -1,81 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780149;
-	b=G+W/Kmhp3wDC1zF2Crlx3EArCebUvGR6GAexoErQB135Be92AIh7h/uRucCPD8e8u5LU
-	 GjqnXP7MPtlNTI1Z4r2YXT/lVjX017mrtSKZB4NCnwaURN3QMB28MVDqJEdUva10SqzYj
-	 Oa+0MClrZmW/RYXtWXF0gqJLBfWkzfoKruabyvCGZsbqE0SdMkvywDYdoFxCoglfTXsJz
-	 AEqjvFoNkF5pXv1Lr/OlliJng9R71+CMURZo43IVY+Ee/Rs16cgDXBSBNMukvCVph4liX
-	 E/kUUxUwxYpw66JiBZ09dkaqAyt45kE/I9htUB/yxFEP846XvBF61h30+uNUiAICC6w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780149;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=LHjds6ciTHOu6s5j7BpqtZ+KJ92VAdObR2G5YzE16cg=;
-	b=YczUd1esk2vi6oW1a6/bscC6yJT3DoNv9s7gP4O6v4gyi07goWHtCG68pxEbac0ZCt0H
-	 8q0/O0mDd+q2YHVFbhNr1esXygcxail7yWpfWY284DjyKy+54lhpeh6dvj+Tat/PKDeEV
-	 eOBfdkpIJsqpUJ5PFmGcvLLe07gQNNx9ZeFmgfYjKr4HE2dWN1IAp0Px0L5Kgo7Xtrspg
-	 0vG+hE82TLLoMBEfibuQje0tTJu4Nj6UpiuJQxMNRL4g7vNoXf0gFOT+QF4rVC/gG18ED
-	 nEvcNzE66L9c6TxwoV8Jktfw7tubcQORQDx2/+A54A6jJWs2OIyPJyBM7z71TE14DTg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PvWbOBlM;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.28
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795780155;
+	b=IKsGo1CmAE0SVk5DT8H77R9l8lMVQInlLPwl6VfxAMwzJfD7qGF0SzcO1kE7QVVjAoa8
+	 z8vz5AWCAeAmSIg8GX/Nkkp++GRzCMLu7+Bik2jltFs+zEuLGz3rb0RKiPy+/rPi6qRR1
+	 IHpJybb3ovRcj+hof1zK4M6NabU/gBc74z45YawfhZGA0or3MY9ydQSTT2O/yYH4S8m4R
+	 VUus0fjz01Tf4ooMkdK+R0jQINCB8BNV0XdbDZa2UAh3muv/5hI6sOfJce5IajVeq1zee
+	 9VUvZOHzAvVxUVC9gT9fr6mcfCTqH/N6DLWB/lGPBIworkjHN3KUfumiTAfpcqY7+yw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780155;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=jF+Z5fsF4t5yz/R24VlutE/bzu7437U3f6kGx/k/IHg=;
+	b=ukH17khJlVlaAP2+826LNcxt1G/LK7DNLUMbfZRHI3Mntix8D0IOO6iPfnx4Bm5sat+z
+	 eXtAZYww793Cu/bqx4Cv8s42w9WSj+aEJCaGV9wh01LkDb18jmlrbHBPCZMY0DgimDUkr
+	 oyYaxlkigpAcJs4VJP6oNm1yBcp1653p4Qg3WNIf5kJOEjp/C8f4IGI0mrJ+MY90j0wqB
+	 iLKqjwviOkU+RceXCTIwRSJozn70QzJ6WOZdfnN4glqAuouDnh2RduYVFbzu7coGGddJG
+	 HkYo8OteTJgq0P4cL3V7Hj9p1sNZwiZthI60HOcg1+HLauAmvo+5quxdgGze/Egcb7g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=U6H8R0Fl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.28
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010028.outbound.protection.outlook.com [52.101.56.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F143606A32D;
-	Fri, 27 Nov 2026 11:49:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F143606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A156606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:49:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A156606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PvWbOBlM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795780148; x=1827316148;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XzHVhYO5Bak9DTZPT1IGDE74DbrcFKazihZbhV2Hdag=;
-  b=PvWbOBlMAtdbir9JQui5Ffqc3wg7js0d46d3JoU/FZzOqG/QRHXj+vTo
-   5b0u+cNoGnwxZeJrvw1WTgQnmStjniVBZG+17E1BmoNi3AsyQFuAMmchO
-   jzTeUEsjhwtAXO0U4348OEwYuhPFZcln8xyt9xqNZAdp4sE4mfY/WzzaA
-   QhvNzHdsZ+aP4XuiOYONkyMT+cQ61RGR10SGd/JiEFnbqVyM84MJvcY+l
-   C3vCSvLmqZyKJSTG/lgC41Ja2XpaXWNqY+2GIWFXptbsWbYFSZnZ5tCBN
-   dufo9cY8rMfgxHQhydX+WmKL9ToS9XjZNZUDpKC+TJsnD9UC5lkrgbUjA
-   A==;
-X-CSE-ConnectionGUID: CGeDpdKySC6zKh+ZUnEhyA==
-X-CSE-MsgGUID: i3CAUZzTStCReuita6VBGQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4689337"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4689337"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:49:08 -0800
-X-CSE-ConnectionGUID: JYW6xWC5QziaeZB7uvjkeA==
-X-CSE-MsgGUID: XbTyXrfQSQWOGM+FJxjZKg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="12292067"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:49:05 -0800
-Date: Fri, 27 Nov 2026 13:49:02 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Romain TISSERAND <romain.tisserand@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, sashiko-reviews@lists.linux.dev
-Subject: Re: [PATCH 0/4] iio: adc: Add the Miyoo A30 and PocketGo S30 analog
- stick MCUs
-Message-ID: <awluLgvMt9BN1Aj8@ashevche-desk.local>
-References: <20261127012612.1589039-1-romain.tisserand@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=U6H8R0Fl
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Szp5dS7CoZti+4qRot3lDSeuzhDb+CcMQfSJkA3okqJjtAu4U711f5AODFGBkIOQ4SZtNKMqcIRjcV8hv5tRoVsnL3DH2g/vylngVsscrpf2W+8fx7ImDjHUAQXYuMaxfQ72oIlMJ2N+Wq7AD3UU/aqs5qGAuoyo40iwtBNjnawbQP8lwHor07QW7jO3abhcNOuKBj6lQlqiB262HidPJ5BcTlBKNnuNJQ/4aiBaKuGXKIST/fAufN2wq660fJnuTALMDnNeZUb1Li2dNCGe0UVkYPDuZkHGG9gk7Y1Nqx+ZM3ivkbVFeLyALodpKsaC0Ze2FLWt6bENLtNl/uSmNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jF+Z5fsF4t5yz/R24VlutE/bzu7437U3f6kGx/k/IHg=;
+ b=U6OXpDNcLJoDuAmWPMu92hOH6+UI0K6silgUh1ars6Qjlwz0q5LBxAf1T+y2gTVxfcKuE2RTzW8Axbst5j0ynJskIXdeSqVkvLORUsHPCggBPLP2mBNe9kEZg1k1p1xV/IIq1TRUeo/82NnruKG2ZmxHz8oJQYL5WMxEgluo0rpBqyhTYsdDZwTWqoVD2avCL9k91kL2DttAys3CikitmGOgAmrqf6WvD5wInyIoDUbo36PcTtQsKVlB5mdsILpkg5rKWuZEiO/B1g6fYiBzbjBZ8PUmX4qwgF0CHLPFUaQHXzXFSBIgDhHKMUCPec1pUQB+vpL902h4/EDiT4iw2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jF+Z5fsF4t5yz/R24VlutE/bzu7437U3f6kGx/k/IHg=;
+ b=U6H8R0FlJD53DJ/XP+ZRuyDlOy2OoX1TzrZXRoVZAXUHxvhzZYDIzO9xffC6UPxE6S0mWra/j2T5S7tzw8pD9kCHULvMcbWmdMcoMDY1mOvkj93nprYXNsoZlFSMtYQJBjnmNm0Naz9y89pT+qbl2sSkKWZNwqODVUJ+2y51abk=
+Received: from CY5PR19CA0008.namprd19.prod.outlook.com (2603:10b6:930:15::11)
+ by CH3PR12MB8075.namprd12.prod.outlook.com (2603:10b6:610:122::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 11:49:10 +0000
+Received: from CY5PEPF00000E84.namprd05.prod.outlook.com
+ (2603:10b6:930:15:cafe::e) by CY5PR19CA0008.outlook.office365.com
+ (2603:10b6:930:15::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.10 via Frontend Transport; Fri,
+ 27 Nov 2026 11:49:10 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CY5PEPF00000E84.mail.protection.outlook.com (10.167.247.184) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 11:49:10 +0000
+Received: from xhdlc220225.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
+ 2026 05:49:05 -0600
+From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+To: Michal Simek <michal.simek@amd.com>
+CC: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, Ronak Jain
+	<ronak.jain@amd.com>, Aravind Thokala <Aravind.Thokala@amd.com>, Harsh Jain
+	<h.jain@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>
+Subject: [PATCH 0/5] drivers: firmware: xilinx: Split ZynqMP firmware driver into modular components
+Date: Fri, 27 Nov 2026 17:18:34 +0530
+Message-ID: <20261127114839.1428778-1-jay.buddhabhatti@amd.com>
+X-Mailer: git-send-email 2.16.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,65 +105,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127012612.1589039-1-romain.tisserand@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY5PEPF00000E84:EE_|CH3PR12MB8075:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6dacd1f4-1e08-444d-476d-08df4c7c7328
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|261028144727099003|261102123227099003|261021123027099003|261021135927099003|261021130227099003|261021121427099003|261026121527099003|261026140227099003|261026130827099003|261022105027099003|261022113327099003|261022075727099003|261022115727099003|11063799006|260925021911599003|260925021311599003|260925022911599003|56012099006|10067099003|18002099003|6133799003|261009223027099003|13003099007;
+X-Microsoft-Antispam-Message-Info:
+	8BD9a38RMM2RrWFqTnlxsrjhLEgCY7yatLg91MoF0bdEZBj+JKVBA5Jumof2rDDQBWZAsbK85gtNqm5GOw+Kg0Yl8jMhFwAaC+nUlQSOTe0ytA3gMo24nGiVQj8py0TzFtR8OBUkwS1y8UkmyIKjtKC8bz2XpQX4PZ05LctuPe7xgvdo53JwcL6JjoTbRECUy9PKfDw74TivzIV2S+mCvj0Zis4nbqaoMGCfpnIhzMsU+WXdxsxUodqXwYppGWHHYAQXh7N5BEwQd1Z4/4DHg1rG+itp9Qrc9ygh5Jkh5e/anmdXoPP1wJVgraCcImj9VtOyWdqLIU9DtaLFpMyAP3eocQD7mVVUwuxsCpGzBpW982J2N4irsI0MyIuhdlvniqRU52bu/iSL3H1+FLfA3Kweym//HoZQT6eNsuiWDw7MxITgbuT20NL1m5bX1YZ5C5vuY1LEueaWKLOC7adMGrMlmg4jWvwjZdaD8y+xtadNgsyMvOyN7U2Zdjp8JYrKuA+ICVefj48jCoH2i9nAzHLLmUVjxBLEQFEZGZ2p5YWccnWKranGQS0/izns/L99Fce2IZe7qqaCYfzUT5u2FUfVNtXoV490NloikRk07KbBQydAHm/SDy/MG7/yCla83zb+xsI7L62gP0a9hq8nnKlthU7Cc72Y5njSviVnkeM=
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(261028144727099003)(261102123227099003)(261021123027099003)(261021135927099003)(261021130227099003)(261021121427099003)(261026121527099003)(261026140227099003)(261026130827099003)(261022105027099003)(261022113327099003)(261022075727099003)(261022115727099003)(11063799006)(260925021911599003)(260925021311599003)(260925022911599003)(56012099006)(10067099003)(18002099003)(6133799003)(261009223027099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	6Iq0hRxKlaUHel8mGngCQ82wZkUKx+be3sNQEuBNPv9sf3becFKgZh5700Ozuvp7GNQgQkgGGzSzuc53efoYlt3Nwx1Ngrkel72JjEJaRnGujZ9fH0j/YCsCBWmCySxXeBbDtreHlsUEaVEmC+1aSeYVp+zZ1BHkmh6hFtvPJLKQS5l2ZwOzQXnCfuibGLprxL5/0sCo7II1QEnCc7G9eCCE4ZAmXAwBouLLmBJf2Se3gRNBIRgf0tZtrXIdwvXYhUd1Z0OSMIw+ORuyFywlDUeQgeuCFcFIVA7lFUvm4t/skD+eeHAb312zOCHEZ7fUj7HXUzvpOQFKgilRQe6qPlwK3/EBlpVZY8SB1xMyCGQ7Y6CVnQ4MbMwatdLvZvy2d5ybPT242P/XVwe2gy4wGdthdDcpystZDlVtpegzNFjHK3jDbfFy3wi5/THpwsJD
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 11:49:10.0932
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6dacd1f4-1e08-444d-476d-08df4c7c7328
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CY5PEPF00000E84.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8075
 
-On Fri, Nov 27, 2026 at 02:26:08AM +0100, Romain TISSERAND wrote:
-> The Miyoo A30 and the PocketGo S30 are two Allwinner A33 handhelds
-> whose analog stick is read by a small microcontroller: the MCU samples
-> the stick potentiometers and hands the raw 8-bit readings to the SoC,
-> on a UART (A30, a stream of frames at 9600 baud) or over I2C (S30, a
-> four-byte read with complements). Neither MCU takes commands.
+Split the ZynqMP firmware driver into focused modules to improve
+maintainability and clarify ownership of each firmware interface. The
+driver mixes platform core infrastructure, PM EEMI APIs, PDI loading,
+FPGA management, and NVM access in one large file.
 
-Why a brand new driver for each of the cases?
+This series applies on top of "firmware: xilinx: cleanups and debugfs
+fixes":
+https://lore.kernel.org/all/cover.1795094242.git.michal.simek@amd.com/
 
-> Both drivers expose the readings as raw IIO channels for the existing
-> adc-joystick driver. The A30 MCU pushes its frames on its own, so its
-> driver also feeds a software IIO buffer and adc-joystick takes the stick
-> from it without polling. The S30 MCU only answers when read and has no
-> data-ready line, so adc-joystick polls it, as on the Anbernic RGxx3
-> boards where the stick is behind a SARADC. There is no scale: the
-> readings are raw ADC codes of the MCU.
+Split the driver incrementally and keep each patch reviewable:
 
-> Patches 1 and 2 add the A30 binding and driver, patches 3 and 4 the S30
-> ones. Both use the existing "miyoo" vendor prefix (the PocketGo S30 is
-> a Miyoo/Bittboy product). The board devicetrees will be sent to the
-> sunxi tree.
-> 
-> Testing: each patch built with W=1 for arm (multi_v7_defconfig, both
-> drivers =y and =m) and arm64 (defconfig, =m), no warnings;
-> dt_binding_check clean for both bindings; the board devicetrees pass
-> dtbs_check with these bindings.
-> 
-> On a PocketGo S30 on 7.3.1: about one single read in four fails an exact
-> complement check (the value and its complement differ by a count or two
-> at rest, up to about thirty while the stick moves fast); with the +-2
-> tolerance and up to three tries, polling as adc-joystick does (two reads
-> every 10 ms), no read failed over 2 x 6000 reads at rest and moving, and
-> under 2% needed a second try (exact check: about 4% failed). The in-tree
-> adc-joystick driver on the S30 channels reported 365 and 374 events over
-> 15 s of full circles, 42..231 and 24..246.
-> 
-> On a Miyoo A30 on 7.3.1: rest 136/123; reading the channels from sysfs,
-> full circles 22..248 (X) and 11..221 (Y). The in-tree adc-joystick
-> driver, without poll-interval, takes the stick from the IIO buffer: 826
-> and 852 events over 15 s of full circles (the MCU sends about 67 frames
-> a second), 37..246 and 11..220.
-> 
-> Retested with this version on the A30 (7.3.1): with only one channel
-> enabled in the buffer, each channel gives its own axis (stick held
-> right: ch0 alone 141..242, ch1 alone 116..119); three unbind/bind rounds
-> with adc-joystick bound: no warning, the readings and the adc-joystick
-> device come back; at rest 139/118, +-1 over 50 sysfs reads.
-> On the S30 (7.3.1): at rest 152/126, no failed read; adc-joystick 1213
-> events over 15 s of full circles; three unbind/bind rounds: no warning,
-> readings and adc-joystick back.
+  - Move PDI library APIs into zynqmp-pdi.c with a dedicated header.
+  - Move FPGA library APIs into zynqmp-fpga.c with a dedicated header.
+  - Move NVM library APIs into zynqmp-nvm.c with a dedicated header.
+  - Localize the firmware version caches.
+  - Split core platform/SMC infrastructure (zynqmp-core.c) from PM EEMI
+    APIs (zynqmp-pm.c).
+
+Jay Buddhabhatti (1):
+  drivers: firmware: xilinx: Localize firmware version caches
+
+Ronak Jain (4):
+  drivers: firmware: xilinx: Relocate PDI library APIs to new file
+  drivers: firmware: xilinx: Relocate FPGA library APIs to new file
+  drivers: firmware: xilinx: Relocate NVM library APIs to new file
+  drivers: firmware: xilinx: Split PM EEMI and core APIs in firmware
+
+ MAINTAINERS                                   |  28 +
+ drivers/firmware/xilinx/Makefile              |   4 +-
+ drivers/firmware/xilinx/zynqmp-core.c         | 797 +++++++++++++++
+ drivers/firmware/xilinx/zynqmp-debug.h        |  20 +
+ drivers/firmware/xilinx/zynqmp-fpga.c         |  89 ++
+ drivers/firmware/xilinx/zynqmp-nvm.c          |  35 +
+ drivers/firmware/xilinx/zynqmp-pdi.c          |  27 +
+ .../firmware/xilinx/{zynqmp.c => zynqmp-pm.c} | 937 +-----------------
+ include/linux/firmware/xlnx-zynqmp-fpga.h     |  55 +
+ include/linux/firmware/xlnx-zynqmp-nvm.h      |  28 +
+ include/linux/firmware/xlnx-zynqmp-pdi.h      |  34 +
+ include/linux/firmware/xlnx-zynqmp.h          |  52 +-
+ 12 files changed, 1134 insertions(+), 972 deletions(-)
+ create mode 100644 drivers/firmware/xilinx/zynqmp-core.c
+ create mode 100644 drivers/firmware/xilinx/zynqmp-fpga.c
+ create mode 100644 drivers/firmware/xilinx/zynqmp-nvm.c
+ create mode 100644 drivers/firmware/xilinx/zynqmp-pdi.c
+ rename drivers/firmware/xilinx/{zynqmp.c => zynqmp-pm.c} (63%)
+ create mode 100644 include/linux/firmware/xlnx-zynqmp-fpga.h
+ create mode 100644 include/linux/firmware/xlnx-zynqmp-nvm.h
+ create mode 100644 include/linux/firmware/xlnx-zynqmp-pdi.h
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
