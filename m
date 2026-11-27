@@ -1,54 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795777004;
-	b=gJ0gy6lZHiaEWwRZkO7iNm9n0P3uL8KMqXgKKBZ62tPVTVg5AwbzkZ2HHvJ1kwyOiU2T
-	 pkLNF5JDuhjugoemXoreACwhgdvaHSIiIRjXLOix/CnyKaMzZhM8Hr6gu3DH3lPragIWZ
-	 Kly2NuzdAzhjj7Dws3NHQcia0MOR5WeqE9Mk+35+vGPI7QrxE0XgI3nO4hK+EiIJBZUl0
-	 Fn5orVxmrOeJf/2gcvOH79m132aA5NDhF3MyZXVaaJG7a+tqPAbrzNwegvRqtKHpOZSpm
-	 N7p4ZwuoxZ9NrwBNaEZBzIcTkBSTCmG2stcoDIcQL4Tc8jidJPelHGeF1MKamL/LkwQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=QYJrCrGAqQxDRozyFqrQcV7j/0ugGoiOQj301PsJdbhCU97Lr2BGpXpPOgaG/2DXV7UC
+	 qhvntgE1YpdWuQeuGO8ta/jRrb7pg9IG6Yyo0Fj3Cf8q/tadVOizFIBeDGNwX5rZoHcGo
+	 7j9eWPPxT5HaoWWbrylhw+oQekoRJ8eY2EVbZtZ2yB0dZ3ApnwZGZVEPDo/HmB2u22hh0
+	 PtTj6M4IkfvxnIt1cJ0J/inUzMlRATD22ENZsD5qvCvnyZFrRQbDsvDMfDwsinCKOs5Z3
+	 saN5k+cN7RmXWud+delrWip4+V8O6lYIm0uHwMcud23zLXnh6GVY4eNFwafLl4DE6Vg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795777004;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ixpJ8FVsaUtzbYGvKZMv3iePyio0tQ1UpoRhwVro58s=;
-	b=I3cbhl2IIleW68M6KqPUcifeXFrfAsBQQ+udM63toZLd+y+otcGpjoQn7cp8iJMCfoJp
-	 XwBwLp4jgO6k55ayzNYHROcFm6EbV536t+DOd7MwlbEjaKBEvSp2UA+W9wJIj+P9ivbGO
-	 oiqk74gu77Pmdq+D1PKt59jwbAbwB9TNCgYGj7kFjtXw5lMuHFXf6gHMFaVEik2g9/90q
-	 j7amZid6ep1VZWN6OpuEyR4mGoMcYrtPMkgriYff/6rUgpzWAZjpPfeb0zIxpsDBZtkYH
-	 jE4WmE/qFCS6M7b1aLc3I027e6yLe3nrMRr0bLoOLqN7lBDw4JiWLP4HVbUIgL0AHtg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dV7E1/xo";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=C+G9MD1YETmf62awSsJnA8r3aF77m2xP9BdbBEqhs7Q=;
+	b=TqlH84SEUwtgYTypfnyGyO7w2/HDi9cMOdBhjUpiWYE84CrYiCrGAxq9VMNb71R4Wkrq
+	 P3mHsX/9l8toXyQQtWJ8QDM687DVHjBKmXQSopqol9GYB+oCDNdzB85Ld4ybb5BDAY+wE
+	 vYqIpMtFg4Mo+tTPdSBwyjBJhMFo8D+dpIXAzRAdaLrOodgj/Q5r2XBeT1mlMHnQEtBlM
+	 vMHfqtN//nv31sv9V6PaBy27B7Zfr0PrJ90M8IdsS2SMVR5TPqZr0aj0RQimHdfTfdbvh
+	 JJFGcVi8poX3w6EGy/D4cB9ha5lNkHKiUXD/tKq5hkjyv6zOMPaYIWrfFO4qE81Og+Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SA+3qEPS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.42
+Received: from mail-oa1-f42.google.com (mail-oa1-f42.google.com [209.85.160.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04C11606A327;
-	Fri, 27 Nov 2026 10:56:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1F84606A324
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:56:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1F84606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dV7E1/xo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC6BB1F00898;
-	Fri, 27 Nov 2026 10:56:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795777003;
-	bh=ixpJ8FVsaUtzbYGvKZMv3iePyio0tQ1UpoRhwVro58s=;
-	h=From:To:Cc:Subject:Date;
-	b=dV7E1/xohDKd6dZZp3jQtSYpClT4BgLczWrsqp2uTk90zW4T9rl7RjRRbdBWS3dbb
-	 foptU5l3/U2XrmTRXAM2VWlN8LLDFQGfBkRxzlZ1RthW2PGE8oWXXhtQaFJ8LeSBuq
-	 wiq89m6iKeoql26dWs8Kz+CxfWTCCGHMMf9tHfbsFp4/zhaVVTxAufKEE2x8po9MyJ
-	 AxhYnLOsZFDVFHCpnkLdMm+kg39NWhUGtA1/lsuZ4YFhvjSjHtcHEs+1nKQ2ptpRbN
-	 x6Y+uBqBpt/ux2Vvj9tGAWBhVT9xPG0wQBuj1PfCotveI2I/FY39Gt5cvYrCKSMzFL
-	 QzZlE60psmvAw==
-From: Chao Yu <chao@kernel.org>
-To: jaegeuk@kernel.org
-Cc: linux-f2fs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	Chao Yu <chao@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v2 1/3] f2fs: fix to account entry_cnt for all write bios
-Date: Fri, 27 Nov 2026 10:56:41 +0000
-Message-ID: <20261127105640.537608-4-chao@kernel.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SA+3qEPS
+Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-4ad89c49e0dso2495591fac.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:56:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795777003; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ayfFpzAjOiRX8morogV1UiuA6DqxTV8p14g2lCqLPO2w+TIuWLySm3e+OlFzSEpiBS
+         QSLD1rzLKwt7HGYY1GKgkSPZLmrxkhE35pEamrWLHsEoeqTEQcewrO8fqSHsGDsjUr1B
+         Vx5eZoIn6TqSNqF+nljrP/fFvSouLe2EnIpun1gtqcHz2CaswlYmhtKLo66olPQR312I
+         n54Ojy7ZmgEVcPYsMHjpBeyk6FnKSw3M6qLpjA95Y9B8Paa6CFx0LdiqUg4wAFElWuAv
+         8zY6U6ArdwgNMY9YXgdUOq/bMR4qPZijEn65G3jdBAj8mZL6mCDurfBv+18sFPSTCrFu
+         0P+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=C+G9MD1YETmf62awSsJnA8r3aF77m2xP9BdbBEqhs7Q=;
+        fh=/5NYF4bAcr7aVvFD4yrJs+lMNqpMj6hsNx2j2qYRBGc=;
+        b=as4YDZPXcAiwHn96fqQjRpe+vVfzpvb2EIVwNElcd1okpDSyNCoHcaXfgMZVAFAOpZ
+         mvZm8ZyJFdELPTJ8wk4fWZXezSH7l7dCfI+v65Jm0It60xACY2/r0ObXBmgEK0QTSboj
+         xtm5fbnjmDwD8RAUXh5T38y6tM/z4/MP+4DxNQv1ctXHNj34LHn8FM/V1dTp4jVKHNhf
+         AyU4c5CL9vALNNvyQkSpwLPdDo8N6q6HORodfsPFLPudOilTXDSOXpebjyq3IyoFPQMK
+         C5R/GeNbKlaLES/rM+/X6TrURQpcwxXNa5LTFZ2HpFr8OUDAEDBzXwmoErWupyfBRRtl
+         9G8w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795777003; x=1796381803; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=C+G9MD1YETmf62awSsJnA8r3aF77m2xP9BdbBEqhs7Q=;
+        b=SA+3qEPSnsArNIrrfZSSnr6k90iPLdHMqPX+EaLNJl1+rMYZ3NbUoXwa90eFJKlp8+
+         ptAEhVKlMTWcsz7NnW/WRwPJsYncN4+WCmoifhL2vANXvazfTvmDuNuiPZ5vWGzC/dYV
+         9rJEl1XOevzQzS4s0NoMVN3XA/Xn9J6UaO2vW9iXODIWwsC/HlYy3imYT15hWjkLOslp
+         1jLCuCPX/ssyBwQGkIxwCNw6JXqehdRbo5Avr4Ukvie/sEcBD/os9QCrH9UDPbNzxELH
+         YTygYXxSS/Y2wr6LKGt3nJqlA6O5WceG9Eo6F0e4YQx55w8cUXGhwEtBzR82RdBz6rcF
+         kaQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795777003; x=1796381803;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=C+G9MD1YETmf62awSsJnA8r3aF77m2xP9BdbBEqhs7Q=;
+        b=I+pznp4r2jpueQPT4HH8Y33qK4ISObapWapFJwErvsjFpNaSW6/ZQ5SvANM6wjNg2U
+         vqQ8+Fun2MLc+9LLnT622YXJasXy7bC3R4pUe5eSYMc/o7QKMY+bD2jORRC8kXV7mAof
+         n9VMu60mOVxK6J0bCtmerNwol+cu+ySSEs4yLQJKbtfpdmBfzUv8xTSrBtMiV5R25XoZ
+         KHT8PxOZyUycrrH+bcYEaaMV9ldoM/ZImO+e6ofuT9Vt8mszt1Zxap+fb801uoiEPzNf
+         keCLu7dacZUA7YAoxXnDgyTdu6c6lRicgYnwKHIjDnIK+A12UcvalKjms2v2xzPQ+3sp
+         UcXQ==
+X-Forwarded-Encrypted: i=1; AL+hErEKWaPVUX2y0uZZYAt2Z7UByKvajWUOcRC+PGGik4XU9tzdh0jW15FVYm8gU9vtMN4As+eR9tvZuNrFuLI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+TDSoe2d/qyaScNzbSg1P0FURvLPnqiSrBU+0YsvdfTldJkoSh
+	Sm2Vne3QH7UVUlTj9ROoBRA8TIrSAIKZmhr/3KsD4X4LDtuSN/FQ25xg0cJSPFuGhZyTuPXQhE/
+	Y6mPWmBelnltJg1M0hemLysvCb8GkhG8=
+X-Gm-Gg: AZFdTZcc6nT/VkLiM7TjUcw+ZYNBhw6/UhaZJYC0uzQCbUvfdyEfRVO20wwtNz/5STM
+	P54FY4AdBM2p71+TCwDGt1KurVq54P3S7Y8L5s/hMYNA9/4dK63BfBB2Hk8RRVgdMF9wlcnshCs
+	bw22ArF8w7AvwqLqw+/k2KeU601HJjxpcDVg6DdA7H0qn0YFN1of6kdYQVv1IbrHWcT/ggcIMA3
+	0ogcN0Ef6RDYMsh4oyzP8i2x7n34srHAq4tCtu2FLmaCcU75yoVt+bnpgvs5jEa0pjD0ktT9Ag+
+	YvADEALCTtpRkwA9gtCQRMA/yeFCfcBklnVZFmlzGvc4jb8S3wXwh1oBT/sCrrlqVN5UJ5ta8SP
+	xvP9xSKyig0ADzMYH7C0ur6Cy8ZRignkXCQIEJLijH3q6iHTkG2p6lj2K/um/f4arFw==
+X-Received: by 2002:a05:6808:6d92:b0:574:93c0:5aea with SMTP id
+ 5614622812f47-57a0c6c050dmr21770536b6e.63.1795777002704; Fri, 27 Nov 2026
+ 02:56:42 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Fri, 27 Nov 2026 05:56:42 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,77 +103,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: Lee Youngjoon <getfeus@gmail.com>
+Date: Fri, 27 Nov 2026 05:56:42 -0500
+X-Gm-Features: Aa3M54rDmdf4zHHYDtRAD-zOujdJiLrziVZuYZztEqHqEQISApJqxYvgDcdWXNI
+Message-ID: <CA+m4KrDVNkHhqJhRVv7NRWhStNq8ZW+BfyAme6ZZrN-gqr9Q7g@mail.gmail.com>
+Subject: [PATCH v2] cpuidle: psci: Skip Gaokun3 cluster power-down in s2idle
+To: ulfh@kernel.org
+Cc: rafael@kernel.org, daniel.lezcano@linaro.org, christian.loehle@arm.com, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-From: Chao Yu <chao@kernel.org>
+The Huawei MateBook E Go (Gaokun3) fails to resume from s2idle when
+the SC8280XP cluster idle state (0x4100c344) is available. Keep the
+cluster idle state in the Device Tree so its runtime idle governor
+and the RPMh next-wakeup lookup retain the existing configuration.
 
-Commit f32744a8b83d ("f2fs: introduce max_atc_write_bio_entry_cnt")
-tracks the number of entries queued to a write bio via entry_cnt, so
-that f2fs_write_end_io() can offload the completion of a write bio with
-too many entries to sbi->wq if it is called in atomic context.
+For the Gaokun3 cluster domain, wrap the system power-down decision
+and reject the cluster transition during s2idle. Leave the runtime
+power-down callback and per-CPU idle states intact.
 
-However, entry_cnt is only increased in f2fs_submit_page_write() and
-f2fs_submit_cache_write(), it misses below write paths:
-- f2fs_submit_page_bio(): single folio write bio.
-- add_bio_entry(): the first folio of an IPU write bio.
-- add_ipu_page(): folios merged into an IPU write bio.
+On a GK-W7X running firmware 2.18, the candidate booted with the
+original cluster idle state in DT and resumed in the same boot after
+159 seconds of s2idle using the power button and no RTC alarm. The
+cluster genpd counters showed 510 runtime uses and zero s2idle uses.
+The test kernel also carried a separate RPMh KTIME_MAX guard.
 
-So entry_cnt of these bios is less than the actual number of folios,
-and a merged IPU write bio, which may contain up to BIO_MAX_VECS folios,
-will never be offloaded to sbi->wq, then it may be completed in atomic
-context with high latency. Let's fix to account entry_cnt in all above
-paths.
-
-Cc: stable@vger.kernel.org
-Fixes: f32744a8b83d ("f2fs: introduce max_atc_write_bio_entry_cnt")
-Signed-off-by: Chao Yu <chao@kernel.org>
+Link: https://lore.kernel.org/r/CA+m4KrB1p2u_y92phm-xpn3up=kebi1OmiVc3X4CCdFzHT9-5Q@mail.gmail.com
+Signed-off-by: Lee Youngjoon <getfeus@gmail.com>
 ---
-v2:
-- rebase to the latest dev-test branch, which supports subpage block,
-  no logic change.
+Changes in v2:
+- Keep the DT state and runtime governor in place.
+- Limit the workaround to the system governor's s2idle decision.
 
- fs/f2fs/data.c | 5 +++++
- 1 file changed, 5 insertions(+)
+--- a/drivers/cpuidle/cpuidle-psci-domain.c
++++ b/drivers/cpuidle/cpuidle-psci-domain.c
+@@ -9,6 +9,7 @@
 
-diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
-index cdc9e6e8633c..6be0cadc511e 100644
---- a/fs/f2fs/data.c
-+++ b/fs/f2fs/data.c
-@@ -959,6 +959,9 @@ int f2fs_submit_page_bio(struct f2fs_io_info *fio)
- 			fio_lblk, fio, GFP_NOIO);
- 	bio_add_folio_nofail(bio, data_folio, bio_len, bio_offset);
- 
-+	if (!is_read_io(fio->op))
-+		F2FS_BIO(bio)->entry_cnt++;
+ #define pr_fmt(fmt) "CPUidle PSCI: " fmt
+
++#include <linux/suspend.h>
+ #include <linux/cpu.h>
+ #include <linux/device.h>
+ #include <linux/kernel.h>
+@@ -41,6 +42,20 @@
+ 	return 0;
+ }
+
++/*
++ * The Gaokun3 cluster state fails to resume from s2idle. Keep the
++ * normal governor for runtime idle and reject only s2idle power-down.
++ */
++static bool gaokun3_cluster_system_power_down_ok(struct dev_pm_domain *pd)
++{
++	if (pm_suspend_target_state == PM_SUSPEND_TO_IDLE)
++		return false;
 +
- 	if (fio->io_wbc && !is_read_io(fio->op))
- 		wbc_account_cgroup_owner(fio->io_wbc, fio_folio, bio_len);
- 
-@@ -1030,6 +1033,7 @@ static void add_bio_entry(struct f2fs_sb_info *sbi, struct bio *bio,
- 	bio_get(bio);
- 
- 	bio_add_folio_nofail(bio, folio, len, offset);
-+	F2FS_BIO(bio)->entry_cnt++;
- 
- 	f2fs_down_write(&io->bio_list_lock);
- 	list_add_tail(&be->list, &io->bio_list);
-@@ -1077,6 +1081,7 @@ static int add_ipu_page(struct f2fs_io_info *fio, struct bio **bio,
- 					fio_folio->mapping->host,
- 					fio_lblk, fio) &&
- 			    bio_add_folio(*bio, folio, bio_len, bio_offset)) {
-+				F2FS_BIO(*bio)->entry_cnt++;
- 				ret = 0;
- 				break;
- 			}
++	return pm_domain_cpu_gov.system_power_down_ok(pd);
++}
++
++static struct dev_power_governor gaokun3_cluster_gov;
++
+ static int psci_pd_init(struct device_node *np, bool use_osi)
+ {
+ 	struct generic_pm_domain *pd;
+@@ -71,6 +86,13 @@
 
-base-commit: 9ad6c58bfbe5882b1aa0cbe2393dbfca89d2c199
-prerequisite-patch-id: 23bb28339e4f35a111279d46493ac1e04fc66d58
-prerequisite-patch-id: aaf2ca8ae4a7422c58daa02714ad9a5b4578bccc
-prerequisite-patch-id: 207a76a8bede95d1b0ec30dc2323963da5f6ff3f
-prerequisite-patch-id: baa9eb03ece0f1f0155a2226b99946327ceb3e33
-prerequisite-patch-id: 1eca125a4d02fba284eaad33e37de978ec89a7d0
-prerequisite-patch-id: b4566514d95142b9291270f2b64205f69c9b6edc
-prerequisite-patch-id: b8f7552919f622aedea1b119674eec9cc93d8671
--- 
-2.49.0
+ 	/* Use governor for CPU PM domains if it has some states to manage. */
+ 	pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
++	if (pd_gov && of_machine_is_compatible("huawei,gaokun3") &&
++	    of_node_name_eq(np, "power-domain-cpu-cluster0")) {
++		gaokun3_cluster_gov = pm_domain_cpu_gov;
++		gaokun3_cluster_gov.system_power_down_ok =
++			gaokun3_cluster_system_power_down_ok;
++		pd_gov = &gaokun3_cluster_gov;
++	}
 
+ 	ret = pm_genpd_init(pd, pd_gov, use_osi);
+ 	if (ret)
