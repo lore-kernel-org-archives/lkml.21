@@ -1,96 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795756184;
-	b=0p7gsz5BpforG6dxh7G9PaNopohApckGWuvZUtchlB/gzEuRiwA9b/bMcJT/MlC40UYn
-	 KUcnkZZlCOYlDTr2iIICQCtlrnaztXT/DaaMYACem4A3RB6/2q/l2/yaLLH8hgwVwqNkU
-	 AmEi5SjCzJShswsSVZJtFdkafvmb9ZcBxPM2Shc9PDgcDabrq+XuLecEUHYjhXXBu+rnB
-	 a2WjHfmsMBvHa3HV7eJJvuDe8aw3XBYkrm2zWBPayEjWa3au3iwWA+sZG2/XDmnex12OH
-	 es7rAYSo3L16pc/41io3SAfLcDsHlTOioCfzQTp2vTp1tmIIhfpQSKR1G/HJ+St0sWw==
+	t=1795756284;
+	b=jP//wHS7fuh08j+5o3vkobVSjI9ipEP+yo/Hu2z9Xglmh37NCSgMq1dB8da/VJ8TXjj0
+	 TBiGeKZ17Qx0mAjNOR6Iv1mNmjHsWXLQmVUPBjMw6c+3HssWqX5v5UwMhx71DRPfPx3y3
+	 77Tx+Tib91XnrqqxV3P7MVBYYapmM1n/QIhG7eqqDJODSuMfGaCsWS/WUQWzMzFIRwtZT
+	 CbkoElIKy3sBBNs+guaNLEq2KicGSFnej/F20hFHJInN5tzuryJD5zAuK12/yMP8R6Y5v
+	 ys460cn4PIxuUS836ngojsZVGAoq5oFtKEoRbYOyaFO1EuF0g0NKuyVYgahCi1VCuBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795756184;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=F3iJsoOA8LR3I1iVxCQSl+sH/70ZE2dj3acrGl06Vjg=;
-	b=HhNSxgo/xowhkjJ8jY8MIU++yWiD89C8BIGO7KGgHKP7XGV/4KzDUZ8APgyM7qTN9XA1
-	 EIT/IHtyO3ovkNWvYtlGNJ4LDCiuhkCeTdf7tL0hKBj3moEzkZDcGgdMkdtShMzlCn/YK
-	 Q9NJ/lZ9UZbjGevOkq4D5i8id5fw79ovAKkHzqEc6rBvygBvj9T4H0dW1vMuiFqg0iVes
-	 Npknm5ht5c86z98zCIlfBe8gXAknBM1gkk4uk7CULfwP//XHSQe88M+hP0yjUlFAUpbYv
-	 7JukIGe9iEs/TDpeDswb7sjyKBqbYCgxhYVWuCdEg660OcYdKWSTu1qplS0krk/sBlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795756284;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Newsgroups;
+	bh=CD98uwzn1z5bmXKFQMAS+XVWTHzZRqrm72A3gkcUC/c=;
+	b=bAADI0PtvSWyuuA7XjKBqFtRFnElVem1fDVelXZ+hvIMqxUGciE6OKxxCIjC/sPPH5eQ
+	 /mAJzzQ5Erw5mfXAj1VJ+xxykTGrULW3tjHSCU1l1bTkTg+T6bLZD+jriWkBLsppHaYMR
+	 oVYhEf5nkLJB91SjY3a8toUj1G51DBcfAdd8CJlqS2Tnl7gHEH8GG+LaaYk29BAItsARI
+	 VEHvNSpsMqb+k7Zcms/dPW5D/Al4B9lIQbvUP1SJlbmVPr//JIAhgVpJWmuZtQsQfcwOY
+	 2VOtAYkcOfCCabd9IWI67VqTRXzXDzEEo6HRQ8QjKKIKzsonTw8/BBYG98rd2/Df2dA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mXKPaBn9;
-	arc=none smtp.remote-ip=209.85.219.42
-Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=j6D6mOcG;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3291E606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:09:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3291E606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87C1B606A31C;
+	Fri, 27 Nov 2026 05:11:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87C1B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mXKPaBn9
-Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-9212a5a66f8so62745356d6.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:09:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795756183; x=1796360983; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F3iJsoOA8LR3I1iVxCQSl+sH/70ZE2dj3acrGl06Vjg=;
-        b=mXKPaBn9BMNng2HLY0raCRf2NRFDUHWhLZ88tNUmL6gvA6gGLLmFpU7cJzeWBJDFGO
-         TJZbbbVMvB6cdysB5SwUjR2lDm4619PZUm6VZy3XNLmoOFMmQ6ohG3rI9SKTUbcqX10z
-         jKON6mQPE15FcowEaupElflRcHdPYLeQ1VsL17dlGhBxyIZjLhoIEdN3clXatACSoSZ1
-         Qk62/4O8HQ6b2/JczpCAsGBV+qbYmLw5bi2eS18y30q2uei5+hIRIcKqK0YXdn82vDC8
-         SY7/l82jJyT7Wdp7cBQfDULkQXcbGulxB+id2EczOVCDnDnaKYtj8R/YhF+biibB4TID
-         2HTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795756183; x=1796360983;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F3iJsoOA8LR3I1iVxCQSl+sH/70ZE2dj3acrGl06Vjg=;
-        b=wIl7GupRGr9zYn8+3ZKBnLfidvxzl0J250OwYvS/DZA5tEc84ZlHkuhJHt5nT07RFR
-         OPoHZ9cVTI9bxnNrQhYRAZJZLQEZREVyl5EBttURT1cCSSueqOis/sJzBn/yW3f4+ZG3
-         hCLneHEPEItLrGVX1xZXd75ucQBda3zQjdaYw18JDaf4FJeOwS5Iu9MaByx33mdZg08z
-         C7M09ruru1gRPKRanKT7bjHiHfXhpRGH3G3oPrDamak6swCxMgy7+RswfuLXWWBJLMp/
-         DdZAOett2nAt18cnUeWgPHZBubETAj9oUIvIWR+wS2OC2lASh3t7yMg+ol35IvNYrj3I
-         OFWQ==
-X-Forwarded-Encrypted: i=1; AL+hErFphnJWndO/QBKf9qdnDWbvR4aL18Pdb9EyCgpcCAotpg0jBxsO3BOCNuIa/FtnQJBZPmAoLxnb2dyJ5c0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9SjyrPvwmvKoXToFkgi5bzPjeXEoPacdzQ/SJmnT/4a8BZMhoL
-	AC16tJg0sBJwrED1iEQ4UXkiO7MqL4J5RdqZTpBx4NrNGEwYKkQ/U0Mz
-X-Gm-Gg: AZFdTZe01FArh9tnFJwiHB+7qjAisctvdWtn/lTffEGr6h0EvFZ2aSPTc260YObHCi3
-	8YyOPzVfacbJfAwB9gCQuOQ0VTIqaM+S/nUu89mfRIGYr4BeWMQcPBbsGvziXjp1D1YmP6Yotyt
-	Vt7HwE/SOBYsklQsn7LZcBSUkRq9U4/5z4o9nMU32qG6Wfc8YHVl4aqDUkzbilHhvnlZemexHRT
-	x1F0RkcmPcAGf+bpK+7amdlYpZQUcf+BL9My9FTEQYAO7C34546HhquJWtebyPoE5+Ur75Ynq1G
-	2oQzM58EUhBu9UnZwxOHd8c81gGUcDvI3MAw5dDG9i38bM8TdS0bx8vxjVSBH5/FtoIn8xnC/8R
-	vFWm1l4z9S/UvMpP2+ngP/TXmE7BTdt4G6F18ccMma8MJGldVb+RWTfYOnrMnqB2bu3BChMCIpH
-	bnOs63BHVmSd9X/9mZ4/f4xUojQ7noYs2ihetnNF9oPKfat2/ZADCVDmU5sUmZUHXVu2qmisXvo
-	NCcSwuUoevVdyV7QH1TtYsiev6pGUhPwRRExxvAG5GXXfxXRJ/jRvbQ0t6FP0ru5+gdqd67cJQU
-	slVNUHFosyaf05sULye1x6WmWB9uzI0mHAO26f69nKwKJRkcFqy2GpxeEsDdTMxkZYUF/Xh0vmA
-	Ulqmz/ADkLDTcRGjMURiXYs2FijH2/7Ko/EN53WgTDyBgWcI=
-X-Received: by 2002:a0c:f012:0:b0:91c:988c:6df6 with SMTP id 6a1803df08f44-92134afdf51mr377852396d6.56.1795756183091;
-        Thu, 26 Nov 2026 21:09:43 -0800 (PST)
-Received: from zeppelin-x.sky (dhcp-9-244-177-183.gobrightspeed.net. [9.244.177.183])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a1d948sm206309376d6.40.2026.11.26.21.09.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:09:42 -0800 (PST)
-From: Felipe Infante de Castro <felipe.infante.de.castro@gmail.com>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Peter Chen <peter.chen@oss.qualcomm.com>,
-	linux-usb@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Felipe Infante de Castro <felipe.infante.de.castro@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3] usb: dwc3: qcom: Restore DP/DM wake IRQ trigger types on unbind
-Date: Fri, 27 Nov 2026 00:09:38 -0500
-Message-ID: <20261127050938.2150497-1-felipe.infante.de.castro@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=j6D6mOcG
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:from:
+	content-type:references:reply-to;
+	bh=CD98uwzn1z5bmXKFQMAS+XVWTHzZRqrm72A3gkcUC/c=; b=j6D6mOcGBcWywulh6qiz/EQtzi
+	0abysrqGMeMpxS0k3/ualj3KXu9k5kirL2ajHmqZIr1LchIKxUF2PW08ozSfS16pvAzfhY9Hg6+dx
+	/h1RZdAdThK7fFXmxOwnZkIOF8xqqdYhd1Dn+oJZzJNe8h2qiYCpM1d8NgPfJb7GrFQfC21L/w1Jg
+	HYJkIc1q/usSQV0oRVg0lJTJgsRTphvLzqCLYfks+6PD9mr02urhp08K6GlRPI+nkut6mRk+bm3+1
+	1SE4qqTvUW8muSxXs96+zAeYnAMZLjFDwp9KhORCHQxHBF+siXviPGthkHCjDCeJFYvzvXRszRI62
+	vd8WDy8g==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xWoEx-00000002VTj-3CQq;
+	Fri, 27 Nov 2026 13:11:20 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 27 Nov 2026 13:11:19 +0800
+Date: Fri, 27 Nov 2026 13:11:19 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: ayush.sawal@chelsio.com, davem@davemloft.net,
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: chelsio - Fix potential NULL dereference after
+ detach
+Message-ID: <awkQ9-PZryz8Ss5s@gondor.apana.org.au>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,124 +65,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-c29ba55625-crypto-chelsio@mail.sdu.edu.cn>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 
-On suspend, dwc3_qcom_enable_wakeup_irq() sets the DP and DM high-speed
-PHY interrupts to a single edge, chosen from the speed of the attached
-device. The IRQ mapping outlives the driver, so after an unbind the
-mapping keeps that single-edge type.
+Guangshuo Li <liguangshuo@mail.sdu.edu.cn> wrote:
+> Detached contexts remain on the inactive list until module exit, but
+> their PCI driver data has already been cleared. Looking up the adapter
+> to reset its counters then dereferences NULL.
+> 
+> Skip the adapter lookup for detached contexts and free the contexts
+> without accessing the removed adapter.
+> 
+> This issue was found by our static analysis tool under development.
+> 
+> Fixes: c0271a053612 ("crypto: chelsio - Resetting crypto counters during the driver unregister")
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+> ---
+> drivers/crypto/chelsio/chcr_core.c | 6 ++++--
+> 1 file changed, 4 insertions(+), 2 deletions(-)
 
-On the next probe the interrupt is looked up again from the device tree,
-which describes it as IRQ_TYPE_EDGE_BOTH. The lookup fails with a
-trigger type mismatch against the existing mapping. Because the wake
-interrupts are optional, probe still succeeds, but without the DP/DM
-wake handlers, and USB wakeup is lost until the next boot.
-
-Record the trigger type of each DP/DM interrupt when it is requested and
-restore it from a devres action. The action is registered after the
-interrupts, so it runs while the driver still owns them. Unmapped
-interrupts, unspecified types and types that already match are left
-alone.
-
-Seen on a Microsoft Surface Laptop 7 (x1e80100-microsoft-romulus15) on a
-7.3 kernel: after unbinding and rebinding a controller the dp_hs_phy_irq
-and dm_hs_phy_irq handlers were absent from /proc/interrupts. With this
-change they return on every rebind.
-
-Fixes: 6895ea55c385 ("usb: dwc3: qcom: Configure wakeup interrupts during suspend")
-Cc: stable@vger.kernel.org
-Signed-off-by: Felipe Infante de Castro <felipe.infante.de.castro@gmail.com>
----
-Changes in v3:
-- Renamed the new fields to dp_hs_phy_irq_type and dm_hs_phy_irq_type,
-  to match the existing dp_hs_phy_irq and dm_hs_phy_irq (Peter Chen).
-- Added Cc: stable (Peter Chen).
-- Sent inline; v1 and v2 went out as attachments.
-
-Changes in v2:
-- Resent with an empty mail body.
-- Added the Fixes tag suggested by the Sashiko review.
-
- drivers/usb/dwc3/dwc3-qcom.c | 38 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/usb/dwc3/dwc3-qcom.c b/drivers/usb/dwc3/dwc3-qcom.c
-index a260841..548d69b 100644
---- a/drivers/usb/dwc3/dwc3-qcom.c
-+++ b/drivers/usb/dwc3/dwc3-qcom.c
-@@ -65,6 +65,8 @@ struct dwc3_qcom_port {
- 	int			dp_hs_phy_irq;
- 	int			dm_hs_phy_irq;
- 	int			ss_phy_irq;
-+	unsigned int		dp_hs_phy_irq_type;
-+	unsigned int		dm_hs_phy_irq_type;
- 	enum usb_device_speed	usb2_speed;
- };
- 
-@@ -473,6 +475,7 @@ static int dwc3_qcom_setup_port_irq(struct dwc3_qcom *qcom,
- 		if (ret)
- 			return ret;
- 		qcom->ports[port_index].dp_hs_phy_irq = irq;
-+		qcom->ports[port_index].dp_hs_phy_irq_type = irq_get_trigger_type(irq);
- 	}
- 
- 	if (is_multiport)
-@@ -488,6 +491,7 @@ static int dwc3_qcom_setup_port_irq(struct dwc3_qcom *qcom,
- 		if (ret)
- 			return ret;
- 		qcom->ports[port_index].dm_hs_phy_irq = irq;
-+		qcom->ports[port_index].dm_hs_phy_irq_type = irq_get_trigger_type(irq);
- 	}
- 
- 	if (is_multiport)
-@@ -540,6 +544,38 @@ static int dwc3_qcom_find_num_ports(struct platform_device *pdev)
- 	return DWC3_QCOM_MAX_PORTS;
- }
- 
-+static void dwc3_qcom_restore_irq_type(struct device *dev, int irq, unsigned int type)
-+{
-+	int ret;
-+
-+	if (!irq || !type || irq_get_trigger_type(irq) == type)
-+		return;
-+
-+	ret = irq_set_irq_type(irq, type);
-+	if (ret)
-+		dev_warn(dev, "failed to restore IRQ %d trigger type %#x: %d\n",
-+			 irq, type, ret);
-+}
-+
-+static void dwc3_qcom_restore_wake_irq_types(void *data)
-+{
-+	struct dwc3_qcom *qcom = data;
-+	int i;
-+
-+	/*
-+	 * The IRQ mappings survive unbind. Put their firmware triggers back
-+	 * before devres frees the handlers or the next probe can lose them.
-+	 */
-+	for (i = 0; i < qcom->num_ports; i++) {
-+		struct dwc3_qcom_port *port = &qcom->ports[i];
-+
-+		dwc3_qcom_restore_irq_type(qcom->dev, port->dp_hs_phy_irq,
-+					   port->dp_hs_phy_irq_type);
-+		dwc3_qcom_restore_irq_type(qcom->dev, port->dm_hs_phy_irq,
-+					   port->dm_hs_phy_irq_type);
-+	}
-+}
-+
- static int dwc3_qcom_setup_irq(struct dwc3_qcom *qcom, struct platform_device *pdev)
- {
- 	bool is_multiport;
-@@ -555,7 +591,7 @@ static int dwc3_qcom_setup_irq(struct dwc3_qcom *qcom, struct platform_device *p
- 			return ret;
- 	}
- 
--	return 0;
-+	return devm_add_action_or_reset(qcom->dev, dwc3_qcom_restore_wake_irq_types, qcom);
- }
- 
- static void dwc3_qcom_set_role_notifier(struct dwc3 *dwc, enum usb_role next_role)
+Patch applied.  Thanks.
 -- 
-2.56.1
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
