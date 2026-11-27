@@ -1,86 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777892;
-	b=jG9/GpBTYJfnNtPDe3+bR4I24rFKxuhPzVQ5ZCaai4lTa2GmtomqPXL/FXTgQgO3r1ll
-	 ImDkoq7UkPlhpbU2M6xoX85+dx8nIghu1GAHt1wxv00Ph++tzDv3+UhN45Y55MULR6PAl
-	 6uGxkOjNKruSWsKIr1ob8tcy9NWoJoKlrGMtOfsMeVR+2zycAthGA5nNWY+Kc9XcnEt7f
-	 yC1OmViVn62yN2XgUUvMj5D2DhJ5LuOd7KrMHtH8kynrClu7VGbgh6yEeXE28G1hatL5e
-	 uMOrjGkc8/CNDNFxArlYsq5FNyILJcg86o1rPvMZN3k7gyvfAumTX4e7SSWIfQt8qxQ==
+	t=1795777928;
+	b=UTqEa1Mv9HjgsVMoC7gQ14CFuMQAIbEtu8JiJQ0cLYOAhv74Yojv2bWnTWmR8m4SO+fn
+	 IA/P9N5L/Rx9lU9S+BgHDBqGZgPHYFJBqvWpxCPBqD5sH5HXSHqUQqQjUh6m5L5a1Bn0i
+	 2p6bSNb0QWQYx+0u3PDTwnm95bkFj6zLbBgWkCyCvwglmq0UjUUGSqsyTz19LQ5XoTAV/
+	 3KyP7V+pHGsZA/kBjDRtD4LMohfrl5egnDdnLEegqbLQMIGVTP4Wr0HmfWr8D+XimtLdO
+	 B8+7Poxu/Fx7fcF6w33T26VXRL3LetTtLf/Y0INmLnn/6UGCvThiiwD5+69JL3Mc9uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777892;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777928;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ntucoBJTEaHY4nS4xGinqu4auOiGQOC/h2sxnNGH6F0=;
-	b=msMWKM0KqPzfREZDWr3FzjMKSf3jho7ZbYzbZ9GlURV7cPBNHTK4dfntuJrRzRmO38J7
-	 sEVduC8QAJb9h8qWDinvXHUTHgXOjIVV6oebMXiTlMm/mnmt3h9M/A/pc3ueujzpjnYb7
-	 clul987Jalupy2je3yXBILFxFskEGq3yVEaURFCZnRdQAOsKemhWHzlwbrKfa5TTMeT6d
-	 HUQXmxmsHBXBBTJTqxK0qw/Z89HP8+TC6HwJZhRIK2t9kNyT2mLj7xCVB0Bf+Yri5tWk1
-	 e0zk8Ujl5v0afESuLt/qwOUiFkVqksb4Ud8LC0E43SAmF/d3qoHV92kGhghgT8OM1xA==
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=y5YJi1sJrMPuqmdeCSGcwMhOZSaaMEqVhLWjWg1y5DQ=;
+	b=r+p8+o0xz0eLY6IkJ9sxVA8v73SoVZH6OBpWlkcEqcmEVx+3xoMagVUVNK8rjPry6jGM
+	 7SPaKkcvFzY3hpowU8/pgteV9oGZ85aPhTm6FwaBrsu+0yC1bZeoh7OPNHuf8Ri6tSfiN
+	 y/wkDK6pJX2cjrGC3IAhYTW0QRG+Zn6+Vpci4NdJbI4GH8FM/QnbvHELYGQ2sIpBIJ94s
+	 NgTUNEF9HbBwRpN2XLji3MXqgx6uJ1rSIiHyl6G4stGt34F+82vepcvxwhKzODYSKh99h
+	 gFof+ZalUTSbS6Bdm3nXqgZ0Lr3Yi90v+3e8RHk0pT78+HFL6ddZKuGZhEuEnILKWmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XAubkvTI;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E791B606A336;
-	Fri, 27 Nov 2026 11:11:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E791B606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bIUvy44G;
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 714E1606A338;
+	Fri, 27 Nov 2026 11:12:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 714E1606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XAubkvTI
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 033EC1756;
-	Fri, 27 Nov 2026 03:11:28 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FD1F3F632;
-	Fri, 27 Nov 2026 03:11:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795777890; bh=ntucoBJTEaHY4nS4xGinqu4auOiGQOC/h2sxnNGH6F0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XAubkvTIvWQmtGwwh0Lui5Pw4zp9veJEvuEOcvujRLkNv++5qc6SoWo/GW5AlSQl6
-	 PgIau2CJndplgHI3uAEWKBwn7RGP6JWE+1RW9hDpLE9y06g/euKPpYtIfRzAut7vKE
-	 pfJILfoOkaWjEC5EtOAXJ6zpZlfQxguXEus0BLvo=
-Date: Fri, 27 Nov 2026 11:11:28 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Puranjay Mohan <puranjay12@gmail.com>, vladimir.murzin@arm.com,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Rob Herring <robh@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Stephane Eranian <eranian@google.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for
- bpf_get_branch_snapshot()
-Message-ID: <20261127111128.GB861809@e132581.arm.com>
-References: <20260810164622.1829843-1-puranjay@kernel.org>
- <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
- <CAEf4BzapC=7YM2QLMyKKfyOWGgBTfEJmPPN8e9Jf5xT9SutBTQ@mail.gmail.com>
- <dfa8362e-0dad-4f23-9d2e-dde03cb5facc@linaro.org>
- <CAEf4BzZ=ahQNtA-1KdZFRONXMOEkV9Nb1OUY==JRQCarkbMM0Q@mail.gmail.com>
- <5c7f4a5f-fe5e-4367-9c60-86f1818346e8@linaro.org>
- <20261126180214.GB809232@e132581.arm.com>
- <9a471409-04c2-4f6e-aec9-0b23bb9b69f0@linaro.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bIUvy44G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795777927; x=1827313927;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KqHOKykbe5ZyFYsaUPcERJBTPAJ7CBqMo8obDfHE8bI=;
+  b=bIUvy44GmFFezPVnol0g6umloag550GEG6UIi0MIXMA3ZUv1spVT1BG8
+   GWbeRY/YP2bZMDNSrpUyX1jRtp+NHtYmPnJiFd0eGWnxDlmzk6bVEnF5m
+   ODeQU3U4UqtR/eSgR+Z4VvjM/FDGOnjjBBXrC25n4yBDwhPN2FqYf0rfQ
+   2c+YPaILoScCo8dLK3jiAzk4tBQ2J3iB/8Rw+uNmKcGKtseCyD7qUOnXI
+   HhA6V1oiwtrSTEIrb2fghutLt6dhja7DBPvsf2Llerh6RKJUWF56i2KKD
+   vU0oiFHPDyijr7Uk6OpOE4Hid47OUWT5UbNf0UzCR6MwoG9MZgB8yUrsc
+   g==;
+X-CSE-ConnectionGUID: GEuW5iV9RCSYc/al0XbTgw==
+X-CSE-MsgGUID: qEqFXznBSPmEnGQgn/dxVA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4544764"
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="4544764"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:12:07 -0800
+X-CSE-ConnectionGUID: Y/NDu+7dRgyXEKj6eGNtkA==
+X-CSE-MsgGUID: N4ac5XDcS4avPB+40bfN1g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="14051309"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:12:04 -0800
+Date: Fri, 27 Nov 2026 13:11:58 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: sanjayembeddedse@gmail.com
+Cc: Jiri Kosina <jikos@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, linux-input@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Joshua Crofts <crofts@kernel.org>
+Subject: Re: [PATCH v2 0/7] HID: iio: Unify probe-path logging
+Message-ID: <awllftF3xR6Arvua@ashevche-desk.local>
+References: <20261127-19-oct-hid-iio-unified-print-framework-v2-0-3f476fe1a940@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,29 +85,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <9a471409-04c2-4f6e-aec9-0b23bb9b69f0@linaro.org>
+In-Reply-To: <20261127-19-oct-hid-iio-unified-print-framework-v2-0-3f476fe1a940@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Fri, Nov 27, 2026 at 10:56:27AM +0000, James Clark wrote:
+On Fri, Nov 27, 2026 at 04:03:55PM +0530, Sanjay Chitroda via B4 Relay wrote:
+> This series provides consistent support for logs in probe() path for
+> HID IIO drivers with suggestion and input from Jonathan.
+> 
+> This is followup series on top of multiple sub-series submitted for HID
+> IIO device drivers which included fixes, devm support, cleanup and using
+> preferred kernel coding style. This series adopts a common logging
+> approach throughout the HID IIO device drivers in probe path.
 
-> > Could we restrict bpf_get_branch_snapshot() on arm64 to a free-running
-> > BRBE mode? On a given CPU, at least one active event would have to
-> > request a branch stack, and every such event would have to be a
-> > counting event.
+> ---
+> Changes in v2:
+> - Following suggestion of Joshua, remove the comparison and change the
+>   checks to `if (ret)` as respective devm_*() API `return 0` on success.
+> - Link to v1: https://patch.msgid.link/20261105-19-oct-hid-iio-unified-print-framework-v1-0-0b360d9552d9@gmail.com
 
-> Yeah I think this is a pretty good idea. It looks like it would avoid having
-> to disable NMIs. You only need a local_irq_save() to avoid new events from
-> reconfiguring BRBE while taking a snapshot, and you don't have to disable
-> the PMU counters either.
+Reviewed-by: Andy Shevchenko <andy@kernel.org>
+for the not commented patches (the one is depends on the answer).
 
-I'd like to avoid local_irq_save() if we can protect BRBE snapshot
-reentry in another way.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> If any sampling BRBE event gets scheduled then the snapshots just start
-> skipping and returning empty.
 
-BPF program can be attached to interrupt handlers (even it can be
-attached to PMU interrupt handler). As you suggested, we can use per-CPU
-flag to return an empty snapshot for the nested call.
-
-Thanks,
-Leo
