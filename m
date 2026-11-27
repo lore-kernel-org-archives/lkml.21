@@ -1,58 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793561;
-	b=KwTH2ei9+5u/cYjfbxuMDY+ruGkb04mbnUjX0z6DJgQTJcQAFBj/oG1ucg3JHUMaNnRS
-	 eelMECSq78RdPLI3Gqgvy87qEhXlOGycB8g9diyzl6aHhcxpKi7H2xcd0gQ2SGVTOOwf2
-	 rhinM91JgxkaMHAV1Blg/xFrwU/Z8ktGGdAp3QZhZ2xYwsd8LhRjkzIduh+HCfPgM/GN/
-	 1ICOJBmh7YlNyTn3RThrKAfNyhbYRVlAGJhd8L/Igj3tkiDyJQ78NQ3S8nfoPFmBNPSv1
-	 q/KtRlCwsLORu2ZcGGuSIm2Yt7kSsmaQPvDPq1BGwFN6h9Ea21xe65zM7ITkuW7lTSw==
+	t=1795793566;
+	b=wuTRZKv3Pyh4RSwAChnkItI2WJ1sTZ/pfosiVYzdGuIwKmlD3elWscPTaICsQv7RCQHj
+	 YwEZf3OjLY2ppLji9CozbkZjxNZkTpEoUYwoer6Ouzqhs8lKzYYvi0Q8y68ZCLq3XGaOo
+	 sfFnyz1/jJBwTwMtRN0T09kVdzJuo3dU0HHmfkCF9hSW809OATBtDLngbqy+XD22PWmK5
+	 O5L0Lcb8hACdBG2y1wOxXOAPfGMFisBCYclXUCNGnEv+HWTK9gOCiLkge+5xGVkZSCsOS
+	 8oth0YPKTkpoubIwLqhG7xCNsLLtY2q7yGRvLWFSP6wxq7bZUCJjVbHyk5bAX+OsSIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793561;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=0gIlXVQ87uO7kfJWQw74uLJzWa1rKvwJQf0oUC7TuyI=;
-	b=McoWckMIoTUIurihPCbZT2tKliCRWYQZx0oIZPridJ3UGpFFU7EIQv6h7ygmzpPZTyUF
-	 6uHSq16EtZhrHdtHgIWoi4fq4jI7tuoTcWyvVL9wQObrJiV1ZSUlMmTcPLmjKZFiVqwRp
-	 RHAdZn39zeqE6qab1dOkpWDFlMeMS79r0af57PowZaRm0cAl7JFhDklUU3y9ZeQFb4glv
-	 gHbnZUl3qdSYYW5MfduV2BmBd2n2TQN/JJAELGXdUxuZBj9pLOu4EtLUk0UfoYH9tSg6A
-	 qHirSEadgelfMkq4xSa61P/LfSmOvi0WQ9JOEn0mOS6sV1/e5jBo9izqc9IByYjwpBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793566;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=2xSkHmgwcY/UBC1h6KghOKuKRKbFTAGv0DCM6/0KU/Q=;
+	b=u0UX0uFCTFH7val6RRZcOAMEjN0wGAlx5epvvb3JvAvCSFQ7pxV8WDvBM72yKmxwd9iK
+	 U3rj7+NWjOcK6QoMJDEDb7phRNIh+xZZY2ji5FwZTCTDI9lzEv5aQzavK0qP6QMB+HxcQ
+	 zx4riG+P/yNc6sUpjbGO3jBw2J6ZC0rCfPHbDgLCW/W7auA+tueu4HwmxOSR9n8HYOa2f
+	 CopoOveHk1lZ1yr2h0GYfLPvg45LFpO9YxfsIDebZ/Hfh73Lo0Hf7jAN+CR9xN8PloPrH
+	 +XWHojuFpXJMtWuFOi6KKuGuVEfg6tGwaB2vSfJSC1hi6T8UxfSUTHkQ0IUZA6AU+bA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C5Mo3Nwv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hMw9Mmff;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3D13606A31C;
-	Fri, 27 Nov 2026 15:32:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 961CF606A32D;
+	Fri, 27 Nov 2026 15:32:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 961CF606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C5Mo3Nwv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4FC51F000C1;
-	Fri, 27 Nov 2026 15:32:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793560;
-	bh=0gIlXVQ87uO7kfJWQw74uLJzWa1rKvwJQf0oUC7TuyI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C5Mo3Nwv8cVoWh1uzGDbcfOGefJYapYzDVJTdSCtlTwbHtNBUrd4jBdSzP5hn/0IJ
-	 YBs4dScZXrux7mLAiabl2W8ayLr+tqL/eUAvOjFcn/PHeWr5gDNk2lvNpzzY4JVGlS
-	 hLdllNkZ+5txf4n52Mk2PTmDWRKWFYEIKVDKCe7VnK2Rhj9FSQ0WBMUWbUHvLyUNl5
-	 AMYdjrWTsRGCJmBYwWY1BFIyGveV8I+J8P56ANJlciLqce25e/RDE9+rUi7LHvAzrZ
-	 662y7mDRSgCZ4u4OhdCnGeVm3vI7zCG9T7+Ci4IVrrMQSAKs3jHTd6G9wBi9T71FUm
-	 3vCk1N9a8NRtQ==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Tomoya MORINAGA <tomoya.rohm@gmail.com>,
-	Grant Likely <grant.likely@secretlab.ca>,
-	linux-spi@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hMw9Mmff
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=2x
+	SkHmgwcY/UBC1h6KghOKuKRKbFTAGv0DCM6/0KU/Q=; b=hMw9MmffvoYK+85EWJ
+	rgTbegGzzCKWXUqJ/BsR+0TwVnWua53vClugIW0dGs1pA5hgxMAMyvk6llibiE/Z
+	aHtKDRycKzcDoqL76YzOnFF/nAN6RIaaZtmDlE+XVb76ifovaRmS+Ko1KxDAz/bZ
+	7ocqXp3w/RVcWawP5I3+8BO2E=
+Received: from SYPC (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3n_FLoglr+1AILg--.23527S2;
+	Fri, 27 Nov 2026 23:31:24 +0800 (CST)
+From: Yang Siyuan <hsyysy@163.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2 05/10] spi: topcliff-pch: Advance tx_buf between DMA chunks
-Date: Fri, 27 Nov 2026 15:31:08 +0000
-Message-ID: <20261127153158.2969573-6-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-In-Reply-To: <20261127153158.2969573-1-lee@kernel.org>
-References: <20261127153158.2969573-1-lee@kernel.org>
+Subject: [PATCH] ASoC: rockchip: i2s-tdm: add I2S_XFER to register defaults
+Date: Fri, 27 Nov 2026 23:30:24 +0800
+Message-ID: <20261127153024.2348805-1-hsyysy@163.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,77 +67,44 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3n_FLoglr+1AILg--.23527S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWruw1DWFykZFy3urWrKryrtFb_yoW8Jr43p3
+	s3ArZ29FWxGw1jvrn8JrnxCF40krWqya13GF4fKa47A3ZFkFs5uwnIgr1vkFW3Zr47Ca42
+	kryqq34jvF4S9aUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UBa0dUUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7QzYDWsJokwXdgAA3Z
 
-In DMA mode, pch_spi_process_messages() splits transfers larger than
-PCH_BUF_SIZE into chunks and calls pch_spi_handle_dma() once per chunk.
-pch_spi_handle_dma() copies the TX data through a local pointer and
-never stores the advanced position back into the transfer, so every
-chunk after the first retransmits the data from the first chunk.
+rockchip_i2s_tdm_reg_defaults[] is missing I2S_XFER (0x1c), which resets
+to 0 (TX and RX disabled). The driver uses a flat regcache and calls
+regmap_update_bits() on I2S_XFER from rockchip_snd_xfer_sync_reset()
+before that register has been written, so regcache_flat_read() hits an
+invalid cache entry and warns:
 
-The RX side already writes its advanced pointer back and restores the
-original rx_buf once the transfer is complete.
+  rockchip-i2s-tdm: using zero-initialized flat cache, this may cause
+  unexpected behavior
 
-Do the same for tx_buf, so that each chunk sends the correct slice of
-the buffer, and restore the original tx_buf once the transfer has
-completed or failed.
+Add the reset value so the flat cache starts with the actual hardware
+state.
 
-Advancing tx_buf by the number of bytes copied relies on the following
-commit, which ensures that each chunk covers no more than the bytes
-accounted for by the loop in pch_spi_process_messages():
+Tested on a Rockchip RK3566 board; no functional change.
 
-commit 3515e312e096 ("spi: topcliff-pch: clamp DMA bpw_len by bytes
-not words")
-
-Fixes: 7d05b3e868ee ("spi-topcliff-pch: Fix issue for transmitting over 4KByte")
-Closes: https://sashiko.dev/#/bug/linux-625e2f07-fb68-446b-b1a8-b1f66aacb62e
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
+Signed-off-by: Yang Siyuan <hsyysy@163.com>
 ---
-v1 => v2:
- - Rebase onto spi/for-next; no functional changes.
+ sound/soc/rockchip/rockchip_i2s_tdm.c | 1 +
+ 1 file changed, 1 insertion(+)
 
- drivers/spi/spi-topcliff-pch.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/spi/spi-topcliff-pch.c b/drivers/spi/spi-topcliff-pch.c
-index 0bec3012a6bc..cbe76c4ae2e8 100644
---- a/drivers/spi/spi-topcliff-pch.c
-+++ b/drivers/spi/spi-topcliff-pch.c
-@@ -947,11 +947,13 @@ static void pch_spi_handle_dma(struct pch_spi_data *data, int *bpw)
- 			tx_dma_buf = dma->tx_buf_virt;
- 			for (i = 0; i < data->bpw_len; i++)
- 				*tx_dma_buf++ = *tx_buf++;
-+			data->cur_trans->tx_buf = tx_buf;
- 		} else {
- 			tx_sbuf = data->cur_trans->tx_buf;
- 			tx_dma_sbuf = dma->tx_buf_virt;
- 			for (i = 0; i < data->bpw_len; i++)
- 				*tx_dma_sbuf++ = *tx_sbuf++;
-+			data->cur_trans->tx_buf = tx_sbuf;
- 		}
- 	}
- 
-@@ -1180,10 +1182,12 @@ static void pch_spi_process_messages(struct work_struct *pwork)
- 		if (data->use_dma) {
- 			int i;
- 			char *save_rx_buf = data->cur_trans->rx_buf;
-+			const void *save_tx_buf = data->cur_trans->tx_buf;
- 
- 			for (i = 0; i < cnt; i++) {
- 				pch_spi_handle_dma(data, &bpw);
- 				if (!pch_spi_start_transfer(data)) {
-+					data->cur_trans->tx_buf = save_tx_buf;
- 					data->transfer_complete = true;
- 					data->current_msg->status = -EIO;
- 					data->current_msg->complete
-@@ -1196,6 +1200,7 @@ static void pch_spi_process_messages(struct work_struct *pwork)
- 				pch_spi_copy_rx_data_for_dma(data, bpw);
- 			}
- 			data->cur_trans->rx_buf = save_rx_buf;
-+			data->cur_trans->tx_buf = save_tx_buf;
- 		} else {
- 			pch_spi_set_tx(data, &bpw);
- 			pch_spi_set_ir(data);
+diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
+index 75e6cab..a6efd92 100644
+--- a/sound/soc/rockchip/rockchip_i2s_tdm.c
++++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
+@@ -973,6 +973,7 @@ static const struct reg_default rockchip_i2s_tdm_reg_defaults[] = {
+ 	{0x08, 0x00001f1f},
+ 	{0x10, 0x001f0000},
+ 	{0x14, 0x01f00000},
++	{0x1c, 0x00000000},	/* I2S_XFER: TX/RX disabled after reset */
+ 	{0x30, 0x00003eff},
+ 	{0x34, 0x00003eff},
+ 	{0x38, 0x00000707},
 -- 
-2.56.1.839.g22a8290db9-goog
+2.56.1
 
