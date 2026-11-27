@@ -1,66 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=183.62.165.209
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.30.148.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753068;
-	b=zwfQqrK1ZJ3Sw+QLg5WcP0SOurrG1JamsLAC4oQdQuCQ2XxoZV9bnTyo4HJ0qr4/eWxa
-	 bb6GcXGpUADeSZgKt9lAS8/DliUFeX4p12ALwwlKZbIYADGKsJffrQPwLq4HCXwU1l1VM
-	 kmfhNvpzuo2z3+Wva0sw3gcyimNjrLPQ/NKIdQNT3HF+32pdUvWfx//NPz16T5bKI1M7b
-	 UHcIQQNvNIIZDK9irLLI0IOySefSZ/FfA7BZFVl4m3WrcTToSJn9rQwQIDJM53z/RKWGO
-	 4Pw/Ijk4c8uZKUzKs/kCg1ruysGUuY7/vFZjMBEOtO3ccH0Lyh+Y+GkEgOl7RbxKfgQ==
+	t=1795753070;
+	b=B7wOTxrJsPSOfMxNJTKXgL5SIxt2tNqBfgsY0QoYipE51S9k8ateFz9b/ZrtOc2smHJA
+	 9CcrXC/eGOO7rEDqBhKA/3+NbYfNT/hUEIs/+w0w2beEu9tMxfnIffiuKz+RC/QCQCo8g
+	 AJvoA3zJagr8/cVp5bOAI6p+R2C9BvQbyVFR28oZSZtawNr5s1uWU4fiqIaDiNxqD23UV
+	 lTEhwx2CTqKSPAPbUgIvs/carU9hNkffbzk/cnIyKt86BzIqHGZlJv4EP3JEF0XLbodTL
+	 ggYu69mhhLr9ChNI8jeJKv5p3IDdecBCR6kRG1Lvq8+hQGkFAGbR/Wpvj1Q1epJsV0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753068;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753070;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Zmail-TransId:X-Mailer:Message-ID:Date:Mime-Version:From:To:Cc:
-	 Subject:Content-Type:X-MAIL:X-TLS:X-ENVELOPE-SENDER:X-SOURCE-IP:
-	 X-CLEAN:X-Fangmail-Anti-Spam-Filtered:X-Fangmail-MID-QID;
-	bh=o1kw6hnU8gQ+J8Jm4JcnrMKncUQkJVbhKvexy/6C0B0=;
-	b=bYuwZt/BJv+78H4OXCDwC8q4Jkfl3e4+O1RbF0MNnF5sMXiLsmf6IRemnu8CQYq88S9p
-	 uEwhDGO/K3Lmhy5iL67XqvqbQH/dnTdDZ+3SCbxiNBX08h70N2KPWQA9IQXlMzVLnZdqk
-	 4yW2+ZoYzrkgrJPwBEQybXeOhz8yo/yUPcerNY2qGSge4WwTUuUQa9XI9n5vZNPOBTKJs
-	 4Jj1MsM2Y7/8DKT4IdgaUCwSNHjeyQBfszOwG76okWRzpO+aq3/0CmC18wSL/GF8508Zt
-	 g7QI4q0M6Flrplp9kacj7il2Y+bAXwsd7KABJUY+VS5Q7hw9Vhnm8TzotrTFJ0oqXsw==
+	 X-Zmail-TransId:X-Mailer:Message-ID:In-Reply-To:References:Date:
+	 Mime-Version:From:To:Cc:Subject:Content-Type:X-MAIL:X-TLS:
+	 X-ENVELOPE-SENDER:X-SOURCE-IP:X-CLEAN:X-Fangmail-Anti-Spam-Filtered:
+	 X-Fangmail-MID-QID;
+	bh=rPJ3lWJj+tovApgLVThNQ8lLu9fMR7Gm1SEZN5ItOqM=;
+	b=U+VB5BLBuEVsoQnU8BoZ0KOM+6kZIUcX0lXT/xf++E6TVZnJ+NXx0vcdF3UcliMBnTLF
+	 HlqAXlKBYu7eiYuRtCh0ABp37oz4Py3EycqB85EKi08W27ev6GG1pRV4j22mfIySgmCmQ
+	 gcUWOs3BRSZLReZ75y2nmtUaYGyx2jlc+nyJf7KHs9Yqi5Vll0QVFwovG3E9mZdjfgbD0
+	 h0raHscsTbBJwil+FHiQ2+8i4Zqxn7ewdsz3+tJmpDx0HJW+Vx8lSE93UWMRy+VH9vjnX
+	 WshrmgKggAT83zgtrfgeaiz4vbv2X4dI2azDVr3vVmgT5soHdaX3yu2suOx0GexYZbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=zte.com.cn;
 	spf=pass smtp.mailfrom=zte.com.cn;
-	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=Uibfcc5W;
-	arc=none smtp.remote-ip=183.62.165.209
-Received: from mxct.zte.com.cn (mxct.zte.com.cn [183.62.165.209])
+	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=Q9wh2CtD;
+	arc=none smtp.remote-ip=160.30.148.35
+Received: from mxhk.zte.com.cn (mxhk.zte.com.cn [160.30.148.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE917606A31C;
-	Fri, 27 Nov 2026 04:17:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE917606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9843E606A330;
+	Fri, 27 Nov 2026 04:17:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9843E606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=Uibfcc5W
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	dkim=pass (2048-bit key) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=Q9wh2CtD
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jbKrm0cH2z5B7RQ;
-	Fri, 27 Nov 2026 12:17:44 +0800 (CST)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jbKrk4mDkz8XrrM;
+	Fri, 27 Nov 2026 12:17:42 +0800 (CST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
-	s=z202610; t=1795753064;
-	bh=7dWTAERmtLKdh6e3ZWD2pXBqw1DVo/eGxb4pzPC0wfk=;
-	h=Date:From:To:Cc:Subject;
-	b=Uibfcc5W5TJ/MOjPrYc4hG7NlhX/VYR+u8H6Jq+qhSfvydH9XotsnKTQ4Dwh3PAKv
-	 2FwIvIMNqjvaG/U7sT9XNUunZ9D+0hcldgWPgH27A+FAuSgwqLtgT0jsD2Q99nQMVE
-	 SpEGYYya/X0vlEpVCOzoviz6zgZ505xMHsOSLcuel2UEdYXchNloA/ic4JRMZibwux
-	 d/wKJvB3k2hG0j6iF0PDjvUsiaUDpG+OWGsPaUQJJj5pZ/NiuZGCIX7OANxoQ28f6e
-	 PDDYjTaTHEBC1oAG/zpEGaQ5FCAyot0hc2RCk4p+UtBYEfi0nz5Zx/pZnG0ZDSe04c
-	 z7wWPquf7WR6Q==
-Received: from xaxapp05.zte.com.cn ([10.99.98.109])
-	by mse-fl1.zte.com.cn with SMTP id 6AR4HWeE090838;
-	Fri, 27 Nov 2026 12:17:33 +0800 (+08)
+	s=z202610; t=1795753062;
+	bh=sGnRkQHi4fUwx4lC1vSiANCwS/aXw+QyMv/B3B6IAgY=;
+	h=In-Reply-To:References:Date:From:To:Cc:Subject;
+	b=Q9wh2CtDEtb2acSySDSGKs2O7M+5f9JQBNYbDCl+YdYpgPyY+mt1L0503/Ns0eO3l
+	 3gMUyXHKT5For4lH2hiBbGcww3f7Y7V//9FUr2ApyFyTBCNlOud6QnyJCeFcn3ewGT
+	 BAJK/6Nfj78yyD7EPbFblx1HLwoeHTusGBW20aFQBfocWInD6Oxw/MpCru2Bo05BPc
+	 61Fx/nMbv0oDgS/luziZjSPWCRq7CQ+Qx6RnBu9rJUIYeFRI1ifclWA4fYed49ztHj
+	 mRbaw0lfG+YZcDkNw30l+BpI2FPK1g/sIwr4CNuUwAzNKNCiKbH5chDIQwqrlJkyBP
+	 tNjUiUfgHbQuw==
+Received: from xaxapp01.zte.com.cn ([10.88.99.176])
+	by mse-fl2.zte.com.cn with SMTP id 6AR4HZmx048874;
+	Fri, 27 Nov 2026 12:17:35 +0800 (+08)
 	(envelope-from shao.mingyin@zte.com.cn)
 Received: from mapi (xaxapp01[null])
 	by mapi (Zmail) with MAPI id mid32;
-	Fri, 27 Nov 2026 12:17:34 +0800 (CST)
-X-Zmail-TransId: 2af96b09045e879-0c192
+	Fri, 27 Nov 2026 12:17:36 +0800 (CST)
+X-Zmail-TransId: 2af96b090460954-0c26d
 X-Mailer: Zmail v1.0
-Message-ID: <20261127121734430rp7P_HaHukJyZYs7OMQjx@zte.com.cn>
-Date: Fri, 27 Nov 2026 12:17:34 +0800 (CST)
+Message-ID: <202611271217367487h3LD_GuX64e0UExSRdAR@zte.com.cn>
+In-Reply-To: <20261127121734430rp7P_HaHukJyZYs7OMQjx@zte.com.cn>
+References: 20261127121734430rp7P_HaHukJyZYs7OMQjx@zte.com.cn
+Date: Fri, 27 Nov 2026 12:17:36 +0800 (CST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,43 +78,64 @@ To: <lee@kernel.org>, <mfd@lists.linux.dev>
 Cc: <tony@atomide.com>, <linux-omap@vger.kernel.org>,
         <support.opensource@diasemi.com>, <patches@opensource.cirrus.com>,
         <ckeepax@opensource.cirrus.com>, <linux-kernel@vger.kernel.org>
-Subject: =?UTF-8?B?W1BBVENIIHYyIDAvM10gbWZkOiBGaXggYW4gb3V0LW9mLWJvdW5kcyBJUlEgbWFwIGFuZCBlcnJvci1wYXRoIGJ1Z3M=?=
+Subject: =?UTF-8?B?W1BBVENIIHYyIDEvM10gbWZkOiB0cHM2NTIxOTogRml4IHRoZSBUUFM2NTIxNCBtYWluIElSUSBiaXQgbWFwcGluZw==?=
 Content-Type: text/plain;
 	charset="UTF-8"
-X-MAIL:mse-fl1.zte.com.cn 6AR4HWeE090838
+X-MAIL:mse-fl2.zte.com.cn 6AR4HZmx048874
 X-TLS: YES
 X-ENVELOPE-SENDER: shao.mingyin@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Fri, 27 Nov 2026 12:17:44 +0800
+X-SOURCE-IP: 10.5.228.133 unknown Fri, 27 Nov 2026 12:17:42 +0800
 X-CLEAN: YES
 X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6B090468.000/4jbKrm0cH2z5B7RQ
+X-Fangmail-MID-QID: 6B090466.000/4jbKrk4mDkz8XrrM
 
-This is the second revision of three fixes from the [PATCH 0/5] mfd
-series posted on November 7, following Lee's review on November 18.
-The 2/5 twl6030 change was not commented on and is not resent; the 5/5
-gateworks-gsc change has its own history and is posted separately as v4.
+The TPS65214 sub-IRQ table has seven entries because INT_SOURCE bit 6
+is reserved. Regmap IRQ indexes the table by bit number, so the power
+button status on bit 7 accesses the table past its end.
 
-Shao Mingyin (3):
-  mfd: tps65219: Fix the TPS65214 main IRQ bit mapping
-  mfd: arizona: Free only registered diagnostic IRQs
-  mfd: da9052: Balance the parent IRQ wake reference
+Initialize each entry at its hardware bit index. Bit 6 is implicitly
+zero-initialized, so regmap IRQ skips it without reading a status
+register.
 
- drivers/mfd/arizona-core.c        | 49 ++++++++++++++++++++++++++++++++-------
- drivers/mfd/da9052-irq.c          |  7 ++++--
- drivers/mfd/tps65219.c            | 14 +++++++------
- include/linux/mfd/arizona/core.h  |  1 +
- include/linux/mfd/da9052/da9052.h |  1 +
- 5 files changed, 54 insertions(+), 18 deletions(-)
-
+Fixes: 7947219ab1a2 ("mfd: tps65219: Add support for TI TPS65214 PMIC")
+Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+---
 Changes in v2:
-- 1/3: specify every table entry by its hardware bit index instead of
-  adding a placeholder entry for the reserved bit (Lee).
-- 2/3: free only the diagnostic IRQs whose request succeeded, so probe
-  rollback cannot free a virq that has no action.  Charles is asked for
-  another look, as his earlier tag covered the unconditional free.
-- 3/3: request ADC_EOM before enabling wake, and keep the conditional
-  disable because an unbalanced wake disable warns (Lee).
+- Use designated initializers for the hardware bit indices.
 
-v1: https://lore.kernel.org/all/202611071607376342uPiYA9rHRC7ZI9Ix-8xh@zte.com.cn/
+Previous version: https://lore.kernel.org/all/20261107162119836VR3jHjgaOF-Np7Cmm0nl3@zte.com.cn/
+
+Build-tested on Linux-next next-20261118 with GCC 13.3.0 for x86_64.
+
+ drivers/mfd/tps65219.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
+index 69cf52a595d6..f65fda6acc74 100644
+--- a/drivers/mfd/tps65219.c
++++ b/drivers/mfd/tps65219.c
+@@ -262,13 +262,13 @@ static const struct regmap_irq_sub_irq_map tps65215_sub_irq_offsets[] = {
+ };
+ 
+ static const struct regmap_irq_sub_irq_map tps65214_sub_irq_offsets[] = {
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit0_offsets),
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit1_offsets),
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit2_offsets),
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit3_offsets),
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit4_offsets),
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit5_offsets),
+-	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit7_offsets),
++	[0] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit0_offsets),
++	[1] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit1_offsets),
++	[2] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit2_offsets),
++	[3] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit3_offsets),
++	[4] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit4_offsets),
++	[5] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit5_offsets),
++	[7] = REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit7_offsets),
+ };
+ 
+ #define TPS65219_REGMAP_IRQ_REG(int_name, register_position) \
 
 base-commit: e8017d29067fd1310a65c3494ce1a1b492adbac6
+-- 
+2.43.0
