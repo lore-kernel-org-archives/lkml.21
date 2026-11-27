@@ -1,83 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.25
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786202;
-	b=yEslEdYmvmvjBQrHHFO2NQSTo0px4dHolRMsx/aBTNMvYf1q/oGzeWf88fN3f0rXCn7z
-	 Mpsk8aexBalh/Jhyurzb+72PxvH56e+3s214bfyK2RNAsE9Bo6j4oe1OZXEWTAazVtbso
-	 kx1qjI0KgBRQaKIPptXC+jOuVEl0yML74jUqlpTuMxJdaIV6q6gwkR95dna4QdjLihRer
-	 K0hlZa2qdCwpuGfoIhVg3am5VtdgV75refQakitmIcyvELo7M87z6x3VOc7PPd+LR3D0M
-	 yaM9YpPtkHHDWQvhUqOhgb7EYJ92hpt3+EsnKjxZluKpdySKfEISGQUvykBP/NMdsxA==
+	t=1795786203;
+	b=wa5i8kpbVkCKERphlTWqzVfiu449SCz2yPZhgim7zTgQSiTCQTicl5XwrZjumjE7Ax8T
+	 Uf1lWOOpbwO6XNNgMHCECr2eiU/JN+LblDRf6V0LTvmRQrOKeD8n/nBqC5thV5jvZ6GmB
+	 aDfrn2hustqOHGVsb9oE1G5vgcRIlw/sZsUwFEQnB7fC4STyME/dtMbY9rQQyP4AtV7QQ
+	 V03NJjcQCp78apfcsbmKcI0RTVhLanLwzZvc9n3UGFlyc27uyQW4tHpV4mgcROcBEqq6G
+	 grIEXVKXpQ1DKOtFJf4025OBhdWcKCYKEQt87GHeTTzjiYgLJHxdL/ypzQU8sBVv2mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786202;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:MIME-Version:Content-Transfer-Encoding:X-CMS-MailID:
-	 X-Msg-Generator:Content-Type:CMS-TYPE:X-CPGSPASS:cpgsPolicy:
-	 X-CFilter-Loop:X-CMS-RootMailID:References;
-	bh=bEv+hQm3eXyw3BvNSKGemgO4AzU5CIYlzvjVm8xOefA=;
-	b=pcoZJ9exeZlrXlprshsXQjckXqtdLD52qeO0tuGjUndYh+xqB1b6XBFGS4F5z8yJFiLG
-	 AuREdj2qti7UAuEP+WXa8i7f6v6Q7Hk4/fcCXoNQgtsUA813prgChwBb2H6mRRrwxRKdr
-	 rjJYsXj9lcda9mrExJYsarkNcxtMTBuBBnXdloOfX7IjWrjAVxWO6nNq6OpxrUaVAACb2
-	 162jExae8JzpPv5Ukfu/oetzQVt2OfOPhcfGoDiY97We2ty6CxR1obkPB6EIGjGcwOBCm
-	 J3DzPgHgnj4DBTWEkpajo88z6iZMB+m3QXYplgfUUkxZeDzpmAItOjmUWSdI9UChL8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786203;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=RhbYBTCFnUIkHjspi7K1/DTnz9+g0EGatlkywDux9+A=;
+	b=WfZnERxGzcS2vzxcSp8+JqbN4e3GR98jNE4EoEKISKzRwX6rYc2NsbWYyIdCkSHg+xMl
+	 d0nYjmlCQMzV+wtC/dWAr8P2dChYjH9CX7Rabsug7p4SspENJ2Y/o2BRqdXZIfyzQwlHD
+	 Xy9rkqw/NsO+zl1LaWid+SEJabRMhjFfPYlAefhEZz5Jk9WBDwUqGAHKzrl7J822BQPZk
+	 iOvyW5Xb4pWB/3pdFxn5Zgu3N4jp3rnp4epJrPAqRTn6RIDUxjKUs0cyfsR3QVUgFAQrL
+	 LZjTX+dtLjzw2JMvz4OfYlb4wlK25YtCB11tZS61JYSsMMOk9aNXcuyb8kp4ayQPpmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=nO833aR+;
-	arc=none smtp.remote-ip=203.254.224.25
-Received: from mailout2.samsung.com (mailout2.samsung.com [203.254.224.25])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SvPfONrf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FA68606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:30:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FA68606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DD29606A327;
+	Fri, 27 Nov 2026 13:30:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=nO833aR+
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261127133000epoutp02ae2bf73e0841d8d5ed94aea6cbb40239~r6gjrCGDR1370713707epoutp02J
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:30:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261127133000epoutp02ae2bf73e0841d8d5ed94aea6cbb40239~r6gjrCGDR1370713707epoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795786200;
-	bh=bEv+hQm3eXyw3BvNSKGemgO4AzU5CIYlzvjVm8xOefA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nO833aR+gbEcTgvJwE0mi9yV7J8+O+UMw77hvmEg41yNFwqmtmoelK9u4HL49Kqhz
-	 XScA9OBDdhpmeb4JXa1BblDl6n4En+Xt5eh4ySImFNDmx7fwUqPzNSipbNkKrmBIUG
-	 +8vZin8W7Hevtf9Z6msmJuHUIvPwnVlJnHUfZaeY=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20261127132959epcas5p45b577a42def93e663ccc0e0e2766e909~r6gjE7xGl2919529195epcas5p4w;
-	Fri, 27 Nov 2026 13:29:59 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4jbZ5y447lz3hhT4; Fri, 27 Nov
-	2026 13:29:58 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8~r6ghXNje22027720277epcas5p4W;
-	Fri, 27 Nov 2026 13:29:57 +0000 (GMT)
-Received: from ws2030076956.sa.corp.samsungelectronics.net (unknown
-	[107.99.235.31]) by epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132954epsmtip205472b8d23c7fef3ab60ea87c36f3f18~r6gd10t621688316883epsmtip2O;
-	Fri, 27 Nov 2026 13:29:54 +0000 (GMT)
-From: Irlanki Sandeep <irlanki.s@samsung.com>
-To: kuniyu@google.com
-Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
-	ast@kernel.org, bpf@vger.kernel.org, corbet@lwn.net, cpgs@samsung.com,
-	daeil2.hwang@samsung.com, daniel@iogearbox.net, davem@davemloft.net,
-	edumazet@google.com, g.pokhra@samsung.com, irlanki.s@samsung.com,
-	kuba@kernel.org, linux-kernel@vger.kernel.org, lorenzo@google.com,
-	madhan.raj@samsung.com, maze@google.com, motomuman@google.com,
-	ncardwell@google.com, netdev@vger.kernel.org, pabeni@redhat.com,
-	r.kumawat@samsung.com, raj.kumars@samsung.com, ramyashree.s@samsung.com,
-	sharmasagarika@google.com, sporeba@google.com, srihari.k@samsung.com,
-	ts413.lee@samsung.com
-Subject: [PATCH bpf-next v10 2/2] selftests/bpf: add selftests for
- bpf_tcp_ops ecn_init
-Date: Fri, 27 Nov 2026 19:00:51 +0530
-Message-Id: <20261127133051.2540069-2-irlanki.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261127133051.2540069-1-irlanki.s@samsung.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SvPfONrf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 568EC1F00919;
+	Fri, 27 Nov 2026 13:30:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795786203;
+	bh=RhbYBTCFnUIkHjspi7K1/DTnz9+g0EGatlkywDux9+A=;
+	h=From:To:Cc:Subject:Date;
+	b=SvPfONrf5kP7D4rgL3bnw5aGbvo6hAGlxLV6MLIWMETk0yFKbwWorN03YZC6W1JH+
+	 M+UTacVhU5suwingZnUH0LopRnMMKOdI+jUgegtfoSLlOuv65nRBm9LzMy6fFgAqXf
+	 2DpUmb4Bth+jk9Eq3iacsJwq4PNo6cTa2hur8FdLj7gBDMmEepQg9NJ9neIc8HYfKF
+	 WGzKg70TV86dpHxeb42EHBO7s8FgChfIf2uDMLOIGzxBDYMXoviOOa3pX6AmCoWIAg
+	 R8bgow/izwm443Oqh3T2QToD0TacF8V2d9pInNSpgjDUzCnupfvUsCSwog6EXcosXH
+	 aJ5GCD2cIjpDQ==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Drew Fustini <fustini@kernel.org>,
+	Joel Stanley <jms@oss.tenstorrent.com>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH v2] clk: tenstorrent: Use prepare/unprepare ops for Atlantis PLL
+Date: Fri, 27 Nov 2026 13:29:36 +0000
+Message-ID: <20261127132958.2714501-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,344 +65,77 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-065,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8
-References: <20261127132411.2523201-1-irlanki.s@samsung.com>
-	<20261127133051.2540069-1-irlanki.s@samsung.com>
-	<CGME20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8@epcas5p4.samsung.com>
 
-Add a bpf_tcp_ops struct_ops selftest for the new ecn_init callback. It
-runs over IPv4 and IPv6 loopback connections. For each case the test sets
-net.ipv4.tcp_ecn, and the BPF program returns the ECN mode for the active
-and the passive side. The seven cases are:
+The Common Clock Framework invokes .enable callbacks in atomic context
+with interrupts disabled and enable_lock held.  In atlantis_clk_pll_ops,
+atlantis_clk_pll_enable() is registered as the .enable callback yet
+waits for PLL lock using regmap_read_poll_timeout() with a 500 us sleep
+interval, triggering a sleep-in-atomic bug via usleep_range().
 
-- BPF enables classic RFC3168 ECN while the sysctl disables ECN.
-- BPF enables AccECN while the sysctl disables ECN.
-- Client requests AccECN, server accepts only classic ECN: negotiation
-  ends at RFC3168.
-- Server BPF refuses ECN while the sysctl allows it.
-- Client BPF returns no ECN while the sysctl allows it.
-- Out-of-range return value (6) falls back to the sysctl.
-- Negative return value falls back to the sysctl.
+Convert atlantis_clk_pll_ops to use .prepare, .unprepare, and
+.is_prepared instead of .enable, .disable, and .is_enabled so that the
+PLL lock wait executes under the sleeping prepare_lock rather than
+atomic enable_lock.
 
-For each case the test checks that ecn_init() runs once on the
-active side. On the passive side it runs once when the SYN requests
-ECN (AccECN or ECE+CWR). If the client's SYN requests neither, the
-kernel skips the call and the test expects no passive invocation.
-When the program runs, bpf_get_retval() must be seeded with the
-sysctl value on that side. The negotiated ECN mode on the client
-and accepted sockets must match the expected value.
-
-Signed-off-by: Irlanki Sandeep <irlanki.s@samsung.com>
+Fixes: 23c8ebc95284 ("clk: tenstorrent: Add Atlantis clock controller driver")
+Closes: https://sashiko.dev/#/bug/linux-980395a6-f282-478a-bf18-b5695a725735
+Cc: stable@vger.kernel.org
+Signed-off-by: Lee Jones <lee@kernel.org>
 ---
-v9 -> v10:
- - Split the selftests into a separate patch
+v1 => v2:
+ - Switch from .enable/.disable/.is_enabled to .prepare/.unprepare/.is_prepared so PLL lock polling runs under the sleeping prepare_lock instead of enable_lock, per Brian Masney's review.
+ - Keep regmap_read_poll_timeout() rather than switching to the atomic variant.
+ - Drop Anirudh Srinivasan's v1 Reviewed-by tag due to the implementation change.
+ - Drop the other patches from v1 that were already applied or superseded.
 
- .../bpf/prog_tests/bpf_tcp_ops_ecn.c          | 224 ++++++++++++++++++
- .../selftests/bpf/progs/bpf_tcp_ops_ecn.c     |  57 +++++
- 2 files changed, 281 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
- create mode 100644 tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
+ drivers/clk/tenstorrent/atlantis-prcm.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c b/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
-new file mode 100644
-index 000000000000..f74791676585
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
-@@ -0,0 +1,224 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Samsung Electronics Co., Ltd. */
-+
-+#include <test_progs.h>
-+#include <network_helpers.h>
-+#include "cgroup_helpers.h"
-+#include "bpf_tcp_ops_ecn.skel.h"
-+
-+#define CGROUP_PATH	"/bpf_tcp_ops_ecn"
-+#define TEST_NETNS	"bpf_tcp_ops_ecn"
-+
-+/* Must match progs/bpf_tcp_ops_ecn.c */
-+#define TCP_ECN_MODE_DISABLED	0x00
-+#define TCP_ECN_MODE_RFC3168	0x01
-+#define TCP_ECN_MODE_ACCECN	0x10
-+
-+struct ecn_case {
-+	const char *name;
-+	int sysctl_ecn;		/* net.ipv4.tcp_ecn in the test netns */
-+	int retval_active;	/* ecn_init() return value, active open */
-+	int retval_passive;	/* ecn_init() return value, passive open */
-+	__u32 mode_client;	/* expected ECN mode on the client socket */
-+	__u32 mode_server;	/* expected ECN mode on the accepted socket */
-+	bool passive_runs;	/* ecn_init() runs on passive side: SYN requests ECN */
-+};
-+
-+/*
-+ * net.ipv4.tcp_ecn / ecn_init() values (enum tcp_ecn_mode): 0 == no ECN,
-+ * 1 == accept + request RFC3168 ECN, 3 == accept + request AccECN.
-+ */
-+static const struct ecn_case ecn_cases[] = {
-+	{
-+		/* The sysctl disables ECN; BPF negotiates RFC3168 ECN. */
-+		.name = "bpf_enables_classic",
-+		.passive_runs = true,
-+		.sysctl_ecn = 0,
-+		.retval_active = 1,
-+		.retval_passive = 1,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+	{
-+		/* The sysctl disables ECN; BPF negotiates AccECN. */
-+		.name = "bpf_enables_accecn",
-+		.passive_runs = true,
-+		.sysctl_ecn = 0,
-+		.retval_active = 3,
-+		.retval_passive = 3,
-+		.mode_client = TCP_ECN_MODE_ACCECN,
-+		.mode_server = TCP_ECN_MODE_ACCECN,
-+	},
-+	{
-+		/*
-+		 * The client requests AccECN but the server only accepts
-+		 * RFC3168 ECN (< 3): negotiation degrades to RFC3168.
-+		 */
-+		.name = "passive_clamps_accecn",
-+		.passive_runs = true,
-+		.sysctl_ecn = 0,
-+		.retval_active = 3,
-+		.retval_passive = 1,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+	{
-+		/* The server refuses ECN although the sysctl allows it. */
-+		.name = "passive_refuses_ecn",
-+		.passive_runs = true,
-+		.sysctl_ecn = 1,
-+		.retval_active = 3,
-+		.retval_passive = 0,
-+		.mode_client = TCP_ECN_MODE_DISABLED,
-+		.mode_server = TCP_ECN_MODE_DISABLED,
-+	},
-+	{
-+		/*
-+		 * The client does not request ECN although the sysctl
-+		 * allows it, so there is nothing for the server to accept.
-+		 */
-+		.name = "active_disables_ecn",
-+		.passive_runs = false,
-+		.sysctl_ecn = 1,
-+		.retval_active = 0,
-+		.retval_passive = 3,
-+		.mode_client = TCP_ECN_MODE_DISABLED,
-+		.mode_server = TCP_ECN_MODE_DISABLED,
-+	},
-+	{
-+		/*
-+		 * Return values above TCP_ECN_IN_ACCECN_OUT_NOECN fall back
-+		 * to the sysctl on both sides.
-+		 */
-+		.name = "fallback_above_range",
-+		.passive_runs = true,
-+		.sysctl_ecn = 1,
-+		.retval_active = 6,
-+		.retval_passive = 6,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+	{
-+		/* Negative return values fall back to the sysctl too. */
-+		.name = "fallback_negative",
-+		.passive_runs = true,
-+		.sysctl_ecn = 1,
-+		.retval_active = -1,
-+		.retval_passive = -1,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+};
-+
-+/*
-+ * Connect over loopback and accept() the child socket, so that
-+ * passive_established is guaranteed to have run: the listener is woken
-+ * up only after tcp_rcv_state_process() moved the child to established.
-+ */
-+static void do_ecn_connect(int family)
-+{
-+	const char *addr = family == AF_INET ? "127.0.0.1" : "::1";
-+	int server_fd, client_fd, accepted_fd;
-+
-+	server_fd = start_server(family, SOCK_STREAM, addr, 0, 0);
-+	if (!ASSERT_GE(server_fd, 0, "start_server"))
-+		return;
-+
-+	client_fd = connect_to_fd(server_fd, 0);
-+	if (ASSERT_OK_FD(client_fd, "connect_to_fd")) {
-+		accepted_fd = accept(server_fd, NULL, NULL);
-+		if (ASSERT_OK_FD(accepted_fd, "accept"))
-+			close(accepted_fd);
-+		close(client_fd);
-+	}
-+
-+	close(server_fd);
-+}
-+
-+static void test_ecn(int cgroup_fd, struct bpf_tcp_ops_ecn *skel, int family)
-+{
-+	struct bpf_link *link;
-+	char buf[128];
-+	int i;
-+
-+	link = bpf_map__attach_cgroup_opts(skel->maps.ecn_ops, cgroup_fd, NULL);
-+	if (!ASSERT_OK_PTR(link, "attach_ecn_ops"))
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(ecn_cases); i++) {
-+		const struct ecn_case *c = &ecn_cases[i];
-+
-+		snprintf(buf, sizeof(buf), "%d", c->sysctl_ecn);
-+		if (!ASSERT_OK(write_sysctl("/proc/sys/net/ipv4/tcp_ecn", buf),
-+			       "write_sysctl_tcp_ecn"))
-+			break;
-+
-+		skel->bss->ecn_retval_active = c->retval_active;
-+		skel->bss->ecn_retval_passive = c->retval_passive;
-+		skel->bss->ecn_seed_active = -1;
-+		skel->bss->ecn_seed_passive = -1;
-+		skel->bss->ecn_active_cnt = 0;
-+		skel->bss->ecn_passive_cnt = 0;
-+		skel->bss->ecn_mode_client = 0xdead;
-+		skel->bss->ecn_mode_server = 0xdead;
-+
-+		do_ecn_connect(family);
-+
-+		/*
-+		 * ecn_init() runs once on the active side. On the passive side it
-+		 * runs only if the SYN requested ECN (tcp_ecn_create_request()).
-+		 */
-+		snprintf(buf, sizeof(buf), "%s: active_cnt", c->name);
-+		ASSERT_EQ(skel->bss->ecn_active_cnt, 1, buf);
-+		snprintf(buf, sizeof(buf), "%s: passive_cnt", c->name);
-+		ASSERT_EQ(skel->bss->ecn_passive_cnt, c->passive_runs ? 1 : 0, buf);
-+
-+		/* bpf_get_retval() must be seeded with the sysctl value. */
-+		snprintf(buf, sizeof(buf), "%s: seed_active", c->name);
-+		ASSERT_EQ(skel->bss->ecn_seed_active, c->sysctl_ecn, buf);
-+		snprintf(buf, sizeof(buf), "%s: seed_passive", c->name);
-+		ASSERT_EQ(skel->bss->ecn_seed_passive,
-+			  c->passive_runs ? c->sysctl_ecn : -1, buf);
-+
-+		snprintf(buf, sizeof(buf), "%s: mode_client", c->name);
-+		ASSERT_EQ(skel->bss->ecn_mode_client, c->mode_client, buf);
-+		snprintf(buf, sizeof(buf), "%s: mode_server", c->name);
-+		ASSERT_EQ(skel->bss->ecn_mode_server, c->mode_server, buf);
-+	}
-+
-+	bpf_link__destroy(link);
-+}
-+
-+static void run_ecn_subtest(int family)
-+{
-+	struct bpf_tcp_ops_ecn *skel = NULL;
-+	struct netns_obj *ns = NULL;
-+	int cgroup_fd;
-+
-+	cgroup_fd = test__join_cgroup(CGROUP_PATH);
-+	if (!ASSERT_GE(cgroup_fd, 0, "join_cgroup"))
-+		return;
-+
-+	ns = netns_new(TEST_NETNS, true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto done;
-+
-+	skel = bpf_tcp_ops_ecn__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "open_and_load"))
-+		goto done;
-+
-+	test_ecn(cgroup_fd, skel, family);
-+
-+done:
-+	bpf_tcp_ops_ecn__destroy(skel);
-+	netns_free(ns);
-+	close(cgroup_fd);
-+}
-+
-+void test_bpf_tcp_ops_ecn(void)
-+{
-+	if (test__start_subtest("ipv4"))
-+		run_ecn_subtest(AF_INET);
-+	if (test__start_subtest("ipv6"))
-+		run_ecn_subtest(AF_INET6);
-+}
-diff --git a/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c b/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
-new file mode 100644
-index 000000000000..596566148858
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Samsung Electronics Co., Ltd. */
-+
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_tracing.h>
-+
-+/* TCP_ECN_MODE_* bits of tcp_sock::ecn_flags, from include/net/tcp.h */
-+#define TCP_ECN_MODE_RFC3168	0x01
-+#define TCP_ECN_MODE_ACCECN	0x10
-+#define TCP_ECN_MODE_ANY	(TCP_ECN_MODE_RFC3168 | TCP_ECN_MODE_ACCECN)
-+
-+int ecn_retval_active;		/* ecn_init() return value, active open */
-+int ecn_retval_passive;		/* ecn_init() return value, passive open */
-+int ecn_seed_active;		/* bpf_get_retval() seen on active open */
-+int ecn_seed_passive;		/* bpf_get_retval() seen on passive open */
-+__u32 ecn_active_cnt;
-+__u32 ecn_passive_cnt;
-+__u32 ecn_mode_client;		/* negotiated ECN mode, client socket */
-+__u32 ecn_mode_server;		/* negotiated ECN mode, accepted socket */
-+
-+SEC("struct_ops")
-+int BPF_PROG(ecn_ops_ecn_init, struct sock *sk, struct request_sock *req)
-+{
-+	if (req) {
-+		ecn_passive_cnt++;
-+		ecn_seed_passive = bpf_get_retval();
-+		return ecn_retval_passive;
-+	}
-+
-+	ecn_active_cnt++;
-+	ecn_seed_active = bpf_get_retval();
-+	return ecn_retval_active;
-+}
-+
-+SEC("struct_ops")
-+void BPF_PROG(ecn_ops_active_established, struct sock *sk,
-+	      struct sk_buff *skb)
-+{
-+	ecn_mode_client = ((struct tcp_sock *)sk)->ecn_flags & TCP_ECN_MODE_ANY;
-+}
-+
-+SEC("struct_ops")
-+void BPF_PROG(ecn_ops_passive_established, struct sock *sk,
-+	      struct sk_buff *skb)
-+{
-+	ecn_mode_server = ((struct tcp_sock *)sk)->ecn_flags & TCP_ECN_MODE_ANY;
-+}
-+
-+SEC(".struct_ops.link")
-+struct bpf_tcp_ops ecn_ops = {
-+	.ecn_init = (void *)ecn_ops_ecn_init,
-+	.active_established = (void *)ecn_ops_active_established,
-+	.passive_established = (void *)ecn_ops_passive_established,
-+};
-+
-+char _license[] SEC("license") = "GPL";
+diff --git a/drivers/clk/tenstorrent/atlantis-prcm.c b/drivers/clk/tenstorrent/atlantis-prcm.c
+index eccc8015da23..ee7044e3f1df 100644
+--- a/drivers/clk/tenstorrent/atlantis-prcm.c
++++ b/drivers/clk/tenstorrent/atlantis-prcm.c
+@@ -269,7 +269,7 @@ static const struct clk_ops atlantis_clk_fixed_factor_ops = {
+ 	.recalc_rate = atlantis_clk_fixed_factor_recalc_rate,
+ };
+ 
+-static int atlantis_clk_pll_is_enabled(struct clk_hw *hw)
++static int atlantis_clk_pll_is_prepared(struct clk_hw *hw)
+ {
+ 	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
+ 	u32 val, en_val, cg_val;
+@@ -284,7 +284,7 @@ static int atlantis_clk_pll_is_enabled(struct clk_hw *hw)
+ 	       !(val & PLL_CFG_BYPASS_BIT);
+ }
+ 
+-static int atlantis_clk_pll_enable(struct clk_hw *hw)
++static int atlantis_clk_pll_prepare(struct clk_hw *hw)
+ {
+ 	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
+ 	u32 val, en_val, cg_val;
+@@ -332,7 +332,7 @@ static int atlantis_clk_pll_enable(struct clk_hw *hw)
+ 				  pll->config.cg_reg_enable);
+ }
+ 
+-static void atlantis_clk_pll_disable(struct clk_hw *hw)
++static void atlantis_clk_pll_unprepare(struct clk_hw *hw)
+ {
+ 	struct atlantis_clk_pll *pll = hw_to_atlantis_pll(hw);
+ 
+@@ -378,10 +378,10 @@ static unsigned long atlantis_clk_pll_recalc_rate(struct clk_hw *hw,
+ }
+ 
+ static const struct clk_ops atlantis_clk_pll_ops = {
+-	.enable = atlantis_clk_pll_enable,
+-	.disable = atlantis_clk_pll_disable,
++	.prepare = atlantis_clk_pll_prepare,
++	.unprepare = atlantis_clk_pll_unprepare,
+ 	.recalc_rate = atlantis_clk_pll_recalc_rate,
+-	.is_enabled = atlantis_clk_pll_is_enabled,
++	.is_prepared = atlantis_clk_pll_is_prepared,
+ };
+ 
+ static int atlantis_clk_gate_shared_enable(struct clk_hw *hw)
 -- 
-2.34.1
+2.56.1.839.g22a8290db9-goog
 
