@@ -1,105 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795788923;
-	b=Ca6JXsLQRMYLomRSjJBE7EqGpU70fBP1YCEfWW5dz69uOX9NsZHrfcHHBb8VBpQSvizl
-	 RRYQVDfgoxizKEFdvn/r5PF8u212gqYQ1Nkevh1wxpVw56DNKgUYaFV2iEJDnlRp1QKT+
-	 0rNaG32xBljuidDZwRNchRgSRcAQECi1Wf3nAIBeNWdme2OLXa9cOHgfoLGr3r6kv6BQu
-	 NWgxxGoJuRTCiIkhTlz/JruK7ytCEKaLtqXRyRYGjlTY715nZW4reDylipnN4ipY4aKa6
-	 lWDgtO049j988rgbvI666h190nQaRvRvzhw3fSL12HstLNGlVEBL3rqK66/7MiWye7A==
+	t=1795789047;
+	b=tsE2YT4hokX4vYQ5J9QMbQ2jaEKleCE9+BLZcPhQStLcc48QIRPaw9s10oNcStHEKlDA
+	 /HDDBjTlWCPdE0O/W3+myQs91iokIbqLzLM/PTYlakWY2di66b5o6C7l8BLQ/c8E5LvdQ
+	 CiZ1PkxrgXSCj2d5Q0mxYjY4pat3I7SvjKgwPJ1cXplgosHdathcBBtbWXo2N4XNo6JYU
+	 ECcVU2XkYSH+Spsf7RkCZeGajJsMh+2C6oO7V3y4iB2nJjao+5AhQk0dWaR/+yIEjOsVo
+	 zex9LVnMk9oeaZ0uG+MUFem8WavkkwjgOxIpjeyqJAAf1aexAICt5cYTzlqBOUdNEIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795788923;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=zm5HgLexkIzO9o88jjOFrQoNm8RyPdC5z8G3Ky1lEW0=;
-	b=dFI+U2oLoCoJmm51zypL+JJ4gBgEVYzaKOjNpORSdIx81+btDV15OyvsJ5N/kuFjFPGg
-	 mrjRuuKTDRR0QdPj0kdFzy5Q42xTykSwMhgtVcU1ALvq6YxQbx3OQB91E+VCmRvgF0m7p
-	 /WGh5ia3DO3qS41DZCPAJNCfmDjhfcGHId1RKPjoy1KNucUcDIowWZcMK56miBPWymVLQ
-	 1U2KZcRC9zUGmEzLcRNjaa52pyuOWnWIdxaamEQWJYPGlp/CBzAzjmT7kjRL7Y0l8z6kk
-	 i7vk4W5lKX/5v8u18mYqqdFH4acqZxFvGSA9+BdbHQATsufB9di/R5gsYjG9paHQLWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789047;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 In-Reply-To:Organization:References:Date:Message-ID:MIME-Version:
+	 Content-Type;
+	bh=+9TlhA78tXzEv6nxeKR2L1L0a+Bsd9ApBvKNN+/IX88=;
+	b=VNp1KsM19KPo4itRfTiNN0nQacD0FI/DoHOoVOG43Qtp3gXA9TZEOBFmPeB9fH/vkrKy
+	 ZdvKL6Rv+o4jCyC+Zgc2AbWLTM5tQ42R052kjn2YloJnLmuWVydotDQBwgTqBOYQP59cm
+	 iGolfCzYhIUl0dkHlm/xwJqG39BR2XrHhWJ6iz2CAQ2xb/MGuNDAoJw4P5gxw1sUYv/Nh
+	 k7+Of1t37iHzGrwj1n1U+FeWwOVzAyAdKXR4yf1v3HBj5zGUeeso8FOIpah6OhQs240ff
+	 7KevPEJHKDFuRVRn9DgdgrxXP4V9edaNpDJRDf1pLfecnXDsJLmlYXiTpQ5hzpyd+SA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="dDiKtPw/";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=tFABnZzj;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=zKLmsAoX;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="/LSE7vgG";
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XqlRBVve;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1681606A31C;
-	Fri, 27 Nov 2026 14:15:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1681606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29ED2606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:17:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29ED2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=dDiKtPw/;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=tFABnZzj;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=zKLmsAoX;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=/LSE7vgG
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 5A29A21C38;
-	Fri, 27 Nov 2026 14:15:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795788921; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zm5HgLexkIzO9o88jjOFrQoNm8RyPdC5z8G3Ky1lEW0=;
-	b=dDiKtPw/nC+D9cUqXY1TRKPGmeGmCDtrvrKXDHE1epD6+eAAmdoNoHcoChzEuMqzNtlAde
-	LsXi2sjkYvIbL1+riQpH8hv1Gfx/vJKyriY+wW2IGmwj07UO7VLM+zJ+bpJdlEv6vRh+5G
-	XNpStAJtrl1noal4l+u4WOndZfrNmks=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795788921;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zm5HgLexkIzO9o88jjOFrQoNm8RyPdC5z8G3Ky1lEW0=;
-	b=tFABnZzjM3bw85wYLsEuNX0aDMVLVbPQeyuaZdggSWYisHEPALZo1O1pZY1RVF9aLRaqQl
-	swaTXa79s0BBf7AQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795788919; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zm5HgLexkIzO9o88jjOFrQoNm8RyPdC5z8G3Ky1lEW0=;
-	b=zKLmsAoXlrklj5qlixQNUNQiUhy2jLg5c8laCoztk2WZrjsE5MYOB85WOhAybLZQmmFyZH
-	WRIg8pXMstld6jPLR5hYai7g3qVob/Z0Yb0Ks8g+HgxkhjgBdUhM0hixHgZuHpV3DAUElC
-	3+lAvMcffYWn+S1joF69VWTsXHCsGAo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795788919;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zm5HgLexkIzO9o88jjOFrQoNm8RyPdC5z8G3Ky1lEW0=;
-	b=/LSE7vgGMw2cbLNHKJBGY5dqEYlrC/nIgoBpFXMsyhqyGQRPPH4MlEZXJUSkR9dDyBXzMF
-	Tyggd6SHKXGiDUAA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2660A13432;
-	Fri, 27 Nov 2026 14:15:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 9YUGN3aQCWtuRQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 14:15:19 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 703AF51044; Fri, 27 Nov 2026 15:15:18 +0100 (CET)
-Date: Fri, 27 Nov 2026 15:15:18 +0100
-From: Jan Kara <jack@suse.cz>
-To: Arav Verma <svav2021@gmail.com>
-Cc: brauner@kernel.org, viro@zeniv.linux.org.uk, jack@suse.cz, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ramfs: drop unused includes from inode.c
-Message-ID: <fbih3mrqnvkhwq4gnelh26lfnqnilns22ndlcwctiviwqheboz@5as4xwg44ls2>
-References: <20261126175429.1035841-1-svav2021@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XqlRBVve
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795789048; x=1827325048;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=qt0CQ1SvtkAQ0LnetpX4R/T2bdeVCeqh/9sH90gW4l4=;
+  b=XqlRBVve6m7S6rQPYd01bJ19i1SdbUXuFcO2NnSHGUHN0OH0ubf0EFu6
+   LXWIzHjeEyirjCLLSuDcM8du1tliT17j9Ti1zQmo9qqcep2QKXJQtPcKD
+   jg60McXWdX5+0ChfxuKOJWFIgta/Me0E3MBaXsHS0KzjREcGUj7Q0uqsG
+   HRwMB80+OvfBbcWsbrenvELvWscDbpBj1/dLR3Mx98eL942UgDVzPdQKp
+   ZE3paiGHkFw6FFMOEqxHOA19o6dKmOT03noDwG9c0eAGzoix+Jg7MdwNa
+   K8LoV663jYQ/fmto0gcjjiZ2GoVazieF8tQyezm8s4wCyh9K0WkFkeFuR
+   w==;
+X-CSE-ConnectionGUID: 6eou6nufQmGUKGTzxI6JBg==
+X-CSE-MsgGUID: DN8IQKfeS5yMIIHCFnuSFw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4604290"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4604290"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:17:27 -0800
+X-CSE-ConnectionGUID: tXncEY86Rx6WjJiuYy30Wg==
+X-CSE-MsgGUID: YlaUFs3GTuiLUjwF5ADF7w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12430993"
+Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.90])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 06:17:23 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: "Bin Luo (University of Electronic Science and Technology of China)"
+ <luob87709@gmail.com>, rodrigo.vivi@intel.com
+Cc: intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] drm/i915/display: hold frontbuffer ref across
+ dirtyfb fence callback
+In-Reply-To: <20261127133935.1461-1-luob87709@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20261127133935.1461-1-luob87709@gmail.com>
+Date: Fri, 27 Nov 2026 16:17:21 +0200
+Message-ID: <8247d106ca535db291d2f85a3b8bea7956c6ccd8@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,78 +83,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126175429.1035841-1-svav2021@gmail.com>
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	RCPT_COUNT_FIVE(0.00)[6];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.com:email]
-X-Spam-Score: -12.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Type: text/plain
 
-On Thu 26-11-26 11:54:29, Arav Verma wrote:
-> inode.c includes <linux/highmem.h>, <linux/time.h>,
-> <linux/backing-dev.h>, <linux/sched.h>, <linux/parser.h> and
-> <linux/uaccess.h>, but it does not directly use any of the symbols
-> they provide. Drop them.
-> 
-> Signed-off-by: Arav Verma <svav2021@gmail.com>
+On Fri, 27 Nov 2026, "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com> wrote:
+> intel_user_framebuffer_dirty() stores the raw intel_frontbuffer pointer
+> in frontbuffer_fence_cb without taking a frontbuffer reference. If the
+> framebuffer is destroyed and its owner frontbuffer reference is dropped
+> before the reservation dma_fence signals,
+> intel_user_framebuffer_fence_wake() passes a freed intel_frontbuffer
+> pointer to intel_frontbuffer_queue_flush(), causing a use-after-free.
 
-Looks good. Feel free to add:
+Please describe a real world scenario where this "if" can happen.
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+BR,
+Jani.
 
-								Honza
-
+>
+> Take a frontbuffer reference via intel_parent_frontbuffer_ref() before
+> registering the fence callback, and embed a work_struct in
+> frontbuffer_fence_cb so intel_user_framebuffer_fence_wake() only
+> schedules the work item and drops the fence reference in atomic
+> dma_fence signaling context. Perform intel_frontbuffer_flush(), release
+> the frontbuffer reference with intel_parent_frontbuffer_put(), and free
+> cb from process context in intel_user_framebuffer_fence_work(). This
+> avoids calling intel_parent_frontbuffer_put() in atomic context, where
+> dropping the final reference can sleep on xe or deadlock on non-irqsafe
+> locks in i915.
+>
+> Found by static code audit.
+>
+> Fixes: 1bb2af547a4b ("drm/i915: Handle dma fences in dirtyfb callback")
+> Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
 > ---
->  fs/ramfs/inode.c | 6 ------
->  1 file changed, 6 deletions(-)
-> 
-> diff --git a/fs/ramfs/inode.c b/fs/ramfs/inode.c
-> index ef91b933d4e61..a8c14fca06561 100644
-> --- a/fs/ramfs/inode.c
-> +++ b/fs/ramfs/inode.c
-> @@ -25,17 +25,11 @@
+> Changes in v2:
+> - Embed struct work_struct in frontbuffer_fence_cb and move
+>   intel_frontbuffer_flush(), intel_parent_frontbuffer_put(), and kfree(cb)
+>   into intel_user_framebuffer_fence_work() so intel_parent_frontbuffer_put()
+>   is never invoked from atomic dma_fence signaling context (fixing the
+>   sleeping-in-atomic/deadlock issue flagged on v1).
+>
+> Testing note:
+> Compile-tested on x86_64 with W=1 and KASAN for both i915
+> (drivers/gpu/drm/i915/display/intel_fb.o) and xe
+> (drivers/gpu/drm/xe/i915-display/intel_fb.o); not runtime-tested on
+> Intel display hardware.
+>
+>  drivers/gpu/drm/i915/display/intel_fb.c | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/i915/display/intel_fb.c b/drivers/gpu/drm/i915/display/intel_fb.c
+> index 9d71f59..ee0665c 100644
+> --- a/drivers/gpu/drm/i915/display/intel_fb.c
+> +++ b/drivers/gpu/drm/i915/display/intel_fb.c
+> @@ -5,6 +5,7 @@
 >  
->  #include <linux/fs.h>
->  #include <linux/pagemap.h>
-> -#include <linux/highmem.h>
-> -#include <linux/time.h>
->  #include <linux/init.h>
->  #include <linux/string.h>
-> -#include <linux/backing-dev.h>
->  #include <linux/ramfs.h>
-> -#include <linux/sched.h>
-> -#include <linux/parser.h>
->  #include <linux/magic.h>
->  #include <linux/slab.h>
-> -#include <linux/uaccess.h>
->  #include <linux/fs_context.h>
->  #include <linux/fs_parser.h>
->  #include <linux/seq_file.h>
-> -- 
-> 2.47.3
-> 
+>  #include <linux/dma-fence.h>
+>  #include <linux/dma-resv.h>
+> +#include <linux/workqueue.h>
+>  
+>  #include <drm/drm_blend.h>
+>  #include <drm/drm_gem.h>
+> @@ -2141,16 +2142,26 @@ static int intel_user_framebuffer_create_handle(struct drm_framebuffer *fb,
+>  
+>  struct frontbuffer_fence_cb {
+>  	struct dma_fence_cb base;
+> +	struct work_struct work;
+>  	struct intel_frontbuffer *front;
+>  };
+>  
+> +static void intel_user_framebuffer_fence_work(struct work_struct *work)
+> +{
+> +	struct frontbuffer_fence_cb *cb = container_of(work, typeof(*cb), work);
+> +	struct intel_frontbuffer *front = cb->front;
+> +
+> +	intel_frontbuffer_flush(front, ORIGIN_DIRTYFB);
+> +	intel_parent_frontbuffer_put(front->display, front);
+> +	kfree(cb);
+> +}
+> +
+>  static void intel_user_framebuffer_fence_wake(struct dma_fence *dma,
+>  					      struct dma_fence_cb *data)
+>  {
+>  	struct frontbuffer_fence_cb *cb = container_of(data, typeof(*cb), base);
+>  
+> -	intel_frontbuffer_queue_flush(cb->front);
+> -	kfree(cb);
+> +	schedule_work(&cb->work);
+>  	dma_fence_put(dma);
+>  }
+>  
+> @@ -2160,6 +2171,7 @@ static int intel_user_framebuffer_dirty(struct drm_framebuffer *fb,
+>  					struct drm_clip_rect *clips,
+>  					unsigned int num_clips)
+>  {
+> +	struct intel_display *display = to_intel_display(fb->dev);
+>  	struct drm_gem_object *obj = intel_fb_bo(fb);
+>  	struct intel_frontbuffer *front = to_intel_frontbuffer(fb);
+>  	struct dma_fence *fence;
+> @@ -2185,6 +2197,8 @@ static int intel_user_framebuffer_dirty(struct drm_framebuffer *fb,
+>  	}
+>  
+>  	cb->front = front;
+> +	INIT_WORK(&cb->work, intel_user_framebuffer_fence_work);
+> +	intel_parent_frontbuffer_ref(display, front);
+>  
+>  	intel_frontbuffer_invalidate(front, ORIGIN_DIRTYFB);
+
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Jani Nikula, Intel
