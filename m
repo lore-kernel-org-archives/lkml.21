@@ -1,63 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765344;
-	b=ngkG2TJJDK/s59+vF1YqqvxSKZ7YpCoLPm8O+XhMkL7jAzENudBe09mutsnfGvqTXpFR
-	 vhYd1GPsonWM35gHKdNcaasLCLKx9kIq3kt7WBjM8g7Jxq3ITC39LP4X/Wi9iM5yQDgER
-	 2J4G9jMi/Wz4lawj0fve5fNTiGNu5BFjW8eoGWJrlVbWECoBihjoICTnDn4pnJMi/YK6E
-	 ZRAVCidgl9au0UjxKBGO6iIk9VXZ2wMTTj7P3xwDO76xNdDk5XHpbyPfPl6IXyAHTeAq+
-	 7KOZCmTP6wNOLiAdSadFidY0EWZWw5OkGAP39EInaHF2Gi8K1e900eeNmdmaD6dYpPw==
+	t=1795765350;
+	b=fIAeEBbSlC5HFqGXkoYADusKJX3lr4ZXAKnUurGMBACIQB4Gd0wxCwLh0nMtmESA4qRY
+	 +a3gBZiGxRdLj+RSJ7HMN7XoJYbhllxErCMTLAg4/EPSlO8mbHgxNF8fBprODUMu/V42Y
+	 phgh/lWmEbq5xh9yD0r0Z9VSQVCILkcILK0u9TwcnavMfipnIC3I3B6yMn/ZhdtL/8rqN
+	 wIfbTyZE0AlBOTD1SotEwTyXp40MBHLKzbyhG1dBuVaRfzPcYsVoQAyH9ivNqYWcdHnxa
+	 9bkJgQ6uVxw8jVZsti1zH/LZZQhHg0M+ubmJ+zEorfxZc/AGS6CWqkPVvvDj/g2KArA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765344;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765350;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
 	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2EMrqLxhB8NeX2lRlrhTsQgGdQYslPX62AQYL2s8aVA=;
-	b=tDxZ2cYVzhEO6FwWBYwAMMsxxKSRzl2V/4neb1Fp0qB6pkLa0i3G9u2rbfYnX+esd621
-	 Z4lcO/mHwN/LftCdm0Vg8uFVBPjy/paaGcxai6eUKjWoODP0EhVLjAopdNk6z+9SNSLHX
-	 7Kbfs2USSnZVaaFHrOKp4DUB2tZuOARvDfuQaYXSfFa6PXC6CICn4bV0c9mhUEQmaHVss
-	 JOpubPEED+ReDUzhIvjvlVS0Zvem7jwx3qW6qO9YNlyrXkaH2AkFRL6gHBzS1XY/1Ssga
-	 8HmwsWrOH+YuM082L39oOZ/FCTNf7Yu5ev62HbyQ8DWHbYz6Mt9bjry6HrWskA10jmA==
+	bh=8hTI8WlJzGY9uDNs8t7a7d7uRY43mSdV1pvFWvEn1h8=;
+	b=f5F1dqPuXYX2CUgeQjAsIWCyGyl+i+7gk+yuvrwuEQplRNzUV6hkjQ9aj72Z0KpgE0sU
+	 mNvA5D1BLLBjBfZj1mITGKNwxVUn30vKvIroNRaFuehUhsn8AL5guukVZVQgh9KeaGViU
+	 /6zgd+/mgTC8/FeUNVld/hCPAlypHpiyQyMPtfMSc45vBsiKsJGuQDq9Oi8XYRRRjly7z
+	 KNZ45VTuhDWokTva96BLFp3ML3yynMVMxpeATyt0JC8/KP9eUQ2WJOeA4gi4in/HqPHdL
+	 h5hpwBvbBySTDxdg+7aIWvqvskPUIdioES1UeqKXJPF90agQ5sse7h/IuAFXBukacRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ywHxZDm0;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2F28A606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:42:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F28A606A31E
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=opKC4H+V;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5C2AA606A31E;
+	Fri, 27 Nov 2026 07:42:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C2AA606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ywHxZDm0
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=opKC4H+V
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=ywHxZDm0Lvd0Bttj+3Ow4g4Piz06Ny2hJDsz2MWk3ZqmspXl0Of8XD1/4bGbFncLYE/W1qtSsHgyt
-	 SY+Wf3UJGsuaERBzG05j9LlO88fsQtxSOQa9a0fXSPVNI0yIVfDhDF6mdeJENCTpEZUKWruJ97WvlZ
-	 CbX0IVB7sxa76BS4=
+	b=opKC4H+Vy786YB+NA1oJaenYe2x0PEEIV6rscLlOMLiKB93yYvV/KeX6jPyldDp2F2xvnCv2Yo7cK
+	 KF8Ue9+xp5Co1Ibj+MoQPiRYhT3JWGa6Y5chJFKv0nr1R4HusOvcrIYQPsjeQvuoKFbgNwMLTO7u3Y
+	 9UiqN74OxWUbS6Zc=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b09345d4d9-03dfc;
-	Fri, 27 Nov 2026 15:42:21 +0800 (CST)
-X-RM-TRANSID:2ee46b09345d4d9-03dfc
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b093460f63-305a0;
+	Fri, 27 Nov 2026 15:42:27 +0800 (CST)
+X-RM-TRANSID:2ee66b093460f63-305a0
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from Z04181456177947 (unknown[10.55.1.71])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b09345b14f-8bd70;
-	Fri, 27 Nov 2026 15:42:21 +0800 (CST)
-X-RM-TRANSID:2ee96b09345b14f-8bd70
+	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66b0934610e6-8bd70;
+	Fri, 27 Nov 2026 15:42:27 +0800 (CST)
+X-RM-TRANSID:2ee66b0934610e6-8bd70
 From: zhaofeng2@cmss.chinamobile.com
-To: Andrew Lunn <andrew@lunn.ch>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
 Cc: Zhao Feng <zhaofeng2@cmss.chinamobile.com>,
-	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] soc: dove: fix OF node leak in dove_init_pmu()
-Date: Fri, 27 Nov 2026 15:42:18 +0800
-Message-ID: <20261127074219.1188-1-zhaofeng2@cmss.chinamobile.com>
+Subject: [PATCH] thermal: thermal_of: fix OF node leak in thermal_of_for_each_cooling_device()
+Date: Fri, 27 Nov 2026 15:42:25 +0800
+Message-ID: <20261127074225.1798-1-zhaofeng2@cmss.chinamobile.com>
 X-Mailer: git-send-email 2.55.0.windows.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -72,10 +72,9 @@ Content-Transfer-Encoding: 8bit
 
 From: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
 
-dove_init_pmu() calls of_get_child_by_name() to obtain the
-"domains" child node of the PMU node, but the reference is
-leaked on the two early failure paths and on the successful
-return.
+thermal_of_for_each_cooling_device() calls of_parse_phandle()
+to obtain tr_np, uses it only to call of_find_trip_id(), and
+then leaks it on every subsequent return path.
 
 Drop the reference with of_node_put() once the node is no
 longer needed.
@@ -83,42 +82,20 @@ longer needed.
 Signed-off-by: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
 ---
 Verified against current tree. Leak found by code inspection
-(OF reference-counting audit of dove_init_pmu()).
+(OF reference-counting audit of thermal_of_for_each_cooling_device()).
 
- soc/dove/pmu.c | 11 +--------++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ thermal/thermal_of.c | 1 +-++
+ 1 file changed, 1 insertion(+), 0 deletion(-)
 
---- a/drivers/soc/dove/pmu.c
-+++ b/drivers/soc/dove/pmu.c
-@@ -388,8 +388,10 @@
- 	}
+--- a/drivers/thermal/thermal_of.c
++++ b/drivers/thermal/thermal_of.c
+@@ -365,6 +365,7 @@
+ 		return -ENODEV;
  
- 	pmu = kzalloc(sizeof(*pmu), GFP_KERNEL);
--	if (!pmu)
-+	if (!pmu) {
-+		of_node_put(domains_node);
- 		return -ENOMEM;
-+	}
+ 	trip_id = of_find_trip_id(tz_np, tr_np);
++	of_node_put(tr_np);
+ 	if (trip_id < 0)
+ 		return trip_id;
  
- 	spin_lock_init(&pmu->lock);
- 	pmu->of_node = np_pmu;
-@@ -400,6 +402,7 @@
- 		iounmap(pmu->pmu_base);
- 		iounmap(pmu->pmc_base);
- 		kfree(pmu);
-+		of_node_put(domains_node);
- 		return -ENOMEM;
- 	}
- 
-@@ -451,5 +454,7 @@
- 			pr_err("dove_init_pmu_irq() failed: %d\n", ret);
- 	}
- 
--	return 0;
--}
-+	of_node_put(domains_node);
-+
-+	return 0;
-+}
 
 
