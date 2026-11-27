@@ -1,99 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795760660;
-	b=aSjg+SrkDj4uKmNCR53xLxSH3I3PoRYFOIkT/+pU7hlNAqZkp3bbKhZKWpxJjuJOHvuZ
-	 tfMgDJ1xoJH74scA7Iu1uswEmDyrqjRC9QD/cH41ZUZVid7EpYPDtq3QutATQH5wqiRy5
-	 J1Z6+jfrUDVns/RrUjPJT5Jpoeo2zq/CxiPq639aentct/z9lJDOEbS2/jsOC05yyG+LP
-	 9+FNTZKXb1d1J0n2hlDbbRFqHS5cf6XwyIRzA7m5FGRcvZp9yOK9H27Zo6MrjUIM3z3j6
-	 KlR8WYq0R6gR1lB52dA6N6GP20PSFbITt2POhedJXzwhwvZnLGhzKI+boI8/0tnbqIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760660;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=SBkZFZAfcEuvoK54tInJ2sdXwGuJlWuARWjKskeguWQ=;
-	b=cceS54RXd4NUmt00Qb2wVla+Gd7BHc8waXpxwSL5YOXWz8B8fPL+MvpGmmu/WbS3hDkz
-	 s1PnMfnv+QFdW8tGAgGHQAdoj6JYVAQOX7pBzXClvU9iQsTrBg0Qvvbo+/phO21QNl3la
-	 f8D94K9XyJ1fxNcKb2KezEyJeq8HoJzyOHHqGetCiMl3hbE+NlWYjEEGAoD5aqENQDbcJ
-	 J4dtFZYWtO/uM6If8E7ExhR4+8t5AIJFGp52dgmqKFYvGlBVvX4oHkxVTpL8GpLci50Mc
-	 9V2dZSUIRKYxHIqV4dssXE5A5D2Gul7dqDcGiJCWPu1yUcKskmSordoL7HzF/TDDOIQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SIET8682;
-	arc=fail smtp.remote-ip=209.85.208.48
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795760675;
+	b=uEX2XCi0YbJGyON6Sc2dX9P1xLYXuXIJU+IWxMELGAOBoTkfXREOgwY5lc8qTxYWx4Lq
+	 e+KNWn9LKF9lAZLKCQTiBjw3VGIZbDnINDu4gg5pN0oTnUvemw6zkB/iZ6kFqhq7QHcb4
+	 gQiWNNbmY4gJWyvEoLFnMZVEM4gtySbM9ZCh7JT8fXWzmt07681361PqWHI4RudAqVZg0
+	 o4spMQRZ6roDFNh5RStMgwS47H+eow9LuHPwoXq3sngQEsAcIJDwg5D2MsVvZewQcPIxY
+	 11gz3ekHjb5ErNUkPrPlo7bM1fpOtbMpcblP/LUm3AZg3CbmWIlfZOUST8/qypp/D6A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760675;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:Content-Language:To:Cc:
+	 References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=llOO67vhoq/kH0K+7ZGst9AFsNZYewfCoJm59v6vk8Y=;
+	b=3MKJlPkVN5T/Wc9vSz+2haTCcgUZkZtY+GS6OiJnpcoOF0c4TOOAVWL6mWjWm9tcQERe
+	 sMqplYYdCbM9zqoQLBovC5ax8RoBgYo5w6jMLdIgqo3oWGGf0MasZRjrv7ZZgF6RB51M6
+	 k9Ra+dfR8rkopefPmCCtOfKavAI04sX4yF7CouZbR6PmYM2sBdm17ylcFpwe6XG+hEdi5
+	 Za3fBFfITQe9KLLTZW+6WS32CVvS9O3dyZBaKQmcLI3JFQOdWAtswe1L8y47r6e20an2t
+	 NM3KauiuTLam7/G94ht7aW+CdwLHGf/aj5tzRJottCg9t0Os2lMzR6gk/TTu9Evx9cA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NWJ9N2G1;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OVg4OfcZ;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73981606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:24:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73981606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF10E606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:24:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF10E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SIET8682
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b86bbbe954so1203638a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:24:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795760659; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SsMgfUeI5R43LG0IZTZBCCaMbofyXPYkgy3FBqc0cmn+uKcE4Jotq9qHMVcW5AQ/as
-         Q9SAuLCaYR3Vrnwud8yU5r8d6o2lZ8dsyq4/EsFia0Ctf0S5m/w7H0tdy8hZiUQDEaYF
-         9AYmmrkWTZ6mz/VGMvOPwIATtOhnXrYVyWyddxPNGBmjPB1r4krmFMMgqiyiU001IHHH
-         vXgJP9Ds3AkBagFp0BHgS4BuruVLsZ0ROgdeOvIarqoKn3KlTsKWUzuihGW65n+gfJSc
-         D7tzWpZxa2vnki16gPwRpsTvUAOx0C0L1PzZFokXriDJm3lNO+LVynPP1kaRP6M1OGog
-         218A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=SBkZFZAfcEuvoK54tInJ2sdXwGuJlWuARWjKskeguWQ=;
-        fh=iigqfIRDS5TiRL5evE69e8UFxs/5nBXZ9Nvk1pQsqzo=;
-        b=d3eT+yRv9D3FA5fpo7wkVA+ckdKMjZJh8Re8PW4/02QKU2uibADSWOn2dvu3QDP6vR
-         /Ce+o//xL+HUHP9hMIAoWeRpM/mHmkooO4rS+VyC+L54IHl+iOm2FYTM54yyX7HVOA0j
-         R1LqOfTTUfgz9DqB/ZOMc1CjKa9IkfSi5Lsmi+CF3Kz4EQC8Pb7JHkh0/gKHRBb2kCb5
-         fodvzrxYusNsycIFIWkkHVihbC0NiVi/O5hEV4+0a3++J394SPE5l8FE7/GrinVtLDQi
-         uPsvUwXexdQns5ijAr4RkMm67JgzKvEZPfmyzSnb38NKUDpUEQCGUoX3mdhOATYudHvM
-         FgdA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NWJ9N2G1;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OVg4OfcZ
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQJw6iY3864265
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:24:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	llOO67vhoq/kH0K+7ZGst9AFsNZYewfCoJm59v6vk8Y=; b=NWJ9N2G1sefu7yA3
+	3nSz2vDTjziEuS7/OcZiWYW6/olrcDFWCpVYi+z8BB99nO+565AvPbGh99Howr+R
+	ZLl0UV5bU1mpcjnzZMfC40rBswhKsJ/diJCl/UHnsTmqPjM3Vu2MdelqlGuJOZIV
+	tfXDe8A9/fy31685BAObonJM7PVvXmrAMjAHYGsNdgAu2UJJL3tXGObA5pvSIFFr
+	fzVn7/NIyZIk/R+aZSWNeT9kPes2RwniNBbBAbluAyMgu//XdiEiBq9ce1/za5UG
+	INCCeg8/jdUFyxTLFJEcXNyWHYdJ9iHIpcnzc/Yi8G2eKPiXKxHdW095v2fl6TfU
+	eq3NeQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u55sg8d-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:24:28 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-3854627c1c8so10339903eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:24:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795760659; x=1796365459; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SBkZFZAfcEuvoK54tInJ2sdXwGuJlWuARWjKskeguWQ=;
-        b=SIET8682aKeUh888hyfIpEH/QzKiNlGQc0MTfL/SL4JkjVKDOvk8LzFJBhoaBxgFmM
-         MJFjqn7gPJ02QI1+6cJbGlCgI5Zx/k9CVnuOfWcpGJWasMjHEKyx7tTAgUWcoJUsA+Fs
-         EyanKaHO4aqchLXxuAHPfytc028RXiAg4ICMRmC3AsJeuMGqQMKN7Sb5D6zCfZsNUCnb
-         DjsiNUdEmjkpy8JFkFDQ7m0xgNeUyxoWJJFLTCR3xnhTZJGjp5+iYOaGmyeESTkbRCvx
-         fgiRiJ7RORyG+Y0vqOsDZ1Ai8wjbJCxCzCQmZzdb8fBYZBjroYTDZh/ZJnc+eaNyrp3B
-         P2yg==
+        d=oss.qualcomm.com; s=google; t=1795760667; x=1796365467; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=llOO67vhoq/kH0K+7ZGst9AFsNZYewfCoJm59v6vk8Y=;
+        b=OVg4OfcZw/EgqLx6TUH7kOnmbzdvS00od2bHpZuSVSPc3p/yd4i/93Z82LE+S4BQbJ
+         MgCZnkD3WDhFVuiaJCRGbCh0oJ0rzDcPysl1PEsN7ZhzsLSrXQmMNeXKulQVtps179oL
+         spRQ0qPXOlpmbbCaetwP1JXCeX01K4WbzJPiL/wQwT2tveN7/2u4mtixmwYt+T1K7dge
+         or2494U4e/8G22riP+aUX5HOnJ5rtLJkFMuhpe7zKDl88APIJXwXkVmyaAuAY1VDGSL1
+         G5eFfMKsIZrzqZio8V5i+0KxCww5stgBz9/J4VoLsR3tmbQZX/z+g9/GhhyybSw5VPvw
+         AzQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795760659; x=1796365459;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=SBkZFZAfcEuvoK54tInJ2sdXwGuJlWuARWjKskeguWQ=;
-        b=0JUQgqHiBopWpBAG4X8OWVjRBr1XgAHX4sXOd+UKoLoaa/TvNtlvTm7UG8/hxoqlKd
-         XLj6AAcj/fSe0sLCs0qQLSxTgQBC4qhLBG4WplV7vl3U2Agmp7n/JBedq9/psakVbvZi
-         Q4YkhjhmQpSgD3QcBhQOnaHqW+TLXH94cheDrJTkJBVtRW47lNt0Fz3SbXC2G2j0fmOD
-         iFh4xtzWSrDpkisTstq4hDKOx70d76yaXtY2u1wAqPXI/1P0Xs0pvZbfc6BPX9MBN321
-         uLAZ2sKKYGO8kBIY35cKc6Wq/lFr8F6S1ceCvLSGTEXAAfQO4wa8sanFmw3ZuJg2wSVz
-         jMVQ==
-X-Forwarded-Encrypted: i=1; AL+hErEXan54PUrz2vMhskJwTUhyR9ymyKAxjIfFJVsQTETxswIB3S8gNT2FJ0JkAMuIj4A+ZpwtuUAjbUAe4cg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83bijyl47FdsUwfzSaRrHtQc48h9D+QqhQGLlp65XKhXQw6gvI
-	1UOTjEEQzGtX2OGaYxY20vzpOBofBaL+9g+Bn1aXnJg3a/cw6ZSkduDBFgyUkIxs7iBcHINRPvl
-	14AkwvX3h47W2bI5Kjo/kNUfr6uTQ1Ho=
-X-Gm-Gg: AZFdTZfZnG1eEk/02/QRUinWmPYahY2DH/epbmRNgYvtey3edx4eT288mUzjSjpTxQu
-	ukKyT9ZlXMKlmCRQKPX45aK29QzkYdNkln4hSjfe4cy2Bu81hsStRD3oXlP9NjKNUZKQqMhlnQB
-	Uga2BaeeBnoBVBmgWZaY6h/ql6Zqt5Ofcc4uZgMSE7bKIqrRbQ+ZDs0DjaT3KWiYWtq/uMqSnbu
-	ipzKiKvLyKRSTRUnV2hLEtfW6wXz5DSy7dsWkFH1iHVgcqYt4lGVVxaon5hJ2HtHX2KoZMrMvQa
-	H776jfn+k2rhnLsroQ2LXFLuGqO0DEDhFu+iCLAlZLxn9hAZj+hm0cx534E+bjOCwNfcDfSqFUm
-	FvzfNnpcmcAkcthQgbwmoH22pPxZLgpIFUqcoZo64AqOkkKU9kx/MZWza90Vfi9G80m6htJI=
-X-Received: by 2002:a05:6402:c521:20b0:6bb:3e3f:2cdc with SMTP id
- 4fb4d7f45d1cf-6bb3e3f2fecmr4072358a12.2.1795760658224; Thu, 26 Nov 2026
- 22:24:18 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795760667; x=1796365467;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=llOO67vhoq/kH0K+7ZGst9AFsNZYewfCoJm59v6vk8Y=;
+        b=hgQApdgfzOsdsdcIgcy0CoS2C5XR1RW5N+RRxEYxT0YjM6TO+OyFZyZ2pZtvL0EOpI
+         Av6USWAmCtUViPHkDcPjaviq7fm58dfBz5iNCQ1XQ0CnIkD3/ActSmYE2Q6x1K46C0zJ
+         N0vuEaCmU/GwYeJR31hhrAN1WUGhBn1TBYhNSDObc+jJidgDsIxJ8hzS4Hr1iEy75QHM
+         oXRepRfRSGypUGsKEko5qfH8GUZ3Ycw7AQvOWfYqp1HaGhJPFu9IKYllzPRRdZaWEQZI
+         +lraVUNiTTAYq1IlXTN3RzAwGncCvwIN6BrYCWnXvjCpL//wxjj2xn94TCNUO/TI2g93
+         xDQw==
+X-Forwarded-Encrypted: i=1; AL+hErH59JDz7cBzKJLDzI/4M2o339RP1Xz1EZ/ZjAyOmqCoAaE0sus/seDcrsCz2M4HFDCVCDdJi/QGQrcfbb0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OeB9SO5iLAtYRnrPD+NdMXBChUBi2n0D2Ez39GXF9w246hPTD
+	VwZrmKf5y7NevT1GEObuAhWP18xoCSruwFF6oq3vvBHg3mjLDumWU0GgXbQ/XC8J3mby8xT+R5/
+	D4/Xdmsso8jJh9WiA7od3gLRDSm+dxXS1w8z4xViCJuBXogfwNeDVpS050B7b2bKlARk=
+X-Gm-Gg: AZFdTZcPIFGP/eHxQuDBkt/EBIP4jTdLblvvFqI2CZ9RTDEF2U5fl0e7H78V3qzIeaE
+	BfrEjR+f0078EDGk4r2p+lch5f3GygTRlZYGDFiRtWLoteYGAatqnI6KO7WKXGB+Hx2hBfa3xbM
+	KMqrvI76sTVaHptAtS5JFCLTe3VZjb+SlOiV3eXOqeTdcTeQOPdXCKtvbru5GU0x6/bAl0ijMi0
+	0poUIgjLwJu7spNUQjW2CHoTnFtRAZOVSyx+9Ik4bCvclrkVZXI9Dl0ikR90m/m0+nyU1beO61Y
+	dsH5wIs777RnYnesQAsljJxNHUcYgg/Myac6XEm6zE1Jk9AW4xqGMNVnn+3pa9hla8mgoGA9bzB
+	KubIDK/rCutNJNPLce0TWbfbC6Rwka6927Tcw7pm90F0Dh3x2d7wDGFVrRSCUs2w552HWZ0VCcd
+	0DlrXP
+X-Received: by 2002:a05:7301:6083:b0:386:a01f:a36b with SMTP id 5a478bee46e88-386a01fa8d8mr27738020eec.35.1795760667390;
+        Thu, 26 Nov 2026 22:24:27 -0800 (PST)
+X-Received: by 2002:a05:7301:6083:b0:386:a01f:a36b with SMTP id 5a478bee46e88-386a01fa8d8mr27737996eec.35.1795760666829;
+        Thu, 26 Nov 2026 22:24:26 -0800 (PST)
+Received: from [10.204.100.41] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm35769098eec.27.2026.11.26.22.24.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 22:24:26 -0800 (PST)
+Message-ID: <2e4fcb24-aff0-e93c-d702-b01bfe7c17ca@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 11:54:18 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,34 +114,228 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
-In-Reply-To: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
-From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Date: Fri, 27 Nov 2026 14:24:06 +0800
-X-Gm-Features: Aa3M54ovbh04_f0CIR-_hXe0njTveJM5wqr9aBZi2LAaLZkChYM5oN2Bhm_6rKk
-Message-ID: <CAPwA33K7f2EbtH8rqihnxB8RkB1PzJTmDyGJ39ojROuTYwK0Dw@mail.gmail.com>
-Subject: Re: [PATCH v7 0/9] phy: rockchip-samsung-dcphy: Add the MIPI D-PHY receiver
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Michael Riesch <michael.riesch@collabora.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH 1/5] media: iris: support decode-order output on HFI gen2
+Content-Language: en-US
+To: Xilin Wu <sophon@radxa.com>,
+        Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Bryan O'Donoghue <bod@kernel.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>, dragon@radxa.com,
+        Chris Obbard <chris.obbard@oss.qualcomm.com>,
+        Deepak Sikri <sikrid@qti.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Loic Minier <loic.minier@oss.qualcomm.com>,
+        Jason Pettit <jason.pettit@oss.qualcomm.com>
+References: <20261029-iris-va-fixes-v1-0-44a2783f782b@radxa.com>
+ <20261029-iris-va-fixes-v1-1-44a2783f782b@radxa.com>
+From: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+In-Reply-To: <20261029-iris-va-fixes-v1-1-44a2783f782b@radxa.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAyNSBTYWx0ZWRfX3Ibx3kuBA2IV
+ 6+sNAjoOPx5bGBHfPSbMJN/6+eycccvZSxJGd28plZuDoe0Y5FeZqu3k1cmYg/zFVc0YiP35iY6
+ ExnVgASNC5W1yT5L3U2CZ97xKo/CM/s=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAyNSBTYWx0ZWRfX/KjXYgev+buj
+ hubESRnKcWTO5O+jdESYTOjq4vtC+6k/LlARFsr8ADszXMLn/zxpx2JpoBVIPgV8PZ2FXr63Q/L
+ u5s7+uXOyG2NTnLbA40pZo/s+3YlijnXo02m6bANg7itQ9LN5uM/7mxCbbU99qyg23+oztTr1qB
+ /FM3zBQp6Dh62xWamUXuYCfmkt+d8QXswvCF5tmu8158mL9lSKCMPX204KHz7fjT0xq4Ify3IEe
+ V9P9+oE5zjt5uidIFra4QaUiiZYJnneXRs4dsAexXMod/pwbrHPcDrsISL5TOb41hjtwJl8Nib3
+ gbesHBL4qXmhqrydkHKTkJQj1KMUt34o1G3Lj+tR+ODarb/LORIF/hGWwpaL6a0wmZqGp0jwPF+
+ chMms61s5iN4nzuJ6HlWGXmKHXVgQIMOqkKrGsFeJJwgPF8DT8jm68g+tZtu5vx7PiQKJN6jELE
+ pHeGwgJ4FlZIyI0E1XA==
+X-Proofpoint-ORIG-GUID: s6VruJd5LFEdeaflwZimnUgPLtzkKLBr
+X-Authority-Analysis: v=2.4 cv=Z795j3RA c=1 sm=1 tr=0 ts=6b09221c cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=ksxQWNrZAAAA:8 a=YvhqXWzbulz00Tmx5t4A:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22 a=l7WU34MJF0Z5EO9KEJC3:22
+X-Proofpoint-GUID: s6VruJd5LFEdeaflwZimnUgPLtzkKLBr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_05,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270025
 
-Hi all,
 
-Michael, I kept your Reviewed-by from v6 on 6/9, 8/9 and 9/9, as the
-v7 changes there follow your suggestions. Are you fine with keeping it?
+On 10/29/2026 9:28 AM, Xilin Wu wrote:
+> Synchronous per-picture clients such as VA-API can stall when firmware
+> holds decoded pictures for display reordering while the client waits for
+> the current picture before submitting more input.
+>
+> Expose the decoder display-delay controls on HFI gen2, with a zero delay
+> selecting decode-order output. Keep display-order output as the default.
+>
+> Signed-off-by: Xilin Wu <sophon@radxa.com>
+> ---
+>  drivers/media/platform/qcom/iris/iris_ctrls.c        |  8 ++++++++
+>  drivers/media/platform/qcom/iris/iris_hfi_gen2.c     | 20 ++++++++++++++++++++
+>  .../media/platform/qcom/iris/iris_hfi_gen2_command.c | 18 ++++++++++++++++++
+>  .../media/platform/qcom/iris/iris_hfi_gen2_defines.h |  1 +
+>  .../media/platform/qcom/iris/iris_platform_common.h  |  2 ++
+>  5 files changed, 49 insertions(+)
+>
+> diff --git a/drivers/media/platform/qcom/iris/iris_ctrls.c b/drivers/media/platform/qcom/iris/iris_ctrls.c
+> index 4f2633bbb49f..1dbea37c93c3 100644
+> --- a/drivers/media/platform/qcom/iris/iris_ctrls.c
+> +++ b/drivers/media/platform/qcom/iris/iris_ctrls.c
+> @@ -155,6 +155,10 @@ static enum platform_inst_fw_cap_type iris_get_cap_id(u32 id)
+>  		return LAYER4_BITRATE_HEVC;
+>  	case V4L2_CID_MPEG_VIDEO_HEVC_HIER_CODING_L5_BR:
+>  		return LAYER5_BITRATE_HEVC;
+> +	case V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE:
+> +		return DISPLAY_DELAY_ENABLE;
+> +	case V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY:
+> +		return DISPLAY_DELAY;
+>  	case V4L2_CID_MPEG_VIDEO_FORCE_KEY_FRAME:
+>  		return REQUEST_SYNC_FRAME;
+>  	case V4L2_CID_MPEG_VIDEO_MULTI_SLICE_MODE:
+> @@ -306,6 +310,10 @@ static u32 iris_get_v4l2_id(enum platform_inst_fw_cap_type cap_id)
+>  		return V4L2_CID_MPEG_VIDEO_HEVC_HIER_CODING_L4_BR;
+>  	case LAYER5_BITRATE_HEVC:
+>  		return V4L2_CID_MPEG_VIDEO_HEVC_HIER_CODING_L5_BR;
+> +	case DISPLAY_DELAY_ENABLE:
+> +		return V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE;
+> +	case DISPLAY_DELAY:
+> +		return V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY;
+>  	case REQUEST_SYNC_FRAME:
+>  		return V4L2_CID_MPEG_VIDEO_FORCE_KEY_FRAME;
+>  	case SLICE_MODE:
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2.c
+> index 79bbd06ef8d2..65af61b63a29 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_gen2.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2.c
+> @@ -842,6 +842,22 @@ static const struct platform_inst_fw_cap inst_fw_cap_milos_enc[] = {
+>  };
+>  
+>  static const struct platform_inst_fw_cap inst_fw_cap_sm8550_dec[] = {
+> +	{
+> +		.cap_id = DISPLAY_DELAY_ENABLE,
+> +		.min = 0,
+> +		.max = 1,
+> +		.step_or_mask = 1,
+> +		.value = 0,
+> +		.hfi_id = HFI_PROP_DECODE_ORDER_OUTPUT,
+> +		.flags = CAP_FLAG_INPUT_PORT,
+> +	},
+> +	{
+> +		.cap_id = DISPLAY_DELAY,
+> +		.min = 0,
+> +		.max = 0,
+> +		.step_or_mask = 1,
+> +		.value = 0,
+> +	},
 
-For v8 I only plan to drop the Tested-by tags from 1/9 and 2/9.
-Please let me know if anything else should change before I send it.
+Nit: Since DISPLAY_DELAY_ENABLE and DISPLAY_DELAY were added at the end of
+enum platform_inst_fw_cap_type, it may be cleaner to place this capability
+entries at the end of this table as well for consistency. Same consistency
+comment applies to the iris_get_cap_id() and iris_get_v4l2_id() additions
+above as well.
 
-Thanks,
-Jason
+>  	{
+>  		.cap_id = PROFILE_H264,
+>  		.min = V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE,
+> @@ -1818,6 +1834,7 @@ static const struct platform_inst_fw_cap inst_fw_cap_sm8550_enc[] = {
+>  };
+>  
+>  static const u32 sm8550_vdec_input_config_params_default[] = {
+> +	HFI_PROP_DECODE_ORDER_OUTPUT,
+>  	HFI_PROP_BITSTREAM_RESOLUTION,
+>  	HFI_PROP_CROP_OFFSETS,
+>  	HFI_PROP_LUMA_CHROMA_BIT_DEPTH,
+> @@ -1830,6 +1847,7 @@ static const u32 sm8550_vdec_input_config_params_default[] = {
+>  };
+>  
+>  static const u32 sm8550_vdec_input_config_param_hevc[] = {
+> +	HFI_PROP_DECODE_ORDER_OUTPUT,
+>  	HFI_PROP_BITSTREAM_RESOLUTION,
+>  	HFI_PROP_CROP_OFFSETS,
+>  	HFI_PROP_LUMA_CHROMA_BIT_DEPTH,
+> @@ -1841,6 +1859,7 @@ static const u32 sm8550_vdec_input_config_param_hevc[] = {
+>  };
+>  
+>  static const u32 sm8550_vdec_input_config_param_vp9[] = {
+> +	HFI_PROP_DECODE_ORDER_OUTPUT,
+>  	HFI_PROP_BITSTREAM_RESOLUTION,
+>  	HFI_PROP_CROP_OFFSETS,
+>  	HFI_PROP_LUMA_CHROMA_BIT_DEPTH,
+> @@ -1850,6 +1869,7 @@ static const u32 sm8550_vdec_input_config_param_vp9[] = {
+>  };
+>  
+>  static const u32 sm8550_vdec_input_config_param_av1[] = {
+> +	HFI_PROP_DECODE_ORDER_OUTPUT,
+>  	HFI_PROP_BITSTREAM_RESOLUTION,
+>  	HFI_PROP_CROP_OFFSETS,
+>  	HFI_PROP_LUMA_CHROMA_BIT_DEPTH,
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
+> index 388a36ff2b07..a285e6fc8728 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
+> @@ -665,6 +665,23 @@ static int iris_hfi_gen2_set_super_block(struct iris_inst *inst, u32 plane)
+>  						  sizeof(u32));
+>  }
+>  
+> +static int iris_hfi_gen2_set_decode_order_output(struct iris_inst *inst, u32 plane)
+> +{
+> +	struct platform_inst_fw_cap *cap = &inst->fw_caps[DISPLAY_DELAY_ENABLE];
+> +	u32 decode_order = cap->value;
+> +
+> +	/* Leave the firmware default unchanged unless userspace sets the control. */
+> +	if (!(cap->flags & CAP_FLAG_CLIENT_SET))
+> +		return 0;
+> +
+> +	return iris_hfi_gen2_session_set_property(inst,
+> +						  HFI_PROP_DECODE_ORDER_OUTPUT,
+> +						  HFI_HOST_FLAGS_NONE,
+> +						  HFI_PORT_BITSTREAM,
+> +						  HFI_PAYLOAD_U32,
+> +						  &decode_order, sizeof(decode_order));
+> +}
+> +
+>  static int iris_hfi_gen2_session_set_config_params(struct iris_inst *inst, u32 plane)
+>  {
+>  	const struct iris_firmware_data *fdata = inst->core->iris_firmware_data;
+> @@ -691,6 +708,7 @@ static int iris_hfi_gen2_session_set_config_params(struct iris_inst *inst, u32 p
+>  		{HFI_PROP_FRAME_RATE,                 iris_hfi_gen2_set_frame_rate             },
+>  		{HFI_PROP_AV1_FILM_GRAIN_PRESENT,     iris_hfi_gen2_set_film_grain             },
+>  		{HFI_PROP_AV1_SUPER_BLOCK_ENABLED,    iris_hfi_gen2_set_super_block            },
+> +		{HFI_PROP_DECODE_ORDER_OUTPUT,        iris_hfi_gen2_set_decode_order_output    },
+>  	};
+>  
+>  	if (inst->domain == DECODER) {
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_defines.h b/drivers/media/platform/qcom/iris/iris_hfi_gen2_defines.h
+> index 2b8b057d35a9..e89ed4075526 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_defines.h
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_defines.h
+> @@ -130,6 +130,7 @@ enum hfi_flip {
+>  
+>  #define HFI_PROP_FLIP				0x0300014c
+>  #define HFI_PROP_SIGNAL_COLOR_INFO		0x03000155
+> +#define HFI_PROP_DECODE_ORDER_OUTPUT		0x0300015b
+>  #define HFI_PROP_PICTURE_TYPE			0x03000162
+>  #define HFI_PROP_DEC_DEFAULT_HEADER		0x03000168
+>  #define HFI_PROP_DEC_START_FROM_RAP_FRAME	0x03000169
+> diff --git a/drivers/media/platform/qcom/iris/iris_platform_common.h b/drivers/media/platform/qcom/iris/iris_platform_common.h
+> index cddab9a9c375..aa8cd2e1b3f1 100644
+> --- a/drivers/media/platform/qcom/iris/iris_platform_common.h
+> +++ b/drivers/media/platform/qcom/iris/iris_platform_common.h
+> @@ -211,6 +211,8 @@ enum platform_inst_fw_cap_type {
+>  	SLICE_MODE,
+>  	SLICE_MAX_BYTES,
+>  	SLICE_MAX_MB,
+> +	DISPLAY_DELAY_ENABLE,
+> +	DISPLAY_DELAY,
+>  	INST_FW_CAP_MAX,
+>  };
+>  
+>
