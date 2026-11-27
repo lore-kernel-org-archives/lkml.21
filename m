@@ -1,95 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795757327;
-	b=FzeA2/aMwjFacMdx7ScjhrAQSxYorjgE7nfGVDsOt7aAzluy0bsRHxCRNF99ukcS3pjo
-	 Z4M4FEjlOxTAAL+bVPAalJLIyonBigDLgm3dPF3Nl4x1j8S/1VNfTqDYS+22de5+ClRnj
-	 il0XZ+vkuFoYPeA+i0HJsWPpGqja5/m4NQSO3vAoexzQr5MNr3SdU2jcKlIUFnFcn93VP
-	 ++4ZCoEGWXO5M8btiEgqrKNmL8Dc3Kgk96HpjFhwmhMeCy9ja0KFETVziCzvQNep0GMZm
-	 v2+KrNtZh96xDY8IAnBlIm5sXKLUKUOnOr/UHGbO/1ltBluCWQPWjd+nFuOj/YG+8eQ==
+	t=1795757349;
+	b=llyrUNxD6cN7XCsYz8aqQC6JQMYbkJ9LAYRt8D/Kfe+1+zhlWT8bLU99e8npJrBAAktk
+	 TSiRVGeBVbB6VXata5oQJZ18xVBcf5Ez4Gg/Wah4xOVGajq6d6BxEl0GPAAI1MAUJxln6
+	 XCF2pIUSEig7zM3eXKcLmQRnmjbK7YQcCsgBIijL4ED3HUByTyUPmPr2qRi2JCrhg2Y/S
+	 T202OHt4iKZwY5p2TK9lDjFvaa7p4VPpZYRxB0gT2H1cjX/bwG17m/bHZjGukqGYXcl8H
+	 ts1w1/Jyn7udbuguJk1NA3bwS+ht1kVDwMazG+Lj06YHRh+5iNFyMWEqWorUjMLBO3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757327;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=w8EUKxgy8isR+4iZykOwKlAUWeY78/o5o1zpI3srpDI=;
-	b=C+D2h7fk/YdqODyikBC4E3aq57A7PRwrOY2rg/XFFbm6yPcOrHOkt6t59s1YFaZUQU7G
-	 /cCcDVyX6ksyXe0FahtNBE7ioUsfSvrFuqOC5XuwfWaND/YhcaxummLJCWrqU6E2knUc7
-	 5w72/GfVqGp0BKY9l1gYqWK2FNw2Lcmy2TzP9ldTu9n7MN8m1lFIt7d5C9ptZxCFMNT0T
-	 V/6PAYbE+xlYwH4MJMvF8tsNsWomvKZ9I3GpOyY4KLx8gk4grZsOISgRZwwIHo7yiwzs/
-	 CKHlRpIwgjljPUwza1paKxr2UK0kTwMCJDWORhT+AKFWZIi7UX7otsaGemYeRUIZJOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757349;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=4KRbKbSS4txsXMmx7aNLIAcb7TQXx/+yCJ2Kow7a3pM=;
+	b=nkafb1Zq3rkqWrlfGXvF8wWGQ+I8Ua0XZcsk3S/DPI3hgIFq5Qv78PSWsCIhL/0Sy+LW
+	 YFqgj+IaIDSPkUEmqMLNP1fc4D9d0KebWaL+ZHHX+4CjvkgCOikM4q89iC7DE1gtuy5EX
+	 XODdLMY5c9tlHuGGjFpOHOMP7tuh63bWOf/u6xIkFyQOMceUq5/4y7lV7WAFkewmR9x8e
+	 yd+I12kFDGh55srnpy0SNJDx+O8nvmbkHjJSrsVIvTdQcH3hMSHNwLTT8Im22hEUxF9T+
+	 dC8A6gcEq1weU3fEyz8CMh/znAgDkh4POBzQoKWP6YAuaUDIMx3Dya8p6H8/RX2TQjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vugNU3NP;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=1wt.eu;
+	spf=pass smtp.mailfrom=1wt.eu;
+	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=YKxpuIPv;
+	arc=none smtp.remote-ip=51.159.59.229
+Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D883606A32D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:28:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D883606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18112606A31C;
+	Fri, 27 Nov 2026 05:29:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18112606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vugNU3NP
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so72342995e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:28:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795757325; x=1796362125; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=w8EUKxgy8isR+4iZykOwKlAUWeY78/o5o1zpI3srpDI=;
-        b=vugNU3NPpTyM1pnBnSgatOXTc9YUa6YChLuqCQeWJh+T4DFQLqWqnpL8j4L/Ji7d7u
-         PZDFq/VXus2WVVB9eOa3VWzZt2yhF6SuTu5tcwqf9hQD231Vy4iFlfCeIcHt3exf7gIZ
-         fmmWGT8bM7sp+QclQK8kMXo4UR/YByXh1qj4fuTRcHCSK9PLaeRej4K9J9gWu690UIQD
-         QoreWZWUjZ4Xm0okvWxmrOmlfiMkh+SoT9MX4v8mFi0IK760EW/M3eB5dJIq5jXU4TJX
-         CKQYctADbiC8HXL+plwrbqXB7e22uWSvognWQ8C6F43PWeNLKT+1JjnefWE8CgD/WlPw
-         Ervg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795757325; x=1796362125;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=w8EUKxgy8isR+4iZykOwKlAUWeY78/o5o1zpI3srpDI=;
-        b=BMbR4qO0X/qd/FCcPfo/UBu8utUJbeHHVcRyT32Z4YJQkXiP3aAJ4OIVTz8LiIh3TR
-         HyqXKoC3u98U+EEOkqHnVZvbeVf5kg8azkZ6mhN4FpwE4N+wjFqtbaBBnlRM//p9+uBQ
-         ZFg5YBpOdxvmcvqDwo1nkcbm2wVuzO11tn4O6bvqMpzJOA6s54qKTOAqPmGm+pZL5bkR
-         M76/R+omLjAdaIg1xGMaaEI2Gt0D7tnUHnkZyP+LS3//FZvtUpvRsjO74wK/k2N9HiyC
-         dyHuy1nr3mFOQG1MhInIS1aIheWAgGmNXNv/cU5vq2QZQArjOYaiHYPN+OK8BSh6VFs2
-         Sn4g==
-X-Forwarded-Encrypted: i=1; AL+hErF7JreytxoI06GStS/qE1gix2iFHuiQ4tEZarhAnG0DJlC/2Uf+G9o3RLtMQvcxU+ZAEhsJZBFgTRTumKg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9jFK8HEH3xNSN/nas6sqqp0N5EaZAucxHEDXxPaXjOGsuUiG3C
-	ALSgh23x39Qcj7JfFgucBxwG0o/WVi69F+eGuezaXfYhvpXaJJAfyi6o
-X-Gm-Gg: AZFdTZetxYgSYpBF8ZfphN884H0+zghrXWhjaNrIsEFsean36BQDivepGDw30GuXQcH
-	0crK+MSREcsDwwumDmNELkO5DHf4arWE6R2UlgJt5SnkvItAcuZ0DDr/jQKSzQI8NAlpQkjeZ35
-	JJReLa5Vjwx73hJgwzVHf4OCALFb4O8/YMk2/bfVqZ83JPjLsw5QCx1xBFoE57U8GddvsS8MrIv
-	ltaQwUV7bGFbZy9suzfOHm8ULgKvxW089o1rsx2QrRxuV8Mz0SA++Y4VKpm4R3q0COEBjIy5i7e
-	Z8VgVqXjdWzNhLnYxfEWGs8ABQxzxT1vwWRJfzUoN2IRWBs3LNJK8cUELwewQA0TlDkvROCQqBb
-	WgOR93Ev3QvzYovwwRRYfSAr0YbrX/VQJyIw+Kz3HW3CbQhDyl2esmSFx8cJhX6G5x6rGuw/aJI
-	jJdNfmdA1UlxKq8pLE/d1EykdmzcnpRnPwrCu9gtZzRuJjbcb7kjJetx7QBEyEhdS6ZJ8oGGIdr
-	Gl9+d+U2NT+Jpq5lCqJ9CVTsYGk9WZi5HNQ57fydluwwxhJ8EpHlOC/kkoT2dX5R0VM77qt86kt
-	RABr0/V9D/axxTOqCYAVjvavZfA0A7xcmb+kYX7GJwm+EtoTnzMl66CV4FCy+EFht7cb2U3J+wJ
-	K8Op6NsKeJ+WukJQVP2kO0WSOh0pCIR5F15E4RBj/rZfmzU5jPkoVyMJ6Uz/TTRKAWsFo3OhP5Q
-	OXadhKgJ2VuAcOxsB6dgux+KUmKLK/i/85NKx0WDgvlFb2mXPUcHTeq0d6TIsXWZo=
-X-Received: by 2002:a05:600c:4585:b0:4a1:83f0:7c91 with SMTP id 5b1f17b1804b1-4bb8882948dmr474016545e9.18.1795757324728;
-        Thu, 26 Nov 2026 21:28:44 -0800 (PST)
-Received: from sergio-82n7.homenet.telecomitalia.it ([95.236.10.162])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853368d3sm649073745e9.1.2026.11.26.21.28.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:28:44 -0800 (PST)
-From: Sergio Melas <sergiomelas@gmail.com>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] hwmon: (yogafan) Add support for additional Lenovo laptops
-Date: Fri, 27 Nov 2026 06:28:41 +0100
-Message-ID: <20261127052841.492895-3-sergiomelas@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261127052841.492895-1-sergiomelas@gmail.com>
-References: <20261127052841.492895-1-sergiomelas@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=YKxpuIPv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1795757345; bh=4KRbKbSS4txsXMmx7aNLIAcb7TQXx/+yCJ2Kow7a3pM=;
+	h=From:Message-ID:From;
+	b=YKxpuIPvxZn6uIWz2Tri4r+Wl5/tQVetTcJlhWrzGdnarLQMnjA8UAAD3jH5oUg/Z
+	 Hw4+2XupBr/qgyP60n1gdy3OhBbfY6SWIjGun9TGefzkf2sSna2/B/UdsfyPcBcnaE
+	 Q83sTE+YvjvpAtwR+SixkCzsCADwe1/8DQ57YPgM=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 0946AC0960;
+	Fri, 27 Nov 2026 06:29:05 +0100 (CET)
+Date: Fri, 27 Nov 2026 06:29:04 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Leon Romanovsky <leon@kernel.org>,
+        Krzysztof Kozlowski <krzk@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Borislav Petkov <bp@alien8.de>, Marc Zyngier <maz@kernel.org>,
+        Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>,
+        Andrew Lunn <andrew@lunn.ch>, Jonathan Cameron <jic23@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Theodore Ts'o" <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+        Security Officers <security@kernel.org>, workflows@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] docs: security-bugs: ask AI-assisted fixes for their
+ cover letter
+Message-ID: <awkVIG1fGfgGX-nr@1wt.eu>
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-3-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,182 +74,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126171926.2766137-3-sashal@kernel.org>
 
-Add DMI quirks and ACPI fan tachometer configurations for nine
-user-reported Lenovo laptops:
+On Thu, Nov 26, 2026 at 12:19:25PM -0500, Sasha Levin wrote:
+> coding-assistants.rst asks for a cover letter with the evidence behind
+> every patch an AI assistant prepares. A fix for a security bug needs
+> that evidence as much as any other fix, so name the cover letter in the
+> summary of that procedure and in the list of recipients.
+> 
+> The cover letter goes where the patch goes, which usually includes a
+> public list, while the reproducer goes to the maintainers only. Say
+> that the reproducer and the steps to trigger the problem stay out of
+> the cover letter, which only mentions that a reproducer exists.
+> 
+> "Length" asks for short reports. With the complete output in the cover
+> letter the report has no reason to carry it.
+> 
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+>  Documentation/process/security-bugs.rst | 17 +++++++++++------
+>  1 file changed, 11 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/process/security-bugs.rst b/Documentation/process/security-bugs.rst
+> index c7dfecc87764c..0423a814c6a1e 100644
+> --- a/Documentation/process/security-bugs.rst
+> +++ b/Documentation/process/security-bugs.rst
+> @@ -233,8 +233,8 @@ At the very least, when using an AI assistant to find and report bugs, make the
+>  assistant read this file and threat-model.rst before proceeding, and have it
+>  follow the procedure described in coding-assistants.rst: work on an up-to-date
+>  mainline tree and note the commit ID, verify the bug is real, write a fix,
+> -build it warning-free and checkpatch-clean, commit it with a Fixes tag, and
+> -identify the maintainers with get_maintainer.pl.
+> +build it warning-free and checkpatch-clean, commit it with a Fixes tag,
+> +identify the maintainers with get_maintainer.pl, and write the cover letter.
+>  
+>  On top of that procedure, the AI assistant **MUST**:
+>  
+> @@ -244,10 +244,15 @@ On top of that procedure, the AI assistant **MUST**:
+>     the description of the problem, the reproducer or its status, and the
+>     triggering conditions.
+>  2. Start the report with a temporary section listing the recipients' addresses
+> -   (maintainers+list for the patch, maintainers only for the report and
+> -   reproducer), and with instructions reminding the reporter to check that
+> -   their email client is properly setup (see email-clients.rst), and leave it
+> -   to the reporter to remove that temporary section.
+> +   (maintainers+list for the patch and its cover letter, maintainers only for
+> +   the report and reproducer), and with instructions reminding the reporter to
+> +   check that their email client is properly setup (see email-clients.rst), and
+> +   leave it to the reporter to remove that temporary section.
+> +3. Keep the reproducer, and the steps that trigger the problem, out of the
+> +   cover letter that coding-assistants.rst asks for. The cover letter goes
+> +   where the patch goes, which usually includes a public list, so it only says
+> +   that a reproducer exists. With the complete output in the cover letter, the
+> +   report itself can stay short.
+>  
+>  A more detailed process is covered at https://github.com/masoncl/kres.git.
 
-- IdeaPad 3 15ADA6 (82KR): 1 fan, 8-bit x100 (LPC0.EC0.FANS)
-- IdeaPad 5 15ARE05 (81YQ): 1 fan, 8-bit x100 (LPC0.EC0.FANS)
-- Legion 7 16ACHg6 (82N6): 2 fans, 8-bit x100 (LPC0.EC0.FANS/FA2S)
-- Legion Slim 5 14APH8 (82Y5): 2 fans, 8-bit x100 (LPC0.EC0.FANS/FA2S)
-- Legion Pro 7 16IAX10H (83F5): 3 fans, 8-bit x100 (PC00 FANS/FA2S/FASF)
-- Yoga 7 16IAH7 (82UF): 2 fans, 8-bit x100 (PC00.LPCB.EC0.FANS/FA2S)
-- Yoga 730-15IWL (81JS): 1 fan, 8-bit x100 (PCI0.LPCB.EC0.ERPM)
-- Yoga Slim 7 15ILL9 (83HM): 2 fans, 16-bit x1 (PC00.LPCB.EC0.FANS/FA2S)
-- Yoga Pro 9 16IAH10 (83L0): 2 fans, 16-bit x1 (PC00.LPCB.H_EC.FANS/FA2S)
+Good points above. And the cover letter might help for one case we've seen
+a few times: among the few reporters who follow the rules (patch to the list,
+report+repro private), a few forgot to mention the patch had been posted
+publicly so we asked for the patch again. If a maintainer (or security team)
+receives a 2/2 message, it's more obvious that 1/2 was posted somewhere else.
 
-Reuse existing yogafan_config structures where identical and update
-Documentation/hwmon/yogafan.rst with the new models and contributors.
+Reviewed-by: Willy Tarreau <w@1wt.eu>
 
-Signed-off-by: Sergio Melas <sergiomelas@gmail.com>
----
- Documentation/hwmon/yogafan.rst |  19 ++++++
- drivers/hwmon/yogafan.c         | 100 ++++++++++++++++++++++++++++++++
- 2 files changed, 119 insertions(+)
-
-diff --git a/Documentation/hwmon/yogafan.rst b/Documentation/hwmon/yogafan.rst
-index c30cd9c81..62992293b 100644
---- a/Documentation/hwmon/yogafan.rst
-+++ b/Documentation/hwmon/yogafan.rst
-@@ -108,6 +108,16 @@ immediately to ensure the user knows the fan has stopped.
-  83KF           | Yoga Pro 7 14IAH    | 0x06      | \_SB.PC00.LPCB.EC0.FANS        |  8-bit | 100
-  83BS           | Yoga 7 16ARP8       | 0x03/0x06 | \_SB.PCI0.LPC0.EC0.FANS/FA2S   |  8-bit | 100
-  83RU           | Legion Pro 7 16     | 0x04      | \_SB.PCI0.LPC0.EC0.FASF (Fan3) |  8-bit | 100
-+ 82KR           | IdeaPad 3 15ADA6    | 0x06      | \_SB.PCI0.LPC0.EC0.FANS        |  8-bit | 100
-+ 81YQ           | IdeaPad 5 15ARE05   | 0x06      | \_SB.PCI0.LPC0.EC0.FANS        |  8-bit | 100
-+ 82N6           | Legion 7 16ACHg6    | 0x06/0xFE | \_SB.PCI0.LPC0.EC0.FANS/FA2S   |  8-bit | 100
-+ 82Y5           | Legion Slim 5 14APH8| 0x06/0xFE | \_SB.PCI0.LPC0.EC0.FANS/FA2S   |  8-bit | 100
-+ 83F5           | Legion Pro 7 16IAX10| 0x03/0x06 | \_SB.PC00.LPCB.EC0.FANS/FA2S   |  8-bit | 100
-+ 83F5           | Legion Pro 7 16IAX10| 0x04      | \_SB.PC00.LPCB.EC0.FASF (Fan3) |  8-bit | 100
-+ 82UF           | Yoga 7 16IAH7       | 0x06/0xFE | \_SB.PC00.LPCB.EC0.FANS/FA2S   |  8-bit | 100
-+ 81JS           | YOGA 730-15IWL      | 0x06      | \_SB.PCI0.LPCB.EC0.ERPM        |  8-bit | 100
-+ 83HM           | Yoga Slim 7 15ILL9  | 0x06/0xFE | \_SB.PC00.LPCB.EC0.FANS/FA2S   | 16-bit | 1
-+ 83L0           | Yoga Pro 9 16IAH10  | 0x5A4     | \_SB.PC00.LPCB.H_EC.FANS/FA2S  | 16-bit | 1
-  *Legacy*       | Pre-2020 Models     | 0x06      | \_SB.PCI0.LPC.EC.FAN0          |  8-bit | 100
-  -------------------------------------------------------------------------------------------------------
- 
-@@ -167,3 +177,12 @@ Contributors & DSDT Providers:
- - **Phani Pavan K** (Yoga Pro 7 14IAH10 - 83KF)
- - **Splarkszter** (Yoga 7 16ARP8 - 83BS)
- - **GabboRocchia** (Legion Pro 7 16AFR10H - 83RU 3rd fan)
-+- **dubhater** (IdeaPad 3 15ADA6 - 82KR)
-+- **Voltair88** (IdeaPad 5 15ARE05 - 81YQ)
-+- **magnumsolo** (Legion 7 16ACHg6 - 82N6)
-+- **Dolik64** (Legion Slim 5 14APH8 - 82Y5)
-+- **rzsn** (Legion Pro 7 16IAX10H - 83F5)
-+- **slap2572** (Yoga 7 16IAH7 - 82UF)
-+- **Lassebq** (YOGA 730-15IWL - 81JS)
-+- **msourada** (Yoga Slim 7 15ILL9 - 83HM)
-+- **geniusss87** (Yoga Pro 9 16IAH10 - 83L0)
-diff --git a/drivers/hwmon/yogafan.c b/drivers/hwmon/yogafan.c
-index 172fdc198..632eb0a8b 100644
---- a/drivers/hwmon/yogafan.c
-+++ b/drivers/hwmon/yogafan.c
-@@ -114,6 +114,34 @@ static const struct yogafan_config legion_8bit_triple_cfg = {
- 		   "\\_SB.PCI0.LPC0.EC0.FASF" }
- };
- 
-+static const struct yogafan_config yoga_8bit_erpm_cfg = {
-+	.multiplier = 100,
-+	.fan_count = 1,
-+	.paths = { "\\_SB.PCI0.LPCB.EC0.ERPM", NULL }
-+};
-+
-+static const struct yogafan_config legion_pc00_8bit_triple_cfg = {
-+	.multiplier = 100,
-+	.fan_count = 3,
-+	.paths = { "\\_SB.PC00.LPCB.EC0.FANS",
-+		   "\\_SB.PC00.LPCB.EC0.FA2S",
-+		   "\\_SB.PC00.LPCB.EC0.FASF" }
-+};
-+
-+static const struct yogafan_config yoga_pc00_16bit_dual_cfg = {
-+	.multiplier = 1,
-+	.fan_count = 2,
-+	.paths = { "\\_SB.PC00.LPCB.EC0.FANS",
-+		   "\\_SB.PC00.LPCB.EC0.FA2S" }
-+};
-+
-+static const struct yogafan_config yoga_pc00_hec_16bit_dual_cfg = {
-+	.multiplier = 1,
-+	.fan_count = 2,
-+	.paths = { "\\_SB.PC00.LPCB.H_EC.FANS",
-+		   "\\_SB.PC00.LPCB.H_EC.FA2S" }
-+};
-+
- static void apply_rllag_filter(struct yoga_fan_data *data, int idx, long raw_rpm)
- {
- 	ktime_t now = ktime_get_boottime();
-@@ -229,6 +257,78 @@ static const struct dmi_system_id yogafan_quirks[] = {
- 		},
- 		.driver_data = (void *)&xiaoxin_8bit_dual_cfg,
- 	},
-+	{
-+		.ident = "Lenovo IdeaPad 3 15ADA6",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "IdeaPad 3 15ADA6"),
-+		},
-+		.driver_data = (void *)&yoga_8bit_fans_cfg,
-+	},
-+	{
-+		.ident = "Lenovo IdeaPad 5 15ARE05",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "IdeaPad 5 15ARE05"),
-+		},
-+		.driver_data = (void *)&yoga_8bit_fans_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Legion 7 16ACHg6",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "Legion 7 16ACHg6"),
-+		},
-+		.driver_data = (void *)&xiaoxin_8bit_dual_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Legion Slim 5 14APH8",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "Legion Slim 5 14APH8"),
-+		},
-+		.driver_data = (void *)&xiaoxin_8bit_dual_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Legion Pro 7 16IAX10H",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "Legion Pro 7 16IAX10H"),
-+		},
-+		.driver_data = (void *)&legion_pc00_8bit_triple_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Yoga 7 16IAH7",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "Yoga 7 16IAH7"),
-+		},
-+		.driver_data = (void *)&yoga_pro_83dn_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Yoga 730-15IWL",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "YOGA 730-15IWL"),
-+		},
-+		.driver_data = (void *)&yoga_8bit_erpm_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Yoga Slim 7 15ILL9",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "Yoga Slim 7 15ILL9"),
-+		},
-+		.driver_data = (void *)&yoga_pc00_16bit_dual_cfg,
-+	},
-+	{
-+		.ident = "Lenovo Yoga Pro 9 16IAH10",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_FAMILY, "Yoga Pro 9 16IAH10"),
-+		},
-+		.driver_data = (void *)&yoga_pc00_hec_16bit_dual_cfg,
-+	},
- 	{
- 		.ident = "Yoga 14cACN 2021",
- 		.matches = {
--- 
-2.55.0
-
+Willy
