@@ -1,99 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795772419;
-	b=ctTkOIrAZ7n5wZ6poWFTsgxMtXjwmfdgVpuZDVV3u8o5isbov0TnIOp0Ty/8uZQ6R+vD
-	 uT2iG6ePY/Z2u6u0zeO7By80clbfM9FdsCE3e9/i2ektlgtvyuUdi47gRaCq24DAKSFtm
-	 xCa4K6FCXtNtV6okOd0rQmlBhJV/avODzSMV1INerJu8c621IjZw5uQHGCRVEyNsZ2chC
-	 ARfLn8w1uKdlWkxgB/J14/atvZEfT+Q1Lleyd10MZQysJyarH+kOd4mm6NYbsj8AXG5VA
-	 ZzD+8xU944Hch5adrbv9btkJdFcPu3O+swNRR7PUqB8hkwueeAUM281I0oVLzBd8rdg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772419;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
-	b=lebHls3049X7XQoUXDEh9pV0K1F4+RBawvlue6O/vmBqAn3jhGFvnxclkM+RmN1vFlLZ
-	 gi823FNrjabdwZ57l7UVUlXzoq4UAXle/4U/CBcwFAOq6wVy+J3jmD/paLK+rNVzhXfm2
-	 ja5gRN/0tK8LqaE2aMlLocVyZmhQ/6eg65HmwxpLDt9q9dOBO3582jmwj4ZpzcoLa8kVw
-	 VgjL5zJQDbfQNUOnYolFQqhILfpikagXby2AEq+522xsOa6/xoDcoNalOdwo9gisEA0vp
-	 MGugtsXwq2n6sOotqj3Nb9ti5938ivcIlKicstOY8YsZM9MLiwgaSJw6scrTvYVU9Sg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mechasystems.com;
-	spf=pass smtp.mailfrom=mechasystems.com;
-	dkim=pass header.d=mechasystems.com header.i=@mechasystems.com header.a=rsa-sha256 header.s=google header.b=FjuyAmVz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.50
-Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795772449;
+	b=vp3G6GxwUidaZXvMk2BG+7j/fqjv0FLEzen+8EZ7h0w4mUcUrG5TizmVN1fXo1vTpGp2
+	 3prLh2BQ8wM1POm89hg4JVeiovmrusRmYw5QjIzrVgl708SdBRiacz105KicCvRtxvL6u
+	 LMm4ezwZLGW1Jhx/NKtiV9yy4jgmXv2yO6v8qiYrVFfMDo7C+aoaNO2VfusXV+roz1cG4
+	 nUHK5r/pquNTAaPu77HEmR+o01OZzkKPXUrqq4T1k8OrbJfkimiXzSIu/mhdNOaM0nyKJ
+	 fsELhmIfEc6LX/DMdge4y9DrmOiwjsDSWjEd120IZxWWzDMUVrwH3sl69kzdX1gE0Dg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772449;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ixzsJEqZSaCdgkbAVN4kx81kYSraCcQkkJfMdCEcfCQ=;
+	b=o5h1WkL20wfSP52tIh9GgHNJ853IKmf8leFHRtg71q0V8Qn+V3NNZZAdNXVwrZVDjxSY
+	 ylVmkZh+p3DdiY1h1KUfLWxjJdo+JO+HH/ssRZF2i5s0eZMABHY57pq+BaWXvuST3Rsjv
+	 UXokQ2FukZrUZ8vtWM7r1AWVktxencAvT97B+ZQUfrMEahrZl6nKyj+eYM5i221JpMZn0
+	 8C+hL+ztsJ0m5Gq2kVSnL7U7ysfg00XNOaUg3kYHHQrE0eCo96x0p8+Z0GVSRU2NEJ1jH
+	 tVPKpYy/UQ3rcZuMWeHOyXX9WgTQMvCBbgr1ehjtqRA28lr5nqrJt2H89FE+3YSL1wA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oKh6KG/x";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6F6E606A329
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:40:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6F6E606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mechasystems.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mechasystems.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB5F0606A31C;
+	Fri, 27 Nov 2026 09:40:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mechasystems.com header.i=@mechasystems.com header.a=rsa-sha256 header.s=google header.b=FjuyAmVz
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b563e32936so3758670c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:40:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795772418; cv=none;
-        d=google.com; s=arc-20260327;
-        b=O9LQkOSWz5zfqOI5zk9lnu+qsfU4MEpj3p+w/8uJultMZmFOV2689J+uFTIhnO4vDv
-         F+cdbZb7JBs30ivDtH4xj+9fA+k3CZatFiNbg2csbccBuPyPF3t9MhI5o0RKM4DUQF+o
-         usERKMf3RnSY9TcSXX6za1FLVbuUWnG1oH7M8SjrQDheu/C8JzxdAy37lrZN3V2pLJZx
-         4rQ9I3wNIZz8mJIxKyFRQ4ClvE5kJf/krbyW50LDY8ATJseZ6imr7++BVwOIUvQRb+db
-         rT1bqyftUwD9Sx2GEub/JkbBxbS61x714FxQQwVgVx3T8Ve9AqSP68iAbqDpFVh5iWDE
-         bLbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
-        fh=CazRKwkaCZR5uGnpznwfentbvcmbr+biVZY6JWtw28w=;
-        b=PgWF7SXUV7shzcDP/p5NzCL/BgM+Ky30HRmCF+ESin+PsFmfj9vCNVsOpQ/KxEXESG
-         7DaIjXNPBjj+f8/Cdm/IvNScPZ1IApNzT+B6HLpPOqqzCWwmyKJxw1aBMTwZtYWdxrU/
-         tlURNw5k7c4eJnLuRbVTnPPPRpElV9HQsA96CErgIuiMexR8HDMDoHhOk7znzZTCzH8J
-         5Ta6ZWjv0OYce3AfYsXSFdKznLtOt+UO1aKAjuclcH2ojOq+DrjHb72qwBwOw6HIzQYt
-         ohzFV5rMGYY7apUH3MWyYz0i3GQy7LuR2cHgWrbZaEb9J6wKOPM5exXNMqRvd4FwPFV+
-         gAIA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mechasystems.com; s=google; t=1795772418; x=1796377218; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
-        b=FjuyAmVzedyapcV8+J5+xQLnT8tRrqPfgvZb3sfqnCUY+bcouKkmivF+Zy27oQXxTq
-         luM2ZtgCdrzLeEe3KDO1EFLoP8CLQSMg5FcH9+MGCsp5glQgudYHj3mDvQF/lH6sfUJv
-         yRiaKoRaIGY9ay1g+lMc8O57cNQxVcJAq4GqQyddiMPIU3NIl+om2uGbUyJZhnYEHDhq
-         H8+JQuEp0yOHIPvAbvI0M0QdapiKhtLt190gOs/zcjngMtFS2pnT+4pybcnrg6qXvmtf
-         NdwdyWZQLyOJ0ZXP4oEOMEaKZK37I+7+XZlvh6VNNSdwojQmCClZBnO4nKQ2dd8eEzBq
-         klsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795772418; x=1796377218;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=j/S2sE6LJNqIp5xSQpYLBNCbXBU+Ch2UhYSZo3FN//s=;
-        b=nk2/StajAPD5B7n257EtUnWMy4prd0OJ+S/qeBomtesh+TBYXK9L63338/0EwSvgMF
-         dZMLe+NPc/gS4//jJUV9XQQ6kR8OU2ItEeUdmeYpoVTKaWmf7B+HPrOi2IADVwLc7BY2
-         /BB3Nf4suvgiIujup3fBN86uIDgy+WuBa7ilx9nSVuSSzB3h+SSYRS3ezmbYo7fsLSEL
-         7BrXL8XA5TKGV4qBb0F7k5vNFtdN8tCMJSgyYfCTipNAVUfUABJTfUtHwYgvhpzyVids
-         q4nYGd4TPGJO80Q2PUC89oiPsf5H0EvWNYHSIT43BIQW7v1cVuNhuXLFuhXZ64u0hBLd
-         4Snw==
-X-Forwarded-Encrypted: i=1; AL+hErFrVS8yPfa4IWvuZlVnXsPNb3d7/PYxSkAJW47zlDJlxTH60rQemMQgLas+5WiLYk+teXbeowYJmWqicdQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Rumlm/1BWiVof2orMyVhHihRmV76fFim0O1bkL09zEp1tfSkY
-	0QPZgu5JOcD5pYNQcT8B5Zz3QMMk+vw3g1920NOwOTrQvsAJwfhfRABvEhWv6O2KMbjPIVZ4+WX
-	2jO4C+XG9KXzfLJRnEp9Q6VxgQyDoF0FjXHeywS5ELA==
-X-Gm-Gg: AZFdTZfckLzrIblO2UnhofZSdqbTWG0oZ9376pA3GZGw4pmk3WYGX0Zi2ywJOkPMePS
-	eHKx4s/OxKtYF9OrxiKcyy3GoIGfecaK9sFAqkN1ojdSX98dV9TlX1nlg9uJcyRE2U9mfJsGW/8
-	fBE9dxgpYNxrAjVbcRm2iIF4KSVIZ1yHlX9VudjF4bBjp2dwLxBC7gxzc9lYEUmGTra//wX7bGC
-	KXsvrEPbxHwQm2boS8wZ2ssByHsXLjgNn3IcjfYF+5xS9JtQJFCh3K/IhlZLDnzGzdMj5dxnPv5
-	1I6Lgcy162e4u007b02+414dRLi+o3H0colPO5manwLtAExDFT0i0zoXCdE11maoXPWF+kltl/D
-	yxmo37wwALr4WWrxIMCeCzM6g93Ui5Vxa+EvRHXr/vrZ9LAuZ5we1
-X-Received: by 2002:a05:7022:1585:b0:15b:7f7a:730d with SMTP id
- a92af1059eb24-1b55690c5a4mr24437470c88.28.1795772417913; Fri, 27 Nov 2026
- 01:40:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oKh6KG/x
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FA931F0089A;
+	Fri, 27 Nov 2026 09:40:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795772448;
+	bh=ixzsJEqZSaCdgkbAVN4kx81kYSraCcQkkJfMdCEcfCQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oKh6KG/xNE+B30AOC6zPSBhJza3a036ajg9Rw/7HVi8sI7SKmIBI1XIPrjC5h6rae
+	 POYLlmLNEb/3LEmRIGMyq8XEGxxGPZrOn85nuXrMuQRwcvq777ve/GDU+disB7pns3
+	 b8s7Dpnk75GdSpAGIAqjccKZyreblsc0i+6YQHc49YeTlwcA2vo9HuPOReDQzQuot/
+	 uKyvVFZPlTCfUZSYmtNQQDoloeI86kejZ0kWMfgla2/YZ1No0UkgkNq5paIH/QKxEq
+	 HfGh/gzYA1X8yUEOk6E4rDycXzo5+A/nrsMTG/e2yuCqO3d+2xuhv7TOC4gnvprVFT
+	 Q71sr5902XEnQ==
+Date: Fri, 27 Nov 2026 10:40:41 +0100
+From: Ingo Molnar <mingo@kernel.org>
+To: Gregg Leventhal <gleventhal@janestreet.com>
+Cc: linux-perf-users@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Mark Barnett <mark.barnett@arm.com>, linux-kernel@vger.kernel.org,
+	Jay Hilton <jahilton@janestreet.com>,
+	Andrew Delgadillo <adelgadillo@janestreet.com>,
+	Eric Hagberg <ehagberg@janestreet.com>
+Subject: Re: [PATCH] perf/core: Use the elapsed period for frequency-mode
+ period adjustment
+Message-ID: <awlQGVla7eMls7V5@gmail.com>
+References: <CAFN_u7G94CC_RGL1La66jX+jRKHSJdAB5PKkTRSWrUvqhM48oQ@mail.gmail.com>
+ <20261117152351.1294050-1-gleventhal@janestreet.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,27 +69,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261126164058.2373605-4-ivitro@gmail.com>
-In-Reply-To: <20261126164058.2373605-4-ivitro@gmail.com>
-From: Advait Dhamorikar <advaitd@mechasystems.com>
-Date: Fri, 27 Nov 2026 15:10:06 +0530
-X-Gm-Features: Aa3M54pqKM0_HhnbUssU_T72ZIWahp4yBY12MFpBmxas869Jc17TdRiWDxmiqGk
-Message-ID: <CAAPs2HRq=BXVabGvHfK33XcCnu1huzkBW8=VxzaJVcz85Cwc7w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] pmdomain: imx: fix suspend/resume order of the
- blk-ctrl virtual devices
-To: Vitor Soares <ivitro@gmail.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Vitor Soares <vitor.soares@toradex.com>, linux-pm@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Lucas Stach <l.stach@pengutronix.de>, 
-	Marek Vasut <marex@nabladev.com>, Peng Fan <peng.fan@nxp.com>, Adam Ford <aford173@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117152351.1294050-1-gleventhal@janestreet.com>
 
-Tested on i.MX8MP Mecha Comet with both patches applied on top of
-7.3.4, Suspend to idle, RAM and resume no longer hangs.
 
-Tested-by: Advait Dhamorikar <advaitd@mechasystems.com>
+* Gregg Leventhal <gleventhal@janestreet.com> wrote:
 
-Best Regards,
-Advait
+> From: Jay Hilton <jahilton@janestreet.com>
+> 
+> In frequency mode, __perf_event_account_interrupt() estimates the event
+> rate from hwc->last_period and the time since the previous overflow,
+> and passes it to perf_adjust_period().
+> 
+> The PMU drivers re-arm the counter before they call
+> perf_event_overflow(), and re-arming sets hwc->last_period to the
+> period of the next interval. The estimator therefore divides the next
+> period by the time the previous one took. While the period ramps up
+> from its initial value, each period is much larger than the previous
+> one, so the rate is overestimated by that ratio and the period
+> overshoots its target.
+> 
+> On an AMD EPYC 9655P running v7.3, sampling user-mode cycles at 11 Hz,
+> the period jumped from 21.9M to 2.3G cycles, 5.6x the target, and the
+> next sample arrived after 544 ms instead of 91 ms. When the overshoot
+> exceeds 8x, the next tick's perf_adjust_period() resets period_left,
+> and the cycles counted before the reset are not attributed to any
+> sample (145M in that run). Intel and AMD IBS show the same overshoot.
+> On Intel, intel_pmu_freq_start_period() hides it for the default
+> hardware events, but not for raw events.
+> 
+> Since commit 1734d98fbcce ("perf/arch: Record sample last_period before
+> updating on the x86 and PowerPC platforms"), the PMU drivers record the
+> elapsed period in data->period before re-arming. Pass that to the
+> estimator instead of hwc->last_period. perf_event_account_interrupt(),
+> which has no sample data, keeps using hwc->last_period.
+
+Thank you - I've applied this fix to tip:perf/urgent for a v7.4 merge,
+with a Cc: stable tag.
+
+> The Intel PEBS error path runs before re-arming and
+> is fine. We haven't measured the IBS discard case; if it's worth
+> fixing, those callers could pass the elapsed period too, in a
+> follow-up.
+
+Yeah, I think it's worth fixing, even if the effect is minor.
+
+Note that I merged your post-commit description with the commit
+message, both are interesting & relevant.
+
+Thanks,
+
+	Ingo
