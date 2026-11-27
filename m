@@ -1,49 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772880;
-	b=qxOWQdFqTqjgAaL50TNgUJzokFHB7pRQSFcTYC7JkCxQ1wevU0t8HXGNpM2GkeW5xUUm
-	 qIAZZciPaJAIgSdP7w/sdp5jWuJ3piG+Nu19b/FSv+QnPX7ebnMS1+Svg/8PUvEGH2f7H
-	 BjcGDD7q/3InzSxV4htXqSK7IUXHvlYVAFEGpWK8FLF3abQZcZu2JXYYEcOK/Ov/7DWNC
-	 TJVs0Bt8pQ736vHxxDY3RpgrB2dj54Bg2UHOun5s90+OSfCSHrTx8bIo+8Gfs9kUba0G7
-	 AsaInt6UsUNDhqlntmO7qYPXQeBg/jG3Efh54+vrz6GGmdl4YpGwOwcm66kYO+RhPZw==
+	t=1795772881;
+	b=WW3QTPA5m3AdMblZWUDrVDg3F7m7ICDUj8Jj3qjF0om4FJ/klsNm7xr7AENvSXGOH+5l
+	 9tdKnA597/ZosC9HMCVJuWB9E2g1YZhhtQWbdPl8HJ2aQox0LPWwvb38xv1qaW02uJpM7
+	 KkPhnuicDERXjq5XkvKoO4pLXORx6qaWFozLUJCeovUspqdigzWM09/Zv8gbZFFTZpFC8
+	 PmaOT1sArRqDQvI9xAjMhmrySlh0O+78r9OoW9DQwgFg5kIrn8SCZjkT+m0c+wQMvfKJe
+	 BR4EqbTxwyKcEYN9pQ3RS0Qg0X8DmBdbz5fXc1SVTyxq+FWexPVelye8l/jXNhF8Vbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772880;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=P0U9aFkZXkYsH+hdUGZx5kGNXIDe9aRv8fjXb1TJLdc=;
-	b=ub/Gvdx3FXLzWIMskkClXSr6kOccEZ7R9C8HDvOA5AaEev77yga4914XT/lpjPKei5iB
-	 ccpLl+DiN26DU37r54NVERdc9DtNKN86D7LehYSYFbBSlc+lZYSQ+JvWLsi9S7OlOE9PT
-	 6VXfIpwhpYvUTwOauFypXbsELTpItatgfDP45AnNYQmfpzAC1gxBrwCz5hUNx4vdiDmnE
-	 g7SDkWtptseRtLyKKqXzMmv7FoU3OUbsddbU/fClIT1NhAfaAzHhaAUcv1qp4GUiNIDye
-	 ZHt71rka4d/RUekRWVCwnXJLMHM2FZTdNoyGW3diNzhaAwa8ovqJq6qaxS1B6ZDQTRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772881;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=UVjAewNoGwOkppiEbs+Ibor4Yut2pWAD/XmpYyTmPM4=;
+	b=2q57/vxclYI7rDyE48t9ZiqxLZZdaxmtDyXnIWVOxbDuhe26fHyH3mpWf4FIt21wGAVs
+	 ChkFc1K+FbrqCVVaj7HmVnP8+RZf3+q+0Xl68DHmVzdZMkDkwASEnWMQ0cdqjTy/5QN8Q
+	 65PLnimlTh8pceBT3ePk6MvzI4+CTGjHL3FMowXZ5Du0O97/ltNHf6/OfLxTJf3YvxDsB
+	 UU3RBdL5/xUcuyqmvEpC5XCJFFnRk9EbwVfekBlZ4mqvxFFFVkj5HtxvyFxF4XK2egQOB
+	 RHgNb+wqA0hvM8VJnH3qoqeBk4XXPrdXhgIEr3avSY6SyDG36kTXNUjew3gVjIQCRfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RqEOTO3Z;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1E6D0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:47:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E6D0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AkfCcEV6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F22D8606A323;
+	Fri, 27 Nov 2026 09:48:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RqEOTO3Z
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94BE31DB5;
-	Fri, 27 Nov 2026 01:47:56 -0800 (PST)
-Received: from [10.57.70.173] (unknown [10.57.70.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 432643F632;
-	Fri, 27 Nov 2026 01:47:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795772879; bh=LvJuOJw0Ca5PfeOO33ZKWq7ZefdTcsiXtUemwQCUAMY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RqEOTO3Zp865sE9qubQWItbmNrwnSpLDKPPyxFpNWtP9cP+1QOKqg9S8rcomw2n8f
-	 sKd6QcnnGcDxidHlNkZbu8wO2lzrpzL2/h41bJpbozFdDnvjqfGM5apbKKGtt9X89i
-	 OJ7mu55kC3263BFnx19LkaxyGtwz7JBHQRm1y/44=
-Message-ID: <463be079-28c8-4712-b5e6-f1e1b599c7e0@arm.com>
-Date: Fri, 27 Nov 2026 09:47:54 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AkfCcEV6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86CA1F0089A;
+	Fri, 27 Nov 2026 09:47:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795772880;
+	bh=UVjAewNoGwOkppiEbs+Ibor4Yut2pWAD/XmpYyTmPM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AkfCcEV6cL2DVhEal3gTid8+YIWmjJ6PhTbja6ykIHWLJn8tqKxNPevYbdY9HN15A
+	 +qrvVsbzIp0usu3dX9fHLDdz8g6fBSUEe2h710kdzXupMoUEetf/Xb2BinIi3NE+Jn
+	 MOLBbNsn6Del/cmII73bjJXPf+OrHV/C/W4As4gRMbGsMa9cOjLueGsUMkTnfAeajW
+	 3CqUJqg5R+b9+w2juBZ0vVWDsfhCdVpRkYgyY5wv3gOFETARb6Rj4xKZydjJdq8Ct+
+	 jtfvYk8jNY90EDn2OPRB9TEhpIZbUaEntDxNtPGx3yLEqp01PLaSGmBE3e6rpuGB1Y
+	 GLcwitdKsc58g==
+Date: Fri, 27 Nov 2026 09:47:56 +0000
+From: Lee Jones <lee@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: mfd: ab8500: Describe the ULP PLL supply
+Message-ID: <20261127094756.GS38590@joneslee-macbookpro.roam.internal>
+References: <20261120-ux500-mfd-ulp-pll-supply-binding-v1-1-2740b61bd839@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,93 +57,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND][PATCH 0/2] sched/uclamp: Fix dequeue accounting across
- static-key updates
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: mingo@kernel.org, vincent.guittot@linaro.org, qyousef@layalina.io,
- dietmar.eggemann@arm.com, rostedt@goodmis.org, jstultz@google.com,
- kayracizmeci@gmail.com, wvw@google.com, linux-kernel@vger.kernel.org
-References: <20261127083542.3172843-1-christian.loehle@arm.com>
- <20261127094057.GP49833@noisy.programming.kicks-ass.net>
-From: Christian Loehle <christian.loehle@arm.com>
-Content-Language: en-US
-In-Reply-To: <20261127094057.GP49833@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-ux500-mfd-ulp-pll-supply-binding-v1-1-2740b61bd839@kernel.org>
 
-On 11/27/26 09:40, Peter Zijlstra wrote:
-> On Fri, Nov 27, 2026 at 08:35:40AM +0000, Christian Loehle wrote:
->> Static-key updates can let enqueue account a task before dequeue observes
->> uclamp as enabled. Patch 1 checks the task's effective UCLAMP_MIN active
->> flag on dequeue, so accounted clamps are released regardless of static-key
->> update progress. The early check keeps the unused dequeue path short, and
->> enqueue retains its static key.
->>
->> Patch 2 picks up Qais's idle-flag wrapper cleanup from v7 [1].
->>
->> The measurements below are for patch 1 on v7.4-rc4, before adding patch 2
->> and rebasing. Each cell gives fix / always-on percentage changes versus
->> unfixed, with CONFIG_UCLAMP_TASK=y throughout. The unfixed and fixed
->> kernels keep the uclamp key disabled while always-on performs accounting.
->>
->> Nine fresh boots per variant, 20 measured repetitions per boot. Changes
->> are geometric means of paired boot-median ratios.
->> Positive time/latency is slower, positive throughput is faster.
->>
->>  Workload / metric              │ i7-13700K: fix / always-on │ Xeon: fix / always-on │ Orion: fix / always-on
->> ────────────────────────────────┼────────────────────────────┼───────────────────────┼────────────────────────
->>  messaging-processes / seconds  │        (-0.06%) / (+0.09%) │   (-0.40%) / (-0.21%) │      -0.38% / (-0.31%)
->>  messaging-threads / seconds    │        (-0.19%) / (+0.05%) │       -0.86% / -1.77% │    (+0.10%) / (+0.11%)
->>  pipe-processes / usec_per_op   │          (+0.18%) / +1.56% │    (-0.002%) / +2.41% │        -1.17% / +1.19%
->>  pipe-threads / usec_per_op     │            -0.78% / +0.88% │     (+0.01%) / +2.91% │    (-1.61%) / (+0.53%)
->>  schbench-256k / rps            │       (+0.002%) / (-0.04%) │    (+0.004%) / -0.05% │    (-0.20%) / (+0.03%)
->>  schbench-256k / wakeup_p99_us  │        (+0.42%) / (+0.51%) │    (+2.33%) / +10.62% │    (-1.44%) / (-0.37%)
->>  schbench-4096k / rps           │        (+0.00%) / (+0.00%) │   (+0.00%) / (+0.00%) │    (+0.00%) / (+0.00%)
->>  schbench-4096k / wakeup_p99_us │        +32.68% / (+12.93%) │  (-10.66%) / (+2.71%) │      (+3.03%) / -6.99%
->>  tcp-stream-1024 / Mbps         │          (-0.24%) / -0.69% │       -0.61% / +1.07% │      +0.36% / (-0.52%)
->>  tcp-stream-16384 / Mbps        │          (-0.03%) / -0.29% │       -0.57% / +0.23% │    (+1.04%) / (-0.82%)
->>  tcp-stream-64 / Mbps           │         (+3.05%) / +18.60% │    (+0.12%) / +23.54% │        +2.50% / +2.09%
->>  tcp_rr / transactions_per_sec  │          (-0.57%) / -1.68% │       -0.66% / -1.33% │      (+0.10%) / -1.58%
->>  udp-stream-1024 / rx_Mbps      │        (+0.19%) / (+0.17%) │   (-0.41%) / (+0.32%) │      -1.58% / (-0.63%)
->>  udp-stream-128 / rx_Mbps       │        (-0.82%) / (-0.15%) │     (-0.38%) / +1.54% │        -1.31% / -0.69%
->>  udp-stream-16384 / rx_Mbps     │        (-0.31%) / (-0.49%) │       -0.35% / +0.30% │        -1.52% / +0.61%
->>  udp-stream-2048 / rx_Mbps      │        (+0.02%) / (+0.06%) │   (-0.24%) / (-0.09%) │      -1.18% / (-0.74%)
->>  udp-stream-256 / rx_Mbps       │        (+0.33%) / (+0.29%) │       -0.72% / +1.56% │        -1.76% / -0.86%
->>  udp-stream-3312 / rx_Mbps      │        (+0.38%) / (-0.07%) │   (-0.04%) / (+0.14%) │      -1.18% / (-0.54%)
->>  udp-stream-4096 / rx_Mbps      │        (-0.06%) / (+0.22%) │   (-0.24%) / (+0.08%) │      -1.31% / (-0.66%)
->>  udp-stream-64 / rx_Mbps        │        (-0.18%) / (-0.17%) │       -0.57% / +1.20% │        -1.51% / -1.45%
->>  udp-stream-64-pinned / rx_Mbps │        (-0.94%) / (+0.90%) │     (-0.28%) / +1.63% │      -1.21% / (-0.30%)
->>  udp-stream-8192 / rx_Mbps      │          (-0.25%) / -0.39% │       -1.54% / -1.01% │      -0.96% / (+0.15%)
->>  udp_rr / transactions_per_sec  │          (-0.72%) / -1.69% │       -0.94% / -1.55% │        +0.44% / -1.84%
->>
->> Separately, paired log-ratio t-tests with Holm correction across the 69
->> fix-versus-unfixed comparisons retained only significant regression:
->> Xeon UDP_STREAM 8 KiB throughput −1.54%.
->>
->> [1] https://lore.kernel.org/r/20261126012836.15205-3-qyousef@layalina.io
->>
->> Christian Loehle (1):
->>   sched/uclamp: Always account active clamps on dequeue
->>
->> Qais Yousef (1):
->>   sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
->>
->>  kernel/sched/core.c  | 27 +++++++++++++--------------
->>  kernel/sched/sched.h | 10 ++++++++++
->>  2 files changed, 23 insertions(+), 14 deletions(-)
->>
+On Fri, 20 Nov 2026, Linus Walleij wrote:
+
+> VintCore12 supplies the internal ULP clock PLL on the AB8500.
+> Require the supply on its clock controller so the PLL can be powered
+> while in use. The AB8505 does not have this dependency.
 > 
-> So we're going to do this first and then Qais can work on issues still
-> plaguing his approach? Is that the thinking?
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  .../devicetree/bindings/mfd/stericsson,ab8500.yaml    | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
 
-If we're happy with this, then I don't see anything that still needs fixing?
-I guess we can miss an enqueue transiently still, but given how rare this
-case is I would say not to care, anyway that is self-healing at the next
-enqueue-dequeue pair.
-The important issue was not seeing the static branch at dequeue, while it
-was enabled on the corresponding enqueue, this patch completely plumbs that,
-with the cost of no longer having the static branch on the dequeue path.
-The numbers indicate that this is probably okay.
+Needs a DT Ack.
 
-Or did you mean Qais' patch 3?
+-- 
+Lee Jones
