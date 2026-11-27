@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818351;
-	b=RlAWyPRWGcrpCl60shnnjI6jqf9c0XiSnB9udVpVYlasSKSBLm8A30PSvBBUSUBsdxFo
-	 sVWGkrnklNlIez5FVqKNoFPr9XfQwyfome4rZH4stFo1FpEWHvK0R00ceg0Bh6V15yxoM
-	 Saxysj5kk+OPwtGeonaOsFiS61biEkFCesvBYsSJzDPCBf0pOZDfVHXuJyuFcV3TVqo4J
-	 YoGu5BDoEWDGg3iLzJ4iDrcQJczLxIABu7JPTLsEAf0F/6ufAhb44BXFWolMMXM+j4hY6
-	 irQCKEylWpnOGiLLfUgxi+ZJcbFZBJkJWyUMiRtuIPr4NxPOGrepaNtRUx6OSl5DBWg==
+	t=1795818356;
+	b=1HW076wCJpRelGa5CLJyZyrCWe3QFUcuPeXyMUPgZLmn5lutnmaddulc8eY6y9Y+L7Gk
+	 zRQa2iYvAEC2In/HlhyX1RGAIb9PP4LzIBMzijysBnd2fDSmt0JhuDb5tSp7sbSLSdFBj
+	 ILEk2RcJX1t1anIIggxvJ9SFaOuQ0qTS3EluCfXGFpHBJWShNXswUyOyJTU0Ao5JU7Ip1
+	 MqbF9+W/fBZWJW0Ejf5ByG/6UGVYhhBWfhNgWjjxWumJ2YORVoI+ndm1rJnqdn92U5y2K
+	 4YEAfxOOovJ0oIvyTT47ldY83mcickRuxWuLzaFyTFV1QSidPEnbvQNGnvN+fXFQ9Ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818351;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795818356;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=J3OXrB+qnfqs8J/pcjSchgPpiMrzp5iVIsEEnVjP9x0=;
-	b=S3/cH584RgPO98Z7VKHy4vel6WCZ6yhIRqw8fApG6Xp7SSnTXSS5l53Ns+CaeM6eF28F
-	 iBJlYYEKidC6jKsVlzOeZXwtC+8Ooi4SiQI2+fDHY4B2hJg/VqCvVrwWZtQkZX/PygNfx
-	 M6k/3ysP5lieX+fmKlAbmZoaB+joL8EpkBED47m8US4iIsMzy0+G4PktgcejjvobBvfVY
-	 0FJJmxR4MHkP6e46+GTpSX0CMVLOV4v7PmLbs9zcnee1Xf2G9UPlUEWZbJZ6HYzAIivAa
-	 m20XJI4LDY5bsFk9y/5/bZPdymUZ+nnJVMzPdc41b1OIzc2FTUlBSrBTSNovoE8lSDA==
+	bh=xJRmzNvq1O79iasY33Ckwg4qBT9YXe3i0Q0gMj2U+Y0=;
+	b=D8Phji+z2JF70V+DYtdkT/73q/aI722F1YsgZaqRdbfF04xFRilYcJnYr6JrFoQ5p8fv
+	 aEtvmePqJmZa3al9IWFltlJvZanJW6Ohwww6gprze9/MaM84OJFEFgtvfSVH+kczTN4wt
+	 d3qJY3LiV7XBt2e7aU48Z5l27uvLDLVIay8/t1SB0+1G7SlesaPQkNkjt+T6xHSDc2XLN
+	 xpqX1KZkEi1sRD0mdkHb+osBiF/5CYp8y+FDNVcf2Zx/mIipF78S7OUycQnjqBhMEE0n4
+	 uYGe5DXkVE0shv5FJW4vY8ONiYVj6kf0oocTgS4onUuEq+IYd0W07YHQ9OIc15FAopQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kvETFVJz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bJaBinNW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33605606A31C;
-	Fri, 27 Nov 2026 22:25:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 489DE606A326;
+	Fri, 27 Nov 2026 22:25:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kvETFVJz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCC81F00893;
-	Fri, 27 Nov 2026 22:25:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bJaBinNW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFB201F000C1;
+	Fri, 27 Nov 2026 22:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795818350;
-	bh=J3OXrB+qnfqs8J/pcjSchgPpiMrzp5iVIsEEnVjP9x0=;
+	s=k20260515; t=1795818355;
+	bh=xJRmzNvq1O79iasY33Ckwg4qBT9YXe3i0Q0gMj2U+Y0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=kvETFVJzro+dil6nqdRekj5ajUY5DqVgP+NfLdPRaeTp0gVgHF2elnzohQtxmtLuR
-	 vDNSB7mqTKmvsyxh/qG1ojIEs+GjlpgaEobqmf4Lt0cOEft1gGuOzdJSnV3kRDX1gz
-	 ilMj0dNQ5XdcyL/NYvfaWTQk2dyhKFz2Fle+DGCwOgUHgczmQ1XWktk5SNICDIj/ef
-	 WoRHQQTzxwpXlWFAVw7ent73U73bg1lJkTQyvLPRPOf7Np6yZnpHvIr7sVBnW0ABzH
-	 yVKkzHy4IZQ9mC+QDCEK6nvzM6cSQZezAq2K5zo/Jdg8NH2C9iQUMk0NH+JPm6h48P
-	 DRCrF0zvNTP/A==
-Subject:
- Re: [PATCH net-next 1/5] lisp: add LISP (Locator/ID Separation Protocol)
+	b=bJaBinNWkcj4mgWSBRNvCS2tKhK+mjiTKF8/RwIFfrUEoEZ9TPBx794qSrTZMYkc5
+	 jK+9FYweOL3n/0mcVn9iwd/VqGiEH5vLpb5xlwr7QCPvrdMWjEKM+V4Ht0mLbCtcst
+	 DjX1qDFxxUfOD5E0fGzf3HgV9E0jzovsvX15uOuFFu4OXHstxZO/rQXVZ8UusbFtlm
+	 Mhw3rgTyISz1wVbpUnNo/pykEudYHEuU4HLurDv0K7pwv6hC+alot+VLM74PaFyi6n
+	 LACjWqGLOiKH9gad8ggzRgfCM98iuCLF0nMhBc45Nnxg42so4zBOc+FCistgIH8wOM
+	 0tbvreiVYG9zg==
+Subject: Re: [PATCH net-next 5/5] selftests: net: add a scale test for LISP
 From: netdev-bot+sashiko@kernel.org
 To: vjardin@free.fr
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
@@ -50,10 +49,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  skhan@linuxfoundation.org, rdunlap@infradead.org, shuah@kernel.org,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Fri, 27 Nov 2026 22:25:48 +0000
-Message-ID: <179581834896.3135.15923750690737278293@kernel.org>
-In-Reply-To: <20261126-for-upstream-lisp-v1-v1-1-7382a4bcfd9b@free.fr>
-References: <20261126-for-upstream-lisp-v1-v1-1-7382a4bcfd9b@free.fr>
+Date: Fri, 27 Nov 2026 22:25:54 +0000
+Message-ID: <179581835452.3135.4676723835518066022@kernel.org>
+In-Reply-To: <20261126-for-upstream-lisp-v1-v1-5-7382a4bcfd9b@free.fr>
+References: <20261126-for-upstream-lisp-v1-v1-5-7382a4bcfd9b@free.fr>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,137 +77,120 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] lisp_stop() unlinks a non-collect_md device's node from its
-  socket's IID hash chain with hlist_del_rcu() (lisp.c:414) and returns…
-- [Low] drivers/net/lisp.c does not build or link when CONFIG_IPV6=n.
+- [Medium] The background loops in churn_test()
+  (tools/testing/selftests/net/lisp_scale.sh) can be left running when…
+- [Low] The sub-tests in tools/testing/selftests/net/lisp_scale.sh depend
+  on each other through hard-coded state.
 
 --
 
-lisp: add LISP (Locator/ID Separation Protocol)
+selftests: net: add a scale test for LISP
 
-This adds a LISP (RFC 9300) data plane tunnel device. It encapsulates IPv4
-and IPv6 packets in a LISP header over UDP port 4341. The RLOC of each
-packet comes from the lightweight tunnel metadata of its route or nexthop,
-and the kernel keeps no map-cache.
+This adds lisp_scale.sh, a selftest that installs the mappings of many
+remote sites on one LISP device of an xTR. Each site gets one nexthop and
+four EID routes, and a second namespace stands in for all the sites. The
+sub-tests cover counters, RLOC moves and replacements, withdrawals, churn
+under traffic, and taking the device down and deleting it.
 
-> diff --git a/drivers/net/lisp.c b/drivers/net/lisp.c
-> new file mode 100644
-> index 0000000000000..8f5a79c88b2c1
+> diff --git a/tools/testing/selftests/net/lisp_scale.sh b/tools/testing/selftests/net/lisp_scale.sh
+> new file mode 100755
+> index 0000000000000..badba6491a42c
 > --- /dev/null
-> +++ b/drivers/net/lisp.c
-> @@ -0,0 +1,1033 @@
+> +++ b/tools/testing/selftests/net/lisp_scale.sh
+> @@ -0,0 +1,532 @@
 
 [ ... ]
 
-> +static int lisp_stop(struct net_device *dev)
+> +churn_test()
 > +{
-> +	struct lisp_dev *lisp = netdev_priv(dev);
-> +	struct lisp_sock *ls;
-> +	struct lisp_net *ln;
+> +	local loops=()
+> +	local pids=()
+> +	local rounds=0
+> +	local site
+> +	local out
+> +	local pid
 > +
-> +	ln = net_generic(lisp->net, lisp_net_id);
-> +	mutex_lock(&ln->lock);
+> +	RET=0
 > +
-> +	ls = rcu_dereference_protected(lisp->sock, lockdep_is_held(&ln->lock));
-> +	RCU_INIT_POINTER(lisp->sock, NULL);
-> +	if (lisp->collect_md)
-> +		RCU_INIT_POINTER(ls->md_dev, NULL);
-> +	else
-> +		hlist_del_rcu(&lisp->hlist);
+> +	out=$(mktemp -d)
+
+[ ... ]
+
+> +	for site in 5000 5001; do
+> +		while :; do
+> +			ip netns exec "$x1" ping -q -f -w 1 -I site \
+> +				"$(site_eid4 "$site")"
+> +			ip netns exec "$x1" ping -q -f -w 1 -I site \
+> +				"$(site_eid6 "$site")"
+> +		done > /dev/null 2>&1 &
+> +		loops+=($!)
+> +	done
 
 [Severity: Medium]
-Can this node be linked again before a grace period has passed?
+If the script exits before churn_test() reaches its kill_process loop,
+what stops these while : loops?
 
-hlist_del_rcu() leaves lisp->hlist.next pointing into the old chain, and
-lisp_stop() returns without waiting. __dev_close_many() calls
-dev_deactivate_many() before ndo_stop, so the close path does not wait
-after this point either.
+The loop subshells run in the init netns, and their PIDs are kept only in
+the local loops array. The EXIT trap only runs this:
 
-The next lisp_open() then does:
+cleanup()
+{
+	cleanup_all_ns
+}
 
-	hlist_add_head_rcu(&lisp->hlist,
-			   lisp_iid_head(found, lisp->iid));
+cleanup_ns() in lib.sh kills only the processes listed by "ip netns pids"
+for the namespace and then deletes it, so it never touches these subshells.
 
-That overwrites lisp->hlist.next. lisp_l3mdev() is computed again on every
-open. If the link moved to another VRF while the device was up, found can
-be a different lisp_sock than before.
+Suppose the script gets Ctrl-C while the churn loop is running. In a
+non-interactive shell, background commands ignore SIGINT. A SIGTERM sent
+only to the script PID has the same effect. In both cases x1 is deleted
+and every "ip netns exec $x1" then fails at once.
 
-Take a reader on the old socket A that is sitting on this node, in
-lisp_udp_encap_recv()->lisp_lookup(). It would follow the new next pointer
-into socket B's bucket:
+Would the two loops then keep forking failing ip processes until someone
+kills them by hand?
 
-	hlist_for_each_entry_rcu(lisp, lisp_iid_head(ls, iid), hlist)
-		if (lisp->iid == iid && rcu_access_pointer(lisp->sock) == ls)
-			return lisp;
+The kselftest runner timeout signals the whole process group, so this
+mostly affects manual interruption and harnesses that signal only the
+script PID.
 
-	return rcu_dereference(ls->md_dev);
+The mktemp -d directory in $out would also be left behind, because
+rm -rf "$out" only runs on the normal path.
 
-Every entry in B's chain fails the lisp->sock == ls test. So any device
-that came after the moved node in A's bucket (same hash_32(iid, 10) value)
-is skipped. Its packet is then dropped or delivered to A's collect_md
-device.
+Could the loop kill and the rm -rf be registered with the lib.sh defer
+helpers? tests_run() already wraps each test in in_defer_scope.
+Alternatively, the PIDs and $out could live in globals that cleanup()
+handles, or the loops could stop at a deadline instead of using while :.
 
-The comment in lisp_lookup() covers stale matches from a device that
-moved. Does it also cover valid entries being skipped like this? Memory
-stays valid, since lisp_dev and lisp_sock outlive the readers.
+[ ... ]
 
-Would hlist_del_init_rcu() followed by synchronize_net() in lisp_stop()
-avoid this? Delaying the re-add until after a grace period would also
-work.
-
+> +	rm -rf "$out"
 > +
-> +	if (--ls->refcnt) {
-> +		mutex_unlock(&ln->lock);
-> +		return 0;
-> +	}
-
-[ ... ]
-
-> +static netdev_tx_t lisp_xmit(struct sk_buff *skb, struct net_device *dev)
-> +{
-
-[ ... ]
-
-> +	rcu_read_lock();
-> +	ls = rcu_dereference(lisp->sock);
-> +	if (!ls)
-> +		err = -ESHUTDOWN;
-> +	else if (ip_tunnel_info_af(info) == AF_INET)
-> +		err = lisp_xmit_skb(skb, dev, ls->sk4, info, iid);
-> +	else if (ls->sk6)
-> +		err = lisp6_xmit_skb(skb, dev, ls->sk6, info, iid);
+> +	(( $(count_nexthops) == LISP_SITES - 1100 ))
+> +	check_err $? "unexpected count of nexthops"
 
 [Severity: Low]
-Does this link when CONFIG_IPV6=n?
+Does churn_test() need to depend on what withdraw_test() did here?
 
-The LISP Kconfig entry only has "depends on INET", so CONFIG_LISP=y or m
-with CONFIG_IPV6=n is a valid config. Only the runtime test on ls->sk6
-guards this call, so the compiler cannot drop it. lisp6_xmit_skb() calls
-udp_tunnel6_dst_lookup() and udp_tunnel6_xmit_skb().
+The 1100 comes from withdraw_test() deleting the nexthops of sites
+3000..3999 and then 4000..4099:
 
-include/net/udp_tunnel.h declares those helpers without !IPV6 stubs. They
-are defined only in net/ipv6/ip6_udp_tunnel.c, and net/ipv6/Makefile
-builds that file only when CONFIG_IPV6 is set:
+	sites_batch "" 4000 4100 'printf "nexthop del id %d\n", nh'
 
-ifneq ($(CONFIG_IPV6),)
-obj-$(CONFIG_NET_UDP_TUNNEL) += ip6_udp_tunnel.o
+churn_test() deletes and re-adds sites 5000..5199, so it does not change
+the total. This check just repeats the one at the end of withdraw_test().
+move_test() also asserts count_nexthops == LISP_SITES, and most sub-tests
+rely on the sites created by install_test().
 
-With CONFIG_LISP=y the link would fail. With CONFIG_LISP=m, modpost would
-report the symbols as undefined. The later patches in the series do not
-seem to change lisp.c or the Kconfig dependencies.
+tests_run() in lib.sh iterates ${TESTS:-$ALL_TESTS}, so a subset can be
+run. With TESTS=churn_test, this check would fail, and sites 5500/5501
+would not exist, even if the churn handling itself works.
 
-bareudp_xmit() avoids this with a guard that folds at compile time:
+withdraw_test() sends its deletions through ip -batch without -force. If
+it fails partway, the same problem would be reported again here as an
+unexpected count of nexthops.
 
-	if (ipv6_mod_enabled() && info->mode & IP_TUNNEL_INFO_IPV6)
-
-Could this branch test ipv6_mod_enabled() or IS_ENABLED(CONFIG_IPV6)?
-Adding "depends on IPV6" to the Kconfig entry would also work.
-
-> +	else
-> +		err = -EAFNOSUPPORT;
-> +	rcu_read_unlock();
-
-[ ... ]
+Could this cross-test count be dropped, or compared against a count taken
+at the start of churn_test()?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b%40free.fr
