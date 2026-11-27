@@ -1,49 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795792341;
-	b=gtjOFSmXPv4m4jkUiw1VGVu27zsLxYs/1uflFSP/4iFFHGGt9Tr3mBMF4diQi87jYwfC
-	 dAfo18kSqLJdhjrelXkwvKuUytoUDAOFfTZ8QakRFIv3P/B6SM06pWkZLUkRwzgO6uTcC
-	 sbXOm1hcIrSUuhsqlToelOUskX0fP/A9SbFuKck7w5jPY8/EVhtPXj6SoZB4E3piy1qOq
-	 nRb5F95qyRHhU7qVViEFIDV2NNaJMaeXthsSZ+EZ5G4y+2QIOMxmMLkq4ls0TI+YERkYg
-	 khZvrAcSYyh29vdOMkj3IzZ1Ui6Hs5/7j5UhphD5cUw+RtG+apK/1PByDyQKgsl5MUQ==
+	t=1795792421;
+	b=39knTZeY84GYmeoUPlwRmc5A/wt/+h6W2BZ7it+H1Fd1filRCpuEwXxDszGzoTePN5kD
+	 UOrAvMd2YYl4my6ces+gPcNGyZ2086ij36Gr/Jh4yIAvOJI9549RwKWuSeJ9X4ZRqGVJv
+	 fZLJMVM3nmRVNntFWiERvzdJRUX2a1a4/OoaKaz8NluRuFrhe4ncAeyQSoPc+c6U6oDn5
+	 gL6XiID/VCNpBtGa7mwfkeajzKBXdRjqv2j1a2q0juY8IPxzRXxEhqZsjGZIiYIK8d7rD
+	 iBGZvfXH2DhWT9t+fZuSDdkMiwbFq6L6Q8NBTIKJqb2QXhlpGCdgFtM1PTKu/fQvA+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792341;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=hG1UcIeD5kDsTZ/j31mkrP5xd0P4UvuVoAKHdexqypg=;
-	b=5pRJku3gVLJzeKp0T6uZK+vNt66P52nR7G84MT++P4IIwPLk+ZKC01Fp7uOVFPvxEGmi
-	 FPPK1Km2Qlgi7QVxpDZ6vzxCaOE9RzrxBfP9n1P74K+MCRI9Fn6UAWWi/2SBSHQa2usRD
-	 6ucPmY4vTMwq0CEOZ9dAtfDt9Sz5n6DCt3iXEpbPwgFevljrL2wEHvxO+6zI4OSnwbEMF
-	 TViWkw8gbPsR1bNz7zwLZPykWoUkL1Gk0VtrPJCpRiI6/XH38oXE0WWRG3tUZRrbFpmy1
-	 KF2QB6jnd1ew/L9giR5GDb38hUXxi+GqH5O851mfNPRG8bPRAFOI53sF/GRSTOiShzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792421;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=0snJA/p3qoZflzr6S+Is/MiZdzdW+xQl+yqw+NL2eXs=;
+	b=RSWCTpPYLpuNkvqs/4/m3WGQwdK+UtZL4h6TrkaIkEsyhx02NAOp1c5OEjgRW+AOe0vR
+	 MCQf6/R4hxHQAHw2aOOIldPcItPVTrw+QsHPG99d86MYjhxcn7ZhDskQXUkERVBwVu+N4
+	 NqbBQaOS2bYk/AIDTss4ECBBhScGD55ED0B+XVkvyzD0eI2yKGSSG+ON07ti2DO+zWC61
+	 ZWi5TpTCrFGo0wh2IaJasNRPFFIq38Cc4wAm90Wuqp1vw7Zyhh1Y5ApZXL5nVp4c7g8ZA
+	 OFsCAsI+UyrK0D0JGey0IAVHn9IS4xbcH/lQeTBq1S2aMJzMOEXaUKyWKUBG8b6WM1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Aliu6mPB;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 36C8A606A336;
-	Fri, 27 Nov 2026 15:12:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36C8A606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="MOT/hKYN";
+	arc=none smtp.remote-ip=209.85.128.72
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE71F606A327
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:13:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE71F606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Aliu6mPB
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEC59169E;
-	Fri, 27 Nov 2026 07:12:17 -0800 (PST)
-Received: from [10.57.71.121] (unknown [10.57.71.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 391CF3F632;
-	Fri, 27 Nov 2026 07:12:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795792340; bh=UhKmPuC8DACVoypwIe16TXINMMAoEKBWaFZcV9+dSjo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Aliu6mPBwYN5HSMdptjc8jnPjK5BOd8wx9RKcKPyfNS43GcRQaSwUj25U3P1SnHAG
-	 8xkH6zd4yykKSeWXRHwyLkTXOsmF5IqkPe4GzVXq7CVj3Yqh+r31vXJuppbFq1Fwe1
-	 qxHQdEPjVzc2b7w4z6dBLBzE+oViDmSYGQd/rozE=
-Message-ID: <b1733f2a-ed03-4f38-8c40-6e0e535f1632@arm.com>
-Date: Fri, 27 Nov 2026 15:12:14 +0000
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MOT/hKYN
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4ba078f26f4so57783835e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:13:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795792419; x=1796397219; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0snJA/p3qoZflzr6S+Is/MiZdzdW+xQl+yqw+NL2eXs=;
+        b=MOT/hKYNoYZIHUYNtgI7Svut9HQ8qieGUNBtHupehQEDZfrjJWwyumg2grlu/c/INl
+         ZJoq+fLZZfeqq7mKdQzDTDD/fpQ/t+lkp4wlC/cSR2R/hfSxmPy2SVLX6AYQmVFpuLSj
+         /SpFYiVeN+SPYPgL4ZAYmefqxTTzKby8ibF1Jlrxb3uo5h5J36yuXZh1a37cwE7f+EN4
+         0YBwOEr0I4j7/ZLf3gLo2jx6Cv305eCVId97AeCMyMbCzXJHpznO7DuwEurtZnqFIJyH
+         GJDGYbIT6Vnv/XgrohFz4Q0+9ZVQ6djjdqkq0Uz0HFr3xMgygFA5CV7KeNnYTwfVQJKX
+         +RxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795792419; x=1796397219;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0snJA/p3qoZflzr6S+Is/MiZdzdW+xQl+yqw+NL2eXs=;
+        b=gsCJIQQzU/FGe+0NFEFJyeok2pa/GTXRizmQXPfrEDtsVl1AHZVCOFHadDzmL/bBcU
+         60DXqCUl5/S9xUlG2KTf1ljBmR0T491CNsydfMcxnEPjyowvGu2JNwCUB99WQvW08pTT
+         J7KHVlrTCxVmcJ5X24nrhF/HKtod0sYKs8qIWA434+T8tBUY3wyK4hY/k82jtHYsDxLk
+         E1apuOW/HrocaFs32YYfJt0bu224Mam6Z0peLUR5C5MygzEM5MVuM5IQJbhGgPaIeVot
+         OMDqcVX+MmgKys1nF7mnGP8E/4wgPRoZdC27pufwBxpgBrh7ZMckbz4b5J8PMgMnknBL
+         ET0A==
+X-Forwarded-Encrypted: i=1; AL+hErFJmLAcSx53a9nxKnDEsr3iHTxyB92tA/hmQJtAXZ1T4felBuTucuQ4Ntdv3sWZ5JTRUTI2NnQv7RyZcGg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99QssXrIQtIy+dPlmt5wnDkY8tv85BN5R/k+msEj+eINzrct0F
+	Tbuab4L6KLp6ndtRG3PyuP+DP74K8DD0tbNMwAc3GeABrRsaxTlL/GsFUO+G6VBr5BFCNzkb4V2
+	XMXQS1P0mIzAFfFvfNQj2YQ==
+X-Received: from wmee23.prod.google.com ([2002:a05:600c:2197:b0:4bb:4bbf:7120])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600d:9:b0:4bb:aa4f:c025 with SMTP id 5b1f17b1804b1-4bbaa4fc0f1mr120603915e9.1.1795792418988;
+ Fri, 27 Nov 2026 07:13:38 -0800 (PST)
+Date: Fri, 27 Nov 2026 15:13:23 +0000
+In-Reply-To: <20261127151326.515232-1-vdonnefort@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,108 +78,82 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/8] Enhance TLP packet decoder with field-level
- parsing and versioning
-Content-Language: en-GB
-To: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Sizhe Liu <liusizhe5@huawei.com>
-Cc: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- corbet@lwn.net, skhan@linuxfoundation.org, bhelgaas@google.com,
- yangyccccc@gmail.com, jic23@kernel.org, john.g.garry@oracle.com,
- will@kernel.org, james.clark@linaro.org, mike.leach@arm.com,
- leo.yan@linux.dev, peterz@infradead.org, mingo@redhat.com,
- namhyung@kernel.org, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, wangyushan12@huawei.com, wuzongyu1@huawei.com,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linuxarm@huawei.com, prime.zeng@hisilicon.com
-References: <20260908140509.2485649-1-liusizhe5@huawei.com>
- <aqB37YCMUYKodo3N@x2>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aqB37YCMUYKodo3N@x2>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+References: <20261127151326.515232-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261127151326.515232-2-vdonnefort@google.com>
+Subject: [PATCH v2 1/3] ring-buffer: Use kvzalloc_objs for user mapping arrays
+From: Vincent Donnefort <vdonnefort@google.com>
+To: rostedt@goodmis.org, mhiramat@kernel.org, 
+	linux-trace-kernel@vger.kernel.org
+Cc: mathieu.desnoyers@efficios.com, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Arnaldo,
+Mapping a large trace buffer to user space requires allocating arrays of
+struct buffer_page * and struct page *. For large ring buffers, these
+contiguous allocations can fail under memory fragmentation.
 
-On 08/09/2026 22:02, Arnaldo Carvalho de Melo wrote:
-> On Tue, Sep 08, 2026 at 10:05:01PM +0800, Sizhe Liu wrote:
->> The original hisi-ptt-decoder only prints raw hex values with generic field
->> names for DW0/DW1/DW2/DW3, without classifying TLP types or decoding
->> DW0/DW1/DW2/DW3 fields according to the hardware-defined packet format.
->>
->> This series enhances the HiSilicon PTT (PCIe Trace and Tuning) packet
->> decoder in perf tool to provide detailed field-level parsing of TLP headers
->> based on message type, and adds a versioning mechanism for backward
->> compatibility both in hisi_ptt driver and perf tool.
-> 
-> Series is sashiko clean by now, has a Reviewed-by, but it touches both
-> kernel and tools, I wouldn't have a problem if it was processed by
-> whoever maintains the kernel part.
-> 
-> - Arnaldo
+Switch both to kvzalloc_objs() to use the vmalloc fallback under memory
+pressure.
 
-Please could you add your Ack on the series, so that I can pick it via
-Coresight tree.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+---
+ kernel/trace/ring_buffer.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-Suzuki
-
-
->   
->> ---
->> Changes in v4:
->> - Add missing space in hisi-ptt.rst (Sashiko).
->> - Widen the pattern bit field in struct hisi_ptt_trace_ctrl (Sashiko).
->> - Add protocol defined TLP header length parsing in patch 05/08.
->> - Add MRd and DMRr message types parsing in patch 05/08.
->> - Add comment for enum hisi_ptt_pkt_msg_type in patch 05/08.
->> - Add DW0 and DW1 fields analysing in patch 06/08.
->> - Refine bit-fields parsing of DW0/DW1/DW2/DW3 based on different requests
->>    in patch 06/08.
->> - Refine the description of pattern=1 in the document in patch 07/08.
->> - Extract the bit-field printing of v1 version into functions in
->>    patch 08/08.
->> - Link to v3: https://lore.kernel.org/linux-pci/20260903075241.1445338-1-liusizhe5@huawei.com/
->>
->> Changes in v3:
->> - Add explicit inclusion of <stdbool.h> (Sashiko).
->> - Make patch 07/08 apply cleanly to mainline (Yushan).
->> - Pick up the reviewed-by tag (Yushan).
->> - Link to v2: https://lore.kernel.org/linux-pci/20260827140442.2031128-1-liusizhe5@huawei.com/
->>
->> Changes in v2:
->> - Split patch 01/10 and patch 02/10 from series v1 into independent patch
->>    series for backporting (Bjorn).
->> - Use bitwise operations instead of C bitfields for cross-platform cases
->>    (Sashiko).
->> - Add `pattern` parameter in hisi_ptt driver for layout compatibility.
->> - Link to v1: https://lore.kernel.org/linux-pci/20260604075005.2219785-1-liusizhe5@huawei.com/
->>
->> ---
->> Sizhe Liu (8):
->>    perf hisi-ptt: Abstract trace data buf and offset
->>    perf hisi-ptt: Complete the field names for 4DW and 8DW packets
->>    perf hisi-ptt: Extract the raw data printing part
->>    perf hisi-ptt: Merge 4DW and 8DW HEAD0 printing
->>    perf hisi-ptt: Add parsing of supported message types and proto length
->>    perf hisi-ptt: Add field-level parsing for header DW0/DW1/DW2/DW3
->>    hwtracing: hisi_ptt: Add pattern PMU config for trace format selection
->>    perf hisi-ptt: Pass pattern version to decoder for compatibility
->>
->>   Documentation/trace/hisi-ptt.rst              |  26 +-
->>   drivers/hwtracing/ptt/hisi_ptt.c              |  25 +-
->>   drivers/hwtracing/ptt/hisi_ptt.h              |   4 +
->>   tools/perf/arch/arm64/util/hisi-ptt.c         |  18 +
->>   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 593 ++++++++++++++++--
->>   .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   | 241 ++++++-
->>   tools/perf/util/hisi-ptt.c                    |  51 +-
->>   tools/perf/util/hisi-ptt.h                    |   9 +-
->>   8 files changed, 872 insertions(+), 95 deletions(-)
->>
->> -- 
->> 2.33.0
-> 
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index a5a0adc934fa..484fb1c08682 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -7762,9 +7762,9 @@ static int __rb_map_vma(struct ring_buffer_per_cpu *cpu_buffer,
+ 			struct vm_area_struct *vma)
+ {
+ 	unsigned long nr_subbufs, nr_pages, nr_vma_pages;
+-	pgoff_t pgoff = vma_start_pgoff(vma);
++	struct page **pages __free(kvfree) = NULL;
+ 	unsigned int subbuf_pages, subbuf_order;
+-	struct page **pages __free(kfree) = NULL;
++	pgoff_t pgoff = vma_start_pgoff(vma);
+ 	int p = 0, s = 0;
+ 	int err;
+ 
+@@ -7801,7 +7801,7 @@ static int __rb_map_vma(struct ring_buffer_per_cpu *cpu_buffer,
+ 
+ 	nr_pages = nr_vma_pages;
+ 
+-	pages = kzalloc_objs(*pages, nr_pages);
++	pages = kvzalloc_objs(*pages, nr_pages);
+ 	if (!pages)
+ 		return -ENOMEM;
+ 
+@@ -7893,7 +7893,7 @@ int ring_buffer_map(struct trace_buffer *buffer, int cpu,
+ 		return err;
+ 
+ 	/* subbuf_ids includes the reader while nr_pages does not */
+-	subbuf_ids = kzalloc_objs(*subbuf_ids, cpu_buffer->nr_pages + 1);
++	subbuf_ids = kvzalloc_objs(*subbuf_ids, cpu_buffer->nr_pages + 1);
+ 	if (!subbuf_ids) {
+ 		rb_free_meta_page(cpu_buffer);
+ 		return -ENOMEM;
+@@ -7917,7 +7917,7 @@ int ring_buffer_map(struct trace_buffer *buffer, int cpu,
+ 		cpu_buffer->user_mapped = 1;
+ 		raw_spin_unlock_irqrestore(&cpu_buffer->reader_lock, flags);
+ 	} else {
+-		kfree(cpu_buffer->subbuf_ids);
++		kvfree(cpu_buffer->subbuf_ids);
+ 		cpu_buffer->subbuf_ids = NULL;
+ 		rb_free_meta_page(cpu_buffer);
+ 		atomic_dec(&cpu_buffer->resize_disabled);
+@@ -7974,7 +7974,7 @@ int ring_buffer_unmap(struct trace_buffer *buffer, int cpu)
+ 
+ 	raw_spin_unlock_irqrestore(&cpu_buffer->reader_lock, flags);
+ 
+-	kfree(cpu_buffer->subbuf_ids);
++	kvfree(cpu_buffer->subbuf_ids);
+ 	cpu_buffer->subbuf_ids = NULL;
+ 	rb_free_meta_page(cpu_buffer);
+ 	atomic_dec(&cpu_buffer->resize_disabled);
+-- 
+2.56.1.839.g22a8290db9-goog
 
