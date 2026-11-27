@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796988;
-	b=lEtKqSRV5OKcgnqR/4ABVa9Tv0B3tfM/bihseY7ZvOIC3eRDK2VysWwBlAd6NQRljHAX
-	 jiauFMSqHAX4oBpvfzBoQaVtT2t248eJekCMFC1UtUKPL14Fs8e6HBMxvIJ7lsszfxgJe
-	 dTeIl3sFqTGwbpqz4pVcxLPomF6iQgxoOxAb2ZkSZyai5osUEGaM1Xl50XkLRiSER1n87
-	 Ndk4DGywIenfgecLbf3tR7D5hgzy/MHPNxuMR8W9XFPvlX/oqeV4OGGOHAjiLCGKJ6q9E
-	 IFq25JTyDwpvMq3GzVqfCigeL8fZRuXvgk2HpMOv45UQPtFeonmyzOKX2IyM9zodpBw==
+	t=1795797035;
+	b=KAZ7pKB4c7hTh3WiKwNYQjoJRklXuDbKBy12Xz3fTJyjoYfxYVxXyfzLnAZycfkJIeXW
+	 9mvA7C6q1jcjLHkXznN1EzwzCfA3OxLDBUiZmHMPn5MZJ5q2e5e61J7lFcdU01xH4sjsa
+	 PBcgFpOoWuU2B2Ty9p0MKeusJx6vmszeWz4ANVxBKfnTfG9Kx/ZORHjvHmNWZkCDDwJsD
+	 AfN3dWwPelGRdMpKTA4VpCviGqN4PXmhLl07Baz/JKzWj3GzeJ24I772C24w2p6aAdDU7
+	 yGXh6R/bdkFJcr4Xuv0urG50XShF7350xzr3S6OIKNwHqFgjYSDBTLJ8ltyADfmuiJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796988;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=fskTL15wnb1o0Xx+IZq2KDKqa5bO2z7H3uOd3UTFjjo=;
-	b=29kAWVi7xVKJpdUasyvrmDKH2LLv4eS3rhG7DIdwihd1N4XZEMJxOHiWjBR/H2mp/Icz
-	 Tee4J/qHpCnzrm+JmkYAoafv3ho2fSK6mjSTpqO0GmJJ4JDik+MERVMdGybUk4Pd1RETD
-	 GDw4woNBWH47hniDtz/NVWIBvIpOYY+YAarsdKAo3/MMkePMWyniSSkrpmkaA/+tP1eUh
-	 S4eaE7JalRjtrwJP9Gyoi8+hHwFRX5bhoXJ/7xx0ngje5rJo8EmNYqCGWybnKG6jdzdK3
-	 5pJ/CY4H65BGvlrVPb4vS7v5GW3u7qXu2i4n/MlyQ6idNBD6tlJFnqbJZSoNL9yxmPQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797035;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=54NOpbOtuKLqL2nKVOoPWau8pDlerFu1Y4blbqD/sNI=;
+	b=Rcf69wgA89urAMOKq+mhjzjU8tj+z1cymqchUeYIM2A2g53WA7j+a0J60d+2c1E+O/U2
+	 OBcN5W3tUWt0G+CUXb4HGkvKYOEHncTXB48Qud4lhGWEG4/SJi+xaJA4i1QntK0Y9Pzqy
+	 FmL5i5dkrvSmD5jWDZpaJEUFzSAzWdYSl5lGoiBVnWLhOCYpfaNOYEACYPsP/xAcJfqJ7
+	 CmXgpqDZU76BvQkCXI0uQZCEpU/jhtZGHMVNF3L0RgF6h4jRjEnh+/XdUs4pWfzbBf+Nv
+	 Bi4PrqfQEsZBpZTZzfbdhZgRQDI91Y0DEBtZHKVqVp9lvzBP+hNMQg5wbcAJfIwPbdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=dQ6L40eg;
-	arc=none smtp.remote-ip=210.118.77.11
-Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA6CC606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:29:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA6CC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AMyJGtPh;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E4CD3606A31C;
+	Fri, 27 Nov 2026 16:30:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4CD3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=dQ6L40eg
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261127162944euoutp01ece98cea7278da82c449153c35989fb5~r89fg-Gtz3119231192euoutp01d
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:29:44 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261127162944euoutp01ece98cea7278da82c449153c35989fb5~r89fg-Gtz3119231192euoutp01d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795796984;
-	bh=fskTL15wnb1o0Xx+IZq2KDKqa5bO2z7H3uOd3UTFjjo=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=dQ6L40egfVigO5T6FlJni35+Jp68j+lHagaeh179VYPbpc3ae0mUelEupkmesuKXZ
-	 rKt9U6Xyk8Bl4qNnb5RdJhUHu6oNqQN5c6mR0MPUOeD9uvI8IUBlmE5DGO84mmCcRX
-	 KAjfZPbKz2NY4cwW2yxyXY053kgPtdf1PJHKJXwY=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261127162944eucas1p20258c79e44d891dc99d178f690906ef2~r89fFj1xM3022230222eucas1p25;
-	Fri, 27 Nov 2026 16:29:44 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127162942eusmtip180948ab3b1d37be87c3161bd7750304d~r89drFbc71011010110eusmtip1I;
-	Fri, 27 Nov 2026 16:29:42 +0000 (GMT)
-Message-ID: <99691ff4-7652-4050-adca-3ec941dde4b2@samsung.com>
-Date: Fri, 27 Nov 2026 17:29:42 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AMyJGtPh
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 627D71570;
+	Fri, 27 Nov 2026 08:30:31 -0800 (PST)
+Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AE823F86F;
+	Fri, 27 Nov 2026 08:30:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795797034; bh=b33/9jIn33AHiLVOktQcqCtJ8czOf9Xr7CxwoHhocU8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AMyJGtPhp4st87WhHQjG9x2Xm7CAavKQX7s8SJQATPgdBrrVhcClJ0J2GhoBiahLO
+	 YvNt3wdAsddMsQHGJy9k1qlZDj30gapE55u/Ux9lTxZIdoAVJDljuAI3+ZIP8fg7o4
+	 7ubxHpqKGnQP7cEVxWdQ48ojV+YXZX7+soqu8Li8=
+Message-ID: <fcdd57ea-8f03-45ce-886e-f0efb6f23d3a@arm.com>
+Date: Fri, 27 Nov 2026 16:30:29 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,77 +53,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 4/4] iommu/dma: restore flush queue use in
- dma_iova_destroy()
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>, Joerg
-	Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Leon Romanovsky
-	<leon@kernel.org>, Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Honglei Huang
-	<honghuan@amd.com>, prakash.gupta@oss.qualcomm.com, Alex Williamson
-	<alex@shazbot.org>, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, Abhinav Kumar
-	<abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, Mauro Carvalho
-	Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,
-	stable@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20261127151717.GO114472@nvidia.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127162944eucas1p20258c79e44d891dc99d178f690906ef2
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a
-X-EPHeader: CA
-X-CMS-RootMailID: 20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a
-References: <20261127115849.2780625-1-m.szyprowski@samsung.com>
-	<CGME20261127115903eucas1p27ccc4cddb7f705d6afa5c2603597b97a@eucas1p2.samsung.com>
-	<20261127115849.2780625-5-m.szyprowski@samsung.com>
-	<20261127143740.GM114472@nvidia.com>
-	<feec2436-ad15-4aa6-a53f-800869bfac21@samsung.com>
-	<20261127151717.GO114472@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/5] arm64: dts: allwinner: add Radxa Cubie A7S board
+To: Norman Herms <dockseed@proton.me>
+Cc: Enzo Adriano <enzo.adriano.code@gmail.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org,
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>,
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+ Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ Cristian Filipescu <filipescu.cristian@gmail.com>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+ <20261126-a733-cubie-a7s-dt-v6-3@gmail.com>
+ <0a7f4a31-81ac-44ee-8cd2-7b5526af7442@arm.com>
+ <IUp5Ow8SUNdgtour7we7BN_rry0fuoBNw-ucfXERukfbwTWvoWo5QjYLXAzxftTjGnsuhCCnwvxZ5fBpL6pFPL62oTr2hZddgE6XmrQ76o0=@proton.me>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <IUp5Ow8SUNdgtour7we7BN_rry0fuoBNw-ucfXERukfbwTWvoWo5QjYLXAzxftTjGnsuhCCnwvxZ5fBpL6pFPL62oTr2hZddgE6XmrQ76o0=@proton.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On 27.11.2026 16:17, Jason Gunthorpe wrote:
-> On Fri, Nov 27, 2026 at 03:45:15PM +0100, Marek Szyprowski wrote:
->
->> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
->> index 0e329ecd7dfa..106da975bf0f 100644
->> --- a/drivers/iommu/dma-iommu.c
->> +++ b/drivers/iommu/dma-iommu.c
->> @@ -1892,11 +1892,12 @@ static void __dma_iova_free(struct device *dev, struct dma_iova_state *state,
->>   */
->>  void dma_iova_free(struct device *dev, struct dma_iova_state *state)
->>  {
->> -       struct iommu_iotlb_gather iotlb_gather;
->> -
->> -       iommu_iotlb_gather_init(&iotlb_gather);
->> -       iotlb_gather.queued = state->__size & DMA_IOVA_USE_FQ;
->> -       __dma_iova_free(dev, state, &iotlb_gather);
->> +       /*
->> +        * Nothing is linked any more and every dma_iova_unlink() has already
->> +        * invalidated the IOTLB synchronously, so there is no deferred
->> +        * invalidation to wait for and the IOVA can be reused right away.
->> +        */
->> +       __dma_iova_free(dev, state, NULL);
->>  }
->>  EXPORT_SYMBOL_GPL(dma_iova_free);
-> That makes sense, but I'm a little lost why we needed the
-> DMA_IOVA_USE_FQ ?
->
-> If any queued gather was ever created then the ultimate free has to
-> also be queued. But the comment implies that queued gathers were never
-> created in this case?
+Hi Norman,
 
+(please try to reply in-line, with the question quoted, to make it 
+easier for other people to follow the thread)
 
-Indeed there is no point caching domain->iova_cookie->fq_domain once the
-dma_iova_free() doesn't use the gather. Now fq_domain can be directly
-checked in dma_iova_destroy(). This simplifies things a lot. I will send v2
-soon.
+On 11/27/26 17:17, Norman Herms wrote:
+> Hi Andre,
+> 
+> On the ELDO1 question: the AXP318W datasheet (V1.0, Chinese, table
+> 6-3) gives ELDO1 a default of 0.9 V and leaves it off at power-up, as it
+> does DCDC6 and DCDC7. So 1.075 V is not the PMIC default.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Ah, thanks!
+> On the A7S we boot our own chain (U-Boot SPL calling the vendor DRAM
+> init, TF-A, U-Boot), and none of the open parts writes ELDO1. That
+> leaves the vendor DRAM init, which switches it on. Its value follows
+> VDD2H on the 25 mV grid: with DCDC7 at 1080 mV we read ELDO1 at
+> 1075 mV, and with Radxa's own boot0 at 1120 mV we read 1100 mV.
+
+That's good info, thanks!
+
+> We have also tried VDD2L at 0.9 V on the A7S. Lowering ELDO1 from
+> Linux changes the voltage after the DRAM training ran at 1.075 V,
+> which can lead to errors.
+
+Yeah, I was concerned about this as well. LPDDR5 DRAM init/training 
+seems to be a lot more sensitive than <=LPDDR4 (it even requires 
+occasional retraining at runtime?), so changing voltages after the fact 
+sounds dangerous.
+
+> So we keep the value the DRAM init leaves,
+> even though it does not match the schematic, as the v6 node without
+> voltage bounds does. The vendor DRAM init sets all the DRAM rails
+> itself, so a clean 0.9 V would have to come from there.
+
+OK, that's something we probably can do with the in-flight Open Source 
+DRAM init driver then, which is (in parts at least) already on the list.
+
+Regardless I wouldn't want to leave it completely unbound, but instead 
+provide some limits. I guess for VDD2L, potentially the same as VDD2H, 
+it should be 0.87V - 1.12V, which seem to be limits Google turns up for 
+those LPDDR5 specified values.
+
+I will adjust the DT for the A7A.
+
+Cheers,
+Andre
 
