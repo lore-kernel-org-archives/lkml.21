@@ -1,106 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793105;
-	b=CeWiGJf1pEJQAbeMVd6zHuo7HSDRfjFZUgZpTKFv1XdOR4RDLjQ54Sb3q7SAoJhU8eBE
-	 1CGqHz09txBLtlSaDKHhu/AU+k0BhVcTNHhnVNB6sTVKOK1pMtQEwAKLwekSDNotqgPnl
-	 cLbU/6j94yffEr+pbUfB+M16TjH59nv+ukX5bvbsfOB/Hjm6iKUkZq7ePrru2DRfZOa4H
-	 NdD28bKkf9vYeik1LAoHIlzWFuzZzeCcXrTtpCFbzDYn5xijb7EtoM1dkiwbhoNTafiSB
-	 6+d9vlygLUqHlsohvkWO9WfrF/ovJeaGnV9bHMnqnw0Lax9oyh+yLIPAMQneRMKgnXg==
+	t=1795793162;
+	b=q2v8GipivcdN1W+FFTyJdJ9tl1eCGtsv5uc0kJR9lHk1Kx6xqLrnmQuCfDLiky5iI2Mf
+	 Q4W8Hfrvy1L5c5YmzQL4G1ynB+8lXJhVqgHIlUf0GHZI7uJhWs6sDC0fMji9XyohGlLyb
+	 /wPRZpxh9rMVIdVxHgbjVVSSYddYygxGfWYj0z0FgaQ6SYapqmTVSDCf9g1v3kuTi4BbM
+	 fQGrWEN+/WCnZCJJJm5MQSYTGrleFhAiQFl78XuyPX1f75m8GNKyGiTYynC3c57bAKVBJ
+	 B+BRtfd0blI+tX57HH6xE171DBzwXYQLDfXwxPBVuj/TMR5czZA7SpdNZCGktUGVYEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793105;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
-	b=zqaeaIJ3xR/gB0VmFvxbL8BcufUyud088wEPPwGsT8x0a6w8/JSoomSiZr5bQYSK9VlS
-	 E4k8cBwKczc5c2Yd9TBWE3bCZVUsxMdbOQ9thI6y2tU/z44pCuymlo9BocmC6YjFlANW7
-	 UVWOAAg+1jBQ2wnNtzVimNdgUX400hY6RUq39jEYcm1deEIXAP/ormF54/KFQrVUJbjqG
-	 jQaWmWoXlZj+OeuIQSf4jjlrhncQteBG6xglO5nNZoio+aHnXj5ILr/PrI4tTRQrcINg6
-	 nyBtnTKhpaR30p9mFuj02oKZlr3DIdxuS87lZJg2wXu+JCVX4QLtSKh2gP9OVIONXzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793162;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=LKr0GCiGUi3of277BH7HYeRTXkU+4awYVd73tFhYy+Q=;
+	b=vkWkcBf66pOS84+AtFiA9nyZ/m8DX8eCiqvDDJ4eZDgesbMcXDvFKZ041rm3icDCXLX8
+	 kJqE4k3OLyYyZjtpZfs7JqQX3qQOOi9NLkJGk9MYHOphp+9L0qWUidoo8GKuxJT6fWMiv
+	 yD4C9zzEJlORvM8F9Q457NlOHxjNVLlln1Zue33jHk0BdHjwite0sjb3BXOlYK4A9d/tN
+	 vRXAExUPEffihUblPg2HnhE+0uVYYyB/i0i67z7zcN1XlfHNb5B1ra54EdvTEaq4x9rcO
+	 j+NjqL6nCpe+2MiWP37ydUJeXq17IGVNDI6cXuzWqtatklw7Q/IibzT3KxtHhqzLtCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G7VQlVVc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0217B606A31C;
-	Fri, 27 Nov 2026 15:25:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0217B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 099B9606A31C;
+	Fri, 27 Nov 2026 15:26:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D3D24229AB;
-	Fri, 27 Nov 2026 15:25:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795793102; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
-	b=gW2GXdokvVeHwG4LTPWqprKeL9wZDFxUeZ0DR3mpeg3eWcC5bbz8BP6x2fNYGMIKTzSFjS
-	dZFYKS2wafilbVuEomZoPnR18O/+OeR0ZCTNKdUvsyNqSvMqvKUzs5w+ljoLPOK4zxgGDE
-	zrbyQ7TeB6RIu8HHbMFpyf+BlcZ7Cfg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795793102;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
-	b=jDhguXsiJBcUIrj15Ky2dXBgvsXWkMzVKgSBYhiEb88P7X42oosSCW8QoNSEKoEqfVZ/uo
-	yM+7YY3Q2Mbg3OCA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795793102; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
-	b=gW2GXdokvVeHwG4LTPWqprKeL9wZDFxUeZ0DR3mpeg3eWcC5bbz8BP6x2fNYGMIKTzSFjS
-	dZFYKS2wafilbVuEomZoPnR18O/+OeR0ZCTNKdUvsyNqSvMqvKUzs5w+ljoLPOK4zxgGDE
-	zrbyQ7TeB6RIu8HHbMFpyf+BlcZ7Cfg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795793102;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
-	b=jDhguXsiJBcUIrj15Ky2dXBgvsXWkMzVKgSBYhiEb88P7X42oosSCW8QoNSEKoEqfVZ/uo
-	yM+7YY3Q2Mbg3OCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AC0B813432;
-	Fri, 27 Nov 2026 15:25:02 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 75ERIM6gCWstDwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 15:25:02 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 2D7F65107A; Fri, 27 Nov 2026 16:25:02 +0100 (CET)
-Date: Fri, 27 Nov 2026 16:25:02 +0100
-From: Jan Kara <jack@suse.cz>
-To: Junyoung Jang <graypanda.inzag@gmail.com>
-Cc: Jan Kara <jack@suse.cz>, Gwanhyun Lee <gwanhyunlee@gmail.com>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] udf: validate logical volume partition map lengths
- before parsing
-Message-ID: <vgjprugp7234s6s3wdlusb5udtwyyslu7ytc7vucdr2fubobsf@gimosgcpenka>
-References: <20261125155608.282719-1-graypanda.inzag@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G7VQlVVc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424D31F00893;
+	Fri, 27 Nov 2026 15:25:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795793161;
+	bh=LKr0GCiGUi3of277BH7HYeRTXkU+4awYVd73tFhYy+Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G7VQlVVczF/tSHGBXdvLK+anpnD87825Hm2G1IEJL/FB8ORk9qabwkdrrahHskhRF
+	 ApKwjCw6baZQiKfWrFK/iUYLvQ3dq9sj08y8mAexDGHaoW5ekX45AOqqQnhpDOD6Xg
+	 Tl7OSCFr7AWy6UCckg9sO4n1/XSE5VwEm2coFMjOOEqWFoVVMBeuQqz+pVTbUyA6Kw
+	 9xiEhL/0fwNd9LSsnP0n80ggV6yo172/cWwV7rwWXQFlLjrGkCeMZ0KbApF0AUSgbh
+	 2ToPAuLuM865xyrygmpIbe+WLVGbHPZxmGv//fnGZ8P7EH27t1fKdLiC8WToHCShT/
+	 +ZlaWYRZaH/WA==
+Date: Fri, 27 Nov 2026 15:25:52 +0000
+From: Will Deacon <will@kernel.org>
+To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Maxwell Bland <mbland@motorola.com>,
+	Sami Tolvanen <samitolvanen@google.com>, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH bpf] bpf, arm64: Fix jited line info off by kCFI hash
+Message-ID: <awmhAIbMV7qo608O@willie-the-truck>
+References: <20260925-b4-arm64-bpf-linfo-cfi-v1-1-e930ab335170@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,132 +74,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125155608.282719-1-graypanda.inzag@gmail.com>
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	RCPT_COUNT_FIVE(0.00)[5];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[suse.cz,gmail.com,vger.kernel.org];
-	FREEMAIL_TO(0.00)[gmail.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email]
-X-Spam-Score: -12.80
+In-Reply-To: <20260925-b4-arm64-bpf-linfo-cfi-v1-1-e930ab335170@linux.dev>
 
-On Thu 26-11-26 00:56:07, Junyoung Jang wrote:
-> udf_load_logicalvol() checks the aggregate partition map table length,
-> but uses each entry's unvalidated partitionMapLength to walk the table.
-> A truncated type-2 map near the end of a Logical Volume Descriptor can
-> contain the sparable partition identifier while its packetLength field
-> lies past the descriptor buffer. This causes a two-byte out-of-bounds
-> read in udf_load_sparable_map(), reported by KASAN in
-> udf_process_sequence().
+On Fri, Sep 25, 2026 at 05:53:21PM +0000, Jose Fernandez (Anthropic) wrote:
+> With CONFIG_CFI=y, the jited line info of every arm64 BPF program is
+> off by one instruction, so tools that use it show the wrong source line.
 > 
-> Check that each map header fits in the remaining table and that its
-> declared length fits in the table and covers the fields for its type.
-> The 64-byte generic type-2 size covers the virtual, sparable, and
-> metadata partition map layouts. Report and reject truncated headers
-> and invalid map lengths before accessing type-specific fields. The
-> unchecked walk is present in the initial imported tree.
+> The JIT counts ctx.offset[] from ctx.ro_image. Since commit
+> 710618c760c0 ("arm64/cfi,bpf: Support kCFI + BPF on arm64"),
+> prog->bpf_func starts past the 4-byte kCFI hash, and
+> bpf_prog_fill_jited_linfo() adds the offsets to prog->bpf_func.
 > 
-> A custom LLM agent assisted with discovery and reproducer setup.
+> Subtract cfi_get_offset() from the offsets before the fill, and move
+> the fill after bpf_prog_update_insn_ptrs(), which needs the offsets
+> relative to ctx.ro_image.
 > 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
-
-Thanks, I've added the patch to my tree.
-
-								Honza
-
+> Fixes: 710618c760c0 ("arm64/cfi,bpf: Support kCFI + BPF on arm64")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260904014748.C04AA1F000E9@smtp.kernel.org/
+> Reported-by: Alexei Starovoitov <ast@kernel.org>
+> Closes: https://lore.kernel.org/all/DLNXZ2WK7TPD.2RZBUNRS4FA4L@gmail.com/
+> Assisted-by: LLM
+> Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
 > ---
-> The malformed image uses a 4096-byte Logical Volume Descriptor with a
-> 3656-byte partition map table and 16 maps. The last map begins at table
-> offset 3626 and declares a 30-byte type-2 sparable map. Its
-> packetLength field lies at descriptor byte 4106, past the end of the
-> 4096-byte buffer. A second image declares a 3627-byte table, leaving
-> only one byte of the last map header inside the table.
+> Tested in an arm64 KVM guest with CONFIG_CFI=y. Without this patch
+> every line info entry after a function's first was off by one
+> instruction, and with it every entry was correct.
+> ---
+>  arch/arm64/net/bpf_jit_comp.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+
+I'm just chasing up old patches sitting around in my inbox and noticed
+this one. It doesn't _look_ like it's been applied anywhere. Is it still
+needed?
+
+Will
+
+> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+> index c5f55d6161fee..cdc98efc1acf0 100644
+> --- a/arch/arm64/net/bpf_jit_comp.c
+> +++ b/arch/arm64/net/bpf_jit_comp.c
+> @@ -2345,14 +2345,21 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+>  		/* offset[prog->len] is the size of program */
+>  		for (i = 0; i <= prog->len; i++)
+>  			ctx.offset[i] *= AARCH64_INSN_SIZE;
+> -		bpf_prog_fill_jited_linfo(prog, ctx.offset + 1);
+>  		/*
+>  		 * The bpf_prog_update_insn_ptrs function expects offsets to
+>  		 * point to the first byte of the jitted instruction (unlike
+> -		 * the bpf_prog_fill_jited_linfo above, which, for historical
+> +		 * the bpf_prog_fill_jited_linfo below, which, for historical
+>  		 * reasons, expects to point to the next instruction)
+>  		 */
+>  		bpf_prog_update_insn_ptrs(prog, ctx.offset, ctx.ro_image);
+> +		/*
+> +		 * Line info is relative to prog->bpf_func, which starts
+> +		 * cfi_get_offset() bytes into ro_image. Shift the offsets here,
+> +		 * after bpf_prog_update_insn_ptrs(), which needs them unshifted.
+> +		 */
+> +		for (i = 0; i <= prog->len; i++)
+> +			ctx.offset[i] -= cfi_get_offset();
+> +		bpf_prog_fill_jited_linfo(prog, ctx.offset + 1);
+>  out_off:
+>  		if (!ro_header && priv_stack_ptr) {
+>  			free_percpu(priv_stack_ptr);
 > 
-> On unmodified mainline 4dce97c6c265 with UDF and KASAN enabled, the
-> first image produced:
+> ---
+> base-commit: ad139384ecddb6f3e7e3c3c12765aafae0e39670
+> change-id: 20260925-b4-arm64-bpf-linfo-cfi-f5c3897e408c
 > 
->   BUG: KASAN: use-after-free in udf_process_sequence+0x3cfe/0x3f60
->   Read of size 2 at addr ffff88807ffc000a by task busybox/57
->   Call Trace:
->     udf_process_sequence+0x3cfe/0x3f60
->     udf_check_anchor_block+0x270/0x460
->     udf_load_vrs+0x67b/0xde0
->     udf_fill_super+0x778/0x19d0
+> Best regards,
+> --  
+> Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
 > 
-> The read crossed the descriptor boundary into an adjacent freed page;
-> that is why KASAN classified it as use-after-free. The mount failed
-> with EIO after the invalid packetLength was read. On patched mainline,
-> three boots rejected map length 30 at offset 3626 before that read;
-> three boots of the second image rejected the truncated header at the
-> same offset. Neither patched case produced a KASAN report. Valid UDF
-> and sparable UDF images mounted before and after the patch.
 > 
->  fs/udf/super.c | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/fs/udf/super.c b/fs/udf/super.c
-> index a81a8509524a..41988a07b86b 100644
-> --- a/fs/udf/super.c
-> +++ b/fs/udf/super.c
-> @@ -1580,9 +1580,29 @@ static int udf_load_logicalvol(struct super_block *sb, sector_t block,
->  	     i < sbi->s_partitions && offset < table_len;
->  	     i++, offset += gpm->partitionMapLength) {
->  		struct udf_part_map *map = &sbi->s_partmaps[i];
-> +		unsigned int min_len;
-> +
-> +		if (table_len - offset < sizeof(*gpm)) {
-> +			udf_err(sb, "Truncated partition map header at offset %d\n",
-> +				offset);
-> +			ret = -EIO;
-> +			goto out_bh;
-> +		}
->  		gpm = (struct genericPartitionMap *)
->  				&(lvd->partitionMaps[offset]);
->  		type = gpm->partitionMapType;
-> +		min_len = sizeof(*gpm);
-> +		if (type == 1)
-> +			min_len = sizeof(struct genericPartitionMap1);
-> +		else if (type == 2)
-> +			min_len = sizeof(struct genericPartitionMap2);
-> +		if (gpm->partitionMapLength < min_len ||
-> +		    gpm->partitionMapLength > table_len - offset) {
-> +			udf_err(sb, "Invalid partition map length %u at offset %d\n",
-> +				gpm->partitionMapLength, offset);
-> +			ret = -EIO;
-> +			goto out_bh;
-> +		}
->  		if (type == 1) {
->  			struct genericPartitionMap1 *gpm1 =
->  				(struct genericPartitionMap1 *)gpm;
-> 
-> base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
-> -- 
-> 2.43.0
-> 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
