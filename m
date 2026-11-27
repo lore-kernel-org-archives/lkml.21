@@ -1,61 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795749357;
-	b=jTpZ3ha09NZ1aGx4/h6KgbwyftKy/Qw9Z3m9D5eAKDmtkq4JQQnv9jd0N3EFAbm5iypC
-	 SmUaZnXq0mu6JECCGyU4KjrmTSAstUq6UjsgPyEdfsaWCci4+K/pEBlVtBy8YAHY/E8aI
-	 rOSpHtW53v7TOcaEvG46Xbfahb3/z1fjqJnVHicObU+QGxIE0l3JScKgIu0F3idY8lvoC
-	 ejAIAGcgSNTYbqGvzX6Z+MdQDAqBwyryfK4K42bLOTmFkIZV0MVhr1lJkpvsTWVjFZ0Te
-	 zHrLzRpCugfjiZQG6OaNlKyOfAKdP6kZKI8vyF4b7DPGx0Smkztdemn3t4agJtie52w==
+	t=1795749425;
+	b=X4uf/FTegkJomu0WM9l0Hzd/GBwJDmJmbEYgVm9kP34Pt3e08wN2D8fg2RXljt2PWgNS
+	 7GHo/KYGfkosndH/up+vhSPtmo4Pb1j+vjzXnybNTXi6bjn0LMOAxNgwE1Qj1gFhnxM2E
+	 yfHTrsfKQVD90hjXKmKPPeuIFjvBfQmrrkMtqwEh3J6uPiV2L7g5z/kmdOv9lQEvQ+hYL
+	 5lv083mBbd16QemJHVGGIE4DXujtk5aCo8cTzNNWionuMB1XoNWaFUDnvrxtPJglSNXTe
+	 YT/BZT5tmAmCr7/RxhLuaBhmyXJqBvFXPWt3fTUlnkSEDvtwHoklcVStbnGjAYemCow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795749357;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=zacDcZZkB0SgR1IDOo839AuEOBLi4HSRGIYFOfbcasw=;
-	b=LzzX9RuAYGwow5AKqoBCsM06M/4zK9/s6LK/f86Ar8lUm+EVp3OHf2fV86F8zgGJJU/n
-	 a4YGtn1lno2CJrD5raSjJpPNwbyDUZCIaVuS4ykxf+HhEqamsOhvFyy1WrQYspN5RJLU3
-	 RlxaJ1IV2rV/GAHPZUNfO42+GLjk+LboipktiWdO6VHg4xGGOVplu8SZ89E7d9+wVZKTH
-	 xsIgYQYoPdkFQ2BaBnguJgEWLDudmT94xy6kTctURkxa6fWOQ4H2J6xn0DzVSuigFLycu
-	 pIVLDuOCE7UOYsIvcpqCQCawlU/0YsKMKohYLm3WSjjNN6jTdA/Kb7wRiB65wrtQ8eg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795749425;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=zYwGFrVXRtVQNbh2j9jq0UMXN8rATCr949DIEhCXwno=;
+	b=4qqPxIsje5oqoJDVoGgNn4MOsaa+CX7ATJAlFw8Se0/vC5wKozOxZrXS0v3dJvDHTAc/
+	 /E/s4QDfVGk5bF82WiNXgRGjNxYVNv8D+G7C3hIBty4yxi/+Jg8h5Zui4XhsHUJShq4nW
+	 aYM6gE+0H0I1yspdUuZeHTsJpt4CvmabGIcH+d2fk4NttMGh+l3e+cUn9qT/wLfyKIJ/9
+	 xGZpaVJ6hLtAAGJB9iieyBDU5tekbFWAuXtkkhjiXa5LB10+oHJLKDCSI1kc0BIM17X1A
+	 9ztC9tJEfa7JxPvUvV912PaLyjT30sOvwDs1hAyWJG8MELgAs8A1brNzXhSPa8s76mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G9LFas5B;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Nfsq6Q7w;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E69F606A31E;
-	Fri, 27 Nov 2026 03:15:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F859606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:17:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F859606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G9LFas5B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76301F000C1;
-	Fri, 27 Nov 2026 03:15:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795749356;
-	bh=zacDcZZkB0SgR1IDOo839AuEOBLi4HSRGIYFOfbcasw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=G9LFas5BPBTw99X+KtzXq0mMuRbxNxAz02QeK3RoHBkOiF2kpU7Dg0FnjIfnf2ZQX
-	 Kb2aBITCjy0rM3SD/A0jvOPgGGXr2RYRbxrTl6OTM07GuLStW5e1pQ4I53DuI/TGw7
-	 lyVJXIr1pE4imG+RMQUK1mi0inPMIxWoGOW0dHmyLOniIj07mUsUcqMkj48jkFj0mO
-	 gz+hAQeYlQBDnlHNCJ4SMAOqSympGqz0+Fxf1Vjk6mePjjDOFu2u3SSFF985nfUroL
-	 lcuAeRbDs0EAMI//uj/PZnijOaZBT5eVLam4hDwKFQffvIPGA4g6gRBjQ5ipHGhxmW
-	 VKoBQplAvELLw==
-Subject: Re: [PATCH net 1/3] Revert "bonding: do not set usable_slaves for
- broadcast mode"
-From: netdev-bot+sashiko@kernel.org
-To: hangbin.liu@linux.dev
-Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- tonghao@bamaicloud.com, razor@blackwall.org, shuah@kernel.org,
- jiangjiehua1@huawei.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Fri, 27 Nov 2026 03:15:55 +0000
-Message-ID: <179574935536.3135.14725054266290783008@kernel.org>
-In-Reply-To: <20261126-bond_broadcast_updelay-v1-1-188e5538d6ca@kylinos.cn>
-References: <20261126-bond_broadcast_updelay-v1-1-188e5538d6ca@kylinos.cn>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Nfsq6Q7w
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b6b22be970so2944054b3a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:17:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795749424; x=1796354224; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zYwGFrVXRtVQNbh2j9jq0UMXN8rATCr949DIEhCXwno=;
+        b=Nfsq6Q7wRhpNbfSiRyUNzpz5NbquK9H4W2aGEej2aXFwSsFi7ym9g86K1Pt8jpkXZ1
+         pfg2Be/7L6jereXokz8Qwyx5kZdovJCpeuHGCeA630Yzk/DKYIbYEjNNYKnHOVDzWw3Z
+         Qa1SoebOfpE1aG7OG+6J26FmTnVCImrBOdF5c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795749424; x=1796354224;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zYwGFrVXRtVQNbh2j9jq0UMXN8rATCr949DIEhCXwno=;
+        b=mcsokEGUScsL7XNx2+5JGb323ejA20c2jgCzOzm8cN42zHD58TJ1Uwd8N2prnHf8qY
+         lzstayjdQETRAICZGARIP5R8utZXSFzjRwUAn/sNDPFYF5AR/8Hfhc+TXbO8DmuzYkBy
+         GSkY8bBILVuUNq3bsKmaxrXJzrM2di6cEK7FtzNHTT0yfXPtaEg5Va6+BNfgVvo6ftbV
+         iIuWW/LJ/wVYyx7aKVStEqz4vjgeRv0MVg9YEMJvuTllBzJM+R3Ds+CzSsGsDfHVFG5R
+         WKfCMPzNUaGkXj7Oc8FqHBbE2W8BI8ho9pB75PcQSwToPqaj5LoEyBg5rCpotzMILD8K
+         yH/A==
+X-Forwarded-Encrypted: i=1; AL+hErEe1mOtr/XZyG3OOcL8O6KWbXRlmiTxLQEnOdQxyiHgErsluo1+D4QQSkfvyYPpLKqJ01/qo03aPB3M6nE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xvLyArdPkCbPCTECLsUItfimfcm8EKkiLw4TeR/4/MdwbYSh2
+	1SlRtidqci9klmBZgBJw0WRZIJ74kKKrrhxMYWkZmlyZdtM+1fgsjS2k+36rZRz3Xw==
+X-Gm-Gg: AZFdTZeL4eDXDjQBLRKmhr720jUxq7VBirLavxS40IfKkATyMz4MOe52uQTe3E22xjJ
+	z6nIZg+Tg9tzYWjn94EygTNarvS8uaVlMTmBEGfePZ08/85ITTMoC3M5TZHf2/0K+6MDaTnjvWd
+	vjS1811lG57Z7CDHVncUnpvw8VeJCdgg/4QfImxrvkOvr2jh4ru42sK+iDESrpJsCfiGGNDvXbN
+	jJZSt5xgwuuF0Vy2B93EbqZFRpwC7wW/iJM15Jd0ErtHgVUx/Ai2NR7tmALhJkBZPT081ePii/l
+	m7E3TSRLT3Vqbpry2ycb2zFm3yyGZWW2d0rb5EDSOu/mt9BIyBIUxyzdWlChyDhabLg5IH4NswW
+	xLIQWnDubfVipS1fTKlDVPdpX8u28XROoVQRJB8FZcFwZAMZQrzfHcuDyR4GwywNJr08GMgftjL
+	GHJXjL46DuqJvVBwIaNwKPTAo9TXwCMVwGBdk/vJsCMuiy7G51SZ5l02PBxpV1NDplSp6tsQomY
+	Q+EhwuKrXowCyUmRkdCKP8SUUvgIxHd5jpnZye7C3JzDSHmAdy/G95KAiGqeijM4Dr7ESQrEu0R
+	MdeR9fI4dCTokjkCWHwbTvly4FBAOWXj+S2KIVJCZUm+F5TZhVQpDXabv0HjunWnBXJ0fiywaja
+	/K9KA3d+/WVQMTSZoLw==
+X-Received: by 2002:a05:6a00:419b:b0:89a:5:92b9 with SMTP id d2e1a72fcca58-8c87cf2ace1mr19349814b3a.44.1795749424469;
+        Thu, 26 Nov 2026 19:17:04 -0800 (PST)
+Received: from tigeriii.tok.corp.google.com ([2a00:79e0:2031:6:5bf8:984e:5bb:e51d])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4d7basm11333567b3a.21.2026.11.26.19.17.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 19:17:04 -0800 (PST)
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Minchan Kim <minchan@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-block@vger.kernel.org,
+	linux-mm@kvack.org,
+	Sergey Senozhatsky <senozhatsky@chromium.org>
+Subject: [PATCH] MAINTAINERS: add mm and block lists to zram entry
+Date: Fri, 27 Nov 2026 12:16:38 +0900
+Message-ID: <20261127031658.2049871-1-senozhatsky@chromium.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,116 +95,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Route zram patches via linux-mm and linux-block lists,
+rather than through the generic linux-kernel.
 
-Low priority / nit picks for your consideration:
+While at it, fix a DRVIER typo.
 
-- [Low] Commit trailer and tagging problems on the revert.
-- [Low] Comments no longer match how broadcast mode uses usable_slaves.
+Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+---
+ MAINTAINERS | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
---
-
-Revert "bonding: do not set usable_slaves for broadcast mode"
-
-This reverts commit 45fc134bcfad. That commit stopped publishing
-bond->usable_slaves in broadcast mode, so updelay was no longer ignored
-when there were no active slaves. A follow-up patch in the series
-rebuilds the slave array on link changes for broadcast mode.
-
-> Revert "bonding: do not set usable_slaves for broadcast mode"
->
-> This reverts commit 45fc134bcfadde456639c1b1e206e6918d69a553.
-
-[ ... ]
-
->     Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
-
-[Severity: Low]
-The From: address is Hangbin Liu <hangbin.liu@linux.dev>, but the
-Signed-off-by: address is Hangbin Liu <liuhangbin@kylinos.cn>. Checkpatch
-reports this as FROM_SIGN_OFF_MISMATCH. The other two patches in the series
-have the same mismatch.
-
-Should this revert carry a Fixes: tag, or a stable dependency note?
-
-Commit 45fc134bcfad went in through net with its own Fixes: e0caeb24f538,
-so it has probably reached stable. The follow-up "bonding: update slave
-array on link change for broadcast mode" has Fixes: e0caeb24f538 and says
-it needs this revert first. None of the tags tell stable tooling about
-that ordering.
-
-If only the follow-up is backported, it has no effect. The
-bond_set_slave_arr() from 45fc134bcfad still drops usable_slaves for
-broadcast mode.
-
-If only this revert is backported, the bug that 45fc134bcfad fixed comes
-back: in broadcast mode the stale, empty usable_slaves array makes the
-bond always ignore updelay.
-
-> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-> index 042d7c75548fa..d6675e87d06b6 100644
-> --- a/drivers/net/bonding/bond_main.c
-> +++ b/drivers/net/bonding/bond_main.c
-> @@ -5140,18 +5140,13 @@ static void bond_set_slave_arr(struct bonding *bond,
->  {
->  	struct bond_up_slave *usable, *all;
->
-> -	all = rtnl_dereference(bond->all_slaves);
-> -	rcu_assign_pointer(bond->all_slaves, all_slaves);
-> -	kfree_rcu(all, rcu);
-> -
-> -	if (BOND_MODE(bond) == BOND_MODE_BROADCAST) {
-> -		kfree_rcu(usable_slaves, rcu);
-> -		return;
-> -	}
-> -
->  	usable = rtnl_dereference(bond->usable_slaves);
->  	rcu_assign_pointer(bond->usable_slaves, usable_slaves);
->  	kfree_rcu(usable, rcu);
-
-[Severity: Low]
-This isn't a bug, but after this revert bond->usable_slaves is published
-for BOND_MODE_BROADCAST too. Should the related comments in bond_main.c be
-updated to match?
-
-The comment above bond_update_slave_arr() still lists only the xmit-hash
-modes:
-
-drivers/net/bonding/bond_main.c:
-/* Build the usable slaves array in control path for modes that use xmit-hash
- * to determine the slave interface -
- * (a) BOND_MODE_8023AD
- * (b) BOND_MODE_XOR
- * (c) (BOND_MODE_TLB || BOND_MODE_ALB) && tlb_dynamic_lb == 0
-
-The call site in bond_enslave() explains the broadcast case only in terms
-of all_slaves:
-
-	/* broadcast mode uses the all_slaves to loop through slaves. */
-	if (bond_mode_can_use_xmit_hash(bond) ||
-	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
-		bond_update_slave_arr(bond, NULL);
-
-However, bond_miimon_inspect() now relies on the broadcast-mode
-usable_slaves to decide ignore_updelay:
-
-		usable_slaves = rcu_dereference(bond->usable_slaves);
-
-		if (usable_slaves && usable_slaves->count == 0)
-			ignore_updelay = true;
-
-The rest of the series does not change either comment. Neither comment
-says that broadcast mode must keep usable_slaves current on link changes,
-which the follow-up patch makes a requirement.
-
-> +
-> +	all = rtnl_dereference(bond->all_slaves);
-> +	rcu_assign_pointer(bond->all_slaves, all_slaves);
-> +	kfree_rcu(all, rcu);
->  }
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 68811a0b7916..3f10a5772b31 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -31316,10 +31316,11 @@ Q:	https://patchwork.linuxtv.org/project/linux-media/list/
+ F:	Documentation/driver-api/media/drivers/zoran.rst
+ F:	drivers/media/pci/zoran/
+ 
+-ZRAM COMPRESSED RAM BLOCK DEVICE DRVIER
++ZRAM COMPRESSED RAM BLOCK DEVICE DRIVER
+ M:	Minchan Kim <minchan@kernel.org>
+ M:	Sergey Senozhatsky <senozhatsky@chromium.org>
+-L:	linux-kernel@vger.kernel.org
++L:	linux-mm@kvack.org
++L:	linux-block@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/ABI/testing/sysfs-block-zram
+ F:	Documentation/ABI/testing/sysfs-class-zram
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-bond_broadcast_updelay-v1-0-188e5538d6ca%40kylinos.cn
+2.56.1.839.g22a8290db9-goog
+
