@@ -1,68 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793162;
-	b=q2v8GipivcdN1W+FFTyJdJ9tl1eCGtsv5uc0kJR9lHk1Kx6xqLrnmQuCfDLiky5iI2Mf
-	 Q4W8Hfrvy1L5c5YmzQL4G1ynB+8lXJhVqgHIlUf0GHZI7uJhWs6sDC0fMji9XyohGlLyb
-	 /wPRZpxh9rMVIdVxHgbjVVSSYddYygxGfWYj0z0FgaQ6SYapqmTVSDCf9g1v3kuTi4BbM
-	 fQGrWEN+/WCnZCJJJm5MQSYTGrleFhAiQFl78XuyPX1f75m8GNKyGiTYynC3c57bAKVBJ
-	 B+BRtfd0blI+tX57HH6xE171DBzwXYQLDfXwxPBVuj/TMR5czZA7SpdNZCGktUGVYEw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793162;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LKr0GCiGUi3of277BH7HYeRTXkU+4awYVd73tFhYy+Q=;
-	b=vkWkcBf66pOS84+AtFiA9nyZ/m8DX8eCiqvDDJ4eZDgesbMcXDvFKZ041rm3icDCXLX8
-	 kJqE4k3OLyYyZjtpZfs7JqQX3qQOOi9NLkJGk9MYHOphp+9L0qWUidoo8GKuxJT6fWMiv
-	 yD4C9zzEJlORvM8F9Q457NlOHxjNVLlln1Zue33jHk0BdHjwite0sjb3BXOlYK4A9d/tN
-	 vRXAExUPEffihUblPg2HnhE+0uVYYyB/i0i67z7zcN1XlfHNb5B1ra54EdvTEaq4x9rcO
-	 j+NjqL6nCpe+2MiWP37ydUJeXq17IGVNDI6cXuzWqtatklw7Q/IibzT3KxtHhqzLtCQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G7VQlVVc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795793204;
+	b=hfLXTeG5ZcPqYAb5NO3wwN/bv1fSPnCak5wGVW+0oMdzfzzRm+9FMWUqajHHEwlWhLTW
+	 nJpDuJmbBUOHzv3K2PTJvbDE30OITcohERv4IN6qIm0Z2pRoqF7bscLu491rfpknQUEFJ
+	 NfuridGyX41mPWE7o5g6MV5KS2u+MZh7L4gnzRWo00G1BVHIIHRMNBQX+Jm8ziTS2pcUs
+	 pd5kjliWYXxKDeME8Axn87DXBGTEu7/0bLD+Vl5AQu8yP98GlX8NJYxD+TdX2VjkboPXz
+	 RRNXuKEDTPgzNq8Ki803lNmha0WQe2+6BEbrmFinsCFWFy8YRTEtmps3tjpXF5nPF1g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793204;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+cNaFNq+h0C98G3vTstsz5kW6XsnAXUPToskRbu44xM=;
+	b=zcMArP8o6xIISLeKbwoF9lSwoBpaJysoUKt7HILrlkdNvbDGUueCllE45aMspcS7W+5k
+	 x+6iHk48DUj2UKYWyJvw1b8QGiKKLfiphBfOM6xdrf5V6xixLQoSX+wjDe2ahNcFdNIE8
+	 F+LqFPxHeiwXUFx9UIy+Kl9EqsCUMaOa27IAAzqEpk3XjeZp+DfhusS/hR1KkPt8nCbDd
+	 +lNhH0KdAXDrtFmI2lgHsVI6yF0a+Kkph1XORviV274tif3YJ6WOWVDHf6J3iPnhNP1CA
+	 rsw9D9bP5M9nKaggP5tHW2Vc3KH0bzUofSLfQpVDXKLox+EhD/0WlxzbO7IntuWSi9Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bairaktaris.de;
+	spf=pass smtp.mailfrom=bairaktaris.de;
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=n94mAkyJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
+Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 099B9606A31C;
-	Fri, 27 Nov 2026 15:26:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E6C8606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:26:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E6C8606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G7VQlVVc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424D31F00893;
-	Fri, 27 Nov 2026 15:25:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793161;
-	bh=LKr0GCiGUi3of277BH7HYeRTXkU+4awYVd73tFhYy+Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G7VQlVVczF/tSHGBXdvLK+anpnD87825Hm2G1IEJL/FB8ORk9qabwkdrrahHskhRF
-	 ApKwjCw6baZQiKfWrFK/iUYLvQ3dq9sj08y8mAexDGHaoW5ekX45AOqqQnhpDOD6Xg
-	 Tl7OSCFr7AWy6UCckg9sO4n1/XSE5VwEm2coFMjOOEqWFoVVMBeuQqz+pVTbUyA6Kw
-	 9xiEhL/0fwNd9LSsnP0n80ggV6yo172/cWwV7rwWXQFlLjrGkCeMZ0KbApF0AUSgbh
-	 2ToPAuLuM865xyrygmpIbe+WLVGbHPZxmGv//fnGZ8P7EH27t1fKdLiC8WToHCShT/
-	 +ZlaWYRZaH/WA==
-Date: Fri, 27 Nov 2026 15:25:52 +0000
-From: Will Deacon <will@kernel.org>
-To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Maxwell Bland <mbland@motorola.com>,
-	Sami Tolvanen <samitolvanen@google.com>, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH bpf] bpf, arm64: Fix jited line info off by kCFI hash
-Message-ID: <awmhAIbMV7qo608O@willie-the-truck>
-References: <20260925-b4-arm64-bpf-linfo-cfi-v1-1-e930ab335170@linux.dev>
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=n94mAkyJ
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b51389f58cso88865337b3.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:26:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795793203; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pc7QNCiD7Wi92BMGk67DUMQr7N+FjQPTMhXlHFgJV4VnHRW2oqtfWTGl46OYpmHHvr
+         rxsx1LLq7Johs01NEFSrCNt73w47gRaYsE94NvQCNl6FlTRQxJXQqxW8YbYP9oo0vXW8
+         hXF88KoM8QvA3BKIapCqAZ7n+kX80V9gzW2qOqDw5b4F3Ymae/NACyS/bGK+x+wXSIKr
+         56TF3KQbMQg4GEQRgGAswY4629G8ZIQomZtetyVX2L+N0N0dLGCuvEDwSUaVkx2tAa71
+         F06yD909TUWDyCf938EYOcE6AEJigkt3NYhE7dYhN0VZZ+eyyEFIzLxsqcqvgeSKuBgL
+         u8tA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+cNaFNq+h0C98G3vTstsz5kW6XsnAXUPToskRbu44xM=;
+        fh=U+LhMD0WLciHenXzJqt9sJKKZq4Sj+FbNkbd6TI6wp4=;
+        b=UKROgVXjYzTSzcrxXvG+f8qA/3PM6hcoVRTG6KBOhPhc1bw/HbiuNeeCet2oD5t883
+         bxeO7D3UIk7A1082VSFqeaQJGD+WghzRTs4H2Af/wi7A1dCLFH8E+pfr6qtASdE0U+aC
+         aZT5wAMdaOAP1s/PugBhF7yLvL5Sw9wg2EsaPwCbvld5kG1j8wS8o1xn5yoSVTeB98r3
+         1aZfw9H477+vHAxBnpF4iSJ8iO7Oh5Ka0PWN40MOajELLBlRNzujKzQeBsPXDYLNxRyZ
+         aJ/DAtj+kUv/oo6lF7vX0VuBDtBqqxSvbUhjSXeJL4S/U2Z98i9m76sGGdlRIRNGdOb2
+         rO0w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bairaktaris.de; s=google; t=1795793203; x=1796398003; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+cNaFNq+h0C98G3vTstsz5kW6XsnAXUPToskRbu44xM=;
+        b=n94mAkyJOfvvvFdqyDtEpzjXrweT8JaZWeLZ+JYOiBFDDuYaMPknPGxHUMwIf2p4QI
+         XbOKYuOKTdVMFxaHokKbNXTGDBUktL/B8JSyE7b6YdHb/W74KbvW6rbiCZmnIQlF/i8I
+         ALou6ktP1I5Zbs41mBTFycRR8rPWR02G+g/k6UH6l6DD/aedUb053tQ5jkZ91GKvmJIw
+         67G0iRK3SJp9Ne0ESx6cqkBNNWwucbSzu7o0e1KmDO5YpJZRB7LNyeyOHGcjxEYRPjwa
+         qp45YwL1Q5w8yIJrLzHHQk7QAC0knp49PvcDTYRwISeZGMmOYrkYRgoOL+1gkc/Fe8L+
+         ufMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795793203; x=1796398003;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+cNaFNq+h0C98G3vTstsz5kW6XsnAXUPToskRbu44xM=;
+        b=iZS0NDG/JrZhavMc4OTDoawcgPkgDomdIEWEL8k695fGkunxrHPFPlq7CMKuSFHAwp
+         nJsWLcbNRpeWNX2HNdd3I6FvPZqgI7SirEKyEdrTp1Sq096HXn4hdsLnBWVT6RhYW2sQ
+         YIelUUJyslAeAOFxM4hosq4ajXNgOb/d0KQUrGRIxmmFXuqCz6ahY4FMnUNXu/N73GC7
+         sHRq3ixZahR8d3+KcApZl18dgsK2fFzpMtAoqbvRqtEp/4Wkj5VPEVa/ZvLouETvNo/J
+         3NVB8BrzM7UPEOVKezRjW5ElhZnNF2o/O2tClgM9HNI9g6Q5VN32nrrU4LVhvDi2sB+s
+         jSVQ==
+X-Forwarded-Encrypted: i=1; AL+hErHN/F3q7T09w4f6WQMpn/qYVITPPupVY/KuzJA3172VZ2Gqys2wRf3Sb8C9AnD4bJ/GUKXxF1U/o8yQHyY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9BNtaz/S32Yf5llmhmlWpzT6H5fnEGEvZPWJk3RBarVdLDdDy6
+	r2hYSv8hMEtePyd93M7kj3yaQPYACu/Ka4oqLoQP19PYwF2zh1J/2V4bfXHziWGCiZqFWp7lIa9
+	jEk6s0F173cYkyPiuXlhkX3l6hGzF08VIHVP19W8r
+X-Gm-Gg: AZFdTZcfbIObi7rKzhEYe1ivcORmXeIV2H/+2L/JIARKo1VVIjImMFyCK77Y7twptZb
+	M3hD3bfRQCrXcwmwFyQBxALe79FulE7Tn3apxa0Pj09EduZL61gHhTkVMTeyTyuqnNY598LWbfK
+	BElX35qKOwu5DRqzZ57UpfprqDYOdOq+05fw1ZFVNynH7mHODC2eX9FUEuoz7bZfkB4H/0ZXZ+l
+	vOvPsmiDFhyFMlA2F99pZsYWQa5IwXj4IBogRZsAWLgvI1+fMpw2U4JwfsLkDBPG4j6aY9brPU9
+	Z91zXak6YPGdV5YN9rX3CmpMo6RfKYKGUMxpe0eyppv8rV7p/rweTdekBNZqaaiQO+3Aj8YOeow
+	ndCTGNN25NKiaSOgWwSRZUHOh6PoOHpBMNqqATqqFpvhv3ewcjYL+0kdbqy5QyEgEqQ3eZqY/jM
+	DusX0WiVkBlFeMPz0YxZX8gCGqZvyRCw+k7Xgkj9tyY9iySj1+vu9763gDgYlFgoV1+N3e0+SOv
+	uVWpGwkC5nxw8hFiRJ8ZE24w6pEAv5X5i1pQ2oznOJjkkuh4D6yC30+aQvWyQAcNqQqVAHy/zjV
+	nGSp04IijElw5FHDWgbMtEMZ01FRzlR34gZf65Y0vmzpxxMh04BIW2+s9EM6lolrt6gR0H0OnXG
+	/kHSXIQp2fXn9nabK/5dkloyVrC917tW4
+X-Received: by 2002:a05:690c:698e:b0:8b3:45b:a4f3 with SMTP id
+ 00721157ae682-8b5204ed736mr106681927b3.83.1795793203488; Fri, 27 Nov 2026
+ 07:26:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,79 +107,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925-b4-arm64-bpf-linfo-cfi-v1-1-e930ab335170@linux.dev>
+References: <cover.1795284858.git.julius@bairaktaris.de> <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+ <34e77fff-c57b-4ed0-9035-b9682ad3914e@redhat.com>
+In-Reply-To: <34e77fff-c57b-4ed0-9035-b9682ad3914e@redhat.com>
+From: Julius Bairaktaris <julius@bairaktaris.de>
+Date: Fri, 27 Nov 2026 15:26:08 +0000
+X-Gm-Features: Aa3M54pxMqgZ_s-9JbfNek_3dyGz87LXsEraMMuneoiDkKTrHn3sKg0m5hARvDM
+Message-ID: <CAC1t37L_+P72w+gNcrdphB7xkBmCQp5PQRFpcu1zqM1m-2Am+A@mail.gmail.com>
+Subject: Re: [PATCH net v3 1/2] net: keep the TCP fixed-ID flags on the header
+ they describe
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, willemb@google.com, horms@kernel.org, andrew+netdev@lunn.ch, 
+	dsahern@kernel.org, idosch@nvidia.com, ncardwell@google.com, 
+	kuniyu@google.com, steffen.klassert@secunet.com, herbert@gondor.apana.org.au, 
+	richardbgobert@gmail.com, ecree.xilinx@gmail.com, andy.moreton@amd.com, 
+	alex.austin@amd.com, linux-net-drivers@amd.com, saeedm@nvidia.com, 
+	tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org, 
+	linux-rdma@vger.kernel.org, alexei.starovoitov@gmail.com, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com, 
+	martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev, 
+	jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev, 
+	john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com, 
+	corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, 
+	shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, Sep 25, 2026 at 05:53:21PM +0000, Jose Fernandez (Anthropic) wrote:
-> With CONFIG_CFI=y, the jited line info of every arm64 BPF program is
-> off by one instruction, so tools that use it show the wrong source line.
-> 
-> The JIT counts ctx.offset[] from ctx.ro_image. Since commit
-> 710618c760c0 ("arm64/cfi,bpf: Support kCFI + BPF on arm64"),
-> prog->bpf_func starts past the 4-byte kCFI hash, and
-> bpf_prog_fill_jited_linfo() adds the offsets to prog->bpf_func.
-> 
-> Subtract cfi_get_offset() from the offsets before the fill, and move
-> the fill after bpf_prog_update_insn_ptrs(), which needs the offsets
-> relative to ctx.ro_image.
-> 
-> Fixes: 710618c760c0 ("arm64/cfi,bpf: Support kCFI + BPF on arm64")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/20260904014748.C04AA1F000E9@smtp.kernel.org/
-> Reported-by: Alexei Starovoitov <ast@kernel.org>
-> Closes: https://lore.kernel.org/all/DLNXZ2WK7TPD.2RZBUNRS4FA4L@gmail.com/
-> Assisted-by: LLM
-> Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
-> ---
-> Tested in an arm64 KVM guest with CONFIG_CFI=y. Without this patch
-> every line info entry after a function's first was off by one
-> instruction, and with it every entry was correct.
-> ---
->  arch/arm64/net/bpf_jit_comp.c | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
+Ack.
 
-I'm just chasing up old patches sitting around in my inbox and noticed
-this one. It doesn't _look_ like it's been applied anywhere. Is it still
-needed?
+Thanks for looking into this!
 
-Will
-
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> index c5f55d6161fee..cdc98efc1acf0 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -2345,14 +2345,21 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
->  		/* offset[prog->len] is the size of program */
->  		for (i = 0; i <= prog->len; i++)
->  			ctx.offset[i] *= AARCH64_INSN_SIZE;
-> -		bpf_prog_fill_jited_linfo(prog, ctx.offset + 1);
->  		/*
->  		 * The bpf_prog_update_insn_ptrs function expects offsets to
->  		 * point to the first byte of the jitted instruction (unlike
-> -		 * the bpf_prog_fill_jited_linfo above, which, for historical
-> +		 * the bpf_prog_fill_jited_linfo below, which, for historical
->  		 * reasons, expects to point to the next instruction)
->  		 */
->  		bpf_prog_update_insn_ptrs(prog, ctx.offset, ctx.ro_image);
-> +		/*
-> +		 * Line info is relative to prog->bpf_func, which starts
-> +		 * cfi_get_offset() bytes into ro_image. Shift the offsets here,
-> +		 * after bpf_prog_update_insn_ptrs(), which needs them unshifted.
-> +		 */
-> +		for (i = 0; i <= prog->len; i++)
-> +			ctx.offset[i] -= cfi_get_offset();
-> +		bpf_prog_fill_jited_linfo(prog, ctx.offset + 1);
->  out_off:
->  		if (!ro_header && priv_stack_ptr) {
->  			free_percpu(priv_stack_ptr);
-> 
-> ---
-> base-commit: ad139384ecddb6f3e7e3c3c12765aafae0e39670
-> change-id: 20260925-b4-arm64-bpf-linfo-cfi-f5c3897e408c
-> 
-> Best regards,
-> --  
-> Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
-> 
-> 
+Julius
