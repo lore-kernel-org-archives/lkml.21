@@ -1,58 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795783280;
-	b=wXKSZ+78/89V1O906m4UZJfZn0crxaV/DhiUQJzKBIWkUCnGjGZFNiD67DshxtEOBL+Z
-	 LKmtCobA3D4jwsypXes+55wlsnqSrjXtB0pLPwmkCogU71ZFylwUrUkOd6rqo71Ny91UB
-	 MJaWW3OF58su6s4ti47hzYOYxULblKDRW6MIvTRef/EmBdne5XB+4BgTBAVQP8+2+7Fcn
-	 i22liS5KSt2Mj4/UfNw0lzh9YW5rvM8Wv40XMwF3vQHKWM9A+HXcYwfgc/ocA0SwqB0sO
-	 PMHLgnb2mxOzP6pz0w/z+P+jzpkEieQpDGxf6BbaQY0UieRrMR9WUErj4nkAc3Bv9zA==
+	b=bCPtDKRLq0lDdR7Znkb91QH1ZPK8pLUit0qUot5R99C7/7nJtetQrMBBVqiPHttbvd69
+	 R7zK7XNbrkWWLCJM9UNxS2a4yCj5hQlvgE8cMNmHPmUBv5h2DGxdZ/iUOIjBjiYN4SzeU
+	 5i8gjEzcYlNNxBFXpolhx7iOBwhxmWaOPNvwNr9VgVskECHCuc1RDGuYxswqEkFCeWWko
+	 45FFGai70GP4dXfWLb5R/w9DtwJMJwdtkhsIkPDne4Mkcr6sjVk27IdsoPlZNey2Sjoop
+	 3pvQ0d74nP5oZ6lzbIJ9wK9SBreNh+VlWReYgYizoWcxrG6lbU7nxKwwtL3Rh47WA4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795783280;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=RX3fzEdwUjmGJgfb5WwQYbXjcguQbLTc/Bu5Kcu6W5Q=;
-	b=ZlfySpeSKZ3bL/0vvU96MQ10g6lge/Tn0+07dHFzYzgN5lZsJ8rqfREZCIEnSiJqEo0e
-	 BR1cpjbLH9ak2J9/Vs3acODIWiiCLoKJ5sD73rehJEAX5UjVg8f7sKagQDNj/NAE9cQCj
-	 CXNsRqvpwGEpm3DxuIN27JBfThasx7EAJ9O2FtpMadNnXpWN9usNrgOqhoDO2+DMlIT44
-	 W5xP6a8easy4tlxcze9KlobL5W8smXtIfZUPLO4H6lawc+hsrF+hXdX3I8MOMleE8qBIs
-	 WRkloMhKTOJ/NFZ5RxaovGIMYqvSZLso+JoDPBac5lm57KmN1LJA6N1gugb1oIPvxBw==
+	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=f2IKiIgwrwPhZnKxMWhFMgyWeawmFybOA5SI2KKPvfQ=;
+	b=G9sOBdtmXL5Gylf/B58IwWOsV7Zo9MWPMQl7eBdfcctCJf9O6qsQ04AnD+5nLQBmY4Xw
+	 g7d7/CTACJVAQIBgI8U/MwIWMSihjcK5EfaffI/Xf5QAE8A4v5Jfz7T4uBr47o+umK5nT
+	 wGocZlL3A7LATnp1sNDr5X/zWovBubnYF9LzG9iHyOnYWq6IhfnsXUEVFdcOK5EkIm/aQ
+	 LZnBJLCBFhU69mT9kbaLzsd+eyAsy5CpmJlWAvAPzubteLfL5urY4+jbToTu8YjhBJM+b
+	 fbQ9Zgosl796XpfPxY7AZjipCe5o+cbvfUQmRI6oKDEw4jcf3aGHXn0dCfsuKHbkcuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=pkB2H5XB;
-	arc=none smtp.remote-ip=220.197.31.8
-Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.8])
+	dmarc=none header.from=deq.rocks;
+	spf=none smtp.mailfrom=deq.rocks;
+	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=RxtkvXto;
+	arc=none smtp.remote-ip=91.216.248.207
+Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D44CD606A31C;
-	Fri, 27 Nov 2026 12:41:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D44CD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D2E3606A32C;
+	Fri, 27 Nov 2026 12:41:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D2E3606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=pkB2H5XB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=RX
-	3fzEdwUjmGJgfb5WwQYbXjcguQbLTc/Bu5Kcu6W5Q=; b=pkB2H5XBBlnZbXO5lh
-	zLuUs3K5ttroa+hKTfB82Q0Jjf+bCdg0G26TwZxa1bWaaqQW9zLMPWfjSAihZ2ul
-	8OMwnR+q2tjy7TwIRFdv1d6tMGA4kzcZA6mK5EygfseGzKQFxBxFBOoDn1jM/L4n
-	uPp9L3VU2nh3ESc0AdILoQHhU=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3t15NeglrlgYZBQ--.51046S2;
-	Fri, 27 Nov 2026 20:40:48 +0800 (CST)
-From: Bilal Hashim <AeeSec@126.com>
-To: Viresh Kumar <viresh.kumar@linaro.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Cc: linux-pm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=RxtkvXto
+From: Andre Eikmeyer <dev@deq.rocks>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
+	s=securedbylima-20251205; t=1795783271;
+	bh=3sGLL6APmhRqO/jkfKMLi1YXNpdQbllVfhOQGjaHsKs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RxtkvXtoYAdpuSFziE7Z2GpOxvlovwv8BJrIfFXGmg8L6WwgRa492F3CmgDLNmpkA
+	 DehDkAEcKUCdQtyv1cf1AzP0r9DtW/zW2QonDSZc5FSGMXRqRf6yau1pwhNz9wVb+B
+	 c+4haVm9hELexfEY+vYuoEZVkMqdmBI9r1b3EoCyr/D495Uf9ODNgdHZ8U4GRm8YaE
+	 8FEj/bR3AnEsnYX2AzayX9O2hFiDvKuUGbTEQSWqnVuzJ+MluEVp1SQX8PW2VD1gjx
+	 PxeUI+r2K3OvkZcP0jcuYb1jJPisaMyPh6b+fhbotRdR6R9p9q/eTFLOFwudq7+quP
+	 NQhuV5ScMBaMQ==
+To: arend.vanspriel@broadcom.com
+Cc: linux-wireless@vger.kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
 	linux-kernel@vger.kernel.org,
-	Bilal Hashim <AeeSec@126.com>
-Subject: [PATCH] cpufreq: rcpufreq_dt: avoid dangling policy->freq_table on init error
-Date: Fri, 27 Nov 2026 20:40:18 +0800
-Message-ID: <20261127124018.972-1-AeeSec@126.com>
-X-Mailer: git-send-email 2.47.0.windows.2
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Aditya Garg <aditya.garg@linux.dev>,
+	Andre Eikmeyer <dev@deq.rocks>,
+	Yossef Osman <Yossef.Osman@proton.me>
+Subject: [PATCH wireless-next v3 1/6] wifi: brcmfmac: move the interface_create definitions to fwil_types.h
+Date: Fri, 27 Nov 2026 13:40:59 +0100
+Message-ID: <20261127124104.233236-2-dev@deq.rocks>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261127124104.233236-1-dev@deq.rocks>
+References: <20261127124104.233236-1-dev@deq.rocks>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,61 +71,125 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3t15NeglrlgYZBQ--.51046S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Ar1rWF45urWkAF4DCF4fAFb_yoW8Aw43pF
-	WrtrZ0yr1rXF9xZw47Xr4Y9r18tF4DCrWUGryUWrnav3srAF4j9a1jgry8XF4kurn8CrWS
-	yrnY9FW7JFW8JrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zi0D7DUUUUU=
-X-CM-SenderInfo: 5dhh2vbf6rjloofrz/xtbBnhHPamsJelGkfQAA36
 
-In CPUFreqDTDriver::init(), policy.set_freq_table(&freq_table) stores a
-raw pointer to `freq_table` inside `policy->freq_table` before
-policy.set_clk() and Arc::new() are called.
+The interface_create iovar structures and flags are firmware interface
+types like the others in fwil_types.h. Move them there so code outside
+cfg80211.c can create firmware interfaces as well.
 
-If either policy.set_clk() or Arc::new() fails, Rust drops `freq_table`
-(freeing it via dev_pm_opp_free_cpufreq_table()), while the C cpufreq
-core's `out_clear_policy:` error path in cpufreq_online() only clears
-`policy->cpus` and does not reset `policy->freq_table`. When a policy is
-reused on subsequent CPU online attempts, `policy->freq_table` retains a
-dangling pointer to freed memory.
-
-Allocate the `Arc<CPUFreqDTDevice>` before installing `freq_table` into
-`policy` so that `policy->freq_table` is only set once `init()` cannot
-fail.
-
-Signed-off-by: Bilal Hashim <AeeSec@126.com>
+Tested-by: Yossef Osman <Yossef.Osman@proton.me>
+Tested-by: Aditya Garg <aditya.garg@linux.dev>
+Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
+Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
 ---
---- a/drivers/cpufreq/rcpufreq_dt.rs
-+++ b/drivers/cpufreq/rcpufreq_dt.rs
-@@ -134,15 +134,13 @@ impl cpufreq::Driver for CPUFreqDTDriver {
-             .set_transition_latency_ns(transition_latency);
+ .../broadcom/brcm80211/brcmfmac/cfg80211.c    | 42 ------------------
+ .../broadcom/brcm80211/brcmfmac/fwil_types.h  | 43 +++++++++++++++++++
+ 2 files changed, 43 insertions(+), 42 deletions(-)
+
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
+index 57689026525e..2035535b753f 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
+@@ -271,48 +271,6 @@ struct parsed_vndr_ies {
+ 	struct parsed_vndr_ie_info ie_info[VNDR_IE_PARSE_LIMIT];
+ };
  
-         let freq_table = opp_table.cpufreq_table()?;
--        // SAFETY: The `freq_table` is not dropped while it is getting used by the C code.
--        unsafe { policy.set_freq_table(&freq_table) };
+-#define WL_INTERFACE_CREATE_VER_1		1
+-#define WL_INTERFACE_CREATE_VER_2		2
+-#define WL_INTERFACE_CREATE_VER_3		3
+-#define WL_INTERFACE_CREATE_VER_MAX		WL_INTERFACE_CREATE_VER_3
+-
+-#define WL_INTERFACE_MAC_DONT_USE	0x0
+-#define WL_INTERFACE_MAC_USE		0x2
+-
+-#define WL_INTERFACE_CREATE_STA		0x0
+-#define WL_INTERFACE_CREATE_AP		0x1
+-
+-struct wl_interface_create_v1 {
+-	u16	ver;			/* structure version */
+-	u32	flags;			/* flags for operation */
+-	u8	mac_addr[ETH_ALEN];	/* MAC address */
+-	u32	wlc_index;		/* optional for wlc index */
+-};
+-
+-struct wl_interface_create_v2 {
+-	u16	ver;			/* structure version */
+-	u8	pad1[2];
+-	u32	flags;			/* flags for operation */
+-	u8	mac_addr[ETH_ALEN];	/* MAC address */
+-	u8	iftype;			/* type of interface created */
+-	u8	pad2;
+-	u32	wlc_index;		/* optional for wlc index */
+-};
+-
+-struct wl_interface_create_v3 {
+-	u16 ver;			/* structure version */
+-	u16 len;			/* length of structure + data */
+-	u16 fixed_len;			/* length of structure */
+-	u8 iftype;			/* type of interface created */
+-	u8 wlc_index;			/* optional for wlc index */
+-	u32 flags;			/* flags for operation */
+-	u8 mac_addr[ETH_ALEN];		/* MAC address */
+-	u8 bssid[ETH_ALEN];		/* optional for BSSID */
+-	u8 if_index;			/* interface index request */
+-	u8 pad[3];
+-	u8 data[];			/* Optional for specific data */
+-};
+-
+ static u8 nl80211_band_to_fwil(enum nl80211_band band)
+ {
+ 	switch (band) {
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fwil_types.h b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fwil_types.h
+index 37d9414546d5..973598d43368 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fwil_types.h
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/fwil_types.h
+@@ -1375,4 +1375,47 @@ struct brcmf_eventmsgs_ext_le {
+ 	u8 mask[] __counted_by(len);
+ };
  
-         // SAFETY: The returned `clk` is not dropped while it is getting used by the C code.
-         let clk = unsafe { policy.set_clk(dev, None)? };
- 
-         mask.copy(policy.cpus());
- 
--        Ok(Arc::new(
-+        let data = Arc::new(
-             CPUFreqDTDevice {
-                 opp_table,
-                 freq_table,
-@@ -151,7 +149,12 @@ impl cpufreq::Driver for CPUFreqDTDriver {
-                 _clk: clk,
-             },
-             GFP_KERNEL,
--        )?)
-+        )?;
++/* interface_create iovar */
++#define WL_INTERFACE_CREATE_VER_1		1
++#define WL_INTERFACE_CREATE_VER_2		2
++#define WL_INTERFACE_CREATE_VER_3		3
++#define WL_INTERFACE_CREATE_VER_MAX		WL_INTERFACE_CREATE_VER_3
 +
-+        // SAFETY: `data` owns `freq_table` and will not be dropped while in use by the C code.
-+        unsafe { policy.set_freq_table(&data.freq_table) };
++#define WL_INTERFACE_MAC_DONT_USE	0x0
++#define WL_INTERFACE_MAC_USE		0x2
 +
-+        Ok(data)
-     }
- 
-     fn exit(_policy: &mut cpufreq::Policy, _data: Option<Self::PData>) -> Result {
++#define WL_INTERFACE_CREATE_STA		0x0
++#define WL_INTERFACE_CREATE_AP		0x1
++
++struct wl_interface_create_v1 {
++	u16	ver;			/* structure version */
++	u32	flags;			/* flags for operation */
++	u8	mac_addr[ETH_ALEN];	/* MAC address */
++	u32	wlc_index;		/* optional for wlc index */
++};
++
++struct wl_interface_create_v2 {
++	u16	ver;			/* structure version */
++	u8	pad1[2];
++	u32	flags;			/* flags for operation */
++	u8	mac_addr[ETH_ALEN];	/* MAC address */
++	u8	iftype;			/* type of interface created */
++	u8	pad2;
++	u32	wlc_index;		/* optional for wlc index */
++};
++
++struct wl_interface_create_v3 {
++	u16 ver;			/* structure version */
++	u16 len;			/* length of structure + data */
++	u16 fixed_len;			/* length of structure */
++	u8 iftype;			/* type of interface created */
++	u8 wlc_index;			/* optional for wlc index */
++	u32 flags;			/* flags for operation */
++	u8 mac_addr[ETH_ALEN];		/* MAC address */
++	u8 bssid[ETH_ALEN];		/* optional for BSSID */
++	u8 if_index;			/* interface index request */
++	u8 pad[3];
++	u8 data[];			/* Optional for specific data */
++};
++
+ #endif /* FWIL_TYPES_H_ */
+-- 
+2.56.0
 
