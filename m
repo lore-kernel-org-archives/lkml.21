@@ -1,68 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821306;
-	b=DmKsD2TBXIJmtIhIQRoA2nP5hfhWUE2nFQhyjfI6JE4iACOhcW3fHW9ar3tFmySo5c9O
-	 hpPS3aV89S/dB6qhBVBVtc89WyAWwUW3iqGVBMJLWe5Blysif6pmR5cOztlP5pdTPxyuj
-	 mojpE3zbN3hvps2ZRK2agLAD7CNDTAb/Xy1ViEDnf1shwDld10tpOFl41RqCtakzJpuVF
-	 0xFTlPz+bmhCaOTlsHfog8pTrkxKUSB6rAM4eAcmOmzc6ps2Y/NGXdLPvr0fKtc4d/THN
-	 aywreSOxwd0JUTIG4Y9g160iKg3pGzWbs+9o0CC+cguI3tE774RVK3tiZ5azv2DuHyg==
+	t=1795821489;
+	b=VOY4d9lPWuPqk7CZ7kKKV2bFxgf+LENBILBTcBtPkFMcZ9gnjK7KtRNA3DbZ3qVtaHPj
+	 V+fwWO6ysp2cuXCtrfJmdkxdUWhodByvY+qo8Z+kPsjdYaYvMZC7W0MLig+PQr6YRL6HC
+	 8vLqqmo/aC3AcNG1wXc2ChTyOpdbIfdM4iKS7GmBrpo+ERoORCz1U0GWFkc0Ezw7YXFf0
+	 b668Sd+Wrl/ugysn55IxzW3C8ZfEmU2FaOOHzGeYmnpYp6Y3fIEXw0sWZ6ZoPI7IUUHbN
+	 id6TgO506UNbina7XJeShTAHBVmD/UQyo9d44uytd14hrz2+vIDbbLvjQSh4WcH2SOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821306;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=IrDS4A11tKAewGc5ik+OaYkecvMF57R7fCAe0JmkaBc=;
-	b=k7NgFRDDSTyePk6iZHx7lRR5L+AuwVLE6qGSN3AyJPFNyYm2RGrH65uUzYWO//cAk51C
-	 g18U5c4NCmIsuEAg2gGPqqXxhQOp5pl1Yuze/DXe3ABqlbwhF9ZTb0t1gR8/NZB8UzWV0
-	 eCI7m0863OckeeuFCQmScvitlsp3RM5z0jTYNbx99hp46xskBlH85K11CvOYcubt8wVQX
-	 uHVpgrLPxrhoo17agc9Ce7zyUTj26CojwOmpSEOH9ypEeYkH6ILO9uDTHfwuTzyJV0+gv
-	 sDrQ8MNAq6n9KK4V5+gJuIN2R36mLPcksY0hHGEqUdhRcDfnxxnU29kbfm3siOO16gQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821489;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Reply-To:Subject:Content-Language:To:Cc:
+	 References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=dRBwepvEc84ti5G0r6gYv9Re/mpBE70ISEuNrETw7+I=;
+	b=vwCirTK+7LqL40LMuZL+S6UBo3VASxY+1dS28zBtSZOnCEuHV8288g5zUYBjK5j5WBqY
+	 e+FzCir60FS5+G8tDdiG4mdZT0PRw6hyO+4mi5TW0eN2TFBW+7wJF/to8hw5prFro1kkp
+	 1w5eXt2EEdc8XxDLXM082Hdbo3VYf5rUb3wD50MuSeuQWGp3uXZRjDkU3t/nVPuwkh4/K
+	 RSBi7aPipMHQCduTOFgZCjtfRpaY9YGMqfJVHdVRKE56afj3DgUJbYQpSW0beUDEbGmWS
+	 B1VL5fYxyBiLVi6e0deL2XywdoB+7U8GttiwPbQtYE2ZqoN81Wzzqr3f722pDzaoOzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EcQaKITO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aYcGZQ4q;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 26F85606A32A;
-	Fri, 27 Nov 2026 23:15:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C7F7606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:18:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C7F7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EcQaKITO
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 0FA1D1F000C1;
-	Fri, 27 Nov 2026 23:15:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795821305;
-	bh=IrDS4A11tKAewGc5ik+OaYkecvMF57R7fCAe0JmkaBc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EcQaKITOrl9V263dyfVjJdRqu7KemR4FxN4hFjrTHw+2KzO3Qa+MByOpOjIhMqFmV
-	 qCT+jPAFEuySBDSXaWluhEjpN3uxqXzgWRq0njWLczKgZ8oCZVwpsLnlBs2YpNlzDT
-	 6JqU5uXjurbdb7FHb3cEAd69Aq8R00ULrBKfvdxNHM8SdS8qBiOd5QCdI9SSVvtDVh
-	 gOTGLLnz2XfqY6CjGmNkP/lR9OOP1eTnCzUL7dudMCQbsYed+ylVDuFvMN49yFUckG
-	 puAtcdZCbt343YroteKV5W4L6rq6JNEyg4255jegM4RiST3htoJ/dwCChVDytRVczg
-	 YZ+0shkfiEW4w==
-Date: Sat, 28 Nov 2026 01:15:01 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Askar Safin <safinaskar@gmail.com>
-Cc: aleksa@amutable.com, alex@amutable.com, alexei.starovoitov@gmail.com,
-	arnd@arndb.de, bpf@vger.kernel.org, brauner@kernel.org,
-	containers@lists.linux.dev, corbet@lwn.net, dhowells@redhat.com,
-	ebiggers@kernel.org, giuseppe@scrivano.org, hughd@google.com,
-	jack@suse.cz, jlayton@kernel.org, josef@toxicpanda.com,
-	kees@kernel.org, kpsingh@kernel.org, lennart@poettering.net,
-	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
-	luto@amacapital.net, neal@gompa.dev, oleg@redhat.com,
-	paul@paul-moore.com, ptikhomirov@virtuozzo.com, sergeh@kernel.org,
-	skhan@linuxfoundation.org, viro@zeniv.linux.org.uk,
-	zygmunt.krynicki@canonical.com
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Message-ID: <awoO9R7YF_5_6dHA@kernel.org>
-References: <awOQDOel_72Xwjm7@kernel.org>
- <20261127214103.542291-1-safinaskar@gmail.com>
- <awn-ioAuksHNV-Rc@kernel.org>
- <awn_Y7oI4ckfsjSv@kernel.org>
- <awoHex4LVst2JwkO@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aYcGZQ4q
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso4562535a91.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:18:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795821488; x=1796426288; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dRBwepvEc84ti5G0r6gYv9Re/mpBE70ISEuNrETw7+I=;
+        b=aYcGZQ4qYJMTjQ92Mj7CrJi4JY3WuxJlaEGJWgNmBHI5uCPMZOaNk1+vXlS5F065GT
+         25XFspQnPc31reH9ZxaW3wXdWlnkcxxcTB7jDSgcSjLaZFi7aZjgz9C6uCPwnI2ud3HD
+         GQMb9paibGzPCPeEyCTh1ZwSREcJEJpg5FiXyyv07UklnOKhQGUItz6UDvIYiWzkNxzF
+         f0RAMjlqiAOsmq5Lhh8BBJLLoymf9MDUQvnqW1eW34NDqTrZb/9TJ0Sm+tgzuLNx1pXP
+         +ilgIy8legcKcdMI0BHFGpXX/8NJrj2Vyy063xaR8Ubf71+6yEE3HQViijTM+WwW3Zlq
+         xxPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795821488; x=1796426288;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dRBwepvEc84ti5G0r6gYv9Re/mpBE70ISEuNrETw7+I=;
+        b=kgrWVcI/Zn+3nQEUJlQUF5G3eWOjUyPSu9fO+TEJ1xC5Hhl12k1ssj/ORTFVfsRJO5
+         gmJLjT9vxGT1ULNpq9nSVnFsc28EzQnvlxzA1c0JW6W2wT4hgTKYaFStwjKdePzIH+Dj
+         0zzvX7f5VBP8UB80nm2Ycvlujq/AUIfh7uSRnEkwJnlbJIUQ0EfTrW3FEvFAtxv0SpwZ
+         EvH5gcYXWwr9FDqR+8qYHW+guZo+5yq7Q5sUFBs9qYqgeOfJ0cbeGEKwCPg7d4LQntx2
+         X3Usz0dKtoS+QqHP/VpDtuSqKiAEaI6UtitwMq16VZ+ccPraRpfT1qGfMoymDy4neRsK
+         hJLQ==
+X-Gm-Message-State: APuU4Z85kixSFRAA8Wtfp2YNUB9JQkYyyNRY4TvX67pU44joeybfMPl3
+	eW4XMQYYTesX0C4CN2MEb0ie+LJmm37AO2cyG6Plrx8HOe1JaShvQauU
+X-Gm-Gg: AZFdTZfgVmgQGj6X6LMIg5NVSLjU3f6GlHYE3o13zBGTbcmim5SyqswlsEafGuGKfs1
+	YxFFPqGl0T8J8TkB0NI5PRF/dc+04MAS9NKntR1woGpnATGZHWb8NtuHYkqECivRjrptzJaIwzv
+	qKltr1S/ky6ToOMyVaiea9PqruA1Oj/bNeTNizKmH4C70JG0EozgWdOD1hDLRaONrXrqtiVgEt/
+	SH6Q/LQQrnvOPaS17PKeZaW8wDgrTIUPJUxNSo+TxxV8R4OHOprDgH2OLzKJ5HJZdbygn6/HiTo
+	dB9JMPEtr+jS5rDv3idG29w+srK9TzSVT7YNraHgSRPEn+biAXpeojNMzdBESlsqme5ikno9PF/
+	ac0tclkWFSYLAsxxbO3P2tzO5V/McTL2TFMFo8EnWc3CcLcYmiCv2cMaq0RDSXDKze2EVA7nq7K
+	GNJU6XaBNQ+ko0sig+X4LH7YXOFPYRDQ+DLGxrET1Xzw7xDH+wxW7DR8VoT+USoibSY1WR5JMlB
+	UVkaP30oCYVlAJ+eKCbJoChR1dOb8zRoTad/D2HOPb1fxHj1XurE9xTtdfTzaSVwz8AFp7IY9Bn
+	dWOeR80CSTtGqyGfbvWmGGotHd3FOko2Cs6xQ6OyqpUrI3xbzvnvAlE1gc7McrysJCI=
+X-Received: by 2002:a17:90b:1b0e:b0:3b5:3606:f7a with SMTP id 98e67ed59e1d1-3b536060fa4mr4512968a91.1.1795821488334;
+        Fri, 27 Nov 2026 15:18:08 -0800 (PST)
+Received: from [192.168.35.60] ([218.50.238.131])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm42857690a91.4.2026.11.27.15.18.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 15:18:07 -0800 (PST)
+Message-ID: <9f51b843-148d-44f9-8910-79cb9091f17c@gmail.com>
+Date: Sat, 28 Nov 2026 08:18:05 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,67 +90,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awoHex4LVst2JwkO@kernel.org>
+User-Agent: Mozilla Thunderbird
+Reply-To: chanwoo@kernel.org
+Subject: Re: [PATCH] extcon: fix typos in comments
+Content-Language: ko
+To: Hemanth Selam <hemanth.selam@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi
+ <cw00.choi@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+References: <20260904110622.16766-1-hemanth.selam@gmail.com>
+From: Chanwoo Choi <cwchoi00@gmail.com>
+In-Reply-To: <20260904110622.16766-1-hemanth.selam@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 28, 2026 at 12:43:12AM +0200, Jarkko Sakkinen wrote:
-> On Sat, Nov 28, 2026 at 12:08:38AM +0200, Jarkko Sakkinen wrote:
-> > On Sat, Nov 28, 2026 at 12:05:03AM +0200, Jarkko Sakkinen wrote:
-> > > On Sat, Nov 28, 2026 at 12:41:03AM +0300, Askar Safin wrote:
-> > > > Jarkko Sakkinen <jarkko@kernel.org>:
-> > > > > I personally think that "getting in" should not be a goal in the first
-> > > > > place. I care more about that whaever gets in has a high bar of
-> > > > > quality enough. It can be something different than this but
-> > > > > when I read the LWN article about Cells I was alarmed enough
-> > > > > so that I had to do this and prove my point.
-> > > > 
-> > > > I think that Bacik's patchset has better chances than yours.
-> > > > I think so, because (as Bacik said) it was tested in Anthropic, and also
-> > > > because Brauner reacted positively:
-> > > > https://lore.kernel.org/all/20261021-zeitig-niemals-clubmitglieder-b3973fcebd38@brauner/ .
-> > > > 
-> > > > So I suggest reading Bacik's patchset and say what you don't like about it.
-> > > > You will have chance to influence Bacik's proposal before it will be merged.
-> > > 
-> > > I've read it through and the way I'm seeing it is that it is overdoing,
-> > > and has somewhat complicated life-cycle model tbh. I don't like it.
-> > > 
-> > > This could be of course wrong way to see things and I did this just
-> > > to demonstrate that similar goals can be achieved with a relatively
-> > > lightweight core. And this is also demonstrated with a Python daemon
-> > > emulating Cells style containers (and alos relatively trivial SystemD
-> > > wiring).
-> > > 
-> > > There's no reason to continue this for the time being as it
-> > > demonstrates already how I see the world i.e., "I showed the
-> > > code". It's up to whoever decides these what they do.
-> > 
-> > And even if Cells is the ultimate solution since I had thought about the
-> > whole problem 1.5 years (mainly for my own entertainment but still) this
-> > was the best way to unpurge all of that. Regardless, world became a
-> > better place... New information arrived.
+On 9/4/2026 8:06 PM, Hemanth Selam wrote:
+> Fix typos in comments, reported by scripts/checkpatch.pl using the
+> misspelling list in scripts/spelling.txt.  Only touches comments, no code
+> changes.
 > 
-> When it comes to containers and namespaces I even don't want to have
-> any opinions tbh, because it is so opionated area to begin with. Thus,
-> I pushed back sending anything using this approach for a year.
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+> ---
+>  drivers/extcon/devres.c              | 6 +++---
+>  drivers/extcon/extcon-intel-cht-wc.c | 4 ++--
+>  drivers/extcon/extcon-max77693.c     | 4 ++--
+>  3 files changed, 7 insertions(+), 7 deletions(-)
 > 
-> Despite the patch set tsunami (sorry about that, shit started to 
-> unpurge as I went on), I was not too hesitate to send this in the
-> first place, or have no motivation to compete with any solution.
-> 
-> I did all this really for the sake of rightful concerns about the
-> complexity of the mainstream approach; and in that sense I'm happy about
-> myself.
+> diff --git a/drivers/extcon/devres.c b/drivers/extcon/devres.c
+> index f9d52e8ec5cf..01da069ad4c9 100644
+> --- a/drivers/extcon/devres.c
+> +++ b/drivers/extcon/devres.c
+> @@ -113,7 +113,7 @@ EXPORT_SYMBOL_GPL(devm_extcon_dev_free);
+>   * If extcon device is registered with this function and the device needs to be
+>   * unregistered separately, devm_extcon_dev_unregister() should be used.
+>   *
+> - * Returns 0 if success or negaive error number if failure.
+> + * Returns 0 if success or negative error number if failure.
+>   */
+>  int devm_extcon_dev_register(struct device *dev, struct extcon_dev *edev)
+>  {
+> @@ -167,7 +167,7 @@ EXPORT_SYMBOL_GPL(devm_extcon_dev_unregister);
+>   * "old_state", not the current state. The current state can be retrieved
+>   * by looking at the third pameter (edev pointer)'s state value.
 
-When I was thinking about the whole problem (for mostly fun) I was
-thinking more sequencing than data structures. I.e. I have a game where
-I need to end up to process creation without embryonic state, and add
-just enough weight to kernel to support that outcome, and that leads
-to ~2K'ish LOC of extra kernel complexity.
+Thanks for your fixup. you better to fix 'pameter -> parameter' together on this patch.
 
-The type of staging that SGX driver uses seems to work really well here,
-and allows to create the container state easily in non-running 
-state.
+Also, there are remained typo. Could you please fix it together?
+~/kernel/extcon$ git grep -n -e specfic -e negaive -e upto -e pameter -- drivers/extcon include/linux/extcon*
+drivers/extcon/devres.c:168: * by looking at the third pameter (edev pointer)'s state value.
+drivers/extcon/extcon.c:908: * the current state of an external connector and the third pameter
+drivers/extcon/extcon.c:971: * the current state and the third pameter is the pointer of extcon device.
 
-Br, Jarkko
+
+>   *
+> - * Returns 0 if success or negaive error number if failure.
+> + * Returns 0 if success or negative error number if failure.
+>   */
+>  int devm_extcon_register_notifier(struct device *dev, struct extcon_dev *edev,
+>  				unsigned int id, struct notifier_block *nb)
+> @@ -223,7 +223,7 @@ EXPORT_SYMBOL(devm_extcon_unregister_notifier);
+>   * device resource management and simplify the control of unregistering
+>   * the notifier of extcon device. To get more information, refer that function.
+>   *
+> - * Returns 0 if success or negaive error number if failure.
+> + * Returns 0 if success or negative error number if failure.
+>   */
+>  int devm_extcon_register_notifier_all(struct device *dev, struct extcon_dev *edev,
+>  				struct notifier_block *nb)
+> diff --git a/drivers/extcon/extcon-intel-cht-wc.c b/drivers/extcon/extcon-intel-cht-wc.c
+> index 99a9dfc62e2b..0f2168150a98 100644
+> --- a/drivers/extcon/extcon-intel-cht-wc.c
+> +++ b/drivers/extcon/extcon-intel-cht-wc.c
+> @@ -145,7 +145,7 @@ static int cht_wc_extcon_get_charger(struct cht_wc_extcon_data *ext,
+>  	int ret, usbsrc, status;
+>  	unsigned long timeout;
+>  
+> -	/* Charger detection can take upto 600ms, wait 800ms max. */
+> +	/* Charger detection can take up to 600ms, wait 800ms max. */
+>  	timeout = jiffies + msecs_to_jiffies(800);
+>  	do {
+>  		ret = regmap_read(ext->regmap, CHT_WC_USBSRC, &usbsrc);
+> @@ -192,7 +192,7 @@ static int cht_wc_extcon_get_charger(struct cht_wc_extcon_data *ext,
+>  		return EXTCON_CHG_USB_CDP;
+>  	case CHT_WC_USBSRC_TYPE_DCP:
+>  	case CHT_WC_USBSRC_TYPE_DCP_EXTPHY:
+> -	case CHT_WC_USBSRC_TYPE_MHL: /* MHL2+ delivers upto 2A, treat as DCP */
+> +	case CHT_WC_USBSRC_TYPE_MHL: /* MHL2+ delivers up to 2A, treat as DCP */
+>  		ext->usb_type = POWER_SUPPLY_USB_TYPE_DCP;
+>  		return EXTCON_CHG_USB_DCP;
+>  	case CHT_WC_USBSRC_TYPE_ACA:
+> diff --git a/drivers/extcon/extcon-max77693.c b/drivers/extcon/extcon-max77693.c
+> index 2c567e0b7b7f..2839f0c946c9 100644
+> --- a/drivers/extcon/extcon-max77693.c
+> +++ b/drivers/extcon/extcon-max77693.c
+> @@ -689,7 +689,7 @@ static int max77693_muic_adc_handler(struct max77693_muic_info *info)
+>  		 *
+>  		 * The MAX77693 MUIC device can detect total 34 cable type
+>  		 * except of charger cable and MUIC device didn't define
+> -		 * specfic role of cable in the range of from 0x01 to 0x12
+> +		 * specific role of cable in the range of from 0x01 to 0x12
+>  		 * of ADC value. So, can use/define cable with no role according
+>  		 * to schema of hardware board.
+>  		 */
+> @@ -708,7 +708,7 @@ static int max77693_muic_adc_handler(struct max77693_muic_info *info)
+>  		 *
+>  		 * The MAX77693 MUIC device can detect total 34 cable type
+>  		 * except of charger cable and MUIC device didn't define
+> -		 * specfic role of cable in the range of from 0x01 to 0x12
+> +		 * specific role of cable in the range of from 0x01 to 0x12
+>  		 * of ADC value. So, can use/define cable with no role according
+>  		 * to schema of hardware board.
+>  		 */
+
+
+-- 
+Best Regards,
+Chanwoo Choi
+Principal Engineer, Samsung Electronics
