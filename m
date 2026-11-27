@@ -1,79 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795798285;
-	b=RPMGvwH2wm/76FyY/oGdEQsMkhYcIDUaPiG/d0BqTDyAC70vAagBxTP9/j9fCR9jn4uV
-	 OucRW/jBXS1ddZxoMA8bdzknKPAaYJ4F5UafkMZXpLNRw1WKekecD+pKk607bo4s5sRqS
-	 LaoKZ5jxCkgnN8mMPaSH0C/04bcHgRZcM4c5rYeXX1/L87UyowxQVp3dOEFzTOn0ZIYvH
-	 eZZiZlCMiBhXkKpWb+/vpjchB2xHtyymuEQ4TGV6vQIE5zqSOyxtF4AUXXKp1wuXEDaZc
-	 voQ9Q3XmLDL8yNIjY4HTzhlHanfHwC8XW8rWXOXVq6dOiOur/a9qrIwM43aRVuAamOQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798285;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tPzq++25rZpLN7gnbHUwUk2EGIjC7lY29lr/l+RY2Hc=;
-	b=XM2S3mo+c1QYm5eKr68gCx/zg3UJLV3pOYxwrEaB6jWoaKm5yKcBJ67uEExXmwafILGX
-	 X6R+vcuvOrgKGq7Hj3SyA/RXQDyT8aHeo8gYtnzgpreohjGzvFa2PEdSpv5AmGFp4SyZO
-	 NZeHWzcFrLH5o/LFXGBfdERvxZ/iza7Mw5VAhfyOihgmDJ0iMGoE90ovvyDDN0ndjZsiS
-	 8cUqhd1vVGJFVEpy+ofMWBm9oU9AWYxnWACoNt3m4UQ/s1p+bMvnGXArSzxfYe2V9UCz0
-	 OeAOQbZ1lxRedCPK4uonqupqOB0aTV3ElQjzlrz8BUitJ+GxYWeI7q+cVliiEqBpLvw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oA3fbSvw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2A55606A31C;
-	Fri, 27 Nov 2026 16:51:25 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oA3fbSvw
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795798285;
-	b=T1S9/7BiS2gp7iEqwXg8aM7t3RbJkKV2C3/uWnTgY9vFf9ThhNadpOyPdNXkztb5MGgL
-	 B859anEgIN76hXL8dlvloOZCPxWNwWjkUfjwR2dh5H3DN+1g+tqvlFwAxJCWzBMAasYDI
-	 /NxrFXXIE6PRQ7z2u/LYZVkhtILZGyoyZRp5IZ/DG1Co61HRMIBgEAsnndRwgJCiSZA4C
-	 2zEArmGD71EPEF7eOHCyua49ixNMiWed12XfZNWhtd51irKQ8sbIg6wWxYWnxilMUswbH
-	 gJCsU1QL5NSUeb0kDiIswMbQwKp1ZMf+dRCNIWkANAd7pphZH8SOVDLt5EstJfWs86g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795798285;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tPzq++25rZpLN7gnbHUwUk2EGIjC7lY29lr/l+RY2Hc=;
-	b=zbu+fSUQE88q8Q3/I6dPLUgF+sgB2go3lbCA+Pm4TyXe54iZIfPKAFyj234+1lMobbg6
-	 Ij9fBKdBioK+83aNTWd1ML3p68bCCu7JprO2wI8t3dC8yNgGpfKfz0qCIZmbdRUDY8Ime
-	 KDnWKfhjgUawX0FBcWnW7p4noXLvMqCId1NHaCRv9bgaLshJCjyv3YcHtFFBkhAiUvL46
-	 NE3uiAX5R+WPw7ymS1Khs7/QK2ztrjzaXVO+vnunP6ULR0Gb+aUEVLeyengAOtUlkZ7d1
-	 aHfZ3NrLmVCPN/TAd7J9JPFiual+u2yV50LOUZ27+vPrGsqSlJe4jXNcnFJ/ttxRZLw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795798295;
+	b=Mc+seGvyvJaOZjjT6Hyt82Oi/4j1cPz6bWvWszPBW2mNiX5czqxjAWfUIwqbpNITryjj
+	 W+nCE+TnrLxBa8HgR5qY6yaF9JkySi4lxNcCmR7YeXdR79ZbWcI3WZssJ7pFIc4Ap6ajR
+	 VfjAKnANy26gq7LPYTW/D+fsu/KRHQKD77RAHjLiCLYEbhzTTabGZF1l+OGKeNNmZaymH
+	 wh4+M+pzLfCwSaZjGws268J91PL24gXD0HcJ5Ok+DnmbRpwC4dNAKVf0xrhTWsXW4RpoC
+	 28Ob1g+tRrTztLeXMxb1pmXt6oxvwtHiRAHQevFw3jriiA/pFD7sXfco/MgPwJPrpvA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798295;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=dQSR59RiW0IbkNtXBm69k9/kOvof6x0Vm6WyyZtX8xU=;
+	b=WwrYTgRBsNYl7mvSOORUc3RHLO2ywwl/ID/q6zELEHH8OXM1tp7evBDXnyENPzZjkKxK
+	 JOwg6uD2GBeItSagBY+UCnQ6soT+Kmfad9aSb5khaUUOQ0ccwmMQLw40XgkUjvq6pPpqE
+	 IErDOV229Wnsoy0ah3j4PmfN1BPLQrfcQSDZ0U+MGDPWXEGdx6GHJ4TsGjlS7Yj06FaWK
+	 Q1e2XwfV4JiRCPn2MaqQQ7fJWXQFPz465iOFeSLjX1MGIU2+vRsdYNjP0IHMv4Hx9tNoj
+	 TE+uRVP/MGs5yj8RLnuhQLkgylLkWEVPFisi2uGMJGUa7GadnE+3BLfkyS7U9ric2KQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=qD9uDFxM;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id EA45A1F00897;
-	Fri, 27 Nov 2026 16:51:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798285;
-	bh=tPzq++25rZpLN7gnbHUwUk2EGIjC7lY29lr/l+RY2Hc=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=oA3fbSvw9MzIaoUjwMmU2DWreKl9XD/6p4okuGOoMm5qKocdkp656DEqu2XYySEa3
-	 zCxArk6L8IzhlsFJye2VcgNE8EAKmnRPqNXKGtMKurx6xvBSqJ8MKb0kr6fcTZIf+i
-	 LOnuZfk7+/YcHgXx5rTbH+rG/WeumIXvviwgsIYl8nrepSfFE5c2l8oaQ6tqVyRsAs
-	 Fdz7pj0abS86T3WgNhXD20XmsaOMFwX5DdR++VW6a5IdU/y4NEwWkPwsgb58e/Mwtu
-	 WPkVUFV/cBzN89rHTHzbSrHLsvIyhhyskfF3sBWh+lE2b09yxAYfVdVz/1EhH9/sD5
-	 Z9aBYdTgRx3Fg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 69CAD4DCCD;
-	Fri, 27 Nov 2026 16:51:21 +0000 (UTC)
-From: Paul Sajna via B4 Relay <devnull+sajattack.postmarketos.org@kernel.org>
-Date: Fri, 27 Nov 2026 09:51:14 -0700
-Subject: [PATCH v2] arm64: dts: qcom: sdm845-lg-judyln: Drop qcom,te-source
- property
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1611A606A31C;
+	Fri, 27 Nov 2026 16:51:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1611A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=qD9uDFxM
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 08E844E417C7;
+	Fri, 27 Nov 2026 16:51:32 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C01C66049C;
+	Fri, 27 Nov 2026 16:51:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 13ACF102F013F;
+	Fri, 27 Nov 2026 17:51:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795798290; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dQSR59RiW0IbkNtXBm69k9/kOvof6x0Vm6WyyZtX8xU=;
+	b=qD9uDFxMmT/3UwZss6BngA2505nHpfyDQFtRUDcN9b6w69+GYiKTntpfeWpT8THJb2LLX8
+	58b8pTOIFU7R75i5v8qSWKoUQObC9XzLVEq0cXEWKBmxmrKOnDyhgY2H4BlgeMTSZEb3fV
+	BMdbAzLrNA83CvcCKlG+Aqpo9U6RTaKeAdTrDDVdOBtDOopOZVrB0FMxIb0ed434vJLSqM
+	K28JplMzCQFA4GX6JXy6Vx4c5j7sC1L6QUvybtGFnvwP/Eo/59RahA6cRfTC3s0WI29snB
+	QvhB5CgCiKaXmYW5tA/2vZMpU6qaL7JcAIK1ef7SKM7XdKegZ8CZCvLgKyZR8Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,92 +58,155 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-judyln-panel-glitch-fix-v2-1-f47fd12a04d9@postmarketos.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0Jm7ZgORExceQ/DopQBRrFt2kIkh
- LtbuYB/937y398gchCOcCs2CLxIFGczlKcCzKjtwChdZihVWVMOPudunSx6bXnCYZJkRuzlg3S
- tSbVEF6oM5LUPnOvD/GgyjxKTC+txtNCv/e9cCAnZMFOvNLWVunsX01uHFycXzy4M0Oz7/gU/T
- Mz5xQAAAA==
-X-Change-ID: 20261111-judyln-panel-glitch-fix-17610b11513c
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Amir Dahan <system64fumo@tuta.io>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- David Heidelberg <david@ixit.cz>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org, 
- ~postmarketos/upstreaming@lists.sr.ht, 
- Paul Sajna <sajattack@postmarketos.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795798281; l=1790;
- i=sajattack@postmarketos.org; s=20250413; h=from:subject:message-id;
- bh=QD858q0abRHms4/gLi2x4dtZ1gb3zWYst2XjfprddGA=;
- b=sxi2bspfe3pgmn1yvsCZD7dg/KW1GXBqTqovrrXDwD4TaUEaJRsLWe+03yfRGCEhvqC4wRGqV
- xvx1OTKrd3yCQgynZJ82mzl1cFWVlIU5544gmif09ApNmTSdVJmHPc6
-X-Developer-Key: i=sajattack@postmarketos.org; a=ed25519;
- pk=ZFE/UBqiz9Wr8b+zBL27opOjw5x5ket5JFqks/VQGeM=
-X-Endpoint-Received: by B4 Relay for sajattack@postmarketos.org/20250413
- with auth_id=1505
-X-Original-From: Paul Sajna <sajattack@postmarketos.org>
-Reply-To: sajattack@postmarketos.org
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 17:51:19 +0100
+Message-Id: <DN65D0SH90VI.2OD8UAD9HSLHI@bootlin.com>
+Subject: Re: [PATCH net-next v8 1/3] net: macb: cache ENST config across
+ link down/up
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>, <vineeth.karumanchi@amd.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+ <179571152363.3135.15940503307792785015@kernel.org>
+In-Reply-To: <179571152363.3135.15940503307792785015@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Paul Sajna <sajattack@postmarketos.org>
+Hello netdev-bot+sashiko,
 
-It was introduced without proper verification, and causes
-graphical glitches on the display.
+On Thu Nov 26, 2026 at 5:45 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] In macb_mac_link_up()
+>   (drivers/net/ethernet/cadence/macb_main.c), when the link comes back=E2=
+=80=A6
+>
+> --
+>
+> net: macb: cache ENST config across link down/up
+>
+> The macb driver now keeps the ENST (taprio offload) config in bp->enst
+> and writes it again on every link-up. If the link speed has changed, the
+> cached config is dropped with a warning. The commit also caches the link
+> speed in bp->speed_mbps, serialises the taprio paths with
+> bp->mac_cfg_lock, and removes the pm_runtime_suspended() check.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index 9f6111661b40d..1e06666921160 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>
+> [ ... ]
+>
+>> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_confi=
+g *config,
+>> =20
+>>  	spin_unlock_irqrestore(&bp->lock, flags);
+>> =20
+>> +	if (bp->enst.speed_mbps && speed !=3D bp->enst.speed_mbps) {
+>> +		netdev_warn(bp->netdev,
+>> +			    "TAPRIO dropped because link speed changed\n");
+>> +
+>> +		memset(&bp->enst, 0, sizeof(bp->enst));
+>> +	}
+>> +
+>> +	macb_apply_enst_config(bp);
+>> +
+>
+> [Severity: Medium]
+> After the link comes back at a different speed, the cache is zeroed.
+> macb_apply_enst_config() then sets the disable bits for every queue and
+> writes 0 to the per-queue timing registers. ENST_CONTROL is not enabled
+> again, because of this check:
+>
+> 	if (bp->enst.queue_mask)
+> 		gem_writel(bp, ENST_CONTROL, bp->enst.queue_mask);
+>
+> From then on the MAC applies no gate control at all. Only a netdev_warn()
+> reports this.
+>
+> Does the taprio qdisc still report a fully offloaded schedule in this
+> state? netdev->num_tc and tc_to_txq are left as they were, since only
+> macb_taprio_destroy() calls netdev_reset_tc(). In offload mode the taprio
+> core does not call ndo_setup_tc again on link changes, so nothing
+> reprograms the hardware.
+>
+> Can the schedule ever come back without the user reinstalling the qdisc?
+> struct macb_enst stores only on/off times already converted to bytes for
+> one speed:
+>
+> 	config.queues[queue_id].on_time_bytes =3D
+> 		enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
+> 	config.queues[queue_id].off_time_bytes =3D
+> 		enst_ns_to_hw_units(off, bp->speed_mbps);
+>
+> macb_taprio_setup_replace() discards the nanosecond intervals from
+> tc_taprio_qopt_offload. Because of that, macb_mac_link_up() cannot
+> recompute or re-check the schedule for the new speed. It also cannot
+> restore it if the link later comes back at the original speed, for
+> example after a temporary PHY downshift or a cable swap.
+>
+> Would it work to keep the ns intervals in bp->enst, then re-validate and
+> recompute the byte values on each link-up? The schedule would then
+> survive whenever it still fits the new speed.
 
-The default value of mdp_vsync_p is correct.
+This has been discussed; read the thread under [PATCH net-next v7 1/3].
+https://lore.kernel.org/lkml/20261118-macb-set-channels-v7-1-2dbc00f686af@b=
+ootlin.com/#r
 
-Fixes: c6c66aa3ef33 ("arm64: dts: qcom: sdm845-lg-judyln: Add display panel")
+Conclusion is:
 
-Reviewed-by: David Heidelberg <david@ixit.cz>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Paul Sajna <sajattack@postmarketos.org>
----
-Changes in v2:
-- Reword commit message
-- Link to v1: https://lore.kernel.org/r/20261111-judyln-panel-glitch-fix-v1-1-ecee1f0a1b30@postmarketos.org
+ - If the link speed changes, then an ENST schedule makes little sense
+   and userspace should give us a new one. The idea is that a schedule
+   is scaled based on the workload to know what is emittable in each
+   timeslot. Once you change the link speed, all timeslots now can
+   contain more/less the previous amount.
 
-To: Bjorn Andersson <andersson@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>
-To: Abel Vesa <abelvesa@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Amir Dahan <system64fumo@tuta.io>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Paul Sajna <sajattack@postmarketos.org>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- arch/arm64/boot/dts/qcom/sdm845-lg-judyln.dts | 1 -
- 1 file changed, 1 deletion(-)
+ - Also, ENST is about Time Sensitive Networks. The link down caused by
+   the link speed change is already massive trouble for such usecases.
 
-diff --git a/arch/arm64/boot/dts/qcom/sdm845-lg-judyln.dts b/arch/arm64/boot/dts/qcom/sdm845-lg-judyln.dts
-index 349faa123ff1..e54e46a1a6dd 100644
---- a/arch/arm64/boot/dts/qcom/sdm845-lg-judyln.dts
-+++ b/arch/arm64/boot/dts/qcom/sdm845-lg-judyln.dts
-@@ -111,7 +111,6 @@ &mdss_dsi0_phy {
- &mdss_dsi0_out {
- 	data-lanes = <0 1 2 3>;
- 	remote-endpoint = <&panel_in>;
--	qcom,te-source = "mdp_vsync_e";
- };
- 
- &ibb {
+ - It'd be nice if we could drop the qdisc from driver code.
 
----
-base-commit: aaa2f954c21b205a0bcd0961e5b2be4e82e58455
-change-id: 20261111-judyln-panel-glitch-fix-17610b11513c
+ - I do not want to store =C2=B5s in the cached state and compute register
+   values from the current link speed. This is more code and many risks
+   of bugs (rounding is critical to avoid ENST timeslot overlaps and
+   such).
 
-Best regards,
---  
-Paul Sajna <sajattack@postmarketos.org>
+However, I would be okay to keep the existing schedule around even if
+the current link speed isn't matching. It would allow:
 
+ - 1G link =3D> userspace assigns ENST schedule
+ - 100M degraded link =3D> delete ENST schedule and warn
+ - 1G link =3D> our cached schedule is valid, reapply it
+
+I will respin for this and for a low prio finding on patch 2;
+the one about locking bp->mac_cfg_lock to read bp->enst in
+macb_set_channels().
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
