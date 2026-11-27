@@ -1,79 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795763737;
-	b=ZVRmsH50B8LyDWBlyGy/Qbpz2WqOgSBV+G0bCH34djcZ27LnMkfrY6EjiV514pk2yY0h
-	 zvgu/aTnalVC48KcRoMibQFnaaLlVepibbIYra0efEaDLv+Q7BILjfBhuooEWwNF7CxBL
-	 AdqOCRpiRlCUZnh6j6+FjJPbaL95bgFFtupT9m1RboZlaoSFEpaqtjq20qroqoRHKuvEn
-	 p3ZLVVLJpEOlCYNprLOzs1zK1qoZyygAmzAClh1oZQbmcXQJEkl5GjTbsI8R2ZB6ZJrei
-	 GP47dsaUF8exSjkbnsR/gjtDkDXg2PbRM0ErhBYMHY2ayBazgDZHB8FS+lRO/gIHI5g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763737;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=9nz1WqrN2ABk99WkBt2ErL/hIYbUCDGwhw6AzT5Z8uM=;
-	b=fKbkhsc5vbDzuO+CCV1jcScXY/qM3SQnYWtlxkRVSsc1EnDXc/VME2lGn7ZYpYrVlIXO
-	 1ps6Hhq4d0RwGTiY1ubfVX5a39lC//7bpuqJt1e3g45otBttp+T/dISFp3OCNYBGtxTw4
-	 QAyjwH1ouZAzeOFc4XGU7hm9bb5WIBfWp74cJA0LmcMYpF4nn/vWL4gi9Hu32tIxNWUyn
-	 WSXqCYE+Mq2zOR5DiCeliVw2SgeRZUSo+Fo50doo3Bss+3gEpisHuUrZS5zpSddywgLat
-	 pX7Irtw8xxyPzmukqskSyJTaGFgNY6jj67uctr88e39hNVR71qVFeSKczsbDoXd74vA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="c/gGgBEw";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F24D606A324;
-	Fri, 27 Nov 2026 07:15:37 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c/gGgBEw
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795763737;
-	b=NT36IL+Txm/tQrM0kTq21DH3JHAjby3eyn2A0jiMbkB5qw7M2UxK0bi+2yCFYfCHLNv9
-	 w5itEg75hxbCUakXqZs/JcNTeeTh1J1tft/AGgiighC+saqiigNKARNRhSb0PxUY/NGoE
-	 ku9JKb8JmQg3uIDuACeh51EvKaufYlqe1ibYQmKL7jLFBim6I5LqV/eAKxxRAKaOhjoaU
-	 m5aw9br0jAMaZtxPJbyK7l5PvM4EUCWzNdlkHPRBsrCfcJ21uh2PO6AycA2ylDARMXiCF
-	 o8fxl7Ei4kVyHMTRTW1eCQx79fOP4Aemh4lp3uLTgkEeQhurm1hCEBUzGn80/tyGFrw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795763737;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=9nz1WqrN2ABk99WkBt2ErL/hIYbUCDGwhw6AzT5Z8uM=;
-	b=j44M0OTRDbPKyiSX6FyfBV/e/Q+PAoy+e6KUA1YnkovPWJw1o9G/An9zVGvpF0BHGUx9
-	 p+ZzGGFVOw7ncqct6v2sU/OTrLDEbPwtS10NY9rMK8igjYxJBNpZQTuA1RwA5CDbfdYIs
-	 R1FQZrvuWKPgi97A8gPVZ1KG3Tpve3uk6Gu+hrwPR7U0EDptnWgBOg1F2D8tSny3iCt+n
-	 LlX2aZu5o6vaBSEElXa3l92imlvSPD5L3hc/Ma+CwRx+S3Uz88Y9a3qM6TJeDEgH7pWyC
-	 cTqwLZXF834ZXgNZQGrj1y39Ws+nfe6rh7uSaRrPM7nzW6Cp0N7Ub/Mz7+eK7QtGHNQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.190
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795763767;
+	b=lOeFHt4ecgIORA4gcF4ivJm0s+wCTIIRn6Cxo1BGhn5ErzNnU7RniSoO2cxt/BdzjMI2
+	 bjxnrC4mhusTG0udVGkjY+f6clXtP2Czz2OcAnuOsuVpmCXn17+jD08g2d1YC5d+E7wni
+	 Q/8pI4QL6k+Divs27Ynesgidm0S6vvB2/A2jaFJlfur+CNESnvYmmV8KnS/Bu1oyKORdo
+	 idKvOV58ztJytAdGSbuc1T0OV0ATHuZK0o2uLfmHgCLVO91wWidhKUsGd4K2klRhWsD6M
+	 1MZCqGBKqTZudqiu1OMbW49+GRnu7RFg1CsCqPUJF2Ccg4pJjEuhJGyT6i+dv7Z+d7Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763767;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=WlyVMIf+w2EK4kCSEt6kaV0RPIZEQmXW1mV3dcuujUQ=;
+	b=PGrA/DrJ/t7GEg2zsN06Iu9bUvkZcTgzAz0baqYXl64KwIC5++1qNBh3wXmEwL1cZO6T
+	 buWNA1m/QsMbvkljuQXjufTt6XPlbyyovbNZ2jJ+1PTyHZA0blB3pUW2sPW/BODziVpmJ
+	 Pgv8sRW7A31IwbUp96LYgGAWHojqhaCbi3Ko9CThC3+Kt/gy6pLW6JlVcMPBU7CeJOwJ4
+	 ufrB0d6YJBOYrf3bCemo/h19WhFOqgkpE3KG4+b2vVACT45q4DOFzFYxDTgw9lrvg1PP8
+	 ISD/LsYiRaz0QzmstztTbnEyOTrPE4KKVYsKtOavp8Lm+CzI6xutRy79jkMM4No84Og==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BAmhBnEC;
+	arc=none smtp.remote-ip=95.215.58.190
+Received: from mta1.migadu.com (out-190.mta1.migadu.com [95.215.58.190])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 690F41F0092B;
-	Fri, 27 Nov 2026 07:15:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795763736;
-	bh=9nz1WqrN2ABk99WkBt2ErL/hIYbUCDGwhw6AzT5Z8uM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=c/gGgBEw27gYBZWqQuZk8H/z0MA7wND3VHhFe1oRLLcfIpGtknBDRdOUR0MRkNWnz
-	 V3hRyifqcNZGCh0F9X++8EGJfy6UpajO9pUk/os1cE2Tj80xZTu5uBwZ9GuWn1xGgp
-	 TLJDuJTcO154gUeFmtyhk9VsIhV45ce2T8U+FY2G8vxjhkfscbbArQY9MFQUu+T36a
-	 53rqZVDgOZMKv4VW7eqKFJ1ejzQLOCv3NOWHj6Ayy4Cd9j11tb23/hendrUMeeHeZl
-	 TBn2HVScyTjymGoLgfzThe8cS9h23H9Jtu151Hi1JimnNR71+gIYBl3f4LnLBJYskU
-	 BJT5DFppzAxKg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id EB1D24B607;
-	Fri, 27 Nov 2026 07:15:21 +0000 (UTC)
-From: Andrei Aleksandrov via B4 Relay <devnull+aladex.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 08:15:22 +0100
-Subject: [PATCH RFC 2/2] ALSA: usb-audio: Handle the EPOS GSX 1000 v2
- volume ring in the driver
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83BAF606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:16:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83BAF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BAmhBnEC
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=UZ9O/NjNPc2csaBXueC5lS/m897rTjKX3GK+oQ+Naos=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795763764; v=1; x=1796368564;
+ b=BAmhBnECdHQLGTcuEm4vGzReBW93g4dgWBXd7QcUMyF0AFNUozbGBfV9qHhBcfA87gNHDZOc
+ PU1XVxeU1FbAwofaKCY/EpLz2qekhQbM64e0pDDnh1qPVJo4j1Pk0/++IBl8ZMYAbgns2S5coj4
+ MSUf5vvUqqxDNcnOo4PBZKyM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 094f7b84a20c887f;
+	Fri, 27 Nov 2026 07:16:04 +0000
+X-Mizu-Trace-ID: 094f7b84a20c887f
+X-Migadu-Flow: FLOW_OUT
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+To: printk@lists.linux.dev
+Cc: Petr Mladek <pmladek@suse.com>,
+	John Ogness <john.ogness@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	linux-kernel@vger.kernel.org,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v1] printk: clear saved_console_loglevel on /proc/sys/kernel/printk writes
+Date: Fri, 27 Nov 2026 16:15:48 +0900
+Message-ID: <20261127071548.333115-1-xuanqiang.luo@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,253 +68,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-gsx1000-v1-2-833554c37b82@gmail.com>
-References: <20261127-gsx1000-v1-0-833554c37b82@gmail.com>
-In-Reply-To: <20261127-gsx1000-v1-0-833554c37b82@gmail.com>
-To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-input@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Andrei Aleksandrov <aladex@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795763720; l=7660;
- i=aladex@gmail.com; s=20261127; h=from:subject:message-id;
- bh=QKnifHR+kHoir3i33Gcno4lNkMpcJZdKXwkR4yRONoI=;
- b=k5Ks+0GQH7yXH99sYblm5H3LRbPCa5gdpLNOits/d7TJzUpkIrhhxSI05IalyHGpAxFOKcR9O
- JnanlldpikbAZLnmFNVJTYD2+Rw0BVWvkCE9Hxr+Y8TrSyWqXcn7eaW
-X-Developer-Key: i=aladex@gmail.com; a=ed25519;
- pk=BRFQEVGQ1X027TItMW+SIsAtbYscopzlk1EJT8Girkg=
-X-Endpoint-Received: by B4 Relay for aladex@gmail.com/20261127 with
- auth_id=1663
-X-Original-From: Andrei Aleksandrov <aladex@gmail.com>
-Reply-To: aladex@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Andrei Aleksandrov <aladex@gmail.com>
+From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-The volume ring of the GSX 1000 v2 is an encoder that does not report
-its direction. The device sends HID Vol+/Vol- (consumer usages 0xe9 and
-0xea, report 2 on interface 5) until the volume the host writes to FU 12
-matches the ring position, one event per detent. Windows answers every
-event with a 2 % step on its volume scale; the device compares the
-written value with 1/256 dB precision and stops asking once it matches.
+When console logging is temporarily disabled via syslog(2)
+SYSLOG_ACTION_CONSOLE_OFF (e.g., "dmesg -D" or Plymouth during boot),
+do_syslog() stores console_loglevel in saved_console_loglevel and later
+restores it on SYSLOG_ACTION_CONSOLE_ON (e.g., "dmesg -E" or
+plymouth-quit).
 
-On Linux these events reach the desktop as global KEY_VOLUMEUP and
-KEY_VOLUMEDOWN, the desktop applies its own step size (5 % by default in
-KDE), the result does not match the ring, and the device keeps
-correcting: the volume oscillates or runs away. Existing workarounds
-remap the keys to "reserved" in hwdb, which disables the ring.
+Commit 1aaad49e856c ("printk: Restore previous console_loglevel when
+re-enabling logging") clears saved_console_loglevel on
+SYSLOG_ACTION_CONSOLE_LEVEL ("dmesg -n") so an explicit loglevel update
+implicitly re-enables console logging. However, /proc/sys/kernel/printk
+uses proc_dointvec() directly and leaves saved_console_loglevel stale.
+If systemd-sysctl sets kernel.printk (e.g., "4 4 1 7") while console
+logging is disabled during boot, a later SYSLOG_ACTION_CONSOLE_ON
+silently overwrites console_loglevel back to the old saved value (e.g.,
+7), flooding slow serial consoles with notice/info messages.
 
-Register an input handler that filters KEY_VOLUMEUP/KEY_VOLUMEDOWN only
-from input devices whose parent is this USB device, so another keyboard
-or another GSX is not affected. Each press steps the control added in the
-previous patch by 2, as Windows does, and notifies user space; the
-device then sees the expected value and the ring, the desktop volume and
-the display stay in sync. The step runs in a work item because the
-filter is called in atomic context and the USB write sleeps.
+Move saved_console_loglevel to file scope and wrap proc_dointvec() in
+printk_sysctl_set_loglvl() to reset saved_console_loglevel to
+LOGLEVEL_DEFAULT on successful writes, while leaving it intact on reads,
+empty/invalid writes, and non-zero-offset writes ignored under
+SYSCTL_WRITES_STRICT. Because /proc/sys/kernel/printk always writes
+starting at console_loglevel, valid offset-0 writes clear
+saved_console_loglevel even when re-writing the current loglevel (e.g.,
+kernel.printk = "1 4 1 7"), matching SYSLOG_ACTION_CONSOLE_LEVEL
+semantics (at the cost of also clearing it if a caller rewrites
+console_loglevel solely to adjust later fields).
 
-Tested with a GSX 1000 v2 (firmware 2.13) on PipeWire/KDE: slow and fast
-turns in both directions, 0 -> 100 % by the ring, slider changes,
-unplug/replug and suspend/resume (the desktop volume is restored on the
-device).
-usbmon shows one SET_CUR pair per detent and no reversals, as in the
-Windows captures.
+Serialize saved_console_loglevel and console_printk[] updates across
+do_syslog() and /proc/sys/kernel/printk with a dedicated
+console_loglevel_lock mutex (using READ_ONCE/WRITE_ONCE for
+console_loglevel to match proc_dointvec()), keeping syslog_lock scoped
+to ringbuffer reader state and avoiding contention or lock-ordering
+dependencies with syslog readers and console registration.
 
-Link: https://github.com/Aladex/epos-gsx
-Signed-off-by: Andrei Aleksandrov <aladex@gmail.com>
+Fixes: 1aaad49e856c ("printk: Restore previous console_loglevel when re-enabling logging")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 ---
- sound/usb/mixer_quirks.c | 148 +++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 148 insertions(+)
+ kernel/printk/internal.h |  2 ++
+ kernel/printk/printk.c   | 50 ++++++++++++++++++++++++++++++++++++----
+ kernel/printk/sysctl.c   |  2 +-
+ 3 files changed, 48 insertions(+), 6 deletions(-)
 
-diff --git a/sound/usb/mixer_quirks.c b/sound/usb/mixer_quirks.c
-index 6e96e8020855..d16d548a5b45 100644
---- a/sound/usb/mixer_quirks.c
-+++ b/sound/usb/mixer_quirks.c
-@@ -4689,10 +4689,17 @@ static const s16 snd_gsx1000_vol_table[SND_GSX1000_VOL_STEPS + 1] = {
- 	0,
- };
- 
-+#define SND_GSX1000_RING_STEP	2	/* one ring detent, as on Windows */
-+
- struct snd_gsx1000_vol {
- 	struct usb_mixer_elem_list list;	/* kctl private data */
- 	struct mutex lock;			/* serializes value and USB writes */
- 	unsigned int value;			/* 0..SND_GSX1000_VOL_STEPS */
-+	struct work_struct ring_work;
-+	atomic_t ring_delta;
-+	struct input_handler ih;
-+	struct input_device_id id_table[2];
-+	bool ih_registered;
- };
- 
- #define to_gsx1000_vol(l)	container_of(l, struct snd_gsx1000_vol, list)
-@@ -4798,10 +4805,147 @@ static const struct snd_kcontrol_new snd_gsx1000_vol_control = {
- 	.put = snd_gsx1000_vol_put,
- };
- 
-+/*
-+ * The ring keeps sending Vol+/Vol- until the host volume matches the ring
-+ * position, one detent per event.  Answer these requests here instead of
-+ * passing them on as global volume keys, so the desktop does not apply its
-+ * own step size to them and only this card is affected.
-+ */
-+static void snd_gsx1000_ring_work(struct work_struct *work)
-+{
-+	struct snd_gsx1000_vol *vol =
-+		container_of(work, struct snd_gsx1000_vol, ring_work);
-+	int delta = atomic_xchg(&vol->ring_delta, 0);
-+	int value, changed;
-+
-+	if (!delta)
-+		return;
-+
-+	scoped_guard(mutex, &vol->lock) {
-+		value = clamp_t(int, vol->value + delta * SND_GSX1000_RING_STEP,
-+				0, SND_GSX1000_VOL_STEPS);
-+		changed = __snd_gsx1000_vol_set(vol, value);
-+	}
-+	if (changed > 0)
-+		snd_ctl_notify(vol->list.mixer->chip->card,
-+			       SNDRV_CTL_EVENT_MASK_VALUE, &vol->list.kctl->id);
-+}
-+
-+#if IS_REACHABLE(CONFIG_INPUT)
-+static bool snd_gsx1000_ih_filter(struct input_handle *handle,
-+				  unsigned int type, unsigned int code,
-+				  int value)
-+{
-+	struct snd_gsx1000_vol *vol =
-+		container_of(handle->handler, struct snd_gsx1000_vol, ih);
-+
-+	if (type != EV_KEY ||
-+	    (code != KEY_VOLUMEUP && code != KEY_VOLUMEDOWN))
-+		return false;
-+
-+	/* Act on presses only; swallow releases and repeats as well */
-+	if (value == 1) {
-+		atomic_add(code == KEY_VOLUMEUP ? 1 : -1, &vol->ring_delta);
-+		schedule_work(&vol->ring_work);
-+	}
-+	return true;
-+}
-+
-+static bool snd_gsx1000_ih_match(struct input_handler *handler,
-+				 struct input_dev *dev)
-+{
-+	struct snd_gsx1000_vol *vol =
-+		container_of(handler, struct snd_gsx1000_vol, ih);
-+	struct usb_device *snd_dev = vol->list.mixer->chip->dev;
-+	struct device *parent;
-+
-+	/* Only the HID interface of this very card, not an identical one */
-+	for (parent = dev->dev.parent; parent; parent = parent->parent) {
-+		if (parent == &snd_dev->dev)
-+			return true;
-+	}
-+	return false;
-+}
-+
-+static int snd_gsx1000_ih_connect(struct input_handler *handler,
-+				  struct input_dev *dev,
-+				  const struct input_device_id *id)
-+{
-+	struct input_handle *handle;
-+	int err;
-+
-+	handle = kzalloc_obj(*handle);
-+	if (!handle)
-+		return -ENOMEM;
-+
-+	handle->dev = dev;
-+	handle->handler = handler;
-+	handle->name = handler->name;
-+
-+	err = input_register_handle(handle);
-+	if (err)
-+		goto err_free;
-+
-+	err = input_open_device(handle);
-+	if (err)
-+		goto err_unregister;
-+
-+	return 0;
-+
-+err_unregister:
-+	input_unregister_handle(handle);
-+err_free:
-+	kfree(handle);
-+	return err;
-+}
-+
-+static void snd_gsx1000_ih_disconnect(struct input_handle *handle)
-+{
-+	input_close_device(handle);
-+	input_unregister_handle(handle);
-+	kfree(handle);
-+}
-+
-+static void snd_gsx1000_ih_register(struct snd_gsx1000_vol *vol)
-+{
-+	struct usb_mixer_interface *mixer = vol->list.mixer;
-+	struct input_device_id *id = &vol->id_table[0];
-+	int err;
-+
-+	id->flags = INPUT_DEVICE_ID_MATCH_VENDOR | INPUT_DEVICE_ID_MATCH_PRODUCT |
-+		    INPUT_DEVICE_ID_MATCH_EVBIT | INPUT_DEVICE_ID_MATCH_KEYBIT;
-+	id->vendor = USB_ID_VENDOR(mixer->chip->usb_id);
-+	id->product = USB_ID_PRODUCT(mixer->chip->usb_id);
-+	id->evbit[BIT_WORD(EV_KEY)] = BIT_MASK(EV_KEY);
-+	id->keybit[BIT_WORD(KEY_VOLUMEUP)] = BIT_MASK(KEY_VOLUMEUP);
-+
-+	vol->ih.filter = snd_gsx1000_ih_filter;
-+	vol->ih.match = snd_gsx1000_ih_match;
-+	vol->ih.connect = snd_gsx1000_ih_connect;
-+	vol->ih.disconnect = snd_gsx1000_ih_disconnect;
-+	vol->ih.name = "snd-usb-gsx1000-ring";
-+	vol->ih.id_table = vol->id_table;
-+
-+	err = input_register_handler(&vol->ih);
-+	if (err)
-+		usb_audio_warn(mixer->chip,
-+			       "GSX 1000: cannot register ring handler: %d\n", err);
-+	else
-+		vol->ih_registered = true;
-+}
-+#else
-+static void snd_gsx1000_ih_register(struct snd_gsx1000_vol *vol) {}
-+#endif /* IS_REACHABLE(CONFIG_INPUT) */
-+
- static void snd_gsx1000_vol_free(struct snd_kcontrol *kctl)
- {
- 	struct snd_gsx1000_vol *vol = to_gsx1000_vol(snd_kcontrol_chip(kctl));
- 
-+#if IS_REACHABLE(CONFIG_INPUT)
-+	if (vol->ih_registered)
-+		input_unregister_handler(&vol->ih);
-+#endif
-+	cancel_work_sync(&vol->ring_work);
- 	mutex_destroy(&vol->lock);
- 	kfree(vol);
- 	kctl->private_data = NULL;
-@@ -4825,6 +4969,8 @@ static int snd_gsx1000_controls_create(struct usb_mixer_interface *mixer)
- 	vol->list.resume = snd_gsx1000_vol_resume;
- 	vol->value = SND_GSX1000_VOL_DEFAULT;
- 	mutex_init(&vol->lock);
-+	INIT_WORK(&vol->ring_work, snd_gsx1000_ring_work);
-+	atomic_set(&vol->ring_delta, 0);
- 
- 	kctl = snd_ctl_new1(&snd_gsx1000_vol_control, &vol->list);
- 	if (!kctl) {
-@@ -4845,6 +4991,8 @@ static int snd_gsx1000_controls_create(struct usb_mixer_interface *mixer)
- 	if (err < 0)
- 		usb_audio_warn(mixer->chip,
- 			       "GSX 1000: cannot set initial volume: %d\n", err);
-+
-+	snd_gsx1000_ih_register(vol);
- 	return 0;
+diff --git a/kernel/printk/internal.h b/kernel/printk/internal.h
+index 85fbf1801cbe..8bae853c64b7 100644
+--- a/kernel/printk/internal.h
++++ b/kernel/printk/internal.h
+@@ -10,6 +10,8 @@
+ void __init printk_sysctl_init(void);
+ int devkmsg_sysctl_set_loglvl(const struct ctl_table *table, int write,
+ 			      void *buffer, size_t *lenp, loff_t *ppos);
++int printk_sysctl_set_loglvl(const struct ctl_table *table, int write,
++			     void *buffer, size_t *lenp, loff_t *ppos);
+ #else
+ #define printk_sysctl_init() do { } while (0)
+ #endif
+diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+index 5dbcf8a9909b..c6d2bec573b6 100644
+--- a/kernel/printk/printk.c
++++ b/kernel/printk/printk.c
+@@ -1737,11 +1737,17 @@ static void syslog_clear(void)
+ 	mutex_unlock(&syslog_lock);
  }
  
++/*
++ * Protects @saved_console_loglevel and serializes syslog(2) and
++ * /proc/sys/kernel/printk updates to console_printk[].
++ */
++static DEFINE_MUTEX(console_loglevel_lock);
++static int saved_console_loglevel = LOGLEVEL_DEFAULT;
++
+ int do_syslog(int type, char __user *buf, int len, int source)
+ {
+ 	struct printk_info info;
+ 	bool clear = false;
+-	static int saved_console_loglevel = LOGLEVEL_DEFAULT;
+ 	int error;
+ 
+ 	error = check_syslog_permissions(type, source);
+@@ -1782,26 +1788,32 @@ int do_syslog(int type, char __user *buf, int len, int source)
+ 		break;
+ 	/* Disable logging to console */
+ 	case SYSLOG_ACTION_CONSOLE_OFF:
++		mutex_lock(&console_loglevel_lock);
+ 		if (saved_console_loglevel == LOGLEVEL_DEFAULT)
+-			saved_console_loglevel = console_loglevel;
+-		console_loglevel = minimum_console_loglevel;
++			saved_console_loglevel = READ_ONCE(console_loglevel);
++		WRITE_ONCE(console_loglevel, minimum_console_loglevel);
++		mutex_unlock(&console_loglevel_lock);
+ 		break;
+ 	/* Enable logging to console */
+ 	case SYSLOG_ACTION_CONSOLE_ON:
++		mutex_lock(&console_loglevel_lock);
+ 		if (saved_console_loglevel != LOGLEVEL_DEFAULT) {
+-			console_loglevel = saved_console_loglevel;
++			WRITE_ONCE(console_loglevel, saved_console_loglevel);
+ 			saved_console_loglevel = LOGLEVEL_DEFAULT;
+ 		}
++		mutex_unlock(&console_loglevel_lock);
+ 		break;
+ 	/* Set level of messages printed to console */
+ 	case SYSLOG_ACTION_CONSOLE_LEVEL:
+ 		if (len < 1 || len > 8)
+ 			return -EINVAL;
++		mutex_lock(&console_loglevel_lock);
+ 		if (len < minimum_console_loglevel)
+ 			len = minimum_console_loglevel;
+-		console_loglevel = len;
++		WRITE_ONCE(console_loglevel, len);
+ 		/* Implicitly re-enable logging to console */
+ 		saved_console_loglevel = LOGLEVEL_DEFAULT;
++		mutex_unlock(&console_loglevel_lock);
+ 		break;
+ 	/* Number of chars in the log buffer */
+ 	case SYSLOG_ACTION_SIZE_UNREAD:
+@@ -1855,6 +1867,34 @@ SYSCALL_DEFINE3(syslog, int, type, char __user *, buf, int, len)
+ 	return do_syslog(type, buf, len, SYSLOG_FROM_READER);
+ }
+ 
++#ifdef CONFIG_SYSCTL
++int printk_sysctl_set_loglvl(const struct ctl_table *table, int write,
++			     void *buffer, size_t *lenp, loff_t *ppos)
++{
++	loff_t pos = *ppos;
++	int old_loglevel;
++	int err;
++
++	if (!write)
++		return proc_dointvec(table, write, buffer, lenp, ppos);
++
++	mutex_lock(&console_loglevel_lock);
++	old_loglevel = READ_ONCE(console_loglevel);
++	err = proc_dointvec(table, write, buffer, lenp, ppos);
++	/*
++	 * Implicitly re-enable logging to console. Under SYSCTL_WRITES_STRICT,
++	 * non-zero-offset writes return 0 without updating table->data, so
++	 * require either offset 0 or an observed console_loglevel change.
++	 */
++	if (!err && *lenp &&
++	    (!pos || READ_ONCE(console_loglevel) != old_loglevel))
++		saved_console_loglevel = LOGLEVEL_DEFAULT;
++	mutex_unlock(&console_loglevel_lock);
++
++	return err;
++}
++#endif /* CONFIG_SYSCTL */
++
+ /*
+  * Special console_lock variants that help to reduce the risk of soft-lockups.
+  * They allow to pass console_lock to another printk() call using a busy wait.
+diff --git a/kernel/printk/sysctl.c b/kernel/printk/sysctl.c
+index f15732e93c2e..a2c204320898 100644
+--- a/kernel/printk/sysctl.c
++++ b/kernel/printk/sysctl.c
+@@ -25,7 +25,7 @@ static const struct ctl_table printk_sysctls[] = {
+ 		.data		= &console_loglevel,
+ 		.maxlen		= 4*sizeof(int),
+ 		.mode		= 0644,
+-		.proc_handler	= proc_dointvec,
++		.proc_handler	= printk_sysctl_set_loglvl,
+ 	},
+ 	{
+ 		.procname	= "printk_ratelimit",
 
+base-commit: 9437ee8b6cf607e883b36e44bd755968daaebd48
 -- 
-2.56.1
-
+2.43.0
 
