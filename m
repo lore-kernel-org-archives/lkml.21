@@ -1,72 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795754701;
-	b=fj0zhZPM7O5c+Rp+GwtBKM9l9fpDJwfahRT7pyFGdw/xS1stryavTFxp93RTFnIjMkWc
-	 t+l954jm754FicQ4wiTAv1STY0a5cIaQmhDQF+TPv8qHAOc4FHqRlWk6h4ArhJxN2yKqd
-	 rWRXZcxjNgS3Tso7TglfD4ITQ8RHTD4pGf3sZjwlG17n2NNpl7P3n0UtJyy6Gkp6OiqKB
-	 vYaCf0rhMfKkJ63Ps34FxTFEdRXFWypGyjpDm6tGw9leeIU9P3An1318tuBzDHBFvrPz4
-	 3COujwK5acvQ4Tzb6daSESS+QOoAGhGaqWRTrSbvjVa55TT5YbaszOLc++YUeFEcyFw==
+	t=1795754753;
+	b=wosgCntQiPz6wCeVcGaj/UGr0ecdbWHSnm6ZVhmvrEy2+X/d19vFmcHDt8uuvWkws/l/
+	 OsJqD0ffWeNlB9CvHJ+OLt4e4kLY2GZNlWL2MISeFyuKzEGRoJ2iTtmCXZdu6+RI8c0Jw
+	 QCmCv2to39emnlZrPoTBEShOMxX6fRJEIMPYS1hwYz1jdpmIN9lTbc76FMqyJ0q8dmMjF
+	 dJJs6RE/94s9NfLdUkFTsV17qVgjn/Y+ApvKfe/VbEIKFvslviRpeLAJdGerJWfo14dEx
+	 m8CJ+qDigrsE0ydC5/Fg+WnQF1uK2xBGEbBCZuIEaxMZBmMcHSbDnYiJ12pePQwoiqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795754701;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=up2JUVBVe7IxMJqAJpnFfm9YSUDx0gfYrWA7gUrFC20=;
-	b=S9TVOSaXkeLBcxArJpzU51Du648vLN1/txWbRFSRsagXpjuO0VkSxBP0lj3lp4b6Poga
-	 aiUuHSA5ze68y1AKGycrRviD93sEJfcu4FtcEk0NMHFRsx5L99KehbuU9H5JoT0LgH1dl
-	 C1UT8DZdjCCZ0CbpJ4TxRVnFvd2oIoZOcpzmzwXMKzM0o0AiZkNAslIglUjM/P+JyCiZc
-	 GgEq/Rq4Dr9u6N5TDqClVVtnbwx+TeaA/02svbn1Tjl9CyZ+GXXnI7alosfprhky/ifyn
-	 jSQsdThjz02nzEF63fvQPhC3FR6i5rqJTEze9xmuHhhTwPM1hBCZc8pOp5Y5iNg5q/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795754753;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=PRKPtJOLbnC27h3uioNsO+R4riFgVMiKGh1NJXpiY6E=;
+	b=N1NbrCvchPLi240ZJb+h7x6eEUuEgYfgLJhJTf1PIv5heN2kEK8RLU7hqyFiMsha5Cb1
+	 JBrz8l707B8Qn8/hBscRiU+d0UKP80m5T0cTLyT24aapq/pJNtnvdbEN0QW/Y7NMkcM6a
+	 e77qkgCeF9lJQqw5IvLVcOr8cbkJDHKQ2glwpryH0nMzdSVgIO4Gc+EuWdkDqmUkdcWiW
+	 txaK39KskC6b0a9jvTlKEnkVsiaSoz4MFzB8l2xFP89+4yfsNRAf7oFELVxeNeKafvpRc
+	 SSI9RvjgwqlDkgR4T3IfrLt0gYs0OiuqqIfMP7wCCk72WjuJxOfs/6OnJqp1CNCKbRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--skhawaja.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O5Bz3vNk;
-	arc=none smtp.remote-ip=209.85.216.71
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=r7PGWkZe;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 634A0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:45:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 634A0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--skhawaja.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDAA0606A31E;
+	Fri, 27 Nov 2026 04:45:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDAA0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O5Bz3vNk
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b191f8a9b3so8843985a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:45:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795754701; x=1796359501; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=up2JUVBVe7IxMJqAJpnFfm9YSUDx0gfYrWA7gUrFC20=;
-        b=O5Bz3vNkQhd/sRzDiaSbLoeBk9Qm9UZFhKjlP0p0uS5g0CknVx4S/Zmw+RnfRQv7lm
-         3xXs4JZxv/nLBoFeNwIqyjm2GnV78olgulj5mRshrWiuyVvDfWU5vqSX+I6vXqvuZE++
-         wg/pEV+BjkTMBU6qkRuciObZmzK/IrIPo/PYsy3yFqASF7jU37Qk3m7pkAgAP32jApP0
-         IB1Dt9wIhprQk3hlWixTG+Dai6qg/Bb8N3LI1Qci0E1Q2WvZ4yFSzwrHEQLVrfE6V8CH
-         frM0FZbeYcmvc/AyvPH6VDcLjDtjKKtgmtDdp2hJLhvpnQV3ftPKt17bzGFjUxDMJkva
-         Jh1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795754701; x=1796359501;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=up2JUVBVe7IxMJqAJpnFfm9YSUDx0gfYrWA7gUrFC20=;
-        b=d5E1P/4OEtirZz785kg6XaAbVe2qZ4zndUgfcv+y7R0tIjViwIvf0lUcggK+st0Np8
-         PqzIY8igrEEDBjyUvMiPzmJMgz2lkL5c2byRsUwKZMiNNkzckbGfMjYfjxKrHCd7/pBx
-         ObQT+DRcUeHZBUroWY0BDO/h0V5Hlwo3Q4bRVfqaGykf6XKUgVDirC65wSXDIettknL1
-         clER4pw6Y2/L+bgc0rc1qPwlNWeXFMJ0OFhvWL8/8rHN31JC3A4p4HL48Aup7BlQwrIs
-         tZx3uq5acOh+vWiW/Ywr1I5mAe13sYWWWFcT91OcNMSR734Je6R4O7rHG9+lz2Lt3UGa
-         bdbw==
-X-Forwarded-Encrypted: i=1; AL+hErFPmHo0KAtY6jWLfbZFQ+UdAzrnoP6p9TWbjdrS+WqIlz1Le3Bxxfger8JJYHkGBN9T8BgvTLtPfxvj/ms=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9gES6NrZrCYkOw/OzM4aWI+LNOpjM2YGbmajfb/X96QMJZnXt1
-	woX8ySX57K7TUmv/nMD6eOoD1D7iobnjtkFqX1+/oHxrAo0+5MztentGiRVL6O2lUs71aqMN0Wi
-	bCist/S45sk6Z+A==
-X-Received: from pjbpc5.prod.google.com ([2002:a17:90b:3b85:b0:3b5:361e:87b9])
- (user=skhawaja job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:2e8c:b0:3b3:b373:6a6a with SMTP id 98e67ed59e1d1-3b41c9e45c3mr23219110a91.28.1795754700474;
- Thu, 26 Nov 2026 20:45:00 -0800 (PST)
-Date: Fri, 27 Nov 2026 04:44:58 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=r7PGWkZe
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=PRKPtJOLbnC27h3uioNsO+R4riFgVMiKGh1NJXpiY6E=; 
+	b=r7PGWkZewT/Qu37JuPXBGYF0XJWBmX5ofI+YY/QwkwsBVX1110EJkGB8LoiPfTm2x6I5nOdyS2x
+	9xL07z/OBjnzInp+SJklnzlafs3+dbplljXr9sHOBBX7Tz0Wogh3vmSSI53uOKF/KwzvzBziHLMdg
+	q95sy5GAiqr0Oqb+WLL5kjrG2kjdwZdmT8l6w9GfGKuMKQAy3s0f97+mrOOgAZ3jO18HO91/tzxOJ
+	3Fqd+WvRS4eTlPoi4Xee8RNf5TmXZ9Vhi8af0fyvcyuibpCusByZK3ptKDlVOjex5ZMCsEG1+41la
+	khzDq0idnHB98u9Zg2/PwX/J4alMy2ulgAsw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xWnqF-00000002VDC-2KO8;
+	Fri, 27 Nov 2026 12:45:48 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 27 Nov 2026 12:45:47 +0800
+Date: Fri, 27 Nov 2026 12:45:47 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Guicai Ma <maguicai@kylinos.cn>
+Cc: "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: af_alg - wake up waiters on zero-length final
+ message
+Message-ID: <awkK-9grfKCPNJhY@gondor.apana.org.au>
+References: <20261120083244.1156396-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,53 +64,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261127044458.2757857-1-skhawaja@google.com>
-Subject: [PATCH] PCI: Don't reset a VF through its hotplug slot
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Lukas Wunner <lukas@wunner.de>, Alex Williamson <alex@shazbot.org>, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120083244.1156396-1-maguicai@kylinos.cn>
 
-pci_dev_reset_slot_function() doesn't do a slot reset of a multifunction
-device, because the reset would also reset the other functions. A VF is
-not marked as multifunction, so this check doesn't catch it.
+On Fri, Nov 20, 2026 at 03:32:44AM -0500, Guicai Ma wrote:
+>
+> diff --git a/crypto/af_alg.c b/crypto/af_alg.c
+> index 7524070f26d8..9b4f8c1d2e3a 100644
+> --- a/crypto/af_alg.c
+> +++ b/crypto/af_alg.c
+> @@ -938,7 +938,7 @@ static void af_alg_data_wakeup(struct sock *sk)
+>  	struct af_alg_ctx *ctx = ask->private;
+>  	struct socket_wq *wq;
+>  
+> -	if (!ctx->used)
+> +	if (!ctx->init || (ctx->more && !ctx->used))
 
-A VF on the same bus as its PF gets the PF's hotplug slot, so behind a
-pciehp port the VF has the "bus" reset method. A slot reset of the VF
-also resets the PF and all other VFs, and only the VF's state is
-restored afterwards.
+Good catch.  However, this is still slightly out-of-sync with the
+waiting side's condition:
 
-Fixes: 10791141a6cf ("PCI: Simplify pci_dev_reset_slot_function()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
----
-Tested in QEMU with an igb PF behind a pciehp root port, bound to
-vfio-pci with two VFs. Without this patch the VFs have "flr bus" in
-reset_method, and a bus reset of one VF also resets the PF and the other
-VF. With it the VFs only have "flr".
----
- drivers/pci/pci.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> 	ctx->init && (!ctx->more || (min && ctx->used >= min))
 
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index 7c6f2aba8144..16e970d26b51 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -4994,7 +4994,8 @@ static int pci_dev_reset_slot_function(struct pci_dev *dev, bool probe)
- {
- 	if (dev->subordinate || !dev->slot ||
- 	    dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET ||
--	    (dev->multifunction && !dev->slot->per_func_slot))
-+	    ((dev->multifunction || dev->is_virtfn) &&
-+	     !dev->slot->per_func_slot))
- 		return -ENOTTY;
- 
- 	return pci_reset_hotplug_slot(dev->slot->hotplug, probe);
+How about putting that whole thing into a helper and have both sides
+use it to ensure that this never happens again?
 
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+Thanks,
 -- 
-2.56.1.839.g22a8290db9-goog
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
