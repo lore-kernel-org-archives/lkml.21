@@ -1,112 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795737635;
-	b=yV6WiUwLyQ/T5VhHm/uY0N9o+0itOzknkyuHVWEbPZ0wTmvU7vRrN1qIDsRcs1bm1Rxj
-	 SetiQOQq8g/qX/zzGlCWQCLzqlcuD1ZQTyNs82uGZag+UYNe1InTj/OYvOn0Rrr2uEdza
-	 9oDakRw4RVm8G+BJRhVxd1mz+D0TqJdgnoePr3kW+/6vufyaS5+MH5I3gBXN3wCk3mH/i
-	 GrDiewDwdeK7GcTuP+b9g8RqHMmZnCTC9GkLkyntYAVRg/07Dr++R3GGUKxZvGLuVNrwQ
-	 XU0NcaP9HZ0a8sfIbuyMTSjhA72YuZ1YSFiB7iN4pXnMrWnH+dezFMdfyz/9fUR4vYg==
+	t=1795737772;
+	b=gl2kVkLtPy6Z24jqCOdyxq7fPY9Znx292/huIZPdc3MzRYrhmJcqFPOOsGfCAzbV0zXB
+	 6FIsafOuqG2hoiY6oKdSxJPAhd8DArPYEdj+eJDLHzf9IWTdwMzU5zLp3sWkeyFZzo2W9
+	 FhtCJi15RgiL+KfW2fGQ7Xy8DavmbF7AsJLifHgVv1uXYqEifjgkEB4inOLqMsHNIgrAM
+	 4DcaLGg13FaDk6jdTi7UntuqTqwH6pc7sUFktJmjZ3CiMr3vK0a5bx3YNDcjXtpFmhADw
+	 YMMWBC9vqGx1aDiBHX3n/i4ST0XA7NXEFvoH0h+0ix8XVYyfNrqR2GUAGTHjC5hHAcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795737635;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795737772;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=ZS4M9vzsoQEiDgKwhqmCLRfcE4xcofQNd8Smal4Rhqg=;
-	b=eM8xuC+MGSdFt3I4j+vhM6dxnYUu8ajgeNSC26FH76YioLN1B6LbLQBwrzmcXD4ad4Fl
-	 2TXjYWN/jN4i8Q6R5N+WofPpk3fQcEqlOz2+x6DfsaDUzRIo1vVhnIsPlwpacIRdXbhXo
-	 B2hL7uG1DtcYtd0oUwb9mZl7DiVyuMVmldJkyedcymN7SuafXqlWdo/el6eeCQAQMNtjs
-	 uNwMV/NX+faVqAwb5hSHj8TVzAhPm3l1KnyPh4hblkiQYxV10H6yotX4mA/kIwaPUmftX
-	 RQ6tPn+M7YhCmBRk/XGd4Yh/ZRfBaZAX9VjF+HNC3aJ5StAUaaA+nrPhcv5NRbTgjoQ==
+	 Message-ID:Date:MIME-Version:User-Agent:Content-Language:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=xjtr07JDs5eYYSE0PvekGDI6C8K/1rOMD113yDyp5fc=;
+	b=CB2uSvRJeHxq8q9KHj4cy8r0WEDRD4+xmYghHRgBB7qRzH6zggaxDi4DaXSkwtc4+W2a
+	 nm1v0TO7yfRJGDxIeEq5EDYlqXphS8drEpnbN4l30Db2owa9tNElQES7djtHyBPbnqkYE
+	 JE5Pzb5R0OcWLcaCyzRagRcUc6CkUKZAjYOJyXufw4WigJrAxTGooEB/ZULVeJe3/Kzpc
+	 4PODE/nlCPtI1AEgCL3kR8UEc2rqcn7DK8TqG5ThLfQMf9MMf6fiYREN9uqMPi64cmFEM
+	 ZHZldP+hl57d6pcjWF+m1McEPzr+2Z31at8TXke+7sVKZQL0dxthFyp0wxtN3dqQxfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Mt/KSgkg";
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uMYcnx4Y;
+	arc=none smtp.remote-ip=74.125.225.137
+Received: from mail-wm2-f9.google.com (mail-wm2-f9.google.com [74.125.225.137])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FE8E606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:00:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FE8E606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3904606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:02:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3904606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mt/KSgkg
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4ac109a8a12so4460757f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:00:34 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uMYcnx4Y
+Received: by mail-wm2-f9.google.com with SMTP id 5b1f17b1804b1-4b4e4d13850so24367915e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:02:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795737633; x=1796342433; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZS4M9vzsoQEiDgKwhqmCLRfcE4xcofQNd8Smal4Rhqg=;
-        b=Mt/KSgkgl/l8dOWLOaIpHloyZ7dZtF3/CXDAJJ0CGVbt7VtLnH1tepmGQ2fxU88Flp
-         ackkEtdBNcLKC5WsIcEOZJfUoN474zaIan+b/Yf4Foz15TV2Mw40t+WUETLRQvmHSH83
-         T3NGMqxX4kxwN2d4njAkHHMU9aiiHevy3lOlOA9Ci7HOw8P6ma6VauG3tRruX3l1gMmZ
-         J6M0xQ3fyeOevSCT90SfNBsSI2HO8v+2wiS17qFviqlqI4a5Gse12RmMEKy6icqIRoLO
-         EbzTeTK5lmDtpzTkWQ9mL5wDe+mqONuqrBS/8RtqwLcHMMMAeMcDyt26iXOppJC8J8z3
-         JyaQ==
+        d=gmail.com; s=20260707; t=1795737770; x=1796342570; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=xjtr07JDs5eYYSE0PvekGDI6C8K/1rOMD113yDyp5fc=;
+        b=uMYcnx4Yh37Y+xLN+Il2C4Kd7Ny2wm1aF0aJdhPVmM9j6HdceMZ6t/O/cIzk7Q4Aod
+         yD4mgqX0gbLXEuZWVTSnnUiFzsZl34cMmaqzdCzU7i8fPTinMVEGSkyvlrsmanXxQv3x
+         GL/YZ1hFELi2YhO3H9CWCgXbyHrhj6GbEOxCrCOiEqVrFd9yx5s1L8a8amqEtW2pCfPu
+         qFSGK8sBthgWAcGndrC+DBsRX+jhdFXlBNUQjVdWck0T65SyRxmjzk+eiWews4VAVQPp
+         cJ+71v94hlzidiBkjYmqrzisMKyXt+kydsUHV4Tc7qNzq0BLWxP/Rz/VhRCxjs7BmkiA
+         9bvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795737633; x=1796342433;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:x-gm-gg
+        d=1e100.net; s=20260707; t=1795737770; x=1796342570;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZS4M9vzsoQEiDgKwhqmCLRfcE4xcofQNd8Smal4Rhqg=;
-        b=cwXMlITKxUiOTEnepjMdSvWeBT8QIOCtrlcm/c7uRb7XHV6fcbGFS5Ye3s/UOEB4kB
-         NXiGU/LlaJL6dIpXOnMPn3nZZ0Zoo3q59Ctxhso5iS3uFlAHtHK5XclitwNaePEV8U+w
-         Uq245GJI7cqEd0CNM0IdYaQStShkif5JBj1Id0OsDEJF1PKvi2jdHrVuTgCFKmwuZie2
-         w4HDcapzA6OtE0GHJhZsMqKctVGwD5SPJnioJmGiqAuTiRM2YRCxvmUV1SP6c1alasLC
-         6+HeLmlIuZijTgi2BDU/y5p/Q/p636QDeEo4/yErPiI83k0eIwm1D61V4nSiH9Fjtz0h
-         kbxw==
-X-Forwarded-Encrypted: i=1; AL+hErEbeKoMTflVcUAOSDnF2UVCntj99KmvkI/wYQEV0/U0wAA6xRFvGPfNVqCyG4fE+nvroKfZ+dfmWz0Ddgo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UQBNFha7LSmnI6kteP4A7+mcDC0ogE4dqozNFMQ6D2nFl7+Yt
-	ZNGtxvokGSG3rbf43cioneD3fkYQviL8poAP+6wkcOJAk1xT4t2hB4t4
-X-Gm-Gg: AZFdTZfCHL+XnGxTeJG+p6EEUoWkbZxuLG0ljwrvICoy+NM08z37Gtv+vipfLhZiuVG
-	kOJBQ8b0x4icBl4/chf3FF8qtfSTnbI98eGobeg0ApIFgqJP+jhE18jqR1b9VTWBwRA2+7b+kj5
-	CZOxl/sUDh22Abc9AfSycAhk9j377m+yQ4JFQZ7tey1rIoVlsafmamJMwkfJ/9+DSz3rGkdghSS
-	ANdXN5Y0ycy0GKC1rbqJ7ccwjXYVALnD61OqsR8cKlW2teK2PHQf4QBuwnAQs2Nl82QTbqB87SJ
-	7DHjYX9XqAHkDjEddrz97qcKjN66tSnnnVTfcvIswwSpD6LlxM+rdr+8JjaWI+eJLiBlbFFQoW3
-	WWfmKitHlvsXuAfQx4GHWb08iupkSz4hGTHI3BCize7VYfPSpdqXov1uhl21AuSry+lGZZ1HdUe
-	tL+XPgvvDam9hSA/2V21uvZPPDp660CWbBLqNKkZEGWQoYT6Fj7kji3HVaoLrlqyGdnqxNeoISf
-	HmlzKeezQpdSkvCx92D3aP9KkTwn56Rk7LAdInoOnhygVk8mrOXqWqq8dHqd5X8hMB8/GkgSrmM
-	PjKxznUjwjkS84Ov1sl4NhChV3XGUgnU8RSHZ6uMnIMinTG7xtH36ZvgadYfBI+j3G/yhNDilLT
-	tuwFXiLKc0Kb0jPngNA==
-X-Received: by 2002:a05:6000:2505:b0:4af:7577:65b2 with SMTP id ffacd0b85a97d-4be44a3a2ddmr3371887f8f.52.1795737632762;
-        Thu, 26 Nov 2026 16:00:32 -0800 (PST)
-Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm45536616f8f.29.2026.11.26.16.00.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 16:00:32 -0800 (PST)
-Sender: Julian Braha <julian.braha@gmail.com>
-From: Julian Braha <julianbraha@gmail.com>
-To: nathan@kernel.org,
-	nsc@kernel.org
-Cc: samitolvanen@google.com,
-	torvalds@linux-foundation.org,
-	ljs@kernel.org,
-	david.laight.linux@gmail.com,
-	sashal@kernel.org,
-	lzsx618@gmail.com,
-	zuoan.penguin@gmail.com,
-	petr.pavlu@suse.com,
-	jani.nikula@intel.com,
-	xur@google.com,
-	sidnayyar@google.com,
-	robertusdchris@gmail.com,
-	acourbot@nvidia.com,
-	linux-modules@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Julian Braha <julianbraha@gmail.com>
-Subject: [PATCH 4/5] scripts: add bit count parameter back to the host hash table functions
-Date: Fri, 27 Nov 2026 00:00:14 +0000
-Message-ID: <20261127000015.3662267-5-julianbraha@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261127000015.3662267-1-julianbraha@gmail.com>
-References: <20261127000015.3662267-1-julianbraha@gmail.com>
+        bh=xjtr07JDs5eYYSE0PvekGDI6C8K/1rOMD113yDyp5fc=;
+        b=wZ+/GddBN6vQ02b2XX8h2/psUOZu/LBkmq/Y2kJMIPLmBjE6tkNi8x4zD8z8KdOSmU
+         h9lj4qa+Y7RAKzQP/vhAyBDJ6Y8astMpIlelTm308qxMcOGzbYGKtPWOTnr+46nHOSFQ
+         WoyUrjxyT+9DpqRFAr8S1LK2+GjJmq/QE1hip10bNshz1m1UIQiu0OdDjGmkwgj3Xihq
+         E1TpkCuF2JREZu9xpBVNGhLCeJhHcAnDrfaTA7JcU8+WWc/vlNU0jkvY/BLm+fOZsoev
+         TKHtrADSa4STlZDEjneS3Rm02+aYLmpt56C5sgrRqAXV8nGKa5jL2A3bailGUXcRQtz2
+         2/Bg==
+X-Forwarded-Encrypted: i=1; AL+hErGEQpq/sM2/HfCjC+iCVPdwOodyHJS4OuHa6Ymm91rUbyQjYXpS6a/c5u9f7ejoq+rS1A/1lJBlwNG5Tuo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9rQbuQuJmx564R/t5WPxGQZ9QYRsaT0qdb5/KpHu88tyXqzfoq
+	xFQLhyfbq4yAgNoAPfb+vW/ImchWm2Khjth4WXXjBJmCHXziD3Sn7xFU
+X-Gm-Gg: AZFdTZcujca0sLm01/XVPza4PxQHznapai9wXlCEV7a2fnkLM0Ww/6VswIC3g1ZdLgq
+	OKbmxynWzhytQvt7w7XclS7QvCXNeB+bP5roQkiCbMPUVbQ7BbwSKWzYCTo1hL1KegzdD9dFUf2
+	a+1/BPANfO3VkCFgpQtHabbvsbsLtyY8kj13rBTFuyVobqsTR1b07X5ipVOLbRre9oe4b/d9sKs
+	CF57WnZAwBGewCD/ZJtVdK/ktKLHjOMY+b78qUea/tSRgMd/MRIlJI7sKGi9AG7zge50BjnyHbR
+	USb1iUiLtpG0Aq+wGIf+0GYICVFDrG3G4+XakE/6j6Zw5qmNZbuTNM7aamvT4lVmniwx5trG+hW
+	/CwYkNkxdeuQ4IPXvV/Bj1s4kZAjlwZ5tDa29csIIviQtwYxAQJh76tPtVgh268b/OOL/CNZqGA
+	GO2SWAYPf6MUkiblNIbjfVD/xzM02n7Df1iRBmngGaAAsQ6pNvVjnv5+RKT/UIvsjleVB2gsyi7
+	p+2c9c1dAijTm14b0QY8S4lJZcqfa14+i1/4PlI8ManIR8ljZi8uvuTGraAQzRcQjI5/IWzJBsW
+	xjpvpFaGTCxhdHd1unR75ax2rikRdhHdK4mK
+X-Received: by 2002:a05:600c:8210:b0:4bb:6a2d:b438 with SMTP id 5b1f17b1804b1-4bb88786c81mr454598565e9.0.1795737770158;
+        Thu, 26 Nov 2026 16:02:50 -0800 (PST)
+Received: from [192.168.1.11] ([31.94.68.154])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm50065144f8f.24.2026.11.26.16.02.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 16:02:49 -0800 (PST)
+Message-ID: <d34513d6-8f84-4456-9b69-67643f4eab85@gmail.com>
+Date: Fri, 27 Nov 2026 00:02:47 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,266 +90,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: "amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>
+Cc: Alex Deucher <alexander.deucher@amd.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Mario Limonciello <mario.limonciello@amd.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ Richard Lane <richardlanedev@gmail.com>
+From: Richard Lane <richardlanedev@gmail.com>
+Subject: [PATCH v4 0/3] drm/amd: Enable 2x1 tiled display support on Apple
+ Intel Retina iMacs
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-This partially reverts commit 0a3128e75108 ("kconfig: add macros useful
-for hashtable").
- 
-As Linus noted when reporting the 'make oldconfig' performance issue,
-when the kernel's internal hash table implementation was copied over for
-Kconfig to use, it also improperly simplified the parameters of
-DECLARE_HASHTABLE() and DEFINE_HASHTABLE() to take "sizes" instead of the
-actual number of bits, and passed '(key) % HASH_SIZE(table)' to
-hash_head() instead of using the high hash bits.
+Hi folks,
 
-Let's revert these simplifications:
-1. DECLARE_HASHTABLE() and DEFINE_HASHTABLE() will take the bit count, and
-2. hash_head() will call hash_min() to select a bucket using the high bits
+Apple 21.5" 4K (iMac18,2, iMac19,2) and 27" 5K (iMac15,1, iMac17,1,
+iMac18,3, Polaris-based iMac19,1) Retina iMacs drive their internal
+4096x2304 or 5120x2880 panel as a 2x1 tiled display using two streams
+over an internal eDP root link and a secondary DP link.
 
-Note that HASH_BITS should call ilog2() but that drags in a ton more
-dependencies, so instead just use __builtin_ctzll() to count the leading
-zeroes since the hash table size can only be a power of 2.
+At boot, the Apple EFI firmware initializes only a single pipe and
+leaves the secondary DP tile unlatched with HPD deasserted. Because the
+secondary tile reports HPD low and requires a vendor-specific DPCD
+handshake before it responds as a DisplayPort sink, amdgpu currently
+fails to detect the second tile, leaving Linux limited to single-tile
+resolutions.
 
-Add back hash_min() from the in-kernel implementation to select hash_32()
-for keys of up to 4 bytes and hash_long() for wider keys.
+This series enables full dual-tile operation on DCE < 12 Apple 4K/5K
+Retina iMacs so that the internal panel behaves like a standard
+DisplayID tiled monitor:
 
-Accordingly, update the callers of DECLARE_HASHTABLE() and
-DEFINE_HASHTABLE(). In genksyms, use uint32_t for the CRC key in
-__add_symbol(). This gives insertion and lookup the same key size on
-64-bit hosts.
+1. Calculate the pre-OS framebuffer reservation in GMC v7 and v8 using
+   mmGRPH_PITCH and the mmGRPH_PRIMARY_SURFACE_ADDRESS offset from
+   vram_start so the full relocated Apple EFI scanout surface is
+   preserved during boot handover without vendor-specific quirks.
+2. Latch the root eDP link via DPCD 0x4F1 prior to EDID read on Apple
+   hardware (DCE < 12), point the secondary DP link to the root eDP
+   link (apple_imac_peer) via an EDID quirk covering 4K and 5K Retina
+   iMacs, latch the secondary tile via DPCD 0x4F1 on the root eDP link,
+   write the 3-byte Boot Camp source table (0x310) on the secondary
+   link, keep the secondary tile out of D3 power-down, and unlatch the
+   TCON back to single-pipe mode on suspend/shutdown. Once unlocked,
+   DRM's DisplayID parser populates has_tile, tile_group, and
+   tile_is_single_monitor on both connectors natively. (DCE >= 12
+   support for Vega-equipped iMac19,1, iMacPro1,1, and 2020 iMac20,x is
+   noted as TODO.)
+3. Compute context->bw_ctx.bw.dce.all_displays_in_sync in
+   dce100_validate_bandwidth() using
+   resource_are_streams_timing_synchronizable() and copy it to
+   pp_display_cfg->all_displays_in_sync in
+   dce_pplib_apply_display_requirements(), matching the existing DCE 11
+   bw_calcs() flow so SMU7 can downclock MCLK at idle on DCE <= 10
+   without modeset underflows.
 
-Fixes: 0a3128e75108 ("kconfig: add macros useful for hashtable")
-Reported-by: Linus Torvalds <torvalds@linux-foundation.org>
-Closes: https://lore.kernel.org/all/CAHk-=wi_GuySe0L-uCAM2+nScCLYGBp5BLi6UUPR1gALmNM_3w@mail.gmail.com/
-Signed-off-by: Julian Braha <julianbraha@gmail.com>
----
-Originally, I copied over log.h to use ilog2() as the in-kernel
-HASH_BITS does, but then we need to bring over and adjust a bunch of other
-header dependencies like fls.h and fls64.h and then __fls.h and so on.
+Changes in v4:
+- Patch 2: Drop the link_dp_phy.c hunk that skipped DP_SET_POWER D3 on
+  the secondary DP link, as testing confirmed both DPMS blanking/wake
+  and S3 suspend/resume work properly without it.
 
-If anyone hates the trailing zeroes hack, I am open to suggestions.
----
- scripts/gendwarfksyms/die.c           |  2 +-
- scripts/gendwarfksyms/gendwarfksyms.h |  2 +-
- scripts/gendwarfksyms/kabi.c          |  2 +-
- scripts/gendwarfksyms/symbols.c       |  4 ++--
- scripts/gendwarfksyms/types.c         |  2 +-
- scripts/genksyms/genksyms.c           |  4 ++--
- scripts/include/hashtable.h           | 24 ++++++++++++++++++------
- scripts/kconfig/expr.c                |  2 +-
- scripts/kconfig/internal.h            |  8 ++++----
- scripts/kconfig/symbol.c              |  2 +-
- scripts/kconfig/util.c                |  2 +-
- scripts/mod/modpost.c                 |  2 +-
- 12 files changed, 34 insertions(+), 22 deletions(-)
+Changes in v3:
+- Patch 2: Added pre-EDID DPCD 0x4F1 latch on the root eDP link in
+  dm_helpers_read_local_edid() so dual-tile detection works even when
+  third party bootloaders are not present on the EFI partition. Added
+  21.5" 4K Retina iMac panel IDs (AE19/1A for iMac18,2 and iMac19,2)
+  and renamed apple_5k_peer / amdgpu_dm_apple5k_unlatch() to
+  apple_imac_peer / amdgpu_dm_apple_imac_unlatch().
+- Patch 3: Dropped the dm_pp_apply_display_requirements() call in
+  amdgpu_dm.c and instead computed all_displays_in_sync in
+  dce100_validate_bandwidth() and copied it in
+  dce_pplib_apply_display_requirements() (dce_clk_mgr.c) to match the
+  existing DCE 11 bw_calcs() path.
 
-diff --git a/scripts/gendwarfksyms/die.c b/scripts/gendwarfksyms/die.c
-index 79d738e69ce5..32b0be8fca78 100644
---- a/scripts/gendwarfksyms/die.c
-+++ b/scripts/gendwarfksyms/die.c
-@@ -9,7 +9,7 @@
- #define DIE_HASH_BITS 16
- 
- /* {die->addr, state} -> struct die * */
--static DEFINE_HASHTABLE(die_map, 1 << DIE_HASH_BITS);
-+static DEFINE_HASHTABLE(die_map, DIE_HASH_BITS);
- 
- static unsigned int map_hits;
- static unsigned int map_misses;
-diff --git a/scripts/gendwarfksyms/gendwarfksyms.h b/scripts/gendwarfksyms/gendwarfksyms.h
-index c987acbbf1ef..58d6b20d504e 100644
---- a/scripts/gendwarfksyms/gendwarfksyms.h
-+++ b/scripts/gendwarfksyms/gendwarfksyms.h
-@@ -208,7 +208,7 @@ void die_map_free(void);
- 
- /* A cache for addresses we've already seen. */
- struct cache {
--	DECLARE_HASHTABLE(cache, 1 << CACHE_HASH_BITS);
-+	DECLARE_HASHTABLE(cache, CACHE_HASH_BITS);
- };
- 
- void cache_set(struct cache *cache, unsigned long key, int value);
-diff --git a/scripts/gendwarfksyms/kabi.c b/scripts/gendwarfksyms/kabi.c
-index 35c70a6230d9..9589de2aaba4 100644
---- a/scripts/gendwarfksyms/kabi.c
-+++ b/scripts/gendwarfksyms/kabi.c
-@@ -87,7 +87,7 @@ struct rule {
- };
- 
- /* { type, target } -> struct rule */
--static DEFINE_HASHTABLE(rules, 1 << RULE_HASH_BITS);
-+static DEFINE_HASHTABLE(rules, RULE_HASH_BITS);
- 
- static inline unsigned int rule_values_hash(enum kabi_rule_type type,
- 					    const char *target)
-diff --git a/scripts/gendwarfksyms/symbols.c b/scripts/gendwarfksyms/symbols.c
-index a87444611bbd..2fac17ecac21 100644
---- a/scripts/gendwarfksyms/symbols.c
-+++ b/scripts/gendwarfksyms/symbols.c
-@@ -9,9 +9,9 @@
- #define SYMBOL_HASH_BITS 12
- 
- /* struct symbol_addr -> struct symbol */
--static DEFINE_HASHTABLE(symbol_addrs, 1 << SYMBOL_HASH_BITS);
-+static DEFINE_HASHTABLE(symbol_addrs, SYMBOL_HASH_BITS);
- /* name -> struct symbol */
--static DEFINE_HASHTABLE(symbol_names, 1 << SYMBOL_HASH_BITS);
-+static DEFINE_HASHTABLE(symbol_names, SYMBOL_HASH_BITS);
- 
- static inline unsigned int symbol_addr_hash(const struct symbol_addr *addr)
- {
-diff --git a/scripts/gendwarfksyms/types.c b/scripts/gendwarfksyms/types.c
-index db55c8ae57f8..864ad6ee5c3e 100644
---- a/scripts/gendwarfksyms/types.c
-+++ b/scripts/gendwarfksyms/types.c
-@@ -100,7 +100,7 @@ static void type_expansion_append(struct type_expansion *type, const char *s,
-  * const char *name -> struct type_expansion *
-  */
- #define TYPE_HASH_BITS 12
--static DEFINE_HASHTABLE(type_map, 1 << TYPE_HASH_BITS);
-+static DEFINE_HASHTABLE(type_map, TYPE_HASH_BITS);
- 
- static int __type_map_get(const char *name, struct type_expansion **res)
- {
-diff --git a/scripts/genksyms/genksyms.c b/scripts/genksyms/genksyms.c
-index 01bea2d91d7a..fe45a9cb6938 100644
---- a/scripts/genksyms/genksyms.c
-+++ b/scripts/genksyms/genksyms.c
-@@ -24,7 +24,7 @@
- #include "genksyms.h"
- /*----------------------------------------------------------------------*/
- 
--static DEFINE_HASHTABLE(symbol_hashtable, 1U << 12);
-+static DEFINE_HASHTABLE(symbol_hashtable, 12);
- static FILE *debugfile;
- 
- int cur_line = 1;
-@@ -228,7 +228,7 @@ static struct symbol *__add_symbol(const char *name, enum symbol_type type,
- 			    struct string_list *defn, int is_extern,
- 			    int is_reference)
- {
--	unsigned long h;
-+	uint32_t h;
- 	struct symbol *sym;
- 	enum symbol_status status = STATUS_UNCHANGED;
- 
-diff --git a/scripts/include/hashtable.h b/scripts/include/hashtable.h
-index fa60976eae37..069fde323419 100644
---- a/scripts/include/hashtable.h
-+++ b/scripts/include/hashtable.h
-@@ -3,17 +3,29 @@
- #define HASHTABLE_H
- 
- #include "array_size.h"
-+#include "hash.h"
- #include "list.h"
- 
--#define HASH_SIZE(name) (ARRAY_SIZE(name))
-+#define DEFINE_HASHTABLE(name, bits)						\
-+	struct hlist_head name[1 << (bits)] =					\
-+			{ [0 ... ((1 << (bits)) - 1)] = HLIST_HEAD_INIT }
-+
-+#define DECLARE_HASHTABLE(name, bits)						\
-+	struct hlist_head name[1 << (bits)]
- 
--#define DECLARE_HASHTABLE(name, size)		struct hlist_head name[size]
-+#define HASH_SIZE(name) (ARRAY_SIZE(name))
-+/*
-+ * HACK: Since the hash table length is always power-2, just count the
-+ * trailing zeroes to avoid pulling in the log header (and dependencies.)
-+ */
-+#define HASH_BITS(name) __builtin_ctzll(HASH_SIZE(name))
- 
--#define DEFINE_HASHTABLE(name, size)						\
--	DECLARE_HASHTABLE(name, size) =						\
--			{ [0 ... ((size) - 1)] = HLIST_HEAD_INIT }
-+/* Use hash_32 when possible to allow for fast 32bit hashing on 64bit hosts. */
-+#define hash_min(val, bits)							\
-+	(sizeof(val) <= 4 ? hash_32(val, bits) : hash_long(val, bits))
- 
--#define hash_head(table, key)		(&(table)[(key) % HASH_SIZE(table)])
-+#define hash_head(table, key)							\
-+	(&(table)[hash_min(key, HASH_BITS(table))])
- 
- static inline void __hash_init(struct hlist_head *ht, unsigned int sz)
- {
-diff --git a/scripts/kconfig/expr.c b/scripts/kconfig/expr.c
-index 5938b775a3fc..8dc73acb08ad 100644
---- a/scripts/kconfig/expr.c
-+++ b/scripts/kconfig/expr.c
-@@ -16,7 +16,7 @@
- 
- #define DEBUG_EXPR	0
- 
--DEFINE_HASHTABLE(expr_hashtable, EXPR_HASHSIZE);
-+DEFINE_HASHTABLE(expr_hashtable, EXPR_HASH_BITS);
- 
- static struct expr *expr_eliminate_yn(struct expr *e);
- 
-diff --git a/scripts/kconfig/internal.h b/scripts/kconfig/internal.h
-index f7e660dbd299..d40fa33991a6 100644
---- a/scripts/kconfig/internal.h
-+++ b/scripts/kconfig/internal.h
-@@ -4,16 +4,16 @@
- 
- #include <hashtable.h>
- 
--#define SYMBOL_HASHSIZE		(1U << 14)
-+#define SYMBOL_HASH_BITS	14
- 
--extern DECLARE_HASHTABLE(sym_hashtable, SYMBOL_HASHSIZE);
-+extern DECLARE_HASHTABLE(sym_hashtable, SYMBOL_HASH_BITS);
- 
- #define for_all_symbols(sym) \
- 	hash_for_each(sym_hashtable, sym, node)
- 
--#define EXPR_HASHSIZE		(1U << 14)
-+#define EXPR_HASH_BITS		14
- 
--extern DECLARE_HASHTABLE(expr_hashtable, EXPR_HASHSIZE);
-+extern DECLARE_HASHTABLE(expr_hashtable, EXPR_HASH_BITS);
- 
- void expr_invalidate_all(void);
- 
-diff --git a/scripts/kconfig/symbol.c b/scripts/kconfig/symbol.c
-index e46228d6348e..b3135d18fe61 100644
---- a/scripts/kconfig/symbol.c
-+++ b/scripts/kconfig/symbol.c
-@@ -971,7 +971,7 @@ bool sym_is_choice_value(const struct symbol *sym)
- 	return !list_empty(&sym->choice_link);
- }
- 
--DEFINE_HASHTABLE(sym_hashtable, SYMBOL_HASHSIZE);
-+DEFINE_HASHTABLE(sym_hashtable, SYMBOL_HASH_BITS);
- 
- struct symbol *sym_lookup(const char *name, int flags)
- {
-diff --git a/scripts/kconfig/util.c b/scripts/kconfig/util.c
-index d2d17d9d37b9..5c3f6f99c453 100644
---- a/scripts/kconfig/util.c
-+++ b/scripts/kconfig/util.c
-@@ -14,7 +14,7 @@
- #include "lkc.h"
- 
- /* hash table of all parsed Kconfig files */
--static DEFINE_HASHTABLE(file_hashtable, 1U << 11);
-+static DEFINE_HASHTABLE(file_hashtable, 11);
- 
- struct file {
- 	struct hlist_node node;
-diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index 92bcd2b3a08e..c46dc74d6880 100644
---- a/scripts/mod/modpost.c
-+++ b/scripts/mod/modpost.c
-@@ -234,7 +234,7 @@ struct symbol {
- 	char name[];
- };
- 
--static DEFINE_HASHTABLE(symbol_hashtable, 1U << 10);
-+static DEFINE_HASHTABLE(symbol_hashtable, 10);
- 
- /**
-  * Allocate a new symbols for use in the hash of exported symbols or
+Changes in v2:
+- Patch 1: Replaced the hardcoded 64 MiB Apple quirk in amdgpu_gmc.c
+  with a generic calculation in gmc_v7_0_get_vbios_fb_size() and
+  gmc_v8_0_get_vbios_fb_size() using mmGRPH_PITCH and
+  mmGRPH_PRIMARY_SURFACE_ADDRESS.
+- Patch 2: Dropped the DRM_MODE_CONNECTOR_eDP override in
+  amdgpu_dm_connector.c in favor of DRM's native DisplayID tile
+  properties (has_tile, tile_group, tile_is_single_monitor).
+  Renamed tiled_peer to apple_5k_peer and set it only on the secondary
+  DP link, removing dm_helpers_wire_tiled_peer(),
+  dc_link_is_apple_5k_secondary(), and inline explanatory comments.
+- Patch 3: Made the PowerPlay sync check generic for any combination of
+  synchronized displays by checking timing_sync_info.group_size ==
+  params.stream_count instead of tiled_peer.
+
+Regards,
+Richard
+
+Richard Lane (3):
+  drm/amdgpu: use pitch and surface offset for GMC v7/v8 fb size
+  drm/amd/display: unlock secondary tile on Apple 4K/5K iMac panels
+  drm/amd/display: report synced displays to PowerPlay on DCE <= 10
+
+ drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c         |  8 +++--
+ drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c         |  8 +++--
+ .../gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 19 ++++++++++
+ .../amd/display/amdgpu_dm/amdgpu_dm_helpers.c | 35 +++++++++++++++++++
+ .../display/dc/clk_mgr/dce100/dce_clk_mgr.c   |  3 ++
+ drivers/gpu/drm/amd/display/dc/dc.h           |  1 +
+ .../drm/amd/display/dc/link/link_detection.c  |  7 +++-
+ .../dc/link/protocols/link_dp_capability.c    |  4 +++
+ .../dc/resource/dce100/dce100_resource.c      |  9 +++++
+ 9 files changed, 87 insertions(+), 7 deletions(-)
+
 -- 
-2.56.0
-
+2.55.0
