@@ -1,92 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793027;
-	b=eVrlgXiuT6xmFjbwIgYTPGW+W+/rviSgmt+Nw8Lp5rEeiaBqEFgU6AqcacIeryktKD89
-	 Bc9ATKJztmS0f2BL3v2ei+4Mfa/NSwC6EEcofEh/JZwaIydJnSwT3/j74EwRPwa2Fz1As
-	 C2okGEiOtujx7l9tZiYu3ERirchzPTToLxLbdn6vbSDqcRaPj5XMNcMLgHMRYyMAaa+lP
-	 AH1G5cisshIFT0pyYcoYRslcQMoX07y66Jxepxdn7zpTncfFOkOy8oRYHQSZ0AHAhtZa0
-	 ODl5ogXDtAVBSZsaMV6AuxmRLK4um4Lh25t2ZF15DM6l7kiOIyCuaZ/jzAt6lBSS8jQ==
+	t=1795793032;
+	b=nGgFJrxX8SeVZXkaB/DT20VlVj2Bt29fi2HUose7Vz6ebguWxmJFosNfuhXTUfRczbyR
+	 AM3eb+s1TY0k0d0jAjCpIxtabJA4Ag9gR2LvSBjpFdnFiyEQO4VxylyCQqUwEL5dwNieg
+	 kMc1Llbbox0CtdBPmxgmWXpfO2AkpuKfZraH8bkZgT/q/3bqENCDUnZezO8y+nAvLG2Ny
+	 skIJXptY972CalebiFiCmYA0RSlQ8BUV/1grnFM5RdATX16m38gP/HWn7lel/HqPunv5s
+	 AXI5eFDjZEJfg1Ph3vIQoLuol3IRFsyw3hqqFFXuxVIueyEsSD7kgKY0owKj2F9MmdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793027;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=5PX1wQTdRoDg0yAoax+7j7TUy9xWGa4FD/FQYy+b9uY=;
-	b=vFBY6esstezCuRMPTzsjV8HSzmeh2CCUhrldpNbeXGg0uV7aSEDZJBLwGmORu/6w1zC5
-	 P6jUvIR/OrZ5dMLjCcddrkAf8cQ3V5Lpa6nwFK8cBsPBYVGjbCMWSfmoft9zq54D87Wu8
-	 ShuKowXfhHxU5p0tJbmc34VVB3mJYHnAz2SKSGMiNrUU6JXPDrU174Eikn0NWrQSuAXoB
-	 LeXsJij8R1tYyNunkZHLNsyDaXOvZgqHZ2GpkDdUIddZo0tdZuBgcngwIZQKMEROXxhS/
-	 cSNosozqJEsrKNLTbR64HZy9uk6vaB9EE0Xs78zxRIagaAMWplUDo9ezPXUrbpf5r9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793032;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:Date:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=9qm8gKQknLIHjCNA8iGQyl2nV5Vy3wPnee7iGG4J6pY=;
+	b=nFpZH6KBx68vc1TicbTsaj8ItO1GT0+ZOv98SQvEpSs2QqUePe7+2d6ypMLGHBO1DmC5
+	 WW4BsFWv4ahW64Opc44KLrlKyYdWVLkZpp8gkHnbP2IkSbCSPP7OKGrGJrWki2gXTi3jU
+	 cvB5gO6ez0eJhKimf3PwWV8DW7/sqRNo1RJ7l4SqQHOHdc42Q0LHHGy4rgzRUTqAD+6Pu
+	 pKnxZ9l093dTVCu0EGw9fh6HJ4XKer1vM0+dOAdSZB04XksLQlMOEmoNvy8z3qIUEnt8/
+	 qWJCv3OcUWYWy1wOoPcRl4Q/oxO+v5cUyKx3EjtjFoARF9SKhAMMaTuhtinGPrD88Pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=h3gUdEPt;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jhv4dGVE;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E76BE606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:23:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E76BE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E084606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:23:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E084606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=h3gUdEPt
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4Tsm1649968;
-	Fri, 27 Nov 2026 15:23:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=5PX1wQTdRoDg0yAoa
-	x+7j7TUy9xWGa4FD/FQYy+b9uY=; b=h3gUdEPtoywsmqHXp3SqbzRs6yyncHGDp
-	wJHIthnH1+Fs4qsmyzxcM1kXvI/6xHqnjRlUpSc5nApyqv1cip8qHkR68+xMbkN9
-	qezqIClSMHVWNqlO0g2jloGfrtweub9v5GK+8AVUbv49weK9WYRXpooDmG80qINb
-	YZYyHrPLHEHQUO+cjIWZYLV8L78WiUvqH9t3dp71AB6QgFeJ7oipGPXEINMoCo3J
-	YaHp9QA57Kw44XK8A4hSIcdXtCGKbdb9pm0pd3yi7vjcdS6cdVRGSEuIMHlJypf8
-	MMLKFiX6hM/rEQnW/y3jA9Y/ZHJWEKwqBv1ftUW1+PXZr3oZPXtng==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3pek1-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:23:19 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4JgZ861635;
-	Fri, 27 Nov 2026 15:23:18 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j6mjg4jwa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:23:18 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARFNCes48759268
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 15:23:12 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 14ECB2004E;
-	Fri, 27 Nov 2026 15:23:12 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6C86620040;
-	Fri, 27 Nov 2026 15:23:06 +0000 (GMT)
-Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.16.105])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 27 Nov 2026 15:23:06 +0000 (GMT)
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-To: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
-Cc: sshegde@linux.ibm.com, christophe.leroy@csgroup.eu, ritesh.list@gmail.com,
-        tim.c.chen@linux.intel.com, yu.c.chen@intel.com,
-        gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
-        johan@kernel.org, sudeep.holla@kernel.org, peterz@infradead.org,
-        tglx@kernel.org, kprateek.nayak@amd.com, srikar@linux.ibm.com
-Subject: [PATCH v2 3/6] cacheinfo: Add firmware topology replacement helpers
-Date: Fri, 27 Nov 2026 20:52:39 +0530
-Message-ID: <20261127152242.306333-4-sshegde@linux.ibm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261127152242.306333-1-sshegde@linux.ibm.com>
-References: <20261127152242.306333-1-sshegde@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jhv4dGVE
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4C6494E417C8;
+	Fri, 27 Nov 2026 15:23:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 20D9A6049C;
+	Fri, 27 Nov 2026 15:23:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE47F11E90C4D;
+	Fri, 27 Nov 2026 16:23:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795793025; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=9qm8gKQknLIHjCNA8iGQyl2nV5Vy3wPnee7iGG4J6pY=;
+	b=jhv4dGVE5/LuAMjZj1KaTATnjN7/6Kdobu9r/1C/0OjeCcqpUXC4NsLkcy3zihWtvJ48NC
+	eoSmEL7+dXDO36TLUXr2FGk0kpRtLvZKXUug1pNoc3jtXUbvtvvyPebuB5uXBGRB22XiQL
+	ztYdDS0L/uXgqQ+EBF7QLggm5EENG2qNFpUP2RXPT8yBpVfubipI85ynMxh9gQ6N6qo3fR
+	NJVTJC9cPDQPH21QjQmQUAs9dcy2nHUWF8bJTlYEGaRuVdFakoCVqpm0aKyghhIX+53bLE
+	NxhSPPJ+fWAI9NtSgegIYB3DYfrT9ALsD7LKRVJeBz3fpXuWVxaeKNIjPW3tGA==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Quentin Schulz <foss+kernel@0leil.net>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH] arm64: dts: turris-mox: replace denx.de links with
+ official location
+In-Reply-To: <20261029-denx-de-links-migration-v1-1-4ffff7db7d98@cherry.de>
+References: <20261029-denx-de-links-migration-v1-1-4ffff7db7d98@cherry.de>
+Date: Fri, 27 Nov 2026 16:23:42 +0100
+Message-ID: <87h5h21eo1.fsf@BLaptop.bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,220 +72,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b09a068 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=rSIkQzNedsi14obMgc0A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA2MCBTYWx0ZWRfXz5sgT3UCb7e0
- SlPRj896F6ciMpkZUTr+lLjkKeM+l/LUxXaAFA8UojQZza6qQDM4vXuuUSMmnHoYHiiFsqsVIff
- 8vg1XkCEZAc9T8d/y3DPVmsgznR5oZI=
-X-Proofpoint-ORIG-GUID: 4akP-zJErddTyA4BksneN_UrAfT0V6gB
-X-Proofpoint-GUID: -oesA-471Pwbgw5jE8-CIC_vAvF9K19F
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA2MCBTYWx0ZWRfX+zls6nZygE/n
- 520trzqiGlxiihwyy8KX+VDeqm19YYJS7e+pl6VyTtfiJLtlkeebFETSixGBkcgLVvtVPfTeuSO
- 9PZkJG9bmksKD4NX7PHEKfZuaY35FYq7EO6zCMyLiLX7tIFz6Ttp+qJsXBhbCCRP83M7GO6IFyI
- foIUSSAHqv2nTb/wSM/d0xPEqYShQaBS5YhSSIi0k+Tqvypqwe+8eEp+2TbU+VF3qvkoYhKHDdr
- UzpCqlCuNR6xyBf+jvFDXU1BShnymOgjgB/spWB4LJCMztVczD60zrFFBDxqPKF3wH5/FNcrt05
- O2Vvbce1Pb30f7CxO2nYB4URbpf95W2twaRpHSGI7h2sje/etTDFs6YFrO9zKrprf15XdvuK+2z
- MkgOuMhGEjjW6elIsr/k2QlCCz/SSPOLQ6VbONwcaQkBhul5MJCQDvDb0qt9igRUrxqDPBW0hbH
- Nyxan3HyLtGnurAdY7w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270060
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-Generic cacheinfo normally retains cache leaves when a CPU is taken offline.
-This permits the information to be reused when the CPU is brought online again
-and the firmware topology has not changed.
+Quentin Schulz <foss+kernel@0leil.net> writes:
 
-Some platforms can instead detach or replace the firmware nodes referenced by
-the retained leaves. Retaining cacheinfo in that case also retains stale
-firmware tokens, cache IDs and cache properties.
+> From: Quentin Schulz <quentin.schulz@cherry.de>
+>
+> The U-Boot project doesn't own the denx.de domain and we don't know for
+> how long it'll redirect to the official location (it currently
+> redirects). Update the links to point at the official GitLab instance of
+> the project so we're future proof.
+>
+> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-Add cacheinfo_invalidate_cpu() to discard retained cacheinfo for DLPAR CPU
-remove which is to be called after normal cacheinfo CPU hotplug teardown
-completed and before its firmware nodes are detached.
 
-Also add cacheinfo_teardown_all() and cacheinfo_rebuild_all() for platforms
-that replace the complete firmware cache topology while CPUs remain online.
+Applied on mvebu/dt64
 
-The destructive helpers require the CPU hotplug lock to be held. Platform
-code that replaces firmware topology must hold CPU hotplug write lock.
-This excludes readers protected by cpus_read_lock() while the per-CPU leaf
-arrays are freed and rebuilt.
+Thanks,
 
-If rebuilding any online CPU fails, remove the hierarchy already rebuilt
-for rebuilt CPUs, discard any partially initialized state and clear the
-cacheinfo-derived scheduler and page-allocator state. This is better than
-leaving inconsistent state. However if an any CPU is onlined later
-belonging that cpu_map, then values may remain inflated until next full
-rebuild.
+Gregory
 
-[Both draft changelog and code are written by LLM under guidance]
-Assisted-by: LLM
-Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
----
- drivers/base/cacheinfo.c  | 125 ++++++++++++++++++++++++++++++++++++++
- include/linux/cacheinfo.h |   3 +
- 2 files changed, 128 insertions(+)
+> ---
+> Found when hunting denx.de leftover links in U-Boot where we import the
+> kernel device trees verbatim.
+> ---
+>  arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dts | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dts b/arc=
+h/arm64/boot/dts/marvell/armada-3720-turris-mox.dts
+> index bd00e7df87c67..159515f95ef33 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-3720-turris-mox.dts
+> @@ -151,12 +151,12 @@ &pcie0 {
+>  	 * for IO and the rest 112 MB (64+32+16) for MEM, despite that maximal =
+IO size is just 64 kB.
+>  	 * This bug is not present in U-Boot ports for other Armada 3700 device=
+s and is fixed in
+>  	 * U-Boot version 2021.07. See relevant U-Boot commits (the last one co=
+ntains fix):
+> -	 * https://source.denx.de/u-boot/u-boot/-/commit/cb2ddb291ee6fcbddd6d8f=
+4ff49089dfe580f5d7
+> -	 * https://source.denx.de/u-boot/u-boot/-/commit/c64ac3b3185aeb3846297a=
+d7391fc6df8ecd73bf
+> -	 * https://source.denx.de/u-boot/u-boot/-/commit/4a82fca8e330157081fc13=
+2a591ebd99ba02ee33
+> +	 * https://git.u-boot-project.org/u-boot/u-boot/-/commit/cb2ddb291ee6fc=
+bddd6d8f4ff49089dfe580f5d7
+> +	 * https://git.u-boot-project.org/u-boot/u-boot/-/commit/c64ac3b3185aeb=
+3846297ad7391fc6df8ecd73bf
+> +	 * https://git.u-boot-project.org/u-boot/u-boot/-/commit/4a82fca8e33015=
+7081fc132a591ebd99ba02ee33
+>  	 * Bug related to requirement of same child and parent addresses for fi=
+rst range is fixed
+>  	 * in U-Boot version 2022.04 by following commit:
+> -	 * https://source.denx.de/u-boot/u-boot/-/commit/1fd54253bca7d43d046bba=
+4853fe5fafd034bc17
+> +	 * https://git.u-boot-project.org/u-boot/u-boot/-/commit/1fd54253bca7d4=
+3d046bba4853fe5fafd034bc17
+>  	 */
+>  	#address-cells =3D <3>;
+>  	#size-cells =3D <2>;
+>
+> ---
+> base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
+> change-id: 20261029-denx-de-links-migration-f3880bb40e51
+>
+> Best regards,
+> --=20=20
+> Quentin Schulz <quentin.schulz@cherry.de>
+>
 
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index 4a23377e9312..cbeb4805ef19 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -1120,6 +1120,131 @@ static int cacheinfo_cpu_pre_down(unsigned int cpu)
- 	return 0;
- }
- 
-+/*
-+ * Clear the cached values before destroying the info_list.
-+ * The CPU must have completed cacheinfo_cpu_pre_down()
-+ *
-+ * Freeing info_list also discards retained firmware tokens, cache IDs
-+ * and cache properties. A subsequent online operation must discover
-+ * cacheinfo from the current firmware topology.
-+ */
-+static void cacheinfo_reset_cpu(unsigned int cpu)
-+{
-+	struct cpu_cacheinfo *ci = ci_cacheinfo(cpu);
-+
-+	ci->num_levels = 0;
-+	ci->num_leaves = 0;
-+	ci->per_cpu_data_slice_size = 0;
-+	ci->cpu_map_populated = false;
-+	ci->early_ci_levels = false;
-+
-+	kfree(ci->info_list);
-+	ci->info_list = NULL;
-+}
-+
-+/*
-+ * Discard retained cacheinfo for an offline CPU before detaching firmware
-+ * nodes referenced by its cache leaves.
-+ *
-+ * The CPU must have completed cacheinfo_cpu_pre_down(), so its cache devices
-+ * and sharing-map membership are no longer present. The caller must hold the
-+ * CPU hotplug write lock.
-+ */
-+void cacheinfo_invalidate_cpu(unsigned int cpu)
-+{
-+	lockdep_assert_cpus_held();
-+
-+	if (WARN_ON_ONCE(cpu_online(cpu)))
-+		return;
-+
-+	cacheinfo_reset_cpu(cpu);
-+	setup_pcp_cacheinfo(cpu);
-+}
-+
-+/*
-+ * Remove cacheinfo before replacing the complete firmware cache topology.
-+ * The caller must hold the CPU hotplug write lock to stop any concurrent
-+ * readers for cacheinfo.
-+ */
-+void cacheinfo_teardown_all(void)
-+{
-+	unsigned int cpu;
-+
-+	lockdep_assert_cpus_held();
-+
-+	for_each_online_cpu(cpu) {
-+		if (!ci_cacheinfo(cpu)->info_list)
-+			continue;
-+
-+		cacheinfo_cpu_pre_down(cpu);
-+	}
-+
-+	/* Offline CPUs may retain leaves allocated while previously online. */
-+	for_each_possible_cpu(cpu)
-+		cacheinfo_reset_cpu(cpu);
-+
-+	/*
-+	 * Clear all derived state after removing the complete hierarchy.
-+	 * Corresponding cacheinfo_rebuild_all will build those states.
-+	 */
-+	for_each_online_cpu(cpu)
-+		setup_pcp_cacheinfo(cpu);
-+
-+	sched_update_llc_bytes(cpu_online_mask);
-+}
-+
-+/*
-+ * Rebuild cacheinfo after replacing the complete firmware cache topology.
-+ * The caller must hold the CPU hotplug write lock.
-+ */
-+int cacheinfo_rebuild_all(void)
-+{
-+	unsigned int cpu, failed_cpu;
-+	cpumask_var_t rebuilt;
-+	int ret;
-+
-+	lockdep_assert_cpus_held();
-+
-+	if (!zalloc_cpumask_var(&rebuilt, GFP_KERNEL))
-+		return -ENOMEM;
-+
-+	for_each_online_cpu(cpu) {
-+		ret = cacheinfo_cpu_online(cpu);
-+		if (ret) {
-+			failed_cpu = cpu;
-+			pr_err("cache creation failed for CPU: %d ret: %d\n",
-+			       failed_cpu, ret);
-+			goto rollback;
-+		}
-+
-+		cpumask_set_cpu(cpu, rebuilt);
-+	}
-+
-+	free_cpumask_var(rebuilt);
-+	return 0;
-+
-+rollback:
-+	/*
-+	 * Remove active state only for CPUs that completed the online path.
-+	 * Then discard all allocations, including partial failed-CPU state.
-+	 */
-+	pr_err("clearing cache entries for CPUs: %*pbl\n", cpumask_pr_args(rebuilt));
-+	for_each_cpu(cpu, rebuilt) {
-+		cacheinfo_cpu_pre_down(cpu);
-+		cacheinfo_reset_cpu(cpu);
-+	}
-+
-+	cacheinfo_reset_cpu(failed_cpu);
-+
-+	/* Clear all derived states */
-+	for_each_online_cpu(cpu)
-+		setup_pcp_cacheinfo(cpu);
-+
-+	sched_update_llc_bytes(cpu_online_mask);
-+	free_cpumask_var(rebuilt);
-+	return ret;
-+}
-+
- static int __init cacheinfo_sysfs_init(void)
- {
- 	return cpuhp_setup_state(CPUHP_AP_BASE_CACHEINFO_ONLINE,
-diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
-index d3557a1b464b..2892df92fc24 100644
---- a/include/linux/cacheinfo.h
-+++ b/include/linux/cacheinfo.h
-@@ -94,6 +94,9 @@ struct cacheinfo *get_cpu_cacheinfo_llc(unsigned int cpu);
- int fetch_cache_info(unsigned int cpu);
- int detect_cache_attributes(unsigned int cpu);
- int cacheinfo_get_arch_id(unsigned int cpu, unsigned int level, unsigned int *id);
-+void cacheinfo_invalidate_cpu(unsigned int cpu);
-+void cacheinfo_teardown_all(void);
-+int cacheinfo_rebuild_all(void);
- #ifndef CONFIG_ACPI_PPTT
- /*
-  * acpi_get_cache_info() is only called on ACPI enabled
--- 
-2.52.0
-
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
