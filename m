@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795776531;
-	b=iq8jB27tf9kCNZNZK8L/DKUoxyl7tztrv65Q5OdKVpFRwUFxMzNklEx/z2XhvPVfxCVL
-	 lB88rXm/Eh4DbSOaBFa/iHJ6oEhwE+xRhO2LkWDVODrLpTDq1ovz16HZCK2z1xvEROShf
-	 CIBF6jKEWQaIgHVedMrMYj8sJsgx82hjNUns4pOnFaymA/NE5m3kMlLJXtQe7F16AwDqr
-	 JQU2EV94mfUXnpveovYgOY2RB6uUG+e/RC21JEy+eAsZ/JxlvssTkZYj8Sr3n0Izc8JMh
-	 bhQzBGu2ynkrT7xwMFs4PC4SEmylF7Ysf8aIh5lRk57FLEhNg43uhqHqK6RobhKZM2A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776531;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=bZfwrwWaECV1/tbhLITy17tqF3X7HBMLHo2nwLtYHHM=;
-	b=ytKzqnGXOllQtdxLxvpdLVcbbVP53uczDbh7CzVIW7SUm0WhSlexLpNqq47gvfZhKIlU
-	 vrYdaF0l0SyYchjipn333VyYVlYY43I/TND3IJX8jfbaA+XZpobFPwMDsXYD85Oen9Oxm
-	 JJyUzw3474J61UQcvbl29uAzdi4P1Mpmgc4arU229FMtUuD+N9ikZGp7ZOOcibEr8gmmA
-	 3sMeoH01+Qj0whFgD0N0IOGEXhNL6gpGpS/7GSITobSGBYJQhZcKmYC/8Yny5VZN+x6kl
-	 uOfLyAIXGXjvVmSFwT7cnOIvpozocwbhkBa9dD08/2kYj+I7Wib+QPinZ5Cc5XIj1dQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=flipper.net;
-	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=fHDGl49p;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.26.116
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795776545;
+	b=v7O48oMMPW5P33nPVKOitMp0ElantUe0vA7QZoLzwUyRaWxgTeB91BZyR6pDpqMN4C5I
+	 4Fm/LXMkn8H9BR5TbUyJFjrI2lTm2iGhp75Hc7nqgO4Y8gHVnr4GffdqS4X5mc0mI9eyf
+	 o0WYDqeAcQjg7JqkL/N/xYKotozHXez7tsfnIdp2U1jXQeJqYb/nSF1BT3q5XrOUavk8E
+	 Rbl1EvCfUCNDBDte8bSryvtnmC126+4vtlRLG1Jzr+mYUrqvM1RjwbmhN99kghhviFK4I
+	 2U9XDDgp8O/udn0BTcpRy/MHxnSCeYJFOgLU0TVWybtNFJfooNZ/1iitADCoOr7sDEg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776545;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Virus-Scanned;
+	bh=Mz0uhk3OFWJ0FNh9q5bukOUzm++jVY5/KHluP5c0a2Q=;
+	b=aw5Wq7aLLNXxl7AzVXzxiAr2VXpP2VLzNfoB9utPILF/heZGTTLFHNdr+3OQZcyi7w3O
+	 m37HZ7+5DnKnzsnHSfpeMvsSFKtpT8jvsvU81KuZSICnhY/E72rD6t39a+v3RedhuEqFj
+	 K6DH7/bPOW6dZx7vBl8iKqaKQGEijkI3HMFEXEtZpcQsbF7WSiZFNp24fGOx+9b7HJxbM
+	 bArsML2R2r6KkZT5EHLtAGXXJ+Oaj12wbzDImYUUg/fxCEun4kYkoFQedhqETRqAQFsO0
+	 QDz9mItbvUJ2/48SE0F0Ku5s4CgOOEvyr986eLR2Mg7T6Pj9+QHE9TG2byM5u+2Cupg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=pc-heini.de;
+	spf=pass smtp.mailfrom=pc-heini.de;
+	dkim=pass header.d=pc-heini.de header.i=@pc-heini.de header.a=rsa-sha256 header.s=default2410 header.b=dFvqVOY1;
+	arc=none smtp.remote-ip=168.119.26.116
+Received: from www636.your-server.de (www636.your-server.de [168.119.26.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D6BC606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:48:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D6BC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B94606A31C;
+	Fri, 27 Nov 2026 10:49:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82B94606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=pc-heini.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pc-heini.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=fHDGl49p
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso1179734766b.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:48:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795776528; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UUUvYY/8oeuYZCrVyaZc3RfZ8HW2QjyLlqVWzUGXjYsta5kLtOmrhE2+RtMxPGnnNp
-         xzh3vdVUx7tv06JWm/BTPEgd1CuJW3GDfKTPAXmgcYTUop/EHpOy230Gh5PycMBF1d/2
-         o2kSPGuDzhQF6aFD0w8mwLZKarewjFglx2OgNLxzJ2SxLZ29TWctjvh2ZnPENf2LIhBh
-         ZGIHS8B0jo3iM8QS0apP9xoePwTSfEnwL9tEztXxBiRB/7cJoXRPM7kCfbFBHRKC5U/N
-         rgqyzXE6b0FlsfJsmdZh903r282NMB1qiXcKtaseaBgThhASasI6Sq9eEqAGME2zgjKn
-         WxUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bZfwrwWaECV1/tbhLITy17tqF3X7HBMLHo2nwLtYHHM=;
-        fh=KV3L6dthPb/sx/SoMZWgcnd78H4LCCeov6Dfl4RP7jw=;
-        b=GurmTovkRi2OmD1xn8E8x4EnerECrYON0OkPydddkJqxSVGEoAgHeAyKQXdmZdfTgD
-         S+8jiHfnWTd2VOe0zGbRWIpsIH0cU6BFkIPcHYeiZ5GqwNOtiiJf6s1cZHvFLDoGNPXy
-         wNwqlNUNY058c8rVuGBko8eyjEC0dyAe8NJtg4IGE92DKD7uk7VOtsTaIjqpkTFnZgJQ
-         3A3Dcm8Diky2Yt2xbg0CpdV0e/06+8zI+DQcRnBldPJkKZRgzWjEuKXsEVe0A4LL6PaL
-         l5D+2JvtzzRCi5ad8jcsEhswg6pixtVADslB9aPt6ZRFIWkPZ7O2inO1SNjkCzNzGQY/
-         tYQg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1795776528; x=1796381328; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bZfwrwWaECV1/tbhLITy17tqF3X7HBMLHo2nwLtYHHM=;
-        b=fHDGl49pFCwXT27v/JhT4wfwo3Yg5uPybf2U64SBhXJ4e+FWQPC1LXOm4mW+6aKqa2
-         RxhtJQE0mZjXzY0I3A942W1l4FPFK1xYx3fxEggdqvy2kvCkunk3ZWMdedxPVHRKflVg
-         QXFlDB18ERazN99KYBXSL+DBSMIDDBdq9TGRSDEFBeoBJimAcXfkpbXknFIpRnZ5fs1g
-         6Vm0jP3vw15TvQgZP80aQpybJFx91FjQIC1c3opxV/SMnQCRL4Jxo31c9hffaKfl8qDs
-         VAkpWm0SFq7rpacr9ZkrxpDHWo3E7TKDgnXBKRD3TzfKclby8Xaye/ysBY3LKf6CAGYe
-         6Keg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795776528; x=1796381328;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bZfwrwWaECV1/tbhLITy17tqF3X7HBMLHo2nwLtYHHM=;
-        b=ikc/w2PR28YFb18zAEBa+flOlNhIUfF1s9BnPDzZDsix3SMqWx15SxreXiM73M97A3
-         RqOG+P7iC6QuCzeFJYDcSWE9EAAoe2Qfy9S+c/0FJEK0eNndSt54E+Jnkm9dM2sYNfJp
-         9XVK1R+lan6Mq24iHicWJiwLKcwK2qJGuwYTDVbgzTvWHkPeJ++Ro/QHJm9EtsFF2NIZ
-         Sz88lH/zPvh4lAywrpM5HwDVrwr3eurgKMRCr7f1cI7Kb0WsdWRbaFtEjzvce8ZW5iiv
-         np6GreMBVDCfoQdDGsa2KKjO3r0xdwNaA6g3AGFT1prB7gQKUjYeVNbjmBHYumXwIK1K
-         GrDg==
-X-Forwarded-Encrypted: i=1; AL+hErE0sAVcZlj0y1kqupCZA7lHflPAGM7KhGLabUZo/GnAwWGpy7ro5hIak5laKXRtykaPxgKrJSO+cJm/RSM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9xENEcQTo1a+nfc1IvV0qBq3uUMFD9yjCkoXd4gSctrei1eif0
-	czI25We9dqoUU+i6xqmFN62sjOdMwmRZvj/XCoT86PQKSdHkchz1u7QLGfTQTO2+8G17c1xpDGc
-	8ioAbtZwZoZ6IiyjF74Tw6dwGmPvEESVTMe7okCehhF+vXp8QjBf7NFi1lQ==
-X-Gm-Gg: AZFdTZeCaCkz+AHiPQHJBcXwN9HxiLD5lz/JQPpcRxhETbayVu5zrZSTGyDyh0fhoas
-	9dE1vQGk/6DSoI0qp0okajO9MyVGNt2ck3/HYW8NZDFuTV1/dtTYuujGSQhpQAjq+0gzYzY49oD
-	4tSiLyqfR4Eit6qr8yn1XKO93YHm643OUyQtDlOVFuzn2yWVc+DyKh9oIdaseIh3IqSfkH3+Dj5
-	0ygi4R5DV6xRHdDeRrLofvCPGAaeVefAfz4On0xTYPDAE2LAO/Q/mCR4oWk/3CT04DrMCVcoBaX
-	ZywvRcvipXsLdHvpK92I+X8v0meHQcyPQG4gNYTcoNfUjW4OV+glKjLpBb6NkfiMN5DRc6sMAJ8
-	+V4YOWPgy83mBA9IyBBLIekJEeToreux2gtkR3uYM6mrq/fUCYUCqX29FLdMAuEK7QrvV
-X-Received: by 2002:a17:907:6ea8:b0:c51:3bde:bfd0 with SMTP id
- a640c23a62f3a-c513bdec070mr1973240666b.47.1795776528545; Fri, 27 Nov 2026
- 02:48:48 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=pc-heini.de header.i=@pc-heini.de header.a=rsa-sha256 header.s=default2410 header.b=dFvqVOY1
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=pc-heini.de
+	; s=default2410; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Mz0uhk3OFWJ0FNh9q5bukOUzm++jVY5/KHluP5c0a2Q=; b=dFvqVOY1av0BLvIqCNUD8yPs/l
+	sJhmj9kgosEvNGJfRUua7o+XkJ6I2hPhWQCNM4TQZeWiQ8EshgaQzvSA61bwUXSqWogAeymhuvjoX
+	6EDR2P9VVInQmCZmMIGhSI9vYw7udHHFXUwKVcGv2OutwrnHwvcT1n/5mCtscV6UCOwR1Fejimc+t
+	LTW3R0mVPLerL2298OcFF+N06eXGzVWwUgYBVTnD0I6ESR8ul9Eu9uccV9r/zrGCHhpkZR2XJ2jzk
+	gr4CsLLjyH/5fdsf4KCZHleStmqqFzNQqbpvNS/FiFOkeh52D6E0mB6/gHoZ4Xpwzu8U6j0diiKoM
+	0p+kDg4g==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www636.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <m.hiller@pc-heini.de>)
+	id 1xWtVg-0004Xw-1P;
+	Fri, 27 Nov 2026 11:48:56 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.hiller@pc-heini.de>)
+	id 1xWtVg-0008AK-0A;
+	Fri, 27 Nov 2026 11:48:56 +0100
+From: Moritz Hiller <m.hiller@pc-heini.de>
+To: Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>
+Cc: Moritz Hiller <m.hiller@pc-heini.de>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	linux-nvme@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] nvme-pci: wait for MMIO to come back after resume from suspend
+Date: Fri, 27 Nov 2026 11:46:21 +0100
+Message-ID: <20261127104637.219891-1-m.hiller@pc-heini.de>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120180814.GB1810@lst.de>
+References: <598ee2b4-32aa-4ad3-99c7-db7f9a7e7736@pc-heini.de> <20261120180814.GB1810@lst.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,64 +83,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261102-fusb302-drain-rxfifo-v1-1-bd9b232ab345@flipper.net> <avT9KERG1udN-TzR@venus>
-In-Reply-To: <avT9KERG1udN-TzR@venus>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Fri, 27 Nov 2026 14:48:40 +0400
-X-Gm-Features: Aa3M54or9yeVEE-woI741UW0EzKnppjO5sHk_pBlY-YQQJfczYq3thTEXFYcoIg
-Message-ID: <CAKTNdwEuROjn1LxnAHW-_pS=ERVF4iRUxwa3P+R25+kdNTCSag@mail.gmail.com>
-Subject: Re: [PATCH] usb: typec: fusb302: Drain the RX FIFO on each PD interrupt
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.6/28194/Wed Nov 25 07:26:59 2026)
 
-Hi Sebastian,
+On an ASUS ROG STRIX X570-F GAMING (BIOS 5044) with a Samsung 9100 PRO
+attached directly to a CPU root port, the root NVMe drive sporadically
+does not come back after resume from S3 (roughly 5-10% of resumes):
 
-On Thu, Nov 12, 2026 at 3:41=E2=80=AFAM Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
->
-> Hi,
->
-> On Mon, Nov 02, 2026 at 04:37:59PM +0400, Alexey Charkov wrote:
-> > The driver reads one message from the RX FIFO per GCRCSENT or TX_SUCCES=
-S
-> > interrupt, assuming every queued message raises one. The chip, however,
-> > queues some messages without acknowledging them or raising any interrup=
-t,
-> > e.g. it decodes only the low four bits of the message type and mistakes
-> > Get_Source_Cap_Extended (17) for a GoodCRC (1). From then on every read
-> > returns the message queued before the one that raised the interrupt, so
-> > replies answer the wrong message and a Soft_Reset is never seen. The
-> > partner escalates to a Hard Reset, which an Apple Studio Display repeat=
-s
-> > every 1.5s.
-> >
-> > Furthermore, two different messages received in quick succession may be
-> > queued without raising separate interrupts, causing all subsequent PD
-> > communications to be permanently out of sync, which usually also leads =
-to
-> > a hard reset eventually.
-> >
-> > Read messages until the FIFO reports empty, so that each one is handled
-> > on the event it arrived with, whatever the chip left unannounced before=
- it.
-> >
-> > Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> > ---
->
-> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+  nvme nvme0: Disabling device after reset failure: -19
 
-Thank you for your review! I had to rework this patch because I ran
-into another issue which sometimes corrupts a properly acknowledged
-partner message upon enabling PD, so its new incarnation now builds on
-top of that fix. Please consider this one superceded by [1] - it would
-be great if you could have a look at that, too.
+The single readl() of CSTS in nvme_pci_enable() returns all-ones about
+200 ms after resume. At that point config space answers, the link is
+up, the device is in D0 and there are no AER errors. The controller is
+not dead, it just needs a few hundred milliseconds longer before its
+MMIO space responds.
 
-[1] http://patch.msgid.link/20261127-fusb302-getsourcecap-v2-2-6770eb1e7945=
-@flipper.net
+The platform apparently removes power from the device during S3 while
+the PCI core still treats it as D3hot. pci_power_up() finds PMCSR
+already in D0 and does not wait, and pci_bridge_wait_for_secondary_bus()
+only runs after D3cold and only checks config space, so nothing waits
+for MMIO to come back.
 
-Best regards,
-Alexey
+Move the CSTS check into a helper. If CSTS reads all-ones and the
+controller was shut down for suspend (NVME_CC_SHN_NORMAL still set in
+ctrl_config, the same test nvme_reset_work() uses), poll CSTS every
+100 ms for up to 10 s while the device is still present. Controllers
+that answer on the first read, probe and other resets are not affected.
+
+Without the patch, 4 of 39 automated S3 cycles on the machine above
+failed. With it, none of 45 failed (30 on a v7.3.4 based kernel, 15 on
+v7.4-rc2), and whenever the wait triggered the controller answered
+after 200-400 ms. This version has been running on the same machine
+for several days of normal use: 9 resumes from S3, none failed, and
+the wait triggered 4 times (200-400 ms).
+
+The failure analysis, the code reading and this patch were done with
+the help of an LLM assistant (Claude). I reviewed the change and ran
+all tests on my hardware.
+
+Link: https://lore.kernel.org/r/598ee2b4-32aa-4ad3-99c7-db7f9a7e7736@pc-heini.de
+Signed-off-by: Moritz Hiller <m.hiller@pc-heini.de>
+---
+
+Notes:
+    Changes since the proof of concept in the bug report:
+    - Renamed the helper to nvme_pci_csts_readable() and moved the initial
+      CSTS read into it, so the whole check is in one place (Christoph)
+    - Rebased onto nvme-7.5, sorted the linux/delay.h include
+    
+    Open points from the report that I left as they were:
+    - The 10 s upper bound is arbitrary.
+    - The wait also triggers on thaw/restore after hibernation, because the
+      same bit is set there.
+    - The wait sleeps with shutdown_lock held, as nvme_wait_ready() already
+      does in the same call chain.
+    
+    Build-tested with W=1 on nvme-7.5, checkpatch --strict is clean.
+
+ drivers/nvme/host/pci.c | 38 +++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 37 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
+index f8088d5aa..342cd0609 100644
+--- a/drivers/nvme/host/pci.c
++++ b/drivers/nvme/host/pci.c
+@@ -9,6 +9,7 @@
+ #include <linux/blkdev.h>
+ #include <linux/blk-mq-dma.h>
+ #include <linux/blk-integrity.h>
++#include <linux/delay.h>
+ #include <linux/dmi.h>
+ #include <linux/init.h>
+ #include <linux/interrupt.h>
+@@ -3427,6 +3428,41 @@ static bool nvme_pci_update_nr_queues(struct nvme_dev *dev)
+ 	return true;
+ }
+ 
++/*
++ * A controller that was shut down for suspend may have lost power while the
++ * PCI core still treats it as D3hot, so nothing waited for it to come back.
++ * Config space can already answer while MMIO still reads all-ones. Give such
++ * a controller some time instead of declaring it dead on the first read.
++ */
++#define NVME_RESUME_MMIO_TIMEOUT_MS	10000
++#define NVME_RESUME_MMIO_POLL_MS	100
++
++static bool nvme_pci_csts_readable(struct nvme_dev *dev)
++{
++	struct pci_dev *pdev = to_pci_dev(dev->dev);
++	unsigned int waited = 0;
++
++	if (readl(dev->bar + NVME_REG_CSTS) != -1)
++		return true;
++
++	/* Same test nvme_reset_work() uses to detect a resume. */
++	if (!(dev->ctrl.ctrl_config & NVME_CC_SHN_NORMAL))
++		return false;
++
++	while (waited < NVME_RESUME_MMIO_TIMEOUT_MS &&
++	       pci_device_is_present(pdev)) {
++		msleep(NVME_RESUME_MMIO_POLL_MS);
++		waited += NVME_RESUME_MMIO_POLL_MS;
++		if (readl(dev->bar + NVME_REG_CSTS) != -1) {
++			dev_warn(dev->ctrl.device,
++				 "CSTS read all-ones after resume, controller ready after %u ms\n",
++				 waited);
++			return true;
++		}
++	}
++	return false;
++}
++
+ static int nvme_pci_enable(struct nvme_dev *dev)
+ {
+ 	int result = -ENOMEM;
+@@ -3438,7 +3474,7 @@ static int nvme_pci_enable(struct nvme_dev *dev)
+ 
+ 	pci_set_master(pdev);
+ 
+-	if (readl(dev->bar + NVME_REG_CSTS) == -1) {
++	if (!nvme_pci_csts_readable(dev)) {
+ 		dev_dbg(dev->ctrl.device, "reading CSTS register failed\n");
+ 		result = -ENODEV;
+ 		goto disable;
+
+base-commit: 524994430562e49610802a2c0c0859ce316a72f0
+-- 
+2.47.3
+
