@@ -1,79 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763545;
-	b=cCBVVRoIgQZ6vUToNffFGZAgw7/a4UBwxEgY8kS3ydclvD1FP3uoR7I5aX1fF+cBQtsb
-	 qP/IepHEU+FVcseLH8YfVWM7XwuvrxS51n2QKR29Wcs18nRFarXdJorUZk1iESLVyHK50
-	 PuF1BSzbiIYAV5fPWR5YfIOgKk+ATEncjacx1gv8QSR5Yhr0yXbO5s7yTsl1xqMI/AYBH
-	 Os22SR1kzvjDKAjgBPdTDWKdPPkjNdk1jhQKRoc+ncPIvtKtseNoBlaXRR/bZA07N6zcZ
-	 iQdN8KjVAGYiuXXjwAnSjNQ0jRijUtYQefQHUYEqA9EFhyf5oxh8PCo7fNpZcL0Ze3A==
+	t=1795763718;
+	b=ECOygZFbkHshMI71dxniedNf/WQdgCre6PyVwdeci8Fwefe0c/IDzdZ+CuNAeaBUKdLN
+	 Edfj5dtdzCuzTsVbELCMr/je0vM94Y2j2SOTMvh+R0Y8cJZu/6hugMRIon7p4+YILkVqL
+	 vsdhy9TkvILbbZEHqs9mil+FU6hqIvAFrRJIqC+pKS5nUPbEml4asSfVHaXuRvHz+apOc
+	 dukA+xqpdZBnmywDbO5h09cDrGQl0d2ivXtciS9ULX9DmlMaUddEPgk1Bo8OULdrgzZvn
+	 oyCJca4ovNIAUdZjXVRh9FLcvQn+Jf5jV6OHm7i5OuwCbI0FCqT1NuyKmRTHNWH7hcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763545;
-	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=lC2ySosyz7nHdF6RRzKEvdsOMwNMDKMcwfeeuRXhTu0=;
-	b=y1e4mpUoYKQRyIxWVGnu/GKrtExS7Qiq8Vb+pmRsji4gPL0Fs5AYHtIjTQbH5Mv2vGjX
-	 tb1ER+HwFRtt7p8qqjYmYViHtv7PsmmEOttfS8PzZoKnlAHxqoaDqjX1znSv12D/ywex8
-	 F5npP4hJlZWc35jN/V9CXr4Z3wNZioxmiyFe+qPoD6X/Mbv8hC4+APDVQWpSUQ6WZiVD/
-	 Fejz7pFpoNGqggnWQpwVY9z6SrK1dISsInO8qeMrAKxsaqkNz2yjxGBDu/m5q9dSuX0b4
-	 KZfRZf+EVhjJ5q1coEB0AFrJu3belhQ7yDkifWEM1hztmVNUvrCl3FBXTOP0swmY1OQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763718;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=wSJgjK+A00lNH/iVraNbWq5SwVJ5+VOU0GV4DugumqU=;
+	b=kt3Im9xQD5jdwqnf9uDG4K/NRLd9n8MqNecEFPPpjS9oRHu6KA/4Zesiz7aKSIaGCYgd
+	 G6RLXNmwKgcSzZU2gSNZMqI4jXmNfWLfFO4RX8JaDrdEHchtHzS3dfpEksFc+gcMi0wAI
+	 9VLbdhqIVEGN1UCHICDLCKEtf9+nbO9OQhcf8t9ZOyfvG+85oVR5thyTYSW7EnZzLlhMS
+	 +RT7ziPy75k+5MAtpyxRq5wIyxW1KkXQG/CUnfzroozG/PV7KbINl2BUit/LZ0evI0XzU
+	 N9wsZBFTaKgVA5N1dvpg49aWQM++mU99406qOyECWQSjc42A0f0wih1oPvDB7yNjvoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cGce4Hb3;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEF2C606A31C;
-	Fri, 27 Nov 2026 07:12:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEF2C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: deefc868ea3111f19a56ed5b684f684d-20261127
-X-CTIC-Tags:
-	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
-	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
-	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
-	HR_TO_NAME, SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS
-	DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF
-	GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:d31af603-6962-42ba-b076-0fe41b692c2c,IP:10,
-	URL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
-	ION:release,TS:10
-X-CID-INFO: VERSION:1.3.19,REQID:d31af603-6962-42ba-b076-0fe41b692c2c,IP:10,UR
-	L:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:10
-X-CID-META: VersionHash:7db8b62,CLOUDID:fe77f6b0d702056796441b369be54daf,BulkI
-	D:261127151219SBY5NT0L,BulkQuantity:0,SF:17|19|38|66|78|81|82|102|127|153|
-	850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP:-2,URL:0,File:nil,RT:nil,Bu
-	lk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:
-	0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: deefc868ea3111f19a56ed5b684f684d-20261127
-X-User: maguicai@kylinos.cn
-Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
-	(envelope-from <maguicai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 644476794; Fri, 27 Nov 2026 15:12:13 +0800
-From: Guicai Ma <maguicai@kylinos.cn>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>
-Cc: linux-crypto@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D25B3606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:15:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D25B3606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cGce4Hb3
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-491846221ffso6805155f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:15:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795763716; x=1796368516; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wSJgjK+A00lNH/iVraNbWq5SwVJ5+VOU0GV4DugumqU=;
+        b=cGce4Hb35o/vxcQ5vjpStXA8xJGlB1XuenFpeR0e9jbCyLye848Y0GUN3a83AJOJSj
+         6Etjay4JbcYxW3GszOxqFZwo8mq3kZwemWj6tS6q2NZoS5oXoHaxD5XTMSIz6xTSgyXw
+         aa9ltx//D4O3OTT2PUCN5FS8rjgz15n/2FaCOzETKnR4uSbI4YWL66cZ6f4pERd5bgdy
+         2RYtnrJzlIKZS4Jt2SIn+QIu2O43fsOEAf+IoT5Ns4kk8PTGkH57kHoRbjI2vAf4ZCII
+         JKrg7qoGTwi+eCO024d7FNDqhy/b9rVOp6raQ6BSVKP2gPsSm1U2h3JJZq48dnZ/JiAD
+         xMqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795763716; x=1796368516;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=wSJgjK+A00lNH/iVraNbWq5SwVJ5+VOU0GV4DugumqU=;
+        b=Dzw8I2SPEN+4WeQENR7uLqzI2i8TEiVifoc7l+mUFkOF+sN2zjJmyagV35o12Wcpyz
+         6H8lGy5Xww454ZZqZ6gRYI9pOowVxlGDeEK8k3iH0Xs+kNxxO+qR8uF8+KNgL2Liyyy6
+         zy5NHP+UBTBk9ZDFiUTg8USGAFUWFLIvNhBO7nmK+VNxgGVCiwF1z1R5Ct9X675wSfjU
+         k//IUyJusotC30eGC95bzFXHeFNk95WUo7kTqngvz85n4vt1g/HbDoUltDCX0oWO91HJ
+         BP+vNo7MIxQ4TgtS002M999P5Ujrng1nsZy7Kw0D36qdkhFQKRcwE7l45dR569oeFsg4
+         eWUQ==
+X-Forwarded-Encrypted: i=1; AL+hErFZvs32br2bSx2izbI4xTwe/A8YdXWPKA0GczKP+58F8La3q1IQv4PqUCIZuGeMxitGO16S17b3BCmzB/w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/QGfUNHheXbhfNHgt/SSx1xSRA0xmAnpMrOzi8n1nToA6P7MrP
+	NHGHDy9M36sX42QLMbA9QE01Ocm4oQZ+HdmplOPkQrwGKwfrZiB5OqOv
+X-Gm-Gg: AZFdTZeX734EWRB3Dadh0j6m2AAiyc9lIGP7SmMsVBHzu2E2CwFZzzcYGME6MGiXslQ
+	WdULOfdJI+b7j26LLb7U+H7mPKJgld2FV/Ur40IvIbAThm01xsLzY3ZtgnyspWNBgstqteVgZV4
+	LG0muj83gXKtw3cY/0Qg6E5VejgSID5/P+WHgxZHPsrIDj2/sMv3gtw22VLcmE+4Ch7JcDvBP24
+	5BT3Ma0S0QAE2wDysg3rOWn7qqMcujEuvSEtpn53PSHotA/OXsf4H8xtPTqoKkriZc01jc4gOuY
+	ZiDpJSr3GPWod9KE5GaaS7tvjd2kfG1Q8RY9xvsEvGVgICYwfJ18BsY5G56Jvrzqxf6yznhqbk+
+	+6EDkkD3LziwhVTtRK1jRkcfZEBJZjbxFMk+4Y5lZb7RvbjDJNfsJwI21I38FUpQ6gzvaeIFqcx
+	rEXGF28FQuPxOB9kn84yJVDZK/irFBbKmdGNV5zHNgAcnXyc260ynyAZvzJhv9GWcXODIkp4dSG
+	WBXXOmDazt7KfHJniUf4JgyRBLGA+3Tin5BUTczB7u6HjAwf4clvSKn53+80ysEMhnZAsXa+MrI
+	PLQY2gPap/b/V1VIHT/9DXH3FMcqZv0=
+X-Received: by 2002:a05:6000:2506:b0:48d:ba3b:af36 with SMTP id ffacd0b85a97d-4abb47b0f64mr55547662f8f.37.1795763715954;
+        Thu, 26 Nov 2026 23:15:15 -0800 (PST)
+Received: from ArchOarora ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c50sm44603961f8f.37.2026.11.26.23.15.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 23:15:15 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	Guicai Ma <maguicai@kylinos.cn>
-Subject: [PATCH v2] crypto: af_alg - wake up waiters on zero-length final message
-Date: Fri, 27 Nov 2026 02:12:11 -0500
-Message-ID: <20261127071211.2778867-1-maguicai@kylinos.cn>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120083244.1156396-1-maguicai@kylinos.cn>
-References: <20261120083244.1156396-1-maguicai@kylinos.cn>
+	linux-doc@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v7 31/43] drm/vkms: Introduce connector type
+Date: Fri, 27 Nov 2026 08:15:03 +0100
+Message-ID: <awkt6PBpmDa69llM@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126-vkms-all-config-v7-31-21194cda2468@bootlin.com>
+References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com> <20261126-vkms-all-config-v7-31-21194cda2468@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,169 +126,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 
-af_alg_data_wakeup() checks !ctx->used before waking readers, which
-does not match the condition af_alg_wait_for_data() waits on:
+On Thu, Nov 26, 2026 at 12:29:14PM +0100, Louis Chauvet wrote:
+> In order to emulate connector-specific behavior, add the connector type
+> to the connector configuration.
+> 
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/vkms/tests/vkms_config_test.c |  5 +++++
+>  drivers/gpu/drm/vkms/vkms_config.c            |  3 +++
+>  drivers/gpu/drm/vkms/vkms_config.h            | 24 ++++++++++++++++++++++++
+>  drivers/gpu/drm/vkms/vkms_connector.c         |  2 +-
+>  4 files changed, 33 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/vkms/tests/vkms_config_test.c b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
+> index a43dff511fc3..257ba0342034 100644
+> --- a/drivers/gpu/drm/vkms/tests/vkms_config_test.c
+> +++ b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
+> @@ -137,6 +137,7 @@ static void vkms_config_test_default_config(struct kunit *test)
+>  	struct vkms_config *config;
+>  	struct vkms_config_plane *plane_cfg;
+>  	struct vkms_config_crtc *crtc_cfg;
+> +	struct vkms_config_connector *connector_cfg;
+>  	int n_primaries = 0;
+>  	int n_cursors = 0;
+>  	int n_overlays = 0;
+> @@ -211,6 +212,10 @@ static void vkms_config_test_default_config(struct kunit *test)
+>  
+>  	/* Connectors */
+>  	KUNIT_EXPECT_EQ(test, vkms_config_get_num_connectors(config), 1);
+> +	vkms_config_for_each_connector(config, connector_cfg) {
+> +		KUNIT_EXPECT_EQ(test, vkms_config_connector_get_type(connector_cfg),
+> +				DRM_MODE_CONNECTOR_VIRTUAL);
+> +	}
+>  
+>  	KUNIT_EXPECT_TRUE(test, vkms_config_is_valid(config));
+>  
+> diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
+> index 342b844bfc6d..b415d4bf6edb 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.c
+> +++ b/drivers/gpu/drm/vkms/vkms_config.c
+> @@ -647,6 +647,8 @@ static int vkms_config_show(struct seq_file *m, void *data)
+>  			seq_puts(m, "connector:\n");
+>  			seq_printf(m, "\tstatus=%s\n",
+>  				   drm_get_connector_status_name(vkms_config_connector_get_status(connector_cfg)));
+> +			seq_printf(m, "\ttype=%s\n",
+> +				   drm_get_connector_type_name(vkms_config_connector_get_type(connector_cfg)));
+>  		}
+>  	}
+>  
+> @@ -1005,6 +1007,7 @@ struct vkms_config_connector *vkms_config_create_connector(struct vkms_config *c
+>  
+>  	connector_cfg->config = config;
+>  	connector_cfg->status = connector_status_connected;
+> +	vkms_config_connector_set_type(connector_cfg, DRM_MODE_CONNECTOR_VIRTUAL);
+>  	xa_init_flags(&connector_cfg->possible_encoders, XA_FLAGS_ALLOC);
+>  	/* refcnt starts at 1: this reference is owned by config->connectors */
+>  	kref_init(&connector_cfg->refcnt);
+> diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
+> index eb29008e54f0..efebb190ce40 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.h
+> +++ b/drivers/gpu/drm/vkms/vkms_config.h
+> @@ -150,6 +150,7 @@ struct vkms_config_encoder {
+>   *
+>   * @link: Link to the others connector in vkms_config
+>   * @rcu: RCU head for deferred freeing of this object
+> + * @type: Store the type of connector using DRM_MODE_CONNECTOR_* values
+>   * @config: The vkms_config this connector belongs to
+>   * @status: Status (connected, disconnected...) of the connector
+>   * @possible_encoders: Array of encoders that can be used with this connector
+> @@ -167,6 +168,7 @@ struct vkms_config_connector {
+>  	struct rcu_head rcu;
+>  	struct vkms_config *config;
+>  
+> +	int type;
+>  	enum drm_connector_status status;
+>  	struct xarray possible_encoders;
+>  	bool unlinked;
+> @@ -397,6 +399,28 @@ vkms_config_plane_set_default_pipeline(struct vkms_config_plane *plane_cfg,
+>  }
+>  
+>  /**
+> + * vkms_config_connector_get_type() - Return the connector type
+> + * @connector_cfg: Connector to get the type from
+> + */
+> +static inline int
+> +vkms_config_connector_get_type(const struct vkms_config_connector *connector_cfg)
+> +{
+> +	return connector_cfg->type;
+> +}
+> +
+> +/**
+> + * vkms_config_connector_set_type() - Set the connector type
+> + * @connector_cfg: Connector to set the type to
+> + * @type: New connector type
+> + */
+> +static inline void
+> +vkms_config_connector_set_type(struct vkms_config_connector *connector_cfg,
+> +			       int type)
+> +{
+> +	connector_cfg->type = type;
+> +}
+> +
+> +/*
+>   * vkms_config_plane_get_default_rotation() - Get the default rotation for a plane
+>   * @plane_cfg: Plane to get the default rotation from
+>   *
+> diff --git a/drivers/gpu/drm/vkms/vkms_connector.c b/drivers/gpu/drm/vkms/vkms_connector.c
+> index bb023b5af4e4..84c49915ed44 100644
+> --- a/drivers/gpu/drm/vkms/vkms_connector.c
+> +++ b/drivers/gpu/drm/vkms/vkms_connector.c
+> @@ -89,7 +89,7 @@ struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
+>  		return ERR_PTR(-ENOMEM);
+>  
+>  	ret = drmm_connector_init(dev, &connector->base, &vkms_connector_funcs,
+> -				  DRM_MODE_CONNECTOR_VIRTUAL, NULL);
+> +				  vkms_config_connector_get_type(connector_cfg), NULL);
+>  	if (ret)
+>  		return ERR_PTR(ret);
+>  
+> 
+> -- 
+> 2.56.0
+> 
 
-	ctx->init && (!ctx->more || (min && ctx->used >= min))
-
-When a zero-length final sendmsg() (without MSG_MORE) sets ctx->init
-and clears ctx->more while ctx->used remains 0, af_alg_data_wakeup()
-skips the wakeup and leaves the reader sleeping forever.
-
-Move the condition into a shared af_alg_data_ready() helper, pass min
-through af_alg_sendmsg() to af_alg_data_wakeup(), and use the helper on
-both the waiting and waking sides.
-
-Fixes: 2d97591ef43d ("crypto: af_alg - consolidation of duplicate code")
-Cc: stable@vger.kernel.org
-Suggested-by: Herbert Xu <herbert@gondor.apana.org.au>
-Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
----
-v2:
-- Move the wait condition into af_alg_data_ready() and use it on both
-  sides, as suggested by Herbert.
-
-Tested with two-threaded AF_ALG tests on gcm(aes) and ecb(aes)
-(zero-length final sendmsg, MSG_MORE sub-block and multi-chunk sends).
-
- crypto/af_alg.c         | 13 +++++++------
- crypto/algif_aead.c     |  4 ++--
- crypto/algif_skcipher.c |  5 +++--
- include/crypto/if_alg.h | 15 ++++++++++++++-
- 4 files changed, 26 insertions(+), 11 deletions(-)
-
-diff --git a/crypto/af_alg.c b/crypto/af_alg.c
-index ab84c4488a15..d6104a6ee510 100644
---- a/crypto/af_alg.c
-+++ b/crypto/af_alg.c
-@@ -912,8 +912,7 @@ int af_alg_wait_for_data(struct sock *sk, unsigned flags, unsigned min)
- 			break;
- 		timeout = MAX_SCHEDULE_TIMEOUT;
- 		if (sk_wait_event(sk, &timeout,
--				  ctx->init && (!ctx->more ||
--						(min && ctx->used >= min)),
-+				  af_alg_data_ready(ctx, min),
- 				  &wait)) {
- 			err = 0;
- 			break;
-@@ -931,14 +930,15 @@ EXPORT_SYMBOL_GPL(af_alg_wait_for_data);
-  * af_alg_data_wakeup - wakeup caller when new data can be sent to kernel
-  *
-  * @sk: socket of connection to user space
-+ * @min: minimum request size if partial requests are allowed
-  */
--static void af_alg_data_wakeup(struct sock *sk)
-+static void af_alg_data_wakeup(struct sock *sk, unsigned int min)
- {
- 	struct alg_sock *ask = alg_sk(sk);
- 	struct af_alg_ctx *ctx = ask->private;
- 	struct socket_wq *wq;
- 
--	if (!ctx->used)
-+	if (!af_alg_data_ready(ctx, min))
- 		return;
- 
- 	rcu_read_lock();
-@@ -965,10 +965,11 @@ static void af_alg_data_wakeup(struct sock *sk)
-  * @size: size of message from user space
-  * @ivsize: the size of the IV for the cipher operation to verify that the
-  *	   user-space-provided IV has the right size
-+ * @min: minimum request size if partial requests are allowed
-  * Return: the number of copied data upon success, < 0 upon error
-  */
- int af_alg_sendmsg(struct socket *sock, struct msghdr *msg, size_t size,
--		   unsigned int ivsize)
-+		   unsigned int ivsize, unsigned int min)
- {
- 	struct sock *sk = sock->sk;
- 	struct alg_sock *ask = alg_sk(sk);
-@@ -1119,7 +1120,7 @@ int af_alg_sendmsg(struct socket *sock, struct msghdr *msg, size_t size,
- 	ctx->more = msg->msg_flags & MSG_MORE;
- 
- unlock:
--	af_alg_data_wakeup(sk);
-+	af_alg_data_wakeup(sk, min);
- 	ctx->write = false;
- 	release_sock(sk);
- 
-diff --git a/crypto/algif_aead.c b/crypto/algif_aead.c
-index 5574e2d70539..137a947f0620 100644
---- a/crypto/algif_aead.c
-+++ b/crypto/algif_aead.c
-@@ -64,7 +64,7 @@ static int aead_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
- 	struct crypto_aead *tfm = pask->private;
- 	unsigned int ivsize = crypto_aead_ivsize(tfm);
- 
--	return af_alg_sendmsg(sock, msg, size, ivsize);
-+	return af_alg_sendmsg(sock, msg, size, ivsize, 0);
- }
- 
- static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
-@@ -87,7 +87,7 @@ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
- 	size_t usedpages = 0;		/* [in]  RX bufs to be used from user */
- 	size_t processed = 0;		/* [in]  TX bufs to be consumed */
- 
--	if (!ctx->init || ctx->more) {
-+	if (!af_alg_data_ready(ctx, 0)) {
- 		err = af_alg_wait_for_data(sk, flags, 0);
- 		if (err)
- 			return err;
-diff --git a/crypto/algif_skcipher.c b/crypto/algif_skcipher.c
-index 291dbd698932..cece9cf387cc 100644
---- a/crypto/algif_skcipher.c
-+++ b/crypto/algif_skcipher.c
-@@ -63,7 +63,8 @@ static int skcipher_sendmsg(struct socket *sock, struct msghdr *msg,
- 	struct crypto_skcipher *tfm = pask->private;
- 	unsigned ivsize = crypto_skcipher_ivsize(tfm);
- 
--	return af_alg_sendmsg(sock, msg, size, ivsize);
-+	return af_alg_sendmsg(sock, msg, size, ivsize,
-+			      crypto_skcipher_chunksize(tfm));
- }
- 
- static int algif_skcipher_export(struct sock *sk, struct skcipher_request *req)
-@@ -113,7 +114,7 @@ static int _skcipher_recvmsg(struct socket *sock, struct msghdr *msg,
- 	int err = 0;
- 	size_t len = 0;
- 
--	if (!ctx->init || (ctx->more && ctx->used < bs)) {
-+	if (!af_alg_data_ready(ctx, bs)) {
- 		err = af_alg_wait_for_data(sk, flags, bs);
- 		if (err)
- 			return err;
-diff --git a/include/crypto/if_alg.h b/include/crypto/if_alg.h
-index 0d51428c1da4..cb0951f33612 100644
---- a/include/crypto/if_alg.h
-+++ b/include/crypto/if_alg.h
-@@ -244,12 +244,25 @@ static inline bool af_alg_readable(struct sock *sk)
- 	return PAGE_SIZE <= af_alg_rcvbuf(sk);
- }
- 
-+/**
-+ * af_alg_data_ready - Is there enough TX data to proceed?
-+ *
-+ * @ctx: socket context of connection to user space
-+ * @min: minimum request size if partial requests are allowed
-+ *
-+ * Returns: true => data is ready, false => not ready
-+ */
-+static inline bool af_alg_data_ready(struct af_alg_ctx *ctx, unsigned int min)
-+{
-+	return ctx->init && (!ctx->more || (min && ctx->used >= min));
-+}
-+
- unsigned int af_alg_count_tsgl(struct sock *sk, size_t bytes);
- void af_alg_pull_tsgl(struct sock *sk, size_t used, struct scatterlist *dst);
- void af_alg_wmem_wakeup(struct sock *sk);
- int af_alg_wait_for_data(struct sock *sk, unsigned flags, unsigned min);
- int af_alg_sendmsg(struct socket *sock, struct msghdr *msg, size_t size,
--		   unsigned int ivsize);
-+		   unsigned int ivsize, unsigned int min);
- void af_alg_free_resources(struct af_alg_async_req *areq);
- __poll_t af_alg_poll(struct file *file, struct socket *sock,
- 			 poll_table *wait);
--- 
-2.47.3
-
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
