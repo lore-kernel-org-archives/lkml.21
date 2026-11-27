@@ -1,54 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744112;
-	b=oNWZ6IzZ+MPA/brvAjwZZ9bhgOsdGNGQfg6oqq1aUZ2Y4/Pxv2U+RKEN7GPdvWYofUQe
-	 fkeeq/74NtMSAiep7tUsq8sXuAO8txmc6eY9idBDsrr7UKjron9KXA3mHoNt04u63xnXo
-	 ONZswHHTgklTd3IxwRP9hG8LWMSptA18olz4/FAr/gVBU1biNEzvCGWCF3LF40PXrzhTR
-	 ijjAwYa8kvfPlQQEzP5AjxEQ7fufXP7YNHjr4IxiZ0bIGQSTZYiiwiAsNb3b1EO/ClZdS
-	 tABsSL7b2rXLuM8BYTRiBQwgUMpfvue81f9L83mavg2DTQDDgQjrdYdxRJkjJXIALrw==
+	t=1795744129;
+	b=bd6ynzj299AWZGiZJTM6Md1m2AWwPpc0eLp0IBYffNIfrY6pK3wph1ulIVp/GE1RWkws
+	 MG7GgUKWcOMw5vohOgYTqxUwSRipN2JRzclobq11uUu1ODEmld5Kh1v2+QQQqPihrVC2+
+	 obCssgv1iTXlvjoPCxn6uER5DUsSlB0PtoOhddO5YVY5nF/hQfZ4qu9H3Eix82xJSKhId
+	 noaGM2gQsX+H8Bi70lPBU/EKDHcGXrEmg0iyq1jLAPQToO8c0olqJ7ikJUtnNbEVSMlI8
+	 KAVP1MWoDv9+ZecfAGG01j0nF8LXgPZQ6GXdhaMyH8GP0YYII0btfwvHjpwa3q/DSsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744112;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=aTJQdyhxcBsW+3THmacQX4CnuREPTh1k/3kUlckbS3I=;
-	b=hdV+nc7HnT2bhII8UPHiz7i3DZqPeJzU6Y1Bj3Snor1MOJ53/vnLoJQd4255VZHduk4Z
-	 jF5zSLovAlbD6YmoxoZkTi0l1rOvlmpoXCy5MnnL8fGI3dSANhVtdnNBnKyY4k6Ap2QYN
-	 5x17O9uqv3bQVkMVXIEqFNxeipePTn4zfjWF73n1aoAxIf5EAinnah/lXDfFClQa3kZ7I
-	 o4lGujk0jTwViIvA+1At1OwOwqA337w4NGUSaZps6CjKA7pcfB5rrhVM5KTF+vCtr7r8d
-	 FkzMOeF54/DsU1Ehj58EIj0+XL5/pnOjgnEgNTtR9CceAl/LIYd2Gn+0ZNPfY5Uu5Og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744129;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=F9bJgw3Rq+nxWnesx6NpE3jyyip8FQiNM7chh1BiCko=;
+	b=bl2LZq1F+ubM20aVhHMl7ujgGvRphkAdOiJDNbZw7S0e6c6tADtOxF8F82XQGMbBo0QJ
+	 HY9iA8xoljW9YjH3O8ZQgO2H3FKq+ghwR1sbaViyoBwHIUWehncKEnuVtn6YBu3VbuEGg
+	 iFBnsGFDJwifAEK50IeZiK4uk1cs6tbrC60XsGlmPBoOVyDulBIEeh6Na44nibZGsrsEx
+	 2+jIwYKtxzEp/U92SMzA7cES+DhvZjQIlOTHy1sAg0uDr+MFhlVbIj8a2tbFfkpP4z75N
+	 +WqvGeRmKm/oIdmFwGzpxxiKpiT72ppFyDS0uW/WRK/0RBYGfdoSUqElLroopV+ImVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GQAyIF3A;
-	arc=none smtp.remote-ip=95.215.58.10
-Received: from mta1.migadu.com (out-10.mta1.migadu.com [95.215.58.10])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=PhiHP0nG;
+	arc=none smtp.remote-ip=117.135.210.6
+Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.6])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D4D1606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:48:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D4D1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 293CF606A31C;
+	Fri, 27 Nov 2026 01:48:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 293CF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GQAyIF3A
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Q9H1ZM4mU9UmY5HM2f6Dg/Q5kejbxPRjAjPA/4aeIW4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795744108; v=1; x=1796348908;
- b=GQAyIF3A+2EButRR4JjY4Bm85mad1mJTAC5S3LZHCgaYBn6qF95pIY9iOIbYAg16WrObnc//
- 1njH7JPm+cZcEpzTh9ZJhUeqKtAj9cEzgaJlNiLYxECchCkjH5pS6HJYNL74uFQ4EBpJmAqJFTI
- 0+vPU1w3AO7emKvOqe6Hh4Ps=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b8479f5f7f50d961;
-	Fri, 27 Nov 2026 01:48:27 +0000
-X-Mizu-Trace-ID: b8479f5f7f50d961
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8ec3f3e2-5d3a-4bed-a571-88f7ba473b00@linux.dev>
-Date: Fri, 27 Nov 2026 09:48:13 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=PhiHP0nG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=F9
+	bJgw3Rq+nxWnesx6NpE3jyyip8FQiNM7chh1BiCko=; b=PhiHP0nGKC2c1MLuLc
+	c74gOAk6ZcSzAGB/5gYpcjBizGFjvxHEZsB7yi4GGVL4sobaWl5MhhK+M8/a4xCE
+	GwtXwiJX+QWC+rO6oSKZujwL/I+LuU1pGVSQgZ8/mcqF4MW1/uSuF4/Yq90QcnYC
+	phokEaNyokAz0fOaZdailA7Lc=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3F6dS4QhrP9d9EA--.22888S2;
+	Fri, 27 Nov 2026 09:48:02 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	netdev@vger.kernel.org,
+	andrew@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	rosenp@gmail.com,
+	chunkeey@gmail.com,
+	jacob.e.keller@intel.com,
+	kees+treewide@kernel.org,
+	daniel.machon@microchip.com,
+	hkallweit1@gmail.com,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>
+Subject: Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link PHY
+Date: Fri, 27 Nov 2026 09:48:00 +0800
+Message-Id: <20261127014800.2909048-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <179559730279.3135.7318334257799287238@kernel.org>
+References: <20261124083941.2480237-1-xiaolinkui@126.com> <179559730279.3135.7318334257799287238@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,126 +75,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 08/18] mm/mglru: make folio lru referenced times count
- a generic API
-To: Kairui Song <ryncsn@gmail.com>, "David Hildenbrand (Arm)"
- <david@kernel.org>
-Cc: kasong@tencent.com, linux-mm@kvack.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
- Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
- Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
- Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>,
- Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>,
- Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
- Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh
- <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
- Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
- Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
- cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
- Tianyi Chen <hi@tychen.cc>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-8-8ffea39934a6@tencent.com>
- <e85a2666-9722-420b-9a60-9d4251fc3d4c@kernel.org>
- <awa30hwg6x82REoo@KASONG-MC4>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <awa30hwg6x82REoo@KASONG-MC4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3F6dS4QhrP9d9EA--.22888S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Gr43Cw13XF1DXFyDCFy7Awb_yoW7ZrWrpa
+	yftF98Jr1kGrsaqrsrCF48WFy8ZFs7G345A340krWY9r1Y9ryfZrW7K34Utay5CrZ3X345
+	tr40va9rAa90vaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRvtCxUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqRJpQGsI4VIPvAAA3x
 
+Thanks for the review. All four are legitimate. v4 is posted as a new
+thread; it also starts the fixed PHY through emac_mdio_init_phy(), which is
+what Andrew asked for in his review of v3.
 
+- [High] Unbind can leave a freed net_device queued on the linkwatch list.
 
-On 11/25/2026 8:36 PM, Kairui Song wrote:
->> On 11/23/26 19:53, Kairui Song via B4 Relay wrote:
->>> From: Kairui Song<kasong@tencent.com>
->>>
->>> Pure code shuffle, no behavior change.
->>>
->>> Make the folio LRU refs helpers available regardless of CONFIG_LRU_GEN.
->>> Without MGLRU the extra bits are never set, so they are inert. Move the
->>> lru_gen_* helpers into the CONFIG_LRU_GEN section.  This prepares for
->>> unifying the API for checking folio referenced and workingset status.
->>>
->>> folio_migrate_lru_refs() now migrates the complete refs count,
->>> including PG_workingset (bit 1 of the encoding), bitwise identical to
->>> the direct copy dropped from folio_migrate_flags().
->>>
->>> lru_set_refs_flags() skips the nonexistent mask bits when
->>> LRU_REFS_WIDTH collapses to 0, preserving the two independent flags for
->>> !CONFIG_LRU_GEN builds.
->>>
->>> Tested-by: Zhao Zhenzhuo<zhaozhengzhuo@uniontech.com>
->>> Reviewed-by: Kunwu Chan<kunwu.chan@gmail.com>
->>> Tested-by: Andrew Morton<akpm@linux-foundation.org>
->>> Signed-off-by: Kairui Song<kasong@tencent.com>
->>> ---
->>>   include/linux/mm_inline.h | 55 ++++++++++++++++++++++++-----------------------
->> I'm starting to feel like all of these mglru/reclaim thingies should go into a
->> dedicated helper.
-> Hi David
-> 
-> I saw your comment on other patches too, about the header mm_inline.h,
-> about ~690 / 860 lines of code in it is for MGLRU / CLRU only. The
-> rest ~200 are for VMA / TLB / MMU.
-> 
->> Can you do that as a prio cleanup in this series, so we don't have to mess with
->> mm_inline.h in later patches anymore?
-> Perhaps we can instead move the non LRU helpers in it?
-> These helpers:
-> 
->    - anon_vma_name_get
->    - anon_vma_name_put
->    - anon_vma_name_reuse
->    - dup_anon_vma_name
->    - free_anon_vma_name
->    - anon_vma_name_eq
->    - pfnmap_track_ctx_release
->    - init_tlb_flush_pending
->    - inc_tlb_flush_pending
->    - dec_tlb_flush_pending
->    - mm_tlb_flush_pending
->    - mm_tlb_flush_nested
->    - copy_pte_marker
->    - num_pages_contiguous
-> 
-> All other helper in mm_inline.h are for LRU. So we rename mm_inline.h
-> to mm_lru.h?
+Correct, including the chain, and the reason is not that the reference is
+weak. unregister_netdev() -> netdev_run_todo() drains lweventlist through
+linkwatch_sync_dev(), and it is also the only place that waits for the
+refcount, in netdev_wait_allrefs_any(); it returns as soon as the count
+reaches one. A carrier change after that queues an event nobody will ever
+wait for again: linkwatch_add_event() does list_add_tail() + netdev_hold(),
+and netdev_hold() is a real __dev_hold(), but free_netdev() does not wait
+for refs and never takes dev->link_watch_list back off, it goes straight to
+ref_tracker_dir_exit(), free_percpu(dev->pcpu_refcnt) and put_device() ->
+netdev_release() -> kvfree(). devres frees the netdev as soon as
+emac_remove() returns, and __linkwatch_run_queue() then walks the list,
+calling netdev_tracker_free() and __dev_put() on freed memory.
 
-Moving the VMA/TLB helpers out looks good to me as a first step.
+Fixed by stopping the PHY before unregister_netdev():
 
-For the LRU part, there is already mm/vmscan.h, added by "mm/vmscan:
-move struct scan_control to a dedicated header" in mm-new. Most LRU
-helpers are only used inside mm/, e.g. lruvec_add_folio(),
-lruvec_add_folio_tail(), lru_gen_add_folio() and the refs encoding
-helpers, so they could move there instead of staying in a public
-header. Barry also suggested moving lruvec_add_folio() and friends
-to mm/vmscan.h in another thread.
+	if (dev->ndev->phydev)
+		phy_stop(dev->ndev->phydev);
 
-A few are used outside mm/ and need to stay public:
-folio_lru_list() in include/trace/events/pagemap.h, and
-folio_test_workingset() in fs/btrfs and fs/erofs after patch 16. So
-maybe keep a small public header for those, and move the rest to
-mm/vmscan.h, or to a separate mm/mglru.h if it gets too large, as
-David mentioned.
+phy_stop() is what turns the carrier off, so the event is queued while the
+netdev is still registered and unregister_netdev() drains it.
+phy_disconnect() stays below it: it only stops the PHY when
+phy_is_started(), which is false by then, and moving it up would detach
+from a registered netdev without RTNL, which phy_detach_internal() only
+tolerates once reg_state != NETREG_REGISTERED.
 
-I can help with the mm/vmscan.h part if that works for you.
+I did not move phy_start()/phy_stop() into emac_open()/emac_close(). Andrew
+asked for the fixed PHY to be started the way this driver starts a real
+PHY, and that is emac_mdio_init_phy() from emac_init_phy(), not from
+ndo_open. Splitting the two belongs to the phylib/phylink rewrite he also
+asked for.
 
--- 
-Best regards
-Ridong
+err_detach_tah keeps its order, with one caveat. A failure before
+register_netdev() leaves reg_state at NETREG_UNINITIALIZED, where
+netif_carrier_off() returns before it reaches linkwatch, so the
+phy_disconnect() there cannot queue anything.
+
+The caveat is a failed register_netdev(). It leaves the netdev
+NETREG_UNREGISTERED, whether netdev_register_kobject() failed or the
+NETDEV_REGISTER veto ran the rollback, so netif_carrier_off() no longer
+returns early. If the state machine brought the carrier up between the
+probe's own netif_carrier_off() and the failure, the phy_stop() inside
+that phy_disconnect() queues one more event: after netdev_run_todo() has
+drained the queue on the veto path, with no drain at all on the other.
+That takes register_netdev() to fail, so I did not widen the error path
+for it.
+
+- [Medium] dev->phy is now filled in asynchronously.
+
+The ordering is real: phy_start() only does phy_queue_state_machine(phydev,
+0) and emac_adjust_link() just copies the resolved values into dev->phy, so
+emac_open() can win the race and build MR1 from the probe defaults, and
+since a fixed link never changes state again the callback will not fire a
+second time to correct it.
+
+I left the code alone in v4, but the commit message no longer implies the
+speed is settled. It now carries this paragraph:
+
+> phy_start() only queues the state machine, so an emac_open() that wins the
+> race against the first emac_adjust_link() still builds MR1 from the probe
+> defaults, and a fixed link never changes state again for a second callback
+> to correct it. That window is the one the phy-handle path has always had,
+> this driver starts its PHY at probe time rather than in ndo_open, and the
+> next ifdown/ifup closes it.
+
+Two things bound the window. It is not new: this driver has always started
+its PHY from emac_init_phy() at probe time and never from ndo_open, so the
+phy-handle path has the same race against its first ifup. And it is not
+permanent: emac_open() runs emac_configure() on every open, so an
+ifdown/ifup picks up the dev->phy values the callback filled in meanwhile.
+What is permanent is the behaviour before this patch, where dev->phy.speed
+stays SPEED_UNKNOWN, emac_configure() takes the default case, and the port
+is programmed 10 Mbit/s half duplex with flow control off whatever the
+fixed-link property says.
+
+Making it deterministic means reading the link under link_lock before
+emac_configure(), or reconfiguring from the callback, and the ethtool paths
+already take link_lock before calling into phylib. That is the same
+rewrite; I would rather do it there than bolt it onto a crash fix.
+
+- [High, pre-existing] NULL mdio_read on the gpcs path.
+
+Also correct. The branch returns before dev->phy.mdio_read, mdio_write and
+gpcs_address are assigned, and emac_configure() reaches
+emac_mii_reset_gpcs() -> gpcs_phy_read() on every open and reset_work, so a
+sgmii/tbi/rtbi port in that branch dereferences NULL. arches.dts EMAC0
+(sgmii, phy-map 0xffffffff, gpcs-address 0xa) is exactly that case. It is
+untouched by this patch and predates it; I will send a separate fix.
+
+- [Low] name baab9de385a8 in the commit message.
+
+Done. The v4 commit message now says that baab9de385a8 ("net: ibm: emac:
+use netdev's phydev directly") dropped
+
+	if (dev->phy_dev)
+		phy_disconnect(dev->phy_dev);
+
+from emac_remove() along with dev->phy_dev, and that the emac_remove() hunk
+restores it.
+
+Cross compiled for powerpc out of ppc44x_defconfig with W=1, clean. No
+hardware here, so no runtime test.
+
+Regards,
+Linkui
+
+pw-bot: cr
 
