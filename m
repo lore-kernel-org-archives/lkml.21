@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774473;
-	b=i8cKNDgJfxZHGrQu0Krr2p802E4/+U4jwh5m59gYG81/rTEUrqKElRWzGJvcmEGNguI5
-	 XHxCl7YOy79Ku7gwCszaI69hibAqzjcxGsiQaF1PNovCrGWPwvMkDxzMPVrndDG0xMEVh
-	 TVVIlybutvfFrUwHgrFR5e0OIb3ZKiMDEtUsq4PvKGMT0uM1bExEq38DkUeS1HfOFITwk
-	 FLZ3cKv2d+Vit0dX1kPrxDzlmUHybYbVsjAh4lbYBa24TWn+HsEEzNuIoEQjic9U4JKO0
-	 kVRweiuiAJ9WW5vJpWaEug32qBv/z1XJTsw15rcy7f3tB//KniLZ4P+Xuir/yLMjxXw==
+	t=1795774468;
+	b=xB4XDTCHOGJjo1OCKIwaCTZS7zGSjGxtIHqk7qPYJ89flfb7QnSqdC2zLT87fjRHoCA8
+	 DLuCEll7tymIrlMWhUaT2hVwletzfT6h+qQdwmI8YkoGnj+3XXQ4x0ANs3BKcluczB7m2
+	 cXLgRb6J1G59Gn4aoVhYcHTT4v9raHUkPswgjT39y3QfqYAZqt3uYNEzZwB3xzJ/EgS70
+	 GG2b3Ek4mb6wezRhYTEHns6cgsqmSYA2T576J0t6Gi2j0KFTSfSO1ty0I3B+8AJ++F6A3
+	 D908D3Yb35BvjBawzwmmjAas0R+b4krM05BfRMlazjGz8KT5tY//yl2WI97hPjtbp2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774473;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774468;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=8+PAwb+mXQI4gAhMwD/y+lNTC9Q12C33hVekcKZeeF4=;
-	b=5SAtYuPRc+O+tPqI+akH/WUR62g8FPrybSRfPw3yEwgjFQ0dRsJflVi3pMh8bA6/4IhJ
-	 Gn3LT1ROa5aDqSs0rtF9qg9u8Vix9v114DBf09PcY521KVjFATCwT3JUQFSoCyYLKzxEV
-	 Ak9zR2KRjq0CPvLAolu1SHVnGr6qjTZYgt75HdklQ9LaLvZk9shX/z48H2lCLDdYlu4vR
-	 +R72xPkB+VGoJdNg7koI4BoDdI5+ZWQflSksIZmonuU8HDFpmbA0Eq77QZlxfpenXL5ii
-	 7glzcjrA8z3YUvIlZQccL5Zg9+A3mw2hC1+EoQImKCkCqxJaB0p7VTrB8hnfx5qsXxw==
+	bh=tA+J6mGbIT9WLOmGI7WGSCcbG+FEuLz9DTzxi1U99nI=;
+	b=QqbRMxcpNpUpD8rxWGup62t7z77xPVqlqNznM/mzFTcz6ZKN0SNmNkLYZrbo9OnsP9V1
+	 Z5WHxk7sd+545/AmvP5iK1NVF4l0e8av0rhcyFsKYLy6o6TJnuvCbYdzd8W9OxS0IRtYh
+	 bECb3BLjijJh/elTqSe9Dg4EdrEennDpmpcHr/mCjiN/QyCp7CbmjJMKo5XYz+XNJGrSI
+	 YmJCNsJcTbGMIpNZfKuqKJiKhGbaO8HRzO+tLFH5J3lNyd+aMJFsZp98gQfVvs+L6wv1q
+	 Tq9ZluNPLKD+ZvS5XCuTu3S0r5x9EQC80QaGIoPUDKoBqWsekia3r+nwnnvIHPoNY/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lj94B0mJ;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DROkTdgs;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6F2D60A5BC2
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:14:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6F2D60A5BC2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 922A36076C1B
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:14:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 922A36076C1B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lj94B0mJ
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso79767715e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:14:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DROkTdgs
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a42b34e930so6928422f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:14:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795774471; x=1796379271; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795774467; x=1796379267; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8+PAwb+mXQI4gAhMwD/y+lNTC9Q12C33hVekcKZeeF4=;
-        b=lj94B0mJW3uGWk4YTAZKlDRir57NkoHeMIRSrR7jmWlJl5FVp0OUUP9rYsLO2pRF2c
-         Mq6jZM1xwbWMFrqHR8WkVkAU6bf3vMKvSBzb7Uot/LD1bG/j6ngD9gnfdah0jaaZxPr4
-         9xbXdumpY+F1MKQDatbIdnkE1VCdR08g5xzczkDSTr0hw5Uf9r65v35VAce5HQoZROao
-         sS9TFoynYY0LmcgPulrGf6/9y8KhxiCU7ekKJ8CwTwgehCWwzxYG0Gc62iORUVakYuhg
-         BHPQyUsmKkxBXG4CpKlaePj0X+QqkU2RM+n17ZgP2NuTwXGocgvbUN7qev/ta5ArcEEc
-         tR9g==
+        bh=tA+J6mGbIT9WLOmGI7WGSCcbG+FEuLz9DTzxi1U99nI=;
+        b=DROkTdgsIXxvIEfby6vSOcPU3NgZLmXOd3CwmJz0216FnmWA8Lf667aB7N/zKVKTpp
+         vteBHX4RpS7u7y5UAxiOrY0tatlv+JpuWDO4R49gDD2M8T+Nm9RHqsVemylmyi+9Y8Iz
+         DkkWLfUFPn9sE4wZ+mZ88ftD8dvDrgaQjVmBCt9nEbIKlLXpZAdNsmLxoXoPemWnRHP5
+         l/NzPJYIzGSka/2bynBrfkXsv7+A52vARD2zwjKB2I+Lyo8wNqYgTUyEa3gdVV2OOysq
+         dwgp5WNlWiaKvXIDuk59jAVswjN0zvYnsq4auphsPB2Q6dWWXlaPR395cww1oA5sMjvJ
+         WKCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774471; x=1796379271;
+        d=1e100.net; s=20260707; t=1795774467; x=1796379267;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8+PAwb+mXQI4gAhMwD/y+lNTC9Q12C33hVekcKZeeF4=;
-        b=Y6D6+s+/IxJ0JCWHvA8fdiyu8HqiR/IQ3SglPBvOdjBIuRjZEt/P1otvVCz2dGVU5G
-         U+MNaS0S0CAUHtKpYG4NOVqBCB7otpY18H5vDmm1zbJGmAODki7eUsm7AgSFhuOudnyO
-         bBEI6jOF84PZSwPmS2Yklp8D+m6Ox+dCYVaHtbvRFqrdh0XWQEcYhf5sPyZj6A7Ukdh9
-         qsUt2FKr6ntD4NuGNGlkKOhNNBE6oS4AhOV5Njg5Fc1bN5GtL7tCKNl0qhf3tM5vqcGK
-         gap+LMC7JO+h1Nfi7oqOGByWU6kqBz6cOErEboI9Qmqcuj47/ALXtZ5Uzm+tOdS0BFtC
-         g+AQ==
-X-Forwarded-Encrypted: i=1; AL+hErH+k2siJH4iuNuOOLaj1yJWPVosI5ouDSPwpSeq4uynHkmHW6Hv4kAJTyuo9pBEQODuRQIbkdddrkuwFik=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lPXAmvgMkIWbQFHXQbwxh/B7Q88V1AxPGmLKWyOrO6iR5tQNo
-	1JrxlLG9RNTC0u0CW4pVUak3yh1Asv2DRhfRqexFXbio3O3eeeFXVfU=
-X-Gm-Gg: AZFdTZctMpy9zR9mIqBga9d8VLrj64B7w5X5OUNKDhBNdGz4yklJot709Livz5iFesl
-	0+IfnhubhPWCgYCqrs90oW3MskymJE6HfKdlB7ozqwExlYPVl8YUdg8IL062JUYWVwOTFYXTdXB
-	qnXPU3qBhlWJbd+xLCJAbhHSVBrN5/4IppenKeIR4so6fZ13SGV4h4I9QKUpcYD+Me4Gfmzteqm
-	nZEu5KjOXCbaagF0dobmD+doXIShaox6SZTUCMgDhGslfbnUC8FZ6CeZEQlUaBfeV1v1lj585uK
-	AX1wtyQACdRj73Oc6RyHL00pbz4aUFUzgg9tKuueL4CT+HJq+jpPAJY9/YEL7xpi2Ibiepj4uZP
-	r9+ox9V8rDq2uorqfCdnxGhr9QL4U2Lz8EAWKa/Pc4Vsf/jOIp8tHWK2oOMx7WDyePm7B18Mam7
-	tpUmkeejGa/j/Cj2VLvYtAqM5A128KmIPITe1b/fT4FsBMPMinTxPwIrMJxzIvAkCL+DuktIpMb
-	chvvNiyBFfCVMKF0H7PiuQfxznDAJsNiT3AGddQOjzEgdpYWML9NC54nJqIh6CqIpcr4FS0X8u8
-	KHDP+lYpzfQELwtEd/Rx8Tlbwzvve/mcZPEhY1SBlkeIQdDl3lEMvNOdSirqSWdbnfA/5X58mt7
-	QXim4c+aa0hABSc8aoBJtKMDySpkJTj62sO17H4cB7HJvaPgvL93IMNmR9Etg
-X-Received: by 2002:a05:600c:3ba4:b0:4ba:493b:3401 with SMTP id 5b1f17b1804b1-4bb8880abafmr574459845e9.9.1795774470905;
-        Fri, 27 Nov 2026 02:14:30 -0800 (PST)
+        bh=tA+J6mGbIT9WLOmGI7WGSCcbG+FEuLz9DTzxi1U99nI=;
+        b=wWuuCSy3CQQXAtTQERWJiWBzegkblTZ0XXyOKli/M/XGih8M63peZSD9FHQpV49HOJ
+         dzK2yhGPNM8I0MbcguJWJL1+KfuxewAgD5O/B+unbflxNq7oOzvH9ppj5G2NdTem5hHd
+         j44L5mmrG94lhn/S+mbtbFZ0RfW1yybil7/hW2T9y6lyfvwX4cYvr/v+NAbbDnbvTDzS
+         kFG4RQfFmVKgnZLmhJZj9G9I52B1oeXAft7JFWhlFKB3qCd688fijAyBpIrW6msj9hX9
+         PpL9UVFGFdR7p1ZFjNH4PDYfq5LiIybKf7bNHK1vOzPduXC7VzV3q9HrVBPpjC2Hayzx
+         HuAQ==
+X-Forwarded-Encrypted: i=1; AL+hErF91pdvNLJj79sU8YGEubQPPRZ+laOTz6cx99D/Qf278BlwzrSbDM38jgDN6sKVnssei5VER+CmHCHJXM8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9m0TIoEt+1k4xGnsSGKy5HL2PieHd0cEf7X8Jkt/9GhQ6k9v+h
+	02vwIZkpzS8vsCdMexSEKY/56975mMx9O4/PrH1lLEr6t/0lqyLMGNM=
+X-Gm-Gg: AZFdTZdFQRhCaVq0HPWCnPgiZD2uTpN/vwOjAolHtpUp01SE2ICN5kIAdLduwf8dVQH
+	5Z7paN4+BcNFsLCdayDW7pd1aWhTJ5ArVy5hwqb7YRXrPlWaS6YebGoCBY73XDNPbhlByg4Vcvh
+	g4hn0rPnNiQE9BydGv5Ro6BoK/M7N16I6opqDHkEF93VuBDgDzuXu3RcJBzbVK4yqDLJh9F/RJ5
+	W0mzh3nVjk1srWO9WZJRqx5rIF4PDFjSuHvDx2GQ+oc2526tiuipY9wx4B+kRTyaaBFYnm7c99Z
+	60XlSXItvRAq/xV9KM6L5Hh05lOfYbV1qtR4JzGCblJMYSZDmu6FzzKVwupqJzsDFMo3ebzennC
+	hdYPgQctBEpVJyIrVT37X+goC6yi7DSt5t+puwmWD9tCYFIiMTcYOBYInQ561CaREuLURdNXapQ
+	0x+ElvUi6a4elUxos9S9QuE0NyuyZOaixvjAGjUZLi7Fas5yFiKL50o+vydwQfDZzG+mDqW4Zge
+	SFcb44CBJuPQZOMICG5+Xf+u1oABuokS3F7ySqH1tVYRTnYALSkpIEhehTmP3Fwsw2AeAKWI1NL
+	KgsS8dIWI/+enVS0uJ8IhtPW9qclpXPqoOY+E/DRYn69DgQDcWGnJcUY16WSaO1Abrg0cMS7wHu
+	sByRCM4fKu042FdGzE0QTplESmOKKLJe0if+Jv0GsD3/WzdJzqJnUVumTKHo=
+X-Received: by 2002:a05:6000:4014:b0:4b7:ae36:5493 with SMTP id ffacd0b85a97d-4b7ae36567emr25594210f8f.12.1795774466728;
+        Fri, 27 Nov 2026 02:14:26 -0800 (PST)
 Received: from localhost.localdomain (host-94-89-17-99.business.telecomitalia.it. [94.89.17.99])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm43651234f8f.26.2026.11.27.02.14.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm43651234f8f.26.2026.11.27.02.14.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:14:30 -0800 (PST)
+        Fri, 27 Nov 2026 02:14:26 -0800 (PST)
 From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
 	Dmitry Baryshkov <lumag@kernel.org>,
@@ -98,9 +98,9 @@ Cc: Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
 	freedreno@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH v2 06/10] drm/msm/dp: track DP_SINK_COUNT capability and sync prev_sink_count
-Date: Fri, 27 Nov 2026 11:14:13 +0100
-Message-Id: <20261127101417.24303-7-gianfranco.mariotti94@gmail.com>
+Subject: [PATCH v2 03/10] drm/msm/dp: keep training pattern active until stream video is ready
+Date: Fri, 27 Nov 2026 11:14:10 +0100
+Message-Id: <20261127101417.24303-4-gianfranco.mariotti94@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
 References: <20261127101417.24303-1-gianfranco.mariotti94@gmail.com>
@@ -115,148 +115,99 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-msm_dp_panel_read_link_caps() only checked DP_SINK_COUNT on branch
-devices (without checking count < 0 for AUX errors or updating
-panel->link->sink_count when non-zero), while
-msm_dp_link_parse_sink_status_field() unconditionally read DP_SINK_COUNT
-on every sink.
+Commit ca16db3d18cf ("drm/msm/dp: break up dp_display_enable into two
+parts") introduced two regressions on DisplayPort re-plug:
 
-On non-branch SST sinks that do not implement DP_SINK_COUNT and return 0
-at DPCD 0x200, sink_count stayed 0 or flipped between 1 and 0 on
-subsequent IRQ_HPD requests, causing msm_dp_display_prepare_link() to
-bail out with -ENOTCONN or msm_dp_link_process_ds_port_status_change()
-to misclassify link maintenance pulses as DS_PORT_STATUS_CHANGED.
+1. msm_dp_display_prepare_link() called msm_dp_ctrl_on_link() on every
+   prepare (even when power_on was already true) and unconditionally set
+   force_link_train = true when !power_on, causing
+   msm_dp_ctrl_prepare_stream_on() to immediately re-run link training a
+   second time right after msm_dp_ctrl_on_link() succeeded. Only call
+   msm_dp_ctrl_on_link() when !power_on, and pass force_link_train =
+   false to msm_dp_ctrl_prepare_stream_on() so it only retrains if
+   channel equalization was lost.
 
-Query drm_dp_read_sink_count_cap() in msm_dp_panel_read_link_caps() and
-record it in link->has_sink_count, default sinks without DP_SINK_COUNT
-support to sink_count = 1, keep sink_count and prev_sink_count
-synchronized via msm_dp_link_set_sink_count(), and clear both on unplug.
+2. Splitting msm_dp_ctrl_on_stream() left
+   msm_dp_ctrl_clear_training_pattern() in
+   msm_dp_ctrl_prepare_stream_on(), clearing DP_TRAINING_PATTERN_SET
+   (DPCD 0x102 = 0x00, which re-enables the sink descrambler) ~45 ms
+   before msm_dp_ctrl_on_stream() enables the pixel clock, programs the
+   TU, and switches REG_DP_STATE_CTRL to DP_STATE_CTRL_SEND_VIDEO.
+   During that window the DPTX remains in MR_LINK_TRAINING2 transmitting
+   unscrambled TPS symbols, causing SST monitors to lose symbol lock.
 
-Fixes: 8ede2ecc3e5e ("drm/msm/dp: Add DP compliance tests on Snapdragon Chipsets")
-Fixes: b7ba5db9c863 ("drm/msm/dp: Use drm_dp_read_sink_count() helper")
+Move msm_dp_ctrl_clear_training_pattern() back into
+msm_dp_ctrl_on_stream() immediately before DP_STATE_CTRL_SEND_VIDEO.
+
+Fixes: ca16db3d18cf ("drm/msm/dp: break up dp_display_enable into two parts")
+Tested-by: Jens Glathe <jens.glathe@oldschoolsolutions.biz> # x1p42100-lenovo-ideacentre-mini
 Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
 ---
- drivers/gpu/drm/msm/dp/dp_display.c |  3 +++
- drivers/gpu/drm/msm/dp/dp_link.c    | 26 +++++++++++++++++++++-----
- drivers/gpu/drm/msm/dp/dp_link.h    |  2 ++
- drivers/gpu/drm/msm/dp/dp_panel.c   | 19 +++++++++++++++----
- 4 files changed, 41 insertions(+), 9 deletions(-)
+ drivers/gpu/drm/msm/dp/dp_ctrl.c    |  6 +++---
+ drivers/gpu/drm/msm/dp/dp_display.c | 16 +++++++---------
+ 2 files changed, 10 insertions(+), 12 deletions(-)
 
+diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.c b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+index b896196cf244..779f743f9418 100644
+--- a/drivers/gpu/drm/msm/dp/dp_ctrl.c
++++ b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+@@ -2616,9 +2616,6 @@ int msm_dp_ctrl_prepare_stream_on(struct msm_dp_ctrl *msm_dp_ctrl,
+ 	if (force_link_train || !msm_dp_ctrl_channel_eq_ok(ctrl))
+ 		msm_dp_ctrl_link_retrain(ctrl, panel);
+ 
+-	/* stop txing train pattern to end link training */
+-	msm_dp_ctrl_clear_training_pattern(ctrl, panel, DP_PHY_DPRX);
+-
+ 	return ret;
+ }
+ 
+@@ -2663,6 +2660,9 @@ int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *
+ 
+ 	msm_dp_ctrl_setup_tr_unit(ctrl, panel);
+ 
++	/* stop txing train pattern to end link training */
++	msm_dp_ctrl_clear_training_pattern(ctrl, panel, DP_PHY_DPRX);
++
+ 	msm_dp_write_link(ctrl, REG_DP_STATE_CTRL, DP_STATE_CTRL_SEND_VIDEO);
+ 
+ 	ret = msm_dp_ctrl_wait4video_ready(ctrl);
 diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index 3c15f984b29e..7831dd13b067 100644
+index bce641d7d893..b8373740275b 100644
 --- a/drivers/gpu/drm/msm/dp/dp_display.c
 +++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -477,6 +477,9 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 	if (dp->link->sink_count == 0)
- 		msm_dp_display_host_phy_exit(dp);
- 
-+	dp->link->has_sink_count = false;
-+	msm_dp_link_set_sink_count(dp->link, 0);
-+
- 	/*
- 	 * We don't need separate work for disconnect as
- 	 * connect/attention interrupts are disabled
-diff --git a/drivers/gpu/drm/msm/dp/dp_link.c b/drivers/gpu/drm/msm/dp/dp_link.c
-index 34a91e194a12..b619707b8e3b 100644
---- a/drivers/gpu/drm/msm/dp/dp_link.c
-+++ b/drivers/gpu/drm/msm/dp/dp_link.c
-@@ -720,12 +720,16 @@ static int msm_dp_link_parse_sink_status_field(struct msm_dp_link_private *link)
- 	int ret;
- 
- 	link->prev_sink_count = link->msm_dp_link.sink_count;
--	ret = drm_dp_read_sink_count(link->aux);
--	if (ret < 0) {
--		DRM_ERROR("DP parse sink count failed\n");
--		return ret;
-+	if (link->msm_dp_link.has_sink_count) {
-+		ret = drm_dp_read_sink_count(link->aux);
-+		if (ret < 0) {
-+			DRM_ERROR("DP parse sink count failed\n");
-+			return ret;
-+		}
-+		link->msm_dp_link.sink_count = ret;
-+	} else {
-+		link->msm_dp_link.sink_count = 1;
- 	}
--	link->msm_dp_link.sink_count = ret;
- 
- 	ret = drm_dp_dpcd_read_link_status(link->aux,
- 					   link->link_status);
-@@ -1348,3 +1352,15 @@ struct msm_dp_link *msm_dp_link_get(struct device *dev, struct drm_dp_aux *aux)
- 
- 	return msm_dp_link;
- }
-+
-+void msm_dp_link_set_sink_count(struct msm_dp_link *msm_dp_link, u8 sink_count)
-+{
-+	struct msm_dp_link_private *link;
-+
-+	if (!msm_dp_link)
-+		return;
-+
-+	link = container_of(msm_dp_link, struct msm_dp_link_private, msm_dp_link);
-+	msm_dp_link->sink_count = sink_count;
-+	link->prev_sink_count = sink_count;
-+}
-diff --git a/drivers/gpu/drm/msm/dp/dp_link.h b/drivers/gpu/drm/msm/dp/dp_link.h
-index 76125e9c07e9..11be55ade0a8 100644
---- a/drivers/gpu/drm/msm/dp/dp_link.h
-+++ b/drivers/gpu/drm/msm/dp/dp_link.h
-@@ -72,6 +72,7 @@ struct msm_dp_link {
- 	u32 test_response;
- 
- 	u8 sink_count;
-+	bool has_sink_count;
- 	struct msm_dp_link_test_video test_video;
- 	struct msm_dp_link_test_audio test_audio;
- 	struct msm_dp_link_phy_params phy_params;
-@@ -112,6 +113,7 @@ static inline u32 msm_dp_link_bit_depth_to_bpp(u32 tbd)
- }
- 
- void msm_dp_link_reset_phy_params_vx_px(struct msm_dp_link *msm_dp_link);
-+void msm_dp_link_set_sink_count(struct msm_dp_link *msm_dp_link, u8 sink_count);
- u32 msm_dp_link_get_test_bits_depth(struct msm_dp_link *msm_dp_link, u32 bpp);
- int msm_dp_link_process_request(struct msm_dp_link *msm_dp_link);
- int msm_dp_link_get_colorimetry_config(struct msm_dp_link *msm_dp_link);
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
-index e633afdf2b47..0f81aaa7e6db 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.c
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.c
-@@ -332,6 +332,7 @@ int msm_dp_panel_read_link_caps(struct msm_dp_panel *msm_dp_panel,
+@@ -632,7 +632,6 @@ static int msm_dp_display_prepare_link(struct msm_dp_display_private *dp)
  {
- 	int rc, bw_code;
- 	int count;
-+	struct drm_dp_desc desc;
- 	struct msm_dp_panel_private *panel;
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+ 	int rc = 0;
+-	bool force_link_train = false;
  
- 	if (!msm_dp_panel || !connector) {
-@@ -356,12 +357,22 @@ int msm_dp_panel_read_link_caps(struct msm_dp_panel *msm_dp_panel,
- 		return -EINVAL;
+ 	drm_dbg_dp(dp->drm_dev, "sink_count=%d\n", dp->link->sink_count);
+ 
+@@ -650,17 +649,16 @@ static int msm_dp_display_prepare_link(struct msm_dp_display_private *dp)
+ 
+ 	if (!msm_dp_display->power_on) {
+ 		msm_dp_display_host_phy_init(dp);
+-		force_link_train = true;
+-	}
+ 
+-	rc = msm_dp_ctrl_on_link(dp->ctrl, dp->panel);
+-	if (rc) {
+-		DRM_ERROR("Failed link training (rc=%d)\n", rc);
+-		// TODO: schedule drm_connector_set_link_status_property()
+-		return rc;
++		rc = msm_dp_ctrl_on_link(dp->ctrl, dp->panel);
++		if (rc) {
++			DRM_ERROR("Failed link training (rc=%d)\n", rc);
++			/* TODO: schedule drm_connector_set_link_status_property() */
++			return rc;
++		}
  	}
  
--	if (drm_dp_is_branch(msm_dp_panel->dpcd)) {
-+	rc = drm_dp_read_desc(panel->aux, &desc, drm_dp_is_branch(msm_dp_panel->dpcd));
-+	if (rc)
-+		return rc;
-+
-+	panel->link->has_sink_count =
-+		drm_dp_read_sink_count_cap(connector, msm_dp_panel->dpcd, &desc);
-+
-+	if (panel->link->has_sink_count) {
- 		count = drm_dp_read_sink_count(panel->aux);
--		if (!count) {
--			panel->link->sink_count = 0;
--			return -ENOTCONN;
-+		if (count <= 0) {
-+			msm_dp_link_set_sink_count(panel->link, 0);
-+			return count < 0 ? count : -ENOTCONN;
- 		}
-+		msm_dp_link_set_sink_count(panel->link, count);
-+	} else {
-+		msm_dp_link_set_sink_count(panel->link, 1);
- 	}
+-	return msm_dp_ctrl_prepare_stream_on(dp->ctrl, dp->panel, force_link_train);
++	return msm_dp_ctrl_prepare_stream_on(dp->ctrl, dp->panel, false);
+ }
  
- 	rc = drm_dp_read_downstream_info(panel->aux, msm_dp_panel->dpcd,
+ static int msm_dp_display_enable(struct msm_dp_display_private *dp,
 -- 
 2.25.1
 
