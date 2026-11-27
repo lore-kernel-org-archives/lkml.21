@@ -1,55 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799156;
-	b=g8nnlGRVUDEycD6qLC63iM0qGuCjC2q64j6kbExoCA2uXGrHO9gO3HGeWlaku3WSZQeK
-	 rBXA1k7RrJE4KsIYJB2zzSanQgFgBtSTWx05YT+Qwz3dpLWpRXormrgQ/3PkyT716KDTk
-	 B+SyNAIwzw9HB7vIKTvmg8zfu4JE56QzNr6sE9CIZPAaXpWNNSt6hEfba5FlHF0bRD8hs
-	 MyS5BbLcBzUr7GSzSIjQTWDBV851LqT16nogzJCpNjtehnACTMTfAiMNLuTYZKRN3zw16
-	 v8IaxJSks77+HJSaR0eoFjjeeRRCSwlvXwp7fpZzfVlCxs0+rNskXoR7/Rzr2xZ6rMg==
+	t=1795799178;
+	b=vCxgXUK3ys3+s2nNdjCwlhbJ5vaag1ziWPi72+GvZiZrkVcFEOdWpo8pycokCoOXea7r
+	 tp3OFdCpOd98JfuZkunhUbjUKBrhsNgn4WE8iO3NCxzzitehxHqABvf+ILfUNfUAH8SzW
+	 u4NFGJBuVLx4lnXG8/u5YsSwxlx6gNpWArgeDF8VOxUyqp8d0a6bzSHGG0Bu03cvNrSlm
+	 PDDKd8iEFmglb2pCx+MThbhvYzXueXK+lIhFNqTmNtwuetFeFO368S1ddUzZ48rrzuvXw
+	 xilXA5MqbYzPRoyfM6kpAMeHFxE+eLeQPh2l4KkvPdhe2BeqBWu4nIl/NC1hav+FYCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799156;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
-	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=epMG1oEJxcH1Mz0PZ5IoUhFZrQxUMuiU/tJZjWFh0u4=;
-	b=vMDESaWLAxEX++4EBFiQC0yTw9jTlboCb85W/QyuZy9j9owusoO0QvWY5mInCRZHhjer
-	 IabxwhNjsjv/BCOVyJjJLU02LRUq1239XByyL6r//ZepkFXzyLPRPjiaTHlEbInvGYpoj
-	 0GyOw4tfbYJzWcc3+QpGpflCbB241ZQaWwi89+P4Qi2QzY3G8hs7vjL7e6iD2/kjmkwdS
-	 hfGnVKQYxsSOBPJtEBLJ2nzMYKghOijqb4VQ4U+AmTbzAW6pZfmnSrTdYfM9nvrBThYSB
-	 iBUYL9abYM32cHA95+8KZWCDNCvszvJl1J7fkf8SR1+ORQxOvxE5IVFFDnG4x4UoD2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799178;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=iTVKPxE+XmFmd6MvSzXzYtECoOBwSxdbWmdWP2l2rT0=;
+	b=AYXanwtmMYp+fj6IyS3xmyuganrIc8F1oKmzUSItRzicanpCb1epZ9cJ8EXcvLVys8J3
+	 mCycWTniTIS1nsMw55iNfnFSTUbujqMtYArw9U1oSGuZtS71a5T4uDbUUjsMF7MyuEzHJ
+	 snas17pGjEs7iGBEGp5f6AKfyfCg6SaVaUYjZIdCwlTmOFmXwiMfczeYnh1j3c5b5ziuj
+	 b5bVrqMcv7CByxUCGzK2LpVD+syVTUBToljyoeASuG2/SyWWmZsGZ3I6XKUzLV2LSta40
+	 quRtzS4pbUgnd6aDN9jGhXFOh6qLMILjpu3c6NEfL0GEbjWqnVketxOnohEJQuSRHNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srazc7DB;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rnt3xMzn;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 530F3606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:05:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 530F3606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACF71606A32E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:06:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACF71606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srazc7DB
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id AC388C2AC4C;
-	Fri, 27 Nov 2026 17:06:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B647D6049C;
-	Fri, 27 Nov 2026 17:05:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BE5AD11E90D96;
-	Fri, 27 Nov 2026 18:05:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795799147; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=epMG1oEJxcH1Mz0PZ5IoUhFZrQxUMuiU/tJZjWFh0u4=;
-	b=srazc7DBq+otogBqeRV2y6653RuMxbb9ubD4FxMA+QGTENZLTZ5v0QZeaSpaa69NZodljs
-	3ZGDU86Vg3KoSyAhh8ms5OMM1iU4fADwX859ddG5BLg4TGWJhkWbr1j6VoVaUUyRinj+EJ
-	cm5lRiRFqis1QkgaMf4HGoEVOKWgIRDLCfZFr/QffKrooUYMvN7wJBwjz4DZDaOjCAG++D
-	rMomtzBXfoAzRCbGzFkxnh9sJPcaUcR/gKsZFdNZ0xAgdwMXUoy3VPOLIaUkIgh4r7uToU
-	V+O7Dk9CkhAt9VS44Qihl9v9gX1xrrrwoort34F3iiBiG1qkxpHTYkHjaZEyRw==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rnt3xMzn
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so5226121f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:06:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795799176; x=1796403976; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iTVKPxE+XmFmd6MvSzXzYtECoOBwSxdbWmdWP2l2rT0=;
+        b=rnt3xMznG2a3QsOgARoIB9TCV2/u3es2n7i6uHV18P10Ne85/1fS3zW8WKOOADwEwv
+         YjS6/bAxKDxdfaiyLO8F2FfpYVeH92e+pNfOXZlbO5TnmBSapElLShPoz3JDCK3el0CQ
+         Hs2JW4Inv+uZCL0zhanH0pj5hxYVZ9KOwniXJjEY90MEEDVr+CDinQWBmdwp9B9htn0J
+         R0jLoUGohn4rql+68sWkT1QMlvjVUaJvS/oQ+zy+hP9+fsGsMcXxyQG5fpN56QY7XEav
+         Ym9E1ZVE4he3PHKNuP5wkkWDIN9Llpog73f+G0A9R72QQ/Vg/Hm5GLiVV8iApjg67QKr
+         30Tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795799176; x=1796403976;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iTVKPxE+XmFmd6MvSzXzYtECoOBwSxdbWmdWP2l2rT0=;
+        b=Ti1assBcnMMStv/T4nsawYdYH5DPIPcQ6V6VCXaGZxGQgjmpNDxdkFWeffAxZlYFhZ
+         KFQrXtRb2WW76mOtsNzZShtWkHq3eUZDvx4KGkwbhqOSFxWiRy37IKmr6uk3liDcXyLi
+         V8L8qrmbNT1RekmbAtSiFUUq3PXoLvdb5wS1Mk/O4sWHlV3KdlfxDHVfko5Us1+ut2V8
+         Mc7ACjCOaia5CW/OX/xYpqPykqylofJqv6CBgBYNyJvWUitDhnHx6iYSM6L4VgT3Gy7x
+         Bg/YoYxdMeJ51AoTbgRVup88g0vXtNh4O7p1rxYG94x/zan21tUYJK+/xcygmes8HUVm
+         FLyA==
+X-Forwarded-Encrypted: i=1; AL+hErHYKDdEoVD3ktYKs2AgshMXSVu0ERGAS4U7KXAkLKn96vdInyyGFhL32+5Yfh2olge5igDZ6oEFMlLEu9w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EB9oO8pXSmCw4oyRXhxXnF5RkKgHaLNwugFFPwyAKShixqzmY
+	v5KbfKEUuuV2bYJOSt2OfRzFYnXif7uZJZLAqhr7iTIK3D1QybHx7Skx
+X-Gm-Gg: AZFdTZfG0ryYWIxXMooHsNYNACRe93zvOhl247LQSAzAOYQGlesF5G2vis5SlJqbk2F
+	J2USOCpayxHua3w+Kd9vkoYfh7eyy6YyXfFfj4a5glOUhHc2Ze6SJAwonynfWcVm79nuvuK4zO7
+	L8E/4Ica9+pbuXH377RTS9Bp8CmCAwsT8fOOrunVV9wQnM2wbDLxXUVNAQJLMQFH0QBJSRu3MSU
+	Ss3EIvFbWjix5+hnp9cKTbb4KQtJy8vMLse7ugijf1K38ocsBJiU0yRrSNk4xQ06lyTGJkWWDug
+	6xC/vVgTzTu5eTxyFtndAdYgyhv0dNgJHISmr5Oz2/O/kAwbQmFLb4D1Qjbzh6dPGD/7mu9dxgn
+	WiMdtPcxXPF9eF08X+N4poXNj+lVOFZWFO0bT/IIcanEOvmYGPFIhlVRCebCB1DQX2wQFkWK78z
+	XFp7nPHSvQtALuqDKqHTDjkVbVZO9bxvnKirE64gTYvj9Ft2iMolKo5TiTVo0cR5BkDw0SWv+HJ
+	hUQTl4UV2OyQUV7sAdJ2pL36Jn0CuBQMXSbZ5n3kz5Qn44UhtfF/nQlHjH8rjTFXdXd2DjTXHZV
+	Opw5LI9yV4D4C70RR5rMZFT+cRC89b18QBYaxSFo+EheZ3hnY3cgt0r5trvzRYUYy+FwxqRbE5X
+	dsDM=
+X-Received: by 2002:a05:6000:481c:b0:4a5:ebcc:2260 with SMTP id ffacd0b85a97d-4abb2dda518mr48798226f8f.29.1795799175866;
+        Fri, 27 Nov 2026 09:06:15 -0800 (PST)
+Received: from SMW032656.wbi.nxp.com ([128.77.115.158])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm49324759f8f.3.2026.11.27.09.06.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 09:06:15 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
+	elena.popa@nxp.com,
+	cosmin.stoica@nxp.com
+Cc: patches@opensource.cirrus.com,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] ASoC: wm8962: make GPIO-based HP detection work
+Date: Fri, 27 Nov 2026 19:00:36 +0200
+Message-ID: <20261127170039.663-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,82 +100,62 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 18:05:27 +0100
-Message-Id: <DN65NU9ZTJQH.1GRA0TZTLGY0I@bootlin.com>
-Subject: Re: [PATCH v3 0/4] drm/komeda: Use the bridge connector
-Cc: "Ayan Halder" <Ayan.Halder@arm.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Kory Maincent"
- <kory.maincent@bootlin.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- <linux-kernel@vger.kernel.org>, <cix-kernel-upstream@cixtech.com>,
- <Wuyi.Shen@cixtech.com>
-To: "Luo Liu" <Luo.Liu@cixtech.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "Liviu Dudau"
- <liviu.dudau@arm.com>, "Russell King" <linux@armlinux.org.uk>,
- <dri-devel@lists.freedesktop.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.22.0
-References: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
-In-Reply-To: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hello Luo,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-On Tue Nov 24, 2026 at 10:41 AM CET, Luo Liu wrote:
-> The first patch converts komeda to the new DRM bridge model. Bridges
-> following that model no longer create a connector themselves, so the
-> display driver attaches them with DRM_BRIDGE_ATTACH_NO_CONNECTOR and
-> creates one connector for the whole chain with
-> drm_bridge_connector_init().
->
-> The second patch fixes the teardown path that the conversion exposes.
-> drm_bridge_connector_init() creates the connector with
-> drmm_connector_init(), which provides no ->destroy hook and leaves the
-> cleanup to a managed action. The drm_mode_config_cleanup() call in
-> komeda_kms_detach(), and in the komeda_kms_attach() error paths, drops
-> the connector references directly, so drm_connector_free() ends up
-> calling the NULL ->destroy pointer.
->
-> Switching to drmm_mode_config_init() lets the core release the mode
-> configuration after the connector cleanup actions have run. The komeda
-> private objects are then finalized by walking the pipelines instead of
-> mode_config.privobj_list, which also holds the bridges that the encoder
-> cleanup releases.
->
-> The third patch fixes a latent interrupt race found in review. The IRQ
-> is still registered after komeda_kms_detach(), and the
-> komeda_kms_attach() error path, clear drm->dev_private, so a shared
-> interrupt can reach komeda_kms_irq_handler() and dereference a NULL
-> mdev. It is independent of the conversion.
->
-> The fourth patch fixes the tda998x bridge, which accepts the
-> connector-less attach flag but keeps using its own connector. In that
-> mode the connector is never initialised, so the bridge reads an empty
-> display_info and ELD and stays in DVI mode without sending hotplug
-> events. Use the connector provided to the detect and EDID read
-> operations, report hotplug through drm_bridge_hpd_notify() and
-> advertise interlaced mode support through the bridge.
->
-> Changes in v3:
-> - Add a fix for the tda998x bridge, which accepts
->   DRM_BRIDGE_ATTACH_NO_CONNECTOR but keeps using its own connector.
+Hello everyone,
 
-There are two v3 series you've sent the same day. Which is the right one to
-review?
+This series contains a little bit of a mix of patches (2 features and 1
+bug fix) that are needed to (partially) make the headphone detection
+using the GPIO2 and GPIO5 pins work on NXP's MR-NAVQ95 board.
 
-Please reply to one of them saying "ignore this series, it was sent by
-mistake" or similar.
+A little bit about the setup:
 
-Luca
+I'm using a MR-NAVQ95 board. This uses the codec's GPIO5 pin to detect
+if the headphones are plugged into the jack and the GPIO2 pin to signal
+if a codec interrupt has occurred.
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Also, the WM8962 codec has an external XTAL tied to the XTI/MCLK pins and
+is configured to use the FLL as the MCLK source.
+
+For this to work, I've confiured GPIO5 as a GPIO input and GPIO2 to
+operate in IRQ mode (i.e. IRQ function) using the "gpio-cfg" DT property.
+
+About the patches:
+
+1) ASoC: wm8962: implement GPIO .get callback
+
+- needed because the soc-jack core needs to be able to read the value of
+the headphone detection pin (i.e. GPIO5).
+
+2) ASoC: wm8962: add GPIO interrupt controller support
+
+- needed because the soc-jack core needs to be notified whenever an IRQ
+was raised by the codec (which would happen if GPIO5 changes its state).
+
+3) ASoC: wm8962: fix interrupt mis-firing during runtime_resume()
+
+- fixes an annoying issue that would cause some unwanted transitions on
+the codec's IRQ line. This would sometimes make the downstream IRQ
+controller think an interrupt was raised by the codec.
+
+Apart from this, there's still an issue with the FLL lock interrupt, which
+I haven't managed to get working right yet. What I've tried is enabling
+SYSCLK after configuring and enabling the FLL but this doesn't seem to do
+the trick all the time since there's still some cases in which the IRQ
+doesn't fire. The datasheet doesn't seem to specify the conditions under
+which said interrupt should fire?
+
+Laurentiu Mihalcea (3):
+  ASoC: wm8962: implement GPIO .get callback
+  ASoC: wm8962: add GPIO interrupt controller support
+  ASoC: wm8962: fix interrupt mis-firing during runtime_resume()
+
+ sound/soc/codecs/wm8962.c | 201 ++++++++++++++++++++++++++++++++++----
+ 1 file changed, 183 insertions(+), 18 deletions(-)
+
+-- 
+2.53.0
+
