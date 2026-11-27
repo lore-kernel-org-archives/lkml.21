@@ -1,126 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795815676;
-	b=2UL60zNrX7oYwxBi2ss9s/q4XOF5f8XZJ9LBmyF6pRqzSf+9VrJFNQn2+X97lcdvt21B
-	 ij59Cr/JS3H2uitX5ZSqqafF3lj5YLmVOc0RkQQMtzFEJFG1MVc41yeAzXq05hTfss2vx
-	 J2WCi5//9ZOKAv48nGWjO3En6hu6X5ARmcGYa2aFZ68vYSCXcAjFfxe68+QrF+/rlFO9f
-	 kKa/Nw3zZRhUaGSqPtWMfy6AVOwTkd+4Gs7d5gRMMOBG2gzLsonVa2/lMehru+4g+WyKN
-	 eMvNWUUNr5bFy8+CMw1WmgtPIrVSgqryV1h1tTNKEmFPvi37N1E2zc7RtaApHO4apsQ==
+	t=1795815911;
+	b=J7BQRLvkPKmDDmghvoYAlhVS1iABdchOOkc46pFyieeourNx7WfkK4v0nKgEfmpTGWjT
+	 bw/wK+1Vu7T0q1jMf6r/ATS7uT3nZEgVLiNJ2NA3EWz4Y1dHH8jYxjeDGNu7UBzZDC8VT
+	 pOw2Q9Nihbn+S0pfSg5aHbHjgZmUwwp3uLuaOlpCuVfnWMbhvpsh4jf85JOUiDIJ/FWCC
+	 rGH+6BkdUEh+9fnDSw9ttUCIPhkmYwnGlAGBKuh+P+G92WNVwbrH3MTf2aTL1wPKSyDxK
+	 f/aY7dOcTK+C+6xH6tXdAHS9p5/0/e2fzaB1C7XQVVubns94C216mZ0Uu4FHe54sWQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795815676;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=GNjJtSmgBzeJqa75AyMuB1FfpMIGeExfgQrDDeRI15s=;
-	b=UMScrkyykP4V0Z695XXUxlnN+9evumzqRQCeEg3BrdE7Tp8ZEFasmm6QB/s9PdrRf23m
-	 He6EmPILL0PRJcJ6VeDHY7kLvBM9ibPbrQO1Scf3akKslZvVTRRygXbVnQHhjNJtuH09r
-	 jjo8Dxfzn9E94cgrH/ocOXOBXQ2/3JCU6saf3WBalhMPiCGQQeGJsBOftzR31xQ1ReOP8
-	 stemiYzF2Zzc6rzi8NGiLL1W0pH3/r06psqexRzYb4LwpI0UGIOBlF0fTlL6ujfAYmVQc
-	 MtJcvO9iwrSBtEo2ZNztpQLKfF11NWyod+uyg/il4QQUnLGYPOrFviM6H/pEcK51ExA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795815911;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=MaAX0lvuh7Jgtl6dDYBpVHV2MJSuoWS/YusvzoytD/k=;
+	b=sytgxf//lrQzoMUu2vE/EhYJ7kHQDvmLf1wV0FlvUo/7bjDC1RVoGQtGYbzMyJoHs1IG
+	 hRjv7znIMjqKD6qs9cIdhjpWnKOWII1vwmNG+ZJCz0ZoFy/A6l2P/P5YoadTmf64NT89F
+	 V4zxVCuWsr02350PgeqCEsqOmGdDyEwsS2aZPVgyoMuOHFYx0zejeruvf//C4XV9o/sRO
+	 jGpWAkZFDgpwM87R3ih9WCIHWdAZTMRllre0VPIJGK+xbGnOvydLLQSfRDcUeiBOe/fOd
+	 OKc6Pw2s+6bnBvvBlP4UVVxvkTk20T1xnzJgrpBaTYU1n1mpclPMKoW8hYIEqo4v21g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rlJzjc+L;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aPKKLuy4;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D8CC606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:41:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D8CC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9FBF606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:45:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9FBF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rlJzjc+L
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso83007925e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:41:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795815674; x=1796420474; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GNjJtSmgBzeJqa75AyMuB1FfpMIGeExfgQrDDeRI15s=;
-        b=rlJzjc+LyIk9Bk0QS6P/I8TDEexyuBC3YqrMNuS8l9ecZxXqzecIXHrsa2+jjLCIkd
-         AvdgA+lDcovhfWDGGXxDDTraLo/z7WixYN6CS0WFtDPjvWLKrdb2LmuL8SVsyVcmcUAE
-         w7uKvqNGQ6fgCtW1/YqXftDsvKWqzLc/etNTUBIImSolgJ458EFpxfvonhxlMSH2he0w
-         gpZYXR2cdjzW3qoLBTUFALao2MhHDceARIdwR8T5fNHKRhO5CZKehhou/RRtD33QzCTW
-         J9VxQgQTSkBjmppRZyAfVgxgVnOD9jDbF3HW5K6gfIlLPnr/76nWxRQFxdk3GCbefAfK
-         3+gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795815674; x=1796420474;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GNjJtSmgBzeJqa75AyMuB1FfpMIGeExfgQrDDeRI15s=;
-        b=ioSGwpYwzWmTN4a4X/8ZeDHmvtlWn4mhKPUciqqJRPgms9RphXS6s064APRSpFXmFa
-         bgj2JKVXets8Syacb/WRrR25f50Q7/ZG84PJ3Dai0AD1wxZtuOE9irdlrO6rOQFWeJSZ
-         oCNqafgzj8GVZoqxqro/dZDC3Dac6KT5lusb1i00uAN2TyzJRsiH31gKVPudxv1UkoSA
-         5r4addufMOo59c5P75CC8X2/E7xDQAuju37S3WDmaq8XZeRXMk4Wxwqijgg8QZkHVfga
-         tV4cIv0ofYlw1hI/fYQWfdjDqZQP3ASZwD/0Ggv8Ie5kCUQr8xLKAk0LlXQdMft2Sv5I
-         vAtw==
-X-Forwarded-Encrypted: i=1; AL+hErHGKD4yCDN8DsF7gQs4wCNPRZKdL30/dZy4OvhxAyW5Whby9DPBqHMkqek7g+Q2cPF+unrIXKIFjfNt4NU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wvaKvbpbN0YWX9FAUQZZQY/do4H2eBNyPfJBhR58FrC2oQNQn
-	S5iGQ8L9PfRBv38ss9UobvnBUOYdSQE3tIteaswpw6+6cSO21fiXyId2
-X-Gm-Gg: AZFdTZeigPVCYBMi/99PYJZqhBXQhFlpNk/puBPNESzHh1QshQYw6TqyGPlYRalTMvV
-	FcIlS/nQeQr/UaG7K4oEPhp+EijW9sySnVNfANyQVNXfLBR1p7D1J2IIWwgKokB4LOix6scBmlJ
-	onLSVKNbeRKE2g7jXxPjKoSy5IdSAVyDIPBROcdjWxFZa3qnTkD5Vs4ZWrGAHcyiw2xIz7QNT2t
-	Yd5utFx2RggSt/8jxvMxQO8GJ43feYftISC49J53plzsSkBg3NRlE8qO8Awrsil2Of8mfIu2Hid
-	PD6j4bRaaGLUS13egQ7rGIbUpXiqwUVWdFRCN6KbSJ0fOlWuOSdOpLZjpqqI96AjZRpS6DTEDKD
-	MMfoviFkkR3ApevYR239HQEyF51YhJCf8hgdC+34zJwopIdkG600cTKAdYDfooetRUEppbchyUW
-	9YM6P1U7MZbyQD/Sov1gEKUI6YroRFg0XCagtolmbEk1usuv9AolBVA1ZF1aHyQrPaw0AMa+A/E
-	xlFo9g5BUyY1SkU10ZQr04ayAB5OPeta0usLWpxFt5YsckJI8+RYYMPeTUeWIBDt7ASRsbTKeE0
-	/DnlZltabFglol+RZzlSVf5aXQ==
-X-Received: by 2002:a05:600c:a085:b0:4bb:85d9:156e with SMTP id 5b1f17b1804b1-4bb8880fe46mr518939935e9.11.1795815674386;
-        Fri, 27 Nov 2026 13:41:14 -0800 (PST)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bbb97e5356sm37714445e9.4.2026.11.27.13.41.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 13:41:13 -0800 (PST)
-From: Askar Safin <safinaskar@gmail.com>
-To: jarkko@kernel.org
-Cc: aleksa@amutable.com,
-	alex@amutable.com,
-	alexei.starovoitov@gmail.com,
-	arnd@arndb.de,
-	bpf@vger.kernel.org,
-	brauner@kernel.org,
-	containers@lists.linux.dev,
-	corbet@lwn.net,
-	dhowells@redhat.com,
-	ebiggers@kernel.org,
-	giuseppe@scrivano.org,
-	hughd@google.com,
-	jack@suse.cz,
-	jlayton@kernel.org,
-	josef@toxicpanda.com,
-	kees@kernel.org,
-	kpsingh@kernel.org,
-	lennart@poettering.net,
-	linux-api@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	luto@amacapital.net,
-	neal@gompa.dev,
-	oleg@redhat.com,
-	paul@paul-moore.com,
-	ptikhomirov@virtuozzo.com,
-	sergeh@kernel.org,
-	skhan@linuxfoundation.org,
-	viro@zeniv.linux.org.uk,
-	zygmunt.krynicki@canonical.com
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Date: Sat, 28 Nov 2026 00:41:03 +0300
-Message-ID: <20261127214103.542291-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <awOQDOel_72Xwjm7@kernel.org>
-References: <awOQDOel_72Xwjm7@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aPKKLuy4
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 4AE71C2AC4F;
+	Fri, 27 Nov 2026 21:45:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2D5A06049C;
+	Fri, 27 Nov 2026 21:45:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 702B411E90F5A;
+	Fri, 27 Nov 2026 22:44:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795815902; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=MaAX0lvuh7Jgtl6dDYBpVHV2MJSuoWS/YusvzoytD/k=;
+	b=aPKKLuy4SWSQ/h+17NgwAi5mRe2DUpi4f/G+XxR0FSgj3OtxEQ/zMm7ygdxaooPL4bgrTX
+	b58MZb7EQ8w/b/yswO1Z8wYn0QCo2nejCXE9dKSEpb3zjMjZlSa7uIiMk0KjUykUvlcwoR
+	bqSUR1QNB/1Zsa9lCuFKMd2IaLIsC543me5h+KXLEqG5OqsgmL+ccP0Cb0nnJi6U6/CN5T
+	chm4ieqHXBJoJFEM43hc9XmQ0TgUgDMo9EcvqkyX1/p2AJ6L3I4Z9mQHEKsOb6pC1s//uS
+	vVssso3g8rehBk9+NSezs9u4ke3za9l0rTu6BrGP3x71JKiHjRWjPyxzjjvJRQ==
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: [PATCH net-next v9 0/3] net: macb: implement ethtool set channels
+ count operation
+Date: Fri, 27 Nov 2026 22:44:40 +0100
+Message-Id: <20261127-macb-set-channels-v9-0-0b3addec7886@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,24 +63,224 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAMj5CWsC/33RS2rEMAwG4KsMXtdFtuNHuuo9Shd+SB3DTFLiE
+ KYMuXs9WbQpMV2KX/qE0J0VnDIW9nK6swmXXPI41KJ/OrF49sMH8pxqzSRIAwo0v/oYeMGZP+I
+ BL4XrQAbBkpIWWJ37nJDybTPf2FA7B7zN7L0m51zmcfrali1iy/9xF8GBS4fK98arFNVrGMf5k
+ ofnOF43b5E7Q4iWIavRO2l65QVpikdD7Q3VMlQ1ojHBWidSCu5odHvDtoyuGiKkjjqiSNEfDf1
+ jCBCmZejHLRARIgSHVh8N82uI9i2mGjqh7lOPlkAeDbs3XMuwj7+kEAHIOOPpaLidIbuW4aphL
+ URyqAFN+mus6/oNV9mljJoCAAA=
+X-Change-ID: 20260305-macb-set-channels-5bf6e07f3270
+To: Conor Dooley <conor.dooley@microchip.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Nicolai Buchwitz <nb@tipi-net.de>, Paolo Valerio <pvalerio@redhat.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Vineeth Karumanchi <vineeth.karumanchi@amd.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ stable+noautosel@kernel.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Jarkko Sakkinen <jarkko@kernel.org>:
-> I personally think that "getting in" should not be a goal in the first
-> place. I care more about that whaever gets in has a high bar of
-> quality enough. It can be something different than this but
-> when I read the LWN article about Cells I was alarmed enough
-> so that I had to do this and prove my point.
+Add support for changing the active number of queues.
+Tested on Mobileye EyeQ5.
 
-I think that Bacik's patchset has better chances than yours.
-I think so, because (as Bacik said) it was tested in Anthropic, and also
-because Brauner reacted positively:
-https://lore.kernel.org/all/20261021-zeitig-niemals-clubmitglieder-b3973fcebd38@brauner/ .
+If the interface is running, use context swapping to realloc rings on
+the fly. To avoid introducing bugs with stale ENST config, we start by
+fixing how ENST config gets applied in the first patch.
 
-So I suggest reading Bacik's patchset and say what you don't like about it.
-You will have chance to influence Bacik's proposal before it will be merged.
+One pretty significant change to our context swapping implementation:
+the set_channels callback needs to be able to fail in the context
+swapping window. If it failed, then we keep using the old context and
+don't reconfigure HW. From its standpoint, it got disabled then
+re-enabled with no change to its rings.
 
-(Note: I am not kernel developer.)
+I tried *not fixing* TAPRIO/ENST but that was hard, so instead I preface
+this series with a commit reworking how ENST works. We now handle
+close/open and refuse set_channels if a queue-to-be-disabled had an
+ENST schedule attached.
 
--- 
-Askar Safin
+Have a nice day,
+Thanks,
+Théo
+
+---
+Changes in v9:
+- Patch 1 (cached ENST config):
+  - Instead of dropping the cached ENST config on link-up with a
+    different speed, we instead ignore it. Hopefully we'll restore our
+    previous speed and be able to respect our qdisc again. This means
+    bp->enst is now only modified by TC_SETUP_QDISC_TAPRIO operations.
+  - I did *not* take Reviewed-by: Nicolai from v7 (which I had forgotten
+    on v8) because the patch changed substantially.
+- Patch 2 (set_channels implementation):
+  - Improve the [PATCH 2/3] commit message to explain the changes made to
+    the context swap implementation.
+  - Read bp->enst under bp->mac_cfg_lock mutex. This requires moving the
+    mutex responsibility from the swap helper functions to the caller
+    because in set_channels, the lock section is longer than the swap.
+- Patch 3 (SRAM segments distribution):
+  - Prompt Sashiko, below the commit fold line, to avoid the same false
+    positive report again.
+  - Take Reviewed-by: Nicolai from v7 which I had forgotten.
+- Link to v8: https://patch.msgid.link/20261124-macb-set-channels-v8-0-770cf8e50e6d@bootlin.com
+
+Changes in v8:
+- Reset BQL for all queues at swap end and at close. The minimal amount
+  of work would be to reset only the active queues, but let's be safe
+  about it. A bug here is a forever stale that will never resolve, not
+  even on close+open.
+- Shuffle the TX ring on swap failure. The HW resets its cursors
+  automatically, so we must bring TX SKBs to the start of the ring
+  before restarting the TX engine.
+- Fix a stale comment in gem_sram_distribute_segments().
+- Rebased onto latest net-next/main (c2621b518b38); nothing to report.
+- Link to v7: https://patch.msgid.link/20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com
+
+Changes in v7:
+- Patch 1 (new ENST patch):
+   - Preface the series by a patch fixing TAPRIO ENST config across
+     interface flap and context swap operations.
+   - It does so by storing a cached ENST config in bp and restoring it
+     on context swap and link-up. Previously we could only write the
+     ENST registers on TAPRIO callbacks.
+- Patch 2 (ethtool set_channels implementation):
+   - Fix context swap rollback: if the window failed (set_channels is the
+     first context swap that can fail), then we need to *not* write HW
+     ring cursors and *not* reset DQL.
+   - macb_interrupt(): avoid NULL ptr deref when reading bp->ctx fields.
+   - macb_poll_controller(): avoid bp->ctx NULL ptr deref by using
+     bp->configured_num_queues rather than bp->ctx->num_queues.
+   - gem_get_rx_ring_count(): use bp->configured_num_queues rather than
+     bp->max_num_queues.
+   - at91ether_open(): assign `bp->ctx->num_queues = 1` to avoid breaking
+     shared code that iterates on queues (suspend PM ops mostly).
+- Patch 3 (Tx SRAM segment distribution):
+   - DCFG6 register has 4 bits to tell us the # of segments, not 3.
+   - The config of the # of segments per queue is 3 bits (not 2): fix
+     distribution algorithm to allow going up to the limit. I don't
+     know of any hardware on which this could have an incidence.
+   - SRAM segment distribution is also done at context swap end, for
+     this new set_channels callback.
+- Rebase onto latest net-next/main (d6816d9a93b6); tiny conflict inside
+  macb_config caps.
+- Link to v6: https://patch.msgid.link/20261113-macb-set-channels-v6-0-5de59d9e7f02@bootlin.com
+
+Changes in v6:
+- Rebase onto latest net-next/main (573af8015529). This means rebasing
+  onto context swapping, which is now used on set_channels requests.
+- Move the QUEUE_DISABLE caps patch out into a separate series.
+  https://lore.kernel.org/netdev/20261113-macb-caps-v1-0-42e0984b2f09@bootlin.com/
+- Drop kunit tests. Thanks Jakub.
+- Fix the TAPRIO gate test if qdisc is destroyed while the interface is
+  down (because bp->taprio_gated_queues was stall in that case).
+  Thanks Nicolai.
+- Link to v5: https://patch.msgid.link/20261016-macb-set-channels-v5-0-90ce0c0b8e75@bootlin.com
+
+Changes in v5:
+- New patch: add missing MACB_CAPS_QUEUE_DISABLE to 3 compatibles based
+  on publicly available datasheets. That means they can benefit from
+  the set_channels implementation.
+- set_channels patch:
+  - Refuse set_channels if it disables a queue with active TAPRIO.
+  - Use TBQP.QUEUE_DISABLE bit to also disable transmit; previously we
+    only disabled the receive engine.
+  - Migrate code to newly introduced macb_queue_isr_clear() helper.
+  - Adapt to newly introduced macb_quiesce_start(), where we want to
+    synchronize_irq() on all queues, even the disabled ones.
+  - IRQ handler now self-disarms on disabled queues.
+  - Drop `old_count` unused stack variable.
+  - Only allow TAPRIO rules on active queues.
+  - Fix comments style and text in macb_set_channels(); in particular
+    mention we'll use context-swapping once it is available.
+- Distribute SRAM segments patch:
+  - Introduce GEM_TXQSEGALLOC_MASK(q) and use field_prep|get() macros.
+  - Introduce capability for this feature, as many publicly available
+    GEM datasheets don't document the registers.
+  - Remove upper register support. Lower register is enough to handle 8
+    queues, which is the max we support.
+  - Add edge case kunit for num_segments=128.
+  - Introduce static_assert(MACB_MAX_QUEUES == 8) in
+    gem_sram_distribute_segments() to signal that code will need
+    updating if/when the constant changes.
+- Update To/Cc list: drop Nicolas and Claudiu, add Conor and Nicolai.
+- Rebase onto latest net-next/main (6b3e73774815).
+- Link to v4: https://patch.msgid.link/20260317-macb-set-channels-v4-0-1bd4f4ffcfca@bootlin.com
+
+Changes in v4:
+- macb_set_channels(): drop `count == old_count` check, it is redundant
+  with both netlink and ioctl codepaths. See early returns in
+  ethnl_set_channels() and ethtool_set_channels(). Discussion @ V2.
+- Rebase to latest net-next (8737d7194d6d); nothing to report.
+- Link to v3: https://patch.msgid.link/20260313-macb-set-channels-v3-0-c66b7781ddb8@bootlin.com
+
+Changes in v3:
+- Makefile: fix compilation of kunit tests. This bug was hidden before
+  because everything was builtin so it ended up linked together anyway.
+  Now macb.o is the amalgation of macb_{main,ptp,utils}.o and
+  macb_test.o is the amalgation of macb_{kunit,utils}.o.
+- Kconfig CONFIG_MACB_KUNIT_TEST entry:
+  - Turn into tristate; no good reason to restrict to bool.
+  - Drop "depends on MACB". We do not need to compile the full MACB
+    driver to test gem_sram_distribute_segments().
+- Add usual MODULE_*() macros to macb_kunit.c.
+- Drop unused init value of `ret` in macb_set_channels().
+- Rebase to latest net-next; nothing to report.
+- Link to v2: https://patch.msgid.link/20260311-macb-set-channels-v2-0-982693a1f5fc@bootlin.com
+
+Changes in v2:
+- Move gem_sram_distribute_segments() from macb_main.c to macb_utils.c
+  and kunit tests from macb_main.c to macb_kunit.c.
+- macb_set_channels():
+  - Add comment about MACB_CAPS_QUEUE_DISABLE.
+  - Refuse operation if netif_running(), with code comment.
+  - Drop useless sanity checks on ch->{combined,rx,tx}_count.
+- Add help text to CONFIG_MACB_KUNIT_TEST.
+- Fix `checkpatch --max-line-length=80` warnings.
+- Rebase onto latest net-next; nothing to report.
+- Link to v1: https://lore.kernel.org/r/20260305-macb-set-channels-v1-0-28e3a96a3dc3@bootlin.com
+
+To: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Paolo Valerio <pvalerio@redhat.com>
+Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>
+Cc: Benoît Monin <benoit.monin@bootlin.com>
+Cc: Tawfik Bayouk <tawfik.bayouk@mobileye.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Cc: Vineeth Karumanchi <vineeth.karumanchi@amd.com>
+Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
+
+---
+Théo Lebrun (3):
+      net: macb: cache ENST config across link down/up
+      net: macb: implement ethtool_ops.get|set_channels()
+      net: macb: distribute evenly Tx SRAM segments
+
+ drivers/net/ethernet/cadence/macb.h      |  66 +++-
+ drivers/net/ethernet/cadence/macb_main.c | 537 +++++++++++++++++++++----------
+ 2 files changed, 417 insertions(+), 186 deletions(-)
+---
+base-commit: f89726ffabef1b08c52e6163b7ab94b0d5f15503
+change-id: 20260305-macb-set-channels-5bf6e07f3270
+
+Best regards,
+--  
+Théo Lebrun <theo.lebrun@bootlin.com>
+
