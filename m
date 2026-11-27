@@ -1,111 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801137;
-	b=WEAvEzbF/aVOlDoOs31zY/UvrrjvPRx8lPEGjOk+5ZPBXeFdENftUnbNE6W4SJouuNUG
-	 UZo4RU/AL0578HdEuatOjItjSZ+8g8L0D3LCOL6a9ujUTYAYriejaD4p5rKX4KMJFX1Bf
-	 eMUcqOQcZOIXTfQuGepw3X/6Vz4K+tb79BOQa2yDJWJueHB5EwysYYaJivKadmLjFe50G
-	 CgUc+VyUYl+LIqLVbByuQaHNxOVXCj/x+W33xRDmqJQu2JHwEaG0OAv03SE2QK44Ius3b
-	 vB+aPy+kjYQQKNxh2W7Qb0FKkj5S077nf6TMAh99w0fQXziQt1B8T2J21EADR7EXYXw==
+	t=1795801188;
+	b=Z4LrqVnADQBk8e0//Apckrs8qeTPitDfKvvDAxPRaxfsrf7rgMSWeHF7QX8KJqD32GCS
+	 QCP9JMFNlVEvR0Wb7P3KwLh4r9jJ6RI0kNqPu9PhVu7D+bVHxY/Zp8PkYiIyWaR8oGFT8
+	 Hhjo7jGG12sT5J81cpuzlVt2GTbrNo5ddAs2HOgLQ9/YL5E549GQarhvt9pSo5xZz4wCz
+	 JRL8JcaSzurUjH2iM5ZNutMXA8Jt/dan1dAQ1/5rbBM0NzFB63AVYtKXDhlnJaIjbsjFu
+	 tLMOj57+V4K0FbysvfXT17Bb9FJZKrnvxV/RseRlMdQXGWFP1xxpR1dMUrhAN7Jlu+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801137;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=uln3p1FVfqbx3M6R8F5xRRunJpOJ6k0WToY8wmUKCaU=;
-	b=ygEZw07dX/8pTPx+8kXJMcfF5Xr/PE0jWhwtjsS+3xtCATiH315WV4f6p/HJRPBiVZJP
-	 jfDTp0E/HP/8mnxUFynyXJAQg1dha4k6XiJVFSw5JbcARjpihDzFqKG6AGh/y3JEhkHAA
-	 mJQXAgMkcgQHrIha/d+s1EkOL82cpN8jPq0zM+ewUkXzhx0RMUVAml+LRjvg4oBnOV4dO
-	 pT6xeBCNpMscyISQDYGolPtWJSyvunyLJg1IHBAizRToKKKydDzhPyCpRoxbnp4JFflM8
-	 z0V5o93tB33OIQTHclu1d6Nzb0QtV5gea6cyrbOJNVF7SqyLazqI1UUS9MsaeF5kLOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801188;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=S1T6TGSYrfskjIrAexTD+I9+Eq4AyHOQNMibTCrHmW4=;
+	b=CmaypGmW2hDpW1VFgU+U3JSo28V0+mMwfPlcjTrJ3NorpHoWbRy7RYlMAbR9M+Foxtqe
+	 Jj18HZkJVhUa1IBxnILMV2y1I/nVD7uf+aCDrHEuLYxT9+vI1hJLBRI5kohoMaIxjwj/U
+	 USNl7HDFJjUSWdzUrK8GaFWK3qPyvYqL4JyXUwj1Zw38NVIX/Hqf0+Cw5Y5tsRMkrO32o
+	 orF8iu3c4q6Psnkknv/Szh5dt1fHmL6NL9xQR8GyVQw5DbkCvIqT895qHZKI9WJL7QAuO
+	 SAQvHrHti8UFfWmYby5T/Ger+orW2GJSHQH8fhTtdn93dptV80paWjEY/Mgc5/rA2Uw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NCE+5loS;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=buji9ZWO;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=E0oOTNwq;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61530606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:38:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61530606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 797EE606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:39:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 797EE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NCE+5loS;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=buji9ZWO
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARFpqIE2212381
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:38:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=uln3p1FVfqbx3M6R8F5xRR
-	unJpOJ6k0WToY8wmUKCaU=; b=NCE+5loSP2YbtDab8MJSUhqctQnDacGdU7xTlf
-	VkzC5Vk9nV1LRQZ8D5AcQFJSiDmswc6p+OB9zC8Oo8rD6Q4hCp7nHkgnr+mCe8Cc
-	5rlf2R50lgvKHax2VQAloVx/IiXllDSnAHNSAYN/c0SzFC+lO1WyXlyb8WaXTehh
-	Cih7ANxWnwZ131Cqm5VUFBnFh2VtpXJsxfaKzd85xfo6El8Rgqj80acypvVQNND+
-	F9K2Hz8jKXMzjWOHqoEXCephcdYdJTlmbWGWQqgpDF5rbV6Re/kSCy5F5NYDGQaA
-	8YUpFd4GfY8+7srkXiKFPryQzgMO6JM6OPRSfQExZtzjeqZA==
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u55v0h4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:38:55 +0000 (GMT)
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-8b0d978e4faso47392297b3.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:38:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795801134; x=1796405934; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=uln3p1FVfqbx3M6R8F5xRRunJpOJ6k0WToY8wmUKCaU=;
-        b=buji9ZWOyiJDFvzF7QkMnxnNiKgqMgFovV5bdrmLr4WFOnUjcCa9zl5qqtHhOFbMbR
-         53YuwZz2vKISIxC1JXQWCxNZLz98Nonexu4TB23Izl5wBori+jQ1mN7ihtSsdUSKa79U
-         K71YA1Uh/OD0FYx7w79b/x0f8qlkQ9CRkF13eq17PVsLpM6TbH6KKFXAVXUj2EzCpk/5
-         DjA4/eVEQp9y4682Sqk/6tCKBHzM6eCPulFNZriPF38q/vBtF4H43oBKZmDgzHeZvYl0
-         /EBE/hkPuedZoiNxnPunmTnnnGW0r524wJpjwxlw/DPJtbrD1pu5nluMGSxQFGW2A7Sw
-         g1yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795801134; x=1796405934;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=uln3p1FVfqbx3M6R8F5xRRunJpOJ6k0WToY8wmUKCaU=;
-        b=n6xTRT/LwrCqAgt3Ghb5lIYBI/4RGI1bMTbWeVg4dhmgSI3dG9ZnOycR7KdZcuwGqK
-         uAAsK+eFTnvFx7EvQIXEuZEJcBrOhWxwa6hER41e7EroVf9qCG0MJx1envQmlXRlCt9c
-         RaJfDFyJzZmWU8clSE+U/eYNoaGG74F9tckcdxmXgLkOpUzBjzrsShmz1GJ6MeU0Ujiw
-         BrgSBUfBACUWyZ43/XxGH9IneSttJ3k7839CLX7S2LDOwqxs+dAH3gwDFuMwGDK0U4ni
-         apsoG1zo8sKYDqsUBQ7NVyxyPlr3kOzgEUxSZcCXQq0JTWBHVIGc+LCvSVf9+pNeGll/
-         CeZQ==
-X-Forwarded-Encrypted: i=1; AL+hErFmNrm+Ux22XRwi6SerkGTl2MTWLyIxpSUYl+AcLItzcmOmlt461ltaJrt5ijQ8lallbQMPQDIBpSZPwJ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Vnu8uxSJDoPLQsD2sChz/ShdEK4n7pQ1QDri9L54OoPRTYHnS
-	rTxfzKh27hlOIe+30Xcjmc1EiJmeXg4zXTvYC/M+EkMlu1ew902S4M4sYdYVU81aal7fKNkgq/g
-	4h3Z0o2aBmHuHuD00AEcaPyjZXEmdbdv9viLzUhS3n0sYTs7PzUM9dFFUcwttNscQ2mg=
-X-Gm-Gg: AZFdTZcpj+EAycMAwCp3nWXTMczqJ/7SNtdlCSFzWfnwNaHh3LIweos8b+eJg+MEgPc
-	MnB8/szi0maoh2bVksm2LvlhXHeXBG1bPF3rUYZ/6dJ4Qfm1tOvBvbynZBKmb+/9gspIMXzUym+
-	DyHNhou9LLLMBdzIE5QlnW8jh+Q8F8MII37exPfJLYSp95PeU4MRhn416A9nZ391ukamZJFjpjT
-	a/rrIfhzOLQcI7yZrn1ZH0KJsNumUh3WG3QZM9rSYzfFQFWCp9NoFYDNhPc/vNe5NbvrU4vbukq
-	Sddo4YTESk6z+WBI3D7nXmJy5qqSvdHefLcnk/5Em8LMZ2GsvwlEfcaf8GMCM9TTh+PCoBXqKN4
-	TF/VG9EcRHczniMAZmJHY0Vh2BWNfcCcASDYZ2v+LvT0Mplx+OqyLNGq4lRhtIPF1bVq/nkWRbR
-	yGmhqrUe/YDHhrdIC7QZqCRxKRf21tHHqvBbB6ieXkOMX4WdWOyzD0sGhvFG57cWE=
-X-Received: by 2002:a05:690c:b05:b0:8b3:5d3:4f17 with SMTP id 00721157ae682-8b520329c48mr112252157b3.2.1795801134042;
-        Fri, 27 Nov 2026 09:38:54 -0800 (PST)
-X-Received: by 2002:a05:690c:b05:b0:8b3:5d3:4f17 with SMTP id 00721157ae682-8b520329c48mr112251967b3.2.1795801133264;
-        Fri, 27 Nov 2026 09:38:53 -0800 (PST)
-Received: from brgl-qcom.local (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm46619580f8f.56.2026.11.27.09.38.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 09:38:52 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 18:38:35 +0100
-Subject: [PATCH v13] crypto: qce - split the crypto driver into core and
- crypto parts
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=E0oOTNwq
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EE316C51;
+	Fri, 27 Nov 2026 18:37:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795801029;
+	bh=CfMGeCRxn2dBlsYV0X+kisJYeGKSA+2kY+3iG0dhUNk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E0oOTNwqF0k+EbBN1vMnbALT3dNT+x1am3P5bcbzF5XUw86z+U0jIzwt9eNJtCPSG
+	 J6wuK0sOiCwkJLaBHlj36fiI4I9g+PRUpEFauPef7VyljqcleFhpwUdUdAvZXuvgeb
+	 IApkUXfwFvJ3Lv9Hh17jI5JFRSHeGuuwweM4xAeg=
+Message-ID: <70541cfc-f7a3-4e90-a1f4-b4e1055971f2@ideasonboard.com>
+Date: Fri, 27 Nov 2026 19:39:41 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,783 +54,357 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-qce-fix-self-tests-v13-1-80b601792901@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIABrACWsC/3XTS27DIBAG4KtEXpeIGfPsqveousAwtJaapDGJ1
- SrK3TtOH/ECNpZA9uf5GebSFZpGKt3j5tJNNI9lPOx5Af3DpotvYf9KYky80aFEIw1IcYwk8vg
- pCr1ncaJyKkJ5zDkhZa91xx9+TMRv3NTnF16/jeV0mL5uP5lx2f3jdI2bUUiRogfIEEJS+HQoZ
- Xs8h/d42O22/OgWde7Xkq1KPUsUIw4qUYo5NSS1khCrkmJJZcdBgwUTTUPSd8lKU5U0S85kZSB
- ncOgbkllJjXRmqUlra3UmnU1sSPYu+XoDZ8tSTENCCy5kUA3JrSSEquRYAml1b53xwbZ659dS/
- cQ9SwNfAKuQrA+5IYH8p0BCX6U4tRSa+4ahd0HrVj6AuwVQLwtgqcuZYDSR5agtC1cW1o8dlps
- +6IBBqSHqQBXr+jNQEx3PPJ2n36m6Xr8BcnKfubsDAAA=
-X-Change-ID: 20260610-qce-fix-self-tests-492ffd2ef955
-To: Thara Gopinath <thara.gopinath@gmail.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>,
-        Stanimir Varbanov <svarbanov@mm-sol.com>,
-        Eneas U de Queiroz <cotequeiroz@gmail.com>,
-        Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-        Eric Biggers <ebiggers@kernel.org>,
-        Demi Marie Obenour <demiobenour@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, brgl@kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=25844;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=hmQnXlJ2Hr9fHYJMCc8BaqkVrkX/K6RSN6Hrfkm8io0=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBrCcAqKU8/ImF/3jGKfOMYVzQRR6bqCSmhIYKux
- CSeM1DTEeyJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCawnAKgAKCRAFnS7L/zaE
- w+MlD/0dFsyA8Sjyk1xj1pZgi5fH3Ml+6zJZvT2dsscAWpGeDWyAD32lYO4AmB9U4iE1ugv+gRN
- /Ei6LBxYygENtZxEkFGySR8ypCRhvKCnEmo0QcjRvl0+nJslzZBsXHje0/aziFHTidFKuq/b2uA
- cGnmnHkS27wckoJW2Z6gtVtKLMVO8kuMC1dFCKtm+pokjXeX1o2x1+d78RrWcuajIY30lM0UcRv
- YanbcdJDx1d19TKNeHRYg8yNetYWq4/dA4im2fxsvJZyYeZ/O+S1TqZqKpWIYaOC17KB2DX/FVJ
- 8ri+J1woiplCBPtqkp5H6pwohDp5z/baghpLbOjDIphKUq6dWqD/4dQsoz0qOt4cBmqyz92SPuq
- bXOe+BrpE7ffzGfytSPxwe8nMeV3vN2Enh9KU+RQMh2JKcsNqaZtiXM6dEUeSVgBVeTHN3DukI9
- IiAWF2JaGiYqXPvn87pMNk82gw1cU9e+rFgvxkBvNXB1AXI2xfrcM1+0MlkK+a58lZrC56a/CUg
- 9dB1YH3qOh2NzuGDF0EgHZExlJzEId6zi/jKw5Z4dW1llHmQql3hTp/0nhsaAhQjaPsssLQFUXJ
- s76ssSVibpvUd2ZpZbtP1BP8OyvvUjSlLNBsjmewm6IFSIEg5+otG1TAE/YAAUwj96/6TDABM2Y
- 1P6WLxH1rSLdqVA==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA3MCBTYWx0ZWRfX2HQQIV+0zciQ
- 1TxhI98Bq8IMO4yddo3nTGAZglR+q436ujS8n+CdUY2h7qB10Q0tErPi/jLco0wDKQn74iopY22
- NWuTmcJt8eZalSX44/qka+sa0ENrIrM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA3MCBTYWx0ZWRfX4P+QEfNG8Tc9
- N10oqmz+om6WufpNi4rqgssbNLyWt2x4jH13f/tXbTSQWqG2ZEkcjxna76zbbAot0n76fdxbWpp
- BubhuMsjQO195wc1/G+9JQaYPNGs78TGW08r1UvyO+Psm+5sEakHjpj9Xr2y85XNp38PZjY4v6L
- cVH9CkFqeiN/RIXK/Oy5NSN6ZYcS0p+rwVFfRh5ZBBvlnuG6GYB7ZJuPRqdOFdnNzlnmxN9ipJ0
- 6xOp80lG9OCr9xf9qXwZddL9FobuLPNy7yDZiP/CfKEVHZHaiZl9tskAUB6lxn4+9DF7hjBnZoi
- QV4DCsL+hUzdjg4DtjVcMve8m4F+2vX0Yzp+kOg5X8PMSzNCegx9rdqOXBZgOkeKFyWoY497dKo
- RgU5JwV58I9EnGtktmnxgvHvx1XtHTvFg505+FDy0Pfu7nxOCITgXgc47ohNFqbKKM+7O+Ipu7I
- Eg6MaFmA7d3wxtIn4vg==
-X-Proofpoint-ORIG-GUID: YL5QFMxvmYp8HUhiY1PkEuz4MXJa097o
-X-Authority-Analysis: v=2.4 cv=Z795j3RA c=1 sm=1 tr=0 ts=6b09c02f cx=c_pps
- a=0mLRTIufkjop4KoA/9S1MA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=bC-a23v3AAAA:8
- a=EUspDBNiAAAA:8 a=D2mPY6JQbKLmmmvKsL8A:9 a=QEXdDO2ut3YA:10
- a=WgItmB6HBUc_1uVUp3mg:22 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-GUID: YL5QFMxvmYp8HUhiY1PkEuz4MXJa097o
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_03,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
- adultscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270070
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
+To: Maxime Ripard <mripard@kernel.org>
+Cc: =?UTF-8?Q?M=C3=A0xim_Pedraza_Padilla?= <maximpedraza@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Jyri Sarha <jyri.sarha@iki.fi>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261116142707.1299360-1-maximpedraza@gmail.com>
+ <20261116142707.1299360-4-maximpedraza@gmail.com> <avs2dagfmQkv00H0@houat>
+ <20261118212114.150992-1-maximpedraza@gmail.com>
+ <20261124141119.441163-1-maximpedraza@gmail.com>
+ <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
+ <awazkzDVZtpUsdQb@houat>
+ <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
+ <awbOkmmNIp2ng97n@houat>
+ <4d93a4af-9e57-4394-913f-4f861e3e7954@ideasonboard.com>
+ <awme8rFbamSrpyoQ@houat>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Content-Language: en-US
+In-Reply-To: <awme8rFbamSrpyoQ@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Most users don't want to enable the crypto features of the Qualcomm
-Crypto Engine driver. However, they still want it to scale down the
-interconnect votes to 0 when unused. Additionally, more features for
-this IP will be supported in the future (for instance: for secure media
-playback use-cases) but this functionality will most likely require a
-new in-kernel API.
+Hi,
 
-The best course of action in this case is to split the driver into its
-core part and sub-modules providing additional functionalities
-registered with different kernel subsystems.
+On 27/11/2026 18:11, Maxime Ripard wrote:
+> On Wed, Nov 25, 2026 at 04:55:51PM +0200, Tomi Valkeinen wrote:
+>> Hi,
+>>
+>> On 25/11/2026 14:21, Maxime Ripard wrote:
+>>> On Wed, Nov 25, 2026 at 01:43:55PM +0200, Tomi Valkeinen wrote:
+>>>> Hi,
+>>>>
+>>>> On 25/11/2026 12:11, Maxime Ripard wrote:
+>>>>> On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
+>>>>>> Hi,
+>>>>>>
+>>>>>> On 24/11/2026 16:11, Màxim Pedraza Padilla wrote:
+>>>>>>> On Wed, Nov 18, 2026 at 10:21:14PM +0100, Màxim Pedraza Padilla wrote:
+>>>>>>>> Makes sense, I'll use the same approach in tilcdc, and see if it can be
+>>>>>>>> turned into a common helper along the way.
+>>>>>>>
+>>>>>>> A follow-up on this one, now that I've rebased on v9. I ended up doing
+>>>>>>> it differently, so I'd rather explain why before sending the next
+>>>>>>> version.
+>>>>>>>
+>>>>>>> The tidss approach rounds the clock to the closest standard refresh rate.
+>>>>>>> Panels driven by tilcdc often don't use one: with the timings from its
+>>>>>>> datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), which would
+>>>>>>> be read back as 60 Hz and 35.19 MHz. The adopted mode would then never
+>>>>>>> match the panel mode, even with U-Boot programming exactly the same one.
+>>>>>>
+>>>>>> I felt that approach was a bit odd (and if I recall right, failed with my
+>>>>>> OLDI panel), and in my tidss version I just used the clock rate directly
+>>>>>> from the clk_get_rate() (see dispc_vp_readout_mode):
+>>>>>
+>>>>> The problem is that you're losing information when setting the clock.
+>>>>> Especially for panels where you don't really have an established set of
+>>>>> pixel clocks, the clock is very likely to not be able to give the exact
+>>>>> frequency you asked for.
+>>>>>
+>>>>> So when you're reading the clock frequency, the mode you're reading and
+>>>>> the one you'd set at first modeset will not necessarily match, so you
+>>>>> need to take that difference into account and try to get back on your
+>>>>> feet.
+>>>>
+>>>> If I understand correctly, your code in tidss is trying to guess the pclk
+>>>> rate in (say) the simple-panel driver via assuming the refresh rate is one
+>>>> of the standard ones?
+>>>
+>>> Yes, and I have yet to see a panel that would have a refresh rate that
+>>> isn't one of the standard ones.
+>>
+>> They often have quite wide ranges, and don't define clear nominal timings
+>> and refresh rate. But I agree, almost always one can have a 60Hz timing with
+>> them.
+>>
+>> That doesn't mean our panel/bridge drivers would define such neat clocks. In
+>> my experience, the panel's timings are often based on X, which probably is
+>> something that happened to work on one platform, and was good enough. Those
+>> can be fixed to result timings close to the 60 Hz, but then we risk breaking
+>> the panel for some platforms.
+> 
+> I don't think we should accomodate those. If the pixel clock is not
+> properly defined, then we need to fix the panel. And if some panel
+> drivers make some controllers to setup something wrong, then we need to
+> fix the controller too.
+> 
+> And it's not like having an off pixel clock is harmless, at the very
+> least it means that the vblank interrupts don't get send at their
+> expected frequency anymore.
+> 
+> It would sound like a much better solution to me to have something that
+> takes a display_timing and adjust the blanking periods and / or the
+> porches within their acceptable range to make sure we always have the
+> right refresh rate despite having a rounded clock.
 
-This patch does several things at once but it's necessary to do this
-together in order to retain bisectability.
+In my experience, changes to the blanking & porches will break the 
+display much more easily than changing the clock.
 
-First: convert the existing crypto driver from its platform bus
-implementation to using the auxiliary bus.
+In any case, I'm not against the idea of calculating ideal pclk here, 
+and fixing the panel drivers. But I am saying that it may not be so easy 
+as it may feel =).
 
-Next: add a new SOC driver that serves as the core module for controlling
-the QCE IP - its purpose is to bind to the QCE devicetree node, request
-an interconnect handle and enable runtime power-management so that it can
-be scaled down by the kernel. Its other feature is registering the
-auxiliary child devices: for now just the crypto device but the list will
-be extended as we add support for more "logical" modules.
+>> Bridge drivers can also adjust the adjusted_mode's clock when they have
+>> special needs (DSI).
+>>
+>>>> I don't think that works... Even if the target refresh rate in the panel
+>>>> driver is close to (or exactly) those standard ones, it won't be the same
+>>>> clock rate except by luck. And u-boot may have a different PLL calculation,
+>>>> or different pclk in its dtso.
+>>>>
+>>>> I think the u-boot part should be fixed just by "fix your bootloader": if
+>>>> you want SRO to work, make your bootloader use the same videomode (including
+>>>> pclk) as the kernel.
+>>>>
+>>>> But even then it won't work. If the simple panel states pclk as 150.274 MHz,
+>>>> it will cause the HW to set 150.0 MHz, and the SRO in this series will
+>>>> calculate 150.124675 MHz. This will cause a full modeset, and also the SRO
+>>>> check will given an error.
+>>>
+>>> Not really, because it will try to match the closest, and then try to
+>>> keep that within a defined tolerance. So, in your example, if the
+>>> expected pclk is 150.274MHz, and what's programmed in hardware is 150MHz
+>>> (which also is the closest pick we can find), then it will be happy with
+>>> 150MHz.
+>>
+>> What will be happy?
+>>
+>> *ERROR* crtc-0 configuration mismatch in mode expected "1920x1200": 60
+>> 150274 1920 1952 2004 2028 1200 1224 1232 1235 0x48 0x0, got "1920x1200": 60
+>> 150124 1920 1952 2004 2028 1200 1224 1232 1235 0x40 0x5
+> 
+> Can you share more about what is going on here? What frequency is setup
+> by U-Boot? is happening only for the first modeset, or all the others?
+> Is the rounding of the clock similar between u-boot and the kernel?
 
-Finally: update the relevant defconfig entries: enable the QCE core
-driver by default and disable the crypto module.
+This is with AM62-SK and OLDI. It's the example I gave. This happens 
+with every modeset, as the panel driver has a different clock than what 
+the SRO comes up with.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
-This is a revision that squashes the previpus 4 separate patches into
-one in order to retain bisectability.
+But I think your point is that the panel driver has to be fixed, so that 
+it uses 150.124 MHz clock, which is the one the SRO will come up with.
 
-Merging strategy: with Acks from the SoC drivers and ARM-SoC, this
-should go for v7.5 through the crypto tree.
----
-Changes in v13:
-- In order to keep the history bisectable, squash all 4 patches into 1
-  and update the commit message
-- Drop Konrad's R-b as it only applied to one patch
-- Link to v12: https://patch.msgid.link/20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com
+Even then, I'm not sure if it'll work. If the clock is supposed to be 60 
+Hz exact, but the actual clock in the HW is low enough, won't SRO then 
+think it's 60 * 1000/1001, which results in a different ideal clock?
 
-Changes in v12:
-- Correctly check the return value of __devm_auxiliary_device_create()
-  for NULL and not IS_ERR()
-- Fix a comment referring to removed ICC code
-- Assign the auxiliary driver name to the auxiliary driver structure,
-  not its embedded platform driver
-- Link to v11: https://patch.msgid.link/20261112-qce-fix-self-tests-v11-0-b86a65ee7107@oss.qualcomm.com
+>>> And let's turn this around: what happens if your expected pclk is
+>>> 150.274MHz, and the actual rate programmed by u-boot is, say, 124MHz?
+>>>
+>>> Should we do a modeset then?
+>>
+>> If clk_set_rate(150274000) results in pclk of 124MHz, then it's the correct
+>> mode, no modeset needed. There are cases like that, but I'm fine with not
+>> targeting them at least initially.
+> 
+> No it's not the correct mode, it's completely off, a bootloader bug, and
+> the best thing the kernel needs to be doing is go through a new modeset
+> to fix it.
 
-Changes in v11:
-- Rebase on top of fixes queued upstream
-- Drop Tested-by tags from defconfig patches
-- Tweak commit messages for defconfig patches
-- Link to v10: https://patch.msgid.link/20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com
+It's either that or no display at all. The numbers were invented, but on 
+some platforms the clock rates can be very coarse, especially on higher 
+clocks. That's the origin of the 5% tolerance you've complained about. 
+K3 DSS doesn't need it as the PLL is quite ok, but OMAP DSS definitely 
+has very coarse clock rates (on some OMAP versions).
 
-Changes in v10:
-- don't pass a NULL buffer to sg_init_one()
-- fix byte order of the imported hash state on empty finalization
-- don't recompute the CTR counter in software for every request
-- reject skcipher requests with a too short scatterlist
-- check fragmentation for empty CCM decryption requests too
-- don't use a static loop iterator (duh...)
-- initialize the return value in qce_handle_queue()
-- Link to v9: https://patch.msgid.link/20260922-qce-fix-self-tests-v9-0-b1aa742e79af@oss.qualcomm.com
+That said, maybe those SoCs are not our prime targets here. But, again, 
+the point is, this may not be so easy to get right in a general sense as 
+it may sound.
 
-Changes in v9:
-- Rebase on top of cryptodev/master
-- Rephrase Kconfig help text changes
-- Link to v8: https://patch.msgid.link/20260921-qce-fix-self-tests-v8-0-107537869a72@oss.qualcomm.com
+>>> It's also a matter of consistency within the framework. The framework
+>>> expects the "ideal" mode everywhere. How is the pclk actually programmed
+>>> isn't tracked anywhere. So, if you have a regular modeset, we'd have
+>>> mode and adjusted_mode have the "ideal" pclk, but in the case of SRO
+>>> we'd have the actual one, possibly forever?
+>>
+>> With regular modeset, we'd have the ideal pclk in mode, and the real pclk in
+>> adjusted_mode, right?
+> 
+> Except that you have no way to make sure that the clock in adjusted_mode
+> is going to be the "real" one.
 
-Changes in v8:
-- Add a patch making the crypto driver *not* register algos by default
-  but only if the user explicitly requests it with the provided module
-  parameter
-- Use the "offloader" name for the crypto IP instead of "accelerator"
-- Fix device module table issues
-- Make the core driver use a list (despite it only having a single
-  member now) of child auxiliary devices to register to make it clear we
-  have the intention of extending this once we start the work on secure
-  media playback
-- Link to v7: https://patch.msgid.link/20260910-qce-fix-self-tests-v7-0-cdbd2718af14@oss.qualcomm.com
+Indeed, for some reason I thought the drivers read it back. But it's 
+just an adjusted target clock.
 
-Changes in v7:
-- Add follow-up changes converting the QCE crypto driver to auxiliary
-  bus, adding the core QCE driver under drivers/soc/ registering the
-  auxiliary device and removing the BROKEN Kconfig label
-- Link to v6: https://patch.msgid.link/20260717-qce-fix-self-tests-v6-0-455775fe5f6c@oss.qualcomm.com
+>> My worry is that we'll not be able to guess the ideal pclk very well. Maybe
+>> that can be solved with fixing the panel drivers when we encounter non-ideal
+>> timings, and having a clear rule that the provided timings have to result in
+>> a "normal" refresh rate, even if the platform has to adjust them when
+>> applying.
+> 
+> Time will tell I guess, but I'd rather keep that in the back of our
+> heads as a last resort than admit defeat from the get-go :) Because,
+> yes, I do believe a lot of drivers are broken and it's an opportunity to
+> find and fix them.
+> 
+>>>> So... First, I think at least in the adjusted_mode we should have the real
+>>>> pclk.
+>>>
+>>> You can't have that. The closest you'd have would be calling
+>>> clk_round_rate() at atomic_check, but you have no guarantee that it's
+>>> actually going to be the same rate by the time you call clk_set_rate().
+>>
+>> Why is that?
+> 
+> Because clk_round_rate() depends on the current context for that clock:
+> its parent rates, the ranges the other users have requested, etc.
+> Between atomic_check and atomic_commit, that context might have change
+> and you might have a different result.
+> 
+>> Can't we do the clk_round_rate in SRO? The SRO state has the adjusted
+>> timings, doesn't it?
+> 
+> I'm not really concerned about SRO, I'm concerned about everything after
+> it: the mode we expose to userspace, the consistency between an SRO
+> state and a committed state, etc.
+> 
+>> Yes, I guess clk_round_rate() there and clk_set_rate() later might result in
+>> different rates in theory, but can that happen in practice? If the clock is
+>> being kept on, it's unlikely that its parent clocks would change.
+> 
+> On some platforms, maybe. On others it's absolutely the case. That's why
+> we have clk_set_rate_exclusive(), and why
+> https://lore.kernel.org/linux-clk/20260327-clk-scaling-v8-0-86cd0aba3c5f@redhat.com/
+> is a thing.
 
-Changes in v6:
-- Handle all zero-length HMAC finalizations (like imported state with
-  data already hashed), not only the genuinely empty message case
-- Add an additional patch addressing the fragmented skcipher payload
-  issue
-- Link to v5: https://patch.msgid.link/20260706-qce-fix-self-tests-v5-0-86f461ff1829@oss.qualcomm.com
+But is that an actual problem here? The main use case here is keeping 
+the display unchanged from bootloader to the first userspace modeset. If 
+the clock is changed while the bootsplash is being shown, the use case 
+is already broken.
 
-Changes in v5:
-- Dropped patch 1/8 that's already queued
-- Use the pre-allocated fallback ahash for HMAC transforms (Herbert)
-- Link to v4: https://patch.msgid.link/20260622-qce-fix-self-tests-v4-0-4f82ffa716c6@oss.qualcomm.com
+>> So it's not immediately clear to me when this could happen.
+> 
+> Even from a purely software PoV, if you have two users, and one calls
+> clk_round_rate for 42MHz which isn't rounded, and then the second does a
+> clk_set_max_rate(40MHz), then clk_round_rate will now return 40MHz.
+> 
+>>> Either way, assuming we would do that, it would give you adjusted_mode.
+>>> You'd still need mode, and mode is what is shown to userspace.
+>>
+>> Yes.
+>>
+>>>> The SRO check should pass only an equals check there. For mode's pclk,
+>>>> I think setting the actual pclk makes sense, at least more than guessing it.
+>>>> Or could we, at that stage, see what modes the connector advertises, and
+>>>> pick a clock from there?
+>>>
+>>> It's difficult, because then you assume that A) the bootloader will have
+>>> used a mode reported by the monitor and B) crtcs need to be readout
+>>> before connectors.
+>>
+>> Isn't A) needed anyway for fully working SRO and smooth transition to the
+>> userspace app's display? The userspace's modeset will most likely use the
+>> preferred mode from the display, and if that's different than the
+>> bootloader's it will then cause a full modeset.
+> 
+> It's a reasonable assumption at first, but my point was more about "What
+> happens if it isn't?"
 
-Changes in v4:
-- Remove remaining ECB and DES3 bits
-- Pick up tags
-- Link to v3: https://patch.msgid.link/20260617-qce-fix-self-tests-v3-0-ecc2b4dedcfd@oss.qualcomm.com
+My assumption is that for bootsplash and SRO to work, bootloader and 
+kernel must work correctly together, they have to do things just right 
+(e.g. the clock config has to be the same, including clock tree, etc). 
+That said, it's great if we can make this work more generally too =).
 
-Changes in v3:
-- Remove even more algorithms and dead code in patch 1/8
-- Link to v2: https://patch.msgid.link/20260615-qce-fix-self-tests-v2-0-dc911f1aad42@oss.qualcomm.com
+> Also, once SRO works, I would expect the splash screen, plymouth, and so
+> on to revert the logic and go for something like "if it's enabled, use
+> that, otherwise use the preferred mode and do a modeset".
 
-Changes in v2:
-- Add fixes for the full suite of crypto self-tests
-- Add Fixes and Cc tags
-- Link to v1: https://patch.msgid.link/20260610-qce_selftest_fix-v1-0-1b0504783a46@oss.qualcomm.com/
----
- arch/arm/configs/multi_v7_defconfig |   2 +-
- arch/arm64/configs/defconfig        |   2 +-
- drivers/crypto/Kconfig              |   2 +
- drivers/crypto/qce/aead.c           |  12 ++---
- drivers/crypto/qce/core.c           | 100 ++++++++++++++++--------------------
- drivers/crypto/qce/core.h           |   5 +-
- drivers/crypto/qce/sha.c            |  12 ++---
- drivers/crypto/qce/skcipher.c       |  12 ++---
- drivers/soc/qcom/Kconfig            |  11 ++++
- drivers/soc/qcom/Makefile           |   1 +
- drivers/soc/qcom/qce-core.c         |  92 +++++++++++++++++++++++++++++++++
- 11 files changed, 175 insertions(+), 76 deletions(-)
+Ok, that changes the case a bit, and allows a bit more leeway. But... If 
+we do that, isn't it the same or better to just use the HW clock rate as 
+the mode clock? Then the userspace sees the "real" mode. Then again, now 
+that I think about it, userspace doesn't see that for normal modesetting 
+either, does it... It just knows the mode it's trying to set. So a DRM 
+app can never know what the real refresh rate is, except measuring vblanks?
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index c54bd79c30701ebe59c0e6ef3b43309926154bb3..2413ad6f4d4b02163ad880bd8ae0ca30b1aa7cbb 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -1135,6 +1135,7 @@ CONFIG_ASPEED_LPC_CTRL=m
- CONFIG_ASPEED_LPC_SNOOP=m
- CONFIG_ASPEED_P2A_CTRL=m
- CONFIG_QCOM_COMMAND_DB=m
-+CONFIG_QCOM_CRYPTO_CORE=m
- CONFIG_ROCKCHIP_IODOMAIN=y
- CONFIG_SOC_TI=y
- CONFIG_KEYSTONE_NAVIGATOR_QMSS=y
-@@ -1306,7 +1307,6 @@ CONFIG_CRYPTO_DEV_ATMEL_AES=m
- CONFIG_CRYPTO_DEV_ATMEL_TDES=m
- CONFIG_CRYPTO_DEV_ATMEL_SHA=m
- CONFIG_CRYPTO_DEV_MARVELL_CESA=m
--CONFIG_CRYPTO_DEV_QCE=m
- CONFIG_CRYPTO_DEV_ROCKCHIP=m
- CONFIG_CRYPTO_DEV_STM32_HASH=m
- CONFIG_CRYPTO_DEV_STM32_CRYP=m
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 9c5b64f34a228883a216cf205181416ac2f95edf..1e0a7b81c738f62367df0ed59c005ea1500714cc 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1553,6 +1553,7 @@ CONFIG_MTK_CMDQ=m
- CONFIG_MTK_DEVAPC=m
- CONFIG_MTK_PMIC_WRAP=y
- CONFIG_MTK_SVS=m
-+CONFIG_QCOM_CRYPTO_CORE=m
- CONFIG_QCOM_SPM=m
- CONFIG_ROCKCHIP_IODOMAIN=y
- CONFIG_TI_PRUSS=m
-@@ -1801,7 +1802,6 @@ CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
- CONFIG_CRYPTO_DEV_SUN8I_CE=m
- CONFIG_CRYPTO_DEV_FSL_CAAM=m
- CONFIG_CRYPTO_DEV_FSL_DPAA2_CAAM=m
--CONFIG_CRYPTO_DEV_QCE=m
- CONFIG_CRYPTO_DEV_TEGRA=m
- CONFIG_CRYPTO_DEV_ZYNQMP_AES=m
- CONFIG_CRYPTO_DEV_ZYNQMP_SHA3=m
-diff --git a/drivers/crypto/Kconfig b/drivers/crypto/Kconfig
-index f3eaf23f075ef2952f99cd65ec69f9a062880153..c06c342a8b67a9a352d69281663aad870f4f4e1b 100644
---- a/drivers/crypto/Kconfig
-+++ b/drivers/crypto/Kconfig
-@@ -530,6 +530,8 @@ config CRYPTO_DEV_QCE
- 	tristate "Qualcomm crypto engine offloader"
- 	depends on ARCH_QCOM || COMPILE_TEST
- 	depends on HAS_IOMEM
-+	depends on PM
-+	select AUXILIARY_BUS
- 	help
- 	  This driver supports Qualcomm crypto engine offloader hardware. To
- 	  compile this driver as a module, choose M here. The module will be
-diff --git a/drivers/crypto/qce/aead.c b/drivers/crypto/qce/aead.c
-index 8ce1a9f3c9d80ba46d5c074cc3ef45c69acf52ce..2065c46162c217484016021bbe3ee2f2db082e65 100644
---- a/drivers/crypto/qce/aead.c
-+++ b/drivers/crypto/qce/aead.c
-@@ -44,9 +44,9 @@ static void qce_aead_done(void *data)
- 		dev_dbg(qce->dev, "aead dma termination error (%d)\n",
- 			error);
- 	if (diff_dst)
--		dma_unmap_sg(qce->dev, rctx->src_sg, rctx->src_nents, dir_src);
-+		dma_unmap_sg(qce->dma_dev, rctx->src_sg, rctx->src_nents, dir_src);
- 
--	dma_unmap_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
-+	dma_unmap_sg(qce->dma_dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- 
- 	if (IS_CCM(rctx->flags)) {
- 		if (req->assoclen) {
-@@ -442,14 +442,14 @@ qce_aead_async_req_handle(struct crypto_async_request *async_req)
- 
- 	if (ret)
- 		return ret;
--	dst_nents = dma_map_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
-+	dst_nents = dma_map_sg(qce->dma_dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- 	if (!dst_nents) {
- 		ret = -EIO;
- 		goto error_free;
- 	}
- 
- 	if (diff_dst) {
--		src_nents = dma_map_sg(qce->dev, rctx->src_sg, rctx->src_nents, dir_src);
-+		src_nents = dma_map_sg(qce->dma_dev, rctx->src_sg, rctx->src_nents, dir_src);
- 		if (src_nents < 0) {
- 			ret = src_nents;
- 			goto error_unmap_dst;
-@@ -478,9 +478,9 @@ qce_aead_async_req_handle(struct crypto_async_request *async_req)
- 	qce_dma_terminate_all(&qce->dma);
- error_unmap_src:
- 	if (diff_dst)
--		dma_unmap_sg(qce->dev, req->src, rctx->src_nents, dir_src);
-+		dma_unmap_sg(qce->dma_dev, req->src, rctx->src_nents, dir_src);
- error_unmap_dst:
--	dma_unmap_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
-+	dma_unmap_sg(qce->dma_dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- error_free:
- 	if (IS_CCM(rctx->flags) && rctx->assoclen) {
- 		sg_free_table(&rctx->src_tbl);
-diff --git a/drivers/crypto/qce/core.c b/drivers/crypto/qce/core.c
-index ddb4df3d227f801e566422491b488c5fcb777717..7c72f9bd36b9d25f1f1f465bd8488c907f530c79 100644
---- a/drivers/crypto/qce/core.c
-+++ b/drivers/crypto/qce/core.c
-@@ -3,15 +3,16 @@
-  * Copyright (c) 2010-2014, The Linux Foundation. All rights reserved.
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/device.h>
-+#include <linux/device-id/auxiliary.h>
- #include <linux/dma-mapping.h>
--#include <linux/interconnect.h>
- #include <linux/interrupt.h>
- #include <linux/module.h>
- #include <linux/moduleparam.h>
--#include <linux/platform_device.h>
-+#include <linux/of_address.h>
- #include <linux/pm.h>
- #include <linux/pm_runtime.h>
- #include <linux/types.h>
-@@ -29,8 +30,6 @@ MODULE_PARM_DESC(do_register_algos, "Enable registering the crypto algorithms.")
- 
- #define QCE_QUEUE_LENGTH	1
- 
--#define QCE_DEFAULT_MEM_BANDWIDTH	393600
--
- static const struct qce_algo_ops *qce_ops[] = {
- #ifdef CONFIG_CRYPTO_DEV_QCE_SKCIPHER
- 	&skcipher_ops,
-@@ -92,12 +91,7 @@ static int qce_handle_queue(struct qce_device *qce,
- 			    struct crypto_async_request *req)
- {
- 	struct crypto_async_request *async_req, *backlog;
--	int ret, err;
--
--	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(qce->dev, pm);
--	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
--	if (ret)
--		return ret;
-+	int ret = 0, err;
- 
- 	scoped_guard(mutex, &qce->lock) {
- 		if (req)
-@@ -121,8 +115,21 @@ static int qce_handle_queue(struct qce_device *qce,
- 			crypto_request_complete(backlog, -EINPROGRESS);
- 	}
- 
-+	/*
-+	 * Hold the device resumed across that whole window instead of just
-+	 * across this function, or autosuspend could gate the engine clocks
-+	 * while the DMA is still in flight.
-+	 */
-+	err = pm_runtime_resume_and_get(qce->dev);
-+	if (err) {
-+		qce->result = err;
-+		schedule_work(&qce->done_work);
-+		return ret;
-+	}
-+
- 	err = qce_handle_request(async_req);
- 	if (err) {
-+		pm_runtime_put_autosuspend(qce->dev);
- 		qce->result = err;
- 		schedule_work(&qce->done_work);
- 	}
-@@ -155,6 +162,7 @@ static int qce_async_request_enqueue(struct qce_device *qce,
- 
- static void qce_async_request_done(struct qce_device *qce, int ret)
- {
-+	pm_runtime_put_autosuspend(qce->dev);
- 	qce->result = ret;
- 	schedule_work(&qce->done_work);
- }
-@@ -195,10 +203,12 @@ static int qce_check_version(struct qce_device *qce)
- 	return 0;
- }
- 
--static int qce_crypto_probe(struct platform_device *pdev)
-+static int qce_crypto_probe(struct auxiliary_device *auxdev,
-+			    const struct auxiliary_device_id *id)
- {
--	struct device *dev = &pdev->dev;
-+	struct device *dev = &auxdev->dev;
- 	struct qce_device *qce;
-+	struct resource res;
- 	int ret;
- 
- 	qce = devm_kzalloc_obj(dev, *qce);
-@@ -206,13 +216,18 @@ static int qce_crypto_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	qce->dev = dev;
--	platform_set_drvdata(pdev, qce);
-+	qce->dma_dev = dev->parent;
-+	auxiliary_set_drvdata(auxdev, qce);
-+
-+	ret = of_address_to_resource(dev->of_node, 0, &res);
-+	if (ret)
-+		return ret;
- 
--	qce->base = devm_platform_ioremap_resource(pdev, 0);
-+	qce->base = devm_ioremap_resource(dev, &res);
- 	if (IS_ERR(qce->base))
- 		return PTR_ERR(qce->base);
- 
--	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
-+	ret = dma_set_mask_and_coherent(qce->dma_dev, DMA_BIT_MASK(32));
- 	if (ret < 0)
- 		return ret;
- 
-@@ -228,20 +243,18 @@ static int qce_crypto_probe(struct platform_device *pdev)
- 	if (IS_ERR(qce->bus))
- 		return PTR_ERR(qce->bus);
- 
--	qce->mem_path = devm_of_icc_get(dev, "memory");
--	if (IS_ERR(qce->mem_path))
--		return PTR_ERR(qce->mem_path);
--
- 	/*
--	 * Enable runtime PM after clocks and ICC path are acquired so that
--	 * the resume callback can enable clocks and apply the ICC bandwidth
--	 * vote before any hardware access takes place.
-+	 * Enable runtime PM after clocks are acquired so that the resume
-+	 * callback can enable them before any hardware access takes place.
- 	 */
- 	ret = devm_pm_runtime_enable(dev);
- 	if (ret)
- 		return ret;
- 
--	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(dev, pm);
-+	pm_runtime_set_autosuspend_delay(dev, 100);
-+	pm_runtime_use_autosuspend(dev);
-+
-+	PM_RUNTIME_ACQUIRE_IF_ENABLED_AUTOSUSPEND(dev, pm);
- 	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
- 	if (ret)
- 		return ret;
-@@ -270,31 +283,17 @@ static int qce_crypto_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
--	/* Configure autosuspend after successful init */
--	pm_runtime_set_autosuspend_delay(dev, 100);
--	pm_runtime_use_autosuspend(dev);
--	pm_runtime_mark_last_busy(dev);
--
- 	return 0;
- }
- 
- static int qce_runtime_suspend(struct device *dev)
- {
- 	struct qce_device *qce = dev_get_drvdata(dev);
--	int ret;
- 
- 	clk_disable_unprepare(qce->core);
- 	clk_disable_unprepare(qce->iface);
- 	clk_disable_unprepare(qce->bus);
- 
--	ret = icc_set_bw(qce->mem_path, 0, 0);
--	if (ret) {
--		clk_prepare_enable(qce->bus);
--		clk_prepare_enable(qce->iface);
--		clk_prepare_enable(qce->core);
--		return ret;
--	}
--
- 	return 0;
- }
- 
-@@ -303,14 +302,9 @@ static int qce_runtime_resume(struct device *dev)
- 	struct qce_device *qce = dev_get_drvdata(dev);
- 	int ret;
- 
--	ret = icc_set_bw(qce->mem_path, QCE_DEFAULT_MEM_BANDWIDTH,
--			 QCE_DEFAULT_MEM_BANDWIDTH);
--	if (ret)
--		return ret;
--
- 	ret = clk_prepare_enable(qce->core);
- 	if (ret)
--		goto err_core;
-+		return ret;
- 
- 	ret = clk_prepare_enable(qce->iface);
- 	if (ret)
-@@ -326,8 +320,7 @@ static int qce_runtime_resume(struct device *dev)
- 	clk_disable_unprepare(qce->iface);
- err_iface:
- 	clk_disable_unprepare(qce->core);
--err_core:
--	icc_set_bw(qce->mem_path, 0, 0);
-+
- 	return ret;
- }
- 
-@@ -336,25 +329,22 @@ static const struct dev_pm_ops qce_crypto_pm_ops = {
- 	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
- };
- 
--static const struct of_device_id qce_crypto_of_match[] = {
--	{ .compatible = "qcom,crypto-v5.1", },
--	{ .compatible = "qcom,crypto-v5.4", },
--	{ .compatible = "qcom,qce", },
-+static const struct auxiliary_device_id qce_crypto_ids[] = {
-+	{ .name = "qce.crypto", },
- 	{}
- };
--MODULE_DEVICE_TABLE(of, qce_crypto_of_match);
-+MODULE_DEVICE_TABLE(auxiliary, qce_crypto_ids);
- 
--static struct platform_driver qce_crypto_driver = {
-+static struct auxiliary_driver qce_crypto_driver = {
- 	.probe = qce_crypto_probe,
-+	.id_table = qce_crypto_ids,
-+	.name = "qce-crypto",
- 	.driver = {
--		.name = KBUILD_MODNAME,
--		.of_match_table = qce_crypto_of_match,
- 		.pm = pm_ptr(&qce_crypto_pm_ops),
- 	},
- };
--module_platform_driver(qce_crypto_driver);
-+module_auxiliary_driver(qce_crypto_driver);
- 
- MODULE_LICENSE("GPL v2");
- MODULE_DESCRIPTION("Qualcomm crypto engine driver");
--MODULE_ALIAS("platform:" KBUILD_MODNAME);
- MODULE_AUTHOR("The Linux Foundation");
-diff --git a/drivers/crypto/qce/core.h b/drivers/crypto/qce/core.h
-index eb6fa7a8b64a81daf9ad5304a3ae4e5e597a70b8..6eda6e617b811420c0c3cc53988cb15a23abafe2 100644
---- a/drivers/crypto/qce/core.h
-+++ b/drivers/crypto/qce/core.h
-@@ -20,6 +20,9 @@
-  * @result: result of current transform
-  * @base: virtual IO base
-  * @dev: pointer to device structure
-+ * @dma_dev: pointer to the device to use for DMA mapping calls; this is the
-+ *           auxiliary bus device's parent, which is the one that actually
-+ *           went through DMA/IOMMU configuration
-  * @core: core device clock
-  * @iface: interface clock
-  * @bus: bus clock
-@@ -37,8 +40,8 @@ struct qce_device {
- 	int result;
- 	void __iomem *base;
- 	struct device *dev;
-+	struct device *dma_dev;
- 	struct clk *core, *iface, *bus;
--	struct icc_path *mem_path;
- 	struct qce_dma_data dma;
- 	int burst_size;
- 	unsigned int pipe_pair_id;
-diff --git a/drivers/crypto/qce/sha.c b/drivers/crypto/qce/sha.c
-index 738454dd35655a8376bc878444fcc3fbd7535956..3dca00e53e473d3d2f2cf02cf12bdd38e51dc539 100644
---- a/drivers/crypto/qce/sha.c
-+++ b/drivers/crypto/qce/sha.c
-@@ -48,8 +48,8 @@ static void qce_ahash_done(void *data)
- 	if (error)
- 		dev_dbg(qce->dev, "ahash dma termination error (%d)\n", error);
- 
--	dma_unmap_sg(qce->dev, req->src, rctx->src_nents, DMA_TO_DEVICE);
--	dma_unmap_sg(qce->dev, &rctx->result_sg, 1, DMA_FROM_DEVICE);
-+	dma_unmap_sg(qce->dma_dev, req->src, rctx->src_nents, DMA_TO_DEVICE);
-+	dma_unmap_sg(qce->dma_dev, &rctx->result_sg, 1, DMA_FROM_DEVICE);
- 
- 	memcpy(rctx->digest, result->auth_iv, digestsize);
- 	if (req->result && rctx->last_blk)
-@@ -94,13 +94,13 @@ static int qce_ahash_async_req_handle(struct crypto_async_request *async_req)
- 		return rctx->src_nents;
- 	}
- 
--	ret = dma_map_sg(qce->dev, req->src, rctx->src_nents, DMA_TO_DEVICE);
-+	ret = dma_map_sg(qce->dma_dev, req->src, rctx->src_nents, DMA_TO_DEVICE);
- 	if (!ret)
- 		return -EIO;
- 
- 	sg_init_one(&rctx->result_sg, qce->dma.result_buf, QCE_RESULT_BUF_SZ);
- 
--	ret = dma_map_sg(qce->dev, &rctx->result_sg, 1, DMA_FROM_DEVICE);
-+	ret = dma_map_sg(qce->dma_dev, &rctx->result_sg, 1, DMA_FROM_DEVICE);
- 	if (!ret) {
- 		ret = -EIO;
- 		goto error_unmap_src;
-@@ -122,9 +122,9 @@ static int qce_ahash_async_req_handle(struct crypto_async_request *async_req)
- error_terminate:
- 	qce_dma_terminate_all(&qce->dma);
- error_unmap_dst:
--	dma_unmap_sg(qce->dev, &rctx->result_sg, 1, DMA_FROM_DEVICE);
-+	dma_unmap_sg(qce->dma_dev, &rctx->result_sg, 1, DMA_FROM_DEVICE);
- error_unmap_src:
--	dma_unmap_sg(qce->dev, req->src, rctx->src_nents, DMA_TO_DEVICE);
-+	dma_unmap_sg(qce->dma_dev, req->src, rctx->src_nents, DMA_TO_DEVICE);
- 	return ret;
- }
- 
-diff --git a/drivers/crypto/qce/skcipher.c b/drivers/crypto/qce/skcipher.c
-index 79f764429edc469a4f06319b0113afefc96a5ae1..7067c4c20c1e7f8d55c2112dd91a9acdafcb9b60 100644
---- a/drivers/crypto/qce/skcipher.c
-+++ b/drivers/crypto/qce/skcipher.c
-@@ -48,8 +48,8 @@ static void qce_skcipher_done(void *data)
- 			error);
- 
- 	if (diff_dst)
--		dma_unmap_sg(qce->dev, rctx->src_sg, rctx->src_nents, dir_src);
--	dma_unmap_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
-+		dma_unmap_sg(qce->dma_dev, rctx->src_sg, rctx->src_nents, dir_src);
-+	dma_unmap_sg(qce->dma_dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- 
- 	sg_free_table(&rctx->dst_tbl);
- 
-@@ -124,14 +124,14 @@ qce_skcipher_async_req_handle(struct crypto_async_request *async_req)
- 	sg_mark_end(sg);
- 	rctx->dst_sg = rctx->dst_tbl.sgl;
- 
--	dst_nents = dma_map_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
-+	dst_nents = dma_map_sg(qce->dma_dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- 	if (!dst_nents) {
- 		ret = -EIO;
- 		goto error_free;
- 	}
- 
- 	if (diff_dst) {
--		src_nents = dma_map_sg(qce->dev, req->src, rctx->src_nents, dir_src);
-+		src_nents = dma_map_sg(qce->dma_dev, req->src, rctx->src_nents, dir_src);
- 		if (!src_nents) {
- 			ret = -EIO;
- 			goto error_unmap_dst;
-@@ -160,9 +160,9 @@ qce_skcipher_async_req_handle(struct crypto_async_request *async_req)
- 	qce_dma_terminate_all(&qce->dma);
- error_unmap_src:
- 	if (diff_dst)
--		dma_unmap_sg(qce->dev, req->src, rctx->src_nents, dir_src);
-+		dma_unmap_sg(qce->dma_dev, req->src, rctx->src_nents, dir_src);
- error_unmap_dst:
--	dma_unmap_sg(qce->dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
-+	dma_unmap_sg(qce->dma_dev, rctx->dst_sg, rctx->dst_nents, dir_dst);
- error_free:
- 	sg_free_table(&rctx->dst_tbl);
- 	return ret;
-diff --git a/drivers/soc/qcom/Kconfig b/drivers/soc/qcom/Kconfig
-index 535c8619197b3e889e536da072ab89d3bb729804..67d54d5211ff21bae77cd8408fa47af630060949 100644
---- a/drivers/soc/qcom/Kconfig
-+++ b/drivers/soc/qcom/Kconfig
-@@ -121,6 +121,17 @@ config QCOM_PMIC_GLINK
- 	  Say yes here to support USB-C and battery status on modern Qualcomm
- 	  platforms.
- 
-+config QCOM_CRYPTO_CORE
-+	tristate "Qualcomm Crypto Engine core driver"
-+	depends on PM
-+	select AUXILIARY_BUS
-+	help
-+	  Core driver for the Qualcomm Crypto Engine. Say yes here to enable
-+	  the top-level driver that binds to the devicetree node representing
-+	  the QCE, registers the sub-devices implementing actual QCE
-+	  functionalities and sets up runtime PM allowing the interconnects to
-+	  scale down.
-+
- config QCOM_RAMP_CTRL
- 	tristate "Qualcomm Ramp Controller driver"
- 	help
-diff --git a/drivers/soc/qcom/Makefile b/drivers/soc/qcom/Makefile
-index bddd6f0a583673047067b1f0be725b8bb5d860de..9ef0f11d015852d1f599769074d761f1140c08e9 100644
---- a/drivers/soc/qcom/Makefile
-+++ b/drivers/soc/qcom/Makefile
-@@ -15,6 +15,7 @@ obj-$(CONFIG_QCOM_PMIC_GLINK)	+= pmic_glink_altmode.o
- obj-$(CONFIG_QCOM_PMIC_PDCHARGER_ULOG)	+= pmic_pdcharger_ulog.o
- CFLAGS_pmic_pdcharger_ulog.o	:=  -I$(src)
- obj-$(CONFIG_QCOM_QMI_TMD) += qmi_tmd.o
-+obj-$(CONFIG_QCOM_CRYPTO_CORE)	+= qce-core.o
- obj-$(CONFIG_QCOM_QMI_HELPERS)	+= qmi_helpers.o
- qmi_helpers-y	+= qmi_encdec.o qmi_interface.o
- obj-$(CONFIG_QCOM_RAMP_CTRL)	+= ramp_controller.o
-diff --git a/drivers/soc/qcom/qce-core.c b/drivers/soc/qcom/qce-core.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..1f249a22e8366e8dac3cb9847f5f85e7f2144225
---- /dev/null
-+++ b/drivers/soc/qcom/qce-core.c
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 Qualcomm Technologies, Inc. and/or its subsidiaries
-+ */
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/device.h>
-+#include <linux/device-id/of.h>
-+#include <linux/err.h>
-+#include <linux/interconnect.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+
-+#define QCE_DEFAULT_MEM_BANDWIDTH 393600
-+
-+static const char *const qce_core_aux_devs[] = { "crypto", NULL };
-+
-+static int qce_core_probe(struct platform_device *pdev)
-+{
-+	struct auxiliary_device *auxdev;
-+	struct device *dev = &pdev->dev;
-+	struct icc_path *mem_path;
-+	const char *const *subdev;
-+	int ret;
-+
-+	mem_path = devm_of_icc_get(&pdev->dev, "memory");
-+	if (IS_ERR(mem_path))
-+		return PTR_ERR(mem_path);
-+
-+	dev_set_drvdata(dev, mem_path);
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	PM_RUNTIME_ACQUIRE(dev, pm);
-+	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (ret)
-+		return ret;
-+
-+	for (subdev = qce_core_aux_devs; *subdev; subdev++) {
-+		auxdev = __devm_auxiliary_device_create(dev, "qce", *subdev, NULL, 0);
-+		if (!auxdev)
-+			return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-+
-+static int qce_core_runtime_suspend(struct device *dev)
-+{
-+	struct icc_path *mem_path = dev_get_drvdata(dev);
-+
-+	return icc_set_bw(mem_path, 0, 0);
-+}
-+
-+static int qce_core_runtime_resume(struct device *dev)
-+{
-+	struct icc_path *mem_path = dev_get_drvdata(dev);
-+
-+	return icc_set_bw(mem_path, QCE_DEFAULT_MEM_BANDWIDTH,
-+			  QCE_DEFAULT_MEM_BANDWIDTH);
-+}
-+
-+static const struct dev_pm_ops qce_core_pm_ops = {
-+	RUNTIME_PM_OPS(qce_core_runtime_suspend, qce_core_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
-+};
-+
-+static const struct of_device_id qce_core_of_match[] = {
-+	{ .compatible = "qcom,crypto-v5.1" },
-+	{ .compatible = "qcom,crypto-v5.4" },
-+	{ .compatible = "qcom,qce" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, qce_core_of_match);
-+
-+static struct platform_driver qce_core_driver = {
-+	.probe = qce_core_probe,
-+	.driver = {
-+		.name = KBUILD_MODNAME,
-+		.of_match_table = qce_core_of_match,
-+		.pm = pm_ptr(&qce_core_pm_ops),
-+	},
-+};
-+module_platform_driver(qce_core_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Qualcomm crypto engine core driver");
-+MODULE_ALIAS("platform:" KBUILD_MODNAME);
-+MODULE_AUTHOR("Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>");
+>> Or how do apps usually work? Do they try to get the current mode from the
+>> crtc, and use that, even if it's not the connector's advertised default
+>> mode?
+>>
+>>>> If we can't get the pclks from the connector, the mode->clock won't match,
+>>>> and we should either skip checking that in the SRO checks, or have plenty of
+>>>> tolerance.
+>>>
+>>> tidss has 5% of tolerance when most of the drivers have .5%. How much do
+>>> you need?
+>>
+>> I was referring to the SRO code, which currently gives errors if the modes
+>> don't match exactly.
+> 
+> Which isn't true? There are warnings, and we're literally discussing a
 
----
-base-commit: a9c48428cbd8d96b26f92631d0db6f8519c5fcc5
-change-id: 20260610-qce-fix-self-tests-492ffd2ef955
+Well, the warnings say "*ERROR*" =).
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> function that does introduce a tolerance when trying to match the modes.
+> 
+> Let's turn this around. I think we both agree that matching exactly
+> won't work. I guess it wouldn't be hard to agree that a panel running at
+> half the refresh rate, with different polarities, or with different
+> timings shouldn't be considered a match.
+
+I'm not sure about that. Depends =). We can never recreate the original 
+mode from the HW registers fully, but I think on some platforms it will 
+be further away than on some. The clock is the prime example. Without 
+display PLL, the pixel clock rates can be quite far away.
+
+> So my question is: where do you want to draw the line?
+
+I'm fine with the ideal mode calculations with some kind of small 
+tolerance. We can initially target platforms that have adequate hardware.
+
+But I feel that this could eventually have to be a platform specific 
+thing, unless SoCs without good video PLLs are a thing from the distant 
+past.
+
+Perhaps we can worry about them if we get there.
+
+In any case, if SRO is more an opt-in than enabled by default, we're safe.
+
+>>>> I think it still leads to a full modeset, but can the driver check if
+>>>> setting the mode->clock would results in the current pclk, and somehow
+>>>> abort the full modeset?
+>>>
+>>> I'd rather discuss an actual bug here. Do you have a case you can share
+>>> where the logic we currently have doesn't work and is not an instance of
+>>> poor panel timings?
+>>
+>> It's the case with the OLDI panel. You should be able to test it with
+>> AM62-SK even without an actual panel, just load the
+>> k3-am625-sk-microtips-mf101hie-panel.dtbo. Ah, actually, there's the
+>> touchscreen in the dtbo, so you may need to disable that in the dtso.
+>> Although I guess even if it's enabled, you'll just possibly see an error
+>> from the touch driver, and it doesn't affect the display.
+>>
+>> So even if you don't have bootloader that enabled the OLDI panel, you should
+>> see the configuration mismatch errors.
+> 
+> But it wouldn't have enabled the clock at the right rate though, right?
+No, it wouldn't have OLDI enabled at all (nor the clocks), but you can 
+still test as you'll see the warnings in normal modesetting if the SRO 
+comparison doesn't match. So a normal modeset with panel's clock at e.g. 
+150.274 MHz, triggers the SRO, which comes up with 150.124 MHz, and the 
+check fails.
+
+  Tomi
 
