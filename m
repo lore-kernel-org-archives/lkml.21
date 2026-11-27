@@ -1,93 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.29.242.92
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767150;
-	b=LCK7XB3QVeL93YKhMSK30HYVKt8l1Mr+fqQ9fIjmHfFxCZVDXRcP9iip3nzur7CXfxO6
-	 ezEknlg2HfET8to9MwoYIPLmo6EMFoBcMmywlAmsc4nfkxlNFmxlSNb+r53Rjs4SHDk+x
-	 DHUuerEAgRYaF0DycjMzQ/HlMjJaXlPWvHwElyOvXVBc8ePHsg4VzDkncEjE2fiTJZe5K
-	 hjpJCZglOYq7BYl/2SCW2Xb/M+DMMO0naFkaJQp9ARqHFZgf6szlTbd2nbRPxoPrvx7/9
-	 Ln3qwcpNlpE0L+zpNA5N/69R348OfmzOuAo2kZ5q6KD2JHvm46e9L1ywFxK8To8jE5g==
+	t=1795767167;
+	b=X736m7SEioM6OONzqpe3k/1i8N2o9TQkWQVK1spPgbfes9GgYfNMbntqG6XhkoT+ku/h
+	 8X16wirrNtObwF38QX6rYJ+vdwkCGLK5d9xgbk2cbkkN9xKAIr+r0pnoEMptVU8f9THNP
+	 QKT1Y8pcZ9iz6o/Ww++SHX7AFogz6vBuwI6kgeDtzoc0bjM3ffqd6FQ+w6ZnCvwqddoR0
+	 vehkUSdmELbb4JIwG9EwtzvvZaCGU8WBQHNcEy834HVMGuLmZbgV4PrWC0EUIDZm1XM1q
+	 8ft+klZ5eKwEMrO1V1jM6Vw1R4OXcXsOIiyJ45zIj3n/BcvKpo7iUdOWZTJXJOJE/mQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767150;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=biKE31krqx4uiyZbINCmYdssPjN7FXeM4VWJQldNBE4=;
-	b=S8k6iVfw8B1Mrg9xVi7ZvUPMNaCTKWcO4lrA0Sx3RQjnz9I+g+Iwb3VEcsljim3TcYds
-	 oCqo4oPMhlSMwLgaIiI9QYqvM0j0Toz8VcmslYXo1z6KauZAvZR7NKlUuiUfAjEZwjvnt
-	 cPKbRZMDkGMUOPUPXdLfdT0PonXsEo0PbhPD6oXt0XDflWqwKcP+GmnJE3JOfO3NHF2Nj
-	 pzju6+iEQfhdPtFDpKY1HPniVUMACs/sn30zj4xsgG4jr0+w5J++P4Smtx1qFHyPv3l4X
-	 4yPcCB9lVUE0KvlafA34+XNruG/8u9nfxTAF4auO9m4X+/aBdLnJr6Tfc/xY86B5Kaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767167;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	 References:Date:Message-Id:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=UVp50XBywV99FACSVt9cm51aFsFHhx5d/a2cQJcC4Ug=;
+	b=btcVhlqbf9MP/5SzKBVTEz8BKTO5/V9mBIh/4ZVKKjP5aM335APUHxv5ib/q4UBcrxdK
+	 6d2/qoFu9NigCip9LIAYeNMWVkX4JdYWBQ0vYxHZ1rwDYsDNo+djnGIyVVgcKnx4jNXmr
+	 KiWzmmdyIVmym6edQoGkrukgyHFxX72qC2xjpxfIGWe/HSRtPvaQN8yKUKrKUhuMgQ9vx
+	 EysJ3tlInRtTpw1aE5Ttsnp0UECPgIPXAEcZh/ZwPCUOTiYoy8gdPb2klcrnZLHKJ3tTk
+	 IzZRxZ24yClscxl95pCvKpgK7zUUveDXsBQk/9EHmlpaehAwOT7nQCrX2x1gVJW8ZUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N89OvIaB;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=davidgow.net;
+	spf=pass smtp.mailfrom=davidgow.net;
+	dkim=pass header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=oLEmPrB6;
+	dkim=pass header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=EqXHbfIo;
+	arc=none smtp.remote-ip=203.29.242.92
+Received: from sphereful.davidgow.net (sphereful.davidgow.net [203.29.242.92])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0BAA606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:12:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0BAA606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D02E606A31C;
+	Fri, 27 Nov 2026 08:12:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D02E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=davidgow.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=davidgow.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N89OvIaB
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-385c497bf94so7387006eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:12:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795767149; x=1796371949; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=biKE31krqx4uiyZbINCmYdssPjN7FXeM4VWJQldNBE4=;
-        b=N89OvIaBZgxgs0mGBtRsN1D6wvlneHG+Ksgqf8QBWV8Et0c1ehC2N6EdeuMO2OygiD
-         GazawBwIBvjOvwQx0T19XiNyPssK9vbrCGCjCpelG4SjFmy++YSnow5jX3dG0NDCjj23
-         4UDs113EzwugS+U12RnTr5+4XA6VfYzdBcScg48dyIIqREon417fNLXMmAmbng4Rku8s
-         lFeZ9dsa20oW95nrB2N2mDuHDsMwbAqBvdcLlWoHYJ04FVO176aw2VH8k+4kUcS6m6FS
-         j20Cc6GMtm7ePkyCMbEl+ZmSdfsvP/vn9sLQs9RCjuL8Uj7l6+rooFBWYlWR6O69+5MR
-         gYzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795767149; x=1796371949;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=biKE31krqx4uiyZbINCmYdssPjN7FXeM4VWJQldNBE4=;
-        b=t9Ckm0NHD8Auzx+3+x1VsEC38LYxAiW/s2YJzJ7Mam5J94tNnxDu/1Qi58NXgZuMFx
-         +cx2OfQZcr+mzDtuHghpwrBginl28GrmIA4e1RzkjKwQTRdBTKXlmqOhKnJd+Cd3BiW1
-         f9b9KF3QYM+aBmLUb0E5xyGP8IxbHdKYfO6l4YEhCwa54toEexu1Mj2LnHvZ0mSyF1WY
-         hc7jwCgOsTFKkE8TWn3zWb7UxUl+TgJgpYuPtzqGNrjysDe9q/8gFkl15RJnfxMCCUQ1
-         wg3cjIf5qzWAMUgjF9s2oq8k2oSlYWCGWKuQW0tMpH3c6Vovmwimk2ghJqawTR12D7my
-         iakA==
-X-Forwarded-Encrypted: i=1; AL+hErH6d33qqbCHaAQtOlv+QhMDYv2+/nFF6xAbKiq1O6xNmHXDUFIPvmBZrpaR9oAOhDY/rkQUYx8f7I6mFkg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86LlISaswmTbgYyjtqeq3clrR5Dn1khTe3kKtkVSOJnRQrmboD
-	/ixDcAIB1z3lFz6rz8ERG5wWlT+mwIICxqGNRWEgZnKhrogc4nb3LYMA
-X-Gm-Gg: AZFdTZc7H7fjsF7OjxyRi+hQxjQFsUm1EFvPX9V+6cJbNg/7TVEH0zZQs+CXlhyjCND
-	22cofcRiqnNGG80nlA/4hXVjvD5OyW3ELCA8LA6X2elhjb6FVxr+D0lip23V+8uoSUlbmrBSQYZ
-	leMkL0aLZ/vxThKBFQuO0eVv/6HgU1uNehZ+YTAw39nve0DfAKuL8W4WqtK5WkTPKQp1cskZwJg
-	tAD7bIzWIxWh3A7VjbyH2CqRteSHDQUy85A6ZJ4e9dEawmiq+7iWT7b+oxGOFuUVsUT+GVRYzK2
-	0hnSFkOHTrIPoafm0RuKaKkOsWAa4FSDIj6PgnKz1CkrvDcLGOPPUjtq+4GfObmmCfKCWGAXS7y
-	PNOPBFzB2ZPMd2CQ+veCd9M+jHmZP2EpxLPJyYZxn2tVbk4m7Q4LtJHAhtPUVVRDqg7YWWiV73E
-	3Eg9+u3COJ/JK9FYo66EToloIjFlYAsBM1Fbtq09ksjs0PuwvjI8mmewvYJNLboUHMLGKCgT4Hx
-	RaBAyPaGqqa6oOPXTggE3dBXAfCfXVJ32HcgN8cxaCHlApL4EPB+zuJZWC1T6vG8kmaPbk/RsWX
-	QRS/StRlgwrCsA6srk4cjwrk0CNSmRdCCYbxh5i+JaNu4Nc=
-X-Received: by 2002:a05:7300:2209:b0:386:8d2:929b with SMTP id 5a478bee46e88-38608d2945emr34239903eec.23.1795767148650;
-        Fri, 27 Nov 2026 00:12:28 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm41286650eec.18.2026.11.27.00.12.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 00:12:28 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: linux-pwm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] pwm: sti: request the IRQ after the driver data is initialised
-Date: Fri, 27 Nov 2026 15:12:20 +0700
-Message-Id: <20261127081220.302726-2-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261127081220.302726-1-congnt264@gmail.com>
-References: <20261127081220.302726-1-congnt264@gmail.com>
+	dkim=pass (4096-bit key, unprotected) header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=oLEmPrB6;
+	dkim=pass (4096-bit key) header.d=davidgow.net header.i=@davidgow.net header.a=rsa-sha256 header.s=201606 header.b=EqXHbfIo
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=davidgow.net;
+	s=201606; t=1795767164;
+	bh=6QV2+MTDL5qJCAiu5Ap8b8zmPUof06wxJb4TGreoSr8=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
+	b=oLEmPrB6KIruFGK4sqp9oo1Vt1u5teW9zlYoXFReIXVTyL1PZA5oVSRPMBcYP/t7a
+	 5KRkUVXIR4IELi2iyW9+XXtIG5LuVNzCR1AezFS5zZ3nr5IrQs2juW8elV5+vlnq/w
+	 cCVPUx0+2T2h6Y6NGLEWEPPx0/0Lm3cxKsFfs7rXzPez9YHYa0NNsExCm4dTY+dDLl
+	 gxq0l+wNE4SK2w7CLnwmiv4ToAPjEZAtNazHimp4K9HAKwkgdDN2RY8pCUiBOCsUbf
+	 nFz+opkrCNQbunwD+q5I7PR3jY+amAdoOybVTNAykPS40pQvHaqYAJ3te4AI9OxaV/
+	 MBQl55QJYZbQLYI2M3ch8OzaMsH3gNrbRYBq1UkbC4bexsCXJ9OiQeo/22lfkTDVqT
+	 4z8aHlIh0eR+xBef1zjXdEjhxYFr2sHVt2IqP75teA47fJnLqbhMmq6MtMtdntG6gz
+	 YG5TzOJH8bpjOxlqcoqx77f9GHLZPANdKmGbJzJ8y2xmlpnW2AdKMxvXTHpk7pSSvR
+	 Z17DHTRNvb6I6Wk0Um2oCxq/GzSVGTtWqW2dtGKEJN1hoeEajFSA1eQRyhCtWJyUkB
+	 C4/D5eXGnmsreH+KtlCPAjxS0Jdj8T1O+t0LiybnJkVAQ2XIMyuY2RFKDMxVDWW4j5
+	 I19xwWr1pI16D/c1ksNfjmsc=
+Received: by sphereful.davidgow.net (Postfix, from userid 119)
+	id B708E1EADE3; Fri, 27 Nov 2026 16:12:44 +0800 (AWST)
+X-Spam-Level: 
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=davidgow.net;
+	s=201606; t=1795767161;
+	bh=6QV2+MTDL5qJCAiu5Ap8b8zmPUof06wxJb4TGreoSr8=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
+	b=EqXHbfIoybMo50TL0qLBb84jz2aV7+eMKoxgJdY/UAfFlvI2x2V0gAPPxHR9aC65f
+	 hdxYRnhvFpLHRVOApK7tZ2TJuv+LS0PWQ2aDSHLRdTT82irxpl3Xzdn11ngSVxJU1t
+	 2v/C1MHkIISDds6EiaaKvcPe9Z7qmNWMGqTdudE5g7THV5/usjcznzzoSEbwnxtYDc
+	 hczgL4/ssqdM+jal+ER2nd2VXHyX5M0YOk39wT2lCYlFQ4oBexY80iCL5osMTRV8CG
+	 ibxP0E9JXy+MjZLxT1a55PHsm59H9l5rOCDaBHp7pG0b/J6MzqX0MuJxxpPmA9Z3lQ
+	 TmamriaHze0V/34UgPd0bEs5VoxOBoEDTWMxSIM5nc56IVU+PS2JtChUFN9eu2WyAP
+	 SJdJ+Qn/ISg15GbSpBwxkjvMj34FE4gDsYHK5+Xug5ooEllRwrsHulRW7aTGwGnUpe
+	 kb4rtJUq/DvwEg7/EUzxkkRV4WAHOg237Y6NrNXiAORpcAiedpawB2thsuAo1mPA7P
+	 CFTdwBBCxVYT1gTVAfW0e+U4sYeZ9wzgRxowiLExjgvKeL3ITgaa6EQda/NrwGjhov
+	 UKaUWy1jK7AcU2c7JZOXQGgRwiFoz+yumfF/fWKxrxhdnFxDRkTa0XyPrrJEgYM/U8
+	 NujQcSefkpilzYGNVQM+ccas=
+Received: from shelley.lan (unknown [IPv6:2001:8003:8802:7000::41b])
+	by sphereful.davidgow.net (Postfix) with ESMTPSA id 40FB31EADC9;
+	Fri, 27 Nov 2026 16:12:41 +0800 (AWST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,51 +82,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] x86/e820: Add KUnit tests for table sanitizing and
+ range update
+From: David Gow <david@davidgow.net>
+To: Andrey Zakharov <dedemorow@gmail.com>
+Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+ david@davidgow.net, raemoar63@gmail.com, linux-kselftest@vger.kernel.org, 
+ kunit-dev@googlegroups.com, linux-kernel@vger.kernel.org
+In-Reply-To: <20261126223400.1549478-1-dedemorow@gmail.com>
+References: <20261126223400.1549478-1-dedemorow@gmail.com>
+Date: Fri, 27 Nov 2026 16:12:25 +0800
+Message-Id: <179576714578.1671685.15482503905360730523.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6841; i=david@davidgow.net;
+ h=from:subject:message-id; bh=6QV2+MTDL5qJCAiu5Ap8b8zmPUof06wxJb4TGreoSr8=;
+ b=owEBiQJ2/ZANAwAIAcYipzoZDNtCAcsmYgBrCTt1koUFcFQA8vSqtSzRVYhyJT57Me/7adu+R
+ tOB9wlzTFSJAk8EAAEIADkWIQSmmTCaqhqZOsxDGC7GIqc6GQzbQgUCawk7dRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQxiKnOhkM20KOYBAAnP1VxvPNZyPKA2l68Kc/vK5iM5Guzlf
+ tl2rpqHeBfsykoecjk4T5KPgm+a+ANk9B0LnurZcRcx6fRC5UdQBkUmFMoWPTxvPjxnOaWSqXSF
+ oAV3sSyLVZjOmuinXG27ym8oVx5EmyhXoHgTZvsWGphYWS1HB9qUHPIvEzDP7BjgTT4z7J3BPDT
+ u+XjXJphNNBPxKSR6MAEV9BNGhe6yDT1GbqvvGLEzbxsy/Vgrsqpa48vP2cjkz2lzgbQHXerv1F
+ OAK0JYQ9MTm+V194ulYQ+cGeKNaCZqU7mTaa9eyRe7Y+9B8Vn++9qRxo2XT5/d+4A5xoNOFChnN
+ MoCMF5gwjrk8R49OPaZ8QzorCQiL6RuaQzAEcc9RLgHbzaridiQq3dcSdbd0jAYtBHfOHyNdWDQ
+ aZgZbKPXH8kjkDUxe5bwn5Et6YMz8GeeyXqZ1NCexdHrm56TWYwQ84X7DstO1chp1hv56MRgKSM
+ 4cXXlEtxbQ7l7I06IQjlmaS03BB82RMh9Ior8oEKrl5qLTpZZsUdqBOmS1BkuYFUiJpqc4fhcki
+ L2g2nqTFCntwRhWvZ+c5ukvmGfKmqUs1PxjuUMsQM4KZSO2heiwBc0nhVjPhdsHbrm9fszEkEjU
+ 1m2QwtVFihDs6fWw2EJdjlMAPpEPvK22ZBnuoz3/MUZviirAUAoU=
+X-Developer-Key: i=david@davidgow.net; a=openpgp;
+ fpr=3B0A53B1D9DF6AAC59C230322A821C5AD66AB03F
 
-sti_pwm_probe() requests the interrupt right after mapping the registers,
-but sti_pwm_interrupt() reads pc->pwm_cpt_int_stat and uses pc->dev and
-pc->ddata. Those are set up later in probe, and the clocks that the
-register access needs are also enabled later. If the interrupt fires once
-it is requested, the handler can run before any of that is ready and
-dereference a NULL pwm_cpt_int_stat.
+> There are no KUnit tests under arch/x86, and I could not find any other
+> tests of the E820 table code. e820__update_table() sorts a table, resolves
+> overlaps in favour of the higher type, merges neighbours of the same
+> type and stops when the table is full. e820__range_update_table()
+> changes the type of a range and may split an entry. Both take the table
+> as an argument, so they can be tested on a table of the test's own,
+> without touching the memory map of the running kernel.
+> 
+> Add 20 test cases. For e820__update_table(): too few entries and an
+> entry that wraps around (both return -1 and leave the table alone),
+> unsorted input, nested and partial overlaps, merging of equal types,
+> types that must not be merged (PRAM and SOFT_RESERVED), zero-size
+> entries, the sample map from the comment above the function, and a
+> full table. For e820__range_update_table(): a range covering an entry,
+> splitting an entry, head and tail, no match, a size that would wrap
+> around, and several entries at once.
+> 
+> Both functions are __init, so the suite is registered with
+> kunit_test_init_section_suite() and runs during boot, before init
+> memory is freed. It can only be built in: X86_E820_KUNIT_TEST depends
+> on KUNIT=y.
+> 
+> Tested: built with gcc 16.2.1 and run with kunit.py (CONFIG_KUNIT=y and
+> CONFIG_X86_E820_KUNIT_TEST=y) under QEMU (TCG, on top of
+> next-20261126): 20 of 20 pass, and 20 of 20 with --arch=i386. To
+> check that the tests can fail, I
+> changed e820.c temporarily in three ways, one at a time: always
+> starting a new entry at a change point (4 tests fail), setting the
+> wrong new start when cutting the head of an entry in
+> __e820__range_update() (1 fails), and swapping the order of range
+> start and end at equal addresses in cpcompare() (1 fails). None of
+> these changes is part of this patch.
+> 
+> Not tested: a full build with KUNIT_ALL_TESTS (I only checked that it
+> selects the option), other values of MAX_NUMNODES, real hardware.
+> 
+> Signed-off-by: Andrey Zakharov <dedemorow@gmail.com>
+>
 
-Request the interrupt after the driver data and the clocks are set up, just
-before the PWM chip is added.
+This looks great for me from a KUnit point of view, and it passes here.
 
-Fixes: 25eb53809674 ("pwm: sti: Add support for PWM capture interrupts")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
----
- drivers/pwm/pwm-sti.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+I do think there'd be some benefit going forward to extending this to cover
+other parts of the e820 handling code: in particular the code for putting
+the e820 memory map together from different BIOS memory maps. That's
+the area which has had any issues I've hit.
 
-diff --git a/drivers/pwm/pwm-sti.c b/drivers/pwm/pwm-sti.c
-index bdbb61e44fe8..73b8690d596c 100644
---- a/drivers/pwm/pwm-sti.c
-+++ b/drivers/pwm/pwm-sti.c
-@@ -568,11 +568,6 @@ static int sti_pwm_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
+This is definitely something for a separate follow-up patch, though, not a
+reason to reject this as-is. I did do a quick hack for what it could look like
+to use KUnit stubs and resources to intercept changes to the real e820 table.
+If there's interest and I have time, I can polish it up:
+--8<--
+diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+index 0967b485f38b..a74e342d911b 100644
+--- a/arch/x86/kernel/e820.c
++++ b/arch/x86/kernel/e820.c
+@@ -16,6 +16,9 @@
+ #include <linux/sort.h>
+ #include <linux/kvm_types.h>
  
--	ret = devm_request_irq(&pdev->dev, irq, sti_pwm_interrupt, 0,
--			       pdev->name, pc);
--	if (ret < 0)
--		return dev_err_probe(&pdev->dev, ret, "Failed to request IRQ\n");
--
- 	/*
- 	 * Setup PWM data with default values: some values could be replaced
- 	 * with specific ones provided from Device Tree.
-@@ -614,6 +609,10 @@ static int sti_pwm_probe(struct platform_device *pdev)
- 		}
- 	}
- 
-+	ret = devm_request_irq(dev, irq, sti_pwm_interrupt, 0, pdev->name, pc);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Failed to request IRQ\n");
++#include <kunit/static_stub.h>
++#include <kunit/visibility.h>
 +
- 	chip->ops = &sti_pwm_ops;
+ #include <asm/e820/api.h>
+ #include <asm/setup.h>
  
- 	ret = devm_pwmchip_add(dev, chip);
--- 
-2.25.1
+@@ -162,7 +165,7 @@ int e820__get_entry_type(u64 start, u64 end)
+ /*
+  * Add a memory region to the kernel E820 map.
+  */
+-__init static void __e820__range_add(struct e820_table *table, u64 start, u64 size, enum e820_type type)
++__init VISIBLE_IF_KUNIT void __e820__range_add(struct e820_table *table, u64 start, u64 size, enum e820_type type)
+ {
+ 	u32 idx = table->nr_entries;
+ 	struct e820_entry *entry_new;
+@@ -181,6 +184,7 @@ __init static void __e820__range_add(struct e820_table *table, u64 start, u64 si
+ 
+ 	table->nr_entries++;
+ }
++EXPORT_SYMBOL_IF_KUNIT(__e820__range_add);
+ 
+ __init void e820__range_add(u64 start, u64 size, enum e820_type type)
+ {
+@@ -446,7 +450,7 @@ __init int e820__update_table(struct e820_table *table)
+  *
+  * Sanity-check it while we're at it..
+  */
+-__init static int append_e820_table(struct boot_e820_entry *entries, u32 nr_entries)
++__init VISIBLE_IF_KUNIT int append_e820_table(struct boot_e820_entry *entries, u32 nr_entries)
+ {
+ 	struct boot_e820_entry *entry = entries;
+ 
+@@ -471,6 +475,7 @@ __init static int append_e820_table(struct boot_e820_entry *entries, u32 nr_entr
+ 	}
+ 	return 0;
+ }
++EXPORT_SYMBOL_IF_KUNIT(append_e820_table);
+ 
+ __init static u64
+ __e820__range_update(struct e820_table *table, u64 start, u64 size, enum e820_type old_type, enum e820_type new_type)
+diff --git a/arch/x86/kernel/e820_kunit.c b/arch/x86/kernel/e820_kunit.c
+index efd0323bcfc8..be593fe6d0ec 100644
+--- a/arch/x86/kernel/e820_kunit.c
++++ b/arch/x86/kernel/e820_kunit.c
+@@ -9,6 +9,9 @@
+  * The layouts are written in units of one 4K page.
+  */
+ #include <kunit/test.h>
++#include <kunit/test-bug.h>
++#include <kunit/static_stub.h>
++#include <kunit/visibility.h>
+ #include <linux/init.h>
+ #include <linux/limits.h>
+ #include <linux/sizes.h>
+@@ -337,6 +340,34 @@ static void __init range_update_several_entries(struct kunit *test)
+ 			E820_TYPE_RAM, E820_TYPE_NVS, PG(2), exp, ARRAY_SIZE(exp));
+ }
+ 
++
++__init VISIBLE_IF_KUNIT void __e820__range_add(struct e820_table *table, u64 start, u64 size, enum e820_type type);
++static void __init fake_e820_range_add(u64 start, u64 size, enum e820_type type)
++{
++	struct kunit *test = kunit_get_current_test();
++	struct kunit_resource *e820_resource = kunit_find_named_resource(test, "e820_table");
++	struct e820_table *table = (struct e820_table *)e820_resource->data;
++
++	__e820__range_add(table, start, size, type);
++
++	kunit_put_resource(e820_resource);
++}
++
++static struct kunit_resource e820_resource;
++__init VISIBLE_IF_KUNIT int append_e820_table(struct boot_e820_entry *entries, u32 nr_entries);
++static void __init append_e820_table_empty(struct kunit *test)
++{
++	struct e820_table *empty_table = new_table(test, NULL, 0);
++	KUNIT_ASSERT_EQ(test, kunit_add_named_resource(test, NULL, NULL, &e820_resource, "e820_table", empty_table), 0);
++	kunit_get_resource(&e820_resource);
++	kunit_activate_static_stub(test, e820__range_add, fake_e820_range_add);
++
++	/* Ensure an empty table doesn't get updated. */
++	KUNIT_EXPECT_EQ(test, append_e820_table(NULL, 0), -ENOENT);
++	KUNIT_EXPECT_EQ(test, empty_table->nr_entries, 0);
++
++}
++
+ static struct kunit_case __refdata e820_test_cases[] = {
+ 	KUNIT_CASE(update_table_too_few),
+ 	KUNIT_CASE(update_table_overflow),
+@@ -358,6 +389,7 @@ static struct kunit_case __refdata e820_test_cases[] = {
+ 	KUNIT_CASE(range_update_no_match),
+ 	KUNIT_CASE(range_update_clamps_size),
+ 	KUNIT_CASE(range_update_several_entries),
++	KUNIT_CASE(append_e820_table_empty),
+ 	{}
+ };
+ 
+-->8--
 
+Regardless, this looks pretty good as-is to me.
+
+Reviewed-by: David Gow <david@davidgow.net>
+
+Cheers,
+-- David
+
+-- 
+David Gow <david@davidgow.net>
