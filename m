@@ -1,55 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783429;
-	b=kQxzDqXmiLEQxTW20FApsIa38eOW+6wSXiZerxvCfJCGAB5iZFbKn7rz8WrFOba5Qfrq
-	 NlLSLUJjaH6OO/EAFBosjoo4LrFWtzq56PNnKv/GdV5tZDyNYavJ/Vi5pS1xRduZq/fHv
-	 nJ5BCBm222q9J1C2Gs+WDggOPgaY25LCRkQrbXqI5b51jUqmkAsg3wBIigDbsupuJuGlu
-	 8V9xWN74vQyPjN4yOCCs755XXGuzdp3rKSbsFPDFI2YkTsrLNTw1w4G4gXsALX5H1zpKo
-	 9MvvT9eLlVhbh+jUiMqCfPWVMSpTmubqETYktGPaZ+XbzGhzwdTNOF6Ea6fUdc6R/ig==
+	t=1795783450;
+	b=zQoGTszBTuxKVJcmodIFjW2Fn3ncMuqjt3psdN+5ERi7ITf2ixNDOw4HQqjTaX3CkMHE
+	 l9yoNtEj0/kWzGdaq8UzPqOmdyViWIE5glzIyQtq8D+NIItcTtxAlliWnWvYTL38aEj8y
+	 vL3fQFZlmIQqPOwgZAuxiVgmfg6xMpIh+dMcmlUOUDHRbpVM22OJNwMLvofvrWzthiaJT
+	 JO3ADFb11JyOhqBAPmtu/EOjSi8fWKC2XR6UHDQyW+DAakzpM2Tzm4dHd0L+SJMbgOUWh
+	 MrbMtg68OoRatfWI3vmFlOOEvBFyfY3KjXRrZTjMZL/FoMlI7bfklvRmJh/XdoRFODQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783429;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=K6o4WaCNvFl65LaFVXvDMyujQeRr+C1WwE1TeM0hXMg=;
-	b=Lxjvh03GkCtefWEX1XLE7WUrS+Z2V6/qJyY0vje8lT9Zukk6IFJdgzWiwQg3FdP7hTuP
-	 xGu31hhGxRTKBn6etjAUwZirBpTuY+vbWx9F0ry3NUntF4buWRnw6SdrevWEs0cSYb8iz
-	 q8fJMzWI5kqDSZtNjjxrlnyyE/HvvF6ZLaGu7cWmWU7CBD4kz7yPp+SWaPtLlcx3GTd5h
-	 mOUH6zqCpxKHfs6XOxzRPaXkmJGUKolgzAI1qLljwRjc0JrHMJktXVupU1rKmgFvig/UJ
-	 E7AvHDwLE935HWwu7YQfnmlQ+B3jfECAM110rssC0KeMgMEouAXXFOz0mysIrv/Vi3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783450;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=s97IOTm5/rXBV3ZdRIfid6XH5xn9938zK2WxzL34EEo=;
+	b=hjYAaVZ4jtagsj3sp2/67eHe+pre22CnPp8GV8rbbZnNGcF3GPQlTlzgGFIBIfXujrlP
+	 xzG3+y378rIMUefN3uShnsIO+yITM0CstdRUv8EtkeKG8lD8NhFZ33iLhnynK0bn+602G
+	 n/wYoiI1fS3+ixsqmv2K4F8iarxoWWL6psEWiW+7x21R+mGZlT1fxRjVQTou9zY3CiEmO
+	 Ry+wvwaQR1ln1jnWcX2fsJo2NcsZwXsYxKQKStV0IaKl1/8BeACiTLcQihAalaBb8sPvc
+	 avtQp4yInM5icCHe1hLBuIbo9Yz9G15+ld3nWBXGdCvJ5wc008iw62hS0ugNO56M6LA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fI+QM2x7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gfRiJfyu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89386606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:43:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FE11606A31C;
+	Fri, 27 Nov 2026 12:44:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fI+QM2x7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5BFF1F00893
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:43:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gfRiJfyu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80BAE1F000C1;
+	Fri, 27 Nov 2026 12:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795783428;
-	bh=K6o4WaCNvFl65LaFVXvDMyujQeRr+C1WwE1TeM0hXMg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fI+QM2x7RQDoI8jx8FwkXMiMnpYC3j8dnpIp0/9Mi6tjsI74YJLI95WtjXDgLDO+E
-	 25cm9xSnitKp4OT7duf2Xfp20RRy9+D6lys8jJltp0jQLq5aBMm74O7pjEYz2A2IMR
-	 gP9CsbEpOzgqKIY1uq0tKa+zG4CyBdfAknJ4/BmlrtxyXcQHQbrYC0vGiW/ERm2PtC
-	 x1ZEOdiGB6ErIXNv+dr/Peif4mx8GG8GPXegdsI8M41q/pJdU+JeYxzDgXyBGttYwA
-	 I+po/IC3DP+V9xUF/5zUu82Ge9QzLCZvTH92vF2UfSydYdF2ToE1DJmP+o4uSaeXQH
-	 HDb8FBIT8Qxfw==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3afa1c39d76so25468451fa.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:43:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFJ6ouKlcmZTel2oGsSwObnv5CbcPQeTXar5dm/UmVsUV+wYOLeHRVIG1v/I1+5JAs7AEbQYfyA4zVK5IM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VW837jcsJ9nNzVnRqsbp6HfNGd/S0OjCV65xyW8cQbVo++TJX
-	ZbyT0hmp58yMSdiI911/aWRk2s6d9a02OfdzlopP4EGB8DqxB+GoSAZW5lABAr5jT2jHPgmioac
-	yWmPZEqrlVkEol7vFYkNUMXJklxBTsiE=
-X-Received: by 2002:a05:6512:1049:b0:5c3:3ec5:8ee3 with SMTP id
- 2adb3069b0e04-5c33ec59054mr467719e87.37.1795783427175; Fri, 27 Nov 2026
- 04:43:47 -0800 (PST)
+	s=k20260515; t=1795783449;
+	bh=s97IOTm5/rXBV3ZdRIfid6XH5xn9938zK2WxzL34EEo=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=gfRiJfyugR/55cIxCb0DD9FbKrYxSkewGFaV66svCV6I6kjkQlkLhePEFUK1iH9kD
+	 cEUhgtsegnDqOlHpwD8xAeLmRH3DsaD1gLoSJQBNAjj7Njp1xkTgKyr2Sf6/xqgPci
+	 aerwv8M9oHbyFOUesiv5O2A0RkS3eMfk8R6KuLeWFbpbE+ZyMi2bxKECjs4TRgSLsK
+	 70N/AvvKAbg+dZIA8J+dEP3XXOJqQJdMtwQUdzVF9VXSnpKgXS3B7TM/sSgC21hq/8
+	 PzhuTsjjIiKo/+3mQvcUq0jAfmNVlfi0TJv3G8R3amVao8FwxI8vLVPR2sT/QijUdp
+	 K7YbrgtEl9paA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,244 +48,89 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261120161020.297735-1-paul.cercueil@bootlin.com>
- <20261120161020.297735-2-paul.cercueil@bootlin.com> <CAJZ5v0jeJSx3C8hdU8iAtje-NGNz4DdaVGhE_T3WpVrODuwemg@mail.gmail.com>
- <80b96fc3f728b59b26ebde1378f4222cf4b359b0.camel@bootlin.com>
-In-Reply-To: <80b96fc3f728b59b26ebde1378f4222cf4b359b0.camel@bootlin.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 27 Nov 2026 13:43:33 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0g3e26eZG1_yRQzMfPvPYiiv0cHZE70V+_U+NR4kxEpJg@mail.gmail.com>
-X-Gm-Features: Aa3M54p-QXCDrJN7873U0bKzfmK7fh9R56kFv3lmFnJS-C0uYHQdc-4p9sWsq8I
-Message-ID: <CAJZ5v0g3e26eZG1_yRQzMfPvPYiiv0cHZE70V+_U+NR4kxEpJg@mail.gmail.com>
-Subject: Re: [PATCH v5 1/1] ACPI: platform: Add basic support for ACPI 6.5
- fixed clock resources
-To: Paul Cercueil <paul.cercueil@bootlin.com>
-Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 13:44:02 +0100
+Message-Id: <DN603ORZA8KY.30W58KXH3Q8Y4@kernel.org>
+Subject: Re: [PATCH 2/3] rust: pci: return a bitfield type for dev_id
+Cc: "Yury Norov" <yury.norov@gmail.com>, "Miguel Ojeda" <ojeda@kernel.org>,
+ "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Daniel
+ Almeida" <daniel.almeida@collabora.com>, "Tamir Duberstein"
+ <tamird@kernel.org>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Bjorn Helgaas" <bhelgaas@google.com>,
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Alistair
+ Popple" <apopple@nvidia.com>, "John Hubbard" <jhubbard@nvidia.com>, "Timur
+ Tabi" <ttabi@nvidia.com>, "Eliot Courtney" <ecourtney@nvidia.com>, "Zhi
+ Wang" <zhiw@nvidia.com>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nova-gpu@lists.linux.dev>,
+ <dri-devel@lists.freedesktop.org>, <linux-pci@vger.kernel.org>
+To: "Alexandre Courbot" <acourbot@nvidia.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261127-nova-gsp-dbd-v1-0-0fb5f7c2ce63@nvidia.com>
+ <20261127-nova-gsp-dbd-v1-2-0fb5f7c2ce63@nvidia.com>
+In-Reply-To: <20261127-nova-gsp-dbd-v1-2-0fb5f7c2ce63@nvidia.com>
 
-On Fri, Nov 27, 2026 at 11:05=E2=80=AFAM Paul Cercueil
-<paul.cercueil@bootlin.com> wrote:
->
-> Hi Rafael,
->
-> Le mercredi 25 novembre 2026 =C3=A0 21:22 +0100, Rafael J. Wysocki (Intel=
-) a =C3=A9crit :
-> > On Fri, Nov 20, 2026 at 5:10=E2=80=AFPM Paul Cercueil <paul.cercueil@bo=
-otlin.com>
-> > wrote:
-> > >
-> > > ACPI 6.5 introduced a clock input resource descriptor, which allows t=
-o
-> > > specify in the ACPI tables what clocks are connected to a given devic=
-e.
-> > >
-> > > This patch adds support for the most basic clock resource, which is t=
-he
-> > > one that represents a fixed clock. The new code will then create a
-> > > clk_hw for each fixed clock resource, which is then made available to
-> > > the device drivers, that can obtain it through a regular call to
-> > > clk_get(NULL).
-> > >
-> > > Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
-> > > ---
-> > >
-> > > v5: Register fixed clock as "<ACPI_ID>-clkX" because we need a
-> > >     system-wide identifier there, and we don't have the 16-characters
-> > >     limit there.
-> > >     Register the first clock to clkdev without a name, so that
-> > >     clk_get(NULL) will obtain it.
-> > >     Register every other clock for that ACPI device with a "acpi-clkX=
-"
-> > >     name.
-> > >
-> > > v4: Change clock names to "acpi-clkX", because ACPI devices names can=
- be
-> > >     up to 17 characters long, and our clock name must be 16 character=
-s
-> > >     max.
-> > >
-> > > v3: No change
-> > >
-> > > v2:
-> > > - Use the calculated clock name in devm_clk_hw_register_fixed_rate()
-> > >   instead of the device name
-> > > - Make sure clkres->scale is <=3D 2. The field is 2 bits but the valu=
-e
-> > >   clkres->scale =3D=3D 3 is not defined in the spec.
-> > > - Compute the fraction numerator using 64-bit math, to make sure it
-> > >   won't overflow on 32-bit systems.
-> > > - Initialize clocks only when the device_type matches
-> > >   ACPI_BUS_TYPE_DEVICE.
-> > > - Use a shorter name for clocks as the hard limit is 16 characters
-> > >   including the terminator.
-> > > ---
-> > >  drivers/acpi/acpi_platform.c | 75 ++++++++++++++++++++++++++++++++++=
-++
-> > >  1 file changed, 75 insertions(+)
-> > >
-> > > diff --git a/drivers/acpi/acpi_platform.c b/drivers/acpi/acpi_platfor=
-m.c
-> > > index 80ea7121744d..b4f2ccf3e51f 100644
-> > > --- a/drivers/acpi/acpi_platform.c
-> > > +++ b/drivers/acpi/acpi_platform.c
-> > > @@ -10,17 +10,27 @@
-> > >
-> > >  #include <linux/acpi.h>
-> > >  #include <linux/bits.h>
-> > > +#include <linux/clk-provider.h>
-> > > +#include <linux/clkdev.h>
-> > >  #include <linux/device.h>
-> > >  #include <linux/err.h>
-> > >  #include <linux/ioport.h>
-> > > +#include <linux/kconfig.h>
-> > >  #include <linux/kernel.h>
-> > > +#include <linux/list.h>
-> > >  #include <linux/module.h>
-> > >  #include <linux/dma-mapping.h>
-> > >  #include <linux/pci.h>
-> > >  #include <linux/platform_device.h>
-> > > +#include <linux/units.h>
-> > >
-> > >  #include "internal.h"
-> > >
-> > > +struct acpi_clk_data {
-> > > +       struct device *dev;
-> > > +       unsigned int idx;
-> > > +};
-> > > +
-> > >  /* Exclude devices that have no _CRS resources provided */
-> > >  #define ACPI_ALLOW_WO_RESOURCES                BIT(0)
-> > >
-> > > @@ -130,6 +140,68 @@ static unsigned int acpi_platform_resource_count=
-(struct
-> > > acpi_resource *ares, voi
-> > >         return AE_CTRL_TERMINATE;
-> > >  }
-> >
-> > First off, will clocks only be needed for platform devices?  If not,
-> > acpi_add_fixed_clock() should be defined in drivers/acpi/resource.c.
-> >
-> > > +static int acpi_add_fixed_clock(struct acpi_resource *res, void *d)
-> > > +{
-> > > +       static const unsigned long clk_scale[] =3D { 1, HZ_PER_KHZ, H=
-Z_PER_MHZ
-> > > };
-> > > +       struct acpi_resource_clock_input *clkres;
-> > > +       struct acpi_clk_data *data =3D d;
-> > > +       struct device *dev =3D data->dev;
-> > > +       const char *name =3D NULL;
-> > > +       struct clk_hw *clk;
-> > > +       unsigned long rate;
-> > > +       unsigned int idx;
-> > > +       char buf[64];
-> > > +       int err;
-> > > +
-> > > +       if (res->type =3D=3D ACPI_RESOURCE_TYPE_CLOCK_INPUT) {
-> >
-> > Maybe
-> >
-> > if (res->type !=3D ACPI_RESOURCE_TYPE_CLOCK_INPUT)
-> >         return 1;
-> >
-> > > +               clkres =3D &res->data.clock_input;
-> > > +
-> > > +               if (clkres->mode) {
-> > > +                       dev_warn(dev, "Only fixed rate clocks support=
-ed for
-> > > now.\n");
-> >
-> > _warn() is likely overkill here and it would be better to print this
-> > relative to an ACPI handle, so use acpi_handle_info().
-> >
-> > > +                       return 1; /* keep going */
-> > > +               }
-> > > +
-> > > +               if (clkres->frequency_divisor =3D=3D 0 || clkres->sca=
-le > 2)
-> > > +                       return -EINVAL;
-> >
-> > This is firmware providing bad data, so not -EINVAL.
->
-> Right, that's a -EFAULT.
->
-> >
-> > > +
-> > > +               rate =3D DIV_ROUND_UP_ULL((u64)clkres->frequency_nume=
-rator *
-> > > clk_scale[clkres->scale],
-> > > +                                       clkres->frequency_divisor);
-> > > +
-> > > +               idx =3D data->idx++;
-> > > +
-> > > +               /* When registering a clk_hw the name must be unique =
-across
-> > > all devs */
-> > > +               snprintf(buf, sizeof(buf), "%s-clk%u", dev_name(dev),=
- idx);
-> > > +
-> > > +               clk =3D devm_clk_hw_register_fixed_rate(dev, buf, NUL=
-L, 0,
-> > > rate);
-> >
-> > Why devm_?  This is called at the device creation time, not in probe,
-> > so how/when is clk going to be unregistered?
-> >
-> > Also, devm_ doesn't work with struct acpi_device which are never
-> > probed and drivers are never removed from them.
->
-> Ah, good point. That's going to complicate things.
->
-> > > +               if (IS_ERR(clk))
-> > > +                       return PTR_ERR(clk);
-> > > +
-> > > +               if (idx > 0) {
-> > > +                       /* When registering a clkdev the name must be=
- <=3D 16
-> > > characters */
-> > > +                       snprintf(buf, sizeof(buf), "acpi-clk%u", idx)=
-;
-> > > +                       name =3D buf;
-> > > +               }
-> > > +
-> > > +               err =3D devm_clk_hw_register_clkdev(dev, clk, name,
-> > > dev_name(dev));
-> >
-> > Same thing about devm_.
-> >
-> > > +               if (err)
-> > > +                       return err;
-> > > +       }
-> > > +
-> > > +       return 1;
-> > > +}
-> > > +
-> > > +static void acpi_platform_init_clocks(struct acpi_device *adev)
-> > > +{
-> > > +       struct device *dev =3D &adev->dev;
-> >
-> > Note that &adev->dev is not a real device.  It is a "firmware node",
-> > quite like a DT one, but I guess it may be used for registering
-> > clocks.
-> >
-> > How is a platform device driver going to use those clocks though?
->
-> They just use clk_get(). It searches the clock by device name, which work=
-s here,
+On Fri Nov 27, 2026 at 12:46 PM CET, Alexandre Courbot wrote:
+> +bitfield! {
+> +    /// Bus-Device-Function ID of a PCI device. Equivalent of C's `PCI_D=
+EVID`.
 
-And they would pass the platform device as dev I suppose?
+Please make the reference to the C API a separate line.
 
-> I guess because the "firmware node" device has the same name as the real =
-device.
+Additional nit, I'm not sure I'd use "equivalent" as Bdf is a type that can=
+ do a
+few more things.
 
-For platform devices created by acpi_create_platform_device(), yes, it
-does, but if that is going to be relied on, that assumption needs to
-be documented in a very visible way.
+> +    pub struct Bdf(u16) {
+> +        /// Bus number.
+> +        15:8 bus;
+> +        /// Device number.
+> +        7:3 device;
+> +        /// Function number.
+> +        2:0 function;
+> +        /// Aggregation of `device` and `function`, which are commonly u=
+sed together in code.
+> +        7:0 devfn;
+> +    }
+> +}
+> +
+> +/// Formats the ID as `bus:device.function`, like the corresponding part=
+ of C's `pci_name()`.
+> +impl fmt::Display for Bdf {
+> +    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+> +        write!(
+> +            f,
+> +            "{:02x}:{:02x}.{}",
+> +            self.bus(),
+> +            self.device(),
+> +            self.function()
+> +        )
+> +    }
+> +}
+> +
+>  /// Abstraction for the PCI device ID structure ([`struct pci_device_id`=
+]).
+>  ///
+>  /// [`struct pci_device_id`]: https://docs.kernel.org/PCI/pci.html#c.pci=
+_device_id
+> @@ -700,10 +729,10 @@ pub fn revision_id(&self) -> u8 {
+> =20
+>      /// Returns the PCI bus device/function.
+>      #[inline]
+> -    pub fn dev_id(&self) -> u16 {
+> +    pub fn dev_id(&self) -> Bdf {
 
-Generally speaking though, they should rather pass the ACPI companion
-of the platform device as dev, in which case that the name equality
-doesn't matter, and so the clkdev could be created during the struct
-acpi_device registration (and the corresponding cleanup would occur
-during the struct acpi_device removal which is rare).
+At a first glance I wasn't sure if the naming should align, i.e. whether Bd=
+f
+should be DevId instead, but I think this strikes a good balance: dev_id()
+remains aligned with the C API and Bdf as a type is more on point than DevI=
+d.
+
+With the above nit fixed,
+
+Acked-by: Danilo Krummrich <dakr@kernel.org>
