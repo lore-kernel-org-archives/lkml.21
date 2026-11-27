@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748395;
-	b=1mWjnrr2Czq243t6ecYQnZ/H4izdl0gky7IPSo+XS6pif8MqGn8cAYsarIPsW4svHmj6
-	 UAgDNhTG6wf6FbCx4i952ZIdvbzk21tvPlPePTknwGf5oTwNqI5wLOKqoGANdiTKJ3c2g
-	 AeztETIn9Zey2QDgZdli7jcCh4Z5THpDcv/UfUm1EWr3y4d33Sq9kd5+MwhAKy9humtQh
-	 KiiTLmlO+MfHbaDjJUqGe7IGYwE7e6uURIgE4ZNQndqQ7ej3nJrhzl1+ZOvx5PCUlzdHP
-	 dS/sPkDjXydQGZ1tpSv+4A1dv23nCg94JqUJELfdWaClZcrXMkE4uh6XBEIu6xxmS4Q==
+	t=1795748399;
+	b=5LCTao1JzCoe/3V7ZLNfk/ypEtKgbF95cp20gqGvYLqVPBeY48lafTS5yhyzuZ13XKe6
+	 kMKnF52+drB6toB2HJ6Mtp5eMYtEs4CGd9FjBcHfApEcE/0NO5KmXsl6TLigmpKUUBOEh
+	 6rI9TRc3UsllfJ7u6Oz8+viEn6LfmGKXplgqxjJDdm5DQSIb+2iU3BA5CNDP8rVKSleST
+	 pq7EqTe0kr4PmWbT97dpaQRtZG1s7QWVJ/TX7GD93/DWOazmgw3l3qhIWno2fWzXbUGPr
+	 f6g6ln0DDOhiiSZOHhBQW9kx8pzaomlBTljwaF6ItxNXnNjpTxaaVZa2/EhC1xtJsuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748395;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748399;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=BnpcY/RP8pAgh3oqyYEmVM75f0YFNk/KISru1SjfUyU=;
-	b=4EhfSFtcjrkw/j+k4nhNAJUJd42jUaL84aWbZjTvG1mmetvulotitNsIuKgO1SK+4GwU
-	 ojI8UmV4XRh0WbW7hPHhsPOzf7rcOlhXoXsGxEfVQkw3/SxeGajcla/BH8eAbNW88loC7
-	 IUAVyYR75JHsKSB2k+QDRLUg4cbqxFVreV9kfzo0Jr5i5H44PWYt98jOwERT6yGgLPVdI
-	 u4AnMmsW2GMenEbQebSJai3b5WwTnewoc4hc//ffSwsTvDDSsXIKPeF2L4/ks+O14BJWB
-	 VbeaQ1wrp0dolJMIKmO/wrBxIzOcMVkvFbLXLw6PAxMpiZyZlLtinnl9aqFBewL8CMA==
+	bh=hUYCifz4koOk35hOpkO8+YZBCYRBdzcePLVU8Gz4jgA=;
+	b=KGbhDFZVpY9zYk8U60/f7I7qMkemjKYSA8HTkxOQY66WhGd0eX7Ookn8NacU2vk37RYx
+	 p5CImNGMt3FzujllM++HLs18BDlN7h/MiBBkLrZFkflbSG6jGdZpKZtzVWCNl6kkAC7bl
+	 gUw5YGVXHnxZ3SU6iKpDIHz1LAyD+Xct9R9Xfp5ptyHdbQqLPvQzu5SIY9iVcHou7AQ3O
+	 fEiZNvskTBGVm1wPOfc2Iyn/eC3hSvo3g/dqtJK3y0xo07fi+yiOEKqq9l/lghWDjGmGt
+	 /lpHaZTLiDDrrLEt9ymAQMSButkX++EulSArgqbVBLhhAGgkddPJ9mNZ+y3Pp74PTfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Cxb3ZOL+;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=V1SEVMwK;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D45B606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:59:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D45B606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C99E1606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:59:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C99E1606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Cxb3ZOL+
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=V1SEVMwK
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795748393;
+	s=mimecast20190719; t=1795748398;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BnpcY/RP8pAgh3oqyYEmVM75f0YFNk/KISru1SjfUyU=;
-	b=Cxb3ZOL+xjUth1FNyDl//Up4ZwnqDBEXd/shCqB0f3fADZicWeIZq5WQjIyayvaIlMdvvV
-	jCOtd2ndclumTEyhFRdfrvZ7FvROsLzdUqDqEtJFm4CVgkK8s5R3FD5376KJSzOOzX7Sy2
-	sVqXfl42HYz3fwepEJm7oDuedoF1En0=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+	bh=hUYCifz4koOk35hOpkO8+YZBCYRBdzcePLVU8Gz4jgA=;
+	b=V1SEVMwK8DhXSCpl95sZu/E5jRfblWGSRCZirfsIub54WELrbaTss8msuIaQZt/i6xYpnc
+	7ywPpGIxlmz+7pzcm0FnB0VT7MZeRFVLob7VJmLy49ObAVpr7/zDOef/fPkYsknUj5Om6/
+	6MqTRxO35JaOizFK2x/+yLulDFRuQtI=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-298-8R38NC0SN8iRyitTqk3DlA-1; Fri,
- 27 Nov 2026 02:59:49 +0000
-X-MC-Unique: 8R38NC0SN8iRyitTqk3DlA-1
-X-Mimecast-MFC-AGG-ID: 8R38NC0SN8iRyitTqk3DlA_1795748388
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-35--7xE4pU0O7u7AlZGlrtWyw-1; Fri,
+ 27 Nov 2026 02:59:53 +0000
+X-MC-Unique: -7xE4pU0O7u7AlZGlrtWyw-1
+X-Mimecast-MFC-AGG-ID: -7xE4pU0O7u7AlZGlrtWyw_1795748392
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A48B91800372;
-	Fri, 27 Nov 2026 02:59:47 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5E2361800592;
+	Fri, 27 Nov 2026 02:59:52 +0000 (UTC)
 Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D263B18011D3;
-	Fri, 27 Nov 2026 02:59:46 +0000 (UTC)
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A4E0B1955F75;
+	Fri, 27 Nov 2026 02:59:51 +0000 (UTC)
 From: Bruno Meneguele <bmeneg@redhat.com>
 To: linux-integrity@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -69,9 +69,9 @@ Cc: linux-kernel@vger.kernel.org,
 	dhowells@redhat.com,
 	bauerman@linux.ibm.com,
 	Bruno Meneguele <bmeneg@redhat.com>
-Subject: [RFC PATCH 3/8] pkcs7: support multiple signers in pkcs7_get_digest()
-Date: Thu, 26 Nov 2026 23:59:06 -0300
-Message-ID: <20261127025912.1383750-4-bmeneg@redhat.com>
+Subject: [RFC PATCH 5/8] ima: record data-signing algorithms by name in 'd-modsig'
+Date: Thu, 26 Nov 2026 23:59:08 -0300
+Message-ID: <20261127025912.1383750-6-bmeneg@redhat.com>
 In-Reply-To: <20261127025912.1383750-1-bmeneg@redhat.com>
 References: <20261127025912.1383750-1-bmeneg@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -84,160 +84,189 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-Current pkcs7_get_digest() code fails with any message that has more than
-one SignerInfo, so the content digest of a multi-signed message can't be
-obtained, and it also doesn't support signers whose algorithm signs the
-data directly (eg. ML-DSA) without authenticated attributes, which has no
-content digest to report.
+A signer whose algorithm signs the data directly (eg. ML-DSA) has no
+content digest unless it carries authenticated attributes. With
+authenticated attributes, which sign-file uses for ML-DSA when built
+against OpenSSL 3.x, 'd-modsig' holds the messageDigest attribute, while
+the signature covers the attributes and not that digest.
 
-Give it a signer zero-index and add pkcs7_get_signer_count(), so callers
-can get the content digest of each signer of a message. Report a signer
-with no content digest as a zero-length digest rather than an error, and
-return the name of the signature algorithm when it signs the data directly.
-
-This commit prepares the ground for ima-modsigv2 template, maintaining
-current field templates behavior.
+Record such a signer by the name of its signature algorithm instead of a
+hash algorithm, with an empty digest (e.g. "mldsa65:" '\0'), with or
+without authenticated attributes. A verifier needs to traverse the 'modsig'
+field to find out authattr's presence. Signers that sign a digest are
+recorded as before.
 
 Signed-off-by: Bruno Meneguele <bmeneg@redhat.com>
 ---
- crypto/asymmetric_keys/pkcs7_verify.c | 63 ++++++++++++++++++++++-----
- include/crypto/pkcs7.h                |  7 ++-
- security/integrity/ima/ima_modsig.c   | 10 ++++-
- 3 files changed, 66 insertions(+), 14 deletions(-)
+ Documentation/security/IMA-templates.rst  |   4 +-
+ security/integrity/ima/ima_template_lib.c | 113 ++++++++++++++--------
+ 2 files changed, 75 insertions(+), 42 deletions(-)
 
-diff --git a/crypto/asymmetric_keys/pkcs7_verify.c b/crypto/asymmetric_keys/pkcs7_verify.c
-index db3f6d080ccf..bd55f86b9464 100644
---- a/crypto/asymmetric_keys/pkcs7_verify.c
-+++ b/crypto/asymmetric_keys/pkcs7_verify.c
-@@ -140,17 +140,61 @@ static int pkcs7_digest(struct pkcs7_message *pkcs7,
- 	return ret;
+diff --git a/Documentation/security/IMA-templates.rst b/Documentation/security/IMA-templates.rst
+index 15b4add314fc..4ec0440b27f1 100644
+--- a/Documentation/security/IMA-templates.rst
++++ b/Documentation/security/IMA-templates.rst
+@@ -69,7 +69,9 @@ descriptors by adding their identifier to the format string
+    algorithm (field format: <hash algo>:digest);
+  - 'd-ngv2': same as d-ng, but prefixed with the "ima" or "verity" digest type
+    (field format: <digest type>:<hash algo>:digest);
+- - 'd-modsig': the digest of the event without the appended modsig;
++ - 'd-modsig': the digest of the event without the appended modsig or a signature
++   algorithm name followed by an empty digest (<signing algo>: \0) when direct data
++   algorithms are used, e.g. ML-DSA;
+  - 'n-ng': the name of the event, without size limitations;
+  - 'sig': the file signature, based on either the file's/fsverity's digest[1],
+    or the EVM portable signature, if 'security.ima' contains a file hash.
+diff --git a/security/integrity/ima/ima_template_lib.c b/security/integrity/ima/ima_template_lib.c
+index 0609a8f7a127..a2aeaae83065 100644
+--- a/security/integrity/ima/ima_template_lib.c
++++ b/security/integrity/ima/ima_template_lib.c
+@@ -286,24 +286,27 @@ int ima_parse_buf(void *bufstartp, void *bufendp, void **bufcurp,
+ 	return 0;
  }
  
--int pkcs7_get_digest(struct pkcs7_message *pkcs7, const u8 **buf, u32 *len,
--		     enum hash_algo *hash_algo)
-+/**
-+ * pkcs7_get_signer_count - Count the signers of a PKCS#7 message
-+ * @pkcs7: The preparsed PKCS#7 message to access
++/*
++ * digest formats:
++ *  - DATA_FMT_DIGEST: digest
++ *  - DATA_FMT_DIGEST_WITH_ALGO: <hash algo> + ':' + '\0' + digest,
++ *  - DATA_FMT_DIGEST_WITH_TYPE_AND_ALGO:
++ *	<digest type> + ':' + <hash algo> + ':' + '\0' + digest,
 + *
-+ * Return: the number of SignerInfos in the message.
++ *    where 'DATA_FMT_DIGEST' is the original digest format ('d')
++ *      with a hash size limitation of 20 bytes,
++ *    where <digest type> is either "ima" or "verity",
++ *    where <hash algo> is the hash_algo_name[] string.
 + */
-+unsigned int pkcs7_get_signer_count(const struct pkcs7_message *pkcs7)
-+{
-+	const struct pkcs7_signed_info *sinfo;
-+	unsigned int count = 0;
++#define IMA_MAX_DIGEST_ENTRY_SIZE (DIGEST_TYPE_NAME_LEN_MAX + \
++				   CRYPTO_MAX_ALG_NAME + 2 + \
++				   IMA_MAX_DIGEST_SIZE)
 +
-+	for (sinfo = pkcs7->signed_infos; sinfo; sinfo = sinfo->next)
-+		count++;
-+
-+	return count;
-+}
-+
-+/**
-+ * pkcs7_get_digest - Get the content digest of one signer of a PKCS#7 message
-+ * @pkcs7: The PKCS#7 message
-+ * @index: Zero-based index of the signer, in the message's (DER) order
-+ * @buf: The content digest (NULL when there is none)
-+ * @len: The content digest length (0 when there is none)
-+ * @hash_algo: The digest algorithm (HASH_ALGO__LAST when there is none)
-+ * @pkey_algo: The signature algorithm name if the data was signed directly
-+ *
-+ * The content digest is the digest of the signed content under the signer's
-+ * digest algorithm. A signer whose algorithm signs the data directly has no
-+ * digest when authenticated/signed attributes is absent, we return 0 in
-+ * this case.
-+ *
-+ * Return: 0 on success, -EINVAL if there is no signer at 'index',
-+ * -EKEYREJECTED if the messageDigest attribute doesn't match the content, or
-+ * another negative error code.
-+ */
-+int pkcs7_get_digest(struct pkcs7_message *pkcs7, unsigned int index,
-+		     const u8 **buf, u32 *len, enum hash_algo *hash_algo,
-+		     const char **pkey_algo)
+ static int ima_eventdigest_init_common(const u8 *digest, u32 digestsize,
+ 				       u8 digest_type, u8 hash_algo,
+ 				       struct ima_field_data *field_data)
  {
- 	struct pkcs7_signed_info *sinfo = pkcs7->signed_infos;
-+	unsigned int n;
- 	int i, ret;
- 
 -	/*
--	 * This function doesn't support messages with more than one signature.
+-	 * digest formats:
+-	 *  - DATA_FMT_DIGEST: digest
+-	 *  - DATA_FMT_DIGEST_WITH_ALGO: <hash algo> + ':' + '\0' + digest,
+-	 *  - DATA_FMT_DIGEST_WITH_TYPE_AND_ALGO:
+-	 *	<digest type> + ':' + <hash algo> + ':' + '\0' + digest,
+-	 *
+-	 *    where 'DATA_FMT_DIGEST' is the original digest format ('d')
+-	 *      with a hash size limitation of 20 bytes,
+-	 *    where <digest type> is either "ima" or "verity",
+-	 *    where <hash algo> is the hash_algo_name[] string.
 -	 */
--	if (sinfo == NULL || sinfo->next != NULL)
--		return -EBADMSG;
-+	*buf = NULL;
-+	*len = 0;
-+	*hash_algo = HASH_ALGO__LAST;
-+	*pkey_algo = NULL;
+-	u8 buffer[DIGEST_TYPE_NAME_LEN_MAX + CRYPTO_MAX_ALG_NAME + 2 +
+-		IMA_MAX_DIGEST_SIZE] = { 0 };
++	u8 buffer[IMA_MAX_DIGEST_ENTRY_SIZE] = { 0 };
+ 	enum data_formats fmt = DATA_FMT_DIGEST;
+ 	u32 offset = 0;
+ 
+@@ -451,6 +454,44 @@ int ima_eventdigest_ngv2_init(struct ima_event_data *event_data,
+ 					   field_data);
+ }
+ 
++/*
++ * ima_modsig_digest_entry - encode the content digest of one modsig signer
++ * @modsig: the appended signature
++ * @index: zero-based index of the signer
++ * @entry: output buffer
++ *
++ * The entry has the DATA_FMT_DIGEST_WITH_ALGO format. A signer whose algorithm
++ * signs the data directly (eg. ML-DSA) is recorded by the name of that
++ * algorithm instead, with empty digest (eg. "mldsa65:"), regardless of
++ * authenticated attributes being present or not.
++ *
++ * Return: the entry length on success, a negative error code otherwise.
++ */
++static int ima_modsig_digest_entry(const struct modsig *modsig,
++				   unsigned int index, u8 *entry)
++{
++	const char *sig_algo;
++	enum hash_algo algo;
++	const u8 *digest;
++	u32 size;
++	int len, rc;
 +
-+	for (n = 0; sinfo && n < index; n++)
-+		sinfo = sinfo->next;
-+	if (!sinfo)
++	rc = ima_get_modsig_digest(modsig, index, &algo, &digest, &size,
++				   &sig_algo);
++	if (rc)
++		return rc;
++
++	if (sig_algo)
++		return sprintf(entry, "%s:", sig_algo) + 1;
++
++	if (algo >= HASH_ALGO__LAST || !size || size > IMA_MAX_DIGEST_SIZE)
 +		return -EINVAL;
 +
-+	if (sinfo->sig->algo_takes_data)
-+		*pkey_algo = sinfo->sig->pkey_algo;
- 
- 	ret = pkcs7_digest(pkcs7, sinfo);
- 	if (ret)
-@@ -166,9 +210,8 @@ int pkcs7_get_digest(struct pkcs7_message *pkcs7, const u8 **buf, u32 *len,
- 		*buf = sinfo->sig->m;
- 		*len = sinfo->sig->m_size;
- 	} else {
--		pr_notice_once("%s: No digest available\n", __func__);
--		return -EINVAL; /* TODO: MLDSA doesn't necessarily calculate an
--				 * intermediate digest. */
-+		/* No intermediate digest and no hash_algo to match. */
-+		return 0;
- 	}
- 
- 	i = match_string(hash_algo_name, HASH_ALGO__LAST,
-diff --git a/include/crypto/pkcs7.h b/include/crypto/pkcs7.h
-index 38ec7f5f9041..b237fe01b2f4 100644
---- a/include/crypto/pkcs7.h
-+++ b/include/crypto/pkcs7.h
-@@ -41,7 +41,10 @@ extern int pkcs7_verify(struct pkcs7_message *pkcs7,
- extern int pkcs7_supply_detached_data(struct pkcs7_message *pkcs7,
- 				      const void *data, size_t datalen);
- 
--extern int pkcs7_get_digest(struct pkcs7_message *pkcs7, const u8 **buf,
--			    u32 *len, enum hash_algo *hash_algo);
-+extern unsigned int pkcs7_get_signer_count(const struct pkcs7_message *pkcs7);
++	len = sprintf(entry, "%s:", hash_algo_name[algo]) + 1;
++	memcpy(entry + len, digest, size);
++	return len + size;
++}
 +
-+extern int pkcs7_get_digest(struct pkcs7_message *pkcs7, unsigned int index,
-+			    const u8 **buf, u32 *len, enum hash_algo *hash_algo,
-+			    const char **pkey_algo);
- 
- #endif /* _CRYPTO_PKCS7_H */
-diff --git a/security/integrity/ima/ima_modsig.c b/security/integrity/ima/ima_modsig.c
-index 632c746fd81e..15e499f7dba1 100644
---- a/security/integrity/ima/ima_modsig.c
-+++ b/security/integrity/ima/ima_modsig.c
-@@ -99,6 +99,7 @@ int ima_read_modsig(enum ima_hooks func, const void *buf, loff_t buf_len,
-  */
- void ima_collect_modsig(struct modsig *modsig, const void *buf, loff_t size)
+ /*
+  * This function writes the digest of the file which is expected to match the
+  * digest contained in the file's appended signature.
+@@ -458,39 +499,29 @@ int ima_eventdigest_ngv2_init(struct ima_event_data *event_data,
+ int ima_eventdigest_modsig_init(struct ima_event_data *event_data,
+ 				struct ima_field_data *field_data)
  {
-+	const char *pkey_algo;
- 	int rc;
+-	enum hash_algo hash_algo;
+-	const u8 *cur_digest;
+-	u32 cur_digestsize;
++	/* 'd-modsig' (DATA_FMT_DIGEST_WITH_ALGO) doesn't contain digest type */
++	u8 entry[IMA_MAX_DIGEST_ENTRY_SIZE - DIGEST_TYPE_NAME_LEN_MAX] = { 0 };
++	int len;
  
- 	/*
-@@ -111,9 +112,14 @@ void ima_collect_modsig(struct modsig *modsig, const void *buf, loff_t size)
- 	if (rc)
- 		return;
+ 	if (!event_data->modsig)
+ 		return 0;
  
-+	/* There's room for the digest of a single signer only. */
-+	if (pkcs7_get_signer_count(modsig->pkcs7_msg) != 1)
-+		return;
+-	if (event_data->violation) {
++	if (event_data->violation)
+ 		/* Recording a violation. */
+-		hash_algo = HASH_ALGO_SHA1;
+-		cur_digest = NULL;
+-		cur_digestsize = 0;
+-	} else {
+-		const char *sig_algo;
+-		int rc;
+-
+-		/* 'd-modsig' supports the digest of a single signer only. */
+-		if (ima_get_modsig_signer_count(event_data->modsig) != 1)
+-			return -EINVAL;
+-
+-		rc = ima_get_modsig_digest(event_data->modsig, 0, &hash_algo,
+-					   &cur_digest, &cur_digestsize,
+-					   &sig_algo);
+-		if (rc)
+-			return rc;
+-		else if (hash_algo == HASH_ALGO__LAST || cur_digestsize == 0)
+-			/* There was some error collecting the digest. */
+-			return -EINVAL;
+-	}
++		return ima_eventdigest_init_common(NULL, 0, DIGEST_TYPE__LAST,
++						   HASH_ALGO_SHA1, field_data);
+ 
+-	return ima_eventdigest_init_common(cur_digest, cur_digestsize,
+-					   DIGEST_TYPE__LAST, hash_algo,
+-					   field_data);
++	/* 'd-modsig' supports the digest of a single signer only. */
++	if (ima_get_modsig_signer_count(event_data->modsig) != 1)
++		return -EINVAL;
 +
- 	/* Ask the PKCS7 code to calculate the file hash. */
--	rc = pkcs7_get_digest(modsig->pkcs7_msg, &modsig->digest,
--			      &modsig->digest_size, &modsig->hash_algo);
-+	rc = pkcs7_get_digest(modsig->pkcs7_msg, 0, &modsig->digest,
-+			      &modsig->digest_size, &modsig->hash_algo,
-+			      &pkey_algo);
++	len = ima_modsig_digest_entry(event_data->modsig, 0, entry);
++	if (len < 0)
++		return len;
++
++	return ima_write_template_field_data(entry, len,
++					     DATA_FMT_DIGEST_WITH_ALGO,
++					     field_data);
  }
  
- int ima_modsig_verify(struct key *keyring, const struct modsig *modsig)
+ static int ima_eventname_init_common(struct ima_event_data *event_data,
 -- 
 2.55.0
 
