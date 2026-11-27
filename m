@@ -1,82 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794282;
-	b=FPDAmdS5/WX0DUOJK0JL8QuaeQsPhY3SLb0AGEDY9dB+EZUxLpkWi1L50thihGFSx+E2
-	 e1mI8p93Lq+j7uDv7WMSqIuF5OO+AIosmEnNBO522/muWVoUvpKrGP/DzYak6XvbwyKTL
-	 m+nDWQxH9enRXO0ObYQFjltaCSPx6AeuU+lYmTe8PWtXWphgbW63uF81QcfrOKePA5Yr2
-	 SMfznHw7sezpyyA9ZjuEQ2oxClBdGo2ayCujRbBaxBJZp0GSrSgVBj+Hglw+xuduxu2JQ
-	 R0cujOFnV3SLvLDrA5QHLhwxPDsXAI4O5fwTGqvRIGH9QtFEdmD2FEgDQ1SYbzmlLCA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794282;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:
-	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=ZUudbvDd7MPyN1ktju7yYOYQ2x2QokIUznwDazPg6Tw=;
-	b=qrVCXOAnWAy4vP705NthZRuKLuRQJU7ijsdmb/US7LNVLOYbtzo9ZQZv5qC45zNtkXT7
-	 JPm3eA1H8kcmWAHugGE0p4WXYuD3ZKMY7IFC7oy9WiffNVPlmMFlmDtO5DP9SqFtdH800
-	 0pVhXhIxbA1Gs87Il5XUMBgsFO4Hz/KQLjEpCGrXATVPDKom67hX+HC2Tn2v9XN/eA6Yv
-	 xbVJ45uebKX7TsPVlzeFEfiGQiGxhzq5J4sVd/hT1gA+eiY2WBEJczEiaEj2bkqaiB2o0
-	 sm5Xz0GRldl/x4bRVcXIqcMBZAabUsGrJA5wBr6IaPdHV3HdylKLMrrOLWzHgZw5gGQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ouxCdVIP;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795794284;
+	b=iqblQFLI5ioa+7Y4PAbPZQY6tgeoAO0gU4OstpZtuT1ApRfmOVE0leDRZ9OBudCaI8+P
+	 5X+UXHLJ4I0DxphSzvh8oUBQ6wqSREyLgvVre1p2D4ZeT3YBFCd2uwM973nJROIwgPfNo
+	 DiDYEBO95QVAb7iVOTdBXfD4AZ+i5nHFlGbQ/dIWnpZ5E/I7TiJBTDg5rDazjAE9ET8fN
+	 ZXK+gx4x4ti47UrP5kuL/rL1jKxH00lIAZEMREDKi7Fcfnk9EdF6usVkWUgkjF18EbJby
+	 azZeox45kuSolrV1U0iH+mEuTxxlOlXNVmuO9zwzQy2tvJr3b76S9rGevdku8kGNCEw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794284;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
+	b=lMjSe1940xCDYAgxvslo3Z1rUBoIDVqEero4+3O+pLUKCZRuibaTyc0HPxdU+LF4kb+G
+	 VZL8pKIs/l2pSzdh8Ezw1W8MVU1o000Uymz1rS8PTkoFLf0mmXAUSstOMf0WoPW+Hc4U/
+	 TfTufBwwQriCaTP8bbNin7dygI/BJngE/JUaeQNOIGl5ilRPj0xP9K4cOLT/rquMdKDlF
+	 UzmvD9NiSLTOFZlTBCUAd4n9VmLlR0Hf6xhFHsTa36dVDEon4n6kO5cUfPLkPLMEhiaSg
+	 Be4oRHAqUOzGIX0+fwaz5x2MDIj38UuE8B2VMz4EgNisg/plLQV5L8w5AAsBUpSBh2g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eBSs0WoK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
+Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DA67606A326;
-	Fri, 27 Nov 2026 15:44:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DA67606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D323606A682
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:44:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D323606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ouxCdVIP
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE51UZ3266281;
-	Fri, 27 Nov 2026 15:43:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=ZUudbv
-	Dd7MPyN1ktju7yYOYQ2x2QokIUznwDazPg6Tw=; b=ouxCdVIPDTnoqzsJUQXtST
-	SW++jnDmlSChVN7g7jjSSr2GEdqI+8pYUzeH9o9p++NAQ3/sVjZkebO5YpmRU+XZ
-	Rs/pa96kU3ljTUuOjyojPDxFAbTVOqHFbFZwqZuXknf9srEXiKRTFwAh2eECKbJ5
-	Bx0/Mg6BeU9yHjZ9z1yULD+PVzlTl5qIRdX9PpPN3pAu57283gjeW7fQ0y5GaNGX
-	lKqVJQxugAEJj4Kh5bsGGI26I4wUQBDyMGpJL9kEPYLJXb10rK99tN7ND/qcvg2n
-	RDDq0tlSnZ7qaIVPtFsRydTEdeoGMk3/KAoPC6T+IEtzDhbHw5AOT7UZFoQyMt5g
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g1npam-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:43:47 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4ETH3998991;
-	Fri, 27 Nov 2026 15:43:46 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j6x3h2p98-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 15:43:44 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARFhcV947186264
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 15:43:38 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 535392005A;
-	Fri, 27 Nov 2026 15:43:38 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A04F22004B;
-	Fri, 27 Nov 2026 15:43:34 +0000 (GMT)
-Received: from [9.111.162.114] (unknown [9.111.162.114])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 27 Nov 2026 15:43:34 +0000 (GMT)
-Message-ID: <a07554af-f6df-4a7f-a656-d01b8bc6ab6a@linux.ibm.com>
-Date: Fri, 27 Nov 2026 16:43:34 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eBSs0WoK
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4dd5cb4f6so58305607b3.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:44:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795794283; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pKNWOfMOTyflKi8QgHr2Bu2MYo7PQy9R2YbPvJamMYWOdlgSznyeg8BsKMxo2VxB7E
+         0vT5xxjEgbwjRFGtFYeqEyoPziOfuNwNucOcJTk/CiLOVHqadYMz9m6hveITVaRpceHg
+         j9DRPAUcx5dIP4+sl7ohGHa0jqOqiHidped3zWMc7nRlaWnBFMdEaqnB/dMmUcAQkJiU
+         IHMYSG83WMmvjAQbOWfQujZCb2teoErSCVvfceJ4eLZBQvgO+unTLsPWNrz9fpn0gg1j
+         4EELp5cL4BEvawo0F7XkUpJjUu0HGabz11dw29mahC2FWuAxGZSEHfG7Ygf1DuXe37mB
+         bkhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
+        fh=a7eINb428L11KyQYjhwJ1NvoK5A/W+7sn4H7SSSGcPQ=;
+        b=Cc5YGMRW1aag6S7YDR+820teWGWn10oL/h/p2FxEglXrVG/4DYAsi6zNP/jt4ciAkx
+         mo3a01YYR8J773zgJeJ+EReLPmCFkoNx6uvULsenyCaH+jp7OJidhMyayZQdccaac+TU
+         pJEknQpRuDzlQltIXEjAN0xzOUSrSZei/ovgKfR3aZOAAorioaO/e4QvGN84Fj9CHWSG
+         K1TumRNQtz72gqdFNYI7LbjZbIs6VcAxx2iGvTZ68CKi7QTaNIM9vUZFFBTvnNv1LeWP
+         Rh58WLulEuyZHOEEoI4T5XZCZPlwTBMmwkW+BbfykWjpqKdPBlqiEcpydBtQ+sHImu4f
+         FzGQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795794283; x=1796399083; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
+        b=eBSs0WoKph+BgARDKxCiAXQoEMQKep8iZBhIk5t+R23v5BKOVwlwSF07dVecJJ3Z+0
+         qMsu1Su8j9nbTJoGLJT7Z0qqBLqLlMZ4oZI8NDoZGgKXuCW0uRtMmmRUaDrZ3Th8lnsh
+         OTiuRVbBRyuHUCWJvr3jSZQMumoi11s7VfrpAAXcZvqt/rSJlJuKIQu7IRJQQQ4OHCH2
+         al+Mn1Hyff8EEeoWH6q/HaPx655Uniq7Mh7GsYOgH0zC9eO6EBVn8+voX7V5TMTkIyOw
+         GNZxBGwdcqwDA1lQ1kBjaO1EjTFpX0Mt+V9L/QOTdPjdBgJO8B+P4MEFIeRmOuNUxTwK
+         JUfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795794283; x=1796399083;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
+        b=0mEdlRYY1hizWA1YuyOLj4Y85KeK4m6wxv21sUjwstUd9Yk+E/K11dd4yrKeoVRuHA
+         xFadVf7J2vrQsYwm+mj7hfWgzUmk6rHX66IqAH8tqkK9xKYpRNpwfImugEFH9a0Ek1gB
+         ARjeCZ/i/oVcrgcyX9+2o3si0YICeUp/jYy32FXkrDs/+llSUCAYupo6ymA93lHVtxH7
+         VDMP88Y36w9TpgMnDA2v63VyL2wvDA+jdSTliRWkpjZX4LqRhiCppy59YAw3bXBT1tFj
+         mbhzvJzXDfDoxVKyAWaba9xD4YGOk4NE+S1daqOzextNN32HthplWkxwu27H6F/83tRV
+         dNaA==
+X-Forwarded-Encrypted: i=1; AL+hErEZ3XFcipJBYx5DJzPca7lVNnqd1TZIDI/boiYaLIHLsl4jkSx/I7zrobeQXF9ngJGMCnbofj0EYmLrQeQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+2bYEY9pKsGG9fQyiFTNyh6+32QaMWKyLWD9NrNl9Yw7Ci5rSl
+	OR+NgAxmj9gVcma1FG/MjbC8PzTtfxerCvs2QMGcuWdPkGy+ILjdkoTlxg0lALb5EKX8xVY3w95
+	6rsnJbZACOAdqvT1NEtxc8LuBHz73kT1wDA==
+X-Gm-Gg: AZFdTZfuAvMTMAudsd4kA2PtDlNS13sN9Ybf1SwgkGHUDpO/Jxq1lRIM3gMPZNXDOAZ
+	Sv39ybUHXV9dlvySPQBNjJwYs9gl4LQjqxNJx+YLBl3CJP1XqRLpolU72hThqIVKDvZ/UlbgoZg
+	R0kzLRVQY1m7Do87ltZv6seoyNMMFavwfyId0YVsUvCbEI2nqhVYnv5JRAMxGGPFkmw8/MO/Ecg
+	LcRsORpizvO9Kt2SMgYx3JxNOkto91fxbfpC5I7YFMwkthgH9yMUr/ffdrTt5174jJhI0WEnAw4
+	o35qifTlEqsy0SIjKAdW7LMTTKXSWht9311E+/yS52DOq1uS4psTAz4PKn7EEKBVCLs49IKEIHH
+	W/fBXLmuN3lLxnuI3X0aTOmtWI4/8nIohGV3JxFmvKDtmvvIJQLtAzpBiKKDElP8zrl+n67BkQI
+	l8OCrERpfLvz3haYAf0rlSu00d0p7WnFkpnEPZAQ==
+X-Received: by 2002:a05:690c:7203:b0:8b3:5b88:a1ff with SMTP id
+ 00721157ae682-8b520510d51mr105499077b3.64.1795794282949; Fri, 27 Nov 2026
+ 07:44:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,204 +105,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 12/30] x86/unwind: Add Minimal DWARF CFI kernel
- unwinder
-To: Ian Rogers <irogers@google.com>, linux-kernel@vger.kernel.org,
-        linux-trace-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org,
-        mingo@redhat.com, tglx@kernel.org, bp@alien8.de,
-        dave.hansen@linux.intel.com, x86@kernel.org, catalin.marinas@arm.com,
-        will@kernel.org, mark.rutland@arm.com,
-        linux-arm-kernel@lists.infradead.org, pjw@kernel.org,
-        palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-        linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org,
-        linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org,
-        daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org,
-        nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org,
-        linux-kbuild@vger.kernel.org, ojeda@kernel.org,
-        rust-for-linux@vger.kernel.org, ardb@kernel.org,
-        linux-efi@vger.kernel.org, maz@kernel.org, oupton@kernel.org,
-        kvmarm@lists.linux.dev, shuah@kernel.org,
-        linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com,
-        wnliu@google.com, dylanbhatch@google.com
-References: <20261125061523.1540234-1-irogers@google.com>
- <20261125061523.1540234-13-irogers@google.com>
-Content-Language: en-US
-From: Jens Remus <jremus@linux.ibm.com>
-Organization: IBM Deutschland Research & Development GmbH
-In-Reply-To: <20261125061523.1540234-13-irogers@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: 5ZJeZ4dRYLWKasNlVNFN_HgzbYFJrPH2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA2MiBTYWx0ZWRfX3ppIf7DvuI0B
- vCLEIduUtrcdh1ifjCJ30YvokvPQxXSoffMeR6OCQbDbZZlYU+s04lE4FKdQSzPHvl5DeT/nsPk
- HYln2faN13fSVAO423AD3Vi7w0XWYeI=
-X-Proofpoint-GUID: kfW7DRO-7vrKBDiqgdjT-kZh031cAVz2
-X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b09a534 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=1XWaLZrsAAAA:8 a=w5RBXh3AvzieJi7Cyr8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA2MiBTYWx0ZWRfX3qAzkgNtC0R4
- HUyG6CTQOWPyYas2a2ejLw5Sj5SkgS+QrLoDYBCI/EAzMCTtw9O3tNX/G5nGF98UhevvaMdJVtJ
- pr1KvXtTIF+qBHW6b5LH97yXYLtnzMmuu8kPoL+zW1Cv8i3Aj4z8LcGwX3K4YypRtAv4zNndM9i
- wfHgY2arEijRcZkQ4ZIXMrNjIeyx6iM/1NcRaSBz18OqH8naX/KUse5ovf9oVT9hsZw36H3UW3L
- /e/Qn2JUTNuhsH6F4/oF7RHIEIekrRKJTTS7u5t9jpDXdFjCVQpR5zovcNKKfcWsIhIKKW8NslY
- HzQ7pcW2dMfkFomCCT7lH+LeybRe/MSuQ11Z4ZN0qinIYMAIENvpk1/7/eM+4RJYhijppy7nuAP
- cJDGtQcsa+zjcbRtV6WV18OsJEe0qjzbBkI1JX1Ozc8T29bBR34fOPSiPudo98JgaSuCi6Lzkt3
- g8rf7PJ+1CZxrm8hZqg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1011 malwarescore=0 suspectscore=0 bulkscore=0
- priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270062
+References: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com> <awhJooa6HkPoKqSH@pathway.suse.cz>
+In-Reply-To: <awhJooa6HkPoKqSH@pathway.suse.cz>
+From: jim.cromie@gmail.com
+Date: Fri, 27 Nov 2026 08:44:16 -0700
+X-Gm-Features: Aa3M54o2jG_Z3yd1uKXpyB79RBB4We_Eb9nyFArcsaHU2GACLzlfr6Wqn0l7ldU
+Message-ID: <CAJfuBxz3epK54DzVNztCzA=x=p=MPM8JbHkssdNjj4-qBHDtqw@mail.gmail.com>
+Subject: Re: [PATCH] printk.h: fix overzealous pr_fmt in pr_debug_ratelimited
+To: Petr Mladek <pmladek@suse.com>
+Cc: John Ogness <john.ogness@linutronix.de>, Steven Rostedt <rostedt@goodmis.org>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Jason Baron <jbaron@akamai.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, "Jason A. Donenfeld" <Jason@zx2c4.com>, printk@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Philipp Hahn <phahn-oss@avm.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hello Ian,
+On Thu, Nov 26, 2026 at 8:00=E2=80=AFAM Petr Mladek <pmladek@suse.com> wrot=
+e:
+>
+> On Wed 2026-11-25 11:12:53, Jim Cromie via B4 Relay wrote:
+> > From: Jim Cromie <jim.cromie@gmail.com>
+> >
+> > Historically, the CONFIG_DYNAMIC_DEBUG implementation of
+> > pr_debug_ratelimited() passed raw fmt to both metadata and runtime:
+> >
+> >   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, fmt);
+> >   if (unlikely(...) && __ratelimit(&_rs))
+> >      __dynamic_pr_debug(&descriptor, fmt, ##__VA_ARGS__);
+> >
+> > While descriptor metadata was clean, emitted dmesg records lacked the
+> > pr_fmt prefix present in the !CONFIG_DYNAMIC_DEBUG fallbacks.
+> >
 
-some early feedback.
+,,,
+> > Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+>
+> Looks reasonable to me:
+>
+> Reviewed-by: Petr Mladek <pmladek@suse.com>
+>
+> Jim, should I take it via printk tree? Or would it be better to take
+> it via another three to avoid conflicts, please?
+>
+> Best Regards,
+> Petr
+>
 
-On 11/25/2026 7:15 AM, Ian Rogers wrote:
-> Add CONFIG_UNWINDER_DWARF_CFI as a selectable x86-64 kernel stack
-> unwinder in arch/x86/kernel/unwind_dwarf.c, implementing the asm/unwind.h
-> and HAVE_RELIABLE_STACKTRACE interfaces over compiler-generated
-> .eh_frame and linker-generated --eh-frame-hdr tables:
->  - Build kernel C and Rust objects with asynchronous unwind tables and
->    -fomit-frame-pointer while suppressing unwind tables in boot/startup
->    and purgatory objects.
->  - Place .eh_frame_hdr and .eh_frame inside RO_DATA via
->    ARCH_RODATA_SECTIONS, index loadable module .eh_frame sections via
->    dwarf_cfi_mod_alloc()/dwarf_cfi_mod_free_rcu(), and enable BPF
->    exception stack walks in arch/x86/net/bpf_jit_comp.c.
->  - Unwind across task, IRQ, exception, ftrace, fgraph, rethook, BPF, and
->    call_on_stack() frames, while rejecting in-kernel pt_regs exception
->    boundaries in arch_stack_walk_reliable().
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
+thanks Petr, (and John)
 
-> diff --git a/arch/x86/kernel/unwind_dwarf.c b/arch/x86/kernel/unwind_dwarf.c
-
-> +/**
-> + * unwind_next_frame() - Advance @state to the next outer x86-64 kernel frame
-> + * @state: Current x86 unwind state.
-> + *
-> + * Evaluates Minimal DWARF CFI for @state->ip, handles top-of-stack task
-> + * pt_regs, arch_rethook_trampoline entry, %rsp-verified ENCODE_FRAME_POINTER
-> + * entry/exception pt_regs transitions, and call_on_stack() IRQ stack pivots.
-> + *
-> + * Return: true if a valid outer frame was unwound, or false when the bottom of
-> + * the stack is reached or an error terminates the walk.
-> + */
-> +bool unwind_next_frame(struct unwind_state *state)
-> +{
-...
-
-> +		/*
-> +		 * Unencoded entry assembly (pre-ENCODE_FRAME_POINTER or
-> +		 * post-POP_REGS) or an unaligned/encoded %rbp cannot be
-> +		 * unwound via a frame-pointer guess.
-> +		 */
-> +		if (in_entry_text(state->ip) || (state->bp & (sizeof(long) - 1)))
-> +			goto err;
-> +
-> +		/* Fallback to frame-pointer guess and mark unreliable */
-> +		row = bpf_fp_row;
-> +		state->error = true;
-> +	}
-> +
-Maybe add a comment that the UNDEFINED rule indicates that the outermost
-frame has been reached?
-
-	/* RA undefined indicates outermost frame reached */
-
-> +	if (row.ra_rule == DWARF_CFI_RULE_UNDEFINED)
-> +		goto the_end;
-> +
-> +	if (row.ra_rule != DWARF_CFI_RULE_OFFSET)
-> +		goto err;
-
-Good: For RA rule only OFFSET is supported.  SP and FP rules may need
-checking (see below).
-
-> +
-> +	switch (row.cfa_base) {
-> +	case DWARF_CFI_BASE_SP: {
-> +		unsigned long sp_base = state->sp;
-> +
-> +		/*
-> +		 * call_on_stack() stores the pre-switch task-stack %rsp at the
-> +		 * top slot of the per-CPU IRQ stack (info.end - 1) and pivots
-> +		 * %rsp there before invoking the IRQ/softirq handler.
-> +		 */
-> +		if (state->stack_info.type == STACK_TYPE_IRQ &&
-> +		    state->sp == (unsigned long)(state->stack_info.end - 1)) {
-> +			if (!deref_stack_reg(state, state->sp, &sp_base))
-> +				goto err;
-> +		}
-> +		cfa = sp_base + row.cfa_off;
-> +		break;
-> +	}
-> +	case DWARF_CFI_BASE_FP:
-> +		cfa = state->bp + row.cfa_off;
-> +		break;
-> +	case DWARF_CFI_BASE_FP_INDIRECT:
-> +		if (!deref_stack_reg(state, state->bp + row.cfa_off, &cfa))
-> +			goto err;
-> +		break;
-> +	case DWARF_CFI_BASE_REG:
-> +		if (!get_scratch_reg(state, row.cfa_reg, &cfa))
-> +			goto err;
-> +		cfa += row.cfa_off;
-> +		break;
-> +	default:
-> +		goto err;
-> +	}
-> +
-> +	ip_p = cfa + row.ra_off;
-> +	if (!deref_stack_reg(state, ip_p, &state->ip))
-> +		goto err;
-> +
-> +	state->ip = dwarf_recover_ret_addr(state, state->ip,
-> +					   (unsigned long *)ip_p);
-> +	if (!state->ip || dwarf_is_rethook_trampoline(state->ip))
-> +		goto err;
-> +#ifdef CONFIG_FUNCTION_GRAPH_TRACER
-> +	if (state->ip == (unsigned long)return_to_handler)
-> +		goto err;
-> +#endif
-> +
-> +	if (row.fp_rule == DWARF_CFI_RULE_OFFSET) {
-> +		if (!deref_stack_reg(state, cfa + row.fp_off, &state->bp))
-> +			goto err;
-> +	} else if (row.fp_rule == DWARF_CFI_RULE_FP_OFFSET) {
-> +		if (!deref_stack_reg(state, state->bp + row.fp_off, &state->bp))
-> +			goto err;
-> +	}
-
-IIUC any other FP rule falls through and is implicitly handled as SAME.
-Furthermore row.sp_rule is not checked anywhere, so that any SP rule is
-explicitly handled as SP = CFA.  The implementations for the other archs
-are similar.  Maybe I am missing something.
-
-> +
-> +	state->sp = cfa;
-> +	state->regs = NULL;
-> +	state->prev_regs = NULL;
-> +	state->full_regs = false;
-> +	state->signal = row.signal;
-> +
-Regards,
-Jens
--- 
-Jens Remus
-Linux on Z Development (D3303)
-jremus@de.ibm.com / jremus@linux.ibm.com
-
-IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
-IBM Data Privacy Statement: https://www.ibm.com/privacy/
-
+Ideally, AKPM will pick it into nonmm-unstable -
+thats the most likely path for my dd-classmaps-fixes series (cooking now)
+which verifies the test-module output, which this patch alters.
