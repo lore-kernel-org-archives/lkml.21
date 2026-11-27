@@ -1,64 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795813768;
-	b=jnNnOmYwLlb1/z+VtBqo4qSHc4cSdGfTNsbq4K9SWaWKZvp7rJYhkXICIf18nPExhrT2
-	 dTumc3ZCpYHxmE4W/PtBwG8dzb8pg2tXU2gXv3oaXLeSKODT+3FkAwR3xsSH0p1nry0fG
-	 oS/hzNfZ7UXBmieCVNbzwJ2RfBLPVzxbOPliLN/uf7t9gK7DiQRep6bNAqosEKsP+MUTw
-	 l276sBkBdV90TP57GmkMnwqIWn7uz2UGZaG6wID8Ci2DQFl2U14i0CnTwIffHSwtXZGRb
-	 XSLACZ5CLHpetbmv/PFCQu0+bC8dACDvJnGgS7C2XMHBC7ZY6d2qa+WDnCFXFRPxdPg==
+	t=1795813794;
+	b=hRJNRy/esW2RjioQnRkCbRi6e6PDoKD8E+X+AcGvzi5U0Ovat7OkNJOQzRKDMGnJq1wO
+	 Ig3QIqdnNmSR/DP0H6zk8PugxqCkl4Am+9cgtO2sDIfidqJkuFhD1QYbPOgiW5fMBvS0h
+	 IJD/haUeAR8TgKq4v16k/HorpIPOGbZzZGQtJcA4QUFamaQ9IPmuk1GwWRnsLYlenoRwa
+	 gk/nt5EcH6JYcW0NzzkVysryRBDqUZcS0YLoNZ92Dk3qUjAMxIBvu/x0nX0ZRu9ZY95Wt
+	 fSVXNaV4xZdMzwcmmV9bgJkWqhM+xmZGZV7kBa3wGVbJjreKATHm+9AQgl69JcWtlAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795813768;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=DtmulB6yiMkv0GbK2PIRZjRQgIETqaYOFdcaYpD+HnQ=;
-	b=asgcp5TgIHGKC20ZA++SS1ScjXcEgqPemP82Q5X76YFiqhsWv8iEoBOu81IVCbUMgr7X
-	 vBK7j0UJttRJIsTVkkD6KKx0G/D+4QlYmS7KXIWWbAaIMajk0HNNPPBncvoJj5Fw5tsao
-	 jNIe33yzajaqsUuZNS6lCSC8I2kEgFHYXraQ3QLWl0MXUOfuNT8QVn5fU4QDcUVeXFicH
-	 658AoxDDV+1dwXMAFDnGSs33e6+XQVQ07H0adp0QT7sueZHqa/WMEc5qcIppOgpDwhAcy
-	 AEeWGd6fhhxSdKYl/WikHoFKqC6q5KXsvvLAob68bOsPqZQ/xQIaw8sbQBU55Txr1kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795813794;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=b8wN83zNuLdxfhURbP01LmD8RetsAxNhZ3b+B2xuzOQ=;
+	b=nGHakKg5rYWzDP5cmEwBN1tUOrQV6T++UmWcEJB3MYyi3ZLeXuXAh139cUp0uQSYmN1q
+	 awmZ7+U0BokPvzgziujMouCBSr7DjxceDDyzmi0Tk2wkY/yFEVbV4Gcd/9lhnlchSRDPL
+	 pnFJBaS/IiiIObU4MVuvmamqgaVcOsFm/BcZYhJHtBk7psjJp7dK46y2QRuwn03KsyAQb
+	 WGILD1oKYseuvDDnDCbeQn1Sb99aECqvzkPura0fibuuPY6f/R3etNnL7ZlBnBfR8NR+N
+	 R+mDcLusA0TGCKk2wVyZfA7nl6dMjRfehVVBgvyXdxyyNh11f5Xxd8uVFvPBqHhIZ+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZNDMVQWo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Bz2qE0Z8;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D98E606A326;
-	Fri, 27 Nov 2026 21:09:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0E83606A31C;
+	Fri, 27 Nov 2026 21:09:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E83606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZNDMVQWo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C751F00899;
-	Fri, 27 Nov 2026 21:09:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795813768;
-	bh=DtmulB6yiMkv0GbK2PIRZjRQgIETqaYOFdcaYpD+HnQ=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=ZNDMVQWo5LfgAYisOmu8OCAzcukG+vBngJdXbik/Y4k8Rfpf7TdMulQqEzx52r9Cv
-	 myUEyaE85lwJSUKHdgWFR5k95EaNzU+rIeej9cwPQfm91EYXQUpNiA5Gl5C01dGsgY
-	 wSn2tGJL6IVseY15iLK23jp5ffrNkZ9DeCnUkaqs3JvIp/lZlcp26m6YLFU7ui3MXh
-	 SNvkMKX5WEqU0HUJ04NoVA7t9/22kZFwz5TK5sWyQafBDJIE+3dTnbwQflrRqTPhs/
-	 U4wzZ0UtxxVLQMHZfmyFNIO2vKGoWNyf0hUc4C4ep1AH1c4QZ45NT5NZFUycHH3eu2
-	 X+eIF+pFGmiKg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7170F3927065;
-	Fri, 27 Nov 2026 21:09:28 +0000 (UTC)
-Subject: Re: [GIT PULL] Thermal control fix for 7.4-rc5
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <CAJZ5v0goDeyB0c_g5YvKGGZZNKaSLqWKkei_9pb50BHseizSmw@mail.gmail.com>
-References: <CAJZ5v0goDeyB0c_g5YvKGGZZNKaSLqWKkei_9pb50BHseizSmw@mail.gmail.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <CAJZ5v0goDeyB0c_g5YvKGGZZNKaSLqWKkei_9pb50BHseizSmw@mail.gmail.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git thermal-7.4-rc5
-X-PR-Tracked-Commit-Id: 52424a7805a05286743a5e9cb2dfe6548480b4af
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: f4585067150b85e33f60876149a6e742928da75e
-Message-Id: <179581376715.1686500.7665831420524155816.pr-tracker-bot@kernel.org>
-Date: Fri, 27 Nov 2026 21:09:27 +0000
-To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Linux PM <linux-pm@vger.kernel.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Bz2qE0Z8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795813793; x=1827349793;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ru+ziasidtLhoZH/GxyiIw2iqMUGXKKo8SAN9rrYi48=;
+  b=Bz2qE0Z8F35I0AI5hpuNVh0zJzp0PmUrm1wMo7QkN3YR/PCYULPFS/KE
+   8dIfUT59SU0wjnuGlsNv8Y1b7U2b50jqawFhwm4eJ9DfQA5lAAxdrkdfy
+   NZubV2WGUrbSbs5raA3osIl8K1JAhXthCZTLxfdW+mGmrDeu4i++4A/FG
+   cGTCmebiBox6vmq8ZDOYqBpi9XMXuUgNUT49OQ9RlLfHzxNN/41J4XQhY
+   v9ySPRnqbYQxkLhUm+riaqpQamrh7RSnDWfJoxPRTsDxsuWe3StlO5Zuu
+   PFs3Yg8bijhkPy1aMTqXC/xxlhj9rbi+y/UCQQ3LCm/O7jeXVKkE1iuVN
+   A==;
+X-CSE-ConnectionGUID: //g4Z98DRcGshyrU12exrQ==
+X-CSE-MsgGUID: 7w0rklRuTs6kSAHIorjkXA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4776488"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4776488"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 13:09:52 -0800
+X-CSE-ConnectionGUID: VRJ92++kS6CCUGYFQ2Sx3w==
+X-CSE-MsgGUID: x53bdMfHS3O+GlqFeCSmGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12622127"
+Received: from igk-lkp-server01.igk.intel.com (HELO 146cf1e082f1) ([10.211.93.152])
+  by orviesa001.jf.intel.com with ESMTP; 27 Nov 2026 13:09:50 -0800
+Received: from kbuild by 146cf1e082f1 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xX3CV-000000000M6-3Fca;
+	Fri, 27 Nov 2026 21:09:47 +0000
+Date: Fri, 27 Nov 2026 22:08:57 +0100
+From: kernel test robot <lkp@intel.com>
+To: Christoph =?iso-8859-1?Q?B=F6hmwalder?= <christoph.boehmwalder@linbit.com>,
+	Jens Axboe <axboe@kernel.dk>
+Cc: oe-kbuild-all@lists.linux.dev, drbd-dev@lists.linux.dev,
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Philipp Reisner <philipp.reisner@linbit.com>,
+	Lars Ellenberg <lars.ellenberg@linbit.com>,
+	Christoph =?iso-8859-1?Q?B=F6hmwalder?= <christoph.boehmwalder@linbit.com>,
+	Andreas Gruenbacher <agruen@linbit.com>,
+	Joel Colledge <joel.colledge@linbit.com>
+Subject: Re: [PATCH v4 02/21] drbd: extend wire protocol definitions for DRBD
+ 9
+Message-ID: <20261127215935.7Z22nJ4s-lkp@intel.com>
+References: <20261125153511.3060599-3-christoph.boehmwalder@linbit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,16 +88,45 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125153511.3060599-3-christoph.boehmwalder@linbit.com>
 
-The pull request you sent on Fri, 27 Nov 2026 17:57:48 +0100:
+Hi Christoph,
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git thermal-7.4-rc5
+kernel test robot noticed the following build warnings:
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/f4585067150b85e33f60876149a6e742928da75e
+[auto build test WARNING on aa7014f8d7565cfea117eac36a5de0a05eba65a4]
 
-Thank you!
+url:    https://github.com/intel-lab-lkp/linux/commits/Christoph-B-hmwalder/drbd-mark-as-BROKEN-during-DRBD-9-rework/20261125-163451
+base:   aa7014f8d7565cfea117eac36a5de0a05eba65a4
+patch link:    https://lore.kernel.org/r/20261125153511.3060599-3-christoph.boehmwalder%40linbit.com
+patch subject: [PATCH v4 02/21] drbd: extend wire protocol definitions for DRBD 9
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+docutils: docutils (Docutils 0.23, Python 3.13.5, on linux)
+sphinx: sphinx-build 9.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20261127/20261127215935.7Z22nJ4s-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261127215935.7Z22nJ4s-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   Warning: Documentation/translations/zh_CN/networking/xfrm_proc.rst references a file that doesn't exist: Documentation/networking/xfrm_proc.rst
+   Warning: Documentation/translations/zh_CN/scsi/scsi_mid_low_api.rst references a file that doesn't exist: Documentation/Configure.help
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/display/bridge/megachips-stdpxxxx-ge-b850v3-fw.txt
+   Warning: arch/arm/xen/enlighten.c references a file that doesn't exist: Documentation/devicetree/bindings/arm/xen.txt
+   Warning: arch/powerpc/sysdev/mpic.c references a file that doesn't exist: Documentation/devicetree/bindings/powerpc/fsl/mpic.txt
+>> Warning: drivers/block/drbd/drbd_protocol.h references a file that doesn't exist: Documentation/application-resync-synchronization.rst
+   Warning: rust/kernel/sync/atomic/ordering.rs references a file that doesn't exist: srctree/tools/memory-model/Documentation/explanation.txt
+   Warning: tools/docs/documentation-file-ref-check references a file that doesn't exist: Documentation/virtual/lguest/lguest.c
+   Warning: tools/docs/documentation-file-ref-check references a file that doesn't exist: m,\b(\S*)(Documentation/[A-Za-z0-9
+   Warning: tools/docs/documentation-file-ref-check references a file that doesn't exist: Documentation/devicetree/dt-object-internal.txt
+   Warning: tools/docs/documentation-file-ref-check references a file that doesn't exist: m,^Documentation/scheduler/sched-pelt
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
