@@ -1,62 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795796350;
-	b=fKD09r37OGyViHyeQDSOvhJvVg+vzAPYkqqGVztwUMhFxV7T83+KBFIZ76rGcbHmb44V
-	 afbsYrHHcJMz+o3Bu3ZbWxsmjw19y5h0rsIQttzK+Bjp8MeQwQzSZOoiuAti7F0B+0Y8S
-	 0Svq9sbpCesCW/IBxDmjXtk3QQaD3cL8owywhxYoq378EQl/rj3mHU/bsinZzf66A6Gab
-	 aX58CTzL3r5uahsJ+ZQsAF8CpPcjqMvAfYx5rnDENLcXYPEC9RU3xn1dFuFdoipKfrvfr
-	 0nRnoObp4/8EvP8nbKKft5WaCvVtyMdwFl/Qt/EpCUHvMc0GYGBuCJA0fg2Aeoxoi1g==
+	t=1795796369;
+	b=JrEkRI7dBIW8hr3obS8ESXEgqSe/W1f0NJpHn5hsMaPyxJPYK6s0NJpWKsRTsWjrbQ+K
+	 bc1SgcjGP4DAS81HDbX1QBX6StTtvbN6RgH/jw0tn1N9LvUSuGUGLxYBbozWcJVwhx3Q4
+	 qAaXmwBiXexVlrqUGCF7KVgG+oCDgAd4KEus/EDMzenE+3QDzmV1de5j5aYXcBR7RBjEW
+	 oIUckGWipMghNr8wZTnDsMbgz3wDl9WyVXB16MWpgnz8XVywrZFf93AFv9wKXUlWT6JlJ
+	 y5wZxIFbZ4Yi+LJJfkQNz/ifE5KN45z7dsZDDXXXC+YR9ZG0VyVMfi/mz925cwn2OEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795796350;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Transfer-Encoding:Message-Id:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=thbSUw+NcaRtFGaoeja3yb9hwk+SlE5nf7vvDS++nS0=;
-	b=5AXe0x7qhcvioVsvljGfpf742WnOAdWgmiOiURR1GAX++1EdM78IazMVceQIFf29YD+n
-	 cUZ7OMRsgKER+a7Bk3uaUZmtWwfOUESC8xGo+l9gi2OMacqOnT2yEq8uIfNITyfUyhVMZ
-	 yvokwWT1v/0J95J9Pl+yDwMMxiWOETwMSn4kNp1gI3/w38B7P2Fn2DepHJC1KQQgmSzbz
-	 PTTo1g/8jmArZ5uHqWIeh77R1ikU+YeL31NI8qShjk09e5KFqKZ+e+Yo2aiews04NQlyO
-	 wJ46IVgzzptYRev36WKpZZX2ECczUETRsXmAW7aMqhJBEY5qoK6z2C1StskxB53Ixfg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795796369;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ZhAdBr4eVeyR1uUc5erg64Zui9aCY3dokPGCUAwmYzI=;
+	b=2Lz6gEHU5J8yQioLGTo3d+061XIggV1xTvWNm9LhX3C3XRB/QU7nNNT5tLrHHTA/aSLd
+	 ZtL/G4u/ByhGe9OGZmDD0cdARM19OsnMeicvSVyDG+nUMbs9xnxfFIX0Gon9KXfTHDsED
+	 bRBbeGKPAF4VpeRJWqgTiLaqegRrVD1rnNpkiBmqyuWr/pADfolGq9Q3GMYY/quLwyNXs
+	 3lTuefA5pMqRDBJCMA2CjGbbIpaCIaqY6hDjRmy9iHg/7NQAbIMxUdlMm1WiZrCkd51Lt
+	 1OWQa3ntyNgXeTodd1VQ1gIEvCr/ETAe7iOmPu8NttnISd/zTAzNLfRLHCIxuCEm7eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=StFTBzkR;
-	arc=none smtp.remote-ip=210.118.77.11
-Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O6fwI4S5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A6F3606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:19:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A6F3606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3183C606A31C;
+	Fri, 27 Nov 2026 16:19:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=StFTBzkR
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261127161907euoutp01b07fefd1bdea594470d7d3663f2a53fb~r80N9gt2f2496324963euoutp012
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:19:07 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261127161907euoutp01b07fefd1bdea594470d7d3663f2a53fb~r80N9gt2f2496324963euoutp012
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795796347;
-	bh=thbSUw+NcaRtFGaoeja3yb9hwk+SlE5nf7vvDS++nS0=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=StFTBzkRlAVWp/UM4q6Lini0xq6OON/zwmYpRdUCbm5EshkH2L8lNx7SHxsTtgO7n
-	 /uaFrAurgBRZVNCI7DgYNkDd5KJP/QrZE0JYVHA1Exs0btO21MOIi+VdzmevgS46Z3
-	 kB21Chccflvb6W/tAy9XY2PYgSn7gkr/NlGLY6Zg=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261127161907eucas1p1686924e9c6528a60f5a0f030b39c8436~r80Nc2E1T2130921309eucas1p1e;
-	Fri, 27 Nov 2026 16:19:07 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261127161906eusmtip22c9327cf774f99fe5c22a0bd78fe5c8e~r80MkHIWR3065730657eusmtip2a;
-	Fri, 27 Nov 2026 16:19:06 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 27 Nov 2026 17:19:00 +0100
-Subject: [PATCH 2/3] drm/bridge: inno-hdmi: Report hotplug through
- drm_bridge_hpd_notify()
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O6fwI4S5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CA441F0089B;
+	Fri, 27 Nov 2026 16:19:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795796368;
+	bh=ZhAdBr4eVeyR1uUc5erg64Zui9aCY3dokPGCUAwmYzI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=O6fwI4S57tnyDAlF2E26/bFmoteZ6IGKWuI3ynDi/g2p5Ir8Nc/vrd4fbstbrdoZh
+	 0wv1wIY1xc9+06RaYaiVE8gslMSGWbsTp35GSVdZCfCLWkF+OPamLrBR6RvDly+tzM
+	 cSPoqUZEJPrP7meYxglZbWe9keFqaXstDf2w/aSiIrXEpWbYs7EeJ+YrODqEO4bwQp
+	 538XBiNH//MIEQZRofha3OPqvF7YVkhaguBPdu55lNhnSK9Ffa4q61Do/L2rNVGmwi
+	 0QbxOELGqQg7CcOLzdnrKGoRRTQjb2cFexyQ9Fif7cjRik1HohZYV4f5k+y6ARPcNk
+	 odnCnKkxf6oXA==
+From: Mark Brown <broonie@kernel.org>
+To: Richard Fitzgerald <rf@opensource.cirrus.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ patches@opensource.cirrus.com
+In-Reply-To: <20261127094617.1932934-1-rf@opensource.cirrus.com>
+References: <20261127094617.1932934-1-rf@opensource.cirrus.com>
+Subject: Re: [PATCH] ASoC: cs35l56: Volume/Mute/Posture controls don't need
+ to wait for dsp_work
+Message-Id: <179579271405.838304.8365070984179886880.b4-ty@b4>
+Date: Fri, 27 Nov 2026 15:18:34 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,148 +59,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-inno-hdmi-ddc-of-node-v1-2-465622e1b7ad@samsung.com>
-In-Reply-To: <20261127-inno-hdmi-ddc-of-node-v1-0-465622e1b7ad@samsung.com>
-To: Andy Yan <andyshrk@163.com>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,  Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>,  Jernej Skrabec
-	<jernej.skrabec@gmail.com>,  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Yakir Yang
-	<kuankuan.y@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>,  Heiko Stuebner
-	<heiko@sntech.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,  Maud Spierings
-	<maud_spierings@murena.io>,  Byron Stanoszek <gandalf@winds.org>, Dominique
-	Belhachemi <db@domibel.de>,  Owen O'Hehir <oo.hehir@gmail.com>,  Michal
-	Wilczynski <m.wilczynski@samsung.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4272;
-	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=A6Cyc8hcvZ4kiVH7Xrz5DISwCd3hT38SbB8So07SO40=;
-	b=owGbwMvMwCGWumv6zndzRCIZT6slMWRzri239OPWv68eyj6ziG+6xC6N0Du8yn9EpG5u/fSlv
-	OjU9msvO0pZGMQ4GGTFFFnObow2kvzH8LT8+ONfMHNYmUCGMHBxCsBEPt9k+Kcn/OyzvInAY14N
-	k2Nzr37h3vlz9yJxubedMzReR2vYs3EzMnxPZX5+/Oa2CeGm5Wbi4UpRb7oOneL6ff3nblVNv8B
-	nFzgB
-X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
-	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
-X-CMS-MailID: 20261127161907eucas1p1686924e9c6528a60f5a0f030b39c8436
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261127161907eucas1p1686924e9c6528a60f5a0f030b39c8436
-X-EPHeader: CA
-X-CMS-RootMailID: 20261127161907eucas1p1686924e9c6528a60f5a0f030b39c8436
-References: <20261127-inno-hdmi-ddc-of-node-v1-0-465622e1b7ad@samsung.com>
-	<CGME20261127161907eucas1p1686924e9c6528a60f5a0f030b39c8436@eucas1p1.samsung.com>
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1174; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vZey22rggcpM5y9QG/7KyRSPl53JfaqCYiVSPZF11o0=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI51/YezWzY0T57qtqhKzW7mcPXVU9lyvK5rdr8t9b+a
+ nLm6+IjHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjI+4mMDC17dt0R/HF8d8A+
+ h0ums6J0Ew/znVlcJtF8akWXWq4+/zaG/x7rivW8/h5fc8J304n9lTFWm+YyKi9VeLG2nuXvrAc
+ b1zECAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-inno_hdmi_irq() passes hdmi->bridge.dev to drm_helper_hpd_irq_event(),
-which dereferences it in its first statement:
+On Fri, 27 Nov 2026 09:46:17 +0000, Richard Fitzgerald wrote:
+> ASoC: cs35l56: Volume/Mute/Posture controls don't need to wait for dsp_work
 
-	if (!dev->mode_config.poll_enabled)
+Applied to
 
-bridge.dev is assigned only by drm_bridge_attach(), but inno_hdmi_bind()
-unmutes the hotplug interrupt in inno_hdmi_init_hw() and installs the
-handler well before it attaches the bridge:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-	inno_hdmi_init_hw(hdmi);		/* unmutes hotplug */
-	devm_request_threaded_irq(...);		/* handler goes live */
-	...
-	hdmi->bridge.ddc = inno_hdmi_i2c_adapter(hdmi);
-	devm_drm_bridge_add(dev, &hdmi->bridge);
-	drm_bridge_attach(...);			/* bridge.dev set here */
+Thanks!
 
-The bridge is allocated by devm_drm_bridge_alloc(), which kzalloc()s it,
-so bridge.dev is NULL for all of that window, and a hotplug event
-arriving in it enters drm_helper_hpd_irq_event(NULL).
+[1/1] ASoC: cs35l56: Volume/Mute/Posture controls don't need to wait for dsp_work
+      https://git.kernel.org/broonie/sound/c/fbf1f115ba41
 
-Before the conversion to a bridge the ordering was safe:
-inno_hdmi_register() called drmm_connector_hdmi_init(), which set
-connector.dev, before the interrupt was requested.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Report hotplug with drm_bridge_hpd_notify() instead. The bridge already
-sets DRM_BRIDGE_OP_HPD, and the helper only calls into the connector
-while HPD is enabled, under bridge->hpd_mutex, so it does not need
-bridge.dev. Unlike a NULL check, it also stays safe against
-drm_bridge_detach() if the interrupt outlives the component bind.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-hpd_mutex is initialised by drm_bridge_add(), so request the interrupt
-after devm_drm_bridge_add().
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Fixes: 969325a2597e ("drm/rockchip: inno-hdmi: Convert to drm bridge")
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
-This was patch 2 of the JH7110 display series up to v8, and the code is
-unchanged from there.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Changes in v8 of that series, prompted by a Sashiko finding on v7
-patch 8, "Split probe out of bind":
-https://lore.kernel.org/all/sashiko-outbox-201623@kernel.org/
-- Report hotplug through drm_bridge_hpd_notify() instead of checking
-  bridge.dev, which also covers drm_bridge_detach() racing with the
-  interrupt, and request the interrupt after devm_drm_bridge_add(),
-  which initialises the HPD mutex. Heiko's Reviewed-by was dropped
-  because the approach changed.
-- Link: https://lore.kernel.org/all/20261124-jh7110-clean-send-v8-2-de92635dd857@samsung.com/
-
-Changes in v6 of that series:
-- Split out of "drm/bridge: inno-hdmi: Split probe out of bind" into
-  its own patch (Heiko).
-- Link: https://lore.kernel.org/all/20261029-jh7110-clean-send-v6-2-759594e43acf@samsung.com/
-
-Tested on a VisionFive 2 with the display series applied: hotplug is
-reported through the new path. The race itself has not been reproduced.
----
- drivers/gpu/drm/bridge/inno-hdmi.c | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-index 3bdcacf3cbc8427c8420eac9a37e3ecb79682414..bbc90ae9eaae04166d502c05fde52e126462b8be 100644
---- a/drivers/gpu/drm/bridge/inno-hdmi.c
-+++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-@@ -929,7 +929,8 @@ static irqreturn_t inno_hdmi_irq(int irq, void *dev_id)
- {
- 	struct inno_hdmi *hdmi = dev_id;
- 
--	drm_helper_hpd_irq_event(hdmi->bridge.dev);
-+	drm_bridge_hpd_notify(&hdmi->bridge,
-+			      inno_hdmi_bridge_detect(&hdmi->bridge, NULL));
- 
- 	return IRQ_HANDLED;
- }
-@@ -1104,12 +1105,6 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
- 	if (irq < 0)
- 		return ERR_PTR(irq);
- 
--	ret = devm_request_threaded_irq(dev, irq, inno_hdmi_hardirq,
--					inno_hdmi_irq, IRQF_SHARED,
--					dev_name(dev), hdmi);
--	if (ret)
--		return ERR_PTR(ret);
--
- 	hdmi->bridge.driver_private = hdmi;
- 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT |
- 			   DRM_BRIDGE_OP_EDID |
-@@ -1129,6 +1124,16 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
- 	if (ret)
- 		return ERR_PTR(ret);
- 
-+	/*
-+	 * The hotplug handler takes the bridge's HPD mutex, which
-+	 * drm_bridge_add() initialises, so request the interrupt only now.
-+	 */
-+	ret = devm_request_threaded_irq(dev, irq, inno_hdmi_hardirq,
-+					inno_hdmi_irq, IRQF_SHARED,
-+					dev_name(dev), hdmi);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
- 	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 	if (ret)
- 		return ERR_PTR(ret);
-
--- 
-2.34.1
+Thanks,
+Mark
 
