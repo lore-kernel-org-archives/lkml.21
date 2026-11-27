@@ -1,93 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801214;
-	b=ASfhuBUprPGl//z9wjG4kdbpDxyoXSwS+R8LJkkSIJ0+XZKwhUnYp20fJDIlI7WwKDSi
-	 boNGbiLhOn3XtwOxSdKht8V/NxIynoTd7mnobsdr1eWvjb7SDKTb2G2xWK7hB7jqRvVjM
-	 wPKoulrGjmeM8dRww7omqsov1GDlratw0f1JKQvtgU8deyvP5Z6UCAAKF6EltQep3gXkH
-	 HjFbnfGat+gi+azccOhoAt7/bEFjwCmWo+vBxyz/wd99K8tKLnZf0rygjNqYPE3JkSgY5
-	 cd8MoDyqQnu/HSOnUmJxDhh3Od75ku648HxaKRLBRxXtUfKR40A4UtT06Cdk3dY5K4g==
+	t=1795801215;
+	b=mu6SGeQ2zrEo6iR7D+kQ5+JFVl5ZkW5xzDqBFYj1MyldekQFx2og6dwqFLcrn/F6MD0h
+	 g58XT4aUbCYUD88R/YjbeDdMN6iVTcY5LtbZPt83kfMdwsXTIu3x9VBVKpxFSxD45NGur
+	 svXTDD+1E0XgdBFm03/8mpDTDeIgk/pwGJOTj/UKf6b+AWBkQSNjabbYk1MZPLith+LfV
+	 enBI9lWLOuqjNgySuKdocxS1Au9GKwi0Pil+885vuKdJpvqN3x4GlFsbfWLto4zOSsCzn
+	 AXuVDEcYXGfk9UQ9FCT6S0orVWxz+bCaBuVLIDVZdCQgQ9Rtp9/A0NwLgmqBbbq7Wxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801214;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801215;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
 	 Content-Transfer-Encoding;
-	bh=QO1WMSUsoU7d4+vr/dMAYRmW9+EjtD97ziyOCmzqtAw=;
-	b=bHwUOgRa7B56G5l3CDLayZf/MfjEe2xtoS4evVSRw8m5WHhtGbnV6aTWFvUb/P7R2ZUU
-	 EuPEaKnS5eZDEtKKc72LL9AADoi3Baja2lyOJy5N0PqqiZyizdAL5hyTpdlR+LW5UzMHT
-	 3GQnhYFhFDeBibimQXXnvpxFvwxAIHHKUmwna3SoJIqG1HVRm/MK8+jNiSEi6rH6dhioW
-	 73QS9FzdBuV1DZCD7DZMPNB/hFrlpFvTN9uqzF3EpjkFudr7sncPwAZyc090mDzU09g/d
-	 IQIXLShq8vo8DH1PjmIHLMAat+Kb+bGYVmmMcKMCpB9+Mt9umoglKkulgLK70F3X3FA==
+	bh=rvkQhnQ3gDZexPEzpwSApUMeXfCt1mDiFOxJe9Lt4zA=;
+	b=lsjiXb5FleH87HupYSkuiVZMTQRfh7BrYvCDINLs3ccbor40sk6kaxBzBTguZztbkkwT
+	 NhjmkCCZkAk4xUNappXyW5q+GL+hylTbaAER0QuNT1sDZ3i7LkNcXt+XUOJu9Ohntw/Dv
+	 38h2CzpzVuNz8ctdJ3T6ZbnZIS37yzOtMqTzIi/GyjhcTtsElpRJ/BF63ApOy/FIagzHr
+	 04HMsS+yUxFVKb1jtra1nPlgWvGvQTstZAweB5k2kaBS6axq/6VXShvVdzvQd24hRz5Yq
+	 QqcDzRC2yRSvmVG3Xu5EG3UD7oUAHRb90x2sYe8IwMVa8Fq2XzIPPMZoG5xWxvKkS2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=NEcjCA5k;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=dR43ZBCU;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4B3E606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:40:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4B3E606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D21A6606A334
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:40:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D21A6606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=NEcjCA5k
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4b52fcb410dso3369134f8f.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:40:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=dR43ZBCU
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so5242341f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:40:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795801212; x=1796406012; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795801213; x=1796406013; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=QO1WMSUsoU7d4+vr/dMAYRmW9+EjtD97ziyOCmzqtAw=;
-        b=NEcjCA5kQNjo9s+AnKKJpIRZpyKuDNJLX/AhwnHh2pCizzUdyeDknE2stQ+NKqqncT
-         SpoWUyhQcXs2NlHtI3L33xvHIZuscjeugEuqQfD1xAyWJn4pSLKJ9drP0TLRhKndTUKq
-         u+Y0TTHvts5q+26IHDncmGh5JpMjv2U4QuJjTzFh88tRiFRAgTs6lR3UMEjlPbXf9n7M
-         u8w8HrfHE8j3e5UZr9FtweIKeyX1kbxruhs+VD1Zi3zm258R3idTNOtZctjqsRKHqz9f
-         ee7rQA8q4B6AVyKGYwsTPQRVC0yP1G5In/ukjiREhNP2E4PUEpJh5IOhK161EkpKOmtH
-         CUfA==
+        bh=rvkQhnQ3gDZexPEzpwSApUMeXfCt1mDiFOxJe9Lt4zA=;
+        b=dR43ZBCUwCdHsdokV2dvXBDNIpU3K+Qdanl3cD1SiAo1b4KBCISjdNQIBl1NCmirRP
+         vUEwJqx45Tg8cTEKRJG4a2BPQZM9zpm/zM3JbYH4JNdm5wQHTzhDrJwobBJNaq99vy6j
+         eqATIvpihOUgJxwIXqFXKMCvQInHW7HTAxC8tQlJSpIgkP7TdgYkR2L5eywpkPQt6LRi
+         D4L/1Fp810Nq1TzkJ4svmSKioeysYilRVwqtgxc3I/vmYqZxFHgzOxfVGjO3xV2oUZIo
+         MHEukY9W73wwv+MRUeZ2VStWk4wC0q6Lq8XYEdBo/NOXxOsSdSSFwylmJxvAMSIlAhRR
+         gw4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795801212; x=1796406012;
+        d=1e100.net; s=20260707; t=1795801213; x=1796406013;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QO1WMSUsoU7d4+vr/dMAYRmW9+EjtD97ziyOCmzqtAw=;
-        b=A71qcKuuUmbPu4ENqcumEf8PuS+8/S+Diois2JzGnUM177JoplhWVFCm8Wbga+1GHV
-         8pkUt3MG4Huf93RQ8yMKw8BZb0kN+/+YdA1L1bx2vcsaMkEr7s6UExFqTUD1apWAVccF
-         CcbI4vU6qtAOzYztyDq4QRBMk00C3som5TpUGr2NZ8POg6EGTZSTU7pldLJYYIDpbKLt
-         SHCG2VO4EqJRWGLt/SQjXoiSs6Vvfd6kLQZXZoQ/vJQ030GHs+kg4R1irPchprZSJyPp
-         cOBuz81j47xNdXFDQsiiOsNxC3vZRwNCGifiSQOZ6zFnBau7+ZhWZufylBK2C4lxyiXD
-         jrIQ==
-X-Forwarded-Encrypted: i=1; AL+hErFqOVoM57Mz8Vg0lyxvhq+FANFYe0v6layHG0jJyvYye/ufZM6CoYir4u8UGpzmmf4wTKdMCXN01znutB0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9M/tn0L31iMnE1MIFOZWX2FpoL/Jg01MpHkbjcw+bqLiW6rbf1
-	l08l1jVlVa/H0jnMePBNf2omDtXKVL7JQsz5qIudm6OUUJU1txsOL5JDZ0ZjGwiTC8Y=
-X-Gm-Gg: AZFdTZf9azSEHsQkIhQZuKf7LUvC40C1gbx9vGJtoyJXeDxrCRf/yLsKBRY/Vn/VdAr
-	s8Mjz9oSFvi9chsWdVdFlZBFA3sjrnx7p9PNgjjNlBFopsEKx2x+m6weqiOLiMJDaZzbwYe+m+J
-	j8SWrAV3ivwWC+Kku9T5tswmCsS0OkO1J3r7xaI4jG5XYJ/gn0nxXjcM+8JmNmMIlbONkEOEBtD
-	m2QsJBjNqLKzkVTyUGlctlTxNaRWY0DjWA8JQSYf+RdHEbgVL+d5yTmpBDDS37+e8CPmjES42UH
-	1xS83g5YNJioKFLt+oohpvOxnx17lGW6wxVQqoux5BZVshiPSoz7yTFNVomvwAblu2T2FpCk1z9
-	o76XB627Pl0zi/HaE55Ul1UZWPblxnXgMESp5VNEAnm9lsWOCewKZC1wjW2lHsWjKhLkxiPAVPr
-	Z8tNB8rf+I92zxbGJiTo84CQ7OqX77yciQaVQa46bjTDATfF/1X25r+KhohEDOZFMjpZKn2gBLQ
-	hewAN6q5beJ4KHhD4jiEFBgjQzUmKTsKtxy6HokvL3tX5HtYbkvEDKl2EQfx6mgw/g9QVviBQa+
-	iKuCcFt1Ftgy/4s3gh+RLT2IMnYxSg8ExBxpydV2URMG9VWmvEMkaIK7Bc8hsDejEmtzVHSck/R
-	eIOerUq/ImIYTItYlzyG4xydsdIlO2XsFzvRV9g==
-X-Received: by 2002:a05:600c:e553:b0:4bb:9457:3c93 with SMTP id 5b1f17b1804b1-4bb94573c9amr313939755e9.2.1795801212019;
-        Fri, 27 Nov 2026 09:40:12 -0800 (PST)
+        bh=rvkQhnQ3gDZexPEzpwSApUMeXfCt1mDiFOxJe9Lt4zA=;
+        b=LDs1mYYVI2qhkMxOKN3uz29onPuExusd17n2d8EsIv+E1pxrbdmWWj1g9PYPV2E2uk
+         ZRmn4ZsQIZ/aBZjgmBM43VbokKLPXOMTOL98ebLc7RqtaB8JhWRXdftrQrLIGukF34wP
+         7Wbs6kqwCplpWzINSJJAH457Il6LdwQC1sDjuT4V00X+3FoqUdiAC/m6btdAyOFPkWKN
+         fW/dNCXILq6R21y/oBo8fl4JiPb26O1GLsOJnogmEuyh4KjZbur1oSfk6awzgVHS/Kax
+         Q2KlUL0KVHC6mnyEsbUjFNrgpfgVF/RSWbcS3R1jJ6vtEidh3Wq+y0vxdGmVc4qVpKAu
+         4khQ==
+X-Forwarded-Encrypted: i=1; AL+hErFSBdsXig/O3+HLwH5HUxII/avNzduOmttKZYz4EhrXBoF3Q889Zd+zT39220nWU3NjWnG3o3ayNJRoOQ8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AF4lt0/dbBEV2jSSJmyJIOLpPjeJNL9Upjcz7bsthcpIFg3he
+	CfRCJfEydkjoRqrO+0+KgZgnZULSPjtrmGfIWlJvfwUi238XSieWdQIEK2OxMH2UbHw=
+X-Gm-Gg: AZFdTZdNa8aA40IjL8F0GaWdI3fwf7rBGYyNCciEt1do2w09jZrYmmT5LTM3bpJq9XN
+	okpDkdfKj280Ah1vaJqVh5DZd/KZRmKjg8JqButWUJGXDX8IUyigKrkVlcjsXOxex7CMybhQ6Lq
+	VLFNGaP0Qt4gf6mf3nvFimJFFMcEVEusI98HUYsT6Y4hluTekaVYoaVVh6Xf1cLhA4irFSrbPkm
+	j1UL5aFwKHvui69hSepY6UBWp9dBsmRwPDSKOfcSq4VhSOFgjVzpwbNeQVLgMmI582cHCWIrZmh
+	1f+pEijY0WwLmbc3iI18QzKBQ8jQb9B8ceoRMivC6iW0MeoKpESJVcH6t04LyIy3JVod8CsoI8E
+	JB+F7mR8yVI+dbOK9WMltNSnFrYClvRroKeqMJGJsRuUEWHeJ38PTAvCiSLNruI5Ut019t2UtCH
+	H/wNl+vIPpgTbwvLUPdbRmI0dFhaV//Q1oIZJqXAKniG6YXZccrGAMrnY9giLQoS7quBp9NhrYm
+	qjctZkNtvZFX68GqhKzztZpFvDElI7qVNsQorArGL2t6gHCTo7eWhKc8O96nXt7GxZyuFSg/yNC
+	M3+bwhC53S1yNDQyW/6KjvqxOo/WQnS2FWSKRlpCFi2dEe+o15BKuOplm11BDtQIpFYNq29hXN2
+	IebVs1yFOjEX4Ke/O
+X-Received: by 2002:a05:6000:2c05:b0:4a7:ed95:7c9f with SMTP id ffacd0b85a97d-4abb19c16a4mr50384565f8f.22.1795801213192;
+        Fri, 27 Nov 2026 09:40:13 -0800 (PST)
 Received: from localhost (p200300f65f044d0890ab5f15b7da13fe.dip0.t-ipconnect.de. [2003:f6:5f04:4d08:90ab:5f15:b7da:13fe])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb88402ce9sm584249525e9.0.2026.11.27.09.40.11
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6b110d56sm47817846f8f.40.2026.11.27.09.40.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 09:40:11 -0800 (PST)
+        Fri, 27 Nov 2026 09:40:12 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: linux-pwm@vger.kernel.org
 Cc: =?utf-8?q?M=C3=A0xim_Pedraza_Padilla?= <maximpedraza@gmail.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 3/5] pwm: tiecap: Use dev_err_probe() for error handling in .probe()
-Date: Fri, 27 Nov 2026 18:39:42 +0100
-Message-ID:  <275368fc5d2f50ed42b0c344712eb8753f34131a.1795800756.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v1 4/5] pwm: tiecap: Make sure the input clock doesn't change rate
+Date: Fri, 27 Nov 2026 18:39:43 +0100
+Message-ID:  <cf0bb39e659fb506eaa3eee346338381e4d3618b.1795800756.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795800756.git.u.kleine-koenig@baylibre.com>
 References: <cover.1795800756.git.u.kleine-koenig@baylibre.com>
@@ -101,114 +101,34 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3331; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=fanNnHi/RF88/u9VlLCWbekpr5EixXr0JbIpj5nsOes=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrCcBkWjxsxnINFGpBRxMjWRSmhBNhpvtxaaIwg 4ercOjy4G2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawnAZAAKCRCPgPtYfRL+ TtsjB/0Tdr3i4C6xGIWj4FqEbQqyuvgRIPS2zCuNUQkjT9Hwxo4b38gDNpQjy1mBeZSvZf3Om/M XWvAzhHsoAYx60bQOBE1Y44tNkf8qC7MT6CXLqLuX2bKBkmK36Dwbne31v5pNngt66j3Jyp0IyV 63GKhaVscNyROvLzTlCZ//7i8/a1FEGG0qxvgTm7DrJkgsmsbGC4uuYyX/uC9vKSWpjYIMkoaCV ocI8RG7SRjYM/niVKSUQpfK6GPVO7c0YFr+pgJ1SqiLqU61yVh3M/2SE6muBYzq0xF7e1LI+Kzv OmB5Ckk4ZVFputYO7vqZfDRlYtGqFcA0Bb6csxwlioFihf+d
+X-Developer-Signature: v=1; a=openpgp-sha256; l=937; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=b/a6uxnrk6pYA+orPJD4C66GD24gVjrMfjZs18xuNkU=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrCcBmiacGSqh2LVENmfXyBBELOe4Ir4vjkWYKx 1k2boxCVImJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawnAZgAKCRCPgPtYfRL+ TuN1B/4t1FExgceYFxoXrNKnByvqgKqgC2EeizTU1BLPPaF6sazFuOOR4kc0smMTj0WyXOo3edC +Etqli2BMt4PWG7FQakiZRiieCQbE4MxENLDWNKPgZFrvp6u9qktrERAA5GJ1ZeDA70KD3BWW+G Lj3725+y8Hu6TQEo53uw6uniEpXgOBr7N/qhifl2OEv8RQQfN4xM41MsS5gHkdI6H8iefxVvu7H hmtg0fkWJQrTbnsJ79x3CisOk3SJhA2wY37EATUVttYfXHaDy9IfVAKWYe4ZA3RPRJ/ZXsuTMVE onIgoTbvrQ8xPho2GLH4DYEjoSGjevJNcPIgjL3aBAmg8fg6
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
-Usage of dev_err_probe() is more compact, (usually) emits the error code
-as symbolic name which simplifies interpreting and also properly handles
-ENOMEM and EPROBE_DEFER. So simplify the error paths of the probe
-function using that function.
-
-Also introduce a local variable for &pdev->dev which is used a lot in
-the probe function.
+Correct operation of the PWM depends on the input clock not changing its
+rate. To ensure this doesn't happen, lock the rate using the devm
+variant of clk_rate_exclusive_get().
 
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/pwm/pwm-tiecap.c | 36 ++++++++++++++++--------------------
- 1 file changed, 16 insertions(+), 20 deletions(-)
+ drivers/pwm/pwm-tiecap.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/pwm/pwm-tiecap.c b/drivers/pwm/pwm-tiecap.c
-index c441df9d3f62..a7665e514865 100644
+index a7665e514865..05c38967504a 100644
 --- a/drivers/pwm/pwm-tiecap.c
 +++ b/drivers/pwm/pwm-tiecap.c
-@@ -254,42 +254,39 @@ MODULE_DEVICE_TABLE(of, ecap_of_match);
+@@ -284,6 +284,10 @@ static int ecap_pwm_probe(struct platform_device *pdev)
+ 	if (IS_ERR(clk))
+ 		return dev_err_probe(dev, PTR_ERR(clk), "Failed to get clock\n");
  
- static int ecap_pwm_probe(struct platform_device *pdev)
- {
--	struct device_node *np = pdev->dev.of_node;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
- 	struct ecap_pwm_chip *pc;
- 	struct pwm_chip *chip;
- 	struct clk *clk;
- 	bool running;
- 	int ret;
- 
--	chip = devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*pc));
-+	chip = devm_pwmchip_alloc(dev, 1, sizeof(*pc));
- 	if (IS_ERR(chip))
- 		return PTR_ERR(chip);
- 	pc = to_ecap_pwm_chip(chip);
- 
--	clk = devm_clk_get_enabled(&pdev->dev, "fck");
-+	clk = devm_clk_get_enabled(dev, "fck");
- 	if (IS_ERR(clk)) {
- 		if (of_device_is_compatible(np, "ti,am33xx-ecap")) {
--			dev_warn(&pdev->dev, "Binding is obsolete.\n");
-+			dev_warn(dev, "Binding is obsolete.\n");
- 			/*
- 			 * An ugliness here is that the resource freeing is
- 			 * bound to the PWM's parent device instead of pdev
- 			 * itself. Not very relevant for this obsolete binding
- 			 * path.
- 			 */
--			clk = devm_clk_get_enabled(pdev->dev.parent, "fck");
-+			clk = devm_clk_get_enabled(dev->parent, "fck");
- 		}
- 	}
- 
--	if (IS_ERR(clk)) {
--		dev_err(&pdev->dev, "failed to get clock\n");
--		return PTR_ERR(clk);
--	}
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "Failed to get clock\n");
- 
++	ret = devm_clk_rate_exclusive_get(dev, clk);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to lock clock rate\n");
++
  	pc->clk_rate = clk_get_rate(clk);
--	if (!pc->clk_rate) {
--		dev_err(&pdev->dev, "failed to get clock rate\n");
--		return -EINVAL;
--	}
-+	if (!pc->clk_rate)
-+		return dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
- 
- 	chip->ops = &ecap_pwm_ops;
- 
-@@ -299,11 +296,11 @@ static int ecap_pwm_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, chip);
- 
--	ret = devm_pm_runtime_enable(&pdev->dev);
-+	ret = devm_pm_runtime_enable(dev);
- 	if (ret)
- 		return ret;
- 
--	ret = pm_runtime_resume_and_get(&pdev->dev);
-+	ret = pm_runtime_resume_and_get(dev);
- 	if (ret)
- 		return ret;
- 
-@@ -318,15 +315,14 @@ static int ecap_pwm_probe(struct platform_device *pdev)
- 		writel(readl(pc->mmio_base + CAP1), pc->mmio_base + CAP3);
- 		writel(readl(pc->mmio_base + CAP2), pc->mmio_base + CAP4);
- 	} else {
--		pm_runtime_put_sync(&pdev->dev);
-+		pm_runtime_put_sync(dev);
- 	}
- 
--	ret = devm_pwmchip_add(&pdev->dev, chip);
-+	ret = devm_pwmchip_add(dev, chip);
- 	if (ret < 0) {
- 		if (running)
--			pm_runtime_put_sync(&pdev->dev);
--		dev_err(&pdev->dev, "pwmchip_add() failed: %d\n", ret);
--		return ret;
-+			pm_runtime_put_sync(dev);
-+		return dev_err_probe(dev, ret, "Failed to register PWM\n");
- 	}
- 
- 	return 0;
+ 	if (!pc->clk_rate)
+ 		return dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
 -- 
 2.47.3
 
