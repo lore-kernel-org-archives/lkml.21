@@ -1,111 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.140
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769308;
-	b=m8ElgLM9ohocGpIOe+nV1NQty1EioShYYTe+V3IsXHOjl/01T3Lvnd97bVOQLbRYIwfU
-	 m7QiIQqBtPI7D6hT6BZdjsZJ+pNlqmA2PD24vzHPar8yuYtQ8qTDiNnsL2w+J6tgWs9mh
-	 esxO/ObEAPnuGn5RmHAcOGaVC65KW58lZ344nhfK6zZF5Im3/jpxlYIX9hS3DvueuUIAe
-	 +r0CpVsiotBWobdDJm4z8ZfFarGPD6VAO+HgjBA5wK+GDy6DwyGgLM7i281jgpGKJre+k
-	 axM3PPAA9jIOX1r8nTgBaOphWt+doekAt6Jhp8FV36GRAGwofWkNkVQADtT2Ayxz7RQ==
+	t=1795769305;
+	b=3b0qf6Ei78IF8gZX40d+Th3UvwspX1qWTRixqu1EebTEwPL475rwqsXE8oZbneK9z4bM
+	 HGEesSdDzEl2ezl+UA/W8IJiE2JBuHu+RWiobtW7d4EDIjtYhvwCtUzQaoyNnt9J0H7uc
+	 s9JiujXjGGBxPMln3Xm7DUr8rbzQugLAkPbUjVExxGCvBZnQ7kILObz9YwG52uk4E56Xp
+	 3xtd5kJBqQfvKacYTXYeUlFenaEswtyHHJxITF2rV6kpPxinuBHIh54dmNNG1tRExsF6I
+	 I8KJggFhpsgOrB02ZwUp2pDcIEvsj77Bt+GSg+3Eq/wLSmd7AE+fk0rt54nAUiHDWgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769308;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=Bq8jaXTmaTVOm1HnIUBxNvucsMXgxRAtowk44CaD1nk=;
-	b=M4HmX2C8zFsu+NledXpxdQYWMah7q7n1K3U1z26tpr4BJzLh67BA9Htwymn4sMDSB+J/
-	 9/O5ZdxcXjccEap3NlTxK3qGi6eAhHLhyopk8Bvkldz9eRcFLCnuzi+P+liFVYc2+s56f
-	 rTpm1/nXBQIp5nrvgT0FXPAp3byfriTc7pcPgtAupWf+CyAiYk7KN7TkbBjMvv1Ja8NIn
-	 BISIEV8S0kjEdGH1IAn6oewGvwOim+K2yMGMfHSughMVMalFMrPfnjkVqfOMhnhesln9O
-	 yoLCTkgTDipMpG1oOyflI6BvAi086SgH0IkePYBvda5Wxjr+dGstEJlk/Jk6C4lt8OA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769305;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=dWrqiD90mUdp7Z+CBPO+3ZBHkvvM+25eA7zawwe2TO4=;
+	b=YxslTh0VGjQ4j1GcQw7jtM83wLE47w7Nz3IVy2ZUWX/FMtoYpRG5WgwNCv6XFpflYrlL
+	 GvNAMqycHAm/PG8/DEzmpVtWNcy01EcQkxiAApuEU+xYLv/ePg90fLC2hvPjS9glAi01c
+	 PWLdLU6fPz7PVeV9JGvLN88DL9pD4H4KbxhoC5NKwlEylSE9p8elhuF4kVJ9816iE8Tqm
+	 JycmL1Hi6KdFPZpgqSafd3hHQWBF2W3n/WQ8uSdVbBKJ0wvD6IVRk3x30QZDyu7um9ZDO
+	 McI4fhjrcP2xdNQBQzfUUOA2kP9/P/zxEYdMXKLH7mNXDkTPekloK/2T3LueUzEtK/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=glider.be;
-	spf=pass smtp.mailfrom=glider.be;
-	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=HElqGJ2z;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=4sJDkyGF;
-	arc=none smtp.remote-ip=202.12.124.140
-Received: from flow-b5-smtp.messagingengine.com (flow-b5-smtp.messagingengine.com [202.12.124.140])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDvWm2Wz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 399AC606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:48:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 399AC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0ABA606A326;
+	Fri, 27 Nov 2026 08:48:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=HElqGJ2z;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=4sJDkyGF
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.stl.internal (Postfix) with ESMTP id F127A1302EEF
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:48:26 -0500 (EST)
-Received: from ams-imap-13 ([10.64.2.33])
-  by ams-compute-02.internal (MEProxy); Fri, 27 Nov 2026 03:48:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795769298;
-	 x=1795772898; bh=Bq8jaXTmaTVOm1HnIUBxNvucsMXgxRAtowk44CaD1nk=; b=
-	HElqGJ2zQa754E+/KOP9qaMFT5g/tNdPotYxW7JHlg4JA9ScczJn+FMAEAlbxB4M
-	7HPGOA9xKPqOuAcFLAjd1LWLINbviefUBTV3bxaJ08unHRKckHL4oloYVhemZa6T
-	gd7L2vNWkEKZFseydc0dDFZXzL+OpJPgjvjLpOAVYW2t3zsvJPAXpzt9KGK9vDJ2
-	GhFg52hovSlsUB8hJsy+N1Qzw7snG69NvRGrpe6Exjj2NKvINa5IO4k6n+ttNqSO
-	1bPzIGzVX2xDY2ld/B6vgl7eyz7PlHuvPk+Odqi/u72loFJnwZL2MrYVXFWS5oD6
-	g7UpwpTw6PIHmJGDn21liw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795769298; x=
-	1795772898; bh=Bq8jaXTmaTVOm1HnIUBxNvucsMXgxRAtowk44CaD1nk=; b=4
-	sJDkyGF0O+xE1jDPWTdsdyULTHg7Dqr5UerGl8L4Qgj1aTJvvtUZTGvW4UsGOC5m
-	M3olFvOJJSnf0wtadZKkWcwiXrTK6AI9P0ORCxScuAY93BmRyrIfKNaE6JRuPq1O
-	ty/ybsGrhKng//w5eb03leA/83/kRRy4y97R9BhQVGUwdi+z1D/2LwXSD1OPND4v
-	M/MsXcTq41utMLmHmCQbvxwD/EOqZaM3jcSDxUQJHyQvGk+UY47p5WAhh7fKEbN7
-	+ssZ6Auz/Sabp2bsaeOUHs3Ej12OkdozN+eh0GbA45yolHQY9xk7fWZU81W1Ciql
-	JBKp8HZ8DRQrpM6A+fOww==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=glider.be a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795769298; d=glider.be;
-	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:fT8l6YngJ3qmc0AAlDczy3EyQs3IyljcGysgA5DHW9wf2lj
-	YNXI/gLpc4N7yE/tZAcn9iGbZ1rFmDtCG/UVdIM+gXcTNnjxK4HWrzkb3qoscsqu
-	2e+e3xFYJ8DHrOwDMKZN05+y9us5/ehbY3U8v6YUo9RB/g8UUpxNp68i9FcBonen
-	gf7/kWJk1HJ5iY5VQtYNZX74hw1cWerlDGAInN65jmLKDPVxiytqySj9rL7n+rYA
-	qE/HwxeuQsGSaaxII5IKraRvMsYUnthdrPg5Gxw6ZzSOdfXmMCeeB6/zNTNhiAOI
-	EISm7pchk2YD0/zRpU+O/jEsvdoAthfRKe9hdfA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:N3AG2/C8mqWvB4VqRP1V/uZk4qZTzDP8pyM9QWTuWqg=:zz2/ZQPdQENkKPfPwdQsXdkq93N8qlJoZ6NJkqdiuIE=;
-X-ME-Sender: <xms:zUMJa8mdPtjhI6Xx0k9Ff8uk-i49QEpHduqp2UvgSgtRgeE_pcY-aA>
-    <xme:zUMJa2qYRvPbBCN9lrHVf1J0QApl0tihWrqh0x35C4wngSI6Q5ObvrjzozyQeFC_9
-    GuyqiIf42t3He_K0y5_c77p2kqFKCvgu-hCY5s46s5PrQ9OC_qkuA>
-X-ME-Proxy-Cause: dmFkZTEBLnNiTe1rgsjNPInjInzY6bqlwwtM6YeSzlhvI/+JM1de/m6VxBrof0zrpgtp7v
-    6k3uzrnZAhujxkdWLnjBYKuK9RQq0YIuLjrdj/V/QQMlwm6/UTGH1rsW8b4hYxb241hxZI
-    3fCZwe6mI3l6jIDIeAsqqaUgSlgEQI1TluQ1X7MTZNRkN6refM5QTKbH+18ND54pDExEjF
-    t0RKN+F6AER2azSaLJ/RzdOaEGo8hPGtp9r2h763YNPz2/Q50DVCYUeY2XiGl4TlWlV8vD
-    XuDjrLRD0T3LHO+jYRn0z8p0YiP3aEQ2SPPjT/wrNW4HdPKpSALDSigvjncIjkt/ZAQ6La
-    Ml+8iEVx+13B8+fgsRQ1lwANlZqKcwvr4C1OEsRmqEZ0JVJRcWV3uFO68OhTo0hSjow+1s
-    3TW2IjfWqFJOs+geGKXTUR30kS3Ltmq5KnenIuLE8QFDRfGZc/2RWdLkExo2IWZ4sm6C4L
-    J7LNXxxy+c5v3j7OYfc4B40izAsAuoYD1uWMosoTPvjzjRtlr2d67Pso4KZ0hm5JaCpBDC
-    G79s1kgXdPjy4KX1NT3n6lp7nAIm1zBjOgmBJVOK6HfXHLX6ti5Y1Ty0ibVeSC4RgklWWv
-    JtK9hIt/ZYcKqjgXCsWNDZEhBJLvQDbnV3xiFtXpKUbaXsXus5ICE5r6SAqA
-X-ME-Proxy: <xmx:0EMJa2ztwMxcGg7vZYZd2pj_j-B4I2dUPQOXLcC-K9-3obMC6kQB6g>
-    <xmx:0EMJa6IpryVyd1yZ8688GuPG9ufPst4xN7Z7Eit3NxQ8CV7_RO4z8w>
-    <xmx:0EMJa3ulB_yt3z20rY3g6gJFjWq4GdE_XOEZSzQPU-1E5Io8ujZaPA>
-    <xmx:0EMJa0R_o3mPBRuJHvQ4707PQZTtfdWE5VDnitLwv3YAC1-PQDiIUg>
-    <xmx:0kMJazDqBMt6szK-c_dGtKcCxgpsZ3dvAKXm8bww8hbi4Suc_ekHaAxC>
-Feedback-ID: ia0f84a9e:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 061ABF8009C; Fri, 27 Nov 2026 03:48:13 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDvWm2Wz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B07361F0089F;
+	Fri, 27 Nov 2026 08:48:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795769305;
+	bh=dWrqiD90mUdp7Z+CBPO+3ZBHkvvM+25eA7zawwe2TO4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fDvWm2Wz8+878TKY/Qt+tc3zvNexpvJdGYM904sC6kb7H7noGokc9RE9GbAyGPsms
+	 URGf84ATX3T5oZlfL5KZXKMuOTyedy4v/26EIfwGH/VyQwpUO4ygG2f2wg1PrTNKzq
+	 9+VwHt28E1M1VQ9LDkbMDSSMbtcJWa6dfRuaGxDwGuvZb2gSJH3/AWM0q+JHES113n
+	 UHveXG0MHsh/XjJ7Mnt0LO4qDf5Iys8w0CsjulTU4hmEynQXm9h5cDq2Vefbydlmk0
+	 HXKydJnqa4cCPtkR5/kG8uu/fV7sVTlbD8ZAlKCjg7pUzOU2P/yWYKbbKWs0V5cJE4
+	 J5zqUeH6AoS4Q==
+Date: Fri, 27 Nov 2026 08:48:20 +0000
+From: Lee Jones <lee@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Hans de Goede <hansg@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mfd@lists.linux.dev, linux-sunxi@lists.linux.dev,
+	Sashiko <sashiko-bot@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 0/5] regulator: Add X-Powers AXP318W PMIC support
+Message-ID: <20261127084820.GN38590@joneslee-macbookpro.roam.internal>
+References: <20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,70 +63,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AiqImcDMalZZ
-Date: Fri, 27 Nov 2026 09:47:52 +0100
-From: "Geert Uytterhoeven" <geert+renesas@glider.be>
-To: "Biju Das" <biju.das.au@gmail.com>
-Cc: "Biju Das" <biju.das.jz@bp.renesas.com>,
- "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- "Linus Walleij" <linusw@kernel.org>,
- "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>,
- "Arnd Bergmann" <arnd@arndb.de>, "Luca Weiss" <luca.weiss@fairphone.com>,
- "Eric Biggers" <ebiggers@kernel.org>, "Michal Simek" <michal.simek@amd.com>,
- "Sven Peter" <sven@kernel.org>, linux-kernel@vger.kernel.org,
- "Lad Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- linux-renesas-soc@vger.kernel.org
-Message-Id: <78b56316-f9ab-49a0-891c-1ce73ef3f381@app.fastmail.com>
-In-Reply-To: <20261127083642.131486-1-biju.das.au@gmail.com>
-References: <20261127083642.131486-1-biju.das.au@gmail.com>
-Subject: Re: [PATCH] arm64: defconfig: Enable RZ/G3L LVDS driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com>
 
-Hi Biju,
+On Thu, 10 Sep 2026, Jerome Brunet wrote:
 
-On Fri, Nov 27, 2026, at 09:36, Biju Das wrote:
-> From: Biju Das <biju.das.jz@bp.renesas.com>
->
-> The Renesas RZ/G3L SMARC EVK uses the RZ/G3L LVDS driver.
-> Enable DRM_RZG3L_LVDS so the display works on this board.
->
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+> This patch series adds support for the X-Powers AXP318W PMIC, which is
+> used recently on new boards with Allwinner SoCs (the A733).
 
-Thanks for your patch!
+Doesn't apply.  Please rebase onto v7.4-rc1 and submit a [RESEND].
 
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1057,6 +1057,7 @@ CONFIG_DRM_PL111=m
->  CONFIG_DRM_RCAR_DU=m
->  CONFIG_DRM_RCAR_DW_HDMI=m
->  CONFIG_DRM_RZG2L_DU=m
-> +CONFIG_DRM_RZG3L_LVDS=m
->  CONFIG_DRM_ROCKCHIP=m
->  CONFIG_ROCKCHIP_VOP2=y
->  CONFIG_ROCKCHIP_ANALOGIX_DP=y
-
-Why is this needed?
-DRM_RZG3L_LVDS is an invisible symbol, so you can't enable it manually.
-And it's already auto-enabled due to the below?
-
-    config DRM_RZG3L_LVDS
-            def_tristate DRM_RZG2L_DU
-
-    config DRM_RZG3L_USE_LVDS
-            bool "RZ/G3L DU LVDS Encoder Support"
-            depends on DRM_BRIDGE && OF
-            depends on DRM_RZG2L_DU || COMPILE_TEST
-            default DRM_RZG2L_DU
-
-Gr{oetje,eeting}s,
-
-                                                Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                                            -- Linus Torvalds
+-- 
+Lee Jones
