@@ -1,88 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795784528;
-	b=CRoDpD94pAaQ4yymGfKvlPuthUwsNXoeHHtqp6rh8tCFf8/O3tVZDQm2+IK3xFtfr1jp
-	 T8GNu47qJAzQMGZwZK4SX9x+A0y2GOTHz+lfMKfGHKrFZ68MioCO7bhsbKQjH5pFIxdm4
-	 snxxZp7tHIb2xyBJwxcPQVhZR7hnC7FFR0VcHjAle4D5D2Kpc4sepTaV2wQaiJtBUQpKZ
-	 CiHhFt6WGmc5Wv1rmLnrS4DDjI1q+Us3ycUZV2A0wEhMkCmoWTFvshwMOnYW19T8QAuux
-	 jFIc2mUXtsTJ3pvZtIXUVEQl0SGxAuL1sooJyhh4reUDhQniQC1M/3DSkPmK8xBhtCg==
+	t=1795784545;
+	b=WE6+rYSC/A7QfEsZdzLVSiOMvYtoE9t495VMfxuAzQgZpXSpDqju8OM4/osTd55iy4uE
+	 erMX0i1+AmpJXTARFNFWKultar+7M3ux8crjh0JUNA7fDL5dFsU4lePMvoKlFhK7UWAqw
+	 Dwq6i7r+IPtPP6CFlSrF+rULlZBHktkqVeGp6+uix/qctld6QiUp80RL2eXJp88g7JjWZ
+	 YuqtXQLvK5ZDiIPCNDhM2SnHs+oQNNMPLsoLomgQ1PcuTtJCT3WeNS9/sFu4p5RqxSMCH
+	 WfT5k3Pr2O9bKJpfYUqiUqJGRKN7jTdgMnWskgtvPmUgoaTPsCf983toP+XRnr/0oXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784528;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=BcOyV54Y0ZxOXVrr+d2Y34XvpFaNr1/jWLBvtU0HutQ=;
-	b=OPpEpT300Uy0sRZxQrBUGXJ6g2fcDECPifTvCYspgaOsVLnKd03gw4ygNKY6btWVzqge
-	 e4To+tyPNayxZL58YVyMqu5zy3N/0xrXkK3mpQ5jqe+9tRYcv5YB1IDMONK+/Ktg6gRTs
-	 l+O4K2JDGWc7HznSY1frP+Wu/4CzLvVPpktdJYvbr9gCCxEi/ASToVV7t1Rxz5cdm4cJo
-	 9ZuMxt4b8qTpsLpYSd+v8QwC+hSL8+r2Lt9BOQGClffEnjvzPMAwHx7TiOAf/61ZgIMKw
-	 LvB5MxbkczV61nkWu+R8wYlMG6/1lKn+CaT2AIczZXpoQgZB1tjCgBn1ZOqLardO9Eg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784545;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=LtJEEQG4iK+tOAIiGdDHJtxrocD8+I8V0KWp8R71igo=;
+	b=KlnYA/JhoBcKWaegmjHk8+sKwViB8FcdonXpBvsrK2d8YmRhpBWRHVSnxH9AaDRZN281
+	 MfVjFn/E9KMaTVywZOrw+AFY+Btp2VL97zy0w5nb3HsZq1336eGqVaVFHtPux3Xy6SP5k
+	 RsBg2hzOyi7FCx3AzL9qdwsEeVal8BJ1vuB1V2ued1NTIa7ci/3V4YEEkwJoTjj2Ko/bf
+	 WiF0OS7JkAmUptOcPEkCw4/Mw45JLUW/7KYXwHBML3MxhgC1HA/0+Ym7cPOPWWjDULkue
+	 FvHaLziXz6Oz5vzy8oq+pKs6ghb+wGH2jVdNb9QNodxPu7L8sY9jy+xX+/h+H7pg/pg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ihqwa+7f;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11AB0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:02:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11AB0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JXbB92Su;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 42852606A31E;
+	Fri, 27 Nov 2026 13:02:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42852606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ihqwa+7f
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so81936165e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:02:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795784526; x=1796389326; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BcOyV54Y0ZxOXVrr+d2Y34XvpFaNr1/jWLBvtU0HutQ=;
-        b=ihqwa+7fyCGXzDUdIzyrEGaIBEOfVSMAf7/3Y3g3JhDfR5FyPmZFQJ8TieHrg3YXVp
-         t6MnFkean73QB1e/BVD253hK3GI/f41wa7qZxcAYKL4/nBSum17XIzV4qncSOM4RcCEf
-         YDp9+i6KMPBQoyKvuV17rTK0zIb3KihvuMmJvGnBeltYWqsVX32D++VrWc8RqEu4F7IN
-         6RkLNuNli1Ip4qvINyGqW9kdF/ArC1klLjAvcgXio/UY+ITcmxkXPVt39KyN9ydU0lcw
-         gr3/es7pXFA2c4wuiituRM5WGPlfD86RsUGj021oDxOeu35b4dBxrGjaL1isAQfkYvX3
-         RswQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795784526; x=1796389326;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BcOyV54Y0ZxOXVrr+d2Y34XvpFaNr1/jWLBvtU0HutQ=;
-        b=XT9OQNq2CsZ+8ck8sBlx1C4bRuK64Dx0pR1PSvmHe++wyKBTHehHDwjD0yLzYTz1+A
-         VU7zBSBRKNiSD0IfW4AsQiewYAJRRSslSXJo6D76dop8ijCbD6hllFQ6foU3DftGvMD5
-         FvhkFtVBHNkTV84UEjjbh541e+eThoAv8qq3AJoU/BVBsV+jTvZxIp3JhYENw77Vs9qo
-         2O5DB4g+uTJ3SPf8nmaG0vdoVBHDsf4mUESqBpHI/xTR7cY308EuUIFk7r/xCu8LaK37
-         pKzPnC252LLFn/DCseCAaJ2tN+NHmeb4hm7Kmb92bduCevzwpMlszN6NN/iVIvlhFBdp
-         9E7w==
-X-Forwarded-Encrypted: i=1; AL+hErETpwniLvR7F6jvkMbFctSp3ydTsz7uEpI1XnSr7571L3QOVsq/tCcwxvmlMh/ihKyUSrwUrfHu8a91s8U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PUCtv++mI9f/pvTI8IZeq0OOfw3SQ7H3gFtPFPG3HtZake/t5
-	Fyc2e3OboJ8Lg8gz1YdZAw39ATo1U4Tr7jFmSG1fMwvXPMWRt2fE+dW+T0b+OHnH/k8=
-X-Gm-Gg: AZFdTZdQ+Pm9awMSkkWAuRHm8jHpotIkDsWo6ufusxZMQTdUVPajjXGhqOjzLPHcBiI
-	v4BDMc+HoGh2v9EI4B0XVFr94VV3Amy+De5gqB0kLLuff/rSCmoAW1C16gLT3WTUx4ddmM543AK
-	87WTabHj+0XGsqXloRrzMOdH+nTXXM93n3sPyYF3f46laRVc1i9RAXk4S+JEnNPK/OefT5kkJZY
-	r8uY1grGOGGXm3ZHar0L+n9hJYyEtuSI3+4dDcp57MztWPxzoTUJDUlpJY6q+eFxWAkL0TlyTsl
-	YSeYxTqgbEiIa1NGjEhydDlpH3SMp68g2U4GtEuCJk9twpseHiL5Q377N6F9e51e+ub3fWMmlzg
-	HRncgx33S93ejAtRQd7oMLGPMtAWvBAaWNG0u5lNhoI5E3Z6PrZyqaZChoC/WkwYJLHqcx38qpM
-	Ty6Sa5GhhmixfHhhbYnv9pnYCO3qrtGH8LJYn1Lq+zfXMeSDxRR5twUpXZ2iF2PveEVdIUKoA0v
-	Ci8V1ze6QmVu1b+nzwoUvHK0tLEgYlC9MdvFXc5dmhYr1neDNxk3A6rbthlti5opoAxnUBZc7Me
-	hEA4iluePRNaROUVLZrTzvCyaJH2Lquaig==
-X-Received: by 2002:a05:600c:4e16:b0:4bb:6f77:1e35 with SMTP id 5b1f17b1804b1-4bb88810991mr526806065e9.21.1795784525598;
-        Fri, 27 Nov 2026 05:02:05 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b70c05b9desm22812875f8f.54.2026.11.27.05.02.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 05:02:05 -0800 (PST)
-Message-ID: <6f997513-27da-47e5-83bb-18c267e930c6@linaro.org>
-Date: Fri, 27 Nov 2026 13:02:03 +0000
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JXbB92Su
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9198C1570;
+	Fri, 27 Nov 2026 05:02:21 -0800 (PST)
+Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E46513F86C;
+	Fri, 27 Nov 2026 05:02:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795784544; bh=QeFOK6g8h2iQ2txNI2mx0B0PPeSALxkLl0Q5BbCVDmk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JXbB92SunCgR+kVz71rmMiUis52LA1z+gix44AySQQhACoDyc0LdD7F+RFyIqqgN2
+	 BGftvxnt09g4GhWHRASIwOxPtgey38xSjx5/hu1Ay7j+RDY/Ifx2fPDgpSoz3UEbZ2
+	 2pCGVjA4EEaDZgJEFaYNECT83+NmviaX6/uZyfpo=
+Message-ID: <6fe998dd-cb41-49ee-8018-26071d347db5@arm.com>
+Date: Fri, 27 Nov 2026 13:02:20 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,69 +54,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] coresight: add missing MODULE_DEVICE_TABLE() for CTCU
- and TPDA
-To: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>, suzuki.poulose@arm.com
-Cc: mike.leach@arm.com, leo.yan@arm.com, alexander.shishkin@linux.intel.com,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261127113137.931578-1-xiaqinghuan@mail.ustc.edu.cn>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261127113137.931578-1-xiaqinghuan@mail.ustc.edu.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH] Revert "irqchip: nvic: Fix offset for Interrupt Priority
+ Offsets"
+To: Yoshifumi SHU <envzhu@gmail.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: Radu Rendec <radu@rendec.net>, Brad Hawthorne <brad@sim.vu>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ stable@vger.kernel.org
+References: <20261127122801.4189591-1-envzhu@gmail.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20261127122801.4189591-1-envzhu@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-
-
-On 27/11/2026 11:31, Qianhui Xu wrote:
-> Hi,
+On 11/27/26 12:28, Yoshifumi SHU wrote:
+> This reverts commit c5e0cbe2858d278a27d5b3fe31890aea5be064c4.
 > 
-> both the CTCU and the TPDA driver are matched through an ID table, but
-> neither exports that table, so building them as modules produces a
-> module without an "of:" / "amba:" modalias.  udev cannot autoload such a
-> module, and the device stays unbound until somebody loads it by hand.
+> nvic_base is mapped to 0xe000e100 (NVIC_ISER0). Thus, the Interrupt
+> Priority Registers (NVIC_IPRx, at 0xe000e400) are offset by 0x300 from
+> nvic_base, not 0x400. The reverted commit overlooked that nvic_base is
+> already offset by 0x100 from 0xe000e000 and incorrectly changed
+> NVIC_IPR.
 > 
-> This was found on an SM8750 based phone (mainline v7.3.1,
-> CONFIG_CORESIGHT_CTCU=m and CONFIG_CORESIGHT_TPDA=m):
+> Link: https://lore.kernel.org/linux-arm-kernel/b0be3be5-3a7d-469e-9166-a3414a52cbea@arm.com/
+> Fixes: c5e0cbe2858d ("irqchip: nvic: Fix offset for Interrupt Priority Offsets")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yoshifumi SHU <envzhu@gmail.com>
+> ---
+> Vladimir asked for this revert (see Link:).
 > 
->    # lsmod | grep -c coresight_ctcu
->    0
->    # modinfo -F alias coresight-ctcu
->    (empty)
->    # modprobe coresight-ctcu && readlink -f /sys/bus/platform/devices/10001000.ctcu/driver
->    .../drivers/coresight-ctcu
+> Tested on MPS3-AN547 (Cortex-M55) and EK-RA8P1 (Cortex-M85) hardware
+> against v7.4-rc4. On EK-RA8P1, confirmed that the driver now writes to
+> the correct addresses for NVIC_IPR registers.
+> ---
+>  drivers/irqchip/irq-nvic.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Five tpda devices behave the same way.  With this series applied the
-> modules carry "of:N*T*Cqcom,sa8775p-ctcu" and "amba:d???F0F??" aliases,
-> and on the next boot both autoload with no modules-load.d help at all:
+> diff --git a/drivers/irqchip/irq-nvic.c b/drivers/irqchip/irq-nvic.c
+> index 2191a2b79578..9438891e66f2 100644
+> --- a/drivers/irqchip/irq-nvic.c
+> +++ b/drivers/irqchip/irq-nvic.c
+> @@ -26,7 +26,7 @@
+>  
+>  #define NVIC_ISER		0x000
+>  #define NVIC_ICER		0x080
+> -#define NVIC_IPR		0x400
+> +#define NVIC_IPR		0x300
+>  
+>  #define NVIC_MAX_BANKS		16
+>  /*
 > 
->    # lsmod | grep -E 'coresight_(ctcu|tpda)'
->    coresight_ctcu         16384  0
->    coresight_tpda         24576  0
->    # for f in /sys/bus/amba/devices/*; do [ -e $f/driver ] || n=$((n+1)); done; echo $n
->    0
-> 
-> There is no functional change for built-in builds; MODULE_DEVICE_TABLE()
-> is only used for module aliases.
-> 
-> *** AI-assistance disclosure ***
-> This series was prepared with the help of an LLM coding assistant.  The
-> author reviewed every line, reproduced the before/after behaviour on
-> hardware and is responsible for the content.
-> 
-> Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-> 
-> Qianhui Xu (2):
->    coresight: ctcu: add missing MODULE_DEVICE_TABLE()
->    coresight: tpda: add missing MODULE_DEVICE_TABLE()
-> 
->   drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +
->   drivers/hwtracing/coresight/coresight-tpda.c      | 1 +
->   2 files changed, 2 insertions(+)
+> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+> -- 2.53.0
 > 
 
+FWIW,
 
-Could probably do with fixes: tags for both commits, but:
+Acked-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+Sorry for such silly mistake!
+
+Cheers
+Vladimir
