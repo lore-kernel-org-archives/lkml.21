@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799293;
-	b=TvKweL0av99rLTD+4yWVMpEvN6gse7eFWxlIQxCfGeMmRrGjNO5mFody0f3IaRVtpcsl
-	 4Sn7LZklnKy69SODBq3fvgl21WBci/DhZGfQISP5YC7542Q317x68DwlboDo3tPdAJMZP
-	 cIzQLdhNr/J7soEUcdt5NJh80Y0wtUTPD7OoKEaXWSB9fUmoEfOdMznoabWFXsiGJu2SX
-	 hL6YRmzU4/5EBET2A4zOptxAi7mElxcdKeXzEuUOCbg9DxAVyjC9c/uat07DLLmLvcW5v
-	 2vreizBKhHr8sZL/VVTQe+ycVD09Di1WZLQFmdYsXXjPPdsFn0WgXuhbiJnaehm7nFw==
+	t=1795799306;
+	b=kxd4T/b1o7olY5m/ImSjl5hdiJnx/gVGkhV4fe2polf8zDLsC03BB0Qw1PFeN6wvPhhY
+	 iOPUhj5fvJg1PxmsKJVDa9FKtiRxmssIpXqF6Q7heBHlBA4UHCw6JhkzRUeGInlN3Hw+m
+	 MXdFOhouUrp1sZIGdu9kKneBa0kBMeZ5fNOoaxvZCVulABMW/gTMNTFCFaH7R9p2Zcj6t
+	 YNKX2o/finqUCi6L4LLS0LoNIX61fwevpgqPjvGRN0WL0OPCqjoTMEoYmCeVdpIajROfE
+	 A64mK02F9xPRQblSneoSX3ka/LAJ7e4q0QUrxJVyUT15G8K/RXSBHowyh4kvShlzfDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799293;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799306;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=uDkX0blzb3c3DaHz8+BDDCXmBzy3/6GBFnnOUYBXO+M=;
-	b=QyonWIrya6rzOhWwyH9g5JQv/iS50eiTPYTCnie6QFh1/Ykm7m5+wgMaJvHK+6N5O/b9
-	 miHpC6osuGcOFH409E8TE8VRz7xmLVVYxLIj7od0+nqFiNeytAZInthxsIKcGAnObTcB7
-	 gOhzkDYvZ+MIoOT/1HKBEbSXBAJWaBXoaynQ9gzBbLmlzyhwwAQhEcY7GvD8EPVvxYW9R
-	 qI6NYcxgBuQkNU3GqHxSucplZd9OYqyiQ0wjSkvhXuxMSTLJiakmSfPSo/hDreLvCdjfl
-	 /NnPMluXBnbG0K+lY+1fJwH62c7PBhszTF9Y84ISMzDPIC/B8eDDVknt18Io00WGzrg==
+	bh=A6xCdeRrPPACKNA4/dV8f448D0tf5ckvTXEBU1C/alE=;
+	b=eJ1mVDJUPaIl0mVLe1XMSONek2wQWjliLc1qUJQIwSQrQbtsOQ2dRA8rAlJ6TcJlkI0D
+	 5T4WqNpM+P2046h2Y44ZpxgxoLvuf7BAaRgYtcbuTypxIUMtdKxbrll126IZUkXEk1Ne3
+	 R6JOcK42x6n/PuFazu9pn2zCyShH0GMmVqVpAYKE3DpCRsikMDwzGl6qqZg/u+uP1aDi/
+	 IUwlOxsA80RXKIobfE1aWr0K7V8jdWMg0ouRZFLkeiH+RaS3ZTLVjTHDr5LmA2OeXtKO6
+	 Gj0qsYyw/Y52Ocu2jo91fipqKgBfejOItqn/tfOJ9WnSP1pIH8EfRwiBPBdOOd9hDlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cAQUHT2w;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Di51hm+O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3B48606A31E;
-	Fri, 27 Nov 2026 17:08:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2FF4606A323;
+	Fri, 27 Nov 2026 17:08:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cAQUHT2w
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1BE91F00893;
-	Fri, 27 Nov 2026 17:08:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Di51hm+O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97A131F00897;
+	Fri, 27 Nov 2026 17:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795799293;
-	bh=uDkX0blzb3c3DaHz8+BDDCXmBzy3/6GBFnnOUYBXO+M=;
+	s=k20260515; t=1795799305;
+	bh=A6xCdeRrPPACKNA4/dV8f448D0tf5ckvTXEBU1C/alE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cAQUHT2wEzZD7W+Bn23DX5a1OR77ecP4VG5rrthc9hOR/dATZb6tnjBaQ5Um6Xzwr
-	 lFBdWoSee7MyshZCMsa6bNMdauMR+bui6NXGjcyKWZCE92otPhTb3DWjhOh6g9sNaT
-	 P+7oqHaDOyDXKLGD3MesV1k+59N0wnQzqb1sf65LsklOahLgQg1bIk89Wh79r3fLUi
-	 I+lWT1+gPILdQGXbZbI6kerHtYt0WD2rMMd0INDPiur2ES7KujPlupEIvMzH6H9h+0
-	 c6Xi5QzaenizqGAtJd+akefJtpmYyV+c3riArlPqgvmYVBDcTJukFIZdfvcuplh8rA
-	 45zIad5+cJ11Q==
+	b=Di51hm+OUIZKgXfjFVsJqFf7NZZpkTUoyNHJNU0e4aYZOwTzH+xNkscAQ+GSJj4UH
+	 fmhKs3XZAgncAklvlw7HO0UIO8eRH+ogQpudNXYr5ly+k4yIDuAdSRcMFyTR429NfS
+	 JhYFVhc1+LPmpdCS/fjO3iyke5Dg5OB08vzry4b+tFYPfnyGc4YlzyNScJlCmUW1cN
+	 C1jhTfHvUPu+Iorhwxikxx5s0Zu0NnchqqT9U7781yy04nR0jaFhOxkGmVKwh64iOQ
+	 tDqLCmVLrScohNesVj4ZmdapJYvovVs4JfXwEwzhsUmVSTRDML82+ooRg6bx8BItOd
+	 sg6fp6IWpABNQ==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
-	Ping Cheng <ping.cheng@wacom.com>,
-	Jason Gerecke <jason.gerecke@wacom.com>,
+	Roderick Colenbrander <roderick.colenbrander@sony.com>,
 	Jiri Kosina <jikos@kernel.org>,
 	Benjamin Tissoires <bentiss@kernel.org>,
+	=?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <pobrn@protonmail.com>,
 	linux-input@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-Subject: [PATCH v2 08/10] HID: wacom: Stop HID hardware before releasing resources on mode change
-Date: Fri, 27 Nov 2026 17:06:26 +0000
-Message-ID: <20261127170712.3163443-9-lee@kernel.org>
+Subject: [PATCH v2 10/10] HID: playstation: Cancel DualSense output worker on create failure
+Date: Fri, 27 Nov 2026 17:06:28 +0000
+Message-ID: <20261127170712.3163443-11-lee@kernel.org>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261127170712.3163443-1-lee@kernel.org>
 References: <20261127170712.3163443-1-lee@kernel.org>
@@ -65,53 +65,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-wacom_mode_change_work() runs asynchronously on the system workqueue
-without holding driver_input_lock and calls wacom_release_resources()
-before hid_hw_stop() on both the pen and touch interfaces.  Because
-wacom_release_resources() releases the devres group containing
-pen_fifo, input devices, and shared tablet state while USB URBs and HID
-transport remain active, a concurrent wacom_raw_event() triggers a
-use-after-free.
+dualsense_create() schedules ds->output_worker via
+dualsense_set_lightbar() before registering player LEDs and assigning a
+player ID.  If either step fails, the error path returns without
+cancelling ds->output_worker, leaving queued or running work accessing
+ds after devres frees it in hid_device_probe().
 
-Call hid_hw_stop() before wacom_release_resources() for both interfaces
-to match the teardown order in wacom_remove().
+Call dualsense_remove() in the dualsense_create() error path to disable
+further scheduling and cancel ds->output_worker synchronously.
 
-Fixes: 4082da80f46a ("HID: wacom: generic: add mode change touch key")
-Closes: https://sashiko.dev/#/bug/linux-e62a8e78-c17f-491a-849b-0690087100f2
+Fixes: 949aaccda019 ("HID: playstation: add DualSense player LED support.")
+Fixes: 182934a1e93b ("HID: playstation: stop DualSense output work on remove.")
+Closes: https://sashiko.dev/#/bug/linux-b657d8df-afc1-429c-9bf5-b2583501dedd
 Cc: stable@vger.kernel.org
-Reviewed-by: Ping Cheng <ping.cheng@wacom.com>
-Tested-by: Ping Cheng <ping.cheng@wacom.com>
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
 v1 => v2:
- - Add Reviewed-by and Tested-by tags from Ping Cheng.
+ - No changes.
 
- drivers/hid/wacom_sys.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/hid/hid-playstation.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/hid/wacom_sys.c b/drivers/hid/wacom_sys.c
-index 2e3ce9b63d7a..5bacd016c686 100644
---- a/drivers/hid/wacom_sys.c
-+++ b/drivers/hid/wacom_sys.c
-@@ -2890,16 +2890,16 @@ static void wacom_mode_change_work(struct work_struct *work)
+diff --git a/drivers/hid/hid-playstation.c b/drivers/hid/hid-playstation.c
+index 24e448076e35..9650bbe233dc 100644
+--- a/drivers/hid/hid-playstation.c
++++ b/drivers/hid/hid-playstation.c
+@@ -1906,6 +1906,7 @@ static struct ps_device *dualsense_create(struct hid_device *hdev)
+ 	return &ds->base;
  
- 	if (pen) {
- 		wacom1 = hid_get_drvdata(pen);
--		wacom_release_resources(wacom1);
- 		hid_hw_stop(wacom1->hdev);
-+		wacom_release_resources(wacom1);
- 		wacom1->wacom_wac.has_mode_change = true;
- 		wacom1->wacom_wac.is_direct_mode = is_direct;
- 	}
- 
- 	if (touch) {
- 		wacom2 = hid_get_drvdata(touch);
--		wacom_release_resources(wacom2);
- 		hid_hw_stop(wacom2->hdev);
-+		wacom_release_resources(wacom2);
- 		wacom2->wacom_wac.has_mode_change = true;
- 		wacom2->wacom_wac.is_direct_mode = is_direct;
- 	}
+ err:
++	dualsense_remove(ps_dev);
+ 	ps_devices_list_remove(ps_dev);
+ 	return ERR_PTR(ret);
+ }
 -- 
 2.56.1.839.g22a8290db9-goog
 
