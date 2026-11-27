@@ -1,61 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793596;
-	b=JBYqbGFtJiMFg2rtVkQVF8/iDvPJcvsufu+V0bwLUKJ/CJQbBbJ0zID3NQsDxIf41JgS
-	 NhCNwWYtKEdIor/JIRIxdp4xPk/oeVfNHzGbwdtQ/unFidwvXuZ30Ta8Q+3rs/ftk1M4D
-	 PVDJN5rVijXe09Wgvpmcv30OkBzP9+uANZmVkB4lYFiR5l0sxdTZAzXUxsFx19YXet7Bx
-	 53SW2QhKgcW/9Ayrf/K6d9wLe13Xr7wLJeE84H3tRgIvuSpoBYaUMRNb/9tzeR5iV1YRl
-	 CUI10fPd87g5/Qy7lnZ16vbubUR7zubDrD4mQbwt8Sb+qALWGR5224SM5oBnwGsYu1A==
+	t=1795793602;
+	b=Fb+Lf9XBsAYK0EP/L8E1Vwvv7A6ILJjxANiS7Z2Y/y4C/t6QRW/1zAlNHH64t51N18Eh
+	 D/o9EQxtdND5liuTBpWbEP48zVSOOp3Ysou/ZAe4wgLpzAghQwA1EYjJr0cX7zqjNvhBq
+	 pDjekRmtznvCkKFumgUTGCD1bomn9lt0CeHOPq6qfd1LHZdyeu9Ro7sc8g1XTCcLNhf7P
+	 DCc4RuRDqyW/DuEbmjNS7nVdxZi+96sn0LlrFyQJQwefQqGp+UBudvUU0ZddD04asRam7
+	 ZozTr/RgmaNV5hduig1njBpoFkqjaSp/LNwz6ERcXbb8PvFG3Abk38HWc+CsNFwSLjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793596;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=QR2kgEHCu/dWEXONlrY7XEez5BG9+wzt7+gIHHSGas8=;
-	b=R2KKY299hctJsEL0UBERHfiTH+8h1tUPwbx3eZK6Bmh1gdxQu1fJ+5oDhqa7jhFiIzFb
-	 pJrPhHvnQx1hkvCFNDg3wXEJkozeq+eyNt1rtMlRyrqZdXcfmjwpTkLP2FJQLHcv1aPd8
-	 Tfg1HPmvBbZco72mnsolMDewnNqmjEo6Y3xl6LUThkkRX9q26FHqCVr5WrQp5Ao2YHDm/
-	 GxuLtU3PpY9rWgKLlKVXztGyhjzP52vhDmp/Rzs8XA6s76qKWstq7pEzHvn5GuipgZbOI
-	 3raPPrPxyEGJleC5zW75YRHGsQBUOOAMVYMcMnZXRSdyOSNfxE9VlDpwcghI1GkvbOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793602;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=JSaUcdyokx0nCM0VaAYNMMQJYWPBcRALhJ5U21pZ3u0=;
+	b=T55PjyDkHXoOuZMtgk3LDkClgpzdraP9/jN7n0uDt4a90F1UsB+Ttfdt4VQGyFpzDnF2
+	 wQHFe0nzJKIMj1mqhc9hm4sFDTVyohi8h0dY+HmJDMHl58DJWM4uVJksRB8fanMQen6Q+
+	 ipQ4AgQNMwteWNBYhokKmArq2tuLVC6Gu6Cy+Q7XOBbyECvbQt4xWeNgkZRGlXgTw98eY
+	 OySREwP6VW+6y9WGteJO58gKbipOcX2VefaKuTI9QjAMdTkM0zk9P0hngDDXbP7OS2UlW
+	 LArNDUUmIPbrIJwo34+OOSBu3xOKinEjUl68/ldb7QZDjmlIAIBMw+a3k/giinE8tvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="otmLjJ/x";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53B44606A31E;
-	Fri, 27 Nov 2026 15:33:16 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=q6it4Quw;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CA529606A686;
+	Fri, 27 Nov 2026 15:33:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA529606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=otmLjJ/x
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67C871F000C1;
-	Fri, 27 Nov 2026 15:33:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795793596;
-	bh=QR2kgEHCu/dWEXONlrY7XEez5BG9+wzt7+gIHHSGas8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=otmLjJ/xTHsjjhBH/OR/xNnhNj12+4nONqT9Bx+nDTczXKYJrdhIw77+vbLgwF525
-	 YQ+MnctLCMBqIndTU1gkbr53E8g2oe0UqYD0Fn8cjKGJSV0hrwNfcdqnK00J67knmL
-	 lfSZ47gJ+1Ce4ilY4hO08YenY9IJiNqFOt4N/7JbPxL+FUzBbl+r3yhiejJbJf5aL0
-	 mUxpTt+M2vLgsupT4+C3ph4Ui00ICl5t2E6YImnvs2r6ZcPr+aVsEyzQyGC89mfOeO
-	 f6/w47/CD5DZjTT8HQdC6ebc9pkIxXeAjGKL00dXfpLy1ppbvpWSb263DBy2ZV3Uio
-	 Ulx3qbshK9QqQ==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Konrad Kociolek <konrad@cadence.com>,
-	Jayshri Pawar <jpawar@cadence.com>,
-	Parshuram Thombare <pthombar@cadence.com>,
-	Witold Sadowski <wsadowski@marvell.com>,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2 10/10] spi: cadence-xspi: Skip tail read for qword-aligned Marvell b0 receives
-Date: Fri, 27 Nov 2026 15:31:13 +0000
-Message-ID: <20261127153158.2969573-11-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-In-Reply-To: <20261127153158.2969573-1-lee@kernel.org>
-References: <20261127153158.2969573-1-lee@kernel.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=q6it4Quw
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42C451DB5;
+	Fri, 27 Nov 2026 07:33:18 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E2D33F632;
+	Fri, 27 Nov 2026 07:33:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795793600; bh=kHJr5BFqohQ9MXCMflKsAGajKF4U2rgV+vAl7QLaA70=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=q6it4Quw4kEB8SrkkO8an/Sj/JOcvxksxATyDh/C0LHA8I1TSuTaRqvdX5Xp+w7/Z
+	 uLFhf4sDoL7E8+ldB3hUKvpcedlKScA3aTMOZS9JIr4BF5E1pNRm0CJvP7lys3d4ys
+	 ZaPdYFNnzcpqGFKlzlhRgBcelTAdXGJCvK3GliY0=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+Date: Fri, 27 Nov 2026 15:32:57 +0000
+Subject: [PATCH RFC v3 2/8] arm64: rsi: Add realm hash algorithm defines
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,47 +55,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-arm_cca_mr-v3-2-df3230afce8f@arm.com>
+References: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
+In-Reply-To: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-security-module@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, linux-acpi@vger.kernel.org, 
+ acpica-devel@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ Suzuki Poulose <suzuki.poulose@arm.com>, 
+ Steven Price <steven.price@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
+ thuth@redhat.com, "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, 
+ Pawel Chmielewski <pawel.chmielewski@intel.com>, 
+ Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=850; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=CGmL714oNZ1rMgI/iJoIOGjAn2yDceA+mDSJkihQBwQ=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBrCaKzhe4TF3B38fEAkPTJno3T/SIWTv5WKBscT
+ lzOwxxnQYyJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCawmiswAKCRBt1cPRWsUx
+ MwJJDACOsFwbayMWSJgzlyEf2W9O+7bjaZlEllPAimcjaxZyHTxF7DV7hugrXr/Rvi4c+Hij1Wx
+ cqJeqSqEM/9gA0OyGpBkGyzl9CQqnoAS4YZnVeK04yd1vgh6suu0gO2IHsWUoUEfETVXdpkSET9
+ cVT77a7xa8FN5XGMfCoz20RVgFOuNFA+F050sy5VchsTGlTxvIJ8tdGqrpv99WRTnpDesUtCxme
+ YMVEEnZD+o/NAqb52Rs+B3P2jqgcuhGZh0pi/FBmL3pK+8qGhcosATZGXiLenKspNgkQnUGQRwz
+ rHVwTm/nDCAAvAfBL5/UDI+3AVgVYVw79iEl9XXYiMJ/Be8MrMIUI7Wy9Quea3SR/tvhHiVM2ob
+ EEzeJDBYH0cz0oIXZtz3H9H7xZCp3B/5eMat4vzajbe3jNh+jxfS65I9W8AToJqgkDS8XX/PYBG
+ yObqM+soye3VqoMAil/mgRuXG11s7q2S16hRphhkRuP5nSEq/8TJnVLQeyRwyLdk0IBhU=
+X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
+ fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 
-In cdns_xspi_transfer_one_message_b0() the receive path reads len / 8
-full qwords and then always calls cdns_xspi_finish_read() to collect
-the remaining bytes.  cdns_xspi_finish_read() unconditionally advances
-current_xfer_qword, even when there are no remaining bytes to read.
+From: Sami Mujawar <sami.mujawar@arm.com>
 
-The TX-only path only accounts for an extra qword when the length is
-not a multiple of 8, so for qword-aligned receives the read index runs
-one qword ahead and later chunks and transfers in the same message read
-the wrong READ_DATA registers.
+Add macro definitions for the hash algorithm identifiers, as
+specified in the Realm Management Monitor (RMM) specification.
 
-Only call cdns_xspi_finish_read() when there is a partial qword left to
-read, matching the accounting used by the TX-only path.
-
-Fixes: 931e389ded0f ("spi: cadence: Add Marvell xfer operation support")
-Closes: https://sashiko.dev/#/bug/linux-13cf6f1e-c300-4fa1-9cd4-08a48ec4f4b9
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
+Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
 ---
-v1 => v2:
- - Rebase onto spi/for-next; no functional changes.
+ include/linux/arm-smccc-rsi.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
- drivers/spi/spi-cadence-xspi.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/spi/spi-cadence-xspi.c b/drivers/spi/spi-cadence-xspi.c
-index aac941aecd47..159b18f2f728 100644
---- a/drivers/spi/spi-cadence-xspi.c
-+++ b/drivers/spi/spi-cadence-xspi.c
-@@ -1333,7 +1333,9 @@ static int cdns_xspi_transfer_one_message_b0(struct spi_controller *controller,
+diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
+index cca881ddfdbab..cf8e157269f3c 100644
+--- a/include/linux/arm-smccc-rsi.h
++++ b/include/linux/arm-smccc-rsi.h
+@@ -144,6 +144,14 @@ struct realm_config {
  
- 				for (j = 0; j < current_transfer_len / 8; j++)
- 					marvell_xspi_read_single_qword(cdns_xspi, &rxd);
--				cdns_xspi_finish_read(cdns_xspi, &rxd, current_transfer_len);
-+				if (current_transfer_len % MRVL_XFER_QWORD_BYTECOUNT)
-+					cdns_xspi_finish_read(cdns_xspi, &rxd,
-+							      current_transfer_len);
- 			} else {
- 				cdns_xspi->current_xfer_qword += current_transfer_len /
- 								 MRVL_XFER_QWORD_BYTECOUNT;
+ #endif /* __ASSEMBLER__ */
+ 
++/*
++ * The RSI definition of the Hash Algorithm (as specified by the Secure
++ * Hash Standard) returned in the realm_config data structure.
++ */
++#define RSI_HASH_SHA_256	0
++#define RSI_HASH_SHA_512	1
++#define RSI_HASH_SHA_384	2
++
+ /*
+  * Read configuration for the current Realm.
+  *
+
 -- 
-2.56.1.839.g22a8290db9-goog
+2.43.0
 
