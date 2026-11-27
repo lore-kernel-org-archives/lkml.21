@@ -1,63 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793995;
-	b=SC1NdOSahtGfhxlnDlLWYqQD5SRERbuvVVaingBUBD91XRVtW3tA7/yxSIECLzOBw991
-	 C3gIroItnpT1nHgq8NlPDEyHO14ywD4rINMX5jZMbRy9k/SDx1hrxWudfajLOM9AHcRV3
-	 /OlVr6k+gdtdBXrDLBuiutbTvWiLsYvpTG/0V1u1tEW1IsVzdn7pjSCSdDdj8EXua/Srz
-	 D8a0+hlQjFiNqDwSFKQKfGcvxEYxLNSUhwRDuy7a9uVZyM/mudIhQiMpiCMLVBnMnjMAc
-	 HD1h56jEyA+qS6Ie2zJ6GjNeKTIAW8BuZ2HvHko1hGJbcRUOk92vN8NSJkCwnjlICEA==
+	t=1795794018;
+	b=W4OMEOSJe9LHxLc/xrb41Po0Rlj3ESv89jKYq+Pto6nB7PWYw+qqgdwSH67p8oYQy1Jp
+	 GC55DqSqtIMCMj7rUN/1gbb+oe5N6N0MMi00jZMTV1+pzbPI0Ey0w3cvjSEjaNmn/gDLY
+	 YJEptbT8ikuTens6lCWvlxcz6lPk9jt4/cQyVkbPzDRxIJhMAKHqq7vh/a7mQCs9fFII/
+	 dFsg42k87n/HiJfQKgbamikbuOVNNUGv+J3tDUUoWGUAdiXlflNPYD6N5MisKRTDkPYVf
+	 GU0GMNOrJsk061bvqNF/VAzZ/tyRlZs43kPBn8MGekzhm0YO8uuKqwQQO4TeO/t6SFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793995;
-	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
-	 X-CM-SenderInfo;
-	bh=UPqqWb6/zepo/ZbWqZy/Sm9dnkYCzkAD6HREqLE1koA=;
-	b=13JhU320gPuiqvugwzSNSAt+qyGu9JVUbPOmmvF2HDkTFM80/uLQW8BWRu7knu3bhkhG
-	 0FPe641+g6i1GwY0nSbAeIMuAFkLNSzX+usJCUX/ar+UKF4Ta7cbntNn82sKZBGOTsCON
-	 U93W8kIFUPXXguZFhh4qNliy9fl/gyF6EOorgsKhdpNtk5ccAhREDG7aoY5ceGvxYm8I2
-	 DRZwWfTrBGVbS4khDxajoxZ0frI16zXjYI017u34iQriQyd0vJqSE3binSXnp+Dg+p1Ax
-	 EcoSHRkW1w5Jqwc1TN66I6FRzqyk6qf/YkhQ2hzwdXnB96Km9TtU+s0h0Vt5RSA9Vtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794018;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=e5/rGv6kRlTybcojKPwoDm9EwkOD0brZRsjX9dNYirM=;
+	b=E0ijfi6/6C3MiiHMLhhLhXpxc1SOZ6LmOlOZ/AdMArmCvsJJQSyl5Knwhba4r4VOBrqE
+	 ggp+FJOl+Pm3g0/3zfR2c41oQN4YoFCpykf+RcTBHQh9xBacepWHwPNIVY2zHeefuRjUH
+	 yHN2ZN/if5FmqEkLkP4mUmt3lMlvnMRykEsu2piiVrhKXJIYV7zP7B5a4dtptqV7otnrV
+	 FIQeH029GBS15jE7DG6AAjRleao3WQ04PLWs5y3mkMSfUsNIvOXqsIYp5CUeDoJj96I3x
+	 3RdhblRDUXV6xczVORwX+/v/7/75Ztn1WA8VhVJapc2Jp5AYoa4dfUBMWytNqumhmFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.25
-Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KZheMvId;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4514D606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:39:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4514D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.207])
-	by APP-05 (Coremail) with SMTP id zQCowAB3ErgnpAlr_hobAg--.9342S2;
-	Fri, 27 Nov 2026 23:39:20 +0800 (CST)
-Message-ID: <125b59ea3e5c6d48d325b3ea0c04dbba140bf1c2.camel@iscas.ac.cn>
-Subject: Re: [PATCH v2] drm/bridge: dw-mipi-dsi: let the glue compute the
- hcomponent lbcc
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Romain TISSERAND <romain.tisserand@gmail.com>, Andrzej Hajda
-	 <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst	 <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Sandy Huang	
- <hjc@rock-chips.com>, Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Liu Ying <victor.liu@nxp.com>, Chaoyi
- Chen	 <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Fri, 27 Nov 2026 23:39:19 +0800
-In-Reply-To: <20261127095556.1794628-1-romain.tisserand@gmail.com>
-References: <20261101143031.880389-1-romain.tisserand@gmail.com>
-	 <20261127095556.1794628-1-romain.tisserand@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 44FD0606A31E;
+	Fri, 27 Nov 2026 15:40:17 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KZheMvId
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 02CC71F000C1;
+	Fri, 27 Nov 2026 15:40:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795794017;
+	bh=e5/rGv6kRlTybcojKPwoDm9EwkOD0brZRsjX9dNYirM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KZheMvIdeKcFQh1TUVFvP5jn0rlkPW16af+06C+RuvEJXf0q5LddewqgBsQcA0wak
+	 N3OQZK67V/uGYDw0xFPMoo2cPExvAK74jyplyP+82orQH3Pfuz6UJ/Y6gHdJIou2Lk
+	 ND0Bk7xitB7I/UCVgVttxzCmjYkFqv8gymp2/C36OP0a7qGG0V66aMas5BGmt/2e3Y
+	 ol/0lbtIQNSIUnaxBZm1Tim0pem9H1IjhUeNQoK8sMnYK+DamvO7xcTi8ZouFGWNu9
+	 rD7ZLuUXoflvUj86fAQ3pCQp+63Ab91F+MiDNEHQU5wqvVEootqyoioWtj3fes/KdO
+	 hnoLj9dqBlsCQ==
+Date: Fri, 27 Nov 2026 16:40:15 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: =?utf-8?B?TcOgeGlt?= Pedraza Padilla <maximpedraza@gmail.com>
+Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pwm: tiecap: Implement .get_state() and keep a running
+ PWM
+Message-ID: <awmjxhnTVT_ZVzPN@monoceros>
+References: <20261116142251.1296742-1-maximpedraza@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,60 +56,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-CM-TRANSID:zQCowAB3ErgnpAlr_hobAg--.9342S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Gw4xAry5XFWxCr1fJF43ZFb_yoWkuwc_ur
-	98AFW29wn7Xa93Grs7tFWrur48X39rW34Iv3y8Awn7Aryvqr4qqF4kW34SqFyrCr4xuF1a
-	gFs0gayUKa13WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsxYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07jgPEfUUUUU=
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bdvxcrzwalea6q3h"
+Content-Disposition: inline
+In-Reply-To: <20261116142251.1296742-1-maximpedraza@gmail.com>
 
-=E5=9C=A8 2026-11-27=E4=BA=94=E7=9A=84 10:55 +0100=EF=BC=8CRomain TISSERAND=
-=E5=86=99=E9=81=93=EF=BC=9A
-> Hi,
+
+--bdvxcrzwalea6q3h
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: tiecap: Implement .get_state() and keep a running
+ PWM
+MIME-Version: 1.0
+
+Hello,
+
+On Mon, Nov 16, 2026 at 03:22:51PM +0100, M=E0xim Pedraza Padilla wrote:
+> The driver has no .get_state(), so a PWM left running by the bootloader,
+> for instance for a backlight, is seen as disabled and the consumer may
+> turn it off before enabling it again, which makes the screen flicker.
 >=20
-> Gentle ping on this one, sent four weeks ago. It still applies as is on
-> today's drm-misc-next.
+> Read the state from the hardware. While the PWM runs, .apply() writes
+> the shadow registers, loaded at the end of the period, so read those to
+> stay consistent with it, and copy the active values into them at probe
+> in case the bootloader didn't set them.
 >=20
-> It fixes the garbled picture of non-burst DSI panels behind the Rockchip
-> glue (GPD XD here), and v2 follows the reviews of v1 (Chaoyi, Sashiko).
-> Is the get_hcomponent_lbcc() callback in dw_mipi_dsi_plat_data the shape
-> you want, or should I rework it?
+> A running PWM also holds the runtime PM reference ecap_pwm_enable()
+> takes, so take it at probe. Switch to devm_pm_runtime_enable() so the
+> remove callback can go.
 >=20
-> Icenowy, Cc'ing you as you are working on dw-mipi-dsi for TH1520; the
-> two series touch different parts of the file.
+> Assisted-by: Claude:claude-opus-5-5
+> Signed-off-by: M=E0xim Pedraza Padilla <maximpedraza@gmail.com>
 
-I dropped the change of dw-mipi-dsi.c in my next revision, as some usage of
-dw-mipi-dsi-rockchip (as pure DPHY) seems to be working w/o a d-m-d
-structure.
+I applied this to
 
-However, I am interested in your patch now.
+	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for=
+-next
 
-- The panel used in my TH1520 device (Lichee Console 4A) seems to be also
-ILI9881C-based, and it works in burst mode; I think a little power is saved
-when running in burst mode instead of non-burst mode.
-- I have to copy the ugly extra lane bandwidth logic from the rockchip glue
-to make my panel work.
+Thanks!
 
-BTW is it worth to get a GPD XD for $50-? I have a little interest on this
-device after searching for it.
+Best regards
+Uwe
 
-Thanks,
-Icenowy
+--bdvxcrzwalea6q3h
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
->=20
-> Thanks,
-> Romain
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsJpFsACgkQj4D7WH0S
+/k4lgAf+IUruhqIkdBuXZzieTlnu3xUfA3htvqfePjIzp2t52fpxh78TUqFmriSL
+mNizpkWDwF5a7YYW/vzHQyQfPg3F4TGRHWy25OgFgI/mhkhVcxTAcLuYxSgP8R63
+LHONFotFgdmks5c8JOz2BYmgFV8TW/QWqLwDuherUWKTFPPz3O/UUqtaQ3QwpVhS
+57TMdYCpwErNrEpCezOFDJclqc2u/761i+r0FR5NWCvr4xBC2kjkYl8RIgz/mY6E
+/95kI8uHZbsnKq1/U/KHq2Huq+z0N1Qd+mpM4y6PNhFdaFc52aYNjziAATh+XIvJ
+c2mAVKwFqO+WNeIx5ineesZRgCseug==
+=u+AR
+-----END PGP SIGNATURE-----
 
+--bdvxcrzwalea6q3h--
