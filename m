@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776060;
-	b=JJFlMup3QyWPMGUg1qUwMX/s8iRgSq8x822Dpjlg+0XOpihjKbUMrULahJH1QCSwep8L
-	 02OYnH6bkZsNqrzkLo7X9q0+uRahqPrSRzDj2jHqArwUg6gA6geniWBY1BqGs4oBNdfln
-	 31tHgHu3K87XGi6TcznE/V8inMuTF/ES1iXYbY34CsD+XSZ1a4uSloY80eAfWi+r0h9uy
-	 HLCcmJIMGODL+yxv8s3V+/D7TGAzLiN/ppg2vSyZe3818SuL+5SqGTmHiLqvfSVNh5dZy
-	 EoPaidbKbVOxSJXwQSHGgtPXhTLtoDDSLfbNxnjOhPA7P+ef2s/g5mNfgzVLYIIr1pw==
+	t=1795776057;
+	b=WIfjprCumkNWMriHbtkCRdYn06XCSGhZ5USBX/T81LgUEiiuWGleVFpQLJWpcsSWrPLW
+	 Kv/T8qxwqSpSac8wOeVJdVwpQX4zjf77eKWOoW4MruYRFs1VIR+RTqRrexjmNLBceqkOo
+	 NbXK0HNbJzCly30Z0X9wLUigUlPx+UYaSnCVHiTuv2U68CNDSkbES30mjCfSB3Qx85PiX
+	 2Z+QzlRiLERw5lzGa04EE+oDSy7xtn9PT0DWrlkz8YE/djRvU3Ub7WKJZ+YVV3KXZQIG+
+	 3pmMa6DYhtSdGGQB2x191+rD4CQVJbxgR4zlXOlG54LPbvuEHPVNNLGC51YuolEb++A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776060;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776057;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=kVvljxRJFWTX1Of7BMq7tBbEcyKcnjbgUy5aROkMRo4=;
-	b=rNo5JPrv8owJ3PZdzAD8GSXy4+D3GaML4XvY0Geh7hj76fd0V2a/zgQRty+EeQuEh/1e
-	 YwclCnImsJsXJjLJYXdando0dTOeETeBNMBN2pRaWqxy1s/mKn0zgQy/0BlE3I51PjbuM
-	 JBI6+PSuEPVyC/d7/nB2cLko9/vH57LcyT5PaPGCy9HECJtvUyCi+MoxCDGABVB1uVtm/
-	 GlS82XPgr9SfstDV+lY8Pmb/k4/JIQX3L9VKkCOgzu6hjM1tDnlO5fRv7m6U0C4n7elNc
-	 q3GUd+7AXN2w+8CV7P6O/Y4BUlJNGlIqhhup/kPYuzSwAU1iYM2UPNc05V17L2CX2+w==
+	bh=wRkg1D7v1brwh6BLcrTMSeTk04sUpCGspFqgyNeqWI8=;
+	b=shuQXr2SIJ25zcOiSHgFSMQG6L5sxvogzNiFsrbsSl5p+G4YPAuCRSzmZ9NLMudTnzj/
+	 EVDQ1NjWJFsw62wYeeipj4jr1vCvERBsC9FgHDvvV718u18AKmSyY0940KXvRvLoivxsx
+	 TISPHpZx+shpdIMY4We5HnIP5gfRjwlUa/xZlUBjjeqv7w/WIXT2kUw9ijd7mnZH5EPWU
+	 4iF7xsqGI0ui5fSEy3+WyIxPIOsCY3Ziq6IEioyfNuc5rEEWi25N3waGEq/JdqiiR5K+R
+	 qoJeab70toKcwty6yP6gRQBZykVjB2JrwG3FXJBvxEjqf307+cSO9h+0EL7Vp9vnq8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=flipper.net;
 	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=df1TchSO;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=oDg3528d;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81220606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:40:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81220606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8CA3606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:40:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8CA3606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=df1TchSO
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-49412eb1474so5223366f8f.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:40:59 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=oDg3528d
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso80037505e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:40:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1795776058; x=1796380858; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kVvljxRJFWTX1Of7BMq7tBbEcyKcnjbgUy5aROkMRo4=;
-        b=df1TchSOBPJNJwnpdOdshy9DMRuKwziYE2ERQw+kFLTv//MX2VH0MvuoWDwD4ntyzc
-         yyvYpCzdygEGN0BjCyXAoXR9b3tMWmmD55fMPlM7GFMJAvOuB0jYbm6j0B2nw8e5tUHy
-         6LW8FI7wGTxTtn2BWDybOn4kaVIaYkRdIDD0f80ihns5YeMFJG+PHoG5Cm+VdLhoSLWO
-         MeeVdjmoz+Lol9sCioJt0zG2o9FSWDr8tws//ft4llmNGCyQgThiaZmOdIdWuMlKG/KL
-         w+lz4E1hNWTI8PTuzNPLQuenBmcBYyYB1fnOkVYRx0LQ4nS+0rPytpZhp2rO88ZRYCvu
-         BoYw==
+        d=flipper.net; s=google; t=1795776055; x=1796380855; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=wRkg1D7v1brwh6BLcrTMSeTk04sUpCGspFqgyNeqWI8=;
+        b=oDg3528dyAW8e9kVjWy29tU6J/vo4YknP6bAWy1omIXFeopNkGNZ3jgIHz0atznFFu
+         z3VETAqk2ybQzDCygmuHXUJDsz60KFbKZ6RDCHm9cThLBESXvxcFYILshyMNvkghk8US
+         WE+J27T/4kyuAFUsC3U3/ztokkMSEoRb7Ba6wJxCgFcWSsirfXlU1cdKF6lY3HEA7TjY
+         Gg8VBe3YgfbNIWgX35fQ6oyf1mNX5xvO5CKODDvK79YT85zKfV75jRmThMk8Fx6FrABY
+         JWLDAVCF/SEywIQHEsiSxhDZyRl6Fd7dwo9rB8AoMtee8UeK8NdZj7+l9Nxh13+vnmTG
+         oy7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795776058; x=1796380858;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kVvljxRJFWTX1Of7BMq7tBbEcyKcnjbgUy5aROkMRo4=;
-        b=zGxkZF9hYy+TJ2uikUKKwHotPn81hW5SPr8HEmtkoRpiJY72dv3PIxwtaBg+rM/Vvk
-         ZcHtlupp8oSjVfMX1/6avXdYVtYDMIci/GkT7iDviKqJwr6xYzPSgHYUxBA8xR+FdXsW
-         4okMvFpij//pYtoaM5WKQt0FNbksgg6tprH88IolEYsjA+8FkGo0qFmQSAALEQw7v0Uw
-         JNtxDfS6eHthZ4ooEPsM0TuPdrmBIqQLiufBny/TwOlChKVK4QPdUaPvdD5UPd7Fpk4u
-         phBViRXBj4FNrp1ekkd5o3+kDs2+g5EQlELmdTVwZxUUaftFVgAHLXAASblpyCfF72CY
-         cbiQ==
-X-Forwarded-Encrypted: i=1; AL+hErFEujFDBFhf14NttYjVh71TBjGELhSOrBrWUg5pMpNy/6MxGP47VslqKVXmwvd9QopWKghALDg5kK+ATYU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CCidHLBAcLkbBZI7b6+f582bZS8WIDpLibHfIcymshKUCR5Fb
-	wGyu/xWdcfesTqHND7ZUzb9nyqVGRYjUyLTXk0Z3FfTXKk2rPSr0ubq7t2VU45DrtTA=
-X-Gm-Gg: AZFdTZeMEdMUUfeolR/rselxKZmjMJwJnd2BgFwzuA3vFzdnf9Limb7QzW7DjWsqEP1
-	r5OrSa7wKZ2/edE7dKAUxb3c0pRYhYIa73md9vQzEYZexYSfFBwUVoQDCWvoxfwIH6/3Xsybkh/
-	e8MXl1lAowCLKl4wKNkr4Lxqblx/1AmWe9nZdNv9Fa8AuIpX5M0GeLPtcLN4T2q4o9RTyzcVvKI
-	lKBLd4408jyb0ShYb0oRob2pdsTfRapX3zH6ThFGrHS7HwcZDbqzUTfU68pOX65utjgW5hSF9sV
-	VZzKIy2XxUxtPloGvZXhIId5s2rGix3WL43tl6qaMzrqBSlqaE2KFW9FdGJ0PR/dZFORxvHHUh/
-	w40Yoabgny0J1v8QVsp9tf40nPI4nkqt3OLqML8cX3FMCc8tJGTbJ47FjJdWCIwcka/eW2uMOC1
-	qTxcjToR7kiJKPFCc82A2i0JQbHxmlizo3wbLKnwWdtlAD1lbGApp1nDmDOPTmGZB52p8hwNDL1
-	9B++gS/YaE59LO3sLTRe7mRzTP8hr6q21RatGJzo0POp75hK6tEhasX3f9SL71mzwv3wWSdOMXZ
-	/si6w6dm+QphZUrVOZoDer+HVPUx5ev8w5JVuQ28KDJGFRmW4XmG/OSkVNLqSYufwfBioFesu/r
-	LcUrGa5L8Sw==
-X-Received: by 2002:a05:6000:4a0e:b0:48b:451:4f19 with SMTP id ffacd0b85a97d-4abb7971c1dmr45358032f8f.51.1795776057820;
-        Fri, 27 Nov 2026 02:40:57 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795776055; x=1796380855;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=wRkg1D7v1brwh6BLcrTMSeTk04sUpCGspFqgyNeqWI8=;
+        b=wxpeUZxjCo1d6wvKwkRBn3P3mXX+uCoK5SQqkVTF7i//iW4KPfrS58Su8MLktKIgtr
+         b0XgQWdB6hKqoUwXc0hQhfnLD+8q1dRgAO920eAsLIjV1H8ilXinTlmLSzcePEAvDuYK
+         IClNWcbJeACCXkr68nxquwZr6MfLhs7q+6/3XbiAIjiDESQkvVVQfFw+cCdwIgz6xL5I
+         tHxyBfbfFojv5H9bQx9PwRK/LMoPZ4Iube0twn0pJWK1nOgLqDUJ3aZDlljdhE4+aexk
+         H2fnkfjsIYUnLPVy8PJVfjKvuYchGth1DZxXOhnRcqC2FencJTZdOXrUyJmuyKRRRZSd
+         iftg==
+X-Forwarded-Encrypted: i=1; AL+hErGGoTIVI0yJfocE4hB+Tu+qNIPg6gzFTGSYz5hP3805bBeW7jKIDraTwK/UkJyjwEnE8/wYP5JyybRh7TY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nQtgj8nSlofI4/yUwdUU/WX/Ae/Eybtgo6DHIU63MAa/sDj5l
+	k4+YZr8r4iQx2vaBKvbzdJRYSDE2CQWvaGRd/VBuFkyC5GXf0xXAXs8pJQxonVkyfKg=
+X-Gm-Gg: AZFdTZeBtynQMNqlWjqd4vcR9kyGTcOI1ftXW0ytXX2WE2J36T4M6u+V/pwo5N8zR4t
+	ylHkopLlwp5oe6p+m5zr1nhtwUUP7K+oWbiGtF4sN85saweIJmuQNl07p/6eHlJdHbUZX3fNqKL
+	rE9L7zoNQzgzahySLlzVuDTPupTPB9isqvOoDiHsLbL1i8PktjjiK2hwQ2+h9+VXCHS54MFKJ2G
+	irsUVFY7NaT/1EeWl71CQIzkue1DC32Bypw7oDJJhrTAiXztYhbODTbLnyAtQztQwivyysTbsBR
+	vr69bdc/xzJ3e7cEhj7LiEp6khWKtpQnLo1Np0U4ZEZL9nHoJPpyCPYxPin1WVuTAWnb4QuBlPB
+	XkXU8ffeA8ap4TIs3RZQEQXn5N3SMnVtxpvWEHpsbVOu1CYc/LSquTFxqY6p+m5NXy6L0wmeTx3
+	9SVuY0ij599i4r6qehtqiOr8TUt6EWCVbvI+qtvs82dsjKMaBX8VWvTGc5BZlYQ3BEmBvU88EoC
+	y9g0hNuqIgJp5p6qbHvGOh34wpObbPdYKVGxL5mpWEoAE3UxRdyO9udOvinY0WXmxKC9uuCPiUD
+	W3GhhRnb+d4Qj9LmUCOpyAhQFN37/xSc4hvDWrPRY+JIIj65c2b4yIqSzo2t5y0ffzLJmyfa0jB
+	MB5x1CmF9
+X-Received: by 2002:a05:600c:530e:b0:4ba:eb:eb9b with SMTP id 5b1f17b1804b1-4bb8880aba2mr474922345e9.8.1795776055138;
+        Fri, 27 Nov 2026 02:40:55 -0800 (PST)
 Received: from alchark-surface.localdomain (bba-86-98-194-229.alshamil.net.ae. [86.98.194.229])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dcf9sm45597649f8f.32.2026.11.27.02.40.55
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dcf9sm45597649f8f.32.2026.11.27.02.40.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:40:57 -0800 (PST)
+        Fri, 27 Nov 2026 02:40:54 -0800 (PST)
 From: Alexey Charkov <alchark@flipper.net>
-Date: Fri, 27 Nov 2026 14:40:46 +0400
-Subject: [PATCH v2 1/6] usb: typec: fusb302: Find the next message when the
- RX FIFO is out of step
+Subject: [PATCH v2 0/6] usb: typec: fusb302: Make full PD 3.0 work on the
+ 2.0-only FUSB302
+Date: Fri, 27 Nov 2026 14:40:45 +0400
+Message-Id: <20261127-fusb302-getsourcecap-v2-0-6770eb1e7945@flipper.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,9 +96,13 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-fusb302-getsourcecap-v2-1-6770eb1e7945@flipper.net>
-References: <20261127-fusb302-getsourcecap-v2-0-6770eb1e7945@flipper.net>
-In-Reply-To: <20261127-fusb302-getsourcecap-v2-0-6770eb1e7945@flipper.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WPy26DMBBFfwV5XVd+AHZY5T+qLDzjcXCVALEBt
+ Yry7zVBfey6Gl1p7uPcWaYUKbOuurNEa8xxHIpQLxXD3g1n4tEXzZRQrZRC8bBk0OWeac7jkpD
+ QTVxI1NYjgtKCFeuUKMSPZ+zbadd5gXfCecvaPvqY5zF9PntXuf39U7FKLrlqoYFArgYFx3CJ0
+ 0TpdaCZnR57S6LbUhjmvfoXoRDt6Zr3W7qUHB1ciON4vfK6DYqMoRql7cqav/DfTtn+7IrpxhM
+ 5zymlMXHrNLqGwoEAu1VtbnB5j45zV2nvLZqDcAaMUMaB901rSbceGrIqBEfOoDEF4vEFRhagz
+ JABAAA=
+X-Change-ID: 20261102-fusb302-getsourcecap-01c38dccb230
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Guenter Roeck <linux@roeck-us.net>, Yueyao Zhu <yueyao@google.com>, 
@@ -109,375 +113,118 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Alexey Charkov <alchark@flipper.net>, stable@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12171; i=alchark@flipper.net;
- h=from:subject:message-id; bh=8FqjcSdoBj2gZZl7Z82yfPvjmeuPF0tJnGWe6Lh9qE4=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRzxpmplHa/uesk9uD8s3p2tRmcFq21yQ3fZhWfvvhZ6
- 0LN6hsnOyayMIhxMViKKbLM/bbEdqoR36xdHh5fYeawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
- QyMdYx0jBi5OAZjqLE1Ghs8e2yQ3PtZtn/Hk71nzVTJPrYwup3NPnfaH3/5uAqefvDLD/+LHE95
- IME04enFCzI29zwu0pu1I/ZawbpPyXDvGGn7XXfwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5860; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=h+EGZKpp9eX6rEcjqbpyOrZBNDQRM7p40IXhJq9S+Co=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRzxpnZRDF+FFvcsye3+dqvFWKu5n4OixcGHnNZGvoyJ
+ sHYy3x7x0QWBjEuBksxRZa535bYTjXim7XLw+MrzBxWJpAh0iINDEDAwsCXm5hXaqRjpGeqbahn
+ aKRjrGPEwMUpAFPd+ZThf0L64q3Tt568vq9BZ+W2DxOK7pjUffsmnzbz6bEL/kud/8gxMrxdvjz
+ vF+vn+v4FN58Er/g23axd2HLH6V2b6kN2ra48MYcLAA==
 X-Developer-Key: i=alchark@flipper.net; a=openpgp;
  fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 
-The chip writes each byte into the RX FIFO as it comes off CC, so a
-flush in the middle of a packet leaves the rest of that packet in the
-FIFO with no token in front, and the driver reads that tail, padded with
-zeros where the FIFO runs dry, as a message. TCPM acts on the junk
-header. On a Flipper One attaching as a sink, the flush that turns PD RX
-on raced the partner's first message in 2 of about 35 attaches: a
-"message" with header 0 made TCPM see a data role mismatch and go to
-ERROR_RECOVERY. With the FIFO flushed on purpose 27 times while the
-partner sent a Ping every 20ms, 98 junk messages reached TCPM, and it
-reset 17 times.
+The FUSB302 implements PD 2.0, whose Message Type field is four bits wide,
+so it decodes the PD 3.0 Get_Source_Cap_Extended (0x11) as a GoodCRC (0x1)
+and never acknowledges it. v1 dropped the message, which keeps TCPM in
+step with the partner, but leaves partners such as an Apple Studio Display
+soft resetting over and over. This version acknowledges it from the driver
+instead, resulting in a proper PD 3.0 contract with no resets even with
+strict partners.
 
-Flushing the FIFO again once the junk is spotted is no cure, as any
-message behind the tail may have been acknowledged already, and the
-partner never sends it again.
+Patches 1-3 keep the RX FIFO in step, which the rest relies on. Patch 1
+resyncs the RX FIFO by CRC after a flush cuts a packet short, patch 2
+drains the FIFO on each interrupt, reading only while CC is idle, and
+patch 3 reads the FIFO out rather than flush it as PD RX goes on. They
+fix behaviour as old as the driver, which also causes resets on attach
+with no Get_Source_Cap_Extended involved, so they carry Fixes: and
+Cc: stable. Each builds on the one before, so they go to stable together
+and in this order.
 
-Keep the bytes read from the FIFO in a buffer instead, and scan for a full
-valid message, including a CRC that checks out, to avoid interpreting junk
-bytes as a start of a message.
+Patch 4 handles interrupts in the IRQ thread rather than a work item, as
+suggested in review of the switch to a threaded handler [4]. This has a
+nice side effect of slightly reducing the latency, as it cuts out a
+context switch and makes the actual IRQ handling code run at realtime
+priority rather than in a normal kworker thread (which sometimes queued
+behind other tasks in my testing, causing missed protocol timings).
 
-In the same test, no junk reaches TCPM now, and only the Pings that the
-forced flushes cut short go missing.
+Patches 5 and 6 are new functionality for PD 3.0 partners. Patch 5 sends
+the GoodCRC from the driver, 2.2-2.8ms after the interrupt over a 400kHz
+I2C bus. That is too late for strict partners (such as an iPhone 17 Pro
+as the source), but still often produces a PD 3.0 contract, because the
+partners retry unacknowledged messages three times, and the software ack
+sent for the first one lands in the window of one of the retries. Patch 6
+is a pile of black magic to make it work reliably in protocol specified
+timings, as long as the I2C bus runs at 400kHz or more. It reads the
+status and the head of the RX FIFO in one transfer and keeps the GoodCRC
+pre-staged in the TX FIFO, all but the TXON. The GoodCRC then goes out
+0.4-0.9ms after the interrupt, and gives 100% success rate in PD 3.0
+negotiation with the iPhone in my testing, with no resets at all.
 
-Fixes: c034a43e72dd ("staging: typec: Fairchild FUSB302 Type-c chip driver")
-Cc: stable@vger.kernel.org
+Patch 2 was sent on its own before [1] and is folded in here, as the
+rest builds on it. The issue Sashiko raised there, an unacknowledged
+Get_Source_Cap_Extended reaching TCPM only ahead of the Soft_Reset that
+follows it, goes away with patch 5, which reads and answers the message
+as it arrives.
+
+The series applies on top of [2] and [3] (also recorded in b4 metadata).
+
+The verbose code comments are there to keep Sashiko from suggesting,
+over and over, things that are not true of this chip or the broader setup.
+Happy to trim them down if required. Note that I ran the local Sashiko
+over Claude Sonnet 5.5 CLI, so it probably raised slightly different
+issues than the upstream Sashiko would have (it runs over Gemini 4).
+
+Tested on the FUSB302B ports of two Flipper One boards (RK3576), one
+sending Get_Source_Cap_Extended, Ping floods and other messages to the
+other at either power role, with RX FIFO flushes forced mid-packet, PD
+RX turned on late, and suspend to RAM with interrupts arriving through
+it, and against an iPhone 17 Pro, which is the strictest PD 3.0 partner
+I have seen so far.
+
+[1] https://lore.kernel.org/r/20261102-fusb302-drain-rxfifo-v1-1-bd9b232ab345@flipper.net
+[2] https://lore.kernel.org/r/20261103-husb311-cable-comm-v1-0-6217dabc1a85@flipper.net
+[3] https://lore.kernel.org/r/20261123-fusb302-irq-read-error-v2-1-5539a09127d8@flipper.net
+[4] https://lore.kernel.org/r/20260312120418.99U0NPWL@linutronix.de
+
 Signed-off-by: Alexey Charkov <alchark@flipper.net>
 ---
- drivers/usb/typec/tcpm/Kconfig   |   1 +
- drivers/usb/typec/tcpm/fusb302.c | 222 +++++++++++++++++++++++++++++++++------
- 2 files changed, 190 insertions(+), 33 deletions(-)
+Changes in v2:
+- Acknowledge Get_Source_Cap_Extended from the driver instead of
+  dropping it, so the partner sees it delivered (dropped Heikki's Ack,
+  as the patch is new), and in time for the partner to accept it (new
+  patches 4 and 6)
+- Fold in "Drain the RX FIFO on each PD interrupt" [1], now reading only
+  while CC is idle (dropped Sebastian's Reviewed-by, as the code changed)
+- New patches 1 and 3 to keep the RX FIFO in step, which the rest
+  relies on
+- Added Fixes: and Cc: stable to patches 1-3
+- Rebased onto next-20261124, on top of [2] and [3]
+- Link to v1: https://patch.msgid.link/20261102-fusb302-getsourcecap-v1-1-26b5bfea4b2b@flipper.net
 
-diff --git a/drivers/usb/typec/tcpm/Kconfig b/drivers/usb/typec/tcpm/Kconfig
-index 00baa7503d45..e551cb63a775 100644
---- a/drivers/usb/typec/tcpm/Kconfig
-+++ b/drivers/usb/typec/tcpm/Kconfig
-@@ -59,6 +59,7 @@ config TYPEC_FUSB302
- 	depends on I2C
- 	depends on EXTCON || !EXTCON
- 	depends on DRM || DRM=n
-+	select CRC32
- 	select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
- 	help
- 	  The Fairchild FUSB302 Type-C chip driver that works with
-diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 1cbe272ad686..d2d0e8ffc308 100644
---- a/drivers/usb/typec/tcpm/fusb302.c
-+++ b/drivers/usb/typec/tcpm/fusb302.c
-@@ -6,6 +6,7 @@
-  */
- 
- #include <drm/bridge/aux-bridge.h>
-+#include <linux/crc32.h>
- #include <linux/debugfs.h>
- #include <linux/delay.h>
- #include <linux/errno.h>
-@@ -27,6 +28,7 @@
- #include <linux/string.h>
- #include <linux/string_choices.h>
- #include <linux/types.h>
-+#include <linux/unaligned.h>
- #include <linux/usb.h>
- #include <linux/usb/typec.h>
- #include <linux/usb/tcpm.h>
-@@ -72,6 +74,11 @@ static const u8 rd_mda_value[] = {
- #define LOG_BUFFER_ENTRIES	1024
- #define LOG_BUFFER_ENTRY_SIZE	128
- 
-+/* An SOP* token, the header, up to seven data objects and the CRC */
-+#define FUSB302_RX_MSG_MAX	(1 + 2 + PD_MAX_PAYLOAD * 4 + 4)
-+/* The size of the RX FIFO */
-+#define FUSB302_RX_FIFO_LEN	80
-+
- struct fusb302_chip {
- 	struct device *dev;
- 	struct i2c_client *i2c_client;
-@@ -110,6 +117,17 @@ struct fusb302_chip {
- 	bool vbus_on;
- 	bool charge_on;
- 	bool pd_rx_on;
-+	/*
-+	 * Bytes read from the RX FIFO but not handled yet: the start of a
-+	 * message to read on, or bytes to find the next message in
-+	 */
-+	u8 rx_buf[FUSB302_RX_MSG_MAX];
-+	u8 rx_len;
-+	/*
-+	 * The next message may not be at the start of the buffer.
-+	 * Look for its start first before processing.
-+	 */
-+	bool rx_resync;
- 	bool vbus_present;
- 	enum typec_cc_polarity cc_polarity;
- 	enum typec_cc_status cc1;
-@@ -831,6 +849,17 @@ static int fusb302_pd_rx_flush(struct fusb302_chip *chip)
- 				    FUSB_REG_CONTROL1_RX_FLUSH);
- }
- 
-+/*
-+ * Forget whatever was read from the RX FIFO but not handled yet. After a flush
-+ * or a reset, the FIFO may go on with the rest of a packet cut short, so look
-+ * for the next message then, rather than read on from the first byte.
-+ */
-+static void fusb302_pd_rx_reset(struct fusb302_chip *chip, bool cut_short)
-+{
-+	chip->rx_len = 0;
-+	chip->rx_resync = cut_short;
-+}
-+
- static int fusb302_pd_set_auto_goodcrc(struct fusb302_chip *chip, bool on)
- {
- 	if (on)
-@@ -885,6 +914,7 @@ static int tcpm_set_pd_rx(struct tcpc_dev *dev, bool on)
- 		fusb302_log(chip, "cannot flush pd rx buffer, ret=%d", ret);
- 		goto done;
- 	}
-+	fusb302_pd_rx_reset(chip, true);
- 	ret = fusb302_pd_tx_flush(chip);
- 	if (ret < 0) {
- 		fusb302_log(chip, "cannot flush pd tx buffer, ret=%d", ret);
-@@ -1477,43 +1507,168 @@ static int fusb302_handle_togdone(struct fusb302_chip *chip)
- 
- static int fusb302_pd_reset(struct fusb302_chip *chip)
- {
-+	/* What was read of a message before the reset is of no use after it */
-+	fusb302_pd_rx_reset(chip, true);
-+
- 	return fusb302_i2c_set_bits(chip, FUSB_REG_RESET,
- 				    FUSB_REG_RESET_PD_RESET);
- }
- 
--static int fusb302_pd_read_message(struct fusb302_chip *chip,
--				   struct pd_message *msg)
-+static void fusb302_pd_rx_drop(struct fusb302_chip *chip, int n)
- {
--	int ret = 0;
--	u8 token;
--	u8 crc[4];
--	int len;
-+	chip->rx_len -= n;
-+	memmove(chip->rx_buf, chip->rx_buf + n, chip->rx_len);
-+}
- 
--	/* first SOP token */
--	ret = fusb302_i2c_read(chip, FUSB_REG_FIFOS, &token);
--	if (ret < 0)
--		return ret;
--	ret = fusb302_i2c_block_read(chip, FUSB_REG_FIFOS, 2,
--				     (u8 *)&msg->header);
--	if (ret < 0)
--		return ret;
--	len = pd_header_cnt_le(msg->header) * 4;
--	/* add 4 to length to include the CRC */
--	if (len > PD_MAX_PAYLOAD * 4) {
--		fusb302_log(chip, "PD message too long %d", len);
--		return -EINVAL;
-+static bool fusb302_pd_rx_is_token(u8 byte)
-+{
-+	byte &= FUSB302_RX_TKN_MASK;
-+
-+	return byte == FUSB302_RX_TKN_SOP || byte == FUSB302_RX_TKN_SOP1;
-+}
-+
-+/* FIFO bytes taken by the message whose token is at rx_buf[off] */
-+static int fusb302_pd_rx_msg_len(struct fusb302_chip *chip, int off)
-+{
-+	u16 header = get_unaligned_le16(chip->rx_buf + off + 1);
-+
-+	return 1 + 2 + pd_header_cnt(header) * 4 + 4;
-+}
-+
-+/* The chip keeps the CRC it received after the header and data objects */
-+static bool fusb302_pd_rx_crc_ok(struct fusb302_chip *chip, int off, int len)
-+{
-+	return ~crc32_le(~0U, chip->rx_buf + off + 1, len - 5) ==
-+	       get_unaligned_le32(chip->rx_buf + off + len - 4);
-+}
-+
-+/*
-+ * Return the offset of the first message past the start of rx_buf that it
-+ * holds in full, with its CRC checking out, or 0 if there is none
-+ */
-+static int fusb302_pd_rx_find(struct fusb302_chip *chip)
-+{
-+	int off, len;
-+
-+	for (off = 1; off + 3 <= chip->rx_len; off++) {
-+		if (!fusb302_pd_rx_is_token(chip->rx_buf[off]))
-+			continue;
-+		len = fusb302_pd_rx_msg_len(chip, off);
-+		if (off + len <= chip->rx_len &&
-+		    fusb302_pd_rx_crc_ok(chip, off, len))
-+			return off;
- 	}
--	if (len > 0) {
--		ret = fusb302_i2c_block_read(chip, FUSB_REG_FIFOS, len,
--					     (u8 *)msg->payload);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Read up to n more bytes into rx_buf and return how many. When the FIFO is in
-+ * step, rx_buf starts with a message the chip has received in full, so read the
-+ * rest in one go. Otherwise read one byte at a time while the FIFO holds data,
-+ * as a dried out FIFO starts returning zeros instead of received data, and real
-+ * bytes will be returned to the next read instead once the device receives them
-+ */
-+static int fusb302_pd_rx_read(struct fusb302_chip *chip, int n)
-+{
-+	u8 status1;
-+	int ret;
-+
-+	if (chip->rx_resync) {
-+		ret = fusb302_i2c_read(chip, FUSB_REG_STATUS1, &status1);
- 		if (ret < 0)
- 			return ret;
-+		if (status1 & FUSB_REG_STATUS1_RX_EMPTY)
-+			return 0;
-+		n = 1;
- 	}
--	/* another 4 bytes to read CRC out */
--	ret = fusb302_i2c_block_read(chip, FUSB_REG_FIFOS, 4, crc);
--	if (ret < 0)
-+	ret = fusb302_i2c_block_read(chip, FUSB_REG_FIFOS, n,
-+				     chip->rx_buf + chip->rx_len);
-+	if (ret < 0) {
-+		/* Some of it may have left the FIFO all the same */
-+		chip->rx_resync = true;
- 		return ret;
--	fusb302_log(chip, "PD message header: %x", msg->header);
-+	}
-+	chip->rx_len += n;
-+
-+	return n;
-+}
-+
-+/*
-+ * Read in and handle the next message in the RX FIFO. Return 1 if there was
-+ * one, 0 if the FIFO ran out first, or a negative error code.
-+ */
-+static int fusb302_pd_read_message(struct fusb302_chip *chip)
-+{
-+	struct pd_message msg = {};
-+	int dropped = 0;
-+	int len, off, ret;
-+	u8 token;
-+
-+	for (;;) {
-+		/*
-+		 * Already discarded a full FIFO's worth of junk - leave
-+		 * whatever remains to another pass
-+		 */
-+		if (dropped >= FUSB302_RX_FIFO_LEN) {
-+			ret = 0;
-+			goto out;
-+		}
-+		/*
-+		 * The chip writes each byte into the FIFO as it comes off CC,
-+		 * so a flush in the middle of a packet leaves the rest of it
-+		 * there with no token in front. Following bytes may look like a
-+		 * valid token without being one, so only trust them if the CRC
-+		 * of the resulting message checks out, too. If not, look on
-+		 * from the next byte: there may be a next message that the chip
-+		 * has already acknowledged, and we must not miss it.
-+		 */
-+		while (chip->rx_len &&
-+		       !fusb302_pd_rx_is_token(chip->rx_buf[0])) {
-+			chip->rx_resync = true;
-+			fusb302_pd_rx_drop(chip, 1);
-+			dropped++;
-+		}
-+		if (chip->rx_len < 3)
-+			len = 3;
-+		else
-+			len = fusb302_pd_rx_msg_len(chip, 0);
-+		if (chip->rx_len < len) {
-+			ret = fusb302_pd_rx_read(chip, len - chip->rx_len);
-+			if (ret < 0)
-+				goto out;
-+			if (ret)
-+				continue;
-+			/*
-+			 * The FIFO ran dry, which may be due to a bogus token
-+			 * claiming more bytes than will ever come. See if the
-+			 * following bytes contain a complete valid message.
-+			 */
-+			off = fusb302_pd_rx_find(chip);
-+			if (!off)
-+				goto out;
-+			fusb302_pd_rx_drop(chip, off);
-+			dropped += off;
-+			continue;
-+		}
-+		if (fusb302_pd_rx_crc_ok(chip, 0, len))
-+			break;
-+		if (!chip->rx_resync)
-+			fusb302_log(chip, "PD message failed CRC check, header: %x",
-+				    get_unaligned_le16(chip->rx_buf + 1));
-+		chip->rx_resync = true;
-+		fusb302_pd_rx_drop(chip, 1);
-+		dropped++;
-+	}
-+
-+	chip->rx_resync = false;
-+	token = chip->rx_buf[0];
-+	memcpy(&msg, chip->rx_buf + 1, len - 5);
-+	fusb302_pd_rx_drop(chip, len);
-+	len -= 7;
-+	ret = 1;
-+
-+	fusb302_log(chip, "PD message header: %x", msg.header);
- 	fusb302_log(chip, "PD message len: %d", len);
- 
- 	/*
-@@ -1526,13 +1681,15 @@ static int fusb302_pd_read_message(struct fusb302_chip *chip,
- 	 * TX_SUCCESS and GCRCSENT events out of order on occasion, so we need
- 	 * to check the message type to ensure correct reporting to TCPM.
- 	 */
--	if ((!len) && (pd_header_type_le(msg->header) == PD_CTRL_GOOD_CRC))
-+	if (!len && pd_header_type_le(msg.header) == PD_CTRL_GOOD_CRC)
- 		tcpm_pd_transmit_complete(chip->tcpm_port, TCPC_TX_SUCCESS);
- 	else if ((token & FUSB302_RX_TKN_MASK) == FUSB302_RX_TKN_SOP1)
--		tcpm_pd_receive(chip->tcpm_port, msg, TCPC_TX_SOP_PRIME);
-+		tcpm_pd_receive(chip->tcpm_port, &msg, TCPC_TX_SOP_PRIME);
- 	else
--		tcpm_pd_receive(chip->tcpm_port, msg, TCPC_TX_SOP);
--
-+		tcpm_pd_receive(chip->tcpm_port, &msg, TCPC_TX_SOP);
-+out:
-+	if (dropped)
-+		fusb302_log(chip, "dropped %d bytes from the RX FIFO", dropped);
- 	return ret;
- }
- 
-@@ -1605,7 +1762,6 @@ static void fusb302_irq_work(struct work_struct *work)
- 	bool intr_togdone;
- 	bool intr_bc_lvl;
- 	bool intr_comp_chng;
--	struct pd_message pd_msg;
- 
- 	mutex_lock(&chip->lock);
- 	/* grab a snapshot of intr flags */
-@@ -1693,7 +1849,7 @@ static void fusb302_irq_work(struct work_struct *work)
- 
- 	if (interrupta & FUSB_REG_INTERRUPTA_TX_SUCCESS) {
- 		fusb302_log(chip, "IRQ: PD tx success");
--		ret = fusb302_pd_read_message(chip, &pd_msg);
-+		ret = fusb302_pd_read_message(chip);
- 		if (ret < 0) {
- 			fusb302_log(chip,
- 				    "cannot read in PD message, ret=%d", ret);
-@@ -1713,7 +1869,7 @@ static void fusb302_irq_work(struct work_struct *work)
- 
- 	if (interruptb & FUSB_REG_INTERRUPTB_GCRCSENT) {
- 		fusb302_log(chip, "IRQ: PD sent good CRC");
--		ret = fusb302_pd_read_message(chip, &pd_msg);
-+		ret = fusb302_pd_read_message(chip);
- 		if (ret < 0) {
- 			fusb302_log(chip,
- 				    "cannot read in PD message, ret=%d", ret);
+---
+Alexey Charkov (6):
+      usb: typec: fusb302: Find the next message when the RX FIFO is out of step
+      usb: typec: fusb302: Drain the RX FIFO on each PD interrupt
+      usb: typec: fusb302: Read out the RX FIFO rather than flush it as PD RX goes on
+      usb: typec: fusb302: Handle interrupts in the IRQ thread
+      usb: typec: fusb302: Acknowledge Get_Source_Cap_Extended from the driver
+      usb: typec: fusb302: Acknowledge Get_Source_Cap_Extended in time
 
--- 
-2.56.0
+ drivers/usb/typec/tcpm/Kconfig   |    1 +
+ drivers/usb/typec/tcpm/fusb302.c | 1036 +++++++++++++++++++++++++++++++++++---
+ 2 files changed, 955 insertions(+), 82 deletions(-)
+---
+base-commit: 3dd8c790a7b7027abdd568e36db5e82ffaea7c77
+change-id: 20261102-fusb302-getsourcecap-01c38dccb230
+prerequisite-change-id: 20261103-husb311-cable-comm-46f2e77e4c18:v1
+prerequisite-patch-id: 2ea442b68dfeee84c38efb27749d2f40487d2fff
+prerequisite-patch-id: 00acfb9e5b26f7f594c64b6ec87fbc5badcb59ca
+prerequisite-patch-id: 398e6c15de4f0c6fe4751176bc4ffe0fd1a4e58f
+prerequisite-patch-id: 134a18c9c2e06dc019aba39387bff53c94dc415b
+prerequisite-patch-id: b2e7a13203fd30a8c71b71a4856e7cee7a1bef19
+prerequisite-change-id: 20261116-fusb302-irq-read-error-8a3ca5ef9ebc:v2
+prerequisite-patch-id: b484440b7ee2dc68c6e5561a71804b5de607f178
+
+Best regards,
+--  
+Alexey Charkov <alchark@flipper.net>
 
