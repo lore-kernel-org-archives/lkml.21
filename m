@@ -1,86 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762532;
-	b=PnJYMeLRrTdcRfXPyFwSyQudz3qym1FfHJP4ytncIiTu3iwuAXDdj93UM6Vh7DpxsCMb
-	 FB+vDLMWNN1AJFKyduLmUJDifzadJIhMXuN98QY66jG6D3x5iS8SDDahbj814iy1OXZar
-	 YGK3w7kg+WOq1brg1WedYktsOOIEp10iDbIXB94qbmbnu6O5aydhGX4r6oma2N//1TLPK
-	 wAFWHhGkCTJtcHgA+w9sQ8bg1C77839Q6CG4zNFsCHjPJK3NaCZSZZkvsW57FbCFXVLKm
-	 ReemQFYmWquXW3UHj4BrR8JQXH/ckMA1ipwyFnwQhdGvgKduJCR6+hk8QA5g3HHzDLw==
+	t=1795762534;
+	b=DrxekcEPEhEs9wbb2E3FtMC83OCDeohFSUoxFn2RawBhr7NRIiD6MNmWhWolPZYa43BF
+	 Y2/m1ZPL3Uh6L+1qftDktxi4LOnYd3I220HTDLgYVqrJkNt9l4ZlUeLejbwAfeKYDdoX3
+	 d2vE/MKtTHviwEMZI+Wh7fI0G6RB/74LYyrvihoTjC48s2z4yvQr5fEAImQhsK776S9ZV
+	 L/PXeHI5f2VXa2+MV6tsveqsVBB2vBx/aEyqsd/+OojhIf7/1JBNi+Aqp4SBmJDrn96z/
+	 6dvgtdYWbdGC6CPbeS556vbjdf4ITb4+x1I+yFwYqqV0obhgx36iTpafQD/XAmwVLXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762532;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762534;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=AaDlPP9AgpeRRzKJsnNMnsNsKii7YPU68T/y3zRCJcQ=;
-	b=BRzh6nJBzD/9ZzBcgVU+oquW0z938uE+ARFxCoz7END0iz7vjUGoodbq/+eeFyUEfoTE
-	 sIpX+o8iJ1zS2j9fiTbCFXCVaft80QRpp+inTjq/usVqodkS1J5JQF0bLVNJRs8EPmW/D
-	 e4sc6avH0ckqoD37cQ8iSR+MGFwa011BSWnhPawxFZ9an5fhh/7Z4ViGGTaaJ8k8yRVuv
-	 XgIwQMUpAtJLkXXQrIpUpc537e6z9uO76i50JsWTaW3aWW9uJOXCLoaitC+jOoyyQFBT3
-	 3bw60n/ONZSm8/vrTZh/UeZZ34UYXpB6J+HREOQ9wyvxFq+ZLGbhqVnTNckBP/9mhHw==
+	bh=6QJZTVYdROR6mS1avmG65kFgpH2ZO1NmsyxFw2KO3To=;
+	b=K+9NRugfK7yeCtgniiz0n6sqoFxdd4Crim9j4cqlfiN2IqrnUsDvrK/CB6uhtI9rzF8b
+	 HsWG5rcdlJlatgbcvZTKxeFHUI7Rm3B4WTIX3HSaLxDSVZ/9S5sLPkNqyVHnY1Rj8ZlCO
+	 p0X535fpHB7kaOxJFThRDfvNLgUI6U6HPUMpXPk1w8jOCodCrNeIuBAij0aHvwLgj13vK
+	 VH4oyxATzum0Mff6atuT0aWmrBzo8Ugg+NKWo056XSB+2Kjl6rYuiXrZ5+QlbgCl+RvrW
+	 ocUhSTXjEere5Zruo1/KygL7EovKdXEsqPYESF2CeAqh/1gRfgnHmMnRmQv8QQbAnQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2xuAocn;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LdqY3BSi;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89357606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:55:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89357606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45D35606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:55:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45D35606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2xuAocn
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4acb44dcd7bso6949417f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:55:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LdqY3BSi
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-492f0a1b685so5493442f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 22:55:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795762531; x=1796367331; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795762533; x=1796367333; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AaDlPP9AgpeRRzKJsnNMnsNsKii7YPU68T/y3zRCJcQ=;
-        b=g2xuAocnacVaAosQ4bsauTwXhKOyLKai2HfYp59zEHJI+QD7kOe4u+O7o8uKC9W0nD
-         YxgCZUSYxOyxpd+pHmLQExrgi3I/NoZcew78Upxfm2WvWX9E+CMl1EY7Ir3z3UN3xECl
-         MG8QdcwfpvSFGtCExR2kc0czFv/zKolauCizynLu6lvFZnXxAB8Kaa9hMCjWoiMPbF6y
-         3a9WPhPsJDfvrmSSH+yASALrordT+7dU0k/VVeAZlhP/IdN/yzbmO8qGxHb0iOpJU44S
-         FQZ0H3paGckUr5T1j86q2JXEcs5o0k9bCpzjlW+kIRdTNxVZVNJrgMltwZm538UFaPnZ
-         T2SQ==
+        bh=6QJZTVYdROR6mS1avmG65kFgpH2ZO1NmsyxFw2KO3To=;
+        b=LdqY3BSibT9kF8yeS43kQZ/FcJobH/xrre6CcpWd9sYdjaH+RVK/Nyvj7/c67jyFwI
+         9sfScTqFN62NcDxC5j4WNPAj7qC5FMdks8XSPuD09KFtGu8yvt50sfnD7QxiSUmmpCxx
+         AmPy47/aWVPE+iPaxEBok2F0wErj9/jCxml+TRtUgLZ0g1MJIhdgylrOkcWZj7odj2zO
+         QUs908hefcrq8Bgn3d6s81+zgCOXP/a4QjXN78Fgykh5YJpq+aqfVXQ6ISg9GrMZd93A
+         1rgU20yzIGRQhUKNporX/bOFKakp4k10Pr6IURHBYP//KouFgs1D539uk4ALtJjT/9aw
+         BfvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795762531; x=1796367331;
+        d=1e100.net; s=20260707; t=1795762533; x=1796367333;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AaDlPP9AgpeRRzKJsnNMnsNsKii7YPU68T/y3zRCJcQ=;
-        b=sN32KeidvUq3DShHuPy61JXbXexWORFOWTWpimqrRe6o8BEXAd4yK3h354m1xspWpt
-         esnKNO41ekSzUEaYVn9OGG6i88pi+slSiHFwpR4UiNZnDATZ4Pcr8SM4rsgdeVa4pPEe
-         01mg5NvZ268QM97ARfKZ5G7amrLGgxXWricz4FpCY0oTwGOyyMEKQrnJ+F7CdZvWhpGP
-         p0VvI+AtPEvohY+bBAMdbppTZduktYVmgLL3WqNlAfUqrzAV6u2JVFN0Nze+2ykUIFQg
-         k8aJfSI8xtwfCPZCaZUEch1djQZ+yZkS1UEbP0AZw6rq5uSpz/o9pv5VMaqj0I5mRKt+
-         tbIw==
-X-Forwarded-Encrypted: i=1; AL+hErEv7WaOdZaMeZSYwQlQHi6063WXkeSAAq79Ohp5oC1FQUwm/2Xz4PxitdkmUjEPkH36mErBF6vk6kmWjNE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+vs4lszqPPgxJUcbU1APMBrX+JNCD5Tz25b76N8Q5ztYN7vf5w
-	KyBFhPQmYDfA7U3HBIHgu/5EgDQX8z7ayvdktSK4nNuU53BlWK7koe1B
-X-Gm-Gg: AZFdTZcU/WiZXnKVgmkxTDMcStY7IqZjrWkJ2HXVkY9mcc/nR6EhEVjIveTng0xUEvy
-	bisF9m9VUM5O9mFSkO38a/clEuLOVVB+KiDQl/LyFqK3JauQo3B8GH8qxpt61YtU2GldOqFGPLW
-	Wjw+riB0FJJzKYDaU2M6WtjXR/gNetotU+ILjsdcxrPoDMb5D/fhZ1a3okmXbOihPza3oNONT8t
-	jwQ5aW3I147vd/mLTAQnaX433QDa5Oi9OcVnC7ChnK9pf+kQU46NbrhGtABZUSobdB3K+2jyxQs
-	zhz11HgUaUudJPzTh2D1i7WN7rUBtHZAYQOgIRAYGcCUdxf5fTkvEGtX09StCUcjWcu6Ow+5mPO
-	KgGXxCLouOEwstJ9jf/AVnIahP22DNPvX6TCrT16+5n387CIwScI5wVsfgXZY8qgIRLhrhfi1eY
-	QI5cIqvK0TWXCOsOiUPUBKuuzCCjplkXd7S1Vkso1xPH+ssvgdAZBl8pRL/XcruHKSTqssd0RIX
-	97xn0RaHPfigm8N5BseeB9kfj/qAdeG/UnGFuTF8neGSJ8zwtQDoo+VFYJshSVAiB4j55lN6FYP
-	05Mkn1B+7FMaAuexRz/kl7tb3K/IgZ1qfLL3znmp1Qgp9Hru+PMqE8DrBOfSV54u78NSCzMtTOv
-	3kTrv4x9CxjUcu0glcikb/OxeaOmJzZ/AZR1JivyvTpTBocfM5QOsLuYw7vE0QAy2+K7qQa5Krv
-	Lc45hKTA+g2dtD04ePmwhw0trDYHPI3WzQy2kUCLGfp0V79EF18d412sPzN2mtOK8B+k2UAQuDJ
-	2yZal2wFoLN8dvA1z1oa+VtnDu6SPNAb+5j0U/KlH904cH/5Cd5TcISDUn0myg=
-X-Received: by 2002:a05:600c:3b99:b0:4a1:777b:8a12 with SMTP id 5b1f17b1804b1-4bb8880b984mr542353575e9.14.1795762530660;
-        Thu, 26 Nov 2026 22:55:30 -0800 (PST)
+        bh=6QJZTVYdROR6mS1avmG65kFgpH2ZO1NmsyxFw2KO3To=;
+        b=z071ZdG0wolt83E8V1b1YeVcDjnS7Ki49O3Aclklu0czHm5BjMTnzGi2it+gp0wQFR
+         ccfxHGeoK/Qi5EzddTCKzfDj78v2YsxnpMuMRAJ8MX+tyGno8/Lt33uBYNsk+gd6EI++
+         tD0M049y9S0XPKwMbIk9VArD6tMx83Eg5z3jRsBtyAAkJXNdxmtRUzEAsN1FSDFBgV1q
+         mn73+DebeExqK5yJ6L6zyx8IbzoK2l2/FkRFBZMS79tXzM4Sz0poEECW2BlhpD5/SvZW
+         BFBAtKOqdD5fIZR9JNCvPR1MHkW6yZrRPC6xWL4r5o7juXQNrjOtS4W+oNGL3MG4upJV
+         UISQ==
+X-Forwarded-Encrypted: i=1; AL+hErH8sp/XnwTE8w9UWHadZycXdnMXGf35Z9G8bCADcXYiJxGeQDgJBsGxX6RWJuF7uEiztduLAi9q/KSoLiQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sK2OdD8sQd8j+E+5ntD8FHTlGh1pkrbNQiUYY59Ta1xPzkXU9
+	Py9usMQUTRPmmJwj21qCV6ECCRYZGfsrJdhHsSN6LBP/vH5fKjxxr4Ib
+X-Gm-Gg: AZFdTZftHq14ZGTehKpM5d6lnU7iniu0dcZJhqaeAT35GhRGX0j/jCJUJQp2BOCQDc1
+	zqtNPHnhO0HnBb2XE5NqEXyYILt7XNm3+Aa7yKsyX/D1zIp6OTO/Y8ttkYwzzCVNB5+T7+P+Lvj
+	1lo9yNpPCcWx6ej5QDStqaHEsIbCstGqL+uBmBCoSfiGzvnwhaASAPnCh7lzjkf0/adkl/G/hrm
+	fc4AcFfdP3VxZRfDMgV139mVKRuMaTmDNk7dKLnAN/pKF5M6FEuC0zVlHaCgk4arJSC5350UBYX
+	9UCT9btPkkHOh4Rm9UhGVH1aQrIJZVPukEcaLMcSP0bSLaAIuNW6VgUoZssxSELp9O5Adp9e7qx
+	yxr5RxUMcw3OPBTfIqCGH5P+9J7aPbODXie+iPEvdeBuubO6f2n1WvcJauLWDF46p54KqVG+BVS
+	Qv+YEi46QsMS1rIBiHHXmSg2cOe9qU+Fw/rtZToywbaRfyVHMq1WtZsbe8TqWc5P1jW2Tpp7trY
+	UR0xulvbA3bB+Iomb0Uk5L6feotQAkUCa+jOpy8mfeVPCRB+y+EiBUh1z3eZVIZd/fGXhY0fSoX
+	0BENqkukKxoG6FLkZEWTFrhi3+VMqA+BbyYRk7JLT+EIRvkEBeZXCwXAhH+qKkTaeNTsT/Czga7
+	Hn7oxxSPH1cL3T2JS/C1eDGnH78PJaJOaKB86ix9SnnQps/IEdfzbwt1oZF4HFHcr67nGjTarA6
+	WkG1a2V+U0tYzdcJRjKQ1tErgPArfb2LIoGfFmk561uv2l1DstjLyxQCcrfmaVUBh08vabjLkFv
+	sCSH/xp/DCyE8NRA1Q3/6U6zuBhBwNaLnfjaScKUtc=
+X-Received: by 2002:a5d:5f86:0:b0:4a5:ba8b:e00e with SMTP id ffacd0b85a97d-4abb4f5a324mr44654273f8f.45.1795762532450;
+        Thu, 26 Nov 2026 22:55:32 -0800 (PST)
 Received: from jernej-laptop (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm42574611f8f.34.2026.11.26.22.55.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm42574611f8f.34.2026.11.26.22.55.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 22:55:30 -0800 (PST)
+        Thu, 26 Nov 2026 22:55:31 -0800 (PST)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>
@@ -96,9 +96,9 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 1/3] staging: media: cedrus: take the output line stride from the capture format
-Date: Fri, 27 Nov 2026 07:55:21 +0100
-Message-ID: <20261127065523.3685726-2-jernej.skrabec@gmail.com>
+Subject: [PATCH 2/3] staging: media: cedrus: factor out the format check
+Date: Fri, 27 Nov 2026 07:55:22 +0100
+Message-ID: <20261127065523.3685726-3-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261127065523.3685726-1-jernej.skrabec@gmail.com>
 References: <20261127065523.3685726-1-jernej.skrabec@gmail.com>
@@ -113,56 +113,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-cedrus_dst_format_set() programs the line stride of the untiled output
-formats as the width aligned to 16, which is the bytesperline that
-cedrus_prepare_format() gives these formats. Program bytesperline
-itself instead, so that a decoder can use a larger stride, and so that
-the stride is the one of the buffer when a decoder sets the format up
-for a frame smaller than it.
-
-Likewise, take the height as it is: cedrus_prepare_format() already
-aligns it to 16 for these formats.
+cedrus_find_format() and cedrus_enum_fmt() check the capabilities and
+the direction of a format in the same way. Move the check into a
+helper, so that the VP9 decoder, added later, can exclude formats in
+one place.
 
 No functional change.
 
 Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- drivers/staging/media/sunxi/cedrus/cedrus_hw.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ .../staging/media/sunxi/cedrus/cedrus_video.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-index b66d855daaf8..7e742cbb1cdd 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-@@ -84,7 +84,7 @@ void cedrus_engine_disable(struct cedrus_dev *dev)
- void cedrus_dst_format_set(struct cedrus_dev *dev,
- 			   struct v4l2_pix_format *fmt)
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+index 2521315abdb7..a46820a90d87 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+@@ -78,6 +78,17 @@ static struct cedrus_format cedrus_formats[] = {
+ 
+ #define CEDRUS_FORMATS_COUNT	ARRAY_SIZE(cedrus_formats)
+ 
++static bool cedrus_check_format(struct cedrus_ctx *ctx,
++				const struct cedrus_format *fmt,
++				u32 directions)
++{
++	if (!cedrus_is_capable(ctx, fmt->capabilities) ||
++	    !(fmt->directions & directions))
++		return false;
++
++	return true;
++}
++
+ static struct cedrus_format *cedrus_find_format(struct cedrus_ctx *ctx,
+ 						u32 pixelformat, u32 directions)
  {
--	unsigned int width = fmt->width;
-+	unsigned int bytesperline = fmt->bytesperline;
- 	unsigned int height = fmt->height;
- 	u32 chroma_size;
- 	u32 reg;
-@@ -94,7 +94,7 @@ void cedrus_dst_format_set(struct cedrus_dev *dev,
- 	case V4L2_PIX_FMT_NV21:
- 	case V4L2_PIX_FMT_YUV420:
- 	case V4L2_PIX_FMT_YVU420:
--		chroma_size = ALIGN(width, 16) * ALIGN(height, 16) / 2;
-+		chroma_size = bytesperline * height / 2;
+@@ -88,8 +99,7 @@ static struct cedrus_format *cedrus_find_format(struct cedrus_ctx *ctx,
+ 	for (i = 0; i < CEDRUS_FORMATS_COUNT; i++) {
+ 		fmt = &cedrus_formats[i];
  
- 		switch (fmt->pixelformat) {
- 		case V4L2_PIX_FMT_NV12:
-@@ -116,8 +116,8 @@ void cedrus_dst_format_set(struct cedrus_dev *dev,
- 		reg = chroma_size / 2;
- 		cedrus_write(dev, VE_PRIMARY_CHROMA_BUF_LEN, reg);
+-		if (!cedrus_is_capable(ctx, fmt->capabilities) ||
+-		    !(fmt->directions & directions))
++		if (!cedrus_check_format(ctx, fmt, directions))
+ 			continue;
  
--		reg = VE_PRIMARY_FB_LINE_STRIDE_LUMA(ALIGN(width, 16)) |
--		      VE_PRIMARY_FB_LINE_STRIDE_CHROMA(ALIGN(width, 16) / 2);
-+		reg = VE_PRIMARY_FB_LINE_STRIDE_LUMA(bytesperline) |
-+		      VE_PRIMARY_FB_LINE_STRIDE_CHROMA(bytesperline / 2);
- 		cedrus_write(dev, VE_PRIMARY_FB_LINE_STRIDE, reg);
+ 		if (fmt->pixelformat == pixelformat)
+@@ -191,10 +201,7 @@ static int cedrus_enum_fmt(struct file *file, struct v4l2_fmtdesc *f,
+ 	index = 0;
  
- 		break;
+ 	for (i = 0; i < CEDRUS_FORMATS_COUNT; i++) {
+-		if (!cedrus_is_capable(ctx, cedrus_formats[i].capabilities))
+-			continue;
+-
+-		if (!(cedrus_formats[i].directions & direction))
++		if (!cedrus_check_format(ctx, &cedrus_formats[i], direction))
+ 			continue;
+ 
+ 		if (index == f->index)
 -- 
 2.43.0
 
