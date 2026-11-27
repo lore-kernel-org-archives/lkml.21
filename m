@@ -1,45 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.20.114.72
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762698;
-	b=atXpMji5rYo9pwIyplIdKjKJCD9TQvx51mCjJ81MEPt3P0kiQNiA/Aesp7wRztv+7AYW
-	 idFSdLTz2s1MaZyxw1os9B5jKbKiISWy0jTUcTwOXEPhLYdznT29/kWa7WMj3c33fNmzt
-	 RDkn17KQOBFfP/Wza/VFBSS54eTbxovdwKhI0kPM4UTcomow714+5DFJTs3KfDFRl8XoI
-	 0neSuAxy7370JfPEe2KpdraWLHFn0CepwAgHuckKcCoKM7Ryt5QYFD95QByCx43tlvATL
-	 eyNZeKI6m9Z3tIRlHzIJPdtgh0EFqDBOt1GV/EvEaeWYv136yEGKaRtqX2j+JCuOs9Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762698;
-	h=DMARC-Filter:Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-ID:X-B4-Tracking:
-	 X-Change-ID:To:CC:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=0YHH0z5wEvyXaDp5uYl1UGhjHY32xNYTV/Ur4hUBJF4=;
-	b=Yh8EZyR9ErOpulkT3Q0V+pFz9sfiMfeQDSPBRcRew3m4LZy8QXH9++6a7r29qB6Gm6ok
-	 oPT/0jecDR7d0MXQNAX4Ht4zIc4pOQ7dJ35TLPeAgNOAZ3Wtnkh55V5KA5mifns/nfeV+
-	 u6pMcA5YsqLcCrP8lWzRMRhNp9hY+1uwWa7LDBBNBvAtEPuyIrIOVAdvofFpIAgJAHweJ
-	 7cw/7dqiIfFrRAqbes6DHxeMK/5G2IXGA6or4KMUcHazASez7N47xASGNN/il6DL9szig
-	 qMgwj0O6r7RnBeDdIE7MInQBbAr8MaJIkiiqJmy7MhU725S/6XlM/r7wF6fUgPxeuCQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=aspeedtech.com;
-	spf=pass smtp.mailfrom=aspeedtech.com;
-	arc=none smtp.remote-ip=211.20.114.72
-Received: from twmbx01.aspeedtech.com (mail.aspeedtech.com [211.20.114.72])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795762850;
+	b=JRqB6v3XVp3tmwKzFWm1wpImX3o2JMvESfrd8u/bjT2sINVXIROu/k4uK7wa2gRpEuy4
+	 gegM9wpFT/IcP6lX0c7jtMmECKY6u19HOkIFwS7UQ+O5ImRIDYob0E3yjJ7wwSMtnpkBB
+	 Y8uyyxYWs01fKdrBK0UrGQldXlpAUtCjp7vXsHMeTDlhO30DaoZwmlYrPG12rDKPwa7ue
+	 FptLIMuT8py9XbTSFWrgf6qat+9MLDWYjbrIsGvpCgJn/qSHAucBsV9qx9EqsNfGW64KD
+	 G2ieOhr/E6QF/xhq0gRkXPN9N54HGE6vOBHiT9tETxQD4rm4RiT9XDcXejNjA0vlIWw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762850;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=oraQJNzWgI4tubA6Xa+fcNRXF+kojzuQRV2/Worzi1s=;
+	b=orAWylmL3qusnEmrhSvb9ZANPZicUkQ6luzfTsJFhR7zf24JNn+Od5EWg1WzBtmjVxCL
+	 22N7enpsL0V2eIlffHvketJLdTdmvAFipPKDlriuq2/ZArpuJrv8jmON2UTfWkhXCCJjl
+	 gA9ZAV5t8bhxSy6qPD34o7y8V2UnKCiRxRrJXUtztb8UVH/43vVBrG+dhm0VdCZ2jYc8h
+	 OGtos28CbMWOiv2LbybSOfOE/YUOGUkzZU2q36ziCp14tobq3+uI6wLrZIOi9FBQH1csJ
+	 c7PDz453FdxGF6Em888PJUTavz+Ukx3odnSfq6Goo0EyzmDMbqRH1a4l0uoy8wUJRVw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yz9RCHCz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 706FD606A31E;
-	Fri, 27 Nov 2026 06:58:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 706FD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aspeedtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aspeedtech.com
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Fri, 27 Nov
- 2026 14:58:16 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.39 via Frontend
- Transport; Fri, 27 Nov 2026 14:58:16 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Fri, 27 Nov 2026 14:58:15 +0800
-Subject: [PATCH v2] i3c: master: mark OF bus child nodes OF_POPULATED to
- avoid legacy I2C rescan
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6F1F606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:00:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6F1F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yz9RCHCz
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c516a574bffso300069366b.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 23:00:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795762848; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ao+oulfHZ+jG8a02URKlYNHN4bJI3vDZkQDvXdBz4CUITk8Io1FLyGN+kMzXPOVsgd
+         k080orWCet9SkHGAo3pmWmmiplyVh9e6Npqh45H9PYfi6b4VWnXSs6O0FfpaoxsEaMJ3
+         kE2pD7V3PDnBzPdpkTlkhHmHKTKq/KreyAtJ5le1f2E2jOI/zoPpxKhoDSt37c6wEgNi
+         lVzGMNrsvFvlUNwzblk9A1Fy1DwwA/3XnIVTlmgkIW56m9YjsczuF8SqAAUkbHrN61wo
+         Z7G36wXLRW+Jv8VzgkQ35Nf3TXxmDzbSbszhdtmLTAxie9Jq6WEZUAkIR/3FGmmoZQkv
+         DYVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=oraQJNzWgI4tubA6Xa+fcNRXF+kojzuQRV2/Worzi1s=;
+        fh=VGprscHaWH11Je0fQq3Yek/xhSfP5bGp6nOxihrnb/4=;
+        b=fZ/gd7bDHu4n6kgCARoWtZvtlv1jvbgAoKD8D/jQhEFNLIJ0pnC9eIfXwl1c2jTEnk
+         gd5K0A9lfEQTMesu37xQbLuhqnIpDuSm1yi5aY9S7XuvSulCVeNE+D9QxI39iJRxJIy5
+         Ec1PJIoe066a/UNjolrNnG7v+KddYKtA5AKBARbJD/3f0pkZcUmeK2zsCXAvinNaoZoc
+         veGT+4V3nsVJ84Kjrru085VvKYMPJ0sFTm6g1aAFfkEzB/6G9B2Sm+XqGTWLnbnKWc0+
+         5EfdhmFey91l7tGZYxzHF90+7yeIvhmmcsZTLipkHey9CTFJx8P1P2EYIsw6DqOB7U+Y
+         HX7Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795762848; x=1796367648; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oraQJNzWgI4tubA6Xa+fcNRXF+kojzuQRV2/Worzi1s=;
+        b=yz9RCHCzhBBepzVDmIWIX51QLCPmzvP25+S5O8BUOJZR6WQF3+MX7T/WzeLGq2lOxI
+         nxhDcq/Y/vg9nVeIjkalWY5Aanq4326SmAsAEMe5KCdOAmt9YZNiHP9evYp6SmC2GXgh
+         Aa61+p0MxvjVBFN2HXYFVyD8W8sEhwGktx4mOTWAKSF4ipjtC1xOGyrT4KcRxyb+qy0K
+         A3Gn8PI/H6ghfdQvT2CqYiKZeJhuOutYugRDw7CbxJ/0tBipCk+Phly/7luBitnZuxS5
+         0z2mLn277kBBe5nNHZrqpay3z+10eZmM58AVlGanA0E1Vg5DLzoVkgYbbDC+mIp/guMB
+         13qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795762848; x=1796367648;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oraQJNzWgI4tubA6Xa+fcNRXF+kojzuQRV2/Worzi1s=;
+        b=rY+HNLd+R23aRsEPeLvxUTRB8UxQ01+S/F87PHBq5tWCffrvkyEr6vkDaRAYCy/Pjg
+         Qrsg/8aYo27mxg6V+nEjuFG7wfWgUA7CJ1FS2S8YzcuonWrz/sCaWBC1i62HPv8wAf7o
+         oF21LJBuOGLBGiW1jFT+n0CT6qZMlLkCQmyrUuvniEdW3XL06bUZOr3nc1wCVxfqwC2H
+         uUgtlCriGG83ntb1QhmGajZHsPd6Iae43+bgghFOODqpV3JwMQwX3leYLbBgGk4uERlo
+         SEW0kvTKVADudQ3m9zdes6JMDlBPz1dQjhOxGx7ywr1vnHWMkVs/N9CBpBizWn6Ybhvm
+         bCxg==
+X-Forwarded-Encrypted: i=1; AL+hErEl3Kd99c5o4sXfgPklzAd2WZ9BAgzdMQi/3iR1FYAsJLrqsv5mSHfaotu18qq4FRUACrmI9w/4LWPD96w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83bnbgXgHshhGpSSmwZAtAyDzBo7ueXTGNoXA+Kw0DitIkBknh
+	WgFMtv5g763suiUSpvrNu/C5tqNDGEyciUR+xTPvex4gv4tmQNVlyXkZOQ9CMUi9z7uQ+yF3kWr
+	zHXR7YsYI8YyVSTE+sFmH5RMLJsCyf5c=
+X-Gm-Gg: AZFdTZdLHLxyHx62CojS/42q0JMN2vu4WgP0M5McclOlt2Uh2Pj9mEJLiD27T+spMZ8
+	WfMXKyPpjiDKwoM2j4ZArIAPFjdGMaKInhcKRDv/UBfZah6JYF0o+5vMEV+V0OexyD5w8WN+Ei4
+	SnIbJMxRuFL5ORWIocHeRN6NW1k3X68LtmJAEo6Q9aGrVq3/BQL8wyoC0Kui3rFQL9UlWG8kPee
+	waY5xPRVJNw09CTuleqR6T357CJ+6yHBES9H00b3CBKW7z3CjrzGaspM+7aSLahrwQo8Tcgo6WB
+	rWG2ceWl0Grjc8J1yu/pTn5h5ti/dbCTuAcF1fO3NA7i+oI6kMVjDe7r2AhLP8u/2pOa1iaXWs/
+	yJsmIL7BDptQCkiCn4PR3+dL4jPrUkkhQ9+M=
+X-Received: by 2002:a17:906:7f01:b0:c4d:2867:281c with SMTP id
+ a640c23a62f3a-c513a89466dmr1500652166b.1.1795762847845; Thu, 26 Nov 2026
+ 23:00:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,175 +104,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261127-i3c-master-of-populated-v2-1-c52095d00218@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAAYqCWsC/4WNQQ6CMBBFr0Jm7Rg6CARX3sOwKO0gkwht2ko0h
- LtbuYDL95L//gaRg3CEa7FB4FWiuCUDnQowk14ejGIzA5XUKEUtSmVw1jFxQDeid/711IktEo9
- la2gY2ksFee0Dj/I+yvc+8yQxufA5jlb1s/+bq0KF1FnSja7rsjM3HT2zTWyms3Ez9Pu+fwFG/
- VRgwwAAAA==
-X-Change-ID: 20261127-i3c-master-of-populated-2ef07c2bb743
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li
-	<Frank.Li@nxp.com>, Peter Yin <peteryin.openbmc@gmail.com>
-CC: <linux-i3c@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795762696; l=6039;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=xY5ZfoNHCn0aTxv+yky7pXKjzC/vhosSIilqhNBKimc=;
- b=2tKXCBdJQRK7HHXTH711lmTSeGEbyHLwF3LspHhh2+F5wlk8xzfkltR4bWR/mCNu5y4N7wfJp
- oni3Jk9XurNCz+nEZCJCQ90ox5tggushBOCG/V3p2mpHqcO2UNbI0yk
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+References: <20261127004822.8536-1-shindeswapnil028@gmail.com> <24cb6dca77d3456fb5893ce37b0bd1c7@realtek.com>
+In-Reply-To: <24cb6dca77d3456fb5893ce37b0bd1c7@realtek.com>
+From: =?UTF-8?B?6qeBU3dhcG5pbCBTaGluZGXqp4I=?= <shindeswapnil028@gmail.com>
+Date: Fri, 27 Nov 2026 12:30:36 +0530
+X-Gm-Features: Aa3M54qDH_oqhKSEDIr74WA-S3iGI2rDRBO0VmVETvFjJ-QPpQ-Dxcn8IAPi_HQ
+Message-ID: <CAJEWX79Jini8C44xiP_O41--eWEhcpZnMiK84Wp8dqmtO-D5Qw@mail.gmail.com>
+Subject: Re: [PATCH] wifi: rtw88: pci: Power off MAC and disable interrupts on shutdown
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: "kvalo@kernel.org" <kvalo@kernel.org>, 
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Commit f26ecaa0f0ab ("i3c: master: dw-i3c: Fix missing of_node for
-virtual I2C adapter") made the DesignWare I3C master's virtual legacy
-I2C adapter reuse the I3C bus platform device's of_node, so consumers
-can resolve the adapter by phandle. i2c_register_adapter() reacts to
-any adapter with a non-NULL of_node by unconditionally calling
-of_i2c_register_devices(), which walks every child of that node and
-requires a "compatible" property to build a modalias.
+Hi Ping-Ke,
 
-The I3C core already owns and fully parses every child of the bus node
-via fwnode_populate_i3c_bus()/i3c_master_add_of_dev(), for both native
-I3C devices (no "compatible" needed per the i3c.yaml binding) and
-legacy-I2C-under-I3C devices (registered explicitly through
-master->boardinfo.i2c in i3c_master_i2c_adapter_init()). Since neither
-path marks the node OF_POPULATED, the generic of_i2c_register_devices()
-walk that now runs afterwards treats every child as unclaimed:
+Thank you for the review and suggestion.
 
- - native I3C-only nodes have no "compatible", so of_i2c_get_board_info()
-   fails the modalias lookup and logs "of_i2c: modalias failure" /
-   "Failed to create I2C device" noise for a device that is already
-   correctly registered on the I3C bus.
+I tested calling rtw_enter_ips(rtwdev) under rtwdev->mutex in
+rtw_pci_shutdown() (with EXPORT_SYMBOL(rtw_enter_ips) added in ps.c,
+running alongside the companion btusb shutdown/autosuspend fix) on my
+RTL8723DE laptop:
 
- - legacy-I2C nodes do have "compatible", so of_i2c_register_devices()
-   silently creates a duplicate i2c_client for the same address that
-   i3c_master_i2c_adapter_init() also registers from boardinfo.i2c.
+- Cold boot: Wi-Fi and Bluetooth both work.
+- Warm reboot #1 (Wi-Fi ON, Bluetooth ON): Both Wi-Fi and Bluetooth work.
+- Warm reboot #2 (Bluetooth toggled OFF mid-session, Wi-Fi ON): Both
+  Wi-Fi and Bluetooth work cleanly (no -16 MAC power-on timeout or -71
+  USB enumeration error).
 
-Mark each OF bus child OF_POPULATED once i3c_master_add_of_dev() has
-accounted for it. ACPI-described children are left untouched, since
-OF_POPULATED and of_i2c_register_devices() only apply to the
-devicetree case. fwnode_populate_i3c_bus() always runs before the I2C
-adapter is registered, so of_i2c_register_devices() sees the flag
-already set and skips these nodes entirely, without disturbing the
-of_node propagation from f26ecaa0f0ab.
+Using rtw_enter_ips() is indeed much cleaner than manually clearing the
+internal flags and calling rtw_power_off(), and it also notifies BT
+coex via COEX_IPS_ENTER before entering PCI_D3hot.
 
-OF_POPULATED is a property of the device_node itself, which outlives
-this master's registration. fwnode_depopulate_i3c_bus() is the
-counterpart that clears the flag again, called from
-i3c_master_bus_cleanup() (shared by the registration error path and
-i3c_master_unregister()) and from fwnode_populate_i3c_bus()'s own
-error path. Without it, the nodes stay claimed after this master is
-unbound or fails to register, and a later re-probe or rebind finds
-them already marked and silently skips creating their devices.
+Regarding commits 05202746ed70 and 44492e70adc8:
+- 05202746ed70 sets BIT_USB_SUS_DIS in REG_HCI_OPT_CTRL, which does not
+  power off the Wi-Fi MAC before 44492e70adc8 transitions the device to
+  PCI_D3hot=E2=80=94leaving REG_APS_FSMCO active across warm reset (-EBUSY)=
+.
+- Calling rtw_enter_ips() right before pci_set_power_state(pdev, PCI_D3hot)
+  cleanly resolves that while keeping both commits intact.
 
-Fixes: f26ecaa0f0ab ("i3c: master: dw-i3c: Fix missing of_node for virtual I2C adapter")
-Cc: stable@vger.kernel.org
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
----
-Changes in v2:
-- Also clear OF_POPULATED again on teardown and on a mid-loop probe
-  failure (fwnode_depopulate_i3c_bus(), called from
-  i3c_master_bus_cleanup() and from fwnode_populate_i3c_bus()'s own
-  error path), so unregister/rebind and a failed probe do not leave OF
-  bus children permanently marked.
-- Link to v1: https://lore.kernel.org/r/20261127-i3c-master-of-populated-v1-1-29d2a6a5509c@aspeedtech.com
----
- drivers/i3c/master.c | 51 ++++++++++++++++++++++++++++++++++++++++++++-------
- 1 file changed, 44 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-index 01e05bad8661..e85307678fdc 100644
---- a/drivers/i3c/master.c
-+++ b/drivers/i3c/master.c
-@@ -2667,6 +2667,8 @@ static int i3c_master_bus_init(struct i3c_master_controller *master)
- 	return ret;
- }
- 
-+static void fwnode_depopulate_i3c_bus(struct i3c_master_controller *master);
-+
- static void i3c_master_bus_cleanup(struct i3c_master_controller *master)
- {
- 	if (master->ops->bus_cleanup) {
-@@ -2681,6 +2683,7 @@ static void i3c_master_bus_cleanup(struct i3c_master_controller *master)
- 		}
- 	}
- 
-+	fwnode_depopulate_i3c_bus(master);
- 	i3c_master_detach_free_devs(master);
- }
- 
-@@ -3353,15 +3356,29 @@ static int fwnode_populate_i3c_bus(struct i3c_master_controller *master)
- 		return 0;
- 
- 	fwnode_for_each_available_child_node_scoped(fwnode, child) {
--		if (is_of_node(child))
-+		if (is_of_node(child)) {
- 			ret = i3c_master_add_of_dev(master, child);
--		else if (is_acpi_device_node(child))
--			ret = i3c_master_add_acpi_dev(master, child);
--		else
--			continue;
-+			if (ret) {
-+				fwnode_depopulate_i3c_bus(master);
-+				return ret;
-+			}
- 
--		if (ret)
--			return ret;
-+			/*
-+			 * Claim the node so that i2c_register_adapter(),
-+			 * called later for the legacy I2C adapter sharing
-+			 * this same of_node, does not also run
-+			 * of_i2c_register_devices() on it: every child here
-+			 * is already fully accounted for, whether it ends up
-+			 * I3C or legacy-I2C boardinfo.
-+			 */
-+			of_node_set_flag(to_of_node(child), OF_POPULATED);
-+		} else if (is_acpi_device_node(child)) {
-+			ret = i3c_master_add_acpi_dev(master, child);
-+			if (ret) {
-+				fwnode_depopulate_i3c_bus(master);
-+				return ret;
-+			}
-+		}
- 	}
- 
- 	/*
-@@ -3378,6 +3395,26 @@ static int fwnode_populate_i3c_bus(struct i3c_master_controller *master)
- 	return 0;
- }
- 
-+/*
-+ * Counterpart to fwnode_populate_i3c_bus(): drop the OF_POPULATED claim on
-+ * every OF bus child so a later re-probe of this master, or the legacy I2C
-+ * adapter's of_i2c_register_devices() walk on a different master sharing
-+ * the same of_node, does not find these nodes permanently locked out.
-+ * ACPI-described children were never marked, so they are skipped here too.
-+ */
-+static void fwnode_depopulate_i3c_bus(struct i3c_master_controller *master)
-+{
-+	struct fwnode_handle *fwnode = dev_fwnode(&master->dev);
-+
-+	if (!fwnode)
-+		return;
-+
-+	fwnode_for_each_available_child_node_scoped(fwnode, child) {
-+		if (is_of_node(child))
-+			of_node_clear_flag(to_of_node(child), OF_POPULATED);
-+	}
-+}
-+
- static int i3c_master_i2c_adapter_xfer(struct i2c_adapter *adap,
- 				       struct i2c_msg *xfers, int nxfers)
- {
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261127-i3c-master-of-populated-2ef07c2bb743
+Would you like me to send a [PATCH v2] that exports rtw_enter_ips() in
+ps.c and calls it from rtw_pci_shutdown() in pci.c?
 
 Best regards,
--- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+Swapnil
 
+
+On Fri, 27 Nov 2026 at 09:17, Ping-Ke Shih <pkshih@realtek.com> wrote:
+>
+>
+> Swapnil Shinde <shindeswapnil028@gmail.com> wrote:
+> > Currently rtw_pci_shutdown() invokes chip->ops->shutdown() and
+> > immediately transitions the device to PCI_D3hot without powering off
+> > the MAC or disabling PCI interrupts when RTW_FLAG_POWERON is active.
+> >
+> > On RTL8723DE combo cards, leaving the MAC powered across a warm reset
+> > causes REG_APS_FSMCO polling (offset 0x5, mask 0x1) to time out with
+> > -EBUSY (-16) on the next boot. Power off the MAC under rtwdev->mutex
+> > and disable PCI interrupts before entering PCI_D3hot.
+>
+> IIRC the commit 05202746ed70 ("rtw88: 8723d: Add shutdown callback to dis=
+able BT USB suspend")
+> is to fix the problem your encountered.
+>
+> The later another commit 44492e70adc8 ("rtw88: pci: Power cycle device du=
+ring shutdown")
+> is to let PCI enters PCI_D3hot.
+>
+> Can you revert both or either one to see if anything different?
+>
+> >
+> > Signed-off-by: Swapnil Shinde <shindeswapnil028@gmail.com>
+> > ---
+> >  drivers/net/wireless/realtek/rtw88/pci.c | 15 +++++++++++++++
+> >  1 file changed, 15 insertions(+)
+> >
+> > diff --git a/drivers/net/wireless/realtek/rtw88/pci.c b/drivers/net/wir=
+eless/realtek/rtw88/pci.c
+> > index 66d2e5f51..b0bbb9397 100644
+> > --- a/drivers/net/wireless/realtek/rtw88/pci.c
+> > +++ b/drivers/net/wireless/realtek/rtw88/pci.c
+> > @@ -1949,14 +1949,29 @@ void rtw_pci_shutdown(struct pci_dev *pdev)
+> >  {
+> >         struct ieee80211_hw *hw =3D pci_get_drvdata(pdev);
+> >         struct rtw_dev *rtwdev;
+> > +       struct rtw_pci *rtwpci;
+> >         const struct rtw_chip_info *chip;
+> >
+> >         if (!hw)
+> >                 return;
+> >
+> >         rtwdev =3D hw->priv;
+> > +       rtwpci =3D (struct rtw_pci *)rtwdev->priv;
+> >         chip =3D rtwdev->chip;
+> >
+>
+> Can it just call rtw_enter_ips()?
+>
+> > +       mutex_lock(&rtwdev->mutex);
+> > +       if (test_bit(RTW_FLAG_POWERON, rtwdev->flags)) {
+> > +               clear_bit(RTW_FLAG_RUNNING, rtwdev->flags);
+> > +               clear_bit(RTW_FLAG_FW_RUNNING, rtwdev->flags);
+> > +               rtw_power_off(rtwdev);
+> > +               clear_bit(RTW_FLAG_POWERON, rtwdev->flags);
+> > +       } else {
+> > +               rtw_hci_link_ps(rtwdev, false);
+> > +       }
+> > +       mutex_unlock(&rtwdev->mutex);
+> > +
+> > +       rtw_pci_disable_interrupt(rtwdev, rtwpci);
+> > +
+> >         if (chip->ops->shutdown)
+> >                 chip->ops->shutdown(rtwdev);
+> >
+> > --
+> > 2.56.0
+>
