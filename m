@@ -1,65 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.74
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795759274;
-	b=B4YhXnz3YJMLfjxXEyvITQIP8dk3Y+HvQseIVNdsgEV7mJyXl3Nd3gaUWWBo6iv4FQsm
-	 7HOIormHc4uqbrLQFG6ghm79ymIDb+CjKI82V00E819ENm/nS0+5LZTZFFtaPH7bCtSrx
-	 Ad5C1SX8bAw5VSUXP91Y9GWr1PsFDi5tRRD5UYTW5FYlyKqG6NXpnkGu8e7/HUe8dHrjS
-	 Idxsot/vqnhVv7xxV3XXGtfVqPleUaBkLoFm/QXCdDVs1e07pK0Z1D/8PPEUQbTJknNYI
-	 PfPcdosoXfQ9HGM0al2+5I4Q4TEykIVjP3/faoV/2wvOyv1RYXLfCdNS2IZVEvks1bg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759274;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=nrXUyBnnLMn4mqMV0QE9b5zcQInsdQBriad2AyK2+Eo=;
-	b=MgdAVhHXhCGiP/935nPGkBwy2fgbq4JcWJ0rA2GFsZO8gLYhJkwpPupeNIRxSY3fK9Lo
-	 6TTZri4O9q3/G5eP2k7xUveeRTWu/eaXdiph0d6RGpQcMpjkE8LWNmTOYtsX4vS8mfPmr
-	 RTDFn1/RPSo11Xt+JfY2r0Y/Z+acwfXUCAAc3PyCHjaRAwlZ9SPpxTCboG56aWRACOl82
-	 jE3PxCOT4255q7eb+fCuK+uJYVlWjYmUjkoh/wjap39PRjgNI93mj5lELmF9DkpgQbCL1
-	 Qlr9skgWakS0Xq2jS+Ayua3EqFzGMOMAE5u5BfDcvKd6wlkM2/Bv4aublXZGEze4VIQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y5sBkEAp;
-	arc=none smtp.remote-ip=95.215.58.74
-Received: from mta1.migadu.com (out-74.mta1.migadu.com [95.215.58.74])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795759355;
+	b=wicHXAGjA3zwL8VxjIWxgidcemKslQGNATtemqx4YZoFdFFZf17m2HeGf/dSNxBnqj6T
+	 hPjt1L50GH7y0m855CNPz0XTCCHo9lhPuh0u02z1hnvp9MiZZ+IlxitDnyGOtU598QdMq
+	 7uNsqG2sA+Io/nL6IU+OBw6XZOvJxKEzz1zcFF3L64c/MGfkCaej2kwEP4157tI0W0fbM
+	 emFRqoogBP7MaCFcDzVhIufivQX6StPfkeldrZbT2Q4YnraVhp6iX45vAeL63//piJTAr
+	 Cn8lb9YI/C+uxFQ7u086ylequzDLuNpd9CfCXzOwLsjQlsTbzynZRD8k5l4fu6UEUjg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759355;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=+kG+vTfSoUTCqGX0NynFm/0zMdnz0VnEjiPkxHMRkKY=;
+	b=EppDnlAvM/iYIY6omW992D1CuJl0uxN8kpBRv2FQdvtW8ZZNcyE5vpgWvyr+aTheMzW9
+	 8utAKEATvzLLo1G/H+BsKkNf3fUKHGz+d+ljZzckaXsWWq1r4/UEYxkYxwCH4H7YelsI2
+	 F4GCAHtQpaZqDxxw784IpHI5bdHciyGBgrs5g/xOYOQAMa7dVMisYueGmH7aqjWMX36Vx
+	 0rzO17PONwutcM99f9oO3sa1ocq13Zm++dg3DWbWNtDYxv3ZvZFLJS6Vs1Mo+RTlo2fCd
+	 H23fLml5naDDXDXkhxuaBYdDlbRU6qvHhKHpLNQYIuZ+VEXe+rZ4KYN4ot6x1/JWAOQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=J8fD9MdS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.15
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011015.outbound.protection.outlook.com [52.101.57.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B10B606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:01:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B10B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FE2C606A31C;
+	Fri, 27 Nov 2026 06:02:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FE2C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y5sBkEAp
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=7VngrNZEXiKoDUMjMc/nzPenWV2Zy0/emms0Y+lumzs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795759270; v=1; x=1796364070;
- b=Y5sBkEApFsaG7tDNVA61iRZ4F35l421r6lYOjienw2wc71fpUfYJS4oFsuZOprbajPMWb2Kd
- 9usp5H8ixhueAERbI0YLoOwHmmbj1ZDIMlXKoxFC3spponR6w+jpLJl2ott7gOdh7Vz3+vTY7NP
- PXHHL3qGfL5jdPEUKM7zdtKo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 9ad39df9598d294b;
-	Fri, 27 Nov 2026 06:01:10 +0000
-X-Mizu-Trace-ID: 9ad39df9598d294b
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 27 Nov 2026 14:00:58 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: netdev-bot+sashiko@kernel.org
-Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	tonghao@bamaicloud.com, razor@blackwall.org, shuah@kernel.org,
-	jiangjiehua1@huawei.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net 2/3] bonding: update slave array on link change for
- broadcast mode
-Message-ID: <awkcmoDW5AHqJujs@fedora>
-References: <20261126-bond_broadcast_updelay-v1-2-188e5538d6ca@kylinos.cn>
- <179574935712.3135.18271637068349106750@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=J8fD9MdS
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AuyiH5ZQyHRZIOie6vP/t9jQHFvRdPBhqz5Kv6+ER2iFKEFnuCkpXRB5HuRUhHqd3EibdscEWfvlG60rZpxrBPN/Qrh19rNboUYssFkurZOd8s3q90R1/UrGVtKyouP6BHwGPoX+GtQ+5b4q08F/2Y3gUAgQ3KyChyy6O9YBYHGKR6VYp60vNbkiSpRJcXniftWCV+UnAttSBRNZRJ14z6QM3GCph/LWYALXgGwXXtIrIfdAtFOpiIynvXWqWgckqlApCgMQF9Ra2oPBShE3YeR3xOapnSDu4dXBWnImARG2P6RaRge93V3sIJ9BqldWt7HMZ/fzeKoxRUWihS23eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+kG+vTfSoUTCqGX0NynFm/0zMdnz0VnEjiPkxHMRkKY=;
+ b=pD/98PsqIQPI/D3fw3Eg4BqQFSl1DB+PyT49RX+HiuemQdRRhHkuHpdRaNC88GDZlNYEV/j+s4S6tFQorKReecqIhfUaEAReDVi/RXR6rydngbDQmV6eaIeRpihfOYl1VAlx7KkiTcThYwTIs7jwKSbof15T8SqS3m9u3QDoHzonM1aVs6EIuRolPqrFHn2FRJD1py6OmIClc8SEP/kgmwcCuzjxfdrGr8OjaUP+XPrXfxV70NHjFXD/mODGO+/AUsiZlonnICguJ2FTGcJC83Cm7panlD7hyh9nU9AWLUbYxGsvA9KLGY4Ao1+qH9NIxGHiWmdd9+tS0Mbg7GSkBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+kG+vTfSoUTCqGX0NynFm/0zMdnz0VnEjiPkxHMRkKY=;
+ b=J8fD9MdSjH3D3dbdWWR2VWP9RqpTZqFiqYD1+9bsc19jsoHzjmn7mVXl3DFALTPLJ+dk+Eze1DnbHI3ljWlpMYG3f+hqlgZBOiXbDThMa+2rVU+X38v8pVzo76Q/HKQ3RsfdwnEolNhGGEue9FBjF49ZzArqN8VUKEsVATO06YAfbY83ndlS+iXjCAgGfVrmsKlX4GmLCnuWEf7ctXI5sA70q5N6Cq4s53KvdTyNuQ/qqQbDa2TD1qDswtSEDsyVqsL4aWxD0nhlhGINvgN+9FWsP3N1+ktbDnk4pb2EedWqZnytBjxERRHquVb6Pbnl0B4BjtwcSP1wbqpqtDivdg==
+Received: from SJ0PR13CA0194.namprd13.prod.outlook.com (2603:10b6:a03:2c3::19)
+ by CH8PR12MB608111.namprd12.prod.outlook.com (2603:10b6:610:704::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 06:02:28 +0000
+Received: from MWH0EPF000C6195.namprd02.prod.outlook.com
+ (2603:10b6:a03:2c3:cafe::90) by SJ0PR13CA0194.outlook.office365.com
+ (2603:10b6:a03:2c3::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5 via Frontend Transport; Fri, 27
+ Nov 2026 06:02:28 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MWH0EPF000C6195.mail.protection.outlook.com (10.167.249.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 06:02:27 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
+ 2026 22:02:06 -0800
+Received: from build-johnliu-noble-20261009.internal (10.126.231.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Thu, 26 Nov 2026 22:02:05 -0800
+From: Johnny Liu <johnliu@nvidia.com>
+To: Johnny Liu <johnliu@nvidia.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding
+	<thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>,
+	"Prashant Gaikwad" <pgaikwad@nvidia.com>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
+	<jbrunet+clk@baylibre.com>, "Douglas Anderson" <dianders@chromium.org>,
+	Aniruddha Rao <anrao@nvidia.com>, <devicetree@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v3 0/4] Add Tegra238 BPMP support and fix stale EMC clock rate
+Date: Fri, 27 Nov 2026 06:01:44 +0000
+Message-ID: <20261127060150.3436267-1-johnliu@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261102121202.2431928-1-johnliu@nvidia.com>
+References:
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,174 +118,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179574935712.3135.18271637068349106750@kernel.org>
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6195:EE_|CH8PR12MB608111:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3015abea-b561-4f7c-361b-08df4c4c0420
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|7416014|11063799006|261009223027099003|18002099003|22082099003|13003099007|10067099003|56012099006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261021121427099003|261021123027099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info:
+	h1BjuThPIrOFPWK/1abC80eieTugNa+LwSUN3XIMeFxvDttLPaoesrN7oDQtko8Z7lh1z57q3WXYiwjuYPWLNzL2fvDihYM1T4NI0MHrXeOaInJ2SggI9qA+6lFLI+Gxkr714tuGeSL4kqUMk5wMvaghG7IS0VEh09EeldLFyA6p0DB7hQtw4TF5NZTpjg847VksXDRpecjbR/cfUb2/pE+i0zjFntFUvBd8Zsdk3USqwyKGqy8n231hRQAejAKC0vzzsPVz3tPdJInUQLw6rTXlchwta7UxMGfbvYYNs0OU3VbX/mJT70YAfQ1aypxtRsdhRSGvHDas61M2p8sidaTuQDLEJfdlJvK3ILGSCnIzxkhGdc55WIvMMNlpx9tGL3WlkqM+7u5G8kn3VFWPtrMsrRJ1OBbMlzHf9nclwLAsMgi7zBGexZcR3g6SinNKm+jXCw7pB0v9CutpbGSrQOpbgEasfAArfOMN2XXxzoMw7aV6Oz6QNSZQEHjjO4TjwSQuJlmXXalijygSDZ2JEOvPB8qdmYdEwdxrHjWQ4EC9VXknInw2ALvvDpADn/vNNmxxHrowrJAKLsapt8Be+rj6NPY9QXsQzRxI36Gv8uO8GEA+ZMpSr4RVXwNFMRnuEJFLRa11Q/EqnuZ0lpl2HqDCvNpzVI54kxHyRodPtB45i4/qD8qZYV7KaE1HHsJEvxr668OlRKezkki2ls1mkg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(7416014)(11063799006)(261009223027099003)(18002099003)(22082099003)(13003099007)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261021123027099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	ShwQAi2I2qqaYDZrH2epp4YWFJgALi2SJXt80iP0wAw/60mST3Bn1J6FjWzRhjyjCLydv9H0pm8fZyVWkhSwyMvHHzAcyvz+9etFfWIkymJ8LvSpHSJ/mtaxKOD6QNrNBkuAH7B0CqeGZ1PKAFb3lCU0aYM+Sld8Oe7fnIT2dtSuzXo8DnNzCJ7OsOq19CVXJGIKEubRPulfffmKJcMK2mg404xT2rmt1GysRffv1xQE4MI7GdxIe7iXit53FOCZ4iSN/zQxjqrPrUMgaM3zs1lgCd2qkJbiZ5U7SQZJVF3HyJI6ntdnQvkNkVOrNGZp6cngR5orO/Ebh2cXdeysyZKRaJJs2SKGR1xn6KnFWktHAZNjWhEzzARquzm4aSPwSgBkVUWypgHXx4K726tb2+4+0J2g/Yn5ZuurC7yUc+E8ak4ciVYyITCb4G8sS1os
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 06:02:27.9336
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3015abea-b561-4f7c-361b-08df4c4c0420
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MWH0EPF000C6195.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB608111
 
-On Fri, Nov 27, 2026 at 03:15:57AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message says the patch makes the broadcast
->   usable_slaves snapshot 'follow link transitions the same way balance-…
-> - [Medium] Because broadcast now publishes usable_slaves (the revert,
->   which this patch relies on), switching a broadcast bond to balance-rr…
-> - [Low] The series ordering is not bisect-safe, and the dependency
->   between the two patches is not recorded in tags.
-> 
-> --
-> 
-> bonding: update slave array on link change for broadcast mode
-> 
-> This adds a BOND_MODE_BROADCAST case to bond_miimon_link_change(), so the
-> usable_slaves snapshot is rebuilt on miimon link transitions. That keeps
-> the ignore_updelay decision in bond_miimon_inspect() in line with the
-> current slave link states. It depends on a revert of 45fc134bcfad so that
-> bond_set_slave_arr() publishes the array for broadcast.
-> 
-> > Add the broadcast case so the snapshot follows link transitions the
-> > same way balance-xor does. This needs the revert of 45fc134bcfad as
-> > a prerequisite: with 45fc134bcfad applied, bond_set_slave_arr()
-> > discards the refreshed array for broadcast.
-> >
-> > Fixes: e0caeb24f538 ("net: bonding: update the slave array for broadcast mode")
-> 
-> [Severity: Low]
-> Is the series order bisect-safe? The revert of 45fc134bcfad is applied
-> before this patch. On its own, it makes bond_set_slave_arr() publish
-> usable_slaves for broadcast again, but nothing rebuilds the array on
-> miimon link changes yet.
-> 
-> At that intermediate commit, a batch enslave with updelay leaves the new
-> slaves in BOND_LINK_BACK. The snapshot taken at enslave time then has
-> count == 0 and is never refreshed, so bond_miimon_inspect() ignores
-> updelay permanently. That is the bug 45fc134bcfad fixed.
-> 
-> If this patch went first, it would be a no-op under 45fc134bcfad, and
-> every commit in the series would be correct.
-> 
-> Also, this patch carries Fixes: e0caeb24f538, but the revert it depends on
-> has no Fixes: tag and no dependency annotation. 45fc134bcfad is likely
-> already in stable trees.
-> 
-> Would a tag-driven backport of only this patch leave the stale snapshot
-> behaviour unchanged there?
+Gentle ping for the review. I haven't received acknowledgement or feedbacks for 2 to 3 weeks at least.
 
-This commit description already said it depends on the revert.
+On 2026/11/02 12:11, Johnny Liu wrote:
 
-> 
-> > diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-> > index d6675e87d06b6..b1efbdf597ec4 100644
-> > --- a/drivers/net/bonding/bond_main.c
-> > +++ b/drivers/net/bonding/bond_main.c
-> > @@ -2780,6 +2780,7 @@ static void bond_miimon_link_change(struct bonding *bond,
-> >  		bond_alb_handle_link_change(bond, slave, link);
-> >  		break;
-> >  	case BOND_MODE_XOR:
-> > +	case BOND_MODE_BROADCAST:
-> >  		bond_update_slave_arr(bond, NULL);
-> >  		break;
-> >  	}
-> 
-> [Severity: Medium]
-> The commit message says the snapshot follows link transitions "the same
-> way balance-xor does". Does that hold outside the MII monitor?
-> 
-> balance-xor also rebuilds the array when the ARP load-balance monitor
-> changes a slave's link state. Broadcast is still left out there:
-> 
-> drivers/net/bonding/bond_main.c:bond_loadbalance_arp_mon() {
->     ...
-> 		if (slave_state_changed) {
-> 			bond_slave_state_change(bond);
-> 			if (BOND_MODE(bond) == BOND_MODE_XOR)
-> 				bond_update_slave_arr(bond, NULL);
-> 		}
->     ...
-> }
-> 
-> Broadcast can use ARP monitoring, because bond_mode_uses_arp() only
-> excludes BOND_MODE_8023AD, BOND_MODE_TLB and BOND_MODE_ALB.
-> bond_slave_netdev_event() also skips broadcast, since
-> bond_mode_can_use_xmit_hash() is false for it. So under ARP monitoring,
-> the broadcast snapshot keeps the state from the last enslave or release.
-> 
-> bond_option_miimon_set() can switch the bond from ARP monitoring to
-> miimon at runtime. It zeroes arp_interval, cancels arp_work and queues
-> mii_work, but it does not rebuild the slave array. params.updelay
-> survives the switch.
-> 
-> For example, slaves enslaved with carrier under ARP monitoring are marked
-> BOND_LINK_UP and counted in usable_slaves. Later the ARP monitor marks
-> them BOND_LINK_DOWN, but the snapshot is not refreshed. Once miimon is
-> enabled, bond_miimon_inspect() sees usable_slaves->count != 0:
-> 
-> 	if (usable_slaves && usable_slaves->count == 0)
-> 		ignore_updelay = true;
-> 
-> Recovering slaves then wait out updelay even though the bond has no usable
-> link.
-> 
-> The reverse case also happens. If slaves are enslaved without carrier,
-> count == 0 and updelay is wrongly ignored. Either state lasts until the
-> first miimon commit reaches bond_miimon_link_change().
-> 
-> Should BOND_MODE_BROADCAST also be added to the condition in
-> bond_loadbalance_arp_mon()?
-
-Ack, I will also handle the arp monitor.
-
-> 
-> [Severity: Medium]
-> Now that broadcast publishes usable_slaves, does a switch from broadcast
-> to balance-rr leave a stale snapshot behind?
-> 
-> Releasing the last broadcast slave goes through __bond_release_one():
-> 
-> 	if (bond_mode_can_use_xmit_hash(bond) ||
-> 	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
-> 		bond_update_slave_arr(bond, slave);
-> 
-> This runs after bond_upper_dev_unlink(), so the slave list is already
-> empty. The result is a non-NULL usable_slaves with count == 0, and after
-> the revert that array is kept for broadcast.
-> 
-> Neither bond_option_mode_set() nor bond_close() resets the arrays.
-> 
-> In balance-rr, nothing rebuilds the array afterwards:
-> 
->   - bond_enslave() and __bond_release_one() only rebuild for xmit-hash
->     modes or broadcast
->   - bond_open() and bond_slave_netdev_event() only rebuild when
->     bond_mode_can_use_xmit_hash() is true
->   - bond_miimon_link_change() has no BOND_MODE_ROUNDROBIN case
-> 
-> So in balance-rr, bond_miimon_inspect() would see count == 0 on every
-> pass. It would set ignore_updelay = true and force slave->delay to 0 for
-> every recovering slave.
-> 
-> Documentation/networking/bonding.rst section 13.1 says updelay is ignored
-> only when the bond has no active links.
-> 
-> In the baseline tree with 45fc134bcfad, broadcast never published
-> usable_slaves, so a switch from broadcast to balance-rr left it NULL. The
-> same missing reset on mode change already existed for a switch from
-> balance-xor to balance-rr.
-
-This seems not broadcast only issue. The other xmit hash mode also have this
-problem. Maybe we should set usable_array to NULL if it's length is 0? Need
-to further checking.
-
-Thanks
-Hangbin
----
-pw-bot: cr
+> EMC clock scaling is handled by the BPMP firmware without kernel
+> involvement, so clk_get_rate() on the EMC clock can return a stale value
+> cached by the common clock framework. This series makes the EMC clock
+> rate uncached on Tegra234, Tegra238 and Tegra264, and adds the pieces
+> needed to identify the EMC clock on each of these chips.
+>
+> The EMC clock ID differs per chip (TEGRA234_CLK_EMC=31,
+> TEGRA238_CLK_EMC=43, TEGRA264_CLK_EMC=290), while the
+> "nvidia,tegra186-bpmp" fallback compatible and the tegra186_soc data are
+> shared across several chips. To avoid detecting the chip at runtime, the
+> EMC clock ID is carried in per-SoC BPMP data selected by the device tree
+> compatible.
+>
+> Patch 1 adds the "nvidia,tegra238-bpmp" compatible to the binding,
+> together with the Tegra238 clock ID header. Patch 2 adds an emc_clk_id
+> field to struct tegra_bpmp_soc, together with dedicated SoC data for
+> Tegra234 and Tegra264 built on a common TEGRA186_BPMP_SOC_COMMON
+> initializer. Patch 3 adds Tegra238 support to the BPMP driver, including
+> its own SoC data and EMC clock ID. Patch 4 then sets
+> CLK_GET_RATE_NOCACHE on the clock matching that ID, so that the common
+> clock framework forwards rate queries to the BPMP instead of returning a
+> stale cached rate.
+>
+> The series touches both the clock and the firmware code. Patch 4 depends
+> on patch 2, and patch 3 depends on patches 1 and 2, so I would suggest
+> taking the whole series through the Tegra tree with an Acked-by from the
+> clock maintainers.
+>
+> Changes in v3:
+> - Move the TEGRA186_BPMP_SOC_COMMON refactoring out of the Tegra238
+>   support patch and into the "Add per-SoC EMC clock ID" patch, as the
+>   refactoring only makes sense together with the per-SoC emc_clk_id.
+> - Keep all Tegra238 specific changes (Makefile, CONFIG_ARCH_TEGRA_238_SOC
+>   guards, clock ID header include, tegra238_soc data and compatible match)
+>   in a single "Add Tegra238 support" patch, and reorder it after the
+>   per-SoC EMC clock ID patch.
+> - Reword the "Add per-SoC EMC clock ID" commit message to describe the
+>   intended use of emc_clk_id: the BPMP clock provider sets
+>   CLK_GET_RATE_NOCACHE on that clock, as it is completely managed by the
+>   firmware and the common clock framework must pass rate queries through
+>   to get the latest rate.
+> - No changes to patches 1 and 4 apart from the patch numbering.
+>
+> Changes in v2:
+> - Squash "dt-bindings: clock: Add Tegra238 BPMP clock IDs" into
+>   "dt-bindings: firmware: tegra186-bpmp: Add Tegra238 compatible".
+> - Reword the binding commit message to state that the Tegra238 SoC is
+>   fully compatible with the Tegra186 BPMP.
+>
+> v2: https://lore.kernel.org/all/20261028155000.1205739-1-johnliu@nvidia.com/
+> v1: https://lore.kernel.org/all/20261028084900.1047287-1-johnliu@nvidia.com/
+>
+> Johnny Liu (4):
+>   dt-bindings: firmware: tegra186-bpmp: Add Tegra238 BPMP
+>   firmware: tegra: bpmp: Add per-SoC EMC clock ID
+>   firmware: tegra: bpmp: Add Tegra238 support
+>   clk: tegra: bpmp: Do not cache the EMC clock rate
+>
+>  .../firmware/nvidia,tegra186-bpmp.yaml        |   1 +
+>  drivers/clk/tegra/clk-bpmp.c                  |   3 +
+>  drivers/firmware/tegra/Makefile               |   1 +
+>  drivers/firmware/tegra/bpmp.c                 |  61 ++--
+>  include/dt-bindings/clock/nvidia,tegra238.h   | 279 ++++++++++++++++++
+>  include/soc/tegra/bpmp.h                      |   1 +
+>  6 files changed, 329 insertions(+), 17 deletions(-)
+>  create mode 100644 include/dt-bindings/clock/nvidia,tegra238.h
+>
+> -- 
+> 2.43.0
+>
