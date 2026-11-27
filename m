@@ -1,60 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753630;
-	b=lcrq0rr3hiVaaU5nSapC/OR4R/9Q23BMk680/RjT1x5qLbmy5x0K/BgcjJPYhKtwtE9T
-	 bJsJ7KCTp2cWwNw6NZlDarP7XdH0FL4efl0Phw7BqrqLGebvgXqhp4nbxiqIBZcGrNPe+
-	 2XOFeWQh6okv/4rxvZs7AIrhRy8y80TS8FGbRnbK+zXW4rkrH3y/ip5WH5zq98kQj6NfV
-	 XfrrEGaQrxuKbNeIANftQQC6vVB5IVmmCDyPtqiuQHgpBoCUOea2OLoVQ+vguEqQ+x0mI
-	 APDfWhcXlNcBBni4+mjOXogWVrkwiSFCoIF6s81dIybnyFP2O6oe8AcPk/3VKdQpKUQ==
+	t=1795753790;
+	b=kD7u6Od+XTrsGvgHH0bQ535dk4NaFanhqx4Xjk/Yg6P7efv6s8EmhjuLavlgsyqvLqRa
+	 ObtaO3HG8i6H5kmzYLASRM964Bx51J6qLVK920dMTBC8uJtKuofGzfwhoGw68gZIcrSGc
+	 zufHEAFeysoc4aQKTO1T+sjk04jc7OEGORoUbFpIXxrjqiLpd0ia2gjaGoUXNDmPjoW6N
+	 yMdki3BX58q+WzhZaXX4jfl3wOGrNUUcPfZh0dpRDsweR8bLN85jOoYOXLzeUu09Q45KW
+	 NPcjzGrb11g3ULa5Q+W9xPIUBRAVtY4xhkrt5bYkNvl3Dgj0s6ouN7hMhNBq/tOyXQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753630;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ylyv5T+j/H353gU/iBllM/7cj9PHM7kAr+dpqaujsro=;
-	b=cQUZjWwYCPw4DkqpaIUrrcTfMEG2xHPW9dH0fMbM6mOHm8wXtGhBIXG+QTnN8ljIyXv3
-	 FEYGTBPCSLeUI14SsXfCKotX9acbmcU4DXgVKdmnoHhcI7eZg4A4RqCrDS2PDCMa34GOa
-	 kENNYvCOvmGPg38vZ1fR3UxKwSx8STOxIGZSPCEVUjbfTZKmTl01nAUzOOtQstWSVYwqv
-	 GwTOao/341XQZ59XkY+HkF/KHYGWp62L/DWuqUNDAPFtLEtcILXxxgCGmQPY+D/SdjbW7
-	 pcdfiQi1yICJ8pu6yyx5Ln7CkRPG0yN3Wr5uVaTBl4L6gx6ZMP4xsZkW5QmLSRigRJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753790;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=GCWB8FuEhHVOfDpGcddmAsTtaa85coe0yJXmYchM8Pk=;
+	b=feabglOVm5yKXvm/Wshp2b6B4bmIr90DZMumPL77iEve8nSNRMGZ+XXV3UQSkwXqPh8f
+	 ruD+9/pDAWIpSK+LDIOCKNhBk/Dq2Y8F2aTdyyh2EzeFkCl+DdJr+nG/vIsCvdX8duLum
+	 tTySvmlV39MqdFIjUdalV6jW5WeI61NuQQfhmrMLFqM0OFviwDxr/TRlZuduxLDPmRi49
+	 bsZIqVXh4MryeaOyDFey/zbX4ZYWjV9aRiQ5LdnSLAcG0GgO7BthjBq5Le0BNLPBLLVEN
+	 qgS3JA86X462wCDIbIiVlzyl9l/Bhe1L/MtDA8x+tJd80aFr5wyAfN67IWhWGot2yqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lOkIE2Bl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OJyrZv9G;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33B6C606A68E;
-	Fri, 27 Nov 2026 04:27:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 498FD606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:29:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 498FD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lOkIE2Bl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 237941F00A16;
-	Fri, 27 Nov 2026 04:27:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795753629;
-	bh=ylyv5T+j/H353gU/iBllM/7cj9PHM7kAr+dpqaujsro=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lOkIE2BlNa+CxSXA22P/iN+D7mz9DE8R7md7h0LuLlQJt7Q71dWJegMCjFTerWueQ
-	 vj5Vpf6D+cv66LyCTULBxFBq/DixfC8jw1RKLgR3UpsVE+vgPQj5mVzb90aCTDWE9C
-	 asFSE/1CfwVdT89zI/LU+8xYX9p20is0tOW+dM0DgLK2jiXGuXneEdg+ag0+bQG85W
-	 31Wign0kAroSapof41sAj2wDXo2ppeH1ylF6Q0x7ZTvy71ns0TSbTngaSDMi6BFhqS
-	 lp17dKVGp065L+wY76RY5vsKy0g9cZbVQQKyyzMAdjB+59HjNlfrBoJtrKgbN1rmyY
-	 kJg0PoTZLf0WA==
-Subject:
- Re: [PATCH net-next v9 12/12] r8152: enable UPS for RTL8157 and RTL8159 QFN68
-From: netdev-bot+sashiko@kernel.org
-To: hsu.chih.kai@realtek.com
-Cc: davem@davemloft.net, kuba@kernel.org, netdev@vger.kernel.org,
- nic_swsd@realtek.com, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
- edumazet@google.com, bjorn@mork.no, pabeni@redhat.com, andrew+netdev@lunn.ch,
- mail@birger-koblitz.de
-Date: Fri, 27 Nov 2026 04:27:08 +0000
-Message-ID: <179575362872.3135.13750134827744924727@kernel.org>
-In-Reply-To: <20261126033211.51850-13-nic_swsd@realtek.com>
-References: <20261126033211.51850-13-nic_swsd@realtek.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OJyrZv9G
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so78154485e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:29:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795753788; x=1796358588; darn=vger.kernel.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GCWB8FuEhHVOfDpGcddmAsTtaa85coe0yJXmYchM8Pk=;
+        b=OJyrZv9G+z1HP+yR00uthYwYIlDxhMJc1m03kMTC80MlNcmwZK9450oHvVAm4k6Wgm
+         s6gce2SiD1Nkp0qytVSc4fcStaRdyW/nYRQgATxf8XnI3RDS5mXKxiaSjXYOlN4o1z6l
+         Q8jfJ3qPqUTjE0SeCuNAKidyGGhxEJtxGufKcRl/C1sMcWH4YcHmtMm258SG2hM9LS9K
+         V7U6x90t5a7Fhd0eJ7qMO/TyNykLg6cmVOIs8f/uBlOgXf+FRSON6ALcb8DbQJYxulZK
+         9BI/dgW05yIA++qA3a3W0Bv8xVP2mTx9xU2lHMBnB6MR6m9EsVU4eFCFZTs37iqgXmO1
+         rwsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795753788; x=1796358588;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GCWB8FuEhHVOfDpGcddmAsTtaa85coe0yJXmYchM8Pk=;
+        b=sPK4LrJadpMLbruzGy8CXDyy3Wd6FvllOI0Zuu+lNF5iRReJfxASGC/CKb12C6HYb4
+         /mnwq5UhIgSNDl0bhs2Nh9UtblmlnizcqzO4nt72YlYPu1QscxKURbuvdjC+93IkIBjn
+         S/OY6C3udxBBiPMWCAf5/ECCoLK/gJZiFzEKPWUaY1XpidS/zn48yVA55AqPcjbFMUiQ
+         n9txcthlVe3wP6Jg9EutfnOubU9xNmHI0kYIF/4uRPMYCZabfbG22w/yfVHGiQfZtFXQ
+         fvxBoxWWn1jmpxqsQcMWLhA2Eh9XKo0FRwNvH7d8VUHRxajf9n7hPKwtH7TIvwLpfZSs
+         xizA==
+X-Forwarded-Encrypted: i=1; AL+hErH3+LZ4KWPKlLcfplIePReiXBABPMheEVeB3+W8I0TBQZqg/xrYiWJ6Sb1TnrZlCoTdrjriiktdnXZs7lM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yLfhtp6ACsmje5IvBu7q7sGzwHj3P2bLQYqy0Z0QsGGsL162+
+	V9YTXJ9WoETvY0NYqTTyMuuHvMIzQHNGR+S097/Bi4Tmr60L6AMzW+g4
+X-Gm-Gg: AZFdTZd4tIhxho8hTM1CO4+Mb1mI4+OjYAnxODCTRvTiSD5HwZGIQHI0+PKDdCFxycv
+	6qNMqaKTqGnTKmHu3qnq9w8Sfm5moy2U1+9SBqh1RddWlpfbQrXsriTzDpm2q8escXIS2QLaKGg
+	8vm/XuWtEZaeoPC/gymOmI0UNn0t73mfiO9Cs5Qj1y85TQmsw/3/LCTEqXCXs/vuehEkROllnxn
+	nhdLa3h7qtSoTw7EArmqfSnqGnAuq42hiFFC2GPuLIWjlLZzjJy0b2v0xqb5y/OMS9WSG2zxeFl
+	bNYAd6x2Somi2uKAGIcuA/+lpJIuYfJqXXPymEP7ADseiVuRDZoi3trT188OVnUhePBubhywhgH
+	GRCl8FzKYz831nh+D5u/nsJ04cOUpnqg/Msj2xLEOWp/mYwpVuRMBcVZ+3jNsT+L/Wvudvw2mjU
+	QCNrdLWx2TbXmw6DgfThZ+Ae2cP1EwRxu3Yo1bHv7iOqdDQK+nyJReODOy1d9+M+VsKtEuWGGzv
+	/2ZOhUvhi9b9+fSqlLF4t/bv6wlhsirZBzyAcJJKBL7TeSYsNQGQRnkQYEOCea5gIM8k71pTbns
+	BLpkqRib0j18PPO1rlcLsG463yyPT6BSIYZg3Vce1unfJSBp2SvGv0GZVcicZ9pLnYkxl/z1A4P
+	ezU+/VL+a/jc+PHyA7XA2WLHLYsSRqYh+VvOA9yLI+5r8T//gmo5Q8x1oeK9FSyiEF4WIwCWo2j
+	t9BeRbw9+xRu4CRydj3j//s0P+PwUoS24X/tnI+exA0gXa8co4vBuKfSeJt8DJytbEJ2hMVthp7
+	A9ZL3eQ+L7FO8g6tzbuVtfGT5uCOCQPKgh/XC9pXAHwJWmo5bGsrs3A2OaXNz8=
+X-Received: by 2002:a05:600c:3113:b0:4bb:693e:4c8e with SMTP id 5b1f17b1804b1-4bb88816a53mr491770365e9.21.1795753787328;
+        Thu, 26 Nov 2026 20:29:47 -0800 (PST)
+Received: from jernej-laptop.localnet (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm913769445e9.13.2026.11.26.20.29.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 20:29:46 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, wens@kernel.org, samuel@sholland.org,
+ Enzo Adriano <enzo.adriano.code@gmail.com>
+Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>,
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+ Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ Cristian Filipescu <filipescu.cristian@gmail.com>,
+ Norman Herms <dockseed@proton.me>
+Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
+Date: Fri, 27 Nov 2026 05:29:44 +0100
+Message-ID: <p3YaXlLJTguQBGnWyMpb1w@gmail.com>
+In-Reply-To: <20261126-a733-cubie-a7s-dt-v6-2@gmail.com>
+References:
+ <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+ <20261126-a733-cubie-a7s-dt-v6-2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,295 +111,751 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 5 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] On RTL8157 (RTL_VER_16), the probe/reset_resume path and the
-  new runtime-resume path disagree about the backup-restore wait after a…
-- [Medium] r8157_ups_en(tp, false) adds a permanent failure mode to
-  runtime resume.
-- [Medium] In the new runtime-resume path of rtl8157_runtime_enable(tp,
-  false), r8157_ups_en(tp, false) runs only after r8153_queue_wake(tp,…
-- [Medium] r8157_ups_en(tp, false) polls USB_GPHY_CTRL.BACKUP_RESTRORE
-  with a 20 ms timeout after every power cut, for every chip it is…
-- [Medium] When PCUT_STATUS is set, the power-cut recovery branch of the
-  new r8157_ups_en(tp, false) waits for BACKUP_RESTRORE, clears…
-- [Low] To force the USB MCU firmware to be re-applied after a power cut,
-  r8157_ups_en(tp, false) writes 0 to a hard-coded register,…
-
---
-
-r8152: enable UPS for RTL8157 and RTL8159 QFN68
-
-This patch adds r8157_ups_en() and calls it from rtl8157_runtime_enable(),
-so RTL8157 and RTL8159 QFN68 enter and exit UPS across runtime suspend and
-resume. It also extends r8156_ups_flags() with per-speed EEE flags and
-5G/10G speed encodings for these chips. On the UPS disable path the driver
-waits for backup-restore after a power cut, then applies the PHY
-configuration again.
-
-> diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index e6a5d35403a28..e294e52b426b5 100644
-> --- a/drivers/net/usb/r8152.c
-> +++ b/drivers/net/usb/r8152.c
-
-[ ... ]
-
-> @@ -4496,6 +4534,58 @@ static void r8156_ups_en(struct r8152 *tp, bool enable)
->  	}
->  }
->  
-> +static void r8157_ups_en(struct r8152 *tp, bool enable)
-> +{
-
-[ ... ]
-
-> +		if (ocp_data & PCUT_STATUS) {
-> +			ret = read_poll_timeout(ocp_read_word, ocp_data,
-> +						test_bit(RTL8152_INACCESSIBLE,
-> +							 &tp->flags) ||
-> +						(ocp_data & BACKUP_RESTRORE),
-> +						200, 20000, false, tp,
-> +						MCU_TYPE_USB, USB_GPHY_CTRL);
-
-[Severity: Medium]
-Does RTL8157 (RTL_VER_16) set BACKUP_RESTRORE by itself after a
-power cut?
-
-r8157_init() only waits for it on the RTL8159 variants:
-
-r8157_init() {
-    ...
-	switch (tp->version) {
-	case RTL_VER_17_QFN68:
-	case RTL_VER_17_QFN100:
-		if (r8159_wait_backup_restore(tp)) {
-    ...
-}
-
-The only other user of BACKUP_RESTRORE in the driver is
-rtl8152_fw_phy_nc_apply(), where software sets the bit itself.
-
-Suppose RTL8157 never asserts the bit. Every runtime resume after a UPS
-power cut on RTL_VER_16 would then time out here after 20 ms and mark the
-device inaccessible. hw_phy_cfg() and rtl8152_set_speed() would be
-skipped, and the r8157_u2p3en(true) and r8153b_u1u2en(true) writes after
-it would be dropped. Is that what happens?
-
-The commit message says the wait applies "on RTL8157 as well as RTL8159",
-but r8157_init() treats RTL8157 as not needing it. Which one is correct
-for this chip?
-
-> +			if (test_bit(RTL8152_INACCESSIBLE, &tp->flags))
-> +				return;
+Dne =C4=8Detrtek, 26. november 2026 ob 21:35:40 Srednjeevropski standardni =
+=C4=8Das je Enzo Adriano napisal(a):
+> The Allwinner A733 combines six Cortex-A55 and two Cortex-A76 cores.
+> Add the common device tree for the first Cubie A7A, A7S and A7Z board
+> DTS files. Describe the CPUs, PSCI, architectural timers, GIC, RTC,
+> main and always-on clock/reset and pin controllers, UART, I2C and
+> MMC. The preceding revision booted on the A7S and A7Z.
+>=20
+> The A7S schematic, sheets 7 and 16, shows the EEPROM wired to I2C0
+> on PG8/PG9. Use mux 6 as documented in the A733 Datasheet v1.00,
+> section 4.2.6, table 4-36. The A7A schematic shows the external RTC
+> on S_TWI1. Add its R-I2C1 pin group on PL12/PL13, mux 3.
+>=20
+> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
+> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
+> and noncoherent attributes follow Andre Przywara's A733 reference
+> and the A523 precedent. The CPUX interconnect diagram in section
+> 5.1.2 supports the noncoherency inference. Leave the ITS disabled
+> pending clock/reset and MSI integration.
+>=20
+> Describe the single DynamIQ unit and shared L3 shown in section
+> 5.1.2, figure 5-1. Partition PPI 7 (section 12.2.3, table 12-1)
+> between the Cortex-A55 and Cortex-A76 PMUs so each probes its own
+> core type. Defer capacity-dmips-mhz until it is measured on A733.
+>=20
+> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b3529=
+86b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
+> Link: https://lore.kernel.org/r/20261126172253.1097838-2-andre.przywara@a=
+rm.com
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa =
+Cubie A7Z V1.11
+> Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+> Co-developed-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> ---
+> Changes since v5:
+> - Mark the I2C0 PG8/PG9 group /omit-if-no-ref/, as requested. This
+>   satisfies Andre's review condition.
+> - Move the RTC clock include after the A733 clock headers and cite
+>   the A733 datasheet and A7S schematic for the I2C0 pins.
+> - Fold in Andre's R-I2C1 pin group for A7A. A7S and A7Z leave
+>   it unused. A7S still references the I2C0 group.
+> - Vinicius tested the v5 DTSI with his A7Z v1.11 board DT. Norman
+>   tested the v5 series on A7S. Their tags here cover the SoC DTSI.
+>=20
+>  .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 671 ++++++++++++++++++
+>  1 file changed, 671 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun60i-a733.dtsi
+> new file mode 100644
+> index 000000000000..e062b08006da
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> @@ -0,0 +1,671 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
 > +
-> +			if (ret) {
-> +				rtl_set_inaccessible(tp);
-> +				dev_err(&tp->intf->dev,
-> +					"backup-restore timed out\n");
-> +				return;
-> +			}
-
-[Severity: Medium]
-Can this leave the NIC permanently unusable after a runtime resume?
-
-The call chain is:
-
-rtl8152_resume()->rtl8152_runtime_resume()->
-    tp->rtl_ops.autosuspend_en(tp, false)->rtl8157_runtime_enable()->
-        r8157_ups_en(tp, false)
-
-r8157_ups_en() returns void, and rtl8152_runtime_resume() returns 0 in
-every case.
-
-rtl8152_resume() skips its existing inaccessible recovery for runtime
-resume:
-
-	if (!runtime_resume && test_bit(RTL8152_INACCESSIBLE, &tp->flags))
-		usb_reset_device(tp->udev);
-
-After the timeout, every generic_ocp_read() and generic_ocp_write()
-returns -ENODEV. The interface then stays unusable until a replug.
-
-The commit message acknowledges this and leaves recovery to a follow-up
-series. Runtime resume runs far more often than probe or reset_resume, and
-before this patch rtl8157_runtime_enable(false) could not fail this way.
-Could this path call usb_queue_reset_device(), as rtl8152_tx_timeout() and
-the control message error path already do?
-
+> +#include <dt-bindings/clock/allwinner,sun60i-a733-ccu.h>
+> +#include <dt-bindings/clock/allwinner,sun60i-a733-r-ccu.h>
+> +#include <dt-bindings/clock/sun6i-rtc.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
+> +#include <dt-bindings/reset/allwinner,sun60i-a733-r-ccu.h>
 > +
-> +			/* clear USB fw_ver_reg */
-> +			ocp_write_byte(tp, MCU_TYPE_USB, USB_FW_USB_VER, 0);
-
-[Severity: Low]
-rtl8152_fw_mac_apply() does not look at USB_FW_USB_VER when deciding
-whether to skip a block. It uses the register named in the firmware blob:
-
-	fw_ver_reg = __le16_to_cpu(mac->fw_ver_reg);
-	if (fw_ver_reg && ocp_read_byte(tp, MCU_TYPE_USB, fw_ver_reg) >= mac->fw_ver_data) {
-
-Nothing in the driver links 0xcfd7 to the USB block's fw_ver_reg. If a
-current or future rtl8157/rtl8159 blob names a different register, would
-the USB MCU patch be skipped after the power cut?
-
-This code also leaves the PLA block's version register alone. If the power
-cut drops the PLA patch, would that patch be applied again?
-
-Could this use the fw_ver_reg values from tp->rtl_fw rather than a
-hard-coded register?
-
+> +/ {
+> +	#address-cells =3D <2>;
+> +	#size-cells =3D <2>;
+> +	interrupt-parent =3D <&gic>;
 > +
-> +			tp->rtl_ops.hw_phy_cfg(tp);
-
-[Severity: Medium]
-Is a wait_autoload_done() call needed before hw_phy_cfg() here?
-
-The other runtime UPS implementations wait for autoload in the same power
-cut branch. For example, r8153b_ups_en():
-
-		if (ocp_read_word(tp, MCU_TYPE_USB, USB_MISC_0) & PCUT_STATUS) {
-			if (wait_autoload_done(tp))
-				return;
-
-			tp->rtl_ops.hw_phy_cfg(tp);
-
-r8157_init() also runs r8156b_wait_loading_flash(), then
-wait_autoload_done(), then the backup-restore wait, all before PHY setup.
-
-Before applying firmware and PHY parameters, r8157_hw_phy_cfg() only calls
-r8156b_wait_loading_flash(). So this path checks backup-restore first and
-flash loading second, the reverse of the init order.
-
-r8156_ups_en(), which this function mirrors, also lacks the wait. But
-r8156_ups_en(tp, true) has no caller, so its power cut branch has never
-run at runtime.
-
-If autoload is still running after the power cut, could it overwrite the
-PHY parameters or MAC firmware that hw_phy_cfg() writes?
-
+> +	cpus {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
 > +
-> +			rtl8152_set_speed(tp, tp->autoneg, tp->speed,
-> +					  tp->duplex, tp->advertising);
-> +		}
-> +	}
-> +}
-
-[ ... ]
-
-> @@ -4654,9 +4744,28 @@ static void rtl8157_runtime_enable(struct r8152 *tp, bool enable)
->  		r8153b_u1u2en(tp, false);
->  		r8157_u2p3en(tp, false);
->  		rtl_runtime_suspend_enable(tp, true);
+> +		cpu-map {
+> +			cluster0 {
+> +				core0 {
+> +					cpu =3D <&cpu0>;
+> +				};
 > +
-> +		switch (tp->version) {
-> +		case RTL_VER_16:
-> +		case RTL_VER_17_QFN68:
-> +			r8157_ups_en(tp, true);
-> +			break;
-> +		default:
-> +			break;
-> +		}
->  	} else {
->  		r8153_queue_wake(tp, false);
->  		rtl_runtime_suspend_enable(tp, false);
+> +				core1 {
+> +					cpu =3D <&cpu1>;
+> +				};
 > +
-> +		switch (tp->version) {
-> +		case RTL_VER_16:
-> +		case RTL_VER_17_QFN68:
-> +			r8157_ups_en(tp, false);
-> +			break;
-> +		default:
-> +			break;
-> +		}
-
-[Severity: Medium]
-Should r8157_ups_en(tp, false) run before r8153_queue_wake(tp, false) and
-rtl_runtime_suspend_enable(tp, false)?
-
-As written, the PLA wake and WOL registers are written again before UPS
-is exited and before the backup-restore wait. These are
-PLA_INDICATE_FALG, PLA_SUSPEND_FLAG, PLA_EXTRA_STATUS, PLA_CRWECR and
-PLA_CONFIG34.
-
-The other chips with runtime UPS use the opposite order. For example,
-rtl8153b_runtime_enable():
-
-	} else {
-		r8153b_ups_en(tp, false);
-		r8153_queue_wake(tp, false);
-		rtl_runtime_suspend_enable(tp, false);
-
-The restore after a power cut could still be running when saved_wolopts
-is restored and LINK_OFF_WAKE_EN and UPCOMING_RUNTIME_D3 are cleared.
-Could it then bring back the suspend-time wake configuration?
-
-There is also a second ordering change. hw_phy_cfg() and
-rtl8152_set_speed() now run after LINK_CHG_EVENT and LINK_CHANGE_FLAG
-have been cleared, which the 8153b/8153c sequence does not do.
-
+> +				core2 {
+> +					cpu =3D <&cpu2>;
+> +				};
 > +
->  		r8157_u2p3en(tp, true);
->  		if (tp->udev->speed >= USB_SPEED_SUPER)
->  			r8153b_u1u2en(tp, true);
+> +				core3 {
+> +					cpu =3D <&cpu3>;
+> +				};
+> +
+> +				core4 {
+> +					cpu =3D <&cpu4>;
+> +				};
+> +
+> +				core5 {
+> +					cpu =3D <&cpu5>;
+> +				};
+> +
+> +				core6 {
+> +					cpu =3D <&cpu6>;
+> +				};
+> +
+> +				core7 {
+> +					cpu =3D <&cpu7>;
+> +				};
+> +			};
+> +		};
+> +
+> +		cpu0: cpu@0 {
+> +			compatible =3D "arm,cortex-a55";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x0>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu1: cpu@100 {
+> +			compatible =3D "arm,cortex-a55";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x100>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu2: cpu@200 {
+> +			compatible =3D "arm,cortex-a55";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x200>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu3: cpu@300 {
+> +			compatible =3D "arm,cortex-a55";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x300>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu4: cpu@400 {
+> +			compatible =3D "arm,cortex-a55";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x400>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu5: cpu@500 {
+> +			compatible =3D "arm,cortex-a55";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x500>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu6: cpu@600 {
+> +			compatible =3D "arm,cortex-a76";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x600>;
+> +			enable-method =3D "psci";
+> +		};
+> +
+> +		cpu7: cpu@700 {
+> +			compatible =3D "arm,cortex-a76";
+> +			device_type =3D "cpu";
+> +			reg =3D <0x700>;
+> +			enable-method =3D "psci";
+> +		};
+> +	};
+> +
+> +	hosc: clock-hosc {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +	};
+> +
+> +	pmu-a55 {
+> +		compatible =3D "arm,cortex-a55-pmu";
+> +		interrupts =3D <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_a55>;
+> +	};
+> +
+> +	pmu-a76 {
+> +		compatible =3D "arm,cortex-a76-pmu";
+> +		interrupts =3D <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_a76>;
+> +	};
+> +
+> +	psci {
+> +		compatible =3D "arm,psci-0.2";
+> +		method =3D "smc";
+> +	};
+> +
+> +	timer {
+> +		compatible =3D "arm,armv8-timer";
+> +		interrupts =3D <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
+> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		arm,no-tick-in-suspend;
+> +	};
+> +
+> +	soc@0 {
+> +		compatible =3D "simple-bus";
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <1>;
+> +		ranges =3D <0x0 0x0 0x0 0x40000000>;
+> +
+> +		pio: pinctrl@2000000 {
+> +			compatible =3D "allwinner,sun60i-a733-pinctrl";
+> +			reg =3D <0x02000000 0x800>;
+> +			interrupts =3D <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_APB1>, <&hosc>, <&rtc CLK_OSC32K>;
+> +			clock-names =3D "apb", "hosc", "losc";
+> +			gpio-controller;
+> +			#gpio-cells =3D <3>;
+> +			interrupt-controller;
+> +			#interrupt-cells =3D <3>;
+> +
+> +			/omit-if-no-ref/
+> +			i2c0_pg_pins: i2c0-pg-pins {
+> +				pins =3D "PG8", "PG9";
+> +				function =3D "i2c0";
+> +				allwinner,pinmux =3D <6>;
+> +			};
+> +
+> +			mmc0_pins: mmc0-pins {
+> +				pins =3D "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
+> +				function =3D "mmc0";
+> +				allwinner,pinmux =3D <2>;
+> +				drive-strength =3D <30>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			mmc1_pins: mmc1-pins {
+> +				pins =3D "PG0", "PG1", "PG2", "PG3", "PG4", "PG5";
+> +				function =3D "mmc1";
+> +				allwinner,pinmux =3D <2>;
+> +				drive-strength =3D <30>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			mmc2_pins: mmc2-pins {
+> +				pins =3D "PC5", "PC6", "PC8", "PC9", "PC10", "PC11",
+> +				       "PC13", "PC14", "PC15", "PC16";
+> +				function =3D "mmc2";
+> +				allwinner,pinmux =3D <3>;
+> +				drive-strength =3D <30>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			uart0_pb_pins: uart0-pb-pins {
+> +				pins =3D "PB9", "PB10";
+> +				function =3D "uart0";
+> +				allwinner,pinmux =3D <2>;
+> +			};
+> +		};
+> +
+> +		ccu: clock-controller@2002000 {
+> +			compatible =3D "allwinner,sun60i-a733-ccu";
+> +			reg =3D <0x02002000 0x2000>;
+> +			clocks =3D <&hosc>, <&rtc CLK_OSC32K>, <&rtc CLK_IOSC>,
+> +				 <&rtc CLK_OSC32K_FANOUT>;
+> +			clock-names =3D "hosc", "losc", "iosc", "losc-fanout";
+> +			#clock-cells =3D <1>;
+> +			#reset-cells =3D <1>;
+> +		};
+> +
+> +		uart0: serial@2500000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02500000 0x400>;
+> +			interrupts =3D <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART0>;
+> +			resets =3D <&ccu RST_BUS_UART0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		uart1: serial@2501000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02501000 0x400>;
+> +			interrupts =3D <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART1>;
+> +			resets =3D <&ccu RST_BUS_UART1>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		uart2: serial@2502000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02502000 0x400>;
+> +			interrupts =3D <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART2>;
+> +			resets =3D <&ccu RST_BUS_UART2>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		uart3: serial@2503000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02503000 0x400>;
+> +			interrupts =3D <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART3>;
+> +			resets =3D <&ccu RST_BUS_UART3>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		uart4: serial@2504000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02504000 0x400>;
+> +			interrupts =3D <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART4>;
+> +			resets =3D <&ccu RST_BUS_UART4>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		uart5: serial@2505000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02505000 0x400>;
+> +			interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART5>;
+> +			resets =3D <&ccu RST_BUS_UART5>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		uart6: serial@2506000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x02506000 0x400>;
+> +			interrupts =3D <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&ccu CLK_BUS_UART6>;
+> +			resets =3D <&ccu RST_BUS_UART6>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c0: i2c@2510000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02510000 0x400>;
+> +			interrupts =3D <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C0>;
+> +			resets =3D <&ccu RST_BUS_I2C0>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c1: i2c@2511000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02511000 0x400>;
+> +			interrupts =3D <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C1>;
+> +			resets =3D <&ccu RST_BUS_I2C1>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c2: i2c@2512000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02512000 0x400>;
+> +			interrupts =3D <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C2>;
+> +			resets =3D <&ccu RST_BUS_I2C2>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c3: i2c@2513000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02513000 0x400>;
+> +			interrupts =3D <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C3>;
+> +			resets =3D <&ccu RST_BUS_I2C3>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c4: i2c@2514000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02514000 0x400>;
+> +			interrupts =3D <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C4>;
+> +			resets =3D <&ccu RST_BUS_I2C4>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c5: i2c@2515000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02515000 0x400>;
+> +			interrupts =3D <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C5>;
+> +			resets =3D <&ccu RST_BUS_I2C5>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c6: i2c@2516000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02516000 0x400>;
+> +			interrupts =3D <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C6>;
+> +			resets =3D <&ccu RST_BUS_I2C6>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c7: i2c@2517000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02517000 0x400>;
+> +			interrupts =3D <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C7>;
+> +			resets =3D <&ccu RST_BUS_I2C7>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c8: i2c@2518000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02518000 0x400>;
+> +			interrupts =3D <GIC_SPI 19 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C8>;
+> +			resets =3D <&ccu RST_BUS_I2C8>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c9: i2c@2519000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x02519000 0x400>;
+> +			interrupts =3D <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C9>;
+> +			resets =3D <&ccu RST_BUS_I2C9>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c10: i2c@251a000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x0251a000 0x400>;
+> +			interrupts =3D <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C10>;
+> +			resets =3D <&ccu RST_BUS_I2C10>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c11: i2c@251b000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x0251b000 0x400>;
+> +			interrupts =3D <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C11>;
+> +			resets =3D <&ccu RST_BUS_I2C11>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		i2c12: i2c@251c000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x0251c000 0x400>;
+> +			interrupts =3D <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_I2C12>;
+> +			resets =3D <&ccu RST_BUS_I2C12>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		gic: interrupt-controller@3400000 {
+> +			compatible =3D "arm,gic-v3";
+> +			reg =3D <0x03400000 0x10000>, <0x03460000 0x100000>;
+> +			interrupts =3D <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			dma-noncoherent;
+> +			interrupt-controller;
+> +			#interrupt-cells =3D <4>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <1>;
+> +			ranges;
+> +
+> +			its: msi-controller@3440000 {
+> +				compatible =3D "arm,gic-v3-its";
+> +				reg =3D <0x03440000 0x20000>;
+> +				msi-controller;
+> +				#msi-cells =3D <1>;
+> +				dma-noncoherent;
+> +				status =3D "disabled";
+> +			};
+> +
+> +			ppi-partitions {
+> +				ppi_a55: interrupt-partition-0 {
+> +					affinity =3D <&cpu0 &cpu1 &cpu2 &cpu3 &cpu4 &cpu5>;
+> +				};
+> +
+> +				ppi_a76: interrupt-partition-1 {
+> +					affinity =3D <&cpu6 &cpu7>;
+> +				};
+> +			};
+> +		};
+> +
+> +		mmc0: mmc@4020000 {
+> +			compatible =3D "allwinner,sun60i-a733-mmc",
+> +				     "allwinner,sun20i-d1-mmc";
 
-[ ... ]
+That's not really the case, is it? A733 emmc has support for voltage switch=
+ing,
+so regulator should be added here for voltage switching.
 
-> @@ -9141,7 +9250,7 @@ static void r8157_init(struct r8152 *tp)
->  	ocp_write_word(tp, MCU_TYPE_USB, USB_U1U2_TIMER, 500);
->  
->  	r8157_power_cut_en(tp, false);
-> -	r8156_ups_en(tp, false);
-> +	r8157_ups_en(tp, false);
+I suggest that you drop this node until proper adjustment is made.
 
-[Severity: Medium]
-Can the PCUT_STATUS branch of r8157_ups_en() ever run from here?
+Best regards,
+Jernej
 
-r8157_power_cut_en(tp, false) clears the flag just before the call:
+> +			reg =3D <0x04020000 0x1000>;
+> +			interrupts =3D <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
+> +			clock-names =3D "ahb", "mmc";
+> +			resets =3D <&ccu RST_BUS_MMC0>;
+> +			reset-names =3D "ahb";
+> +			pinctrl-names =3D "default";
+> +			pinctrl-0 =3D <&mmc0_pins>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		mmc1: mmc@4021000 {
+> +			compatible =3D "allwinner,sun60i-a733-mmc",
+> +				     "allwinner,sun20i-d1-mmc";
+> +			reg =3D <0x04021000 0x1000>;
+> +			interrupts =3D <GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_MMC1>, <&ccu CLK_MMC1>;
+> +			clock-names =3D "ahb", "mmc";
+> +			resets =3D <&ccu RST_BUS_MMC1>;
+> +			reset-names =3D "ahb";
+> +			pinctrl-names =3D "default";
+> +			pinctrl-0 =3D <&mmc1_pins>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		mmc2: mmc@4022000 {
+> +			compatible =3D "allwinner,sun60i-a733-mmc",
+> +				     "allwinner,sun20i-d1-mmc";
+> +			reg =3D <0x04022000 0x1000>;
+> +			interrupts =3D <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&ccu CLK_BUS_MMC2>, <&ccu CLK_MMC2>;
+> +			clock-names =3D "ahb", "mmc";
+> +			resets =3D <&ccu RST_BUS_MMC2>;
+> +			reset-names =3D "ahb";
+> +			pinctrl-names =3D "default";
+> +			pinctrl-0 =3D <&mmc2_pins>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		r_ccu: clock-controller@7010000 {
+> +			compatible =3D "allwinner,sun60i-a733-r-ccu";
+> +			reg =3D <0x07010000 0x250>;
+> +			clocks =3D <&hosc>, <&rtc CLK_OSC32K>, <&rtc CLK_IOSC>,
+> +				 <&ccu CLK_SYS_24M>, <&ccu CLK_PLL_PERIPH0_200M>,
+> +				 <&ccu CLK_PLL_PERIPH0_300M>,
+> +				 <&ccu CLK_PLL_PERIPH1_300M>;
+> +			clock-names =3D "hosc", "losc", "iosc", "sys-24m",
+> +				      "pll-periph0-200m", "pll-periph0-300m",
+> +				      "pll-periph1-300m";
+> +			#clock-cells =3D <1>;
+> +			#reset-cells =3D <1>;
+> +		};
+> +
+> +		nmi_intc: interrupt-controller@7010320 {
+> +			compatible =3D "allwinner,sun60i-a733-nmi",
+> +				     "allwinner,sun55i-a523-nmi";
+> +			reg =3D <0x07010320 0xc>;
+> +			interrupts =3D <GIC_SPI 188 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			interrupt-controller;
+> +			#interrupt-cells =3D <2>;
+> +		};
+> +
+> +		r_pio: pinctrl@7025000 {
+> +			compatible =3D "allwinner,sun60i-a733-r-pinctrl";
+> +			reg =3D <0x07025000 0x800>;
+> +			interrupts =3D <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH 0>,
+> +				     <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&r_ccu CLK_R_APB0>, <&hosc>, <&rtc CLK_OSC32K>;
+> +			clock-names =3D "apb", "hosc", "losc";
+> +			gpio-controller;
+> +			#gpio-cells =3D <3>;
+> +			interrupt-controller;
+> +			#interrupt-cells =3D <3>;
+> +
+> +			r_i2c0_pl_pins: r-i2c0-pl-pins {
+> +				pins =3D "PL0", "PL1";
+> +				function =3D "r_i2c0";
+> +				allwinner,pinmux =3D <2>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			r_i2c1_pl_pins: r-i2c1-pl-pins {
+> +				pins =3D "PL12", "PL13";
+> +				function =3D "r_i2c1";
+> +				allwinner,pinmux =3D <3>;
+> +			};
+> +		};
+> +
+> +		r_uart0: serial@7080000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x07080000 0x400>;
+> +			interrupts =3D <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&r_ccu CLK_BUS_R_UART0>;
+> +			resets =3D <&r_ccu RST_BUS_R_UART0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		r_uart1: serial@7081000 {
+> +			compatible =3D "allwinner,sun60i-a733-uart",
+> +				     "snps,dw-apb-uart";
+> +			reg =3D <0x07081000 0x400>;
+> +			interrupts =3D <GIC_SPI 202 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			reg-shift =3D <2>;
+> +			reg-io-width =3D <4>;
+> +			clocks =3D <&r_ccu CLK_BUS_R_UART1>;
+> +			resets =3D <&r_ccu RST_BUS_R_UART1>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		r_i2c0: i2c@7083000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x07083000 0x400>;
+> +			interrupts =3D <GIC_SPI 203 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&r_ccu CLK_BUS_R_I2C0>;
+> +			resets =3D <&r_ccu RST_BUS_R_I2C0>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		r_i2c1: i2c@7084000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x07084000 0x400>;
+> +			interrupts =3D <GIC_SPI 204 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&r_ccu CLK_BUS_R_I2C1>;
+> +			resets =3D <&r_ccu RST_BUS_R_I2C1>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		r_i2c2: i2c@7085000 {
+> +			compatible =3D "allwinner,sun60i-a733-i2c",
+> +				     "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg =3D <0x07085000 0x400>;
+> +			interrupts =3D <GIC_SPI 205 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&r_ccu CLK_BUS_R_I2C2>;
+> +			resets =3D <&r_ccu RST_BUS_R_I2C2>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		rtc: rtc@7090000 {
+> +			compatible =3D "allwinner,sun60i-a733-rtc",
+> +				     "allwinner,sun50i-r329-rtc";
+> +			reg =3D <0x07090000 0x400>;
+> +			interrupts =3D <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH 0>;
+> +			clocks =3D <&r_ccu CLK_BUS_R_RTC>, <&hosc>, <&r_ccu CLK_R_AHB>;
+> +			clock-names =3D "bus", "hosc", "ahb";
+> +			#clock-cells =3D <1>;
+> +		};
+> +	};
+> +};
+>=20
+>=20
 
-r8157_power_cut_en() {
-    ...
-	} else {
-		ocp_word_clr_bits(tp, MCU_TYPE_USB, USB_POWER_CUT, PWR_EN);
-		ocp_word_clr_bits(tp, MCU_TYPE_USB, USB_MISC_0, PCUT_STATUS);
-    ...
-}
 
-As a result, the init path never runs the backup-restore wait, the
-USB_FW_USB_VER clear or the PHY reconfiguration.
 
-This matters more now that RTL_VER_16 can be power cut at runtime. On a
-reset_resume after a runtime UPS power cut, rtl8152_reset_resume() goes
-through ops->init rather than autosuspend_en(false):
 
-	clear_bit(SELECTIVE_SUSPEND, &tp->flags);
-	rtl_reset_ocp_base(tp);
-	tp->rtl_ops.init(tp);
-	queue_delayed_work(system_dfl_long_wq, &tp->hw_phy_work, 0);
-
-r8157_init() only waits for backup-restore on RTL_VER_17_QFN68 and
-RTL_VER_17_QFN100, so RTL_VER_16 takes the default case. After that,
-r8157_hw_phy_cfg() from hw_phy_work only waits for flash loading.
-
-Would RTL8157 then start PHY setup without waiting for backup-restore? On
-this path USB_FW_USB_VER is also never cleared, for either chip.
-
-So either the RTL8157 wait in r8157_ups_en() is not needed, or
-r8157_init() is missing it for the state this patch creates. Which one is
-intended?
-
-Separately, the poll in r8157_ups_en() duplicates
-r8159_wait_backup_restore(), with the same register, bit and 200 us /
-20 ms timing. Could it call the helper instead, so the two sites stay in
-sync?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126033211.51850-1-nic_swsd%40realtek.com
