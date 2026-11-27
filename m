@@ -1,67 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795819392;
-	b=L2vtf1s17o02lX4znkqGN1iRuPhSFJhGXh3qEomJACOxsUL75QckiTUBsqKPMPstm445
-	 5cwUiStJnhISAQJenjosrO2W9k+PJmcEBnd9t+HDc6Izfg653S4k7U4kF77WoeUtp/VV9
-	 1Z3IZcIdumSxe4yrKy5C8y9hBRTdvtbHp0I0/qte5iGUO8UBLa4sYQEKNZvNGNslwYUR0
-	 FmYDSb2OQZhZBvcP/YEGeaD88ePoqwXq6AWVwXE9319Vo9oPTiP6+YVhy3RYN/NREODR/
-	 v4Wk7PDo9+/MVnP0jIp44IAskK1LSsKOhyKzQCQlKutQzl5ScTsYfKUA0P7GdAzA8Tw==
+	t=1795819430;
+	b=LzHMck0La3adouy6wCHxl7T5y2+tfABl3pu+FyPYzCXZb4ocoIkyysNRhE2b6ePT1Kw7
+	 08ky0d7vbQNl0kRfKfA0JQ1LgSmdby0WODhC0GwY/jdwL/hMEe7K/SUDoiqW8BAB8kLwU
+	 ANNJt+LVvp6S72u9pZ5nOjfsL+epyDeDfSkxLlssRTSNu4lYqFEjc5ar+iyw26EU6GSG6
+	 aE+sT0dM8tPKe+1GhoA7qpw3qP0ItOJifyGSXqTtL9dE7xPk6sh4EglWqtcFwbpXqR3zL
+	 ynIhRD3Q59AfOaF3rfPP5OymFOueJZ65kb2kKN1HXVE6J9bmr2QeLMVNwVoHUYHFlHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795819392;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=vr8Cyu6OnN1kywiPQZaviQUiC/sNy6ZdV1ZpB2i7LQ8=;
-	b=AnsnH4Se3S4hBJgN0lhjO4g0hcPettOxxpIqBeG6hE83qYOuyW35ETi4KMNCsxd75WCo
-	 OR6mUBNN3+tnSeIW4J6xM+RNApKPJnXdns+FSX3L4fibW2likfz9kLdnv73m6TVCw8HGi
-	 DekAZsjstHwwJGSbUynrpvnfFoHba92JM91MnZgKIYW0jDYNBX/RCgOOXKHjWIMv3X8QA
-	 eHPX/yYxeiotjfMXWTRDVXR3CWyy+eXqHBmY0hGa/WbM1ofkcLjnpTVEXp7FJFLbHp07u
-	 LsHw8SQJoiV6oB7kaI894ga56t/9uAHuk9m4d/v8Z1lwkETGEgJ+GITwIwaEI68uiEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795819430;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Reply-To:Subject:
+	 Content-Language:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=NZ1EppleD+J66ZPNggQWXUnDL1zJG5Pjchv2xN3g36g=;
+	b=Haf9vtU5Pn59VuYutUVZcOQrUJPBPuVPFXKA5jW0XwjL+cJGi5YCNZbTfXsp4J8YEdOI
+	 RVHicA6JDZXr/Y2F2JgXIAeeYGkRcbvRLOxLpYOxNj+He55Jo1Xb70bHj5Asp9a6a+Vng
+	 zlVfDWO4veoywlJoYZT8fOZnCOAWOTkuwN4Z6quljucoiOdMS2NTelwxvjJv9Mc2YK8Vb
+	 nh06Gn0zhmCncyor9SzqF5sp7eK8qMr1ie1+g9sI63qvB8WK3dUhI+rWRc6pjrf8t55x7
+	 ZSL/Z4tFxwAORpBymKICm6nFy0G1/7uiDRWUXZm20FF1TF9YtRd2rye1gmhX6Q8allA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5ddae1+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Utv679ut;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 63EF5606A31C;
-	Fri, 27 Nov 2026 22:43:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25840606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:43:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25840606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5ddae1+
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4CE231F00893;
-	Fri, 27 Nov 2026 22:43:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795819392;
-	bh=vr8Cyu6OnN1kywiPQZaviQUiC/sNy6ZdV1ZpB2i7LQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W5ddae1+sL0M2BwMEOdWKEDvyU78Ny8CC5zKR352ZLpxUqa01Td+Izg20p0wQGrbH
-	 kYcjC0YhQscAjvW+ApK3sdygTP8a7FLherXbJr0a4aU6HQkiL0/0KzbR2XYHXgrO9L
-	 zTbNPmRsA/nZx161YRb4X85NouktelTHL8XkEOUlt8557iQkYLcCgtTCteVfbqrKNq
-	 jAoUGNa7psyvgxoLT67SvgzE9A6+tIXgw4+05s+YjDB6qyZ1n06lLnwNr2H8/9mLyy
-	 wPzuWkybJdpCQ1XDao0m0W2VH045/GO1mbqtmySdCWfE/02b7oG5tNg/QYvZ2McDsv
-	 Ae5amWfVTo5dw==
-Date: Sat, 28 Nov 2026 00:43:07 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Askar Safin <safinaskar@gmail.com>
-Cc: aleksa@amutable.com, alex@amutable.com, alexei.starovoitov@gmail.com,
-	arnd@arndb.de, bpf@vger.kernel.org, brauner@kernel.org,
-	containers@lists.linux.dev, corbet@lwn.net, dhowells@redhat.com,
-	ebiggers@kernel.org, giuseppe@scrivano.org, hughd@google.com,
-	jack@suse.cz, jlayton@kernel.org, josef@toxicpanda.com,
-	kees@kernel.org, kpsingh@kernel.org, lennart@poettering.net,
-	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
-	luto@amacapital.net, neal@gompa.dev, oleg@redhat.com,
-	paul@paul-moore.com, ptikhomirov@virtuozzo.com, sergeh@kernel.org,
-	skhan@linuxfoundation.org, viro@zeniv.linux.org.uk,
-	zygmunt.krynicki@canonical.com
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Message-ID: <awoHex4LVst2JwkO@kernel.org>
-References: <awOQDOel_72Xwjm7@kernel.org>
- <20261127214103.542291-1-safinaskar@gmail.com>
- <awn-ioAuksHNV-Rc@kernel.org>
- <awn_Y7oI4ckfsjSv@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Utv679ut
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f052ae3c86so46591865ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:43:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795819429; x=1796424229; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NZ1EppleD+J66ZPNggQWXUnDL1zJG5Pjchv2xN3g36g=;
+        b=Utv679utLO9P3nxena73D5/g3pJJY58e9BQ56OpDR4kLbYgCKerDPrXKx7HJnbufmi
+         cXE4Sxng1fCn3Xq0spvU76qJG4OBoll8i9ebwu7m4McX9l2ud1fKjraMll+PCRm2VHLj
+         38Lo24iI7l2BjmPP0pNjEyXT96duM+bQz3rQYU8kcOrc6hV0E787P9fMkDdzbJFoyLQ+
+         eHL46vRU/znpjC5jW5q1OJmRmX4OG6q70bQz/kBxOIEnlqPaP/uWeuA4KmPthESloCwU
+         yYffHGyOSF26HFI+tkcPVh/ABMXbVBHrx+pR1W6tQ9vB8Jxfx4WMkL4jEgK/+GVMpy91
+         yNtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795819429; x=1796424229;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NZ1EppleD+J66ZPNggQWXUnDL1zJG5Pjchv2xN3g36g=;
+        b=uVSHLNxmAiDkNpvBSF0jIXWiNlTt3B6wT5cPhdJdPto39KzTJ978/Ll34BY/5ZGdO4
+         WnLkn5XqwqN180EcT2y/Iuidc2HdMA4DRfF4V4IfKKA/973IMyOXs1TLcW8JeRKsnb/A
+         JnMBZdqHCS7dmC2h/MMeSFG8d7rWJKX+sF7QBrcP6oNXiokKcYWFlY25xvrEXzlr1U/i
+         tQP5rd+z1qirUp6pMPjNGC2/lNdOR1oP+93jk/DtmIYWJHLBfNhx3hCEzafZ0kIDaL1Z
+         +DRr38xDpT77ebO3u7svCIe3GOe2rlt9Ae+tdWR0jo7AMaNcqmueLNhrnycGcZdEafb1
+         rBXw==
+X-Forwarded-Encrypted: i=1; AL+hErFlLVZpbIJ+h5q8Zv4or1VNSbYw1pxa6nmSH6aH8R8hoHcrnsgclI6UXjOjCb/Ds2oG566PqvPi/fapklE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8hSGB34tXLYx4JeDjMQ7yTQLm7EDLHpXw+pDttzm7C30JTledr
+	nuP219O+/j10uLXBqu3vd0DPLwttR4L0gUIQ9E7202kggVBlnJ7yiNDZ
+X-Gm-Gg: AZFdTZf0ss/9MrNfm65TNzIDU3J4JGdHi+9tDXZl1bd+CV6iRKXliLjJyUNedrOOFXj
+	gDyWJHCPN4g7eknGq1ihpFM4X8kdyr/iLRRgAywbwiBJ71NDEiNpOdQOta897KvRzfd0yv9hOVZ
+	9hToU6zKzWMitGXNo9XUaDMEgf+BZfMpMwAq++EJ0rXp0q4IPCvJOqqHYDnin/jh3K+A+5XGbk2
+	AD2cmH72QkDrhSWcW6QDw0xKoVZc8cZjIAotTNyQ0v8hvrEIqvTRK4q3CF85tMIsH5smojzPz1j
+	PqSkGCuehygjgKDNC5sTOEc80ctQHOXApX5lOXRFnvdHu63ZCFPRfBfpxgd77pfzJqIZey4zeDo
+	FpSbsBx1nqN52S7bTRV+yJIM6AQNCN9XfSM0FDqEUZg++5ZnkZn5LaURutV47wbrTwfVNNnRILm
+	0QZC6hsA2KqJkdKkI+lkMhBhLQ3TeCV9hffzP94xoh6JlbuIPK7oGpJ//q3ubN6bZQ2KjUbofH8
+	j9YhxP7r//UjphdJNaBSDTEGqTKKqgiIi1nMa2YiIORPzKNg8YQBiz9wDWVA+mxCOKEMNMs6kTv
+	jS55RlVMiW5aJWPVmLN1vlbYZHRla6b8ScPawYbXi2IU8vDGzq70JhqZ6u1F9pSZXvqW
+X-Received: by 2002:a17:903:41c2:b0:2ef:e348:505e with SMTP id d9443c01a7336-2f03f1ed345mr279322415ad.58.1795819429416;
+        Fri, 27 Nov 2026 14:43:49 -0800 (PST)
+Received: from [192.168.35.60] ([218.50.238.131])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0457fd68dsm116614885ad.39.2026.11.27.14.43.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 14:43:48 -0800 (PST)
+Message-ID: <2f3e4f6d-d1fb-476a-91a9-86ec0e53a576@gmail.com>
+Date: Sat, 28 Nov 2026 07:43:45 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,56 +92,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awn_Y7oI4ckfsjSv@kernel.org>
+User-Agent: Mozilla Thunderbird
+Reply-To: chanwoo@kernel.org
+Subject: Re: [PATCH] extcon: rtk-type-c: fix IRQ request and release
+Content-Language: ko
+To: Thomas Fourier <fourier.thomas@gmail.com>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Stanley Chang <stanley_chang@realtek.com>,
+ "open list:EXTERNAL CONNECTOR SUBSYSTEM (EXTCON)"
+ <linux-kernel@vger.kernel.org>
+References: <20261126132927.39809-2-fourier.thomas@gmail.com>
+From: Chanwoo Choi <cwchoi00@gmail.com>
+In-Reply-To: <20261126132927.39809-2-fourier.thomas@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 28, 2026 at 12:08:38AM +0200, Jarkko Sakkinen wrote:
-> On Sat, Nov 28, 2026 at 12:05:03AM +0200, Jarkko Sakkinen wrote:
-> > On Sat, Nov 28, 2026 at 12:41:03AM +0300, Askar Safin wrote:
-> > > Jarkko Sakkinen <jarkko@kernel.org>:
-> > > > I personally think that "getting in" should not be a goal in the first
-> > > > place. I care more about that whaever gets in has a high bar of
-> > > > quality enough. It can be something different than this but
-> > > > when I read the LWN article about Cells I was alarmed enough
-> > > > so that I had to do this and prove my point.
-> > > 
-> > > I think that Bacik's patchset has better chances than yours.
-> > > I think so, because (as Bacik said) it was tested in Anthropic, and also
-> > > because Brauner reacted positively:
-> > > https://lore.kernel.org/all/20261021-zeitig-niemals-clubmitglieder-b3973fcebd38@brauner/ .
-> > > 
-> > > So I suggest reading Bacik's patchset and say what you don't like about it.
-> > > You will have chance to influence Bacik's proposal before it will be merged.
-> > 
-> > I've read it through and the way I'm seeing it is that it is overdoing,
-> > and has somewhat complicated life-cycle model tbh. I don't like it.
-> > 
-> > This could be of course wrong way to see things and I did this just
-> > to demonstrate that similar goals can be achieved with a relatively
-> > lightweight core. And this is also demonstrated with a Python daemon
-> > emulating Cells style containers (and alos relatively trivial SystemD
-> > wiring).
-> > 
-> > There's no reason to continue this for the time being as it
-> > demonstrates already how I see the world i.e., "I showed the
-> > code". It's up to whoever decides these what they do.
+On 11/26/2026 10:29 PM, Thomas Fourier wrote:
+> extcon_rtk_type_c_probe() requests the shared type-C IRQ with
+> devm_request_irq() and ignores the result, but
+> extcon_rtk_type_c_remove() releases it with plain free_irq(). The devres
+> entry is kept, so on unbind devres frees the IRQ a second time. The IRQ
+> is also requested before the spinlock and the delayed work used by
+> type_c_detect_irq() are initialized, so an early interrupt can use them
+> uninitialized.
 > 
-> And even if Cells is the ultimate solution since I had thought about the
-> whole problem 1.5 years (mainly for my own entertainment but still) this
-> was the best way to unpurge all of that. Regardless, world became a
-> better place... New information arrived.
+> Request the IRQ once the handler's data is initialized, check the
+> result, and release it with devm_free_irq().
+> 
+> Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+> Fixes: 8a590d7371f0 ("extcon: add Realtek DHC RTD SoC Type-C driver")
+> ---
+>  drivers/extcon/extcon-rtk-type-c.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/extcon/extcon-rtk-type-c.c b/drivers/extcon/extcon-rtk-type-c.c
+> index da0b3fd3676e..a421ce1c4361 100644
+> --- a/drivers/extcon/extcon-rtk-type-c.c
+> +++ b/drivers/extcon/extcon-rtk-type-c.c
+> @@ -1339,9 +1339,6 @@ static int extcon_rtk_type_c_probe(struct platform_device *pdev)
+>  		goto err;
+>  	}
+>  
+> -	ret = devm_request_irq(dev, type_c->irq, type_c_detect_irq,
+> -			       IRQF_SHARED, "type_c_detect", type_c);
+> -
+>  	spin_lock_init(&type_c->lock);
+>  
+>  	type_c->rd_ctrl_gpio_desc = NULL;
+> @@ -1383,6 +1380,13 @@ static int extcon_rtk_type_c_probe(struct platform_device *pdev)
+>  
+>  	INIT_DELAYED_WORK(&type_c->delayed_work, host_device_switch);
+>  
+> +	ret = devm_request_irq(dev, type_c->irq, type_c_detect_irq,
+> +			       IRQF_SHARED, "type_c_detect", type_c);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to request IRQ %d: %d\n", type_c->irq, ret);
+> +		goto err;
+> +	}
+> +
+>  	ret = extcon_rtk_type_c_init(type_c);
+>  	if (ret) {
+>  		dev_err(dev, "%s failed to init type_c\n", __func__);
+> @@ -1437,7 +1441,7 @@ static void extcon_rtk_type_c_remove(struct platform_device *pdev)
+>  		gpiod_put(type_c->rd_ctrl_gpio_desc);
+>  	type_c->rd_ctrl_gpio_desc = NULL;
+>  
+> -	free_irq(type_c->irq, type_c);
+> +	devm_free_irq(dev, type_c->irq, type_c);
+>  }
+>  
+>  static const struct type_c_cfg rtd1295_type_c_cfg = {
 
-When it comes to containers and namespaces I even don't want to have
-any opinions tbh, because it is so opionated area to begin with. Thus,
-I pushed back sending anything using this approach for a year.
+Applied it. Thanks.
 
-Despite the patch set tsunami (sorry about that, shit started to 
-unpurge as I went on), I was not too hesitate to send this in the
-first place, or have no motivation to compete with any solution.
 
-I did all this really for the sake of rightful concerns about the
-complexity of the mainstream approach; and in that sense I'm happy about
-myself.
-
-Br, Jarkko
+-- 
+Best Regards,
+Chanwoo Choi
+Principal Engineer, Samsung Electronics
