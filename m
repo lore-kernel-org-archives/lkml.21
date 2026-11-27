@@ -1,100 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795805082;
-	b=x9hVXIH7dgqZE1XhXvKOhqjMu6pXagwUSmsHRBEStBcA/kt7EeWuiKSp8wqtEK9oI1wz
-	 Q2QQrjQmmICgPxtf0QeqXsAOLYxYtdxDMNsiVE7cDko8FMtqedbXXJckvKKXV27atYIrd
-	 2hJgHkXAVKfODDQkdD2CevnbIstAYn/Xp7q1t4vRb9a/Ae/hydW1CEZjAIiL6AyuSA7ee
-	 lk1Ta+X44tMPXNNHdzWh5XOwDwaFcP7eEfX2gYnhvM24XPsyYp35qbOZYCfq1k4GKM/I4
-	 HmGn277g3IortSswjtYVGA5z5g8ynJDlYECYfLejUzemQVVf795B4kSLPjfJAkMaUAA==
+	t=1795805115;
+	b=5ELShrnyH1ZGJYNaDccIkOcadkjfX2IYobE0JEolEbmYzQBfm80Vo7dRZG0t3mO6Ec+y
+	 9Ixpt3KLgURgpaSIuYMMTA5Ez/s1VEoH6+TnoPC/OlV8zHveQm1Zno6sSs+/5E/ImMv+y
+	 PMzoxBHOKjTelOezgVLAjIaaV9jDCKKDUlyLJwN4J6Iesp+kbfyiWTX4kQ5j/RA7dlthx
+	 hatwpLqkflKFjQKvijheQT8Xlf7OduEyqTs/yUnGP2rg3bAUjURc8ulW/rhElmw6zheuc
+	 uwkfucSsfCc/Cc451SqgFMg5mDSaJuljBWR7vS2ss1hJe7jIwWKjh37fgnx2j6ClgCA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805082;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
-	b=Ihx9z9nENRoxPxjFLUbl8aGwf+/gL/xkk3Dfs5AY+94yLDtq040jCob0QssBO04MJNa1
-	 a6x1d+dOUY4SXtEofGNgkdRZolGuA0K4AUYF6XjKdSqXXsSzKCBr8K+HjDq8+zvOWewXT
-	 NhgC6gpPFxQRzLQRKP/iMSClUqh+KfDGqmZO2Tu3sknw+hPgVwmXS1Yqzjbfa25hqRIea
-	 bDN/O9jl+sqpPGK1o07kad5UJYd/EES5hv5C5uQLNlGpLQcIlGNCGNx9PIdqSEqT4iUi4
-	 MlAgI6A+77LNT2p5x0TtTja7xyTItLXJPAB9guB9IRQDX665hvU/pGZToybO844Wszg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805115;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-ZohoMailClient;
+	bh=lFuWskwWRql2Fhx97LXOZZIB1aolGuDk0+v/5Jmc32Q=;
+	b=s7/o44sG+xTeE5nh7MZAyLDhmB6Sj2bUWvEjQB2gSV/PqdpGIdSeuxrHqwR1ulM3XvSo
+	 ujq5h8cNbsCOvqPicY+KgPPkq4dglUgMjMlJcNCU1qDeyZNpA8XHaeY3kUaQCmTBUrImU
+	 mdUGHXsM4f2dg6YqW5SBPHpjOgVbGBKwHGKxS8smy1j/pkgJGTkfQK5PWMSrFoRUK9LK9
+	 c46ljY45S18f2XACYrNumdl/jKk/AqDBd3oY3AkTit+MgjNZ6UncNBSrjUemNWaO7ukQu
+	 wgY1yluTzFqDLLiBn9LZyzbgK6veMbq1AgrUL5GR/iL2rmflhWYLjX/0CKCL8t82d3A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S+PtFEQk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
-Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=PQ2Uriou;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DB33606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:44:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DB33606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEE4C606A326;
+	Fri, 27 Nov 2026 18:45:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEE4C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S+PtFEQk
-Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-9213fddb596so37925586d6.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:44:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795805081; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rqJBorEJCuBMX3xRvGZB77bsvXeANPTyH4A1AATkpR90mnwiVFJE8F0PLfqc1G8HUX
-         rYw16UxZ74eW7tsIfU2ybzUhtvwssUpq+7tu227owkzlPR/0GycqFHmAK3QKas4vVBeH
-         qBeP01DLbFdwdSsAxSDS93RnfczHjTOKTgs0zGluSVVL8g4NUlbFDTOggK/F85fghjn3
-         Nq4mcf3ljyDW52AGuJPJNn3Y487TUXrXvfeXZ85lnAAKaEtx4QLevsqtnDL3ZIb1JmhJ
-         WDUO5g8okU+KvBUvvw3oWhDPhd4RwE/qqoMNXAHk/xtNSz0BUZSEz5cCflCcFMqpvc9Q
-         bunA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
-        fh=vYJPeFufjxUqDSWW1EpSdSLVtMEGG3/8yqYHkPFk18Y=;
-        b=Hp3UB04bOb+YLhuJ8I+1qi1RgUpg494u4bf8x7Hp2dbxgnxRjt2fLf7GUdcqWKv6VJ
-         nZ3P4pahYkrUoAg0PqVZsDToZuHHp/qgxstLeXprZFRiePdm8cbgtR2keJw+c0GdZnE1
-         /uwtal41hgv2Tgejgz9MpH2W6cpes8029xmaLY6pH3Iep69frubb7kx3N84yW/Lz04uk
-         WzSFom6lTwAmJtfXBPJSMqcMY+kG/N8VCPyb22aU+SIVRyGbe3DWXdQeymJIXP6HkmFM
-         VL84VzHr2ClUwe4E0OJKX5Xsi4GlhtYYA/ID47uXPHsI23Mkm1WEmY5OSbfj0M/iDUXQ
-         D/gg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795805081; x=1796409881; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
-        b=S+PtFEQkyzOCD9qVC/M0fxTz3Dk6GUpnzqvJ5FAG/DeDrvmbRS6p+tQvVhkOsLppkU
-         bDLbMkGr2Qs8jr0kf8bM7SFMTzuwWrtU8oLmjTBGOx4X45yr5q5JXqjD9/hpVveLOr/Y
-         BDEdk3YFCLUjE1Don6vh/0rTIyHmUG3C6XL23SIrXbj5u8aWuXfs70xdVpyrdbQ4agwf
-         +z4Lu1Cdq+fVVPxh0uHdP580aoXozNodSm2xFEtFJxl3rQQhSLRpG0BxXs7YEt8oIX64
-         0u83jrGtqFehNdLCsGTxS1xUwHa0FZwHr4pizt1fL4vrWaHIQxSdgP+UZvLY6WrLJGA0
-         pr1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795805081; x=1796409881;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zTjWzbnUUC8dN1QyYk20s5zHqmG8btAZ5mtIxbCNZ00=;
-        b=Krz09/GjGK5G+3o5zvOKSj4d85ooOq/nCBvnBqnGh232RYj/KfvTZoJzkt/wv4mpPl
-         qPT4S4W/XFntGLU0eBrSswWituW2h0NqodYQ47LjOVOfMsmacg+Nooyk1IFymOf6VenH
-         nQfROx81tGHz2wR+xlkkAdmlhSX+bxXwITM/qHt2yglJ/OPA/gpuLmVwDsdQwF8WjHeF
-         FB7hTtAEIFaySrgQqwXMBa35uKaD5EBgwdhKTb08ooFJKu21K8a4go4SSGhdkDJefdFe
-         bw4NA8Qz+8C64SBGTS4foiU4wlRASuuXAXti36ggzZOwnAwbdERDOU8biF8tsPiswrWv
-         0lEA==
-X-Forwarded-Encrypted: i=1; AL+hErGYzYMm7jZM8BBxs/SnSSmy8QlWiCPGDccuU6gDAdpIu0TJlfwPc+Cs3vRGuiTe2eOaWep0cLCrqkrH+ic=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+k/xzha3x/dkDu2lbFndq1wvohOBFY4uEoavM1SdCz54AwPyS/
-	w90TXTKCwPon9An/2UTI8QZNojhqW8IwEA4e+PgM2BJcBMAjt1LvMBVNHgagwx9WxsrCrOb6y/n
-	SXMpK2/kkp09k3qQ3wlsSEwxp4RVCgfM=
-X-Gm-Gg: AZFdTZd5lMOKH2kDHPRC+/qSiI0mv0lExP4nF9B6zcabVBXR2lrKfddLSDROUX2jRMy
-	opQVUCUdRSrEXtj7WeVdJue1S0yZbLBlxXIvKrGEiOnSdke5r2u1CTZGRCHHWjzqGitw1vmTFO6
-	FM2NM9J3vDdr3ETBe2+lP67nqKliBR8VuN3eifZ4gdhZzz3KNa77UsWTGUj84xr9bG5xqzM6tys
-	r19TkUD3dRSssFo7qkgetvxTns2j6zAO6RhWID91MQIzb15f+X9GmxZjX8NfIv28fQfPLwwGC+0
-	LRERYEOpXmUTUTQRAOZMGhqZnkRkDJB4h3EOpu94Zr0PxEpVE8YLFrSHekCJWfsHXMTnUI9buuR
-	OVSw3iMpyZPFw6BGqHyTkADlcprHTSHsoNuqI
-X-Received: by 2002:a05:6214:3107:b0:921:404d:f460 with SMTP id
- 6a1803df08f44-921404e1bc5mr411681906d6.23.1795805081366; Fri, 27 Nov 2026
- 10:44:41 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=PQ2Uriou
+ARC-Seal: i=1; a=rsa-sha256; t=1795805070; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=UtGoH5zyybqW5YigDWrywq5xysoqrasgDxXL9JEz0ellMRdYBFUsZGwp+pYRVgp/u4zxpa10sl9s839bFJ7aMZn5NVlT3SwltpCh26iMkcYSKRoUmhf98aTgqTlLVY+e06VV6IcJyP4+ImtCbBPlajG/KqPag4cAlSh3fXbw6qM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795805070; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=lFuWskwWRql2Fhx97LXOZZIB1aolGuDk0+v/5Jmc32Q=; 
+	b=mWgaGrSi92+Dnd9S5b6TWvbFQiXEoZkCt63aPbS/vXiGbJmXPPwpi/J+aqJL5n3dX2blKGhVfDAOZeTTYd56HyLW+y1IwS+9Pz2NiyS49GRSKVXEQKjWZhuSr4MFQsE+3tgePe/aMGRXJaxo/LpLHA5Tbjhnl7KP5IlsI3M/Eq4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=PQ2Uriou7khkZGh8nS+1xv5VhQfZJN47Cg9sVWnJe/fmoprMEJpzQk7ivHLNLktg0TauVtssr7qVoTm/LG5Q+Bb9zEWj4gIdc/a28GoijhgFw5NP55dfprxhwJ8kk1QpLXAijYWVC0jt6O1w1h5UlO5pVWpmqLhKVgOYmeI0g8M=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=lFuWskwWRql2Fhx97LXOZZIB1aolGuDk0+v/5Jmc32Q=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795805068935159.32844594948233;
+	Fri, 27 Nov 2026 10:44:28 -0800 (PST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Sven =?UTF-8?B?UMO8c2NoZWw=?= <s.pueschel@pengutronix.de>,
+ kernel@collabora.com, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/5] v4l2: export v4l2_m2m_set_max_parallel_jobs
+Date: Fri, 27 Nov 2026 13:44:26 -0500
+Message-ID: <g30LShJ-QraPMSjey2r1Hg@collabora.com>
+In-Reply-To: <d3eccd8c04656a46287a221b3b4f22427b21a74c.camel@collabora.com>
+References:
+ <20260810-rkvdec-multicore-v2-0-986f89d22cdc@collabora.com>
+ <20260810-rkvdec-multicore-v2-3-986f89d22cdc@collabora.com>
+ <d3eccd8c04656a46287a221b3b4f22427b21a74c.camel@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,54 +74,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261127041853.127855-1-artem122novak@gmail.com> <20261127184010.GA1974@quark>
-In-Reply-To: <20261127184010.GA1974@quark>
-From: Artem Novak <artem122novak@gmail.com>
-Date: Fri, 27 Nov 2026 12:44:30 -0600
-X-Gm-Features: Aa3M54rlpHYUJnbfYeC7GS2lHvHK4qXZFgCeLBOIW_h40HEFsgENFGq8tkyvopg
-Message-ID: <CAPufuha3cspM+oLjtb_P0u3H0ZchD0qDR9D6Js3LEW=HACc+Rw@mail.gmail.com>
-Subject: Re: [PATCH] crypto: sparc: remove trailing whitespace from AES assembly
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Jason@zx2c4.com, ardb@kernel.org, stian@itx.no, 
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 
-Hi Eric,
+On Thursday, 19 November 2026 12:36:36 EST Nicolas Dufresne wrote:
+> Le lundi 10 ao=C3=BBt 2026 =C3=A0 11:22 -0400, Detlev Casanova a =C3=A9cr=
+it :
+>=20
+> I know, its straightforward, but its not even signed off.
 
-On Fri, Nov 27, 2026 at 12:40=E2=80=AFPM Eric Biggers <ebiggers@kernel.org>=
- wrote:>
-> I don't think a single trivial whitespace cleanup like this is worth a
-> commit.  (And the trailing tab here isn't new, either; it's inherited
-> from the original code from 2012.)
->
-> - Eric
+I voluntarily left it out because this is fixed in the latest RGA patch set=
+, so=20
+this is just to make sure the rest builds.
+This patch should not be applied.
 
-Alright, I'll drop this change.
-Artem
-
-
->
-> On Thu, Nov 26, 2026 at 10:18:53PM -0600, Artem Novak wrote:
-> > Remove the trailing tab after the key expansion label in
-> > aes_asm.S.
-> >
-> > Signed-off-by: Artem Novak <artem122novak@gmail.com>
+> Nicolas
+>=20
 > > ---
-> >  lib/crypto/sparc/aes_asm.S | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/lib/crypto/sparc/aes_asm.S b/lib/crypto/sparc/aes_asm.S
-> > index fd90b129972f..0ddf181f342e 100644
-> > --- a/lib/crypto/sparc/aes_asm.S
-> > +++ b/lib/crypto/sparc/aes_asm.S
-> > @@ -293,7 +293,7 @@ ENTRY(aes_sparc64_key_expand)
-> >       ba,pt   %xcc, 80f
-> >        std    %f58, [%o1 + 0xc8]
-> >
-> > -1:
-> > +1:
-> >       /* 192-bit key expansion */
-> >       ld      [%o0 + 0x10], %f4
-> >       ld      [%o0 + 0x14], %f5
-> > --
+> >=20
+> >  drivers/media/v4l2-core/v4l2-mem2mem.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c
+> > b/drivers/media/v4l2-core/v4l2-mem2mem.c index 14ac9c85803d..f6f8864f23=
+d2
+> > 100644
+> > --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
+> > +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> > @@ -128,6 +128,7 @@ void v4l2_m2m_set_max_parallel_jobs(struct
+> > v4l2_m2m_dev *m2m_dev,>=20
+> >  {
+> > =20
+> >  	m2m_dev->max_parallel_jobs =3D max_parallel_jobs;
+> > =20
+> >  }
+> >=20
+> > +EXPORT_SYMBOL(v4l2_m2m_set_max_parallel_jobs);
+> >=20
+> >  struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *m2m_ctx,
+> > =20
+> >  				       enum v4l2_buf_type type)
+
+
+
+
