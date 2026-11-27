@@ -1,112 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795787546;
-	b=lAC7k00H4MlyoLuazFK2kGBeiqeoMavig7D94yHxLBqw4Y+6gRLdm74grvtQGU2jfWIz
-	 dyH6tgCMIK26AzOuV1+s1nFrhQMcF0y2wLzVIRcHwZRa7OW11fBpANF1mv+Zv1KzMMkJ2
-	 I+nWDxi7ErXAbip/Q4mwekD70iRHEWU4lP+BtNsxVyrBoJlGCXXUsF/MLSEnPA3ykVaD0
-	 DagzIKvZ0BNUTa8Y+xrZwf6DqYPifQXEopwidCW8cWboO8PG9mgpS0Vg88FyfA4PgniP2
-	 3FICnX+WJhGQk/KoxYZVggewnc56dN9gfMoJ7S3FaclyNsB4U3Ze+BpXrckvGForEbA==
+	t=1795787554;
+	b=0VD5zBjPfCPUcUkByGHSNUnDLR6cutsCuyprPObJpBfGFc0bGLEtmqq7xS+3k3W8LNPp
+	 Yscf2jDgf9raS4D5dmd69e9HdVhOaOFXzBzJIR8w6pgJM9e717P9E3eebrlxTkJ7wUo1b
+	 ttotF5wuaHPXqjuXpId4OvOokVbsiHN6PZBHyi08qHGz3ewcjEvtP4n5wbFjvQZ7SF0od
+	 aMem95MEM7i3F0bq03b7pv0D81hSupohQBLDPPVeI1xSo49FtpOCsYXWJxwdgL1WMjAfd
+	 Thb/sdg88RmtfswVLyRPUjKiAkb9I7T8LLl5MFqmOWpX8tm9jSwdSb+BLBBFqdOUq7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795787546;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=tnoWArl2HUpjRgOjudjV9w9iXKmNmwdOFIWAzIgu+38=;
-	b=mNdu3TZwpcJV1SIdpr6KErifZOeS+42VDXyTX3qz5r+cYxUypEeNw6J21m30oExHILmG
-	 wrikydvqOQn23Rq9lHfDbGFiI3mfJ9D2sJvt+ssx0BFb215cd6UBSPt7L1TgFtEB06BqV
-	 qDMV+QgrDcW+ALBL+lvJc8kp2IZuDPev8NX9qynTOCSBOoR3BlTVgFESLZY6bHwOl89He
-	 1tV3iMdNhYD9GPLTpdywD8WPpTv2oeRESFKbLlHMmpNlmDOQ1WU6DNs+iZyxsGzPN9oHK
-	 rQc+VmeKvhNE9d1j6E/AAqe0NQfYeSXGazi+jGv60EMNfzim7pwqhuS5iWyYwOHKv2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795787554;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=nbfDLkQInsfA1IHCEvKdeWx/1DsneQC2nd/T70CuECc=;
+	b=PTp7F6hWCim/1xt0WZow6O9dlVz41F+PKvSaDtb0sRbbWuYIugEMbieEGkyutjgMGVzm
+	 G7tMxpQmOmPhClQWJ2cBOqCq6iDjCjodF9Ucdj4UE7GeZGgaRdqhNvyfBPl6o7uCA8R5v
+	 KTY6SaU2WXppnei23lEG2BaNfnAGFy1ctnfrDhGTqtKWli5hAKsEX9EA4pMXW2oXfXBUL
+	 zbEkKMV6Du2t+15jI0wdavruNnMosz7mPVjqg/WhScZIDSH0Qr12U+PlAyX3U8QEgFMe7
+	 ENREEvlGm0HjjtMDt9uWhyipmRGLMyvkzSfeQHFInbe/rRfqKmog7MzEI3rukgPs4xA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ji7XeqFc;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GQouWFl0;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fqdjKXtn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288CF606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:52:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 288CF606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAAAE606A321;
+	Fri, 27 Nov 2026 13:52:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ji7XeqFc;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GQouWFl0
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARCh7js1620269
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:52:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tnoWArl2HUpjRgOjudjV9w9iXKmNmwdOFIWAzIgu+38=; b=ji7XeqFcMKanAsu6
-	iKnR7gh3/PTAw7OmOmq+z2uzQOSuCJUoCjQcEY3ko9da0LijfBg5Kvr/riweyYiY
-	st4FiGye0+qd4oZOx9zBxTqLHXif+Rl0Sx+JkBXIOI/HSQgo9CJFOZelKStzGqoD
-	Pa7IMgOMMSRfqR+GO82CJSMwxKACTHd5K4GtXmkWZJ7CE+wOnBjbr15kJwdav8JP
-	IYzc0q2ISgaVKfhiQTUl8oYnpAXmjgN3gG2eEaVqaTShxigRR1Gd8RX2SkL+Yni7
-	vr4I0I+kQKsULwIn5KY0oy4M01vCaLQTQIvd/tmwT7NY60RIaALzOZTA2f/PCJn3
-	PUajJw==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ru3at50-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:52:24 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a59717b0c0so5499533b3a.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:52:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795787544; x=1796392344; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tnoWArl2HUpjRgOjudjV9w9iXKmNmwdOFIWAzIgu+38=;
-        b=GQouWFl0FPid/Q+IR42tD59I/E35MzJKqdEqs007sXYBTPDnlunfZRXQHWnqVUTYFy
-         ZX6H6lRsCVICrcirqhjCdGvyWzG0Ah2AAscV/D7Fh3qfZfCPXN0FEj6xYluLHfVi26fr
-         gJGr7c7OriH/4RZiBqKNZyw3qVzJrZGTGWxZeOyc4hgNh6kcr4Ei3xP6rbtk67mIMG1i
-         PAB7QaoRPbJpa8kHrZQ+b7L99Ofd82+mxA/k9FosvtHiuJoR2THtamQrtjWWGMJg6BFf
-         TXJ1biuosiAd/dGQSQgm4EpwIv4Gzc8/fLnvIgAOAK6LFe4Brgm9ErxdhLLUkJVIebp9
-         BV/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795787544; x=1796392344;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tnoWArl2HUpjRgOjudjV9w9iXKmNmwdOFIWAzIgu+38=;
-        b=S4k0S2x3TIg89YNDwXSOyG2qSwHcXGBmQj6vhwIjZqhcRs6dLbs1t5BzRRS7cqji7A
-         q2cCbvDon+zLztKKObc2P0OMtV7BkHojYRMr9tsaXR2TKu0/mNnSLF9BHYQ2pL7+FMKi
-         qf2y4i3Ggt7IQtTuXMGEoVBpzYWk9DCvhLxjXH6gQUXmabanHvnxILtQDBTEwh+X6LaV
-         +zg3kbyPKHnj1e5Y38WoNdqsEGckje8XGsntbaupYVDgQ/s5s0TfhoW0TKKD2fODGXJJ
-         OsWWkfpemmYTzI+fjXPmgUVLczxNUtAkTzF7uvbIQQqtz5ufKlInbKLQI8swRCasCRQ0
-         xy2g==
-X-Forwarded-Encrypted: i=1; AL+hErHOKOipIrowxy049P6mwmU1/EDvxhg/UAdOVXfC1PnnoYyHdPFwgdaD2lKY+S3cMKSjCJQ2XcGPj2kejug=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dSG4mxNy/i6KxEfMZLCtS+rBv+utEBSLUsu77WCzcIMGPFFTI
-	TZfsSzLS2H/cBpAJFxsImDdShrFnu4Bpfd1MtGQNvxz831LJEKXkT2t1ge31Bj2agj3kcMup4Kz
-	zmDTt5HBoTBomhfErm9Vu5sGxWqA456hGw3illUENNt5EDlOMEIDGl07QCL2NYIjqsX0=
-X-Gm-Gg: AZFdTZcGUQ04d2qXp2DSAEMdUkGwmCvatmXqHcO57SzG/97ydFKGAFnZnzCJBnGunf5
-	Pb7qJes4Y2k0TqiXXqbV5w3EoRaMxEu9wKc7KQ/B0aWls04YLP20ZOIDQEr+7NFSzJ5y/EIvZhk
-	PeJYLjpDkasvQ2CM1r/4VXTlXtChWg3GicrmSjoCRgAZbdQJqcjx9ZyYOl5738C2Uoz3wlRfP/2
-	fiUBzSURqXFhLl+C+MsGIJUg9qcwGaGghrHc9bLFh5QDDgQMQQURG3XW8d1KERzIn16RwQ8Mlt7
-	GbkWDIe0/XCoSfuPRxiQl3XwwT4UhvZYeMbFNix/yT7NjW5d0nmvvI3EHQ3sIesf8aG95/Rs1ZK
-	z20MWig74S4OJNs+fSHYfev/ei1KMBRT69kLO0SE3XB4lo7yX/gJQ/8XHf12p4DA/3LPQsDDWMS
-	2IIhQ=
-X-Received: by 2002:a05:6a00:2e22:b0:8b5:e4bf:a075 with SMTP id d2e1a72fcca58-8c87ce31c42mr23021621b3a.36.1795787543546;
-        Fri, 27 Nov 2026 05:52:23 -0800 (PST)
-X-Received: by 2002:a05:6a00:2e22:b0:8b5:e4bf:a075 with SMTP id d2e1a72fcca58-8c87ce31c42mr23021581b3a.36.1795787543017;
-        Fri, 27 Nov 2026 05:52:23 -0800 (PST)
-Received: from hu-raviravi-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077944bsm12747353b3a.2.2026.11.27.05.52.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:52:22 -0800 (PST)
-From: Ravi Hothi <ravi.hothi@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 19:21:47 +0530
-Subject: [PATCH v3 1/2] ASoC: dt-bindings: qcom,wcd9378-sdw: add non-SDCA
- (mobile) mode
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fqdjKXtn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61DCD1F00919;
+	Fri, 27 Nov 2026 13:52:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795787554;
+	bh=nbfDLkQInsfA1IHCEvKdeWx/1DsneQC2nd/T70CuECc=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=fqdjKXtnxsPzwEun/XtC8U80ZnUo3i5anNTLRddpwxDrFy3ZC1No5srHiyVpOFpho
+	 pJ7BAq/+6K0/I9kwETk/jbldSFOVX3CbyRLbdXB4TWr8+Q8a+NMlxBm6KzGMkbFxT1
+	 nFgeGxRIaiQXggtfrUZDbxhL6Lf4cZEOcJAu7OCFYeEnMa3w9ZaJIpn2rodgVP/b7E
+	 Zx+rjrhDZavLNCChGDJEdbi445bx1CVUYzdQATsbTjhmJEZq4eL162bln+FctpmNlm
+	 tDx1oP98oOvwvmKZKOY8nGjMFcwG3WgwVxBrcrKY5Pu8pxFNxO3xPPnyEUNL5Ww3G7
+	 aycTN63Q6uMKQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,311 +51,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-b4-wcd9378-v3-v3-1-397e5ba2da55@oss.qualcomm.com>
-References: <20261127-b4-wcd9378-v3-v3-0-397e5ba2da55@oss.qualcomm.com>
-In-Reply-To: <20261127-b4-wcd9378-v3-v3-0-397e5ba2da55@oss.qualcomm.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai <tiwai@suse.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-        linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net>,
-        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-        Luca Weiss <luca.weiss@fairphone.com>,
-        Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>,
-        Ravi Hothi <ravi.hothi@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Authority-Analysis: v=2.4 cv=cOF1IVeN c=1 sm=1 tr=0 ts=6b098b18 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=gEfo2CItAAAA:8 a=GYSh3LzNAAAA:8 a=EUspDBNiAAAA:8 a=fcspkU3XncssIb0DMhQA:9
- a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=sptkURWiP4Gy88Gu7hUp:22
- a=lWcdFasyL5yHfcDTNXXo:22
-X-Proofpoint-GUID: -IE2hqJH-RdPC2E9S9cDpUjZLEbB1wYU
-X-Proofpoint-ORIG-GUID: -IE2hqJH-RdPC2E9S9cDpUjZLEbB1wYU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NSBTYWx0ZWRfXyUOviCgQqy1n
- SgzhQblZFim+AHZZ7VqQT1yhJg4jvGkdNTJQjqrr9MN1kKbPLB9EenId6O9+IwklcQdU3sg20+Q
- IlDHjwXOgTQ6tPOIs0S3hPoJLfEufi65ViKYh2A1UYsKf7K3m6aDoh6SDiCKqsAdycFyQh3UowZ
- WbZrpuQvGoGDhfKQuF4bCyjHO4HHTwYFVsFvH6XjaKSIF7yVPypoM+FQFhrAhyrkMJZAftKP/Z1
- zvEMfL1NkcX1sy7Z6x98jB4iCGW2xmqBpnlgawG0EkLJOArSfp6W6JTI44s9cUNsSu023fSDPwa
- 5EZcGTt7ky+jQy/mn8C81y43v6uxX/g719A+5Jr2mA7bRQQx4doYokJfp4TYFEAd6gKGm7JoQ+9
- UiQmuU7bUE3Y63ChZc4XOxljeBxVz2rn7cJiz4d4GNOtHYyXCLAQy9JBFZFLkyC/ElbsokzEtiL
- sCPFlL0XHo+5H3iCYaw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NSBTYWx0ZWRfXxTt6WR6BxoDB
- yX5ZWA3ofM+Us9HGILJuLNbzm5Axdaam7wpinR6Aqv/NZ7cYYGpEBiNmf3w+BypavlgNOqfDR5l
- jWG5uRnWRtCcspKs5yqx5pciux0HXVU=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 impostorscore=0 phishscore=0 bulkscore=0
- adultscore=0 spamscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270055
+Subject: Re: [PATCH v3 2/3] phy: exynos5-usbdrd: return the Exynos2200
+ high-speed phy init error
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Soheyb Boulaa <soheyb_boulaa@proton.me>
+Cc: Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261114064400.45572-3-soheyb_boulaa@proton.me>
+References: <20261114064400.45572-1-soheyb_boulaa@proton.me>
+ <20261114064400.45572-3-soheyb_boulaa@proton.me>
+Date: Fri, 27 Nov 2026 19:22:25 +0530
+Message-Id: <179578754564.13164.705776957228110174.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1067; i=mani@kernel.org;
+ h=from:subject:message-id; bh=elvZh/n5AbSfHdAwMngQCW+FoiVHt6RbiZU57XJW9s4=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCYscDiUsjJdO4wJHJUYgxKKxeSu5mO+mfR918
+ FApd7jSIsOJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawmLHAAKCRBVnxHm/pHO
+ 9UudB/0SFlnl0zp4ide23j0GiR1TYrxM5vkeEzD8JB8Sd2mSD9S/H9QKug+J27y22IF32ODX2LD
+ rMm3oA/075zLamZl+mCoSFRDslxcMwyHPUNx7LoG0ivX+twErJ++HUCI5WnondrkmoM77TzqesI
+ +NVu/cIppSJeeLIkJyhVRrMO8Cdy9CDHd5xszerOlO+5sNZkY0daEuKZZTiHZEosqhqcll22rEB
+ GAvLDkxLrx3afCI5m9d8JqoS8fvCNww+Ing6dNRigWzALhm4DAqisOvEKflNjxyctEX3rPHcCKU
+ 3X3kUP+C5unZgulHgNvlwEz7ssJIsCIci/q37LnNkUxAm1rv
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-The WCD9378 silicon is fused either SDCA-compliant, which is what this
-binding describes today, or not SDCA-compliant - the "mobile mode"
-fusing. The two fusings put a different number of devices on the
-SoundWire bus: an SDCA-compliant part is a single device aggregating the
-playback and the capture path, while a part that is not SDCA-compliant
-splits into an RX device for playback and a TX device for capture, one
-sitting on the playback SoundWire link and one on the capture link.
+On 2026-11-14 06:44 +0000, Soheyb Boulaa wrote:
+> exynos2200_usbdrd_utmi_init() ignores the result of phy_init() on the
+> high-speed phy and returns 0. When the high-speed phy fails to
+> initialize, the UTMI phy thus counts as initialized, and the controller
+> goes on with a high-speed phy that is not set up.
+> 
+> Return the result of phy_init(), so that a failed init of the
+> high-speed phy fails the init of the UTMI phy. The next patch, which
+> exits the high-speed phy with the UTMI phy, relies on it: an exit after
+> a failed init would otherwise take the init count of the high-speed
+> phy below zero.
+> 
+> Fixes: cc52a697f87e ("phy: exynos5-usbdrd: support Exynos USBDRD 3.2 4nm controller")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/linux-phy/sashiko-outbox-205724@kernel.org/
+> Cc: stable@vger.kernel.org
 
-Both fusings carry the same SoundWire class ID and therefore the same
-compatible, so they cannot be told apart by a separate binding file.
-Describe them both here instead, keyed off the existing
-qcom,sdca-compliant property.
+Drop the tag please.
 
-Only the capture device reaches the codec control register space, so on
-the split fusing the TX device is the one that drives the codec, and it
-references its playback peer through the new qcom,rx-device phandle.
-Either way the device that reaches the control register space owns the
-codec-wide resources - the reset GPIO, the supplies and the new mic-bias
-level properties - and exposes the codec's DAIs, while its peer
-describes nothing beyond its own data path.
+> Signed-off-by: Soheyb Boulaa <soheyb_boulaa@proton.me>
 
-qcom,port-mapping is shared between both fusings, so its minItems drops
-from 8 to 5: the split devices map five device data ports each where an
-SDCA-compliant device maps eight.
+With tag dropped,
 
-Co-developed-by: Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net>
-Signed-off-by: Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net>
-Signed-off-by: Ravi Hothi <ravi.hothi@oss.qualcomm.com>
----
- .../bindings/sound/qcom,wcd9378-sdw.yaml           | 172 ++++++++++++++++++---
- 1 file changed, 149 insertions(+), 23 deletions(-)
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
-diff --git a/Documentation/devicetree/bindings/sound/qcom,wcd9378-sdw.yaml b/Documentation/devicetree/bindings/sound/qcom,wcd9378-sdw.yaml
-index 62d85b1dca7f..03ee4a4deea6 100644
---- a/Documentation/devicetree/bindings/sound/qcom,wcd9378-sdw.yaml
-+++ b/Documentation/devicetree/bindings/sound/qcom,wcd9378-sdw.yaml
-@@ -4,19 +4,21 @@
- $id: http://devicetree.org/schemas/sound/qcom,wcd9378-sdw.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Qualcomm WCD9378 (Tambora) SoundWire codec
-+title: Qualcomm WCD9378 (Tambora) SoundWire devices
- 
- maintainers:
-   - Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
- 
--description:
--  Qualcomm WCD9378 (Tambora) SoundWire codec. The same silicon can be
-+description: |
-+  Qualcomm WCD9378 (Tambora) SoundWire devices. The same silicon can be
-   fused for a mobile (non-SDCA) mode or an SDCA-compliant mode; the
--  qcom,sdca-compliant property selects the latter and is required by
--  this driver.
-+  qcom,sdca-compliant property selects the latter.
- 
--allOf:
--  - $ref: dai-common.yaml#
-+  An SDCA-compliant part is a single device aggregating both data paths.
-+  A part that is not SDCA-compliant splits into an RX device and a TX
-+  device; only the TX device reaches the codec control register space, so
-+  it owns the codec-wide resources and references its peer through
-+  qcom,rx-device.
- 
- properties:
-   compatible:
-@@ -27,19 +29,28 @@ properties:
- 
-   qcom,sdca-compliant:
-     description:
--      Present when the codec is fused as SDCA-compliant. The mobile
--      (non-SDCA) variant carries the same class-ID compatible and is
--      handled by a different driver.
-+      Present when the codec is fused as SDCA-compliant.
-     type: boolean
- 
-+  qcom,rx-device:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Reference to the playback (RX) SoundWire device of the same codec.
-+      Present on the capture (TX) device, which reaches the control
-+      register space and therefore drives the codec on its behalf.
-+
-   qcom,port-mapping:
-     description:
--      Each entry maps a slave data port to a master data port.
--      Entries are in order starting from slave port 1; slave port 0
--      is reserved and not represented. SDCA-compliant mode uses 8
--      entries covering DP1..DP8.
-+      Each entry maps a device data port to a master data port. Entries
-+      are in order starting from device port 1; device port 0 is
-+      reserved and not represented. An SDCA-compliant device uses 8
-+      entries covering DP1..DP8, the split devices 5 entries covering
-+      DP1..DP5.
-+
-+      Several device ports may map to the same master port, in which
-+      case they are distinguished by their channel within that port.
-     $ref: /schemas/types.yaml#/definitions/uint32-array
--    minItems: 8
-+    minItems: 5
-     maxItems: 8
- 
-   reset-gpios:
-@@ -58,24 +69,93 @@ properties:
-   vdd-mic-bias-supply:
-     description: Mic bias supply.
- 
-+  qcom,micbias1-microvolt:
-+    description: micbias1 voltage
-+    minimum: 1800000
-+    maximum: 2850000
-+
-+  qcom,micbias2-microvolt:
-+    description: micbias2 voltage
-+    minimum: 1800000
-+    maximum: 2850000
-+
-+  qcom,micbias3-microvolt:
-+    description: micbias3 voltage
-+    minimum: 1800000
-+    maximum: 2850000
-+
-   '#sound-dai-cells':
-     const: 1
- 
- required:
-   - compatible
-   - reg
--  - qcom,sdca-compliant
--  - qcom,port-mapping
--  - reset-gpios
--  - vdd-buck-supply
--  - vdd-rxtx-supply
--  - vdd-io-supply
--  - vdd-mic-bias-supply
--  - '#sound-dai-cells'
-+
-+allOf:
-+  - $ref: dai-common.yaml#
-+
-+  # The device reaching the control register space owns the codec-wide
-+  # resources and exposes the DAIs. A data-only device describes nothing
-+  # but its own data path.
-+  - if:
-+      anyOf:
-+        - required:
-+            - qcom,sdca-compliant
-+        - required:
-+            - qcom,rx-device
-+    then:
-+      required:
-+        - qcom,port-mapping
-+        - reset-gpios
-+        - vdd-buck-supply
-+        - vdd-rxtx-supply
-+        - vdd-io-supply
-+        - vdd-mic-bias-supply
-+        - '#sound-dai-cells'
-+    else:
-+      properties:
-+        reset-gpios: false
-+        vdd-buck-supply: false
-+        vdd-rxtx-supply: false
-+        vdd-io-supply: false
-+        vdd-mic-bias-supply: false
-+        '#sound-dai-cells': false
-+
-+  # An SDCA-compliant part is one device carrying both data paths, so it
-+  # has no peer to reference.
-+  - if:
-+      required:
-+        - qcom,sdca-compliant
-+    then:
-+      properties:
-+        qcom,port-mapping:
-+          minItems: 8
-+        qcom,rx-device: false
-+    else:
-+      properties:
-+        qcom,port-mapping:
-+          maxItems: 5
-+
-+  # An SDCA-compliant part takes its mic-bias levels from the function
-+  # topology instead.
-+  - if:
-+      required:
-+        - qcom,rx-device
-+    then:
-+      required:
-+        - qcom,micbias1-microvolt
-+        - qcom,micbias2-microvolt
-+        - qcom,micbias3-microvolt
-+    else:
-+      properties:
-+        qcom,micbias1-microvolt: false
-+        qcom,micbias2-microvolt: false
-+        qcom,micbias3-microvolt: false
- 
- unevaluatedProperties: false
- 
- examples:
-+  # An SDCA-compliant part: one aggregated device.
-   - |
-     #include <dt-bindings/gpio/gpio.h>
- 
-@@ -99,6 +179,52 @@ examples:
-             vdd-io-supply = <&vreg_l18b_1p2>;
-             vdd-mic-bias-supply = <&vreg_bob1>;
- 
-+            #sound-dai-cells = <1>;
-+        };
-+    };
-+
-+  # A part that is not SDCA-compliant: an RX device and a TX device on
-+  # two masters, the TX device owning the codec resources.
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    soundwire@6ad0000 {
-+        reg = <0x06ad0000 0x10000>;
-+        #address-cells = <2>;
-+        #size-cells = <0>;
-+
-+        wcd9378_rx: audio-codec@0,4 {
-+            compatible = "sdw20217011000";
-+            reg = <0 4>;
-+
-+            qcom,port-mapping = <1 2 3 4 5>;
-+        };
-+    };
-+
-+    soundwire@7630000 {
-+        reg = <0x07630000 0x10000>;
-+        #address-cells = <2>;
-+        #size-cells = <0>;
-+
-+        audio-codec@0,3 {
-+            compatible = "sdw20217011000";
-+            reg = <0 3>;
-+
-+            qcom,rx-device = <&wcd9378_rx>;
-+
-+            qcom,port-mapping = <2 2 2 3 4>;
-+
-+            reset-gpios = <&tlmm 162 GPIO_ACTIVE_LOW>;
-+
-+            vdd-buck-supply = <&vreg_l8b>;
-+            vdd-rxtx-supply = <&vreg_l7b>;
-+            vdd-io-supply = <&vreg_l7b>;
-+            vdd-mic-bias-supply = <&vreg_bob>;
-+
-+            qcom,micbias1-microvolt = <1800000>;
-+            qcom,micbias2-microvolt = <1800000>;
-+            qcom,micbias3-microvolt = <1800000>;
-+
-             #sound-dai-cells = <1>;
-         };
-     };
+- Mani
 
--- 
-2.34.1
 
