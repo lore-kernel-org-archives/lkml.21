@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795783115;
-	b=2st5pq0oSwNpLaZEhxUxWjwO9aosTGMa4AkkOp+4q0kAma5VC5Gm7jGP2jwnE6Gkgbsv
-	 GtojaW5JHQfwdor9cDOB2t8y5M9wyMXFrrSmqH431FMp1FgpmzunNTwJzdvo/nmpvUBLa
-	 FOv679kG7fH3d8oZFBbPmoNnB1Cff8SzXni1Ii+7FSYchDExqRp+eTI3YWeVwahUlKuaL
-	 coQk101KMw7rFflv/xGBr2JviEsUeGYNmHU1MXbZrBF3reSpD8RH3gaIMHsWo17kwvKiQ
-	 Mg2UiJqq0TqcxULjisxvtaK0jnQeOw6TDoM/2bILOpBsr94Fr55uncGTwIet+AWBIIg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795783115;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=;
-	b=L7QAxg4SvJ+8w+xVo+sZHwAOOACTzO0O/kPsb++c+Ny7tjjxIn2K9thtKl8e7bekytlR
-	 G+HwNoptxqFQ2I4Wtiyto/VZOo3rLdvOCPwGx4W6RxrsVm/s2zi4xCf8JgNqHsMmNzNYQ
-	 EaTXNOpO0kXrIpYxKF7DniZLxie2mBQUM751KSTGW2L67Htk/dXFjWTl3pTwKJDWucaI+
-	 6nxF+ud49CW/XN/p1xI1UIxdR7S4zmRqS9ZwWyJC/M4meAZubiVhjgOnnKOOGPNrYyiTX
-	 KiG5/+agmT8GEO+Ei2Vkppgpk1IKVtIMK/J1YKiI9DiTEtrIS45kLyigz3AKDr+6ekw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OsVD7nYe;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=K7oTcFTg;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.8
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795783143;
+	b=0HtfjEt+U525uwblZX63DWeUpOWpAQcyklgba4rBkH2MdKlpBaAD+EFGF+3iqINrrLwf
+	 Gmzy2VWaMOmQ2Aa8/Fh6YIA7TzZCrjNIEvi2pXoxuz6g4Va5NQvdi7XS3TGa9GStGoJmz
+	 qzBKq7f6WUPErvHs+t/QlkPkf/M/lHEQp/cD7qSIPlRAeQEjJZ5qxmhQZvkz3ChhL1FB5
+	 PiTu1Cf0kesTNuoyo6f6giv8ni6dBS0pZeKOOUdC0GegIOB1DfmydNNQvwFrIu6prPea2
+	 yk/bR4QnKnLsq/DnZF/JWOCNHkAmNJYbTtommNJQCaEcavlt3O3IkYdJLe0GuVGHn3Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795783143;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=+Yx4M8aIU8HXkD0jXwZMAB3Gka2Ag+/nXA0eM7i+hSQ=;
+	b=0VtdgN59CiSfkFpRr8gvRHlGlONWl552rB6gIb1LU3rbxocGb8G/oIS31g9u6iWdMLRF
+	 ncFS6dPwI8uuFTK/ZTSfxFPpNU80fNpjJw13GM+dcAC5PpAllfTz4zjdzHzkau2RYy+jJ
+	 s1R1h72FiFlQou0vYz54O8MjSfb4/OMOrkL1qb+cgCGGNr4aior5aMZZt28pHcS4/SZ0V
+	 On5gdYJc/hGcNaVKNp7elHhBHaqSwZU1s0k//4i33JxGTLk1sxSiNIePibNsSwPm9jMhP
+	 1CfrSIbXYbr2FmwItjPybp5Hh9nL3oKSQlZVr10wxNWp8f8JO+eAS243giIrCcP/0lA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=UTyPdS4F;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.8
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012008.outbound.protection.outlook.com [52.101.43.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BC36606A324
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:38:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BC36606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D457A606A31E;
+	Fri, 27 Nov 2026 12:39:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D457A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OsVD7nYe;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=K7oTcFTg
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApVC11685549
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:38:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=; b=OsVD7nYemQhekW+f
-	MgqDMfW6xtVAqohPNaln/mjk0f598jSdZ3jjOLaW912eROmGX8PQz5nJXPGZey9w
-	l5B3qubGjlPmYQrNzOwF1gbwa0casEQjd+DYCODHkpz7FLDqX+DDcrDdtOnUzFxF
-	inYM9cv391V7CHSyJxl1nJrmwADZiR6SPcgVXAybDl0MAy5xmObe5I2eOeplFNsd
-	m9WM8zkFpJoG8GzwTPd4w5gs84DQPJraEqYP0QiGWnCtIbyhP25NykOV1KlinxsI
-	gVGCqMquxW4xtaH8eB7Ky8HP+4w2zOSXjuPlLavcdkkqhM+xv7X8SgzV9GLGnzIn
-	+ym14w==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j756k98yh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:38:34 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-384c78aa0dbso10107324eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:38:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795783113; x=1796387913; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=;
-        b=K7oTcFTgsrOKKNvyzFPX6UYCSKWWB7QEPTfnuYn7drrq9d5q6TNIwZ905xZrumFLD3
-         yhANAtknJcKw5/SPwfIoAXJVtUoyasynNDMNXa2bOiO9vFHFcLZYZj6Oh6lZxOVjprpl
-         R/DyvJDAn2D2KntHlj/dSjwZ1LYGZjTxcxI6XQQ0KH34Xu0L/LJzBYhqFDmtalqWOd7o
-         wFIMYlQqXFiJ/8tZxVUZPeB/Bi6ZBtW1hwK3bTAsIvj8K1CI5GbEVZ4n0FzUsWjURBZK
-         lc8VNtOA89TDj9YVWM4Ga0EnB58z9C2xn/ZLb6g1gJU4kfNjnf8jje67siyPoU1MsgfK
-         zfPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795783113; x=1796387913;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XMa2kCzEW/leD9xf1rjAeGaC0mopa8BovnBv42DRtl0=;
-        b=q/pbNglsICCh+Q2HgiDHgqBeqUh4S9FT8Pjjb/zicNGuLgN+V/BjMpAqTVwlGJiKyn
-         royhl28v/UhB+3KL1+4vuVLvHirHSKputjeG0R8nHZ7ToRtwaL23tbGLIr3VEoNj8vh/
-         PHOCx66V1xM7qJek7zPQxgfqicKNuJgXMsZgrdnhhlfXEwgjTWVO084sNISNt/Z6ED9U
-         uIDgFfH42XhPLoj7Cfc2+QIp+mO6QNF8efNpz7K9IzE9aD2I/QSDkjzZZ1ZiNEnd6WeY
-         +Wgud99QNITyLc6Be+Bae5vWQU9a+/4WyoNtxjZ8puthUDqhTIRwzCuAPKt+enVzf414
-         aofQ==
-X-Forwarded-Encrypted: i=1; AL+hErGaliQPWdakwzVJ2jSRzLIVtgEiUbL1hZVI8lQ61KfiCWL+K6wwd/3KMIioSvaw59G9u95evHhvVqOC9wk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cUEG62rWL1KYIw1f+LC2gF4GpPNH9XfPI3BbDHxQ2sDQuznq/
-	10QzcFTuSKwG2PYNldXy23EVkwHbU3APsem+O96Ky4gpX5F4JnekH9pZx3GeDeYvFrWyWAzuZWH
-	Dc/2xXAlGpQBsJqwh81ZvmlJH5h9Z6w9yeu+OewjR5SvcsqgHl67jmk4klOMy165ZeNs=
-X-Gm-Gg: AZFdTZdkDKI3MH4xmBCucUvvB9x3JDPVlX/UvjHKk26IEaNdfAZzFCsmuisGCLiBRoj
-	jS3I2dHX0CBO2hQ11DZYbfFhmP9KlkArVh5z3lhu0tfT92JbD9blCtquRDWLza/oR04/W48rxo5
-	rP/T4+YbEe3b6pXsMJUDACrjjVsqoNoza2XIk18b1MNwXeK0i5mUlNXNV3CEILBk+MZxmg6GNER
-	mzjx3oqM8kQ7+ayoAjGZdL3A56cDTvKzpH8OyNJEnC5TBuVXxkQIYvg4CqTGMtI3AJR2Y4frmXe
-	X0ILcbB6QSKCwZL5qr9UcvqJKS6FbHI62RNe7ZfuFMGjyTsn38XSZXnkSd1HNP/k1FjFgtNUI41
-	fSjeSeUX/vj1TEnaisURN4kjMhhUOeF2ZaVPEINtyd+xjMCSnkMduzhVVLAYhI7DHLor3EGpFRj
-	1tYJ1E
-X-Received: by 2002:a05:7300:89:b0:386:c880:19b1 with SMTP id 5a478bee46e88-386c880248emr9901036eec.10.1795783112969;
-        Fri, 27 Nov 2026 04:38:32 -0800 (PST)
-X-Received: by 2002:a05:7300:89:b0:386:c880:19b1 with SMTP id 5a478bee46e88-386c880248emr9901006eec.10.1795783112393;
-        Fri, 27 Nov 2026 04:38:32 -0800 (PST)
-Received: from [10.206.111.23] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm88060568eec.10.2026.11.27.04.38.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:38:31 -0800 (PST)
-Message-ID: <ffdfe000-fff5-4498-a4d9-1de2e0f23707@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 18:08:25 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=UTyPdS4F
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WFL6MA/tnCUU3jeQsErEFZpPNbVZEGmUNrxMq36HjiYp38gNdGTqdNQDTyX+t5yVxzZ7G0xOI67yu5M7ZdxXYbgo6pL/Unz4u5sIlVGINH02RghAEoL//66D3excBSURbsR9wcr2kw2Aooocs5fN1LefD9MXQRy8Lacm9le7V7i4LxlMc75JSa0C8I4GNqL+iKHvK/sfLX+aOXgG1d8yxl+rUu2N4RcywMkpBa0ERObvzjv4nVHwlvPTl6RQu+uWZ8GSoIMnn+6PxCJ0PebxuxHhvPdqGVHuuHZVGYiZYy+rL0gawulk0wVRLIj7O9nOO9v4AhBrRRjTyGxVgaXCPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+Yx4M8aIU8HXkD0jXwZMAB3Gka2Ag+/nXA0eM7i+hSQ=;
+ b=gFLHNYi2DJX2Dss5z6Ggyc5bGV1KEE3GyLlkj2S1dNVuUR8Bj6yknipkj1nX+DR98Ome26fsTXYd4n6YW2JZrZHQHdVjmp+nwk0SQGWoajHR5YalxIEhI7JdORA9G1kUEvxaktwdF0SA45oapuHf3/YXM5vpzIyvyUgFDJ2bxmVeBLgD82l3GBSQizOIV+El2wWeM7rmcEOF4fZEO0WzCsoBAMc7KHPpWoQgJesLXFB+EwCT+kUpCtJtCeTYXUbKBAp6WfvqME9G9324cNZqxtd42A19AWbM+zxgW/ENTFud+yCdDwqEJrx7Vz4GbxF4KA3bYzQSRskfMiWIAmaZcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+Yx4M8aIU8HXkD0jXwZMAB3Gka2Ag+/nXA0eM7i+hSQ=;
+ b=UTyPdS4F4U4V5Lsbto6AUo7AtFEaGl2YFtr1L4SJO4ZckG3v3BQ3uJVx9sutnZSZ3TGMfn0nKXl5V5reAwcymAkewOTCzhO47fIsRcb+7o4HTxGGxEvE2T6i7YeZKwmtv+HjcUWNOn3P410e/BxIIXaRG5sClsB5NbOru2L0q0cpAmFVkPilohl7uH2FM0tLuvqbT//A4xKl+goOMvPpPllhnuRL1x7vlTf4nDhNBRQCsrz+8RE3WJ6kKZ2eWOjvt4mn7FAwQTksxzxYz5G5312qrrBiP1O2JyfmOG4vbb3R9FdjhfX+5Rd9qdqg4CkJZMS4wP4lcoLLoavwlF+qiw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL1PR12MB5126.namprd12.prod.outlook.com (2603:10b6:208:312::8)
+ by IA4PR12MB561602.namprd12.prod.outlook.com (2603:10b6:207:128::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 12:38:59 +0000
+Received: from BL1PR12MB5126.namprd12.prod.outlook.com
+ ([fe80::c3e7:1bc5:2b91:1cfe]) by BL1PR12MB5126.namprd12.prod.outlook.com
+ ([fe80::c3e7:1bc5:2b91:1cfe%3]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 12:38:59 +0000
+From: Jan Bernloehr <jbernloehr@nvidia.com>
+To: linux-perf-users@vger.kernel.org
+Cc: Leo Yan <leo.yan@linux.dev>,
+	James Clark <james.clark@linaro.org>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@arm.com>,
+	John Garry <john.garry@linux.dev>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Matt Ochs <mochs@nvidia.com>
+Subject: [PATCH] perf arm-spe: Honor --time ranges when synthesizing samples
+Date: Fri, 27 Nov 2026 13:38:54 +0100
+Message-ID: <20261127123855.78212-1-jbernloehr@nvidia.com>
+X-Mailer: git-send-email 2.54.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR0P281CA0214.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ac::8) To BL1PR12MB5126.namprd12.prod.outlook.com
+ (2603:10b6:208:312::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,81 +104,190 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Revert "media: iris: reject open() when the session limit
- is reached"
-To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261031-fix_v4l2_compliance_unlimited_opens-v1-1-f20cc9231ee3@oss.qualcomm.com>
-Content-Language: en-US
-From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <20261031-fix_v4l2_compliance_unlimited_opens-v1-1-f20cc9231ee3@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX0X+Dnfm9Dx5M
- HrZ+2zgE75W/47IdFrqItUqCu6dy+8rIbewHC5VSD4EAXRQQfNcA2Ns8rc6MGsTxtskwn726WJW
- a0U8LNg+yL9cQL9o/aoo+xFYCQFX+ECAnXwqvg5XW2yMC+2wPAbW46967NE31+UMZp96YnLMQkw
- hjlq2BEvzLJ5zi/SjwHaVjpkcmQdEbNjp02i88jy3gxj5L+VXO1AQGfiU2E7umja0s00ZoIX8ND
- N17Cvkp4qysIKqMAMVnG8fqP2sqnpwYLvooMFCH/4hqtNiOEoN5uqMJtSVuGZqDVhS5PRuFGu7z
- d1C4IIiXWlnaCR+JILB1PahzclGi/3DGLv/dR2SgoNrnw2nGmBW61+RZny3IsdxHXpoVcauz5Vy
- yfj6MmXfx4IQa7tgkmJxAsYTfGeFYeGAy1DxcMFUu4ycnVQAvxQf1VLJ5P8TFN+WhKG51wZp73E
- C2ApR/aJdtUkSFtvR5g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1MCBTYWx0ZWRfX7CYqXXMzEX4j
- yYK0DzR8G6iNinXK1umh8gwFTyHcHmxrIQaroZzfz9Q3siFuJ+M17wiQcYROv78vgqh21baSpjZ
- NHWbVN/sKNKfOATj1a2gcm2S3fPm/28=
-X-Authority-Analysis: v=2.4 cv=ebWo7LEH c=1 sm=1 tr=0 ts=6b0979ca cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=7GKYziPKAAAA:20 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=GeMy74hU6CVubCBKRZ8A:9
- a=QEXdDO2ut3YA:10 a=PxkB5W3o20Ba91AHUih5:22 a=bA3UWDv6hWIuX7UZL3qL:22
-X-Proofpoint-GUID: LVG23_nbq3f58EWda8Ix3ZuYSVUeRB7n
-X-Proofpoint-ORIG-GUID: LVG23_nbq3f58EWda8Ix3ZuYSVUeRB7n
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
- lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270050
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5126:EE_|IA4PR12MB561602:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d2134ff-0290-407d-4cd4-08df4c836878
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|10067099003|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261022075727099003|261021121427099003|261102123227099003|261009223027099003|21046099003|18002099003|11063799006|5023799004|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	qt2y4udDm1dNKr7c9e5gcgmXSHVkHcIcwvS8+31G+cqYuhDq8tDjUwc09myi2d4whEvsOoSqp7hfiIrAEG0kxN2HefJUBUrrrTP75kfHGbB1bKrDZy5fq6fC99btzOkG66CkM7bzJxS0GOVXUbIsCulzsxgE+F6Op1MlFA6pZfmoKhOmWO8eQDOlNKrdjCnP5HyYKXlF907avQ7kuusiHoeBguug1G7QL5anc4FV5DDG87MYKjYFdWGU1Lv7hshHFfr68D8QDCMjCxDhBDk1XWvce7ikUglbXYeoD5LFGdbBs3T2mwwn1iq2Kox6eB8q/scFBdILB+1I4Lqkmq5nLyKySwwWwM748Vv11XNo/szh1+4X1XSRMIal3Xow6Xl8SMTyUAgLYgnt1mAIBhWG0OPjtQAG5QnmFRLs1GPRl5oEUSyj67XmytUR18a8/ivGlcF5NaAYGcPziU8p7xvkbptSyvymtB7khRziaj9EvetK/zVSP4b/JJ6RsITHyj4p/WZ+OHOyjUaZ/ufDDWOtaaptSmub8molOYeQDV88kUJnAFwHyg0fq0mIrzn2JwXFDS0GK3zBzgyYApJp/h8xCPhK0bwr2//qTWZs6fpKhd0zZ++dbKcpduFu0vC55EfQWpdkFe8LDDlDTRzAJ6E6hRI+o9rR3tTFZd3Ty7BWrY4=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5126.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(10067099003)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021121427099003)(261102123227099003)(261009223027099003)(21046099003)(18002099003)(11063799006)(5023799004)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?kX2EUJep17IrSo46COptHNTe/fticodAAMb/KIMa5y2UXbWjkDaIbyAsJiG+?=
+ =?us-ascii?Q?pfTh+arhu/ms4VWUXfqxu6ejaorhe4mZAFO27u9ClisYD1wspQAR+zfcz0BJ?=
+ =?us-ascii?Q?11JsarqdzYsd++Uda+J6mFqtWhv6DeAOoZs72T7aUIa/xcI5Ze/5xlV9z0ik?=
+ =?us-ascii?Q?OZKZ2qW80StShWnoamh24wAtgV8VHA/1/ssBdRsJEjxf+OLump/Tz9sR+9WR?=
+ =?us-ascii?Q?JSYM5MTTvNmxdB9eb3iSPM5txj979EmiT3F/YfyFenhDMHIGf+gJby9VkHFM?=
+ =?us-ascii?Q?XC/6RIo4Ne0C8CbTI2u6XzpROxBr5MvPjWIEadx6F8QbZv/b//Z0BzLW67/4?=
+ =?us-ascii?Q?+MACTwuMLCFvzUcSTy3WnXzKQo5sbec5PilBtUF9yfGPec6Mq//8Enzh9Dla?=
+ =?us-ascii?Q?gMAtC2PRIuX/0wWFnvPkzpvGnfntvx4Va32haNVoJXXlL2PNSfklNIU3306f?=
+ =?us-ascii?Q?w2Xq1wSMyVX3oH78w+VjCWgTjmJ+RS63Id7WZcxV6f9txrO0imc3mxz8qhC5?=
+ =?us-ascii?Q?SlIPdYw7MBI1zGal0jCosYpmYB+1/LY3IaVQcfj4Ivnz78J0pM8hBz0//qA4?=
+ =?us-ascii?Q?OEaKgY+tp4tVOZyGibdi5WKu0Y0HLmRbSdhfzY4Ps6RDeWCqpdf8PEIJ0GM5?=
+ =?us-ascii?Q?hGnuuwuc1u95dUU3ZY098VuPgsHqnCG3/wegBH5MwP4pHQuB2Ko9VJk91xB5?=
+ =?us-ascii?Q?QKMlM4C5nTwaWp8F4NoJt/b3+mZE3SQRwpi1FJcFywSpwPxwDCbohH9uGYCm?=
+ =?us-ascii?Q?HRxeJ0w9g/0lzy77BdvVvE95K66uccGatmvIlTjbv4gTp/Ya860DJB0KTtrE?=
+ =?us-ascii?Q?pgf1E6Vf8+j6C1XWvQH7T70hFBDpilbJxU9fLgCMYQs0zEB4dLb4YobpRK8i?=
+ =?us-ascii?Q?n0+dwP7m5ABsfbm3thBLOSD+GCQHofj2pnkO5FOhGp91uviZakswPoaXBbGd?=
+ =?us-ascii?Q?eqINbIt7Xu5kkko5qOSqay1PqXV1qQzxJA5S+nXodvIVexlYu5RQq5nTdhJ2?=
+ =?us-ascii?Q?R7lQ3u4fgzAYR/OWtwAoSpckPmuvfT7wB/+0RxNNSaZFPJb15Y7tEN0NqspZ?=
+ =?us-ascii?Q?w77wb514nR58VCrEAgAX8Uevb8MIXOCg1ZNUl4/2BwfdX8+yq9Bgrfkg89g2?=
+ =?us-ascii?Q?VyD0rSL5wIXY0Iumek/L42qQNPx6jwZmLIhsVYGT9+aFcoTXdFmBRhknbiQQ?=
+ =?us-ascii?Q?69HTWfTW4x4YanPVQMGmlmn+VN1J2U/2fE0/lVRKFLSTGl0qCbK9PPUL0E7Y?=
+ =?us-ascii?Q?aCoXeKPjlc3wmKZq05YjShloc/p8HRZsej7miYw3FN3rb0szFdFgpHVAcnG2?=
+ =?us-ascii?Q?+iSMMD2a/hs8BHlkBk9p8XO7KD4ZWilzyYR39Ce72ewr7L8kkRa0a9vnP76N?=
+ =?us-ascii?Q?zTZSR/PlnZWWugbLXbTPkF0MSLRx7QNKS+RlT6cdE47XxlMS2EM5OZcSp8tG?=
+ =?us-ascii?Q?0hvHAtL0YgVRuA87afeBicsQjHYT8us3QLU2CqH0cf0gDKmuuUT3yYvZ+Nr6?=
+ =?us-ascii?Q?23wo6qNddR9H/8vKdjDwjzsXpCxe7rsztQozbXYBu6EmEpoWWdDT2QIfsf+T?=
+ =?us-ascii?Q?D/O18SmwJO8pTegjn0NenxSNtCjYIlujlnLEd8kW3p2hNs83fCQFQLXYI/hv?=
+ =?us-ascii?Q?zlInIdxOjaNfVRLDEdNKEG5jz46nbN79i9BTsfVXclZkxcZ4+npgEV1Y/57F?=
+ =?us-ascii?Q?q4u19QJcc/yUA4y6z3wNFuYouE+ygg1AKbhh5dFTDKTrf9ahHlX0CYu9dnMD?=
+ =?us-ascii?Q?h2JoIYTcrA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d2134ff-0290-407d-4cd4-08df4c836878
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5126.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 12:38:58.9597
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D9XDF2lNwpPU2aSrib8gLL/9iHZOtSXZNqjsv3vHwtWVlanR/NmfaeITt8ir/2KyUnXkGO+HxCBY1vn7eRiAWw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB561602
 
+perf script and perf report pass their --time ranges to the AUX trace
+decoders through itrace_synth_opts. Intel PT uses them to skip decoding
+outside the ranges, but Arm SPE ignores them: it synthesizes a sample
+for every record, only for the tool to drop the samples outside the
+ranges in its sample handler.
 
+Check each record's timestamp against the ranges before synthesizing
+samples for it. The check runs after the --itrace period count and
+converts the record timestamp with tsc_to_perf_time(), as
+arm_spe_prep_sample() does for sample->time, so the tool receives the
+same samples as before. Without timestamps (timeless decoding) nothing
+changes.
 
-On 10/31/2026 1:45 AM, Vishnu Reddy wrote:
-> This reverts commit 397ebadcbc21 ("media: iris: reject open() when the
-> session limit is reached").
-> 
-> V4L2 does not allow drivers to impose artificial limits on open().
-> Resource limits must be enforced where the resource is actually
-> consumed. v4l2-compliance verifies this through testUnlimitedOpens()
-> and now fails with:
-> 
->    fail: v4l2-compliance.cpp(773): !ok
->          test for unlimited opens: FAIL
-> 
-> Link:https://github.com/gjasny/v4l-utils/blob/master/utils/v4l2-compliance/ 
-> v4l2-compliance.cpp#L747
-> 
-> The session limit is already enforced at the right place. An instance
-> that did not fit within max_session_count is not added to
-> core->instances, and iris_check_session_supported() rejects it with an
-> error from iris_vb2_queue_setup() and from iris_vb2_start_streaming(),
-> which is when a firmware session is really needed. Failing open() adds
-> nothing over that and breaks the compliance requirement.
-> 
-> Fixes: 397ebadcbc21 ("media: iris: reject open() when the session limit is reached")
-> Cc:stable@vger.kernel.org
-> Signed-off-by: Vishnu Reddy<busanna.reddy@oss.qualcomm.com>
-> ---
->   drivers/media/platform/qcom/iris/iris_vidc.c | 19 ++++++-------------
->   1 file changed, 6 insertions(+), 13 deletions(-)
+Decoding still runs to the end of each queue rather than stopping at the
+first record past the last range: record timestamps do not always
+increase within a queue, and on Neoverse V2 traces such an early stop
+dropped samples that were inside the range.
 
-Reviewed-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+On 28 GB and 55 GB Neoverse V2 traces, perf script --itrace=i1i with
+--time=70%-95% goes from 212 s to 188 s and from 383 s to 339 s, and
+with --time=70%-70.01% from 101 s to 72 s and from 188 s to 131 s, with
+byte-identical output.
+
+The code and this message were drafted with an AI coding assistant
+(Claude Opus 5.5).
+
+Signed-off-by: Jan Bernloehr <jbernloehr@nvidia.com>
+---
+Tested on GB200 (Neoverse V2) with two perf.data files (28 GB, 55 GB)
+recorded with
+  perf record -e 'arm_spe_0/branch_filter=1,event_filter=0x2,jitter=1,period=4096/u'
+and decoded with
+  perf script --itrace=i1i -F comm,tid,cpu,time,period,event,addr,ip,dso --no-demangle
+using perf-tools-next 29fd95dbd25 with and without this patch:
+
+                          28 GB            55 GB
+  --time=70%-95%          212 s -> 188 s   383 s -> 339 s
+  --time=70%-70.01%       101 s ->  72 s   188 s -> 131 s
+  --itrace=i10i 70%-95%    84 s ->  81 s   150 s -> 147 s
+
+Output was byte-identical to the unpatched perf in every case.
+
+An earlier version also stopped decoding a queue at its first record past
+the last range. On the 55 GB trace that dropped 21% of the in-range
+samples, because some queues produced in-range records after a record
+stamped past the range, so this version decodes every queue to the end.
+
+ tools/perf/util/arm-spe.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index 8d95df23be6..bf1e824ea76 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -26,6 +26,7 @@
+ #include "symbol.h"
+ #include "thread.h"
+ #include "thread-stack.h"
++#include "time-utils.h"
+ #include "tsc.h"
+ #include "tool.h"
+ #include "util/synthetic-events.h"
+@@ -93,6 +94,9 @@ struct arm_spe {
+ 
+ 	u64				kernel_start;
+ 
++	struct perf_time_interval	*ptime_range;
++	int				range_num;
++
+ 	unsigned long			num_events;
+ 	u8				use_ctx_pkt_for_pid;
+ 
+@@ -1077,6 +1081,19 @@ arm_spe__synth_data_source(struct arm_spe_queue *speq,
+ 	return data_src;
+ }
+ 
++/*
++ * Check a record against the --time ranges. Samples outside them would only
++ * be dropped by the tool, so do not synthesize them.
++ */
++static bool arm_spe__skip_record(struct arm_spe *spe, u64 timestamp)
++{
++	if (!spe->range_num)
++		return false;
++
++	return perf_time__ranges_skip_sample(spe->ptime_range, spe->range_num,
++					     tsc_to_perf_time(timestamp, &spe->tc));
++}
++
+ static int arm_spe_sample(struct arm_spe_queue *speq)
+ {
+ 	const struct arm_spe_record *record = &speq->decoder->record;
+@@ -1092,6 +1109,9 @@ static int arm_spe_sample(struct arm_spe_queue *speq)
+ 		return 0;
+ 	speq->sample_count = 0;
+ 
++	if (arm_spe__skip_record(spe, record->timestamp))
++		return 0;
++
+ 	arm_spe__sample_flags(speq);
+ 	data_src = arm_spe__synth_data_source(speq, record);
+ 
+@@ -1255,6 +1275,17 @@ static int arm_spe_run_decoder(struct arm_spe_queue *speq, u64 *timestamp)
+ 	return 0;
+ }
+ 
++static void arm_spe__setup_time_ranges(struct arm_spe *spe,
++				       struct itrace_synth_opts *opts)
++{
++	/* Without timestamps, samples cannot be filtered by time */
++	if (!opts || !opts->range_num || spe->timeless_decoding)
++		return;
++
++	spe->ptime_range = opts->ptime_range;
++	spe->range_num = opts->range_num;
++}
++
+ static int arm_spe__setup_queue(struct arm_spe *spe,
+ 			       struct auxtrace_queue *queue,
+ 			       unsigned int queue_nr)
+@@ -2055,6 +2086,8 @@ int arm_spe_process_auxtrace_info(union perf_event *event,
+ 	 */
+ 	spe->synth_opts.period = spe->synth_opts.period ?: 1;
+ 
++	arm_spe__setup_time_ranges(spe, session->itrace_synth_opts);
++
+ 	if (spe->synth_opts.period > 1)
+ 		ui__warning("Arm SPE has a hardware-based sampling period.\n\n"
+ 			    "--itrace periods > 1i downsample by an interval of n SPE samples rather than n instructions.\n");
+-- 
+2.54.0 (Apple Git-157)
+
