@@ -1,84 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795749050;
-	b=SvJCUVoJjHcwqnsEpLB7c5Noirsd+Xw+5cqS7Pj81enAohKbhNvUEsdZOL6/BtixLx7d
-	 QTz3+JS1R5SOF1pZRGCwQeEWFPeFogVBfmBWiUPZjpXExXc+5xSlCdLx4sZN3UE6hQRDb
-	 tE09E9k2K2hRaTkFSs5BhGSgzVcVXBYKi2oLZE3WlAuvhJ9VOchl5xhG8xIS7qdL6CyEj
-	 WnPufX1N3GZaiOrW7z+Vlpi73hNm03swnAAt3JKNEXGv2CKqI9J43nK83UhFWksq7f1DM
-	 Hpfibpa4PbiyvAfkX2920KssjLHFwUMXcS5OtbufxDOqDVpodDW19nOE8ZR+NhnXi8g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795749050;
-	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795749061;
+	b=5j38THz0pEJ+QkEuK+42ue/eC+7CYdvCDZ2eA8AGhwlU6nZYUbOqhKClYWczTFh6PmCw
+	 +Z4U1VcA2Hapz92/0enCfuiQ01TjCtJULAiRo7ZxsDcEnznau7mkyvQSVp0JlkDdX+gnB
+	 OppYz/0VQOS7+dMbauTRRN21oUGqjjCTcrBiRU8lT95dnov+3zFamR6z7BWgY/Pt9fHep
+	 +mPIWJs2uLszvSgMgHrWFNw/Ab6/NTwfY6Wp2qNyd+5hcyFPpDrdSZsIKztEFb167VAG+
+	 9sihgTl2Em45V7PSAcPq0i88q475IPKzPtRkYyAub5tVtq89+TZqm92XYBPnUsTK/HA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795749061;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=/ktUTtzQmYBrtZo1pYnB1CT3xfoL1+9t2GulvHSsGek=;
-	b=xqleLZbz0cNaDKBR44ScITCROaxWx6WWbmvIh82nXtL9RIAWpYecySVLmhXc9sdw+ncR
-	 eQ55xOWPvoq9mxEkrnm2zKSQ7ZlvZDEeytPfir6pPmPdXztzTcQJTHDIweE7GirnEclfZ
-	 V+CsB7tLIvj/MKydhoWW/xqDiG7/nrZxpQ6wGW9fFOd+u8xgwoPWznA+QULXHv6WtvosY
-	 y6Pmja4mw+Z96TWWTMhH64sKYFwRFhUeumrrhjglR86lVgmb2GMrW3csaD4Hj466S5SEN
-	 e0Jt/mjzcQApi4K+922Kw9FX90HiuCfiKDBXqQCWV7E7CjshTeUDkf2L+bvlQE3CNZQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JxSG3dCv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A59B606A32F;
-	Fri, 27 Nov 2026 03:10:50 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JxSG3dCv
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795749050;
-	b=uGuw0o5KQanNYrltlKScOxm0zJSYvMeUJWra0Zb05Q0GbxIIA1Ob44ArfT4WnBN6sa6C
-	 IHqSbhoPZummrFohUVweToc96bnLDDKbGyPMHMMmEradgh56urpSnDWXAppXcaExvNIA3
-	 xi/VR9uJLRB+Ru4iLa7Pr4LNrcvWWtuIGQVFmiKFX8CPLwEbto/wZ+4apSAJfuweef711
-	 8U3vqrDrDBQfx8I2vs3Eof/jVJ/zeYamn9OKkwSVvskAoyh/EbZMyTx5jxzrYY/uT6sIk
-	 z9dDCdl6cCIdZfHDAncW7P7z9J5w666Yuba+YIAsMWzY+8Nww913YoplSAhJZoeJ1/Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795749050;
-	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=/ktUTtzQmYBrtZo1pYnB1CT3xfoL1+9t2GulvHSsGek=;
-	b=jmoHjNfvP1zhm4JuaXf2VEJF8kYXzH6eS6xkYzo1ahf1njPc6xf5YUBEZ8OOlepnksvS
-	 A/OGbR53lCTQGNFNhX0d7DxMkjvF/qCHuFKo6Lx4nbNYsxeEqRKyz59+hSsWhugKkY+gm
-	 YmEAHchASOHxSHJ+aQfMNlLqEaEwPnaGt6P4aoFMAUu83gHsq3mh83N4hrI0cf4w8/MUP
-	 JhyN4+cl1qbvwntpkTbncArNVMOrksBdt94aoICxIKy6DuZO6KCwAMLBrh7G0vZtDM/5G
-	 ZhpSpJfkxkR6k/xqFNcVnYJE720OxBbaZWIM0WVlnf3UCSvP7nSbzGVctlJiJW3lhKg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	bh=jLqvmsJM/OiSiTFjK+SUJLg6Jl3HjF2PLkOl3eVSD4E=;
+	b=21k2SRlR30BiTiXge+gO8JDv7r/+UHQxysE7XKf7eugu9b7dmorGengZ0G+PCY8ayuDe
+	 uAw426H2IcN48jhhcmPnOmX3HnleOyIWwny86qrl01tu6YpfcjW5jo0ZjxpRs+hRvwQZY
+	 Ug40dRL7DVd7N5i4vbXJcxZtDp5JLLjx7Oii3Lbwp1eZdfIgJ88lMBH//55mlyRxIOxNB
+	 wGxdOXsVsRTOh09ayXYh03vy1pdpQulEMfwtZwZ+zc2DjQOePXnhL3Dz/NPqmfhWvKSiz
+	 uLpUMg/734swAL0Vqtg0pCwnxEqvv5Cgh4KNACpQ/vgz7sPAT4DGQ+8px8XE2aZUsLg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Y0R/xDjS";
+	arc=none smtp.remote-ip=209.85.215.171
+Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 22D7A1F00A16;
-	Fri, 27 Nov 2026 03:10:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795749050;
-	bh=/ktUTtzQmYBrtZo1pYnB1CT3xfoL1+9t2GulvHSsGek=;
-	h=From:To:Cc:Subject:Date:Reply-To;
-	b=JxSG3dCvSg+wrB1AZTKIdwufOJYGV7mbf3FLu535nwy7klkXlpKoL4L5YWrGwSpgJ
-	 ZO7FP/q7kHrWRRMmsmPmsUuFVgVZMSLijhHKFl/k+CBFSS+L0s4KSxr5fh+gvuBT1t
-	 n23CP8Z30hpMUBUxmHQp/6EYH/KxS8845e8rHQacQvVY0xj8gixfTlxGqzW4xQBiDc
-	 iEMd4R1Bl+7se+QodDGDANt61w6+VDkBfJOrYNAi9EiT/WwXXysXmBEW9x3UQSeZLA
-	 /hpJJ1cMA+817AiU0EGJz6qGwfPcrV/HwMKnbDfTYe1K9hgJFCwvVe587bFSg0UFQy
-	 3t5Xie9e4Ik9g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 968EA4B514;
-	Fri, 27 Nov 2026 03:10:39 +0000 (UTC)
-From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
- andy@kernel.org
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
- Arnav Kapoor <kapoorarnav43@gmail.com>, linux-iio@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-Subject: [PATCH v3] iio: inkern: guard fwnode_xlate with info_exist_lock
-Date: Fri, 27 Nov 2026 03:10:38 +0000
-Message-Id: <20261127031038.12685-1-iasnezhkov@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A9FC606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:10:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A9FC606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y0R/xDjS
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cdebab6fdb3so865100a12.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:10:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795749059; x=1796353859; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jLqvmsJM/OiSiTFjK+SUJLg6Jl3HjF2PLkOl3eVSD4E=;
+        b=Y0R/xDjS16Moj8iJze+1XHknJClzjxx54lworntM9Q+nMAQ6uhsLl6u5E9XQlWI8Ph
+         bDZmHE6lIfrfjzToGB7w9ZldtsgRS7aadKgB8pKGA43f8a+eGzF8fVpdeTdUnXyHJW95
+         kVhVjvBSCpeK12Ro1NKduu6V8E+qNJHpxfI0VCZMxUULi9y60SnCQ1hAsaaqdhQGzXuy
+         eb5x6UQwEGVyXJDwVpq3+p9Eo66jLh5sqvfIaOGHOHR+QX6yKN9m/+KwNKRsFa4JwKKZ
+         hz3obNxhdMPSpseGTDXrG3YCT2p14iPZv8Om88YTloOtk+0eWmpO2RgpPQJ6RQ1rcwzL
+         7U3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795749059; x=1796353859;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jLqvmsJM/OiSiTFjK+SUJLg6Jl3HjF2PLkOl3eVSD4E=;
+        b=pIP4zbgO92ZeUofsp5adF11zduTT3gWIXGSRGmdulkyNIjEIYvA5sukvXNB6W0Ep7f
+         MdwNt55b7oYHzHcBnTbtp6fG7DXZ7bzn+66TEtMQMMJJo5i3+DDBpPCyarm4HmOTl9+U
+         JssS0i9ahxUeHZHGkfy3DJ9DYemcGv7fFh5oCOiuOSdPZRYhh8cycJZ2FcxIfycoYdnM
+         /D8+HTqaaEvzUVd+h0QECCchVSNeosANRibD56Q1nmrdjrHJ6ZwII/Tye87XfrYEz56f
+         DAzVftE0qyGdGoqhujb/HWZLKX8KQD3YOhT7wzIa8DTvL4k2kTYSHly37XHkXeppfmL3
+         G+dQ==
+X-Forwarded-Encrypted: i=1; AL+hErGg0hcXuEIfODYFUnc6Nq5MpwG0lvtOfky7MJnH6wCgl9ju9+3bD16GgaLPRfumsMA9UTuorKLHhOcQnZo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xvtdT2NRzuqV9gx850RTMAVHIAdjwkX2usIIpbchh1wptumyG
+	pwRy66y6z6GtNddi9X6jIl3D0Y+qvrZ7iJxmzpgkVjy4HNEm74ySxH38
+X-Gm-Gg: AZFdTZfeNjqGDz7HL+lYZMA73XRtCtgqUxRYceuD0TUiREmi5naqALWi4QIHnbKRrtj
+	1335mddP/vam4h1EksY1pnlz6VOAIiM6tcBSFY+Ie50pkS3a0cr3AEJNPIn1EXXOjj9QhBeJYfW
+	pDDzRqU4rYV6raNouQivtweaTZfsiEGeKRU1ogw93S5ctqfTTzJq+MtWdnFdvPapRVYINzY43h8
+	wyAAFkpHwaOHW54ebhmEpkhNRVboNAerwQBh5Fodxncl/F61jqDpgkm0MrkD27eh6H8tbQMtdpt
+	SQDGxFbc4fDU4iTDLBPIRtcV67O8+ggVfG28D2KIhpiok9u9r8+G+GwhRBc6C0J2D1ioZGsYOGb
+	wzXQjwAHsG2eRN25yofUvB5rbqk1ZQWbAnByDHBsDMkl+49owsRFAEQx8h48YTOu7h0nAqXZFoF
+	qLtFxL1kPidcUUOHoOj8Rv6Ug2vQtnISMtWI+Uwseb0oL5gqSUALcGwiqEA8BilLUnDoUV3voKF
+	amxcbzvLFlKchZ9avq7/c/Jd+2WPIhps80U2JNmGGNONUu6R1W7fkv2X0GbeSyykVfq1XVlJEI2
+	OQFX8B2Ao5xDrikernAmgAqDPB5AjaY2EjqDIlAw6LMJTw==
+X-Received: by 2002:a17:90b:1cc4:b0:3b3:af8e:ea98 with SMTP id 98e67ed59e1d1-3b41caeb09cmr19209605a91.37.1795749059100;
+        Thu, 26 Nov 2026 19:10:59 -0800 (PST)
+Received: from osman.mioffice.cn ([43.224.245.178])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c07sm36110859a91.13.2026.11.26.19.10.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 19:10:58 -0800 (PST)
+From: Zhan Xusheng <zhanxusheng1024@gmail.com>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com
+Cc: ernest.borowski.git@proton.me,
+	liubaolin12138@163.com,
+	ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhanxusheng@xiaomi.com,
+	stable@vger.kernel.org
+Subject: [PATCH v12] ntfs: trim the sizes after a short write
+Date: Fri, 27 Nov 2026 11:10:53 +0800
+Message-ID: <20261127031053.3695758-1-zhanxusheng1024@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,100 +99,594 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795749038; l=3242;
- i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=3eR7QjvwrqKPzzmBewRCZmPt+qJp/3aj6a2z0YLz8uc=;
- b=1HWWq8KlVlZ1BykCJj/4xM1SJQYVdLIt4MNmvvuSMq6O9dSdgGZM1KFsDfsPGEPFNWmwfMi3L
- 7lylh1tHT4uC+kXXuUEdYYb2zWDUKX3eZ7ZdclH91OFp3nlRf0jldzb
-X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
- pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
-X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
- auth_id=1643
-X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
-Reply-To: iasnezhkov@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Ilia Snezhkov <iasnezhkov@gmail.com>
+From: Zhan Xusheng <zhanxusheng@xiaomi.com>
 
-__fwnode_iio_channel_get() dereferences indio_dev->info->fwnode_xlate
-and invokes it without holding info_exist_lock. Concurrent
-iio_device_unregister() clears indio_dev->info under info_exist_lock,
-allowing a NULL dereference or callback execution during provider
-teardown.
+ntfs_file_write_iter() moves the data size and, for a non-resident
+uncompressed file, the initialized size to pos + count before the copy.
+__ntfs_extend_initialized_size() only zeroes [old initialized size, pos),
+so the range [pos, pos + count) is initialized only by the copy itself.
+When iomap_file_buffered_write() copies less than count, it returns a
+positive short count and the error rollback at out: does not run.  The
+file keeps the size pos + count, and [pos + ret, pos + count) reads back
+whatever the freed clusters held before, also after a remount.  A local
+user can read the old contents of freed clusters this way.
 
-Hold iio_dev_opaque->info_exist_lock with scoped_guard(mutex, ...)
-matching the rest of inkern.c, and return -EPROBE_DEFER if
-indio_dev->info is NULL. Since iio_device_unregister() calls
-cdev_device_del() before clearing indio_dev->info, seeing a NULL info
-pointer corresponds to racing right before device removal from
-iio_bus_type, where !idev already returns -EPROBE_DEFER. Using
--EPROBE_DEFER also avoids colliding with the -ENODEV sentinel used by
-callers to continue parent or map-list lookups and avoids the named
-lookup -EINVAL fallback in __fwnode_iio_channel_get_by_name().
+Run the existing rollback for a short write as well, and roll the data
+size back to the end of what was written, keeping the clusters that were
+allocated on disk before the write, such as space reserved with
+FALLOC_FL_KEEP_SIZE.  Keep the initialized size, as a page fault through
+a shared mapping may rely on it while the write is stalled on its
+source, and zero what the write did not reach, up to the end of the
+block holding pos + count.  Only if that fails, take the initialized
+size back to where the zeroing started, if it is above that.  A writer
+killed during the copy also leaves a short write, but iomap_zero_range()
+then fails with -EINTR, so zero from a worker when a fatal signal is
+pending.
 
-Fixes: acd8256723f2 ("iio: inkern: Add of_xlate function to struct iio_info")
-Reviewed-by: Arnav Kapoor <kapoorarnav43@gmail.com>
-Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+An asynchronous direct write that fails after submitting bios returns
+-EIOCBQUEUED, and the rollback does not run for it either.  Wait for a
+direct write that moves the initialized size, and fail a non-blocking
+one with -EAGAIN so that it is retried blocking, as ext4 does.
+
+Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
+Cc: stable@vger.kernel.org
+Co-developed-by: Ernest Borowski <ernest.borowski.git@proton.me>
+Signed-off-by: Ernest Borowski <ernest.borowski.git@proton.me>
+Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
 ---
-Changes in v3:
-- Place `struct iio_dev_opaque *iio_dev_opaque;` in reverse xmas tree
-  order (Andy Shevchenko).
-- Move `iio_dev_opaque = to_iio_dev_opaque(indio_dev);` right after
-  `channel->indio_dev = indio_dev;` immediately before scoped_guard()
-  (Andy Shevchenko).
-- Carry Reviewed-by from Arnav Kapoor.
+v12: move the rollback into ntfs_write_rollback() (Hyunchul).  No
+functional change.
+v11: ntfs_attr_get_search_ctx() returns an ERR_PTR() on failure, so
+check it with IS_ERR() in ntfs_attr_set_data_size() (Baolin).
+v10: an asynchronous direct write that fails after submitting bios
+returns -EIOCBQUEUED, so the rollback did not run and the file kept the
+size of the whole write.  Wait for a direct write that moves the
+initialized size, and return -EAGAIN for a non-blocking one (Baolin,
+Ernest).
+v9: for a writer killed during the copy, iomap_zero_range() fails with
+-EINTR, and the fallback then took the initialized size back and lost
+what was stored meanwhile through a shared mapping.  Zero from a worker
+when a fatal signal is pending (Ernest).  Baolin's Reviewed-by on v8 is
+not carried over, as this changes the code he reviewed.  After patch 6
+of Ernest's delalloc series, ntfs_zero_range() makes the same call as
+the new helper, so whichever of the two lands second can reuse the
+other.
+v8: when taking the data size back without truncating, mark the file
+name dirty as ntfs_non_resident_attr_shrink() does.  If the inode was
+written while the write waited on its source, the size in the directory
+index otherwise stays at the extended value (Baolin).
+v7: when taking the data size back, keep the clusters allocated on disk
+before the write instead of truncating, which freed space reserved
+with FALLOC_FL_KEEP_SIZE; a failed write already did so before this
+patch (Hyunchul).  Holes and delayed allocations past the data size,
+such as the preallocation of an earlier extending write, are freed as
+before.  Baolin's Reviewed-by on v6 is not carried over, as this
+changes the data size rollback he reviewed.
+v6: cap that fallback at the current initialized size, which a failed
+extension before the write can leave below pos (Baolin).
+v5 (Baolin):
+- start the zeroing at pos, not at the old initialized size, which
+  overwrote data stored through a shared mapping below pos
+- do the same for a direct write, instead of truncating the page cache
+  and taking the initialized size back
+- if the zeroing fails, take the initialized size back to where it
+  started, instead of skipping both rollbacks
+v4: for a buffered write, zero the unwritten range instead of
+truncating the page cache and taking the initialized size back, which
+dropped data stored through a shared mapping during the copy (Baolin).
+v3: clear the cache up to EOF, not up to the extended initialized
+size, which left the rest of the block holding pos + count (Baolin).
+v2: also clear the cached tail of the last block, which v1 left in
+place when the write stayed inside the old data size (Baolin).
 
-Changes in v2:
-- Return -EPROBE_DEFER instead of -ENODEV when indio_dev->info is NULL
-  so callers do not treat it as the "no channel on this node, keep
-  looking" sentinel and named lookups do not overwrite it to -EINVAL
-  (Arnav Kapoor).
-- Drop the unrelated indio_dev->num_channels bounds check from this
-  locking fix (Arnav Kapoor).
-- Move the AI coding assistant note below the --- separator.
+v11: https://lore.kernel.org/all/20261126015731.3254689-1-zhanxusheng1024@gmail.com/
+v10: https://lore.kernel.org/all/20261125051247.2880928-1-zhanxusheng1024@gmail.com/
+v9: https://lore.kernel.org/all/20261124025932.2360848-1-zhanxusheng1024@gmail.com/
+v8: https://lore.kernel.org/all/20261120023504.4134966-1-zhanxusheng1024@gmail.com/
+v7: https://lore.kernel.org/all/20261119022715.3636699-1-zhanxusheng1024@gmail.com/
+v6: https://lore.kernel.org/all/20261117082021.2947603-1-zhanxusheng1024@gmail.com/
+v5: https://lore.kernel.org/all/20261116091121.2547497-1-zhanxusheng1024@gmail.com/
+v4: https://lore.kernel.org/all/20261113050148.1466682-1-zhanxusheng1024@gmail.com/
+v3: https://lore.kernel.org/all/20261112093233.1118469-1-zhanxusheng1024@gmail.com/
+v2: https://lore.kernel.org/all/20261112030815.982026-1-zhanxusheng1024@gmail.com/
+v1: https://lore.kernel.org/all/20261111093459.660484-1-zhanxusheng1024@gmail.com/
 
-Link: https://lore.kernel.org/r/20261126060615.63790-1-iasnezhkov@gmail.com
-Found and drafted with an AI coding assistant.
+v8 was tested in a VM on ntfs-next 4862a81576e3, with all free space
+filled with a known pattern first.  Short buffered writes of 4M, old
+data readable after drop_caches and after remount, 3 runs each:
 
- drivers/iio/inkern.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+                                    unfixed    v8
+  fallocated, ends block-aligned    3137536    0
+  fallocated, ends inside a block   3141332    0
+  fallocated, unaligned start       3137536    0
+  same, pos + count in that page    -          0
+  append                            3137536    0
 
-diff --git a/drivers/iio/inkern.c b/drivers/iio/inkern.c
-index 1f22275..92b6679 100644
---- a/drivers/iio/inkern.c
-+++ b/drivers/iio/inkern.c
-@@ -145,6 +145,7 @@ static int __fwnode_iio_channel_get(struct iio_channel *channel,
- 				    struct fwnode_handle *fwnode, int index)
+Marker stored through a shared mapping at 64K while pwritev() is
+stalled on a userfaultfd source page, state after remount, with and
+without fallocate():
+
+                                          unfixed  v8
+  buffered 4K at 128K, EFAULT             lost     kept
+  O_DIRECT 12K at 0, EFAULT               lost     kept
+  buffered 12K at 0, short 8192           kept     kept
+
+1M reserved with FALLOC_FL_KEEP_SIZE, then a 12K write at 0, 512-byte
+blocks after remount:
+
+                                          unfixed  v8
+  short, 8192 written                     2048     2048
+  failed, EFAULT                          0        2048
+
+A short write past 8K reserved this way frees what it allocated beyond
+the 8K and keeps the 8K.  A store into [pos + ret, pos + count) itself
+during the write is zeroed, as that range belongs to the write.  With
+iomap_zero_range() failing (injected -ENOMEM), a 32K write to a 16K
+file that returns 12288 leaves the size at 28K with no old data, also
+after remount.
+
+In the 8192 case above, with syncfs() while the write waits on its
+source, the data size in the directory index after remount is 12288
+with v7 and 8192 with v8.
+
+fsx (buffered, no-mmap, O_DIRECT and mixed), compressed files,
+fallocate, insert/collapse range and punch hole give the same results
+with v8 as with v7.
+
+A 32K pwritev() at 0 to a file with 1M fallocated, its copy stalled
+on a userfaultfd source page after 16K.  A marker is stored at 512K
+through a shared mapping, then the writer gets SIGKILL.  State after
+remount:
+
+                                         unfixed  v8     v9
+  marker, 4K clusters                    kept     lost   kept
+  marker, 64K clusters                   kept     lost   kept
+  old data in [16K, 64K), 64K clusters   16384    0      0
+
+The tests above give the same results with v9 as with v8, on
+ntfs-next f674e4b6c315.  No lockdep or KASAN reports.
+
+A 6M O_DIRECT write at 0 into a file with 6M reserved by
+FALLOC_FL_KEEP_SIZE, its source unmapped after 4M, on a volume whose
+free space held a known pattern, 3 files each, after remount:
+
+                                  ntfs-next     v9            v10
+  io_submit(), 4K clusters        size 6M,      size 6M,      size 0
+                                  old data in   no old data
+                                  1 of 3
+  io_submit(), 64K clusters       size 6M,      size 6M,      size 0
+                                  2M old data   2M old data
+  pwritev()                       size 0        size 0        size 0
+  RWF_NOWAIT 4M, reserved or      written       written       -EAGAIN,
+  empty file                                                  size 0
+
+The other tests above give the same results with v10 as with v9.  No
+lockdep or KASAN reports.
+---
+
+The short write, killed and stalled writer, KEEP_SIZE and partial
+O_DIRECT tests above give the same results with v11 as with v10, and
+all of the tests above with v12 as with v11, compressed files included.
+
+ fs/ntfs/attrib.c |  37 ++++++
+ fs/ntfs/attrib.h |   1 +
+ fs/ntfs/file.c   | 290 ++++++++++++++++++++++++++++++++++++++---------
+ 3 files changed, 275 insertions(+), 53 deletions(-)
+
+diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+index 6ee6b6bcac1d..c192333be83c 100644
+--- a/fs/ntfs/attrib.c
++++ b/fs/ntfs/attrib.c
+@@ -2457,6 +2457,43 @@ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size)
+ 	return err;
+ }
+ 
++/*
++ * ntfs_attr_set_data_size - set the data size of a non-resident attribute
++ * without changing its allocation
++ *
++ * The caller holds mrec_lock.  @new_size must not be below the initialized
++ * size or above the allocated size.
++ */
++int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size)
++{
++	struct ntfs_attr_search_ctx *ctx;
++	struct ntfs_inode *base_ni = ntfs_base_inode(ni);
++	int err = 0;
++
++	if (!NInoNonResident(ni) || new_size < ni->initialized_size ||
++	    new_size > ni->allocated_size)
++		return -EINVAL;
++
++	ctx = ntfs_attr_get_search_ctx(base_ni, NULL);
++	if (IS_ERR(ctx))
++		return PTR_ERR(ctx);
++
++	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
++			       CASE_SENSITIVE, 0, NULL, 0, ctx);
++	if (err)
++		goto out_ctx;
++
++	ctx->attr->data.non_resident.data_size = cpu_to_le64(new_size);
++	ni->data_size = new_size;
++	/* Update data size in the index. */
++	if (ni->type == AT_DATA && ni->name == AT_UNNAMED)
++		NInoSetFileNameDirty(ni);
++	mark_mft_record_dirty(ctx->ntfs_ino);
++out_ctx:
++	ntfs_attr_put_search_ctx(ctx);
++	return err;
++}
++
+ /*
+  * ntfs_make_room_for_attr - make room for an attribute inside an mft record
+  * @m:		mft record
+diff --git a/fs/ntfs/attrib.h b/fs/ntfs/attrib.h
+index 9d6bf0320219..0415f817dcf5 100644
+--- a/fs/ntfs/attrib.h
++++ b/fs/ntfs/attrib.h
+@@ -102,6 +102,7 @@ int ntfs_attr_make_non_resident(struct ntfs_inode *ni, const u32 data_size);
+ int ntfs_attr_set(struct ntfs_inode *ni, const s64 ofs, const s64 cnt,
+ 		const u8 val);
+ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size);
++int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size);
+ int ntfs_attr_open(struct ntfs_inode *ni, const __le32 type,
+ 		__le16 *name, u32 name_len);
+ void ntfs_attr_close(struct ntfs_inode *n);
+diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
+index 7d93a520566e..39b49d36d069 100644
+--- a/fs/ntfs/file.c
++++ b/fs/ntfs/file.c
+@@ -22,6 +22,7 @@
+ #include <linux/overflow.h>
+ #include <linux/security.h>
+ #include <linux/slab.h>
++#include <linux/workqueue.h>
+ #include <uapi/linux/ntfs.h>
+ 
+ #include "lcnalloc.h"
+@@ -761,12 +762,13 @@ static const struct iomap_dio_ops ntfs_write_dio_ops = {
+ 	.end_io			= ntfs_file_write_dio_end_io,
+ };
+ 
+-static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from)
++static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from,
++				   unsigned int dio_flags)
  {
-+	struct iio_dev_opaque *iio_dev_opaque;
- 	struct fwnode_reference_args iiospec;
- 	struct device *idev;
- 	struct iio_dev *indio_dev;
+ 	ssize_t ret;
+ 
+ 	ret = iomap_dio_rw(iocb, from, ntfs_dio_iomap_next,
+-			&ntfs_write_dio_ops, 0, NULL, 0);
++			&ntfs_write_dio_ops, dio_flags, NULL, 0);
+ 	if (ret == -ENOTBLK)
+ 		ret = 0;
+ 	else if (ret < 0)
+@@ -843,6 +845,206 @@ static int ntfs_expand_for_write(struct ntfs_inode *ni, loff_t end)
+ 	return err;
+ }
+ 
++/*
++ * End of the last run of clusters allocated on disk.  Holes and delayed
++ * allocations past it, such as the preallocation of an extending write,
++ * do not count.  Falls back to the allocated size if the runlist is not
++ * fully mapped.
++ */
++static loff_t ntfs_allocated_end_on_disk(struct ntfs_inode *ni)
++{
++	loff_t end = ni->allocated_size;
++	ssize_t i;
++
++	down_read(&ni->runlist.lock);
++	if (NInoFullyMapped(ni) && ni->runlist.rl) {
++		end = 0;
++		for (i = ni->runlist.count - 1; i >= 0; i--) {
++			struct runlist_element *rl = &ni->runlist.rl[i];
++
++			if (rl->length && rl->lcn >= 0) {
++				end = ntfs_cluster_to_bytes(ni->vol,
++						rl->vcn + rl->length);
++				break;
++			}
++		}
++	}
++	up_read(&ni->runlist.lock);
++	return end;
++}
++
++struct ntfs_zero_work {
++	struct work_struct work;
++	struct inode *inode;
++	loff_t pos;
++	loff_t len;
++	int err;
++};
++
++static void ntfs_zero_workfn(struct work_struct *work)
++{
++	struct ntfs_zero_work *zw = container_of(work, struct ntfs_zero_work,
++						 work);
++
++	zw->err = iomap_zero_range(zw->inode, zw->pos, zw->len, NULL,
++				   ntfs_seek_iomap_next, &ntfs_iomap_folio_ops,
++				   NULL);
++}
++
++/*
++ * iomap_zero_range() gives up with -EINTR when the caller has a fatal signal
++ * pending, and a writer killed during its copy is one whose short write must
++ * still be zeroed: zero from a worker then, which has no signal to see.  The
++ * caller holds the invalidate lock, which keeps page faults out meanwhile.
++ */
++static int ntfs_zero_range_unkillable(struct inode *inode, loff_t pos,
++				      loff_t len)
++{
++	struct ntfs_zero_work zw = { .inode = inode, .pos = pos, .len = len };
++	int err;
++
++	if (!fatal_signal_pending(current)) {
++		err = iomap_zero_range(inode, pos, len, NULL,
++				       ntfs_seek_iomap_next,
++				       &ntfs_iomap_folio_ops, NULL);
++		/* the signal may also come while it zeroes */
++		if (err != -EINTR || !fatal_signal_pending(current))
++			return err;
++	}
++
++	INIT_WORK_ONSTACK(&zw.work, ntfs_zero_workfn);
++	queue_work(system_unbound_wq, &zw.work);
++	flush_work(&zw.work);
++	destroy_work_on_stack(&zw.work);
++	return zw.err;
++}
++
++/*
++ * Both sizes were moved to the end of the write before the copy, so a short
++ * write, like a failed one, must take back what it did not write.  @written
++ * is what the write returned, a negative error if it wrote nothing.  The
++ * caller holds the inode lock.
++ */
++static void ntfs_write_rollback(struct kiocb *iocb, ssize_t written,
++				loff_t pos, loff_t end, loff_t old_init_size,
++				loff_t old_data_size, loff_t old_alloc_size)
++{
++	struct inode *vi = iocb->ki_filp->f_mapping->host;
++	struct ntfs_inode *ni = NTFS_I(vi);
++	struct ntfs_volume *vol = ni->vol;
++	loff_t new_init_size = old_init_size;
++	loff_t new_data_size = old_data_size;
++	int init_err = 0;
++	int data_err = 0;
++
++	if (written > 0) {
++		new_init_size = max(old_init_size, pos + written);
++		new_data_size = max(old_data_size, pos + written);
++	}
++
++	/*
++	 * Like ntfs_setattr_size(): __ntfs_attr_truncate_vfs() expects the
++	 * invalidate lock held across the size updates.
++	 */
++	filemap_invalidate_lock(vi->i_mapping);
++
++	/*
++	 * A page fault through a shared mapping may have used the extended
++	 * initialized size while the write was stalled on its source, so keep
++	 * that size and zero what the write did not reach instead.
++	 * [old_init_size, pos) was zeroed before the write.  Past end, zero the
++	 * rest of the block that a buffered copy may have read from disk,
++	 * unless such a fault already moved the initialized size past end and
++	 * zeroed it.
++	 */
++	if (NInoNonResident(ni) && !NInoCompressed(ni) &&
++	    ni->initialized_size > new_init_size) {
++		loff_t zstart = max(pos, new_init_size);
++		loff_t zend = ni->initialized_size > end ? end :
++			      round_up(end, i_blocksize(vi));
++		int err = 0;
++
++		zend = min(zend, new_data_size);
++		if (zend > zstart) {
++			err = ntfs_zero_range_unkillable(vi, zstart,
++							 zend - zstart);
++			/* A direct read must not see the old blocks. */
++			if (!err && iocb->ki_flags & IOCB_DIRECT)
++				err = filemap_write_and_wait_range(
++					vi->i_mapping, zstart, zend - 1);
++		}
++		if (!err)
++			new_init_size = min(ni->initialized_size,
++					    new_data_size);
++		else
++			new_init_size = min3(ni->initialized_size,
++					     zstart, new_data_size);
++	}
++
++	/* ntfs_attr_set_initialized_size() rejects a resident one. */
++	if (ni->initialized_size != new_init_size &&
++	    NInoNonResident(ni)) {
++		struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
++
++		/*
++		 * Only reached when the zeroing above failed or did not apply.
++		 * Drop what was cached past the new initialized size, as
++		 * __ntfs_extend_initialized_size() does.
++		 */
++		if (ni->initialized_size > new_init_size)
++			truncate_pagecache_range(vi, new_init_size,
++					max_t(loff_t, i_size_read(vi),
++					      ni->initialized_size) - 1);
++		mutex_lock(&mrec_ni->mrec_lock);
++		init_err = ntfs_attr_set_initialized_size(ni,
++				new_init_size);
++		mutex_unlock(&mrec_ni->mrec_lock);
++	}
++	/*
++	 * The shrink clamps the initialized size to the data size, which can
++	 * sit above the old initialized one and expose the uninitialized tail,
++	 * so skip it unless the rollback above restored that size.
++	 */
++	if (ni->data_size != new_data_size && !init_err) {
++		struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
++
++		truncate_setsize(vi, new_data_size);
++		mutex_lock(&mrec_ni->mrec_lock);
++		if (NInoNonResident(ni) && !NInoCompressed(ni)) {
++			/*
++			 * Only free what the write allocated, not clusters that
++			 * were there before, such as space reserved with
++			 * FALLOC_FL_KEEP_SIZE.
++			 */
++			loff_t keep = max(new_data_size,
++					  old_alloc_size);
++
++			if (ni->allocated_size > keep)
++				data_err = __ntfs_attr_truncate_vfs(ni,
++						keep, keep);
++			if (!data_err && ni->data_size != new_data_size)
++				data_err = ntfs_attr_set_data_size(ni,
++						new_data_size);
++		} else {
++			data_err = __ntfs_attr_truncate_vfs(ni,
++					new_data_size, new_data_size);
++		}
++		mutex_unlock(&mrec_ni->mrec_lock);
++		/* Like ntfs_setattr_size(): stay on the durable size. */
++		if (data_err)
++			i_size_write(vi, ni->data_size);
++	}
++	if (init_err || data_err) {
++		/* The failed sizes stay in the dirty MFT record. */
++		NVolSetErrors(vol);
++		ntfs_error(vi->i_sb,
++			   "Failed to roll back the size update: %d",
++			   init_err ?: data_err);
++	}
++
++	filemap_invalidate_unlock(vi->i_mapping);
++}
++
+ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ {
+ 	struct file *file = iocb->ki_filp;
+@@ -853,7 +1055,7 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 	ssize_t count;
+ 	loff_t pos, end;
  	int err;
-@@ -162,10 +163,15 @@ static int __fwnode_iio_channel_get(struct iio_channel *channel,
+-	loff_t old_data_size, old_init_size;
++	loff_t old_data_size, old_init_size, old_alloc_size;
+ 
+ 	if (NVolShutdown(vol))
+ 		return -EIO;
+@@ -880,6 +1082,21 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 	if (ret <= 0)
+ 		goto out_lock;
+ 
++	/*
++	 * A direct write that moves the initialized size waits for its I/O
++	 * (see ntfs_dio_write_iter() below), which a non-blocking one must
++	 * not do, and a resident attribute is written through the page cache
++	 * or made non-resident first.  Have the caller retry such a write
++	 * blocking before anything is changed, as ext4 does for extending
++	 * direct writes.
++	 */
++	if (iocb->ki_flags & IOCB_NOWAIT && iocb->ki_flags & IOCB_DIRECT &&
++	    (!NInoNonResident(ni) ||
++	     iocb->ki_pos + ret > ni->initialized_size)) {
++		ret = -EAGAIN;
++		goto out_lock;
++	}
++
+ 	err = ntfs_file_modified(iocb);
+ 	if (err) {
+ 		ret = err;
+@@ -901,6 +1118,10 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 
+ 	old_data_size = ni->data_size;
+ 	old_init_size = ni->initialized_size;
++	old_alloc_size = ni->allocated_size;
++	if (NInoNonResident(ni) && !NInoCompressed(ni) &&
++	    old_alloc_size > round_up(old_data_size, vol->cluster_size))
++		old_alloc_size = ntfs_allocated_end_on_disk(ni);
+ 
+ 	if (end > old_data_size) {
+ 		ret = ntfs_expand_for_write(ni, end);
+@@ -922,61 +1143,24 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 		goto out;
  	}
  
- 	indio_dev = dev_to_iio_dev(idev);
- 	channel->indio_dev = indio_dev;
--	if (indio_dev->info->fwnode_xlate)
--		index = indio_dev->info->fwnode_xlate(indio_dev, &iiospec);
--	else
--		index = __fwnode_iio_simple_xlate(indio_dev, &iiospec);
-+	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+	scoped_guard(mutex, &iio_dev_opaque->info_exist_lock) {
-+		if (!indio_dev->info)
-+			index = -EPROBE_DEFER;
-+		else if (indio_dev->info->fwnode_xlate)
-+			index = indio_dev->info->fwnode_xlate(indio_dev, &iiospec);
-+		else
-+			index = __fwnode_iio_simple_xlate(indio_dev, &iiospec);
-+	}
- 	fwnode_handle_put(iiospec.fwnode);
- 	if (index < 0)
- 		goto err_put;
++	/*
++	 * The sizes were moved to end before the I/O, and only the rollback
++	 * at out: takes them back if the write fails.  An asynchronous write
++	 * returns -EIOCBQUEUED once it has submitted bios and reports a later
++	 * failure, such as a fault on its source or an I/O error, only on
++	 * completion, which would skip the rollback.  Wait for such a write
++	 * to complete.
++	 */
+ 	if (NInoNonResident(ni) && iocb->ki_flags & IOCB_DIRECT)
+-		ret = ntfs_dio_write_iter(iocb, from);
++		ret = ntfs_dio_write_iter(iocb, from, end > old_init_size ?
++					  IOMAP_DIO_FORCE_WAIT : 0);
+ 	else
+ 		ret = iomap_file_buffered_write(iocb, from, ntfs_write_iomap_next,
+ 				&ntfs_iomap_folio_ops, NULL);
+ out:
+-	if (ret < 0 && ret != -EIOCBQUEUED) {
+-		int init_err = 0;
+-		int data_err = 0;
+-
+-		/*
+-		 * Like ntfs_setattr_size(): __ntfs_attr_truncate_vfs()
+-		 * expects the invalidate lock held across the size
+-		 * updates.
+-		 */
+-		filemap_invalidate_lock(vi->i_mapping);
+-
+-		/* ntfs_attr_set_initialized_size() rejects a resident one. */
+-		if (ni->initialized_size != old_init_size &&
+-		    NInoNonResident(ni)) {
+-			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+-
+-			mutex_lock(&mrec_ni->mrec_lock);
+-			init_err = ntfs_attr_set_initialized_size(ni,
+-					old_init_size);
+-			mutex_unlock(&mrec_ni->mrec_lock);
+-		}
+-		/*
+-		 * The shrink clamps the initialized size to the data size,
+-		 * which can sit above the old initialized one and expose
+-		 * the uninitialized tail, so skip it unless the rollback
+-		 * above restored that size.
+-		 */
+-		if (ni->data_size != old_data_size && !init_err) {
+-			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+-
+-			truncate_setsize(vi, old_data_size);
+-			mutex_lock(&mrec_ni->mrec_lock);
+-			data_err = __ntfs_attr_truncate_vfs(ni, old_data_size,
+-					old_data_size);
+-			mutex_unlock(&mrec_ni->mrec_lock);
+-			/* Like ntfs_setattr_size(): stay on the durable size. */
+-			if (data_err)
+-				i_size_write(vi, ni->data_size);
+-		}
+-		if (init_err || data_err) {
+-			/* The failed sizes stay in the dirty MFT record. */
+-			NVolSetErrors(vol);
+-			ntfs_error(vi->i_sb,
+-				   "Failed to roll back the size update: %d",
+-				   init_err ?: data_err);
+-		}
+-
+-		filemap_invalidate_unlock(vi->i_mapping);
+-	}
++	if (ret < count && ret != -EIOCBQUEUED)
++		ntfs_write_rollback(iocb, ret, pos, end, old_init_size,
++				    old_data_size, old_alloc_size);
+ out_lock:
+ 	inode_unlock(vi);
+ 	if (ret > 0)
 -- 
-2.54.0 (Apple Git-157)
-
+2.43.0
 
