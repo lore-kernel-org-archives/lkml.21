@@ -1,68 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795900;
-	b=P+crO44wwwSfCCUPK0qWUo4V/SQyyzyisjCQRzA3jSr79R5weFbVkWR22CXYcOVyN6SY
-	 fZKW19RxbmGF2xjm07ADE0Ke+MVT735CYYsQ5I3fDR6OM7RBXyJkrhnloZjd6UgLX/xJe
-	 rBpQZJXQET/3IqKQfr4ztjfwqi5HhkYEL7y8d3s3gLxt2KthLzwdXQT3nMkvt9Qvz2bLa
-	 bIYuT012R9oE6E0qcx3/8/ZMb/aH8unN+KD9N6cxIfGs5SBzbL5rv0v8jMcpGTYO8bdCP
-	 KX+8vxI8U11dRliJD9bXe63TxKmnklYNycMQ+16UF9EQpknW7OCIyx2zcoB+jGpxXjw==
+	t=1795795904;
+	b=ll5WT+fXw4ed6A6j3ZaJ2QlPNxgzBIfDNLEWVAIpW9IJylbrYXxrjyZ4IR9Z0sOzQRvU
+	 nUTG7nutzaAeIUVcSnj9cWKqsqPGTzlbQtYRW3V0vpl4PKypZ32aT8qyT1/l8bssovMMP
+	 y20Df/EE4u+P1tAZuBYU6WCtgH1KpLmPsw09MagF4TLvHotfUrNOONyuWHzTfsoOCxdyP
+	 R0dyZ8akrfdMIn3yvlPCV8XpBKxngcJpPb/8cdumaj+ty1EhvgHaD2M7UxLkbinP5gDZU
+	 L8dsM6Ls3jGcp4VVPak5cBYd4UHZ/KcX7TFLfwV5Sq1Nk5R3GKaBARhS+Bn+37ym4NQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795900;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=W/uBD73Bs+VF3vdBsLFmIvE7l/eSTUyGu0zKLYYM6q0=;
-	b=J0sXIFs7ypAnejOYtLRclzWP4vSA7O+Gce+r853RrAGj0ehZw8J8xQO0KdU1GXCN74ou
-	 AqOW7ofLVCkzPPCqnCu6OLu4gaobm3frrwCoE5NkCYguF7GwS39rAjA7kUlVbKVInc+Vr
-	 oLZZv4PgGQXvfaOtzEWDqSB1vqSyQa7WSVrbSzs2wYVV/QuEb3HblTAhN6D46KnJeS17u
-	 9Rm4DhGxswkWzDNQwLu3NInbo3AdYfGVK8zcWCTBT4JT+ZPmXMa5DU64v+e0AIG8jJ/Eo
-	 te5uACxKVNh9uRd+sXJZedNfnG16OqLVA7mCbwgibbRt1/9jo3JLwpGEdl8/mUj/J7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795904;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=/jSStMEANCnMO4ZzPmB5Im+yepvb5/yuDaHPbOparnI=;
+	b=dGpXqA81c9v/C3ycYR5VgI/GRdHo65d3VVvxhfG6QEdrrXVe9gckaDT8STz4MwpBpBxv
+	 w2zpwFN1mI7BfnHN3aZodyb8a2lb4FbZFchGdQAbopxvAEKQtugEgMMIgFSBqAyEFaQ/h
+	 hMiTxdOifNluw1C8Z876HydgPj83uSphLjvVEDUbRmisapcZTPffLclXZyfO2k9sftlYk
+	 n5rRIs0TJkpRzL16rEY1saQqccnehqeVmFvnns3vKgM9MJnYvpZur0rKolCE4ESBUgDXD
+	 VfUVplhGZzVIghFkyLHEGyHcCGb6DRkdPbxlySvciVm1Ezg4uwuNgZ3SJStaY+XUiZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QwehBCuM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYyX3maC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 172D1606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:11:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB697606A31E;
+	Fri, 27 Nov 2026 16:11:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QwehBCuM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2818B1F000C1;
-	Fri, 27 Nov 2026 16:11:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYyX3maC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60E591F000C1;
+	Fri, 27 Nov 2026 16:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795899;
-	bh=W/uBD73Bs+VF3vdBsLFmIvE7l/eSTUyGu0zKLYYM6q0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QwehBCuMTmhd1fPSQbQ4deY0LnTqqo31dsZ9VRZ+dWImDxXU/quXQx2ZBBbPuwbY9
-	 NWTh+TM23AmA+2GMEuBH455Pg05ooadfNkZS7IaMbQ2CioKJ3XkAcO73HZlPN0jOQC
-	 1fweE3nMu/gBJoIPeXOsZB8243v/eHFAv3gqJbbk2aTimHkllsrIa4FwCCOGCN56zx
-	 ThEVSHKI9Pckjz0hBDLGgBYfMEqU/JkFFzcokgfEZiYAPmVsX6gJF0ldMwNN0mG/n7
-	 k8CZiDuPdx3xtr8XVFKkPjBt/x2kjAAgMdX0lBw+WgEYgyo26rN2t247ehJfec6vK7
-	 FnqxskU/bMCxA==
-Date: Fri, 27 Nov 2026 17:11:36 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: =?utf-8?B?TcOgeGlt?= Pedraza Padilla <maximpedraza@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Jyri Sarha <jyri.sarha@iki.fi>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-Message-ID: <awme8rFbamSrpyoQ@houat>
-References: <20261116142707.1299360-1-maximpedraza@gmail.com>
- <20261116142707.1299360-4-maximpedraza@gmail.com>
- <avs2dagfmQkv00H0@houat>
- <20261118212114.150992-1-maximpedraza@gmail.com>
- <20261124141119.441163-1-maximpedraza@gmail.com>
- <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
- <awazkzDVZtpUsdQb@houat>
- <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
- <awbOkmmNIp2ng97n@houat>
- <4d93a4af-9e57-4394-913f-4f861e3e7954@ideasonboard.com>
+	s=k20260515; t=1795795903;
+	bh=/jSStMEANCnMO4ZzPmB5Im+yepvb5/yuDaHPbOparnI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=aYyX3maCFB3FY/uEeH7D0KLT8rWWrsjQkll/47CQiowoRih1gVKWLX1i9z8rvyycm
+	 t4lQCkaNrR/rzJFpiUX530ZLhUFYWzRztQWXZvzT9apWyUzCJxmVO1ElU9nAVINgi2
+	 ZYO9bFx1N26PjOEZlJU37gmcjbVzDxPxrz3ZQfa9xeJOK6+g+W1/IbIiz1UL282hU8
+	 VmP+EfSG6QHIj7xEzm7GCwHWYKWQUGHk7MRF9XfwHLkHhaX+aPrsLD2qksKcDcGYm/
+	 U+FkSwKcnvm70t07dUUtl17gNCH8kfKUx2mqlcOfQYCbW+muaZbkY2pJp+NvggOP9f
+	 GDp7iGgSimLWg==
+Message-ID: <a8ee91a3-fc4c-4268-97c1-b4ddeff2558f@kernel.org>
+Date: Fri, 27 Nov 2026 16:11:38 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,322 +51,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="cmhg4wk6rut72ne3"
-Content-Disposition: inline
-In-Reply-To: <4d93a4af-9e57-4394-913f-4f861e3e7954@ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/7] clk: qcom: gcc-msm8953: fix csi_phytimer_clk_src
+ 100MHz parent
+To: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-clk@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>
+References: <20261127134507.125513-1-hikmahgumelar@gmail.com>
+ <LKFsWplUk1yOr4M1dEHqZ20-Oo7ya-QA5qkF8u2lcfPUsbJYq0AoJhyjIEBwg6PPzlPSMYfqn6CB-sQBOuQDKQ==@protonmail.internalid>
+ <20261127134507.125513-2-hikmahgumelar@gmail.com>
+From: Bryan O'Donoghue <bod@kernel.org>
+Content-Language: en-GB
+Autocrypt: addr=bod@kernel.org; keydata=
+ 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
+In-Reply-To: <20261127134507.125513-2-hikmahgumelar@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+On 27/11/2026 13:45, Hikmah Gumelar wrote:
+> The 100 MHz entry in ftbl_csi_phytimer_clk_src selects P_GPLL0_DIV2
+> 
+> with a divider of 4, leaving gcc_camss_csi0phytimer_clk stuck off on
+
+"stuck at on" or "stuck at off"
+
+> MSM8953 platforms such as Xiaomi Mi A1 (tissot).
+
+ah I see.
+
+"leaving gcc_camss_csi0phytimer_clk stuck off" you can drop the fragment
+
+"MSM8953 platforms such as Xiaomi Mi A1 (tissot)."
+
+> Switch the 100 MHz parent to P_GPLL0 with a divider of 8.
+
+What is the data-source you used for this change ? You should describe 
+how you know this to be a correct change - the code is simple and 
+describes its own change.
+
+For example citing drivers/clk/qcom/gcc-msm8953.c and 
+drivers/clk/qcom/gcc-msm8939.c since they are very similar controllers 
+and the 8939 does it the way you describe below. Also "it works" is 
+another good reason. Inferred from your patch but not stated.
+
+More accuracy is required here.
+
+> 
+> Fixes: 9bb6cfc3c77e ("clk: qcom: Add Global Clock Controller driver for MSM8953")
+> Signed-off-by: Hikmah Gumelar<hikmahgumelar@gmail.com>
+> ---
+>   drivers/clk/qcom/gcc-msm8953.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/qcom/gcc-msm8953.c b/drivers/clk/qcom/gcc-msm8953.c
+> index 8fe1d3e42144..8aec5600e837 100644
+> --- a/drivers/clk/qcom/gcc-msm8953.c
+> +++ b/drivers/clk/qcom/gcc-msm8953.c
+> @@ -964,7 +964,7 @@ static struct clk_rcg2 csi2p_clk_src = {
+>   };
+> 
+>   static const struct freq_tbl ftbl_csi_phytimer_clk_src[] = {
+> -	F(100000000, P_GPLL0_DIV2, 4, 0, 0),
+> +	F(100000000, P_GPLL0, 8, 0, 0),
+>   	F(200000000, P_GPLL0, 4, 0, 0),
 
 
---cmhg4wk6rut72ne3
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-MIME-Version: 1.0
-
-On Wed, Nov 25, 2026 at 04:55:51PM +0200, Tomi Valkeinen wrote:
-> Hi,
->=20
-> On 25/11/2026 14:21, Maxime Ripard wrote:
-> > On Wed, Nov 25, 2026 at 01:43:55PM +0200, Tomi Valkeinen wrote:
-> > > Hi,
-> > >=20
-> > > On 25/11/2026 12:11, Maxime Ripard wrote:
-> > > > On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
-> > > > > Hi,
-> > > > >=20
-> > > > > On 24/11/2026 16:11, M=E0xim Pedraza Padilla wrote:
-> > > > > > On Wed, Nov 18, 2026 at 10:21:14PM +0100, M=E0xim Pedraza Padil=
-la wrote:
-> > > > > > > Makes sense, I'll use the same approach in tilcdc, and see if=
- it can be
-> > > > > > > turned into a common helper along the way.
-> > > > > >=20
-> > > > > > A follow-up on this one, now that I've rebased on v9. I ended u=
-p doing
-> > > > > > it differently, so I'd rather explain why before sending the ne=
-xt
-> > > > > > version.
-> > > > > >=20
-> > > > > > The tidss approach rounds the clock to the closest standard ref=
-resh rate.
-> > > > > > Panels driven by tilcdc often don't use one: with the timings f=
-rom its
-> > > > > > datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), =
-which would
-> > > > > > be read back as 60 Hz and 35.19 MHz. The adopted mode would the=
-n never
-> > > > > > match the panel mode, even with U-Boot programming exactly the =
-same one.
-> > > > >=20
-> > > > > I felt that approach was a bit odd (and if I recall right, failed=
- with my
-> > > > > OLDI panel), and in my tidss version I just used the clock rate d=
-irectly
-> > > > > from the clk_get_rate() (see dispc_vp_readout_mode):
-> > > >=20
-> > > > The problem is that you're losing information when setting the cloc=
-k.
-> > > > Especially for panels where you don't really have an established se=
-t of
-> > > > pixel clocks, the clock is very likely to not be able to give the e=
-xact
-> > > > frequency you asked for.
-> > > >=20
-> > > > So when you're reading the clock frequency, the mode you're reading=
- and
-> > > > the one you'd set at first modeset will not necessarily match, so y=
-ou
-> > > > need to take that difference into account and try to get back on yo=
-ur
-> > > > feet.
-> > >=20
-> > > If I understand correctly, your code in tidss is trying to guess the =
-pclk
-> > > rate in (say) the simple-panel driver via assuming the refresh rate i=
-s one
-> > > of the standard ones?
-> >=20
-> > Yes, and I have yet to see a panel that would have a refresh rate that
-> > isn't one of the standard ones.
->=20
-> They often have quite wide ranges, and don't define clear nominal timings
-> and refresh rate. But I agree, almost always one can have a 60Hz timing w=
-ith
-> them.
->=20
-> That doesn't mean our panel/bridge drivers would define such neat clocks.=
- In
-> my experience, the panel's timings are often based on X, which probably is
-> something that happened to work on one platform, and was good enough. Tho=
-se
-> can be fixed to result timings close to the 60 Hz, but then we risk break=
-ing
-> the panel for some platforms.
-
-I don't think we should accomodate those. If the pixel clock is not
-properly defined, then we need to fix the panel. And if some panel
-drivers make some controllers to setup something wrong, then we need to
-fix the controller too.
-
-And it's not like having an off pixel clock is harmless, at the very
-least it means that the vblank interrupts don't get send at their
-expected frequency anymore.
-
-It would sound like a much better solution to me to have something that
-takes a display_timing and adjust the blanking periods and / or the
-porches within their acceptable range to make sure we always have the
-right refresh rate despite having a rounded clock.
-
-> Bridge drivers can also adjust the adjusted_mode's clock when they have
-> special needs (DSI).
->=20
-> > > I don't think that works... Even if the target refresh rate in the pa=
-nel
-> > > driver is close to (or exactly) those standard ones, it won't be the =
-same
-> > > clock rate except by luck. And u-boot may have a different PLL calcul=
-ation,
-> > > or different pclk in its dtso.
-> > >=20
-> > > I think the u-boot part should be fixed just by "fix your bootloader"=
-: if
-> > > you want SRO to work, make your bootloader use the same videomode (in=
-cluding
-> > > pclk) as the kernel.
-> > >=20
-> > > But even then it won't work. If the simple panel states pclk as 150.2=
-74 MHz,
-> > > it will cause the HW to set 150.0 MHz, and the SRO in this series will
-> > > calculate 150.124675 MHz. This will cause a full modeset, and also th=
-e SRO
-> > > check will given an error.
-> >=20
-> > Not really, because it will try to match the closest, and then try to
-> > keep that within a defined tolerance. So, in your example, if the
-> > expected pclk is 150.274MHz, and what's programmed in hardware is 150MHz
-> > (which also is the closest pick we can find), then it will be happy with
-> > 150MHz.
->=20
-> What will be happy?
->=20
-> *ERROR* crtc-0 configuration mismatch in mode expected "1920x1200": 60
-> 150274 1920 1952 2004 2028 1200 1224 1232 1235 0x48 0x0, got "1920x1200":=
- 60
-> 150124 1920 1952 2004 2028 1200 1224 1232 1235 0x40 0x5
-
-Can you share more about what is going on here? What frequency is setup
-by U-Boot? is happening only for the first modeset, or all the others?
-Is the rounding of the clock similar between u-boot and the kernel?
-
-> > And let's turn this around: what happens if your expected pclk is
-> > 150.274MHz, and the actual rate programmed by u-boot is, say, 124MHz?
-> >=20
-> > Should we do a modeset then?
->=20
-> If clk_set_rate(150274000) results in pclk of 124MHz, then it's the corre=
-ct
-> mode, no modeset needed. There are cases like that, but I'm fine with not
-> targeting them at least initially.
-
-No it's not the correct mode, it's completely off, a bootloader bug, and
-the best thing the kernel needs to be doing is go through a new modeset
-to fix it.
-
-> > It's also a matter of consistency within the framework. The framework
-> > expects the "ideal" mode everywhere. How is the pclk actually programmed
-> > isn't tracked anywhere. So, if you have a regular modeset, we'd have
-> > mode and adjusted_mode have the "ideal" pclk, but in the case of SRO
-> > we'd have the actual one, possibly forever?
->=20
-> With regular modeset, we'd have the ideal pclk in mode, and the real pclk=
- in
-> adjusted_mode, right?
-
-Except that you have no way to make sure that the clock in adjusted_mode
-is going to be the "real" one.
-
-> My worry is that we'll not be able to guess the ideal pclk very well. May=
-be
-> that can be solved with fixing the panel drivers when we encounter non-id=
-eal
-> timings, and having a clear rule that the provided timings have to result=
- in
-> a "normal" refresh rate, even if the platform has to adjust them when
-> applying.
-
-Time will tell I guess, but I'd rather keep that in the back of our
-heads as a last resort than admit defeat from the get-go :) Because,
-yes, I do believe a lot of drivers are broken and it's an opportunity to
-find and fix them.
-
-> > > So... First, I think at least in the adjusted_mode we should have the=
- real
-> > > pclk.
-> >=20
-> > You can't have that. The closest you'd have would be calling
-> > clk_round_rate() at atomic_check, but you have no guarantee that it's
-> > actually going to be the same rate by the time you call clk_set_rate().
->=20
-> Why is that?
-
-Because clk_round_rate() depends on the current context for that clock:
-its parent rates, the ranges the other users have requested, etc.
-Between atomic_check and atomic_commit, that context might have change
-and you might have a different result.
-
-> Can't we do the clk_round_rate in SRO? The SRO state has the adjusted
-> timings, doesn't it?
-
-I'm not really concerned about SRO, I'm concerned about everything after
-it: the mode we expose to userspace, the consistency between an SRO
-state and a committed state, etc.
-
-> Yes, I guess clk_round_rate() there and clk_set_rate() later might result=
- in
-> different rates in theory, but can that happen in practice? If the clock =
-is
-> being kept on, it's unlikely that its parent clocks would change.
-
-On some platforms, maybe. On others it's absolutely the case. That's why
-we have clk_set_rate_exclusive(), and why
-https://lore.kernel.org/linux-clk/20260327-clk-scaling-v8-0-86cd0aba3c5f@re=
-dhat.com/
-is a thing.
-
-> So it's not immediately clear to me when this could happen.
-
-Even from a purely software PoV, if you have two users, and one calls
-clk_round_rate for 42MHz which isn't rounded, and then the second does a
-clk_set_max_rate(40MHz), then clk_round_rate will now return 40MHz.
-
-> > Either way, assuming we would do that, it would give you adjusted_mode.
-> > You'd still need mode, and mode is what is shown to userspace.
->=20
-> Yes.
->=20
-> > > The SRO check should pass only an equals check there. For mode's pclk,
-> > > I think setting the actual pclk makes sense, at least more than guess=
-ing it.
-> > > Or could we, at that stage, see what modes the connector advertises, =
-and
-> > > pick a clock from there?
-> >=20
-> > It's difficult, because then you assume that A) the bootloader will have
-> > used a mode reported by the monitor and B) crtcs need to be readout
-> > before connectors.
->=20
-> Isn't A) needed anyway for fully working SRO and smooth transition to the
-> userspace app's display? The userspace's modeset will most likely use the
-> preferred mode from the display, and if that's different than the
-> bootloader's it will then cause a full modeset.
-
-It's a reasonable assumption at first, but my point was more about "What
-happens if it isn't?"
-
-Also, once SRO works, I would expect the splash screen, plymouth, and so
-on to revert the logic and go for something like "if it's enabled, use
-that, otherwise use the preferred mode and do a modeset".
-
-> Or how do apps usually work? Do they try to get the current mode from the
-> crtc, and use that, even if it's not the connector's advertised default
-> mode?
->=20
-> > > If we can't get the pclks from the connector, the mode->clock won't m=
-atch,
-> > > and we should either skip checking that in the SRO checks, or have pl=
-enty of
-> > > tolerance.
-> >=20
-> > tidss has 5% of tolerance when most of the drivers have .5%. How much do
-> > you need?
->=20
-> I was referring to the SRO code, which currently gives errors if the modes
-> don't match exactly.
-
-Which isn't true? There are warnings, and we're literally discussing a
-function that does introduce a tolerance when trying to match the modes.
-
-Let's turn this around. I think we both agree that matching exactly
-won't work. I guess it wouldn't be hard to agree that a panel running at
-half the refresh rate, with different polarities, or with different
-timings shouldn't be considered a match.
-
-So my question is: where do you want to draw the line?
-
-> > > I think it still leads to a full modeset, but can the driver check if
-> > > setting the mode->clock would results in the current pclk, and somehow
-> > > abort the full modeset?
-> >=20
-> > I'd rather discuss an actual bug here. Do you have a case you can share
-> > where the logic we currently have doesn't work and is not an instance of
-> > poor panel timings?
->
-> It's the case with the OLDI panel. You should be able to test it with
-> AM62-SK even without an actual panel, just load the
-> k3-am625-sk-microtips-mf101hie-panel.dtbo. Ah, actually, there's the
-> touchscreen in the dtbo, so you may need to disable that in the dtso.
-> Although I guess even if it's enabled, you'll just possibly see an error
-> from the touch driver, and it doesn't affect the display.
->=20
-> So even if you don't have bootloader that enabled the OLDI panel, you sho=
-uld
-> see the configuration mismatch errors.
-
-But it wouldn't have enabled the clock at the right rate though, right?
-
-Maxime
-
---cmhg4wk6rut72ne3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawmrsgAKCRAnX84Zoj2+
-dkOCAYDa+ZIo+Psj8RHaKdhieo2xrkpEABr8rqdo/cc5Y5kjP23wg06UIPvs9Czv
-RCETyqMBgNR19kodDHhY6jP7AwgwLhdqY9zV4d0lZSl3/tdqDf6XH6WuMW/rNSwa
-P6s8tbEUtQ==
-=5SCy
------END PGP SIGNATURE-----
-
---cmhg4wk6rut72ne3--
