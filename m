@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795781942;
-	b=E937q/7sMp1I3OYHR78QS5xOkb4ju/KYr3XPhAqRa08j4Q1vISEcximB3KsmUYbxABin
-	 rCl6IlSKNBoFg7PgY9FGL+HBxWdQ13mgCcQhHDX8SyMmnALYrAWq1lB7F3k4ggHjUD89Z
-	 mQBehEU5grjx7KPnyrkuKS9x7NN6CLtKepTAVImhQypbXB1MOPkuDlrcTkmvDNkOlkCN7
-	 gFZ72wxeJ96tpMgbY87Hl1QPAHIeqWoG3tdwW4NoASNQiMU+evtZ5BZ1ThCRYbYWVHbr2
-	 XdypRr23nJmpdnAXULF9kZnshuvThaL3/qjfw1fo6GvTkKSB1kqaOrzTbrNmpXxwfGg==
+	t=1795781955;
+	b=fukRYo65mt5mJ/XQlbEQZYurYq/VMjzbvai04s4vnwoPrOiw4vWeUh8NrrJuC3fnYhEa
+	 YIA0ziD5KLoPV08b4NP60T0ud39dvBPZB1g59cCqKVpqFuTfJ/0uQXbYIQaeqIQZtbYUW
+	 9t+sze+AYCrnVhT3ZHJPJZZW0r3G764d8QZdzSW9xoEgSsfyXpMfTz8kF+vWJDWfcJf+O
+	 NRXNo7AEMz2njw4byXY2gQhD1sN15EeumLMcC/ixFOzvks5PjEiv7QqaysEPkyq2g6qx+
+	 tMU2qCXrwhfTWCdYRsX3Z3X/gRNuHez8Ihe1+swKGJXQdP4LcNHGyz73SoZ6fSQSQdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795781942;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795781955;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=RmpJbhwnEFWZjlqKNmyBtmxBFcAdHEPlgfv0okLJnJg=;
-	b=3+aXEJJC4+8l97cRdeMX81Xeb8/mtNo13YoOFGxa53M2FdpW2yeOJ1AR1sGOXzK+Vv+L
-	 whYh0iH+3XtKY+I70OgeAHxrWnCtzcso+3+q8UHxppvDFx+Wbf6DKf8FMaWPPLa1cdyD7
-	 sClDkw9kDJf7M2pGQFMOgsS9eUbbxVWrTmrRiZVRk1QFTtN5BIOTRvLKhVmSbnCxJXpQQ
-	 D1FU9UZnhJzJYeCKJ6Hf2yTXfw35LHeyQlRpBayKIAHGsBQ5mUUYfZ0FouU95JpktI6y7
-	 ioqJDM/GU+3MhIl+4FJw7dDOqhPdBEbgCvxT1M9GNySW6GSBfyIy2jJbXCeQODIQpag==
+	bh=pOxmleE0YCgPzrX2eWuzXRRibtCa98sc4vprSnc5tXU=;
+	b=FdNgcCUCQsgcXzM5vxUZRs6fwFIjrIX8Qg4opb8NaA+GSt0WxL0nuJcWs9IaINL1hOvz
+	 lo2bdSxAb//6++J2eM4Z61EX7fYxMS9nr9MxFF8LE8i4K46g/6xTzsBHsmscpqOaq44An
+	 1k5WNjuzpDCrU/uB5QGkzN5FWMAgFO5mEqsNbn7d0Ek2Jho8BNPhI/6nM0BkFHORqsj26
+	 FYSFhYzKOXHY4gnMYosbUx5DdhxYNccQN9KwHQG5DyZsY1WRPrWwM1dfpwLEUEhLRDPug
+	 mspCbsnKC2I/CGjf8tJ1md+ScDyAHSDZl4glpx2U9UO67quP3EH6bgtM751L8S1TSyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=BIrEpNbs;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EkQtnQXD;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5693260A383E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:19:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5693260A383E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9BB8606B811
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:19:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9BB8606B811
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=BIrEpNbs
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so65190645e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:19:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EkQtnQXD
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so62588385e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:19:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795781941; x=1796386741; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795781953; x=1796386753; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RmpJbhwnEFWZjlqKNmyBtmxBFcAdHEPlgfv0okLJnJg=;
-        b=BIrEpNbsOMBP7D7wKa8gDdYHmiGIVdtL8/nSbfnZujyvYsjFvVlJ+jm9fTvJYXlE7U
-         NO1x0UQb7szo9x1AXdJA90fzYYnvatg5K5DkthGUbkbuBR2AxTllLqf0N3rQh4Kuy8/n
-         WRlxLP22qFgnDTBVbM35klPQbGYSw+Vfhy4S63hOIQD5GYhEMUsQetXxHaUb3oNWbMl2
-         DnoVgxxtbKnxi1Bm9yQX3uEm6eVPv/yTdivE0/RPz0qXK6DLR8XtdOl0KdfpdwqOye+m
-         R0YH/L94Ucdhsmi1PZhHqF+cXXG2CSySMP5qLALCNJyKI1Avde6rROupowFQsF3jpjMU
-         F2qg==
+        bh=pOxmleE0YCgPzrX2eWuzXRRibtCa98sc4vprSnc5tXU=;
+        b=EkQtnQXDkHyo5qA/D+YVB+Ixh5qap9DvVn6dLErPsAg8pPaYO9z4PMY8WHWIY9MQ5D
+         CZ83OAJgtF7p+8atECXd8tYCWF3L0jYPJSodvKE296IBZWD4EfbGTCPTPjiP3WZd3R6/
+         EHo+pIoFV59yWrcROFQ2ZRwew42Wp8FiEL52HpytfOOy/rBeckT8hJ+2l5zCdodnP9Ns
+         B2UZ+gkyyn9OVdVCU9OOFnzSBpWX+F961HsVqzD1b8cBXXBw1MD/YAW2wE2RWUG/U7fO
+         /Ckjmc1tp1z/dSpjfDEr1WhAZ85HpBG/EqA+ZTcrHA072toj6CSxp2BDPjgOIC8vyL0n
+         5/EA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795781941; x=1796386741;
+        d=1e100.net; s=20260707; t=1795781953; x=1796386753;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RmpJbhwnEFWZjlqKNmyBtmxBFcAdHEPlgfv0okLJnJg=;
-        b=EjpWTGfBxH4w2MhrTYnaXMlHyd/TumNk1ghmRbrQmdVqLi0yF6laDo1J97Z5hcUHQA
-         fqZn/+5DDs4iUzM/VQ62NjwMwRUaqSZdmt5PpxAEAS2yVM3qV7dtzP9QpFaDrVJdV5XN
-         MJ2EB+UDabtJSHQkwXEf3FOi83u/hXSi/mW/5lru+wznTEqInXPM7ascq6ZwPL+JcyKc
-         hgqREdOj9/VneEt6tSwPecAqqg4WGmszRQT21ReKlhNu1Q5oLjVtC8MsWADMwTfBoavb
-         UY/5KzE+pApcjuUhwweRyItF+pzS2SkmtWbcKwQ+QZOGlnGyu2NTpbMZ7r4tyihcNi5v
-         p+OQ==
-X-Forwarded-Encrypted: i=1; AL+hErHcXedj5uiBQO/fi7uQiBrKWEDajq9QM/k+b9irAngfJBDrVJTmxmiZiRiB35KdhBrRgjco7dmgaxN2R1g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4qf1wTjFrABm7jIOCWhVu22i4rq2Op2ZDEIEaKaZL7bkSfO14
-	yrUX01/mKBONXbAAa27evUUrQHLmw4Eisi/UPw46jQhdkCBv+AviuF7/gNEj+lgww08=
-X-Gm-Gg: AZFdTZcISRaSfhjonxm232eAFzA8VvWHcxQuxpUI/yXcRz7hm6mtfnjquCYikmO/ZoQ
-	BWjy5ob9QLRjoGU+xHuvPheDm8XPbife26pYzm21AkQvuWK3cDfRAo3TBiw/p8WKzP8+kJyt3yH
-	/1i9r2QQp/FWk4DJGS+gchAJG8p0zi3Pa0y1ixwezzjBoMCTqt4FiemD2w7rrzKq9jX598RBUsp
-	EqLxfcrrtEQnXtgQGknKd2TDD8tM37izPg4VPlPIG/Z4zKlVetJBmw24/pbbzfYadtV6vHINF7e
-	gYjEtxOra5dK8Ps7ktoyDO/y+IXJKDHiHuJIEhC3yzyL4NznO8HmfAugVkN1/K2VWvb3TzruSL1
-	NRe37kUiCnHfj2nE+hzgwu49wkse/U9Z3R/6+4euIvn3kcTDOyc6QuO62LOkowIZsgXrsY2yxQO
-	jlutkW8t5SQuIkQfnZ2DPYkORm7EJjPxFcV9JSIJSv+/5O8mGcjUcLS6xYXxxJE9j+QI3PcUcbC
-	QLXM3mw6+Se5arQAHkG6SsLkEcEuC8uFY0UQGqeevSB5+zHguav807u6vFPUB85wGoiQ221A8UK
-	b1tHUlcfB881nd95ScDEVmm6czDg
-X-Received: by 2002:a05:600c:a088:b0:4a2:1a:a120 with SMTP id 5b1f17b1804b1-4bb8880ac02mr461075055e9.6.1795781940635;
-        Fri, 27 Nov 2026 04:19:00 -0800 (PST)
+        bh=pOxmleE0YCgPzrX2eWuzXRRibtCa98sc4vprSnc5tXU=;
+        b=x0jRfuegy4nZFfOyGrSGSsJ0WMCMchSuhz+rWDIuKHWva48X4uv7NQt/D5ANB1xuZP
+         OyhYxV8PUc2lpQ7o4wyBm+Ov7SkBp6wGXcPs38Ff5qMBP8OrJHyBoWeKwv3gxNPHYhCH
+         X37285KBc0ITDZ/AUYFtT6yD61GcYuWKq431EtkR7wbPb2GJsy+x9AHl634L5fv7WNPC
+         q8fbhzPo6jyS/XxY6jsV8eJ/mcqXJ8eDrdbcBZ4m+UDvNxmrDWtQW1ijkkzAGspEX8bN
+         UG7oELrs6KBK8CDGNJPMNlhYOoike6uUxAvEA1uDKOQSmtl5qefYmyG27Uz7FsffqeEL
+         M4bQ==
+X-Forwarded-Encrypted: i=1; AL+hErEiJ4M8KK87a9sQ5t4/5Nr2J3ZrOpuHh1gKbR9n+nAdOZu8sfwT5qZ61UCJVN3nOpNmeggxOR0YKZpsZ00=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FHnU8HZ/RsUA3ED4PxS18h+/JbTGWzqIk2m8Fw5kKu6Nh+SMc
+	C+Xfq9C8ETQl69hnJqun36qB21vifOHCUrzZehi+eoNHZ1XFnBNHSwj2TR31TEFBmMs=
+X-Gm-Gg: AZFdTZcjcZyI4oiTHFytbYy4lDLOO0Ys71oNHSq3yX8fQzOn8JzirL4oYO2i2VZNRDB
+	x84L+aEEPJNxFK4liW8MoY4ifhAW55+lMUuTBRtBknxtOk17kMahA1VxUjhGHSG/sSZNk7aMbwW
+	Hz45cq7FuwQgHyOh4VJA0JLPHqAZCmxM1fN1tLwmEFdWStMFwp3ICDWQTAPBNdFisnjhfqKFZXe
+	W5bJCdnpCfJZ2qQmBAI7PN4Xyx+RJfgt3PrhN9e6dNKfOmZIYwlcbXB67qVPqEh4A9EBW4yOy8y
+	wmvFsMtokMs2lNqmb2kRhsKA4BrtG747pOGaAxp4fX2e2clROCtm5hS1XEMquHNxcms6DqqFGsh
+	NAjW7mJjut5cxqfzgMGiPpwMalel2MK8+FGPhWe+Sw+BCwMpCpuo0FEMNyyxjURIJBrfUFnTzgN
+	SZYezZoCvwFgQS8WY6GHRhGy76B+iskUoMXtDnl4X2Q/88lxyE9uvIm9DDOw8oBMsN8r2t3DnYS
+	khDpNxcQTw5xbxelMVgCsjRUqQwKg5iVdHK3Q72Ky2Qi+D7D/1sX8ghJ84dzx2hp/URa7zD6vVf
+	u/3oJNX5Y9umD0PmKolSg063xpXo
+X-Received: by 2002:a05:600c:37c3:b0:4bb:b7a7:8377 with SMTP id 5b1f17b1804b1-4bbb7a7837cmr20622885e9.32.1795781952854;
+        Fri, 27 Nov 2026 04:19:12 -0800 (PST)
 Received: from localhost ([195.94.148.180])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm43970612f8f.22.2026.11.27.04.19.00
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ad644140b5sm43598970f8f.17.2026.11.27.04.19.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 04:19:00 -0800 (PST)
+        Fri, 27 Nov 2026 04:19:12 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Vinod Koul <vkoul@kernel.org>
 Cc: Frank Li <Frank.Li@kernel.org>,
@@ -101,9 +101,9 @@ Cc: Frank Li <Frank.Li@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v4 14/28] dmaengine: bcm2835: Use dma_map_resource() to translate slave addresses
-Date: Fri, 27 Nov 2026 13:22:04 +0100
-Message-ID: <20261127122236.4976-15-andrea.porta@suse.com>
+Subject: [PATCH v4 22/28] dmaengine: bcm2835: Add BCM2711 40-bit DMA support
+Date: Fri, 27 Nov 2026 13:22:12 +0100
+Message-ID: <20261127122236.4976-23-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20261127122236.4976-1-andrea.porta@suse.com>
 References: <20261127122236.4976-1-andrea.porta@suse.com>
@@ -118,362 +118,474 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Slave addresses in struct dma_slave_config are CPU physical addresses
-and it is up to the DMA controller driver to translate them into the
-addresses it has to program into the hardware. The BCM2835 DMA driver
-instead uses them verbatim, which only works because its clients pass
-pre-translated bus addresses read straight from their DT node, bypassing
-the bus translations described there.
+BCM2711 has 4 DMA channels with a 40-bit address range, allowing them
+to access the full memory of a Pi 4. They are part of the same DMA
+block as the legacy channels, but have a different register layout and
+control block format, and are described by a separate DT node.
 
-Translate the addresses with dma_map_resource(), which applies the
-dma-ranges of the DMA controller since the conversion of
-dma_map_resource() to dma_map_phys() with DMA_ATTR_MMIO, and map them
-once in device_config() instead of at every prep call. Since the mapping
-is done on behalf of the DMA controller, the source FIFO, which the
-controller reads, is mapped DMA_TO_DEVICE and the destination FIFO,
-which it writes, DMA_FROM_DEVICE. Clients such as the MMC driver
-reconfigure the channel before every request, so the translation is kept
-as long as the address does not change, and released when it does or
-when the channel is freed.
+The memory side addresses are programmed as-is, while slave addresses
+are translated by dma_map_resource() using the dma-ranges of the
+controller, which map the peripherals into the upper part of the 40-bit
+address space. This translation cannot be derived from the ranges of
+the parent bus, so there is no fallback for device trees not describing
+it: the 40-bit channels are only described by device trees which come
+with the proper dma-ranges, i.e. the downstream ones and the one added
+by this series. Since the peripherals are only reachable there,
+refuse to probe the 40-bit channels if dma_addr_t is only 32-bit wide.
 
-Existing device trees only describe the RAM in dma-ranges, so
-dma_map_resource() would fail for any peripheral. Detect this case at
-probe time, by looking for the controller registers themselves in the
-dma-ranges of the closest ancestor bus, and fall back to reverting the
-translation given by the ranges property of the parent bus, which is
-how the VideoCore bus addresses of the peripherals have been derived so
-far. Addresses not covered by those ranges are passed through, so that
-clients still providing bus addresses keep working.
+The DMA mask describes the 40-bit capability of the channels, the
+reachable range being limited by the dma-ranges of their bus. The control
+blocks are however addressed through 32-bit registers holding bits 36:5
+of their address, so limit the coherent DMA mask, used for their
+allocation, to 37 bits.
 
-The fallback translation is a platform callback, as different kinds of
-channels see the peripherals at different addresses; implement the one
-of the legacy channels.
+Unlike the legacy channels, the 40-bit ones are stopped by pausing them,
+waiting for the outstanding AXI transactions and resetting them through
+the DEBUG register.
 
-Link: https://lore.kernel.org/linux-arm-kernel/ee19a95d-fe1e-4f3f-bc81-bdef38475469@arm.com/
-Link: https://lore.kernel.org/all/CAPY8ntByJYzSv0kTAc1kY0Dp=vwrzcA0oWiPpyg7x7_BQwGSnA@mail.gmail.com/
+Signed-off-by: Phil Elwell <phil@raspberrypi.org>
+Signed-off-by: Maxime Ripard <maxime@cerno.tech>
+Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- drivers/dma/bcm2835-dma.c | 192 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 187 insertions(+), 5 deletions(-)
+ drivers/dma/bcm2835-dma.c | 344 ++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 332 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-index 44dab42d94c6..42ec9be7a8f7 100644
+index 8379b26a80ae..8fe71de2be0b 100644
 --- a/drivers/dma/bcm2835-dma.c
 +++ b/drivers/dma/bcm2835-dma.c
-@@ -31,6 +31,7 @@
- #include <linux/io.h>
- #include <linux/spinlock.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/of_dma.h>
- 
- #include <dt-bindings/dma/brcm,bcm2835-dma.h>
-@@ -47,12 +48,15 @@
-  * @zero_page: bus address of zero page (to detect transactions copying from
-  *	zero page and avoid accessing memory if so)
-  * @cfg: platform specific description of the DMA channels
-+ * @map_resource: the peripheral window is described by dma-ranges, so slave
-+ *	addresses can be translated with dma_map_resource()
-  */
- struct bcm2835_dmadev {
- 	struct dma_device ddev;
- 	void __iomem *base;
- 	dma_addr_t zero_page;
- 	const struct bcm2835_dma_cfg *cfg;
-+	bool map_resource;
+@@ -75,6 +75,17 @@ struct bcm2835_dma_cb {
+ 	u32 pad[2];
  };
  
- struct bcm_dma_cb {
-@@ -74,10 +78,26 @@ struct bcm2835_cb_entry {
- 	dma_addr_t paddr;
- };
- 
-+/**
-+ * struct bcm2835_slave_addr - bus address of a slave FIFO
-+ * @phys: CPU physical address provided by the client
-+ * @addr: address as seen by the DMA controller
-+ * @size: size of the mapping
-+ * @mapped: @addr has been obtained from dma_map_resource()
-+ */
-+struct bcm2835_slave_addr {
-+	phys_addr_t phys;
-+	dma_addr_t addr;
-+	size_t size;
-+	bool mapped;
++struct bcm2711_dma40_scb {
++	u32 ti;
++	u32 src;
++	u32 srci;
++	u32 dst;
++	u32 dsti;
++	u32 len;
++	u32 next_cb;
++	u32 rsvd;
 +};
 +
- struct bcm2835_chan {
- 	struct virt_dma_chan vc;
- 
- 	struct dma_slave_config	cfg;
-+	struct bcm2835_slave_addr slave_src;
-+	struct bcm2835_slave_addr slave_dst;
- 	unsigned int dreq;
- 
- 	int ch;
-@@ -110,6 +130,8 @@ struct bcm2835_chan {
-  * @read_addr: read the current memory side address of a channel
+ struct bcm2835_cb_entry {
+ 	struct bcm_dma_cb *cb;
+ 	dma_addr_t paddr;
+@@ -119,6 +130,7 @@ struct bcm2835_chan {
+  * @cb_reg: offset of the control block address register
+  * @int_mask: interrupt status bit in the CS register
+  * @active_mask: channel active bit in the CS register
++ * @dma_mask: addressing capability of the channels
+  * @cb_get_length: get the transfer length of a control block
+  * @cb_get_addr: get the memory side address of a control block
+  * @cb_init: initialize a control block
+@@ -133,7 +145,8 @@ struct bcm2835_chan {
   * @cs_flags: per-channel flags for the CS register
   * @abort: stop and reset a channel
-+ * @legacy_bus_addr: translate a slave address for device trees which do not
-+ *	describe the peripheral window in dma-ranges
+  * @legacy_bus_addr: translate a slave address for device trees which do not
+- *	describe the peripheral window in dma-ranges
++ *	describe the peripheral window in dma-ranges, NULL if they cannot be
++ *	supported
+  * @chan_mask: channels of the DMA block using this programming model
   */
  struct bcm2835_dma_cfg {
- 	u32 cs_reg;
-@@ -142,6 +164,8 @@ struct bcm2835_dma_cfg {
- 				enum dma_transfer_direction direction);
- 	u32 (*cs_flags)(struct bcm2835_chan *c);
- 	void (*abort)(struct bcm2835_chan *c);
-+
-+	u64 (*legacy_bus_addr)(struct device *dev, phys_addr_t phys);
- };
+@@ -143,6 +156,8 @@ struct bcm2835_dma_cfg {
+ 	u32 int_mask;
+ 	u32 active_mask;
  
- struct bcm2835_desc {
-@@ -783,11 +807,35 @@ static int bcm2835_dma_alloc_chan_resources(struct dma_chan *chan)
- 			   c->irq_flags, "DMA IRQ", chan);
- }
++	u64 dma_mask;
++
+ 	u32 (*cb_get_length)(void *data);
+ 	dma_addr_t (*cb_get_addr)(void *data, enum dma_transfer_direction);
  
-+static void bcm2835_dma_unmap_slave_addr(struct dma_chan *chan,
-+					 struct bcm2835_slave_addr *sa,
-+					 enum dma_data_direction dir)
-+{
-+	if (sa->mapped)
-+		dma_unmap_resource(chan->device->dev, sa->addr, sa->size, dir, 0);
+@@ -287,6 +302,67 @@ struct bcm2835_desc {
+ #define MAX_DMA_LEN SZ_1G
+ #define MAX_LITE_DMA_LEN (SZ_64K - 4)
+ 
++/* 40-bit DMA channel registers */
++#define BCM2711_DMA40_CS		0x00
++#define BCM2711_DMA40_CB		0x04
++#define BCM2711_DMA40_DEBUG		0x0c
++#define BCM2711_DMA40_TI		0x10
++#define BCM2711_DMA40_SRC		0x14
++#define BCM2711_DMA40_SRCI		0x18
++#define BCM2711_DMA40_DEST		0x1c
++#define BCM2711_DMA40_DESTI		0x20
++#define BCM2711_DMA40_LEN		0x24
++#define BCM2711_DMA40_NEXT_CB		0x28
++#define BCM2711_DMA40_DEBUG2		0x2c
 +
-+	memset(sa, 0, sizeof(*sa));
-+}
++/* 40-bit DMA CS Control and Status bits */
++#define BCM2711_DMA40_ACTIVE		BIT(0)
++#define BCM2711_DMA40_END		BIT(1)
++#define BCM2711_DMA40_INT		BIT(2)
++#define BCM2711_DMA40_DREQ		BIT(3)  /* DREQ state */
++#define BCM2711_DMA40_RD_PAUSED		BIT(4)  /* Reading is paused */
++#define BCM2711_DMA40_WR_PAUSED		BIT(5)  /* Writing is paused */
++#define BCM2711_DMA40_DREQ_PAUSED	BIT(6)  /* Is paused by DREQ flow control */
++#define BCM2711_DMA40_WAITING_FOR_WRITES BIT(7) /* Waiting for last write */
++#define BCM2711_DMA40_PROT		GENMASK(9, 8) /* AXI protection, supervisor mode */
++#define BCM2711_DMA40_ERR		BIT(10)
++#define BCM2711_DMA40_QOS(x)		FIELD_PREP(GENMASK(19, 16), x)
++#define BCM2711_DMA40_PANIC_QOS(x)	FIELD_PREP(GENMASK(23, 20), x)
++#define BCM2711_DMA40_TRANSACTIONS	BIT(25) /* AXI transactions outstanding */
++#define BCM2711_DMA40_WAIT_FOR_WRITES	BIT(28)
++#define BCM2711_DMA40_DISDEBUG		BIT(29)
++#define BCM2711_DMA40_ABORT		BIT(30)
++#define BCM2711_DMA40_HALT		BIT(31)
++#define BCM2711_DMA40_CS_FLAGS(x) ((x) & (BCM2711_DMA40_QOS(15) | \
++					  BCM2711_DMA40_PANIC_QOS(15) | \
++					  BCM2711_DMA40_WAIT_FOR_WRITES | \
++					  BCM2711_DMA40_DISDEBUG))
 +
-+/*
-+ * The slave FIFOs are mapped for the DMA controller, which reads from the
-+ * source FIFO (DMA_TO_DEVICE) and writes to the destination one
-+ * (DMA_FROM_DEVICE).
-+ */
-+static void bcm2835_dma_unmap_slave_addrs(struct dma_chan *chan)
-+{
-+	struct bcm2835_chan *c = to_bcm2835_dma_chan(chan);
++/* 40-bit DMA transfer information bits */
++#define BCM2711_DMA40_INTEN		BIT(0)
++#define BCM2711_DMA40_TDMODE		BIT(1) /* 2D-Mode */
++#define BCM2711_DMA40_WAIT_RESP		BIT(2) /* wait for AXI write to be acked */
++#define BCM2711_DMA40_WAIT_RD_RESP	BIT(3) /* wait for AXI read to complete */
++#define BCM2711_DMA40_PER_MAP(x)	FIELD_PREP(GENMASK(13, 9), x) /* REQ source */
++#define BCM2711_DMA40_S_DREQ		BIT(14) /* enable SREQ for source */
++#define BCM2711_DMA40_D_DREQ		BIT(15) /* enable DREQ for destination */
++#define BCM2711_DMA40_S_WAIT(x)		FIELD_PREP(GENMASK(23, 16), x) /* read-wait cycles */
++#define BCM2711_DMA40_D_WAIT(x)		FIELD_PREP(GENMASK(31, 24), x) /* write-wait cycles */
 +
-+	bcm2835_dma_unmap_slave_addr(chan, &c->slave_src, DMA_TO_DEVICE);
-+	bcm2835_dma_unmap_slave_addr(chan, &c->slave_dst, DMA_FROM_DEVICE);
-+}
++/* 40-bit DMA source and destination information bits */
++#define BCM2711_DMA40_ADDR_HI		GENMASK(7, 0) /* bits 39:32 of the address */
++#define BCM2711_DMA40_BURST_LEN(x)	FIELD_PREP(GENMASK(11, 8), x)
++#define BCM2711_DMA40_INC		BIT(12)
++#define BCM2711_DMA40_SIZE_32		FIELD_PREP(GENMASK(14, 13), 0)
++#define BCM2711_DMA40_SIZE_64		FIELD_PREP(GENMASK(14, 13), 1)
++#define BCM2711_DMA40_SIZE_128		FIELD_PREP(GENMASK(14, 13), 2)
++#define BCM2711_DMA40_SIZE_256		FIELD_PREP(GENMASK(14, 13), 3)
++#define BCM2711_DMA40_IGNORE		BIT(15)
++#define BCM2711_DMA40_STRIDE(x)		FIELD_PREP(GENMASK(31, 16), x) /* For 2D mode */
 +
- static void bcm2835_dma_free_chan_resources(struct dma_chan *chan)
++/* 40-bit DMA debug register bits */
++#define BCM2711_DMA40_DEBUG_RESET	BIT(23)
++
+ static inline size_t bcm2835_dma_max_frame_length(struct bcm2835_chan *c)
  {
- 	struct bcm2835_chan *c = to_bcm2835_dma_chan(chan);
- 
- 	vchan_free_chan_resources(&c->vc);
-+	bcm2835_dma_unmap_slave_addrs(chan);
- 	free_irq(c->irq_number, chan);
- 	dma_pool_destroy(c->cb_pool);
- 
-@@ -913,11 +961,11 @@ static struct dma_async_tx_descriptor *bcm2835_dma_prep_slave_sg(
- 	if (direction == DMA_DEV_TO_MEM) {
- 		if (c->cfg.src_addr_width != DMA_SLAVE_BUSWIDTH_4_BYTES)
- 			return NULL;
--		src = c->cfg.src_addr;
-+		src = c->slave_src.addr;
- 	} else {
- 		if (c->cfg.dst_addr_width != DMA_SLAVE_BUSWIDTH_4_BYTES)
- 			return NULL;
--		dst = c->cfg.dst_addr;
-+		dst = c->slave_dst.addr;
- 	}
- 
- 	/* count frames in sg list */
-@@ -975,12 +1023,12 @@ static struct dma_async_tx_descriptor *bcm2835_dma_prep_dma_cyclic(
- 	if (direction == DMA_DEV_TO_MEM) {
- 		if (c->cfg.src_addr_width != DMA_SLAVE_BUSWIDTH_4_BYTES)
- 			return NULL;
--		src = c->cfg.src_addr;
-+		src = c->slave_src.addr;
- 		dst = buf_addr;
- 	} else {
- 		if (c->cfg.dst_addr_width != DMA_SLAVE_BUSWIDTH_4_BYTES)
- 			return NULL;
--		dst = c->cfg.dst_addr;
-+		dst = c->slave_dst.addr;
- 		src = buf_addr;
- 	}
- 
-@@ -1007,10 +1055,93 @@ static struct dma_async_tx_descriptor *bcm2835_dma_prep_dma_cyclic(
- 	return vchan_tx_prep(&c->vc, &d->vd, flags);
+ 	/* lite and normal channels have different max frame length */
+@@ -487,6 +563,201 @@ static u32 bcm2835_dma_cs_flags(struct bcm2835_chan *c)
+ 	return BCM2835_DMA_CS_FLAGS(c->dreq);
  }
  
-+/*
-+ * Device trees which do not describe the peripheral window in dma-ranges
-+ * are handled by assuming that the legacy DMA channels see the peripherals
-+ * at the same address as the bus they sit on, i.e. by reverting the
-+ * translation described by the ranges property of the parent bus. This is
-+ * how the VideoCore bus addresses have always been derived. Addresses which
-+ * are not CPU physical addresses of that bus are passed through unchanged,
-+ * as legacy clients used to provide bus addresses.
-+ */
-+static u64 bcm2835_dma_legacy_bus_addr(struct device *dev, phys_addr_t phys)
++static inline u32 to_bcm2711_ti(u32 info)
 +{
-+	struct device_node *bus = of_get_parent(dev->of_node);
-+	struct of_range_parser parser;
-+	struct of_range range;
-+	u64 addr = phys;
-+
-+	if (bus && !of_range_parser_init(&parser, bus)) {
-+		for_each_of_range(&parser, &range) {
-+			if (phys >= range.cpu_addr &&
-+			    phys - range.cpu_addr < range.size) {
-+				addr = range.bus_addr + (phys - range.cpu_addr);
-+				break;
-+			}
-+		}
-+	}
-+
-+	of_node_put(bus);
-+
-+	return addr;
++	return ((info & BCM2835_DMA_INT_EN) ? BCM2711_DMA40_INTEN : 0) |
++		((info & BCM2835_DMA_WAIT_RESP) ? BCM2711_DMA40_WAIT_RESP : 0) |
++		((info & BCM2835_DMA_S_DREQ) ?
++		 (BCM2711_DMA40_S_DREQ | BCM2711_DMA40_WAIT_RD_RESP) : 0) |
++		((info & BCM2835_DMA_D_DREQ) ? BCM2711_DMA40_D_DREQ : 0) |
++		BCM2711_DMA40_PER_MAP((info >> 16) & 0x1f);
 +}
 +
-+static int bcm2835_dma_map_slave_addr(struct dma_chan *chan,
-+				      struct bcm2835_slave_addr *sa,
-+				      phys_addr_t phys,
-+				      enum dma_slave_buswidth width,
-+				      enum dma_data_direction dir)
++static inline u32 to_bcm2711_srci(u32 info)
 +{
-+	struct bcm2835_dmadev *od = to_bcm2835_dma_dev(chan->device);
-+	struct device *dev = chan->device->dev;
-+	size_t size = width ? width : DMA_SLAVE_BUSWIDTH_4_BYTES;
++	return ((info & BCM2835_DMA_S_INC) ? BCM2711_DMA40_INC : 0) |
++	       ((info & BCM2835_DMA_S_WIDTH) ? BCM2711_DMA40_SIZE_128 : 0) |
++	       ((info & BCM2835_DMA_S_IGNORE) ? BCM2711_DMA40_IGNORE : 0) |
++	       BCM2711_DMA40_BURST_LEN(FIELD_GET(BCM2835_DMA_BURST_LENGTH_MASK, info));
++}
 +
-+	/*
-+	 * Clients may reconfigure the channel before every transfer (e.g. the
-+	 * MMC driver, which alternates between the configurations of the two
-+	 * directions on a single channel, leaving the address of the unused
-+	 * direction at 0): keep the current translation if the address did
-+	 * not change, or if no address is given for this direction.
-+	 */
-+	if (!phys || (phys == sa->phys && size == sa->size))
-+		return 0;
++static inline u32 to_bcm2711_dsti(u32 info)
++{
++	return ((info & BCM2835_DMA_D_INC) ? BCM2711_DMA40_INC : 0) |
++	       ((info & BCM2835_DMA_D_WIDTH) ? BCM2711_DMA40_SIZE_128 : 0) |
++	       ((info & BCM2835_DMA_D_IGNORE) ? BCM2711_DMA40_IGNORE : 0) |
++	       BCM2711_DMA40_BURST_LEN(FIELD_GET(BCM2835_DMA_BURST_LENGTH_MASK, info));
++}
 +
-+	bcm2835_dma_unmap_slave_addr(chan, sa, dir);
++static inline dma_addr_t bcm2711_dma40_addr(u32 lo, u32 info)
++{
++	return (dma_addr_t)(((u64)FIELD_GET(BCM2711_DMA40_ADDR_HI, info) << 32) | lo);
++}
 +
-+	if (!od->map_resource) {
-+		sa->addr = od->cfg->legacy_bus_addr(dev, phys);
++static inline u32 bcm2711_dma40_info_addr(u32 info, dma_addr_t addr)
++{
++	return (info & ~BCM2711_DMA40_ADDR_HI) |
++	       FIELD_PREP(BCM2711_DMA40_ADDR_HI, upper_32_bits(addr));
++}
++
++static u32 bcm2711_dma_prepare_cb_extra(struct bcm2835_chan *c,
++					enum dma_transfer_direction direction,
++					bool cyclic, bool final,
++					unsigned long flags)
++{
++	u32 result = 0;
++
++	if (cyclic) {
++		if (flags & DMA_PREP_INTERRUPT)
++			result |= BCM2711_DMA40_INTEN;
 +	} else {
-+		sa->addr = dma_map_resource(dev, phys, size, dir, 0);
-+		if (dma_mapping_error(dev, sa->addr)) {
-+			dev_err(dev, "failed to map slave address %pa\n", &phys);
-+			sa->addr = 0;
-+			return -EINVAL;
-+		}
++		if (!final)
++			return 0;
 +
-+		sa->mapped = true;
++		result |= BCM2711_DMA40_INTEN;
++
++		if (direction == DMA_MEM_TO_MEM)
++			result |= BCM2711_DMA40_WAIT_RESP;
 +	}
 +
-+	sa->phys = phys;
-+	sa->size = size;
++	return result;
++}
++
++static inline u32 bcm2711_dma_cb_get_length(void *data)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	return scb->len;
++}
++
++static inline dma_addr_t
++bcm2711_dma_cb_get_addr(void *data, enum dma_transfer_direction direction)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	if (direction == DMA_DEV_TO_MEM)
++		return bcm2711_dma40_addr(scb->dst, scb->dsti);
++
++	return bcm2711_dma40_addr(scb->src, scb->srci);
++}
++
++static inline void
++bcm2711_dma_cb_init(void *data, struct bcm2835_chan *c,
++		    enum dma_transfer_direction direction, dma_addr_t src,
++		    dma_addr_t dst, bool zero_page)
++{
++	struct bcm2711_dma40_scb *scb = data;
++	u32 info = bcm2835_dma_prepare_cb_info(c, direction, zero_page);
++
++	scb->ti = to_bcm2711_ti(info);
++	scb->src = lower_32_bits(src);
++	scb->srci = bcm2711_dma40_info_addr(to_bcm2711_srci(info), src);
++	scb->dst = lower_32_bits(dst);
++	scb->dsti = bcm2711_dma40_info_addr(to_bcm2711_dsti(info), dst);
++	scb->len = 0;
++	scb->next_cb = 0;
++	scb->rsvd = 0;
++}
++
++static inline void
++bcm2711_dma_cb_set_src(void *data, enum dma_transfer_direction direction,
++		       dma_addr_t src)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	scb->src = lower_32_bits(src);
++	scb->srci = bcm2711_dma40_info_addr(scb->srci, src);
++}
++
++static inline void
++bcm2711_dma_cb_set_dst(void *data, enum dma_transfer_direction direction,
++		       dma_addr_t dst)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	scb->dst = lower_32_bits(dst);
++	scb->dsti = bcm2711_dma40_info_addr(scb->dsti, dst);
++}
++
++static inline void bcm2711_dma_cb_set_next(void *data, u32 next)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	scb->next_cb = next;
++}
++
++static inline void bcm2711_dma_cb_set_length(void *data, u32 length)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	scb->len = length;
++}
++
++static inline void
++bcm2711_dma_cb_append_extra(void *data, struct bcm2835_chan *c,
++			    enum dma_transfer_direction direction,
++			    bool cyclic, bool final, unsigned long flags)
++{
++	struct bcm2711_dma40_scb *scb = data;
++
++	scb->ti |= bcm2711_dma_prepare_cb_extra(c, direction, cyclic, final,
++						flags);
++}
++
++/* control blocks are 32 byte aligned, the register holds bits 36:5 */
++static inline u32 bcm2711_dma_to_cb_addr(dma_addr_t addr)
++{
++	WARN_ON_ONCE(addr & 0x1f);
++
++	return (u64)addr >> 5;
++}
++
++static dma_addr_t bcm2711_dma_read_addr(struct bcm2835_chan *c,
++					enum dma_transfer_direction direction)
++{
++	if (direction == DMA_MEM_TO_DEV)
++		return bcm2711_dma40_addr(readl(c->chan_base + BCM2711_DMA40_SRC),
++					  readl(c->chan_base + BCM2711_DMA40_SRCI));
++	else if (direction == DMA_DEV_TO_MEM)
++		return bcm2711_dma40_addr(readl(c->chan_base + BCM2711_DMA40_DEST),
++					  readl(c->chan_base + BCM2711_DMA40_DESTI));
 +
 +	return 0;
 +}
 +
- static int bcm2835_dma_slave_config(struct dma_chan *chan,
- 				    struct dma_slave_config *cfg)
- {
- 	struct bcm2835_chan *c = to_bcm2835_dma_chan(chan);
-+	int ret;
-+
-+	ret = bcm2835_dma_map_slave_addr(chan, &c->slave_src, cfg->src_addr,
-+					 cfg->src_addr_width, DMA_TO_DEVICE);
-+	if (ret)
-+		return ret;
-+
-+	ret = bcm2835_dma_map_slave_addr(chan, &c->slave_dst, cfg->dst_addr,
-+					 cfg->dst_addr_width, DMA_FROM_DEVICE);
-+	if (ret)
-+		return ret;
- 
- 	c->cfg = *cfg;
- 
-@@ -1104,6 +1235,8 @@ static const struct bcm2835_dma_cfg bcm2835_data = {
- 	.read_addr = bcm2835_dma_read_addr,
- 	.cs_flags = bcm2835_dma_cs_flags,
- 	.abort = bcm2835_dma_abort_chan,
-+
-+	.legacy_bus_addr = bcm2835_dma_legacy_bus_addr,
- };
- 
- static const struct of_device_id bcm2835_dma_of_match[] = {
-@@ -1145,6 +1278,48 @@ static int bcm2835_dma_suspend_late(struct device *dev)
- 	return 0;
- }
- 
-+/*
-+ * The DMA controller registers sit in the same peripheral window as the
-+ * FIFOs of its clients, so the window is described by dma-ranges if and
-+ * only if the controller registers are.
-+ */
-+static bool bcm2835_dma_mmio_in_dma_ranges(struct device *dev,
-+					   phys_addr_t mmio)
++static u32 bcm2711_dma_cs_flags(struct bcm2835_chan *c)
 +{
-+	struct of_range_parser parser;
-+	struct of_range range;
-+	struct device_node *np;
-+	bool found = false;
-+
-+	for (np = of_get_parent(dev->of_node); np; np = of_get_next_parent(np))
-+		if (of_property_present(np, "dma-ranges"))
-+			break;
-+
-+	/*
-+	 * Without any dma-ranges the translation is unknown: the peripherals
-+	 * are not at their CPU physical address on any of these SoCs.
-+	 */
-+	if (!np)
-+		return false;
-+
-+	if (!of_pci_dma_range_parser_init(&parser, np)) {
-+		/* An empty dma-ranges describes a 1:1 translation too */
-+		found = !of_range_count(&parser);
-+
-+		for_each_of_range(&parser, &range) {
-+			if (mmio >= range.cpu_addr &&
-+			    mmio - range.cpu_addr < range.size) {
-+				found = true;
-+				break;
-+			}
-+		}
-+	}
-+
-+	of_node_put(np);
-+
-+	return found;
++	return BCM2711_DMA40_CS_FLAGS(c->dreq) | BCM2711_DMA40_PROT;
 +}
 +
- static const struct dev_pm_ops bcm2835_dma_pm_ops = {
- 	LATE_SYSTEM_SLEEP_PM_OPS(bcm2835_dma_suspend_late, NULL)
- };
-@@ -1152,6 +1327,7 @@ static const struct dev_pm_ops bcm2835_dma_pm_ops = {
- static int bcm2835_dma_probe(struct platform_device *pdev)
++static void bcm2711_dma_abort_chan(struct bcm2835_chan *c)
++{
++	void __iomem *chan_base = c->chan_base;
++	long timeout = 100;
++
++	/* Pause the current DMA */
++	writel(readl(chan_base + BCM2711_DMA40_CS) & ~BCM2711_DMA40_ACTIVE,
++	       chan_base + BCM2711_DMA40_CS);
++
++	/* wait for outstanding transactions to complete */
++	while ((readl(chan_base + BCM2711_DMA40_CS) & BCM2711_DMA40_TRANSACTIONS) &&
++	       --timeout)
++		cpu_relax();
++
++	/* Peripheral might be stuck and fail to complete */
++	if (!timeout)
++		dev_err(c->vc.chan.device->dev,
++			"failed to complete pause on dma %d (CS:%08x)\n", c->ch,
++			readl(chan_base + BCM2711_DMA40_CS));
++
++	/* Set CS back to default state */
++	writel(BCM2711_DMA40_PROT, chan_base + BCM2711_DMA40_CS);
++
++	/* Reset the DMA */
++	writel(readl(chan_base + BCM2711_DMA40_DEBUG) | BCM2711_DMA40_DEBUG_RESET,
++	       chan_base + BCM2711_DMA40_DEBUG);
++}
++
+ static void bcm2835_dma_free_cb_chain(struct bcm2835_desc *desc)
  {
- 	struct bcm2835_dmadev *od;
-+	struct resource *res;
- 	void __iomem *base;
- 	int rc;
- 	int i, j;
-@@ -1180,12 +1356,18 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
+ 	size_t i;
+@@ -1199,7 +1470,8 @@ static int bcm2835_dma_chan_init(struct bcm2835_dmadev *d, int chan_id,
+ 	c->irq_number = irq;
+ 	c->irq_flags = irq_flags;
  
+-	d->cfg->chan_plat_init(c);
++	if (d->cfg->chan_plat_init)
++		d->cfg->chan_plat_init(c);
+ 
+ 	return 0;
+ }
+@@ -1225,6 +1497,8 @@ static const struct bcm2835_dma_cfg bcm2835_data = {
+ 	.int_mask = BCM2835_DMA_INT,
+ 	.active_mask = BCM2835_DMA_ACTIVE,
+ 
++	.dma_mask = DMA_BIT_MASK(32),
++
+ 	.cb_get_length = bcm2835_dma_cb_get_length,
+ 	.cb_get_addr = bcm2835_dma_cb_get_addr,
+ 	.cb_init = bcm2835_dma_cb_init,
+@@ -1245,7 +1519,35 @@ static const struct bcm2835_dma_cfg bcm2835_data = {
+ 	.chan_mask = GENMASK(BCM2835_DMA_MAX_DMA_CHAN_SUPPORTED, 0),
+ };
+ 
++static const struct bcm2835_dma_cfg bcm2711_data = {
++	.cs_reg = BCM2711_DMA40_CS,
++	.cb_reg = BCM2711_DMA40_CB,
++
++	.int_mask = BCM2711_DMA40_INT,
++	.active_mask = BCM2711_DMA40_ACTIVE,
++
++	.dma_mask = DMA_BIT_MASK(40),
++
++	.cb_get_length = bcm2711_dma_cb_get_length,
++	.cb_get_addr = bcm2711_dma_cb_get_addr,
++	.cb_init = bcm2711_dma_cb_init,
++	.cb_set_src = bcm2711_dma_cb_set_src,
++	.cb_set_dst = bcm2711_dma_cb_set_dst,
++	.cb_set_next = bcm2711_dma_cb_set_next,
++	.cb_set_length = bcm2711_dma_cb_set_length,
++	.cb_append_extra = bcm2711_dma_cb_append_extra,
++
++	.to_cb_addr = bcm2711_dma_to_cb_addr,
++
++	.read_addr = bcm2711_dma_read_addr,
++	.cs_flags = bcm2711_dma_cs_flags,
++	.abort = bcm2711_dma_abort_chan,
++
++	.chan_mask = GENMASK(14, 11),
++};
++
+ static const struct of_device_id bcm2835_dma_of_match[] = {
++	{ .compatible = "brcm,bcm2711-dma", .data = &bcm2711_data },
+ 	{ .compatible = "brcm,bcm2835-dma", .data = &bcm2835_data },
+ 	{},
+ };
+@@ -1343,15 +1645,6 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
+ 	char chan_name[BCM2835_DMA_CHAN_NAME_SIZE];
+ 	int chan_count, chan_start, chan_end;
+ 
+-	if (!pdev->dev.dma_mask)
+-		pdev->dev.dma_mask = &pdev->dev.coherent_dma_mask;
+-
+-	rc = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+-	if (rc) {
+-		dev_err(&pdev->dev, "Unable to set DMA mask\n");
+-		return rc;
+-	}
+-
+ 	od = devm_kzalloc(&pdev->dev, sizeof(*od), GFP_KERNEL);
+ 	if (!od)
+ 		return -ENOMEM;
+@@ -1361,6 +1654,28 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, -EINVAL,
+ 				     "Failed to match compatible string\n");
+ 
++	/* the peripherals are only reachable above 4 GiB by 40-bit channels */
++	if (!IS_ENABLED(CONFIG_ARCH_DMA_ADDR_T_64BIT) &&
++	    od->cfg->dma_mask > DMA_BIT_MASK(32))
++		return dev_err_probe(&pdev->dev, -ENODEV,
++				     "40-bit DMA channels need a 64-bit dma_addr_t\n");
++
++	if (!pdev->dev.dma_mask)
++		pdev->dev.dma_mask = &pdev->dev.coherent_dma_mask;
++
++	/*
++	 * The control blocks are addressed through 32-bit registers holding
++	 * at most bits 36:5 of their address.
++	 */
++	rc = dma_set_mask(&pdev->dev, od->cfg->dma_mask);
++	if (!rc)
++		rc = dma_set_coherent_mask(&pdev->dev,
++					   min(od->cfg->dma_mask, DMA_BIT_MASK(37)));
++	if (rc) {
++		dev_err(&pdev->dev, "Unable to set DMA mask\n");
++		return rc;
++	}
++
  	dma_set_max_seg_size(&pdev->dev, 0x3FFFFFFF);
  
--	base = devm_platform_ioremap_resource(pdev, 0);
-+	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
+ 	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+@@ -1383,9 +1698,14 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
  
- 	od->base = base;
- 
-+	od->map_resource = bcm2835_dma_mmio_in_dma_ranges(&pdev->dev,
-+							  res->start);
-+	if (!od->map_resource)
-+		dev_dbg(&pdev->dev,
-+			"peripheral window not in dma-ranges, using the bus ranges\n");
+ 	od->map_resource = bcm2835_dma_mmio_in_dma_ranges(&pdev->dev,
+ 							  res->start);
+-	if (!od->map_resource)
++	if (!od->map_resource) {
++		if (!od->cfg->legacy_bus_addr)
++			return dev_err_probe(&pdev->dev, -EINVAL,
++					     "peripheral window missing in dma-ranges\n");
 +
+ 		dev_dbg(&pdev->dev,
+ 			"peripheral window not in dma-ranges, using the bus ranges\n");
++	}
+ 
  	dma_cap_set(DMA_SLAVE, od->ddev.cap_mask);
  	dma_cap_set(DMA_PRIVATE, od->ddev.cap_mask);
- 	dma_cap_set(DMA_CYCLIC, od->ddev.cap_mask);
 -- 
 2.51.0
 
