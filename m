@@ -1,99 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795808369;
-	b=BtBBFqfoDgaXwA6M+RNdYnkj44NpdkSAfI85NqcbQfxs6U+0W0jIVzqF5aESyHOEK/jo
-	 xqiTamOrhQS3ojj78kgsGfQLkLQ8rx0Zx+0lmn6ArQkxJ5ChpFamD+GNo6UVbhEGw5IDI
-	 aeHsASkWiWbLgNr9FGeQUWGX/+ZhdTEsXtdVEk23TEh2kxQUtUzHiuB/2sQXMsagnfi4l
-	 BgVHoWH4ul3nhLK7viXiQkS2GuwEJNot0WstWHWvCmmCBGRzpbyIdRz5GiDJVolkkvXRy
-	 3o1gtOdIucYEYk8rvijFxsyJbIEGApA2heiX/fJa/dNNGgEVgU8Azy/HdZ2/9CfG3Gw==
+	t=1795808389;
+	b=ulLmHiKZe+sDzFDAKtUOs2rrJBRBJR8E14ssULvDAf15dbcuiYKbAOexpwrFoXvytp41
+	 q9LX6xBnEhg22x19XRyl1dxpd8G1X+vlhpvUr92yUcwe9SmjkEqHLy9sqL2uxHoqze8YW
+	 uucF0yno3o/vbnjJrYrlyS2+MCCD0tWjzsiUWW0cIwANqHBu+oX2RltwYandlo8j9TdGP
+	 2cwJAXbdH9O/OE/9utqx+uoG3sY2wgMd4ymkOca3mtZloqOlsHgoV8WGs/wwPA321hm05
+	 WjymPzP1jmWyxTLXV+Hp4MV2tBbw8QMS7ggd63YC6seXkJcrr5rZU5/ABr/tR2aBcpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795808369;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=MM2MNnyxl9D846ZGaHkuqg5jtRzhYh+OqM1NyeJs/HE=;
-	b=v5J1MxRWbTehNy6j9Gm3fj+gV5Q9sOTsw5pdtHD1kLiB87DWaz6onbZrhL32BCmnFw5S
-	 TjU7Wx0CKnduHEkTaAhvcfd5gNtfBdRFX5ZOmQV6GeErlDKEwpM3TzI91RGnpFMXiATLI
-	 ADBdlObDGqfTK6QabUsog3OmmGZdmBPSneNOIDRx1Z4RRrX+WWST9t/k0KDVOeBlK8xqr
-	 cbdYteMYFKIDNx2e2QQXMybMYzJu+JLbNJfTw/nq23I/UcObjBhAe2G+14lxwdr7XMBjT
-	 lR2Ln+YdZvWdDQhBpF55KXrGMPKUQdXBOdAyb1KWBV/Pk70isi97QZBhfZ6fI/kyxig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795808389;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=DptalpG5OK6uHIWvNRT85H0FkbJfB5pNsWcqOQw9vJE=;
+	b=Yexhd1WtqrgWZ9h5HM9RTez/0TasoM+x3tb1OmrFVLv1fjhDonZzqat/9XmiboEkBcH8
+	 oY/VqV0Jq8vktYlxF+DFvs+6XZaXIpbLsoJ2y7/uguXnMIkLo3gDLl0S5y5OJFxImjREy
+	 Q9befoGyjgzgtLcPREe2I+XnZRNJrC3yiXrqFPO4OiNxdXM+dhXYVF41Ihz7ogB2bzRt3
+	 UanVOCfdkBvQg42RuxD1Yk3YLV1KSbt8lauZ/L9WEvVEbjCBt4kB4Yw1qdsTzeZWaRtL/
+	 kKa4DFyRsf+qs92GLw+PfUyA55ezAyPGcs6+rZ+hKVUWWrYHauPHVRMwC3/nU0K0V4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NV5kd05X;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 221CD606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:39:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 221CD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XU4gsp1h;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 65933606A31E;
+	Fri, 27 Nov 2026 19:39:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65933606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NV5kd05X
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so68881865e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:39:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795808367; x=1796413167; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MM2MNnyxl9D846ZGaHkuqg5jtRzhYh+OqM1NyeJs/HE=;
-        b=NV5kd05XjTpmJhqs8d6BgOFT/cc+m9+bvr7drRg68fhKapWZCQIieYMddEZxHd0goG
-         yIk7swGCvgbMoviHUgKlO/3aZky95FhcKiSztbtItwMCirlbGSzvJCs/3LRyFGP2CWRx
-         XLswxvYhAngUbTE9rPIBjE0SHDOBhZU12qQdVndLlZRWBjGwaC6+bgNFHRexjvq/n1hm
-         oEagRL95z/uLxolLn33n8oDp4mwrhBYf8MQqlea80ctlpLz8PR13yS4LJNYPE0qxorBb
-         sYQjx+EAsWYQQPy3clOi9KXmXrl6w9CKaV6TTibX16aeW6dv2x1dDOEqMFo5J2/PTAWj
-         rSwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795808367; x=1796413167;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MM2MNnyxl9D846ZGaHkuqg5jtRzhYh+OqM1NyeJs/HE=;
-        b=gmiXI1wBEHtB1IXYjcoTuf0pp1XZUQ7VvlhdqETIU+v5exKAIXwv4bnM1D+OgwM1IV
-         ZAus96i3lZHU3kwxsrSUj+qMVpbO8kDZ/ZdZ5KeR24RCuuTm0O6VUJR9Sp3wtuU/HgZD
-         qoTeWVPRF9IsznID6fQoIreRTnZJTcwKW40pHLCUNyM1cNmLsykfC/Z56owQzfxe4IZ7
-         wj/9Gbng1K1GEytLkgXQ4SSeYCaXJnftnxZ/7kb/XcWQs8x/wmXZEyYBvgQ4gmX+Dnem
-         M8q5PyfawvjDSq7EcIWrE+mFjVJ8w9DbnkNj3+dbBy32Eh6BN1TPIrVXXVGUgCIpupMq
-         LDhA==
-X-Forwarded-Encrypted: i=1; AL+hErEukZq1Fhc4KIESBZiFQWig8+7uQ3sP1Vhi7uEQ/Fl1vpLP1QD3ilR6nI4IjdokV7OUblxIpWG6Y4ThQWw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9NNPmJ6qa0aXFB10xUaCFVzLOY+JmE3d387tq45tyNRqSXprMq
-	mYGv8/mKVQUG9MISrRQqhIX31gIxgR0VG5NZIJ05BxYgPEG37T8dUTJn
-X-Gm-Gg: AZFdTZduffJxAx9cxTvIuVCe0GOpW3slBnfy2W58RIyHXADA+ZvuBUSQfEfyYMwOVrJ
-	ub8fC+3f99IqwXTH2grF8BxdsFtgGCC2jP3zP4DujWjVRHcrW31INx0siUevCGdU4pnd5T2XNvK
-	rMO6+4qZCLHLfSB+aDjGjOn4gb80KI/fE/KdcuA2eg81ILZSEFraIys8UJk82mdqIurJw1JOPJ8
-	BPwkKXwsfHoz5nHHX0EOr56n+zx2fhCGrnM7gzJfddGDzPoy05PS9lyXMm2X90Qfv3uhD1T9gA3
-	SuxfTw86E8D2I41LfrxMbWQA/EKddzxsdaTS8YfpztOFi1ooaiHhGrr3UQIwqRjKkpgtkwJBLXD
-	agAEcL+dcl5mVpG+FJuo0smXg/+iNvynRVuaEEMX97tcEcaCfWe/TYu8ljTNpFqjhzcb0Y7koWd
-	+tvxs6gYfqxTFW7wy2bl5NFDFAOxWA/gjAWFe+3YO5/6PXC4DUETyLZhLVX3vBunEDEBpYYobVn
-	s6X2H+q7mfCJ60QHmsJVCcv58rA4XXPgpY1jeKB1ZVRMFomD+EWPEIAcvkj42v0ATVfO5VuplGA
-	jnAnkBm9WPVbeaLOv4GtiZYN2vRY32LaFTNu7een2zh+DXQ7GenOg45rTNfHlXgFP+R6ZnEALrK
-	rL9kpHuo=
-X-Received: by 2002:a05:600c:820d:b0:4bb:5de1:e923 with SMTP id 5b1f17b1804b1-4bb887c33f7mr491159125e9.4.1795808366926;
-        Fri, 27 Nov 2026 11:39:26 -0800 (PST)
-Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm839858545e9.11.2026.11.27.11.39.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 11:39:26 -0800 (PST)
-From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
-To: linux-serial@vger.kernel.org
-Cc: gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	sashiko-reviews@lists.linux.dev,
-	=?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
-Subject: [PATCH RFC v2] serial: esp32: Add support for the ESP32-P4 UART
-Date: Fri, 27 Nov 2026 19:39:14 +0000
-Message-ID: <20261127193914.176120-1-vitorhg20080@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125233020.1380594-12-vitorhg20080@gmail.com>
-References: <20261125233020.1380594-12-vitorhg20080@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=XU4gsp1h
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A59E81575;
+	Fri, 27 Nov 2026 11:39:44 -0800 (PST)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3CF93F632;
+	Fri, 27 Nov 2026 11:39:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795808387; bh=iWkMLFKoQMuIMMUNeN14lQelc9+PWIM3ZZnPe8c8zTQ=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=XU4gsp1huDDg/iulDCSn76xkxJgy7kv6WlcmXl+Hgwav83nfA2CmObNK41TENpLIa
+	 mgTwpdRScD6VNTkouFwRSW3SzZuYOAG8IakvBtU5VRynb1NpovsiYFBzHF6drAjNKu
+	 gqNFpZLclfuocAOqgeJhzQTOGv8KIY6qfbIQUwHY=
+Message-ID: <a91bb9fd-1170-49c7-a5da-d6b8fd00c4ba@arm.com>
+Date: Fri, 27 Nov 2026 19:39:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,367 +53,349 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Robin Murphy <robin.murphy@arm.com>
+Subject: Re: [PATCH 2/2] perf/smmuv3: Add runtime PM support
+To: Amita Mishra <amitamishra@google.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261118101913.3135869-1-amitamishra@google.com>
+ <20261118101913.3135869-3-amitamishra@google.com>
+Content-Language: en-GB
+In-Reply-To: <20261118101913.3135869-3-amitamishra@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Enable the ESP32 UART driver on ESP32-P4 and describe the SoC's
-register layout in the variant data. Synchronize configuration
-writes to the UART clock domain and keep baud rate requests within
-the limits of the ESP32-P4 divider.
+On 2026-11-18 10:19 am, Amita Mishra wrote:
+> On SoCs where an SMMUv3 PMCG resides in a switchable power domain,
+> probing the PMCG attaches and powers on the domain, but without runtime
+> PM support the domain remains permanently powered on even when no perf
+> events are active.
+> 
+> Add runtime PM support for PMCG devices attached to a PM domain:
+> - Enable runtime PM while holding a reference before setting up the IRQ
+>    and registering the PMU, then drop the reference once probe completes
+>    so an idle PMCG can suspend.
+> - Resume and hold a runtime PM reference in smmu_pmu_event_init() for
+>    each active event and release it in event->destroy().
+> - Register runtime PM callbacks to disable the PMU on suspend and reset
+>    it on resume.
+> - Guard smmu_pmu_enable(), smmu_pmu_disable(), and smmu_pmu_handle_irq()
+>    with smmu_pmu_in_use() because perf_ctx_enable()/perf_ctx_disable()
+>    and shared or late IRQs can still run after the last event is removed
+>    and the PMCG is powered off. Keep unconditional register disable in
+>    __smmu_pmu_disable() for reset, runtime suspend, and active shutdown.
+> 
+> Signed-off-by: Amita Mishra <amitamishra@google.com>
+> ---
+>   drivers/perf/arm_smmuv3_pmu.c | 134 +++++++++++++++++++++++++++++-----
+>   1 file changed, 115 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/perf/arm_smmuv3_pmu.c b/drivers/perf/arm_smmuv3_pmu.c
+> index 97440b6233c6..e9da99b4a086 100644
+> --- a/drivers/perf/arm_smmuv3_pmu.c
+> +++ b/drivers/perf/arm_smmuv3_pmu.c
+> @@ -50,6 +50,7 @@
+>   #include <linux/of.h>
+>   #include <linux/perf_event.h>
+>   #include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+>   #include <linux/smp.h>
+>   #include <linux/sysfs.h>
+>   #include <linux/types.h>
+> @@ -151,15 +152,33 @@ SMMU_PMU_EVENT_ATTR_EXTRACTOR(filter_stream_id, config1, 0, 31);
+>   SMMU_PMU_EVENT_ATTR_EXTRACTOR(filter_span, config1, 32, 32);
+>   SMMU_PMU_EVENT_ATTR_EXTRACTOR(filter_enable, config1, 33, 33);
+>   
+> -static inline void smmu_pmu_enable(struct pmu *pmu)
+> +static inline void __smmu_pmu_enable(struct smmu_pmu *smmu_pmu)
+>   {
+> -	struct smmu_pmu *smmu_pmu = to_smmu_pmu(pmu);
+> -
+>   	writel(SMMU_PMCG_IRQ_CTRL_IRQEN,
+>   	       smmu_pmu->reg_base + SMMU_PMCG_IRQ_CTRL);
+>   	writel(SMMU_PMCG_CR_ENABLE, smmu_pmu->reg_base + SMMU_PMCG_CR);
+>   }
+>   
+> +/*
+> + * perf keeps calling ->pmu_enable()/->pmu_disable() for a PMU in a CPU context
+> + * after its last event there is gone, and a shared or late interrupt can call
+> + * the IRQ handler. Without counters in use, no event holds a runtime PM
+> + * reference and the PMCG may be powered off, so its registers must not be
+> + * touched. used_counters only changes in ->add()/->del() on the event's CPU.
+> + */
+> +static inline bool smmu_pmu_in_use(struct smmu_pmu *smmu_pmu)
+> +{
+> +	return !bitmap_empty(smmu_pmu->used_counters, smmu_pmu->num_counters);
 
-Propagate IRQ lookup errors, including deferred probe. Serialize UART
-port registration and removal, and clear the port table entry when
-registration fails or the port is removed.
+This may as well just use SMMU_PMCG_MAX_COUNTERS, so that it can 
+optimise to the trivial constant case. We know we're not going to mark 
+any counters as used which we don't even have in the first place.
 
-Tested on a Waveshare ESP32-P4-Module-DEV-KIT with the transmit
-interrupt fix applied. Verified UART receive interrupts and serial
-console operation.
+> +}
+> +
+> +static inline void smmu_pmu_enable(struct pmu *pmu)
+> +{
+> +	struct smmu_pmu *smmu_pmu = to_smmu_pmu(pmu);
+> +
+> +	if (smmu_pmu_in_use(smmu_pmu))
+> +		__smmu_pmu_enable(smmu_pmu);
+> +}
+> +
+>   static int smmu_pmu_apply_event_filter(struct smmu_pmu *smmu_pmu,
+>   				       struct perf_event *event, int idx);
+>   
+> @@ -174,12 +193,18 @@ static inline void smmu_pmu_enable_quirk_hip08_09(struct pmu *pmu)
+>   	smmu_pmu_enable(pmu);
+>   }
+>   
+> +static inline void __smmu_pmu_disable(struct smmu_pmu *smmu_pmu)
+> +{
+> +	writel(0, smmu_pmu->reg_base + SMMU_PMCG_CR);
+> +	writel(0, smmu_pmu->reg_base + SMMU_PMCG_IRQ_CTRL);
+> +}
+> +
+>   static inline void smmu_pmu_disable(struct pmu *pmu)
+>   {
+>   	struct smmu_pmu *smmu_pmu = to_smmu_pmu(pmu);
+>   
+> -	writel(0, smmu_pmu->reg_base + SMMU_PMCG_CR);
+> -	writel(0, smmu_pmu->reg_base + SMMU_PMCG_IRQ_CTRL);
+> +	if (smmu_pmu_in_use(smmu_pmu))
+> +		__smmu_pmu_disable(smmu_pmu);
 
-AI assisted with driver development.
+...however I can't help but be wary of this somehow getting out of sync 
+such that we might end up scheduling in a group on an initially-empty 
+PMU with CR_ENABLE still set and the events starting to count 
+immediately. Maybe it does work out, but given how convoluted all the 
+possible enable/disable paths in the perf core are already with 
+potential nesting and elision, it seems far from straightforward to 
+reason about :/
 
-Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
----
-Changes in v2:
-- Remove the console setup sentence from the commit message. Patch 10/19
-  already keeps the console setup callback in regular text.
+>   }
+>   
+>   static inline void smmu_pmu_disable_quirk_hip08_09(struct pmu *pmu)
+> @@ -392,6 +417,14 @@ static bool smmu_pmu_events_compatible(struct perf_event *curr,
+>    * the core perf events code.
+>    */
+>   
+> +static void smmu_pmu_event_destroy(struct perf_event *event)
+> +{
+> +	struct smmu_pmu *smmu_pmu = to_smmu_pmu(event->pmu);
+> +
+> +	/* Only set when smmu_pmu_event_init() took a reference. */
+> +	pm_runtime_put(smmu_pmu->dev);
 
-This replaces patch 11/19 and applies after patch 10/19 of the RFC.
-v1: https://lore.kernel.org/linux-serial/20261125233020.1380594-12-vitorhg20080@gmail.com/
+In isolation, "Only set" appearing to somehow refer to either the 
+pm_runtime_put() call or its argument makes this comment more confusing 
+than helpful.
 
- drivers/tty/serial/Kconfig      |   6 +-
- drivers/tty/serial/esp32_uart.c | 167 ++++++++++++++++++++++++++++----
- 2 files changed, 151 insertions(+), 22 deletions(-)
+> +}
+> +
+>   static int smmu_pmu_event_init(struct perf_event *event)
+>   {
+>   	struct hw_perf_event *hwc = &event->hw;
+> @@ -439,18 +472,26 @@ static int smmu_pmu_event_init(struct perf_event *event)
+>   
+>   	hwc->idx = -1;
+>   
+> -	if (event->group_leader == event)
+> -		return 0;
+> +	if (event->group_leader != event) {
+> +		for_each_sibling_event(sibling, event->group_leader) {
+> +			if (is_software_event(sibling))
+> +				continue;
+>   
+> -	for_each_sibling_event(sibling, event->group_leader) {
+> -		if (is_software_event(sibling))
+> -			continue;
+> +			if (!smmu_pmu_events_compatible(sibling, event))
+> +				return -EINVAL;
+>   
+> -		if (!smmu_pmu_events_compatible(sibling, event))
+> -			return -EINVAL;
+> +			if (++group_num_events > smmu_pmu->num_counters)
+> +				return -EINVAL;
+> +		}
+> +	}
+>   
+> -		if (++group_num_events > smmu_pmu->num_counters)
+> -			return -EINVAL;
+> +	/* The same condition smmu_pmu_probe() enables runtime PM on. */
+> +	if (dev->pm_domain) {
+> +		int ret = pm_runtime_resume_and_get(dev);
+> +
+> +		if (ret < 0)
+> +			return ret;
+> +		event->destroy = smmu_pmu_event_destroy;
+>   	}
+>   
+>   	return 0;
+> @@ -692,6 +733,9 @@ static irqreturn_t smmu_pmu_handle_irq(int irq_num, void *data)
+>   	u64 ovsr;
+>   	unsigned int idx;
+>   
+> +	if (!smmu_pmu_in_use(smmu_pmu))
+> +		return IRQ_NONE;
+> +
+>   	ovsr = readq(smmu_pmu->reloc_base + SMMU_PMCG_OVSSET0);
+>   	if (!ovsr)
+>   		return IRQ_NONE;
+> @@ -779,7 +823,7 @@ static void smmu_pmu_reset(struct smmu_pmu *smmu_pmu)
+>   {
+>   	u64 counter_present_mask = GENMASK_ULL(smmu_pmu->num_counters - 1, 0);
+>   
+> -	smmu_pmu_disable(&smmu_pmu->pmu);
+> +	__smmu_pmu_disable(smmu_pmu);
+>   
+>   	/* Disable counter and interrupt */
+>   	writeq_relaxed(counter_present_mask,
+> @@ -910,10 +954,21 @@ static int smmu_pmu_probe(struct platform_device *pdev)
+>   
+>   	smmu_pmu_reset(smmu_pmu);
+>   
+> +	/*
+> +	 * Runtime PM must be enabled before the IRQ handler and the PMU go
+> +	 * live: from then on ->event_init() takes a reference for each event.
+> +	 * Hold one until probe is done.
+> +	 */
+> +	if (dev->pm_domain) {
+> +		pm_runtime_get_noresume(dev);
+> +		pm_runtime_set_active(dev);
+> +		pm_runtime_enable(dev);
+> +	}
+> +
+>   	err = smmu_pmu_setup_irq(smmu_pmu);
+>   	if (err) {
+>   		dev_err(dev, "Setup irq failed, PMU @%pa\n", &res_0->start);
+> -		return err;
+> +		goto out_rpm;
+>   	}
+>   
+>   	smmu_pmu_get_iidr(smmu_pmu);
+> @@ -922,7 +977,8 @@ static int smmu_pmu_probe(struct platform_device *pdev)
+>   			      (res_0->start) >> SMMU_PMCG_PA_SHIFT);
+>   	if (!name) {
+>   		dev_err(dev, "Create name failed, PMU @%pa\n", &res_0->start);
+> -		return -EINVAL;
+> +		err = -EINVAL;
+> +		goto out_rpm;
+>   	}
+>   
+>   	if (!dev->of_node)
+> @@ -947,7 +1003,7 @@ static int smmu_pmu_probe(struct platform_device *pdev)
+>   	if (err) {
+>   		dev_err(dev, "Error %d registering hotplug, PMU @%pa\n",
+>   			err, &res_0->start);
+> -		return err;
+> +		goto out_rpm;
+>   	}
+>   
+>   	err = perf_pmu_register(&smmu_pmu->pmu, name, -1);
+> @@ -962,10 +1018,19 @@ static int smmu_pmu_probe(struct platform_device *pdev)
+>   		 smmu_pmu->global_filter ? "Global(Counter0)" :
+>   		 "Individual");
+>   
+> +	if (dev->pm_domain)
+> +		pm_runtime_put_sync(dev);
+> +
+>   	return 0;
+>   
+>   out_unregister:
+>   	cpuhp_state_remove_instance_nocalls(cpuhp_state_num, &smmu_pmu->node);
+> +out_rpm:
+> +	if (dev->pm_domain) {
+> +		pm_runtime_disable(dev);
+> +		pm_runtime_set_suspended(dev);
+> +		pm_runtime_put_noidle(dev);
+> +	}
 
-diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-index 83a37922fb07..6d3d3a342101 100644
---- a/drivers/tty/serial/Kconfig
-+++ b/drivers/tty/serial/Kconfig
-@@ -99,12 +99,14 @@ config SERIAL_EARLYCON_RISCV_SBI
- 
- config SERIAL_ESP32
- 	tristate "Espressif ESP32 UART support"
--	depends on COMPILE_TEST && OF && HAS_IOMEM
-+	depends on OF && HAS_IOMEM
-+	depends on RISCV_ESP32P4_CLIC || COMPILE_TEST
- 	select SERIAL_CORE
- 	select SERIAL_CORE_CONSOLE
- 	select SERIAL_EARLYCON
- 	help
--	  Driver for the UART controllers of the Espressif ESP32xx SoCs.
-+	  Driver for the UART controllers of the Espressif ESP32xx SoCs,
-+	  including the ESP32-P4.
- 	  When earlycon option is enabled the following kernel command line
- 	  snippets may be used:
- 	    earlycon=esp32s3uart,mmio32,0x60000000,115200n8,40000000
-diff --git a/drivers/tty/serial/esp32_uart.c b/drivers/tty/serial/esp32_uart.c
-index 8f257cf0d290..304e1345518b 100644
---- a/drivers/tty/serial/esp32_uart.c
-+++ b/drivers/tty/serial/esp32_uart.c
-@@ -6,10 +6,13 @@
- #include <linux/console.h>
- #include <linux/delay.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- #include <linux/irq.h>
- #include <linux/module.h>
-+#include <linux/mutex.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/printk.h>
- #include <linux/property.h>
- #include <linux/serial_core.h>
- #include <linux/slab.h>
-@@ -89,6 +92,22 @@
- 	 ESP32S3_UART_SCLK_EN | \
- 	 FIELD_PREP(ESP32S3_UART_SCLK_SEL, XTAL_CLK))
- 
-+#define ESP32P4_UART_CLKDIV			GENMASK(11, 0)
-+#define ESP32P4_UART_RXFIFO_CNT			GENMASK(7, 0)
-+#define ESP32P4_UART_TXFIFO_CNT			GENMASK(23, 16)
-+#define ESP32P4_UART_TXFIFO_EMPTY_THRHD_SHIFT	8
-+
-+/* ESP32-P4 uses a dedicated register for RX flow control. */
-+#define ESP32P4_UART_HWFC_CONF_REG		0x2c
-+#define ESP32P4_UART_RX_FLOW_EN			BIT(8)
-+#define ESP32P4_UART_REG_UPDATE_REG		0x98
-+#define ESP32P4_UART_REG_UPDATE			BIT(0)
-+#define ESP32P4_UART_LOOPBACK			BIT(12)
-+#define ESP32P4_UART_SW_RTS			BIT(21)
-+#define ESP32P4_UART_SW_DTR			BIT(20)
-+#define ESP32P4_UART_RTS_INV			BIT(18)
-+#define ESP32P4_UART_DTR_INV			BIT(19)
-+
- struct esp32_port {
- 	struct uart_port port;
- 	struct clk *clk;
-@@ -99,9 +118,16 @@ struct esp32_uart_variant {
- 	u32 rxfifo_cnt_mask;
- 	u32 txfifo_cnt_mask;
- 	u32 txfifo_empty_thrhd_shift;
-+	u32 rx_flow_reg;
- 	u32 rx_flow_en;
-+	u32 loopback_mask;
-+	u32 sw_rts_mask;
-+	u32 sw_dtr_reg;
-+	u32 sw_dtr_mask;
-+	u32 mctrl_inv_mask;
- 	const char *type;
- 	bool has_clkconf;
-+	bool needs_reg_update;
- };
- 
- static const struct esp32_uart_variant esp32_variant = {
-@@ -109,8 +135,14 @@ static const struct esp32_uart_variant esp32_variant = {
- 	.rxfifo_cnt_mask = ESP32_UART_RXFIFO_CNT,
- 	.txfifo_cnt_mask = ESP32_UART_TXFIFO_CNT,
- 	.txfifo_empty_thrhd_shift = ESP32_UART_TXFIFO_EMPTY_THRHD_SHIFT,
-+	.rx_flow_reg = UART_CONF1_REG,
- 	.rx_flow_en = ESP32_UART_RX_FLOW_EN,
- 	.type = "ESP32 UART",
-+	.loopback_mask = UART_LOOPBACK,
-+	.sw_rts_mask = UART_SW_RTS,
-+	.sw_dtr_reg = UART_CONF0_REG,
-+	.sw_dtr_mask = UART_SW_DTR,
-+	.mctrl_inv_mask = UART_RTS_INV | UART_DTR_INV,
- };
- 
- static const struct esp32_uart_variant esp32s3_variant = {
-@@ -118,9 +150,31 @@ static const struct esp32_uart_variant esp32s3_variant = {
- 	.rxfifo_cnt_mask = ESP32S3_UART_RXFIFO_CNT,
- 	.txfifo_cnt_mask = ESP32S3_UART_TXFIFO_CNT,
- 	.txfifo_empty_thrhd_shift = ESP32S3_UART_TXFIFO_EMPTY_THRHD_SHIFT,
-+	.rx_flow_reg = UART_CONF1_REG,
- 	.rx_flow_en = ESP32S3_UART_RX_FLOW_EN,
- 	.type = "ESP32S3 UART",
- 	.has_clkconf = true,
-+	.loopback_mask = UART_LOOPBACK,
-+	.sw_rts_mask = UART_SW_RTS,
-+	.sw_dtr_reg = UART_CONF0_REG,
-+	.sw_dtr_mask = UART_SW_DTR,
-+	.mctrl_inv_mask = UART_RTS_INV | UART_DTR_INV,
-+};
-+
-+static const struct esp32_uart_variant esp32p4_variant = {
-+	.clkdiv_mask = ESP32P4_UART_CLKDIV,
-+	.rxfifo_cnt_mask = ESP32P4_UART_RXFIFO_CNT,
-+	.txfifo_cnt_mask = ESP32P4_UART_TXFIFO_CNT,
-+	.txfifo_empty_thrhd_shift = ESP32P4_UART_TXFIFO_EMPTY_THRHD_SHIFT,
-+	.rx_flow_reg = ESP32P4_UART_HWFC_CONF_REG,
-+	.rx_flow_en = ESP32P4_UART_RX_FLOW_EN,
-+	.type = "ESP32-P4 UART",
-+	.needs_reg_update = true,
-+	.loopback_mask = ESP32P4_UART_LOOPBACK,
-+	.sw_rts_mask = ESP32P4_UART_SW_RTS,
-+	.sw_dtr_reg = UART_CONF1_REG,
-+	.sw_dtr_mask = ESP32P4_UART_SW_DTR,
-+	.mctrl_inv_mask = ESP32P4_UART_RTS_INV | ESP32P4_UART_DTR_INV,
- };
- 
- static const struct of_device_id esp32_uart_dt_ids[] = {
-@@ -130,10 +184,14 @@ static const struct of_device_id esp32_uart_dt_ids[] = {
- 	}, {
- 		.compatible = "esp,esp32s3-uart",
- 		.data = &esp32s3_variant,
-+	}, {
-+		.compatible = "esp,esp32p4-uart",
-+		.data = &esp32p4_variant,
- 	}, { /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, esp32_uart_dt_ids);
- 
-+static DEFINE_MUTEX(esp32_uart_ports_lock);
- static struct esp32_port *esp32_uart_ports[UART_NR];
- 
- static const struct esp32_uart_variant *port_variant(struct uart_port *port)
-@@ -143,7 +201,24 @@ static const struct esp32_uart_variant *port_variant(struct uart_port *port)
- 
- static void esp32_uart_write(struct uart_port *port, unsigned long reg, u32 v)
- {
-+	void __iomem *update = port->membase + ESP32P4_UART_REG_UPDATE_REG;
-+	u32 status;
-+
- 	writel(v, port->membase + reg);
-+
-+	if (reg != UART_CLKDIV_REG && reg != UART_CONF0_REG &&
-+	    reg != ESP32P4_UART_HWFC_CONF_REG)
-+		return;
-+
-+	if (!port_variant(port)->needs_reg_update)
-+		return;
-+
-+	/* Commit configuration to UART core clock domain. */
-+	writel(ESP32P4_UART_REG_UPDATE, update);
-+	if (readl_poll_timeout_atomic(update, status,
-+				      !(status & ESP32P4_UART_REG_UPDATE),
-+				      1, 100))
-+		printk_deferred_once(DRIVER_NAME ": UART register update timed out\n");
- }
- 
- static u32 esp32_uart_read(struct uart_port *port, unsigned long reg)
-@@ -173,18 +248,29 @@ static unsigned int esp32_uart_tx_empty(struct uart_port *port)
- 
- static void esp32_uart_set_mctrl(struct uart_port *port, unsigned int mctrl)
- {
--	u32 conf0 = esp32_uart_read(port, UART_CONF0_REG);
-+	const struct esp32_uart_variant *variant = port_variant(port);
-+	bool dtr_in_conf0 = variant->sw_dtr_reg == UART_CONF0_REG;
-+	u32 conf0, dtr_conf;
- 
--	conf0 &= ~(UART_LOOPBACK |
--		   UART_SW_RTS | UART_RTS_INV |
--		   UART_SW_DTR | UART_DTR_INV);
-+	conf0 = esp32_uart_read(port, UART_CONF0_REG);
-+	conf0 &= ~(variant->loopback_mask | variant->sw_rts_mask);
- 
- 	if (mctrl & TIOCM_RTS)
--		conf0 |= UART_SW_RTS;
--	if (mctrl & TIOCM_DTR)
--		conf0 |= UART_SW_DTR;
-+		conf0 |= variant->sw_rts_mask;
- 	if (mctrl & TIOCM_LOOP)
--		conf0 |= UART_LOOPBACK;
-+		conf0 |= variant->loopback_mask;
-+
-+	/* Software DTR and RTS/DTR inversion share a register. */
-+	dtr_conf = dtr_in_conf0 ? conf0 : esp32_uart_read(port, variant->sw_dtr_reg);
-+	dtr_conf &= ~(variant->sw_dtr_mask | variant->mctrl_inv_mask);
-+
-+	if (mctrl & TIOCM_DTR)
-+		dtr_conf |= variant->sw_dtr_mask;
-+
-+	if (dtr_in_conf0)
-+		conf0 = dtr_conf;
-+	else
-+		esp32_uart_write(port, variant->sw_dtr_reg, dtr_conf);
- 
- 	esp32_uart_write(port, UART_CONF0_REG, conf0);
- }
-@@ -387,13 +473,37 @@ static bool esp32_uart_set_baud(struct uart_port *port, u32 baud)
- 	return false;
- }
- 
-+static void esp32p4_uart_limit_baud_rate(struct ktermios *termios,
-+					 const struct ktermios *old,
-+					 u32 min_baud, u32 max_baud)
-+{
-+	u32 baud = tty_termios_baud_rate(termios);
-+
-+	if (!baud || (baud >= min_baud && baud <= max_baud))
-+		return;
-+
-+	if (old) {
-+		u32 old_baud = tty_termios_baud_rate(old);
-+
-+		if (old_baud && old_baud >= min_baud && old_baud <= max_baud)
-+			baud = old_baud;
-+	}
-+
-+	baud = clamp(baud, min_baud, max_baud);
-+	/* Keep the fallback exact near a standard rate outside the range. */
-+	termios->c_cflag &= ~(CBAUD | (CBAUD << IBSHIFT));
-+	termios->c_cflag |= BOTHER;
-+	tty_termios_encode_baud_rate(termios, baud, baud);
-+}
-+
- static void esp32_uart_set_termios(struct uart_port *port,
- 				   struct ktermios *termios,
- 				   const struct ktermios *old)
- {
- 	unsigned long flags;
--	u32 conf0, conf1;
--	u32 baud;
-+	u32 conf0, flow;
-+	u32 baud, min_baud, max_baud;
-+	const u32 rx_flow_reg = port_variant(port)->rx_flow_reg;
- 	const u32 rx_flow_en = port_variant(port)->rx_flow_en;
- 	u32 max_div = port_variant(port)->clkdiv_mask;
- 
-@@ -402,17 +512,19 @@ static void esp32_uart_set_termios(struct uart_port *port,
- 	if (port_variant(port)->has_clkconf)
- 		max_div *= FIELD_MAX(ESP32S3_UART_SCLK_DIV_NUM);
- 
--	baud = uart_get_baud_rate(port, termios, old,
--				  port->uartclk / max_div,
--				  port->uartclk / 16);
-+	min_baud = port->uartclk / max_div;
-+	max_baud = port->uartclk / 16;
-+	if (port_variant(port) == &esp32p4_variant)
-+		esp32p4_uart_limit_baud_rate(termios, old, min_baud, max_baud);
-+	baud = uart_get_baud_rate(port, termios, old, min_baud, max_baud);
- 
- 	spin_lock_irqsave(&port->lock, flags);
- 
- 	conf0 = esp32_uart_read(port, UART_CONF0_REG);
- 	conf0 &= ~(UART_PARITY_EN | UART_PARITY | UART_BIT_NUM | UART_STOP_BIT_NUM);
- 
--	conf1 = esp32_uart_read(port, UART_CONF1_REG);
--	conf1 &= ~rx_flow_en;
-+	flow = esp32_uart_read(port, rx_flow_reg);
-+	flow &= ~rx_flow_en;
- 
- 	if (termios->c_cflag & PARENB) {
- 		conf0 |= UART_PARITY_EN;
-@@ -441,10 +553,10 @@ static void esp32_uart_set_termios(struct uart_port *port,
- 		conf0 |= FIELD_PREP(UART_STOP_BIT_NUM, UART_STOP_BIT_NUM_1);
- 
- 	if (termios->c_cflag & CRTSCTS)
--		conf1 |= rx_flow_en;
-+		flow |= rx_flow_en;
- 
- 	esp32_uart_write(port, UART_CONF0_REG, conf0);
--	esp32_uart_write(port, UART_CONF1_REG, conf1);
-+	esp32_uart_write(port, rx_flow_reg, flow);
- 
- 	if (baud) {
- 		esp32_uart_set_baud(port, baud);
-@@ -715,29 +827,44 @@ static int esp32_uart_probe(struct platform_device *pdev)
- 	if (IS_ERR(sport->clk))
- 		return PTR_ERR(sport->clk);
- 
-+	ret = platform_get_irq(pdev, 0);
-+	if (ret < 0)
-+		return ret;
-+
- 	port->uartclk = clk_get_rate(sport->clk);
- 	port->dev = &pdev->dev;
- 	port->type = PORT_GENERIC;
- 	port->iotype = UPIO_MEM;
--	port->irq = platform_get_irq(pdev, 0);
-+	port->irq = ret;
- 	port->ops = &esp32_uart_pops;
- 	port->flags = UPF_BOOT_AUTOCONF;
- 	port->has_sysrq = 1;
- 	port->fifosize = ESP32_UART_TX_FIFO_SIZE;
- 	port->private_data = (void *)device_get_match_data(&pdev->dev);
- 
-+	guard(mutex)(&esp32_uart_ports_lock);
-+	if (esp32_uart_ports[port->line])
-+		return -EBUSY;
-+
-+	/* Console setup can look up the port during registration. */
- 	esp32_uart_ports[port->line] = sport;
-+	ret = uart_add_one_port(&esp32_uart_reg, port);
-+	if (ret) {
-+		esp32_uart_ports[port->line] = NULL;
-+		return ret;
-+	}
- 
- 	platform_set_drvdata(pdev, port);
--
--	return uart_add_one_port(&esp32_uart_reg, port);
-+	return 0;
- }
- 
- static void esp32_uart_remove(struct platform_device *pdev)
- {
- 	struct uart_port *port = platform_get_drvdata(pdev);
- 
-+	guard(mutex)(&esp32_uart_ports_lock);
- 	uart_remove_one_port(&esp32_uart_reg, port);
-+	esp32_uart_ports[port->line] = NULL;
- }
- 
- 
--- 
-2.56.1
+Can we not just use the devm_ variants for auto-cleanup?
+
+>   	return err;
+>   }
+>   
+> @@ -975,15 +1040,45 @@ static void smmu_pmu_remove(struct platform_device *pdev)
+>   
+>   	perf_pmu_unregister(&smmu_pmu->pmu);
+>   	cpuhp_state_remove_instance_nocalls(cpuhp_state_num, &smmu_pmu->node);
+> +	if (pdev->dev.pm_domain)
+> +		pm_runtime_disable(&pdev->dev);
+
+...especially since probe failure vs. driver unbind should not be 
+leaving things in different states, surely?
+
+>   }
+>   
+>   static void smmu_pmu_shutdown(struct platform_device *pdev)
+>   {
+>   	struct smmu_pmu *smmu_pmu = platform_get_drvdata(pdev);
+>   
+> -	smmu_pmu_disable(&smmu_pmu->pmu);
+> +	if (pdev->dev.pm_domain) {
+> +		if (pm_runtime_get_if_active(&pdev->dev) <= 0)
+> +			return;
+> +		__smmu_pmu_disable(smmu_pmu);
+> +		pm_runtime_put(&pdev->dev);
+> +		return;
+> +	}
+> +
+> +	__smmu_pmu_disable(smmu_pmu);
+> +}
+
+TBH I'm not sure why there's a shutdown routine here at all - the entire 
+kernel state is about to stop existing, so we really shouldn't need to 
+waste yet more time faffing with RPM accounting. I'd be inclined to just 
+drop the whole thing, to be consistent with pretty much every other PMU 
+driver. Yes, perf core doesn't deschedule events on shutdown either, so 
+at worst after a warm reboot we might find pending overflows, but driver 
+probes should be robust and not make assumptions about the initial state 
+of the hardware anyway (as indeed this one appears to be.)
+
+> +
+> +static int smmu_pmu_runtime_suspend(struct device *dev)
+> +{
+> +	struct smmu_pmu *smmu_pmu = dev_get_drvdata(dev);
+> +
+> +	__smmu_pmu_disable(smmu_pmu);
+
+Similarly, this seems entirely unnecessary - if we can only get here 
+when no events are open, there already cannot be anything worth 
+disabling (i.e. no running counters able to generate unexpected IRQs if 
+the hardware doesn't actually lose state while logically suspended.)
+
+> +	return 0;
+>   }
+>   
+> +static int smmu_pmu_runtime_resume(struct device *dev)
+> +{
+> +	struct smmu_pmu *smmu_pmu = dev_get_drvdata(dev);
+> +
+> +	smmu_pmu_reset(smmu_pmu);
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops smmu_pmu_pm_ops = {
+> +	RUNTIME_PM_OPS(smmu_pmu_runtime_suspend, smmu_pmu_runtime_resume, NULL)
+> +};
+
+Consider DEFINE_SIMPLE_DEV_PM_OPS() for even more brevity.
+
+Thanks,
+Robin.
+
+> +
+>   #ifdef CONFIG_OF
+>   static const struct of_device_id smmu_pmu_of_match[] = {
+>   	{ .compatible = "arm,smmu-v3-pmcg" },
+> @@ -996,6 +1091,7 @@ static struct platform_driver smmu_pmu_driver = {
+>   	.driver = {
+>   		.name = "arm-smmu-v3-pmcg",
+>   		.of_match_table = of_match_ptr(smmu_pmu_of_match),
+> +		.pm = pm_ptr(&smmu_pmu_pm_ops),
+>   		.suppress_bind_attrs = true,
+>   	},
+>   	.probe = smmu_pmu_probe,
 
