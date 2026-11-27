@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795801085;
-	b=X4DEOrYnvCEDCmb2/ZDuOgEBX78hUzkHWHYnzAgJrIeU7SC4Yzr+hR2LdUy4Ord0HZC8
-	 gIQl2teRrOhpeOR0/w+CsM3oMpGc3vtw9uqUfKN4BIMsJp+OyUJMi5uj9XOsDIbY5jhiY
-	 ovEpGurow9feR3Nf3njFNo070RZkauUj4SbJKUmb9PUS2+0CD11j+ATSe5Ii2+CRZXWlS
-	 iZuln6a4sgyCpGG9XmipdiSNo/1JnWxsFDnyxNXnOXVXLRFlVsOPEP8xldhDmAmICvGuf
-	 s5P7cxsogLgNf3W/lQpSJc/FvNOFv2cbBvTw7SD5PnR1EZXF/1Psz+nPga2YxojnFZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795801085;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:
-	 X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=cN4RZLULD5IcC6A6+YA3uTFCFgzGpLrwot8O38KuX6Y=;
-	b=MyMODjhOPLzsy//qHoEVFsHa81Pf7ExIlzHKAGtlZja0PLSDIYsXrwIxeGJWqkSKg446
-	 rDLTeLRV4rzQDfvK5Aj3rZTIIBrEM7xUFpNgs4wjkIEqeIulXuWw86bTnVKyY/5fFg3iV
-	 2utNsuqnh3wC4oyPRkzXuOtW7tte7wh5594DFMIZKEWzynAy+sHpxQWZYHEzXrxDEFrBA
-	 jTgytQZD5itLVGuy26+Tk24vjOWYrTOqBQyvm2xHBdO6bGn/INr2mnwlsWchHQFL0FaQx
-	 HWVIrh5B8pXxoXYlyoYU2NnWVb+zcQmctMA6taeG+K1BJ2gRQ89lIgZmHAEthg4pyCQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MIRyChMu;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lS8y0xNd;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MIRyChMu;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lS8y0xNd;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.175
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795801110;
+	b=qQ9rkPo7iWYKBHyw0C6+ArjZ4Eo+nPcflZGv06Lt6ofeRBWoBlGSs/eymJiOthCPRMlO
+	 FiqFMjzI0bvXeLDmt2ahXZP1BoeF6LIiZhseTKsL6EaM2oZnEguRVHu/+zUcxtGMfVfl1
+	 LkC3mJ8FycThFwFmRyiMSCoE17/AK0fCFqmNxgTPJMx/YtqTQnIc+d3+CZvm6P6r23dxd
+	 FpiGCPfJFFgqRTuUjM9qJXUy5j6qOx5whH5lEmUCk5B6MtoMYGhoo/1rIf//srF+pVWbD
+	 VWYxr0rth3H/AnRc1BunVcJIHoFytjb2pRfA9eW274XVyC1djm0cqR7y70kXxtfKzxA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801110;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=64zv/nVdYPKcwMYeAyoabyqft6ijfCTeLTsGFNhJAOI=;
+	b=q+14YQ7PRPQDDrfssz5CYpa1hCUxp4AjprZpwAQjm33UhbhnzEyUs1HjQ+O1vZgvzG7n
+	 OHxMyYgO9liVCLhAjuiqVsOUHbWBWSPaVXuEMLtlNztg+2SZZZP3QOGsNx+7+Hjw1CHM8
+	 evu+TwiWWvP/THxbSDYzuA9VTDTyuPikWb/u72AoNpcth2C3m5TdBwEqSZ53zoFaikyEg
+	 g3pp8mZ6zgowxtbKRvk4mVZ3LY+zi1U0hfVS0xUFcDp/SwwInQ7TnGNfqtitWc9A2RMYA
+	 AntWY0h06iM1JuD4XQbKAjrVgUsSeHgnrflgIwGLaSqUNqdcBzvATGCQLe6mi6A6afQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zqFMF5Nl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.175
+Received: from mail-oi1-f175.google.com (mail-oi1-f175.google.com [209.85.167.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 087B7606A32F;
-	Fri, 27 Nov 2026 17:38:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 087B7606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 867E8606A688
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:38:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 867E8606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MIRyChMu;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lS8y0xNd;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=MIRyChMu;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lS8y0xNd
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 3973A229B6;
-	Fri, 27 Nov 2026 17:38:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795801081; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cN4RZLULD5IcC6A6+YA3uTFCFgzGpLrwot8O38KuX6Y=;
-	b=MIRyChMukUfc+PK/+tNp4Em3lqfg7DQXp4Bo86SRMbg4Q6dHrjv5tivpHe0AAg8hGnd1/S
-	CtWuUFsG3vt1lZ2yWtByn9ATuVIWwYjI//yAnw8ejX3fQnA0swCw4o6bK7qHvlNLipjV5h
-	lQQOt5UI7ldtrtCbtib2Swv5G4dYNQ0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795801081;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cN4RZLULD5IcC6A6+YA3uTFCFgzGpLrwot8O38KuX6Y=;
-	b=lS8y0xNdsmaBCDJNArxaGLoWuopxj5wonROoGQQjWhBqQ9EbTKuOwF1fifgTdz3Ux/4LY2
-	Z64Xm8MNy3bwKNAw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=MIRyChMu;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=lS8y0xNd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795801081; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cN4RZLULD5IcC6A6+YA3uTFCFgzGpLrwot8O38KuX6Y=;
-	b=MIRyChMukUfc+PK/+tNp4Em3lqfg7DQXp4Bo86SRMbg4Q6dHrjv5tivpHe0AAg8hGnd1/S
-	CtWuUFsG3vt1lZ2yWtByn9ATuVIWwYjI//yAnw8ejX3fQnA0swCw4o6bK7qHvlNLipjV5h
-	lQQOt5UI7ldtrtCbtib2Swv5G4dYNQ0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795801081;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cN4RZLULD5IcC6A6+YA3uTFCFgzGpLrwot8O38KuX6Y=;
-	b=lS8y0xNdsmaBCDJNArxaGLoWuopxj5wonROoGQQjWhBqQ9EbTKuOwF1fifgTdz3Ux/4LY2
-	Z64Xm8MNy3bwKNAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D42F8134E8;
-	Fri, 27 Nov 2026 17:38:00 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id HApQKvi/CWu9FgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 27 Nov 2026 17:38:00 +0000
-Date: Fri, 27 Nov 2026 18:38:00 +0100
-Message-ID: <877bhymayv.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Carl Egbert <egbertcarl@gmail.com>
-Cc: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Eric Naim <dnaim@cachyos.org>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	regressions@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] ALSA: hda/realtek: Fix mute LED regression on ThinkPad T440/T450 family
-In-Reply-To: <20261127171241.1619113-1-egbertcarl@gmail.com>
-References: <20261127171241.1619113-1-egbertcarl@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zqFMF5Nl
+Received: by mail-oi1-f175.google.com with SMTP id 5614622812f47-4f14642adb4so5036945b6e.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:38:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795801108; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HfppcqOw/BAq4myCBedW6ACTrTaPTySSjYMxznsXooiC0XmLgzHrhwjUMwoQ3Hc4oo
+         OHlCqbhZjicrT1BurEljssxDn/EdbCzKkQwIiq9px/1RGKCVpV5YXO44NykoDO3N75K3
+         XVw8nMbzzVYcJV8kDPtGyGIxutP174EE3uv1qtHJ3QZ6PvzQBUNfCq6rZdRmg543O+Kt
+         /ADtrJN9pKWP/aNBzd0fG33WAeCPmpt4PzVQId9ownVQbABsQxfobaaWb/PrcMs3oUR+
+         1Ll36KLUssAuKGEgIQCRxjSAPTegj171PEbkQVhGPgBCI+w+k9lvaZbP0BPOlwvdaDR1
+         EHOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=64zv/nVdYPKcwMYeAyoabyqft6ijfCTeLTsGFNhJAOI=;
+        fh=BI7gl4GpY77kmLXsgCLcDwyFcFThg6FIG4NFqo5clhs=;
+        b=EtggyqBqqsKvAfUHrfTlIes662nUbh2buBKjgj3uBaKARS37A1m4uUVl2GG2LDiAs1
+         ENe5F6wXlI5Fo+VmBvVa5/l+OwAmvFcrXlYQIs+7I1CqQQ4QgHWDKt/vXltdGSnYZvCs
+         WcHFzrlXgweVj74QAoELqqpDQl+n2UEGjTSAzgqSLoXa0tdvPZ6z6bsYCxIET4Ad6+x/
+         tSjhRiT1uFxgb08kN1E+Xp4XoT7t6Vf/nNlg/GouHbDz9nN6XcXGjA+wjZvQktBXVdFv
+         R4geE5m22ugFOVSlmOVTy8nmRkmFlIImeWSiTRQcJAF+lEBWe/vZZkKwtd8IDr8wI6ru
+         Uy5w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795801108; x=1796405908; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=64zv/nVdYPKcwMYeAyoabyqft6ijfCTeLTsGFNhJAOI=;
+        b=zqFMF5Nl5otAa73WkVGb0V+EmsXwsrZEzr9DIG2swnQIVtcPaDfxdiM4r7bvY5f4cq
+         0uA2lc6mty1wrLtmg1minomAG25RmFtXDHEOw3o8POL3f9kNJsjy/9LZoXZmzteW8kz9
+         bzv3hdSPkSCx7NXpaYhfFMDFPDdB6RQKzAZfNLcKVs741O9NZLcWhtmgTZp8cTctY6pW
+         tGX0iVJPkckz/SIpTl282/3KlCUJ68iCAn9KtEJvsNZj6lAg5GfGCjcq2jrbiDOvrxp/
+         EKIbDCeuMn4O3KVO65VWTDw3wT+ApUDfqDziVBghoxT9u1dY4vCMx0D4IJtbYPcRjP7r
+         cbiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795801108; x=1796405908;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=64zv/nVdYPKcwMYeAyoabyqft6ijfCTeLTsGFNhJAOI=;
+        b=JtK3rSIiS0XC4ZzeDCSeGuImfiaTqr1z4+Jb0rGHUoxOO2WwDP86cBLSmeh0T56x53
+         aREu2LJ8qE5URZ2D4LSnMp89EgX22PZwLGPkiPj/38EJZHKbP8haV9+OFABv53ABRpP4
+         LV7vrFrvKh/zxy11PdZbzecLaXVWBhlPvFBWCHkLGTZeC+xxC79Hy72Xb1VoVhzyxOvc
+         KejiKHS+UJc9NhEgB0iRwFsQ7jD0lN9xoBz3sT9mm863LtOTB/NbcJ2Rj4hDuf1kCw9j
+         OrllNoG3mr9A3slnO/kxc4KuHpmVEa82bBVMV46l587snE+gxf2G6ZJa1dIzGst2zqmV
+         siTA==
+X-Forwarded-Encrypted: i=1; AL+hErHbsrHn6G40f6i8BuoXvpVKksyJZPOhrPFgGFcOKGoSCvHuPbNUUYh8k7xEw1xMc+Imui8Ko0iDXEoHTKM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8pg51pNLIe3WVAe2BVNLJznkZvTsZgcHhP77VV+QbBjkDJDvq
+	oEWAIrciaG/N4ENbUUTv1neF09oQOg9y2GP6xmMBYrNkYY+Y13gNF9i69zqPeZkX0TgszT4PvP1
+	9IbIMuLtgXVJoAQNPn0oSkDT9cLYvIrQ=
+X-Gm-Gg: AZFdTZdFThKSnyErsKQYLZA/N2lOyX17ha2XjU10C/VhxRWis/R9bj5Su1AvVbIzjeV
+	GtM7k+g/aRcn+01gFGcZLRWB7/Hfx+dnIgizKHWlLGURfOiy1JN9DTMHFA9sXJPySSL8SoJkaCQ
+	phldGAnLAcWaZqUz9YA4re8C5fQvoVZZg3t1hH3G47HR2js/ELeNrZIb67/SOnylVoVOF2eBMHO
+	bX2RufOKUhaJ30zIiMkf8twqERqLiijGLfhhuLURUo/f2q3mkfGeWBPVIkf6dKAPfSLEWGEixu0
+	+gtAoiysTuJNg0/AVA/ARDcdpEF3y/1m7RhUx7B99IbTh1Vxw68wJaF6XmwFMXnS+n7JMU46c+s
+	bUELN7Hc5d2L3BUAaAfO8uamZfQ+wQa4BcBNnfSW7z0Augm4RFsrxRemubcai+tH49gmHSYBN1k
+	/FPiQArHfOa+9CG+X3T8Nu63fuZ503RN0=
+X-Received: by 2002:a05:6808:151f:b0:576:b73b:f273 with SMTP id
+ 5614622812f47-57a0a404fcfmr26333399b6e.21.1795801108384; Fri, 27 Nov 2026
+ 09:38:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,94 +103,85 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: 3973A229B6
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-12.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_TO(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.51
+MIME-Version: 1.0
+References: <20261115114336.1739863-1-hjf3108@gmail.com> <20261115114336.1739863-7-hjf3108@gmail.com>
+ <8ADDD0B3-609F-4E66-925E-997B11112E4C@linux.dev>
+In-Reply-To: <8ADDD0B3-609F-4E66-925E-997B11112E4C@linux.dev>
+From: Jie Feng <hjf3108@gmail.com>
+Date: Sat, 28 Nov 2026 01:37:52 +0800
+X-Gm-Features: Aa3M54qzBjXgTSOBtq2I0sWZmCjRDhk1jQEg2oYZonA1g4Eptxdtvn7VaLjISfA
+Message-ID: <CABOQOSXgnFkSyL4hN9zDpq8iU24CFyS_yBS84Ts5QPzq9ntaxg@mail.gmail.com>
+Subject: Re: [PATCH rtw-next v4 6/7] wifi: rtw88: 88xxa: correct
+ carrier-frequency offset
+To: Luka Gejak <luka.gejak@linux.dev>
+Cc: Ping-Ke Shih <pkshih@realtek.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Bitterblue Smith <rtl8821cerfe2@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, 27 Nov 2026 18:12:41 +0100,
-Carl Egbert wrote:
-> 
-> Since commit 8a889cce1c6d ("ALSA: hda/realtek: Unchain
-> ALC269_FIXUP_THINKPAD_ACPI from ALC269_FIXUP_LIMIT_INT_MIC_BOOST"),
-> ThinkPads whose fixup chain goes through ALC292_FIXUP_TPT440_DOCK or
-> ALC283_FIXUP_INT_MIC no longer get their mute LEDs set up. On a ThinkPad
-> T450 (SSID 17aa:5034), the speaker mute LED no longer follows the mute
-> state: no mixer control gets the speaker LED access flag, so snd-ctl-led
-> is not loaded automatically and
-> /sys/class/sound/ctl-led/speaker/card1/list stays empty.
-> 
-> Commit b2d447288fa7 ("ALSA: hda/realtek: Add
-> ALC269_FIXUP_THINKPAD_LIMIT_INT_MIC_BOOST quirk") added a ThinkPad
-> variant of ALC269_FIXUP_LIMIT_INT_MIC_BOOST and switched the quirk table
-> entries that selected the plain fixup directly. Then
-> commit 8a889cce1c6d ("ALSA: hda/realtek: Unchain
-> ALC269_FIXUP_THINKPAD_ACPI from ALC269_FIXUP_LIMIT_INT_MIC_BOOST")
-> removed the chain to ALC269_FIXUP_THINKPAD_ACPI from the plain fixup.
-> However, two fixups reach the plain fixup through their own chain_id and
-> were not converted:
-> 
->   - ALC292_FIXUP_TPT440_DOCK, used by the ThinkPad T440, T440p, T440s
->     (via ALC292_FIXUP_TPT440), T540p, W541, X240, X1 Carbon 2nd, T550,
->     X250, L440, T450, T450s, L450 and X260
->   - ALC283_FIXUP_INT_MIC, used by a ThinkPad (17aa:501a), the IdeaPad
->     S210 and the Lenovo 145 (via ALC236_FIXUP_LENOVO_INV_DMIC)
-> 
-> Their chains now end before alc_fixup_thinkpad_acpi(), so these machines
-> no longer get the mute LED setup for thinkpad_acpi, nor no_shutup_pins.
-> 
-> Point both fixups at ALC269_FIXUP_THINKPAD_LIMIT_INT_MIC_BOOST, which
-> restores the fixup chains these machines had before 8a889cce1c6d. On
-> the IdeaPad S210 and Lenovo 145, is_thinkpad() is false, so they only
-> get no_shutup_pins back, as before the regression.
-> 
-> Tested on a ThinkPad T450 on top of sound.git for-linus (e79163b531ec):
-> with this patch, snd-ctl-led is loaded automatically at boot, and the
-> speaker and mic mute LEDs follow the playback and capture mute state
-> again. Not tested on the machines using ALC283_FIXUP_INT_MIC.
-> 
-> The regression was bisected on the affected T450. An AI assistant
-> (Claude Code, using Claude Opus 5.5) was used throughout: it helped
-> diagnose the problem, plan the bisection and write the scripts used for
-> it, identify the cause, and drafted this patch and changelog. I ran the
-> bisection and the tests on the hardware and reviewed the change.
-> 
-> Fixes: 8a889cce1c6d ("ALSA: hda/realtek: Unchain ALC269_FIXUP_THINKPAD_ACPI from ALC269_FIXUP_LIMIT_INT_MIC_BOOST")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Carl Egbert <egbertcarl@gmail.com>
+Hi Luka,
 
-Applied now.  Thanks.
+On Sun, 15 Nov 2026 at 21:20, Luka Gejak <luka.gejak@linux.dev> wrote:
+>
+> Hi Jie Feng,
+>
+> Thanks for the patch. One comment below.
+>
+> On November 15, 2026 12:43:32 PM GMT+01:00, Ho Jie Feng <hjf3108@gmail.com>
+> wrote:
+>
+> > diff --git a/drivers/net/wireless/realtek/rtw88/rtw88xxa.c b/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
+> > --- a/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
+> > +++ b/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
+>
+> [ ... ]
+>
+> > @@ -1632,6 +1637,17 @@ void rtw88xxa_query_phy_status(struct rtw_dev *rtwdev, u8 *phy_status,
+>
+> [ ... ]
+>
+> > +             rtw_phy_parsing_cfo(rtwdev, pkt_stat);
+>
+> [ ... ]
+>
+> > @@ -2020,6 +2036,21 @@ void rtw88xxa_phy_pwrtrack(struct rtw_dev *rtwdev,
+>
+> [ ... ]
+>
+> > +     crystal_cap = rtw_phy_cfo_xcap_track(rtwdev, RTW_XCAP_MASK, bt_hold);
+> > +     if (crystal_cap == cfo->crystal_cap)
+> > +             return;
+> > +
+> > +     cfo->crystal_cap = crystal_cap;
+> > +     rtw88xxa_set_crystal_cap(rtwdev, crystal_cap);
+>
+> Could the shared helper discard the samples while sta_cnt != 1? In AP
+> mode, frames from both clients match the interface BSSID, so these new
+> calls keep adding their CFO samples. But rtw_phy_cfo_xcap_track() returns
+> through rtw_phy_cfo_tracking_reset() before clearing the sums or counts.
+If there are multiple clients, an argument can be made that correcting
+the frequency so that it minimizes the frequency difference between
+the AP and the clients can improve performance. Taking the average of
+all the client offsets for the frames received might be good enough,
+since it gives an estimate of which client needs more attention and
+correct towards it. However, I feel like in this case, CFO tracking
+should be the responsibility of the client instead of the AP, since it
+can get all the devices to agree on the frequency.
 
+> So if I read it right, when one client leaves, the first adjustment still
+> includes samples from that client. For example, on each reporting path,
+> a +12 sample from the remaining client and a -48 sample from the other,
+> followed by another +12, give an average of -20 kHz. The remaining client
+> alone gives +30 kHz, so the first correction goes the wrong way.
+That does happen, although it might not be a big problem since as it
+gets more samples the CFO tracking should converge to the correct
+value.
 
-Takashi
+> This was already present on 8822c, and this patch makes it reachable on
+> 88xxa too. I think the fix belongs in rtw_phy_cfo_xcap_track(), before
+> these new callers start using it. Could the sums and counts be reset
+> there when there is no single peer to track?
+Since this bug is pre-existing and not specific to 88xxa, I think it
+should be sent in as a separate patch?
+
+> Best regards,
+> Luka Gejak
