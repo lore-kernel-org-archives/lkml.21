@@ -1,123 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.155
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795768553;
-	b=UFm4dZIaQkI1uRCL2m/jACeoXNE71agIix3OgG5znzMLdRFry66DDbUDtITJpnFm7kyJ
-	 XguG2iqQJ/SH8nrGk0V2LKxVNnoweNHoUM+AXTQtNgixW9NWyHF/zy+FW/AkKbDgSddd3
-	 wlxu32HTk4v2VJs2ElHqxTZH4R9mcgU4VL1oT8C1tFw8AXRuDZ29ZpwZ3Zj3Lh1A8Bnz/
-	 SJdfI24iu3aECOvjqRh0wlGX/NTyG7vVFtbWXpyoNxVzmRfn4HktteeP9dnaUeKwrVUam
-	 LmZU0ArAeasXrywts94mob4s4asQVkfBgtGarhmbgNymq5Tyi8NONq+jQafvygF7svw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795768553;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=2gExnDziqQCLCOyyBY+NmvOXjuQh1t7xPz+6DQ+plyY=;
-	b=pImPNQry0U9L6rZ5kla0iHjP4PALeUeVa8r4SXTn98dDnDGXaqFATOr0A9mOL+YaSuhh
-	 Q68EOTgZSQvRkztFKtH8JflEvBuOaYhRuedPaIedJeFn8CCK0Hv6gFihQZxTDtSjnzAf/
-	 MRQfA7mgI51SNARHdYvW0mOCrtMoH2KsDyrT7KVXewMycnxw8vlBGPy9ZLJiIxEILavYd
-	 gC4ncG7v4le2Y8QQiq6lIaHIC2TBisaOLeAtv5AxnZmLSHePOVrixzJE8z+ZEC0aNiF1+
-	 JgtRj1HqCX4ziaS7uPdsh6KuQPtby8A5hPGUVqT1XFnb4nNObwtxQS0KirLLeQVKEPw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=seanlyon.dev;
-	spf=pass smtp.mailfrom=seanlyon.dev;
-	dkim=pass header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm2 header.b=JtE+tbmN;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=g+jnpqDs;
-	arc=none smtp.remote-ip=103.168.172.155
-Received: from fhigh-a4-smtp.messagingengine.com (fhigh-a4-smtp.messagingengine.com [103.168.172.155])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795768549;
+	b=nuVxpP7tYscyAXviRqI9+3UEI87jf71rjgZ1fGDlq2pGYTdb/DhaM24enSCiq7SDYmaH
+	 pqRBWPfBr75VfQGf47UDamPHNkLIEl9zfLODvADMYXeodOfefk43PWsXqZ0AZ8KJ+0EqR
+	 nvW9P2aAk5A2F/bm/6yNQdFmbH3B4MzV6oe+t76Dy+wYTAhcD2nxOCyss0sMN8gspMPn6
+	 LGA3lG0+AGg1gShV2Adjz/Kreh9qmAy/IoVEyfrvh0NjdL1SESWA1wLOpc3utcLrEoG7M
+	 6Tu8D9Zuh/r9VTh17P3sa098b21EdkOvut8tsY5IW6PsO/OpltMac6o6Zy7rS3rUS9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795768549;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=RFWM4TLyY8Qg0/n8HoWKhj7pMCmkonmy7x84HhTgKCk=;
+	b=2bl0UM0W9BpMlTZh/3bZ9mExeFB7JoVFuzKAsA3aLgK8R3ghMt3nSgcEJl9O11D6avdw
+	 mkI6epUmMuBYRlG7YXRNziese9Cv7/uTASj+wjyFY/fptge3Ocqrug35TIqGy6l/w/Eyu
+	 SWbSasL5jldByVH48ykw0d9HGynXRGrxxHFrg8W6OWykiYyHv5nqNhCJkmQIqUGO1FBq1
+	 B6E9px6wKd0nH9rnXINliHgtdx8cCXIMVjPueygwjJ73ZM+OnQ46X7FldGwvTn2+++IH5
+	 t6ZybYFw0T6xoLnk4Nhi9GjsV+csS35w2EjMquLCFzbzpD4sgAr8OEVFjU0hnSjJLzg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j8Qo7URM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD91A606A68E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:35:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD91A606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=seanlyon.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=seanlyon.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A7F2606A31C;
+	Fri, 27 Nov 2026 08:35:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm2 header.b=JtE+tbmN;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=g+jnpqDs
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E6B2F1400348
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:35:51 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Fri, 27 Nov 2026 03:35:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=seanlyon.dev; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1795768551; x=1795854951; bh=2gExnDziqQ
-	CLCOyyBY+NmvOXjuQh1t7xPz+6DQ+plyY=; b=JtE+tbmNziMNaO93RAJLljr9UW
-	iU+b7KrkXpHjOTp6jFDVkjRDjUxLhbUyx+N9bjA4TKhEW6PaJHSzQwdHS8G2JejE
-	XUin9HxNpxZsjBYzOLkqudRBAKa4N8r3LiWG8JVm438+z9MrCF1/8G1RiY9ER3vW
-	kaOOmO3w2Vi0nsXXvPScDAcyKrbxeIyjaCDhxJto6kHWgqFaZJDLtJPET5psyulI
-	+t9WufGuLd47qLgCfcC2joQssK3Fm/U+4GZvO6rTO6XKqIEGzOp0S51qe3or5BTy
-	hdNBlb/ALDoANFhxI6NC9vEq+GtnhlRLnHQCv45FMLO7eAaoTKzxHbzaCo0Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795768551; x=1795854951; bh=2gExnDziqQCLCOyyBY+NmvOXjuQh1t7xPz+
-	6DQ+plyY=; b=g+jnpqDsqlBpvZONwehvJQMmClYUGx2knwQdsMbO4+qKiF6pBVO
-	At2eoxrtb0KNro68wC1uTQyvRDmN7e+bYG533lefrqBxQqO4Ysn2JFGFaGxuH0Ea
-	cRVlKvWt2GvL3o/VwnImhEnIRcKn/SwbjnRfpnxX8iUO7fAYW6Bp5K2njnzXQkwF
-	7O+QC5ViFquJu1L8zDnUP/8kISe6ehO97L4hfwv5byryiM3qMC9FgiQujGboFpf6
-	X6oW6k1XXfvLIpV8MJo+9ly4jW4SXcYFgBugu2u5ji9Xsu8VNYbH4n4kYZIPALu1
-	uPuNKjV6mWQsTXgMRdjJV8X0x0NKd3oddbQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=seanlyon.dev a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795768551; d=seanlyon.dev;
-	mf=PHNlYW5Ac2Vhbmx5b24uZGV2Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:amOF59YzIG1Uahjv8K1LRJg54bay+w2ATAkcbqACUjV1DZy
-	nzxGrsZTNcQ0n4oEd3W1OKbhsiy422uwLHkC+F0+5xpDG2hZDyP5E/Yhvy7KOglr
-	nuT/51qZP7S6pQh9lDg+gw4UzgKcSmFNKSCjHqRVgUnMxVDa8KIEbDxhC1VhqeSQ
-	jdBKjBOD+9UDWn/djsiUpvQSlQOVZq6788d+Ih91I4q2wmmOe7Kr15S+QigaLUu+
-	0hCZkHsIEgUbz10VVWuY/JR34Xu+RHO5eBNuU4TVp+bQ65d8c54YkCPF5TTdd9Vr
-	oD2YJy69nx0xPL0P96PYFd+W7vsjmydbU6yd0mw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:0HH+WWnIssLmjrsR5pRxMSaIJ2DKYH2PiV8zt1WK4bM=:OLvQCrDXRome2oCJAbqXihGX1pPGBiEVaG5msmOY7GQ=;
-X-ME-Sender: <xms:50AJawvII7EtQhN3CZnpTORI7nB06iDFGfEAcEoQE8XwiLjDmKgQ3g>
-    <xme:50AJa5VdHWIgMoWNxtSK9Rsp4rrbRRcDOHxdRxIqjSnhRUzHlnPeoTHz2OOxVhUKT
-    7rdusvsGpkywCyBcUxO-sljLa-YoMQCXlwIHpB3otBCnkB7ba9BBoSJ>
-X-ME-Received: <xmr:50AJa3SdBK1XCbNQqft8EnNmKZT81Irhr6TZtSSK-mwS3g09TrmWhX-kOVVzSgqb5xIkujx49pApKIN-PV089rkMsPg>
-X-ME-Proxy-Cause: dmFkZTEPFTcbPrtJb2BDJpmV+LLckDLJ120FG/dSg5R9gIApwBSoWB5a3yow5Ny7VlMIc+
-    Vpf6MkxMJrn8byQ4qAbuxTB+fscGrNsYzjAOaOjwaDX4Mdec2sRl4e+tvaNvYTJyp2hZ87
-    9H1DvUeTvoJNmt6fAaqLGRl9lloU1osBcAOc4p4a5rLlIB/2Fl16SVuThXChlvNpkybBS9
-    VawgdRUxDJcj1K3Mop0YQNXPtlobss07/xHfFninC9ub3KbFT/EswPQpxsnSCTJy0Tpkzk
-    q3J+10m6WyzipM6/Qq12v9r8EJ1s2YW+gc3t0snCFKScShjozuTyZ5h4KBftTxZNjBHZkQ
-    ZJPBjySHok2+hjZpsTnUQOUKGPJunjkuKBSgzNcOVrAKqTqqNpJmqf44ccZCtiRhT0WC7Q
-    OAN4aElpBnQslYbXLQhWxD+UKrjBMdsYxvvWcV+U36DLgAlFiMpKUbQ5EOW9KEoKpHv+z1
-    XYhbiqgOSS6gx5JJeLI9dcF7hFLW4CfngBr0aSMARPifoTkPj8JePIc5j+deQxvoxhumGI
-    eXOLBx7RYn4QcC02qqeI9C+LLTEqKHBm4JQHjiglgXDwtVppFvE9gpKwC9nTyKhSyZdQp+
-    XP7/G9+viSC/q9rew0xfmRvcN9Q8HWQEJLX7/Rd7rU9Sr9zFcSpwTUfDePhg
-X-ME-Proxy: <xmx:50AJa3Is0OKyPL2d8E7LxELR1rlovtXCOQ_isZeruI4jrAib93R4HA>
-    <xmx:50AJa40RFesTBybewboMRcEDacHB0Ggexd3tLzu8cLSYWqdVghNZRQ>
-    <xmx:50AJa6K9FDrvC9KXd_MMR9Cd6R5rJbNOUBuHQmQIWqaJC9Dztk-rIw>
-    <xmx:50AJa4lrVrTGjP8JIXaaiX17J0QEUXu2A5cfImnuB-hFtLVijKmSew>
-    <xmx:50AJa9x3GLWOp5dpr82Th-B7iTneqfzsl1hzMisIsHlTDIKNdJhznN6Y>
-Feedback-ID: i07c64b5b:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 03:35:50 -0500 (EST)
-Date: Fri, 27 Nov 2026 03:35:49 -0500
-From: Sean Lyon <sean@seanlyon.dev>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 7.3 0000/1002] 7.3.7-rc2 review
-Message-ID: <awlA5QWvNxlXr58e@ncase>
-References: <20261126105729.110697432@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j8Qo7URM
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795768549;
+	b=Boi+uN21gologXLIxZrvU0SbiF5sRCfgapkHiYCfYkafGshEkK60u+Qjrgu7T0QO7u6w
+	 X4Du09S810iMmJSsWn4VAx1w6rl77mW4jDFhNexoOOnaj1XPVRInHD5UTdq2ZB8iD4kX3
+	 8X7Aq677tcyUi2XqF7fQQPMDfW8MDTyk9fOO8cp8k4rEL5PanZbor/x0PZuauPX69+3iv
+	 S+N0MTavVYFb0GT+FLpo5BuBp1GHaZfk6fwFYfvpQ4EwVNMphMglD+DkqKDdRjMqQIWRR
+	 rgubQm/ODn/dbVBaekzNiNY7NfODTbhiocBRy6IBGd/cDuZ+dnvkFhniaPSPveQXZoA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795768549;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=RFWM4TLyY8Qg0/n8HoWKhj7pMCmkonmy7x84HhTgKCk=;
+	b=w2dnU0/jqyBKg+CL2tH4g6SsH+wOXTbNBLajI6/Bv7ROx68xy5p3rqgeWS/N7X+cxQNx
+	 6ZQxtGBIbJVfrI9mM4bhXYTGy838/08JNvhGwHhq7uUXvVs24wLIxB0MQY6OTwTUpR3Hs
+	 QtXkrS543yPKmmYG14WV1Q90qZbiPTL6YkiKth8MADjNGZJNik88tWvPfzzBefSMwlcMq
+	 7IyhgipURlzd4wWV4k9dyClIaH7RkIKexqEuq6yAM925zdDu4lxDHDbl5PEcVfNJ0+jBb
+	 XLUOY2M5pMr4VI6u5+eYkaxG76WuizD9Y9xeyl87tfg5Ea5NYpbbAo5aMuK1bLNxACQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id D3E591F008A0;
+	Fri, 27 Nov 2026 08:35:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795768549;
+	bh=RFWM4TLyY8Qg0/n8HoWKhj7pMCmkonmy7x84HhTgKCk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=j8Qo7URMqt7e9OtFRB7J3aawIIqnDIPSPsjxG6Qx7XEPyi+EvtL7b+906xei8Dfv3
+	 +EkGoG1OoqGwAWS4HTkK5idFUjJeCBxMNyl7bGDvc0K+UjPdKP48fAKDBJUN94PKkn
+	 kCi4SuPu4wb2CnId6hOMRLEA/ZyrPtleIksbxWu3zwQIXMypGQLxpEOVTAIFvkXBqd
+	 qC0RLlsp7vZUVuC0xgjEVvGfi0wGGXXG4IR9d37UZ8vETgyb+n6r9O76f5JcpJYVnX
+	 dYjCUrDOs7361Q3DUtI6Ma+ACAqVRSCzKxOmaDeymJ9KyB8He1mgnBVUddSBxMVUEF
+	 xpDQvovm717rw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 187264B652;
+	Fri, 27 Nov 2026 08:35:29 +0000 (UTC)
+From: Murad Dadashev via B4 Relay <devnull+llamapersonaltv.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 11:35:17 +0300
+Subject: [PATCH 06/10] wifi: mt76: mt7603: defer WTBL updates when register
+ access can sleep
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,23 +83,312 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126105729.110697432@linuxfoundation.org>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-mt7603u-v1-6-369bee9846f8@gmail.com>
+References: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
+In-Reply-To: <20261127-mt7603u-v1-0-369bee9846f8@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Murad Dadashev <llamapersonaltv@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795768526; l=9247;
+ i=llamapersonaltv@gmail.com; s=20261127; h=from:subject:message-id;
+ bh=Vk5De/9hWLwKs50xfkLnB/Q8/ooC2MK/9jdwGTeu/+0=;
+ b=dFnqVPeAvwePEgZztm1nk7KxhGiZZ8zrBdW/YTnRh8JGiFPPcYiDAUaBqTB3iHPwk32NoxeDJ
+ DYDH4YwGqGRAryDQ3STvJXIQEdsvlB/+PIAKO1jvFuND8jtKPmdt4w1
+X-Developer-Key: i=llamapersonaltv@gmail.com; a=ed25519;
+ pk=CeMIX207ioWRbMAA6A2GYgT+DpeVlKHVn7I0KjfHeCg=
+X-Endpoint-Received: by B4 Relay for llamapersonaltv@gmail.com/20261127
+ with auth_id=1664
+X-Original-From: Murad Dadashev <llamapersonaltv@gmail.com>
+Reply-To: llamapersonaltv@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 11:58:20AM +0100, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 7.3.7 release.
-> There are 1002 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+From: Murad Dadashev <llamapersonaltv@gmail.com>
 
-Built, booted, and tested on hardware for x86_64:
+WTBL rate, SMPS and power save updates are issued from atomic context:
+under mt76.lock and ps_lock, from the TX path and from mac80211's
+sta_rate_tbl_update callback. That is fine with MMIO, but register
+access over USB sleeps.
 
-- AMD Ryzen 9 5900X, Nvidia RTX 3080 (nouveau)
+On non-MMIO buses, queue rate updates and apply them, together with
+the SMPS setting, from a work item. Record power save transitions per
+station and write them from a separate work item. In sta_remove, call
+mt7603_filter_tx() outside ps_lock on these buses.
 
-No regressions found.
+No functional change for MT7603E and MT76x8.
 
-Tested-by: Sean Lyon <sean@seanlyon.dev>
+Signed-off-by: Murad Dadashev <llamapersonaltv@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7603/init.c   |   4 +
+ drivers/net/wireless/mediatek/mt76/mt7603/mac.c    | 136 ++++++++++++++++++++-
+ drivers/net/wireless/mediatek/mt76/mt7603/main.c   |  12 +-
+ drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h |  13 ++
+ 4 files changed, 156 insertions(+), 9 deletions(-)
 
-Thanks!
-Sean
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/init.c b/drivers/net/wireless/mediatek/mt76/mt7603/init.c
+index d4d631958c56fc0ee54596c5fed7a983fcf0278b..66b65ec2add7ccdd4d205ee203d10b3d221cae7b 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/init.c
+@@ -513,6 +513,10 @@ int mt7603_register_device(struct mt7603_dev *dev)
+ 	dev->mt76.bus = bus_ops;
+ 
+ 	spin_lock_init(&dev->ps_lock);
++	spin_lock_init(&dev->rate_lock);
++	INIT_LIST_HEAD(&dev->rate_list);
++	INIT_WORK(&dev->rate_work, mt7603_rate_work);
++	INIT_WORK(&dev->ps_work, mt7603_ps_work);
+ 
+ 	INIT_DELAYED_WORK(&dev->mphy.mac_work, mt7603_mac_work);
+ 	tasklet_setup(&dev->mt76.pre_tbtt_tasklet, mt7603_pre_tbtt_tasklet);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+index fb5e06d04e5a943a4536676fdf7676e6789db6df..efe680d67e4af728dbef32290a55e4279926f532 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+@@ -236,17 +236,12 @@ void mt7603_wtbl_set_smps(struct mt7603_dev *dev, struct mt7603_sta *sta,
+ }
+ 
+ static void
+-__mt7603_wtbl_set_ps(struct mt7603_dev *dev, struct mt7603_sta *sta,
++mt7603_wtbl_write_ps(struct mt7603_dev *dev, struct mt7603_sta *sta,
+ 		     bool enabled, bool filter)
+ {
+ 	int idx = sta->wcid.idx;
+ 	u32 addr;
+ 
+-	lockdep_assert_held(&dev->ps_lock);
+-
+-	if (sta->ps == enabled)
+-		return;
+-
+ 	mt76_wr(dev, MT_PSE_RTA,
+ 		FIELD_PREP(MT_PSE_RTA_TAG_ID, idx) |
+ 		FIELD_PREP(MT_PSE_RTA_PORT_ID, 0) |
+@@ -264,6 +259,55 @@ __mt7603_wtbl_set_ps(struct mt7603_dev *dev, struct mt7603_sta *sta,
+ 	mt76_rmw(dev, addr + 3 * 4, MT_WTBL1_W3_POWER_SAVE,
+ 		 enabled * MT_WTBL1_W3_POWER_SAVE);
+ 	mt76_clear(dev, MT_WTBL1_OR, MT_WTBL1_OR_PSM_WRITE);
++}
++
++void mt7603_ps_work(struct work_struct *work)
++{
++	struct mt7603_dev *dev = container_of(work, struct mt7603_dev,
++					      ps_work);
++	int i;
++
++	mutex_lock(&dev->mt76.mutex);
++	for (i = 0; i < MT7603_WTBL_SIZE; i++) {
++		struct mt76_wcid *wcid;
++		struct mt7603_sta *msta;
++		bool filter;
++
++		wcid = rcu_dereference_protected(dev->mt76.wcid[i],
++						 lockdep_is_held(&dev->mt76.mutex));
++		if (!wcid || !wcid->sta)
++			continue;
++
++		msta = container_of(wcid, struct mt7603_sta, wcid);
++		if (!test_and_clear_bit(MT7603_PS_PENDING, &msta->ps_pending))
++			continue;
++
++		filter = test_and_clear_bit(MT7603_PS_FILTER,
++					    &msta->ps_pending);
++		mt7603_wtbl_write_ps(dev, msta, READ_ONCE(msta->ps), filter);
++	}
++	mutex_unlock(&dev->mt76.mutex);
++}
++
++static void
++__mt7603_wtbl_set_ps(struct mt7603_dev *dev, struct mt7603_sta *sta,
++		     bool enabled, bool filter)
++{
++	lockdep_assert_held(&dev->ps_lock);
++
++	if (sta->ps == enabled)
++		return;
++
++	if (!mt76_is_mmio(&dev->mt76)) {
++		sta->ps = enabled;
++		if (enabled && filter)
++			set_bit(MT7603_PS_FILTER, &sta->ps_pending);
++		set_bit(MT7603_PS_PENDING, &sta->ps_pending);
++		queue_work(dev->mt76.wq, &dev->ps_work);
++		return;
++	}
++
++	mt7603_wtbl_write_ps(dev, sta, enabled, filter);
+ 	sta->ps = enabled;
+ }
+ 
+@@ -751,9 +795,89 @@ mt7603_mac_tx_rate_val(struct mt7603_dev *dev,
+ 	return rateval;
+ }
+ 
++struct mt7603_rate_desc {
++	struct list_head node;
++	struct mt7603_sta *sta;
++	u16 wcid_idx;
++	bool has_probe;
++	struct ieee80211_tx_rate probe_rate;
++	struct ieee80211_tx_rate rates[4];
++};
++
++static void
++__mt7603_wtbl_set_rates(struct mt7603_dev *dev, struct mt7603_sta *sta,
++			struct ieee80211_tx_rate *probe_rate,
++			struct ieee80211_tx_rate *rates);
++
++void mt7603_rate_work(struct work_struct *work)
++{
++	struct mt7603_dev *dev = container_of(work, struct mt7603_dev,
++					      rate_work);
++	struct mt7603_rate_desc *desc, *tmp;
++	LIST_HEAD(list);
++
++	spin_lock_bh(&dev->rate_lock);
++	list_splice_init(&dev->rate_list, &list);
++	spin_unlock_bh(&dev->rate_lock);
++
++	list_for_each_entry_safe(desc, tmp, &list, node) {
++		list_del(&desc->node);
++
++		mutex_lock(&dev->mt76.mutex);
++		if (rcu_access_pointer(dev->mt76.wcid[desc->wcid_idx]) ==
++		    &desc->sta->wcid) {
++			struct ieee80211_sta *sta;
++
++			sta = container_of((void *)desc->sta,
++					   struct ieee80211_sta, drv_priv);
++			__mt7603_wtbl_set_rates(dev, desc->sta,
++						desc->has_probe ?
++						&desc->probe_rate : NULL,
++						desc->rates);
++			mt7603_wtbl_set_smps(dev, desc->sta,
++					     sta->deflink.smps_mode ==
++					     IEEE80211_SMPS_DYNAMIC);
++		}
++		mutex_unlock(&dev->mt76.mutex);
++
++		kfree(desc);
++	}
++}
++
+ void mt7603_wtbl_set_rates(struct mt7603_dev *dev, struct mt7603_sta *sta,
+ 			   struct ieee80211_tx_rate *probe_rate,
+ 			   struct ieee80211_tx_rate *rates)
++{
++	struct mt7603_rate_desc *desc;
++
++	if (mt76_is_mmio(&dev->mt76)) {
++		__mt7603_wtbl_set_rates(dev, sta, probe_rate, rates);
++		return;
++	}
++
++	desc = kzalloc(sizeof(*desc), GFP_ATOMIC);
++	if (!desc)
++		return;
++
++	desc->sta = sta;
++	desc->wcid_idx = sta->wcid.idx;
++	if (probe_rate) {
++		desc->has_probe = true;
++		desc->probe_rate = *probe_rate;
++	}
++	memcpy(desc->rates, rates, sizeof(desc->rates));
++
++	spin_lock_bh(&dev->rate_lock);
++	list_add_tail(&desc->node, &dev->rate_list);
++	spin_unlock_bh(&dev->rate_lock);
++
++	queue_work(dev->mt76.wq, &dev->rate_work);
++}
++
++static void
++__mt7603_wtbl_set_rates(struct mt7603_dev *dev, struct mt7603_sta *sta,
++			struct ieee80211_tx_rate *probe_rate,
++			struct ieee80211_tx_rate *rates)
+ {
+ 	struct ieee80211_tx_rate *ref;
+ 	int wcid = sta->wcid.idx;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/main.c b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
+index 80dafe89e2c54c1148611b89c7cd65885214463c..ca4f66bde33a668d9f4cff85512a082407eaaf44 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/main.c
+@@ -379,9 +379,13 @@ mt7603_sta_remove(struct mt76_dev *mdev, struct ieee80211_vif *vif,
+ 
+ 	spin_lock_bh(&dev->ps_lock);
+ 	__skb_queue_purge(&msta->psq);
+-	mt7603_filter_tx(dev, mvif->idx, wcid->idx, true);
++	if (mt76_is_mmio(mdev))
++		mt7603_filter_tx(dev, mvif->idx, wcid->idx, true);
+ 	spin_unlock_bh(&dev->ps_lock);
+ 
++	if (!mt76_is_mmio(mdev))
++		mt7603_filter_tx(dev, mvif->idx, wcid->idx, true);
++
+ 	spin_lock_bh(&mdev->sta_poll_lock);
+ 	if (!list_empty(&msta->wcid.poll_list))
+ 		list_del_init(&msta->wcid.poll_list);
+@@ -714,8 +718,10 @@ mt7603_sta_rate_tbl_update(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+ 	msta->n_rates = i;
+ 	mt7603_wtbl_set_rates(dev, msta, NULL, msta->rates);
+ 	msta->rate_probe = false;
+-	mt7603_wtbl_set_smps(dev, msta,
+-			     sta->deflink.smps_mode == IEEE80211_SMPS_DYNAMIC);
++	if (mt76_is_mmio(&dev->mt76))
++		mt7603_wtbl_set_smps(dev, msta,
++				     sta->deflink.smps_mode ==
++				     IEEE80211_SMPS_DYNAMIC);
+ 	spin_unlock_bh(&dev->mt76.lock);
+ }
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
+index 8559a1ee06cd79a00ec4e382065f24f5180a8a21..6c4836fbd2264288b99b0b6780f66b776a92e930 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
+@@ -81,8 +81,13 @@ struct mt7603_sta {
+ 
+ 	u8 ps;
+ 	u8 ps_sleeping;
++
++	unsigned long ps_pending;
+ };
+ 
++#define MT7603_PS_PENDING	0
++#define MT7603_PS_FILTER	1
++
+ struct mt7603_vif {
+ 	struct mt7603_sta sta; /* must be first */
+ 
+@@ -110,6 +115,12 @@ struct mt7603_dev {
+ 
+ 	u8 tx_ant;
+ 
++	struct work_struct rate_work;
++	struct list_head rate_list;
++	spinlock_t rate_lock;
++
++	struct work_struct ps_work;
++
+ 	u32 rxfilter;
+ 
+ 	struct mt7603_sta global_sta;
+@@ -189,6 +200,8 @@ int mt7603_dma_init(struct mt7603_dev *dev);
+ void mt7603_dma_cleanup(struct mt7603_dev *dev);
+ int mt7603_mcu_init(struct mt7603_dev *dev);
+ int mt7603_load_firmware(struct mt7603_dev *dev);
++void mt7603_rate_work(struct work_struct *work);
++void mt7603_ps_work(struct work_struct *work);
+ void mt7603_mcu_fill_msg(struct mt7603_dev *dev, struct sk_buff *skb,
+ 			 int cmd, int *wait_seq);
+ int mt7603_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+
+-- 
+2.47.3
+
+
