@@ -1,53 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773491;
-	b=tip6hKKTRfwfOxX8Yd6asrX1b8wKO9twp8XteOrsTQto5bpWiBNbQZmduzoJkERUbNCi
-	 tmtBE+939V4QiTHlInq9U6TcNQIcNfRtT+U6JfYaKLkVx5/zpceUgternnjGZ8UJGSIQS
-	 j3XGPNRREbGZA+8EMxsuvsKjH/dMuUduhsZ+j5Tmov0xH8unZMAKgmUlZzzy/MEVbMMAn
-	 5ZkY8/DL4ir9bqWFqf9X7MICyOlkA8eV5nR0jnRadhctvNZZR8B0nanz5ZMCLsQPVIqBZ
-	 pe8d/3FHTfj+XEyT00Vl9bg5Pe2rw9fkFrQ+BoWmklnreAG/SGg+NCK01GqREfp4Yxg==
+	t=1795773501;
+	b=BANysnpkiAyoWIDU3mbvPUOUGBbZdYszPZqmh9c33MNav9I2OPdeHZ3drPtAXgcznpfC
+	 AJ9JSVgvJZAtraH3hD+9njHUU4qsHkIBqU1H6K8ybN2f3je5QXPHyVdb5bGoXNqT+/z/U
+	 Qq0MkSVFvbnrLQYSuBvmDqByHFHpQWR3eY7pD82s2xzvVaoAhE3w6KBYDdRZtcLL2z3Mb
+	 sLUrF4L9He8kxrCXirULxVkf+zBhqk88IWD2/oFTKOJQ+rHq9e3N6XPW/+P5wLhbsJuVt
+	 uhXTtI2KIvSlD//yI4Ujlz+I3qDKQuv90rZWvtvIA6N0wPJN4b3PBcPsYZ2VY2hWGqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773491;
-	h=DMARC-Filter:DKIM-Signature:Content-Transfer-Encoding:
-	 X-Original-From:Content-Type:Cc:Mime-Version:Received:X-Mailer:To:
-	 From:Subject:Date:Message-Id:X-Lms-Return-Path;
-	bh=r97hwU4N17SfwVsqc3YaeybiabS3NKCnaokufXXj/3U=;
-	b=gAz631dRAbctyKtKjrTirMGYfJsm3dBEr5wYupjVG0LasFjdW7jcjVqSsyM/UEjMPdt/
-	 CU+DpOaRolQbaEej5TkJtQZ9WYOmFuigCY8KT+DYQ6KMSN4kYeafnb805EeFg/Le/4SbG
-	 sTg8ZnOWzLIzkJmLrf6lP7iJiV964nMXJccz9VnoJkqRC+9LOArhj4hV+kv43hCc+b3bg
-	 6wEOMBRINbCHTOs8PWZh5gr+FFkOYnUJhhvdzg00myttpWM98PrcFI6SiL87IiKYzf9LH
-	 m8JwLLJvOM+nrDRgFHFOnwTAFLlWVnkBL99ujTgxRohD2yzw+kgXYjdN0xB5NgcKKKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795773501;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=wFtcawCZBw06PtvuJYjR3VuN63PM3tHs+W6Jju908aQ=;
+	b=OKNKXa5R5hButh77Ev9Vh6esxtC5ttOU0/PdrtVy9LUkCIgH4gVvAjvs1uq8XAzwDjPW
+	 NT9gVSa03lRhRwezmT04ckSbp614B3QfXtVtyykLLmUUJeC2Pxdc2j8vI52tqfg5gZRL+
+	 9GWJv8biBIrbChb1XME9m0VQktDsCYRf56MjeQFbKkmjatUye5rUVN9DoOY83ArOfAA2X
+	 NGJzQUtLJcqAgGd/q5LG4FCnP93TbqenJ/Xk1OXETzJf2apV3FAF0wRrPALqMhF2VwKUq
+	 juAL30CE9CGtZjeHG1PAeIZ7x0s4jw6qCC94aSS9gED0vbU745wGojjOyafVHHv3r8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fygo.io;
-	spf=pass smtp.mailfrom=fygo.io;
-	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=deLjRqlM;
-	arc=none smtp.remote-ip=209.127.231.54
-Received: from va-2-54.ptr.blmpb.com (va-2-54.ptr.blmpb.com [209.127.231.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=HyOFWH2+;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A924606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:58:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A924606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fygo.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fygo.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BF0F606A697;
+	Fri, 27 Nov 2026 09:58:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BF0F606A697
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=deLjRqlM
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795773485;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=r97hwU4N17SfwVsqc3YaeybiabS3NKCnaokufXXj/3U=;
- b=deLjRqlMeFXGfaTCUmTB/SS8Vchcdk7FnkZ8FSOaPyfZuvyZpKqxrJDcTI5WWIfcomBrLH
- tBvnYp3X/LC2ei/RXfb4oCZUPk5wl3yMNqVSAYUhi17Q83/8uX/trL0pSyMOshZ7TBmjQR
- tnw3PHwxhqc2YwofV4+GyKhfQZ9kdOIIjNQ/jZqqw9IBODefFZazLcT7npBGqGFo+fDOjO
- IhqJcetpVrl16B5K2gL9fYK/OHwdSjFGc6jgYdRF7Zue9y88QzFJoLoEDm2sB0p+BI2VUm
- XpCr0eUniwRAHAHqCiYrWGArOqjLKzMWvbGSbA9FRCBoSS4qyUoADL7aAE7pAw==
-Content-Transfer-Encoding: 7bit
-X-Original-From: Ni Xiao <nixiao@fygo.io>
-Content-Type: text/plain; charset=UTF-8
-Cc: <linux-raid@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	<song@kernel.org>, <pmenzel@molgen.mpg.de>
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=HyOFWH2+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795773493; x=1827309493;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=DaXL1DAidTh6X6TkoOGF7Q30/YlnfCIyWWMZ8ExtYdw=;
+  b=HyOFWH2+VsTl7Eos7Ki1zdg8ectHbdb+m9kuSJgTCHylORrjpQfJ3gCp
+   J+4hYKXqMl+G3KcSY48OkfaqCrpFXgsLKgEW4dMHt/G7UjYjYa0iLk7/L
+   0yTDaRPXjN77tq6YGrHnkcARN0HMIRaa3h+GxxGD5NWPPOgLJJHK+BJd4
+   ZZBizgqcG/XpL02oWyIMRo4OhtMRsBS2K9bEwzvmpOK2WExfrr8zRaMgM
+   0ocb2VXEzu14rp3EsjX70KVjQANvg6OYdrGCJvf5DsSNOjRuMHzWVul6a
+   Gvt6RtCIBVbRRTDS2Tb/4qwFDaiSUxhe5LeZD6hr37U4qtNHM+sUh9qfV
+   Q==;
+X-CSE-ConnectionGUID: +PloVku4Qiuz6CvEN1dupA==
+X-CSE-MsgGUID: qa8CNH3lQgqtkX4d3YL/TA==
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="67133839"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 02:58:12 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Fri, 27 Nov 2026 02:58:10 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 27 Nov 2026 02:58:09 -0700
+Date: Fri, 27 Nov 2026 10:58:08 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Yufeng Gao <yufeng.gao@canonical.com>
+CC: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<linux-phy@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH] phy: microchip: build both SerDes drivers when they
+ share a config value
+Message-ID: <20261127095808.iucj67lrtxzn2zir@DEN-DL-M70577>
+References: <20261126140521.237240-1-yufeng.gao@canonical.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,37 +82,30 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Received: from localhost.localdomain ([183.34.163.136]) by smtp.larksuite.com with ESMTPS; Fri, 27 Nov 2026 09:58:03 +0000
-X-Mailer: git-send-email 2.50.1
-To: <yukuai@fygo.io>
-From: "Ni Xiao" <nixiao@fygo.io>
-Subject: [PATCH v2 1/1] MAINTAINERS: Update Ni Xiao's email address
-Date: Fri, 27 Nov 2026 17:57:50 +0800
-Message-Id: <20261127095801.79633-1-nixiao@fygo.io>
-X-Lms-Return-Path: <lba+26b09542c+89e27a+vger.kernel.org+nixiao@fygo.io>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261126140521.237240-1-yufeng.gao@canonical.com>
 
-Use the new email address.
+> The Makefile adds the two drivers with ":=" instead of "+=":
+> 
+>   obj-$(CONFIG_PHY_SPARX5_SERDES) := sparx5_serdes.o
+>   obj-$(CONFIG_PHY_LAN966X_SERDES) := lan966x_serdes.o
+> 
+> When PHY_SPARX5_SERDES and PHY_LAN966X_SERDES are both 'y' or 'm',
+> both lines assign the same variable and the second replaces the first:
+> 
+>   obj-y := sparx5_serdes.o
+>   obj-y := lan966x_serdes.o
+> 
+> In this case, sparx5_serdes is silently not built despite enabled. To
+> fix this, use "+=" (for both drivers).
+> 
+> Fixes: 305524902a00 ("phy: Add lan966x ethernet serdes PHY driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yufeng Gao <yufeng.gao@canonical.com>
 
-Signed-off-by: Ni Xiao <nixiao@fygo.io>
-Acked-by: Paul Menzel <pmenzel@molgen.mpg.de>
----
-v2: change title name
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The issue is real and the patch fixes it, thanks.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c72a281a8167..6bbee57334b1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -26061,7 +26061,7 @@ SOFTWARE RAID (Multiple Disks) SUPPORT
- M:	Song Liu <song@kernel.org>
- M:	Yu Kuai <yukuai@fygo.io>
- R:	Li Nan <magiclinan@didiglobal.com>
--R:	Xiao Ni <xiao@kernel.org>
-+R:	Ni Xiao <nixiao@fygo.io>
- L:	linux-raid@vger.kernel.org
- S:	Supported
- Q:	https://patchwork.kernel.org/project/linux-raid/list/
--- 
-2.50.1 (Apple Git-155)
+Tested-by: Daniel Machon <daniel.machon@microchip.com>
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
