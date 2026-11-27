@@ -1,55 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798587;
-	b=CFZ1tcUaI5A7GvHUqFYSTxAbe0SVGrlaD0ovh1aOOXv1Nkj470W0rB3WoJA2+arnUT6K
-	 WJQUHGUbuERajE4+hJkGkSA6iKdA2NFtMiz5k4RMEg3iveX/iMi0LwS8I7vve/hdi8JMm
-	 pnpCrqbmUseNLjRSdPbP1FyKZdB6MzaeRs2NVPe2UBhDTZEFmL+t/p4LgmfL+qtzSX9eK
-	 GVhsBheoXqSnbjLYUZHCWXALTgLOv8LiVVDojDCdPEDhNX0mAgW/T76hzQNFRwroakA0l
-	 2xuVt/UI8q9CUmvS1/XeTwgmqulOmGHNFnLKC1UJ5Ac2z4VGHqHdU8BHpBarFEz8ISA==
+	t=1795798633;
+	b=PpQ7g4edQ3jH2Ldeu5P6pw0gtVb2bR3MSDbzfiZPWLh8i6c/fb5nGNFrHHh13j/FVNfk
+	 9l86lBkNfo2w+bhIWycEWNnztz9RkZIEUnN2DG3mkZm7zcxPEFwu3/sf4zgw6q1ZthiYj
+	 GWeTPcfOS+hwCQXXwJrXuvbyE3U7wUEcwJCQu+1hllYjdQRlAph1MRrqVCyMhBSKcb6Mt
+	 ul48r8wXNAuumSk1nqdZ9mD6TkcN2waKoD+4/6TU+IrzZVKTLiCm+3qQ+TOgSJdaD8MKK
+	 q3oIHDDcluq0cEJ13DIuTGfeDh+KsfwJYjz5vrJl38fBUfzYQMi6+A53zWeYz1tmL8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798587;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=Nm5GsoRVqPZjF7NiFim3iyXJW+IHzow3RlWZbSCsnE0=;
-	b=gDGhU54fR+CWC/KOITbYAwqlMGr/MbYpvTZL4PTdz9CvBM2Y5F/EAutTyWR7ZV3BwC7s
-	 ATK9ZgqHNqqcy0FA876lThT/JBtHbvaNzcIj69dC7k+g2rtOqBaXq2omw0KA4ANqY5c0C
-	 4WJSpOmQAf5X9LCYOatjNDrmfuOeevRDNG7MsEFJ3or15GtoocXEzGjqsEl/3R+5d2Gu6
-	 Bu82zE7+vlb1mAOzOiLo2cwlr9z4NXZ7YO0Aik0aAwybKlgz/7WdzRcTENZZysiJrTXtu
-	 stcqlGChhQoXR7x5g5KcoOgu8qvqqFwQLyQ3ryGu82MORYYjSKw+f6mHjmzvqCYA2iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798633;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=QWqsYXBpyz119NEUDtLLwZ6AbhGxnRQniGPx+qgcEmI=;
+	b=IhoJCeYxW+whgb+A1dvz1Eu1pwRBn5PnsJOVmmdhaLbJmeg8yLjtln+P2lAxtfgFXdkx
+	 RNfdjG5oW5LYsNDmNNQ2iHVOffvdQjg1hwHoBsgSTubskzJitIG0sZnOwqXfM/P4rvn8l
+	 7vTlCqsjthwnQ4JNZd3xdf/dng3picvpyN7H/WJOAL9x2kYqtUWaA5YPY/XgTvsk1ciaO
+	 1M3v12JDQCmdef+DcoiMH6zrFLKuCBnjb4Fk8ti2ZKXVa9lteRpIAxNo95WPeddXe5coU
+	 Kcn/SqwZUrCAQfMiPNMDI6TQZ9OzfIvBUOYbXV2XXQN3qSgSjsx8Yd3JlF5ZKFIK2aA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mjskCGsz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="QI/W9g6P";
+	arc=none smtp.remote-ip=209.85.208.175
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com [209.85.208.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93C3F606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:56:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BCDE606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:57:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BCDE606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mjskCGsz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A00D1F000C1
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:56:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798587;
-	bh=Nm5GsoRVqPZjF7NiFim3iyXJW+IHzow3RlWZbSCsnE0=;
-	h=From:Date:Subject:To:Cc;
-	b=mjskCGsz2pDTrTgeONRGn+PMQABd/uH6PeN26AYNzWZhyYa64nEaGLZzdHprB93bG
-	 NnJoYAKbEpMpV8rVn5tOtyhrpqQ8yl3LKf1UVC26d1ZyOzlL1xkNw/4WA5fL4CIazj
-	 V2rerAfFPSROYqP7t1y2wEnbMCBh9w9qJIFfbh156bu82NADA7VOSwrBfIbXbzoBWo
-	 WP2QxC2phptBQxl80m+85MZ8tfAcbvO1MQA8ev9tqjtithDksiJLsxxYGtiB/LZchR
-	 XvTsP+2k3fWZdcrJlAb8q2J6jpnqZnmP/ZWO7esQewRUInDG7nHDKq7zoVtWVbhJrD
-	 1XFlgCaPTKpoQ==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so2196582e87.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:56:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGlur32BZ7OOczPs1x0BUDsD7w1kJAXhqEiuBhTeko2qizMKpF6rmphpTpqFJXuYo0QEQc6xjgzraXTBq4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dIHRRGtLHYCpAUHsTaXBB9TzUXPOxdAbJdQw8KgU5wCe5pdB5
-	ggMexe0FUQVhrC5avofp+9RmILKjjhsw61emQFmFFkmfjav7YQjN3j2PjbPwNtoE+RRE5t1E9m5
-	RJS1lC9kJ95ylrP1+m4HgKZcGHt5fhN4=
-X-Received: by 2002:a05:6512:6695:10b0:5c0:bca:77cd with SMTP id
- 2adb3069b0e04-5c1bc803ecamr5353701e87.42.1795798585547; Fri, 27 Nov 2026
- 08:56:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QI/W9g6P
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3afa1c39d76so28102791fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:57:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795798631; x=1796403431; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QWqsYXBpyz119NEUDtLLwZ6AbhGxnRQniGPx+qgcEmI=;
+        b=QI/W9g6PjguWumNsp9s0QYCFEI23Sog6oyqQgBpp69luFOXlyrR1dbrXKT4OMtXmkg
+         960LJZH8wn/+6080Dhar9oYc9AJQw15bHHtBrlu2zPV34np4CI1QvLb2JrssV5i5/WoM
+         NqZwGUjgm1mwj+W3ACM6l7ft8tePKzz1K+El/g7rpVnE3a3oAvyJpLFm42VAbUxbbmsu
+         K8j6Kfb5alXIO+IuxdwkPw0Y7I1XL1V5N/RXmG6CD/zjr7QCCJEeguOoloOSctsq5wug
+         JEsQyYjCFOrELybveazwHiGm2rsEuECvQa5iJuBda8aKPQ7O+JmLNwCvHPfL0csBRyKZ
+         qG7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795798631; x=1796403431;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QWqsYXBpyz119NEUDtLLwZ6AbhGxnRQniGPx+qgcEmI=;
+        b=dFFHWkUlDugw2ztLD4QzT+bUXHcym7q+EclFVLCJvi/N0/liBy6WyoRP4PdxRCxLAT
+         HClnTwLYzC0jcQ/iAyNRlDjYJIrjso4gS1HK0WWhQqQidMecPHwcqjGKrPEEcaLLlzAl
+         +QjCGnM7TuPigkgw0pUF+YI2eH0abafL9QMRRWpHRTYxcDjVyTrNBWYgSTbxfIoPQWW2
+         JFCTeTeH6+ADCoRp8BG6VLS4dMmIashig1sSoRiHL/W9MpoUYV1uF6tMBjmyYklP+8qD
+         9BFRlKZOp8W1+CWqP6qi42eBTRkQUI3aKlKqDKw7B2OV8fH9axSnZyqykIOLQ2Xww6BD
+         ZZNQ==
+X-Forwarded-Encrypted: i=1; AL+hErHDFVFtpI8d+tPWhZ3ezPF6IVDuxUu5cYp6eMd+POmbyWVoTDuoscmOL5gYcuvOFdzrb45tzBwA6Uf++bU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/MD6hesErDedvCo+GPV+wRWVEbg18hXo9Pc3vJJQbpfPhcnJWP
+	aXMiUGSK8jwLpBsStlAbpe+UzMp6vQ231tSkl9W+73TPzFeZmrvXlUqTFI4ge2Ei
+X-Gm-Gg: AZFdTZfIivO3Zo/LwiObERsboQECoaXdbHrLRaYlnOO+uppIIxnxFyTpAl+ZbsB6hwz
+	i65qAHZDmOJYhhcN6ZydSlOxNJNL2Xk88qx1uYcdEj7v8R5Aafl1dSv9zQ0kj5zf/uHTfA52OJO
+	28VreczQsxQczeTlCv9DmXk9zcnH+lsASD1ANqXBQY9IxcMVhXsolyLxJ9LGJNe/+ZAa2d8WYUW
+	O05Kzdtf0fx+7brD/luhJcrFH/SzRvwd83ayBCumcP3J4eUesnqiOnJujrEV8Xku+f8zxFXvubp
+	BpfExaQlxqYBs9iRvUiopKmZpx1xgOhxt/gW/LIGx92VHtuhO0B2W2+S8C6+nWxc3/ht9nqgr+O
+	ebR0Q+k1cgijqYtjOjNazoVPePbKsyvhJ3ePCNGyi0rOGvMeOnLQrB2fFllVW4ngy4qXZOtCjph
+	qjIe3Vs43Aqa11A0J4cNG/Fx8YecKRu6PV9wcPgRFghnDlLUj+wZy8v1iPNx0CtDZR0U/qFjgyQ
+	rZ3ZPhbX2PNmVJlfuWY0Ll7EvXt1XdRRjReBnuXxyhcNbVxsKuADA+UAM5Tzt4+XvUWn7QC2zWH
+	q3y5NW1NOS5sdO4sIpss0Lu4TYRe/0AMFVRROf7ShJJldayHzKMML0wNLiLeo94DAxDnoUY=
+X-Received: by 2002:a05:6512:6891:10b0:5bf:d959:6ee9 with SMTP id 2adb3069b0e04-5c1bc874b47mr4871867e87.35.1795798630965;
+        Fri, 27 Nov 2026 08:57:10 -0800 (PST)
+Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04096asm6045081e87.47.2026.11.27.08.57.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 08:57:10 -0800 (PST)
+From: Magnus Lindholm <linmag7@gmail.com>
+To: richard.henderson@linaro.org,
+	mattst88@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org
+Cc: linmag7@gmail.com,
+	m.szyprowski@samsung.com,
+	kuba@kernel.org,
+	u.kleine-koenig@baylibre.com
+Subject: [PATCH v4 0/2] alpha: enable DMA CMA support
+Date: Fri, 27 Nov 2026 17:55:48 +0100
+Message-ID: <20261127165626.1352471-1-linmag7@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,56 +99,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 27 Nov 2026 17:56:12 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jwg0cGJgPnP2SaXdcHWpW_5FPq25McuQmh9794L5QWpQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qnjPoJ8mF5BIzTgERRjtaFuU95ItH4SUcHBADTGze3jzpDHyS5YxxH9To
-Message-ID: <CAJZ5v0jwg0cGJgPnP2SaXdcHWpW_5FPq25McuQmh9794L5QWpQ@mail.gmail.com>
-Subject: [GIT PULL] Power management fixes for 7.4-rc5
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Linux PM <linux-pm@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Linus,
+This series enables CMA for Alpha coherent DMA allocations and parses
+early parameters before reserving the CMA area.
 
-Please pull from the tag
+Changes in v4:
+- Rebase onto Marek's stable dma_alloc_coherent_node_api tag.
+- Pass dev_to_node(dev) as the fourth argument to dma_alloc_contiguous(),
+  preserving the previous device-node selection.
 
- git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
- pm-7.4-rc5
+Patch 1 is unchanged. Matt Turner's Reviewed-by tags are retained on
+both patches.
 
-with top-most commit 569e1eb36b033f42a9c363ffe4bfbf50bdadae51
+Built with GCC 14.2.1 and boot-tested on a three-CPU AlphaServer ES40
+(DP264 SMP), with CMA, compaction and jump labels enabled. Booting with
+cma=64M reserved 64 MiB as requested.
 
- cpufreq: intel_pstate: Use dedicated lock in set_power_ctl_ee_state()
+A private coherent-DMA probe passed 39 allocation/free cases across
+all three CPUs. Requests included 1 byte, 8 KiB - 1, 8 KiB, 8 KiB + 1,
+12 KiB, 16 KiB - 1, 16 KiB, 16 KiB + 1, 20 KiB, 24 KiB and 32 MiB.
+Checks covered zeroing, data integrity, page-rounded CMA usage and
+restoration of the CMA bitmap after free. GFP_ATOMIC requests of
+12 KiB and 20 KiB correctly bypassed CMA on every CPU. No new kernel
+errors appeared during the tests; loading the private probe produced
+only the expected out-of-tree-module taint. No hardware DMA transfers
+were submitted by the probe.
 
-on top of commit b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+These two commits were tested in the complete Alpha queue at
+b4a6d2833fb56d3cf04c4d243f00b7a3f92bd43a. The exported patches also
+apply directly to the API tag below. Both pass checkpatch.
+Other reservation-size boots and no-IOMMU testing remain outstanding.
 
- Linux 7.4-rc4
+Base repository:
+https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git
+Tag: dma_alloc_coherent_node_api
 
-to receive power management fixes for 7.4-rc5.
+Previous version:
+https://lore.kernel.org/r/20261115103809.1288167-1-linmag7@gmail.com
 
-These fix two issues in the intel_pstate driver including one recent
-regression:
+Magnus Lindholm (2):
+  alpha: parse early parameters before reserving contiguous memory
+  alpha: enable contiguous memory allocation for coherent DMA
 
- - Prevent intel_pstate from triggering lockdep splats during system
-   resume due to suspicious ordering of locks that is a consequence
-   of a recent cpufreq core update (Rafael Wysocki)
+ .../io/dma-contiguous/arch-support.txt        |  2 +-
+ arch/alpha/Kconfig                            |  1 +
+ arch/alpha/kernel/pci_iommu.c                 | 20 +++++++++++++------
+ arch/alpha/kernel/setup.c                     | 20 +++++++++++++++++++
+ 4 files changed, 36 insertions(+), 7 deletions(-)
 
- - Make intel_pstate refresh cpuinfo.max_freq when a CPU goes online
-   to avoid using a stale value of it (Hugo Sales)
+base-commit: 31f7e12d621bc5b1dcda0b5e6855e39adc8aaebd
+-- 
+2.43.0
 
-Thanks!
-
-
----------------
-
-Hugo Sales (1):
-      cpufreq: intel_pstate: Refresh cpuinfo.max_freq when a CPU goes online
-
-Rafael J. Wysocki (1):
-      cpufreq: intel_pstate: Use dedicated lock in set_power_ctl_ee_state()
-
----------------
-
- drivers/cpufreq/intel_pstate.c | 52 ++++++++++++++++++++++++++++++++++--------
- 1 file changed, 42 insertions(+), 10 deletions(-)
