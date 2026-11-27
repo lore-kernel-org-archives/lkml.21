@@ -1,49 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771542;
-	b=em7uXoeKmDgJN/xyEiFFW2mZSOaV4tyBmB9Q7ELWKoI86bR1Lo0AZWaF1YvIpIN6oIfI
-	 viC3+Uk0feMDfGXtR7Gf8CI3ACTPPpEl7PYXLQG572L5XGjl88q+AFXbZkmy8+fJJSZk8
-	 25K3Z9v+00482xGvzlvT5aAxPx3lJxOe3kRFmU0GL4XwEf0QAcXm9jDirOKetzQefkgN+
-	 l2NJHpoXj4LH7gsJRd8iOxhfemUT9Ad3ZIYVxEa0PfyHnkHay9kIKpI6I4pmdMnVdkyvr
-	 85eQp+fSPOafz93Qt7159XcfYtZaG7oGt+h5rCl+werjM53jVjn+rAFCO4VHLh6JTRA==
+	t=1795771545;
+	b=fTu83Wr9LxERN7rN/zBZKXXxAEGLhfJFt7ZQMwFhsRgrnuBGaNpMofg1AqtFpXttp/Ko
+	 1oK8mM/Bw8T3TuXhCpGkRU7h2zWVLEn/n7tFaJRWxmfLZqSFyOjbG944HdgIoXQZG7/2P
+	 Mve8XQME1e3I9og3/mDNoB4q4fC6VtVLVfcsarjYDZFewkgqahHYIKYa9ahBlcs9ZfXTV
+	 bpD1HvvGjm5yQxSMjJadqnr5yEA0hC2dwE7gBsPDRMwZsqkLBTa1/2LNdi6R+IU0W0fOc
+	 +RwiJHxXV33f815cUjH8k6QvCwWI+dO/AGglLnybsGXSrXpIzNYfTK6pVSSdz46WzWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771542;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=kRUs7ZAA7rua9kayF2pDKhc5cHCXtHDqEJmwG/etACg=;
-	b=G/EYs3vxUoW6fgp++4J9hLSEUrMsIOAv8djELRlNcim9U2yRXD5i2YK6FxCcS4d+r4cG
-	 DANjoC90jkZDj7IKYshZtfm7ff1z1DhbIfmfEogf+cAhybyCpokqgaXNiGBCGhUfAHWK6
-	 9QrYXoVfmnkCFix6fQJcSSmeL6xgVDbGUe/4ez5d8sxPU+AqDzd7pNts2AKxmYLo8rFe9
-	 y+6PtOGT4PqxaAKCqs35r1v3sQHE7eO+CvLiL5qPLUX4qmn79jaAPw7C5Y3781sU4VDrT
-	 49jKOWOgeJ7qOQBO3og++o5AU+UXUIwggStHytl7Bi8brg6boB5UMf46CpVgLYfxNJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771545;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=eb4ShHDEcPbwytF60hBjX+kNmkhn+q3+ARBxWD8KeAU=;
+	b=jcfbY95pkjoNGrAAUWRa9d3ma638HD4qMOyzucWFcdSja5wcxFYEl3+WXB9D4FSwTBzA
+	 m1iOTrI1PIEoYUT0pRu62Qf0A1EHAWmF7kit1UFoRzqYC3h8BTi5V6TkgnMww4O22R1Ze
+	 PuLcrQoPPP/vJ39FG9r+DyxVlDNzPbWuxe6NAF/Z6nqJ3WuqGUFxFwqAMntyzKx1+fD9E
+	 vDb2AXa62c/F3QRX0faRs1mS86XX0QYiVaqOdSFaB+bJD8yDOay/1+oP0FJQGy1O24SCt
+	 X6nu6j10MdBerEX7dfKvFi8cZo0Qq9xCWP6jCRyrMLjNEXe94CWS0U0MnRQfuY7Gh2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qSwD7ArU;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D7FC7606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7FC7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=M2but8Ei;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DxsuwBRF;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54844606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54844606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=qSwD7ArU
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26D5B1758;
-	Fri, 27 Nov 2026 01:25:37 -0800 (PST)
-Received: from [10.57.71.121] (unknown [10.57.71.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D74C73F632;
-	Fri, 27 Nov 2026 01:25:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795771540; bh=YSVAsM6E2UvKH/5A+IJHT62yGjSLzdtkY7GEKsxCbj8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qSwD7ArUfrns96Uw1W2Xa+LsibwtUL38fvGa1XA+o3Eb9WK1PWh0vvWyS25qzXIVE
-	 DFzPx8Q+CthlFKA6eOGCTMr/0msCmiDMzHxA/VDblvqpAGzy2czZqK1WBlUnnNfKqw
-	 B0dH1N7W29k/ong6SVwymn1QXfAEiwJV60Rr9Ozo=
-Message-ID: <9e4fa895-14eb-4770-8248-ad1da1503ddc@arm.com>
-Date: Fri, 27 Nov 2026 09:25:36 +0000
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=M2but8Ei;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DxsuwBRF
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7Gitw2421530
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	eb4ShHDEcPbwytF60hBjX+kNmkhn+q3+ARBxWD8KeAU=; b=M2but8EitmsaKmKM
+	+Y6azno8QMbXmA6Y4o8zl2+htv6TKv052mk4OQCuoLNQF3f+wtrVjVq2asliwX+f
+	3paB/VgAvJI0WpTCgciK5DY+g8pet67rsdIjI+VrnzSwhvs/rHWI2RRNmmpomG1p
+	WKa0yKWekFKKGTPxwXwJKiXI9EVqMibpYv7oTRvxLaQS91heijKg4F4WZh63AeMG
+	RtPSEtxqzdnR6xkmER68PA2H1YSHzK+erJiwU+df2k7YsetculdeWcubcI6EL9Ak
+	LmzO68FQJiGufI4U7v+PgyQpZvoZ5L4fHjUItk3cg58HvtiCqFxJmQVVN24baHjh
+	fcIydQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf92t2b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:25:43 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-949b0d322fbso1088017385a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:25:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795771542; x=1796376342; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eb4ShHDEcPbwytF60hBjX+kNmkhn+q3+ARBxWD8KeAU=;
+        b=DxsuwBRFgj4c8F5SkG62XhnLRUgrPGLTEB5pYVxU5rl8+Y5gS1YqkVyiDUMAbXB5VD
+         VciAHMhMTAxAxql/JuMtQS3cQlHLiaUF7CpEnvVuesxPMdyhPpppXL3yMz1XcO1s6BxY
+         qPyXfvjSTijDoXVsl7UJTJsUeRug8DzF5zgGHxBsdheBCXbyVEjy/ZpxP2HjlKOewkit
+         +ZlFaDEaVIAtWN+t3Uls89FIsrocrnZW122DxiV5DJg/Cru+8SrdOBoIDma3GAfT+02Y
+         oZdcZ1icXB1ve7XuFW6PyWGYnN5jv7AtpJTnoHPfy0XQ5Wg/Rj7WZNGQ4kCxte3G1pDF
+         MWUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795771542; x=1796376342;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eb4ShHDEcPbwytF60hBjX+kNmkhn+q3+ARBxWD8KeAU=;
+        b=aYhG+t8ou5cVxLgvtvFMrprY54NpOe9TqjgVvcgtzS+hNxzehawAHwEgW6QIbEr5cG
+         D5s2ybXca5mPZn00XRUq+BcEjH/kd4XyUJz2EdMDgX39CUbJfP1xljym0F1yOBTFnEkq
+         y1gfyKMxyaY1p+IItm2COH8wPTYmU8wsEK5+ry0JKxcJAFLVibV5p+po+eGV+JL0V29P
+         OCZ7hx6oJvS3rw+nEp1f9ggQa29P7XZgvpKgWAaCHJbMVxrs1Y5SWvH+pUDk+Pk+h051
+         YelTz/yIK0QaWX9ikf7lznFK64c+lwjjZU8VkP9poFxSZBjDquFpu6Y9os7p4ggHZJkr
+         2r2Q==
+X-Forwarded-Encrypted: i=1; AL+hErFmAsrDq92yoJXdwcy30X0cN6u2jzF3fURIt9zQ9juEOHoo6el3gzSGkJoVBRBHVQIH76Vs9zAVSKmacNE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ScThO7sPqcC9hsT189oms5cmUrAESslxRgIQOnHJ/yORAd9dt
+	5r6aW5S5AmU42gKp9HbdHjTlJepqx4mXngiCU2rNYdOMEgvJqD/LOse7q4SI5zLrD5YzYeL6Kr4
+	Ld3OLaFGEvhjQPHcRWPp/jxhxv90Sra2wUQuoNa97aqkoz2xna5nq+tAMEHxDL4wD5v0=
+X-Gm-Gg: AZFdTZfxW3f1PP1+gXyXlQODWBjvOa9i8P9JvgKp8e0NInzcS9buROxdqU1cHu7N5CU
+	HzXsyIjfqYjVWmn/fwSdnBo3ECVcXu5+y6W5KDknf+tLF3Ug9BSQli8PBsX5/mGXsdV/21sAz/g
+	i9nNlx6cF3wfyBin6yQzYJ494U5H1LfIGp6PGnIkym27Ba9fmdzr7XFAGxMtvrl9fThmAsKk/Rv
+	O25GFAgiJVES6EQDsXdnYGcwqfMEInfvCNeEjK/SNxeGU9F+kROzCCdQYPrAEbL4FyjTQCAOU0k
+	plpAptLUwGrStm17A03Jq3vmduMlIJ/qlQLWhhjGJzZ1qjRQ7Kf1qjmFKMZPt/5i8nKvJGYV2nK
+	ERYS+8lmMBAzYkeRkFJDqvqpUMUPYjg58covwc1l7UNzsR192uGgqiG1aaAZVxv/kCkHfUecdzC
+	ZPkW2sM8sclpgBhAlnmJM4Hj6DwJxOTFNMpOg=
+X-Received: by 2002:a05:620a:1313:b0:949:7b51:2dc1 with SMTP id af79cd13be357-949ba80f404mr4061295185a.2.1795771542161;
+        Fri, 27 Nov 2026 01:25:42 -0800 (PST)
+X-Received: by 2002:a05:620a:1313:b0:949:7b51:2dc1 with SMTP id af79cd13be357-949ba80f404mr4061290885a.2.1795771541667;
+        Fri, 27 Nov 2026 01:25:41 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:32e6:6e2f:3645:b017? ([2a05:6e02:1041:c10:32e6:6e2f:3645:b017])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm896902375e9.0.2026.11.27.01.25.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 01:25:40 -0800 (PST)
+Message-ID: <8d6f9b42-a7cb-4403-9718-e7752324b048@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 10:25:39 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,55 +117,127 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/23] coresight: trbe: Refactor buffer and IRQ
- handling
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
- Leo Yan <leo.yan@arm.com>
-Cc: catalin.marinas@arm.com, mark.rutland@arm.com, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <179571394630.2992027.10346522745976163448.b4-ty@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <179571394630.2992027.10346522745976163448.b4-ty@kernel.org>
+Subject: Re: [PATCH v3 1/6] dt-bindings: thermal: thermal-zones: add
+ hardware-binning trip properties
+To: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap
+ <rdunlap@infradead.org>,
+        Amit Kucheria <amitk@kernel.org>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, linux-pm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Amit Kucheria <amit.kucheria@oss.qualcomm.com>
+References: <20261113-thermal_bin-v3-0-878df6eef8bc@oss.qualcomm.com>
+ <20261113-thermal_bin-v3-1-878df6eef8bc@oss.qualcomm.com>
+ <20261118205056.GA839455-robh@kernel.org>
+ <eb44a4e1-fa9e-466d-9e97-f87f365ce44f@oss.qualcomm.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <eb44a4e1-fa9e-466d-9e97-f87f365ce44f@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: JwGtKI9BQh6109ThRlLjkQ4ilgl8HjaH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAzNyBTYWx0ZWRfX/ABRpuhEEKUs
+ /HagoaH+aNVUb17mhff3xj3xcbysYG4J1mZFtplTBi0BRHlNtaFdjG6/1kGL260UauZ6Bjjqf8g
+ ngeSQ9qt6ZG15N/Pikx3YotM62z/KC5D6/r0o5tnYgmWGE9SIIj3tg3V1keL5VaE2PE4jf80mjA
+ 0TasObYza0J6RVn/9vXnfwuYeivtVFCorVX+ANV/0v0PsOPVVKNI5Q3UoegY+EL0LELF9+VUKW6
+ 00BQ3cBE5pmZgp0kjjFxOD6c4QyH9nYtmBHbAXSrPiIgn5pGE5YQXUgfVDlOgvRYzaswh+O2xzi
+ 3OAMYtNxU8wfWxW1yJE4iENmSWgY1XG773XPWiWqsEGJxxEcw7/068Icwsvt4O6ob4TTJS02f/x
+ Q+BlNerQpkd6yGE+PEYCcdX11niOwylRooxr3YUlVM1hPePCEqxvyqbFzr3bMKZRbzLaBUv/gU9
+ xqxkeGR1Bx8Gz1y6H+A==
+X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b094c97 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
+ a=7tqQl3XV2vr3itYC2nIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAzNyBTYWx0ZWRfX/cF5HLGecGTy
+ 1FwUDILc615MDRj/fQ+gEopHTKs8qkJsP3dYZXHqRRWRka3Rc/mcX+Rhvev6skCaQqKeR/q9118
+ l5YQhZF3bDss5hocVsEyN+X3FtxMw9U=
+X-Proofpoint-GUID: JwGtKI9BQh6109ThRlLjkQ4ilgl8HjaH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270037
 
-On 26/11/2026 17:56, Will Deacon wrote:
-> On Fri, 16 Oct 2026 17:54:58 +0100, Leo Yan wrote:
->> This series follows the earlier TRBE buffer refactoring posting [1].
->> The work is now split into two parts. This first part contains fixes
->> and refactoring in preparation for wrap and trigger mode support.
->> Support for those modes will be sent separately.
+On 11/20/26 07:47, Gaurav Kohli wrote:
+> 
+> 
+> On 11/19/2026 2:20 AM, Rob Herring wrote:
+>> On Fri, Nov 13, 2026 at 02:13:44PM +0530, Gaurav Kohli wrote:
+>>> From: Amit Kucheria <amit.kucheria@oss.qualcomm.com>
+>>>
+>>> Differences in SoC packaging can be used to provide multiple SoC SKUs at
+>>> different thermal and performance characteristics. The underlying SoC
+>>> remains the same except for how much heat the packaging can dissipate,
+>>> thereby influencing the critical trip point at which an SoC SKU needs to
+>>> be throttled. This SKU-specific data is typically burned into fuses
+>>> during manufacturing and can be read back at runtime.
+>>>
+>>> Add two optional trip-point properties to describe this:
+>>>
+>>>    - 'temperature-bin': an array of per-bin trip temperatures, used
+>>>      instead of 'temperature' when the trip depends on the hardware
+>>>      revision encoded in fuses.
+>>>
+>>>    - 'thermal-hw-bin': one or more bitmask groups describing the 
+>>> hardware
+>>>      revisions for which a trip point is valid, modeled on the
+>>>      'opp-supported-hw' property of the OPP framework.
+>>>
+>>> Signed-off-by: Amit Kucheria <amit.kucheria@oss.qualcomm.com>
+>>> Signed-off-by: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+>>> ---
+>>>   .../devicetree/bindings/thermal/thermal-zones.yaml | 60 +++++++++++ 
+>>> ++++++++++-
+>>>   1 file changed, 59 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/thermal/thermal- 
+>>> zones.yaml b/Documentation/devicetree/bindings/thermal/thermal- 
+>>> zones.yaml
+>>> index 999ad40a20d5..cb9a8c96d053 100644
+>>> --- a/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
+>>> +++ b/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
+>>> @@ -152,6 +152,58 @@ patternProperties:
+>>>                   situation where the trip gets constantly triggered 
+>>> soon after
+>>>                   cooling action is removed.
+>>> +            temperature-bin:
 >>
->> The patches are grouped as follows for easier review:
+>> Use the standard unit suffix.
+> 
+> Sorry, my previous reply was sent only to linux-arm-msm by mistake. 
+> Resending to the full list.
+> 
+> Thanks Rob for the review.
+> 
+> Would temperature-bin-millicelsius work for the unit-suffixed name?
+
++1 that's the suffix used in the other documentations
+
+> I’ll also add minItems: 2 and maxItems: 32 in the next revision.
+> 
 >>
->> [...]
+>>> +              $ref: /schemas/types.yaml#/definitions/int32-array
+>>> +              items:
+>>> +                minimum: -273000
+>>> +                maximum: 200000
+>>
+>> minItems: 2
+>> maxItems: 32 ?
 > 
-> Applied sysregs update to arm64 (for-next/sysregs), thanks!
-> 
-> [01/23] arm64/sysreg: Define TRBSR_EL1.EC event classes
->          https://git.kernel.org/arm64/c/9d3009259f0a
-> 
-> NOTE: I included the asm/sysreg.h change from patch 12 as well and added
-> a comment noting that the BSC encodings only apply for "Other" buffer
-> management events. Ideally, we'd be able to namespace those in the
-> sysreg file for each of the MSS2 encodings but I couldn't figure out an
-> easy way to do that.
-> 
-> Cheers,
-
-
-Thank you Will, much appreciated ! We can sort out the auto generation
-in a separate patch. I believe we do it for some other sysreg already.
-
-
-Cheers
-Suzuki
 
