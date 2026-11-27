@@ -1,125 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790162;
-	b=o7lT2726Qd5khnSUMSig1VoYkBOTo37I4fnL42hbUP4HQsOCHwiFFt2+NnaVkFgu84I2
-	 Yka+DdmGm4hQVooJrjx0+oycJP/t4bXx7W3EcoMEPJ4TBYiB+7mJA5+soOuzkgQQW3VeR
-	 WUyqDKI1U4Xg7PmUprTEixzgDAvcWPjY+Y7D5ohnCIaR27ezI/v6wtyn/YxmCYDblndEI
-	 CWHktdMfbB8xIfTX59ZPNvHAiwwtmhMlt2Dt7+yC8jhbYDmcs8TSkyJGTP4r1K7kpYsB+
-	 aa/IkYd4tXbLJVJO4bAKZjUXIorvrjfX3oLdeC2tmkzxApr/LcG8PHoq3aMHdl3EObQ==
+	t=1795790175;
+	b=YJIZ4cGyiadGOBUyTW4KAJYxVnffYjIkkYoNj2GrNnqQZEvAQzBQ5/IQmcKqWmDBvaki
+	 k+MbeiCrC48POtDbeCUjmAxpWAV564bpnfb8ZtYfnXbf3MKFxvYY5QU/LmYTCHUeTBwRA
+	 ms7adozKGKeyDeZNxmA8eU+VFoDjm3et26Q+ykLSwlOTmw65l+sdortSdeQ4LG5pDhAoN
+	 O4EOrmKRGjgBKepSI2UHMgvc9ssXQ12qWO3NJCuJTNJJLHIoBdvNNCdK6/VcQ7dCPhFeh
+	 WH+JO794Lkfr0G019orUTW1bAKHtTzFMDHrkthhJN2ouXJA8AJWeI7zqKL9EHcWGvvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790162;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=h1AojE61+j7Hu8c46cBtAoEcmrt58ic58oLtqQYdsTE=;
-	b=c+IAYofH10jl7OjyiuXrD46EkL/OqoY5RyRkxxe9u2vG4XqdDrZMOxkYSXVudXnySRjb
-	 x+TV4V2DDM3XRd4VuGqrNq9PpSk/iVb664P+gS4WKg6i/Jdkeo0DZCtJ9eRokz3CjTSpg
-	 16Hcy4nRolKXXvaxnhBOm0GQx9hi4f0VozW1hCEiX85xbND980Qmq16FvVd14FZb3xtbg
-	 /heFXDpCo1/pnbErGKXWtyxhg82so8+3zjiSazqI9iNBq4mmXNWG9hQDV7tKW4VT26dyR
-	 jm+8Kg0DIdb9rxSOh6eljQ0bVpY1F0cUNW+YVswnZArwG2lbDI7GRfJzQETgtg/7ZxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790175;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Dfv08/N+kF+Mvy690ORsGCHE5ksDbaHpXa/TyHWA4Dw=;
+	b=LqDqWslRBhVzNQ9g7dt03C8boeqUnMM7qqhR35gPX/0vKmbVE2vVBVcsDtM5OizVXIlK
+	 +pOzJN5j7OP/Smr4HUqClhRSnCX9lPE7AZN0Psqd9PPLyYVq4cEYHtOGJf/ru+OQLzVkU
+	 emAWlDBnLuN0KZN2Vvi5vknLyq/LKfWYzlDObE/XYaeyi9mC0d1+H59DnB3Novuy7wh9c
+	 ArKar5OUEdTRW6iA8R615x/ZZeBjTZt+ll1i/0c+UYI4b3s0zgK0VFXov/wxplkbE7RPO
+	 yPN2PwVUWm6Ytd1VufCy/PdPi+/mx6/aJL1UjNgCcNi3ESdrNQ8XIkhxNQ5qPcBDDrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iebjECQz;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="YUi2NU/r";
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=HuIBRMSi;
+	arc=none smtp.remote-ip=158.69.130.18
+Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FC54606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:36:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FC54606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDBA4606A329;
+	Fri, 27 Nov 2026 14:36:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDBA4606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iebjECQz;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=YUi2NU/r
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795790161;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h1AojE61+j7Hu8c46cBtAoEcmrt58ic58oLtqQYdsTE=;
-	b=iebjECQzhZRy2OVSvJ3nvWXQIqagHLRu8C4LeWag41iAgzR+sFw6AV/Q8iRtW8vbaXTAYK
-	nb4y8Jv9ZhOPj0PLob7lmT5u5Gy88krbZHhkCPwi2cxWsFETOBHxCMxOSTFwf1VDKRTVqL
-	nYT6YoQxzB/tZqvVX1s5b2NCZoIm648=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-635-HL9wX_iVNTelP0WuLmUsdw-1; Fri, 27 Nov 2026 14:35:59 +0000
-X-MC-Unique: HL9wX_iVNTelP0WuLmUsdw-1
-X-Mimecast-MFC-AGG-ID: HL9wX_iVNTelP0WuLmUsdw_1795790157
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48e00f3929bso4693982f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:35:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795790157; x=1796394957; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=h1AojE61+j7Hu8c46cBtAoEcmrt58ic58oLtqQYdsTE=;
-        b=YUi2NU/riWu8dJ1Bpb9ibOz1HKYRepeefZNbTqZkw8vDiy6XaYE0Aemfn8zi2tPb4I
-         HKSZXwV8pLIQHNg+DDKI7yB3EzsP8tbFpydJJK3L2Kelosy+B3420ZACUkk5pCqkuyi7
-         pN0MwNCfmS9LMgDmcAS8FUN0DDMOmUgQyVPqpM10dksunSa9z64wCpFon54YGzz1CTxa
-         BsvCFijnBaGuXRTAY5587K1IWVL1Bi51xdJ2RjUxf5AGBHyGHTHHcTpcsuUt35IvCrcJ
-         +e9zVnUjYxI10oTvOeranSXfE3nMQXPN57y+fubkQfmIomQIh9iXk+74a65MVeXJQIlN
-         6+Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790157; x=1796394957;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h1AojE61+j7Hu8c46cBtAoEcmrt58ic58oLtqQYdsTE=;
-        b=bVysXP0Y61EAEHZpqqUzebgbf5sCHryt17pwdvOdyw7No0BIFX6krw8lJRzzcpK4w2
-         To8JchTpCmxYo3o+c9AgZstFsPFehXBI1DPtG3WBlzi5NmudAIQZF1TkCn3gIiZQng4M
-         VK/5IHHAuHco9cRvfSExtD9aE70sEUCScihD8fE3ayc1IPPlp718tuwbPCMDRXqqO0I+
-         YoqZI1CmUqSMg9sPfdJql5TnU2jOAJSHPMKLK/UHd3+r2etIlUOIzN0fsUG40jjSDloZ
-         6A6EwZzFKuWqZPMKk1g57YYmdxaWOmt+fgyCZYiOVglYoXHXq6vYshBQ7EdfBm2qwpcr
-         sF8g==
-X-Forwarded-Encrypted: i=1; AL+hErGXw+qMOyY0w9gmf0qtsctHDRchZEBB5LfIP7i79A0CpgPgnGZev8qCpVbaw5TeUAJr7/wvJ2qV0r/rShM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+YLfed4Khe3BFiCWA0k9+rAMNBRF+CGsrycpw15XRRsnTG2FMl
-	hQeXVdhO/olhZ9ZQNjkkmV+U4vrjLz/2e74wYa1WgU5XD3svtwgCDdKjtTdViFjFGTkAJwyu0Eh
-	DLNMJF/svjHu1+kwJ7Zk1j1vAYxg68j7u6/fAbY97iLYd8WNLtNTJIdrlltOmm7G0bQ==
-X-Gm-Gg: AZFdTZfMHK/8CbVNk7h1ZSqERZwInDwlPjOqQtMD5AdP5L+oL3oDS468BZyknlU4wcZ
-	/sdrU7Nd9yk0uEf42McZr3k8lXC/AhNt1ZaUJ9I6Ep7Jz1fMTPnvDfq8COgRUDxao6OrI7Lki5a
-	wNE8bwnKaPVueFN7/TvsPSQx4zWrkWdeSiPXtOAe3Y4XMPQeNpCFeH/jfYqpQqX8KwwqbUYT1aO
-	jPH61E5GQPWcRBkkUYRMqHkubMus+9SjP/xR9hAAJucBn9Q3Piwt1Y+DxGea9zMGQqcPjeP6oUL
-	Quvd4iyXANECdPVK1kOtkbpHL9hT0vtpEw0puT76XXdCeld3fgFh/A+xmoGwMG71u8PnIxi9xAj
-	FcdNEZZNZ1w1tOFfEzR73t8c9Nz7HvAz9drTf+CEbzosI7738JKrmeMTooRHkuswzxDNHyipO0t
-	l0IT9q
-X-Received: by 2002:a05:600c:4f81:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb88805902mr478907705e9.7.1795790157272;
-        Fri, 27 Nov 2026 06:35:57 -0800 (PST)
-X-Received: by 2002:a05:600c:4f81:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb88805902mr478906835e9.7.1795790156736;
-        Fri, 27 Nov 2026 06:35:56 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.146.153])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm924349095e9.0.2026.11.27.06.35.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:35:56 -0800 (PST)
-Date: Fri, 27 Nov 2026 15:35:54 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: luca abeni <luca.abeni@santannapisa.it>, Tejun Heo <tj@kernel.org>,
-	Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com,
-	cgroups@vger.kernel.org, dietmar.eggemann@arm.com,
-	hannes@cmpxchg.org, kprateek.nayak@amd.com,
-	linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com,
-	mkoutny@suse.com, rostedt@goodmis.org, vincent.guittot@linaro.org,
-	vschneid@redhat.com, yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-Message-ID: <awmVSkc4T0AuFntw@jlelli-thinkpadt14gen4.remote.csb>
-References: <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
- <20261119151416.33f90a64@linux.fritz.box>
- <471bf8d446becabfca00041fb2a78067@kernel.org>
- <20261120120659.2e902463@linux.fritz.box>
- <6fef47e08a37079c08806b3c57994778@kernel.org>
- <20261120212418.10221f2e@linux.fritz.box>
- <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
- <20261123084345.4e24e3ca@luca64>
- <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
- <20261127114828.GS49833@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=HuIBRMSi
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=smtpout1; t=1795790174;
+	bh=Dfv08/N+kF+Mvy690ORsGCHE5ksDbaHpXa/TyHWA4Dw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HuIBRMSiYOs//LyjaWIcWEutvTx7KrC7NdeOncGe2NcY3w1Zk1j4PJD320Dkz0cVN
+	 mgcSfiApn5hgICeABSJn2QBP61vvBtc+Gj3ZR76xERQqhuTRSBN7sHnzFUOOZlOR+p
+	 jUXkET54R/gMThqDncKpyYrvfcLiRf4J/XzNatbqDo+YSNgnAOsub6iRRv3gOPClLq
+	 BU6FK+AIL+7h96gWnVk0xg1Qp2DxQLQi05R7Xjd4XlAks57WiALmjmeRN7ogzwX/xD
+	 yeMvRiyLRshm+X3qLfp4++hXMNnP4Tu0wRJTvr9eKDapJQSa9HGdt0cAU3kvmbsU9a
+	 4pGrK/8EGLXWw==
+Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jbbZQ0PPFzXPH;
+	Fri, 27 Nov 2026 09:36:14 -0500 (EST)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: juri.lelli@redhat.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	vincent.guittot@linaro.org
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	tglx@kernel.org,
+	will@kernel.org,
+	boqun@kernel.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com,
+	luca.abeni@santannapisa.it,
+	tommaso.cucinotta@gmail.com,
+	mathieu.poirier@linaro.org,
+	longman@redhat.com,
+	ridong.chen@linux.dev,
+	tj@kernel.org,
+	hannes@cmpxchg.org,
+	mkoutny@suse.com,
+	shuah@kernel.org,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	parri.andrea@gmail.com,
+	m.szyprowski@samsung.com,
+	kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v12 04/43] sched/deadline: Leave a dying task out of a rebuild of the accounting
+Date: Fri, 27 Nov 2026 09:35:31 -0500
+Message-ID: <257df8bcd4ff70527a197a7be6cea3bb9202b01a.1795771147.git.mathieu.desnoyers@efficios.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -129,133 +96,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127114828.GS49833@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: 8bit
 
-Hello,
+A rebuild of the root domains' accounting takes the pi_lock of each
+deadline task, not its rq lock. A dying task past its 0-lag time
+releases its bandwidth at its last schedule. It holds its rq lock there,
+not its pi_lock. Then it clears dl_bw. The rebuild can find the task
+between the two steps.
 
-On 27/11/26 12:48, Peter Zijlstra wrote:
-> On Mon, Nov 23, 2026 at 11:22:03AM +0100, Juri Lelli wrote:
-> > IIUC reading your RTNS'21 paper with Stephen and Jim [1] right, those
-> > are its conditions (1) and (2) for semi-partitioned systems, and
-> > together they keep the system feasible. Did I get that right? The catch
-> > is that the paper also needs changes to the migration logic (no throttle
-> > bypass for tardy tasks, and the pushed task not counted in cpudl when
-> > looking for a target) for tardiness to stay bounded, and AFAIK we don't
-> > yet have that in mainline.
-> > 
-> > So today's DL isn't "pinned aware", but we already live with that:
-> > fair/ext servers are pinned and simply added to total_bw. I don't think
-> > this series should fix that too. What I'd suggest instead is:
-> > 
-> >  1. keep the interface per-CPU as Tejun proposed, and do admission as
-> >     above (sum into total_bw plus per-CPU check). When a config is
-> >     symmetric across the CPUs of a root domain, this is the same as
-> >     today's uniform reservation, so it works with the current DL
-> >     implementation with the same guarantees we have now;
-> > 
-> >  2. accept asymmetric configs too, but document that, until DL becomes
-> >     aware of pinned bandwidth, they come with no tardiness guarantees
-> >     for DL tasks (as with non-default fair server settings today).
-> >     Once the migration side is fixed (the paper's changes, or
-> >     something similar), they get the guarantees without any interface
-> >     change.
-> > 
-> > This also avoids the cost of the max approach, where 50% on one CPU
-> > takes 50% of DL capacity on all CPUs of the root domain, and it should
-> > be less code, since cgroup servers would just follow the dl_server
-> > accounting paths (dl_server_apply_params(), dl_server_add_bw() on
-> > root domain rebuilds), but Yuri should keep me honest here. :)
-> > 
-> > The root entry would then just limit what cgroups can reserve per CPU,
-> > on top of the above, which I think is what Tejun described.
-> > 
-> > Thoughts?
-> 
-> Still slowly working my way through all this email :/ So bear with me if
-> I missed things already discussed elsewhere.
-> 
-> 
-> So my suggestion to make all this cgroup-v2 only and couple with cpuset
-> is exactly because of the bandwidth accounting. Specifically, cgroup-v2
-> makes it possible to map a cgroup to a cpumask (exactly like we do in
-> tg_cpus()). This in turn means we have a natural limit on the bandwidth
-> consumption -- a cgroup's deadline servers will never run outside this
-> mask and will thus never consume bandwidth outside of it.
-> 
-> Without this, you get to account every cgroup to all CPUs, which is
-> incredibly pessimistic; to the point of not actually being worth it.
+In this diagram, T is a deadline task that exits on CPU 0 past its 0-lag
+time. bw is its dl_bw. CPU 1 rebuilds the accounting:
 
-With entries keyed by CPU (as Tejun proposed), I think we get the same
-limit without coupling: a cgroup claims bandwidth only on the CPUs it
-has an entry for, so nothing is accounted on CPUs it doesn't ask for.
-Coupling seems to be needed only for the form that doesn't name CPUs
-(your runtime/nr_cpus), where the CPUs come from the cpuset.
+  CPU 0 (T)                                  CPU 1 (rebuild)
 
-> As to bandwidth accounting; I once started adding per-cpu reservations.
-> Sadly I never finished it and I seem to have misplaced those patches.
-> But yes, that is something that wants to be done.
-> 
-> I'm not sure I see how all this can function without having that TBH.
-> All this runs on a giant pile of per-cpu servers; without strict per-cpu
-> accounting much goes out the window.
-> 
-> The basic idea isn't hard either, give each CPU 100%, subtract the
-> per-cpu demands and hand out the rest to the global pool. When demand
-> exceeds supply, reject. The only somewhat tricky bit was that adding a
-> local claim means you first have to try and lower the global supply --
-> if that fails the whole thing fails.
+  do_task_dead(): TASK_DEAD, under pi_lock
+  __schedule(): T's rq lock taken
+    task_non_contending(T)
+      dl_task_release_bw(T)
+        total_bw -= bw
+        dl_bw_gen recorded
+        record cleared
+                                             dl_rebuild_rd_accounting()
+                                               dl_clear_root_domains()
+                                                 dl_bw_gen++
+                                                 total_bw reset
+                                               dl_add_task_root_domain(T)
+                                                 T's pi_lock taken
+                                                 dl_bw != 0, dl_bw_gen old
+                                                 total_bw += bw
+      __dl_clear_params(T): dl_bw = 0
 
-I think that's what I was trying to describe: servers accounted in
-total_bw (lowering the global supply) plus a per-CPU check on what's
-pinned on each CPU. Fair/ext servers would become local claims as well,
-as they are pinned too and today they are only checked against the root
-domain total.
+dl_bw_gen does not help, since the release came before the rebuild. The
+rebuild would count a bandwidth that nothing releases again. The root
+domain would then refuse deadline tasks it has room for, until the next
+rebuild.
 
-> A cgroup setting bandwidth for CPUs it cannot reach -- fine; the value
-> will not be used. If the cgroup is grown (through cpusets) to include
-> such a CPU, it will enact such a value, and if bandwidth reservation
-> so demands, block the cpuset mask extension.
+Fix this with the record of the bandwidth, dl_bw_cpu. The release
+clears it under dl_departed_lock, which the walk holds. So leave out a
+dead task with no record. A dead task with a record has not reached its
+last schedule. The walk counts it as a live task. That schedule then
+releases the bandwidth, or puts the task on the departed list. A dead
+task on the departed list keeps its bandwidth until its timer, and the
+rebuild counts it as before.
 
-IIUC this is close to what Tejun suggested for offline CPUs (the entry
-stays configured and takes effect again when the CPU comes back). The
-question I see is what happens when the cpuset changes under existing
-entries (cpuset is often managed by someone else, and a sibling
-partition or hotplug can move CPUs too). Either the entry's bandwidth
-stays claimed while its CPU is unreachable, so cpuset changes never
-fail but that bandwidth sits unused, or it's released and claimed again
-when the CPU becomes reachable, which means growing a cpuset can fail
-because of the cpu controller. Tejun, Peter, does either work for both
-of you?
+This patch completes "sched/deadline: Rebuild the root domains'
+accounting from the task list". The walk of that patch finds exiting
+tasks, which the cpuset iterator skipped. The fix needs the record
+that "sched/deadline: Record the root domain holding a task's
+bandwidth" adds. The three go to stable together.
 
-> As to the whole max thing; am I understanding things right if I say this
-> means the cgroup itself will not have a constraint? I saw talk about one
-> cgroup having mixed constaint and no constraint CPUs? That's crazy talk
-> and makes absolutely no sense. Please don't support this.
-> 
-> Either a cgroup has a constraint or it does not.
+The Sashiko AI review of this series found this window. It also found a
+gap in the first version of this fix. That version also left out a task
+between TASK_DEAD and its last schedule, with its 0-lag time ahead.
 
-AFAIU, "max" means the cgroup has no servers of its own on that CPU, and
-its tasks are served by the nearest ancestor that has an entry there
-(or run as plain FIFO/RR if none has).
+Fixes: f9a25f776d78 ("cpusets: Rebuild root domain deadline accounting information")
+Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Cc: stable@vger.kernel.org
+---
+ kernel/sched/deadline.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-I tried to come up with (forge :) an example where mixing is useful in
-[1]. The gist is delegation: a container P runs a single RT process,
-with critical threads in P/crit (cpuset 4-10) and other FIFO threads in
-P/noncrit (cpuset 0-3). The admin wants to cap what the container can
-reserve, so the cap goes on P (P/crit's file is the container's to
-write). The cap needs to cover CPUs 4-10 only: with entries on 0-3 as
-well, P/noncrit would be served by P there, and its threads would either
-not run at all (zero) or use a reservation they don't need. cpuset keeps
-the two sets apart, so no task moves between a server and the root
-runqueue. Luca's follow-up [2] is about doing it without mixing (budget
-only on P/crit), which works if the admin configures the whole tree, but
-not when P is delegated [3]. Admittedly, I'm still not sure why one
-would want to run noncrit w/o a cap, as crit stuff might depend on
-noncrit, so happy to be convinced this is actually useful for real. :)
-
-1 - https://lore.kernel.org/all/awfe_r5McCTzr84x@jlelli-thinkpadt14gen4.remote.csb/
-2 - https://lore.kernel.org/all/20261126155736.20e64e65@linux.fritz.box/
-3 - https://lore.kernel.org/all/awhfdTbfDhpklaTN@jlelli-thinkpadt14gen4.remote.csb/
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 28fa8f0bc81b..5d065ad27cc2 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -3834,6 +3834,17 @@ void dl_add_task_root_domain(struct task_struct *p)
+ 		if (recorded < 0 || !cpu_active(recorded))
+ 			goto unlock;
+ 		cpu = recorded;
++	} else if (READ_ONCE(p->__state) == TASK_DEAD && p->dl.dl_bw_cpu < 0) {
++		/*
++		 * Count nothing for a dead task with no record. Its last
++		 * schedule released the bandwidth under its rq lock, and has
++		 * not cleared dl_bw yet. The release clears the record under
++		 * dl_departed_lock, which this walk holds. A dead task with a
++		 * record has not reached its last schedule. Count it as a
++		 * live task. That schedule then releases what the walk
++		 * counted, or puts the task on the departed list.
++		 */
++		goto unlock;
+ 	}
+ 	rq = cpu_rq(cpu);
+ 	dl_b = &rq->rd->dl_bw;
+-- 
+2.47.3
 
