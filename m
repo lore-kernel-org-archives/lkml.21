@@ -1,69 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.212
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795785923;
-	b=AjcLbim3khL0tVftDY1RzPLxpEjFiMs8wnNa4O1ksSonKwbMmgk/YSFG1ybAvsXrWBeg
-	 1IGZ0jSeYzSxIprArIR+93zzfAjH+UsePKrWt+TSCwZsM/sqo2uRMFjCfymhDR1Clwg4h
-	 9IStazXMC4pDUxDGc/xCS9TuVwOK7W+9M+xMkyIQbzlL6/qVr8/H7ESd/dskmzxZkD6yh
-	 KatJq3fDIA45QTnYs8ZlVeEl5zuyYjua4gPiufUErftiIrfb1pTAhCXl5WjMiw97jWOA8
-	 wrIYytuEXWwcao+sbyaAlIxtz4z4bQNNAnDgh1FB+jfFRkW0mURvsN21h2dvt0MDlVg==
+	t=1795785919;
+	b=WlVsfO1rYO/AkaUI2X3LFsdv1nk06KMhyee+0o8wN7XcdL/7eWogZgoeIhv+Y8M+8dg6
+	 E1dBCC9XvnAQOLNQdGg75Q1LqWNwHDzNh6fDCIoB6eHA4y9qbAsXj+NQq9bbSksIBOEXv
+	 NdnlZlRlFoEvXXXraSmL+ycIubXJKt+arpPO27QcWCkCx4j89h7j7DE9YICOLLv7mgGyu
+	 xuxJuUhywaAIX0sxx1wwpEb3lMZO4Q0auvSLtjpxIZS8j9bLBxPDI9pRIuRDype/4MN09
+	 oRVT/kYTRn08fBQCjFbTZylxIBHnWstvLF6zLl4Z0/Ge2sGSR9/vp545MsWNxvhUpug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785923;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785919;
 	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=EuIob5V9U10hB6iTNAiC/d0Z5n6c6oBePPnlN7Pncy8=;
-	b=OQu4FjnyHlbqxJB5FINrqlNAlsu7lvcn2ACIRmSODMRDBxRTqfe7UHTfXE0cKYwRgqt/
-	 mBv690RrM5F2Zuvxi8rAh6Kswie5Jo9rGLfGoTOkpdDkbC0IsLQ3CmHlbatYRD2EyKErI
-	 ikY2WtWEdSKPak9dCiJaDkKmjQYlf2+T8kenlEpF3ZibHgfCUmty8DNY8GC+bcZ4BswCZ
-	 gdiDsuDrRcf3bPK1mMCtUpnoRspew8HsEsEI6bwaqS5ilP5iSpZ843k+5orG2glNIQZnC
-	 EFjmByF14sVeQGsp8tJbKk58OJlyEa2ZIsyxd5hzehDKlkt8BmkuVCgzKkU0ASqEO7Q==
+	bh=bq2bT06VdOokWroCEDAW2WkYAtYpKDoLg0HVCeahJd0=;
+	b=QecXKrbk9GCN5ZyNiT2Zo43OO4rOlDeBECFsTyHCFM0L21EsPYJVg7taM9IO6FEHb4Jx
+	 Wy/6ChrZWfsEO809RN6rXaHDZiSqeR9Wc3znn5ZUdBJHVPx5ZnwJ1jOZfbjrgpnZ79yzb
+	 i8Dp/VvKGUKfBJETR5SgYRC7LTeoYKyhW79cDB5SODR4vBAbN5ON6e2grmWsxWzewTJ7G
+	 ESYeqavYa8u3/b3a5BTLJByRBqfzk1oaujmsQCHxjluO4rl344BvEp6oa8dP6/cYfu9GN
+	 K00dkyg9rGG1aE6/JcH9rnL0EQY4SzmKpgDPrGSaun2L/vqtLaZX4Y2N/FNLyqEaGRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=deq.rocks;
 	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=JDlRC5Om;
+	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=EaNRqZ3e;
 	arc=none smtp.remote-ip=91.216.248.212
 Received: from bulk0.mail-out.lima-city.de (bulk0.mail-out.lima-city.de [91.216.248.212])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7250E606A33B;
-	Fri, 27 Nov 2026 13:25:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7250E606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EB4D606A329;
+	Fri, 27 Nov 2026 13:25:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EB4D606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=JDlRC5Om
+	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=EaNRqZ3e
 From: Andre Eikmeyer <dev@deq.rocks>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795785920;
-	bh=TcBeTqLGTExh6I9MDQ76n82pUzUi9GtHBR4398Cq9mc=;
+	s=securedbylima-20251205; t=1795785910;
+	bh=V1C5VH1z8t54cs61S8a6VCL8sJ+HDsoL+WFd+UAABD8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JDlRC5OmA7NjROGZoc80uQ9schmw770AHJ5teHGRBWuDWu4PEO/KD8RUeExlpSRId
-	 BNwB9rn2wjQZzyWtfvDnPtY35dMGiPStsvoVWhH99gVA7S/pKQG8R/Cgos9kkdV+h6
-	 PZlEP2tNys1XE/YpIMwCQY5Zxw8U5jGtkoJHyGBUVXp86+1KlosHRTti+cvmnKY1Vv
-	 uVXOHH/vhmVH+0orJUKpxMLqiR/pvMDa+EdiFaNwZKtlxDXPwzC0e4lf8U1C3DpoAf
-	 yg3FSPgeQx/ES9gFOzc2AUX6pxFVm3xq01pylFWLfokDfXJq7RxpLzqmVF+Hre9StO
-	 trFs9XVzkcE4A==
-To: marcel@holtmann.org,
+	b=EaNRqZ3e/i9cSqt8uBPInfodrpMp/xvZpWlz6cfzyTu4ejfmEoVlqFiejUuIi5WWD
+	 60rONptrm6DNg9GubVH8/kHcqtUq3npeFNpbdAdm9ILtndYVI9CU6+lsZhaJwL5+op
+	 qdyanTBi89+lo+5aNq3Oir+GWCJjYmnbwW+7OlxXlBsIM4iDrcoOqOEXZeFVADLkby
+	 1T0rcnagfmU8fn/+48AVJEuMIU/j1sArP311NIchvN3DKetHWuBxorBcbJGPJGN14s
+	 GNLEl84zr7pimR5g6lPeeXSXCzymoeqIZabYd1Vq09AKn34K5SM+9uMc/BPjupyx2i
+	 PeAZwxGkWGyIQ==
+To: sven@kernel.org,
+	marcel@holtmann.org,
 	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sven@kernel.org,
-	j@jannau.net,
+Cc: j@jannau.net,
 	neal@gompa.dev,
 	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Myria Sarvay <myrialsarvay@gmail.com>,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>,
-	Aditya Garg <aditya.garg@linux.dev>
-Subject: [PATCH v3 1/2] Bluetooth: btbcm: raise ACL priority on Apple Broadcom controllers
-Date: Fri, 27 Nov 2026 14:25:12 +0100
-Message-ID: <20261127132513.262754-2-dev@deq.rocks>
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Andre Eikmeyer <dev@deq.rocks>
+Subject: [PATCH v3 2/3] Bluetooth: hci_bcm4377: probe again after a resume through firmware
+Date: Fri, 27 Nov 2026 14:25:00 +0100
+Message-ID: <20261127132501.262651-3-dev@deq.rocks>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261127132513.262754-1-dev@deq.rocks>
-References: <20261127132513.262754-1-dev@deq.rocks>
+In-Reply-To: <20261127132501.262651-1-dev@deq.rocks>
+References: <20261127132501.262651-1-dev@deq.rocks>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,218 +71,118 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On the MacBookPro15,1 (BCM4364B0 over UART) A2DP audio drops out as
-soon as WLAN runs on 2.4 GHz with traffic. The host keeps the eight ACL
-buffers of the controller filled, but the controller holds single ACL
-packets for 160-200 ms, so the sink runs dry.
+The BCM4377 is powered off during ACPI S3 and loses its firmware. On
+resume the driver only unquiesces it, so every command times out.
 
-Sending the Broadcom vendor command 0xfc57 (HCI_BRCM_SET_ACL_PRIORITY,
-handle and priority, as used by the Android Broadcom vendor library) with
-priority high for the audio link stops the dropouts. Setting it back to
-normal brings them back right away. The BCM4377 of the MacBookAir9,1
-accepts the command as well.
+When the platform firmware handled the resume, probe the controller
+again from a work item and skip the ring teardown messages to the lost
+firmware. Suspend to idle keeps the quiesce path.
 
-Raise the priority for every BR/EDR ACL link once its Connection Complete
-event arrives. This covers audio as well as HID links. hci_bcm does this
-on Apple machines only, hci_bcm4377 always, since it only runs on Apple
-machines. The PCIe driver receives events in hard interrupt context, so
-the command is queued from a work item.
-
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Tested-by: Aditya Garg <aditya.garg@linux.dev>
 Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
 ---
- drivers/bluetooth/Kconfig       |  1 +
- drivers/bluetooth/btbcm.c       | 71 +++++++++++++++++++++++++++++++++
- drivers/bluetooth/btbcm.h       |  7 ++++
- drivers/bluetooth/hci_bcm.c     | 18 ++++++++-
- drivers/bluetooth/hci_bcm4377.c |  3 ++
- 5 files changed, 98 insertions(+), 2 deletions(-)
+ drivers/bluetooth/hci_bcm4377.c | 59 +++++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
 
-diff --git a/drivers/bluetooth/Kconfig b/drivers/bluetooth/Kconfig
-index b18482b5677..3e2426abdff 100644
---- a/drivers/bluetooth/Kconfig
-+++ b/drivers/bluetooth/Kconfig
-@@ -318,6 +318,7 @@ config BT_HCIBCM4377
- 	tristate "HCI BCM4377/4378/4387/4388 PCIe driver"
- 	depends on PCI
- 	select FW_LOADER
-+	select BT_BCM
- 	help
- 	  Support for Broadcom BCM4377/4378/4387/4388 Bluetooth chipsets
- 	  attached via PCIe. These are usually found in Apple machines.
-diff --git a/drivers/bluetooth/btbcm.c b/drivers/bluetooth/btbcm.c
-index 23887f4cde6..88fe93b5d39 100644
---- a/drivers/bluetooth/btbcm.c
-+++ b/drivers/bluetooth/btbcm.c
-@@ -215,6 +215,77 @@ int btbcm_write_pcm_int_params(struct hci_dev *hdev,
- }
- EXPORT_SYMBOL_GPL(btbcm_write_pcm_int_params);
- 
-+#define BCM_SET_ACL_PRIORITY	0xfc57
-+#define BCM_ACL_PRIORITY_HIGH	0x01
-+
-+struct bcm_set_acl_priority {
-+	__le16	handle;
-+	u8	priority;
-+} __packed;
-+
-+struct btbcm_acl_priority_work {
-+	struct work_struct	work;
-+	struct hci_dev		*hdev;
-+	u16			handle;
-+};
-+
-+static int btbcm_set_acl_priority_sync(struct hci_dev *hdev, void *data)
-+{
-+	struct bcm_set_acl_priority cp;
-+	int err;
-+
-+	cp.handle = cpu_to_le16(PTR_UINT(data));
-+	cp.priority = BCM_ACL_PRIORITY_HIGH;
-+
-+	err = __hci_cmd_sync_status(hdev, BCM_SET_ACL_PRIORITY, sizeof(cp),
-+				    &cp, HCI_CMD_TIMEOUT);
-+	if (err)
-+		bt_dev_warn(hdev, "BCM: setting ACL priority for handle 0x%4.4x failed (%d)",
-+			    le16_to_cpu(cp.handle), err);
-+	return err;
-+}
-+
-+static void btbcm_acl_priority_work(struct work_struct *work)
-+{
-+	struct btbcm_acl_priority_work *w =
-+		container_of(work, struct btbcm_acl_priority_work, work);
-+
-+	hci_cmd_sync_queue(w->hdev, btbcm_set_acl_priority_sync,
-+			   UINT_PTR(w->handle), NULL);
-+	hci_dev_put(w->hdev);
-+	kfree(w);
-+}
-+
-+/* Give every BR/EDR ACL link high priority in the controller as soon as it
-+ * is connected. Without it the BCM4364 coexistence arbitration lets 2.4 GHz
-+ * WLAN traffic delay ACL packets by up to 200 ms, which drops A2DP audio.
-+ */
-+void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev, struct sk_buff *skb)
-+{
-+	struct hci_event_hdr *hdr = (void *)skb->data;
-+	struct hci_ev_conn_complete *ev;
-+	struct btbcm_acl_priority_work *w;
-+
-+	if (hci_skb_pkt_type(skb) != HCI_EVENT_PKT ||
-+	    skb->len < sizeof(*hdr) + sizeof(*ev) ||
-+	    hdr->evt != HCI_EV_CONN_COMPLETE)
-+		return;
-+
-+	ev = (void *)(skb->data + sizeof(*hdr));
-+	if (ev->status || ev->link_type != ACL_LINK)
-+		return;
-+
-+	w = kzalloc_obj(*w, GFP_ATOMIC);
-+	if (!w)
-+		return;
-+
-+	INIT_WORK(&w->work, btbcm_acl_priority_work);
-+	w->hdev = hci_dev_hold(hdev);
-+	w->handle = __le16_to_cpu(ev->handle);
-+	queue_work(system_dfl_wq, &w->work);
-+}
-+EXPORT_SYMBOL_GPL(btbcm_set_acl_priority_on_connect);
-+
- int btbcm_patchram(struct hci_dev *hdev, const struct firmware *fw)
- {
- 	const struct hci_command_hdr *cmd;
-diff --git a/drivers/bluetooth/btbcm.h b/drivers/bluetooth/btbcm.h
-index b4cb24231a2..a4d47b242e9 100644
---- a/drivers/bluetooth/btbcm.h
-+++ b/drivers/bluetooth/btbcm.h
-@@ -59,6 +59,8 @@ int btbcm_read_pcm_int_params(struct hci_dev *hdev,
- int btbcm_write_pcm_int_params(struct hci_dev *hdev,
- 			       const struct bcm_set_pcm_int_params *params);
- 
-+void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev, struct sk_buff *skb);
-+
- int btbcm_setup_patchram(struct hci_dev *hdev);
- int btbcm_setup_apple(struct hci_dev *hdev);
- 
-@@ -94,6 +96,11 @@ static inline int btbcm_patchram(struct hci_dev *hdev, const struct firmware *fw
- 	return -EOPNOTSUPP;
- }
- 
-+static inline void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev,
-+						     struct sk_buff *skb)
-+{
-+}
-+
- static inline int btbcm_setup_patchram(struct hci_dev *hdev)
- {
- 	return 0;
-diff --git a/drivers/bluetooth/hci_bcm.c b/drivers/bluetooth/hci_bcm.c
-index 1f62a8c2fb3..d2fbaf7cfbc 100644
---- a/drivers/bluetooth/hci_bcm.c
-+++ b/drivers/bluetooth/hci_bcm.c
-@@ -147,6 +147,7 @@ struct bcm_device {
- 	bool			drive_rts_on_open;
- 	bool			no_uart_clock_set;
- 	bool			use_autobaud_mode;
-+	bool			acl_priority;
- 	u8			pcm_int_params[5];
- 	u32			max_autobaud_speed;
- };
-@@ -688,10 +689,21 @@ static int bcm_setup(struct hci_uart *hu)
- 	.lsize = 0, \
- 	.maxlen = BCM_TYPE52_SIZE
- 
-+static int bcm_recv_event(struct hci_dev *hdev, struct sk_buff *skb)
-+{
-+	struct hci_uart *hu = hci_get_drvdata(hdev);
-+	struct bcm_data *bcm = hu->priv;
-+
-+	if (bcm->dev && bcm->dev->acl_priority)
-+		btbcm_set_acl_priority_on_connect(hdev, skb);
-+
-+	return hci_recv_frame(hdev, skb);
-+}
-+
- static const struct h4_recv_pkt bcm_recv_pkts[] = {
- 	{ H4_RECV_ACL,      .recv = hci_recv_frame },
- 	{ H4_RECV_SCO,      .recv = hci_recv_frame },
--	{ H4_RECV_EVENT,    .recv = hci_recv_frame },
-+	{ H4_RECV_EVENT,    .recv = bcm_recv_event },
- 	{ H4_RECV_ISO,      .recv = hci_recv_frame },
- 	{ BCM_RECV_LM_DIAG, .recv = hci_recv_diag  },
- 	{ BCM_RECV_NULL,    .recv = hci_recv_diag  },
-@@ -1094,8 +1106,10 @@ static int bcm_get_resources(struct bcm_device *dev)
- 
- 	dev->name = dev_name(dev->dev);
- 
--	if (x86_apple_machine && !bcm_apple_get_resources(dev))
-+	if (x86_apple_machine && !bcm_apple_get_resources(dev)) {
-+		dev->acl_priority = true;
- 		return 0;
-+	}
- 
- 	dev->txco_clk = bcm_get_txco(dev->dev);
- 	if (IS_ERR(dev->txco_clk))
 diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
-index 72a9f269e8b..7900e8ca2fb 100644
+index 8c9833d625e..f1beb09c9f5 100644
 --- a/drivers/bluetooth/hci_bcm4377.c
 +++ b/drivers/bluetooth/hci_bcm4377.c
-@@ -22,6 +22,8 @@
- #include <net/bluetooth/bluetooth.h>
- #include <net/bluetooth/hci_core.h>
+@@ -16,6 +16,9 @@
+ #include <linux/of.h>
+ #include <linux/pci.h>
+ #include <linux/printk.h>
++#include <linux/slab.h>
++#include <linux/suspend.h>
++#include <linux/workqueue.h>
  
-+#include "btbcm.h"
+ #include <linux/unaligned.h>
+ 
+@@ -566,6 +569,9 @@ struct bcm4377_data {
+ 	struct pci_dev *pdev;
+ 	struct hci_dev *hdev;
+ 
++	/* set when the controller lost its firmware during system sleep */
++	bool fw_lost;
 +
- enum bcm4377_chip {
- 	BCM4377 = 0,
- 	BCM4378,
-@@ -689,6 +691,7 @@ static void bcm4377_handle_event(struct bcm4377_data *bcm4377,
+ 	void __iomem *bar0;
+ 	void __iomem *bar2;
  
- 	memcpy(skb_put(skb, len), payload, len);
- 	hci_skb_pkt_type(skb) = type;
-+	btbcm_set_acl_priority_on_connect(bcm4377->hdev, skb);
- 	hci_recv_frame(bcm4377->hdev, skb);
+@@ -1017,6 +1023,11 @@ static int bcm4377_destroy_completion_ring(struct bcm4377_data *bcm4377,
+ 	struct bcm4377_destroy_completion_ring_msg msg;
+ 	int ret;
  
- out:
++	if (bcm4377->fw_lost) {
++		ring->enabled = false;
++		return 0;
++	}
++
+ 	memset(&msg, 0, sizeof(msg));
+ 	msg.msg_type = BCM4377_CONTROL_MSG_DESTROY_COMPLETION_RING;
+ 	msg.ring_id = cpu_to_le16(ring->ring_id);
+@@ -1107,6 +1118,11 @@ static int bcm4377_destroy_transfer_ring(struct bcm4377_data *bcm4377,
+ 	struct bcm4377_destroy_transfer_ring_msg msg;
+ 	int ret;
+ 
++	if (bcm4377->fw_lost) {
++		ring->enabled = false;
++		return 0;
++	}
++
+ 	memset(&msg, 0, sizeof(msg));
+ 	msg.msg_type = BCM4377_CONTROL_MSG_DESTROY_XFER_RING;
+ 	msg.ring_id = cpu_to_le16(ring->ring_id);
+@@ -2432,11 +2448,54 @@ static int bcm4377_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
++struct bcm4377_reprobe {
++	struct work_struct work;
++	struct pci_dev *pdev;
++};
++
++static void bcm4377_reprobe_work(struct work_struct *work)
++{
++	struct bcm4377_reprobe *reprobe =
++		container_of(work, struct bcm4377_reprobe, work);
++	int ret;
++
++	/*
++	 * Probing stays blocked until the system resume completes, the driver
++	 * core then retries the deferred probe.
++	 */
++	ret = device_reprobe(&reprobe->pdev->dev);
++	if (ret && ret != -EPROBE_DEFER)
++		dev_err(&reprobe->pdev->dev, "re-probe after resume failed (%d)\n",
++			ret);
++
++	pci_dev_put(reprobe->pdev);
++	kfree(reprobe);
++}
++
+ static int bcm4377_resume(struct device *dev)
+ {
+ 	struct pci_dev *pdev = to_pci_dev(dev);
+ 	struct bcm4377_data *bcm4377 = pci_get_drvdata(pdev);
+ 
++	/*
++	 * The controller is powered off when the platform firmware handles
++	 * the system sleep, as with ACPI S3 on x86 Macs, and comes back
++	 * without its firmware. Probe it again.
++	 */
++	if (pm_resume_via_firmware()) {
++		struct bcm4377_reprobe *reprobe;
++
++		reprobe = kzalloc_obj(*reprobe);
++		if (!reprobe)
++			return -ENOMEM;
++
++		bcm4377->fw_lost = true;
++		reprobe->pdev = pci_dev_get(pdev);
++		INIT_WORK(&reprobe->work, bcm4377_reprobe_work);
++		schedule_work(&reprobe->work);
++		return 0;
++	}
++
+ 	iowrite32(BCM4377_BAR0_SLEEP_CONTROL_UNQUIESCE,
+ 		  bcm4377->bar0 + BCM4377_BAR0_SLEEP_CONTROL);
+ 
