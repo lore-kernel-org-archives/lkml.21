@@ -1,111 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778609;
-	b=D55hK8edvqffolc05Pq0TzjATSd4MWlwAXTG5BwsP3jLswrrTAxn/hlieChJlSXHrJOk
-	 FtYGU6za4BHEWeEeaDAH3J67ATeT0kljJ+0ionLB/1lgYsFpm/avOisQK/eAF5gM1IjSD
-	 8LOE54F3CMvE6VGfZqy48JXtDwZPw3up0oOMeP8Ff0aOlMFqEONYkyLVcBUTjZsgif4hG
-	 QV42lQjAyGupDYp7ImV/Fvpp8au3qyF6qW24EEBdJ2FTVKX/BMpzgvv1l3no5mz0qeYkJ
-	 1Nri80eHunbfoQbLV6s461fW3Foyn+pM0BtORu+gLxLSkfL8WzBDhtcvkmZIZCAmBJg==
+	t=1795778611;
+	b=Z7ekLaSnGPBvUNzVNu71pUnWivLBBY5q34xJtVuUVhLpkLlMTv1TNdqNwnAa4YFGSrUN
+	 kaBnybL0V3qLJyL214Urvny+o1tyj8Yy4gg/mARWrMCS/oOwroOcE8SEUgVcK/hBY8+i7
+	 q0m5u6QpaJI/2iMjqh0oxe6TY8OX2cNCFpsFWkhPavezEh+s6JqF1ygTBmplivmwj0LNI
+	 W2TQCvGCxLGY8H9HCAnIs2aj/D2DZNanyuna/OKBkVeQqLJ8hZdnt6nwZ4DU4LX0ATHXV
+	 TP38Vk6orIoK15pLUoNYn5VceuF1poXTVkATmCsH8wRIezDANAyjT/czgdIUXBV4qRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778609;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=bwbGdFEkDz0Diwrqb+uD4pMw+aTYw7fIvGX1BVepkok=;
-	b=ZTwuPdAdnrqn8Qd432l1cnLSlAr6hDPoWNAqnAU4P1t9novbF34M8KZZVE/g5JHm/2U9
-	 kdMV0EPCYyqsfgSw4ZtlF8i8fOdTuleeQCVojbQdDovaNuIA0eQ/dmRPxMDZPFAEww7vF
-	 +KLsFlVFf005A4iPUWq1HUYIRLZ1RAP+b7ky8+jFVbv3s5E5gu0O1H/Wdj4y2TF8yJfvE
-	 ixe3FbFBeDWAguaqOqGdmObcjbqaqdalUc5hUa+GZhNmcgumo1Naa0A3UDw0m9gNbkQPr
-	 rwbpHrNcAhFt0a/rc/3Hq64qXoLTvPL21VcB2FCpIJJLw/awl8BjAicWflSjp7oYENA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778611;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=dXtl698ElVtXeTm1MZUa05jGuq6bW/aCOPcUEKmWU44=;
+	b=5hd8oHDoIeak2iKxXqoaJmkdVCqd0egPqC8hQlWD8nzqmIeAwrX1Smh+mK1QnEENqVvP
+	 D4p3ONZ3GEKfrxNgW3Hms0w3hR14JcIoidPAB3LhSkNBcdrEUBNhkYwnirBcSLDv7G3uU
+	 mzZvtKcmouHJ4a1UrJr/rVvkjhzFETfQ/K7G1pkUL2SR4lI9P+UPeREhxDBwSz6PAHHo+
+	 oRaWGruiBJmhE644nBgKTva78uk2WpMvhZYVkfo4+75ZWOW1milK5PqGiONZr5I01iI4d
+	 cf91v/e7XGgkT26aw6N15XLSmh3Y1NZglQ60XBW/jLM8SCjqzIXGXRwFlF4osHLsoBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Ym46Pl68;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FG4RDLUr;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5DF4606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:23:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5DF4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NKXcEjjM;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id DA3DE606A332;
+	Fri, 27 Nov 2026 11:23:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA3DE606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Ym46Pl68;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FG4RDLUr
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApuuv053101
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:23:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bwbGdFEkDz0Diwrqb+uD4pMw+aTYw7fIvGX1BVepkok=; b=Ym46Pl68RgkZGSS7
-	h9p16gslZ7WCvAuEQIXPvvuZC2G6ggWUqZqbPX+O76nv4g2VGWPvhmq6TDB3lXQz
-	l4qmQpwJVzWSoyex6gOm4kOnxvzWRb/n1OFWWY/lf5xIgXU4YKDKyl3IxScKYwEE
-	m3Bnr+ogof+2kEgNBC4wq22J1EVgh4vg9u0wqh3YAWs5uqIOZQnWzwnqq32QumWR
-	AFwV5Z46sH7iFi9bJiEId0+DaQI/Gt/cs5eL7w7n5xolzUVIoAlt1tcyNzwxZT2f
-	/rbf3k1ShokZlBd1+G6pNIU8fLonVow28NkvwOJzv0/vP2G/mUcARDgb/qvMI9sF
-	cFd//Q==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j74g6s5r0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:23:27 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-53657d237ddso11262641cf.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:23:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795778607; x=1796383407; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bwbGdFEkDz0Diwrqb+uD4pMw+aTYw7fIvGX1BVepkok=;
-        b=FG4RDLUr419LzjrJUMgRXDitHecF8ZSOs7jARhzV3mWhLbZwfJU0ffzrvtOvpZJYbf
-         qiQlBCU3nCdjuD42TmwqIFuRUmLgpAn7o44OmYlG52+BeR4D0Lsb12i/iA1LMO2bjZDV
-         BM3/WCbxwDnfLOu4rJG8teGeO6a1iZXEfF/cXa0b53L7HjEWfNhBevnUjHTIElZ8/a5U
-         HrZNXJ1BNNGmRCnTS69q7MHl2qJmZwiVMtjGlfxnkH9uGr+6GXOHh+/FagL59Y48pmhO
-         7Peantjz7vpPC4Ip8v8EClrzFFZBFSfDm4HqtO/lMDwQcCicff9j3SztZz8vneHOsNv1
-         r65A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795778607; x=1796383407;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bwbGdFEkDz0Diwrqb+uD4pMw+aTYw7fIvGX1BVepkok=;
-        b=HeJd+7KQsLFmDAc5WbZhw5i8HeffkpKA8D+ZUAtmEIXMiewcnhYVygOSWTPtfgc1nq
-         eoNgTbqMwBYg5GQrZjdOlWVO5uANSl8ITRrdGNuHPWU1d8UMG9RJIK2RXbaCFNage3+g
-         Qon+LPWpeCgL58C8I232+iWooRKpdbH/EfUBkEyEftrNbfBfHQU/HB3lLn2o045uRfkN
-         9xsLsXqtCRp1QTy0NApImkBpoVLCovo4HpluvhbDGdD0qLM5lZ29BkrKvFdI8rW+RP98
-         hRSBE6/PFIBQyiIGk+MXriotWc2qTGJYouJniThhPxEQD+u2knkc5BqV4T6KwToSddqx
-         JPsg==
-X-Forwarded-Encrypted: i=1; AL+hErGCd+2VwQHHHjLXVNmLwBJZ5B93A/IMTIWMcRsGRNA6GzSnPgJPArCWrroKNF23RCyEDd78E+2pc+TUXxY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ETVe/yQQ0c8p6CGt3vnuMf8FpbIuh6L6XvD/RZtACWp9qrUH4
-	PROTD7Us6qbaYEdubycF6AjWGOFJJ+mIDCLsBC01FRYJ5PJMSe+7SHF6Oc8vXqKsMzrSIc1xtBw
-	i4IYScBb8/kO2Bhe7d+pVyW0tQczoyyugFHBoCfdikFvURp5la8JnewF461NMBJ2TOck=
-X-Gm-Gg: AZFdTZcop8mBtiRBlfq7zlJ3+MRZtjn7j9xasC9H1e2Lt83CS/RtJqyBeo1bejUVbW+
-	YYBh+Ed5y2/s/ZazYLl0W/tlhjQ8g1GnT7MyTVwbQ/345Zay5ih4YCUzte/QXrtQvMvBeRZ+Yky
-	k2E7Yb+nHdxrHOtFcRtu4WbvUOkYX4WA9KzpxbwfimwsnOPdtxHBo14i/HtkU3GWYK9paDVC79C
-	ZlodJY04duOGFnXmH3r/gpmDCkZ9mhuYK+8wUYU2tX4xwiI8npsFol69ovxD0w6WkB+Falo8ndJ
-	c6TNLSPF1g9y9TPxch/vCUq5TWFjEJxTOALjNiPQvs4L6WuqNuiJZPuD2Hp2z90KQpDtul3/aAq
-	fisfy8OZ2fm1g8JxqnICbja0jVZkRZTc+VCbzqlpDPPGjTNdQa/K8PeMfH5x6B7LNDHZBXB0=
-X-Received: by 2002:a05:620a:a017:b0:949:7642:6de7 with SMTP id af79cd13be357-949ba85c0b3mr4637602185a.2.1795778607134;
-        Fri, 27 Nov 2026 03:23:27 -0800 (PST)
-X-Received: by 2002:a05:620a:a017:b0:949:7642:6de7 with SMTP id af79cd13be357-949ba85c0b3mr4637598185a.2.1795778606669;
-        Fri, 27 Nov 2026 03:23:26 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea31e4sm863728766b.39.2026.11.27.03.23.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 03:23:25 -0800 (PST)
-Message-ID: <0d0fcbac-2d04-41dc-b596-21e6ea622e2d@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 12:23:24 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NKXcEjjM
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 016DE152B;
+	Fri, 27 Nov 2026 03:23:27 -0800 (PST)
+Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA7743F632;
+	Fri, 27 Nov 2026 03:23:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795778609; bh=lSZsz6e9oawHaA0jXtD9q7dV7UGx1oy+xEJrObjTjn8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NKXcEjjMUmkT3I5f613F0NVTVjnpeswgo1TeNA9WpBe26VTfz1A8VfTRS+z58+wms
+	 MqJhrBpPQrtgBIARX1mPo8NvkCx6J2ZRTr8jV4JaGfyD/ZG/PeqyzYwmCMqbMqNzSK
+	 C39n76b+Z6bZlIZrXQyYgaQpK2wED8+qk92ZM348=
+Message-ID: <80ee7cbb-953d-4258-ac8d-ce7426607a24@arm.com>
+Date: Fri, 27 Nov 2026 11:23:23 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,78 +54,273 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/4] PCI: host-common: Fix early bus-walk exit in
- d3cold_possible()
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Jingoo Han <jingoohan1@gmail.com>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20261114-shutdown-v9-0-5430c9f242ed@oss.qualcomm.com>
- <20261114-shutdown-v9-1-5430c9f242ed@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261114-shutdown-v9-1-5430c9f242ed@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Enzo Adriano <enzo.adriano.code@gmail.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org
+Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Pablo Mazzini <pmazzini@gmail.com>,
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+ Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ Cristian Filipescu <filipescu.cristian@gmail.com>,
+ Norman Herms <dockseed@proton.me>
+References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+ <20261126-a733-cubie-a7s-dt-v6-2@gmail.com>
+ <1jpkvqldyq.fsf@starbuckisacylon.baylibre.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <1jpkvqldyq.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: MbAfz87CGkLQWcDu4mDExclP3d0TPM5a
-X-Authority-Analysis: v=2.4 cv=U5kHnuru c=1 sm=1 tr=0 ts=6b09682f cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=1dD4SeorvVlWizVoyX0A:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0NSBTYWx0ZWRfX9XVeWZkc2Mv5
- p9oHfaxlZF9DQmJuzWgW/oscWUw2J+1i1iAnP+XHme+8jw4pTpMNpaI9p9ef8KUjD0OZ/AujrDX
- yQQLbpyvc1Egko8Llx4yJyQ2EVXc0NU=
-X-Proofpoint-GUID: MbAfz87CGkLQWcDu4mDExclP3d0TPM5a
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0NSBTYWx0ZWRfX0czDsZVKSaSA
- MsoxlIa1bxI6ci1tO23jPGcN3pgN/JiTUceLbIWElIW64wQzuWRIm/QwODZYsySeQliySvlAXQq
- fz9LAEcsVYvvvP2QOjZO40AwOr87XPCBmT+lDk8RV7/sozAfEMxED44Tch44FwkHGlLw/H6TF7u
- Zu8c58cV84nE+eNOHUppp6WvKqPifvlnSFjfuCb2kG5fllszfV1Hd0LXWKHUE8vBOri07tehaq3
- fSpAxEKF7C1eDkTrw84XZUjG0ce4hgB1V+BhpebAWbIMBuvMdCLNOHFMQvzErCOsf9m9oOW/Nd/
- /wOiHBz+g9ri+wz+X3CEKOwOhP/cxzsNCMTqlhwt0DpbsrIAIdR8r3/iE3FWlEofc+OZ0RIqkVu
- FBHu2MfSvEpYK+OqcoMmgZjzrMAhRqJk0a9PKGZBPKygzqWTw7lSiz1VQMxiq/okyhhlmLVxDJ5
- FfPdED5TGupAcmhKGRA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 impostorscore=0
- adultscore=0 suspectscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270045
 
-On 11/14/26 3:00 AM, Krishna Chaitanya Chundru wrote:
-> __pci_host_common_d3cold_possible() returns -EOPNOTSUPP for the first
-> downstream device it finds outside PCI_D3hot, and pci_walk_bus() aborts
-> the walk as soon as its callback returns nonzero. Any device enumerated
-> after the disqualifying one -- including a wakeup-enabled, PME-from-D3cold
-> capable endpoint -- is then never visited, so pme_capable can come back
-> false even though such a device exists on the bus.
-> 
-> Since pci_host_common_d3cold_possible() already returns false whenever
-> any device disqualifies D3cold, aborting the walk buys nothing for the
-> plain suspend path: the overall bool result is unaffected. But it
-> silently drops pme_capable detection for any device ordered after the
-> disqualifying one.
-> 
-> This matters for the upcoming shutdown path in particular: unlike plain
-> suspend, shutdown forces the link into L2/D3cold regardless of whether
-> pci_host_common_d3cold_possible() itself allows it (see the following
-> "force_d3cold" changes), so at shutdown time it's common for an
-> endpoint to still be in D0 and disqualify D3cold while a later,
-> PME-capable device is never visited. dw_pcie_suspend_noirq() still
-> uses "pme_capable" to set pci->pp.skip_pwrctrl_off, so an inaccurate
-> result here can cause Vaux/wakeup support to be dropped for a device
-> that actually supports PME from D3cold.
-> 
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> ---
+Hi,
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+On 11/27/26 12:18, Jerome Brunet wrote:
+> On jeu. 26 nov. 2026 at 15:35, Enzo Adriano <enzo.adriano.code@gmail.com> wrote:
+> 
+>> The Allwinner A733 combines six Cortex-A55 and two Cortex-A76 cores.
+>> Add the common device tree for the first Cubie A7A, A7S and A7Z board
+>> DTS files. Describe the CPUs, PSCI, architectural timers, GIC, RTC,
+>> main and always-on clock/reset and pin controllers, UART, I2C and
+>> MMC. The preceding revision booted on the A7S and A7Z.
+>>
+>> The A7S schematic, sheets 7 and 16, shows the EEPROM wired to I2C0
+>> on PG8/PG9. Use mux 6 as documented in the A733 Datasheet v1.00,
+>> section 4.2.6, table 4-36. The A7A schematic shows the external RTC
+>> on S_TWI1. Add its R-I2C1 pin group on PL12/PL13, mux 3.
+>>
+>> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
+>> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
+>> and noncoherent attributes follow Andre Przywara's A733 reference
+>> and the A523 precedent. The CPUX interconnect diagram in section
+>> 5.1.2 supports the noncoherency inference. Leave the ITS disabled
+>> pending clock/reset and MSI integration.
+>>
+>> Describe the single DynamIQ unit and shared L3 shown in section
+>> 5.1.2, figure 5-1. Partition PPI 7 (section 12.2.3, table 12-1)
+>> between the Cortex-A55 and Cortex-A76 PMUs so each probes its own
+>> core type. Defer capacity-dmips-mhz until it is measured on A733.
+>>
+>> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b352986b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
+>> Link: https://lore.kernel.org/r/20261126172253.1097838-2-andre.przywara@arm.com
+>> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+>> Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa Cubie A7Z V1.11
+>> Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+>> Co-developed-by: Andre Przywara <andre.przywara@arm.com>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+>> ---
+>> Changes since v5:
+>> - Mark the I2C0 PG8/PG9 group /omit-if-no-ref/, as requested. This
+>>    satisfies Andre's review condition.
+>> - Move the RTC clock include after the A733 clock headers and cite
+>>    the A733 datasheet and A7S schematic for the I2C0 pins.
+>> - Fold in Andre's R-I2C1 pin group for A7A. A7S and A7Z leave
+>>    it unused. A7S still references the I2C0 group.
+>> - Vinicius tested the v5 DTSI with his A7Z v1.11 board DT. Norman
+>>    tested the v5 series on A7S. Their tags here cover the SoC DTSI.
+>>
+>>   .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 671 ++++++++++++++++++
+>>   1 file changed, 671 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+>>
+>> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+>> new file mode 100644
+>> index 000000000000..e062b08006da
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+>> @@ -0,0 +1,671 @@
 
-Konrad
+[ ... ]
+
+>> +
+>> +		mmc0: mmc@4020000 {
+>> +			compatible = "allwinner,sun60i-a733-mmc",
+>> +				     "allwinner,sun20i-d1-mmc";
+>> +			reg = <0x04020000 0x1000>;
+>> +			interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
+>> +			clock-names = "ahb", "mmc";
+>> +			resets = <&ccu RST_BUS_MMC0>;
+>> +			reset-names = "ahb";
+>> +			pinctrl-names = "default";
+>> +			pinctrl-0 = <&mmc0_pins>;
+> 
+> Even if pins are usually the same board to board, do you really want to
+> set this in the SoC dtsi ?
+
+There are not "usually" the same, there are *always* the same, since 
+there is only one set of pins connected to each MMC controller. And in 
+this case we put them in the .dtsi, as done already in other SoCs before.
+
+Cheers,
+Andre
+
+> 
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		mmc1: mmc@4021000 {
+>> +			compatible = "allwinner,sun60i-a733-mmc",
+>> +				     "allwinner,sun20i-d1-mmc";
+>> +			reg = <0x04021000 0x1000>;
+>> +			interrupts = <GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&ccu CLK_BUS_MMC1>, <&ccu CLK_MMC1>;
+>> +			clock-names = "ahb", "mmc";
+>> +			resets = <&ccu RST_BUS_MMC1>;
+>> +			reset-names = "ahb";
+>> +			pinctrl-names = "default";
+>> +			pinctrl-0 = <&mmc1_pins>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		mmc2: mmc@4022000 {
+>> +			compatible = "allwinner,sun60i-a733-mmc",
+>> +				     "allwinner,sun20i-d1-mmc";
+>> +			reg = <0x04022000 0x1000>;
+>> +			interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&ccu CLK_BUS_MMC2>, <&ccu CLK_MMC2>;
+>> +			clock-names = "ahb", "mmc";
+>> +			resets = <&ccu RST_BUS_MMC2>;
+>> +			reset-names = "ahb";
+>> +			pinctrl-names = "default";
+>> +			pinctrl-0 = <&mmc2_pins>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		r_ccu: clock-controller@7010000 {
+>> +			compatible = "allwinner,sun60i-a733-r-ccu";
+>> +			reg = <0x07010000 0x250>;
+>> +			clocks = <&hosc>, <&rtc CLK_OSC32K>, <&rtc CLK_IOSC>,
+>> +				 <&ccu CLK_SYS_24M>, <&ccu CLK_PLL_PERIPH0_200M>,
+>> +				 <&ccu CLK_PLL_PERIPH0_300M>,
+>> +				 <&ccu CLK_PLL_PERIPH1_300M>;
+>> +			clock-names = "hosc", "losc", "iosc", "sys-24m",
+>> +				      "pll-periph0-200m", "pll-periph0-300m",
+>> +				      "pll-periph1-300m";
+>> +			#clock-cells = <1>;
+>> +			#reset-cells = <1>;
+>> +		};
+>> +
+>> +		nmi_intc: interrupt-controller@7010320 {
+>> +			compatible = "allwinner,sun60i-a733-nmi",
+>> +				     "allwinner,sun55i-a523-nmi";
+>> +			reg = <0x07010320 0xc>;
+>> +			interrupts = <GIC_SPI 188 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			interrupt-controller;
+>> +			#interrupt-cells = <2>;
+>> +		};
+>> +
+>> +		r_pio: pinctrl@7025000 {
+>> +			compatible = "allwinner,sun60i-a733-r-pinctrl";
+>> +			reg = <0x07025000 0x800>;
+>> +			interrupts = <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH 0>,
+>> +				     <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&r_ccu CLK_R_APB0>, <&hosc>, <&rtc CLK_OSC32K>;
+>> +			clock-names = "apb", "hosc", "losc";
+>> +			gpio-controller;
+>> +			#gpio-cells = <3>;
+>> +			interrupt-controller;
+>> +			#interrupt-cells = <3>;
+>> +
+>> +			r_i2c0_pl_pins: r-i2c0-pl-pins {
+>> +				pins = "PL0", "PL1";
+>> +				function = "r_i2c0";
+>> +				allwinner,pinmux = <2>;
+>> +			};
+>> +
+>> +			/omit-if-no-ref/
+>> +			r_i2c1_pl_pins: r-i2c1-pl-pins {
+>> +				pins = "PL12", "PL13";
+>> +				function = "r_i2c1";
+>> +				allwinner,pinmux = <3>;
+>> +			};
+>> +		};
+>> +
+>> +		r_uart0: serial@7080000 {
+>> +			compatible = "allwinner,sun60i-a733-uart",
+>> +				     "snps,dw-apb-uart";
+>> +			reg = <0x07080000 0x400>;
+>> +			interrupts = <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			reg-shift = <2>;
+>> +			reg-io-width = <4>;
+>> +			clocks = <&r_ccu CLK_BUS_R_UART0>;
+>> +			resets = <&r_ccu RST_BUS_R_UART0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		r_uart1: serial@7081000 {
+>> +			compatible = "allwinner,sun60i-a733-uart",
+>> +				     "snps,dw-apb-uart";
+>> +			reg = <0x07081000 0x400>;
+>> +			interrupts = <GIC_SPI 202 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			reg-shift = <2>;
+>> +			reg-io-width = <4>;
+>> +			clocks = <&r_ccu CLK_BUS_R_UART1>;
+>> +			resets = <&r_ccu RST_BUS_R_UART1>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		r_i2c0: i2c@7083000 {
+>> +			compatible = "allwinner,sun60i-a733-i2c",
+>> +				     "allwinner,sun8i-v536-i2c",
+>> +				     "allwinner,sun6i-a31-i2c";
+>> +			reg = <0x07083000 0x400>;
+>> +			interrupts = <GIC_SPI 203 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&r_ccu CLK_BUS_R_I2C0>;
+>> +			resets = <&r_ccu RST_BUS_R_I2C0>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		r_i2c1: i2c@7084000 {
+>> +			compatible = "allwinner,sun60i-a733-i2c",
+>> +				     "allwinner,sun8i-v536-i2c",
+>> +				     "allwinner,sun6i-a31-i2c";
+>> +			reg = <0x07084000 0x400>;
+>> +			interrupts = <GIC_SPI 204 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&r_ccu CLK_BUS_R_I2C1>;
+>> +			resets = <&r_ccu RST_BUS_R_I2C1>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		r_i2c2: i2c@7085000 {
+>> +			compatible = "allwinner,sun60i-a733-i2c",
+>> +				     "allwinner,sun8i-v536-i2c",
+>> +				     "allwinner,sun6i-a31-i2c";
+>> +			reg = <0x07085000 0x400>;
+>> +			interrupts = <GIC_SPI 205 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&r_ccu CLK_BUS_R_I2C2>;
+>> +			resets = <&r_ccu RST_BUS_R_I2C2>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		rtc: rtc@7090000 {
+>> +			compatible = "allwinner,sun60i-a733-rtc",
+>> +				     "allwinner,sun50i-r329-rtc";
+>> +			reg = <0x07090000 0x400>;
+>> +			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH 0>;
+>> +			clocks = <&r_ccu CLK_BUS_R_RTC>, <&hosc>, <&r_ccu CLK_R_AHB>;
+>> +			clock-names = "bus", "hosc", "ahb";
+>> +			#clock-cells = <1>;
+>> +		};
+>> +	};
+>> +};
+>>
+> 
+
