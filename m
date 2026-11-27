@@ -1,79 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795739891;
-	b=s2T+137LukpL7INpsUig8IwiEqd6xdkhTtAV4/GO2ybnS3ouCpQ6knj9JU/7A3k+ad2q
-	 RptKFVAk29s4SP2pullGtHO7pnZStMD8hCYnahfOQl12ELINg/xJsAYQEI3VGDVSV1VcI
-	 5bl6Buet8KkQciiWxwGt1cYGnRvwU6618VJDHZm8t+W3zJoH0GwzHNdX44Lm6L6mEk51m
-	 TsFQBA1uAon9twaVOCJ2UtYjLSEnjxNsL06Gubm8kWIDKIaOT9x21gX5rEYtYeKNxW46G
-	 tdvHgO4BH0nW68V4Fw2gqFmBuUSBGgnwkyuhnKW8+Hyxv2NC4qIFo0Y8d3WS3owc9yA==
+	t=1795739904;
+	b=m1i0WOkvYToJRFrRGKC1ahLwY3X4eXDUVkMPL+lnl2KmSSK9leo0XaRNwUdKT3WC//kt
+	 vs41CXaroa2fiY43d6u9A/Vcus+cg/iD6kRoy58pbq/GpsH3UG3i3RoB3Mlnl5ijDS3Kh
+	 gKt8BOKX5gs+CoKMSIx3a8HAqwaXspgIz918gTn1/VI7MoSPg0htOBPP55kVixkyX6ouo
+	 3rjH0jVzbC3jp9X/62CQzg2e81/5mXS6EvTCcRXHogxX07/TYXimljTxf7ionPN9vLXlc
+	 RN4j3KSZa/6DTygqUjOC3KR9n1h8+JlozjSZ++BZu7P2w374Ca82u6GSoYopbiIpESQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795739891;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=Y1FKW8xIYiIpaEPrmECOjixE7s76tYmG2eWADy2j5wk=;
-	b=0xfZy+Fhnzl3USKHCpgvQOWR4KofJvC323+fPjZqUlMdEB6hM1h8sAbDDZLpF1yduomw
-	 o6WeZp8P3kmKgDDDlx8e5sJxVZB7fZ82mFcJrGbgf1JJ7oNRydkjBzBOMhe9rHEg4WQrm
-	 v3lkTTC/aVn83L7+boDS0XDh41Qy0W5XSf9fZsnITwT30SfGIbdwHkyzUUfDooMxxhtMv
-	 tGntX1aINi+mm2h0WvUUUi7Q4AAdEyz75GqCu3rZJAJfbmdGUeqqf+FeBtvTkwKecZg7B
-	 eV1G0Cslpw/A7ZWWM4zUyJ0pio72kWSXrSC93QZsUBh2ATB5IEPTN3QD4xo9hHgJxmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795739904;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=NSNeTFAHajnH3lsZhDsqezSosTqMwG/XUFvhuxmBbAM=;
+	b=3iTv2a1d9Pd/PONpdmQ7ONxBXDcYiACXb5CPBxTnvgzjJzexNH+sXf8rJMCA7BTz+UFj
+	 tPOzh59eYw+UZlSxlraCueO40dR1Pp/uMhVTUojkr2R5f4EBCpkgA57jeQd4/2BukPUfx
+	 90f88lG165VnrT0g6mWraIL8G9MNIPLdzPDwQlDhWD/Z0ZBt6ZGSUcgHqshiUPcnn9+eW
+	 quwwne8fho0aGxzP1pyCM7azTxy1vBj3fCb+yZl2x7o9uXyf1YMZ8pEwdpRoenYOo46jK
+	 GazU4P1khCJxDxBbA5NASRnk2I5DJEOflA55f0oMCVx5mejWRyMoLyITSCWkF6XmlUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=a2Nf7Otc;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VQHsY1TW;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D676606A31E;
-	Fri, 27 Nov 2026 00:38:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D676606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4770D606A31C;
+	Fri, 27 Nov 2026 00:38:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4770D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=a2Nf7Otc
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR0ba2Z3515030, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795739856; bh=Y1FKW8xIYiIpaEPrmECOjixE7s76tYmG2eWADy2j5wk=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=a2Nf7OtcbtlvLKZEtrkewhGNAp/xBmTVkrUvmqTni0QMohEMQurSpSpIsvFRYsAPu
-	 F9utC9PVa1vIH81chtsqEQKQh4mRwMZeY9WFSwrqJeGC247rgR12csCYe5hX8wiwJX
-	 BTyGiFPNbF4UPCEPokhR/ILM9gTEwVNpVQEDXn9caiiFdY2eta0LkMCRqgq3h5Gcyx
-	 Li66j11tq06qJu5ZLR78As04Ns+l8KQDY7sZnzdd1VlwY0WngZbq429ZOmd4fKnOmZ
-	 2XfuUOSG/mb54qtkX1IfM+Gjjt+esR1yxpyC1InXfrc6Gs38J29bqGHKdrUm+g5JzZ
-	 Ot1HG1T/X8lSw==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR0ba2Z3515030
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 27 Nov 2026 08:37:36 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 08:37:37 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Fri, 27 Nov 2026 08:37:37 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
-CC: Luka Gejak <luka.gejak@linux.dev>, Kalle Valo <kvalo@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH rtw-next v4] wifi: rtw88: 8822c: validate bw and nrx read
- from registers
-Thread-Topic: [PATCH rtw-next v4] wifi: rtw88: 8822c: validate bw and nrx read
- from registers
-Thread-Index: AQHdfRzleDq60UXOdU+FWOgyWX/QErdBFHPA
-Date: Fri, 27 Nov 2026 00:37:36 +0000
-Message-ID: <2942bdc6c66949bcb90cbc9ea61dfcaa@realtek.com>
-References: <20261125203753.428868-1-zeshanahmednobin@gmail.com>
-In-Reply-To: <20261125203753.428868-1-zeshanahmednobin@gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VQHsY1TW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795739902;
+	bh=NSNeTFAHajnH3lsZhDsqezSosTqMwG/XUFvhuxmBbAM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=VQHsY1TWAoWdpnxvBo3YGm409VVTESvzc8ndoiSDyPeDFFisnPM/e++4m9HRPhHX+
+	 NpyN+BXu92+bMd2jZbUD7wSOVXwR+cpZfCqw21CC1tUMJNaTP6ZjZ0rK04/4u9y/5t
+	 UCeR2Z06FJGv6v+HE3t/Y8VV4sj/naex25gH6hh4XXwlATOEDQkBAWMF8yBJEw0M8D
+	 9t6AEDVgI4HPHGv+DuQVYCrYJvSQaI738Dz66tdjoySnENq9ATNovseRpaSFWnAEo7
+	 6zmP0FPX4iPDX4EAhRERbywEmEVMXDLUvMBTYWuc9JbR5/nU9lq3heBNsmZxPV8HVf
+	 CIP1NaqU+GENw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DB8CE17E0CF4;
+	Fri, 27 Nov 2026 01:38:20 +0100 (CET)
+Message-ID: <cda5e670c88c79ff47651e182d1743bf5f90cd48.camel@collabora.com>
+Subject: Re: [PATCH v2 2/9] media: chips-media: wave5: drop the
+ consumed-byte tally on OUTPUT streamoff
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: "Jackson.lee" <jackson.lee@chipsnmedia.com>, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl, bob.beckett@collabora.com
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	lafley.kim@chipsnmedia.com, b-brnich@ti.com, hverkuil@xs4all.nl, 
+	nas.chung@chipsnmedia.com, stable@vger.kernel.org
+Date: Thu, 26 Nov 2026 19:38:19 -0500
+In-Reply-To: <20261109052853.110-3-jackson.lee@chipsnmedia.com>
+References: <20261109052853.110-1-jackson.lee@chipsnmedia.com>
+	 <20261109052853.110-3-jackson.lee@chipsnmedia.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-whAig/LySk3K4glCBC74"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,42 +90,40 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com> wrote:
-> rtw8822c_phy_cck_pd_set() reads nrx and bw from the chip with
-> rtw_read32_mask() and uses them as indexes into dm_info->cck_pd_lv[][]
-> and rtw8822c_cck_pd_reg[][].
+--=-whAig/LySk3K4glCBC74
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le lundi 09 novembre 2026 =C3=A0 14:28 +0900, Jackson.lee a =C3=A9crit=C2=
+=A0:
+> From: Jackson Lee <jackson.lee@chipsnmedia.com>
 >=20
-> When the chip stops responding on the PCIe bus, register reads return
-> all ones, so bw and nrx both become 3. bw =3D 3 is past the end of both
-> arrays.  When the chip stopped responding on Ubuntu's 7.0.0-43 kernel,
-> UBSAN reported:
+> remaining_consumed_bytes is never cleared. On a seek the OUTPUT buffers
+> it accounts for are returned with VB2_BUF_STATE_ERROR, but the tally
+> survives and is credited to the first buffers queued afterwards, which
+> are then completed before the VPU has read them.
 >=20
->   UBSAN: array-index-out-of-bounds in .../rtw88/rtw8822c.c:4407:21
->   index 3 is out of range for type 'u8 [2][4]'
->   Workqueue: phy0 rtw_watch_dog_work [rtw88_core]
->   Call Trace:
->    rtw8822c_phy_cck_pd_set+0x33c/0x510 [rtw88_8822c]
->    rtw_phy_dynamic_mechanism+0x310/0x330 [rtw88_core]
->    rtw_watch_dog_work+0x217/0x330 [rtw88_core]
+> Clear it where last_rd_ptr is already being rebased.
 >=20
-> nrx =3D 3 fits in cck_pd_lv[][], but rtw8822c_cck_pd_reg[][] only has
-> registers for nrx 0 and 1. The entry for nrx 3 is empty: register 0,
-> mask 0. If bw is valid and the level changes, the driver uses that
-> empty entry. rtw_read32_mask() then shifts by __ffs(0), which is
-> undefined; in a test that faked only nrx 3, UBSAN reported "shift
-> exponent 64 is too large".
->=20
-> Return early if bw or nrx is out of range, before either is used as
-> an index.
->=20
-> Fixes: 479c4ee931a6 ("rtw88: add dynamic cck pd mechanism")
-> Reported-by: Luka Gejak <luka.gejak@linux.dev>
-> Closes: https://lore.kernel.org/linux-wireless/f6a7d3272fe7635c6a83698dfa=
-b5d85500437ca6@linux.dev/
+> Fixes: 9707a6254a8a ("media: chips-media: wave5: Add the v4l2 layer")
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Zeshan Ahmed Nobin <zeshanahmednobin@gmail.com>
+> Tested-by: Brandon Brnich <b-brnich@ti.com>
+> Signed-off-by: Jackson Lee <jackson.lee@chipsnmedia.com>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
 
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
+--=-whAig/LySk3K4glCBC74
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawjQ+wAKCRDZQZRRKWBy
+9MuPAQDgVdWNmyTh/c52113LTyyokfFYVkCxqYf1WMfKV4FW1gEAtb2jIbVTDEMy
+01bzHuJ4cM2Xjuq2rpJqxd/wTUUHkg0=
+=LRbP
+-----END PGP SIGNATURE-----
+
+--=-whAig/LySk3K4glCBC74--
