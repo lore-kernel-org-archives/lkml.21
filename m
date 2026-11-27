@@ -1,75 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778772;
-	b=WBEHVW2owaOCd1SyKDfqEGkQC8n4EO2rvnPELKgy5WuAio5ayZqulWDXVinjZnbEqtbk
-	 FVvH/HUiAN/M3BPTs5LdYQpRwyDfiS1SSdySOsnpWaiCRZvasQlY3RVLrn/AyIvMapRZh
-	 lL1t9t+muGgpU9TnJkdLPzwn5oF81pHOaC6M8BK7e44uSzOuXtdwbk1MFQa6lWcknzoSz
-	 YXx4QEEx1FDeYdH6yWSmgYT2kSsU0CU+pqR9r9VjiCozhz5DO/RFNUaltnXItDcLKdFGk
-	 zzwDfVstwS2vwi85Cv0OJJCTxggeyZy/ZYoPUdjivtsKnzpy737EDwCRAFkHincvW6Q==
+	t=1795778770;
+	b=Iozbum5il0eSoYxkcvZRAVkRHE4j/n0aBoknDrtqTy+p3uHj4M3y6bOZNpZNHXfyoA/d
+	 rBxdes1OzIGrXgvKBUuS3Dac9+f6uvHXb1N9/zHL0vKYsc8mZ9R2C+wH/P2MnsWuKx7Aa
+	 dnqTsZi6szxskFbcBLH3X2X8+m7LS1BZrEjUMc5GMm0L9laQevssaGFMImJChIICzwIvA
+	 zuTrftMYaKLg/enD4wDaNtYsmFXBty3gJ4cpyAR7Q/DKsE02JcK1DtVhUyIb2mBlXPnG1
+	 PX3c5H6RqO3y+wuBXYTxD3dGmGNNrVZoYSeCNYjS805xODgU0iHaMPEe7VdlGXp7I+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778772;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=hDmEatNY2XfDKoZo8j3BqPFFbPxVHs9szs48QcnIzVc=;
-	b=1K1nZjgBIvHvj/TaLX8NFIpkE1pWSOsDZsaTWD9nusSrnkdl7gf8G3CsFha5w6MOkXUL
-	 LHC2XCj5V06aqWeQeu2cYf1iSKwloPSXg0SNnwu0Bb+NAoAtySLEEyRKxutr3LZY9rBYy
-	 0t/6gKqgMpsIMougGg31xbSEoKYXr2DmHaJKlsCt4MPP4FF+xcGq6ZQjJrVhMZbBsNvB2
-	 UStF+7mQQ3JhvLtTR1xAL2uvLADE8S6qI8LlpqaeE66UHNR/kVl/3yvOEFJS99vhU5xlM
-	 aEOsFN1nGWPV9PQrLUlbP15pod9n8m/n7aLa6dF3UH9yB1qYgEBf9dQPs0tFrjgy7VA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778770;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam;
+	bh=v9sb71Kl68g0Rq0utYtKxsaYTR3AAMwhH149FGZ6d3U=;
+	b=CQknqPkEHBbQWocJ8GSwNL/zMkV78KMF6333jqK74uEf/KIF3Wk+W+6K96+Mwquioh8A
+	 gp9fG5k3Occfi7OHEhe54i5ZKtW+stDrJ8QydwbiAmRrYKHeQtyUQrhXLIUB4xm/kPOgy
+	 y1RFid+9/xrLosHFq/9FCyvBmZJEsUz0q/3hJzhXFiRDW5/6OqFWLPTvU7NymDfdcUbK3
+	 6ZYOubzfUdXMpT+C/tR2CfnQfKTnO5ZVr1Qua/LSvKI5ulul/6rqZF3LkVXc1jKuTLjNq
+	 kIXZa0kiqRzzmBPHeWlIzkMoJvL8ztWFPuzBG1hMpT34N655Ktg4zDnGQ049xxbUIWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pu0IUCuR;
-	arc=none smtp.remote-ip=209.85.128.70
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=y6Yn2lrp;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78B97606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 11:26:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78B97606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93499606A31C;
+	Fri, 27 Nov 2026 11:26:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93499606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Pu0IUCuR
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-49febef74e3so60324095e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:26:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795778770; x=1796383570; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hDmEatNY2XfDKoZo8j3BqPFFbPxVHs9szs48QcnIzVc=;
-        b=Pu0IUCuR/qs8R/S1A2LCQgtBAbTaY7OuVLXe41ybTSFKDf2CN5EhSaXbhbcVsEP66u
-         fdwewfntk84M2KGMnxgMhbLRjbwSav/do3j5KLXQFjDIteQzZHMgz8gnqteFcki+OmTU
-         KlFq1eSfluQpBtu/BT4h+A7KvTTHKzYFqEoCQ2fJ9lUptULLGzcSSCALF9nntPzQw+x9
-         adIJoOKT7NbuLxoLiGFeZIJOXDtWzVeiUGM5V+c+5ko9nJGf811ZffJkDwm4jlP1QhM0
-         isU40DdhCa7WmRtukIUJ8aV2D8uTWSM3+3sUtZtp4zhrgeVDkpcn26j0TbWaU+eclh6I
-         bRsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795778770; x=1796383570;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hDmEatNY2XfDKoZo8j3BqPFFbPxVHs9szs48QcnIzVc=;
-        b=a+WkzYPtcnPLb3AEXb7FiL4kSP8sKIemfr942r/33Goof3c+VxWIHfcqh8NQjyW+Rz
-         Gig9Gk6yzh0Re4/rcgssTWJd6UWCj8lhBuBrPCzO0yI0liIC8OJjIKSec5V1j4CNiEHn
-         oiwoiFlYIq44QdvQWZuVsrjk7t6B6SuzL9vUwIxfx7aONXVqQaA/S3pzz9lYORiH3T+r
-         GgtVUHs7NfEzZcrfpZqpNnVVQ+GLL/5QeLB89MnNdyXNytmWmWZitWy9Fqw0RlZ1EWLC
-         tEwu8By7Fj1pSO7oS4cxJy7C9asYCQf+n4zQGtV8uVi4FMT+OX7T+6ZksBVkwk1f7M2W
-         y4hw==
-X-Forwarded-Encrypted: i=1; AL+hErGMvrveJrA1UJsFT8yAWhi9OKboLRVJbziG8AmyKI+/XPON0UJtMtCTXGrQHhrk8EQp1AjogGT4A3oeDhM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Sob+CzE1d14Dl8uXHHSeZ12zyQM0cF+Apvs3ZHzbcHh6a9zDx
-	KH6oYdpr4NzyOz8jbKDeiWsCHMOXLOu6Sy/V2NEdVyvYLiXMUqGk1AaOZPEvPW2siIgoTTqJoqi
-	OI0iK7ziBD+Zrjl/yMw==
-X-Received: from wmpo40.prod.google.com ([2002:a05:600c:33a8:b0:4bb:76bb:3497])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4504:b0:4b4:a551:681a with SMTP id 5b1f17b1804b1-4bb887fc396mr493239585e9.3.1795778769532;
- Fri, 27 Nov 2026 03:26:09 -0800 (PST)
-Date: Fri, 27 Nov 2026 11:26:08 +0000
-In-Reply-To: <20261127100846.67589-1-adhyanshverma2010@gmail.com>
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=y6Yn2lrp
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id F36D14C998;
+	Fri, 27 Nov 2026 22:26:04 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795778765;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=v9sb71Kl68g0Rq0utYtKxsaYTR3AAMwhH149FGZ6d3U=;
+	b=y6Yn2lrpWIKV24oU547aMM7jPunxwwPNFSRtfAgVrxMbdGxDzOZjVwhDtSkdY/155biu8j
+	8db6YvQyOkKiKaRQ347dgjVxCG+s5JnjkYJrIVdw3ZloukR8FTVMOC+vSWZ808ryunUcZ4
+	nPltYgt+JK5tMvjt+tHmidBKa7p4oFj8pT6X7PJJKHN3lvP+ICr+qu+DmYBf0R4HPyp9t/
+	glYdmNxkfXdUDDRhQr1e1Or8VPnYqXJqq5bdIx+QVkImob+zZg0WK8tzcKCe0jcVw8rsyE
+	pU5cw5Zp+h5H4S+0w2YdYMUvR071So0sXc8har9B720ZpMpwS00B6ACTEuaaBg==
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Cc: linux-serial@vger.kernel.org,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andriy.shevchenko@linux.intel.com,
+	ilpo.jarvinen@linux.intel.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	Andre Przywara <andre.przywara@arm.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: Re: [PATCH v2 4/4] serial: 8250_dw: Add Allwinner A733 UART
+Date: Fri, 27 Nov 2026 22:26:04 +1100
+Message-ID: <20261127112604.2585595-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <a3505ad8e74a08faa270881f0efbfe0d0d82d6e0.1792439398.git.vinicius.eduardo.pedrosa@gmail.com>
+References: <cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com> <a3505ad8e74a08faa270881f0efbfe0d0d82d6e0.1792439398.git.vinicius.eduardo.pedrosa@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,50 +81,42 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261127100846.67589-1-adhyanshverma2010@gmail.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261127112608.1537695-1-aliceryhl@google.com>
-Subject: Re: [PATCH] rust_binder: fix process leak on proc file creation failure
-From: Alice Ryhl <aliceryhl@google.com>
-To: Adhyansh Verma <adhyanshverma2010@gmail.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Carlos Llamas <cmllamas@google.com>, 
-	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
-	Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Spam: Yes
 
-On Fri, Nov 27, 2026 at 03:38:46PM +0530, Adhyansh Verma wrote:
-> In rust_binder_open(), Process::open() allocates and initializes a new
-> Process struct, registering it into the binder context's process list
-> (Context::manager.all_procs) via Context::register_process(). Because
-> Context holds an Arc<Process> in all_procs, and Process holds an
-> Arc<Context>, a cyclic reference is established.
+On Mon, 19 Oct 2026 17:06:13 -0300, Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> wrote:
+> On the A733, dw8250_set_termios() stops the UART clock around
+> clk_set_rate() on every termios change that reaches the driver. If TX is
+> active at that moment, the character being shifted out is corrupted.
 >
-> Immediately following Process::open(), rust_binder_open() attempts to
-> create the proc file via BinderfsProcFile::new(). If this call fails
-> (e.g. under memory pressure when allocating the proc file dentry or
-> inode), rust_binder_open() returns err.to_errno() immediately.
+> No baud rate change is required to trigger the problem. Toggling only
+> CLOCAL or CSTOPB 300 times during continuous console output corrupted
+> bytes in every run without the quirk and in none with it.
 >
-> Because open() returned an error, VFS drops the struct file and will
-> never invoke the ->release() file operation (rust_binder_release()).
-> Consequently, Process::deferred_release() is never scheduled, and
-> Context::deregister_process() is never called to remove the Process
-> from all_procs.
+> Use the existing SKIP_SET_RATE quirk, as the JH7100 and SG2044 UARTs do.
 >
-> As a result, the cyclic reference prevents the Process from being
-> dropped, permanently leaking the Process struct, credentials, and task
-> references in kernel memory, while leaving a stale entry in all_procs.
+> Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+> ---
+>  drivers/tty/serial/8250/8250_dw.c | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> Fix this by explicitly calling process.ctx.deregister_process(&process)
-> on the BinderfsProcFile::new() failure path to break the reference
-> cycle and allow the Process to be freed when exiting rust_binder_open().
->
-> Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
-> Signed-off-by: Adhyansh Verma <adhyanshverma2010@gmail.com>
+> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+> index 4c86aaf9c121..718ec44135e4 100644
+> --- a/drivers/tty/serial/8250/8250_dw.c
+> +++ b/drivers/tty/serial/8250/8250_dw.c
+> @@ -906,6 +906,7 @@ static const struct dw8250_platform_data dw8250_tda54 = {
+>  
+>  static const struct of_device_id dw8250_of_match[] = {
+>  	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
+> +	{ .compatible = "allwinner,sun60i-a733-uart", .data = &dw8250_skip_set_rate_data },
+>  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+>  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+>  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
 
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
+Tested on Xunlong OrangePi 4 Pro (Allwinner A733):
+- UART0 (2500000.serial, ttyS0, base_baud = 1500000) boots to shell and
+  echoes interactive console input at 115200 baud.
 
-Thanks!
-
-Alice
+Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
+Tested-by: Alastair D'Silva <alastair@d-silva.org> # OrangePi 4 Pro
