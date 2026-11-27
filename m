@@ -1,49 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774365;
-	b=zNz3pRTWzuKP6XXNHWFigUltg/dQEgajXIRZ0eNI5gc+DfcFWOEHE1G861S3FjCiMW+3
-	 3fUiKvEpeeGIKOo3tfHvrA3eX1v+Lcjkm1w6cn8k551gvvz00eev1u9Al0Bu8hYK9b9K4
-	 h/EpsutSIFqpJlwUOtFUTk/pgzTFH57ywWEBPJFVaAjQglcErOgVbuwpCNIpfQJtWLCI3
-	 0aXyOg6OaAH4UKpVTdK84nMm5hLqDdLeP2ggqFxRHgupm8zCylmCXZrwwVG2pCrj/7vGX
-	 QyPneWmie2G21zkGHLGJ9nF5RTXtiYxjJPWat4T/wNMSzfLtHqzhh9UyL6ebfy0orZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774365;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=v1/2YqpCnIwSCbwLLDUxkqgFBM6zZChxPmbs8wgtA+k=;
-	b=Dem3dZcv2HAzvCyfyLex3Um4RzMbFng4qChein6+uqG4PHiz+eXSePoaJJ3gfKmg++wN
-	 tHe3mlZh1z9TMvfONAIa5upVaqDeUTKx5RKFKLvsfU+7jQrB9LUtx3OoFknA2sQpEhmhv
-	 hc4aJ28kG/YRRFYMaHuF/GVX+ojfV44RmCe7yekONeEweh5b6eQ0mqpwVfIbUfOz9kwzb
-	 zV+/7Y2RvgnXA1/DsGJ6TWRqK37vLxO1MiJ68dtRkrvzFCuVKJg2IKc6rxpYgmi+/wWKL
-	 +RGWJ4IQ36umj2WJn+rqiVAQOrZcq7gG6d6GY9zomRUK5eUhS/bcXzkpLgpFflOQgmQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fBSmtxPJ;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EB600606A31E;
-	Fri, 27 Nov 2026 10:12:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB600606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.55
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795774397;
+	b=fCv/a/1qbO4JI+rLMf5iLO1j6DJZCvqawf0Mix2XnZ7DgNBjBFdyBvUC5dts8UzoCU5n
+	 5S0804OVm94SuCv6rmmD3G+ArPcyaEV7YAVfz0iy9emklXPDL2Pvl/7l89w7Q2RVaUwRm
+	 SP9ZlbZY9ekTfuml/Ahe5RX/SYL0te++Q5g4CS1k72sIZA/LKgO64JBVvK97OAciXyYoq
+	 afRN+z/ioZQJi8SRy2hZBuuKokfW5gRJutouTvNZU/XQItruT+/OV6+LvxhvmMvJwAACx
+	 a72ZVo+6l2AeV9C1gQS+lm57aH+hOIpbqxXjRnvW8VlH4sSAqq0AoI4U9ohgSCPTK3w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774397;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=4g05Eg8/8DBF5Yv5mhJiXdrpwU99lSRQcS2V0UclwxI=;
+	b=k+kgFf0dL6nKuvfziX9osrPQurWZq9FYNMKEaoK8/vRV1gQlnKjY7iP1S9c9WemmWuCF
+	 zUoZSbr3t/Xe+UgKrWhD82yoLCM0kPacZq9r6fbKE7j70RckL3NcrQ51sp+3aL9P7MoF2
+	 N51KeVobhPdRqqp4Ki5PhUP5gGKhxhg4HdrF4IhF3udhaf702yTdT310WA0srD6wuChLE
+	 GRajElrecJR+3hAS9SWKiT+bo7TZO4n68fIolFrgzvv/uDc3rrMKLAB03h+te2HA2w11Y
+	 L3cbs4oGfWgI2VbtMbaOXFWkjbLKxOTks2udt5xcpgS5mnGbYYoLEse2KOw0oGii/xg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=42vCCxK3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.55
+Received: from sender5-of-o55.zoho.com (sender5-of-o55.zoho.com [165.173.182.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDF7B606A31C;
+	Fri, 27 Nov 2026 10:13:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDF7B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fBSmtxPJ
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 383C81758;
-	Fri, 27 Nov 2026 02:12:35 -0800 (PST)
-Received: from [10.33.50.35] (e142021.arm.com [10.33.50.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B6FB3F86C;
-	Fri, 27 Nov 2026 02:12:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795774358; bh=c0/6aFDfGtHa/8JQkzEFzcPkvj+Wr26/24s6cKwSZCQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fBSmtxPJFJbeboQw9s+OXlHilp+OaovcEU5LIl1/Cw+DtoGBkQnd0nqKd7/SaZl1y
-	 j1hOmIWQGJa+hcR/AtcXt6RKNRg0+L+9h6G2E4MG2+42VOynwL/NvBRH8/hUCqDnrS
-	 a/yTDaH5tcedXgKOZyL4ilJHfyP8zJUH1/TpaZRc=
-Message-ID: <194329c7-45d0-4493-af07-f972694c075e@arm.com>
-Date: Fri, 27 Nov 2026 10:12:32 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=42vCCxK3
+ARC-Seal: i=1; a=rsa-sha256; t=1795774380; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZYAng+MbJDIG/52rMyeVJlPWub65ehNcAlvHHTliWoeuyXMPsb2ydwTgYbiaGFC/zRZ9pbULi0lGVWfB9ba0BGwZNu9WfAtfEQrtsv01L+UWUZXu5SDBFeJQFf3Ov0JEg4XonIKQPwqBAuSdevS8HbBF7YNiri09nloqXPiHx6E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795774380; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4g05Eg8/8DBF5Yv5mhJiXdrpwU99lSRQcS2V0UclwxI=; 
+	b=EdzbhJmqG3ondcdys9Kw0zNYKJPN0O5L6J/aGAXHUlCV/FGSL2T/4wb4igwpIX7fxqwWz44F2TKE0xijWXcWiU2Mgw3kcXQN/1BlzCIl/C8QwBRiWJKV5GxZKgQXMRmQx2P8O5XySkZmYhcxv1mBvUcseYXtkWybtDJBynZA7KA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=42vCCxK3xhOLaXZQ+8S+RAm+A6BY/ruqoP/KXZe/QzbG+/K2KI7MmDag1So0tTA2wiEB2qBhLdnPdgyKFX2yi24T0AwuLPGMeWnFdm0B0gX2ZLi7MVuMES3qGZz9oKL23hbQDHFz/kk4+wL+uBF3YC0tIBYfzFkqz7SAAVnxKhJrJ930qyXMFQjh0ByRCrxf0FdzXzhTyGPw84XbJec9fMuIaTpZO2qoNuoG/EFZVf9RRubMLCjLoo9eV0MXwb65vRo+i6O8n+za5AbCGROi9jEeF8WW0iOSR4f117PjEJ+hhLkp4iDsHRPdWT23YIdhBUydiDeAlxz74QOk9J0WjQ==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=4g05Eg8/8DBF5Yv5mhJiXdrpwU99lSRQcS2V0UclwxI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795774377754223.66927596052744;
+	Fri, 27 Nov 2026 02:12:57 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: Enver Ikromov <owner@ph4ntom-rev.uz>,
+	linux-wireless@vger.kernel.org,
+	Ahmet Zeren <niko3x@proton.me>,
+	Luka Gejak <luka.gejak@linux.dev>,
+	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH rtw-next 1/2] wifi: rtw89: fix retry limit and NO_ACK status for injected frames
+Date: Fri, 27 Nov 2026 15:12:51 +0500
+Message-ID: <20261127101251.1850-1-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
+In-Reply-To: <06298e2d51ca45e482165b9c7bdbfdf3@realtek.com>
+References: <20261126083141.1470-1-owner@ph4ntom-rev.uz> <20261126083141.1470-2-owner@ph4ntom-rev.uz> <06298e2d51ca45e482165b9c7bdbfdf3@realtek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,68 +70,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] hwrng: sun55i-ce: Add Allwinner A733 CE v5 TRNG
- support
-To: Alastair D'Silva <alastair@d-silva.org>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S . Miller" <davem@davemloft.net>, Olivia Mackall
- <olivia@selenic.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261125210532.695823-1-alastair@d-silva.org>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20261125210532.695823-1-alastair@d-silva.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 
-Hi,
+On Fri, Nov 27, 2026 at 07:27:12AM +0000, Ping-Ke Shih wrote:
+> > Commit 92608bb5f14f ("wifi: rtw89: honor ASSIGN_SEQ, retries, and
+> > NO_ACK for injected frames") has three issues:
+>
+> Your Fixes tag has said this.
+[...]
+> > 3. rtw89_tx_rpt_tx_status() sets IEEE80211_TX_STAT_NOACK_TRANSMITTED
+> >    unconditionally for NO_ACK frames (including RTW89_TX_MACID_DROP and
+> >    RTW89_TX_LIFE_TIME)
+>
+> I don't know why there is a problem?
 
-On 11/25/26 22:05, Alastair D'Silva wrote:
-> This series adds True Random Number Generator (TRNG) support for the
-> Allwinner Crypto Engine v5 on A523 and A733 SoCs, and enables it on the
+In mac80211 (status.c), IEEE80211_TX_STAT_NOACK_TRANSMITTED sets
+noack_success = true, so a dropped skb gets counted in
+dot11TransmittedFrameCount (and skips retry_failed / lost_packet when
+sta is present) even though it was never sent.
 
-so while I agree that the TRNG part is probably the most practical 
-functionality of the crypto engine IP, the encryption/decryption parts 
-are still there, and we have a driver for the older IP. And because the 
-functionality shares all of the registers and probably most of the 
-descriptor generating code, and Linux is really after code sharing, I 
-think we want the driver to live in drivers/crypto, next to the existing 
-sun8i-ce code, if not becoming part of it.
+[...]
+> Generated by LLM? Can you reword commit message yourself?
 
-Cheers,
-Andre
-> Xunlong OrangePi 4 Pro.
-> 
-> Dependencies:
-> Patches 3 and 4 depend on the OrangePi 4 Pro bringup series:
->    [PATCH 0/3] arm64: dts: allwinner: Add Xunlong OrangePi 4 Pro support
->    Message-ID: <20261125124407.4098345-1-alastair@d-silva.org>
-> 
-> Tested on Xunlong OrangePi 4 Pro (/dev/hwrng).
-> 
-> Alastair D'Silva (4):
->    dt-bindings: crypto: Add Allwinner A523/A733 Crypto Engine
->    hwrng: sun55i-ce - Add Allwinner CE v5 TRNG driver
->    arm64: dts: allwinner: sun60i-a733: Add Crypto Engine node
->    arm64: dts: allwinner: sun60i-a733-orangepi-4-pro: Enable Crypto
->      Engine
-> 
->   .../crypto/allwinner,sun55i-a523-crypto.yaml  |  68 ++++
->   MAINTAINERS                                   |   7 +
->   .../allwinner/sun60i-a733-orangepi-4-pro.dts  |   4 +
->   .../arm64/boot/dts/allwinner/sun60i-a733.dtsi |  12 +
->   drivers/char/hw_random/Kconfig                |  13 +
->   drivers/char/hw_random/Makefile               |   1 +
->   drivers/char/hw_random/sun55i-ce-trng.c       | 377 ++++++++++++++++++
->   7 files changed, 482 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/crypto/allwinner,sun55i-a523-crypto.yaml
->   create mode 100644 drivers/char/hw_random/sun55i-ce-trng.c
-> 
+Yes, sorry for the noise. English isn't my first language so I used an
+LLM to polish the commit log and it came out way too verbose. I'll
+rewrite it plainly myself in v2 and drop the redundant Fixes sentence.
 
+> No need parenthesis for ( & )
+[...]
+> You need to consider min of driver and ieee80211, so maybe
+>     min(0x3f, IEEE80211_MAX_TX_RETRY)
+>
+> The logic is clearer.
+[...]
+> Why do you need to clear these two bits ahead?
+[...]
+> I think the original ~IEEE80211_TX_STAT_ACK is not necessary.
+
+Agreed on all of these. The TX_STAT_* bits are already zero on a fresh
+skb, and min(RTW89_TX_DATA_CNT_LMT_MAX, IEEE80211_MAX_TX_RETRY) is much
+clearer. Will update in v2.
+
+Thanks,
+Enver
