@@ -1,101 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.196.123
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795809910;
-	b=saZPvwbqb3SNZUIwtWata1JPkK5jlkpBaJeYuszw0ISge9xKVdMwmw47gL+GLTVscz4R
-	 CDRK53s2/1E8FWQVbAEw+bbLL3YgM+AEPxL2WKQ6j1nqHO5RvkbTyl2INl7JwzVfurlTx
-	 Oqum/ZCdgoK3c7ZM4O9SvpkCyGo3UkyOPxiN0hFprtcSrkMORwlww1LvJoMARwn/J/m9k
-	 OT9jtyHiUE8by3/+GZGHDgNtz4RfDB49jGGp24D5k8NT+kP4q7GJ3rPuO3BjoYSLjd4E4
-	 /ZwGu6Y7egM+c2C12FZNSlsdf8E8th7O55OWZKckbczyGH8M0kfrUwj3vQOtdvYcohg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795809910;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=lAZQFmbKg3JPDnaeTVvIm9esLOmvxQcc7FTS1v/Rbz8=;
-	b=ChCX9IteE0E3Bc9QZXlf3sz0jAkv3CdP8Q/YqVUUHmHI2MBu4cpainBhfvER5MzIrQFS
-	 OkfDyxfmRMnGjeSAQ7DURHjcHGT1m83+bcmkmbCCbB7Hxhinon9xZBFw4rco5NYH+oZgC
-	 OcEK+HdG61NjUo0LrwpZtBUSRDFaiXdsIjikYPgi4lnoUbm5pxVO13dVe7VsBE09rKuAT
-	 kMZrXduPCcaMQwoQcA/zxWBj7rJPIPP69mGpLB6YiApPYvKck31xzTq3LicKHSYz6j4L2
-	 1D5q/ouSKVx7onmm6T+ysc8h+iPInq9RzNYz7+qyy8mUzZ8hnRnU246SUgJWFtIHODw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=V3JwjyD5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.196.123
-Received: from LO3P265CU004.outbound.protection.outlook.com (mail-uksouthazon11020123.outbound.protection.outlook.com [52.101.196.123])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795810056;
+	b=LpcUDmeRD8MnAD4Zo4vBKTlQ++0v8YPqzzAsTO2wrjMlasuJBAq5A7vUu9inWn/h8O2U
+	 eiNPiiW1s7H7HF+R6gBMbrwzCGCEhBWCeTmS/+B5wRA89kJxrdJ/9zTWAKVTXWPqstQgF
+	 KydrffLePm/Xj8Cr3T0AexMvx0rCPg03Cn9TjVPZNZdvlbIvUfrSOBe/8cNVGkv/adhuc
+	 isdIr/dL5l19G/1QTgcnZFfpudd3GvY13m877b/14Ccpl00HLRLHQr0bf0i4wojrsgBsX
+	 n7ufyskvfsRgJXYw9GygFeBOleipWwHYu/xHWH2IPFIYqMf0WlOyMjpgmF7svhKt/Aw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810056;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=oh/vzk19jdClXLP1dpmBN9YXjCpwvxMhmfZBVEqASFQ=;
+	b=k8W4Nu4UCQZFNKZczm1tTT9jqa+4XNf5BAfFOcK06721s05eNth39/bSYHgyarUzlMUh
+	 zX1YAmPfx8oGxpRyxtLzLpoOoSlsZV9enKqtbKr/QWkW1FnbkG5AINhsLXlN6/PlPuFrl
+	 FP6C4PUf0as7VE1WzX9r0CHi8OY7wK//FZ8Jc8RpCnJC+4v79vJiwTQiYo2V4Kzm0sGhC
+	 wnoun2s3EBZf4fOvn9j00CecqylF4Abh6edkmYHnhGwkMjSyO6yVH/2ePr2hhxXIytA/3
+	 gvtJHCRz9C9mu62kvhbCCMBP5WdqUC3QmMG48NktMKQAbe2XgILjuiRDOWrLArZkpDg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SQU2CaV4;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="c/0s/R/S";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5153606A31C;
-	Fri, 27 Nov 2026 20:05:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5153606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A3AA606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:07:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A3AA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=V3JwjyD5
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tJUlpbIdb0jJfyBzWih3Gu+2/znspl6hGCFXctLmqLrDS/aUvudqjb7ooIJAqxr5zeHlzSogxoxWQGAV3DZQizVcRHzNa0hPUvu5cnctTZC6QKXpu8cT5PKfyhL6HSq/8ZjnWoFhN9pc05Ngog2FcSnZr51qQZe7sCmwEdnNXkOe8jifp9ebch2pCEZX5iBs+AUcAviVB7j9AYGkxr+cTW3aZRWqnZs857Yeg4bZMr3jLtpEIbBnjDSUCTUWY1FUkmniT9H3xjRYRhGOV/p3k8LkYmfHlfr8KUrqUMJnZ8evF7A43y7pNruqM4B2gSKvqc+4X3E8qimuAz6SQSJD/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lAZQFmbKg3JPDnaeTVvIm9esLOmvxQcc7FTS1v/Rbz8=;
- b=RwlehLPuGavZcybAUIy/WZKF4lzGz2pJMZH2zVpFetwOJtjqeP6AisHyHGYX5D2q+tljL6GrhqIupvxzMlBcUZL/8zhR3e5T2H5igbelIZIz0E85t4pmfMZY0A4W/oVRYw7NNm+QcstEIHlxEm+sjLsaRovd5KEyHw31Q7GoTeM39knziQSfalpd0jTX3LY74gIFb96xSuyVHAMMwcsZ2oXAjf3lT5Tdl0g0W8zFo2GjoNXkSn9bpzbBy/XlOKls8eU8ZIri0qdyEkwkH0arLZQ4YLNEAuZAnUnmvYEuB98Lknjw7i+WG83AIryEsntcs33pNLHy0xNqZqvLoBpijg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lAZQFmbKg3JPDnaeTVvIm9esLOmvxQcc7FTS1v/Rbz8=;
- b=V3JwjyD5TkM+Q9HDw//nggR01Q9QzwsZwJwrDQFb5Bd19YRjD7TmV1n7ZIzV2T609OHvI0fTZmJtL0dsGFvWXJf7r7C/2yGi2GD2A1dG8toNkaBz4t9QJKMdGOzm+03KbhsSup9O81N1Cmj7nTuxjWsiypFlJ32lQUWFW85mahs=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LO0P265MB6054.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:289::10)
- by LO4P265MB6432.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:2d4::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.11; Fri, 27 Nov
- 2026 20:05:06 +0000
-Received: from LO0P265MB6054.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ebd6:df88:f3f2:ddb1]) by LO0P265MB6054.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ebd6:df88:f3f2:ddb1%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 20:05:05 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 20:05:04 +0000
-Message-Id: <DN69HD9F475C.2WM5C5Z573NO2@garyguo.net>
-Cc: <rust-for-linux@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] rust: bitfield: add conversions to Bounded of matching
- width
-From: "Gary Guo" <gary@garyguo.net>
-To: "Alexandre Courbot" <acourbot@nvidia.com>, "Danilo Krummrich"
- <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "David Airlie" <airlied@gmail.com>, "Simona
- Vetter" <simona@ffwll.ch>, "Yury Norov" <yury.norov@gmail.com>, "Miguel
- Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
- <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- "Tamir Duberstein" <tamird@kernel.org>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>
-X-Mailer: aerc 0.22.0
-References: <20261127-bitfield-conversions-v1-1-2f0b127c0857@nvidia.com>
-In-Reply-To: <20261127-bitfield-conversions-v1-1-2f0b127c0857@nvidia.com>
-X-ClientProxiedBy: LO4P265CA0128.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c6::16) To LO0P265MB6054.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:289::10)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SQU2CaV4;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=c/0s/R/S
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARJRnit1381776
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:07:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	oh/vzk19jdClXLP1dpmBN9YXjCpwvxMhmfZBVEqASFQ=; b=SQU2CaV42WfJHzIa
+	TY/FASVsPYHtxLcb2w4hUwSrnUMTz6jVyF0haDNWqhPuQb+jXkGM6PoaRccjkMOH
+	Hc9s/bcQeRTBTrFs4sEyCpjcAg9wdLixKIa4LZXj0rc0LN3+159SaJ8yq9UT+3wE
+	axKiPrjPX6yvbKeE60bNuiSL/ud6LsrIFw6D++DYFFYvJ2ASvMciE5OUp0twPS8x
+	FP/DuWdZgpCHQ9dcRt7V7RzauF/Apa1fXoJ/SrZwheVNjKPKMj22uFcVlhoYnV0U
+	Xsp8D9k8Pb/1dHGFQMhfJchUz/qxMGll8WEaBs1LXDZeW74C0sLVJ4YLG25ArHUd
+	CgkNpA==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j7g1s82nr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:07:34 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5eacc615f73so6238068e0c.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:07:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795810053; x=1796414853; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oh/vzk19jdClXLP1dpmBN9YXjCpwvxMhmfZBVEqASFQ=;
+        b=c/0s/R/SoT5OKiEKm6qu6CW86m0V1nuNxfjnnCMelYsYstTWSHtM7FcmcxIGZdgwUZ
+         QVo/0cvfycVsJ4l0+9fjbZbsNywdzNLOq7WwI0JfBs/RDyNuIH+vDPic6tXyorV6bE7n
+         x/zIFJMgSIvQ4QxbUtm6AG8+MvzKOPfnymi5RVREV9dQadHUYA3763NqLMK5YNJ0zMIl
+         eQKvKQam+vCAfga9kizEc628mdA+5H2NXMgSni/p9dpZ28JYbLIYPUBXrtnxrpawkpaR
+         T1YgMAeZcG78GV5dnUzTQ+/kwvN1wXbZh63uCaDwtGRqPHXg5Qis+UHQmFairouA6hfe
+         xYHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795810053; x=1796414853;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=oh/vzk19jdClXLP1dpmBN9YXjCpwvxMhmfZBVEqASFQ=;
+        b=hG0FHvd6VA/WAi+gADcFvaiNwcorcWKZYP7aeas5mllhPmCKKgG18VogGM4lTfw1q8
+         QoHqH58zVMF3CtNt+XZFNM/z2NsqXOS/cY4DoM8Tj6i3EBjWFdw/z5/yqhD6G7EsIxUO
+         p5G5fhedCURsdC9Dw6tWGavHxd4o625XMSfUmkDj+snkZsCsqDz1z6Hg4R5BM0z/8McN
+         Y7iDfd32gctG7ixNx+OUEIzghCc2/VlqZF0/em9S3y3pYbceDT/eiqg7lVrpNEAT/ScJ
+         75fXtginx4SrWFJqmqpcmWvQLl30Ug+Z4rAxC5WDaZsLNYW4GsO64qY3urfa3GU6GHxP
+         l3wA==
+X-Forwarded-Encrypted: i=1; AL+hErFD3NCCBwpfTX8L4nt7iTNyzSp4krxn1DBMZJyiJV6EW2pJ9tCUsJI2jROuw0yDQ2MaVOOlQfwZvSC2DUM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Uy7IpQZbf8+G6w8K7zzyQ5RbkfchHTDMlNjo2WJNn9PajJtIO
+	c248GQtpZkFcuglSAPV6GgsWXSrkGPUbwtSwPsKGMRtsv/h1hRcQh7XrLY7CcgPQvXvWIDug9bd
+	9/B0VajQGo7IDC2c0xDraPl+iR0GlwK7RKxL49lTMW6hDeb4J9tUej7CihQGt5h/H6bM=
+X-Gm-Gg: AZFdTZfOVKDMxGpz1hSVdKfJgaP9s2Kv42FLQBknlPa+l4/Q0CFH0I1dUY/UlRS+lb2
+	SyQ76zEQAQRtOGTV2vYHSd/NM6IfHtkbiXkkOBpuUKukwQqreb2tDrYAU3FOPrGhok2mS2awP+h
+	D/05Wn0mWOLNJ9eAox+sCdbQoHh7WcsmZXNWh/vk6OePmyUmj/b4z0A+oVwh37X9BKq807QRosN
+	6Z/eDkWBqU392neimlnEmObIWH9Fk2YZZyj4mTgXxjXH4W9zfYoMjUeidaW5HsK9pTRRDn8YqWU
+	TaSACf1BKmTXk/RZWqM57ZbD2QBcRRUgnB1zcu9fZbA5HJ6uxr5A40afrGigJ8olhWh/gxiX2+G
+	EEY+njqzXbMI/uUaI63L0LfWeqT+bRcNyGsGxvlpP2tzNcRmxJYOmQYTSIBAI3uij2yd+op1bNK
+	uida+V5s3roMrs5eaBpAsLZ/PiBwtkdUQMk76b2BGyYUfxu6/P076PO+dcenMIMw==
+X-Received: by 2002:a05:6122:3d10:b0:5ec:16d2:4537 with SMTP id 71dfb90a1353d-5ee8aebfff6mr16711951e0c.7.1795810053429;
+        Fri, 27 Nov 2026 12:07:33 -0800 (PST)
+X-Received: by 2002:a05:6122:3d10:b0:5ec:16d2:4537 with SMTP id 71dfb90a1353d-5ee8aebfff6mr16711865e0c.7.1795810052932;
+        Fri, 27 Nov 2026 12:07:32 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8044e00dsm69559081fa.3.2026.11.27.12.07.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 12:07:31 -0800 (PST)
+Date: Fri, 27 Nov 2026 22:07:30 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Alexandru =?utf-8?Q?Andrie=C8=99?= <alex.andries.aa@gmail.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        stable@vger.kernel.org
+Subject: Re: [PATCH] drm/msm/dpu: use single DSC encoder when slice_count is 1
+Message-ID: <urgy4kbfvofgjznraum7gtjtrhikbthq4sfad35nc3jbzb7kaz@uswmsjw4ygav>
+References: <20261119-upstream-drm-msm-dpu-dsc-single-slice-v1-v1-1-4744ad5b9747@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,102 +127,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LO0P265MB6054:EE_|LO4P265MB6432:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c0a099f-36ac-48e5-cabd-08df4cc1bab2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|10070799003|23010399003|366016|1800799024|376014|7416014|261009223027099003|22082099003|18002099003|921020|10067099003|56012099006|261102123227099003|261026121527099003|261021123027099003|261021121427099003;
-X-Microsoft-Antispam-Message-Info:
-	xaj3cRFUAFhTYd5GebIE/Nn1CIKMnIrqyA7J7DS+4EqV1Ay8L+vfZdL6QFRbwncPEEHNYyZVSbnw1npIH874oX7ZGSO6l+cGCZ804B7lb/KBKHJJc+w6D/vQatDGyub0ceNpk1ZKGKi1uZfRzUpBxA75Wl8Sbvm6Y1N53IhwYWqV/ABaYlwAxmmwv2Eu3pkd9Qo3fpHum9E5E989JoUXCqu7Q8l3Qb6v1TppcvRFC9q5cYst9+DeDnJcx+/hmvLKKeTPsIUEblvHOD1gU5C0QEilTj2KgkR35K53ROykf6nG87mesSkCp9e8jShTZ+An0D4AIKKvtOpUHjkRdFyMHh3EOp0UoYzYBrvRhbsjLLRBM4QGOsifhnu1HmlSy8gMKbe9vml97CnS5kqcfCMzPedHRFP1nHlRupG8Eg4s5+Prz6aUXoX9wiYpKvsTyop92rJ2jDmzuV+7GIyX+CqUbFhpC56ALHo80zeK4CoYq5g0zvzqm0y3BKyutq5dNs6Kyj+eipZCciL6q5XKVTp5Vf1fdQqBtJGkoR3t262NNu0y/WtrJcGMIZ7ASz9ddcmZxaBe4EGOxmqhPN1lzLGzEENKFZ5Z6KzclPcREAh6Ed2VUEAKfqMKzBWIICf0FRzYVqGCG+Hy71qQVGNHIGWdkfKX/g7VvJLK0RC1N9joaoIgm1Pf1Nvy7ZAXY+KSKC2G45PBPXv6z/mrL51BS0bKVA==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LO0P265MB6054.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(366016)(1800799024)(376014)(7416014)(261009223027099003)(22082099003)(18002099003)(921020)(10067099003)(56012099006)(261102123227099003)(261026121527099003)(261021123027099003)(261021121427099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QmRwV1lCbVNIZjg2aGs0YTVCeFh2YkZvZXcxdG5iT2U3V0ZaWkZvUzhxRTVG?=
- =?utf-8?B?QlRmMDFPNlpBRUJMOElCZE4rV0NWaWtueWJjaXo0Qzh1Ukg3OEtqVVIyQmtW?=
- =?utf-8?B?czZ4OEFXQW9yNkxSVXV2RE10dS9YZ3RDM3NBUjg0VE12R2UwVUE4L0VIQVV3?=
- =?utf-8?B?aXRpeDN5REdySFhyOUw4eDU1ckc0UytRb1FZZ1FZUVlCdVJIcVdJOWlKZkM1?=
- =?utf-8?B?NGh4TWhJVmk4bHNGMUFEVEdPNkVmVUt4Z1pORHdHMDhoSTZmVENoaDdmbjBk?=
- =?utf-8?B?ZGZhSE1VVTh1MTRUVzFNcmp6M2tVaDhBRHdDSG1DcW0xanBvNEJUM1NCMmEr?=
- =?utf-8?B?cFZZNnVUSVBTdXVMK2hUZzJYNDU1MCt0cVpxQjRXbWVvL1hpckllWlloMGRK?=
- =?utf-8?B?aEw4K3NhZ0VLNzB6MGRpejJhL2lXZzdsWVFubFV1dkRkeEt2R0xRWnRmOGtp?=
- =?utf-8?B?dXNjRTFVS1V4Q0dZbXVJR2JWcisvMDAyYlZ2VnpmTWVpbGttVG9Ob0V5d3Bs?=
- =?utf-8?B?a000QkFMSWQ3ejQyRHV2YXBtazVWQmZsUklWSitTWWJFVnVwRlFYOWxkVjZt?=
- =?utf-8?B?bG1nRGZnZFk2a3RNYzNFekpIL1E5VlJBZk1hWlpMYVZWaFlBVnBUbDYrckVM?=
- =?utf-8?B?N3NkektzMEdzNURoVUh4Z0xCSFpVclJUUUdrbStXMVp5djJEMFFhVG1NbS9w?=
- =?utf-8?B?RUU4ZDgxNTQ4cy9qVkFwa1BJZkl3U3NCWVYyZC9xVzhhS3RGV1NPeFFNWEZK?=
- =?utf-8?B?NXRydnF3NU9wSlM4TzRKcENDMUd5V1hZNWdzdHF5QTNPbGtSc0ZQeFRTYWQw?=
- =?utf-8?B?SHoyb0hYaGwzWHo3OS9iYTVmQ3B1b2Y5ZXZuNDF6N2V6Z0hQY0NET0QxUkxm?=
- =?utf-8?B?VnlGR0Q5aUZjM1lSTGs0dHFoN0FXZHNKQlMzb1J5MWF5cXBKa0pmRWQydjRG?=
- =?utf-8?B?YVMreXpydTU4RCtxUzdpZlAwREZPd0lkWWZ4SjRyQU1LMjc4dm9VejZIUld2?=
- =?utf-8?B?d2VBbWxFaGNaTnd2OVpNTmE5dGQzQzA2eE5WVmhRNDkvWkQ4dEhPMlhmd0pO?=
- =?utf-8?B?UFVvNHN0NHlBakFmOVVLazlUZjJIQ0NJakVUbUVUNUViMERqOS9TQUptZ2NY?=
- =?utf-8?B?Zzl6emtNUjhJWDRJeWRDZzN1Njg2V1VMMUtNMlE4emNEVmFrZmgwdkt1UVB0?=
- =?utf-8?B?NVlzRWtjMWtWRFFXbm1tY3ZXbzMwbENOOTJhd2p3ektGQStidXFtYUhBeGlp?=
- =?utf-8?B?VDFFemdQbzRkY0VTU09kU0ZCN3NtWmpHT0lCbXpiNVJpR1JRNVBTT2VMeGZ2?=
- =?utf-8?B?YzladlJIS1RQQ3llR1J1QmdMWnYwcVFvOTkyNjB0ODV3dGk5blNoc0pXWnU2?=
- =?utf-8?B?NkpuWmRsUmFkTjNsR2hRM04vV21kKzlXRHNndUZWeTNadHBSektsRVFYUjZC?=
- =?utf-8?B?b2tpZUV4eFNyRjlNRm1uL2xSRFpCS3k4bG9Bd3ltbkpPZ0c3cE5DaXovamhu?=
- =?utf-8?B?YisrRjhXK1cwSGhTaUZSUHZlTTN5T1pTMHFxSEY0NjZieFM4YWhWTHkyaEVO?=
- =?utf-8?B?bmJYSjNUalcwalhtTWFudUNkTVlmeHFFNHA1OUtsNkx3eVFMRkwrd0p0Um53?=
- =?utf-8?B?cXJJdzEwKzhuaFBjY083WGs5eWx0cGd1aVJCZDhOSGZkVjVTNzJSbHdveCts?=
- =?utf-8?B?MVMwQWlPdU5MMXd1MmlJRll1aUR6ajN1WXo5Nm5DSnFQQk9FWlVleG1JV2x0?=
- =?utf-8?B?T1A2bFpUK2EzRXF0aHNWc3dCSHJhcThsQStFQXV1VE5ocXNTVi8rZE9yMFJw?=
- =?utf-8?B?T25pbG1lbVRvVmN0Q2d0ZTliRW5sOE0zYllIcUhPNTlseDRwK3RCdk9MYzJU?=
- =?utf-8?B?VEN1SEJWMW1JZlNGNFpmZnpLWVFEVXFIc3FFRHQvQWUxSGNkdnh1WmJHNDdw?=
- =?utf-8?B?VFFHaEc2cGo2NUtxamhuTGRPRGVKSTcyR3U0OVM4ZDJxWVIxSlNzUEdGeXU5?=
- =?utf-8?B?dzB4QVhmQmErbU9vTGVVL3B0c2JvU1JzajlWRXJLa0RyYS8xNDNmMVl5VUVz?=
- =?utf-8?B?NEFSVXh1VGJ1YzJGNFdmdHhhR0lScWVwcUpBOXJvV2ZuMmVQdkZQNmphQU1h?=
- =?utf-8?B?VlpOQVhNYjRPZ25QdWVKQkdZUUFMNGd4MlYrOUhtYzhCOUpITkNMcG5Bck1m?=
- =?utf-8?B?b0c2QkxSdTRhNDU3alZpYmJEWFBaaUNreXoySXRVaCs4MG42Zjd5K1lVcTVP?=
- =?utf-8?B?OE5YOXNMV1h0MkJmSDNOZjdXUE1DWjFjc3VxaUNJbEpsRnN1S2NVSjd5Kzdj?=
- =?utf-8?B?K0NWbUpvcDFqK29rWk9YLzJpWHNidms5anVmSjJtcnVuNzU1Z1MvUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c0a099f-36ac-48e5-cabd-08df4cc1bab2
-X-MS-Exchange-CrossTenant-AuthSource: LO0P265MB6054.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 20:05:05.6405
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xj3lB2CFHDYZPkYDu0nAN9wlrUzwXtTcmuAv3HmR7uj3v1gCmDLj6rYnMjqaSdaWUv0reFkmb1/RMyKxY31eRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6432
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261119-upstream-drm-msm-dpu-dsc-single-slice-v1-v1-1-4744ad5b9747@gmail.com>
+X-Authority-Analysis: v=2.4 cv=FYOiV5+6 c=1 sm=1 tr=0 ts=6b09e306 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=4NFimAn6xQd1D8YDhw0A:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
+X-Proofpoint-GUID: oKFxVYtZ_25-oQxwBbFZx4eRIq_27V7O
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA4MCBTYWx0ZWRfX9kVXn7ZledL6
+ rAVBMBO+SIA4k4XZew80c2Yno5D8/B6uwtnOOByXUqoPRiXLheg3W7e3KFXaNo1DCrCQ80OWJZC
+ U3iuXeJSOA1WArmVBGkK/kK7hOx5oV/ApbVitRKDvHxkjsR0vq+4HjQGwf9czrrxI4/ht1Jl24V
+ IC+STZGm5NArANQ2z4QXigW3+4doE87igApy732uSYyl47UApyi4ulV7T7B3AnX6RgIg3ROLxGi
+ 9GCWq/tGdsa9kvzw/ahcwW1IkWB1s9IglyNuc2jJ5v+i37YaEl9RgBEHYoytICYBViXo1pmdYB4
+ ITzo8LypYXjxN/IzeHhGFRnXascXAoBftDKRGhP+KnMjIZtl1/Y5Dgxk66Uy9TP2hsmgrlhrhts
+ Lrl+rPtePpv1QOpsjQ4mBaCLEguq5UiXwYEjhWI6fVsXdLplZVC/rTVR3ZQJIdw6UtHjU1yCaxc
+ AaJbZypkMm5Tr8STiVA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA4MCBTYWx0ZWRfX9PEyPTDWDd5z
+ kgWyOzcABpUo19z6wrt7NvBF13+O7SeApH/olCbHSt90EL8cE8xmTmNNt7YH9UJLLHue77D22Xm
+ iUrYYG29AZ0rsA6hDbhtzzYmQ3NNUWQ=
+X-Proofpoint-ORIG-GUID: oKFxVYtZ_25-oQxwBbFZx4eRIq_27V7O
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_04,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270080
 
-On Fri Nov 27, 2026 at 12:05 PM GMT, Alexandre Courbot wrote:
-> `From`/`Into` implementations already exist between a bitfield type and
-> its storage type, but these are not enough to support nested bitfields,
-> since every field is a `Bounded`. This resulted in some ad-hoc
-> implementations to enable this kind of declaration:
->=20
->     bitfield! {
->         pub struct Version(u8) {
->             7:4 major;
->             3:0 minor;
->         }
->     }
->=20
->     bitfield! {
->         pub struct Id(u16) {
->             15:8 vendor;
->             7:0 version =3D> Version;
->         }
->     }
->=20
-> Generate these conversions automatically through the `bitfield!` macro,
-> as these tend to be useful.
->=20
-> Tyr had such ad-hoc implementations, so remove them to avoid conflicts.
->=20
-> Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
+On Thu, Nov 19, 2026 at 01:47:58AM +0100, Alexandru Andrieș wrote:
+> dpu_encoder_update_topology() currently selects 2 DSC encoders whenever
+> catalog->dsc_count >= 2, even when the panel only uses a single DSC
+> slice (dsc->slice_count == 1).
+> 
+> A single slice cannot be split across two DSC encoders: merge mode
+> halves the per-encoder input width below slice_width and, on DPU 7.0+,
+> computes num_active_slice_per_enc = dsc->slice_count / 2 = 0 in
+> dpu_hw_dsc_config_1_2(), dividing by zero in
+> _dsc_calc_output_buf_max_addr().
+> 
+> Require dsc->slice_count >= 2 before selecting 2 DSC encoders on a
+> single interface so single-slice panels use 1 DSC encoder.
+> 
+> Fixes: b6090ffb30f3 ("drm/msm/dpu: Fall back to a single DSC encoder (1:1:1) on small SoCs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Alexandru Andrieș <alex.andries.aa@gmail.com>
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-> ---
->  drivers/gpu/drm/tyr/regs.rs | 30 +++++------------
->  rust/kernel/bitfield.rs     | 82 +++++++++++++++++++++++++++++++++++++++=
-+++++-
->  2 files changed, 89 insertions(+), 23 deletions(-)
 
+-- 
+With best wishes
+Dmitry
