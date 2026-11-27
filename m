@@ -1,53 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789748;
-	b=bAhSNcdmqRig+NdeYTbHPYEucpu5VSEr532NjTYizstQCvZbSRmubtiGYMJoxdn/QtQ6
-	 oXqswdGhn2K1m32PNK9leTbN9OW5c//bpMND08KFHuPrUZfPA0SDL/u6GaFa86A2YtFEe
-	 fvU0GLPgP9rc5oFTW3EOt5PwxeUi5N3pRTBMatd6dSwZW1B60UoBRPgzUkKZW4lSWP88j
-	 vkZR2ILe998PU1n9s3n9omlP2DzfM3Vg0v0VKv2IMH9jrwtZp9A9uKDruHtYDmRGUcpzP
-	 YP8Lym3oTUbSrnd9pYvOE2GtCmsHfA5prA9Ze1pYjyDBuXpzyJPBGvces5IQcU9jF6g==
+	t=1795789750;
+	b=BLoYWVnv3mZyVarcALyEVyBoqpdEmn89sAOtr9Am+Sk3HkfY0FJIMAE9MtCfAdnHCKDd
+	 PlrfLpnFrot6MtwzOZy+eGXirq5yiU8Fbr3iLaWvTl+Q+/lWvkVZ/vpeFpOvSW1lBzNm+
+	 iCI4qJnMcjU8Y1yeOO1sGpRT+z7C8D//AkzxvPI1IXkS3dJBIrmtkzA3sIm5tsMqqOOQS
+	 nWliCCzWJ6+T9r+KOI53WyYSG06kMqp8SVN44MXAOxQHUkdk1vNhL+AalqF6H5Zp+tVN4
+	 8WZA0UzXR6tvyVKjh+1j4HVt38Y3cGV/kowb3rbeRC8dE8Y8VibCU18M0k6FnmvJstA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789748;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=OOhOpEtUmi8NqmWv0fX2VMmD2P8zJirJDmX8ubh4x6U=;
-	b=NlGStU6/KlvsmCVlVkbwO9McEwSmPmbLqaLBkZoxf1Us2ink9sf7nH2k29F4lUKOIZuD
-	 Rlcrk/TwGxExb/3NRq2Mp2UZuLzcbKhLDl0A7+CrFKplNAzU0bg1hgbK8vJ5/+JEZugBC
-	 C76FlxtS/OPEqnyU7rJMAEoFKbgqSNAWP98ONw6T59VNWs3q+Ni0I8kSk4LadNiWYCLAH
-	 e6YSij3kdkqKa+n2F9LlcTL6Tzu/xzoCw+2ieucHd+hs3Lk24a2rOFID6nQM8RdEgIlsX
-	 GIRjZiYVMCW3G1Y1fKDCAlfkmlGcnfMQ0QSAKncwYa17gMqmLI4BkM1nbidNfHu1lIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789750;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References;
+	bh=dm6cr41faFC8ArIx047bjmXEdHglWtT+kfMScNTGFvA=;
+	b=NDcfb0TfqHCUBcuWOioZRnLcgtJw7wYfK3xFiQhlhWJpHEzDNHdXj2Gt1duyPd6HsTkN
+	 xZwGEmlT1dd3pBayKSIX6Ia+tiA9r7/M3jTPHLJSXXtrWoionnbVc8JU1NL2Xla2/XIDR
+	 Fn+aqG9vQDSTk3sadkZk3k8scLpxMeDPL1Y2WtmWUjj40lCBPHehgQebRukKOrQleoBBT
+	 N1iT2Lo8yc0XEq/kNqkrc857G2Y7DGU7Y49azqjqm2SHBWu0l1LRcTT8Qp8nPg3eFrvYU
+	 s3Lhbk/NJ0irapuPStIxqF5zBnc1q8fIpbS0VWO0UAODD1o3EQlWkuzQc56dq7s+EsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LKRdEty6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gTzvOrNF;
+	arc=none smtp.remote-ip=74.125.82.53
+Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F5BE606A695;
-	Fri, 27 Nov 2026 14:29:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26FBF6070F5D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:29:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26FBF6070F5D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LKRdEty6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 573DC1F00893;
-	Fri, 27 Nov 2026 14:29:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789747;
-	bh=OOhOpEtUmi8NqmWv0fX2VMmD2P8zJirJDmX8ubh4x6U=;
-	h=Date:From:To:Cc:Subject;
-	b=LKRdEty6GMyNmKVjFsaWhMjhsXGxfFL6ps+exawhwew41JcoyyhafZb13MOsfYhzV
-	 Nfd+lyKIRCmqjVaQJrlBKZX8tXk788XaTNzDqvU0PC6p/ynuvMkzg/xOuq0Z/7+bvp
-	 taWIotWjGjA3ZNdY3jM+nqusy7jBcppyNnOhLtfiqd3Bb61JiyrVrxpSx8bJF8kDnJ
-	 rm/AJRurdGCeQr/HPLMg0G5+TtK0rmUnBggA7k1mSfG+zu60KFOA/toMkkpDEo6DSZ
-	 WnzOLk5QTldWAperBavLQJxOeWMkQQrBW5fRycAxNlNNSPIwYpf0mcA1qSzOhm3Xwx
-	 rDFOzz0bkg/tg==
-Date: Fri, 27 Nov 2026 14:29:03 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Christopher de Guzman <christopher.deguzman@analog.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: linux-next: manual merge of the hwmon-staging tree with the
- hwmon-fixes tree
-Message-ID: <awmTr2ry8AkoVBc5@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gTzvOrNF
+Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1a3c08d6928so12171439c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:29:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795789749; x=1796394549; darn=vger.kernel.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=dm6cr41faFC8ArIx047bjmXEdHglWtT+kfMScNTGFvA=;
+        b=gTzvOrNFvhK0STCGWJLm6GIpHLn1mPTWmnueSCdTgmPwePHg/bn+713K7/zOTnp8CP
+         +jlGBv+RVcOWn70jW+tJTqv23+vWRHYRWDNLoPrO4BwWPwCK0ZqF6TmwBFKSR/ZI9StF
+         5jKFP5XPgu/JkbAEFYFtcXe4ZI+oMd9bCLkFaQrYvA6Bu8ogtoW3Pjix5i8dCrh7i5MJ
+         DzkQRyi1DoypwH9wS5kgYdIPXntMMPJsXtfKXe9+Z40L63C6OWLFNENc7VWnArHoiU0R
+         QO8ihRl0k8AW7RK+JBaeA6ODH0EMOS96WZbrwPZwKWA2wpzErzaOnZf08Oc2FRAqaqpy
+         ADFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795789749; x=1796394549;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dm6cr41faFC8ArIx047bjmXEdHglWtT+kfMScNTGFvA=;
+        b=J1/6Qft/cehSv8UtjurFJVEXri9r+bNUN7tE1w2QVrKTf85WdkqQDdmtnQ0GLbYYx1
+         OlM3UeCF860U6ECzGLCrjRG/e7g7vKEAvoxcrEl9HHs92lUJn+sKBN227DVAoWHaInB/
+         kx7Rpn/JOTY5YI6ixDhBeZhMu72O+LpL9PoWiG9LE7lBOPr1dhJqMF72G9hVYvcZiRRr
+         g97g4ohDD3h/kahtN5NjUQsIF106E0lmh1B7tjA/J3zte8zVonjQtXPZXRA6VLkjIXPC
+         uiUJ3wrhu8LFtuwd2YRizgf7oOZE8JJm3J0mhrlLsS8nKCLiELwSfNjIJVsBRm5qHAAp
+         UZ2A==
+X-Forwarded-Encrypted: i=1; AL+hErHTNrff20KroB4occRcaiu1n4qVAJGXfLSpHHuTMeuDTy2yj0ILbYvGl3GAq6j4rKoAcc/dAC2/dPhgg+I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9j8YOwrydzsCJ8bNVLirm50wTfUfoazR0vVanbk1bjJLcgcszB
+	+0/BkqGSsfhq6LlYsxUqISfZHi8ZqD/eV1Ob08UWe3yH+295wk36ym5Q
+X-Gm-Gg: AZFdTZf+S4cy6MxzJO/KzEStTamh1LdzVp72N7Pd9wstjUwn69xQNeueQPX1mArbC6q
+	f5/5Zy5ccj7QEoDQ/SKgvEWEJc7uYoDBYlRlJ/iWpLxX0H/hRqVgATdp5mVS2x00EpPtpiLsbPt
+	V5aJSJaQPQfXYeKarNVuTWwuJbmaBlyGpD/KcTy6mf0gjug7KZp+Mtj1scT2JG9QX9idr/zZVG/
+	T0ohddzl2zX0ZgErRE1EpI4lcBlTyeeFe/mP8pK0HYq1VP0pSYWbX4exQJMGS9uVnS0IhEaHUgP
+	dO6qD4ipyhbSs7b5CqO5A/VUm4oRtizWLoi1WWndRKJBJh0Ja/ghVkep4O0Qawx2aaQfOiHconD
+	2fWM5J136/8qUaynPqgcIhzwgGzzVnBh4mrUtpUqw0XXMYGaAK9kWS8fJgjj7O8BvHGkcE3FcA3
+	/WzD/xrEMy1Yu6JeKCYSu1xr8rrO5eN2F72f7hN+xzL+MkPJeXTgL/ntBUP2h9/zrXllhEcWtUx
+	2fJlvocFX2H39hqWpptvpGcXT/jdxzxMh+ODXiaZtNRIdnobjZKgp3w7uXxLZrdY2qKJO2A89sI
+	9r+hckqXrEE+1sBC7y/HA5O+GK5nqz9c+UbcrEd9r9mRFL2Uqw==
+X-Received: by 2002:a05:7301:152f:b0:376:203e:7d7b with SMTP id 5a478bee46e88-3856c6b35b5mr27107990eec.2.1795789749052;
+        Fri, 27 Nov 2026 06:29:09 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm78273881eec.14.2026.11.27.06.29.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:29:07 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: mdshahid03@gmail.com, maddy@linux.ibm.com
+Cc: mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, sshegde@linux.ibm.com, atrajeev@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, Mohammad Shahid <mdshahid03@gmail.com>, Tanushree Shah <tshah@linux.ibm.com>
+Subject: Re: [PATCH v2] powerpc/perf: vpa-dtl: fix resource leak on allocation failure
+In-Reply-To: <20261127052345.23361-1-mdshahid03@gmail.com>
+Date: Fri, 27 Nov 2026 19:46:53 +0530
+Message-ID: <5wxiwe96.ritesh.list@gmail.com>
+References: <20261127052345.23361-1-mdshahid03@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,127 +92,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mgZZrDGW4FKx88eO"
-Content-Disposition: inline
+
+mdshahid03@gmail.com writes:
+
+> From: Mohammad Shahid <mdshahid03@gmail.com>
+>
+> vpa_dtl_event_init() allocates the DTL buffer while holding
+> dtl_global_lock. Move the allocation before acquiring the spinlock
+> to avoid performing memory allocation while holding a spinlock.
+>
+> Since the buffer is allocated before acquiring dtl_access_lock
+> allocation failure can be returned directly without releasing the
+> semaphore.
+>
+> Free the allocated buffer if acquiring dtl_access_lock fails.
+>
+> Fixes: 4708fba19ade ("powerpc/vpa_dtl: Add interface to expose vpa dtl counters via perf")
+> Suggested-by: Athira Rajeev <atrajeev@linux.ibm.com>
+>
+> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+> ---
+>  arch/powerpc/perf/vpa-dtl.c | 19 ++++++++++---------
+>  1 file changed, 10 insertions(+), 9 deletions(-)
+
+I am unable to apply this patch on any of the upstream trees.
+Could you please rebase your patch on top of powerpc/next-test [2]?
+
+[2]: https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git/log/?h=next-test
+
+>
+> diff --git a/arch/powerpc/perf/vpa-dtl.c b/arch/powerpc/perf/vpa-dtl.c
+> index 20eafeaffa6b..57bc5773949f 100644
+> --- a/arch/powerpc/perf/vpa-dtl.c
+> +++ b/arch/powerpc/perf/vpa-dtl.c
+> @@ -338,7 +338,7 @@ static int vpa_dtl_mem_alloc(int cpu)
+>  	if (!dtl_cache)
+>  		return -ENOMEM;
+>  
+> -	buf = kmem_cache_alloc_node(dtl_cache, GFP_KERNEL | GFP_ATOMIC, cpu_to_node(cpu));
+> +	buf = kmem_cache_alloc_node(dtl_cache, GFP_KERNEL, cpu_to_node(cpu));
+
+E.g. in this commit [1], we already had changed this above allocation to
+GFP_ATOMIC, which is even merged in mainline. So it seems your base tree
+is old. Please rebase your changes to powerpc/next-test as pointed above
+and resend.
+
+[1]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9500416c8aa7c271b85be6a0d5856da62b60223a
 
 
---mgZZrDGW4FKx88eO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi all,
-
-Today's linux-next merge of the hwmon-staging tree got a conflict in:
-
-  drivers/hwmon/pmbus/ltc2978.c
-
-between commit:
-
-  43f641c028fed ("hwmon: (pmbus/ltc2978) Fix peak comparison for IEEE-754 c=
-hips")
-
-=66rom the hwmon-fixes tree and commits:
-
-  f1354de07181d ("hwmon: (pmbus/ltc2978) Fix peak comparison for IEEE-754 c=
-hips")
-  5ced04b8f54e0 ("hwmon: (pmbus/ltc2978) Add support for LT7175 and LT7176P=
-")
-
-=66rom the hwmon-staging tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --combined drivers/hwmon/pmbus/ltc2978.c
-index bd58f786693bf,ca94a3c17e9aa..0000000000000
---- a/drivers/hwmon/pmbus/ltc2978.c
-+++ b/drivers/hwmon/pmbus/ltc2978.c
-@@@ -23,8 -23,8 +23,8 @@@ enum chips=20
-  	/* Managers */
-  	ltc2972, ltc2974, ltc2975, ltc2977, ltc2978, ltc2979, ltc2980,
-  	/* Controllers */
-- 	lt7170, lt7171, ltc3880, ltc3882, ltc3883, ltc3884, ltc3886, ltc3887,
-- 	ltc3889, ltc7132, ltc7841, ltc7880,
-+ 	lt7170, lt7171, lt7175, lt7176p, ltc3880, ltc3882, ltc3883, ltc3884,
-+ 	ltc3886, ltc3887, ltc3889, ltc7132, ltc7841, ltc7880,
-  	/* Modules */
-  	ltm2987, ltm4664, ltm4673, ltm4675, ltm4676, ltm4677, ltm4678, ltm4680,
-  	ltm4686, ltm4700,
-@@@ -566,6 -566,8 +566,8 @@@ static int ltc2978_write_word_data(stru
-  static const struct i2c_device_id ltc2978_id[] =3D {
-  	{ .name =3D "lt7170", .driver_data =3D lt7170 },
-  	{ .name =3D "lt7171", .driver_data =3D lt7171 },
-+ 	{ .name =3D "lt7175", .driver_data =3D lt7175 },
-+ 	{ .name =3D "lt7176p", .driver_data =3D lt7176p },
-  	{ .name =3D "ltc2972", .driver_data =3D ltc2972 },
-  	{ .name =3D "ltc2974", .driver_data =3D ltc2974 },
-  	{ .name =3D "ltc2975", .driver_data =3D ltc2975 },
-@@@ -656,6 -658,7 +658,7 @@@ static int ltc2978_get_id(struct i2c_cl
-  	chip_id &=3D LTC2978_ID_MASK;
- =20
-  	if (chip_id =3D=3D LT7170_ID) {
-+ 		const struct i2c_device_id *id;
-  		u8 buf[I2C_SMBUS_BLOCK_MAX];
-  		int ret;
- =20
-@@@ -664,13 -667,11 +667,11 @@@
-  		if (ret < 0)
-  			return ret;
- =20
-- 		if (ret < 6)
-- 			return -ENODEV;
--=20
-- 		if (!strncmp(buf, "LT7170", 6))
-- 			return lt7170;
-- 		if (!strncmp(buf, "LT7171", 6))
-- 			return lt7171;
-+ 		for (id =3D &ltc2978_id[0]; strlen(id->name); id++) {
-+ 			if (ret >=3D strlen(id->name) &&
-+ 			    !strncasecmp(id->name, buf, strlen(id->name)))
-+ 				return (int)id->driver_data;
-+ 		}
- =20
-  		return -ENODEV;
-  	}
-@@@ -787,6 -788,8 +788,8 @@@ static int ltc2978_probe(struct i2c_cli
-  	switch (data->id) {
-  	case lt7170:
-  	case lt7171:
-+ 	case lt7175:
-+ 	case lt7176p:
-  		data->features |=3D FEAT_CLEAR_PEAKS | FEAT_NEEDS_POLLING |
-  				  FEAT_IEEE754;
-  		data->vin_max =3D ltc_peak_max_init(data);
-@@@ -999,6 -1002,8 +1002,8 @@@
-  static const struct of_device_id ltc2978_of_match[] =3D {
-  	{ .compatible =3D "lltc,lt7170" },
-  	{ .compatible =3D "lltc,lt7171" },
-+ 	{ .compatible =3D "lltc,lt7175" },
-+ 	{ .compatible =3D "lltc,lt7176p" },
-  	{ .compatible =3D "lltc,ltc2972" },
-  	{ .compatible =3D "lltc,ltc2974" },
-  	{ .compatible =3D "lltc,ltc2975" },
-
---mgZZrDGW4FKx88eO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsJk68ACgkQJNaLcl1U
-h9AXvwf+MtfXDZKOqQxdr9Qqg3P1rj6gx4je/XnbGbrwdebYWBaQMZbZ3QcvVbO5
-3mhf+Kz4WjlOn7RqKZziix9zAL3PsaTzBz/M+33jqc5WNh3jIvAQEn+Mxtb3zuVI
-iPQKRoU0IoQ6w74npgQpwpaGbtHOtBAHj2blqe2MvK/krCye5Xk7a/h92tC/J50d
-SrQJzeq9hUuAu/n6uHXnHFCCz9rBz+Xfo9nVvZdeDmkPPmJro6FH3Cu9wvncE+8G
-vF4NvKSxMjUeWle475b6nUkAGGtovGEgXZglGMtuHaS5BRI636y6x4A4qTsniDNv
-leOc2MPBbeuzebDftgyaoZUKOiHf7g==
-=lw4u
------END PGP SIGNATURE-----
-
---mgZZrDGW4FKx88eO--
+-ritesh
