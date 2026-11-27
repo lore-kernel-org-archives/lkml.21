@@ -1,77 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789893;
-	b=y1qXbZgE3G8BbEUHZEO5wU+CLyh/DuvRQHXdz090bsnyYu4Bj1vp47zPWEr9Ki84szsP
-	 KZ2KQDh/wQjMVdLBD2IlsYzA6DLPw6Ubo0QdwjgUjla/W1Ihezdhj57nAi4khX3/cDb1N
-	 DGlkGhOqj2WiBm1jFgVEKeST29En49L5zKWa4aO2rTHFKU0BwuFavALC1zABhXqHBYjRf
-	 l7wTnPdaoSLxTEYxpyppxwqsToTCFCobTEhutAIJuLcx9M6z+CNxzGXBAnKpVER9PNjO6
-	 48ZoqYxPjElEaplOUl3y+Ix1DYx+5xITtZJiC92YGGT5P/5rs2qeA1k6xbx62AKx5wA==
+	t=1795789920;
+	b=M4kekb6vnMKchy7UzpLTMFWQ32CkkYeB/0xLlZ885RJfzraguNbauifNxGlVN7v63ltg
+	 ID+/iS16VMPWv29ZM35Ivi9DYFKPwvyUJyX2vg0VJPvY1uUYOfJjEUWu9BtFbunqBDcqj
+	 UP/7SfUnjzGzBxH2OlKm/YoWql/ULFG5oo36vNuRRZGhHUZMVEq9LhzJqfS/cypDRM15y
+	 D9xOz4Jej3GavinyVymXshGDDdUJ4/kAfoioshW2BG58HimQBt8WdPxr36a6Qx3yaQJND
+	 fISN5ns90u2wnSnZgQ5Xd+ogn8JpzFTkcX61yO83CLOBT3b+BhfEAkzApdTsTcYxANw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789893;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=C2vvCbTNo3pbRV+JGS5YLG9rXsuaGH2HRohqGh3x1YI=;
-	b=sTLg8wFpUJz7X9w9SDQGYU6Wz4P3Sa0iRyqb/iYkZMfjCvGj1RHI1qvtASnRxvTQdjJS
-	 6PNYKUfamZOkP7ykzRSESeYrf2gh4o/JtrzmzLZM4wxFSZeVJtukJGExDUjy+qnzcImV/
-	 KR3btZfI3IsRJ/JfssxcekU3JA1X+Gps/zyR7w5IJ6fyWOASAMl3HF/Urzo71Y4MhbdlO
-	 h9w1yqBPbijKIL9WkGc5ZjypO83f7eu0dj2patmtWRQ5KfFh0uTPoU6Cj3ef11dC0bSKf
-	 tNu2aFtLv/XbKb98T1PlYzc3cAqzvgznghSeIOUUqtrVa2xWi8RJYjbEMHWRurhJikg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789920;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=KJxBg4ex3H/5HHHxF4SwuodclxPlqLo270nDqwPlSRQ=;
+	b=IAlwmnzUQiZ2SjR+kR5rc1NFOOlSgnlzux7vDATjH2ubrNsZKXfqNhE5Wj3QlZ83RkRj
+	 5V0JGuO4sEzPKHwCL/15nSHOqVhTFnco9mKS5lxuzmhrcwfAtVyk1LFFtgGiheCgY8V/j
+	 0QddnplzAM1VryhCvbVeGAEVJ20z4AprQXwnKkyTvypxLzzQy0yN9bQiKAb5NN5Fr7G0C
+	 dH/+NFVd9uert5EpaibAiWmiSmDVluEvAZjur2hvSfyO/cjoN2O/WQAznUxr92DSstj+0
+	 jdjp9y8OFqsl3z4nVFMf5LQRtjkYlNlAXDMglJGYRfsqrGDmNDD7/gFrna2IVDLY7sQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fg5Mk1nY;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K9f+Oj7B;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FC33606A332;
-	Fri, 27 Nov 2026 14:31:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E5C6606A332;
+	Fri, 27 Nov 2026 14:31:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fg5Mk1nY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B411F000C1;
-	Fri, 27 Nov 2026 14:31:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K9f+Oj7B
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4B91F00897;
+	Fri, 27 Nov 2026 14:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789892;
-	bh=C2vvCbTNo3pbRV+JGS5YLG9rXsuaGH2HRohqGh3x1YI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Fg5Mk1nY2ZetJs7K5/wO2sYQUY+ULzD9PeBycOYgjdYDapCvyWajHL8aA1yGGOXHV
-	 7bcIzHCQa4EAr6G1SpdKRIRDzUxRTuH3xyghnTXwUb4h6CPWXOY/ofwFc2bUfhLrXT
-	 ooco3mpgsQWw336GN1/HIwTX0GDBuqo30rMgpKjd/oqcWdJBe3US278FxqBLuhEPZm
-	 UJjONistFv+Mv9jpbxbzZ8cbNktaXlxydIZ6jZz+KiphMQ0cGcI7FerF1Io2HetlUr
-	 xUt7BQFycYJkMImrmlJWbIxhdCbzVlMl1jPmgXmRjU8rWeAzSD6aI2PPJMU9slBRgq
-	 UAjLiNbKogSOQ==
-From: Sasha Levin <sashal@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Willy Tarreau <w@1wt.eu>,
-	Borislav Petkov <bp@alien8.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Leon Romanovsky <leon@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>,
-	David Hildenbrand <david@kernel.org>,
-	Security Officers <security@kernel.org>,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and a cover letter
-Date: Fri, 27 Nov 2026 09:31:29 -0500
-Message-ID: <20261127143129.1039582-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <awmRvPlPoyMMzHsB@gremlin>
-References: <20261126171926.2766137-1-sashal@kernel.org> <20261126171926.2766137-2-sashal@kernel.org> <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org> <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps> <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu> <awlOYxw29ANZOA1X@gremlin> <1b630619-4388-454b-b295-6ebd0d912a32@sirena.org.uk> <awmRvPlPoyMMzHsB@gremlin>
+	s=k20260515; t=1795789919;
+	bh=KJxBg4ex3H/5HHHxF4SwuodclxPlqLo270nDqwPlSRQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K9f+Oj7B6veiindmLDVpwrL/sZsjJk9kbUNtFl+acbI64BlTuh2izCTO1msVhewt8
+	 0pdHEDW9mp92w0J+WPqbmoAHKoyoNrIBH6cKYyTWv0vOC0+Rb3LKVe2OIiR9HTweDH
+	 tvgGEQgM2ondlt22CHVDOMXhnY+ERMyYN+P8C9bpqxYLCmtH3dBLzOQ9rKbQuVYqgA
+	 09eyBP1723LL/Ihmd2azTKy6XcBgAHpjmjso1jSo6nMR0WuiZkPriOBc7gS5R+uFRZ
+	 HRBeSjP4fAfS6o7gpZRnd9KqGk1YUE85v/qC0mY0TkDUIiWVjC87+j/arRn5H6DxTB
+	 FCs+ApVtchwcQ==
+Date: Fri, 27 Nov 2026 14:31:54 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Chad Aldreda <ca@modelmiser.com>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux Next Mailing List <linux-next@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: linux-next: manual merge of the mm tree with the origin tree
+Message-ID: <awmUVZxlVpEy_DwO@gremlin>
+References: <awmTUV81zRGpj0Tu@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,19 +59,59 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+In-Reply-To: <awmTUV81zRGpj0Tu@sirena.org.uk>
 
-On Fri, Nov 27, 2026 at 02:25:20PM +0000, Lorenzo Stoakes (ARM) wrote:
->I really feel the fundamental rule here is 'only submit what you understand'
->(90+% of AI stuff I see breaks this rule, maybe more).
+On Fri, Nov 27, 2026 at 02:27:29PM +0000, Mark Brown wrote:
+> Hi all,
+>
+> Today's linux-next merge of the mm tree got a conflict in:
+>
+>   drivers/ptp/ptp_vmclock.c
+>
+> between commit:
+>
+>   e6474ead54b8a ("ptp: vmclock: keep the device state until the last file is closed")
+>
+> from the origin tree and commit:
+>
+>   92cdcfbf70344 ("ptp: vmclock: convert mmap hook to mmap_prepare")
+>
+> from the mm tree.
+>
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
+>
+> diff --cc drivers/ptp/ptp_vmclock.c
+> index 3e32a90306616,6a1d5f40a5661..0000000000000
+> --- a/drivers/ptp/ptp_vmclock.c
+> +++ b/drivers/ptp/ptp_vmclock.c
+> @@@ -367,15 -364,13 +367,16 @@@ struct vmclock_file_state
+>   	atomic_t seq;
+>   };
+>
+> - static int vmclock_miscdev_mmap(struct file *fp, struct vm_area_struct *vma)
+> + static int vmclock_miscdev_mmap_prepare(struct vm_area_desc *desc)
+>   {
+> - 	struct vmclock_file_state *fst = fp->private_data;
+> + 	struct vmclock_file_state *fst = desc->file->private_data;
+>   	struct vmclock_state *st = fst->st;
+>
+>  +	if (READ_ONCE(st->removed))
+>  +		return -ENODEV;
+>  +
+> - 	if ((vma->vm_flags & (VM_READ|VM_WRITE)) != VM_READ)
+> + 	if (!vma_desc_test(desc, VMA_READ_BIT) ||
+> + 	    vma_desc_test(desc, VMA_WRITE_BIT))
+>   		return -EROFS;
+>
+>   	/*
 
-Our problem is that it's not the AI that breaks this rule, it's the human who
-sends a patch they don't understand. And that's hard to fight with
-documentation changes.
+LGTM thanks!
 
-We can try telling it not to, but I think the better path is to tell it how to
-do what it needs to do correctly.
-
--- 
-Thanks,
-Sasha
+--
+Cheers, Lorenzo
