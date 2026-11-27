@@ -1,57 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795797040;
-	b=vNZHfHAgt7q3YUm2Ioubp6VRu9VQtcdvB76EGKmmhzLr6frPkzRlRi50H3ZvdB2wra54
-	 0DFrhGieyH8jbfHsrI4Iv0BFBTMNeQCHPx0CB0FGqHEYAHS9VMdPBKgjKrZhn0IRjfTiw
-	 CtZm/l8P6iMDPSf40KPY8MxjIUvIaDw1iImo2hOV34jgRefbk8h0si4Sd3lqZl3rA9UH5
-	 VfH7MN8fRPGQlf0rt3eORp+ov5/QcHW2Tqsd557MFWrKe3oi0s5qOxBFxq8shbdWY55R0
-	 EJ8sON5Nn+ZcaSGRiMvSschrnr0nl7UWAdybhMIDgopd8muwD/X8cdCYypSrlo2F2Iw==
+	t=1795797103;
+	b=dHihYU0hFW2OkhQOl4C79mzudgks8Szv6EZNfDDbY+8xquPcNp4pNOHEudHIHdNwY/T/
+	 VR3zXjq2Oe7XkcLuiyKUi9jWxdAFYYGTn3+58ev7+XNdPDwsBHyzAs7TDOtUGeizlJMlc
+	 2PhFTez2dJL6MIPqmgNbAiRYh9CIxW5tfjWilT4DI2NdkVKlMMmGyBGJ/m8cQ+v7t52S2
+	 GyyP51Bbt06Iz3gCW+51Vrh4qzQov4p3Xz3sFk5pgamBHluQ1OPQM4g6/3ptoKK4GJAdD
+	 Boh1Sk+nXcNuGQDtv2AkNE4ODnMBp1pMfwKcM6wxSEiJqhYkYajLfkWzrXZITFpeH6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795797040;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=j4aRr+DSijQjnmPUjp3F7REYDXudlHrCOlvGGU/DyMg=;
-	b=P1jrLGKIv/SAvQstc97B9rsZqTwo6hix0du9uTS1K+usRw+N2UjJMJd7h4DCByRURTZn
-	 3AGoFXRc8owN+5iqO7+ahsUN3onrX4h71gzFE3DW/1Fje+UVHb9UyY9Rc9enMHPFOUznd
-	 /VWstyDMq7AItX4xO6bvOkwZj7J8Y36xXaboyUwJlFScngvmpu7J8pr5fay4J8Uno8uBj
-	 wPCTFlvVgbChkQygqd6dSfdW1M5OR7WJxVaDdljKoT9p05ICCAwQo1a1qU5O9CZOVFV3l
-	 e9dgAirFErTB7vGpHero1ja5F4sLNFK31e6IR77hGoCzJy44BLquYGhUIBZWG7WEVKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795797103;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:CC:Subject:User-Agent:In-Reply-To:References:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=5RPYgSF1XDHYafp5XjEHe2Hos/Amzm3Q5tQ+HDP2AiE=;
+	b=nm178A1yK+dmPMNgOUxPoBYXsD9S7xjby9nHy9bJd5gOvBL5jf9BHnmMJdkYzLViJPyf
+	 1ThxAQvwnXELMHA7cSCsELn9meVCi9z1s/DGRZULTV+AbOeR/WTlWPulpu72cAT0d234Z
+	 s5NcIgZluUbPWxhNmCBWdNdzg8zMb22DSPjQgZR1rK3F9DglmUHxSRyfOYYy7DjPN2Kg3
+	 or3n2iQHiop1/IM/nQISZx290/nOOBX68tSUAxWdNuuS1Ka/51I6okbZn0UtMy7VYA/PR
+	 N5aeeR+ZU9uJHX87/Q/xQ2MdXXbjnI5hT7cvGE30cHmciND+n0Gxhqg2F5VuWsU0SWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X2T8ppYO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p41YKBnh;
+	arc=none smtp.remote-ip=209.85.222.46
+Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com [209.85.222.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CA9B606A31C;
-	Fri, 27 Nov 2026 16:30:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C2F606A321
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:31:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C2F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X2T8ppYO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0437F1F0089B;
-	Fri, 27 Nov 2026 16:30:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795797040;
-	bh=j4aRr+DSijQjnmPUjp3F7REYDXudlHrCOlvGGU/DyMg=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=X2T8ppYOhj0ms5T1TwV4UuLesNWqQRsB1WsNSAXt3KoRZdpS6YVUjlihkd0eloPZ3
-	 TMeBzCf1ohiJ3Rg2MK7lKJ8biGSjU6yeuzst1aW8On69Fvdh4QhZ7KVtTRJ0q984vG
-	 PgpS2mdk+TeYbMAqMwlsdkHxWzM8oOrwzRY5AjYT0YXLBN995kxC9snt5y11y3pwor
-	 Io8Z2lGVBz5r+AreParrQxieGPqdafkgVuAelC6mZCc64xP3afu3NlCsbF9RTFIaZQ
-	 iOqusWLI/2Mf2tTbxGpQ/FyNy6dNGxFjxm36TqCgaozET8Yzb+F9ZOFvZRw2lOvY5E
-	 /J5pirSd5tAqw==
-Message-ID: <sashiko-outbox-237881@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v12 17/43] cgroup/cpuset: Refuse to take a deadline task
- out of its root domain
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <63398d7537bc4e331e08c6c998fa1506430cac57.1795771148.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
- <63398d7537bc4e331e08c6c998fa1506430cac57.1795771148.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 16:30:39 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p41YKBnh
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-99b49d6a5caso2517283241.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:31:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795797101; x=1796401901; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=5RPYgSF1XDHYafp5XjEHe2Hos/Amzm3Q5tQ+HDP2AiE=;
+        b=p41YKBnhuyOT+TpvRIHrMxScjBU7bBWKCDfLL0udUkj50hiYT7nd821dY/PTgq6Zqz
+         YEgrBb02dHDhK3M8p7WSqluOSGQ94A/hj6um6azi8xgzJmejaGASDlqysDAmUnqIuw8E
+         YTAr+gTmSk+g+TKbhv8+qD/tqAklezgjEbwQHVkwe0iQ8/m3qBaQavkXPZBH+NDykzyr
+         GsZWI7geCD3MmYYglHrpPSrKlWnZ/y7Gdf8QGZjM9mNuiBR4OvIUI02U+wEDWW2wFJXu
+         2GR74dMshWTG+CAgfL+L5QXyjaB2nVMXUIj1nl7jfccm7WQqAdj0hXei0CLhKI1gzf6p
+         f/0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795797101; x=1796401901;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5RPYgSF1XDHYafp5XjEHe2Hos/Amzm3Q5tQ+HDP2AiE=;
+        b=yF84TBqBaAcsa9xPv2loqte8wUlc2UNfCNU68r+IAL+r0pfx1zfikISrC479LtXJPS
+         ab15CyjVwz0SFf5tyuE2PmFwAKvsQEPZ4rl/8CWVebIBZ6tJAz8mcCiAysVQ+s8hR1Sd
+         nTZqN+imkhAVKhPzbMOQ3n29yxWvhu5IJYcK+mim+ai9xjl4v6Ebvo8kjRpnKBbiLTMZ
+         CAD2gjOtUXoxmFTPbRiierMj3ihhbgGrqDZKfk76krn3AP+um6BDlyJ4zsQGwZuhNa2d
+         wJgW/B4P9kMXc25m3wkXzR4AGzd2AK3v5G1ofinJBPSmfMIimrL0SLvxQ13n15lLaBW3
+         UWKA==
+X-Forwarded-Encrypted: i=1; AL+hErEoaXxWDNIT4sv8Xw2PI61/gwF2M7GF2iYVN/JvhbJHfe4KRrtv2VMeo/RgA7vSKjeLGYrEcL5Lu7kzMDM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7ovqciMOttl0Ow38dIu+jihPscwm4V59C0j6FSjNDmYeQjH9+
+	fAdrHm2LZZe3UwzvNyWkK96GRKRTLPjp4A0hIGnLEJsH6L9zDpWcW+9S
+X-Gm-Gg: AZFdTZcBqB2B5W93JZ9vtwlWLl1i3kVY4rCKBunFnfozm0xsH2IvYmkJIvechjR0vj7
+	9XJBlJdYX9oPKHPpxRn7QrO5Bb3W2QpQXXdxX696fXevXLWISb/FzDSslXIVyY8RPMpmpVBvGgd
+	G58iQNR563D/LUuj8I1af06co2UT0YXe5W8ms0Wr4ZLArsxT+LblvW2TxMgs9yWrY2k2/JMF+LK
+	eXxkVtAgg/30QqBN/YO0iz2vg82XyUvIoB2kn94YcKU4tYXSY9pd1DyFwxbafUElRWE2oO1TQi4
+	G1Me3L/TGI3YDW+ZNqqnCNEPzy6Jf74KRuI6/G0wtbtdnfbv1DuOrxDPc0oeVomVYbOj99CzLpB
+	+CFjUYQv+lotVC5pXQ//AEqaqkA9UiZIN0n+E6N6XXSJJMrgyhhMDROJIJCwv37JTr8U4HF6FI/
+	C/9LfzngtRXfRI7dyYlk6DrCph1IHlDv1BPJzINoZr4BmjhCRjknWldxekMQhU8WepcAwyonlDn
+	hOVmqSPeecWeIlG84MVfu08t8tt5D5KtBiXRUMR+ccsKo6UMIO5lBScUJomfVvlGyRi8OVlpAXh
+	6pfPa9mPRtuatYgR84rT4ck/ZtcRR21l+oDhpnjX5pyalj4=
+X-Received: by 2002:a05:6122:3b8c:b0:5ea:f220:fd6e with SMTP id 71dfb90a1353d-5ee8aeefceamr14730581e0c.11.1795797101340;
+        Fri, 27 Nov 2026 08:31:41 -0800 (PST)
+Received: from ehlo.thunderbird.net ([2804:388:90c1:771c:18eb:ef7b:e7f8:aab3])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99eab8e7b9esm10043528241.3.2026.11.27.08.31.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 08:31:40 -0800 (PST)
+Date: Fri, 27 Nov 2026 13:31:35 -0300
+From: Arnaldo Melo <arnaldo.melo@gmail.com>
+To: linux-perf-users@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Sizhe Liu <liusizhe5@huawei.com>
+CC: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, bhelgaas@google.com,
+ yangyccccc@gmail.com, jic23@kernel.org, john.g.garry@oracle.com,
+ will@kernel.org, james.clark@linaro.org, mike.leach@arm.com,
+ leo.yan@linux.dev, peterz@infradead.org, mingo@redhat.com,
+ namhyung@kernel.org, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, wangyushan12@huawei.com, wuzongyu1@huawei.com,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linuxarm@huawei.com, prime.zeng@hisilicon.com
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v4_0/8=5D_Enhance_TLP_packet_deco?=
+ =?US-ASCII?Q?der_with_field-level_parsing_and_versioning?=
+User-Agent: Thunderbird for Android
+In-Reply-To: <b1733f2a-ed03-4f38-8c40-6e0e535f1632@arm.com>
+References: <20260908140509.2485649-1-liusizhe5@huawei.com> <aqB37YCMUYKodo3N@x2> <b1733f2a-ed03-4f38-8c40-6e0e535f1632@arm.com>
+Message-ID: <D6C7F85D-0A2C-4569-98FD-ADB616FA106E@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,270 +108,43 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issues to consider:
-- [Medium] cgroup/cpuset: stale def_root_domain span in
-  dl_task_keeps_root_domain()
-- [Medium] cgroup/cpuset: update_sibling_cpumasks() bypasses
-  dl_tasks_keep_without()
-- [Medium] cgroup/cpuset: missing dl_tasks_hold_bw() guard and subtree
-  pruning in walks
---
 
-commit c6b54021eb5d4c0abcdec9cdb08c630e44667111
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-cgroup/cpuset: Refuse to take a deadline task out of its root domain
+On November 27, 2026 12:12:14 PM GMT-03:00, Suzuki K Poulose <suzuki=2Epou=
+lose@arm=2Ecom> wrote:
+>Hi Arnaldo,
+>
+>On 08/09/2026 22:02, Arnaldo Carvalho de Melo wrote:
+>> On Tue, Sep 08, 2026 at 10:05:01PM +0800, Sizhe Liu wrote:
+>>> The original hisi-ptt-decoder only prints raw hex values with generic =
+field
+>>> names for DW0/DW1/DW2/DW3, without classifying TLP types or decoding
+>>> DW0/DW1/DW2/DW3 fields according to the hardware-defined packet format=
+=2E
+>>>=20
+>>> This series enhances the HiSilicon PTT (PCIe Trace and Tuning) packet
+>>> decoder in perf tool to provide detailed field-level parsing of TLP he=
+aders
+>>> based on message type, and adds a versioning mechanism for backward
+>>> compatibility both in hisi_ptt driver and perf tool=2E
+>>=20
+>> Series is sashiko clean by now, has a Reviewed-by, but it touches both
+>> kernel and tools, I wouldn't have a problem if it was processed by
+>> whoever maintains the kernel part=2E
+>>=20
+>> - Arnaldo
+>
+>Please could you add your Ack on the series, so that I can pick it via
+>Coresight tree=2E
 
-This commit rejects cpuset CPU mask updates and invalidates partition roots
-when the change would move a SCHED_DEADLINE task out of the root domain
-that accounts for its bandwidth without performing admission control.
+Acked-by: Arnaldo Carvalho de Melo <acme@redhat=2Ecom>
 
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 9461277ed0fa3..62f0c7e6a97b0 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-[ ... ]
-> @@ -1148,6 +1181,96 @@ static void effective_cpus_below(struct cpuset *cp=
-, struct cpuset *from,
->  	}
->  }
-> =20
-> +/*
-> + * A scratch mask for dl_tasks_keep_without(). Its callers still need ea=
-ch
-> + * mask of their struct tmpmasks after the call. Protected by
-> + * cpuset_mutex.
-> + */
-> +static cpumask_var_t dl_keep_cpus, dl_pending_cpus;
-> +
-> +/*
-> + * Return false if a partition that takes the CPUs of @xcpus makes a
-> + * deadline task leave the root domain that counts its bandwidth. A cpus=
-et
-> + * can hold CPUs of two root domains: with isolcpus=3D"domain", or on cg=
-roup
-> + * v1 with sched_load_balance off. Such a task would run in a root domain
-> + * that did not admit it.
-> + *
-> + * @root is the partition root that gives the CPUs. @part is the cpuset
-> + * that takes them. In the same change, @part can give the CPUs of @gives
-> + * back to @root. @gives is NULL if it gives none back.
-> + *
-> + * Work out the new CPUs of each cpuset of @root from the top down, as
-> + * update_cpumasks_hier() does, down to the next partition roots. If
-> + * @enable, @part becomes a partition root. Then do the same for its own
-> + * cpusets, starting from the active CPUs of @xcpus.
-> + */
-> +static bool dl_tasks_keep_without(struct cpuset *root, struct cpuset *pa=
-rt,
-> +				  const struct cpumask *xcpus,
-> +				  const struct cpumask *gives, bool enable)
-> +{
-> +	struct cpumask *new_cpus =3D dl_keep_cpus, *pending =3D NULL;
-> +	struct cgroup_subsys_state *pos_css;
-> +	struct cpuset *cp;
-> +	bool keep =3D true;
-> +
-> +	lockdep_assert_cpuset_lock_held();
-> +	/*
-> +	 * The CPUs of @root can have changed before the rebuild of the
-> +	 * sched domains, which ends the change. Then the root domain of a
-> +	 * task of @root does not span them yet. The rebuild gives the CPUs
-> +	 * of a root partition to one root domain. It gives those of an
-> +	 * isolated partition, and of its valid children, to the default
-> +	 * root domain.
-> +	 */
-> +	if (root->partition_root_state =3D=3D PRS_ROOT ||
-> +	    root->partition_root_state =3D=3D PRS_ISOLATED) {
-> +		pending =3D dl_pending_cpus;
-> +		cpumask_copy(pending, root->effective_cpus);
-> +		if (root =3D=3D &top_cpuset)
-> +			cpumask_and(pending, pending,
-> +				    housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
-> +	}
-> +	rcu_read_lock();
-> +	cpuset_for_each_descendant_pre(cp, pos_css, root) {
-> +		if (cp =3D=3D part || (cp !=3D root && is_partition_valid(cp))) {
-> +			pos_css =3D css_rightmost_descendant(pos_css);
-> +			continue;
-> +		}
-> +		/* The CPUs that @root has after the change. */
-> +		cpumask_copy(new_cpus, root->effective_cpus);
-> +		if (gives) {
-> +			cpumask_or(new_cpus, new_cpus, gives);
-> +			cpumask_and(new_cpus, new_cpus, cpu_active_mask);
-> +		}
-> +		cpumask_andnot(new_cpus, new_cpus, xcpus);
-> +		effective_cpus_below(cp, root, new_cpus);
-> +		if (cpumask_equal(cp->effective_cpus, new_cpus))
-> +			continue;
-> +		keep =3D dl_tasks_keep_cpus(cp, new_cpus, pending);
+But you could have taken my "I don't have a problem if this gets processed=
+" by somebody else as an Acked-by me, documentation says so=2E
 
-[Severity: Medium]
-With isolcpus=3Ddomain, can a deadline task counted in def_root_domain bypa=
-ss
-this check when a PRS_ISOLATED partition returns a housekeeping CPU to
-top_cpuset while taking a boot-isolated CPU?
-
-Suppose an isolated partition holding housekeeping CPU 0 swaps its CPUs in
-one write to take boot-isolated CPU 1 (xcpus =3D {1}, gives =3D {0}), and a
-deadline task in top_cpuset is counted in def_root_domain on CPU 1.  Before
-rebuild_sched_domains_locked() runs at the end of the write,
-dl_task_bw_span(p) returns def_root_domain.span, which still contains CPU
-0.  Because new_cpus includes gives ({0}), cpumask_intersects_and(span,
-new_mask, user) in dl_task_keeps_root_domain() matches on CPU 0 and returns
-true.  The rebuild then moves CPU 0 back to top_cpuset's housekeeping root
-domain while CPU 1 remains in def_root_domain under the isolated partition,
-migrating the deadline task and its bandwidth into the housekeeping root
-domain without admission control.
-
-> +		if (!keep)
-> +			break;
-> +	}
-> +	if (keep && enable) {
-> +		cpuset_for_each_descendant_pre(cp, pos_css, part) {
-> +			if (cp !=3D part && is_partition_valid(cp)) {
-> +				pos_css =3D css_rightmost_descendant(pos_css);
-> +				continue;
-> +			}
-> +			cpumask_and(new_cpus, xcpus, cpu_active_mask);
-> +			effective_cpus_below(cp, part, new_cpus);
-> +			if (cpumask_equal(cp->effective_cpus, new_cpus))
-> +				continue;
-> +			keep =3D dl_tasks_keep_cpus(cp, new_cpus,
-> +				root->partition_root_state =3D=3D PRS_ISOLATED ?
-> +				pending : NULL);
-> +			if (!keep)
-> +				break;
-> +		}
-> +	}
-> +	rcu_read_unlock();
-> +	return keep;
-> +}
-
-[Severity: Medium]
-Can update_sibling_cpumasks() cause dl_tasks_keep_without() to skip its
-check when a growing parent partition has two invalid child partitions?
-
-Suppose parent PRS_ROOT partition P has CPUs 0,2 and two PRS_INVALID_ROOT
-children: C1 (cpus 0,2) and C2 (cpus 1, currently falling back to P's
-effective_cpus 0,2 and holding 160% total deadline bandwidth admitted in
-P's root domain).  When P grows to 0-3, update_cpumasks_hier() visits C1
-first.  update_parent_effective_cpumask() validates C1 on 0,2 (while C2 is
-still an invalid member of P, which passes via pending =3D {0-3}) and calls
-update_sibling_cpumasks(P, C1, tmp).  That call runs
-update_cpumasks_hier(C2, tmp, false), which treats C2 as a member because
-cp =3D=3D cs, setting C2->effective_cpus and its tasks' cpus_mask to {1}:
-
-kernel/cgroup/cpuset.c:update_cpumasks_hier() {
-    ...
-		if ((cp !=3D cs) && old_prs) {
-			switch (parent->partition_root_state) {
-			case PRS_ROOT:
-			case PRS_ISOLATED:
-				update_parent =3D true;
-				break;
-    ...
-		spin_lock_irq(&callback_lock);
-		cpumask_copy(cp->effective_cpus, tmp->new_cpus);
-    ...
-		cpuset_update_tasks_cpumask(cp, tmp->new_cpus);
-    ...
-}
-
-When the outer update_cpumasks_hier(P, ...) loop then reaches C2 and calls
-update_parent_effective_cpumask() -> dl_tasks_keep_without(P, C2, {1},
-NULL, true), cpumask_equal(cp->effective_cpus, new_cpus) is already true
-(and even inside dl_task_keeps_root_domain(), p->cpus_mask is already {1},
-which no longer intersects P's pre-rebuild root domain span {0, 2}).  C2 is
-then promoted to a valid 1-CPU PRS_ROOT partition holding 160% deadline
-bandwidth.
-
-[ ... ]
-
-> @@ -2518,6 +2667,62 @@ static void partition_cpus_change(struct cpuset *c=
-s, struct cpuset *trialcs,
->  	}
->  }
-> =20
-> +/*
-> + * Set @new_cpus to the effective CPUs that @cp gets if @cs takes the CP=
-Us
-> + * of @trialcs. @cp is @cs or one of its descendants.
-> + */
-> +static void trial_effective_cpus(struct cpuset *cp, struct cpuset *cs,
-> +				 struct cpuset *trialcs, struct cpumask *new_cpus)
-> +{
-> +	struct cpuset *parent =3D parent_cs(cs);
-> +
-> +	if (!cpumask_and(new_cpus, trialcs->cpus_allowed, parent->effective_cpu=
-s) &&
-> +	    is_in_v2_mode())
-> +		cpumask_copy(new_cpus, parent->effective_cpus);
-> +	effective_cpus_below(cp, cs, new_cpus);
-> +}
-> +
-> +/*
-> + * Return false if the CPUs of @trialcs make a deadline task of @cs, or =
-of
-> + * a descendant, leave the root domain that counts its bandwidth. A cpus=
-et
-> + * can hold CPUs of two root domains: with isolcpus=3D"domain", or on cg=
-roup
-> + * v1 with sched_load_balance off. The task would run in a root domain t=
-hat
-> + * did not admit it. Only a move to another cpuset can take the task
-> + * there. The move asks the other root domain for room.
-> + *
-> + * A partition root takes its CPUs from its parent, which checks the same
-> + * for its own tasks: see dl_tasks_keep_without().
-> + */
-> +static bool dl_tasks_keep_root_domain(struct cpuset *cs, struct cpuset *=
-trialcs,
-> +				      struct cpumask *new_cpus)
-> +{
-> +	struct cgroup_subsys_state *pos_css;
-> +	struct cpuset *cp;
-> +	bool keep =3D true;
-> +
-> +	if (is_partition_valid(cs))
-> +		return true;
-> +	rcu_read_lock();
-> +	cpuset_for_each_descendant_pre(cp, pos_css, cs) {
-> +		if (is_partition_valid(cp)) {
-> +			pos_css =3D css_rightmost_descendant(pos_css);
-> +			continue;
-> +		}
-> +		trial_effective_cpus(cp, cs, trialcs, new_cpus);
-> +		/*
-> +		 * Test a mask that grows too. A task whose user affinity
-> +		 * holds none of the old CPUs gets only the new ones.
-> +		 */
-> +		if (cpumask_equal(cp->effective_cpus, new_cpus))
-> +			continue;
-> +		keep =3D dl_tasks_keep_cpus(cp, new_cpus, NULL);
-> +		if (!keep)
-> +			break;
-> +	}
-> +	rcu_read_unlock();
-> +	return keep;
-> +}
-
-[Severity: Medium]
-Should dl_tasks_keep_root_domain() and dl_tasks_keep_without() check
-!dl_tasks_hold_bw() before walking the hierarchy, and skip unchanged
-subtrees with css_rightmost_descendant(pos_css)?
-
-Because dl_tasks_hold_bw() is only checked inside dl_tasks_keep_cpus(),
-every cpuset.cpus write and partition update walks the entire non-partition
-subtree and runs effective_cpus_below() on every descendant even when no
-deadline tasks exist or admission control is disabled.  In addition, when
-cpumask_equal(cp->effective_cpus, new_cpus) is true in either function, a
-plain continue still visits all of cp's descendants even though their
-effective_cpus cannot change either.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
-t.mathieu.desnoyers@efficios.com?part=3D17
+- Arnaldo 
