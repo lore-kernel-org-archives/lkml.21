@@ -1,59 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821004;
-	b=G2JOJ+vFWpkZ4wAOE03tUVjZG7ti/T58XJTUQho/OkVFhj0vAmA7eooltbZAt6PWmNlY
-	 Z8d9XF5G0Rz2HeR91SxYkd92BDwAvNRlQY0xY/U6onZv+KWCC2yEGb0K3acd/RCIHywwC
-	 z9kt1wGFbvX1kn7LgGh4MswvxALBEJv4WUmKV9AuCMGQF65uqAbk/Q8EaZIRK48rM3SFa
-	 Y8nxnokNmJ4KZd2vrpHBPXSslX80slu0VLg43yem5U/OQFH9pXmcxvpfdKgKuIB61F1mJ
-	 qo6nM9qw6Gr1HN5/Qy2GEgaUXLTbSQSYNmrf0x98zcHzum/AhGzguMfvXPND5HqO2nw==
+	t=1795821031;
+	b=d0jtszlOstxM9xrr0N5GLYgu/K/THzxn4vcPLxf9oWQj6PCklI4e83LueY4jT3zjcQDC
+	 OFn5TF0n6Cg4UdRmdhCLR44mTAs8vLVkh37YaS5WDB9xHLb/hwczrrIY1KZ+1sH2gkhSs
+	 hmAb/vViF7ddw+187GpXz1XfjrxqZgGmBG4dV7dXdBW5bel/6IHKskWlsCDqWXW3pXhYN
+	 Soqt3KZGgwI5ztiNzenC1mpZ493XWF9ffAwAxJdfUY3i9N4I3oERGdpPXQlfhWGYEtWko
+	 Sb1UHNW8HTCNv6jaLUnA7BPSsEoU6e2paIlKF3yLpgXLGGG6AjMMaVFSr1VTzP88v9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821004;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=WYqYPAHwYpTDfKAOTQbjDeLb2E0sp/g0pKrK+eYHLeQ=;
-	b=oHQFzcjpXtu/m7RxlOXityOIMaRsCdqV1Bg/6fZgNeWGjZOV5jfWU5ABb1Z2kSV9smfE
-	 Y9ZsisU5+GHvIhvUeIY+S4WHMW2fevWfAqItyIyHQeGj3dXBF4F/Dox9ptm34U+hQt5LD
-	 kLste7vJfUFsPpadjizTl5b1dRXOFwSVQidahS4f0BucpRyuKAxGyN5cnHVOCmaODKA7s
-	 J7tmhFAkm7YhnZeCt+hgeE4TbRtsq/1GLGiiT01QsEMcj05iFR90LLOtXm1HHrjGg9/lz
-	 6LJMwIKKQVeSGAi4RGBUtP/kwQRtj/+1uCiGiHhuBYKMxUPpMKKwiS3giAkVGJGlo3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821031;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Reply-To:Subject:Content-Language:To:Cc:
+	 References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Npnml9QjZCRfW4O0nCOfULU4UHnXEPFvx98UTggm7eY=;
+	b=gYui8FRlACjm0khSEguRx4SVuClZ6dsxorX5QxtjyO+Gde+SglmsjTnNmQhSqgxCuMS8
+	 TAnb9MgepCxr5pqY8sHLnwaq4hhswJxV/dBuN+/Tbb6YR7kflnP41lZ0FeOqxBcu/c8b3
+	 ZrUrOfT3qikKrIoVbzAT0CCNih34akIU7/qXGzIStg8sgUhz2nZnNeu/s369UYo2g7EMb
+	 aOpnqhVO6lBCPnPnrTPRthsiNgLqwxGeoB0yZ2ppMRlG+RHWaPsOw5CaKJD1F9ENx+DdY
+	 WZkZ3bHtt3p1FUScpkNy6QHiIrsjVtJrvC+uL4UvK6oDV0uvdGDz2kRioEJ5k0+Z/sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFIS2AQw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wdMLsdtM;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60050606A324;
-	Fri, 27 Nov 2026 23:10:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AE06606A334
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:10:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AE06606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFIS2AQw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9AF21F00897;
-	Fri, 27 Nov 2026 23:10:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795821003;
-	bh=WYqYPAHwYpTDfKAOTQbjDeLb2E0sp/g0pKrK+eYHLeQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=aFIS2AQw1WQjTllmJcWGfuturitoVVyva4BaJsbAja17+rXfk9/QOjzXh9O0AeZhr
-	 Bu7WUTnhnSubOq4QLX0lEe4QBsZGmrLnYB9b1MrN07HWUDfBrdHn6unAsInSrYCqv/
-	 u6Q0i9TtZVoJ/gks67H4/Rxv2CNxT0cpMu/W4vDA90Lf4RljOby2QUx4sUCIeFHxxf
-	 EIeGa+aBWB2TNUo7qtJIYH5RA7ovhLlMaH+jCEjFjK8p5OLer9IdixpqPXm5r38Qx8
-	 alO0nfGEGSG+IXkTd0wRpTwRynyz6MohEBjJhJ4qGNTyCK11RvtuN2s/SLxfVSuiZJ
-	 jUGypctNUxSiw==
-Date: Fri, 27 Nov 2026 23:09:58 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Michael Hennerich
- <Michael.Hennerich@analog.com>, David Lechner <dlechner@baylibre.com>, Andy
- Shevchenko <andy@kernel.org>, Nishant Malpani <nish.malpani25@gmail.com>,
- linux@analog.com, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/9] iio: gyro: header cleanups
-Message-ID: <20261127230958.4d745fa9@jic23-hlaptop>
-In-Reply-To: <9ab635a3-a786-4bb2-8ac3-131ad62b5426@kernel.org>
-References: <20261125-gyro-kernel-header-removal-v1-0-969b3e668d35@kernel.org>
-	<20261126013331.0e6bb05e@jic23-hlaptop>
-	<9ab635a3-a786-4bb2-8ac3-131ad62b5426@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wdMLsdtM
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1a3c08d6928so12770657c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:10:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795821029; x=1796425829; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Npnml9QjZCRfW4O0nCOfULU4UHnXEPFvx98UTggm7eY=;
+        b=wdMLsdtM1kKvSZ9N4l5HDWzkx7bv475oyue/HJqsujz43yapjHIUMIumdvYiATnMky
+         BtrorKgqQ1x7X6kvBD1sTASXyZOG71lKktkNgv1MB8ZUaJQ/iUBS+ZREqV7fUm5u8PmK
+         AUB8d8gjamUQyCoWjvcCkwefsymE4g+SLMa7xR5XK2JxXmDrdyVkqtqC4278gDCaM2dy
+         xIe2Ltmzr/loh5OHUUJPsIBJQwQG0MqNY46rDtO/dYbh+xrmJRks8O/AGH21/3yKBVlJ
+         S29Or3EbyBpXHk+jw0H8umDQl8JG/e73In7Dp4qdvj4jXYAxJNm5+JUJaYnCdKQFy6pk
+         A4TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795821029; x=1796425829;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:reply-to:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Npnml9QjZCRfW4O0nCOfULU4UHnXEPFvx98UTggm7eY=;
+        b=fETonzWbeQ6AZqLojHt92YPCO7Bswqn5iBhW1mIpKmEsUVca2MzHCx8pQmbSJI4Xlu
+         6+gb2GOGMKZgiEgsPEyxQxctJR/w6YAXovcHEHd/77V3+ZIjp5fpNfVPoip1MDgq1LEh
+         UrM8KuONGrxZZJSA/C0+sd4PKONL9CvEFZWAnLt3yAzO2dAth8Qu9WxBYLiqHmuGylN2
+         YPSNWiUT4SMoGCkECJCZephPjoESfhNVwPn3t6VtmW6RGmJS8ReHJGm3ZEX6AlDPkz6x
+         C+WiwywZml64drwWvayCARE7Bce4LhriLSWAIWFFLxK0XZkXQtfSn3YkVZCbw26uSGAS
+         2MDg==
+X-Gm-Message-State: APuU4Z+I9qcFmbWErGfAJ4b0abcxDJogAteCv6/4zBDwGWanJMzBVuuh
+	XtfV4aawsjnstz1thBuj66Z2fQ+1ylxNMs4XnfrzrUWhzfYYF6fB2lOy
+X-Gm-Gg: AZFdTZdS/vBEr3aBYePuPCvHmNYDIzp334zh8mY8CnYQdrnM+5wsKrnvzNsk+beunZp
+	8eBOF7JYBTD/O30IcYwfBWKcNEGZFy3M7tvjmfkZPMKMU38ryMetunNyZZ6IWLp/d/WfL0Nlc5r
+	P8ojzNQHeHBonPZpaNfP2oMc+yWbPv7pu7ID519mOhVqDGquvB4OrM1MN7z16UpXZd9F8AmO6hg
+	43SOSEOqLxoTBVgmrjJz9jwO/nbjYOgxnp0E4QdxL+e7ZlVFtRIk8XKuXPKa//nmRSTpsa2oF6h
+	ISj1GKnbHVCOUA3fGynFoWSryEgQRIf4NlX+UTe1JbbKj1siqEUkOrZ1VMQYIXkOAH0GJ+c1QBs
+	qQxVFawj5qEICNPIbSHX2ikswocYZIxvk1q53NvIF9U+vcIXvv8IrJD4XNJLRKwYXwzOzwLCmXm
+	jYlbIWjOKQaOxZoQRP3KnIh2jMH3mrcasUlVzssDMOLK9lQtF+G/dcvIfSQdVXUWFTnvRQEiHvS
+	U577NN/aZd01K29gtK/HbU+XOEdKm3VsMbrnMdG5ZZtGvDwmKbCg9PWokYJE3wmc442vpujCvyy
+	eg1VGRBR6NMZu2AlHFLwcYbUAKjKGQzIIM8GgJr8tcgd+/gUxh9qOBQwgJ1z+XFU6UC5OhdUM1v
+	yQG9EuPdxDZ1c
+X-Received: by 2002:a05:701a:cccb:20b0:1b2:3448:840f with SMTP id a92af1059eb24-1b55686ffd7mr22573107c88.7.1795821029109;
+        Fri, 27 Nov 2026 15:10:29 -0800 (PST)
+Received: from [192.168.35.60] ([218.50.238.131])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm58344032c88.2.2026.11.27.15.10.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 15:10:28 -0800 (PST)
+Message-ID: <4ec06942-ad13-4f5b-aade-d6ad3314ec98@gmail.com>
+Date: Sat, 28 Nov 2026 08:10:23 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,31 +91,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Reply-To: chanwoo@kernel.org
+Subject: Re: [PATCH] dt-bindings: extcon: tusb320: add SGM7220 fallback
+ compatible
+Content-Language: ko
+To: Jun Yan <jerrysteve1101@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi
+ <cw00.choi@samsung.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Auchter <michael.auchter@ni.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20261010081907.479226-1-jerrysteve1101@gmail.com>
+From: Chanwoo Choi <cwchoi00@gmail.com>
+In-Reply-To: <20261010081907.479226-1-jerrysteve1101@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On Thu, 26 Nov 2026 10:14:54 +0100
-Joshua Crofts <crofts@kernel.org> wrote:
-
-> On 26-Nov-26 2:33, Jonathan Cameron wrote:
-> > On Wed, 25 Nov 2026 20:24:01 +0100
-> > Joshua Crofts <crofts@kernel.org> wrote:
-> >   
-> >> Remove any kernel.h occurences in gyro/ and update the headers in
-> >> accordance with IWYU (at least loosely).
-> >> 
-> >> Signed-off-by: Joshua Crofts <crofts@kernel.org>  
-> > I suspect we won't get much additional review on this lot
-> > and seeing as Andy already took a look, I'll pick them up now.  
+On 10/10/2026 5:19 PM, Jun Yan wrote:
+> The SGM7220 is register-compatible with the TI TUSB320, even reporting
+> the same device ID, so it can be described in a device tree using
+> ti,tusb320 as the fallback compatible string.
 > 
-> Ah, well Sashiko had some remarks to patches 2 and 3. Alright if I
-> send patches for you to fixup the applied ones?
+> Link: https://www.sg-micro.com/rect/assets/bec47c84-84b4-4015-8d61-9433e0d76583/SGM7220.pdf
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> ---
+>  .../bindings/extcon/extcon-usbc-tusb320.yaml           | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
 > 
-I forgot to check Sashiko
+> diff --git a/Documentation/devicetree/bindings/extcon/extcon-usbc-tusb320.yaml b/Documentation/devicetree/bindings/extcon/extcon-usbc-tusb320.yaml
+> index 126107dd57b1..f88486c2fb09 100644
+> --- a/Documentation/devicetree/bindings/extcon/extcon-usbc-tusb320.yaml
+> +++ b/Documentation/devicetree/bindings/extcon/extcon-usbc-tusb320.yaml
+> @@ -11,9 +11,13 @@ maintainers:
+>  
+>  properties:
+>    compatible:
+> -    enum:
+> -      - ti,tusb320
+> -      - ti,tusb320l
+> +    oneOf:
+> +      - enum:
+> +          - ti,tusb320
+> +          - ti,tusb320l
+> +      - items:
+> +          - const: sgmicro,sgm7220
+> +          - const: ti,tusb320
+>  
+>    reg:
+>      maxItems: 1
 
-Have dropped those two patches. Send a v2 of them.
+Applied it. Thanks.
 
-Thanks,
-
-Jonathan
-
+-- 
+Best Regards,
+Chanwoo Choi
+Principal Engineer, Samsung Electronics
