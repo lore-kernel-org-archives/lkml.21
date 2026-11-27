@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795821107;
-	b=ufXQL26+eKNXnnZ/ZvDZZoAzyyRIrdywHVWBeTHl5AonI4GFQ9Yp8nDNY+SIofueIA8W
-	 5ykyXVkIJU9dDksyA+eQDTGFEy08EWKqRpyl/Naf7xB8PetLgB14/VAprpEnmiPJen7YM
-	 3RKlL7z59YNBxzd0jX26kc16pISbSpwlpqKGz9qEiXAcMkRmnddpFv8UbzucQ7+uDawK0
-	 Xvc3i7XVfAqpaDfYmjsssYtw12GGGdfkzdotNbdFAl2qEoSm4z31voiin/UkPgZSH0WU0
-	 MUWVDjH1zpimsMsqb7BqAU3eykhh2nQPhrStf4rGxdM/VI4amLb7sMh1TG8Vf214i0Q==
+	t=1795821108;
+	b=2H40bYTnIZ7oeXSslOSB2xuzIrNW+408RnC7h5DlsuOMnQTUl1ox/hNFIbU/fzoFcKCL
+	 yTflCAo5pKJvU8eGJgIQyZ74fTyj6X2SW6UTN+Pll44ifxONvJg7ov4MCFZWlxhBEo4up
+	 icPkrq1TrqADMyn7UXCNVC3TZB60Xp+wu4dQiCQnGSg8JkRK2vvxq4Jai6de+Rk+FxPUT
+	 96Dk85OxZoDJJDatt/d4Cd8UPfP7/Xdy2nX5wkd0gEP9rEImR6vT8Ytjh+RUBVDSQfV2G
+	 Ji+028fbw10CEBVfCnKRffVpBFu/DzrIjdPO0k2jYXcR390rlqQD2EAFwIHWu1Jnz/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795821107;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795821108;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=Z0wILNP9hoOfw+GbXJHt9+6UVsSArRdVuADea6BgNfo=;
-	b=WtR48Tw+/UFyyHocWrT5mjqHAirpo8clYOc15WrzgvM7KQQ186kONbVTV/q10FykOhTw
-	 iE9xV0m26QouniDMbm3Y+ndYcQDSZAaVW/oSPKfgnhX0jU6vBeNkls8i1W8PLIIOW5nsN
-	 2pbVii4QLKPCMP2qdY5+sXb/Nz8SIZk9bkFTsFic2kGrAj7LJPyFRKgq69e/U081s9OHP
-	 U+JqXth7F39YO4gWt+XrjbTQyLreCFhA7s3iSmqyJINRHtYkKpBu8oy70Dzjj/46M6oek
-	 XsoGMIKK6+CC3P3700TOIvyXbU5sKeoKgCtWVmo3cDu7LVsMpI6XDqn7iZhMDvX02kg==
+	bh=LUWmniYlZDaP94X7INk1CV8JRgN4A8pJTXvzIqburrA=;
+	b=FLU7HmkIk9PXdR7BAck72RAqk52BtnHo6w6TuIaMXHj+3liG/39MWPwWssAQn3aVXk1U
+	 CIazeQgJ3xyp4oclE4O8CeM0eoc2QnqRDQnxYAAOq0zuFB61GYqpHCS/ytWLYLYj7njEY
+	 H/PnpuAnqKX260iY8EfET/GWm+S9wknggfHt0L3wlps9z3ER5ry4h+D9nZP9VUKXv5CxB
+	 rsj1BN4cF3M/tiyenV0wFCWY3NYWo4AZoI8pKeY0ZLLSGN7IKAfdbiYZ6yi6oLCw/U+m3
+	 1BcWYphB+z2J4uJ8ZsqNbRugz5fgXqlj+wpzDLE+fzOvUqYYH5c02nGFTxLQVpGfHew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HT7ef+26;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hrNCeTDL;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 339FE606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:11:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 339FE606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91F82606A33E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:11:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91F82606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HT7ef+26
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so53233925e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:11:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hrNCeTDL
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so75172495e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:11:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795821105; x=1796425905; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795821107; x=1796425907; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z0wILNP9hoOfw+GbXJHt9+6UVsSArRdVuADea6BgNfo=;
-        b=HT7ef+26UjClzJSrUofvkSh4OkWdoMwuHjThZr7Rqd/HPQ2x0mmMn6Yn/mIzKvo09j
-         Vy8mK+/+mtiK3B+w6/YXlqsZkdg785zz97hE//tW95pBR7nW0q/E32Pf7H8PBQ+sB2jD
-         vwvdA3AKJR1ym7Pfx+/PSTeVvVA7ELoUAxVwXJO3UZp6Z2WHdFYJActsTVG1HZCIWzzO
-         1A0SjFKD4wPzs9xLpOIapMDjgzqCCf0SMu87C1xnca1Yl1UlwSPstJoQU8rEbHYa/yB5
-         pQosRrozN88LkGCxsgK2P1AN66Xk23OF4M06P1/yIOkBjeLBVCpTIsJN93fgPK73FeSx
-         i5fw==
+        bh=LUWmniYlZDaP94X7INk1CV8JRgN4A8pJTXvzIqburrA=;
+        b=hrNCeTDLno4XAB1aTm4lSDv+1R4XyF9RlnderEX1Tagu3t4hokYLROZewUxBPvC+Dt
+         /gbzc+dF8Za36a/AogoVP7/aPmTNngNFH+oDlBRJRTA+z2FRNKdhNP0mUX++5VNgv02f
+         xf2K2Rx2rq9m2TJURe/LkDz4Kj1vPGblXPm1CnOhbUogM1dIAKPuUj4zkwNObQqMyHmR
+         5+fIz4kX55ZaYynppeq3Oi8Moh1uoFbwgE/2yaiuJ4l/Gc+1fF5vCssv3SPaKAm1rVbl
+         0GOBigv6QvYfsqW7fLa/o0szut9tIO6vz3Cds5j35+l0wlYYZ6Vcpf728CPn2JLD+gPY
+         te1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795821105; x=1796425905;
+        d=1e100.net; s=20260707; t=1795821107; x=1796425907;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Z0wILNP9hoOfw+GbXJHt9+6UVsSArRdVuADea6BgNfo=;
-        b=oIus3uq6iVRJO3wYLa2CHo0eiRC7H+1nPBzpR4LQm3icN43wS7eltH/Ms71csShiww
-         rSYN/bAF/eq8py3OlOCdS2VNpTzlam+BFnefwi6ZVjd498LMCDEkPXivkmfA9l8dHaYi
-         HU/Ig6ynZzTVZxHD/NfbsLKzRVLbSTIy7thj3kzkdd1DNVoctRwhbH1KxMyYr0P3AOh+
-         93l1JKlrF1EVrjOjMe5WpisFE3mfFA6kRscLGPA9pI6/dL6Va8eGkXEfKWI39aScN12T
-         B7947Z3n9msyYRUtV33GaUA8rke5Zt8aFcO2ARBK44qrq9niCore8zuIOivA7Q2TpVs8
-         SBAw==
-X-Forwarded-Encrypted: i=1; AL+hErEuq2vIEe3MFvLZv7GGwhx7RxE4S4pPSpSJzjuGo8d0Hnr/ZdapxQ3oFaLzEYcTIPWtem+HYFVLBDh9MgE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+OXOdZH3azHOpahdjBmaxf49QgXEp5hRAEYiN0+uXx2oGjQHF5
-	xivE2Vfi81FDSw7S88/DmDqgL928E3dRaUgjkzadauGhjD5YU16O/6qU
-X-Gm-Gg: AZFdTZdLldCGLp9VKec2X99NUK0d85nZYbjchHdSTv/L0a/VQfENsfg/35lSUveY9aS
-	vrOfiXfstTlXnExRGPcRqznECt/u+HBQSvBtlrsfNhxk1WeUgcyfllUn67jT4EttAddrAieSbdt
-	r2E8sIgEdObQGYFFiyOBEmF2gSMa6ow4/jl8mdHclnCzjAZOJizzZQnokg50dKW2kG7nzMYoclx
-	aNhMsK7UkIId5DkUkcgQzQM9qJTbVBLCpafYYust40+FeC6VqzWchTKKUs8uUpw7sruGusdmrE6
-	hXEiK/z/FQLz0HNJj9aPOldc+jXI2eio6G80GvP6aSNiBcGrxivpVpf0GZoACHagNjmBXZp7+pq
-	3xdY3fPCcEh8D6KEraP1wmi0UHpzfSnwHcPbvF+JnGhl3hPXue1VOZXZfTrNnk6v79ktu5sVXAS
-	jiwNCO1R2GquamyYtgi/JkLE0W++uaLmmLpULCubH3oUxbGehnsnCRHxHRn7AV9/zqLUa5vdUCd
-	lOrBwhTq4p23rTVxf8tLUsMI0wYbfJPYNLtPPKG4XRI0HSiaYTpT2BNTVP2hOVfMYhnQ096bxn0
-	s9DICbEK6QXVXo9nN418HVyQNTncCTPIppLO5vTFK06fRb7unHpOFtLZ679i4hM84qT42ayyYHN
-	Xtnk0nWRNtt54d/RcXh4Vnhx5izY6qtgcZegWob0gOTZj6RvvhyNBng5LybIprYycvw==
-X-Received: by 2002:a05:600c:6749:b0:4bb:5d38:259f with SMTP id 5b1f17b1804b1-4bb8881099cmr507696605e9.12.1795821105387;
-        Fri, 27 Nov 2026 15:11:45 -0800 (PST)
+        bh=LUWmniYlZDaP94X7INk1CV8JRgN4A8pJTXvzIqburrA=;
+        b=v+ddN9LZxIjfqI6BZZVZV+jjGrEVlB08bpmmQUJU/ly96+zUqOtl9Hew6IzCY31qRV
+         jyvEv2MqCjYVBFyn5iIyTb7QE3rOKyrp+/UA9DRXIwhEA6yf5EG6QipDWkfiW0TrTWol
+         VszLieBaeZuDCD0eaa8pBtUdfUQZut/6UfdyOt70qywWUeV2gppEh0lMHske1JjL245g
+         4Y9Hw8fQuWUECgvZDJlDwEOn83jPVnRlknGbI4bn49zuX1CRuWi9sTLI5o2iuZ9xCDMn
+         YY/yzxrjZO50MYtWVbstXGHtrNk4S3kJru/Fw/npBVlB2Ghk6sIQY7F7BOE099/MqHGA
+         bIMA==
+X-Forwarded-Encrypted: i=1; AL+hErFXIdGr4JsJuIjj4dhVb4fD0WX/WYVsPLM6kSumm0WLkmMcc1SIjRferZ1Njpr0aAsoYAmID1dQh745Q9E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9q6AE+o4R+mPuGDaUKlOXU5NxO2Yk3T9Ybr7SSXjiQArSLlyAj
+	kDXD1Z+d/NCiMfZ6y9V7c/X42mBVs4Dm96KI076Ku+6SDUXQRbwoSQIBdPFWyJx7
+X-Gm-Gg: AZFdTZdopRcS1qjr8xw85In5G3RvFb7YNo/34e5jxy+K2kZITPKfKVCiv8ooEFH7RB5
+	5Z7B+KWXql/sn4XL5DTjK0jJ+1hWxnJsOo8ntAc3T0WyVSiXhxy9RT3DfFUlImFmNB30HNHilqI
+	KfAXPdOXFNUKNbZqksFUWZEI/SqA+nhHuIlnLpImT6pwh2+SmxV3rO9aeF33MxsEQEAW6nkcyZa
+	dGM5sasW8th4RQWckVkUKn5/qBs1O/8P8QL5ROI09qN+3i7XZqKTBwZjjiZgFlukTeDHncSXkEq
+	joleFoGLUospwUsqLzhH6IRv+3li19a/cYTTOFFEbCN6TdszQpItfDlyPFBoxjwL7infBHSF6Qc
+	Rwea38JvLL1I4klL64MgjlTK1qM/nv8ughMilUDc8lAVSvIxzBRsstxPNVpQWiQn2V/iOwl49XO
+	R2qMD/pCanlNn04qgnICQZhNboWPSlv1YqdFWMVW8zv94pKdp4AEKOXeoqGQL913v3hn2wK9ohf
+	wRZX9MV2mR9hBBWosVlgQOJq4BlZqfyMLlR3ta6eYYd2n6Vd/y83jpIJSVjEJcBN4DS6T5ioKpw
+	Q/D2QvjKPngsc6Scq4VN736bhMIaRAQpKykCANX9U4XyyhMILv62+ymq2vS7vVP0rQJ5oQQMLAe
+	xkeEYUpdQOhgFg6UEa+Zew4Ejv8F9dAv5MjbBB7ooAWaDRo3RIgdcYC9xLIFhs0iXbg==
+X-Received: by 2002:a05:600c:a086:b0:4af:c210:5b3f with SMTP id 5b1f17b1804b1-4bb88817ef1mr545964755e9.24.1795821106791;
+        Fri, 27 Nov 2026 15:11:46 -0800 (PST)
 Received: from PC-Marco.local ([151.59.46.9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm600062645e9.9.2026.11.27.15.11.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm600062645e9.9.2026.11.27.15.11.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 15:11:45 -0800 (PST)
+        Fri, 27 Nov 2026 15:11:46 -0800 (PST)
 From: Marco Ziliani <rylos78@gmail.com>
-Date: Sat, 28 Nov 2026 00:11:33 +0100
-Subject: [PATCH v3 1/4] media: i2c: ov5693: Keep driver-managed registers
- out of the global list
+Date: Sat, 28 Nov 2026 00:11:34 +0100
+Subject: [PATCH v3 2/4] media: i2c: ov5693: Write format and crop changes
+ to a powered sensor
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-ov5693-fixes-v3-1-bcdd169958b6@gmail.com>
+Message-Id: <20261128-ov5693-fixes-v3-2-bcdd169958b6@gmail.com>
 References: <20261128-ov5693-fixes-v3-0-bcdd169958b6@gmail.com>
 In-Reply-To: <20261128-ov5693-fixes-v3-0-bcdd169958b6@gmail.com>
 To: Daniel Scally <dan.scally@ideasonboard.com>, 
@@ -107,114 +107,148 @@ Cc: linux-media@vger.kernel.org, Chris Simpson <chris@nilk.net>,
  "D. Manresa" <dmanresa@gmail.com>, linux-kernel@vger.kernel.org, 
  Marco Ziliani <rylos78@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795821102; l=4149;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795821102; l=4352;
  i=rylos78@gmail.com; s=20261027; h=from:subject:message-id;
- bh=uKTPZc5LykjN/BHRtAH+4in7YQgYje3/o3IBc5SugOk=;
- b=aSSDF3Ximl1kISTdMsBinyKk3fH53RzgnjtxHdaSY0zU/FYQQ36p236hDMAFHU+/t2WUT+sjZ
- 8irRX5cF1VKDnIf06m1tRt8yekVmUISH5PGCDZA7mT7fg80e46VUyPa
+ bh=GQzxuTlGBx39QbJpsp8CzmHudg6Se0jD65Ot2ih8Aw0=;
+ b=svXNGhHnU4I2+UFuJHyFvpGDw50K8qVZ15pHuca6IIwjyb+IT9FpTakQGQkGSsNior39BKSSm
+ ryHeazNDyHUDOHc20gbfrdk2a2v01mGkFl9nUIGDYEMLfnr8ho4G2vS
 X-Developer-Key: i=rylos78@gmail.com; a=ed25519;
  pk=nXCfiK5yExPZCMp+lfKif3gdXkfjkUK2qk7bDW+ixMo=
 
-ov5693_global_regs writes three registers that the driver also programs:
-0x350b, the low byte of the analogue gain set by the gain control, and
-FORMAT1/FORMAT2 (0x3820/0x3821), whose binning and flip bits follow the
-format and the flip controls. The values from the list are overwritten
-anyway, so the overlap only hides which code owns those registers.
+ov5693_mode_configure() is only called on power-on, from
+ov5693_sensor_init(). If the sensor stays powered between two streams
+with different formats, for instance during the runtime PM autosuspend
+delay or with runtime PM disabled, the registers for the second format
+are never written and the sensor keeps streaming the first one.
 
-Drop the three entries. Program the FORMAT registers in full from
-ov5693_mode_configure() instead, except for the flip bits, which stay
-with the flip controls. That keeps the values the list used to write:
-0x00 for FORMAT1, and bits 4:3 of FORMAT2, which the vendor sequence
-sets and whose purpose isn't documented.
+Keep writing the mode registers on power-on, and also write them from
+set_fmt() and set_selection() on the active state when the sensor is
+powered. pm_runtime_get_if_active() is used rather than
+pm_runtime_get_if_in_use() so that a change made during the autosuspend
+delay is written too.
 
-Suggested-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+Writing them while streaming would change the readout under the
+receiver, so refuse format and crop changes on the active state with
+-EBUSY while the sensor streams. set_fmt() and set_selection() now take
+the driver lock for the whole operation.
+
+Fixes: 89aef879cb53 ("media: i2c: Add support for ov5693 sensor")
+Link: https://github.com/linux-surface/kernel/pull/181
 Signed-off-by: Marco Ziliani <rylos78@gmail.com>
 ---
- drivers/media/i2c/ov5693.c | 27 ++++++++++++++++-----------
- 1 file changed, 16 insertions(+), 11 deletions(-)
+ drivers/media/i2c/ov5693.c | 46 +++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 41 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/media/i2c/ov5693.c b/drivers/media/i2c/ov5693.c
-index 56599f9ca..d221f7951 100644
+index d221f7951..3cab73b89 100644
 --- a/drivers/media/i2c/ov5693.c
 +++ b/drivers/media/i2c/ov5693.c
-@@ -94,11 +94,17 @@
- #define OV5693_FORMAT1_FLIP_VERT_ISP_EN		BIT(6)
- #define OV5693_FORMAT1_FLIP_VERT_SENSOR_EN	BIT(1)
- #define OV5693_FORMAT1_VBIN_EN			BIT(0)
-+#define OV5693_FORMAT1_FLIP_VERT_MASK		(OV5693_FORMAT1_FLIP_VERT_ISP_EN | \
-+						 OV5693_FORMAT1_FLIP_VERT_SENSOR_EN)
- #define OV5693_FORMAT2_REG			CCI_REG8(0x3821)
- #define OV5693_FORMAT2_HDR_EN			BIT(7)
- #define OV5693_FORMAT2_FLIP_HORZ_ISP_EN		BIT(2)
- #define OV5693_FORMAT2_FLIP_HORZ_SENSOR_EN	BIT(1)
- #define OV5693_FORMAT2_HBIN_EN			BIT(0)
-+#define OV5693_FORMAT2_FLIP_HORZ_MASK		(OV5693_FORMAT2_FLIP_HORZ_ISP_EN | \
-+						 OV5693_FORMAT2_FLIP_HORZ_SENSOR_EN)
-+/* Set by the vendor initialisation sequence, purpose undocumented */
-+#define OV5693_FORMAT2_VENDOR_BITS		GENMASK(4, 3)
+@@ -168,6 +168,9 @@ struct ov5693_device {
+ 		unsigned int vts;
+ 	} mode;
  
- #define OV5693_ISP_CTRL2_REG			CCI_REG8(0x5002)
- #define OV5693_ISP_SCALE_ENABLE			BIT(7)
-@@ -203,7 +209,6 @@ static const struct cci_reg_sequence ov5693_global_regs[] = {
- 	{CCI_REG8(0x3106), 0x00},
- 	{CCI_REG8(0x3406), 0x01},
- 	{CCI_REG8(0x3503), 0x07},
--	{CCI_REG8(0x350b), 0x40},
- 	{CCI_REG8(0x3601), 0x0a},
- 	{CCI_REG8(0x3602), 0x38},
- 	{CCI_REG8(0x3612), 0x80},
-@@ -322,8 +327,6 @@ static const struct cci_reg_sequence ov5693_global_regs[] = {
- 	{CCI_REG8(0x5848), 0x01},
- 	{CCI_REG8(0x5849), 0x0c},
- 	{CCI_REG8(0x5e10), 0x0c},
--	{CCI_REG8(0x3820), 0x00},
--	{CCI_REG8(0x3821), 0x1e},
- 	{CCI_REG8(0x5041), 0x14}
- };
++	/* Protected by lock */
++	bool streaming;
++
+ 	struct v4l2_subdev sd;
+ 	struct media_pad pad;
  
-@@ -364,8 +367,7 @@ static const u8 ov5693_test_pattern_bits[] = {
- static int ov5693_flip_vert_configure(struct ov5693_device *ov5693,
- 				      bool enable)
- {
--	u8 bits = OV5693_FORMAT1_FLIP_VERT_ISP_EN |
--		  OV5693_FORMAT1_FLIP_VERT_SENSOR_EN;
-+	u8 bits = OV5693_FORMAT1_FLIP_VERT_MASK;
- 	int ret;
- 
- 	ret = cci_update_bits(ov5693->regmap, OV5693_FORMAT1_REG, bits,
-@@ -379,8 +381,7 @@ static int ov5693_flip_vert_configure(struct ov5693_device *ov5693,
- static int ov5693_flip_horz_configure(struct ov5693_device *ov5693,
- 				      bool enable)
- {
--	u8 bits = OV5693_FORMAT2_FLIP_HORZ_ISP_EN |
--		  OV5693_FORMAT2_FLIP_HORZ_SENSOR_EN;
-+	u8 bits = OV5693_FORMAT2_FLIP_HORZ_MASK;
- 	int ret;
- 
- 	ret = cci_update_bits(ov5693->regmap, OV5693_FORMAT2_REG, bits,
-@@ -603,14 +604,18 @@ static int ov5693_mode_configure(struct ov5693_device *ov5693)
- 	cci_write(ov5693->regmap, OV5693_SUB_INC_Y_REG,
- 		  ((mode->inc_y_odd << 4) & 0xf0) | 0x01, &ret);
- 
--	/* Binning */
-+	/*
-+	 * Binning. Program all the bits of the FORMAT registers except the
-+	 * flips, which follow the flip controls.
-+	 */
- 	cci_update_bits(ov5693->regmap, OV5693_FORMAT1_REG,
--			OV5693_FORMAT1_VBIN_EN,
-+			GENMASK(7, 0) & ~OV5693_FORMAT1_FLIP_VERT_MASK,
- 			mode->binning_y ? OV5693_FORMAT1_VBIN_EN : 0, &ret);
- 
- 	cci_update_bits(ov5693->regmap, OV5693_FORMAT2_REG,
--			OV5693_FORMAT2_HBIN_EN,
--			mode->binning_x ? OV5693_FORMAT2_HBIN_EN : 0, &ret);
-+			GENMASK(7, 0) & ~OV5693_FORMAT2_FLIP_HORZ_MASK,
-+			OV5693_FORMAT2_VENDOR_BITS |
-+			(mode->binning_x ? OV5693_FORMAT2_HBIN_EN : 0), &ret);
- 
- 	return ret;
+@@ -832,6 +835,27 @@ static int ov5693_get_fmt(struct v4l2_subdev *sd,
+ 	return 0;
  }
+ 
++/*
++ * Program a new format or crop rectangle on a powered sensor. A sensor that is
++ * powered off gets it at the next power-on, from ov5693_sensor_init().
++ */
++static int ov5693_mode_update(struct ov5693_device *ov5693)
++{
++	int pm, ret;
++
++	pm = pm_runtime_get_if_active(ov5693->dev);
++	if (!pm)
++		return 0;
++
++	ret = ov5693_mode_configure(ov5693);
++
++	/* A negative value means runtime PM is disabled, with the sensor on */
++	if (pm > 0)
++		pm_runtime_put(ov5693->dev);
++
++	return ret;
++}
++
+ static int ov5693_set_fmt(struct v4l2_subdev *sd,
+ 			  const struct v4l2_subdev_client_info *ci,
+ 			  struct v4l2_subdev_state *state,
+@@ -845,6 +869,11 @@ static int ov5693_set_fmt(struct v4l2_subdev *sd,
+ 	unsigned int hblank;
+ 	int exposure_max;
+ 
++	guard(mutex)(&ov5693->lock);
++
++	if (format->which == V4L2_SUBDEV_FORMAT_ACTIVE && ov5693->streaming)
++		return -EBUSY;
++
+ 	crop = __ov5693_get_pad_crop(ov5693, state, format->pad, format->which);
+ 
+ 	/*
+@@ -877,8 +906,6 @@ static int ov5693_set_fmt(struct v4l2_subdev *sd,
+ 	if (format->which == V4L2_SUBDEV_FORMAT_TRY)
+ 		return 0;
+ 
+-	mutex_lock(&ov5693->lock);
+-
+ 	ov5693->mode.binning_x = hratio > 1;
+ 	ov5693->mode.inc_x_odd = hratio > 1 ? 3 : 1;
+ 	ov5693->mode.binning_y = vratio > 1;
+@@ -904,8 +931,7 @@ static int ov5693_set_fmt(struct v4l2_subdev *sd,
+ 				 min(ov5693->ctrls.exposure->val,
+ 				     exposure_max));
+ 
+-	mutex_unlock(&ov5693->lock);
+-	return 0;
++	return ov5693_mode_update(ov5693);
+ }
+ 
+ static int ov5693_get_selection(struct v4l2_subdev *sd,
+@@ -955,6 +981,11 @@ static int ov5693_set_selection(struct v4l2_subdev *sd,
+ 	if (sel->target != V4L2_SEL_TGT_CROP)
+ 		return -EINVAL;
+ 
++	guard(mutex)(&ov5693->lock);
++
++	if (sel->which == V4L2_SUBDEV_FORMAT_ACTIVE && ov5693->streaming)
++		return -EBUSY;
++
+ 	/*
+ 	 * Clamp the boundaries of the crop rectangle to the size of the sensor
+ 	 * pixel array. Align to multiples of 2 to ensure Bayer pattern isn't
+@@ -991,7 +1022,10 @@ static int ov5693_set_selection(struct v4l2_subdev *sd,
+ 	*__crop = rect;
+ 	sel->r = rect;
+ 
+-	return 0;
++	if (sel->which == V4L2_SUBDEV_FORMAT_TRY)
++		return 0;
++
++	return ov5693_mode_update(ov5693);
+ }
+ 
+ static int ov5693_s_stream(struct v4l2_subdev *sd, int enable)
+@@ -1012,10 +1046,12 @@ static int ov5693_s_stream(struct v4l2_subdev *sd, int enable)
+ 		}
+ 
+ 		ret = ov5693_enable_streaming(ov5693, true);
++		ov5693->streaming = !ret;
+ 		mutex_unlock(&ov5693->lock);
+ 	} else {
+ 		mutex_lock(&ov5693->lock);
+ 		ret = ov5693_enable_streaming(ov5693, false);
++		ov5693->streaming = false;
+ 		mutex_unlock(&ov5693->lock);
+ 	}
+ 	if (ret)
 
 -- 
 2.56.1
