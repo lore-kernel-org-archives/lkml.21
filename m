@@ -1,115 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790360;
-	b=sS4ffpCRCzEPF9wH0L0KfXYc+Mwdhh+IKswFDelaQdru2xwz6a4bWdy2jaAgyNuW8pwi
-	 5F9+hwPQIZUtdrlH7L8y4NraQKIIQFf3Q+j5+taiO2S496SITFM/PJyTpklZR4zlxy0lZ
-	 i+hs/Gn/wtVYM5Bls41C1Lp6alftBE9EdHQxiVuzRCPEmDA2j2Dg/+BkG0ZbDfu21ONUX
-	 TmJV3aJiZttraVZbWAnmbKTt09Fa4rx8veNQYQ4V/wuLkvu5CWRr/VVq5btun+MM41ofW
-	 bjHSI51K07Gkl52Ib11VpAr90mrI60biukzLfx5WD+HDYpDKfT7NZqPonVFSXRC481Q==
+	t=1795790362;
+	b=SIK2REXyksYDx9BL9TWqb4eEjtnCM/0CiYEh1Q3NKAPODb3GbmgcoU0Y85+B/KTE0sea
+	 vJPhGiSnfhL6YEutiBuAvbgje5QBCnKcWrBh+C79N5TLuUlwIS2juduHOV2PUxmCP2PDE
+	 0jRsruClyTeqHWW6Ur7MlfqtN/k9qASjkDCqi4y2/1HhPWhX53UFyC1f13W+4AQTf6Bge
+	 m1IFrezgT0nxQyFIFYb8+G5NbloCmypE/PkshGxmxClGsa8o9sTtwK2eNTdjukZw5yeyu
+	 O+uSINPXf0s+mpBhdC8HZhEtaecHPHnglIdYRj8aLmsEh3n3zPlVWR5Wzb1Yt/IF5mg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790360;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=6/DHKlXFhMo0Z9b6H9IFVOO6KYXjJkCSJrFRpsaTfpo=;
-	b=mnR4njV41orxACS7bJaZXhATP+qL20yYFTFA6/jKDvb9a87qyM0dxJ3Wv5VzDVKeOoCo
-	 RyTHLekypzpPvZrzGRJMiWDtp4mwAwFOEUann9qhAPQOGvTXihUea5kLUMxWBZFUhbeCK
-	 dCXQ9kA6kJnE1gbMX/CZdds6u4gOwvd/nTMM52NjRLaOsX1jB1F95gw0aREAJ8kNUKv9Y
-	 GBrAHhNpi6pfmC+84ySfL03aPy4zXjGZynPHASEOx/TCbNOCp2z2woPpsHpvyAV/V/fzM
-	 V7N1auzNF1gTpAJUx/QvmRdC6RAmZBlSa6eZoW2k9uJJW2xoj5QBgETbnKfnfQL1Xyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790362;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
+	b=ttuykFtUjeGrEKnvBq5ZWJ6a4D2wz0CfxpF6QnIXJgUwjTKH8NFIKl+BXnGg0xNEVTN6
+	 Zqw4ZJf8ZFb34by/wl28zgkc1zgszO+bO+91clJbQy4N1NDe6R/PRVWUrmBguxT0wU7//
+	 hXd7b3OWhP0qrEtHZndc4caEPErpTis9cuo/BNvyFHZ4rDUpgxWJKxDpE4QSy6KvQ+H+8
+	 E51WSd/ebvDUyeqmLZlcK7xH3hxnRmp/q7r2l+70REP2XcNbZ2kKEELM3rVaQ23BtNIe0
+	 RV/+Q6bopG1a2ycKQFc7rk9lm3VOT87Uc1vX8dLmRC4VoUZ1Mpqrw446F+ukUHTf3JQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=C+KiDKIk;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=VKZ2y8TL;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Ru5sHkWd;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=AgrmKHEW;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=cLVNsPqV;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25961606A861
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:39:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25961606A861
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4A5C606A86F;
+	Fri, 27 Nov 2026 14:39:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4A5C606A86F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=C+KiDKIk
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so75024465e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:39:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795790358; x=1796395158; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6/DHKlXFhMo0Z9b6H9IFVOO6KYXjJkCSJrFRpsaTfpo=;
-        b=C+KiDKIkOntzP/sj1I7O2rUUqPpSVBmmAI1n+KYTyNAMZnmgZI7IZz/spt69kO2BMw
-         nnjaP+QY1JPZ5eqIDfjDJ+xhZeVi4akvv2sIGRuYQrGpfYoanZdAS5yl5qqJ/eM3GVES
-         J259yff9j5IlS6SQlyHR8MEK4XgM0kHpbalWjnDitGNKNMy824nIqaLrnyxvj2LmXElB
-         x4I5L9MJ+idJxN7xh5VSGAm3GS1+H19nXW6U6ugzvIzARwAV+lps2pkXV5IO3P/kUHC2
-         4YTW86EXnFL+16/sbnmd07XgBCAhq43/th91ZhVVWe0/vhW4MSEdku4a+v5Jtp1x0piu
-         5gCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790358; x=1796395158;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=6/DHKlXFhMo0Z9b6H9IFVOO6KYXjJkCSJrFRpsaTfpo=;
-        b=G42fNoxxW7CMEKdP/7dEemCOJ3o3cnk8jnEovs1kawJGoMygUiQVoEQvZsNnSNjakA
-         EvkA2nVI/490dLeQM7yucenZXL+4OKMi4wKyMyni8N6hOP+uZx3NykbOrb6uDD2JIbYh
-         cvZc+uHP71FmQjkBD1GQqXkcNXqO8ZQJf17dvifX8WKTydrwh+N45i9MyCQMaJ77RUcr
-         AI1nqQbaUbT9Cevdnzd9nHx00RwjGuN0AfV5aFZak4E0lV9vHUQ43bTRtvPhQFaewBH/
-         aPQZ8OBRXP8oKR1C0IXM8XP5dtmNi9dkL4uM9kUKNojALQCVmyBJgtkfvt27ZXKwEor2
-         9wLg==
-X-Forwarded-Encrypted: i=1; AL+hErEqT3nFUUU++op0tpYqvxC2j+FjetwodIW061UswgP0MIrc5PVKqD79ShHWsyRVnoPRmCi8MeJXGMigG/U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8G5lc5sngG9qZqrKUib2lyK6fS4z8O74p9gREhEfyZ8v1ICDJ+
-	x8EhSlLF3MATk+t7YdP7yiTlmF0HvpwQVfVT8LomTxPRs2PYrDmBzaHQ8Mj0fr0tGG8=
-X-Gm-Gg: AZFdTZf40U4sCjk5WR1quB57xEBj+jcKy2QlYA1aWI8vwFKYnYI4tRduPyAWEY3spRb
-	6a2e29QeRnOiwTQtmfUY4vD9Zw8xoFamvBQf+Cx/zOjBqVuI7JyeC0w4h5dx7PCYOBht8tTb579
-	adynmf8cWi9H1xG04sWEux3jwZmkBeMsMlRpPf+0Yq2+3r/r1R9kJ31KalUjtErlH/AT//L9+RV
-	ckN1axqchW/Hn0AsKLcHJUzb55f1E/169Z7WDf/AmFlvdC9UQ4Z1plOEeXwj5BagxYpbRRw9ett
-	Yq6jiYppg7w6cqOfiUN1bgAaTpp37M6+AlzALORhbgHJrNjdvJQrcMTd1wmUIP6GVjaw76burv6
-	p5uyp9yPI3q85RMgkSgVp507guYMFTQfjw+YAIczfkchdodlt7Tx7nCvnJq9nHLsvMOCnc7FOQE
-	5qmYFKgEtUkpNVPxve4rhqmM8AY8jEq/yj16VwNxxA32XBa5Y8NMm1lFWCgar9AFfKKgMfAaJW6
-	x9P3cvvG09es9mY1lDcKJPwNXdsOQzy+eFuRm+89B4xCzt5lwO/Y8XNSn9ReCung9drqaC3vY0L
-	0s1rtqIa+VUh7OjMn0XV6unHhaMd+os=
-X-Received: by 2002:a05:600c:4584:b0:4a7:c366:d791 with SMTP id 5b1f17b1804b1-4bb887e266amr484172275e9.1.1795790358486;
-        Fri, 27 Nov 2026 06:39:18 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bbb97e5356sm7164615e9.4.2026.11.27.06.39.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:39:18 -0800 (PST)
-Date: Fri, 27 Nov 2026 15:39:15 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Yafang Shao <laoar.shao@gmail.com>
-Cc: "Ravindran, Binoy" <binoy@vt.edu>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>,
-	"sashiko-reviews@lists.linux.dev" <sashiko-reviews@lists.linux.dev>,
-	"live-patching@vger.kernel.org" <live-patching@vger.kernel.org>,
-	"Shastri, Jaidev" <jaidevshastri@vt.edu>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"rcu@vger.kernel.org" <rcu@vger.kernel.org>
-Subject: Re: [PATCH v3 2/3] livepatch: Include exiting tasks in the transition
-Message-ID: <awmWExtIJGM805__@pathway.suse.cz>
-References: <20261125-klp-series-v3-v3-0-b1e0f79af331@vt.edu>
- <20261125-klp-series-v3-v3-2-b1e0f79af331@vt.edu>
- <sashiko-outbox-234405@kernel.org>
- <DM6PR05MB4137C0B5BB4D88A9D5847EBAD1432@DM6PR05MB4137.namprd05.prod.outlook.com>
- <CALOAHbAQuYG__4b054bRobVRyT+v143wBcVAN26T_PtiO-oqmA@mail.gmail.com>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=VKZ2y8TL;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Ru5sHkWd;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=AgrmKHEW;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=cLVNsPqV
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DF787229A6;
+	Fri, 27 Nov 2026 14:39:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795790360; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
+	b=VKZ2y8TLdNbcG9jkSSrh77gTAUw31/gkqWqHa8PQnHxP1g60+tBWlSOsCWYz4ZCeU/1Z3f
+	528x+Pj5QZ7H0K+et7jKMHGtk0VjG34S3vjnbCskn63fi19w0ElxaGgU99maK5boOyhX1E
+	sjckOwBUiag6hjc85cnobJ297UN0zRw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795790360;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
+	b=Ru5sHkWd6RysQtT2XX+hx1W4oiGdr+yTI+Ku6WG+fZVhO8xePUuEC8acHjgdf+AAomeCaI
+	hv2iFHZGz/DIQbDQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=AgrmKHEW;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=cLVNsPqV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795790359; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
+	b=AgrmKHEWLvzbe79xh/L2Tfs3t/WH24xoUgCSSi8gFqeZ/rlFrURk00IDTGjWEu9afenVry
+	1s26Esim4AAl7r48kNjDDFbjdb/IQ05jr+ji91OJndd6YAsYPnUZJjF3WK6KzFCHC4o4Bv
+	ZgIcZ8ZxfEPsYazx6I/WfzwXszj8m80=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795790359;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SYlHs8Nv7Z8RF8bQnhdE9EHsHWgPRLraOMWrOS12HEE=;
+	b=cLVNsPqVZgKv4iRerH6vV6ARvIUv8JU3NJjNObkybOmRBt4kNrcqkXZCrkxdrNYy/0Gqr4
+	RPIREk91nb5nclAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A860B13432;
+	Fri, 27 Nov 2026 14:39:19 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id APQhIReWCWuzXQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 14:39:19 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 3C95951054; Fri, 27 Nov 2026 15:39:19 +0100 (CET)
+Date: Fri, 27 Nov 2026 15:39:19 +0100
+From: Jan Kara <jack@suse.cz>
+To: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Jan Kara <jack@suse.cz>
+Subject: Re: [PATCH] block/partitions: lock the mapping while reading a
+ partition sector
+Message-ID: <hnlbum2fxqy7fztaxepiedgxc6jxb65r6avascrtq5qvfqsflq@fezcrhv4cmq5>
+References: <20261127074500.89094-1-zhaogongyi@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,44 +112,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALOAHbAQuYG__4b054bRobVRyT+v143wBcVAN26T_PtiO-oqmA@mail.gmail.com>
+In-Reply-To: <20261127074500.89094-1-zhaogongyi@bytedance.com>
+X-Rspamd-Queue-Id: DF787229A6
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_DN_SOME(0.00)[];
+	ARC_NA(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email];
+	RCVD_COUNT_THREE(0.00)[3];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[5];
+	DKIM_TRACE(0.00)[suse.cz:+]
+X-Spam-Score: -13.01
 
-On Thu 2026-11-26 11:12:27, Yafang Shao wrote:
-> On Thu, Nov 26, 2026 at 8:58 AM Ravindran, Binoy <binoy@vt.edu> wrote:
-> >
-> >
-> > Thanks, this is right. A dying task reports its quiescent state in
-> > rcu_note_context_switch(), early in __schedule(), and then still runs
-> > traceable code, such as update_rq_clock() and pick_next_task(), until
-> > switch_to(). RCU does not promise to wait for code after that point, and
-> > with expedited grace periods the quiescent state is reported right
-> > there, so synchronize_rcu() can return too early.
-> > klp_synchronize_transition(), which v2 used, does not have this
-> > problem: schedule_on_each_cpu() completes only after the work item has
-> > run on every CPU, which on the dying task's CPU happens only after
-> > switch_to().
-> >
-> > v4 goes back to klp_synchronize_transition() for both waits and keeps
-> > klp_try_switch_exiting_tasks() from v3. I will send it after rerunning
-> > the tests.
-> >
-> > Yafang, this reverses your second suggestion; I hope the reason above
-> > makes sense. It also brings back the v2 transition times.
+On Fri 27-11-26 15:45:00, Zhao Gongyi wrote:
+> A concurrent BLKBSZSET and BLKRRPART reproducer reports
+> "Unable to handle kernel NULL pointer dereference" in
+> create_empty_buffers(). The relevant call trace is:
 > 
-> Agreed. I missed the point that the quiescent state is reported early
-> in __schedule(), and that the code from there until switch_to() is not
-> covered by synchronize_rcu(). Thanks for pointing that out.
+>   create_empty_buffers
+>   block_read_full_folio
+>   blkdev_read_folio
+>   read_cache_folio
+>   read_part_sector
+>   msdos_partition
+> 
+> read_part_sector() calls read_mapping_folio() without the mapping's
+> invalidate_lock. The race can allocate a folio at the old minimum order
+> and then create buffer heads using the new block size. When the folio is
+> smaller than the block size, create_empty_buffers() dereferences NULL.
+> 
+> Hold the shared invalidate_lock across the read, pairing with the
+> exclusive lock in set_blocksize().
+> 
+> Fixes: 3c20917120ce ("block/bdev: enable large folio support for large logical block sizes")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
 
-Honestly, I think that synchronize_srcu() should work. Otherwise,
-the comment in rcu_tasks_postgp() would be wrong.
+Looks sensible. The partition rereading code tends to get called from
+unexpected places at times so I was pondering for a while whether it
+doesn't get called in a context where we could not grab invalidate_lock but
+I didn't find anything. So feel free to add:
 
-IMHO, the trick is that there are two interlacing rcu_read() periods
-in do_exit() and synchronize_rcu(), see the comment in
-rcu_tasks_postscan() and the commit e4e1e8089c5fd9 ("rcu-tasks:
-Improve comments explaining tasks_rcu_exit_srcu purpose").
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-Best Regards,
-Petr
+								Honza
+
+> ---
+> Testing (arm64 QEMU/KVM, GCC 8.3, KASAN/KCOV/UBSAN disabled):
+>   Unpatched: the reproducer triggered a NULL dereference in
+>   create_empty_buffers() in 3/3 runs.
+>   Patched: no crash in 5/5 runs with the same reproducer.
+> 
+>  block/partitions/core.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/block/partitions/core.c b/block/partitions/core.c
+> index b5c59b79ca7cb..a36eeb235d5e0 100644
+> --- a/block/partitions/core.c
+> +++ b/block/partitions/core.c
+> @@ -721,7 +721,9 @@ void *read_part_sector(struct parsed_partitions *state, sector_t n, Sector *p)
+>  		goto out;
+>  	}
+>  
+> +	filemap_invalidate_lock_shared(mapping);
+>  	folio = read_mapping_folio(mapping, n >> PAGE_SECTORS_SHIFT, NULL);
+> +	filemap_invalidate_unlock_shared(mapping);
+>  	if (IS_ERR(folio))
+>  		goto out;
+>  
+> 
+> base-commit: 5a29cfaf51105039d156dd8a61d2783e8b653667
+> -- 
+> 2.39.5 (Apple Git-154)
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
