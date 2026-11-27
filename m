@@ -1,66 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795813540;
-	b=oYKGrc+DOC+PbY5roUQbq9HNu09geVcHSae19rcLwHMvI/rAhw2pFeXQaw93AfqqTq5U
-	 Rtxy3FbE385cbir7VKMP+Pkc4F5vAlVOc1v7a6C5WbbKICXlBof+i76iwls0xODkfWFuZ
-	 TV9JovrolPEwFBmjkRYCu3wZJo4gOHvpbM/tb0SYlPrn9VtW+HqSvBTIwndEkTf5QmbMQ
-	 ej5gFRywBT5eSpEYhYUvsJUxxbtqZNTaqI9K6fzmBe3MEgRw4+80NbOufiO8+2sTujwmV
-	 gkCLJLLKxWLzhi1jwbsVA35mFnCfW54Bm/0ZEriOMcM5MOo7MO8fVwOX1h1twKXGNnA==
+	t=1795813615;
+	b=2J9n2rEKAjkfug7ikp7rclz0I/3KNI/+7NEwZ0nSMsUPmZxefwvu8DIKwslgBZ7NFEGj
+	 aw+syGZGFgSqGBkH9VwqUDee/1lI9u6KNj87CZ0GKHpcrQQeB/LGLO5aXsDK3Y373cuxI
+	 3hA8q31A+Z7SpZ6gpHPrstPfXwacq3kteAMqs2/wA2lOrJULftFwZEux+GDYb8qQ/lfOB
+	 t0/71FNBBa+PghQMqKRPGCe/niPkEdrMMaZ/Cv6pg0pkWgJE42jxJeZTSZiyWZLtnmPTF
+	 WQneqER7c+z9YGTFEvncK0+sqCiwtSH/Ti0Jb9BdA6aXFCHCbnIg5VH0qFv8S2EX2Mg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795813540;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=yrcUJkxPg9w4wieDebgOR1w4YdfQXDDgdmwz0kbg3us=;
-	b=XM1tXkthGimqVZC8zKlIwrCn1owsPmnhYq1dCj47POOAQRaT+CipdJTjy0Eq83FOXFig
-	 ONx7XT8bwbLY6xAZ3o8PtsuEqrsNDTRk6b1NpzhlRLNQNscZMKzt5zRtybBEiz9exUseN
-	 27Z0XwLGBp1yWDZDHlO9m4yhf6Zx2YyuLaLDGnBUsMK7xa4K4fUGil1MNSaWZbfmEbgTh
-	 UBkW+1S3JV/JhZ6YXqQP30aAuovsbxf8g0EIKhdIaT230cyPtxYGDm95CmXbJNzS86dte
-	 oSA9bs5EEMy4p9BLpEfH6AOdmHLyTHhx1Kqfb5YC15fNZwaSc+jUIMObP/06O4xK55A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795813615;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:To:From:Subject:Cc:References:
+	 In-Reply-To;
+	bh=x2vbCxhKlDEYGyJLF8a1r9DvhsL84+yAuxXVlq9Dapc=;
+	b=IyFCL1piDPBLPN0kUYL5LoMODW+D/PWg0Vjho+AKiH5mhum2FzVK/+4bSucx3WHgTjoe
+	 XIESFvco7UL1AS7rGaBWoMZG1nGx5btA5L6HiTlbR8DgmO1W20SDT/1dNWsNBT2dZY31J
+	 91xLwj8iuqTnl0PI3piTPaIdHXab/Jf8KOalgPzdt3LmrdTHivyKVtUWHmmygCOwlwvub
+	 cXjTDcwumIBOO4fRYAUPSujhNGwkxOf+mbZRidM2otdXLYedk0btt1X/hxox5KfA/Lv5N
+	 KrdIOIo22OZ3H7G7m1Rpp3VVUxtUmkzffCFjLzz99Bs8T1OL3158c1eHnMxjTbf7fBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DbVCTH86;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VrdmPbgt;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 017D9606A31C;
-	Fri, 27 Nov 2026 21:05:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38B2D606A31C;
+	Fri, 27 Nov 2026 21:06:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DbVCTH86
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64C121F000C1;
-	Fri, 27 Nov 2026 21:05:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VrdmPbgt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679081F00893;
+	Fri, 27 Nov 2026 21:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795813539;
-	bh=yrcUJkxPg9w4wieDebgOR1w4YdfQXDDgdmwz0kbg3us=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DbVCTH86F+6Hzu2TOHWp83P8NPz/WeUuXZ+aaZBNkYNAnMpjEoUqohdm+gTJheBJB
-	 NvK2V8aOrMweg4bxYoBtiUA+Cr8UgIijMtSz5WLYmhqHc+4g6kVh38RgZR4oiOwgT0
-	 DEOVyab6whMayvF9KVfEpJwAdXNPDYZFEm4R1j3mPHrr3vfdHPzadu16ZjIltSLtjK
-	 w97Nt1oTvJ09ehkW3xlSe40y00umzwX4VKuXflh5TvvRjo+NmdW6sly2xaVuVDR8vX
-	 YKJN6GANTAcs3an7zDuOgm9QjiL+0b1G/V/QawINUpJevdRTuAyuWuXRm2ZPztg6qo
-	 /xmcxuvqsNVuw==
-Date: Fri, 27 Nov 2026 13:05:38 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Wei Fu <wefu@redhat.com>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH v4 2/2] phy: add a driver for T-Head TH1520 USB PHY
-Message-ID: <awnwop97gErg2d9L@x1>
-References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
- <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
- <awXrnQVKZBXKsV2c@thelio>
- <83e1a995131aaed2a7e1119f97254c6b460dbbb3.camel@iscas.ac.cn>
- <2da5ea0d928af93418c54f70ea52bd9b1f0fc36d.camel@iscas.ac.cn>
+	s=k20260515; t=1795813614;
+	bh=x2vbCxhKlDEYGyJLF8a1r9DvhsL84+yAuxXVlq9Dapc=;
+	h=Date:To:From:Subject:Cc:References:In-Reply-To;
+	b=VrdmPbgtrUh9fv6xn4MIpy2/VbzIxqsxaUK+so8t3HGTNxx5Fdf22S/BihAuOFu89
+	 FM/jVk1tzAxNs3OCGXQTOIrXrXSFKZFYG6S5TJVOyS78eVoIxN7cSdKLD3dQV4HHId
+	 uHCuSCFDn5Xg22M4GEw8Db3dMCxRboJHBFUZN/TMswBCbOy5KTzfrg2enlM/0E6qQY
+	 4+N5Z3x/YrPTHclUQHwUCOOwuxik+/BiZvRyBRH7yHfApp6Aqhc8n3FcAEYHfH5ckb
+	 eWPtnke6gZs0Fl5qyCplhwWYgZ9Lh/FInGRPLwVC1kXhR6BzyvD+aGSFMyPiomkIJA
+	 7RnkuRW/oU9ew==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,68 +48,140 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2da5ea0d928af93418c54f70ea52bd9b1f0fc36d.camel@iscas.ac.cn>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 22:06:50 +0100
+Message-Id: <DN6ASNF6NW8Q.13GAZAC9LHRN3@kernel.org>
+To: "Daniel Almeida" <daniel.almeida@collabora.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH 1/2] rust: dma_buf: dma_fence: add SignallingSection
+Cc: "Sumit Semwal" <sumit.semwal@linaro.org>,
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, "Philipp
+ Stanner" <phasta@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Miguel
+ Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
+ <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ "Tamir Duberstein" <tamird@kernel.org>, "Alexandre Courbot"
+ <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <linaro-mm-sig@lists.linaro.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+References: <20261127-dma-fence-signalling-v1-0-c44e8f4910ca@collabora.com>
+ <20261127-dma-fence-signalling-v1-1-c44e8f4910ca@collabora.com>
+In-Reply-To: <20261127-dma-fence-signalling-v1-1-c44e8f4910ca@collabora.com>
 
-On Thu, Nov 26, 2026 at 05:41:33PM +0800, Icenowy Zheng wrote:
-> 在 2026-11-26四的 17:33 +0800，Icenowy Zheng写道：
-> > 在 2026-11-24二的 11:55 -0800，Drew Fustini写道：
-> > > On Tue, Nov 03, 2026 at 04:14:44PM +0800, Icenowy Zheng wrote:
-> > > > The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
-> > > > some PHY parameters exported as another system controller along with it.
-> > > > 
-> > > > A few PHY parameters have unusable defaults. Add a driver that programs
-> > > > them before releasing the PHY from reset in addition to
-> > > > clock/reset/regulator management.
-> > > > 
-> > > > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > > > ---
-> > > > Changes in v4:
-> > > > - Make exit callback always success to prevent PHY state machine desync
-> > > >   with clk/rst state as suggested by Sashiko.
-> > > > - Re-wrap some comments targetting full 80 columns.
-> > > > - Use dev_err_probe for PHY creation error handling, to prevent spamming
-> > > >   the kernel log with -EPROBE_DEFER.
-> > > > Changes in v3:
-> > > > - Use fsleep() to replace udelay(), and add proper inclusion of
-> > > >   linux/delay.h for this function. (fsleep() suggested by Drew and
-> > > >   inclusion suggested by Sashiko)
-> > > > - Adapt Drew's suggestion on the wording of the commit message's 2nd
-> > > >   paragraph.
-> > > > Changes in v2:
-> > > > - Removed unreferenced register names.
-> > > > - Changed the behavior to leaving bus clock on instead of binding it to
-> > > >   the regmap.
-> > > > - Removed early return for reset deassert failure in phy exit callback.
-> > > > - Tweaked the Kconfig item (removed default value and added "select
-> > > >   REGMAP_MMIO).
-> > > > 
-> > > >  drivers/phy/Kconfig                |   1 +
-> > > >  drivers/phy/Makefile               |   1 +
-> > > >  drivers/phy/thead/Kconfig          |  12 ++
-> > > >  drivers/phy/thead/Makefile         |   2 +
-> > > >  drivers/phy/thead/phy-th1520-usb.c | 179 +++++++++++++++++++++++++++++
-> > > >  5 files changed, 195 insertions(+)
-> > > >  create mode 100644 drivers/phy/thead/Kconfig
-> > > >  create mode 100644 drivers/phy/thead/Makefile
-> > > >  create mode 100644 drivers/phy/thead/phy-th1520-usb.c
-> > > 
-> > > Sorry for the delay in review. I think binding and driver dir should be
-> > > added under thead soc support in MAINTAINERS, right?
-> > 
-> > I am adding it, but maybe it'd be worth to add a N: clause into the
-> > MAINTAINERS file?
-> > 
-> > Although this wouldn't belong to this patchset.
-> 
-> Well to prevent merging conflict, maybe it'd be better to substitute the
-> file list with an N: item in a commit going through the SoC tree, and
-> prevent changing this file in the PHY tree.
+On Fri Nov 27, 2026 at 7:30 PM CET, Daniel Almeida wrote:
+> dma_fence_begin_signalling() and dma_fence_end_signalling() mark the
+> code that the completion of a dma-fence depends on, so that lockdep can
+> check it against the dma-fence rules. However, up until now, it was not
+> possible to use the signalling tokens from Rust.
+>
+> Thus, add SignallingSection, a guard that begins a section when it is
+> created and ends it when it is dropped. Code on the signalling path can
+> take a &SignallingSection to require that its caller opened one.
+>
+> Use it in the DriverFence example, which has a TODO for it.
+>
+> A later patch in this series makes DriverFence::signal() require one.
+>
+> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
+> ---
+>  rust/kernel/dma_buf/dma_fence.rs | 70 ++++++++++++++++++++++++++++++++++=
++++++-
+>  rust/kernel/dma_buf/mod.rs       |  3 +-
+>  2 files changed, 71 insertions(+), 2 deletions(-)
+>
+> diff --git a/rust/kernel/dma_buf/dma_fence.rs b/rust/kernel/dma_buf/dma_f=
+ence.rs
+> index a1d851656562..7ee87935d3be 100644
+> --- a/rust/kernel/dma_buf/dma_fence.rs
+> +++ b/rust/kernel/dma_buf/dma_fence.rs
+> @@ -17,6 +17,7 @@
+>      error::to_result,
+>      prelude::*,
+>      types::ForeignOwnable,
+> +    types::NotThreadSafe,
+>      types::Opaque, //
+>  };
+> =20
+> @@ -589,6 +590,71 @@ unsafe fn dec_ref(ptr: NonNull<Self>) {
+>      }
+>  }
+> =20
+> +/// A dma-fence signalling critical section on the current task.
+> +///
+> +/// All code needed to signal a [`DriverFence`] must run in such a secti=
+on,
 
-Okay, good idea.
+Hm...this makes an annotation policy sound like an unconditional prerequisi=
+te
+for signalling any DriverFence.
 
-Thanks,
-Drew
+It is clarified below with "Without `CONFIG_LOCKDEP`, the section has no
+effect.", but I'd probably first explain the annotation mechanism and then
+explain what drivers are expected to do.
+
+> +/// from the point where its [`Fence`] becomes visible to other threads =
+up to
+> +/// the point where it is signalled. With `CONFIG_PROVE_LOCKING`, the se=
+ction
+
+I'd add a bit more detail on what cases we need to protect once the fence
+becomes visible to other threads or is published.
+
+Especially the more subtle parts, such as indirect dependencies on memory
+reclaim.
+
+> +/// is a [DMA Fence Signalling Annotation], which validates that code ag=
+ainst
+> +/// the [DMA Fence Cross-Driver Contract]. Without `CONFIG_LOCKDEP`, the
+> +/// section has no effect.
+> +///
+> +/// A function that is part of the signalling path can take a
+> +/// `&SignallingSection` to require that its caller opened one. Sections=
+ nest,
+> +/// and only the outermost one is annotated.
+> +///
+> +/// [DMA Fence Signalling Annotation]: https://docs.kernel.org/driver-ap=
+i/dma-buf.html#dma-fence-signalling-annotations
+> +/// [DMA Fence Cross-Driver Contract]: https://docs.kernel.org/driver-ap=
+i/dma-buf.html#dma-fence-cross-driver-contract
+> +///
+> +/// # Examples
+> +///
+> +/// ```
+> +/// use kernel::dma_buf::SignallingSection;
+> +///
+> +/// // Code on the signalling path takes a section to require that its c=
+aller
+> +/// // opened one.
+> +/// fn on_signalling_path(_section: &SignallingSection) {}
+> +///
+> +/// let section =3D SignallingSection::begin();
+> +/// on_signalling_path(&section);
+> +/// ```
+
+Hm...I'm not sure the example is overly useful. What about an example that =
+shows
+how it catches a violation? I'm usually not a fan of this, but in this case=
+ it
+kinda makes sense.
+
+> @@ -704,9 +771,10 @@ struct DriverFenceData<'a, T: Send + Sync + FenceCon=
+textOps> {
+>  /// let cb_reg =3D unsafe { FenceCallbackRegistration::new(&waiting_fenc=
+e, cb_data) };
+>  /// let cb_reg =3D KBox::pin_init(cb_reg, GFP_KERNEL)?;
+>  ///
+> -/// // TODO signalling guards
+> +/// let section =3D SignallingSection::begin();
+>  /// assert_eq!(waiting_fence.is_signaled(), false);
+>  /// fence.signal(Ok(()));
+> +/// drop(section);
+>  /// assert_eq!(waiting_fence.is_signaled(), true);
+
+I think that's a separate patch, or actually the subsequent patch is a natu=
+ral
+fit.
