@@ -1,89 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744785;
-	b=is4a/9khBmLA6JKVGQTuVqbeYzN5rh2T2yiXW8PnWkcDyYbpa6u+YUz4Sv2evjQng6KX
-	 bN6Hrtjq0T9oW7+xmUJGIGdzFi76B3igEoK1OXvyR5AExwwXc8BwIp9WbsAHyxF1q41ab
-	 CSPPCkBRxj16lVyA4C+EcfCPoAIEXJVJHefrE/J4WpcCZ2s7lTUEICfEPmpvvzw5mUmxb
-	 fHZEd+c4b3e48OAfolRbDZVVKXfI/xNLcqM6+ntuaONF8/LSZwqlms07bumH7biHA/7Ow
-	 F6QrzLG4qd/aE/DSUB8pWC8aPI6pCW2yXclkdfjw/hFsPnhe1LGzPLp3KWdpdcKhM5g==
+	t=1795744833;
+	b=0HGkrJQZsH+iNneWEZpOZg6s0Zn2UHseyY1reD5bvJ3PZo1y0+zOS/NyzhCvSxtwBALI
+	 IfeVQ8HNv96DIDKnJBJr5ShBfiP0FccZlvh+UmHDYfF3pcYEUJbgQLM7ZKTEBJ5Fqd6vg
+	 zPIx6cj4nMIdGVtRGC21L6O816ZgFYmDRiHNwHLjLpVKJac4csh/YgB+5uJaaqZL7cqiy
+	 ZejBEzJ0DRfo/DY1X/FdxMMHZUDsp9XFChrpqbSI7nEizpe0ahqFbNG+Gmb7J5lzMiU64
+	 vWxMBw3NJrHXVq7QYRtfVg/oX0gaRO5wNSlvbsoPlLQeUTvruKKGfCGDvhmCZOvUSFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744785;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744833;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=KvH0hopfpv+dCdNRhn5bg21YimqLr87Kiz9kswyfh3c=;
-	b=MaF7mzi7ieGMYWCnyu03ht1GoNrEONzQkpHYjJUx6NZbX/rP5TmOYiiAFy9qm63S04n5
-	 v0OGljln8ph38ezDUlQf15NT/FMl7IxeIDxZDm6E4oRkiNbLjadnlEgdeSewRpcndOJpe
-	 pDmrGSYkQMcl2QFK3Ejqa0myVMKDb2uKjvSApjQ5lUcq2hoG/ABt2j10Ofz6oNWhVlJAP
-	 y+T2BDTt7zaEDDJZtamOaFrA7XQjipY03Llk8CZmwXLI/MVtMyOF8Q0ucaTdpIWILdYQ2
-	 j+/VxGIlRraeGNe7OVfJgftSG3fyGURUqzos4SZvHeZyDO+CC9FcCvUbAE/OszwhL/A==
+	bh=t8cYAKlybvKZI73hh1wvp6MwPtr/imx6o3ak22xMEUk=;
+	b=GdorIMQvO7Emf7fQh1zDv3JDPJCBe7XVBTLQR3XYC7/0Cfm3V18Nu0xtTbufMeIOkTwz
+	 aa0x7NTI77ERU1nN/hjptV06JBpgAVa+DDuJh97BiYZLU82vtPPzUlfvKCasApdwLUWt9
+	 w+yojPlIJ/5FsMUthLSxNUsxJHEuI9bvpU5oHnMw4Slz0c1Ct2Vf+IZSemhihkaXlVwGF
+	 qN3s0i0DRSRZnINjwyl6Atfyy93uVJmErAUNkMFqOpY1mlf26FBWqqP88nsTtuBpjIAcK
+	 ozwWHDNQoE9WWFnnUQu000TSvndMO/gP+ri3WLc6H9xaWBKHeqMPX/6jXT21QMPLvHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rIcLA6Y5;
-	arc=none smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FGQ8AG3B;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0391F606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:59:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0391F606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7F1E606A324
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:00:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7F1E606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rIcLA6Y5
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a06e79e152so3679156b3a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:59:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FGQ8AG3B
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso70004305e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:00:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795744784; x=1796349584; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KvH0hopfpv+dCdNRhn5bg21YimqLr87Kiz9kswyfh3c=;
-        b=rIcLA6Y5C8JEI2kSPAjOE5IL14hAZfbNi7ckBZnp5flUvv9pDH0u48eal8TTFngLf+
-         q0vd0EZBh8Hod+Ugu/CJZRuwfSN7XkFZ9Yv9g8wsDPr1Y+1Y6tosU3ccxfXHoPVQ2oVu
-         Ch5s16eo5Vhcgq6KqzyDXkDWglRGaJMuuzSGLjK3ARHCD1pA0E66EodtM50zESI2QHxR
-         Sq0Z6P+XBdPjrWo5yHGAGyU1zkHsNJe6v+hrHwh9lRhAc+0vOVFHr4Q9xDcDYsZR3Sci
-         Zmn0SasPRZGtmNosGbNLQWPHvQ8sYBjUH6KH25Mh+Ew95QI/bYOyb73YUBHUyflIWtcX
-         cVxg==
+        d=gmail.com; s=20260707; t=1795744831; x=1796349631; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=t8cYAKlybvKZI73hh1wvp6MwPtr/imx6o3ak22xMEUk=;
+        b=FGQ8AG3Bwe5SLxyjZUmexfaZ7Sb2KCjYg2hfnIZaeV8Ge7wjeArPLSX1XYayjktdJE
+         GNycb9ZOyoq/aeFeny2NBiVXmIN7tcOY02hfy13RbPKpdeVwme3Wxy5zn0jqWcNqHSri
+         r0TnNIRmCjlJd2C3WPlS2E4ScczqYtmOxpufBGNjfPxDXNHWFF8IPC77Utn8Sr3UhuWp
+         /78x3tyVHM3nFrVHV6lT2XqgxGgLoypVXgsc6rmyKwKTknYketvEEpTK4h5LK+YYznen
+         HpawO2EtByX1uxWcXRyeDhAmCVO1VD4GFPTYNv7hnCFGH04/OOm97w3Lo2OrQm3yGmyo
+         jk8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795744784; x=1796349584;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795744831; x=1796349631;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KvH0hopfpv+dCdNRhn5bg21YimqLr87Kiz9kswyfh3c=;
-        b=RFHo/NI2uzPOGLyqFEED4I460XlEwieyrOLwLwkRC6uYtcZk9RnEH16+RfPl3MF35J
-         gmIZB/z4zvsxixpJ+9Oaj7FNMuKM4ZGX82M7hB9ss3w4MzOhz5S9F0rHxoRMbdlnL+ib
-         RRBajqtuTWz3c194YKkAzGRYEp4eBOWs3ZHm9tPUamRB4okxJCVgy86cCuMmaWOaTe/x
-         qnG6vIDFpUIwejZsktko5VZjbDHhoxh61L305rovhoP/a1g04VExzPFAEcVom7/6RDdM
-         hBu27p+qr85J3KobL2zVuQTwyLGcwBBbs2rwoL36mx2z7ATZZgTbEJRerBplQgsBT5yi
-         uMJA==
-X-Forwarded-Encrypted: i=1; AL+hErHpinlQbvwuQLCY39wYmCi1xY6uhFJanO6PDZT+wwKscwyJx2KQZ9JDindhm4VxbX59gjNyLrilBGi4iek=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Ly3zDi91VXemz5M9PBNCGObHakTE9uA2voMrbRpCu37zbg4K0
-	B7myat2fNQzVdCoPh1yahIisAxgperP6QnGM0ZOkJZ72oFP+O55/LdCZ
-X-Gm-Gg: AZFdTZcYCMYuh4O1Q4QqAg6CuO+dNKPfektQ81ZHN22zaxgfjDhANwSp/EgJ0PoduCn
-	phSl9BxOCdhqYNy0FLlTYTWJCG+pb1oycXrZ2AzLhIjOAMWShUdp9XtaS6jmW9qZgFNdSpAG2oH
-	8G24g9rvNl/m0KKmtfSQqgW0FBp5zgzWKN1DG0pPYBqtnJr2YTbMG0vB35zSJQYW+nWttBP+2he
-	nTDXxqSeNchtvi6ENRUw4cID0geSvbJegw56/TH4KhGghMRw0eSWzaUPYjbj/+U2wJRAd1ueAAG
-	Dukw0bL1iWkCCZ53mrEVhH/Uu75emPydwFRLOdjIFH51eWe7FH0uBgaoZCjga5xwVP8Aqdw/kc7
-	PYzmzizACl86HOXyzCx0CJx/ADMz6M67d0EIdfmDmXTl0uNYaluxQObzGlByzAB7ZK5I7PbKf4M
-	vhukGAA5FUonIPXtLtYPqyTshaBbaN9UqUj+w54Den4YeJGyaYcr849V/fXuBblJ/888b/Z3dL2
-	dvcOfRYdDSx7gElj0YB8+taDCI8pvUQv+GJCJu8i97KvSc9mRGsGGdWxxTPz/9FS9Jp4uGTD4Tw
-	uswaK/BQXfsSYlivTqUnxLYz0cD+20bH238caYizZGwx4D6Xr5+XKc63J3mN+P5Z3Qxc1+gVdx4
-	LksyasEiGfqvkwJAT3Yo34jURwotB+14=
-X-Received: by 2002:a17:90b:2585:b0:3ac:a11a:7c7f with SMTP id 98e67ed59e1d1-3b41c9cd182mr20276785a91.23.1795744784296;
-        Thu, 26 Nov 2026 17:59:44 -0800 (PST)
-Received: from [192.168.29.169] ([49.43.113.97])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm35008632a91.0.2026.11.26.17.59.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 17:59:43 -0800 (PST)
-Message-ID: <07f2e58e-d576-49c3-a3ff-91e499d412e5@gmail.com>
-Date: Fri, 27 Nov 2026 01:59:38 +0000
+        bh=t8cYAKlybvKZI73hh1wvp6MwPtr/imx6o3ak22xMEUk=;
+        b=P5qTK3dZyBeUUOjQDkveM0P0H3P0ver8gkVpuU5tjQShyKf3hg9QwE+8v+Wo3Xs2VU
+         SEoj4SktwqA2OJyze7FJ/gNts9BVa+yCSbESIN+XBWpwT/t9c8ukP9NypTocXiPsjJZT
+         MhmvElwfW3Fuo2FYIb+EDnBcLFomgqgnZ2M0Hxu8k7IgIWWfwGEr8hX4mXkAB97cvbSW
+         VV1addKSSu0neCQB8WxqOAhA49eLLW1xFfJfeIvLd3ur8HnUPQuKIMUIbmxFqUgq9iHy
+         J3P/wSqGUx8qLvfq0tw6Ojy7DETIXqrJmitYos2gbUhI/vyTPLTietkpxSK1ItmVLmW1
+         Z/7A==
+X-Forwarded-Encrypted: i=1; AL+hErFKhbfEf05Ies2WKma55crnzVFkVoqftnMI8Qt2FkGvZ5GwraadrO69sFJ0F142XxKYnihHG8787vHJPzY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hYt+noIyGOgUYlsjL0TSDxwYMdcEWnWUr+HC/h2CPDSx7At6r
+	icaIj760K9wJE+pbOK/YQGay2WSc+ROMrJGGozakas0JFtyk/eDN9AkJ
+X-Gm-Gg: AZFdTZf5KiIV6/drW6gyXOW7NVejrmF8CTaV8Ga5EsHWiU6wz+cErXMfz77WK0v2YG9
+	XkiVgVFKY3SKzhpy/pK8g3rWPZJy2qG2IIFEjIIawXAFaV5KmQOI+1FG07eB9dYebvzZi1v4r5c
+	lktw9QsWBtjB+h0GcRJNu7iPGUP9x99m7Q4a6wEB6w334a2RYoT7heDcPIdYNoi7RJ+jyPHRfC4
+	xV+iFsB7Zi22mfeGi1oTFveXriPSMRThbjFo5cHomKtwZWSt0bSu0wwtlsYe+xEYGzE0vjDejBF
+	DsMYgiog4tgleoTAiws4Naq1wu8f3GSBWdGyX2vkrUpMIambEETSUP04O23FB5BuRgdFIW3onP/
+	c3YmF1FIjFjIkBuhXt6yE6Dw4xGB0kzjPaN8WGmoOKFMCytkIRlcUws1XHBY+xaW4InGvkF1TYq
+	PeLHPHkXcPlb6Zsijtg4W7p/puj0YJcO9UFrxcOYp9VSoIeCAHpl+PTEmfa1ejbN1OJ4uwjPOKV
+	FpY99uwe/JH3vVyOr+BXvduox5GUbbmLSXTUfJQPh3NmWp4At21TMm9higE3t7cfkkH9Nxlkyf+
+	36Y4qrHQAqQwPP+TD2ke4ha4Nqxe8D4TMob4clMFiNuXWO7wl0Z/CSJuUc6y204LUdkWzTQ2oNc
+	7vZ90K+IUP3IAa/EI8jxZ+SuOhIlrVvQ89ftJOTZWVqXA3Q==
+X-Received: by 2002:a05:600c:1911:b0:4a1:7c56:d4e2 with SMTP id 5b1f17b1804b1-4bb8880cf84mr468130625e9.16.1795744831000;
+        Thu, 26 Nov 2026 18:00:31 -0800 (PST)
+Received: from romain-ThinkPad-P14s-Gen-5-AMD.tail433d9c.ts.net ([2001:861:39c2:e340:1432:1241:93b7:7b4b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2c8csm44994364f8f.2.2026.11.26.18.00.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 18:00:30 -0800 (PST)
+From: Romain TISSERAND <romain.tisserand@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev
+Subject: [PATCH v2] ASoC: sun8i-codec-analog: Add the headphone inversion switches
+Date: Fri, 27 Nov 2026 03:00:29 +0100
+Message-ID: <20261127020029.1618525-1-romain.tisserand@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,84 +104,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kconfig: warn about malformed KCONFIG_SEED values
-To: Julian Braha <julianbraha@gmail.com>,
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>
-Cc: "Yann E . MORIN" <yann.morin.1998@free.fr>, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118071557.791279-1-singhpriyanshu9838@gmail.com>
- <4335df02-3864-4635-8429-a2946bd76a00@gmail.com>
-Content-Language: en-US
-From: Priyanshu Singh <singhpriyanshu9838@gmail.com>
-In-Reply-To: <4335df02-3864-4635-8429-a2946bd76a00@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Julian,
+Bits 1 and 0 of PAEN_HP_CTRL (analog register 0x07; LTRNMUTE, RTLNMUTE)
+are "Left HPOUT Negative To Right HPOUT Mute" and "Right HPOUT Negative
+To Left HPOUT Mute" in the A23 and A33 user manuals and the V3s
+datasheet (0 = mute, the reset value). The driver defines them, but
+nothing can set them.
 
-Thanks for the review!
+The PocketGo S30 (A33) has a mono speaker amplifier bridged across HPL
+and HPR. With the same signal on both outputs it gets very little;
+setting bit 1 makes it clearly louder, which is what the board needs.
 
-On 11/25/26 23:30, Julian Braha wrote:
-> > Switch to strtoull(..., 0) and consume trailing whitespace so
-> > whitespace-padded seeds are not discarded. Reject 0b/0B prefixes
-> > explicitly so C11 and C23 builds behave identically.
->
-> C23 builds aren't supported yet.
->
-> > Emit a warning whenever KCONFIG_SEED deviates from a canonical unsigned
-> > 32-bit integer, and exit(1) if KCONFIG_WERROR is set. Otherwise, retain
->
-> Yes, it would be good to improve the input validation for KCONFIG_SEED,
-> especially to reject negative values.
->
-> In a v2, could you make this part more explicit (add it to your bullet
-> list of changes above?)
+Expose each bit as its own switch, "Headphone L to R Inversion Playback
+Switch" and "Headphone R to L Inversion Playback Switch". Both default
+to off (the reset value), so nothing changes for existing boards.
 
-Sure, I will add negative values to the bullet list in v2.
+Signed-off-by: Romain TISSERAND <romain.tisserand@gmail.com>
+---
+Changes in v2:
+- Two independent switches instead of one enum that kept both bits from
+  being set together (Mark Brown). With both bits set the S30 speaker
+  goes silent (results below), which does no harm, so there is no reason
+  to forbid it in the driver.
+- Commit message: describe the bits by their manual names and what the
+  S30 needs, without a signal model I cannot back up.
+- Link to v1: https://lore.kernel.org/r/20261103133935.2892210-1-romain.tisserand@gmail.com
 
-One quick clarification on negative values before I send v2:
-Documentation/kbuild/kconfig.rst currently only states "You can set this
-to the integer value used to seed the RNG" and does not explicitly
-forbid negative integers. When KCONFIG_WERROR is unset, is emitting the
-malformed-format warning while preserving modulo 2^32 truncation (and
-exiting 1 under KCONFIG_WERROR) acceptable for backward compatibility,
-or would you prefer negative values to fall back to the clock seed even
-without KCONFIG_WERROR (along with updating kconfig.rst)?
+Notes:
+- Testing: built with W=1 for arm (multi_v7_defconfig) and arm64
+  (defconfig), SND_SUN8I_CODEC_ANALOG=m, and =y in the A33 kernel
+  below, no warnings. On a PocketGo S30 (A33, mono speaker amplifier bridged
+  across HPL and HPR) on 7.3.1, stereo path (AIF1 DA0 "Stereo", headphone
+  source DAC), 440 Hz tone on both channels, listening to the speaker:
+  both switches off (PAEN_HP_CTRL 0xf4): quiet; "L to R" on (0xf6):
+  clearly louder; both on (0xf7): silent apart from a few clicks. (The
+  test kernel had longer control names, which ALSA truncated; this
+  version only shortens them.)
+  Before this version, the same bits written by hand while playing, with
+  a second tone on the left channel only:
 
-> > Fixes: 0d8024c6ebad ("kconfig: allow specifying the seed for randconfig")
->
-> Improvements in input validation are good, but 'Fixes' is for bugs.
+    bits 1:0     both channels    left channel only
+    00           normal           normal
+    10           louder           silent
+    01           loud             loud
+    11           silent           silent
 
-Agreed that input validation improvements shouldn't carry a Fixes tag.
-However, on 32-bit hosts signed strtol() clamps seeds in
-[0x80000000, 0xFFFFFFFF] to LONG_MAX (0x7FFFFFFF), so half of the seeds
-printed by randconfig itself cannot be replayed on 32-bit hosts.
+- The A23 shares this code path; its user manual (v1.0, PAEN_HP_CTRL)
+  documents the same two bits, with the same names and reset value.
+- Tool disclosure: this patch was prepared with Claude Opus 5.5
+  (Anthropic) as a coding assistant, in an interactive session where I
+  asked it to get the PocketGo S30 speaker working. It ran the register
+  tests above while I listened, found the two unused bits in the A33
+  manual and drafted the change and the message. I reviewed and
+  understand the change and tested it as described above.
 
-should i split v2 into a 2-patch series?
-- Patch 1 (with Fixes:): switch strtol() to strtoull() to fix 32-bit
-  replay of [0x80000000, 0xFFFFFFFF] seeds.
-- Patch 2 (without Fixes:): add malformed input warnings (negative values,
-  whitespace, >UINT_MAX, garbage), KCONFIG_WERROR handling, trimmed
-  regression tests, and any Documentation/kbuild/kconfig.rst update.
+ sound/soc/sunxi/sun8i-codec-analog.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-> In a v2, you can remove the changes for binary 0b/0B handling.
+diff --git a/sound/soc/sunxi/sun8i-codec-analog.c b/sound/soc/sunxi/sun8i-codec-analog.c
+index 3335855c6311..e24fd7bd0613 100644
+--- a/sound/soc/sunxi/sun8i-codec-analog.c
++++ b/sound/soc/sunxi/sun8i-codec-analog.c
+@@ -323,6 +323,13 @@ static const struct snd_kcontrol_new sun8i_codec_headphone_controls[] = {
+ 		   SUN8I_ADDA_DAC_PA_SRC,
+ 		   SUN8I_ADDA_DAC_PA_SRC_LHPPAMUTE,
+ 		   SUN8I_ADDA_DAC_PA_SRC_RHPPAMUTE, 1, 0),
++	/* inverted left to the right output, and the reverse */
++	SOC_SINGLE("Headphone L to R Inversion Playback Switch",
++		   SUN8I_ADDA_PAEN_HP_CTRL,
++		   SUN8I_ADDA_PAEN_HP_CTRL_LTRNMUTE, 1, 0),
++	SOC_SINGLE("Headphone R to L Inversion Playback Switch",
++		   SUN8I_ADDA_PAEN_HP_CTRL,
++		   SUN8I_ADDA_PAEN_HP_CTRL_RTLNMUTE, 1, 0),
+ };
+ 
+ static const char * const sun8i_codec_hp_src_enum_text[] = {
 
-Makes sense, I will drop the 0b/0B handling in conf.c along with the
-corresponding test cases and C23 mentions in v2.
+base-commit: 9f961caa18fc4678067232f8f021a23cb1588de4
+-- 
+2.43.0
 
-> > +				seed = (unsigned int)val;
->
-> This cast is unnecessary, you can just do 'seed = val;'
-
-Will remove in v2.
-
-> This is *a lot* of test code for input validation of just 1 var. Could
-> this be simplified at all?
->
-> Is every test here absolutely necessary?
-
-Definitely not, I will cut it by half or more in v2.
-
-Thanks,
-Priyanshu
