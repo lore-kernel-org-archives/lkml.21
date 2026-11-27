@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795810178;
-	b=eiRhYj2JL4apo4zjS1EKNZCAtOIhE6dKUG152SPz2kL6fTno95Ec+IzTTFeI6eDyhuLy
-	 u1lQbmTgIo4w6zViA99qz8xRfZYZcoUQ+WaDOBDRL4j7xVkZo+ouWDTHhmx1dZf//Y1KF
-	 Y5lC4BeGX6xAasahvVK2zGCogF85QqNk0IZW5N+Lam1i5A+0AqDbOzbuE8uxkjLxua8dy
-	 uSeMSPxPio4yKtLK7wEdulRR5g/xOk68n+05+hPH0U8N8tA7SWNhn39DMmvE3NE1Ez7j1
-	 4m63xf80vSwMyyezhQWJMAU0utbmPi6uQaWdyJ4ITqW7SFgSkYBaoPe9kFKzIM0CSfw==
+	t=1795810189;
+	b=JyXnaJ+8XHBttYgAMAgcfWxt1BdrNnFLJee0waJVEmHC25gV2NOwgvxyx4zK4qjUaGeo
+	 oxz5XZqJKDp1aqZ9FFzNQptjiO56OgwzIBdrrgrIH02Ru9XOSdBbRLlGpbd8KMHJtqqnU
+	 uciHJby5PMu5YlHn61a+eD0AI5v8iqYJKrrTMgOusq8maAjc7i3VBc3Cw9LwMOhr+w8fZ
+	 e6r86O83tSBW82OoD+s2In/3sn1CREfrKvdDCiXv3eacqkZD5sswDmrVoHqWfvF2kAgK/
+	 TP9jtEB1yJkQzPTwc8HdIdOJxH1pcQa0V5vzoffVOfTlDqiSEQyU+bnKIj07HmLfP7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795810178;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795810189;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=oD076z39b10S7Uv7+/KjmA9hdIdFEVHigchJTPIZoGY=;
-	b=Xgs6PLh6uUdsCbtweMJFK4hMcJKz52y2X1PkTcXP6+C3GvaQnVv3NbQDmqP72piIi2ON
-	 MyG1JfrHlkFgYwS8H9wPKT96GvzMzgnaRY5natKRlHoRqkGqQxGds3mIA1IRXRV1RwoC9
-	 epmxNjIKMkfOfBOWYPgtIUqL01F3plj0OwYhhEsmm1+Yzac5ziL6I/2ahj2WPmaYk6jxT
-	 neQTBxAruZtzsKIioRhHN7UNyhRt3y3mLR5K3f6kYSTkAZT39/DxEWA+9fRAzk4RUqQ1/
-	 BSte4NyWvC5foP5MpGAcfiwtWQ91Ev9m101mhB4A/d9HzNafKJ1Ar3nZBUiSSuA3ouA==
+	bh=kzzWI9nlajm9/4d7lGpIikgLMcmnAL+4uE2Ldwk7Ho0=;
+	b=ZkA5lI5q81zWzX2Vd8IPx4x6XS9v6mBGwaCfXElrmLO+kyXaZQg63vc1xOa8tCIZzM7p
+	 ghVGB4DYW49f1hQsRPVqQyv37YySOw424yoUX2RpZLvcYVnXkgDWw0b9IRcXe0YKLyWfN
+	 +j3HW6R/KzkuU7bOxPfDdVTm+pJou4YvfBYzSZIDArfXyc0o3h5tpPAcv/xRaSy/PKvV1
+	 KCyu/1naTGJaEpRaLkmilvpKj1E3ZdnF+ZROdhVCBGTad4ZS5SZ4SIrFQFMLBb3IEQwqT
+	 V35nNwRhDvwmfkVEGxbm56oN9SCogTn6RsurDyQoW0brwzt95yg1qCp5Tvd23afJXTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="WG67o0/v";
-	arc=none smtp.remote-ip=209.85.161.47
-Received: from mail-oo1-f47.google.com (mail-oo1-f47.google.com [209.85.161.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bav15pNP;
+	arc=none smtp.remote-ip=209.85.210.48
+Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ED71606A31F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:09:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ED71606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B699B606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:09:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B699B606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WG67o0/v
-Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-702dedeb70dso4857980eaf.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:09:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bav15pNP
+Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-862a5b64755so4726567a34.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:09:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795810177; x=1796414977; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795810187; x=1796414987; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oD076z39b10S7Uv7+/KjmA9hdIdFEVHigchJTPIZoGY=;
-        b=WG67o0/vjL7KN2kNoGlQyoEhTCgtap0vuh+sJZX06NJNTe8D/MMuzJLCOd0XK1VCAK
-         bcE5sD30UdCmBKFk2giFu1f7W/Tbeo6dPJDV0uR+rBRlsR59Cbuo7ALkYWlm7gvkJ69x
-         Uz5g/Dr7sBl8uHxMp1Q92dBOQT7eGmn/Cbsd/jZnH2wOCoFo2tKrlAC4KLmD4yxXLp8D
-         DNp/8pHsP5477W9OB4SNY141Y1YyJcr+ZljhdAvtxSEn8zDli5sg2kkOgEZGaf/rGfYh
-         WwYbCCGncH8lD03yxshfjlTHi2/Mtv8hKPOFcVwbG57tnIInf2oBwS2bedPBziyslwdk
-         8vqA==
+        bh=kzzWI9nlajm9/4d7lGpIikgLMcmnAL+4uE2Ldwk7Ho0=;
+        b=bav15pNPTVvs4SPHiDibV7UqH7ca4sMJsZewlxgt+npTw6W9z5KKtI0KtJAlr1jCE1
+         uIvR2eLkUxjE8p961znrW6v0vWIjNxc6sFXVucm7ze1Q4TSFkTnvzbHAwLDyFFJowCTw
+         NbL9a2a+cgOWwXOPdsbE9Xx2fTThYC2iX0mviGY+4nhH5B1Mt9TSh2G3ifS1ZeDS9eTn
+         f7ZZL3/5NHLOzuMStjvKVEosC759bdGVgeeH/pM+x3+qgzI9eQwnzuUBi/XlASiFNscJ
+         C9g8YJ8HbRxJljeHWhca+K358bXTYjccQBmh5qEkm7BaZUvcFaxwcmI00pm1OYs8sEsr
+         YGlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795810177; x=1796414977;
+        d=1e100.net; s=20260707; t=1795810187; x=1796414987;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=oD076z39b10S7Uv7+/KjmA9hdIdFEVHigchJTPIZoGY=;
-        b=ZPgXKry0n1hARboVu/8qvql5QKyseVysl9S66aXE2NFsMR2wCsE7QjMDh76qvOL1sN
-         UPDmC+vrNBp609FxNsfwtcPoWJQ2rQ/qaOjTxuOdFpf4oc7CSeIyhcC5ywmN1fDVhopv
-         xHjaq9stt8vv8qhEzCgBG6s5oHqmxFYT8kKEVFp/NOK4IS7KRpVdQcKJwQ9eubxRHAvf
-         0g7cXhRvjsjuXBgGodzr0lqsPP4NlJ1XCU/RRABRyXLd/eb8uTfWAH9KM68N6OJfn5aa
-         CEZEX6AQEWDscN/J4L60P1DALWIZvropZ553lO/YLGf7Pca2zsg+aV5dxChri30qITgJ
-         3nRA==
-X-Forwarded-Encrypted: i=1; AL+hErH3saVoWop9b5SxI5MVT1QVQpMk3Fl9XavUu8URFyPu/XMnZ3qrvzwZ/wzcW1xmXNdrMJR9eBYOBmyPE7I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FD97BoLg1+kKaPB4HbEp/qLJ8GfVN8MET3jwnYfZv0/D6hfPE
-	hAmh0cmXD5E+jqnnPfYfYeFKmjZtesQUUQ6YzUK+W5P4wBxa0Aft0aWc
-X-Gm-Gg: AZFdTZe9Q18i38d849IAzCW+TxVW2jFYOdTccXXTvEgSAPnCfnzNNzqoyDuw3XVYgsI
-	Fb0Znwe5G0mGgRBKPWpAo6oM9Ll38ERgjCR+yIAKBjGfDXjOfaqlMGKtIxpaig4bNynUxIRLhZ7
-	/6bC8UOy6/++qWi7zHju3gnTrTVXwq8Onz2s0BwwcJWkIqQBW+Wjmch5JMRUhC6T58CZqex3dFN
-	oitvS4dOe1h6Lx3IKBQ807+skMqs2y2J7AT3g50yoPZWWoVhrgyKlSn08NQlSI+GymWJNrX6ndB
-	tFmiHsrgQwJV5xMky+i9cIC9DmV/t7IVKMpSz1cO7Lha4JXiTXu2d6AFAGmb/w2tbYzY+NHmW3P
-	2ZYTGzT0FWQAOdCpU2UhJKVfa1IqVUWkiWyS15s8s5/nHj/bGF78OXRrGKVHxxf3hhUl3Zi8pto
-	eLSo57er+gzYh7sQ873RgTT1AiknCqSjVGV5dnsNDAxmzxx50cDBmGoYlG80Vm/6BWpnxZ2O9ZF
-	SfMgE1QY5U5xRWuVPYzRBySGfZCSC535bbyiL7eo/MneO8cQ+ist3iJ4KG8PKxVnBE7nzhWUxV8
-	LyqmRrrEZx8VXlzJcQ3utMNh+j3Uow==
-X-Received: by 2002:a05:6820:61e:b0:71b:7883:8d89 with SMTP id 006d021491bc7-71b7883ae62mr9547659eaf.66.1795810177027;
-        Fri, 27 Nov 2026 12:09:37 -0800 (PST)
+        bh=kzzWI9nlajm9/4d7lGpIikgLMcmnAL+4uE2Ldwk7Ho0=;
+        b=whn9h8up3I8u1UhciII28dGAhqVqukUMs9cNwOuUmQHDcvQNo5p5WpNX+H2frOoBIi
+         rrD3qetDJLA7ToXAtxksLILETQMV1R+4TUdRczbz/uSCZuOPB0R+ULwoz7gIN7VVu8cT
+         gXHabD49vnKMhP37dTMy/Zh3+V1KhpwjMp/jb/kZgPwGrX2jVgsAhJJKAKg0GpT3asBv
+         gIuUkqp+TxFKS6b6zN1adsQTwra/mHBD68gWqs2WrgK6xfYmrrYx4jt/0q6csIGM0PXM
+         2M8FTdlXQStFyWC1tplEe61/o4It/kucJOjubvqlUkdT3yQHKx8uuTc4z8xbdLM1NF7W
+         PM9w==
+X-Forwarded-Encrypted: i=1; AL+hErExngkLpuwozCbFCLGMR8dtfyjv9I88t6bDADmO3fsdifMMaXBSLbzHe2ud7AXYzbDwAqr7rVlmshp3gjQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ERz3ayJzCmkqr7efF9Nv3CjfSWe0HmF6OA4ptNQR1meUQCQEP
+	zL7ug51neD1fvQAtcHjnbjQIuUIf11LHtyDg31m4hvdPY1aCwzB4gDsd
+X-Gm-Gg: AZFdTZeq3lGnJlbKMSSkQ5KrSBsy0szpZ1N1NTdvHHlyFKUzWX/tdAGYwvmic5W+mp5
+	yOhbVEVWKCt6FNDP/S4GGS6HTGwJSr/PbY5GdCtYQb/dWzbLRp72gVY5FL2f++zUdUpeuZJ/CP8
+	OkH0R4AaPG/oMDh4OHS4PZtUrTp+E16BCn08AkT2v8yt7U9PaNwcLwMa6/KJiyUIQgrNjs37gkh
+	Lz+nGI65X9ZzWjV91VeNyupisF2GRMgVttg8L+qe341a59EnBAlddKhlABljUrm7XTkfEnVPsUz
+	v77tFYWs9nEhTY4pcgrtGG9qLeUlf1ZsUBAS06FXdny0TPqkmbVRr+lBFBCVoIrgs7OtZzPziaA
+	lExSGXiJl9lBvivAOCMcN26VN8DF/DoszYPdH8mxLIbz7ll6sDMvbwJhCEx3WoIhYs6ZbS3jxMf
+	j5+O/axKD5du/ewwAswzQDOn2V0613IJp7o9PI0gZhldT9pIWjeD7xx9xmZynAUMzUGB/uAh22n
+	GXey2XLGwa0Yee/hZ6v+AgB14hcl2bWfixiGx+RPVZzwElVu3d2cSpM3mDFFLoh9lz6qA7GBaoU
+	qC7oOtCkQIzDfA5dsumG7anFYSXY6g==
+X-Received: by 2002:a05:6820:a508:20b0:713:da3b:8b2d with SMTP id 006d021491bc7-71b39521f03mr14151731eaf.29.1795810187567;
+        Fri, 27 Nov 2026 12:09:47 -0800 (PST)
 Received: from [127.0.1.1] ([150.117.174.129])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b8590ba0fsm4834662eaf.2.2026.11.27.12.09.28
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b8590ba0fsm4834662eaf.2.2026.11.27.12.09.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 12:09:35 -0800 (PST)
+        Fri, 27 Nov 2026 12:09:46 -0800 (PST)
 From: Gary Wang <is0124@gmail.com>
-Date: Sat, 28 Nov 2026 04:08:31 +0800
-Subject: [PATCH v4 2/5] pinctrl: alderlake: add some groups and functions
- for INTC1057
+Date: Sat, 28 Nov 2026 04:08:32 +0800
+Subject: [PATCH v4 3/5] pinctrl: meteorlake: add some groups and functions
+ for INTC105E
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-2-029071f417d5@gmail.com>
+Message-Id: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-3-029071f417d5@gmail.com>
 References: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-0-029071f417d5@gmail.com>
 In-Reply-To: <20261128-upboard-pinctrl-add-intc1057-intc105e-support-v4-0-029071f417d5@gmail.com>
 To: Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>, 
@@ -106,72 +106,64 @@ Cc: Daniele Cleri <danielecleri@aaeon.eu>,
  linux-kernel@vger.kernel.org, Gary Wang <is0124@gmail.com>
 X-Mailer: b4 0.13.0
 
-Add ish_i2c0,ish_i2c1,i2c0,i2c1,pwm0,uart0,ish_spi pin groups & functions
-in adln_soc_data for device id INTC1057. The pinctrl-upboard driver set
-the correct pin function corresponding to these data.
+Add i2c0,i2c1,pwm0,uart0,spi0 pin groups & functions in mtlp_soc_data for
+device id INTC105E. The pinctrl-upboard driver set the correct pin
+function corresponding to these data.
 
 Signed-off-by: Gary Wang <is0124@gmail.com>
 ---
- drivers/pinctrl/intel/pinctrl-alderlake.c | 40 +++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ drivers/pinctrl/intel/pinctrl-meteorlake.c | 32 ++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/drivers/pinctrl/intel/pinctrl-alderlake.c b/drivers/pinctrl/intel/pinctrl-alderlake.c
-index 415bc0a16957..d3bdd727ced2 100644
---- a/drivers/pinctrl/intel/pinctrl-alderlake.c
-+++ b/drivers/pinctrl/intel/pinctrl-alderlake.c
-@@ -306,6 +306,42 @@ static const struct pinctrl_pin_desc adln_pins[] = {
- 	PINCTRL_PIN(256, "GPP_R_7"),
+diff --git a/drivers/pinctrl/intel/pinctrl-meteorlake.c b/drivers/pinctrl/intel/pinctrl-meteorlake.c
+index 6fefee7827ed..870658eac91d 100644
+--- a/drivers/pinctrl/intel/pinctrl-meteorlake.c
++++ b/drivers/pinctrl/intel/pinctrl-meteorlake.c
+@@ -339,6 +339,34 @@ static const struct pinctrl_pin_desc mtlp_pins[] = {
+ 	PINCTRL_PIN(288, "vI2S2_RXD_2"),
  };
  
-+static const unsigned int adln_ish_i2c0_pins[] = { 5, 6 };
-+static const unsigned int adln_ish_i2c1_pins[] = { 7, 8 };
-+static const unsigned int adln_i2c0_pins[] = { 99, 100 };
-+static const unsigned int adln_i2c1_pins[] = { 101, 102 };
-+static const unsigned int adln_pwm0_pins[] = { 119 };
-+static const unsigned int adln_uart0_pins[] = { 105, 106, 107, 108 };
-+static const unsigned int adln_ish_spi_pins[] = { 128, 129, 130, 131 };
++static const unsigned int mtlp_i2c0_pins[] = { 122, 123 };
++static const unsigned int mtlp_i2c1_pins[] = { 124, 125 };
++static const unsigned int mtlp_pwm0_pins[] = { 208 };
++static const unsigned int mtlp_uart0_pins[] = { 111, 112, 113, 114 };
++static const unsigned int mtlp_spi0_pins[] = { 88, 89, 90, 91 };
 +
-+static const struct intel_pingroup adln_groups[] = {
-+	PIN_GROUP("ish_i2c0_grp", adln_ish_i2c0_pins, 2),
-+	PIN_GROUP("ish_i2c1_grp", adln_ish_i2c1_pins, 2),
-+	PIN_GROUP("i2c0_grp", adln_i2c0_pins, 1),
-+	PIN_GROUP("i2c1_grp", adln_i2c1_pins, 1),
-+	PIN_GROUP("pwm0_grp", adln_pwm0_pins, 2),
-+	PIN_GROUP("uart0_grp", adln_uart0_pins, 2),
-+	PIN_GROUP("ish_spi_grp", adln_ish_spi_pins, 7),
++static const struct intel_pingroup mtlp_groups[] = {
++	PIN_GROUP("i2c0_grp", mtlp_i2c0_pins, 1),
++	PIN_GROUP("i2c1_grp", mtlp_i2c1_pins, 1),
++	PIN_GROUP("pwm0_grp", mtlp_pwm0_pins, 2),
++	PIN_GROUP("uart0_grp", mtlp_uart0_pins, 1),
++	PIN_GROUP("spi0_grp", mtlp_spi0_pins, 5),
 +};
 +
-+static const char * const adln_ish_i2c0_groups[] = { "ish_i2c0_grp" };
-+static const char * const adln_ish_i2c1_groups[] = { "ish_i2c1_grp" };
-+static const char * const adln_i2c0_groups[] = { "i2c0_grp" };
-+static const char * const adln_i2c1_groups[] = { "i2c1_grp" };
-+static const char * const adln_pwm0_groups[] = { "pwm0_grp" };
-+static const char * const adln_uart0_groups[] = { "uart0_grp" };
-+static const char * const adln_ish_spi_groups[] = { "ish_spi_grp" };
++static const char * const mtlp_i2c0_groups[] = { "i2c0_grp" };
++static const char * const mtlp_i2c1_groups[] = { "i2c1_grp" };
++static const char * const mtlp_pwm0_groups[] = { "pwm0_grp" };
++static const char * const mtlp_uart0_groups[] = { "uart0_grp" };
++static const char * const mtlp_spi0_groups[] = { "spi0_grp" };
 +
-+static const struct intel_function adln_functions[] = {
-+	FUNCTION("ish_i2c0", adln_ish_i2c0_groups),
-+	FUNCTION("ish_i2c1", adln_ish_i2c1_groups),
-+	FUNCTION("i2c0", adln_i2c0_groups),
-+	FUNCTION("i2c1", adln_i2c1_groups),
-+	FUNCTION("pwm0", adln_pwm0_groups),
-+	FUNCTION("uart0", adln_uart0_groups),
-+	FUNCTION("ish_spi", adln_ish_spi_groups),
++static const struct intel_function mtlp_functions[] = {
++	FUNCTION("i2c0", mtlp_i2c0_groups),
++	FUNCTION("i2c1", mtlp_i2c1_groups),
++	FUNCTION("pwm0", mtlp_pwm0_groups),
++	FUNCTION("uart0", mtlp_uart0_groups),
++	FUNCTION("spi0", mtlp_spi0_groups),
 +};
 +
- static const struct intel_padgroup adln_community0_gpps[] = {
- 	INTEL_GPP(0, 0, 25, 0),				/* GPP_B */
- 	INTEL_GPP(1, 26, 41, 32),			/* GPP_T */
-@@ -341,6 +377,10 @@ static const struct intel_community adln_communities[] = {
- static const struct intel_pinctrl_soc_data adln_soc_data = {
- 	.pins = adln_pins,
- 	.npins = ARRAY_SIZE(adln_pins),
-+	.groups = adln_groups,
-+	.ngroups = ARRAY_SIZE(adln_groups),
-+	.functions = adln_functions,
-+	.nfunctions = ARRAY_SIZE(adln_functions),
- 	.communities = adln_communities,
- 	.ncommunities = ARRAY_SIZE(adln_communities),
+ static const struct intel_padgroup mtlp_community0_gpps[] = {
+ 	INTEL_GPP(0, 0, 4, 0),		/* CPU */
+ 	INTEL_GPP(1, 5, 28, 32),	/* GPP_V */
+@@ -380,6 +408,10 @@ static const struct intel_community mtlp_communities[] = {
+ static const struct intel_pinctrl_soc_data mtlp_soc_data = {
+ 	.pins = mtlp_pins,
+ 	.npins = ARRAY_SIZE(mtlp_pins),
++	.groups = mtlp_groups,
++	.ngroups = ARRAY_SIZE(mtlp_groups),
++	.functions = mtlp_functions,
++	.nfunctions = ARRAY_SIZE(mtlp_functions),
+ 	.communities = mtlp_communities,
+ 	.ncommunities = ARRAY_SIZE(mtlp_communities),
  };
 
 -- 
