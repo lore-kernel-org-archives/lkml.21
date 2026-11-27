@@ -1,147 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.43.95
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795750376;
-	b=DdUqSnX1J86tZBaPA1qrtbLDrjNqMRl7FY3r29c6/f2RQZbyiVhW+RmliDzNi5fm4/7+
-	 7PQihKsfA1deE91q2CMSz6ms4sdsA2n47aUjzDwtaaL6LHcxyhqgK4S8yazSonVq8Pp3e
-	 GXk6qGJYGPlyBwW7ofPkjJs2LucBgRqEc3ZlFp9lpbTsN6Yz6a6bCrtRYvLtXi48UFnxj
-	 2Jh92Z8vVy+7Hyr7QWzr9+XaKbFC0AbeWcPmZbqcGbhZHz8ezn2dzGxqMgAuqQesHEujj
-	 VyyuNFLAdLGGp19jtRktC6umOg29SMLDfs4HYEfSVt56IfUc6rac2470AugHbC4l2jg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795750376;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=GLlppsnWfzbdUB4PFBa49l1N7zvgcQAseaE4i2Ap+48=;
-	b=qhpb4bAFVCIKpYmWTUac+iW2+6cKomHjqJNH1NYarFQkTAIy2Btg0HW0lL5ILAgIvwN5
-	 KwyEAVQCxaxAo+C9cGsNs5dg2SJi4kohti65+VKRiUEYDFszBrcjFIkvuhGNc7IxXIt0e
-	 AkGpG0gtvdGcBBYOfRCMCa4tWXGyPs+jBzxQ8CSl+h28OXwfBn9hD9WhkOfunG/B/MsYP
-	 E7mx8K1gtQWSK4lTR/okotx6zvZoB1gW8xmcY7dYdlMCzale4PZC80EgLyo7wHVNTZdZK
-	 r8PGwbVbfeFnFciYp/LyO+ZQ8qJSehlmBkYxS5ph9xXZ2DXhFCAFGpK3On5g7jkpZ6w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chipsnmedia.com;
-	spf=fail smtp.mailfrom=chipsnmedia.com;
-	dkim=pass header.d=chipsnmedia.com header.i=@chipsnmedia.com header.a=rsa-sha256 header.s=selector2 header.b=SOfA4Grz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.43.95
-Received: from SEVP216CU002.outbound.protection.outlook.com (mail-koreacentralazon11022095.outbound.protection.outlook.com [40.107.43.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.14
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795750395;
+	b=JtZMOIVH8x8Bd2XsEbw/XW3rzRFOAuGxkP8nt1nggrJB+TrQZ2r6lEDXWtdmu7eqrDlN
+	 fNijkJmFADEjqcLYne2wPaVdlpMPfDK38BxL5wJhgczSzUDYAfiNJ0Ftp8Ltvfl2173ld
+	 2UBJmII57bgdVgqxXyfoX2BboQTou1b5hm0BzXIbHT5t3e/ye20lfF42ma31LSBUC1Lvm
+	 3gQEUOpCY+4iUpAahwC2CxdC4f9xeGyfVIyvPBYeMDNPoQ1+jRf0eU5llMJslcrMPAI/U
+	 +yg3dDfHuHmey/iJfcfgW42EeWp7Yi+fNRAYdUFRWpuAchKMjuRbk03Pog27cPtFi6A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795750395;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=IvS6PwiM0MwyaI9Q71Y3huXKWpS6mVFDFJuvxq1GyR4=;
+	b=a/LqpMiIjKktxG8DDX6bG7FlRU4yiPfUJNQrXof96GQ0OXzw/WKWp1+gf1TzWDzbJ6jT
+	 Dy4W1YE+0AcJ5IQ5EGCpEXwvh8e0Dq/CTQTkTgV3PUT7VgXsgYRO9zP0TJml6uoBLWAyM
+	 UsKMxb1lmqMTqP8jkrJAqGIQTB642vqOEM9cdDMAQM/2GmGOvWZx1njhKCUCRrjGgJrFN
+	 HSTVL9rj7uHdlyisAUvZCP365g1UONTPap+IUG4k4uaVulf79TMNv2NAS8fSJxUpjEdTG
+	 Wf2Qb+s5FlnSGodgooUVtGt850FeX9CzVyStp752XTNxRlQ5UwOrELGvsf2dSNZvNAA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iuPaFvMW;
+	arc=none smtp.remote-ip=91.218.175.14
+Received: from mta0.migadu.com (out-14.mta0.migadu.com [91.218.175.14])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E3FA606A31C;
-	Fri, 27 Nov 2026 03:32:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E3FA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chipsnmedia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=chipsnmedia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21513606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 03:33:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21513606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=chipsnmedia.com header.i=@chipsnmedia.com header.a=rsa-sha256 header.s=selector2 header.b=SOfA4Grz
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Mx8vKVxgD76vSp/J7cQFnBHcdbn/K4xIGUp1H8hoeafaPfhqlUB3jyD/i/kaKYbsm1K2y1Qo1VpJWjT3d3VIk+CazNDxJrZec2fFgX/FJYvJ71bDyV6SEHwuLeByh2QPynJNdcW/QKseY6ZZD1GONIr1va3G/JNtF68nOXqDSQYam5WEolIVMWLt54iC2LBW9f5cdJu3C/iHiU2agx8BOfUDevMK5otxD0duL32dVE5+gD08ND3Gey3CKDesCIdtVpEYKuI8GQEdU8JhatMvXg9jxmjqI8rTbn9MEHeSdEU1BYr+67TaOth2dBQ3YhdNg82R6x+Osvuhep1vwaHrYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GLlppsnWfzbdUB4PFBa49l1N7zvgcQAseaE4i2Ap+48=;
- b=KuxrMJZ7gLSQpTa1lAtsk27qBNHNOrJO+jFzcClJ61ggb0D4Ph+ZVO0vqZOkVDIGIAzOOqD17p4KbLKE7nFz7iO0sHxDtsfhw7R4GElCtc8MgIP4cmwXVrqVd4OLqhoyQ+V/0RxkQY3ey+pcYltsuVbNi9hldYbrdk3EqnFRrQlh6LDt6srHtH4PprjOcUHMXpss7BaNh/udw8zUjfcnyJlrh0hoHafCOvQffR5GmnpK3Lu2C0sHllY8Wtboh8VDp8oZKaifCZVnlgOLeig1oiXvqMwVyJ+jZxwlGXqM/m5WIyA0MQKKumdfUL9t/VfRC0FUPoBtpKRvevUQu8FmlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GLlppsnWfzbdUB4PFBa49l1N7zvgcQAseaE4i2Ap+48=;
- b=SOfA4Grz9CZZ3hXALB9L+SYbSBzxF5WzWESBne3Fehc4IRI6y57p+CxZwu85veKV3fX8cLT6iYtm+UXAMvIu8EOmiryiSqJGf/o/oZma2rZtx8iBGoW9dHXGRGapFQ3vf0KQLJcswQ15Vr3NbZ90spbetvSs6RgAgbazOYP+4DqGPpo+K5YwLtw+kUemNFNkk1t8x1FUbrXkSIIM0RxyGDzGff2BbSm8Tcv2V4MIGUP0FW+hnwC48Z98HO2ucbLq8JI1LmX8n3FXHPPKGIoMpSwPdE1LoJl4ISLS3LIHh0uyyECqNcWZJK+40eiZYdJ6grmwYYdlxvz5QOScCNGG1w==
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
- by PU4P216MB1870.KORP216.PROD.OUTLOOK.COM (2603:1096:301:10b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 03:32:51 +0000
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 03:32:51 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Heiko Stuebner <heiko@sntech.de>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-	"kernel@collabora.com" <kernel@collabora.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v4 3/5] media: v4l2-core: Add v4l2-metrics interface
-Thread-Topic: [PATCH v4 3/5] media: v4l2-core: Add v4l2-metrics interface
-Thread-Index: AQHdfO+z6iX+INQb70eCriIYjocbqrdBK6aw
-Date: Fri, 27 Nov 2026 03:32:51 +0000
-Message-ID:
- <SL2P216MB2441C07DE4CD2D1B41341ED4FB412@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
-References: <20261125-v4l2-add-fdinfo-v4-0-2dc73fad9932@collabora.com>
- <20261125-v4l2-add-fdinfo-v4-3-2dc73fad9932@collabora.com>
-In-Reply-To: <20261125-v4l2-add-fdinfo-v4-3-2dc73fad9932@collabora.com>
-Accept-Language: en-US, ko-KR
-Content-Language: ko-KR
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB2441:EE_|PU4P216MB1870:EE_
-x-ms-office365-filtering-correlation-id: 83b80466-12d2-4ccf-86a8-08df4c371db9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|366016|23010399003|1800799024|7416014|376014|38070700021|10067099003|56012099006|261026140227099003|261026121527099003|261028144727099003|261022105027099003|261102123227099003|261022075727099003|261021121427099003|261021135927099003|261102130727099003|261009223027099003|22082099003|18002099003|4143699003;
-x-microsoft-antispam-message-info:
- MKZKZ2plRjtEasBldORMeDo2nCQ3OQtKHTc4Pu8km8GLq+mJx8o60l/EJN8Yt8ZBeNKu8VULlA96bBD+BN2Ofx9A5CLAzGku8vvcXcw3sExqMRoN103dwVqher+J93GicdsrjMnCSLycvkwZO1dcpVvWExFybwE7DKYf8ZBiolcZStxLB8MzuGTn4d+06iQcYqZYn/s0+SCwDVRErx/97YTKNmorVEaRseSpZ5ENTul3u9f/7DTkMyxByktmqx/0jQ3T9wpfMCgsd+D2vmeAfPvgnmwZTBBQ/vERxe40VH2KoIOJ9+CZZKnnjvtRAuq0oLWlqNiIjDbfItY/tT4j5/O9gzZRuEICXCLMUs02nwVaR8t2s6aMeywFv3dXMU1LFiYKifsFGgT8sVemaOhN6XjC2bC++j393EuuEy7/VQi2TW9DykAw783+jlkZRcbKyyfOqMI+pYl/V+Jwkj47lcYxWhuRHNVO9EK/IgNti+gws7NJo3d5ol2f25SC+wkTlSIy4oxGaggyB5/D4j6b2bU231HWE8ixfDIboGkJ7Bax2mCT07AOMHwAOCJE6PrDtN7tP9PegsAijKpLgpeV54Ty+G0slW5exLmSi961PVE9ti/qLxiRrhuMrn0BfsWRmvzPT0arAOqKyDNyEuMmIBw/XDJaR+sRxhiuKaryJLD9mP1F/zeOG9TqUPdmUxdRQNLBPEXujyS44Kd0hwxtfimt+IN55IxXwJo2/ayFcWo=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(7416014)(376014)(38070700021)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261022105027099003)(261102123227099003)(261022075727099003)(261021121427099003)(261021135927099003)(261102130727099003)(261009223027099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?Ul1X4kOmdbTbqsZpKAUwiL5GLNdF1MuE7puXtaRXZYT8B7L+yBbSUldMni6E?=
- =?us-ascii?Q?+cEaCMGyroy1z6KX8piAget4EJaZrVa7m/agrd+YgVuyOIAKv7A3PJPXu4EI?=
- =?us-ascii?Q?beD5ZX2nnEtm4VhkMkPQx3ZYMoFutHCtYJG1JkQzTi5DmTmafXeRT9NQz0Wq?=
- =?us-ascii?Q?wlx9GpIRUjMF8bOkHjkDNPIjs245MnC79IzQQXXawbN/k1YImN5KboVwtxiX?=
- =?us-ascii?Q?ePrp0R/Zb6aUdpsiOJaXGtR1iOFXpI+SXsDs+mpB1u69c2I/PGzVkyT2SDMf?=
- =?us-ascii?Q?X5huT28lVhGlZz4WhUq3AJv7Sdq7wSUwwEU0OA/zUfe2kQf4QSVY1woJEobe?=
- =?us-ascii?Q?dX9XSfmvPzoUDrsJFqy8o0MoFE7YQXkEEGNc4EC9OAkRIJ/Nk3JKebqyHmsf?=
- =?us-ascii?Q?83Cr1KtjcmeRGEIIEkX4pC0CBpKiyu5D3x/QVusIzROL4iWaRtzA3fK/iL+j?=
- =?us-ascii?Q?93fezEs5JpTvh0g9YEpOCbI7zXH1XTat5LGzQauxVMadvmi6shqwMyuqpaeZ?=
- =?us-ascii?Q?d0VKvMXBoeDdEz7B8BRyJz2OaIkvMjRr6pNrPkpXh/56GtheL2RuJMSIdzoT?=
- =?us-ascii?Q?KrdJlJdhSAEOs2SCOj2xB+NjVxGRu97IDvRpl1xsRpcrX9RV+2mZs0clvSFI?=
- =?us-ascii?Q?Ctmo0IiEp8m3N2VGkrNHc/11o3Yo9QUoT+FqEA1JZxPUrqnfMym0eksFneUo?=
- =?us-ascii?Q?XSrHI8xhVJfh01DJlQhqy3H80PrUNDmhTqbyRW+gF2c1Ea9FFAFWjseS1nJI?=
- =?us-ascii?Q?xQVPEgXgkVD167+B0Ra/exihP0BS+53Lie8sQ63RusG48ymKOdZ9wp72J/9r?=
- =?us-ascii?Q?k/WZ+unPuI051pLGVOOI5PB7hhzeRHHxxkYKDFwxvyroi6o3Qq5MJeQ+fh6t?=
- =?us-ascii?Q?d84fE9YsB9UCz4Ih/G4tYE/Ksr1FE/LJgmvSvmZwjB7LFJCEYE27rchCtcrK?=
- =?us-ascii?Q?zg57b6OGtjKXBcM0Xeoe6iy7fvMVN6Hvn944kCut0uy8b22kkGN38HR9DkOG?=
- =?us-ascii?Q?3JObiB9MxojKHfBYo6pe9AsRXsXz+GCq5/AtQgmyPZ3hhTBmv7S9z5lN9TXJ?=
- =?us-ascii?Q?oK50YuTMgUvvyo1hBzf8f880R5ObFFZGHqvFOYcY5/s2kdA7L8LAyIvp7wpb?=
- =?us-ascii?Q?opgJDcxaGC7iKeykxv4DHq3MPFhbQ5kRU0Y4Ev5MMuJFMPBhAIMA5pp16Yua?=
- =?us-ascii?Q?rfTGkTny32V7DNp2RvsMwLAa9BS8M0YipM9i6fhhlAzG4W1QLIleFP8nwwuj?=
- =?us-ascii?Q?j1GI/UbNsRWXsNWTRuRihe2JP8YUEu2jE9em+dMr6P90QKvmAYeyNdnin5Af?=
- =?us-ascii?Q?yp9JYdsFZyyrDM6TF9j/FPxO3IVG/H3aG/tghZGJkjDzHpvt5fDi+CEKiOvK?=
- =?us-ascii?Q?yyqOjv7EhJloGpxpfNVs51rY1HwVqyK9gjo4CyV2iY0zeL00Y7cYu/tS4BVq?=
- =?us-ascii?Q?yYbWwKBWNhASX8b/OdasORHmxvVQlqNbK7QBtA/VpKJJsw1KEAEFSbPoao79?=
- =?us-ascii?Q?yx+aFnQSLO5BzbFu0UU57F/OSmjlOM6j+mnyIY/NxK2puzvWguRlrv2CciMm?=
- =?us-ascii?Q?qQApMuyrkStjwI1V5SjUjahSoysDaXa0Mhq8FzhL2kQC+dwkdMoPxa4ViK2d?=
- =?us-ascii?Q?mRqR9LT5ETQbZfpryLc5lBUfT1JH0nKUvSPgXnNAH2eWR5qv7XAeI2hFmRhY?=
- =?us-ascii?Q?gLgRPQetCwQPYLXTxBaB5y5d7MyzJ9d54SfkwfHfp6Pc1Kol2X6JIL1V+zeZ?=
- =?us-ascii?Q?X0lGIdu5dA=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iuPaFvMW
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=QgYTOSCJMTPUU6uzHqdiUg0E/5P+/jUuCCDzWFkkxHg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795750392; v=1; x=1796355192;
+ b=iuPaFvMWMhrqtS/gCWCdJ/vMi7BLET2lqnp6VSOo013JgeQcAQFK2eGcdauV7SeSWBGWfWFS
+ +fNyXhU7CGSDhzWr4NhXvM6byFQ0uBBDIN9E9/Y0adxcevY6/kR+d16x6T1PUdhpuTCOM2U+Mmq
+ iMt79omfLORrmQsQ0ZAiWK1M=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 83cf2f4b8b8eda50;
+	Fri, 27 Nov 2026 03:33:11 +0000
+X-Mizu-Trace-ID: 83cf2f4b8b8eda50
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <60e890bf-d5c4-44db-9f90-ae7970b5de32@linux.dev>
+Date: Fri, 27 Nov 2026 11:32:57 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -151,161 +58,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83b80466-12d2-4ccf-86a8-08df4c371db9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 03:32:51.4475
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MOJxYEkJLGSqQ7zOXkvZUVSNCQA1N1p79x30ZNnx/HyDC7mOX94hv8gYjjyY5Ombv0VpxK418MoKbAkWHjSsqhSn0aihN79j/yacQgOds7c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PU4P216MB1870
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 08/18] mm/mglru: make folio lru referenced times count
+ a generic API
+To: Kairui Song <ryncsn@gmail.com>, "David Hildenbrand (Arm)"
+ <david@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, linux-mm@kvack.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
+ Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>,
+ Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>,
+ Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
+ Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh
+ <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+ Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
+ cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
+ Tianyi Chen <hi@tychen.cc>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-8-8ffea39934a6@tencent.com>
+ <e85a2666-9722-420b-9a60-9d4251fc3d4c@kernel.org>
+ <awa30hwg6x82REoo@KASONG-MC4>
+ <8ec3f3e2-5d3a-4bed-a571-88f7ba473b00@linux.dev>
+ <CAMgjq7Ayu9H85wurRAUdmXEPWYi9BdLJW13BhK+LMYoBX_7fuw@mail.gmail.com>
+ <CAMgjq7DwCNbke2G25Bxfj3bi5aRp3_qkGeYmCTGVGv+Y5XzKTw@mail.gmail.com>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <CAMgjq7DwCNbke2G25Bxfj3bi5aRp3_qkGeYmCTGVGv+Y5XzKTw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Hi Detlev,
 
->-----Original Message-----
->From: Detlev Casanova <detlev.casanova@collabora.com>
->Sent: Thursday, November 26, 2026 12:12 AM
->To: Mauro Carvalho Chehab <mchehab@kernel.org>; Nicolas Dufresne
-><nicolas.dufresne@collabora.com>; Benjamin Gaignard
-><benjamin.gaignard@collabora.com>; Philipp Zabel <p.zabel@pengutronix.de>;
->Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>; Heiko Stuebner
-><heiko@sntech.de>
->Cc: linux-media@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
->rockchip@lists.infradead.org; kernel@collabora.com; Detlev Casanova
-><detlev.casanova@collabora.com>; linux-arm-kernel@lists.infradead.org
->Subject: [PATCH v4 3/5] media: v4l2-core: Add v4l2-metrics interface
->
 
-...
+On 11/27/2026 10:20 AM, Kairui Song wrote:
+> On Fri, Nov 27, 2026 at 10:01 AM Kairui Song <ryncsn@gmail.com> wrote:
+>>
+>> On Fri, Nov 27, 2026 at 9:48 AM Ridong Chen <ridong.chen@linux.dev> wrote:
+>>>
+>>> On 11/25/2026 8:36 PM, Kairui Song wrote:
+>>>>> On 11/23/26 19:53, Kairui Song via B4 Relay wrote:
+>>>>>> From: Kairui Song<kasong@tencent.com>
+>>>>>>
+>>>>>> Pure code shuffle, no behavior change.
+>>>>>>
+>>>>>> Make the folio LRU refs helpers available regardless of CONFIG_LRU_GEN.
+>>>>>> Without MGLRU the extra bits are never set, so they are inert. Move the
+>>>>>> lru_gen_* helpers into the CONFIG_LRU_GEN section.  This prepares for
+>>>>>> unifying the API for checking folio referenced and workingset status.
+>>>>>>
+>>>>>> folio_migrate_lru_refs() now migrates the complete refs count,
+>>>>>> including PG_workingset (bit 1 of the encoding), bitwise identical to
+>>>>>> the direct copy dropped from folio_migrate_flags().
+>>>>>>
+>>>>>> lru_set_refs_flags() skips the nonexistent mask bits when
+>>>>>> LRU_REFS_WIDTH collapses to 0, preserving the two independent flags for
+>>>>>> !CONFIG_LRU_GEN builds.
+>>>>>>
+>>>>>> Tested-by: Zhao Zhenzhuo<zhaozhengzhuo@uniontech.com>
+>>>>>> Reviewed-by: Kunwu Chan<kunwu.chan@gmail.com>
+>>>>>> Tested-by: Andrew Morton<akpm@linux-foundation.org>
+>>>>>> Signed-off-by: Kairui Song<kasong@tencent.com>
+>>>>>> ---
+>>>>>>    include/linux/mm_inline.h | 55 ++++++++++++++++++++++++-----------------------
+>>>>> I'm starting to feel like all of these mglru/reclaim thingies should go into a
+>>>>> dedicated helper.
+>>>> Hi David
+>>>>
+>>>> I saw your comment on other patches too, about the header mm_inline.h,
+>>>> about ~690 / 860 lines of code in it is for MGLRU / CLRU only. The
+>>>> rest ~200 are for VMA / TLB / MMU.
+>>>>
+>>>>> Can you do that as a prio cleanup in this series, so we don't have to mess with
+>>>>> mm_inline.h in later patches anymore?
+>>>> Perhaps we can instead move the non LRU helpers in it?
+>>>> These helpers:
+>>>>
+>>>>     - anon_vma_name_get
+>>>>     - anon_vma_name_put
+>>>>     - anon_vma_name_reuse
+>>>>     - dup_anon_vma_name
+>>>>     - free_anon_vma_name
+>>>>     - anon_vma_name_eq
+>>>>     - pfnmap_track_ctx_release
+>>>>     - init_tlb_flush_pending
+>>>>     - inc_tlb_flush_pending
+>>>>     - dec_tlb_flush_pending
+>>>>     - mm_tlb_flush_pending
+>>>>     - mm_tlb_flush_nested
+>>>>     - copy_pte_marker
+>>>>     - num_pages_contiguous
+>>>>
+>>>> All other helper in mm_inline.h are for LRU. So we rename mm_inline.h
+>>>> to mm_lru.h?
+>>>
+>>> Moving the VMA/TLB helpers out looks good to me as a first step.
+>>>
+>>> For the LRU part, there is already mm/vmscan.h, added by "mm/vmscan:
+>>> move struct scan_control to a dedicated header" in mm-new. Most LRU
+>>> helpers are only used inside mm/, e.g. lruvec_add_folio(),
+>>> lruvec_add_folio_tail(), lru_gen_add_folio() and the refs encoding
+>>> helpers, so they could move there instead of staying in a public
+>>> header. Barry also suggested moving lruvec_add_folio() and friends
+>>> to mm/vmscan.h in another thread.
+>>>
+>>> A few are used outside mm/ and need to stay public:
+>>> folio_lru_list() in include/trace/events/pagemap.h, and
+>>> folio_test_workingset() in fs/btrfs and fs/erofs after patch 16. So
+>>> maybe keep a small public header for those, and move the rest to
+>>> mm/vmscan.h, or to a separate mm/mglru.h if it gets too large, as
+>>> David mentioned.
+>>>
+>>> I can help with the mm/vmscan.h part if that works for you.
+>>
+>> Good idea! Maybe you can send a series to do that which I'll rebase on
+>> top of. Feel free to take the first renaming patch too since they
+>> should all be zero-feature-change :-D
+>>
+>> But please help keep some helpers in a public helper so when we are
+>> able to get rid of folio_*_referenced and folio_*_workingset, there
+>> wron't be some strange header inclusion issues. FS users quite often
+>> need to call them, especially the folio refs related ones.
+>>
+>> (Considering MGLRU even used to try to completely ignore anon reclaim
+>> at swappiness 200 about a year ago, maybe that isn't too much of a
+>> problem, but it's still a problem).
+> 
+> Sorry my mistake, I meant file reclaim, got it wrong in the opposite way :P
 
->+
->+void v4l2_metrics_show(struct v4l2_metrics *metrics, struct seq_file *m,
->unsigned int core_id)
->+{
->+	seq_printf(m, "v4l2-driver-type:\t%s\n", driver_type_name[metrics-
->>driver_type]);
->+	seq_printf(m, "v4l2-core-usage-time-%u:\t%llu ns\n", core_id,
->metrics->hw_usage_time);
->+
->+	if (metrics->has_hw_usage_cycles)
->+		seq_printf(m, "v4l2-core-usage-cycles-%u:\t%llu\n",
->+			   core_id, metrics->hw_usage_cycles);
->+}
->+EXPORT_SYMBOL_GPL(v4l2_metrics_show);
->+
->+void v4l2_metrics_show_clock(struct seq_file *m, struct clk *clk, unsigne=
-d
->int core_id)
+Thinking about it more, the header move is not urgent, while this
+series has been iterated for a long time and fixes real problems, e.g.
+the swappiness 200 regression you mentioned. Making it depend on a
+code shuffle would only delay it.
 
-To allow maxfreq and curfreq to differ, how about passing both values
-instead of the clock?
+So if David doesn't object, I would suggest landing MGLRU-FG first,
+and doing the mm_inline.h split as a follow-up on top of it. That also
+avoids rebasing this large series onto a moving header. I am happy to
+work on the follow-up then, keeping the folio refs helpers in a public
+header for the fs users as you said.
 
-void v4l2_metrics_show_freq(struct seq_file *m, unsigned int core_id,
-                            unsigned long cur_freq, unsigned long max_freq)
+David, would that work for you?
 
-Thanks,
-Nas
-
->+{
->+	seq_printf(m, "v4l2-maxfreq-%u:\t%lu Hz\n",
->+		   core_id, clk_get_rate(clk));
->+	seq_printf(m, "v4l2-curfreq-%u:\t%lu Hz\n",
->+		   core_id, clk_get_rate(clk));
->+}
->+EXPORT_SYMBOL_GPL(v4l2_metrics_show_clock);
->diff --git a/include/media/v4l2-fh.h b/include/media/v4l2-fh.h
->index aad4b3689d7e..4f1ca1bbc61f 100644
->--- a/include/media/v4l2-fh.h
->+++ b/include/media/v4l2-fh.h
->@@ -17,6 +17,7 @@
-> #include <linux/kconfig.h>
-> #include <linux/list.h>
-> #include <linux/videodev2.h>
->+#include <media/v4l2-metrics.h>
->
-> struct video_device;
-> struct v4l2_ctrl_handler;
->@@ -27,6 +28,7 @@ struct v4l2_ctrl_handler;
->  * @list: list of file handlers
->  * @vdev: pointer to &struct video_device
->  * @ctrl_handler: pointer to &struct v4l2_ctrl_handler
->+ * @metrics: metrics information for this handle
->  * @prio: priority of the file handler, as defined by &enum v4l2_priority
->  *
->  * @wait: event' s wait queue
->@@ -43,6 +45,7 @@ struct v4l2_fh {
-> 	struct list_head	list;
-> 	struct video_device	*vdev;
-> 	struct v4l2_ctrl_handler *ctrl_handler;
->+	struct v4l2_metrics	metrics;
-> 	enum v4l2_priority	prio;
->
-> 	/* Events */
->diff --git a/include/media/v4l2-metrics.h b/include/media/v4l2-metrics.h
->new file mode 100644
->index 000000000000..fc493b65f117
->--- /dev/null
->+++ b/include/media/v4l2-metrics.h
->@@ -0,0 +1,47 @@
->+/* SPDX-License-Identifier: GPL-2.0-only */
->+/*
->+ * v4l2-metrics.h
->+ *
->+ * V4L2 metrics management.
->+ *
->+ * Maintain a per-file handle list of statistics about the hardware and
->handle
->+ * exposing it in the fdinfo.
->+ *
->+ * Copyright (C) 2026 Collabora.
->+ *
->+ * Contact: Detlev Casanova <detlev.casanova@collabora.com>
->+ */
->+#ifndef V4L2_METRICS_H
->+#define V4L2_METRICS_H
->+
->+#include <linux/types.h>
->+
->+struct clk;
->+struct seq_file;
->+
->+enum v4l2_driver_type {
->+	V4L2_DRIVER_TYPE_UNKNOWN =3D 0,
->+	V4L2_DRIVER_TYPE_STATELESS_ENCODER,
->+	V4L2_DRIVER_TYPE_STATELESS_DECODER,
->+
->+	V4L2_DRIVER_TYPE_COUNT,
->+};
->+
->+struct v4l2_metrics {
->+	u64 hw_usage_time;
->+	u64 hw_usage_cycles;
->+	bool has_hw_usage_cycles;
->+	enum v4l2_driver_type driver_type;
->+};
->+
->+void v4l2_metrics_init(struct v4l2_metrics *metrics);
->+void v4l2_metrics_exit(struct v4l2_metrics *metrics);
->+
->+void v4l2_metrics_update_hw_time(struct v4l2_metrics *metrics, u64
->time_ns);
->+void v4l2_metrics_update_hw_cycles(struct v4l2_metrics *metrics, u64
->cycles);
->+void v4l2_metrics_set_driver_type(struct v4l2_metrics *metrics, enum
->v4l2_driver_type type);
->+
->+void v4l2_metrics_show(struct v4l2_metrics *metrics, struct seq_file *m,
->unsigned int core_id);
->+void v4l2_metrics_show_clock(struct seq_file *m, struct clk *clk, unsigne=
-d
->int core_id);
->+
->+#endif /* V4L2_METRICS_H */
->
->--
->2.56.1
->
+-- 
+Best regards
+Ridong
 
