@@ -1,96 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795756462;
-	b=I6mdeFZWMaRY2q0rBtexJnudYsUzfWaeCsbytkP4A+x//vgho6ZvgS3tLg/01hAtX8kR
-	 obs6GvjfrGHjtzANhdyVdmOoHsLRreDh6U4yK7N5Col5pYTo55JnPVvd6M5Xziek8J6ij
-	 BiHfyNEJWilKSe9o5AFZaMz0eR7EtAISp1KvN3o5b883/azPf3ZQYZllEgMt1wwczDmvB
-	 LHjR0X4vbRW5UICYf+glbUsN/q2I/toDzF5Kou5MZJsS1seWamiZURE0wJb3IqQCCl7jw
-	 GmEJZMhHC5j+/F9TrChLSV3WLMBvt9ZIlo7rTPhGR3h1IoHwipOYEwxN9HiyzfGM8Xw==
+	t=1795756605;
+	b=MFDXG5KpmqwhKJK57IoJrVnx+xsNVuDawyns2Z4NNygsRXioO0rrQ+ydcQ11jxdsQCAy
+	 6ADvz09JsL8k82kKlCYNSYfcWhS2+GqSytEvajLtJxh8mRtjARqPRCXDldXyBO1cFzMut
+	 eJXdseM0+2gUIbJ1D8xr8SrQRP+fBSS1oJYw2gtTuhAL8turhWjsax4W7j7ceHAVHDa5X
+	 Mf2uWYFlQIDL2dOrs9cYOaaTv5a3Z+2mu1UVuSqiDX2zguE/zBqwN/gSVrHlOFdGIG8Hj
+	 td6WtzBfNzjt+4MsNGpo8AQT+LvvxX+E+M5vtqMgy6cBrdcHa+TOSg6w76JvXIqo42A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795756462;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=qzV5IimzsJbOvJ6sW4aUy5Eksg3lYZKwTkqSBUgFwOg=;
-	b=wDbCCAdSZaAqPm85OcJE7tT876SkHPDLtTOpyd/62ptFPbP2FlcEHhfzekenDIfsgxan
-	 ypoIrWYqwHh4U5nArRc3F17f+buUPw5UHfXVGOxr0Fn+PuaH/oIBCjy+mnJnwMcVu6SAC
-	 TgFFuPJqGUgG09wS9p0qVx7OhITT2zlWfm1bt0VEKvzaYEjkBr5QOTrYtzjZBgzrwavob
-	 9xQu9+lfMyDoK9Hikv5VPV9VKQ120DWJmC+JA/s6emKbaxVZvupn8K4dZyf7gLGihsQ+P
-	 bJaEAymEHMxuj6C2qryX5HODDy/Uu6FSRqY3Oc407RE4PTqHbObYFvBGSkF/U/J3YwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795756605;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=1KCeidIU1Kme/yUIbfVqd55sbVEcgjU99vnNkDGVpGA=;
+	b=bHPx/zUOM2zt3dE00gOo9tbh3LcfrB4A59+hHE3zQ4V9Zg1Gwh7/2/RkcYFtrQ0Hz1b4
+	 GkZxq8hLhb1IRRz+Ntvh8Xd1rmoJMkLPL+V8T6lD+U0ARzx26sw+OqABm6v6T8HmpxPdf
+	 Hsbo6tnSG2xKRQX9LeYrwaSj+7lU/G8LAw1MzCBrbCnPAs3Yt0SbPbVOvqd/ts9pNNgvm
+	 AyDRYHgWnktwJI/3VHAOsqsAsq5uZ4+YQD1bP26tRSVSzey7VaSWLDDWfvzZFXBVn/UVW
+	 Z/dyr3PF72Rks2qDB9NTeVhgV7exMdzw4f65df3eRtYZyxo0oyO12vuPBV/IaaSwc4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QRlvPmNd;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=KBxKSn9s;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64EB4606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:14:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64EB4606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 139D8606A31C;
+	Fri, 27 Nov 2026 05:16:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 139D8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QRlvPmNd
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so69623405e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:14:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795756461; x=1796361261; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qzV5IimzsJbOvJ6sW4aUy5Eksg3lYZKwTkqSBUgFwOg=;
-        b=QRlvPmNdghIl4U7Rz1BHAHhkt0zKYanW0QPXUPIwUseORSCsqW522IrEAKTIxHKDGU
-         +C8phOjyC6nAl6NebLAZqP/e+VkriS/8B8T2rj7KHrstoNWAXsVwP5Hte8OXU3xdi8eK
-         pXQawKrsTxKVCNs0lKePbgFksNvRThrrV/bFA0RvtgZSmpTX6Ibb31y9R1zuD/OaOQuF
-         UQHkDnoEA0Xlo9AXibFS4vDkcmxPFWlSOSNPizU35NL5aj8EZVYgw7n+VvuFepgiDLBk
-         vHIAjzCC+oJA7A18TROLqQPNVGSocy6lHHpbqV53lpffT+460/EGdYPcdiTFOfE5OZcM
-         pTIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795756461; x=1796361261;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qzV5IimzsJbOvJ6sW4aUy5Eksg3lYZKwTkqSBUgFwOg=;
-        b=nwofwvmtd9dx5H8LxFmdNYHNjLXqv+bG0aL0rCmZhP0+oVtojvRx+ZzTDV3dGdkFvD
-         2IdfBU7nGF4xjaV+C3sCg5d2zookZjH9D4Qwlx41lX25MeCNN3Mbdnm1IBnhhQXkNDBS
-         +PvIdJuPJn9Ml7MfsxKA3W/ti5Pk5K1QMXkAFWylECe8FTpqv3ja7QmX85uXkpPcaSt7
-         oVU1BrY3x5KarnWqEDRpr883KynJp7XYc3X7TmKYj2wkUcq/hDw2TJscX5fdij3U0aeL
-         tUAFDA1Bta0x+OlCoJOriL37WPdWo2EOPUcsYTGYoCfQB91iasNXqbrjmoeJ+icwE8kx
-         sC5w==
-X-Forwarded-Encrypted: i=1; AL+hErFK/pV46JM1WwFwrl/pO+9NM3RHWQ6s/2Uum24Jb0jeHGHsdfFqwBO0mSjBjeqtRACzSSL7MSNZX6prGco=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Elyrkj5SaS/Kf2ydCefIOdwgZbL7Nx2HDrbDo4llwzpH6MK8n
-	I4Fl7CzCXNt24ZYTpYyX5SkeJUfJXlsUDh+VxnUF5TNqBicYZhTX+jq3
-X-Gm-Gg: AZFdTZftFLEYmmOK7PNz4VWIT7VztSiiLixDcopmL6CKF/SCkXZkrT7GWu6ME2I4zLl
-	uGL9pSNLsRlgyTkoLDfrzdLyTue0yp84/Ev3eVW+UhwbuPPOzC2iJPKUWoGZoEVTDG0tqM6HFR1
-	OLDf23LmDlWHspYIQukmzMsN/EtaAM7JLFtt097c5dhIwE5LDcqYnz2yHudktPCrJ4SrC7mTn0M
-	FP6024+mpS/N9FTijfrnBsCNHVqUeAO7LCDErm01AOuWYgQWsUjQIZ+APtwFuNLKaRjCdwNcgg+
-	S8J9Zz599fsbL8V75sYwxr8CmHQSztsEMDoVILCpNKowMVdBuboDeH1SyCGDvhCIBFSwTFg6tVc
-	kd67vkjZ7aR7e/vZ0h/KWK7zy1jpkKd5Rj0Bmuxm0EHtMX0nmyFPNie5fZ7aoqO3bZTgNbs/xh+
-	sUzpRaH0NfW5y/6/xuA+KNX5C1GNrUnWUptVg9uxxwwg3a1EkSq8mu6zHquGaWKkTE9VnKJ7sVJ
-	LCaUKJiRC+POkSKA/lLPH1vxiQejjKAiFbVxcjpmABxNIx7fh5vH9z5yaFK1KSbTgcQaYwuV96V
-	zgHd1QGabmvqYk+cV9HGVnBihVFgUmyE394QfoKzbRkLJYzh44XyeOryTpmAzEzcxpxIefuZa6W
-	bK31aHxku9vnFhkGjuN78In4ydSHonyKZmhXrD7FK+5Q6aCoJ8yPnIZCwHPM9qGg1+46kmUdcch
-	w18VqfeoANFeeWM3w5VLdAvgpCtfuDuvkIPq2u8jov5PcYg8tNrg+meb/2JSgmFmqI
-X-Received: by 2002:a05:600c:3511:b0:4ba:73f:ef5 with SMTP id 5b1f17b1804b1-4bb88828304mr481591525e9.34.1795756460683;
-        Thu, 26 Nov 2026 21:14:20 -0800 (PST)
-Received: from sergio-82n7.homenet.telecomitalia.it ([95.236.10.162])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm636515015e9.15.2026.11.26.21.14.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:14:20 -0800 (PST)
-From: Sergio Melas <sergiomelas@gmail.com>
-To: Guenter Roeck <linux@roeck-us.net>,
-	Navon John Lukose <navonjohnlukose@gmail.com>
-Cc: linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] hwmon: (yogafan) Fix fan paths for Yoga Pro 7 14IAH10
-Date: Fri, 27 Nov 2026 06:14:19 +0100
-Message-ID: <20261127051419.479659-1-sergiomelas@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <b672573a-f0ac-4ad8-9be8-6f3a554ddd98@roeck-us.net>
-References: <b672573a-f0ac-4ad8-9be8-6f3a554ddd98@roeck-us.net>
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=KBxKSn9s
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=1KCeidIU1Kme/yUIbfVqd55sbVEcgjU99vnNkDGVpGA=; 
+	b=KBxKSn9shk0DUOL4quOwSiya0Z3Iyi2JwuAGrsaLZcn/xzeut8iiwORRSCBFQaN9+lhjLmZR7qq
+	qh7AOyhrtqQbXqJz016mBtspLt+L2EDfRs65yCj5l1DHjWjBk7+A7xsYu2egzvKF8lXagqpK2/QkX
+	UpvCBhIZR6s+RZ6KJXCBlyBPD7OUNiQ1fG+GXD+3kmvKc2FwPXey+BjfKjp6a6FSZPjv3ZZxpnxWV
+	tlrkfS0iLs3AfQ76b28xfDfR/QCtcCKN+hbZeRmRoGmk6XpJNeIkzyy7mL0yMJIMWjeuyCnY++oQB
+	m0v1/plhvofjfkl0Kat72OnpjUDeNsTu/AWQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xWoK8-00000002VXL-1mFj;
+	Fri, 27 Nov 2026 13:16:41 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 27 Nov 2026 13:16:40 +0800
+Date: Fri, 27 Nov 2026 13:16:40 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Pavitrakumar Managutte <pavitrakumarm@vayavyalabs.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, robh@kernel.org, krzk@kernel.org,
+	conor+dt@kernel.org, ruud.derwig@gf.com, rbannerm@synopsys.com,
+	manjunath.hadli@vayavyalabs.com, adityak@vayavyalabs.com,
+	navami.telsang@vayavyalabs.com, bhoomikak@vayavyalabs.com,
+	nazim.khan@vayavyalabs.com
+Subject: Re: [PATCH v31 0/4] crypto: spacc - Add SPAcc Crypto Driver
+Message-ID: <awkSOCWwb9D_-64c@gondor.apana.org.au>
+References: <20261120131404.976959-1-pavitrakumarm@vayavyalabs.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,17 +68,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120131404.976959-1-pavitrakumarm@vayavyalabs.com>
 
-Hi Guenter, Navon,
+On Fri, Nov 20, 2026 at 06:44:00PM +0530, Pavitrakumar Managutte wrote:
+> Add the driver for SPAcc(Security Protocol Accelerator), which is a
+> crypto acceleration IP from Synopsys. The SPAcc supports multiple ciphers,
+> hashes and AEAD algorithms with various modes. The driver currently supports
+> below
+> 
+> hash:
+> - cmac(sm4)
+> - xcbc(sm4)
+> - hmac(md5)
+> - md5
+> - hmac(sha1)
+> - sha1
+> - sha224
+> - sha256
+> - sha384
+> - sha512
+> - hmac(sha224)
+> - hmac(sha256)
+> - hmac(sha384)
+> - hmac(sha512)
+> - sha3-224
+> - sha3-256
+> - sha3-384
+> - sha3-512
+> 
+> changelog:
+>   v1->v2 changes:
+>     - Added local_bh_disable() and local_bh_enable() for the below calls.
+>       a. for ciphers skcipher_request_complete()
+>       b. for aead aead_request_complete()
+>       c. for hash ahash_request_complete()
+>     - dt-bindings updates
+>       a. removed snps,vspacc-priority and made it into config option
+>       b. renamed snps,spacc-wdtimer to snps,spacc-internal-counter
+>       c. Added description to all properties
+>     - Updated corresponding dt-binding changes to code
+> 
+>   v2->v3 changes:
+>     - cra_init and cra_exit replaced with init_tfm and exit_tfm for hashes.
+>     - removed mutex_lock/unlock for spacc_skcipher_fallback call
+>     - dt-bindings updates
+>      a. updated SOC related information
+>      b. renamed compatible string as per SOC
+>    - Updated corresponding dt-binding changes to code
+> 
+>   v3->v4 changes:
+>    - removed snps,vspacc-id from the dt-bindings
+>    - removed mutex_lock from ciphers
+>    - replaced magic numbers with macros
+>    - removed sw_fb variable from struct mode_tab and associated code from the
+>      hashes
+>    - polling code is replaced by wait_event_interruptible
+> 
+>   v4->v5 changes:
+>    - Updated to register with the crypto-engine
+>    - Used semaphore to manage SPAcc device hardware context pool
+>    - This patchset supports Hashes only
+>    - Dropping the support for Ciphers and AEADs in this patchset
+>    - Added Reviewed-by tag on the Device tree patch since it was reviewed on
+>      v4 patch by Krzysztof Kozlowski and Rob Herring (Arm)
+> 
+>   v5->v6 changes:
+>    - Removed CRYPTO_DEV_SPACC_CIPHER and CRYPTO_DEV_SPACC_AEAD Kconfig options,
+>      since the cipher and aead support is not part of this patchset
+>    - Dropped spacc_skcipher.o and spacc_aead.o from Makefile to fix build errors
+>      reported by kernel test robot
+>    - Added Reported-by and Closes tags as suggested
+> 
+>   v6->v7 changes:
+>    - Fixed build error reported by Kernel test robot
+>    - Added Reported-by and Closes tags as suggested
+> 
+>   v7->v8 changes:
+>    - Fixed misleading comment: Clarified that only HMAC key pre-processing
+>      is done in software, while the actual HMAC operation is performed by
+>      hardware
+>    - Simplified do_shash() function signature by removing unused parameters
+>    - Updated all do_shash() call sites to use new simplified signature
+>    - Fixed commit message formatting by adding "crypto: spacc - <subject>" to
+>      all patches
+>    - used __free() for scope based resource management
+> 
+>   v8->v9 changes:
+>    - Updated the software fallback implementation to use HASH_FBREQ_ON_STACK
+>    - Corrected dynamic allocation of statesize and reqsize in init_tfm
+>    - Fixed synchronization issues in the digest request
+> 
+>   v9->v10 changes:
+>    - Fixed unused variable warning
+> 
+>   v10->v11 changes:
+>    - Removed the redundant crypto_alloc_ahash in the init_tfm function
+>    - Removed the redundant crypto_free_ahash in exit_tfm function
+>    - Removed the redundant crypto_ahash_setkey call in setkey function
+> 
+>   v11->v12 changes:
+>    - Removed do_shash() and switched to lib/crypto API in spacc_hash_setkey
+>    - Dropped support for SM3 algorithm
+>    - Improved multi-device safety by encapsulating handling within priv
+>    - Added memzero_explicit() in sensitive paths
+>    - Minor code cleanups and style fixes
+>    - Algorithm registration cleanups
+> 
+>   v12->v13 changes:
+>    - Removed all the sleep function from setkey function
+>    - Added shash implemntation for aes algorthims
+> 
+>   v13->v14 changes:
+>    -Added fixes based on the reports by Sashiko
+>    -Removed the spacc_is_mode_keysize_supported call from do_one_request
+> 
+>   v14->v15 changes:
+>    -Added fixes based on the reports by Sashiko on 19/jun/2026
+>    -Fixed styling in the Kconfig
+> 
+>   v15->v16 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v16->v17 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v17->v18 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v18->v19 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v19->v20 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v20->v21 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v21->v22 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v22->v23 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v23->v24 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v24->v25 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v25->v26 changes:
+>    -Added fixes based on the reports by Sashiko
+>    -Removed the additional fallback
+>    -Added the CRYPTO_AHASH_ALG_BLOCK_ONLY flag to the cra_flags
+>    -Minor code cleanups and style fixes
+> 
+>   v26->v27 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v27->v28 changes:
+>    -Added fixes based on the reports by Sashiko
+> 
+>   v28->v29 changes:
+>    - Resent with patch 2/4 regenerated; v28 2/4 had a corrupt hunk
+>      header and failed to apply. No functional changes from v28.
+> 
+>   v29->v30 changes:
+>     -Added fixes based on the reports by Sashiko
+> 
+>   v30->v31 changes:
+>     -Added fixe based on the reports by Sashiko
+> 
+> Pavitrakumar Managutte (4):
+>   dt-bindings: crypto: Document support for SPAcc
+>   crypto: spacc - Add SPAcc ahash support
+>   crypto: spacc - add spacc autodetect support
+>   crypto: spacc - Add SPAcc Kconfig and Makefile
+> 
+>  .../bindings/crypto/snps,dwc-spacc.yaml       |   50 +
+>  drivers/crypto/Kconfig                        |    1 +
+>  drivers/crypto/Makefile                       |    1 +
+>  drivers/crypto/dwc-spacc/Kconfig              |   64 +
+>  drivers/crypto/dwc-spacc/Makefile             |    7 +
+>  drivers/crypto/dwc-spacc/spacc_ahash.c        |  806 ++++++
+>  drivers/crypto/dwc-spacc/spacc_core.c         | 2407 +++++++++++++++++
+>  drivers/crypto/dwc-spacc/spacc_core.h         |  861 ++++++
+>  drivers/crypto/dwc-spacc/spacc_device.c       |  340 +++
+>  drivers/crypto/dwc-spacc/spacc_device.h       |  178 ++
+>  drivers/crypto/dwc-spacc/spacc_hal.c          |  349 +++
+>  drivers/crypto/dwc-spacc/spacc_hal.h          |  113 +
+>  drivers/crypto/dwc-spacc/spacc_interrupt.c    |  365 +++
+>  drivers/crypto/dwc-spacc/spacc_manager.c      |  641 +++++
+>  14 files changed, 6183 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/crypto/snps,dwc-spacc.yaml
+>  create mode 100644 drivers/crypto/dwc-spacc/Kconfig
+>  create mode 100644 drivers/crypto/dwc-spacc/Makefile
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_ahash.c
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_core.c
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_core.h
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_device.c
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_device.h
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_hal.c
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_hal.h
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_interrupt.c
+>  create mode 100644 drivers/crypto/dwc-spacc/spacc_manager.c
+> 
+> 
+> base-commit: 04cd6899aaaeeab82afb97e58eb8619fde35b47d
+> --
+> 2.25.1
 
-Apologies for the silence over the last few months -- I had to step away
-due to a family illness, and I am truly sorry Navon had to track down and
-submit this fix on his own in the meantime.
-
-Thank you both for taking care of it.
-
-Acked-by: Sergio Melas <sergiomelas@gmail.com>
-
-Best regards,
-Sergio
+All applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
