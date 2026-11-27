@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774970;
-	b=P6/A1D02G2WumvEUIlisXc6nZSAfLroAW9GY/vpiUKr7w0LyVVTgeQTOGZbG3pklID+N
-	 HbRNsKuifI7HYO6b5WpPUK3HzEczlwQHOC5QYPoijr9YFHWy72MNeOifX23ZjLk6BR/Il
-	 CcASsP49bjl3fHclHfZoyJ8bCUDtXiPrmRoGWqKP0Kyfmaw9bsP5oNyuTVOpdg5ows7b0
-	 ZjN9vXCvWC6TrY5WOaqXUU4VpUlwMxmtVtvd/DtAvYhOvMBt210pzO/Sa+q/sX5NdokQD
-	 MICUl/d9EIr7VLJx/VgHXXPdkUr+aL15jzylclwzwoiDFndWkSe8ZRSpB5HRFBUe/Sw==
+	t=1795774972;
+	b=Ecy+UYtyGe+94ExDPb9x5aR/vHfH8D2yUJOxDq3guD+7FpxnaW6MumVCp0QScymjIgpu
+	 3BWy8OL+QwPpQ2NbKcYlPquidHh7wd0w11HShgcDAQusC6ecRSm2DbSBHTJ0nTkfcS01o
+	 UlJcc0zoJQ4thlF2Asft3wgXghYs3EirC0tAevJ9xNLLBj/Q4haHF4sWTcpBa++P543eU
+	 s6wUOC6aY9VnPShhWHSv298NO7J+9In2A+gSpciIZPlHLhZUZaBtwC5FSZMMwEyo5iw8l
+	 rdkqRm5fih07VhPgHYtLJzCPRlDAMNYN7GPXXReicfy9z7Gv5A4nq5p298rIUV6TKqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774970;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774972;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=rcLiYjm+Bw7UNaKZxYLwAijXLTVgk+NU4KBS0kQqv3U=;
-	b=MNDIMGSN54mZotbhX9bgE5cm4qyS+PkKcizsEi22ESHueVgw2/f+Ao7nR4tcyGEB+1wh
-	 jqcwgbgbRwKVhicA2VkekXouHvVi+ZFvcdZTbWlSus6spW2uuy2C2lD0RSC5RUgBO4NKF
-	 5LAcBeObF5SfxDnH8ypqj138dHyV+7gC9/v9e+FlgzyC97ZETU6rzojsU/9a2W2wPIIw0
-	 Bsl9/IDr8ll4ujTy2plGHU1KcEim9vkyzGL5UY5ci5vJbxYfgoD9ctP0Sk9/KhPtu6cci
-	 BBSDZBT1z2bO2SjILW1NWrtGdDypL/jnXkK12zUVI0X4yJDHzwFu71hvZYwlIjU3sAg==
+	bh=BWTtel0JluNyW7ejmhmowgW5rxsZC1lv5NPPBs2x8Xs=;
+	b=Ej0/fgohkb7EgDjtiGQNzNOkR6tTlw/kOOeMrSZgkhrUMD54ix++RDKvNV25mFRbaicz
+	 38XoLgQPzrbQ/xjERBeJIPz9XyunJ00mAkerijc5AesTznK4jqhm6iBbjz1PeSNmi4bbZ
+	 G0wnwZYo8SDGCV6+qu5DYPxsHJkxO+nm1GvVr+mdx3fAl2wWJQ4+Arjmd3ERW7tAI40rI
+	 RSVaCyB1BuiOXiN95qUZ/FhfZGKdFFZOjnBfClCH43gnfz+tooz9Vzhw6JDrCDlMyZw5B
+	 q2QDnL6H10hjFyx7uJ35VEKbDpdhvZroaTN8LS0ACaz9Qznil0qNgTErhRi0h45czaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jPY+kzT3;
-	arc=none smtp.remote-ip=209.85.208.48
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pEsMUJr6;
+	arc=none smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4283606A6B1
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:22:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4283606A6B1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DF31606A6B2
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:22:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DF31606A6B2
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jPY+kzT3
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so9026934a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:22:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pEsMUJr6
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c4d28f75d62so1289686166b.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:22:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795774968; x=1796379768; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795774970; x=1796379770; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rcLiYjm+Bw7UNaKZxYLwAijXLTVgk+NU4KBS0kQqv3U=;
-        b=jPY+kzT35XRacdl/8zgOfvZ99pEl+zFMT597HKM4mIj4QYGbAajvNOjFula5B87lYb
-         ziNy+8KI8skqfjiGuaWvwMezqrmQfD3/lAcFxRg1KghJhiZQbcxIHJPSZKHWeeJj0N5K
-         M2h8TkcqoVoVFbMoiH2cwak7V4OcW+KQNzCB+VLmsQFLdeJ3A3WqWAUFK10wh0tiGrFH
-         fSOVW3C6jDwbY3IqNitahlg4yUqifsfmiUvvxgg9p8Ziz+gc4Y8lljV5TYqN+ZLzcFZH
-         qZsc4+zuE45UtBXFqUNbJOC5dsWFOFgK/wpdD1TXcprR5ZloOsmqSjBYDt4SrsrV13Rf
-         6Ruw==
+        bh=BWTtel0JluNyW7ejmhmowgW5rxsZC1lv5NPPBs2x8Xs=;
+        b=pEsMUJr6wshyFZk9mSg9Q5aVI2hbLthWoh4EaFjx0AVrRXI+GMhL6cHAtiy5w3a1be
+         XDFPG0+WH+n+c0BBOkCe+Vvt/F6CbykVNqo35ztzH43l3HSuKkg4xHhv2R7A/leDOkbo
+         A4Smycbj8nJcb5c+Q8nNrt+zzg+CFR2dMHk8b4Ql+y/FAvNAy3oRX6OWz5aIa4uIkDMC
+         xXrOtXYi+FE9kYyoNGj781TgU/DSE1Jotk282tt4reseJcYHJiLrmQ7c+2RayYIlse6/
+         8JCGRCGMbQc4B/Wx7RR7nJKxdyI/i2+cNT35Zol4NyZzsw8xzXiKOvE+T3RpSbnPz3EG
+         kkpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774968; x=1796379768;
+        d=1e100.net; s=20260707; t=1795774970; x=1796379770;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rcLiYjm+Bw7UNaKZxYLwAijXLTVgk+NU4KBS0kQqv3U=;
-        b=lIaQDXxjKIvPhsWcDgVi27W+vWOzLxN8IvQCXDgcSDrk6bVcx6A/v3KjdAfnRAlUn9
-         l5Y8TNa4NBoEKmytcLcqi+VGy4A9NsKuWdqpSSVcBYtDud8OLSnVg8yHcKj7bI9YHE85
-         X7ZeTAk6jKtRTIef4res555TOkYBlFKR+FYS7ZwJXHaQ6xX+dQXCvTMd6s8xOFjgeety
-         EMpYXLdb0Og/HMlR/2HB9/Pz8UeZeW59rceeVYIV5Dzy5BQataUS10q4HJJsV8SwIuZR
-         oW6Dd5Xm6zMyZqvoFA1zTkxN9u6Hvsqm5rkyIb1OhqtTnnKWN+SAMUodI9N1pxMxG6Ev
-         5+0g==
-X-Forwarded-Encrypted: i=1; AL+hErFh1UD3iMIqGnHIUb+TVaIRqmbEG6964hrJwQ3W2CXSDjQDX0OTfJDepoH6IiIjIesnBVY3/BSHyQ8qR6I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Sk+kpXvTxtu7z8yEdtYQBXpwqjhC1B9b1432MBSvhlKVdvGP+
-	GyvC68mvhFjCehHyA+lT7ReVLRg8vCJUIHPrO1bBWlCd9irU+WnUaDzC
-X-Gm-Gg: AZFdTZduFn7zwiVKQ6d552gbRjtpznLF0Qre0bEnwq4yQJjoWB9BOrzR061YMr0DqM4
-	ls2PzuAHnrS4csaND9azqoNHNcLTMTDBh2JcTPP9QutUrzoJt3vU6cFlP192BqWyJU+mkaXVTLS
-	+WOdBaHR35hJRzp7iRruGJFoZ7zuRpmIdv4rYG4W7UED/ogAOgVB5uEie8O2jtDci6A958+4Wkz
-	U0O7WpJM0fGq84LXlmSg9xtL+ZzgNnkI69KzdBiZaA9Kud/lw1zOX0WXbf9iNAbbUqEF3gFnyyf
-	C2hOFqWOBS5y9ZRvCLmXoOuJYApq1U7urLgsGKxuATlVrBweSkJT/nLDLkPkKNoM8jBpPMNigMv
-	YzN4WagAYhvM13RLlnwSPLClWNoe8w9vVaeoLGfvcD6/oXrY5nqyl3cHsfNVdWYtZNLCigfqdml
-	5aPHJm/d0PC7LjdWBvNWc3ki2hU6JBbg/HHlPjgjcWwOuvogF8tAusGBrYnXEisxFGrqPtQTlZW
-	a1jh8IOnwTAi6CuahU0cFCaWbi+A+2ZQGzjB8VbKQyWwcGNOHNYrRN1U/lJvPjWBphgx1/6smYP
-	R3mhWYgC7bsVKaAkDZXPT4zDhjThzwT+v+GegfqfGRk4BBaeSjMa7csuIMe825rxhEw9TA==
-X-Received: by 2002:a05:6402:2105:b0:6b8:7e86:3eb0 with SMTP id 4fb4d7f45d1cf-6ba37ec50b2mr16425783a12.40.1795774967795;
-        Fri, 27 Nov 2026 02:22:47 -0800 (PST)
+        bh=BWTtel0JluNyW7ejmhmowgW5rxsZC1lv5NPPBs2x8Xs=;
+        b=uHCCmWbKdEEgCOEvAoyH6TzAqx6Ul3yLe9o62mO1SgdEqROYujeLgGuzGm0Plz0deo
+         WmmOxEFMExENvhHJTUypt3aKD3fQ4FvpXREXfLtSIrnt2/ASp6HtJA8MG/zzDHd/RygA
+         fhuUJk4ilmpuJ8eX2PgkR14blso6/nqTBuzrYEtnAlamnvZctNWx0Yf0dIj/F4ex753M
+         sXsxFnQoxJ8gm/ffvGBybsyi2mnqogGv1itKloeVgZjoXptNzHBir7Jy3LPhjgOqXKrb
+         ZUvwuqOeJ6VwS835nVed4GvxwdmLKKE371m5iH76jl8HdwcdQCihlmoTYDJhfx50eb8H
+         fdhg==
+X-Forwarded-Encrypted: i=1; AL+hErHZ5JvUYpwle1msO5OVLixplt09VKXLmKU+0KjPWPZR7VnOz9nAcZuACOkuNCwizjXwWiGo7tvfxvKXOH8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BgozLjGumc0hjJeEs/AAqf5tkNxbzGYyMwm/cRKdU+xFgQbXp
+	Uf4JCTq+iVA+XZiJO3N8AhivLjnBRM9PaI7F4xknSOfNP0pgOAb8P3HS
+X-Gm-Gg: AZFdTZcQekpZqaKQK4i9FBrl9klnGj1pB0hEt46b8Kqj0GHKhekdUawcGUxVEqBw/gK
+	VjFm7uO8m4BdAworj8W+44u1FS1T9yymSo0SNNnZwOYcSrWgb83ApaGY/e5WVwN5uk/6ql/evU6
+	Yy5Hjo7RHWhY4n9Jdlikqsr1nuNa4+KjBv80v9h9MSqBd+YvFjGv6R5X8o5FO2W0Ri8xB5pGELD
+	zUFocyo4SVLxfZgnQPGI22qWsOpfr5ijetLNuJb8D2q2H6moqrWyLGa9VzAxuoDaEck5cT2vhki
+	h4wBwb6hQ7jTyU+6Q1pdKWoV6o9gpKsZyockQnwOzasNX0VQwsPOwoJhC08CWIc2spKpKW8lrKx
+	otkHTFw9gC13uef0yZab3X5rzXZUwlRAsKTWFd8hHr4rwR96y99B8MXbe2J9wo8EvA7cWX/YzxT
+	JArS42P5M19Lj8O9zpfatpeF1GTEGVYMbQe23nx56FIUxQHAuM3Jb/KF6uEdKSG3Zj2P3arqZ6y
+	7DqiLDPjqXJXbrusNbxP6HvY0g8f5oYxAbqM61uYokKrTdltFyxy7gsjawQ1+x32TH0B8XlFog2
+	hPmlnMmWmwXXTOfBo91jcBhBcpj1iqhNctBTjkepBgQHKXBLnw==
+X-Received: by 2002:a17:907:3d0c:b0:c31:c767:adfb with SMTP id a640c23a62f3a-c513a274fc2mr1819372866b.0.1795774969713;
+        Fri, 27 Nov 2026 02:22:49 -0800 (PST)
 Received: from Air-pasichndev ([188.163.8.107])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370cbb80sm10886407a12.9.2026.11.27.02.22.47
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfeda1sm895871166b.6.2026.11.27.02.22.48
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 02:22:47 -0800 (PST)
+        Fri, 27 Nov 2026 02:22:49 -0800 (PST)
 From: Andrii Pasichnyk <apasichnik9@gmail.com>
 To: "Jason A . Donenfeld" <Jason@zx2c4.com>
 Cc: wireguard@lists.zx2c4.com,
@@ -90,12 +90,12 @@ Cc: wireguard@lists.zx2c4.com,
 	Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 2/2] wireguard: selftests: remove a peer under load
-Date: Fri, 27 Nov 2026 12:22:43 +0200
-Message-ID: <20261127102243.49405-3-apasichnik9@gmail.com>
+Subject: Re: [PATCH net v2 0/2] wireguard: free queued packets on peer removal, and test it
+Date: Fri, 27 Nov 2026 12:22:48 +0200
+Message-ID: <20261127102248.49457-1-apasichnik9@gmail.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261127102243.49405-1-apasichnik9@gmail.com>
-References: <20261127102243.49405-1-apasichnik9@gmail.com>
+In-Reply-To: <179568676064.3294.9567118397760540141@kernel.org>
+References: <20261126094722.73025-1-apasichnik9@gmail.com> <179568676064.3294.9567118397760540141@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,72 +107,14 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Remove a peer while a UDP flood keeps its receive queue busy, re-add it,
-and repeat ten times. Packets left on the per-peer receive queue keep
-the peer and its keypair alive, which the created/destroyed object check
-at the end of netns.sh reports as "merely created".
+netdev-bot+sinfo@kernel.org wrote:
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-The ping after the re-add makes the new peer handshake at once. Without
-it the other side keeps using the old keypair until its own timers start
-a handshake, nothing flows in the meantime, and only the first removal
-happens under load.
+The leak was hit on a single-CPU MIPS router (Realtek RTL8196E) in
+everyday use as a WireGuard gateway, and then reproduced with the
+WireGuard selftest VM. v3 says so in the commit message of patch 1.
 
-netns.sh sets message_cost to 0, so every removal under load logs up to
-1024 "Packet has unallowed src IP" lines, one per queued packet. Ten of
-them overflow the 256 KB kernel log buffer; the object check then reads
-an incomplete log, reports peers as "merely destroyed" and can miss real
-leaks. In the worst case the loop logs about 1 MB, so raise
-CONFIG_LOG_BUF_SHIFT to 21.
-
-The loop adds about 13 seconds to a run. Without the previous patch it
-fails in every run with NR_CPUS=1. With the default four CPUs the leak
-is hit much less often, so NR_CPUS=1 is the configuration that checks
-for it.
-
-Signed-off-by: Andrii Pasichnyk <apasichnik9@gmail.com>
----
- tools/testing/selftests/wireguard/netns.sh         | 14 ++++++++++++++
- .../testing/selftests/wireguard/qemu/kernel.config |  2 +-
- 2 files changed, 15 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/wireguard/netns.sh b/tools/testing/selftests/wireguard/netns.sh
-index a8f550aec..8303802c0 100755
---- a/tools/testing/selftests/wireguard/netns.sh
-+++ b/tools/testing/selftests/wireguard/netns.sh
-@@ -207,6 +207,20 @@ n0 iptables -F INPUT
- ip1 link set wg0 mtu $orig_mtu
- ip2 link set wg0 mtu $orig_mtu
- 
-+# Remove a peer while a UDP flood keeps its receive queue busy, then re-add it;
-+# packets left on the per-peer queues would keep it from being destroyed,
-+# which the created/destroyed check at the end catches.
-+for ((i = 0; i < 10; ++i)); do
-+	n1 iperf3 -s -1 -B 192.168.241.1 &
-+	pids=( $! ); waitiperf $netns1 $!
-+	n2 iperf3 -Z -t 2 -b 0 -u -l 64 -P 4 -c 192.168.241.1 >/dev/null 2>&1 &
-+	pids+=( $! ); sleep 1
-+	n1 wg set wg0 peer "$pub2" remove
-+	kill "${pids[@]}" 2>/dev/null || true; wait "${pids[@]}" || true
-+	n1 wg set wg0 peer "$pub2" preshared-key <(echo "$psk") allowed-ips 192.168.241.2/32,fd00::2/128 endpoint 127.0.0.1:2
-+	n1 ping -c 1 -W 1 192.168.241.2
-+done
-+
- # Test using IPv4 that roaming works
- ip0 -4 addr del 127.0.0.1/8 dev lo
- ip0 -4 addr add 127.212.121.99/8 dev lo
-diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
-index 368fd9d60..1adf7cb6e 100644
---- a/tools/testing/selftests/wireguard/qemu/kernel.config
-+++ b/tools/testing/selftests/wireguard/qemu/kernel.config
-@@ -67,7 +67,7 @@ CONFIG_SYSCTL=y
- CONFIG_SYSFS=y
- CONFIG_TMPFS=y
- CONFIG_CONSOLE_LOGLEVEL_DEFAULT=15
--CONFIG_LOG_BUF_SHIFT=18
-+CONFIG_LOG_BUF_SHIFT=21
- CONFIG_PRINTK_TIME=y
- CONFIG_BLK_DEV_INITRD=y
- CONFIG_LEGACY_VSYSCALL_NONE=y
--- 
-2.43.0
-
+Thanks,
+Andrii
