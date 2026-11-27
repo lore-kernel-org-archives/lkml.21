@@ -1,105 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769340;
-	b=cWqxW0Ssmq2W64UyBVl2rZOSEsEFFrycmQtKeE25MclzPaq86HLU8Z+QkhjuEmhK+noS
-	 RLc+j5g6V6GV3pp4ov/qe86ruPU1i0eL+bf/hhJioB5jNFCEpdB2aNxm8PbmjoCkrpkDI
-	 LlY67O7zyn1IoXyWgYj2wepQKM5v2BteRV8YYUHk7rg7Jj1wgLEP2rAeEhbX66VEcbzP7
-	 6ghiuAp8Egl8j1sfOUMBxutsNVwpb4RQsSImtoM22VBEM/jIHMPF+N8OxW4RDvrrii+Bd
-	 eA+x4TIxigyX7W+o9RwzLoxgn9wvC9dTpwlLSOnsLfgPrDbzr7CsXXON+m/vx8vm86g==
+	t=1795769338;
+	b=UWcb2d7op9ZybHGT7FYxrdO1RRpFso2NJ+kRU4k/8Mdp7jncfO2VELzaMupqZNSf/0KZ
+	 E4dKLB93a1Z/FibQ0JLzfo+Z15kBMBO4NXlp2OXmnPCFEwwk7cFQ+w5I04lhgtDiBKnga
+	 bT8pbROCeofCAEJPjOe03u6Pv0k4fhNYOK+C4+NKLxrZvCWZmwxQeG/8rVZ+DZC3eJ3lP
+	 euURuGUYCD4LEcilrkgODqQsf1MIc9/c7d0sMBxbTQPotSZChJ6Tfwn5EXowU3Qf5RzwU
+	 q7Qf2lG6fnUmiiZjHT6KFBSEQGoLRaYsnFa6v7Gg2TRNcL7l1ewq2W5qhij4VuD+uHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769340;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=aSulb1ZKSxB82Q0DHVFpLluzjXlQ4n39cXbO7GHm4Hg=;
-	b=gymQT7fnn0tSQ9Rzg2bgWwi8cZt/H4CAhlNOtfqRwE68q0YqF9u34cYc8FSevZr4CHzn
-	 5BeSvX2ZCIvRgeeXf/x3xaAH4kQo7QrV9/zsmQ9VcQ+88DxCg/2IMmLvEa5mCyE/JwckL
-	 DH/jb3Qe7NVL2JIL3YP6RSeVNK7Hgs6Lw3yOLvFOjIlet1SWzfAS/osf4CISt53QpMrOi
-	 4T26pso1UJLknhf9YyqWXckd7pBAxsajljslYOg8lcv9aDPmlPIfhT7eqZ77e+jEq4NKE
-	 lrgOHKyAi/UhEpgqQ1N1REjgbc2sNrJLuG1BRButDKyGLi6PSmVF0FY0IQa//YfLGJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769338;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:
+	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=GRTB6scsvX2+8rRiFj5H5s6fLmWfs5A6B4E6WVX03y4=;
+	b=YvClaRTZUIUNMCfTvWH4+8t2VOWAZZp+5nuJzIxWVjfrNvn3LgCxW0C1OIJmDfSfr1lm
+	 Tl0KPpxRK4jzPxCa3jiAij2ETCCsryX819qTqDvkf/hFMmdFNhVUQ/sM6yuFKsRwxxIaz
+	 //MXLMXcbijBvcA5K2/pNH859TfQXxPPTJX5oXndLw8hWEYRe6KI+33NqNijgixOsTF/Q
+	 /9uQR8sm8KRQC8UvhM9kDsnvWcsQdlF1s/Ln6bC9ssdzmMsuX+tzsbMgCK7pwzfE+n9+b
+	 XmEZrLEKTks9FRTA6E6TJpvLJzAqK53BO/nOmeUda+bVdtQGeHWPoS7J/ub93r+0P/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jaXo+qjx;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=btDpjFHh;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BEA0606A68B
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 08:49:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BEA0606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF7E3606A33A;
+	Fri, 27 Nov 2026 08:48:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF7E3606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jaXo+qjx
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f0414c1062so47123515ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:49:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795769340; x=1796374140; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aSulb1ZKSxB82Q0DHVFpLluzjXlQ4n39cXbO7GHm4Hg=;
-        b=jaXo+qjxS4fzoJ1sRQ8Yi81AgRWhimCxet1u+2ypHmWVaS4F6bD4yNr48nufv3HKEd
-         pBuvi91xlP2kgry/49Zibz3buJuD3yv+nFgstbLMZWbv6FIEqVoOgzgtfIGKMqmfyEAs
-         exUFaN1Vb5eB1op9z7SruKPxs3jk4eq4fe35/q9m8jSAZqh+jhIXQIfjD55LG/5Lgzlk
-         k4gzG5VzILL+/MablkEU1WzCDIm2tVf1seXgNRskbhviWLdrizUghgXqkPF5kN1xOQRh
-         /x0cI0WdKXCfxTXYXH6OprpaNmImqlEly/ESj6RiS2UD918BLS2MxJ3CmRtYY4RU40SO
-         7D8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795769340; x=1796374140;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aSulb1ZKSxB82Q0DHVFpLluzjXlQ4n39cXbO7GHm4Hg=;
-        b=dCixDAd12VmUNAfOdtxPoN74Cv2vMc/SlxhX3D6y83uwCiFlD+ehXSboIopxG/Vs6C
-         +K7lDbgo8qmVAe2WNmMd8Kv/HSMbPAD9hekxsExW+tcgvZTG+7bpIwr12+l0y2+WMt5V
-         UMZrICapSkP3h158M3MnnrV7MoN5fKuHGKwO32u0eD04vaLALxwLGx4xVo1AlfeW0uPk
-         TYuiF1NUxAxWQDwZpS+74BFbClCM1N4s7IrzSsZiRMU7xKoYfq7JJT+0Tawmt6V1lJg7
-         6fIe88IsmIOBj1EDWVGZRnJ/k4yZu7tB5h1n7gMY2SoEnkopXMTd+hmkb0zWcd2nxepV
-         D69g==
-X-Forwarded-Encrypted: i=1; AL+hErHDKNOkOihvkZ5O6we2x730XdaOX1/aDLRJBcvMxwAhC2hTU6gX1hd+eYS2TeaXFtySWdfU1fXMp7dE6cw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8disdAnMqKVFwhIdU6HmdZDBA1sT45s9K/W3PFqFZrCqlo3Rid
-	hh6dY79Od75+A+Xg4O1PvnVsDB8Zs0ckYc+hCt8+R63B7ZOrA0Y6Mu2x
-X-Gm-Gg: AZFdTZeacoAyIBmjJQAhC/H9xQhNRcNFps4dy+mAi1idxu5wW9UrsLBntRtxjd8KmIl
-	3dqoo9CbbzQ6Yo02scp7Pf6+1tmCpUDFQfT1bfrQ5trLCOxLS8QA2EYRcCadKcByu0UKB2hSEcH
-	mJlfkNe2gx2SZItaqKUl0mzPciL4rBwwfkwcZkddEPrPpI43C7MGs77pYGiOebGGWfxuAmI3yQk
-	tCaaT2mOyN2NojKcWaY101iewHa7pievtQ9WTnNRAtypxBwKI427z9tD86GaHCxAOrZmar3kkJx
-	iVPIe6eU5i3+vR8y4LtdEKkTrFqzI3yNyoyF46MnAs9BTGWmspSl7bUSrZFhY3is0dolIFlz8hR
-	5R5eCaulHGeJRuhSZI8VCxa5c7H6xxY0y5PbwpLAP4hnX8r1z1IrzX1W46p3mZ6PZTov+PRqzSj
-	2Twz+WjMntwfWQTNi//kjJx+RrIP0ooNmbiZzJCo9KSHb5oT10dBqXM9OV32YcpR7T2TD49F976
-	4eHqP4NYlHvEXDBZPA7kPrl1Je6THpGrHxa5UPIkvQpR1eqI21WvkJaIsn282sBkUg3j+HpZ9Iw
-	4P0ssB4JUZXB/K4g+Z9gD/nsXDo7VFtlkOaHA/0CQ0X/JEhhcZzyQlBVUv/q28yfZA==
-X-Received: by 2002:a17:903:22c8:b0:2ef:e563:d2a2 with SMTP id d9443c01a7336-2f11414c317mr10473615ad.57.1795769339572;
-        Fri, 27 Nov 2026 00:48:59 -0800 (PST)
-Received: from qiwenjie-ThinkCentre-M760t.mioffice.cn ([43.224.245.241])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d0818c1sm12289058a12.30.2026.11.27.00.48.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 00:48:59 -0800 (PST)
-From: Wenjie Qi <qwjhust@gmail.com>
-X-Google-Original-From: Wenjie Qi <qiwenjie@xiaomi.com>
-To: jaegeuk@kernel.org,
-	chao@kernel.org
-Cc: linux-f2fs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	hch@lst.de,
-	jack@suse.cz,
-	axboe@kernel.dk,
-	tz2294@columbia.edu,
-	baohua@kernel.org,
-	linux-block@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
-	qiwenjie@xiaomi.com,
-	qwjhust@gmail.com
-Subject: [PATCH v6 1/2] f2fs: complete dropbehind write bios in task context
-Date: Fri, 27 Nov 2026 16:48:44 +0800
-Message-ID: <323235fbdeb5131f83569541c602ddc88f412b18.1795746008.git.qiwenjie@xiaomi.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1795746008.git.qiwenjie@xiaomi.com>
-References: <cover.1788438786.git.qiwenjie@xiaomi.com> <cover.1788795700.git.qiwenjie@xiaomi.com> <cover.1795746008.git.qiwenjie@xiaomi.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=btDpjFHh
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7H5bd1076621;
+	Fri, 27 Nov 2026 08:48:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=GRTB6scsvX2
+	+8rRiFj5H5s6fLmWfs5A6B4E6WVX03y4=; b=btDpjFHhO2VzB2DxQ43Q2bcrL5q
+	wvmWwkm77Ci0U0cRIeAwKGjnrenT1NzSWbN2ttkA7h00sRQXAeYMPu90/yFzG0JD
+	bBvuNfknEMJ4qakTXsRePwNid6VSAf7QvMOHmt44pxb1ul4LeZG7VA5rNH5u3L6Y
+	qIVtrHEbiIJwMLx33b8J9EiZ2JkrlvcJmgE2s7eTEvKSfrSWSH1KLATj0MtR6VaL
+	PvFn8x3UJPjrv2+sHfaWQ1DAbNtxUkZTcmbeES0uxnsf/t9hs6zrgZRs2zEtkT5Q
+	2ejM0e7cjKy3CsUkvSNnNmaoWcrOB9kksgX5l0MpY2rcNyjHDQVIu33hnBw==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6u55t24q-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 27 Nov 2026 08:48:30 +0000 (GMT)
+Received: from pps.filterd (apblrppmta02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR8mRaB1693406;
+	Fri, 27 Nov 2026 08:48:27 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mohis-hyd.qualcomm.com [10.147.253.64])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6AR8mRTO1693394
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 27 Nov 2026 08:48:27 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4840500)
+	id 940C163A; Fri, 27 Nov 2026 14:18:26 +0530 (+0530)
+From: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
+To: Srinivas Kandagatla <srini@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mark Brown <broonie@kernel.org>
+Cc: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org,
+        Mohit Sharma <mohit.sharma@oss.qualcomm.com>
+Subject: [PATCH v2 1/4] ASoC: dt-bindings: qcom,q6apm-dai: Add Shikra support
+Date: Fri, 27 Nov 2026 14:18:23 +0530
+Message-Id: <20261127084826.916361-2-mohit.sharma@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261127084826.916361-1-mohit.sharma@oss.qualcomm.com>
+References: <20261119164705.1594066-1-mohit.sharma@oss.qualcomm.com>
+ <20261127084826.916361-1-mohit.sharma@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,59 +96,82 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAzNCBTYWx0ZWRfX/tGUYjqGOuLX
+ 0mkOi26k7mQzlsIfqZYdTyLDFBoIGY6oho/TSXaajW4Z7morxf5BCR/NYeYpPd44LFbs3e/xrwK
+ xAULddIABHmCJLCXN2+yRd2dgynACu8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAzNCBTYWx0ZWRfX2LNr8SUbScoQ
+ 8ca6m34sr7xtP+pIn8xzqe7whkjfo2YUHdiF2GSdnIOnvqRpft2sKoH0MsEowJkfCPIP184zn/R
+ CIOuQoV89eALt8RywZuSMsdAJEZVlidqeVS3R/eLx/E7M/qanQWMYjr7XVTXk2WMJiAoGCVRFfn
+ eqSMfLRGWjGwQgaOM9n8jpTaSCOeMcOgNnUe/WHw6j6UBAQLOIz9z6vlbTnUZDVnO74Vo6HiCbO
+ 0mRNlPviF7TslfxrhHT5xbZGBVDck3+cz8Td63RCN4rrs5MEEJ7qfTZtvMs+2N5D63hfCXvxTgD
+ WiD0nmAjdG+28z/JZ3KEmfIy9UslG2ZtozZ3JG6VrNdav6U+wrOr8yb4Z2F4WF2uQLKdppeAa7b
+ Hol+FQwZgYz4RdTeV7uCoXgIWnhhZSy4HpnHVFcldDlgoO03rj/c6ijpjxTyxeBRugiape8nC+A
+ pEcz9ZLKNLyqCl+Q5nw==
+X-Proofpoint-ORIG-GUID: hAjDorOppvsG-_0KMWh2QOQ0orTbt8IV
+X-Authority-Analysis: v=2.4 cv=Z795j3RA c=1 sm=1 tr=0 ts=6b0943de cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8 a=Mho0Gg_QYPVSDt4oThAA:9
+X-Proofpoint-GUID: hAjDorOppvsG-_0KMWh2QOQ0orTbt8IV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270034
 
-Mark dropbehind write bios BIO_COMPLETE_IN_TASK so the block layer can
-defer their completion to task context before folio invalidation.
+Shikra's q6apm DAI needs a SoC-specific compatible so that the Qualcomm
+SMMU implementation can select the identity domain required by its
+firmware ABI. The ASoC driver continues to bind using the generic
+fallback compatible.
 
-Allow normal and dropbehind folios to share IPU and OPU bios. Set the
-flag after a dropbehind folio is successfully added, checking the original
-page-cache folio rather than an encrypted or compressed replacement.
+Shikra uses a reserved-memory carveout as the backing pool for its
+audio DMA heap. When Linux runs under KVM/EL2, it also owns the apps SMMU
+and the EL2 overlay adds an iommus property to the DAI node. The resulting
+tree contains both memory-region and iommus, describing the allocation
+pool and the mDSP address translation respectively.
 
-Exclude metadata-cache I/O, which may not have a file-data folio. Leave
-the existing large-ATC completion path unchanged.
+Allow the Shikra compatible followed by the existing generic compatible.
+Replace oneOf with anyOf so at least one memory description remains
+required while permitting both properties in the Shikra EL2 tree.
 
-Signed-off-by: Wenjie Qi <qiwenjie@xiaomi.com>
+Co-developed-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+Signed-off-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
+Signed-off-by: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
 ---
-Changes since v5:
+ .../devicetree/bindings/sound/qcom,q6apm-dai.yaml         | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-- Rebase onto dev, preserving the updated bio_len/bio_offset merge paths.
-- Skip metadata-cache I/O before testing the original folio's hint.
-
- fs/f2fs/data.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
-index cdc9e6e8633c..37d74afc8b26 100644
---- a/fs/f2fs/data.c
-+++ b/fs/f2fs/data.c
-@@ -624,6 +624,9 @@ static struct bio *__bio_alloc(struct f2fs_io_info *fio, int npages)
- 	bio = bio_alloc_bioset(bdev, npages,
- 				fio->op | fio->op_flags | f2fs_io_flags(fio),
- 				GFP_NOIO, &f2fs_bioset);
-+	if (!is_read_io(fio->op) && !fio->is_cache &&
-+	    folio_test_dropbehind(fio->folio))
-+		bio_set_flag(bio, BIO_COMPLETE_IN_TASK);
- 	bio->bi_iter.bi_sector = sector;
- 	F2FS_BIO(bio)->entry = NULL;
- 	bio->bi_private = NULL;
-@@ -1077,6 +1080,8 @@ static int add_ipu_page(struct f2fs_io_info *fio, struct bio **bio,
- 					fio_folio->mapping->host,
- 					fio_lblk, fio) &&
- 			    bio_add_folio(*bio, folio, bio_len, bio_offset)) {
-+				if (folio_test_dropbehind(fio->folio))
-+					bio_set_flag(*bio, BIO_COMPLETE_IN_TASK);
- 				ret = 0;
- 				break;
- 			}
-@@ -1359,6 +1364,8 @@ void f2fs_submit_page_write(struct f2fs_io_info *fio)
- 		__submit_merged_bio(io);
- 		goto alloc_new;
- 	}
-+	if (folio_test_dropbehind(fio->folio))
-+		bio_set_flag(io->bio, BIO_COMPLETE_IN_TASK);
+diff --git a/Documentation/devicetree/bindings/sound/qcom,q6apm-dai.yaml b/Documentation/devicetree/bindings/sound/qcom,q6apm-dai.yaml
+index c1f9fc9eab64..8ad20f95c814 100644
+--- a/Documentation/devicetree/bindings/sound/qcom,q6apm-dai.yaml
++++ b/Documentation/devicetree/bindings/sound/qcom,q6apm-dai.yaml
+@@ -14,7 +14,11 @@ description: |
  
- 	F2FS_BIO(io->bio)->entry_cnt++;
+ properties:
+   compatible:
+-    const: qcom,q6apm-dais
++    oneOf:
++      - const: qcom,q6apm-dais
++      - items:
++          - const: qcom,shikra-q6apm-dais
++          - const: qcom,q6apm-dais
  
+   iommus:
+     minItems: 1
+@@ -33,7 +37,7 @@ properties:
+ required:
+   - compatible
+ 
+-oneOf:
++anyOf:
+   - required:
+       - iommus
+   - required:
 -- 
-2.43.0
-
+2.34.1
