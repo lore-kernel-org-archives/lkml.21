@@ -1,47 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795803251;
-	b=5gbMQIkfwEIUo60fHe9hjYNwMhzHmOX8PZBV3Lybq8MHxsa4tqoFqGewIbgYVE2MMXzH
-	 0/dJ3Sv9qDMibjj9DZ7Z8tgccusCnZE+/Zv+6l9PSGja7DOhomnug9a8Of5kygtwgeZoA
-	 vbg58GfOMLbCUTj7McZDvjuluCDu+wjK5niyG9frcMPY1oq78xb/6EEzT3tj5OVViLIx7
-	 kBYIwD1jeBjl45YXXsNfM1Gbi9Zlzh39R0DDyVPuA47QFcALflx/RyoH9TiezJi8k+FJq
-	 2JdZjxck2LwB62U1W15E9LFydTsCJmSkJ6jRsORyIaH+EO/c/qvrDp52sZKpQvvC6hg==
+	t=1795803384;
+	b=BS5QQ+qeoE7pAZJ8f3Klb6B5Lq+KQ4IZj9ertoX/qDF5I0ZgPKA9qwIk0V6z3GccTeMi
+	 ZO4/fjUJ22ek0xS9HKIj4BJqE2LCICtUSohyLM8sBCHm/KPbJQBxEBB1YtNmefqV8bbKB
+	 LYwKiRv9EZkbS7ZyGFNJmDkF8YMhvyqelkecRcEj6NXrfnChc7tm16KT6ZMqRMOj5wjeJ
+	 GD5kdFAoQCaFfBfddXctWln84OyMSIETCTWQBAYnZ9wEQ+rHhBbkfhCpX+zBOlWnstHa3
+	 YYIZetNWHoEdd5/LXmZP2DeQcoaDNo1XSjZA/gDLBPVTJizBUFi3YgH0h2WxgHqwQhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803251;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=AE7oJ4veC91R+VLYZKOnhXfo5TNhuhSeW8wXpT4PnZM=;
-	b=TdAb7ZpymoDb6h6EFfk1y+VGc3TxlTRbh/ka7+0x+Wvc0THJV0Kllzx1Uf98vQp/6Ybu
-	 YBns659xGrNQeuk/iOzM0dvQYJ2S/YPnhH9G7OV5AFma2DG37wEfKUqnw33te0CS3YFmh
-	 RrM3Yk3ZtJN2BJZHj/87BIICPqzYcYSXIIvQjuDhgXHCZs/TjRZ/jFDgW2EerLv6FjApW
-	 qrrHsgy7qszqZ6+uca6+dkMI39c9qul+Tsv2UBvKWKsTWWtwwfCKvaBytSmXvvxEd56Iy
-	 Me0P5vufk6mj1PsJ+PDTCa1eh5DheXfYG5SFJFfs89OuG8xNgG6HrYCEMTFQUmAxUzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803384;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KIy7TZZfhfrJECmc3jAKv7NlnAuyqwv9Lb466qTdbJw=;
+	b=KX1gCy0/sMt511QRpDm9aaoetFsmYL3cDCzg2mKl6voUfC+PNMAbD7YCz0Lf0E87glWQ
+	 w/esM90EhDVdmxJOKVst0nS6/SD0QdKqee7qkekfSz6Rz43y6hjz4juMEUIcjZBi8KLRa
+	 4up0gPQVIIajMBGfeM2GuNlWsl+SmgSK/v9A6T31t0rXU3reqTLV4dWV6yoMnH+AMfdKA
+	 X1d6nPJWOjzpRiRpdaWFDzDx3Gue7YnOTuCgSsP2qLMNqPtTwu3I+sv/SC2fT3N5MtolL
+	 i9nrXlZfT2GesWcmBp+w6Qki5OCy2yJxFn3mK0jSIuPt7XH/DE/Oq4MUU2jk38smwmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XoljLrzS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PQDDU42Z;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1292606A31F;
-	Fri, 27 Nov 2026 18:14:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CFEE606A31F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:16:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CFEE606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XoljLrzS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 644A41F000C1;
-	Fri, 27 Nov 2026 18:14:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795803250;
-	bh=AE7oJ4veC91R+VLYZKOnhXfo5TNhuhSeW8wXpT4PnZM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XoljLrzSv9TtczYZLyJAzunZ0gxNBmZaGNUTg+uEaYGE00gcTQMRiSf1NVGGN66Kp
-	 +AfeYdXh9i5oROY4jQM1aiUqrzSOp1ciSdc3C4sJ2gTTk6iXHuNeowlHj04kQHN0xz
-	 9tyMZhjIV10QtDWpiL0+sC/miJpmanhMUKcWN2gLzESUE1t950BqXI+/KXprOeJpEi
-	 puMMAz0S8jOaaYkG+PQOvnuuvfFsePcZC7uvhbzHGaFJE0mnhWLGH0YvC1uV2kFU/E
-	 Z0QKlwuQ8+uzr9HNNITxaRh6SEJwWujpbwYJvHEqdr5NWyxaUNeOUUbWoRxGLcwknX
-	 2zWhMS9LsoJuw==
-Message-ID: <61b33977-7c05-4d30-9a78-8fc711bd95ef@kernel.org>
-Date: Fri, 27 Nov 2026 19:14:03 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PQDDU42Z
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdebab6fdb3so1201741a12.2
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:16:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795803383; x=1796408183; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KIy7TZZfhfrJECmc3jAKv7NlnAuyqwv9Lb466qTdbJw=;
+        b=PQDDU42ZgVj0QoQ4uepU/7BP4KlD4Nn2+zzFk0PAhAz1Yef2HrqqTHLasU+e0E03L5
+         d4EhvDveddYJ3mfG6iYfkMrDqwkcxRoEdMnm8VnEgDxTZHOogSzUIy5jrkxiU2zr8ndy
+         PW/29QqdMV/IgOL0+ytSRIL0r01SrWM/vciOyue+nHvGAaDPnHGuaIcOl5YdfI+gPCwd
+         4K+mySS/LVXfZxIlUetIT+KT/4vuPf3FD45/9hD1t/NEP3mdfcU7UW+t7/iQH8VKd+bY
+         5DUU/eUl+xCvI60fz0PycQmdxyhOV/3AKGuH47glh6yVTn1SV0LzDObblanrCGOVPYH8
+         gVHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795803383; x=1796408183;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KIy7TZZfhfrJECmc3jAKv7NlnAuyqwv9Lb466qTdbJw=;
+        b=ke+Zi/pH9XrZFYVQtqxq0fVmM6NOr33XfmD+Z4snp2yUSIb84UTn8oMCbcPMvdCQFc
+         ee7F4zfnjew7em8R4rKcjHHWGgQfq2HfbeyEInaJfFnfICrjR2e/7XHgZfnusUULufpC
+         k+nnpHjoz5UR46OKjASBHBUCn3oX6YRxaLoDgKOEWrfVxN250jRWRZozWpsACrGr8uEx
+         HJDri/u2HwmeVIUC3nsKoSWOrkOo6pRwN0gV4q1MH12msGsz9/Wi0dvP0eGgAwlz1z6W
+         eV3KAwVZI6aMw5cXs+gadJI/zpEBf+Ob4JkBjJis7oa2ryfpI2P+RulgLvJPSQqHqo4Y
+         Ap9Q==
+X-Forwarded-Encrypted: i=1; AL+hErFc0yDpmED5reBXCk+8Ca8Oe7YGnEcgN9Sw8KLe6t5AU8TG0JgAX3T9D8mGnyOy4+qDLba54ZPhmMoVP+s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84xpHlPZ4ij9hphZjk8Awhl3q9foRswbfqtOPkcJnlZQn2EL7G
+	gX1JXBWUQUyfOhuvl9FWh8+sQpSbluMvUCppFWMHyKOVbh9+VvAgrzwXHZnjel8TI58=
+X-Gm-Gg: AZFdTZdx71EXHxv4LfrW5psD0MrnFT3KIJdxLqjij4ebMFTJFkEjWK5inAODnJ2ZJbq
+	rvMi4JrKQY3SnyrEQjnw4sBGJRw/LxAMX3dfIk5GHDEVGKLVwIpxNyrlqydbMxBKxxl/TdncJPj
+	hcmWVmLQPXBmSpUtAhPzrKAXK8mDBP9hXsPdnGEAfJsZhMkjZbTk8xkSsKVI66U4G/iB7QKM1Mr
+	t+FaWzqdtMVJaMWKSqqLCFkHQftEU6JQwPxSLB9tkR2LLR6PfIj+CHpArlErEAQeY3Imxb5Tc7h
+	h+uVMvAdB+ZyZJdTXYRQ0IHkM10cFRQ5Ixq9MQFHvxKA+RDULXQAGdU7fzM3EoBbJTtoU2THWLA
+	2Gvbd7zKBUvWq1oy3bDpJdF4X0f8PnR7HDOPxmnMEruCf9YYfKeT0pYVaB1OaDa7G+jThuW+Lzg
+	Mn4MNUD1hoXjvWLVRgHsMWDT0g3lED4lUoweuNOkdbV9AMWjQhaSekoecDARZaFkPJmKwNcciQX
+	xDrt9lJG6u7dSUXP3vlsTTfD/pKVPXqBhbKqDo3row7u97dSqFX+iGCWpYax5K+izlx7/6ubOeq
+	9vhx3qgzdrx/7gPG/BTtgKapworHw6N4K8Ka5j/KPA6NB/gnZg==
+X-Received: by 2002:a17:90b:1dcd:b0:3b0:bd53:8e5d with SMTP id 98e67ed59e1d1-3b41cb3e4b9mr20027678a91.58.1795803382825;
+        Fri, 27 Nov 2026 10:16:22 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c07sm39867121a91.13.2026.11.27.10.16.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 10:16:22 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: linux-ide@vger.kernel.org
+Cc: dlemoal@kernel.org,
+	cassel@kernel.org,
+	vireshk@kernel.org,
+	linusw@kernel.org,
+	linux-kernel@vger.kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH v4 0/4] ata: add missing newlines to error messages
+Date: Fri, 27 Nov 2026 12:16:15 -0600
+Message-ID: <20261127181619.183139-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,101 +98,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs and
- a cover letter
-Content-Language: en-US
-To: Sasha Levin <sashal@kernel.org>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Willy Tarreau <w@1wt.eu>,
- Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Jonathan Cameron <jic23@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Theodore Ts'o <tytso@mit.edu>, Security Officers <security@kernel.org>,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-References: <20261126171926.2766137-1-sashal@kernel.org>
- <20261126171926.2766137-2-sashal@kernel.org>
- <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
- <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local> <awjopqoCJqwChwnF@laps>
- <awlCy3vDs0fKx1ku@gremlin> <awlNYsu1y8EhYgor@1wt.eu>
- <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org> <awlR9pQUjodcLjZK@gremlin>
- <20261127133756.455469-1-sashal@kernel.org> <awmJ2c87NSDjtSwp@gremlin>
- <20261127143124.1039470-1-sashal@kernel.org>
- <33de19df-1729-4d1c-a6ce-e10e240e0c57@kernel.org>
- <20261127180325.2304501-1-sashal@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Autocrypt: addr=vbabka@kernel.org; keydata=
- xsFNBFZdmxYBEADsw/SiUSjB0dM+vSh95UkgcHjzEVBlby/Fg+g42O7LAEkCYXi/vvq31JTB
- KxRWDHX0R2tgpFDXHnzZcQywawu8eSq0LxzxFNYMvtB7sV1pxYwej2qx9B75qW2plBs+7+YB
- 87tMFA+u+L4Z5xAzIimfLD5EKC56kJ1CsXlM8S/LHcmdD9Ctkn3trYDNnat0eoAcfPIP2OZ+
- 9oe9IF/R28zmh0ifLXyJQQz5ofdj4bPf8ecEW0rhcqHfTD8k4yK0xxt3xW+6Exqp9n9bydiy
- tcSAw/TahjW6yrA+6JhSBv1v2tIm+itQc073zjSX8OFL51qQVzRFr7H2UQG33lw2QrvHRXqD
- Ot7ViKam7v0Ho9wEWiQOOZlHItOOXFphWb2yq3nzrKe45oWoSgkxKb97MVsQ+q2SYjJRBBH4
- 8qKhphADYxkIP6yut/eaj9ImvRUZZRi0DTc8xfnvHGTjKbJzC2xpFcY0DQbZzuwsIZ8OPJCc
- LM4S7mT25NE5kUTG/TKQCk922vRdGVMoLA7dIQrgXnRXtyT61sg8PG4wcfOnuWf8577aXP1x
- 6mzw3/jh3F+oSBHb/GcLC7mvWreJifUL2gEdssGfXhGWBo6zLS3qhgtwjay0Jl+kza1lo+Cv
- BB2T79D4WGdDuVa4eOrQ02TxqGN7G0Biz5ZLRSFzQSQwLn8fbwARAQABzSNWbGFzdGltaWwg
- QmFia2EgPHZiYWJrYUBrZXJuZWwub3JnPsLBsAQTAQoAWhYhBKlA1DSZLC6OmRA9UCJPp+fM
- gqZkBQJqFFy6GxSAAAAAAAQADm1hbnUyLDIuNSsxLjEyLDIsMgIbAwUJGtCBUAULCQgHAwUV
- CgkICwUWAgMBAAIeBQIXgAAKCRAiT6fnzIKmZJIUEADFx/tREzUImHrEwVHeSvDFmA7tJysI
- UVrlvrM09E7GIuzphzv7jYmo8n3ANpCczLEVr4G0syYQdTigaZgv3+FQDIIzhKih1IHhu1Ei
- XHlywNWKnQxxQEUNi5Mwx43wQz5XVw9F1A7gtKBKNtfogO511hAbrzagrYajyQacEJ/+sfhZ
- 9Da8ltHIXD8pcYaHUfQgEusCgmEd9+KrUwrTbckFKmYq5chuE6yJ4J0EmWknL096jIE6CnzF
- FRslQ3B1UKDjxVsm1ZHfir5NeWszLkTvGFsddFaWTgh8UycESG6VQzKXjjewXu2pG7YQYRpj
- QKm1W5X2TkwWkXRBZTmfmbhxIUMh3+zf5wQ463rSmDN/8v81tdqBtAW6rH/kzg1GvkaTHXn0
- 507yEHFzBksk2viAuIxxr7km8+/KARYLIdGtx30EG8cKzAUZOK6WqxtNCsXUJNrVE8CWrCaD
- icoNu7Fs1c5hmPHdSTnU48ce67449DdnO4neLSNhRiGlMHJgfJUmgrxu/hcYeOZ3haWmEQ2w
- uW1Mh01OHi8QZHCEyAbABrPs9GUgccc/4eYXX9hIgxfSkYzn8f+8NuIFPWl/0uTvjgqU29FQ
- SbzOLxHq9439Ox40G5mS5eZXRGxITYR+6TXvRGI6P/264jvflnr/pDGUttaikU+0W+1uxgKH
- cmYbEc7ATQRbGTU1AQgAn0H6UrFiWcovkh6EXVcl+SeqyO6JHOPm+e9Wu0Vw+VIUvXZVUVVQ
- La1PQDUi6j00ChlcR66g9/V0sPIcSutacPKfdKYOBvzd4rlhL8rfrdEsQw5ApZxrA8kYZVMh
- FmBRKAa6wos25moTlMKpCWzTH84+WO5+ziCTsTUZASAToz3RdunTD+vQcHj0GqNTPAHK63sf
- bAB2I0BslZkXkY1RLb/YhuA6E7JyEd2pilZOrIuBGl/5q2qSakgnAVFWFBR/DO27JuAksYnq
- +aH8vI0xGvwn75KqSk4UzAkDzWSmO4ZHuahKtQgZNsMYV+PGayRBX9b9zbldzopoLBdqHc4n
- jQARAQABwsF8BBgBCgAmAhsMFiEEqUDUNJksLo6ZED1QIk+n58yCpmQFAmfIHFQFCRYU6J8A
- CgkQIk+n58yCpmS2PA//bqN1LfcotmArgElsa+0EGZSQlYgK48pm8WAeTXTngudP9IJ4SuKY
- HR5RNjHcBeqN+Me0zxRqYzRb8nGanHEkDyf4Im8DQM8d6vbyU+FcPmG4skud4kgS1zMHnlVd
- SXfSIwKC/hKgdHG8aBV7545Lz9X6Iohea+94wneD0aw/hqF+QWewGZhWJriWAZtvEkzNjQOi
- 4U9F/trLten/x7bpphDSnDMKJtITbtzATT1Dq7o7VpIUK1nCTQALMuMjKCdi8OdU/+V+R3O4
- 0PXWvX8qrvqYapVbZ+9KqT74FsuB0Ya9uXwgBF2Q6cRuETZk5vqaqKxzqoQZCO8AOz/58j6O
- 2RHNy/mZEN+7tJ5Tsq42zVJ4jxsT8b9YplavCMsnBgDeRWhcbYhCyttoL7nYISyWg4kQYZ/P
- wIV3OuNv2f8iKYsxNsRuClOAF82+gvqOy1/1pprFjy8uo2pkoOrb63aOP3vO5VHnRKgra6dq
- NcaZ+c6J4H+nEJGi2SkHAUJz5oBzuThvPudLvPA/SK8sKoM01IRxSihev/S/5WLazXB1PGem
- OCbvzC1IjWJJraxiDJ5IygokapUa2RP7+WBR22skQ3SSl6G107QgWKSyTOGWEaRmV53vxQLV
- jXuCmzSSasTL60zq5yGrT4/DYQVSNEUiUbG4pYekxJujNeEDkUlky0Y=
-In-Reply-To: <20261127180325.2304501-1-sashal@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/27/26 19:03, Sasha Levin wrote:
-> On Fri, Nov 27, 2026 at 06:51:17PM +0100, Vlastimil Babka (SUSE) wrote:
->>If you then do 'b4 send' and it's a single patch, it indeed puts it below
->>the '---' line. So git am discards it.
->>I think it makes a lot of sense? If there is a single patch, it should be
->>self-descriptive anyway, there isn't much information necessary to explain
->>the whole series, if there's no series. So you might consider some extra
->>info/context useful for reviewing, but not important enough for a commit log
->>you want to see doing a git blame later (but it's still reachable via Link:
->>anyway). So putting it below the --- should be good enough.
-> 
-> Yup, that works: git am would drop it, and it's still on lore for anyone who
-> follows the Link:.
-> 
-> The concern I thought folks would have is that it creates a big wall of text
-> before you get to the diff itself...
-> 
-> What about putting it at the end of the patch mail instead, after the diff, the
-> same way format-patch --base adds base-commit? git am ignores it there too, and
-> reviewers who don't care about it never have to scroll past it.
+This series adds missing trailing newlines to error and warning messages
+in four ATA drivers.
 
-Ugh I'm not sure about inventing a new placement. Rather focus on that not
-being a wall of text in the first place? Because it really shouldn't be.
+The changes are formatting-only and do not alter driver behaviour.
+
+Changes in v4:
+- Rebase on libata for-next (3391ac405dca).
+- Resolve the pata_pxa conflict while preserving the updated DMA
+  timeout condition from the new base.
+
+Changes in v3:
+- Carry Damien's Reviewed-by tag on all four patches; it was
+  inadvertently included only on the sata_dwc_460ex patch in v2.
+
+Changes in v2:
+- Fix an additional missing newline in sata_dwc_error_intr(), as pointed
+  out by Damien Le Moal.
+- Add Damien's Reviewed-by tag to the sata_dwc_460ex patch.
+
+Artem Novak (4):
+  ata: pata_arasan_cf: add missing newline to warning
+  ata: pata_pxa: add missing newline to DMA warning
+  ata: sata_dwc_460ex: add missing newlines to error messages
+  ata: sata_gemini: add missing newlines to error messages
+
+ drivers/ata/pata_arasan_cf.c | 2 +-
+ drivers/ata/pata_pxa.c       | 2 +-
+ drivers/ata/sata_dwc_460ex.c | 8 ++++----
+ drivers/ata/sata_gemini.c    | 4 ++--
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+-- 
+2.56.1
+
