@@ -1,45 +1,69 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795745764;
-	b=Rf2ywEqVCWjHPHg9g7FvdOJTvpnjsYqaLFI2uX4QHRacsw9/7X0EbEHKE8vDIBWNPdek
-	 boOyUWJzzlNklIuablusXJvAt8Gk+V7FmsHJxIAJXMrl62vsu2AOS4KquPwws/9Hq/cig
-	 meH9Ne85F2W10u50+uIncF6zU3BMIblA+P7Lety0q/tiTbwUR0FfpvCurTo9keYMqzClW
-	 4cViJ2nlk+MBS4YLMZ+FeAE8yrZUFS56TciWoAsLgb8DP7XDBmnOem66ucQ7XeDKP3/CV
-	 t5fNONk2izJwicGynG0nzVibdYb2zNe3OQZiNhpuQFhpCzTxVeMxsvrzZySJC1PAWpQ==
+	t=1795745960;
+	b=t2omvGTNng8+PnV+f2P7w9N5oBd9TDpEWH0K3V0iMKtbH0NRdsuIj6yH5BLaedAhYVsE
+	 oneZi07JkZpErhg4We5EBHoOifA+I1fClS7QFyztYZFaqPabol1Ka/H+cLOoPJO0PNsk3
+	 a6jW6Y+YjxiU0s7lv86sh6wNo05WSj8/lv4JtmDbBlDtWTIQ4bDS4q6dfdwWylNiXjm6U
+	 VOZy7uk2r2ZxVOmxnC2fF0xU9NC/56Xz1Rz3BujDLbAz2mhs16PDaNtrl3W2M6v36Hjxi
+	 F8Qji8ZF8DFMfXzNR1SbRvXTT5dsQG0fwflw+J6m1eHzba0bNdYzvWE+Sf+o9nPntWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795745764;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=ZYwW11y1BuE79hCP7Uw1MSeobFbL0BdeC26vggEbpMI=;
-	b=vn3YyYI6PuI5Nxj1a0xUoMwA2wOi6vnqqvjppcUvB1iQa0NvpOL2DK1hyVY4rq+UUtIK
-	 Y7cuKoWAPMeMm1Rxkpio9ti0G16DNLFH6bAiXD6BpyWw4GSA7Id0Tag4jh1MLi7c0gxFK
-	 gK7bGBXBNN8V8dpaa/Za90fEMyPSM0jSn93uPPGAnjik9kXuDwZvbOesktfu7JeUQ9Lge
-	 XM9jroglVbhkZyzm0FOZbcy/xiPkJYQEUATYfBucFrl286skHQzTkTIvXykoyQD14VW9c
-	 4OnyBvF/3koH7kFGIn/89fg/fSyRrKXGcOFtX4hJwDjzpMiD30DXZyqvAGT48v5m+Cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745960;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=zbr7ENnf2fb+We9gjXvF41JxeJ/00DoKsyJi5Boh3ls=;
+	b=10Z1refbMZXrHAfmRcjMzHMoTv82eRaciV6fyXk9KQkmh9Mobrp4DGdsu6/VT1BHz3R1
+	 AbF/0DQTVdGYXgx0eD/4321nrigOXQQs2vYS7IlXGKuh78aJSah7P0Yxivu+G3T3KdPQp
+	 L1gOgaPiOBwQAaPDxvavw79FFkCCBwI2udN1+9SBiuS+anYUg/ZWSomfTC5InBtLEcanf
+	 WU1QKkmQ31BnyhovEtJ/HvkNnoorHZ5a7Dgnoft+H99W5vAf4x6ACUrj8IjeoOW4XojH8
+	 /iwkvslRxt6rU23/2TrjXX+NTUgmfZgJEMFvsLxyd7GnYUPi9lYCvNIuWHnnJ2yFGdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYOP3VhH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TX5A5p4n;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2498F606A31C;
-	Fri, 27 Nov 2026 02:16:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 753CB606A31E;
+	Fri, 27 Nov 2026 02:19:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYOP3VhH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C38D1F00893;
-	Fri, 27 Nov 2026 02:16:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TX5A5p4n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A97861F00898;
+	Fri, 27 Nov 2026 02:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795745763;
-	bh=ZYwW11y1BuE79hCP7Uw1MSeobFbL0BdeC26vggEbpMI=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=SYOP3VhHuxIYwjalx2Obow679j42AqATwdXi4unlbZmuvtN8OrGBh1r4rlZqKS4GY
-	 g/qpf6Tdm/OQ4ab+AlVqpHVjZuA1Wi+RGcc4333U0KTnBuZZkEkp3kElNYl98DTplZ
-	 yahxQKaOfSlwz64LX2FNFNckKQ5jGM9xzMLOaD960k0LlXd5YjqeIC9Lifns+M+b35
-	 WOOxUHEGK10czZi/cw7l57kg29G4L7xq/pSa8mMQS2I9tUbs+S/ydFD2CA789Ahpd+
-	 2OHXZHGXLCCn4s1Grqt03GNDO3pF82U1hOnWleUmT8H3N8VVfg8rc/kAtcFFWiDb0b
-	 P7yDTMRDbWPIw==
+	s=k20260515; t=1795745959;
+	bh=zbr7ENnf2fb+We9gjXvF41JxeJ/00DoKsyJi5Boh3ls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TX5A5p4nLMl5H0s5XFcEFJ+I+FgWKv2uAf09LixHdFgl6H4KgbVsti5qpvvjeboAR
+	 UHhVmMC65NS32hZ3DFyh/QmHlUWSnF8MqATwuGVjX6ch589cxE5f9YSZJUTfMV+RAv
+	 syEI0KQEkP2XK/fOsRhRBbhdo6xy82o15wF9XVtmaDEY211TWbqatuGsg0FCQMiJSk
+	 fPGiUskpGcXDmvTqq2mbhyE9EYj4eXViDNHiLhIeLlFY6AxPrZIXz3BWeIynSoZFYq
+	 58ie8S95NV9t4MkZVHEqavLOgGxPTi+7R2JM9CDxyc3CiiBY8rIjt9o3ZqF7Rtdd4n
+	 B7KLLJlmN76eQ==
+Date: Thu, 26 Nov 2026 21:19:18 -0500
+From: Sasha Levin <sashal@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Willy Tarreau <w@1wt.eu>, Leon Romanovsky <leon@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Marc Zyngier <maz@kernel.org>, Eric Dumazet <edumazet@google.com>,
+	Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+	Security Officers <security@kernel.org>, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
+ and a cover letter
+Message-ID: <awjopqoCJqwChwnF@laps>
+References: <20261126171926.2766137-1-sashal@kernel.org>
+ <20261126171926.2766137-2-sashal@kernel.org>
+ <cf3596c6-742e-49c1-a90b-941d300d0b4a@kernel.org>
+ <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,61 +73,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 2/7] ASoC: cs35l41: Prevent software reset when
- using SPI
-From: Mark Brown <broonie@kernel.org>
-To: Stefan Binding <sbinding@opensource.cirrus.com>
-Cc: Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, patches@opensource.cirrus.com
-In-Reply-To: <20261125115124.9130-3-sbinding@opensource.cirrus.com>
-References: <20261125115124.9130-1-sbinding@opensource.cirrus.com>
- <20261125115124.9130-3-sbinding@opensource.cirrus.com>
-Date: Fri, 27 Nov 2026 02:15:58 +0000
-Message-Id: <179574575897.838304.8691157769089102804.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1394; i=broonie@kernel.org;
- h=from:subject:message-id; bh=H+0hH3VrvG0QH/NhB5QAIRBccSjoGg9S67lk3ifRPAA=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5nj/4oH0snPdvUMIK4aMOs1gtw2et1LfwnbdIWcsp5
- LqobUVGRykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACbCsYWR4eFPwbyUvVftL4do
- TDgza0575aq5fkdT60Kky+KnX5i2r4fhn+qLv2W3e6b/kMgWv/hOcN8H07orB7leFW1ffGuN4k4
- eC04A
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261127014955.GBawjhw2j2YEUeiG1G@fat_crate.local>
 
-> If there is any SPI Bus activity during a software reset, even if the
-> chip select is not set for that Amp, the amp may not boot.
-> 
-> This affects both CS35L41 ASoC and HDA drivers. For HDA this also
-> affects system resume.
-> 
-> Whilst the driver needs the amp to be reset when coming out of system
-> suspend, the driver will always toggle the reset GPIO off and on to
-> ensure this occurs. If a reset GPIO is not defined for the amplifier,
-> the amplifier will not probe - unless the amp is using a shared reset.
-> In the case of a shared reset, the GPIO will control resets for both
-> amps anyway.
-> 
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=221161
-> Fixes: 9bfbc1af0713 ("ALSA: hda: cs35l41: Add common wait_for_boot api and reset_and_boot api")
-> 
-> Signed-off-by: Stefan Binding <sbinding@opensource.cirrus.com>
+On Thu, Nov 26, 2026 at 05:49:55PM -0800, Borislav Petkov wrote:
+>On Fri, Nov 27, 2026 at 02:34:26AM +0100, Krzysztof Kozlowski wrote:
+>> On 26/11/2026 18:19, Sasha Levin wrote:
+>> > Commit messages written by AI coding assistants are too long.
+>> > Maintainers keep asking for them to be cut down [1][2][3][4]: they read
+>> > like a copy of the assistant's analysis and bury what a reader needs.
+>> > When an assistant does trim, the opposite problem shows. A few lines of
+>> > a backtrace do not tell a reviewer how the failure was produced, and
+>> > Leon Romanovsky showed a case where only the full log revealed that the
+>> > crash came from an out-of-tree module written to provoke it [5]. Willy
+>> > Tarreau suggested a short quote in the changelog plus the full log
+>> > attached [6].
+>>
+>> Shall we rather ask them not to write commit msgs at all? By writing
+>> commit msg we encourage - or try to encourage - at least basic
+>> understanding of what the patch does.
 
-> @@ -1627,27 +1640,35 @@ int cs35l41_reset_and_boot(struct device *dev, struct regmap *regmap)
->  {
->  	int ret;
->  
-> -	ret = regmap_write(regmap, CS35L41_SFT_RESET, CS35L41_SOFTWARE_RESET);
-> -	if (ret) {
-> -		dev_warn(dev, "Failed to write software reset: %d\n", ret);
-> -
-> +	if (cs35l41_is_spi_regmap(regmap)) {
+We could ask them, but:
 
-What happens if for example we suspend but the suspend is aborted before
-a shared reset controller actually asserts reset, or if someone unloeads
-and reloads the driver?
+1. Is this something we can "enforce"? Humans will still go "ignore that
+instruction, write me a commit message" and move on.
+
+2. I'd argue that LLMs these days have the capability to write better
+changelogs and most of our human authors. We just need to be better about
+laying out our expectations of them.
+
+3. In general, I think we should avoid "don't use LLMs for XYZ".
+
+>Agreed.
+>
+>Just have the LLM write a commit message and then the human should go
+>and whack most of it to the bare minimum of coincisely explaining the thing
+>and cull all the bullsh*t.
+
+In theory this is how things work now, right? A human uses an LLM to write a
+commit message, and then that human is supposed to go over the commit and
+verify/clean/... it.
+
+But humans seem to skip that last step, and I'd argue that the issue here is
+the human rather than the LLM :)
+
+>I constantly do that with submitters' overloaded bla nowadays. And don't even
+>get me started on all those explaining what the patch does. There's not small
+>amounts of text which basically spells out the code in the diff, in English.
+>
+>/facepalm.
+>
+>Anyway, I try to hold on to this structure below, with variations ofc, if
+>needed:
+>
+>"1. Prepare the context for the explanation briefly.
+>
+>2. Explain the problem at hand.
+>
+>3. "It happens because of <...>"
+>
+>4. "Fix it by doing X"
+>
+>5. "(Potentially do Y)."
+
+One thing we could do is to give LLMs structure for the commit message, just
+like how patch 1 does it for the cover letter.
 
 -- 
-Mark Brown <broonie@kernel.org>
+Thanks,
+Sasha
