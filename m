@@ -1,85 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795793100;
-	b=UILSo4mNaHoyydab0o/LnecxngCiAb8rumkIfJ2f/C3KE6sDp9u8AUkJGVym4Etj1qfU
-	 ixFlt3oOtMCUewcZO6Fq0W+lFc1mp0nMxgFa7ex6JX/QvzwCyVTWdMmBnpTUfrCtNo8Fk
-	 I//IvTR1hdplhfOu/7nrX25GgktJwsbZeZ4Icl2L1KBmQL+6XiUCU7HHQPYaK+l82xbjH
-	 QYr1QHW76++sJxOROzjslf+DYnKpl+8dMnrfGLRzPRvzYcSjPDYWcbjIzsYh2c+LDHsTl
-	 T8TPLONi7u0nfwIV5cu3X0/qAhlRwvtpY57qh3RRb7V+flsiRVtBVpe8iPGHoXSdjBA==
+	t=1795793105;
+	b=CeWiGJf1pEJQAbeMVd6zHuo7HSDRfjFZUgZpTKFv1XdOR4RDLjQ54Sb3q7SAoJhU8eBE
+	 1CGqHz09txBLtlSaDKHhu/AU+k0BhVcTNHhnVNB6sTVKOK1pMtQEwAKLwekSDNotqgPnl
+	 cLbU/6j94yffEr+pbUfB+M16TjH59nv+ukX5bvbsfOB/Hjm6iKUkZq7ePrru2DRfZOa4H
+	 NdD28bKkf9vYeik1LAoHIlzWFuzZzeCcXrTtpCFbzDYn5xijb7EtoM1dkiwbhoNTafiSB
+	 6+d9vlygLUqHlsohvkWO9WfrF/ovJeaGnV9bHMnqnw0Lax9oyh+yLIPAMQneRMKgnXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795793100;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:Date:
-	 Message-Id:To:Cc:In-Reply-To:References:X-Mailer;
-	bh=vNV24U4AHAf2SEo4W0dYm+4A/c9AQ2fP/eFNSMSTDdc=;
-	b=s3owrR+IxXRm92hSLhCeavPs//Pr8Yde2j8qbR8oKMINMczQUBHodwRQaueTIugHI/eR
-	 QNvtKR5SwSBAG8lJvZHB15sp5uDczdwmcbLnL3U31U29cBjgGPdKdefQhGqHVvim7D/Rj
-	 oe8NNAgRAJ1FenxGkI0g1l0i6QvcyY8fTipSMPUZoU9FyZZtQI3QnwFhK8Eabmxte4u2G
-	 ewOx/F5Xsua1wnMUHsjRQBpLNtZk1PQm4xynaZC8FnY/ZsLNSV94m1lA0NzmJQSCNf1O1
-	 Y7FhDGqK9ozafr2XQjFKr6YdBRARobCmN9MZBURBiSlksIxPRQXswjoT330vd3NQbug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795793105;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
+	b=zqaeaIJ3xR/gB0VmFvxbL8BcufUyud088wEPPwGsT8x0a6w8/JSoomSiZr5bQYSK9VlS
+	 E4k8cBwKczc5c2Yd9TBWE3bCZVUsxMdbOQ9thI6y2tU/z44pCuymlo9BocmC6YjFlANW7
+	 UVWOAAg+1jBQ2wnNtzVimNdgUX400hY6RUq39jEYcm1deEIXAP/ormF54/KFQrVUJbjqG
+	 jQaWmWoXlZj+OeuIQSf4jjlrhncQteBG6xglO5nNZoio+aHnXj5ILr/PrI4tTRQrcINg6
+	 nyBtnTKhpaR30p9mFuj02oKZlr3DIdxuS87lZJg2wXu+JCVX4QLtSKh2gP9OVIONXzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0bOP1HYM;
-	arc=none smtp.remote-ip=74.125.227.135
-Received: from mail-pj2-f7.google.com (mail-pj2-f7.google.com [74.125.227.135])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A746C606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:24:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A746C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0217B606A31C;
+	Fri, 27 Nov 2026 15:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0217B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0bOP1HYM
-Received: by mail-pj2-f7.google.com with SMTP id d9443c01a7336-2f0c72f9a1fso23650315ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:24:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795793099; x=1796397899; darn=vger.kernel.org;
-        h=references:in-reply-to:cc:to:message-id:date:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=vNV24U4AHAf2SEo4W0dYm+4A/c9AQ2fP/eFNSMSTDdc=;
-        b=0bOP1HYM0cT0SdJKdsvNFrWeAZA8XsQLMGLmaAnUXG/M0mTumA3DegAP9vkPAFVxZZ
-         mt0vjRvk0KeYC/rPluBdHu1a4o1ttCNzxglWZQZDrzvzIAozzpn/UKq69pgJ5bk0J9zm
-         +pT7YlYOZSATTwpV1TqLTNdnVlyzbj+uL2RPJEgACHdPVR7GdTiG4t1eVxvQ4F3uFAjD
-         ITgVUjE2pnyerb/icshBQugir44z9Np00hynPdQsdbPbF2GBhN4vR4TPh5sGls2ABXWa
-         ki+WzrmWuekM2gUVhqRDTLWfhxdAEENNjmeiRPV2hU9gtUG2TYLuqwCFH77ppSt+gYIr
-         eA7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795793099; x=1796397899;
-        h=references:in-reply-to:cc:to:message-id:date:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vNV24U4AHAf2SEo4W0dYm+4A/c9AQ2fP/eFNSMSTDdc=;
-        b=QrfEKDsDzCCLXZB/ley03bs7zq+MUuyl5nZziOalKSWW8oriKYncUajvCu+5pD1C0G
-         ebNnnM2PAafwkK5kG5+bCC6cOIYsqgTwvqertgyUW5nqfnK0fQ5eSN0NolIAYiG63l4/
-         lnb0XF/cdtjkeABY8+TFF86vGWN83qzFaGUNTc7jui2ofOQsnn2mrRdwPi203A29MfNq
-         MwbfcrIhquSw69nQPIt1ARNd96gMmt4xqO/NzRyrWJua7a0AvOotpJeIJ8JsTJXyd/sq
-         bT34ihGdxKHDFvHK02N3Jmj0AeDaBqsX1IdEcu30tj1nO6hryTKxzxHi6KVwkBIx7aSG
-         TIvw==
-X-Forwarded-Encrypted: i=1; AL+hErFz5nwmDqi7xmBBYtNQys0syJxyZeASaUcxoxjNTyq+rMxJI+/NSE5AkoGC1TK9xNt4tgt6blW4qhsjjrQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+m/DCgVUWKlNnVLm8YUpkf0pDxz8Ds+qH+tgEOpkp0xJLBaRW+
-	qarR/yd82C/4OtgpvEfbuYGnKJ5zh2s6L/9h/N6DJ7skdV4yTLkjm+N9
-X-Gm-Gg: AZFdTZdukAoguXJlWNvvSCV6seteynNoM8JB4JOiKVjIOuSfQyZFhmY4HdsoSn7fP7G
-	A/LYaCt9kUBCxigZdd76ikfLzkL9irHRjo5Pnj8t2cdBvwxTZ48D8HHWUvKXMqywRs81IXQXlgR
-	2o/xM09K0w7lrRWjIADxfxmVxG+pvSdxukHA8RaTYyVVVtxhpYOcCsbM5GaY5gecniLzqrjH4Hh
-	u6FgnBKCcf6NXTFW2dc3ZaYxFMSnYdX0SPgL4xmkm44lGdgfrH2f0fOwiuKRpD6Hyn2cEcur+Q4
-	kq3Zhdp6Z8NML9OpQcrZCrjAuaG+mAsoNuotZjicYN2QjHqYyihel4qBb5FjVzZ4qFmZv4Nonfj
-	yjGsGW/IsBJwEtJTTdRkJPuxZp9ZpAs2MOvbV+WFso5KK4zFbZ/L4vPg8qW9jxUFTDn95423dhL
-	f6xjN3noaa8MImn3jCV7BkZejoCkg63xnk1isdG/T+qwov2nKSVolPrFP8ytYT9yJzEHPcOhrRY
-	Cid5lxQdLpcwuZ9sGY8RI/oOaqAnJzgEZtS411wvPFgLv5PrkaFeCjuyUJjStq955CHsoq2Bpfh
-	Bys2n/dfuwSotOvEGEift4KPUFDCSisAZBiXI7K0FEReVqimWPESEWzLHl6AX7OD7C54yjuUCwD
-	gYgOBasfdpVKQxKZoJavEAA==
-X-Received: by 2002:a17:903:4b28:b0:2f0:6b8c:deac with SMTP id d9443c01a7336-2f06b8ce10dmr199148285ad.4.1795793098534;
-        Fri, 27 Nov 2026 07:24:58 -0800 (PST)
-Received: from [192.168.50.20] ([66.90.98.146])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1f2csm123698465ad.22.2026.11.27.07.24.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 07:24:57 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=gW2GXdok;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=jDhguXsi
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id D3D24229AB;
+	Fri, 27 Nov 2026 15:25:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795793102; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
+	b=gW2GXdokvVeHwG4LTPWqprKeL9wZDFxUeZ0DR3mpeg3eWcC5bbz8BP6x2fNYGMIKTzSFjS
+	dZFYKS2wafilbVuEomZoPnR18O/+OeR0ZCTNKdUvsyNqSvMqvKUzs5w+ljoLPOK4zxgGDE
+	zrbyQ7TeB6RIu8HHbMFpyf+BlcZ7Cfg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795793102;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
+	b=jDhguXsiJBcUIrj15Ky2dXBgvsXWkMzVKgSBYhiEb88P7X42oosSCW8QoNSEKoEqfVZ/uo
+	yM+7YY3Q2Mbg3OCA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795793102; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
+	b=gW2GXdokvVeHwG4LTPWqprKeL9wZDFxUeZ0DR3mpeg3eWcC5bbz8BP6x2fNYGMIKTzSFjS
+	dZFYKS2wafilbVuEomZoPnR18O/+OeR0ZCTNKdUvsyNqSvMqvKUzs5w+ljoLPOK4zxgGDE
+	zrbyQ7TeB6RIu8HHbMFpyf+BlcZ7Cfg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795793102;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dlrSvZxnt9L7DCoQZv1lSkNntIY7QMoIW4ZKYt9T9n8=;
+	b=jDhguXsiJBcUIrj15Ky2dXBgvsXWkMzVKgSBYhiEb88P7X42oosSCW8QoNSEKoEqfVZ/uo
+	yM+7YY3Q2Mbg3OCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AC0B813432;
+	Fri, 27 Nov 2026 15:25:02 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 75ERIM6gCWstDwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 15:25:02 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 2D7F65107A; Fri, 27 Nov 2026 16:25:02 +0100 (CET)
+Date: Fri, 27 Nov 2026 16:25:02 +0100
+From: Jan Kara <jack@suse.cz>
+To: Junyoung Jang <graypanda.inzag@gmail.com>
+Cc: Jan Kara <jack@suse.cz>, Gwanhyun Lee <gwanhyunlee@gmail.com>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] udf: validate logical volume partition map lengths
+ before parsing
+Message-ID: <vgjprugp7234s6s3wdlusb5udtwyyslu7ytc7vucdr2fubobsf@gimosgcpenka>
+References: <20261125155608.282719-1-graypanda.inzag@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,48 +110,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] tools/mm: add a drgn script to show HugeTLB
- reservations
-From: Aveline Noir <jm5905938@gmail.com>
-Date: Sat, 28 Nov 2026 01:01:09 +1100
-Message-Id: <179578806997.38.3754686117717776990.b4-reply@b4>
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Ackerley Tng <ackerleytng@google.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Zhao Li <enderaoelyther@gmail.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, 
- Karl Mehltretter <kmehltretter@gmail.com>, 
- "Liam R. Howlett" <liam@infradead.org>, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, Michal Hocko <mhocko@suse.com>, 
- Oscar Salvador <osalvador@suse.de>, Omar Sandoval <osandov@osandov.com>, 
- Mike Rapoport <rppt@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
- Vlastimil Babka <vbabka@kernel.org>, 
- Jinmeng Zhou <zhoujinmeng@bytedance.com>
-In-Reply-To: <FDAF27F6-A5D1-4911-BB86-6645272E2BD3@linux.dev>
-References: <20261126-hugetlb-resv-drgn-v1-1-345a6ee7c08c@gmail.com>
- <FDAF27F6-A5D1-4911-BB86-6645272E2BD3@linux.dev>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125155608.282719-1-graypanda.inzag@gmail.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	MISSING_XM_UA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	RCPT_COUNT_FIVE(0.00)[5];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[suse.cz,gmail.com,vger.kernel.org];
+	FREEMAIL_TO(0.00)[gmail.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email]
+X-Spam-Score: -12.80
 
-Hi Muchun,
+On Thu 26-11-26 00:56:07, Junyoung Jang wrote:
+> udf_load_logicalvol() checks the aggregate partition map table length,
+> but uses each entry's unvalidated partitionMapLength to walk the table.
+> A truncated type-2 map near the end of a Logical Volume Descriptor can
+> contain the sparable partition identifier while its packetLength field
+> lies past the descriptor buffer. This causes a two-byte out-of-bounds
+> read in udf_load_sparable_map(), reported by KASAN in
+> udf_process_sequence().
+> 
+> Check that each map header fits in the remaining table and that its
+> declared length fits in the table and covers the fields for its type.
+> The 64-byte generic type-2 size covers the virtual, sparable, and
+> metadata partition map layouts. Report and reject truncated headers
+> and invalid map lengths before accessing type-specific fields. The
+> unchecked walk is present in the initial imported tree.
+> 
+> A custom LLM agent assisted with discovery and reproducer setup.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+> Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+> Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
 
-On Fri, 27 Nov 2026 19:30:04 +0800 Muchun Song wrote:
+Thanks, I've added the patch to my tree.
 
-> The Dragon project itself probably belongs to this type of script? See
-> here:
->
->     https://github.com/osandov/drgn/tree/main/scripts
+								Honza
 
-Thanks for the suggestion! There was a similar discussion when
-show_page_info.py was proposed for tools/mm/:
-
-https://lore.kernel.org/r/aACaf4_molKromnT@telecaster
-
-That's mainly why I sent it to the kernel tree instead. Having it close
-to the code it inspects should make it easier to keep the checks in sync
-as HugeTLB reservation accounting changes, so it felt like a better fit
-here. What do you think?
-
-Thanks,
-Aveline Noir
+> ---
+> The malformed image uses a 4096-byte Logical Volume Descriptor with a
+> 3656-byte partition map table and 16 maps. The last map begins at table
+> offset 3626 and declares a 30-byte type-2 sparable map. Its
+> packetLength field lies at descriptor byte 4106, past the end of the
+> 4096-byte buffer. A second image declares a 3627-byte table, leaving
+> only one byte of the last map header inside the table.
+> 
+> On unmodified mainline 4dce97c6c265 with UDF and KASAN enabled, the
+> first image produced:
+> 
+>   BUG: KASAN: use-after-free in udf_process_sequence+0x3cfe/0x3f60
+>   Read of size 2 at addr ffff88807ffc000a by task busybox/57
+>   Call Trace:
+>     udf_process_sequence+0x3cfe/0x3f60
+>     udf_check_anchor_block+0x270/0x460
+>     udf_load_vrs+0x67b/0xde0
+>     udf_fill_super+0x778/0x19d0
+> 
+> The read crossed the descriptor boundary into an adjacent freed page;
+> that is why KASAN classified it as use-after-free. The mount failed
+> with EIO after the invalid packetLength was read. On patched mainline,
+> three boots rejected map length 30 at offset 3626 before that read;
+> three boots of the second image rejected the truncated header at the
+> same offset. Neither patched case produced a KASAN report. Valid UDF
+> and sparable UDF images mounted before and after the patch.
+> 
+>  fs/udf/super.c | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/fs/udf/super.c b/fs/udf/super.c
+> index a81a8509524a..41988a07b86b 100644
+> --- a/fs/udf/super.c
+> +++ b/fs/udf/super.c
+> @@ -1580,9 +1580,29 @@ static int udf_load_logicalvol(struct super_block *sb, sector_t block,
+>  	     i < sbi->s_partitions && offset < table_len;
+>  	     i++, offset += gpm->partitionMapLength) {
+>  		struct udf_part_map *map = &sbi->s_partmaps[i];
+> +		unsigned int min_len;
+> +
+> +		if (table_len - offset < sizeof(*gpm)) {
+> +			udf_err(sb, "Truncated partition map header at offset %d\n",
+> +				offset);
+> +			ret = -EIO;
+> +			goto out_bh;
+> +		}
+>  		gpm = (struct genericPartitionMap *)
+>  				&(lvd->partitionMaps[offset]);
+>  		type = gpm->partitionMapType;
+> +		min_len = sizeof(*gpm);
+> +		if (type == 1)
+> +			min_len = sizeof(struct genericPartitionMap1);
+> +		else if (type == 2)
+> +			min_len = sizeof(struct genericPartitionMap2);
+> +		if (gpm->partitionMapLength < min_len ||
+> +		    gpm->partitionMapLength > table_len - offset) {
+> +			udf_err(sb, "Invalid partition map length %u at offset %d\n",
+> +				gpm->partitionMapLength, offset);
+> +			ret = -EIO;
+> +			goto out_bh;
+> +		}
+>  		if (type == 1) {
+>  			struct genericPartitionMap1 *gpm1 =
+>  				(struct genericPartitionMap1 *)gpm;
+> 
+> base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+> -- 
+> 2.43.0
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
