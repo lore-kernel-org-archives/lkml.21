@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789451;
-	b=0rZk0COTp+rLC9+ucwh8MPbUn4zK1HfjTGq3qOMFvE3YgASu6YLLC/cqf1GNiF94Ikot
-	 62Om7mQXGD9YkT4+/3jBca3/eFHbxJietuL0pcM3qHeo2NKQW61+dPO//dScuVeKDrB4O
-	 D0KCakjrMYRtfzd3Zh87hWaBiXBwlRZcWtpbeJKvZKyBZM3p/ezewdLmr6eDhx5iuXUFQ
-	 Ru6EGtgNZbbChkoBlXpAAJcyRlz/Po5WPzJ9ZZMreW4GaMEWdnxghdfLsSLEcycGEOtBC
-	 POQXbsvZb+Bh0SWus/KIJF+Wi0JtalEUdfP8noNr9tKM5/bEEv3UcIZTwswe4wDGd2Q==
+	t=1795789458;
+	b=g4unhl6xG3lMozpcvMiLDHvIcok78fB2ClD/0cdBQA+NyXxfAcLzTVJHL7G+8AoNOkTF
+	 +aBmRWHpazdgYbTjpDyjTfOufG/l3BY5R2sHgyGyeVDGqIug2CTvM6HZzv23kzIyBiKTV
+	 aovDZOEdBEycGILBeibbhUpJ7gIe76sqUQjoYq9lGPTOWR8pYOISv6s0y569/6sJW7jn3
+	 JWw+PFxzPbHp4jps/GyfT/53WKX+j4Qs/vO7wo2pOErVnAsaxUtOAvRgyBY21gNHicKnD
+	 lQ8ap9IWSo24duKeomPZtYW73EuDmR/17I51W1iQAbz/N9Bo7xSGfT617JZrxv9HdBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789451;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789458;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
 	 Received:Received:Received:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-TM-AS-GCONF:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=QTVzZ+ZLC6ZJ3kqDyWFnAYQukVSRG7CDeMaoAqGaVqo=;
-	b=01j4NwFiyAPFq5Mlj+4F/6QHEfh67k4pl6RDCNwUmvxvlEQWjNlgyORltZqmYN939Ma6
-	 Y8J9D7yjzoUIH7Wposl0wlxEA9bk6ciBTUONq8vPaaakR7oleDaoqescWkw5HaUmjYwiq
-	 RoG+hcqXvHlpi63gbr/Kd7sJgT0KJRQ2a9mQysxEvucJRjgkWcqN6s6TXUmpcGqBc9pIn
-	 skWT4IKRNS3+SXxw3Hl0PgyFoml+X/T2tmhvBdQQcCvjiP1ibDffzk+CceJmFYZ30nTOj
-	 qafvcofYEduzn8Qn4MN60cqOhblUGRP+r70xckR9KnE6xpmrzbtQsYrz2qu7xu+enKw==
+	 In-Reply-To:To:Cc:X-Mailer:X-TM-AS-GCONF:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=LxGg80roB/T2VMVa2JS/xSUiJuo79We2YYLICTkZtcA=;
+	b=zHHdfQF6JsrtPK8v59PCtXg2oOfygD17+8L30GAtCYGmSMgyLGEbNYLLnxrNEQlddTjr
+	 Y6vTKZIQZFOrjbStHr3XWUPT5/ME/6bAXLImFFOcKN5V6qhxz5MZyMKxjcaCTeGBKEpdo
+	 qjHakMz8AcAQmmQDSWFri6ah84zgm8cfANlze3ECwA1cSbfoUQv3u+6AHdVhz3SiRgKsz
+	 FvwebatzTdkreRJt7udKHqXSGMkmB8xcog07Hu6u5VWrQjhiBDCCvCm0xhf9O0Hmk0VUv
+	 RClKEEweA5aiN2EkDLc37OLlXG3Cj+eKNW3nLMwecnx2DShEAJROpXAwFf08gA7p8rA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.ibm.com;
 	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=aqTjVVn8;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=G8vveRO0;
 	arc=none smtp.remote-ip=148.163.158.5
 Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 353AA60A3813;
-	Fri, 27 Nov 2026 14:24:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 353AA60A3813
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E63B2606E121;
+	Fri, 27 Nov 2026 14:24:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E63B2606E121
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=aqTjVVn8
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE51Jw2012238;
-	Fri, 27 Nov 2026 14:23:22 GMT
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=G8vveRO0
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4oQs3234409;
+	Fri, 27 Nov 2026 14:23:23 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=QTVzZ+
-	ZLC6ZJ3kqDyWFnAYQukVSRG7CDeMaoAqGaVqo=; b=aqTjVVn8BLhVXN5Q7k3W2T
-	T0dQ1QvdZLUhfPIIH3WzSka1LeNtS9Oac3k4i2R5qsSu8DrgB9x7URMc26VR9fDL
-	4QB43bhqqLnapy2QvxrLFXnNdsA7J3J2fXpgwXDhg3P7TBgC3c3mvTt0EVb5vDPF
-	PYDcpoF+6WqjI6FShAJgPFo4Fif8RBOEP3YISS8D5SLzgbSJIuWC1LKFjPIe9kz+
-	Ivqk9e5CMixBVD/lxPOwlA4pcT2Yi6O0slzk2ZuePzmihL+Y8E4aNNW7ODdFUB9z
-	BaQukmAYM5g+zzZNWuu10DtfkzWLWHLGgmOVjJhu7rnYr1saWioCtEPUcxisDnkQ
+	:message-id:mime-version:references:subject:to; s=pp1; bh=LxGg80
+	roB/T2VMVa2JS/xSUiJuo79We2YYLICTkZtcA=; b=G8vveRO04FM5DbJVODFcyk
+	ZLiY2NiHrXOOLq0Or86nJ5oyUOmZmL5ZammqefYlcH6LQyQmoI/WxGswS01jM9+m
+	yl8mLXHiD44KVAPKfUVxax5PwoS4VtUSBmfkXXFeKura5Kln/NUqMOwHwXtGcVPI
+	b+hD35Y3PrSr04/oxV1BhODWNhXI9y/qECHvBOVfySABWfyXpTdNtsSvj/OjwB5B
+	QXxWT7Ua4Dr3FIc5IqyoNfU56KksHzZeCEVmcqN8jvd+XjgcIr3Kw+qtRwv2B/PK
+	8DdhbU6LjTlUg/IT30xfiKV0uGRe1jr6zpFxhY6OFVmyqcEVFBMYKZ/rEGq2uvZA
 	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4w8fn-1
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gvng54-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 14:23:22 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4Idq3893132;
-	Fri, 27 Nov 2026 14:23:21 GMT
+	Fri, 27 Nov 2026 14:23:23 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4JUH861635;
+	Fri, 27 Nov 2026 14:23:23 GMT
 Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j6ucctx2v-1
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j6mjg4d4k-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 27 Nov 2026 14:23:21 +0000 (GMT)
 Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARENGxH38863294
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARENGDO38863292
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Fri, 27 Nov 2026 14:23:16 GMT
 Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7C02D2004F;
+	by IMSVA (Postfix) with ESMTP id 0EC0A2004B;
 	Fri, 27 Nov 2026 14:23:16 +0000 (GMT)
 Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 149032005A;
-	Fri, 27 Nov 2026 14:23:16 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 7A58920063;
+	Fri, 27 Nov 2026 14:23:15 +0000 (GMT)
 Received: from a46lp73.lnxne.boe (unknown [9.87.84.240])
 	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 27 Nov 2026 14:23:16 +0000 (GMT)
+	Fri, 27 Nov 2026 14:23:15 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
-Date: Fri, 27 Nov 2026 15:22:09 +0100
-Subject: [PATCH v4 06/25] arm64: Prepare headers for sysreg sharing with
- s390
+Date: Fri, 27 Nov 2026 15:22:08 +0100
+Subject: [PATCH v4 05/25] arm64: vdso: Define ARM64_S390_COMMON=1 for all
+ vdso builds
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,7 +89,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-sysreg-v4-6-a6318d18aab5@linux.ibm.com>
+Message-Id: <20261127-sysreg-v4-5-a6318d18aab5@linux.ibm.com>
 References: <20261127-sysreg-v4-0-a6318d18aab5@linux.ibm.com>
 In-Reply-To: <20261127-sysreg-v4-0-a6318d18aab5@linux.ibm.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -118,97 +118,58 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
         linux-s390@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>
 X-Mailer: b4 0.14.3
 X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX0n8V0sDiMWvt
- ew4ocZRmX9Sqr/YhUKpxEQnuJ5+9cKepgs1+lrc/tBvzKskXWe4XU/IXS2pm48+2ooxtUpm7zVf
- /eqOjVGBY4FIBQRoMiMyhLgJatC6548=
-X-Proofpoint-GUID: GV8I9oH5Ml3dqm7n_R4MwRIFz_ifL1fx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX6vToogMyOBMm
- ZOTPHZWDAutVvukyhoLif5PIYTVQY6rKN+bR86m78AIs/fgOn25SPxdFE0+4I2FVX+z49GEIxtK
- nc40m+H9FYsBvzEOi5Y8cOd8ghvbUOIHUDLUQAXrtdJLiilkjGBQ8zmIog7WmHkLkL45RnNw7BX
- ZHlhoDZa8tdLbBMwhUQD7cREp2IrE7eVCljDWpdjJbFlTLie+tHqXhABDgEkwp4qB+5CEaBhVQP
- E65jhZ7FmQTyomOoXmg2IVNe1bH3nOtjTP8tGIKtQ3p/ZvQVUySGmy6gEtidkOpkkFhRVFfSgMn
- FgwG1tj8wgAFVg9u0dlYvoiSQvuseXzyJukeDu6f/rTyryUa1hOuV+rFL7N2YaAjvaxI0kT42Qc
- jYcdoioc6ti4XLFKOEWJQoMgVwmVKdWyERXtGeycwlPe8VQ66X4GVY3yxT735tK/Sj6Nyf8PZwK
- m907WFMN537Q80rYFcw==
-X-Proofpoint-ORIG-GUID: GV8I9oH5Ml3dqm7n_R4MwRIFz_ifL1fx
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b09925a cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b09925b cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
- a=FJHwoN1dvIUHDVMZdFEA:9 a=QEXdDO2ut3YA:10
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=sEnpHoJLZwujkWsBufgA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX3fOfNI7+7rip
+ 0o+RAlv1e4zvd5RQzGZGRIn9FDylravuVjzRfI71MdlKAEu+HqQPYBpBHWw+TiF7p8KiY9a7FiI
+ sBoVW5KbJ31rE2pRJYaaVg8Grn2Ss7s=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfXxg3Wj/i9l+FJ
+ tcg2XSPue0aQ4gCTQs0uS58inBNqy8BOMyQeu/VWAjmA9NEkOSXeKPobFZhcDTlAF/fS2Rmh1Jz
+ UfWX7MOWV7cpggxb7LxV+qHGK7XrWS3DSLBGUnYSlbx9zZxxSzLTIwATeMNS9sJcvhd3sJdWIms
+ JMlDXhuzDt+TtlxRPxf+HtvnZ4+6Cb81WJ7xLb4wKmvyig/ZLSmzygVmxxe9ciikWhpMle0kl8+
+ /yahYi9nYXilcpRTdselbbCi27kN5LUAHW3eVFr6LdIWyH1zu1CseFxNJQWAjRZd9U3yApqXLH2
+ J0atGJX8lgmirblClS3Fh4f+c8FFIF8gQm9eEk3ZG2MZDWGAiHfqHwyEuKhCwDQnp68GWziXDJb
+ EuzODoZ+wZCyFk0aon3DXq7yFZDy/6qveFyHp4Q8Ez66sFi61xqVoIBAQAq2sR+jYTBS32orhPH
+ y6rp43bnU+Yp0H2K+qw==
+X-Proofpoint-ORIG-GUID: wtQB5fvhxE1Jo9lMUpt16acEWMNvE9r9
+X-Proofpoint-GUID: wtQB5fvhxE1Jo9lMUpt16acEWMNvE9r9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270056
+ phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611270056
 
-Move the get-spectre-state functions to a convenient location. Guard
-GICv5 headers away from s390 for arm_arch_timer.h.
+The compat vDSO builds with LINUXINCLUDE but without KBUILD_CPPFLAGS,
+where -DARM64_S390_COMMON is defined. Future marker in e,g, asm/cache.h
+will hide definitions or break the build at the prepare stage if Werror
+& Wundef is defined. Define the marker for the 32-bit vDSO build as
+well.
 
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/spectre.h | 10 +++++-----
- include/kvm/arm_arch_timer.h     |  3 +++
- 2 files changed, 8 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/vdso32/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spectre.h
-index 296ae3420bfd..2ecc9eddbebb 100644
---- a/arch/arm64/include/asm/spectre.h
-+++ b/arch/arm64/include/asm/spectre.h
-@@ -26,6 +26,11 @@ enum mitigation_state {
- 	SPECTRE_VULNERABLE,
- };
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index 00efdc5d2354..880449ea36d3 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -33,6 +33,8 @@ cc32-option = $(call try-run,\
+ VDSO_CPPFLAGS := -DBUILD_VDSO -D__KERNEL__ -nostdinc
+ VDSO_CPPFLAGS += -isystem $(shell $(CC_COMPAT) -print-file-name=include 2>/dev/null)
+ VDSO_CPPFLAGS += $(LINUXINCLUDE)
++# arch/arm64/Makefile puts this in KBUILD_CPPFLAGS, which is not used here
++VDSO_CPPFLAGS += -DARM64_S390_COMMON=1
  
-+enum mitigation_state arm64_get_spectre_v2_state(void);
-+enum mitigation_state arm64_get_spectre_v4_state(void);
-+enum mitigation_state arm64_get_meltdown_state(void);
-+enum mitigation_state arm64_get_spectre_bhb_state(void);
-+
- struct pt_regs;
- struct task_struct;
- 
-@@ -81,21 +86,16 @@ static __always_inline void arm64_apply_bp_hardening(void)
- 		d->fn();
- }
- 
--enum mitigation_state arm64_get_spectre_v2_state(void);
- bool has_spectre_v2(const struct arm64_cpu_capabilities *cap, int scope);
- void spectre_v2_enable_mitigation(const struct arm64_cpu_capabilities *__unused);
- 
- bool has_spectre_v3a(const struct arm64_cpu_capabilities *cap, int scope);
- void spectre_v3a_enable_mitigation(const struct arm64_cpu_capabilities *__unused);
- 
--enum mitigation_state arm64_get_spectre_v4_state(void);
- bool has_spectre_v4(const struct arm64_cpu_capabilities *cap, int scope);
- void spectre_v4_enable_mitigation(const struct arm64_cpu_capabilities *__unused);
- void spectre_v4_enable_task_mitigation(struct task_struct *tsk);
- 
--enum mitigation_state arm64_get_meltdown_state(void);
--
--enum mitigation_state arm64_get_spectre_bhb_state(void);
- bool is_spectre_bhb_affected(const struct arm64_cpu_capabilities *entry, int scope);
- extern bool __nospectre_bhb;
- u8 get_spectre_bhb_loop_value(void);
-diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-index 80f96ea59f1a..dcffad87b88f 100644
---- a/include/kvm/arm_arch_timer.h
-+++ b/include/kvm/arm_arch_timer.h
-@@ -10,7 +10,10 @@
- #include <linux/clocksource.h>
- #include <linux/hrtimer.h>
- 
-+/* no GICv5 for s390 */
-+#ifndef __s390__
- #include <linux/irqchip/arm-gic-v5.h>
-+#endif /* !__s390__ */
- 
- enum kvm_arch_timers {
- 	TIMER_PTIMER,
+ # Common C and assembly flags
+ # From top-level Makefile
 
 -- 
 2.56.1
