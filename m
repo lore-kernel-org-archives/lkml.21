@@ -1,100 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.7
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795820691;
-	b=Acmt+aWKoVa043dfq6O2W0b57j9HHRVxpMRzbQr9KJN5qslPbRANJqnGA9F/PP46nAD+
-	 MadEr9fESJqvzcbhkHSltOYNlJTOqQdK6fnOjkHU3raNjSMlVdLlVxuSrkNNcI51KN7ha
-	 HuKXwvAHjD3MjR3cjA22sfK7SOu3RV+AyRa+rKtQXDlvA2XOqgyZExhUzuMZcy/HxFiSr
-	 ugOp1aW0PWdMgJ9ajz/FKWwAyxciUQDnLtJ/Inch6Wspm3uUJmr9SJeHZn4MavXdMhPOT
-	 Z6oQYvzAgOz5A/bejkRIGrUTx6gIhOxia6vVB306kKpXCTtnQ1Lj3TPRhiVG+J1HgXA==
+	t=1795820923;
+	b=Q9W2V/8sGU2Yoy3LIZo7poApqKmjdnQspbex1Iujq+QcaCmUAwVZbcgfSGUekEVUxJgb
+	 OSwn1HV0/UT7SWX1nqt73CxWY25ShlA07AfUHVwDOIFKYTrioJGt9cD1XReDK9wGYgTI/
+	 9w5fW1XmQr/8pRaCGgkcrffOhovwr7DieFaWpJWXk2XQImkzeTyMuL5y/9W6DZhZS3MJL
+	 wNYAZylcc/E+A/HDQs8djhZdOxbVpPkmDPIOzo5y361ke0eJ+neyF/i4mlqPJZsXC3qBA
+	 sSH3uCy/uCZwgtNJ+ksMo4yuqu5v8ei9ZTaqE+6AnnMxsWpntpg5SMwD52PLUnje0Nw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795820691;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=/b2+qyA9K6Lsgmca7ZCpnNmp2UOo1415xEJn6O9u+Jk=;
-	b=H7FFZRF8S2fETZwHWc2X2SRNxq+Byl2PrgxPtKx/H/ys958Uw49eDvnmOlFk2Y7nDdoj
-	 9bkehqdwvmIodiXybRQpDIvFAReM1/Gb2itCZ3iy0MEx0uvFeV63J0GXiGA2kecXVEfCO
-	 7LLerLQK7dkzdkeGZbCMkeMnlEZfC50o7qVCaOWvJRfiYALzW9fF5Hc5khrimAOnfg+hG
-	 r5fVfAOCehG+wmJV9EnkTTMH3HwdDdBp6WlTZrzYQuxhcZBEj2THM7MAB0Mp9wksFaKE4
-	 8sQuUx9+qyg1ap+34QTveqfuT2PHWYtm8aQfzQPakak71EyFkFgiKtc2rLc30oHIV2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795820923;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-Source:X-Source-Args:X-Source-Dir:
+	 X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:AntiSpam-DLSP:AntiSpam-DLSRS:
+	 AntiSpam-TS:CFBL-Address:CFBL-Feedback-ID;
+	bh=2aKwOdGMMIB1hqfLfsxJEasVHbzKhJFSh6e5iMy10HQ=;
+	b=DdfrhNysueKtCIl4LewelEY+Z9G5kNMrfniNVFuB3dLcN1q96K3JvH3cCwSiCX6EFaWk
+	 xRYNoA1cuC7fg2ZIiE3K8qFvSGmC7qWZiyUmP74j3qxtpaJ215tfltuhT/d7d8bQkd2Qg
+	 MWVqn8QRQWwd5k5v4UO/LqsCNsd5YlMjXzBgC8/u9g7BqJl501GfXFFxfSq4C29d8bJAf
+	 JwdUO4AVOs89qBDvshK9cJM6CAVcXSC5RkgTiTTCbtxx53eAVhrxvzXDyl10BCAB3/xmC
+	 L0dj1+8aOCxAfUxqAaT0bR6AmQzaccLzN2pMTK7PiMKnr9qPvAOxEH07aF1AdtaIyGg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RTTWEluh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=valla.it;
+	spf=pass smtp.mailfrom=valla.it;
+	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=vT7Ave8i;
+	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=CYWR3urS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.7
+Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4615D606A683
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:04:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4615D606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C7B6606A31F;
+	Fri, 27 Nov 2026 23:08:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C7B6606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RTTWEluh
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-55b8cd4e2abso86315931cf.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:04:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795820688; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rNogtkD7ovWDjrGsqQ5MI8fLDfMi9ZixsXKOVmBeTM8gdMCOgzFYk8nUCDf1WX+P99
-         5I4q4iOsvkerqUIafggEW5PTfepnnWxvsg3a6OE2D65m2nbqR2iIfLo/ggOB881+xbVP
-         i4vmqKDS7DgjJnRrQJil1FIRK2OqmDwP69AqQisp6Dl2I2aNtMX3FP5QKg7qJizCCnei
-         QWIFUe6dA9LbGXJQL2aNDQ6tceYTMPP4gQdUlMrcWGj6p2SeWert/KLV74q8eBGDDuBG
-         qM4ejeaYIyBNQxPIgx6gLxdPptw4EySbmECQZSk4DOM1ty4H4rL8YS25wy3K7WGlSZm4
-         6pjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:dkim-signature;
-        bh=/b2+qyA9K6Lsgmca7ZCpnNmp2UOo1415xEJn6O9u+Jk=;
-        fh=nHX50yGL3RVBoBwfBuzSm/4563lPTy05sx2nWoKNXtA=;
-        b=rj/Lzo/YYyCgP+j4t0c6DmiNmVF5SwPw42KdMRs4fP3vRzNbBc7+HnGLQaeL+f95Bx
-         xjBp06C92v0enjfafLmHYYRiI44bi9/6AOGQ5SF9b1/1pPGgfgc+lNSEz1zxWPG6lQDT
-         fqHt6BsMkdfeUdjT4QGPFu3gk1mryjLHhK1YWaELDjicsfuOUdwO5Hi/KbTaBHwwhvj/
-         uJtHDNuLoR0pAbOYtGVpmE9vh3LPEZhy/KFqTP/Rtnt8aXc91rQ+6R0h5fwiHdsRURYN
-         iCntnhTh/wAjbKVc49sqlM15K13E3VM448PsBSCkA1qU7gOZ+lLYEtAx3zuLUV074c2l
-         8QEQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795820688; x=1796425488; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/b2+qyA9K6Lsgmca7ZCpnNmp2UOo1415xEJn6O9u+Jk=;
-        b=RTTWEluhhsXgpfIsZHxCzGrEGf1LGJFEUPyZAkPlh0u0eBKuHjkxRCrHCMEvIvrdQF
-         S8UyijLJJTS/BCFS/KivcWTrpRMNOmCYCkUf7GrPBAyTVojrpiwzDbEd/LHhLwQghqq9
-         J1hgj4G8u3rDkXVQ7t5ic9dqb2cwUxT5LmsspvqlAZ7n+EIJ9wsw0xMVdnjyXvn9dsQF
-         hntBXZq85M7zyN4m8CZ2fp3pweb/hndHuv9f1BZ3aMmjsPlr56oBsPJc2/XuTuhbt96F
-         MOiQKftkcaIqS+kdg+FpBCie+ujP8xpCiQijM1rvJwRprXt4hnR4v5LRkUx3/obXvCL+
-         30NA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795820688; x=1796425488;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=/b2+qyA9K6Lsgmca7ZCpnNmp2UOo1415xEJn6O9u+Jk=;
-        b=QXp+ovx/aCaQgVvuNcORpGMFDb47+/SpVyqbI8gbOpHsGigmK0I3f+tWM4iS8dsx4d
-         Fv7ex4JIu5LHDRqBsBpz34iTl98jYHpNf8ZLmJTFHPFplKIhlugRv14v9O0TcjlHqY6e
-         qED2YwtTvrkzmjdngWhwZWBynGSs6puwlDL26/NuHv1sLYMu/XPSOsYRFshfPvOiEYvZ
-         dcTkAJEk7hZbl49p65B3f1jQGlB/PVCMTnl6i3S4LdKttGOOoGzhfRs4YIvE+g/d6CHU
-         7XzQtyMk0qZ43hMTqBrzRFD0V6Gs2e6fNW9t+80sihZFHI1woTEZ+71kuR2nm/BMhFt2
-         8GTg==
-X-Forwarded-Encrypted: i=1; AL+hErFz2+Nfdm0P6+yqAtXfpA9N+hBhXeNI2QIheCLd7VZ7v3cafIDGtkNZs0ORu3mNpH71ZdQR497vQ1+5ib4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yABmIsXmaojMU7Jn+onNwVZtUKoCI7/akGT96oqGkzMQFlxtr
-	bMZmxqb5p40PjGDMipouZCu7eicquvlzVMLixH/f7gHTXre+eXWuHlzb3N6GD7Qi2R/3BC7gIJc
-	0+qOrZrf6hffyRTXKgp7/KiB+aaVMHmc=
-X-Gm-Gg: AZFdTZdKpzh4yHNSjTh4nQG7NMAqOF+zoFj1/g0BJAY22wEZgG1UBspIy8djPp7bUFC
-	SzkFXyBs/9pRsXavCLL5yNs1Z7Wa4gWImIxuBbLFM0a6RNh4bPtQ34W0Jt10xJg2uoc+xMVrZSX
-	Jjcj7OMgm2rwc1W15EQI6h1TsDaNCV3uqLuVUcrirMLP6iVl7iu2+QzMkp9RSkXfT/M1mjGgP68
-	9qX51/4h6G1LeD86d2hRE6Mxh9Z1VuKFhcjiJHeaam6gICKydCBZ6Cg9ZR/jECrN1hvgDtrDgPR
-	BO/ZeI+0z2Ou/RJSoUZy8qrb/2S5Pui3xd2RgvS6ixR4qUXkkmJ0yhXMkn89ZNmUvxDtTywygLV
-	TNmfAVqIMuVChXG0Z+mcJSkCrmLvRKd47UNV02L/zqQtvdHqXRCD1LQWpXp0pETTVzZge6ddbFp
-	Fr1eNPRg3mqu7tj2R67yoaeg==
-X-Received: by 2002:a05:6214:328d:b0:921:23e5:37ed with SMTP id
- 6a1803df08f44-92134bbcdb7mr459774586d6.56.1795820687910; Fri, 27 Nov 2026
- 15:04:47 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=vT7Ave8i;
+	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=CYWR3urS
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com; s=arckey; t=1795820922;
+	 b=kiAqa2+5i2pDb0fY9YhOWjj/gFVLela3NTKXaiaTEfYeBEQpprT2D5r9gkTS4IW2OtLBLU+ju1
+	  V+PplEs1Cn5mCY+VOGAahBx3aYbbodz/iBxcJEcy0kwThK59ew/+KBWAI0sDkCDHLuXKU5eP1k
+	  gH20mbXPb2p8n84LSJU3E5w33NeqSPFMWK29IcW+V6q4fM62PB8phLtjyuH6ekNQS60X8NUy7u
+	  VQJFywJD5JZgXHHN/iclqMSoUhwRPNs4OPtSpVhThfsg+HIXOmVOeGfrdphTGh9VOqEeKgMbwa
+	  lvMg3H7LRaWxAM6MiQmohjibOQKaqStH9HHuccwNCmQNEg==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com; s=arckey; t=1795820922;
+	bh=o1K/1aTR06oRd/vtbiHXltM41hdqaZFTCTLVqvH8L0A=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=adnWQqWMlt1L3UI1SkuAp3qH1mQBbXzzhQVLdBUvUE500DSTtFDVzy7nz7p1VL6MQM0yYBtOEL
+	  g84Ja9aWycVV01FIKkEF2cAD3nlZpVRtkP4ndgfUu0S3ZSP00+Z8uqgpb+ENwShV6lTiWqHjld
+	  qisON4My61KYtOLMOPxmwYh8azeoBlixBdV9JfXhu2+cGoG9vA33h5soEb/l6YD+6qkP4tsSnH
+	  cFuvOg+daaxZm7XfM1qxDj8m5UTVkEwyT+HEjd+gghOKI5i0uov3IQNiwKOAKrIr5L49zxWz5L
+	  Gmat1+n0F6nWMKKm4k/NilLq4M8SfkVO/KgzfQEWYcsKsw==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=2aKwOdGMMIB1hqfLfsxJEasVHbzKhJFSh6e5iMy10HQ=; b=vT7Ave8iStKMXeIrtb1Htl5tH7
+	HZXE3r91kCqohSSirrVE2quzo1IIfgXo7BDRNQA17K4o0NKRcl5TBa0VTWMSB5MvluIE5KsLGSOzf
+	QCGabS/gXetOuulCZwNIVirvwgeEyVWpOOn6iMZCjstnOc6pyng8wSMhACEDYDlF0aXs=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-h034.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.2)
+	(envelope-from <francesco@valla.it>)
+	id 1xX53Y-00000007oSR-1vpu;
+	Fri, 27 Nov 2026 23:08:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=2aKwOdGMMIB1hqfLfsxJEasVHbzKhJFSh6e5iMy10HQ=; b=CYWR3urSK9eq41PG4KnR8yV7gw
+	T4IXdfG54bEjjatWUnrnWMMp3UrXpqKqwVQbn2TrL6XPl3QIpbAutqlo8kIZncE6rQpN8Y5KbI//B
+	o4y7wThMI3mtFhPK120TRDtnq8s+y8hHuB6vqeb0hpXKgse559RfNB3uX/z0A/2xrXVU=;
+Received: from [79.28.115.6] (port=63978 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.2)
+	(envelope-from <francesco@valla.it>)
+	id 1xX53S-000000007uk-337N;
+	Fri, 27 Nov 2026 23:08:34 +0000
+Date: Sat, 28 Nov 2026 00:08:33 +0100
+From: Francesco Valla <francesco@valla.it>
+To: shyckless@gmail.com
+Cc: andersson@kernel.org, mathieu.poirier@linaro.org, 
+	linux-remoteproc@vger.kernel.org, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: omap: Fix cleanup after timer start failure
+Message-ID: <awoLFmA_kZe2XXwt@bywater>
+References: <20261118-omap-rproc-v1-1-c2824060fd10@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,479 +100,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Dave Airlie <airlied@gmail.com>
-Date: Sat, 28 Nov 2026 09:04:35 +1000
-X-Gm-Features: Aa3M54rvMNa9lv1SfvbEGQ3fm_rDzjyGzUtYBeu2cpXmgJm_hRrZ2uW3k1cIZCI
-Message-ID: <CAPM=9tw3Esbfcq+zcZyg80J9_1FaFLKD1S-83DstzL=WfrRbpA@mail.gmail.com>
-Subject: [git pull] drm fixes for 7.4-rc5
-To: Linus Torvalds <torvalds@linux-foundation.org>, Sima Vetter <sima@ffwll.ch>
-Cc: dri-devel <dri-devel@lists.freedesktop.org>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-omap-rproc-v1-1-c2824060fd10@gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: c850323f0239a426b9b9aa71731776c9
+X-AntiAbuse: ID - c850323f0239a426b9b9aa71731776c9
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xX53Y-00000007oSR-1vpu-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-h034.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+
+On Wed, Nov 18, 2026 at 03:38:25PM +0000, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> When omap_rproc_start_timer() fails in omap_rproc_enable_timers(), the
+> error handling has three problems.
+> 
+> First, the stop loop also stops the timer that failed to start:
+> 
+> 	while (i >= 0) {
+> 		omap_rproc_stop_timer(&timers[i]);
+> 		i--;
+> 	}
+> 
+> omap_dm_timer_start() drops its runtime PM reference when
+> pm_runtime_resume_and_get() fails, so stopping that timer calls
+> pm_runtime_put_sync() once more than it should.
+> 
+> Second, the loop leaves i at -1 and then jumps to put_node, which falls
+> through to free_timers:
+> 
+> 	while (i--) {
+> 		...
+> 		omap_rproc_release_timer(&timers[i]);
+> 
+> With i == -1 the condition is true and the first iteration uses
+> timers[-2]. The loop then keeps going through negative indexes.
+> 
+> Third, when configure is true, put_node puts np again. The parse loop
+> already put every node it got, and np still points at the last one, so
+> that reference is dropped twice.
+> 
+> Only stop the timers that were started. On resume (configure == false)
+> return the error and keep the timers: they still belong to the driver
+> and are released later by omap_rproc_disable_timers(rproc, true). On the
+> first start (configure == true) release all the timers that were set up
+> and skip put_node, since no node reference is held at this point.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: e28edc571925 ("remoteproc/omap: Request a timer(s) for remoteproc usage")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+> ---
+> Compile tested on arm with clang (W=1, no new warnings). I don't have
+> the hardware, so the failure path hasn't been run.
+> ---
+>  drivers/remoteproc/omap_remoteproc.c | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/omap_remoteproc.c b/drivers/remoteproc/omap_remoteproc.c
+> index f52a531877ae..d50f2e993c4e 100644
+> --- a/drivers/remoteproc/omap_remoteproc.c
+> +++ b/drivers/remoteproc/omap_remoteproc.c
+> @@ -418,11 +418,14 @@ static int omap_rproc_enable_timers(struct rproc *rproc, bool configure)
+>  		}
+>  	}
+>  	if (ret) {
+> -		while (i >= 0) {
+> +		while (i--)
+>  			omap_rproc_stop_timer(&timers[i]);
+> -			i--;
+> -		}
+> -		goto put_node;
+> +
+> +		if (!configure)
+> +			return ret;
+> +
+> +		i = num_timers;
+> +		goto free_timers;
+>  	}
+>  	return 0;
+>
+
+Reviewed-by: Francesco Valla <francesco@valla.it>
 
-Hi Linus,
+Regards,
+Francesco
 
-Weekly fixes, amdgpu and msm leading the charge, with a bunch of i915
-display fixes and then some misc driver fixes. There is one pci fix in
-here that is acked. Don't think anything major stands out.
-
-Dave.
-
-drm-fixes-2026-11-28:
-drm fixes for 7.4-rc5
-
-pci:
-- Cache firmware secondary bus number
-
-core:
-- panic: Restore kmsg screen fix
-- ttm: Don't leak LRU list on shutdown
-
-dma-buf:
-- dma-fence: Prevent misordering for error checks
-
-xe:
-- hwmon: Unregister hwmon before the device is unplugged
-- Serialize migrate ULLS enter against a pending exit
-
-i915:
-- Fix GitLab #9575: Xiaomi Book Pro 14 2026 screen corruption
-- Fix GitLab #9746: Screen corruption when enabling HDR
-- Fix GitLab #9247: MSI Claw 8 AI+ screen corruption
-- Fix GitLab #16854: Regression ASUS ROG Strix SCAR 18 lost mode 3840x2400@=
-240
-- Fixes for ALPM
-
-amdgpu:
-- GPUVM fixes
-- Reset fixes
-- MES fix
-- Multi-entity fix
-- GC 11 APU fix
-- GC 12.1 fix
-- Error path cleanup fixes
-- TB fix
-- Fix handling of ACPI tables when PCI bus numbers change
-- Display OTG fix
-- eDP fix
-- Replay fix
-- DSC fix
-- Fix display handling for RGBA8888
-- VPE fix
-- Fence accounting fixes
-
-amdkfd:
-- CWSR fixes
-- SVM fixes
-- Error path cleanup fixes
-- Fence accounting fix
-- Debugger fix
-- CRIU fix
-
-radeon:
-- Fix handling of ACPI tables when PCI bus numbers change
-
-msm:
-- GPU:
-  - Fix GMEM_BASE on gen8
-  - VM_BIND parameter validation and related fixes
-  - Reset preemption records across suspend
-  - Fix missing CLX request
-  - Fix lock leak
-  - Add missing AQE fw for x2-90
-  - Fix 1/2b alpha filtering precision on gen8
-  - Fix priority inversion caused by commit 38f922a563aa ("drm/sched:
-    Reverse run-queue priority enumeration")
-  - Fix missing preempt_record_size on glymur/mahua
-
-ast:
-- Allow disabling Write-Combine if CONFIG_RT=3Dy
-
-gud:
-- Fix potential divide-by-zero bug
-
-imagination:
-- Fix the value of ROGUE_COMPUTE_FLAG_PREVENT_ALL_OVERLAP
-
-nouveau:
-- Fix double VBIOS checks
-
-v3d:
-- Fix double-free bug
-The following changes since commit b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f=
-:
-
-  Linux 7.4-rc4 (2026-11-22 14:57:40 -0800)
-
-are available in the Git repository at:
-
-  https://gitlab.freedesktop.org/drm/kernel.git tags/drm-fixes-2026-11-28
-
-for you to fetch changes up to e1dc9c441d4a92a54833c85b44c1ee474afaf57b:
-
-  Merge tag 'drm-msm-fixes-2026-10-27' of
-https://gitlab.freedesktop.org/drm/msm into drm-fixes (2026-11-28
-08:30:23 +1000)
-
-----------------------------------------------------------------
-drm fixes for 7.4-rc5
-
-pci:
-- Cache firmware secondary bus number
-
-core:
-- panic: Restore kmsg screen fix
-- ttm: Don't leak LRU list on shutdown
-
-dma-buf:
-- dma-fence: Prevent misordering for error checks
-
-xe:
-- hwmon: Unregister hwmon before the device is unplugged
-- Serialize migrate ULLS enter against a pending exit
-
-i915:
-- Fix GitLab #9575: Xiaomi Book Pro 14 2026 screen corruption
-- Fix GitLab #9746: Screen corruption when enabling HDR
-- Fix GitLab #9247: MSI Claw 8 AI+ screen corruption
-- Fix GitLab #16854: Regression ASUS ROG Strix SCAR 18 lost mode 3840x2400@=
-240
-- Fixes for ALPM
-
-amdgpu:
-- GPUVM fixes
-- Reset fixes
-- MES fix
-- Multi-entity fix
-- GC 11 APU fix
-- GC 12.1 fix
-- Error path cleanup fixes
-- TB fix
-- Fix handling of ACPI tables when PCI bus numbers change
-- Display OTG fix
-- eDP fix
-- Replay fix
-- DSC fix
-- Fix display handling for RGBA8888
-- VPE fix
-- Fence accounting fixes
-
-amdkfd:
-- CWSR fixes
-- SVM fixes
-- Error path cleanup fixes
-- Fence accounting fix
-- Debugger fix
-- CRIU fix
-
-radeon:
-- Fix handling of ACPI tables when PCI bus numbers change
-
-msm:
-- GPU:
-  - Fix GMEM_BASE on gen8
-  - VM_BIND parameter validation and related fixes
-  - Reset preemption records across suspend
-  - Fix missing CLX request
-  - Fix lock leak
-  - Add missing AQE fw for x2-90
-  - Fix 1/2b alpha filtering precision on gen8
-  - Fix priority inversion caused by commit 38f922a563aa ("drm/sched:
-    Reverse run-queue priority enumeration")
-  - Fix missing preempt_record_size on glymur/mahua
-
-ast:
-- Allow disabling Write-Combine if CONFIG_RT=3Dy
-
-gud:
-- Fix potential divide-by-zero bug
-
-imagination:
-- Fix the value of ROGUE_COMPUTE_FLAG_PREVENT_ALL_OVERLAP
-
-nouveau:
-- Fix double VBIOS checks
-
-v3d:
-- Fix double-free bug
-
-----------------------------------------------------------------
-Akhil P Oommen (4):
-      drm/msm/a6xx: Check BX dependency vote index
-      drm/msm/a6xx: Reset preemption records across suspend
-      drm/msm/a6xx: Request CLX enable from secure world
-      drm/msm/a8xx: Add AQE firmware to Adreno X2-90 GPU
-
-Alex Deucher (2):
-      drm/amdkfd: move TBA/TMA back to system memory
-      drm/amdgpu: add helper for determining removable devices (USB4, TB)
-
-Ankit Nautiyal (3):
-      drm/i915/dsc: Fix QP table index calculation for bpp selection
-      drm/i915/dsc: Fix the helper range_bpg_offset()
-      drm/i915/bios: Add quirk to allow eDP joiner on ASUS ROG Strix SCAR 1=
-8
-
-Aveline Noir (1):
-      drm/amdkfd: preserve the byte address when removing retry faults
-
-Bart Van Assche (1):
-      drm/msm: Fix a lock leak in msm_ioctl_gem_info_set_metadata()
-
-Benjamin Cheng (3):
-      drm/amdkfd: reserve TTM move fences
-      drm/amdgpu/gem: reserve fences on the VM root PD
-      drm/amdgpu/vm: reserve TTM_NUM_MOVE_FENCES in amdgpu_vm_lock_pd
-
-Caden Chien (1):
-      drm/amdgpu/vpe: align with reg read permission
-
-Chaitanya Kumar Borah (1):
-      drm/i915/dip: Write the DIP header last
-
-Christoph Berliner (1):
-      drm/amdgpu/gfx9: deactivate all compute HQDs before MODE2 on APUs
-
-Connor Abbott (1):
-      drm/msm: Fix GMEM_BASE on a8xx
-
-Dave Airlie (6):
-      drm/nouveau/devinit/gf100-: fix double vbios init checks
-      Merge tag 'drm-xe-fixes-2026-11-25' of
-https://gitlab.freedesktop.org/drm/xe/kernel into drm-fixes
-      Merge tag 'drm-intel-fixes-2026-11-26' of
-https://gitlab.freedesktop.org/drm/i915/kernel into drm-fixes
-      Merge tag 'amd-drm-fixes-7.4-2026-11-26' of
-https://gitlab.freedesktop.org/drm/amdgpu/kernel into drm-fixes
-      Merge tag 'drm-misc-fixes-2026-11-27' of
-https://gitlab.freedesktop.org/drm/misc/kernel into drm-fixes
-      Merge tag 'drm-msm-fixes-2026-10-27' of
-https://gitlab.freedesktop.org/drm/msm into drm-fixes
-
-David Francis (1):
-      drm/amdkfd: Correctly handle multi-xcc mqd size in CRIU restore
-
-Devin Wittmayer (1):
-      drm/panic: Bring back the kmsg screen fixes lost in a merge
-
-Fei Yang (1):
-      drm/xe: Serialize migrate ULLS enter against a pending exit
-
-Felix Kuehling (1):
-      drm/amdkfd: Fix context ID cleanup after failures
-
-Harry VanZyllDeJong (1):
-      drm/amd/display: Honor the Replay stream regeneration wait event
-
-Harry Wentland (2):
-      drm/amd/display: Add RGBA8888 surface pixel format support
-      drm/amd/display: Fix DCE crossbar for RGBA8888 surface format
-
-Hongyan Xu (1):
-      drm/amdkfd: fix use-after-free in create_process() error path
-
-Ian Forbes (1):
-      ttm/pool: Don't leak LRU list on shutdown
-
-Ian Rogers (2):
-      drm/amdgpu: initialize r in amdgpu_vm_bo_update()
-      drm/amdgpu: initialize r in amdgpu_ttm_clear_buffer()
-
-Jesse Zhang (1):
-      drm/amdkfd: return the memory violation data to the debugger
-
-Jie Zhang (4):
-      drm/msm/a6xx: Fix GMU shutdown idle check
-      drm/msm/a6xx: Fix stale boot up BW vote
-      drm/msm/devfreq: Record idle_time at GPU idle onset
-      drm/msm: Fix sched_prio inversion within a ring
-
-Jouni H=C3=B6gander (2):
-      drm/i915/psr: Adjust Xiaomi Book Pro 14 2026 psr2 disable quirk
-      drm/i915/alpm: Track the configured transcoder lifetime
-
-Kent Russell (1):
-      drm/amdgpu: Disable XNACK retry on GFX12.1
-
-Mario Limonciello (3):
-      PCI: Cache bridge firmware secondary bus number
-      drm/amdgpu: Match VFCT using initial PCI bus number
-      drm/radeon: Match VFCT using initial PCI bus number
-
-Michael Strauss (1):
-      drm/amd/display: Clear OTG_AUTO_FORCE_VSYNC_MODE on OTG disable
-
-Micha=C5=82 Grzelak (1):
-      drm/ttm/tests: do not count pages after pool's teardown
-
-Nicholas Kazlauskas (1):
-      drm/amd/display: Skip DSC padding borrow estimate for zero padding
-
-Perry Yuan (2):
-      drm/amdkfd: test copy_from_user() directly in kfd_criu_restore_svm()
-      drm/amdkfd: fix units when unmapping a PROT_NONE VMA from GPUs
-
-Philipp Stanner (1):
-      dma-buf/dma-fence: Prevent misordering for error checks
-
-Pierre-Eric Pelloux-Prayer (2):
-      drm/amdgpu: use a single clear entity on some chips
-      drm/amdgpu: fix NULL deref in error path
-
-Prike Liang (1):
-      drm/amdgpu/mes: keep the RS64 context slot bitmaps across MES re-init
-
-Priya Hosur (1):
-      drm/amd/pm: restore the forced performance level after a reset
-
-Rob Clark (7):
-      drm/msm/adreno: Soften no-firmware message
-      drm/msm/gem: Fix VM_BIND range check
-      drm/msm/gem: Disallow nr_bos for VM_BIND contexts
-      drm/msm/gem: Decrement loop idx if handle lookup fails
-      drm/msm/gem: Clear nr_ops in lookup_ops() failure path
-      drm/msm/a8xx: Fix 1/2b alpha filtering precision
-      drm/msm/a8xx: Add missing preempt_record_size
-
-Rodrigo Vivi (1):
-      drm/xe/hwmon: Unregister hwmon before the device is unplugged
-
-Ruben Wauters (1):
-      drm/gud: fix potential divide error due to optimisation
-
-Ruijing Dong (1):
-      drm/amdgpu: keep the commit padding when re-emitting submissions
-
-Ryan Brue (1):
-      drm/imagination: Fix the value of ROGUE_COMPUTE_FLAG_PREVENT_ALL_OVER=
-LAP
-
-Suresh Guttula (1):
-      drm/amd/amdgpu: Enable IMU_I/DRAM FW_LOAD CMD
-
-Thadeu Lima de Souza Cascardo (1):
-      drm/amdgpu: clear the entire mapping when partially unmapping
-
-Thomas Zimmermann (1):
-      drm/ast: Add an option to disable Write-Combine
-
-Xiaogang Chen (2):
-      drm/amdkfd: Fix a race issue at svm_migrate_copy_to_ram() error path
-      drm/amdkfd: Swap order of svm_range_dma_unmap_dev and migrate_vma_fin=
-alize
-
-Xiaolei Wang (1):
-      drm/v3d: Fix double free of query arrays on parse failure
-
-Zhikai Zhai (1):
-      drm/amd/display: Power up eDP when detect link
-
-chong li (1):
-      drm/amdgpu: post the ASIC after the reset done at init time
-
- drivers/gpu/drm/amd/amdgpu/amdgpu.h                |   2 +
- drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c   |   3 +-
- drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c           |  42 +++---
- drivers/gpu/drm/amd/amdgpu/amdgpu_device.c         |  31 +++--
- drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c          |   7 +-
- drivers/gpu/drm/amd/amdgpu/amdgpu_gem.c            |   8 ++
- drivers/gpu/drm/amd/amdgpu/amdgpu_gmc.c            |   7 +
- drivers/gpu/drm/amd/amdgpu/amdgpu_mes.c            |   4 +
- drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c            |  10 ++
- drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c           |  25 ++--
- drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h           |   1 +
- drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c            |   9 ++
- drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c             |  19 ++-
- drivers/gpu/drm/amd/amdgpu/gfx_v12_1.c             |  17 +--
- drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c              | 100 ++++++++++-----
- drivers/gpu/drm/amd/amdgpu/imu_v11_0.c             |  14 +-
- drivers/gpu/drm/amd/amdgpu/nbio_v2_3.c             |   4 +-
- drivers/gpu/drm/amd/amdgpu/vpe_v2_0.c              |   3 +-
- drivers/gpu/drm/amd/amdgpu/vpe_v3_0.c              |   3 +-
- drivers/gpu/drm/amd/amdgpu/vpe_v6_1.c              |   4 +-
- drivers/gpu/drm/amd/amdkfd/kfd_debug.c             |   4 +-
- .../amd/amdkfd/kfd_device_queue_manager_v12_1.c    |  18 +--
- drivers/gpu/drm/amd/amdkfd/kfd_migrate.c           |  21 ++-
- drivers/gpu/drm/amd/amdkfd/kfd_priv.h              |   2 +-
- drivers/gpu/drm/amd/amdkfd/kfd_process.c           |  58 ++++++++-
- .../gpu/drm/amd/amdkfd/kfd_process_queue_manager.c |   3 +-
- drivers/gpu/drm/amd/amdkfd/kfd_svm.c               |  16 +--
- drivers/gpu/drm/amd/amdkfd/kfd_svm.h               |   4 +-
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  |   3 +
- drivers/gpu/drm/amd/display/dc/basics/dce_calcs.c  |   2 +
- drivers/gpu/drm/amd/display/dc/core/dc_resource.c  |   4 +
- drivers/gpu/drm/amd/display/dc/dc_hw_types.h       |   2 +
- drivers/gpu/drm/amd/display/dc/dce/dce_mem_input.c |  42 ++++--
- drivers/gpu/drm/amd/display/dc/dce/dce_mem_input.h |   6 +
- .../drm/amd/display/dc/dce110/dce110_mem_input_v.c |   1 +
- .../gpu/drm/amd/display/dc/dml/calcs/dcn_calcs.c   |   1 +
- .../gpu/drm/amd/display/dc/dpp/dcn10/dcn10_dpp.c   |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn20/dcn20_dpp.c   |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn201/dcn201_dpp.c |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn30/dcn30_dpp.c   |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn401/dcn401_dpp.c |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn42/dcn42_dpp.c   |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn50/dcn50_dpp.c   |   3 +
- .../gpu/drm/amd/display/dc/dpp/dcn60/dcn60_dpp.c   |   3 +
- .../drm/amd/display/dc/hubbub/dcn10/dcn10_hubbub.c |   1 +
- .../drm/amd/display/dc/hubbub/dcn20/dcn20_hubbub.c |   1 +
- .../amd/display/dc/hubbub/dcn401/dcn401_hubbub.c   |   1 +
- .../gpu/drm/amd/display/dc/hubp/dcn10/dcn10_hubp.c |   4 +
- .../gpu/drm/amd/display/dc/hubp/dcn20/dcn20_hubp.c |   4 +
- .../gpu/drm/amd/display/dc/hubp/dcn35/dcn35_hubp.c |   4 +
- .../gpu/drm/amd/display/dc/hubp/dcn42/dcn42_hubp.c |   4 +
- .../gpu/drm/amd/display/dc/hubp/dcn50/dcn50_hubp.c |   4 +
- .../gpu/drm/amd/display/dc/hwss/dce/dce_hwseq.c    |   1 +
- .../drm/amd/display/dc/hwss/dce110/dce110_hwseq.c  |   1 +
- .../gpu/drm/amd/display/dc/link/link_detection.c   |  15 ++-
- .../amd/display/dc/link/protocols/link_hdmi_frl.c  |   4 +
- .../gpu/drm/amd/display/dc/optc/dcn31/dcn31_optc.c |   4 +
- .../drm/amd/display/dc/optc/dcn314/dcn314_optc.c   |   4 +
- .../gpu/drm/amd/display/dc/optc/dcn35/dcn35_optc.c |   4 +
- .../drm/amd/display/modules/power/power_replay.c   |   1 +
- drivers/gpu/drm/amd/pm/amdgpu_dpm.c                |  21 ++-
- drivers/gpu/drm/amd/pm/inc/amdgpu_dpm.h            |   2 +-
- drivers/gpu/drm/amd/pm/swsmu/amdgpu_smu.c          |  39 +-----
- drivers/gpu/drm/ast/Kconfig                        |   9 ++
- drivers/gpu/drm/ast/ast_mm.c                       |  13 ++
- drivers/gpu/drm/drm_panic_helper.c                 |  10 +-
- drivers/gpu/drm/gud/gud_drv.c                      |   2 +-
- drivers/gpu/drm/i915/display/intel_alpm.c          |  11 +-
- drivers/gpu/drm/i915/display/intel_bios.c          |   5 +
- drivers/gpu/drm/i915/display/intel_hdmi.c          |  17 ++-
- drivers/gpu/drm/i915/display/intel_quirks.c        |  14 ++
- drivers/gpu/drm/i915/display/intel_quirks.h        |   1 +
- drivers/gpu/drm/i915/display/intel_vdsc.c          |  10 +-
- .../gpu/drm/imagination/pvr_rogue_fwif_client.h    |   2 +-
- drivers/gpu/drm/msm/adreno/a6xx_gmu.c              |  31 ++++-
- drivers/gpu/drm/msm/adreno/a6xx_gmu.h              |   1 +
- drivers/gpu/drm/msm/adreno/a6xx_gpu.c              |   2 +
- drivers/gpu/drm/msm/adreno/a6xx_gpu.h              |   1 +
- drivers/gpu/drm/msm/adreno/a6xx_hfi.c              |   2 +-
- drivers/gpu/drm/msm/adreno/a6xx_preempt.c          |  37 +++---
- drivers/gpu/drm/msm/adreno/a8xx_catalog.c          |  15 ++-
- drivers/gpu/drm/msm/adreno/a8xx_preempt.c          |  11 +-
- drivers/gpu/drm/msm/adreno/adreno_gpu.c            |  12 +-
- drivers/gpu/drm/msm/msm_drv.c                      |   3 +-
- drivers/gpu/drm/msm/msm_gem_submit.c               |   5 +-
- drivers/gpu/drm/msm/msm_gem_vma.c                  |  11 +-
- drivers/gpu/drm/msm/msm_gpu.h                      |  24 ++--
- drivers/gpu/drm/msm/msm_gpu_devfreq.c              |   3 +-
- drivers/gpu/drm/msm/msm_submitqueue.c              |   2 +-
- drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml  |   1 +
- .../gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c    |   4 +-
- drivers/gpu/drm/radeon/radeon_bios.c               |  40 ++----
- drivers/gpu/drm/ttm/tests/ttm_pool_test.c          |   2 -
- drivers/gpu/drm/ttm/ttm_pool.c                     |   1 +
- drivers/gpu/drm/v3d/v3d_drv.h                      |   6 +-
- drivers/gpu/drm/v3d/v3d_sched.c                    |  40 +++---
- drivers/gpu/drm/v3d/v3d_submit.c                   | 142 +++++++----------=
-----
- drivers/gpu/drm/xe/xe_device.c                     |   9 +-
- drivers/gpu/drm/xe/xe_hwmon.c                      |  22 +++-
- drivers/gpu/drm/xe/xe_hwmon.h                      |   2 +
- drivers/gpu/drm/xe/xe_migrate.c                    |  15 +++
- drivers/pci/probe.c                                |   1 +
- include/linux/dma-fence.h                          |  15 ++-
- include/linux/pci.h                                |   2 +
- 104 files changed, 772 insertions(+), 427 deletions(-)
