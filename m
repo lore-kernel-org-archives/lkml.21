@@ -1,111 +1,38 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.150
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795747610;
-	b=4XBIrBavlH0uwfTmj/Sz/FvJD9XVgIRqe49MvbQImq9VUZ9pNlzuQ+1Y0TJTcGpJCjxp
-	 y/0PdqBRZ7DUV9vIU28fQ4zddYOY6umsfPYkt0vTd9TlXZRt3RAGxNabCnFbNkzEkbQNw
-	 mx3G/lcycrNjEEBjK8OLZE+sGUmTuRZbRY7OJ123i7DADkuWp5ECZ+pwNOuQSGH1DUHut
-	 kv79lanRnW07le8yoLBKptzePgzjVBDdO4TiUo5TXw8SXsk01lU3C7l9vXqblgw/Ehmqn
-	 3XYNmltCFc3csk30aI+L29NvdBVaNtQE68jfsvG0bA5Tb3nzWk1p8dpfJ2Gld6Zwl0g==
+	t=1795747706;
+	b=Eoe/Zb5hg1DQ9XJntrnsG11FGalZUi9SkzIJyKbLXXhtICBq2bOauaJYbIvE4ZjmPOiM
+	 upJ1+CsgfBEY7bwefPpBitHIaaw939A9iw884/95EdDvW3EJcwVxzMiCjYWvKtKLyMH4T
+	 BTmbRzhFXRh9P3BDD4rPGKA4eJU3WxYm2q2R6ND/3vFywtv+Cqq7fiXS8UW0vtM1S9J1X
+	 dK29ywUv+IemO1RX5Kc3vKVKl54uHgE4cNRcE5mM08WGFmkjVKnqpnnEIh5X7TemEX1RC
+	 hXPb8wi4KHXNNEJDUnVIgPMO3leoqN0sjwd+ib5HZ3CMzeqp6YKFqT8/B+cU4NAWqOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795747610;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=ihCObR2mra9FuNmfpfhXt4Dermd4tKoKZUNYmDE2jAA=;
-	b=FFsD7Asv/25lmqNqrhQPM6MzTtwHa/mgxECKAaTtlmWcV+p1IsCgk8GQ07RW95NMmLwV
-	 DO5D4z19OFtQYzvKNIYR2dcnCawnTqh7f9+aL2sBI1xrf/ktoJm+vo1GpY0kKAuHBNkga
-	 Co7BWSYJbg3KCI6H57WtMAGMcJFlSskhhZ58Y0VNKagcU2qbD5HL9iM0gMB0ZgqwU8fHS
-	 u9rHkBMbYUXYRI+x1Cfrro3jRixzNXL+E4W0NNWLa7wjXBm5+hv0UML2nvdjDbyo5R6O8
-	 gJZ3A40AuDOxXmnmupmEh06m+puwUPji5kK5X+Tzo1OxTE1wJw4yKpLCSuAMaFN2J9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795747706;
+	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=dZ9cYGubkP5PHIsx/rNN59KhZLj9/vuf5xM51t+rJWg=;
+	b=nYjmuqnG/hd0lFJTWc8QbuwqlPxpqGK3bVIpxWJRXphyUwYFDYUPuyz5ow836Z0bcWnV
+	 b1dGk5qFz7ZnN8KWFxbo3OBcMVYXZbQki5dx2k0BPMIE1fQylilf2g93OTxohu+fn+6KF
+	 wZVJ8MdxQ7ReQmdkt9zNa5AjWaJmqvKwVOCJYfRuhJHxzhAHb+vGOw9vFGF0m0o1dhp4U
+	 zYrHQqW7TaLGzNRzNKk8/krSNZ4bWUrUPYe0nrZXDWSHQ/ipq83PG8t0VlL7S9YGapAcc
+	 h0IQUmdica0UhV3k+hD5uPhb3ihJVDTeYN7gi8rAQ8iMvLqsfhgERpNRdF46bmOISKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=XGb8fX86;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=BxhspKGA;
-	arc=none smtp.remote-ip=202.12.124.150
-Received: from fout-b7-smtp.messagingengine.com (fout-b7-smtp.messagingengine.com [202.12.124.150])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3490606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 02:46:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3490606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=XGb8fX86;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=BxhspKGA
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfout.stl.internal (Postfix) with ESMTP id F271D1D0054D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:46:48 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 21:46:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795747608;
-	 x=1795834008; bh=ihCObR2mra9FuNmfpfhXt4Dermd4tKoKZUNYmDE2jAA=; b=
-	XGb8fX86tu/DEPSdzTQel+Acb5q6HLhVCE2FAYfu5qAWebFmaLRt58Dbta5xuvQ0
-	BaDIbFBLomiCa6swhJ/4Jx6XYwM+J6i4fvRl1yaeXHq78OwtuCp7UPBcX17Je7Ao
-	8qRI/OXbb5xjuOcKfnA34Cx5VZ0q7MtqRXLSdxmtB1IAqG6BRVg1vsA1vLzAhyTZ
-	UAfNX162OgcdONB7mxkxSTZQvFW2B2TobyGbCxIxm2XJVboxJRZPNZbcG/S3tRMR
-	r9/zE0IHzgcwUc70MruvJy6aec4CpCOvC5DikV0orBMZCmwX5zuWzXmXxZtYnKLF
-	T+5yYlDuhBAh3j6mXUwBNQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795747608; x=
-	1795834008; bh=ihCObR2mra9FuNmfpfhXt4Dermd4tKoKZUNYmDE2jAA=; b=B
-	xhspKGA+zLocQrmQuaF6knEaypiBQxUKG7AggvOzfMLP59Mm2PAIZHjHBdwJOPBp
-	amEJ1mw4w+QkrKMWqncJHCVOeKWqkr5/dzDG0q9ebdNbsZ5E5uLOvr+5FVNEMNHl
-	CeOjhhZD7QjW/L4rrVNe8/+jdbNorvgMHdy2CeDO1FX0dZynQ84Zh/OAv4V/BLwY
-	3+fbugJDL0XXPAyJfGxtN0gLBs/9OHdceyxbqUrqGQYa3+t1xDHw6D8KjOM0BJnC
-	VfuOINoLwbdaUSiAsWVR5XHUuPuS81RFSM2Diw7gEy1i0EnpLTSPMj1+GSWCbMW0
-	ObExafi77bwwJKfcyDNoQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795747608; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:L311Gibi4TI7Zbcndl23u8atRpUyuI3G+4PqvNL8Jl/5KJX
-	e//nHeeslg8ci35z7nHji6IB3iKcRgexaB4ssOD9J4jBxagiR6rDzghK/0RkxCzN
-	e9s8w1dwRt8JjVXzp6WNoGb0Dxr3NU2avnNAgt0Mbc+UAUy6vhaR3WFgRcQY/977
-	lISLJjk1gALLyAunUev08w4BrLfAABHddau6GfyaaRaeeJqt+mWc0Bj82H45yerz
-	nqV8nXgKrVbw5J6qKANU3MD07DgBi+T64enalYR8tWMxlWtt9cM5/PDbIIpoS/5P
-	GZvH0gS2XeY5B3JcUE/M739Z3aKX1WfirbevLpw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:xutYyhZjfCKSrNC6YTROdpPYT7yKFvn7JXXWF+QWwbw=:w1NFlrNXAXbybpbQGmneKBQeYJeZcgm9m5T3o71rdO8=;
-X-ME-Sender: <xms:GO8Ia_ZCtii1NiYrw6jDAi21WJb62qj01H9DJir6ODnCnrAVf6rJAQ>
-    <xme:GO8Ia5NaGgD0c5tSotGMoIqsEKQKutPfbBKAF8BbN5Srp_L2HxGEk3UpvVAqtXDfl
-    UeTlnnEtGXAGRGB3WBSoZ15twESTigzXXJ-MtSbr9Q1ywTnFbM7LkfGUg>
-X-ME-Proxy-Cause: dmFkZTGrpnrouRNRyg+zHWV48DwqeDsilOJ8pAFkZiF/8F9UkChqMp7bKskU5dvTMlW2iD
-    KuwFMcX/Crmf5vLK+P8Fjo9e8EMaS0xORg/O4BHVHvyWwdiIxMP59Gr0cDsDyrNE6UOTkj
-    y3IOLDeO6zngMr4SuEPgwyUkqeM8EH6betbrvegoT4KgSuvmJPHoA6a9rmB8XefXePxkoI
-    6LWSOW6HM8PdyDycfRiB23Q689Y9hqHEB+Tp0rCMwvTc5hKrLZvbDADbaiNMUndLQrzt+t
-    7Uog3KuOA0bXLYK9Y+WpUzUg8f5ql/kNw/vb8vAA2tiPzg06LGH/ypfhAU7yh77Lk5V1PK
-    C6sXMma6idToTXqfuHeRfgzhnyjMOaF9eNqNFOM1kBk3S4oo15w9is9hMOcXnRTzPOlBeH
-    6xQgaRUkwqvz+VBC6L5IVHCHQ/M9qUzw/WfF8CNHRUWgjaL8oOzmRQ9b3vS6/FTtqpRUac
-    mYXHswLs1LcU2mW1cTva+WWq1Lr5nLudlJ7AMuoyjx0iCCvK1gfOCERPenY0h4vmbIDQe0
-    Fruowy4U4sfLGu9vSNVq5Qx3/QMefZqXDQluXKJxOFOzeMb3tIPBrZjqKavdoAKn6WXQ9I
-    Q9Aoa/uDZYEGInjZTrRAT047UB/QfDglUjJd/0Ewh1jHIgwPHk2+jtVsDlZg
-X-ME-Proxy: <xmx:GO8Ia0GgDtyBfu7AtcqYJKYtdre9LBFpvtMtDUGAzh9YDhYxuuUaUw>
-    <xmx:GO8IazUZI8nYpXmOTS2a-HRiB83WZJG_mafz1WKHcpCSIuSUsYjB-Q>
-    <xmx:GO8Ia4_CM_NwwhIpf2aFEunNvMKxf-DptfgMLuO6i-E8mfEJwQKmBg>
-    <xmx:GO8Ia45hHC6VxZ1_B-Moszwe2tc8OSmpH2ZwMjWlwqK3Hz09FRNQIA>
-    <xmx:GO8Ia--MpWvjwCD-lIncbC1tppWOKvRBCsD0MkIAfHWvqVDXaEA-ttqn>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id A8BC22C00085; Thu, 26 Nov 2026 21:46:48 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dmarc=pass header.from=krgm.moe;
+	spf=pass smtp.mailfrom=krgm.moe;
+	arc=none smtp.remote-ip=103.47.186.116
+Received: from krgm.moe (krgm.moe [103.47.186.116])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1F3EC606A32A;
+	Fri, 27 Nov 2026 02:48:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F3EC606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
+Received: from [10.42.0.96] (unknown [114.242.206.180])
+	by krgm.moe (Postfix) with ESMTPSA id DD5B182E;
+	Fri, 27 Nov 2026 08:18:22 +0530 (IST)
+From: SignKirigami <prcups@krgm.moe>
+Date: Fri, 27 Nov 2026 10:47:28 +0800
+Subject: [PATCH v4 1/2] dt-bindings: pinctrl: Add Qualcomm Netrani TLMM
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,54 +42,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AbopNpkFqpps
-Date: Thu, 26 Nov 2026 21:46:28 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
- "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
- "Hans de Goede" <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: 
- "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- ibm-acpi-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Message-Id: <d396d007-ac7c-4cf4-bdda-03104cee924b@app.fastmail.com>
-In-Reply-To: <20261125-thinkpad-acpi-hotkey-poll-v1-2-6dee57519c2e@gmail.com>
-References: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
- <20261125-thinkpad-acpi-hotkey-poll-v1-2-6dee57519c2e@gmail.com>
-Subject: Re: [PATCH 2/8] platform/x86: thinkpad_acpi: drop dead -ENXIO check in
- hotkey_init()
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-netrani-tlmm-v4-20261127-v4-1-a77415255784@krgm.moe>
+References: <20261127-netrani-tlmm-v4-20261127-v4-0-a77415255784@krgm.moe>
+In-Reply-To: <20261127-netrani-tlmm-v4-20261127-v4-0-a77415255784@krgm.moe>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ SignKirigami <prcups@krgm.moe>
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5139; i=prcups@krgm.moe;
+ h=from:subject:message-id; bh=FmP7RhS74cn2zsBh/+jKlPa8eSYJJUW0+MFcpRs+nZw=;
+ b=owEBCQL2/ZANAwAIAV0dOJt2umJjAcsmYgBrCO9NMaiRBd5dxMj2Ov/vgigsjC6vGkOKted2A
+ JCy7LF+Td+JAc8EAAEIADkWIQRSClJ2zjncUdNU0FFdHTibdrpiYwUCawjvTRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDIACgkQXR04m3a6YmORLgv9FBRIORkq1aQUpfOyE77ERUpbrMaimA6
+ c5zpr6vtummc2QYjNXueHt0Tzo7zeprtRB7lQNRva+eXLwVNffp9s916DhFzR8pgebEiYVFa2a8
+ ei72tzorHN7NDSLMgppPOo29Ja1sgJTtXwyw0v68KT4N1PKEMF40ChQwLa4nzk+q0+PFCynP661
+ eJpFnSHrDTCELY4U5/EoVWaPcVkkVT0mPiJ5T7hv4KsveckoatrXIYwkZsBwYxbdKIskBVySNpm
+ oIPPOCeX0ZBxPkWKGNRfq0pLFhRRjjz9KO6q1ivfh+uRoZhf9xTpIL0rTAxF7r0wP9W+UqiueYg
+ jAhYMryfxRDoEM47fzQwon1dTu6vvkrT1zh2WLufkbfQQn19yOf/ivR1LJ7sON5XjPoPxvQl8T5
+ GmuYe4z7CM3O9zec19gPuPDY5Dx9tHrevz6cSQRIn6ZW8rhdiUWgUcXH6hEciMUe2JvLx0A0zZq
+ vf9rj1r0lePSWNF1MBVS03fm0Tk9t5e
+X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
+ fpr=520A5276CE39DC51D354D0515D1D389B76BA6263
 
-On Wed, Nov 25, 2026, at 6:11 PM, Dmitry Torokhov wrote:
-> hotkey_mask_set() only ever returns 0 or -EIO, never -ENXIO. Simplify
-> the error check on its return value in hotkey_init() accordingly.
->
-> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
-> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> index a586113ab1a7..659a2c5d1982 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -3572,7 +3572,7 @@ static int __init hotkey_init(struct 
-> ibm_init_struct *iibm)
->  				       | hotkey_driver_mask)
->  				      & ~hotkey_source_mask);
->  	}
-> -	if (res < 0 && res != -ENXIO) {
-> +	if (res) {
->  		hotkey_exit();
->  		return res;
->  	}
->
-> -- 
-> 2.56.1.839.g22a8290db9-goog
+Describe the Netrani top-level pin controller, including GPIO,
+peripheral mux functions, eGPIO selection and dedicated SD/UFS pins.
 
-Looks good to me.
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Mark
+Signed-off-by: SignKirigami <prcups@krgm.moe>
+---
+ .../bindings/pinctrl/qcom,netrani-tlmm.yaml        | 138 +++++++++++++++++++++
+ 1 file changed, 138 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,netrani-tlmm.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,netrani-tlmm.yaml
+new file mode 100644
+index 000000000..609730d52
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/qcom,netrani-tlmm.yaml
+@@ -0,0 +1,138 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/qcom,netrani-tlmm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm Technologies, Inc. Netrani TLMM block
++
++maintainers:
++  - SignKirigami <prcups@krgm.moe>
++
++description:
++  Top Level Mode Multiplexer pin controller in Qualcomm Netrani SoC.
++
++allOf:
++  - $ref: /schemas/pinctrl/qcom,tlmm-common.yaml#
++
++properties:
++  compatible:
++    const: qcom,netrani-tlmm
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  gpio-reserved-ranges:
++    minItems: 1
++    maxItems: 71
++
++  gpio-line-names:
++    maxItems: 141
++
++patternProperties:
++  "-state$":
++    oneOf:
++      - $ref: "#/$defs/qcom-netrani-tlmm-state"
++      - patternProperties:
++          "-pins$":
++            $ref: "#/$defs/qcom-netrani-tlmm-state"
++        additionalProperties: false
++
++$defs:
++  qcom-netrani-tlmm-state:
++    type: object
++    description:
++      Pinctrl node's client devices use subnodes for desired pin configuration.
++      Client device subnodes use below standard properties.
++    $ref: qcom,tlmm-common.yaml#/$defs/qcom-tlmm-state
++    unevaluatedProperties: false
++
++    properties:
++      pins:
++        description:
++          List of gpio pins affected by the properties specified in this
++          subnode.
++        items:
++          oneOf:
++            - pattern: "^gpio([0-9]|[1-9][0-9]|1[0-3][0-9]|140)$"
++            - enum:
++                - sdc1_clk
++                - sdc1_cmd
++                - sdc1_data
++                - sdc1_rclk
++                - sdc2_clk
++                - sdc2_cmd
++                - sdc2_data
++                - ufs_reset
++        minItems: 1
++        maxItems: 36
++
++      function:
++        description:
++          Specify the alternative function to be configured for the specified
++          pins.
++        enum: [ gpio, pcie0_clk_req, qspi0, qspi1, qspi2,
++                qspi3, qspi_clk, qspi_cs_n, atest_char, atest_usb0,
++                audio_ref_clk, cam_mclk, cci_async_in0, cci_i2c, cci,
++                cmu_rng, coex_uart1_rx, coex_uart1_tx, cri_trng, dbg_out_clk,
++                ddr_bist, ddr_pxi0_test, ddr_pxi1_test, dp0_hot_plug, gcc_gp1_clk,
++                gcc_gp2_clk, gcc_gp3_clk, gp_mn, host2wlan_sol_mira, host2wlan_sol_mirb, i2s0_data0,
++                i2s0_data1, i2s0_sck, i2s0_ws, ibi_i3c_qup0, ibi_i3c_qup1,
++                jitter_bist_ref, mdp_vsync0_out, mdp_vsync1_out, mdp_vsync2_out, mdp_vsync3_out,
++                mdp_vsync_e, mdp_vsync_p, mdp_vsync_s, nav_gpio0, nav_gpio1,
++                nav_gpio2, phase_flag, pll_bist_sync, pll_clk_aux, prng_rosc,
++                qdss_cti_trig0, qdss_cti_trig1, qdss_gpio, qlink0_enable, qlink0_request,
++                qlink0_wmss_reset, qlink1_enable, qlink1_request, qlink1_wmss_reset, qup0_se0,
++                qup0_se1, qup0_se2, qup0_se3, qup0_se4, qup0_se5,
++                qup1_se0, qup1_se1, qup1_se2, qup1_se3, qup1_se5,
++                sd_write_protect, tb_trig_sdc1, tb_trig_sdc2, tgu_ch0_trigout, tgu_ch1_trigout,
++                tgu_ch2_trigout, tgu_ch3_trigout, tmess_prng, tsense_pwm1_out, tsense_pwm2_out,
++                uim0, uim1, usb0_hs_ac, usb0_phy_ps, vfr_0_mira,
++                vfr_0_mirb, vfr_1, vsense_trigger_mirnat, wlan1_adc_dtest0, wlan1_adc_dtest1,
++                wlan2_adc_dtest0, wlan2_adc_dtest1, egpio ]
++
++    required:
++      - pins
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    tlmm: pinctrl@f100000 {
++        compatible = "qcom,netrani-tlmm";
++        reg = <0x0f100000 0x300000>;
++        interrupts = <GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>;
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-ranges = <&tlmm 0 0 142>;
++        interrupt-controller;
++        #interrupt-cells = <2>;
++
++        gpio-wo-state {
++            pins = "gpio1";
++            function = "gpio";
++        };
++
++        uart-w-state {
++            rx-pins {
++                pins = "gpio23";
++                function = "qup0_se3";
++                bias-pull-up;
++            };
++
++            tx-pins {
++                pins = "gpio22";
++                function = "qup0_se3";
++                bias-disable;
++            };
++        };
++    };
++...
+
+-- 
+2.56.0
+
