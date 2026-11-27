@@ -1,47 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765496;
-	b=MXvj7dlYAP4l/5v1HoYWQJMW2qcZoqUGDDRS5p4wLeNMFzJLs5sCYuNru+FhE6gE5IjC
-	 eIEJ59Yd35uaJ+RlccFzNvHRDNqZCyrVVJeZ2mQ/D90jikWlAz3rq+0vaui1YWKXj3Q1L
-	 OdrrrSJuqXm+NpkTc8MAq6c0CNdE0mxrwNbGK69SCDm6FyOm6hmFeXVZZ6nMctQJC53is
-	 iW2eLsTBygPVdoeueXfGv630InCa6tJWP/FgK89aolL28IADgXv8WUTxQRMTgTaVkghWz
-	 Lk8tiwtfvP2/CGdfJJuhx3JXiBn4wqnimeNAa1fvqaVp7FRCBsooikL5fOf/bmfJkIg==
+	t=1795765493;
+	b=RpPjKGr4dpvnTEpkcWskQ2nvaptlLzm+5M/PW3t6CgkbFFgQiEO4LnK/DpGb4rLWxl0B
+	 424G58PFbhDjoaJ5bzEOWp1xxApBhKVgiJUSPLQ2GnDgLGe493NO5XDj1qNZv6tWHeDyt
+	 AGTEyNBJq8/UuG39dsV96d3JttMZMyq7jxLxh5u+tmTvGe+z6OqVT9x7WvYcdXWGAORdE
+	 sjcKcx2+YNnZsFMziFWuUhAjwpqP4P892pScq6+ewet5LW4AgA4fxJI/2+gzROO8HS228
+	 2f+cfq7ucAKb6+VDkXm1/MkRUjaLiUh83fbGBleFWAK94WKgdFYCeUxR2y3VzBvLOyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765496;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765493;
 	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=nh4W3J1vEbylWJ4dvPAK3a6q3FD3ThszKVAL+igRA2A=;
-	b=tmWPMVz2FeF2B5mtHtkd6DVKbscF+qDTrvgCOUB/9iE/XU1IqmbDhl/8Mt6fdTa3HbwY
-	 2FyAkOu8dMJvN8Zbgj916UIo1N/hJg1cYKl63XkSEmiApmvM5S9pjyKuzPYh3hoqaD5WZ
-	 hxWWyuKLdwGjWwy9Muo1hXk9e4eTJ4e4l//3QssWLuIwUX/1ocEJIEspB/uj1DWqTCsKv
-	 q8796fNChuPP/05N7GdAPM7eBwMtqSeMVf7QuPE+tbs2O28BPkWiKccYkcfgtX+DeNhIV
-	 y2xd6JeF/0PJyPd7YqAZp49YMM8NlDJ4A9y1gjarmn9rDEnJq/gWgwWVdZ9eFVdHlbQ==
+	bh=5gz9cOzUlfBvDHMHhosMYEbuPfrjTFcnYAa9cwcoXlI=;
+	b=KO+3NeGkGE2D9KFz3Fp5OGc/gZgKKY2UWi0jI0czmm75rLWueHrsdECA2K1H7B/sEp30
+	 2bYwv1bnWAkAbqXIg4ybeyLNJS8Ala0aUIm+tPxhX47CDvqiZ8Ca/Qmsu1KpUFItdndwH
+	 jNtk9ID1tTpvxa8pPIFefNFztz2vYFfZb7c/dzCixAl1LqmfebLL7qdut0ITFHQSOkbDa
+	 l+GVDu2A26Y15yXlcw+kuaEtdZEE3Q+IZaBGy2qb8tFX3NHuEdKe1GKVqeVGJKfD0KGf+
+	 IKkEUm2lFIA6dUBq+MmjtKiigEY94+XdJ3q/z+sdc5bf1vzx1SKkDhXPSNEudrEVIpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=yinhe.ht;
 	spf=pass smtp.mailfrom=yinhe.ht;
-	dkim=pass header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=SUiU+fq8;
-	arc=none smtp.remote-ip=115.124.28.217
-Received: from out28-217.mail.aliyun.com (out28-217.mail.aliyun.com [115.124.28.217])
+	dkim=pass header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b="afBALMA/";
+	arc=none smtp.remote-ip=115.124.28.1
+Received: from out28-1.mail.aliyun.com (out28-1.mail.aliyun.com [115.124.28.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56D46606A32E;
-	Fri, 27 Nov 2026 07:44:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56D46606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F0D7606A323;
+	Fri, 27 Nov 2026 07:44:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F0D7606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yinhe.ht
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yinhe.ht
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=SUiU+fq8
+	dkim=pass (2048-bit key) header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=afBALMA/
 DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=yinhe.ht; s=default;
-	t=1795765485; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=nh4W3J1vEbylWJ4dvPAK3a6q3FD3ThszKVAL+igRA2A=;
-	b=SUiU+fq8mevo3HWb+Ed42x547A/3eIfrj30tumoJep6/gOfhmqe1SpptU3+u9TU5hX+71SGLMenL7pmEhMJTEfcl8vP0FoACeUqtCUy3U/SDB412WcEy9IyJIg+focuHdQmGjENns00ro6yzGgZw+S9VIeFlApZBXlDqabe4bPRZyWcjII6lTdX1J3CAhz2UoVUfF1cRgbemmkvm7eYepniYKxmUrE/ii2ySVtELVft951mLm9PfPXlar0sFmuQ6/KM8/MyQItnmcSrGZswhDYmp/mCOJEfhlY4oqdY4BMlGvcbdAsP7f8s6bzrMFvhp59sXkI9HuyaKfX2CO7fYnw==
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.0312696-0.000966831-0.967764;FP=18200556205844792507|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034254;MF=chunyuzhiqiang@yinhe.ht;NM=1;PH=DS;RN=8;RT=8;SR=0;TI=SMTPD_---.kBFoymn_1795765484;
-Received: from galx..(mailfrom:chunyuzhiqiang@yinhe.ht fp:SMTPD_---.kBFoymn_1795765484 cluster:ay29)
+	t=1795765483; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=5gz9cOzUlfBvDHMHhosMYEbuPfrjTFcnYAa9cwcoXlI=;
+	b=afBALMA/mWCJ5xK/VIIz0tzXqbKAfc3C0R3d40ch9q7Gipm6ttuz0WLHQ0kXVvXrnr5uPMaKGu1M/aIh51NqexO9bh6Lo6vFivOIwGU47QVBcAi8waWUqmHmFDJ0h6EbW2T4PpQbOitezUbc/wixz/b6Pi/ksPcFDMgYQkYLAoY0996dGtVlKtXnixsvyy1J3vyERatO/qcC+DX1JApEYW6PX/S4kPyqjYYaW8yXvnJHY+KzpUSS9ateQhhVOtgPX1FtOSKtFOWjvDdEnr5CM6LbxuvKMfSWGpL6iXNQOsgYUfaglxXAkOX9xzPvZwMeNMEwfBZTbP0E9M8uzDTq3w==
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07447876|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0727759-0.00276261-0.924461;FP=7825485084603504059|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032106048;MF=chunyuzhiqiang@yinhe.ht;NM=1;PH=DS;RN=8;RT=8;SR=0;TI=SMTPD_---.kBFoykq_1795765482;
+Received: from galx..(mailfrom:chunyuzhiqiang@yinhe.ht fp:SMTPD_---.kBFoykq_1795765482 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Fri, 27 Nov 2026 15:44:44 +0800
+          Fri, 27 Nov 2026 15:44:43 +0800
 From: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
 To: Kees Cook <kees@kernel.org>,
 	Srinivas Kandagatla <srini@kernel.org>
@@ -51,12 +51,10 @@ Cc: Tony Luck <tony.luck@intel.com>,
 	linux-spi@vger.kernel.org,
 	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 4/4] pstore: add nvmem backend
-Date: Fri, 27 Nov 2026 15:39:13 +0800
-Message-ID: <20261127073913.353407-5-chunyuzhiqiang@yinhe.ht>
+Subject: [RFC PATCH v2 0/4] pstore: NVMEM backend with panic writes
+Date: Fri, 27 Nov 2026 15:39:09 +0800
+Message-ID: <20261127073913.353407-1-chunyuzhiqiang@yinhe.ht>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127073913.353407-1-chunyuzhiqiang@yinhe.ht>
-References: <20261127073913.353407-1-chunyuzhiqiang@yinhe.ht>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,344 +66,86 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add a pstore/zone backend that stores records on an NVMEM device.  The
-device is selected by name; normal reads and writes use the regular NVMEM
-API and panic writes use nvmem_device_write_panic().
+This series adds the panic-time SPI entry point and its first user: a
+pstore backend over an SPI FRAM.  v1 was based on an earlier revision of
+Heiko Stuebner's atomic-transfer series and is superseded; this version is
+based on current broonie/spi for-next with Heiko's v4 applied
+(63083539d2bf).
 
-The zone sizes and the device offset are module parameters, with Kconfig
-defaults matching pstore/blk.  The NVMEM device must already be registered
-when the backend is initialized.
+Patch 1 adds spi_sync_atomic() for panic and oops.  Heiko's shutdown path
+is gated on system_state being past SYSTEM_RUNNING, but panic and oops run
+while the system is still running, so they cannot use it.  The entry point
+reuses transfer_atomic(), takes the bus locks with trylock so a normal
+transfer in progress on another CPU returns -EBUSY instead of deadlocking,
+and validates without allocating or optimizing.
 
-This patch was prepared with AI assistance; the submitter must review it
-before submission.
+Patch 2 adds a panic write callback to nvmem_config and
+nvmem_device_write_panic().  Patch 3 implements it for FRAM in at25:
+FRAM has no write cycle, so WREN and WRITE are issued with
+spi_sync_atomic(); EEPROMs still need status polling and are rejected.
+Patch 4 adds the pstore/zone backend over NVMEM, selected by device name,
+with normal writes through the regular NVMEM path and panic writes
+through nvmem_device_write_panic().
+
+This avoids a private pstore-fram driver and a new devicetree binding,
+and reuses the existing at25 FRAM support.  The fsl_lpspi controller
+implementation is sent separately; this series only needs the
+transfer_atomic() callback.
+
+Testing:
+
+  - the series compiles on x86 with COMPILE_TEST and on arm64, including
+    against the for-next versions of the touched files;
+  - a mock SPI controller test in qemu passes (spi_sync_atomic and its
+    error paths);
+  - qemu boots with the pstore/nvmem backend built in and no regression;
+  - a mock NVMEM provider runtime test and the i.MX8QXP panic path are
+    still pending.
+
+Changes in v2:
+- rebased onto current for-next with Heiko's v4 applied;
+- include spi_sync_atomic() here so the panic API and its pstore user are
+  reviewed together;
+- the fsl_lpspi controller implementation is now a separate series.
+
+Questions:
+
+  1. Is the panic write operation at the NVMEM level the right layer, or
+     should pstore talk to the SPI device directly?
+  2. Is reg_write_panic in nvmem_config acceptable, or should it be a
+     separate provider operation?
+  3. Is selecting the NVMEM device by module parameter acceptable, or is
+     an NVMEM cell/devicetree nomination preferred?
+  4. Should the backend live in fs/pstore or drivers/nvmem?
+
+This cover letter and the patches were prepared with AI assistance; the
+submitter has reviewed and signed them.
+
+Thanks,
+ChunYuZhiQiang
 
 Signed-off-by: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
----
- fs/pstore/Kconfig  |  64 +++++++++++++
- fs/pstore/Makefile |   3 +
- fs/pstore/nvmem.c  | 230 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 297 insertions(+)
+
+ChunYuZhiQiang (4):
+  spi: add spi_sync_atomic() for panic and oops
+  nvmem: add panic write support
+  nvmem: at25: support panic writes for FRAM
+  pstore: add nvmem backend
+
+ drivers/nvmem/at25.c           |  59 +++++++++
+ drivers/nvmem/core.c           |  44 +++++++
+ drivers/nvmem/internals.h      |   1 +
+ drivers/spi/spi.c              |  69 +++++++++-
+ fs/pstore/Kconfig              |  64 +++++++++
+ fs/pstore/Makefile             |   3 +
+ fs/pstore/nvmem.c              | 230 +++++++++++++++++++++++++++++++++
+ include/linux/nvmem-consumer.h |   9 ++
+ include/linux/nvmem-provider.h |   3 +
+ include/linux/spi/spi.h        |   1 +
+ 10 files changed, 479 insertions(+), 4 deletions(-)
  create mode 100644 fs/pstore/nvmem.c
 
-diff --git a/fs/pstore/Kconfig b/fs/pstore/Kconfig
-index 3acc38600cd1a..7393236b777a5 100644
---- a/fs/pstore/Kconfig
-+++ b/fs/pstore/Kconfig
-@@ -189,3 +189,67 @@ config PSTORE_BLK_FTRACE_SIZE
- 
- 	  NOTE that, both Kconfig and module parameters can configure
- 	  pstore/blk, but module parameters have priority over Kconfig.
-+
-+config PSTORE_NVMEM
-+	tristate "Log panic/oops to an NVMEM device"
-+	depends on PSTORE
-+	depends on NVMEM
-+	select PSTORE_ZONE
-+	default n
-+	help
-+	  This enables panic and oops messages to be logged to an NVMEM
-+	  device such as a SPI FRAM.  The NVMEM device is selected with the
-+	  device_name module parameter or PSTORE_NVMEM_DEV.
-+
-+	  The device must be dedicated to pstore, or the offset and
-+	  total_size parameters must select a region that is not used by
-+	  anything else.
-+
-+	  If unsure, say N.
-+
-+config PSTORE_NVMEM_DEV
-+	string "NVMEM device name"
-+	depends on PSTORE_NVMEM
-+	default ""
-+	help
-+	  Name of the NVMEM device to use for pstore storage, for example
-+	  "spi1.0" for an at25 FRAM.
-+
-+config PSTORE_NVMEM_KMSG_SIZE
-+	int "Size in Kbytes of kmsg dump log to store"
-+	depends on PSTORE_NVMEM
-+	default 64
-+	help
-+	  Size of the kmsg dump zone in Kbytes.  It must be a multiple of 4.
-+
-+config PSTORE_NVMEM_MAX_REASON
-+	int "Maximum kmsg dump reason to store"
-+	depends on PSTORE_NVMEM
-+	default 2
-+	help
-+	  The maximum reason for kmsg dumps to store.  The default is 2
-+	  (KMSG_DUMP_OOPS).
-+
-+config PSTORE_NVMEM_PMSG_SIZE
-+	int "Size in Kbytes of pmsg to store"
-+	depends on PSTORE_NVMEM
-+	depends on PSTORE_PMSG
-+	default 64
-+	help
-+	  Size of the pmsg zone in Kbytes.  It must be a multiple of 4.
-+
-+config PSTORE_NVMEM_CONSOLE_SIZE
-+	int "Size in Kbytes of console log to store"
-+	depends on PSTORE_NVMEM
-+	depends on PSTORE_CONSOLE
-+	default 64
-+	help
-+	  Size of the console zone in Kbytes.  It must be a multiple of 4.
-+
-+config PSTORE_NVMEM_FTRACE_SIZE
-+	int "Size in Kbytes of ftrace log to store"
-+	depends on PSTORE_NVMEM
-+	depends on PSTORE_FTRACE
-+	default 64
-+	help
-+	  Size of the ftrace zone in Kbytes.  It must be a multiple of 4.
-diff --git a/fs/pstore/Makefile b/fs/pstore/Makefile
-index c270467aeecea..76f44410cab7f 100644
---- a/fs/pstore/Makefile
-+++ b/fs/pstore/Makefile
-@@ -18,3 +18,6 @@ obj-$(CONFIG_PSTORE_ZONE)	+= pstore_zone.o
- 
- pstore_blk-objs += blk.o
- obj-$(CONFIG_PSTORE_BLK)	+= pstore_blk.o
-+
-+pstore_nvmem-objs += nvmem.o
-+obj-$(CONFIG_PSTORE_NVMEM) += pstore_nvmem.o
-diff --git a/fs/pstore/nvmem.c b/fs/pstore/nvmem.c
-new file mode 100644
-index 0000000000000..95039baf58c13
---- /dev/null
-+++ b/fs/pstore/nvmem.c
-@@ -0,0 +1,230 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * pstore backend for NVMEM devices.
-+ *
-+ * The NVMEM device is selected by name.  Normal writes use the regular
-+ * NVMEM write path; panic writes use the non-sleeping write callback so a
-+ * SPI FRAM or another NVMEM provider can persist the crash log before the
-+ * next reset.
-+ */
-+
-+#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-+
-+#include <linux/device.h>
-+#include <linux/init.h>
-+#include <linux/kernel.h>
-+#include <linux/limits.h>
-+#include <linux/module.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/pstore_zone.h>
-+#include <linux/string.h>
-+
-+static char pstore_nvmem_dev_name[80] = CONFIG_PSTORE_NVMEM_DEV;
-+module_param_string(device_name, pstore_nvmem_dev_name, 80, 0400);
-+MODULE_PARM_DESC(device_name, "NVMEM device name for pstore storage");
-+
-+static unsigned long offset;
-+module_param(offset, ulong, 0400);
-+MODULE_PARM_DESC(offset, "offset in the NVMEM device in bytes");
-+
-+static unsigned long total_size;
-+module_param(total_size, ulong, 0400);
-+MODULE_PARM_DESC(total_size, "pstore area size in bytes (0: rest of device)");
-+
-+static long kmsg_size = CONFIG_PSTORE_NVMEM_KMSG_SIZE;
-+module_param(kmsg_size, long, 0400);
-+MODULE_PARM_DESC(kmsg_size, "kmsg dump zone size in kbytes");
-+
-+static int max_reason = CONFIG_PSTORE_NVMEM_MAX_REASON;
-+module_param(max_reason, int, 0400);
-+MODULE_PARM_DESC(max_reason, "maximum reason for kmsg dump");
-+
-+#if IS_ENABLED(CONFIG_PSTORE_PMSG)
-+static long pmsg_size = CONFIG_PSTORE_NVMEM_PMSG_SIZE;
-+#else
-+static long pmsg_size = -1;
-+#endif
-+module_param(pmsg_size, long, 0400);
-+MODULE_PARM_DESC(pmsg_size, "pmsg zone size in kbytes");
-+
-+#if IS_ENABLED(CONFIG_PSTORE_CONSOLE)
-+static long console_size = CONFIG_PSTORE_NVMEM_CONSOLE_SIZE;
-+#else
-+static long console_size = -1;
-+#endif
-+module_param(console_size, long, 0400);
-+MODULE_PARM_DESC(console_size, "console zone size in kbytes");
-+
-+#if IS_ENABLED(CONFIG_PSTORE_FTRACE)
-+static long ftrace_size = CONFIG_PSTORE_NVMEM_FTRACE_SIZE;
-+#else
-+static long ftrace_size = -1;
-+#endif
-+module_param(ftrace_size, long, 0400);
-+MODULE_PARM_DESC(ftrace_size, "ftrace zone size in kbytes");
-+
-+static struct nvmem_device *pstore_nvmem;
-+static struct pstore_zone_info pstore_info;
-+
-+static int pstore_nvmem_match(struct device *dev, const void *data)
-+{
-+	return !strcmp(dev_name(dev), data);
-+}
-+
-+static unsigned long size_kb_to_bytes(long kb)
-+{
-+	if (kb <= 0)
-+		return 0;
-+
-+	return ALIGN((unsigned long)kb * 1024, 4096);
-+}
-+
-+static bool pstore_nvmem_range_ok(size_t size, loff_t off)
-+{
-+	if (off < 0 || off > UINT_MAX || size > UINT_MAX)
-+		return false;
-+	if (offset > UINT_MAX - off)
-+		return false;
-+
-+	return size <= UINT_MAX - (offset + off);
-+}
-+
-+static ssize_t pstore_nvmem_read(char *buf, size_t size, loff_t off)
-+{
-+	int ret;
-+
-+	if (!pstore_nvmem_range_ok(size, off))
-+		return -EINVAL;
-+
-+	ret = nvmem_device_read(pstore_nvmem, offset + off, size, buf);
-+	if (ret)
-+		return ret;
-+
-+	return size;
-+}
-+
-+static ssize_t pstore_nvmem_write(const char *buf, size_t size, loff_t off)
-+{
-+	int ret;
-+
-+	if (!pstore_nvmem_range_ok(size, off))
-+		return -EINVAL;
-+
-+	ret = nvmem_device_write(pstore_nvmem, offset + off, size, (void *)buf);
-+	if (ret)
-+		return ret;
-+
-+	return size;
-+}
-+
-+static ssize_t pstore_nvmem_panic_write(const char *buf, size_t size,
-+					loff_t off)
-+{
-+	int ret;
-+
-+	if (!pstore_nvmem_range_ok(size, off))
-+		return -EINVAL;
-+
-+	ret = nvmem_device_write_panic(pstore_nvmem, offset + off, size,
-+				       (void *)buf);
-+	if (ret)
-+		return ret;
-+
-+	return size;
-+}
-+
-+/* The NVMEM device must already be registered; load providers first. */
-+static int __init pstore_nvmem_init(void)
-+{
-+	unsigned long dev_size, area_size;
-+	unsigned long kmsg, pmsg, console, ftrace;
-+	int ret;
-+
-+	if (!pstore_nvmem_dev_name[0]) {
-+		pr_err("no NVMEM device name configured\n");
-+		return -EINVAL;
-+	}
-+
-+	pstore_nvmem = nvmem_device_find(pstore_nvmem_dev_name, pstore_nvmem_match);
-+	if (IS_ERR(pstore_nvmem)) {
-+		ret = PTR_ERR(pstore_nvmem);
-+		pr_err("failed to find NVMEM device %s: %d\n", pstore_nvmem_dev_name, ret);
-+		return ret;
-+	}
-+
-+	dev_size = nvmem_dev_size(pstore_nvmem);
-+	if (!dev_size || offset >= dev_size) {
-+		pr_err("invalid offset %lu for %lu-byte device\n",
-+		       offset, dev_size);
-+		ret = -EINVAL;
-+		goto err_put;
-+	}
-+
-+	area_size = dev_size - offset;
-+	if (total_size && total_size < area_size)
-+		area_size = total_size;
-+	area_size = ALIGN_DOWN(area_size, 4096);
-+	if (area_size < 4096) {
-+		pr_err("pstore area must be at least 4096 bytes\n");
-+		ret = -EINVAL;
-+		goto err_put;
-+	}
-+
-+	kmsg = size_kb_to_bytes(kmsg_size);
-+	pmsg = size_kb_to_bytes(pmsg_size);
-+	console = size_kb_to_bytes(console_size);
-+	ftrace = size_kb_to_bytes(ftrace_size);
-+	if (!kmsg && !pmsg && !console && !ftrace) {
-+		pr_err("at least one zone size must be non-zero\n");
-+		ret = -EINVAL;
-+		goto err_put;
-+	}
-+	if (kmsg + pmsg + console + ftrace > area_size) {
-+		pr_err("zone sizes exceed the %lu-byte pstore area\n",
-+		       area_size);
-+		ret = -EINVAL;
-+		goto err_put;
-+	}
-+
-+	pstore_info.owner = THIS_MODULE;
-+	pstore_info.name = KBUILD_MODNAME;
-+	pstore_info.total_size = area_size;
-+	pstore_info.kmsg_size = kmsg;
-+	pstore_info.pmsg_size = pmsg;
-+	pstore_info.console_size = console;
-+	pstore_info.ftrace_size = ftrace;
-+	pstore_info.max_reason = max_reason;
-+	pstore_info.read = pstore_nvmem_read;
-+	pstore_info.write = pstore_nvmem_write;
-+	pstore_info.panic_write = pstore_nvmem_panic_write;
-+
-+	ret = register_pstore_zone(&pstore_info);
-+	if (ret) {
-+		pr_err("failed to register pstore zone: %d\n", ret);
-+		goto err_put;
-+	}
-+
-+	pr_info("using NVMEM device %s, offset %lu, size %lu\n",
-+		pstore_nvmem_dev_name, offset, area_size);
-+	return 0;
-+
-+err_put:
-+	nvmem_device_put(pstore_nvmem);
-+	pstore_nvmem = NULL;
-+	return ret;
-+}
-+late_initcall(pstore_nvmem_init);
-+
-+static void __exit pstore_nvmem_exit(void)
-+{
-+	if (!pstore_nvmem)
-+		return;
-+
-+	unregister_pstore_zone(&pstore_info);
-+	nvmem_device_put(pstore_nvmem);
-+	pstore_nvmem = NULL;
-+}
-+module_exit(pstore_nvmem_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("pstore backend for NVMEM devices");
+base-commit: 63083539d2bf955ccf84042d4b044d1133752bed
 -- 
 2.47.3
 
