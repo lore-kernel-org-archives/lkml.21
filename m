@@ -1,114 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795802856;
-	b=q9MUoUefBG7korp7wZAygD3D3G+lRNSntNlHfnmEFtO8vfMQy3CRTYY2Adq1+zmSvyVp
-	 FJPV6SxZ/fIqTy8SGFIn/l6idBR9MZkqVMi3YxueT3VuEVlBeH3cqTM+Zd+frN5mEvO1R
-	 bwSI/7TYAb7WhgxxZ0XQUXzpE6P85b++ZLazcYE2QbQYBLP+SN4dNnwAemddS+kYusdiI
-	 HLWUWT7knJWEWVJ7BVvFQpfZ6VZ08QI+reHkyS/wPrOovtHayAxurK+3O1fcGDTaxlL5l
-	 64fTENh7wtrroWXXzT8nFsV6mRJfWor1j9UW71qhMNyl0FgK3M3pHgU024hMWfcaQWg==
+	t=1795802876;
+	b=ljgGGmgZvnq9iBjFYfQjhvReX1PDysYMixkfMZhiTHXQXb03Y/wusEuO7OaUcBJorL+v
+	 eoyM5qHiKqWZSmv3YaGq+0kYGZIywp2gIJPgzol6RtD1OXpu0tMo/OyAMsBasQZSkkORZ
+	 wzVwqqef2wiVU2SMKK+1MRK65rhBep6KsxxcryMJF74gFMfyXUZHGaeP/m8cliFGD1wNR
+	 +XN0xRHVvoAsPg3GZT9buYervHLQ2vMhBBybG6Yi3oPDznFqyoP6NfigKGxko61FHTeOT
+	 h9coPL2PvqOy0SlG0OojD8GSU6oUaGUs3vd1q1fwAX6bC/srHONzp4gIQ9avH4RGg3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795802856;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Type:MIME-Version:Content-Transfer-Encoding;
-	bh=C+jIPjNvYn3h9h+TJTZMShL4W1q3aCeTVBe375LBwnw=;
-	b=yBQtO/2ZXWZ0YHpc4jy8T7y9GJRg+svSjb+ymvSKybFavuxPnd4JD6KHhxvzzjVfQqFb
-	 s/WvmpYksOPDwitgPSIZMuaHvYGPQ+CnFpQvAMjmSGsYmo/2Le32+G6AmJd5OafPfs6A7
-	 o+Jj12WMZUMonUzhKZ1bLuYoIXhKr8nHPMZgvcwqK7xSBGBrGesah1fM1XYHJ4BtuY3bj
-	 LFy2WL+M/FCTJ8nffdwhh2V4QLx8QPuriwwyui1Go5eH6bfSLbdT0Y09R6o1D2xjwKWcq
-	 efvpTOeUP8iaHVsSlhgOBolwwfpdsFh4DqBuOHZRmUy+tmpCiQHUJJ0TTh0YDhCc55Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795802876;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=9+sXP/dgT8KSDd3l4e8Kf/bLYRbSf9j3hdA0pgxosqI=;
+	b=SliQSXwC8pwgF7CaOHuLDqbjMBCEsFJ8D0/GeKBRRalv5Mhx4zxYh683Qae0q2E8ConL
+	 ziwRL4y5uenneAVRDzF3mrm62zO7aQWeX4zqy8Ad2ZB32/Lc1ggZ4s2xginrWLL+e//SQ
+	 Ykba8DdUoBPo2A+/0v+i1mFWqEoSGvIB6iEkASZXHA5kdHOIQGEnbJBpC0sy8UDPNSatI
+	 W3uexiKrBZ2jkSjQcDwTNEjhC/pnyLdzQ4kp1drdOTtqpUzlxc4vPVFR8enxHarAN13yT
+	 Zcad/gg5pGzRFlN9PlvA8pv2WLXLXo6xwO6CyMMz3lchRHvrXe3ldwjE6PkKw208fGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ew+YTy+r;
-	arc=none smtp.remote-ip=209.85.161.53
-Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPrcT72z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0616606A339
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:07:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0616606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F087606A31C;
+	Fri, 27 Nov 2026 18:07:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ew+YTy+r
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-71ad047710aso5240762eaf.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:07:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795802855; x=1796407655; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=C+jIPjNvYn3h9h+TJTZMShL4W1q3aCeTVBe375LBwnw=;
-        b=Ew+YTy+rT7UB3gv4my5hKMMNui51RIpOLMv+lYaERfblHEx27inOvOiZLANtrQz13m
-         adSVUWcE05Oyqt3ZDZuFYpIDqU6vCMDvQkpOSBP8iP3ED3WNPY6gDHNrWhtBTNC56KCl
-         +GND4pZlItV9kABH2WagloaPtBk2dQEayg7pGs2WV/yjrwCFfvRlrHMH+SbkPvOjFSKa
-         ivy6oxuUU0gHFzQfY900KjfoRy5I6Y4D+nGIsfMvHM1pchBSTuL5GW/9vWEXNvuTK3PZ
-         WCXkN0UGGXnRXDgDmwRRYFhsjkKKyzZoqS/HVkWLXuj7jtR2a2ExgE+4GWvDMif5xU8R
-         kYsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795802855; x=1796407655;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C+jIPjNvYn3h9h+TJTZMShL4W1q3aCeTVBe375LBwnw=;
-        b=xxzn2JLfkh9GqCE4QB4JtRddl+AAWuLoS9jnwRXuBO/lituHsvML0m6eomoOfNetQn
-         rXJKs9SFvjRdcxTxc/6dadjW1QR6AqUOgWHGI5CDZyub6lEuAk5OPaReI3rNvxzKcJkM
-         uFo0KdOJdoUjL2Wd+OHpYl4a/1kBlyBh3+10bdL7wEJwECibmsVA+4NfKCY/gJCgAdb9
-         aUzqYXo4X5mJGViV3EfEUeXz0TdxnbO8lVjTw4NyyPEhxsQucVWOIvcoWsCoQPPXrnQv
-         tPzAyR4CQQ6FNE4IopX+Kn0/f22FjY7UGkAZTlKnhPR/G/C8DulMZPLXB7Q3QrsSoTKr
-         NVhw==
-X-Forwarded-Encrypted: i=1; AL+hErHC6KNIyii2vp7j6LkRfYgh0JcfxCsSAphtApPYwenGDHKBSiaQlhm1Xftg787b3MzjHtTxzwJWlD21xuc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Ggrw6lA7U3c/DCGYLjNLvoer4NqXX8WIhETIyUBlJb/TkDt/r
-	10PSWzxc1MebiOmqMpU3Ib3xO35fmJo7UdjgnRooi9I5QJfHb+USCHzi
-X-Gm-Gg: AZFdTZe7Dau4ucZSmgRRxMx/GvJRNuu7yw7i9B1YTbVT/X8YQ05B0Ip0W8/JX+cQPfD
-	xLt0QYJC4cKOxMZGTtZbPPDgtAzUulhYlPP0h7TnVRcvfqCiE9SmW53G1QKjTNnCE8BBI9b4+zd
-	5dyuV2a7fRN/WzhaT5BvRQaYQ4tvxF61s4p0hcedmOYigbGan1j8BM5jr9bmj0W46RF9SvRYHcC
-	PCbQc1ida0FNJhKcmnJDl0H/hGzjmamM56Nm7xBynXxb4jrJJX0eMxlU49Zqi/rHx1dpQ2IdA4A
-	HReZfN2WxdNlf7pYUSiztvnCvVjeA7gBkf9XRmEP184ffGINQK8MajUHcdDeAoJnou6bot1rm9e
-	Mz3IcuFCPQDBd3ZdOULukAi0dGoQCdwfmawYWLYBAG6NWLAxElZcBMFgA4LqxBhRSPGvq1wrcUz
-	y4alL7/vcCDhZUIOZU0x2nMWETmvwnmycCEei9VWjRepV490wkIqeks5dXPriBR/QI6FX0cjEC0
-	2W6OInTHYvkHimFX3b5+tVOkBML4JUnN7lI6LS4e/Qx5GfFnH7ZwZlt7uR/gXbcAAOLs4s2MnlU
-	3efUpJWtTsfYOxg0/ByJPW+QF6JIlvWIMxCXtS78WxDUdG7OSfFXGKhpDV9ExBd71Dkolk7Ih73
-	Gec81YZAunIxiTNfMbRgGpXxk+O8=
-X-Received: by 2002:a05:6820:3410:20b0:717:da:ba40 with SMTP id 006d021491bc7-71b394956cdmr13815414eaf.26.1795802854800;
-        Fri, 27 Nov 2026 10:07:34 -0800 (PST)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b38015c46sm16618767eaf.4.2026.11.27.10.07.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 10:07:34 -0800 (PST)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: dockseed@proton.me
-Cc: andre.przywara@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Pablo Mazzini <pmazzini@gmail.com>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
-	Alexander Sverdlin <alex@sverdlin.org>,
-	Jun Yan <jerrysteve1101@gmail.com>,
-	Lukas Schmid <lukas.schmid@netcube.li>,
-	Cristian Filipescu <filipescu.cristian@gmail.com>
-Subject: Re: [PATCH v6 3/5] arm64: dts: allwinner: add Radxa Cubie A7S board
-Date: Fri, 27 Nov 2026 13:07:32 -0500
-Message-ID: <20261127-a733-dt-v6-05-reply@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <z51JFKDjnRGxR5v8f-2sigY7Ih39S9_hQJF-C7-0jwRzGvAZcyniqmAsBFOyj_Vci0JDoXGMbuWcop6uSGRMUon5bqjJFMIjMk9jN8TbaLU=@proton.me>
-References: <20261126-a733-cubie-a7s-dt-v6-0@gmail.com> <20261126-a733-cubie-a7s-dt-v6-3@gmail.com> <z51JFKDjnRGxR5v8f-2sigY7Ih39S9_hQJF-C7-0jwRzGvAZcyniqmAsBFOyj_Vci0JDoXGMbuWcop6uSGRMUon5bqjJFMIjMk9jN8TbaLU=@proton.me>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPrcT72z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66E161F00898;
+	Fri, 27 Nov 2026 18:07:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795802875;
+	bh=9+sXP/dgT8KSDd3l4e8Kf/bLYRbSf9j3hdA0pgxosqI=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=WPrcT72zGiik0zk0XryPuR80p0VH3a/r9YJOsBtmP9PzIL/W7vBXJh7UPlYU1HYbR
+	 W6d9JhRLaG7GVB5qxl5gQMRsfq/xfvNBI2kPpYU6TkVulMDyeQYwJFIOCOI/59UDwN
+	 6R0dkz0zax/yZIuzFLITsLGj21lQgjcCZDs6WLTnsd0arvnyErXyZi/jQkMp5PIRGf
+	 ujPluQw51lLq60YNUSUl0RpVCxw6Cipwfag9HAO3I9lzyeYc4Z/vLMh7TB/fel88Ns
+	 a+Mm7hkfBnBPcutIeVZ7Baita6C+hoDCh/iRT9ByPSqJgQDgHEUBZPUiKmbdbuQm0g
+	 i8oYG7Ba6XYcA==
+Message-ID: <sashiko-outbox-238044@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v12 41/43] sched/deadline: Run a boost held at its first
+ refill on a donor period
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <5b1fecd307f51ac34910dc854f64c64a63dbb7e3.1795771148.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
+ <5b1fecd307f51ac34910dc854f64c64a63dbb7e3.1795771148.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 18:07:55 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,32 +60,152 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-> The cover lists CPU/cache topology as untested: all eight CPUs are in
-> one cluster, as described. Patch 2/5 mentions the shared L3, but the
-> DTSI has no cache nodes, so the kernel falls back to reporting L2 as
-> shared by all eight CPUs as well (index2 shared_cpu_list 0-7).
+Thank you for your contribution! Sashiko AI review found 2 potential
+issues to consider:
+- [Medium] sched/deadline: corrupted donor period state when donor
+  params are cleared
+- [Low] sched/deadline: duplicate replenishment tracepoint on first
+  held-boost refill
+--
 
-Right. v7 rewords 2/5 so it no longer claims the shared L3 is
-described.
+commit 0aa5ad7879d538e8d7671934363e9bde5d35376e
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-> The EEPROM probes as writable. It holds Radxa's factory data, and
-> our own DT reads the MAC address from it at 0x9e, so read-only might be
-> worth considering.
+sched/deadline: Run a boost held at its first refill on a donor period
 
-Agreed, v7 marks it read-only.
+This commit runs a boost held at its first refill on a donor period by
+calling dl_boost_donor_period() from dl_hold_refilled_boost() and keeping
+the placed period in replenish_dl_new_period().
 
-> Card hotplug, listed as untested in the cover, works with Vinicius'
-> "do not switch the mux to read IRQ lines" fix (a256b8c8083e) on top:
-> pulling the card gives "card removed" and reinserting it gives "new
-> high speed SDXC card". Without that fix the PF6 level follows the card,
-> but the card detect interrupt never fires, so the A7S needs it for
-> hotplug.
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index b9dd7ec10e7d2..f4e07aa47715d 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
 
-v7's cover letter names Vinicius' "pinctrl: sunxi: a733: do not switch
-the mux to read IRQ lines" as needed for card-detect interrupts on the
-A7S.
+[ ... ]
 
-Enzo
+> @@ -1741,11 +1746,13 @@ static void wakeup_preempt_dl(struct rq *rq, stru=
+ct task_struct *p, int flags);
+>  static inline void replenish_dl_new_period(struct sched_dl_entity *dl_se,
+>  					    struct rq *rq)
+>  {
+> -	dl_note_donor_refill(dl_se);
+> -	/* for non-boosted task, pi_of(dl_se) =3D=3D dl_se */
+> -	dl_se->period_start =3D rq_clock(rq);
+> -	dl_se->deadline =3D dl_se->period_start + pi_of(dl_se)->dl_deadline;
+> -	dl_se->runtime =3D pi_of(dl_se)->dl_runtime;
+> +	/* A boost held from this refill keeps the period it placed. */
+> +	if (!dl_note_donor_refill(dl_se)) {
+> +		/* for non-boosted task, pi_of(dl_se) =3D=3D dl_se */
+> +		dl_se->period_start =3D rq_clock(rq);
+> +		dl_se->deadline =3D dl_se->period_start + pi_of(dl_se)->dl_deadline;
+> +		dl_se->runtime =3D pi_of(dl_se)->dl_runtime;
+> +	}
+> =20
+>  	/*
+>  	 * If it is a deferred reservation, and the server
+
+[Severity: Low]
+Does holding a boost on its first refill emit trace_sched_dl_replenish_tp()
+twice for a single replenishment?
+
+When dl_note_donor_refill() holds the boost, dl_hold_refilled_boost() calls
+dl_boost_donor_period().  Whenever no earlier donor period is resumed,
+dl_boost_donor_period() calls replenish_dl_new_period(), which fires
+trace_sched_dl_replenish_tp() before returning to the outer
+replenish_dl_new_period() or replenish_dl_entity() call that fires
+trace_sched_dl_replenish_tp() a second time.
+
+[ ... ]
+
+> @@ -6115,11 +6125,15 @@ static bool dl_setattr_period(struct sched_dl_ent=
+ity *dl_se, u64 old_runtime,
+>   * If sched_setattr() changed the parameters before this refill,
+>   * dl_setattr_period() saved the old ones in setattr_*. Fit the period
+>   * saved in own_* to the new parameters with them. setattr_* share
+> - * storage with own_*: read them before writing own_*. The caller holds
+> - * the rq lock of the task, and has updated the rq clock.
+> + * storage with own_*: read them before writing own_*. Return true if a
+> + * period of the donor was placed. The caller holds the rq lock of the
+> + * task, and has updated the rq clock.
+>   */
+> -static void dl_hold_refilled_boost(struct sched_dl_entity *dl_se)
+> +static bool dl_hold_refilled_boost(struct sched_dl_entity *dl_se)
+>  {
+> +	struct sched_dl_entity *pi_se =3D pi_of(dl_se);
+> +	u64 donor_runtime =3D READ_ONCE(pi_se->dl_runtime);
+> +	u64 donor_deadline =3D READ_ONCE(pi_se->dl_deadline);
+>  	u64 old_runtime =3D dl_se->setattr_runtime;
+>  	u64 old_deadline =3D dl_se->setattr_deadline;
+>  	u64 old_period =3D dl_se->setattr_period;
+> @@ -6142,6 +6156,14 @@ static void dl_hold_refilled_boost(struct sched_dl=
+_entity *dl_se)
+>  				 old_runtime, old_deadline, old_period, false, false);
+>  	else if (!dl_time_before(now, dl_se->own_deadline))
+>  		dl_se->own_runtime =3D 0;
+> +	/*
+> +	 * replenish_dl_entity() checks the donor's parameters: it adds no
+> +	 * runtime if they were cleared. Start no period from them then.
+> +	 */
+> +	if (!donor_runtime || !donor_deadline)
+> +		return false;
+> +	dl_boost_donor_period(dl_se);
+> +	return true;
+>  }
+>  #endif /* CONFIG_RT_MUTEXES */
+
+[Severity: Medium]
+Can clearing the donor's parameters corrupt dl_se's period and saved
+boost_* state?
+
+When the donor leaves SCHED_DEADLINE and __dl_clear_params(pi_se) zeroes
+its parameters before or during the first refill of an unheld boost, three
+things go wrong:
+
+1. dl_hold_refilled_boost() sets dl_se->dl_boost_held =3D 1 before checking
+!donor_runtime || !donor_deadline.  Returning false leaves dl_se->deadline
+and dl_se->period_start on the owner's own period with dl_se->runtime =3D=
+=3D 0.
+At deboost, dl_end_held_boost() sees dl_boost_held =3D=3D 1 and saves the
+owner's own period and zero runtime into boost_* with dl_boost_granted =3D =
+1:
+
+kernel/sched/deadline.c:dl_end_held_boost() {
+	if (!dl_se->dl_boost_held)
+		return false;
+	...
+	dl_se->boost_deadline =3D dl_se->deadline;
+	dl_se->boost_runtime =3D dl_se->runtime;
+	dl_se->boost_period_start =3D dl_se->period_start;
+	dl_se->dl_boost_granted =3D 1;
+}
+
+A subsequent held boost from a new donor within own_period_start + period
+then resumes the owner's own_period_start with zero runtime in
+dl_boost_donor_period(), and replenish_dl_entity() pushes its deadline out
+to own_period_start + dl_deadline + dl_period (past the waiter's deadline).
+
+2. When called from replenish_dl_new_period() -> dl_note_donor_refill(),
+returning false from dl_hold_refilled_boost() causes
+if (!dl_note_donor_refill(dl_se)) in replenish_dl_new_period() to take the
+branch and overwrite period_start =3D rq_clock(rq), deadline =3D period_sta=
+rt +
+0, and runtime =3D 0 from the cleared donor parameters anyway.
+
+3. __dl_clear_params(pi_se) runs under the donor's rq lock on another CPU.
+replenish_dl_entity() snapshots runtime, deadline, and period once and
+validates all three, whereas dl_hold_refilled_boost() re-reads
+pi_se->dl_runtime and pi_se->dl_deadline (without dl_period), and
+dl_boost_donor_period() and replenish_dl_new_period() re-read pi_se fields
+again.  If __dl_clear_params(pi_se) races between replenish_dl_entity()'s
+initial check and those re-reads, dl_hold_refilled_boost() can return false
+without placing a donor period while replenish_dl_entity() still executes
+its while (dl_se->runtime <=3D 0) loop on the owner's own deadline and
+negative runtime, or replenish_dl_new_period() can zero the relative
+deadline and runtime before that loop advances both period_start and
+deadline to now + period.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
+t.mathieu.desnoyers@efficios.com?part=3D41
