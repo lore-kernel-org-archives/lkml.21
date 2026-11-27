@@ -1,60 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795756401;
-	b=St8GzKqOtquceRh7gGdFhkJY2VlwnZV5p83oWRjGYw9VS0irH6jNu6qsuAGOUgiuv/QW
-	 yea7NZtLZeIN7fneD3n6rciKMbGRPIYLB2dc+/aC+EFK+hbH7W4KG3NX+Tthi9iIy04Or
-	 mvQCbMLx1AZTgTuW0bqEAICv0iAeA7fJzHWUrOHjprvEzUDRD1LiUgWc1IZgKLUdfzUIQ
-	 U20toSc2mPweAYqBmA1t7sDkZXxzWMaRUNYId6dvBcm3ZTEvjOCQTO9sfMVoxfJKuiu8I
-	 LBfGoyqnsfXGzMoisQ+8g2Qj/5TO3xJOEs8DlVxVTnSpm01WghTHlwxQ3FMoLsG8iqg==
+	t=1795756460;
+	b=2OKX9+9SvgbvO0ShgZ8Zwd6hIC3oRbP3XmZIFKCEXfMbn+w+q9Tk4cWpqfbtoV0BX481
+	 6VLl7UB+2OP2zGQbRohWLcsvtxRoCMoZdB2pzXrCwevPtpFti6c/aT5d6VPtDmrKwNQ+l
+	 9EWy9J5lzo1XxrPXTQTmPYto6asKGBnaD9h5tbYJl7JdzRIw3fPIBu6HjXj5O2QKBmfym
+	 Q0LjCDWLyRAR/W2ulnbDlrNCirrnHIDUxky4vKmjbkL3W8g3sj8MEtmDNtE4kfREn+eQa
+	 OUAreBEX3medzBqLuYdhJaRlOD8nvl3NsabgLIcSdkp0cAqc1E9X22d6ciq+tEWOtNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795756401;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=FKXTvjxtdne1GDyeDT5Y46eZbfmMTtdejd1xb6K/bPE=;
-	b=hML5yOd8i3Nw3gg/ZfaBmS4rX6nSe74ZbYIOEAno0p/G7i3JEKsYGAVp89DDx4ZMmUkZ
-	 FM4c7IBQaMaPuz1SEBMVcQvd/0NmwiQAmDwLLOo4Gc8aeZEwrfHAG5GUUs1zm5EEp2mwS
-	 0Fp13+kSUFPH0at3GjJpov0HFcIgAUka4qkr2y23fpwblY15+eYLApjy0tfuYIi/XZe1q
-	 OSWx3ob+lpAq4NNd55f+2BaMVvXo2V7p+R+IMUP3bDD4cWv3CJBO5r05lrL5SUpYDHYPy
-	 PfHy9Vz324T+WPtDLdHi7jTNQk/qJXVJVEIiZqK+Qaabw7A4c+m8w0rqxVMr8nXdOLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795756460;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BPk/BlkpSjsU6PhXk5sbl5froZzbUVsLM1nv2qWUBJk=;
+	b=P3gHZiIOdfA7wyrQOr4MlI3paDtoIo0cFQWpalI7inNpP1/Q0Ia+dn4gALuY4NmR7TnW
+	 UcGRqc03qUyl6R1P4WEBMN21eAY1GsHHBr7p2EnJqTZEv5NilSNeAIiDdEiafWzLwSkzh
+	 AtEUHIJfK72h+e8WLkf/eFzREgtNILhT65hSxs2OXqE2NHL7Z78PaouF3673KO9n3j4wp
+	 /+UqYEGDFQBn1/cZ0685GF+BD+a6q0oZzZxo4pVaGqcXzJoIXSa2j5J4ctdFfuswR3HoR
+	 Hdl3mjFwCR5BFY4iM7IIVY3STD5UNKhn6lm6u8UboqfkRb+3PDt3WhC9ihWCzfSwwLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gondor.apana.org.au;
-	spf=pass smtp.mailfrom=gondor.apana.org.au;
-	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=PA2GCZib;
-	arc=none smtp.remote-ip=180.181.231.80
-Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GwyFnGZg;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40096606A31C;
-	Fri, 27 Nov 2026 05:13:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40096606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A729606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:14:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A729606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=PA2GCZib
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=FKXTvjxtdne1GDyeDT5Y46eZbfmMTtdejd1xb6K/bPE=; 
-	b=PA2GCZibCNOfazFzNuoa/mhXnkwO5Ua9Ch+KYNd76zjVPA4yGs31PHzAnw3WGvxQKekDr0iOha2
-	b1Lz/p53KVGna6vh5mkL/8iVWtvwWqpj3J1kh75+HWNXNxFtV8y9VBTMvqUgYTSCdvwC3UH+aXMNU
-	VxoEFdqnCvAJ0Op1U2Qz13qvD4K6evHYnJK13idc5RC9d8zcbQwlP8vk27yEnqcdti2jx+ki+yGK6
-	96HEiK9jrUFoDI7Z2Le0ivIxS/qRzetArsVA0ipk3axZsDApVLgvpZJpe2NGuxcXMJ19x4jinXEtd
-	TOWFD0u8m7nWgxWRk8F/dEyrYheBWeO6wRrg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xWoGq-00000002VV6-2h7x;
-	Fri, 27 Nov 2026 13:13:17 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 27 Nov 2026 13:13:16 +0800
-Date: Fri, 27 Nov 2026 13:13:16 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Haoxiang Li <haoxiang_li2024@163.com>
-Cc: schalla@marvell.com, bbhushan2@marvell.com,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] crypto: marvell/cesa - Fix hash DMA buffer cleanup
-Message-ID: <awkRbH_mH0NCGFzd@gondor.apana.org.au>
-References: <20261118075636.2152451-1-haoxiang_li2024@163.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GwyFnGZg
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so73802355e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:14:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795756459; x=1796361259; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BPk/BlkpSjsU6PhXk5sbl5froZzbUVsLM1nv2qWUBJk=;
+        b=GwyFnGZgh+G3wJbuIosavkTPnUJEAPDb/zZq+cmHIEhebOtGDgeifD8YXQBjOCJiFW
+         gfSbZHRHrmmg/mvGSB4DGbEhlQ51IQtdPtTtXS4RKnCH0EEX80JU3UczuMUlKRffm0Wy
+         yroaQzQiuQj5MyZuJDlK1D2lKVlFxoMvwg8cJIa3txkAV91lf5K1W2P8S6s7xCQhAVQ3
+         22LONAsiNsxlCL7+JPjLAm7OxB1/inPS6anh1FXNE2kzW9NOIVfwnAihvz1GuDhvRLhN
+         +aeJzvQAE5E+FGwmsreFK+q5gBRB+fi62ZUgb6WfnqCd0h7eC0S7s4nAKlqdlvB7Bx7H
+         U2sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795756459; x=1796361259;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BPk/BlkpSjsU6PhXk5sbl5froZzbUVsLM1nv2qWUBJk=;
+        b=1vrY+vzoxieNe5uyXoiDudx/fHuiP1ncUG3l6Qnr4mLa9ulcEaPRT1p8OB0OyczZkA
+         mPxuBLFAo8wW9bRSH16EsE9eVwDZXmr7Qai7LrZ9Sf4YBxYo+p+T9S/mA4WVCg1M8OCu
+         jAYBV/h+IIn5plIbyqZ9WQ2p6u6+Pe3cFYhpO8IzUcocDdo2WC+TIt/IPEBIuYg+0qup
+         OaAXdlBTVEYOmeo0NCoZsNc/50/YplOuBylawjCnaZjqL2eGWk+78ZBp+BK0zWyPU8t1
+         Q9JPiInHbJZacaK8p9KH9/yCtUk7mQ8qINiGOAHBOJcdpfDXRI9d1mPypQnSXbmAKPcR
+         L5yg==
+X-Forwarded-Encrypted: i=1; AL+hErEAAjnOIN9pwHyPuR+og9F84BZ+UA6QFvVBeoSqh7Htqu6eYm6GijdquTOBUgqkQeoBw4xo6HRSfwUFPwQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+u1NT9IhBlhrJd/ZcUppSyxyzJgSBBgRs6di47n2ycnW8IyL1q
+	TxL2Cgwo+4IZtgdFJCWlDpxNL7kFkXA8qimerRdg2F+6D/d8fDE8beWQ
+X-Gm-Gg: AZFdTZdiN3bMqYqHiTdqYkguQy4uSA4vDcHJq5xJGTewzCHZm8gU4iv62ZQUCisdHPa
+	F9tEvPljM7dP4ERXmuCELhx1tCj5dmDMR5L3P5IQ1oDJfo/mWSI3DNSXjTQmy9hVkA7svjNEnWj
+	ipXqR7Vf3MnSvU+VFxQ1eLVwogvcD9XqCWi0OysV8QCJjRo4cbdROtr74hBLNeLYz8n7gz6v5uc
+	OOGbPvQPMOSTF7V5+lxAAq644ZpzJtp7UgXweqziKnd+snikQIt5HOPcJiSxt4r45R/jm5ORCXI
+	DX/NMqNLZXIv9b7r5Ssf0zgnwRIXrT12OLbdx8YZHbFLUetaaXBi4OQPs+nYcOXNjB1rrLUCcaL
+	sMoDRaMdtznbdj3ehKmIJa7LcEupsOoujsMr0AbSH/UmQCTug1KTVQHflgrnBqOUGG2IhQ6EO/M
+	DeCRqLvlrJkjR/kZkwKjxin/c53EkuTxGoTccwDjf+s4yLNU0W0SzQBw4gX/SXzYNfx7dq0UdP/
+	B2eXTQUE2MHBnIre/CX+7v/qUJG4tP01gHI5IbfO6cwVzKlO7RC3rhRO4FRLteXN9cF0wWeISV4
+	CzMYuD0w9w2WadSOqNiLiBL2sZoORyp4soyUeAdVK75yypYwS4KNK+IZEXeaAsxmLarwWKIrk70
+	wpbY+QqqTvsSZbpVj+JV8eQ3j+E8ix7hSrGsRAxF4zJNmtMbyunbhaVn5doRC5h9fmp1qzg4Ot4
+	NpWcVxkHT1Z7a83pnlqMo/EKU6bXrxXaAGiH7lLAHnZe1J2rvnlK2YtSBLT4ytRul+ikU2AtSY/
+	qePXnXvgPjo
+X-Received: by 2002:a05:600c:c168:b0:4bb:81b2:c801 with SMTP id 5b1f17b1804b1-4bb889238f1mr454605605e9.20.1795756458767;
+        Thu, 26 Nov 2026 21:14:18 -0800 (PST)
+Received: from sergio-82n7.homenet.telecomitalia.it ([95.236.10.162])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849e598sm641372085e9.8.2026.11.26.21.14.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 21:14:18 -0800 (PST)
+From: Sergio Melas <sergiomelas@gmail.com>
+To: KuwaLee <kuwaleecross@gmail.com>,
+	Guenter Roeck <linux@roeck-us.net>
+Cc: linux-hwmon@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] hwmon: (yogafan) Add support for Lenovo Yoga 9 2-in-1 14ILL10
+Date: Fri, 27 Nov 2026 06:14:16 +0100
+Message-ID: <20261127051416.479623-1-sergiomelas@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261120230744.34942-1-kuwaleecross@gmail.com>
+References: <20261120230744.34942-1-kuwaleecross@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,47 +101,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118075636.2152451-1-haoxiang_li2024@163.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 03:56:33PM +0800, Haoxiang Li wrote:
-> This series fixes DMA cache and padding buffer leaks in the CESA hash
-> request error paths.
-> 
-> The DMA cache is not released when request preparation fails. Padding
-> cleanup can also be skipped because request type detection depends on a
-> TDMA chain that has already been cleared. In addition, final requests
-> rejected by the queue leave their padding allocated.
-> 
-> The patches address these cleanup paths and clear the DMA cache pointer
-> after freeing it to prevent stale-pointer reuse.
-> 
-> Testing:
-> - ARM compile testing of hash.o for each intermediate revision, using
->   Clang with W=1 and KCFLAGS=-Werror.
-> - Userspace mock tests of extracted driver functions covering allocation
->   failures, queue rejection, backlog acceptance, completion cleanup,
->   retries and non-DMA requests.
-> 
-> The mock tests, which is assisted by codex, validate resource lifetimes
-> with DMA pools and hardware interfaces mocked. No hardware testing was performed.
-> 
-> Haoxiang Li (3):
->   crypto: marvell/cesa - Fix DMA cache leaks on hash setup errors
->   crypto: marvell/cesa - Fix padding cleanup on hash setup errors
->   crypto: marvell/cesa - Free hash padding when queueing fails
-> 
->  drivers/crypto/marvell/cesa/hash.c | 11 +++++++----
->  1 file changed, 7 insertions(+), 4 deletions(-)
-> 
-> 
-> base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-> -- 
-> 2.25.1
+Hi KuwaLee, Guenter,
 
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Apologies for the late reply -- I had to step away for about three months
+due to a family illness, and I am now back and catching up on yogafan.
+
+I verified the ACPI DSDT for the Lenovo Yoga 9 2-in-1 14ILL10 (83LC) and
+this patch looks good to me.
+
+Acked-by: Sergio Melas <sergiomelas@gmail.com>
+
+Thanks,
+Sergio
