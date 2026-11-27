@@ -1,78 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795740608;
-	b=KMgmoeosVE96HpBTjLudq0QHWr+nynp4qrpNbFxM4JvPjRQv+iRKDAL68DS+4GjRVX9u
-	 CVjURua7WaTJ1yYs59zrB4clcZyCO+GWlzFqDRLkFX6l1lb22Bj2E3K0YF8jdxV/Q6Gz+
-	 RCdlUlZfF/pnEB417Vtg/1ICbQ19+xfrH4KQztKMwFojbBDMAR1VhW9YyUwntNwNqRRd0
-	 QFsbQ2STiCM9es1UJ7xE/X5eHjGBYC4kWXf+fjeuq0sf2CSf+SnvadnC89eJg+qf6BUwI
-	 dECDcNUxvGlsUv2xA4xP1KL5MdmJpYOm1Q6BUM60+KT1v+1oonpFRlxs69v5Frmo6LA==
+	t=1795740818;
+	b=HrwuhvOlxRqgkqCpg0FzMQvDAO70tN9pFShwzDtjqZkWKfWvQXFqkCw9hhrMDgq69iVV
+	 wVlnCncNI0Sa4kXJ9PBqvotm0PBnGPfaiFcinWKiXWXg72IjIIgWpXBqtKDtOQZ6R1nyn
+	 BLBhKPGY+UfSIO6wzJL4TBUg5VV5oUXFHixskyLlzImXHJxTPS54aeSlr1QMrpR9ddtt2
+	 8QqQL5t/lWO+wimagL48MddrEty6htCKUNUmzHk06kpyQfqzlYvsdNxjvjIjARbC7KCYN
+	 7c8qQj5VjhxXNfEEUKBpHBZvO/ncrIbc6OhoFpTZmacPpWibF8mpmZv3JL3Q7gxEgAg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795740608;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+XwHuAguT2sSdswu4ba9iVZNOZyswWEjpnXOHZUZLs8=;
-	b=G8PTKkMYCgX5fAVzRsT5BwqZZa93NrGeb3v1ri247IjorAuPTzdFUfoEJcOBzLgAuOgC
-	 vdrQs9d3CCFWaOJpgOL7Elo4G36MDRq6dGJxMs4J7BDbjMem8jwH14Pqe6EwptAS/nKur
-	 DutbU785/f+zn9lG5t/XAt9D20b//+CXTKqdaI7y8ye2NSs5hUk5EIEq1gRmdlBxH6rh7
-	 nPsuZ4T5RHYn+5bvvsFf4hu1I5EfcFk31JLIAl4jv9OyV3k0mT6Op28LxsVs1hJZo0w+8
-	 1C3hMoBUXfKLRSbAvzMvwgOSDTWzISheP0gDuPHznj6vxc/7bwwu7zuY8Xj0DNHtsYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795740818;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=iSy/0O7S8ijEUnPgOjETIvR+sXgU6Nc1zbtPE0TV8d0=;
+	b=zMkChR9MhxkNdvbQwH2iB4sc2nKt7aDsJnZjR/BtUAxkspJ6LlBg3bvU9BvJMHxzaoSj
+	 CeSvoTWvtJ7uO3l9/LGV/pdY+zM5hg8LQcV3pyYhKTF/up25cZFOA8+6sK51FlIOlTdI/
+	 m+MLTznjISn3zAgBMSRWVoGV7P7L7ttIbdCBGc+FGxe5eAfl51HwQJrdSeyqI0HyhasOA
+	 f6V+kDcswmHQLJU8DcqNRNodadz/LztQ6E95jlVtVout9hGU4rTnoEFnhgT86abjt+Xcg
+	 J74ciqSxoXoQkdr8CXECkj//GxJNkEsjdh/URMXhBv3hJYfhseW5jrACV4aMTD2aTtg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IuM0gLM2;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87ECF606A31C;
-	Fri, 27 Nov 2026 00:50:08 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IuM0gLM2
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795740608;
-	b=RACpnMrTGdVI8Tlzqy8tUoWGK7SNWYWoK9lpN3uhz/rqBobHm+cCfaGy1WmvRXFBoy2F
-	 Rs4rW644zfjgxlfoUVuAKx4AE5qyE7miQxITkG9ZJ3SgHADK0Cc+9FfSFzvM1Ws+ylz+D
-	 owtQ2ptF9jKgPj66JIk4FEE9U2s4w4nGQwDsCXF9QUJiGNGR2tFf2CN+mn6OURegdeT95
-	 Oq0Kj3KwzUZEokfewnI7o9dm5np/9AhWQkScDkCbtIpgY7+pymHigW4L3rAc9U/KFHTtL
-	 IkPo3EhbhfUDvv6AEwwEU+2+Z+uZnGijZRB6joaBNQQa2lIAFAFMWbpv/Bfh1lH2JAw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795740608;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+XwHuAguT2sSdswu4ba9iVZNOZyswWEjpnXOHZUZLs8=;
-	b=WlmSZScItuvj1Sn86PuQlzfTFD5d2W9pWvca+p9bO/xP/9B0x7zoZPLRQsBV3+pJMoEB
-	 NUli2a4+cAc0dkbXg/DqIc6gyjflJeb7KAA4o2QnFn88RbOEExhrdlsQS+qhrwBEJqWdr
-	 tHqi2H0Gk/e7/Z+47hCSVppe3rNbDfOAd47pqqk++534kI6YXg4uaqOP0MDEyLq3McGWH
-	 qI7yY/Mppcx+SNEYuxqcYmg8RgnT4qOp2IR+Rynd2mF7UjbKs6Ahrm8azroJDsBH/UCGy
-	 CKi9HF2EJZnxV2bAN6F7aPWXKDWaD+elNovyF3SX50neOKkLGU9TYYQxt66sT/8m6Ug==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	dmarc=pass header.from=ikuyo.dev;
+	spf=pass smtp.mailfrom=ikuyo.dev;
+	dkim=pass header.d=ikuyo.dev header.i=@ikuyo.dev header.a=rsa-sha256 header.s=s1 header.b=H5t2Bh27;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F10A11F00897;
-	Fri, 27 Nov 2026 00:50:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795740608;
-	bh=+XwHuAguT2sSdswu4ba9iVZNOZyswWEjpnXOHZUZLs8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=IuM0gLM28ty7O0WemRDfekvsH8BCcP0/WmQKRE9d5rr3KXMCYJBv4QbPqIbg1Ur8G
-	 tEUTChjchmvfiEiK9oobr9ERYkqaN4WG8Z/m9Ccf7VFCX4fSbapS+cPzFb7a7hAzQu
-	 b0OhDX45tysVgYmYD1FAv67fZxUukQll/egNpHd6N5bUeA9lat/NT9unHVFwMTsK+Z
-	 1zys6BSDYxUGMxgldg7Q0EK0GsinVlsK9+JhEL92jACNQBJdvAxOyvmmWdQmlGtJmr
-	 GLewHihxi7LF/+Cqdq9v/9Oic4szSDXp5t1Onq3Jeijh532dND9hooSZTdfXkDQnLP
-	 As2l15+3MoNzQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7189A4B4AB;
-	Fri, 27 Nov 2026 00:50:05 +0000 (UTC)
-From: Demeter Barna via B4 Relay <devnull+me.fromdisposition.org@kernel.org>
-Date: Fri, 27 Nov 2026 00:49:41 +0000
-Subject: [PATCH] ASoC: qcom: sm8250: Add SM8350 sound card
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65B4A606A31E;
+	Fri, 27 Nov 2026 00:53:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65B4A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ikuyo.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ikuyo.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=ikuyo.dev header.i=@ikuyo.dev header.a=rsa-sha256 header.s=s1 header.b=H5t2Bh27
+ARC-Seal: i=1; a=rsa-sha256; t=1795740801; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VNFOZirqG0fxj4ePEop9nibohca7oMtnRRLMteaPMm6fUshuwkvj/JDCPJxFbCtdEZQGZjzsVOKgkEr6qSeTkfOz+elW81m/P2gYHxH4KFsG/BWQ7vo7rZA3u5t960Bm2plxG2Mpn8qGH7nfDhJTCqBTdD9uwZi9BW703ZhwhR8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795740801; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=iSy/0O7S8ijEUnPgOjETIvR+sXgU6Nc1zbtPE0TV8d0=; 
+	b=lLBFlDsUHmWE2G62MupTclYnB9u/ENI/OqxoCOuMxxjG49xOKhynPc6faZr/bSKJ8OaxPvXtmD906iy9pTcRMClQXEl1/fuS1AWtOYlRPNZE5DThvgTkZKH91xL7XY0+TVD/FC6t0yQe7orMIJn5h65hhukdQRAaVaGtFbHHFI8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ikuyo.dev;
+	spf=pass  smtp.mailfrom=eritque-arcus@ikuyo.dev;
+	dmarc=pass header.from=<eritque-arcus@ikuyo.dev>
+DKIM-Signature: a=rsa-sha256; b=H5t2Bh27jQPBv8EcrnRC4V2Oq/4cP5dydW/p7MQyStoIKyt1mWJRWGpGjtHHRrHDAeOP109LA6KI562xBlPr5ABYz8X3GtA0ix/sqamVhIQtsZ6jykhrg3dxB5au7iZBRSmUi47tkQrj1xHm99mIyW5Kb9FsTtAnAlfVDFSt/CtNdINQjItwOM+O5u9mbOcCFH7YtDvGYMSFx5iKcQJn3O2X2CCmVaYRo6U0A2zjiqq0K/UWsMHnO7LP8w6+xx5rA5wst4ZSWbGWwAWHA+SriPiFKLC48cUcLoE/CNzMAedKMYFBee91PvJyNrF5XakMc3N8tvVYf/NKvPZJY/Z8OQ==; c=relaxed/relaxed; s=s1; d=ikuyo.dev; v=1; bh=iSy/0O7S8ijEUnPgOjETIvR+sXgU6Nc1zbtPE0TV8d0=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 179574079924073.2582039212607;
+	Thu, 26 Nov 2026 16:53:19 -0800 (PST)
+From: Cygnus Qiu <eritque-arcus@ikuyo.dev>
+To: bernard.metzler@linux.dev,
+	jgg@ziepe.ca,
+	leon@kernel.org
+Cc: cel@kernel.org,
+	linux-nfs@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Cygnus Qiu <eritque-arcus@ikuyo.dev>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] RDMA/siw: don't complete a fenced READ twice on flush
+Date: Thu, 26 Nov 2026 19:53:04 -0500
+Message-ID: <20261127005304.366336-1-eritque-arcus@ikuyo.dev>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,63 +69,240 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-sm8350-sndcard-v1-1-50cbf3db3cb0@fromdisposition.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrA2YiUbxKtKFJpM6glEybRHEu
- 5u2y7f4/wShxCTQFyck+rDwFjN0WYCbx/gkxT4bsEKrNbZK1s40lZLo3Zi8CmhsG+rGdh4hR3u
- iwMdvODz+lve0kHt9L3BdN+9fkRdyAAAA
-X-Change-ID: 20261127-sm8350-sndcard-f2367f4568d2
-To: Srinivas Kandagatla <srini@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Demeter Barna <me@fromdisposition.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795740603; l=989;
- i=me@fromdisposition.org; s=20261012; h=from:subject:message-id;
- bh=l+setiCU0+OrwLSvwV20cOvWy7hUFpop6hCa7bB/D/A=;
- b=AltFMW1XNwO+2+LBNBGdAAQvrRf7cfvJfXrIswCfQtiQgL/YZ0H6E9aJSwSTdZOoa+67UvSpq
- lqLnz9F5XjyA3JVjG//wp7kpKozWHAUoW946+XasIn5A3RPg5118co1
-X-Developer-Key: i=me@fromdisposition.org; a=ed25519;
- pk=S0QFlGq1BQEaAtPPdAH8YKEOXMeRuSkTgctXuvtU+1Y=
-X-Endpoint-Received: by B4 Relay for me@fromdisposition.org/20261012 with
- auth_id=1163
-X-Original-From: Demeter Barna <me@fromdisposition.org>
-Reply-To: me@fromdisposition.org
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Demeter Barna <me@fromdisposition.org>
+siw_sq_flush() completes a QUEUED READ in the TX slot, assuming the READ
+is not in the ORQ yet. That holds only while a full ORQ fences it.
+siw_check_tx_fence() copies a fenced READ into the ORQ when a Read
+Response frees a slot, and siw_activate_tx_from_sq() copies a READ into
+a free slot. In both cases the READ stays QUEUED until the TX path sends
+it, and a flush in that window completes it twice.
 
-Give the SM8350 sound card its own driver name, so UCM files can tell
-it from SM8250.
+A peer can hold the window open. It advertises IRD 1, so the ORQ holds
+one READ: READ1 is in the ORQ and sent, READ2 waits fenced in the TX
+slot. The peer then sends Read Response 1 and a FIN in one TCP segment:
 
-Signed-off-by: Demeter Barna <me@fromdisposition.org>
+  softirq (TCP receive)                 siw_cm_wq worker
+  tcp_data_queue()
+  |-tcp_fin()
+  | \-siw_cm_llp_state_change()
+  |   Sets tx_suspend and
+  |   queues the close.
+  |
+  \-tcp_data_ready()
+    \-siw_qp_llp_data_ready()
+      |-down_read_trylock(state_lock)
+      |-tcp_read_sock()
+      | \-siw_tcp_rx_data()
+      |   \-siw_rdmap_complete()
+      |     \-siw_check_tx_fence()
+      |       |-siw_read_to_orq()
+      |       | READ2 enters the ORQ.
+      |       |
+      |       \-siw_sq_start()
+      |         orq_fence is now 0.
+      |         TX is suspended:
+      |         READ2 stays QUEUED.
+      |
+      \-up_read(state_lock)
+                                        siw_cm_work_handler()
+                                        \-siw_qp_llp_close()
+                                          |-down_write(state_lock)
+                                          \-siw_sq_flush()
+                                            |-siw_sqe_complete()
+                                            | READ2 from the ORQ.
+                                            |
+                                            \-siw_sqe_complete()
+                                              READ2 again, from the
+                                              TX slot.
+
+The FIN only queues the close, so the receive path normally gets
+qp->state_lock first.
+
+nfsd's svcrdma gets two flush completions for one Read chunk:
+
+  svc_rdma_wc_read_done()
+  \-svc_rdma_recv_ctxt_put()
+    Runs twice for the same ctxt. The second llist_add()
+    links ctxt->rc_node to itself.
+
+  svc_rdma_free()
+  \-svc_rdma_recv_ctxts_destroy()
+    |-svc_rdma_recv_ctxt_destroy()
+    | Frees ctxt.
+    |
+    |-llist_del_first()
+    | Reads the freed ctxt and returns it again.
+    |
+    \-svc_rdma_recv_ctxt_destroy()
+      Frees ctxt a second time.
+
+svcrdma pulls the Read chunk before it decodes the RPC, so the peer
+needs no RPC credentials and no export access.
+
+Complete a QUEUED READ from the TX slot only while orq_fence is set.
+orq_fence now decides whether the TX slot completes the READ, so move
+it out of the bitfield it shared with tx_suspend:
+siw_cm_llp_state_change() sets tx_suspend without taking a QP lock,
+and a lost update could drop or duplicate the completion.
+
+Found with afb-afl, an LLM-driven kernel audit/repro pipeline; the fix
+and this changelog were also drafted with LLM assistance.
+
+Reproduced on an unmodified KASAN build of mainline. A plain TCP client
+sends nfsd's svcrdma listener on siw an RDMA_NOMSG call with a
+two-segment Read chunk and answers as above. KASAN reports the read of
+the freed ctxt; here the second destroy then faults in kfree():
+
+  BUG: KASAN: slab-use-after-free in llist_del_first+0x150/0x170
+  Read of size 8 at addr ffff8881119d9000 by task nfsd/183
+
+  Call Trace:
+   <TASK>
+   dump_stack_lvl+0x5d/0x80
+   print_report+0x14b/0x4b0
+   kasan_report+0xfa/0x120
+   llist_del_first+0x150/0x170
+   svc_rdma_recv_ctxts_destroy+0xf3/0x1b0
+   svc_rdma_free+0xd8/0x2e0
+   svc_xprt_free+0x22c/0x420
+   svc_recv+0x103f/0x25b0
+   nfsd+0x35c/0xc80
+   kthread+0x34d/0x460
+   ret_from_fork+0x339/0x620
+   ret_from_fork_asm+0x1a/0x30
+   </TASK>
+
+  Allocated by task 183:
+   kasan_save_stack+0x2f/0x50
+   kasan_save_track+0x14/0x40
+   __kasan_kmalloc+0x7f/0x90
+   __kmalloc_node_noprof+0x207/0x680
+   svc_rdma_post_recvs+0x664/0xbf0
+   svc_rdma_accept+0xc27/0x1980
+   svc_recv+0x12c2/0x25b0
+   nfsd+0x35c/0xc80
+   kthread+0x34d/0x460
+   ret_from_fork+0x339/0x620
+   ret_from_fork_asm+0x1a/0x30
+
+  Freed by task 183:
+   kasan_save_stack+0x2f/0x50
+   kasan_save_track+0x14/0x40
+   kasan_save_free_info+0x3b/0x60
+   __kasan_slab_free+0x57/0x80
+   kfree+0x162/0x500
+   svc_rdma_recv_ctxts_destroy+0xe7/0x1b0
+   svc_rdma_free+0xd8/0x2e0
+   svc_xprt_free+0x22c/0x420
+   svc_recv+0x103f/0x25b0
+   nfsd+0x35c/0xc80
+   kthread+0x34d/0x460
+   ret_from_fork+0x339/0x620
+   ret_from_fork_asm+0x1a/0x30
+
+  The buggy address belongs to the object at ffff8881119d9000
+   which belongs to the cache kmalloc-2k of size 2048
+  The buggy address is located 0 bytes inside of
+   freed 2048-byte region [ffff8881119d9000, ffff8881119d9800)
+
+  BUG: unable to handle page fault for address: ffffeb860011a6c8
+  #PF: supervisor read access in kernel mode
+  #PF: error_code(0x0000) - not-present page
+  Oops: Oops: 0000 [#1] SMP KASAN NOPTI
+  RIP: 0010:kfree+0x69/0x500
+  Call Trace:
+   <TASK>
+   svc_rdma_recv_ctxts_destroy+0xdf/0x1b0
+   svc_rdma_free+0xd8/0x2e0
+   svc_xprt_free+0x22c/0x420
+   svc_recv+0x103f/0x25b0
+   nfsd+0x35c/0xc80
+   kthread+0x34d/0x460
+   ret_from_fork+0x339/0x620
+   ret_from_fork_asm+0x1a/0x30
+   </TASK>
+
+Without KASAN, SLAB_FREELIST_HARDENED catches the double free as
+"kernel BUG at mm/slub.c:605" in kfree() from
+svc_rdma_recv_ctxts_destroy(). With neither KASAN nor
+SLAB_FREELIST_HARDENED, nfsd pops the freed ctxt again. If another
+kmalloc-2k allocation has overwritten it by then, nfsd faults; if not,
+nfsd frees it again and repeats, so later allocations can get that one
+object many times.
+
+With this patch the READ is flushed once and KASAN stays silent.
+
+Fixes: f29dd55b0236 ("rdma/siw: queue pair methods")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cygnus Qiu <eritque-arcus@ikuyo.dev>
 ---
-The qcom,sm8350-sndcard binding this matches is already in for-7.5
-(a5b5d062b40c).
----
- sound/soc/qcom/sm8250.c | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- Rewrite the commit message: charts for the race and the svcrdma free
+  path, and the full KASAN report.
+- Give orq_fence its own byte, as Sashiko suggested on v1. The lost
+  update was not reproduced.
+- v1: https://lore.kernel.org/r/20261125060646.155172-1-eritque-arcus@ikuyo.dev
 
-diff --git a/sound/soc/qcom/sm8250.c b/sound/soc/qcom/sm8250.c
-index d0015e5f5..ba0aaf428 100644
---- a/sound/soc/qcom/sm8250.c
-+++ b/sound/soc/qcom/sm8250.c
-@@ -231,6 +231,7 @@ static const struct of_device_id snd_sm8250_dt_match[] = {
- 	{ .compatible = "qcom,qrb5165-rb5-sndcard", .data = "sm8250" },
- 	{ .compatible = "qcom,sdm660-sndcard", .data = "sdm660" },
- 	{ .compatible = "qcom,sm8250-sndcard", .data = "sm8250" },
-+	{ .compatible = "qcom,sm8350-sndcard", .data = "sm8350" },
- 	{}
- };
+Tested on mainline 4405c18c95d2 (v7.4-rc3+) in QEMU. Applies to rdma
+for-next 94e81a1f3ffa, wip/leon-for-next d24184a64765 and
+wip/leon-for-rc e7732ec135b5.
+
+Unpatched, the KASAN use-after-free report came in 5 of 5 runs, the
+hardened BUG in 4 of 4, and with neither, nfsd faulted or spun in
+svc_rdma_recv_ctxts_destroy() in 15 of 15; add_key() as an
+unprivileged user got three keys backed by one object in 1 of 6.
+Patched, the KASAN build flushed once in 3 of 3 runs, and the build
+with neither showed no fault, spin or shared key in 10 of 10.
+
+Controls (FIN after the second Read Request, or no Read Response)
+flush once with and without the patch. The rdma-core tests could not
+run: rdma-core 66's siw provider asserts in siw_destroy_cq() on the
+first test, on an unpatched kernel and with v1.
+
+A reproducer and the test logs are available on request.
+
+ drivers/infiniband/sw/siw/siw.h    | 2 +-
+ drivers/infiniband/sw/siw/siw_qp.c | 7 ++++---
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/infiniband/sw/siw/siw.h b/drivers/infiniband/sw/siw/siw.h
+index dbc998248b..82dc88b6a4 100644
+--- a/drivers/infiniband/sw/siw/siw.h
++++ b/drivers/infiniband/sw/siw/siw.h
+@@ -394,12 +394,12 @@ struct siw_iwarp_tx {
  
-
----
-base-commit: 0fe506c81cc421509660163da72dac79adfb959a
-change-id: 20261127-sm8350-sndcard-f2367f4568d2
-
-Best regards,
---  
-Demeter Barna <me@fromdisposition.org>
-
+ 	u32 mpa_crc;
+ 	bool mpa_crc_enabled;
++	bool orq_fence; /* ORQ full or Send fenced: not a bitfield */
+ 
+ 	u8 do_crc : 1; /* do crc for segment */
+ 	u8 use_sendpage : 1; /* send w/o copy */
+ 	u8 tx_suspend : 1; /* stop sending DDP segs. */
+ 	u8 pad : 2; /* # pad in current fpdu */
+-	u8 orq_fence : 1; /* ORQ full or Send fenced */
+ 	u8 in_syscall : 1; /* TX out of user context */
+ 	u8 zcopy_tx : 1; /* Use TCP_SENDPAGE if possible */
+ 	u8 gso_seg_limit; /* Maximum segments for GSO, 0 = unbound */
+diff --git a/drivers/infiniband/sw/siw/siw_qp.c b/drivers/infiniband/sw/siw/siw_qp.c
+index bb780e3904..2cc0f466e7 100644
+--- a/drivers/infiniband/sw/siw/siw_qp.c
++++ b/drivers/infiniband/sw/siw/siw_qp.c
+@@ -1188,10 +1188,11 @@ void siw_sq_flush(struct siw_qp *qp)
+ 		if (tx_type(wqe) != SIW_OP_READ_RESPONSE &&
+ 		    ((tx_type(wqe) != SIW_OP_READ &&
+ 		      tx_type(wqe) != SIW_OP_READ_LOCAL_INV) ||
+-		     wqe->wr_status == SIW_WR_QUEUED))
++		     (wqe->wr_status == SIW_WR_QUEUED &&
++		      qp->tx_ctx.orq_fence)))
+ 			/*
+-			 * An in-progress Read Request is already in
+-			 * the ORQ
++			 * A Read Request is already in the ORQ unless
++			 * a full ORQ fenced it
+ 			 */
+ 			siw_sqe_complete(qp, &wqe->sqe, wqe->bytes,
+ 					 SIW_WC_WR_FLUSH_ERR);
+-- 
+2.56.1
 
