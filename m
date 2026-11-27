@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.57
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.44
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795803612;
-	b=k+4wlZL3sPY+I69d194Mcpi+2lebRKeG7E9ius481xXGoVRBpXsrcR6TajtVHxP6xrUu
-	 7Fc5iDe7magVAEzbAfEizwXV2FohsL5m80cNOoXWXD8D6/aUWccMsDaypDNabOQNQEvsw
-	 U59WItunOOdncvKajhNDoFl/crD4BagwWQ5xlWEsPXS54xWoTIoNBqO/tKicVRQUg5K7l
-	 cc+gFkpmG3WLOyFl4gPabzIH8yodSMmjGD0zXS2vuFTatDY0P8hiTWCTUOe4VGenKXlaw
-	 dSsoaTv0hueM/kwtIqsgQ5B9HoHSlOhqyWImHSn937pxVto64BotEfAIAHbogPQopRg==
+	t=1795803748;
+	b=jS8l6Ss2q2p5EBkkglhXSZbIvtenfBG4nOU29ByMa4iCDvpuVMi3tVCuUnM+ru5CMs9V
+	 VsZ++vNnQurjW2n/3tER3+2+iAEnynk7cbma9DG01Cy/HIhduXTSgzjul5e1zTfr5lYco
+	 TyQ9qFwzxtVHShfIPFPMqB8zjF/PZ0GWuMs5lP4WxMZYDFFBcfwgXR/AZWIE55OB9wfTO
+	 9aDAPLOkxvy5i2KRy5CkzEfleBzIWoepnwzVpUxtYijVVPxb4HfwFtTZADFADO+CXnoks
+	 44mB5nUAspRXCW9TtC8lphYwI7/XFxXt3q48AK1J/X+Iui3F40cb5IbTzbpCPCep62Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803612;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=ae6TjPLYahPbfrTZ4UranBAr3CbiTEeIFv/CHK+41Jo=;
-	b=3Dg3CIO5/8XIEkuhyxzt1bAhkhQnikG1rG3C5I1+R9DYY3KdvQzpxC4IoiB4uWZgjiX2
-	 2rEVYUTr89mQI16oxJHe/ILjyWNXxK4hkJ+czFAiiI+g9d5uFwdvkr+7qa4MGw3mkc2iy
-	 YyFSABI8OQJ/qFncvDoS9ak4rOImkB7h4nI+KPBCwqdQpnaPgrxVjoCLNcqGQfldwrkVg
-	 pNQpTi6OdAYLXdeP6xjVcpNsxEXqIxe6qI/1I1z/2zxOPcAaoWy/piGBT45rK/uYO+TZh
-	 VzqMbjX4ehn4OicS9TcUHbBaaGl1m/AQQD8fi8KuXlacdxV7qkwqRt3YfZ6dELICXzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803748;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=6LCryyAmqvskOoWSagwlvu3S6g6rSUFNUH8Nq3Ag0ew=;
+	b=AzBwcfmtyX0xzQLpsPErGPMl7d3Ck0rikPoYGjR4bYG1m+HBEozEKZyQabuWyxyDtyLg
+	 VMYgyojSy6RUm20w7IBgdlba/c11cX+d/RhgEw9mt6l8ljpItFZJytUfThKe1WjGxyrDK
+	 e4pTmBKtl3UKEUBdsNVjpCUGDl+YyBJ0uGuqDkBKghBXoMawQlLuq7hN+DEIywZZ+yUP9
+	 t/QW44/Tfyg3R9fJRNtn4xvqMMo2VIj6pGwZVFfaPot6qS8MAtwuBpND7Yvec8bDIYjog
+	 frPLGehYPs7PGB6q78cUeBTOnjq+nwt8f3MM+V2X4UOzLDlrH0tFXiEEYXTvrb9rgQw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=kvgmQBFr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.57
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013057.outbound.protection.outlook.com [40.107.159.57])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wTzSIHqs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.44
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com [209.85.217.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B05B606A32C;
-	Fri, 27 Nov 2026 18:20:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B05B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40F70606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:22:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40F70606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=kvgmQBFr
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vcweJ1nGVWjL5sG6sZIZkvDiJxEMVTsiFmm10mNyUxVB/St0hRfxvmKfM5sQ6G1oUkNREyVkdtO4V3omWh5lN3D6a7RKrZOyq69JB3x0OMH1yo8J8y/P+NHq7V4FSRjK49jCFLM9YRfSCxx2ahMbMgazNEFdHFh3XkfzzW8uDBPp/jAoD1cs7E+jNsHpPPqXG0yZIKMKL9M369MENvSaMb+29gd+kjNxc0hq9EBQC3dt0+j7YwjDSXynF6FXQIxWzqBQIdgThadbNDB3YvZKBvq8BMTjckVsBhUVJNRiVGFMBDtAjapqWjOSbxEkMzSzUqGKZ66F7ytcOAJeBDmYeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ae6TjPLYahPbfrTZ4UranBAr3CbiTEeIFv/CHK+41Jo=;
- b=OC/LtJKUgbI8x0wBI/zuV3WVHbpOQe0zyBA5fOofMCXq3jkRlcFk/4EKHZMShvZz77v+MhclsprxL9Wp7NcNU5Hvyc4IJPcIF/OiBe+L7ITYKYORfmowZBsYTf28I2NwrX1+LVv1uRc+XT8f+I6c9laVaDrXnqjmtnyfN0050oxurfrhAOunUEaPNRdOoUY7X7GqaqyRhS9/vVXXRwE0efTO50CnJhxWEhUM9SOf9Su4JdqSftv8zh3mUCX+Ye0dZTzx3yluqidj+J83z/JOLttIjzD/nj8MOk3UWE3BM5GKcXdO5xXXTw6J8Snpa6jl8w38j4siyh7T71rlC9Ovlw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ae6TjPLYahPbfrTZ4UranBAr3CbiTEeIFv/CHK+41Jo=;
- b=kvgmQBFrxPDq/wzTz7FITB0vc6DdQCCzdA7Ti//0kOtElM9y5Tva790ZEc1LZh11nW3kfe0nxKnr4NDvWfflf5UA4hAconyhoB0rUA4sTcbQZM26tHN8nXbF38viFWw67RNyo0NHuAolMb3dWawAbxGi2iKHGL4fH8K0Pr5Dx4CpBCA0dotJWCALEtZZeA9P9lUymWOgMowwNzxWmRS8RoRbJDw6NyDjFmPoa0/e/uW1NbxdEUF7bqciYyHW3E2xMf7/nDOX9Yc1au3KiqU6cgoXO0sYqPH+F5h6dJjnG8wYZcfUhUrfYXSbFtNA1dVF3vhp1g8ZwNCqYR3g35wJwQ==
-Received: from DU2PR04CA0238.eurprd04.prod.outlook.com (2603:10a6:10:2b1::33)
- by MI3PR10MB277145.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:290:9a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Fri, 27 Nov
- 2026 18:20:07 +0000
-Received: from MAD0EPF000008B1.eurprd04.prod.outlook.com
- (2603:10a6:10:2b1:cafe::6a) by DU2PR04CA0238.outlook.office365.com
- (2603:10a6:10:2b1::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.9 via Frontend Transport; Fri, 27
- Nov 2026 18:20:06 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MAD0EPF000008B1.mail.protection.outlook.com (10.167.241.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 18:20:06 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 27 Nov
- 2026 19:21:11 +0100
-Received: from localhost (10.48.87.100) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 27 Nov
- 2026 19:20:04 +0100
-From: Patrick Delaunay <patrick.delaunay@foss.st.com>
-To: Ulf Hansson <ulfh@kernel.org>, Patrick Delaunay
-	<patrick.delaunay@foss.st.com>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>
-Subject: [PATCH v2 1/7] dt-bindings: power: st: add STM32MP PM domain
-Date: Fri, 27 Nov 2026 19:18:25 +0100
-Message-ID: <20261127191823.v2.1.If3d55e03486413ca40ac73f9bf07046e76a00f0a@changeid>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127181958.113639-1-patrick.delaunay@foss.st.com>
-References: <20261127181958.113639-1-patrick.delaunay@foss.st.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wTzSIHqs
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-7cc603a168fso3193500137.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:22:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795803747; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YFfa9UM0Pw3gRvH/FcXNGtZtM+Hyy8ADgJ2Mh094Kw7FbVVxxSvrmf5QxQeuHl/vvj
+         LpBCVY7PRwfh26Nbjraacj69pk1PA965dwFHice6GJD/e1JAp3O5tWnbdYGe0+wXDftA
+         Zf5EptzCg6zIUCuM1jwk34CuEhXNn6fkqLB+GGuSPr/wSMB9SBYS+JTvU1cgDAU05/WC
+         6b+MWzXZjbZpjgThDZZRlE18vr6jMNZgSND18tNbzgq+DGimGk4dihbD4eNTf4HIW6IW
+         eKiDnmO6QGEr59OpeZ4GH/6/ooPLuslFBaZL2OPcnfZjW6z5wSMBTimlrzMLOnD0cxsW
+         e0cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6LCryyAmqvskOoWSagwlvu3S6g6rSUFNUH8Nq3Ag0ew=;
+        fh=Ih18knV65vHG7mFX+4aivw3Iop4OuwTK1WPt0i5es+A=;
+        b=iubmmghB2MH3sSFxfJiFj3HefcsE8piRD/AirbgPtlpBqrImEy3trtyudnTDCFylTy
+         ni+iWPlZpKhmvrIuGMSR+2ePyKYH0x4ndgCLfAd4PqTk0Yqlc1obntpt5nE1KLoXrlQK
+         tRiVUD5Dm11e++q0WUeqTnQcszH6a0VMrjS7NIbgFd5JrcudDcpcnfsMeaHIm2uAmao4
+         fnEVWx7Jdcd3w8Yy+hmP5bKYX7c4MdZLtPuis6PKbzcBaNrveF78na6LmnSofakQDY8C
+         TG1LyllpGm6SmdfZZGNn19va33uzT42ULfkz/HAxhYB8MQULS9r8BvxWn814WHx7cxtp
+         DzSQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795803747; x=1796408547; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6LCryyAmqvskOoWSagwlvu3S6g6rSUFNUH8Nq3Ag0ew=;
+        b=wTzSIHqsZ/Isw3xG+fkfOoOQs9rMaPLjGkOc4pIb6yZOqd9OizXP63FVHw6wiFmE4/
+         5Yk2UuK39Wdp6hZAA+zJFwQdyn+rZ1d1dYNfmY3siUDdYwUkStPWL3aNmL5EXrbzRmkV
+         d5PMtxOg2prkFCMYYAG+T60FuvZsmVlsxRsv/WQLM8Z/bk6SeVtxbcWgo3Ytw1yn4Z5f
+         sbRFNx7d8lp0XFUgnpJbDGUEbnL0qm7IauzrNpEysb4PdoEGGZjMtpb9toQRfWp3R7qQ
+         80MvdVinOpIcw9cpjTV4u/AD7cVDauHHmSQARofH1l7MF68nP07GHnPIPvAQAqApA8+U
+         XgSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795803747; x=1796408547;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6LCryyAmqvskOoWSagwlvu3S6g6rSUFNUH8Nq3Ag0ew=;
+        b=K3swivrOyH+568NxtCkx9TACy6LEo8WV9AXOpb4RU9Z3QnUL0uxeJ4CI+pQ3ZGdmr2
+         ww4huN17XCfimyB8TjVha3DbamPfnrLdtDuW8TM42qf49nf6nFCtHNSB96YmNCg1bGj4
+         IodRtnClF3Kc4rqVyS4FfX+GAzLwmMn1YJFbxkIiOoBcT2S94SVe7o52Ml5ae1mGlG4A
+         PftD4z5J43ir34dSErziJ+wUgS25OHwDpoYnMEopyinCkGKAbCUsNd3Rz3yVq7FOriXN
+         MWiv6mGaiTA1uPmM2aS4mSJEPajk56PXVdMsHllYJM46er/6nVVt7pNz0aZ1TaE4fMcp
+         2weA==
+X-Forwarded-Encrypted: i=1; AL+hErEb7/R39sJ5QqH8xaEFKCCUgH+O3x9n2dXCmgVILk3MfriIpkyPH14WDZqvcPhj8O6vWR02QwpLeahOuvw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8t25ObU0Zc1yUr2Hq5WzU4ZEhU2eeS0EDhFdA7072ESLTdFNnp
+	fOicjuab2KUgmueXGXZjx9OD5LsWTI1YiJ7I+zOKiJf4tuenXi9xIUT9p2F7/IksaH7dcMLwkcf
+	pJ7LprzbT8VdZ71Dfms8RvDootjlYsZI=
+X-Gm-Gg: AZFdTZd2oEOiTbPO7gHQ3Pd+fnJnRJtVuq3AGG4NFFHltt0D9rllpOOl9vLQksoKUnU
+	A3/FP4lDQdnKDTU0/D40duZcgoYhcK13LL0WvkzxRAhcxtVMk9nUQfzNO64AqC9dew3YW1FWlgK
+	y3ntse3Vd4BqGG3exZKeEcm4ct7HZKLg7mqYmLYW0k9IizgzGjeIeSSb/iXp3MS+nfWQYZW+Ryb
+	yG+lMdkccCZ7G070z7Z8qN1wscrOK7TLaYoCoMjNOglu3ovxL23OvntsFXLGGWoNDQNEIoVdF8/
+	kv7/bD/jy4hTCfqKsNt3vgf7wdTbyw3VRWZjrxjRQFYMgoowvyYa0IcDivRKXy1RAmC10d95LvC
+	LLeC2VIIO+sRiFzMHIPmALobTI+opErRoE9kgRQ==
+X-Received: by 2002:a05:6102:950:b0:7d6:48c4:ed56 with SMTP id
+ ada2fe7eead31-7d7393cc6d0mr14612336137.6.1795803746639; Fri, 27 Nov 2026
+ 10:22:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,116 +104,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008B1:EE_|MI3PR10MB277145:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02cd8295-492f-4f7c-8d65-08df4cb3102e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|7416014|23010399003|376014|82310400026|1800799024|10067099003|5023799004|11063799006|261028144727099003|56012099006|261026140227099003|261026121527099003|261021123027099003|261022105027099003|261021121427099003|261102123227099003|261022075727099003|22082099003|18092099006|18002099003|261009223027099003|3023799007|44046007;
-X-Microsoft-Antispam-Message-Info:
-	py6nfVJ4lFTI5sUflSCXD2OsK/AtBND1NDjmImn3tRc2ilIu7wY4TtVqYQMzzrJKFoEJVcxdKFp6kog0PD2fEVlKLEOcIIXm2uh8DX2CiyqEj6PZ+oS1nm5l30m+XUGBfhr8iyjM98cjsiN80agzg9WiC24dcBVDhJ1cf8hMrw0u6HNG/P4VTaZpvrvIv3PwTDUkQxrUCJ3eEFX1bgKFTK0RAtUXkGImXetL7LFggdX0fFRX8ikJvzaiuAgkhlXJCrQECmIsvXVrI4jypVuyrearOc2PP5MV9hBPAiSrVvFLA+f0KSHlSpNyBifmGGuALPDWDiktrIqK1OlDf2soWuxXGrN1k/K7dnTIN1ZMlie40o0LCUXFZwLKjvimBShD0EkvBAsIeQzJ/PQgGC5Coov4cgSFiGHbuHLoBerARgSBxUbYWB5mRucOpEkGGA/nUmOLNGBsmKXgSTu/yGIVBaCA9uTfCuSBIDaxyh04tVUhZHWXrHnH0OfHK1sp5gPLYrPzE49OCawKP9I6XKNIqkap5jgeNLvj5ofCrcuJwP+RIZnsI12bNJIt4+vmLiM+s/9CpTlJJFc8lOwO97JBNNVybqdOjPTgIbB1vu6zayIj1KErh8iqURcmAUiQKbk1HYUEyDB+KTARiyDM2ZjqkO2STIVuTRPh+mh3KYRfCyvguECuIOX3DG0UfhvUjvf6M8USY23zXqYp7aX8HXBZlQ==
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(23010399003)(376014)(82310400026)(1800799024)(10067099003)(5023799004)(11063799006)(261028144727099003)(56012099006)(261026140227099003)(261026121527099003)(261021123027099003)(261022105027099003)(261021121427099003)(261102123227099003)(261022075727099003)(22082099003)(18092099006)(18002099003)(261009223027099003)(3023799007)(44046007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	qbauDUlg9AnswWbPeFiXgoDeSQgV6HWzwq8jPHnKI4DaCB2+CCXV9rcI4xF3aDgQJhB48Ad0JAyUO3sz7B/0+gO2dZBTe0M43fA/pEDkTGGdeRpATPvvg9iVg4m7qTD85vg38s8ai5i9EdKhfdopi1OPi9CWPS9hJm2cEmT0INGZTJxjAATHO4NYZOfRXtFG+FnpdawIgPh0wwCTb/Y0y/uaClmO1YoqnqFDq3jMimsDbOOYhzqMvnXrmd96yjHxx2OrVa6CV5u4YmaroNteQgmq06pnXphIhLRdBU0QWoBrqwNc3sqoez4kP8G84qa03F6mCU9QcgkaETBUfBH9yS9u2jKS+yekNCdohjmjynotcbjXnoewMejrXHlyjI7IIUP9G3ygxKSKAxcPXITbnYvmKl2jeVCSJ9J1N4WWAuXwGrQqloZ8DrRXrCVOUgiS
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 18:20:06.3084
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02cd8295-492f-4f7c-8d65-08df4cb3102e
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MAD0EPF000008B1.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR10MB277145
+References: <20261126232159.68334-1-artem122novak@gmail.com> <awkvNgFEHgBX9GhI@hovoldconsulting.com>
+In-Reply-To: <awkvNgFEHgBX9GhI@hovoldconsulting.com>
+From: Artem Novak <artem122novak@gmail.com>
+Date: Fri, 27 Nov 2026 12:22:14 -0600
+X-Gm-Features: Aa3M54qcaPJoraFS5xeCM2KAkZy4LXml-K6XaQT-iMStFyV84RU4AOEe8MmPCf4
+Message-ID: <CAPufuhYX42uiiUtnsYLB1Yk=DdGBj-Qw34VD8P3M5DQx_VCbUQ@mail.gmail.com>
+Subject: Re: [PATCH] USB: serial: cypress_m8: remove trailing whitespace
+To: Johan Hovold <johan@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Document the STM32MP D1 functional-dependency power domain.
+HI Johan,
 
-Some peripherals assigned to CPU1 rely on RCC clocks that are available
-only while the Cortex-A35 cluster is active. Model this dependency as
-a child of the PSCI cluster domain, which represents the PWR CPU domain
-powered from VDD_CPU.
+> Don't run checkpatch.pl on code that's already in the tree.
+>
+> The exception is when learning how to send patches by working against
+> drivers/staging.
+>
+> Johan
 
-The D1 domain does not control a separate power switch. Device wakeup
-routing is handled separately through EXTI1 and the retention power
-domain.
+Understood.
+Thanks.
 
-Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
----
+Artem
 
-Changes in v2:
-- update commit message
-- update binding description
-- move additionalProperties after required
-- rename "power-domain-d1" to generic name "power-controller"
-- remove "generic" in binding title
 
- .../bindings/power/st,stm32mp-pm-domain.yaml  | 48 +++++++++++++++++++
- 1 file changed, 48 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
-
-diff --git a/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml b/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
-new file mode 100644
-index 000000000000..b4118e1e5a38
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/st,stm32mp-pm-domain.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STM32MP power domain
-+
-+maintainers:
-+  - Patrick Delaunay <patrick.delaunay@foss.st.com>
-+
-+allOf:
-+  - $ref: /schemas/power/power-domain.yaml#
-+
-+description: |
-+  The STM32MP SoCs contain a D1 domain for PWR and RCC, which defines the
-+  devices assigned by RIFSC to CPU1, the Cortex A cluster powered by VDD_CPU.
-+  the devices in this domain are functional and clocked by RCC only when the
-+  cluster domain is active, not in Idle state. The devices in this domain are
-+  not powered by VDD_CPU and are wake-up capable in Stop1 low power modes.
-+
-+  This power domain node represents this dependency (see PWR table
-+  "Functionalities depending on system operating mode").
-+
-+properties:
-+  compatible:
-+    const: st,stm32mp-pm-domain
-+
-+  '#power-domain-cells':
-+    const: 0
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - '#power-domain-cells'
-+  - power-domains
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    power-controller {
-+      compatible = "st,stm32mp-pm-domain";
-+      #power-domain-cells = <0>;
-+      power-domains = <&cluster_pd>;
-+    };
--- 
-2.43.0
-
+On Fri, Nov 27, 2026 at 1:20=E2=80=AFAM Johan Hovold <johan@kernel.org> wro=
+te:
+>
+> On Thu, Nov 26, 2026 at 05:21:59PM -0600, Artem Novak wrote:
+> > Remove the trailing whitespace from the else statement in
+> > cypress_dtr_rts().
+>
