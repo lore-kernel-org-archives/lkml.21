@@ -1,115 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761625;
-	b=cB7gzj7/VlslO9SIpWhNhYQZgKoAPb7lrpT4dDng6xaSSnLg0HhEsxuA3k/xrZa0sZhp
-	 K8UYoNpmAMw9ootDtubBasr2trnfOAvJ8TdWOj4VxH9KPUYzLde7m13iglqJuheD+9r8Y
-	 bCNpc8qEW8XzZ4yVE/QSYRnh7Kg/ENRYHJWw66vT2W0mnY/pY7w/6etWVDBf2ZDJgRmWn
-	 KhCp0S16o86klH6EBG+slVHTFrsxy0t9X2VCIbUc7YuthTjBG+oeSn5TYWxXUVVizvyMN
-	 LCzmSTkOh72WzBWfQ3fKfg1Z3W6GcbmNAZl+GHkvcvuBqN05bSJicamjOVy06sI0YVg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761625;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=YSTvwPI8uJayXDJex6KW3iyWn5M4RVNCOcwWBDWJ9y0=;
-	b=G5JWvFSOB+JL9PVq+dpdrqxQ9nVsV+f1jwTzqWlGf5mgUiz/VuYugAZ5nE0EzRhkuZ7/
-	 WIfEzTZnFWoHOY2TsU+sp847vhzoQHNFBlYMLYSYSVOPQhr0R2fUKAsNCC+0qm016Xndc
-	 ZOIXVNdfCSDMQxs6Zk8NlFqa/NzgDfDyT/6e8h5eUS8+U4zaeTR4+WtWNDIEeRu9DNFfr
-	 6zjwX2WeM5qtLAtR7PP8lKi/GXlQasxNMdOK08rkk+lYptut8oH5TNhfnFV/KWHUm3U6P
-	 xCuyT9DOjEcrhTupHHdJjq1hGcLkcNGm1GwjGvsSsmGnUTp1r1OT0V+q3S99d3Ta5zA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pobox.com;
-	spf=pass smtp.mailfrom=pobox.com;
-	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=n98iRn4T;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w5Vzkwen;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.102
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795761818;
+	b=zf2tRnOEvdNrDp2YLtOL1xB6tNMYnKtaKlmmVEtB0ZNxZ3Eri19jSDBP4DXWSDa39/Wo
+	 DT3+lzHr2/8o8nQOxD00j6BmvR20J4Xvm6SkHN7YKtsZOAoVr2gqgCFnTasrcio4LY5OB
+	 5sx6Zl7ZnleRhYM4Ix+lBu3nfu+dGx6Yi0NQFHaH44k4375BOGS3VMP8hq8jP+Ja3/SXI
+	 yn/TMH3rwhV2RJ8D8lkFuJNXPu3aRryOPWjniEVwSFVL85RSHy/TmTS4h2Ej6yZpNTxBn
+	 ehTLFK9hvsDlrh9pZkedBtw4Az8v804NWMIODDrqzPvTXaGiprqc1S2jlGMk5IDgblA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761818;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:From:To:Cc:References:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-TrafficTypeDiagnostic:X-MS-PublicTrafficType:client-request-id:
+	 request-id:X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=PmzkZL98IFVLVO1AVH100KZlsT1wHhOSsnXCSCBipzc=;
+	b=r+k9G2UtGcThM6ryTXY4Resk+W7sqBdYtw9C0+02cw4oU2QeOXPrB9bVZYK9Y+4Fym4E
+	 lecaP0KLhioj/fPNZJG+9wT3mvlGkizXk3KtrrTsd6czBVzgfkmZOS4TAgXNUrKsN8qJZ
+	 Aug35VMBJHliw5s4Lz/IZh36LLe7EcBySdWnhOOrBg/hdCrAQzHbELflhrGPsT/ZwU6Vz
+	 39i3ylqhjjU6qKZH0BJXgpvwvqcRKyj0CrXSgUJGB2UwMPTlvA2VEBLg+Gb8Gg0mdgXa0
+	 7c+OIb4QUBLqBEZDE/WzRl4Q9DEmgqhDhEpoZ1lo4Jjorwfwf/6ZrB4ydnccCkZEQ6g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amlogic.com;
+	spf=pass smtp.mailfrom=amlogic.com;
+	dkim=pass header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=SHN7+LKm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.127.102
+Received: from TYDPR03CU002.outbound.protection.outlook.com (mail-japaneastazon11023102.outbound.protection.outlook.com [52.101.127.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A443606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:40:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A443606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ACFD606A324;
+	Fri, 27 Nov 2026 06:43:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ACFD606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amlogic.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amlogic.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=n98iRn4T;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w5Vzkwen
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id B168CEC0B27
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:40:22 -0500 (EST)
-Received: from phl-frontend-02 ([10.202.2.161])
-  by phl-compute-10.internal (MEProxy); Fri, 27 Nov 2026 01:40:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795761622;
-	 x=1795848022; bh=YSTvwPI8uJayXDJex6KW3iyWn5M4RVNCOcwWBDWJ9y0=; b=
-	n98iRn4TVZgilWz0YrmbLZpAztSGdQOZPRYuS4Rev8/xIydYRU0P/t/iSYWP8dg+
-	oaY2hnqdFouBixlIL9NJh7BkXfxe3ksxd5LZi37wEGdEwL2bR32ihATdAHeLRo7i
-	tEKy7jcL1kP6M2LJLjJCx/jZ8szhtwlGlRtAsfJxlZWjJ8R1xo4Dr7wdIqdNKImm
-	/v4lLZ/ysf8ajyme/uGCRWIKHEeawSqXnRA2Xib0PONc9itlP3OLks7nUqsMbyfN
-	FQf7qlkqJ1WHZyTH8aFbAUSBl9JSqNztU3p/7d/6zc4uYfSVCWMl90fyXMtO9x2Y
-	cRsJn68ba83J2zue8V8yDQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795761622; x=
-	1795848022; bh=YSTvwPI8uJayXDJex6KW3iyWn5M4RVNCOcwWBDWJ9y0=; b=w
-	5Vzkwen1m9+TuVD+skmXOj4DcOrF1OR8FH+dYjiyBwKU7w+oYoGFTaCfIeVEDX2O
-	qJ6YF5v9TaE6LtNPQdWFiXNuAb5aDH5hmoLNNL7h8XpjEa/6tyu3xTXDEG5ffcSG
-	eVWiFEortCtzyNkW2nr0cZbLspTqcXIzazQf9M1eUZB2MGWh19/iVsHanoUqWlGD
-	qvyo8cktREqiZFsjTJj8r7COlg+bJYshB02ppDaV2PcJXgNS7TRgPiL5J+WQNxe9
-	0UcOjMnFKAk0rlBS9Kc2m6XpXakS/GxxKpxOOAsDsMJgxBo13IZ+nX7Auzc6oOrd
-	HvOVviv8orJIU6fYYYWFA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=pobox.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795761622; d=pobox.com;
-	mf=PGJhcnJ5bkBwb2JveC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:kU0LmR8Ccd7SU36kTbcrfrAyK2p7qSbXFlYeQ9us5jpDwho
-	z3WEdN0uo4ftIdQkW5zvehCfXChnY9yxZ/WCp7r5uMzufpe5W7hQg9VelxNU7CFs
-	ERrjyl12Iu5QXoYq0L0BPb+tgF1DI8Yg0lu4Zss1bYrx3bV8pDf3J8k0CzDLVLac
-	EjoKtiBiNsT/zCLq4lK8xhE2QVEQDSl2zRPwxteNPm8IEeRHKBeP40ZmqPLYvFZS
-	eMXoTTwIpHv86RiFshZqWfsS00xbKeLJh/eEQ8EBvGdW1vAKDPgIeyNAQT8TH6GD
-	34t/TBZiKpss4DtxJ5Yd3zGy4Lsc06Ae2guCcuw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:W2snzuKcscKbgP75bzxbIrqywLLxG0vnng6g5T/Juqo=:8mlGRY+HP0m41SDgzy8rHCGzA3Ad7xjs/rZ7OB0AGfE=;
-X-ME-Sender: <xms:1SUJaz8Xx7zho4Ht4w7tSBYOFf6YNNeVcSPdgD8-bcJlQn7sDNYP9g>
-    <xme:1SUJa7nOviuKMPRdDvnBQTvyCKFTVrqyzZmVgxSJqtogR64iVyPnilIURnOEcDMDz
-    JdfyAwPBBF-lzuW5XspjY3I4TPkzSzNOMYUvt_KYPzF2Qqaw-qMB_a6>
-X-ME-Received: <xmr:1SUJa8ghmBeX1a1xrkv_cn1vPuW6lJYzU3RQFGZep-L_dCo5adOUMn6v06DN90G7HKM3UoKQSzt3aPss4MLW9Nvt8PBUmtly>
-X-ME-Proxy-Cause: dmFkZTE9K/2WQmeS5DN3A/bfu9z7ombAqQKJIFl1b4Zop3LZ+5VKIpR6WSaXj+3ARfi5/i
-    v9bOAnaBcTJC3No7DFIbkQjMCj+amHIcxVRy1Sc7ZW5lQE2oXc9oE8wGfllp/25CkZ+ojA
-    1VSH60pQscP5sYO3lRaoV9+xIjE4hKoLU2+NcdUT2EKo7ZlkxpaUQ1QUxfsuLOiDAaZFHx
-    ri8EvllyZm0VXehzVTjyXg5WtUV/tn1K5U5Xsy6CeewJiFrjmCwRlvVNO6zuYKh1pwENs/
-    NuzlFAq3QdvAtfwJdGrYC2WiRp5s7W5Ddc41K3a7jiTF5YNfd8rX/GFrr9byVlLpntIvOr
-    bumARZP+WTsmGzwxA730xkk4hW2q2C4AagOBKcVO0PtToezbOzEIZ9hQQK1F+40RG5xisk
-    5NKx6P2C8g1swI71QxlRp1QMamJ94tP7RX4KvNn/cW18m9vTGSx6WxhcLpuwJdUpb8Yux3
-    GJmQAnim/D/NfQhZf5Bu4oW1br0/+YI/DfSsBiE7g8kI6V3ts3RS4Qea3iYHFLcmDOjykb
-    00RQ9EdnKk8ZwQIlsj2PsuboO/Zj/+XeBDIbrolWInnuXAskJwXs/lrogVc/K46AaNWnjX
-    PyLBs0WlqgU71mEcO3O7XpR+t06hWojHP79zcVSmh4aEHVLAZwJ9ggEGenlw
-X-ME-Proxy: <xmx:1SUJazb88qGKnMbFCU52Ol0xOwTG9uxWS4CHh0-AqGYIQZtv_jRX9w>
-    <xmx:1SUJawGgQRToldsiMR1VX24XZ_EaiQqO2HceC_LbToyP3_ZF9n1jRQ>
-    <xmx:1SUJawad-bRWb200xNgkPxuy0G7LUHWEOOGeeL1EXpM3EHii2Kh_Fg>
-    <xmx:1SUJax1hrVAclJ-aLft9oVcp-bmE4fnWQx_X-dcMJRE7L03wt2yfig>
-    <xmx:1iUJa0Dl3qOJfZMM0c0QaxMz2pvpGCFOUrr9bt3th39jjjjjXrkx2XG2>
-Feedback-ID: i6289494f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 01:40:19 -0500 (EST)
-Message-ID: <603e9158-d907-4d7d-9ddd-bf8eb3bd1f99@pobox.com>
-Date: Thu, 26 Nov 2026 22:40:18 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=SHN7+LKm
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R/I4LrVda4qNTJ15c74hTedwBNJTefgypE3HaEiME9ubZ2bZTsClwOzW5h5sQUDIcz1j30AgzI5plzSpPniz5hYr65iF6c03RMMueRwQuV+Y0YkMxy+ULpUlY9U7zZPn7syV/YbqlAa2XW0RP38k2diW22fb3PvZOd5pAlruN1yKhjYJ+XwsOeKlnqFGZIMSkMB98+SOTlmxJXFf6YuXUOAwWfZG5izxuGu8xIrA/1cEby+ptkXouWuKgMcywDilABEBW+TsFnKsq5ZGKCpqTaXFhJbcN78dhGHpJwLq/kLl2q3Z34oWd4H5H0nic35dv60lVKJNhCN8wPUDhhwKPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PmzkZL98IFVLVO1AVH100KZlsT1wHhOSsnXCSCBipzc=;
+ b=SrAQ1K18Ptk9ZLPoSRS45Vr/1c6OwmgWWxYUyByVgqksHY3Vyjv1gOpZ1qt0poSbkRzkLgIejXtT6MBgNJSGx2r9B9TPJ7lE1fYLNjrfh/94frkC59BrJ0pI/OQ8/SgtXt2L50mtX8CU4q7RVS++UR6eGZ/4nHDM6qsWZ1/CuI3P3RbKCS/LoqJ53Q72LnI1qrDe9yhZUfiKQOOsfwNvBgrW/db90Ii6ShYzPx44c28Mb3jFeqr1lgbZVVPjHW/mFG+usbSdVQJcpkRHu1FvIZgCoETBs1wxZwFz5QFc9/aLQsTk1I1gYMPJDpWS6jwBw7In/C1VPto231XEjSUs8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PmzkZL98IFVLVO1AVH100KZlsT1wHhOSsnXCSCBipzc=;
+ b=SHN7+LKmiBoiXVIttvkxn2a6QU6mLeje/HZlq0xlMomUKh9MOjJZE/EbA2TXN/MpAq+32u/PI8ahjKPUYkQnCyrOjLt2TIMzcgcKlpNFrvfxu2gHqTxtJgdvUvuEeali+Fn4nOd3fTXBGESNYVMg4qJ/h/PEzgptoKbMxovLhJDvizkhmxLAcUhPq2gwi26qvk7aiSXONWFGNKbeXC/szDmq1g5+FWnUsZSpKOWLGms2bxB2XGaRZYezsscki8Ac0amU+ZCIgMN0mVJBBR5PK7YAnra9VH0APwPiaSlAOOPgKcQtiLKM7e7Api6Cre8hMsnBt9h58LlQpcpyweDE8g==
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by KUZPR03MB9712.apcprd03.prod.outlook.com with HTTP via P2P; Fri, 27 Nov
+ 2026 06:43:33 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%3]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 06:43:33 +0000
+Message-ID: <0548866d-8214-47f1-9dba-06629240993b@amlogic.com>
+Date: Fri, 27 Nov 2026 14:43:30 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC RFT v2 3/3] clk: meson: pll: Remove the dedicated n
+ parameter
+From: Jian Hu <jian.hu@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-amlogic@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20261029-meson_refactor_n-v2-0-ff4ac74e527b@amlogic.com>
+ <20261029-meson_refactor_n-v2-3-ff4ac74e527b@amlogic.com>
+ <179390104085.2573818.48733523079260500.b4-review@b4>
+ <98fc8cb8-186b-493e-b74c-d8625d11dab1@amlogic.com>
+In-Reply-To: <98fc8cb8-186b-493e-b74c-d8625d11dab1@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR01CA0033.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::23) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,52 +103,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc2 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261126105725.767748294@linuxfoundation.org>
-Content-Language: en-US
-From: "Barry K. Nathan" <barryn@pobox.com>
-In-Reply-To: <20261126105725.767748294@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|KUZPR03MB9712:EE_
+X-MS-PublicTrafficType: Email
+client-request-id: 9f45ff7d-be43-4d4b-9c4e-1c40968ef6be
+request-id: f0f2b47f-b404-4840-262b-08df4c51c176
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|18002099003|261009223027099003|56012099006|4143699003|11063799006|261021135927099003|261022105027099003|261026121527099003|261028144727099003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	GuJZASr9mX9kdMGCT4cGmLwftaYxCpUU01MU+VtqJuLRIK6lDjs+97EJPUTl2gyvTj/0oiRyvjRqr6BdvAjcXaOHkRK5n8h6vOn/EMFI3KFz4VJ4C4V5yW06n03ZBLwbbwPMYidBlIFVmFm2OVMwpNZKMH/iDJeE9nfydfk4of+sxMu8YAaOR/IBrJNgdLpe3lpnqh4OJjBKPJTYhfjZJQvy3iE2RdNsrDytxis4a+c8MwWb99JeBhFkSjyyG2QSEetc8N/GLCRTbrfjF/L2CWOKBz4tdBcDkV7bocaB+d/p6GY7P1984JKr99ma4KGwBowsNpjLoOgw9CS0Mu96J/710iBE+IPGALbHmWyvqwOXI6uKy155RBQG5wclj74x/sKl6i13m/lQJf7dHCVcBfgA/QlrTwfeGnP3gGyNrsdctQX8ajWUCK074HiV31xlZqgnzZGlgvb1VFYRDpv2DtIxKKJO33eCAy6lLcqs0JciD92CQUjxU8iFwkqqwaEg8nWCWLNICH8d+UfCiXtRf2zHRayVEVUgpG3ZkR6cKbMmR7YEh9bQ0qcTI1IWiGlS/UCFlzQeTKI9m5pqI9MKvKLCUQO/vOYOcn2eWEwd+kzL7qgWPdtN0kZp2ttdoyIDLpBDwdxNtkU7mHorslJpHvMeiSnAoqeSFjbkzRlZtY8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(261009223027099003)(56012099006)(4143699003)(11063799006)(261021135927099003)(261022105027099003)(261026121527099003)(261028144727099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?UngrVHhiSHlNZWJlTk1BWUlIS1lLcmdDOWhJZmZtKzZNck5mVmhEYTVNSW5T?=
+ =?utf-8?B?VS80aFFGSy9VU1NuZnhGSlpuY3B3WkxkeTNmdXpqaStVM3FlVUVrdnBqMEVF?=
+ =?utf-8?B?citDTkQxMktyWDdGSndBZFI2d0RyeTFyT1FQVm1YSmpNOGpvT09jbVhKZGhX?=
+ =?utf-8?B?N2ovWXlnQ1MzUWtwUnJlWmVzaUpCSG1tWVhXa1lUb0h1azVKNTdidGt2NE1V?=
+ =?utf-8?B?dXZ5MHhpZ0RuNVllVmkyYnJWOWFrakUxU0JXZittendGRkEwZkFwMWIydnRm?=
+ =?utf-8?B?TU8vSjJ6OUZwRXhnVXZQUGdBbjV6bTBlVlQzajVJYXhMTU4yRGU5Vi9WYUhS?=
+ =?utf-8?B?cUxZc25ZYkZ4YWpnam1sYTNCZE56QkpiaThIUGJFblFQbVUrYzNsK0dWaWVa?=
+ =?utf-8?B?VUQ2ekVSb2RVNHlxVWxab09jUzQ1NlhiT1hjUTNXa1FBeDVRREVQZDgyNUFW?=
+ =?utf-8?B?Rk9mL2E5MTRQdzlRS1pnYkpzUitjTno2dFdnNjMrejBKcEx5YTVMVmFPdlZI?=
+ =?utf-8?B?eVJjZkVNVHRjK01sUkhOKzFFNlY0WGV3T1MySTNGUUI0QVJJR0c3UVZ5QVVE?=
+ =?utf-8?B?WEl6Y1pCUm0xcFIzc1h1ZkZqYnZXWkJDL0NLY2pKQkZzN3ZHUzBvVGhvQjhP?=
+ =?utf-8?B?aDV2QWJYejk4TmhxN1hlNFRPQlpFWFpkM3grRE11NjhPcjV1cW9ybnlnQW9T?=
+ =?utf-8?B?VnJyNnFqT3ROSWFqWGE3c0dXakZwNTg2dzlPdGhwMVNMUEJzMHJrTjVvQlVs?=
+ =?utf-8?B?SnZGWW1PQ0lxQmNEdmFFbnZRVHJ2cUhNZU4yM1pEY2VxZUgwM0NOSW9mTzNJ?=
+ =?utf-8?B?NUtnZG4rU1J1Vnl0Qk14UzdZd3Rabnl6bFVnS1lYL0I3VEZFYVdpRTN0THRw?=
+ =?utf-8?B?Z3QzNHBYcXZHWVdWb1RJQWE2a1crOEZ2MmpyTllDeWo4bi9mTG1Ud3dCbnFj?=
+ =?utf-8?B?RnJFUG9naURCcE5nYTI0L3lMS0pwWk92b3BPWDJ1QTBqTXVHMjJLR1FPc0Zz?=
+ =?utf-8?B?U1BZMVdvZkZZK0Z5VUFBY01OQUxWVFJTUFRQMWZ0R3M2NXVDWnllQlllaUlT?=
+ =?utf-8?B?ZEd0QWt1U3prWU9pYXBKRitPQmR2K1BXN3Uzb0gvb25BVTBydVRvemtTcWhJ?=
+ =?utf-8?B?TUx3djkxeWJVNUxvZ3Yvd1ZMUE1SN2h3Znd3SktYczdlcFlaYjJhUUwvQ0VI?=
+ =?utf-8?B?YzQ4dHVMc3FvNDRtdTVPQ1VxcXRNYStTSkFVbk9tUDJHZlR2OVFLZUlGOTJG?=
+ =?utf-8?B?V2hDODNhRVlqV1gwS0pxazNoTkpSby9VV3h3aWR4K01DcG9vWS9oMjlteG16?=
+ =?utf-8?B?NGNvanZHTEdmNEpBVEkzdlBPQ2FQOVVVK3p2T05qaXo2cDY4cDg3UGwzV1Fw?=
+ =?utf-8?B?YzRzTDNtTkg1dGtaWkRzZU9vbGN1Rm43bVVVeGpiaVg1MmRLOEZsUVBKUW56?=
+ =?utf-8?B?TGNNUjVjNUhHZjdweDZHMGhYVWNNTTc1b2cyR2xyVjl0MkJMbEZCd2YwWFlj?=
+ =?utf-8?B?MG9xQlVVVGwvL1JDNDdJUmFsbHA5WkRmYXMwVm5jNTNpNXVEQTNhZDZwbE1O?=
+ =?utf-8?B?TXhZRFR5VHlyQm4zU1BkbStGeVFjbVY3RklNUHJUODlBWmhBY1hIVzc1K2tw?=
+ =?utf-8?B?eTkxS29heHBXMmI2SlVPcnBNU253MWdZWWt5SUpqdjNYR0ZMS1FMb1RzZVNv?=
+ =?utf-8?B?amg2K3dKZVRUZE1VOTcwVTVUNC85aFY2Y2FUSEIwMmJMK0pNTDFGK05KNFAx?=
+ =?utf-8?B?TW9BTno5TzBFR2ExRWZFQXgyOEpkTFB3Z3JycHdNRlNBd1k4WjV5ZHVWend0?=
+ =?utf-8?B?dW4zS2krcExINCs1WklGcWhZK3ErWG5MWW8wQ2RmNmJJVlVqaVpQL1NwMml4?=
+ =?utf-8?B?N21Xc3BTUVdwQXJ4aThxSHRBamFhdG5MeUxZWUxBSkgwbUtrU3Q3UXhZTjFS?=
+ =?utf-8?B?RUhyeVo3azFGbmNVK0xSL1NwSnFvdG1oazcyNW5aL1lzcHZCclpKY2RDcUc5?=
+ =?utf-8?B?aFg3VkVvWU1DbExvOEtJTFBaVnkwZnlCTVJ5a29IM1ZHajhlaGNLL1FDOWJ1?=
+ =?utf-8?B?dHd6a0lVaE83bmd3QU05bUZDdkM1Q2h5RFpwUUNiN0ZINnl2UzBFM1dBREF5?=
+ =?utf-8?B?a3ViYUtQdWQwWTZTRUtNRWo3d2RpYmtOMmRZbnQxa1lmQkI1cW5wZnlwTnBw?=
+ =?utf-8?B?dEJwNy94VUl6QzlBc09JMnFYQjluaE1OMnVCS09mdnFiQ3NzMGE4Y1JZK1Vx?=
+ =?utf-8?B?bDJIbDE5SGxvREE0bjcvYzNXTEUrNjZlb2xVekJoUy9TaVFZZjlueGNsTUFK?=
+ =?utf-8?B?MkRyWk1ISW5lV2d3SkZpRUJBeFhwZWFiem1CWmZIajNBWXF5VWxtQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0f2b47f-b404-4840-262b-08df4c51c176
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 06:43:33.5619
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CL8tXCE8mcdnhCUCu1mQImTAbz2hRbNhaHBoo1NELvN1mHJ2QvAftBPojHcTSmGQnWOf/QPyz/+f3LHeSn7AUQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR03MB9712
 
-On 11/26/26 2:58 AM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.66 release.
-> There are 990 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Sat, 28 Nov 2026 10:55:59 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.66-rc2.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
 
-I took 6.18.65 and applied the stable-queue as of commit
-936541b23bb407322981540c7964c73f2ae436f0 ("drop 13 patches, add 2 and
-fix 1 based on RC review feedback"). That's the current stable-queue
-as of this writing and includes the changes that were made after
-6.18.66-rc2.
+On 11/25/2026 9:06 PM, Jian Hu wrote:
+>
+> On 11/6/2026 1:50 AM, Jerome Brunet wrote:
+>
 
-Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working well,
-no regressions observed.
+[ ... ]
 
-Tested-by: Barry K. Nathan <barryn@pobox.com>
+>>>
+>>> -struct pll_params_table {
+>>> -     unsigned int    m;
+>>> -     unsigned int    n;
+>>> +struct pll_mult_table {
+>> nit: a struct with a single member. A plain 0-terminated
+>> `const unsigned int *` list of multipliers would do
+>>
+>> Also, there are spaces instead of a tab before `m`.
+>
+>
+> Ok, I'll remove the single-member struct and switch to a 0-terminated 
+> unsigned int array.
+>
+> The helper's table pointer will be updated to 'const unsigned int *'.
+>
+> The spacing issue is resolved as a result.
+>
+>
+> To avoid ending this series with a mechanical patch touching every SoC.
+>
+> I will submit a separate patch before the per-SoC changes to add a 
+> 'mult_table' member
+>
+> to the 'struct meson_meson_clk_pll_data' structure.
+>
 
--- 
--Barry K. Nathan  <barryn@pobox.com>
+A short follow-up on the table conversion I described earlier.
+
+I said I would add a separate "const unsigned int *" member and convert the
+SoC tables one by one. I would rather keep the existing member name 'table',
+instead of adding a second table name.
+
+The G12A/Meson8/AXG table converts will be submitted together with the final
+removing 'n' patch.
+
+>>> +     unsigned int    m;
+>>>   };
+>>>
+[ ... ]
+
+--
+
+Jian
+
