@@ -1,55 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789492;
-	b=M0tYrYjdtGLt5c+M2AQYN/xJRtC3/hHOrRWLlf2t8AYKojP5r5mlIHrIaLw76XnxVhCF
-	 qH8jxhS29vFRjsUq9GEk4nbIRZdsQGwJmD9v97cP6Dr336NZIdtSZkSOP2DO/MV1kDw49
-	 YyX7uyBlfSyppQj+i53d0H9cSqUpnGjkiI2MAFkEjH5/tFqRuVTkjaD35jrbYvNP+HVs5
-	 Dd54ZX4VJEMFfej2+a/7DvbGKQF/t5LCu0YBdt3hUr7cCHnGz/D2nrgiu5BGmpGpt0PLv
-	 46coF1jgq5Sx3ar2DRaElVrlVDGOZ7ssXTUcmmDBu8AxZ0XYAkua+Fs63XxsD9g7FcQ==
+	t=1795789493;
+	b=oS5OQUPjoB6glT/DsWlpouCRp4lsqdDe4E21lXuZI9SKcLPoLCvRcu3+b8YmXxKmLKJr
+	 JW5zO8Zs/v/w7zTddohL8iM33DaFJziKvUAPq48FWz9y/nsmpMjd/DGOc2iyPWXWbfxSH
+	 tJHPEVufb/umbhrnqLDKGaNwJboHSfjYVtcQ1TykV4FPgetpmbakaFWIstrYetujWDrHI
+	 Zc+h0c3Qknz3i9pENh9y4K9ahuQ3bJdWtpeQJ5eYRwOBKZQnOEUozEAKqy+BtIIFJPjSs
+	 +7mHFVlH/r9f1zVszbrhj6xvpkY1NlskoSF164IO2O33jLergx03WDnewLTW2gF3/Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789492;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=j3Jk8VMhYlvD+jXpeN3QQ+oFoR5tWm2Gq7ARIv1WFFs=;
-	b=MJf44hkVWW+VO9WILrUUXppQkhkB/J66XlnBbfdkh/Jqa3kLvpPP9qvm2pXDfYguSEVQ
-	 Y3HqOu4/rBsPaJDXz9HtzimZI/caqZ3OkQnnJ/gAzLCsNn6DbHi08SUUZPG2ozD7QyGIS
-	 Pqxd2ZT5682+Pn5K7pCDEWOmsGKalWxp5v71BAA+b/dWfevg6S1axA20gapPAetPtxK+h
-	 CNt0hbfD/JypARxzGuA4uiN/F+mEVfQFVlYslfHoud4TRx0Fi1XygQy2YVqk26zO1ZVBb
-	 oht/hY7EpPivQkLqr5aus+R66Zyk3fqldZwKB+6hoObQHH1ZrmILS0dFtiDeS9GQWpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789493;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=sJpOGIN7wWaS9OPFFA3XLzWt8cssgowcxB7Ih5loyjY=;
+	b=5Hma5cVcxzJKDlhWCc+SGyJU1NYyCe4biG+dSNqzPnA/kYCgzQ2fu/o2FtsAzcLRevpb
+	 Qw8uHoA6oCIvJpQD2kFraCdz22rLKwYzkKYiMjwMhxr9s0BufCjMctVSMBCEyoo/Wefng
+	 x07wugT5r2GU2Nz+ZCTtCbR4wBEsyttbdlAcSz9HJaPZ1o65ciXerhoUMOTidEJpgRW/K
+	 Qco7Gz00AvZPl4cjsnjzquW8lp9nWXh0sXnJ+oL02fYhYFmcAS6deDBmK/83fPNs8OJnP
+	 VoKQVayiN7FEzmIM9/2sD3v6yaA3p7tzA45BlNlN8innaD7gK9F707c5gZdktjK+CXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MyAsj7eC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=PDHBc9+M;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C94E7606A69D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3217860A3828
 	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:24:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3217860A3828
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MyAsj7eC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A11C1F0281A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:24:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789492;
-	bh=j3Jk8VMhYlvD+jXpeN3QQ+oFoR5tWm2Gq7ARIv1WFFs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MyAsj7eCjc1vU0Q0ociebOguX1q5rGGhqdwTw2JsNWJmSwAerujACz6MuZaA6fDAZ
-	 BGqeLuG8t5snHRfRGzDKr2DJMT+iltDbgCvR90+m3if+QBG/g9zt3fliQgqZmVsn7v
-	 vMoqbZdSdujeyePJGlswlDZ9Z0iWhzIsV4cjYufrjseNokImXOob9pCoautmFQN+pt
-	 Z0Yk95EJkMxkpZfaiofXvPZtmmeKjc2pTPmuRP9X19Tu83EeRB1FYQoW/i0TfJdFuo
-	 oiSq6aVsoUDTn85hsG8aCLtxWbH4QGNtSr31CVLX+d2a8iFB71Cd46lR05tLtkepvX
-	 K9MaA+UIRxkNA==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c14f3dab0cso4675600e87.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:24:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEBqy9WGYawQXmIYCW7QJaaHSE3IySvQ94JKnwMlZCD8OSOOfWdAD0sODTjfI/vSTFPQmOTTovjaCFptXE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vwupTQ8kq17W5c77sdoSOqSaVujvcQpJmYFUamJeQ6W3vTiNV
-	UJqLtk2ZspuZ6bL6L4VeO1hFZXDT8OeJBclLOF+vsAOwn6lk0Re/6MkvZY+yGp8zFwAzYGfl1EP
-	1UB8ksFocTt2polQMqtQ1bXosiM6TO6U=
-X-Received: by 2002:a05:6512:318d:b0:5c1:4e30:7632 with SMTP id
- 2adb3069b0e04-5c1bc864f53mr7631511e87.26.1795789490532; Fri, 27 Nov 2026
- 06:24:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=PDHBc9+M
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4i2P2011456;
+	Fri, 27 Nov 2026 14:24:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=sJpOGIN7wWaS9OPFFA3XLzWt8cssgo
+	wcxB7Ih5loyjY=; b=PDHBc9+MXFxQa3rBvsSl/q2mfzZW3sQaDn/uiesLhNtt56
+	+u6OIgEkS2jz4d484m5x8oyAuKarltMM07MFwSr2GZoZhR2bgOyFMRFJPXCLi/Xw
+	LRmmWcY3OfreyMBArVLEVrIegEzAOf3JDQKSNHo519tg7BPf+StToLKGG2vz1SaH
+	esl1DzC9Pq/+IiLeXwA6W2LfBG/gGswwKCWmaV/zzfpzE3LWHBCTY6Q53YUMAToT
+	9UWzNfoar5z1bH7x4N2Dm63v79n1AIGPxs95OicN5F5xQS/CWtFti2EmXnpP5W29
+	sKu5Yl6+mf7cNrZrwZ6XfUkdHZIDYSdIj+zfyNLQ==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4w8mr-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 27 Nov 2026 14:24:20 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE4H2w2819254;
+	Fri, 27 Nov 2026 14:24:19 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5kfaahq9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 27 Nov 2026 14:24:19 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AREOHnJ51380506
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 27 Nov 2026 14:24:17 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 99ABE2004B;
+	Fri, 27 Nov 2026 14:24:17 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DEB442004D;
+	Fri, 27 Nov 2026 14:24:16 +0000 (GMT)
+Received: from osiris (unknown [9.111.4.254])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 27 Nov 2026 14:24:16 +0000 (GMT)
+Date: Fri, 27 Nov 2026 15:24:15 +0100
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Sascha Bischoff <Sascha.Bischoff@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 06/10] arm64: sysreg: Drop the leading zeros from the
+ TRFCR_ELx.TS values
+Message-ID: <20261127142415.333656-A-seiden@linux.ibm.com>
+References: <20261127074426.50739-1-fuad.tabba@linux.dev>
+ <20261127074426.50739-7-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,79 +97,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120161020.297735-1-paul.cercueil@bootlin.com>
- <20261120161020.297735-2-paul.cercueil@bootlin.com> <CAJZ5v0jeJSx3C8hdU8iAtje-NGNz4DdaVGhE_T3WpVrODuwemg@mail.gmail.com>
- <80b96fc3f728b59b26ebde1378f4222cf4b359b0.camel@bootlin.com>
- <CAJZ5v0g3e26eZG1_yRQzMfPvPYiiv0cHZE70V+_U+NR4kxEpJg@mail.gmail.com> <83bea8441ea9b1fee1ec5144c335b5cd8e2de168.camel@bootlin.com>
-In-Reply-To: <83bea8441ea9b1fee1ec5144c335b5cd8e2de168.camel@bootlin.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 27 Nov 2026 15:24:37 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0hfoVDgMnRRm1DJHK-EoCrVhrb5bNk5wpZAcPOREpQgLw@mail.gmail.com>
-X-Gm-Features: Aa3M54oDq1n-9WHuhbNZ5q7DVE6aj2jRxCGzr8EMzFrU8hWmkD6TpwkTvtvH4YA
-Message-ID: <CAJZ5v0hfoVDgMnRRm1DJHK-EoCrVhrb5bNk5wpZAcPOREpQgLw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/1] ACPI: platform: Add basic support for ACPI 6.5
- fixed clock resources
-To: Paul Cercueil <paul.cercueil@bootlin.com>
-Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127074426.50739-7-fuad.tabba@linux.dev>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX+f8F0dmz+fkE
+ CJ1S1s015QkfvWL6pxXpSVZ5fCWDV7W9kajRlZjV1M/uDKZVV9HcQPJzDsLP3mpB8fWYbxPqX1u
+ yPl8VZ0bo0z191yWGJvodoTLrrOhLnk=
+X-Proofpoint-GUID: xnp1Mw4jLSvqvJI6opB6uAETiyPKt6iI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NiBTYWx0ZWRfX4E7qlor5du+M
+ iyAicMaUabwei/9/IYpJy/cYtEpjzkjx467idWAamTEI37sPaYIeEE8stQSb7/iWopmoHPmp5Pj
+ L3dhhJDhXEfgaU9xzez2lIiFIsnIKbCeFSbg1rpiWolabHROwmiw0lCM7m2Sz8y2VhNeKYHvv1+
+ /BhZcRhRuOVn5K0d40HspKjhRmq+WmcU05vbzutP2HOF24nnR2jleEKxHcTTu8w1FQQ5h1EPK0B
+ DFk0yrWRwC3KCh+l2uv8kz8ri5KUl5w8YF/MHsPx3HGV6v4WdtjD56d6WeP7GDLjYRTxuT687g+
+ NitHjak5F/8l2PtfTLJ6aAALRP/phx4ft5D+zAqJb/qRaVR0Lpkh41LR7GoGQmZWBxz+af48jNj
+ RwRYn0Lw7PhiNg/JcdpVgLJnoNjVCenbsPwhKhrU2a+1Jc0wfWwZtLku/PhYaQU9+EVuRfe9zH2
+ JuBayD8pIeF8WibnLJw==
+X-Proofpoint-ORIG-GUID: FaiqYHgPnOA1xh_MZK0NLZ57B1vVOi0c
+X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b099294 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=_J0aEeXxZ-ibMT8BTXQA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270056
 
-On Fri, Nov 27, 2026 at 3:20=E2=80=AFPM Paul Cercueil <paul.cercueil@bootli=
-n.com> wrote:
->
-> [...]
->
-> > > > > +static void acpi_platform_init_clocks(struct acpi_device *adev)
-> > > > > +{
-> > > > > +       struct device *dev =3D &adev->dev;
-> > > >
-> > > > Note that &adev->dev is not a real device.  It is a "firmware node"=
-,
-> > > > quite like a DT one, but I guess it may be used for registering
-> > > > clocks.
-> > > >
-> > > > How is a platform device driver going to use those clocks though?
-> > >
-> > > They just use clk_get(). It searches the clock by device name, which =
-works
-> > > here,
-> >
-> > And they would pass the platform device as dev I suppose?
->
-> Yes, I like the fact that it does not change the API - on the driver side=
- you
-> just use clk_get(&pdev->dev, NULL) or clk_get(&pdev->dev, "acpi-clk1") li=
-ke you
-> would do with a clock resource from DT.
->
-> > > I guess because the "firmware node" device has the same name as the r=
-eal
-> > > device.
-> >
-> > For platform devices created by acpi_create_platform_device(), yes, it
-> > does, but if that is going to be relied on, that assumption needs to
-> > be documented in a very visible way.
-> >
-> > Generally speaking though, they should rather pass the ACPI companion
-> > of the platform device as dev, in which case that the name equality
-> > doesn't matter, and so the clkdev could be created during the struct
-> > acpi_device registration (and the corresponding cleanup would occur
-> > during the struct acpi_device removal which is rare).
->
-> I think I should update clk_get() then.
->
-> It gets passed a "struct device" pointer, if it has an ACPI companion, I =
-can
-> just recurse on the ACPI companion's device struct.
->
-> Btw - I'm working on the v6 and I added the cleanup on acpi_device remova=
-l. Is
-> there a way to test a ACPI device removal from userspace? Looking at
-> Documentation/ABI/testing/sysfs-bus-acpi it seems to only be for ACPI dev=
-ices
-> which have a _AJ0 method?
+On Fri, Nov 27, 2026 at 07:44:22AM +0000, Fuad Tabba wrote:
+> TS in TRFCR_EL1 and TRFCR_EL2 is a two-bit field, but its enum values
+> are written with four binary digits. They're the only enum values in the
+> sysreg file whose number of digits differs from their field's width, and
+> the values themselves fit.
+> 
+> Drop the two leading zeros from each, ahead of a check that requires
+> every enum value to have as many digits as its field has bits.
+> 
+> No functional change intended.
+> 
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-The only way to remove a struct acpi_device is to unload the table
-containing its definition, so you'd need to load a test SSDT via
-configfs and then unload it.
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+
