@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798081;
-	b=g8akm6ih/HzD1/BIRJ9vqu+oC5u2b/0vcHwVJ+i0VlD9CNJNncl5TV4MCNEhpH8/pkPD
-	 b9J7u2QWDsidBpeoZ/P3Nh9wZbMgQbxLPSs4PRfzzL9eZ33FDquBvK2rczlxvtmN+hJxJ
-	 bBG6ZRoy6Z4rDJbAGagUEdSEptDddQtyf2JpUYxlKLlpx+ErcuiMFfIMf4V3SqyZSojkG
-	 jwCwOKQJuVRov69KLjY4x/9bgRVAgx09eKH8FH97R5BRiP5iNO+r0DjZsTVtqiLtSe1mA
-	 nxJUmhOoqjaVoVP3fXwWbZZZvTj93kUWV0OrhBYPhDmtLZh27ClhEq8D3fdzs/Bl0+w==
+	t=1795798083;
+	b=4KZcn2gYf6apjOpCQpREGk9R+eUh+roAdNS9vzFT0QVCyVYjEkvEezjcOdLvF513M/Wl
+	 5Uci1zzO4KWyYEbatymwyRVDSxvL3ZKc2aiuxzWL9yppOfa/RYQT+KLXY+MZxQDDazVsh
+	 TECoOzaVSYwOX84Dv4x4qlEGn31Qm2dNfIbV+gxDuOR0bkS4hJvdhNxwvhoeFUfFcrfBe
+	 kJOy41U56bNnlrbdoHTHTNQHU17lzo3M1NvpEXV9VLKYh5ffl7qJhGxmu0FQaFBAq6d6B
+	 8h0RgEmicRTg0e1TCkvJvOmDlzKPmfiIifmY684Cgrnc5M1injr1JoEPnMprkDvvzlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798081;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798083;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=C/Qd5lMs5hCPwque2VUzBd9ODA1TFoImJKWtFoQYGIY=;
-	b=O4ApLjpVc4xRRH5aUdBZouDklUVgXDzZI1LI9RS5l9OuNXaqmqdCAHIXLPXE/3x7O8ok
-	 tG7INwJp79+qRcHTf2NFkoyPsxFxTR6UbV73vgHtWr1iUVS8ExobbAvs3eydoqaRua5oz
-	 6bwKrUbuHa9nnK3D10snp8OzCMzCdJ7bV9s0LUOj4qL0Ate/zlkiPq6bVMezmZzSRcpVM
-	 aq62IHeQrvjf1JZQrpn+1znedqnVYqz76PgAr9raLtXuMhP7NLUz56R5jZucGrFPtsPLC
-	 GsMttmPr+bCBuDbza9JaE1XgzkvGfMhWQ+Nw79jN8xH5IiLBP+OUYKZUn7xP8/QueNQ==
+	bh=mLudbu1Y/4LQ3CoYckg+50YXPqoYFD6//3daPKxQOis=;
+	b=Xjq9MYEJB4GA307+ukXOcgabbVK4+rxC1pm9NIRUnKdkGTfnu1UAkY9+sEkspYw3uFTL
+	 EglVf5qngfzHlvM77KFIp6A7g6Nxjj96+bgsdMqcp7kPzllYf20wUGq4Fqf9pOfCoVyiJ
+	 T02vwDmgwykk2/jekNpxrFTy7bTRlOLzEE8KEBdKu5GzU22qaTx41s1MFtzQ7/zNBoOa6
+	 WVONSnV397DRkPuxQeXMPy5UgLgmyMuDu9KuS9AAXGQ2iVA64VR8cbUKGMMfWGO/l5OFU
+	 XLMG8i6N3E5kte2fTmTjl7gM6+m5cyHEVg5KZiJY9iPS1Npwtp4krFiBJsI3b9qM6KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dUkbNebU;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dTfiuXrt;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90EBC606A324;
-	Fri, 27 Nov 2026 16:48:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E556E606A337;
+	Fri, 27 Nov 2026 16:48:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dUkbNebU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1CC41F00899;
-	Fri, 27 Nov 2026 16:47:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dTfiuXrt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8CA1F0089C;
+	Fri, 27 Nov 2026 16:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798080;
-	bh=C/Qd5lMs5hCPwque2VUzBd9ODA1TFoImJKWtFoQYGIY=;
+	s=k20260515; t=1795798082;
+	bh=mLudbu1Y/4LQ3CoYckg+50YXPqoYFD6//3daPKxQOis=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dUkbNebUkk4R6TDEAi+wB8Yv0uNTD95/J3Fz5UqRrNpBeseL2JLThxcWNlTEhyPst
-	 MMQs2otBYgon18jSIQn4zQU086YFvl4fVf9YAWfybanXU8yWHYLvhRThPVr7kp7vR0
-	 kiJRAjexX6jqSgHivRXotEmVqnm2eWdIkn02NtfbQc2OwPu+UfKyHgsyBjAKbTd7xs
-	 mi+12un40TZIubATxdw5z6vKf7g8QGWC3L09PQfCgBLOK4WiWCMz7EkEtg83KCLB51
-	 6y3Wgu+b5l1EAYjkc/awSS61vdai7d+w6r5TChmTX9FWBfCQQRUqIl8KuMqLzhHGYm
-	 YPvtkPugPzYgw==
-Subject:
- Re: [PATCH net v6 2/8] net: dsa: sja1105: keep pin function on PEROUT disable
+	b=dTfiuXrt1G1zZDd0elcsWXvqDw60Oh3xSNRIqTwtgjb6Xg6aCVL2VIawQ1JO+Qigz
+	 wY0kwZ+PbIs+13OyhTROAhq5CnahErEYiD13sqKuDmRxkDlosnHB2W8kD6cOuM1e2R
+	 j7Jj/C7N1Py6mvvTnF1ESXWWuGaIHRZkMWl+EFvG1Ci9DXemVKU6HnLwNYJUFR7iyy
+	 iajyzVd36ZZVfY26g3joRjLhhhwj6I2jyA+MzAufxkLAGwNlrRxbzYBkbgaW8ZRbtx
+	 /PhYxIAFa8Ve0hX04z2KtEijxKBzlDiZdyUN7mA8gaA3ddcH+/8mcMw/6PRx0yixYQ
+	 4vgZbAaOXvCsA==
+Subject: Re: [PATCH net v6 3/8] ptp: ocp: preserve timestamp routes on DPLL
+ frequency changes
 From: netdev-bot+sashiko@kernel.org
 To: ahmadexp@gmail.com
 Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
  vladimir.oltean@nxp.com, vadim.fedorenko@linux.dev, andrew@lunn.ch,
  linux-kernel@vger.kernel.org, arkadiusz.kubalewski@intel.com,
  jiri@resnulli.us, jonathan.lemon@gmail.com
-Date: Fri, 27 Nov 2026 16:47:59 +0000
-Message-ID: <179579807942.3135.16880746922338290793@kernel.org>
-In-Reply-To: <20261126-timecard-driver-v6-2-ahmadexp@gmail.com>
-References: <20261126-timecard-driver-v6-2-ahmadexp@gmail.com>
-X-sashiko-severity: Low
+Date: Fri, 27 Nov 2026 16:48:01 +0000
+Message-ID: <179579808134.3135.14342336954222031404@kernel.org>
+In-Reply-To: <20261126-timecard-driver-v6-3-ahmadexp@gmail.com>
+References: <20261126-timecard-driver-v6-3-ahmadexp@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -66,236 +66,222 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 4 · Low: 1
 
-- [Low] The changelog does not match what was submitted, and it leaves
-  out the trigger and the impact.
-- [Low] The author identity 'ahmadexp <ahmadexp@gmail.com>' does not
-  match the Signed-off-by 'Ahmad Byagowi <ahmadexp@gmail.com>'.
-- [Low] In sja1105_per_out_enable()
-  (drivers/net/dsa/sja1105/sja1105_ptp.c), the patch wraps the…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but
-  sja1105_per_out_enable() still switches the shared PTP_CLK pin to…
-- [Medium] This problem wasn't introduced by this patch, but the PTP_CLK
-  pin-function state avb->cas_master, kept in the shared in-memory…
-- [Medium] This problem wasn't introduced by this patch, but
-  sja1105_per_out_enable() copies ptp_data->cmd into a local cmd at line…
-- [Medium] This problem wasn't introduced by this patch, but on P/Q/R/S
-  parts sja1105_per_out_enable(on=true) switches the PTP_CLK pin to…
+- [Medium] In ptp_ocp_dpll_frequency_set() (drivers/ptp/ptp_ocp.c), the
+  value passed to ptp_ocp_sma_store_val() changes from the table index…
+- [Medium] The patch makes two user-visible changes to
+  ptp_ocp_dpll_frequency_get() that the commit message never mentions.
+- [Medium] On SMA inputs, ptp_ocp_dpll_frequency_set() can report success
+  for a 10 MHz request without selecting 10 MHz.
+- [Medium] ptp_ocp_dpll_frequency_set() now does an unlocked read-modify-
+  write of the SMA input selector.
+- [Low] The From:/author identity on the commit ("ahmadexp
+  <ahmadexp@gmail.com>") does not match the Signed-off-by: name ("Ahmad…
 
 --
 
-net: dsa: sja1105: keep pin function on PEROUT disable
+ptp: ocp: preserve timestamp routes on DPLL frequency changes
 
-This patch changes sja1105_per_out_enable() so that it moves the shared
-PTP_CLK pin to the PEROUT function only when the periodic output is being
-enabled. Disabling now stops the generator without reprogramming the pin.
-Before this, the pin could be switched away from EXTTS by a disable request.
+This patch changes ptp_ocp_dpll_frequency_set() so that a DPLL frequency
+change on an SMA input keeps the timestamp and counter selector bits, and
+so that it programs the selector value instead of the table index. It also
+masks the value read in ptp_ocp_dpll_frequency_get() with SMA_SELECT_MASK.
+Input pins with combined routes now report a frequency of 0 instead of
+failing.
 
-> Disabling periodic output currently selects PTP_PF_PEROUT even when the shared PTP_CLK pin is configured for external timestamping. Only select the PEROUT function when enabling the output; disable should stop the generator without reprogramming the pin.
+> A coding assistant helped identify the route-loss issue, develop the fix and regression test, and prepare this changelog. The test uses the actual selector and DPLL functions with instrumented register access.
 >
-> A coding assistant helped identify this related pin-direction side effect, develop the correction and regression test, and prepare this changelog. The source-derived test checks the actual callback behavior with configuration writes stubbed.
-
-[Severity: Low]
-Is the regression test mentioned here included in the submission? The patch
-only touches drivers/net/dsa/sja1105/sja1105_ptp.c. Reviewers have nothing
-to read or run for "the source-derived test".
-
-The phrase "this related pin-direction side effect" seems to point at the
-sibling patch "net: dsa: sja1105: keep pin function on EXTTS disable". If
-this commit is read on its own, for example by a stable backporter, what is
-it related to?
-
-Could the changelog also say how the bug is triggered and what users see?
-On P/Q/R/S parts, userspace can send PTP_PEROUT_REQUEST(2) with a zero
-period, or write a zero period to the sysfs period file, while EXTTS is
-armed. Before this fix that path was:
-
-ptp_perout_request()
-  ops->enable(ops, &req, perout->period.sec || perout->period.nsec)
-    sja1105_per_out_enable(on = false)
-      sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT)
-        avb->cas_master = 1
-
-The pin then became an output. extts_enabled stayed true and the poll timer
-kept running, but external edges were no longer captured. The switch could
-also drive the pin against an external PPS source.
-
-Both body paragraphs are single lines well over 75 columns, which checkpatch
-flags as COMMIT_LOG_LONG_LINE. Documentation/process/coding-assistants.rst
-asks for checkpatch-clean submissions and for a statement of what could not
-be tested. Was this fix tried on real hardware?
-
-> Fixes: 747e5eb31d59 ("net: dsa: sja1105: configure the PTP_CLK pin as EXT_TS or PER_OUT")
+> Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 > Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 
 [Severity: Low]
-The commit author is "ahmadexp <ahmadexp@gmail.com>", but the sign-off is
-"Ahmad Byagowi <ahmadexp@gmail.com>". For this case checkpatch warns:
+This isn't a bug, but the commit author ("ahmadexp <ahmadexp@gmail.com>")
+does not match the Signed-off-by name ("Ahmad Byagowi
+<ahmadexp@gmail.com>"). checkpatch reports this as FROM_SIGN_OFF_MISMATCH.
+Could the author be set to the real name?
 
-  From:/Signed-off-by: email name mismatch
+The changelog also mentions a regression test that uses instrumented
+register access. The patch only touches drivers/ptp/ptp_ocp.c, though.
 
-Could the From: name be changed to match the sign-off? Netdev usually asks
-for a resend so the DCO identity is clear. The sibling patches in the series
-seem to have the same mismatch.
+Will the test be posted? If it is an out-of-tree harness, should that
+description go below the --- line?
 
-> diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
-> index da35805152e05..7c07f76caccf4 100644
-> --- a/drivers/net/dsa/sja1105/sja1105_ptp.c
-> +++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
-> @@ -733,9 +733,11 @@ static int sja1105_per_out_enable(struct sja1105_private *priv,
->  
->  	mutex_lock(&ptp_data->lock);
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but the local cmd is copied from
-ptp_data->cmd before this mutex_lock():
-
-sja1105_per_out_enable() {
-	...
-	struct sja1105_ptp_cmd cmd = ptp_data->cmd;
-	...
-	mutex_lock(&ptp_data->lock);
-	...
-}
-
-sja1105_ptp_commit() later writes the whole copy, ptpclkadd included. If
-adjtime or settime runs while this caller is waiting on the mutex, can a
-stale ptpclkadd be written back to the hardware?
-
-For example, with the cached mode at SET:
-
-perout                          adjtime
-cmd = ptp_data->cmd (SET)
-mutex_lock() blocks
-                                mutex_lock()
-                                sja1105_ptp_mode_set(ADD)
-                                write delta
-                                mutex_unlock()
-sja1105_ptp_commit(&cmd)
-  hardware back in SET mode
-
-The cache now says ADD, so the next adjtime skips the mode switch in
-sja1105_ptp_mode_set():
-
-	if (ptp_data->cmd.ptpclkadd == mode)
-		return 0;
-
-Its delta is then written in SET mode, and the PHC is set to roughly the
-delta value. In the mirrored case, the next settime is applied as an add.
-
-sja1105_ptp_reset() makes the same unlocked copy. Should both copies be
-taken after mutex_lock()?
-
->  
-> -	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT);
-> -	if (rc)
-> -		goto out;
-> +	if (on) {
-> +		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT);
-> +		if (rc)
-> +			goto out;
-> +	}
-
-[Severity: Medium]
-This is a pre-existing issue, but the enable path still switches the shared
-PTP_CLK pin to output without checking the function the PTP core records in
-sja1105_ptp_pin.func. ptp_perout_request() and ptp_extts_request() only
-check the index and flags before they call ops->enable(). That leaves the
-driver as the only place this could be enforced.
-
-If EXTTS is armed and a PEROUT request with a non-zero period arrives on
-index 0, avb->cas_master becomes 1. PTP_PIN_GETFUNC still reports EXTTS and
-extts_enabled stays true. Does EXTTS then stop capturing without any error
-while its poll keeps running?
-
-The reverse case looks possible too. sja1105_extts_enable(on) sets
-cas_master to 0 while the PEROUT generator started by startptpcp may still
-be running.
-
-This is how 747e5eb31d59 was designed, with the request choosing the pin
-direction, and the changelog keeps that on purpose ("Only select the PEROUT
-function when enabling the output"). Should these requests be checked
-against the pin assignment?
-
-[Severity: Medium]
-This isn't a bug introduced by this patch either. On P/Q/R/S parts the pin
-is switched to output here before the request has been checked. Later
-failures jump to out, and out only drops the mutex:
-
-		if (pin_duration > U32_MAX) {
-			rc = -ERANGE;
-			goto out;
-		}
-
-Failures from __sja1105_ptp_gettimex() and from the PTPPINST and PTPPINDUR
-SPI writes take the same exit.
-
-With a period above about 68.7 seconds, the caller gets -ERANGE. Does the
-pin stay driven as an output even though startptpcp was never issued? That
-would break an armed EXTTS. It would also undo the safe input default that
-sja1105_init_avb_params() sets:
-
-	avb->cas_master = false;
-
-Could the period check, and ideally the register programming, move before
-the pin direction change? Restoring the old direction on error would also
-work.
-
-[Severity: Medium]
-This is a pre-existing issue, but sja1105_change_ptp_clk_pin_func() is
-called here with ptp_data->lock held, while sja1105_extts_enable() calls it
-with no driver lock at all:
-
-sja1105_extts_enable() {
-	...
-	if (on) {
-		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
-		if (rc)
-			return rc;
-	}
-
-	priv->ptp_data.extts_enabled = on;
-	...
-}
-
-The PTP core's pincfg_mux does not help here. The sysfs handlers
-extts_enable_store() and period_store() call ops->enable() directly.
-
-Can the read-modify-write of avb->cas_master in
-sja1105_change_ptp_clk_pin_func() then overlap with a PEROUT enable running
-at the same time?
-
-It also looks like this can run during sja1105_static_config_reload(),
-which relies on ptp_data.lock:
-
-	/* No PTP operations can run right now */
-	mutex_lock(&priv->ptp_data.lock);
-
-If so, a dynamic AVB_PARAMS write could land in the middle of the switch
-reset. The uploaded static config could also pick up a half-updated pin
-direction.
-
-extts_enabled is written here without ptp_data->lock as well, while
-sja1105_rxtstamp_work() reads it under that lock.
-
->  
->  	if (on) {
-
-[Severity: Low]
-This isn't a bug, but the new if (on) block is followed right away by this
-existing if (on) block. Could the sja1105_change_ptp_clk_pin_func() call go
-inside the existing block, after its local declarations?
-
->  		struct timespec64 pin_duration_ts = {
+> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+> index 625a85b2dc7e5..284908c6abc22 100644
+> --- a/drivers/ptp/ptp_ocp.c
+> +++ b/drivers/ptp/ptp_ocp.c
+> @@ -5873,16 +5873,31 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
 
 [ ... ]
+
+>  	tbl = bp->sma_op->tbl[sma->mode];
+> -	for (i = 0; tbl[i].name; i++)
+> -		if (tbl[i].frequency == frequency)
+> -			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
+> +	for (i = 0; tbl[i].name; i++) {
+> +		if (tbl[i].frequency != frequency)
+> +			continue;
+> +
+> +		if (sma->mode == SMA_MODE_IN) {
+> +			val = bp->sma_op->get(bp, sma_nr + 1) & SMA_SELECT_MASK;
+> +			if (sma->disabled)
+> +				val = 0;
+
+[Severity: Medium]
+Is this read-modify-write of the selector serialized against the other
+writers? The DPLL path holds only dpll_lock here. bp->lock is taken only
+inside ptp_ocp_sma_fb_set_inputs() and ptp_ocp_sma_adva_set_inputs(),
+around the final register merge.
+
+The other writers of the same selector do not take dpll_lock:
+
+- The sysfs path sma1..4_store()->ptp_ocp_sma_store()->
+  ptp_ocp_sma_store_val() holds no driver lock.
+- The PTP_PIN_SETFUNC path ptp_ocp_verify()->ptp_ocp_sma_store() holds
+  only the PTP core pincfg_mux.
+
+Consider this sequence:
+
+CPU0 (DPLL frequency set)
+ptp_ocp_dpll_frequency_set()
+   val = bp->sma_op->get(...);    /* no TS bits, aux = 0 */
+
+CPU1 (sysfs "IN: PPS1 TS1", or PTP verify "IN: None")
+ptp_ocp_sma_store()
+   ptp_ocp_sma_store_val()        /* writes the new selector */
+
+CPU0
+   ptp_ocp_sma_store_val(bp, tbl[i].value | 0, ...)
+      sma->disabled = false;      /* overwrites the selector */
+
+Wouldn't CPU1's TS1 route, or its disable, be lost while both callers
+report success? That is the same route loss the commit message describes.
+
+Would one driver mutex held across the read, the aux computation and the
+store close this? It would need to cover sysfs, PTP verify and the DPLL
+ops. Merging the preserved bits inside the bp->lock section is another
+option.
+
+> +
+> +			for (j = 0; tbl[j].name; j++) {
+> +				if (!tbl[j].frequency && (val & tbl[j].value))
+> +					aux |= tbl[j].value;
+> +			}
+> +		}
+> +		return ptp_ocp_sma_store_val(bp, tbl[i].value | aux,
+> +					     sma->mode, sma_nr + 1);
+
+[Severity: Medium]
+What happens here when 10 MHz is requested on an input that already has a
+timestamp route? In ptp_ocp_sma_in and ptp_ocp_adva_sma_in, the 10 MHz
+selector is encoded as zero:
+
+    { .name = "10Mhz",  .value = 0x0000,      .frequency = 10000000 },
+
+So tbl[i].value | aux is just aux.
+
+Take an input configured through sysfs as "IN: PPS1 TS1" (0x5):
+
+- frequency_get reports 1 Hz, so dpll_pin_freq_set() calls frequency_set.
+- aux becomes 0x4, and ptp_ocp_sma_store_val() writes 0x4. That clears
+  PPS1 and leaves only TS1.
+- The op returns 0, and dpll_pin_freq_set() sends
+  __dpll_pin_change_ntf().
+
+In this driver's encoding, 10 MHz means no selector bits are set. The
+readback is therefore TS1 (frequency 0), or 0 Hz through the new combining
+loop when several aux bits are set.
+
+Repeating the request is another no-op that succeeds and sends a
+notification, because old_freq stays 0.
+
+Doesn't this contradict "This keeps the timestamp route while changing
+the frequency-bearing source"? Should this combination be rejected, for
+example with -EINVAL or -EBUSY and an extack message? Or is there a defined
+way for the zero-valued 10 MHz selector to coexist with the aux
+destinations?
+
+[Severity: Medium]
+This also changes what gets programmed for both inputs and outputs. The
+old code passed the table index i to ptp_ocp_sma_store_val(), and the new
+code passes tbl[i].value. The two only agree for the first two entries of
+the fb tables (10Mhz = 0, PPS1 = 1).
+
+Inputs (ptp_ocp_sma_in): IRIG is index 5 / value 0x10, and DCF is index 6
+/ value 0x20. Before this patch, an IRIG-B (10000 Hz) request programmed
+0x5 (PPS1|TS1), and a DCF77 request programmed 0x6 (PPS2|TS1).
+
+Outputs (ptp_ocp_sma_out): an IRIG request used to program 0x5 (PHC|GNSS1)
+and now programs 0x10.
+
+The ART tables also differ between index and value: ART PPS1 is index 0
+but value 0x1.
+
+The changelog says "Preserve the existing output path", but output
+programming changes here. Could the commit message describe this
+index-to-value fix? It might also be worth splitting into its own patch,
+so maintainers and stable backporters know the IRIG/DCF behavior changes.
+
+[ ... ]
+
+> @@ -5900,6 +5915,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  	int i;
+>  
+>  	val = bp->sma_op->get(bp, sma_nr + 1);
+> +	val &= SMA_SELECT_MASK;
+>  	tbl = bp->sma_op->tbl[sma->mode];
+>  	for (i = 0; tbl[i].name; i++)
+>  		if (val == tbl[i].value) {
+> @@ -5907,7 +5923,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  			return 0;
+>  		}
+>  
+> -	return -EINVAL;
+> +	if (sma->mode == SMA_MODE_OUT)
+> +		return -EINVAL;
+> +
+> +	/* Inputs can feed several destinations, including timestampers. */
+> +	*frequency = 0;
+
+[Severity: Medium]
+Both of these changes affect what DPLL netlink reports, and the commit
+message does not mention either one.
+
+The first is the new mask. ptp_ocp_sma_fb_get() returns the 16-bit field,
+which includes SMA_ENABLE (bit 15):
+
+    return (ioread32(gpio) >> shift) & 0xffff;
+
+ptp_ocp_sma_store_val() also ORs SMA_ENABLE into every value on !fixed_dir
+boards. On configurable fb and ADVA boards, the old exact match
+val == tbl[i].value could therefore never succeed, and frequency_get
+returned -EINVAL.
+
+dpll_msg_add_pin_freq() passes that error on, so pin GET and dump failed
+for those pins. dpll_pin_freq_set() also failed before it could reach
+frequency_set.
+
+With the mask, pin GET succeeds on those boards, and DPLL frequency set
+can be reached there for the first time.
+
+The second is the new fallback. Inputs with no exact match now report
+DPLL_A_PIN_FREQUENCY = 0. That covers timestamp-only routes,
+mixed-frequency routes and unknown bits.
+
+0 Hz is not in the pin's advertised ptp_ocp_sma_freq list (1PPS, 10MHz,
+IRIG-B, DCF77). Userspace has never received it from this driver before.
+
+Could the commit message describe these user-visible changes?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-timecard-driver-v6-0-ahmadexp%40gmail.com
