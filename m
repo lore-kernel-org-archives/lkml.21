@@ -1,71 +1,143 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760903;
-	b=0Gc+c76epdtArzCLCuHuaO3C9msCUjbZnJx5r8eDnhs8Sns1IzSWjeJjk5YtoOeaMi05
-	 rJq1cYIkeh4HB0JdITiFcWqEoc0sMRNWQhlh3siiDTlpzZvSlUrf0pbb8OUddX9YC73J+
-	 XtE215g499eio7v5irNPggtOuH1Ih2l4CgzDV8TIpbu/8+iDq4IUxHVkqhc1Cg8vqe5ag
-	 y+SgNNgILT/WEBCbXej+ijX7VfRyl3e8q0YHRWcj8B9a2DOsW1jtoSvnqRNj5WLlu8UOd
-	 BTmGHolwOwJQGhL8TTQqYQtUhfmLXMCaFOM++dgV3CM4v2nFyv4k7wIEovutOpjsB2Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760903;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-ID:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Spam-Status:
-	 X-Spam-Checker-Version:X-purgate-type:X-purgate-ID:X-purgate;
-	bh=N3MMDPA3sEGyLVW0UrxIXlEJYxRkoAC/NRx5aD+1dXU=;
-	b=vJc9gttR0sJAZS96/Y57ETDtW9IJ6s2eiSt3CjOtyNSDEdCsPZkt93TpglFfxsQstfzR
-	 f4QkJrUyk6tgzHzoXtC+qvPeU8z8Z7gVhL1CLk9Cko7UO624klMlrV6dhz28d+BOiGSRG
-	 9V9/14bQM8Ujq6mnK/BKuys94kovSJkDHqrNfgbLKPhtQAkNkwAniisxTG1i76xp9Tyx5
-	 P7DonIRr0UaIq96TbS9/4asIovUlqguQPrEFT54avumzJvJ4oY6dOJ1c3s9V72mb0WwQT
-	 ENdDvwhxMK/0I+nMuDvnMd2AkJc48UHXES0sTfpFkyrdIPRiE3SjktgEHw5Ysw7+eHA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dev.tdt.de;
-	spf=pass smtp.mailfrom=dev.tdt.de;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=GVVLrnaL;
-	arc=none smtp.remote-ip=91.198.224.70
-Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795760962;
+	b=WsSRKh7yKChlGpKmqloq5UHKIpLteFI1Oo6jZiWQUCwF33cLGKKFHiJ9Yhp4+8pTzmZq
+	 tn11XRvudWkZxO+AnAgvafo/mFPF85dhHiH8fUuq0gE6fY54nynwa+mukcgnG1Q1PHXEx
+	 mz4XD7ytPCAv2c0ykyV83ULQGsfCP6YHN0RyyORXEMSw2h21PevNUr2OSFAGT4jqMnYJ9
+	 CPN09NzlYRd36B+b0f6aFQ5OWT6hBqRBkXmHlQYOymY9tOHH7JBHJZ0mXGcJ9waChJcEe
+	 IX5Jopjc9aRf9cW5HcnHA7algSq7asJvgy6v332AN2rIEzzBAa0M6x1tKiAUgVwWExw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760962;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=fWsTafJypgjI6fZiR4sVp4cIkxXneA3qPMB8ybjNs5c=;
+	b=FvPbBdte7GsV5deTIY0WQ/n3+OAwvmRfzFkH03kyx8dNbSkz/u8DEa/20f3X0OUmFf4I
+	 XZ582u2u+jH6W/8o5nzCPd8lynLy8C6UDIIuDWAHHkZ+/4kOLCleOzRbVFUA345OY6YAs
+	 o4MQepP1itBNqJ3BU9/nz5zUwaowS1T3hlO3hVXGMbM5EsycKxGZnVNw6ZrmdWbmCnkOI
+	 s/567NJXotTx+BGb1tAFPpIuvi2rf3N1fQ2n4+pQyoQguoIVhyfCsuY8OZr9/6O+4w7TS
+	 v3c6vXDVCrI/ACKuC9h1mD878M+cYMks/JLMbSR9CDmO80IJnezHoboSBkh9DB7nXXw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=WBQ4UWXE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.17
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011017.outbound.protection.outlook.com [40.107.130.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45101606A321;
-	Fri, 27 Nov 2026 06:28:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45101606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70918606A31C;
+	Fri, 27 Nov 2026 06:29:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70918606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=GVVLrnaL
-Received: from [194.37.255.9] (helo=mxout.expurgate.net)
-	by relay.expurgate.net with smtp (Exim 4.92)
-	(envelope-from <prvs=68051b93b8=ms@dev.tdt.de>)
-	id 1xWpRN-0017A4-DJ; Fri, 27 Nov 2026 07:28:13 +0100
-Received: from [195.243.126.94] (helo=securemail.tdt.de)
-	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ms@dev.tdt.de>)
-	id 1xWpRM-00EYlv-1q; Fri, 27 Nov 2026 07:28:12 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
-	s=z1-selector1; t=1795760891;
-	bh=N3MMDPA3sEGyLVW0UrxIXlEJYxRkoAC/NRx5aD+1dXU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GVVLrnaLrfkpYt0z8bTj/D3D630kyhqSGOQD5U0UEcpQTkW4cMrbVrPlVW5WQcsYi
-	 XTzLWqNSkI04au9je+otOBJE+1s71KJAJwy4dsdISz4gNGKa0A8Hsnv4t12kJWGzBD
-	 WslFm3sEuMPSR1TOgyM9P4y/BPM4zZXPK2ODcR+yEAWcQvIqdjbVfkYZSc9rQJM3p7
-	 HjCzSrYi7dEGMafI7siQ11E4t36qCz98k5h6N0haAM86Lee8V1XY3PcJoI5UTw6fw7
-	 VgXJHePBep6WJoSFk5Jp1OoQ7DQzLqnnq7nMMPkv5MOgAii71dXVjQvu5RgCkA0WXZ
-	 wY2GuzKpB+mTg==
-Received: from securemail.tdt.de (localhost [127.0.0.1])
-	by securemail.tdt.de (Postfix) with ESMTP id 5A5B7240042;
-	Fri, 27 Nov 2026 07:28:11 +0100 (CET)
-Received: from mail.dev.tdt.de (unknown [10.2.4.42])
-	by securemail.tdt.de (Postfix) with ESMTP id 4CA4E240036;
-	Fri, 27 Nov 2026 07:28:11 +0100 (CET)
-Received: from [127.0.1.1] (unknown [10.2.3.19])
-	by mail.dev.tdt.de (Postfix) with ESMTPSA id D3C402B137;
-	Fri, 27 Nov 2026 07:28:10 +0100 (CET)
-From: Martin Schiller <ms@dev.tdt.de>
-Date: Fri, 27 Nov 2026 07:28:05 +0100 (CET)
-Subject: [PATCH net v2 1/2] net/x25: don't call lock_sock() from softirq in
- x25_kill_by_neigh()
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=WBQ4UWXE
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bkBzEjw39z4OLr3J479ue/ZT+ZKgsqaznO8HrmSq/FFLknI4QJZBDcdXh4+RKT1jOrCXgN/jlyM5AkCdUrxQBvPzbCqJ+MBubIprXm7143pNW1P+n67oI5/2vUwMMkq9r4nrwBI4fNVqxJjKY42Dp0Q2bOoquf/TdS2YhfIQ3y6K2krE90aOO1jZd2Q3YXnet6mnAjU9QFsSmYzPZF0FZEpaZ509apDJZDBy8TrgQurhkJuwu7W8nmRW/rfYNRqpe8ehxkQyLRS7/F2SJgM7XNWtLNOtRpioKtzZ8dd9wDbvAbl1KqiMObsCC9yYAKXRWHLiBChoqN8qzvUjl9mnuw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fWsTafJypgjI6fZiR4sVp4cIkxXneA3qPMB8ybjNs5c=;
+ b=wqDCD5oO9NVDsTGwrM1f216NCnPKfRwg7yfkKaO+pGpuBdUwqvqNWc4l1Rbn/F/VKDIUZYP7DEmoDzJx/kTAz2X5hSvCc5lLDGJzBVtdORpX7QwDjd52GnniD2fF8HcH55i2sHT55SnhgCzKYkwaqoVmqWKpo0va2hdeHuTiZzUIbF3ncayL7jjBSVtiB4vcFsU/PvLp9wmlilKE7v5LxOdSb96kiQxLudiXYjo5zx1qaSy9kot4RQlpkkydkZtKUdqwJE6yNmQYe4IJJqajuWVAy26wIi/djAo+CSa70R8xCd6XKobp/zA/P3qMjUYKYsG7c6db7ouIQLK9uA7MJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fWsTafJypgjI6fZiR4sVp4cIkxXneA3qPMB8ybjNs5c=;
+ b=WBQ4UWXEgB702j/ee3gV3+pOx3Ih86YpP7yKcTvbhS7MCW815uN83PQBvVF8X156ckwHmde1We1h3zLRH/ESLaU7pZx2RBfznAIqDJ4xvoLvJt6Nlhj0OVOT9ST2rRpRSh6bJqq/PSBzfFFIks5/z42Aa0a6TlnuE6hLGpP3nCrIqF+xSqCW+oh2swBm03NRiCMQYxLOheZJbNooGZfjIFYKrTwu/Cyi2CQXFFv5lofHzzC7sKfrCwA8SZb2tYFcWgpZXSveBk3vYOUvNU7U90CD4x9/fb5OJCHsrcqNvmiyxpLKSp+pS+kQ3nSHwvCmkghJEM3ay2b1IxIDUAyweQ==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by AMBPR04MB12206.eurprd04.prod.outlook.com (2603:10a6:20b:759::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Fri, 27 Nov
+ 2026 06:29:18 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 06:29:18 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Keisuke Tsukuda <tkdkei@outlook.jp>
+CC: Frank Li <frank.li@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@kernel.org" <edumazet@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>
+Subject: RE: [PATCH net] net: fec: fix TSO DMA mapping failure handling
+Thread-Topic: [PATCH net] net: fec: fix TSO DMA mapping failure handling
+Thread-Index: AQHdfiDdXJAPFXqILkmzJeyyha/um7dBcm5w
+Date: Fri, 27 Nov 2026 06:29:18 +0000
+Message-ID:
+ <AS4PR04MB9338D0CD2F0B9C8CA941E34488412@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20261127033906.9561-1-tkdkei@outlook.jp>
+In-Reply-To: <20261127033906.9561-1-tkdkei@outlook.jp>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|AMBPR04MB12206:EE_
+x-ms-office365-filtering-correlation-id: eb4116be-8538-4eba-102a-08df4c4fc3c9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|19092799006|38070700021|10067099003|11063799006|56012099006|261009223027099003|261021121427099003|261102123227099003|261026140227099003|261022105027099003|261028144727099003|18002099003|22082099003;
+x-microsoft-antispam-message-info:
+ OXfT0IxIkQllFrGR2qeBwFQ/HCy/Og68Dz3yz9aa3CKuGBK4cs6mXkv0HkSlA3xVBNYFAnAO3aYxgacFLW36RjDl8V6L+0/+okugB6mNes26Ln9zABc4oAXsxIkrk0lN77xVON6XlUd6iu6zzFdvxIbl5x8/3LTkzoaX5+yxqU2KOX3iO6E+vfvrD2GoyvN0w+P2xyNktyllM5GxHex4+2aVKE/42pOCsyYpxzshQ5AGLOOhviG47szzNcUEbaq8jrZVU9y70mRF5cA95CriG2APE8kwHnDdfRulZi7bZw6P7rGKqtVsiZXoEkWDrwCMj+ajzCUc2IpJkA5Z5DqcZV54TG6oNABwC6EdW62BWyV0PPO9PunW18g8u5CiEmM1XT2JfCBL4UG7GSGMG5MZGw/WqQxLaOlIcFAdHo/0ZeuWaPSFM+3i3PgTFTb9fNL7H3eLP2QGvHrG2rZToaElLz+fvp/aKdhcBPNqECI6joJhV6eOcaDYggIn9bxFDXDQeDMVKQS7xYvCxl3WsCALDf+gQItXEbhsuoNZq9Umbz5Md4XRcLz3rGeAbqSUDLP0+8ZlHcQ4iuC3CyNrpwXnJXlDD8YysjYpENBs6LawNJKf7oIjp/wmEx8BMp7f5zBHReE9ceco0Trq9BpV+c3lcQBL9WSJ8M10/45lJnL2vDlTWLrL9tfNCz05HyZKY2R/1UYg3x8gvgSyjGhByeIiR4tPuhYrxWP36LcAmatxjA8=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(19092799006)(38070700021)(10067099003)(11063799006)(56012099006)(261009223027099003)(261021121427099003)(261102123227099003)(261026140227099003)(261022105027099003)(261028144727099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?Y9gG0JA1kkgtVw4+tqgm4AtFIEVZ+o5Mzwgd44a6Z4L+1JdTeRwok86drZv3?=
+ =?us-ascii?Q?TTj8dy8FVqNTRh692zc3+wx1Az206MkTXf8mdZz5HYLMpCEXwph5lJBZLrc7?=
+ =?us-ascii?Q?i7d04WzVuaWlawqt+3/i/aaGwC1EEIpC9jnjWo5+eScLwODhQrHZ/+Ircpor?=
+ =?us-ascii?Q?YYhZyxjSLOmbtDKmIBq9DPg/9Dt0EIAbDGfyOxVRm9OMMFMK+jTAUQYyyirK?=
+ =?us-ascii?Q?9lweT4MZUGQG1PFAsHc2vYyXnUauXJ+GEVkHLPSiXlCjKkn7zMI02NIaqfgc?=
+ =?us-ascii?Q?dwqonWc2g3wn1eRECGVuvOgXN9V6q8pv7V7UoykgATn/nx+mgH3ZMkqAkiih?=
+ =?us-ascii?Q?Ko9jhlZ0if1EYhA8z75ggQ3SnwVeC9FjIB5ktMxwCnjHu+VjbjM+L4lGliEi?=
+ =?us-ascii?Q?qw8oqjem5vc5zzvWaINY2B6vXMiiToamZY670gduDK/tFGeNDuY042Y3ujaT?=
+ =?us-ascii?Q?TqQ0szxtVbzCnO9vEobcyr+MS4Kt0wblMzO/STmxxlSvDE2jPRWJ5WOls1uO?=
+ =?us-ascii?Q?GbWgBW9UYLV0oUhfAGs9EzHgGwCFwHksVig2T5QqTgJc+o4z+ZBlsWR+pZ9w?=
+ =?us-ascii?Q?QPYXEHIsuHlKrhoMZ2FBpZye/rGCphPVke38No6TSOm5u1yIQd/SnwDaRlfj?=
+ =?us-ascii?Q?vFGHrNc07bzV4VUYkFydYxvhIbL8MkCMyOuJgwg3b75g7DbP013uaSgeE9JU?=
+ =?us-ascii?Q?cbV+Fny25+CXvIYGaeEYWY8jvXOOYrQOe7h3WHPSSD7G4dYrRSyxN0HoU1mV?=
+ =?us-ascii?Q?SCoOMOXI5CU7hPOyqlLYRqb0Crx1faW1p2OOkVHMkixH5xgIKCk1bVBGVqF4?=
+ =?us-ascii?Q?bR+3GmmfJZgV3348h0qOJxGrDfYzBacGcHkTF1ZXBjN/mjDMZbREeDCne12W?=
+ =?us-ascii?Q?2ZIV7sL6d1Mpv9CfmUwlehDTIWsBBs81r/Naxm/7VqtlMAqMEUllLiUEM4jS?=
+ =?us-ascii?Q?ZLdzs5SXmhFVHUy6cDew2xA+0IO6HHVhrIuCK16Yq/OT3rsNeSOLFt4jiTo4?=
+ =?us-ascii?Q?EZuZ2Z4X6qiTO0BETwLI+/LA7ePqoKhE5BjWrG+/SBlxwTvNn4HvvJp9yqFf?=
+ =?us-ascii?Q?rZTcbe/wMOCSZGcHpjM90NNfqotQJ3axOakBx/stvLAeK11WpqqKmigYjY/5?=
+ =?us-ascii?Q?LW4WtGK36A2cCJqxAmfUwmYpSyayH50m7tu+Q59z2WprC0c9Il1GaYkcHK5i?=
+ =?us-ascii?Q?Dz4urVKGU6ew1mndqETrhJE7TCZxuFSfaDbuhEk4aU7ZZm2/RX89gYbDFF/o?=
+ =?us-ascii?Q?aC8GpfQ8hd8iyI2L/JIPgXc71QUQWviStLqnArWcDrolSga6KDSGUDxshdZJ?=
+ =?us-ascii?Q?h6GJvFY00IV/BX0DED4A8Qo6MycI3PqrxAkQeZU54833HHhO/TiuD/7SsP/8?=
+ =?us-ascii?Q?al+//NkJqL21YKI5Bh3KN0wHfBJqvrI2h/fEQ7+XvJqZ6MahrJPxgJQbKBDG?=
+ =?us-ascii?Q?f7EVnmXb24DgjYYN1oJeu8N8bOTZR+mrbrc/Lk12JtfgE/4HU1MjzALv9E2N?=
+ =?us-ascii?Q?kLODIaFBKvPit5Q/eiX5YIClkgy9z/on7jAGMbtvGe9Vu+u5hHbbGQHOubDP?=
+ =?us-ascii?Q?WEXUOIksslNx88a0L9J8ZUP94PT1FNozXmPjD8ui3pQs5/cyuGsx/sXocnfu?=
+ =?us-ascii?Q?HoP3gQ7b+MzvM6m2b98I1x0z2fSUxSlmmsd24mJQlNxmKD0dLX1j398XtVLp?=
+ =?us-ascii?Q?73TVVEPHd+EJbXFrRsI8q3SvwFZOZ9pIAw39YZZs9IUA7o12?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,268 +147,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261127-x25-kill-by-neigh-v2-1-c7cdcc9f1320@dev.tdt.de>
-References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
-In-Reply-To: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
-To: Martin Schiller <ms@dev.tdt.de>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>, Lin Ma <linma@zju.edu.cn>,
-	Duoming Zhou <duoming@zju.edu.cn>,
-	Xiyu Yang <xiyuyang19@fudan.edu.cn>, Xin Tan <tanxin.ctf@gmail.com>
-Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org,
-	Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
-	Shuai Liu <847807867@qq.com>,
-	Krystian Kaniewski <krystianmkaniewski@gmail.com>,
-	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
-	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
-	linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795760890; l=8022;
- i=ms@dev.tdt.de; s=20260220; h=from:subject:message-id;
- bh=2+W7uLJL1NSBT4yj1AUVcavZUVv5YSQ1YDVZVs3CPjs=;
- b=VwojJRZWU4eE+LKlHtGmUjRb9OWuGZ91lHI0v3Nk5cY7l5ENEBThsPIVJ6srQIwB2R1mIqb0d
- 64ly5smttMVD3mlTIEy2rHmv+gBpI8FZ8oJq8fyhsCalU66+MhEQGdn
-X-Developer-Key: i=ms@dev.tdt.de; a=ed25519;
- pk=MAojd7D5IafMnqCYSFC7hY/u/jppX58CLIEhsEsSOYE=
-X-purgate-type: clean
-X-purgate-ID: 151534::1795760892-59417D96-FE40B1FA/0/0
-X-purgate: clean
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb4116be-8538-4eba-102a-08df4c4fc3c9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 06:29:18.0564
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3OyT+DZbpUXDU5D0kZr4LzFLdbaa/xDRsZG3cT7GNniFpY9gm+QpDw/jhx+jysYZDklbkJEc/Vy++ZtsCLWCIQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12206
 
-From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+> --- a/drivers/net/ethernet/freescale/fec_main.c
+> +++ b/drivers/net/ethernet/freescale/fec_main.c
+> @@ -746,10 +746,9 @@ fec_enet_txq_put_data_tso(struct
+> fec_enet_priv_tx_q *txq, struct sk_buff *skb,
+>=20
+>         addr =3D dma_map_single(&fep->pdev->dev, data, size, DMA_TO_DEVIC=
+E);
+>         if (dma_mapping_error(&fep->pdev->dev, addr)) {
+> -               dev_kfree_skb_any(skb);
+>                 if (net_ratelimit())
+>                         netdev_err(ndev, "Tx DMA memory map failed\n");
+> -               return NETDEV_TX_OK;
+> +               return -ENOMEM;
+>         }
+>=20
+>         bdp->cbd_datlen =3D cpu_to_fec16(size);
+> @@ -792,8 +791,11 @@ fec_enet_txq_put_hdr_tso(struct
+> fec_enet_priv_tx_q *txq,
+>         unsigned int estatus =3D 0;
+>=20
+>         status =3D fec16_to_cpu(bdp->cbd_sc);
+> -       status &=3D ~BD_ENET_TX_STATS;
+> -       status |=3D (BD_ENET_TX_TC | BD_ENET_TX_READY);
+> +       status &=3D ~(BD_ENET_TX_STATS | BD_ENET_TX_READY);
+> +       status |=3D BD_ENET_TX_TC;
+> +       /* Keep the first descriptor unavailable until all mappings succe=
+ed. */
+> +       if (bdp !=3D txq->bd.cur)
+> +               status |=3D BD_ENET_TX_READY;
+>=20
+>         bufaddr =3D txq->tso_hdrs + index * TSO_HEADER_SIZE;
+>         dmabuf =3D txq->tso_hdrs_dma + index * TSO_HEADER_SIZE;
+> @@ -808,10 +810,9 @@ fec_enet_txq_put_hdr_tso(struct
+> fec_enet_priv_tx_q *txq,
+>                 dmabuf =3D dma_map_single(&fep->pdev->dev, bufaddr,
+>                                         hdr_len, DMA_TO_DEVICE);
+>                 if (dma_mapping_error(&fep->pdev->dev, dmabuf)) {
+> -                       dev_kfree_skb_any(skb);
+>                         if (net_ratelimit())
+>                                 netdev_err(ndev, "Tx DMA memory map faile=
+d\n");
+> -                       return NETDEV_TX_OK;
+> +                       return -ENOMEM;
+>                 }
+>         }
+>=20
+> @@ -901,6 +902,10 @@ static int fec_enet_txq_submit_tso(struct
+> fec_enet_priv_tx_q *txq,
+>         txq->tx_buf[index].buf_p =3D skb;
+>=20
+>         skb_tx_timestamp(skb);
+> +       dma_wmb();
+> +       txq->bd.cur->cbd_sc |=3D cpu_to_fec16(BD_ENET_TX_READY);
+> +       /* Make the READY update visible before advancing the ring cursor=
+. */
+> +       wmb();
 
-x25_kill_by_neigh() is reached from the receive path when the link layer
-goes away or the peer restarts:
-
-  net_rx_action()
-    lapbeth_napi_poll()
-      x25_lapb_receive_frame()
-        x25_link_terminated() / x25_link_control()
-          x25_kill_by_neigh()
-            lock_sock()
-
-lock_sock() may sleep, which is not allowed in softirq context:
-
-  BUG: sleeping function called from invalid context at net/core/sock.c:3832
-  in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 29, name: ktimers/1
-  RCU nest depth: 2, expected: 0
-  ...
-   lock_sock_nested+0x56/0x130 net/core/sock.c:3832
-   x25_kill_by_neigh+0x134/0x2a0 net/x25/af_x25.c:1778
-   x25_lapb_receive_frame+0x1b0/0xfb0 net/x25/x25_dev.c:138
-
-Take the socket spinlock instead, the same way the x25 timers and receive
-path already do. If the socket is not owned by user, disconnect it right
-away. If it is, mark it with X25_KILL_FLAG and let a new release_cb do
-the disconnect when the owner releases the socket. This keeps the
-serialization against x25_sendmsg()/x25_recvmsg()/x25_connect() that
-commit 7781607938c8 ("net/x25: Fix null-ptr-deref caused by
-x25_disconnect") added lock_sock() for. Sockets that already have the
-flag set are skipped, so the rescan loop always terminates.
-
-NETDEV_DOWN runs in process context and the device may be freed right
-after, so keep waiting for socket owners there as before: a sleeping
-sweep makes sure no socket still uses the neighbour on return.
-
-Until its owner releases it, a flagged socket still holds the LCI of a
-call that no longer exists, while x25_link_control() may already have
-confirmed the restart and the peer may reuse that LCI. Skip flagged
-sockets in __x25_find_socket(), so that frames for a reused LCI no
-longer end up in the old socket's backlog, and keep flagged sockets from
-transmitting in x25_kick() and x25_write_internal(). The deferred
-x25_disconnect() only changes local state, so the old call is gone on
-the wire before the restart is answered, as it was before.
-
-x25_connect() accepts a listening socket, so a listener can carry the
-flag. Clear it in x25_make_new(), which copies the listener's flags.
-
-Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
-Reported-by: syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=9faa82ae2e94c5c7d2ef
-Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
-Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-[ms: hide flagged sockets from __x25_find_socket() and from
- transmission, clear the flag in x25_make_new(), add the current
- syzbot report]
-Signed-off-by: Martin Schiller <ms@dev.tdt.de>
----
- include/net/x25.h  |  1 +
- net/x25/af_x25.c   | 66 +++++++++++++++++++++++++++++++++++++++++++++++++-----
- net/x25/x25_out.c  |  3 ++-
- net/x25/x25_subr.c |  4 ++++
- 4 files changed, 67 insertions(+), 7 deletions(-)
-
-diff --git a/include/net/x25.h b/include/net/x25.h
-index 414f3fd99345455dd30f0cc827736fbce61fd99a..ed8ba01fa3cb396f80344a23f4de8d23d5e4a010 100644
---- a/include/net/x25.h
-+++ b/include/net/x25.h
-@@ -118,6 +118,7 @@ enum {
- #define X25_Q_BIT_FLAG		0
- #define X25_INTERRUPT_FLAG	1
- #define X25_ACCPT_APPRV_FLAG	2
-+#define X25_KILL_FLAG		3
- 
- /**
-  *	struct x25_route - x25 routing entry
-diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
-index f45c9ec7d2c68354838b1bfa34ea4ca08120dc8d..a5d3a86918a0f4f337af4566dde4b43a907d1b49 100644
---- a/net/x25/af_x25.c
-+++ b/net/x25/af_x25.c
-@@ -200,6 +200,32 @@ static void x25_remove_socket(struct sock *sk)
- 	write_unlock_bh(&x25_list_lock);
- }
- 
-+/*
-+ * Process context only: wait for owners that x25_kill_by_neigh() deferred,
-+ * so no socket still uses nb once the device goes away.
-+ */
-+static void x25_kill_by_neigh_sync(struct x25_neigh *nb)
-+{
-+	struct sock *s;
-+
-+again:
-+	write_lock_bh(&x25_list_lock);
-+
-+	sk_for_each(s, &x25_list) {
-+		if (x25_sk(s)->neighbour == nb) {
-+			sock_hold(s);
-+			write_unlock_bh(&x25_list_lock);
-+			lock_sock(s);
-+			if (x25_sk(s)->neighbour == nb)
-+				x25_disconnect(s, ENETUNREACH, 0, 0);
-+			release_sock(s);
-+			sock_put(s);
-+			goto again;
-+		}
-+	}
-+	write_unlock_bh(&x25_list_lock);
-+}
-+
- /*
-  *	Handle device status changes.
-  */
-@@ -222,6 +248,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
- 			nb = x25_get_neigh(dev);
- 			if (nb) {
- 				x25_link_terminated(nb);
-+				x25_kill_by_neigh_sync(nb);
- 				x25_neigh_put(nb);
- 			}
- 			x25_route_device_down(dev);
-@@ -311,7 +338,8 @@ static struct sock *__x25_find_socket(unsigned int lci, struct x25_neigh *nb)
- 	struct sock *s;
- 
- 	sk_for_each(s, &x25_list)
--		if (x25_sk(s)->lci == lci && x25_sk(s)->neighbour == nb) {
-+		if (x25_sk(s)->lci == lci && x25_sk(s)->neighbour == nb &&
-+		    !test_bit(X25_KILL_FLAG, &x25_sk(s)->flags)) {
- 			sock_hold(s);
- 			goto found;
- 		}
-@@ -492,10 +520,20 @@ static int x25_listen(struct socket *sock, int backlog)
- 	return rc;
- }
- 
-+/* Finish a link teardown that hit while the socket was owned by user. */
-+static void x25_release_cb(struct sock *sk)
-+{
-+	struct x25_sock *x25 = x25_sk(sk);
-+
-+	if (test_and_clear_bit(X25_KILL_FLAG, &x25->flags) && x25->neighbour)
-+		x25_disconnect(sk, ENETUNREACH, 0, 0);
-+}
-+
- static struct proto x25_proto = {
- 	.name	  = "X25",
- 	.owner	  = THIS_MODULE,
- 	.obj_size = sizeof(struct x25_sock),
-+	.release_cb = x25_release_cb,
- };
- 
- static struct sock *x25_alloc_socket(struct net *net, int kern)
-@@ -610,6 +648,7 @@ static struct sock *x25_make_new(struct sock *osk)
- 	x25->cudmatchlength = ox25->cudmatchlength;
- 
- 	clear_bit(X25_INTERRUPT_FLAG, &x25->flags);
-+	clear_bit(X25_KILL_FLAG, &x25->flags);
- 	x25_init_timers(sk);
- out:
- 	return sk;
-@@ -1761,6 +1800,23 @@ static struct notifier_block x25_dev_notifier = {
- 	.notifier_call = x25_device_event,
- };
- 
-+/* May run in softirq, so lock_sock() is not an option. */
-+static void x25_kill_sock(struct sock *sk, struct x25_neigh *nb)
-+{
-+	struct x25_sock *x25 = x25_sk(sk);
-+
-+	local_bh_disable();
-+	bh_lock_sock(sk);
-+	if (x25->neighbour == nb) {
-+		if (sock_owned_by_user(sk))
-+			set_bit(X25_KILL_FLAG, &x25->flags);
-+		else
-+			x25_disconnect(sk, ENETUNREACH, 0, 0);
-+	}
-+	bh_unlock_sock(sk);
-+	local_bh_enable();
-+}
-+
- void x25_kill_by_neigh(struct x25_neigh *nb)
- {
- 	struct sock *s;
-@@ -1769,13 +1825,11 @@ void x25_kill_by_neigh(struct x25_neigh *nb)
- 	write_lock_bh(&x25_list_lock);
- 
- 	sk_for_each(s, &x25_list) {
--		if (x25_sk(s)->neighbour == nb) {
-+		if (x25_sk(s)->neighbour == nb &&
-+		    !test_bit(X25_KILL_FLAG, &x25_sk(s)->flags)) {
- 			sock_hold(s);
- 			write_unlock_bh(&x25_list_lock);
--			lock_sock(s);
--			if (x25_sk(s)->neighbour == nb)
--				x25_disconnect(s, ENETUNREACH, 0, 0);
--			release_sock(s);
-+			x25_kill_sock(s, nb);
- 			sock_put(s);
- 			goto again;
- 		}
-diff --git a/net/x25/x25_out.c b/net/x25/x25_out.c
-index f8922b0e23a4f17c1f5f74aa24806a35325e92dd..f710d015fcc2ffd6a6922a0c29876bb248125666 100644
---- a/net/x25/x25_out.c
-+++ b/net/x25/x25_out.c
-@@ -140,7 +140,8 @@ void x25_kick(struct sock *sk)
- 	int modulus;
- 	struct x25_sock *x25 = x25_sk(sk);
- 
--	if (x25->state != X25_STATE_3)
-+	if (x25->state != X25_STATE_3 ||
-+	    test_bit(X25_KILL_FLAG, &x25->flags))
- 		return;
- 
- 	/*
-diff --git a/net/x25/x25_subr.c b/net/x25/x25_subr.c
-index 159708d9ad20cb2e6db24ead67daf1e9d6258f64..dba3b8eb10b0f21402592fe5775e1670f68ed4ee 100644
---- a/net/x25/x25_subr.c
-+++ b/net/x25/x25_subr.c
-@@ -120,6 +120,10 @@ void x25_write_internal(struct sock *sk, int frametype)
- 	 */
- 	int len = X25_MAX_L2_LEN + X25_EXT_MIN_LEN;
- 
-+	/* The call has already been cleared by a link failure or restart */
-+	if (test_bit(X25_KILL_FLAG, &x25->flags))
-+		return;
-+
- 	/*
- 	 *	Adjust frame size.
- 	 */
-
--- 
-2.47.3
+I think using dma_wmb() is sufficient here.
 
