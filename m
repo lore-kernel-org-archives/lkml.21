@@ -1,71 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798028;
-	b=x6977NhKMfpuKJDf0BN/ttpcX/lr/nof+mMCaPNUvCZCeJ28lhkkwjvnR1Ykl23XxYEO
-	 S+9M+18cXH6QJPP1adpuzEhM0K2uyFnNe6vR6bvQf3+EuNzG+ycvWlshsAJQrN9Pf4SNG
-	 TNe6YaoRpkIEjD1ErQiJ5Pm05C9wuhubtoXt7gOqSgck9sS6dYG5wNQqEOjs+Askpe1gH
-	 2zt897fxP63pAM3IZ3lmNAhMJ8ZHVyG7yNbdVqoIjNl/BKP1J2WLYZfoK17VeTBwxvmik
-	 NLWe5U+Tz8K2qVnmmpEJu7Ax9RFVmKyKS4W8semEi9Yd7xpkUNsJRCpNOWIGTpX39Rw==
+	t=1795798086;
+	b=Q8BpT/yUSeDXdOHLWDOqWA/KHxMeLXEzVZuCmTslLUTZBM9iMPDzl9e+FFWWX5in/FOR
+	 py/FjOk6/37Vx5tugpgvRSzov5jRLSi9sUGx+dS61e1h5J+qK0lGoH1KzCYKTz/5HT1Pg
+	 FdYNTAyK+peFJ84n/LJrGqwrD51OxeDAwg7+1mPVf9xyFDSsYuoX48IH3i+pzpKpsIWn6
+	 cYdToor0xCdwtu9eOgPJEYyII95vd2sYzBb7iBKVy2/1vtT1nlHo3XgRpd40zfhtm6Ffn
+	 +1NjWHzZcq02gW7sduaEPqB+2+tgyTWli1rzsHz9MCSUnzUWPG5+eD/744fxnqcgLPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798028;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zx3AnSzZZBDI5AJfT34gcNM62do8VpPC/Q9qG67J7oY=;
-	b=26AGQ1jgxQLGfaFWveW7fUUHt2lTuMg5Ga7r9ly1rbKpU8bCtEQ6q1ioxdyJut4ypogu
-	 IQ1Hvo0LDvE2AmFqCQbSyrUjZXfZWFslnDKlOSs5e9Devyk20Qor7wZ8G9Lx4yKdCA2Np
-	 pumgHG+WE8PC56yS4u66Oc8tnJEAOxr5YgWdcrAAJxhhu5Dcj8X2S7Cvf4XmRvcR5vEBe
-	 GGNMYDcHyP/mS4MJD1Pgop0v5Glwjk3Y7EAXXeqy1tVvygAI4AgTdLUGjpddJKmraetcd
-	 kK55+yxHNeEgf4RIQf7bo5Ovzjrkk9UPdgBApvwDuB7wkwjqKaoA6vKJ9BqnneI3SWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798086;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=iVhVBEq6AUVU3m3tUfRFq2nLGDToQzbrqHjrAC4ShDM=;
+	b=jacQtOE2EiBgsKOIqi0vn6nxi5dSpm6s4dwL5EP5+RsaDdKf8kIg/2BkVU8KrhnBv/to
+	 2r1zvYqSnZfXT52Y/RSkw8b2ErA8twEa5h2w23sWldkQkLAT5cyy3WawFmqU6epLAuzfs
+	 t+Y5Q1VerWKnv17LM/AzFpVQNpWV4PLfwzrNZgL3jSJw4N9MDvED/G+e4eUa5PK49hIa9
+	 SGxWdlknGg88hiFtt4NAqmnnV0OLx9Ua9HrVNvd5lfMzsISnA3mirGoeQN6HzCqnEBttS
+	 EwNSA4mj99OU8pGIY19hGBDNDiGoujT7tpem3a9yTU4D0k9LYoAgEuGirdMkTsi79yA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaPO+bzJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mUfOYgNh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E92D8606A31C;
-	Fri, 27 Nov 2026 16:47:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 452A9606A698;
+	Fri, 27 Nov 2026 16:48:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaPO+bzJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51B1B1F00893;
-	Fri, 27 Nov 2026 16:47:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mUfOYgNh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E993B1F0092B;
+	Fri, 27 Nov 2026 16:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798027;
-	bh=zx3AnSzZZBDI5AJfT34gcNM62do8VpPC/Q9qG67J7oY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DaPO+bzJsE5GLOz7Ck9rQcpq5b6CRDRJXTWvW8cxGodR/PrXA/qV1eTni370++3c5
-	 ceKpTcS4Nkdr/+OUUYUFmXhh/tMMylUUVijoNPnkfbkvmWT0B7x4g47mhK48CTZQSP
-	 2KNnCFR58/WCJajArfTe7XSa059425rIN5wTaU/T7PZzIrmaynN0j+/f85x22vA+UA
-	 nt2VejMTitX65N6aiUr0I2/+DCe0fTblsZqcXQfLTJtucVGqXD2RaFr3ROWqAgBpfZ
-	 WHsY1+XtBlo3rVXSyZ4IPRYEw401Zx8NgiB2o5SPSZB6j8ohCeai7lZ+6ji1Hjip9x
-	 iX/OH6gkPupUA==
-Date: Fri, 27 Nov 2026 16:46:58 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Willy Tarreau <w@1wt.eu>, 
-	Borislav Petkov <bp@alien8.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Leon Romanovsky <leon@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>, 
-	Eric Dumazet <edumazet@google.com>, Hans de Goede <hansg@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-	Jonathan Cameron <jic23@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Theodore Ts'o <tytso@mit.edu>, 
-	Security Officers <security@kernel.org>, workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH 1/2] docs: coding-assistants: ask for short changelogs
- and a cover letter
-Message-ID: <awmrvCPm6ZI7Yd7_@gremlin>
-References: <awjopqoCJqwChwnF@laps>
- <awlCy3vDs0fKx1ku@gremlin>
- <awlNYsu1y8EhYgor@1wt.eu>
- <33c6cf3a-6b18-4e09-bd5c-68ed2c34de56@kernel.org>
- <awlR9pQUjodcLjZK@gremlin>
- <20261127133756.455469-1-sashal@kernel.org>
- <awmJ2c87NSDjtSwp@gremlin>
- <20261127143124.1039470-1-sashal@kernel.org>
- <awmU4L01OH9kWEVv@gremlin>
- <20261127153902.1320179-1-sashal@kernel.org>
+	s=k20260515; t=1795798085;
+	bh=iVhVBEq6AUVU3m3tUfRFq2nLGDToQzbrqHjrAC4ShDM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=mUfOYgNh/wxVB+F1AdtBMUx831Q5dIxxT57GlepknxyROZMDH15rFN6rthGkScOKp
+	 40UWfkJMwtxUtT/PPyGjbJa/npUcwS2ePZGUHXU+QnkDeZ5+BTA2w4iXlLY4OB4tJw
+	 0Pt6NB/DofG8awG837jvQEPEDVRLepEoi2e28g2Bt5tH297yun56XBjo5c1IGFc6zu
+	 g1aYx2JIQr0dWKaee5CtL+9xIpU8MalvT2NMfckT5cUH1v5qbNI2RPVmLikOGTQQik
+	 KYqshrPqYlfgdV/R5/if1yGEAtxhMHdfIGP4LkN7ibhMo4eJTB0o+ubmGtOaaoA9NS
+	 E/PXxQuMpkxdQ==
+Subject:
+ Re: [PATCH net v6 5/8] ptp: ocp: report disabled SMA inputs as zero Hz
+From: netdev-bot+sashiko@kernel.org
+To: ahmadexp@gmail.com
+Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ vladimir.oltean@nxp.com, vadim.fedorenko@linux.dev, andrew@lunn.ch,
+ linux-kernel@vger.kernel.org, arkadiusz.kubalewski@intel.com,
+ jiri@resnulli.us, jonathan.lemon@gmail.com
+Date: Fri, 27 Nov 2026 16:48:04 +0000
+Message-ID: <179579808454.3135.16893919920037495221@kernel.org>
+In-Reply-To: <20261126-timecard-driver-v6-5-ahmadexp@gmail.com>
+References: <20261126-timecard-driver-v6-5-ahmadexp@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,66 +65,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127153902.1320179-1-sashal@kernel.org>
 
-On Fri, Nov 27, 2026 at 10:39:02AM -0500, Sasha Levin wrote:
-> The series calls for *less* text in the commit message. The extra text goes
-> into the cover letter, which humans can ignore if they don't want it.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-You're just shifting the slop around and encouraging more of it, ultimately
-no?
+Low priority / nit picks for your consideration:
 
->
-> >Where was this floated? I didn't hear anything about it? Was it another
-> >decision made by a cabal behind closed doors? :)
->
-> Hallway track during LPC mostly :) There's no "decision" here. Folks were
-> raising both concerns: "the changelogs are too long, they suck for humans" and
-> "the changelogs are too short, we don't get enough information / the AI fakes
-> stuff".
->
+- [Low] The changelog blames a 'stale selector frequency', but that is
+  not what happens on the normal disable path.
+- [Low] Two submission-hygiene problems.
 
-I haven't a clue why anybody would say they were too short, I have never seen a
-slopped patch where that was the case?
+--
 
-Why would adding more text address faking? That seems orthogonal really?
+ptp: ocp: report disabled SMA inputs as zero Hz
 
-> >Anyway, let me rephrase I guess - please don't ask LLMs to add more slopped
-> >text for me to deal with?
-> >
-> >I really dislike the idea of a cover letter for a single patch in general,
-> >but from an LLM you literally just made my life twice as bad.
-> >
-> >Please, don't?
->
-> I suspect we won't find something here that works for everyone, so subsystems
-> could tune it in their maintainer handbook docs if they need to.
+This commit makes ptp_ocp_dpll_frequency_get() report zero frequency for
+disabled SMA input pins by forcing the selector value to SMA_DISABLE. The
+goal is to let a DPLL frequency set re-enable a disabled input, since the
+DPLL core compares the request against the current frequency first.
 
-This is just 'shut up' in more words no? (did you use an LLM? ;)?
+> A disabled SMA input has no active signal and should report zero frequency through DPLL. The DPLL core reads the current frequency before applying a new value, so reporting the stale selector frequency can prevent a disabled input from being re-enabled.
 
-Am we in the community permitted to debate the defaults? Or are they already
-decided upon?
+[Severity: Low]
+Does "stale selector frequency" accurately describe what happens here?
 
->
-> One question though: what stops you from ignoring the cover letter altogether
-> and looking only at the commit message? We can have AI explicitly tag a
-> "slopped" cover letter if it'll make it easier...
+When an input is disabled through sysfs, ptp_ocp_sma_store_val() writes 0
+to the selector instead of leaving the old value in place:
 
-Now "Shut up" + "ignore the spam" :)
+drivers/ptp/ptp_ocp.c:ptp_ocp_sma_store_val() {
+    ...
+	if (sma->disabled)
+		val = 0;
+    ...
+}
 
-I've got the distinct impression my views are not welcome on this topic,
-rather had that feeling from the start (my changes to
-docs/process/generated-content required me to -shout- to be heard).
+In ptp_ocp_sma_in[] and ptp_ocp_adva_sma_in[], selector 0x0000 is the
+10 MHz entry:
 
-I've engaged regardless because this impacts my + other's day-to-day
-experience of the kernel majorly, and I feel this stuff is a survival-level
-issue for the kernel.
+	{ .name = "10Mhz",  .value = 0x0000,      .frequency = 10000000 },
 
-But I'm not sure there's really great RoI for me any more, given it seems
-one can only have minimal impact on this as a community-member.
+So before this patch, a disabled input always read back as 10 MHz. It did
+not read back as the previously configured source. For example, an input
+set to PPS1 and then disabled would report 10 MHz, not 1 Hz.
 
-So I think I'll disengage from the thread at this point.
+The result is that only a 10 MHz re-enable request was silently dropped,
+by this check in dpll_pin_freq_set():
 
-Thanks, Lorenzo
+	if (freq == old_freq)
+		return 0;
+
+On adva_x1 boards, ptp_ocp_adva_x1_sma_in[] has no 0x0000 entry. A
+disabled input there already reported 0, so those boards were not
+affected.
+
+The code change itself looks correct. Could the changelog describe the
+clash between the disabled value and the 0x0000 / 10 MHz encoding? It
+would also help to name the affected frequency and boards, so backporters
+can judge which boards and requests were affected.
+
+> A coding assistant helped check the DPLL get-before-set behavior, develop the regression test and prepare this changelog.
+
+[Severity: Low]
+This isn't a bug, but which regression test does this refer to? The commit
+only adds two lines to drivers/ptp/ptp_ocp.c and includes no selftest or
+KUnit change, so the test can't be reviewed or run.
+
+> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
+
+The author line is "ahmadexp <ahmadexp@gmail.com>", but the Signed-off-by
+is "Ahmad Byagowi <ahmadexp@gmail.com>". The email matches and the name
+does not, which checkpatch reports as a From/Signed-off-by name mismatch.
+
+If applied as is, the commit would be credited to "ahmadexp". The other
+patches in the series have the same metadata.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-timecard-driver-v6-0-ahmadexp%40gmail.com
