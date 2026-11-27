@@ -1,101 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795794284;
-	b=iqblQFLI5ioa+7Y4PAbPZQY6tgeoAO0gU4OstpZtuT1ApRfmOVE0leDRZ9OBudCaI8+P
-	 5X+UXHLJ4I0DxphSzvh8oUBQ6wqSREyLgvVre1p2D4ZeT3YBFCd2uwM973nJROIwgPfNo
-	 DiDYEBO95QVAb7iVOTdBXfD4AZ+i5nHFlGbQ/dIWnpZ5E/I7TiJBTDg5rDazjAE9ET8fN
-	 ZXK+gx4x4ti47UrP5kuL/rL1jKxH00lIAZEMREDKi7Fcfnk9EdF6usVkWUgkjF18EbJby
-	 azZeox45kuSolrV1U0iH+mEuTxxlOlXNVmuO9zwzQy2tvJr3b76S9rGevdku8kGNCEw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794284;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
-	b=lMjSe1940xCDYAgxvslo3Z1rUBoIDVqEero4+3O+pLUKCZRuibaTyc0HPxdU+LF4kb+G
-	 VZL8pKIs/l2pSzdh8Ezw1W8MVU1o000Uymz1rS8PTkoFLf0mmXAUSstOMf0WoPW+Hc4U/
-	 TfTufBwwQriCaTP8bbNin7dygI/BJngE/JUaeQNOIGl5ilRPj0xP9K4cOLT/rquMdKDlF
-	 UzmvD9NiSLTOFZlTBCUAd4n9VmLlR0Hf6xhFHsTa36dVDEon4n6kO5cUfPLkPLMEhiaSg
-	 Be4oRHAqUOzGIX0+fwaz5x2MDIj38UuE8B2VMz4EgNisg/plLQV5L8w5AAsBUpSBh2g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eBSs0WoK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
-Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795794319;
+	b=dOaObYsXXqTvTNwxZWXX/lI9VV6dcKmIEStjZoWsPIwh2pV19apYNy786O3f45JmZ/3E
+	 MA3uvDzjCRDfm/8YxgfsaU+KQOIbE/SwqtddQ8lro1FleepdhfDdugj2oVjoL8T9nLcaa
+	 pkCtxTDnhJJYgjRDDXp2uvS5vPeoWrflsQTrqEy2yCSSXb0TaOXfwL2mlDAE9Ha8YSsrf
+	 fup4zbcUS1OE0izvv+NzPk/8774zftUVFJ7Suj/Rd9XtBGEd2NqNAGh4GwJr4fJ0jE5dC
+	 ZjlJVLuhus/4pWXv23SCCK26lzSXOgSuRVWwE6T3NOMzz/WZ9YIbD227Th5TAVlE3VQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794319;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=gnDEMS0iHt15gL5KaJ+Nn57X9otTzk+I58v16QdRYcc=;
+	b=P47NFPmGzXNvpG3H28owtCCgjNtQ/OyFpf1LdCHmSb0JoZjWvMboFJAEbXyeUNIj2m5o
+	 AVN6cB9E0u1Zx66OYeT3KZEFhHxkai6fse54FsgwVmIs66peEpAaRtj54qN3PGQD1bCAD
+	 HVTiDWeayZeuflovGqw4bbb5lTqHT+8sIx/akk3knJ6LQ96LrFR6j3MHGBuerDwUwQr0w
+	 Bq2r/VnmVWAX6mxHflBICoHmFmbVNzse1Esyl3/1HwOji0wL9kSRG1s6ysqEjAIZelM3g
+	 qj0EBW+Ix/K6AkBDjnR65Pwb1YCEtwoUApKqfFyS+ycjQb1yKW0iCpTUhOs/MfNCIJg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JB1zssfY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D323606A682
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 15:44:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D323606A682
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0535606A326;
+	Fri, 27 Nov 2026 15:45:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eBSs0WoK
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4dd5cb4f6so58305607b3.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 07:44:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795794283; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pKNWOfMOTyflKi8QgHr2Bu2MYo7PQy9R2YbPvJamMYWOdlgSznyeg8BsKMxo2VxB7E
-         0vT5xxjEgbwjRFGtFYeqEyoPziOfuNwNucOcJTk/CiLOVHqadYMz9m6hveITVaRpceHg
-         j9DRPAUcx5dIP4+sl7ohGHa0jqOqiHidped3zWMc7nRlaWnBFMdEaqnB/dMmUcAQkJiU
-         IHMYSG83WMmvjAQbOWfQujZCb2teoErSCVvfceJ4eLZBQvgO+unTLsPWNrz9fpn0gg1j
-         4EELp5cL4BEvawo0F7XkUpJjUu0HGabz11dw29mahC2FWuAxGZSEHfG7Ygf1DuXe37mB
-         bkhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
-        fh=a7eINb428L11KyQYjhwJ1NvoK5A/W+7sn4H7SSSGcPQ=;
-        b=Cc5YGMRW1aag6S7YDR+820teWGWn10oL/h/p2FxEglXrVG/4DYAsi6zNP/jt4ciAkx
-         mo3a01YYR8J773zgJeJ+EReLPmCFkoNx6uvULsenyCaH+jp7OJidhMyayZQdccaac+TU
-         pJEknQpRuDzlQltIXEjAN0xzOUSrSZei/ovgKfR3aZOAAorioaO/e4QvGN84Fj9CHWSG
-         K1TumRNQtz72gqdFNYI7LbjZbIs6VcAxx2iGvTZ68CKi7QTaNIM9vUZFFBTvnNv1LeWP
-         Rh58WLulEuyZHOEEoI4T5XZCZPlwTBMmwkW+BbfykWjpqKdPBlqiEcpydBtQ+sHImu4f
-         FzGQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795794283; x=1796399083; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
-        b=eBSs0WoKph+BgARDKxCiAXQoEMQKep8iZBhIk5t+R23v5BKOVwlwSF07dVecJJ3Z+0
-         qMsu1Su8j9nbTJoGLJT7Z0qqBLqLlMZ4oZI8NDoZGgKXuCW0uRtMmmRUaDrZ3Th8lnsh
-         OTiuRVbBRyuHUCWJvr3jSZQMumoi11s7VfrpAAXcZvqt/rSJlJuKIQu7IRJQQQ4OHCH2
-         al+Mn1Hyff8EEeoWH6q/HaPx655Uniq7Mh7GsYOgH0zC9eO6EBVn8+voX7V5TMTkIyOw
-         GNZxBGwdcqwDA1lQ1kBjaO1EjTFpX0Mt+V9L/QOTdPjdBgJO8B+P4MEFIeRmOuNUxTwK
-         JUfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795794283; x=1796399083;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=20hIHl3RLMaTBqS+Fk6fMIAVdz1sONBQQ/8y3gKeNGo=;
-        b=0mEdlRYY1hizWA1YuyOLj4Y85KeK4m6wxv21sUjwstUd9Yk+E/K11dd4yrKeoVRuHA
-         xFadVf7J2vrQsYwm+mj7hfWgzUmk6rHX66IqAH8tqkK9xKYpRNpwfImugEFH9a0Ek1gB
-         ARjeCZ/i/oVcrgcyX9+2o3si0YICeUp/jYy32FXkrDs/+llSUCAYupo6ymA93lHVtxH7
-         VDMP88Y36w9TpgMnDA2v63VyL2wvDA+jdSTliRWkpjZX4LqRhiCppy59YAw3bXBT1tFj
-         mbhzvJzXDfDoxVKyAWaba9xD4YGOk4NE+S1daqOzextNN32HthplWkxwu27H6F/83tRV
-         dNaA==
-X-Forwarded-Encrypted: i=1; AL+hErEZ3XFcipJBYx5DJzPca7lVNnqd1TZIDI/boiYaLIHLsl4jkSx/I7zrobeQXF9ngJGMCnbofj0EYmLrQeQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+2bYEY9pKsGG9fQyiFTNyh6+32QaMWKyLWD9NrNl9Yw7Ci5rSl
-	OR+NgAxmj9gVcma1FG/MjbC8PzTtfxerCvs2QMGcuWdPkGy+ILjdkoTlxg0lALb5EKX8xVY3w95
-	6rsnJbZACOAdqvT1NEtxc8LuBHz73kT1wDA==
-X-Gm-Gg: AZFdTZfuAvMTMAudsd4kA2PtDlNS13sN9Ybf1SwgkGHUDpO/Jxq1lRIM3gMPZNXDOAZ
-	Sv39ybUHXV9dlvySPQBNjJwYs9gl4LQjqxNJx+YLBl3CJP1XqRLpolU72hThqIVKDvZ/UlbgoZg
-	R0kzLRVQY1m7Do87ltZv6seoyNMMFavwfyId0YVsUvCbEI2nqhVYnv5JRAMxGGPFkmw8/MO/Ecg
-	LcRsORpizvO9Kt2SMgYx3JxNOkto91fxbfpC5I7YFMwkthgH9yMUr/ffdrTt5174jJhI0WEnAw4
-	o35qifTlEqsy0SIjKAdW7LMTTKXSWht9311E+/yS52DOq1uS4psTAz4PKn7EEKBVCLs49IKEIHH
-	W/fBXLmuN3lLxnuI3X0aTOmtWI4/8nIohGV3JxFmvKDtmvvIJQLtAzpBiKKDElP8zrl+n67BkQI
-	l8OCrERpfLvz3haYAf0rlSu00d0p7WnFkpnEPZAQ==
-X-Received: by 2002:a05:690c:7203:b0:8b3:5b88:a1ff with SMTP id
- 00721157ae682-8b520510d51mr105499077b3.64.1795794282949; Fri, 27 Nov 2026
- 07:44:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JB1zssfY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1652E1F00893;
+	Fri, 27 Nov 2026 15:45:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795794319;
+	bh=gnDEMS0iHt15gL5KaJ+Nn57X9otTzk+I58v16QdRYcc=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=JB1zssfYw+imHpGzqwtC5bxeRAT3TilT/4N6aggkc/2aQrIFfSKYPjPnNGrDnNuCD
+	 i6Q3iaDTFqGIsVtaIEed0I+jvbQmNjOGY0hNBmtE6voI8JTkFcYDjmfcF92t2aRQN+
+	 ENcGwC6L1Hmee6FlpOuUsmYvSvvIMUcYf885vMlscaWmV719ZBNjtMUuQus6NE4q+1
+	 GuDMExlzxK9s0A0z0wzpLqi6uXoEDtouKh3pCKrlizfJO+Peo0U2usbiuYYHnWVCuf
+	 b3Wmdnn8kJMsf1oSSjL+Rjjv+3RkqB2T8knDrwlRloS6lt1DluS9/MFbEx3LpgZ2JN
+	 Xe/yFxDspXKbg==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 3DDC4198003A;
+	Fri, 27 Nov 2026 10:45:16 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Fri, 27 Nov 2026 10:45:16 -0500
+X-ME-Sender: <xms:iKUJa5AkdJxnKccLXcMCurc131x9BzxkyDtyblVcz7UTk0qCfK6l8Q>
+    <xme:iKUJayXFm2YhzIgi9SPInDUX-UJiV53UZOU4RVdrD_eqdQDtpoqTcX_P3iLfD7CKv
+    TjTZCJ83aqifQrHscXBVAfYTsDfYsa4nS7m01fyEiM889CWl_Fv8CmX>
+X-ME-Proxy-Cause: dmFkZTFMcXaa74Ww3Kiq0njNmC6WTjACVv1LMbtEsqeSpRVSFbR/Ii5MZNWGX9Zt0PDC4H
+    QxR9lt1bmXDfrRIrCorv6+5mFL40Wh4Sb/IbRj/BEfQvKKf2rrQS9jZJs2KpQ++T3wSoLD
+    HNqyZ0pThIqEcsGyNXKeRbGfLfgvIjr5ltrRA4kRQMAh57Sv/vW40wLB5ugCQoAwYP+yDn
+    mqcN6PXz8tAquh0HX0rjDTsI5AoO0CDjNZ9dJZhAXhuICxzq9EfL7Fytc6bGOS0h+qgiFD
+    r4m02mBJrAEFL2pn0rfl2R8X7FfezgjnyIqIWsi8BdeUbjGCeYNUokspCipztY5uB13oL4
+    YuyWH8KtSnS4uQoxE7PMGHY1LlmlFxxm1KE3zJprK9tqrPEVmOck569OEc4Z34p1jVo+q2
+    3ivF3fonc3VfONZur+ttGBJiQPDOFX7bO7YbRRwS90s8oKkKqrAOSAp+bDHExf7PFpN9/2
+    MYSpyRRZaH5knqwf1zivHKPr3PkJ8A/L4rbGoWpOAQEudRzQJbmBkT/2j4k+aBm4BxMI8/
+    7ie4vqieF2IT3VtbrVvRPx/II5OdY1AE31VoMtNRQFbUR9Jq9KMDKqtqe5GqBnHYYI6KCZ
+    Osa26CLih0vjr119q8j7LlNbXu+EoLzZC+4Ve+yd15O4D/joKlh0TnVomAvg
+X-ME-Proxy: <xmx:jKUJa_qdFYIe-J18cgVIcEIWWYMT9YX8BlOTTPoAY2dY5zm3U0iWFg>
+    <xmx:jKUJawt29v05zGj1N-U8j50ppQcmBWYQ0-C0cQ6JoAXHx8VrtcezgA>
+    <xmx:jKUJaz5G7PV1fTi4fQ5s08qRx5AGl_yw_XHl41HZSDv4ismPsQ3SZw>
+    <xmx:jKUJa5RQ7EvBTiz9Kx9a6LpxkswJ6z8kJ7JlqwouQwm3fnLCCmpRLg>
+    <xmx:jKUJa7lULcOKouAxtdiZ0dgPwmK6qX1xlLeMs44QyW3EBqEInflytp2p>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 5658AF80093; Fri, 27 Nov 2026 10:45:12 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,54 +77,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com> <awhJooa6HkPoKqSH@pathway.suse.cz>
-In-Reply-To: <awhJooa6HkPoKqSH@pathway.suse.cz>
-From: jim.cromie@gmail.com
-Date: Fri, 27 Nov 2026 08:44:16 -0700
-X-Gm-Features: Aa3M54o2jG_Z3yd1uKXpyB79RBB4We_Eb9nyFArcsaHU2GACLzlfr6Wqn0l7ldU
-Message-ID: <CAJfuBxz3epK54DzVNztCzA=x=p=MPM8JbHkssdNjj4-qBHDtqw@mail.gmail.com>
-Subject: Re: [PATCH] printk.h: fix overzealous pr_fmt in pr_debug_ratelimited
-To: Petr Mladek <pmladek@suse.com>
-Cc: John Ogness <john.ogness@linutronix.de>, Steven Rostedt <rostedt@goodmis.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Jason Baron <jbaron@akamai.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, "Jason A. Donenfeld" <Jason@zx2c4.com>, printk@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Philipp Hahn <phahn-oss@avm.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 16:44:51 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "George Guo" <dongtai.guo@linux.dev>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "Pratyush Yadav" <pratyush@kernel.org>
+Cc: "Mike Rapoport" <rppt@kernel.org>,
+ "Pasha Tatashin" <pasha.tatashin@soleen.com>, shuah@kernel.org,
+ "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>, baoquan.he@linux.dev,
+ ruirui.yang@linux.dev, guodongtai@kylinos.cn,
+ "WANG Xuerui" <kernel@xen0n.name>, "Alexander Graf" <graf@amazon.com>,
+ liukexin@kylinos.cn, loongarch@lists.linux.dev, linux-kernel@vger.kernel.org,
+ kexec@lists.infradead.org, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, linux-efi@vger.kernel.org
+Message-Id: <976f1220-a259-4bad-9eb4-ae1cc78a79a7@app.fastmail.com>
+In-Reply-To: <20261119082252.9120-1-dongtai.guo@linux.dev>
+References: 
+ <CAAhV-H5Vse=pKC3Beqhqxa7fqadiGVNqkSy_06HZ3Luw2Pmj5Q@mail.gmail.com>
+ <20261119082252.9120-1-dongtai.guo@linux.dev>
+Subject: Re: [PATCH v6 1/8] efi: Pass KHO state to the next kernel in a configuration
+ table
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 8:00=E2=80=AFAM Petr Mladek <pmladek@suse.com> wrot=
-e:
->
-> On Wed 2026-11-25 11:12:53, Jim Cromie via B4 Relay wrote:
-> > From: Jim Cromie <jim.cromie@gmail.com>
-> >
-> > Historically, the CONFIG_DYNAMIC_DEBUG implementation of
-> > pr_debug_ratelimited() passed raw fmt to both metadata and runtime:
-> >
-> >   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, fmt);
-> >   if (unlikely(...) && __ratelimit(&_rs))
-> >      __dynamic_pr_debug(&descriptor, fmt, ##__VA_ARGS__);
-> >
-> > While descriptor metadata was clean, emitted dmesg records lacked the
-> > pr_fmt prefix present in the !CONFIG_DYNAMIC_DEBUG fallbacks.
-> >
 
-,,,
-> > Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+
+On Thu, 19 Nov 2026, at 09:22, George Guo wrote:
+> Hi Huacai, Ard, Pratyush,
 >
-> Looks reasonable to me:
+> On Wed, Nov 04 2026, Huacai Chen wrote:
+>> I prefer to keep it in LoongArch until a second architecture, and I
+>> think Ard is the same. But this is not a strong objection to Pratyush.
 >
-> Reviewed-by: Petr Mladek <pmladek@suse.com>
+> Kexin Liu and I have tried x86 as the second user, to see whether the
+> common table holds up. It needed only small changes:
 >
-> Jim, should I take it via printk tree? Or would it be better to take
-> it via another three to avoid conflicts, please?
+> - The x86 EFI stub installs the table, as the LoongArch stub does.
+>   install_kho_table() moves from efi-stub.c to efi-stub-helper.c so
+>   that the x86 stub can call it.
 >
-> Best Regards,
-> Petr
+> - kexec_file_load() skips the SETUP_KEXEC_KHO record when the table
+>   exists and the next kernel will get efi_info. Otherwise, for example
+>   on a legacy BIOS boot or with noefi, it falls back to setup_data.
+>
+> - When there is no SETUP_KEXEC_KHO record, the decompressor's KASLR
+>   code looks up the KHO bootmem areas in the table, so the kernel is
+>   not decompressed onto preserved memory.
+>
+> The table layout did not change. The only change to the common code is
+> that efi_kho_table_found() is no longer __init, since x86 calls it at
+> kexec load time.
+>
+> Tested in QEMU on x86_64. With OVMF, the KHO vmtest and
+> luo_kexec_simple pass, and the second kernel finds the KHO state
+> through the table. With SeaBIOS, the KHO vmtest passes through
+> setup_data.
+>
+> So I would like to keep the table common in v7.
+
+Fair enough.
+
+> Would you prefer the
+> x86 patches in the same series, so that the generic code comes with a
+> second user, or as a separate series on top?
 >
 
-thanks Petr, (and John)
-
-Ideally, AKPM will pick it into nonmm-unstable -
-thats the most likely path for my dd-classmaps-fixes series (cooking now)
-which verifies the test-module output, which this patch alters.
+I'd like to see both tbh, but only if it is not too much of a hassle.
