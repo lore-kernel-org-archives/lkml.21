@@ -1,65 +1,139 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.140
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795817103;
-	b=xzBjIVGACUQoW/ZwABfdjUfaAQcd0C5GV4Mow4zaWQbmleIkrVOpn7ouVWq4D8Jc61zl
-	 wxN5EjSLpU+7/1NDgKfahUMN6BElTVRLgD+wLL4Ic+jaYubQrCA7TeR5coJuTG1ER67Vj
-	 1JxrQZxCMKj5sDpCif9INaf0DE/T0FAmi98LQtMiOZczoJINWay9NqIB47sUKsAVXHSJ2
-	 s7HwBq0apP5JnJIWK/WnJUwCU8BEjZJSqcA3/Kaq8VbN/NS9n+/hjLgwOpmncNhYyGA5P
-	 MjYa8JKKZzUnQEXk4jQQk6cdk/cO/hSMz1e6ceEpJStmGrWozXi/AqOgIlthwcU1dwA==
+	t=1795817105;
+	b=MZAUq/IucFNAY2OpsCrgpWUGm67cDMzhBl3zULbt8oB0IoLYPKZPO2UsINCSnW2pMoMl
+	 4+wBJBbmTxlXQNO3wzmGISW8Dn5s1jftqsPpNBkKzH039riuzTNXFqeXpYzMrHXGjZMDt
+	 d8X4SSQ/a0kaCKHkHVbuQxpJOvMfHyAbRjBCbmYNnml+lfhCaid0Z22ksog63r4elChk8
+	 SJaxn5ljMmuk/2br8oDmw8aQKt8viWjlKxzR1RmbDMq/9+0vDfoZkbmAkrziyOfxytD7L
+	 9Q7Ij6KHc9JS7Uv1oHUTQA066Wsa5ERHy/P4PPQGM1sOIRoPgrxgvwlJtngCY+hc2Wg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795817103;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=VClEl58XM+4yXwL7AVYGyfY+c6D9g2rn19iL32LNkI8=;
-	b=iURggHt5GL4a4kzkzgLCcjCap45l/N0alCAUwcadyfIIZJj4erMbHoOwN0YJ42fEpSE7
-	 BLZIQh9Xy09s08Ttdsw3NWxPZDib+3BGSGJsDW77oPieM0b75pu9yyNV7USwlbFyfJYiN
-	 mFMLt16TYIMemoIDSodRLnd+OJ+mwUoMEvyiX3/DyKs3CXW8nhb5/jUteNIwOfa0q3EqC
-	 lcpFMzgxMJ2azccsuO9Iwi5XEcP8vutGbt/w6ohy4wmUIVqtFJZAFbjSzS8cmtgJqyUb3
-	 7BBMNPIVUP+K+9F8/6iJDnrTUsCf7NAUajcB4pz26EypcyyYYbDTYauCpL833OSyK+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795817105;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ruSTi2KXnNElVne/1XJA5zErngKPBaYI+3TNP5Q+jOA=;
+	b=C30MvHl/ELtQ1S9yUiyWZ6h3S4I6Zevb0Yu7RXyYrK/n1+NSDl97kQ5FF20Z2/H+xpfz
+	 tFgm372nCe/HeBYu3IgPCKq9ODDb5MKkFV/GUwOL1PpsC0OZ6NMXSppvymk+RpRBHTalA
+	 wYI4o/vWVgjbglw9Pfk6MzzqG8hjel6qKsGiHiMErccExGO/Ouu+BBWAbLoKSEJX8XcL9
+	 HUSGz/HzsQABcmNO/t8tkORFUI4yCbRxcqY9VnDI4VCcaPwNVafMvlTBSD/ZTq7u9CvHr
+	 TjUgrt1YoFyiFY3G7wW3Vk8vyR3J7hcJQAKPOycYwv5Lod38T5kJWw23mzHcDDKpLew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QS7KGb4n;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=shazbot.org;
+	spf=pass smtp.mailfrom=shazbot.org;
+	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=H2Cmp6h+;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1Rp09Bfw;
+	arc=none smtp.remote-ip=202.12.124.140
+Received: from flow-b5-smtp.messagingengine.com (flow-b5-smtp.messagingengine.com [202.12.124.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 97A0A606A32E;
-	Fri, 27 Nov 2026 22:05:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB64C606A68D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:05:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB64C606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QS7KGb4n
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2BE351F0089A;
-	Fri, 27 Nov 2026 22:05:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795817102;
-	bh=VClEl58XM+4yXwL7AVYGyfY+c6D9g2rn19iL32LNkI8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QS7KGb4n0K48enlxjXtEoZXYMfLNEzUZc0nrvMlq+RBQfB7wWnMWYI991nx2Zj9WT
-	 yltCzx0jUvSe4dkir4KNtrEflQ4W4WHHqhxrPiYkrf7CxTZRt4r/Ouhb9dL6JqcVf4
-	 giCouAfNICB2sxJaEcy39Msuzd4reWO9vF4IXzx0c2fbXapZaiNTS8yakNKj7qPUfX
-	 HVbiAkMsSLoKilTFCAyBPeTxgs6uA1eeawTTfk4MObjkKz5sSt4Oze4QCvSWJIatzu
-	 Z5QoZv3pUaa4PPiiiZr91ZSBRKkmKw0OTVw+hXdJVmzDNMUuR2WvCEG4eRjkvRwjYp
-	 JKdgsN8Wm9ftg==
-Date: Sat, 28 Nov 2026 00:04:58 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Askar Safin <safinaskar@gmail.com>
-Cc: aleksa@amutable.com, alex@amutable.com, alexei.starovoitov@gmail.com,
-	arnd@arndb.de, bpf@vger.kernel.org, brauner@kernel.org,
-	containers@lists.linux.dev, corbet@lwn.net, dhowells@redhat.com,
-	ebiggers@kernel.org, giuseppe@scrivano.org, hughd@google.com,
-	jack@suse.cz, jlayton@kernel.org, josef@toxicpanda.com,
-	kees@kernel.org, kpsingh@kernel.org, lennart@poettering.net,
-	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
-	luto@amacapital.net, neal@gompa.dev, oleg@redhat.com,
-	paul@paul-moore.com, ptikhomirov@virtuozzo.com, sergeh@kernel.org,
-	skhan@linuxfoundation.org, viro@zeniv.linux.org.uk,
-	zygmunt.krynicki@canonical.com
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Message-ID: <awn-ioAuksHNV-Rc@kernel.org>
-References: <awOQDOel_72Xwjm7@kernel.org>
- <20261127214103.542291-1-safinaskar@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=H2Cmp6h+;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1Rp09Bfw
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.stl.internal (Postfix) with ESMTP id 471E9130335F
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:05:04 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Fri, 27 Nov 2026 17:05:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795817098;
+	 x=1795824298; bh=ruSTi2KXnNElVne/1XJA5zErngKPBaYI+3TNP5Q+jOA=; b=
+	H2Cmp6h+LZGx9f0bQnDfTD/mrFYtXbkzK+rXTkUYR5pU021YammeG2K3MeYucaFM
+	NmgMdpTE9MXujDVHLvXUNk0z9yqRkXpJpUYFdfNtPQcK1+ybgPrO+THRJyb0QbfM
+	NZYtfuwCRSBym+06RvCpT8HXTeWNdoQ/JpteGKuPSsa7lQ1QQ1eNda2XsGujwS1n
+	769FI7ntsYsQVdOZyNETx1l2kw0SOie8DcrNR5kJyc4N1IpuQp1nJxNyTJP6Qv8x
+	5KpATTU5XacwMY/h0d9W1k07cuco7/KcfXCxV5nqyuofPfi5i9u8oUyEpA3fM8Fb
+	D0lKdjC7VtSUmizrLe+K0w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795817098; x=
+	1795824298; bh=ruSTi2KXnNElVne/1XJA5zErngKPBaYI+3TNP5Q+jOA=; b=1
+	Rp09BfwURwtupcfc9BQnP0xBC2kpqHBoXafW0PQRhRS5Yy8uyPJgI1oHOW9SMyBx
+	nL1rh18j+qXSRsMczrcOEWcmE1jGgI9PDQPWAqrb7VlrIZ7AfOqH6lOgqCvTfG6s
+	fLWKm6g8DnKe5yFiszv0oYotaHBlUv2Jsj21jdeTrus8VKxCwNdf4qUEtItt4Mvo
+	Lyq7q7og5HC7V+NHiENtaXKa9I+X9w3pnrENY9qMOD/se58JWkJBK3QSmYO8DzvJ
+	LWyY9Tx4xkiI86zgzmcd4QDCFpB1pw6c1dBzVbSmdpapEP3qO+LX4wTI6J/c1toz
+	2WIUsY/Wa8LnKHpfHrnrw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=shazbot.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795817098; d=shazbot.org;
+	mf=PGFsZXhAc2hhemJvdC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:HjQBlV8D9VnLJeikDEWP3kOFQWbD3OHJiEzb8RPKZECi8i3
+	4jPa+WlFaNAhmgZfZZz3zBUtsK+z4Rqc9gMyziBtbv5A5/xlM7Z/70Lm0HPYzCba
+	V6yLpKpiAcHQlOSU+FCK05On7gn9kQWUAjxBwgTDiuHrm+YscgufKecLflcpy8FZ
+	IIa3yJ+ZT4mNaZDtESSYJJt7Vmh8YpsUNX7tod5jH98+ozjTbwr5/EBv0uwuiCYY
+	hdf+w7/nJeL0BunY5cD+M59gbmaqw6/wLj90jcq7Pl4kwemTtobG3ukoXDKLhSNe
+	ocSFJaX3B56RP/qcIblBip2RLUCAduAbqel4GsA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:0/gjl7sT3nacJr3v+xNspH0IHXx9HtVAOimrDYWjgp4=:VtKoA94nBuwKQPdehHAdkaiDSgvkIeIqZH8gzxzVZf0=;
+X-ME-Sender: <xms:if4Ja32y9uccKKWgA6awKiUv1jsGnifiarSTqXHKpNdk2405PeVa-Q>
+    <xme:if4Ja1GuK9qZubZpc7tiETesteIEMXaSGyYLu30X-k5SNhajo8yHNgT85hpYffCf1
+    zQx1bYlsDGKWPYzWa-O90ieHdbQSF-drzGxgCt_PpFLo9B-f6y17pU>
+X-ME-Received: <xmr:if4JawKWiEMjKTJcNjQKUk2MQpn-Q8JrYKNspHnC9IxfAIyb4LhLqZcKXYNV0g>
+X-ME-Proxy-Cause: dmFkZTFjoLBAvKIejJlSbE4Q3c7bkxlwYcgKg00iy/1FtMqgE0UdHsF+zkRGYeqeIRPxUo
+    Iwd9jRHRKNfQ9hDSzZCbQRpCbytMCSe5RbXFr5dsjvcES8LL1AaH39Ywx2JBlqO1XAK980
+    fT1E3+bKrWsl1e2eZp2tDDY6Em9VuPuj/fcK3NR5NhAMehQQcp1ZK6MkNzHoSfXTPUKBnk
+    xz35R79TqFIpzvcDmSZksFlk95TX8eYyGE7JxUOXuRvieaCQa2CuWVJ5K/gfCk9HehMrYk
+    oIep/2Sm621WsrtQQS+Cbkh8XXCK+vBZcwj+I7FB7jnkybhrFuKbwwbbjXImziG4O2TZfh
+    AbKogQ7P03x0oUsBf5l4zFHiJP39hzK/oDWZksyVD81l7WlsrRfLhL0KRIGhmeAsStmO7Q
+    qJw1PoIvQU4ttXMOHScaWA7aaPwxD3fzXavZXikiAWp6fHurIZMOn84YvIuOrCeUKJ6e0k
+    xEMBmiG+vu0+/y8Fi57kiWtYHq4BN6Ausxugj7ol0vbMIvod7U2rqAtptPnlIu4eulW+QY
+    TRhnuM9D3d+v/B29vt9UF1NG4zzseTSKWMPA9cA+Xh0svixSfX1tZFbDi36vLGCVCYMBSp
+    A/A4Uc7hTuwMLCW688CoK/C/58IQhbeb/r89C3k2DgnProwfkI5fSp15bvvg
+X-ME-Proxy: <xmx:if4Ja5PAN6NdHFNG7OZ7_UnTCfMxe3tG6bpy35Zf_MAgXQB53LFk1A>
+    <xmx:if4Jazon5onLn2WLqaJA6_cFMlo3NtcZmEPrBEei0ykviuniNnmcBQ>
+    <xmx:if4Ja6ffYlYIoFiPFJLmYci-181LdzyKk_cEIWYn6UsmVwoUr7EvlA>
+    <xmx:if4Ja0bJpmV5ratTRzHTZVYYzR4YxwwakIDTYkn9TpxNkFodqK3sjQ>
+    <xmx:iv4Ja4aTdJ5d9t4-fak9OuiXx4z4FAU3UYUlLPKdqc_oOGilNnuxnd4C>
+Feedback-ID: i03f14258:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 27 Nov 2026 17:04:54 -0500 (EST)
+Date: Fri, 27 Nov 2026 15:04:52 -0700
+From: Alex Williamson <alex@shazbot.org>
+To: Simon Song <xinmengs@nvidia.com>
+Cc: dakr@kernel.org, acourbot@nvidia.com, kvm@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, nova-gpu@lists.linux.dev,
+ linux-pci@vger.kernel.org, jgg@nvidia.com, yishaih@nvidia.com,
+ skolothumtho@nvidia.com, kevin.tian@intel.com, airlied@gmail.com,
+ simona@ffwll.ch, ojeda@kernel.org, alex.gaynor@gmail.com,
+ boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
+ tmgross@umich.edu, jhubbard@nvidia.com, ecourtney@nvidia.com,
+ cjia@nvidia.com, smitra@nvidia.com, kjaju@nvidia.com, alkumar@nvidia.com,
+ ankita@nvidia.com, aniketa@nvidia.com, kwankhede@nvidia.com,
+ targupta@nvidia.com, linux-kernel@vger.kernel.org, zhiwang@kernel.org,
+ zhiw@nvidia.com, boqun@kernel.org, daniel.almeida@collabora.com,
+ tamird@kernel.org, work@onurozkan.dev, jgg@ziepe.ca, bhelgaas@google.com,
+ kwilczynski@kernel.org, dri-devel@lists.freedesktop.org, peter@colberg.org,
+ alex@shazbot.org
+Subject: Re: [PATCH v3 9/9] vfio/nova-vgpu: add the Rust VFIO variant driver
+Message-ID: <20261127150452.03a1c163@shazbot.org>
+In-Reply-To: <ad773f07-bf03-4042-b79b-f82cc2d64579@nvidia.com>
+References: <20261119215046.2892839-1-xinmengs@nvidia.com>
+	<20261119215046.2892839-10-xinmengs@nvidia.com>
+	<20261124201931.55c65263@shazbot.org>
+	<abc4a0e3-2478-4b12-8a06-ffc81196bd20@nvidia.com>
+	<20261125230830.48e768b7@shazbot.org>
+	<ad773f07-bf03-4042-b79b-f82cc2d64579@nvidia.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,43 +143,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127214103.542291-1-safinaskar@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 28, 2026 at 12:41:03AM +0300, Askar Safin wrote:
-> Jarkko Sakkinen <jarkko@kernel.org>:
-> > I personally think that "getting in" should not be a goal in the first
-> > place. I care more about that whaever gets in has a high bar of
-> > quality enough. It can be something different than this but
-> > when I read the LWN article about Cells I was alarmed enough
-> > so that I had to do this and prove my point.
+On Fri, 27 Nov 2026 16:35:10 -0500
+Simon Song <xinmengs@nvidia.com> wrote:
+
+> On 11/26/2026 1:08 AM, Alex Williamson wrote:
+> > On Wed, 25 Nov 2026 21:45:13 -0500
+> > Simon Song <xinmengs@nvidia.com> wrote:
+> >   
+> >> On 11/24/2026 7:19 PM, Alex Williamson wrote:
+> >>>> +
+> >>>> +    fn reset_prepare(rd: &NovaVgpuRegData<'_>) {
+> >>>> +        // PCI holds the device lock, and VFIO may hold its memory lock. Open and
+> >>>> +        // close release this mutex before entering the VFIO core.
+> >>>> +        let mut state = rd.state.lock();
+> >>>> +        state.resetting = true;
+> >>>> +        if state.active {
+> >>>> +            if let Some(vgpu) = &rd.vgpu {
+> >>>> +                if let Err(error) = vgpu.api.reset(vgpu.gfid) {
+> >>>> +                    state.reset_error.get_or_insert(error);
+> >>>> +                }
+> >>>> +            }
+> >>>> +        }
+> >>>> +    }    
+> >>>
+> >>> This seems very wrong, why are we calling the PF driver reset in
+> >>> reset_prepare()?  Isn't there still an FLR happening between prepare
+> >>> and done?  Does it do anything?
+> >>>     
+> >> It will not reset the PF, vgpu.api.reset will reset this vgpu instance behind this VF,
+> >> the PF driver would ask firmware to reset the instance and scrub its memory, then FLR
+> >> follows  
+> > 
+> > PF reset is not the question.  We're calling into the PF driver to reset
+> > the VF, but we should not be doing that from reset_prepare().  This
+> > also still doesn't explain what the FLR that follows the PF initiated
+> > VF reset actually does.  Why can't we just use FLR?  Do we need a
+> > device specific reset quirk?
+> >   
+> FLR resets the VF itself, and firmware stops VF channels and reset registers,
+> but doesn't reset vGPU state inside the firmware, and only PF driver can ask firmware to do that
 > 
-> I think that Bacik's patchset has better chances than yours.
-> I think so, because (as Bacik said) it was tested in Anthropic, and also
-> because Brauner reacted positively:
-> https://lore.kernel.org/all/20261021-zeitig-niemals-clubmitglieder-b3973fcebd38@brauner/ .
-> 
-> So I suggest reading Bacik's patchset and say what you don't like about it.
-> You will have chance to influence Bacik's proposal before it will be merged.
+> I agree it doesn't belong in reset_prepare, in next respin, I moved it to reset_done(), so it runs
+> after FLR
 
-I've read it through and the way I'm seeing it is that it is overdoing,
-and has somewhat complicated life-cycle model tbh. I don't like it.
+Both seem like an abuse of the setup/cleanup wrappers.  Is this a gap
+in FLR support?  If so, this is why we have device specific reset
+support in PCI-core.  Depending on the PF driver is going to be a
+challenge though.  When and where specifically do we need this firmware
+state reset?  Isn't the firmware already involved in the FLR?  Thanks,
 
-This could be of course wrong way to see things and I did this just
-to demonstrate that similar goals can be achieved with a relatively
-lightweight core. And this is also demonstrated with a Python daemon
-emulating Cells style containers (and alos relatively trivial SystemD
-wiring).
-
-There's no reason to continue this for the time being as it
-demonstrates already how I see the world i.e., "I showed the
-code". It's up to whoever decides these what they do.
-
-> 
-> (Note: I am not kernel developer.)
-> 
-> -- 
-> Askar Safin
-
-Br, Jarkko
+Alex
