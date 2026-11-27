@@ -1,87 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763484;
-	b=Dpk5RNvvzqTlpC4HFSRyyolaDRb5Axpibvvq5dlxRNfBIiYyVO19PViZW9LXaTok7Orr
-	 StFy8E/v8G3A3c3soJoYF5i8jattG/Hlbrc9nQJ1oKTCh50qYB4/itOvm61bDV9ACIkfP
-	 i5M4fpMic+0YMiPn3kXSU8DQKlE2qpJG3yH7r6HfYgYGyY0dDjYBByL69PGwQyp9RQJ0Q
-	 tEicr5mMTN0559EkgRjBUvJtxbUv9pFFXlikXllqPUbPnfDNs1TmDbPRsygXznDagXKWq
-	 V6c8Uj8Buo0/Ia/PFbyaIKll1BiHAdsbQ6rMmGqprAXbqBM2kLt0vD0YEOWe6+XPEqw==
+	t=1795763500;
+	b=A68nEl8Dw6nn12vz1CTLW4mt45/ftnO7ihiRinLNGpwDql0a/neHAMcsDQMaX9YugThS
+	 VjyHGmAMyyKyPvcEFVoFZe3tAEP9UyNKqfaEL4XInvSfwcqi9UEErHBrCETNtLhlSgVNS
+	 H2/rEekeq6YZ81ilIba8mCrF5RMQ2Nxxi6w5KcIYQJi7Vr+N65gAaxE18B2TxCMuYda/3
+	 MTWhn5ORL5oUyjrWpzRcw986YP7lyL+DfflxCtjnGqxW/PIH/Bhxz7/cDfhj26Jrg2xMW
+	 AVUrEqSUYfLVV/Ma3mkQc/RogMtjodokTjvJx0/0QghTUnSw9LQEFYE7XfMos1VjZRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763484;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-MTK;
-	bh=3QOsyC3d/SLSTb/1ylJFJGSRibhbpTAj/BABfWdbacQ=;
-	b=a3IL3oqfwEik9TQIs1DwCyl3+cbxe8Y2U45mr0/NRbGHuk3wRgz/e6PseQzdcwHC7CVY
-	 qaQxdH3npeTzNDSRub2ofRN+Tch3gLIXHhM6eU/nYHWW4ZH26XWT57kSY7V5GB9zGZuAg
-	 V8OnBrXt/viUN9tFT7HYQpV7W5B03+xmv5Qy0nBaBjRhNuZzD+FnlXpUj7ZheLywrFzv0
-	 7i52lFYOnY8mTXcHKOzJk/w1i3gz48uv3T2tnE+f0nxpf40/Y4NVtbRjdHgYIVau/EHVk
-	 hQcRMafWvPd1BN6zZF5TG7Dx0ITS6DGCY5B2opxEqx77EKogRSWnGTBpIVimLPv/1Fw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763500;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=Va5FgObBSo28d6Jf/jN7EWIhO+eUVFZbVP9yj6KGRfc=;
+	b=s79CWWgLodaxBOI/fO+keCwJglxm2OvW8/Un+TstrXRjHYsjl+FaBb7SF3MfHD1nI3y3
+	 q5w0PVT8oAzGX+PKLOCaPJriuFioJpyykX25+FuHoHdjGy/Qm26xK45yn7i34dNOK4syU
+	 po2teUxPpHhH8QT3SzmNxfanKqqGYTUiBIleLXE8c/UHI7EGPV+XCBrMBJbxBRX4xL9NR
+	 TBIQqRzA6k1LdMjrsb31+vR9IqEWfUwH4B9u9YyVzT2PVz1cLOC92RGajZxOee503nMGX
+	 HgaJkevnei5dunXwU5fZKyHv8ugpPelYGiLTAbcGWLF1S1ak7u1MXIH+gG4vjiN9EHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=KAyNRYEc;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=vTt1d81Y;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D68E606A31C;
-	Fri, 27 Nov 2026 07:11:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D68E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CB2B606A31C;
+	Fri, 27 Nov 2026 07:11:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CB2B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=KAyNRYEc
-X-UUID: bc18490aea3111f1b9cf3d4034dccee2-20261127
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=3QOsyC3d/SLSTb/1ylJFJGSRibhbpTAj/BABfWdbacQ=;
-	b=KAyNRYEc0yxSK1mEAif+XKz27wXZeW2TkzNp4Is/8C+yPUkd9E85iVjOKKejlArwpwyMWj889U/kPoGmRyMeJv1Dnw204fur2uQ6fxPaW3uJwYGxbfBQnuFkpy9t8Xm08VPu4NmmUon7j6q6idiLAg7bMqdwI5gLGoBXVkmthFc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:991cbaab-06fd-43bf-bbc5-31bd3059cd0a,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:4de1db66-4b51-4c95-bb1b-80ac6aad9c96,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
-	0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0
-	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bc18490aea3111f1b9cf3d4034dccee2-20261127
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1755776022; Fri, 27 Nov 2026 15:11:15 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=vTt1d81Y
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR7BSjB4749831, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795763488; bh=Va5FgObBSo28d6Jf/jN7EWIhO+eUVFZbVP9yj6KGRfc=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=vTt1d81YKcOo0GRwOB454gkesZrNgt02r2dNQb6Tv3DFe0rHmuHq1/TiUa4BnxPS9
+	 4LDs9CUqS0NThRvpK4uNsthQx4S9+TSNowqhINtQbPu4c14PX2tpRctFjTs0qsJmaB
+	 1eCF35Qc1bH40BwtlZlN45RSjTaoJJ/YobaXZvrdZRHo0E6vniWTpoOg284PhL7OBh
+	 NrwKlQ9ylPLABF+uItUGVEnJhU2BQ551OxsIOXcgE3MAaaN8h0AcWF/s1SJ+VSwGCD
+	 08P6n9N8AGnvq1wdYoeC1FKj5lBfW5A/cb7YNTMSz0ydS7FNvy1UrPC29l/m/unmDW
+	 xaHDBX2WbxwJA==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR7BSjB4749831
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 27 Nov 2026 15:11:28 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 15:11:14 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Fri, 27 Nov 2026 15:11:14 +0800
-Message-ID: <57233f9eb3071e5393e2b4d84603303c0de39d28.camel@mediatek.com>
-Subject: Re: [PATCH v2 3/3] scsi: ufs: mediatek: round scalable clock bounds
- to clk_round_rate()
-From: Peter Wang <peter.wang@mediatek.com>
-To: Ilia Snezhkov <iasnezhkov@gmail.com>
-CC: <stanley.chu@mediatek.com>, <martin.petersen@oracle.com>,
-	<James.Bottomley@HansenPartnership.com>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>,
-	<louisalexis.eyraud@collabora.com>, <linux-scsi@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Date: Fri, 27 Nov 2026 15:11:14 +0800
-In-Reply-To: <179574206826.56397.7920531590189565888@gmail.com>
-References: <20261126031008.27506-1-iasnezhkov@gmail.com>
-	 <20261126031008.27506-4-iasnezhkov@gmail.com>
-	 <00ba0aec941a72c8401eab7c3d4036caa2ae8aee.camel@mediatek.com>
-	 <179574206826.56397.7920531590189565888@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+ 15.2.2562.56; Fri, 27 Nov 2026 15:11:28 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 27 Nov 2026 15:11:28 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: =?utf-8?B?6qeBU3dhcG5pbCBTaGluZGXqp4I=?= <shindeswapnil028@gmail.com>
+CC: "kvalo@kernel.org" <kvalo@kernel.org>, "linux-wireless@vger.kernel.org"
+	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] wifi: rtw88: pci: Power off MAC and disable interrupts on
+ shutdown
+Thread-Topic: [PATCH] wifi: rtw88: pci: Power off MAC and disable interrupts
+ on shutdown
+Thread-Index: AQHdfgkcjP7Pr8ogOkmROGqrlIhcubdBRICA//+zUgCAAIiKgA==
+Date: Fri, 27 Nov 2026 07:11:27 +0000
+Message-ID: <7b6eb43826cb440f9f9386310cb037bb@realtek.com>
+References: <20261127004822.8536-1-shindeswapnil028@gmail.com>
+ <24cb6dca77d3456fb5893ce37b0bd1c7@realtek.com>
+ <CAJEWX79Jini8C44xiP_O41--eWEhcpZnMiK84Wp8dqmtO-D5Qw@mail.gmail.com>
+In-Reply-To: <CAJEWX79Jini8C44xiP_O41--eWEhcpZnMiK84Wp8dqmtO-D5Qw@mail.gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,50 +85,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MTK: N
 
-On Fri, 2026-11-27 at 09:14 +0800, Ilia Snezhkov wrote:
-> Hi Peter,
->=20
-> It is not a missing hardware calibration =E2=80=94 it comes directly from=
- the
-> fractional-N PLL PCW quantization against the 26 MHz reference
-> crystal
-> (clk26m).
->=20
-> On MT6789, msdcpll has pcwbits =3D 22 and pcwibits =3D 8 (14 fractional
-> bits, 2^14 =3D 16384), with VCO range 1500..3800 MHz, and
-> ufs_sel_max_src
-> is msdcpll_d2 (msdcpll / 2). To target msdcpll =3D 384 MHz (msdcpll_d2
-> =3D
-> 192 MHz) at postdiv =3D 4, VCO =3D 1536 MHz, so the required multiplier
-> is:
->=20
-> =C2=A0 1536 / 26 =3D 768 / 13 =3D 59 + 1/13
->=20
-> Because 1/13 is a non-terminating binary fraction, no integer PCW
-> value
-> can represent 384 MHz exactly in 14 fractional bits:
->=20
-> =C2=A0 pcw =3D 0xec4ec (967916) -> vco =3D 1535999512 Hz -> msdcpll =3D
-> 383999878 Hz -> msdcpll_d2 =3D 191999939 Hz (-61 Hz)
-> =C2=A0 pcw =3D 0xec4ed (967917) -> vco =3D 1536001099 Hz -> msdcpll =3D
-> 384000275 Hz -> msdcpll_d2 =3D 192000137 Hz (+137 Hz)
->=20
-> (With postdiv =3D 8, VCO =3D 3072 MHz =3D 26 MHz * (118 + 2/13), the
-> closest
-> PCW values give 191999939 Hz and 192000038 Hz =E2=80=94 still never exact=
-ly
-> 192000000 Hz.)
->=20
-> So the CCF __mtk_pll_recalc_rate() / clk_round_rate() result for
-> msdcpll_d2 is deterministically 191999939 Hz, which never matches a
-> nominal 192000000 Hz entry in freq-table-hz under
-> ufshcd_devfreq_target()'s
-> exact `freq =3D=3D clki->max_freq` check.
->=20
-> Best regards,
-> Ilia
-
-Thank you for your detailed explanation.
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+6qeBU3dhcG5pbCBTaGluZGXqp4IgPHNoaW5kZXN3YXBuaWwwMjhAZ21haWwuY29tPiB3cm90ZToN
+Cj4gSGkgUGluZy1LZSwNCj4gDQo+IFRoYW5rIHlvdSBmb3IgdGhlIHJldmlldyBhbmQgc3VnZ2Vz
+dGlvbi4NCj4gDQo+IEkgdGVzdGVkIGNhbGxpbmcgcnR3X2VudGVyX2lwcyhydHdkZXYpIHVuZGVy
+IHJ0d2Rldi0+bXV0ZXggaW4NCj4gcnR3X3BjaV9zaHV0ZG93bigpICh3aXRoIEVYUE9SVF9TWU1C
+T0wocnR3X2VudGVyX2lwcykgYWRkZWQgaW4gcHMuYywNCj4gcnVubmluZyBhbG9uZ3NpZGUgdGhl
+IGNvbXBhbmlvbiBidHVzYiBzaHV0ZG93bi9hdXRvc3VzcGVuZCBmaXgpIG9uIG15DQo+IFJUTDg3
+MjNERSBsYXB0b3A6DQo+IA0KPiAtIENvbGQgYm9vdDogV2ktRmkgYW5kIEJsdWV0b290aCBib3Ro
+IHdvcmsuDQo+IC0gV2FybSByZWJvb3QgIzEgKFdpLUZpIE9OLCBCbHVldG9vdGggT04pOiBCb3Ro
+IFdpLUZpIGFuZCBCbHVldG9vdGggd29yay4NCj4gLSBXYXJtIHJlYm9vdCAjMiAoQmx1ZXRvb3Ro
+IHRvZ2dsZWQgT0ZGIG1pZC1zZXNzaW9uLCBXaS1GaSBPTik6IEJvdGgNCj4gICBXaS1GaSBhbmQg
+Qmx1ZXRvb3RoIHdvcmsgY2xlYW5seSAobm8gLTE2IE1BQyBwb3dlci1vbiB0aW1lb3V0IG9yIC03
+MQ0KPiAgIFVTQiBlbnVtZXJhdGlvbiBlcnJvcikuDQoNCkdvb2QgdG8gaGVhciB0aGF0Lg0KDQo+
+IA0KPiBVc2luZyBydHdfZW50ZXJfaXBzKCkgaXMgaW5kZWVkIG11Y2ggY2xlYW5lciB0aGFuIG1h
+bnVhbGx5IGNsZWFyaW5nIHRoZQ0KPiBpbnRlcm5hbCBmbGFncyBhbmQgY2FsbGluZyBydHdfcG93
+ZXJfb2ZmKCksIGFuZCBpdCBhbHNvIG5vdGlmaWVzIEJUDQo+IGNvZXggdmlhIENPRVhfSVBTX0VO
+VEVSIGJlZm9yZSBlbnRlcmluZyBQQ0lfRDNob3QuDQo+IA0KPiBSZWdhcmRpbmcgY29tbWl0cyAw
+NTIwMjc0NmVkNzAgYW5kIDQ0NDkyZTcwYWRjODoNCj4gLSAwNTIwMjc0NmVkNzAgc2V0cyBCSVRf
+VVNCX1NVU19ESVMgaW4gUkVHX0hDSV9PUFRfQ1RSTCwgd2hpY2ggZG9lcyBub3QNCj4gICBwb3dl
+ciBvZmYgdGhlIFdpLUZpIE1BQyBiZWZvcmUgNDQ0OTJlNzBhZGM4IHRyYW5zaXRpb25zIHRoZSBk
+ZXZpY2UgdG8NCj4gICBQQ0lfRDNob3TigJRsZWF2aW5nIFJFR19BUFNfRlNNQ08gYWN0aXZlIGFj
+cm9zcyB3YXJtIHJlc2V0ICgtRUJVU1kpLg0KDQpTbyBib3RoIG9yIGVpdGhlciBvbmUgY29tbWl0
+IGRvbid0IGhlbHA/DQoNCj4gLSBDYWxsaW5nIHJ0d19lbnRlcl9pcHMoKSByaWdodCBiZWZvcmUg
+cGNpX3NldF9wb3dlcl9zdGF0ZShwZGV2LCBQQ0lfRDNob3QpDQo+ICAgY2xlYW5seSByZXNvbHZl
+cyB0aGF0IHdoaWxlIGtlZXBpbmcgYm90aCBjb21taXRzIGludGFjdC4NCj4gDQo+IFdvdWxkIHlv
+dSBsaWtlIG1lIHRvIHNlbmQgYSBbUEFUQ0ggdjJdIHRoYXQgZXhwb3J0cyBydHdfZW50ZXJfaXBz
+KCkgaW4NCj4gcHMuYyBhbmQgY2FsbHMgaXQgZnJvbSBydHdfcGNpX3NodXRkb3duKCkgaW4gcGNp
+LmM/DQoNCklmIHRoaXMgaXMgdGhlIG9ubHkgd2F5IHRvIGZpeCwgcGxlYXNlLiANCg0KLS0tDQoN
+CnB3LWJvdDogY3INCg0K
