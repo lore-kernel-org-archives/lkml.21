@@ -1,54 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795808458;
-	b=OVKUHFKWU8aM86jiqXLAEHUreq9UzumA55+G/KwzOAmqhQCIOdtLvNM0Z/NlGlY1YDRP
-	 t/yGbYmphzJe2cVZXDmW5xK8nDa/Rrfe8fTAnRRvPow8WeWdDFcd1AtmyEGl9L1CmtPNV
-	 /NwnDarLe172SJqO9Rn2KLdHIQCfSyxxskFJc+xr7IhguLiNqbwih3cApruXKLYjRsrdo
-	 xFbSgFuTWE1tOOp5GjVuFFntumF3oOew6aAjvZTeiaOaV379ZgMWoh3io4/Sjc/Z6OCUv
-	 eff3tMl83/XdbobwFSvx9fhDqi2LZMZHjWLHa/0EFrunhYiDEJb1/9kHpMUMY0JIgKA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795808458;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=lqF8jc2QrkR3SKq9gEQYdyy5tYfJGpiAZxCgMUFP9Ew=;
-	b=PWF8HIB+EyusdJ+iPkWtLgz2lzrqiBkCxQwieJfC7J4DxrKOaV0OV0QA2b++hgtOnXIU
-	 tLjL+d2TL99NH4uP6LSTUyrhDZ5aPQpj2IQCExto+lRUH+BOT3WxKilldbnutnRsAxaR3
-	 DXD0IX4v0xeoO8VtqsiFCcqPohUo9TfL1PJmA+Al33OfM43SrfRNyN+rVOYhmBMj1fvZF
-	 9hTg79sqKg4AuLx9BcCy5phjhpXtmlNCbdMtrB5+759QyzW8/6Tf42nIQOmrB6Wq7kehL
-	 Pm+nbEsYjL2qd+gw5zdPenVoe0fZg7XVuYHpBHcDBqc9E4LboVrQI16WL2I8Cqzqlng==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=QxXKvhzx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86B63606A31C;
-	Fri, 27 Nov 2026 19:40:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86B63606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795808465;
+	b=jynA8EdtESCiphk34F46TTprPFLrNm07sAOOQ91VG8uvPhvQgvO/tknblB9QPxne8FSg
+	 IjOIHD2gsf4bpgLre12y3Eg6iTnUOJRa8sJ79/2U2sELm2i6UWFx7sVgGMLeeBDkIHXkp
+	 khTuZJG+MksILGpS3hfGfE1GxmjQJQd/OlgolyEFK3ZTtDmgIgsRsnZ1M13+QA6V39jgV
+	 UKnTCtEMbR273fZ4RkaIpDvp9I0uHFvzJY51oBSrZO41r06hDvr97/UxoG5ea2LhdGeay
+	 NRwzdnKvn2ME2lLnajDsm4alPdgPJ+N1nNAdSlWtNxgsyRCIE1HV7v2xRLLfcX9wZsQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795808465;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ULn49rq+foRUnRGBMXBuYjS8gpikS5WyQEKWls+yMRA=;
+	b=Kws7iS6dBeBT1e/5doXcDLOYn7oTQHBfjEXJiaMRg/enHYEwByyvpdirkveLhtk1Ox3/
+	 fGhK1UvcbXXQeGbMUuXSJgSZ9dJp5V1u+qP6QIkUb2RiNQoU/kXBATnTruBMGD2jaxQsZ
+	 +IETZ9wUEWjxJ8Y7uLYRLgz/lDzTrNNaTKIUAFldZIlipQMrNbbA4Ft4flM/3oTcy0+5K
+	 gfn+U6UKGRmLcjCHvIPdZuCmy2VLvdKB8If3nTVvCsKXjb6Jtj8kK8i0+IXJL+2d6c52/
+	 ww8ufJysoktZH1fUJSWrGqDh0LrNhLqMCz5afmbG1LwYjpRA26Yov8vuHBM1fJ8WjFg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lSncp5uC;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 03A63606A32C;
+	Fri, 27 Nov 2026 19:41:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03A63606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=QxXKvhzx
-ARC-Seal: i=1; a=rsa-sha256; t=1795808444; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ilEy0m3sAlzBkKvL9VPag52GDZWVDbPNgqfROjbQtNOE8d9Dd0sNz69AzqFXZR9eHp6Qooh7JEoC0+wzNHuMRtRTTcvR+06NXqZwBRuzdIF/ru8ddazKt2hD/pnujIohWkoruYpXGyuJHBBnz9qO57lP8cUuCkiocb2SUFhTJ+w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795808444; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=lqF8jc2QrkR3SKq9gEQYdyy5tYfJGpiAZxCgMUFP9Ew=; 
-	b=OSFM+gEy+veRL2/Dg8eUydYINPwPU5/7+ZSPGYIeEM7Db/dxZKezLykbybVjbnlGLD/Vs8M56A3x5/9+1xG0zCGcaJxIgJvhO6MSDRJESTnFJu2JRTm2jULllIImsPAQArdjo2AOPtUXsMhOh7oIb5CXrukTYMcvnudmLpzdgG0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=QxXKvhzx7di5J8Am7J4uE41S193jN0YhVpLLTBSrZjmXsrVmvu5m9YKJpvrhEM475UEzHpvbCtg0A+wYK66CpxOf8In2IXTaFXSoXyHywkk7tuCCjGWe1YSClwu+lvZtvEe4E7TAEFss9VvoEo90sJQSFDm+/xzwz5oFx49zIs8=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=lqF8jc2QrkR3SKq9gEQYdyy5tYfJGpiAZxCgMUFP9Ew=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795808442230524.8802054057094;
-	Fri, 27 Nov 2026 11:40:42 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lSncp5uC
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DE1D1575;
+	Fri, 27 Nov 2026 11:41:01 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 432D53F632;
+	Fri, 27 Nov 2026 11:41:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795808464; bh=fioucID+8fbbj8tWzFHzFZGEV4eCYp3bOFGBcaxc55s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lSncp5uCSksq2jem0pQF5wGdzZG7o7CpSitT4QZGqkwrt6CNnmOzoN58im0X0EIRL
+	 WpgDd/dGqrL5y414OIyTYa55gA9fzjEksDtUygbJJgVt46+2393rtwIcj9kfxjGrXv
+	 PLiwn5Oj7+2c7mutFKeiwqwYxHDE9B/nNcZ8tZpU=
+Date: Fri, 27 Nov 2026 19:40:58 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>, Len Brown <lenb@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH RFC v3 7/8] attestation: providers: introduce CCA Guest
+ attestation provider
+Message-ID: <awncytx4Nqd8HuNx@e129823.arm.com>
+References: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
+ <20261127-arm_cca_mr-v3-7-df3230afce8f@arm.com>
+ <20261127170722.GT246011@ziepe.ca>
+ <awnK2c3kMq8p2a_7@e129823.arm.com>
+ <20261127183550.GV246011@ziepe.ca>
+ <awnV5S703Rgf5sh5@e129823.arm.com>
+ <20261127191822.GA1856591@ziepe.ca>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,29 +80,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH RESEND 0/3] drm/tyr: KUnit tests and fixes for the
- firmware parser
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <20261127-tyr-fw-parser-v1-0-8aab2a711f9b@collabora.com>
-Date: Fri, 27 Nov 2026 16:40:33 -0300
-Cc: Sami Tolvanen <samitolvanen@google.com>,
- dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <3A70BA02-A671-44DB-B5D3-0D67C88A7785@collabora.com>
-References: <20261127-tyr-fw-parser-v1-0-8aab2a711f9b@collabora.com>
-To: dakr@kernel.org,
- simona@ffwll.ch,
- airlied@gmail.com,
- aliceryhl@google.com
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127191822.GA1856591@ziepe.ca>
 
-Sami,
+On Fri, Nov 27, 2026 at 03:18:22PM -0400, Jason Gunthorpe wrote:
+> On Fri, Nov 27, 2026 at 07:11:33PM +0000, Yeoreum Yun wrote:
+> > I think the problem is the *max-token-size* could be changed.
+> > once the LFA updates the Realm definitely the contents of hash of
+> > firmware binary can be changed. this means the token's content could be
+> > change including the *max-token-size*.
+> 
+> I think that is broken, there is no good way to make that work in a
+> sane manner.
+> 
+> LFA must stay under the hard wired max-token-size limit, not try to
+> change it while a realm is running. Take this to your spec team.
 
-Can I add your co-developed-by + sob for patches 2-3?
-They are basically your fixes + tests
+Yeap. if max-token-size is hard wired. then will not be a problem.
+And need to talk them.
 
-=E2=80=94Daniel=
+Thanks!
+
+> 
+> > For this, the RSI host call interface has the way to get LFA eventlog.
+> > IOW, after LFA, there will be LFA log is genreated and then for the
+> > time of re-attestation, it should deliver the LFA logs together.
+> 
+> The detached event log is even more reason the token should not ever
+> be changed by a LFA.
+> 
+> > > I saw in your FIRME series a solution to this problem, I think that
+> > > would be good to get out on its own and apply it first to RSI as
+> > > well. We will have the core RSI stuff, the realm attestation and TSM
+> > > driver at a minimum..
+> > 
+> > Hm,, Does this mean do we need to create two device one for TSM and
+> > one for attestation even the functionality same?
+> 
+> They won't have the same functionality. It will be the same as you had
+> with FIRME where there is a driver doing CPU attestation and another
+> one (the TSM driver actually) doing link IDE.
+
+Right, I've missed the link IDE.
+Yeap. in the next-spin let me make two device for it.
+
+Thanks ;)
+
+-- 
+Sincerely,
+Yeoreum Yun
