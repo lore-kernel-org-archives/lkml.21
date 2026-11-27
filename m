@@ -1,60 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795764461;
-	b=J+rFHFW0fkUuVaHgy7w8c6h9oWv5e+POpQ78uULawFpW7nL8XzQ8nNlvo1IvzxlqWD6V
-	 7vSefQkAKL5cMef9UBlnd8OcXxhWLuc8LR2/Pj9/ub8EoZk7nisqbj11DLynomD25OQIn
-	 0QM2ZGlUJ/E/K/3b0S3rO6zpNNcLsJETSBFzFIH8ltvBHaVxkk5ZKDmmM9Hc610/9yEDJ
-	 GfuYYiLkGpvgOb28hXDtN7hbbySjFE/QmoGY83/4A9K4BYu1V/8GPOUgRh599/IrUxg7n
-	 /kb+HMgBErpsG2y/2jHNQyIgZlKK/oZTdVBeo3XLNMorIbWmiYCJIACBlPCnzwLeKTA==
+	t=1795764464;
+	b=kOUzHqM3T4fDQcnvsEoY8dGvVUmZIGwBiow7hBmdNj8WM3p7aAmVAaDCDE4wSj2Jbskm
+	 pg+ECePpEDjQWn4kHDUEK96TkxvYB7o0iHbtqZAUYhq4j8lzk7OUN7t5uGPX4FT2xLI3R
+	 9QH/bMz4D5o9oGkKEUssFtFrGnbFZ5MmPUXFHZtVor2GTiGUOkwTlyQgdbj0UIg2Yq7Dw
+	 kpMyZ5v4ak/Bf1t3KjW49RVLMm/ZOWqO7Zg9cHgz8kmmP0iC8tOvWonet7ZAqdQTIlCxD
+	 jQoYFNwAsfxZXEJqX9oj18Ue58AkO1kTKMDwaVXm12/Au08u4tG5PRmEeleODgNq5cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795764461;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=E+inXe2OtE6yR8hVT7xOLRg+hct+qdY2m2H2vksox8I=;
-	b=4XqnrQHnLJLgZe5pMSWRd0khDqgmZ539gK1kUxc0+G4W9VtxSr8LubQrxbCjwXU1Rap4
-	 GzkmLxCA+J0R6n/2NxCs08hltffuAsm0XpjCEkkGXW4UqpSQcsw5BQO99duN2vorfqgL5
-	 qX4Kxd/u0VFhcV7G9U6nHfs9CkpuQ71qxxcn8SW8qVaROzxo5OqnbnHPN4LzFhVtnK5qZ
-	 U3nvJ8usQU/hH+m2ER55hXf9B+zBe9nug/pPyorKGV+CuCEcmvQTq4/og/+8IsXOReZll
-	 YkXt740KrSnr2jpxjcIN5FwR6Qaj/eVfDTIkLQ5vqfcGrgxye/lia6P6v+fh8yJkI6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795764464;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=6h2VEjUJ9OYbFuelv8eX8d40TLpNiTN6XRXrVD9NLCc=;
+	b=WbWZ5J+j2IAAx2L1ieYl5SHsbhSYIzl0izbMIsVod/AJGYaPuV3NOspLMOz6AjYnl3A8
+	 YzjjffImkiy3GR6kc50k1L90d+/6ByltrbJ18uPwfKOeMpppUD6bs02BpqbpZxlU+7nlI
+	 bj5sxJ/dM+CAF/0EZQaClyrkEV4FHqLwIc+PNH1HxfBoH0x8CFizrxalGvvtUuKJZIB5z
+	 Aui7bsYOJZft87iYqG9sIOgf1zYN66HHRPdJx5yRZJ28FjWZYK6/xjY9tAzMcoWG47k8C
+	 XC5ZSc54s+YcYuPsRxprXs464MCDqBqJ92aH9h1PGzJJzVmVjHTl/mLdOaQ/nBbESVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=jO0muvt0;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="G/iI3oKh";
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 861B3606A680;
-	Fri, 27 Nov 2026 07:27:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 861B3606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A6D9606A687;
+	Fri, 27 Nov 2026 07:27:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A6D9606A687
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=jO0muvt0
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=E+inXe2OtE6yR8hVT7xOLRg+hct+qdY2m2H2vksox8I=; t=1795764461; x=1796628461; 
-	b=jO0muvt0FSXzgdhQ6AkGyHQ97L84Hw7IidnpqkJ++he9Tmts/ElX+VIiYMrHm3zb4/pz7Y6UAbw
-	I3Ntp0Nd8ROSTGepxX7peY/wc85RQ1hw85gcPZ9zYdU1NzNZ01aceVh2FV85V8YaxpOUc7o8puEVi
-	7YvKuWKNTfKS/zlG4JiAIHiSVDWvepU7nc1sZHp9daV0gYVR3FLMgj1gk3KK09RMZgrje+1pUT4NB
-	EHQqGRGHt0ujmyqEMBXk3Fpv8zty8wBG98Arje2pRWqEALYzVGlmVUJXdyTzouT2+Y0Aleki6RYX1
-	fBGDfH1C3rSi2o8Ywc/SxX4duOASwPzLMStg==;
-Received: from [167.220.238.14] (helo=[127.0.1.1])
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xWqMu-006vml-FM;
-	Fri, 27 Nov 2026 02:27:40 -0500
-From: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>
-Date: Fri, 27 Nov 2026 12:57:01 +0530
-Subject: [PATCH 4/4] Documentation: core-api/cpuhotplug: Add naming
- convention for callbacks
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=G/iI3oKh
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR7RDf24755729, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795764434; bh=6h2VEjUJ9OYbFuelv8eX8d40TLpNiTN6XRXrVD9NLCc=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=G/iI3oKhZdRPqWrw8ZyOVCS6Q6iUvqmpRWfeyseRHKyJGSaNimNu2ysG2D0Rn2aKK
+	 3yPkskp3sHpGtcvp37siD9qkpI2AZLGS2FwvtFlUONRgaJOBxogVUnUgjsThxnQVEH
+	 wAE0rujB7yXqCgeACTeREgT7SV5oQKAJSvYrK4anT6fw8oqENSoTKrY6VAnayUbxKu
+	 jULocYxCcmJaqDiWXnBtk96T3AHP8GyewSGohbLR+N5nYDVgVdfy6nky/szcZn4pO1
+	 U7JvyLg1UxWU+OhAlC0WIXdHZE1pWqRlUH17ZARiF+tiKBYUeS46F6nYqXKsrvVQqm
+	 AlfVRLbi3buEg==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR7RDf24755729
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 27 Nov 2026 15:27:13 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 27 Nov 2026 15:27:13 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 27 Nov 2026 15:27:12 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 27 Nov 2026 15:27:12 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Enver Ikromov <owner@ph4ntom-rev.uz>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, "Ahmet
+ Zeren" <niko3x@proton.me>, Luka Gejak <luka.gejak@linux.dev>, "Bitterblue
+ Smith" <rtl8821cerfe2@gmail.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH rtw-next 1/2] wifi: rtw89: fix retry limit and NO_ACK
+ status for injected frames
+Thread-Topic: [PATCH rtw-next 1/2] wifi: rtw89: fix retry limit and NO_ACK
+ status for injected frames
+Thread-Index: AQHdfYDfe0tgBtSsfEy+aX+JF/+RGLdBgwoA
+Date: Fri, 27 Nov 2026 07:27:12 +0000
+Message-ID: <06298e2d51ca45e482165b9c7bdbfdf3@realtek.com>
+References: <20261126083141.1470-1-owner@ph4ntom-rev.uz>
+ <20261126083141.1470-2-owner@ph4ntom-rev.uz>
+In-Reply-To: <20261126083141.1470-2-owner@ph4ntom-rev.uz>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,55 +89,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-docs-cpuhp-v1-4-a34a2c9f66fa@csail.mit.edu>
-References: <20261127-docs-cpuhp-v1-0-a34a2c9f66fa@csail.mit.edu>
-In-Reply-To: <20261127-docs-cpuhp-v1-0-a34a2c9f66fa@csail.mit.edu>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>, 
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
- Saurabh Sengar <ssengar@linux.microsoft.com>
-X-Mailer: b4 0.13.0
 
-Add a naming convention for the startup and teardown callbacks
-registered for CPU hotplug states. Follow the common pattern of
-subsys_cpu_mode(), where subsys is the subsystem or driver that is
-registering the callback, and mode reflects the state that the
-callback is associated with (ex: prepare, starting/dying,
-online/offline).
+Enver Ikromov <owner@ph4ntom-rev.uz> wrote:
+> Commit 92608bb5f14f ("wifi: rtw89: honor ASSIGN_SEQ, retries, and
+> NO_ACK for injected frames") has three issues:
 
-Signed-off-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
----
- Documentation/core-api/cpu_hotplug.rst | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Your Fixes tag has said this.
 
-diff --git a/Documentation/core-api/cpu_hotplug.rst b/Documentation/core-api/cpu_hotplug.rst
-index fe5385a8bd8e..ea00859154be 100644
---- a/Documentation/core-api/cpu_hotplug.rst
-+++ b/Documentation/core-api/cpu_hotplug.rst
-@@ -444,6 +444,16 @@ The @teardown argument is a function pointer to the callback which should
- be invoked during a CPU offline operation. If the usage site does not
- require a teardown callback, set the pointer to NULL.
- 
-+The naming convention for the @startup and @teardown callback
-+functions is "subsys_cpu_mode()". For example: vmstat_cpu_online(),
-+trace_rb_cpu_prepare() etc. As with the @name argument outlined above,
-+other descriptive function names can also be used instead, if they
-+describe the nature of the action performed by that callback better in
-+the context of that subsystem (ex: free_vm_stack_cache()). However, if
-+you choose to embed the mode in the function's name (i.e., prepare,
-+online/offline, starting/dying etc.) as recommended, make sure that it
-+aligns with the state that the callback is actually associated with.
-+
- The functions differ in the way how the installed callbacks are treated:
- 
-   * cpuhp_setup_state_nocalls(), cpuhp_setup_state_nocalls_cpuslocked()
+>=20
+> 1. rtw89_core_tx_update_injection() uses info->control.rates[0].count
+>    without checking IEEE80211_TX_CTRL_RATE_INJECT. When a radiotap rate
+>    is unsupported on the current band or stream capability,
+>    ieee80211_parse_tx_radiotap() clears IEEE80211_TX_CTRL_RATE_INJECT
+>    while still populating rates[0].count. Gate the per-packet retry
+>    override on IEEE80211_TX_CTRL_RATE_INJECT.
+>=20
+> 2. hw->max_rate_tries is set to RTW89_TX_DATA_CNT_LMT_MAX (63), which
+>    exceeds the 5-bit struct ieee80211_tx_rate::count field and causes
+>    radiotap retry counts above 30 to wrap around. Set
+>    hw->max_rate_tries to IEEE80211_MAX_TX_RETRY (31) and drop the
+>    unused macro.
+>=20
+> 3. rtw89_tx_rpt_tx_status() sets IEEE80211_TX_STAT_NOACK_TRANSMITTED
+>    unconditionally for NO_ACK frames (including RTW89_TX_MACID_DROP and
+>    RTW89_TX_LIFE_TIME)=20
 
--- 
-2.43.0
+I don't know why there is a problem?
+
+> and also sets IEEE80211_TX_STAT_ACK when
+>    tx_status =3D=3D RTW89_TX_DONE. Because Wi-Fi 6 AX chips lack a TX
+>    descriptor NO_ACK bit and implement NO_ACK via tx_cnt_lmt =3D 1,
+>    unacknowledged unicast NO_ACK frames complete with
+>    RTW89_TX_RETRY_LIMIT, whereas broadcast, QoS No-Ack, and Wi-Fi 7 BE
+>    NO_ACK frames complete with RTW89_TX_DONE. Clear stale status bits
+>    and report IEEE80211_TX_STAT_NOACK_TRANSMITTED exclusively on
+>    RTW89_TX_DONE or RTW89_TX_RETRY_LIMIT, reserving
+>    IEEE80211_TX_STAT_ACK for frames without IEEE80211_TX_CTL_NO_ACK.
+
+Generated by LLM? Can you reword commit message yourself?
+
+>=20
+> Fixes: 92608bb5f14f ("wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK =
+for injected frames")
+> Reported-by: Luka Gejak <luka.gejak@linux.dev>
+> Closes: https://lore.kernel.org/linux-wireless/7904907C-A864-4DE9-AE9B-65=
+082A38B29B@linux.dev/
+> Reported-by: Ahmet Zeren <niko3x@proton.me>
+> Closes:
+> https://lore.kernel.org/linux-wireless/Qmyu_zaapR7fisQhYB1W9CDM3OG849otNX=
+R4xWRbIaRocvy40VyY4N2Jte4
+> IHqD33nCI_txHle2bL5F7S0b6Bv_uXvCyk9MJ35CFHWzopyE=3D@proton.me/
+> Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
+> ---
+>  drivers/net/wireless/realtek/rtw89/core.c |  5 +++--
+>  drivers/net/wireless/realtek/rtw89/core.h |  1 -
+>  drivers/net/wireless/realtek/rtw89/mac.h  | 13 ++++++++-----
+>  3 files changed, 11 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/drivers/net/wireless/realtek/rtw89/core.c b/drivers/net/wire=
+less/realtek/rtw89/core.c
+> index 31d52fb99..8421c78c2 100644
+> --- a/drivers/net/wireless/realtek/rtw89/core.c
+> +++ b/drivers/net/wireless/realtek/rtw89/core.c
+> @@ -1274,7 +1274,8 @@ static void rtw89_core_tx_update_injection(struct r=
+tw89_dev *rtwdev,
+>                 desc_info->no_ack =3D true;
+>                 desc_info->tx_cnt_lmt_en =3D true;
+>                 desc_info->tx_cnt_lmt =3D 1;
+> -       } else if (info->control.rates[0].count) {
+> +       } else if ((info->control.flags & IEEE80211_TX_CTRL_RATE_INJECT) =
+&&
+
+No need parenthesis for ( & )
+
+> +                  info->control.rates[0].count) {
+>                 desc_info->tx_cnt_lmt_en =3D true;
+>                 desc_info->tx_cnt_lmt =3D info->control.rates[0].count;
+>         }
+> @@ -7561,7 +7562,7 @@ static int rtw89_core_register_hw(struct rtw89_dev =
+*rtwdev)
+>         hw->queues =3D IEEE80211_NUM_ACS;
+>         hw->max_rx_aggregation_subframes =3D chip->max_rx_agg_num;
+>         hw->max_tx_aggregation_subframes =3D chip->max_tx_agg_num;
+> -       hw->max_rate_tries =3D RTW89_TX_DATA_CNT_LMT_MAX;
+> +       hw->max_rate_tries =3D IEEE80211_MAX_TX_RETRY;
+>         hw->uapsd_max_sp_len =3D IEEE80211_WMM_IE_STA_QOSINFO_SP_ALL;
+>=20
+>         hw->radiotap_mcs_details |=3D IEEE80211_RADIOTAP_MCS_HAVE_FEC |
+> diff --git a/drivers/net/wireless/realtek/rtw89/core.h b/drivers/net/wire=
+less/realtek/rtw89/core.h
+> index 87a832b5c..612389f32 100644
+> --- a/drivers/net/wireless/realtek/rtw89/core.h
+> +++ b/drivers/net/wireless/realtek/rtw89/core.h
+> @@ -1278,7 +1278,6 @@ struct rtw89_tx_desc_info {
+>         bool tx_cnt_lmt_en;
+>         u8 sn: 4;
+>         u8 tx_cnt_lmt: 6;
+> -#define RTW89_TX_DATA_CNT_LMT_MAX      0x3f
+
+You need to consider min of driver and ieee80211, so maybe
+    min(0x3f, IEEE80211_MAX_TX_RETRY)
+
+The logic is clearer.=20
+
+>         u8 addr_info_nr;
+>         u8 sec_keyid;
+>         u8 sec_type;
+> diff --git a/drivers/net/wireless/realtek/rtw89/mac.h b/drivers/net/wirel=
+ess/realtek/rtw89/mac.h
+> index c94b34b92..5c3af59d1 100644
+> --- a/drivers/net/wireless/realtek/rtw89/mac.h
+> +++ b/drivers/net/wireless/realtek/rtw89/mac.h
+> @@ -1896,12 +1896,15 @@ void rtw89_tx_rpt_tx_status(struct rtw89_dev *rtw=
+dev, struct sk_buff *skb,
+>         info =3D IEEE80211_SKB_CB(skb);
+>         ieee80211_tx_info_clear_status(info);
+>=20
+> -       if (info->flags & IEEE80211_TX_CTL_NO_ACK)
+> -               info->flags |=3D IEEE80211_TX_STAT_NOACK_TRANSMITTED;
+> -       if (tx_status =3D=3D RTW89_TX_DONE)
+> +       info->flags &=3D ~(IEEE80211_TX_STAT_NOACK_TRANSMITTED |
+> +                        IEEE80211_TX_STAT_ACK);
+
+Why do you need to clear these two bits ahead?
+
+> +       if (info->flags & IEEE80211_TX_CTL_NO_ACK) {
+> +               if (tx_status =3D=3D RTW89_TX_DONE ||
+> +                   tx_status =3D=3D RTW89_TX_RETRY_LIMIT)
+> +                       info->flags |=3D IEEE80211_TX_STAT_NOACK_TRANSMIT=
+TED;
+> +       } else if (tx_status =3D=3D RTW89_TX_DONE) {
+>                 info->flags |=3D IEEE80211_TX_STAT_ACK;
+> -       else
+> -               info->flags &=3D ~IEEE80211_TX_STAT_ACK;
+
+I think the original ~IEEE80211_TX_STAT_ACK is not necessary.=20
+
+> +       }
+>=20
+>         ieee80211_tx_status_irqsafe(rtwdev->hw, skb);
+>  }
+> --
+> 2.53.0
+
+pw-bot: cr
+
+
 
