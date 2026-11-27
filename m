@@ -1,114 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.15
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795759355;
-	b=wicHXAGjA3zwL8VxjIWxgidcemKslQGNATtemqx4YZoFdFFZf17m2HeGf/dSNxBnqj6T
-	 hPjt1L50GH7y0m855CNPz0XTCCHo9lhPuh0u02z1hnvp9MiZZ+IlxitDnyGOtU598QdMq
-	 7uNsqG2sA+Io/nL6IU+OBw6XZOvJxKEzz1zcFF3L64c/MGfkCaej2kwEP4157tI0W0fbM
-	 emFRqoogBP7MaCFcDzVhIufivQX6StPfkeldrZbT2Q4YnraVhp6iX45vAeL63//piJTAr
-	 Cn8lb9YI/C+uxFQ7u086ylequzDLuNpd9CfCXzOwLsjQlsTbzynZRD8k5l4fu6UEUjg==
+	t=1795759408;
+	b=YGBKLVoXH9KUtV2VXjEPB39/cY0R6ekkb07lPe/CWcQB6BGrOFsEHl6Ty1h4rF+T4fQG
+	 C9YWO8O9d649pRL3/rRPuPvP8XCocoSUmjN/iLqFVW/gVZqG+2s9z3bd9t3SprotJ6tsV
+	 vemhpYjwo+T93ZzpDqtLmSRmRbq4WI2NxqBh8I2V2t2Z2SHWSBVNDH5bzGxs+QpjoLCNN
+	 wOumWjzXrdo7zUu0Udf/FXK9AzUnMiRvkG6Fq0MzjFuqHWdCyZDrLVtZOn/WNSjZpyimO
+	 xMRYP5tDF5m6vcfBBqshWwkXrAxnF4z4DkNxvEnA2TCoc3zhyfVhD9qqWemtcuToNBw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759355;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+kG+vTfSoUTCqGX0NynFm/0zMdnz0VnEjiPkxHMRkKY=;
-	b=EppDnlAvM/iYIY6omW992D1CuJl0uxN8kpBRv2FQdvtW8ZZNcyE5vpgWvyr+aTheMzW9
-	 8utAKEATvzLLo1G/H+BsKkNf3fUKHGz+d+ljZzckaXsWWq1r4/UEYxkYxwCH4H7YelsI2
-	 F4GCAHtQpaZqDxxw784IpHI5bdHciyGBgrs5g/xOYOQAMa7dVMisYueGmH7aqjWMX36Vx
-	 0rzO17PONwutcM99f9oO3sa1ocq13Zm++dg3DWbWNtDYxv3ZvZFLJS6Vs1Mo+RTlo2fCd
-	 H23fLml5naDDXDXkhxuaBYdDlbRU6qvHhKHpLNQYIuZ+VEXe+rZ4KYN4ot6x1/JWAOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759408;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=atoetghN1rZ2y5mnbOIg4F9lhKsi2yuFFQtuXNtre0c=;
+	b=bjauz/lkLcgz4yXTWFOGmlALanyc2aAm6MjfVx0HEZr5DzMpt9rRELVxz46XynUN7rLs
+	 CYcNBZ4D/tmFpe0+0mwPKAXhwx6NWApTCZLWYrKDskkkUUhx3WGD65zqiVTBrEnTpKwka
+	 +hawPStcXXs7iTIv78Rj2Bp+7n8gZhe1C+wK0Dfgyk94OfoBycOMH2OjRZlwCFkS+4fJ3
+	 kdX5TIMPq7Gdq0rt5bkzf4OrxgHLssKyciPupEfsW9NrWMjy4pQSLE1cF5vRUhiBC+FtO
+	 JuOKhQRr/hQoeCHlZLXsBIw/c9x56blvf6hmTr1RUxzvXoTWlgH0drKpFy4gwH0UyYw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=J8fD9MdS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.15
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011015.outbound.protection.outlook.com [52.101.57.15])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lETBVbt7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FE2C606A31C;
-	Fri, 27 Nov 2026 06:02:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FE2C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8C99606A31C;
+	Fri, 27 Nov 2026 06:03:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=J8fD9MdS
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AuyiH5ZQyHRZIOie6vP/t9jQHFvRdPBhqz5Kv6+ER2iFKEFnuCkpXRB5HuRUhHqd3EibdscEWfvlG60rZpxrBPN/Qrh19rNboUYssFkurZOd8s3q90R1/UrGVtKyouP6BHwGPoX+GtQ+5b4q08F/2Y3gUAgQ3KyChyy6O9YBYHGKR6VYp60vNbkiSpRJcXniftWCV+UnAttSBRNZRJ14z6QM3GCph/LWYALXgGwXXtIrIfdAtFOpiIynvXWqWgckqlApCgMQF9Ra2oPBShE3YeR3xOapnSDu4dXBWnImARG2P6RaRge93V3sIJ9BqldWt7HMZ/fzeKoxRUWihS23eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+kG+vTfSoUTCqGX0NynFm/0zMdnz0VnEjiPkxHMRkKY=;
- b=pD/98PsqIQPI/D3fw3Eg4BqQFSl1DB+PyT49RX+HiuemQdRRhHkuHpdRaNC88GDZlNYEV/j+s4S6tFQorKReecqIhfUaEAReDVi/RXR6rydngbDQmV6eaIeRpihfOYl1VAlx7KkiTcThYwTIs7jwKSbof15T8SqS3m9u3QDoHzonM1aVs6EIuRolPqrFHn2FRJD1py6OmIClc8SEP/kgmwcCuzjxfdrGr8OjaUP+XPrXfxV70NHjFXD/mODGO+/AUsiZlonnICguJ2FTGcJC83Cm7panlD7hyh9nU9AWLUbYxGsvA9KLGY4Ao1+qH9NIxGHiWmdd9+tS0Mbg7GSkBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+kG+vTfSoUTCqGX0NynFm/0zMdnz0VnEjiPkxHMRkKY=;
- b=J8fD9MdSjH3D3dbdWWR2VWP9RqpTZqFiqYD1+9bsc19jsoHzjmn7mVXl3DFALTPLJ+dk+Eze1DnbHI3ljWlpMYG3f+hqlgZBOiXbDThMa+2rVU+X38v8pVzo76Q/HKQ3RsfdwnEolNhGGEue9FBjF49ZzArqN8VUKEsVATO06YAfbY83ndlS+iXjCAgGfVrmsKlX4GmLCnuWEf7ctXI5sA70q5N6Cq4s53KvdTyNuQ/qqQbDa2TD1qDswtSEDsyVqsL4aWxD0nhlhGINvgN+9FWsP3N1+ktbDnk4pb2EedWqZnytBjxERRHquVb6Pbnl0B4BjtwcSP1wbqpqtDivdg==
-Received: from SJ0PR13CA0194.namprd13.prod.outlook.com (2603:10b6:a03:2c3::19)
- by CH8PR12MB608111.namprd12.prod.outlook.com (2603:10b6:610:704::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 06:02:28 +0000
-Received: from MWH0EPF000C6195.namprd02.prod.outlook.com
- (2603:10b6:a03:2c3:cafe::90) by SJ0PR13CA0194.outlook.office365.com
- (2603:10b6:a03:2c3::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5 via Frontend Transport; Fri, 27
- Nov 2026 06:02:28 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- MWH0EPF000C6195.mail.protection.outlook.com (10.167.249.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 06:02:27 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 22:02:06 -0800
-Received: from build-johnliu-noble-20261009.internal (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 26 Nov 2026 22:02:05 -0800
-From: Johnny Liu <johnliu@nvidia.com>
-To: Johnny Liu <johnliu@nvidia.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding
-	<thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>,
-	"Prashant Gaikwad" <pgaikwad@nvidia.com>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
-	<jbrunet+clk@baylibre.com>, "Douglas Anderson" <dianders@chromium.org>,
-	Aniruddha Rao <anrao@nvidia.com>, <devicetree@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v3 0/4] Add Tegra238 BPMP support and fix stale EMC clock rate
-Date: Fri, 27 Nov 2026 06:01:44 +0000
-Message-ID: <20261127060150.3436267-1-johnliu@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261102121202.2431928-1-johnliu@nvidia.com>
-References:
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lETBVbt7
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795759407;
+	b=C5sqw/5iAbnnSAlmo5ENy4HLtgjHQdrt+CLQEKI7wMhPD8UygyEk4r9Pq9jpMujhbw8t
+	 rqLHVMiMtUs1OAqWya9n640qUM7+ZVs8U9KlFhSludGusO+krnpHHxtdIOAGr9d+vjSv2
+	 ClJs4n8qBCG9N8p5ef2CMeLKcN4kQZQKXgCUs6PitkAZznktP4KyNlpPy5A+wRkBbfxcu
+	 KRdcpvq4JAGlOg1FO6EHO8IyT1BHiYehqqR34CqlQuGLgxq0Jxsta5JBi7pDw3iq7XNz6
+	 g0Hrew3SDMxi7G2VyOo7idEoLuxDWGvC+h2YT3YX6xZrD5WcWTEdQGjK5R2ccIsKvlA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795759407;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=atoetghN1rZ2y5mnbOIg4F9lhKsi2yuFFQtuXNtre0c=;
+	b=UIqgRW5m6cqeNXLjWvkwJ18cUz1gBrSMlzSwHeDBtTyk177kzxy75E1ltAaLBwFB4+GV
+	 /ygOZbMQl4DUyQuo313ZmrH8Y3emieOKt14wICDtrX+4/NJPr/JDivj6CwNmzS6udRrV1
+	 iIKbA48vZh65Fe3C4UraJ8WWN8LcXjEZ6WtNNDxgeCeRdOXeCCYBHy44E9lOYoqpNsZT0
+	 V/Z2JW3qljCCoRT9fps5TQmFF8Am3YPc8RItg+Xf2WNLVHOXdbHYWgXgB7cygLO9RR0v1
+	 2d8TsLorTU/lSeUd93LreUnX9rmLwwqlPMPQR5sk7mLqbPN6zCzuKfLYazl+dVsRKbg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 0E6D01F00898;
+	Fri, 27 Nov 2026 06:03:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795759407;
+	bh=atoetghN1rZ2y5mnbOIg4F9lhKsi2yuFFQtuXNtre0c=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=lETBVbt7uwEm7/1uE/NlOXzRm21NGU63clgBvVuREFBVHgU2mdeA/ufObCu3rjba/
+	 JIkBWsI6ogCIVvJQP1cBJTlLe76A8caOCypJaXCeSWbHObvdu4kiJdKs3XH4KIuTIo
+	 76sgZ4s6xuP1r9sp/rYlFQYGccFJWn2aK+oODby7rFFMX3z0vNYie4Wz42FXTA+rFy
+	 7Bcuxo0zwxkjJB48XaKcLUAs5WKQjZaP+V+10ax7U8nTQw4ykYZ8BTLz/fOR6+lxLY
+	 6waa9tB5TioHSkxuAWqdat3KEOZdxohAjYQj1iqJ7LMOZ+0RdJHFjvJewQjlfAqFd2
+	 4FJFjXYATaW3A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 832FE4B5A7;
+	Fri, 27 Nov 2026 06:03:14 +0000 (UTC)
+From: Sergei Khomenkov via B4 Relay <devnull+shomenkow.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 09:03:12 +0300
+Subject: [PATCH] media: verisilicon: size the JPEG encoder's sizeimage by
+ quality
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,108 +83,181 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6195:EE_|CH8PR12MB608111:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3015abea-b561-4f7c-361b-08df4c4c0420
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|7416014|11063799006|261009223027099003|18002099003|22082099003|13003099007|10067099003|56012099006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261021121427099003|261021123027099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	h1BjuThPIrOFPWK/1abC80eieTugNa+LwSUN3XIMeFxvDttLPaoesrN7oDQtko8Z7lh1z57q3WXYiwjuYPWLNzL2fvDihYM1T4NI0MHrXeOaInJ2SggI9qA+6lFLI+Gxkr714tuGeSL4kqUMk5wMvaghG7IS0VEh09EeldLFyA6p0DB7hQtw4TF5NZTpjg847VksXDRpecjbR/cfUb2/pE+i0zjFntFUvBd8Zsdk3USqwyKGqy8n231hRQAejAKC0vzzsPVz3tPdJInUQLw6rTXlchwta7UxMGfbvYYNs0OU3VbX/mJT70YAfQ1aypxtRsdhRSGvHDas61M2p8sidaTuQDLEJfdlJvK3ILGSCnIzxkhGdc55WIvMMNlpx9tGL3WlkqM+7u5G8kn3VFWPtrMsrRJ1OBbMlzHf9nclwLAsMgi7zBGexZcR3g6SinNKm+jXCw7pB0v9CutpbGSrQOpbgEasfAArfOMN2XXxzoMw7aV6Oz6QNSZQEHjjO4TjwSQuJlmXXalijygSDZ2JEOvPB8qdmYdEwdxrHjWQ4EC9VXknInw2ALvvDpADn/vNNmxxHrowrJAKLsapt8Be+rj6NPY9QXsQzRxI36Gv8uO8GEA+ZMpSr4RVXwNFMRnuEJFLRa11Q/EqnuZ0lpl2HqDCvNpzVI54kxHyRodPtB45i4/qD8qZYV7KaE1HHsJEvxr668OlRKezkki2ls1mkg==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(7416014)(11063799006)(261009223027099003)(18002099003)(22082099003)(13003099007)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261021123027099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	ShwQAi2I2qqaYDZrH2epp4YWFJgALi2SJXt80iP0wAw/60mST3Bn1J6FjWzRhjyjCLydv9H0pm8fZyVWkhSwyMvHHzAcyvz+9etFfWIkymJ8LvSpHSJ/mtaxKOD6QNrNBkuAH7B0CqeGZ1PKAFb3lCU0aYM+Sld8Oe7fnIT2dtSuzXo8DnNzCJ7OsOq19CVXJGIKEubRPulfffmKJcMK2mg404xT2rmt1GysRffv1xQE4MI7GdxIe7iXit53FOCZ4iSN/zQxjqrPrUMgaM3zs1lgCd2qkJbiZ5U7SQZJVF3HyJI6ntdnQvkNkVOrNGZp6cngR5orO/Ebh2cXdeysyZKRaJJs2SKGR1xn6KnFWktHAZNjWhEzzARquzm4aSPwSgBkVUWypgHXx4K726tb2+4+0J2g/Yn5ZuurC7yUc+E8ak4ciVYyITCb4G8sS1os
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 06:02:27.9336
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3015abea-b561-4f7c-361b-08df4c4c0420
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MWH0EPF000C6195.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB608111
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-hantro-enc-sizestep-v1-1-7a732d1a4bbf@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWN0W7CMAxFf6XK8zzZaVqXakL8x8SDSV1mibYsK
+ Wga4t+XwfZ2z5V97s1lTabZ9dXNJb1atmUuQC+Vix8yHxVsKOw8+pbIM5RyTQvoHCHbt+ZVzxB
+ 82wxdo0I+uPJ5Tjra18P6vn9y0s9Lka/P0k2aszzkffX25w7/7sNlPNlkK1xrQOAON1hvGKPg7
+ jiJnV7jMm1/dw6SFQqU274SwTHEQEPoGIU6bRtmXwKxjNQGzx6xZnL7+/0HPjC7+PcAAAA=
+X-Change-ID: 20261127-hantro-enc-sizestep-4265d85ea124
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Hugues Fruchet <hugues.fruchet@foss.st.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Sergei Khomenkov <shomenkow@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795759394; l=5937;
+ i=shomenkow@gmail.com; s=20261104; h=from:subject:message-id;
+ bh=v4JYN3YP75FPPDeInscD9Tx05Zfnftf4wowv5Ck5XCc=;
+ b=H8XlpsNWAdXQENHAOEeE+KkW61TiJHBZUhsiu+rFCvKb8sRMwOJx45xk6MxI8bcKzKr7W24el
+ OlsOoi/lUsYCAnCWMWpZ0LZsK8nfRRnwXW/A9ffgDHfds8iYVkCn4Ib
+X-Developer-Key: i=shomenkow@gmail.com; a=ed25519;
+ pk=FwuHDVe7aiISDMLmQEcMC+RflEIJ6kEp/ekwznWXmI8=
+X-Endpoint-Received: by B4 Relay for shomenkow@gmail.com/20261104 with
+ auth_id=1409
+X-Original-From: Sergei Khomenkov <shomenkow@gmail.com>
+Reply-To: shomenkow@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Gentle ping for the review. I haven't received acknowledgement or feedbacks for 2 to 3 weeks at least.
+From: Sergei Khomenkov <shomenkow@gmail.com>
 
-On 2026/11/02 12:11, Johnny Liu wrote:
+The JPEG encoder's default CAPTURE sizeimage is header_size + width *
+height * 2, but the H1 (VEPU1) of an RK3026 writes up to 3.23 bytes per
+pixel at quality 100.
 
-> EMC clock scaling is handled by the BPMP firmware without kernel
-> involvement, so clk_get_rate() on the EMC clock can return a stale value
-> cached by the common clock framework. This series makes the EMC clock
-> rate uncached on Tegra234, Tegra238 and Tegra264, and adds the pieces
-> needed to identify the EMC clock on each of these chips.
->
-> The EMC clock ID differs per chip (TEGRA234_CLK_EMC=31,
-> TEGRA238_CLK_EMC=43, TEGRA264_CLK_EMC=290), while the
-> "nvidia,tegra186-bpmp" fallback compatible and the tegra186_soc data are
-> shared across several chips. To avoid detecting the chip at runtime, the
-> EMC clock ID is carried in per-SoC BPMP data selected by the device tree
-> compatible.
->
-> Patch 1 adds the "nvidia,tegra238-bpmp" compatible to the binding,
-> together with the Tegra238 clock ID header. Patch 2 adds an emc_clk_id
-> field to struct tegra_bpmp_soc, together with dedicated SoC data for
-> Tegra234 and Tegra264 built on a common TEGRA186_BPMP_SOC_COMMON
-> initializer. Patch 3 adds Tegra238 support to the BPMP driver, including
-> its own SoC data and EMC clock ID. Patch 4 then sets
-> CLK_GET_RATE_NOCACHE on the clock matching that ID, so that the common
-> clock framework forwards rate queries to the BPMP instead of returning a
-> stale cached rate.
->
-> The series touches both the clock and the firmware code. Patch 4 depends
-> on patch 2, and patch 3 depends on patches 1 and 2, so I would suggest
-> taking the whole series through the Tegra tree with an Acked-by from the
-> clock maintainers.
->
-> Changes in v3:
-> - Move the TEGRA186_BPMP_SOC_COMMON refactoring out of the Tegra238
->   support patch and into the "Add per-SoC EMC clock ID" patch, as the
->   refactoring only makes sense together with the per-SoC emc_clk_id.
-> - Keep all Tegra238 specific changes (Makefile, CONFIG_ARCH_TEGRA_238_SOC
->   guards, clock ID header include, tegra238_soc data and compatible match)
->   in a single "Add Tegra238 support" patch, and reorder it after the
->   per-SoC EMC clock ID patch.
-> - Reword the "Add per-SoC EMC clock ID" commit message to describe the
->   intended use of emc_clk_id: the BPMP clock provider sets
->   CLK_GET_RATE_NOCACHE on that clock, as it is completely managed by the
->   firmware and the common clock framework must pass rate queries through
->   to get the latest rate.
-> - No changes to patches 1 and 4 apart from the patch numbering.
->
-> Changes in v2:
-> - Squash "dt-bindings: clock: Add Tegra238 BPMP clock IDs" into
->   "dt-bindings: firmware: tegra186-bpmp: Add Tegra238 compatible".
-> - Reword the binding commit message to state that the Tegra238 SoC is
->   fully compatible with the Tegra186 BPMP.
->
-> v2: https://lore.kernel.org/all/20261028155000.1205739-1-johnliu@nvidia.com/
-> v1: https://lore.kernel.org/all/20261028084900.1047287-1-johnliu@nvidia.com/
->
-> Johnny Liu (4):
->   dt-bindings: firmware: tegra186-bpmp: Add Tegra238 BPMP
->   firmware: tegra: bpmp: Add per-SoC EMC clock ID
->   firmware: tegra: bpmp: Add Tegra238 support
->   clk: tegra: bpmp: Do not cache the EMC clock rate
->
->  .../firmware/nvidia,tegra186-bpmp.yaml        |   1 +
->  drivers/clk/tegra/clk-bpmp.c                  |   3 +
->  drivers/firmware/tegra/Makefile               |   1 +
->  drivers/firmware/tegra/bpmp.c                 |  61 ++--
->  include/dt-bindings/clock/nvidia,tegra238.h   | 279 ++++++++++++++++++
->  include/soc/tegra/bpmp.h                      |   1 +
->  6 files changed, 329 insertions(+), 17 deletions(-)
->  create mode 100644 include/dt-bindings/clock/nvidia,tegra238.h
->
-> -- 
-> 2.43.0
->
+Size it by the quality. With the 4:2:0 header and the Annex K tables
+this driver writes, an 8-bit frame needs at most 4.89 bytes per pixel at
+quality 100, 2.91 at 94 and 1.98 at 83, byte stuffing included. Use 5
+bytes per pixel from quality 95, 3 from 84 and 2 below as the default,
+when the client passes sizeimage 0. Below quality 84, the default 50
+included, the size is unchanged; from 95 it is 2.5 times larger, 10.4 MB
+instead of 4.2 MB for 1920x1080.
+
+A request was raised to min_size but had no upper bound. S_FMT and
+TRY_FMT now cap it at the quality 100 size: no frame of that size can
+use more, and a request sized for a later quality raise still fits.
+CREATE_BUFS still takes any larger size. The default follows the quality
+at the time of S_FMT, so set V4L2_CID_JPEG_COMPRESSION_QUALITY first; a
+frame that no longer fits after a later raise ends with an error at the
+stream limit.
+
+Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
+---
+Found with an LLM coding assistant while porting mainline Linux to a
+Rockchip RK3026 board; it also drafted the code and this message and
+computed the bounds (scripts on request). Tested on that board: 2316
+frames of 30 worst-case inputs, 640x480 and 1280x720, quality 80..100,
+all within the default size (largest 3.23 B/px at q100, 1.92 at q94,
+1.33 at q83); v4l2-compliance shows no new failure. Not tested on
+other SoCs.
+
+The bounds are a per-block maximum of the Huffman-coded bits at the
+quantizers of each quality, under the energy that 8-bit samples allow,
+DC difference and byte stuffing included; frames found by search reach
+about 0.7 of them.
+
+Where a ceiling matters: GStreamer up to 1.26.11 and 1.28.7 sizes the
+request from the largest enumerated frame, 8192x8192, and asks for
+32 MiB per buffer for a 640x480 JPEG; 1.28.8 sizes it from the
+negotiated frame:
+https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/08ea5bc9fab9
+
+Depends on "media: verisilicon: fix JPEG encoder writes past the
+CAPTURE buffer" v3:
+https://lore.kernel.org/all/20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com/
+It overlaps Arun Iyengar's "media: verisilicon: Fix the JPEG encoder
+format handling" v2 2/7 in hantro_try_fmt(); whichever goes second
+needs a rebase.
+---
+ drivers/media/platform/verisilicon/hantro_jpeg.c | 25 ++++++++++++++++++++++++
+ drivers/media/platform/verisilicon/hantro_jpeg.h |  4 ++++
+ drivers/media/platform/verisilicon/hantro_v4l2.c |  6 ++++++
+ 3 files changed, 35 insertions(+)
+
+diff --git a/drivers/media/platform/verisilicon/hantro_jpeg.c b/drivers/media/platform/verisilicon/hantro_jpeg.c
+index 13a60638e43f..16ff9c49f889 100644
+--- a/drivers/media/platform/verisilicon/hantro_jpeg.c
++++ b/drivers/media/platform/verisilicon/hantro_jpeg.c
+@@ -243,3 +243,28 @@ void hantro_jpeg_header_assemble(struct hantro_jpeg_ctx *ctx)
+ 
+ 	jpeg_set_quality(ctx);
+ }
++
++/*
++ * Worst case for the quality set at the time of S_FMT, with the header
++ * above: 4:2:0, the Annex K Huffman tables and the quantizers of
++ * jpeg_set_quality(). A request is clamped to the quality 100 size, so
++ * one sized for a later quality raise still fits.
++ */
++u32 hantro_jpeg_enc_sizeimage(const struct hantro_fmt *fmt, int quality,
++			      u32 width, u32 height, u32 sizeimage)
++{
++	u32 bytes;
++
++	if (sizeimage)
++		return clamp(sizeimage, fmt->min_size,
++			     fmt->header_size + width * height * 5);
++
++	if (quality >= 95)
++		bytes = 5;
++	else if (quality >= 84)
++		bytes = 3;
++	else
++		bytes = 2;
++
++	return fmt->header_size + width * height * bytes;
++}
+diff --git a/drivers/media/platform/verisilicon/hantro_jpeg.h b/drivers/media/platform/verisilicon/hantro_jpeg.h
+index 0b49d0b82caa..1f5582df5244 100644
+--- a/drivers/media/platform/verisilicon/hantro_jpeg.h
++++ b/drivers/media/platform/verisilicon/hantro_jpeg.h
+@@ -1,5 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0+ */
+ 
++struct hantro_fmt;
++
+ #define JPEG_HEADER_SIZE	624
+ #define JPEG_QUANT_SIZE		64
+ 
+@@ -13,3 +15,5 @@ struct hantro_jpeg_ctx {
+ };
+ 
+ void hantro_jpeg_header_assemble(struct hantro_jpeg_ctx *ctx);
++u32 hantro_jpeg_enc_sizeimage(const struct hantro_fmt *fmt, int quality,
++			      u32 width, u32 height, u32 sizeimage);
+diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
+index b3dbc0629d25..5e8d8de072a8 100644
+--- a/drivers/media/platform/verisilicon/hantro_v4l2.c
++++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+@@ -26,6 +26,7 @@
+ 
+ #include "hantro.h"
+ #include "hantro_hw.h"
++#include "hantro_jpeg.h"
+ #include "hantro_v4l2.h"
+ 
+ #define  HANTRO_DEFAULT_BIT_DEPTH 8
+@@ -386,6 +387,11 @@ static int hantro_try_fmt(const struct hantro_ctx *ctx,
+ 			pix_mp->plane_fmt[0].sizeimage +=
+ 				hantro_av1_mv_size(pix_mp->width,
+ 						   pix_mp->height);
++	} else if (fmt->codec_mode == HANTRO_MODE_JPEG_ENC) {
++		pix_mp->plane_fmt[0].sizeimage =
++			hantro_jpeg_enc_sizeimage(fmt, ctx->jpeg_quality,
++						  pix_mp->width, pix_mp->height,
++						  pix_mp->plane_fmt[0].sizeimage);
+ 	} else if (!pix_mp->plane_fmt[0].sizeimage) {
+ 		/*
+ 		 * For coded formats the application can specify
+
+---
+base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+change-id: 20261127-hantro-enc-sizestep-4265d85ea124
+prerequisite-message-id: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
+prerequisite-patch-id: bbf362b5a6b3ef0c7424c424979bbbdb7934aaf1
+prerequisite-patch-id: 3d509ba55530afd4d418732df88696e105e36512
+prerequisite-patch-id: bb3462a5633f2af738ddecf3915a8a3121e20611
+
+Best regards,
+-- 
+Sergei Khomenkov <shomenkow@gmail.com>
+
+
