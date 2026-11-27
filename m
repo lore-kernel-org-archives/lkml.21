@@ -1,85 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795785696;
-	b=h2LX6OJgdE9l27DNZJVHlDkrAL1PvwkRRt2LO8ODwi2FTEqPFaWpb9qYi9Mny1J2PEBp
-	 7JXYxr/oOr0wY9bT497hOxIYkUS7jERhRSlxsu+Tr3PyiDq4yd9HfFbLa8PFlMS0TTWfL
-	 f7gt1NKjGuwc6RPJz+EJ9cwSE82ukmz8hToBnVKFvR5WOGrmToHuH0WiFDnpt1UZmgL3J
-	 gr9ieJKKqbhhaoiyMr1klooV0NTWSMspDW21rgsJrdhDhBwbmZeNx+GJpJoe0WiW1+Id4
-	 b1uDPx/rOrd/acclZNkfTwzRjrTSKIPkxCB6Pst324h3Y6djjFwhTa//+pKAOkGYVZg==
+	t=1795785789;
+	b=nyudTmjERR2ob3nl6dKnK/Wiyenx0DSI+k901H1LO0H5YhKp9P/hs7U9RhGCVcMcL2PF
+	 ypH/prCi6MTqsVifmZZzKEhvGj7hgmRXDV19UiKgA4VjAmfbOybf99MoMxr94tpa0SBd+
+	 b/vg9QUMcVv4KUuPmYnQ6BO/1uTunK8D1dNK+7vWPDI+cjDFqIZV5wbGV0Utwt3KzDqNe
+	 SxSeAX1gVV9nCgvBivukFsn8EK0q1WKsCGLjJdG4ma0k30GmH3Wxv16A7S3+WomtxFPT1
+	 FcoVavAbdH8OkJxFg6TEtEvX8b2TqoHXgypwpmxwInrLyDwklJikHsjTcF0NDTH2wXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785696;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=RDUoKetlpdAW6F7tqFiNvozrVLWT1jW3suYfmlHrOCM=;
-	b=VH4YL2BYRlMsBpDnxYY6tXJ10cKeHSUSwaJtDhCNkjcib/mBsf/wzQ/kktDaoyPyb9MQ
-	 RS9SqjeNdibX/2rbDmsSTGCNwrYM3j2oMMTUKhXDwZt8ybIf3fTp4cpZvYMeFiOD7Rebi
-	 mqK6qbYRKOyZyWBCZ15f9yUtceHShHZIUtYBYWjmSIMPq+W4fszag05PSB1fjb1jZUJSx
-	 pSTNZQqNxYLPIsT0pmHy6jXl43reG6FogNbn9LnneaxZ5YH+eh9EK+kHvnFEMBLbhWvsz
-	 XFiYadP0kpmzz29mii1W3Ni5FiyRtdUJnJlyhqtKVcmIAN2knhOtI0SyORmSKxgUYXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785789;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:MIME-Version:Content-Transfer-Encoding:X-CMS-MailID:
+	 X-Msg-Generator:Content-Type:CMS-TYPE:X-CPGSPASS:cpgsPolicy:
+	 X-CFilter-Loop:X-CMS-RootMailID:References;
+	bh=1fOyVmbi8GMwRgnaSTvC0ckI7ZWpz7JtmRQJp/2ONcg=;
+	b=ZIo7FVi2SRA3U3K/FiMhBUXzcu52vhYFC1SB5i1lEKYZNSPMgObjDazBWjxs75vUj/CQ
+	 qrOMjpe07gMCUahzWnSU/eIVuNVmobOtwvSKmNksQZM0B2yeugsu6mkbIZaOzq0tMxKHX
+	 3DC+zNP1W0H6BH7s2i8k3JkCIVc85d7/8s0PjFaAVgfbgq6Gn1hLpUvIxgko5dL//wHSo
+	 j//TMxrfMS8Bx26x9ZlFr3nakpcBHAlbPwIGuGYsYxNn0LeU+I5BfRNN7X1kiL72Wzd3l
+	 V21f2rSQITsZObKlxUeQixIX11A0zuW/131zGlT3Z59vH4dvGmIJ0Ft3s4Ut/cGRXfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=fNKGXHAS;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=BjprcmgC;
+	arc=none smtp.remote-ip=203.254.224.25
+Received: from mailout2.samsung.com (mailout2.samsung.com [203.254.224.25])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73914606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:21:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73914606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2143606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:23:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2143606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=fNKGXHAS
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so65756825e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:21:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795785694; x=1796390494; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=RDUoKetlpdAW6F7tqFiNvozrVLWT1jW3suYfmlHrOCM=;
-        b=fNKGXHAS8uT4usaoHo7mKyGJSHJLl5iK24EhrL9YH59bMJV3M+7vrSJAr5b3AfdMVV
-         5+Tqlvj7256H8a9Uw7eQJj1thIs1LU3GneqxwyKA3gSdVWEzGJaj26Qt71RKUrrPr8zK
-         bFiC9Prrxuznu5KYvGf2tdTBFwugrRuMhnTXXmUKxbuj2GK8jDDtQQqGgcJm17Na+f5T
-         ML/XrMs4fyHreU4I8hf642P0IYJDKtNFNLxcxiiUiac9imjsOT68wEzwtFHmSZHZTwiE
-         i+d41c9mPYwxtH0g/Mnc8Pzjdrael4RoctIwJynyX7Zlge82IlBL1Y7qBNOrbWjPd3rm
-         f0YQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795785694; x=1796390494;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RDUoKetlpdAW6F7tqFiNvozrVLWT1jW3suYfmlHrOCM=;
-        b=jfKBdazS5UQcPECjGeoOSzKPdxaCaTvoahH9tglqOvOAhhdb8jKEdlZSYdXiwIjsCM
-         pQXMGZpyWXkpajOl+7hZlOyX5X/sr5P0MwKq5MexNtiSgLVwpjG8xifJq4zTH2+Riitt
-         htg+/BZvZTkQp0TJkArRTyF3B+KMySB3d+bq+9/eBLeERk7JNvHXiP8qWMRXMcaT2ncU
-         mSLs2vYQFuIzGbTCk/yt6aohB8xfvPDVFkxGnhgCVyTfCp1kGcdyAQjnm28zC5nQp0Zh
-         0Giv3fY2bbvBruH40quNJHFTe//8MEER0EXoDhUHjzD7Md2hgw8FhAiD2hSJh97MExSX
-         LiHg==
-X-Forwarded-Encrypted: i=1; AL+hErEOUTpNVDuidT5dCUKhUY9MQF5eLep0h/jjU21dVwYBML8boy61yI+IXoINLUggvkXQNjDwSD95g8/IppY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/M4xL5WzBZkyIpYqOyszHiMCJdNM0koLBZzz0Q9Yj6hMg3sadM
-	8HH2Kgl5xniVIyjk0z5YMTdrUvxKvZvHEms/tMa5Gek1/Zc7VV9r/7zXMCK6UFqWxko=
-X-Gm-Gg: AZFdTZfsBCpNxeC62AVhhSsElyW6O2FTIYsYoN/ZexNllp7qWkkR0ARwlkhQOKRdjQ2
-	D2CwTmIgBn+yIwN9zdZhe5Cqg2tsHadqW1YoDTgTjRExTuIFFC/mGPhKv7Qw4/Ehue4ibFpxfdL
-	Zeqrnx8JdEmNfi1YnFCwJ1LKA9MsSMLsRCN/U6OPXLvvYa7EdlpkNVm/Wc9M3H62ToIJJfL037U
-	GYRyKhx0N3ywsKNFLh4U8rh8G2/fQvv4eDeuCQ4uLbDupJpOfVnRNsI8xp4PX7DpI1Z8pdWScP0
-	CmtkvgmEbFenSkSnizPnkj1ZZNFnNCBTjkYvl/cGYbxzU7awXjzAN5HZWgND7a9hXbEJAzkiTnc
-	vLQOHAY/A5wiIF5Zu+keNdRd6KTPffBbI366dkCccEftVL61NJl6CJM8xwSGW1uWdK8p42Khv5s
-	aVv1W1kaa7DxdcB85csjAFDixENpYPGoNizSoe+ph6q5U7zjOv9os1g9agzNI7YBzTpoktJSqoK
-	xhS3C3wvwwAPp0Go3tH+LWQzqzFeQ6p2Ft1/ikSTjD5kvxrKuRxM/na/866xGaoIWWoG0/0dqq0
-	H18h6GmIP3uhjEMs9wzmIIKRtcKydkXbU/e2KJoQibqHKl8w
-X-Received: by 2002:a05:600c:1389:b0:4af:83ad:8f70 with SMTP id 5b1f17b1804b1-4bb88924f66mr492570985e9.35.1795785693896;
-        Fri, 27 Nov 2026 05:21:33 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9687sm772362675e9.10.2026.11.27.05.21.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:21:33 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=BjprcmgC
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261127132305epoutp022892b8e734914e54d7eabc81eb891163~r6aheWUYi0825808258epoutp02m
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 13:23:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261127132305epoutp022892b8e734914e54d7eabc81eb891163~r6aheWUYi0825808258epoutp02m
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795785785;
+	bh=1fOyVmbi8GMwRgnaSTvC0ckI7ZWpz7JtmRQJp/2ONcg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=BjprcmgChqgW//zyzhQC5t9hqv99KxjpFCtPxq8X4oEvI8p/pyVmbaTwbdzVwLI5X
+	 nAF9wmLYz69k9ZdLpGmswmTj318EgktSGj1fc6Mb39As8QXQ8Ea7ifXhAOUsCBZHgg
+	 BXvQj5i7KXTodHS303YmNQ8RZR7+jsON83BBZCD8=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20261127132305epcas5p3d81aa8212484a0c992998502f081f0e9~r6ag0VcD_3222332223epcas5p3J;
+	Fri, 27 Nov 2026 13:23:05 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4jbYy02cBHz6B9m6; Fri, 27 Nov
+	2026 13:23:04 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde~r6afu-ok80517605176epcas5p4u;
+	Fri, 27 Nov 2026 13:23:03 +0000 (GMT)
+Received: from ws2030076956.sa.corp.samsungelectronics.net (unknown
+	[107.99.235.31]) by epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261127132300epsmtip14fb4eb8422da4093e96ed74aa199658e~r6acLyZeN1042710427epsmtip1Z;
+	Fri, 27 Nov 2026 13:22:59 +0000 (GMT)
+From: Irlanki Sandeep <irlanki.s@samsung.com>
+To: kuniyu@google.com
+Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
+	ast@kernel.org, bpf@vger.kernel.org, corbet@lwn.net, cpgs@samsung.com,
+	daeil2.hwang@samsung.com, daniel@iogearbox.net, davem@davemloft.net,
+	edumazet@google.com, g.pokhra@samsung.com, irlanki.s@samsung.com,
+	kuba@kernel.org, linux-kernel@vger.kernel.org, lorenzo@google.com,
+	madhan.raj@samsung.com, maze@google.com, motomuman@google.com,
+	ncardwell@google.com, netdev@vger.kernel.org, pabeni@redhat.com,
+	r.kumawat@samsung.com, raj.kumars@samsung.com, ramyashree.s@samsung.com,
+	sharmasagarika@google.com, sporeba@google.com, srihari.k@samsung.com,
+	ts413.lee@samsung.com
+Subject: [PATCH bpf-next v10 0/2] bpf: tcp: add ecn_init callback to
+ bpf_tcp_ops
+Date: Fri, 27 Nov 2026 18:54:09 +0530
+Message-Id: <20261127132411.2523201-1-irlanki.s@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <av8pip2n63ZBofcE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,177 +87,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH RFC RFT v2 3/3] clk: meson: pll: Remove the dedicated n
- parameter
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-amlogic@lists.infradead.org, 
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-In-Reply-To: <98fc8cb8-186b-493e-b74c-d8625d11dab1@amlogic.com>
-References: <20261029-meson_refactor_n-v2-0-ff4ac74e527b@amlogic.com>
- <20261029-meson_refactor_n-v2-3-ff4ac74e527b@amlogic.com>
- <179390104085.2573818.48733523079260500.b4-review@b4>
- <98fc8cb8-186b-493e-b74c-d8625d11dab1@amlogic.com>
-Date: Fri, 27 Nov 2026 14:21:32 +0100
-Message-Id: <179578569228.3130490.14256403264790878680.b4-reply@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4243; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=E4dLgfAPlyGRAwDDbFxbbsD6Cc9CC30EoXytcCxZdeQ=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNmczXf6cy9W/3oi+bV7cZXnU8vLz/4zK0vWJ22ebHPE8
- 1Rj933DjlIWBjEuBlkxRZYa7mrxd5JaX2ZN17kNM4eVCWQIAxenAEykdjrDX9la7iuLNjZrtM37
- zPl+mruZ18OzH1TXHuZwtM4/pKVmeoLhf2VL+Znd7z8cP9NrZe//sNuyqU+n/2fIGoVzx+ZwPDh
- Txg8A
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+X-CMS-MailID: 20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CPGSPASS: Y
+cpgsPolicy: CPGSC10-065,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde
+References: <av8pip2n63ZBofcE@google.com>
+	<CGME20261127132303epcas5p4c8e774f6bce688ebdc0a4b7a29644dde@epcas5p4.samsung.com>
 
+Hi,
 
-> >> -static const struct pll_params_table axg_pcie_pll_params_table[] = {
-> >> -     {
-> >> -             .m = 200,
-> >> -             .n = 3,
-> >> +/*
-> >> + * A pre-divider value of 3 provides the best performance for
-> >> + * the AXG PCIe PLL.
-> >> + */
-> > Again, define performance here. what does it mean ?
-> 
-> 
-> To clarify what "performance" means in that comment:
-> 
-> Some target frequencies cannot be achieved with N=1, requiring a non 1 
-> pre-divider.
-> 
-> N may not be 1 for Amlogic fixed PLLs and PCIe PLLs.
-> 
-> This AXG PCIe PLL is designed based on N=3 for optimal bandwidth.
-> 
-> 
-> The AXG PCIe PLL rate is:
-> 
-> 24Mhz/3 * 200 /2/8 =100Mhz.
-> 
-> 
-> I will update the comment:
-> 
-> /*
-> 
->   * This AXG PCIe PLL needs pre-divider 3 to hit the target frequency 
-> 100Mhz,
-> 
->   * which also yields optimal bandwidth.
-> 
->   */
+This series adds an 'ecn_init' callback to struct bpf_tcp_ops. A
+cgroup-attached BPF program can use it to choose the ECN mode (off,
+RFC3168, or AccECN) for each connection during the handshake. The
+net.ipv4.tcp_ecn sysctl stays the default: the program sees it through
+bpf_get_retval(), and out-of-range return values fall back to it.
 
-All I'm seeing in your explanation is "ability" to reach a rate, nothing remotly
-"performance" related. Either drop the word or explain what mean better.
+v9 -> v10:
+ - Split the selftests into a separate patch (2/2).
+ - Skip the ecn_init BPF call in tcp_ecn_create_request() for SYNs that
+   neither request AccECN nor carry ECE+CWR (Kuniyuki Iwashima).
+ - Sort variable declarations in reverse xmas tree order inside
+   tcp_ecn_send_syn() and tcp_ecn_create_request() (Kuniyuki Iwashima).
 
-> 
-> >> +static const struct clk_div_table axg_pcie_prediv_div_table[] = {
-> >> +     { .val = 3, .div = 3 },
-> >> +     { /* sentinel */ }
-> >> +};
-> >> +
-> >> +static struct clk_regmap axg_pcie_prediv = {
-> >> +     .data = &(struct clk_regmap_div_data){
-> >> +             .offset = HHI_PCIE_PLL_CNTL,
-> >> +             .shift   = 9,
-> >> +             .width   = 5,
-> >> +             .table = axg_pcie_prediv_div_table,
-> >> +             .flags = CLK_DIVIDER_INVALID_ZERO,
-> >> +     },
-> >> +     .hw.init = &(struct clk_init_data){
-> >> +             .name = "pcie_prediv",
-> >> +             .ops = &clk_regmap_divider_ops,
-> >> +             .parent_data = &(const struct clk_parent_data) {
-> >> +                     .fw_name = "xtal",
-> >> +             },
-> >> +             .num_parents = 1,
-> >>        },
-> >> +};
-> >> +
-> >> +static const struct pll_mult_table axg_pcie_pll_params_table[] = {
-> >> +     PLL_MULT(200),
-> >>        { /* sentinel */ },
-> >>   };
-> >>
+v8 -> v9:
+ - Fix multi-line comment style in
+   selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c (sashiko).
+ - Add copyright headers to both new selftest files.
+ - Update the bpf_get_retval() comment in net/ipv4/bpf_tcp_ops.c to
+   include ecn_init in the list of bpf_get_retval() users (BPF CI).
 
-[...]
+v7 -> v8:
+ - Respin on top of bpf-next and convert from the legacy sock_ops
+   kfuncs to a bpf_tcp_ops struct_ops callback 'ecn_init' (Alexei
+   Starovoitov).
+ - Drop tp->ecn_mode, TCP_ECN_MODE_UNSPEC, tcp_ecn_mode_eff() and the
+   kfuncs; the prog is queried on demand during the handshake like
+   timeout_init()/rwnd_init(), which also enables per-peer decisions
+   on the passive side (Alexei Starovoitov).
+ - Clarify the per-application motivation (AccECN for latency-sensitive
+   apps vs bulk traffic on the same route) in the commit log (Alexei
+   Starovoitov).
+ - Drop the AccECN option kfunc to focus on ECN mode negotiation;
+   to be discussed separately.
+ - Replace the sockops selftest with a bpf_tcp_ops_ecn struct_ops
+   selftest covering IPv4 and IPv6.
 
-> >>
-> >> -static const struct pll_params_table sys_pll_params_table[] = {
-> >> -     PLL_PARAMS(50, 1),
-> >> -     PLL_PARAMS(51, 1),
-> >> -     PLL_PARAMS(52, 1),
-> >> -     PLL_PARAMS(53, 1),
-> >> -     PLL_PARAMS(54, 1),
-> >> -     PLL_PARAMS(55, 1),
-> >> -     PLL_PARAMS(56, 1),
-> >> -     PLL_PARAMS(57, 1),
-> >> -     PLL_PARAMS(58, 1),
-> >> -     PLL_PARAMS(59, 1),
-> >> -     PLL_PARAMS(60, 1),
-> >> -     PLL_PARAMS(61, 1),
-> >> -     PLL_PARAMS(62, 1),
-> >> -     PLL_PARAMS(63, 1),
-> >> -     PLL_PARAMS(64, 1),
-> >> -     PLL_PARAMS(65, 1),
-> >> -     PLL_PARAMS(66, 1),
-> >> -     PLL_PARAMS(67, 1),
-> >> -     PLL_PARAMS(68, 1),
-> >> -     PLL_PARAMS(84, 1),
-> >> +static const struct pll_mult_table sys_pll_params_table[] = {
-> >> +     PLL_MULT(50),
-> >> +     PLL_MULT(51),
-> >> +     PLL_MULT(52),
-> >> +     PLL_MULT(53),
-> >> +     PLL_MULT(54),
-> >> +     PLL_MULT(55),
-> >> +     PLL_MULT(56),
-> >> +     PLL_MULT(57),
-> >> +     PLL_MULT(58),
-> >> +     PLL_MULT(59),
-> >> +     PLL_MULT(60),
-> >> +     PLL_MULT(61),
-> >> +     PLL_MULT(62),
-> >> +     PLL_MULT(63),
-> >> +     PLL_MULT(64),
-> >> +     PLL_MULT(65),
-> >> +     PLL_MULT(66),
-> >> +     PLL_MULT(67),
-> >> +     PLL_MULT(68),
-> >> +     PLL_MULT(84),
-> >>        { /* sentinel */ },
-> >>   };
-> >>
-> >> +static const struct clk_div_table meson8b_fixed_prediv_div_table[] = {
-> >> +     { .val = 4, .div = 4 },
-> > Previous table was showing a prediv of 1 ... here it jumps to 4 without
-> > an explanation !
-> >
-> > Also, it is a RO clock, so what is the point ?
-> 
-> 
-> This is similar to the AXG PCIe PLL case. The pre-divider is fixed at 4,
-> which lets this fixed PLL output 2550MHz and gives optimal bandwidth.
-> The table was used so the fixed PLL DCO rate can be calculated correctly.
-> Without the table or `CLK_DIVIDER_ONE_BASED`, the divider would be 
-> interpreted as 5,
-> leading to wrong DCO rate calculation.
+v6 -> v7:
+ - Document BPF_SOCK_OPS_TCP_LISTEN_CB timing window in kernel-doc
+   for both kfuncs: connections arriving before the callback runs
+   will use the sysctl value rather than per-socket overrides.
+ - Add fallback behavior note to commit message.
+ - Remove Suggested-by tag per maintainer guidance.
 
-But you are hidding a fix in a rework then.
+v5 -> v6:
+ - Reject non-TCP sockets in both kfuncs with sk_is_tcp(). The TX
+   timestamping sockops callbacks run with is_fullsock set for UDP
+   sockets too, so tcp_sk() on them was an out-of-bounds write (sashiko).
+ - Fix selftest and comments: accepted children are cloned from the
+   listener and inherit ecn_mode/ecn_option (sashiko).
+ - Use standard multi-line comment style in the BPF selftests (sashiko).
+ - Document per-socket kfunc override precedence for tcp_ecn and
+   tcp_ecn_option in ip-sysctl.rst.
+ - Reword subject: the TCP_ECN/TCP_ECN_OPTION optnames no longer exist.
 
-Your rework should keep the prediv as it was.
-Then you can change explaining clearly why you are doing it, with a proper fixes tag.
+v4 -> v5:
+ - Replaced setsockopt implementation with BPF kfuncs.
+ - Placed ecn_mode/ecn_option in the cold section of tcp_sock to avoid
+   polluting hot cachelines (suggested by Eric Dumazet).
+ - Updated Documentation/networking/net_cachelines/tcp_sock.rst.
+ - Removed userspace UAPI and documentation for the sockopt.
+ - Added new selftest for the kfunc implementation.
+
+v3 -> v4:
+ - Define TCP_ECN and TCP_ECN_OPTION in bpf_tracing_net.h to fix
+   BPF selftest compilation failure in progs/setget_sockopt.c (bpf-ci).
+
+v2 -> v3:
+ - Use READ_ONCE() when reading ecn_mode and ecn_option in
+   tcp_ecn_mode_eff() and tcp_accecn_option_eff() to prevent compiler
+   double-fetches (sashiko-bot).
+ - Move cookie_ecn_ok() to include/net/tcp_ecn.h and update syncookies.
+
+v1 -> v2:
+ - Remove unused variable 'net' in tcp_ecn_create_request() reported
+   by kernel test robot.
+
+Irlanki Sandeep (2):
+  bpf: tcp: add ecn_init callback to bpf_tcp_ops for per-connection ECN
+  selftests/bpf: add selftests for bpf_tcp_ops ecn_init
+
+ Documentation/networking/ip-sysctl.rst        |   8 +
+ include/net/tcp.h                             |   6 +
+ include/net/tcp_ecn.h                         |  16 +-
+ net/ipv4/bpf_tcp_ops.c                        |  21 +-
+ net/ipv4/tcp_input.c                          |  11 +-
+ .../bpf/prog_tests/bpf_tcp_ops_ecn.c          | 224 ++++++++++++++++++
+ .../selftests/bpf/progs/bpf_tcp_ops_ecn.c     |  57 +++++
+ 7 files changed, 333 insertions(+), 10 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
+ create mode 100644 tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
 
 -- 
-Jerome
+2.34.1
 
