@@ -1,115 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795804610;
-	b=KPrQWhtvPFryiJONzRS30H1hfFU8vBjgQwkuN0wpEbbI/OCFF8LqxOuJWnu5kntvBCjz
-	 i3TNg/UlKsCffgLCEIAemZA5GhpuRJYIvr5E4ts0HJ8RNL31j+zo3jpwefesNvK8djPmF
-	 DILclLrBy+r65bGsTn4ZOSwQgybORFs63sbPhAzSHMumXD1FZ3hmNsrpxh3yFZttROZWd
-	 R4I1vMphgmFlMZu4bJNG/YtCKoVeoDLuS1GK2ZuFt4g/isx4R+zrnL3+zwLV26ic9/DrF
-	 Sz2jdhTwfjohfoDa+BXHKAjlVmc9cD6Jl06vedvCEkC3P+mo9spadppnLEYAd+9AsPA==
+	b=sYgGXR4dVpY/YPkfZOf0T0lI6GDMBkMV74tUM6hwL3V1dxlihyHh1vB/W2MP38UqaRAI
+	 pq0HlbrR+04ONA6FAwYrt7GCKFwfWMBAbKe2K97vxZG1VBaUi1XCExu5u6F0LNzygb8le
+	 s0pL14aJ8SL91OAurpLJavN9fvAO2w/jihvPcVJAiMR7wg/tNb9LaZsfcTo2WLz4tE+rr
+	 mwj6z45lXwoC763Rafw60VP/Px7NxccT6DeUSeX60gnM5mYA14EkG613TZijwAI9yFV5z
+	 tJV6B2D/LzFLaAsiJingOsc8kL/4fsxWI+TzbGxIeuLSpGAZAHNZyJsSWclcpJ6/t0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795804610;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=+9Dw/wen6g6fWY32jCYKXg0uC2F+6Oaru/Dn4CTkyZM=;
-	b=Kv253p4oVwvB63zzS/DK0yMMeNuEkfwjpcfbfsPVr9hQrc4R3/cPGZLAk+322GoeaK37
-	 h/x3ACFQGhrtpFAP3oaSmOzspUWYWO9+W98RnUDVc0GJ6yKpZHwnEgK8/y8dqjuGvG+9O
-	 WjGy+EM4YUY5MeV3QnKitLSN+WIjWl/hqz1VON+R1gJmFe5lI9wNmf0B4Ksye8JvGgJKo
-	 tRxsJlfwcWqYE69nvDegpT5QClPdNoPXqntOQuFlF15Z3LOO7HQarKDh+6jKWJQ3bBW30
-	 y3fXbajPWg3NLLRjBNjFz84GffwyevB4jQq/1tSoW0HbHi3GKQjvBZay1/L4+UJQCjg==
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=c9OS2azmNlSLBcd4n3RTnzdEGHNMnl37QCh2ccSxVD4=;
+	b=ZoyU0sCYB54N4JUkH1EVtEzIdlN7kxyENRFwxLfqj32itGCoA0iUNNl43bG9Q/x2NV9C
+	 SVcqtKhJlspOtsHf/Oh0ixlQ+HpOpIHIi1K0jq5icFXAcJ9g0gMeC/CszbpC5DGowmuJ9
+	 CcG/mcZH6oFUeKeyU0N1NPMmKNITE/epU3WdYY7S5Uzetnj5oeYKXOcxUibJbjSTq80FD
+	 DkViIhDgKvekDFMrk1gsRUvTrS/D8Gkcvs/SBI1XxEfoDFzXUrzf2uEQA33Ws5Y+Vp92u
+	 7v75GjnZCe6MVG5dJspaSn1VKk5+37qbVuA0Gn42WqPZl1LeJn0L9aiKD6vrYlUPaRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FQqDBy6J;
-	arc=none smtp.remote-ip=209.85.219.48
-Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ds20111+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 868BF606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:36:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 868BF606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1320606A334;
+	Fri, 27 Nov 2026 18:36:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FQqDBy6J
-Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-91c1f548f87so109316796d6.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 10:36:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795804609; x=1796409409; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+9Dw/wen6g6fWY32jCYKXg0uC2F+6Oaru/Dn4CTkyZM=;
-        b=FQqDBy6Js8XrvXmyD8SL/u+yExsfiOIjX+3Qv8PFjqWbEOS/J/sDfstl24lcNicd6M
-         PkL4KLFLOjm+xuNYdQwqUcHAIrXcJ//DNqWVnzEugXxJV52uk6eRNVvaVxXJbY5Bl7ou
-         7rubMrQs8EdQfsO5xRzjEsGHJQpkeR1g0nRGIcWUrMhQ+w2TgK1gza7wJaMgYVAeHUVG
-         ges3+956+qMurZGsh19qeYrM1aQmOnZrNaBhNPYHVU0VuU1IhVr1vVlTiL1tqNFxWPhg
-         YdOIvlBcF3YHxrQhupM7z96IFAXcMGRFNkKk+1lOeoAkMMQd+mWGr1YNQMt75thCP0QE
-         XNtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795804609; x=1796409409;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+9Dw/wen6g6fWY32jCYKXg0uC2F+6Oaru/Dn4CTkyZM=;
-        b=IiOCZt49/LpQVA6/6MCB+e0usT6mnAjZi6E2vSTLXKexYqFFWrEArjJMeBL0poyDwv
-         vT0WkHZPXWUicQTF0FVwhBrPPVJOPQ3Gp1ZriV+AYY4lXVolRqQRbHCdEFJ40VYWPI30
-         xJgLKEHG3h0j3esZs/66JfwXW2CzkAtkP2GHJUrfIScL8NpIEkYO8dh8RZ6BQazFts/W
-         ttiAEqayrMPbcFOBQL2GGdf56A4aFONRtuJu8VKwK3k41Aic8FIXQZ0CQc3o6H8sZUpB
-         WoueJ1KOwDRuZu324SpAbH9VC+3v3Zs7dswgsYNIfX8g9vUgvxElrYvLa37ux/jacwkB
-         FSrw==
-X-Forwarded-Encrypted: i=1; AL+hErFuOqypyb23rM4wlt70/+j756JYtIOae+gi644zryMae7PEhgwIr+e3es63Hi6P8q3okd/+dahoUKX9M3s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lYV2PwNvkPxCptRi/ZZ35UmGchi0JK9QVb//WmFOppFKH5gqj
-	5dHPlHVRO98XVsaOkPneZFYl35SG6qvn5wvpZlWO7o92y5kYsTgSFbhiyR6Hk+cESdU=
-X-Gm-Gg: AZFdTZeUOK73LKjjjH22UDhtLH5nJwV+04tetAkJN6NTPzfWe8QOCXnhY+G90OyFa/O
-	X4icpfPGBuivx0n1Jz4b5CrHu1FbO2Xk0+vAXAowDXATZVTmlPHwLJx+kiXVILa0nPpX44uSuje
-	rKqR/k+msJAIxGERzlB8wJ/et/W1TEcqTK+So03ZbDx48PyFLFNg0PVGO0JNKSm/fLjY4x7xeh8
-	CXFSEoHQ1a/NlSCYlOObigqZVPLq6R26wLARqwTsgGXVK3aLN0ijBTh29qkh0QfcvlarBURPuOQ
-	i1vsFsDKyYoW8wxYllHrUlLc4LQpt+EVtSs5OKOznLm7newiYr4KBMX4Rbj77kvnr4sPhBjoswR
-	XZsb+K0jUCkgOiHshaf6CnogRLucb271HikFP3gJz+1ZS8Z7we81N7b1rGrjwZX1uxI4PjNcXI4
-	RENQ0fr9Z0ENXtzqqBLJCNJf+R2wjGgwHEluBgNsztOYeA7AoPR7fC4zaHRxIBPuBXNM9lcGCPH
-	+oznJ227UxWUQfpFFD2Q002yWlSipLB+N91bTWQFhXoc9hAJA3XChpchSrxIj4YilzM51naeEaT
-	H0Nmr3U=
-X-Received: by 2002:a05:6214:4686:b0:921:1ac1:34e2 with SMTP id 6a1803df08f44-921653a9042mr254285806d6.24.1795804609400;
-        Fri, 27 Nov 2026 10:36:49 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b253csm225559716d6.15.2026.11.27.10.36.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 10:36:48 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xX0oS-00000007aS6-1aU4;
-	Fri, 27 Nov 2026 14:36:48 -0400
-Date: Fri, 27 Nov 2026 14:36:48 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
-	Pawel Chmielewski <pawel.chmielewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>, Len Brown <lenb@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH RFC v3 7/8] attestation: providers: introduce CCA Guest
- attestation provider
-Message-ID: <20261127183648.GW246011@ziepe.ca>
-References: <20261127-arm_cca_mr-v3-0-df3230afce8f@arm.com>
- <20261127-arm_cca_mr-v3-7-df3230afce8f@arm.com>
- <20261127170722.GT246011@ziepe.ca>
- <awnLgFZIhRZENiE4@e129823.arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ds20111+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09581F0092C;
+	Fri, 27 Nov 2026 18:36:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795804610;
+	bh=c9OS2azmNlSLBcd4n3RTnzdEGHNMnl37QCh2ccSxVD4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Ds20111+2KN1q2dkFSUuBH4U60j093SvnLq2b8/CA+dHItrCf4DjINOje1lXgIKWp
+	 9Vi4lIDAnYt01OFbCGSXp3vXNOzTfN/HH/tl9IHO4SIFHGFsCC+bUkXaLartZ/mnJl
+	 iyI3MYbG2eJ9VOHzi7YWNUxjPwn1fTnwd77Zv6KBSUh0NYRiBESCgTbm1OxPHiFzM0
+	 CQHvZ1MnxV5vgMXsuXC1+g+T8bggC1n2FAQGbt7tH7cGAKvrKIXOcNiUKV8EtuXNLa
+	 MuS2Wga9GNkBlbswf2h08r5BZTODEKNrUSHjQ2ba9jcqpmMeQ6VdijTNCVi5gWm1LZ
+	 Taaz/uuZBxNJA==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Uday Khare <udaykhare77@gmail.com>,
+	Jerome Neanne <jneanne@baylibre.com>,
+	Mal Nadar <m.nirmaladevi@ltts.com>,
+	Esteban Blanc <eblanc@baylibre.com>,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH 3/8] regulator: tps6594-regulator: Use dedicated handler for external regulator IRQs
+Date: Fri, 27 Nov 2026 18:35:43 +0000
+Message-ID: <20261127183624.3341010-4-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+In-Reply-To: <20261127183624.3341010-1-lee@kernel.org>
+References: <20261127183624.3341010-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,23 +64,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awnLgFZIhRZENiE4@e129823.arm.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 06:27:12PM +0000, Yeoreum Yun wrote:
-> [...]
-> > 
-> > > +static enum hash_algo cca_guest_attestation_algorithms[] = {
-> > > +	HASH_ALGO_SHA512,
-> > > +};
-> > 
-> > static const
-> 
-> No. it's a scaling issue since the attestion algorithms could be not
-> only SHA512 but also SHA256 and SHA384....
+External regulator and VMON interrupts are registered with a pointer to
+struct tps6594_ext_regulator_irq_data, which has no rdev member, yet
+they reuse tps6594_regulator_irq_handler().  That handler casts the
+pointer to struct tps6594_regulator_irq_data and reads irq_data->rdev
+out of bounds before passing it to regulator_notifier_call_chain().
 
-Then don't init it here and do it entirely when you query the RSI to
-learn the right value
+Add a dedicated tps6594_ext_regulator_irq_handler() that operates on
+struct tps6594_ext_regulator_irq_data and logs the trap without calling
+regulator_notifier_call_chain().
 
-Jason
+Fixes: f17ccc5deb4d ("regulator: tps6594-regulator: Add driver for TI TPS6594 regulators")
+Closes: https://sashiko.dev/#/bug/linux-e6806c5e-76ed-41e2-924e-7110aa9f7d58
+Cc: stable@vger.kernel.org
+Signed-off-by: Lee Jones <lee@kernel.org>
+---
+ drivers/regulator/tps6594-regulator.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/regulator/tps6594-regulator.c b/drivers/regulator/tps6594-regulator.c
+index 1bbad407acb7..66052753610f 100644
+--- a/drivers/regulator/tps6594-regulator.c
++++ b/drivers/regulator/tps6594-regulator.c
+@@ -509,6 +509,23 @@ static irqreturn_t tps6594_regulator_irq_handler(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
++static irqreturn_t tps6594_ext_regulator_irq_handler(int irq, void *data)
++{
++	struct tps6594_ext_regulator_irq_data *irq_data = data;
++
++	if (irq_data->type->event_name[0] == '\0') {
++		/* This is the timeout interrupt no specific regulator */
++		dev_err(irq_data->dev,
++			"System was put in shutdown due to timeout during an active or standby transition.\n");
++		return IRQ_HANDLED;
++	}
++
++	dev_err(irq_data->dev, "Error IRQ trap %s for %s\n",
++		irq_data->type->event_name, irq_data->type->regulator_name);
++
++	return IRQ_HANDLED;
++}
++
+ static int tps6594_request_reg_irqs(struct platform_device *pdev,
+ 				    struct regulator_dev *rdev,
+ 				    struct tps6594_regulator_irq_data *irq_data,
+@@ -827,7 +844,7 @@ static int tps6594_regulator_probe(struct platform_device *pdev)
+ 		irq_ext_reg_data[i].type = irq_type;
+ 
+ 		error = devm_request_threaded_irq(tps->dev, irq, NULL,
+-						  tps6594_regulator_irq_handler,
++						  tps6594_ext_regulator_irq_handler,
+ 						  IRQF_ONESHOT,
+ 						  irq_type->irq_name,
+ 						  &irq_ext_reg_data[i]);
+-- 
+2.56.1.839.g22a8290db9-goog
+
