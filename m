@@ -1,56 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.216
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761469;
-	b=uGVQaWI4L2qSMZ1h0HwjSyIRDcbOlEV5wHVf9xQdDSy6b+6XMxPyrN8dYQIbnjGzfLAq
-	 /voaFEAFFfqFZpHvR/gQh/S2adOEayn/sf/5E6p9DUd9qpukKpOVDoBrfG2lwwtVxyUqS
-	 9kuy5siBDm/LLb+PmE6ym2i1MJ7e99u4qb1oWE5t8kqI+7yAtepcynsBrrpQV6wtCsMNE
-	 elQjM74+gurEweNrGEIZj258ox53XVRYV93pUhLMPCjhJcQ8UkDUU/N/gQSFoCo4EuQdO
-	 AyqDldVGZkPI5FK8ko8wcnMn2FXErl/4XxKxTgEVL7AHnXzAz7JKze838cH5T6rRviA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761469;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=E2wmtb0wcDKKCs321oPWCjIyUWd2kHhLtPftKss7IzM=;
-	b=v7wsCP/PftWoBi+bWDCM0mHzVdjsktZlejS0YSbEycUkl0zDf894gwc5GF+lMNOl9JRM
-	 6RwMYtFFXUnIE9CmJWLJcu1FGEssDsbVb67FxQLwXknvhDNbUBB8nj6NSDfLudRfozBfq
-	 Nj6BqWwC3WEcwxeTe7TjCJ4iyQX8nj/GDPUQ1lygmRYIZADpvCW+8DmRIqpzOk4Dpq2Ry
-	 OB1Ssq/THQpSwRR7tunUxMem4i1DjOAgMaIoAVgfvgRDN1ZCrDyhGtPm0/C5WshNF+jJk
-	 flKxhhHs8m2F1LUSh6ucQOqr5P8RCP52qy/Iu/vgI5Wsafk59g7+yt5AtuK1Tpk0/Tw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TvhJ11L1;
-	arc=none smtp.remote-ip=91.218.175.216
-Received: from mta0.migadu.com (out-216.mta0.migadu.com [91.218.175.216])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795761532;
+	b=IC3lLK9O6tze6nim4AETwo3HyMHPG4m5DyiFDwm9UwKJxSwzbYNamztTMZQzFFy8lSpQ
+	 HalCyT+i9qc7BDsCm1GfmLwsZ54Pdhk2H8anldKQH5DqTZufXhsh6TCQL0xK/TC7ouPnf
+	 kboUOhgWzihOxQmm58oSVhchSZ9jMVKGykD+dAv2XUVi6Ls6Zmh6H63Xgfa1pzylvVg3E
+	 fWMX6iZIgYVKdRZdvjbEjFnpMoarSQot1AuDLw6V/P2sjWl9m0iovApadtiLMUjRR0sIX
+	 srJ3N1nG7abYemPgQd2L2/TIMdR9piYSQgI4tIpvunENuf/OSttLyAg65l7nyeWYAag==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761532;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=bbE02Lb11+jV9iJrHznKia7N+kqOq23MgF6haH8bFi8=;
+	b=3ZdBv6TWG52wSTZpVLtC8qHUN9XJVfEwOaazXAAfob43msqFPHeSS1hNl/J1Z/3ziK+a
+	 Drz11ozXmJ9yMkNbplLd0bQc5K5PWxcHqyoXnXD2pCfaYzb8APuk4OwezymqZUXyS5oTI
+	 ACxD2oVUcWrvFKLcByMvLh9XGefGZWhUVrhXGzACUp/wAZ7YB+yfqCutfkLRBEULcRVMa
+	 DSKMzD3i3w/UxYncguCHt58+onDF17eI7OMPHdfLfHWSDVKqGn9Nfleo6xU3rgt+y4dez
+	 /DaJbF/YJ/SXFM8ntVhwKnLTBUunYDEngfEA1adwJOeb+VO/mHwkVNP03M6vwwtGJTw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XrSKkdCx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0D64606A321;
+	Fri, 27 Nov 2026 06:38:52 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XrSKkdCx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795761532;
+	b=m90cs66mVmRRabqV54KH3eVU12fOD+1R2YQSXCf3HGLGBXrrJUnKtwWnjFKZP4xxQxyQ
+	 xFeEO/D8WqCekVIPe33zl8VFotkiv0rGQ5EZYbcfVy4yOprWaRQnq3O6kE452yHPYlNc8
+	 D+/dAzyOuUxmIfoO9vNRzssuHnSpoPeiMC8pXS7h6zJuGWmMP2N9TRSHCcnYCN9kQPwsP
+	 pF3/Rdzq6bEDo99e6dmIaciNlEKEeJFDzeDZQbmF80V8HjITUQi2v8zD2YEZp0zScg7ve
+	 kWaqOhnLSaVTGO6UcLDzsszAZbkJeOAoCIApAJoujRFujpE+U4It49GTWCtZLtyazFw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795761532;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=bbE02Lb11+jV9iJrHznKia7N+kqOq23MgF6haH8bFi8=;
+	b=GepSANQX7tnbKJ/5C9xJIKGUGFIhSxZngAoAy4e49V5T67/4PSq/vRR18p0InnoLUViZ
+	 TP8Jp7z5FQmZsjj3FJQgIGFCLe3YSGWrb/2pRXQ6hvzooEKT901oMcumWIe5zpaq78tbe
+	 hCGCzCvezJVGa+mYPESmeOPMB18TkJwt0ZUdPCaxWSyBXIXRC5HnMPqDwVdITrglDoOfD
+	 J+/PRKB/HYl2bdIrQHFgT2jxAr0ASO44RWZ0Bc+sOK8IXheQR3a05G31k2a4+tCZvnnjP
+	 S9cYFGbzQp8hbSA4FX/1ZoCwZ9Rzw6yL8LhNqJtkVAWuv5JvSAfCLeYvRH0bKo9pjXQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25E1606A323
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:37:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25E1606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TvhJ11L1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=hbTakbmtjSC1ddEG1VRWcdm081coIzduXAdgrdbQ2N8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795761466; v=1; x=1796366266;
- b=TvhJ11L1NYTdAaLzhMpp0g+J72SYeZc8KzWekvqX+2lNy3bsHrs7yNcxJ6mt6yzN0N9Mes1P
- qdFFKkHOMTd2GnO1A77FZ/UG9vicGi+lWNU1OyEYHOp3KbP2+8e/KkgonRAtFII177kMM3nqCY+
- oeWlRXdsMRQMJSNBCSoBAFcg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 6e902a76121439d6;
-	Fri, 27 Nov 2026 06:37:46 +0000
-X-Mizu-Trace-ID: 6e902a76121439d6
-X-Migadu-Flow: FLOW_OUT
-From: Hangbin Liu <hangbin.liu@linux.dev>
-Date: Fri, 27 Nov 2026 14:37:28 +0800
-Subject: [PATCH net-next v2] bonding: check XDP support before enslaving
- changes state
+	by smtp.kernel.org (Postfix) with ESMTPS id AC7101F0089B;
+	Fri, 27 Nov 2026 06:38:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795761532;
+	bh=bbE02Lb11+jV9iJrHznKia7N+kqOq23MgF6haH8bFi8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=XrSKkdCxx6e3N8AZqxKnA1sJ2npdrrzGtoEf84l6jMYsRUTnXah3uPJkEXtkzPniW
+	 GYWLl0khSitr2JneXO5ZcdAxMcDl7l/1IKpo7Jv3UiqRXQqE0PI5ub2QXoHIfM72ii
+	 gjB6nY4vFa7X/s/AIRIpQX6RrxHBotxZruh9aBZQiG20NAGCvlglc9yibJ3txLmsgn
+	 0fZtGZ2yEAXXin0KuUXAgjBil45+Y8Pf0wJVjEWLzfItWsmlBL7yTcD3Abdex+ioSJ
+	 cRnQTUOrUvjob0RDpfQjHG7dIDqksIjm65dQUOrCo2RqkFmnY1+gWL+jvUEo1ExoOF
+	 tyXur7A5CflNA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3DFA64B5C4;
+	Fri, 27 Nov 2026 06:38:46 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Fri, 27 Nov 2026 08:38:40 +0200
+Subject: [PATCH RFC 03/10] coresight: cpu-debug: Publish the per-CPU data
+ under debug_lock
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,164 +84,122 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-b4-coresight-cpu-debug-lockup-v1-3-69d3ad1e0fc8@iav.lv>
+References: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
+In-Reply-To: <20261127-b4-coresight-cpu-debug-lockup-v1-0-69d3ad1e0fc8@iav.lv>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Leo Yan <leo.yan@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
+ Feng Tang <feng.tang@linux.alibaba.com>, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2858; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=ng8YC8Y3Ljza6ut1ftgTmWxS1VWe0wO1eJKzTsPgIWo=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDNmcqoUfV0//U6O2Knptqe6+aL2KyYbsR6PPbdj+qo+tT
+ 3aN341THaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiHp6MDEeb58n2rV1wt73t
+ u77kJH+XxhmKdfPzJnp6sexPFd///CPDX/F7m8+smeohYak5STtOxVTeZP3j4KV7723o2Lqywml
+ JOgsA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Reply-To: iav@iav.lv
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-bond_xdp_fix-v2-1-1e05818a41ef@kylinos.cn>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/21NSw6CMBC9Cpm1NbQFFFfewxAiMMiomZK2Egjp3
- S24dfXy/is4tIQOLskKFidyZDgSdUigHe78QEFd5KBSVUipMtEY7uq5G+ueZqH7HJsi1xFTiJX
- RYpT3uRswesE4e6h+jvs0T2z9trZlB3Le2GV/nuTe+H8ySSEFFqfyrEuVaZVdX8ub2Lhjy1CFE
- L5dGfHRxQAAAA==
-X-Change-ID: 20261124-bond_xdp_fix-3f5eb6533f50
-To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>, 
- Nikolay Aleksandrov <razor@blackwall.org>
-Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- Hangbin Liu <hangbin.liu@linux.dev>
-X-Mailer: b4 0.16.0
 
-From: Hangbin Liu <liuhangbin@kylinos.cn>
+From: Igor Velkov <iav@iav.lv>
 
-The XDP capability checks in bond_enslave() - ndo_bpf/ndo_xdp_xmit
-presence and whether the slave already runs an XDP program - run only
-after the slave has been opened, linked and published to the
-datapath. On failure the slave may already be bond->curr_active_slave
-or reachable through bond->slave_cnt and the upper device list, so a
-lot of state has to be undone, and bond_xdp_xmit() can observe the
-slave before its capability was ever verified.
+The probe stores the per-CPU pointer before it has read the device ID
+registers, so a device that it goes on to reject is visible to the
+panic notifier and to the debugfs knob in between. The knob walks the
+pointers under debug_lock, but the probe and the remove path change
+them outside it: a write to the knob between the store and the
+pm_runtime_put() of the probe leaves the device with one runtime PM
+reference too many.
 
-Move both checks into the validation section at the top of
-bond_enslave(), before the first state change, so a rejected slave
-returns directly with nothing mutated. bond_xdp_set() repeats the
-same two checks for every slave, so factor them into a common
-bond_slave_xdp_check() helper used by both paths.
+Store the pointer once the device is known to be usable, and change it
+only under debug_lock, which the knob holds while it takes or drops the
+runtime PM references of the published devices.
 
-Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Fixes: 2227b7c74634 ("coresight: add support for CPU debug module")
+Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
-For Sashiko:
+ drivers/hwtracing/coresight/coresight-cpu-debug.c | 22 ++++++++--------------
+ 1 file changed, 8 insertions(+), 14 deletions(-)
 
-please ignore the bond's promiscuity/allmulti/ns maddrs leak issue
-when xdp setup failed. It will be addressed in another patch.
-
-please ignore the no unwind for bond_3ad_bind_slave if
-dev_xdp_propagate failed. It will be addressed in another patch.
----
-Changes in v2:
-- move the duplicate checking in bond_xdp_set to the new check function.
-- Move the bond_xdp_xmit() fix in another patch and target to net (sashiko)
-- Link to v1: https://patch.msgid.link/20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn
----
- drivers/net/bonding/bond_main.c | 58 ++++++++++++++++++++---------------------
- 1 file changed, 29 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index de933245b12b..757ab7fa63ee 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -1866,6 +1866,26 @@ static void bond_ether_setup(struct net_device *bond_dev)
- 	bond_dev->priv_flags &= ~IFF_TX_SKB_SHARING;
+diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+index f9e6e344ed59..c55de98100a3 100644
+--- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
++++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+@@ -590,30 +590,31 @@ static int __debug_probe(struct device *dev, struct resource *res)
+ 	drvdata->base = base;
+ 
+ 	cpus_read_lock();
+-	per_cpu(debug_drvdata, drvdata->cpu) = drvdata;
+ 	ret = smp_call_function_single(drvdata->cpu, debug_init_arch_data,
+ 				       drvdata, 1);
+ 	cpus_read_unlock();
+ 
+ 	if (ret) {
+ 		dev_err(dev, "CPU%d debug arch init failed\n", drvdata->cpu);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	if (!drvdata->edpcsr_present) {
+ 		dev_err(dev, "CPU%d sample-based profiling isn't implemented\n",
+ 			drvdata->cpu);
+-		ret = -ENXIO;
+-		goto err;
++		return -ENXIO;
+ 	}
+ 
+ 	if (!debug_count++) {
+ 		ret = debug_func_init();
+-		if (ret)
+-			goto err_func_init;
++		if (ret) {
++			debug_count--;
++			return ret;
++		}
+ 	}
+ 
+ 	mutex_lock(&debug_lock);
++	per_cpu(debug_drvdata, drvdata->cpu) = drvdata;
+ 	/* Turn off debug power domain if debugging is disabled */
+ 	if (!debug_enable)
+ 		pm_runtime_put(dev);
+@@ -621,12 +622,6 @@ static int __debug_probe(struct device *dev, struct resource *res)
+ 
+ 	dev_info(dev, "Coresight debug-CPU%d initialized\n", drvdata->cpu);
+ 	return 0;
+-
+-err_func_init:
+-	debug_count--;
+-err:
+-	per_cpu(debug_drvdata, drvdata->cpu) = NULL;
+-	return ret;
  }
  
-+static int bond_slave_xdp_check(struct net_device *bond_dev,
-+				struct net_device *slave_dev,
-+				struct netlink_ext_ack *extack)
-+{
-+	if (!slave_dev->netdev_ops->ndo_bpf ||
-+	    !slave_dev->netdev_ops->ndo_xdp_xmit) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "Slave does not support XDP");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (dev_xdp_has_own_prog(slave_dev)) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "Slave has XDP program loaded, please unload before enslaving");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
- void bond_xdp_set_features(struct net_device *bond_dev)
+ static int debug_probe(struct amba_device *adev, const struct amba_id *id)
+@@ -638,9 +633,8 @@ static void __debug_remove(struct device *dev)
  {
- 	struct bonding *bond = netdev_priv(bond_dev);
-@@ -1955,6 +1975,12 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 		return -EPERM;
- 	}
+ 	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
  
-+	if (bond->xdp_prog) {
-+		res = bond_slave_xdp_check(bond_dev, slave_dev, extack);
-+		if (res)
-+			return res;
-+	}
-+
- 	/* set bonding device ether type by slave - bonding netdevices are
- 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
- 	 * there is a need to override some of the type dependent attribs/funcs.
-@@ -2318,15 +2344,7 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 		unblock_netpoll_tx();
- 	}
- 
--	if (!slave_dev->netdev_ops->ndo_bpf ||
--	    !slave_dev->netdev_ops->ndo_xdp_xmit) {
--		if (bond->xdp_prog) {
--			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--				     "Slave does not support XDP");
--			res = -EOPNOTSUPP;
--			goto err_dec_slave_cnt;
--		}
--	} else if (bond->xdp_prog) {
-+	if (bond->xdp_prog) {
- 		struct netdev_bpf xdp = {
- 			.command = XDP_SETUP_PROG,
- 			.flags   = 0,
-@@ -2334,13 +2352,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 			.extack  = extack,
- 		};
- 
--		if (dev_xdp_has_own_prog(slave_dev)) {
--			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--				     "Slave has XDP program loaded, please unload before enslaving");
--			res = -EOPNOTSUPP;
--			goto err_dec_slave_cnt;
--		}
+-	per_cpu(debug_drvdata, drvdata->cpu) = NULL;
 -
- 		res = dev_xdp_propagate(slave_dev, &xdp);
- 		if (res < 0) {
- 			/* ndo_bpf() sets extack error message */
-@@ -5735,20 +5746,9 @@ static int bond_xdp_set(struct net_device *dev, struct bpf_prog *prog,
- 	bond_for_each_slave(bond, slave, iter) {
- 		struct net_device *slave_dev = slave->dev;
- 
--		if (!slave_dev->netdev_ops->ndo_bpf ||
--		    !slave_dev->netdev_ops->ndo_xdp_xmit) {
--			SLAVE_NL_ERR(dev, slave_dev, extack,
--				     "Slave device does not support XDP");
--			err = -EOPNOTSUPP;
-+		err = bond_slave_xdp_check(dev, slave_dev, extack);
-+		if (err)
- 			goto err;
--		}
--
--		if (dev_xdp_has_own_prog(slave_dev)) {
--			SLAVE_NL_ERR(dev, slave_dev, extack,
--				     "Slave has XDP program loaded, please unload before enslaving");
--			err = -EOPNOTSUPP;
--			goto err;
--		}
- 
- 		err = dev_xdp_propagate(slave_dev, &xdp);
- 		if (err < 0) {
+ 	mutex_lock(&debug_lock);
++	per_cpu(debug_drvdata, drvdata->cpu) = NULL;
+ 	/* Turn off debug power domain before rmmod the module */
+ 	if (debug_enable)
+ 		pm_runtime_put(dev);
 
----
-base-commit: ccb81d5e317b0ae2cc66ca1c628c0ca907928f94
-change-id: 20261124-bond_xdp_fix-3f5eb6533f50
+-- 
+2.43.0
 
-Best regards,
---  
-Hangbin Liu <liuhangbin@kylinos.cn>
 
