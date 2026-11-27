@@ -1,111 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.191
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744650;
-	b=TITyvyOsb0WUgkiDI7GB33G/mhgLhzUIH1KzBR2rF+aah9k4ARFo/2fWMYASbYnOxyje
-	 nVWRYEuHuZg+5fNre/u0kKC6HTnCqzcwDu8IDyrswooCyT2rUBLuSx74ftRXeJ68x/9tg
-	 I9OOPG0goZfEooomQu7Qqm9/UbD9maRPF2NKlgWgP55MzyDTG0KIoUweVVlDlzYHrR8x6
-	 pbLH/rduz23O7f2EuDLQtlRo71X0Q+Po5zMC3CIM/ESkrkAqgOpEhP5BqPfpGn+ZqFF/4
-	 CaE6KOJyM0rkXH3AYscLm/Ae/qu55MsvBFZTjpSIHTvEtIZXFltRWc6p2cl1HoQNAZA==
+	t=1795744689;
+	b=YPB0A1Q9IeX3AvC5cmHOsRcZtpOeqX5CP+LxkYYBeIP5q3YMGQeUXDMtVBGW9FWCFM6Z
+	 sbxdZ70zuSEfxd9acGHZmJpznHmJPwqSd0OdYcWEqK/aW8fI+5KNQg7TxfvGo0RjY8dW5
+	 6uwVcvd3splg4JW7dblMljLvXpaTmbwOeHXij1ziiTpUU87/3s+EPvo55NOBV0LCcPVTo
+	 KytCkETZiYARLObtpK9q7PmO6tDFSUrYfy7rcGU4NH2HiXvjX+eiI1pCNHhzkWcAxc30O
+	 vCrqWOaiB09MaBTZTa47bfUMkO02GjP8SGhyOAxUaAYbdSW2nlcj1phiC35DBpwkZ3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744650;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=l+CPXweMRUnqec49OfMbBWLYSFqeLyP79x5EiJjbiB0=;
-	b=aj3vXXEMyUf3+T49ff5gXrPEAjTbX8crWkYm9Wlp1VnIRqJ6B/FZBfW3T8lbgcXGOJkW
-	 Y706IAkkYMCYMiKMig8C4wWuIn45d13kM6t8psG2KobWd39ol8tp1fL3pfpkZ5oCv0p4u
-	 5Q9h9tTDhFwpqRJ2qLucVjkBwmI+PettGdpng3f6Dj3nMwmKd29BtXUlWxPpdKAjqjO/Q
-	 cMZTaHZ8l5zIhn8fgpKgQ7nJjP1MWDy4cC1gf2LMYKCiNINuM7//b8WIgUEtvpO/AIeGb
-	 I5rfiaFYDFF/bD8Me5kvYMb35iilVHrlitkZveZBf5bI65aS4/2oskWlQj6ATHgHvig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744689;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=quOpidQ65ertMcQcQVEDfa++3yyN2utCqBeIGYCv1ks=;
+	b=pboQnayXDgrauyJG/587KL/8Qf84zcd+z6nyvj8UAntQWNPNfgpi+sJL1GTmRST7sanr
+	 SZF41QPN32h5YfwlPlk8Lti8K6z1fquv2DEIFZd8jP7fVIb+T7k2Yem18hUeY9Ic9unw4
+	 8SNkx7Z91lFqVeUDWz8egEcre3LV+joBds4nGHA493GYfYSAaQKsp/9bfvONv/khAm3XK
+	 PLR6TSbrTdojVU8T/pR+2EnKktHp4GAwkgrMp24toVWCFuVx1EU6eIArKOqaJZ2H0bk0N
+	 BkzHeBSRJV3KbzTRc+5yoxrqUzNr3aVKFKzbP+ADUtUPvj3yzdwkRRpL+pCn21EUzHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=kUKLujF4;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zkU4qSoX;
-	arc=none smtp.remote-ip=202.12.124.152
-Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=e+zYDn0c;
+	arc=none smtp.remote-ip=91.218.175.191
+Received: from mta0.migadu.com (out-191.mta0.migadu.com [91.218.175.191])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAE16606A321
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:57:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAE16606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62F8E606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:58:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62F8E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=kUKLujF4;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zkU4qSoX
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id EE7337A052F
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:57:27 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Thu, 26 Nov 2026 20:57:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795744647;
-	 x=1795831047; bh=l+CPXweMRUnqec49OfMbBWLYSFqeLyP79x5EiJjbiB0=; b=
-	kUKLujF4FyTGcE2IIKCMUALVL4/LtZTa+XVWgKASU5J/xhhNUAC/XcL6cv84LVMg
-	LP1knj/+C7wF3bAAAHZr3/ogGmxkpGiYaPznStnLJDhO+FlK4Y7paQZlW5YzpMlv
-	1coXOQSPBv5SCRO/Vc9L6MnkdbYfcmEbgwU7EemwJpxf2nsb6FQQDbQA8dm72tzg
-	7rnURa/QPqdF6tlsCb8C1YWJeFVo1AjuF4v9FqQzuLe6Y8TUt7cktT7sYMcJ6t+H
-	vt7DoluiYMYy89VHOQSz3t6iNYF52axM9+tLXkEZd2VYJAhxdM9FSvuGUMKDzYMo
-	h8PUn8cTpxzyBMbxWzwkuQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795744647; x=
-	1795831047; bh=l+CPXweMRUnqec49OfMbBWLYSFqeLyP79x5EiJjbiB0=; b=z
-	kU4qSoXBS/rkNuHXVW39sDNH/YApTsgAb4G2YURYP7u1hmnRI17f4I9grqv9e/8T
-	8KlHZsgj2Zbm08M5xV0T2/vjVIQ0hRcRpCWe2eN6UcIwfpIAEMsT/TcTCjryOcAs
-	J7SaUdy/+n3K4Eavvj2jNhVjUciOQc1SYCzsKl6A2v45v2OCn/YqMyRYBpTFgMSy
-	GZ4y2/e24VkQYwiu45JW60Wp4awfjkHiC1RSAxQfHwPa1Wn6jFXnq9/afE/eVgZX
-	hLX5Ca33PC3ZXSiLwpLVjJqLJPx6pwsXTntZLMSDJ/hMu5BXjYTqSkqSV58ZsqDb
-	/7DrvRVjDk0ShnnB/Rtfg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795744647; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:dsVs5vyuBcnSQTt08dAxSU82WsxsLN3oxpEIwRKYcYKLbFF
-	KBKzcwQiVokl6vbMUmpDD6rYpxcaE+V7086eZnyLkrzSpM2+5qN3laRSw0wlfORL
-	8oJHUGeqf2h9XRnWiWyExBQBV1jVq6UjTSTtQc2EatkMlgVtoyDQ0X4qkvlerznZ
-	3BEDY/ez4w0eYyZjMaH5HqqP4FjGz2DCjhqDyHsd1EMqoGQo7kx4/r0YEeu6ZaBi
-	mn2c63lIpyKuE2OPOltDzPlhsFgOjYF3EzfYVBx2HYfybYYYY6x5WEHGCa6iLTb+
-	mh7VUVkrJmfFXeq9eb7k4meerxOTh1qOU1i2Niw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:7j5LoRrf0ql+Zew650b+ljinVSvyFcOY2TZEJu4ZE2M=:RQ7ggPE0iLF0mjVtdUMvS3GgEsgMGt1oxonqcyHgHvA=;
-X-ME-Sender: <xms:huMIa9jEj_6_iTol3Er9-NXni6Kfz9DaNq-nueP_Xe0c94Rw7JvDTQ>
-    <xme:huMIa82zvzBO6WZ0tYE9-SvJ_VxSa-O6pmqRcOhv00JR_TXrfBCq9ffW-V_O8tbBE
-    CiCeZrT8WAdkyKVJzTeoazUPzUXWuifwaWIbkpBfgkdkm8Oh53MDEbH>
-X-ME-Proxy-Cause: dmFkZTEUlesYaxSNCHgLCphpm36UGh0hbTP08ieoXHpziogU3inuBwPuRA7my55MEMqMn3
-    /zVO7onGrP/acYzCCpgG+a1BXpyF/zh9Txq716+OJ8WzKjfIW2ZZs5UNQyjPk4LUBmGthC
-    c38uSjx1ML5hOGKw0zOGctHN4X0OfvBJH5wWsP+EMmBIjPt4aHJ/5Yk6Fgi4go2nkMeBdx
-    uFQZrnX5xZ0BHsD6jG1Ab4dZkr+H5OMjkZIothd1gHt6dyCrtaK1ArGn1nJfBkn7Ui8XCw
-    4iSfzQAkjR7bGQchupvKlmvHAxaQqDr+BpS4qL76q0nqFxQ0HglyZfhqyRivyQ0gFgdgjZ
-    mzO5dogLYbspBCNIUc4lD0WsaOOr8YGZB52C3I32jfeOP6f00ub+nvt3PnYM17E0tP6IZP
-    w49hBePRiJ3vZ67+PgRuFCSRcErhiAJMXMkLye9FOqCrcfTDX2CLWsG+JDXx+Mbod/CiXW
-    zllK6RIg8yOwktQ9bzL4f1hFbfnaJre2VU0DUI6f1BpAu45aZAvT3mouCctSJV3dQXLoEd
-    nJDfPJ8MrDihkwWV6NXu7Sa2ejENhy4tBfeZGUqaMGeV31cOoUxNhbOos8xbLCkIGOk9Ej
-    Fz1g3njTy9KOGZuJJTCJRUUt7dfnZ3e36QZB/uG6IVU83h//x0fL3lLs6JNw
-X-ME-Proxy: <xmx:huMIa2WSvF0duUxOjaFoy5AzF0Czt3fUg7fd-Kyi_aMJWOOBFB_13A>
-    <xmx:huMIa_Rel-3pQvD74Xneavg_QtoaY4uBnGsWlVyoTra_7dTx6TRfgA>
-    <xmx:huMIa-SIoMPSCcod5_emnVMrzd5zAxx7NnbIz7D15pP-J2cMKuZ03Q>
-    <xmx:huMIa3cUTQ45fHSmgNv8oRaYkePixlPjbZuRTPE0fFotGnKPZ6ZDFQ>
-    <xmx:h-MIa8t1c0m7PHmEkFhZGVlkPrnrHjVitQg3us7k4VQjJ8MHAimtVCIp>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id 370752C00085; Thu, 26 Nov 2026 20:57:26 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=e+zYDn0c
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=9hlSR5VAEGqnYObJ1uVH8pENVu6NTSK1bKdnIjboNOk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795744686; v=1; x=1796349486;
+ b=e+zYDn0cdynntZCO1CbkKm5jtjyjn6T1bu3vb4oTDAzaob16Ui/Xef0J/cTg55KxpIeb7cEo
+ +PaCnmcgUs3Xeafq2H4jgstj39CwqI6V/rdcrVvBKowRay9V/m/+9Jjd2GTmZ/4c13Jcwg6cHwy
+ 8TX4blr4L0ziUMQFWmVzpIuc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 46990cf407084ce6;
+	Fri, 27 Nov 2026 01:58:06 +0000
+X-Mizu-Trace-ID: 46990cf407084ce6
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <7976acea-9e05-46e8-b0e4-31aa27af6e98@linux.dev>
+Date: Fri, 27 Nov 2026 09:57:57 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,241 +58,277 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A018hRoekgxR
-Date: Thu, 26 Nov 2026 20:57:06 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Vishnu Sankar" <vishnuocv@gmail.com>, "Hans de Goede" <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
- "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
- "Huang Wei" <huangwei@kylinos.cn>,
- "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- ibm-acpi-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- klorico2@lenovo.com, "Vishnu Sankar" <vsankar@lenovo.com>
-Message-Id: <919d3d4c-38c0-46a4-9442-73094197f6b1@app.fastmail.com>
-In-Reply-To: <20261126085937.53711-1-vishnuocv@gmail.com>
-References: <20261126085937.53711-1-vishnuocv@gmail.com>
-Subject: Re: [PATCH] platform/x86: thinkpad_acpi: Fix fan speed reporting on X9 Gen 1
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 07/16] mm/mglru: balance anon and file scan budget by
+ refault rate
+To: Kairui Song <ryncsn@gmail.com>
+Cc: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
+ linux-mm@kvack.org, axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
+ baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
+ kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
+ lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
+ liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
+ mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org,
+ shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
+ weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
+ zhuhui@kylinos.cn, sidchintamaneni@gmail.com
+References: <20261114200803.23129-1-baohua@kernel.org>
+ <20261114200803.23129-8-baohua@kernel.org>
+ <5238e574-ed22-4781-aac2-b91a6b2d911e@linux.dev>
+ <awf7WGiaC4LVLYhA@KASONG-MC4>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <awf7WGiaC4LVLYhA@KASONG-MC4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Thanks Vishnu,
 
-On Thu, Nov 26, 2026, at 3:59 AM, Vishnu Sankar wrote:
-> On the ThinkPad X9-14 Gen 1 and X9-15 Gen 1, the EC reports fan1 RPM
-> in registers 0x84/0x85 and fan2 RPM in 0x82/0x83, and does not use
-> bit 0 of 0x31 as a fan select. As a result fan2 reports fan1's speed,
-> and every fan read overwrites an EC-owned bit.
->
-> The EC also does not latch either register pair, so a read can combine
-> the LSB of a new value with the MSB of an old one.
->
-> Add two quirks: TPACPI_FAN_2REG reads fan2 from 0x82/0x83 and never
-> touches 0x31, and TPACPI_FAN_UNLATCH re-reads an RPM register pair
-> until the MSB is stable. Enable both for the X9 Gen 1 models.
->
-> A single fan level write controls both fans on these models, so second
-> fan control is disabled when TPACPI_FAN_2REG is set.
->
-> Tested on X9-14 Gen 1 (BIOS N4DET42W, EC N4DHT39W).
->
-> Signed-off-by: Vishnu Sankar <vishnuocv@gmail.com>
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 79 ++++++++++++++++++---
->  1 file changed, 68 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
-> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> index 4f81855ad721..266f774b8ac3 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -7964,6 +7964,8 @@ enum {					/* Fan control constants */
->  	fan_select_offset = 0x31,	/* EC register 0x31 (Firmware 7M)
->  					   bit 0 selects which fan is active */
-> 
-> +	fan2_rpm_offset = 0x82,		/* EC register 0x82: LSB, 0x83 MSB (fan2 
-> RPM) */
-> +
->  	fan_status_offset_ns = 0x93,	/* Special status/control offset for 
-> non-standard EC Fan1 */
->  	fan2_status_offset_ns = 0x96,	/* Special status/control offset for 
-> non-standard EC Fan2 */
->  	fan_rpm_status_ns = 0x95,	/* Special offset for Fan1 RPM status for 
-> non-standard EC */
-> @@ -8012,6 +8014,8 @@ static int fan_watchdog_maxinterval;
->  static bool fan_with_ns_addr;
->  static bool ecfw_with_fan_dec_rpm;
->  static bool fan_speed_in_tpr;
-> +static bool fan2_with_own_rpm_reg;
-> +static bool fan_rpm_unlatched;
-> 
->  static struct mutex fan_mutex;
-> 
-> @@ -8073,6 +8077,9 @@ static void fan_quirk1_handle(u8 *fan_status)
->  /* Select main fan on X60/X61, NOOP on others */
->  static bool fan_select_fan1(void)
->  {
-> +	if (fan2_with_own_rpm_reg)
-> +		return true;
-> +
->  	if (tp_features.second_fan) {
->  		u8 val;
-> 
-> @@ -8093,6 +8100,9 @@ static bool fan_select_fan2(void)
->  	if (!tp_features.second_fan)
->  		return false;
-> 
-> +	if (fan2_with_own_rpm_reg)
-> +		return true;
-> +
->  	if (ec_read(fan_select_offset, &val) < 0)
->  		return false;
->  	val |= 0x01U;
-> @@ -8202,21 +8212,48 @@ static int fan_get_status_safe(u8 *status)
->  	return 0;
->  }
-> 
-> +/* Read a 16-bit RPM register pair (LSB at offset, MSB at offset + 1) */
-> +static bool fan_read_rpm(u8 offset, unsigned int *rpm)
-> +{
-> +	u8 hi, lo, hi2;
-> +	int retries = 3;
-> +
-> +	if (fan_rpm_unlatched) {
-> +		/* No latch: re-read until the MSB is stable */
-> +		do {
-> +			if (!acpi_ec_read(offset + 1, &hi) ||
-> +			    !acpi_ec_read(offset, &lo) ||
-> +			    !acpi_ec_read(offset + 1, &hi2))
-> +				return false;
-> +		} while (hi != hi2 && --retries);
-> +
-> +		if (hi != hi2)
-> +			return false;
-> +	} else {
-> +		if (!acpi_ec_read(offset, &lo) || !acpi_ec_read(offset + 1, &hi))
-> +			return false;
-> +	}
-> +
-> +	*rpm = (hi << 8) | lo;
-> +	return true;
-> +}
-> +
->  static int fan_get_speed(unsigned int *speed)
->  {
-> -	u8 hi, lo;
-> +	unsigned int rpm;
-> +	u8 lo;
-> 
->  	switch (fan_status_access_mode) {
->  	case TPACPI_FAN_RD_TPEC:
->  		/* all except 570, 600e/x, 770e, 770x */
->  		if (unlikely(!fan_select_fan1()))
->  			return -EIO;
-> -		if (unlikely(!acpi_ec_read(fan_rpm_offset, &lo) ||
-> -			     !acpi_ec_read(fan_rpm_offset + 1, &hi)))
-> +
-> +		if (unlikely(!fan_read_rpm(fan_rpm_offset, &rpm)))
->  			return -EIO;
-> 
->  		if (likely(speed)) {
-> -			*speed = (hi << 8) | lo;
-> +			*speed = rpm;
->  			if (fan_speed_in_tpr && *speed != 0)
->  				*speed = FAN_CLOCK_TPM / *speed;
->  		}
-> @@ -8238,7 +8275,8 @@ static int fan_get_speed(unsigned int *speed)
-> 
->  static int fan2_get_speed(unsigned int *speed)
->  {
-> -	u8 hi, lo, status;
-> +	unsigned int rpm;
-> +	u8 lo, status;
->  	bool rc;
-> 
->  	switch (fan_status_access_mode) {
-> @@ -8246,14 +8284,16 @@ static int fan2_get_speed(unsigned int *speed)
->  		/* all except 570, 600e/x, 770e, 770x */
->  		if (unlikely(!fan_select_fan2()))
->  			return -EIO;
-> -		rc = !acpi_ec_read(fan_rpm_offset, &lo) ||
-> -			     !acpi_ec_read(fan_rpm_offset + 1, &hi);
-> +
-> +		rc = !fan_read_rpm(fan2_with_own_rpm_reg ? fan2_rpm_offset : fan_rpm_offset,
-> +				   &rpm);
-> +
->  		fan_select_fan1(); /* play it safe */
->  		if (rc)
->  			return -EIO;
-> 
->  		if (likely(speed)) {
-> -			*speed = (hi << 8) | lo;
-> +			*speed = rpm;
->  			if (fan_speed_in_tpr && *speed != 0)
->  				*speed = FAN_CLOCK_TPM / *speed;
->  		}
-> @@ -8873,6 +8913,8 @@ static const struct attribute_group 
-> fan_driver_attr_group = {
->  #define TPACPI_FAN_DECRPM	0x0020		/* For ECFW's with RPM in register 
-> as decimal */
->  #define TPACPI_FAN_TPR		0x0040		/* Fan speed is in Ticks Per 
-> Revolution */
->  #define TPACPI_FAN_NOACPI	0x0080		/* Don't use ACPI methods even if 
-> detected */
-> +#define TPACPI_FAN_2REG		0x0100		/* Fan2 RPM in EC regs 0x82/0x83, no 
-> fan select */
-> +#define TPACPI_FAN_UNLATCH	0x0200		/* RPM registers are not latched */
-> 
->  static const struct tpacpi_quirk fan_quirk_table[] __initconst = {
->  	TPACPI_QEC_IBM('1', 'Y', TPACPI_FAN_Q1),
-> @@ -8908,6 +8950,8 @@ static const struct tpacpi_quirk 
-> fan_quirk_table[] __initconst = {
->  	TPACPI_Q_LNV3('R', '0', '0', TPACPI_FAN_NOACPI),/* E560 */
->  	TPACPI_Q_LNV3('R', '1', '2', TPACPI_FAN_NOACPI),/* T495 */
->  	TPACPI_Q_LNV3('R', '1', '3', TPACPI_FAN_NOACPI),/* T495s */
-> +	TPACPI_Q_LNV3('N', '4', 'D', TPACPI_FAN_2REG | 
-> TPACPI_FAN_UNLATCH),	/* X9-14 Gen 1 */
-> +	TPACPI_Q_LNV3('N', '4', 'C', TPACPI_FAN_2REG | 
-> TPACPI_FAN_UNLATCH),	/* X9-15 Gen 1 */
->  };
-> 
->  static int __init fan_init(struct ibm_init_struct *iibm)
-> @@ -8959,6 +9003,12 @@ static int __init fan_init(struct ibm_init_struct *iibm)
->  		tp_features.fan_ctrl_status_undef = 1;
->  	}
-> 
-> +	if (quirks & TPACPI_FAN_2REG)
-> +		fan2_with_own_rpm_reg = true;
-> +
-> +	if (quirks & TPACPI_FAN_UNLATCH)
-> +		fan_rpm_unlatched = true;
-> +
->  	if (quirks & TPACPI_FAN_NOACPI) {
->  		/* E560, T495, T495s */
->  		pr_info("Ignoring buggy ACPI fan access method\n");
-> @@ -8993,9 +9043,16 @@ static int __init fan_init(struct ibm_init_struct *iibm)
->  			if (res >= 0 && speed != FAN_NOT_PRESENT) {
->  				/* It responded - so let's assume it's there */
->  				tp_features.second_fan = 1;
-> -				/* fan control not currently available for ns ECFW */
-> -				tp_features.second_fan_ctl = !fan_with_ns_addr;
-> -				pr_info("secondary fan control detected & enabled\n");
-> +				/*
-> +				 * fan control not currently available for ns ECFW,
-> +				 * and not needed with 2REG: one write drives both fans
-> +				 */
-> +				tp_features.second_fan_ctl = !fan_with_ns_addr &&
-> +							     !fan2_with_own_rpm_reg;
-> +				if (tp_features.second_fan_ctl)
-> +					pr_info("secondary fan control detected & enabled\n");
-> +				else
-> +					pr_info("secondary fan detected\n");
->  			} else {
->  				/* Fan not auto-detected */
->  				tp_features.second_fan = 0;
-> -- 
-> 2.53.0
 
-Looks good to me.
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Mark
+On 11/26/2026 6:37 PM, Kairui Song wrote:
+> On Thu, Nov 19, 2026 at 05:48:38PM +0800, Ridong Chen wrote:
+>>
+>>
+>> On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
+>>> From: Kairui Song <kasong@tencent.com>
+>>>
+>>> Replace get_type_to_scan() and isolate_folios(), which selected one
+>>> type per batch, with a proportional split of the scan budget between
+>>> anon and file, and scan both types each round.
+>>>
+>>> lru_gen_balance_scan() splits the total by
+>>>
+>>>           anon : file = swappiness * r_file * w_anon :
+>>>                         (MAX_SWAPPINESS - swappiness) * r_anon * w_file
+>>>
+>>> where r_anon and r_file are the per-type refault rates scaled by
+>>> 4096, clamped to [1, 4096]; a rate at the 4096 ceiling means the type
+>>> refaults at least as often as it is evicted. The w factors bias the
+>>> split toward the LRU sizes at mild swappiness and follow the IO cost
+>>> ratio at the extremes. Both rate accumulators start at MIN_LRU_BATCH,
+>>> so a type without eviction history reads as 100% until evictions
+>>> accumulate, and the floor of 1 keeps a type that never refaults from
+>>> zeroing out the other type's share. Swappiness 0 and
+>>> SWAPPINESS_ANON_ONLY keep their single-type behavior; at swappiness ==
+>>> MAX_SWAPPINESS the file factor is zero, so anon gets the whole budget,
+>>> as in the classical LRU; swappiness 1 no longer forces file-only
+>>> scanning as the old code did.
+>>>
+>>> The proportional protection and priority reduction are applied to the
+>>> total once, before the split, and each budget is capped at its type's
+>>> evictable size. Regular reclaim derives the total from the evictable
+>>> sizes, so the budgets sum to it. The proactive path re-splits the
+>>> remaining target each round, so eviction keeps working while either
+>>> type makes progress, until the target is met or no progress is
+>>> possible. The debugfs scan_control gets .priority = DEF_PRIORITY so
+>>> eviction starts from the oldest gen and reports the default priority
+>>> in the tracepoints.
+>>>
+>>> Note that we are already lenient with the debugfs proactive
+>>> reclaim interface. We may reclaim one generation ahead even
+>>> at `DEF_PRIORITY`, and with extreme swappiness values such
+>>> as 1 and 200, we may not fall back to the other type.
+>>>
+>>> To address these cases and preserve the behavior of the
+>>> previous model before scan-budget-based reclaim, we would
+>>> need to add another flag to `scan_control`. However, this
+>>> may not be worthwhile for a debugfs interface that is likely
+>>> to be rarely used, especially given that we already have
+>>> memory-level and node-level proactive reclaim interfaces.
+>>>
+>>> Signed-off-by: Kairui Song <kasong@tencent.com>
+>>> Co-developed-by: Gaofei Lyu <lyugaofei@xiaomi.com>
+>>> Signed-off-by: Gaofei Lyu <lyugaofei@xiaomi.com>
+>>> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+>>> ---
+>>>    mm/vmscan.c | 219 +++++++++++++++++++++++++++++++++-------------------
+>>>    1 file changed, 138 insertions(+), 81 deletions(-)
+>>>
+>>> diff --git a/mm/vmscan.c b/mm/vmscan.c
+>>> index f7fbe91fedf3..18cf1c084e78 100644
+>>> --- a/mm/vmscan.c
+>>> +++ b/mm/vmscan.c
+>>> @@ -4863,79 +4863,110 @@ static int get_tier_idx(struct lruvec *lruvec, int type)
+>>>    	return tier - 1;
+>>>    }
+>>> -static int get_type_to_scan(struct lruvec *lruvec, int swappiness)
+>>> +/*
+>>> + * Balance the anon vs file scan budget using MGLRU's per-type refault
+>>> + * rates, where swappiness is the relative IO cost of anon vs file (see
+>>> + * Documentation/admin-guide/sysctl/vm.rst).
+>>> + *
+>>> + * On entry, nr[] holds the evictable size of each type, on return it
+>>> + * holds each type's scan budget, bounded by its evictable size.
+>>> + *
+>>> + * LRU lock not needed: a stale snapshot merely skews the split for one pass,
+>>> + * and MGLRU aging averages the fault rate so we can simply read it, no need
+>>> + * to do any extra work here. If reclaim is blocked by unfair type hotness or
+>>> + * stall aging, the priority will raise and a raised priority drives the
+>>> + * aging.
+>>> + *
+>>> + * Calculation is basically based on following formula with a LRU size bias:
+>>> + *
+>>> + * anon : file = swappiness * r_file * w_anon :
+>>> + *               (MAX_SWAPPINESS - swappiness) * r_anon * w_file
+>>> + *
+>>> + * r_file / r_anon: refault rate for file / anon.
+>>> + * w_file / w_anon: LRU size weight of file / anon.
+>>> + *
+>>> + * We don't calculate the scan cost. MGLRU uses lazy promotion, which will
+>>> + * cancel the scan budget naturally.
+>>> + */
+>>> +static void lru_gen_balance_scan(struct lruvec *lruvec, int swappiness,
+>>> +		unsigned long total_scan, unsigned long nr[])
+>>>    {
+>>> -	struct ctrl_pos sp, pv;
+>>> +	struct lru_gen_folio *lrugen = &lruvec->lrugen;
+>>> +	u64 refault_rate[ANON_AND_FILE], anon_factor, file_factor;
+>>> +	u64 anon_scan, file_scan, total;
+>>> +	u64 anon_weight, file_weight;
+>>> +	int size_bias;
+>>> -	if (swappiness <= MIN_SWAPPINESS + 1)
+>>> -		return LRU_GEN_FILE;
+>>> +	total = nr[LRU_GEN_ANON] + nr[LRU_GEN_FILE];
+>>> +	if (!total)
+>>> +		return;
+>>> -	if (swappiness >= MAX_SWAPPINESS)
+>>> -		return LRU_GEN_ANON;
+>>> -	/*
+>>> -	 * Compare the sum of all tiers of anon with that of file to determine
+>>> -	 * which type to scan.
+>>> -	 */
+>>> -	read_ctrl_pos(lruvec, LRU_GEN_ANON, LRU_TIER_MIN, LRU_TIER_MAX,
+>>> -		      swappiness, &sp);
+>>> -	read_ctrl_pos(lruvec, LRU_GEN_FILE, LRU_TIER_MIN, LRU_TIER_MAX,
+>>> -		      MAX_SWAPPINESS - swappiness, &pv);
+>>> +	if (swappiness <= MIN_SWAPPINESS) {
+>>> +		nr[LRU_GEN_ANON] = 0;
+>>> +		nr[LRU_GEN_FILE] = min_t(u64, total_scan, nr[LRU_GEN_FILE]);
+>>> +		return;
+>>> +	}
+>>> -	return positive_ctrl_err(&sp, &pv);
+>>> -}
+>>> +	if (swappiness == SWAPPINESS_ANON_ONLY) {
+>>> +		nr[LRU_GEN_FILE] = 0;
+>>> +		nr[LRU_GEN_ANON] = min_t(u64, total_scan, nr[LRU_GEN_ANON]);
+>>> +		return;
+>>> +	}
+>>> -static inline bool is_single_type_reclaim(int swappiness)
+>>> -{
+>>> -	return swappiness == MIN_SWAPPINESS ||
+>>> -	       swappiness == SWAPPINESS_ANON_ONLY;
+>>> -}
+>>> +	for (int type = LRU_GEN_ANON; type <= LRU_GEN_FILE; type++) {
+>>> +		int hist = lru_hist_from_seq(READ_ONCE(lrugen->min_seq[type]));
+>>> +		/* start at MIN_LRU_BATCH to smooth the rate on gen start */
+>>> +		u64 refaulted = MIN_LRU_BATCH, evicted = MIN_LRU_BATCH;
+>>> -static int isolate_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
+>>> -			  struct scan_control *sc, int swappiness,
+>>> -			  struct list_head *list, int *isolated,
+>>> -			  int *isolate_type, int *isolate_scanned)
+>>> -{
+>>> -	bool type_fallback_allowed = !is_single_type_reclaim(swappiness);
+>>> -	int type = get_type_to_scan(lruvec, swappiness);
+>>> -	int total_scanned = 0, scanned, tier;
+>>> -	bool tried = false;
+>>> +		for (int tier = 0; tier < MAX_NR_TIERS; tier++) {
+>>> +			refaulted += READ_ONCE(lrugen->avg_refaulted[type][tier]);
+>>> +			refaulted += atomic_long_read(&lrugen->refaulted[hist][type][tier]);
+>>> -retry:
+>>> -	tier = get_tier_idx(lruvec, type);
+>>> -	scanned = scan_folios(nr_to_scan, lruvec, sc,
+>>> -			      type, tier, list, isolated);
+>>> +			evicted += READ_ONCE(lrugen->avg_total[type][tier]);
+>>> +			evicted += atomic_long_read(&lrugen->evicted[hist][type][tier]);
+>>> +		}
+>>> -	total_scanned += scanned;
+>>> -	if (*isolated) {
+>>> -		*isolate_type = type;
+>>> -		*isolate_scanned = scanned;
+>>> -		return total_scanned;
+>>> +		/*
+>>> +		 * The rate scaled by 4096 to survive integer division, clamped
+>>> +		 * to [1, 4096] (~0% - 100%), the floor of 1 keeps a type that
+>>> +		 * never refaults from zeroing out the other type's share.
+>>> +		 */
+>>> +		refault_rate[type] = mul_u64_u64_div_u64(refaulted, 4096, evicted);
+>>> +		refault_rate[type] = clamp_t(u64, refault_rate[type], 1, 4096);
+>>>    	}
+>>>    	/*
+>>> -	 * We are running out of the current reclaim type. Fall back to
+>>> -	 * the other type if allowed.
+>>> +	 * The more extreme the swappiness, the wider the IO cost gap between
+>>> +	 * anon and file, so the split should follow the IO cost ratio rather
+>>> +	 * than the sizes. With a mild swappiness, balance the scan by the
+>>> +	 * actual LRU size more.
+>>>    	 */
+>>> -	if (!scanned && !tried && type_fallback_allowed) {
+>>> -		type = !type;
+>>> -		tried = true;
+>>> -		type_fallback_allowed = false;
+>>> -		goto retry;
+>>> -	}
+>>
+>> Hi Kairui, Barry,
+>>
+>> A question about the size weight:
+>>
+>>> +	size_bias = max(1, min(swappiness, MAX_SWAPPINESS - swappiness));
+>>> +	anon_weight = nr[LRU_GEN_ANON] + nr[LRU_GEN_FILE] / size_bias;
+>>> +	file_weight = nr[LRU_GEN_FILE] + nr[LRU_GEN_ANON] / size_bias;
+>>> +
+>>
+>> In the classic LRU, get_scan_count() weights each type by its own size
+>> only.
+> 
+> Hi Ridong
+> 
+>>
+>> Here each weight also includes the other type's size / size_bias. So
+>> around swappiness 100 the split follows the sizes like the classic LRU,
+>> but near swappiness 1 or 199 the sizes cancel out and the split follows
+>> swappiness only.
+>>
+>> For example, anon 3G, file 100M, same refault rate, anon share of the
+>> scan budget:
+>>
+>> 	  swappiness   classic   this patch
+>> 		 100         97%        96%
+>> 		  10         62%        28%
+>> 		   1         13%       0.5%
+>>
+>> Having two behaviors in one formula is a bit confusing. What is the
+>> reason for this blending, and is there data behind it? Would weighting
+>> each type only by its own size, like get_scan_count(), work as well?
+> 
+> Your numbers are right, but get_scan_count() isn't just balancing by size:
+> swappiness goes through calculate_pressure_balance(), and the cost there is
+> refault IO plus rotation cost, size turns that pressure into a page count.
+> 
+> With w = own size we'd match your classic column exactly, the bias is the
+> only difference. And the bias is there on purpose: 0 and 201 are single-type
+> and never reach the formula, while 1/200 are their counterparts, which is what
+> get_type_to_scan() used to hard-code. If the user asks for an extreme setting
+> then we respect it, and 15/16 and 16/16 make those ends exact. And this also
+> matches the other parts:
+> 
+> We don't use classic's cost accounting here. The rotation part is gone
+> with lazy promotion: a young folio stays in its gen instead of being rotated,
+> so the budget is bounded by the evictable size automatically. And the refault
+> part is already kept per type and tier by MGLRU PID, and aging averages it
+> so we can read it locklessly, a stale snapshot only skews one pass.
+> 
+> So that's the whole model, it is a bit different but works well.
+> Barry posted a lot of test data through v1 to v9, the swappiness sweeps
+> (1/60/100/150/200, with per-type pgscan and refault) show the balance moving
+> as described, including the ends.
+> 
+> There could be some pitfall with PID's ineffective protection for
+> high swappiness so with high swappiness you may observe a worse
+> refault after this, however it is not caused by this, same problem
+> exists for file heavy workloads, and will be solved with MGLRU-FG.
+
+Thanks for the explanation, that makes sense.
+
+-- 
+Best regards
+Ridong
+
