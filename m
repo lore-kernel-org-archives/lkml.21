@@ -1,105 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.79
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795739224;
-	b=0lhrtx+34QG9Q29oB3sd7bEjzj79qR4vOrPBht9FImB2V412cxMLsxTCwZaMtJeRhAEw
-	 XiEIuXf98ub43RWdn4o5giPL2QJUmJpUNJrW2igDREwPc3SRevQwrar58SwJucI056Gry
-	 PmWv3xf99CIEYzwfF3QxZsQh/ih83Mn1RQoHmD7Ocxpfun1jCqNv0fj/QPckrTkP02+zM
-	 6GEpQ+VL+46hJ6Jpz+i+tq0yUt5rk2NXiI1+s8WE93Y7fYQs3OrbwtZI7D1q5rNUQhfYB
-	 cNeWwSmVBbVEf9EbefTFsWQShMzvE98vRJ9rQSTlBIGgdd8zcN24hHoGPWJFUwpPEpQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795739224;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=3jGP3kpyU8qYNNLPxHIoPWDJhUz3M+x3GcD17xSIFgc=;
-	b=JtJW+3Hp9wHYvekwDy0fOt5BzR+5YD+Wb+CUzXQQEZ7pkBBxplUfQfP1hb9q4ixQ+1kX
-	 lsdcTXj3/DQOO7+v2BppCS3F7q2Ip1wXkNqTZbsCCE477DIalCHJEo+313FjTubS1pIyj
-	 YRIvJTOP9dzicx5lWpN8Aqkfkmtu7g0TydzebwltAkqdZUIEdxe2JqaRjXpuXfBfi04e/
-	 UarpjncctwD1wrTP9RMXLM2cdB3+l9C4ha6XHP/VmMUjoNHcPuBcRSz8ersWeNOa/entJ
-	 +fZJkK9WxQGBQbftU3ZdW2ak2nFnQjzo/8A/7GTdjiqh2ngtjlwIqpjT+3qHdPAot2A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=phytec.de;
-	spf=pass smtp.mailfrom=phytec.de;
-	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=iCOgIzel;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.79
-Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11020079.outbound.protection.outlook.com [52.101.69.79])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.170
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795739564;
+	b=ACM2aFbuMbxl2/HnQ2/4g72F8wOK12ccVliFUDHwkyUxTXu0eEb6AfqIs0A2pnbtt1RN
+	 IEJ8qDe6El5G4jbyqnFCtlTqk28K02DgU97mrHxXXyslvKCRRxgCAFogjee7qfnhUab8j
+	 qM+H8/BbaZkCBBioa7PSQCwDj6i6taOziKLYiCIBLvyDNrjxAdBzuXxe4wbe4Dlk3uU4d
+	 71LrY69Q+NMF5z0NiU6f0cm05zkTnYv5odO0rhfQ13McZI7bawmK5Txoo3WLacvRnTKBI
+	 xiJ38LrnWZ1+OHJmOV3ZsCFEJgUEuCDeSUhuc+amBSYF4AzW0y4a7b4kCV8xZuDDvDA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795739564;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=p3UGcK/Qihu9tLy9k3dYKcdr4pLFzlCh9vcNGRGlWeY=;
+	b=gbY5GltvEZ8E85kUS2FOOxLYJ0ou2PyvV9M9Jv/4dX4FXx2vpnIkxpsa/P8lxDsG8Bfo
+	 8p5FL+bPnSJyyvk9DvtN2Z+OmDMkdLmOGDocdFvqoZKog7+y7b7pUHCk7gAjyyX00sCte
+	 WfiDfl3DRIUnZk1ld8+q0JJ2Utdyx6IhQ2MazDrGmMoDtO1WoJDHEVc9sm4MCsXWHe9b2
+	 IL9vrUVDZdwqFzE10gzSKsQrVHSGBol5umIfDU9FhE3M0P8KHMQw4G0Qn3TM0TS9gBz5g
+	 VbMkEBfKulfcv+wLrgjescYtrnVwt4PqeX+k33sxSXNdw/hynR0HcUpKrx6yRW2I0iA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=raidlab.org;
+	spf=pass smtp.mailfrom=raidlab.org;
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=OQZjEAqW;
+	arc=none smtp.remote-ip=185.70.43.170
+Received: from mail-43170.protonmail.ch (mail-43170.protonmail.ch [185.70.43.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF3F606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:27:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDF3F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31FF1606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 00:32:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31FF1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=iCOgIzel
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bwIzFa5DcD8XYlPg4odIpS3+8ihbiUoZRKOaqKA0Fr7QHyR/3r+Yvv0RcOLYs7/1DNTwPa6PjleVf+xEtrBfnOmdS39uSLtQvUUD0K+zapNm0sc8UtphxZIYypN5Magx2u7NSuU1QyUiqlClpuZ9kKR4U7JxCTkNnDEgYbr9+1FIvExTL9C711eI1gny5LNTpRNVaQLdhEThA1g1HbURwQNActB+fPYh1h6iy5jv23GsNQWPY0FI1JmCymoA6/BDeAac3fsh/GldJWkcqST0eTEkq+87ecAtnfYy0v+aQPWzj7fKNOEqd8fqjvzj4ci/eC2emcXKBijIr04Z2zy15w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3jGP3kpyU8qYNNLPxHIoPWDJhUz3M+x3GcD17xSIFgc=;
- b=uJPfgzl7q0D8ZyimhQ5HAerPlUXe/N2reG3u28dgt4stRNWkkX1NHrYu8i8jpWLut6NBhyY8C2e1o46QhRV9rg01qPaJKDT4NlAXiMRmZ86oo3Jgm7x2F5r3aZFm6G8RwfnZ8EI8vOq23/o4gTfUErjyXyOBWDW5d2aVZypm8DOGu6TAeL7gcGInwCneuV18/pwX+NWwcaeivBXW1C3aRoggHK2yoPZxX4VwmKTsIZVMGAR0L3n2ejOe71zBm4bd7GHEQzZ5gp+iQdHbTrtmK6mK0hfDXalhpuAk3jpyDwQZzKaqoW+/5e77zpX0rhNf+wXEPej63kmi7ed7wV1KfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3jGP3kpyU8qYNNLPxHIoPWDJhUz3M+x3GcD17xSIFgc=;
- b=iCOgIzel1w7k43qFV9vrWA/Wj0UzRwDGuo3fDJeq9R/UL6SwibvH+VHOntHq55OYLOmpLUn82gAP0WjWlZdYti1Pp1Rzcc1P5Qj2OK03E+cm6/xCUj5vpy8lRo46XBb3XFGfeDlQPNdoicEMBu0IZC720/K9DLB9zTSrUD3a5XP8PwQQrpo4UpoPbXe1csoqdXJVH7/On5AnW+S/DVoKF39aepAaIZR3UqIicz1QqMLp8OywsfOMsR5q9pBjb/wEGoDftxp4qj8nur0eBwuAWdMblZNlQHS2uUis5xJ59NYMVZXgf4Vx+WM4pwEVQCWqJ9v1ghjgWj9MNMOJ/+rx2Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by PR3P195MB0745.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:3d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 00:26:59 +0000
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 00:26:58 +0000
-Message-ID: <b8d6e03a-90a5-48bf-a8c2-4493c52a45d0@phytec.de>
-Date: Fri, 27 Nov 2026 08:26:49 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
-To: Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Bjorn Andersson <andersson@kernel.org>, alexander.sverdlin@siemens.com,
- jan.kiszka@siemens.com, ayush@beagleboard.org, robertcnelson@gmail.com,
- upstream@lists.phytec.de, francesco.dolcini@toradex.com,
- leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
- stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
- thomas.richard@bootlin.com, miquel.raynal@bootlin.com, mwalle@kernel.org
-References: <20260910134409.1713610-1-nm@ti.com>
- <53d50a7c-4318-4705-ae21-780b04628742@phytec.de>
- <59b8e9df-0f78-49eb-a23a-2b352a4a2333@kernel.org>
- <20261123125515.55ozls7bvral2ukz@residue>
-From: Wadim Egorov <w.egorov@phytec.de>
-Content-Language: en-US
-In-Reply-To: <20261123125515.55ozls7bvral2ukz@residue>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0431.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:18b::22) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:4b3::21)
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=OQZjEAqW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
+	s=protonmail; t=1795739561; x=1795998761;
+	bh=p3UGcK/Qihu9tLy9k3dYKcdr4pLFzlCh9vcNGRGlWeY=;
+	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
+	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=OQZjEAqWLNu1PebKQnB46ang+ZKqoyP275QALI68uXAFGT4hw92i12jr0tBZJJx+2
+	 8fYvsNzgM/6gCMeTas6Icosl3+Ds7CAnkZIxeVqmWLNgVr0vMUgQ1bMVHRvwocjUKn
+	 tLaC955oGY4zrUX97oiPDCCvfVJtA1R8LPK6tUombj2yaV5/8ewNl38lhPSt5wAuY3
+	 LGx5Cn+xQMYlS/tW7Ci4O1eqlMoZwSHE3md3ZoniPxUaclLI9uXrBU5QtNYJg2BYMK
+	 ctBSsfao0Aytyi+FsduASMoGqmtlki6EmX4cMZHQKwUu/+BmDW8hoC+SCYgyvy80Lg
+	 Gp4MU/IQmBOcA==
+X-Pm-Submission-Id: 4jbDs16WP4z2ScQG
+From: Miroslav Cimerman <mc@raidlab.org>
+To: Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fygo.io>
+Cc: Li Nan <magiclinan@didiglobal.com>,
+	Xiao Ni <xiao@kernel.org>,
+	NeilBrown <neil@brown.name>,
+	Mariusz Tkaczyk <mtkaczyk@kernel.org>,
+	Kenta Akagi <k@mgml.me>,
+	linux-raid@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/8] md/raid1,raid10: fix writes acknowledged before a failure is recorded
+Date: Fri, 27 Nov 2026 00:32:23 +0000
+Message-ID: <20261127003231.1180197-1-mc@raidlab.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,132 +67,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|PR3P195MB0745:EE_
-X-MS-Office365-Filtering-Correlation-Id: a0226002-ef92-48c8-4bff-08df4c1d25e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|10067099003|56012099006|11063799006|261026140227099003|261021121427099003|261009223027099003|261022115727099003|261022075727099003|261022105027099003|261026121527099003|261028144727099003|261102123227099003|18002099003|22082099003|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	05kdDvyqQIctCWTa8M0iV5Ldj24cdHmFJP35iRXwOtCzpbGYGDu4kb5YB9i7nCyAIVYLXhfSJJxoBHqE8IifYJGxK0Co7WKysKYYjyiFldvbQVjx/pxcrY0T4HKU4BhF+dIhl5eEFUUKgXM6dniGemQjoC2pqW2yxqdnCG8toM5id9FE3H4OCPpXFAvLO3t9dat1iRgfEKVJondQwahoW5YWDD9u6ja1oiGv4BGwmGiaUzruQkkr18UjyTOL+4/PE6iapEhALWNsOJGut1GoJAfKGzntutKX21nNH3CtT2yPZfGZAe7r3VL1VF1ckrbXInleL1EjHscZRYfhMKGFPPI+GoDK49BB0/9SL5DXaJz1SXasX1ygkJnmdQyTXeVfVhoUE0nFGl5+F0Kctx5iELR7pm0OI2aPAbUGTb6/AHla//eJPbJ4WuI76oOzi6tbAlufONKdAuyy4LTSBCeUoHBrBnubmERlpv/UiiSLWQ+hazsoV3WvgPJBKc3wnR1oyiPGdYypkWHe5zSteV9TCCwvWePUm0L5VOEHZzl+oaSko7f7bqHsb/01HT73zBAeUAhTjoawWMMPoXN9c+6SnpYbMMmIY5bdx2jRelGym58=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261021121427099003)(261009223027099003)(261022115727099003)(261022075727099003)(261022105027099003)(261026121527099003)(261028144727099003)(261102123227099003)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eFIrM1hlYzRlLzRzbC9WeU9GTkhPWlI0M2FkTXFIZTFKQVZ4L0p0Q05IeFpY?=
- =?utf-8?B?b3lFaVFTUjFNRmRxbFNwRmJKWXdteCtWZXBBVWN5dGE0cHZHU2QzWXl0eEl5?=
- =?utf-8?B?eGd0aEJTWmFEbng2cVdCTkY0MmZQcmo5UlpmMXhTZHhxMkJIdnJOMU5nRWpy?=
- =?utf-8?B?eXJWOUtoYXlnUFBqZk1LV0ZjNDZxL1owTVhWVmJ4VzhUWHRjaFEzTUFXTTlk?=
- =?utf-8?B?ZlIxVDZkQkFqYk9iWDZhbFgrQzVUbXlBZytXT2pETnUyV2RqRnh6L2JnTk1x?=
- =?utf-8?B?eUxDQlppZVR3RnRPeVZob1hsY3VWNGRGVG5sUEFNRkUzTElXRDFZTXNia2Vt?=
- =?utf-8?B?aHNibktPUzlqZVl2UVZhTnpYZTBuNFdGdUtzTUNwMVNpQXlFd3lqNHdmemk1?=
- =?utf-8?B?c0wxVEJ2R1Z6VHN5VVJHN3RkY2dNUStnU21RNy9WRGtGb1Rma2lxL0lMcHo4?=
- =?utf-8?B?QTFqV1AwdVdHN1Q1V09rZGpFQ3BQZ1IrVFl1Wm5xdytyWkVnMFB0azdIZDV0?=
- =?utf-8?B?NDNYUDNZNm9GbVFObExvVWhLVmU3MUYwWFJwSDYyNUNVS2F5aHlab3NYOHBx?=
- =?utf-8?B?ZUNIM1NCaGhrWlg4WnQxQWovRWkyRDFIN1pwQy9mSUQ1K3B4NVdMV1lOdzhF?=
- =?utf-8?B?WGJlQTlzQXJYb2NTanNOUTZXQ0VJcFRsREpFUE9udUs4Ry9xUUlOMXBNc0Zh?=
- =?utf-8?B?RXVnaU94SG5YOHdKL0hCbXQrRThJMHpUS2poUkFpQ2UwYmt3b0pzQ3dkQVBN?=
- =?utf-8?B?LzZZblI3UjNpQjZXY0Fod2IxUC9vanY5dE1lZUdnMW1sL3RTWm9xWVpXVFJ2?=
- =?utf-8?B?bHc0VVV4V0NlbHpCZU14NEZxU1N6MkZ2NTJLNnhzeERKSmwyRmxLWnlNakox?=
- =?utf-8?B?NEc3NHFFanY0QlNjdDhpSUoxdVpRR2hXaXVsVUc5d1hUTjBRK1IyV2VRR0Ri?=
- =?utf-8?B?TzZCU3FVYjBWaHdLUzZJd3A2QXprb3JkekRRb1kzalRtanVzcmIwN013RTNk?=
- =?utf-8?B?Vy95OFdkMVJ4OTdWelZBQ29XYmdOYmhFRllpQ2NScVhEdmRmUTBIZkFONzVB?=
- =?utf-8?B?SEgwUWkxdTQ4N3VjY3AwV3hwbkJLMWZlaDdOTmFEWlNyVFRobmw5MFBvSnVr?=
- =?utf-8?B?VXVlSHhjeW42UGRWaHRsUWlNLzQ5aVRkRVJ3Yi9rQW8rOVAxdXBSZE1XY2Vz?=
- =?utf-8?B?dFVNUUx2N1YzZ1ppVFltWVoreGdhZXpLTlZxRE9jUXZpUENZYXFoZTkvaWVB?=
- =?utf-8?B?eldlOFdtWDNJd3FKdzZXeFRqdTRxT3hiOWEyWDdwcFJ6SnMrODVaVnBRNFRr?=
- =?utf-8?B?QkZPNzZYS0djek5nTWJjYytpRERpbmtYeWpyU0lYTUd4K1hVN1VyQ2Z4SUJh?=
- =?utf-8?B?b0dlNXg1QUFXNFZLRU5tZDBXVGliRUtHNU1XUHBIQlJtOXMyS3VpOXRhaFBW?=
- =?utf-8?B?MmxaOWZCR3B2cGt2dW0xN1ZhdVppVCs1eFJJRkQ0emUyVXBMMkpMMHVyNlcw?=
- =?utf-8?B?NjA1UktadHY0WUsxSko1Yzl5RTRVL3hmZGlVYjF6N01QY1J6Z1RHaFd5QUNl?=
- =?utf-8?B?bE9aSmRKZDhvZmlJUzBmSHNCWlBZYmZ0R296cmhpV2NQTXZCdk9VNStUZWQ3?=
- =?utf-8?B?SDFrd052QWFVK0xiaThhNUFuRFArZ2w3L20zRGkwKzJmL1pVKzc5RU5pSnlE?=
- =?utf-8?B?LzJ5bWs4NCszZW92WmRvTVB3bHJ1WkpWcVdvZENReHk0eEhLaVhrZ0tvTXhs?=
- =?utf-8?B?K3FiQW85TDRKRGRrdDRlWloxaGIzTGpGOUxqOHZwUWFUYTRkQkpkUVQ3ZHRO?=
- =?utf-8?B?dXM3L3YyL0pWRVJuREpRcjhTbWVOSmt4VGdIRzZNaE1BRm8wRjlQYXZyOVJ6?=
- =?utf-8?B?elJVdW9MYXU5ZXBCeExjeXBKd1FYM1dKMXpaU1N4aFZIV1FHeVFpSHJCcXJx?=
- =?utf-8?B?a2FDaDYyUUU3VlFWYmQ4STVtVTNhSWY1S28yS2IrN2o5akZDa1VCazhqUVk5?=
- =?utf-8?B?d2lDWEhpMytINjZxSmYrMVFGK0lKcnpkSmVNeGJQbjFNbkgycUMyZE1GNlgy?=
- =?utf-8?B?L3EvcGJyWnV2empZTHAxYmk5MVlFVWQwQVV3R2tYUHlWbmNwMUo0WThRQXhM?=
- =?utf-8?B?WjNEb2hqc2YxaWtMMFRxclY1MEF1alVSWTdkdmVHL1lxeUN2UUpoay9CenE3?=
- =?utf-8?B?UEw1LzlvNDBOTEY2RFExbmptaFpEeEdSZ0dNaEd0b3grV05xVzV2WGFQcmZq?=
- =?utf-8?B?dGtFa1IyUEI0Yjh2c0R5RE5TeEJjbG1naVp6MVZGQ3BwRXNJTDNFSDUxSW5o?=
- =?utf-8?B?dmtpbFpiS0JKelBkMVE5dStvUE9nWmNxQ05HWmN2TC95TzBEYjN2UT09?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0226002-ef92-48c8-4bff-08df4c1d25e9
-X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 00:26:58.7745
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JqO1Y+46dQRf8QwgW3AKx3qvyOsf+fQr+KORSHZ/i8DSaP+vs+HvEtRH/jBEGyqa9c8XVhmt+qRc2xlId/gp+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0745
+Content-Transfer-Encoding: 8bit
+
+raid1 and raid10 hold a write that failed on one device until the
+superblock records that failure. This series fixes cases where a write
+still completes with success, although its data is not safe:
+
+1/8: the superblock write fails on the last working device, and reads
+     can return old data after a restart.
+2/8: raid10 waits for blocked devices by copy index, not by device.
+3/8: as 1/8, for a write that waited for the superblock update.
+4/8: with a bad block log, the device with the only good copy fails,
+     and reads of the write return EIO.
+5/8: a write whose copy fails on a device that is already faulty is
+     not held at all.
+6/8: raid1 can release a held write after it marks the device faulty
+     and before it requests the superblock update.
+7/8: a device that fails between the wait for blocked devices and the
+     selection of the devices for a write is skipped, and the write is
+     not held.
+8/8: with write-behind, a write whose copy failed on a device completes
+     once its write-mostly copy is done.
+
+The MD_BROKEN checks skip dm-raid, which does not reject writes when
+MD_BROKEN is set, so dm-raid can still acknowledge such writes. I have a
+fix for dm-raid and a follow-up that drops these exceptions, both
+tested, and will send them to dm-devel on top of this series. The other
+changes apply to dm-raid too.
+
+Patch 1 fixes a bug found with FuzzyRAID, a fault injection fuzzer for
+RAID implementations. Patches 2 to 8 fix related cases found while
+analyzing it. I used an LLM (Claude) for this series: it found the bugs
+fixed by patches 2 to 8, drafted the code of patches 2, 4, 5, 6, 7 and 8
+and the changelogs, and wrote and ran the tests. I reviewed everything.
+
+Tested on md-7.5 with RAID1 (2 disks; 3 disks in controls) and RAID10 (2
+and 4 disks, near and far), with and without a bad block log, RAID1 also
+with a bitmap and with write-behind, and with failfast: 30 fault cases
+in which an acknowledged write was lost or read back old data now fail
+the write, and 20 controls give the same results as before (some now
+wait for the superblock update). The cases for patches 6, 7 and 8
+compare with the series without that patch, those for 6 and 7 with
+delays added only for the test. All others compare with stock md-7.5. A
+raid10 smoke test without faults (4-disk and 3-disk near, 2-disk far and
+offset, with discards) passes too. Not tested: the race that patch 2
+closes, MD_FAILLAST_DEV, dm-raid, replacements and reshape.
+
+Miroslav Cimerman (8):
+  md/raid1,raid10: fail held writes when the array fails
+  md/raid10: wait for the devices of the write in wait_blocked_dev()
+  md/raid1,raid10: fail writes that waited while the array failed
+  md/raid1,raid10: fail held writes that no working device has
+  md/raid1,raid10: hold writes that fail on a faulty device
+  md/raid1: set MD_SB_CHANGE_PENDING under device_lock in raid1_error()
+  md/raid1,raid10: hold writes that skip a newly failed device
+  md/raid1: hold write-behind writes that failed on a device
+
+ drivers/md/raid1-10.c | 12 ++++++
+ drivers/md/raid1.c    | 83 +++++++++++++++++++++++++++++++-------
+ drivers/md/raid10.c   | 92 +++++++++++++++++++++++++++++++++----------
+ 3 files changed, 152 insertions(+), 35 deletions(-)
 
 
-
-On 11/23/26 8:55 PM, Nishanth Menon wrote:
-> On 16:28-20261120, Krzysztof Kozlowski wrote:
->> On 20/11/2026 15:42, Wadim Egorov wrote:
->>>
->>>
->>> On 9/10/26 4:44 PM, Nishanth Menon wrote:
->>>> Now that all relevant drivers have are ready, convert the
->>>> TISCI drivers to modules. This impacts all K3 platforms for
->>>> boot, recommendation (based on empirical evidence) is to use
->>>> deferred_probe_timeout=60 in kernel command line to allow for driver
->>>> probes to complete successfully based on the initrd used.
->>>>
->>>> NET Savings: (Ubuntu Clang 23.0.0)
->>>> ./scripts/bloat-o-meter vmlinux_previous vmlinux
->>>> add/remove: 4/380 grow/shrink: 0/5 up/down: 32/-143248 (-143216)
->>>>
->>>> Signed-off-by: Nishanth Menon <nm@ti.com>
->>>> ---
->>>>
->>>> NOTE:
->>>> a) This patch is based off v7.3-rc1 and will create a merge conflict
->>>>   in linux-next (next-20260909), but the resolution is trivial (vs
->>>>   bd94bea7165be450903c6d64bbcb4862e36798f9).
->>>> b) Emperical experiments that Siddharth Vadapalli did,
->>>>   it seems like some driver probes might be taking much
->>>>   longer than the default deferred_probe_timeout of 10
->>>>   seconds that is used when CONFIG_MODULES=y. Testing log[1]
->>>>   a deferred_probe_timeout=60 seems to have worked fine.
->>>> c) Full bloatometer report is available in [1] as well.
->>>> d) related lore discussions[2]
->>>>
->>>> [1] https://gist.github.com/nmenon/5f1587b373e6ca27170593010188d968
->>>> [2] https://lore.kernel.org/all/20260429-defconfig-v2-5-e4ed4186028b@oss.qualcomm.com/
->>>>     See headsup I gave on #linux-ti irc channel https://libera.catirclogs.org/linux-ti/2026-05-20
->>>>     https://lore.kernel.org/linux-arm-kernel/20240821110054.35u5ubgaogzjv6c4@rover/
->>>>     (original thread that triggered various changes)
->>>
->>> I can't boot our boards anymore using the default defconfig. Is this forcing us to switch to an initramfs?
->>
->> arm64 targets long time ago were supposed to use initramfs. It's pretty
->> easy to switch, honestly, yocto can give you a very small initramfs
->> which will you can also extend to copy the modules to rootfs, if needed.
-> 
-> As mentioned, we are struggling to keep the Image size in control to be
-> able to add new SoCs and architectures. But yes, initramfs is the way to
-> go.
-
-Thanks, I understand the Image size argument and I know most of the options. My point is more the workflow: testing a mainline defconfig kernel on K3 used to be just Image + dtb. Now we need extra userspace in an initramfs to load the modules, and the modules have to be repacked for every kernel build.
-
-I will probably go via 'make image.fit' + ramdisk. Simons make_fit series had patches to put the built modules into the FIT ramdisk. Something like that would bring back most of the old simplicity.
-
-> 
-> 
-> If you are looking for something that might help pick the modules
-> needed, i found [1] (basic busybox) useful and I use this for daily
-> testing for all TI K3 EVMs. kernelci goes the other direction (vs
-> picking just the modules needed for a specific boot mode on a board)
-> of having all the modules in initramfs. Both directions have been
-> working for a few months now.
-> 
-> 
-> [1] https://github.com/nmenon/boardrd
+base-commit: c526b7cd32f75fea6021ffdab287b81cf38ddeb7
+-- 
+2.53.0
 
