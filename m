@@ -1,70 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744135;
-	b=qgLeEpRJKi9c3vTuuif9bsR/XC8BPcYoolPdsgXlXZHKyr+nsQ4K/63xh5Lj7UXKpbmL
-	 WNZG1kn9BtpNoWzI0wNucKd4qidF3IevkMeMsconis49R6z4noUCzRzAf8PEyOus8DbmG
-	 VbF6uzkekAL9u/zrtdATgFVTGXUa2z2FieXylJOkVuo09qjQDH1aSpju0FyE7dy2RWLUE
-	 GmrfUBSKYfRUntet3V0a3xf3vsRUF7i/Wv9LDhCxKd8bUJiUCLndzXjA32+bifcI+2fnz
-	 1oInWJkZmWjxMfrgPubMUADBj1REDoHzwSCnG78plzrglM2LkOqrZPzKXg8bDfvgG5w==
+	t=1795744191;
+	b=Z2WHH6Qgg57cDXssIu/gbinjqOrf3vXSJarDw6qy/TDjhjKkyc+73PA9PkF80Rt4jvIF
+	 JIeyg8sMVZYX8+9/TCr3oNqmv0Qs9tDzuijFQrzi/TwerUuHw/sRq8d5Vm5KH3Aev6HSk
+	 6RDg9F4y097WFfMIPffIvKcKLMtoaGbI51gyM93eHGToP34GEw3g7acrgO03vX9ffOQ6x
+	 92j6TTub1WqIX3NTAAVATZ3dcLoDSP7p0toWJtfWdpajtzovezcBvySRIDNGls1268MZl
+	 9OEYpTgH7huqHakz0tOlY/m7Px0wl142+YBoVgiqYXSE1zrjgZJEwCVSk/npdjvIcvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744135;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=DL6Wd0k3LmVENF8I84FYQYNe7fPzQAm42JdnEnBjhXI=;
-	b=D89g20BLddvhDVqeNKaVa/DyXXu3Ztx8aAX8meq8do0g/1Hh+klL4poBy4DfZmReEVqo
-	 vhypndZbhNb2UZ9ZJ2wPx7ZbeC539vxTLj9IGAYYpKglraK3GDGm6126FTX2DlXp/hpQl
-	 FYhwlGX6KH+Js1/14p1pwaiQ0R1vDWZnEuEblF1uDtb/Puwn1rMngA+ih3q+9xDEcSA+o
-	 9gMV4xsI5QJ39XGf9QY4FifzxldPNFN08/zVr8F9Dl4pDb54K0xkiAOJy81dnrZbz7Mkt
-	 Ppht3nYtgRqiAeFaQ4Lq49G8rWmWoZZrXm8VF5p6mzwfd3K7Up1TnNvGxHZxh7tNh0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744191;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=x14zHhnV4N4TwPMA5axxL2E1JT7/FZeG+7OjV1ttJ1c=;
+	b=5sVCOAzvsScbcj8rOYRrDq8P7KhH6M8/sFY8o0BI+QifwkBNEjCe2B4Tl08+tB5t5k8V
+	 +W3Zvw1Rv9KHN/NiLAeS/f9YTdHlkOTWsSMDZ40HqhkEzcW2zce0dM61W3a6bLhSirAYb
+	 NbBFUGJXVf5PbnPw4vlCGbYOUhoxfckBE9Op+Sum9upN77l92MCfSwracZKU+N1bWAbst
+	 K0I6VvZPuWHLa1NL1j/S2jJ/22bmB+iHEK0g/3GaR2Hjpxc/f+fpihwbXHmGIt+mPPeCe
+	 onUI/2AsSthE6WN1aT4pzIujAaJxWbGvb5TYPb6WcUcZa/ZwaTBP4RWF38RUB628tww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=cjfBaPx0;
-	arc=none smtp.remote-ip=117.135.210.8
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.8])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="nlWWOV/D";
+	arc=none smtp.remote-ip=115.124.30.118
+Received: from out30-118.freemail.mail.aliyun.com (out30-118.freemail.mail.aliyun.com [115.124.30.118])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94B42606A31E;
-	Fri, 27 Nov 2026 01:48:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94B42606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37CED606A31C;
+	Fri, 27 Nov 2026 01:49:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37CED606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=cjfBaPx0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=DL
-	6Wd0k3LmVENF8I84FYQYNe7fPzQAm42JdnEnBjhXI=; b=cjfBaPx0tb5wOTW2By
-	hq/ztHX660Qmzask4aW1sDtnWTqX5NQihuMzM2oNibb4F6Cuctxd/JAWFp1GoRPk
-	Z/mvTQ8Q3SVRtDWmgDED7C1FVV9BlD7Gd5h4ePU6Nz/PJTm60sQeRgpTUBRXtE/E
-	wBErxZTamFseRTwgwiTD0JvVA=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PykvCgDnz8ZO4QhrL7O8EA--.45791S2;
-	Fri, 27 Nov 2026 09:47:58 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	rosenp@gmail.com,
-	jacob.e.keller@intel.com,
-	daniel.machon@microchip.com,
-	chunkeey@gmail.com,
-	kees+treewide@kernel.org,
-	hkallweit1@gmail.com,
-	netdev@vger.kernel.org,
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=nlWWOV/D
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795744187; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=x14zHhnV4N4TwPMA5axxL2E1JT7/FZeG+7OjV1ttJ1c=;
+	b=nlWWOV/DNbGNEhDUiG99DGsmoAUxEDvezkf9bWNmDL5ADwPPQHDt8GwEwbBXJOK3uvgqohZDyw8q1bJeiBoxp00b8uCb6baqH7OrXZiGL9+jLSpg8h5ubZsBEGJ2wdmDjtDkARkNxggL9OKV6Y/VmsmBc97W/QLSyFP45e1uVAk=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=jiangtianfeng@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0XFW0kue_1795744178;
+Received: from h68d07384.sqa.eu95.tbsite.net(mailfrom:jiangtianfeng@linux.alibaba.com fp:SMTPD_---0XFW0kue_1795744178 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 27 Nov 2026 09:49:47 +0800
+From: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+To: rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link PHY
-Date: Fri, 27 Nov 2026 09:47:56 +0800
-Message-Id: <20261127014756.2908959-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <7057d70b-033d-49cd-9fc7-d6b9b39ffc84@lunn.ch>
-References: <20261124083941.2480237-1-xiaolinkui@126.com> <7057d70b-033d-49cd-9fc7-d6b9b39ffc84@lunn.ch>
+	christian.loehle@arm.com,
+	ananthu.cv@oss.qualcomm.com,
+	pierre.gondois@arm.com,
+	zhongqiu.han@oss.qualcomm.com,
+	jiangtianfeng@linux.alibaba.com
+Subject: [RFC PATCH v2] cpufreq: Keep global boost enabled after partial enable
+Date: Fri, 27 Nov 2026 09:49:33 +0800
+Message-ID: <20261127014937.413500-1-jiangtianfeng@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com>
+References: <20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,66 +68,69 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PykvCgDnz8ZO4QhrL7O8EA--.45791S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WFyrKry3JF1kZF1ruFyDWrg_yoW8Kryxpa
-	yFvF4rtr4kJFWIvF4DCa1UCry8Cwn5Ja4Yya4IkrWYkr98Wr17WrZFy3y7Zay5Crs3WFyr
-	ta1Fvas8AFZrZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRm2N_UUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqA5oP2sI4U4KHAAA3r
 
-Hi Andrew,
+When global boost is enabled from the disabled state, a failure after
+one or more policies have been updated successfully currently restores
+the global flag to 0 without rolling back those policies. This leaves
+them locally enabled, with their boost-related driver/QoS updates
+retained, while the global flag rejects per-policy sysfs writes.
 
-Thanks for the review.
+Keep the global flag enabled if at least one policy_set_boost() call
+succeeded, while preserving the existing error return path. Global
+boost = 1 grants permission to boost; it does not require every policy
+to have boost enabled. The mixed per-policy state is therefore valid
+and individual policies remain accessible through per-policy sysfs.
 
-> There is also a call to phy_start() in emac_mdio_init_phy(). If that
-> is how a real PHY is started, a fixed link PHY should be started in
-> the same way.
+Retain global-state restoration for enable failures without a
+successful policy update, same-state resynchronization failures, and
+disable failures. Do not roll back earlier policy updates.
 
-Done in v4:
+Qoder, an AI coding assistant, helped analyze the issue, develop the fix
+and state matrix, and draft this description.
 
--			phy_start(ndev->phydev);
-+			/* Start it the same way as a real PHY. */
-+			res = emac_mdio_init_phy(&dev->phy);
-+			if (res)
-+				return res;
+Fixes: 218a06a79d9a ("cpufreq: Support per-policy performance boost")
+Signed-off-by: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+---
+ drivers/cpufreq/cpufreq.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-emac_mdio_init_phy() is the mii_phy_ops .init handler that
-emac_init_phy() already calls at the init_phy: label for a real PHY, so
-there is one start path again. It also runs phy_init_hw() a second time,
-which is what the phy-handle path does today after of_phy_connect().
-
-I did not let the fixed link fall into the init_phy: block itself. After
-ops->init that block masks the features and then calls setup_aneg() or
-setup_forced(). dev->phy.features for a fixed link has no
-SUPPORTED_Autoneg, so it would take setup_forced(), pick a speed out of
-dev->phy.def->features instead of out of the fixed-link property, and push
-it into the phydev through emac_mdio_phy_start_aneg().
-
-> However, this code is a horrible mix of phylib and mii. It really
-> needs a rewrite to make it pure phylib, or ideally phylink.
-
-Agreed. struct mii_phy and its ops duplicate what phylib already does,
-emac_open() and emac_link_timer() poll the PHY on top of the state
-machine, and emac_ethtool_nway_reset() reaches ops->setup_aneg() for a
-link phylib owns.
-
-That is much bigger than this crash fix, and I have no 4xx board here to
-test a conversion on, so I kept v4 minimal. I would like to do the
-conversion as a separate net-next series and would need someone with the
-hardware to test it. Say the word if you would rather not take the
-minimal fix first.
-
-v4 also stops the PHY in emac_remove() before unregister_netdev().
-phy_stop() turns the carrier off, which queues a linkwatch event, and
-unregister_netdev() is what drains that queue, so a carrier change after it
-leaves this netdev on the linkwatch list for the linkwatch work to pick up
-once devres has freed it. phy_disconnect() stays below unregister_netdev(),
-detaching a PHY from a registered netdev wants RTNL and ->remove does not
-hold it. Details are in the changelog under the ---.
-
-v4 is posted as a new thread. Cross compiled for powerpc out of
-ppc44x_defconfig with W=1, clean. No hardware here, so no runtime test.
-
-Thanks,
-Linkui
+diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+index 4332cb114070..707de10ad36b 100644
+--- a/drivers/cpufreq/cpufreq.c
++++ b/drivers/cpufreq/cpufreq.c
+@@ -2887,6 +2887,7 @@ static int cpufreq_boost_trigger_state(int state)
+ 	struct cpufreq_policy *policy;
+ 	unsigned long flags;
+ 	bool boost_enabled;
++	bool policy_success = false;
+ 	int ret = -EOPNOTSUPP;
+ 
+ 	guard(mutex)(&cpufreq_boost_mutex);
+@@ -2911,6 +2912,8 @@ static int cpufreq_boost_trigger_state(int state)
+ 		ret = policy_set_boost(policy, state);
+ 		if (unlikely(ret))
+ 			break;
++
++		policy_success = true;
+ 	}
+ 
+ 	cpus_read_unlock();
+@@ -2918,9 +2921,12 @@ static int cpufreq_boost_trigger_state(int state)
+ 	if (likely(!ret))
+ 		return 0;
+ 
+-	write_lock_irqsave(&cpufreq_driver_lock, flags);
+-	cpufreq_driver->boost_enabled = boost_enabled;
+-	write_unlock_irqrestore(&cpufreq_driver_lock, flags);
++	/* Keep partial enable usable and repairable through local sysfs. */
++	if (!state || !policy_success) {
++		write_lock_irqsave(&cpufreq_driver_lock, flags);
++		cpufreq_driver->boost_enabled = boost_enabled;
++		write_unlock_irqrestore(&cpufreq_driver_lock, flags);
++	}
+ 
+ 	pr_err("%s: Cannot %s BOOST\n",
+ 	       __func__, str_enable_disable(state));
+-- 
+2.47.3
 
