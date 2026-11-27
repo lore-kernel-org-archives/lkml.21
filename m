@@ -1,56 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795811744;
-	b=rEx30A5qytX4A0U4it32w1NryG5MnnvfHgKj8+LcgqUx9XFnXDJ3/PoTVaqjM7dDvzJA
-	 Ywutb4VQEz5Xoy6sb1PhSFc5LlNoaXQAVlXhmR+qipkmPfFmCKtX2JnSZxL4Dck9PEgcu
-	 KsdLsmCROeVKtAJOkmZiWpT6QJWhc7+1xSld2xkcXPQxT7RAarxmTDhDnrUDpQrId8jjh
-	 23XLu3Qzun045K5+j3vglgYywlRxvQjuKpl/3Xi3reE9FPydEgWdZC/mWk1T9iNU7vOmU
-	 k8cFwryPyi92hrcGc7KqX36JnyuCV4jLQndnKHDbjzlLxmiX6Ul6RvHWVEwHEITOLog==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795811744;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=r9llZzVIC3jAV8wGXGBbDfYHVSAFBZtSKCIRTFnNkSE=;
-	b=MgIi286fsLc9kSeN192PKgT/xTTVZuoT9BlcMPeOQmHHkNM8k7Rz8H+pk5RDm01PeUJW
-	 JogW1CC/yo0F1YfwopwaFpz44cBcxb1yXyRdtQtAZAHdE0iivv4luK/oNWhPRDvfOkH78
-	 W8CplaoE4VCIDx6WDg73IWAoyzygvYDxKE8pCqGYi4rCztO7VxXiXwEGEdmFJ6CaL4NOx
-	 B2v6kEh0gB7NnPLPRX0yyzZ3SW9CbpxLro9RmTEg0uiBkmZG4UizbMbnVV2KRWK9qGKhL
-	 dx/IAOKhLbec8SJWG/vtqy/061PaWK7HR7xaTERJ5yF0m+xfY4jCA5hVQfNrLW/dqhA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ixit.cz;
-	spf=pass smtp.mailfrom=ixit.cz;
-	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=AmWj80Ea;
-	arc=none smtp.remote-ip=84.42.129.46
-Received: from ixit.cz (ixit.cz [84.42.129.46])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.40
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795811799;
+	b=LCD1ZLF3hDUi6WQInS5wJCerE/GFSlumxFInJkF5OmsI1kkjasuJOxdSR2nfHFsn3ZBz
+	 NFIR+ewPmQyeEuwd80QpmiqGsY3WgqVyntcYiHqiCW5Aolol6LQ2hYfRLBDM5NQgurp4S
+	 FucJvwy2+/Rv6xcCCMSAt3o1xVuuyqorgjuwDJ4FttOPClQWJ9XhtIfrZgLhaytdRQ2y5
+	 SnsPcYPDcv7uddcqeC1ZXlbqVZtGZ+7IbGyJ3IwpRmxzOhT5u0tYavlnJND8tnDGFFuAV
+	 BHLyeWxNYNQvLZ8DHuQxM5hqDCUK5Adjqv9MGrIQC5eC8cg4SClK2hzygYbBCqXvBQQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795811799;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=OlIevPQ6Txo5NsWq/uytrdKSgd/HSFB0xys6t2y1aaU=;
+	b=qK97cadtdncq9f8CjadnPxi/J4m2BN415cX8GnkIugilSeW32UDxYd/yP7Homz9Z1q/S
+	 b3Wf7TR+3KZb1OsAxU3Z8cdj2Odku3PjJxuy2A5sq2XAZS2ndLn8PwkZ4Yl2uGZfOs/3r
+	 PQTpLwvC2M2qkQyovajVPWOw2c0ynfpV0djcqJ6L+FU8+89XOjuhqdw8VL12JxW1Y47cr
+	 CDPjStPZfkVdS1SvuZI4g0fB8b/0zv9wJ6aisT99mXmIZyWwkGfvfWOM5B3bzWRvuExHU
+	 vaNYy0c2hDdfzQq8TS9xL4b4HxnUa1oO8eUvvFJFKz2hBaYwFYdBvAh4Zm1bMhkSHjQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=OCUw8XUy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.40
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012040.outbound.protection.outlook.com [52.101.53.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F415F606A31C;
-	Fri, 27 Nov 2026 20:35:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F415F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6531606A31E;
+	Fri, 27 Nov 2026 20:36:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6531606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=AmWj80Ea
-Received: from [IPV6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e] (unknown [IPv6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 863F853402F6;
-	Fri, 27 Nov 2026 21:35:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1795811735;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=r9llZzVIC3jAV8wGXGBbDfYHVSAFBZtSKCIRTFnNkSE=;
-	b=AmWj80Eaon+jyNu+IvtKqEKby0SKpOUb43/CJtm4fALd+lnX9qDvnfWqgDpXubMBjbax9q
-	666JaOS/hMLGz32OzE/Mqam+BTbjSKgBzRaa1CHUeFPM9SakPxbfuMdJbEGZUlxEcOF0Ho
-	bnGRf/TlvjG4wYsUujd6/CzsfqV0xAI=
-Message-ID: <8189547f-8ca7-47ab-b20c-a85a86a6ea1e@ixit.cz>
-Date: Fri, 27 Nov 2026 21:35:34 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=OCUw8XUy
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=biicjv9azyke+3qsUjclufiTWYlIhrG9w7uNOuqPA0uHicqE92Jcgx8PZOCG8lGwFcIzJeNKBbsKvqxtejSXcWzrxM4zDqdLeNzsWr2IbszVv968cX5B+jk4xN7fBvcrQ/UFaw6aXmrtt9WkItXxxr0PLFXb8zGeHtZDUZZlPHwAOoY137Vya2LuqX3mvMeEjXfvcp8lrsuDOPk1etg+eJ6ecDDo4U8r51v0x55CrvcMk2cOFkzQC4AV8EZfY5d736dwSjLCBTH08cAk36uwfhLd90ubDo8qLf5KVycPThiWkeGSv/Ze8zE5pzX3hxmO95qUu3cON+ukXYB3bKio8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OlIevPQ6Txo5NsWq/uytrdKSgd/HSFB0xys6t2y1aaU=;
+ b=jAAWuAhO2QoERXUZ9+JksXrlPEzsjmrszaugXBOMyWpp9NgiFKvDDavXvUKue0qkYzoO5sUjs88AC805XXMYx1jSg1mzfXS/JYY1urcSS5hDoNbT9aruL0e9B4CknurI8b3avw+dgbaZzAvet9LWtqr6RPUh/VscJh5YzztOgjm0fcQTOxUbnlvz+qH2FwV+sb6BDn1opMDzhIv47HbbujtzKYXIXWsppXf+hFbkyJ7JtI1pJqOAQE2zke8mVP6zjmdRFaKWkaGA17Zwqp1eES+5sPOJimNw2WiM2V6tuuzRSo/TJE/H8i2xc9FwUFlIyM4p6PIC8VVPXMc6ifV8qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OlIevPQ6Txo5NsWq/uytrdKSgd/HSFB0xys6t2y1aaU=;
+ b=OCUw8XUyKV+/FxKOA3d+HF0/mInigjYj2yhC0AfMs/qixclXufU0g8T+cXH+7o17L50NQPVqRrAs2yL27jTjWQxExncE2QcGrnwn+NT63p2YOqRjjXAoUUL3xmoKu18Nom6T6HH3wWAbLjjyiOsSvFRCI0fx+3X0mDjBAxJ2ERX1BIPMYpsFhgUNUmbRxYFpZbPPKUuxh75VKPs9389+9NOW/KCEwSGpYGSOCixmqbHInjLUcMBoxnbo0j08/054t9EaklVDEasqVA7y2YKtv5cTrInJ6HiKesG9EH1bpkyJnDrUEvNPj18mnqzd5f78AWFcynv+27UoG9QdWPkaIQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SN6PR12MB2814.namprd12.prod.outlook.com (2603:10b6:805:72::33)
+ by DSVPR12MB999308.namprd12.prod.outlook.com (2603:10b6:8:423::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 20:36:32 +0000
+Received: from SN6PR12MB2814.namprd12.prod.outlook.com
+ ([fe80::9a18:413c:9702:8f59]) by SN6PR12MB2814.namprd12.prod.outlook.com
+ ([fe80::9a18:413c:9702:8f59%6]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 20:36:32 +0000
+Date: Fri, 27 Nov 2026 15:36:29 -0500
+From: Yury Norov <ynorov@nvidia.com>
+To: Alexandre Courbot <acourbot@nvidia.com>
+Cc: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Yury Norov <yury.norov@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] rust: bitfield: add conversions to Bounded of matching
+ width
+Message-ID: <awnpzRnd7EF1PC_x@yury>
+References: <20261127-bitfield-conversions-v1-1-2f0b127c0857@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127-bitfield-conversions-v1-1-2f0b127c0857@nvidia.com>
+X-ClientProxiedBy: BLAPR03CA0094.namprd03.prod.outlook.com
+ (2603:10b6:208:32a::9) To SN6PR12MB2814.namprd12.prod.outlook.com
+ (2603:10b6:805:72::33)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,103 +106,269 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/10] Input: stmfts - fix i2c_smbus_read_i2c_block_data()
- check in status sysfs
-To: Lee Jones <lee@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andi Shyti <andi@etezian.org>, Rob Herring <robh@kernel.org>,
- Javier Martinez Canillas <javier@osg.samsung.com>,
- linux-input@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20261127201050.3532488-1-lee@kernel.org>
- <20261127201050.3532488-6-lee@kernel.org>
-Content-Language: en-US, cs-CZ
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <20261127201050.3532488-6-lee@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN6PR12MB2814:EE_|DSVPR12MB999308:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c4d2fe0-3130-44e2-af07-08df4cc61ecd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|10070799003|23010399003|10067099003|56012099006|261026121527099003|261028144727099003|261026140227099003|261022105027099003|261021123027099003|261021135927099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003|11063799006|5023799004|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	JFv65M7tsiXsig92mSz7hCkKVYkdLnCun/gL2VNGxIo4m9qMbfNar8WibontMGDihVhKDKp3hIQizyGA73Ud7zP0JwdBTsMEezjJ7mMOs0BnIiwY62Cm1JhrDNVyy8HrQh6b6MhmSF72C8evm5C+5ywf9WSk695rCeNFy6ovXs6EmD5V44QZ9G1sA+3d43Dv15oboPxkdL+EcSBepAKv4m7Kdww4IfoDzosVsJMam7xpd+Z/4K63H5kdKjzeQDkh+OCiIPmUiKOY7PR3mv2i4NdKK+TipedhQNfiACkI/tjElDAXu2sRsIuf1XOVGZ0+Usk/xOMl8t5/892i50FCToOCg/8aPhvdBaZ8XOJEcn5BzW04HGYuvjfc5e1CKnDGUtIFqJFoShTjbekGk3eWgyG8ct1bj/R+3cLhgmGMLbB8r3qzgipR3VTkFwE9DA9B9dojjBuvWNw97yls1ZqH0ldO4TYdvb/mwzX2B88sBPNE4L+nVP+wkfTtg7/PkZqVKxQPO62UedqvFqsukpdMjuSwW+/K6EK5nPFFC5UichZEyunnMMc8ll84XpCcfj7ULYWvpovreA/yRKiAhP2TLsYmBrXAd8sRwaZ7DewBirWquyeIGauLVJFGtrDAkSGCNe2y5pLxlMVQsVSu2cYZ17xFBTNhycilbuzZ75RonEM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR12MB2814.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(10070799003)(23010399003)(10067099003)(56012099006)(261026121527099003)(261028144727099003)(261026140227099003)(261022105027099003)(261021123027099003)(261021135927099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(11063799006)(5023799004)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?rTRPPOTAqTrIxLQVT5oEn70Xx7TV2cWkKib6YQE8F2aWMr1fGFvyIa2Dp88n?=
+ =?us-ascii?Q?qYpN3w2MeCrxJ4/jvy0z6Og2uwODdv/L+s8/vuNsWJiQ2QOVME4Bioh1ugkC?=
+ =?us-ascii?Q?KupEL2etlg1/pplM7azadx79FcvEFxSZCn0M7qjz53Tgfar+3bIaCPi0ukO3?=
+ =?us-ascii?Q?gY8qXO/TPTdnKDa70q322hO9IMMMCGHwj9v6vGPyPym5V/uIZHAnE85ffKV4?=
+ =?us-ascii?Q?8d93Sl+cdtTRli42x0qdD4cHGvv3O7W0TrC8EZQR7V1C5PbAr/U3hxTr54kg?=
+ =?us-ascii?Q?dZOE8y7z5SPR0w4jIPTTvcO3oys8twGM1lFrmQxqN24xZ6RRrRkXPKyIj/XE?=
+ =?us-ascii?Q?ZLq8wuDrHFNHYn1wpj/hLbftF/WSTiC/rTI+1x3RF8BtAQXI4x7eTBB3y1rN?=
+ =?us-ascii?Q?NfQhFnnL2h8kRTJhItPO4z6EUnQ62OQRJLhA9q+D6nXlIXl5CMFOYmwXKnbz?=
+ =?us-ascii?Q?MAXNAkmDArVu6z0Gn+9MLdnYCqenFQixev40siEw5XSMPKWaSp9Yw23dN1iI?=
+ =?us-ascii?Q?67hcJyFYNsl6zQoq2Fp2z0TeT1B0B1gMaaFLiDq2jBkcKG/pp50YxndLRpYl?=
+ =?us-ascii?Q?ciPj7mawUl3BD33Mwy3jDGbIcdWyJ40GvLg0vTd8h+CD9cNOudbjsNETcpJ8?=
+ =?us-ascii?Q?O3Yd70r5jRnGBlMN9CZRxqPg3g6KEuOf81jKt9NR89a2tMQJmrHQSUXHhkHe?=
+ =?us-ascii?Q?5+Z7gEjlaWzKX4hLgb9xi4Xk/eqe6FY3hRzJuDpg6xXNEk02VJtBsHNKDYnQ?=
+ =?us-ascii?Q?TmCXFg+GRTpPmUulLUujgcnX/I91EgAG6QvUTtBQP7uRl0J4btMBULjUuOsw?=
+ =?us-ascii?Q?UNruYpsPqYBioDbWsaUE9BEu7Drb5D2dWzdd30eVrdMUanaqs0OAnL/kMtzz?=
+ =?us-ascii?Q?sg0RszYYHPp5fi5pb+6tRatAgmd/NTlzshv3X7cI8IkrmWDJ6M+v627WiyQ3?=
+ =?us-ascii?Q?WpMLdIUw2FBZySpEgBJm9fKPP1kkUF93YljV5yomhe8+ABcvvyDkKEAU5+Hf?=
+ =?us-ascii?Q?8xizLyEVVslgbU7FgTso/nlYuihWBBucYnIPWZbp7so6f8DY6zisA+YYw3dE?=
+ =?us-ascii?Q?2sRQQER/0EYOZOwBSiUMuulkKqkI3bFgBcZn6HkVfd3G9SvLuX4rin9+gAPR?=
+ =?us-ascii?Q?KYiADzba6JlcXb8hJK8Z12XPHftCXFvxTLQNBOC08QGuQNw+mdzrqJXe5UuF?=
+ =?us-ascii?Q?+BcVCUJeT2B6fNRDTxZkGK3GC9/8e0FA1Ogf9DtkUtDD1WSWsBECd9Xe2Cua?=
+ =?us-ascii?Q?OX5DS7j5NEVap3vtTX9GedvJxQiCjlXAnqVsKOWvVd62hxsCaLgdHCxiJV/d?=
+ =?us-ascii?Q?O2Fi52or3ztDjGGWu/1paJTyXO1a7FZ8/58eFo1rydrVFKzP19fvKODGPId8?=
+ =?us-ascii?Q?st2sbyRwdgfh7QSkdTsazptcXvO0GkUSxxP0DuKX9a+dS4rIIiosrpngP8ee?=
+ =?us-ascii?Q?RNWXoe2gsqlogUzJlCc/1+BmbEh5Bw2G5kPIC0MBec1B/MUOwKduVpWxHN8n?=
+ =?us-ascii?Q?HghKV1TqAJoiZd0tgHBw4yJRyFkyMbc7pWD7qjjeKpAEhdmBjpSb+NyY8CRZ?=
+ =?us-ascii?Q?dbk520KIUKczQgknU/IjFxxfi3MPtU8M/RvbsaDOfrSyE4kQ3hMfwWPoiKoK?=
+ =?us-ascii?Q?KviirGDyDvpUhy676Q+nGecu/P5U5dgOtRYmWjWFOKST3aQ6y3tBXI2rS2mD?=
+ =?us-ascii?Q?+m2xzjm1kc/LLml/AVW3XXxx9cNOlLAlSMOpjQozYyZP/+Ll5M2YxndDuAqo?=
+ =?us-ascii?Q?KeW+BdGbttas6LM9YrsaNcs0QuPn1/2I43+dQQN5/eK19uR7M1GZ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c4d2fe0-3130-44e2-af07-08df4cc61ecd
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR12MB2814.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 20:36:32.0492
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xwsb0M3haVofMPtg5uSEFsE3mAkMh5O/4As+pBvgfBz9vc7GL7sHcx12HEWPpQtj99heV9wx8ptwlR4o0ckBXg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB999308
 
-On 27/11/2026 21:09, Lee Jones wrote:
-> i2c_smbus_read_i2c_block_data() returns the positive byte count on
-> success or a negative error code on failure.  stmfts_sysfs_read_status()
-> checks if (err) and returns err directly, so a normal 4-byte read
-> returns 4 without formatting buf (exposing unpopulated sysfs buffer
-> bytes), while a 0-byte read formats uninitialised stack memory.
+On Fri, Nov 27, 2026 at 09:05:40PM +0900, Alexandre Courbot wrote:
+> `From`/`Into` implementations already exist between a bitfield type and
+> its storage type, but these are not enough to support nested bitfields,
+> since every field is a `Bounded`. This resulted in some ad-hoc
+> implementations to enable this kind of declaration:
 > 
-> Return negative errors immediately and require sizeof(status) bytes to
-> be read, matching stmfts_read_system_info().
+>     bitfield! {
+>         pub struct Version(u8) {
+>             7:4 major;
+>             3:0 minor;
+>         }
+>     }
 > 
-> Fixes: 78bcac7b2ae1 ("Input: add support for the STMicroelectronics FingerTip touchscreen")
-> Closes: https://sashiko.dev/#/bug/linux-bd87edf0-6f79-4318-8780-d69205787e7d
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+>     bitfield! {
+>         pub struct Id(u16) {
+>             15:8 vendor;
+>             7:0 version => Version;
+>         }
+>     }
+> 
+> Generate these conversions automatically through the `bitfield!` macro,
+> as these tend to be useful.
+> 
+> Tyr had such ad-hoc implementations, so remove them to avoid conflicts.
+> 
+> Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
+
+Reviewed-by: Yury Norov <ynorov@nvidia.com>
+
 > ---
->   drivers/input/touchscreen/stmfts.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
+>  drivers/gpu/drm/tyr/regs.rs | 30 +++++------------
+>  rust/kernel/bitfield.rs     | 82 ++++++++++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 89 insertions(+), 23 deletions(-)
 > 
-> diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
-> index 2054c2254947..aada03f96940 100644
-> --- a/drivers/input/touchscreen/stmfts.c
-> +++ b/drivers/input/touchscreen/stmfts.c
-> @@ -699,9 +699,12 @@ static ssize_t stmfts_sysfs_read_status(struct device *dev,
->   
->   	err = i2c_smbus_read_i2c_block_data(sdata->client, STMFTS_READ_STATUS,
->   					    sizeof(status), status);
-> -	if (err)
-> +	if (err < 0)
->   		return err;
->   
-> +	if (err != sizeof(status))
-> +		return -EIO;
+> diff --git a/drivers/gpu/drm/tyr/regs.rs b/drivers/gpu/drm/tyr/regs.rs
+> index 69c901afb28f..0392869adc5a 100644
+> --- a/drivers/gpu/drm/tyr/regs.rs
+> +++ b/drivers/gpu/drm/tyr/regs.rs
+> @@ -1150,20 +1150,6 @@ struct MMU_MEMATTR_STAGE1(u8) {
+>              }
+>          }
+>  
+> -        impl TryFrom<Bounded<u64, 8>> for MMU_MEMATTR_STAGE1 {
+> -            type Error = Error;
+> -
+> -            fn try_from(val: Bounded<u64, 8>) -> Result<Self, Self::Error> {
+> -                Ok(Self::from_raw(val.get() as u8))
+> -            }
+> -        }
+> -
+> -        impl From<MMU_MEMATTR_STAGE1> for Bounded<u64, 8> {
+> -            fn from(val: MMU_MEMATTR_STAGE1) -> Self {
+> -                Bounded::try_new(u64::from(val.into_raw())).unwrap()
+> -            }
+> -        }
+> -
+>          register! {
+>              base: TyrRegisters;
+>  
+> @@ -1172,14 +1158,14 @@ fn from(val: MMU_MEMATTR_STAGE1) -> Self {
+>              /// Each address space can configure up to 8 different memory attribute profiles.
+>              /// Each attribute profile follows the MMU_MEMATTR_STAGE1 layout.
+>              pub(crate) MEMATTR(u64)[MAX_AS, stride = STRIDE] @ 0x2408 {
+> -                7:0     attribute0 ?=> MMU_MEMATTR_STAGE1;
+> -                15:8    attribute1 ?=> MMU_MEMATTR_STAGE1;
+> -                23:16   attribute2 ?=> MMU_MEMATTR_STAGE1;
+> -                31:24   attribute3 ?=> MMU_MEMATTR_STAGE1;
+> -                39:32   attribute4 ?=> MMU_MEMATTR_STAGE1;
+> -                47:40   attribute5 ?=> MMU_MEMATTR_STAGE1;
+> -                55:48   attribute6 ?=> MMU_MEMATTR_STAGE1;
+> -                63:56   attribute7 ?=> MMU_MEMATTR_STAGE1;
+> +                7:0     attribute0 => MMU_MEMATTR_STAGE1;
+> +                15:8    attribute1 => MMU_MEMATTR_STAGE1;
+> +                23:16   attribute2 => MMU_MEMATTR_STAGE1;
+> +                31:24   attribute3 => MMU_MEMATTR_STAGE1;
+> +                39:32   attribute4 => MMU_MEMATTR_STAGE1;
+> +                47:40   attribute5 => MMU_MEMATTR_STAGE1;
+> +                55:48   attribute6 => MMU_MEMATTR_STAGE1;
+> +                63:56   attribute7 => MMU_MEMATTR_STAGE1;
+>              }
+>  
+>              // MEMATTR is a logical 64-bit register, but it is laid out in hardware as two
+> diff --git a/rust/kernel/bitfield.rs b/rust/kernel/bitfield.rs
+> index 8d7d78175336..f53001a41731 100644
+> --- a/rust/kernel/bitfield.rs
+> +++ b/rust/kernel/bitfield.rs
+> @@ -78,7 +78,8 @@
+>  //! every value assigned to a field. This ensures that data is never accidentally truncated.
+>  //!
+>  //! The macro generates the bitfield type, [`From`] and [`Into`] implementations for its storage
+> -//! type, as well as [`Debug`] and [`Zeroable`](pin_init::Zeroable) implementations.
+> +//! type and for any [`Bounded`] with the same number of bits as its storage type, as well as
+> +//! [`Debug`] and [`Zeroable`](pin_init::Zeroable) implementations.
+>  //!
+>  //! For each field, it also generates:
+>  //!
+> @@ -249,6 +250,37 @@
+>  //! assert_eq!(Config::from(0b11).mode(), Err(3));
+>  //! ```
+>  //!
+> +//! ## Nested bitfields
+> +//!
+> +//! A bitfield type can be converted from and into any [`Bounded`] with exactly as many bits as
+> +//! its storage type. Thus, it can be used with `=>` as the type of a field of the same width in
+> +//! another bitfield:
+> +//!
+> +//! ```rust
+> +//! use kernel::bitfield;
+> +//!
+> +//! bitfield! {
+> +//!     pub struct Version(u8) {
+> +//!         7:4 major;
+> +//!         3:0 minor;
+> +//!     }
+> +//! }
+> +//!
+> +//! bitfield! {
+> +//!     pub struct Id(u16) {
+> +//!         15:8 vendor;
+> +//!         7:0 version => Version;
+> +//!     }
+> +//! }
+> +//!
+> +//! let id = Id::from_raw(0x10_42);
+> +//! assert_eq!(id.version().major(), 0x4);
+> +//! assert_eq!(id.version().minor(), 0x2);
+> +//!
+> +//! let id = id.with_version(Version::zeroed().with_const_major::<0x1>());
+> +//! assert_eq!(id.into_raw(), 0x10_10);
+> +//! ```
+> +//!
+>  //! # Bits outside of declared fields
+>  //!
+>  //! Bits of the storage type that are not part of any declared field are preserved by the setter
+> @@ -346,6 +378,31 @@ fn from(val: $storage) -> $name {
+>              }
+>          }
+>  
+> +        // Conversions from/to any `Bounded` with the exact same width as `$storage`, to allow
+> +        // infallible nested bitfields.
 > +
->   	return sysfs_emit(buf, "%#02x\n", status[0]);
->   }
->   
-
-Reviewed-by: David Heidelberg <david@ixit.cz>
+> +        impl<T> ::core::convert::From<$crate::num::Bounded<T, { <$storage>::BITS }>> for $name
+> +        where
+> +            T: $crate::num::Integer,
+> +            $storage: ::core::convert::From<$crate::num::Bounded<T, { <$storage>::BITS }>>,
+> +        {
+> +            #[inline(always)]
+> +            fn from(val: $crate::num::Bounded<T, { <$storage>::BITS }>) -> $name {
+> +                Self::from_raw(val.into())
+> +            }
+> +        }
+> +
+> +        impl<T> ::core::convert::From<$name> for $crate::num::Bounded<T, { <$storage>::BITS }>
+> +        where
+> +            T: $crate::num::Integer,
+> +            Self: ::core::convert::From<$storage>,
+> +        {
+> +            #[inline(always)]
+> +            fn from(val: $name) -> Self {
+> +                val.into_raw().into()
+> +            }
+> +        }
+> +
+>          // SAFETY: `$name` is transparent over `$storage` and `$storage` has no interior mutability.
+>          unsafe impl $crate::mem::AsRepr for $name {
+>              // Normalize `$storage` to the canonical repr type in case it is signed.
+> @@ -653,6 +710,14 @@ struct TestU8(u8) {
+>          }
+>      }
+>  
+> +    bitfield! {
+> +        struct TestNested(u32) {
+> +            31:16     field_31_16 => TestU16;
+> +            15:8      field_15_8;
+> +            7:0       field_7_0 => TestU8;
+> +        }
+> +    }
+> +
+>      // Single and multi-bit fields basic access.
+>      #[test]
+>      fn test_basic_access() {
+> @@ -770,6 +835,21 @@ fn test_fallible_conversion() {
+>          assert_eq!(TestU64::from_raw(raw).field_15_12(), Err(0x7));
+>      }
+>  
+> +    // `=>` conversion from/to another bitfield with the same width as the field.
+> +    #[test]
+> +    fn test_nested_bitfield() {
+> +        let val = TestNested::from_raw(0x42AB_00AF);
+> +        assert_eq!(val.field_31_16(), TestU16::from_raw(0x42AB));
+> +        assert_eq!(val.field_31_16().field_15_8(), 0x42);
+> +        assert_eq!(val.field_7_0(), TestU8::from_raw(0xAF));
+> +        assert_eq!(val.field_7_0().field_7_4(), 0xA);
+> +
+> +        let val = val
+> +            .with_field_31_16(TestU16::zeroed().with_const_field_3_1::<0x5>())
+> +            .with_field_7_0(TestU8::zeroed().with_field_0(true));
+> +        assert_eq!(val.into_raw(), 0x000A_0001);
+> +    }
+> +
+>      // Test that setting an overlapping field affects the overlapped one as expected.
+>      #[test]
+>      fn test_overlapping_fields() {
+> 
+> ---
+> base-commit: abfb640b2374e26de8ff81d488c39d8254db538e
+> change-id: 20261127-bitfield-conversions-e5a6b02f0ac4
+> 
+> Best regards,
+> --  
+> Alexandre Courbot <acourbot@nvidia.com>
