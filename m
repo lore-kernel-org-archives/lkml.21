@@ -1,90 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795781866;
-	b=gnuuiHHGT3pTWL4CgIYN2JkigFFODcmmplPzCtCa/gmqxCBNmoWJQQJ6jIH4jjJs9uu6
-	 koW2TmRTLGCYrK6+YWxl5Xp8usyDFsBtJhZSbeNbyh2UdpWN9fiPVgCQhOoaKQ3wpj7nC
-	 yZryINvmkC43j5Ch5P2mz+GHTuLHhyIBm2OJBpFN4knUm17/EC3IDy3je0plLFfM3QxCq
-	 6yDKKLf54mHK2Y38+jn2JUIxr29WkNtVtYr0+v5r/YxFO51bRDbigpiwGzs5jF0Hmw0Ss
-	 3d8BR3Aiqdakh1PYSUaG0IytznGtdaHmRH452j8Efv58VYPmIynVBGZE7tzD0kxbybw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795781866;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=CwowVZ3rKUKS7aekHm2EGIj95zoVj8ccIVxOo6VaL1E=;
-	b=b9iFuM54eG/E7Y0Sahmx1lIMByIY3iheMQYOaCZPXerC1Co594JZe/Uf4/B66jCww5QO
-	 uV1mKQbYuZPvHXN+yvbZ+zIN8YPC32KlgChkUEbqmFmlwKy1Kogst2wvNPOZDtCLlLiLp
-	 EFgQ3ZcoiLal3EdQRjPGljEFUVuYGjiuQo/ziS0TntT0jXM4z+XXcEg3rOXH06JnC2337
-	 zNGfdt88o2NVMfcWmBfSNZRZYUf5XRvCUh07lFkM3Lauoh5G/QF8hRgGWGqo74+tcC+/p
-	 V0WGCAHvkkqpIJUd7Nqoy7fg5KNbKwKJ7P5nBV8g2QxluHWz4yNRSo5fJ03iSZiOx0A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=VStT1ica;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795781885;
+	b=nBCKS4Q7o9dQq0QNyCqH2cwikj3FcheaQhByL11RjFH2if1pxsJRc+byajpOlr7aGio2
+	 b3PuYZFAXoBmwnioTHGlFhqsUjy4LWhc6YXBZywhleO4/XHxAvzdH9wGBtg+WR9TFMlTC
+	 9WoB5PnLGNuctm3KYui3xiFKlQKSPsImMJdiMN/srbwt3xN8xACOdZTLLTRxiCbTFPYgC
+	 JK1GmFk4uihZwzs2ofl3yjQTD60w68b07nw6S2rKPOVtfObAil08posx4PbUMIdNzFDoR
+	 6ou2szqaH+Cj6JjQ943dAj5pbnmF7pXioJNRf0pKKWrKBMHykKvDRV5bTFjR1RVnX5Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795781885;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:
+	 CC:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=8GM4+1z3MXiFhuuyRo5bDjjiFnV2TtyBmRaHS0kauZQ=;
+	b=pmUz3VjHSdxOMWvwGrYJFFq+55NCr1KXvh9Qu3d3xwqa5v7E6zxMhl01QsZ/y5Wl2XL9
+	 iogQHKg3LsgoNqTDTZFLnZsDq9op+ruBTHXUKlveJpgKakO7D+GlBjvS5Bkk3rgZ6tTVQ
+	 8JFuUKGicIX7N/DRc8bIFEadG0LXDlCdWQELEQw07JElH9JZ8E0+DLw/4kAAqN485nddf
+	 wlscP6TRrFNFhs24UuUFfX41ETCg9rseYOdEVP5t9i6hXjxLl5wrXLXt39KntUcM141vW
+	 GUPQtZjpaX91UUyl4hfnBSV7nYQc4/orv3ulHD49Z0Uze7g/YWJKFYGY/6UdEXghk4A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=u5eKR6NB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.48
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011048.outbound.protection.outlook.com [52.101.62.48])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B81FE606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:17:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B81FE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DC33606A31C;
+	Fri, 27 Nov 2026 12:18:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DC33606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=VStT1ica
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b421e8d111so5311586a91.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:17:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795781865; x=1796386665; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CwowVZ3rKUKS7aekHm2EGIj95zoVj8ccIVxOo6VaL1E=;
-        b=VStT1icaAeLfzGScPe9CdBMUfeQwHlELRjWXgQwof7WbcoT3BzVeAZWti+hSkJdNaj
-         ZmETPUGZ6uEAo9AjcsJ3i0Kjmli7tijAHBBKi3QGFnxa1s7kAu1SWeo8KDmLxNK8vqVM
-         nQ9vsvKapSrPVOTl9yCAyxrgT6JMZLxnZp8nU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795781865; x=1796386665;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CwowVZ3rKUKS7aekHm2EGIj95zoVj8ccIVxOo6VaL1E=;
-        b=Hh9Jm6L0zNIq/N37/2GS0yJ0oIJg/+72cdsfx1i3KGQ5GSyotAu69pY8Yh4z3IRyPI
-         s8/tmex4m9ZT9bOlKXF2eBFHLwMbLm9IdgDDCLBnyDQmJ9pDtXiB0y3LrE04O/ZdDHu9
-         C8fQSnhbq7W5xtMXiVWI+RAYjsGD2/IDSRpV6rKwk/+tMLjgIeqrFu3iWqChQqruQBx+
-         0almD+trXTZYJ/uvO2pjE4qwFk9ERj8xLtxCBEvJpsUwNl3aOjUCWJlcv61pcTyFf7jD
-         uAbc48bnh/2HKekKXvabZPqqGevi+e8OOuIM6Isag97eWI1+Cj6XQjL+aq/Y4EyaUQtD
-         qa/Q==
-X-Forwarded-Encrypted: i=1; AL+hErFHI6+JXEoBi4bCt5KtNNvamHztQH09l8/UnOJjDxKUTglih7mthpvkae6M2u8gbg7C4ybn4lfDe1nZijM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8K0lDLdLsujug2OOpSyAvM9qm5Qq7XQDyZsW95tSJ88ny+3WZ5
-	eZmxwDlR5ytccCAjD/8HWIyHtkR1PaztngCWyJrWbjpWYQf/Z7jDISirUCePBu+1wh8wYgShvQS
-	tfko=
-X-Gm-Gg: AZFdTZfzJlDUlNlhhzOhThN+LTAtOI5l5ayrW5fmyIngzEl1ku7ZfIsI0/1VWQbH7xS
-	Yg/m/DCR9Xy7C2tELTl3fDDqUXgiC50AHoAbLvTElDGYnjFs+UaO+0f+pTEL+YZTJw7tzMM60IZ
-	xxdcbrmD3jJSL+PkZTluUhg2IczQc4qLIht5Gdni1BNL13QInvHTghdr261MUg9ivshiBAs+7P/
-	T33BoEMNYCx22hFVIO9tddeSHwH71bpIG2bU/XRbiM+4P61eAPrNOOfQog3xO9Zrh/m0S9RkLda
-	COuFdv+KlpVYoBL87Wc0ksT8uc0IRdDg5haebXg5rl0YVfe/NTuO/aCUTo+w0fGDb6o0vhQVg3Q
-	WQi3DnL8ezUT0TUaDya9urjztq7BE+TyeRU+TfF3vsDBXhphhlShDs77JliWSumbrJZLx0/76Ed
-	QHhO2jxXPULKfdVnYTylo9LMuVOqkcz7dcFQzrXiQgUaiWrvprC3SfOHQOEVAEq+xKw11DJmBZE
-	QLoiBUrg6S7APpRUKISlir5PcYypC+mTPEmflQbnfm+Anu19EozmeNW2EKJZubUeaa/emXwPx6m
-	SNPkPU4ZuHsXisGQopgKGHLKyRqidvangCo0PlANk3i5Nu4MSDWQe8gCR96rkSoGyVs=
-X-Received: by 2002:a17:90b:1649:b0:3b1:2810:dfd6 with SMTP id 98e67ed59e1d1-3b41cb50c4fmr24707720a91.64.1795781865031;
-        Fri, 27 Nov 2026 04:17:45 -0800 (PST)
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com. [74.125.82.172])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b52dsm40927912a91.5.2026.11.27.04.17.44
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 04:17:44 -0800 (PST)
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38644aedba1so12073612eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:17:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGndNISPlhaw6lK0NMq4CrMOzP/g61g2T5Wy6iUnKMEbfaCalQcsGWpTDzg8ImRNrmU+BgVJ/hSy6ViHUQ=@vger.kernel.org
-X-Received: by 2002:a05:693c:83cf:10b0:386:b526:24d1 with SMTP id
- 5a478bee46e88-386b52638e1mr15336839eec.9.1795781862885; Fri, 27 Nov 2026
- 04:17:42 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=u5eKR6NB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e150JoUyAHPymQ37Dhw3vcgXCXiB2eNWi7fveKR0v36L83C1f1yw3aiVfNXIRJ2IJrGqY1r9QbcsIG2zdjMin56XlEbYFPZdj5CdFz+3NEidCW5KVa732dOOSxhUD5CFLi55G6mT3SqmjtrEYL/rrIEOZs/rTtUK3G4wEZ6a+yaRdwfIyWrV0Xz9VLXfqkqRJULBTTGgIKRbrVIdNMekMuoKSTKy5AxCv+zt9IpVZMFkCL6D2JitZOgPsCpZSJdiD7yq5kfAtFRXOOgk36uejSJoYcWrEnf2dS5FRBpiqSAQsQ6uAwzqS2cei4JMtwvULFXLhL34jNqJAg4rMTOgrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8GM4+1z3MXiFhuuyRo5bDjjiFnV2TtyBmRaHS0kauZQ=;
+ b=p/PW+NeoCFFZtHD+x3lsSAfR9yXQup+OMgorHfFCAaFanidXWRsDR1PBgrkFWEqfTgxxaivNoAKUqZsL/Xd/VR9zjc6Pdc4ntD/mQGtfNT9AfeksnBMvT4zfyX7VmnXfPem7IwerRRK+u2WkrhdVHaQo+7e/l5lwX7zvovykNFDHv6rGL4EGD+7Du6n9k8OVl+Q36jii6lYQmEB3fv7uTnP53vQ1yy2NkgXqVlU9JrCGvVyotrIuDcktc22UAg582S86Z01/7WClB3Yba1Hrhxt1g9CwauayHQOptRMpVM4iYYPYI20QVbrlHYlCTbm7KoX1NFF9AT7xHvY2w/KECw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linux.dev smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8GM4+1z3MXiFhuuyRo5bDjjiFnV2TtyBmRaHS0kauZQ=;
+ b=u5eKR6NBvLQGXUPFWUBHklgFtSMiBScj2I5XzPgjXUiABt/4RhWSDWp3SsfVUNhc6xgxeUTgxmKnJuTwd1xaIQsHfab5Jv5LkpxvwNhvfdnVwleL2Zvxu726CmNzlSTn/wxc42BaIjh6uneYUYBYrKPLz7pfXt+L6TENVthKa3Q=
+Received: from CH0PR03CA0318.namprd03.prod.outlook.com (2603:10b6:610:118::26)
+ by PH8PR12MB999322.namprd12.prod.outlook.com (2603:10b6:510:40b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 12:17:15 +0000
+Received: from CH3PEPF0000000B.namprd04.prod.outlook.com
+ (2603:10b6:610:118:cafe::4c) by CH0PR03CA0318.outlook.office365.com
+ (2603:10b6:610:118::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.9 via Frontend Transport; Fri, 27
+ Nov 2026 12:17:15 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH3PEPF0000000B.mail.protection.outlook.com (10.167.244.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Fri, 27 Nov 2026 12:17:15 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
+ 2026 06:17:05 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 27 Nov
+ 2026 06:17:05 -0600
+Received: from [10.211.224.132] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Fri, 27 Nov 2026 06:16:56 -0600
+Message-ID: <78f43e25-7617-4b48-9e18-ca7be1011d54@amd.com>
+Date: Fri, 27 Nov 2026 17:46:55 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,78 +105,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com> <20260714114414.184512-44-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260714114414.184512-44-angelogioacchino.delregno@collabora.com>
-From: Fei Shao <fshao@chromium.org>
-Date: Fri, 27 Nov 2026 20:17:04 +0800
-X-Gmail-Original-Message-ID: <CAC=S1nh0FpfDy8VqHJA=+bBtqZF1K5FYWF25pL1sAi4Q4MSSkg@mail.gmail.com>
-X-Gm-Features: Aa3M54pcv7nTzvpglkL8e2ZqGsoE7ZtTuNgXg7WMfrQxU5jsZk3Rpl5MWtMoFKo
-Message-ID: <CAC=S1nh0FpfDy8VqHJA=+bBtqZF1K5FYWF25pL1sAi4Q4MSSkg@mail.gmail.com>
-Subject: Re: [PATCH v2 43/46] drm/mediatek: Add Two-Dimension Sharpness
- Processor (TDSHP) driver
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf/x86/amd/ibs: Don't leak stack contents through
+ PERF_SAMPLE_WEIGHT_STRUCT
+To: Usama Arif <usama.arif@linux.dev>
+CC: <stable@vger.kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
+	<acme@kernel.org>, <namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <james.clark@linaro.org>,
+	<tglx@kernel.org>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, <hpa@zytor.com>, <linux-perf-users@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <rkeilty@meta.com>, <atish.patra@linux.dev>,
+	<dgreid@meta.com>, <riel@surriel.com>, <shakeel.butt@linux.dev>,
+	<kernel-team@meta.com>, Ravi Bangoria <ravi.bangoria@amd.com>
+References: <20261123162315.1142701-1-usama.arif@linux.dev>
+Content-Language: en-US
+From: Ravi Bangoria <ravi.bangoria@amd.com>
+In-Reply-To: <20261123162315.1142701-1-usama.arif@linux.dev>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000B:EE_|PH8PR12MB999322:EE_
+X-MS-Office365-Filtering-Correlation-Id: 354bb124-7761-480f-0100-08df4c805f88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|7416014|261102123227099003|261021121427099003|261026121527099003|11063799006|56012099006|10067099003|22082099003|18002099003|261009223027099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	J3pT3x6jqGHaRD1DdOQc7mJGdExRDDyM+6W4X/yOachdN8mpwAId2p8cS00fA/8F5ZPF7f/TiXLhcTCO7VqPWSbXq0MiDIneifSjXTfHW8DKnvt9DqCnZjgJCk24iwlJhc4u1atrnGFo2inY1QAM05wbQYwffpDWVy6tC9yBs9OGQY+VxRt/4mDIaiqiQFqB4dPQFgbo7hCh8WtMVmZqp1QQ+7jysHQJKDfhNri6QwQK96CKvyZuWLv0EEULHk3yHHPd3wLVSD3UfAv8lcCb0+DHZirB1ZlPlfvtWVFOjuxhdQiJP/4S4t972c8q/ImqwLh+wtPcnWGmGzeEJPQxYVJhLw8HvXFWk9+y5Asxf01Qi0yGAm0XU7s8Htncaz16bqiMlrCp6r5WVWd8sLs+FE4L9h47dPdshIEDQomQNW5bsCwmkDBT4t6E+1TSZdpnn2qU5f56gGU3es0j6QqaP6VMqNDhg4Lcz1fcXeKtt+K8Bvnb0VYHfMbCFmBrOiVIuycOBbJiG5LO3limJWqDPQEh5f4GowEVHkGgSo6B2Z+JHoPnBvm3nP95TjUmRhgxp2S6Nf8CkUUwL+1rOxLtKRqxe1eiwRnYPJNOi74UZIp4tKT/pfisLQMq7zNnVhpm8VzUCkUgzN9vGjbHmW020K4n3i+QP7gmSNoyWGJJCtAJkGksZe/Ui009mdRU9JnPdOQ0zsgWb8dI9xqBV6dq/Q==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(7416014)(261102123227099003)(261021121427099003)(261026121527099003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	R4QaYUdszGPxeGNiyCWKWeb4/7AZiaOahJ7BVoLM9TzvQ2yHTctd0tM4FpfqmX17KRpkVR8pwu5nUg398rj2haKQgREqPyoHnuPL/NDfh0QWjtE/kGsednsWzB+d6YFQGBnWj5Ol2e9s8mL7mDfxA1cOf95RNfBE7y2ygbvxI+/L4u8P4szV1QeWeuBljzUhNg9IDLoJhLMrZkZs/jU8Fyty1+54324I60bDtjTZPbU55CCUuFj9qecG+W+km0ni0G7jfBq1Nj7Qfx+tkXXjbeZmQ7tAjFuMHZ7e4Uzfni7G15CfIDLgzHFn8IaNa4WxR0KCcXIiB8gm7bdA1EStRqZcDeG3e9hnwmyZ0tPXlEpagfHsSvzMkybYHygoB8ofEj4VJeZeqLeNEnRSBSDAoaJ1kxZ0/UtW4CoEDD7R4dZjmTFXOeDNmGvMoUmUCMvo
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 12:17:15.1634
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 354bb124-7761-480f-0100-08df4c805f88
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH3PEPF0000000B.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB999322
 
-On Tue, Jul 14, 2026 at 7:47=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> The MediaTek 2D Sharpness Processor (TDSHP) is responsible for
-> performing image sharpness adjustments/enhancements in a display
-> pipeline.
->
-> Even though this hardware block supports adjusting the luma and
-> contour 2D histograms, frequency weighting, luma-chroma gain and
-> others, this only introduces a basic configuration which allows
-> to bypass TDSHP processing in an effort to forward the data from
-> this block to others.
->
-> That is necessary because some components cannot be connected
-> directly in specific pipelines; for example, in MT8196/MT6991
-> pipelines, when Display Resizer (RSZ) and Color Correction (CCORR)
-> components are required, it is necessary to pass through TDSHP as
-> direct connection between RSZ and CCORR is not possible due to HW
-> limitations.
->
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/gpu/drm/mediatek/Makefile         |   1 +
->  drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |  10 ++
->  drivers/gpu/drm/mediatek/mtk_disp_drv.h   |   8 ++
->  drivers/gpu/drm/mediatek/mtk_disp_tdshp.c | 167 ++++++++++++++++++++++
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c    |   3 +
->  drivers/gpu/drm/mediatek/mtk_drm_drv.h    |   1 +
->  include/linux/soc/mediatek/mtk-mmsys.h    |   2 +
->  7 files changed, 192 insertions(+)
->  create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_tdshp.c
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_tdshp.c b/drivers/gpu/drm/=
-mediatek/mtk_disp_tdshp.c
-> new file mode 100644
-> index 000000000000..31f57c567137
-> --- /dev/null
-> +++ b/drivers/gpu/drm/mediatek/mtk_disp_tdshp.c
-[snip]
-> +void mtk_tdshp_start(struct device *dev)
-> +{
-> +       struct mtk_disp_tdshp *tdshp =3D dev_get_drvdata(dev);
-> +
-> +       writel(DISP_TDSHP_CTRL_EN, tdshp->regs + DISP_REG_TDSHP_CTRL);
-> +}
+> For a load that missed the data cache, perf_ibs_parse_ld_st_data()
+> reports the miss latency as the sample weight and marks
+> PERF_SAMPLE_WEIGHT_TYPE as done, so perf_prepare_sample() leaves the
+> field alone. With PERF_SAMPLE_WEIGHT_STRUCT it writes only var1_dw and
+> var2_w, but perf_output_sample() copies all 8 bytes of the union into
+> the ring buffer. var3_w therefore carries whatever was left in the
+> on-stack struct perf_sample_data in perf_ibs_handle_irq().
+> 
+> CONFIG_INIT_STACK_ALL_ZERO hides this by clearing the struct on entry.
+> Without it, every such sample hands 2 bytes of kernel stack to user
+> space. "perf mem record" asks for PERF_SAMPLE_WEIGHT_STRUCT on x86, and
+> since v6.14 swfilt lets an unprivileged user sample their own tasks with
+> IBS.
+> 
+> Write var3_w as well.
+> 
+> Fixes: 6b2ae4952ef8 ("perf/x86/amd: Support PERF_SAMPLE_{WEIGHT|WEIGHT_STRUCT}")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
 
-mtk_crtc_ddp_hw_init() calls .config right before .start, so this full
-register write overwrites and clears DISP_TDSHP_PWR_SCL_EN that
-mtk_tdshp_config() just set for 8-bpc pipelines.
-Use a read-modify-write for DISP_TDSHP_CTRL_EN instead (or drop the
-redundant write here).
-
-Regards,
-Fei
+Reviewed-by: Ravi Bangoria <ravi.bangoria@amd.com>
