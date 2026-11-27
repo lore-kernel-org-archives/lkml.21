@@ -1,89 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.108.3.165
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795757933;
-	b=kKF3Kx8P9J2VTSAJi6FneLLj0PdNrAlCVie/3rW/5r2YqaXF99lDC9cvT79Pdevj0o0c
-	 XhS2S1gsjBJ3UBYnxEavtasWERkIKbnrocYfSCQW2j1nXRYppG2lHCWbDHFiCZ3yPUh6v
-	 b5QwHIH8KbjALEFC25Ufe2Y7Zm+wzZ35QaqYX8but4cliMIsbUxFdfmE28vYk/yYMVAdL
-	 VqAN6d1B0cx/7esl20/EJdrGOIqK2a7Y7xo+xSwZ+dj03ocHz4SWCMPw7VngipDnBFifp
-	 80lzHZy61XrfQsKRx/UkcteB0w8nIDtU0Qtm81em+F1cdUnufPCDZVZrkj/0lA+oUzw==
+	t=1795758046;
+	b=l9UWiB/fuHuLFWvuWhCz/5qcrl3W67S1wfYKPtN3XJQjv3uUk4IbPf+Ht7Vs2L2oNkVr
+	 K8DXCgJ+C1zX+5Nqb8cakQzA0GjOgTv91Qy3NMGA/n4C5MbyNY84xz0GXakISiTPBPlKN
+	 AAQ7pkUBphqbd/zBld316CGaQg15zS5jaq5TtkA9fUTfxdxTko38HgAJIV1tC3RMnwbRV
+	 4Lg+Ijk+y2RbHfIyQkyL4umXKjASlyCz72o7Si14syCqQrldJ9fJwPXbk+gdBIkW9Nd+r
+	 wwtMYkmAwrSVh9adhe1WmDPqixVO9552pTxRQ48fBbABK57/eF9ZljViF+vZh/JTpDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757933;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=W2H0uSRnjPu7WMPX1UzBqKbEhzzTOmy3VJmIVK96VG0=;
-	b=r/FcXcSaNeG+GR3L1OQJTOD88ez1g9SakfJVVKd/1F79ulZ1uPneci57VBRMLwEV2YTG
-	 AfATtLh0fB5TBVTK2PO7PSYY2bhoM8IhkpOBgah1JvfqV16aHh9g3eAp6Br9LjTP8Nl5J
-	 Q9HG1Led2xUbhB5GCH4joLHDVwujDh9Rv9vgeF42ZcJCkxTmfAecEg/YqLd8YAr7Zj4M8
-	 lnQI5HhOJqoslXGkmUwOc3ifduqM8hYyDusUstyfqHdpPPHYmEHUwtLeButkQU0uXuMua
-	 o1VTNmrAha2F8UpCWTVID/SDv4DayM3YBijfAGYmMobF6EBzYOPKmq9JZqmMYl/e/uw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795758046;
+	h=DMARC-Filter:DKIM-Signature:X-SMAIL-HELO:Received:X-Sender:X-Auth-ID:
+	 X-SMAIL-MID:X-SMAIL-UIID:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=N+SGFIhOxjJHVtpPUhttF/00IVXwVUg4xCVzfn3t13U=;
+	b=Z7SjZgRlbNxikWvu7IniOwp4BUYsUSU9+mHWm+8xxR6sI89UF1VD1ekuVs7bXCYCEzQo
+	 E8V32Q6syjhYphApI1IvZywIYO80GFTX6vm74BzIQ4qvSKEvx4FJGAOqyZ1gdHoBuP676
+	 4HZx9mLfNF/jgA7GOrRpI4YMHflHp81vc7lnSFtx53r70INc8+CfuD4AtLuY5QUftKTG8
+	 TEK4s3rAO8JJa3aSa7zYRTI9zlwdLCV4XtDs1Vy6WSZo1IoCMCASrlmGTnlQi8dc+akTe
+	 arsKSURhF2Y6PtrGUPks6Mpe5udAdPBsNWXu4Jql8KB1X8DtiesjjU3XKAO3xQpPAvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=RIACzBis;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=sina.com;
+	spf=pass smtp.mailfrom=sina.com;
+	dkim=pass header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=b92HE7ju;
+	arc=none smtp.remote-ip=202.108.3.165
+Received: from mail3-165.sinamail.sina.com.cn (mail3-165.sinamail.sina.com.cn [202.108.3.165])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CBEA606A324;
-	Fri, 27 Nov 2026 05:38:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CBEA606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00F2D606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:40:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00F2D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sina.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sina.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=RIACzBis
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AR5cEoX5660473, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795757894; bh=W2H0uSRnjPu7WMPX1UzBqKbEhzzTOmy3VJmIVK96VG0=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=RIACzBisfRdWVb+KK2TOwnsJpJ6zKFM0nSzv567QkSP+PcPTn69c4kZsIAIsHzCRX
-	 5N/0MF3v+vUOhvS+NCBbyhCcFClrjkUeCiVMdXD4x2b4Urxzqp7XTFaQcCEurOVT9N
-	 C6YdRMSD+Fz/i7v/v+jH6im85jNojCHhGtrSFsWTaksZoQYjoYgayANOmwTkrIzdKl
-	 KNo6UK4RARJGOgKd4Xehf1bWTHOt8qcPH1fSi4Su8fPq2YAdZWAvdS0Ea4Vh0PWq2R
-	 2EBaiRTPTkmMRM7qKxg3PpJbrQOkXNfvuWQHC1xi7g1fCxCfFbNn9gdv42wtA9KNdr
-	 QIwGya8EZ0rNA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AR5cEoX5660473
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 27 Nov 2026 13:38:14 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 13:38:14 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 27 Nov 2026 13:38:14 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Fri, 27 Nov 2026 13:38:14 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Mehmet Fide <mehmet.fide@gmail.com>
-CC: Luka Gejak <luka.gejak@linux.dev>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>, Tzu-En Huang <tehuang@realtek.com>,
-	Yan-Hsuan Chuang <yhchuang@realtek.com>, Kalle Valo <kvalo@kernel.org>,
-	Stanislaw Gruszka <sgruszka@redhat.com>, Brian Norris
-	<briannorris@chromium.org>, "linux-wireless@vger.kernel.org"
-	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "mehmet.fide@screeningeagle.com"
-	<mehmet.fide@screeningeagle.com>
-Subject: RE: [PATCH rtw-next v4 2/4] wifi: rtw88: report the frames purged
- from the TX report queue
-Thread-Topic: [PATCH rtw-next v4 2/4] wifi: rtw88: report the frames purged
- from the TX report queue
-Thread-Index: AQHdeeywPcQt9oNGjESq/X+q0rK+NrdBbwxg
-Date: Fri, 27 Nov 2026 05:38:13 +0000
-Message-ID: <9c857e4e269e40eb9c74a1e6d1d446c7@realtek.com>
-References: <20261121191528.591334-1-mehmet.fide@gmail.com>
- <20261121191528.591334-3-mehmet.fide@gmail.com>
-In-Reply-To: <20261121191528.591334-3-mehmet.fide@gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key, unprotected) header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=b92HE7ju
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sina.com; s=201208; t=1795758044;
+	bh=N+SGFIhOxjJHVtpPUhttF/00IVXwVUg4xCVzfn3t13U=;
+	h=From:Subject:Date:Message-ID;
+	b=b92HE7ju5Dhq8X3y4HEg8nNsRhoTYzakfsYYwg6mUcraLf/ssJKd8gm4HbA5ylJ96
+	 yyRnlWjdH8SyaeZbg2Cs2hPqUdkghd+gYcN3Isi8dVb5h6rrWFlwFX+f1FAYAdRchK
+	 CTAVDoT2jLykyQ+J1DckwZEANeaiUk7ia2xPC1QY=
+X-SMAIL-HELO: lxu-pcd
+Received: from unknown (HELO lxu-pcd)([111.198.225.163])
+	by sina.com (10.54.253.33) with ESMTP
+	id 6B0917D000003A34; Fri, 27 Nov 2026 13:40:35 +0800 (CST)
+X-Sender: eadavis@sina.com
+X-Auth-ID: eadavis@sina.com
+Authentication-Results: sina.com;
+	 spf=none smtp.mailfrom=eadavis@sina.com;
+	 dkim=none header.i=none;
+	 dmarc=none action=none header.from=eadavis@sina.com
+X-SMAIL-MID: 130876685376
+X-SMAIL-UIID: 520914DA7489484CBD27AD0D49FC6AA1-20261127-134035-1
+From: Edward Adam Davis <eadavis@sina.com>
+To: eadavis@sina.com
+Cc: jiangshanlai@gmail.com,
+	linux-kernel@vger.kernel.org,
+	syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com,
+	syzkaller-bugs@googlegroups.com,
+	tj@kernel.org
+Subject: [PATCH next v2] workqueue: Avoid noise generated by userspace realtime tasks
+Date: Fri, 27 Nov 2026 13:40:31 +0800
+Message-ID: <20261127054032.56845-1-eadavis@sina.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261126102530.37205-1-eadavis@sina.com>
+References: <20261126102530.37205-1-eadavis@sina.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,36 +72,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Mehmet Fide <mehmet.fide@gmail.com> wrote:
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
->=20
-> Frames waiting for a TX report of the firmware are freed with
-> skb_queue_purge() when the report times out and in rtw_core_deinit().
-> mac80211 gets no TX status for them, and the frames it keeps for the
-> TX status of user space stay pending until ieee80211_free_hw() warns.
-> On an RTL8822CE, after a firmware crash and an unbind:
->=20
-> rtw88_8822ce 0000:01:00.0: failed to get tx report from firmware
-> [...]
-> Have pending ack frames!
-> WARNING: net/mac80211/main.c:1761 at ieee80211_free_ack_frame+0x4c/0x70 [=
-mac80211], CPU#1: sh/24725
-> Call trace:
->  ieee80211_free_ack_frame+0x4c/0x70 [mac80211] (P)
->  idr_for_each+0x6c/0xf4
->  ieee80211_free_hw+0x30/0x8c [mac80211]
->  rtw_pci_remove+0xd8/0xf0 [rtw88_pci]
->=20
-> Free them with ieee80211_purge_tx_queue() instead, which reports them
-> as dropped. Clear the TX status of a frame when it is queued, as
-> rtw_tx_report_handle() does, so that a purged frame does not report
-> its leftover TX control data as status flags and link ID.
->=20
-> Fixes: e3037485c68e ("rtw88: new Realtek 802.11ac driver")
-> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+A user creates a SCHED_FIFO real-time thread and pins it to CPU0, and arm
+watchdog timer on CPU1 with 3s threshold. The real-time thread runs for an
+extended period without voluntarily yielding the CPU, preventing standard
+kworker threads on CPU0 from gaining access to the processor.
 
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+As a result, certain kernel works cannot be executed in a timely manner,
+which may even trigger a watchdog report:
 
+BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 5s!
+Showing busy workqueues and worker pools:
+workqueue mm_percpu_wq: flags=0x108
+  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+    pending: vmstat_update
 
+To address this, a check for CPU-bound tasks has been added to the work
+pool; this helps prevent false-positive reports caused by prolonged CPU
+occupancy by real-time tasks.
+
+Fixes: 82607adcf9cd ("workqueue: implement lockup detector")
+Reported-by: syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=97fde463a8ffb9e839d2
+Signed-off-by: Edward Adam Davis <eadavis@sina.com>
+---
+v1 -> v2:
+ 1. update subject
+ 2. use cpu_curr_snapshot_rcu() to get stall cpu's current task
+ 3. Exclude cases where tasks running on a stalled CPU are kernel threads
+ 4. not for RT kernel
+
+ kernel/workqueue.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/kernel/workqueue.c b/kernel/workqueue.c
+index baadc7815585..9bd9cccdf3cf 100644
+--- a/kernel/workqueue.c
++++ b/kernel/workqueue.c
+@@ -8287,6 +8287,23 @@ static void wq_watchdog_timer_fn(struct timer_list *unused)
+ 			if (!time_after(now, ts + thresh))
+ 				continue;
+ 
++			if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++				struct task_struct *p;
++				unsigned int policy;
++				int cpu;
++
++				cpu = pool->cpu;
++				if (cpu >= 0 && !(pool->flags & POOL_DISASSOCIATED)) {
++					guard(rcu)();
++					p = cpu_curr_snapshot_rcu(cpu);
++					if (p && !(p->flags & PF_KTHREAD)) {
++						policy = READ_ONCE(p->policy);
++						if (policy == SCHED_FIFO ||
++						    policy == SCHED_RR)
++							continue;
++					}
++				}
++			}
+ 			lockup_detected = true;
+ 			stall_time = jiffies_to_msecs(now - pool_ts) / 1000;
+ 			max_stall_time = max(max_stall_time, stall_time);
+-- 
+2.43.0
 
