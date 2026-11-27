@@ -1,52 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.237
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795782199;
-	b=MFH8eNEXLcVHhsDWYt+Br+Dks3Ny42qXN9s5qPRnGlJ05DvNKl4jqv2L7ZORDDK4U2LN
-	 mEb15m52f86s1S+RERqaIZULz5+AuqU0f5OiF6Gh5LQY0ItmxBw+IP7BsapPRS8IPiCwj
-	 4gQgw5hUBpIfkVmHJNZQNZPODyeyTf/murT1Ch+LkpNebTS6QLSbmBrF5w3kfddc6T/Jm
-	 LK5K9ifnZ19Z0tC8B8vSswfgmRgKGOOr5MjC4vlRN6u7JG+WFnTw9TBD5E0S9a/yLGhir
-	 /HEdHBCmEgaYd3Y/X4hNJF8FWVfn62Tji5QWyrv3OSZQewRVNy1rD+0VEAeTR3emLwQ==
+	t=1795782221;
+	b=v6M+Xx1WK4EpRvk9G02WRGh34NwXC65k+asugZ3TGcMqEwpqF0IRfymliaufanWYWxoE
+	 p2x+/MQ6B4WDzdVUcSsapObu9Bq5T080O3tuAwQKi2MuXCdnj4AE93/RhIvR9nHNL7tLO
+	 wjPoOioRe3olEhcKv8NvzfB4IKRNDSM6VimXbNtERgwKUhAsTKWYSZLh92crlRKX+kasm
+	 5mR2bwdcetTKx/8f9u0wETHEkskunkxFNArhmFSxdREBfF7ALnRW6ZqFt/3R+oTREV7g1
+	 8H2Z7C69bkvI6tIWrPRI6QognDxN5fWR3rpS4lQeE1xK5FuChnhSrLCJMAZsDfTg3kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795782199;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=we26npX57rKL+VL8xivi5E7EKRh5WKL6xyTPMHFncME=;
-	b=nzYBYQwVwWgxjeIZ1QvEVwX7nWGxwv1v/Nk+qi+ZNg5GcoDOnq2vnZzyOdYsMB9oCJBz
-	 dw3+CLxWHpAjeiEMrkkQ0XQXeH2JTdElzTc1GaXCn954JVZ9IGJhaJ/3QJ68U4Sq/fWQ3
-	 rp5IREhWV3KAA9q5e1tFROVaZ05YhLyZqHoojhuPOTOo56HACPmwsi9St99SWKBN2xObu
-	 oB3c8sQbEB7MJr7WCVRA5a+D0pHFfSbkZf+JvAD83DF+bOQQ70Y1qSmc4RJXPjgiPbP4f
-	 ZjN5KjQzIYHcn+LUl/c7Z8Cy3bTi1EWTmZvCcbQHbxdaIdvs86mUN2FTplMZsW+vVpA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795782221;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=lK8pPUXcb7bisjMC4DxnwGbKPhOUZYiLD2d9/0wlTRo=;
+	b=hTKX2X7lG8wO/xnlW/ry3PKj/iHrlmO0BzFHQSNYOIKrX4P9fIM0EK1rMkhQINvlquv0
+	 3wUYiTFF3kIhNLb8Z1t+01PHjtE0NsvDA+GOLp+hKJzfF89CtXGR1ssR2M0YCeq6rmxCA
+	 Qphpgh2fiIKSkNEa/aTRlM1vlRMWcF0v0naDNQAXHvAh26+s3ayEdoe/PHb32G9Fa3cz+
+	 ImDSaMwCO5qdsvLrgLhqulJ6C0W3RgTNeGWVtEOOkrmfRKtgshv5kAg2iq+Hc9RfoGMdj
+	 7tbPsDUNig5FyY7wT/PDT3Xa5fZXaYCuI1iBcSWFK16kARmFimNLCTXlp5LbDRMv/+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZQ3enJyt;
-	arc=none smtp.remote-ip=95.215.58.237
-Received: from mta1.migadu.com (out-237.mta1.migadu.com [95.215.58.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SjnGRDle;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Eo48tSPj;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB9C0606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:23:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB9C0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CDD9606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:23:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CDD9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZQ3enJyt
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=BA10GbeixydBlnD7l7DBKlHSr5quCNW2fqkr45XbMcM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795782197; v=1; x=1796386997;
- b=ZQ3enJyt7KEbqECNYjUWqm9CuJMuvWzmGYMGsfNCLdt6we75CVwrz88wsqwYH4BzicNPOUlp
- DVcwjo0Zvgc/I8ZiepVHJzl29fcYGBVAqHA0LBlqBciM/hFOzl1UbA6FPnxzLGGcQ3Qi+I3C1++
- 3Lua1XtiUG61PRAuZ3RmFtAw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id adf3816c4789e0e7;
-	Fri, 27 Nov 2026 12:23:16 +0000
-X-Mizu-Trace-ID: adf3816c4789e0e7
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SjnGRDle;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Eo48tSPj
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARApZlv1685713
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:23:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lK8pPUXcb7bisjMC4DxnwGbKPhOUZYiLD2d9/0wlTRo=; b=SjnGRDleNAAcuVA4
+	WgJ/L24VWNvzA+EPkz/+EtsLBy86MC/p1E50Zy2OV2Sd3koUuECdD+jpPX/LYu9f
+	s5XwUYs+M3x3LjBWpPhjGE45qxEZNxSZ9DLalZVafxIpDvGafre8sbgiD5NOhHuL
+	mN1JDih1Au4KRZbm8FLAoUOwxxYw5UC28KZCrRa4FPw1qJUIzdDu82ul3H0lZeHt
+	ZehpD5wVux3x3/7w/UR8ypTpZvKz7HbqRF/A3fZ6o0updRvhPnvFDGGUXzSPTVcq
+	jtJT0vy+XXS7IlCPJar4vrrFDN64dwTO0LJLX2XVTCJfc0RTS/uvTLsm/kol68ac
+	fOGhxQ==
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j756k97d9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:23:39 +0000 (GMT)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5ecba171914so373222e0c.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:23:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795782219; x=1796387019; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lK8pPUXcb7bisjMC4DxnwGbKPhOUZYiLD2d9/0wlTRo=;
+        b=Eo48tSPjkh1F0Jqad+al6/t4KCppw9VvqxSaSDB/2VgNpNdboM4GmMWVTP8m+fjLF/
+         M0iW7eB3gBtgqoj6YgPYaHLE1DaYZ0hpSsNaf/GrLri1IxODTzLVRBOoY2inra5P6gv4
+         4AHbfWH2/0qPUNemZMIlIy++Qhk5oA4xhNu9725CvNQyeXJ1Azzmo670WIalR9W6J384
+         f5ywlRJR86LRGIrFVyUUekMYExUlh+CZ/GV+pxVQw/MvgPtAqK25Qfj+iIVK9CwC3Njn
+         RvPo1zhBIV0TQHUCDQXbXsYIWg4rDCVHa+8irm8/A62JWWKRY+1R9WMJbr/XB5mrNbtw
+         2vng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795782219; x=1796387019;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lK8pPUXcb7bisjMC4DxnwGbKPhOUZYiLD2d9/0wlTRo=;
+        b=NDhZ7PPROMedIae81YPIOWJclV5bQjk+ykrjKLgeRkh+kCU0yR7Hr+krJTcafvJ+gD
+         4Rqhp8oTBN5VI/MRd6Den1R9/PYEpmqwFxfbrULPaaLhRKKZNHMc53WhsQBhBmifFVPj
+         ChGpXFOdyjuG3nT5H0MttxPdHDJOtN+uqVX90aE1mC9zn747kV4t8NypY2I2mSFdULEz
+         f8Ip940r/z8ttFDXliJRkgts9txQnWk9V3HWqLhFwapkA1HBjlRJ8BT2wkvvjuX72Rot
+         bWxXGQB1ImQsZ2YNIZHZ4q3nEVaMaTTyfYlukGzrQQWtJYpYRn0sdf3zgrsARiTC+dzF
+         2YCA==
+X-Forwarded-Encrypted: i=1; AL+hErGz8shpsy2bDTOnWQkdrqeR1JcEmlsWBGJKL9qSWIvN/aq/OAjNJ9FHSkTbLYfIbHrpcVZLDJNDLOjpVr8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5me9EXn6VGI4ziN//kke3z765VTI4cogrA4Ha6lJ9D/eOgaTJ
+	UsQ6TsTEl8PLy+hG4h3bFIUXe+fUpJ/U5+sbg6XrxfDaKUY9ee7aE3b8SXhbWbOwyyyq3bVCX4B
+	NO1oWTUkpyleMXTUv4U7ljxushCSomRKMhHPSSqJ9hP2cbYHyUj29JA5BCQQRhgmTz8Y=
+X-Gm-Gg: AZFdTZfEMOBIsjc/ba+GXo1Go7VHtl61YEDnAFsITBDdHfQLdOtmWtLOIHKuV056gS4
+	mqhkRpgqH/fQeg+/oTRvNJx3IIXhqzRNPovaD2Vxi8Mcge0afODy++H4B2pFg/Ylyc3rz67yXt8
+	U9xjy3SgL0e1agBBLEFde3gvzBwbQNE3fAzPqUOh3kJ5InL0GqqwAvAlH5BuToLrbJVoN57YLo6
+	Jk44YHSjX+T1KO2Jd9dSpXpB5I0o3xLLa8d75olvCef076uAuCJaTxvudMk4uCWdtrsLwyhU3dF
+	cr1eZYs0Lgh7xRcL77jFhej9Qjfx1YN0/jQM1+CHrhUikVBHji0R7ZRICJiBrbQyXWgwT60fpdR
+	dFA9FGrb7TonsLIdRHdKjzwkkt0HI1m6sRo+MD/w6cY9lS8osmWO6UonSk6cWShaPTcAabm8=
+X-Received: by 2002:ac5:cc70:0:b0:5ea:a8cc:e6fa with SMTP id 71dfb90a1353d-5ee8af22cf6mr15444462e0c.4.1795782218608;
+        Fri, 27 Nov 2026 04:23:38 -0800 (PST)
+X-Received: by 2002:ac5:cc70:0:b0:5ea:a8cc:e6fa with SMTP id 71dfb90a1353d-5ee8af22cf6mr15444445e0c.4.1795782218186;
+        Fri, 27 Nov 2026 04:23:38 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b030ed9sm874678466b.86.2026.11.27.04.23.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 04:23:37 -0800 (PST)
+Message-ID: <37815f09-c791-4110-8c4d-cda44bf86b2c@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 13:23:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,153 +115,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 27 Nov 2026 12:23:16 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Zqiang" <qiang.zhang@linux.dev>
-Message-ID: <37ac3078817eb588433881217b273f0dfd301014@linux.dev>
-TLS-Required: No
-Subject: Re: [PATCH] neighbour: Move the netdev_put() out of RCU callback
-To: "Kuniyuki Iwashima" <kuniyu@google.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <au-AQ7OPf6QPyc3Q@google.com>
-References: <20261009091941.5837-1-qiang.zhang@linux.dev>
- <CAAVpQUAeHP7M07uMweRePtuzPPUo-99dL6jOYUiVf7CSVUxNDQ@mail.gmail.com>
- <a951af6957fe4890d3eaaf5a661754fc259a4b79@linux.dev>
- <au99DNHQEsaaDqpJ@google.com> <au-AQ7OPf6QPyc3Q@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: qcom: eliza-mtp: Add WCD9390 USB-SS mux
+ for DP alt mode
+To: Balaji Kalkonda <balaji.kalkonda@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mahadevan P <mahadevan.p@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@oss.qualcomm.com>
+References: <20261112-eliza-wcd-mux-fix-v2-1-ce7eedf47bb3@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261112-eliza-wcd-mux-fix-v2-1-ce7eedf47bb3@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0OSBTYWx0ZWRfX6SEHv9Qf5BBz
+ FPM7rQmn87VwuIQhGgMDjJ+uPp8t8/6icl3eHbLq7q2vkV5DWPExJ9f6I3B6JIX/g/+aQwSsEyJ
+ m/kp6qtdOFeXPwiFDlw5SwzuVhr+zoRP/Rh45Qb5LRWc+FVPRExdgPYOF1mN8ZByFHJapXDjOv6
+ Sr03Raos0U9VDn2dFLomtY99rQBwtMhxF+lVRrIoTHNAibS0puyJwHPPqbIapnUjp0FWG4Bu22z
+ dsACD4kGrqByRnMsZmPOrjBfyyRed9vXPByDpOKAs0u3S3Q2dc+aOc5Z9e27FtDQw+3iMsGPNeH
+ 3P1S9en0vnwgUNDcHIzCWgggV6AA9CYCs7kXHwZHCSAZC74dNI9EuFd7u8sizAveJx0q+rUSvXd
+ qrUhjE0wTZpUwbVSGxAqPyHH6N9OAt5sr8K5wQhMaLNnwKdJtQMbPiljkL1tMfewekvABOZtf7j
+ itmgxrGs0t9WD+A/IEg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0OSBTYWx0ZWRfX0sm4LdicYLhp
+ /OaqhKLYJ4GI9AScnuyL9yq8ZTpZ9GquYrA8oEh2kO7RQb1x+aN2XW/FBho1BsiSPGIx0O8tbfl
+ KdZ6bz/dHfjxEwRJ91GxCb25AzsX5T0=
+X-Authority-Analysis: v=2.4 cv=ebWo7LEH c=1 sm=1 tr=0 ts=6b09764b cx=c_pps
+ a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=vlQx1epL_Riolm4RhqoA:9 a=QEXdDO2ut3YA:10
+ a=hhpmQAJR8DioWGSBphRh:22
+X-Proofpoint-GUID: gVJUDodUxrjcXnE3swjQBSCmeXz5Ne72
+X-Proofpoint-ORIG-GUID: gVJUDodUxrjcXnE3swjQBSCmeXz5Ne72
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_02,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
+ lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270049
 
->=20
->=20On Sat, 07 Nov 2026 19:34:07 +0000, Kuniyuki Iwashima wrote:
->=20
->=20>=20
->=20> On Sat, 07 Nov 2026 11:47:45 +0000, Zqiang wrote:
-> >  >=20
->=20>  > On Fri, Oct 9, 2026 at 2:19 AM Zqiang <qiang.zhang@linux.dev> wr=
-ote:
-> >  >=20
->=20>  > >=20
->=20>  > > For builts with CONFIG_NET_DEV_REFCNT_TRACKER=3Dy kernels, net=
-dev_put()
-> >  > > records the caller's stack trace via ref_tracker_free() for debu=
-gging
-> >  > > reference leaks. however, the netdev_put() is within pneigh_dest=
-roy()
-> >  > > RCU callback, this recorded stack is uninformative, it does not =
-reveal
-> >  > > which code path initiated the deletion.
-> >  > >=20
->=20>  > Have you seen pneigh double-free ? What motivates this change ?
-> >=20=20
->=20>  Firstly, Apologies for delayed reply.
-> >=20=20
->=20>=20=20
->=20>=20=20
->=20>  Actually, I didn't see any double-free happening, just wanted it t=
-o
-> >  record a meaningful callstack which on release path. After all, if d=
-ouble-free
-> >  really occurs, the callstack of the RCU callback execution path will=
- not be helpful.
-> >=20=20
->=20>=20=20
->=20>  >=20
->=20>  > >=20
->=20>  > > This commit therefore move netdev_put() from the RCU callback =
-into the
-> >  > > caller's process context, and replace call_rcu() with kfree_rcu(=
-).
-> >  > >=20
->=20>  > > Fixes: d539d8fbd8fc ("neighbour: Free pneigh_entry after RCU g=
-race period.")
-> >  > >=20
->=20>  > Please elaborate why your change is safe in the commit message
-> >  > and remove the tag.
-> >=20=20
->=20>  Does it refer to using kfree_rcu instead of call_rcu ensures safel=
-y ?
-> >=20=20
->=20>  I mean why dropping netdev refcnt waiting RCU gp is safe.
+On 11/12/26 11:18 AM, Balaji Kalkonda wrote:
+> The WCD9390 USB-SS mux routes the AUX/SBU lines between the USB-C
+> connector and the DP PHY, but eliza-mtp lacks the devicetree node for
+> it. Without a physical path for AUX, every DPCD probe times out and
+> the display never comes up:
+> 
+>   msm_dpu ae01000.display-controller: [drm:drm_dp_dpcd_probe [drm_display_helper]] dpu_dp_aux: 0x00102 AUX -> (ret=-110)
+>   msm_dpu ae01000.display-controller: [drm:msm_dp_bridge_hpd_notify [msm]] type=10 link hpd_link_status=0x0, status=2
+>   [drm:msm_dp_bridge_detect [msm]] failed to read caps
+>   [drm:msm_dp_bridge_detect [msm]] aux not connected
+> 
+> Add the wcd_usbss typec-mux node on i2c3, along with its supply and
+> reset line, and wire its SBU endpoint to a new port on the pmic-glink
+> connector. This gives the AUX/SBU signals a physical path from the
+> USB-C connector through the mux to the DP PHY.
+> 
+> Fixes: 193fd5f1aadf ("arm64: dts: qcom: eliza-mtp: Enable DisplayPort on USB")
+> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+> Signed-off-by: Balaji Kalkonda <balaji.kalkonda@oss.qualcomm.com>
+> ---
 
-Hi Kuniyuki,
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Do you mean that if we dropping netdev refcnt and this is the final
-reference count of the netdev object, the netdev will be free when
-it still be referenced in neigh RCU read critical section ?
-
-But the synchronize_net() will be invoked before free netdev.
-
-I am not an expert in netdev. if I missed something please correct me.
-
-Thanks
-Zqiang
-=20
-
-
->=20>=20
->=20*without waiting
->=20
->=20>=20
->=20> Thanks
-> >  Zqiang
-> >=20=20
->=20>  >=20
->=20>  > >=20
->=20>  > > Signed-off-by: Zqiang <qiang.zhang@linux.dev>
-> >  > >=20
->=20>  > nit: full name
-> >  >=20
->=20>  > >=20
->=20>  > > ---
-> >  > > net/core/neighbour.c | 14 ++++----------
-> >  > > 1 file changed, 4 insertions(+), 10 deletions(-)
-> >  > >=20
->=20>  > > diff --git a/net/core/neighbour.c b/net/core/neighbour.c
-> >  > > index 6ed8eb075146..4263689fc415 100644
-> >  > > --- a/net/core/neighbour.c
-> >  > > +++ b/net/core/neighbour.c
-> >  > > @@ -818,14 +818,6 @@ int pneigh_create(struct neigh_table *tbl,
-> >  > > return err;
-> >  > > }
-> >  > >=20
->=20>  > > -static void pneigh_destroy(struct rcu_head *rcu)
-> >  > > -{
-> >  > > - struct pneigh_entry *n =3D container_of(rcu, struct pneigh_ent=
-ry, rcu);
-> >  > > -
-> >  > > - netdev_put(n->dev, &n->dev_tracker);
-> >  > > - kfree(n);
-> >  > > -}
-> >  > > -
-> >  > > int pneigh_delete(struct neigh_table *tbl, const void *pkey,
-> >  > > struct net_device *dev)
-> >  > > {
-> >  > > @@ -849,7 +841,8 @@ int pneigh_delete(struct neigh_table *tbl, c=
-onst void *pkey,
-> >  > > if (tbl->pdestructor)
-> >  > > tbl->pdestructor(n);
-> >  > >=20
->=20>  > > - call_rcu(&n->rcu, pneigh_destroy);
-> >  > > + netdev_put(n->dev, &n->dev_tracker);
-> >  > > + kfree_rcu(n, rcu);
-> >  > > return 0;
-> >  > > }
-> >  > > }
-> >  > > @@ -891,7 +884,8 @@ static void pneigh_ifdown(struct neigh_table=
- *tbl, struct net_device *dev,
-> >  > > if (tbl->pdestructor)
-> >  > > tbl->pdestructor(n);
-> >  > >=20
->=20>  > > - call_rcu(&n->rcu, pneigh_destroy);
-> >  > > + netdev_put(n->dev, &n->dev_tracker);
-> >  > > + kfree_rcu(n, rcu);
-> >  > > }
-> >  > > }
-> >  > >=20
->=20>  > > --
-> >  > > 2.17.1
-> >  > >
-> >  >
-> >
->
+Konrad
