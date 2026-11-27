@@ -1,87 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799601;
-	b=ZDT55RAr4/dCWfKrSmp7tyw3+az1EPapB7PydhmnoHAhq2fZG5q8hvTRGovkeXmKxFCp
-	 zdXtBl9IPuWAE608nPBObGUa6EXF1A5aXBWvSCIPLlag/06zRs/m9hcfXpuqgP5vaq2WD
-	 EkvAaHdlB9hUi08ChqqrwMJr63rKMu/jp5IfE0IzSwGvoU/MqIjHrWqC069sa00ZCpTg4
-	 Ph78Yx4kYH64EF7F577q1YzrfzJzLA3B2qmFP77K4TuB1qmFMHckV50+NRGfNoC1g8qIm
-	 mS8HLE+5d9CyYwV/Bjr8Ce7tDSF685Co1GNjMkrpiXCbsn5IxBb1wDOS1/1dioojzKg==
+	t=1795799699;
+	b=Ph+tGx6HsDj10MbNBbJ/86nCojMcM5HiW6GVDVZl9a4szD3KEzLUcuNZ1YPWv6JfDViA
+	 dMqMODoqvzzPPCZa8hpN0LZ8J3KFs5nvUAV3sYVNg+0OsalyO49PCNZe/xTvDgOqTfq4c
+	 vHbBDU01bEtrKpwwFaYfwiHcQSFBMw+rHaLFJCaAETcnu8Y5mjidARW1CQbq+clRUQR1x
+	 ulg7YK1NMgOZ15L540WEARyP0RItLDiVWFutEvImf2u/5tqRmaThZ3ZbtPCFfpY2Uhau0
+	 uC1mp1D9tqAhvG+hx8uhX8NTNZMfPeDBHbEkmLcIL3vbFvFqoVEombb8mYO4jW3c5KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799601;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=j+q9Pl+HbS/InTwJthHaenRguBaH+pMfXVenIDo/BDc=;
-	b=qmmsIdv9dBB1118QRUlKUuDMShddpy8wYJlqCswfKVqLeq282RFb6ixKUbTc7sQZpGRo
-	 mwbI08Xu1VXn+Bx3cg4y7bPM+jwM/Q3UhZFO/ZeSq5o3faxZrVdJ9/QQNbvu1y3We0sc3
-	 elIBd4GxMIuDQODKk3Rx8kICdjFRf2KowB5FsjU11cjmkJsDbP/p2eBF9wJxtWZhfNqMR
-	 ucJax5+E4Gggd3jMNxsurfXDdpxN6o/Enb2TvSHWLzRTGbgloiVCj+Volv9wVsz1KkK7j
-	 3O28Ptd1SB4PqzRFRApPlnoKKZVjAkyDGECVNkERZK30KJF1fjtKmRaIly3DbfOKB3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799699;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
+	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=/MqoVVokKifkTRP8a2e4Ou+A0vUAcRxSvdRQdtIKvJc=;
+	b=U0ZCgXCqNipSP/UyCLeWL2zTKA74OaHcnLWJ0UoxDtudbY8S7bNirkb2zxM08yXoiqMc
+	 gDZ9c0OCgCgepT1oWXUz359G3A147t0W2iA0CrwLhUTPDosMFXrT6ZraTBNly0Mp1xvXk
+	 piA3XVhRd3JAQivZigWpTgWTbY6YyRLby6dxqux8cwe1gecMigtxp23fuxodYjLSh3TpC
+	 zFeyKqnPrmOBQpdfTqkfXAXZC8FkPV1Op91KiuY0WkWxouZE2aGoPWsrjJFSvisivo84M
+	 hrKqHIMXKjnVmQKtYDQUW9tsPBZ+7U1EYdwVSQqTIwEXQgUZhitRiQXxa4h/Q8OSeoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ATise0C2;
-	arc=none smtp.remote-ip=209.85.208.176
-Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com [209.85.208.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=A4rnxq6G;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4172D606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:13:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4172D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D95B606A31E;
+	Fri, 27 Nov 2026 17:14:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D95B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ATise0C2
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3adf222704dso8914251fa.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:13:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795799598; x=1796404398; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=j+q9Pl+HbS/InTwJthHaenRguBaH+pMfXVenIDo/BDc=;
-        b=ATise0C2zygRkVnxpn+1Gi+wvzEDgRrpYlXsPMFVnxfwFb0qY49ChyMhFagedwTd7C
-         jjSKjOm248dCpVusUvOYfdFzbr78C0kpyq2Pp8/1bAM2zRTuxlneQ3ujKVqKpxBMQrvh
-         GkXqsFZbRJoIIshL3ynznuBArbx99GiXKbAG+y09VMweTymBKGAEPh+hf5kOtdh76tSQ
-         evsiB1kTOgSdcu8JdO4giOZDLdscI8A1y+vRaCfQk2i6k9sZXWdeEanPeJLpvickPIJx
-         gTmyNu+sLjEEgHosT7/77fiOtjFIYCItYX+0Q2lLzeKwS5iZMCJM1uYPoAfx+9cAnnoD
-         FidA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795799598; x=1796404398;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j+q9Pl+HbS/InTwJthHaenRguBaH+pMfXVenIDo/BDc=;
-        b=YoO+8hWfZvPXT8HZTFBaAyH4GkveUn/N+caGiThdmIlBSyjZz2yfvZIXzZB8el+dNa
-         VG+9ik+PMTMbbrSi0ZLufkN1zSVn9Zl8mC5utZKMY9wXI+IJkxhTfIC1NBL7che06VK4
-         8qehD+C9eC/7x6ehhiTewMMf44Bj0Pu++A9qOMp4hRyMI8j+vW3u6rvkDybTUT+uFKuR
-         7IZeIcHZfHjRWsJ+tOu1OpYilO41VPngXry1kEUV8XM6hqJQmtN7yQXtQb3KiKl0fe9v
-         u7/yLBAVxVskgLB6yC6k25MkmTyqt6AbPVys/omGxkf2bwKP+4+Z72vf+H1QE5FVvoER
-         QD/g==
-X-Forwarded-Encrypted: i=1; AL+hErFr33gLfJ0sMWzxruDgu0dF1dAWZBLGACAGunk1WfX0SBtddP205zeXOrGRCsO9F6ll7uhZBXiUi9M4OH0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92o0TnDy0FMynYpchq6r3fRExoNiUnAjlwjuFUO02QUsjgITOO
-	dojWXHZExoTuQFCFvqwHccv3ogiXDT0I2M7fF5e7BNpjPApXMWyxqirQk3bYH1ty57s=
-X-Gm-Gg: AZFdTZd9ktJm7Jn82iu7QI0DdSuMeLzDmLpETtcN9bB0JDkmGk6FVy0+mKdQd+Qhq+M
-	uGKPG/dlVZfHdMB0pyexEb+r0sC/omjlHQmQHYfDYj7YpCNJgzxkv5lbkb4T/zgaG1/9ks0VoBb
-	rXotfz979yestsyhlPHcvYwu1cfEN85ZADQN6pQbbLqyGM3j6TGdZXg+sH6zWxH4FgCtwZQq52y
-	+6JYaoRaPD3ofLAl/oufGSoeLIlsQP8ZSk9kdWcC3TU1idSH8m7pwnqnKtJznKzzQoSLVu/6KbL
-	hAny5NcPoLXgg22sTyroa3bRs0/JzDg4znQKl6G6M79aCsFL9G74sQVRRLURvPrLVEeKqBoyXIG
-	6CR5ivWSWafXXWKIeHm5cWCkq5msWT0+pKpDQLhvgDlU1kFtQ65zlNWHd6SmdP6b7CkghwG0yg6
-	i/nZrrpkzpJ4o4KqjwgUkNBSlc9xj+FOs3vpnVMcVgTeiLVOw3s+dbqzqGnmfGLV4rYnUbnrNSA
-	piOnK+Va4YceyLQIWuudocLh076cn9vcQvekPbkgGUDMxA4dzJ2xAnqR5P1hy6WSXIBogKOcmI2
-	uo5rUbrsla5CiUycA1BzBVbBByLoJFwUPBQeL0iRQcKWnEDPlxp3z0GB1kech5OtMGXwnmP3Ko4
-	seEaxZEE=
-X-Received: by 2002:a05:6512:1394:b0:5c0:da9:407b with SMTP id 2adb3069b0e04-5c1bc8722ffmr9342169e87.5.1795799598378;
-        Fri, 27 Nov 2026 09:13:18 -0800 (PST)
-Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0419c2sm5950133e87.52.2026.11.27.09.13.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 09:13:18 -0800 (PST)
-Message-ID: <2ed19776-e8ed-438e-b946-7a83d9c318f0@linaro.org>
-Date: Fri, 27 Nov 2026 19:13:17 +0200
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=A4rnxq6G
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id DBC5B1A183A;
+	Fri, 27 Nov 2026 17:14:51 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 97C156049C;
+	Fri, 27 Nov 2026 17:14:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ECB8311E90BE6;
+	Fri, 27 Nov 2026 18:14:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795799686; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=/MqoVVokKifkTRP8a2e4Ou+A0vUAcRxSvdRQdtIKvJc=;
+	b=A4rnxq6G9TAuP6teLDmc1pkmtE4G0RWW7fRuKO2Th6mcAgEfs/fKdCB2HFnJtvGk/9aEbX
+	sOJfG649C3ULV/bcQjAlJR3Ixz+FPAkF26n+//HckujJ23NKdyKMOZjXqxv6244bfxqXwK
+	4L5rawC2Q/DQuHJN+nPz/HSgRnt0kMTdCCzSr8frPVgdKo/cNtT+dakQ911OIxxpVbbHoR
+	FUMFSrqwghuqKXLWqxfmXoseTaZzFKionaRAgcx9OwLCv3alW5P+IZXlvxecZndYA7cdlm
+	TlsCRR22G/pUz+3YeDcyRi+acWXtm3Qg/BFzPdm0PBv99HMTQDmyOvr/gh02ow==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,231 +58,211 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/7] media: i2c: add s5k5e8 image sensor driver
-To: Hikmah Gumelar <hikmahgumelar@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-clk@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>
-References: <20261127134507.125513-1-hikmahgumelar@gmail.com>
- <20261127134507.125513-4-hikmahgumelar@gmail.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20261127134507.125513-4-hikmahgumelar@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 18:14:38 +0100
+Message-Id: <DN65UVCVRPGW.3O5CCD2XBNR@bootlin.com>
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>, <vineeth.karumanchi@amd.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v8 2/3] net: macb: implement
+ ethtool_ops.get|set_channels()
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261124-macb-set-channels-v8-2-770cf8e50e6d@bootlin.com>
+ <179571152544.3135.2345418313808406902@kernel.org>
+In-Reply-To: <179571152544.3135.2345418313808406902@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/27/26 15:45, Hikmah Gumelar wrote:
-> Add V4L2 subdev driver for the Samsung S5K5E8 5-megapixel MIPI CSI-2
-> 
-> CMOS image sensor supporting 2592x1944 10-bit Bayer output.
-> 
-> Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
-> ---
->   MAINTAINERS                |   7 +
->   drivers/media/i2c/Kconfig  |  10 +
->   drivers/media/i2c/Makefile |   1 +
->   drivers/media/i2c/s5k5e8.c | 567 +++++++++++++++++++++++++++++++++++++
->   4 files changed, 585 insertions(+)
->   create mode 100644 drivers/media/i2c/s5k5e8.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index f72ce07a4e38..2ac245d4ad7c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25007,6 +25007,13 @@ T:	git git://linuxtv.org/media_tree.git
->   F:	Documentation/devicetree/bindings/media/i2c/samsung,s5k3m5.yaml
->   F:	drivers/media/i2c/s5k3m5.c
->   
-> +SAMSUNG S5K5E8 CAMERA SENSOR DRIVER
-> +M:	Hikmah Gumelar <hikmahgumelar@gmail.com>
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml
-> +F:	drivers/media/i2c/s5k5e8.c
-> +
->   SAMSUNG S5K5BAF CAMERA DRIVER
->   M:	Sylwester Nawrocki <s.nawrocki@samsung.com>
->   M:	Andrzej Hajda <andrzej.hajda@intel.com>
-> diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
-> index 162b8ea02601..4c622e5eef73 100644
-> --- a/drivers/media/i2c/Kconfig
-> +++ b/drivers/media/i2c/Kconfig
-> @@ -879,6 +879,16 @@ config VIDEO_S5K3M5
->   	  To compile this driver as a module, choose M here: the
->   	  module will be called s5k3m5.
->   
-> +config VIDEO_S5K5E8
-> +	tristate "Samsung S5K5E8 sensor support"
-> +	select V4L2_CCI_I2C
-> +	help
-> +	  This is a Video4Linux2 sensor-level driver for the Samsung
-> +	  S5K5E8 5MP camera.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called s5k5e8.
-> +
->   config VIDEO_S5K5BAF
->   	tristate "Samsung S5K5BAF sensor support"
->   	help
-> diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
-> index a750942e9c62..bdcb8f34aca3 100644
-> --- a/drivers/media/i2c/Makefile
-> +++ b/drivers/media/i2c/Makefile
-> @@ -136,6 +136,7 @@ obj-$(CONFIG_VIDEO_RDACM21) += rdacm21.o
->   obj-$(CONFIG_VIDEO_RJ54N1) += rj54n1cb0c.o
->   obj-$(CONFIG_VIDEO_S5C73M3) += s5c73m3/
->   obj-$(CONFIG_VIDEO_S5K3M5) += s5k3m5.o
-> +obj-$(CONFIG_VIDEO_S5K5E8) += s5k5e8.o
->   obj-$(CONFIG_VIDEO_S5K5BAF) += s5k5baf.o
->   obj-$(CONFIG_VIDEO_S5K6A3) += s5k6a3.o
->   obj-$(CONFIG_VIDEO_S5KJN1) += s5kjn1.o
-> diff --git a/drivers/media/i2c/s5k5e8.c b/drivers/media/i2c/s5k5e8.c
-> new file mode 100644
-> index 000000000000..d25b978d7eda
-> --- /dev/null
-> +++ b/drivers/media/i2c/s5k5e8.c
-> @@ -0,0 +1,567 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/gpio/consumer.h>
-> +#include <linux/i2c.h>
-> +#include <linux/module.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/regulator/consumer.h>
-> +#include <linux/unaligned.h>
-> +#include <media/v4l2-ctrls.h>
-> +#include <media/v4l2-device.h>
-> +#include <media/v4l2-fwnode.h>
-> +
-> +#define S5K5E8_CHIP_ID_REG		0x0000
-> +#define S5K5E8_CHIP_ID			0x5e80
-> +#define S5K5E8_REG_MODE_SELECT		0x0100
-> +#define S5K5E8_MODE_STANDBY		0x00
-> +#define S5K5E8_REG_VTS			0x0340
-> +#define S5K5E8_REG_EXPOSURE		0x0202
-> +#define S5K5E8_REG_ANALOG_GAIN		0x0204
-> +#define S5K5E8_REG_TEST_PATTERN		0x0600
-> +#define S5K5E8_XVCLK_FREQ		24000000
-> +#define S5K5E8_LINK_FREQ_418MHZ		418000000ULL
-> +#define S5K5E8_PIXEL_RATE		167200000ULL
-> +
-> +struct s5k5e8_reg {
-> +	u16 address;
-> +	u8 val;
-> +};
-> +
-> +struct s5k5e8_mode {
-> +	u32 width, height, hts_def, num_regs;
-> +	const struct s5k5e8_reg *regs;
-> +};
-> +
-> +static const char * const s5k5e8_supply_names[] = { "avdd", "dvdd", "dovdd" };
-> +#define S5K5E8_NUM_SUPPLIES ARRAY_SIZE(s5k5e8_supply_names)
-> +
-> +/* Register initialization tables derived from Xiaomi Mi A1 vendor configuration */
-> +static const struct s5k5e8_reg s5k5e8_common_regs[] = {
-> +	{ 0x0100, 0x00 }, { 0x3906, 0x7e }, { 0x3c01, 0x0f }, { 0x3c14, 0x00 },
+Hello netdev-bot+sashiko,
 
-You should use CCI interfaces.
+On Thu Nov 26, 2026 at 5:45 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] The commit message does not mention changes to shared context-
+>   swap code that the existing MTU and ringparam paths also use.
+> - [Low] On multi-queue GEM devices without MACB_CAPS_QUEUE_DISABLE,
+>   macb_get_channels() advertises a channel range that=E2=80=A6
+> - [Low] macb_set_channels() checks `bp->enst.queue_mask >> num_queues`
+>   before it takes bp->mac_cfg_lock.
+>
+> --
+>
+> net: macb: implement ethtool_ops.get|set_channels()
+>
+> This commit moves the queue count into the per-context struct and adds
+> bp->max_num_queues and bp->configured_num_queues. It also implements the
+> ethtool get/set_channels operations. When the interface is running,
+> set_channels allocates a new context with the requested queue count and
+> swaps it in through the existing context swap window.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index 1e06666921160..bcf77b2763448 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>
+> [ ... ]
+>
+>> @@ -3399,16 +3421,28 @@ static void macb_context_swap_end(struct macb *b=
+p,
+>> =20
+>>  	lockdep_assert_held(&bp->mac_cfg_lock);
+>> =20
+>> -	/* Swap contexts & give buffer pointers to HW. */
+>> +	/* Swap contexts & give buffer pointers to HW.
+>> +	 * !new_ctx means that the swap failed and we keep the old context.
+>> +	 */
+>> =20
+>> -	old_ctx =3D bp->ctx;
+>> -	WRITE_ONCE(bp->ctx, new_ctx);
+>> -	wmb(); /* ensure IRQ enabled below read the new context */
+>> -	macb_init_buffers(bp);
+>> +	if (new_ctx) {
+>> +		old_ctx =3D bp->ctx;
+>> +		WRITE_ONCE(bp->ctx, new_ctx);
+>> +		wmb(); /* ensure IRQ enabled below read the new context */
+>> +
+>> +		macb_init_buffers(bp);
+>> +
+>> +		/* Clear DQL (only on successful context swap). */
+>> +		for (q =3D 0; q < bp->max_num_queues; ++q)
+>> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
+>> +								  q));
+>> +	} else {
+>> +		gem_shuffle_tx_rings(bp);
+>> +	}
+>
+> [Severity: Low]
+> This isn't a bug, but the commit message doesn't mention that this patch
+> reworks the context swap helpers that macb_change_mtu() and
+> macb_set_ringparam() share. The message says set_channels:
+>
+>   "ends up only being an assignment to bp->configured_num_queues plus a
+>   call into netif_set_real_num_queues()"
+>
+> The patch also:
+>
+>   - moves the netdev_tx_reset_queue() loop from macb_context_swap_start()
+>     into macb_context_swap_end(). The loop now runs only on a successful
+>     swap and is bounded by bp->max_num_queues instead of the active
+>     queue count.
+>   - adds a new_ctx =3D=3D NULL rollback mode to macb_context_swap_end(). =
+It
+>     keeps the old context, skips macb_init_buffers(), calls
+>     gem_shuffle_tx_rings() and skips the free.
+>   - makes macb_interrupt() self-disarm on queues where
+>     q >=3D ctx->num_queues.
+>   - switches gem_get_rx_ring_count() and macb_poll_controller() to
+>     bp->configured_num_queues.
+>
+> The existing MTU and ringparam callers always pass a non-NULL new_ctx, so
+> their behaviour doesn't appear to change.
+>
+> Could the commit message describe these helper changes, or could they go
+> in a preparatory patch?
 
-Overall perphaps it might be a long and tedious review process for the changes,
-and I would recommend to send and get accepted two sensor drivers only, then
-do other work.
+That is correct. What the model doesn't point out above is that the
+reason for all those changes is pretty simple: our context swap window
+might now error out. Before all swap operations had to succeed. Now we
+have netif_set_real_num_queues() which must be called in the window and
+which can fail.
 
-> +	{ 0x3235, 0x08 }, { 0x3063, 0x2e }, { 0x307a, 0x10 }, { 0x307b, 0x0e },
-> +	{ 0x3079, 0x20 }, { 0x3070, 0x05 }, { 0x3067, 0x06 }, { 0x3071, 0x62 },
-> +	{ 0x3072, 0x16 }, { 0x3203, 0x43 }, { 0x3205, 0x43 }, { 0x320b, 0x42 },
-> +	{ 0x3007, 0x00 }, { 0x3008, 0x14 }, { 0x3020, 0x58 }, { 0x300d, 0x34 },
-> +	{ 0x300e, 0x17 }, { 0x3021, 0x02 }, { 0x3010, 0x59 }, { 0x3002, 0x01 },
-> +	{ 0x3005, 0x01 }, { 0x3008, 0x04 }, { 0x300f, 0x70 }, { 0x3010, 0x69 },
-> +	{ 0x3017, 0x10 }, { 0x3019, 0x19 }, { 0x300c, 0x62 }, { 0x3064, 0x10 },
-> +	{ 0x3c08, 0x0e }, { 0x3c09, 0x10 }, { 0x3c31, 0x0d }, { 0x3c32, 0xac },
-> +};
-> +
-> +static const struct s5k5e8_reg s5k5e8_2592x1944_regs[] = {
-> +	{ 0x0100, 0x00 }, { 0x0136, 0x18 }, { 0x0137, 0x00 }, { 0x0305, 0x06 },
-> +	{ 0x0306, 0x18 }, { 0x0307, 0xa8 }, { 0x0308, 0x34 }, { 0x0309, 0x42 },
-> +	{ 0x3c1f, 0x00 }, { 0x3c17, 0x00 }, { 0x3c0b, 0x04 }, { 0x3c1c, 0x47 },
-> +	{ 0x3c1d, 0x15 }, { 0x3c14, 0x04 }, { 0x3c16, 0x00 }, { 0x0820, 0x03 },
-> +	{ 0x0821, 0x44 }, { 0x0114, 0x01 }, { 0x0344, 0x00 }, { 0x0345, 0x08 },
-> +	{ 0x0346, 0x00 }, { 0x0347, 0x08 }, { 0x0348, 0x0a }, { 0x0349, 0x27 },
-> +	{ 0x034a, 0x07 }, { 0x034b, 0x9f }, { 0x034c, 0x0a }, { 0x034d, 0x20 },
-> +	{ 0x034e, 0x07 }, { 0x034f, 0x98 }, { 0x0900, 0x00 }, { 0x0901, 0x00 },
-> +	{ 0x0381, 0x01 }, { 0x0383, 0x01 }, { 0x0385, 0x01 }, { 0x0387, 0x01 },
-> +	{ 0x0340, 0x07 }, { 0x0341, 0xb0 }, { 0x0342, 0x0b }, { 0x0343, 0x28 },
-> +	{ 0x0200, 0x00 }, { 0x0201, 0x00 }, { 0x0202, 0x03 }, { 0x0203, 0xde },
-> +	{ 0x3303, 0x02 }, { 0x3400, 0x00 }, { 0x323b, 0x02 }, { 0x3301, 0x00 },
-> +	{ 0x3321, 0x04 }, { 0x3306, 0x00 }, { 0x3307, 0x08 }, { 0x3308, 0x0a },
-> +	{ 0x3309, 0x27 }, { 0x330a, 0x01 }, { 0x330b, 0x01 }, { 0x330e, 0x00 },
-> +	{ 0x330f, 0x08 }, { 0x3310, 0x07 }, { 0x3311, 0x9f }, { 0x3312, 0x01 },
-> +	{ 0x3313, 0x01 },
-> +};
-> +
-> +static const struct s5k5e8_mode default_mode = {
-> +		.width = 2592, .height = 1944, .hts_def = 2856,
-> +			.num_regs = ARRAY_SIZE(s5k5e8_2592x1944_regs),
-> +		.regs = s5k5e8_2592x1944_regs,
+>> +static int macb_set_channels(struct net_device *netdev,
+>> +			     struct ethtool_channels *ch)
+>> +{
+>> +	struct macb *bp =3D netdev_priv(netdev);
+>> +	unsigned int num_queues =3D ch->combined_count;
+>> +	bool running =3D netif_running(bp->netdev);
+>> +	struct macb_context *new_ctx;
+>> +	int ret;
+>> +
+>> +	/* MACB_CAPS_QUEUE_DISABLE means that the field QUEUE_DISABLE/BIT0 in
+>> +	 * the per-queue RBQP/TBQP registers disable Tx/Rx queues. If we don't
+>> +	 * have that capability we can have multiple queues but we must always
+>> +	 * run with all enabled.
+>> +	 */
+>> +	if (!(bp->caps & MACB_CAPS_QUEUE_DISABLE))
+>> +		return -EOPNOTSUPP;
+>
+> [Severity: Low]
+> Does macb_get_channels() advertise a range that this check never accepts?
+>
+> macb_get_channels() always reports:
+>
+> 	ch->max_combined =3D bp->max_num_queues;
+> 	ch->combined_count =3D bp->configured_num_queues;
+>
+> Some multi-queue GEM configs don't set MACB_CAPS_QUEUE_DISABLE, for
+> example zynqmp_config, raspberrypi_rp1_config, pic64hpsc_config and
+> default_gem_config. On those devices ethtool -l shows something like
+> "Combined: max N, current N", but every request for 1..N-1 fails here
+> with EOPNOTSUPP.
+>
+> Should max_combined be reported as bp->configured_num_queues when the
+> capability is absent?
 
-There should be an endline after comma.
+When cap is absent, bp->configured_num_queues =3D=3D bp->max_num_queues.
+So this review sounds wrong.
 
-> +	};
-> +
-> +static const s64 link_freq_menu_items[] = { S5K5E8_LINK_FREQ_418MHZ };
-> +
-> +struct s5k5e8 {
-> +	struct device *dev;
-> +	struct v4l2_subdev sd;
-> +	struct media_pad pad;
-> +	struct clk *xvclk;
-> +	struct gpio_desc *reset_gpio;
-> +	struct regulator_bulk_data supplies[S5K5E8_NUM_SUPPLIES];
-> +	struct v4l2_ctrl_handler ctrl_handler;
-> +	struct v4l2_ctrl *link_freq, *hblank, *exposure;
-> +	const struct s5k5e8_mode *cur_mode;
-> +	/* Serialize access to sensor registers and streaming state */
-> +	struct mutex mutex;
-> +	bool streaming;
-> +};
-> +
-> +static inline struct s5k5e8 *to_s5k5e8(struct v4l2_subdev *sd)
-> +{
-> +	return container_of(sd, struct s5k5e8, sd);
-> +}
-> +
-> +static int s5k5e8_read_reg(struct s5k5e8 *s5k5e8, u16 reg, u32 len, u32 *val)
-> +{
-> +	struct i2c_client *client = v4l2_get_subdevdata(&s5k5e8->sd);
-> +	struct i2c_msg msgs[2];
-> +	u8 addr_buf[2], data_buf[4] = { 0 };
-> +	int ret;
-> +
-> +	put_unaligned_be16(reg, addr_buf);
-> +	msgs[0].addr = client->addr;
-> +	msgs[0].flags = 0;
-> +	msgs[0].len = 2;
-> +	msgs[0].buf = addr_buf;
-> +	msgs[1].addr = client->addr;
-> +	msgs[1].flags = I2C_M_RD;
-> +	msgs[1].len = len;
-> +	msgs[1].buf = &data_buf[4 - len];
-> +	ret = i2c_transfer(client->adapter, msgs, 2);
-> +	if (ret != 2)
-> +		return ret < 0 ? ret : -EIO;
-> +	*val = get_unaligned_be32(data_buf);
-> +	return 0;
-> +}
+>> +	if (num_queues > bp->max_num_queues)
+>> +		return -EINVAL;
+>> +
+>> +	if (num_queues =3D=3D bp->configured_num_queues)
+>> +		return 0;
+>> +
+>> +	/* If we allow disabling a queue which has TAPRIO active, we'll keep a
+>> +	 * transmission window which would be unusable.
+>> +	 */
+>> +	if (bp->enst.queue_mask >> num_queues) {
+>> +		netdev_err(bp->netdev, "TAPRIO schedule gates queues >=3D %u; destroy=
+ the qdisc before reducing channels\n",
+>> +			   num_queues);
+>> +		return -EBUSY;
+>> +	}
+>
+> [Severity: Low]
+> Is it safe to read bp->enst.queue_mask here without bp->mac_cfg_lock?
+>
+> In the running case the lock is only taken later, in
+> macb_context_swap_start(). In the not-running case it is never taken.
+>
+> Other writers of bp->enst hold mac_cfg_lock. For example,
+> macb_taprio_destroy() does:
+>
+> 	guard(mutex)(&bp->mac_cfg_lock);
+>
+> 	netdev_reset_tc(netdev);
+> 	memset(&bp->enst, 0, sizeof(bp->enst));
+>
+> macb_mac_link_up() also clears it on a link speed change. It holds only
+> mac_cfg_lock and runs from the phylink_resolve() worker without rtnl:
+>
+> 	memset(&bp->enst, 0, sizeof(bp->enst));
+>
+> So this unlocked read can race with a locked write, which KCSAN could
+> report. The worst outcome looks like a spurious -EBUSY.
+>
+> Could this check be done under mac_cfg_lock?
 
-Remove it, and use CCI interfaces.
+ACK, will grab the bp->mac_cfg_lock mutex. It is done before the context
+swap window so it is all safe and easy.
 
--- 
-Best wishes,
-Vladimir
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
