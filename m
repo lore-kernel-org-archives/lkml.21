@@ -1,72 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771138;
-	b=1XJtDaQLPFMU9SPPlsT/+Uzc8pxfYecqVRI99qWamhxcVo3cYSrU3nQBGi7fmXg0jD8d
-	 qvdIq27RWsPccIYuZUquxZAIDXm0WmtvIDguTYKrS0fbPdEOKcgJbi8OVXsNvsWDD+uN6
-	 RULyJ/ffHinYZgJ6SS+/lt+5JdTQiJKJYyUzHdVwD2TbvDDd1h5DmDU0FVmA6K0lPfhze
-	 OauC/M+eL82T/eK1qUFKoz4VEXQgEfF6ktmD0y1sNp1kZ3WEu1UyPPjKcp7CDzCivwF55
-	 AS9bOkPrGdVkSqRoJfQ+h0idFnXNtsoL+3KtBSFRr17yOEvsju6n8mElkVL0TRvF7WQ==
+	t=1795771172;
+	b=Bd16ofFceyUhxn9luV+VCqSnHf/++X2BxOWELCH+ibLdK69X80296tXK15bjsfgGVUDu
+	 XRSTPYiZFvqGWV5ES8lypoyXt5rXCP+TAV9hPuctl+zPKNGq1VmOJO78BdTykncGHGoZc
+	 9PlKckJkv17ZznZH371mJgk1vcpD7qEsrOMnu3tMJGJjc0lcDAqKH1h5uHXRwHyhq2PnH
+	 MYffmDlsV29Prp3/MxM/S2y3TwoKK3AVGtNt5TpmfA4sYbHjFOGGjGqFaUAdeWdYh+aIC
+	 qK0wPEqc8EYtaow7z/nBHTsnjDUat0FM4HshrmHU5eZGbOUfCSvMinqQwLZlVDB2+4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771138;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=O76IIwZpAm8NpBXKtN94VyTUYktRHuJ9UogySv+TxgE=;
-	b=Ka8PUIXXklOyfa9FUmTTKQjsKZ2VWml96hePD9AehCvAqXN+DR6a1+53KTykZlPh0pGm
-	 WFQeW2SIAgM8QKlALarTwhHFKwbgiNjUkIy4RvVVv4K47QMyRa9DpXhTjRxZKy7pGRXJL
-	 T/CU7oiF4cVj6fEBJrYMmltZR07traXHb3QDT6khBiCLnfeaNciM0RsS3oVSLDn1ug6rP
-	 rZxLLUIErpZ0l956rQ28rvOow71F6P/tdFpSPNwRnEjLxrR9qonbCjS8HU/Amm2zhIqzu
-	 HGFRge0E6ddlgCJNAo1aYg5BCWSsfHKk0xpG3owjfag0ZtyiTFkA8sBwIaOky8l603w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771172;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ybRI/ts32jMrMimcIQY5ueXv6UCOl48wZhIdKBw+kZQ=;
+	b=5RbGJm9qirAkcszHLsCSqeK4A6kkeTRGV6u0jN28ZEX7DilIYYlDziT7M6Y4Fr9efHlo
+	 nu0b+IEf5lXfeKtLG0rae+J0KYM9IxH9pVKpQ/cWlMn3Tgarg/zSTdu8pxwSaHKNU7nJ1
+	 5QCJ5s/6I0I8dm5MN7IGt7xRTMgS1hb4TuNx2NKQWrxGnYNZtPQ+1p65wANXIXVbQaqKU
+	 HZajjRQxRFgM8qxohyt/jLOv3dO/mLbN3siOi36lUlyB5Q+UfvoiGox3ZDw2J1LFtMuty
+	 2hma53tLeBH96l58VadyWejJeV7b0xfa6L64EnHC/Ng1KmQ2C808C7TuQoKXS+IMQ+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=q+P8Z+VF;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S4ijVmk8;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C367606A31C;
-	Fri, 27 Nov 2026 09:18:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C367606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B388606A323
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:19:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B388606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=q+P8Z+VF
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=O76IIwZpAm8NpBXKtN94VyTUYktRHuJ9UogySv+TxgE=; b=q+P8Z+VFvcXOYcSsAQUUKdha9A
-	G0JnWTshf2VqEs1N0M1XnEtiC5lRjVs73Mz+IgnC1cOkOb6aFxF3ZzgdxDCEewLlIeb9EmKc5Rg6e
-	sfwiaF44IVMsmeI9AFm59NLM3hJyQLzmbuZmMGlqgW+InkS3imPOr6A1oU4kRbWDpse4wqwPQ6B40
-	h0Gg2m9PHl0Z8QlWWZyq9OI1A+eXY1FHVI8GjGpseiNEVkigkH1Z+tDjdqdU8ePUwYJoD/RcBKxEY
-	KcjE6N0W01wkSJGeVuq3V+fNaGplx33ZN3K6xkyLT2axYOwH3Skhv763gFTVnN4jjYAH+yEF9Acpz
-	ciUf+WTw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWs6Y-00000007VNz-0X3X;
-	Fri, 27 Nov 2026 09:18:54 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 655D530316A; Fri, 27 Nov 2026 10:18:52 +0100 (CET)
-Date: Fri, 27 Nov 2026 10:18:52 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Christian Brauner <brauner@kernel.org>
-Cc: linux-perf-users@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, adrian.hunter@intel.com,
-	alexander.shishkin@linux.intel.com, dapeng1.mi@linux.intel.com
-Subject: Re: [PATCH 1/2] perf: look up address filter files without
- ctx->mutex held
-Message-ID: <20261127091852.GD83911@noisy.programming.kicks-ass.net>
-References: <20261126-work-exec-update_lock-leftovers-v1-0-1024b26792bc@kernel.org>
- <20261126-work-exec-update_lock-leftovers-v1-1-1024b26792bc@kernel.org>
- <20261126152414.GH49833@noisy.programming.kicks-ass.net>
- <20261126-gedruckt-gastarbeiter-vorsorgen-5fea7cea1877@brauner>
- <20261126-erlogen-bedrucken-dementieren-5de5e5460481@brauner>
- <20261127081303.GN49833@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S4ijVmk8
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb66245c51so4529465e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:19:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795771170; x=1796375970; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ybRI/ts32jMrMimcIQY5ueXv6UCOl48wZhIdKBw+kZQ=;
+        b=S4ijVmk8jdZdFB0BqzQmMZGmjEYW9BaI8j17SnE7yuBVOLbsnO0Z3Ed8XTlxHTC//p
+         S0QVBUS/o8n8DpLrWoCl92J0+H/356tiJSLD7aN5CCVM/0sRyx3uDydg/LBPJzr31t0I
+         YqbxoQ+Hl6tQZUuyNhBnQ3jgVkLcFFwMW3IUYWYjjFMbCyL9FHY7nReAGQSZjiq8dj/H
+         3fj7wTCFpBwbrUPm5BAGx5jQRqD5oAYdQ1obve79uGegAu+9txdsOSD/HC3cWDWlZ7oA
+         zdDHdsgclpqm67Gx4v/5PlwBkBaQa4crJzzydHZKMymD5Z/X24JvGlpe9aVgWaSUKWmc
+         2ArQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795771170; x=1796375970;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ybRI/ts32jMrMimcIQY5ueXv6UCOl48wZhIdKBw+kZQ=;
+        b=g7M+R/nAedknZ93EPs8Hm54HnOKLugt2D/F5Y78nbz4BOOZaKtvqZK4+8pKwnBb444
+         60nsnIzvqslMC1CQIJ/WIcZFLUrF/TdI78yRwMBUWUnicOa0aiTHJ+q8raShAKQGXvH6
+         FIojNMqV1/IFjqjCNyEbMrfRA+OA1JgO6q/+lRdOme6JjaCkmsjS5wVfxmnNueKLbPUW
+         xt/78i+YVKJeaN0gukr+zEunJqQzuV2GnSPuEh/0JKSCmWVZlt8cjix56bypXurRCfB1
+         fwbkZXMRr6AisffAeZbFzDyfQygozX1gJ/uZX0K0IxP52KkjRlPMa5roWwDcX49fH3j5
+         gpMQ==
+X-Forwarded-Encrypted: i=1; AL+hErEtDiL6Mz1WBLDUS5VF+BxOa39zzQi+NW2BrqK8wvsCO/ncIdtTR3b8JmQUCIxlw1mCaLxtikL0vJJoCXI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8t4n6zWHjocR2XO8WwtD07XWkm9nfu4TVzrL4X53cXRRR0uPtf
+	S5CGM3Z0QoVhkm0wjWuuiD63pjVT+S6BCm+jlBUgP/EJD7pLLp3MvEb4
+X-Gm-Gg: AZFdTZcGWYUf67j2NNzLH5NUKtLYUOwVxtcwxZByp8cCYQt2FWQMOHwDvxxu8FjY27n
+	qnB1WJoCj+mBAWybdNp+gAFO7Mgl6TIBafc089Ifwct29zKjJvdZuoScw5WOxR8Hfn14lZJ8J5z
+	6Av9IsDZOagsomZuojUShN3e85nd7436iT3JrquRzBL3uvzW/0tq4ebLNf9Dcc0oEYzkeFfqpBc
+	I82Y/eXxZMSvEZ9X5Sf5exxWZdHgkXnx9F2w6JdFqygzbpEfTAvIc22skfQDhLy5Q2P5wD54hqv
+	ZcyRei5xsTRT54zCCtMJdrPSu1fcttRg7iWqEQ7MJGoE4xa8o75BPksbYRWqmHO8GEqHYCoDCsm
+	GrY1Vr4xlim6ASH3TS39GcBjFXixqx5608yLozpNtoe0Q7LCweZ4uD35GPLUpD9FCboO9CbHuBJ
+	012XTpamrDK9tVs78i0raoj6LlgOMQYILFtZATkflFOkxgdCkeRfX0Baglcb8g44twpE1LFXsun
+	yCYKO3gaiCcd4RwKwVTkPZxekldajdJhaUhXLQY68vtGq2L/9pvPT5JHuDctCMd8HB3IMlJqQSV
+	ZboBIJczyuFzxNg0wb6r6tKpYR7EdjFDx5Dxe1eWsoh22OSUOrhhKOpuKW2Xi8MCc0uQyDpm0TG
+	XFZGQyfvw26DORchy+N4=
+X-Received: by 2002:a05:600c:8284:b0:4bb:6c01:de9c with SMTP id 5b1f17b1804b1-4bb887f55c1mr428075425e9.2.1795771170214;
+        Fri, 27 Nov 2026 01:19:30 -0800 (PST)
+Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-006.paris.inria.fr. [128.93.83.6])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm926247635e9.13.2026.11.27.01.19.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:19:29 -0800 (PST)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Olof Johansson <olof@lixom.net>,
+	Jeff Garzik <jeff@garzik.org>,
+	linuxppc-dev@lists.ozlabs.org (open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v2] powerpc/pasemi: Remove pasemi_dma_alloc_buf() and pasemi_dma_free_buf()
+Date: Fri, 27 Nov 2026 10:11:55 +0100
+Message-ID: <20261127091206.13045-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,291 +104,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127081303.GN49833@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 09:13:03AM +0100, Peter Zijlstra wrote:
-> On Thu, Nov 26, 2026 at 10:26:02PM +0100, Christian Brauner wrote:
-> > So ok, if we can't drop ctx->mutex in the middle of the ioctl then how
-> > about we don't hold ctx->mutex during parsing to begin with?
-> > We let perf_ioctl() hand PERF_EVENT_IOC_SET_FILTER off before it takes
-> > the mutex:
-> > 
-> > ioctl(PERF_EVENT_IOC_SET_FILTER)
-> > -> perf_ioctl()
-> >    -> perf_event_set_filter()                // no ctx->mutex
-> >       -> perf_event_set_addr_filter()
-> >          -> perf_event_parse_addr_filter()   // kern_path(), own list
-> >          -> perf_event_ctx_lock()
-> >             // revoked? has_addr_filter()? ->addr_filters_validate()
-> >             -> perf_addr_filters_splice()
-> >             -> perf_event_addr_filters_apply() on each child
-> >          -> perf_event_ctx_unlock()
-> > 
-> > The parser fills its own list and counts the file filters in locals.
-> > Everything that needs ctx->mutex then happens in one go under
-> > perf_event_ctx_lock().
-> > 
-> > So ctx->mutex is never dropped in the middle of an ioctl, a migrated
-> > event is handled by perf_event_ctx_lock() like everywhere else and no
-> > ctx is carried across the lookup?
-> 
-> Let me try this.
+dma_free_coherent() is called with the wrong arguments. The two last
+arguments must be the virtual address and the DMA address but the
+DMA address and the allocation flags are passed. If this function were
+called, it would call kfree() on a DMA address and dma_unmap() on the
+allocation flag.
 
-Compile tested only; Alexander, Adrian; could any of you take a hard
-look at this and actually test?
+Remove pasemi_dma_alloc_buf() and pasemi_dma_free_buf() as these
+functions are not used.
 
+Fixes: 8ee9d8577935 ("pasemi: DMA engine management library")
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
 ---
- kernel/events/core.c | 135 +++++++++++++++++++++++++--------------------------
- 1 file changed, 67 insertions(+), 68 deletions(-)
+v1->v2:
+  - remove the functions instead of fixing them
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 77c501005143..c019e4faf655 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -6632,16 +6632,24 @@ static inline bool is_perf_file(struct fd f)
+ arch/powerpc/include/asm/pasemi_dma.h   |  5 ----
+ arch/powerpc/platforms/pasemi/dma_lib.c | 31 -------------------------
+ 2 files changed, 36 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/pasemi_dma.h b/arch/powerpc/include/asm/pasemi_dma.h
+index 712a0b32120f..bb2c347dfec2 100644
+--- a/arch/powerpc/include/asm/pasemi_dma.h
++++ b/arch/powerpc/include/asm/pasemi_dma.h
+@@ -505,11 +505,6 @@ extern int pasemi_dma_stop_chan(const struct pasemi_dmachan *chan);
+ extern int pasemi_dma_alloc_ring(struct pasemi_dmachan *chan, int ring_size);
+ extern void pasemi_dma_free_ring(struct pasemi_dmachan *chan);
  
- static int perf_event_set_output(struct perf_event *event,
- 				 struct perf_event *output_event);
--static int perf_event_set_filter(struct perf_event *event, void __user *arg);
-+static int perf_event_set_filter(struct perf_event *event, struct list_head *filters);
- static int perf_copy_attr(struct perf_event_attr __user *uattr,
- 			  struct perf_event_attr *attr);
- static int __perf_event_set_bpf_prog(struct perf_event *event,
- 				     struct bpf_prog *prog,
- 				     u64 bpf_cookie);
- 
--static long _perf_ioctl(struct perf_event *event, unsigned int cmd, unsigned long arg)
-+struct perf_ioctl_ctx {
-+	unsigned int cmd;
-+	unsigned long arg;
-+	struct list_head filters;
-+};
-+
-+static long _perf_ioctl(struct perf_event *event, struct perf_ioctl_ctx *ctx)
- {
- 	void (*func)(struct perf_event *);
-+	unsigned long arg = ctx->arg;
-+	unsigned int cmd = ctx->cmd;
- 	u32 flags = arg;
- 
- 	if (event->state <= PERF_EVENT_STATE_REVOKED)
-@@ -6692,7 +6700,7 @@ static long _perf_ioctl(struct perf_event *event, unsigned int cmd, unsigned lon
- 	}
- 
- 	case PERF_EVENT_IOC_SET_FILTER:
--		return perf_event_set_filter(event, (void __user *)arg);
-+		return perf_event_set_filter(event, &ctx->filters);
- 
- 	case PERF_EVENT_IOC_SET_BPF:
- 	{
-@@ -6751,10 +6759,21 @@ static long _perf_ioctl(struct perf_event *event, unsigned int cmd, unsigned lon
- 	return 0;
+-extern void *pasemi_dma_alloc_buf(struct pasemi_dmachan *chan, int size,
+-				  dma_addr_t *handle);
+-extern void pasemi_dma_free_buf(struct pasemi_dmachan *chan, int size,
+-				dma_addr_t *handle);
+-
+ /* Routines to allocate flags (events) for channel synchronization */
+ extern int  pasemi_dma_alloc_flag(void);
+ extern void pasemi_dma_free_flag(int flag);
+diff --git a/arch/powerpc/platforms/pasemi/dma_lib.c b/arch/powerpc/platforms/pasemi/dma_lib.c
+index 1be1f18f6f09..d6ce553c53bf 100644
+--- a/arch/powerpc/platforms/pasemi/dma_lib.c
++++ b/arch/powerpc/platforms/pasemi/dma_lib.c
+@@ -336,37 +336,6 @@ int pasemi_dma_stop_chan(const struct pasemi_dmachan *chan)
  }
+ EXPORT_SYMBOL(pasemi_dma_stop_chan);
  
-+static inline bool perf_event_is_tracing(struct perf_event *event);
-+static void free_filters_list(struct list_head *filters);
-+static int
-+perf_event_parse_addr_filter(int event_node, bool event_task, char *fstr,
-+			     struct list_head *filters);
-+
- static long perf_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- {
- 	struct perf_event *event = file->private_data;
- 	struct perf_event_context *ctx;
-+	struct perf_ioctl_ctx ic = {
-+		.cmd = cmd,
-+		.arg = arg,
-+		.filters = LIST_HEAD_INIT(ic.filters),
-+	};
- 	long ret;
- 
- 	/* Treat ioctl like writes as it is likely a mutating operation. */
-@@ -6762,10 +6781,34 @@ static long perf_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- 	if (ret)
- 		return ret;
- 
-+	if (cmd == PERF_EVENT_IOC_SET_FILTER) {
-+		int cpu = READ_ONCE(event->cpu);
-+		int node = cpu == -1 ? NUMA_NO_NODE : cpu_to_node(cpu);
-+		bool task = event->attach_state & PERF_ATTACH_TASK;
-+		char *filter_str __free(kfree) =
-+			strndup_user((void __user *)arg, PAGE_SIZE);
-+
-+		if (IS_ERR(filter_str))
-+			return PTR_ERR(filter_str);
-+
-+#ifdef CONFIG_EVENT_TRACING
-+		if (perf_event_is_tracing(event)) {
-+			return ftrace_profile_set_filter(event, event->attr.config,
-+							filter_str);
-+		}
-+#endif
-+		ret = perf_event_parse_addr_filter(node, task, filter_str,
-+						   &ic.filters);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ctx = perf_event_ctx_lock(event);
--	ret = _perf_ioctl(event, cmd, arg);
-+	ret = _perf_ioctl(event, &ic);
- 	perf_event_ctx_unlock(event, ctx);
- 
-+	free_filters_list(&ic.filters);
-+
- 	return ret;
- }
- 
-@@ -11990,9 +12033,8 @@ void perf_bp_event(struct perf_event *bp, void *data)
-  * Allocate a new address filter
-  */
- static struct perf_addr_filter *
--perf_addr_filter_new(struct perf_event *event, struct list_head *filters)
-+perf_addr_filter_new(int node, struct list_head *filters)
- {
--	int node = cpu_to_node(event->cpu == -1 ? 0 : event->cpu);
- 	struct perf_addr_filter *filter;
- 
- 	filter = kzalloc_node(sizeof(*filter), GFP_KERNEL, node);
-@@ -12035,8 +12077,17 @@ static void perf_addr_filters_splice(struct perf_event *event,
- 	raw_spin_lock_irqsave(&event->addr_filters.lock, flags);
- 
- 	list_splice_init(&event->addr_filters.list, &list);
--	if (head)
-+	event->addr_filters.nr_file_filters = 0;
-+
-+	if (head) {
-+		struct perf_addr_filter *filter;
-+
- 		list_splice(head, &event->addr_filters.list);
-+		list_for_each_entry(filter, &event->addr_filters.list, entry) {
-+			if (filter->path.dentry)
-+				event->addr_filters.nr_file_filters++;
-+		}
-+	}
- 
- 	raw_spin_unlock_irqrestore(&event->addr_filters.lock, flags);
- 
-@@ -12186,7 +12237,7 @@ static const match_table_t if_tokens = {
-  * Address filter string parser
-  */
- static int
--perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
-+perf_event_parse_addr_filter(int event_node, bool event_task, char *fstr,
- 			     struct list_head *filters)
- {
- 	struct perf_addr_filter *filter = NULL;
-@@ -12213,7 +12264,7 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
- 
- 		/* filter definition begins */
- 		if (state == IF_STATE_ACTION) {
--			filter = perf_addr_filter_new(event, filters);
-+			filter = perf_addr_filter_new(event_node, filters);
- 			if (!filter)
- 				goto fail;
- 		}
-@@ -12299,7 +12350,7 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
- 				 * different processes.
- 				 */
- 				ret = -EOPNOTSUPP;
--				if (!event->ctx->task)
-+				if (!event_task)
- 					goto fail;
- 
- 				/* look up the path and grab its inode */
-@@ -12310,11 +12361,8 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
- 
- 				ret = -EINVAL;
- 				if (!filter->path.dentry ||
--				    !S_ISREG(d_inode(filter->path.dentry)
--					     ->i_mode))
-+				    !S_ISREG(d_inode(filter->path.dentry)->i_mode))
- 					goto fail;
--
--				event->addr_filters.nr_file_filters++;
- 			}
- 
- 			/* ready to consume more filters */
-@@ -12343,9 +12391,8 @@ perf_event_parse_addr_filter(struct perf_event *event, char *fstr,
- }
- 
- static int
--perf_event_set_addr_filter(struct perf_event *event, char *filter_str)
-+perf_event_set_filter(struct perf_event *event, struct list_head *filters)
- {
--	LIST_HEAD(filters);
- 	int ret;
- 
- 	/*
-@@ -12357,65 +12404,17 @@ perf_event_set_addr_filter(struct perf_event *event, char *filter_str)
- 	if (WARN_ON_ONCE(event->parent))
- 		return -EINVAL;
- 
--	ret = perf_event_parse_addr_filter(event, filter_str, &filters);
-+	ret = event->pmu->addr_filters_validate(filters);
- 	if (ret)
--		goto fail_clear_files;
--
--	ret = event->pmu->addr_filters_validate(&filters);
--	if (ret)
--		goto fail_free_filters;
-+		return ret;
- 
- 	/* remove existing filters, if any */
--	perf_addr_filters_splice(event, &filters);
-+	perf_addr_filters_splice(event, filters);
- 
- 	/* install new filters */
- 	perf_event_for_each_child(event, perf_event_addr_filters_apply);
- 
--	return ret;
--
--fail_free_filters:
--	free_filters_list(&filters);
--
--fail_clear_files:
--	event->addr_filters.nr_file_filters = 0;
--
--	return ret;
--}
--
--static int perf_event_set_filter(struct perf_event *event, void __user *arg)
+-/* pasemi_dma_alloc_buf - Allocate a buffer to use for DMA
+- * @chan: Channel to allocate for
+- * @size: Size of buffer in bytes
+- * @handle: DMA handle
+- *
+- * Allocate a buffer to be used by the DMA engine for read/write,
+- * similar to dma_alloc_coherent().
+- *
+- * Returns the virtual address of the buffer, or NULL in case of failure.
+- */
+-void *pasemi_dma_alloc_buf(struct pasemi_dmachan *chan, int size,
+-			   dma_addr_t *handle)
 -{
--	int ret = -EINVAL;
--	char *filter_str;
+-	return dma_alloc_coherent(&dma_pdev->dev, size, handle, GFP_KERNEL);
+-}
+-EXPORT_SYMBOL(pasemi_dma_alloc_buf);
 -
--	filter_str = strndup_user(arg, PAGE_SIZE);
--	if (IS_ERR(filter_str))
--		return PTR_ERR(filter_str);
+-/* pasemi_dma_free_buf - Free a buffer used for DMA
+- * @chan: Channel the buffer was allocated for
+- * @size: Size of buffer in bytes
+- * @handle: DMA handle
+- *
+- * Frees a previously allocated buffer.
+- */
+-void pasemi_dma_free_buf(struct pasemi_dmachan *chan, int size,
+-			 dma_addr_t *handle)
+-{
+-	dma_free_coherent(&dma_pdev->dev, size, handle, GFP_KERNEL);
+-}
+-EXPORT_SYMBOL(pasemi_dma_free_buf);
 -
--#ifdef CONFIG_EVENT_TRACING
--	if (perf_event_is_tracing(event)) {
--		struct perf_event_context *ctx = event->ctx;
--
--		/*
--		 * Beware, here be dragons!!
--		 *
--		 * the tracepoint muck will deadlock against ctx->mutex, but
--		 * the tracepoint stuff does not actually need it. So
--		 * temporarily drop ctx->mutex. As per perf_event_ctx_lock() we
--		 * already have a reference on ctx.
--		 *
--		 * This can result in event getting moved to a different ctx,
--		 * but that does not affect the tracepoint state.
--		 */
--		mutex_unlock(&ctx->mutex);
--		ret = ftrace_profile_set_filter(event, event->attr.config, filter_str);
--		mutex_lock(&ctx->mutex);
--	} else
--#endif
--	if (has_addr_filter(event))
--		ret = perf_event_set_addr_filter(event, filter_str);
--
--	kfree(filter_str);
--	return ret;
-+	return 0;
- }
- 
- /*
+ /* pasemi_dma_alloc_flag - Allocate a flag (event) for channel synchronization
+  *
+  * Allocates a flag for use with channel synchronization (event descriptors).
+-- 
+2.53.0
+
