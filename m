@@ -1,67 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795794760;
-	b=cKQsF8zNBRLDBwgrqAIxKqyUFMmYC5Q9p+oMCN5lIj6zgFAkgy+zx/SqVbXPK4JF4cce
-	 ht2BgzHIquepI5tbiLe6cOWhxPbJMNwYSxZzZuBDG1XmJ0Wtkx0aEgKCEnaP/MmuhIJPG
-	 2awerE5HKjGNJHDwr6Cmwu4B/70/jFnO4yVRKMTZen8n6gPmizz1NMOtpzhzvQCWd6wP1
-	 UZSAmgCYOly/HJzU3UVDzLCztLvrPSKvgGm0f8ncYHcMgjGcYuKpshrN7wCNNPosFoO9k
-	 qtzSZOhe9E3wDw3nTVlNWTxXBQp4CbCbrNLDotuNT8aMDR+O0mzBzw1Q3EuCC+3JCrA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795794760;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Debian-User;
-	bh=NCvSdp/nnfOZK82fLF6Dz/vtI/HIzAU3oT1/epjJH2g=;
-	b=tdvknArG7wlKGV+hE+FZPbKpOPbUiyd/mr0+jGN/CT55BSgvNxlV+hIj1PNt8oCaP3Xb
-	 +vtYdg3NJ5M5kJam1/T5TSYXTD4ZRKBjMCFKDAheAkmr8Nkh47t75+cYZWJHqVn+0uxaa
-	 58/jiJDPo/Ua73h/19z/lyTavD/XDJXvbwY0lZ9ZOLkOtgAIJRlpYgB5rHfW/JlQz71hn
-	 ZPUNhJNbamSqScd0KuGEhlt4w+cOFGNTC/a4lq+VcX70ZmAcqFSPEmdYsHGNWL2QA/rNX
-	 QK9MqtdBcYFO9fEwwY/tOIGdlSZ01+U6OyWGCyjQ0GbwhqezdtxipOcnSX7NbRWjKSg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=HG4arIh6;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795794853;
+	b=owCUUABTv15lYZ8gTyPrbzBITh5kfE8z6WHWHzFQcub057q3uvoynSy8IZ3z0Ri2pc/8
+	 WFdHL1Mcx2tOXMkAhWcLbCExOcQS0ZNOqHXCqoRFAwN4NfZAbAjcNn7hVgynDrYH4WOHE
+	 S4G3g6/oHLWks7xYEklF9gAbiF+fdWKbC7q9PTD0RprjlmQoKC283Oup00zgVOukdc4b5
+	 9oSIyus7GdBmpstUXBrCj0n8IbQpYgke6Q6dzxfhhbpqECBhAnzdRT9KepXBmnx+FUBev
+	 SXWnv8DBpIBbSrW1lbhKnigTmLkFPK9D2A0EEZcjo6fq6/TOXOQXFm0c8yugWBOWXWQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795794853;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Hf4PCkVLe4C9mj55hr0JQem2q97kwDEzG8r1Ux4pINo=;
+	b=t4iFsm2ug6i2WjRQ3HpEqaIncbAxKR2N1zdKd7WkT91UU4aDhVCphEQ/wcmgZwusj/Io
+	 qLB9LkZXDhPuLvVdtpnmYmJwxmXyAA12nzcjxyVm/XdZvQRGrfCBhyQACguEOEYQZ2D8H
+	 9M8AH+h4cVb993QiOE5wEv5yHMww6OSn7fe/IxY6YSSqfFoKB1sDHadvhtc+mqVx0C/NK
+	 5gnJaSkV8ldiC252OnkH8Rp/rFIdZs1iEeUgD2iK0DcO3DyrdBUyXG/wWe81zAqoMUkJ7
+	 X5cYhqvWEQuihpdXn1JEj58QcQutXm6gFGxcQ4c4wWB7+Oiy3lyQXxFp28JdboGaBYw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Of3Y1b8m;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81F99606A31C;
-	Fri, 27 Nov 2026 15:52:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81F99606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08DF9606A321;
+	Fri, 27 Nov 2026 15:54:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=HG4arIh6
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=NCvSdp/nnfOZK82fLF6Dz/vtI/HIzAU3oT1/epjJH2g=; b=HG4arIh6KUUgWNVf3P9tPeSgAE
-	/AQzUJpRQyU2+NzpEZWbn0F2EWdl/ZBEUumVm7izB4EiCijz+EBvjLFF+6Vb6zn3CMcN3F1YgRbN8
-	aiCXw6l0cWK0gOV5cOa923rQ/4ekXaoldxr+5V0QVSk6VIr8b08v5fykvt5RFIusZWLRlHPqyTIuS
-	hGkF2kKdd5hYDaCJ9zOd6JpgDE70a660R/tlIjXGVjypxwPk6Vy+T9TzsTeOwXD/zjj+aV10Yavuu
-	7tjCnBQAeoQamdMNMhxdTkyfVjJ9DvuHoUSObmzy16B34JXxdN4n9XM+2SueqGT/q71cPfFArHEJ1
-	V2UdgSyw==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <emfox@debian.org>)
-	id 1xWyFV-008RsY-0k;
-	Fri, 27 Nov 2026 15:52:34 +0000
-From: Emfox Zhou <emfox@debian.org>
-To: Even Xu <even.xu@intel.com>,
-	Xinpeng Sun <xinpeng.sun@intel.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>
-Cc: linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v10 6/6] HID: intel-thc-hid: intel-ipts: document the IPTS mode
-Date: Fri, 27 Nov 2026 23:51:40 +0800
-Message-ID: <f63745db70a70be1c7872e507e907d7754f686a5.1795794049.git.emfox@debian.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <cover.1795794049.git.emfox@debian.org>
-References: <cover.1795794049.git.emfox@debian.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Of3Y1b8m
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795794852;
+	b=FiVQMT3mYZys1IXkr24Ba6gdLTXcy36v4YzxGq1xpcwtDhMgQYmJh2D11UWc5mjXYPlZ
+	 bf8t8DKWdPDTWXNtJhHYdlcWmOzHxEF6O3lH0HYCv6RJaa7Ov3X2/BrwU33p2OXwstf0e
+	 mcHlxiMKoIOGYjUIGcAQOUrx2nNKJDqUMbIPvpoK+uY9YLTcHkzVK//kKLj+SASBk1OYH
+	 3ifrQKs6smQuCnYl08bQXnhint7Lx/ZhQ2KhYv7sdtupBYK14yHRo45xbfPmt2eNJXv3A
+	 UVWhX4/20iyATfkC6S6WQFJjViljS4KJE2or9E9IVjp2tgoNBQxzU5crlAQTSHHf1Sg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795794852;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Hf4PCkVLe4C9mj55hr0JQem2q97kwDEzG8r1Ux4pINo=;
+	b=NEdH6yspBEWM5upRweqmD0uYK3yZTibtlTxjJzDzFCUOYpoLe1+5E+uIEWuaMvOY2qTY
+	 Hv5pF9PchM1d3MI3jFmcXTHpK2DYfLJaKjzeS/eIKXa1GrGkfN+yPshfZo4ysmPQQ0XMz
+	 XYWIcJmDVGNto/pR0ahQBn1dN5/bIGxLbVs2GcM3RKmnMTZxqfikK1ci2PAGpuV8/F6oP
+	 bRy+IPyKRZzgPllZK5Z36sWF2CYbrtAgOGgjMKDNtdiu/Ykhu46JxTyncLGLzNn74hSc7
+	 WYfMpMghwVXYjg6/ooJf1ISZEgZ8dYYeeQmRzT3OSG5mGqreYsDM9ll3qdLfFaaAF3g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4184F1F00893;
+	Fri, 27 Nov 2026 15:54:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795794852;
+	bh=Hf4PCkVLe4C9mj55hr0JQem2q97kwDEzG8r1Ux4pINo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Of3Y1b8mGjYXoWrEMOc9eV5eRjOROO+aq/3seaVfK909SCqUV6v8OSH5p1wowi34U
+	 vi/METI0irMhZWjuX5a32FFOCqbxz6W3w3Ywz+Ee0750w4FLD1H1h3TXhWiqqW9GLB
+	 6Zh4ijA6AoX4h195IiNe/dg36PdlnAKHMYSE8T6rQCMCFF9tCwK8Htx+vi9V/ETflB
+	 kEGfc4+5Ooymk8XhdFooAOoSC68LY17BTkT99ph3mgIRyVbjnvX6oU6VYJMFt5YvbC
+	 gQda7bQ7KtGzk/GYHBXh77KuUJVIJ3PQXM0y6Ct85LPnPhkjN8UNzYqT2Qt/2aXlGc
+	 1jtmIgTSzbvDw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C29814DCA4;
+	Fri, 27 Nov 2026 15:54:04 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 18:54:04 +0300
+Subject: [PATCH v5 1/3] dt-bindings: mtd: Add Cortina CS7542 NAND
+ controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,140 +83,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Debian-User: emfox
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-b4-cs7542-nand-v5-1-45b1a92bd13d@gmail.com>
+References: <20261127-b4-cs7542-nand-v5-0-45b1a92bd13d@gmail.com>
+In-Reply-To: <20261127-b4-cs7542-nand-v5-0-45b1a92bd13d@gmail.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795794843; l=3294;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=0qXWSMESZjG+Rrjv+OyLzyU3xQh2VijD/dbwXnwp4EU=;
+ b=jkWb9Pau7RG6hxAZSD/Kn/Y9TZ/aKA2CNRJUrFo+DiJDFo1sxbpW4CxGG4PklMyG/EkblQ5Ur
+ 4uZIRbb9OppB5udL8K2r5Oo3E8tGJ6bZsCGdWhx5+5Ho5bzHj+r4M9A
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-The THC documentation only covers HIDSPI and HIDI2C. Ports from before
-Meteor Lake run in a third mode, and the intel-ipts driver is
-written against behaviour that is not described anywhere in tree.
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Record what the driver depends on: the layout of the configuration
-block, the frame codes and header sizes, the bulk data window, and the
-order in which quiesce, interrupt configuration and the DMA engines
-have to be set up.
+Describe the flash controller registers, optional banked data aperture,
+AXI bus clock, flash interrupt and shared flash reset. The controller has
+two chip selects, 8/16-bit bus support and Hamming/BCH hardware, rather
+than only the configuration supported by the initial driver.
 
-Signed-off-by: Emfox Zhou <emfox@debian.org>
+Inherit the standard NAND chip ECC properties. The example explicitly
+selects the ROM-compatible 256-byte Hamming layout used on Almond+.
+Firmware initializes the NAND bus timing.
+
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
- Documentation/hid/intel-thc-hid.rst | 109 +++++++++++++++++++++++++++-
- 1 file changed, 108 insertions(+), 1 deletion(-)
+ .../bindings/mtd/cortina,cs7542-nand.yaml          | 90 ++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-diff --git a/Documentation/hid/intel-thc-hid.rst b/Documentation/hid/intel-thc-hid.rst
-index 8b378c57b..3b81cc0bb 100644
---- a/Documentation/hid/intel-thc-hid.rst
-+++ b/Documentation/hid/intel-thc-hid.rst
-@@ -590,7 +590,114 @@ To debug THC, event tracing mechanism is used. To enable debug logs::
-   echo 1 > /sys/kernel/debug/tracing/events/intel_thc/enable
-   cat /sys/kernel/debug/tracing/trace
- 
--7. Reference
-+7. IPTS Mode
-+============
+diff --git a/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml b/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml
+new file mode 100644
+index 000000000..3b7fdf6ee
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mtd/cortina,cs7542-nand.yaml
+@@ -0,0 +1,90 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mtd/cortina,cs7542-nand.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+THC also supports IPTS mode, the private Intel Precise Touch and Stylus
-+protocol. The port drives the touch controller over plain SPI and moves the
-+data through the same DMA engines, but the framing is private and the
-+parameters come from the controller itself instead of ACPI. The
-+``intel-ipts`` module handles ports in that mode, which is what Tiger Lake,
-+Lakefield, Alder Lake and Raptor Lake hardware use.
++title: Cortina Systems CS7542 NAND controller
 +
-+This section describes how the driver uses those ports. It is not a
-+specification: everything below comes from observing the controller and is
-+limited to what this driver relies on.
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
 +
-+7.1 Configuration Block
-+-----------------------
++description:
++  The flash controller has two NAND chip selects and supports 8-bit and
++  16-bit devices, programmed I/O, hardware Hamming ECC with 256-byte or
++  512-byte steps, and hardware BCH ECC. It is on the AXI peripheral bus.
++  The data aperture selects a bank through the controller registers.
++  The flash controller also has access to the shared SSP DMA engine;
++  the programmed-I/O interface does not require that DMA resource.
++  Firmware initializes the NAND bus timing.
 +
-+At SPI address 0 the controller exposes a 64 byte block. The driver reads it
-+over the PIO path after releasing the controller from reset, and retries
-+until the tag ``$TIC`` (``0x43495424``) appears, because the block is only
-+partially filled while the controller is still starting.
++allOf:
++  - $ref: nand-controller.yaml#
 +
-+Two steps come before that read: the DMA engines are unconfigured first, so
-+engines the firmware left armed do not keep writing through the PRD base it
-+had mapped, and the interrupt trigger is switched to edge, without which the
-+first read is unreliable.
++properties:
++  compatible:
++    const: cortina,cs7542-nand
 +
-+Fields the driver uses:
++  reg:
++    minItems: 1
++    items:
++      - description: Flash controller registers
++      - description: Banked NAND data aperture
 +
-+======  ==========================================================
-+Offset  Meaning
-+======  ==========================================================
-+0x00    pending interrupt causes
-+0x08    buffer sizes, ``(size / 64) - 1``; Rx bits 13:0, Tx 23:14
-+0x0c    touch engine control: enable BIT(0), HID reports BIT(2),
-+        power state GENMASK(5, 3)
-+0x14    controller tag, ``$TIC``
-+0x18    SPI timing: clock divisor GENMASK(3, 1), divide-by-8 and
-+        dual/quad bits
-+0x1c    vendor and product ID reported to HID
-+0x20    product revision
-+0x24    firmware version word
-+======  ==========================================================
++  reg-names:
++    minItems: 1
++    items:
++      - const: regs
++      - const: data
 +
-+The driver enables the touch engine with reports and full power, and clears
-+it again when the port is shut down.
++  clocks:
++    maxItems: 1
++    description: AXI bus clock
 +
-+The offsets above, the frame codes and the header sizes below are compiled
-+into ``ipts.h``; a ``static_assert()`` on the offsets the driver reads makes
-+a mismatch a build failure rather than a quiet misread.
++  interrupts:
++    maxItems: 1
++    description: Flash controller interrupt
 +
-+7.2 Frames
-+----------
++  resets:
++    maxItems: 1
++    description: Shared flash controller reset
 +
-+Both directions carry a code and a length in front of the payload. Frames
-+from the controller use a 64 byte header, frames to it an 8 byte header, and
-+only the latter has the payload padded to a four byte boundary.
++patternProperties:
++  "^nand@[01]$":
++    type: object
++    $ref: raw-nand-chip.yaml#
++    properties:
++      reg:
++        minimum: 0
++        maximum: 1
++    unevaluatedProperties: false
 +
-+==== ========================== =======================
-+Code Received from controller   Sent to controller
-+==== ========================== =======================
-+3    input report               set feature
-+4    feature report             get feature
-+5    report descriptor          output report
-+7    reset request              get report descriptor
-+==== ========================== =======================
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
 +
-+A report descriptor comes back with eight bytes of preamble that the driver
-+skips.
++unevaluatedProperties: false
 +
-+7.3 Data Window
-+---------------
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
 +
-+Bulk transfers go through address ``0x1000`` of the controller, not through
-+address 0. The DMA engines have to be pointed there explicitly, otherwise
-+they write into the configuration block and the controller drops the frames
-+without reporting an error. The input header address is zero: that is where
-+the controller writes the interrupt cause word, at the start of the
-+configuration block.
++    nand-controller@f0050000 {
++        compatible = "cortina,cs7542-nand";
++        reg = <0xf0050000 0x300>, <0xe0000000 0x08000000>;
++        reg-names = "regs", "data";
++        clocks = <&axi_clk>;
++        interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
++        #address-cells = <1>;
++        #size-cells = <0>;
 +
-+7.4 Enabling and Flow Control
-+-----------------------------
-+
-+The port has to be released from quiesce before the driver enables the
-+touch engine: quiescing holds back the device interrupt and the data path,
-+not the configuration access, which is why the block above is read while the
-+port is still quiesced. The interrupt configuration programs the interrupt
-+type field in the device to the invalid value, and starting the receive
-+engine then replaces that field with the type it expects, so the two have to
-+happen in that order.
-+
-+The controller starts streaming once user space asks for it, through a set
-+feature request on report 5. The driver does not do that on its own; the
-+daemon that opens hidraw sends it.
-+
-+7.5 What Is Left to User Space
-+------------------------------
-+
-+The reports carry heatmap data, and turning that into contacts is a
-+substantial image-processing job that already exists in user space. The
-+driver therefore stops at the HID layer: the report descriptor comes from
-+the controller and is not written by the driver, the report stream is
-+available through hidraw, and ``iptsd`` decodes it into input events.
-+
-+System sleep tears the port down and brings it back, so the hidraw node is
-+destroyed and re-created: a daemon has to reopen it after resume.
-+
-+8. Reference
- ============
- - HIDSPI: https://download.microsoft.com/download/c/a/0/ca07aef3-3e10-4022-b1e9-c98cea99465d/HidSpiProtocolSpec.pdf
- - HIDI2C: https://download.microsoft.com/download/7/d/d/7dd44bb7-2a7a-4505-ac1c-7227d3d96d5b/hid-over-i2c-protocol-spec-v1-0.docx
++        nand@0 {
++            reg = <0>;
++            nand-ecc-mode = "hw";
++            nand-ecc-algo = "hamming";
++            nand-ecc-step-size = <256>;
++            nand-ecc-strength = <1>;
++        };
++    };
+
+-- 
+2.53.0
+
+
