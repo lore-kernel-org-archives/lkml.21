@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795781091;
-	b=hupnG8NK8bORzgFeZxZ64IOUqdbVdHLhq8WLBwNq30ssaGf+EB6vlTi+8NFvadF0+ep4
-	 2jogsNa7DSNW76MLmLXKGjUTws1+mTPlKeV4UPWpmxesHi1hrBHuIRHhXZ7SBS9wYaSgc
-	 herVc8/eKLSAVImYptmoVDAVSAUw2abk7M9LnIQphCYhWmW/Xhr41HzjU3gPCFz7HsuMB
-	 JEf0dqb8dwT7kf02+EcdUjEaixdiz5ClstWDMGenHazD4z6iLdeMolYdJwcLmeBhqCSDk
-	 VMKZj+jBqYPC5tPra8/VKmQweaQ6mzQbSEyFg0tHXto8dTVf9TFQDB2He2n2FrqAutw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795781091;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795781098;
+	b=Adq9LKIYU+geWjO/BipfF5mzhGsP9KuIXbF6BqIkDJCmJ8sUfHe6XpdqK3pp3u2Q2soE
+	 OfGCREahHqjh5r3mBJze77iawRaBBE4Q+SMLodoA2BsohdK3SZrMF9s//rsSetI4iRe9W
+	 Ja5hAsTnaYLMHOGkxRTVlBvhDm5ReL7wJv3Zu49f91TyE+kRYnkSTG3dt/AnAsIpY9y9S
+	 2wVZ4NYEXUXqNBuvVSKaTfyV0EqsaiEKMNXDyaoLS6NozgQcR4lkRhTHyeozHHot6VFsv
+	 IsMV3ikVFtfdBc29bsEs+MH/4/luUdsssyRhz8HWgMCGH4CO8ZSHwvGqriPwXjXi1Zw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795781098;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=b4JpyJqTqKs/ooTkoGf0tRzxzjeh27dYY7H58le2fz8=;
-	b=4rVQfgFI43XcBqP+HVqPQfmr9uWUqUvNG25ZC3Ke9j794ne6lpfOSRqYol/ASZG+QSCA
-	 6Xh76L0Cxn7bZkScmrdJyz6mUjcaNpyIXV/Wh25oh+tvDCZksuAVg6s0CZOkCjXv5ZgkX
-	 Q+hZOBu04OdwCleH45bm0v3UZWppCv85kWQ8OnBSMgKAy6VSwr8aJUFviLPj54Jw3T+Wd
-	 kajq8+eVwoOlCQm+MJ5nJFY8nx7f1pI3sbWp/Ze/ycqN22npGvJxBm99uPO/mDgWROadi
-	 mGxhp9rWbtZN/yhyWGrB1C9wDtWpvkTixfySZBmQlAV5msH5XT/3fesH3CDYrFNTc4A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ftbPRsCQ0aqf0DRrrjwD4Al8a/o+mRVmt2zUH0Y6zDA=;
+	b=AtKEjgKjn4WIKjCdrncTjgx9c+BSlWZldK/0cmwlsHT20TbZ/qE++MNQKlTm1NFOTY0f
+	 dyqX7kDRlQYvHpAvjSxUgnbexNSV5fbFkXuFTgcpFG4d1tVhIpAEbdVzvzpXbq8mmMdAL
+	 oLPUyIN0Qb8qAmGkgyrDMMiuIU6o/4tXxTCiY6cgTCuADwc1CohcxJe1WCJO69fsaMayJ
+	 BllfJTyVfORzB2r7fbGjETNGzmR8DFH1tQbbb+cnv7l3ddAU8T3DBv+FFtZYytqlUp43O
+	 ZEd3rF/cB89bqI4m/tk6Mk6uk4cDphXbeD69nNs8q+EKRjP1tg52/XDIO5yNLlGcwkQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yCtU435f;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="a/faIOem";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
+Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68012606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:04:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68012606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AE58606A32D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 12:04:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AE58606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yCtU435f
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-386cf1041cdso5022404eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:04:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a/faIOem
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b8a52db5f9so9787031a12.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 04:04:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795781096; cv=none;
+        d=google.com; s=arc-20260327;
+        b=auR/fa3Z1vsRQ/tARPfFYvvTpvRVYkKnErG6yIBUx5yNHLMFVCghsTmm5QoG2ddSoy
+         ozWPkbs9oJHDkz9H/SVtpzxmSCdd1lapaxKo5HN9pUYZX6f/0+IYW/ZF027hl3KQ3HcH
+         9aOJZ0aBMsNBbIvAM6/jRPUmPft4YCDPS632PTH7dJK5HnmjJtc6yVPwaTxmP4zFcZNx
+         /fzNhKk24WcQ6P3UspcMfLJBNV9MImXuNCn8zPykQ4OiqM4KOMOOTMTbvNaJDWs/xmPB
+         pDc7mJyZAS3NIUBj+Ky5EW268iakhVdURrHRX5T4TVt25Z+TmxQnuYdMvantGQZBZTNi
+         y/oQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ftbPRsCQ0aqf0DRrrjwD4Al8a/o+mRVmt2zUH0Y6zDA=;
+        fh=Y671IUC6Cc47ks5tHBHoHxeR69YokWcv+MWq6lJ/IaQ=;
+        b=ifjZiCUIXL5P6JARLdY25PdadCVIQ6v1t/P3KInvI4oUtUhoVDbHG9XR+CdsYVIeUU
+         wEnDjMTuoU++P0teXetC9vT40ocd0i9B/UFCv9ENHBdHpOcnvCvhuL4ftw3kv2FNWRjk
+         0RTLW2pxaL+pvRQfhJV7LYsEbqC1lef9G/58S3ZSbbZ6qsex+2cDvxXONPMmxWpzBCUE
+         xfJzLiWSd6NMsBUD/qwH+ZxJ9bblJi6eWlU+RH31jPpkLBVNxSQmXSNqkeGsRlV0kPvU
+         NSrz7hqQT/SjsRTmKF0N3PcXCsFA5OiDBjk7BpDbZBDR4lD0CbjE3YgqpLDjWpxflcCe
+         pGUA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795781090; x=1796385890; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=b4JpyJqTqKs/ooTkoGf0tRzxzjeh27dYY7H58le2fz8=;
-        b=yCtU435flzWsWwMU+oeDP+3ORZa2d/JM3SIU3HK02vqChz4DmlzINMbWe6LT+Jpa2M
-         TlPTLk6BocuOCfh12Tq6JLW0nnz+TfL71fZScQTpx9fBk6GcshTMSoWI7tULPqx90czk
-         L+tQtr7C99Y28+PzyT2bpqa3pOE0V+cCnCOql/jWRuFFrbO51CUlvbZGW7BoXo3pkgEz
-         kg+nSv+VDpJEGKOZmT5BbmwcOn6fAiK6xAc1m0rrxcfVlhltFy+nqFxtzk/HFDxDlXHm
-         7aa2TKAnybTJJOUYoDQcTpd/ZlHfKZJb5KpW2qMLZLuAEN1PWbKrjBRCA/J/RAsCBf8w
-         QU/w==
+        d=gmail.com; s=20260707; t=1795781096; x=1796385896; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ftbPRsCQ0aqf0DRrrjwD4Al8a/o+mRVmt2zUH0Y6zDA=;
+        b=a/faIOemKG9XP9oN9nHZ0RXKAJGUuULcrj5tlG5oW/VxoETGk/czdvSllhhNf3cLZ9
+         QZfgoKUPAO+lxAeT39SzbkiTrobrvkwTRilpOiRfynBTw3Dq4mQQOsaPpO2q3L/eNCw6
+         75tG8Way+N5Y7kNdc374kxwLxPpgXrf4M3aS8Tkoc7ZPyjzg6Rzr+n+Pscq1n8ZXh53X
+         8gOnoWD+dlS10yDPmY1W05uiGKpWUmd1Zb6pGB8AYpx6o/RFlMqxj59WZhRkFmmQMlzf
+         d6R5FFbL3Np6vQDGcBL5tFUkX4TUGEgF/3bqMPd6LQvhH05HX1jyMVN8C3RNkqypH2BI
+         RiQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795781090; x=1796385890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=b4JpyJqTqKs/ooTkoGf0tRzxzjeh27dYY7H58le2fz8=;
-        b=VWTCTpIHpB/b1UskVIn+b9TgV31e0+eRstVcQmIIN/wVkjFQb2E9biUtwgoJV7HSLQ
-         6wm+wOiiXwLG8iYzA5mb3kP5DDs7Mq+In78hGOEHKurb7KzIGUXEqERwUeZZ7QhwMEv6
-         8xFd4O/4YzGgTVS3FG+yYzOm5V/lVmwqmD3YfqMFwORI83Nt9K+Q1KAVgIsCGpF8O9wF
-         cvIJrCSQExm13Yw6wTi7tjXpnHBAuUiC21Hep/dVX1sIvfQWmV5+/Vr43HeHFEhtzhA6
-         rHajvt6ejiaSW1cRrw2KiI8mpf6aro0A6pdfT8skVKxkIu6KYJh47TSwAhl13sCKHm8T
-         6FpA==
-X-Forwarded-Encrypted: i=1; AL+hErHBF6acMNNEn4oyul2TDAUd1OFqvrYoR5W1ryp91HTY8UUkcdDRqnDP6c0CqSt/J3vKF6qiheVUCy5RngQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9EHVeFKBbphGevD4uKDjMlsQkVQTi6NoYuQied77GkITdOjM/q
-	UH4Kuc4wK2dciEOUCrlQ7bfD8ld6hoZN7kSeNqrDkPZe2ILLm6dBErYz
-X-Gm-Gg: AZFdTZfmkQH5pMR0rb6WL7wCJCCngLNw9QQ+FW/53AUS5OA8QzTrtekskUVOwA926a7
-	+hsdc6VkrJY2czv7bG5rUfYmM0Q7rLMAYdlm9mo1RXyO+lw5wx24mtYHU0n+YuNjfTcP3FxGhs5
-	QHh2YIiBqzoNZaEfjqPVzln7uGkuDoouLLscysQmoF0OY+Cg4FCGBpQbfRC+HDNyPaMxKQTcvMx
-	HeOjh2epaDJLHPk/n/TRAFNuVbQnMpRs41UgwK/fDcQ9S6n5hxVaiU4R18/MrgiO2SEt2LUf2VH
-	YjOnAiuu4XDVqJLFB6hmrnCRIncAgEZiRtAjaKwSH19wHHzLCAYB4qnbpHdryz0Xn9lk0B8j0t1
-	+0Ah2GcbPSc5hLmN8gN0PJwKkRHDZWfLhwCg+1AsL/2YGnR8VVEWuXj+G/rRCiHYENCgRL1NtvM
-	6+usVwAdDvHeRRZ5lmPIPPWch4hbH3mSp6WCuxKrk1Ozk8I7Y96oq4PzuSn68xj+JPv1OMb1pBd
-	OyuMNWj4wxFlY6hc2b0ru9xW5iHh01AhSg6LYemaDTAYGC/f6mjkJ1JVbxtSTGuSiFWR1Y+ULU6
-	Zw1bZTlQCz0yQRPR5s8GBvn0I0dGbUKoUXDQrpxxOj8=
-X-Received: by 2002:a05:7301:fc04:b0:386:ea31:7123 with SMTP id 5a478bee46e88-386ea318008mr2846416eec.25.1795781090329;
-        Fri, 27 Nov 2026 04:04:50 -0800 (PST)
-Received: from deepak-80tv ([2405:201:a40c:e0d8:ae82:1cfd:7bfd:2676])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm81729565eec.26.2026.11.27.04.04.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 04:04:49 -0800 (PST)
-From: Deepak Pandey <deepak.os.system@gmail.com>
-To: 847807867@qq.com
-Cc: agk@redhat.com,
-	bmarzins@redhat.com,
-	dm-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	mpatocka@redhat.com,
-	snitzer@kernel.org,
-	syzbot+1eda626824b6334f5ad3@syzkaller.appspotmail.com,
-	Deepak Pandey <deepak.os.system@gmail.com>
-Subject: Re: [PATCH] dm snap: clear pointers in alloc_area() error paths
-Date: Fri, 27 Nov 2026 17:34:34 +0530
-Message-ID: <20261127120434.746380-1-deepak.os.system@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <tencent_D498CB0489BB9C74184B927C7393282E9806@qq.com>
-References: <tencent_D498CB0489BB9C74184B927C7393282E9806@qq.com>
+        d=1e100.net; s=20260707; t=1795781096; x=1796385896;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ftbPRsCQ0aqf0DRrrjwD4Al8a/o+mRVmt2zUH0Y6zDA=;
+        b=VJ8TwxI88lcfNAeN9STppwKgIOeIFn4DEQixHXlQsl38ErO5tIiyXPpHFYCrEKopbt
+         VJzNM67jecBB8n7pX+p3u85I5c3Q5bBjMi1mmSqpamIU4uUz4uFPodkE7EmxL8STGSqd
+         SQarIRLeBo7q1K00q/1Djy0iesHdDIYmnKAxeJvrmHojeBk3/I86Qg5kfN5oJQAauhyV
+         MRPgkp47fAEEV/50ufdNGhVJPC09brbzFHPxbv791tYKsv9vBe2WSxUNUHAleYaDfX0V
+         QLihrgWqEsFKOB7/ufEXNBrpgp+jJL3Qhhk9ExrPHOuVj2KeVZTq3pMTJMBjKaX9fBs8
+         Jf7g==
+X-Forwarded-Encrypted: i=1; AL+hErEpJYkTORanv4rJwlt6nHDNgGG9ZMLeEU92oKX7pdJfn8Q6XGyPTP8/utxz9bAWDzAGP3Q7xKSZn97WbtE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+VNSEsC49y2mnHpLbyi0tF7OVeGio72M5MvZN8XWR1RI9gMew
+	8kiPxe/EToeJTT30bz6xsiVKO9TT9M8jawtYIFWe2GK60KjOdYtnpaX0XB4CBjt4KWUPKtaEHz6
+	D+sczDueXMq6Vqa6ryOflacOxJpaVhpg=
+X-Gm-Gg: AZFdTZdjn9up0t2+VlI4eblHzU2AK8V0HgpcCuSSdA7dZZXRhwvxz2RvBl3xn9EetA6
+	cjMwuY09KqiVcSpFUAPIQx1NR43WUZZNYVQYI4gR4MAVyTTEEXwxKGcFne2Jdj7WPRrI+YTTM6Y
+	KqANhi3Z0Lj8FuTZ8fCxMuDulMh6Yhk0I+MzGJJoat0WBt8ma2swaETrqNrYOwFTfRin/UaPCTO
+	e9dGwKc4nVVzlpkI9ggLxcGWrrUkOArNyEKs7aOUNQxlgmuDhRkyPIJgjb0u79Bon3FwxrigycJ
+	/MindRSzpsa49ZO9z0QnCsDroDN/8OG9bsLlenx8tBnrSJVLFdKx8Qqry08tTyRwNC9TU2ETXqb
+	hzQFSE0zFKyakdyLg7BJQt/aU652CQT1B0yjZZhcpTtIj3jz7pCNY0Ag=
+X-Received: by 2002:a05:6402:320f:b0:6b4:59d0:7294 with SMTP id
+ 4fb4d7f45d1cf-6ba37e9ec85mr20367582a12.31.1795781096175; Fri, 27 Nov 2026
+ 04:04:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,18 +104,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261126163114.403846-1-koray.fra@gmail.com> <20261126163114.403846-5-koray.fra@gmail.com>
+In-Reply-To: <20261126163114.403846-5-koray.fra@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 27 Nov 2026 13:04:44 +0100
+X-Gm-Features: Aa3M54qEfB_iTiJNZjGRc3XRinkgqc1ntuigIkhA7BS94_VSwwZ4uoMmp26Q3TQ
+Message-ID: <CAOQ4uxgJjy3TaORBkMOdef-JvzX2uA5K2sbMDEcLqmpkedsESw@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] ntfs: switch to the new xflags fileattr API
+To: koraynilay <koray.fra@gmail.com>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
+	Eric Biggers <ebiggers@kernel.org>, "Theodore Y . Ts'o" <tytso@mit.edu>, Jaegeuk Kim <jaegeuk@kernel.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Alexander Aring <alex.aring@gmail.com>, "Darrick J . Wong" <djwong@kernel.org>, 
+	Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 27, 2026 at 09:58:00AM +0000, Shuai Liu wrote:
-> alloc_area() vfrees ps->zero_area and ps->area on allocation failure
-> but leaves the dangling pointers.  When the snapshot constructor then
-> calls free_area() as part of teardown, it vfrees the same buffers
-> again, triggering a WARNING in vfree().
+On Thu, Nov 26, 2026 at 5:31=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
+ote:
 >
-> Set those pointers to NULL after vfree().  vfree(NULL) is a no-op,
-> so free_area() is safe to call multiple times.
+> Switch ntfs_fileattr_[gs]et() from the legacy FS_*_FL flags to the
+> modern xflags (FS_XFLAG_*) fileattr API with masks.
+>
 
-I reproduced this issue locally using the syzbot reproducer in QEMU and
-verified that this patch resolves the double vfree() warning on -ENOMEM.
+This is where the commit ends doing what its subject is saying.
 
-Tested-by: Deepak Pandey <deepak.os.system@gmail.com>
+> Introduce FS_XFLAG_COMPR and FS_XFLAG_ENCRYPT to be used in this API
+> upgrade.
+>
+> Following the FS_XFLAG_VERITY example, put FS_XFLAG_ENCRYPT in
+> FS_XFLAG_RDONLY_MASK and in FS_XFLAG_COMMON, since it's read-only for
+> all filesystems.
+>
+> Following the FS_XFLAG_CASEFOLD example, put FS_XFLAG_COMPR in
+> FS_XFLAG_RDONLY_MASK but not in FS_XFLAG_COMMON, since it's read-write
+> for some filesystems and read-only for others, to avoid breaking
+> existing filesystems.
+>
+> Also update vfs fileattr_fill_* helpers to include these two flags as
+> well.
+
+All of those non trivial bits deserve a patch of their own.
+
+Not only are they independent vfs changes, but they also have
+implications outside
+of ntfs which need to be spelled out.
+
+With current patches, I think this change now advertizes COMPR|ENCRYPT
+in fxs_xflags for all filesystems that have them set even with the old VER0=
+ API.
+That may be ok, but it needs to be spelled out.
+
+Do we also allow to set COMPR via VER0 API? Do we want to?
+These are questions to be asked on a standalone patch.
+
+Thanks,
+Amir.
