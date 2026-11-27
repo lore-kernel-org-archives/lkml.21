@@ -1,102 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795757294;
-	b=qJ6maYXIrPKHFVXJiX3Mpc6ueNzh0ZqrHVxQWTNTg63lbb9PCZjqQwqNMyaYMcX8KBzx
-	 7Lmq7QgZ4l6leOirS7fn+Pk0t323uI0V2tP2o58KvPiyTD3jZVrjS1oQqjnQNOi/VpPme
-	 pa2EeqWgqVlWkUkNTjlxO6MRiTajQdmqQQBsr4Nohc3D/PYZz+6vwWNQOREnV0lM93jHz
-	 9LKVDe1PlXyB+amUOuG0lK/e0ImpkqT8+ncf9Za6dLKLkXPskBf5JOfsQwrdTqnVkXGfR
-	 BByHpHGqfbaWIKTM7zmpTPBA9XJ/eEwCzmXBN3XLxXH79QLUsCfKgdlnGGtS+hNREcQ==
+	t=1795757324;
+	b=d468Eu8R49tWPbwMToQdh8G1Y1ilS1LMIIFTwJYlShVuK3Srrjzo8PsrIyiBTJGMv7Uc
+	 lPhf15gOhPjTr9TeBzaCKd792gLlI8v7BsZzYH9FYEdfT7IXi9YW4/qkGWPLN3uWB7L7Y
+	 qBBv6QxVwUnf0R//DEiu3hqCs4PDDH0lgvQoC8ySohAhG3t0auAi62u0yrC5y/NkbnEq5
+	 uALOKy4xZ5Slx8pq5Koc5pw0+cwxeZCplsnbFhD6no7t6tDBa1/gHhHo/oPgbNpT4O/s4
+	 9B8lTYPZu4JbcHQ5XPiE/d6rnu6I287pCOvYowTeD80Xj3NowedolKI/YRf70wp/QGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757294;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757324;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
-	b=5XCGfAV5kq36NUD1VioWk0AcbBgLpJOk5sqocAjWB/jsR0813G+RfuxhbFBgOhZ8AVHn
-	 G+XtyCZcWIovuF5sIak6dy5Va3HofuPX1zoLhWKIwLsUUz9dKojREdaWcovJOcYWhsOMk
-	 mllITVBqOSsS9zs0bKuMIwxQ8xWGVS2JsO/i7GhGgdjP2uejrRJNDGOLhF0z3pIaitrT4
-	 Y8d3nE0OmNFaIgrBqVOPKHN6t7WHo33pat7XS1FlPTg1W3yvi7GZL9Oe2859R+EZ0oW1+
-	 nCtarHPxp8CCxKvbCdaW/e/4YUnvHEVlGFZROuPf3rwCKoYEArJBymg3xECboVaHpUw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TdUf6KB/FNH3fbgr4TqtEM818JFeVephPzr1hPpbgiI=;
+	b=lT1tOzHsFt1taH5oZYSUTuRWyG2z5SYbRbl3kq41kn/1F4YxNCkDAekfrOnw89XIdBba
+	 gWepun3k3oYWPI6eFRgb/HhvZfdhyvpT+skTe3Y6l5JMvwbLISoMKoyoch+Q0i4qyI/V0
+	 hWecDZ1pVqB+SZycKW3D0J3cSw67umwXNhfeNvwP+caPc3qWnDW1/dTUAr9r2Qgo3zkbQ
+	 W4GN258jzYOkYl2gc06StsY4GFzqtpLE5rC/YiLhjP7jrONyIJNod61qrJvbZE7+q/NlJ
+	 e0JmiKDtcK2iOo0umAWX5dZX7wNeWKpI767fKcGWUw4iEQBbuH5XRzMQ5005hzFt4PQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.tenstorrent.com;
-	spf=pass smtp.mailfrom=tenstorrent.com;
-	dkim=pass header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=Y8tUjz61;
-	arc=none smtp.remote-ip=74.125.224.43
-Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kerzcc1K;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA0E4606A31E
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:28:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA0E4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=oss.tenstorrent.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tenstorrent.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 729D9606A31C
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 05:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 729D9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tenstorrent.com header.i=@tenstorrent.com header.a=rsa-sha256 header.s=google header.b=Y8tUjz61
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-67db5e13b0cso6881352d50.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:28:13 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kerzcc1K
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso70684655e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:28:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1795757293; x=1796362093; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
-        b=Y8tUjz61NtA4sx85w1w5WdFO9U3qKQ5pf7I44awrwEgGTG/yTpfKVWDCkwqW2ByJ29
-         YzfzBn3FXcJpxILij1V8VvLCfr2Ddml4kzdGHLaUdxZMN7bLfP6NPM89/SKl13C8Q6qM
-         HHuBDOyV4UOaEoyZmOmk/AZgdwaRSPjz4kZk8wyd1PoknCo73+Hckob+WL+jDKNPM0+t
-         GgCP8XVSbwvq+kZuj2hFcPfxdFXbVuH4UyVv2saTQTTcljkyGSOPzr/CzNL4hZJRn7IQ
-         f5wh9jSAt4kDN0kM7SojsykF3sb4lQgQlTz3wPOzBj4OJVMdPJi3QHKSOsnN01h9tQEQ
-         FrEw==
+        d=gmail.com; s=20260707; t=1795757323; x=1796362123; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TdUf6KB/FNH3fbgr4TqtEM818JFeVephPzr1hPpbgiI=;
+        b=kerzcc1KWJx3QCpqFrSzrkKSQ1PEd8pOxqmjIKOYubp2vQeMdUDjf57BUSZTPM6X26
+         V/imo/dK2gBiABO5wyqyOuTcWe9vE9PA5N02RWajkORsUw3Xdj7/gdpXEB0b4lR8cuaO
+         fUj8TjPSLxXJeozkdlIB9+rTvRgBAPsKdASyWY/D9zts84/0VotIOMAbOpbpykACIQBg
+         Jje82t03YeLXFJmS629YmtHxN0ylRXBSB6rO8YLUGlNCCzaEDbmyBoDV6SQQB1RkMAZZ
+         q6j0nEDcy2sgQC+MmfsO2Kmh9jp8eUcVGUB0VcVmpJAMnOvqRWX1l2nuYIs4tNFt7Nr7
+         ZmOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795757293; x=1796362093;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9jH/OKgM1gQSDKQc5kAy7iczSgneLDrLRkuuGZg3T08=;
-        b=S3U6DVVcrfQf41rKFsar4BTiegREVkW1Xwdc4JObO6vBbdswRuBZgQ+A7RmR/u6H6r
-         xgK/jzAMzhr414oqy2GV0tuKkIpbkvJZk95YnF5DI2XbkS+QezrOJY8lv5CT0ic+pE1j
-         G5Hxyz9Mu3M0YTbmijq/a740/C5rOysCVDYk1/JADPJVfYMK438ofoLiSL6BhCE0gJth
-         29iwfNd04iIUsND69lPygneCL5FaX+WfpTqMFZbTyhWr75YeQltvRAHcqF2Z1z8pwpm/
-         u+Ygm/ihR14yBOt22f9YG1PiXQn3EQpVZ1Af/SYudnwNh7UMYo9A7A8MPkOjg91waLky
-         iDTQ==
-X-Forwarded-Encrypted: i=1; AL+hErHYc6Jttl1Nx/aDGOPxV7FYOzj70wF24QZ3HgsJkI0BCPj3odB3P+a1fO4V0Vp3ECfbi/bLPU67Iov+7d0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OKrsGCcOHD+h9Fe6dxAoKdylCSKXQY8GBqgN7lEF4+NLej2JP
-	4t5E8ReqZhTpEjwTp5pSpCkeNLuh0rlTUs+niM0xIYBVFJ4LysgkgrurVOJFWvHcOdg=
-X-Gm-Gg: AZFdTZcXvKutpqdOC2BKkiEPfxf6TjCfQSv+snpkNbQeAhC1QA0pQYi0qWu7kHjvvdS
-	r06FcTEz/32MAmC50ubO1H2eHI2ApWcs//1+ArL+xXfmF/oGDYJ5Xfz8+6xh8yH5W+qeRsikzDg
-	Twdlf2+sLJCjZQLfvYgoCKmZstwmnIh8qlDgRB9XhCvX/AkstJJkwRFXanB+9BdKb6VdsiGweEf
-	dLu8PkLwiSPV8gi6clmq9TvhKcBihvO2eQHwpteER3GpvrL1m1a3A/kXQSkbHT4vD3VGAk5EoUL
-	RQBOakSRDGAkemvhkVP5oBe1dloTytfmrKB+8TuQAQD2vwlDBWeDPcey+fx5TR7BBxMYjXshTzP
-	cdNQSV+ZNyO6MWt4TssRzQyc8pVwqFQhPzFYqzi0uXNNpLrr4jxRvrPMZDucHGFu1kRCw9aayId
-	eIem4hwqxHmLu8D40vplGWh4//+lICJzbcSSXQGbt/R9XS18uwNeBlENE/unBZFTQ5hPg6jY4uG
-	tMK3gU3S1/UsLgdrA+52br8hP2zx01+RZX2s8ZPXBbcAKrPsPq+uyq9pqhFzSBJgjtOT+Vy4s/7
-	1enUAvtA72vJp7n3AwjmljfckyMVYIWXbrhcZ0b/Xyz1uJ0vCm/xFiieg0mluk+ncTfBGgq5C8U
-	dqWicrIWOYEgvm/GPE+rP
-X-Received: by 2002:a05:690e:4594:20b0:67c:6ce7:c513 with SMTP id 956f58d0204a3-67df44da548mr5273707d50.82.1795757292881;
-        Thu, 26 Nov 2026 21:28:12 -0800 (PST)
-Received: from toolbox ([2600:1700:220:59e0:e3a5:f585:4070:c566])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33d64a0sm11238363d50.22.2026.11.26.21.28.11
+        d=1e100.net; s=20260707; t=1795757323; x=1796362123;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TdUf6KB/FNH3fbgr4TqtEM818JFeVephPzr1hPpbgiI=;
+        b=ppM5rjh41hZnJE1KehR/e5P4EoXK6smgw8NnA3Lz75ABkej+1hBX2FhYeIJuFrRX8m
+         McGGvUlycdq4iO8LU9HyZlGcHEPJJAWoSRz6UYAlFFHY9oxcyn4OsHYyKQFansMXBlS/
+         38EgBtfhC9VDhrgNQN9TMI+lZEKNOZ9cE56tQTMb77OE7GlE2dqN8BlpVMyjWy4mdyHq
+         qB7V1fByvtHeDktMyEyqHp5vAwBu+2bEV/AjH8wwaAUC0Xdfvm/KFkuLu1b6IuTmpanN
+         9W2PPL930r4Ci2iVG0D8OElGvBIQIGKoOdYjDyWcD0aN4pgT3ik5Tj1Nq8xAWIokHtsq
+         5Jiw==
+X-Forwarded-Encrypted: i=1; AL+hErEwJdYr5j/m/rW1dWI/Kvy5cV8XVe4RyPOviAYXNJogolMP7sf6jmDngw76JSED9+Zae8P86hXMmbRpWB4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9zp+fvWnXFlAaFpEeohwwiYxR7Grj0votG6thzt6MTkzlVmsSp
+	Nix5r/ZmOgdiCOxP4TdYqQ3YfYSWFeIrII78yYj0KCuMkRPLFGWnWq+c
+X-Gm-Gg: AZFdTZdim2nOqJZxRTGznOaoNk3+Dl+Rl/Appvw5ISJCIAFLQerHJVTGbyzipe1MVoB
+	uovqYEGYbVzgqPnADarLrjFDvOIRGDbNmFK1bzYhyyZFxCMguFEebiEtTyqAU8z6DDNjBn+G121
+	JGHSqbThg3qRav7MH3KMLzHUYmuD3JBQwfHAQ+Jjt3SqggMmizK60GheYN6KTVBsVSndvo7fWNU
+	JYCxIcbIMGvMtt7IdbdvXCpr9iv6kwCJ3H1rKFwXiIlgqeZX5SxXmXhMMgc9yyJ9FY0HkKTjjog
+	c/Kt70xrlCczFvrexsbhVfDeElmM8SMSPaxKdwG3RinjOsb5secP1Hs5ZCRM9aKG5yWtg87mcqv
+	NL/Q+Sh2YWrpHdI4hLvb4AUEkAjjUVZMSsy5ZzLkRvqV9XctPUi13rRfVjnxzqn5dozXqT7+Rfl
+	Wh1WxhcrCZjCd/mKpS/ZiWk8abJQeFzSATKg7DGdWbYPkLX1WwQ6VM3PPKNy8Ri2x55b4Ir/c3u
+	CsTClUjccEHLQyeVT950kD7OaFW9ckEW4tE5DnulCpKZBgPrZf9ORPnQIB2lNYQg59fdCK1J6mu
+	O95Y99dnh07sJDTDDRMbB5L++dTNZd5r4URHUNx840TDeyR7FOYMFcVuGsB7FRt1ac+qosF9kdF
+	IRMY0nwnoyqRn4p/bfLHuD67ZP9u/85O6AQVLWHNpYNgJ2l57bvB277RHxWEJuL/zrmJsne1VPa
+	WGo0NvqX5aQqk5XeoyXgq9QLC72wvmCTfSaD25yYzqnh3MYUVwBSj+l6Xm/zQEB85B
+X-Received: by 2002:a05:600c:3511:b0:4ba:73f:ef5 with SMTP id 5b1f17b1804b1-4bb88828304mr482429785e9.34.1795757322788;
+        Thu, 26 Nov 2026 21:28:42 -0800 (PST)
+Received: from sergio-82n7.homenet.telecomitalia.it ([95.236.10.162])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853368d3sm649073745e9.1.2026.11.26.21.28.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:28:12 -0800 (PST)
-Date: Thu, 26 Nov 2026 23:27:47 -0600
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Inochi Amaoto <inochiama@outlook.com>, Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Anup Patel <anup@brainfault.org>, Guodong Xu <docular.xu@gmail.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Conor Dooley <conor.dooley@microchip.com>, Bo Gan <ganboing@gmail.com>
-Subject: Re: [PATCH v3 6/6] riscv: dts: spacemit: k3: Replace incorrect CLINT
- node with ACLINT nodes
-Message-ID: <yf2dawzefycxhhs7zkua3v3hoirals3wtr6rheh4li33eq7r4i@yb7cem4r6x3z>
-References: <20260918-k3-aclint-v3-0-cf4fd4050e14@pigmoral.tech>
- <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
+        Thu, 26 Nov 2026 21:28:42 -0800 (PST)
+From: Sergio Melas <sergiomelas@gmail.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-hwmon@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] hwmon: (yogafan) Support >2 fans and add additional Lenovo laptops
+Date: Fri, 27 Nov 2026 06:28:39 +0100
+Message-ID: <20261127052841.492895-1-sergiomelas@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,91 +96,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
+Content-Transfer-Encoding: 8bit
 
-Hi Junhui,
+Hi Guenter, all,
 
-On Fri, Sep 18, 2026 at 12:29:38AM +0800, Junhui Liu wrote:
-> The K3 implements separate ACLINT MSWI, MTIMER and SSWI devices. The
-> existing CLINT node at 0xe081c000 incorrectly describes the SSWI
-> register space in the non-secure window as a legacy CLINT.
-> 
-> The ACLINT register space is mapped at two base addresses: a secure
-> window at 0xf1810000 and a non-secure window at 0xe0810000. The
-> secure window exposes all three components, while the non-secure
-> window only exposes SSWI; the MSWI and MTIMER offsets are reserved
-> there. Moreover, depending on the eFuse configuration, the non-secure
-> window may be entirely inaccessible, whereas the secure window is
-> always available.
-> 
-> Replace the CLINT node with the three ACLINT devices, all using
-> secure-window addresses: MSWI and MTIMER for machine-level firmware
-> such as OpenSBI, and SSWI for supervisor software interrupts.
-> 
-> Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 SoC")
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  arch/riscv/boot/dts/spacemit/k3.dtsi | 43 +++++++++++++++++++++++++-----------
->  1 file changed, 30 insertions(+), 13 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> index c3f2dce0969c..74831974435e 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> @@ -1261,19 +1261,6 @@ saplic: interrupt-controller@e0804000 {
->  			riscv,num-sources = <512>;
->  		};
->  
-> -		clint: timer@e081c000 {
-> -			compatible = "spacemit,k3-clint", "sifive,clint0";
-> -			reg = <0x0 0xe081c000 0x0 0x4000>;
-> -			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-> -					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-> -					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-> -					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-> -					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-> -					      <&cpu5_intc 3>, <&cpu5_intc 7>,
-> -					      <&cpu6_intc 3>, <&cpu6_intc 7>,
-> -					      <&cpu7_intc 3>, <&cpu7_intc 7>;
-> -		};
-> -
->  		/* sec_i2c3: 0xf0614000, not available from Linux */
->  
->  		mimsic: interrupt-controller@f1000000 {
-> @@ -1305,5 +1292,35 @@ maplic: interrupt-controller@f1800000 {
->  			riscv,num-sources = <512>;
->  			status = "reserved";
->  		};
-> +
-> +		aclint_mswi: interrupt-controller@f1810000 {
-> +			compatible = "spacemit,k3-aclint-mswi";
-> +			reg = <0x0 0xf1810000 0x0 0x4000>;
-> +			interrupts-extended = <&cpu0_intc 3>, <&cpu1_intc 3>,
-> +					      <&cpu2_intc 3>, <&cpu3_intc 3>,
-> +					      <&cpu4_intc 3>, <&cpu5_intc 3>,
-> +					      <&cpu6_intc 3>, <&cpu7_intc 3>;
-> +		};
-> +
-> +		aclint_mtimer: timer@f1814000 {
-> +			compatible = "spacemit,k3-aclint-mtimer";
+Apologies for being away over the last few months due to a family
+illness, and thank you for taking care of the Yoga Pro 7 14IAH10
+(83KF) fix in the meantime. I am back actively maintaining yogafan and
+have audited the pending user-reported DSDT dumps.
 
-I think you'll need to also include the "riscv,aclint-mtimer" compatible
-here so that this DT can be used with upstream OpenSBI. OpenSBI doesn't
-include the spacemit specific compatible. OpenSBI boot prints this
-currently.
+This 2-patch series is based on hwmon-next (12c53b6b6):
 
-Platform Timer Device       : --- @ 0Hz
+- Patch 1/2 expands struct yogafan_config.paths from 2 to MAX_FANS (8)
+  and adds the 3rd tachometer field (FASF) for the Legion Pro 7
+  16AFR10H (83RU).
+- Patch 2/2 adds DMI quirks and documentation for 9 user-reported
+  Lenovo laptops (reusing existing yogafan_config structs wherever
+  identical).
 
-> +			reg = <0x0 0xf1814000 0x0 0x8000>;
-> +			reg-names = "mtimecmp";
-> +			interrupts-extended = <&cpu0_intc 7>, <&cpu1_intc 7>,
-> +					      <&cpu2_intc 7>, <&cpu3_intc 7>,
-> +					      <&cpu4_intc 7>, <&cpu5_intc 7>,
-> +					      <&cpu6_intc 7>, <&cpu7_intc 7>;
-> +		};
+To avoid merge conflicts and duplication, this series intentionally
+does not touch Yoga Pro 7 14IAH10 (83KF, already queued on hwmon fixes)
+or Yoga 9 2-in-1 14ILL10 (83LC, submitted separately on the list).
 
+Build-tested with W=1, checked with checkpatch.pl --strict --codespell
+(0 errors, 0 warnings), and documentation verified with
+SPHINXDIRS=hwmon make htmldocs.
 
-Regards
-Anirudh Srinivasan
+Best regards,
+Sergio
+
+Sergio Melas (2):
+  hwmon: (yogafan) Support more than two fans and add 3rd fan for Legion
+    Pro 7 16AFR10H
+  hwmon: (yogafan) Add support for additional Lenovo laptops
+
+ Documentation/hwmon/yogafan.rst |  21 ++++++
+ drivers/hwmon/yogafan.c         | 112 +++++++++++++++++++++++++++++++-
+ 2 files changed, 131 insertions(+), 2 deletions(-)
+
+-- 
+2.55.0
+
