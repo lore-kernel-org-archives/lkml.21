@@ -1,109 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.61
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795772994;
-	b=T6y9yI7zTiiGJYiog8WkpbOMm2QDZ1qJaFHnXBuJWTPU8CbcAkOx63Do98Uh8D80nhv0
-	 aOeU5xEEATnGS+DWgdaRJuhDTM1N0+6M7bqDaK4C64w3yBe6kb3v0jagCDzT9bfNbLm9B
-	 DRQh9x+Sukxut9yzdAHTrEYoK2Xz5RLc2WcsL7Ugm5MiWRYiJ1WzxU+qWFul85qYLCtxQ
-	 7iPX/RAhtw4sICiywbdeweMp+Dmx52bHeh5hR2Mk0Nkcw19luceYjNRzBON7sdhNxVFfy
-	 QMihkMX0LQ+FuKWcGqMckmd5jTUJ8k4Nji+wolMc2DQOn2yXRWkPs+mZsMkGzpFZtuQ==
+	t=1795772996;
+	b=2DTJARFQ1kPQ5CwotMiMukAd0XEkDVbisZUFjeXhgjrX7b2QXeHlseT/5u9A/35gYDZa
+	 c9H3Y2GIG2uHccocFEyXYYc93yPfaZ+LdcbwLkCqyZWzBrqFO3NysKDfNKppXnP0tMaiZ
+	 ojmN8C0BHWZCixNXmvXZ+RSK8j/IiZlux0EKVCmgtNyRCfBvOWWU5ap38+bIodwJRoti0
+	 iVGNkMkSy4IKCN+khnXDwbim9zJkIfB+yGfqdTYopKsHeX3EZg917f7vwmjOakxeQp8Hh
+	 O9fnVzD5bvNDiFHR5ALl+SsAG/iXyNroAEGrxpAwDeFR0yOpo9yxaKf//Yn8PjbzkWQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772994;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=pwXsbP/jvL3XdWIwS+9ELLZbXBDLGUC6BnoojJqdSrI=;
-	b=pDr/AxeKeZUNARe79o20wlY0HmvSzGREM3fmRhdL4+Pth3hKvrFm72d3R0p0zG8JrU6M
-	 CUkBKI2A96JO5/6Fk0A5GiN0f6gL1MjYMbPrHtcP+dBfEhiKYToX7Iw1MyehhBLVdmt38
-	 E7BKHQg96MVO0/IAcZtVcBCDv1uZTiw4IF0bbJVUUxj0pu9ezsVE+J/4V7nmmiQsFUKZz
-	 6IW2/QU5KPr6CvLFymZUXYWksl/osgtfXSsGDis0sfV9D55rWp7C8cXIIMR09A9W/IbrI
-	 Y23rF9MPyAVEHXFTTx52evszUpavbgspFfLqeh8CtKVBScqxIg65o9lMCHPovB6U8mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772996;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
+	b=aD+xEirrdDdDdvm7hYJFKMsxEq40e9vRfan+xMQuSAdNXEjC+m2nmnvnc/pZ+zvDH6FV
+	 X+42CQ8HHQit4IKO9xkgfY67BCrKW0BpmXagyrYLT71T8CaQqPprm/k9HRg5lO7nO3Cdl
+	 ophzdtz3rBbDLtNamhxub3v/goayMn1vumZs+JQzaMTKImoOcOEQRJDg3srfXmiLC3Mmq
+	 yXG0DpP/B85sAJ5oT3k+nM+z/cMkroPZzjypyM/ZYpWwrB8uEtQZY3UcUdVDvePd05P9Y
+	 7s+DhvQdw/7lsVs1OLQt9ZNzBWRgtCYFHsJ7Sv8KG5D4yHLaAtD6mzS9L0zsJLtK4Hw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=n0PFXSpy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.61
-Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010061.outbound.protection.outlook.com [52.101.69.61])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="t2V/yCNr";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 436EE606A32A;
-	Fri, 27 Nov 2026 09:49:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 436EE606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E34D5606A686
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:49:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E34D5606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=n0PFXSpy
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WJuva7BML0AuVwndaUNlTvAkxuOhs+Mr5s3GW/VEKjgGYeRUhRBUP6T3RSfavvwvhpOylAUzOPhO5ydAY4dqvtOANgshlGhUExe6wAvXRcOWSuwO0/9oulp7BfhYOOd7TTllrvKssdrETM9esszUYmx3sNLWrF+aNtqQ4VK9ub7USzVl5CW6mlB+0eNHNy/R/6aZqIDMk3yTdQMWskxUjz3SzQsucvL5zaKX14+qQojrb6DjLjbz8SzcXFOJjMxaXzNEcoC0LOtwXV8dQPhlK27uYVIl6v7t353/Q/To5G3TSw7hiNFiHaxeimaNyeS7oLOVvp7qyNEE8KoctpBiJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pwXsbP/jvL3XdWIwS+9ELLZbXBDLGUC6BnoojJqdSrI=;
- b=ewC9DBo6xVp46xNtew5omdl+SqfNAmyHCVK8NsI7IfgAdUIc3QPDgDSIphu01hsseF3Cbtvz7YXPb1vPe8F4wdxxSiAR6vnwamiCQ682mobYygVZNpMH+zt8d+5Hg+lLFi9yn4urBYW6xDZverKS8IyGgmicsjk4PWXldRIzhXs/mcXsGayxlSnYv+ixKZL6PnrR7dc8cLs44d/5RYMypkO7gQ9lo7+iyUX07b1YJ2z5ly5B042PQrNfXmesmRdiakmTtmYol4Hg5fQKYx1AwYLS4pu6wUFQXg2NXYSFi6f2fz4Zwv6AmN9x3diKjYfHy8xqkxti0Hu0MvjzOe8A+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pwXsbP/jvL3XdWIwS+9ELLZbXBDLGUC6BnoojJqdSrI=;
- b=n0PFXSpy2lO3CptKtlkCqm2R0dU2Bsd9sRiq1CqjNPNfouJI1ALOVtkDhsbX+0b0sOstjNRC+1u2dgaPh27xQrPSlvFJzSxtEfiF5qnTr2p5VOwisU7VDxYWYonKLoBIpkxlVGdeeYvkiqsUB/B0KYLPrb2mXaA41bKAWFgTXes7Maw17eX2+CeBYLUkb39yJeIWNWZgkr5BXXLO7D13edPrUNWooC48Q87czwJZ85xIGFVtJPdVBt+TqyHl/nM6BVXKy2+jtYrsPEeIj65+UST6vcy4Td9ALdC+lur8fk1BuR0yDIGQvNkdJOlCcfcTXuFXYXg4CgULR4S+6jXm8Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from BR2PPF9D47B45B4.eurprd04.prod.outlook.com (2603:10a6:2d0::cd)
- by MI3PR04MB088318.eurprd04.prod.outlook.com (2603:10a6:290:99::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 09:49:50 +0000
-Received: from BR2PPF9D47B45B4.eurprd04.prod.outlook.com
- ([fe80::6e42:6ee4:6b13:69cd]) by BR2PPF9D47B45B4.eurprd04.prod.outlook.com
- ([fe80::6e42:6ee4:6b13:69cd%7]) with mapi id 15.21.0639.012; Fri, 27 Nov 2026
- 09:49:50 +0000
-From: xiaoning.wang@oss.nxp.com
-To: netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	daniel.baluta@oss.nxp.com,
-	frieder.schrempf@kontron.de
-Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Clark Wang <xiaoning.wang@nxp.com>
-Subject: [PATCH net-next V2 2/7] net: enetc: netc-blk-ctrl: factor out common link MII protocol helpers
-Date: Fri, 27 Nov 2026 17:47:24 +0800
-Message-ID: <20261127094729.1061755-3-xiaoning.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
-References: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0008.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::14) To BR2PPF9D47B45B4.eurprd04.prod.outlook.com
- (2603:10a6:2d0::cd)
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=t2V/yCNr
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8a52db5f9so9639443a12.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:49:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795772994; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cE2HL0Nj/GWJjoD0shZw+TpuHFGfiDVBpS9WJWyKLJ32mBs3M9hXi7AvGVHslSwl4d
+         MeGmOdqLUKVJrvdn+yRGnQ04PalDJaVy5xjvsjdXcRO6g3NNlW1RNSfBuafdtvfwCOfI
+         JO4IwDzLKmi2iSj6cWGiGMg98diVHsPyZUujDXkwvWV5jhFSjWfmu5nUgKSvwr4oJA86
+         OsDxG7kRKtIJHoU3XOqp3tw5T7Tk/amx61nWSxSOHniCbBH3k4KAo/CYUxYZeqxF7SHr
+         jOMbw2AhhD5WJSZcDUhGbPHczP7eEACSdOYXUwHbKaTa8KCejpAbxm3/MTPMvDXK4GtH
+         ntvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
+        fh=8fKISH8614MLJ0ee8WDvqHxpxeLz/vyfRBHB9QpbkUU=;
+        b=rVVvXQzR0uSAKGXu01f57s0njahnUAqXcu9cSA0Lf6+MpJ1BBfepGDKRuILnfVlvmz
+         EvVJdKMw/W0PkOSxZ6Tjo9FFER7tr7UMPNVIBOTYCbdQ1BOqv6nF0y5NLPaalqcVAzT8
+         az53M/Lsk6l5UQxwwLhvWNmT7iwWY/fnk8+ZD02nj2cZPsPtZh5DdRlrXoJqBxkXsVFW
+         ru5de9WospT08sTN6AXZNLK22VCPeiE+2f7Pe0YqlWb0k4yjcgz/aVB1pSlOP2GY0pK8
+         fHefXvjtTEc/WHBkjm3dcWSHSnT6n0MJr9YkiOeijXhhA+YqY/qNtEz8qEF6Wk3OV6mU
+         c3gA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795772994; x=1796377794; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
+        b=t2V/yCNrI2uPjbcMFiS5DiwrzJdln2YJB7eKH+xMY4aq/NfHJ1wHiRnVj5rvW5h15s
+         QtyQsOaSHUYkGmajiRNVwbGbcC+MwMwJgsz5ahGepNNdg+Ilk/IH/kYRvf9aGDp+4MNF
+         OwBwU2MiEZ58dWZLY9lQ6ffhgJVFC/C6yiYW9S050i36u1cbXf73NtVnjvA3QlelFSrH
+         vu8MYoafMBF3vjN6gUPXNq/Y3FxJj+M5K7pEziRqHpL7/xG9AJitmYSQfM1M/TfDAQZ5
+         6xatHOB5Lu0ID13dSVOOGjvbnsC0OJjpBCmxSHuImzAnVOT/fB9ntw1P/n3wWS8Eddny
+         rr7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795772994; x=1796377794;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GPGFP4sreEa8pcqEXU6GZ2Nw6FWeow+EWOPTmXiDvGA=;
+        b=Bk79vK1ql18RCDSerdqMMgLZRwEeBIaNLhPZMRkfVJJQipE8mI+qDVgcMoBEQKcTg/
+         iImNZ0RwJGhOryscJ0R9xTa7C5D54NENR4N7E5yM3S6c3KRM36gm2TuuuRRwYY0hGP9I
+         hbdb19f0MThUL9iY1WVaUw+5lFO9w0YJB5r2R2s6L+j+Gd9lwrCstbRlwdAlWGQC1tu/
+         Nw3URBiaZ1EUT07nbnyRwdJbsWSkR3yHFd+t1efW892KNhqETXSpHNMpv0MYIJ4vlfNK
+         bAoFXahjtJNuAhSnUopWGg9MFzKowVLOra4WMXcgVnQ2lOl5fpw8bG4dSoCAkrBIhZia
+         DB6Q==
+X-Forwarded-Encrypted: i=1; AL+hErGUyG3Pt7SUJuim/qcB2DVHtTZXgbcY9C7JzKjoGMpH+zKK8BR2LNmTgsU5yY2Sfg5/h31WZVoqdlKKw7w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Cpo+S1ATVvFH1mZcvoHS1Vey0PrS4bhKnAm00WEjzbWkO0fWH
+	JlgV0ZiMAU57TlWJlCqqdYDMNO0KtaFVWMRAzKz2H4SLkbWI3DtZq+ZqpGwfzk+xiyiLJj5KdzO
+	7JqMtxX3MwIXMyS5ytleHbwCkULUBbJ6Nz4NrhgboBw==
+X-Gm-Gg: AZFdTZeXmVsvVIppGVfrl8CQIoDWCjIC3dHjMXJXnbYjqSln2FsdsJfzSHVQqsdMm2s
+	gBsbpP/krKEThanlccN3PJyWZ8lmefgdkuwJ/NO62OIUgBEtRk4QcHeGtWDyAQTiewK5WcfGgB1
+	geTzFonM1UiIimKTQ92MCUsGWEUr2F+idx8MruTnhDHYGeeYYgaL1Fu+ZGMHDN4knrt0RoTaDqX
+	0Yf6e0Lyjedjzv9UOHOuhc1fn6cjdhF7pCLkt1IOzMXBHVVngNncHFks2wasGPoMDpL9EENyETn
+	1AUIiLmbfC+KuKj+EDa05MfRNvzNzo/0pDHFwZHPeMZ4lF4k/eUZzY/w/EXO56+ojhtyNrGLLZy
+	VxAywI3a3wzAufPyClWYsIYt+Ldk6fCaZ49afKAsjvCT8geNYJgrRf+5shYpZBzIVarjK3w==
+X-Received: by 2002:a05:6402:4019:b0:6b1:ca87:c588 with SMTP id
+ 4fb4d7f45d1cf-6ba37eb9c13mr20096021a12.37.1795772993605; Fri, 27 Nov 2026
+ 01:49:53 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,326 +104,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BR2PPF9D47B45B4:EE_|MI3PR04MB088318:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93ae7dac-2f22-4eb3-50bb-08df4c6bc79a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|7416014|56012099006|10067099003|261026140227099003|261026121527099003|261022105027099003|261022075727099003|261021121427099003|261021123027099003|261028144727099003|261102123227099003|261009223027099003|18002099003|22082099003|11063799006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	+Dvby42jtOenbX7xdUv8d4zEBiO/ciqW1RIKButnT0rnWnIs/v0Dr4E7NLwsw8kR19n6Mp/u3XKRuhpfhyHp/GZT/RjKTg4cIS3Ajg26Q1/j11m+eSUhgYte2TFsX3bnW20jd3JFFiUFv1oKFLdMHTAe+PW0Rsj7p1fW8IwJTnA1qsk/2CWAq/QfYULdAwgHN3jQiqjtPwpzWVWwiCmdOMjSCyPCJx/vlKClKRQTGviLJvDIoMxzmY6/SeTyf1ZS6v5sPfEMrMLrQnqRDEnf8gc30sv+xmnQFVlMhDVLnIMnbi2SoftxQwLq0voy7lI20a/z0+Xo4npgpaW1oSrB6faNE49YDyhq1B64plT0SkTEvJAIXuMdVFRgdKkXueIbpeLm1hsBCNJJajRJzFAIB/ezn1nse2u5XMe0Zpddo6u/7W+knQ6NORKB1iiCwk2LFCYGa/Vj7lC/PPSyTaEbxMhsRgS+91Rb22MTAnVPkAQJCU7dVOv98VluvTIyBiwiO9/X6yLIXK66tw/ye//x/z2uFmnrsFkcIxvcnYYk57bwoXcRHTw12uQiaUS9BbzccHe8iMPOA1Z5w/GPA/U5ScD2lj3KQB0LiZTotuemndHvgCDWGwbHPC0Ax4aAbSIKYHP+N9iASjHAxY8ZfgmTLA0n2GrMUYINn6/y3ILUfdY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BR2PPF9D47B45B4.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(7416014)(56012099006)(10067099003)(261026140227099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021121427099003)(261021123027099003)(261028144727099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(11063799006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?4zB/LeUnpIW1T1OxFaq7ckMvNQVvXHZ2OMExAgrutDzlfFhkgZOecjoZpd+f?=
- =?us-ascii?Q?1hvluk7wnemNOO8S8MUBKxgTt5Mp3Sx9zABCglIgZIPtNhVYyJcm8HMW3WZT?=
- =?us-ascii?Q?6gq2vaa0HlCOLW/ljVjKmHCcti0dMj2yxPs2gCXYoeiUV0NEFIFp/hpH6YVS?=
- =?us-ascii?Q?TIKyRx549mpZO1s6ijWTc410oREzaH6CZKBkawKmdTLP4EOIioeqH0YDF2K9?=
- =?us-ascii?Q?QvNrHUueiDnRV6PPhJH2FfAhnaJSy5X3JJ/9ykb+FAFGj4Uwgk5qxgRHysld?=
- =?us-ascii?Q?/shfqFkEVkeFhf6vRp7hs2Peev9J6Jt2Si2Kwj0seb8+ShNQGCSxRh4BVCSb?=
- =?us-ascii?Q?iGK7l1AFqYCOHWhmFMnTZZw3ZQAhecy80jTgTHlEbSbJygXmX2IF/alZWzN3?=
- =?us-ascii?Q?3+sTilkdFrr7ggIDf2Rvc8BehMdA4PcX0TMx/DRrmVlQdOZCVn+RA0N3T2G/?=
- =?us-ascii?Q?KCM6IbeUeBltKL8FnvDlPX1DwRXMFyMy1udejUZM7u7K2e++Lf12RnrI0VW1?=
- =?us-ascii?Q?+HS543ESnwlFOi60KHz0rRlKuTdRt3Cj17KDRImIqNeMWWjx1T3fNkcfurpn?=
- =?us-ascii?Q?42fCoKkTUdYtJq1T6sYGhqOeMqWoZ37/nn0c644V47AaF3BrPnWolZGd+iug?=
- =?us-ascii?Q?CbUY0Q1fjipVhB3pqUyTub4zIUr1u7U3g3pwXllPXtz+4Z+lTPg2r3t9oSNw?=
- =?us-ascii?Q?tTtjcJgY8iiPadKjqj00a7ZYB2YZmkygDANyS2Ncv9zmhNjk94W4ykJHYih0?=
- =?us-ascii?Q?qEQ0XFkSC3nJWbmSJiYYm8srH8W/0nVlAudUsfMLn/EIuuJJQXyRR2OfRRLK?=
- =?us-ascii?Q?1l2fmYDtzAM0CuYd9uLc5Re8j47zDS1ox6udWpL7nInJnSmVcZDCHjf1tEC8?=
- =?us-ascii?Q?fJUD3inr5LFzb9CPJMGA0V9hSe2SimG6vsYBkTd2csG6r0obJTxtSQyMoF2j?=
- =?us-ascii?Q?k1ORq36Ff/b6QGB/rUodipP4ibQdcdGawIFyxtN7Tz7nFVgEW5e4UkFPF08R?=
- =?us-ascii?Q?18puJz4YI9KtG6exCXset0W1r1zHuj9NxNToPydgMqLXpTp+n/v19VanBUQ+?=
- =?us-ascii?Q?ySLxDKEp90AeLaZE86zgYyabk9h6w8acxgb+UVQ/Rp2ZqfGj9RbjwWNNGEWg?=
- =?us-ascii?Q?PgLZuopWGeLjGhtm5bi895LBK5xL2OysSuJq0idK3aj+z/vo7OIARbTHwkzI?=
- =?us-ascii?Q?Vs+Xba6m9JINDtvNiNLW3Znbzo5AYLyolaiif+u1uFvrNBN1yb18OX5rRVhV?=
- =?us-ascii?Q?ATeXhlkZ5AlQNc5zIMdpPfN5rtwwAJHnFW7XCKUt4qjRAQleGUly/hXmRDiB?=
- =?us-ascii?Q?T0affpjdumDczB8Nr7PVCbN5n0QfrJwdqLYnpEBHnmpqU/8pJfpbUjC1Ij8p?=
- =?us-ascii?Q?ksElij85iXT55phW2pmmkUOcGwBNtDzhNHYFVpJE+teVRnyvTk4lhsSU9RZ+?=
- =?us-ascii?Q?XBQAbcTl1cI2r8lypCk3pcStHuh9JSG6Rs8Nw0e/hI1cr133Aey5e+W6LGXQ?=
- =?us-ascii?Q?IEEFnFGfdQqNEJkN6g9ssFJS1CH8C/YFqMLpMO/EXfap4TiiwYSiQTs6rDpU?=
- =?us-ascii?Q?SKQumdWFKCJ3j91bQb8JOOf5fBvqXn0yT57fb5jGzWMou5wYOatiZgTnE+ce?=
- =?us-ascii?Q?hMpIWRdDv7nx/v+K6ZcqVBcLTZB0BHYLIcffhB36FR6iuKZ34IpzJNyuXSYg?=
- =?us-ascii?Q?EU5SPmLTS5BCY4PnSkpS1Yx0F2xW0G47KCz5aHH2/Sxnb8PEa8pj65Godfk0?=
- =?us-ascii?Q?5+63p/6rmm+XgBLu1bG5boEpmAsuVogduEKTiqpq53JC4ZxsJvIUOTaWTmeW?=
-X-MS-Exchange-AntiSpam-MessageData-1: SFcN/CdNkcQf7A==
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93ae7dac-2f22-4eb3-50bb-08df4c6bc79a
-X-MS-Exchange-CrossTenant-AuthSource: BR2PPF9D47B45B4.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 09:49:50.5498
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KtIYXdu3lJ4kbvrMOlgvr5K0c7PZZGQUBWdrs0Py+4J8/bgbpVQa9Su27PTs8gESPAIzNniYeO+IVCQFrSh3znMHXYFir5zyG76wUU0Sbyf+Kd38lnzgcnI9Dyctp8Ou
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB088318
+References: <20261127083542.3172843-1-christian.loehle@arm.com>
+In-Reply-To: <20261127083542.3172843-1-christian.loehle@arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Fri, 27 Nov 2026 10:49:39 +0100
+X-Gm-Features: Aa3M54rjnnVhSXL35BlQDgTZhZnFpsdADZDYLiRCLnKpoPpo2Ju2HPDXgLMZins
+Message-ID: <CAKfTPtB67yXDi84yXy3=x2znRYt5huQNiHDK-0KYxAcezHhULg@mail.gmail.com>
+Subject: Re: [RESEND][PATCH 0/2] sched/uclamp: Fix dequeue accounting across
+ static-key updates
+To: Christian Loehle <christian.loehle@arm.com>
+Cc: mingo@kernel.org, peterz@infradead.org, qyousef@layalina.io, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, jstultz@google.com, 
+	kayracizmeci@gmail.com, wvw@google.com, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Clark Wang <xiaoning.wang@nxp.com>
+On Fri, 27 Nov 2026 at 09:35, Christian Loehle <christian.loehle@arm.com> w=
+rote:
+>
+> Static-key updates can let enqueue account a task before dequeue observes
+> uclamp as enabled. Patch 1 checks the task's effective UCLAMP_MIN active
+> flag on dequeue, so accounted clamps are released regardless of static-ke=
+y
+> update progress. The early check keeps the unused dequeue path short, and
+> enqueue retains its static key.
+>
+> Patch 2 picks up Qais's idle-flag wrapper cleanup from v7 [1].
+>
+> The measurements below are for patch 1 on v7.4-rc4, before adding patch 2
+> and rebasing. Each cell gives fix / always-on percentage changes versus
+> unfixed, with CONFIG_UCLAMP_TASK=3Dy throughout. The unfixed and fixed
+> kernels keep the uclamp key disabled while always-on performs accounting.
+>
+> Nine fresh boots per variant, 20 measured repetitions per boot. Changes
+> are geometric means of paired boot-median ratios.
+> Positive time/latency is slower, positive throughput is faster.
+>
+>  Workload / metric              =E2=94=82 i7-13700K: fix / always-on =E2=
+=94=82 Xeon: fix / always-on =E2=94=82 Orion: fix / always-on
+> =E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80
+>  messaging-processes / seconds  =E2=94=82        (-0.06%) / (+0.09%) =E2=
+=94=82   (-0.40%) / (-0.21%) =E2=94=82      -0.38% / (-0.31%)
+>  messaging-threads / seconds    =E2=94=82        (-0.19%) / (+0.05%) =E2=
+=94=82       -0.86% / -1.77% =E2=94=82    (+0.10%) / (+0.11%)
+>  pipe-processes / usec_per_op   =E2=94=82          (+0.18%) / +1.56% =E2=
+=94=82    (-0.002%) / +2.41% =E2=94=82        -1.17% / +1.19%
+>  pipe-threads / usec_per_op     =E2=94=82            -0.78% / +0.88% =E2=
+=94=82     (+0.01%) / +2.91% =E2=94=82    (-1.61%) / (+0.53%)
+>  schbench-256k / rps            =E2=94=82       (+0.002%) / (-0.04%) =E2=
+=94=82    (+0.004%) / -0.05% =E2=94=82    (-0.20%) / (+0.03%)
+>  schbench-256k / wakeup_p99_us  =E2=94=82        (+0.42%) / (+0.51%) =E2=
+=94=82    (+2.33%) / +10.62% =E2=94=82    (-1.44%) / (-0.37%)
+>  schbench-4096k / rps           =E2=94=82        (+0.00%) / (+0.00%) =E2=
+=94=82   (+0.00%) / (+0.00%) =E2=94=82    (+0.00%) / (+0.00%)
+>  schbench-4096k / wakeup_p99_us =E2=94=82        +32.68% / (+12.93%) =E2=
+=94=82  (-10.66%) / (+2.71%) =E2=94=82      (+3.03%) / -6.99%
+>  tcp-stream-1024 / Mbps         =E2=94=82          (-0.24%) / -0.69% =E2=
+=94=82       -0.61% / +1.07% =E2=94=82      +0.36% / (-0.52%)
+>  tcp-stream-16384 / Mbps        =E2=94=82          (-0.03%) / -0.29% =E2=
+=94=82       -0.57% / +0.23% =E2=94=82    (+1.04%) / (-0.82%)
+>  tcp-stream-64 / Mbps           =E2=94=82         (+3.05%) / +18.60% =E2=
+=94=82    (+0.12%) / +23.54% =E2=94=82        +2.50% / +2.09%
+>  tcp_rr / transactions_per_sec  =E2=94=82          (-0.57%) / -1.68% =E2=
+=94=82       -0.66% / -1.33% =E2=94=82      (+0.10%) / -1.58%
+>  udp-stream-1024 / rx_Mbps      =E2=94=82        (+0.19%) / (+0.17%) =E2=
+=94=82   (-0.41%) / (+0.32%) =E2=94=82      -1.58% / (-0.63%)
+>  udp-stream-128 / rx_Mbps       =E2=94=82        (-0.82%) / (-0.15%) =E2=
+=94=82     (-0.38%) / +1.54% =E2=94=82        -1.31% / -0.69%
+>  udp-stream-16384 / rx_Mbps     =E2=94=82        (-0.31%) / (-0.49%) =E2=
+=94=82       -0.35% / +0.30% =E2=94=82        -1.52% / +0.61%
+>  udp-stream-2048 / rx_Mbps      =E2=94=82        (+0.02%) / (+0.06%) =E2=
+=94=82   (-0.24%) / (-0.09%) =E2=94=82      -1.18% / (-0.74%)
+>  udp-stream-256 / rx_Mbps       =E2=94=82        (+0.33%) / (+0.29%) =E2=
+=94=82       -0.72% / +1.56% =E2=94=82        -1.76% / -0.86%
+>  udp-stream-3312 / rx_Mbps      =E2=94=82        (+0.38%) / (-0.07%) =E2=
+=94=82   (-0.04%) / (+0.14%) =E2=94=82      -1.18% / (-0.54%)
+>  udp-stream-4096 / rx_Mbps      =E2=94=82        (-0.06%) / (+0.22%) =E2=
+=94=82   (-0.24%) / (+0.08%) =E2=94=82      -1.31% / (-0.66%)
+>  udp-stream-64 / rx_Mbps        =E2=94=82        (-0.18%) / (-0.17%) =E2=
+=94=82       -0.57% / +1.20% =E2=94=82        -1.51% / -1.45%
+>  udp-stream-64-pinned / rx_Mbps =E2=94=82        (-0.94%) / (+0.90%) =E2=
+=94=82     (-0.28%) / +1.63% =E2=94=82      -1.21% / (-0.30%)
+>  udp-stream-8192 / rx_Mbps      =E2=94=82          (-0.25%) / -0.39% =E2=
+=94=82       -1.54% / -1.01% =E2=94=82      -0.96% / (+0.15%)
+>  udp_rr / transactions_per_sec  =E2=94=82          (-0.72%) / -1.69% =E2=
+=94=82       -0.94% / -1.55% =E2=94=82        +0.44% / -1.84%
+>
 
-This prepares for adding i.MX952 NETC blocks control support without
-duplicating the NETCMIX link configuration loop.
+I rerun the test on my dragon rb5 with patch 1and  perf sched pipe -T,
+perf cpufreq gov and only WFI:
+- on big, the diff is -0.68% (+/- 0.32%)
+- on medium it's -1.35% (+/- 0.58%)
+- and on little it's -3.99% (+/- 0.56%)
 
-Refactor the NETCMIX link MII protocol configuration so that common logic
-can be reused across platforms:
-- Introduce struct netc_link and add a per-platform table to struct
-  netc_devinfo mapping PCIe bus/devfn to NETC link IDs.
-- Add netc_of_get_link_id() to replace platform-specific bus/devfn to
-  link ID switches in both i.MX95 and i.MX94.
-- Add netc_of_get_link_mii_protocol() to share the 'phy-mode' to MII
-  protocol parsing between imx94_link_config() and the IMX95-style
-  NETCMIX configuration path.
-- Factor out imx95_netcmix_get_mii_prot() from imx95_netcmix_init().
+That being said, I don't have a better solution so far ... So although
+I always favor putting this kind of feature behind a static key to
+avoid penalizing non-users, if others are fine with it, the solution
+is okay with me too
 
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
----
- .../ethernet/freescale/enetc/netc_blk_ctrl.c  | 150 +++++++++++-------
- 1 file changed, 93 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-index 658fab31e9ed..6f6ed66436f3 100644
---- a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-+++ b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-@@ -32,12 +32,11 @@
- #define  IO_VAR(port, var)		(((var) & 0xf) << ((port) << 2))
- 
- #define IMX95_CFG_LINK_MII_PROT		0x4
--#define CFG_LINK_MII_PORT_0		GENMASK(3, 0)
--#define CFG_LINK_MII_PORT_1		GENMASK(7, 4)
- #define  MII_PROT_MII			0x0
- #define  MII_PROT_RMII			0x1
- #define  MII_PROT_RGMII			0x2
- #define  MII_PROT_SERIAL		0x3
-+#define  MII_PROT_MASK(port)		(GENMASK(3, 0) << ((port) << 2))
- #define  MII_PROT(port, prot)		(((prot) & 0xf) << ((port) << 2))
- 
- #define IMX95_CFG_LINK_PCS_PROT(a)	(0x8 + (a) * 4)
-@@ -78,6 +77,9 @@
- #define IMX95_ENETC0_BUS_DEVFN		0x0
- #define IMX95_ENETC1_BUS_DEVFN		0x40
- #define IMX95_ENETC2_BUS_DEVFN		0x80
-+#define IMX95_ENETC0_LINK		0
-+#define IMX95_ENETC1_LINK		1
-+#define IMX95_ENETC2_LINK		2
- 
- #define IMX94_ENETC0_BUS_DEVFN		0x100
- #define IMX94_ENETC1_BUS_DEVFN		0x140
-@@ -95,8 +97,15 @@
- /* Flags for different platforms */
- #define NETC_HAS_NETCMIX		BIT(0)
- 
-+struct netc_link {
-+	u32 bus_devfn;
-+	u8 link_id;
-+};
-+
- struct netc_devinfo {
- 	u32 flags;
-+	const struct netc_link *links;
-+	unsigned int num_links;
- 	int (*netcmix_init)(struct platform_device *pdev);
- 	int (*ierb_init)(struct platform_device *pdev);
- };
-@@ -156,18 +165,44 @@ static int netc_get_link_mii_protocol(phy_interface_t interface)
- 	}
- }
- 
--static int imx95_netcmix_init(struct platform_device *pdev)
-+static int netc_of_get_link_mii_protocol(struct device_node *np)
- {
--	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
--	struct device_node *np = pdev->dev.of_node;
- 	phy_interface_t interface;
--	int bus_devfn, mii_proto;
--	u32 val;
--	int err;
- 
--	/* Default setting of MII protocol */
--	val = MII_PROT(0, MII_PROT_RGMII) | MII_PROT(1, MII_PROT_RGMII) |
--	      MII_PROT(2, MII_PROT_SERIAL);
-+	/* The node may be disabled and does not have a 'phy-mode'
-+	 * or 'phy-connection-type' property.
-+	 */
-+	if (of_get_phy_mode(np, &interface))
-+		return -ENODEV;
-+
-+	return netc_get_link_mii_protocol(interface);
-+}
-+
-+static int netc_of_get_link_id(struct netc_blk_ctrl *priv,
-+			       struct device_node *np)
-+{
-+	const struct netc_devinfo *devinfo = priv->devinfo;
-+	unsigned int i;
-+	int bus_devfn;
-+
-+	bus_devfn = netc_of_pci_get_bus_devfn(np);
-+	if (bus_devfn < 0)
-+		return bus_devfn;
-+
-+	for (i = 0; i < devinfo->num_links; i++) {
-+		if (devinfo->links[i].bus_devfn == bus_devfn)
-+			return devinfo->links[i].link_id;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int imx95_netcmix_get_mii_prot(struct netc_blk_ctrl *priv, u32 *val,
-+				      u32 fixed_links_mask)
-+{
-+	struct device_node *np = priv->pdev->dev.of_node;
-+	int link_id, mii_proto;
-+	u32 reg = *val;
- 
- 	/* Update the link MII protocol through parsing phy-mode */
- 	for_each_available_child_of_node_scoped(np, child) {
-@@ -175,36 +210,43 @@ static int imx95_netcmix_init(struct platform_device *pdev)
- 			if (!of_device_is_compatible(gchild, "pci1131,e101"))
- 				continue;
- 
--			bus_devfn = netc_of_pci_get_bus_devfn(gchild);
--			if (bus_devfn < 0)
--				return -EINVAL;
-+			link_id = netc_of_get_link_id(priv, gchild);
-+			if (link_id < 0)
-+				return link_id;
- 
--			if (bus_devfn == IMX95_ENETC2_BUS_DEVFN)
-+			if (fixed_links_mask & BIT(link_id))
- 				continue;
- 
--			err = of_get_phy_mode(gchild, &interface);
--			if (err)
-+			mii_proto = netc_of_get_link_mii_protocol(gchild);
-+			if (mii_proto == -ENODEV)
- 				continue;
--
--			mii_proto = netc_get_link_mii_protocol(interface);
- 			if (mii_proto < 0)
--				return -EINVAL;
-+				return mii_proto;
- 
--			switch (bus_devfn) {
--			case IMX95_ENETC0_BUS_DEVFN:
--				val = u32_replace_bits(val, mii_proto,
--						       CFG_LINK_MII_PORT_0);
--				break;
--			case IMX95_ENETC1_BUS_DEVFN:
--				val = u32_replace_bits(val, mii_proto,
--						       CFG_LINK_MII_PORT_1);
--				break;
--			default:
--				return -EINVAL;
--			}
-+			reg &= ~MII_PROT_MASK(link_id);
-+			reg |= MII_PROT(link_id, mii_proto);
- 		}
- 	}
- 
-+	*val = reg;
-+
-+	return 0;
-+}
-+
-+static int imx95_netcmix_init(struct platform_device *pdev)
-+{
-+	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-+	u32 val;
-+	int err;
-+
-+	/* Default setting of MII protocol */
-+	val = MII_PROT(0, MII_PROT_RGMII) | MII_PROT(1, MII_PROT_RGMII) |
-+	      MII_PROT(2, MII_PROT_SERIAL);
-+
-+	err = imx95_netcmix_get_mii_prot(priv, &val, BIT(IMX95_ENETC2_LINK));
-+	if (err)
-+		return err;
-+
- 	/* Configure Link I/O variant */
- 	netc_reg_write(priv->netcmix, IMX95_CFG_LINK_IO_VAR,
- 		       IO_VAR(2, IO_VAR_16FF_16G_SERDES));
-@@ -216,37 +258,15 @@ static int imx95_netcmix_init(struct platform_device *pdev)
- 	return 0;
- }
- 
--static int imx94_enetc_get_link_id(struct device_node *np)
--{
--	int bus_devfn = netc_of_pci_get_bus_devfn(np);
--
--	/* Parse ENETC link number */
--	switch (bus_devfn) {
--	case IMX94_ENETC0_BUS_DEVFN:
--		return IMX94_ENETC0_LINK;
--	case IMX94_ENETC1_BUS_DEVFN:
--		return IMX94_ENETC1_LINK;
--	case IMX94_ENETC2_BUS_DEVFN:
--		return IMX94_ENETC2_LINK;
--	default:
--		return -EINVAL;
--	}
--}
--
- static int imx94_link_config(struct netc_blk_ctrl *priv,
- 			     struct device_node *np, int link_id)
- {
--	phy_interface_t interface;
- 	int mii_proto;
- 	u32 val;
- 
--	/* The node may be disabled and does not have a 'phy-mode'
--	 * or 'phy-connection-type' property.
--	 */
--	if (of_get_phy_mode(np, &interface))
-+	mii_proto = netc_of_get_link_mii_protocol(np);
-+	if (mii_proto == -ENODEV)
- 		return 0;
--
--	mii_proto = netc_get_link_mii_protocol(interface);
- 	if (mii_proto < 0)
- 		return mii_proto;
- 
-@@ -264,7 +284,7 @@ static int imx94_enetc_link_config(struct netc_blk_ctrl *priv,
- 				   struct device_node *np,
- 				   bool *enetc0_en)
- {
--	int link_id = imx94_enetc_get_link_id(np);
-+	int link_id = netc_of_get_link_id(priv, np);
- 
- 	if (link_id < 0)
- 		return link_id;
-@@ -870,14 +890,30 @@ static int netc_prb_check_error(struct netc_blk_ctrl *priv)
- 	return 0;
- }
- 
-+static const struct netc_link imx95_links[] = {
-+	{ IMX95_ENETC0_BUS_DEVFN, IMX95_ENETC0_LINK },
-+	{ IMX95_ENETC1_BUS_DEVFN, IMX95_ENETC1_LINK },
-+	{ IMX95_ENETC2_BUS_DEVFN, IMX95_ENETC2_LINK },
-+};
-+
-+static const struct netc_link imx94_links[] = {
-+	{ IMX94_ENETC0_BUS_DEVFN, IMX94_ENETC0_LINK },
-+	{ IMX94_ENETC1_BUS_DEVFN, IMX94_ENETC1_LINK },
-+	{ IMX94_ENETC2_BUS_DEVFN, IMX94_ENETC2_LINK },
-+};
-+
- static const struct netc_devinfo imx95_devinfo = {
- 	.flags = NETC_HAS_NETCMIX,
-+	.links = imx95_links,
-+	.num_links = ARRAY_SIZE(imx95_links),
- 	.netcmix_init = imx95_netcmix_init,
- 	.ierb_init = imx95_ierb_init,
- };
- 
- static const struct netc_devinfo imx94_devinfo = {
- 	.flags = NETC_HAS_NETCMIX,
-+	.links = imx94_links,
-+	.num_links = ARRAY_SIZE(imx94_links),
- 	.netcmix_init = imx94_netcmix_init,
- 	.ierb_init = imx94_ierb_init,
- };
--- 
-2.43.0
-
+> Separately, paired log-ratio t-tests with Holm correction across the 69
+> fix-versus-unfixed comparisons retained only significant regression:
+> Xeon UDP_STREAM 8 KiB throughput =E2=88=921.54%.
+>
+> [1] https://lore.kernel.org/r/20261126012836.15205-3-qyousef@layalina.io
+>
+> Christian Loehle (1):
+>   sched/uclamp: Always account active clamps on dequeue
+>
+> Qais Yousef (1):
+>   sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
+>
+>  kernel/sched/core.c  | 27 +++++++++++++--------------
+>  kernel/sched/sched.h | 10 ++++++++++
+>  2 files changed, 23 insertions(+), 14 deletions(-)
+>
+>
+> base-commit: 029fd68a263364583b6f9b34d22761acf0a3940c
+> --
+> 2.34.1
