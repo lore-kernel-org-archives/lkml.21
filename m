@@ -1,110 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=67.231.145.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795772373;
-	b=by44GWTVpKgirBpZjDZkjtrX/+nr7968PM2++HDEB2wpU+j6/S5NdL04RID8kkci4I8Y
-	 kEgsEPhBoJVMcyqmSzbQM2XlUqrvQiDCj7oWgUBJ8VpPsZr+l+7vQIx5vUNw45yOZiGkd
-	 zZ76xMOdgORUZYfzSLIisHPvxTDXl0n7de/Gowrr5CSI1WrlvqS51oVPH38/M0I16LT5M
-	 gF7FkXMDaE9aPd/jC2y2EllSoKUOtVun7Z5rjdDtJWO11sVycL8ogCckJC3xdB/0+LjeX
-	 tA2pQuen7/vu/RMQq9QvPJFKWLc8ApfRL2GnqKvKowa9klbXmk4LggvgxVNt5cZsnwA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772373;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version;
-	bh=K0z9LEZHumUAUHG3YdMFAeVsWg1NsvibU7Iun+HCcQE=;
-	b=YNRG1hVoXAtJSAiITl8rcVL/oMoLfFJ3EEg+saqXiAJLUAFX2yYLUkt7zt5J0usTFux3
-	 GCylEnDHBF+sIKSKe3nyCr8obSp60NzxSlyhSRy/43eVxny6pIQZwy56dMhQ6gHr14bBz
-	 sM7/q1S18SvQFrmUymjteVIPQHgnuTJLKWYwWHxowOlCaq0HqfNAIeW8kho912gaA7vOq
-	 kJd4n8VdQXm7MTaZs/qPSHrSE9V/6Vtl9ikbhlQhM+Ih7U7kL/lVwytWIGj/IV6YYt8q2
-	 xcBt7AgonntTbdxwb/Jwv9keUM5ULj6DpuaczCrhISj7DVMcEF0Ca5MhXV3O3F4Prrw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=Cl2qQFTv;
-	arc=fail smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795772396;
+	b=Yooyhsdv3VB0eHre6V7K4iLG+hkZcbbfoQu5rIKKbUm5WoKJHT8SJs38Rzy+e8Qev4kp
+	 Fa/C+N5Vr6u6Z2fVoPqx+bvZAUmXZoBQXB5OgzvpYSw95GR6rByXVx9X+KNaM3Jwjvf2Q
+	 GoGGRZNTPudz99QcZ9yyjQ11pdmr1zD9PQafaPkPtWia9YB63qiKPlKB0eXwAKGwo7G8I
+	 tYKPIGc9hxvyAXvhuk/RT1xCjdm+5ii5EzHMMoMtDp5v2uVLYv7McRcE88L2xeN2tQbwD
+	 J+SIcyEeGD5pATA8XWE4Xb7wCni5XMKaes4RhYqAmeDEJYU9OhaP0NhSfK3RDZEhKXA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772396;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=q27QeHoS7UR2882yH+xfPYckzF6Be62Y/DrY6dpeN0c=;
+	b=K+6PStgnxBLWpxvTJeX9MFt/XWEZfd7XU5hQtz3vhpR4pGra1z8bf4LKkLpqLlNoXhlk
+	 BKchdT+jvf7hR5gYOTpIEWD8jh1OqQjAyfceS/GNm515XY0unMoJ8T9o7TDpikm2WE7qq
+	 G8GfmI6xqvQZkgunjQg6sfsETRykPyRrV+wAnev3SG/0nS5D36VbddjkdfwR5EvrhBXsf
+	 YUIcILA7dCOTWtDynBrHq2a7HA4o9XVxXCjvNzAGT0QOzup44+HycsxyHxcnJxUIVKK5t
+	 EjINwbsO2RdXC2OfClMu5pHqPdqBgpMTorRVlCCwcP31t8cH+bcP0v0XEkydmjk/+Eg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F10B3606A31C
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:39:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F10B3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=Cl2qQFTv
-Received: from pps.filterd (m0109333.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7IbEF157316
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:39:32 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=K0z9LEZHumUAUHG3YdMFAeVsWg1NsvibU7Iun
-	+HCcQE=; b=Cl2qQFTvVltL2w23IhkdmlXjtl4mRblSIYOUrodH8uXBikuOyaPfn
-	AwM34clYsLNxslN91njKCZR4h6K/HVDqMuRAgtZ4Zk59P3LKSkDQVTwk/vPEUm4D
-	+VwkcfQajLtb/HBD8BWP7z6lSuyw/PsNbm911CXaYdf4kTJT4COVo4cDzuttG19X
-	F1nwCmyLf1HyikDpTlGEvcGiftlaNiE7yKQ48qT96k73Dya5sEUwqeLxHRpO4NU5
-	cZE7xohkfaFDJj4jowDSz4bgmkDAHvu5gCNYOsePuO2NuUcdwVBL2IW07q//387o
-	g6lfNRkD/nwxz6Xg7hiEnYNPaZxoQ2Cpw==
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com [209.85.208.71])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j74mxgk78-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:39:31 -0800 (PST)
-Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6bb7aa8d433so850400a12.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:39:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795772370; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gGvqZVMn9l9Ln8YS08Ejww3hG5z9gWJ0JQBeI0+ddKeRDTI4RDb9wPr7efw3yUE3qQ
-         k1rwX42R2iwmjMeGoCjKkqFnAUOs/P21k0trmoXibQWOqBs9Tesb6xonlBuyXz4BtyWO
-         PlLuEWbgZ2Z1j1G8JChEh1ZpZufpqMdkSdwmdBa5DtMV1BJcuXLzX9jFLbz3Xo30b4rp
-         k5Vp1Ih7EcRuWzDAirkZpQ1q2yV/Yg/w94+NJUwE+j5s24GOlMmyJTX7sTc0qMlICBQu
-         xJqqmWVD93gRtwH7azFDMAwE2mB45QXEqeWzz79j7D5VdKumoC9yDxlES/G7jFpLa3Do
-         AdgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version;
-        bh=8zFqGbpLQ4kLiiFXncahL4YN57S9NI9BXavbvixV9aU=;
-        fh=iQOEHvOmhzP9D/YziopFRhGWPdJEZpcgSFWczgrZ4/k=;
-        b=AeZBfpHK1AtuSyJkTH20pO9tuAc+dEfd8JkpS4ai+NKCbepaPSYI6jPnYaL/rz3x+D
-         /FzBhsFMVLie52vmyWEb0l2zBZGdFhmpr8jAlbjJuL6+MWkdwKTcD+vrl32syik2dtEq
-         tbFS/X6Z/DC5Cb8miB7SVSfXGknxeBQtQCSa4oTwhTI4fQalxsyGEXOxHh78ql2dYK9e
-         lGne8UXpK6KVJii63huSTNOg6jUilGV8Ktfem6K2M9L+3pi869V1gEuvi27JUpJdxl5Z
-         dWnSQXolpoQg6D7afUXpbkx1dBEiiYC7RocwaxlTn7zqvMM4BV6jc3JhB+5m9Lty/FnR
-         x9yA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5329B606A31E
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 09:39:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5329B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4b37620eb73so9867590b6e.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 01:39:56 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795772370; x=1796377170;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795772395; x=1796377195;
+        h=content-type:to:from:subject:message-id:date:mime-version
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8zFqGbpLQ4kLiiFXncahL4YN57S9NI9BXavbvixV9aU=;
-        b=dqJKR4YPb9PChvbBO6C4D3EuP0wzPDbv0i2yDAsNw7hu3GtGk188Lc1mA5BYuecuLQ
-         0WsjRkPUSVdE5fNlH+A8l01bAT7aLODv6pgdlR10VPgiPYoJCPys7Z3/MqyHdXpJBcoz
-         W0VjGLkXfvBcd461DIt6ovG9WU8yyG8A+r7DHsM8DcaBcnWxvj1EshI98ewfBJVawfVr
-         JEk1bS7IM6Eqz5Pz2gVeIhvkGjfsc5cOrYAqoakpZ8AR6c40Qk5W1HdicXT3gTxtyZ10
-         Wi6mz+sKRW0RPiLMmzBpHIZcmcCOomNPcOOxYMEnm826TkePAs2CUL6tYTHOC4l6hqg9
-         Ahzw==
-X-Forwarded-Encrypted: i=1; AL+hErEsR2zKsEFTqN7KynbyAlzyL6GmDwtZoc2nh1PksBl2c22VeRgoPdqpBWX+h4FDFUQQ4Z1LZd8onhuIZyA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SJCDrrXt0SEL4YG9AjmhiuJodYLJd2gQsG3GUderHGTQC7vaw
-	FA+x7iz6hxkyOzYF7gpp6cdnUM3vqcWkwSs1uhpWsuYYJGz40hbGqEQ9MNGFCzSMnM8Zfjo2GMw
-	vYzM2TKiAy1eJBtpmrUHw3J52zwVIlFAR/LUjsU02tsMWli2OBEUsXwN2u22t/nYXXPWLdeR/TL
-	reNLSueDp3EEuIEFrr+MmZ+sHPqkbrgg7HSDHBWHE=
-X-Gm-Gg: AZFdTZdoRMOowmjnhNqzoYxDHeOl8pCLdkk0uRq/PqJdFazb4ui1v+UDczqLC1wxzc7
-	iJo0WUjLwG0Yh7EqZLd4NmqLuzLOdz1XtRB7YegE/TjDD7sc6oGomu1HszYVqpO4O6IuHK/sPod
-	qcm6d/ipCzMC6zV2vnf4bWkgogTw2VXRdG4ES+pJFI4TyUN0VE2TU0xr0kdXLodYKaKuIhVEdT/
-	BYq4O4qSwA55c8hnw==
-X-Received: by 2002:a05:6402:450c:b0:6bb:64cc:b969 with SMTP id 4fb4d7f45d1cf-6bb64ccbb08mr2777489a12.10.1795772370412;
-        Fri, 27 Nov 2026 01:39:30 -0800 (PST)
-X-Received: by 2002:a05:6402:450c:b0:6bb:64cc:b969 with SMTP id
- 4fb4d7f45d1cf-6bb64ccbb08mr2777469a12.10.1795772369944; Fri, 27 Nov 2026
- 01:39:29 -0800 (PST)
+        bh=q27QeHoS7UR2882yH+xfPYckzF6Be62Y/DrY6dpeN0c=;
+        b=KqxUn8dC0qUCthbKME+7cUzYvUWMIvr+GqJGVlc3wGupa/NxfohJ6S5h7/9tush1DY
+         /K0DvPy8tFRjO47v4j2n8gsn3A2GZzhkeux6AwTxp9fAAikxpIY8OsjE8mMl7w6HliwB
+         prhnmi/1GZO2tsmbYVL2IjZrNuwumPB/eFoehH0/j1MsAVYU2Ie3UwEd4LfWMUazJIAK
+         KCrzGV/1rUzqKfjyLUaSBssZjZKoOAhSg0/huZEa95xudId9DncKaTtxnyiVVsvplCuE
+         o8juTRfzHa5X938qdZzSTtQWcFBV+p+48PNCXjqK7YXUjm03bOu8pyZabaA7sDa1uwhU
+         joyA==
+X-Forwarded-Encrypted: i=1; AL+hErGEo1bnYKcKx1vzm9rQ36QshHIFs2CZz/jvn2M+s/yA//HNsjmQ17yEjfpTmuKvGs0cY3hC88YE1Vu/zyE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8hJYOaxU+w/Op2osnH8jX4Tqf9tj3/jJTMqvTUypluHyw8cCYq
+	rDvHFdeoWgg9NgrrLWKlxRyib3yreC3GLd139C8HQzkKIOYQqnSCM75W9jyDoZAq2YLLN5ILz8q
+	tzPF+kvRx0sOOALTBdr7iGyyif26k6WuKvQijwHkPWXdOXKJr/p3py1DkeJU=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,214 +58,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261126094318.244973-1-alex@ghiti.fr> <98fecdf0-6409-4499-90e4-63996f33db90@kernel.org>
- <CAEmasaXWwWeuQnMbA+g8OyvNwe721Dro+1h+5pfTpzLuV6dx3g@mail.gmail.com> <0b7e81a8-d291-4cbf-8da0-e65e9a0b40a0@kernel.org>
-In-Reply-To: <0b7e81a8-d291-4cbf-8da0-e65e9a0b40a0@kernel.org>
-From: Alexandre Ghiti <alexghiti@meta.com>
-Date: Fri, 27 Nov 2026 10:39:18 +0100
-X-Gm-Features: Aa3M54qX-_pqmJg9C5gzk0ism0i4jtfnK4izYtYrn72d6ijUNYhsMgGVj8eDvTE
-Message-ID: <CAEmasaXR8nP+jGF9XHOr1Bibo253wLgVh5D9Bjw_2Tjy8RFp-w@mail.gmail.com>
-Subject: Re: [PATCH] mm: free the swap slot of a dirty swapin folio
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        Barry Song <baohua@kernel.org>, Kairui Song <kasong@tencent.com>,
-        Chris Li <chrisl@kernel.org>, Nhat Pham <nphamcs@gmail.com>,
-        Johannes Weiner <hannes@cmpxchg.org>, Yosry Ahmed <yosry@kernel.org>,
-        Chengming Zhou <chengming.zhou@linux.dev>,
-        Baoquan He <baoquan.he@linux.dev>,
-        Kemeng Shi <shikemeng@huaweicloud.com>,
-        Youngjun Park <youngjun.park@lge.com>,
-        "Liam R . Howlett" <liam@infradead.org>,
-        Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
-        Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
+X-Received: by 2002:a05:6808:319b:b0:4f5:eaac:5173 with SMTP id
+ 5614622812f47-57a0b84fa3dmr21639331b6e.57.1795772395289; Fri, 27 Nov 2026
+ 01:39:55 -0800 (PST)
+Date: Fri, 27 Nov 2026 01:39:55 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b094feb.b83081fb.4cb0e.0020.GAE@google.com>
+Subject: [syzbot] [net?] KCSAN: data-race in xa_set_mark / xas_find_marked
+From: syzbot <syzbot+cc64b6bdf649b54047e0@syzkaller.appspotmail.com>
+To: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org, 
+	jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org, 
+	netdev@vger.kernel.org, pabeni@redhat.com, syzkaller-bugs@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDAzOCBTYWx0ZWRfX1jFT5Y8QgnAH
- AKBNxKURp/f0FQUEg/X24ZcfcbtxB30am31DC0KQZOyAIaVeGesr8GtIb2pXQrIYUedsJD1SzCC
- f/Yk2Lqp4HsPUMGPilK0bmAkzLnhzG4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDAzOCBTYWx0ZWRfX8k9TtV6Cjs+E
- ho2HMnBVk9YfRUREpooR67y5s7hPAucpuOvlNRnhZrEvyT2dymJC3RJboqBVmVU8pwcxv0VDXST
- ZOCx1cz/HSWCcB3+RvNVu0t3k7khZ2tRF6zMqjlDf+Y1YdYce6YyikV0RmI6/R8MXxt73dP6l9i
- 1H/ugdCyEHG3eVnbnYKjky1vG6F6ASDN4KmWekh/tWWDZ5Jv52OYGewC8rWS5tx8edbses5YT2/
- hTd58if/LundVF2lsKF4pXedFjTRGZXkSGrIKvPSZmjR3RoB8dHwl3x2h0myvrUV7975TPOvfDs
- xoaYIW3KM5YmX8KgYQ4ajh/jcJQdFMatQ3Bir+Z/LoEL9PFuQ45xF8D9+vxegAnMEa85GNX4Gts
- TtXT3YJdfueRK+RY02h9bUr1uxDdtbbDKFCAImHZanTrCC6LyCMZRzQa8x7xOtBn1iVbNtP57zN
- dKBaxD/67CMxr+zHiNQ==
-X-Proofpoint-GUID: GKt2_2y9-3_zGD71jIzBH5CaK2wxyQRp
-X-Proofpoint-ORIG-GUID: GKt2_2y9-3_zGD71jIzBH5CaK2wxyQRp
-X-Authority-Analysis: v=2.4 cv=ccNHPXDM c=1 sm=1 tr=0 ts=6b094fd4 cx=c_pps
- a=9KvDgq78n9V61H3VJbnhTw==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=tpM8CJlwf7uhpglF1g9U:22
- a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=BHRAutx6adPIF07HuA8A:9 a=QEXdDO2ut3YA:10
- a=j5kO0B45gQVIxiUYEfTy:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
 
-On Thu, Nov 26, 2026 at 5:20=E2=80=AFPM David Hildenbrand (Arm)
-<david@kernel.org> wrote:
->
-> >
-> On 11/26/26 16:01, Alexandre Ghiti wrote:
-> > Hi David,
-> >
-> > On Thu, Nov 26, 2026 at 1:54=E2=80=AFPM David Hildenbrand (Arm)
-> > <david@kernel.org> wrote:
-> >>
-> >>>
-> >> On 11/26/26 10:42, Alexandre Ghiti wrote:
-> >>> do_swap_page() frees the swap cache of an exclusive folio on a write
-> >>> fault only. A folio loaded from zswap is dirty: zswap drops its copy =
-on
-> >>> load, so the slot no longer holds the data and only reserves swap spa=
-ce
-> >>> until the folio is reclaimed again or its owner exits.
-> >>>
-> >>> Such folios add up, and they are expensive to free at exit: on a large
-> >>> production workload, the exit time doubled when zswap was enabled. A
-> >>> third of the increase comes from the folios left in the swap cache,
-> >>> each costing about 3x a resident page to tear down; the rest comes fr=
-om
-> >>> freeing the zswap entries.
-> >>>
-> >>> So free the swap cache of an exclusive dirty folio as well, so that t=
-he
-> >>> slot is released at swapin, as is already done on an exclusive write
-> >>> fault. The folio is dirty, so it would get written out again anyway:
-> >>> the only cost is a new slot allocation on its next reclaim, which wri=
-te
-> >>> faults already pay.
-> >>>
-> >>> On the production workload, this patch removed that third: the exit t=
-ime
-> >>> decreased by about 15%. On a simple microbenchmark, 4 GiB of anonymous
-> >>> memory in a memcg pushed to swap, read back, then SIGKILLed in a QEMU
-> >>> guest (mean +- stddev of 9 runs):
-> >>>
-> >>>                      base            patched
-> >>>   exit time    989 +- 24 ms       502 +- 28 ms   (-49%)
-> >>>
-> >>> The cost is paid by folios that keep cycling between zswap and memory:
-> >>> each reclaim allocates a new slot and adds the folio to the swap cache
-> >>> again. On a kernel build in a 600 MiB memcg (-j4, defconfig), this is
-> >>> not measurable (mean +- stddev of 5 runs on bare metal):
-> >>>
-> >>>                        base            patched
-> >>>   time (s)        592.4 +- 1.1      592.4 +- 0.9    (+0.0%)
-> >>>   sys (s)         256.6 +- 1.5      257.5 +- 1.4    (+0.3%)
-> >>>
-> >>> In the worst case, random reads over 4 GiB of anonymous memory in a
-> >>> 3 GiB memcg, so that half the reads are zswap read faults and the task
-> >>> spends all its time in the kernel, throughput drops by 1.1-1.4%
-> >>> (mean +- stddev of 5 runs on bare metal):
-> >>>
-> >>>                        base            patched
-> >>>   reads/s, 1 thread   37310 +- 182     36889 +- 77     (-1.1%)
-> >>>   reads/s, 8 threads 291937 +- 802    287954 +- 373    (-1.4%)
-> >>>
-> >>> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> >>> ---
-> >>>
-> >>> Notes:
-> >>>     Previous discussion:
-> >>>     https://lore.kernel.org/all/CAGsJ_4xBtKGqXFP4zvp+Qn+tb4X7aCvXn+wq=
-Dqot_cXR92DjhQ@mail.gmail.com/
-> >>>
-> >>>  mm/memory.c | 9 ++++++---
-> >>>  1 file changed, 6 insertions(+), 3 deletions(-)
-> >>>
-> >>> diff --git a/mm/memory.c b/mm/memory.c
-> >>> index d477a4f986bc..dac0f0a24bc7 100644
-> >>> --- a/mm/memory.c
-> >>> +++ b/mm/memory.c
-> >>> @@ -4711,10 +4711,13 @@ static inline bool should_try_to_free_swap(st=
-ruct swap_info_struct *si,
-> >>>               return true;
-> >>>
-> >>>       /*
-> >>> -      * Free the swapcache only if we are the exclusive user and
-> >>> -      * this is a write fault.
-> >>> +      * Free the swapcache only if we are the exclusive user and thi=
-s is a
-> >>> +      * write fault, or the folio is dirty: its copy in the swap slo=
-t is
-> >>> +      * stale then (zswap loads are exclusive and dirty the folio), =
-so the
-> >>> +      * slot only holds swap space.
-> >>>        */
-> >>> -     return (fault_flags & FAULT_FLAG_WRITE) && exclusive;
-> >>> +     return exclusive && ((fault_flags & FAULT_FLAG_WRITE) ||
-> >>> +                          folio_test_dirty(folio));
-> >>
-> >> Why not more readable as
-> >>
-> >> if (!exclusive)
-> >>         return false;
-> >> return (fault_flags & FAULT_FLAG_WRITE) || folio_test_dirty(folio);
-> >
-> > Agree, I'll change that for v2.
-> >
-> >>
-> >> But ... isn't this zswap specific? Why do we have zswap specific stuff=
- in this
-> >> common code?
-> >>
-> >> The comment already gives away that something is not quite right here.
-> >
-> > I am mostly interested in the zswap benefits, but nothing is zswap
-> > specific here: do_swap_page() can also find a dirty folio in the swap
-> > cache when reclaim bailed out before writeout, or when the swap write
-> > failed. In all those cases, the copy in the slot is stale, so the slot
-> > only reserves swap space. zswap is simply the common case, since
-> > zswap_load() dirties the folio.
-> >
-> > What do you think?
->
-> If it's generic, then the comment shouldn't mention zswap in the comment =
-:)
->
-> And the patch description should be all about zswap.
+Hello,
 
-Ok, will change that in v2.
+syzbot found the following issue on:
 
->
-> And we should measure the effect without zswap.
+HEAD commit:    ebb7a8dc1e74 Merge tag 'soc-fixes-7.4' of git://git.kernel..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=105ce153580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=dc99102739636b09
+dashboard link: https://syzkaller.appspot.com/bug?extid=cc64b6bdf649b54047e0
+compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
 
-It should be very very small since do_swap_page() only finds a dirty
-folio in the swap cache when reclaim bailed out or when swap write
-fails, which should be very rare.
+Unfortunately, I don't have any reproducer for this issue yet.
 
->
-> So, folio dirty -> We'd need another writeback because the content on dis=
-k is stale.
->
-> If we reclaim swap, the next reclaim run will have to re-allocate one.
->
->
-> But why is this "is dirty" linked to exclusive?
->
-> What if we did
->
-> /*
->  * Free the swapcache if the folio is already dirty, or if we will dirty =
-it
->  * immediately afterwards by writing to it.
->  */
-> if (folio_test_dirty(folio))
->         return true;
-> return (fault_flags & FAULT_FLAG_WRITE) && exclusive;
->
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/be1abd72bd4e/disk-ebb7a8dc.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/317ea0b3db13/vmlinux-ebb7a8dc.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/4ec18c47ec34/bzImage-ebb7a8dc.xz
 
-I had missed that folio_free_swap() checked the swap count as Nhat
-noticed, in that case, I agree the exclusive check is useless, I'll
-remove it in v2.
+AI-generated root cause summary:
+KCSAN reports a data race on `xa_node->marks` between `xa_set_mark()`
+(`lib/xarray.c`) and `xas_find_marked()` / `xas_find_chunk()`
+(`include/linux/xarray.h`). While writers hold `xa_lock` and update
+`node->marks` using the non-atomic bitop `__test_and_set_bit()` in
+`node_set_mark()`, lockless RCU readers in `xa_find()` -> `xas_find_marked()`
+call `xas_find_chunk()`, which performs an unmarked plain read (`*addr & (~0UL
+<< offset)`) without `READ_ONCE()` or `data_race()`. Because
+`CONFIG_KCSAN_ASSUME_PLAIN_WRITES_ATOMIC` is disabled, KCSAN flags the
+concurrent unmarked read against the non-atomic read-modify-write bitop.
 
-Thanks,
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=cc64b6bdf649b54047e0
 
-Alex
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+cc64b6bdf649b54047e0@syzkaller.appspotmail.com
 
-> --
-> Cheers,
->
-> David
+==================================================================
+BUG: KCSAN: data-race in xa_set_mark / xas_find_marked
+
+read-write to 0xffff888106b77228 of 8 bytes by task 3329 on cpu 1:
+ instrument_read_write include/linux/instrumented.h:56 [inline]
+ __instrument_read_write_bitop include/asm-generic/bitops/instrumented-non-atomic.h:84 [inline]
+ ___test_and_set_bit include/asm-generic/bitops/instrumented-non-atomic.h:99 [inline]
+ node_set_mark lib/xarray.c:95 [inline]
+ xas_set_mark lib/xarray.c:894 [inline]
+ __xa_set_mark lib/xarray.c:2088 [inline]
+ xa_set_mark+0xda/0x1b0 lib/xarray.c:2155
+ devl_register+0x4c/0x70 net/devlink/core.c:413
+ nsim_drv_probe+0x1e1/0x7c0 drivers/net/netdevsim/dev.c:1607
+ nsim_bus_probe+0x15/0x20 drivers/net/netdevsim/bus.c:419
+ call_driver_probe drivers/base/dd.c:-1 [inline]
+ really_probe+0x1ba/0x600 drivers/base/dd.c:707
+ __driver_probe_device+0x176/0x1e0 drivers/base/dd.c:869
+ driver_probe_device+0x63/0x380 drivers/base/dd.c:899
+ __device_attach_driver+0x24e/0x350 drivers/base/dd.c:1027
+ bus_for_each_drv+0x1c0/0x230 drivers/base/bus.c:500
+ __device_attach+0x1d1/0x2a0 drivers/base/dd.c:1131
+ device_initial_probe+0x6a/0xb0 drivers/base/dd.c:1190
+ __bus_probe_device+0xfd/0x1b0 drivers/base/bus.c:614
+ bus_probe_device+0x15/0x20 drivers/base/bus.c:632
+ device_add+0x601/0x7c0 drivers/base/core.c:3778
+ device_register+0x1d/0x30 drivers/base/core.c:3860
+ nsim_bus_dev_new drivers/net/netdevsim/bus.c:468 [inline]
+ new_device_store+0x2b0/0x460 drivers/net/netdevsim/bus.c:191
+ bus_attr_store+0x57/0x80 drivers/base/bus.c:172
+ sysfs_kf_write+0xfe/0x120 fs/sysfs/file.c:145
+ kernfs_fop_write_iter+0x1d2/0x2e0 fs/kernfs/file.c:345
+ new_sync_write fs/read_write.c:575 [inline]
+ vfs_write+0x57a/0x9b0 fs/read_write.c:667
+ ksys_write+0xdc/0x1a0 fs/read_write.c:719
+ __do_sys_write fs/read_write.c:730 [inline]
+ __se_sys_write fs/read_write.c:727 [inline]
+ __x64_sys_write+0x40/0x50 fs/read_write.c:727
+ x64_sys_call+0x154e/0x2550 arch/x86/include/generated/asm/syscalls_64.h:2
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+read to 0xffff888106b77228 of 8 bytes by task 3324 on cpu 0:
+ xas_find_chunk include/linux/xarray.h:1752 [inline]
+ xas_find_marked+0x211/0x650 lib/xarray.c:1516
+ xa_find+0xa4/0x140 lib/xarray.c:2204
+ __devlinks_xa_find_get+0x99/0xe0 net/devlink/core.c:375
+ devlinks_xa_find_get+0x24/0x30 net/devlink/core.c:396
+ devlink_get_from_attrs_lock+0xd8/0x390 net/devlink/netlink.c:225
+ devlink_nl_inst_single_dumpit net/devlink/netlink.c:397 [inline]
+ devlink_nl_dumpit+0x26d/0x300 net/devlink/netlink.c:456
+ devlink_nl_port_get_dumpit+0x24/0x30 net/devlink/port.c:631
+ genl_dumpit+0xac/0x110 net/netlink/genetlink.c:1026
+ netlink_dump+0x46a/0x880 net/netlink/af_netlink.c:2360
+ __netlink_dump_start+0x483/0x570 net/netlink/af_netlink.c:2475
+ genl_family_rcv_msg_dumpit+0x1a5/0x210 net/netlink/genetlink.c:1075
+ genl_family_rcv_msg net/netlink/genetlink.c:1191 [inline]
+ genl_rcv_msg+0x3fd/0x470 net/netlink/genetlink.c:1209
+ netlink_rcv_skb+0x11e/0x220 net/netlink/af_netlink.c:2585
+ genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
+ netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
+ netlink_unicast+0x6fd/0x7e0 net/netlink/af_netlink.c:1362
+ netlink_sendmsg+0x605/0x760 net/netlink/af_netlink.c:1921
+ sock_sendmsg_nosec net/socket.c:800 [inline]
+ __sock_sendmsg net/socket.c:818 [inline]
+ __sys_sendto+0x429/0x480 net/socket.c:2283
+ __do_sys_sendto net/socket.c:2290 [inline]
+ __se_sys_sendto net/socket.c:2286 [inline]
+ __x64_sys_sendto+0x76/0x90 net/socket.c:2286
+ x64_sys_call+0x200c/0x2550 arch/x86/include/generated/asm/syscalls_64.h:45
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 0 UID: 0 PID: 3324 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+netdevsim netdevsim1 netdevsim0: renamed from eth0
+8021q: adding VLAN 0 to HW filter on device netdevsim0
+netdevsim netdevsim1 netdevsim1: renamed from eth1
+8021q: adding VLAN 0 to HW filter on device netdevsim1
+netdevsim netdevsim1 netdevsim2: renamed from eth2
+8021q: adding VLAN 0 to HW filter on device netdevsim2
+netdevsim netdevsim1 netdevsim3: renamed from eth3
+8021q: adding VLAN 0 to HW filter on device netdevsim3
+8021q: adding VLAN 0 to HW filter on device bond0
+8021q: adding VLAN 0 to HW filter on device team0
+hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
+hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+8021q: adding VLAN 0 to HW filter on device batadv0
+veth0_vlan: entered promiscuous mode
+veth1_vlan: entered promiscuous mode
+veth0_macvtap: entered promiscuous mode
+veth1_macvtap: entered promiscuous mode
+batman_adv: batadv0: Interface activated: batadv_slave_0
+batman_adv: batadv0: Interface activated: batadv_slave_1
+soft_limit_in_bytes is deprecated and will be removed. Writing any value to this file has no effect. Please report your usecase to linux-mm@kvack.org if you depend on this functionality.
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
