@@ -1,113 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790473;
-	b=CfY0s9HtAzQfjKhwC243DJcgEreQXdNEagmzoM9l9HWYp7VcqU4h00ug1KPgyUGFcFwo
-	 GdTDt5j+1Xd9WPX/kxdJ21gsZ8SoBeQTFrUqy/fQTRIqnG+OG7iIfUB+UP7WqR57PBG1M
-	 /aMd812lU08vl+oBZVIX4A4zH7nd4emzvTMQRjXANCGMRsqwMKmvrsdvxEJTCZJ2iKbHG
-	 wkZoQuWfX8cRELFj6tqaowHSw6DqfLE8ursKVP5OxGKlSUvHgyLk6u3cL/sSXGVk55fvQ
-	 LwrTz2xSDuqOhYpt/zCblKcHwwArFePSQ8xEhjhkanfCYEBIphHbs7M6W3F4krZ7GNw==
+	t=1795790480;
+	b=4/lAIdydhn2j2tTGqqmMWfFat/pkAFSg/3majpLrjSBL+wVwwQqsIESJ2bJdgEBVFYbF
+	 mK/cXE1mErmKvjIU6I6UZAHH4dNTFb1CQqzuNyQR0Ewj1ikHvp/gCS/KcH3CSdS3A5u0s
+	 lT/ZeD7eCDogW710D216NyIK+GkwO76yWJDKk9jrp6Cj68eSmuZc6/FuCUNV0FuulauGF
+	 20KJ6reSks0YpHXvB77rzLGex2AVxbtqY//lMgHJnTM/bSzjlclo414Q8eY2JhUCl5yr8
+	 2ZlK0+tH/FGbjHAgVvAa8mWhMDFhsq+huPmzgtkmPpm1jYEsw/kzP6pur/8XmJ/nyFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790473;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=lVQeGD9agzy0mh5pcwZtPylSjLuXqaDKZw1i3CUR2Tk=;
-	b=PHN5j51bEGuijj7+/jSwGeZDitNEuiVq4yx4Sd6MUZPQrM8BbYRvO8YZn/FQKDnep3sK
-	 WDdqX8pN0C+MN6unDllxSAKjhIjV4r9kS/IGD9iXMhoFmJyYGMXR+WqGxOkIkXg6qy8hn
-	 PNBo7B+y9TVVvDmqn7XoTYgO1yalO8m1GKyQuBEmWXgAqkp8ziuXVsh7htmHxzCxbdTzy
-	 FH+Xn9CQjOVzSt2Pco+1lzkdSPwuD+0xptNxYe59NOrpri0qjJzE2n58Yyfzu7MBC1Jcu
-	 +sJkDMAbjxToh1qGjivdAoUKS3NKRFdgCQSyJ9hIXMYFU5q3fUiffCP8Se29WU2TMNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790480;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=5OiMqB0HFqHTXQ26F6nnKmMgWEH3gjayAZHzMcMj1aU=;
+	b=w4DcHihZz2xRtqF6prcGXJsI/nTQR5igJDe82MRBqZfXtYIsf2AhWZpvFWsnm1xt4iAr
+	 zLUgX49c2FmMATjP9CeNqFJbvvs05bKEzUtzYbz0SdphopGWwXedbsLQlE6gydfRr3xj8
+	 s5dkotKMSqbAo4VqjtbVEgLMRtj5gPU+wK9+n2o+ioObe7k48U8S8GNUtkIAMdzoY2g4+
+	 QoHxFjKGybTPMZm5I1RmlaWY+CgkPqN1IqZpQa3+cROC1ICla3l5B3I+De5SRz3EDT1gb
+	 WLO9MvkneqlfWuw1+RAvp7kReq5XlElKw+FITCUW94pYxqXVjUSFDeaYvpNjTLFTabQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Ssso1Gle;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cH4i+qHv;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=V18JV07i;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=V3WqNeUg;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=V18JV07i;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=V3WqNeUg;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84A37606A33F
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84A37606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83915606A327;
+	Fri, 27 Nov 2026 14:41:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83915606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Ssso1Gle;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cH4i+qHv
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARE1HOM2683919
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lVQeGD9agzy0mh5pcwZtPylSjLuXqaDKZw1i3CUR2Tk=; b=Ssso1GleEDHSTzLM
-	sp2sNzcakwartjCQnM5P/CTfPdLeWreJp+TnQUMCfuUd5uFHkbz3w/8UvlJEjcdg
-	Wn7blh3ANiIZLPngdjrVmgBgKFBDQJzuA9h5BYc6bk9f1plVNKSF1R9959ZbAOae
-	SBooI9zvxysI4jwGmNuJxPmSSrKem8YWvFaKKMe2goff71qDxUYW8KKcT0udk4kh
-	l8A4JAY/jwzRy6sig+uQQIL3P98H+jqXm1ROvhgbl03L+sNMwnv+9EqubscZpE62
-	h0DMKdRBtnPTEJu99y9w5oPceP+i9k5VAQopRBcr3xu69Fy61SXssxTw5F28rriG
-	0Xk9vQ==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j73uhj32v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 14:41:13 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33713e5e6daso12701321eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 06:41:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795790472; x=1796395272; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lVQeGD9agzy0mh5pcwZtPylSjLuXqaDKZw1i3CUR2Tk=;
-        b=cH4i+qHvWtghUOuIDKphBJGjGOWzdm/RrN7ah3U3Acs6u+3y8klNmHghB1dmjxC4EA
-         jm3eCjI+CDPUmxOAa3chO6cX6LaL3O5RxQmh6eyXEQj0VDby1X7JvFxLv4CAJ0hvmMjl
-         dOKeLd6TFrp4UEjm5e5JX3o3Za0zeQLJpRF4c0DVbVihwMw+8/4nVl2sdXFG5WvJ7Hnl
-         SU5hwggF87sPBtyZLEQxfs1F5d2eYneTmq5WZBz4o4WqBPSa3tFRSK3b0+28ZG73PeBw
-         Z3eiPqw7hyf3SXPBIWOKRM/Pa+hDyoubyGObe2NTYd+zXr/s0OgAtdZ+WGCGioCNNznp
-         dCxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790472; x=1796395272;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lVQeGD9agzy0mh5pcwZtPylSjLuXqaDKZw1i3CUR2Tk=;
-        b=SBf+/JaVYGVZQBpMUbfiwVkMJLXHkx9gwNcaLTTpH7ms9zV5TpKaNGyDh6KqzyGOl6
-         lHIpUPVxi7Y08T+ijA7r7XkwOqUnhK33f3aKP6F98M0IF7THQvbod7G9cVPsTHMf/GJ3
-         z2siRqdr2yKvtxssuZ/RUZWdi7ZvdG2QGXgjzX0HC/Xpa+WtfExfcVCqUhsXYdd2kQ9I
-         RWvyjKa/vba7tMVBCF8blt8V6mziZlxeppRPNIcElOPeSfmPiKpiiauettsHlZWB/zz9
-         BXg1z21V8pW/DTK4D0j4rSewMBsvI/0c/LFeTA857s0u34rKXTiQiDLCUuLHeuBYp7qG
-         9lrw==
-X-Forwarded-Encrypted: i=1; AL+hErF46jnjv8LNXE8SSvRI0OwN6G9ioZt7BKZPk/wdfDX/O3R8vuz+IlUuPB+xermu5ixtyZ25qA73p01JeHM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+xacJ1MA1VpBMo2UnZHQRFsi7pJndizLgu1Dmgef67JxOrAogT
-	akSPhP01lbqHN0vog2pR/cWJKl77tkNMc2WGc2aLwaStu9eTpYMw6iFYURvI/sYY3DnhQHfML4Z
-	GKCnF3rAmRxer2X4/DOhZRrXTgWhBL8s+GpriCTz8574wn/IDbmDAL757Bn5aqw7cZeA=
-X-Gm-Gg: AZFdTZeXN5xVnGwQe1TikCMb2OxDJjwPoL1jEROSwF5uq+dXrWWrndJVizolmMRg+vo
-	KcPg633UrQeWbOQ5dQB1Manai1cr5IAWZxlO38QQZ18ktix9+21kS2DsKA6PIwE5afP9ShA8mHm
-	32HQ0ja+jjgSOxatRxw1ZdDpzB48x0nm4UH1xNWJAv+f8vyvFK8S6at+EfdRUEuw6l+PpnvQO0/
-	MSUFQd3Dxt/2Qo8i8NayTTVSxnR+3txMKNgd4jyJt664MNqkClVa4qypYroTw8c0B0WPEea+zKC
-	vVyj2+0OKNryDSLyCYN2cIqfJMuOX0oBCOkKLzKOIeVNfzc/OTXPNyqSPaBLJIJDgAP4RapLSLY
-	VgrsHkrGFtBH4OQ6djVWyy0x2Jo+zEnmd108I0fdWXimkl2RUE+ELYLQbZ/coYw7kgNmYX0jLOo
-	FGI75MFg==
-X-Received: by 2002:a05:7301:650c:b0:386:cca5:3626 with SMTP id 5a478bee46e88-386cca53bd1mr12721525eec.31.1795790472119;
-        Fri, 27 Nov 2026 06:41:12 -0800 (PST)
-X-Received: by 2002:a05:7301:650c:b0:386:cca5:3626 with SMTP id 5a478bee46e88-386cca53bd1mr12721485eec.31.1795790471557;
-        Fri, 27 Nov 2026 06:41:11 -0800 (PST)
-Received: from hu-msarkar-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm82970809eec.26.2026.11.27.06.41.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:41:11 -0800 (PST)
-From: Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 20:10:50 +0530
-Subject: [PATCH v2 2/2] PCI: qcom: Reinitialize MSI on resume for
- firmware-managed controllers
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=V18JV07i;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=V3WqNeUg;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=V18JV07i;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=V3WqNeUg
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id ABDEB22936;
+	Fri, 27 Nov 2026 14:41:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795790477; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5OiMqB0HFqHTXQ26F6nnKmMgWEH3gjayAZHzMcMj1aU=;
+	b=V18JV07iazluiBay10fP/4fd0aBvpx12c6oF3mwpxHXAz2019+WnkVqDSmKZaSvTDlMhPF
+	+XNcC7x/9xS53FynRM9dvfhEdVgtRrrJQHH2ACw69rokKv+FHXTcm7PNCnE8tEKcZQmeJF
+	hnt16LEz+mQWdpgZEpYRwU0z+1jzExc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795790477;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5OiMqB0HFqHTXQ26F6nnKmMgWEH3gjayAZHzMcMj1aU=;
+	b=V3WqNeUgkgQSxLbxSxJo8uXWKoVfkUXxcp5ohyGehBBEEMBEjZJ+8bwnYcECcgLBCveJmp
+	KHVJE0UjiSqIGoCA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795790477; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5OiMqB0HFqHTXQ26F6nnKmMgWEH3gjayAZHzMcMj1aU=;
+	b=V18JV07iazluiBay10fP/4fd0aBvpx12c6oF3mwpxHXAz2019+WnkVqDSmKZaSvTDlMhPF
+	+XNcC7x/9xS53FynRM9dvfhEdVgtRrrJQHH2ACw69rokKv+FHXTcm7PNCnE8tEKcZQmeJF
+	hnt16LEz+mQWdpgZEpYRwU0z+1jzExc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795790477;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5OiMqB0HFqHTXQ26F6nnKmMgWEH3gjayAZHzMcMj1aU=;
+	b=V3WqNeUgkgQSxLbxSxJo8uXWKoVfkUXxcp5ohyGehBBEEMBEjZJ+8bwnYcECcgLBCveJmp
+	KHVJE0UjiSqIGoCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7ECF013432;
+	Fri, 27 Nov 2026 14:41:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id w90gF42WCWvcXwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 27 Nov 2026 14:41:17 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 13DF251056; Fri, 27 Nov 2026 15:41:13 +0100 (CET)
+Date: Fri, 27 Nov 2026 15:41:13 +0100
+From: Jan Kara <jack@suse.cz>
+To: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+	Andrew Morton <akpm@linux-foundation.org>, Jens Axboe <axboe@kernel.dk>, 
+	Jinchao Wang <wangjinchao600@gmail.com>, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] mm/readahead: read folio order limits under the
+ invalidate lock
+Message-ID: <pmv77fehocb557wy6vtcu2fank4uf54k42n22owpyuxxzxfgkj@46pvovh3r7jg>
+References: <20261127072340.73758-1-zhaogongyi@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,103 +112,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-pcie-controller-reset-v2-2-17467b64f5f5@oss.qualcomm.com>
-References: <20261127-pcie-controller-reset-v2-0-17467b64f5f5@oss.qualcomm.com>
-In-Reply-To: <20261127-pcie-controller-reset-v2-0-17467b64f5f5@oss.qualcomm.com>
-To: Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Rama Krishna <rama.krishna@oss.qualcomm.com>,
-        Nitesh Gupta <nitesh.gupta@oss.qualcomm.com>,
-        Ayiluri Naga Rashmi <ayiluri.rashmi@oss.qualcomm.com>,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Shazad Hussain <shazad.hussain@oss.qualcomm.com>,
-        Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795790457; l=1624;
- i=mrinmay.sarkar@oss.qualcomm.com; s=20250423; h=from:subject:message-id;
- bh=WX7R2eiTg1XRmSTdE1ID9a+HknD/KT/w9md6BbR8JFY=;
- b=iB9pAwj2cwwXHXvZfP2boU6JGBIx0XChK8Hj92BtJ0pmCggskWkOwT81GsjYJTl7rTs4Eji3a
- IUxOtyCrudQAn/CvKuCLsB1UiqrxsW1OAws/yLPfFKlGfbNK2TLNYVw
-X-Developer-Key: i=mrinmay.sarkar@oss.qualcomm.com; a=ed25519;
- pk=5D8s0BEkJAotPyAnJ6/qmJBFhCjti/zUi2OMYoferv4=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfX2CPPC2jC8pGS
- WKO1QUrpDdK/3Tf0fte/ycDzOaTKHl2fs87fvVzYHw4/vr10sAAVYGFbgZ9gxK+nm2JiGJ6v9dE
- K7yNye8qWrFGJ3lvmUbUkBBXiu+usdw=
-X-Proofpoint-ORIG-GUID: 1zMAhXX_r0i-C_IugUJHWpQufOkq9Qi1
-X-Proofpoint-GUID: 1zMAhXX_r0i-C_IugUJHWpQufOkq9Qi1
-X-Authority-Analysis: v=2.4 cv=BbBNQbt2 c=1 sm=1 tr=0 ts=6b099689 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=VdY5-eERFFFFdNr3g4sA:9 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1OCBTYWx0ZWRfXxRrqxQ/cCLuU
- q3MHs9C63kTGQVqCcypz1eQmiAgA89V+NyGEll2QlusHC49W1rvLcN0mZIz+H4LIDWYYWH4mMEA
- w+WXhPIjS6EdoznQrQ368d7LzJFh1I+xlza0GBvoZQjXrjlSPX9Xeb0MNxaiDe8bBIzGRnpLAtF
- a1L23Id3JKc1HHpSsGEhMXUkpKqJX/mbNd/RU+LJ2T49mtJEBZjbJH5qXj1ZBr1bmHJR0990SRW
- e6SvrKiTYmj6BZeZh25yZTPkxZ60vSfREiL9aQMLnfaQAFPCdvP7j4RKFFyMGGDHuRKxW9MEOsi
- h9qQg30kSLSKpEGvD4GcXgIZ6D9nI3qUeUVil6/LBjKSmQVrTyeZDOl7e7uMizjHklsGSoyZn8g
- S+vhhkdsieLgeCIfBBasW1saGigbEeKXPo+CzMGO6HmyYOtaADHYKwE7hfbfSmtPdtEWXRmypfK
- DuwIlx6JJEEqvOrOV2A==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270058
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261127072340.73758-1-zhaogongyi@bytedance.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_LAST(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_CC(0.00)[infradead.org,suse.cz,linux-foundation.org,kernel.dk,gmail.com,kvack.org,vger.kernel.org];
+	MISSING_XM_UA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,bytedance.com:email,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.80
 
-On firmware-managed PCIe controllers, hardware context is lost across
-system suspend. While firmware reinitializes the controller through
-the power domain framework during resume, the DesignWare MSI registers
-are not preserved across the power cycle and must be reprogrammed by
-the driver.
+On Fri 27-11-26 15:23:40, Zhao Gongyi wrote:
+> Block device mmap readahead can race with set_blocksize(), which updates
+> the block size and minimum folio order under the exclusive invalidate
+> lock. page_cache_ra_order() reads the minimum before taking the shared
+> lock and can allocate a folio smaller than the new block size. On the
+> buffer-head path this can cause a NULL dereference in guard_bio_eod().
+> 
+> Take the existing shared invalidate lock before computing the folio order
+> limits so they stay valid through allocation and I/O submission.
+> 
+> Fixes: 47dd67532303 ("block/bdev: lift block size restrictions to 64k")
+> Cc: stable@vger.kernel.org # 7.3+
+> Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
 
-Reinitialize the DesignWare MSI configuration during resume for
-firmware-managed controllers to restore MSI functionality after
-the controller is power-cycled.
+Ups, this is hairy. The fix looks good. Feel free to add:
 
-Signed-off-by: Mrinmay Sarkar <mrinmay.sarkar@oss.qualcomm.com>
----
- drivers/pci/controller/dwc/pcie-qcom.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index fe86b8fbc895..51299dfd574c 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -2325,6 +2325,7 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 		bridge->msi_domain = true;
- 		if (IS_ENABLED(CONFIG_PM_SLEEP))
- 			bridge->reset_root_port = qcom_pcie_fw_reset_root_port;
-+		dev_set_drvdata(dev, cfg);
- 
- 		ret = pci_host_probe(bridge);
- 		if (ret)
-@@ -2552,8 +2553,14 @@ static int qcom_pcie_resume_noirq(struct device *dev)
- 	int ret;
- 	const struct qcom_pcie_cfg *pcie_cfg = of_device_get_match_data(dev);
- 
--	if (pcie_cfg && pcie_cfg->firmware_managed)
-+	if (pcie_cfg && pcie_cfg->firmware_managed) {
-+		struct pci_config_window *cfg = dev_get_drvdata(dev);
-+
-+		if (cfg && cfg->priv)
-+			dw_pcie_msi_init(cfg->priv);
-+
- 		return 0;
-+	}
- 
- 	pcie = dev_get_drvdata(dev);
- 	if (!pcie)
+								Honza
 
+> ---
+> Earlier proposals:
+>   https://lkml.iu.edu/hypermail/linux/kernel/2511.3/04090.html
+>   https://lore.kernel.org/r/aUN9BFdxHQj8ThMS@ndev
+> 
+> The earlier syzbot retest hit a bug in the fallback path. Since
+> b244c89a70b3, the caller holds invalidate_lock before the fallback reads
+> min_nrpages. This patch covers the remaining mmap readahead path.
+> 
+> A/B testing on arm64/QEMU at the declared base commit gave 10/10
+> baseline hits via madvise and 6/10 via MAP_POPULATE. Both paths had
+> 0/10 hits with this patch. The 20 patched serial logs showed no kernel
+> warnings or crashes.
+> 
+>  mm/readahead.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/mm/readahead.c b/mm/readahead.c
+> index 6e5563290..80f3e141d 100644
+> --- a/mm/readahead.c
+> +++ b/mm/readahead.c
+> @@ -484,7 +484,7 @@ void page_cache_ra_order(struct readahead_control *ractl,
+>  	struct address_space *mapping = ractl->mapping;
+>  	pgoff_t start = readahead_index(ractl);
+>  	pgoff_t index = start;
+> -	unsigned int min_order = mapping_min_folio_order(mapping);
+> +	unsigned int min_order;
+>  	pgoff_t limit = (i_size_read(mapping->host) - 1) >> PAGE_SHIFT;
+>  	pgoff_t mark;
+>  	unsigned int nofs;
+> @@ -506,15 +506,17 @@ void page_cache_ra_order(struct readahead_control *ractl,
+>  		mark = ULONG_MAX;
+>  	}
+>  
+> +	/* See comment in page_cache_ra_unbounded() */
+> +	nofs = memalloc_nofs_save();
+> +	filemap_invalidate_lock_shared(mapping);
+> +
+> +	/* Serialize with set_blocksize() updating the minimum folio order. */
+> +	min_order = mapping_min_folio_order(mapping);
+>  	new_order = min(mapping_max_folio_order(mapping), new_order);
+>  	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
+>  	new_order = max(new_order, min_order);
+> -
+>  	ra->order = new_order;
+>  
+> -	/* See comment in page_cache_ra_unbounded() */
+> -	nofs = memalloc_nofs_save();
+> -	filemap_invalidate_lock_shared(mapping);
+>  	/*
+>  	 * If the new_order is greater than min_order and index is
+>  	 * already aligned to new_order, then this will be noop as index
+> 
+> base-commit: 29378f5cd79a27718ead9717fe7b094b651a8e1e
+> -- 
+> 2.39.5 (Apple Git-154)
 -- 
-2.43.0
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
