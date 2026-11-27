@@ -1,94 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795792908;
-	b=fphE6IIxwr+tQmUOwBCX01P5UlDA8YyzQ/PagEyvRsQOViF3pQF0KdrLt2/zq0YT2IP+
-	 CfQxCHQAwsAtV9K6W77YLjFDARXYT/JrMLZ/G012jsNKM7T/+RZJuzoQ/2r/G73B2qHgN
-	 MkeQ/cRzu52LmbP1+RzoFByeD8kYVxxB+wC5YcwPSnTQy7UUYG231scARzr6FwQjy/bH9
-	 csrSc3q7TzG5K7YItp3RC156T08IiQMN4nM6XQwFxM9zE43VGvSVKiCKIg2M97Hlj6eaZ
-	 hEy1qRxsw5EN8kbCqIKqamGKPRYVtbFx0SpQ3+4EWo0XGVT7UNBr6eYwW36HKbJV5jw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795792908;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=1DBTB8Ci/n3Y6k0vm9aXcB7uNV+yLwIidGst8DrwTb8=;
-	b=qegcUtLGcYXZoMSqTngTusQ4rvOc1vvg5RSKFfWEu2pz0SDbANPs3t2AwJiYWqw+ZaNQ
-	 cBrjE02ffb490jl/cvIOW0CQMT5OGEKX3O2GxgEsDNmAK7cN7KkxbIugQ5inlry8ttvt2
-	 /xhF8OH5+CxA/cQOIK8IX7MIzX4HMmAIYefAUZCi0Xx1eqcGrK2UE+DfJYuLSglgGWru2
-	 M9fLopO10bYqs/+T62bgtwCNbxTUXgdvfo05pnk6/egYGGlDWZ6SREnv+eYwYJEcWHOKM
-	 LSVpVcxlBWgSuKcFImpGffJYaPncnlX0wCVSxFr5bjVky+swg+vz2eA8wyZZQO/9IMQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=lp13waer;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.11
-Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013011.outbound.protection.outlook.com [52.101.72.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795792932;
+	b=r2bkUIh5wUnsPVfPHK1Y2VTIAQbaqQH5PcPBRo7Qp20d9dcydrg4iWlZpjJjd2OxsGgi
+	 jXo+5hWLyKpbF6CtlHpSPAxCyjH85WOwbSHX4Ay0lwRXthA7JsrHqm53Ss5wfGtmpVrjC
+	 Nvjg3YJzNDcGUeMl9YVjQyKrS+uH0E7LK1rYrXh4wrPEr+hfLKCk4dKFEC9zDa1p/wgRA
+	 wwwCW5k5S1ny1E5ETs1BYtqMCU6+wQzJFc+13Lx6Pdh48mgb3LB5QyGXXNf7OF+CL1lzQ
+	 C+xEE5XjFOYf+046xtkTn58eduUpuBPbQDIp/xL2dHPi7Y+CrW/6ogsEOOjPUWovMfA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795792932;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=8bAdNFT97pbFl4E++HCF7KHqvNkD0KBGjqhvjcXA1cY=;
+	b=HqYlZI1La7877HV/JHv20oC+MlSAevdD21/v7EhE7Bh/VczhMxl5ArsSitZc3ZukG825
+	 tPz/Ypmfag0pDPpPwmPn9XNn0NpqShsMabUI1hgpSjh6uGag8wEL8b1zrMIRCyMSN4U5q
+	 PUX2ri5GoXLxBE6kPB7mwDJ658JRgBHf4cEUYSOZr07qvQeFlqGX9bO0K2NEgvkJon9Il
+	 3v4PIDwmZod4yLF3bebkUL4jagl2OWTFPRj5b2tyRWGZmTRMpleQn0Cv+mrMYh9EoQLUU
+	 BXUXVUCq/hUVcZBs4k7wjFQLcYctZ+zWa3DqT1i/6Ul4xC42AA1aU/XQajiYrkbFoeQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LkbzrEWA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FEDC606A31C;
-	Fri, 27 Nov 2026 15:21:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FEDC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADCEE606A32D;
+	Fri, 27 Nov 2026 15:22:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=lp13waer
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VfW2AE4nnrfwUXpVemLiZzHdwlYBhIxPXn/zwUe6+CojW28vjmAn8MppJCZwu6HyFakIDuaIqbFTOL+/zbSHddTR2voo+eOm+zMcAQwnl2p1nqDHzhBUbpczRSTPtuTy+QtPcj/xPYJWMBYUPACAnH+FdVuSzZDbe+a9m9bsz35sSlNYLbFzaBqsx3gN4FZh4qvUFj1hRZ7L1VI81597BSOhArx+9VeSO/6Rzqb/RSZRod7d0L7xhLC0U6t+kQ0RMwnaq4gE4Vg94Dt8mz+e5k4UniV6tAUbKsub1trdAp9AVUDlzkp2Kt1ReElogj/RcZuB/FYavVRYbUSARhjDiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1DBTB8Ci/n3Y6k0vm9aXcB7uNV+yLwIidGst8DrwTb8=;
- b=ATe8/1X2xsyQS15FvlwdOIsH3n8vDYZIVmqu47m2Em/vtbYu9A7d9yndypATyFAF+BDleefTng3e6khnQKYWG7Bb5VUsc3ySFVFOxtEdhjY5KOs7hJklLwBssNhGU/ULVft4p/3EbPa4XHl25uQaXhoGmKDQnTkwMHZTeQN3zwyqk4ZzuWrIJWat1b/MLLMIZjCoR8WxQr8K1zpjBcIhUpsiaKARl5Ln+rrzFDZwmE19jaji/Lk67eTLFikpfEmEM5saEKRcDyNPfkqmv+8yTH9nu1Mcv2xbQt7PE6hxyjExBaGDB384Soepdwha4Rj2v68JMOdv+CNTpkxyV5HQgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1DBTB8Ci/n3Y6k0vm9aXcB7uNV+yLwIidGst8DrwTb8=;
- b=lp13waerdcsIKVOgPKHWOfcWxqi/imn20+S8pkkZzY7Mg+5G72ikKoGPZCH7vWe50hjndgAU7oFJneNvrtla7S23TrKWNgg2pSnxhFEVi54dpRjJp6uoR4V0BjIs55UrPunDX0kYSa4Hn9MsReOe/uzWgBkvIYYRJa6rqR2UtiGTs6h3qi1qAdJfSBr8L1QaYPCxNbrZn84uZkVG9zLqf8dhZ9IwJ1ZzofVSjry//EKftRndgkKlSFADlQX5V9uxuqlEtQrF/jv93ikvSc3+JJyOlYO/L2mtq4dDvI1XfwWLLdQ3Q6iOqKXFi7sryGJTjBwQ0Q7pB5Ctu/hP5LOEPg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AM8PR04MB7730.eurprd04.prod.outlook.com (2603:10a6:20b:242::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 15:21:44 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 15:21:44 +0000
-Date: Fri, 27 Nov 2026 09:21:35 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Tian Xuechen <202300460064@mail.sdu.edu.cn>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, vz@mleia.com,
-	piotr.wojtaszczyk@timesys.com, manabian@gmail.com, robh@kernel.org,
-	saravanak@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dmaengine: of: Add managed DMA router registration
-Message-ID: <awmf_2AvjLr8WH8S@SMW015318>
-References: <20261127110400.379397-1-202300460064@mail.sdu.edu.cn>
- <20261127110400.379397-2-202300460064@mail.sdu.edu.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127110400.379397-2-202300460064@mail.sdu.edu.cn>
-X-ClientProxiedBy: CPCP307CA0005.DNKP307.PROD.OUTLOOK.COM (2603:10a6:380::14)
- To MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LkbzrEWA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A354A1F00897;
+	Fri, 27 Nov 2026 15:22:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795792931;
+	bh=8bAdNFT97pbFl4E++HCF7KHqvNkD0KBGjqhvjcXA1cY=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=LkbzrEWAFSQH6KE454t/eka3dkkLWBxp8FDgOPWFJCyhncE0ohyak5lPTeQsq08uu
+	 knbq1sf/dVeACkdRe8an5YL5SjUqf0mPOzJILwvMU4TlLB9016hs853eVnC8Hl7645
+	 NITGbd218ZQjQckl89XusfxIH6Wq4ywNjjvlqaTwPatTcz07W54kpun7467RnCw+IT
+	 qm6Yp3i67YeI20uGU7GlNph4taW+F/oLb0rVU4uvW6cBhpCWY8aWhHquiWlQDX68Kv
+	 VRY0SbUUZr08I7KmuMFlGpey3vQB23k9wVPtzC4GY/NyIL36KHWG0ZoPSjhEX4HaSB
+	 1/2B+frnkUKZg==
+Message-ID: <sashiko-outbox-237715@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v12 01/43] sched/deadline: Keep departing bandwidth
+ across a root domain rebuild
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <fca1ab7a541ea78376d27e327b472acff2ab6fb3.1795771147.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795771147.git.mathieu.desnoyers@efficios.com>
+ <fca1ab7a541ea78376d27e327b472acff2ab6fb3.1795771147.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 27 Nov 2026 15:22:11 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,121 +60,157 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM8PR04MB7730:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0c0d7b6-67bf-4579-c789-08df4c9a2555
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|19092799006|10067099003|56012099006|11063799006|261021121427099003|261022075727099003|261022105027099003|261026140227099003|261102123227099003|261028144727099003|261009223027099003|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info:
-	VgeutxBEg72lwm8F6bvRP/fXoEtDPCnp3aacFZTSRxhOtuLDUzN+NXEuQENEdrn9e9qQuiBTgcEoz0Ib/frUVKbyKO1VAI1NyRGcOwIGD20up6RgHwS6qEjeJsAnnO7IVMhhPpCnrvo3bEpWx5CGLJ2oj7TVz4MqW+Ovg9ygGQH9SCna/L0R7KQ5DfkDB/eld99CalNXllSiJSnnd0BJiNzguosASFXYu5igVfX/Flk/6OegCbIp60jnpuLD3MtTvtlwCzU1ebvUyi/yiQykkexmNp8VWfNwoeJVXK4KvcPBYkYsjpsTyS8f2Kl/7kjKWa9DI/xfEzLy0hUxJb81PgBlAHRthITd0IDm1PJTL2Vv4YNSxfmc0Ra91Rc9DexcKRdaW28od52hnWjVLKVi/rzQ4EpP+IhAyOI0IxF/Y/+5bAbgCMQRCFFbKam8ZJy28VdLtWFWhu5eXziP2pUPNx/o+rUhQg1DU79ZVABpTiegoUQXylyfkJkCKHPf3pG/fTM6p/gOKD72Jq1RbB3fcWTdyJj1M406hgKGLCawxS8iXu6pgxRDuP5EV0EnKFXl1b0yb461KOcFYobYnN6E6bS2aAs69MzXjC5A/+oer7VGrK9QBVU+0Cj7AAuMDmsnaZYJniz/PtHz3yBTW9F3Nbpudu7M+7eV7Jh8SflcsaE=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(19092799006)(10067099003)(56012099006)(11063799006)(261021121427099003)(261022075727099003)(261022105027099003)(261026140227099003)(261102123227099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?URhg8j0gGJhphJkcE9Eear+/J9xK8ODBmEmVZFBmnFerZdjK++8F7xa7yCXN?=
- =?us-ascii?Q?Tgb3JNHrllR68fAndOROwiIBJcfiD7qSdv58EGuCw9iQyZVbmCdxQES489YG?=
- =?us-ascii?Q?lLWpsKEFzZFRdyw0PF0tIoJiiOcBc+p4Y/pyQ4opjLkxNxGa99HWh1wO9fZ9?=
- =?us-ascii?Q?ByvH6g4kmBsKQnpnI9+WQM8TNnvFv57T1HaDEo3Z5j1r5JF3gWzNHKXd5czJ?=
- =?us-ascii?Q?FKu2c9OREqx5KwP0c70k8AaSIMRJdzyRoiJ/kZD+9fBHJRESnhvO29AgTUr5?=
- =?us-ascii?Q?r57Q8IGus3elDzwYY9dc/PCoHljjHJ1HHeJESAMfL0zfwabdSXyoanNpQKgV?=
- =?us-ascii?Q?fOP1Ft5gXeYbeg+GU7A6rHCWVZi4DSHsbz26p3ogGZDUhHfszC88ynSbLNpG?=
- =?us-ascii?Q?0J8JjPJnm1dqaGo8Z53FnIhMMOsLiyEAAgZK1L8LTj8sFtep57wOYrVK39SR?=
- =?us-ascii?Q?0oIWNB6BF6H3AuR7VwODTsU0TrLn9NRsmnUeYG9ZwOcHpkciA3EBo12+ycS1?=
- =?us-ascii?Q?0FECC8KGE+E6ie6FgFREemRkd6gYNYaVJnlQ3w59sY93JwUk30GpbfNctYj8?=
- =?us-ascii?Q?Sv7Ku9iYSiq5fdo11d00sO1RDxt7SqPVhNAr8kxoqJeB15Mt1tvE4r3+ND0A?=
- =?us-ascii?Q?sem8Axz9iyxcdd11nqVZq5zYnzoeRj7SnxwEgKP+4oX3jPCFpJeCuycH8++j?=
- =?us-ascii?Q?X8NZstieZ9nS5m9CWTaYZRY/0GZarkSMxpGFKYuIyeQ/2QW+uwUCbVXVta/Z?=
- =?us-ascii?Q?9lTZGWB7p4OnTi3tGTw3Bk350NlngLDrFnm9GFUkDRPEwJZhpgQD2me5nIRk?=
- =?us-ascii?Q?/NcLHE6xzviGuvM0i9bbmL4sYwOcPwyvukmXUte1980fu+vwDElWHFAkJTsQ?=
- =?us-ascii?Q?bmysWIo5Rjuyv1tt9uGo/VpIH2QsYKrZolRKRGJ3WkAsqdQPuWnb7PTmK+rQ?=
- =?us-ascii?Q?qNKuw9PVCtlc4YY57o6ZUN/fQZBg/76KrSzkHIdvCtHW0ZPlHW3Ou3vEAY43?=
- =?us-ascii?Q?U8+/Y1VWCtQzX8J0+EEyB9tXHY4fwU6AQW2fbz3TQZFEgFxRXnZk1sGZx+Nd?=
- =?us-ascii?Q?+clGmuFGe5Q5zSLl1D8ypDtBxLO9vUTpWLbA6XeSH6xNHe9BNjIIPn/46BzQ?=
- =?us-ascii?Q?e+FxFWhdwAXiStB4iBHyioFyojS5Tjwbx6SjvRiEnk9gT2p2tmQw50liCvCD?=
- =?us-ascii?Q?fvuUuKm7xFt/gvHmvyVbn9gX+FRe2INXlXiE1/2pPYSafQjoKsCx/8JW6iAx?=
- =?us-ascii?Q?1PeunwxXH6NLRqM3qI+lXzLLl9rkigGE0HOQAJWRAuoXdQfqXsozbL2s0EC2?=
- =?us-ascii?Q?Wm4XLeBzQa1PzzThKe69tJc9aaiDXycmSetUwlsPszeKoWgMIrrWeY05cy5R?=
- =?us-ascii?Q?A1XKszO0PChpW8DTE3vgJXSl+NPcPhlrGngubpjlY0YwRAytuojxuL+M8wtB?=
- =?us-ascii?Q?7rj5qgVEVnE9UVDW3w1bPbh10wGYf5QihDTlU/IdGYTP3iBe5Cz2iiMfGZzU?=
- =?us-ascii?Q?18rYWGafp2YKwq6rdhzPVELtCgoQ4gsvFdkvYyEyb0Z7O+SSemqMvN9h7S/v?=
- =?us-ascii?Q?ATDFBRfoCIAVhpwmm9G+oQDJ4OLNkPFv5xZetxTpNB5jzRO9uCPb69YujIOS?=
- =?us-ascii?Q?VeMfqoln872Ptn3ozhR4H9U1cg+4fnB2WK5RejMdcs9vTW6TyyuJNMVbUT0K?=
- =?us-ascii?Q?o1KmeJ98gbA9he7oa9B8UDmivk6FDH+rgWvVYYETGYADY1w4Sxgi10Ajfg88?=
- =?us-ascii?Q?h/yG1vxT/A5Ht6P5X8/dp1c2NF8dp28rTgAJ93rWRX9pac3yhOd6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0c0d7b6-67bf-4579-c789-08df4c9a2555
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 15:21:44.7411
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mSgL0Sg/5QBdns311bHLOf2+kD5EuK6RTZ0jw/aOtoW0bJToAICrHfhfB3URZGstseN0S10SQ8pyF21ENBkWxcn5gHSM///CRRl0aU59Qk/LLxPgajcBD8nIpt5NE7fb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7730
 
-On Fri, Nov 27, 2026 at 07:03:58PM +0800, Tian Xuechen wrote:
-> Add devm_of_dma_router_register() to unregister a router when its
-> device is detached. Reuse the controller cleanup action, since routers
-> share the same OF registry. If registering the cleanup action fails,
-> remove the newly registered router immediately.
->
-> Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
-> ---
+Thank you for your contribution! Sashiko AI review found 2 potential
+issues to consider:
+- [Medium] sched/deadline: departed bw misattributed in
+  dl_clear_root_domains()
+- [Medium] sched/deadline: departed bw not discounted under lock in
+  sched_dl_overflow()
+--
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+commit 11764f8fab5822dc0f850c6d21fd4579821bb933
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-> Changes in v2:
->   - Add the reusable managed router helper.
->
->  include/linux/of_dma.h | 24 ++++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
->
-> diff --git a/include/linux/of_dma.h b/include/linux/of_dma.h
-> index 16b08234d03b..7f9198ea9627 100644
-> --- a/include/linux/of_dma.h
-> +++ b/include/linux/of_dma.h
-> @@ -64,6 +64,21 @@ extern int of_dma_router_register(struct device_node *np,
->  		struct dma_router *dma_router);
->  #define of_dma_router_free of_dma_controller_free
->
-> +static inline int
-> +devm_of_dma_router_register(struct device *dev, struct device_node *np,
-> +			    void *(*of_dma_route_allocate)
-> +			    (struct of_phandle_args *, struct of_dma *),
-> +			    struct dma_router *dma_router)
-> +{
-> +	int ret;
-> +
-> +	ret = of_dma_router_register(np, of_dma_route_allocate, dma_router);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return devm_add_action_or_reset(dev, __of_dma_controller_free, np);
-> +}
-> +
->  extern struct dma_chan *of_dma_request_slave_channel(struct device_node *np,
->  						     const char *name);
->  extern struct dma_chan *of_dma_simple_xlate(struct of_phandle_args *dma_spec,
-> @@ -103,6 +118,15 @@ static inline int of_dma_router_register(struct device_node *np,
->
->  #define of_dma_router_free of_dma_controller_free
->
-> +static inline int
-> +devm_of_dma_router_register(struct device *dev, struct device_node *np,
-> +			    void *(*of_dma_route_allocate)
-> +			    (struct of_phandle_args *, struct of_dma *),
-> +			    struct dma_router *dma_router)
-> +{
-> +	return -ENODEV;
-> +}
-> +
->  static inline struct dma_chan *of_dma_request_slave_channel(struct device_node *np,
->  						     const char *name)
+sched/deadline: Keep departing bandwidth across a root domain rebuild
+
+This commit tracks tasks that leave SCHED_DEADLINE or die before their
+0-lag time on dl_departed_list with their departing CPU and a rebuild
+generation counter, so root domain accounting rebuilds and the inactive
+timer preserve and release their bandwidth in the original root domain.
+
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index fe6b12500b54b..c2b5b5fdf1b98 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+
+[ ... ]
+
+> @@ -3643,9 +3778,51 @@ void dl_clear_root_domain(struct root_domain *rd)
+>  		dl_server_add_bw(rd, i);
+>  }
+> =20
+> -void dl_clear_root_domain_cpu(int cpu)
+> +/*
+> + * Clear every root domain before a rebuild of their accounting, and cou=
+nt
+> + * the rebuild in dl_bw_gen. Put back the bandwidth of their servers. Put
+> + * back the bandwidth of the tasks on dl_departed_list, which no cpuset
+> + * holds as deadline tasks. Put each in the root domain of the CPU
+> + * recorded for it, or drop it if that CPU is not active.
+> + * dl_add_task_root_domain() then adds the deadline tasks of the cpusets.
+> + */
+> +void dl_clear_root_domains(void)
 >  {
-> --
-> 2.43.0
->
+> -	dl_clear_root_domain(cpu_rq(cpu)->rd);
+> +	struct sched_dl_entity *dl_se;
+> +	u64 cookie =3D ++dl_cookie;
+> +	struct dl_bw *dl_b;
+> +	int cpu;
+> +
+> +	guard(raw_spinlock_irqsave)(&dl_departed_lock);
+> +	dl_bw_gen++;
+> +	for_each_possible_cpu(cpu) {
+> +		if (!dl_bw_visited(cpu, cookie))
+> +			dl_clear_root_domain(cpu_rq(cpu)->rd);
+> +	}
+> +	list_for_each_entry(dl_se, &dl_departed_list, dl_departed_node) {
+> +		cpu =3D dl_se->dl_departed_cpu;
+> +		/*
+> +		 * Skip bandwidth that an earlier rebuild dropped. It is not
+> +		 * counted now, and its release removes nothing
+> +		 * (dl_task_release_bw()).
+> +		 */
+> +		if (dl_se->dl_bw_gen !=3D dl_bw_gen - 1)
+> +			continue;
+> +		/*
+> +		 * Drop the bandwidth of a task whose CPU is inactive. A CPU
+> +		 * that goes offline is in the default root domain by then.
+> +		 * The root domain that counted the task cannot be found
+> +		 * from the recorded number. The release then removes
+> +		 * nothing, and no later rebuild restores it.
+> +		 */
+> +		if (!cpu_active(cpu))
+> +			continue;
+> +		dl_b =3D dl_bw_of(cpu);
+> +		raw_spin_lock(&dl_b->lock);
+> +		__dl_add(dl_b, dl_se->dl_bw, dl_bw_cpus(cpu));
+> +		raw_spin_unlock(&dl_b->lock);
+> +		dl_se->dl_bw_gen =3D dl_bw_gen;
+> +	}
+>  }
+
+[Severity: Medium]
+Can dl_clear_root_domains() charge departing bandwidth to the wrong root
+domain and underflow cpu_rq(cpu)->dl.extra_bw when dl_departed_cpu is
+moved into a new child cpuset partition root before the 0-lag timer
+fires?
+
+If two tasks in a 3-CPU top_cpuset (each with dl_bw =3D 0.6) depart while
+running on CPU 2 and a new 1-CPU partition root is then created on CPU 2,
+this loop adds both tasks' bandwidth (1.2 total) to the new 1-CPU root
+domain via dl_bw_of(2).  That drops the departing bandwidth from
+top_cpuset, blocks deadline admissions in the new partition with -EBUSY,
+and subtracts 1.2 from cpu_rq(2)->dl.extra_bw (initialized to 0.95),
+wrapping the unsigned u64 below zero.
+
+Later commits in this series ("sched/deadline: Record the root domain
+holding a task's bandwidth" and "sched/deadline: Make a rebuild count a
+task in the root domain it runs in") check whether a partition root took
+the recorded CPU for live deadline tasks, but leave dl_clear_root_domains()
+and the departed branch of dl_add_task_root_domain() using
+dl_departed_cpu unconditionally.
+
+[ ... ]
+
+> @@ -3963,8 +4156,6 @@ int sched_dl_overflow(struct task_struct *p, int po=
+licy,
+> =20
+>  	if (dl_policy(policy) && !task_has_dl_policy(p) &&
+>  	    !__dl_overflow(dl_b, cap, 0, new_bw)) {
+> -		if (hrtimer_active(&p->dl.inactive_timer))
+> -			__dl_sub(dl_b, p->dl.dl_bw, cpus);
+>  		__dl_add(dl_b, new_bw, cpus);
+>  		err =3D 0;
+>  	} else if (dl_policy(policy) && task_has_dl_policy(p) &&
+> @@ -3990,6 +4181,19 @@ int sched_dl_overflow(struct task_struct *p, int p=
+olicy,
+>  	}
+>  	raw_spin_unlock(&dl_b->lock);
+> =20
+> +	/*
+> +	 * A task that comes back before its 0-lag time still has the
+> +	 * bandwidth it left with. The new bandwidth replaces it, so remove the
+> +	 * old one from the root domain that keeps it (dl_task_release_bw()).
+> +	 * No rebuild can run meanwhile: the caller holds cpuset_mutex.
+> +	 */
+> +	if (!err && dl_policy(policy) && !task_has_dl_policy(p)) {
+> +		lockdep_assert_cpuset_lock_held();
+> +		if (p->dl.dl_departed_cpu >=3D 0)
+> +			dl_task_release_bw(p, -1);
+> +		p->dl.dl_bw_gen =3D dl_bw_gen;
+> +	}
+> +
+>  	return err;
+>  }
+
+[Severity: Medium]
+When a departed task returns to SCHED_DEADLINE in the same root domain
+before its 0-lag timer fires, doesn't releasing p->dl.dl_bw after dropping
+dl_b->lock transiently double-count the task's old and new bandwidth in
+dl_b->total_bw and rq->dl.extra_bw?
+
+Between raw_spin_unlock(&dl_b->lock) and dl_task_release_bw() taking
+dl_b->lock again, both p->dl.dl_bw and new_bw are counted in dl_b, which
+can cause concurrent sched_dl_global_validate() or
+dl_server_apply_params() calls to fail with -EBUSY and transiently reduces
+(or underflows when admission control is disabled) rq->dl.extra_bw read
+by grub_reclaim().  In addition, __dl_overflow(dl_b, cap, 0, new_bw)
+still checks admission with old_bw =3D 0 even when p->dl.dl_bw is already
+counted in the same dl_b and about to be replaced, rejecting a task with
+50% bandwidth in a 1-CPU partition root that switches to SCHED_OTHER and
+back to SCHED_DEADLINE before its 0-lag time.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795771147.gi=
+t.mathieu.desnoyers@efficios.com?part=3D1
