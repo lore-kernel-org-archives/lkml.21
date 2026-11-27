@@ -1,79 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777928;
-	b=UTqEa1Mv9HjgsVMoC7gQ14CFuMQAIbEtu8JiJQ0cLYOAhv74Yojv2bWnTWmR8m4SO+fn
-	 IA/P9N5L/Rx9lU9S+BgHDBqGZgPHYFJBqvWpxCPBqD5sH5HXSHqUQqQjUh6m5L5a1Bn0i
-	 2p6bSNb0QWQYx+0u3PDTwnm95bkFj6zLbBgWkCyCvwglmq0UjUUGSqsyTz19LQ5XoTAV/
-	 3KyP7V+pHGsZA/kBjDRtD4LMohfrl5egnDdnLEegqbLQMIGVTP4Wr0HmfWr8D+XimtLdO
-	 B8+7Poxu/Fx7fcF6w33T26VXRL3LetTtLf/Y0INmLnn/6UGCvThiiwD5+69JL3Mc9uA==
+	t=1795777981;
+	b=lcq7cIkvIROda/1BPwx0ClQfLhW6lj9DmGhi/KWJFzYFBrJLMeWtH2iczGln2Fo98SJ6
+	 mJcJwnJH9ybGKU5YY0mjROqtvSzdJcE4nwqXa+mDGBYYFlocC60MaPq7i0S3egvA2M/mP
+	 scXtuaQeSvOB/vML0cc35aAsxzEgMyix75HlZHclAa1fyQRFu5ylit7fgW1BRsnqEOvUg
+	 y4LltM4E88UZLgpMc4rRyrqUnHHye/MqBLwrJ9Lsy2htX2ldNNCvDsc9dNbvocoVjNC0I
+	 3kIGwfHgB0w2BeNhgw4C6LVuJI+tZhFL12kjDXbV0Ns5iA0d+bezKnq4y/OKTM399qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777928;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=y5YJi1sJrMPuqmdeCSGcwMhOZSaaMEqVhLWjWg1y5DQ=;
-	b=r+p8+o0xz0eLY6IkJ9sxVA8v73SoVZH6OBpWlkcEqcmEVx+3xoMagVUVNK8rjPry6jGM
-	 7SPaKkcvFzY3hpowU8/pgteV9oGZ85aPhTm6FwaBrsu+0yC1bZeoh7OPNHuf8Ri6tSfiN
-	 y/wkDK6pJX2cjrGC3IAhYTW0QRG+Zn6+Vpci4NdJbI4GH8FM/QnbvHELYGQ2sIpBIJ94s
-	 NgTUNEF9HbBwRpN2XLji3MXqgx6uJ1rSIiHyl6G4stGt34F+82vepcvxwhKzODYSKh99h
-	 gFof+ZalUTSbS6Bdm3nXqgZ0Lr3Yi90v+3e8RHk0pT78+HFL6ddZKuGZhEuEnILKWmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777981;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=KCNW0A2eLtsZJTW28kFA+jvGmbYpUN66AAzDwzgAjdc=;
+	b=Be9VqdaJUc20rGbN6kluNjPG0OS9CLXNh6sjm9I0QMmwmxSeBscfmwnDCbAVPbaoY/0a
+	 1Jpp19i0SPtj9KVtlMXCe/mTsNEsRS52Po9jxyF0qSqb3m0ouP+vochGsFPtRs+wQXSlC
+	 Qc7emZ32x6CcuAyZCWh/gwHXO3z8be68s2CTE7hJT2UA35J5Zbua+8ki2LhrBk4vNnAWg
+	 FL6vVOBOJzCoHf1WDyekEb0fsx6/ULDy+TeeMeUn+5QsK16Bjyr/29iVbHYR5+A9LUSKU
+	 vQ3+URIoEk8hYN/AaECesYVCj47NqrIcppcsoHTP1onVPOrLQgt7XmwhniSP+mL0NKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bIUvy44G;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PLVPuZMg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 714E1606A338;
-	Fri, 27 Nov 2026 11:12:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 714E1606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0399B606A31C;
+	Fri, 27 Nov 2026 11:13:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bIUvy44G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795777927; x=1827313927;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KqHOKykbe5ZyFYsaUPcERJBTPAJ7CBqMo8obDfHE8bI=;
-  b=bIUvy44GmFFezPVnol0g6umloag550GEG6UIi0MIXMA3ZUv1spVT1BG8
-   GWbeRY/YP2bZMDNSrpUyX1jRtp+NHtYmPnJiFd0eGWnxDlmzk6bVEnF5m
-   ODeQU3U4UqtR/eSgR+Z4VvjM/FDGOnjjBBXrC25n4yBDwhPN2FqYf0rfQ
-   2c+YPaILoScCo8dLK3jiAzk4tBQ2J3iB/8Rw+uNmKcGKtseCyD7qUOnXI
-   HhA6V1oiwtrSTEIrb2fghutLt6dhja7DBPvsf2Llerh6RKJUWF56i2KKD
-   vU0oiFHPDyijr7Uk6OpOE4Hid47OUWT5UbNf0UzCR6MwoG9MZgB8yUrsc
-   g==;
-X-CSE-ConnectionGUID: GEuW5iV9RCSYc/al0XbTgw==
-X-CSE-MsgGUID: qEqFXznBSPmEnGQgn/dxVA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4544764"
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="4544764"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:12:07 -0800
-X-CSE-ConnectionGUID: Y/NDu+7dRgyXEKj6eGNtkA==
-X-CSE-MsgGUID: N4ac5XDcS4avPB+40bfN1g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="14051309"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.115])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 03:12:04 -0800
-Date: Fri, 27 Nov 2026 13:11:58 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: sanjayembeddedse@gmail.com
-Cc: Jiri Kosina <jikos@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, linux-input@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Joshua Crofts <crofts@kernel.org>
-Subject: Re: [PATCH v2 0/7] HID: iio: Unify probe-path logging
-Message-ID: <awllftF3xR6Arvua@ashevche-desk.local>
-References: <20261127-19-oct-hid-iio-unified-print-framework-v2-0-3f476fe1a940@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PLVPuZMg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFAE91F00893;
+	Fri, 27 Nov 2026 11:12:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795777980;
+	bh=KCNW0A2eLtsZJTW28kFA+jvGmbYpUN66AAzDwzgAjdc=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=PLVPuZMg7tJVBF/D3DWrg4KHoPhVJkQ63P3WTADZ6ET88pGeGEkX7oj0a/MPfWZPf
+	 xPe7+CXrt9D9/VuZ+Y3xORs0Fi5Oyfn645q2D3Y1ZbfXK8CaL3vfCJCBfnzvHM7etN
+	 G/XEIQp9ryhlNxVmLqiD43SGtqZYSb5lTmi6W5XQh50l2OBiQsZbreKDYr2RcWHZEZ
+	 dGEKZ8bq8m9opy8LDzRWRNyVxiXacKXgegCi7eml7OH6cPf/qgtYEM6FDwCpgDzqrl
+	 1mZ7MZefJor3gPEOWGMAYP+60mBUH4jwTVb26DHtJVskz4mZdmmcRLeB+FaJPMVt9j
+	 lXHAZ+m5Fp/bA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,32 +49,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127-19-oct-hid-iio-unified-print-framework-v2-0-3f476fe1a940@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 09/11] phy: qcom: edp: Generalize power-on path for
+ per-SoC overrides
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Nabige Aala <nabige.aala@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Kuogee Hsieh <quic_khsieh@quicinc.com>, 
+ Shawn Guo <shengchao.guo@oss.qualcomm.com>, 
+ Ritesh Kumar <ritesh.kumar@oss.qualcomm.com>, 
+ Mahadevan P <mahadevan.p@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ freedreno@lists.freedesktop.org
+In-Reply-To: <20261116-nord-drv-dt-v3-9-e3d3bf0e2c49@oss.qualcomm.com>
+References: <20261116-nord-drv-dt-v3-0-e3d3bf0e2c49@oss.qualcomm.com>
+ <20261116-nord-drv-dt-v3-9-e3d3bf0e2c49@oss.qualcomm.com>
+Date: Fri, 27 Nov 2026 16:42:47 +0530
+Message-Id: <179577796721.3421.2624975183019402159.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1231; i=mani@kernel.org;
+ h=from:subject:message-id; bh=XdRjfs9vyNWIYRnMFCP5sRKg9fFa3IxHZ07qY5a3lXc=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrCWWyJzVnFqVakHuL1+tEwJRcWfzpN5VDPNWtR
+ 8pu0fz/ri+JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawllsgAKCRBVnxHm/pHO
+ 9fGiB/9fqFbg7HsMmFlTHqHeWJBhMB94jJelxQfeMG1DJwdOpTbpEic7YUer1jDKR+4/PTN+qNe
+ SLd7KUGHj878lnSkRPFi3DuhMaBcAic1ILya17u/9RgbjVX+uH9GBaNep99Xp0yJJ734YBUFF+z
+ Fi3w6mLdPrCAn1oA/z7QObZ/ITUkOLBnMakpizCnBJIjJCRbePOUYDEoDzZ7zUD1if9Nawh7D4m
+ u9i/+waRSH/bNotlbnstaU8nkCALhseon4S2F+Cah8NvuA9Q+6xW10tS9xh5sB/IHQVI1B5VtmV
+ tECh6jZTNtRZ2iA3HQhyIMAKbgNWGrG+lroE4GE/5xkQgzmu
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-On Fri, Nov 27, 2026 at 04:03:55PM +0530, Sanjay Chitroda via B4 Relay wrote:
-> This series provides consistent support for logs in probe() path for
-> HID IIO drivers with suggestion and input from Jonathan.
+On 2026-11-16 18:46 +0530, Nabige Aala wrote:
+> From: Ritesh Kumar <ritesh.kumar@oss.qualcomm.com>
 > 
-> This is followup series on top of multiple sub-series submitted for HID
-> IIO device drivers which included fixes, devm support, cleanup and using
-> preferred kernel coding style. This series adopts a common logging
-> approach throughout the HID IIO device drivers in probe path.
+> Add tx_res_config() and set_voltages() callbacks to phy_ver_ops so
+> SoCs with different register layouts can override TX resistor
+> calibration and TX drive-level writes independently.
+> 
+> Move the TX_BAND and RES_CODE/TX_EMP writes out of the common
+> power-on path into qcom_edp_tx_res_config_default(), which is
+> assigned to all existing SoC ops tables.  Likewise, dispatch
+> set_voltages() through the ops pointer in qcom_edp_set_voltages()
+> before falling back to the default TXn_TX_DRV_LVL writes.
+> 
+> Add phy_status_reg, tx2_tx3_lane_ctl and bias1_en_2lane fields to
+> qcom_edp_phy_cfg so the power-on path reads register offsets and
+> the 2-lane bias value from the per-SoC config rather than using
+> hardcoded constants.  Populate these fields for all existing SoC
+> configs with the current values, preserving existing behaviour.
+> 
+> No functional change for existing SoCs.
+> 
+> Signed-off-by: Ritesh Kumar <ritesh.kumar@oss.qualcomm.com>
+> Signed-off-by: Nabige Aala <nabige.aala@oss.qualcomm.com>
 
-> ---
-> Changes in v2:
-> - Following suggestion of Joshua, remove the comparison and change the
->   checks to `if (ret)` as respective devm_*() API `return 0` on success.
-> - Link to v1: https://patch.msgid.link/20261105-19-oct-hid-iio-unified-print-framework-v1-0-0b360d9552d9@gmail.com
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
-Reviewed-by: Andy Shevchenko <andy@kernel.org>
-for the not commented patches (the one is depends on the answer).
-
--- 
-With Best Regards,
-Andy Shevchenko
+- Mani
 
 
