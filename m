@@ -1,56 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795832215;
-	b=TKM/a1hARBle+SX3ODk1+t/j+tEenFkPUxhqVCdwUgHR58ldZK3/9fKdYmXSIFqrcbGj
-	 p8ufEZ94G9a1phspG1hQM2E/e5pY+2/Thl+yjp9aVIdkKSIX39ttsnq8d0hPkwYeNuL+W
-	 qhJVeqM5DHSQXDcwE8OaHYeovRDs40iBZxIQDTvMKAgpvH6FcG/iAp9XcXZf0RCB0H7dG
-	 WLctIdXrLOg23cHN3p6oJTHz9gCcxWrpgCboYz1LKms66RRvNXf0oycHrY4TR0jlxftoX
-	 ypkPv1oGkwzPLzlelLsegqkNGMGFzjK+Ni7QzSV+PWyL0KFwUDfa3E7LzcAFO+jTN+Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795832215;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=noX1O5wIhIXkaFPpFQLL1PDoUo+1OgKAJgfMh+rsgoM=;
-	b=pCk+i81ocoMJSaKu2OAFJ7M5lLI6PMbQrBiMGVE0G9KO4nu6v7Kj1H0wQZuhnr50OTWq
-	 C+0nKBVjXybtmrqdRInIbkeusr2ZcnJqAQqRve9l0JiaezQLMgG4fBP7yR0GVU3AMjCFO
-	 1JgWLpXbaQWzNvWE5f2yi5RAnWNRfCFf1UVibn2SssJBbFFlGhkBZGajvqI8o8XM0XI9i
-	 DcM3YFq2q11sWDz8tA3vR7pLrzrVqtIJWUPyw+D4xY71XklEM9yWJ2/JzljweAPQWqkj5
-	 3uCYlOvBZpmw+50XrSPSriUW6u4UqRHednCEgsy4l+weHseQHZNbHdxcIpJg9pTYuRw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="HQ2i6/PN";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795832349;
+	b=GKYRCual9VVAJTvjEkbdR18GInnPdpZwFhMe2U82r2loDV8cyZ59wDV8CRcpbQlckS1W
+	 gBE9JTmYcbq3zRmQVfwnrb+r1VtkzbLUT8jfHGlruluwL/noBSN8/EfS65lzuc5nGPxZJ
+	 TGoWKd7aKwLCBtf22WnIjheZScypf73sGMsFdcpLT1T1YNqQ6AYNV8h7MWOAR8yO9dcAL
+	 civk9xLE59ytexR09uvakwP1bl705p3GrfT6kuXNPKKmvlOaHpDJI9sMS0x105jc5LIRi
+	 mOkRVDkGqnxep9vRMVSqqJirhh4bpE+jNNvNv1Vg3YCpMGbo4hjwa0im4WTfBihFR8g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795832349;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=HZiLbeveVkP0thWq6lXBRnjI4/oS76xhNlaIHRsGwXI=;
+	b=uh2NJJ/TzzlpqyZFP5Hrk3Z0cYpeNUuJGcwxhGRqUMkwUlFD8d9sGEBNIVE3/Xqv7QzR
+	 1GBqWPFjCGTaG0DsKZo0MfeiGsAKkQDHUFvHzZwK03wpVfJA530tFUxehkrp1D30eC5W9
+	 5qfIfMz0qgYUZGqp/ftL3zb/JFDF/1eRygUcLBqPNgO+3x5M3p8TaF31Dghe3TbNFfvtE
+	 fljQ3RgLipn9Lexa9TieqMJHVfaC/O19LmcEDmD+f3FiuvpeQABKtW5uRQC51zAyvtRc/
+	 HGoqdHGFxC+w6FsJHjFYY501qesBh2my4uYVpMeETEXkT3k/5oMNfm7h6lANjGMqhTQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=wl6gPvEb;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1D7E606A6A5;
-	Sat, 28 Nov 2026 02:16:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1D7E606A6A5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 639BA606A339;
+	Sat, 28 Nov 2026 02:19:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 639BA606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=HQ2i6/PN
-ARC-Seal: i=1; a=rsa-sha256; t=1795832178; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Z5Wgo/oeJ4X+pYDP3K++zUQiShYJkAy46eNSW8Te82/eIZ6t2lgjn8jc2qhLb8zjKOjzqs4o/8p4B29d0RnFKWyqomj46yoy+Us+pAkMYdYi5BhsdWs7cZlLVmHZLy45fdXfc4/O3aXncwHYkkS6kNE1tWpK7ho1Kp8OA3SoMGU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795832178; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=noX1O5wIhIXkaFPpFQLL1PDoUo+1OgKAJgfMh+rsgoM=; 
-	b=E6VqmqjlKxnTN/Od29HRE627iEQyLJrxFfkU11hCidoL6M/p1X5Jlg7QgeWzPqf5H4Lt6NjBL25bQy9y6bKQRgLDh0BcObHzTqBPKIW4nOCmBqTfSGso43nKymbnMnuGNq/CMlaLa5I637k7CKrbf4b0Kra+bcXuo36W6F2fJwk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=HQ2i6/PNSQUg7Eji132/GXcP9bzphhqBULBHj81KauNRqtbIV/LPBInHhpJzQ+v9Uj7KeQKXGofSlVoc3uYimaZD7EOHI7ZpDr4ExxSobmSwufrvuo3p4RuKqRWUXRcyCaDOolOGDpA5bfB4Rma9iRaXmf9QcBx2CMCUAyI4z4s=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=noX1O5wIhIXkaFPpFQLL1PDoUo+1OgKAJgfMh+rsgoM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795832175431426.15764727825297;
-	Fri, 27 Nov 2026 18:16:15 -0800 (PST)
-From: Daniel Almeida <daniel.almeida@collabora.com>
-Date: Fri, 27 Nov 2026 23:15:44 -0300
-Subject: [PATCH 7/9] drm/tyr: use FLUSH_CACHES when disabling an address
- space
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=wl6gPvEb
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=HZiLbeveVkP0thWq6lXBRnjI4/oS76xhNlaIHRsGwXI=;
+	b=wl6gPvEb8+GbDNNj0Igr3ynb5fLY54UN8ir/arw4RT8N4XcxGf6b4e2TsKYfaErA97c21omUh
+	9NJPI8/bB1k8Quxo1eFSqwsMZDnYh6r8JrXrKbhWN6rmvW/QIPXRnXyaBDOJDioODOuD+MDpA+X
+	L8fDffTxns7RVHqRIsC7vF4=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jbv904pYxz1prKm;
+	Sat, 28 Nov 2026 10:18:44 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4879540538;
+	Sat, 28 Nov 2026 10:19:03 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 28 Nov
+ 2026 10:19:01 +0800
+Message-ID: <6339810b-1666-441c-a8b8-17bfb885fc8f@huawei.com>
+Date: Sat, 28 Nov 2026 10:19:01 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,58 +62,232 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-tyr-mmu-irq-v1-7-2fcb9f9465cd@collabora.com>
-References: <20261127-tyr-mmu-irq-v1-0-2fcb9f9465cd@collabora.com>
-In-Reply-To: <20261127-tyr-mmu-irq-v1-0-2fcb9f9465cd@collabora.com>
-To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- rust-for-linux@vger.kernel.org, Laura Nao <laura.nao@collabora.com>, 
- Deborah Brouwer <deborah.brouwer@collabora.com>
-X-Mailer: b4 0.15.2
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 2/8] crash_core: fold duplicated memblock arch hooks
+ into the weak default
+To: Wandun Chen <chenwandun1@gmail.com>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<robh@kernel.org>, <baoquan.he@linux.dev>, <rppt@kernel.org>,
+	<m.szyprowski@samsung.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, <hpa@zytor.com>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <pasha.tatashin@soleen.com>,
+	<pratyush@kernel.org>, <ruirui.yang@linux.dev>, <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
+	<linux-mm@kvack.org>, <iommu@lists.linux.dev>
+References: <20261127090723.741253-1-chenwandun1@gmail.com>
+ <20261127090723.741253-3-chenwandun1@gmail.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20261127090723.741253-3-chenwandun1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-as_disable() sends FLUSH_MEM, which cleans and invalidates the L2 and
-load/store caches and then unlocks the address space. FLUSH_MEM is
-deprecated from Mali-Gx20 onwards.
 
-Do the same with GPU_COMMAND FLUSH_CACHES followed by UNLOCK, as
-as_flush() and as_end_update() now do.
 
-Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
----
- drivers/gpu/drm/tyr/mmu/address_space.rs | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+在 2026/11/27 17:07, Wandun Chen 写道:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> arm64, loongarch and riscv open-code the same memblock walk in
+> arch_get_system_nr_ranges() and arch_crash_populate_cmem(). Move it into
+> the __weak defaults in kernel/crash_core.c and delete the arch copies.
 
-diff --git a/drivers/gpu/drm/tyr/mmu/address_space.rs b/drivers/gpu/drm/tyr/mmu/address_space.rs
-index fc617f282cbe..dddf5d41f3cc 100644
---- a/drivers/gpu/drm/tyr/mmu/address_space.rs
-+++ b/drivers/gpu/drm/tyr/mmu/address_space.rs
-@@ -306,14 +306,17 @@ fn as_enable(
-         Ok(())
-     }
- 
--    /// Disables an AS slot and clears its configuration.
-+    /// Disables an AS slot, clears its configuration and flushes the L2 and load/store caches.
-     ///
-     /// Returns an error if the slot is invalid or if register writes/commands fail.
-     fn as_disable(&mut self, io: &IoMem<'_>, as_nr: usize) -> Result {
-         self.validate_as_slot(as_nr)?;
- 
-         // Flush AS before disabling
--        self.as_send_cmd_and_wait(io, as_nr, MmuCommand::FlushMem)?;
-+        self.flush_caches(io)?;
-+
-+        // Release any pending LOCK before disabling the address space.
-+        self.as_send_cmd_and_wait(io, as_nr, MmuCommand::Unlock)?;
- 
-         io.write(
-             TRANSTAB_LO::try_at(as_nr).ok_or(EINVAL)?,
+The code looks good, but shouldn't the commit message also mention x86
+and loongarch? Loongarch does not implement crash CMA reservation, so
+crashk_cma_cnt is 0. x86 has its own arch hook implementation, so the
+__weak implementation will be overridden by the arch implementation.
 
--- 
-2.56.0
+otherwise, LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+Best regards,
+Jinjie
+
+> 
+> No functional change.
+> 
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> Acked-by: Baoquan He <baoquan.he@linux.dev>
+> ---
+>  arch/arm64/kernel/machine_kexec_file.c     | 29 ----------------------
+>  arch/loongarch/kernel/machine_kexec_file.c | 27 --------------------
+>  arch/riscv/kernel/machine_kexec_file.c     | 26 -------------------
+>  kernel/crash_core.c                        | 27 ++++++++++++++++++++
+>  4 files changed, 27 insertions(+), 82 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> index 14f453dd0946..18695f01043c 100644
+> --- a/arch/arm64/kernel/machine_kexec_file.c
+> +++ b/arch/arm64/kernel/machine_kexec_file.c
+> @@ -14,7 +14,6 @@
+>  #include <linux/kernel.h>
+>  #include <linux/kexec.h>
+>  #include <linux/libfdt.h>
+> -#include <linux/memblock.h>
+>  #include <linux/of.h>
+>  #include <linux/of_fdt.h>
+>  #include <linux/slab.h>
+> @@ -39,34 +38,6 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
+>  	return kexec_image_post_load_cleanup_default(image);
+>  }
+>  
+> -#ifdef CONFIG_CRASH_DUMP
+> -unsigned int arch_get_system_nr_ranges(void)
+> -{
+> -	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* for exclusion of crashkernel region */
+> -	phys_addr_t start, end;
+> -	u64 i;
+> -
+> -	for_each_mem_range(i, &start, &end)
+> -		nr_ranges++;
+> -
+> -	return nr_ranges;
+> -}
+> -
+> -int arch_crash_populate_cmem(struct crash_mem *cmem)
+> -{
+> -	phys_addr_t start, end;
+> -	u64 i;
+> -
+> -	for_each_mem_range(i, &start, &end) {
+> -		cmem->ranges[cmem->nr_ranges].start = start;
+> -		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> -		cmem->nr_ranges++;
+> -	}
+> -
+> -	return 0;
+> -}
+> -#endif
+> -
+>  /*
+>   * Tries to add the initrd and DTB to the image. If it is not possible to find
+>   * valid locations, this function will undo changes to the image and return non
+> diff --git a/arch/loongarch/kernel/machine_kexec_file.c b/arch/loongarch/kernel/machine_kexec_file.c
+> index 0fe60907b97f..bef459287683 100644
+> --- a/arch/loongarch/kernel/machine_kexec_file.c
+> +++ b/arch/loongarch/kernel/machine_kexec_file.c
+> @@ -13,7 +13,6 @@
+>  #include <linux/ioport.h>
+>  #include <linux/kernel.h>
+>  #include <linux/kexec.h>
+> -#include <linux/memblock.h>
+>  #include <linux/slab.h>
+>  #include <linux/string.h>
+>  #include <linux/types.h>
+> @@ -56,32 +55,6 @@ static void cmdline_add_initrd(struct kimage *image, unsigned long *cmdline_tmpl
+>  }
+>  
+>  #ifdef CONFIG_CRASH_DUMP
+> -unsigned int arch_get_system_nr_ranges(void)
+> -{
+> -	int nr_ranges = 2; /* for exclusion of crashkernel region */
+> -	phys_addr_t start, end;
+> -	uint64_t i;
+> -
+> -	for_each_mem_range(i, &start, &end)
+> -		nr_ranges++;
+> -
+> -	return nr_ranges;
+> -}
+> -
+> -int arch_crash_populate_cmem(struct crash_mem *cmem)
+> -{
+> -	phys_addr_t start, end;
+> -	uint64_t i;
+> -
+> -	for_each_mem_range(i, &start, &end) {
+> -		cmem->ranges[cmem->nr_ranges].start = start;
+> -		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> -		cmem->nr_ranges++;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  /*
+>   * Add the "mem=size@start" command line parameter to command line, indicating the
+>   * memory region the new kernel can use to boot into.
+> diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+> index dad7f02365d3..fdc6695e8588 100644
+> --- a/arch/riscv/kernel/machine_kexec_file.c
+> +++ b/arch/riscv/kernel/machine_kexec_file.c
+> @@ -37,32 +37,6 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
+>  }
+>  
+>  #ifdef CONFIG_CRASH_DUMP
+> -unsigned int arch_get_system_nr_ranges(void)
+> -{
+> -	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* For exclusion of crashkernel region */
+> -	phys_addr_t start, end;
+> -	u64 i;
+> -
+> -	for_each_mem_range(i, &start, &end)
+> -		nr_ranges++;
+> -
+> -	return nr_ranges;
+> -}
+> -
+> -int arch_crash_populate_cmem(struct crash_mem *cmem)
+> -{
+> -	phys_addr_t start, end;
+> -	u64 i;
+> -
+> -	for_each_mem_range(i, &start, &end) {
+> -		cmem->ranges[cmem->nr_ranges].start = start;
+> -		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> -		cmem->nr_ranges++;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
+>  				 unsigned long cmdline_len)
+>  {
+> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+> index d0bd2d0cf899..faa0f22dbb41 100644
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -281,8 +281,35 @@ static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
+>  	return cmem;
+>  }
+>  
+> +#ifdef CONFIG_ARCH_KEEP_MEMBLOCK
+> +unsigned int __weak arch_get_system_nr_ranges(void)
+> +{
+> +	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* crashk_res + crashk_low_res, +CMA splits */
+> +	phys_addr_t start, end;
+> +	u64 i;
+> +
+> +	for_each_mem_range(i, &start, &end)
+> +		nr_ranges++;
+> +	return nr_ranges;
+> +}
+> +
+> +int __weak arch_crash_populate_cmem(struct crash_mem *cmem)
+> +{
+> +	phys_addr_t start, end;
+> +	u64 i;
+> +
+> +	for_each_mem_range(i, &start, &end) {
+> +		cmem->ranges[cmem->nr_ranges].start = start;
+> +		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> +		cmem->nr_ranges++;
+> +	}
+> +	return 0;
+> +}
+> +#else
+>  unsigned int __weak arch_get_system_nr_ranges(void) { return 0; }
+>  int __weak arch_crash_populate_cmem(struct crash_mem *cmem) { return -1; }
+> +#endif
+> +
+>  int __weak arch_crash_exclude_ranges(struct crash_mem *cmem) { return 0; }
+>  
+>  int __weak arch_crash_exclude_mem_range(struct crash_mem **mem,
 
