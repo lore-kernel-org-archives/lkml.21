@@ -1,82 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.180
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795869655;
-	b=DfbVd9i5uA/LKolRkr0rUmMYOCroIS5WZRyMci62NBqZgYtdIN5o5SheYD+uZf8gM3Yn
-	 97fWqDR0rE7fiY7qQUBzWF6lKv0sTTBZ9UnXp4J06FagFmDp1/fZaOhZijG/6HEXiqEl/
-	 lhfnLWnuVj1Zt0oQ/KYLf6XY1P7bIAGlD2uFn2JvMtw/saLku96oOnOVMAWC3si8IjBiE
-	 oX1WzoVl2cMJar47yNl2RADscBOKPzI0e6vyoI5ap/bn8DBQYmlN4Jdmk7iqTixOCtMkD
-	 C/bFeoe7eQxi4rGW1i6FwPbAKfe+gqrVDIPvDakbDIp7QqDwFWoJIabZnRynGzojJBQ==
+	t=1795870044;
+	b=3fkwxsY3ndk48bo69H0hQnFKPYURXKvl9vd41wvTD7mVXCj/To08Vz5p2kQV9JaTT6+K
+	 GJSn3ThpEMwMzNqY11405GcC5CAe4WqQFSJ6xu7gBAiE5F6SBbvbkhpndJkXTHZbfqJZl
+	 i1Jo7yRokrKtjUDtrBoOAWwfXHERW3GaKScoO8edntbbozpiAk9Z4qQFfx5YIpG4eeODm
+	 UmK/MKNYIPJT4I5mNj4NWlEP/ZMMRto+qtbnNf8vgtXAssymZCNyXu2c8O1TkX11/Cvzs
+	 tIKfYICnKQOHmwWKWhm9+oSiFyyUw/bAuX8IqZ7KU3vCRXRCZoRwIsRpGQHQhZpCCmA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795869655;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=XY+wzVvH7Fne4jmypgPl0pE3UzUCqx1l2JqkP8JXvAs=;
-	b=o6P/vTYUQrVVD1I6pZgHZmMoiG7amB1NT/hbvKTtFmTuTwqcF5Z5PwtT+/13LTDnHEE1
-	 mTb8dRLmevvF8pXzUx6hNe2PQsdCID/HUPAXZN9ym5Tb1qZYkLsrMmNujh9yopzsWVKK6
-	 4E/QHIqUVhpM6lftYOI27cMoxHM4n86CF02Zs0Vi9JxtsaOK9PTs3wg11+74mTKUYyjZG
-	 ZMSz5kyheFn5g31zWOPg/NiotiG+0VdRrS7kETWVFnAicqv/tjSM7wqMLbie+qOUvosHI
-	 Gu0m21hc5JS6MY+LZUm6N3YROtyYTrvT/onf6IpU4ulctnfItPQLlQa/a6lMLrBu8SQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795870044;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
+	b=HUnsKUvT5c7BfY7DGnQRYxXFB95HX5czLR3fhV4JJe3FEcODV1QGrFKqev1DvjvGH1cA
+	 lYVWpE4IcSH86PFlpJ1T/dM3nrsaNpYDrNKWxY8x0TEcS/X60DBmGVNidTX6w7NyCovbv
+	 QC+D9Al4NLDJj+t9fM4Fc3cbB2MhPBmO0AxjYNVkS9NBOGkF6I9WsF8vakNlET6CnB+Cd
+	 1w4yLIoPtONPQZpeB1p2K9GOnO56BGgu+HIreDPLgNolX7OLZGPNc71sMhNN7cfDTV5q5
+	 WOB8ErUoITS8gJL0lv6tSsrsPoT7E1ZYTSmc6qwUAwC7Ht+Y1hl/zRy26yAX+l+vXKw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=WnpRY+3m;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=tomeuvizoso.net;
+	spf=pass smtp.mailfrom=tomeuvizoso.net;
+	dkim=pass header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=BeILgea6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.180
+Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com [209.85.222.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE65A606A31F;
-	Sat, 28 Nov 2026 12:40:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE65A606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 484E1606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 12:47:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 484E1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tomeuvizoso.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tomeuvizoso.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=WnpRY+3m
-Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.4.pengutronix.de [10.17.1.12])
-	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9ED15205A26;
-	Sat, 28 Nov 2026 13:40:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795869644;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XY+wzVvH7Fne4jmypgPl0pE3UzUCqx1l2JqkP8JXvAs=;
-	b=WnpRY+3mfJNbuJm/4AWw3gH0YY9ieKBqVy+Rq0c/0RsOtDldPaD/f89CBWjEjJBWlfO8mZ
-	tHVHxjweaZm1WHSHTYFMc/g9gWsyJpHxrxAj4ghODuVG0WHmBQc9kKE8LllcGE9xeUUNRZ
-	jblIgxULUnoTRHJU8+3iegn3sVZL8tMh8EufVVFwn/TDJmVPKotvcPuHe1If9OlB3HEpbl
-	aP3M0RL893UcstTPjNSOzDBMr4QzgTOsmWJzgNROZUBo0o5TpCzG2GtqTNsltVEgD+fpAJ
-	QLYlzulmSg9QTELVxTGz9mKXUYziC5LhXOqK4fYOSoEv+wLWhb1zDFEq8xk+ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795869644;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XY+wzVvH7Fne4jmypgPl0pE3UzUCqx1l2JqkP8JXvAs=;
-	b=BjDTM/sOJILZzG2LzeJU9tgxICj69vV5m9dLXciRuq5Rpp5MKcn3snJEBxXLEUHgsozbAA
-	eyvTEbK6Y71g5fMWycwd4BYlrYKDvql8rRmcL/O8D6dVVs+tz0OIOBvtmSo2Vz2mGxgBhk
-	Iu2i0MpnYjfY0zVy4xkHRx7bYZBcesCLH0jeJxupl/bzgH1m2U27perHGHr8puDtNUGf1H
-	cJ1toVg6oYL3FpTTzqCnUpE7rFzti+meqsHAK0YKtiJdQZTnKRIpSGD2HYFiWGcFWkhWzz
-	k7o+/L/5fC03VsnYT2amXUs2J97AvW3f6SGX1pJBfO0cEK+CqjFAOLJssuULug==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795869644; a=rsa-sha256;
-	cv=none;
-	b=NtOviaOgymgcO2eKOHgR1H7Bw3ZfFevyh8huuE3uUrd1cBkptDTovsqgyBxo4TCAGktWp3
-	XMT41Yfqxm8Epti2+wgHAxGeca/l+pP+E6e1zE9PsexcdTys8aOCfYgdQGxHl7D9ttG/z3
-	+QVCrULrom4KUk+mAaBAc0PaHOEvJT+eZwxlm7r9A+K4yN0YQGLCUK5x4W9IN8J2mw22as
-	A8CWMmdNt3CAVuu6Sy+M68E5eS8/qJgpGg1f23EAiDRV2B8LMIovQFHLK6gOR9uKV38cZG
-	64oW5K1R9LlK9jZnX+e5n+wRy/q3SudyUvQQfurWGqt/tSVUTqoBkO4zRNYUZw==
-Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
-	id 8FA133801B2; Sat, 28 Nov 2026 13:40:44 +0100 (CET)
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-Date: Sat, 28 Nov 2026 13:40:42 +0100
-Subject: [PATCH can-next v6 1/9] selftests: can: install net/lib.sh with
- the CAN tests
+	dkim=pass (2048-bit key) header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=BeILgea6
+Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-94965745d92so880842985a.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 04:47:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795870042; cv=none;
+        d=google.com; s=arc-20260327;
+        b=g4CR2esSsCWW3psqBOcSWEWDGPPxXf7XttDHUr1UNjMayycnr9vZfJMrF+9raLjTWU
+         eY0cXyplkjw6UoqH+dqNsSS1DaanrhVmm3nPbDpKVZIJqq4lP4XzIf/8Y65q5H6DZu3/
+         49/4gONhmjBXeX3urQj3JrH23QOaUaTyipc0siQp5auraIl7gdps7DrXVPcUxHhCfCSW
+         rg+5BPi6kc10YUg9aJOybtxaXaxpBn8KdaDgOO8cgsBZPzkE3Jot3assP9+9H1RLDlo/
+         UVqngkrFSKIvpA8nKn/JZUo2QUSUfUAZBM+2zltPpHJaSqhaC9ztmKOOJ4RmjJXRRFBe
+         tBEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
+        fh=aDqgsiSK12pakoJ4YR/zesND7aPFhNpfQjcjSNo8Rwo=;
+        b=LLBopRKM2ytt1PqTjmsCXZ4uyZbKkts9soWdLZFUZUNC6aui7WlvnOyUoVnqCZCTqS
+         IsTPIm4WH1DTvtV0u7pmNYpb+7nfr8wuaj5uODHl6fYzmo+JrG/Y9jCWmkT12B/S91wJ
+         zg60lrWT5HlUbF3n1xQWjq+vRMG6njjcvVY1lD6Te2wiUTFT6o4ernOYPd3HTy2S40LH
+         6i8YryvNj+QavJXi24PMhJN3JBmcfdt/tAoVZ9aEv1JBUaxB7cibvsJZavCz+Fn3Zq/B
+         ISB9TUMvC/ox/Y29WNaznS1PSPIpbO5Y7OWsBPP/FfzNNeliP8iO9bbeIqD7mN0Zy9V5
+         JCPw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tomeuvizoso-net.20260707.gappssmtp.com; s=20260707; t=1795870042; x=1796474842; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
+        b=BeILgea6h6Wg8RaehQvjTj8f0K9g12bAmgGs/XFxkw7J6G34pnn6kCTfXx/5VP73om
+         OHUhNTPxJOoZdWHMgfRtiDdDn+jvsRXPh/Q9GoNot5kFOpeHEUUJZN5lbu++iOQPzzyt
+         WRvJod3QyNB7FkxvZ+M2TVdW4yHfv/ygPzmnyK92F4G0XzUKoY4fzxvfqM7zgH3sDATT
+         fRdTntp3geFBYiCkDqakDR0JCM/TSg8WUOcHsAdl3YT3Kq6JRLg0Kyqi208aDXSfDdxO
+         n7JTQtplfyAVYeDMpLyam00amRGOmMizjQM1tvsa7UWIOlGmxSB3Npv84mfTGmBPr+fa
+         53bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795870042; x=1796474842;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
+        b=wAlIrBfz7BlYY2qU7H0+1HZu58jkvrRdbURlwX41dpcfPrGx+bRziYIwKwbxf3tccH
+         Gt56HIpFw8YJqIy+jqTtUAIaoNm8pGcbEhAvkN0tW0kn7g9ZYmeFWRxqwqI59mPEP7kG
+         xw4jjsQ/wcr7p761J5VJp0vSklH1mj//JSEn7DV33KX5QCFSIEb7gUQ94ASAq2fA6uMx
+         HmU52wrRDlH/wJn0q54RwEpUXEhWesXs98UpnNUTo/rF5q+7tYLh+fieIwAFmpbCE37O
+         gY6jU/KEwpM7a+paROoMkXBL/5Rbipw4HZP3FcXLydQrwiMZvXOC1RrW+YHFnsHuKrUr
+         Y8cA==
+X-Forwarded-Encrypted: i=1; AL+hErGCCUbHRhXAa6URD1kM5PdpuFnk/I20M7r2E3jPiJKqcmGfY76rTHrVJRbcXA/NjrLhBOxsS/B3tgOc6Ng=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92kqkMQYnqURRxA4xbYsJtGlE4UzHoCoFi250yLQRpul6/PPxm
+	Ssiqnruh1IUjSdvS3RaCOQD/v5vZ4J0Snd4vAqubrKkjbH4jTp/lspz9vxtMxEyMSfpWurBeWKS
+	FgPf8xSsbUhoZI3M0N0PKr43aNJtNj00uQpyoGLaOnA==
+X-Gm-Gg: AZFdTZd4MWpJK1vWrhXrflARNCwdmu2vWDokFaT8h4Oiw/qN+ECeeqY3zb73C4tU7cr
+	dSQ9IchJ+SSRdt5ANMALtSTTxHICCGvhZnpevI28y6DiyoHCWtOqKabsc3Q648GRlUb4P5Ci0+J
+	2HAQcujFODd9/K1YR5KBCXYq83r7f745YRNcOOu8bAx3svSLtjnHYLjDOb/bJ9YW+bk30SaihwF
+	CSTq8B0npMx4Kw6wBzoPMKfriTt2nQO3vDgFmgvAzd44WvyzPtxu7SFzK7lH1h8PIc6okcpAPQB
+	weLPxS+GRqBF3adiYiXjbMkSs4UMB63h6+/x/MeQJIOvAggcTiI5C15mtOmRZezxgOqtxzfiF+X
+	N3HtDEcEHLGYh3n+RSWqx+ZMNlnVyhShEaYldVRrPHkEIzXD8qYe5Jq+3IL1H2LEm6S7wbGluLj
+	2RzPJD8+R2yqybxY5Mmns=
+X-Received: by 2002:a05:620a:2685:b0:945:c4b9:3de2 with SMTP id
+ af79cd13be357-949bab3e44bmr4797027885a.73.1795870042110; Sat, 28 Nov 2026
+ 04:47:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,74 +105,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-j1939-selftests-v6-1-a9dc9140dee6@pengutronix.de>
-References: <20261128-j1939-selftests-v6-0-a9dc9140dee6@pengutronix.de>
-In-Reply-To: <20261128-j1939-selftests-v6-0-a9dc9140dee6@pengutronix.de>
-To: Robin van der Gracht <robin@protonic.nl>, 
- Oliver Hartkopp <socketcan@hartkopp.net>, 
- Marc Kleine-Budde <mkl@pengutronix.de>, Shuah Khan <shuah@kernel.org>
-Cc: kernel@pengutronix.de, linux-can@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Felix Maurer <fmaurer@redhat.com>, Vincent Mailhol <mailhol@kernel.org>, 
- =?utf-8?q?Alexander_H=C3=B6lzl?= <alexander.hoelzl@gmx.net>, 
- Chaosheng Qu <quchaosheng000406@163.com>, 
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
-X-Mailer: b4 0.14.2
+References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org> <20261120-ethosu-fixes-v5-8-52d459acdb84@kernel.org>
+In-Reply-To: <20261120-ethosu-fixes-v5-8-52d459acdb84@kernel.org>
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Sat, 28 Nov 2026 13:47:11 +0100
+X-Gm-Features: Aa3M54qpbAQbDlEgPyrcTk_PogN89shWh1HvSZaSgocnlIamF2kUnd8sMgtnawg
+Message-ID: <CAPsqS2RB-Dejz+L6joynr6DmbXE9nyADOAutwWCsT2hiKedWkg@mail.gmail.com>
+Subject: Re: [PATCH v5 08/19] accel: ethosu: Validate all feature map tiles
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Oded Gabbay <ogabbay@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add ../lib.sh and ../lib/sh/*.sh to TEST_INCLUDES. net/lib.sh sources
-lib/sh/defer.sh. The install needs lib.sh and the lib/sh scripts.
+Hi Rob,
 
-test_raw_filter.sh sources ../lib.sh, but the Makefile does not install
-lib.sh. A full selftest install works, because the net tests install
-lib.sh. An install of only net/can does not work. The installed
-test_raw_filter.sh cannot find lib.sh.
+On Fri, Nov 20, 2026 at 3:58=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
+ wrote:
+>
+> The command-stream validator checked only the final feature-map
+> coordinate. For tiled tensors, this can leave an earlier tile base
+> address unchecked even though the operation accesses it.
+>
+> Check the final coordinate of every tile touched by an operation. Also
+> treat U65 feature maps as 2x2 tiled: its precision rounding bits are not
+> the U85 storage encoding.
+>
+> Fixes: 5a5e9c0228e6 ("accel: Add Arm Ethos-U NPU driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> v5:
+>  - No changes.
+>
+> v4:
+>  - NHCWB16 feature maps may be vertically tiled. Account for tile 0's
+>    maximum Y coordinate when calculating the feature map bounds.
+>
+> v3:
+>  - Fix for storage mode 0 intermediate tile calculations
+>
+> v2:
+>  - no changes
+> ---
+>  drivers/accel/ethosu/ethosu_gem.c | 147 ++++++++++++++++++++++++++++++--=
+------
+>  1 file changed, 119 insertions(+), 28 deletions(-)
+>
+> diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/eth=
+osu_gem.c
+> index 9a66d8439408..11f41382dc5d 100644
+> --- a/drivers/accel/ethosu/ethosu_gem.c
+> +++ b/drivers/accel/ethosu/ethosu_gem.c
+> @@ -444,6 +444,96 @@ static u64 feat_matrix_length(struct ethosu_device *=
+edev,
+>         return addr;
+>  }
+>
+> +static int feat_matrix_check_location(struct ethosu_device *edev,
+> +                                     struct ethosu_validated_cmdstream_i=
+nfo *info,
+> +                                     struct cmd_state *st, struct feat_m=
+atrix *fm,
+> +                                     enum feat_matrix_type type, u32 x, =
+u32 y,
+> +                                     u32 c, bool ofm, u64 *max_len)
+> +{
+> +       u64 len;
+> +
+> +       len =3D feat_matrix_length(edev, info, st, fm, type, x, y, c, ofm=
+);
+> +       if (len =3D=3D U64_MAX)
+> +               return -EINVAL;
+> +
+> +       *max_len =3D max(*max_len, len);
+> +       return 0;
+> +}
+> +
+> +static int feat_matrix_size(struct ethosu_device *edev,
+> +                           struct ethosu_validated_cmdstream_info *info,
+> +                           struct cmd_state *st, struct feat_matrix *fm,
+> +                           enum feat_matrix_type type,
+> +                           u32 x, u32 y, u32 c, bool ofm, u64 *max_len)
+> +{
+> +     u32 storage =3D ethosu_is_u65(edev) ? 0 : fm->precision >> 14;
 
-Found by installing the tests with "make TARGETS=net/can install". With
-this change the installed test_raw_filter.sh runs.
+Not something this patch introduces, but an OFM with storage none (3)
+ends in the default case of feat_matrix_length() and is rejected. The
+U85 TRM (3.6.5, write_ofm) allows it: nothing is written and the result
+stays in the accumulator. Vela uses it when it splits an operator over
+several operations. Could it be handled like chained storage?
 
-Fixes: 77442ffa83e8 ("selftests: can: Import tst-filter from can-tests")
-Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
----
-Q: why is this fix part of a can-next series?
-A: j1939_lib.sh, added later in this series, sources ../lib.sh as
-well, so the J1939 tests need this install too.
+Future optimizations in Mesa will need this fixed.
 
-Changes in v6:
-- No changes.
+Thanks,
 
-Changes in v5:
-- No changes.
-
-Changes in v4:
-- No changes.
-
-Changes in v3:
-- No changes.
-
-Changes in v2:
-- New in v2. An install of net/can on its own left out net/lib.sh
-  (sashiko).
----
- tools/testing/selftests/net/can/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/tools/testing/selftests/net/can/Makefile b/tools/testing/selftests/net/can/Makefile
-index 5b82e60a03e75ace2cae949ceeab09a497c96074..3adaa13dcbfa303c4be2bb6a9b5dbdac76d68260 100644
---- a/tools/testing/selftests/net/can/Makefile
-+++ b/tools/testing/selftests/net/can/Makefile
-@@ -6,6 +6,8 @@ CFLAGS += -Wall -Wl,--no-as-needed -O2 -g -I$(top_srcdir)/usr/include $(KHDR_INC
- 
- TEST_PROGS := test_raw_filter.sh
- 
-+TEST_INCLUDES := ../lib.sh $(wildcard ../lib/sh/*.sh)
-+
- TEST_GEN_FILES := test_raw_filter
- 
- include ../../lib.mk
-
--- 
-2.47.3
-
+Tomeu
