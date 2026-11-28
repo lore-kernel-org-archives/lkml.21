@@ -1,102 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795829774;
-	b=cOh6MVT5EPXTzNjfc6EGCYGEeofsWudLFpiPm5o0GJczHGqH1MhU+o6tq2R8om6B0yJV
-	 txjgaFCrclBvwyxzlzXVlss9FV+BcuTeBJ1Pg8+V10cS1sV4p9W4Elf6VGlMPqFUaAN67
-	 WW7ChZ+KVnSWwVHwSOBeS6sGiXUJnoaDIAPHSxlSCf/psU0qFMnbEvn2mAZDFdfbANNnh
-	 P7Vbxk9Ca6kGSzhJ26Em7sIqsWuneEib1wJuQJE+l2e0Bdjk7XuIxFDlvDMdd3DEVX8C3
-	 So6fGC6/0/NHZRG8XA+PG3+2eng3J1VuJJx0+TftcYFyMx7ukEqNS4TiVlwkEEu4xFQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795829774;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
-	b=wc0WhWe8sHYn723DJ+j8cYvvGvkO07+k38WXM26wSzTLK9R7mObIa+SlHHlLeV8n0xWa
-	 AvRG8UjHtZ09HevRuzJe+jNyo6UANUgbFtqj42DElMSAvz7SpCTMgKlHsmj10ulAMH/v0
-	 b/pPaZIHvhv9wr9CmhuiPs/HO4TEm3AXPyrdp7J7NV6Cl+VXd0lWOfsupLOsMrAnRTaue
-	 wJ78fexm2D8tBJ5/MI1BQUp++93oPoLyU3aGklt33a5OoOVz9qYaFRW5EzlzOQQ18k0kG
-	 SuHuZzXC6Rk0pbfjL/b8X0+pB0vlR7dv9XCQpVZY0KNFQx0qDtfl0jkbLZ8dUODYSuQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HKBPY2Ah;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
-Received: from mail-yx1-f47.google.com (mail-yx1-f47.google.com [74.125.224.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795830002;
+	b=aefjVsQmbvg38PjIxkJSrA4dzgVnGrC3K+fvvPR5eAQRw8kLlGM0jKco1RbMFxHasKI4
+	 +ZDS3P5RnfMu8t5qWrpi7BbPlkqCaJjf+ZGroaX8nwA9LGzWpbmFEl4xrxMgtT/2I4nbw
+	 awzPZNc6ecP8mni8LcTVzC3+tH7rR1IL1pSwHYkSvcsG++lqFc8LnWADgv+oQ5xUhf82O
+	 nWQKkK4VSQVdT5GEI+jZhcSRfZtvkeXtRxXV27DCmPSQb3BDDFrFjmmZLVnCDApvEfkeL
+	 mhhVbb8+OMrhld+kptqvtOVRSCsDbAhTdocJnjOPQQxoP6EqrtSRIVnfHey3CKslUpw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795830002;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=n+kvE27be363NyxQQHbSrK8teWAh3Otp3BVkAILbX8M=;
+	b=eQTQhyhgbLovosYmEnz3nzmETxMfS5r3duYQghohruBOsXAYRQUpY270lI/6GQN+KwVi
+	 ZzW9q+SHCZQGOJdyzoAtSArVLV5ciPzSlDA4RS/3Ge/79wAgc+suQxn89aOddHSjfWCpG
+	 lBIUlozC8g/aOUeK2uj83yHwpb8UYZATLTVfy1QUOBcxkT/JFf6FZ5nvt/SvgYDs2g6IZ
+	 fyvYLQIXBhIOhEM5S1iuUtIGWvdQtdy/uYhtJMzv5dsabbtH+z8JF1uhHlZ2ZsDYwjV6o
+	 Xx1HTiPMIIomQvsD5SWjqlVnXqmDqOqvyF+Vq9p3dw/MuDO56TojcDzEghfvUAaB5QQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fastmail.org;
+	spf=pass smtp.mailfrom=fastmail.org;
+	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=PO7JyoAF;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=GJDwgd8O;
+	arc=none smtp.remote-ip=202.12.124.158
+Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DBF1606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:36:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DBF1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2783606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:40:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2783606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HKBPY2Ah
-Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-67dc7eb1442so9374846d50.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:36:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795829773; cv=none;
-        d=google.com; s=arc-20260327;
-        b=LpxRB4GXPxPJM8d7I0t7cfeSjEmX9UmamURIC7gdusKciXWcEXDFQkcsAEUQWJi82y
-         cfHyEvAshVg4OwPU5G8hsC0u607cwTtzDKZ4yjI8MgPUI+9ZGvGdeBdmq2pDUmUzvQ/w
-         zk8qb1wKfNydyHj+NR9hBut32JyIktmCqLMa2q+s/wxLjihDcDyJUzDQCO+iQWOfeufy
-         Wr3zvuM8WX30RHgiIf8lWZlKJJccxyjWwmGsQzZXDKbyKrnyEGsag4XmfaBN1HucuI0p
-         qVgLRnUDnYsuMmMPuan5R6wuqDWx/q3NjPxfmLolXc3SvognbgDOkTHiOJft5BBiQXmR
-         yfcQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
-        fh=YKzDzFOC3pujGHuaDIrVua3GZnDLHLhYr3xa//0yY60=;
-        b=dWnocqrDXaq3JVF7NKVv05aO0bWS3qUyna2+jQZpMrzyRzgkHjLz1MkCYSIH9DV4SO
-         W+bwYA0soWKrvSwqevqKYbnao9faTTtz+ENXQtC2XdNbLRehuPqxdriapUMOmnPeOVac
-         DWBTWoG9NmbnEET1ojD2QDLQbEBifFj0BL52IgGDMFSrdsnL9H3On018n0p5Zl5pjYK4
-         cwFtgyGrYyaD3ApWyZWrwwJvQR48KFWXvgLYlsfUBDCAKXzev0OrKcyg3W7vkcx5f41a
-         QEVG+GRsxFxXqT4iAev6533gWJV6PM06A1QGBTe1rzPXshXWEFl3+0bCSSo5ANmyVxJX
-         9/Gw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795829773; x=1796434573; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
-        b=HKBPY2AhbDKedYOXAH9MlDYYnfxJp+uuxXh37G6UV0Uukdf1bDXIsjclNL4gNhwXZV
-         F8xvBHvIEJU4DIT7PQJg2eQtNTxCzKL0cNYMZvRnE0pkElYA/9Uu9l5P3CWtdkyqyKBb
-         mg6tvMFGPhLUDDQuIHn3rjGIyPpWWdZ2DkGz2wyQDASUcAfhDXrfij8pDO1tTQhlW+95
-         PxiS+65TgYnw5aOpEsV3SYNA7G+fW4x41FIJZUnoBkDZ3TL+6muSUPrlfJsEJNhx1aTB
-         qzW9VdTOYFucNWRlzH6V9tJBBNdP7a9c2cU5AKkXpjFqEGYYpLJdwJdLyCH5KvGjVDSz
-         /Ldw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795829773; x=1796434573;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
-        b=qtjnH9lT7PS5rvNdr4murNVfmYfkuoCR5k1LJcesvTCH0B+a9eoWdFF1F7xowXz2sT
-         R9XePVQtOTyL7Gl3cP2lZUChfrkMI8aR539uoKtFojCM1SY8N9cHJ1Xd9y4EVmAcj0K7
-         tmwT1pogo51U/r+o4J0SNvsqynNw8PRUuicWYhYE3PdMGhyUAo6qWhLzZszFGVOFTmPi
-         8wIWeqAsw2hdwBKh9O9XyL1zG5fzfcNbvok5fkmMtU0sZQmqu6EtcIArZqm1BgUX6jjp
-         QaboR1nJs9KaF6IOlEgWFmjcfq5BX+FbBS4Pqsa3k4O2LlOFIBL1a0g8HM3dH16m26Je
-         rjwg==
-X-Forwarded-Encrypted: i=1; AL+hErGoZRbVzTIqh/+I1sgkPY5+pvElAIRmMI2zP3q/y+Pu0S07jTJutzsjqSA/dQNApcC2rdsUchCaOEpsn24=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8k+oWYhmEDQC/DgspK7wQrSiNJil26GJy3Ma7ApkY1xCR3QhJv
-	O3efgQPpQcndmam9PW3oMfr4gcyvqHzfgsv9KsnGby9ZBNTQ70M10VFyGEhZDAgD4SWD/MuDxH8
-	fAZq2BM5MN+qkDVjsXFLQAfusMISPLbo=
-X-Gm-Gg: AZFdTZc+hVCTUxa9gZZ49p3tGZ95OyT922ncHyuvwmVhBPnFgloEFr7hSqPqJBJg6et
-	s8VAfwcsztMlkKRbZNBueTPPReu1Gv8DFvwWtjyCC/ZuI4JTrJdkr9jLAT9iRnte+gkUUOKOp3K
-	WgJBVHWIw1x2ybCkScZHRRPx6YNJuvqHkt4PUqcqlIjfpru48I0w9mYtxx25tJSlg138SBYdJky
-	yUv/OsiSH+cBHsZ+4YPPZWy5GWdpxpWdJwN0jOP/mpjxcC3/B7E9V3fGNo62BgdYrG81uRuYhjJ
-	m1uraFqFJoBktH/4pDpqFVXR2XJcWMnbxgd2er86G/k5bN2cw1r/vCSxR/z/lO1iZPZVnMN5mRZ
-	KJVt5i5hVeWJ2l5I3VkU3RO14wLSfSUOZa1WozRl4sf68x6rWfMyrMhNb3kq04QvCNCBJv6IEDn
-	GzipEMkwMUNQaJankHAYsJ+6dseTyYSVnz++IizE0gS3G9XU3cbmo5nxwvrPdkUXpOHn5QhvYyT
-	fL/CjuYkmOxI19d3nH0SWG6TaYGLA==
-X-Received: by 2002:a05:690e:4146:b0:67d:bda2:a4f6 with SMTP id
- 956f58d0204a3-67df44c4aabmr13817573d50.108.1795829773220; Fri, 27 Nov 2026
- 17:36:13 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=PO7JyoAF;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=GJDwgd8O
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 4ED8A7A051D
+	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:40:01 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Fri, 27 Nov 2026 20:40:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1795830000; x=1795916400; bh=n+kvE27be363NyxQQHbSr
+	K8teWAh3Otp3BVkAILbX8M=; b=PO7JyoAFO8ehW3MO8OL8nNgyz9TE053qXrnxN
+	JBDdAaoEGTXX60EQQbv3uJaatP0ljh4a1NI5qlscizl29NFUtTjsnM69GuKZXAwC
+	N4mCU3gdEcpAWcu1F5bOl4YGDRbYhEBtwlFQrT9Vpk+XRgpGA6D0xBNNk0NvbWr1
+	kWRQ6oHlsK0QqxqTrNdt6KDdEmK1ouncO3hbOpo/Rz4N6ERHpaW5wRtaOBWCyX1K
+	fKoriwPh/ImbC+GFFm9M7sgx5+Dh3jaE2SQhSOBJNWIm8lLaChY7EKI6fAxEtNA/
+	RCB5WIH6+Y5wWcC4oL4P4HOQuLXqv/ej/dwLWHVoM4rg8IqCw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795830000; x=1795916400; bh=n+kvE27be363NyxQQHbSrK8teWAh3Otp3BV
+	kAILbX8M=; b=GJDwgd8Oe7uFCl70y6wJW6QTGIvNZSZHiFXpmfre7397NuFB/hk
+	C1Yf+/fQQ5Fli3zMk5Zme68YKh1QeHtX/8fvMtUM9b1Tmr3JNjRFPbDC9B4ySiZh
+	KDLqxq90mCpA82kVcVqbGyTsjYFRErsFsqFoZtCE2PsVgEVu9EMKURENnC5nm5ma
+	N3miLqJJbon2Hh4DmgXjJwVZ0q5uKul3CtiyFB1z9jsdmU282eRPlj/xuKiHxWOd
+	iEaGqWxpwrgjZKFgJrmwnlCFsOHjyALZlFCz19w+ojA0yuq2CogG12xpQ+RdUcON
+	nKkKXl1mCsN8/nlwkiJji4kcJtMrpGJsCDQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795830000; d=fastmail.org;
+	mf=PGljYkBmYXN0bWFpbC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:OhyEyw9RmgDG+UYhCIIDG/WtEkupF/8cxZ6334Q9wSoJ2wQ
+	KCVI8smO1+HtXHtfL/n/dwH6Kl8aj6eN5WN/Di5GNdmUw7EwB6uYxO3pAVM5eO5l
+	MMilkO7KB+7arzwocvgb7KoMGKGx6r3hIg4o2xvtCXDvaOzlTBaP1iS1U9RSZm1a
+	KCDsMd9RSWR6c2If4ruZt/Sm7b4YR4ikB8CBsD4oPqwHI7km7vBZlLO15mYRsmHG
+	or4FiOlpn7V7+HtW6Jlhs42KDlPjUCJGXs47RFtqOYbspBLhgQRyOe+1RD77kTOk
+	8dri5K8kdnfmwJlW7fdZOjIKbrDLC/EUfuZNYgg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:aJMZ5WVaHzprxUhtUbXWb5dWepoEU+OdYw08M5fbNsQ=:mT/wbfLBkMxa3Yo+pafoy4G0U+kURieWsn7M7GeCnj8=;
+X-ME-Sender: <xms:7zAKa5_Oncp9Qpi63MPW0qUBXtLVmtlfqzsQ16-CpLy9ZrEXnWtlGQ>
+    <xme:7zAKa-ZBF_gQDVv83bIOr4kJ4YJcLITL7EM6Ejn22N9AlPoI81OjDP-HfVbvrvzUh
+    DMvTB2jVZbLT4mZyywvlTYey9h7jm8sWaP0gJoCxaJOggMjiasudQ>
+X-ME-Received: <xmr:7zAKa1OH2AK_ceI-rDVGhyHPdZhAcn8eIcKaHTY-ZrIGucFDHF0SBEl37cg0_aTH>
+X-ME-Proxy-Cause: dmFkZTFBcALkEyB+Y09OQP87bxuTguYHmOTlWsEL/K6L4WhU/r4VziyS5xZ7Y9xwTF3IQV
+    U+VzEQa5vtc/R1zlvtsolYtOqHFoLSTxNTFzcEGAz9GwQFcmsUwWgr2krXjC5x1GSSPVMB
+    xtOCK7La9hTgSS6RRW4KEEcQGEafHhf1ZSAxiZjBBtWuCDNbWjdIg7xxZHy81h9Vzkd2BP
+    nHhdhPlYPApyhrmlAJBXnrsLCArzXGeA93H2lc/wbUeXfkCd2PvGa0DWjjzV+z4H8JqSWQ
+    EV3Pqmwxd9LfzFkiGVC+/7mBvh2JMGQSxJ9TicHQZ8gUah3ycNREeNsSCLwwilzEAHS8Dt
+    6PZCNn2W6jMWQgMijr/qeDggDmVjLIMnhSX/FoPBul0SqmjMgu+sWw6z4Wo8vSooaafUil
+    hM9H8u9KSj9Ny2yTGzogX9agydKtMaUFM5IQT68AdmUpv2AdO+KL3uEWOskHMOm6Eo8S++
+    687ZnV6ImlvxX44h+yoLjerKWAgZFbjrnte2Lal3n/zkDJbA/kJVMrAqr437mVuVv8cMuD
+    LOobk4/CAOu76qBDpPl8eTn+TBRiEqRCyWMlhBDQspZJWSTXfRMQJMvMZjC/amFSaBBHrm
+    2XV2+VPlwFECrHwVlRMxEIy2Oq+u2+p7nDW30pSe/kDYDnk0TAl4qz2dLOcQ
+X-ME-Proxy: <xmx:7zAKayCQl8yo6joDDaDIuid7uCo54Mwv5jFGh7SBhCoHG9h8Q2q_2w>
+    <xmx:7zAKa0J5X1nCmNv-RJPt2ZY6YPlz1JVV_M-AeqBYOV3ShMfkqUYX6A>
+    <xmx:7zAKazPo2GdxOizvLe813TB826ULPRvJUjwNipAYFjD9-oYnVq9Gsw>
+    <xmx:7zAKa65tifTqINelpTWXKaeWGL_HFFINGXR1pxdhdm0_eFPM1Upymw>
+    <xmx:8DAKa4TvJwXds8IFPaQ0YouenDl-Scz0Z3JXCVqKY9Ws8HwRd7sF61ED>
+Feedback-ID: ib53e4b78:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 27 Nov 2026 20:39:59 -0500 (EST)
+From: Ian Bridges <icb@fastmail.org>
+To: linkinjeon@kernel.org
+Cc: senozhatsky@chromium.org,
+	tom@talpey.com,
+	chenxiaosong@chenxiaosong.com,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ian Bridges <icb@fastmail.org>
+Subject: [PATCH] ksmbd: return the cause of a failed link
+Date: Fri, 27 Nov 2026 19:39:52 -0600
+Message-ID: <20261128013952.1691873-1-icb@fastmail.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,79 +125,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118002529.250616-1-sidchintamaneni@gmail.com> <2c16f03f9ba10bc4cf508420d564b928@manguebit.org>
-In-Reply-To: <2c16f03f9ba10bc4cf508420d564b928@manguebit.org>
-From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-Date: Fri, 27 Nov 2026 17:36:02 -0800
-X-Gm-Features: Aa3M54rSKmt0il3afckVWFqy1h-RAmFCaFQGHvkbqyLQu4tqXd2WZKI4sY965VI
-Message-ID: <CAE5sdEgn4V2JhCPrjcb4gRiPBcxi6GP8cg1JoW3P6Hoqop5zNw@mail.gmail.com>
-Subject: Re: [PATCH v1 0/2] smb: client: fix cached-dir and deferred-close
- unmount races
-To: Paulo Alcantara <pc@manguebit.org>
-Cc: Ronnie Sahlberg <ronniesahlberg@gmail.com>, Allen Pais <apais@microsoft.com>, 
-	Bharath SM <bharathsm@microsoft.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, linux-cifs@vger.kernel.org, 
-	Rachel Menge <rachelmenge@linux.microsoft.com>, Shyam Prasad N <sprasad@microsoft.com>, 
-	Tom Talpey <tom@talpey.com>, Gillian Laming <glaming@microsoft.com>, 
-	Hardik Garg <hargar@linux.microsoft.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Thu, 26 Nov 2026 at 07:14, Paulo Alcantara <pc@manguebit.org> wrote:
->
-> Hi Siddharth,
->
-> Siddharth Chintamaneni <sidchintamaneni@gmail.com> writes:
->
-> > While investigating the cifs_kill_sb() unmount busy-dentry race fixed i=
-n
-> > "smb: client: fix busy dentry and inode on unmount from late oplock
-> > break" [1], I wrote a static analysis tool with AI assistance to scan
-> > for the same teardown pattern where objects are moved off shared lists
-> > and locks are dropped before their underlying dentry references are
-> > released.
-> >
-> > That scan identified two more unmount races in cifs_kill_sb(), both of
-> > which I reproduced in QEMU where cifs_kill_sb() reaches
-> > generic_shutdown_super() while dentries are still in use:
-> >
-> > - Patch 1 walks cfids->dying under cfids->cfid_list_lock in
-> >   close_all_cached_dirs() and holds cifs_sb->outstanding_rreq across
-> >   dput(dentry) in smb2_close_cached_fid() so dentries for dying or
-> >   concurrently closed cached directories are dropped before
-> >   kill_anon_super() runs.
-> > - Patch 2 counts cancelled deferred-close handles in
-> >   cifs_sb->outstanding_rreq while they sit on a local stack list before
-> >   _cifsFileInfo_put() completes in cifs_close_deferred_file(),
-> >   cifs_close_all_deferred_files(), and
-> >   cifs_close_deferred_file_under_dentry().
-> >
-> > [1] https://lore.kernel.org/all/20261117001733.192399-1-sidchintamaneni=
-@gmail.com/
-> >
-> > Siddharth Chintamaneni (2):
-> >   smb: client: drop dentries for dying cached dirs during unmount
-> >   smb: client: fix busy dentry on unmount from cancelled deferred close
-> >
-> >  fs/smb/client/cached_dir.c | 31 +++++++++++++++++++++++++++++--
-> >  fs/smb/client/misc.c       | 32 +++++++++++++++++++++++++++++---
-> >  2 files changed, 58 insertions(+), 5 deletions(-)
->
-> Please have a look at sashiko's reviews on your series
->
->         https://sashiko.dev/#/patchset/20261118002529.250616-1-sidchintam=
-aneni%40gmail.com
+smb2_create_link() turns every error of the link, and of the removal of
+a target that the link replaces, into -EINVAL. A link that fails
+because the caller cannot write the directory therefore returns
+STATUS_INVALID_PARAMETER. Return the errors as they are, as
+smb2_rename() does, so that smb2_set_info() maps them in the same way
+as the errors of a rename.
 
-Sure, I=E2=80=99ll address the comments and re-spin the patches.
+Signed-off-by: Ian Bridges <icb@fastmail.org>
+---
+Tested on ksmbd-for-next 4543a3349127 with KASAN. A link into a
+directory that the caller cannot write now fails with
+STATUS_ACCESS_DENIED instead of STATUS_INVALID_PARAMETER. On a Linux
+cifs mount, ln into such a directory now reports "Permission denied".
+Before, it reported "Operation not supported". A link into a writable
+directory still succeeds. smbtorture gives the same results as on the
+base.
 
-I also ran the static checker across the entire kernel, and it found
-similar bug patterns in several filesystems and drivers. I was
-wondering if there=E2=80=99s a better way to handle these findings.
-I don=E2=80=99t really want to publish them somewhere since I=E2=80=99m not=
- sure if
-the races are exploitable. At the same time, I don=E2=80=99t want to spam
-different subsystem maintainers with patches without verifying each
-issue first, which feels a bit cumbersome.
-Just wanted to reach out and get your advice on how best to approach this.
+This patch was developed with LLM assistance.
 
-Thanks!
+ fs/smb/server/smb2pdu.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
+index 38326db8da40..9504c2e35819 100644
+--- a/fs/smb/server/smb2pdu.c
++++ b/fs/smb/server/smb2pdu.c
+@@ -8953,11 +8953,9 @@ static int smb2_create_link(struct ksmbd_work *work,
+ 	} else {
+ 		if (file_info->ReplaceIfExists) {
+ 			rc = ksmbd_vfs_remove_file(work, &path);
+-			if (rc) {
+-				rc = -EINVAL;
++			if (rc)
+ 				ksmbd_debug(SMB, "cannot delete %s\n",
+ 					    link_name);
+-			}
+ 		} else {
+ 			rc = -EEXIST;
+ 			ksmbd_debug(SMB, "link already exists\n");
+@@ -8967,8 +8965,6 @@ static int smb2_create_link(struct ksmbd_work *work,
+ 			goto out;
+ 	}
+ 	rc = ksmbd_vfs_link(work, target_name, link_name);
+-	if (rc)
+-		rc = -EINVAL;
+ out:
+ 
+ 	if (!IS_ERR(link_name))
+
+base-commit: 4543a3349127baa8395397b7f4aa930d9a4f8dd5
+-- 
+2.47.3
+
