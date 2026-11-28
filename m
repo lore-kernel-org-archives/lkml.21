@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795870382;
-	b=eBTXzkWF7B7eYshmHQMl9k2/uDjFutkcf6StwffbvNfxTJCimWfYyPSK/ynH4Z48eBKi
-	 U+sh+3pWg7ynKYP3MQBCnZP0fEA7l4c1/xN1y418XIJjGIjNc3UAPI3e41sF0oThGFQze
-	 DHorMFpLEuMFAmSlzErAK9EcT8EawD8T2sxZ2K5xcwv+aQATrkXA4lSe4xam3eE5teZzL
-	 GO/VErorJU/bUdlLobCMMTNo2eMn/z5BYvstXAZuUFkgrGKsNgau3zk6lIaEg0Mr89vTA
-	 WMsK2TfnhoHdXgn8ZU+cfTOQ9XCqdvijAEtq0PWAa/lOVJyyjxjxl4LOe1dIISVzRvA==
+	t=1795870393;
+	b=YEvcrwxte4yefTK3UAGeY2JHPLPCiPoRmw5TKq1iyW9i/R4s2whX1SEbXJIAXssbpQvL
+	 nfZgOoiClv/7r0VfcrB4qfwegZgVaWvtffQxaBeLn/GS8sma/JKt3wLukK9v1dJ33IdvX
+	 Zdlp7rsaqNnXihILrxF4z56xTA0lAN2PrUR1J/XgETj4wrSj2qD3OMLWWiKpioeLIMGhY
+	 SKf+5dHZbKHLz4joA6g+8VVsV5X5jhraeViRbf2HwfVvCYGPVaJ2S+jOXUoPRl/KoRtZv
+	 71YDPDT6MM8U8Ddh0N0v9mxmMMWtPYBF8e3Qfn7wKVmw/DVfKI/pDOL2C987pRrtUpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795870382;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=h75jUG+PBtMkKHGPbP26Yezo9yQ5wTPIP6PKE7A9i3s=;
-	b=znOj6y3cQjt7QX4pMt7YWVJBFl4OsRa4GoZKpYWmh//q8H8pgYTx6fSu8RDKEpK7cgzN
-	 GNtQK0+AuXDdsPzB5uYSazN2YAQFfhqXIvrJ5Yvo5YsgxQ3+qwNqo2OAKXJ6YGHG+dVco
-	 1aMWW8xui8eJdu7RT5Oa2jfsiqG7iR4Hv2cm8rhL52+pGBBXdGIi4eSkNjReuP4a8pQax
-	 VBxjXLew+pjaLC60I4ZX7Dm14g7aPG1jLlbFpg7HjAIQDxFe8JTM/NnwHTh21Wh3hKbne
-	 jk6VPhq2I4MmqTBFtWK50fLZdb+h0puh5vUtQyn5qWbUyIpokn9k0xF7EB1ddigDJQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795870393;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Le55nTgOnRmiMyY/pp4YijMrc6PTrM00ZvR48+ZIGeE=;
+	b=GlmD3wJZBH8fozsKqeQv2ac686d9D4vSD+GUk59gKYU3Rq1k8jpBBYoVv6Km9OrePH3z
+	 wR5s3FSoZlz5I9CNA2Q1byed/oCPMRIVb907roUyX3r/uoBVMX7qRH5FhV/qMoX8X9Rcc
+	 zebRY+q/eH2OxzEj7jiyuEg8mfahxiNqAoaqetaqXLZI2VfmUM/gMzWkyJG1Q1LVQ9m8U
+	 7gWXoBdO7m72jX1A5cFTTYSlJFUej+fcCHmOCKUw6xkLJyaWhRCsBjELwNLd36l4lVvVB
+	 0z26SZH4MduRFymCD63GnmNLJqlabQ3R+WSKDG/B41h7JZo8FSvkGytZTC5bUp5P9gA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="i57/Xen5";
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="QvSZAh6/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42BD1606A31C;
-	Sat, 28 Nov 2026 12:53:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42BD1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F053606A31F;
+	Sat, 28 Nov 2026 12:53:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=i57/Xen5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795870381; x=1827406381;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=AFKshA39KztF2TJeeGhjaBGYqk5QaWo1qDI3j5Tpros=;
-  b=i57/Xen5POCqMURSjVjf0AAr+xYhb3JKBircZT6y/IIRdvhLOPR2O7aq
-   zmtgd3z9UnL+J6wF7YvOk6QnFDm550C+eWnBuitdS3r31buESgI9+w2Jt
-   e5qCqis6SPTMuuQEHzyh35Bxt1d08O7xoyZigW3Uc1uY3r0yDytDtOHt0
-   QZ2G4josYOS4l+mzDUFBOSTwmDwsHnq2F/kLPYp+yGyPJQvhjfjaZT/VY
-   R48zrSXbQpHkBjEQeMBrCJ4BCtqvdvGoXVpBfYhKL+PGe+bsItwfdu2Cx
-   pzRWYQ7guV6q7lzJOztZEosFNSVJKyRKG8cmiwZnkDRaPshARiOF2kNDt
-   Q==;
-X-CSE-ConnectionGUID: SgKP3TMXRWW4NwVN5Nfyyg==
-X-CSE-MsgGUID: 9jNIazC/SCe+LZsGKQXJKA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11980"; a="4774309"
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="4774309"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 04:53:00 -0800
-X-CSE-ConnectionGUID: VTup8/cGS7+aoG/tpuTumg==
-X-CSE-MsgGUID: Tx5/gUxDR266/pEeIbvjHA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="12930477"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by orviesa009.jf.intel.com with ESMTP; 28 Nov 2026 04:52:53 -0800
-Date: Sat, 28 Nov 2026 20:42:31 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "Gao, Chao" <chao.gao@intel.com>, "Xu, Yilun" <yilun.xu@intel.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"kas@kernel.org" <kas@kernel.org>,
-	"Peng, Chao P" <chao.p.peng@intel.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"Tian, Kevin" <kevin.tian@intel.com>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>
-Subject: Re: [RFC PATCH 3/7] coco/tdx-host: Exchange SPDM messages through DOE
-Message-ID: <awrMNwqLpbCbX8i2@yilunxu-OptiPlex-7050>
-References: <20261116111037.3478844-1-chao.gao@intel.com>
- <20261116111037.3478844-4-chao.gao@intel.com>
- <4f832b3a73bfd4d9b74e5e68a08f0de5659e1b6a.camel@intel.com>
- <awV7wYVv4D_Egns8@intel.com>
- <00efbba7a1b2c6e61cc36bf709718da978eec85c.camel@intel.com>
- <awbQpM4QlKTVQ0f8@intel.com>
- <d4783f8c5df1823aabb4b0a1510f52cd1a731892.camel@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QvSZAh6/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 787711F0089A;
+	Sat, 28 Nov 2026 12:53:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795870392;
+	bh=Le55nTgOnRmiMyY/pp4YijMrc6PTrM00ZvR48+ZIGeE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=QvSZAh6/0FLJW+/BZCQqaEcCO0CQgljK41CG7lse5jrL1E9jvqzhUkr68Wefl9EeP
+	 hXdysXiYd+aph334Kq9AuGLC4UUPtrDh/+QJdxk1RFkiw9WHXJSbrpaj4PWms7oSgH
+	 HNTGR0EKdIG04S49GqkfHIiTADwlG1gLv6E0BE3424gOceT+LhEIsvwTo3Fx3uH9Fa
+	 gM4HiJSeNHIVI9GgXBnHEZ2B29QXVitlxyulfpOtUY+Bc9WRoF8iV48bi/eauc19DE
+	 4KMFzB1banzSMrBe1l2SNafy6z3x8izS8x578/ea1DuckFlLSMoss7gESR+VoA5elP
+	 /wmFeQ2M+RjGg==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Stian Halseth <stian@itx.no>
+Cc: Naveen N Rao <naveen@kernel.org>, Danish Khateeb <danishkhateeb03@gmail.com>, sparclinux@vger.kernel.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] sparc64: kprobes: Make kprobes work on sun4v
+Date: Sat, 28 Nov 2026 21:53:08 +0900
+Message-ID: <undine-1795870388603907145-0de276961caf0063@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261113144057.1697874-1-stian@itx.no>
+References: <20261113144057.1697874-1-stian@itx.no>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,37 +59,61 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <d4783f8c5df1823aabb4b0a1510f52cd1a731892.camel@intel.com>
 
-On Wed, Nov 25, 2026 at 05:48:36PM +0000, Edgecombe, Rick P wrote:
-> On Wed, 2026-11-25 at 20:12 +0800, Chao Gao wrote:
-> > static int tdx_spdm_msg_exchange(struct tdx_tsm_link *tlink)
-> > {
-> > 	struct pci_dev *pdev = tlink->pci.base_tsm.pdev;
-> > 	int ret;
-> > 
-> > 	ret = pci_doe_raw(tlink->pci.doe_mb,
-> > 			  page_address(tlink->out_msg), PAGE_SIZE,
-> > 			  page_address(tlink->in_msg), PAGE_SIZE);
-> > 	if (ret < 0) {
-> > 		pci_err(pdev, "spdm msg exchange fail %d\n", ret);
-> > 		return ret;
-> > 	}
-> > 
-> > 	return 0;
-> > }
+On Fri, 13 Nov 2026 15:40:53 +0100, Stian Halseth <stian@itx.no> wrote:
+> Any kprobe hit on a sun4v machine oopses. The probed instruction is
+> single-stepped from memory that is not executable there. Patch 1
+> moves the copy into an instruction slot from get_insn_slot(), as other
+> architectures do.
 > 
-> If the DOE people are ok with this, it does seem much better to me on our side.
+> Once probes work, three older single-step bugs show up. A taken BPr or
+> FP branch resumes at the wrong address (patch 2). So does a probe on a
+> delay slot instruction (patch 3). An annulled branch can skip the
+> break instruction after the copy (patch 4). Patch 2 overlaps Danish
+> Khateeb's relbranch_fixup() fix from September. Whichever is applied
+> first, the other is a small rebase.
+> 
+> Tested on a SPARC T7-1 and T4-1 (sun4v) and a Sun Fire V240 (sun4u):
+> entry and return probes, probes on all 50 instructions of
+> __task_pid_nr_ns at once while checking getppid(), ps and /proc, probes
+> on the SPARC AES routines during AF_ALG encryption (sun4v), and
+> refusal of ba,a. Without the series the first probe hit oopses on
+> sun4v. A probe on a taken brnz oopses on sun4u as well.
+> 
+> v2: make flush_insn_slot() a no-op in patch 1 (Masami). The slot is
+> flushed in arch_prepare_kprobe() when it is written. A killed probe
+> has a NULL slot pointer. init_aggr_kprobe() flushed through it.
+> Patch 4 no longer touches the macro. Rebased onto 7.4-rc3. Build
+> tested on the T7-1.
+> v1: https://lore.kernel.org/all/20261009180336.1315684-1-stian@itx.no/
+> 
+> Stian Halseth (4):
+>   sparc64: kprobes: Single-step from an executable instruction slot
+>   sparc64: kprobes: Fix up register and FP branches after single-step
+>   sparc64: kprobes: Resume after a delay slot at the saved next PC
+>   sparc64: kprobes: Handle annulled branches
+> 
 
-I'm not the DOE people but I have some concern about this raw
-transfering interface. The kernel manages the DOE layer, the PCI DOE
-capability and the discovery protocol..  The firmware has no access
-these info. It is questionable that the firmware constructs the DOE
-packet without knowing all the info. Even today the firmware can
-blindly fill the packet right, no guarantee it still can  as the
-discovery protocol version advances.
+This series looks good to me from kprobes point of view.
 
-I lean to not having TDX module create the DOE header. Let the kernel
-do it.
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+David, Andreas, can you pick this series?
+
+Thank you,
+
+>  arch/sparc/include/asm/kprobes.h | 14 +++----
+>  arch/sparc/kernel/kprobes.c      | 69 +++++++++++++++++++++++++++-----
+>  2 files changed, 66 insertions(+), 17 deletions(-)
+> 
+> 
+> base-commit: b3dfbde62cf1981c4638939c159dfd087b7a72e9
+> -- 
+> 2.43.0
+> 
+> 
+>
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
