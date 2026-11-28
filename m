@@ -1,65 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858208;
-	b=Ryr8gKaJ2QH8ivjoSNgT4c0DxDar61HF2Zu5Q5TGOU/C+vjvTXO8GGBm1va8CF4GVnuw
-	 KQlTEBgF/7HG7pWXikwB5UqNSMpvZlfN2NxnvM/PSd5/EOUBPnvkLSdz7pBVoIyd9/Efx
-	 De8T6o/G2osmjxKTrLskXbouBJ+FwAmLnATwGY2psEsxA0sOZOuHT/ZD0Va6ZSYhJt3jG
-	 VAGr8wvP924zXYdnXREcUDOTeF/dyo8fwIFbImCK52NB7Db8YGj03OY+ruTxrtneACerL
-	 /KUhIF8BTk2dxW8Ccaoozyn5aABVhbY2Cvr4zguGblYz+BIHd40x3x7w9RWOMmC/viA==
+	t=1795858219;
+	b=gv/hyFZroD3T31U5mU8P1K1hwTOat5WJfMKxRIxt4mpQTzITtjItIOnCN6MFEfs+lf9T
+	 n+KF6FoAUkgC0ADL1jCIFLESAmbLI1m2xLCKB/oMVe6CPn4eqpyY5xgqs1+HC+DSXq1CM
+	 s52Zm3T6KfFYuiGEgc6VbKQFb21o0xC6Ff9tYjW+MKwFVtQsb4OtJwWH6M7/JD9iUOy4B
+	 QeDaqUb6NrgJtchMA+V0tg7UCN7Ay3zKRV96zDql0ZltkIyAR4WoOslOVsURdhFYf4t0N
+	 4/Kcxbcu3izyypNHw7dypXGDigZowgN+WyPsDkIyqmaqwKExkml4Q+X6dECvMsZ6JvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858208;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858219;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
-	b=Aw617Yr5kw1gT5Mf5uEooPGK13ZovaRx+PzJowJznmWplEwj97afNHBdg4QLgOueRQws
-	 U+Sg2Dxim+vh6HlwghOHZI0uGQkkpJx3BThrrYZ+r/nrji76yxqc8J3UZtIJxvEcDUwQV
-	 RHq37SAIbwthTlhuy8NOKMkLWLqf6Iqu5wKn35/qCS1UKel4UW0Hg/DBc2XavUsId5qQC
-	 RimDCWmyE1NWY0VFiu678ylJ0k0Gr3xV4NUaVzRBmIH7oYwTULG5OPzYTng/AF3m2btKf
-	 k14J+fCjQU/pifs7E9BnFBkk+mHz959FyVHSoyVwSsaGVLL07nqN/M+z3SrzU44YWXg==
+	bh=1NdFSc4Q5nm/FDad+O4eAYEhWlUETJkfgU3eFUfziiE=;
+	b=fAIaHkPMB6t6PMI8X4VMLGRSngQlaG6UzPNtRlPvhb0j3hECadXShiDO+RQLjlNJMCQw
+	 dc8NEvJ/ZPRH3pwwpGACuo0OwvrTL7IX8SO/h0Een03rtyRgLWlb2du/foHMRvGp+yclT
+	 t5AJYvgOnaiG7ZRshQqttYx8OfFwfLx1Y9bT1kvG+cIVVeLYMemxT59n29j81msIPyZrn
+	 mijRSrh0qxiQp0NnAwyTuGHXYXzBi3WzYbuYG6WuB3IhnyOuFSsAMA7zDZtIhVEsSx86o
+	 KhwtQTKvphcrE0qkjUG4tcnb6FiwJADpsx6N8OOF37oikXC0uydQqSuhAFE1AjqexLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MzDkb99T;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85BD7606A31F;
-	Sat, 28 Nov 2026 09:30:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 316E4606A68D;
+	Sat, 28 Nov 2026 09:30:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F6D1F000C1;
-	Sat, 28 Nov 2026 09:30:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MzDkb99T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2360D1F00897;
+	Sat, 28 Nov 2026 09:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858208;
-	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
+	s=k20260515; t=1795858218;
+	bh=1NdFSc4Q5nm/FDad+O4eAYEhWlUETJkfgU3eFUfziiE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=etxzu4GTQ3UAhayP6IwZ0T6LF9L1qSUo19CaH3iTmZJVZH5ESTqVbkZN1Vz0PxMaS
-	 2wBVe5sdp5u2WvEf9kxs8tEk56YVDrE1bHB6B7n08bE1kHEGaXkVcOOfNC3jgQ/5xc
-	 yfWMDm82Vg9ytJwKzhgAMEWJAJ9yvfDP0HKRFbwM7NIBnN5AR2F7vjwVMXXKRaLlEv
-	 bgDLY941y3JoOtLsHp7FN6R/7AjhTau+ObJnq7euXJXEvjk/IdcVTmWgW5MtLvzOpV
-	 qWbKKk6p4XzCq9UtK4o5u9Vg97vYnsBAgEvvFJzjgCKtuc1cNRHKRLPN2UUPSxwih6
-	 Ae19c48Z5xojw==
-Subject:
- Re: [PATCH net v5 1/4] ice: stop the service task before the PF is unloaded
+	b=MzDkb99TYZP55O+y5EEc2+XLVzozaw5R+MsqdFl6y58L/dHjIhssXH0wFvW1g8wRC
+	 +8Z5NgTAIleI9C2nU6kaRGpwUyZtt/MT3uvxCCwRuv0Ttu/J4nUDAxsW1eU1Xq/J7j
+	 XRj4ZFBsCDTy8czuzHWsNbTVtxMkhaXiIeY2wWxmTXBKlYow46Hc1tGQuRlOyo6xAw
+	 guWI3RgdcRQJMbgD3bLjHX8grfeaSgw2p65LRiNBAeuLuSOmBYg2qlUeL/oRDq7dt7
+	 3mPw4UcrnKV/gC7n90JMRFRpzN0Tq9g90mAGo2ij9WD5YFnSVhCHCUR3a/5XopBgVY
+	 ZwL9QqlLEOrzg==
+Subject: Re: [PATCH net-next v2 5/5] net: dsa: lan9645x: add bridge support
 From: netdev-bot+sashiko@kernel.org
-To: poros@redhat.com
-Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
- przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- aleksandr.loktionov@intel.com, horms@kernel.org,
- michal.swiatkowski@linux.intel.com, grzegorz.nitka@intel.com,
- pmenzel@molgen.mpg.de, wojciech.drewek@intel.com,
- marcin.szycik@linux.intel.com, martyna.szapar-mudlaw@linux.intel.com,
- ivecera@redhat.com, alice.michael@intel.com, jacob.e.keller@intel.com,
- jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
- aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
- linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:30:06 +0000
-Message-ID: <179585820637.3135.16053674648760900756@kernel.org>
-In-Reply-To: <20261127085714.1207361-2-poros@redhat.com>
-References: <20261127085714.1207361-2-poros@redhat.com>
-X-sashiko-severity: High
+To: jensemil.schulzostergaard@microchip.com
+Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Date: Sat, 28 Nov 2026 09:30:17 +0000
+Message-ID: <179585821765.3135.11957570145287110531@kernel.org>
+In-Reply-To: <20261127-dsa-lan9645x-add-vlan-and-bridge-offload-v2-5-84adcd919dac@microchip.com>
+References: <20261127-dsa-lan9645x-add-vlan-and-bridge-offload-v2-5-84adcd919dac@microchip.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -72,10 +63,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -83,193 +74,124 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The patch moves the early ice_service_task_stop() only in
-  ice_remove().
-- [High] The patch handles the "last run re-arms the service timer after
-  the stop, and the timer fires after the PF is freed" race only in the…
-- [Medium] The early ice_service_task_stop() in ice_remove()
-  (ice_main.c:5390) does not stop the service work from being queued…
+- [Medium] The 802.1Q-only restriction for VLAN-aware bridges is checked
+  only when a port joins, in lan9645x_port_bridge_join() through…
+- [Low] In lan9645x_port_mdb_add(), the existing `mdb->vid > VLAN_MAX`
+  check (returns -EOPNOTSUPP) runs before the new…
 
 --
 
-ice: stop the service task before the PF is unloaded
+net: dsa: lan9645x: add bridge support
 
-This patch moves ice_service_task_stop() and ice_aq_cancel_waiting_tasks()
-in ice_remove() back to right after ice_free_vfs(). The service task is then
-stopped before the aRFS filters, netdev, LAG and VSIs are freed. The stop
-in ice_deinit_dev() is kept so that it deletes a timer re-armed by the last
-run.
+This adds hardware bridge offload to the lan9645x DSA driver. Up to 8
+bridges are supported, each VLAN-unaware bridge gets its own reserved VID,
+and at most one bridge can be VLAN-aware. The patch adds STP, learning,
+flooding, host flood and ageing support, and refuses vlan_filtering
+changes while ports are bridged. It also does not install FDB or MDB
+entries that carry a VID on a VLAN-unaware bridge.
 
-> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-> index 47c6798c97e8f..6dede87b78944 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_main.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
-> @@ -5387,6 +5387,9 @@ static void ice_remove(struct pci_dev *pdev)
->  		ice_free_vfs(pf);
->  	}
->  
-> +	ice_service_task_stop(pf);
-> +	ice_aq_cancel_waiting_tasks(pf);
-> +
+> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+> index e840de1c918ba..94b46082cf5c4 100644
+> --- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
 
-[Severity: High]
-The same ordering problem seems to remain on the other paths that unload
-the PF. ice_devlink_reinit_down() in devlink/devlink.c does:
-
-	ice_unload(pf);
-	rtnl_lock();
-	ice_vsi_decfg(ice_get_main_vsi(pf));
-	rtnl_unlock();
-	ice_deinit_pf(pf);
-	ice_deinit_hw(&pf->hw);
-	ice_deinit_dev(pf);
-
-Nothing sets ICE_SERVICE_DIS before ice_deinit_dev(), so the service timer
-keeps queueing serv_task during this whole sequence:
-
-  - ice_unload()->ice_decfg_netdev() calls free_netdev(vsi->netdev).
-  - ice_deinit_pf() destroys sw_mutex, tc_mutex and lag_mutex, frees the
-    avail_txqs/avail_rxqs bitmaps and frees the misc IRQ.
-  - ice_deinit_hw() destroys the control queues.
-
-Can a run of ice_sync_fltr_subtask()->ice_vsi_sync_fltr() that has already
-read vsi->netdev keep using netdev->flags and netif_addr_lock_bh(netdev)
-after free_netdev()?
-
-A devlink dev reload with action driver_reinit can trigger this while a
-filter sync is pending, for example after a promisc or multicast change
-through ice_set_rx_mode().
-
-The probe error unwind in ice_probe() looks similar:
-
-unroll_load:
-	ice_unload(pf);
-unroll_init:
-	devl_unlock(priv_to_devlink(pf));
-	ice_deinit(pf);
 [ ... ]
-unroll_hw_init:
-	ice_deinit_hw(hw);
-	if (need_dev_deinit)
-		ice_deinit_dev(pf);
 
-When this unwind runs, ice_init() has already cleared ICE_SERVICE_DIS and
-armed serv_tmr. ice_load() has also queued serv_task through
-ice_service_task_restart().
+> +static bool lan9645x_bridge_vlan_proto_ok(const struct net_device *br)
+> +{
+> +	u16 proto;
+> +
+> +	return !br_vlan_enabled(br) || br_vlan_get_proto(br, &proto) ||
+> +	       proto == ETH_P_8021Q;
+> +}
 
-ice_deinit() only sets ICE_SERVICE_DIS, which does not wait for a running
-work item, and then ice_dealloc_vsis() frees pf->vsi. After that come
-ice_adapter_put() and ice_deinit_hw(), and only then the stop in
-ice_deinit_dev().
+[ ... ]
 
-Commit 8a37f9e2ff40, named in the Fixes: tag, is also the commit that moved
-ice_deinit_dev() after ice_deinit_hw() in this unwind. Should
-ice_devlink_reinit_down() and the probe unwind also stop the service task
-before they tear down the PF? Neither path seems to change later in the
-series.
+> +static int lan9645x_port_bridge_join(struct dsa_switch *ds, int port,
+> +				     struct dsa_bridge bridge,
+> +				     bool *tx_fwd_offload,
+> +				     struct netlink_ext_ack *extack)
+> +{
+
+[ ... ]
+
+> +	if (!lan9645x_bridge_vlan_proto_ok(bridge.dev)) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "Only 802.1Q VLAN-aware bridges are supported");
+> +		return -EINVAL;
+> +	}
 
 [Severity: Medium]
-Does a single ice_service_task_stop() here prevent serv_task from being
-queued again before ice_remove_arfs(), ice_unload() and ice_deinit() run?
+Is checking the protocol only in lan9645x_port_bridge_join() enough to
+keep the hardware and the software bridge in agreement?
 
-ice_service_task_schedule() tests ICE_SERVICE_DIS without a lock and only
-calls queue_work() afterwards:
+Once a port has joined, a protocol change goes through
+__br_vlan_set_proto() in net/bridge/br_vlan.c:
 
-	if (!test_bit(ICE_SERVICE_DIS, pf->state) &&
-	    !test_and_set_bit(ICE_SERVICE_SCHED, pf->state) &&
-	    !test_bit(ICE_NEEDS_RESTART, pf->state))
-		queue_work(ice_wq, &pf->serv_task);
+	err = switchdev_port_attr_set(br->dev, &attr, extack);
+	if (err && err != -EOPNOTSUPP)
+		return err;
 
-Also, ice_service_task() does not check ICE_SERVICE_DIS when it starts.
+The attribute is sent with SWITCHDEV_F_SKIP_EOPNOTSUPP. net/dsa/ has no
+handler for SWITCHDEV_ATTR_ID_BRIDGE_VLAN_PROTOCOL, so a command like
+"ip link set br0 type bridge vlan_protocol 802.1ad" succeeds on a
+VLAN-aware bridge that already has lan9645x ports.
 
-At this point the netdev is still registered and the misc IRQ is still
-live. That means ice_set_rx_mode(), ice_rx_flow_steer(), ice_misc_intr()
-and the VF fdir handlers can all still reach ice_service_task_schedule().
+After that, the hardware still treats 0x8100 tags as VLAN tags, but the
+software bridge uses 802.1ad. Take a 0x8100-tagged VID 20 frame that
+arrives on a port with pvid 10, where the port is also a member of VLAN
+20. The hardware forwards it in VLAN 20, but the bridge policy would
+classify it to VLAN 10.
 
-One possible interleaving:
+The commit message mentions this limitation:
 
-CPU0 (ice_set_rx_mode)              CPU1 (ice_remove)
-set ICE_FLAG_FLTR_SYNC
-test_bit(ICE_SERVICE_DIS) == 0
-                                    ice_service_task_stop()
-                                      test_and_set_bit(ICE_SERVICE_DIS)
-                                      timer_delete_sync()
-                                      cancel_work_sync() /* idle */
-                                      clear_bit(ICE_SERVICE_SCHED)
-queue_work(ice_wq, &pf->serv_task)
-                                    ice_remove_arfs()
-                                    ice_unload()  /* free_netdev() */
-                                    ice_deinit()  /* ice_dealloc_vsis() */
+  DSA does not pass SWITCHDEV_ATTR_ID_BRIDGE_VLAN_PROTOCOL to drivers,
+  so a protocol change on a bridge that is already VLAN-aware is not
+  seen.
 
-The worker would then run ice_sync_fltr_subtask(), ice_sync_arfs_fltrs()
-and the other subtasks against the state being freed. The second stop in
-ice_deinit_dev() only runs after the VSIs are already gone.
+It also says "Only bridge vlan_protocol 802.1Q is offloaded", but that
+restriction can be bypassed after the join. Should the DSA core either
+pass this attribute to drivers or refuse the change while ports are
+offloaded?
 
-The window is only a few instructions wide. Would a check of
-ICE_SERVICE_DIS at the start of ice_service_task(), or quiescing these
-scheduling sources first, be needed to close it?
+[ ... ]
 
->  	if (!ice_is_safe_mode(pf))
->  		ice_remove_arfs(pf);
+> @@ -503,6 +844,9 @@ static int lan9645x_port_mdb_add(struct dsa_switch *ds, int port,
+>  	if (mdb->vid > VLAN_MAX)
+>  		return -EOPNOTSUPP;
 >  
-> @@ -5407,7 +5410,6 @@ static void ice_remove(struct pci_dev *pdev)
->  	ice_deinit_hw(&pf->hw);
->  
->  	ice_deinit_dev(pf);
-> -	ice_aq_cancel_waiting_tasks(pf);
->  	set_bit(ICE_DOWN, pf->state);
->  }
+> +	if (lan9645x_db_vid_unused(lan9645x, mdb->vid, &db))
+> +		return 0;
+> +
 
-[Severity: High]
-The commit message says the stop in ice_deinit_dev() "stays and deletes a
-timer armed by the last run". The ordering inside ice_service_task_stop()
-has not changed, though:
+[Severity: Low]
+Should lan9645x_db_vid_unused() be checked before the VLAN_MAX check
+here?
 
-	ret = test_and_set_bit(ICE_SERVICE_DIS, pf->state);
+On a VLAN-unaware bridge, an MDB entry with a VID in 4032..4094 gets
+-EOPNOTSUPP on add. lan9645x_port_mdb_del() has no range check and
+returns 0 through lan9645x_db_vid_unused().
 
-	if (pf->serv_tmr.function)
-		timer_delete_sync(&pf->serv_tmr);
-	if (pf->serv_task.func)
-		cancel_work_sync(&pf->serv_task);
+That does not match the commit message, which says "3) An MDB entry can
+be added with any VID" and "they are accepted without being installed".
+It also does not match the comment above lan9645x_db_vid_unused():
 
-A work item that is running during the stop can re-arm the timer after
-timer_delete_sync():
+  so a delete skips exactly the entries that the add skipped.
 
-  - ice_service_task() calls mod_timer(&pf->serv_tmr, jiffies) at its tail
-    when a run was long or an *_EVENT_PENDING bit is set.
-  - ice_service_task_recovery_mode() always calls
-    mod_timer(&pf->serv_tmr, jiffies + msecs_to_jiffies(100)).
+br_mdb_add() does not check the VID against the VLAN group when
+vlan_filtering is off, so a command like this reaches the driver:
 
-Once that happens, ice_service_timer() keeps re-arming itself.
+  bridge mdb add dev br0 port br0 grp 01:00:5e:01:01:01 permanent vid 4040
 
-Some paths still stop only once. The first is the recovery-mode branch
-of ice_remove():
+For a host MDB the add fails, so dsa_port_do_mdb_add() never adds a
+dsa_mac_addr to cpu_dp->mdbs. The later delete then fails in
+dsa_port_do_mdb_del() with -ENOENT, and switchdev_port_obj_del_deferred()
+logs it as an error.
 
-	if (ice_is_recovery_mode(&pf->hw)) {
-		ice_service_task_stop(pf);
-		scoped_guard(devl, priv_to_devlink(pf)) {
-			ice_deinit_devlink(pf);
-		}
-		return;
-	}
+The hardware ends up the same either way, since the entry is never
+installed.
 
-After this, devres frees the PF (the devlink priv), and the recovery-mode
-work re-arms every 100ms. Can serv_tmr then fire on freed memory, or, after
-rmmod, on unloaded module text?
-
-The probe error unwind also calls ice_deinit_dev() only once before devres
-frees the PF.
-
-In ice_devlink_reinit_down(), the single stop in ice_deinit_dev() is
-followed by ice_devlink_reinit_up()->ice_init_dev()->
-ice_start_service_task(). That calls timer_setup(&pf->serv_tmr, ...) on a
-timer that may still be enqueued. Could this corrupt the timer wheel list
-once mod_timer() enqueues it again?
-
-Would it be better to fix this inside ice_service_task_stop()? One option
-is a second timer_delete_sync() after cancel_work_sync(). Another is to
-skip the tail mod_timer() calls when ICE_SERVICE_DIS is set. Either would
-avoid relying on a double stop at the call site.
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-dsa-lan9645x-add-vlan-and-bridge-offload-v2-0-84adcd919dac%40microchip.com
