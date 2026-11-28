@@ -1,110 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.75
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795829350;
-	b=n1Wo802vV9+M4LmW/9+UfIs27qf/i1ZANsmUGjWMPq0s2khOjvY9La6A10F/dRmseypR
-	 Jno2yR0YP/awQxI/qbI5xNeCjb+r9D0CW2Ah8pmntBM/Yb4zlEFqMV1d05/7Piq6g/Pqg
-	 4vOMCDJHQf+dCpZFBFsFYMI/ilqt0K3zpeU/xsp6lO0YMoykoiw5lGKYbT4XwPavro7/5
-	 DEXrlo/0tvkQO87gKb+fBCylqsj3a++vPLzzbMklQwmwmXEd5KbdzUyXH6TmfPC3pBpBt
-	 ZjEz+wKpyFYTT4bnOSdVABX++MoZ5YU6VPL4jlmDQ8pAVkxWxi/mOLY6VfMQZ5aro4A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795829350;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795829774;
+	b=cOh6MVT5EPXTzNjfc6EGCYGEeofsWudLFpiPm5o0GJczHGqH1MhU+o6tq2R8om6B0yJV
+	 txjgaFCrclBvwyxzlzXVlss9FV+BcuTeBJ1Pg8+V10cS1sV4p9W4Elf6VGlMPqFUaAN67
+	 WW7ChZ+KVnSWwVHwSOBeS6sGiXUJnoaDIAPHSxlSCf/psU0qFMnbEvn2mAZDFdfbANNnh
+	 P7Vbxk9Ca6kGSzhJ26Em7sIqsWuneEib1wJuQJE+l2e0Bdjk7XuIxFDlvDMdd3DEVX8C3
+	 So6fGC6/0/NHZRG8XA+PG3+2eng3J1VuJJx0+TftcYFyMx7ukEqNS4TiVlwkEEu4xFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795829774;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=6ADaLE8jYm8rNT2IAQKAXJepPjBkKDtxdmKU8mc9rGM=;
-	b=lcBlzISLO2KmToHLs1BoCbJ6qvXiBUhqgNHq+kLklu70AbbQBgUJlFJ9dm2PN8PO7DFK
-	 XUAoAGopYMitzLltR+atFkStLrVxINTauEvtRkGs+Y8WowIaAzwVRTEhX1s0G+LwMbgWF
-	 ZsIGPc2Iic7cfjg3WUZQmfPnRaJB0ThycHdRBL+ezVcUwmZG47bdKjDidVqidhmA2fArR
-	 sUvshcusrq6dd3RyMyGVVDliCINJKOq0sGq8z5AdHr4HdhuEq0rKpdqe5W66ZEIAKayK+
-	 d4z1hQ9zmvvSwRpjYih5iCHmONBGMTmVT3xWm/7cX0l94lL2kahzq40879wPecezHOg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
+	b=wc0WhWe8sHYn723DJ+j8cYvvGvkO07+k38WXM26wSzTLK9R7mObIa+SlHHlLeV8n0xWa
+	 AvRG8UjHtZ09HevRuzJe+jNyo6UANUgbFtqj42DElMSAvz7SpCTMgKlHsmj10ulAMH/v0
+	 b/pPaZIHvhv9wr9CmhuiPs/HO4TEm3AXPyrdp7J7NV6Cl+VXd0lWOfsupLOsMrAnRTaue
+	 wJ78fexm2D8tBJ5/MI1BQUp++93oPoLyU3aGklt33a5OoOVz9qYaFRW5EzlzOQQ18k0kG
+	 SuHuZzXC6Rk0pbfjL/b8X0+pB0vlR7dv9XCQpVZY0KNFQx0qDtfl0jkbLZ8dUODYSuQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DxuxtukL;
-	arc=none smtp.remote-ip=74.125.231.75
-Received: from mail-oa2-f11.google.com (mail-oa2-f11.google.com [74.125.231.75])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HKBPY2Ah;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
+Received: from mail-yx1-f47.google.com (mail-yx1-f47.google.com [74.125.224.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24DB5606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:29:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24DB5606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DBF1606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:36:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DBF1606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DxuxtukL
-Received: by mail-oa2-f11.google.com with SMTP id 586e51a60fabf-49e2cb73ba3so2882877fac.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:29:10 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HKBPY2Ah
+Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-67dc7eb1442so9374846d50.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:36:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795829773; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LpxRB4GXPxPJM8d7I0t7cfeSjEmX9UmamURIC7gdusKciXWcEXDFQkcsAEUQWJi82y
+         cfHyEvAshVg4OwPU5G8hsC0u607cwTtzDKZ4yjI8MgPUI+9ZGvGdeBdmq2pDUmUzvQ/w
+         zk8qb1wKfNydyHj+NR9hBut32JyIktmCqLMa2q+s/wxLjihDcDyJUzDQCO+iQWOfeufy
+         Wr3zvuM8WX30RHgiIf8lWZlKJJccxyjWwmGsQzZXDKbyKrnyEGsag4XmfaBN1HucuI0p
+         qVgLRnUDnYsuMmMPuan5R6wuqDWx/q3NjPxfmLolXc3SvognbgDOkTHiOJft5BBiQXmR
+         yfcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
+        fh=YKzDzFOC3pujGHuaDIrVua3GZnDLHLhYr3xa//0yY60=;
+        b=dWnocqrDXaq3JVF7NKVv05aO0bWS3qUyna2+jQZpMrzyRzgkHjLz1MkCYSIH9DV4SO
+         W+bwYA0soWKrvSwqevqKYbnao9faTTtz+ENXQtC2XdNbLRehuPqxdriapUMOmnPeOVac
+         DWBTWoG9NmbnEET1ojD2QDLQbEBifFj0BL52IgGDMFSrdsnL9H3On018n0p5Zl5pjYK4
+         cwFtgyGrYyaD3ApWyZWrwwJvQR48KFWXvgLYlsfUBDCAKXzev0OrKcyg3W7vkcx5f41a
+         QEVG+GRsxFxXqT4iAev6533gWJV6PM06A1QGBTe1rzPXshXWEFl3+0bCSSo5ANmyVxJX
+         9/Gw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795829349; x=1796434149; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6ADaLE8jYm8rNT2IAQKAXJepPjBkKDtxdmKU8mc9rGM=;
-        b=DxuxtukLMYwGSh2bMf6A98RlQh8RlguNUqhI0J+brd7HS8PimUS5ixuyEXK57yG03B
-         T2PisPzRBcUMYtesQR7NamrxSfLkRXyyCH0O5sGxOIwQT4BqcUGmiKp/qgfjVGVZJ1ol
-         4Vl7BYQ8QfD9f84ORFhMsMWOSmvSZg1Ahv7uPBXSxaAMUzov+ulcSJWio4G8pUJXYoiB
-         fuTwqJxC2OrDO5HXyyX3IrHUOajE6eMphhMUf2fQBhKMTUpFDsxsgVMw3Uu0Esg/Qxnq
-         rUhbrPJEm0C2g3utr7J/9FEwXNDgGK/x3DevhAB48MQ11GE62xrK1b83298LvAt1/78p
-         6tRQ==
+        d=gmail.com; s=20260707; t=1795829773; x=1796434573; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
+        b=HKBPY2AhbDKedYOXAH9MlDYYnfxJp+uuxXh37G6UV0Uukdf1bDXIsjclNL4gNhwXZV
+         F8xvBHvIEJU4DIT7PQJg2eQtNTxCzKL0cNYMZvRnE0pkElYA/9Uu9l5P3CWtdkyqyKBb
+         mg6tvMFGPhLUDDQuIHn3rjGIyPpWWdZ2DkGz2wyQDASUcAfhDXrfij8pDO1tTQhlW+95
+         PxiS+65TgYnw5aOpEsV3SYNA7G+fW4x41FIJZUnoBkDZ3TL+6muSUPrlfJsEJNhx1aTB
+         qzW9VdTOYFucNWRlzH6V9tJBBNdP7a9c2cU5AKkXpjFqEGYYpLJdwJdLyCH5KvGjVDSz
+         /Ldw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795829349; x=1796434149;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6ADaLE8jYm8rNT2IAQKAXJepPjBkKDtxdmKU8mc9rGM=;
-        b=eV/rkT8nqsX2+42VHeMdMKaKv4k2tmdI4kuC3WJo8TnyG4uaZhenD8KMRmFhdQCBd0
-         bgWTwQESk/LQMjEi7rRgvdTy+wCGDWj/G/eqkaTfOmrOzCRqWcEal5XLeE7EnkyWxuc7
-         floWp0PcQR1sbSbi+yCu4qUdsQaRD+RzChOR8LsTpXuCZWip46gg2G1rhV3wGE3vdeOe
-         4znqdqXn6Z8p/X0RfSj/BwiUWpIN/AUFos4xPQQLMfzzeI9sKhxc5n6iWmnlTg3pM3Lp
-         RCoZkapICZINu4NxhZ9EelkfqrndgoPNcftSfLlaCrlZetwG20UotvlpcgGUYyZxAZpS
-         ou5g==
-X-Forwarded-Encrypted: i=1; AL+hErGsh/Ia6l4ijUP9lPUUZSz8QyDMM+9KDJjsgiKHTzBwqrkO9rorhLde5b5PFdcZ5f5Nll/F3l7PbWMtJmc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8EylYt0xBfBnAvmuzHxJqPghn9nv5jh1QxAlRuyVnETcpBXqvu
-	LflKKI4tI4bfAB4DqPlP5NN5a8Z6RbEbP7LyrUfIV1MW3Wo6aFnOL6Sd
-X-Gm-Gg: AZFdTZdpqjCkHZJdLhV7OhE74v2k61tMWJPR4ZB3US4uwz48vwtYM2ce+76AbobDa+j
-	0K/gGwIBN736k9Trditky0VdPPqKIp23xQCpOQi9LAwcRM9jwunEH5AvrZnIueo4a09SOvPwFHQ
-	dQ79BcgYsxgZPiLcR5Vp1ui2rldPSiy+5n/SQ/kUCAz3U6NFfGzBJaCawLeiZMvvO+KHqlo48fc
-	eQ7Q4rGKnOXw4MvoCVfTtBX+GBNhhoq9N8c6gW2UYwGxzrQlcNIgiQzyFguE0VsC0J5/f5rDWK2
-	CMeYHqvRslrwq6EfVyv3J23b997XOgKX/cUxh9yiJM2py/WMk1NWN+OfAX1SILN+xPzbxWWlmZN
-	W8Z5f+6l/NVBJots109BvlxiO6JF8xOC/AEEJ7nT1yVKEJ9kx5xgyBLLAaXZqIrC3c392HRdjel
-	kX4mjFCf5RLTmZHXlMeEqImNrOwcNmSmJBu/Rus9ixRGP/9lIyTvsWL2qU0zl8+n9VnxFT3uPnF
-	FYn5NtY0pVQnIYipj1zTYQ/TrszGO7SAtuCzAlB/1zus3ebFppxIWQX9R+3PHaWiPYyxlbXNRVR
-	pVJX8FetBRwdWLQCcXpkM4w+gD4FnnjIEUgC6tGPLP7DCG7v85Y/wjFNXt+oD1rAukHRnwGA5Mc
-	7sqZsUEeakFzSs8/6qzlPPBwHHXioRLAGI9qGb3yFQ3zp9fIIXGohpA==
-X-Received: by 2002:a05:6870:2c8a:b0:4b7:3a4e:e66a with SMTP id 586e51a60fabf-4bc8386b8demr24157788fac.34.1795829349065;
-        Fri, 27 Nov 2026 17:29:09 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff::])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5b07d57csm22307521fac.1.2026.11.27.17.29.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 17:29:07 -0800 (PST)
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	kkd@meta.com,
-	kernel-team@meta.com,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2 3/3] selftests/bpf: Test PROBE_MEM loads from invalid addresses
-Date: Sat, 28 Nov 2026 02:28:56 +0100
-Message-ID: <44a6c33e241845271afd6f9cd5eb16276003f082.1795829324.git.memxor@gmail.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <cover.1795829324.git.memxor@gmail.com>
-References: <cover.1795829324.git.memxor@gmail.com>
+        d=1e100.net; s=20260707; t=1795829773; x=1796434573;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hlTasxKzbHtMleR5+wkbWGsmeXu6hDEZF+uLQ0NjV68=;
+        b=qtjnH9lT7PS5rvNdr4murNVfmYfkuoCR5k1LJcesvTCH0B+a9eoWdFF1F7xowXz2sT
+         R9XePVQtOTyL7Gl3cP2lZUChfrkMI8aR539uoKtFojCM1SY8N9cHJ1Xd9y4EVmAcj0K7
+         tmwT1pogo51U/r+o4J0SNvsqynNw8PRUuicWYhYE3PdMGhyUAo6qWhLzZszFGVOFTmPi
+         8wIWeqAsw2hdwBKh9O9XyL1zG5fzfcNbvok5fkmMtU0sZQmqu6EtcIArZqm1BgUX6jjp
+         QaboR1nJs9KaF6IOlEgWFmjcfq5BX+FbBS4Pqsa3k4O2LlOFIBL1a0g8HM3dH16m26Je
+         rjwg==
+X-Forwarded-Encrypted: i=1; AL+hErGoZRbVzTIqh/+I1sgkPY5+pvElAIRmMI2zP3q/y+Pu0S07jTJutzsjqSA/dQNApcC2rdsUchCaOEpsn24=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8k+oWYhmEDQC/DgspK7wQrSiNJil26GJy3Ma7ApkY1xCR3QhJv
+	O3efgQPpQcndmam9PW3oMfr4gcyvqHzfgsv9KsnGby9ZBNTQ70M10VFyGEhZDAgD4SWD/MuDxH8
+	fAZq2BM5MN+qkDVjsXFLQAfusMISPLbo=
+X-Gm-Gg: AZFdTZc+hVCTUxa9gZZ49p3tGZ95OyT922ncHyuvwmVhBPnFgloEFr7hSqPqJBJg6et
+	s8VAfwcsztMlkKRbZNBueTPPReu1Gv8DFvwWtjyCC/ZuI4JTrJdkr9jLAT9iRnte+gkUUOKOp3K
+	WgJBVHWIw1x2ybCkScZHRRPx6YNJuvqHkt4PUqcqlIjfpru48I0w9mYtxx25tJSlg138SBYdJky
+	yUv/OsiSH+cBHsZ+4YPPZWy5GWdpxpWdJwN0jOP/mpjxcC3/B7E9V3fGNo62BgdYrG81uRuYhjJ
+	m1uraFqFJoBktH/4pDpqFVXR2XJcWMnbxgd2er86G/k5bN2cw1r/vCSxR/z/lO1iZPZVnMN5mRZ
+	KJVt5i5hVeWJ2l5I3VkU3RO14wLSfSUOZa1WozRl4sf68x6rWfMyrMhNb3kq04QvCNCBJv6IEDn
+	GzipEMkwMUNQaJankHAYsJ+6dseTyYSVnz++IizE0gS3G9XU3cbmo5nxwvrPdkUXpOHn5QhvYyT
+	fL/CjuYkmOxI19d3nH0SWG6TaYGLA==
+X-Received: by 2002:a05:690e:4146:b0:67d:bda2:a4f6 with SMTP id
+ 956f58d0204a3-67df44c4aabmr13817573d50.108.1795829773220; Fri, 27 Nov 2026
+ 17:36:13 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,161 +106,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5118; h=from:subject:message-id; bh=lBEd9gswYQp8x9IxA02i2vKePHOg/na7EqogNIBgb3g=; b=owGbwMvMwCXmrmtenRyi38x4Wi2JIZtLz/fd5cJa5/j7IZKn3wRzez67lZyRtuEVx5/X8pqu13+n 9jzpKGVhEONikBVTZCn5v4/J+ETl70DbZdwwc1iZQIYwcHEKwEQ0WBn+J4U6Pdv9LuHv7UU8HpzC2T oHmTMe7nXsWS9/eNEB9dVTZjL8z7f9tS55w3w2da29PKeXB75YuF3r6r27DMyajXbf5JZ/ZQQA
-X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=B34BD741DE8494B76E2F717880EF20021D46C59B
-Content-Transfer-Encoding: 8bit
+References: <20261118002529.250616-1-sidchintamaneni@gmail.com> <2c16f03f9ba10bc4cf508420d564b928@manguebit.org>
+In-Reply-To: <2c16f03f9ba10bc4cf508420d564b928@manguebit.org>
+From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+Date: Fri, 27 Nov 2026 17:36:02 -0800
+X-Gm-Features: Aa3M54rSKmt0il3afckVWFqy1h-RAmFCaFQGHvkbqyLQu4tqXd2WZKI4sY965VI
+Message-ID: <CAE5sdEgn4V2JhCPrjcb4gRiPBcxi6GP8cg1JoW3P6Hoqop5zNw@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] smb: client: fix cached-dir and deferred-close
+ unmount races
+To: Paulo Alcantara <pc@manguebit.org>
+Cc: Ronnie Sahlberg <ronniesahlberg@gmail.com>, Allen Pais <apais@microsoft.com>, 
+	Bharath SM <bharathsm@microsoft.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, linux-cifs@vger.kernel.org, 
+	Rachel Menge <rachelmenge@linux.microsoft.com>, Shyam Prasad N <sprasad@microsoft.com>, 
+	Tom Talpey <tom@talpey.com>, Gillian Laming <glaming@microsoft.com>, 
+	Hardik Garg <hargar@linux.microsoft.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add a test that performs PROBE_MEM loads of three sizes through a
-bpf_core_cast() pointer whose value is chosen by userspace: NULL, a low
-user address, the last user page and the guard page of both the four and
-five level paging layouts, a non-canonical address and, on x86-64, the
-vsyscall page and an offset into it. Each load must read zero and the
-kernel must survive. A load through the current task pointer checks that
-the same loads read real values when the address is valid. NULL and the low
-user address are left out on s390x, which has its lowcore there.
+On Thu, 26 Nov 2026 at 07:14, Paulo Alcantara <pc@manguebit.org> wrote:
+>
+> Hi Siddharth,
+>
+> Siddharth Chintamaneni <sidchintamaneni@gmail.com> writes:
+>
+> > While investigating the cifs_kill_sb() unmount busy-dentry race fixed i=
+n
+> > "smb: client: fix busy dentry and inode on unmount from late oplock
+> > break" [1], I wrote a static analysis tool with AI assistance to scan
+> > for the same teardown pattern where objects are moved off shared lists
+> > and locks are dropped before their underlying dentry references are
+> > released.
+> >
+> > That scan identified two more unmount races in cifs_kill_sb(), both of
+> > which I reproduced in QEMU where cifs_kill_sb() reaches
+> > generic_shutdown_super() while dentries are still in use:
+> >
+> > - Patch 1 walks cfids->dying under cfids->cfid_list_lock in
+> >   close_all_cached_dirs() and holds cifs_sb->outstanding_rreq across
+> >   dput(dentry) in smb2_close_cached_fid() so dentries for dying or
+> >   concurrently closed cached directories are dropped before
+> >   kill_anon_super() runs.
+> > - Patch 2 counts cancelled deferred-close handles in
+> >   cifs_sb->outstanding_rreq while they sit on a local stack list before
+> >   _cifsFileInfo_put() completes in cifs_close_deferred_file(),
+> >   cifs_close_all_deferred_files(), and
+> >   cifs_close_deferred_file_under_dentry().
+> >
+> > [1] https://lore.kernel.org/all/20261117001733.192399-1-sidchintamaneni=
+@gmail.com/
+> >
+> > Siddharth Chintamaneni (2):
+> >   smb: client: drop dentries for dying cached dirs during unmount
+> >   smb: client: fix busy dentry on unmount from cancelled deferred close
+> >
+> >  fs/smb/client/cached_dir.c | 31 +++++++++++++++++++++++++++++--
+> >  fs/smb/client/misc.c       | 32 +++++++++++++++++++++++++++++---
+> >  2 files changed, 58 insertions(+), 5 deletions(-)
+>
+> Please have a look at sashiko's reviews on your series
+>
+>         https://sashiko.dev/#/patchset/20261118002529.250616-1-sidchintam=
+aneni%40gmail.com
 
-The test passes on kernels that reject the addresses with the JIT's range
-check and on kernels that rely on the fault handler. With only the JIT
-change applied, the first subtest oopses.
+Sure, I=E2=80=99ll address the comments and re-spin the patches.
 
-Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
----
- .../bpf/prog_tests/probe_mem_fault.c          | 77 +++++++++++++++++++
- .../selftests/bpf/progs/probe_mem_fault.c     | 41 ++++++++++
- 2 files changed, 118 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/probe_mem_fault.c
- create mode 100644 tools/testing/selftests/bpf/progs/probe_mem_fault.c
+I also ran the static checker across the entire kernel, and it found
+similar bug patterns in several filesystems and drivers. I was
+wondering if there=E2=80=99s a better way to handle these findings.
+I don=E2=80=99t really want to publish them somewhere since I=E2=80=99m not=
+ sure if
+the races are exploitable. At the same time, I don=E2=80=99t want to spam
+different subsystem maintainers with patches without verifying each
+issue first, which feels a bit cumbersome.
+Just wanted to reach out and get your advice on how best to approach this.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/probe_mem_fault.c b/tools/testing/selftests/bpf/prog_tests/probe_mem_fault.c
-new file mode 100644
-index 000000000000..9b89864b9ac2
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/probe_mem_fault.c
-@@ -0,0 +1,77 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Meta Platforms, Inc. and affiliates. */
-+#include <test_progs.h>
-+#include "probe_mem_fault.skel.h"
-+
-+#if defined(__x86_64__)
-+#include <asm/vsyscall.h>
-+#endif
-+
-+/*
-+ * Addresses a PROBE_MEM load has to survive. Either the JIT's address check
-+ * or the fault handler must turn each load into a zero result. The user and
-+ * guard page addresses are those of x86-64 with four and five paging levels;
-+ * on other kernels they are merely unmapped.
-+ */
-+static const struct {
-+	const char *name;
-+	__u64 addr;
-+} bad_addrs[] = {
-+#if !defined(__s390x__)
-+	/* s390x has its lowcore at these addresses, so the loads read it. */
-+	{ "null", 0 },
-+	{ "low_user", 4096 },
-+#endif
-+	{ "last_user_page_4l", (1ULL << 47) - 2 * 4096 },
-+	{ "guard_page_4l", (1ULL << 47) - 4096 },
-+	{ "last_user_page_5l", (1ULL << 56) - 2 * 4096 },
-+	{ "guard_page_5l", (1ULL << 56) - 4096 },
-+	{ "non_canonical", 1ULL << 63 },
-+#if defined(__x86_64__)
-+	{ "vsyscall", VSYSCALL_ADDR },
-+	{ "vsyscall_tail", VSYSCALL_ADDR + 0x800 },
-+#endif
-+};
-+
-+static void trigger(struct probe_mem_fault *skel, int *runs)
-+{
-+	skel->bss->val_dw = ~0ULL;
-+	skel->bss->val_w = ~0U;
-+	skel->bss->val_b = ~0;
-+	usleep(1);
-+	ASSERT_EQ(skel->bss->runs, ++*runs, "runs");
-+}
-+
-+void test_probe_mem_fault(void)
-+{
-+	struct probe_mem_fault *skel;
-+	int runs = 0, i;
-+
-+	skel = probe_mem_fault__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "open_and_load"))
-+		return;
-+
-+	skel->bss->target_pid = getpid();
-+	if (!ASSERT_OK(probe_mem_fault__attach(skel), "attach"))
-+		goto out;
-+
-+	/* A valid kernel address is read for real. */
-+	skel->bss->use_current_task = true;
-+	trigger(skel, &runs);
-+	ASSERT_EQ(skel->bss->val_w, getpid(), "pid");
-+	ASSERT_NEQ(skel->bss->val_dw, 0, "start_time");
-+	ASSERT_NEQ(skel->bss->val_b, 0, "comm");
-+
-+	skel->bss->use_current_task = false;
-+	for (i = 0; i < ARRAY_SIZE(bad_addrs); i++) {
-+		if (!test__start_subtest(bad_addrs[i].name))
-+			continue;
-+		skel->bss->addr = bad_addrs[i].addr;
-+		trigger(skel, &runs);
-+		ASSERT_EQ(skel->bss->val_dw, 0, "start_time");
-+		ASSERT_EQ(skel->bss->val_w, 0, "pid");
-+		ASSERT_EQ(skel->bss->val_b, 0, "comm");
-+	}
-+out:
-+	probe_mem_fault__destroy(skel);
-+}
-diff --git a/tools/testing/selftests/bpf/progs/probe_mem_fault.c b/tools/testing/selftests/bpf/progs/probe_mem_fault.c
-new file mode 100644
-index 000000000000..f95db455722e
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/probe_mem_fault.c
-@@ -0,0 +1,41 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Meta Platforms, Inc. and affiliates. */
-+#include <vmlinux.h>
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_core_read.h>
-+#include "bpf_misc.h"
-+
-+char _license[] SEC("license") = "GPL";
-+
-+int target_pid;
-+bool use_current_task;
-+__u64 addr;
-+int runs;
-+__u64 val_dw;
-+__u32 val_w;
-+__u8 val_b;
-+
-+SEC("fentry/" SYS_PREFIX "sys_nanosleep")
-+int probe_mem_fault(void *ctx)
-+{
-+	struct task_struct *task;
-+	__u64 p = addr;
-+
-+	if ((bpf_get_current_pid_tgid() >> 32) != target_pid)
-+		return 0;
-+
-+	if (use_current_task)
-+		p = (__u64)bpf_get_current_task_btf();
-+	/*
-+	 * bpf_core_cast() yields an untrusted pointer, so every load through it
-+	 * is a PROBE_MEM load. Whatever the address is, the load must either
-+	 * read the field or produce zero; the kernel must not oops.
-+	 */
-+	task = bpf_core_cast((void *)p, struct task_struct);
-+	val_dw = task->start_time;
-+	val_w = task->pid;
-+	val_b = task->comm[0];
-+	runs++;
-+	return 0;
-+}
--- 
-2.53.1-Meta
-
+Thanks!
