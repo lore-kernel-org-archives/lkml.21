@@ -1,53 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795844194;
-	b=1LE2vJ2VJiwwGUA8esv3xJRa+me1ryUgC9BTosTG9Mwdq6E1jYD0vvyM+UOSQMeAtRFN
-	 12KpYFKewdBZ9UfLwJzmDGajIlo8SpDz2S9FN4JS/etrd4Ki7p6j8RR6AIHNlwFhnETse
-	 E78Qm6O1wgvUbWcO3k5Trj99WQPvk4wxAsqYrtjndAjijbVua51LoSst1ZXJ6FE7T0J32
-	 nnsoKBdJloJbJHi3ZL+Ip8tK9LDwCtuOYfmFWZ/3Cu9ILTj0qWp/Fo7YsISLdcjw+Gic+
-	 XNkpfO2UDBkEJlsYr3vC9AyddV12Z+32N5CTUAAK0Q0e7SF3z6+T+aisHkCMMcBjFQg==
+	t=1795844907;
+	b=w6dX28n+dtcp4v7bRH8u3BDS/KQm8DEMxWZyllYC7CaF6dzBlRlmhtlLTXrtWjf5ya54
+	 ny+lNL1zAivQpbzAVpd7NRpVVQBUmBFOqMn8U8DNqYnh57JG9QNUIl07k1G2S37sjoeMA
+	 edsFfcD+fhlaKzlVFWiNt3MY+/aGtlTKmUoH34X8tfc8OrgRg3CtoMQnx0edqROFZPz46
+	 /SgciRZt3tjpgz7IK+16IvoAUgBIENyYXouR8SwL+N8o5qrO9IuY3px98aiLHT0WZXirU
+	 NotXcbsDjW/V0OSF0dPT1S9n0tB4a8JRR4ud0yGDyyEPBefpbcndw3tHgMZ5h8xk1Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795844194;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=RMYHGY6d6gHBvlKyo+gYuBlX2+YK0xRmMlJIq1Gx00c=;
-	b=eoLllRSU4w1xV7Jt4v6WrWZjj7JhgmX1TzEVb0OlHWBCv4i5gdXghfb5XTQ19ejjjYYZ
-	 0S+oLPzSTvBydgyQ8SrdRSIk33SXNlgN2ePgWA8mFLvv7EDVH6LmWj6ZPKHDhQXD+wvKD
-	 3E6nLZJspcgE/2eqOpJZcQqRPNMEUfJuWv/M2VveAa4jfGza1+jcHvwDt4aIVcg1QOsLF
-	 xA5eoJz0m0zVudZwCpb2/KGT1mnn9UkMVW3DcR6HwPJlozKbpiDmFCZqPwTLLXXbfVBjx
-	 EZlNDUep8g4e1Fc1CK9rwkuEbJX9Q75pJoZrbaTFQFz9YQsKe/263Q14wny5ZrLFK9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795844907;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4XfJznNp2/IANpIblGifYLm4G1OI7fa8TLw1ASBwm1k=;
+	b=NrGMLvNt+0TuD/V9mtpAFjC+WBe8R/wUrdCJ7NVhlIu2sBe3SJVbVRtjROIrTUeObAbv
+	 6LrbVI2GayZAzMCqZ9SAxRV8m8YeD7IlOgBN9kRJIlzCr78PQgIFd9+QwkhA+Xk8hMMt4
+	 UYLeOyS9a1VrztMbLyJE7ErDAjmYMAc1B54vB77fVkI3hvVL1oOTOENcVDtdxXDT1R8tt
+	 P1wr69Vp8fBQsc/Guio2jIUtdhnFXlNTsj14HwGuLDrj5xtFeZI1MW7AEFkirg95jVI5d
+	 IMGvN5jnnWUxFl7+rPc1UFXHRua+NDFd2ameWNUpHkPBf84KTdC6JIJ6gyAdhrTKy1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="GGt/CsIh";
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KqU8DS0S;
+	arc=none smtp.remote-ip=209.85.216.45
+Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E8AF606A31C;
-	Sat, 28 Nov 2026 05:36:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E8AF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DFA2606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:48:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DFA2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GGt/CsIh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
-	Content-Type; bh=RMYHGY6d6gHBvlKyo+gYuBlX2+YK0xRmMlJIq1Gx00c=;
-	b=GGt/CsIhjA8rmBBfHqb/d+uzDvwrwOO3gEgrjZTsh2nqXjCnRCBvpPOIHZefio
-	8nm5VkzXBZZzGCOBro14WVPLTAtaX34bvdgYRZEvhRFSJNsCNyThqGQXr7uMJR9y
-	tNX1OjXOSz5sLcbWkdL3AhuWVIYXegSuS7+RmasXCSHew=
-From: Chaosheng Qu <quchaosheng000406@163.com>
-To: Tomas Glozar <tglozar@redhat.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rtla: reject -e, --filter and --trigger without --trace
-Date: Sat, 28 Nov 2026 13:30:20 +0800
-Message-ID: <1795843820.20995.223872494152340@163.com>
-In-Reply-To: <CAP4=nvS-iHK1aFiwvdLtSf4sCYcfFvqj6cKjkSb0eJs-O=qfmw@mail.gmail.com>
-References: <179360289114.124676.5863600854966859222@163.com> <CAP4=nvS-iHK1aFiwvdLtSf4sCYcfFvqj6cKjkSb0eJs-O=qfmw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KqU8DS0S
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3b41e5a1719so3603015a91.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:48:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795844905; x=1796449705; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4XfJznNp2/IANpIblGifYLm4G1OI7fa8TLw1ASBwm1k=;
+        b=KqU8DS0S4DZvJyh8dSHw3tuF0854WLWZ48rhGH9X2melzvusLZSvJjqZwIOq6hfqoB
+         UgwS9RP/Roik9xZWkodaJYrJjl68AU7CGgiimVasmSZ57H39quCjhyIZzAXs08utSIQ3
+         aTBLW6o7RQMhPhHQkdHjeps6xwVxmYzujj/xkDdOnHBSU77uv29pQl8yF8hsCQO7m1WW
+         QBPHq36ImPTZbMVMynu/bOCSRdYOeQxC9L6xUdWInrewf4KCcBO6gGjqJM35sYZC6qJE
+         Plg55KLmw5C7Irflyz5Vvw+JFt+Lmze1+GKIU69NDfI84KQWmU0o0HbYGvK4FtwWdG+n
+         lqTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795844905; x=1796449705;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4XfJznNp2/IANpIblGifYLm4G1OI7fa8TLw1ASBwm1k=;
+        b=JdnvyZ09z8SCGlfiFj2oIG24+ae+SC09l8MOt4aTHTgLp4eV6JnqTL97HbWu/J6TTP
+         dSkdZ6kkrSTrCVH4YIlenGOm8UkiSKl5arzTSaAdsfjN3q55ubi0BedHoz4Nl0cbn+YA
+         pqBvGBm+Vb5oyHUxdITavBVlmTm8hkan6x3UFLkUzRpqThgrTDGiLoMJpomBI5W2FCDP
+         U1S1h8NTwix8Km43axbTS2j296nde5XgN5bgj7itSWGgGOEkDKhIZ4JrDvcK5NuYQnTc
+         XfigywOpH6wj9vwHr1tc/fGJYXHkTeSF7t0otRRzcjQyDb6XNf9Zpe8guS4DAPALlQJr
+         JnaQ==
+X-Forwarded-Encrypted: i=1; AL+hErHnGmhqm/nRyB2dwqrcDH/UKIWzykU8TlNw9Wu2GTRC0tft+Z5V9RXqqs/PM6ERMFrAlWTlyLj0+18KWq4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+yCSdRaV6bYrSHa5Sqlb2cG44YP1Lvc5jf4Q68NPrjTzq870mr
+	7YxNjWncr39fEkae6BRusvuA9kYn4UYZTNUK2sedfDGpR/bFe+sTT0A=
+X-Gm-Gg: AZFdTZcdSjwxM9huzjY65ZqnYxx3oIrAl1Dwt9SYea7ckOn4H33ZCL1/GX8xfSkKTnt
+	PKTCb1fgodFHmMqVbwso5da18Q/IPxJxsdbD9C2CTH2zadBI68evrY+b4NWVcL02wfidwG7WA+l
+	M69wtS43fpjZvtdeR+AqJhbhvDkRBAjRVladBv2SPV+hHDMrZmdqznLBPUt7KYImiZ6xRD9Ifsi
+	hqqVTxq1X9as0yon+oJGo0stMZ69WRcLD5GZhPNpKAWFRd28+5vWqq7tm4U/gPBnTv/+4UA46y+
+	Y5C92qtT5VkrbB8OBj+almOeBvwd9X5Mo5DIIQpN84hXIcfkIQo6My9k/Wx/BZC2wS6+24gP9r3
+	Ld/C/1YgsivarBlKmNT22hHOARnMKSes/BSQnNQwWb+XF1N53IPMfBzeYCImrd/N4LUM/ahzlNt
+	7R70DcCsxVi+VbyldMuVx3zP4Kt0vKy419fOBprHthnvWLafMyw8bAdNw4J9Nuw3ntz3O8YDhL4
+	Hj8wWBXrpH/kT1V0886IRFWKa1QmpKzMEU8/5Dqp5oZruU6PgdeSsHxYgsg68sh9tPy+bYSxBwQ
+	OKHIRCj5NJzo+B6CYUmuNK46m4PllNMxLuUl4iY/
+X-Received: by 2002:a17:90b:3d92:b0:3b3:a74d:f848 with SMTP id 98e67ed59e1d1-3b41c8e1711mr21086372a91.15.1795844905354;
+        Fri, 27 Nov 2026 21:48:25 -0800 (PST)
+Received: from CONGTHANH ([2405:4802:703:8c30:8c8c:8484:8444:c4e])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm42979423a91.1.2026.11.27.21.48.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 21:48:24 -0800 (PST)
+From: Nguyen Cong Thanh <congthanh.ml.2509@gmail.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	linux-can@vger.kernel.org
+Cc: Oliver Hartkopp <socketcan@hartkopp.net>,
+	linux-kernel@vger.kernel.org,
+	Nguyen Cong Thanh <congthanh.ml.2509@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net] can: mcp251x: deliver the TX echo before RX frames of the same pass
+Date: Sat, 28 Nov 2026 12:48:15 +0700
+Message-ID: <20261128054815.1586-1-congthanh.ml.2509@gmail.com>
+X-Mailer: git-send-email 2.51.0.windows.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,20 +98,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3P09DaAprnljSKw--.19110S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvj4RANVkDUUUU
-X-CM-SenderInfo: xtxfxtprvkv0bjqqikiqw6il2tof0z/xtbC4wSI-WsKaESx2AAA32
 
-No, and the compatibility argument settles it.  common_options.txt already
-says the option is only active with -t/-a, so the silent no-op I objected to
-is documented behaviour, and rejecting the combination would break
-invocations that always pass -e and only add -t when they want a trace.
+mcp251x_can_ist() hands the frames of both receive buffers to the stack
+first and returns the echo of a completed transmission only at the end
+of the pass. When our frame has completed and the peer's reply is
+already in a receive buffer, the reply reaches the stack before the echo
+of the frame it answers. The handler returned the echo first until
+commit bf66f3736a94 ("can: mcp251x: Move to threaded interrupts instead
+of workqueues.") moved the receive buffers to the front of the loop.
 
-I am withdrawing the patch; there will be no v2.
+Since commit 4b7fe92c0690 ("can: isotp: add local echo tx processing for
+consecutive frames") can-isotp enters ISOTP_WAIT_FC only on the echo of
+the last consecutive frame of a block, and isotp_rcv_fc() ignores a flow
+control frame that arrives while the sender is still in ISOTP_SENDING.
+With a non-zero block size and a peer that answers quickly, the transfer
+stalls:
 
-Thanks,
-Chaosheng
+  bus                  mcp251x_can_ist()         can-isotp
+  CF 8 sent (TXIF)
+  FC in RXB0 (RX0IF)
+                       read CANINTF
+                       RX0: FC to the stack  ->  SENDING, FC ignored
+                       TX: echo to the stack ->  WAIT_FC
+                                                 FC timeout after 1 s
+
+Seen with an MCP2515 (SPI at 1 MHz, CAN at 500 kbit/s) on an RK3566
+board talking to an STM32 bootloader that answers each block of
+consecutive frames with a flow control frame (BS 8, STmin 5 ms). In
+candump on the gateway the flow control frame came 0.27 ms before the
+echo and the UDS download timed out. With this change, in the gateway's
+candump captures of 25 downloads, all 5225 flow control frames sent
+after a full block came after the echo of the frame they answer.
+
+Return the echo whenever TXIF has been seen, before the receive buffers
+that follow: at the start of the pass, and again after the CANINTF
+re-read that follows RXB0, before RXB1. In the second case the frame in
+RXB0 was there before our frame completed and still goes first, while a
+reply that rolled over into RXB1 now comes after the echo. The MCP251x
+has no RX timestamps, so the bus order of a completed transmission and
+a frame received around the same time is unknown either way. A reply
+can only come after our frame; the cost is that an unrelated frame
+received just before it may now be delivered after the echo. The TX
+block at the end of the pass only wakes the queue.
+
+As a side effect, the echo of a completed frame is now also returned
+when the pass ends in bus-off with restart-ms 0, where the loop used to
+break out before the TX block.
+
+Fixes: bf66f3736a94 ("can: mcp251x: Move to threaded interrupts instead of workqueues.")
+Cc: stable@vger.kernel.org
+Signed-off-by: Nguyen Cong Thanh <congthanh.ml.2509@gmail.com>
+---
+Tested on the board above with its 6.1.57 based vendor kernel, whose
+mcp251x_can_ist() is the same as in v7.4-rc4, by loading the driver
+with this patch applied as a module:
+
+- 25 UDS downloads (105 TransferData requests each) to the STM32
+  bootloader, all confirmed. In 20 of them, test-only counters in the
+  IRQ handler saw 185 passes where TXIF and an RX flag were set in the
+  same first CANINTF read, the window this patch is about.
+- 30000 frames from cangen while the ECU sent its own frames:
+  tx_packets and tx_bytes grew by exactly 30000 and 240000, and 44 of
+  the echoes were returned by the call after the CANINTF re-read.
+
+The RXB1 case itself (TXIF and RX1IF only in the re-read) did not occur
+on this two-node bench; it comes from reading the code and the RX
+rollover of the MCP2515. The bus-off path with restart-ms 0 was not
+exercised. Build-tested on linux-can/main (ARCH=i386, W=1); I have not
+run it on a mainline kernel. The candump logs are available if useful.
+
+Tools: the failure showed up on my RK3566/STM32 bench, and the tests
+above ran there. Claude (Anthropic) helped analyse mcp251x and can-isotp
+and drafted the change and this message; an independent review with
+Codex (OpenAI) found the RXB1 case, which this version handles. I have
+gone through every line, checked each claim against the logs, and am
+responsible for the patch.
+
+ drivers/net/can/spi/mcp251x.c | 36 +++++++++++++++++++++++++++--------
+ 1 file changed, 28 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
+index 0d0190ae09..0acdab0cd0 100644
+--- a/drivers/net/can/spi/mcp251x.c
++++ b/drivers/net/can/spi/mcp251x.c
+@@ -1067,6 +1067,18 @@ static void mcp251x_restart_work_handler(struct work_struct *ws)
+ 	mutex_unlock(&priv->mcp_lock);
+ }
+ 
++static void mcp251x_tx_echo(struct mcp251x_priv *priv)
++{
++	struct net_device *net = priv->net;
++
++	if (!priv->tx_busy)
++		return;
++
++	net->stats.tx_packets++;
++	net->stats.tx_bytes += can_get_echo_skb(net, 0, NULL);
++	priv->tx_busy = false;
++}
++
+ static irqreturn_t mcp251x_can_ist(int irq, void *dev_id)
+ {
+ 	struct mcp251x_priv *priv = dev_id;
+@@ -1082,6 +1094,14 @@ static irqreturn_t mcp251x_can_ist(int irq, void *dev_id)
+ 
+ 		mcp251x_read_2regs(spi, CANINTF, &intf, &eflag);
+ 
++		/* Return the echo of a completed transmission before the
++		 * frames received in this pass. Without RX timestamps their
++		 * bus order is unknown, but a reply to our frame, such as an
++		 * ISO-TP flow control frame, can only follow it.
++		 */
++		if (intf & CANINTF_TX)
++			mcp251x_tx_echo(priv);
++
+ 		/* receive buffer 0 */
+ 		if (intf & CANINTF_RX0IF) {
+ 			mcp251x_hw_rx(spi, 0);
+@@ -1105,6 +1125,12 @@ static irqreturn_t mcp251x_can_ist(int irq, void *dev_id)
+ 			}
+ 		}
+ 
++		/* Our frame may have completed while RXB0 was read, with the
++		 * reply rolled over into RXB1.
++		 */
++		if (intf & CANINTF_TX)
++			mcp251x_tx_echo(priv);
++
+ 		/* receive buffer 1 */
+ 		if (intf & CANINTF_RX1IF) {
+ 			mcp251x_hw_rx(spi, 1);
+@@ -1196,15 +1222,9 @@ static irqreturn_t mcp251x_can_ist(int irq, void *dev_id)
+ 		if (intf == 0)
+ 			break;
+ 
+-		if (intf & CANINTF_TX) {
+-			if (priv->tx_busy) {
+-				net->stats.tx_packets++;
+-				net->stats.tx_bytes += can_get_echo_skb(net, 0,
+-									NULL);
+-				priv->tx_busy = false;
+-			}
++		/* the echo has already been returned above */
++		if (intf & CANINTF_TX)
+ 			netif_wake_queue(net);
+-		}
+ 	}
+ 	mutex_unlock(&priv->mcp_lock);
+ 	return IRQ_HANDLED;
+
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+-- 
+2.34.1
 
