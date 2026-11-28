@@ -1,95 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795856487;
-	b=yNPIYnWvtAkjR/h3LC+A742cn57RsEX9YbfUleNiz5MyYzK+UeeU14J/whhGND7Xref9
-	 OI3IqhgQvoK7l54WkfjR3SOiZEFZVdLQnxa1w95jf4RPuYMwLxfUIUOMZSGuMXJ9J/lMK
-	 wYTBxvWjlgUoBK033i9YfzvYEkjci26kxh88F2aMYDuJxn+pSpnNT9zflp8Q//h6wribI
-	 c+6EM7eqe8D8aElD4LxnYpj+ZFQAvLMzKltu8ncAURif6N+a9WzI8ajQQnRoLror1qfiq
-	 SErWKsTZTxKId+USrZv3Y3gtJR+BPonAjMSbvsIG4yG/h5aI/zKGpw8JkoDDPfFrvmw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795856487;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=HcMpuSj3oXcRHJx9YaH6Yolmn9BCDVLY7M9wbuven4A=;
-	b=JXp3FYIBgh7s7egvvyW7RqHrZx27IPyhNo0ReoQGJ7/95oIAfpD3WJFLSrRYrCICFUU7
-	 SET3sHCPd16mJGEpARMARSGnfivsq7Wn+m2x6RzPauqASrCQuTfM2123/KCr0xfCUkJuf
-	 Pwb6LYJXE1BXDfpCQzu2B4itugqZqifF6BUWRcw/iLerX4k7fJK8KJgIGUStcFcEbsWOR
-	 xpMKpAcWliZTk9CYLJu8A6xbjBL4WQ5L0/XOIWUwnqOAsfNeXT6IcsuwPMyMpn1n/MLl8
-	 cwhEjKDkqFssTJIHsgGbcHc4w7hsjhcibsnTuFL9lo6R2KzSh5uBci7x2tgft3mQDIw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="tF5IY/3N";
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.10
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795856720;
+	b=FE0RzyYDoHJiBOInl9oxRB7Tt0gWNef/j3x0mPOFDsDCZ4ObvD3kZb5S3LZ1DeaQWpWe
+	 6bniKdqm+6GUHT7BlMh2twUhmeISEGA7dv5fsz/0A0dM+8Fx9z6bP9JbnQAtjbkBoU3s/
+	 nyeLaO/tTwQbj17lDBOwN3QPoe18CDT9Ohg0irrFUjG7m2OJAMDMogVRhDqPn02ig5P1Y
+	 qW/4r+1GsHFBUJsI/8yawc4Ie9ypHLdI3cAzDlm3p2szwi+ttzYQ4MGgrWeiLOLv7OocB
+	 UaXb7pE4y+5jTSadQMAssUa5aGnkUvsCug89d04NK9ySn+2VGSJiN4UC4560gVMri9A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795856720;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=fR8+AZzMPmjRQhe1cjtha4XcPJsaasrVYp7w8W00FRU=;
+	b=mH/0Z9nEWn7jco4YLqartCbcYs7SA87xloS6t1u0GzOiUOaSCiM9xCHlW1SWwRj1v5lr
+	 JRwQ6T5RNEfge67vLkmIaSWUg8HWDO7Wr02mwq7w9vHw3gIR9+hH7Wbsm9UzVyUj5FZJG
+	 kiUhJsSVkOwFFkYYXziSkhqV+h1lTVMzplI0HHHTTK5ufkwKBMY7VGGjXPxy+kEbkrK8Z
+	 pLMzTap9becCYTotHDKQJGt/woSuq6I4PB1vWzrk2FIGW2P/g4oR9PREjh1pu2G2ZoImO
+	 +aEXjV0nejgI6QkjxrOZcWyYAJO034IYqfdHiYs6MzJ+XidFYhh4JHCEnuup0Dc6frg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redaril.me;
+	spf=pass smtp.mailfrom=redaril.me;
+	dkim=pass header.d=redaril.me header.i=@redaril.me header.a=rsa-sha256 header.s=zmail header.b=F+rlBotm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.10
+Received: from sender-op-o10.zoho.eu (sender-op-o10.zoho.eu [136.143.169.10])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2A23606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:01:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2A23606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FEA3606A324;
+	Sat, 28 Nov 2026 09:05:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FEA3606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redaril.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redaril.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tF5IY/3N
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-497614c95f0so4985498f8f.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:01:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795856485; x=1796461285; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HcMpuSj3oXcRHJx9YaH6Yolmn9BCDVLY7M9wbuven4A=;
-        b=tF5IY/3NhVZLJraWtqmB3EY0/xnFkRCRPsJ9yKllFcz3wvjgNLduq5zNjnyhGwCcoQ
-         feT/IzhIupjOpbic1CDesYTBZIl6DoXFPT2Mis8+X4iIJAwWNXQirrDJKP7q1akF+SUi
-         Z19Ur+LZtz+EH/3CFP4jLBI2mbRhwfh4kZGHL4Dfcc903lY3qk1EX95MV9rl5nCDqCyR
-         ksLJZIsf1owWEI1StTx+ylT+TY040/Tf76OIfhRYcOjZKD8OdI7QE/Re/f6tYGmoWLOf
-         aNbl5KYQjANQ038Uuh9esT6WJ5raZ3DKIjhG+tyKi1NQHrltm+gvBUqg+YwgRcyWT/Sj
-         4vuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795856485; x=1796461285;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HcMpuSj3oXcRHJx9YaH6Yolmn9BCDVLY7M9wbuven4A=;
-        b=lenoyt/zMpssx4UZ7H+hj+X8Jn8ZhYtRA77cUNFFGFxfEwjhqRQ6qeQmSq06oGUdUY
-         h2AsSRuqcbt+dRIVbo5IudRrsAgOTjqf7mRFtz+jv9C6Kg8lhCiZPgyAf7z0YCUhYk7e
-         8NwCM2imQbUa/IEQtuQOwamicSsc9RGehKN62LEvop/qsQmUDFnZiDPFPd2RnMTGmrDG
-         TGHQxrrg4Dy4cGxCv7INa1JjuimeZ4TlgY4J1LhQwK9QqiZKIj1xrk72iVc16OzJai2A
-         pTOwRZx/a25WW6pOBYSJd9blUuStB20Q8g+dEAJQ5EmlxnWFXt2q4pqW7ubkyEyp+s6E
-         4YdA==
-X-Forwarded-Encrypted: i=1; AL+hErERgrdZjz3IlEbAgDnVh6LKc+Ao8Ns10j6LFBvZ4TpKQH8DRmNBVTrCBk5GErI3YGXPMMfcqyf9ORLT1KY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nz/ayqd3dRVkagNpftrPzMZW17IFVvjXNTylVEN9ECM0jszN/
-	qAWfQijJlNYy/QbgJGyv5MjHxuPSE6a80tYyydNP+ZZJwIWr9jtmJ/qQ
-X-Gm-Gg: AZFdTZd9cyfc0ythfrHzRq4rJhngP+OkSEbElKYEBDamf+SbOjXrOw6NbfaQRlM3tGY
-	pc9TIZVO67k1i0PlI1Q63oVMNAhFEE+cUXhTqV2ndRWFVq3U1mj7dOz2Ycz96MB57IWuqBkcEpV
-	nZfmKYTJNVG4tj79ze66TG+Ck97sCXB/Y5VnuoAb0B8vbthlnyWMUpUdf1ZUc2RNFLY56GrXPvr
-	m+UB9/svDYRbfhMxicIsRpBaF60W3x5AdsRHXAzgZKTrqdyNkBZgm7ZlvaUyo75ln7EQzg4ke0K
-	ZRoe9UYI0YZOhjZxUrP5+vstDd3FkKNCRUsCGGDCpD/UdD4DjYyhNg7A7yNOHtOt7hHpQJzsrZn
-	CqvpB6dBolvCtkb07IdK4PaEESbSbQPJu2xaRAUd6AoXy+zCEEJQyw1gmskyxAltCMJRAyubsds
-	zTmAt6dGctVBxDrwK9pySqUtlFmSjzLhESYCZj9asfcq4Vvt1wXgCEx17u/ULDNYaPYzI2TyQ6P
-	pP7OW4WnTgXXMkhStARLNfyjNPSOZSyE30/SvBycn5IJ2I5XPNco5SjgTpI7HG8v4uZzDPARjv6
-	rnRp/zx1gZy2ZLnNyudmOJtHy2PlQlqf1A==
-X-Received: by 2002:a05:6000:3107:b0:4aa:1ae2:ff2a with SMTP id ffacd0b85a97d-4abaa977260mr63813437f8f.2.1795856484771;
-        Sat, 28 Nov 2026 01:01:24 -0800 (PST)
-Received: from google.com ([37.228.200.172])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm50089883f8f.56.2026.11.28.01.01.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 01:01:24 -0800 (PST)
-Date: Sat, 28 Nov 2026 09:01:22 +0000
-From: Fabio Baltieri <fabio.baltieri@gmail.com>
-To: Johan Dahlin <jdahlin@gmail.com>
-Cc: Guenter Roeck <linux@roeck-us.net>, linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Alwyn Kik <alwyn@kik.pw>,
-	Hamza Mahfooz <someguy@effective-light.com>
-Subject: Re: [PATCH v2 4/7] hwmon: (nct6683) Enable fan control on ASRock
- BC-250
-Message-ID: <awqYYqF0aIDLpcTg@google.com>
-References: <20261111082838.1418051-1-jdahlin@gmail.com>
- <20261111082838.1418051-5-jdahlin@gmail.com>
+	dkim=pass (1024-bit key) header.d=redaril.me header.i=@redaril.me header.a=rsa-sha256 header.s=zmail header.b=F+rlBotm
+ARC-Seal: i=1; a=rsa-sha256; t=1795856692; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=BmvcYnpeszoCL0aV0up+uO2/IQJK/dik7UJsorD/sO+qAuWdGrWEQv5gBraLHzqJzZHIewKqI132vg8kNtRHv1YUFeZTE5x+1vPJhtrvlIip1WDGXdXdsk2WAqOuxCxNICpr8g6pfaFgmZlGt9Jc3Phm5Ehkuu7yjjkxSFxDKqc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1795856692; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=fR8+AZzMPmjRQhe1cjtha4XcPJsaasrVYp7w8W00FRU=; 
+	b=RPX8LdONHctMB4NMm0AEyqOosUs7GFzDfOeieRNdSD6acmA+qXhBa/E5yd+1MMQ6kS4Z1HT7hUCXg4H95RpO55ODhFnKQrH9mOiInYEqsTz3lWi8cJa6ZFcowZgtkzs5Co0o/PHN2nhl0Z52Cj9tWE0zdboyDh8kUkunnBxJh8E=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=redaril.me;
+	spf=pass  smtp.mailfrom=development@redaril.me;
+	dmarc=pass header.from=<development@redaril.me>
+DKIM-Signature: a=rsa-sha256; b=F+rlBotmIlf7etpnZWsD/sWPQmU4l9X4oUcTs4SgmfqiMrXG13YwkZAnEPjrp+P9XP0OLgzi75RblBhzkTlCk3JFRw/g4AC/bftLlZUmknMXdbGx3ipBKo1cj/P2NeSy8TUmSTqsYqFGznxEJQ2bJBst/NaEGyv3JWjz+Rg+Yr4=; c=relaxed/relaxed; s=zmail; d=redaril.me; v=1; bh=fR8+AZzMPmjRQhe1cjtha4XcPJsaasrVYp7w8W00FRU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1795856689546186.7563515837245;
+	Sat, 28 Nov 2026 10:04:49 +0100 (CET)
+Message-ID: <a08267fa-5a8d-4945-85f9-a9476a476b04@redaril.me>
+Date: Sat, 28 Nov 2026 10:04:48 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,54 +58,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261111082838.1418051-5-jdahlin@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] drivers: core: platform: Add
+ platform_get_match_data() helper
+To: Jonathan Cameron <jic23@kernel.org>,
+ Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org>
+Cc: development@redaril.me, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Johan Hovold <johan@kernel.org>, Peter Rosin <peda@lysator.liu.se>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+References: <20261128-iio_rescale_platform_ids-v2-0-4c35f16c4f77@redaril.me>
+ <20261128-iio_rescale_platform_ids-v2-1-4c35f16c4f77@redaril.me>
+ <20261128002732.7c47a16d@jic23-hlaptop>
+Content-Language: en-US
+From: Fabio Forni <development@redaril.me>
+In-Reply-To: <20261128002732.7c47a16d@jic23-hlaptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 11, 2026 at 09:28:35AM +0100, Johan Dahlin wrote:
-> The ASRock BC-250 (customer ID 0x162b) has an NCT6686D with the same fan
-> control registers as the B850 Steel Legend WiFi, and manual fan control
-> was reported to work there.
+Hello Jonathan,
+
+On 28/11/26 01:27, Jonathan Cameron wrote:
+> On Sat, 28 Nov 2026 00:22:09 +0100
+> Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org> wrote:
 > 
-> Enable fan control for channels 0 to 7 on this board as well.
-> 
-> Suggested-by: Fabio Baltieri <fabio.baltieri@gmail.com>
-> Signed-off-by: Johan Dahlin <jdahlin@gmail.com>
-> ---
->  Documentation/hwmon/nct6683.rst | 2 +-
->  drivers/hwmon/nct6683.c         | 3 ++-
->  2 files changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/hwmon/nct6683.rst b/Documentation/hwmon/nct6683.rst
-> index 026515c35243..8e5cd1d7dcd2 100644
-> --- a/Documentation/hwmon/nct6683.rst
-> +++ b/Documentation/hwmon/nct6683.rst
-> @@ -59,7 +59,7 @@ fan reported by fanN_input.
->  
->  It is also supported on the ASRock B850 Steel Legend WiFi (NCT6686D,
->  customer ID 0x164a), where pwm1 to pwm6 control the fan headers reported
-> -by fan1 to fan6.
-> +by fan1 to fan6, and on the ASRock BC-250 (NCT6686D, customer ID 0x162b).
->  
->  pwmN_enable selects the fan control mode:
->  
-> diff --git a/drivers/hwmon/nct6683.c b/drivers/hwmon/nct6683.c
-> index 29fbf438c04c..f656b84ee8ac 100644
-> --- a/drivers/hwmon/nct6683.c
-> +++ b/drivers/hwmon/nct6683.c
-> @@ -1540,7 +1540,8 @@ nct6683_setup_fans(struct nct6683_data *data)
->  		}
->  	}
->  
-> -	if (data->customer_id == NCT6683_CUSTOMER_ID_ASROCK8)
-> +	if (data->customer_id == NCT6683_CUSTOMER_ID_ASROCK8 ||
-> +	    data->customer_id == NCT6683_CUSTOMER_ID_AMD)
->  		data->have_fan_ctrl = data->have_pwm & GENMASK(7, 0);
->  }
+>> From: Fabio Forni <development@redaril.me>
+>>
+>> device_get_match_data() retrieves driver data through the device's
+>> fwnode. However, software nodes don't implement
+>> fwnode->device_get_match_data(), so for a platform device that is
+>> dynamically instantiated, device_get_match_data() is of no use.
+>> platform_get_device_id() can be used instead, but this doesn't make the
+>> driver code abstract enough.
+>>
+>> Add the platform_get_match_data() helper, so that driver data can be
+>> retrieved from platform_device's fwnode *or* device_id as a fallback.
+> I'd have added a reference to similar cases like i2c_get_match_data()
+> or spi_get_device_match_data()
 
-Hey, just got a chance to test the v2 on my bc-250 and it works as
-expected, tested it on hwmon-next since this has already been applied.
+Good idea, I'll do that in v3. I'll wait a few days to let others add comments.
 
-Thanks for the help!
+> and perhaps have followed the naming in there for the return variable.
+> Both call it match.
 
-Fabio
+Alright. I think you want me to return NULL instead of -ENODATA as well?
+The other helpers do so.
