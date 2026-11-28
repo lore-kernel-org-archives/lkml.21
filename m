@@ -1,78 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795859891;
-	b=MKEXNyUCvkAEBv247KqMHo7L5E8dxcxZ3HEur6ZoAcM+Vhg/NlrMNjX22a3pTdiYVVx2
-	 jyQTl0PI9YdgZzMojlblPA5xISmzAoWzhhuWICFZf4aQ5qIeh6a/y4gfCF2NjL9dzCtsD
-	 J/ISs0tRgbQsolSNtQiKiknut5FhbImBgFOKXy1mVCMl1bM7icZk8by+qL4o34pZCel+f
-	 rkCFTKxwG7DBENuY+hRn+BJ9qudjtePTU1klGTQgXcdOJigMKchwCqpB3NxMCdLKgUo+t
-	 nCG3elY3N6boWl2dQ2sq4TvNbWArhXs9zxbV+Of/oAS8bJWp+NxSrOOOPVkenvD7d3w==
+	t=1795859900;
+	b=t9HzaQkdceO5HfDoA8Hag0IOObu9em1YWo4wGGTKICwFu3Gzw4PXmI73K83ysKFt+7Nc
+	 2fOMXw024GqNVYH3fVLEEFoLnM44GIWmjDdMiH57Xhx+Qe3pyYYX2K1UpY79tKPLUxkae
+	 94HmwFxaLFWA9wyihMTUCs7MtxHKMaYPvfeJ1LuZRnPyMdn3gyaQ2+/BpWhJN3HCjflly
+	 ZdJ5eJ0oFEqafx8guyrEF9yLu2lj7hGTb8s1rSEQBgO0AaGy3HhOw65qYDIkbUOC66zv1
+	 nsOEi1JPwGMlTf6ZYeUR6a0XAPikt+yveojqtunZqwfWtzQki1Q8VjlKB9TTw4hh3IQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795859891;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=xkqf+7x7yPJWp9LWVs41Meh3hUDnubnEWLvvXH1f0OM=;
-	b=QaQUyxx7gec5B7zyatlIuYVQD/5Fcxhclttd8AYQsyby4TLj50olD2tSzs0hRqCUHD+V
-	 VdOOI0gQbGXEjsWZNNAEvcLDbWQRWbmofO7m+KwyerURfvB9Eqen747xKflHl4A+oCzMm
-	 2TlLgbi2mKW1Z7LrnRxJF0K7kYP/XeT4dXBVKOMFkPMALUjsTCjrcEePAjo+5E5HLNFGI
-	 982Cf+1d00kCjsYuVX4K8ljVQMRCtuPZpIIfPrEPjqwr1fHYdvCscEh85EVtaR1AGwZ8V
-	 8VjQDYkyrLuUkv7+I618rgscxBGa9Rr4xjlkuDlVEBNRTqF33c19m9MeH7MzD4mydiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859900;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=gypr9ixdbwpXyRQHyLVcFcYrxT1qcpmfLiBbRjpRDO8=;
+	b=rfHBaS+2VlklEyl6YM0BwFCNxXBD/puduE1V+XIg5svkuiAk29rQORMoW6oNMJGZ+Uoe
+	 jnXier8aR5WHMXNVlZUf8k9bsZaIDcqVaZOk0mviH3aiSQuUDVXBQHZcBPo8xDNVgkg82
+	 ZQGiCp+yegQDX0ecD4XtDoZVRWENgebVhVJx+0Nt9xi3Q1pBhjCz7L+9pB2dkHE0B8oGC
+	 8Et4FoUXmmu3RFoawHRBc7fOnHo5P290kNOhu9cjxRfbV77mxKwrURaRMcety15LN5IXb
+	 b9Qd24rknnrNA/fFoNbilRFIYrCRtuJyCYD8x0E9gPfd4iW26jNE0KMRWDtRpu9fRRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QX+pDT2F;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xh9t4AGi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08594606A326;
-	Sat, 28 Nov 2026 09:58:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08594606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C2940606A31C;
+	Sat, 28 Nov 2026 09:58:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QX+pDT2F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795859891; x=1827395891;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mDFNMlF4soO+khi9YXxQn3h0Ih/euUVIAPICgfLuLHc=;
-  b=QX+pDT2FGyhSRGh1W3pmlhFmLl3iXJ3nDJT+0aCNAXZ7WrxN7zGLY9pV
-   xEU5sm5u3JEb+VKa/LSHaGxQ4epu8zQgpNY1gbm5N4PAyu6zRCqxzV4VS
-   FmbnWY5gqerW3EUV1V/ltzRR59VvUfqLg7EX/gQikOjOY/SJ7qiQEBlX2
-   yE8bwRI62vqrtJsedFvOb547sTsmGozW7OWp7xtScqI04y0Nqb/QNk81y
-   ncaNJ16v2e/tlnkHCxv2jZWzYjBRmszzaftGU6PrnMV6WuX6ya7cKLTLc
-   mHdkmvrJkANHfPvpzd6tp0f2dBXcFaqLJSjGzrcs0pDOp0HfsveLgEBg2
-   g==;
-X-CSE-ConnectionGUID: b4Qdi9tqSt+TJCGu2C3//w==
-X-CSE-MsgGUID: 0mQ2ZOmHTMy9J/P6+jsypw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4759773"
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="4759773"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 01:58:10 -0800
-X-CSE-ConnectionGUID: fLpdUTWaRgyZzB03ldX3pQ==
-X-CSE-MsgGUID: KJ5g+UYZTxmbGOq8qHT3/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="12409550"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by orviesa004.jf.intel.com with ESMTP; 28 Nov 2026 01:58:08 -0800
-Date: Sat, 28 Nov 2026 17:47:46 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Chao Gao <chao.gao@intel.com>
-Cc: x86@kernel.org, linux-coco@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, rick.p.edgecombe@intel.com,
-	kevin.tian@intel.com, yilun.xu@intel.com, chao.p.peng@intel.com,
-	baolu.lu@linux.intel.com, Kiryl Shutsemau <kas@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>
-Subject: Re: [RFC PATCH 3/7] coco/tdx-host: Exchange SPDM messages through DOE
-Message-ID: <awqjQt8n7dUJ3RJo@yilunxu-OptiPlex-7050>
-References: <20261116111037.3478844-1-chao.gao@intel.com>
- <20261116111037.3478844-4-chao.gao@intel.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xh9t4AGi
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 65CE81F00898;
+	Sat, 28 Nov 2026 09:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795859900;
+	bh=gypr9ixdbwpXyRQHyLVcFcYrxT1qcpmfLiBbRjpRDO8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Xh9t4AGiLURm38vb2SU1trvChHI7gbr2j2mr89kBMmMObRqPqFb31H/Df4kMoB/QE
+	 DTFrZCWcUEejYMMyf6uta0gZ1r5vlFftz5vvG1cN/u5TrwQsJYlqCJQy3985JyPZXl
+	 apHx6xspTchoq4W7I8KvgHK/Hyof2wsym7vgH37qxLOTL5W1cWYCIhFm2lyesYk8R9
+	 Kp0flMcZ/JKT9hHiBRBpIy3ZI+RZWDyhlwPP4rXzSm7o1dCytu8uI5iSFUHRj8LFZW
+	 IVo4JQQxND28kNGxFoK6c4cDpAug7siQfOYddho75iEl1+NIV9JjSbrMQzX+NeACTy
+	 NmQ3tcw1clb2g==
+Date: Sat, 28 Nov 2026 11:58:16 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Askar Safin <safinaskar@gmail.com>
+Cc: aleksa@amutable.com, alex@amutable.com, alexei.starovoitov@gmail.com,
+	arnd@arndb.de, bpf@vger.kernel.org, brauner@kernel.org,
+	containers@lists.linux.dev, corbet@lwn.net, dhowells@redhat.com,
+	ebiggers@kernel.org, giuseppe@scrivano.org, hughd@google.com,
+	jack@suse.cz, jlayton@kernel.org, josef@toxicpanda.com,
+	kees@kernel.org, kpsingh@kernel.org, lennart@poettering.net,
+	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	luto@amacapital.net, neal@gompa.dev, oleg@redhat.com,
+	paul@paul-moore.com, ptikhomirov@virtuozzo.com, sergeh@kernel.org,
+	skhan@linuxfoundation.org, viro@zeniv.linux.org.uk,
+	zygmunt.krynicki@canonical.com
+Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
+Message-ID: <awqluHWbXWeNvUeS@kernel.org>
+References: <awOQDOel_72Xwjm7@kernel.org>
+ <20261127214103.542291-1-safinaskar@gmail.com>
+ <awn-ioAuksHNV-Rc@kernel.org>
+ <awn_Y7oI4ckfsjSv@kernel.org>
+ <awoHex4LVst2JwkO@kernel.org>
+ <awoO9R7YF_5_6dHA@kernel.org>
+ <CAPnZJGBnFyrmr88OsYkMwtLiR93z4g0NAuoMurcnhcYFXz51jg@mail.gmail.com>
+ <awqkft-e6Tbj7dbJ@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,52 +76,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261116111037.3478844-4-chao.gao@intel.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awqkft-e6Tbj7dbJ@kernel.org>
 
->  static int tdx_spdm_msg_exchange(struct tdx_tsm_link *tlink)
-
-I remember there is a comment in internal review that suggests we use
-struct pci_dev *pdev for this function, to explicit this is purly about
-PCI, nothing to do with TSM firmware. I accept it at that time and still
-feel good today. How do you think?
-
->  {
-> -	/* TODO: implement the PCI DOE transfer */
-> +	struct pci_dev *pdev = tlink->pci.base_tsm.pdev;
-> +	struct pci_doe_msg *req  = page_address(tlink->out_msg);
-> +	struct pci_doe_msg *resp = page_address(tlink->in_msg);
-> +
-> +	size_t req_sz		= req->header.length * sizeof(u32);
-> +	size_t resp_sz		= PAGE_SIZE;
-> +
-> +	size_t req_payload_sz	= req_sz  - sizeof(struct pci_doe_header);
-> +	size_t resp_payload_sz	= resp_sz - sizeof(struct pci_doe_header);
-> +
-> +	void *resp_payload_addr	= resp->payload;
-> +	void *req_payload_addr	= req->payload;
-> +
-> +	u8 type = req->header.type;
-> +
-> +	int ret;
-> +
-> +	ret = pci_tsm_doe_transfer(pdev, type,
-> +				   req_payload_addr, req_payload_sz,
-> +				   resp_payload_addr, resp_payload_sz);
-> +	if (ret < 0) {
-> +		pci_err(pdev, "spdm msg exchange fail %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	resp->header.vendor = PCI_VENDOR_ID_PCI_SIG;
-> +	resp->header.type = type;
-> +	resp->header.length = (ret + sizeof(struct pci_doe_header)) / sizeof(u32);
-> +
->  	return 0;
->  }
->  
-> -- 
-> 2.52.0
+On Sat, Nov 28, 2026 at 11:53:06AM +0200, Jarkko Sakkinen wrote:
+> On Sat, Nov 28, 2026 at 04:50:42AM +0300, Askar Safin wrote:
+> > On Sat, Nov 28, 2026 at 2:15 AM Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> > > thinking more sequencing than data structures. I.e. I have a game where
+> > > I need to end up to process creation without embryonic state, and add
+> > > just enough weight to kernel to support that outcome, and that leads
+> > > to ~2K'ish LOC of extra kernel complexity.
+> > 
+> > So you don't have embryonic state? I don't like this.
+> > 
+> > Let's assume the following situation. Userland's PID 1 is already running.
+> > Our container manager attempts to spawn yet another process into userland.
+> > As well as I understand, it should do clone3 with CLONE_INTO_USERLAND,
+> > and then execve.
+> > This creates time hole when there is process, which already runs inside
+> > userland (i. e. its PID namespace and other namespaces), but runs
+> > container manager's binary and have container manager's mm.
+> > This invites for bugs. Other processes, which already run inside userland,
+> > may somehow take advantage of this.
+> > For example, see section "CVE-2019-5736 Is a Very Very Very Bad
+> > Privilege Escalation to Host Root"
+> > of https://brauner.io/2019/02/12/privileged-containers.html .
+> > So, here I like embryos.
 > 
-> 
+> We all have things that I like but let's talk about facts instead.
+
+I mean just saying but wwanting an embryonic task state in Linux is
+backwards architecturally for any possible topic.
+
+Br, Jarkko
