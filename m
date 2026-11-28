@@ -1,67 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858215;
-	b=SRe7DNyyQOw7yNqz8TYBCNHkQhWYkAcuYgmZogRTlzezmNfhO3zMB/JjSUYFKXIWl2Yl
-	 tDuvR8MRl02i04eHJcD4XcDHOA/JzJi/1wGJLr/OanmUco0Gr6WLSg34+cQ5slCFlGTHF
-	 iBKvCBcLBzLVoR3wss3f3bLeOYImKT9VTOjKgM/BVxpnbFZvSY21HzswPiGdrdKEa7OIQ
-	 xC57kJLM3SugBcV7KNBZCWNnvOckicKDz6A/RFyJftrUiDH1qxDRfqdNgaSmk1KlLQHov
-	 P8l2SZbPOQqyVt0xlKL2YF7tlfgZHXY1dPozwk/gIP3wim88hzhrJZkTHUMhGLKV6WQ==
+	t=1795858535;
+	b=V1uLzdEM9HuPCtWNskrZicn5n3/X1X0CEb5Ijb0/aK4ez/il6QO08yzhO03LB/EcmzBk
+	 Xq9+0K4gyIiEXClccYF3v8Pm+U7EfmQwcgtiMUGgcLPDRdml9H7J2Cx7axFwpOQdPk13b
+	 lolb49cU01XdIH5xiutnDFApXKcD2kCkY3z0dxsiPavs34ngz65aIfCIpiVP4w2xVSBM9
+	 bv7mCvmaFIF+BpPRjpkDtqgMn97F00Ae8Z1H2W9pKiw+kPQEVywBZWotU0YgmPb+Qt/oG
+	 lEpihMCERZdAwi8S0PvzpcM8ppqTYYwzs6/axFQOZ6AFsnwbIREKIJw4KMjc+ajV/4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858215;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=YlUSTqlDLSiYnKXcQwkZ7xCXG+D4DiBqjnIkYe6WzA8=;
-	b=Yrg/BNiECIj9VWxg1F+MOMaYvgYT/JDyR3XyoSqHYGQgjhBQI8FC0hbFxTCOBiFamOLR
-	 zjc27hRFH3xuhOiTgjVlZZgxlfhGMya49QyyK6cwzYxloonbAHuv3Ydv762U94Zq0bax/
-	 sqQCrXX3UpJAalT24Hq3OijS+UjgqZgIyGTlOPh+VuN8+3/qVBFXJderXWJzvOPEMxJ6P
-	 a69LJleL3ih1L6BxTDIPUY55AeqA3sROzPNEqXgJFSrObajmYXqrmohhavWA4+IsPfKfX
-	 DcT76BeDpxTmswSNwS6Yvt+Z9sz5LsNkWOr2TzzPjLoOtOPKOSV6WbSNvCxXeRwpnNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858535;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zicrRBvId4YvApKpJm48X0ZTwOkVDAdh8E0wrt9dEMg=;
+	b=cnd+hR5oyRPEVHu8FIppjmh1naNu7Nv8AVCX/NnHD0diQTSIOX3x4jNq4x4xxsDeBXad
+	 /9Q2KLXv4XZerFJDQho0cDRmSc3Vd/qRtUNXUQS9+GpRRJlF++1ttOh+Wl3mvmbexMIkm
+	 bVoMmnhWG6QBYd3CpUFgLgbdbGq2IYHjytI4PJ3cRs+W3Ij960o5/6/P5JsGmqK6YeV5f
+	 9SzRrGlpTrZqFe6bTLSpfSgz9Jh3830UyD07boZX/A1jN0LCQtTLrXx1GwgDK2NT1FlwT
+	 oejBvD47Eylql8veo4d52InBxjg7r43+vJnLvRtnVgG5Rdeoe/36ecKByo7T0wAfVqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SjORHsWA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=RmL6cBI2;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tx31jsWF;
+	arc=none smtp.remote-ip=202.12.124.156
+Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F40C6606A688;
-	Sat, 28 Nov 2026 09:30:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91206606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:35:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91206606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SjORHsWA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFDA01F0089A;
-	Sat, 28 Nov 2026 09:30:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858214;
-	bh=YlUSTqlDLSiYnKXcQwkZ7xCXG+D4DiBqjnIkYe6WzA8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=SjORHsWAO9yz/Mt5R6NvoEtQfbJgdaJpkD4VjFddJYzw3KwVI4attRiCksHVhYvMs
-	 dY2M5BWX09WPPlzgx0ORURCZTK0RYkA/l6v2xZrhckHNOK3RMJZl9C+x8OckCUa22X
-	 kjk1ovdm6hQ1dGa/HJcBiMuPWCqw0JTL9AHNJQsgM2SLLVAM82YEMIZfUc4hH1qvip
-	 mRfW+FPP3+eFhQ9odyavFx8Y0DpSzWRAzuiJn+53YOJQCTof3imkJXjBzVy+Sr50jr
-	 ey7WgwpjQMwzc/C0h3kVqX11ekw/DYQx7crPEjzVwkSFd+MZ+rzMs97Dxdk+qzl3Pr
-	 5nfGBZytQgJhg==
-Subject: Re: [PATCH net v5 4/4] ice: use a VLAN agnostic multicast promisc
- rule pair for PF VSIs
-From: netdev-bot+sashiko@kernel.org
-To: poros@redhat.com
-Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
- przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- aleksandr.loktionov@intel.com, horms@kernel.org,
- michal.swiatkowski@linux.intel.com, grzegorz.nitka@intel.com,
- pmenzel@molgen.mpg.de, wojciech.drewek@intel.com,
- marcin.szycik@linux.intel.com, martyna.szapar-mudlaw@linux.intel.com,
- ivecera@redhat.com, alice.michael@intel.com, jacob.e.keller@intel.com,
- jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
- aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
- linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:30:12 +0000
-Message-ID: <179585821237.3135.7178956472467266393@kernel.org>
-In-Reply-To: <20261127085714.1207361-5-poros@redhat.com>
-References: <20261127085714.1207361-5-poros@redhat.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=RmL6cBI2;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tx31jsWF
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 03B367A055B
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 04:35:33 -0500 (EST)
+Received: from phl-frontend-01 ([10.202.2.160])
+  by phl-compute-06.internal (MEProxy); Sat, 28 Nov 2026 04:35:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795858533;
+	 x=1795944933; bh=zicrRBvId4YvApKpJm48X0ZTwOkVDAdh8E0wrt9dEMg=; b=
+	RmL6cBI2He6Co4g89wDHUOeavPsLzAgAFAvFSnh7pdsbPkLCcrpAihTkuTDCK+n3
+	un9fm5VNsGnCyH6MsS76w5KzdhXuXM1kAF1kcdLhGYBJkHXCoyPQShsTVE7WEALO
+	sCShVZv0Ee5i+XTL0hkBap256Q/YikyluFxMj88t6ECyXCQZUwEm9AfEc0C9BvEu
+	Gq61osyj0DJK+iA4n9FOVHwVeFRnhzGwGhGvuxtVmiUrfs16hTkZ+Ad5hHYgvKFj
+	IYYOE3ZBXGGTKPgWcR1k9XzbNncbgTHHKY9tre6l22wD50Z1dd4EHbO5SQsnFObJ
+	FwXb2VCTgky1thCoeVpN+g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795858533; x=
+	1795944933; bh=zicrRBvId4YvApKpJm48X0ZTwOkVDAdh8E0wrt9dEMg=; b=t
+	x31jsWFMsoUo5dwgDYNCw0zekt3Qem1ueANY36yvulvO3dHHVMfPHqnhdby6F7gD
+	8bJ14kf2GqdLfpicgm5fhCYoJDiVsTekqYEIUp5AFZ9cxOBFhP+L7MKSDFvX+7jv
+	mju2fLdm3J+TrCBls98fz3psuXSfM7OKFptzWDVg5eUp9QWcnwd99sG2TSEEtwbD
+	rIZTj8kKm2tmBsZ6ygU8VHZsJps1ha5vlvsCogiYfL2gt1RyNXZQSY+Ifmw8uaxo
+	/9nEYodeyOD2ESxwxeqs0+klQkWLi6P+sAnO1PA5ncSrLuB/BiVZcNvymXB+Osu3
+	d1Eq4zsE2Aig6CPd1io7g==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795858533; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:aAcegpiP8i9jk6Rnz8YlaY0mJwRVANp14ZQZiQDE2PczUDR
+	LYm4EN+Ux4Cr1yeKdkxdrJmNSw5ZUUYqb2tGD83gecwo/Y+tq+uMYYykGn4yCMOu
+	4J0WArTrDlJSh7gKpDE+wKhHjlgNZHLDX4P541NC5iQpHBvuI23mNYqHjs5O3MAs
+	oeRjQjy18BbPMjYKpJWScHy0+cDAnKpNqVoZRkCBxMyTIY/0WuK3BGbynVl8+MqI
+	KQMAvk9FRjtxAaglAvHcNswRp3iKPm1xb+0jfM49lzofEY3QguWb0AzpGk93gkUW
+	K08gUil0ZWBFnoJ9NhTh3jx+hT7PN7Xte5EOtkg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:014xzjofYLyKTC2FEPI6l3AJteYL+UWlSylf2/3rwnU=:+TuYX39J9MK5GgWXhfX/MUZpw+eI50zC8N8dm6MRU0w=;
+X-ME-Sender: <xms:ZKAKawiU7OLMAGLs0nyYtpHMFDbYXnwkF80_85K_7S9BlVSWIhWgRw>
+    <xme:ZKAKa06GHW-LUIvF5AmE73L5KbB6FBEad7Ga33rWgVXbt-JRHUVrL4RKeM_5HNUnf
+    bJm4mqg4ivOL4pWNHyj1VfIA2QGNdbF2iamPKfXH0qhiwvPo4o_QBTs>
+X-ME-Received: <xmr:ZKAKazkqOFOPeNu63yp0SpkR64bsUrl7bxWY7zmS8eABuMF01GGiIaPGgi5XE5uS-UOnYKRAZiyDxilit9bo1pXZdMIkL-zX>
+X-ME-Proxy-Cause: dmFkZTGMV3CUim2foI4ZzGFCcoTLNyXZ5phHEtfa29Af+kPYAcEX6mgKV460NgQY1JflaC
+    AdpzyxlAuM5K3J55EGFMpNp6mHJ5kC6agKoTrbpgF/pjYbyTL9qOILlmwDpNPS4PD7Fpcs
+    mA6CY3h5GhMbYdN3rt9hRLhyOc8PDEoff6FDl2EUZo1aTv72qNhd7rZtQ4Catg08VxkU8L
+    +bvS+W5mWk1nyTDoW82JYyLmjmBX48vAWUhYmN8tLWr0KkRCG945CQXre26LhAMybC1bPJ
+    LYexQqWt5MBIr5lu90NdCW2Y+JOJuHKN1DKgP1MXy76ZutknLgeqkHHo1TrqDwEUyA6aZl
+    wfT132sjzOHmDrEaj318nLw5TKhCQykQUZaYXKbrFDH6ok0nQGH5igHCZjLEvXPqNOf9ti
+    eUtgrI/+4r/m/RGZq/iIo/CCTNPLAIyJoptC0/yEh8gmFhF/jL0n+HvK2vRRzsLdZ0P4I2
+    OadUnGxDTuWTFXMfMgzgubP8tPrXHbuYYZX8pJ6ToZbuHV3wXeeTCNlr1M4tgBLVVjUF5B
+    YuB2fLEj0pjfrQJINkF7MmIAfqmOAwBW7fhXW3cAe3Cf2J8kL5JtHpNJfdcW1pQQsJLdon
+    6E9P2sWwn9ZOl3CFkqQr6pDBV6XdIOgd8L3Du+Sm9UgiQ7RIJB3xK4ZS947w
+X-ME-Proxy: <xmx:ZKAKa1Ma2JKdUMLE4lVrPKonrMIpuqugEmKjxX0_XGFE0qC6LDgfoA>
+    <xmx:ZKAKa1qAmWc1BlYHiylL0cBc6nq31z-BxTZdiBosUAdwmlI5nBkn8g>
+    <xmx:ZKAKa-sYACVBfoEPYTZw1-_sN9nsFEAKJWOrvAWgXONmt3pUUVCu5w>
+    <xmx:ZKAKa57f26Pcu9cUYWVdw9MAKFr41nuPk-FVODp58Qc7vspI6NlUSg>
+    <xmx:ZaAKa_1UyzaRavElIPs_71OTGqCi4aIDQibHm9EGw_zRas8urBR4Xq-h>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 28 Nov 2026 04:35:30 -0500 (EST)
+Message-ID: <aa7d8770-787e-44c7-a3fc-20ebc3db8af2@pobox.com>
+Date: Sat, 28 Nov 2026 01:35:28 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,130 +119,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5.15 000/318] 5.15.227-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261127052515.841545444@linuxfoundation.org>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <20261127052515.841545444@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 11/26/26 9:25 PM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 5.15.227 release.
+> There are 318 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Sun, 29 Nov 2026 05:24:50 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.227-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). (Also briefly
+boot-tested on an Apple MacBook Air 2017.)  Working well, no regressions
+observed.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In ice_vsi_sync_fltr()
-  (drivers/net/ethernet/intel/ice/ice_main.c), the error paths rewritten…
-
---
-
-ice: use a VLAN agnostic multicast promisc rule pair for PF VSIs
-
-On PF VSIs, this patch replaces the per-VID ICE_SW_LKUP_PROMISC_VLAN
-multicast promisc rule pairs with one VLAN agnostic ICE_SW_LKUP_PROMISC
-pair, so the switch lookup table no longer runs out. It removes the
-per-VID handling from ice_vlan_rx_add_vid() and ice_vlan_rx_kill_vid().
-The multicast subscription is now reconciled from IFF_PROMISC and
-IFF_ALLMULTI in one place in ice_vsi_sync_fltr().
-
-> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-> index 2ce2b7138f668..ea6da46bf7955 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_main.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
-
-[ ... ]
-
-> @@ -399,91 +408,65 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
->  		goto exit;
->  
->  	/* check for changes in promiscuous modes */
-
-[ ... ]
-
-> +	promisc_changed = test_and_clear_bit(ICE_VSI_PROMISC_CHANGED,
-> +					     vsi->state);
-> +	if ((changed_flags & IFF_PROMISC) || promisc_forced_on)
-> +		promisc_changed = true;
-> +
-> +	if (promisc_changed && (vsi->current_netdev_flags & IFF_PROMISC)) {
-> +		/* Apply Rx filter rule to get traffic from wire */
-> +		if (!ice_is_dflt_vsi_in_use(vsi->port_info)) {
-> +			err = ice_set_dflt_vsi(vsi);
-> +			if (err && err != -EEXIST) {
-> +				netdev_err(netdev, "Error %d setting default VSI %i Rx rule\n",
-> +					   err, vsi->vsi_num);
-> +				vsi->current_netdev_flags &= ~IFF_PROMISC;
-> +				set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
-> +				dflt_err = true;
-
-[ ... ]
-
-> +	/* promiscuous mode implies allmulticast */
-> +	if (promisc_changed || (changed_flags & IFF_ALLMULTI)) {
-> +		int mc_err = 0;
-> +
-> +		/* a failed DFLT install leaves the netdev promiscuous */
-> +		if (ice_vsi_wants_mc_promisc(vsi))
-> +			mc_err = ice_set_promisc(vsi, ICE_MCAST_PROMISC_BITS);
-> +		else if (!dflt_err)
-> +			mc_err = ice_clear_promisc(vsi, ICE_MCAST_PROMISC_BITS);
-> +		if (mc_err) {
-> +			netdev_err(netdev, "Error %d syncing multicast promiscuous on VSI %i\n",
-> +				   mc_err, vsi->vsi_num);
-> +			/* retried by the next sync, with the allmulti change */
-> +			vsi->current_netdev_flags ^=
-> +				changed_flags & IFF_ALLMULTI;
-> +			set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
-> +			if (!err)
-> +				err = mc_err;
->  		}
->  	}
->  	goto exit;
-
-[Severity: Medium]
-Does this retry actually happen? Both the comment above and the commit
-message ("a failed DFLT install does not remove it before the retry")
-expect a later sync.
-
-Three error paths are involved: the failed DFLT install (dflt_err), the
-failed DFLT clear and this mc_err path. Each one only sets
-ICE_VSI_PROMISC_CHANGED, returns an error and leaves through exit.
-
-ice_sync_fltr_subtask() calls ice_vsi_sync_fltr() only when
-ice_vsi_fltr_changed() is true:
-
-ice_sync_fltr_subtask() {
-    ...
-	ice_for_each_vsi(pf, v)
-		if (pf->vsi[v] && ice_vsi_fltr_changed(pf->vsi[v]) &&
-		    ice_vsi_sync_fltr(pf->vsi[v])) {
-			/* come back and try again later */
-			set_bit(ICE_FLAG_FLTR_SYNC, pf->flags);
-			break;
-		}
-}
-
-ice_vsi_fltr_changed() looks only at the UMAC and MMAC bits:
-
-	return test_bit(ICE_VSI_UMAC_FLTR_CHANGED, vsi->state) ||
-	       test_bit(ICE_VSI_MMAC_FLTR_CHANGED, vsi->state);
-
-ice_vsi_sync_fltr() clears both bits near its start. Only the out label
-sets them again, and these paths skip it. So ICE_FLAG_FLTR_SYNC is set
-again after the error, but on the next service task pass the VSI is
-skipped and the flag is cleared.
-
-The admin queue can fail transiently, for example in the FW ENOSPC ->
--EIO case from the commit message. Could the VSI then stay with
-IFF_PROMISC set but no DFLT Rx rule? Could it also stay with IFF_ALLMULTI
-or IFF_PROMISC set and missing or stale multicast promisc rules?
-
-Removing VLANs to free FLU entries would not trigger a resync, because
-ice_vlan_rx_kill_vid() sets no sync bits. The state seems to last until
-an unrelated ice_set_rx_mode() call or an eswitch resync.
-
-The old out_promisc label had the same gating, but this patch adds new
-retry state and depends on it.
+Tested-by: Barry K. Nathan <barryn@pobox.com>
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
+-Barry K. Nathan  <barryn@pobox.com>
