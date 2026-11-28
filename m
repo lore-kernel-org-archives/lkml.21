@@ -1,94 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795853651;
-	b=Gr7Kp9IkWDsmtbWvI5UvCpl8AtVeufz7B64CdA1UoSsY4Z/Gn6uTniBKou88OsJrs+pV
-	 JwPN3x6sanslZ79VChR4wPns9qEglhRdn3tuudRVfaA11G4SW36ns6T9NRJ1a0NtRhkkk
-	 LArOgZsPWEdbRiQD+xf1CipSP1XcuWfNnrqGp7d79+RiPh9qDl4VHweuBvSwRkFs+wf1O
-	 bjYbjzWRk1fPFyvCUxXhXXmJpZxt6E9DI7J5FHnoZQJTXSEPNtwbB8e28nHCDNTKp5lEz
-	 rQVw8uMVtLQtGryXj0nVYL3RlmQwqqeylYbRtOzOzq2RIjM2v9kPA7QtzTN8Z/M0pEQ==
+	t=1795853660;
+	b=n9JyBfZLTsSZXj0PbY8gHTdJjY6bc3UzRCWcsUacm4SzXQ34MkSVqIxL0u+fCwVCbHny
+	 qFTL07fmtWyz5y+GD8FOe1ev4pQDSKB40UF7GJYow/MLMBiY85WV6mCL4wTxTVh8SnaVB
+	 VHWQJvASF70nG3lgCQCnC91UOjMzOuHHkGAIxXLOeEnpEY7HShq50MwjbXVZXu2PcQ20P
+	 cbGeD8WVPGoSsF6lTFNWACcfGqr+svQAW40adee2drMphj9kVYkyYoMYxTP+wGkPC4rT/
+	 Hz9bAFlpey2vcCSIxTRTc0f5S3bWGs5mTC4llHSfC0k5uc0Az7sHGiDeP8eYOvsHerg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795853651;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795853660;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yKYud9p8+aP8cT7V12zkUbmCop1ErkdHEczU+hWaU/k=;
-	b=xLHAqWlSnGGbtkvhm9a5S21zN7ssBzPANQZ+YAnf6vEEs7NjcC4Ow6BUmlBcaEF2U2Sj
-	 9cJDQeoZt7qSMToR0dalLWeBQNO7rwZGVkF/bRCvI/Lulza+Rp6aKYv0BKsXgQQE2Mgyu
-	 XLQxpZZiqKjv/aI4LAIh2fk9OsMlf4QtQGgxvARyj/L1My0RnbreDGpLzw+ssrpjQ8z68
-	 IvR01iC30VLBiNULRAlbKwvdltpO5S5qIZYuAFYdLBtS5iBTiw6XldLxewlOXk2C3yzD2
-	 6kHjTG9LoxwpfeZOsIZxfTN0Gs4FKFy60xjzin0Xo+xVQnXwngJBu9FR688CEpVx4IA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=i5cs8AaJOdV3ZQpL9gyqbXhUnUJiadTuA1kMgyOem6I=;
+	b=KC2DC7+nujwb0mPodxxzv2q+soFIgSV8yE0KBDOu8HGl/twurAueoWAHz0wl9ImZfuvg
+	 PqEc4yzbYBrl4NPlg8/69gTPjgyfnWEiOfQJbBc7MRUzNrQ+0RdpQdwphOla4bH6+telD
+	 nDHf2pTwJyvHEg4Ogw25PNwARNzQElRy7TJHviPUsycxRG1cgBTl4/kh8lTInK/gjuySu
+	 prUZT0fKuMCadnprOUYd5wTEOA0RzlGP2NV5Hb0fESSD+8M/JCWy9vMJg/zScICQLHEVY
+	 6cqwuZJesD8ov9838G3L7RGl7YGAILOg5izrlwRmgAzC8AVKCwKDMOE6LHpzUSSEmiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0LkFHR+h;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4gxVgT9;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A1E3606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:14:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A1E3606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47C5F606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:14:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47C5F606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0LkFHR+h
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-386ab9ab619so12471660eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:14:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4gxVgT9
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386cf1041cdso6437702eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:14:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795853650; x=1796458450; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795853659; x=1796458459; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yKYud9p8+aP8cT7V12zkUbmCop1ErkdHEczU+hWaU/k=;
-        b=0LkFHR+hbGSu2gI3IDGcRw0jA4AabyAmC/x4bSWTV50NzBwS1B9nqK30kMEcSHMN1Q
-         mYfGHnRyrmAQ2HRXZZyDKhLgBRpCqjUBnCk2IMaQICVlg23sFOyU2HZp46TdZyzYejAd
-         kus18h3lhSKl3mmKUwJom9w1fVgXVzif983/B6GieSZ8LqLmm1V/w/zs+oTVaFxVmELl
-         4c15LYZMEj2ld+8owI0SF9tjWlFOw0eTc3IFgjY7P2MaCm/yf85W/sD477u9b5U0wveK
-         4CbRrbbuPrEUUfQ13R6kVsIbDRWylbY/dxvm8p9yrVY5/v638GkEntjyUnHRuBCFMzKJ
-         Aq7Q==
+        bh=i5cs8AaJOdV3ZQpL9gyqbXhUnUJiadTuA1kMgyOem6I=;
+        b=o4gxVgT9PASOZ3CuHwluBC9eGkWtpSj9r2tVuYhYhTvpVVktc5ZN0eF+5aKR5sTR61
+         S9/h6Z0rVfa7AC/F/l7b1zjgAe+HScJR+iGTRFT/1AnTib0rpd8l7uBlCzi39tG6oN/o
+         D/nnCR2sOqc4nNusEDkqjvS7rMibTIP6t7xF4ID8Pni32Jcd+F89yUISlcLhjxYkr74k
+         wXvBtFXjhhSM2nGXR5oVDaVvB2Jpqy/uUdap0QTb5esD8tug/xUgCi4km4ChChd5dMqF
+         09E9hd8vmEbEBkAM4kd6MT7+RN0hV+hrItnkg2F/IBOwaz98kODuGDqZJBtgsyoBnAZv
+         tKzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795853650; x=1796458450;
+        d=1e100.net; s=20260707; t=1795853659; x=1796458459;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yKYud9p8+aP8cT7V12zkUbmCop1ErkdHEczU+hWaU/k=;
-        b=TzgIU4cM37Kg88pctuJU7UdQhhxF5womppnKCi6qkL2lc2/YGmxUX84eD6tsPBCOBw
-         PM84qKi++hdyEI7ZMzGaGH9AF+AMPOB/zQO6sZJhTuwkNoGEbEicCgTmqRALPTLlhTZe
-         FAfatAKjfhl9RCLEdsOoL4nTWZdC6jrmz/anGDYIvy2WA1Oh23gYzyt4SNbWdMfSNFRp
-         QlBn7iy9LVg7lO5wH/FeT1uKyaR6jmo2KDVadRmNCxtzKgLOTpKXrCrqoJKX3kz4FTau
-         k6pYul7dy1/FBAg/B43Tx42rx9fA/RjKXeis5FBU2n89SrmnOIkz64y5p3/ZP2QIRGNm
-         lTnA==
-X-Gm-Message-State: APuU4Z+/FU+KYyiZOO+FW/dHXbqX9N3UAasMykZUj/x5O5itZB5aSIxZ
-	Gc6aJ5EUVly1Bg8JXDtebNdO0Lo+GOcqsE8xWJkVB1w9nASIxvwWaMUiscRdLw==
-X-Gm-Gg: AZFdTZchiuA7V2zP+/lBeLF4n8Wg3x8vEYKMxysXsEOP7EP/koCaiwCH2RQKlyse/vw
-	S5+8QNyPgOj1W6l0KOmiJe2fKOIMKLNFlIzDpYW5+1NOUPPcVdlT3PgQc481Gzpww9hW4GkGf8b
-	lcHP3Y4CUI7Al5eVmCuwani6y97ah9cmaRZpWJWQuemKYuv/Dh/inLy71KQTVX3RLYLDmSE7MPt
-	1sPXogHQzvzEPhM3WmNGTQtWAAVPsQajFhN3FAp/PB69doGJQ1DOivhvRixzhZcD2+/BV+6yL+5
-	1jaeVmWbAVtNhITIdcDU20nuooq/iHrHNPSG1wVCO5tF3TA3v4QwC0e5PkF1YlbTfidimVwCN4s
-	7FUFCXMFGI3FjwnDRTFke5lhxNjpd6c6emfkDCSLMRvE/1eypyjDddiQp6f9Qz1bfOLyVELJwqu
-	Vg4IaEc4LmXjH6FYNtSM7HmFsORVrHvZGWIXCscr5r1+pNof7wbixqV3n3KTHz2tvrupkuAshTx
-	5pa3FUMctWylbL5YlES+eZpI//fbghg9ALX14yLZ+Y5IeP0O/WfKZOM9GWzbeezXBQz+dDgEdzL
-	ZxqWm1GgXz9ChS4lbHzShuXMFY/l8QNljR6QC3NgVazwvK8smoL4
-X-Received: by 2002:a05:7301:6908:b0:382:f0d4:1e77 with SMTP id 5a478bee46e88-38571219f03mr26765984eec.36.1795853650596;
-        Sat, 28 Nov 2026 00:14:10 -0800 (PST)
-Received: from localhost.localdomain ([103.179.230.121])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm72360114eec.20.2026.11.28.00.14.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 00:14:10 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	perex@perex.cz,
-	sreekuttan2156239@gmail.com
-Subject: Re: [PATCH v2] ALSA: vmaster: Restore follower values on put failure
-Date: Sat, 28 Nov 2026 08:13:46 +0000
-Message-ID: <20261128081346.3007-1-sreekuttan2156239@gmail.com>
+        bh=i5cs8AaJOdV3ZQpL9gyqbXhUnUJiadTuA1kMgyOem6I=;
+        b=XHKm935fGaesh32d5n59+Rrt58HLm46gQNnQQqtk+g9K2QjAnbc6jWlAOzgpvHt0iM
+         N/LBWNSszN593TKKJ41Fd9E1Axm3zQWnxJRShzKxC1QmeZ9r3FuW6DW3wOGL/He3uSUe
+         R5M/ml3vrUSRSXe7x16T3JGpC7dboAvsCgMpmcm5hwixg/Ughy416Br1SuR7Y2GiKwLI
+         gYusXPmHCtp1gBl/YNkph8XPn3dgS1rCFb5MryObh3zSntSn7k4ZcXZh49tb6a/+Bf2F
+         2wm25SqjCCfMs/R+tUjhzPmWcVCrakelqbSut181o5obPIxZM0jiAn3/goeBEMTTjaQk
+         64MA==
+X-Forwarded-Encrypted: i=1; AL+hErHyanI7sQCLgHG9T1syJwtCS/yuiPdgHnVmmH+nMEsRSwchlae58lvdoYPVePd/sA82Iecmcgvw92d3MKc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8A43pY8xIgQ39EHyKDvZie6p2L0E8wA/nqO6Mh80QKaRFWkswJ
+	yH9bOYRk1q8Ubuqu2Myp+53GEUbl+T9H/UzWWx6NAgxEocvUjc6TDvfD
+X-Gm-Gg: AZFdTZe9p1u7bvvtH+A7QpFNRvht/lnek5DrLFUSnkxzX3N4zazfkzU5ih/Y8T0qFiV
+	2XmLQsR5/EWAtPGf2/tVIZMeW6NHF3ZM1XrD5Hw9yiG3hKJpPYbTjzww4csU2HZQF0Yj2/iA5mu
+	yChqUqoIIHQdM8liszvGfaFFEvceVsh1cGR2g6JgpLVCuKAZOa7nLskAGfu17nG0b+PLc+V1cJG
+	wdLgtxqrEqNqvfv6Ip12CQio/e/o0auLPz9wl+KkmiXTHxHeQ98K29Ne2boSBw3tD6S2EGNOoPz
+	gdjURJoejtk20AYzj6/W0Kk34wNH7MBLFMACv5zql6OV3W2Fhc5waJsiqSlWoKzbcVMC4sz0Ra4
+	x+VQ9O3XOjKMGJmbeMzZ2yi89wn07tpfVWV2u9vYrZ9Xmjdv+lroXqBsqdwQhfiizdsLmeNFIzM
+	GiBa9gRDM+xrFtIX6N2Yf0davfb+8T1GR6AzwTwWabrwNcgZ+BPVf4KGwjAA1F9B0Db7Nq9I21O
+	MTHzViA/eL+WbxLJq2hdw+Dg6GorbA2fWe1rwJVFBwUOvZk3CVViqKnqLRT5gGWoRQlOs1r9oAC
+	wRRtzHTqPV2vx2VqzRp0vPVarbNy4p6/WRfuZDOQhlL9nG1d2Emr7sodEEoEBdYpaT2N/Ohl3jA
+	IU8GhMynzvaee8Q==
+X-Received: by 2002:a05:7301:2108:b0:386:b99:8ff9 with SMTP id 5a478bee46e88-3860b999354mr23638515eec.40.1795853659296;
+        Sat, 28 Nov 2026 00:14:19 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386f6651e2asm5676959eec.27.2026.11.28.00.14.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 28 Nov 2026 00:14:19 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: Chris Li <chrisl@kernel.org>
+Cc: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v5 10/19] mm/swap: mask the off-list bit when checking whether swap is full
+Date: Sat, 28 Nov 2026 16:13:48 +0800
+Message-ID: <20261128081400.38292-1-lianux.mm@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <87ik1imbb8.wl-tiwai@suse.de>
-References: <87ik1imbb8.wl-tiwai@suse.de>
+In-Reply-To: <CACePvbWk-TK+VtiD_0ByM_pxXzyHhZiW=C0LB_mH2FtBXH99FQ@mail.gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com> <0d61898075921b05c626accfa34a60e16472b556.1795439990.git.lianux.mm@gmail.com> <CACePvbWk-TK+VtiD_0ByM_pxXzyHhZiW=C0LB_mH2FtBXH99FQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,9 +113,10 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
+On Thu, 26 Nov 2026 12:09:23 -0800 Chris Li <chrisl@kernel.org> wrote:
 
-Thanks for applying the patch!
+> Acked-by: Chris Li <chrisl@kernel.org>
 
-Best regards,
-Sreeraj
+Thanks for the careful review, Chris.
+
+Lian
