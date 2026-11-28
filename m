@@ -1,63 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795825907;
-	b=xBpY2TZjk/rM+Q7zOeW0mmJg+PiUsNywpyRZ/GX9Ku1q1wacnJcYSxTNDgGP4U6dfOhv
-	 RUVyaVtF7bojDBuCmpxlBql0bgikkdQARVqvfVpG6qhV/9wz/MR4W0Xsr5m/FpC67ETmw
-	 wCcGtSLnGm+1xPpb1QPo2Z74kTYjlU7j61rwY+Y2sYACpB19u8+b9bwdJ1uImyrfxUYDi
-	 CuFRwqpR3ESicypspX3hZE24d7EChp4bRJWDxt8i4ukqmLIUQ0GOf3FIk2HPuX/Lw9aVM
-	 6kGcsjj26JjcKN1MZMouHdeghL/BjTiKrr/3/cGZ7hW033FB7rIWgjWPJZTl8/HNt5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795825907;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=JlVRTxL+BcSjflaSgLcOcjIGWl+CetICaQlh8dZNIJw=;
-	b=FZjxL19r5wh10Ali3sK/daNjoLnLXwqIb4lBhtSgoSeyvK4V4oBFjbNlYjz5S0cNM2+k
-	 Zq5bnC8VTs0AoGP6n7dgmhIfVx7lgcMXMearmUGE39xNTAoWGXSVvl56x+R8vufK5hzHi
-	 /Km7GrnyvQ6h/uJe2gmU/a5X0i3SrTBR4Fsikd+TWGyW2q0iYZLK7R8NHVgt9CFn/dEn8
-	 tnx1talOW+O8plHSnE4BaBIkAYF3ZA+pA4tvCaUXAohGbgQvcjQy4SwfxvQLAmEJKdfhN
-	 g0Peh7GiJ7jObERU2HIErGnsuBwe8xTsQIqo3aDiOsmLpc9pJUkZNymYh7UxUVvEMdA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="MirkBkv/";
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795825920;
+	b=F7jc6bA+C3OZ2GaJNAmYTnM9ARt/w6GWjVgz5HsyngmDofbkBtxufGGCL6T8UO2b0qX3
+	 2af0AF/g73LAqsyFER3vC9Lg5wEfFyUUKRMO/wWn/4O8uC0QBj2qgrBe1T+kBif9gvl5C
+	 buG7MLXHtOhfmUphPfO6NZoNJCWgyIXoeBQccBujiAyQZzE/n08IpSTjZBawHLZA2o5E3
+	 KbvSiVwJ//G1YxhbFEiA0l4vlZFaq2DWx/iCpKgZ5q0SfZv0Gn9JJ4FpK7x9QFeuLTu1Y
+	 5Ao3iL3cX0hvOOQvxCtVa86Fv0pzWvWNGO70tMoJ7+drIT5l0x6Jq2IBhq7DaXduheg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795825920;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=A4LVjkTnpkyF5klIB/NNrOOh7DHYEeRfyp9lDj+74Og=;
+	b=qFcLuZGMX/4lGGG6g532uDy47S+lS9f6NBoSiMVubmlw5pnO94W0KwFyNnZN/7o88zZE
+	 zXTlSZPkrJ9WRUd5NR6MZg07era6sGYOwzHO9ExAGkpHhq6rd13oS34HX/U+EBaNovrYi
+	 nSvm4UdxLAgs0Pfyui0jskbtw23CBmrDWERIEvLJAmKNytY8YrpiG266K/uYfZgGouIpX
+	 OPQtl751WF+p92VphzFJ1UQwef7wgNZNGILdWdoC5aPAwqcZG8GJYLfRSQJh5svBw/kfA
+	 zq+LW52OPQuPFSdexZwGmOddHAcyADCSb7fsp4zoAQncacNknINqD07EoRq3S8Ke+IA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AsPetNWL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71CC5606A31C;
-	Sat, 28 Nov 2026 00:31:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DD3A606A31C;
+	Sat, 28 Nov 2026 00:32:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MirkBkv/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A054A1F000C1;
-	Sat, 28 Nov 2026 00:31:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AsPetNWL
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795825919;
+	b=e7gkghA+LqbaSmAKZBuYsiiYPnHncXNAKJ5tTERESuI260PIBHsqQTKQZbVQj75MSKIi
+	 uD6shptzXVMGgdBsdFMrmCDv8CdF80ZfG0yRN30dHwp1N8He6Eb/DIxsChtTBlybn0Od4
+	 YesS6KnhTRdftY000ot+8BAq5Fo1o5D/bwp4dUMfn+4Ie5nA9UFDYyhg1U7KzwKxYKX4B
+	 4yJC+H/KqQuzuXixOfQXJJs7KNkqD7gV0NZ5Koqd4CDObn8ZhpTA3mUgsEBOfRee+5koq
+	 Ii1utOoBaTCyguNBdz15H+XIUdOWPDt+SmD571RAsKfu+uXEYxzcsHIhkIP0uAz9rtA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795825919;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=A4LVjkTnpkyF5klIB/NNrOOh7DHYEeRfyp9lDj+74Og=;
+	b=i+yMb09Ez7r5musSFH6tE9B6AoQov1Ko+VlfshWJTSs89GyRvvmE++lah2xCq/dEXu1C
+	 ZKsufdi+NLoO0QmUXK+1HPPX/Y0B/JOm++63oDd9aUiyORFJ1DfHQR7D+3Nnqh1oW8Ifo
+	 c/Kg6kzuStFEnmBSNCU5JCtoMhAxgWsZ1UhIL2YF6MBt/rq0hheyR7a1JSRLimypuQewa
+	 14ylwpJHCKTX9Ejo3XhAaEkSyySjfuA/Oj1GiJVKDX7VKpTloHaFVOWPxF9GKzcuw1zx+
+	 KTVfUVJcIQ1H+GxgwQWUaCBTIFz5mlRlKw+bHTHcs8uXZ8suc3mCG5UvMIqRQbUD0QQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5B21C1F000C1;
+	Sat, 28 Nov 2026 00:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795825907;
-	bh=JlVRTxL+BcSjflaSgLcOcjIGWl+CetICaQlh8dZNIJw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MirkBkv/IldmNlYYjVbjFiV1LePvCtliEMxLM2/GZDoiaacmxl60jRrw5KPSEpA9c
-	 lIdiYa6vP2v9XwiEyOh72znWsie2YUd+KVzxsoBbuM3vOZyJgfECXNWROw572uALMf
-	 DhkTDMB1yf2yu0HTqTCwPEdMlZ9k8fZuuWUEn7r1bau/KvNW9bfrChuxCzxvB3mDvw
-	 y+ZJvWIBtn2V2Q6QWKYAReJhdv7cbFmq1LEb+w0moW3nFw9GUNjSy9fgfw6DQ5OQb3
-	 MrSKv7wDNiyzKU4OP/2U+owZcBHkHFv3UIIYzJzQAMuBnFQzBNQ+1LIz7o+BBfKpry
-	 55qy3IJk/Uw1w==
-Date: Sat, 28 Nov 2026 00:31:39 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Patrick Fischer via B4 Relay
- <devnull+admin.tsv-stahl-riesa.de@kernel.org>
-Cc: admin@tsv-stahl-riesa.de, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, David
- Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Kevin Tsai
- <ktsai@capellamicro.com>, Svyatoslav Ryhel <clamor95@gmail.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof
- Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: iio: light: Add Capella CM3217
-Message-ID: <20261128003139.0d8a011c@jic23-hlaptop>
-In-Reply-To: <20261128-upstream-iio-cm3217-v4-1-fdab04f40bbc@tsv-stahl-riesa.de>
-References: <20261128-upstream-iio-cm3217-v4-0-fdab04f40bbc@tsv-stahl-riesa.de>
-	<20261128-upstream-iio-cm3217-v4-1-fdab04f40bbc@tsv-stahl-riesa.de>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795825919;
+	bh=A4LVjkTnpkyF5klIB/NNrOOh7DHYEeRfyp9lDj+74Og=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=AsPetNWLG14jQKA0/tSWWM2jnBVzQE+uUyDzygTgZ+nn0UL3+0o5CRo0FoI3/ZhOi
+	 CMOwky4/Qxf7svJ3k4n8z7qsywTVx2jZMFJ+xNOnMR8PnzBTOMSarNW3+GXgm8+xko
+	 9CuUl4nV0gOTn9R3/ejZEf38QDl5j8oKNIcriq3DfezXaQfssXWpAx4DUSj+GU9ENI
+	 xGfSdCtxGOEpe/PVRYCEyrlVrktmVOnmHShEwTJmZPUc5hiW2o9uGNqirDDe59+u2S
+	 85bz0Ja8SiZkWuaBEh/4TRGd/8j6GV+7ecY2fszZMLzvI0SH2KMoTlwOkMiBLSMpSf
+	 k5i393u91GHuA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D0F4C4DEB5;
+	Sat, 28 Nov 2026 00:31:58 +0000 (UTC)
+From: =?utf-8?q?Petr_Krac=C3=ADk_via_B4_Relay?= <devnull+petrkr.petrkr.net@kernel.org>
+Date: Sat, 28 Nov 2026 01:31:53 +0100
+Subject: [PATCH] media: i2c: imx415: Use the new VBLANK value for SHR0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,88 +82,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261128-imx415-vblank-fix-v1-1-0878e9928fd6@petrkr.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyML3czcChNDU92ypJzEvGzdtMwKXWOjFAvjRBPjlEQTMyWgvoKiVKA
+ w2MzoWAi/uDQpKzW5BGSQUm0tAKoNT511AAAA
+X-Change-ID: 20261128-imx415-vblank-fix-32d83a43da46
+To: Michael Riesch <michael.riesch@collabora.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, =?utf-8?q?Petr_Krac=C3=ADk?= <petrkr@petrkr.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2315; i=petrkr@petrkr.net;
+ h=from:subject:message-id;
+ bh=YzHOjfOlYrYJXjwaPQuJDeigg1JsB6+2ebe+BLz+vpg=;
+ b=owGbwMvMwCGcmL3AsYG1kZfxtFoSQzaXwl8hq411cRNXLw24ceZYpLh6g9ul/kfChrwHDjwOu
+ /TVMUmgo5SFQZiDQVZMkWXbDs1pu7qc58++XmMEM4eVCWQIAxenAEykPYXhr/yTvP4PSUdXCTxw
+ cyh5U5eTGLn999OX5tF+gTMqs1L0fjH8r3zx/gGT2rI3pj/EEg8JsV3xD9ugm6owzXD1xHsfw3b
+ eFgUA
+X-Developer-Key: i=petrkr@petrkr.net; a=openpgp;
+ fpr=B6B82996BA8A439F9BD77C32616BA0418005810D
+X-Endpoint-Received: by B4 Relay for petrkr@petrkr.net/default with
+ auth_id=1672
+X-Original-From: =?utf-8?q?Petr_Krac=C3=ADk?= <petrkr@petrkr.net>
+Reply-To: petrkr@petrkr.net
+Content-Transfer-Encoding: 8bit
 
-On Sat, 28 Nov 2026 00:38:56 +0100
-Patrick Fischer via B4 Relay <devnull+admin.tsv-stahl-riesa.de@kernel.org> wrote:
+From: Petr Kracík <petrkr@petrkr.net>
 
-> From: Patrick Fischer <admin@tsv-stahl-riesa.de>
-> 
-> The Capella CM3217 is an ambient light sensor with an I2C interface but
-> without registers and without an interrupt line. It always answers on
-> the two fixed addresses 0x10 and 0x11, which are both listed in reg.
-> 
-> The sensor is used in the NVIDIA Tegra Note 7 and the NVIDIA Shield
-> Tablet.
-> 
-> Tool use: Claude Code wrote this binding.
+When V4L2_CID_VBLANK is set, imx415_s_ctrl() writes the new VMAX and then
+falls through to the exposure case to program SHR0 = VMAX - exposure.
+The exposure case computes VMAX from sensor->vblank->cur.val, which still
+holds the old value at this point, because the control core updates
+cur.val only after s_ctrl() has returned. SHR0 is therefore calculated
+for the previous frame length. If the exposure control is not written
+afterwards, SHR0 stays wrong and the actual exposure differs from the
+requested one (for example when the frame rate is changed).
 
-Comments on that belong below the ---
+Take the VBLANK value from the control being set instead.
 
-If nothing else comes up, I'll drop it whilst applying.
+Fixes: 3bcae55ab96a ("media: i2c: imx415: Add read/write control of VBLANK")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Petr Kracík <petrkr@petrkr.net>
+---
+ drivers/media/i2c/imx415.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
-> ---
->  .../bindings/iio/light/capella,cm3217.yaml         | 49 ++++++++++++++++++++++
->  1 file changed, 49 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/iio/light/capella,cm3217.yaml b/Documentation/devicetree/bindings/iio/light/capella,cm3217.yaml
-> new file mode 100644
-> index 000000000000..a03cdf2bd375
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iio/light/capella,cm3217.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iio/light/capella,cm3217.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Capella CM3217 ambient light sensor
-> +
-> +maintainers:
-> +  - Patrick Fischer <admin@tsv-stahl-riesa.de>
-> +
-> +description:
-> +  The CM3217 is an I2C ambient light sensor.
-> +
-> +properties:
-> +  compatible:
-> +    const: capella,cm3217
-> +
-> +  reg:
-> +    items:
-> +      - description:
-> +          Command byte 1 (shutdown and IT_T) on write, high byte of the light
-> +          count on read. Fixed at 0x10.
-> +      - description:
-> +          Command byte 2 (FD_IT) on write, low byte of the light count on
-> +          read. Fixed at 0x11.
-> +
-> +  vdd-supply: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - vdd-supply
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        light-sensor@10 {
-> +            compatible = "capella,cm3217";
-> +            reg = <0x10>, <0x11>;
-> +            vdd-supply = <&vdd_2v85_sen>;
-> +        };
-> +    };
-> +...
-> 
+diff --git a/drivers/media/i2c/imx415.c b/drivers/media/i2c/imx415.c
+index 7bb27bdf1446..282dc0c3e021 100644
+--- a/drivers/media/i2c/imx415.c
++++ b/drivers/media/i2c/imx415.c
+@@ -697,6 +697,7 @@ static int imx415_s_ctrl(struct v4l2_ctrl *ctrl)
+ 	struct v4l2_subdev_state *state;
+ 	u32 exposure_max;
+ 	unsigned int vmax;
++	unsigned int vblank;
+ 	unsigned int flip;
+ 	int ret;
+ 
+@@ -715,10 +716,14 @@ static int imx415_s_ctrl(struct v4l2_ctrl *ctrl)
+ 	if (!pm_runtime_get_if_in_use(sensor->dev))
+ 		return 0;
+ 
++	vblank = sensor->vblank->cur.val;
++
+ 	switch (ctrl->id) {
+ 	case V4L2_CID_VBLANK:
++		/* cur.val is updated only after s_ctrl returns */
++		vblank = ctrl->val;
+ 		ret = cci_write(sensor->regmap, IMX415_VMAX,
+-				format->height + ctrl->val, NULL);
++				format->height + vblank, NULL);
+ 		if (ret)
+ 			break;
+ 		/*
+@@ -729,7 +734,7 @@ static int imx415_s_ctrl(struct v4l2_ctrl *ctrl)
+ 		fallthrough;
+ 	case V4L2_CID_EXPOSURE:
+ 		/* clamp the exposure value to VMAX. */
+-		vmax = format->height + sensor->vblank->cur.val;
++		vmax = format->height + vblank;
+ 		ctrl->val = min_t(int, ctrl->val, vmax);
+ 		ret = cci_write(sensor->regmap, IMX415_SHR0,
+ 				vmax - ctrl->val, NULL);
+
+---
+base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
+change-id: 20261128-imx415-vblank-fix-32d83a43da46
+
+Best regards,
+--  
+Petr Kracík <petrkr@petrkr.net>
+
 
