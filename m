@@ -1,79 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795839672;
-	b=nmXw+8WCXeQ3Vq13FxprBLkeZnd1mQHtTlfO3uzyG2eINvrl94cNEXCLoVpQBonPr3YU
-	 2aMjoYy+ZTcf6Kq2lnOOhQB7+awnEE+albjSqb69PX7Rc1RrvjxCSiOnjWOwLlDAau6VO
-	 yFdBbSVoUt+YNwJDUxWS6NOacjNDZ4SWl2gvqaPl5Cdcfdapw46JUCAY2Q91vxxmhA9u+
-	 0s+uMZdWKoC5ZEGG+PLkAPGoZWgPeQ6x7+adUMQnF6O3i0gGaKZ0fVT79ULFZ7bp5i6Pi
-	 CqEkJHntwIBUYLVv76Zxn0Ep8LjfZjLu5TYevRft8h9QhJpce+liWSy+iPdlh2oxYEg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795839672;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=G+3JKpL/BA3MmbyCZ7+3PhN8tzqQpudx1JI9BPGx/RA=;
-	b=WtV0zcAc9YV/GvUJie0I55hPIOkPjzyDsbj1QIIYaaQBvUNKMDTANbZeR+YO0kGxGZsW
-	 NW42i4WaVqLryZNnfheEnfHLNQuOCUx4cYKW0W57pERr7vz93TgArhu2Duc6tbOPtAoRw
-	 HU9OysAY7xzC18JAbxe98TitEHYz863BdBRWGzk0RPsSNupHT3ijgvzFgsUQeDFZVExrl
-	 HMNGc61HcWXltTWJcsQOWRSg5qByWD2xPg2Qf68f8nww6DJLrgOSDPWdk4Uhf7BFBamrf
-	 RXYCUzs1Qr79p2TMKb0itM8CCR6mVdRnhZtLiHdTeTax3D+7FGpnP7tP6vsjxw9R4iw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mXgr3Aui;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDEE1606A31C;
-	Sat, 28 Nov 2026 04:21:12 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mXgr3Aui
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795839672;
-	b=YRx2Jztx2iMaVTWZcPv1jBGrGUxRsbO24jCvpXBLT9NmRdi7wks0KWySSebjDnaLquBp
-	 iqKwEhfZwf0JMABeAxiAWiSym/w5C5vsPoDAdF9xIG9feoVzP88abKHfP5f2JfiYdY08h
-	 uuF2/A7kVKGgpaBfcZF8k2aereEMvGNS4zrIuAzwwRXjQCC2N9lZNfcJtagTbLnqQKyzs
-	 DOIWpXrSyTBYACBBBSl39KlOmvm4c63YQzR12KLRWJcwOCqBTFVZlbzqLAXmEUTTaeHgv
-	 FxgCmt6Iwx71YX1XfBHKGPdMfiK2hr7m3xVWmnRVEHG6rSeE1ZCkbg/n5ae9MmGjmgg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795839672;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.196
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795839955;
+	b=bdqQs4dYUZRc2AyUVxwbdsFmkMr38X28IKrF7HjlWVtegSBk86RYfmV+RPyThA5Z2nEh
+	 5GjW6ZH/B0agEwIl0DAevyNT74jHwmAsP7Hzuw/CWtkHcaJBQRizzQuX0IDM9bJ64zp40
+	 OCdFvIHUVsqVQlH/2eJJHJLRm6zmTKQhuSAJm+oVZeexAaeDvZgw2P1J96zMzQLs4PpvL
+	 RI4zUw8pHjqTDR8R7E3ly3bBsYY4gNHoVA0c7t5kz0vHs+lElNcPLRAs+8lZxBvfWXzm6
+	 97xuBJOZqTWicEFej5vT0YZLFDWOuMLSeG+dI++VWpzc/58GeJaHGZ20s2YvsChWS8g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795839955;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=G+3JKpL/BA3MmbyCZ7+3PhN8tzqQpudx1JI9BPGx/RA=;
-	b=CEk9rxWjNCeUCtmm7dKSjKzJATiHoebFmjzk3fJFbsi33MwQseMjWr+KTvhHyCKs9ziq
-	 DCjP5yxtWWmDMI3KPvyfQN55l4Qa/SxC7+N5giTVFRzm9C96PepJCXsxHd3z4QmAFWHmq
-	 JXzr77yYhRhg09mNh9vFP0IhuiYbHFvXGXBrwQ6ZeOq0S5L5HppPQb6Kdha2Ut144TlJD
-	 yR7FdZ/lTxJlTIo5nBSljE9NdclscrlFVYxN2FFSv4xyzpBZyhtPxmg4FTJMlG18eiOv/
-	 z6hmjjoaOB497Cs3VPEwpK+0Su13evk9yj6ew3XS3pu08V8M98IWS0EvBGZb4EXQeLg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	bh=mATTlQKNWLn8Om6AxuMDieKUm10lTGvIAb1LEwjHa3Y=;
+	b=Vf41BJNry3L0ytOAUIkC8+3Ulu+EJgdMni+U6MBTVekkev2Lf520Sop5iVXwuJ+V/Qxs
+	 l4pol91PFjAmbEXfJuDqQYUVSOiM0i+znT3j738l5Cj0uOuVWWizX5znCfm1EetSQggci
+	 L5jBeP0AHUaA0cSmWD/KedQsfnrEkSqb+6urW2Pco8lDnWwWVn5h4ZzOXtYRvlS4Q4Ero
+	 WtqBDlJWOV61JySLHdVuBk3hAROQoTdc5wAHeHrzqCt870g/K8aYkJtzGnl5wMbBSwvFi
+	 SJmup6XkO6Hm8tQDaEYOQG0Ns8Zx5FzGbZA6oQGKTHwlZihOU5FcI0rxOXJ11nhJx0g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=yinhe.ht;
+	spf=pass smtp.mailfrom=yinhe.ht;
+	dkim=pass header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=ldp62NYA;
+	arc=none smtp.remote-ip=115.124.28.196
+Received: from out28-196.mail.aliyun.com (out28-196.mail.aliyun.com [115.124.28.196])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7E5661F000C1;
-	Sat, 28 Nov 2026 04:21:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795839672;
-	bh=G+3JKpL/BA3MmbyCZ7+3PhN8tzqQpudx1JI9BPGx/RA=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=mXgr3AuiwA+27WT2ePgq7bySAvKSmmHnHJceHUoSLO6sP7GXBtobtSSIMkBShfUtb
-	 R5FppBXDqrkKFhOSji9geE8P22nB8abZTa+gEiwkSNqbrrPDqJL9PUd9Hhn6sw6Qeu
-	 LVX25alCN2tX3gbX17LhhFZAkxqzX8XZzwum9/IW8fQ11fxPPxwmIkd2gk+o4cXCkw
-	 SsIakhN0wNELyaWPlHN4HpZxfjgMp67h7eZV60BSMjqOHEHeG+EwH7kkFhMxDVL5gW
-	 OFXxVoy9wkqORORL9YLSGJBgePLNSzz8mTl1CL5k4TxrB3yoDQC825zuvgdjw2HNJf
-	 YS4Sn1xrLqZIw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 12E374DF99;
-	Sat, 28 Nov 2026 04:21:07 +0000 (UTC)
-From: Abhiraj Dutta via B4 Relay <devnull+abhirajdutta7.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 23:19:51 -0500
-Subject: [PATCH] gfs2: Don't cache metadata blocks beyond the end of the
- device
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5B8C606A31C;
+	Sat, 28 Nov 2026 04:25:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5B8C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yinhe.ht
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yinhe.ht
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=yinhe.ht header.i=@yinhe.ht header.a=rsa-sha256 header.s=default header.b=ldp62NYA
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=yinhe.ht; s=default;
+	t=1795839949; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=mATTlQKNWLn8Om6AxuMDieKUm10lTGvIAb1LEwjHa3Y=;
+	b=ldp62NYAc+qChMZCt8+NSG9xiFfU3urdCesPeI0+BZatYiIzr8F5Qjufe0pjtFpaVgpxuGFin8qOXe3f0BTw/zStxq7LNy9oYhvHiWsDV6eh8vJPqFguKYn/29zpBcJw109d29rvnmG/XbZSbiURNeH+KXcfJRVVD1ip2VGgBVoXou8x/VMVu07FfHIRFXHWfevc0iaQJfv1KjaZHUEQFOnMo5QaP4IGm1ufLAIYSrhVrppBXb5UErsTVbaRcnJyfUUrGHzmxb/88/ZQREbKkiTm2Og9KrwcY23tse2DB9zVCl5KLWLLCu/OBJITNDqRtXPHJrxESdfCppLomk+2WA==
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00694659-0.0117943-0.981259;FP=9669561730297515222|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=chunyuzhiqiang@yinhe.ht;NM=1;PH=DS;RN=6;RT=6;SR=0;TI=SMTPD_---.kC.b7fp_1795839948;
+Received: from galx..(mailfrom:chunyuzhiqiang@yinhe.ht fp:SMTPD_---.kC.b7fp_1795839948 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Sat, 28 Nov 2026 12:25:48 +0800
+From: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
+To: Mark Brown <broonie@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	linux-spi@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>
+Subject: [RFC PATCH v5] spi: fsl-lpspi: add atomic transfer support
+Date: Sat, 28 Nov 2026 12:20:18 +0800
+Message-ID: <20261128042018.344919-1-chunyuzhiqiang@yinhe.ht>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,314 +62,370 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-gfs2-b4-v1-1-43d2c224e835@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAGZWCmsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyNz3fS0YiPdJBNds2TL1BSL5NS0NAtTJaDqgqLUtMwKsEnRsbW1AHf
- zEKFZAAAA
-To: Andreas Gruenbacher <agruenba@redhat.com>
-Cc: gfs2@lists.linux.dev, linux-kernel@vger.kernel.org, 
- syzbot+4c7590f1cee06597e43a@syzkaller.appspotmail.com, 
- stable@vger.kernel.org, Abhiraj Dutta <abhirajdutta7@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795839666; l=10138;
- i=abhirajdutta7@gmail.com; s=20261127; h=from:subject:message-id;
- bh=dsnc3Ja34kkr1cnrn1lgndonoi9rMe0qU9CCmqrbRyM=;
- b=ZD6CZ5VjsntqsOeM86xyP+6hPqi5f3Y/7i603Y95l3h0dMRu/9RiuKDSRkxlHjxelXGZgJ389
- GflsLxwn3N/CyGm34c88nTYFvCTvuh9H5Y+3Ocev4AP8EIkEb+LSS1L
-X-Developer-Key: i=abhirajdutta7@gmail.com; a=ed25519;
- pk=/yElQa3xC9IL0VQpYXJ0w1qqAjVx6gnQspoyVUEvD7M=
-X-Endpoint-Received: by B4 Relay for abhirajdutta7@gmail.com/20261127 with
- auth_id=1674
-X-Original-From: Abhiraj Dutta <abhirajdutta7@gmail.com>
-Reply-To: abhirajdutta7@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Abhiraj Dutta <abhirajdutta7@gmail.com>
+Implement transfer_atomic() for the i.MX LPSPI controller, following the
+atomic transfer API added by Heiko Stuebner.  The callback uses PIO
+polling with interrupts and DMA disabled, handles chip select through
+spi_set_cs(), and runs the message synchronously without completions.
+The controller is reset before the message so state left by a crashed
+transfer does not leak into the atomic path.
 
-Block numbers read from disk are used to create buffers in the glock
-address spaces without any range check.  When the block size is equal to
-the page size, a block number of ~0ULL ends up at page index ULONG_MAX,
-and truncate_inode_pages_final() never removes a folio at that index.
-The glock is then freed with the folio still in its address space and
-on the LRU (__gfs2_glock_put() doesn't check for leftover pages on a
-withdrawn filesystem), and reclaim follows folio->mapping into freed
-memory:
+The atomic path cannot call clk_get_rate(), because it takes the clock
+prepare lock.  Cache the per-clock rate at probe and refresh it in the
+normal transfer path; the atomic path only uses the cached value.  A
+zero rate is rejected instead of programming a bogus divisor.
 
-  BUG: KASAN: slab-use-after-free in folio_evictable+0xe4/0x250
-  Read of size 8 at addr ffff88804805ec78 by task kswapd1/76
-  Call Trace:
-   folio_evictable
-   evict_folios
-   try_to_shrink_lruvec
-   shrink_one
-   shrink_node
-   kswapd
-  Allocated by task 5805:
-   kmem_cache_alloc_noprof
-   gfs2_glock_get
-   gfs2_inode_lookup
-   gfs2_dir_search
-   gfs2_lookupi
-   init_journal
-  Freed by task 15:
-   kmem_cache_free
-   rcu_core
-  Last potentially related work creation:
-   call_rcu
-   gfs2_glock_free
-   gfs2_evict_inode
-   evict
-   gfs2_jindex_free
-   init_journal
-  The buggy address belongs to the object at ffff88804805e8c0
-   which belongs to the cache gfs2_glock(aspace) of size 1176
+Program clock polarity and phase before the core asserts the GPIO chip
+select, matching fsl_lpspi_prepare_message().  Terminate continuous mode
+after the last data word, matching fsl_lpspi_write_tx_fifo(), and wait
+for the frame-complete flag after each transfer.  The FIFO reset between
+transfers leaves TCR_CONT set, so the next command can continue with
+CONTC as in the normal transfer path.  Poll the receive FIFO empty flag
+rather than the FIFO watermark so multi-word transfers do not time out,
+use spi_bpw_to_bytes() for the length check so 17..24-bit transfers with
+a 4-byte stride are accepted, and populate effective_speed_hz and
+actual_length for the atomic path.
 
-syzbot hits this with an image where an indirect block of a journal
-inode contains ~0ULL.  gfs2_jdesc_check() walks the metadata tree, the
-read of that block fails, the mount is aborted and the journal inode
-glocks go away with the folio still cached.
+Only host mode registers the callback.  Poweroff and restart prepare
+handlers runtime-resume the controller so the atomic path can be used
+from the shutdown notifiers, matching the Rockchip implementation.
 
-Such a block can never be read anyway.  Reject block numbers beyond the
-end of the device in gfs2_meta_read() and gfs2_meta_ra(), skip them in
-the readahead helpers, and fail journal replay if a log descriptor
-points past the end of the device.
+The driver is compile-tested on x86 with COMPILE_TEST and on arm64;
+hardware validation on i.MX8QXP is pending.
 
-Generative AI tools (Claude Code) were used for consultation and
-research, to automate the tedious parts of debugging (running the
-reproducer in loops, adding temporary debug checks and going through
-the logs) and to draft the fix.  All code was manually reviewed.
-
-Reported-by: syzbot+4c7590f1cee06597e43a@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=4c7590f1cee06597e43a
-Fixes: b3b94faa5fe5 ("[GFS2] The core of GFS2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Abhiraj Dutta <abhirajdutta7@gmail.com>
+Signed-off-by: ChunYuZhiQiang <chunyuzhiqiang@yinhe.ht>
 ---
-Tested in a KASAN VM on v7.4-rc4 (the patch applies to gfs2/for-next
-as is) by mounting the syzbot image in six parallel loops and then
-forcing reclaim with memory.reclaim.  Without the patch, none of 11 runs
-got through: 7 hit the same use-after-free (reported in isolate_folios(),
-where folio_evictable() was inlined) or a GPF in shrink_folio_list(),
-and 4 hung before anything reached the log.  With the patch, 10 runs of
-3600-5700 mounts each were clean, and so were 3 more runs (2600-2800
-mounts each) with this exact version.  Some temporary debug checks
-showed glocks being freed with exactly one folio left, at index
-ULONG_MAX, for block 0xffffffffffffffff.
+Changes in v5:
+- queue the TCR_CONTC-clear command after the last data word, matching
+  fsl_lpspi_write_tx_fifo(); TCR and TDR share the same FIFO, so the
+  v4 order could terminate a frame early.
 
-On a healthy filesystem: 6000-entry directories and 64MB of data, then
-a crash with a dirty journal, and a second crash right after fsyncing
-metadata and a journaled-data file, where the next mount replayed 412
-journal blocks.  Data checksums and fsck.gfs2 were clean after both.
-All of this also passed with lockdep, PROVE_RCU, DEBUG_PAGEALLOC and
-DEBUG_OBJECTS_RCU_HEAD enabled.  Not tested: lock_dlm.
+ drivers/spi/spi-fsl-lpspi.c | 206 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 198 insertions(+), 8 deletions(-)
 
-One behaviour change: gfs2_meta_read() and gfs2_meta_ra() now withdraw
-on such a block, where the failed read used to just return -EIO outside
-of a transaction.  A pointer past the end of the device can only mean
-corrupt metadata, and gfs2 already withdraws for a pointer to the wrong
-type of block (gfs2_metatype_check()) and for a resource group past the
-end of the device (compute_bitstructs()), so I went with that.  This
-assumes the device size the node sees is current.  The bug would still
-be fixed without the gfs2_consist() calls, since no buffer gets created
-either way.
-
-The missing check is as old as gfs2, hence the Fixes tag.  The
-use-after-free itself became possible with commit 009d851837ab ("GFS2:
-Metadata address space clean up").
----
- fs/gfs2/bmap.c     |  3 ++-
- fs/gfs2/dir.c      |  7 ++++++-
- fs/gfs2/lops.c     | 13 +++++++++++++
- fs/gfs2/meta_io.c  | 15 +++++++++++++--
- fs/gfs2/meta_io.h  | 10 ++++++++++
- fs/gfs2/recovery.c |  2 ++
- 6 files changed, 46 insertions(+), 4 deletions(-)
-
-diff --git a/fs/gfs2/bmap.c b/fs/gfs2/bmap.c
-index 4916bcfa1f..07f2e6d1f9 100644
---- a/fs/gfs2/bmap.c
-+++ b/fs/gfs2/bmap.c
-@@ -296,12 +296,13 @@ static void clone_metapath(struct metapath *clone, struct metapath *mp)
- 
- static void gfs2_metapath_ra(struct gfs2_glock *gl, __be64 *start, __be64 *end)
- {
-+	struct gfs2_sbd *sdp = glock_sbd(gl);
- 	const __be64 *t;
- 
- 	for (t = start; t < end; t++) {
- 		struct buffer_head *rabh;
- 
--		if (!*t)
-+		if (!*t || !gfs2_block_valid(sdp, be64_to_cpu(*t)))
- 			continue;
- 
- 		rabh = gfs2_getbuf(gl, be64_to_cpu(*t), CREATE);
-diff --git a/fs/gfs2/dir.c b/fs/gfs2/dir.c
-index 6cfe335fd5..b1fd8b3227 100644
---- a/fs/gfs2/dir.c
-+++ b/fs/gfs2/dir.c
-@@ -305,6 +305,10 @@ static int gfs2_dir_read_data(struct gfs2_inode *ip, __be64 *buf,
- 				goto fail;
- 			BUG_ON(extlen < 1);
- 			bh = gfs2_meta_ra(gl, dblock, extlen);
-+			if (!bh) {
-+				error = -EIO;
-+				goto fail;
-+			}
- 		} else {
- 			error = gfs2_meta_read(gl, dblock, DIO_WAIT, 0, &bh);
- 			if (error)
-@@ -1494,6 +1498,7 @@ static void gfs2_dir_readahead(struct inode *inode, unsigned hsize, u32 index,
- {
- 	struct gfs2_glock *gl = gfs2_inode_glock(inode);
- 	struct gfs2_inode *ip = GFS2_I(inode);
-+	struct gfs2_sbd *sdp = GFS2_SB(inode);
- 	struct buffer_head *bh;
- 	u64 blocknr = 0, last;
- 	unsigned count;
-@@ -1510,7 +1515,7 @@ static void gfs2_dir_readahead(struct inode *inode, unsigned hsize, u32 index,
- 		last = blocknr;
- 		blocknr = be64_to_cpu(ip->i_hash_cache[f_ra->start]);
- 		f_ra->start++;
--		if (blocknr == last)
-+		if (blocknr == last || !gfs2_block_valid(sdp, blocknr))
- 			continue;
- 
- 		bh = gfs2_getbuf(gl, blocknr, 1);
-diff --git a/fs/gfs2/lops.c b/fs/gfs2/lops.c
-index 657edd406d..d2d16f0e72 100644
---- a/fs/gfs2/lops.c
-+++ b/fs/gfs2/lops.c
-@@ -803,6 +803,12 @@ static int buf_lo_scan_elements(struct gfs2_jdesc *jd, u32 start,
- 		if (gfs2_revoke_check(jd, blkno, start))
- 			continue;
- 
-+		if (!gfs2_block_valid(sdp, blkno)) {
-+			fs_err(sdp, "jid=%u: block %llu is out of range\n",
-+			       jd->jd_jid, blkno);
-+			return -EIO;
-+		}
-+
- 		error = gfs2_replay_read_block(jd, start, &bh_log);
- 		if (error)
- 			return error;
-@@ -999,6 +1005,7 @@ static int databuf_lo_scan_elements(struct gfs2_jdesc *jd, u32 start,
- 				    struct gfs2_log_descriptor *ld,
- 				    __be64 *ptr, int pass)
- {
-+	struct gfs2_sbd *sdp = GFS2_SB(jd->jd_inode);
- 	struct gfs2_glock *gl = gfs2_inode_glock(jd->jd_inode);
- 	unsigned int blks = be32_to_cpu(ld->ld_data1);
- 	struct buffer_head *bh_log, *bh_ip;
-@@ -1019,6 +1026,12 @@ static int databuf_lo_scan_elements(struct gfs2_jdesc *jd, u32 start,
- 		if (gfs2_revoke_check(jd, blkno, start))
- 			continue;
- 
-+		if (!gfs2_block_valid(sdp, blkno)) {
-+			fs_err(sdp, "jid=%u: block %llu is out of range\n",
-+			       jd->jd_jid, blkno);
-+			return -EIO;
-+		}
-+
- 		error = gfs2_replay_read_block(jd, start, &bh_log);
- 		if (error)
- 			return error;
-diff --git a/fs/gfs2/meta_io.c b/fs/gfs2/meta_io.c
-index 63591a4be1..3ba86cf1a3 100644
---- a/fs/gfs2/meta_io.c
-+++ b/fs/gfs2/meta_io.c
-@@ -269,6 +269,12 @@ int gfs2_meta_read(struct gfs2_glock *gl, u64 blkno, int flags,
- 		return -EIO;
- 	}
- 
-+	if (!gfs2_block_valid(sdp, blkno)) {
-+		gfs2_consist(sdp);
-+		*bhp = NULL;
-+		return -EIO;
-+	}
-+
- 	*bhp = bh = gfs2_getbuf(gl, blkno, CREATE);
- 
- 	lock_buffer(bh);
-@@ -280,7 +286,7 @@ int gfs2_meta_read(struct gfs2_glock *gl, u64 blkno, int flags,
- 		bhs[num++] = bh;
- 	}
- 
--	if (rahead) {
-+	if (rahead && gfs2_block_valid(sdp, blkno + 1)) {
- 		bh = gfs2_getbuf(gl, blkno + 1, CREATE);
- 
- 		lock_buffer(bh);
-@@ -490,6 +496,11 @@ struct buffer_head *gfs2_meta_ra(struct gfs2_glock *gl, u64 dblock, u32 extlen)
- 	if (extlen > max_ra)
- 		extlen = max_ra;
- 
-+	if (!gfs2_block_valid(sdp, dblock)) {
-+		gfs2_consist(sdp);
-+		return NULL;
-+	}
-+
- 	first_bh = gfs2_getbuf(gl, dblock, CREATE);
- 
- 	if (buffer_uptodate(first_bh))
-@@ -499,7 +510,7 @@ struct buffer_head *gfs2_meta_ra(struct gfs2_glock *gl, u64 dblock, u32 extlen)
- 	dblock++;
- 	extlen--;
- 
--	while (extlen) {
-+	while (extlen && gfs2_block_valid(sdp, dblock)) {
- 		bh = gfs2_getbuf(gl, dblock, CREATE);
- 
- 		bh_readahead(bh, REQ_RAHEAD | REQ_META | REQ_PRIO);
-diff --git a/fs/gfs2/meta_io.h b/fs/gfs2/meta_io.h
-index ec76215bfb..7a838ab940 100644
---- a/fs/gfs2/meta_io.h
-+++ b/fs/gfs2/meta_io.h
-@@ -7,6 +7,7 @@
- #ifndef __DIO_DOT_H__
- #define __DIO_DOT_H__
- 
-+#include <linux/blkdev.h>
- #include <linux/buffer_head.h>
- #include <linux/string.h>
- #include "incore.h"
-@@ -48,6 +49,15 @@ static inline struct gfs2_sbd *gfs2_mapping2sbd(struct address_space *mapping)
- 		return inode->i_sb->s_fs_info;
+diff --git a/drivers/spi/spi-fsl-lpspi.c b/drivers/spi/spi-fsl-lpspi.c
+index ed395f822dab1..39be8d181eb24 100644
+--- a/drivers/spi/spi-fsl-lpspi.c
++++ b/drivers/spi/spi-fsl-lpspi.c
+@@ -14,6 +14,7 @@
+ #include <linux/err.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
++#include <linux/iopoll.h>
+ #include <linux/irq.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+@@ -22,6 +23,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/dma/imx-dma.h>
+ #include <linux/pm_runtime.h>
++#include <linux/reboot.h>
+ #include <linux/slab.h>
+ #include <linux/spi/spi.h>
+ #include <linux/spi/spi_bitbang.h>
+@@ -112,6 +114,7 @@ struct fsl_lpspi_data {
+ 	unsigned long base_phys;
+ 	struct clk *clk_ipg;
+ 	struct clk *clk_per;
++	u32 perclk_rate;
+ 	bool is_target;
+ 	bool is_only_cs1;
+ 	bool is_first_byte;
+@@ -335,7 +338,8 @@ static void fsl_lpspi_set_watermark(struct fsl_lpspi_data *fsl_lpspi)
+ 	dev_dbg(fsl_lpspi->dev, "FCR=0x%08x\n", temp);
  }
  
-+/*
-+ * Block numbers from disk can be garbage.  A buffer for a block near ~0 ends up
-+ * at a page index that truncate_inode_pages_final() never reaches.
-+ */
-+static inline bool gfs2_block_valid(struct gfs2_sbd *sdp, u64 blkno)
+-static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
++static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi,
++				 bool atomic)
+ {
+ 	struct lpspi_config config = fsl_lpspi->config;
+ 	unsigned int perclk_rate, div;
+@@ -343,7 +347,14 @@ static int fsl_lpspi_set_bitrate(struct fsl_lpspi_data *fsl_lpspi)
+ 	u8 prescale;
+ 	int scldiv;
+ 
+-	perclk_rate = clk_get_rate(fsl_lpspi->clk_per);
++	if (atomic) {
++		perclk_rate = fsl_lpspi->perclk_rate;
++	} else {
++		perclk_rate = clk_get_rate(fsl_lpspi->clk_per);
++		fsl_lpspi->perclk_rate = perclk_rate;
++	}
++	if (!perclk_rate)
++		return -EINVAL;
+ 	prescale_max = fsl_lpspi->devtype_data->prescale_max ?: 7;
+ 
+ 	if (!config.speed_hz) {
+@@ -427,13 +438,13 @@ static int fsl_lpspi_dma_configure(struct spi_controller *controller)
+ 	return 0;
+ }
+ 
+-static int fsl_lpspi_config(struct fsl_lpspi_data *fsl_lpspi)
++static int fsl_lpspi_config(struct fsl_lpspi_data *fsl_lpspi, bool atomic)
+ {
+ 	u32 temp;
+ 	int ret;
+ 
+ 	if (!fsl_lpspi->is_target) {
+-		ret = fsl_lpspi_set_bitrate(fsl_lpspi);
++		ret = fsl_lpspi_set_bitrate(fsl_lpspi, atomic);
+ 		if (ret)
+ 			return ret;
+ 	}
+@@ -464,7 +475,7 @@ static int fsl_lpspi_config(struct fsl_lpspi_data *fsl_lpspi)
+ 
+ static int fsl_lpspi_setup_transfer(struct spi_controller *controller,
+ 				     struct spi_device *spi,
+-				     struct spi_transfer *t)
++				     struct spi_transfer *t, bool atomic)
+ {
+ 	struct fsl_lpspi_data *fsl_lpspi =
+ 				spi_controller_get_devdata(spi->controller);
+@@ -496,7 +507,7 @@ static int fsl_lpspi_setup_transfer(struct spi_controller *controller,
+ 
+ 	fsl_lpspi->watermark = min(fsl_lpspi->txfifosize, t->len);
+ 
+-	return fsl_lpspi_config(fsl_lpspi);
++	return fsl_lpspi_config(fsl_lpspi, atomic);
+ }
+ 
+ static int fsl_lpspi_prepare_message(struct spi_controller *controller,
+@@ -515,7 +526,7 @@ static int fsl_lpspi_prepare_message(struct spi_controller *controller,
+ 
+ 	fsl_lpspi->is_first_byte = true;
+ 	fsl_lpspi->usedma = false;
+-	ret = fsl_lpspi_setup_transfer(controller, spi, t);
++	ret = fsl_lpspi_setup_transfer(controller, spi, t, false);
+ 
+ 	fsl_lpspi->usedma = fsl_lpspi_can_dma(controller, spi, t);
+ 
+@@ -774,6 +785,149 @@ static int fsl_lpspi_pio_transfer(struct fsl_lpspi_data *fsl_lpspi,
+ 	return ret;
+ }
+ 
++static int fsl_lpspi_pio_xfer_atomic(struct fsl_lpspi_data *fsl_lpspi,
++				     struct spi_transfer *t)
 +{
-+	return blkno < sb_bdev_nr_blocks(sdp->sd_vfs);
++	u32 sr, temp, timeout_us;
++	int ret;
++
++	/* One frame plus margin, at least 1ms. */
++	timeout_us = DIV_ROUND_UP(fsl_lpspi->config.bpw * USEC_PER_SEC,
++				  fsl_lpspi->config.speed_hz);
++	timeout_us = max(timeout_us * 2, 1000U);
++
++	fsl_lpspi->tx_buf = t->tx_buf;
++	fsl_lpspi->rx_buf = t->rx_buf;
++	fsl_lpspi->remain = t->len;
++
++	while (fsl_lpspi->remain) {
++		ret = readl_poll_timeout_atomic(fsl_lpspi->base + IMX7ULP_SR,
++						sr, sr & SR_TDF, 0, timeout_us);
++		if (ret)
++			return ret;
++		fsl_lpspi->tx(fsl_lpspi);
++
++		/* Queue the terminating command after the last data word. */
++		if (!fsl_lpspi->remain) {
++			temp = readl(fsl_lpspi->base + IMX7ULP_TCR);
++			temp &= ~TCR_CONTC;
++			writel(temp, fsl_lpspi->base + IMX7ULP_TCR);
++		}
++
++		ret = readl_poll_timeout_atomic(fsl_lpspi->base + IMX7ULP_RSR,
++						sr, !(sr & RSR_RXEMPTY), 0,
++						timeout_us);
++		if (ret)
++			return ret;
++		fsl_lpspi->rx(fsl_lpspi);
++	}
++
++	ret = readl_poll_timeout_atomic(fsl_lpspi->base + IMX7ULP_SR, sr,
++					sr & SR_FCF, 0, timeout_us);
++	if (ret)
++		return ret;
++
++	writel(SR_FCF, fsl_lpspi->base + IMX7ULP_SR);
++	return 0;
 +}
 +
- struct buffer_head *gfs2_meta_new(struct gfs2_glock *gl, u64 blkno);
- int gfs2_meta_read(struct gfs2_glock *gl, u64 blkno, int flags,
- 		   int rahead, struct buffer_head **bhp);
-diff --git a/fs/gfs2/recovery.c b/fs/gfs2/recovery.c
-index f950eb95f4..18c18fa5f5 100644
---- a/fs/gfs2/recovery.c
-+++ b/fs/gfs2/recovery.c
-@@ -49,6 +49,8 @@ int gfs2_replay_read_block(struct gfs2_jdesc *jd, unsigned int blk,
++static int fsl_lpspi_transfer_atomic(struct spi_device *spi,
++				     struct spi_message *msg)
++{
++	struct spi_controller *controller = spi->controller;
++	struct fsl_lpspi_data *fsl_lpspi =
++				spi_controller_get_devdata(controller);
++	struct spi_transfer *t, *first, *next;
++	bool keep_cs = false;
++	bool first_xfer = true;
++	int ret = 0;
++
++	if (!pm_runtime_active(fsl_lpspi->dev))
++		return -ESHUTDOWN;
++
++	msg->actual_length = 0;
++	fsl_lpspi->usedma = false;
++	fsl_lpspi_reset(fsl_lpspi);
++	writel(0, fsl_lpspi->base + IMX7ULP_DER);
++
++	first = list_first_entry(&msg->transfers, struct spi_transfer,
++				 transfer_list);
++
++	/*
++	 * Match fsl_lpspi_prepare_message(): program CPOL/CPHA and the
++	 * first command before the core asserts GPIO chip select.
++	 */
++	fsl_lpspi->is_first_byte = true;
++	ret = fsl_lpspi_setup_transfer(controller, spi, first, true);
++	if (ret)
++		goto out;
++
++	fsl_lpspi_set_cmd(fsl_lpspi);
++	writel(0, fsl_lpspi->base + IMX7ULP_IER);
++	writel(CR_RRF | CR_RTF, fsl_lpspi->base + IMX7ULP_CR);
++	writel(SR_CLEAR_MASK, fsl_lpspi->base + IMX7ULP_SR);
++
++	spi_set_cs(spi, !first->cs_off, false);
++
++	list_for_each_entry(t, &msg->transfers, transfer_list) {
++		if (t->len) {
++			fsl_lpspi->is_first_byte = first_xfer;
++			ret = fsl_lpspi_setup_transfer(controller, spi, t, true);
++			if (ret)
++				break;
++
++			t->effective_speed_hz = fsl_lpspi->config.effective_speed_hz;
++
++			if (t->len %
++			    spi_bpw_to_bytes(fsl_lpspi->config.bpw)) {
++				ret = -EINVAL;
++				break;
++			}
++
++			fsl_lpspi_set_cmd(fsl_lpspi);
++			fsl_lpspi->is_first_byte = false;
++
++			ret = fsl_lpspi_pio_xfer_atomic(fsl_lpspi, t);
++			if (ret)
++				break;
++
++			msg->actual_length += t->len;
++			/*
++			 * This flushes the FIFOs but leaves TCR_CONT set,
++			 * so the next transfer can continue with CONTC.
++			 */
++			fsl_lpspi_reset(fsl_lpspi);
++			first_xfer = false;
++		}
++
++		spi_transfer_delay_exec(t);
++
++		if (t->cs_change) {
++			if (list_is_last(&t->transfer_list, &msg->transfers)) {
++				keep_cs = true;
++			} else {
++				if (!t->cs_off)
++					spi_set_cs(spi, false, false);
++				spi_transfer_cs_change_delay_exec(msg, t);
++				next = list_next_entry(t, transfer_list);
++				if (!next->cs_off)
++					spi_set_cs(spi, true, false);
++			}
++		} else if (!list_is_last(&t->transfer_list, &msg->transfers)) {
++			next = list_next_entry(t, transfer_list);
++			if (t->cs_off != next->cs_off)
++				spi_set_cs(spi, !next->cs_off, false);
++		}
++	}
++
++out:
++	if (ret || !keep_cs)
++		spi_set_cs(spi, false, false);
++	fsl_lpspi_reset(fsl_lpspi);
++	msg->status = ret;
++	return ret;
++}
++
+ static int fsl_lpspi_transfer_one(struct spi_controller *controller,
+ 				  struct spi_device *spi,
+ 				  struct spi_transfer *t)
+@@ -784,7 +938,7 @@ static int fsl_lpspi_transfer_one(struct spi_controller *controller,
+ 
+ 	fsl_lpspi->usedma = fsl_lpspi_can_dma(controller, spi, t);
+ 
+-	ret = fsl_lpspi_setup_transfer(controller, spi, t);
++	ret = fsl_lpspi_setup_transfer(controller, spi, t, false);
+ 	if (ret < 0)
+ 		return ret;
+ 
+@@ -878,6 +1032,19 @@ static int fsl_lpspi_init_rpm(struct fsl_lpspi_data *fsl_lpspi)
+ 	return 0;
+ }
+ 
++static int fsl_lpspi_power_off(struct sys_off_data *data)
++{
++	struct fsl_lpspi_data *fsl_lpspi = data->cb_data;
++	int ret;
++
++	ret = pm_runtime_resume_and_get(fsl_lpspi->dev);
++	if (ret)
++		dev_warn(fsl_lpspi->dev,
++			 "failed to resume controller for poweroff: %d\n", ret);
++
++	return 0;
++}
++
+ static int fsl_lpspi_probe(struct platform_device *pdev)
+ {
+ 	const struct fsl_lpspi_devtype_data *devtype_data;
+@@ -958,6 +1125,9 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
+ 		goto out_pm_get;
  	}
  
- 	*bh = gfs2_meta_ra(gl, dblock, extlen);
-+	if (!*bh)
-+		return -EIO;
++	/* The atomic transfer path cannot call clk_get_rate(). */
++	fsl_lpspi->perclk_rate = clk_get_rate(fsl_lpspi->clk_per);
++
+ 	temp = readl(fsl_lpspi->base + IMX7ULP_PARAM);
+ 	fsl_lpspi->txfifosize = 1 << (temp & 0x0f);
+ 	fsl_lpspi->rxfifosize = 1 << ((temp >> 8) & 0x0f);
+@@ -972,6 +1142,8 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
+ 	controller->bits_per_word_mask = SPI_BPW_RANGE_MASK(8, 32);
+ 	controller->prepare_message = fsl_lpspi_prepare_message;
+ 	controller->transfer_one = fsl_lpspi_transfer_one;
++	if (!fsl_lpspi->is_target)
++		controller->transfer_atomic = fsl_lpspi_transfer_atomic;
+ 	controller->prepare_transfer_hardware = lpspi_prepare_xfer_hardware;
+ 	controller->unprepare_transfer_hardware = lpspi_unprepare_xfer_hardware;
+ 	controller->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH;
+@@ -982,6 +1154,24 @@ static int fsl_lpspi_probe(struct platform_device *pdev)
+ 	if (!fsl_lpspi->is_target)
+ 		controller->use_gpio_descriptors = true;
  
- 	return error;
- }
++	if (!fsl_lpspi->is_target) {
++		ret = devm_register_sys_off_handler(&pdev->dev,
++						    SYS_OFF_MODE_POWER_OFF_PREPARE,
++						    SYS_OFF_PRIO_DEFAULT,
++						    fsl_lpspi_power_off,
++						    fsl_lpspi);
++		if (ret)
++			goto out_pm_get;
++
++		ret = devm_register_sys_off_handler(&pdev->dev,
++						    SYS_OFF_MODE_RESTART_PREPARE,
++						    SYS_OFF_PRIO_DEFAULT,
++						    fsl_lpspi_power_off,
++						    fsl_lpspi);
++		if (ret)
++			goto out_pm_get;
++	}
++
+ 	ret = fsl_lpspi_dma_init(&pdev->dev, fsl_lpspi, controller);
+ 	if (ret == -EPROBE_DEFER)
+ 		goto out_pm_get;
+base-commit: 63083539d2bf955ccf84042d4b044d1133752bed
 
----
-base-commit: 81ea845df2ccf0acbe3be6cdf936ee222c2fd6c9
-change-id: 20261127-gfs2-b4-6c9ed8ceff85
-
-Best regards,
 -- 
-Abhiraj Dutta <abhirajdutta7@gmail.com>
-
+2.47.3
 
