@@ -1,99 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795827602;
-	b=Nuks0WKxvJTCpTPHbUASRo02yjpctMtO/OpsgFcC10P1QA8oFv0H53rcIaWYtPVc0uxq
-	 +FdQEJYJhCPrBEbJI/KvRFtmc1XtjI628oKcV7rsLrd706Z2O/k/pGerGFrYrsYLDNj/X
-	 J5mJkBFykRKcVlSWbti2lABwnH6nRzO+l+xhFMpR59lK1cCouKfYQcDttganmCHeTqEDU
-	 ALXQCfi5kiOR4LdlQhGsA1CO8GZaxVl/8NEo/OKmUORmFIaY5ANAwzMYek+1wq5kW4tgV
-	 Oy9MM6Yr8Xx7KRTBJko6uQFliai+9bZfb8qwTWU88r2rQ+5m/8iF3lgjaaxsoNE5Nlw==
+	t=1795827961;
+	b=1naOrscGHEsiHAyj8D7sZVB9+s1ly9I0ODMKzAqnpvpRFsiiue0nl46grd1MQ5Iomjpj
+	 AiZTydgp9G+tyyLeMZQ7xLtQMopL8e0NlRuhXF08ybGCptuT8XF0/nFb+J5d0smf2jPxR
+	 XrZ4wf/R+1/FezPm07YBmW2KJAmFPLR+uf46rJSLufhBZ9hWgGdIS9bfA/eaq7ZJqcoqY
+	 AICguYVi3onV4oN7GWhgx4VHfxAeL2f8ligjjGppDomdjaCA+D5Bxnpq3oejmUwT9mX6g
+	 TVBOKfMXtcQMN1pTkTMBCK6u4nVbe8o4HwLhNO6yJkdHRv+3IIy23236A9E/KHEEDGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795827602;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:User-Agent;
-	bh=r4Hzxb3NGCSSYFn+Gm/a38nZ3OBSGBwiKOcgfEfvzmI=;
-	b=RkpF691kcXDInRJe+O6wSKly8Hng3ykJ/j2PYv4sJn4tOyH5Hy6drDc5+NDzvqaC7zwU
-	 m2bljg7vbnHy8HhFNk2mZouZzVTJSzJWpuVk0DduM3HjymATLjki/R4Uq2CBXREakx6GL
-	 kmqwU9JYxQLLcCiGS5t8XOD/MzpScp1lOxFFxyAXMW5LohgxWI5xEPgf3jMN451t6B1wA
-	 dQIgCVm1QyyMd921pHZwQT+eXHP/Z8pti68LWiLKuiKKPZJa/+P+N1KYga8h9j5Gdhfmv
-	 qfx0j+PxvHfJ9X2/rx0EESEFrMPQLtK4yW7YYGQd1JLgCr6Xg3GlueIjUsCXK3Zlr8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795827961;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=+zYXZvQ1eBUWJYLHgFwY23XJjKp2fFexOpnjIFJZ5w4=;
+	b=YP8hitZ2QWZR0xDDhrmFhzn1ziaGdpzOnVIoiq5GqloXMKV4ygdSmNkul4a1/mXk0TOt
+	 2HsmBwLKmra6H96VdBN/wOZteM9fYGFUMmid0R+HkdW/gQwb/rt/BT/uW85KueZZ1IRft
+	 lyItz2I1MlBy0s2/YnKIiTlIRN5Qcx7GTG98YTT1NNH9ozQC79uHIy7UuTCofjuP3xuB7
+	 8HkgQy+5QR1ajlPxcRRq4rEFZHp8ipjzarUv047blkQNaFjz56QuFLYGYfjkgGOa3qh3u
+	 YtE1hgqEy0bBLiHB5ZrM8Kdo4oOoxcdlQwTpq2PgPCFLGW2xRsKjDo2qeKkACtaUi2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrisdown.name;
-	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=NP1xbr9a;
-	arc=none smtp.remote-ip=209.85.128.170
-Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com [209.85.128.170])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QT6dYP+p;
+	arc=none smtp.remote-ip=95.215.58.134
+Received: from mta1.migadu.com (out-134.mta1.migadu.com [95.215.58.134])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 306A6606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:00:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 306A6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7084B606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:05:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7084B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=NP1xbr9a
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8b10d24345dso78727467b3.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:00:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1795827601; x=1796432401; darn=vger.kernel.org;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=r4Hzxb3NGCSSYFn+Gm/a38nZ3OBSGBwiKOcgfEfvzmI=;
-        b=NP1xbr9aYchSjWccz1YTXtcUDfu6Kfw7+2E32BWhvFBJmtxKt3JqsAbSmWtkpkCxvJ
-         /n9tD+yjbaBtMGWG+AOAC1Lc4BDVGli5hZj1dVoJsB/Nz7WwUmsK0vXUaXNixMLnjPnF
-         /zr1HcO28b2gmxi28F0WybfMWXJ+PgYtDJlek=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795827601; x=1796432401;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=r4Hzxb3NGCSSYFn+Gm/a38nZ3OBSGBwiKOcgfEfvzmI=;
-        b=UAD0wUVE0mmyn8QUrZaCJCh5NIiTlBj2UBiaU2hbcxTTP3rurIP6ZyBkOU3Pldyf/W
-         DiTGBORvt+TfSUXGKGHb6jWLGHzQu0fOPL57QQhgCukjq4VxzPlVoAze8p/gTUMMrn74
-         HB2cv3zgpIfLxjIhDMQ75gee2I27pgCl3Z1NnW78Rwigxt1ig7MB2ltnc+zFNPRP1Ek9
-         eeZwIRfibeFjCuhNjdolCI+0IWwI8qbkPRcM3dg+RqF+3ziKJ4NpV9K8hqi7i/DiatXb
-         l5zb4LJi7+7u0awxgrKrjhQP3l3uoZWUmZnlqcGxnEb9maV81QdNNfLV39pt9XQ2DsV6
-         2vHA==
-X-Forwarded-Encrypted: i=1; AL+hErHTHaNF6AJgoeDSR1nFId978Ji92QU5ISSyVhQew3fc5HpYX81KnuYoR6JVL2zF9W8QbEkmOA2dlBs6RNI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+GuOak6xOJAEP6TSWh7KaQgb45Dsa1pne/93poN6RjBW6Ry71H
-	FuDTdd94Rbm0UJZoaLE733Ozcb/3xBReY7k08vJRPWgS72SvO4G7MGswjnByAYmx7go=
-X-Gm-Gg: AZFdTZfE2G25/t+FukKuiw6AuGT3wjfLsTPQh1NkH7bYspXKZhaDDZYqW7vRVDmpJk9
-	trOUhBbKHdn6dVIFvbmImWLFbUQkQDunZ7DJfRBHiq1dA/TNk8Bcur8DLcK8KTsZa9gtyw/O362
-	HMXF5cFsWLNCXqOEeJ2lkzgdlJCNunGVv5TuRs4Xv1uqN9fmvk174QH+KOxzuBXs5z1O6U4uIsE
-	nTm0yPr/ZeszgySGXlqYloK19BC+q9DsguwBxxQFdyFioose+3gRSQwsfvKyFOnyt0CYf3mgzMD
-	USMEFV36QUs3B/3JtTNUci3GVu6Vi86ht3s94t2m3It3IdQDbJK6SxZsl4d7Ima9fkPgpS53KBq
-	amDaceOIIcMP/ICUzgraMOdHLzPCOyasJD69ldmSemrS3HPFUjGiKIUSNBdQ4ZYchcWWKtRrZsx
-	MRvIiJ7oKspjucOiq9cPLr2NAUnCNKOU40Uvcs97+Yy9ospfPceGDujY/P4nT+S6vmcXSmqokfg
-	Rz2cfsmJuAYiItCxmb6v8K+H0l1JSRaQhh2JJytRXvZTkCIBvbJwLxNdt3drzw/6kPKosnACGVf
-	GE25wa5gVqMMLttCHnjBHXi/DCPbgJXBzLPzArhmQJzZsQjbh47jZMphw9vJVw5GbezlBVFJr2v
-	Tz7lDtskhoe0QnLzuhwaQ1lkP5u7cJIMud537jvtU/XIT7WaLpF5ia6kid/80A1OYAbTg/qohar
-	OMY9rai/ze5k8dd5GaCA/yHxfsNfMWBw0V7miAp7a3wuni7jU34Js0o14rN1ZXYodo5CNwKHvwg
-	EllU72PJiEkaJubZ/830CU=
-X-Received: by 2002:a05:690c:b86:b0:8b3:4911:2dc1 with SMTP id 00721157ae682-8b5204ae0e7mr116512127b3.39.1795827601141;
-        Fri, 27 Nov 2026 17:00:01 -0800 (PST)
-Received: from [172.20.0.2] (c-73-207-185-9.hsd1.ga.comcast.net. [73.207.185.9])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202bf474sm101002207b3.21.2026.11.27.16.59.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 17:00:00 -0800 (PST)
-Date: Fri, 27 Nov 2026 16:59:58 -0800
-From: Chris Down <chris@chrisdown.name>
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Alexander Graf <graf@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, David Matlack <dmatlack@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, kexec@lists.infradead.org,
-	linux-mm@kvack.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH 6/6] kho: don't reference subtree blobs as FDTs
-In-Reply-To: <20261127122536.3708770-7-pratyush@kernel.org>
-References: <20261127122536.3708770-1-pratyush@kernel.org>
-	<20261127122536.3708770-7-pratyush@kernel.org>
-Message-ID: <awonjgkHO4wSeAGO@chrisdown.name>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QT6dYP+p
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GUdrcGjdVPSvmjiLeH+nZFppbSikw7wi3nqfE1/0FPc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795827957; v=1; x=1796432757;
+ b=QT6dYP+p+krVa9xFOajhbpxZmKlUhHIgK429qX8zqL++Mt0TJuqAGwTa1xcrufr/YcrkAmK2
+ 3fSSXguPKOJOmsHC8hNYGPQlKjO++XSxoe5Mane1DQZBrc9Kf52/rzZcd00PmrLUwLjp+M6EyPG
+ JF4tm5Zylz7huEUxo3ksEiCs=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1d0e79abe3b1ff23;
+	Sat, 28 Nov 2026 01:05:56 +0000
+X-Mizu-Trace-ID: 1d0e79abe3b1ff23
+X-Migadu-Flow: FLOW_OUT
+From: Ridong Chen <ridong.chen@linux.dev>
+To: Waiman Long <longman@redhat.com>,
+	Tejun Heo <tj@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Ridong Chen <ridong.chen@linux.dev>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ridong Chen <chenridong@xiaomi.com>
+Subject: [PATCH v2 cgroup/for-7.4-fixes] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under cpuset_mutex
+Date: Sat, 28 Nov 2026 09:05:35 +0800
+Message-Id: <20261128010535.1831141-1-ridong.chen@linux.dev>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,15 +79,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
+Content-Transfer-Encoding: 8bit
 
-Pratyush Yadav writes:
->The only functional change is the rename of the debugfs subdirectory
->from "sub_fdts" to "sub_blobs". Everything else is a pure rename.
+From: Ridong Chen <chenridong@xiaomi.com>
 
-It looks like two places still refer to the old directory name:
+Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
+holding cpus_read_lock") calls housekeeping_update() after dropping
+cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
+switched and freed outside of those locks. But readers holding either
+lock may still access it without rcu_read_lock() as allowed by
+housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
+for them:
 
-    Documentation/admin-guide/mm/kho.rst:110:``/sys/kernel/debug/kho/out/sub_fdts/``
-    kernel/liveupdate/kho_core.c:1099:``/sys/kernel/debug/kho/out/sub_fdts/@name`` when kernel is configured with
+  CPU A                                  CPU B
+  rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
+                                           mutex_unlock(&cpuset_mutex)
+                                           cpus_read_unlock()
+    mutex_lock(&cpuset_mutex)
+    p = housekeeping_cpumask(DOMAIN)
+                                           housekeeping_update()
+                                             rcu_assign_pointer()
+                                             synchronize_rcu()
+                                             kfree(old)
+    access p <- UAF
+
+Fix it by moving the pointer switch into housekeeping_publish(), which
+is called before dropping the locks. Then CPU A either finishes before
+CPU B switches the pointer, or only sees the new cpumask:
+
+  CPU A                                  CPU B
+                                         cpuset_update_sd_hk_unlock()
+                                           housekeeping_publish()
+                                             rcu_assign_pointer()
+    mutex_lock(&cpuset_mutex) <- wait
+                                           mutex_unlock(&cpuset_mutex)
+                                           cpus_read_unlock()
+    p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
+        <- new cpumask                       synchronize_rcu()
+                                             kfree(old)
+
+The rest of housekeeping_update(), including the workqueue flushes,
+still runs without those locks.
+
+Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without holding cpus_read_lock")
+Acked-by: Tejun Heo <tj@kernel.org>
+Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
+Acked-by: Waiman Long <longman@redhat.com>
+Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+---
+v2:
+- Rebase onto cgroup/for-7.4-fixes; resolve context conflict with
+  housekeeping_set_cpu() from commit 884e88175b95. No functional change.
+- Add Acked-by from Tejun and Waiman, Reviewed-by from Frederic.
+
+v1: https://lore.kernel.org/all/20261117083915.2971979-1-ridong.chen@linux.dev/
+
+ include/linux/sched/isolation.h |  6 ++++--
+ kernel/cgroup/cpuset.c          | 12 ++++++++----
+ kernel/sched/isolation.c        | 23 ++++++++++++++++-------
+ 3 files changed, 28 insertions(+), 13 deletions(-)
+
+diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+index ae5109450ac9..cb7f07cf1c41 100644
+--- a/include/linux/sched/isolation.h
++++ b/include/linux/sched/isolation.h
+@@ -43,7 +43,8 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+ extern bool housekeeping_enabled(enum hk_type type);
+ extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+ extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
+-extern int housekeeping_update(struct cpumask *isol_mask);
++extern struct cpumask *housekeeping_publish(struct cpumask *isol_mask);
++extern void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old);
+ extern void __init housekeeping_set_cpu(int cpu, enum hk_type type);
+ extern void __init housekeeping_init(void);
+ 
+@@ -72,7 +73,8 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+ 	return true;
+ }
+ 
+-static inline int housekeeping_update(struct cpumask *isol_mask) { return 0; }
++static inline struct cpumask *housekeeping_publish(struct cpumask *isol_mask) { return NULL; }
++static inline void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old) { }
+ static inline void housekeeping_set_cpu(int cpu, enum hk_type type) { }
+ static inline void housekeeping_init(void) { }
+ #endif /* CONFIG_CPU_ISOLATION */
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index db32d330cfbc..aa82080dd1fa 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1472,17 +1472,21 @@ static void cpuset_update_sd_hk_unlock(void)
+ 		rebuild_sched_domains_locked();
+ 
+ 	if (update_housekeeping) {
++		struct cpumask *old;
++
+ 		update_housekeeping = false;
+ 		cpumask_copy(isolated_hk_cpus, isolated_cpus);
+ 
+ 		/*
+-		 * housekeeping_update() is now called without holding
+-		 * cpus_read_lock and cpuset_mutex. Only cpuset_top_mutex
+-		 * is still being held for mutual exclusion.
++		 * Publish the new cpumask with cpus_read_lock and cpuset_mutex
++		 * held, but call housekeeping_update() without them. Only
++		 * cpuset_top_mutex is still being held for mutual exclusion.
+ 		 */
++		old = housekeeping_publish(isolated_hk_cpus);
+ 		mutex_unlock(&cpuset_mutex);
+ 		cpus_read_unlock();
+-		WARN_ON_ONCE(housekeeping_update(isolated_hk_cpus));
++		if (!WARN_ON_ONCE(IS_ERR(old)))
++			housekeeping_update(isolated_hk_cpus, old);
+ 		mutex_unlock(&cpuset_top_mutex);
+ 	} else {
+ 		cpuset_full_unlock();
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index c0c8b8862cbd..d6318f81c216 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -131,23 +131,26 @@ void __init housekeeping_set_cpu(int cpu, enum hk_type type)
+ 		cpumask_set_cpu(cpu, housekeeping_cpumask_dereference(type));
+ }
+ 
+-int housekeeping_update(struct cpumask *isol_mask)
++/* Called with cpus_read_lock and cpuset_mutex held */
++struct cpumask *housekeeping_publish(struct cpumask *isol_mask)
+ {
+ 	struct cpumask *trial, *old = NULL;
+-	int err;
++
++	lockdep_assert_cpus_held();
++	lockdep_assert_cpuset_lock_held();
+ 
+ 	trial = kmalloc(cpumask_size(), GFP_KERNEL);
+ 	if (!trial)
+-		return -ENOMEM;
++		return ERR_PTR(-ENOMEM);
+ 
+ 	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), isol_mask);
+ 	if (!cpumask_intersects(trial, cpu_online_mask)) {
+ 		kfree(trial);
+-		return -EINVAL;
++		return ERR_PTR(-EINVAL);
+ 	}
+ 
+ 	if (!housekeeping.flags)
+-		static_branch_enable(&housekeeping_overridden);
++		static_branch_enable_cpuslocked(&housekeeping_overridden);
+ 
+ 	if (housekeeping.flags & HK_FLAG_DOMAIN)
+ 		old = housekeeping_cpumask_dereference(HK_TYPE_DOMAIN);
+@@ -155,6 +158,14 @@ int housekeeping_update(struct cpumask *isol_mask)
+ 		WRITE_ONCE(housekeeping.flags, housekeeping.flags | HK_FLAG_DOMAIN);
+ 	rcu_assign_pointer(housekeeping.cpumasks[HK_TYPE_DOMAIN], trial);
+ 
++	return old;
++}
++
++/* Called without cpus_read_lock and cpuset_mutex held */
++void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old)
++{
++	int err;
++
+ 	synchronize_rcu();
+ 
+ 	pci_probe_flush_workqueue();
+@@ -171,8 +182,6 @@ int housekeeping_update(struct cpumask *isol_mask)
+ 	WARN_ON_ONCE(err < 0);
+ 
+ 	kfree(old);
+-
+-	return 0;
+ }
+ 
+ void __init housekeeping_init(void)
+
+base-commit: af8b797b745780ff011d38e3fe6aeae775248242
+-- 
+2.34.1
+
