@@ -1,81 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.245.243.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795867989;
-	b=wT8S9eVSLFI+BipsLO/jmenemkHzqRUdRr8CHYDDWwDID5qFJHyte1FJDeZJziR/vpBE
-	 kjwr4hT8VAOmYHcEHoiviYdqzyJWbhmwE0ccY7b6Y6m01L7ucbGdxWdV2D2Um+clqbDH8
-	 3spBDJlpDKoh65ttf4KqcwRZtKkel05k7HDaZlWAVe8BZZvnovpr1xyyuKqXFCNlM/HKd
-	 6WMqy+1NgSImYZoz/FG89rDL2sVYFK403ZWCSAtlJgQv5Pu5j/1F9EuX1yBnuInf+i2cr
-	 gxzPGMrGK7OHthPEhYi9tKucftzE1wpHXJjQ5wgQ1JdSa8w7LLmghH/Ym/SisMiDmrQ==
+	t=1795868047;
+	b=f2GzFbF4sf2ptnpGFza2xwE3E618zqC78960PGRgbnmJs+PAJcT2+G3eyaCbJlUYzy/y
+	 w6mpTXbXXS8cFHGtMPI/y+bYYy9Y1+2qMIcMGEa50hUA1uXx3HIw+bsVEJRYFY23gZSUT
+	 1/3Vjm4V//HizDPOkqKDJ83YmoNOx/Bw7O+jWytAWYf2ti7YZXr8P+htaXbWjcvQBvfRZ
+	 +o//A8YeaSqiIOoJd+Dk5+P1S6Ew8Mf0s3iomw5DdrCnrAY3MtLW83OaBEsF94dzVmuBr
+	 lV41YVFwWHg+lzesM8PFP9boehoedAxOwght45Q8lHvjern+XXcQJZutQ8eS0fEIQ5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795867989;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=UT4QFq3/I0Qt6OZwW1g9RS5I8R97iJbFOGCwAOa1pME=;
-	b=vmRvCyGpfZ3fpZdJs4vt8zuTruxwpBLkMBMFuCLBdR1VqMvtfIKrFvszheLbFvqRNCeN
-	 1FQAok5Wd0RIyARKc8MunC43PytOGC9ga1Usg3HPQX9ZO2TOY1qlCU8D5l/WzWTcgPdOV
-	 wbUIn10ZwUMVIciad3/8Keokl0OsYeOhkvk8UiXyuwiGlYJycZqr9Xa7tcGG/NrTXUXXp
-	 /IymfNHdIeS7N8oE64T5cLVP4QMzLTi34QL6gEQ+fr4ixMOiK624Ad3fWT6SAJrR4XfPW
-	 qKQBgDWC/LdUDzE3XRbP6qQQC4Gs6Cad1bOCA2g1bBaZ3F7KJFjmMMPuzrctiLAZWIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795868047;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HBTpZV+qjSb6XbBgWR6yIkg/MnR4dVdFCuL2rBP9/7w=;
+	b=FqNokXA9KTuMGnqBT8NpLwBJF6g1EqcRDW4Chu1MPsq5NmLxyfMBRS4CA5ipKFARz3JZ
+	 YwMI8+M1hT48+3fiEHu5krL4WcSeE0JBKIVRwFXgKXLpw3/gOsEUGULRMow+dX19+KItS
+	 Uw8NaM/UOTMXo1A+VGQLbHIJfE+Fphsa7gckd7RiVYzFTn2V/4BWUt6JmJD+IgNWBcSzV
+	 otCoUje3tpK1ST+eZA14gLh3b3twxx44GEfLLjI2IcmBbwlOrq/DaqhIESM2hZKgAs0Bk
+	 QjkG/vSsLZzmb9LlJ2yPACI0ZE3e63SMCfb6FPVYjxCvNP+pSsVPn67floSfgq4LjBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.de;
-	spf=pass smtp.mailfrom=amazon.de;
-	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=bIcE0Kce;
-	arc=none smtp.remote-ip=44.245.243.92
-Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com [44.245.243.92])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wt9nOIia;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E421606A330
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 12:13:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E421606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BBFC606A31C;
+	Sat, 28 Nov 2026 12:14:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=bIcE0Kce
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1795867988; x=1827403988;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=UT4QFq3/I0Qt6OZwW1g9RS5I8R97iJbFOGCwAOa1pME=;
-  b=bIcE0Kce4jl+pqerVkvUVTIkWaI5zlo0xxcGmurQ6zgG4aW7w+eD61jH
-   3oq4dCI9x8VBB8PJ7nUrO76XVY0o2xS1iwG1DcUq4xatBR8FaM0POnK9U
-   KQXlGqeFAt7FgOvJpeZkEMw3CaK2DJdCj/Z/c+TFwbmQRV6DbYS/rvVr0
-   ZT0KPFM3ap/G6xbahLLTI303gGn8mFmoKITvoj7vH8WSv72BViDORJmb0
-   Kprv8uM0TucDae2Lssm8Ya9PkflKBUiOt94mJ6NkVW8rsOMLe4QS05Lo2
-   vpVOJNbyU0Ira9IjzfAdZgiyYyvUqoYH0Qh0q5DtKHWwj1K7qVS2jEwT3
-   A==;
-X-CSE-ConnectionGUID: mLw+jaVZSuijQVr8FCv5aA==
-X-CSE-MsgGUID: 0sQrJQsXScWkoi33QW3tdg==
-X-IronPort-AV: E=Sophos;i="6.27,238,1787011200"; 
-   d="scan'208";a="34874357"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 12:13:06 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:31104]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.13.177:2525] with esmtp (Farcaster)
- id d018b670-54d4-413c-95c9-126e656b1bc4; Sat, 28 Nov 2026 12:13:05 +0000 (UTC)
-X-Farcaster-Flow-ID: d018b670-54d4-413c-95c9-126e656b1bc4
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Sat, 28 Nov 2026 12:13:05 +0000
-Received: from dev-dsk-lshahed-1a-d9c3b839.eu-west-1.amazon.com
- (172.19.123.145) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Sat, 28 Nov 2026
- 12:13:03 +0000
-From: Ibrahim Elshahed <lshahed@amazon.de>
-To: Lu Baolu <baolu.lu@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>
-CC: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, "Robin
- Murphy" <robin.murphy@arm.com>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>, Anselm Busse
-	<abusse@amazon.com>
-Subject: [PATCH] iommu/vt-d: Validate table addresses in dmar_fault_dump_ptes()
-Date: Sat, 28 Nov 2026 12:12:55 +0000
-Message-ID: <20261128121255.66061-1-lshahed@amazon.de>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wt9nOIia
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2631F000C1;
+	Sat, 28 Nov 2026 12:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795868046;
+	bh=HBTpZV+qjSb6XbBgWR6yIkg/MnR4dVdFCuL2rBP9/7w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Wt9nOIiaKhjwYZLG+0W7HSF7jUClvvctnhaEyBZJa6x0EgGL9U9l2miqA2mHOvS+S
+	 9auwZJUqxN37ygshplHMbWD1jRNBNItz/Z0F0SHwDroCH1nZS4XXJ2W8Q1/wVwl0Rq
+	 QfnVimhRwVrvfTD+iCv0IqHS1ASL6OvnU0qvU2C2534gi0ChKLEnVddNckiRUOmmIf
+	 sjZDPOlpbiv/gJ5YhZZvCZSVdKsO2b/Y2UU0JL9Al0i0yzsuTWT0tQ5hLhJHFGYAei
+	 yQBANFNVHKbTPVhVoEY1fDSXAAOml3HvMCeF48IAfSXwFey0tYUWrOJ6hPA1faNDZD
+	 NlVwrmEX/Z6mg==
+Date: Sat, 28 Nov 2026 04:14:04 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org, Icenowy Zheng <uwu@icenowy.me>,
+	Han Gao <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>
+Subject: Re: [PATCH 00/12] Add TH1520 USB support
+Message-ID: <awrFjAIE96hw0VNV@x1>
+References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,156 +70,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWC002.ant.amazon.com (10.13.139.212) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
 
-From: Anselm Busse <abusse@amazon.com>
+On Thu, May 07, 2026 at 04:16:58PM +0800, Icenowy Zheng wrote:
+> This patchset adds support for T-Head TH1520's USB functionality, and
+> enabled it on the Lichee Pi 4A board.
+> 
+> The first 3 patches add support for the MISC subsystem clock
+> contrtoller, which contains some USB clocks.
+> 
+> The next 2 patches add support for the USB PHY of T-Head TH1520, which
+> is a wrapped Synopsys USB3.0 FemtoPHY with a little integration quirk;
+> the controller itself is a properly configured DWC3 controller with sane
+> default register values set.
+> 
+> Then one patch adds the USB PHY and controller nodes to the TH1520 DTSI
+> file.
+> 
+> The remaining half of this patchset dedicates to enablement of USB on
+> TH1520, because of the onboard hub of that board -- its USB2 signals are
+> behind a switch that needs to be toggled on, and Vbus supplies for both
+> the hub itself and downstream ports are managed via I2C-expanded GPIOs
+> (because the SoC does not have enough GPIO pins).
+> 
+> Emil Renner Berthing (1):
+>   riscv: dts: thead: Add Lichee Pi 4A IO expansions
+> 
+> Icenowy Zheng (10):
+>   dt-bindings: clock: thead: add TH1520 MISC subsys clock controller
+>   clk: thead: th1520-ap: add support for MISC subsys clocks
+>   riscv: dts: thead: add device tree node for MISC clock controller
+>   dt-bindings: phy: add binding for T-Head TH1520 USB PHY
+>   phy: add a driver for T-Head TH1520 USB PHY
+>   riscv: dts: thead: add device nodes for USB
+>   dt-bindings: gpio: dwapb: allow GPIO hogs
+>   dt-bindings: usb: vialab,vl817: allow ports property
+>   riscv: dts: thead: lpi4a: sort nodes
+>   riscv: dts: thead: enable USB3 ports on Lichee Pi 4A
+> 
+> Thomas Bonnefille (1):
+>   riscv: dts: thead: Add TH1520 I2C nodes
 
-dmar_fault_dump_ptes() walks the root entry, context entry, PASID
-tables and page tables of a device that has just taken a DMA fault.
-It translates each table address found in those entries with
-phys_to_virt() and dereferences the result, without checking that the
-address is backed by memory in the direct map. The walk runs from the
-DMAR fault interrupt handler.
+I have applied patches 1 and 2 to thead-clk-for-next:
 
-If an entry is corrupt and points at an address that has no struct
-page, such as one past the end of RAM, phys_to_virt() returns an
-unmapped virtual address and the dump faults in the interrupt handler.
-A recoverable device fault becomes a panic. Pointing a device's
-context entry past the end of RAM and letting the device DMA gives:
+  [01/12] dt-bindings: clock: thead: add TH1520 MISC subsys clock controller
+          https://git.kernel.org/fustini/c/c9240a577b73
+  [02/12] clk: thead: th1520-ap: add support for MISC subsys clocks
+          https://git.kernel.org/fustini/c/4f38d7bdaef4
 
-  DMAR: [DMA Read NO_PASID] Request device [0000:00:03.0] fault addr 0x100000 [fault reason 0x03] Invalid context entry
-  DMAR: Dump dmar0 table entries for IOVA 0x100000
-  DMAR: root entry: 0x0000000100e0e001
-  DMAR: context entry: hi 0x0000000000000502, low 0x0000000400000001
-  BUG: unable to handle page fault for address: ffff9fb940000000
-  #PF: supervisor read access in kernel mode
-  #PF: error_code(0x0000) - not-present page
-  Oops: Oops: 0000 [#1] SMP NOPTI
-  RIP: 0010:dmar_fault_dump_ptes+0x216/0x263
+and patch 3 to thead-dt-for-next:
 
-Check each table address with pfn_valid() before dereferencing it and
-stop the dump with a message when the check fails. Open-code the PASID
-table lookup instead of using get_pasid_table_from_pde() so the
-pointer taken from the PASID directory entry gets the same check.
+  [03/12] riscv: dts: thead: add device tree node for MISC clock controller
+          https://git.kernel.org/fustini/c/8d80d268b429
 
-Fixes: 914ff7719e8a ("iommu/vt-d: Dump DMAR translation structure when DMA fault occurs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Anselm Busse <abusse@amazon.com>
-Co-developed-by: Ibrahim Elshahed <lshahed@amazon.de>
-Signed-off-by: Ibrahim Elshahed <lshahed@amazon.de>
----
-Reproduced with a test-only hook that rewrites a device's context
-entry before the device DMAs. In QEMU (q35, intel-iommu, legacy mode)
-on iommu/next, a context entry pointing past the end of RAM or at the
-local APIC oopses without this patch; with it the dump prints "legacy
-mode page table address is invalid" and the system keeps running.
+I fixed the platform data check for usb_suspend_div_clk in patch 2 when
+applying.
 
- drivers/iommu/intel/iommu.c | 47 +++++++++++++++++++++++++++++++------
- 1 file changed, 40 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-index 5a2e705a2f2e..2f3122b1f4a3 100644
---- a/drivers/iommu/intel/iommu.c
-+++ b/drivers/iommu/intel/iommu.c
-@@ -552,6 +552,18 @@ static void free_context_table(struct intel_iommu *iommu)
- }
- 
- #ifdef CONFIG_DMAR_DEBUG
-+/*
-+ * A faulting device's table entries may hold garbage or point outside
-+ * the direct map. Return NULL if @addr cannot be dereferenced.
-+ */
-+static void *dmar_fault_table_virt(u64 addr)
-+{
-+	if (!pfn_valid(PHYS_PFN(addr)))
-+		return NULL;
-+
-+	return phys_to_virt(addr);
-+}
-+
- static void pgtable_walk(struct intel_iommu *iommu, unsigned long pfn,
- 			 u8 bus, u8 devfn, struct dma_pte *parent, int level)
- {
-@@ -572,7 +584,12 @@ static void pgtable_walk(struct intel_iommu *iommu, unsigned long pfn,
- 		if (level == 1 || dma_pte_superpage(pte))
- 			break;
- 
--		parent = phys_to_virt(dma_pte_addr(pte));
-+		parent = dmar_fault_table_virt(dma_pte_addr(pte));
-+		if (!parent) {
-+			pr_info("page table address is invalid at level %d\n",
-+				level - 1);
-+			break;
-+		}
- 		level--;
- 	}
- }
-@@ -621,7 +638,11 @@ void dmar_fault_dump_ptes(struct intel_iommu *iommu, u16 source_id,
- 			return;
- 		}
- 		level = agaw_to_level(ctx_entry->hi & 7);
--		pgtable = phys_to_virt(ctx_entry->lo & VTD_PAGE_MASK);
-+		pgtable = dmar_fault_table_virt(ctx_entry->lo & VTD_PAGE_MASK);
-+		if (!pgtable) {
-+			pr_info("legacy mode page table address is invalid\n");
-+			return;
-+		}
- 		goto pgtable_walk;
- 	}
- 
-@@ -631,7 +652,11 @@ void dmar_fault_dump_ptes(struct intel_iommu *iommu, u16 source_id,
- 	}
- 
- 	/* get the pointer to pasid directory entry */
--	dir = phys_to_virt(ctx_entry->lo & VTD_PAGE_MASK);
-+	dir = dmar_fault_table_virt(ctx_entry->lo & VTD_PAGE_MASK);
-+	if (!dir) {
-+		pr_info("pasid directory table address is invalid\n");
-+		return;
-+	}
- 
- 	/* For request-without-pasid, get the pasid from context entry */
- 	if (intel_iommu_sm && pasid == IOMMU_PASID_INVALID)
-@@ -642,11 +667,15 @@ void dmar_fault_dump_ptes(struct intel_iommu *iommu, u16 source_id,
- 	pr_info("pasid dir entry: 0x%016llx\n", pde->val);
- 
- 	/* get the pointer to the pasid table entry */
--	entries = get_pasid_table_from_pde(pde);
--	if (!entries) {
-+	if (!pasid_pde_is_present(pde)) {
- 		pr_info("pasid table is not present\n");
- 		return;
- 	}
-+	entries = dmar_fault_table_virt(READ_ONCE(pde->val) & PDE_PFN_MASK);
-+	if (!entries) {
-+		pr_info("pasid table address is invalid\n");
-+		return;
-+	}
- 	index = pasid & PASID_PTE_MASK;
- 	pte = &entries[index];
- 	for (i = 0; i < ARRAY_SIZE(pte->val); i++)
-@@ -659,10 +688,14 @@ void dmar_fault_dump_ptes(struct intel_iommu *iommu, u16 source_id,
- 
- 	if (pasid_pte_get_pgtt(pte) == PASID_ENTRY_PGTT_FL_ONLY) {
- 		level = pte->val[2] & BIT_ULL(2) ? 5 : 4;
--		pgtable = phys_to_virt(pte->val[2] & VTD_PAGE_MASK);
-+		pgtable = dmar_fault_table_virt(pte->val[2] & VTD_PAGE_MASK);
- 	} else {
- 		level = agaw_to_level((pte->val[0] >> 2) & 0x7);
--		pgtable = phys_to_virt(pte->val[0] & VTD_PAGE_MASK);
-+		pgtable = dmar_fault_table_virt(pte->val[0] & VTD_PAGE_MASK);
-+	}
-+	if (!pgtable) {
-+		pr_info("scalable mode page table address is invalid\n");
-+		return;
- 	}
- 
- pgtable_walk:
-
-base-commit: 1ec7c5bbcabf9a75ba3b0bc0c0e64134a965abe7
--- 
-2.47.3
-
+Thanks,
+Drew
