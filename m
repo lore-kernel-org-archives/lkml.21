@@ -1,63 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795850549;
-	b=DU0RJUj1OCgl49OKGpiid37V4hKvRYJKQYvyx5qLh3JcLxB/y42p8I3sicebq3ER43ct
-	 bJ0C+gdhzYjZvW8VuVlOAlb41DyX4OaaztiJWfoXybfFesiZtpM7ajw6FwzcVaPVAYW8L
-	 Qn6EQShOZA3Hk5GUblBDZTmZLToECqVX1ufwjfJZhy7c0JWibkGX/gK+mLzPYa9dIccsH
-	 43fRoHqc7l2Y34EdXLM7YB8bN6zjhGdoFshmcyUkIHqcN/sXWN5vZjGDiWJWk1DHSOnBC
-	 XA9miOR4eikHgWVEIGmNqB9OakZtpReS+8dzHiiWAaZIxL8Nhbf0oBp/iNJxDZeg+HA==
+	t=1795850564;
+	b=a9FPg/AOZBnKoVZc1FTQIoGQc0ltG2kqnP5aPgQBO/j/kRLOOWVJpJ7wXa45IU6aAl8J
+	 GcgXQ4FBV8KX63GCvgPAqcBgd8cvaGwW9rSJ5ifq/n4D5Rw8x5DsDjPNEJNNibnM7JGCg
+	 iQ7TuH0nTDVrGfH6EqnHgRPWyv+Nj/LkK8UBg+pPxbQcaA5cP/G0cIcIfkVLBlxh8T0f3
+	 VC5FrjEAoUEVEVXNSzIb10ZnV8JfjrZKgII8xB368wlbvJ4XLi6CCDJU2DAhz+hsEpmQ/
+	 R3jxN7RKB0EL4k8PW1vroxxHur8O7T87QiUB/SvHPF61ECtVopRCxMzem4F/VPo5I9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795850549;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=E7BaQwHFvE2qtlxcKRVFeBFON9qvj8Rex8GDT8MBJvw=;
-	b=1Spqb0tQaJ/3q24Dh7NUv5QSfWQVu8NeFxyHiHWPp3kszvZ01VjzZlMU8RZZRW+IqddI
-	 3q/G+gLQODDxw1b834//gVuVeAtW4fd54SdJ/JTzvHcn07AOVxxLPY0fm0ANggmYiSFHR
-	 mn5EloL2X/Paq8REtpamWUWCcV7JmznzzqrPGcmoRJFc+4FvRcsn5oq6OQnxu5MCDfb06
-	 ksRm4jY9DpUYON8nPIN+F88VqfcxmE/hmNOLqweCY0lLCuuNriqyNssr9Ye8iHLsUD8xY
-	 0ir24x1mnys+dVE/mwOB4gfa9y0oSS+Txa9eag1rfXLwrXrSedtEQdcEzG9T31oC7cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795850564;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pb7dDf78KgrgrTz3PTvRq0vXzYb+fcmZvzo/s0W+HIA=;
+	b=in1Lz+cWjg+5mMyn5QEyXoKbkiPFmAzfabVtXRYii3XcTcfGObT7Jmj/uSU9jJnUYihP
+	 Zky4dycuQZBasy6VZBWwL0pCU269YAu7F7mWsqSDCYmgcrxqlNkbMFIPzuiW3w4yM8ZXG
+	 DdD5ciPoLgc15wTTQJtkFfS0RvY09o7yo6GZOIrcmOckxFXHgbC3hJ/GfatIJT0wscMlt
+	 tUYP8ma+sJmxF2+dN4HUEaf7HRt6jpxZhsp7Um7IVLcwPzj8cRHM65WKhL1czx/98ZUL6
+	 X6mZk8N+/apJUbDX82VE+Rwy2YbXEAfF4goH1Ar8URC87i0jXtZan8AoWF9bQxJuxoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HyVeavEc;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=HOCQ4H57;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3C24606A31C;
-	Sat, 28 Nov 2026 07:22:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36219606A31C;
+	Sat, 28 Nov 2026 07:22:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HyVeavEc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58F21F00897;
-	Sat, 28 Nov 2026 07:22:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795850549;
-	bh=E7BaQwHFvE2qtlxcKRVFeBFON9qvj8Rex8GDT8MBJvw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HyVeavEc+f23hvBgSkePGRfaBBQ60HpTQKM2q/7ta4RAjR7uauxwPxYctUa5SxDSZ
-	 lvAfG3jVEVSJMDhqY4Zoxi8hdH5RjBVkQC3zFoEE+HXZS7Fj0ErB3aXdQXNGC+ggLY
-	 P0PO27DAAxzUDgCSkoB2HV9lQ9vKs/BGUEJTgiwjBfsOuIjI1KSJT2Wq5sP4kvjFml
-	 e0U03RyfwZI8H04uPfP5fJgWige6lkiPfGFtodNrq46otBF/FKcKlDRNxfLBMs67Vj
-	 aFPETN5RYVBVW4gmgZZS0QJtf/qxlhn67NL4CfjoRLH721J5q/vgr1+4sKSz7N1AWo
-	 Uq2cfF+LERrxw==
-Date: Fri, 27 Nov 2026 21:22:27 -1000
-Message-ID: <4f3afbc84c522f9477d62a35ad01d5a5@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, luca abeni <luca.abeni@santannapisa.it>, Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com, yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-In-Reply-To: <awmVSkc4T0AuFntw@jlelli-thinkpadt14gen4.remote.csb>
-References: <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
- <20261119151416.33f90a64@linux.fritz.box>
- <471bf8d446becabfca00041fb2a78067@kernel.org>
- <20261120120659.2e902463@linux.fritz.box>
- <6fef47e08a37079c08806b3c57994778@kernel.org>
- <20261120212418.10221f2e@linux.fritz.box>
- <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
- <20261123084345.4e24e3ca@luca64>
- <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
- <20261127114828.GS49833@noisy.programming.kicks-ass.net>
- <awmVSkc4T0AuFntw@jlelli-thinkpadt14gen4.remote.csb>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=HOCQ4H57
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CBC51F00893;
+	Sat, 28 Nov 2026 07:22:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795850563;
+	bh=pb7dDf78KgrgrTz3PTvRq0vXzYb+fcmZvzo/s0W+HIA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HOCQ4H576cf3zden3DQB9EztwvSCaf/RxJR7UgvSL8bCKHe+s2E/3+6IJXUqtIu/i
+	 GyVPodny8wkYdyRZMcdnen3wvcgnGajKwlp7g8HGFdZpjrW5T//WDoVg4glaYTRG7R
+	 a6MbymD9rYuuRieKLDrtLvsxdTFk/k3GjsyTv4yo=
+Date: Sat, 28 Nov 2026 08:22:40 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] usb: typec: ucsi: Retry if notification enable
+ timesout
+Message-ID: <2026112856-throwing-strongbox-478e@gregkh>
+References: <mpearson-lenovo@squebb.ca>
+ <20261104205654.3518943-1-mpearson-lenovo@squebb.ca>
+ <9f5f0a57-dde5-44c9-ade6-96d1b8648ebb@app.fastmail.com>
+ <2026112733-bobtail-undoing-be7f@gregkh>
+ <25933253-59d6-4e1f-86c2-a8ae60a4cf82@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,32 +59,70 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+In-Reply-To: <25933253-59d6-4e1f-86c2-a8ae60a4cf82@app.fastmail.com>
 
-Hello, Juri.
+On Fri, Nov 27, 2026 at 09:33:11PM -0500, Mark Pearson wrote:
+> Hi Greg,
+> 
+> On Fri, Nov 27, 2026, at 3:47 PM, Greg KH wrote:
+> > On Fri, Nov 27, 2026 at 03:42:39PM -0500, Mark Pearson wrote:
+> >> On Wed, Nov 4, 2026, at 3:56 PM, Mark Pearson wrote:
+> >> > Found on Thinkpad E14 G8.
+> >> > When UCSI notifications are enabled the FW does not ack the enablement
+> >> > itself. Future commands will be acked correctly.
+> >> >
+> >> > If this happens try enablement again and confirm acks are working
+> >> > correctly.
+> >> >
+> >> > Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+> >> > Signed-off-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+> >> > ---
+> >> > Changes in v2:
+> >> >  - No functional change. Rebased as requested
+> >> >  = Added Heikki's review tag
+> >> >
+> >> >  drivers/usb/typec/ucsi/ucsi.c | 6 ++++++
+> >> >  1 file changed, 6 insertions(+)
+> >> >
+> >> > diff --git a/drivers/usb/typec/ucsi/ucsi.c b/drivers/usb/typec/ucsi/ucsi.c
+> >> > index 5aab8ab9f013..6633ad6658f2 100644
+> >> > --- a/drivers/usb/typec/ucsi/ucsi.c
+> >> > +++ b/drivers/usb/typec/ucsi/ucsi.c
+> >> > @@ -2095,6 +2095,12 @@ static int ucsi_init(struct ucsi *ucsi)
+> >> >  	ntfy = UCSI_ENABLE_NTFY_CMD_COMPLETE | UCSI_ENABLE_NTFY_ERROR;
+> >> >  	command = UCSI_SET_NOTIFICATION_ENABLE | ntfy;
+> >> >  	ret = ucsi_send_command(ucsi, command, NULL, 0);
+> >> > +	/*
+> >> > +	 * Some FW may not ack the notification enable the first time.
+> >> > +	 * If this happens, repeat to confirm it is actually working
+> >> > +	 */
+> >> > +	if (ret == -ETIMEDOUT)
+> >> > +		ret = ucsi_send_command(ucsi, command, NULL, 0);
+> >> >  	if (ret < 0)
+> >> >  		goto err_reset;
+> >> > 
+> >> > -- 
+> >> > 2.43.0
+> >> 
+> >> Can I float this back to the top of the mailing list please. I don't believe any issues have been identified and the initial version was posted back in July. This does fix an issue seen on platforms that are being sold with Linux preloaded and Linux users are using - it's real.
+> >> 
+> >> I can see Dell and HP fixes being pulled in quickly - what am I doing wrong on my side?
+> >
+> > I have 1000+ pending USB patches to review/apply still.  Please be
+> > patient for things that are just normal feature additions like this.
+> >
+> Ack - understood. I get it and my note was poorly phrased. My apologies.
+> I just wanted to understand if I'm doing something wrong - there were other patches in ucsi_acpi that landed after mine and went straight through and I didn't know why.
+> 
+> Looking at them again (e.g  8c51ea6 and b0baaf6) - I believe it's because they're tagging stable. I didn't realise it was OK to use the stable tag for patches that addressed FW issues (i.e. not correcting something that was previously wrong in the kernel itself - I normally only use stable for regressions).
+> 
+> Should I repost my patch with stable tag used? I don't want to jump the queue or cause extra workload - but I am addressing a real problem for real users on real hardware.
 
-On Fri, Nov 27, 2026 at 03:35:54PM +0100, Juri Lelli wrote:
-...
-> Either the entry's bandwidth
-> stays claimed while its CPU is unreachable, so cpuset changes never
-> fail but that bandwidth sits unused, or it's released and claimed again
-> when the CPU becomes reachable, which means growing a cpuset can fail
-> because of the cpu controller. Tejun, Peter, does either work for both
-> of you?
+If it is a real bug for real users and hardware, then yes, it needs a
+Fixes: tag and cc: stable on it, and you are correct, that is why I
+picked those "earlier" than this one.
 
-My preference is the former. I'd like to avoid intertwining the two
-controllers as much as possible, so an entry would keep its bandwidth
-claimed whatever cpuset says and a cpuset change wouldn't fail because
-of cpu.rt.max.
+thanks,
 
-Cross-controller operations are possible and useful on cgroup2, e.g.
-between memcg and blkcg, but I think it's best to keep the interfaces
-as orthogonal as possible. Interlocking configurations across
-controllers gets too complicated and confusing in general, and
-especially so given how limited the failure information we can
-communicate to userspace is.
-
-Thanks.
-
---
-tejun
+greg k-h
