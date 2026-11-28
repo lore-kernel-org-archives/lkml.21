@@ -1,92 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795874920;
-	b=jPLsUTyUVv8oDAgvA5hH1jM98X+4k3j8DOa38BXZDo/6VEYsuRgNSeyckYszfFaJMG7i
-	 HrctbT0OCJT/ZMWaRSbGFR69lJkr2MvSRDBaEe4e+A5OqmRzYBWsd/QMLeisg3w7eB85J
-	 YBToapeW7BFCcQYxD+L5b924ZVYnMaaXF4tO1o+3ziSfwPICIBpnlaTGUQ13KC2NuDYu/
-	 llP5YjxICcVBWkajMloqxXelPT/swgjbYMRiQZP630jCyNuo7pjApHlbg6FZZgB1jceDJ
-	 3PzmlAh5xPg664IsxjvQ9H1eJ4V2fAK8q5hYBCD8eMcj//hmIAKc/eT6WLNRQFCyU2Q==
+	t=1795874923;
+	b=w2XQWO81pqDIddz/lyRNVZUZPbnTGEPqxnn0w2q7J95ihTwmP5vfIgUr5nWZomFvc49n
+	 WNpSZGD3UawByR+j4QbTi2RrAt+FaSDODbDVQc2eM+7JqJYhKYjm1er2Hq8YZMzJnRqWm
+	 YzOU/lGNdC+FA3NcE+xkgBNYx38IqDDFrFr/LpnY3XeMp+hHXuujMSHx4dzi6n42STOVd
+	 ydkDGjPJruUP+yUbag/oP+aUyiOI6azdl1kZJSWtCQ7vB3mQhJicb8iVr0y+WV9461gKd
+	 h5uzreecCA7r2S8BZZF7uo48KzRsHBCr8iWEBR27u8gjFBduaah8NKEPz7pAaaGmWNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795874920;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795874923;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=fT1VNozeccmEI0oNEySMECfiot8WRdphib7347h8ODQ=;
-	b=ar4j5RG1s4lCr2lMetA80Vb4V0csNfGudblVdHOEafDLjsCw/lcyoOs2bAvXky9Y0Pq2
-	 j3WuM6izhlbZm9U+OZeeSgAANRN6dUiKKL1XbTF9bMjxJlL5Uj4t2fFdpgiLl++rLlqUs
-	 y7Mpu6GQu9uoNI7AM9+xy29hWM18kKH+DGBKMzss70uLuJQ07mqfBW/VclMSltqmCu8my
-	 aC0X9946nGrOzcOPysowoCBaztOP5whoEQjJVpW5029/EYo0u6lgrNj32QTlYJnNhRMRZ
-	 yrhpnwgZ+qY7RUN4OHqST4HKueyLM7I7Fbe5RY62ngvNxbAToDEQYTSM54o3E0i7zyw==
+	bh=7tBnj8Gi7eaE7gLQaitgtHGzu075b8jhxq/uf6VL6Vk=;
+	b=IWoDlwMLRTuetx5ZjWSOolvzOrhhHWOzx6o/5At14gfZ8gUdOoMKfsikALfYQ+Hhov2A
+	 anBFol6FIbtOYEY/ILgenzo5YNsnpcSyW8lQbXvMrd0prrOnwygFGNzdIUZEt1bl2dXo6
+	 2511sjgUsVtY61OzUWmw20N0OBtNBmIkF2+dnY9LhrosN0/jthMrIeWsIXHddsIeXwLO0
+	 oWkkuIUICsqjrwQljJZhQX743AA9TttI+JuxoOnQzAHDg0VU9kIR5bbBTxDiAIw/wH9HS
+	 2XnGWjc2Z1E4QstH47XcMKU1ydig6YTyXvaEqz/x/53riF6pOu9vmZ1okEJ3N9fGg6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=stellman-greene.com;
 	spf=none smtp.mailfrom=stellman-greene.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HqoSBjTR;
-	arc=none smtp.remote-ip=74.125.224.54
-Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
+	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=RmQ1AmBZ;
+	arc=none smtp.remote-ip=209.85.222.169
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FA09606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:08:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FA09606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA24C606A327
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:08:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA24C606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HqoSBjTR
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-67bee1f693bso6956696d50.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:08:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=RmQ1AmBZ
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94958650b09so855204585a.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:08:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795874920; x=1796479720; darn=vger.kernel.org;
+        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795874922; x=1796479722; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fT1VNozeccmEI0oNEySMECfiot8WRdphib7347h8ODQ=;
-        b=HqoSBjTRfs1/o6L78Z4MTHialTqgMvBkR1O0fBtqicxV0bUIfGT1tEs0h1mE1amEhd
-         2M3mq43r50Q5K+g/dWqYWEFVcpVhRrT0fR8BwMLqHKhRrILZyDJIE1c2NS5niSS4cygb
-         KM8L3eXQ0mdTj/GXV8kVBRMdBdk59aoAvuO+Jr2d/Zt2EanNC2OVy2QyrVfNORGdyP1L
-         srejzVGLPzgu/Sz99nMllbXAFvc9CYpQFk//GxOfKqQ9hEhU52QGvSjeOhIy7iUwiGaj
-         p0dpQHi42AtZnECi2Pp9MFX22PMqnK3GGwpEOsf5gP7iEMYsKTVrB30jL9jOkOH/fGm8
-         FuYA==
+        bh=7tBnj8Gi7eaE7gLQaitgtHGzu075b8jhxq/uf6VL6Vk=;
+        b=RmQ1AmBZKLOKJCSBrw3H81D9mOSRRfvgpgopF9/M2rkKm89Vba0Vhq1ve/ND7iVcSB
+         H2S0FW57wsNoLYsg6w14ZaGn63JoBEDEOMZS/jNxdKEsQNJMll3YvGqyznLie2pQo9CT
+         vfL4ZfqtDbfmEPVPjUMKtqtofG4JxQJPkTOEV9lNxdS6s7Gb5GkzaZHqAthpdhRuFX1M
+         uWdZQFiNNDNcj9v6MzsILDCVRVoQIi/Rspv6kj8jltb323/dH6Gs0ItIO5ExVy9KS8yO
+         Bk/SrH0D17/5/3ixbrR59RI7ed3Z1WbgsDsyGOMcPTPK4Ij4GJOUsubXIHmAzHLyJFo6
+         A4UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795874920; x=1796479720;
+        d=1e100.net; s=20260707; t=1795874922; x=1796479722;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fT1VNozeccmEI0oNEySMECfiot8WRdphib7347h8ODQ=;
-        b=zD0ZdCj4mhEV+SWYp0j6IE1MaFEdFhjkeJvHBUzbY4gUOsLfNBo2FinO8GChJNLyTl
-         VnTJf3NNt+n4Zst2yHqlM7c1bjmtDwsba3Z+0x8N2eiFCbDFB/K2xVoAZSAAfhP/2UD4
-         yhSvFch8WOMadw+FrU5ohQy5FgTPD9Dr+8CV+DnY319mkWOtYadZ0tzp+dWE24eC2vD8
-         pUvFcpLKZiLk6Jb3XhpA0Mybk1BXnE0uFlZDSwibK5GbJf/vjDGhMNRpC0bt3tEHdTwy
-         qgmnyI7oS4CtWX5WtEdv4EUkbQwEvpfKZtitd0n0AFxhRg9OLMfE38ZwtUQgdK4PgEeH
-         3/jg==
-X-Forwarded-Encrypted: i=1; AL+hErFn65h1IRr91E6dzK5FPB4bc3xWv+TgdOB129iLe4jCrOzi8lebdY1+baPILheAB7YbT0+zITTnJB6zcDE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+kzoGx3THY8cxmH6xIUtdKsVtNPR2ZNEP6dqQIhvAWJ1uyOys9
-	6o/9W09/aSJTgeMFc0Xc5DFv53CSnhTIEZyMTqYLdaWcDKlTaFwpQuU5y4wHlLYQowI=
-X-Gm-Gg: AZFdTZdsc7Uyu3Bjzw4uFyw8qkMsE7Vx3PeJA5RcUsTfOd4tfuiGzaYuHtrBRduNMvs
-	xy7rBiyONl9EprU1BIw89db2Ai0Ws9J1WhPW467GESZVxGT8fUrYHahm242Jc7AsuL++ZJB9E4w
-	rQh66tR4IiUbAwI0k9o3lL1GgZjYyXGxk7py2MJeorCnNCqJemp3mS0UHP9RxfUUxCr0ec1Bp/r
-	yAnYFNDZ9QamWOXnU2GG6s5nWVExabwheDjYh7vxuWF2gD7mb4t2plk5Vf+yr2swkqMqeau/vUk
-	gp921CnXSgHBL12RqRuY0r4LVK+3OvMqHYBubfpF0vhbzTqpfhd7+WqV4+8YE1/kKz2ZJrKePpD
-	kOf5TUBMycQb3KsCLTlssRDUwrF6Lt/5T0M809e1BE4LQCCGy88Vp+RcIDYhQAohG93uoSeFq3g
-	l9/qBx+FRjDyoCZw0DRyKf6VMdFpEgri4wJpLembcRoqouBdVixe7CY87Sg2rbnvkFIdyGeGoWz
-	IO6oRY9OfHHwDCpN5zI3Fof/E1CCQLqhS0mjjIpqD3jGM9/bXJkkwqZpqfULB2X7WYQ6lhHdMTM
-	SszPiwcHCXaqnC77gjsY9UGYX1hxxnLWan5tx+bnYc3GBV8FcwKN6+fYe4ofiBlAVhiSX8ZiSCg
-	fVg==
-X-Received: by 2002:a05:690e:5d1:b0:679:afc8:9d1b with SMTP id 956f58d0204a3-67df449aa38mr9465934d50.95.1795874919733;
-        Sat, 28 Nov 2026 06:08:39 -0800 (PST)
+        bh=7tBnj8Gi7eaE7gLQaitgtHGzu075b8jhxq/uf6VL6Vk=;
+        b=l2rszvcADPTuyb95TfvFb4fNXw3drfsIG2hfe7Obm3+h6UiafWLP26tajvE335yCGJ
+         PyveTsigkSsdYtvfOMF2M2PsBQBgzmIEx1NrRwgQv//Du5XShmHLdB3fivZwmx6m0QJS
+         TFJ14Oug4yc1dJMWjLJ9j210I5evQXAv+vhcBqt67tOeOfMWH4ODwujxGO2/vAgG7csg
+         mFPlsbE1YnAjMg1eQTYMHwp5xzH7EN+GB9QL0JK7lKek70GmzQJW09Jw3ya/DqXnric5
+         AfRysbxavulEbkfs1U5ylDL2IksWdgzL+Bjo549AKZI6UZgEtlwcacVa1+TcZzTKD+16
+         biGg==
+X-Forwarded-Encrypted: i=1; AL+hErEayrvBu+FJYc56UdBAqdE5uL569Osv2E6T4xr9AiialR3vgggt2TgyA285Z6yZv+5sMHMsTk+coHMgUvg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9W3LddQdukQktRnDey4OCGqxL7EaX2UjqcgptFx/fakIvkHEmS
+	oa/LV4vAT/eUQrGjzC0VV3WadS8b4luTvdNLicesGCI/G0nN44oaYIKVI/14GzufisLOcTgh0q2
+	EQ+ktWv+lhg==
+X-Gm-Gg: AZFdTZfcjcN1rytZ3/hRs+akILuvRNAK2cgUaCxviW3QchVz1yN4xO2vTdU+MSEr0o7
+	oXOiEc65qAhAnEfZd4KFtzio+D8VNPuDXi/IdfAPI2qvM9ylw0duIsZrKUDZsz3SbFdKLaVIgOU
+	FPJ3/Fdr2ZgF3kBs6/vtYj2Tj/XYl21Dzcn6YdWFhmw7m0Kmb1LLSkY42WQ8+cFijVuPdNYVJ3P
+	EkbBWXMj2+ZrqKRTSUJHmF8uSodbmxuswNzoCXtlirNRazg+ssnxrx//f0XxYeDhWdLevH9OwUJ
+	ILDpnexIj07xBtcJ7Vgk4ulT7dBE6aTHXXosllMOuO6FCVox/QUFt4VxY1RnX1IvGqvEAnpgR+3
+	s07A62HLo8mlK1LXWQowzx7h7z+cSm93qG/dpbjWk0xo6B1IIXdztPB31n9VhQT4XujZvb63Cql
+	aeSWsmIMBL71jdS60IPrWt+B2twR9T/eVWRxDOS+pItZ1yTu4zSjdpK7fxUr/w8x1LPNtQo86d2
+	f7CVKZ9ajAihrBOnIqAlrms1Qqe6imVcGdUjA0YRiPlQQcbommt4+mzo8NuZ+Lu79CdBdWQOZKn
+	ocGsBQJCL16FqBZYMNF8nF05/njZ1TTTJQ/YDXKkPGIrh17G94kAxBy8M4kzkHM6U7N/Ma0XMpR
+	UdA==
+X-Received: by 2002:a05:620a:6c18:b0:949:6841:2ba2 with SMTP id af79cd13be357-949ba96e544mr5055337485a.22.1795874921780;
+        Sat, 28 Nov 2026 06:08:41 -0800 (PST)
 Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a4e3:fb15:aef5:60c7])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921787f6847sm103196806d6.30.2026.11.28.06.08.39
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3ba04bsm2108250285a.24.2026.11.28.06.08.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 28 Nov 2026 06:08:39 -0800 (PST)
+        Sat, 28 Nov 2026 06:08:41 -0800 (PST)
 From: Andrew Stellman <bugs@stellman-greene.com>
-To: Bernard Metzler <bernard.metzler@linux.dev>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
+To: Zhu Yanjun <zyjzyj2000@gmail.com>
+Cc: Zhu Yanjun <yanjun.zhu@linux.dev>,
+	Li Zhijian <lizhijian@fujitsu.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
 	Leon Romanovsky <leon@kernel.org>,
 	linux-rdma@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH rdma-rc] RDMA/siw: Reject an MPA reply too short for the IRD/ORD block
-Date: Sat, 28 Nov 2026 09:08:38 -0500
-Message-ID: <20261128140838.58976-1-bugs@stellman-greene.com>
+Subject: [PATCH rdma-rc] RDMA/rxe: Bound MR copy and flush chunks to MR pages
+Date: Sat, 28 Nov 2026 09:08:40 -0500
+Message-ID: <20261128140840.59003-1-bugs@stellman-greene.com>
 X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -101,99 +104,77 @@ Content-Transfer-Encoding: 8bit
 
 From: Andrew Stellman <astellman@stellman-greene.com>
 
-When a siw initiator uses enhanced connection setup (MPA v2),
-siw_proc_mpareply() reads the IRD/ORD block from the reply's private
-data without checking that the responder sent one. The responder
-chooses the PD_Length of its reply.
+A fast-reg MR can use 4 KiB pages on a 64 KiB-page kernel, with each
+MR page in its own page_info entry. rxe_mr_copy_xarray() limits each
+chunk to the end of the system page, not the end of the MR page, so a
+copy that crosses an MR-page boundary continues in the same system
+page instead of moving to the next page_info entry.
+rxe_mr_flush_pmem_iova() has the same bound.
 
-With a PD_Length of 0 there is no private data buffer and siw
-dereferences NULL:
+Limit each chunk to the end of the MR page when MR pages are smaller
+than PAGE_SIZE. For MR pages of PAGE_SIZE or larger the bound is
+unchanged.
 
-  Unable to handle kernel paging request at virtual address dfff800000000000
-  KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
-  Call trace:
-   siw_cm_work_handler+0xfa8/0x1b5c (P)
-   process_one_work+0x5cc/0xc90
-   worker_thread+0x3ac/0xaa0
-   kthread+0x36c/0x420
-   ret_from_fork+0x10/0x20
-  ---[ end trace 0000000000000000 ]---
-
-With a PD_Length of 1 to 3, siw_cm_upcall() subtracts the 4 byte block
-from the u8 private data length, and iw_cm copies 253 to 255 bytes from
-a much smaller buffer. With PD_Length 2 (a 6-byte buffer):
-
-  BUG: KASAN: slab-out-of-bounds in kmemdup_noprof+0x48/0x60
-  Read of size 254 at addr ffff0000da924cc4 by task kworker/u32:3/179
-
-  Call trace:
-   kmemdup_noprof+0x48/0x60
-   cm_event_handler+0x318/0x50c
-   siw_cm_upcall+0x290/0x420
-   siw_cm_work_handler+0xb84/0x1b5c
-   process_one_work+0x5cc/0xc90
-   worker_thread+0x3ac/0xaa0
-   kthread+0x36c/0x420
-   ret_from_fork+0x10/0x20
-
-Fail the connection when an enhanced reply is shorter than the IRD/ORD
-block, and only hide the block from the consumer when it is there. The
-initiator now gets RDMA_CM_EVENT_REJECTED with -ECONNRESET for these
-replies.
+On arm64 with 64 KiB pages (QEMU TCG, mainline 7cd8495c0f16), a
+test-only hook built an MR by hand with two 4 KiB pages at offsets
+0x1000 and 0x3000 of two different system pages and called
+rxe_mr_copy() for 32 bytes starting 16 bytes before the MR-page
+boundary, checking that the last 16 bytes came from or went to the
+second MR page. Without this patch, both the read and the write check
+failed. With it, both passed, and they failed again with it reverted.
+A 32-byte read within one MR page passed on all three builds. The
+flush path was not run.
 
 The issue was found by Claude Opus 5.5 running Quality Playbook, an
 LLM-driven code review tool:
 https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with Claude Opus 5.5 and
-reviewed by me.
+The fix was drafted with OpenAI GPT-6 (Codex) and this changelog with
+Claude Opus 5.5, and both were reviewed by me.
 
-Fixes: 6c52fdc244b5 ("rdma/siw: connection management")
+Fixes: 12985e5915a0 ("RDMA/rxe: Fix iova-to-va conversion for MR page sizes != PAGE_SIZE")
 Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
 ---
-Tested on arm64 QEMU with KASAN, built from rdma for-next 94e81a1f3ffa
-sources applied to an older checkout (hence the version string). The
-PD_Length 0 oops came after over-read reports in the same boot (hence
-the B taint). Each reply's 20-byte MPA header was sent in five writes
-and its private data one byte at a time. With this patch, PD_Length 0
-to 3 and a reject with PD_Length 2 all gave RDMA_CM_EVENT_REJECTED with
--ECONNRESET and no KASAN report, and a valid enhanced reply still
-established.
 A reproducer is available on request.
 
- drivers/infiniband/sw/siw/siw_cm.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ drivers/infiniband/sw/rxe/rxe_mr.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/infiniband/sw/siw/siw_cm.c b/drivers/infiniband/sw/siw/siw_cm.c
-index ed49818793dde..0a0d91398e790 100644
---- a/drivers/infiniband/sw/siw/siw_cm.c
-+++ b/drivers/infiniband/sw/siw/siw_cm.c
-@@ -392,7 +392,8 @@ static int siw_cm_upcall(struct siw_cep *cep, enum iw_cm_event_type reason,
- 			event.private_data = cep->mpa.pdata;
+diff --git a/drivers/infiniband/sw/rxe/rxe_mr.c b/drivers/infiniband/sw/rxe/rxe_mr.c
+index 13cb28d3916f6e..258f8524ef06b4 100644
+--- a/drivers/infiniband/sw/rxe/rxe_mr.c
++++ b/drivers/infiniband/sw/rxe/rxe_mr.c
+@@ -333,12 +333,14 @@ static int rxe_mr_copy_xarray(struct rxe_mr *mr, u64 iova, void *addr,
+ 		unsigned long index = rxe_mr_iova_to_index(mr, iova);
+ 		struct rxe_mr_page *info = &mr->page_info[index];
+ 		unsigned int page_offset = rxe_mr_iova_to_page_offset(mr, iova);
++		unsigned int chunk = min_t(unsigned int, PAGE_SIZE,
++					   mr_page_size(mr)) - page_offset;
  
- 			/* Hide MPA V2 IRD/ORD control */
--			if (cep->enhanced_rdma_conn_est) {
-+			if (cep->enhanced_rdma_conn_est &&
-+			    pd_len >= sizeof(struct mpa_v2_data)) {
- 				event.private_data_len -=
- 					sizeof(struct mpa_v2_data);
- 				event.private_data +=
-@@ -849,6 +850,14 @@ static int siw_proc_mpareply(struct siw_cep *cep)
- 				      -ECONNRESET);
- 			return -EINVAL;
- 		}
-+		if (be16_to_cpu(rep->params.pd_len) <
-+		    sizeof(struct mpa_v2_data)) {
-+			siw_dbg_cep(cep, "mpa reply error: pd_len %u\n",
-+				    be16_to_cpu(rep->params.pd_len));
-+			siw_cm_upcall(cep, IW_CM_EVENT_CONNECT_REPLY,
-+				      -ECONNRESET);
-+			return -EINVAL;
-+		}
- 		v2 = (struct mpa_v2_data *)cep->mpa.pdata;
- 		rep_ird = ntohs(v2->ird) & MPA_IRD_ORD_MASK;
- 		rep_ord = ntohs(v2->ord) & MPA_IRD_ORD_MASK;
-
-base-commit: 94e81a1f3ffabb388f7d0a9674bb1d3acc067e00
+ 		if (!info->page)
+ 			return -EFAULT;
+ 
+ 		page_offset += info->offset;
+-		bytes = min_t(unsigned int, length, PAGE_SIZE - page_offset);
++		bytes = min_t(unsigned int, length, chunk);
+ 		va = kmap_local_page(info->page);
+ 
+ 		if (dir == RXE_FROM_MR_OBJ)
+@@ -519,12 +521,14 @@ static int rxe_mr_flush_pmem_iova(struct rxe_mr *mr, u64 iova, unsigned int leng
+ 		unsigned long index = rxe_mr_iova_to_index(mr, iova);
+ 		struct rxe_mr_page *info = &mr->page_info[index];
+ 		unsigned int page_offset = rxe_mr_iova_to_page_offset(mr, iova);
++		unsigned int chunk = min_t(unsigned int, PAGE_SIZE,
++					   mr_page_size(mr)) - page_offset;
+ 
+ 		if (!info->page)
+ 			return -EFAULT;
+ 
+ 		page_offset += info->offset;
+-		bytes = min_t(unsigned int, length, PAGE_SIZE - page_offset);
++		bytes = min_t(unsigned int, length, chunk);
+ 
+ 		va = kmap_local_page(info->page);
+ 		arch_wb_cache_pmem(va + page_offset, bytes);
 -- 
 2.53.0
 
