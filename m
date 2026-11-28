@@ -1,72 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795846897;
-	b=kUXy9XMLr8D8nP20wfY4r/pmYg/+6Q7i6vV0KaT4VwVVp+mAbbMvibhQQpWd0CrgaSiG
-	 ur8adqNUCNnvzFvEnU7/BsCToMl+jf0Y50of0D22mWw2iip8TvnVFyZBOD+3JO8A94z6h
-	 BxylPBhKhrStiNhIOArWISDpQtTdOMnUL60zY6IKj3z0y5L5ol1K2mWYqO0gnBLcNbs2v
-	 vpDmUacYtAVzrBcBf0Fp9T6tUtnxS2tiuh2Y4S5TGLOVRZjihjE6LUj/9A7zplqUfYxRe
-	 Uwb+NsKOABLV594ME9DHcJ81af7TAYb6U18Z0ENOZ7tQ/E1gQU6PejyiXqQ4XSzao7A==
+	t=1795846990;
+	b=GJd2TY9Mre8s+VOFFYtC5K6fRmEcGhtGgpjL4gsaa96irIkClaGRGtXzcEkIgzfFEe81
+	 j2v1oJAMKWwnXeh6ZSbdOwbACev9Z7gqdDae/Sb9WtJuiUUYOOli8FuFrq3UJyERE3oNl
+	 gJlaBjZ3Oj5hYC5dl5agws2rO29/NzfkJkKUsaEstkbIASSkwter5DybSLYntziN8f9Iw
+	 vSt6t5SgRiUQFORoPMPFcuNzLW2WkmVCpjj6nSUu+faar8gDL6XMCRwRx2iq99Zfi8uYv
+	 U996ck8vA/EyIk/Xex+UrogAh3aaeioDF5yrbrBVI6Wc38KXPPDgXGDcsmcn0TgcN6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795846897;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=CSfllx8i/UgWxWruxGM0kizZw5oaYTKQ+kSHCujk68M=;
-	b=lzkbbTGku/glOx3/bGE5CDkl51ij1yZXs6XXnz2Ki25iKnu1oIhzygJQRadDSKTzLm+D
-	 jhX5z/8Nvdxe6l6SmZ6tlmCuvX1NQqxC7RzhiY3QaS1x9ffuxxoCX81B0xZTOl30boZNW
-	 a+C2pBTK8q0a+F89oOIAG6+4c0vh150wRzo8USN1TWhTxmIVrvG/LfUsSdmLDN4wW6r78
-	 Fbu71rowwUN0q6BX4FxhpUI+ZAcXywgSEJH6MwWG7RcAEsHCkR4IGnwAvC4tjIaEXhAOz
-	 LKevQ5uEhnP4WZrvuT5lFk7ZWMB0AU3kAy939UlIFIBnues8LvQSSNcJkrBU3748MJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795846990;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=lTtuW/eDk2oXdvt9wdrZZaMl79sbzHRyXPa+arkL84k=;
+	b=jt8NEUww5RWh18PUF4dLegCjiYz0OO8UmH3bCQexC1qI4kxz5PyeC1YHwcECLnk5sztg
+	 e21Lklh1OqP2LgIru4Osd2hAZLAQN0mNwPjlTfOrQjsw53/jy6jAGSZWZ4OalwBYOHsdL
+	 1IvEtb/riXX6PLdwek2cK+xYWB64xLOqnvi+Nk0fdMvYGSbW5YOgueY/0+TvvNWzPfeQu
+	 ZmVevQURaLgPpKJ0T8j7kCWI2ey5DHhzBargAF//Uh4f8WnuDgHn42qBRFFf46aEq2+SI
+	 POAmwSZNAU4bJF0Rp5CVO7fm7+p1+osQgUNZWMJY8Xm0ks6fG/0knviPPSCjlwQn22Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--zhenwenliang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QQWYQa2b;
-	arc=none smtp.remote-ip=209.85.214.198
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=ChhNmfMy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 470C6606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:21:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 470C6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--zhenwenliang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8365D606A31C;
+	Sat, 28 Nov 2026 06:23:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QQWYQa2b
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f0ac2d8225so47243755ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:21:37 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=ChhNmfMy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38DBB1F000C1;
+	Sat, 28 Nov 2026 06:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795846896; x=1796451696; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CSfllx8i/UgWxWruxGM0kizZw5oaYTKQ+kSHCujk68M=;
-        b=QQWYQa2bAhjkojdfuQ+EgC8dQeCl1NxiuEelPr6BOFWCFtxxrkFTyemVv/dJzVoaXR
-         PK3sub8CMehuYevdQLUFUyxbXoV9Vi1hs7OeHYmv25KY7SKypj5NX+F5KXUek7WbH/3R
-         ADcED7B+805GAJKRCUnUYgejAE7QkIn6ZFNKQaQMKEi5GloCAcThU/XmcQKeJ46uJIFt
-         JJK0f3lHWF4UvDlMExSrOkXwKeHCw5bldbms+XVsqXpM+KyWhA8hQeFu5LK45YqBqvuy
-         2Aw7qdYz10YjHzNU5URohamFUeDokB316N7gRtkjsXcVIIILG/ba/4hIqr2ATGKg5UsP
-         isCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795846897; x=1796451697;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CSfllx8i/UgWxWruxGM0kizZw5oaYTKQ+kSHCujk68M=;
-        b=aW3MTPlYaFAmpZqx8j0ma0xWW91WHLbpPJiimdgDv1UftiziKod1f6Ahmr/oSUWLQv
-         IaP5cZIfw7r6YQgWAIIwElE77f8advrcBJuXe0rJf21MPHBV/AinzRbfE6GtjlJqn2Ud
-         t5V7/8J9t3hqv1tBs2IdWW2WBtIXhPj2tTwn8GKpxFRfd16Ts5QKIgEi/MwiKNpOSjvy
-         ey+b/arZRrFsv2CX6P5n+l2KzaEFflHsFaNXVrSaGKE1yLs+LP76kx8i35x6zyXRDo24
-         TSSnSd1R8tD/5apBrvdRFv6jmVvG/a4lh13AZIjVbDhKB40wFemCN/qa7oQUqkQnuWIV
-         53pg==
-X-Forwarded-Encrypted: i=1; AL+hErE4UXPVFMA7Z6ChWVjh3dt8KNiUWJJsEaSx0XzUJs0qzzJVozUY6/EIXGgV8jQoPkkh6+cIZrelJ/LTCkA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vjIzGYAJiP+AWRgwZJO9ow4aUh8gDM2y3fTiA9zdLe6gG0z0C
-	7ECX8Sr+cutfaOVZnB8yWDQY5sigZlfDhgdH7lVFdF6imh3zER6MAydCiLKTwhnNolYQ/pDkQuT
-	0LyA2u0YYQLr+mI53uBkuEF3NLTngLQ==
-X-Received: from plpj15.prod.google.com ([2002:a17:903:3d8f:b0:2ef:a836:c1be])
- (user=zhenwenliang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:2f07:b0:2f0:a027:7226 with SMTP id d9443c01a7336-2f0a027731fmr187347005ad.57.1795846896334;
- Fri, 27 Nov 2026 22:21:36 -0800 (PST)
-Date: Sat, 28 Nov 2026 06:21:35 +0000
+	d=linux-foundation.org; s=korg; t=1795846990;
+	bh=lTtuW/eDk2oXdvt9wdrZZaMl79sbzHRyXPa+arkL84k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ChhNmfMyeP4ZlcWr+LP9M1gmjvgctYMPIlzWsY83EhNxPBeq2WWnH9yZPES9pALV+
+	 /kazP36zqNtWuSnZcLB9XRQZm3CPs6DVHYgQCoomLstjIjqIiv8UH6fAuaI9yVzWFC
+	 grkSzniHmJ707b757jtFD5MgdIFYR/5uq2B8Ta9c=
+Date: Fri, 27 Nov 2026 22:23:08 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Jan Harkes <jaharkes@cs.cmu.edu>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, David Rheinsberg
+ <david@readahead.eu>, Hugh Dickins <hughd@google.com>, Vlastimil Babka
+ <vbabka@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, David
+ Hildenbrand <david@kernel.org>, Jann Horn <jannh@google.com>, Alex Shi
+ <alexs@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, Pedro Falcato
+ <pfalcato@suse.de>, David Rientjes <rientjes@google.com>, Rik van Riel
+ <riel@redhat.com>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan
+ <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet
+ <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, =?UTF-8?Q?Micha=C5=82_Miros=C5=82aw?=
+ <mirq-linux@rere.qmqm.pl>, Arnd Bergmann <arnd@arndb.de>, Stephen Rothwell
+ <sfr@canb.auug.org.au>, Muhammad Usama Anjum <usama.anjum@arm.com>,
+ linux-mm@kvack.org, Andrei Vagin <avagin@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, Chris Mason <mason@kernel.org>,
+ stable@vger.kernel.org
+Subject: Re: [PATCH 1/4] coda: never point a file's f_mapping at a
+ container's mapping
+Message-Id: <20261127222308.a372076fef9e470ea264cbb5@linux-foundation.org>
+In-Reply-To: <20261128010821.irhzl7qcqahz6onx@cs.cmu.edu>
+References: <20261127-mlock-madvise-mprotect-ai-fixes-v1-0-e46b2b1eb435@kernel.org>
+	<20261127-mlock-madvise-mprotect-ai-fixes-v1-1-e46b2b1eb435@kernel.org>
+	<20261127124428.f1f66c6244d3e5c2811f56de@linux-foundation.org>
+	<20261128010821.irhzl7qcqahz6onx@cs.cmu.edu>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,376 +74,324 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261128062135.3041832-1-zhenwenliang@google.com>
-Subject: [PATCH] kfifo: Use acquire/release ordering for the in and out indices
-From: Zhenwen Liang <zhenwenliang@google.com>
-To: Stefani Seibold <stefani@seibold.net>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Xiao Guangrong <guangrong.xiao@gmail.com>, Yulei Zhang <yuleixzhang@tencent.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-The lockless single-producer/single-consumer use of kfifo relies on
-smp_wmb() alone. The producer writes an element, issues smp_wmb() and
-then increments fifo->in. The consumer reads fifo->in, compares it with
-fifo->out and then reads the element. Nothing orders the consumer's read
-of fifo->in before its read of the element: the comparison only creates
-a control dependency, and a control dependency does not order later
-loads. On weakly ordered CPUs such as arm64 and powerpc, the consumer
-can see the new fifo->in and still read the old contents of the slot.
+On Fri, 27 Nov 2026 20:10:13 -0500 Jan Harkes <jaharkes@cs.cmu.edu> wrote:
 
-The consumer's update of fifo->out has the mirror problem. After reading
-the element it issues smp_wmb() and increments fifo->out, but smp_wmb()
-orders only stores: the reads of the element are not ordered before the
-store to fifo->out, so the producer could see the new fifo->out and
-overwrite the slot before the consumer has read it.
+> On Fri, Nov 27, 2026 at 12:44:28PM -0800, Andrew Morton wrote:
+> > On Fri, 27 Nov 2026 19:45:40 +0000 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+> > 
+> > > Coda file systems stack differently from other stacked file systems.
+> > > 
+> > > On mmap(), coda_file_mmap() switches both the Coda inode's i_mapping and
+> > > the Coda file's f_mapping for the mapping of the container file. This
+> > > causes two problems.
+> > > 
+> > > Firstly, the container file may not remain pinned, at which point this may
+> > > result in a dangling reference in coda_file->f_mapping, and so a
+> > > use-after-free in mmap() or lseek().
+> > > 
+> > > This can happen when you open the same inode across two files, mmap()'ing
+> > > in one, which assigns the i_mapping, and open()'ing another, which assigns
+> > > that i_mapping to the file's f_mapping, if the cache manager gave the two
+> > > files different containers. Each file pins only its own container.
+> 
+> Coda uses open-close consistency, so between the first open and the last
+> close the cache manager does not make any changes to the cached copy, so
+> every open is guaranteed to get the exact same container file.
+> 
+> Now that happens to be the Coda cache manager, I guess changes that
+> would enforce this at the kernel module level can be useful, but
+> dropping f_mapping, I think will break mmap for us.
+> 
+> > Yeah, I hit this while getting
+> > tools/testing/selftests/mm/memory-failure.c to work on all Linux
+> > filesystems.
+> 
+> Did you test this without the actual Coda userspace? What was the
+> cache consistency model your userspace was using?
 
-The read-side barriers were dropped in 2010, when the kfifo code was
-replaced by the generic version. The missing read-side ordering was
-reported in 2018, and a partial patch was posted but not merged; the
-review noted that more sites needed work. Thanks to Xiao Guangrong for
-the original report.
+Couldn't figure out how to get Venus working (I wouldn't know what a
+coda is if it bit me on the foot!) so a mockup thing over tmpfs was
+used in place.
 
-Use the scheme described in Documentation/core-api/circular-buffers.rst:
-each side reads the other side's index with smp_load_acquire() before
-it accesses the data, and publishes its own index with
-smp_store_release() after it. This converts the index accesses that
-order the data accesses: it replaces the smp_wmb() calls in kfifo_put(),
-kfifo_get(), kfifo_peek() and in the copy helpers of lib/kfifo.c, and
-kfifo_skip_count() now publishes fifo->out with smp_store_release().
-The generic queries (kfifo_len(), kfifo_is_empty(), kfifo_is_full(),
-kfifo_avail()) and the DMA helpers are not changed, except that the DMA
-paths use the shared kfifo_unused() and kfifo_skip_count().
+<tries harder>
 
-The first reordering is allowed by the Linux kernel memory model for a
-litmus test derived from kfifo_put() and kfifo_get(), and it was
-observed with litmus7 on an arm64 machine (Neoverse-V2). The second is
-allowed by the memory model and by the arm64 architecture model; we
-have not observed it on hardware. The fix was checked with herd7 on
-litmus tests derived from the patched kfifo_put()/kfifo_get() (LKMM,
-AArch64, PPC models: forbidden).
+OK, reran with real Venus and a writable file on the server.  The below
+repro makes a writable shared mapping, then opens and maps it again
+while the first mapping is live.  All 300 first mappings succeeded and
+299 of the 300 second mappings failed with EPERM.  This uses one Coda
+file and doesn't depend on Venus changing containers between opens.
 
-The problem has been present since 2010; maintainers may want this
-change for stable.
+That one-line-removal fixes this up.
 
-The problem was independently rediscovered, and this patch prepared,
-with the help of a formal analysis tool we are developing that uses AI
-assistance; I have reviewed the analysis and the patch.
+: Coda changes file->f_mapping to the container file's mapping inside
+: coda_file_mmap(). mmap_region() takes a temporary writable-mapping count
+: before calling ->mmap() and releases it afterward. Coda's assignment
+: makes those two operations use different mappings, leaving the
+: container's count too low. Subsequent writable MAP_SHARED mappings can
+: fail with -EPERM.
+: 
+: I reproduced this with real Venus and a writable file on a Coda server.
+: Without the patch, 299 of 300 second mappings failed with -EPERM when
+: another mapping of the same file was live. With the one-line-removal
+: all 300 succeeded, and mapped writes passed the readback check.
 
-Compile-tested on arm64 (clang) and x86-64 (gcc) with W=1; not
-runtime-tested beyond the litmus tests.
 
-Fixes: 2e956fb32056 ("kfifo: replace the old non generic API")
-Link: https://lore.kernel.org/all/5382d3a8-08e0-5429-0cd3-36f9c69197e1@gmail.com/
-Link: https://lore.kernel.org/all/20181211034032.32338-1-yuleixzhang@tencent.com/
-Signed-off-by: Zhenwen Liang <zhenwenliang@google.com>
----
-This revisits the kfifo ordering issue reported in 2018 (links above).
-herd7 with the Linux kernel memory model allows the outcome for
-a litmus test derived from kfifo_put()/kfifo_get() (the consumer sees
-the new fifo->in but reads the old slot), and the outcome was observed
-with litmus7 on an arm64 machine. The patch converts the index accesses
-that order the data accesses to acquire/release, covering the other
-sites Will pointed out in 2018 (e.g. kfifo_get() using smp_wmb()). The
-fix was checked with herd7 on litmus tests derived from the patched
-kfifo_put()/kfifo_get() (LKMM, AArch64, PPC models: forbidden).
 
- include/linux/kfifo.h | 22 ++++++++------
- lib/kfifo.c           | 71 +++++++++++++++++++++----------------------
- 2 files changed, 47 insertions(+), 46 deletions(-)
 
-diff --git a/include/linux/kfifo.h b/include/linux/kfifo.h
-index 8b81ac74829c..8f6934d208bd 100644
---- a/include/linux/kfifo.h
-+++ b/include/linux/kfifo.h
-@@ -320,7 +320,8 @@ __kfifo_uint_must_check_helper( \
- 	if (__recsize) \
- 		__kfifo_skip_r(__kfifo, __recsize); \
- 	else \
--		__kfifo->out += (count); \
-+		/* pairs with the producer's smp_load_acquire() of out */ \
-+		smp_store_release(&__kfifo->out, __kfifo->out + (count)); \
- } while(0)
+I also hit a lockdep splat along the way.  That's also appended along
+with a slop-coded "fix" which I haven't even looked at, sorry.  But it
+did make the splat go away.
+
+
+
+
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Reproduce Coda writable MAP_SHARED failures with a real Venus.
+ * Usage: ./coda-mmap-repro /coda/REALM/test-directory/file [iterations]
+ * The named file is created/truncated. Use a disposable writable test path.
+ */
+#define _GNU_SOURCE
+#include <errno.h>
+#include <fcntl.h>
+#include <linux/magic.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/mman.h>
+#include <sys/statfs.h>
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+	long pagesize = sysconf(_SC_PAGESIZE), loops = 300;
+	long first_ok = 0, second_ok = 0, first_eperm = 0;
+	long second_eperm = 0, other = 0, coherence_ok = 0;
+	struct statfs fs;
+	char *end;
+	int setup;
+
+	if (argc < 2 || argc > 3 || pagesize < 1) {
+		fprintf(stderr, "usage: %s CODA-TEST-FILE [iterations]\n", argv[0]);
+		return 2;
+	}
+	if (argc == 3) {
+		errno = 0;
+		loops = strtol(argv[2], &end, 10);
+		if (errno || *end || loops < 1 || loops > 1000000) {
+			fprintf(stderr, "invalid iteration count\n");
+			return 2;
+		}
+	}
+	if (statfs(argv[1], &fs) < 0) {
+		/* The file need not exist yet: check its parent in the runner. */
+		if (errno != ENOENT) {
+			perror("statfs");
+			return 2;
+		}
+	} else if ((unsigned long)fs.f_type != CODA_SUPER_MAGIC) {
+		fprintf(stderr, "%s is not on a Coda filesystem\n", argv[1]);
+		return 2;
+	}
+	setup = open(argv[1], O_CREAT | O_TRUNC | O_RDWR, 0600);
+	if (setup < 0 || ftruncate(setup, pagesize) < 0 || close(setup) < 0) {
+		perror("create/truncate");
+		return 2;
+	}
+	if (statfs(argv[1], &fs) < 0 ||
+	    (unsigned long)fs.f_type != CODA_SUPER_MAGIC) {
+		fprintf(stderr, "test file is not on a Coda filesystem\n");
+		return 2;
+	}
+	printf("coda_magic=0x%lx path=%s\n", (unsigned long)fs.f_type, argv[1]);
+	for (long i = 0; i < loops; i++) {
+		int first = open(argv[1], O_RDWR), second;
+		char *a, *b, check;
+		if (first < 0) {
+			perror("first open");
+			return 2;
+		}
+		a = mmap(NULL, pagesize, PROT_READ | PROT_WRITE,
+			 MAP_SHARED, first, 0);
+		if (a == MAP_FAILED) {
+			if (errno == EPERM) first_eperm++;
+			else { fprintf(stderr, "first mmap %ld: %s\n", i, strerror(errno)); other++; }
+			close(first);
+			continue;
+		}
+		first_ok++;
+		a[0] = (char)('A' + i % 26);
+		/* Open while the first writable mapping is still live. */
+		second = open(argv[1], O_RDWR);
+		if (second < 0) {
+			perror("second open");
+			return 2;
+		}
+		b = mmap(NULL, pagesize, PROT_READ | PROT_WRITE,
+			 MAP_SHARED, second, 0);
+		if (b == MAP_FAILED) {
+			if (errno == EPERM) second_eperm++;
+			else { fprintf(stderr, "second mmap %ld: %s\n", i, strerror(errno)); other++; }
+		} else {
+			second_ok++;
+			if (b[0] != a[0]) {
+				fprintf(stderr, "mapping coherence mismatch at %ld\n", i);
+				other++;
+			} else {
+				b[0] = (char)('a' + i % 26);
+				if (msync(b, pagesize, MS_SYNC) < 0 ||
+				    pread(first, &check, 1, 0) != 1 ||
+				    a[0] != b[0] || check != b[0]) {
+					fprintf(stderr, "write/msync/read mismatch at %ld: %s\n",
+						i, strerror(errno));
+					other++;
+				} else coherence_ok++;
+			}
+			if (munmap(b, pagesize) < 0) { perror("munmap second"); return 2; }
+		}
+		if (close(second) < 0 || munmap(a, pagesize) < 0 ||
+		    close(first) < 0) {
+			perror("cleanup");
+			return 2;
+		}
+	}
+	printf("iterations=%ld first_ok=%ld first_EPERM=%ld second_ok=%ld "
+	       "second_EPERM=%ld coherence_ok=%ld other=%ld\n",
+	       loops, first_ok, first_eperm, second_ok, second_eperm,
+	       coherence_ok, other);
+	return first_eperm || second_eperm || other ? 1 : 0;
+}
+
+
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: coda: copy Venus requests to userspace without holding vc_mutex
+Date: Mon, 23 Nov 2026 15:07:44 -0800
+
+coda_psdev_read() holds vc_mutex while copying an upcall into the Venus
+process, and copy_to_user() may take mmap_lock.  coda_file_mmap() runs
+with mmap_lock held and its access-intent upcall takes vc_mutex.  Lockdep
+reports the inversion:
+
+  WARNING: possible circular locking dependency detected
+  init/1 is trying to acquire lock:
+  (&(&coda_comms[i])->vc_mutex){+.+.}-{4:4}, at: coda_upcall+0x2e/0x437
+
+  but task is already holding lock:
+  (&mm->mmap_lock){++++}-{4:4}, at: vm_mmap_pgoff+0x71/0x10c
+
+  which lock already depends on the new lock.
+
+  -> #1 (&mm->mmap_lock){++++}-{4:4}:
+         __might_fault+0x4e/0x6a
+         _copy_to_user+0x22/0x4d
+         coda_psdev_read+0x19a/0x203
+         ksys_read+0x72/0xa2
+
+  -> #0 (&(&coda_comms[i])->vc_mutex){+.+.}-{4:4}:
+         coda_upcall+0x2e/0x437
+         venus_access_intent+0xc6/0xfa
+         coda_file_mmap+0xa2/0x1ef
+         __mmap_region+0x87d/0xcac
+         mmap_region+0xc3/0xe5
+         do_mmap+0x5a4/0x5e3
+         vm_mmap_pgoff+0xd4/0x10c
+         ksys_mmap_pgoff+0x6c/0x95
+
+   Possible unsafe locking scenario:
+
+         CPU0                    CPU1
+         ----                    ----
+    lock(&mm->mmap_lock);
+                                 lock(&(&coda_comms[i])->vc_mutex);
+                                 lock(&mm->mmap_lock);
+    lock(&(&coda_comms[i])->vc_mutex);
+
+This is not a deadlock with a normal Venus, because the fault takes
+Venus's mmap_lock and the task which calls mmap() holds its own.  The two
+are the same lock only when the mmap() caller shares its mm with the task
+which reads the Coda device.
+
+Copy the upcall into a private buffer while holding vc_mutex.  Keep the
+request pending if the allocation fails.  Once the request has been moved
+to the processing list (or freed, for an asynchronous request), drop
+vc_mutex before copying the private buffer to Venus.  The copy no longer
+depends on the lifetime of the original request, which its sender is free
+to remove once vc_mutex has been dropped.
+
+The allocation is GFP_KERNEL, as are the ones which coda_upcall() already
+makes under vc_mutex.
+
+Return -EFAULT when the userspace copy fails.  Previously the nonzero
+count took precedence over retval, reporting a successful read even though
+the copy failed.
+
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+
+ fs/coda/psdev.c |   28 ++++++++++++++++++++--------
+ 1 file changed, 20 insertions(+), 8 deletions(-)
+
+--- a/fs/coda/psdev.c~coda-avoid-user-page-faults-under-vc_mutex
++++ a/fs/coda/psdev.c
+@@ -207,6 +207,7 @@ static ssize_t coda_psdev_read(struct fi
+ 	DECLARE_WAITQUEUE(wait, current);
+         struct venus_comm *vcp = (struct venus_comm *) file->private_data;
+         struct upc_req *req;
++	void *data;
+ 	ssize_t retval = 0, count = 0;
  
- /**
-@@ -448,15 +449,17 @@ __kfifo_int_must_check_helper( \
- 		__ret = __kfifo_in_r(__kfifo, &__val, sizeof(__val), \
- 			__recsize); \
- 	else { \
--		__ret = !kfifo_is_full(__tmp); \
-+		/* pairs with the consumer's smp_store_release() of out */ \
-+		__ret = __kfifo->in - smp_load_acquire(&__kfifo->out) <= \
-+			__kfifo->mask; \
- 		if (__ret) { \
- 			(__is_kfifo_ptr(__tmp) ? \
- 			((typeof(__tmp->type))__kfifo->data) : \
- 			(__tmp->buf) \
- 			)[__kfifo->in & __tmp->kfifo.mask] = \
- 				*(typeof(__tmp->type))&__val; \
--			smp_wmb(); \
--			__kfifo->in++; \
-+			/* publish the element before the new in */ \
-+			smp_store_release(&__kfifo->in, __kfifo->in + 1); \
- 		} \
- 	} \
- 	__ret; \
-@@ -486,15 +489,16 @@ __kfifo_uint_must_check_helper( \
- 		__ret = __kfifo_out_r(__kfifo, __val, sizeof(*__val), \
- 			__recsize); \
- 	else { \
--		__ret = !kfifo_is_empty(__tmp); \
-+		/* pairs with the producer's smp_store_release() of in */ \
-+		__ret = smp_load_acquire(&__kfifo->in) != __kfifo->out; \
- 		if (__ret) { \
- 			*(typeof(__tmp->type))__val = \
- 				(__is_kfifo_ptr(__tmp) ? \
- 				((typeof(__tmp->type))__kfifo->data) : \
- 				(__tmp->buf) \
- 				)[__kfifo->out & __tmp->kfifo.mask]; \
--			smp_wmb(); \
--			__kfifo->out++; \
-+			/* finish reading the element before the new out */ \
-+			smp_store_release(&__kfifo->out, __kfifo->out + 1); \
- 		} \
- 	} \
- 	__ret; \
-@@ -525,14 +529,14 @@ __kfifo_uint_must_check_helper( \
- 		__ret = __kfifo_out_peek_r(__kfifo, __val, sizeof(*__val), \
- 			__recsize); \
- 	else { \
--		__ret = !kfifo_is_empty(__tmp); \
-+		/* pairs with the producer's smp_store_release() of in */ \
-+		__ret = smp_load_acquire(&__kfifo->in) != __kfifo->out; \
- 		if (__ret) { \
- 			*(typeof(__tmp->type))__val = \
- 				(__is_kfifo_ptr(__tmp) ? \
- 				((typeof(__tmp->type))__kfifo->data) : \
- 				(__tmp->buf) \
- 				)[__kfifo->out & __tmp->kfifo.mask]; \
--			smp_wmb(); \
- 		} \
- 	} \
- 	__ret; \
-diff --git a/lib/kfifo.c b/lib/kfifo.c
-index 2633f9cc336c..33dc88d31781 100644
---- a/lib/kfifo.c
-+++ b/lib/kfifo.c
-@@ -19,7 +19,8 @@
-  */
- static inline unsigned int kfifo_unused(struct __kfifo *fifo)
- {
--	return (fifo->mask + 1) - (fifo->in - fifo->out);
-+	/* pairs with the consumer's smp_store_release() of fifo->out */
-+	return (fifo->mask + 1) - (fifo->in - smp_load_acquire(&fifo->out));
- }
+ 	if (nbytes == 0)
+@@ -238,7 +239,6 @@ static ssize_t coda_psdev_read(struct fi
+ 		goto out;
  
- int __kfifo_alloc_node(struct __kfifo *fifo, unsigned int size,
-@@ -104,11 +105,6 @@ static void kfifo_copy_in(struct __kfifo *fifo, const void *src,
+ 	req = list_entry(vcp->vc_pending.next, struct upc_req,uc_chain);
+-	list_del(&req->uc_chain);
  
- 	memcpy(fifo->data + off, src, l);
- 	memcpy(fifo->data, src + l, len - l);
--	/*
--	 * make sure that the data in the fifo is up to date before
--	 * incrementing the fifo->in index counter
--	 */
--	smp_wmb();
- }
+ 	/* Move the input args into userspace */
+ 	count = req->uc_inSize;
+@@ -248,21 +248,33 @@ static ssize_t coda_psdev_read(struct fi
+ 		count = nbytes;
+         }
  
- unsigned int __kfifo_in(struct __kfifo *fifo,
-@@ -121,7 +117,8 @@ unsigned int __kfifo_in(struct __kfifo *fifo,
- 		len = l;
- 
- 	kfifo_copy_in(fifo, buf, len, fifo->in);
--	fifo->in += len;
-+	/* publish the data before the new fifo->in */
-+	smp_store_release(&fifo->in, fifo->in + len);
- 	return len;
- }
- EXPORT_SYMBOL(__kfifo_in);
-@@ -143,11 +140,6 @@ static void kfifo_copy_out(struct __kfifo *fifo, void *dst,
- 
- 	memcpy(dst, fifo->data + off, l);
- 	memcpy(dst + l, fifo->data, len - l);
--	/*
--	 * make sure that the data is copied before
--	 * incrementing the fifo->out index counter
--	 */
--	smp_wmb();
- }
- 
- unsigned int __kfifo_out_peek(struct __kfifo *fifo,
-@@ -155,7 +147,8 @@ unsigned int __kfifo_out_peek(struct __kfifo *fifo,
- {
- 	unsigned int l;
- 
--	l = fifo->in - fifo->out;
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	l = smp_load_acquire(&fifo->in) - fifo->out;
- 	if (len > l)
- 		len = l;
- 
-@@ -173,7 +166,8 @@ unsigned int __kfifo_out_linear(struct __kfifo *fifo,
- 	if (tail)
- 		*tail = off;
- 
--	return min3(n, fifo->in - fifo->out, size - off);
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	return min3(n, smp_load_acquire(&fifo->in) - fifo->out, size - off);
- }
- EXPORT_SYMBOL(__kfifo_out_linear);
- 
-@@ -181,7 +175,8 @@ unsigned int __kfifo_out(struct __kfifo *fifo,
- 		void *buf, unsigned int len)
- {
- 	len = __kfifo_out_peek(fifo, buf, len);
--	fifo->out += len;
-+	/* finish reading the data before the new fifo->out */
-+	smp_store_release(&fifo->out, fifo->out + len);
- 	return len;
- }
- EXPORT_SYMBOL(__kfifo_out);
-@@ -211,11 +206,6 @@ static unsigned long kfifo_copy_from_user(struct __kfifo *fifo,
- 		if (unlikely(ret))
- 			ret = DIV_ROUND_UP(ret, esize);
+-	if (copy_to_user(buf, req->uc_data, count))
+-	        retval = -EFAULT;
+-        
++	/*
++	 * The request can be freed when its reply arrives.  Keep a copy so
++	 * that the userspace fault below does not run under vc_mutex.
++	 */
++	data = kvmemdup(req->uc_data, count, GFP_KERNEL);
++	if (!data) {
++		retval = -ENOMEM;
++		goto out;
++	}
++	list_del(&req->uc_chain);
++
+ 	/* If request was not a signal, enqueue and don't free */
+ 	if (!(req->uc_flags & CODA_REQ_ASYNC)) {
+ 		req->uc_flags |= CODA_REQ_READ;
+ 		list_add_tail(&(req->uc_chain), &vcp->vc_processing);
+-		goto out;
++	} else {
++		kvfree(req->uc_data);
++		kfree(req);
  	}
--	/*
--	 * make sure that the data in the fifo is up to date before
--	 * incrementing the fifo->in index counter
--	 */
--	smp_wmb();
- 	*copied = len - ret * esize;
- 	/* return the number of elements which are not copied */
- 	return ret;
-@@ -242,7 +232,8 @@ int __kfifo_from_user(struct __kfifo *fifo, const void __user *from,
- 		err = -EFAULT;
- 	} else
- 		err = 0;
--	fifo->in += len;
-+	/* publish the data before the new fifo->in */
-+	smp_store_release(&fifo->in, fifo->in + len);
- 	return err;
+ 
+-	kvfree(req->uc_data);
+-	kfree(req);
++	mutex_unlock(&vcp->vc_mutex);
++	retval = copy_to_user(buf, data, count) ? -EFAULT : count;
++	kvfree(data);
++	return retval;
+ out:
+ 	mutex_unlock(&vcp->vc_mutex);
+-	return (count ? count : retval);
++	return retval;
  }
- EXPORT_SYMBOL(__kfifo_from_user);
-@@ -271,11 +262,6 @@ static unsigned long kfifo_copy_to_user(struct __kfifo *fifo, void __user *to,
- 		if (unlikely(ret))
- 			ret = DIV_ROUND_UP(ret, esize);
- 	}
--	/*
--	 * make sure that the data is copied before
--	 * incrementing the fifo->out index counter
--	 */
--	smp_wmb();
- 	*copied = len - ret * esize;
- 	/* return the number of elements which are not copied */
- 	return ret;
-@@ -292,7 +278,8 @@ int __kfifo_to_user(struct __kfifo *fifo, void __user *to,
- 	if (esize != 1)
- 		len /= esize;
  
--	l = fifo->in - fifo->out;
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	l = smp_load_acquire(&fifo->in) - fifo->out;
- 	if (len > l)
- 		len = l;
- 	ret = kfifo_copy_to_user(fifo, to, len, fifo->out, copied);
-@@ -301,7 +288,8 @@ int __kfifo_to_user(struct __kfifo *fifo, void __user *to,
- 		err = -EFAULT;
- 	} else
- 		err = 0;
--	fifo->out += len;
-+	/* finish reading the data before the new fifo->out */
-+	smp_store_release(&fifo->out, fifo->out + len);
- 	return err;
- }
- EXPORT_SYMBOL(__kfifo_to_user);
-@@ -440,7 +428,8 @@ unsigned int __kfifo_in_r(struct __kfifo *fifo, const void *buf,
- 	__kfifo_poke_n(fifo, len, recsize);
- 
- 	kfifo_copy_in(fifo, buf, len, fifo->in + recsize);
--	fifo->in += len + recsize;
-+	/* publish the data before the new fifo->in */
-+	smp_store_release(&fifo->in, fifo->in + len + recsize);
- 	return len;
- }
- EXPORT_SYMBOL(__kfifo_in_r);
-@@ -462,7 +451,8 @@ unsigned int __kfifo_out_peek_r(struct __kfifo *fifo, void *buf,
- {
- 	unsigned int n;
- 
--	if (fifo->in == fifo->out)
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	if (smp_load_acquire(&fifo->in) == fifo->out)
- 		return 0;
- 
- 	return kfifo_out_copy_r(fifo, buf, len, recsize, &n);
-@@ -472,7 +462,8 @@ EXPORT_SYMBOL(__kfifo_out_peek_r);
- unsigned int __kfifo_out_linear_r(struct __kfifo *fifo,
- 		unsigned int *tail, unsigned int n, size_t recsize)
- {
--	if (fifo->in == fifo->out)
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	if (smp_load_acquire(&fifo->in) == fifo->out)
- 		return 0;
- 
- 	if (tail)
-@@ -487,11 +478,13 @@ unsigned int __kfifo_out_r(struct __kfifo *fifo, void *buf,
- {
- 	unsigned int n;
- 
--	if (fifo->in == fifo->out)
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	if (smp_load_acquire(&fifo->in) == fifo->out)
- 		return 0;
- 
- 	len = kfifo_out_copy_r(fifo, buf, len, recsize, &n);
--	fifo->out += n + recsize;
-+	/* finish reading the data before the new fifo->out */
-+	smp_store_release(&fifo->out, fifo->out + n + recsize);
- 	return len;
- }
- EXPORT_SYMBOL(__kfifo_out_r);
-@@ -501,7 +494,8 @@ void __kfifo_skip_r(struct __kfifo *fifo, size_t recsize)
- 	unsigned int n;
- 
- 	n = __kfifo_peek_n(fifo, recsize);
--	fifo->out += n + recsize;
-+	/* finish reading the data before the new fifo->out */
-+	smp_store_release(&fifo->out, fifo->out + n + recsize);
- }
- EXPORT_SYMBOL(__kfifo_skip_r);
- 
-@@ -524,7 +518,8 @@ int __kfifo_from_user_r(struct __kfifo *fifo, const void __user *from,
- 		*copied = 0;
- 		return -EFAULT;
- 	}
--	fifo->in += len + recsize;
-+	/* publish the data before the new fifo->in */
-+	smp_store_release(&fifo->in, fifo->in + len + recsize);
- 	return 0;
- }
- EXPORT_SYMBOL(__kfifo_from_user_r);
-@@ -535,7 +530,8 @@ int __kfifo_to_user_r(struct __kfifo *fifo, void __user *to,
- 	unsigned long ret;
- 	unsigned int n;
- 
--	if (fifo->in == fifo->out) {
-+	/* pairs with the producer's smp_store_release() of fifo->in */
-+	if (smp_load_acquire(&fifo->in) == fifo->out) {
- 		*copied = 0;
- 		return 0;
- 	}
-@@ -549,7 +545,8 @@ int __kfifo_to_user_r(struct __kfifo *fifo, void __user *to,
- 		*copied = 0;
- 		return -EFAULT;
- 	}
--	fifo->out += n + recsize;
-+	/* finish reading the data before the new fifo->out */
-+	smp_store_release(&fifo->out, fifo->out + n + recsize);
- 	return 0;
- }
- EXPORT_SYMBOL(__kfifo_to_user_r);
--- 
-2.56.1.839.g22a8290db9-goog
+ static int coda_psdev_open(struct inode * inode, struct file * file)
+_
 
