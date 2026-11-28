@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795884729;
-	b=4DZQojvD+4aPBSyIJfHDxTln9NiY+6IZQYCVTtmDlx9p6APrUG/aPOW49XbSVIFrk4P3
-	 JeQSbLLi+n/3wCywGleFjAoT9E/BZb77kp7Mxpcs7FNCFgTHKa55CF3ZIYfPP4MjSLVtU
-	 ypup7hPFURSXHpSTOMdeIWqDUWfb5OHfz+P5mykzOYaeaQvEtxjmMYFAoV2hJw0ohGdPO
-	 lxgpvKwU5rfyKhmbWI/40aKOTh+q80YhvWgZ9T4IisRNB6URJuVc4VJOeAovbcc0mIbzZ
-	 Fo2UxcyqTCQPmCqssKCMmtZ2Fw/vMgZTJHxHg43jGvOonqbQ+/ZR/deX0dw53yRhMfA==
+	t=1795884730;
+	b=AVJ6oc5K2THRTXv5ganrCSRKsRe4/LQ5K4nPfxnjBD140f2exrZBXdnD/y/5IDIlgKLo
+	 Qau5ohqyLNU8lAgsm2qmfCG39hz2G2Uj15+ZfP6GE0LcsnNd0x5BBhHWaJG434KO6xpKW
+	 24ozuMmIFNdJe32W9NFNntxfCUuPqSPWnm+LtQb2/YE5Q6CR0AeJ/XV84Di9BlSd69/xN
+	 fHcKd3esbHyF2UzD2VFAWlmiRoh2mU9bGZFantaVcZGgpFq1d2WQRiIxdEaeMMBwsQlbD
+	 8SXK9PANn+HquzW0R0e1bP7pZxCkmkhQDBIIlcxdNrkOpI51teUVcqwlgi4EdlxXVIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795884729;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795884730;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=7aKxz4tIl1oHn3UmDCWXIsWmjmNKo3P/L8xrY/Al+Zw=;
-	b=vefRSvONEGCJVZtMB37DSiFUYGsBistH6PEBvcUjGNIya/YYAJkzjtGwidw30VBFCWCb
-	 W+Ibp+kayXW2GYnvTop8IeI32y9/ka0Pp56hWHwJs0zlSpEbQjSgOCfH3dGH29MBJ7Lr8
-	 ZQHSwXC+YmA9pBDHw04vji/rNLiaxOGwhlzY6LLHrgrXpU1KwLByK5LYp7ytBiziRS8rj
-	 MMnkdytgUShZ53EMDZJfItt1HoIaOTjEae7fGlbbEXi8lTR3G2/bG+UURlrHrTrd662Su
-	 NG6DW8HyNa34R9pliSXhWLCW0aZaLtkUcIBk3tWUUewQBNa6J1GZLeardJAsbBTreDg==
+	bh=wBU8+cAmg3igsvdbEi1eUF0PFheTO8LMlB0mvQPjR/Q=;
+	b=FNXh8XDf2/ylALq4kToznku/ThibIdECtPO3YQwQJWKGTb9cd7fXpm8Kq12fU/jZuKA7
+	 Zyy7pL9T0WdDMokCPRu2lKu3pQGV4xgIcPDlMnb9D66M6fGiev6/FJQS92SlT0c40P70y
+	 DWAlK5f9DYbH6J72B+2ud09rVhERl0ckrUk+JcuWC/pPQXe+t1fxnZh5DSasuOl98JRBy
+	 +QtlYo1WP+Szuwr0rOk/ys+UI1J/M1OQpf4buNAPqjkZ4w1Rb+Sfue328epGDKuI5x4JS
+	 4XBnDVsxTmCEUYsm6XmTdWhCuEh0FkIm3z16w8J2Z5BFBa/rmBNMHdVOkeWJffG2Kjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=cb3DBnGI;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=HSKg415n;
+	arc=none smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3BFC606A6B4
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:52:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3BFC606A6B4
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55235606A690
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:52:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55235606A690
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=cb3DBnGI
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c511c0e2826so1037481566b.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:52:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=HSKg415n
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c5126505cb3so1192909866b.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:52:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795884727; x=1796489527; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795884729; x=1796489529; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7aKxz4tIl1oHn3UmDCWXIsWmjmNKo3P/L8xrY/Al+Zw=;
-        b=cb3DBnGIFEgHXtMds4mzJ98BmQMj7Y5+EkURzsLIAueRR4KOxNSKuXxs3bREFRlYXA
-         S/IKyLG+lA371vXS3CPV7NiKYau9absfwKAAOAf71VNttlZccZSy3s5p/SJHqhcO9qQF
-         kExL/araUhQ0FqwRaT0ZNcyRjvHRXZb60d2tRzaXwVucs9XVZ77MZq0BgBC9QjEvXAzN
-         McDzLdZkDaio18M37SY7tmpIKEfXm6pyQwwYpyMaGn2EkPrrVFoSSui+NH59BPcwXOmB
-         dXVhKvi0eaA8a3J+LthiMtDKfTLPIuj57WLLvoKtaqter7IJ1OBRcRVXxL6WRQJPFe0B
-         w9xQ==
+        bh=wBU8+cAmg3igsvdbEi1eUF0PFheTO8LMlB0mvQPjR/Q=;
+        b=HSKg415ndxYm8VSCkMBcEH45ZWmlTlxYFHGaAptIGCcHZ5/oEsDIEMmdQGzSDJgL9w
+         l8Q4TW4QlDSvQ4SOQnkqr8UnhXD7TlYI98wtfoNeEO9YL7hbTfZIh+oqcN/M2xNrvRRo
+         gtcRi6CubY+qx+7cTNUmTmjpScMz5rjn/LJyFI9gDDdKegVQSz4Al497aFGhKv9JQW++
+         hGh09331a9S70RLvdeogs3irO36LIVs4aWYFdRR/hESswHuGaASVL9WlabO2UIzsAk4R
+         rQQ1x01Lh7SycMBfv827F7CcEZWUfkHddeu9JYhn/ZqHBcflQnGmsF1fWgIadSpZ4f4n
+         RSCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795884727; x=1796489527;
+        d=1e100.net; s=20260707; t=1795884729; x=1796489529;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7aKxz4tIl1oHn3UmDCWXIsWmjmNKo3P/L8xrY/Al+Zw=;
-        b=0kl9YyOVDg9QtVmhD86BaVAafRVRHIQ94DKYr7/8YBUjBMufqDVgcMM2BBmPBaLhni
-         LErbga7GfV6aGVVPgAujDxqT0T3+G3E768E5n3pN/lVD+/+734Y1HsQQLbRFLkOqsPBm
-         jLbOq8F/LxpwozZ5WJQa6SEz7yqVf5HC6knru1CJmqZUPyB0Pc+05alSWw9TgEn7yXfl
-         1LFqk+FHbFxeeie5+IfhAmngSu6pER79xMii+7JT5zF7yHFQRrqUi7Mo4Tsw4DrbrzvP
-         LWEmIB+jSFJTxULPGFtmfMXqHcuXT7PzO/Jdz9TwttBDtkbLOn4Hwijemu7caJvEDz7/
-         a5yA==
-X-Forwarded-Encrypted: i=1; AL+hErHurJQeZuvxpi47qKvLu9z8yvGe17y6PEIHZgeWr1HAtSjwuIGAcBTnk7bGhRgK8qOIaHt5zxvkB7ee3aU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89OR1techAtJO59wMRkaPIUcUNheljr8PKv1MR/uxvv0X96Cq5
-	JPjICaU5Ywjfq1U3zX+Hpywz3qFPcisYV6rHOTqQhWmD7YePLYYRzevgItstIc9Rdg==
-X-Gm-Gg: AZFdTZeFwzgsCG5UA6PgyLxkrg9b119n5m4ZgSdZzqFaFUyL2JaF2O1Bjg7gw8Z2VVX
-	obN3nFUlTzkZ2cRCsDVbnyXk1Oj4GU6jH7NfIC8XDf1aDMVs0c/+4rpi6yjzISMR4eLpoIwrBxO
-	iiGIZYHnOgB5Ze3CP55yNBDG0kRhIooLn6LCHVOA2wwdt1FSPj2tWdVhdlMtoHAf4FHdggDgQha
-	qOMxZnF1d7a8hly8zpTXw30E4M6K2mx+UYVzJsIh8izyTqEDuehMwtRk6UpNCrVySVXdSp/qUTk
-	umq7L4jOZHufMF1y1aEK41RV/Oh+IeSYyNVbWwwYI7wUukpH2AHcYM5JFPScBLaZV+NEzIv1l59
-	Mmi75cs55ZBcbFZ494PY+vTh9ptl72WJn2cn4bt+4G8EpYfyq451bZ+cYrDlNFt0+AyTEqrk8k8
-	7XftojP0P1fqzStvEIFwHrrJhDJk+ZdD5Qhg0IRw2E3qcyP3r4LY+w9U3KoLaQ9/2CenFciypmS
-	D+xbplJo9kGO1kRQhCnXcKsvVBajHyLCvUhIYPV7EW7oz6kOAXfjx5DsVAFp7LlJmAkhgwkCcFB
-	Xhx5MsyQqnCfKYOFI36tPZbF+fTB2EBWjn92ikmJz+GWwN0wZ8wPa4FZ1qaisjYBdkCZsuNkZhg
-	wuz6WXzGMuF8PqADqOmGzqw5+qmTqNRqDG1LQJz7c5Dlc1aCiFcpEy6koZkJkqDnAzb0QQ1hYKc
-	fGmgAcaDRaWwQyl6Odg+d39F6DbZB69jbQcR9jK5cHss4YYigGOLkJ5fxYVBKj+MQyAHLacEI+F
-	3nV5T4u+nnRgpaDw1Iz6wVsLWTpRYhYRC4tvTx6ObQsdM/aB84dwNl+rUG6IttGufjZy0snyUcI
-	94P2G4D69NmryQ==
-X-Received: by 2002:a17:906:f34c:b0:c46:9ca9:f522 with SMTP id a640c23a62f3a-c513aad4784mr1628075566b.26.1795884727205;
-        Sat, 28 Nov 2026 08:52:07 -0800 (PST)
+        bh=wBU8+cAmg3igsvdbEi1eUF0PFheTO8LMlB0mvQPjR/Q=;
+        b=HkQzv1XgwiAfdnmM2wzyqbsWcKpkg00IujiMs1TksZbx5pnx6mF29Pi/s8Qv8sGJbx
+         GQKGa6RP55EBnrjXQBLSexzvT/QLexR8TnHJyV/CiS46myXN+64K3E1Wxw40p5klAdmV
+         LtjYhGZ0+1PUcLb0mehHDTMv9eTsb9ygFexD0Lzt+1aOxBVfuQRU+7LKa3ON2Jpm5K7E
+         ppD1CTl5J/llhqK11TCDvaezoviVlOFl+6G3+z/1nBBfPN+Dlu7jWFU477WIGABOt2Xk
+         BcDMPGJO5m9YqlwpA+xjhT3Zp+hbKVFrdTPrADVRFSO/Nv5gdhPy33vU/YMlPMvAxAsn
+         UslQ==
+X-Forwarded-Encrypted: i=1; AL+hErH3c7LZvBn6vLX7bQL9o3W/WHs/Gx7SZ7zKcrMVPXTArBUaF3sgJvXHKGy1sbOCo8PUDoLnwpX47lGV8xY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QMLYEMcilBg1Yc1mbQDXX4fLY7hb/aYrBzN9aCIO4MJ0RhlOl
+	+diDqZjy3ZBYqsVTa9HNxvO8Ul8E+jlqMDDzyPOOAbckcV42SB+5DwYbNBWXowPHog==
+X-Gm-Gg: AZFdTZftjch12f9nViQDxapgV0quuq492i+KSifmse4Ydeq6+oiFs6Vy0eZaftQzgtp
+	3ctceNgbQ757WPd78m1OijpZAwae5iAkR9S1VXqApWG0joWwoadFm5TF60Oj905JHH50WdCy4NX
+	LbyatFepNXW89xzg1JOWXe/hSL+nJFCXec7GfuBseLaBlTilRz7KtmXAaTob2yAfJLCqElayhxt
+	izE4qq/1PdGQUbzHgixGcF05N1tGkIM5EmV+UO1nVB3nuZ25AKJoudQ8ibQce9nzVAI7yiOWsph
+	MSeh7IPoA98jEOC1x3LhXSiNm66beVIpVg0qQVbT3sabc1FfgZDrKvspOmYvMUua7gP02npsEts
+	S3ICHrEoSYiyBVp7JmeTxMpmLdZ2SW0JWgeeFwc5NnA9N058DzqymMwwoRTwAID4cBj8s4XZ/KX
+	U/ExxCi2aLLIatIWQH/4tvMC/gjlxwscwrc1WZ/8UjPxCrziUoOYyHqM1Q6XZJvqB7ezkpdYU9M
+	dGpoYHS38G+GvrPhXrC9CG3i8EadEp9TCk/KOK8atiM0aqEMKmMwPBCa+rpp1t4NyQpN1tfmSc6
+	pzwHpyPanJmEGLsZhxGst9puVExGo/xX5F/tP6jsvlmCL9A2gzJC92R5zh8/1b1q6hdT4cXMSDz
+	apjXjlgJ0doYFAI8gHG3jByi/bs8rToV70IjxsuOa3HE4e+pZi02YN9KY2Ve0zL6LkqmbytGiNc
+	yBRFanKa91I51ydItckm2ySuDeSB/zu8zMFOZQVFtYv7ENQQ5ofVJWovsuJcEPB3nA1mGCW1G4F
+	PpFS6p0xjAKK5YR5qVktLRUNu2ahXS7YsWVGM/V2bMWwGnORVFfdXBAQSIxWbJWeXr0RFsGHfn8
+	sE8r0h+xkT+I4Q==
+X-Received: by 2002:a17:906:b746:b0:c50:8d2b:4391 with SMTP id a640c23a62f3a-c513ac659d6mr1799294666b.37.1795884728782;
+        Sat, 28 Nov 2026 08:52:08 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net ([185.152.145.248])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea3537sm954627766b.36.2026.11.28.08.52.06
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea3537sm954627766b.36.2026.11.28.08.52.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 08:52:06 -0800 (PST)
+        Sat, 28 Nov 2026 08:52:08 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Vladimir Oltean <olteanv@gmail.com>,
@@ -100,9 +100,9 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Russell King <linux@armlinux.org.uk>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net 5/6] net: dsa: do not take a bridge number past the end of the bitmap
-Date: Sat, 28 Nov 2026 17:52:04 +0100
-Message-ID: <20261128165206.3248835-6-julius@bairaktaris.de>
+Subject: [PATCH net 6/6] net: dsa: keep a bridge number while another tree uses it
+Date: Sat, 28 Nov 2026 17:52:05 +0100
+Message-ID: <20261128165206.3248835-7-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261128165206.3248835-1-julius@bairaktaris.de>
 References: <20261128165206.3248835-1-julius@bairaktaris.de>
@@ -117,40 +117,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The bridge numbers in use are bits of dsa_fwd_offloading_bridges, one
-unsigned long, and dsa_bridge_num_get() searches it with
-find_next_zero_bit() over DSA_MAX_NUM_OFFLOADING_BRIDGES, which is
-BITS_PER_LONG. When every bit is taken, find_next_zero_bit() returns
-the size of the bitmap, and only "bridge_num > max" stands between that
-and set_bit(). mxl862xx sets max_num_bridges to 48
-(MXL862XX_MAX_BRIDGES), so on a 32-bit kernel the 32nd offloaded bridge
-gets number 32 and set_bit() writes past dsa_fwd_offloading_bridges.
+Bridge numbers are unique across all DSA trees, and a bridge spanning
+ports of two trees gets one number, which both trees use.
+dsa_port_bridge_destroy() puts the number when the last port of its
+own tree leaves the bridge, and dsa_bridge_num_put() clears the bit
+unconditionally, so the number is free while the other tree still
+offloads the bridge under it. The next bridge that gets a number then
+gets the same one: on a tag_8021q switch both bridges share a VLAN, on
+mv88e6xxx a cross-chip PVT row, and frames of one reach the ports of
+the other.
 
-Refuse a number at or past the size of the bitmap; the port is then
-bridged in software, as one beyond the switch's limit is.
+Clear the bit only when no tree offloads the bridge any more.
 
-Found by an LLM review (Claude).
+Found by an LLM review (Claude), and reproduced in QEMU with dsa_loop.
 
 Fixes: f5e165e72b29 ("net: dsa: track unique bridge numbers across all DSA switch trees")
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- net/dsa/dsa.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ net/dsa/dsa.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
 diff --git a/net/dsa/dsa.c b/net/dsa/dsa.c
-index 1c2a29678ac..67b5d2c42fb 100644
+index 67b5d2c42fb..bcb398615fc 100644
 --- a/net/dsa/dsa.c
 +++ b/net/dsa/dsa.c
-@@ -159,7 +159,8 @@ unsigned int dsa_bridge_num_get(const struct net_device *bridge_dev, int max)
- 		bridge_num = find_next_zero_bit(&dsa_fwd_offloading_bridges,
- 						DSA_MAX_NUM_OFFLOADING_BRIDGES,
- 						1);
--		if (bridge_num > max)
-+		if (bridge_num >= DSA_MAX_NUM_OFFLOADING_BRIDGES ||
-+		    bridge_num > max)
- 			return 0;
+@@ -177,10 +177,13 @@ unsigned int dsa_bridge_num_get(const struct net_device *bridge_dev, int max)
+ void dsa_bridge_num_put(const struct net_device *bridge_dev,
+ 			unsigned int bridge_num)
+ {
+-	/* Since we refcount bridges, we know that when we call this function
+-	 * it is no longer in use, so we can just go ahead and remove it from
+-	 * the bit mask.
++	/* The bridge is no longer offloaded by the tree that calls this, but
++	 * the number is global: another tree may still offload the bridge
++	 * under it.
+ 	 */
++	if (dsa_bridge_num_find(bridge_dev) == bridge_num)
++		return;
++
+ 	clear_bit(bridge_num, &dsa_fwd_offloading_bridges);
+ }
  
- 		set_bit(bridge_num, &dsa_fwd_offloading_bridges);
 -- 
 2.53.0
 
