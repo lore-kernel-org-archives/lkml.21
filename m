@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795886189;
-	b=TK1nEKkgFvdo90jj7TXhoMVkG5gF8iGkXY0jCwELW0KoUY5Cf55B4iccMgdkWFtw9d90
-	 BMvj1HrZiQd60Y26Ru1yWR+yTnd9M9Lednw/7rWU2kp1sxKvoy13LlxJOrgO4bAzXGrp5
-	 zR7O5EbT+XF2ZX3s7+zwHahJdFVP/TsLSRpHjmfOswcWOt2NxSAldUKsCYY+gApCm147+
-	 cj1Kc2QGcMrFfcshUbzU7aH8Yr+l2ePbK9HU0BerOTcV7ZM9AWekUqAOsnVIASJlHQNRs
-	 H76wZ2Ur9qKYGN6F9GxXoMDf9ZEY8kmchrXh+CQHFJbarinBwmWzl1dvKfe9JblZTXA==
+	t=1795886197;
+	b=v4bMNPjGxz1JO/35fYEDoNpL+GRsh9s2j2LnEw0EfWHmtFen25xq0Vd9AmVNs1HlZeRH
+	 3DJR7qSEJkELiF5EnxhSIbieKJEBK+yNLoHRO/kmpVdtIZJQCDVOToDNSsUvWtt6csB35
+	 svdbH2Ll7AAvhrAL5pjODhZQvX8UCtZMohvtZ9rwOxIxgGXgGqpZy+wqGTVJ0EDhCCFqT
+	 Tg2URBPrYyCYWnJsme0JE2oochFDJau8zs/2bF2tycAmnurmWhm+TNjnXMf9GPUe6SRtV
+	 srGw08LD2l2957V65qBRrlLn/LedN0sGHjqv8eUHTh/lmaSqT6dO4HgpVWyOEA/xt5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886189;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886197;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=4iuG6AWSDaowvXh/YsqYhfb5Mttxr4/Y9Bs8/UE258w=;
-	b=QyeSUjskLr6rOu4Dc0V6o0Uj3gxIZqpHNoDFYpS4RRCJHejJdql3IQLFCiAkXoPNSenL
-	 9dNU8nvceUOS/7xIx1/royqe6o0H0RFeA0C6Y+oILQcX8p148FrH/3e0oT7WhgzNOTpp+
-	 sBd6335JJuLkqMGIUBmgPX8GoRK94zL3f5CIF3ZrOD0oHS0j/1G2DmER0LgAbEP2OQw6d
-	 VAuncgTbkr/v7L34lW5lUWXxrvP0F9s2fDqiLfdqrgAJ5kkrvw/UAEtYkkST3+xXZTQCX
-	 s4R7Ye++t74qLxNTFOa/Eggoi1rArLbYXeLLib+Jf7tfARgbmDpJPd/n1ta6go+cAAg==
+	bh=jNYMppZjg59SlB0crJWhtTM6xqZHIPZ/g2F/6Oot1Wc=;
+	b=B/bcQPAmRwOacZZznauewb/6jM3GrKyJ8OfzRpqkrFeSz1VxmCSdFnpvlQDlrXbSNP3u
+	 c+gUT0KQtM+KeH8Lm6/OtlndRAEJQAgyJ4JUl15QFIKwvJigyVkBubF99OopfoU+ZSvH6
+	 qz9T4zxf+M8l+8xSK9+9PHivyw5UKcLS6TAhuqgBGuNJrIa4xlUhkNX8tBSav1Cgxrlwa
+	 6nRpYFZWUmFK5sSdlayk+/mmlyEq2TDxsJobTtAY4CVJzZdTAurVaAWIN3RmPxbtBKuVs
+	 Lbp/CpYxeihFvK7XsTkkYQNIjNPy5Y7hn0aOoPlhh+F28Oh8K/qw7xZ/jJElqWsRE/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iTtrTek8;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="powU/vWO";
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CAEF606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CAEF606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DFC8606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DFC8606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iTtrTek8
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-49412eb1474so5977454f8f.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=powU/vWO
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a358881793so4764783f8f.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795886188; x=1796490988; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795886195; x=1796490995; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4iuG6AWSDaowvXh/YsqYhfb5Mttxr4/Y9Bs8/UE258w=;
-        b=iTtrTek8HTlF7vvXfecmGgtPf7++ph/wNlp+jNUHx2NatlCDTF/vAlFArvtOJ3fxf+
-         PRlXFRmsW3fQHrVz0Qxa3EvXY7B/WKeo/8guTsF1NEd9pUvadhlNnwkF2Wx28pNXeR1z
-         f919hBOMFm+kkWCm+UNc+CKhvwDwPKU5/31ziaUE/Q8XiQVEdNjfF9TBdylQ/MZf6Oyk
-         w0AXBCWGHZNznXMxb6vGW/FBA76oQ9eHHFJdohpYO2mI909YNXaFm7oR7mmFp+ayuEUD
-         GGsBb2FlcETg1cWaheAw9HuwwrLp4yWA2XGC2KxoKxMUsG87CfpJRt2plvrrXMl5tBIg
-         KxDA==
+        bh=jNYMppZjg59SlB0crJWhtTM6xqZHIPZ/g2F/6Oot1Wc=;
+        b=powU/vWOkwVis6mGpRrjwGKrNsgqlTKVlPb07gSGwanEmuaeV7CUp68phmpSEtUV9P
+         Av2tBnGEVgjRixC7EETpi3qAalgy3cNXp9tcguJefO6xIHSwbuwY7kMPz0oqMpb+wABS
+         GNls0EcCEGk6eVwfwfqY3PuINmVypN213Hg2ns4nSYdMmzpIwGsoQL7Yco/qytGyh2g7
+         DhrHm2lMG2KL/YKXRuti3wVMBv5YYuepucDflGrfa68GaMhtg9XbS9Z23h+YNMeZLPYn
+         pJvtTPvZkCRrdcBFvLX+OikClerWLofp2NCIfK+LNnv0rxoTExiqhwXGklf2sudcDxrd
+         NapA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795886188; x=1796490988;
+        d=1e100.net; s=20260707; t=1795886195; x=1796490995;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4iuG6AWSDaowvXh/YsqYhfb5Mttxr4/Y9Bs8/UE258w=;
-        b=okdaGDBZDvH46cAX5N/iSvPoqNi90Gvkw4pc6wv8TEQGOzniI7xqKO508iTG0pusa1
-         gUd6GEZLQ/8+wbALQQSDQ9aXp2Z19BHvP506snP/L8rGoRWqcSxKI4cZUrscPSZv+4j2
-         Lhi/rksi5xz9JYNiyJXdJFaDkjeQEn8j8WtQgWlRD+CIIqwNE3BscT6OeyNjPMtVX35T
-         Mcm1RSF68bL79+jEzwAke4+nkhL7CCCelXuQsowMlyV9setVlNcp0a9m0e6kb7D0L348
-         0KagULyrzDzg6GdxkN1ya09v3NMllSIxWPlCgOm9won+zE+Ih0SdqeIdWaFAvkSvsXIa
-         tTcA==
-X-Forwarded-Encrypted: i=1; AL+hErEjlJcT2EMRHULA3p4gODb58dexKp0UlhHn2v3jR9953lzYu/NTqY/5JRmlnY5VUDzoeGoUSq0O0XqWhlM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+oIEADgBXUJ9YANilG7V1yJE1j3en5HizsRqeWwnJ2bM70HlI6
-	5JKMYZN35GmM0mI8YuRC1dSweW1j0nGNzh6oV+RF8NdOE5Kr7YP9HOp+
-X-Gm-Gg: AZFdTZdE1qnUvO+RN/dDGUa4uY7VbQk47mSMSgErfrC10gl/C5t0rQDanByYThrTCMt
-	gHeoUt85nY0AG9UHGBlizA5TO3GMg3Vl5+VHNEcqOFinuO+GlZehgToX7S7VXtFGBfYfOkNXbHq
-	mG2r7JYq7kC/HacNjF+r4HmqnNbBkOsOJu1su1i/MOVdZsTnwUVw5k0Qvt/Wpso6JpXdWit+60f
-	XgU6/qcUHX5FiAiVg4ejBoti+fFFkd6Qvef938uAaQBg0xGmAHOOaOWWXxPVk1au84MHDEFI53w
-	DdBAGQMUeXkgrm7OO2RQMr7cTcdMniCx9oBXc6IKGfnUtH1Q3AZntjCb3eHPWCKeISPwWUD80JT
-	ZKfedJv89nnVgzt+B8BxXg0Gca1OpAUE6uank1y0Otd5aQT2A8VsO3Ktta4UC8Z5uh1BanWU7PH
-	r2RSdC7MhFYuy8KE4LJvRNpcH6nRHKeMcVtasCBtxOoWv1cLfKgkapYf54gkCdcY3xBUWMSWDGY
-	K/r2liHJjdrDyCLRLTloSL+PP90zVpsEClHa/B3sgqWtV7paJsvDBQsWykPSEDUUX2Zgw4GPYZc
-	LV8a48mou/uGnTr65I3MUHLB9dt/xrtpuTyrSw==
-X-Received: by 2002:adf:e009:0:10b0:492:b1c5:6db4 with SMTP id ffacd0b85a97d-4abb4c7ab68mr39436606f8f.26.1795886187873;
-        Sat, 28 Nov 2026 09:16:27 -0800 (PST)
+        bh=jNYMppZjg59SlB0crJWhtTM6xqZHIPZ/g2F/6Oot1Wc=;
+        b=pLv52GRC2M1RoG6mRaZ42XXbKfn3yBHybN23SC6WPypWdQwfXmGBl07TQInfMXnpZJ
+         wFT5Rz8Ggcj/TvgDcH9uvZ7qez7hTsP41euVTW/2Yf3XeC/3txmX34hSw/lXM+0TgCaT
+         okja2JRezD3xmUetPGg+EbXhUPXITu4lppqLgGQLwKZgquERBkS/VuL7aRRIwpQPsZkR
+         CEqZ+MmFAqarrU0RwwgpQwBgV1Pce/6oWooMRxR8GGuFakPRY3+j1rWy/AHgPYTtBSwV
+         AWoi/ON4OsGrcIM9ieHG/a74fIfuG1n8/1BO+gJr/qrN4JeUFxzXD295sHdpkHlj1hVD
+         gt+g==
+X-Forwarded-Encrypted: i=1; AL+hErHR+Wc4ptE9Y1tFAJzPgxtZYKHojF67CRruej9SrlVJVB6xk85eaNJCvovNWfcqp33ANCG4Pi9Ycq310R0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RDCZ2wQ5qKt2aIxY+RTVJaGIpN982JYNhtX2UNzWabiJd1qrd
+	6DuyrvrhsinZHjFwIMN039kAHfCIKcL1y3SqQO2MYlFueJzisT8kOh8y
+X-Gm-Gg: AZFdTZcvc7HPWdl+h+oA52BFmat9/kXWyCJD7iaR2uq9owz5J9sew38nfSvaO4AegyB
+	LB41n5KvB2MniIpNFSwNQRn31U0Mumfv5h0HKwCxhyCVctf1vOifnNVy2s99dyoG6W8lvVKnyJU
+	JybL2UEFo8u8HLaXTWzcewxyipX+B2Y3TflseK7wvhZ+YO5K9GhRtBWTmZLrJSMQq9muTXTer9+
+	Ob/r+IrvJGTNL683ZSp5KmT+5I7EbQ+SChgq3Vb+DEUrTbmpgu04Y2qr3O8Dhofbc0QAkl7oz02
+	vjHgo4/Hcd2IupZrJxR2aIfSDTwkfjeYyEUmh5ngPm6yQ0jnrgAY5xes5JjjkopZXXZ1f6nStqU
+	ZvU5IAq9cGOBZcaAc9M/B0EDsx3JC31SOWhVJ9/7UlCVJCBmeqdFhvXPkhVNQxbvoPOEkfKAfcd
+	g5u66z4HgRgdepKifnpLzxM6AgdIyXDIVgAE8Tyr3tt3Z0DtiYP8WdKjY9ak7x5PZSzwzI9gkef
+	TRwoYRQys3XeKOC6yK1W1bNniGXE3mMNCAB4scucTjqZYALibT8IVK3RnvN3QPznq9BbPXCHDdE
+	K9wZDadQmo1hzCWAA9q3y/hES3oFXRH+Qw5YqQ==
+X-Received: by 2002:a05:6000:40ca:b0:4a3:976e:27a2 with SMTP id ffacd0b85a97d-4abb5146238mr55058904f8f.34.1795886195360;
+        Sat, 28 Nov 2026 09:16:35 -0800 (PST)
 Received: from [10.56.169.198] ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.16.20
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.16.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 09:16:26 -0800 (PST)
+        Sat, 28 Nov 2026 09:16:34 -0800 (PST)
 From: Oarora Etimis <oaroraetimis@gmail.com>
-Date: Sat, 28 Nov 2026 18:15:24 +0100
-Subject: [PATCH 6/7] drm/vkms: add a multiplier colorop
+Date: Sat, 28 Nov 2026 18:15:25 +0100
+Subject: [PATCH 7/7] drm/vkms: add KUnit coverage for the 3D LUT and
+ multiplier colorops
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-colorop-v1-6-dd79919f822b@gmail.com>
+Message-Id: <20261128-colorop-v1-7-dd79919f822b@gmail.com>
 References: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 In-Reply-To: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 To: Louis Chauvet <louis.chauvet@bootlin.com>, 
@@ -108,89 +109,138 @@ To: Louis Chauvet <louis.chauvet@bootlin.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 
-Add a multiplier colorop that scales the channels by an S31.32 gain. The
-value is sign-magnitude like the 3x4 matrix, so it goes through
-drm_sm2fixp() first.
+The 3D LUT test uses a 2x2x2 identity LUT with inputs that reach all six
+tetrahedra, and checks that values outside [0, 1] saturate. The
+multiplier test covers gains of 1.0, 0.5, 2.0 and -0.5.
 
 Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
 ---
- drivers/gpu/drm/vkms/vkms_colorop.c  | 17 +++++++++++++++++
- drivers/gpu/drm/vkms/vkms_composer.c | 14 ++++++++++++++
- drivers/gpu/drm/vkms/vkms_composer.h |  1 +
- 3 files changed, 32 insertions(+)
+ drivers/gpu/drm/vkms/tests/vkms_color_test.c | 105 +++++++++++++++++++++++++++
+ 1 file changed, 105 insertions(+)
 
-diff --git a/drivers/gpu/drm/vkms/vkms_colorop.c b/drivers/gpu/drm/vkms/vkms_colorop.c
-index cceb9acca0da..1e1e470be4dd 100644
---- a/drivers/gpu/drm/vkms/vkms_colorop.c
-+++ b/drivers/gpu/drm/vkms/vkms_colorop.c
-@@ -157,6 +157,23 @@ static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_pr
- 
- 	drm_colorop_set_next_property(ops[i - 1], ops[i]);
- 
-+	i++;
-+
-+	/* 8th op: multiplier */
-+	ops[i] = kzalloc_obj(*ops[i]);
-+	if (!ops[i]) {
-+		drm_err(dev, "KMS: Failed to allocate colorop\n");
-+		ret = -ENOMEM;
-+		goto cleanup;
-+	}
-+
-+	ret = drm_plane_colorop_mult_init(dev, ops[i], plane, &vkms_colorop_funcs,
-+					  DRM_COLOROP_FLAG_ALLOW_BYPASS);
-+	if (ret)
-+		goto cleanup;
-+
-+	drm_colorop_set_next_property(ops[i - 1], ops[i]);
-+
- 	list->name = kasprintf(GFP_KERNEL, "Color Pipeline %d", ops[0]->base.id);
- 
- 	return 0;
-diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-index 51ac2ae75cf0..b94c51264c64 100644
---- a/drivers/gpu/drm/vkms/vkms_composer.c
-+++ b/drivers/gpu/drm/vkms/vkms_composer.c
-@@ -365,6 +365,17 @@ VISIBLE_IF_KUNIT void apply_3dlut_to_pixel(struct pixel_argb_s32 *pixel,
+diff --git a/drivers/gpu/drm/vkms/tests/vkms_color_test.c b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
+index 0d68de6462d9..15f71a977ed9 100644
+--- a/drivers/gpu/drm/vkms/tests/vkms_color_test.c
++++ b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
+@@ -205,6 +205,108 @@ static void vkms_color_test_lut32_single_entry(struct kunit *test)
+ 						     0xffff, LUT_RED));
  }
- EXPORT_SYMBOL_IF_KUNIT(apply_3dlut_to_pixel);
  
-+VISIBLE_IF_KUNIT void apply_multiplier_to_pixel(struct pixel_argb_s32 *pixel,
-+						u64 multiplier)
++/*
++ * A 2x2x2 identity LUT: every corner maps the axis index to the same
++ * value, so any input has to come back unchanged. The entries are ordered
++ * with red as the fastest moving index, as the uapi documents.
++ */
++static const struct drm_color_lut32 test_lut3d_identity[] = {
++	{ 0x00000000, 0x00000000, 0x00000000, 0 },
++	{ 0xffffffff, 0x00000000, 0x00000000, 0 },
++	{ 0x00000000, 0xffffffff, 0x00000000, 0 },
++	{ 0xffffffff, 0xffffffff, 0x00000000, 0 },
++	{ 0x00000000, 0x00000000, 0xffffffff, 0 },
++	{ 0xffffffff, 0x00000000, 0xffffffff, 0 },
++	{ 0x00000000, 0xffffffff, 0xffffffff, 0 },
++	{ 0xffffffff, 0xffffffff, 0xffffffff, 0 },
++};
++
++static void vkms_color_test_lut3d_identity(struct kunit *test)
 +{
-+	s64 gain = drm_sm2fixp(multiplier);
++	static const struct {
++		u16 r, g, b;
++	} cases[] = {
++		{ 0x0000, 0x0000, 0x0000 },
++		{ 0xffff, 0xffff, 0xffff },
++		{ 0x8000, 0x8000, 0x8000 },
++		{ 0xffff, 0x0000, 0x0000 },
++		{ 0x0000, 0xffff, 0x0000 },
++		{ 0x0000, 0x0000, 0xffff },
++		{ 0x8000, 0x4000, 0x1000 },
++		/* One input per tetrahedron the lists above do not reach. */
++		{ 0x9000, 0x1000, 0x5000 },
++		{ 0x5000, 0x1000, 0x9000 },
++		{ 0x1000, 0x9000, 0x5000 },
++		{ 0x1000, 0x5000, 0x9000 },
++	};
 +
-+	pixel->r = drm_fixp2int_round(drm_fixp_mul(drm_int2fixp(pixel->r), gain));
-+	pixel->g = drm_fixp2int_round(drm_fixp_mul(drm_int2fixp(pixel->g), gain));
-+	pixel->b = drm_fixp2int_round(drm_fixp_mul(drm_int2fixp(pixel->b), gain));
++	for (size_t i = 0; i < ARRAY_SIZE(cases); i++) {
++		struct pixel_argb_s32 pixel = {
++			.r = cases[i].r,
++			.g = cases[i].g,
++			.b = cases[i].b,
++			.a = 0xffff,
++		};
++
++		apply_3dlut_to_pixel(&pixel, test_lut3d_identity, 2);
++
++		KUNIT_EXPECT_EQ(test, cases[i].r, pixel.r);
++		KUNIT_EXPECT_EQ(test, cases[i].g, pixel.g);
++		KUNIT_EXPECT_EQ(test, cases[i].b, pixel.b);
++		KUNIT_EXPECT_EQ(test, 0xffff, pixel.a);
++	}
 +}
-+EXPORT_SYMBOL_IF_KUNIT(apply_multiplier_to_pixel);
 +
- 
- static void apply_lut(const struct vkms_crtc_state *crtc_state, struct line_buffer *output_buffer)
++/* A value outside [0, 1] saturates at the LUT input instead of wrapping. */
++static void vkms_color_test_lut3d_clamp(struct kunit *test)
++{
++	struct pixel_argb_s32 pixel = {
++		.r = -1,
++		.g = 0x10000,
++		.b = 0xffff,
++		.a = 0xffff,
++	};
++
++	apply_3dlut_to_pixel(&pixel, test_lut3d_identity, 2);
++
++	KUNIT_EXPECT_EQ(test, 0x0000, pixel.r);
++	KUNIT_EXPECT_EQ(test, 0xffff, pixel.g);
++	KUNIT_EXPECT_EQ(test, 0xffff, pixel.b);
++}
++
++static void vkms_color_test_multiplier(struct kunit *test)
++{
++	struct pixel_argb_s32 pixel;
++
++	/* 1.0 leaves the pixel unchanged. */
++	pixel = (struct pixel_argb_s32){ .r = 0x8000, .g = 0x4000, .b = 0x2000 };
++	apply_multiplier_to_pixel(&pixel, 1ULL << 32);
++	KUNIT_EXPECT_EQ(test, 0x8000, pixel.r);
++	KUNIT_EXPECT_EQ(test, 0x4000, pixel.g);
++	KUNIT_EXPECT_EQ(test, 0x2000, pixel.b);
++
++	/* 0.5 halves every channel. */
++	pixel = (struct pixel_argb_s32){ .r = 0x8000, .g = 0x4000, .b = 0x2000 };
++	apply_multiplier_to_pixel(&pixel, 1ULL << 31);
++	KUNIT_EXPECT_EQ(test, 0x4000, pixel.r);
++	KUNIT_EXPECT_EQ(test, 0x2000, pixel.g);
++	KUNIT_EXPECT_EQ(test, 0x1000, pixel.b);
++
++	/* 2.0 doubles every channel. */
++	pixel = (struct pixel_argb_s32){ .r = 0x4000, .g = 0x2000, .b = 0x1000 };
++	apply_multiplier_to_pixel(&pixel, 1ULL << 33);
++	KUNIT_EXPECT_EQ(test, 0x8000, pixel.r);
++	KUNIT_EXPECT_EQ(test, 0x4000, pixel.g);
++	KUNIT_EXPECT_EQ(test, 0x2000, pixel.b);
++
++	/* A negative gain flips the sign; the composer clamps it at the end. */
++	pixel = (struct pixel_argb_s32){ .r = 0x8000, .g = 0x4000, .b = 0x2000 };
++	apply_multiplier_to_pixel(&pixel, (1ULL << 63) | (1ULL << 31));
++	KUNIT_EXPECT_EQ(test, -0x4000, pixel.r);
++	KUNIT_EXPECT_EQ(test, -0x2000, pixel.g);
++	KUNIT_EXPECT_EQ(test, -0x1000, pixel.b);
++}
++
+ static void vkms_color_srgb_inv_srgb(struct kunit *test)
  {
-@@ -489,6 +500,9 @@ static void apply_colorop(struct pixel_argb_s32 *pixel,
- 	case DRM_COLOROP_3D_LUT:
- 		apply_3d_lut(pixel, state);
- 		break;
-+	case DRM_COLOROP_MULTIPLIER:
-+		apply_multiplier_to_pixel(pixel, state->multiplier);
-+		break;
- 	case DRM_COLOROP_FIXED_MATRIX:
- 		break;
- 	default:
-diff --git a/drivers/gpu/drm/vkms/vkms_composer.h b/drivers/gpu/drm/vkms/vkms_composer.h
-index 28323df662a4..5546ee864504 100644
---- a/drivers/gpu/drm/vkms/vkms_composer.h
-+++ b/drivers/gpu/drm/vkms/vkms_composer.h
-@@ -26,6 +26,7 @@ u16 apply_lut32_to_channel_value(const struct drm_color_lut32 *lut, u32 lut_size
- 				 u16 channel_value, enum lut_channel channel);
- void apply_3dlut_to_pixel(struct pixel_argb_s32 *pixel,
- 			  const struct drm_color_lut32 *lut, u32 size);
-+void apply_multiplier_to_pixel(struct pixel_argb_s32 *pixel, u64 multiplier);
- void apply_3x4_matrix(struct pixel_argb_s32 *pixel, const struct drm_color_ctm_3x4 *matrix);
- #endif
- 
+ 	u16 srgb, final;
+@@ -474,6 +576,9 @@ static struct kunit_case vkms_color_test_cases[] = {
+ 	KUNIT_CASE(vkms_color_test_lut32_three_points),
+ 	KUNIT_CASE(vkms_color_test_lut32_single_entry),
+ 	KUNIT_CASE(vkms_color_test_lut32_descending),
++	KUNIT_CASE(vkms_color_test_lut3d_identity),
++	KUNIT_CASE(vkms_color_test_lut3d_clamp),
++	KUNIT_CASE(vkms_color_test_multiplier),
+ 	KUNIT_CASE(vkms_color_srgb_inv_srgb),
+ 	KUNIT_CASE(vkms_color_ctm_3x4_50_desat),
+ 	KUNIT_CASE(vkms_color_ctm_3x4_bt709),
 
 -- 
 2.56.1
