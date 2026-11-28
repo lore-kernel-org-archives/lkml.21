@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795832891;
-	b=BNtPpUT7nsLGUTdCnr9Pj/6F/vMrFX6j8KKpz03Pzh7x78mgtIg8fZUHghyZlNvdoqdU
-	 co4QAizSeKQN9X1ReRlK8T8ohF+KuCnCwTtf5KTPEuN1htQHkrh4q/lSr6kseEDyf9arT
-	 ju+f94hap11Uv4tGkibBUTURT1nH/AHTauVufa7hPGrZNGWpThfBSLK8rZG92WSXcvvfr
-	 r44QfvZaF2tDxjN/wPQt2EwLQqpyHxnZave55eH4zJJHkGPnSnrFU+h5zG+mgrDn/T/IB
-	 tW+LY69fe4MDZq/zI4WKqS1uIsEh6RjEDKupkE2GLkWQ+HGZb7KvciPEcj66VBxaqZA==
+	t=1795833096;
+	b=KqCi3keJbNjhC7OM/GxVKu+FcVF3SAt0gbbaGdQNqkAOZfClrp/FH0UIIRgOSlv/Y+V8
+	 RqVZpmXWk95XDZtY7QtQzx65Ikae/MU4cn8fYb0L3oKbLO9URj/x8cQEsRjHXzWAZZfSY
+	 hiuJ69bPakRAz4kBqttj/dDfX89u5HYZ+uC7FoDwUlifjZHZkjBTx0c6LLbI67XquWNF0
+	 rtcg4bCQyiR5bEeH+Hd5CJWHV4svdEBS+0+jJvUuClauLo3mit4decWaWjxvZARQwpU+9
+	 VNJ4EmtEkAReUIIxIL7PDXGY1bKClp7y/GJ6LXB8d0ej0BoYxgFw01+Dmyz0nNbpgLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795832891;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=c1c/DesJfIYeB0WsoQ8tXGiEzQczhVXU/PKcW1gWX3k=;
-	b=3QYSFVuNEb47QOzdE0xC2vxEa554LbztTck/kTnwSP1xA2wB3EG3ohQYhycUfK7dYM7P
-	 P+L5wCOCrX9Cyl+sDkC1U7gtjOGvBDcv7ebWHoh61Skgx3H3dLSoOqv9M7vvCegplXjtC
-	 DOyzqjF8BDOU3SY7NXPvuVC8jDGf6R2xj/B4ZdPYnH9c1Bh1+taJzaXAcyo7obEXO515B
-	 shF/EdBnkdp4gK0MTqA926Z4Tl2IRMRkDyep+0K0ah6he7m6VPYpV2wQDAie22ZaP2Jyn
-	 J9LgdJtqJWaRRg1Bvg7tl/Po2CXiuTjMl8SKx9BwrN6W59GP8zEtBkbvesZN2g6J4xg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795833096;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VtFNi8cB6WM7FpUP6o6VT1D+XWcmFi3d3WO/9cxQ8vA=;
+	b=1u7gy/I08cK/ITAhI3h0AYZx3Q7slumDTZY3HZx5OnC8e+oTqESoCpTPPPCdHn+Z7/i2
+	 yLwRfApHnGIzEhspSEjupGIlTSOuVG/kUZpS/lqM3kwchoGgCfQH4Sn9yasANMSLMU79b
+	 oE8lSmGgTn+6KAoZ6eR6hEbfqo2Ccq6aA4WkBTq3Cl9B3KmjaemJ66+2WPMdDNSkqjZO+
+	 5/eaMgO7L/LBuIo9uadpV873yr+Fai5+PQOLIorBjqczNf26lyPZz71bDostBJEJl5p/k
+	 16Nrf+lrXUAYyL9zWVKllXHWiM1pJ59ghJGiBePrnniDM+ut8OrMD+aJnWfqenCvWSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EGYoA9hh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YKwd3ZEp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 175C0606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:28:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CEFF606A31C;
+	Sat, 28 Nov 2026 02:31:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EGYoA9hh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AD3E1F0089B
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:28:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YKwd3ZEp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C06A1F00893;
+	Sat, 28 Nov 2026 02:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795832890;
-	bh=c1c/DesJfIYeB0WsoQ8tXGiEzQczhVXU/PKcW1gWX3k=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EGYoA9hhCjowWdIAbP7tXR7N3fUr4v+CF3Lg6C9dczDRQRvDBJPnfyBjAFIjKVrsV
-	 CvKjxO/JZ7+LVw6Uw4nIOhDQmh5MvUeItBXvDiazTiMrR3JQP+nx6IC1InwcJz1huz
-	 wc9HKHi52k+wq7HYllG+tw7VXo6seoVEiADiScI5QeSClu3fv1Xjz1ZMg7vHYmZZ83
-	 TDk2ScXKL1/yx4hdSRM4onuQypX0OFAJdu8NcNq12oTs59Op1m0lwro+YH6mbWluI9
-	 B3gbNd85MSLuuqMc8osMx4SOni8rdcr+LQ3Oy3PlxhHVXcB3OAea2c2NqcNaDocezD
-	 UuTkyFHvXdkmA==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c5188e4980fso536250866b.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:28:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHoVgByHVaOR5Z1q2i60Ppb3Rh3rr4pU78ffj+p0SWzxNmsy8rwijoCxINCq/xC4+pG2auFojBzB/QekZk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9UMGDE/L6ARrOmnheyiM6j8mmYtyCXXIJxd03CNnsc/e2Zu4EI
-	y7TGWzSnLxWgXW74v7slhtqbcXHxqB2O85LAQL3gxG45eyMClPxNTQL/BcK02i1r4UZGX08lNZ2
-	4eUxU8YeWMfPfKJ3mDZ1yb5W/4wwDos8=
-X-Received: by 2002:a17:907:3e88:b0:c26:1648:a06b with SMTP id
- a640c23a62f3a-c513aae0416mr2230275866b.38.1795832889217; Fri, 27 Nov 2026
- 18:28:09 -0800 (PST)
+	s=k20260515; t=1795833096;
+	bh=VtFNi8cB6WM7FpUP6o6VT1D+XWcmFi3d3WO/9cxQ8vA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=YKwd3ZEpRbeT+6VpV/NDRoG5l4H9yNv/hSChadINerHYzo+ZvPAmezrpqsZlRcJfc
+	 fkizaDfxkgOVrUpdYUyI4UuDgsbJ4q1ibguBkOjDvQEGW7ghUrghzhITelsgHrrdRP
+	 +MVjtJ9B6Wp1BWcItbv1kZ1fDP8dp9FlVxefPXToMtf00FJd1EJvg46tN6XcWTX3Sl
+	 qB4IrwUnip/UzKlEdP7+yA/xBgdbWnZwncmAdTmwRgoDtbHDKN9DSpUdW+QeO0uX/X
+	 2XsolnTyViw8x6CWtVaTr4UYzdpwrJVgGwm56Bygjn8iEir1zYMkHCgdmxvqQh0MNy
+	 n+ouAs0fveUxQ==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Antoine Tenart <atenart@kernel.org>, mathieu.desnoyers@efficios.com, vmalik@redhat.com, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, "Uladzislau Rezki (Sony)" <urezki@gmail.com>
+Subject: Re: [PATCH] tracing/probes: fix race between probe execution and event unregistering
+Date: Sat, 28 Nov 2026 11:31:32 +0900
+Message-ID: <undine-1795833092601383688-d1e19625e907c2ec@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261127140616.20616c68@gandalf.local.home>
+References: <20261126132830.14992-1-atenart@kernel.org> <20261127140616.20616c68@gandalf.local.home>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,40 +58,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261128013952.1691873-1-icb@fastmail.org>
-In-Reply-To: <20261128013952.1691873-1-icb@fastmail.org>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sat, 28 Nov 2026 11:27:56 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd-qC2UZbsOUEWvt3mhViwOyvHEqHt9hLK5+aiiuMC-4iQ@mail.gmail.com>
-X-Gm-Features: Aa3M54ooocUz19P9sN5SRm16xxX0RdiCpiepjGD7Php6t0kAfJjqhfTnDb74ptk
-Message-ID: <CAKYAXd-qC2UZbsOUEWvt3mhViwOyvHEqHt9hLK5+aiiuMC-4iQ@mail.gmail.com>
-Subject: Re: [PATCH] ksmbd: return the cause of a failed link
-To: Ian Bridges <icb@fastmail.org>
-Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
-	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-> @@ -8967,8 +8965,6 @@ static int smb2_create_link(struct ksmbd_work *work,
->                         goto out;
->         }
->         rc = ksmbd_vfs_link(work, target_name, link_name);
-> -       if (rc)
-> -               rc = -EINVAL;
-When smb2_create_link() passes through errors from the backing
-filesystem, smb2_set_info() needs to map them to the appropriate
-NTSTATUS values for FileLinkInformation. For example, vfs_link()
-returns -EPERM when the filesystem has no ->link operation, as on
-exFAT. With this patch, ksmbd returns STATUS_ACCESS_DENIED. The
-expected status is STATUS_NOT_SUPPORTED. Also, -EMLINK should map to
-STATUS_TOO_MANY_LINKS. We should check the NTSTATUS mappings for the
-other errors this patch propagates as well...
+On Fri, 27 Nov 2026 14:06:16 -0500, Steven Rostedt <rostedt@goodmis.org> wrote:
+> On Thu, 26 Nov 2026 14:28:30 +0100
+> Antoine Tenart <atenart@kernel.org> wrote:
+> 
+> > 
+> > Hi,
+> > 
+> > I found this while debugging another (downstream) issue, reusing the
+> > same reproducer on mainline. The reproducer registers/enables and
+> > disables/unregisters a kretprobe on a syscall in a loop while triggering
+> > it (I can share if you're interested). It should work with other probe
+> > types.
+> > 
+> > I'm not versed into the tracing subsystem so I went the safe way and
+> > reverted back to the previous behaviour. There might be something more
+> > clever to do.
+> 
+> I would hate having to put back the inline synchronize_rcu() as that has
+> noticeable impact on removing kprobes.
+> 
 
-Thanks.
->  out:
+Agreed. This kfree_rcu() method seems better, because this is not only
+kprobes, but also other trace_probe based events have the same problem.
+
+Thank you!
+
+> 
+> > 
+> > Thanks!
+> > Antoine
+> > 
+> >  kernel/trace/trace_probe.c | 8 +++++++-
+> >  1 file changed, 7 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/kernel/trace/trace_probe.c b/kernel/trace/trace_probe.c
+> > index cff55dcae36f..8addaf641431 100644
+> > --- a/kernel/trace/trace_probe.c
+> > +++ b/kernel/trace/trace_probe.c
+> > @@ -2841,7 +2841,13 @@ int trace_probe_remove_file(struct trace_probe *tp,
+> >  		return -ENOENT;
+> >  
+> >  	list_del_rcu(&link->list);
+> > -	kvfree_rcu_mightsleep(link);
+> > +
+> > +	/*
+> > +	 * Synchronize with probes being executed. This is not only for freeing
+> > +	 * link but also for related objects (e.g. link->file).
+> > +	 */
+> > +	synchronize_rcu();
+> > +	kvfree(link);
+> >  
+> >  	if (list_empty(&tp->event->files))
+> >  		trace_probe_clear_flag(tp, TP_FLAG_TRACE);
+> 
+> Would something like this work? I haven't fully tested it though:
+> 
+> diff --git a/kernel/trace/trace_probe.c b/kernel/trace/trace_probe.c
+> index cff55dcae36f..c249256dea80 100644
+> --- a/kernel/trace/trace_probe.c
+> +++ b/kernel/trace/trace_probe.c
+> @@ -2812,6 +2812,7 @@ int trace_probe_add_file(struct trace_probe *tp, struct trace_event_file *file)
+>  		return -ENOMEM;
+>  
+>  	link->file = file;
+> +	event_file_get(file);
+>  	INIT_LIST_HEAD(&link->list);
+>  	list_add_tail_rcu(&link->list, &tp->event->files);
+>  	trace_probe_set_flag(tp, TP_FLAG_TRACE);
+> @@ -2831,6 +2832,14 @@ struct event_file_link *trace_probe_get_file_link(struct trace_probe *tp,
+>  	return NULL;
+>  }
+>  
+> +static void free_link_rcu(struct rcu_head *rcu)
+> +{
+> +	struct event_file_link *link = container_of(rcu, struct event_file_link, rcu);
+> +
+> +	event_file_put(link->file);
+> +	kvfree(link);
+> +}
+> +
+>  int trace_probe_remove_file(struct trace_probe *tp,
+>  			    struct trace_event_file *file)
+>  {
+> @@ -2841,7 +2850,7 @@ int trace_probe_remove_file(struct trace_probe *tp,
+>  		return -ENOENT;
+>  
+>  	list_del_rcu(&link->list);
+> -	kvfree_rcu_mightsleep(link);
+> +	call_rcu(&link->rcu, free_link_rcu);
+>  
+>  	if (list_empty(&tp->event->files))
+>  		trace_probe_clear_flag(tp, TP_FLAG_TRACE);
+> diff --git a/kernel/trace/trace_probe.h b/kernel/trace/trace_probe.h
+> index d1fb3520700f..aecc9f24951d 100644
+> --- a/kernel/trace/trace_probe.h
+> +++ b/kernel/trace/trace_probe.h
+> @@ -281,6 +281,7 @@ struct trace_probe {
+>  struct event_file_link {
+>  	struct trace_event_file		*file;
+>  	struct list_head		list;
+> +	struct rcu_head			rcu;
+>  };
+>  
+>  static inline unsigned int trace_probe_load_flag(struct trace_probe *tp)
+> 
+> -- Steve
+> 
 >
->         if (!IS_ERR(link_name))
->
-> base-commit: 4543a3349127baa8395397b7f4aa930d9a4f8dd5
-> --
-> 2.47.3
->
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
