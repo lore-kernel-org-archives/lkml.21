@@ -1,56 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795854525;
-	b=F50G3Jm1Uz/ahHhwtiz/hJxKlqBaoDNXK+h4fzuRrsKCAurDaiJgFzN/o13uvbsnr2of
-	 kie4K3cH+hH3g0piIYoX2u0ckLMBx5ACf5Ite5L1qT4URGrMk7SjbuSYnfnY0NY3D+HcQ
-	 Gqy+rfZAW/87TOApOeLhDRxg1GrQQNf2oJNE3kzUA8m4Ume05J0QQ+c5DQHadFkjPlFwE
-	 PoU0BuZ8o0iEJpCIJefyGBXKqWDqpbShzT1JFbga2Pwhpj4mn33U3ZLKKjnqJUOldwP+7
-	 kl/Fs1x6mybE8Yql/8WvCwMc+MpsAia/AGsl3dR5hEk6LtpTMFZlHV2t0/3DUcLIJiw==
+	t=1795854530;
+	b=PtEKfQq708xNg17BO/eye1b2F4hhL0MtjLv400KxqoXqgckl12qyrnkQ1uwlGEYR1sTg
+	 oJspOjDmmGhvDswhms1aIWK0HC8uCodzT7N62MRMKIIdBAGzk5HkGixxI1zKUEhNKb04u
+	 cKTGjy1GaRjICkgUvQZFpyDRLlDHRauFWKGpEiXLUqJ+/tWIEM7d9Z+O/ELd0tpHtDCFV
+	 m97oYI7daD6J6uvZynep+UUBeTBljiXl84zP4bU2csLP4gGkcUu0mt6+vkx08D0DIRRW/
+	 K210zyJof66FwHjcd5c86ZtGFnbR1rR31O4MVYL3HrfStdETQfAW+TVFYEXWiMGbEbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795854525;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795854530;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
 	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=98DjPq0k77S6BY+ei2O96+19h+dMB8NHTMDNKHV/HtY=;
-	b=Gzn5PxQq4QUQL1Oc5WJ8yacwEfte/6D7cps+pMODJDk1vVhaMJxQ/lrUxTj++16YOHuc
-	 Y3tXPZD9D2SpVK107dNGtIvTCj2QzsIX2rzj3EbEim4CTp5D1hR2m2A2u9DWkxvA4pA9N
-	 cbuU4WAQNQ2eN5NhsiKlznLR+hjszbHrAdEJWVKczp2iU1DMrzDI7wShvlW23TodXMDz8
-	 zbxetmSgOGq5h+NuHfXMgyvS/XoZNVZ6lS685rrqz0El4xmJNSjpWZh1uUImzF0QXWeEn
-	 GQNcBhpXs3IV8JIJNAxIwUlBmBYKKSpxX5RsfUvr5dvOSXI8gAg68edjFvAzPj3707A==
+	bh=7XF51mOXbIliBzKF2FUnifL7aWs0RRs0hg4W5lQZKds=;
+	b=rEq6x5sFOeuB+9TT8y5v4wxlWjoveu6I7hxd3DzgSPoh6j25I4/0W05mCe1/5pNYtgG6
+	 uBRoQI3ej45i4JUsIIJJUjWShgrtsEoAAB8iM8avFCxZB5/qh2f97c/NhccOGiSV+g1vI
+	 JxS8IstGz77vDQyc760grP5/bdpkhbSw3yxXD9qdd7QuefcDD/I1BwziCizcQnhfGEEWd
+	 +UWFSeYjlUYRyRcvv1lyV8qzXuNxYxQX4u8aG4OTkcLeaic37swpGJpcG63wWCNNsjFac
+	 pYSX1HlZlH7aBLDf1edjbnZmuH0ft297DjYtsbG4FEUdkdWf8TOzOvp2xFrsaFg9Rkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=T1hz9zak;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=BoTYJv5N;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B97C606A334;
-	Sat, 28 Nov 2026 08:28:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B97C606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6A9E606A338
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:28:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6A9E606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=T1hz9zak
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=BoTYJv5N
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=98
-	DjPq0k77S6BY+ei2O96+19h+dMB8NHTMDNKHV/HtY=; b=T1hz9zakpCaESXv5m/
-	j7egMUti2NuouMJGlAccA2KvDCVs0S2uJeCr4ML18WBD2QKzX2zBiISTs5emHW3l
-	GWlw8DjnKgxXbeikfixYApoNmRHFS3PdNootHvWsA0qCGaq7XySbD0Jh7Ge4kzb6
-	T9wX2KruzzguHsCBaQc2ook9g=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=7X
+	F51mOXbIliBzKF2FUnifL7aWs0RRs0hg4W5lQZKds=; b=BoTYJv5NCZSUpi+W7o
+	alb6kkSWz5pN5itMyJPYIr1A6I7rr2U5EL/wr73GZ1hcNSIK2qo7+6XapmrNEUzQ
+	An5GDkIReIuHj7eChSn9tiqTUbfyUHkDXc6avCL3LK8d3vVVFbrPcUTXV6b/PgYW
+	mAhm68mHrV9Dhcsmy8ygtfGwo=
 Received: from shaos.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3X1eskApruM8PLA--.19391S2;
-	Sat, 28 Nov 2026 16:28:29 +0800 (CST)
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3H8OqkAprXBpeKw--.40085S2;
+	Sat, 28 Nov 2026 16:28:27 +0800 (CST)
 From: shaos <shawnq1@163.com>
-To: slava@dubeyko.com
-Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Yangtao Li <frank.li@vivo.com>,
-	linux-fsdevel@vger.kernel.org,
+To: almaz.alexandrovich@paragon-software.com
+Cc: ntfs3@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] hfsplus: bound B-tree map node traversal
-Date: Sat, 28 Nov 2026 08:28:28 +0000
-Message-Id: <20261128082828.3075144-1-shawnq1@163.com>
+Subject: [PATCH] fs/ntfs3: check fnd_push() return value
+Date: Sat, 28 Nov 2026 08:28:25 +0000
+Message-Id: <20261128082825.3074946-1-shawnq1@163.com>
 X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -62,31 +60,33 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3X1eskApruM8PLA--.19391S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAw1UtryDuF1DXF4fXF47Arb_yoWrur1kpF
-	Zxtayay3WvqF1Fqws3Ka10q3Wa9wn7JrWa93WkXw4xZwn8Xr1xtr10yFyYqFsrAFWkWrWY
-	qFW5Wa4Fgay7tFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jw_-PUUUUU=
-X-CM-SenderInfo: pvkd40jtr6il2tof0z/xtbC0A2sumsKkK0cVQAA3e
+X-CM-TRANSID:_____wD3H8OqkAprXBpeKw--.40085S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtr1xXw17Cr1kAr1xuw1xZrb_yoW7XrW5p3
+	9akFn5Kr1IyFWkJws2kF409F4fuwn3C3yUJF4UXws7uw4aqr1xXFn5Kw109F47XrZ5WFWF
+	va1jva48Jay5XaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UFJmUUUUUU=
+X-CM-SenderInfo: pvkd40jtr6il2tof0z/xtbC8QuruWsKkKtghwAA3V
 
 Hello,
 
-hfs_bmap_alloc() follows the next pointer of each B-tree map node without
-checking for a cycle or an upper bound.  A crafted HFS+ image can make a
-full map node point to itself.  Mounting the image then loops in the
-allocation-map scan and consumes CPU; the mount task remains alive after
-SIGKILL.
+indx_get_entry_to_replace() ignores the return value of fnd_push().
+fnd_push() returns -EINVAL when the search path reaches the capacity of
+fnd->nodes, without taking ownership of the node passed to it.
 
-The reproducer creates the image and tests a self-cycle, a non-cyclic
-full map, and a normal map.  The cycle hung in two vulnerable runs.  The
-non-cyclic full-map fixture returned -ENOMEM when it reached node 8192,
-without hanging; the normal-map control mounted successfully.  With this
-patch, mounting the cycle returns -EIO promptly, and the normal-map
-control still mounts successfully.
+A crafted NTFS index can make the replacement search follow a self-
+referential VCN.  Once the path is full, each iteration allocates another
+index node, fails to add it to fnd, and leaks it.  The unlink operation
+then spins in the loop while kmalloc-4k usage grows continuously.
 
-The issue requires a privileged writable mount of a crafted HFS+ image.
-It demonstrates a local denial of service, not memory corruption or
-privilege escalation.
+The existing NULL check for hdr_first_de() does not handle this case.  A
+related check in indx_find() from commit 1732053c8a6b ("fs: ntfs3: check
+return value of indx_find to avoid infinite loop") covers a different
+traversal.  The unlink path through indx_get_entry_to_replace() still
+ignores the fnd_push() result.
+
+The reproducer requires a privileged writable mount of a crafted NTFS
+image.  It demonstrates a CPU-consuming hang and a continuously growing
+kernel memory leak; it does not demonstrate privilege escalation.
 
 Tested source revision:
 HEAD commit:    8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
@@ -96,89 +96,96 @@ compiler:       gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0,
                 GNU ld 2.38
 
 console output:
-https://gist.githubusercontent.com/shaos26/9280cbfdae1690b6b20c86bfe0c8db8e/raw/131205d3de25b8c5fe42864362c6e2e1009f90a1/console-output.txt
+https://gist.githubusercontent.com/shaos26/6527bc7b947fae21f2ff589d7725c451/raw/d7f2cde89b263e212053d7913002432466d8db34/console-output.txt
 kernel config:
-https://gist.githubusercontent.com/shaos26/9280cbfdae1690b6b20c86bfe0c8db8e/raw/d63b446bf570fc993d04b3ffeae979b3db4a6eec/kernel-config.txt
+https://gist.githubusercontent.com/shaos26/6527bc7b947fae21f2ff589d7725c451/raw/c81a372534f86268589d2efee757cb035d5ba38a/kernel-config.txt
 reproducer:
-https://gist.githubusercontent.com/shaos26/9280cbfdae1690b6b20c86bfe0c8db8e/raw/d734030b8907670c9aefd748bd6663d894d828a2/poc.c
-initramfs init:
-https://gist.githubusercontent.com/shaos26/9280cbfdae1690b6b20c86bfe0c8db8e/raw/ce28f3f2f53dce541ad5cb7f5b110a378af9e2e6/init
+https://gist.githubusercontent.com/shaos26/6527bc7b947fae21f2ff589d7725c451/raw/cdb9e24d2f6aeac681926cef142f1634eb6fef2d/poc.c
+image setup helper:
+https://gist.githubusercontent.com/shaos26/6527bc7b947fae21f2ff589d7725c451/raw/0e7a810823bb17c6a2dda9e9fda5563fb3c30183/setup.c
+index image mutator:
+https://gist.githubusercontent.com/shaos26/6527bc7b947fae21f2ff589d7725c451/raw/fbe29e409a7507eecae2c7270558c81b3b0da6b6/ntfs_selfvcn_patch.py
 patched-kernel config:
-https://gist.githubusercontent.com/shaos26/9280cbfdae1690b6b20c86bfe0c8db8e/raw/d204ab19c4a8824c83293b94741f80cc0fa52b0a/patched-kernel-config.txt
+https://gist.githubusercontent.com/shaos26/6527bc7b947fae21f2ff589d7725c451/raw/d204ab19c4a8824c83293b94741f80cc0fa52b0a/patched-kernel-config.txt
 
-Build the kernel at the tested revision with the attached configuration.
-Build poc.c statically, place it at /poc in a minimal initramfs, and use
-the supplied init script as /init.  The initramfs needs a static BusyBox
-at /bin/busybox.  Run the cycle case with:
+Create an NTFS image, compile setup.c, and boot it as /init in a minimal
+initramfs with the image attached as /dev/vda:
+
+    truncate -s 256M ntfs.img
+    mkntfs -F -Q ntfs.img
+    gcc -O2 -Wall -Wextra -static -o setup setup.c
+    mkdir -p setup-root
+    cp setup setup-root/init
+    chmod 0755 setup-root/init
+    (cd setup-root && find . -print0 | cpio --null -o -H newc) |
+        gzip -9 > setup-initramfs.cpio.gz
+    qemu-system-x86_64 -m 2G -smp 2 \
+        -kernel <linux-tree>/arch/x86/boot/bzImage \
+        -initrd setup-initramfs.cpio.gz \
+        -drive file=ntfs.img,format=raw,if=virtio \
+        -append 'console=ttyS0 rdinit=/init panic=-1 loglevel=6' \
+        -nographic -monitor none -no-reboot
+
+The setup helper creates /tree/file_0 through /tree/file_599 and powers
+off.  Copy the resulting image and make the self-VCN mutation:
+
+    cp ntfs.img trigger.img
+    python3 ntfs_selfvcn_patch.py trigger.img --patch \
+        --out trigger.img --target-file target.txt
+
+Build poc.c statically, place it at /init in a new initramfs, and place
+target.txt at /target in that archive:
 
     gcc -O2 -Wall -Wextra -static -o poc poc.c
-    mkdir -p rootfs/bin
-    cp poc rootfs/poc
-    cp init rootfs/init
-    cp <static-busybox> rootfs/bin/busybox
-    chmod 0755 rootfs/init rootfs/poc rootfs/bin/busybox
-    (cd rootfs && find . -print0 | cpio --null -o -H newc) |
-        gzip -9 > initramfs.cpio.gz
+    mkdir -p poc-root
+    cp poc poc-root/init
+    cp target.txt poc-root/target
+    chmod 0755 poc-root/init
+    (cd poc-root && find . -print0 | cpio --null -o -H newc) |
+        gzip -9 > poc-initramfs.cpio.gz
+
+Boot the mutated trigger image as /dev/vda with:
 
     qemu-system-x86_64 -m 2G -smp 2 \
         -kernel <linux-tree>/arch/x86/boot/bzImage \
-        -initrd initramfs.cpio.gz \
-        -append 'console=ttyS0 rdinit=/init pocmode=cycle lsm=landlock' \
+        -initrd poc-initramfs.cpio.gz \
+        -drive file=trigger.img,format=raw,if=virtio \
+        -append 'console=ttyS0 rdinit=/init panic=-1 loglevel=6' \
         -nographic -monitor none -no-reboot
 
-The init script runs /poc with the value of pocmode.  Repeat with
-pocmode=normal for the successful mount control.  The no-cycle fixture
-is also available as pocmode=nocycle.
+Two vulnerable runs remained in the unlink loop after SIGKILL.  In one
+run, kmalloc-4k grew by 270800 objects after one second and by 356140
+after the signal.  With this patch, unlink returned -EINVAL in 36 ms,
+the target remained present, and kmalloc-4k grew by 24 objects.  The
+sibling and partial-VCN controls completed normally.
 
-Bound traversal by both the B-tree header's node count and the number of
-complete nodes that fit in the tree file.  This prevents a malformed
-header from permitting an unbounded walk:
+Check the fnd_push() result and release the current node if the search
+path cannot accept it.  fnd_clear() then releases nodes already on the
+path:
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Fixes: 82cae269cfa9 ("fs/ntfs3: Add initialization of super block")
 Signed-off-by: shaos <shawnq1@163.com>
 ---
- fs/hfsplus/btree.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ fs/ntfs3/index.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/fs/hfsplus/btree.c b/fs/hfsplus/btree.c
-index bd4dbdbc8f98c..7aff41420c098 100644
---- a/fs/hfsplus/btree.c
-+++ b/fs/hfsplus/btree.c
-@@ -534,6 +534,7 @@ struct hfs_bnode *hfs_bmap_alloc(struct hfs_btree *tree)
- 	struct hfs_bmap_ctx ctx;
- 	struct page *page;
- 	u32 nidx, idx;
-+	u32 max_nodes, nodes_seen = 1;
- 	u8 *data, byte, m;
- 	int i, res;
+diff --git a/fs/ntfs3/index.c b/fs/ntfs3/index.c
+index c06b367604487..151b71d4ddd94 100644
+--- a/fs/ntfs3/index.c
++++ b/fs/ntfs3/index.c
+@@ -2303,7 +2303,11 @@ static int indx_get_entry_to_replace(struct ntfs_index *indx,
+ 			goto out;
  
-@@ -543,6 +544,9 @@ struct hfs_bnode *hfs_bmap_alloc(struct hfs_btree *tree)
- 	if (res)
- 		return ERR_PTR(res);
- 
-+	max_nodes = min_t(u64, tree->node_count,
-+			  tree->inode->i_size >> tree->node_size_shift);
-+
- 	nidx = 0;
- 	node = hfs_bnode_find(tree, nidx);
- 	if (IS_ERR(node))
-@@ -592,8 +596,15 @@ struct hfs_bnode *hfs_bmap_alloc(struct hfs_btree *tree)
- 			hfs_dbg("create new bmap node\n");
- 			next_node = hfs_bmap_new_bmap(node, idx);
- 			hfs_btree_write(tree);
--		} else
-+		} else {
-+			if (nodes_seen >= max_nodes) {
-+				pr_err("invalid btree map node chain\n");
-+				hfs_bnode_put(node);
-+				return ERR_PTR(-EIO);
-+			}
-+			nodes_seen++;
- 			next_node = hfs_bnode_find(tree, nidx);
+ 		e = hdr_first_de(&n->index->ihdr);
+-		fnd_push(fnd, n, e);
++		err = fnd_push(fnd, n, e);
++		if (err) {
++			put_indx_node(n);
++			goto out;
 +		}
- 		hfs_bnode_put(node);
- 		if (IS_ERR(next_node))
- 			return next_node;
+ 		if (!e) {
+ 			err = -EINVAL;
+ 			goto out;
 -- 
 2.34.1
 
