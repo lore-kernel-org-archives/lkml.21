@@ -1,100 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795866737;
-	b=lx7FNbIisaViyOLGo5pRoIU8nxgGfunqTD3w/uD6hZV6zjWQT8fAN1Mhl5454N4pIcQ6
-	 annbYUIhf8/nLHg9G2+qEYGi+2MjeYC//mnvErRgyykhKedWgokv0W46xUo3B3sRf5l72
-	 UYoUUfdizr2mQBvtReRunPeYDYUmli29guxVDZvyCpU3YPCAL8kCIe3T6Ie9VBrUvNuvA
-	 YnLpw89mF6UKuZFOMiiCVsgr3NgF4GCmhIH1WSkohWBL0xo7AMITORfQfvsvpcGKQRlAt
-	 PSownopN5v3OEXH0VFQVqJLWZm1E83xXcYo+kiVCTZyA/N1f9J0YAt0mWLXaGlyIg4Q==
+	t=1795866791;
+	b=EV0okuPJHLAHG+2/1dZjUhhQVZ9rqHJLzcWiUTuZ6mV6ZtCbQlXkC5QDvcEmcINAPv/I
+	 MZerwveUZF7oiFLKUwZqmRmcvBNQAM2S7MvxVo0KKoPrwnTqnuw4jq8KmqiCEF/FSFVY4
+	 Dx1bGc2I5lmD7ypcUFIt+5bPxNr7eI11QStstmOdaZe4tADnRivsraxwuc5SVkw+z4Pcc
+	 bd0plw4KVmGzKcPNv8HuABxNtJPT40PjfdMVZ6UlMTDdyebEzdy70Uhebewn2Hi3n3l47
+	 D5EzhAEGwvXrHkVwW8LCPFknvURSizeH1OatOFEOjevyWp+Br5fsSzNKznQ23H0yEJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795866737;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795866791;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=AMCCMFTB9S1Cvq8SlSHHPzrQndoGf5ALIJy+dGBBDm0=;
-	b=BragdT11+HNuk8J5udn1dbXmhBMEx3n4epgO0wtkTc4f2sCcTzBwCGVAS8Rg8YBWHFgB
-	 8DpNaUrt7PczFjhZklDNGWMZrFGg/7bT4auLQ/CbCbFC/CA/15DjVObji83V2h3Ffxn2b
-	 TBvsm0hYJ86Bx9+Vxhs20MrVfakaphNQ+gVq8cJfhamxE4LIb7Enhkhr+l5zjOvwfiFTb
-	 Swt55uqY/lRLc5Z6PIWYCKjLpPz7kPqKPYEan6uDZiLxANpjgxcyh7BNt+HE5FIN2elRq
-	 pX7W4roQMMiLu6WS88yYUHLSMV/wcYco1eKApADkthltyXQ+7SlNEeCh+Ee1q13CdNQ==
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=2aoRkbwvpEvdp5sy1ThoThAKb1QQYA2IMTxLgEF5n0s=;
+	b=UWvsb5ymLeglFQoP9YkA7rRQJZ74T+D++5ZOFdKjPu3KSjj3+cpwI60YiGT/9e+pBqlQ
+	 bs2NOfV3pNzY/6Wdf11ClmwBn86csMxQ0RbJpbOEm96STSLQ+vN3KPSk9oumvyt0Dq1Mm
+	 5jD305/kD6yHOhw4hrH1lRApCr9i6iU3xHHarV1fRUgjrWDIBDJ+qgE07RwBkGziOYoOS
+	 vtGMP1Jm2LyHFnTaceXbN1uZBwDyl70f0CDTR3m4bDjESgEnlHCpyxbp2IEkBhyxy3h5M
+	 7zFVtZ0aHGoujY6w2vOE/XzorJyeT5boNWuDX2kCMVGiwoYQfJ0dmMozHNmhqPrE8nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0SA3FblE;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dmarc=pass header.from=bairaktaris.de;
+	spf=pass smtp.mailfrom=bairaktaris.de;
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=tRqyCcRF;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CD77606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:52:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CD77606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 934C3606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:53:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 934C3606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0SA3FblE
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3866a784546so12410993eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:52:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=tRqyCcRF
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c516a1623d0so1044357166b.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:53:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795866736; x=1796471536; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AMCCMFTB9S1Cvq8SlSHHPzrQndoGf5ALIJy+dGBBDm0=;
-        b=0SA3FblEfN0nRomJY5TN8/9AZ8cYODfLS84aVM6AGnHmH/Yqbqa0q9U4RcdH3o3WqF
-         DaIhJzDd2SVCgWakDQ17AmuBP+XgYDvixyU6WbbjDX0oIs2S9028bC4YiLZQJZir2jqj
-         L/DO+LC7+XLPVMiSH4SFzfkaEtgyakccTbmUvv9UmkP4tseG2lAUcYqiahx3DvawdGlW
-         WWKKGJGY7DR8VXJIz8cUT6FXj5uxh5w/6pfD/QHM8Jnq3foI3D8mtOrEa0J8msYO52Bk
-         ND9DfXeQaVIzGLymiTzJsesllTgo39oH5Gg95/4F62pO0fE5YkQ1a1IbSee3rH7jS5UM
-         OzDw==
+        d=bairaktaris.de; s=google; t=1795866790; x=1796471590; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2aoRkbwvpEvdp5sy1ThoThAKb1QQYA2IMTxLgEF5n0s=;
+        b=tRqyCcRFf7CBNUBCPqXSGGm36NowlRg9q/fOGxYfec5E7TM1rCWj8Q6T8fP1ldsgPB
+         2/YdjkBYzgck5fBgjBgxY+FYji/fCrb2eKNzexKtPM+a+nzEsFzTDwgXlgaAR5GCLqoq
+         HSqLYfqNoECUnoHbvOjeGAAkDtWcUthyYY8XKONor1cdst/dM2KGAj6812ChqvJjxbWC
+         rlWUoknR/9adVQAJ59k21qltG45wIDYyZNngynZam8TcQ0+IVPzeQKybs3ZfJLHZBCcu
+         Nm2b+2uHYpozLxaj3l9OvIhHmZf7QF+Z/6hMqGQQWRbehx7uNzhN3SxCTUWX0BPQCZ1b
+         3Kpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795866736; x=1796471536;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AMCCMFTB9S1Cvq8SlSHHPzrQndoGf5ALIJy+dGBBDm0=;
-        b=SA9dJ22AjOwI06/FdJ2fC/Ur+Mzri6DE1Focay3qO1ECd3ymH+ihgSWTk6OJwwSkf2
-         ymZ9vVQDfuJMGuqRDh1lqAuNP7IMpKzk8gwSmXfRIBwkDOZRWpjHBqz7dDD7O4w8gXMJ
-         F2EAS7mxzOT4zSjv4k1Kmv8prx2naHqFacjIVIPo1W7hiOvWhCReYHX/GbV1FtDo2gpo
-         lOZG6vU6sMwebMstozdTSfCEGphix5Nys6mBiDlWZ2WJPpBm1876BkbxC0Vq5ktc6BuJ
-         vWlBjevDkTSBgHOenG1Vl2Cm96S+qlNqdDEqupD1Gir7ZpOrRvNOnr8CbxuKafNabj+8
-         uj7A==
-X-Forwarded-Encrypted: i=1; AL+hErFIMDI4Jf9jPt/zKKjPe8Nl20yb7TaiO8gmw83AsQqFYY8bzeSFXJ/dogvquv58m2f8ACGenmUZWIZb54U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xAATJElk0J4z3EgXXijyz8Ix215fNiWwk/O/retkg1O/DrkH2
-	J+sX+rKUmnH+kK9bkHwVcK4FBdVC5sGyToEXb38gQ56WL3c2UgdAJCkvadv7u27OPq0=
-X-Gm-Gg: AZFdTZfZ6LIzwJvXvSmzrA9lJSnmsVKXKb8Tqn0SVAiThRcm9LNdDa9cz9vN5U9Yj1l
-	OCaTLrd8wLi8vNmc2QT4GzJdgxbQAlEPLHppPfc2l4qa1PgU07SKQaNcI43sGilCfbcponcReyZ
-	TKR8OsZdOvcsME9JdP6dhlwpJo2m7gD8tESarbO1YbWnjkMIqAqz0WzcwHNm+b6F8T83CZsTiER
-	cBaSUTOBwkEtUeaKKnaY1/ibEs5B0qFWmuz+EzFP885pssSfetQk6GZ/bmotXGF7JT+NoVvcIZf
-	fEnWBMTFVnFz8zGEwdm3ejwHlvvBwBDozeWAPQYomjgE5UAw/C8nVht7mfVuHVmCHIP/+i3Isx7
-	B+FV8V8O3/gPsIfoYzpYHlV6SNyKwVYzajh2eTZu37kt9NkMSqFSfzk80WOIN5m6jFaRa3kxeR3
-	tUlhWYSgb/OzSbM5MHWnh8qeBym7JlfxqCUuxoDXc5nAl+0fhVLi2n8FaJQwzpAQVUJosXbOM8F
-	LM0NBI8kSZTuq2yLGwrMkqV+4Mql6x2Ep5IBlBbkcFB8CZIxNxJAMxS+kQgkiUDj+8j8WM7Z8Ta
-	egvK8B/4Un7fv+/CTHxubECTZJ2k+brkdhXrxytCoWc3BGQ9+wA1SoNivwF9nJnM73Az5O/s/CP
-	m0GMT8ENxwTrEkEKeA+9+uV+HmSAzfgmst5R6eN11UzK8zxlQuprqnFv2hlEtl6v/1yA9b8xyQZ
-	XgDNlI185qMVCtzWZOaqYR1pwBPC9pWt9yT2Ti80qpXA==
-X-Received: by 2002:a05:7301:730c:b0:381:2114:99d0 with SMTP id 5a478bee46e88-38571415bdemr25231867eec.39.1795866735943;
-        Sat, 28 Nov 2026 03:52:15 -0800 (PST)
-Received: from kapoor.iiserb.ac.in ([203.18.51.239])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm74256544eec.20.2026.11.28.03.52.12
+        d=1e100.net; s=20260707; t=1795866790; x=1796471590;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2aoRkbwvpEvdp5sy1ThoThAKb1QQYA2IMTxLgEF5n0s=;
+        b=P/oOgV91+eP2Q0XjXSoO/sYFbE8N/+Kt3IXRzqCJktb6RFQ5pdjHSH6aebXshf3d2j
+         37T58gCAtY7JmM5QiNG7AqJ6KxGDbMMT2mQrGbbPyu/3DF7jnWfN/D4AcuZlUbdQ5zb+
+         cDKLeVqcvywEpmLMWfZ74lChPAgfwrhIIfvji7rGuu5l5xxxdL70ilDOg+Bb1qbjzq8i
+         ZwMXtu/kn/QVuhBm5bEK3lDcAQehk4MXBPRQmava8U2Zi776BhDA0OgTrHlOXxKVACPR
+         TglPRrdS0naJya2khqbI6bPnbzv5Wtyncv/Swmhf5xrePC1uGqhVWumDhznWTwuZf00h
+         gxgA==
+X-Forwarded-Encrypted: i=1; AL+hErE2N559PE1OgKTSJ5XU4Z9j0L/CDEziN83WTup+G/8XzwSHwsVfzUp+9Ntpp8GLZUqUwUsdopTGrU9Ykdo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lesEYkW8vv2oBa/z/4RiD6KC9S3yQ6/KlFtXOKIMHfFXtVdMM
+	JwOEql+vZoeK6MjM74AP3bV4Ujp84yfsjSX2i7zDNjl5r2FuRwECiOM+xkUcnP4z5w==
+X-Gm-Gg: AZFdTZdIkDJP0Wwe7Vk0+HQFUiCRBf/lpf62nNL+zuoRJtUj5F3WkDyBnrlzwzaJte7
+	8vFnEHCwLaBMc1yQtOlFQv5x05aVpaC944IAW7fKbxo0mHvO+93V4Ou2jgFc6IiNykoE4iKtmj7
+	iKKCGLHPciLq/rg3cqlZmls6nIlUosoLODH7fXuPP2FiPeNkChTuNsd6dTgcDOI2TJA2siV4dvf
+	7jwm1tcn8GA+eaGeCtClNCiNRDu1b3vJvyXyPfnCPV7LD8MGAsBqRJ9HLo5QsY/SD7+mTySnsPU
+	QX+acaqLFY2/f6h7jwIEyY0Qi6kYvp1HUCvfDT9kgQAycSPWvBInWVgJuNihu8X96Hn1k8LT1aS
+	BFJtgQKTNBx+s1XhhxtezE0fwLsKPcyMNhH7jrhHvH6gJf2akJlvZ2aaTLjuhSghL5XxgJDwj4u
+	y8DTUmGKu6EqzCgqFjPUVtVLm2Y29Jx4esEu8jPMy5r0gXvg11sdCCjUCBiiZInwbfOAwlBB2CC
+	yy08Bh/0k47uzlwVO+UxnvVZcsHBTLtBueih0NmAODAIBToOdKsAH7JnXLAyEogF7y6E5DxNaFv
+	qnnltliIZ4XTHIi4Ca2ERqNZ91cssvsDYeaixp9qDuywbYGbTFwiVQR7e96tkxPtu3y5jm5WfiS
+	1jIGaLYfJwUyDZT478TPJZ+v8iIlKRHsJOsX7uY8t27dP8f7vMSD3/ZcQkZ0nmY0baCV3Zvrz5U
+	2z1sFxnsb/IuTUg5WlTsa76Fa9S1qd84j+FZUOZerhRIl5pJR/EVC4RmIoZk8AKhlOC6IcrG1wV
+	ge6qfJGBGMoqD6Q5C0iDPPJZdMg+hqj9hq5zRIRH9dyrOu7W8Kask/8Ddz9Mg+TKSCALsqZir3E
+	tP/MAHYf8fBiCXF9zDWxszqb8PxikVmdtYwWxGbatwEdh1GF0F8Rc/JV1S8DEQ3zVmqjw/85C2k
+	wWvsXNchLTpJUbChLsNPW
+X-Received: by 2002:a17:907:6ea8:b0:c4d:4d5b:849b with SMTP id a640c23a62f3a-c513a8069bcmr2557800266b.19.1795866789862;
+        Sat, 28 Nov 2026 03:53:09 -0800 (PST)
+Received: from Desktop.tail070c67.ts.net (p200300f2470120008502fb937d9e134d.dip0.t-ipconnect.de. [2003:f2:4701:2000:8502:fb93:7d9e:134d])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae67bd3sm959587366b.27.2026.11.28.03.53.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 03:52:15 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-iio@vger.kernel.org,
+        Sat, 28 Nov 2026 03:53:09 -0800 (PST)
+From: Julius Bairaktaris <julius@bairaktaris.de>
+To: karthikeyan.periyasamy@oss.qualcomm.com
+Cc: jjohnson@kernel.org,
+	linux-wireless@vger.kernel.org,
+	ath12k@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH v2 4/4] iio: proximity: aw96103: reject out-of-range debounce and hysteresis values
-Date: Sat, 28 Nov 2026 17:21:41 +0530
-Message-ID: <20261128115144.557411-5-kapoorarnav43@gmail.com>
+	rameshkumar.sundaram@oss.qualcomm.com,
+	baochen.qiang@oss.qualcomm.com,
+	quic_cjhuang@quicinc.com,
+	vasanthakumar.thiagarajan@oss.qualcomm.com,
+	quic_bperumal@quicinc.com,
+	kvalo@kernel.org,
+	quic_pradeepc@quicinc.com
+Subject: Re: [PATCH ath-next] wifi: ath12k: drop decapped frames with a source other than the station
+Date: Sat, 28 Nov 2026 12:53:11 +0100
+Message-ID: <20261128115312.428133-1-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261128115144.557411-1-kapoorarnav43@gmail.com>
-References: <20261128115144.557411-1-kapoorarnav43@gmail.com>
+In-Reply-To: <e019d2d7-de8d-44aa-8fdb-e6770938c409@oss.qualcomm.com>
+References: <20261122210809.2087836-1-julius@bairaktaris.de> <e019d2d7-de8d-44aa-8fdb-e6770938c409@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,47 +112,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The debounce (OUTDEB, INDEB) and hysteresis (THHYST) settings are 2-bit
-fields of PROXCTRL. aw96103_write_event_val() passes the value through
-FIELD_PREP() without checking it, which masks it to the field, so an
-out-of-range value is silently written as a different one: 4 becomes 0
-and -1 becomes 3.
+On 11/25/2026 2:26 PM, Karthikeyan Periyasamy wrote:
+> Can you explain the test scenario ?
 
-Return -EINVAL for values outside 0..3. Both debounce fields have the
-same width, so one check covers the two directions.
+There is none: I have no ath12k hardware to test with.
+Found by an LLM review (Claude) of the code, comparing the decap path
+with ieee80211_amsdu_to_8023s(), which drops such a subframe.
 
-Fixes: 07b241262dca ("iio: proximity: aw96103: Add support for aw96103/aw96105 proximity sensor")
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
----
- drivers/iio/proximity/aw96103.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+> How the user trigger this issue ?
 
-diff --git a/drivers/iio/proximity/aw96103.c b/drivers/iio/proximity/aw96103.c
-index 82353be284a7..2ab92fac9a0e 100644
---- a/drivers/iio/proximity/aw96103.c
-+++ b/drivers/iio/proximity/aw96103.c
-@@ -401,6 +401,9 @@ static int aw96103_write_event_val(struct iio_dev *indio_dev,
- 		return regmap_write(aw96103->regmap,
- 				    AW96103_REG_PROXTH0_CH(chan->channel), val);
- 	case IIO_EV_INFO_PERIOD:
-+		if (val < 0 || val > FIELD_MAX(AW96103_OUTDEB_MASK))
-+			return -EINVAL;
-+
- 		switch (dir) {
- 		case IIO_EV_DIR_RISING:
- 			return regmap_update_bits(aw96103->regmap,
-@@ -417,6 +420,9 @@ static int aw96103_write_event_val(struct iio_dev *indio_dev,
- 			return -EINVAL;
- 		}
- 	case IIO_EV_INFO_HYSTERESIS:
-+		if (val < 0 || val > FIELD_MAX(AW96103_THHYST_MASK))
-+			return -EINVAL;
-+
- 		return regmap_update_bits(aw96103->regmap,
- 					AW96103_REG_PROXCTRL_CH(chan->channel),
- 					AW96103_THHYST_MASK,
--- 
-2.53.0
+A station associated to an ath12k AP with Ethernet decap, without
+4-address mode, sends a 3-address A-MSDU whose subframe header carries
+another host's MAC address as source. If the hardware writes that
+address into the decapped header, ath12k_dp_rx_h_undecap() sets
+RX_FLAG_8023, ieee80211_rx_8023() delivers the frame under it, and the
+bridge learns the other host on the Wi-Fi port (br_handle_frame_finish()),
+so traffic for that host goes to the station.
 
+Julius
