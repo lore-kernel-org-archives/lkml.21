@@ -1,79 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795887519;
-	b=d66jx1xNIPD4Jh2KR9BYboUW/kqiC8xE89KfYtQu2bBhjCc1CqWPJibJhsAw5Y01xDjM
-	 p5yMhmLrjBLnAl9lFkr8zVO4dqg7eJCP8VlnfoJCgzYc8KgicWbAKxsMe2rUNZyh+gpNw
-	 BGnNMsllnbPDvRhYPHKz52AjYEJLhQOxvw3Sy0ySj5gf5Rkz6zoIey2CoqAP8rarAnfis
-	 Pi5ygbXrjEBeljlYDf70PT/DGJKvusdPShD7Il8ORwn76+6gLwhthdUEtaMWzPTOHMu/x
-	 5OecXBuPi5UHfOSzGmhoY91IQlgoe+u5IGHxjSHTJNkhIZPdanGooHJrbkflduUVxyA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795887519;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ciV6sH9NIcvxsWqjp+pVh6BX/xpNc7ABW6rb5elVJkE=;
-	b=BrHJ8W/SpQIRribTRJGmTuUA2xyQ20ugN+ZK8I2L/u4NMBSODnZl+zkVRJ9//86lZtQI
-	 VrUaPDKOWd0wXRnwgGo3e8eVKT670gbg2EYUKGE2RZwT2XsS9ywZaH1cnlXhWfgPe2IK9
-	 OkmK2/rp++m4bcZCOx5wpWJ5p38TzmzNBE8gAbGPQLhwkqvHE+p4fxzEXy7eojs7Qu0Ue
-	 WYohFX6rqYsMsFRTQGK0lOpbCHKrQJJpveJ1Ur5d8PVtpwXVJhcz/rLGyBiG7pAUjcGWF
-	 ij+575h2xy8v06S76X3FIn0L9lUs8hOsssRlA1/uMpPqXpJYerdjzxED04nHYJyuoUg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kxtj6yJ8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE5AE606A323;
-	Sat, 28 Nov 2026 17:38:39 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kxtj6yJ8
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795887519;
-	b=ETbfKYmEPeuuUYQ8twlHDWRDAFY7tDSgWcRRtHNZkf2vtFX1yyhv087CLNYT18Iuu2XN
-	 SDPfLwY3b5UC42AKT2Yh31XPWwINN4WpPat7tA4B1OLXCFk2oA3e8dS7hK3MR6OV3oaL3
-	 8lXSnO563ldzmlF+sGgf/R8P575ZT0L3webE96WicZ72q9q288EKZwQF9khNZWye27Tch
-	 8bhe2gypZRpeK9Y9Kj8iXdeyTlBuOp8ldf0a7MNsxrn7yEvauK/UsmLgKWLyDdwToKkue
-	 r0CcCJvBTGzCqdjSQ+pCMgPCRlYT9QE/dgr3KB6zsZjZV9miCLedtCHCRdlBujeLVwg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795887519;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ciV6sH9NIcvxsWqjp+pVh6BX/xpNc7ABW6rb5elVJkE=;
-	b=Vzpxy7ocPobLvcYbOp+OyhYGPrt7vYKlm07nLleJqtGhuER2+6MlibBrtodhlaoNim6I
-	 54+F0492/WJDbyER8g1hg0Y0w7aKUTfx9ZgB+9WrUWYq8hELTZAYr72F8k9XMouXhX1M6
-	 kNNaVgh/4q6DJWk77AJDFSyWSRSHqbQrgqTHuraw4gJXYJ2TaRqG6TxhAeHBdk0WcbrM/
-	 baSSnuSvv1YsIM9l3Hie4cRxysORAjWI2bDvuanb694pN53pFWr7hevWtHNoz2wAxSKlB
-	 E2f4/l0UVGDAAewV/H6IS6Q3Mse0+fcxRwWRloIW10AGWI2lQAizczZ1T1wS+MXv0Ww==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795887536;
+	b=oTSL1LuFFuEsg9niE3x1KFZwIryh55TJ2QW5PElYCP795Cqcp1wuhQxgm/NihzXCdBzo
+	 ocWneMCzc2tURpgddcZwx6kOvQ4KLDjbDRuLkoJieIiaeyE5+be4a233gEmcDy8XxsSrQ
+	 0++7+h6RiOZhc8bUJ3Nj6IJbaBFrbPs2MBY8u3hhzQqy9yHDz0WiyjYPkRq9MnP8dTjex
+	 YuqXfc+wclqp0EtUrzqla3/sCRUQomLyzJphyukiiZhVBA92Zft3NuoZBMU30zkf8HC/e
+	 eQJpmuLDGn0Z2QZl9wOEUXG7X4JMpPkflsWXnAYXHfWrxOhA6s6MAK14vbqwWVKKNYw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795887536;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=YezWduZI3dCs3swwAq4frMtA1a30WOuo2X+jYwcZoAI=;
+	b=FeQjL89bDbrX4Vk0l3NUCooBwjYAeO1Ueh4ElMBn0qic2d7BO+PeUcjffp7VvVRjC74o
+	 3BUSiWlasaFdHhBWPg3LYPV3h64ZSyTRCSQqRUmma5kz8sTuiBByATu8uzzu22WuHcOAX
+	 W/95BZ81+rjobHBQP1jJTtMWH02nLjjamE6xnNqHyePiF0nSMAeUpFxqzBo4M2+L2XOoJ
+	 qb93om48zChc2lO6Na72+C+EU+2mL9VRLRQQo2EKO5wGCrQ/f1ZCJ2QYAqaDvur7Jq8kb
+	 lsDsliGEHR4CMwa5edXeaKh+RNdogrALtahQhi4ukLbJ3KUsYWb4v1xMLx0MdcTgdZA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="eJt/xZjQ";
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2FC541F00897;
-	Sat, 28 Nov 2026 17:38:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795887519;
-	bh=ciV6sH9NIcvxsWqjp+pVh6BX/xpNc7ABW6rb5elVJkE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=kxtj6yJ8AmIQ++1mrtVtSajmlOZD8F5aY8CctFpevwUpCEXRrLrDbMkVts94FOfPi
-	 5XcioBY4vbHRCf/IUakrdPI6p68UjA05x6FHh+laODsX/YgjHKavh5Exj91tiygOLY
-	 mnLjWMNq2yA/2i20PI0wKYQ4JliqSf/HOjS+19YCUFUANagIg50mddHOTYISn3nfky
-	 HSxvbMCeA+qLNZUme9Q9ZTq/fUgfdi4ZSR5RN/vV9xEU/JXDrVTJtwSAJKlenxiPzo
-	 bVIYxyqbdChB5vmvSP6pIxtqJjRny0L1+WSiliiwtQElrJAxahdOMcAIEs77bukGUR
-	 Pm3RZr8aNg12g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B886A4E1C8;
-	Sat, 28 Nov 2026 17:38:28 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Sat, 28 Nov 2026 17:38:29 +0000
-Subject: [PATCH v2 2/3] crypto: ecc - Fix P-521 scalar multiplication for
- small scalars
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89DA8606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:38:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89DA8606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJt/xZjQ
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso82370045e9.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:38:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795887534; x=1796492334; darn=vger.kernel.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YezWduZI3dCs3swwAq4frMtA1a30WOuo2X+jYwcZoAI=;
+        b=eJt/xZjQj6mLVzLCoPU64MhALkQSgj4g0aaGMfu681JglmpwWORnxaRvp0NmE4QE55
+         8Ehz9DJfIdguAX+bsaW/2KCQ3nk7fKncjudtX5nAXMKXugNqxr8kgKxxB6QQhgPjf7Ph
+         lrj6ErCAgSq2cy74jsick+5BtbVX+McwUDZD9trS6DzL/LiVJe8g2bx+oSRvwKPIw70b
+         BgIrMjlH66Nz/xfxKNE+mn4mLPalbfpgBohAcNo9pulFSqKYxwppUYrJDTB6tlQlEjRd
+         8kGYgPwOAm78ODTpgT/4tmfWhCxp8LJESxC0XvUu5GLofAZqUZwVPs12O3C0MMJfgsrl
+         CMbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795887534; x=1796492334;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YezWduZI3dCs3swwAq4frMtA1a30WOuo2X+jYwcZoAI=;
+        b=XUCkmDgNwsYrUdHxVUU0wNjgnRIOzAbXQhjHSYyPpoEP01M5t1jIztfC7c5qQwOYpA
+         CEDg5sqKLbqaO4cMSh2CCeFR3X2ljjzZESESZo1hsNbXcXhYu5stVIIBlMFNxVFXdZ/a
+         cIBo+7hwrFlqQ7qV6/845qm0qbtoCOsxjKLmiPW7crw8u9lvlgf1/uJj7nNB8nKZ76B6
+         //yZCTObF9cw4R9FiH1hpMYOAPuTWTRUKo/Se8kqbpSaMPGNYPlBoqJaE8Y7JhASrJWa
+         kyedu/pquuwj1GBUzbCmY6eMyVe7mDtcDZnDzL9TEbt6rfRRamqOinl2vTEXEizI1nbO
+         K9KQ==
+X-Forwarded-Encrypted: i=1; AL+hErGSC9YRgPrz5UoLj4Rsan76YnICzjYNEfchOG/T8zmygpqOrvb1Z8g7OULoVqqtfcQLV3CPqnGImbOcrGs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8p5Lo18wyPB8CHKDku5jS1WEPAU4dP6N+lEfIz8d0Ah4Ndm7l/
+	l5L4KvtfxvB+1ltSiqI3U6xYZkBKMe1cbd0wVQdcsX7MaD6nhv67MitX
+X-Gm-Gg: AZFdTZeykMtohfPHT4FQoDK08BxgLIbbx4jye01vZJ8Tet5vyAyQuOxGs5YYrAwQcWO
+	yPqpELECx3qJGZENFSQb2LKe/jxnNcd9kdDfy1lCqDBjEQJlPasiIoVBmqxtMS9/KxIzKqTMxo0
+	nBYCOzsKPUosBXWu0Kgka8nFxXqOwgGNq0mJvxQHa097924ntVVXPS0Q1Lp5lIyTwKzj63von9v
+	f1YfQBlKSV07YZjjZJNzvcl9+VFH6yW1QOJKQjW0S41z4AgCtFKtFy8t7Mo3UPrK03FmffaIGKv
+	iNKh0lzq36xafmKt86Qa8dtm7t3cKGBWwd+7YwlihMC4sYdjRXVrl6eEyZPzLveadPs9b/4q43E
+	PqFXtPMixSxYzu2lQzaYyKIza9pLMudDjpnh3V2YMIzxV8FQhOVlGw72sVF5d8JW6FlEMo600qv
+	V2baoLGezKLbHe+Inu3qsURnv8V0dbixTmQYdaBE1GdRvSCkc7Vof2GpJNTvqAU6bnL580tQgMw
+	tkxCYwYn29gllVR7pGrmZ1xQxGnmoiqOdjOf2/93x9IXCgfEX+pMLZ9ELLXIN4EXzQx37aei1ti
+	yooCNXPU58K0mtcWzhu6rywjSRfz1/XNIhFARyKirQapNstWE8jUdrzcWVaNjcogE97oS6TMUnm
+	bTQga5NsTEtHZcDKiJM1o9+PUCnMSB5dm9ctw5gluwuBhm9JUoW3yDi7KzwURRBaicj/eVS0W7K
+	4uxRxYrqJxXulPKZ3T7RuY+QUuU1y3g7qcNltZlU0RU6ekO0XRJKa62/2frknXCtpqZylIoMz9B
+	ZcQvH9u6Q65m1RM0lfhhHEUIwvefNJxPgs91t9gX9OXu50=
+X-Received: by 2002:a05:600c:8b5c:b0:4bb:741d:ea0 with SMTP id 5b1f17b1804b1-4bb8880f621mr618917745e9.17.1795887533807;
+        Sat, 28 Nov 2026 09:38:53 -0800 (PST)
+Received: from jernej-laptop.localnet ([2a00:ee2:6a02:9300:bb69:6bcf:1b11:e85b])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm809329415e9.7.2026.11.28.09.38.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 09:38:53 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ samuel@sholland.org, Enzo Adriano <enzo.adriano.code@gmail.com>,
+ Andre Przywara <andre.przywara@arm.com>
+Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>,
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+ Alexander Sverdlin <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>,
+ Lukas Schmid <lukas.schmid@netcube.li>,
+ Cristian Filipescu <filipescu.cristian@gmail.com>,
+ Norman Herms <dockseed@proton.me>
+Subject: Re: [PATCH v6 2/5] arm64: dts: allwinner: add A733 SoC description
+Date: Sat, 28 Nov 2026 18:38:51 +0100
+Message-ID: <Z0TCXVcTQNqeYPeVJpqj-w@gmail.com>
+In-Reply-To: <9ab5f851-1b56-49ed-bfdd-46abdbdda1c0@arm.com>
+References:
+ <20261126-a733-cubie-a7s-dt-v6-0@gmail.com>
+ <p3YaXlLJTguQBGnWyMpb1w@gmail.com>
+ <9ab5f851-1b56-49ed-bfdd-46abdbdda1c0@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,86 +112,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261128-ecc-p521-small-scalars-v2-2-0648f492bca4@gmail.com>
-References: <20261128-ecc-p521-small-scalars-v2-0-0648f492bca4@gmail.com>
-In-Reply-To: <20261128-ecc-p521-small-scalars-v2-0-0648f492bca4@gmail.com>
-To: Lukas Wunner <lukas@wunner.de>, Ignat Korchagin <ignat@linux.win>, 
- Stefan Berger <stefanb@linux.ibm.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, 
- Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Erwin Pawliczek <pawliczekerwin@gmail.com>, 
- Laveesh Bansal <laveeshb@laveeshbansal.com>, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795887508; l=1819;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=8swt0d/3mPiEQ4HYrvtUfhuwkb2hZC6GxX5xty+8q9I=;
- b=K0NDjTHjayXNkwFbSVt+Ok2g4Am830fLLpLyH3wzB16QbCFy/GEQsVuM1U38ZSt7A3t3tSfCZ
- 0HlYQUWLOP/D7i6Il8y2ih30LDfsUpls/rhmkf2RA8CjUGI/vSDsN3d
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+Dne petek, 27. november 2026 ob 11:57:16 Srednjeevropski standardni =C4=8Da=
+s je Andre Przywara napisal(a):
+> Hi Jernej,
+>=20
+> On 11/27/26 05:29, Jernej =C5=A0krabec wrote:
+> > Dne =C4=8Detrtek, 26. november 2026 ob 21:35:40 Srednjeevropski standar=
+dni =C4=8Das je Enzo Adriano napisal(a):
+> >> The Allwinner A733 combines six Cortex-A55 and two Cortex-A76 cores.
+> >> Add the common device tree for the first Cubie A7A, A7S and A7Z board
+> >> DTS files. Describe the CPUs, PSCI, architectural timers, GIC, RTC,
+> >> main and always-on clock/reset and pin controllers, UART, I2C and
+> >> MMC. The preceding revision booted on the A7S and A7Z.
+> >>
+> >> The A7S schematic, sheets 7 and 16, shows the EEPROM wired to I2C0
+> >> on PG8/PG9. Use mux 6 as documented in the A733 Datasheet v1.00,
+> >> section 4.2.6, table 4-36. The A7A schematic shows the external RTC
+> >> on S_TWI1. Add its R-I2C1 pin group on PL12/PL13, mux 3.
+> >>
+> >> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
+> >> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
+> >> and noncoherent attributes follow Andre Przywara's A733 reference
+> >> and the A523 precedent. The CPUX interconnect diagram in section
+> >> 5.1.2 supports the noncoherency inference. Leave the ITS disabled
+> >> pending clock/reset and MSI integration.
+> >>
+> >> Describe the single DynamIQ unit and shared L3 shown in section
+> >> 5.1.2, figure 5-1. Partition PPI 7 (section 12.2.3, table 12-1)
+> >> between the Cortex-A55 and Cortex-A76 PMUs so each probes its own
+> >> core type. Defer capacity-dmips-mhz until it is measured on A733.
+> >>
+> >> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b3=
+52986b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
+> >> Link: https://lore.kernel.org/r/20261126172253.1097838-2-andre.przywar=
+a@arm.com
+> >> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> >> Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Rad=
+xa Cubie A7Z V1.11
+> >> Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
+> >> Co-developed-by: Andre Przywara <andre.przywara@arm.com>
+> >> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> >> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> >> ---
+> >> Changes since v5:
+> >> - Mark the I2C0 PG8/PG9 group /omit-if-no-ref/, as requested. This
+> >>    satisfies Andre's review condition.
+> >> - Move the RTC clock include after the A733 clock headers and cite
+> >>    the A733 datasheet and A7S schematic for the I2C0 pins.
+> >> - Fold in Andre's R-I2C1 pin group for A7A. A7S and A7Z leave
+> >>    it unused. A7S still references the I2C0 group.
+> >> - Vinicius tested the v5 DTSI with his A7Z v1.11 board DT. Norman
+> >>    tested the v5 series on A7S. Their tags here cover the SoC DTSI.
+> >>
+> >>   .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 671 ++++++++++++++++=
+++
+> >>   1 file changed, 671 insertions(+)
+> >>   create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> >>
+> >> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm=
+64/boot/dts/allwinner/sun60i-a733.dtsi
+> >> new file mode 100644
+> >> index 000000000000..e062b08006da
+> >> --- /dev/null
+> >> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> >> @@ -0,0 +1,671 @@
+>=20
+> [ ... ]
+>=20
+> >> +
+> >> +		mmc0: mmc@4020000 {
+> >> +			compatible =3D "allwinner,sun60i-a733-mmc",
+> >> +				     "allwinner,sun20i-d1-mmc";
+> >=20
+> > That's not really the case, is it? A733 emmc has support for voltage sw=
+itching,
+> > so regulator should be added here for voltage switching.
+>=20
+> But it's still compatible to the D1 MMC controller, isn't it? As in: a=20
+> driver capable of supporting the D1 MMC IP can also drive the A733 MMC.=20
+> I think the voltage regulator is a separate problem: it's external to=20
+> the MMC IP. The vqmmc supply property is documented and usable, and the=20
+> availability of the regulator it points to is a separate issue.
+> The same as the H616 and A523 have the voltage switch already, but are=20
+> still compatible to the A100 and D1, respectively.
 
-Stefan Berger's commit 114e80437e0e ("crypto: ecc - Add special case
-for NIST P521 in ecc_point_mult") made the ladder run on k + n or
-k + 2n with bit 522 as the top bit.
+Ah, sorry, mmc0 node is ok. Power supply is the tricky part and that
+belongs to board dts.
 
-For k < n that is always k + 2n, and its bit 522 is set only for
-k >= 2^522 - 2n (about 2^259.5). For smaller k the result is
-(k + 2^522) * P instead of k * P.
+>=20
+> > I suggest that you drop this node until proper adjustment is made.
+>=20
+> Do you have any code for the voltage switch already? Your comment in the=
+=20
+> UHS-1 prep series suggests so? Any chance you can post that separately,=20
+> to get any DT compatibility problems out of the way early?
 
-Use k + n if its bit 521 is set, else k + 2n, and start the ladder at
-bit 521.
+As you may remember #linux-sunxi discussion a month or so ago, you had
+objections regarding broking forward compatibility. So now is the time
+to properly address this for A733. As discussed, proper way would be to
+introduce regulator child node in pinctrl and point vmmc-supply to it.
 
-The only in-tree P-521 caller, ecc_is_pubkey_valid_full(), passes
-k = n and gets the same result. Its ladder now runs on 2n instead of
-3n, as on P-192, P-256 and P-384.
+Example is here:
+https://github.com/jernejsk/linux-1/commits/sunxi-mmc-uhs/
 
-Tested in UML against a Python reference for small k, k on both sides
-of 2^522 - 2n and 40 random k. The ecdsa-nist-p521 self-tests still
-pass.
+(just pretend that vmmc-supply is used instead of vqmmc-supply)
 
-Fixes: 114e80437e0e ("crypto: ecc - Add special case for NIST P521 in ecc_point_mult")
-Tested-by: Laveesh Bansal <laveeshb@laveeshbansal.com>
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
- crypto/ecc.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+Best regards,
+Jernej
 
-diff --git a/crypto/ecc.c b/crypto/ecc.c
-index a56a33e4eccb..370c60595fa9 100644
---- a/crypto/ecc.c
-+++ b/crypto/ecc.c
-@@ -1365,11 +1365,14 @@ static void ecc_point_mult(struct ecc_point *result,
- 
- 	carry = vli_add(sk[0], scalar, curve->n, ndigits);
- 	vli_add(sk[1], sk[0], curve->n, ndigits);
--	scalar = sk[!carry];
--	if (curve->nbits == 521)	/* NIST P521 */
--		num_bits = curve->nbits + 2;
--	else
-+	if (curve->nbits == 521) {	/* NIST P521 */
-+		/* k + n or k + 2n, whichever has bit 521 as its top bit */
-+		carry = !!vli_test_bit(sk[0], curve->nbits);
-+		num_bits = curve->nbits + 1;
-+	} else {
- 		num_bits = sizeof(u64) * ndigits * 8 + 1;
-+	}
-+	scalar = sk[!carry];
- 
- 	vli_set(rx[1], point->x, ndigits);
- 	vli_set(ry[1], point->y, ndigits);
+>=20
+> Cheers,
+> Andre
+>=20
+> > Best regards,
+> > Jernej
+> >=20
+> >> +			reg =3D <0x04020000 0x1000>;
+> >> +			interrupts =3D <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
+> >> +			clocks =3D <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
+> >> +			clock-names =3D "ahb", "mmc";
+> >> +			resets =3D <&ccu RST_BUS_MMC0>;
+> >> +			reset-names =3D "ahb";
+> >> +			pinctrl-names =3D "default";
+> >> +			pinctrl-0 =3D <&mmc0_pins>;
+> >> +			#address-cells =3D <1>;
+> >> +			#size-cells =3D <0>;
+> >> +			status =3D "disabled";
+> >> +		};
+> >> +
+>=20
 
--- 
-2.55.0
+
 
 
