@@ -1,56 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795864556;
-	b=fwQC7hEHs7E4gkqI5GpB2gkLgbW1GA2yJcZSQ7y0GbrGOBJTxQkqffYwVvNEiZxqO3X9
-	 ReNxqTSPYVasJ43XSDB7t1xbyYOHYHeQ/6r+8PnUHfKopp+AGAC+HZMxdy57v9+Kvqfp9
-	 ecZOR8MUtSaDMAlOU+I/jKpDOkuuRcD+NlgIANYfMoIBelHHMGAsYm2ttr7SMNVVUCP1U
-	 nilwJwTLKgzFXJ1Z1wjHPHtzSWDPIr+Dk8/OICrJTqquDAvWUq8APV75zzI1x0+uwGzZi
-	 bIxvJfWRTtm6S9MdWNxl12T8Ed8Xr8S4i7iGWXqtd9Y9DZi7DNjKLeX1pKrTmcYsSDw==
+	t=1795864598;
+	b=SFHMVyREdElNodXP0tkdLRz70xUcPtzL/cb0Y3kcbYZ8fEZgmOIPoscAgdC/A9AQnXyI
+	 yN9YBz0ZMbeVrEr2ElCNgZOIStbIhaZMmsDkhqe5LDfjnqeqi3FI2u/eSdHFm3DlQYh3Y
+	 3onohwcA3OGSwfFgebmKy5QKnRdZZSxbgDHfXssKWSbFdh6bdeHnxeQZIcPsDHrtn5FVZ
+	 mCfe43U2yX9OhH9bFUOJcsJwQmRSe/+bm+EDLGAw7TV7OMNAld6psx2ksLwmlE6QLou6o
+	 Cg/UWY2q7VruiK09Kvzt8JM96KLExqhFCKbj34j3HIHn7ocPXVa2B3ocX6CdelGc8hQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795864556;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=DsvK1cIGUgxB4kmDCLPIl7jxz8Pe1k7ijonzyD/9LtI=;
-	b=MvfBBh4xSvAz8BpWa66PVcET/11f3hcZafcY6Uaf+qgYkei85m/ziL3tx4qwXN5GQsfv
-	 cO0mNY7eA7rCLtCVJlHKrzqY2m/UFEWrrbOJVl2TsF/Hmw5GWzoLmcOjKgC3PEXpqc1MH
-	 p04BuRQ3wFOg3wCWtFrt8R3w7Bgv6psvs2MeiL93VBNBcn84SCo4b3wPUTjXdWWzzM6FL
-	 6qMGMFmEIAg8GxSS0MeK5kREDARv9mZ3ZhlJVrL58bFrKeHpOBRtHBnHIcarnML11Eb0C
-	 gadfpqWh5BdOs2pGO6yc28LlAayPhKPNtzru6myRjqAqyM0BRqSclKsk/BAoopva/6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795864598;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=T8XdOzjKahmMpUz1ofbmiwjYhp8+CGhzvAVMXv3NGSU=;
+	b=CgzHYrF2Fd/vKwxMUZxVVbRqF1kLv9h1D2T/VZnW7iQacGzQgH6mT4522XPfcsgfzmPl
+	 VAon3knZVq+myCi3trU2MwbALBOc70kqaGRg/VxLdaCWDm234Tcx18oMG2GCfqypCgdC/
+	 SlyBv9CO6UcbOd/DXfXL9jK/xKIA8wQq1+OyvuX2B/9QFKq/Li1uumWvz+BJuumjVjAm0
+	 RI4RREc2eJukeyl0JBiKA869s9MswHsEzGbQZ1Aeq9IP0OdVq3dhbkd9mRCujacggZJV5
+	 k+aDEegPyuMrtQXa3MwoOR1yhfynrZF4G8+suttKHeMF9nuweTC0/eIlCri78SoKgKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=A3juzhPz;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=orSXd3k5;
+	arc=none smtp.remote-ip=209.85.216.69
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E5DC606A334;
-	Sat, 28 Nov 2026 11:15:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E5DC606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF4CE606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:16:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF4CE606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=A3juzhPz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ds
-	vK1cIGUgxB4kmDCLPIl7jxz8Pe1k7ijonzyD/9LtI=; b=A3juzhPzENpaP/l5PE
-	3ACWUPgGrmo7qp3N3cE+44mibFOpi8AhyCl42KGKZTcBzhNTXWamhN25AwGDQk/B
-	AwvmbEBURL8KIQXCH/vbM9te4CycLz3tR2v0KIHF33XL/bktzaldg0G3BuM/+iNY
-	0SP5vTOSmPe4Hjrw1lIpWSUA4=
-Received: from shaos.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3H0HhtwprzMsqLA--.12800S2;
-	Sat, 28 Nov 2026 19:15:46 +0800 (CST)
-From: shaos <shawnq1@163.com>
-To: luisbg@kernel.org,
-	salah.triki@gmail.com
-Cc: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] befs: fix indirect index in double-indirect mapper
-Date: Sat, 28 Nov 2026 11:15:45 +0000
-Message-Id: <20261128111545.3210159-1-shawnq1@163.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=orSXd3k5
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b41f4ca1bfso6809335a91.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:16:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795864597; x=1796469397; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=T8XdOzjKahmMpUz1ofbmiwjYhp8+CGhzvAVMXv3NGSU=;
+        b=orSXd3k5fGHivfquVZ8qd0Pp4pCJ96fkmt3H0WhMevX7m+8btrRgupliyGGKYf+Uyq
+         cai/tm1nrQ4C/syOvrz+h9x1AX47/fNYpeUUC9dhlwMlIPbEF7LSffJ24vgRaZRlPAMh
+         Py1CVZhpyOg2s7+sl96XPvtdFJu2QFIJQL0RYsn4LuYKW4RCqP5/MhuSca2CX5V2RT+b
+         3Pr06+7bs/fTi6FsF8T/o8NEf8q55PB6ZHWsfREJ6FkchTHQxTjFgj4YvEIzi8QMl4cS
+         wY88XZ+H9OlZ3/ZKLHy7SWTXfGkdIVe9AWwAcUYd1BY6YLSzhLrb6GStqElBk9bs/M2Q
+         nj1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795864597; x=1796469397;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T8XdOzjKahmMpUz1ofbmiwjYhp8+CGhzvAVMXv3NGSU=;
+        b=x1MDEQVgMSZ4DLbRILb+THhDw9bcvxItOqRaOBVi1uFrOmQP2oZXqKbP+l8oWP5axi
+         YX0gR8Vjyu0z8O/ln+hzpllAaasEuMz9P58ob5RjEU/56T2uY75LGg8e5ltbi6KMVBOF
+         6IY3Kf/L6hZt3OGOBSGPGQv415TVpoKHg45Ipxbis6U5kUaZW7s/pREENxdn8YTK0xEL
+         m95qb6uKcvPnIXJwahp7UMG8gb4FGIeZhW8ewRD/f40Z2OEIb0GYxbmA7BIwxEidbM2v
+         /84fAxnm0Ei6S6NZyETgWCFB6GXaNPLnuw3+xcdSA5tSMEWef9blal+4y86XDxfJW1EM
+         XNgQ==
+X-Forwarded-Encrypted: i=1; AL+hErEBQIiQ6iCcZLL6wirnTJnel3MlWmv6ZPBQHavVqdUmq3fvqTCc+A+lI8ISPORnk170gfOwYu3Ou4KD6FQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4ek9MXamRxF8o5D696kizfSssKxm8prSfsSXvnT9bH5InqZ1c
+	kVFc9fw9NdoVmxlSUjWSFK06deMbt3g+MIcRyKM9fZGniJBSrKdjYtW68w7N5oUveQwqfaf8Pzq
+	EQWeCDg==
+X-Received: from pjbgb22.prod.google.com ([2002:a17:90b:616:b0:3b3:c91b:f23f])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2ecb:b0:3ac:8446:c1a5
+ with SMTP id 98e67ed59e1d1-3b41c988620mr24472096a91.48.1795864596862; Sat, 28
+ Nov 2026 03:16:36 -0800 (PST)
+Date: Sat, 28 Nov 2026 11:16:36 +0000
+In-Reply-To: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,120 +77,38 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3H0HhtwprzMsqLA--.12800S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCF13Wr17ZrWftw4UGw13XFb_yoWrCw1xpa
-	yqk3WFkFs8C3W5J3Z3uF4jvw1xWw1DJa43G3Z8J348Cws8Jrn2v34Ikw1Y9F1kKr1kGa90
-	qF1jga4FgayDGaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UN6pPUUUUU=
-X-CM-SenderInfo: pvkd40jtr6il2tof0z/xtbCzwODkWsKt+NIDQAA3u
+Mime-Version: 1.0
+References: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com>
+Message-ID: <awq4A4oFnegEB9rO@google.com>
+Subject: Re: [PATCH net] net: reuseport: honour SO_LOCK_FILTER in SO_DETACH_REUSEPORT_BPF
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Suyuan Wang <shyckless@gmail.com>
+Cc: pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net, 
+	kuba@kernel.org, willemb@google.com, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org, martin.lau@linux.dev, linux-kernel@vger.kernel.org, 
+	horms@kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Hello,
+On Sun, 22 Nov 2026 08:17:26 +0000, Suyuan Wang wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> SO_LOCK_FILTER lets a process lock the filters on a socket before
+> handing it to a less privileged one. Once it is set, the existing attach
+> and detach paths reject changes to the socket's BPF filters with -EPERM,
+> but SO_DETACH_REUSEPORT_BPF does not check SOCK_FILTER_LOCKED. So an
+> unprivileged process that receives a locked socket can still remove the
+> reuseport program, which then changes how packets and connections are
+> spread over the whole reuseport group.
+> 
+> Return -EPERM from reuseport_detach_prog() when the filter is locked,
+> like sk_detach_filter() does.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: 99f3a064bc2e ("bpf: net: Add SO_DETACH_REUSEPORT_BPF")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 
-befs_find_brun_dblindirect() computes the index within the indirect
-block as dblindir_leftover / diblklen.  Since dblindir_leftover is the
-remainder modulo diblklen, that quotient is always zero.  The divisor
-must be iblklen, the number of file blocks described by one indirect
-entry.
-
-With a valid-layout image whose direct and indirect ranges are both
-non-empty, reads from the second data run in the double-indirect range
-return data from the first run plus the logical offset.  The PoC reads
-file blocks 6 and 7 as WRONG_BLOCK_024 and WRONG_BLOCK_025; the correct
-blocks contain RUN1_BLOCK_200 and RUN1_BLOCK_201.
-
-The trigger requires a crafted BeFS image to be mounted from a block
-device, which requires mount privilege.  The reproducer mounts the
-image read-only and reads a regular file.  It demonstrates incorrect
-file contents; it does not demonstrate a panic, memory disclosure, or
-privilege escalation.
-
-HEAD commit:    8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-git tree:       fe970b05333fb8e41da21e9e289f652abcc7cba7
-source version: v7.3-23088-g8d7fe9885c62f (Linux 7.4.0-rc4)
-compiler:       gcc 11.4.0, GNU ld 2.38
-
-Console output:
-https://gist.githubusercontent.com/shaos26/6be5e0efeaa44a6715bdba598ca6c2f6/raw/c1fcaab9327372c7021788ebfcdddac66810cb26/console-output.txt
-Kernel config:
-https://gist.githubusercontent.com/shaos26/6be5e0efeaa44a6715bdba598ca6c2f6/raw/c1fcaab9327372c7021788ebfcdddac66810cb26/kernel-config.txt
-PoC:
-https://gist.githubusercontent.com/shaos26/6be5e0efeaa44a6715bdba598ca6c2f6/raw/c1fcaab9327372c7021788ebfcdddac66810cb26/poc.c
-Image builder:
-https://gist.githubusercontent.com/shaos26/6be5e0efeaa44a6715bdba598ca6c2f6/raw/c1fcaab9327372c7021788ebfcdddac66810cb26/make_befs_image.py
-
-Build the kernel from the revision above using kernel-config.txt:
-
-    work=$(mktemp -d /tmp/befs-dblindir.XXXXXX)
-    cd "$work"
-    gist_id=6be5e0efeaa44a6715bdba598ca6c2f6
-    gist_revision=c1fcaab9327372c7021788ebfcdddac66810cb26
-    gist_base=https://gist.githubusercontent.com/shaos26
-    gist=$gist_base/$gist_id/raw/$gist_revision
-    for file in console-output.txt kernel-config.txt poc.c \
-        make_befs_image.py; do
-        curl -fL "$gist/$file" -o "$file"
-    done
-    git clone \
-        https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-    cd linux
-    git checkout 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-    mkdir build
-    cp ../kernel-config.txt build/.config
-    make O=build olddefconfig
-    make O=build -j"$(nproc)" bzImage
-    cd ..
-
-Build the image and initramfs:
-
-    gcc -O2 -static -Wall -Wextra -o poc poc.c
-    python3 make_befs_image.py befs.img
-    mkdir -p root/dev root/mnt
-    cp poc root/init
-    (cd root && find . -print0 | cpio --null -o -H newc) | \
-        gzip -9 > initramfs.cpio.gz
-
-Run the positive case with the image attached read-only:
-
-    timeout 30 qemu-system-x86_64 -machine pc,accel=tcg -cpu max \
-        -m 1024M -smp 2 -display none -monitor none -serial stdio \
-        -no-reboot -kernel linux/build/arch/x86/boot/bzImage \
-        -initrd initramfs.cpio.gz \
-        -append 'console=ttyS0 rdinit=/init panic=-1 loglevel=7' \
-        -drive file=befs.img,if=virtio,format=raw,readonly=on
-
-The unfixed kernel reads WRONG_BLOCK_024 and WRONG_BLOCK_025 for file
-blocks 6 and 7.  The same image and initramfs on the fixed kernel read
-RUN1_BLOCK_200 and RUN1_BLOCK_201.  Blocks in the direct range, the
-first indirect range, and the first double-indirect run match on both
-kernels.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: shaos <shawnq1@163.com>
-
-Thanks,
-
-shaos
-
----
- fs/befs/datastream.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/fs/befs/datastream.c b/fs/befs/datastream.c
-index 4f5825a336f1c..9f610e775321a 100644
---- a/fs/befs/datastream.c
-+++ b/fs/befs/datastream.c
-@@ -456,7 +456,7 @@ befs_find_brun_dblindirect(struct super_block *sb,
- 
- 	dblindir_indx = dbl_indir_off / diblklen;
- 	dblindir_leftover = dbl_indir_off % diblklen;
--	indir_indx = dblindir_leftover / diblklen;
-+	indir_indx = dblindir_leftover / iblklen;
- 
- 	/* Read double indirect block */
- 	dbl_which_block = dblindir_indx / befs_iaddrs_per_block(sb);
--- 
-2.34.1
-
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
