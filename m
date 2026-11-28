@@ -1,66 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795875919;
-	b=mnKQHFCKrQqdaqUhjUEoHTPJa36SNwlc+Gk1NMBrJQMN8RNFnbLpLqv5K++VCdAllXzJ
-	 AG+xT5+T61Pa7T5Vs3BvxL8vZD9HqVYsHcRgpNdtYkiUNmnAAs6YtKG0B62MimRmkPMXb
-	 HbDfK1N5AP6IVxrkaSunns0VMRWW7oHDfPM1JXc6HKl3fLBC5wlY+tdEkuUlM6RyB6Xko
-	 k6/+7WZdI98Y1/kk7I20gdurGatQrY5p5/oktzGczEsFDTLABDe5RZDwB7kn9EKZyveF1
-	 FK/m9qucGsTzwpHykueOuR0l1PRDlXa5CJnbEFPQ4SyeNlUhebA6aTD9iKcPhJjXzmg==
+	t=1795875969;
+	b=neS8bzTH21DJNcnq7ouGyne4FSUCVJ8Q94+mh3yyZDvZOhQzOegUmTeyyrDzb2PCH2hN
+	 +79OmNc/q3s/6DRgD2C1Be47w4TvJPNoC14BAs9OzVqRv0ZknsdXLx3jZyeJA+iOqNIZj
+	 Ogrx0ThtPJMpyI7/jPoThpj7mJ8Iq4+i7ebeEydeiXGN613Gtjv5uwoX+Wa3A/z3bR4Wo
+	 4/AVOocodLEEZEIhTrU8sISe0Bsf/swgKXk+P8PEWIVMcszNfrk/fLkAYZXdJ+i7Hd0zg
+	 vNCtlEnzIBQo5PpPSFybHGOdTJnrnpjNVtykcjzfW2OAJveMXW0rkhFa3HWGVm7ptyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795875919;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=l/x9oNCSaYQ0fFo4ifv7WcmGtt7Q6tbfnPKrA7iq6qw=;
-	b=nlCEBRqWlV8uSfhBzXVQvtufuU3ik8/L+JPQAuTbYhzL8WG1iB+QF0Gm9c2LYLI5ZbUr
-	 dVzcXxE1Q1i+7+OoHLDjdeeKiSIEDZ4crHYLr9gOsFLqhT3q4SfyCtovecvZJgMdNU4QE
-	 vw/KLvFz/stFcDSu/p7C9SzIzc3fZnQBx5n+A6KKJwQZywZvH4akPyNSQx+u3j2QED0gG
-	 Rwe62vyQmpu6BPjjoSq9OtkfCjKi3EimEG4w3glvyAFxuroqcmaBUUUBrBSz6Hjh11nSY
-	 LjjJBUHrtODq597SmIu9I8QW1BlxCoVXJ9FRoCp+jbHWnG3/yOlxRPg2xaWhZ2aM8Ag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795875969;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=MY2uFTiPHrQMA4/9MXt16v0yoXdkAqWzROWuYVrR1UQ=;
+	b=ZZy2uGNKwbrQXn6QxyQiqKMzjbU+V4rSZkv5fqktHHH9+SSjCpCVM/8leQQuIlqyyfyK
+	 E5506Nz5CI1eHHVgW4dAc7fqelN3evOZ/CFkw2ZQlspkKMeEAH+lrmdfOnsShFoafKurs
+	 uL0nbDWGxCf5XoZEFGoeYX6JEy8PT7KqHrB6uUk5lVrGJuMxeqmnMB0Ugi0kcZeh3QocJ
+	 UvRZHbCbzzgEvAQmfmUAImHlj4I/FjaKih6HQLpYVjR1xCeokvHcZZBgF2hqdrL9uZO8d
+	 m9NWs8uj8Aq6HHjocGkgEZmv96kq5ry+Ysj1vNrPeVLVsMootNKyMyeHCRDqPUBsJ9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LItuOnU2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=H1IQPEsW;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1CB2606A31C;
-	Sat, 28 Nov 2026 14:25:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBDF5606A31F;
+	Sat, 28 Nov 2026 14:26:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBDF5606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LItuOnU2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C0E1F000C1;
-	Sat, 28 Nov 2026 14:25:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795875918;
-	bh=l/x9oNCSaYQ0fFo4ifv7WcmGtt7Q6tbfnPKrA7iq6qw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LItuOnU2oUvls841zaj/BO/k/B5OcyAVHfvri3ObuXh+WSwdcpGCfv5lGz0Rj5MYb
-	 R6+qho0AsiRjll511xnmAtooDqesEAO4X9KJaScmNIRdFd9QTJbdX+2d37lNAxL46Q
-	 Tz8mu1c01HsfsC8K1P8JzfABDt2OY6x3F4L3JnVVeUItgk28M+r2hGJA6n8E5Mn1kw
-	 sE0FV8S0dBogZBr6lAey8W9l4Kvkqc04Bneze7vGI4fRgJyKeB0MSZ1fdPk7XqlduS
-	 ZBV9cOlvs+hwUeKT0+yx8/b5x0bFpi/UHbAXjar4STF7fkXxSRlBpCt2VYPPH15sd0
-	 OgWLEI5JLeALw==
-Date: Sat, 28 Nov 2026 14:25:12 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Aryan Sinha <sinha.aryan03@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Benson Leung <bleung@chromium.org>,
-	Leilk Liu <leilk.liu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: spi: mediatek,spi-mt65xx: Add MT8189
-Message-ID: <fdf1327b-0a79-4dbf-81ba-f4da0dc6dd2b@sirena.org.uk>
-References: <20261128141443.13065-1-sinha.aryan03@gmail.com>
- <20261128141443.13065-2-sinha.aryan03@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=H1IQPEsW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795875969; x=1827411969;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WuqgJ38tny/WpKpeTa0Yrp3OJgllRuWAxpM8lrzahPk=;
+  b=H1IQPEsW6INnMz5ytewY/MYXdvInQXbVegad4d03UW7KK8ohQU0u3GM9
+   gVzL4/rNnnrePV3xDHq6DiYqavZd+p5RyI0K6W3/AtmQclxNWwqN+/lDb
+   6YBtw7JmSh5YS+3IehfIrRTlRJrlLhuP+S2SvjPcxI/M+eFIrKnvmMInd
+   ASn1aHkAmu4Or2m5lWisyujv8YYEgP6cJTxinhdG8UuQBSD6IuXT4TObb
+   JUOP32C7nANGu89CeNZDDcxR/azvE0WLHAzRqVS2Na9Ly29yJ2NcWMDRy
+   w+XXLARnTSS0g/B0n4+tslOCEQJQWaNKiHv5redgyfU0LOejBlbrY3KoL
+   Q==;
+X-CSE-ConnectionGUID: sdUwH1uYQtmrIW6mE2U6qQ==
+X-CSE-MsgGUID: G+8HnaRwT0mos5YtC0MKtQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11980"; a="4664035"
+X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
+   d="scan'208";a="4664035"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 06:26:08 -0800
+X-CSE-ConnectionGUID: X1gJXZarTMycwgwdP9EMpQ==
+X-CSE-MsgGUID: x3RALWu1ScKjXOgtfqpnhQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
+   d="scan'208";a="12819257"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa003.fm.intel.com with ESMTP; 28 Nov 2026 06:26:06 -0800
+Date: Sat, 28 Nov 2026 22:15:43 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: tze.yee.ng@altera.com
+Cc: Moritz Fischer <mdf@kernel.org>, Xu Yilun <yilun.xu@intel.com>,
+	Tom Rix <trix@redhat.com>, linux-fpga@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] fpga: altera-cvp: Handle truncated bitstream with
+ padding buffer
+Message-ID: <awriD1uAiBgmq0Rk@yilunxu-OptiPlex-7050>
+References: <3c1bb384cb9cd5bb35b3c7e68a4feab95ef4ad60.1794987679.git.tze.yee.ng@altera.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,41 +80,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+8aFEQ7wAC57vafI"
-Content-Disposition: inline
-In-Reply-To: <20261128141443.13065-2-sinha.aryan03@gmail.com>
-X-Cookie: I'm a Lisp variable -- bind me!
-
-
---+8aFEQ7wAC57vafI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <3c1bb384cb9cd5bb35b3c7e68a4feab95ef4ad60.1794987679.git.tze.yee.ng@altera.com>
 
-On Sat, Nov 28, 2026 at 07:44:25PM +0530, Aryan Sinha wrote:
-> The SPI controllers on MT8189 use the same IPM design as MT6991, so add
-> the MT8189 compatible with mediatek,mt6991-spi as the fallback, the same
-> way MT8196 does.
+On Wed, Nov 18, 2026 at 03:43:15PM +0800, tze.yee.ng@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> 
+> The AIB CvP firmware requires a minimum transfer size of 4096 bytes.
+> When a bitstream smaller than this is sent, the firmware DMA engine
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+Only when < 4096? E.g. if a bitstream is 4096 + 1, it is good?
 
---+8aFEQ7wAC57vafI
-Content-Type: application/pgp-signature; name="signature.asc"
+> stalls waiting for the remaining data, causing a hang.
+> 
+> Allocate a 4096-byte send_buf at probe time and copy host data into
+> it before each block transfer, ensuring the full block size is always
+> sent regardless of the actual data length. Also improve error
+> detection in write_complete() by checking VSE_CVP_STATUS_CFG_ERR
+> instead of VSE_UNCOR_ERR_CVP_CFG_ERR to catch truncated or
+> mismatched bitstream errors.
 
------BEGIN PGP SIGNATURE-----
+What VSE_CVP_STATUS_CFG_ERR checks? and what VSE_UNCOR_ERR_CVP_CFG_ERR
+checks? why it is an improvement? Please specify in log.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsK5EgACgkQJNaLcl1U
-h9AX8Qf/e7espGUJCU23sN2ejhjOraYZoYRG5IEKfmroYjUkZaboYuyFOjz4rmMK
-DYBRQpXresUYUlFYjj+s1IcSPQxDo57SRWkpyRSe6nPOK3mXpntPOx69B4G11oP0
-c3ZJC3rv639N+y36pGtB/o2W/b2HYemnpn4G5GB7+jpn1VNPV061A6js1Ue/Mpdg
-Qo4+UPCZa7W+IyzKM/4p1Z1S3Y0NeB8SUsjRbeaVD0aD3yu2zwE1YSUIzsXW9n0/
-vRFQJ6xHt+bmWqCApAEKt6k+/C1wjbkSgO7Tf/z54tcqTJbdAvbO3eZV+7PZHb1o
-1kOgnJ8sqN0oA6GXLDItXITnSvIqJg==
-=POvc
------END PGP SIGNATURE-----
+> 
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> Signed-off-by: Tze Yee Ng <tze.yee.ng@altera.com>
+> ---
+> Note: I am taking over this patch from Nazim Amirul, who is no longer
+> working on it. Nazim is kept as the author.
+> 
+> Changes in v2:
+> - Rebase from linux-fpga/for-next without code changes.
 
---+8aFEQ7wAC57vafI--
+I'm wondering if you agree with all his code/log so you don't change, or
+you just wait for me to find all the issues anyway.
+
+> 
+> v1: https://lore.kernel.org/all/20260619040811.20038-1-muhammad.nazim.amirul.nazle.asmade@altera.com/
+> ---
+>  drivers/fpga/altera-cvp.c | 18 +++++++++++++-----
+>  1 file changed, 13 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/fpga/altera-cvp.c b/drivers/fpga/altera-cvp.c
+> index 103446465e0c..c9357cbe7fc0 100644
+> --- a/drivers/fpga/altera-cvp.c
+> +++ b/drivers/fpga/altera-cvp.c
+> @@ -82,6 +82,7 @@ struct altera_cvp_conf {
+>  	u8			numclks;
+>  	u32			sent_packets;
+>  	u32			vsec_offset;
+> +	u8			*send_buf;
+>  	const struct cvp_priv	*priv;
+>  };
+>  
+> @@ -518,7 +519,9 @@ static int altera_cvp_write(struct fpga_manager *mgr, const char *buf,
+>  		}
+>  
+>  		len = min(conf->priv->block_size, remaining);
+> -		altera_cvp_send_block(conf, data, len);
+> +		memcpy(conf->send_buf, data, len);
+
+So you copied the whole bitstream just because of some bytes of unalignment?
+
+Frankly speaking, I really think the image or the firmware should fix,
+you can't produce a image that the FW can't handle.
+
+> +		altera_cvp_send_block(conf, (const u32 *)conf->send_buf,
+> +				      conf->priv->block_size);
+>  		data += len / sizeof(u32);
+>  		done += len;
+>  		remaining -= len;
+> @@ -557,10 +560,10 @@ static int altera_cvp_write_complete(struct fpga_manager *mgr,
+>  	if (ret)
+>  		return ret;
+>  
+> -	/* STEP 16 - check CVP_CONFIG_ERROR_LATCHED bit */
+> -	altera_read_config_dword(conf, VSE_UNCOR_ERR_STATUS, &val);
+> -	if (val & VSE_UNCOR_ERR_CVP_CFG_ERR) {
+> -		dev_err(&mgr->dev, "detected CVP_CONFIG_ERROR_LATCHED!\n");
+> +	/* STEP 16 - check CVP_CONFIG_ERROR bit */
+> +	ret = altera_read_config_dword(conf, VSE_CVP_STATUS, &val);
+> +	if (ret || (val & VSE_CVP_STATUS_CFG_ERR)) {
+> +		dev_err(&mgr->dev, "CVP_CONFIG_ERROR!\n");
+
+Why we don't check the ret before and now we do check? Why there are
+many other reads that don't check?
+
+And I find nearly exact the same 5 lines, any reason to duplicate them.
+
+>  		return -EPROTO;
+>  	}
+>  
+> @@ -729,6 +732,11 @@ static int altera_cvp_probe(struct pci_dev *pdev,
+>  
+>  	pci_set_drvdata(pdev, mgr);
+>  
+> +	conf->send_buf = devm_kzalloc(&pdev->dev, conf->priv->block_size, GFP_KERNEL);
+> +	if (!conf->send_buf) {
+> +		ret = -ENOMEM;
+> +		goto err_unmap;
+> +	}
+>  	return 0;
+>  
+>  err_unmap:
+> -- 
+> 2.43.7
+> 
+> 
