@@ -1,68 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795876947;
-	b=iw2ZpK5Vs5/LzL6pFl2fBr70sDxyeCw1RJO4HlHv2ZRsFeWSN4lJKLjEnsX1LZEQOA8C
-	 63zM3tuHzzDMenkZe1QODTg5JvMT9wkSMlPoypX+veLkD1eE+Z48BtQlPpJQUitIrFfuY
-	 UPAxEBAl2q2Pc0/W9ONg4h7wSTRK1WBUc18YSKkCy+8H3CKgPr+FFbYgE/cqUn3ojGajE
-	 w5swGMo7XL/KrkYjXv8RDkK5l7LW58ZUk73O2nORzg7Dj1UXLNJ9mubhbP6Bzwnwn9fD3
-	 HKh/r5m+MOHLlc4fw459RraA1sqGTBicf8/612oElEtX+LIsN28SY9XE9l5HBF5ifdg==
+	t=1795877338;
+	b=cRxiIn4lbxk1XqqmFCoQunZy+xdI+JRs5XLjsTqRmVghcRlL7ScvBzyKT+bFtbr2J3Tg
+	 nIN/89FFe9n3LeEEB2DxThvZa4lpcrHnkKBQ6s87M0J1fi3m9PVoK86EXw5Wv1nzoSCoO
+	 FwOJ4gog7QIifKiUwuyNkrmRWZqzQuRBzRMuLW8On4stYJrXt+1dpym9Lr/m1ibutRU4T
+	 8eCqnfqDiT2Gs+s3WzAWgya9GLt3g64okZyDmdhJhwbuuDwBVIZUSTxpM1bSTO5+vzjdT
+	 vLqjFPZmEMdg66HbPfXBZtxFQMXumMsZohoeADlMCbvyOHG8fuBKypKTGa4gsr45zpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795876947;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1DK4LwmCNpd1ho+cSH+5j9wFPzA55uu7znxxaqB/BwY=;
-	b=D6H8RPkoXsLo20aoyUYJf+j8hlfXdDY6jCC9qL5RJ4S82k9xz04SNs6RYJD5FiGnP1NC
-	 KipA9BZVhG6p3+HxpfbGCmS2+q/ICfOuNAX0DFuGhTOh/DMnqEsTL36VGX7FQJEWJh+AU
-	 03kflJlQ7ATMQQ38jY7Rp3cxf5uQa2smh2gMM5HHO/XZe7v5P0U6FbI4D933iSxfw4Svu
-	 egX1kFZy/aYVabCB8bmskw5Dh++IGgV9a/fTEVkzsJbUJ6MWaIRMWeYTx1s5XfS4yfrKd
-	 eqCuxLEk7nKCLxOQ064x4YiXijcxFxNA9j1K8NmjgiZrNZ7LRG55UH6em7d/D0jeUjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795877338;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=rTHeRwO8yVcE9iIw7hXmHM/QOylhrGQrDsqOfoX4uuI=;
+	b=OwpfRbct8xr+Sxt6psob2sT4bZ16uF5xX2xQY8br4SlR8IktTYpeB+e1dkqPC4Fck+iQ
+	 2JES5GeBDtYn9HyRwJ7KMhB4Orz2uVkPgFANACb9UBleOhf3SIxXFQjdCkyBi2XJhSUji
+	 xmrhEhtbshigVZ7MLL0Fz/k0SIQ+rWRnJnFga8qbbje44OG21Kq9WxWoL+UyJjcpPsfip
+	 npPZpiPo2bFnTXSJT1gZGvoY/x1qwbDMbpMWmMTQJiEgHojNnk/ayP9BDZnRw3TPdmQel
+	 ffxKBCOIG5YVa9dT3USzxODE++zgnv5NqBPiQ4wAxkTNgH/nJUBys/KnKLrn0iOM2WQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=uCeVIxNu;
+	arc=none smtp.remote-ip=109.224.244.123
+Received: from mail-244123.protonmail.ch (mail-244123.protonmail.ch [109.224.244.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 366B9606A31F;
-	Sat, 28 Nov 2026 14:42:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 366B9606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xXJcv-000000003a7-3taX;
-	Sat, 28 Nov 2026 14:42:10 +0000
-Date: Sat, 28 Nov 2026 14:42:06 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Alastair D'Silva <alastair@d-silva.org>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Norman Herms <dockseed@proton.me>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v7 7/8] clk: sunxi-ng: a733: Add bus clock gates
-Message-ID: <awroPiqKWB6Wl7yE@makrotopia.org>
-References: <20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech>
- <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
- <20261125115320.3692954-1-alastair@d-silva.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2473606A31C;
+	Sat, 28 Nov 2026 14:48:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2473606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=uCeVIxNu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795877334; x=1796136534;
+	bh=rTHeRwO8yVcE9iIw7hXmHM/QOylhrGQrDsqOfoX4uuI=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=uCeVIxNuKDn8dOYWfNzEdjCl9krO/UuiM6Clt5vu8XU8AbygObWHtLDZW5AI4/jC2
+	 WzJoziWj3HY6fAhhm8cLMqBOImiNdnNQpuqh9rkLJhBIoKJ3vVjQGBX+aPpQ7XkRgc
+	 cLJWgr/EC63sOSvVq1l7jAPxuvW6yDGoFbjw+pB0Qx2zwYAXDstl6uIr6nd4aaUXzF
+	 2FIRxS0bzcpSOH/nVbqRefduT2FCMgEUhbFNdhCh06lSzLitxz8T+y2FPGmFfalovE
+	 ibm4Ex8GwAgjGpnDbLNPlkhWvUBJUGOhButNKx0tOLv9oCjmxSfMjCjS/v7b3fatXZ
+	 mm2wdIm4Qzxbg==
+Date: Sat, 28 Nov 2026 14:48:50 +0000
+To: netdev-bot+sashiko@kernel.org
+From: Bryam Vargas <hexlabsecurity@proton.me>
+Cc: Mahanta Jambigi <mjambigi@linux.ibm.com>, Dust Li <dust.li@linux.alibaba.com>, Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, "D . Wythe" <alibuda@linux.alibaba.com>, Sidraya Jayagond <sidraya@linux.ibm.com>, Ursula Braun <ubraun@linux.ibm.com>, Wenjia Zhang <wenjia@linux.ibm.com>, Stefan Raspl <raspl@linux.ibm.com>, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, Wen Gu <guwen@linux.alibaba.com>, Tony Lu <tonylu@linux.alibaba.com>, Simon Horman <horms@kernel.org>, Guangguan Wang <guangguan.wang@linux.alibaba.com>, linux-rdma@vger.kernel.org, netdev@vger.kernel.org, Hidayath Khan <hidayath@linux.ibm.com>
+Subject: Re: [PATCH net v9 2/6] net/smc: bound the receive length to the RMB
+Message-ID: <20261128144844.1385070-1-hexlabsecurity@proton.me>
+In-Reply-To: <179483403531.3136.8089060655556532664@kernel.org>
+References: <20261112-b4-disp-0287c16e-v9-2-e5e8fa688177@proton.me> <179483403531.3136.8089060655556532664@kernel.org>
+Feedback-ID: 199661219:user:proton
+X-Pm-Message-ID: 1bb2895e801c5085280a8fd1eb88e916f2868a9b
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,53 +64,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125115320.3692954-1-alastair@d-silva.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Alastair,
+On Mon, 16 Nov 2026 13:00:35 +0000, netdev-bot+sashiko@kernel.org wrote:
+> - [High] The patch relies on spliced bytes being counted exactly once: in
+>   bytes_to_rcv until they are handed to the pipe, then in splice_pending.=
+..
 
-On Wed, Nov 25, 2026 at 10:53:20PM +1100, Alastair D'Silva wrote:
-> While bringing up GMAC0 on the OrangePi 4 Pro with this v7 CCU series,
-> link-up and DMA broke as soon as clk_disable_unused() ran.
->
-> ahb-msi-lite0 (0x5c0, BIT(16)) and mbus-msi-lite0 (0x5e0, BIT(29)) gate
-> the shared MSI-Lite0 bus fabric used by GMAC0 and other masters, whereas
-> bus-msi-lite0 is only its register configuration clock. Referencing
-> ahb-msi-lite0 and mbus-msi-lite0 only in gmac0 does not model the
-> shared fabric, and gating them off breaks GMAC0 DMA.
->
-> Could you please mark ahb_msi_lite0_clk and mbus_msi_lite0_clk with
-> CLK_IS_CRITICAL, matching ahb_store_clk and mbus_store_clk in this
-> driver?
+Both cases hold by inspection and neither is new: the review of v8 [1]
+described both. They are the error exit of the chunk loop in
+smc_rx_recvmsg() and the debit after the loop; 2/6 changes only the
+comment on that debit. The failed second chunk dates from 9014db202cb7;
+the short count needs a vmalloc'ed RMB, so b8d199451c99.
 
-I see the same on the Orange Pi 4 Pro, but I would rather not make
-these two gates critical.
+The bound doesn't rely on the single count: min(bytes_to_rcv, rmb_len -
+splice_pending) keeps the read that follows either case inside the RMB,
+double count included (by inspection). The commit message says the
+splice_pending change is only for a reader that runs between the cursor
+update and the drop in smc_rx_pipe_buf_release(), and the changelog in
+the cover says the failed second chunk is a different bug, not fixed
+here.
 
-A gate in front of a shared fabric is still a gate that each master
-behind it depends on, and the clock framework already handles sharing:
-every master that needs the fabric lists the gates, and they stay
-enabled as long as one of them is in use. The A733 USB hosts are in the
-same position with mbus-msi-lite2, which both EHCI/OHCI pairs and the
-DWC3 controller need, and listing it in those nodes is enough there.
+What goes wrong after that is the same as on unpatched. After case 1
+the read returns stale bytes from past the producer cursor and cons
+ends past it; I haven't worked out what the peer's writes do then.
+After case 2 splice() has reported bytes the pipe never got, and the rx
+window the peer sees stays short by that many.
 
-Which masters other than GMAC0 sit behind MSI-Lite0 is not documented.
-The vendor CCU marks both gates CLK_IGNORE_UNUSED, and no node in the
-vendor device tree names them, so the BSP does not tell us either.
-CLK_IS_CRITICAL would keep the fabric clocked on every A733 system,
-including those without Ethernet, and the next master that turns out
-to need it would work by accident, with nothing in its node saying so.
+Hidayath Khan's "net/smc: do not credit bytes that splice() did not
+take" [2] covers this accounting: the patch handles the short count,
+your case 2, and its review raised the failed second chunk, case 1,
+which Hidayath agreed to fix in v2. The same review raised the
+splice_pending drop that 2/6 moves; his reply announced a separate
+patch for it.
 
-So I would suggest letting the A733 GMAC binding take ahb-msi-lite0 and
-mbus-msi-lite0 as two additional clocks, with GMAC0 in the dtsi
-referencing them and the glue driver enabling them, in place of a CCU
-change. Any other master found to depend on MSI-Lite0 can then list
-the same gates. As you plan to rebase the Orange Pi 4 Pro Ethernet
-support on Jerome's GMAC210 series, I will raise the binding side in
-that thread.
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but spliced pipe
+>   buffers keep pointing into an RMB that has already been handed back...
 
-For transparency: an LLM coding assistant helped with the analysis and
-with drafting this reply.
+By inspection, yes: nothing holds the RMB slot while a pipe buffer
+points into it, and smc_conn_free() doesn't look at splice_pending.
+The conn->freed test isn't from this series, and 2/6 only moves the
+splice_pending drop that follows it.
 
-Cheers,
-Daniel
+[1] https://lore.kernel.org/all/179364387064.3131.5492897013975868107@kerne=
+l.org/
+[2] https://lore.kernel.org/all/20260820085543.967490-1-hidayath@linux.ibm.=
+com/
+
+Thanks,
+Bryam
+
