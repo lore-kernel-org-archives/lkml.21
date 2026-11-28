@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.102
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795878848;
-	b=e6PiSc87AHXxYCa0xWFRuPn9iUN5hpqij8mnS3sFeSEiqmdgb2pYymrur5JGyJaFz+7x
-	 IJABn6ptY6z2sUkMosEP2TP6LQIQzCAKjcefzizxsX2WLOjntNPY29RKvNHqsF3F0hiVE
-	 D+zhsvVWxYLff9caT9EbDyovQ509KfbUIoCxPP3UmlTg7hrnxzdCulzpX3pG26nz8iycj
-	 FMcudr5o+HSR6pyF7UP4Vlt3sW7vKoxjHNqMH5v3RRJjE+xUhdPmzPARPfqjhKDOQA1Di
-	 TtND8VPNUTZn1HvcT6X4A04pIdYqPUlb5Qtk3ibqGONGmf1FuVxJ2/Qcx1xIbtX1yZA==
+	t=1795878852;
+	b=U3ZBGxWHszIAPiN3tFaPICXnbn8sQeodZdrX24N/6f2f3ZbWhDyCqMai0LBjIJnv0vH8
+	 7o5GD7MGq1ASSGF34UtGwHNldVDM8rCbG2sbDy0NaWAYGU+Cr3vkufJqbSizKkGiEcTZ+
+	 ucQ347kNbhViVMI4tvTB3MZXuo5sfHdOcEKjbsZ0voaGFbcyhXcPTRVxVmYkg4WIz+lYb
+	 M0WCCiO8lLPHrGIycJag3fn+wRUt8wE7nRICkTl/RDRYLmVgQxh9n6cSPU+QeldMniofW
+	 THMg6Z0cpbu666Ywv5kReNbWnbF+qcs1vGlYCs76oHZNuH8AVDYMj0Amy4Z0Dgcb9xQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795878848;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795878852;
 	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
 	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=E4k035P4dZcMi922utBpmYQuLblJtG64appdTUEPiyk=;
-	b=VZs3SqpBCU6Hcuc3KecplCAclaJgHrzryPBh9zwHDHsNMCiQdZNeS079+3uxfPrfv69i
-	 MLq2ZzaIif8bO4XYKsrXArFyKKHozUtUVLWqbwBrmCvx1fLs8etBqrisIOBpuct97r8l4
-	 RsMsdf4AnllOkbxWCD20ijhzX8dH2z4iUBocF4gJCsbXpgikmaLHYS1bFLnJtxnO6gIqK
-	 AIuy+VqWVP3N2stnOyr87baUDDuR7RlRpbGOJ+sEKMZVDdK+tXxwrGuHZIP+LQpf0NtKD
-	 CkUPsCL6NmozXizHiPXQ3+hkce6MtMowJK39ukc/cuYquvNxi9srxQEaORphu9Z/KPA==
+	bh=RHwALuKOJaqnmrZwnUI8quIQFbcLwNyIBVQC77ua6Hg=;
+	b=T67pWfiKRKhbO2i1AJu1NveXEqR0gPDCwP2ScgWEJX51RQ4G9UliqnVYFGsZ94+1OUlN
+	 JEkzZGeZMgwPy6OR7q8yy905SYkuMVOAvxoYvtMlz0WtKrDIeXwdz8gcDqBM6yNdXbOyx
+	 YPMc/SnZkZI7Rz/jILmEKnh604Fzw5Kg3pOcP3C8kCM3RibhzcZRZFBNP7+t9eIISKEBC
+	 WCumSdBDhiCgiLPxIQ9ejOg4qnel+nidgm43y4mOLYClcaXNQmh4fDwBkhWsdmOdKm5yG
+	 5Dy9FLkdJIQ+jlALIv7XWrmWBw4HUqQCGga7700Y3+sO8GXp9nAtwOSbK3pEtQGw9RQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=proton.me;
 	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=cz5erkleovdxxau5fl226y2e74.protonmail2 header.b=xJlqg7Fz;
-	arc=none smtp.remote-ip=109.224.244.18
-Received: from mail-24418.protonmail.ch (mail-24418.protonmail.ch [109.224.244.18])
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=RgWHSi1n;
+	arc=none smtp.remote-ip=185.70.43.102
+Received: from mail-43102.protonmail.ch (mail-43102.protonmail.ch [185.70.43.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BDB5606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:14:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BDB5606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC29F606A329
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:14:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC29F606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=cz5erkleovdxxau5fl226y2e74.protonmail2 header.b=xJlqg7Fz
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=RgWHSi1n
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=cz5erkleovdxxau5fl226y2e74.protonmail2; t=1795878839;
-	x=1796138039; bh=E4k035P4dZcMi922utBpmYQuLblJtG64appdTUEPiyk=;
+	s=protonmail2; t=1795878849; x=1796138049;
+	bh=RHwALuKOJaqnmrZwnUI8quIQFbcLwNyIBVQC77ua6Hg=;
 	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
 	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
 	 Message-ID:BIMI-Selector;
-	b=xJlqg7FzKWyvoyBtVA9jzDJ32K9iAHYM1y+c5WNzEA8+VhSWgzgZng2Kemua8OQbP
-	 +gTqcHV8GNUwO9YLS98I1omJDnrQnI2UpcWBbIXXt5oIEeUNeXWxsoVeAIQsMsnlmn
-	 r8ebmw7etARvx+fpeN+8jDTpfBmvUcoVRn5xgvRAoiuPdwEMPoa8wrK3aLgu53+0un
-	 Ml4jYMLpHJXHld7kd7RAujhBAlFVTNPz0S9MBB0jXrxjwlQTiwTQlbifS648b3dSJC
-	 YhmwwOoKn94mBqwtUdof3U8qSQ++F3wJzk6vmdCI/OEG1XZr+dwEGUdCxm1wtT9gZY
-	 Oxb5USh17a91A==
-Date: Sat, 28 Nov 2026 15:13:53 +0000
-To: Sidraya Jayagond <sidraya@linux.ibm.com>
+	b=RgWHSi1nIW98OEBnO1qSvT0m/pUb9fFlGyLmIp0fS4BgO59rxKnkFL/VKwFlTJ60r
+	 2SHmwowQCplFc+ta5QRaRksJgkdA4JvGrj+LTDutJncy37G2vVw2FmLg65qURNoWS3
+	 uf2gLJlOZ6kvJYDmRTHKIu8AQ/bUvHin3ITaWIgL4673ShAumFBB7rqqWdkVZPckxo
+	 T4SFs/GUDUTHekyFnRXCGNco1oiMK/SkVgAItYVU0EKoWzm7u22nXCMbRDzvWva5A4
+	 SzvqJEwp36QwiWXBey0x006/zozV86jtDACTcTUjuqsJt5qdUKOZIG/RZQVIwtcX7g
+	 iqSqqhAlnvCsw==
+Date: Sat, 28 Nov 2026 15:14:03 +0000
+To: Alexandra Winter <wintera@linux.ibm.com>
 From: Bryam Vargas <hexlabsecurity@proton.me>
-Cc: Dust Li <dust.li@linux.alibaba.com>, "David S . Miller" <davem@davemloft.net>, Mahanta Jambigi <mjambigi@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, "D . Wythe" <alibuda@linux.alibaba.com>, Alexandra Winter <wintera@linux.ibm.com>, Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, netdev@vger.kernel.org, Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>, Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, Wenjia Zhang <wenjia@linux.ibm.com>, Julian Ruess <julianr@linux.ibm.com>
-Subject: Re: [PATCH net v2 2/2] net/smc: do not reuse the DMB of a nocopy device
-Message-ID: <20261128151348.1410275-1-hexlabsecurity@proton.me>
-In-Reply-To: <3b16c6c2-7bf1-4261-9c0c-abc56aa6d608@linux.ibm.com>
-References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me> <20261114-b4-disp-4e6374c2-v2-2-3b7050bddef7@proton.me> <3b16c6c2-7bf1-4261-9c0c-abc56aa6d608@linux.ibm.com>
+Cc: Dust Li <dust.li@linux.alibaba.com>, "David S . Miller" <davem@davemloft.net>, Mahanta Jambigi <mjambigi@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, "D . Wythe" <alibuda@linux.alibaba.com>, Sidraya Jayagond <sidraya@linux.ibm.com>, Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, netdev@vger.kernel.org, Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>, Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, Wenjia Zhang <wenjia@linux.ibm.com>, Julian Ruess <julianr@linux.ibm.com>
+Subject: Re: [PATCH net v2 0/2] net/smc: do not reuse the DMB of a nocopy device
+Message-ID: <20261128151356.1410299-1-hexlabsecurity@proton.me>
+In-Reply-To: <d0ab5673-9bee-422b-87b1-001dd598d2f4@linux.ibm.com>
+References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me> <d0ab5673-9bee-422b-87b1-001dd598d2f4@linux.ibm.com>
 Feedback-ID: 199661219:user:proton
-X-Pm-Message-ID: aba3765298940a73bf8eb074a709baca595bd67d
+X-Pm-Message-ID: 82327c43fd57f1a49fc079b5410cb223590302f2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,52 +67,18 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, 19 Nov 2026 12:25:12 +0530, Sidraya Jayagond wrote:
-> I don't see what this branch buys us on this path. The link group is
-> already off its device list here, so no new connection can join it and
-> take the pooled DMB, and __smc_lgr_free_bufs() unregisters anything left
-> in lgr->rmbs[] at teardown anyway, neither race from the commit
-> message can happen on this path.
+On Thu, 19 Nov 2026 10:06:44 +0100, Alexandra Winter wrote:
+> ISM does not provide an attach operation. So nobody will write into a
+> receive buffer dmb after dmb_unregister.
 
-Agreed, the unregister buys nothing there. v3 [1] drops it and leaves
-that DMB to the link group's free.
-
-> Could you point at the path that dereferences conn->rmb_desc after
-> smc_conn_free(), or drop the branch before it goes to stable?
-
-A client that calls connect() again on the same socket. When the
-handshake fails with a negative code the socket stays in SMC_INIT, and
-a later connect() runs the handshake again with the same
-smc_connection. conn->rmb_desc is still the first attempt's: always on
-net, and with 2/2 when that attempt was freed with its link group
-already off the list. If the retry then cannot allocate its RMB,
-smc_conn_free() runs in the new link group with that pointer:
-smc_ism_unset_conn() reads it and smc_buf_unuse() acts on it. On net
-smc_buf_unuse() then zeroes the freed buffer, 65568 bytes in the test,
-and clears ->used in the freed descriptor. With 2/2 and the pointer
-left set it unlinks and frees the descriptor.
-
-Measured on the loopback device with KASAN kernels and a non-blocking
-connect(): the second call returns ECONNABORTED and the third runs the
-handshake again. Three test knobs force the steps: the negative return
-of the first attempt, its link group terminated before the attempt is
-freed, and the failed RMB allocation of the retry. With
-kasan_multi_shot, net gives five UAF reports, the first in
-smc_ism_unset_conn(), and falls back to TCP. v1's 2/2, which had no
-branch, gives five as well, the first in the same place, then a GPF in
-smc_conn_free(), and close() hangs. v2 is clean, and so is v3. I
-haven't found a way to get there without the knobs.
-
-So v3 keeps only the clear on that path, WRITE_ONCE(conn->rmb_desc,
-NULL), and the commit message says what the retry does with the
-pointer. v6 2/3 of the CDC receive ordering series [2] clears both
-pointers in smc_conn_create(), which closes the stale use on net too;
-2/2's clear is there so that this path doesn't need that patch in
-stable.
+Right. The paragraph was about a DMB that is not unregistered: when a
+connection ends smc_buf_unuse() zeroes the DMB and clears ->used, the
+DMB stays registered in the link group's pool and the next connection
+takes it with the same token. That was by reading only, I have no ISM
+device, and the series doesn't touch ISM. v3 [1] has no ISM paragraph,
+and 1/2 carries your tag.
 
 [1] https://lore.kernel.org/all/20261128-b4-disp-2c190c90-v3-0-c566f64196c8=
-@proton.me/
-[2] https://lore.kernel.org/all/20261112-b4-disp-1c8d3a53-v6-0-36a38ae35021=
 @proton.me/
 
 Thanks,
