@@ -1,60 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795878852;
-	b=U3ZBGxWHszIAPiN3tFaPICXnbn8sQeodZdrX24N/6f2f3ZbWhDyCqMai0LBjIJnv0vH8
-	 7o5GD7MGq1ASSGF34UtGwHNldVDM8rCbG2sbDy0NaWAYGU+Cr3vkufJqbSizKkGiEcTZ+
-	 ucQ347kNbhViVMI4tvTB3MZXuo5sfHdOcEKjbsZ0voaGFbcyhXcPTRVxVmYkg4WIz+lYb
-	 M0WCCiO8lLPHrGIycJag3fn+wRUt8wE7nRICkTl/RDRYLmVgQxh9n6cSPU+QeldMniofW
-	 THMg6Z0cpbu666Ywv5kReNbWnbF+qcs1vGlYCs76oHZNuH8AVDYMj0Amy4Z0Dgcb9xQ==
+	t=1795879014;
+	b=bMogbcVu1McZy7l5jA1LqwHI+In+MfZM/aXuARZbv8jlDflbEWsCaNOxbMj6pdV7GrOk
+	 NSASBg6XorMGjxrVPZEP6wb4hRuhKLjVt61PuyEMfU37xDCP2FSJLl3arrKa+UTTn5df/
+	 dtuYrQM1B6kLQF8fSb45Tx0ZjUDodwvqKOJl3yHm2O1LDg5ZtWNlIYWdTcrWmCyflHwT2
+	 vH0vxHoFe9hLvHspNUMA7kojxg6Dhl781FqPMfkKsY++jvPCOUQ/0yo+iWwabdqhQqS/B
+	 DJCfo0miT0xMj0vI112VGfGLfmjaRlOamwDAZ3M/4OWTMYApoTUNiYToTIXz6cIvTJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795878852;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=RHwALuKOJaqnmrZwnUI8quIQFbcLwNyIBVQC77ua6Hg=;
-	b=T67pWfiKRKhbO2i1AJu1NveXEqR0gPDCwP2ScgWEJX51RQ4G9UliqnVYFGsZ94+1OUlN
-	 JEkzZGeZMgwPy6OR7q8yy905SYkuMVOAvxoYvtMlz0WtKrDIeXwdz8gcDqBM6yNdXbOyx
-	 YPMc/SnZkZI7Rz/jILmEKnh604Fzw5Kg3pOcP3C8kCM3RibhzcZRZFBNP7+t9eIISKEBC
-	 WCumSdBDhiCgiLPxIQ9ejOg4qnel+nidgm43y4mOLYClcaXNQmh4fDwBkhWsdmOdKm5yG
-	 5Dy9FLkdJIQ+jlALIv7XWrmWBw4HUqQCGga7700Y3+sO8GXp9nAtwOSbK3pEtQGw9RQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795879014;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=1FB6N3ZVeS2iXSTJX9cZqix9YwUql7fjHknIhnBZeO8=;
+	b=AmIqytETf2GGdsQ+FwdT12kHXNvz4PuIHjndGuaiSuD1bWQNTZOQhcGVnxn011Kyzg8K
+	 4kZZvxIjMNJVd9Mov/hJFGhG+J3fWBnLtsCHUt/AzSFx4hqQtPufABgqZ7r3sSl0kzwuz
+	 lt370zonSGuwtGYsc+bga9V3E9+Ud9HRopZ/CZOMU9c1rsI1JO5gGWZ0oFS/wOpVeqZi6
+	 y5hQXwIPhttmsrwSU3yJDkrap5ZQWKxRvoC59bZE+SHh0bTEbjKRJv4vzJmi2XG2fEFEZ
+	 CIaGcvElG8gbopSuFfL+l0HOLKM5ZlTa9iLy29V617+mWLYAaejnmHPhWnTI4R30XFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=RgWHSi1n;
-	arc=none smtp.remote-ip=185.70.43.102
-Received: from mail-43102.protonmail.ch (mail-43102.protonmail.ch [185.70.43.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RTAI1v6I;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC29F606A329
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:14:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC29F606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E6B9606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:16:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E6B9606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=RgWHSi1n
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795878849; x=1796138049;
-	bh=RHwALuKOJaqnmrZwnUI8quIQFbcLwNyIBVQC77ua6Hg=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=RgWHSi1nIW98OEBnO1qSvT0m/pUb9fFlGyLmIp0fS4BgO59rxKnkFL/VKwFlTJ60r
-	 2SHmwowQCplFc+ta5QRaRksJgkdA4JvGrj+LTDutJncy37G2vVw2FmLg65qURNoWS3
-	 uf2gLJlOZ6kvJYDmRTHKIu8AQ/bUvHin3ITaWIgL4673ShAumFBB7rqqWdkVZPckxo
-	 T4SFs/GUDUTHekyFnRXCGNco1oiMK/SkVgAItYVU0EKoWzm7u22nXCMbRDzvWva5A4
-	 SzvqJEwp36QwiWXBey0x006/zozV86jtDACTcTUjuqsJt5qdUKOZIG/RZQVIwtcX7g
-	 iqSqqhAlnvCsw==
-Date: Sat, 28 Nov 2026 15:14:03 +0000
-To: Alexandra Winter <wintera@linux.ibm.com>
-From: Bryam Vargas <hexlabsecurity@proton.me>
-Cc: Dust Li <dust.li@linux.alibaba.com>, "David S . Miller" <davem@davemloft.net>, Mahanta Jambigi <mjambigi@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, "D . Wythe" <alibuda@linux.alibaba.com>, Sidraya Jayagond <sidraya@linux.ibm.com>, Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, netdev@vger.kernel.org, Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>, Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, Wenjia Zhang <wenjia@linux.ibm.com>, Julian Ruess <julianr@linux.ibm.com>
-Subject: Re: [PATCH net v2 0/2] net/smc: do not reuse the DMB of a nocopy device
-Message-ID: <20261128151356.1410299-1-hexlabsecurity@proton.me>
-In-Reply-To: <d0ab5673-9bee-422b-87b1-001dd598d2f4@linux.ibm.com>
-References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me> <d0ab5673-9bee-422b-87b1-001dd598d2f4@linux.ibm.com>
-Feedback-ID: 199661219:user:proton
-X-Pm-Message-ID: 82327c43fd57f1a49fc079b5410cb223590302f2
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RTAI1v6I
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b4021b572dso5517490a91.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:16:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795879013; x=1796483813; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1FB6N3ZVeS2iXSTJX9cZqix9YwUql7fjHknIhnBZeO8=;
+        b=RTAI1v6ImNiBmtc0EHCMI2++E9uOOU+pBNG6woahNXDhDoMnfErZMYgNztUondWek0
+         AwpeWg6bsv1gOOfotB0jSMBXVHjY1DFOWs4nx+fb/yQC3QYon2t/gnr5pwB5YEvgdpLn
+         u825zw1vrc3i48yzo6iw/rv1KGGumukpnTjurYf19nL/8hqAXdJm3dhLa4pdDx4UBTZo
+         5JByY+srjJCAqLGGawigeXsRILq+HMPpp4didpeRkjrGGoXW9RTkIaYG2B3Bvrjbw3sK
+         wWihN7Gp4dIUZLzpyDPtY3Ex9VeY12YeC2drR4oiVSp+nY+vxaifP6eAxFlBmTkLuzBL
+         jk6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795879013; x=1796483813;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1FB6N3ZVeS2iXSTJX9cZqix9YwUql7fjHknIhnBZeO8=;
+        b=XzQ9m+IBMHfrsPKbOYCgXRD547G4ciB8d/0Q9PL41pCQ7dfUq1C8KE7EvSsScNVffB
+         /PFbhA29qgS4lgaih51aR6pzlDhkmuZwJHED2OtHqPKVE19qxTJloKEXZ+IAWD6z3pKJ
+         xGkYvQKp6m4oRL+4RVKSRt9tm0Wy84a5zRC9SrW7WkrFn7Z+SElFDarxN9bqz0lmksth
+         FODX+xaZn/4oGqU6+fHtnrqVY2IDBx+je6wz9d00oUz0poI/xh/Q+1rMICrtZy2un5ci
+         d5+wE6u6i97yLvwZ9qIoZdTy8UVJmBcklvsv/m5AtjlvqO6g4VzaSpfHzoVo6U9rXxC0
+         niWg==
+X-Forwarded-Encrypted: i=1; AL+hErHOoZqGpyzmtVPs6LEMBPD0OGrfGUB51kxS6tErrLuNDIsOMQ0kbj4GZPsNcsAYbTfMpOmwaO0mjVvCdmM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++4agrKq3PuVOSC0INkGMJFw4cxqb1wbbYR8anXYC95vOFkkXx
+	3rc3PWhlFbUJA1YHlWbogUDDfYPEIZEL64CSpReV/FJeJkrbRIq0S7nz
+X-Gm-Gg: AZFdTZeso+r/RQoqTj9anbXYw5KxYeUl7i4uWj0543btgmxP0Vj1SIVb3S50BciY/6y
+	SWeZnLMKAc7tqgmp3wAG26itoTJHsybr25KjNVW7Ay6kQNcNL6LPWyRszn1UPa4uwv34DsI1ePH
+	QU/UlgmB2SxGrA7LpeEwAl9VrWEQZEzq89Pjw7KyDn7PFFBQ+KKvFqmQmlv/iPsaVN1jsH4lPlx
+	/U8KPLTrvDoQkP4P4seNvDtRKkjW4dMfrxMKMReEYit5XvaNyJ66YlM6PNKEcZy7gIxDEFjEiQI
+	DW+xz3gqsTBE+aJl1dSLWvSZhc+tv+3ax1hy4EuPpqH0gmvUxqj2cW6jJbvn3u6t99+E9//SNcl
+	KQ42u/18WLjHlONTXDjhNsbWZR9lhfI+fbnr36wlUUp5PrFZrkLcxQTNu0auZpx6Zksv0b/in/F
+	Ay6uFcvUcNmpJCMttmPgggwbitkoIujs8o4TdMdNMbtDa2MW3hztCfoDBEfbQi7uRY/qUH4VdPX
+	R4UEeEO5Lr9vF9am6M40LSLgXipP2umbUsNBFg9yzlb6fxpfgVPVuGzrRT2ebaDc6I/YgSIu1Wh
+	mjLyf0BlgO5/WS5rzamDAGDwSJo8WEHYWktGCqmEu1WaSTPkLMXmgJOcDR+NQ6NAypvB3bby9PQ
+	ZbfWgX2AEDFD33tKJesEqsky/e7qF
+X-Received: by 2002:a17:90b:268f:b0:3b0:d0c5:c110 with SMTP id 98e67ed59e1d1-3b41c95ce7fmr27156870a91.56.1795879013360;
+        Sat, 28 Nov 2026 07:16:53 -0800 (PST)
+Received: from localhost.localdomain ([2405:201:301c:f8cd:241f:982d:147f:bf76])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7a8c64sm19769280a91.3.2026.11.28.07.16.48
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 28 Nov 2026 07:16:52 -0800 (PST)
+From: Aryan Sinha <sinha.aryan03@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Leilk Liu <leilk.liu@mediatek.com>,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Aryan Sinha <sinha.aryan03@gmail.com>
+Subject: [PATCH v2] spi: dt-bindings: mediatek,spi-mt65xx: Add MT8189
+Date: Sat, 28 Nov 2026 20:46:41 +0530
+Message-ID: <20261128151643.16934-1-sinha.aryan03@gmail.com>
+X-Mailer: git-send-email 2.46.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,23 +105,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Thu, 19 Nov 2026 10:06:44 +0100, Alexandra Winter wrote:
-> ISM does not provide an attach operation. So nobody will write into a
-> receive buffer dmb after dmb_unregister.
+The SPI controllers on MT8189 use the same IPM design as MT6991. Add the
+MT8189 compatible with mediatek,mt6991-spi as the fallback.
 
-Right. The paragraph was about a DMB that is not unregistered: when a
-connection ends smc_buf_unuse() zeroes the DMB and clears ->used, the
-DMB stays registered in the link group's pool and the next connection
-takes it with the same token. That was by reading only, I have no ISM
-device, and the series doesn't touch ISM. v3 [1] has no ISM paragraph,
-and 1/2 carries your tag.
+Signed-off-by: Aryan Sinha <sinha.aryan03@gmail.com>
+---
+Changes in v2:
+- Sent on its own so it applies to the SPI tree, the rest of the
+  series depends on unmerged MT8189 patches (Mark)
+- Fixed the subject prefix (Mark)
+- Link to v1: https://lore.kernel.org/r/20261128141443.13065-2-sinha.aryan03@gmail.com
 
-[1] https://lore.kernel.org/all/20261128-b4-disp-2c190c90-v3-0-c566f64196c8=
-@proton.me/
+ Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks,
-Bryam
+diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+index 3bf3eb1f8..34e833745 100644
+--- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
++++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+@@ -41,6 +41,7 @@ properties:
+           - const: mediatek,spi-ipm
+       - items:
+           - enum:
++              - mediatek,mt8189-spi
+               - mediatek,mt8196-spi
+           - const: mediatek,mt6991-spi
+       - items:
+
+base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+-- 
+2.46.0
 
