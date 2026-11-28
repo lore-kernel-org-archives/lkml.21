@@ -1,73 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.233.34.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795883380;
-	b=nmS0TL+ft3iNe37iLV14XlD1NW3OgWBe+5NPvWQs/s17uUMokhe6m9au3U2i3NAY1qde
-	 NNHhD7ZNoIXCyKNrM517wGlB7pcb+Y2o6J+8OuNuOqZgVAiPDuhfMatv2D39RMHTTjWIN
-	 aj/2lx1YP9I/asLaS4mRYE2GSzvR49cgRd0oHlFuj7f8o7SIeJfCOALnzeEw5bEmznTn6
-	 JmxQHYVI+kF2YBwnELuzAjAXkeydg1mvanoIJU1Jvognn168sUhbFHu666JGP5emGW7Iu
-	 i7M142WxNeDY2PQ0aWkqJJtTyCQYCkzM1o+FLe9KwhE0TpDiyV1zNAH2bAViMmR8GwA==
+	t=1795883823;
+	b=H1ClbPFCwma9yIc2ffNtUYLOJ3XBugEXemD1WP9UMJkxR/YSM8uOFR0+Dmm7boQRA8jh
+	 /aHjb7x/5EU7865JLOEKpUYf7PByNr7vqBLYkLqI/YKvDCu4J8rwF5HQm0GSqykVyrNlr
+	 2e+ZH5SI2B59BYtywxmcVvS6tSUUzLgxCLSqihslEVpM53qHo4bdKqb/VFWOMRjUmrz+x
+	 XUYdc22qbgylgkpTn+uyEdvDGZVowYm4MJzoNNCL8LF9KnglzADUdIocetTD17RO1j9Nx
+	 DYIX7/yicbFXOUriVmPR6hhpCklD5mdHcOUfFAck2bpx4nTpQ0YrLyrwwO+J5o8NuYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795883380;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=Ckch6OVMf8q7qHMTqGmd5lgswKpqiPv96PWurCPzmHE=;
-	b=dVm0qGlbp2CF0NDtlwtRsUJ0j9fetUF8vk4vUQFRnRPX+eOUL5dv2Y3JUveN4d/hI/GE
-	 GIYOtEtJIzstf/OMnNy/Eq1e5Ys2R3nxKJNnyDLciZpHK1Zkl+PpvqnFYZd/30C9ZUTqQ
-	 tQfRqkK4rZAqah06BjgCdGNdpZdYIZ4oSo4fVn+Uqv7O5JCHN3qITb6N9i+8Hk+ZMJPHd
-	 CRa+HKNkJsg4RWpJdTz+iMU+f9OUd3PjsoaAfXdZ0M9FQa9ZE+gWe5lTrWwpiJNQE5HvW
-	 3oQuE3pB67x4venXjlv2V4ax8+BcdFtKMiYFnHIy/VHnx/XLIK7sYWALGqcEt0LsFpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795883823;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:X-CM-Envelope:
+	 X-Soverin-Id:From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:X-Spampanel-Class;
+	bh=n4THUCxRZthKMbnPa6luKf83PRZIke0GCNyq41nFDx0=;
+	b=v9hviFi41TPEFuW9j3UyFwF+9PAjzFoYGX/OfAViTTC5xpWXeuTX2hxTkD0Vowy8zYqs
+	 AHFK42B8/opXKw/ipa0H1RgAbQ7RuMNulLbInszJ0LI46K9b6NxXSlVzAzGPQnSITPmy9
+	 lorXsDRJxI/R/B31N9fGLxapMDGvXy8qpQfWqyCNvSArx5nFRRbkme4A/MVI8HOAZW+Yh
+	 mhfMa5UDaKWOk5qbjaKxDadUzAnQqAwoWUifDxUkqYz29c0G5N9aK5d022+JySuLSn1Wx
+	 EFzN6Dn3VWf/4vhloINzvFN7YG/L+TyMAUX9LxBrxVmXb4VSGCAwj50T0OOQJjr3MHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSDtCKQ0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=reeltoreel.nl;
+	spf=pass smtp.mailfrom=reeltoreel.nl;
+	dkim=pass header.d=reeltoreel.nl header.i=@reeltoreel.nl header.a=rsa-sha256 header.s=soverin1 header.b=paz3UCi8;
+	arc=none smtp.remote-ip=185.233.34.146
+Received: from outbound.soverin.net (outbound.soverin.net [185.233.34.146])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EA00606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:29:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B7ED606A31C;
+	Sat, 28 Nov 2026 16:37:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B7ED606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=reeltoreel.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=reeltoreel.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSDtCKQ0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B06761F0089A;
-	Sat, 28 Nov 2026 16:29:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795883379;
-	bh=Ckch6OVMf8q7qHMTqGmd5lgswKpqiPv96PWurCPzmHE=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=eSDtCKQ0q3ypKsb2tx9RUc/NMZ/f4tlaUmGldrKShnmqndFTL1rAD6ZVXAc+ac74F
-	 BH7RM1s1ir00DOl4rjUXCjUHjWP+DzCOwMfX0voqTPi7VzDdYtTBDk1VSyaYRk5sXw
-	 uRV/7ZCXYvmu5A6231QWAkEsGPT31I36Vcmzivk6i0W/rqQQVpzgBkInFw/v5oZizl
-	 JVikxN0OSZ42GHYVCvURToX0x0oAtM9egpSd291n1tUGJlknsFibZLww/qrKi0Q82g
-	 JWECezMcC4UsfLBJh5SuLZdr5J1kLqdH6hZHckWT78kQGrXYWEG8aixJeRp5/aN2l/
-	 baoW9kHHdNotw==
-Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
-	by mailfauth.ams.internal (Postfix) with ESMTP id D2354198003A;
-	Sat, 28 Nov 2026 11:29:36 -0500 (EST)
-Received: from ams-imap-19 ([10.64.2.39])
-  by ams-compute-01.internal (MEProxy); Sat, 28 Nov 2026 11:29:36 -0500
-X-ME-Sender: <xms:bgELa_Fi_Eq1XWnSEgIlHKJexInf-FqZezGuQIv5sR0mz5wbmATRlQ>
-    <xme:bgELa3J6Fb5dcWeGB1cQ-m2Io51SwQPhg3ysxJ3z00gXZIV7HYJo-2aqUFHeHDw03
-    SQOWqvEJo15RO_mqLInUjPr8Kk8o7LaUsGaxB_5SmDFTAPNxUaloT82>
-X-ME-Proxy-Cause: dmFkZTFSVxrnYnP+evHNOwj6RpfeVNDSnzpJE07chN6ONcwfpkIDTQeHYfH7BuAMjKaX+k
-    ekegHH4TCXzrup+gD8gjOSCoDj/Jf6J0BWDrryhRt/gznqjzTfhOuKJrxw3KP10pC6VZ5A
-    jqbjniGjJu4byXpbbFQeYMaNiWqtccDO2C0E6ARe73giIqFwRpYvMU1+uZ28B32oMFy4gu
-    oXvGXWMEbe4RxwxUfuD56nl+TEUtTwB6gucCVi5qjkY14LoCoaFyCpVxQTifONdas2bx7i
-    pNoj0m3HYiZb/8BBCUeNQ+fj09DoN3c7vIL9dLqg5OslPFZhnB2jqd1zom/5woQTJoUtpo
-    TqDx8dvBS9UXo1pPvW5F/SbTS6YUMqxtVFgqz0e3m3JDK3L5E0nUo8BUzseOCxCFUYAg7p
-    d0VrCMroxYJuCB5Qn1iNE5CDQlh8Aay0itvyYhsirNS5wxmKKxnU4gMD/ulOgDWSfMHcnc
-    vyUmxZukgujwQyTVZ4ADuZLrTRmQfSork4mkHKo4Q3SIvd3fkeqxLJoIt09ZUGBvWaIKL3
-    zWanOfAVWaS56iX6vp9CYK+Wqa06xcLMN9Ch4K7NIeBlDpkpmn94r5jb/fu+MyAx4d2O8T
-    MUh7nCfqWy3nCN+GJQFGmK0BwNIUWGFTHWMrmdCu6QvaPmE5o/IBrRMhJj/g
-X-ME-Proxy: <xmx:cAELa7wSowD3WDUd6MBq4WxgwxZYyHoxQ7En6sHLvSYoySS_zzdlvA>
-    <xmx:cAELaxhoDHj1SDaYsV9lugva_p43LEG0G0ALR0zobTjBoJnvowkvHg>
-    <xmx:cAELa-olPAC9t8WrSccS7atW7sd74yjiB_OggFal81Kuq-UdgZOChg>
-    <xmx:cAELa4gzSfpyULqi2lu1eBLU77uKeuO4rFtWo8c0M-DjbCPj89FX1A>
-    <xmx:cAELawM8opbE3-435XhUJf5j-71GszV-GbwFWQ-xM-tQjejxdM9Hx_Lo>
-Feedback-ID: ia3204a8f:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id B3FF02F8005B; Sat, 28 Nov 2026 11:29:34 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key, unprotected) header.d=reeltoreel.nl header.i=@reeltoreel.nl header.a=rsa-sha256 header.s=soverin1 header.b=paz3UCi8
+Received: from smtp.freedom.nl (c03cst-smtp-frd01.int.sover.in [10.103.10.152])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	by outbound.soverin.net (Postfix) with ESMTPS id 4jcGC94zWHz5c4;
+	Sat, 28 Nov 2026 16:36:53 +0000 (UTC)
+Received: from smtp.freedom.nl (smtp.freedom.nl [10.103.10.152]) by freedom.nl (Postfix) with ESMTPSA id 4jcGC93gcczZXp;
+	Sat, 28 Nov 2026 16:36:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=reeltoreel.nl;
+	s=soverin1; t=1795883813;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=n4THUCxRZthKMbnPa6luKf83PRZIke0GCNyq41nFDx0=;
+	b=paz3UCi86hE6a7ezvCJJZjhlZ0Rvi30He78/hQHf5bEuq02Bi/Y+lt/uEzKF1Y4txwmOUX
+	7ij6w8Ft62TUqf53QeKmQK1L8V7IovYlu+OJl9vo7/Cm3P2hGsSYbUT8NMOS/KICJh4hf4
+	Uocs/t9G2UaRkIzwokMiwO0f9LXRXNh9M9lLPBo5B/wsmIIEfGRpVH087fT290+5V76qex
+	9OUo8v2BG6Pk+3HZdDgyWzTDOgy+cBLWoQ3+HVFOgHxBwCfC++VcfHd6A0EtRlfJvzARBi
+	1V32BjA9woVTyru9ZtSY43J6Pjkt66sTmIyUpKEBmSC8hPwJMv8SqOaa/WeI2A==
+X-CM-Envelope: MS4xfC4QFxdgkGr3jujdBWjeSJsrWoCo2BtTXjFdHRazYm1RcC/zSKuPhkApY+niJBdMUc8+QTt5Ov4eOW2JB+ovlHOSa69zPrrwk+GgmzURZK5D7fZUDbHM lVAVsFsysHSwUka+goko9HRn0GpuYRYS4zNA2uAfvjRh100TTU8p/cQJWJnuBTXE88BfNxvYTGZhusZhm3w2W8LUGMJzN8Zffuk6fBeH4xAsCabXMNShThc3 3+s7TAO1KGe5OcEph6pbN0/eG77y5F8CRcarZyZrXmo+mXfNGiYc+qBGho1HuTFRp7U3taJXl1Xu1K+/7hUzHQ==
+X-Soverin-Id: 01a22304-4888-7334-9580-23edfa686b3f
+From: Philip van der Matten <kernel@reeltoreel.nl>
+To: tiwai@suse.com
+Cc: perex@perex.cz,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Philip van der Matten <kernel@reeltoreel.nl>
+Subject: [PATCH] ALSA: hda/realtek: Add mute LED quirk for HP OmniBook 5 16-ag1xxx
+Date: Sat, 28 Nov 2026 17:36:41 +0100
+Message-ID: <20261128163641.135876-1-kernel@reeltoreel.nl>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,48 +72,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A1YW8GJ6io0J
-Date: Sat, 28 Nov 2026 17:29:09 +0100
-From: "Imre Kaloz" <kaloz@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "Andrew Lunn" <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, linux-mips@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <4a95e051-9fec-47be-88a8-0cd41b5342b4@app.fastmail.com>
-In-Reply-To: <179508377005.3136.7735552086490209084@kernel.org>
-References: <20261116102115.27574-2-kaloz@kernel.org>
- <179508377005.3136.7735552086490209084@kernel.org>
-Subject: Re: [PATCH net-next v2 1/2] net: sgi: ioc3-eth: apply the DMA attributes only
- to 64-bit addresses
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Spampanel-Class: ham
 
-On Thu, Nov 19, 2026, at 11:22, netdev-bot+sashiko@kernel.org wrote:
+The HP OmniBook 5 Laptop 16-ag1xxx (board 8DF4, ALC245, subsystem ID
+103c:8df4) has no quirk entry, so the speaker mute LED (F5) and the
+mic mute LED (F8) are not driven.
 
-> For a 32-bit direct window address, ioc3_map() now returns the bare
-> address and ioc3_erbar() returns 0. Where do the dropped attributes come
-> from in that case?
+ALC245_FIXUP_HP_X360_MUTE_LEDS matches the hardware: the mute LED is
+controlled by COEF 0x0b bits 3:2 and the mic mute LED by GPIO 0x04.
 
-From the slot's Device(x) register. Nothing sets them there yet, so
-the IP35 Bridge support has to. v3 says so:
-https://lore.kernel.org/r/20261128155146.2836-1-kaloz@kernel.org
+Tested on kernel 7.3.5 with "options snd-hda-intel model=,103c:8756",
+which selects the same fixup: both LEDs work. This patch itself has
+not been build-tested.
 
-> Wouldn't ERBAR still OR the barrier attribute into the
-> upper bits of that buffer's last store, which gives the widget 0 address
-> this patch is meant to avoid?
+The register layout was found and this patch was prepared with the help
+of an AI assistant (Claude); the LEDs were verified on the machine by
+the submitter.
 
-No. With the IP35 changes, phys_to_dma() picks the form from the
-IOC3's bus_dma_limit, so all DMA of one IOC3 uses the same form.
+Signed-off-by: Philip van der Matten <kernel@reeltoreel.nl>
+---
+ sound/hda/codecs/realtek/alc269.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> Can this deadlock on SMP?
+diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
+index a4b4333..bf4e755 100644
+--- a/sound/hda/codecs/realtek/alc269.c
++++ b/sound/hda/codecs/realtek/alc269.c
+@@ -8198,6 +8198,7 @@ static const struct hda_quirk alc269_fixup_tbl[] = {
+ 	SND_PCI_QUIRK(0x103c, 0x8def, "HP EliteBook 660 G12", ALC236_FIXUP_HP_GPIO_LED),
+ 	SND_PCI_QUIRK(0x103c, 0x8df0, "HP EliteBook 630 G12", ALC236_FIXUP_HP_GPIO_LED),
+ 	SND_PCI_QUIRK(0x103c, 0x8df1, "HP EliteBook 630 G12", ALC236_FIXUP_HP_GPIO_LED),
++	SND_PCI_QUIRK(0x103c, 0x8df4, "HP OmniBook 5 Laptop 16-ag1xxx", ALC245_FIXUP_HP_X360_MUTE_LEDS),
+ 	SND_PCI_QUIRK(0x103c, 0x8df7, "HP Z66 G6", ALC236_FIXUP_HP_GPIO_LED),
+ 	SND_PCI_QUIRK(0x103c, 0x8dfb, "HP EliteBook 6 G1a 14", ALC236_FIXUP_HP_MUTE_LED_MICMUTE_VREF),
+ 	SND_PCI_QUIRK(0x103c, 0x8dfc, "HP EliteBook 645 G12", ALC236_FIXUP_HP_GPIO_LED),
+-- 
+2.56.1
 
-Yes, fixed here:
-https://lore.kernel.org/r/20261128154953.2664-1-kaloz@kernel.org
-
-
-Thanks,
-Imre
