@@ -1,71 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795860239;
-	b=OPJhq686h8bkBbqBdLYStBaYuq2rboC/2BzIrYWh6Fg61DkAPDZJizV1pTavQTxMDTOy
-	 Prmq477MM/5L0xmRciKTvs0zEQIUfNDf0/CgZ3Io6EVbEtzfCXzSvIeBn6algN1JP2E3Z
-	 MGE9hkfpk4ZTARnGEfpdJmYCvXQ4KcDYmji/tSSjvx1iRFry9wm7AUZenP9SA+6+fG3xH
-	 +wbnPkMmRyg4JNqLC8taoF69zU1BX8B1AmFnH79CVuctyMDLEFBUDiubWz4vXXH1BwrJd
-	 3fiY3xhwENpPu8fPTRaAAInVlGE7qo/LipgAac3lDQKAawzkZM0d/eC1CUwhuT2jqlg==
+	t=1795860281;
+	b=4769cW0qklKFLdgsQ4hAT+Nukc+DLRmndUko1xvI9LrKkZBcct7O3cP6j6Z80NXqXMGY
+	 VnE20BAMEQrGxJx4ltH9NCjDrLpwqfl6MNFYO3+9iw7PTfnR4rjzsgHpw7TvCJNmCH92P
+	 8bGrPecwvkYf/x6XKE8AkG8GRwE/VfTeOxrHo6f8WYlPahnWQdkqasYZRp/Uw1owRlfqA
+	 fKHYeuydA2/15Colx4N705NlUcbNYWmoD2UHvatoRP+wGMkjJF/oVB0xP/fHITkZaAbEd
+	 sz6N4QJJk+qElsP7d/dwjruC1qkVL2xafuogvTIS9er+BKqKP8rFp8X0minYjGJflIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795860239;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=sVFSGdTDmGn9kSHKwjHmdrZMfnLGzOGFumJLob1YCjo=;
-	b=IXwDZPbcNTdgmedZUYsEiB8fCuPw2m37w0znt+c7LdPCdbZIwDCgh1W458O90cwh8yM1
-	 1RFFHcK/Nz94MhM9XEb01QqB2iIbgLguUlcADcFsf27SNeVu/kSjEVOA3tplEsBHWJxMi
-	 DV6EE3TxgSMGQ8K5TgCY1wbANYnsKMRt/wNE19UIh3QNqfj2QNdis+WkUSNua5nh1Be6g
-	 LXEEdLeA73i3mVJW6iZWa0EpL4xcokjKQKK0JqkbWevOYezsx1UqsC1YWVkb/+OeY837O
-	 HoTaj4QZiJa99GCw+xPEjNtmw0xuq7QbgAnBmhnrzC1pH/FyLLD17/rR738urzct0ew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795860281;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=wJHu2Cmp5m4NLvlBcGUsPCjvAUhFeSDFqDBREkjtkr8=;
+	b=JnoXFFvDTY0cCGPWjzYi8vmXDJUAUixqFaZuyuNoYrkSpflXYXDapouGLDXsSolA4Vku
+	 WI7V5baOHPb/8zqjs6zPq5t0XJYM1EE3/j7wYh+j+H9J/vizHECQak6TKyURXZ9MSH/iu
+	 B9vgcFYV3K+OFYx1w2EaF4FRAVpTZTbDHJh06cqKkyz9P1mSNbqvQaeE0dizjJEN8nn4+
+	 9Oq9BuYNLii247k1bFV3fpf5lItjUr1SqmPC8RS1oDigj6vnodjm4FlJhq5Qr0uvblRTd
+	 A+DCsQXsxbcuIDZvzmnA+684B/yqRfOKxPysU+oCbMGvBa2TxstNT4xd2ZSOXDxoQMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=VRr+1C2U;
-	arc=none smtp.remote-ip=44.202.169.35
-Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DXH0puPQ;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A00DC606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:03:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A00DC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77219606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:04:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77219606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=VRr+1C2U
-Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
-	by cmsmtp with ESMTPS
-	id X271xHGBQ4vCDXFHcxt6vL; Sat, 28 Nov 2026 10:03:52 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id XFHbx3UBSGh2BXFHbxG0VN; Sat, 28 Nov 2026 10:03:51 +0000
-X-Authority-Analysis: v=2.4 cv=Aszu3P9P c=1 sm=1 tr=0 ts=6b0aa707
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=H_-ZsajgQThrAGVFVt0A:9 a=QEXdDO2ut3YA:10 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=sVFSGdTDmGn9kSHKwjHmdrZMfnLGzOGFumJLob1YCjo=; b=VRr+1C2U2RfT
-	aD//ADQYsdr2w+youe6+gmrWANE6cXAX/uaN7hqbEwvncWxPLbN1CRLrfTJPm5PpGNxCsg5uTrFZv
-	QJaH9K++A/9OqY0v/wzHTNy7WUIlh4L2z93suqNEf7jyZN7VX6NDalimifdy7ZRlfc8U4cSLW0l7Z
-	deqMPURK3EKSNFaJZE059WJr4Oukd3tiJn/yg/8tztDi+vzVtyjg3leXfm8WpR7SEF7S/Li01lxU4
-	LAJ8r75qsHO8xaxTg/i8w7hEYbWmP+7cRjtmuJOnOVbtgjJPCd8qCTH5WY0z0/BUqt4yfU1Bdgl/T
-	vADuXfDNcqot2OlBmkeI0g==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:54006)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.2)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xXFHb-000000017wY-0Z4u;
-	Sat, 28 Nov 2026 15:33:51 +0530
-Message-ID: <a01b1bf3-1228-43e8-8b4d-d3345f27ea4a@roeck-us.net>
-Date: Sat, 28 Nov 2026 02:03:50 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DXH0puPQ
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b51a9606e8so1581657a91.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:04:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795860281; x=1796465081; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wJHu2Cmp5m4NLvlBcGUsPCjvAUhFeSDFqDBREkjtkr8=;
+        b=DXH0puPQ278caxJWMSXej4XQbsAMx/Ujc4A1qyIs+lDdWQ1S2p5f9mFaGfZGPvEzGm
+         i4M0PRD3iHDJhTXA04YKn+maOFEawjPoFZRvTNmEQ/p7wxkl0EAvpw/Bun6FHZ1TwDBf
+         V74dVgaJzam9uTCptJhOYbozsOy0mOpSbA7KErYTQoK1+LUYuCrPkSo8EIpwRR/Us7JH
+         3aGferK25u0MqVQRpTOOyTbw5JH6PN85Uea3TA9j5shDa2b/QV2ofr3xtY98tYyp0qxv
+         8l4UuE+MmCaV71qev3I6MCTo5/T5MOOy0tU7VedhfSSjjui9fZZIjKhnE5lpW/5M6OQJ
+         Kltg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795860281; x=1796465081;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wJHu2Cmp5m4NLvlBcGUsPCjvAUhFeSDFqDBREkjtkr8=;
+        b=sVUeQnJiOJrUiVULbmDlZL182YACpZv8AzdkqzuyKpyFsEqFraqqNb196DZUXdw31m
+         dtoPWc+p6fJ6vVLKxAin9njTdu8N9skMRVPShsRPxxb8fwxU6JdodzUgkbft9V1B4Axn
+         nP2UgQ7GBoyF/qnqior87t5eYQNjVdeTdKK0wiRWbO8FKtTEhFSbRA2EazosJlHfccwV
+         VoEHawYiUwhqRejX4RUSFqCC1qqmX108H099PY6kImd3NJQ1vbxyZJEaAjbb9E/fokvZ
+         GDl2YraXkLEbLwUujJX6hWAksaSxyrhxtVYCZYVu5B4flbtSV9Fc9wNl4/uvDj8IHd3G
+         /+UQ==
+X-Forwarded-Encrypted: i=1; AL+hErFF8Lqd8wCB3ROLEmTk47FbmSggyTiZkGOm83qQDQ3pds3QCT2V7oE5Bd9+ptmgxSuytwYzXy6buSbZuoQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/FeSvA5ndVl6DSoyS5FCXx553UC7bXSYtXoFJo/PvmvcYcMZpm
+	Bx2eu3H88Bv8DoLb2dT6nNzUp0RX70Yr7PGkgjjlaS5yNQorQl3PCKKsC0IMgCCE
+X-Gm-Gg: AZFdTZc5iEoZ4RWY3g+kW/egJWydbAyqwrbyMoMhU6rK/dKJfP8/9sTdrv8bc4c3O8o
+	eLT+4FqEFQq1w0EsPTim+atufHvtkNftHLE2iiQmt1Nyj4ihJ/f9YQv0d1RlYCfZuf/Z487TNX5
+	3+G7pJwf80vaBZj6C3SFj3PhrIRKbHXKpZB74p8h4RfmE0xg3ay13WWMkJC87gxoi9mQ0uDtKzY
+	sitNgL/kUpptTCMEqJP4CXbcMbP6ZZXH5JHB9yExQaSO9FzGiB1Ty6af8QBoSOq3WvccjMof9ar
+	V6PJbUpOqC3CIZN7N/5fYSuXawvEavPIanntj+7JGRditlVYp3FhFa59f+53VDCxAGXEXva5vuX
+	JBvoGSzo6L/CV0zO1tbQHg5/JRsmJ/3bU7aD/Jht8dznUwfC9VuMo4YpvS5j8Rxkd+sft8YzfTw
+	nrI/ZMx9HwzOmjnB8hy91qboObwuI+rBLighM5NiFk042R5SvvNcfQ7mzdPVb8H/YVCofRimGdL
+	z6dw74u1/QMUAN9w1clxoDxGX4i6FOivDVpPHUaKI6YkEkfYm9GRnshw1uAvwPpxMSC1p+Ukbwl
+	IEzCbOYURir3PythkFrQEHP/rAsO8Vm4phOoWhVC/GTmQPD7ZlpaygnZFZWBT8n/LjSW4dZ1Ewc
+	ghH6jtMzii4/vuwJ0ugI/c1Z2pBMD1QxUH8AWzjIvABoDOA4D8dPSlGg+R6N0VaUuiaxDpDGBjK
+	k2fQJUwrcMOOW4DJd2jL+M2jwVBXPEyHYYPbkhDXg=
+X-Received: by 2002:a17:90b:3891:b0:3b4:127a:2bc2 with SMTP id 98e67ed59e1d1-3b41c8d9bfamr26559585a91.14.1795860280740;
+        Sat, 28 Nov 2026 02:04:40 -0800 (PST)
+Received: from LAPTOP-3B99V33A (ec2-18-138-229-8.ap-southeast-1.compute.amazonaws.com. [18.138.229.8])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b73b2b3sm20556526a91.2.2026.11.28.02.04.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 02:04:39 -0800 (PST)
+From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
+To: jani.nikula@linux.intel.com
+Cc: rodrigo.vivi@intel.com,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] drm/i915/display: hold frontbuffer ref across dirtyfb fence callback
+Date: Sat, 28 Nov 2026 18:04:29 +0800
+Message-ID: <20261128100429.689-1-luob87709@gmail.com>
+X-Mailer: git-send-email 2.51.0.windows.1
+In-Reply-To: <8247d106ca535db291d2f85a3b8bea7956c6ccd8@intel.com>
+References: <20261127133935.1461-1-luob87709@gmail.com> <8247d106ca535db291d2f85a3b8bea7956c6ccd8@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,131 +102,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] hwmon: (nct6683) Enable fan control on ASRock
- BC-250
-To: Fabio Baltieri <fabio.baltieri@gmail.com>,
- Johan Dahlin <jdahlin@gmail.com>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alwyn Kik <alwyn@kik.pw>, Hamza Mahfooz <someguy@effective-light.com>
-References: <20261111082838.1418051-1-jdahlin@gmail.com>
- <20261111082838.1418051-5-jdahlin@gmail.com> <awqYYqF0aIDLpcTg@google.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <awqYYqF0aIDLpcTg@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xXFHb-000000017wY-0Z4u
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:54006
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 6
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfKOTPXH5WzrneltZklvOTwIs3rbzvpI9hY8qWu+HysMC/CMonZcsEXS9950374ZHJn6dbOkd6+3bnXz+YAlo2h1l+wGiVel7EK+asZFQieSphtaKmFPc
- H4ZYnPMVRdvcp9rHU5xhGeqoH20fRFifsnknGPk0ZI0KxAQejuq0983Paf1AYz5nMDILztMaCyLXY1N327FwCBNWzzhI5B5yHgmdJ+eXGuC8QOE8s19Yw5ut
+Content-Transfer-Encoding: 8bit
 
-On 11/28/26 01:01, Fabio Baltieri wrote:
-> On Wed, Nov 11, 2026 at 09:28:35AM +0100, Johan Dahlin wrote:
->> The ASRock BC-250 (customer ID 0x162b) has an NCT6686D with the same fan
->> control registers as the B850 Steel Legend WiFi, and manual fan control
->> was reported to work there.
->>
->> Enable fan control for channels 0 to 7 on this board as well.
->>
->> Suggested-by: Fabio Baltieri <fabio.baltieri@gmail.com>
->> Signed-off-by: Johan Dahlin <jdahlin@gmail.com>
->> ---
->>   Documentation/hwmon/nct6683.rst | 2 +-
->>   drivers/hwmon/nct6683.c         | 3 ++-
->>   2 files changed, 3 insertions(+), 2 deletions(-)
->>
->> diff --git a/Documentation/hwmon/nct6683.rst b/Documentation/hwmon/nct6683.rst
->> index 026515c35243..8e5cd1d7dcd2 100644
->> --- a/Documentation/hwmon/nct6683.rst
->> +++ b/Documentation/hwmon/nct6683.rst
->> @@ -59,7 +59,7 @@ fan reported by fanN_input.
->>   
->>   It is also supported on the ASRock B850 Steel Legend WiFi (NCT6686D,
->>   customer ID 0x164a), where pwm1 to pwm6 control the fan headers reported
->> -by fan1 to fan6.
->> +by fan1 to fan6, and on the ASRock BC-250 (NCT6686D, customer ID 0x162b).
->>   
->>   pwmN_enable selects the fan control mode:
->>   
->> diff --git a/drivers/hwmon/nct6683.c b/drivers/hwmon/nct6683.c
->> index 29fbf438c04c..f656b84ee8ac 100644
->> --- a/drivers/hwmon/nct6683.c
->> +++ b/drivers/hwmon/nct6683.c
->> @@ -1540,7 +1540,8 @@ nct6683_setup_fans(struct nct6683_data *data)
->>   		}
->>   	}
->>   
->> -	if (data->customer_id == NCT6683_CUSTOMER_ID_ASROCK8)
->> +	if (data->customer_id == NCT6683_CUSTOMER_ID_ASROCK8 ||
->> +	    data->customer_id == NCT6683_CUSTOMER_ID_AMD)
->>   		data->have_fan_ctrl = data->have_pwm & GENMASK(7, 0);
->>   }
+Hi Jani,
+
+On Fri, Nov 27, 2026 at 04:17:21PM +0200, Jani Nikula wrote:
+> On Fri, 27 Nov 2026, "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com> wrote:
+> > intel_user_framebuffer_dirty() stores the raw intel_frontbuffer pointer
+> > in frontbuffer_fence_cb without taking a frontbuffer reference. If the
+> > framebuffer is destroyed and its owner frontbuffer reference is dropped
+> > before the reservation dma_fence signals,
+> > intel_user_framebuffer_fence_wake() passes a freed intel_frontbuffer
+> > pointer to intel_frontbuffer_queue_flush(), causing a use-after-free.
 > 
-> Hey, just got a chance to test the v2 on my bc-250 and it works as
-> expected, tested it on hwmon-next since this has already been applied.
-> 
+> Please describe a real world scenario where this "if" can happen.
 
-A formal "Tested-by:" would still be appreciated in situations like this.
+1. Framebuffer fb1 is currently scanned out on a plane (so
+   atomic_read(&front->bits) != 0), and its BO has an unsignaled write
+   dma_fence in obj->resv:
+   - On xe, any normal in-flight GPU render job to fb1's BO suffices,
+     because xe_frontbuffer has no i915_active front->write tracker
+     holding a reference to front.
+   - On i915 (as well as xe), an imported DMA-BUF / PRIME fence from
+     another GPU or a sync_file imported via DMA_BUF_IOCTL_IMPORT_SYNC_FILE
+     likewise does not take a frontbuffer reference via front->write.
 
-Guenter
+2. Userspace issues DRM_IOCTL_MODE_DIRTYFB on fb1:
+   - intel_user_framebuffer_dirty() fetches the unsignaled singleton
+     fence from obj->resv, attaches intel_user_framebuffer_fence_wake()
+     with the raw cb->front pointer, and returns 0.
+   - drm_mode_dirtyfb_ioctl() immediately drops its temporary fb1
+     reference via drm_framebuffer_put(fb1).
 
+3. Before that fence signals (e.g., a render job taking >1 vblank or a
+   slow/stalled external DMA-BUF fence), userspace flips the plane to
+   another framebuffer fb2 (or disables the CRTC / closes the DRM fd)
+   and removes fb1 via DRM_IOCTL_MODE_RMFB (or drm_fb_release()).
+   - The atomic commit only waits on fb2's fence (if any) and the
+     vblank, not on the old fb1's obj->resv fences.
+
+4. Once vblank completes, intel_cleanup_plane_fb() drops the plane's
+   reference to fb1, fb1's refcount hits zero, and
+   intel_user_framebuffer_destroy() calls
+   intel_parent_frontbuffer_put(display, intel_fb->frontbuffer).
+   - Because nothing else holds a reference to front (on xe,
+     intel_fb->frontbuffer is the sole reference until
+     intel_frontbuffer_queue_flush() runs; on i915, foreign DMA-BUF
+     fences do not hold front->write), frontbuffer_release() frees
+     front (kfree() on xe, kfree_rcu() on i915) while cb->base is still
+     attached to the unsignaled fence.
+
+5. When the fence later signals (normal completion or GPU reset),
+   intel_user_framebuffer_fence_wake() passes the freed cb->front to
+   intel_frontbuffer_queue_flush().
+
+If you agree this scenario is worth fixing, I can also send a v3 that
+includes this scenario in the commit message and removes the now-unused
+intel_frontbuffer_queue_flush() / intel_frontbuffer_flush_work() /
+flush_work dead code noted by Sashiko.
+
+Best regards,
+Bin Luo
