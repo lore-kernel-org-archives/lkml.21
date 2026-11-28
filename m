@@ -1,83 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=222.228.43.154
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795842533;
-	b=FcVjoMuMZ/CByZ0JUKdQLmzaYrlA0Cc+R2arV8tzT9yHp48NksrYgrcMGY9XKLgZPGPD
-	 vAdErG3SLafSza+JBHTN9yKSYaifN9b/yI27f6LElYx1Enm0xhi7XkocV6sDmpRTikQ1E
-	 8ABIUGfxEaUxS7MyfeBHFhUAZ6MebfAnQR8/5pGPNESGr6r1XOnueoHpb0+ZAR92vPXD3
-	 CA016m1vKgdyPetkuV/ZJmLqY4FLAhsvRZ4CmzJrzW/JFx4LL+ij2jsGU6UxFXyLXY8zy
-	 n4/KdAhCqFKjbSYSOBArMkzbq4AVNXLPTXjdU5aqftJTwNDIu8rLTtC1QwLZoKmiZog==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795842533;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=YjCoyNM2PZd4N4+A5lOQS4c71Oy6rruvBa6hbm9Nzq4=;
-	b=0ArWTEXyqoQpfK0biZMrC8kvalgrhOOnddoDJUtLjvAtcHPPBu2Ghr95GmfgPbYR+Efg
-	 WYw1IvTsqdQoa5dN0P8TMSsHhh/9/5DdlnbhoCfEaig0bBBCe5bUXcCELh7EULzuIUgUx
-	 wa7gP0c7JvKE/U+4EPZvDmte0Y22ECyV/ax+I/8PI6oIfdyqHgQ2NCU9K0+mKx0ROuGPg
-	 zGMFNes0SXV6quPzyiucaC6NhCLeykHf7df541jdw4XcEuFqM5n4Zun4cg2Tr2emVY4An
-	 SYjeRQIvjmiwiA/HyqpkYgy2T9awICLWCb5vRG/rANcd3ZgWiglQSEawYSTcGwYH6Lw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redadmin.org;
-	spf=pass smtp.mailfrom=redadmin.org;
-	dkim=pass header.d=redadmin.org header.i=@redadmin.org header.a=rsa-sha256 header.s=20231208space header.b=L4PGfGN0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=222.228.43.154
-Received: from www.redadmin.org (bc043154.ppp.asahi-net.or.jp [222.228.43.154])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795843536;
+	b=O2CPNQENoPYTOJldiA5/PduQ0IDPLRjHw8yYKOQ69ZdPPOqhpPQHG20/4SSl+YxHEZ79
+	 rOtSnH4qqjDKnBQfpkmBNI4XNezL0CEMwRF48OH8eKil5gQTvCmiXzUh8IIEJ+HvSo0NT
+	 bAMMbioPi1Gt07s9gS5BC7lfPXVuu6BrbaM4tNAeDIRfTpqR3QP5WFwaqWtpVM1f1dlxc
+	 qoRAdgZn+HEqL6/7rH4fj+A/9Hkmqqc9yxMvfyqU/SgWIdFuMtQ32DOEwyhjQ98L5bg7J
+	 DDy8K/DOKIniRhhKPDz92NKuwend14+yzTyZTLLKoQQiDNZs83DUUdaWTi2/ttWsvbw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795843536;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=LTT+F+8eGiTtnoaAOJgxFuyeZr+Zc/qtavdsCFWjKow=;
+	b=4rftvpNsBJJzPkj4qkT1KzFVenE2QJkHls2fkDDMV6FPSteRTEuTUbo1/kh0mqEz9djG
+	 qt7vnyVgR34yqJ7sy5i8kP4VgAIk/eL0RFbofmGNpDbTp5bniO43wRj7+OPlhzVAMNUkO
+	 kUw/7wlG+XYvenskplba6y3UDHcSzVa4NMqka9er758iqz3F9CgMsKWiUVqnZH2VjijA/
+	 j5q0m92r+FIx52qZjpssfbIrntEvAPIYZJK3NeNT03N5U/Q7y9stmTvofcZZISeh2qyXr
+	 9NdHtdwm2wjsEYkHz+XgLwdHbglxhZqHtUAPdU2Kivg2Ib4a6tShT/DmwMxdaKBvm8Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Csn9C31G;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CA5C606A31C;
-	Sat, 28 Nov 2026 05:08:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CA5C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=redadmin.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redadmin.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4D20606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4D20606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=redadmin.org header.i=@redadmin.org header.a=rsa-sha256 header.s=20231208space header.b=L4PGfGN0
-Received: from localhost (localhost [127.0.0.1])
-	by www.redadmin.org (Postfix) with ESMTP id 9D25F109F295F;
-	Sat, 28 Nov 2026 14:08:42 +0900 (JST)
-X-Virus-Scanned: amavis at redadmin.org
-Received: from www.redadmin.org ([127.0.0.1])
- by localhost (redadmin.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id cWg2eUt6rqpI; Sat, 28 Nov 2026 14:08:38 +0900 (JST)
-Authentication-Results: www.redadmin.org; arc=none smtp.remote-ip=127.0.0.1
-ARC-Seal: i=1; d=redadmin.org; s=20231208space; a=rsa-sha256; cv=none;
-	t=1795842517;
-	b=r+dXI8MirXTcykTBoMdxNBLK7nYPFqPkxI+XbYe6I1F3YlC9UPFnQRrAkqX36AbDE+um
-	 EknOELPW7iI+Z5U8oKLYEXW9F9/+QX5PlrwTgoGcxc0sQZNzjTqi2OYWBM5ireIaNF6b/
-	 NhUqKU6lCfR6ajFfkvL9DiAnQDcEmg9Tok=
-ARC-Message-Signature: i=1; d=redadmin.org; s=20231208space; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795842517;
-	h=DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=YjCoyNM2PZd4N4+A5lOQS4c71Oy6rruvBa6hbm9Nzq4=;
-	b=C2GwEFU9iF83c96+aJncW43F/7QzuO6j011Ng9XZmkr/tB+WUreg/IYcvfac68bSiNTC
-	 NYOj/MbYUT7pxzYtHy9P/ZsmNd9tqZSJl/3bEHCmSj+mDarUiWeM2g2WDzlmTzMbLRlaf
-	 VZuQ15s1Yjl5v/ZzaW1ZaXejBduvKwU+lU=
-ARC-Authentication-Results: i=1; www.redadmin.org; 
-	arc=none smtp.remote-ip=127.0.0.1
-Received: by www.redadmin.org (Postfix, from userid 1000)
-	id D76DA109F2892; Sat, 28 Nov 2026 14:08:37 +0900 (JST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 www.redadmin.org D76DA109F2892
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redadmin.org;
-	s=20231208space; t=1795842517;
-	bh=YjCoyNM2PZd4N4+A5lOQS4c71Oy6rruvBa6hbm9Nzq4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=L4PGfGN0jTCni+MJRJoFufkO3iFdajagk0LhO/wyYExS0sPYjRpY1+9SwegeLyjfO
-	 hBaM2bCGWnkogdcdruMJWVXo64XDT9XyKhwVS0u59rI6I1w18nD5eJIHJkS+/C7Jkk
-	 IOhdvjok8hQGogFZL42pRWEMKANYr6QSctucLBc0=
-From: Akiyoshi Kurita <weibu@redadmin.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Akira Yokosawa <akiyks@gmail.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-doc@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Csn9C31G
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f0458cc9easo68656805ad.3
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:25:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795843535; x=1796448335; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LTT+F+8eGiTtnoaAOJgxFuyeZr+Zc/qtavdsCFWjKow=;
+        b=Csn9C31GyefqXel/Pu5z7paIM0NjtCsN7IkQsZaara9c3GJxBkOjTTE6NohGcPrLF4
+         aEb2Bv/K2Yjcq8hsbs8asvyDOMpw502zL6Wsxz/fJG75C7Ee9DZltsEjH8UFirlqj3MD
+         qjuAUvi+0461Bj5SJ83MJgYW26ekT4bH0r1aHxpdEXhRGqMrd2EMDsM4l/aENi/PbYgJ
+         0RJbYZqkC/3tFkVgkl915v5lHQ2Cf9Zgfzwt/AF/xk30122foTBa/ACtRpEyGGjkUoFf
+         +Zy5Ksjeu/0QdnLyhlj3Rk73Tg+FbrB7XNO5L7OvqbNfjPOvQ6MC9w0OZdyXCxryUABF
+         0Mdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795843535; x=1796448335;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LTT+F+8eGiTtnoaAOJgxFuyeZr+Zc/qtavdsCFWjKow=;
+        b=lOA8JHmZXstPTXHg8BgWYcV+mRSlMhtKssz0iBsT3JViKSgkUmshHvQ3OL1gKhxdTy
+         t6Q+0st2z2tAYZ/ndblLr+wmc3gNlrcH2AiY/LFFt+dTdTg/iO7NW0r8c4ugHLox/HVP
+         D6fN7NhPuXV0h1LlivVg1wEqt//PppQjJemqB17aY8KJcuPZkVD/LpppPg8a8fLMY6/3
+         izK0N5BCWD86ztCuO+o5vC54uqQSsDQSSr3yZfnfmQ/x19ok6dzmpX1+Soej9X1BVurW
+         /tHhMtnK1vUgn1U1OgEmiba5Wy/kRlWWZ4iqLaqV3l68k0cFBTIpBAwQtLSgW+vdvOfg
+         /V+A==
+X-Forwarded-Encrypted: i=1; AL+hErF405c7yphA9OF//d76rKW83MGP0jF0DWWE7/yLH+hW2dYevn4vpNdbQVGgFhuCTEueylp184RZiye+xck=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LAtvTfM0EL3TruMRE7c0U7e6Tm/rM1WYn1fQRParIaS/8hWny
+	3U+R1mH1/QSBmQKJbiPMRkND3wnlqaiimbj/Cz09nL6AVNMWYAdGhHL4
+X-Gm-Gg: AZFdTZfO7f9bygrJVwZMMzONGYlvn4gegaWvLzfl+0NbapnLm/RE2LgSJ+pk6XZSWKK
+	miEJlUuMpWkACwfGIQIIKFyZfCIJYukleO9B/y5FsYLKmGo5aq5/Eev1f4Nl/jZ2+94n7MfHOU4
+	le9neyxjrKSd79PLFgZyDb3YYShUF7EixLX4DKBFjDg24I37ZPxDBFowjEWKQMpsUy2B8kR9iVK
+	XoUufagH2V+vZjpsbV3yo4Hag3nf9KfmMAjZ8vNCh4IQIe0ovar4l8GWBoDKvJm9coa8hQUI3O/
+	adyu5qC5oHaGOytCZqgUKkwONGkQWam6H3y5kPF5zx2YGXawXQ98BSvbUIjMcMTqCpgMpUfD8WE
+	02D8VHkgQ9sGm/8EdP1OcbFGw0UnGW820pLQkMTaJJnqJ4sUVoHMIA3yyG/OzzE19IwZdQYB+FJ
+	3P/0wrP5pHo8m+mz0ZzQ4b8AZEIbxvnuP/IeFjpkotQ1DEporJAL7/G5PjT64drv6iDk1gLkW/h
+	oYmLmeKXUY/MHUouB2qZZnsMxdO7/U+5I+prz5/XJEqK6/LHra4PaUapJvgcZB68VzkWQ1LhqUK
+	mG0mwUGwuZs8z9d6DMd/2FkoxXNJ2tSamndqq8aynYgFOR3t+Q==
+X-Received: by 2002:a17:90b:1802:b0:3b0:9f53:e8a8 with SMTP id 98e67ed59e1d1-3b41c959dfbmr26204669a91.52.1795843534930;
+        Fri, 27 Nov 2026 21:25:34 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b5210be133sm9958967a91.11.2026.11.27.21.25.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 21:25:34 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: ysato@users.sourceforge.jp,
+	dalias@libc.org,
+	glaubitz@physik.fu-berlin.de,
+	terrelln@fb.com,
+	dsterba@suse.com
+Cc: geert+renesas@glider.be,
+	ljs@kernel.org,
+	n.schier@fritz.com,
+	linux-sh@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Akiyoshi Kurita <weibu@redadmin.org>
-Subject: [PATCH v1] docs/ja_JP: translate submitting-patches.rst (patch body)
-Date: Sat, 28 Nov 2026 14:08:34 +0900
-Message-ID: <20261128050834.865751-1-weibu@redadmin.org>
-X-Mailer: git-send-email 2.52.0
+	Artem Novak <artem122novak@gmail.com>
+Subject: [RFC PATCH] sh: boot: add Zstandard compressed kernel support
+Date: Fri, 27 Nov 2026 23:25:30 -0600
+Message-ID: <20261128052530.456111-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,282 +102,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Translate the sections describing the From line, explanation
-body, backtraces in commit messages, and commentary into Japanese.
+Add support for booting Zstandard compressed kernels on SuperH.
 
-Preserve the original patch examples and reStructuredText markup.
+Select HAVE_KERNEL_ZSTD and add the required image generation rules
+for Zstandard compressed kernel images.
 
-Signed-off-by: Akiyoshi Kurita <weibu@redadmin.org>
+Include the Zstandard decompressor in the compressed kernel and
+provide the architecture helper routines required by it,
+including the SH implementations of the division, memory movement,
+and leading/trailing zero count helpers.
+
+Tested on:
+
+- SH4 R2D: successful Zstandard kernel boot under QEMU.
+
+- SH4: successful builds with and without
+  CONFIG_CC_OPTIMIZE_FOR_SIZE.
+
+- SH3 EDOSK7705: successful Zstandard kernel build.
+
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
 ---
- .../ja_JP/process/submitting-patches.rst      | 112 ++++++++++++++++++
- 1 file changed, 112 insertions(+)
+ arch/sh/Kconfig                   |  1 +
+ arch/sh/boot/Makefile             | 12 ++++++++++--
+ arch/sh/boot/compressed/Makefile  | 26 +++++++++++++++++++++++++-
+ arch/sh/boot/compressed/clz_ctz.c |  3 +++
+ arch/sh/boot/compressed/misc.c    |  3 +++
+ 5 files changed, 42 insertions(+), 3 deletions(-)
+ create mode 100644 arch/sh/boot/compressed/clz_ctz.c
 
-diff --git a/Documentation/translations/ja_JP/process/submitting-patches.rs=
-t b/Documentation/translations/ja_JP/process/submitting-patches.rst
-index 49beeee915a1..c98ef4b5b527 100644
---- a/Documentation/translations/ja_JP/process/submitting-patches.rst
-+++ b/Documentation/translations/ja_JP/process/submitting-patches.rst
-@@ -780,3 +780,115 @@ Linux =E3=82=AB=E3=83=BC=E3=83=8D=E3=83=AB=E3=81=AB=
-=E8=B2=A2=E7=8C=AE=E3=81=97=E3=81=A6=E3=81=84=E3=82=8B=E3=81=93=E3=81=A8=E3=
-=82=92=E7=A2=BA=E8=AA=8D=E3=81=A7=E3=81=8D=E3=82=8C=E3=81=B0=E3=80=81=E9=BB=
-=99=E7=A4=BA=E7=9A=84
-     Subject: [PATCH v2 01/27] x86: fix eflags tracking
-     Subject: [PATCH v2] sub/sys: Condensed patch summary
-     Subject: [PATCH v2 M/N] sub/sys: Condensed patch summary
+diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+index aa579aa041b5..d3919834a6dd 100644
+--- a/arch/sh/Kconfig
++++ b/arch/sh/Kconfig
+@@ -49,6 +49,7 @@ config SUPERH
+ 	select HAVE_KERNEL_LZMA
+ 	select HAVE_KERNEL_LZO
+ 	select HAVE_KERNEL_XZ
++	select HAVE_KERNEL_ZSTD
+ 	select HAVE_KPROBES
+ 	select HAVE_KRETPROBES
+ 	select HAVE_MIXED_BREAKPOINTS_REGS
+diff --git a/arch/sh/boot/Makefile b/arch/sh/boot/Makefile
+index cf63e319b786..49f32431a7e3 100644
+--- a/arch/sh/boot/Makefile
++++ b/arch/sh/boot/Makefile
+@@ -25,11 +25,13 @@ suffix_$(CONFIG_KERNEL_BZIP2)	:= bz2
+ suffix_$(CONFIG_KERNEL_LZMA)	:= lzma
+ suffix_$(CONFIG_KERNEL_XZ)	:= xz
+ suffix_$(CONFIG_KERNEL_LZO)	:= lzo
++suffix_$(CONFIG_KERNEL_ZSTD)	:= zst
+ 
+ targets := zImage vmlinux.srec romImage uImage uImage.srec uImage.gz \
+-	   uImage.bz2 uImage.lzma uImage.xz uImage.lzo uImage.bin \
++	   uImage.bz2 uImage.lzma uImage.xz uImage.lzo uImage.zst \
++	   uImage.bin \
+ 	   vmlinux.bin vmlinux.bin.gz vmlinux.bin.bz2 vmlinux.bin.lzma \
+-	   vmlinux.bin.xz vmlinux.bin.lzo
++	   vmlinux.bin.xz vmlinux.bin.lzo vmlinux.bin.zst
+ subdir- := compressed romimage
+ 
+ $(obj)/zImage: $(obj)/compressed/vmlinux FORCE
+@@ -80,6 +82,9 @@ $(obj)/vmlinux.bin.xz: $(obj)/vmlinux.bin FORCE
+ $(obj)/vmlinux.bin.lzo: $(obj)/vmlinux.bin FORCE
+ 	$(call if_changed,lzo)
+ 
++$(obj)/vmlinux.bin.zst: $(obj)/vmlinux.bin FORCE
++	$(call if_changed,zstd22)
 +
-+From =E8=A1=8C
-+^^^^^^^
+ $(obj)/uImage.bz2: $(obj)/vmlinux.bin.bz2 FORCE
+ 	$(call if_changed,uimage,bzip2)
+ 
+@@ -95,6 +100,9 @@ $(obj)/uImage.xz: $(obj)/vmlinux.bin.xz FORCE
+ $(obj)/uImage.lzo: $(obj)/vmlinux.bin.lzo FORCE
+ 	$(call if_changed,uimage,lzo)
+ 
++$(obj)/uImage.zst: $(obj)/vmlinux.bin.zst FORCE
++	$(call if_changed,uimage,zstd)
 +
-+``from`` =E8=A1=8C=E3=81=AF=E3=83=A1=E3=83=BC=E3=83=AB=E6=9C=AC=E6=96=87=
-=E3=81=AE=E5=BF=85=E3=81=9A=E6=9C=80=E5=88=9D=E3=81=AE=E8=A1=8C=E3=81=AB=E9=
-=85=8D=E7=BD=AE=E3=81=97=E3=80=81
-+=E6=AC=A1=E3=81=AE=E5=BD=A2=E5=BC=8F=E3=81=A7=E8=A8=98=E8=BF=B0=E3=81=97=
-=E3=81=BE=E3=81=99::
+ $(obj)/uImage.bin: $(obj)/vmlinux.bin FORCE
+ 	$(call if_changed,uimage,none)
+ 
+diff --git a/arch/sh/boot/compressed/Makefile b/arch/sh/boot/compressed/Makefile
+index b85aa5f0d616..f06c0293c3ee 100644
+--- a/arch/sh/boot/compressed/Makefile
++++ b/arch/sh/boot/compressed/Makefile
+@@ -8,8 +8,18 @@
+ OBJECTS := head_32.o misc.o piggy.o \
+            ashiftrt.o ashldi3.o ashrsi3.o ashlsi3.o lshrsi3.o
+ 
++zstd-udivsi3-y := udivsi3_i4i-Os.o
++ifneq ($(CONFIG_CC_OPTIMIZE_FOR_SIZE),y)
++zstd-udivsi3-$(CONFIG_CPU_SH3) := udivsi3_i4i.o
++zstd-udivsi3-$(CONFIG_CPU_SH4) := udivsi3_i4i.o
++endif
 +
-+    From: Patch Author <author@example.com>
++OBJECTS-$(CONFIG_KERNEL_ZSTD) += clz_ctz.o memmove.o movmem.o $(zstd-udivsi3-y)
++OBJECTS += $(OBJECTS-y)
 +
-+``from`` =E8=A1=8C=E3=81=AF=E3=80=81=E6=81=92=E4=B9=85=E7=9A=84=E3=81=AA=
-=E5=A4=89=E6=9B=B4=E5=B1=A5=E6=AD=B4=E3=81=AB=E3=81=8A=E3=81=84=E3=81=A6=E3=
-=80=81=E8=AA=B0=E3=82=92=E3=83=91=E3=83=83=E3=83=81=E3=81=AE=E4=BD=9C=E8=80=
-=85=E3=81=A8=E3=81=97=E3=81=A6
-+=E8=A8=98=E9=8C=B2=E3=81=99=E3=82=8B=E3=81=8B=E3=82=92=E6=8C=87=E5=AE=9A=
-=E3=81=97=E3=81=BE=E3=81=99=E3=80=82``from`` =E8=A1=8C=E3=81=8C=E3=81=AA=E3=
-=81=84=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=E3=83=A1=E3=83=BC=E3=83=AB=E3=83=
-=98=E3=83=83=E3=83=80=E3=83=BC=E3=81=AE
-+``From:`` =E8=A1=8C=E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=80=81=
-=E5=A4=89=E6=9B=B4=E5=B1=A5=E6=AD=B4=E3=81=AB=E8=A8=98=E9=8C=B2=E3=81=99=E3=
-=82=8B=E3=83=91=E3=83=83=E3=83=81=E3=81=AE=E4=BD=9C=E8=80=85=E3=82=92=E6=B1=
-=BA=E5=AE=9A=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+ targets := vmlinux vmlinux.bin vmlinux.bin.gz vmlinux.bin.bz2 \
+-           vmlinux.bin.lzma vmlinux.bin.xz vmlinux.bin.lzo $(OBJECTS)
++           vmlinux.bin.lzma vmlinux.bin.xz vmlinux.bin.lzo \
++           vmlinux.bin.zst $(OBJECTS)
+ 
+ #
+ # IMAGE_OFFSET is the load offset of the compression loader
+@@ -32,6 +42,18 @@ LDFLAGS_vmlinux := --oformat $(ld_bfd) -Ttext $(IMAGE_OFFSET) -e startup \
+ 
+ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
+ 
++$(obj)/memmove.o: $(srctree)/arch/sh/lib/memmove.S FORCE
++	$(call if_changed_dep,as_o_S)
 +
-+=E4=BD=9C=E8=80=85=E3=81=AF=E3=80=81``from`` =E8=A1=8C=E3=81=A8 ``SoB`` =
-=E8=A1=8C=E3=81=AB=E7=B5=84=E7=B9=94=E5=90=8D=E3=82=92=E8=BF=BD=E5=8A=A0=E3=
-=81=99=E3=82=8B=E3=81=93=E3=81=A8=E3=81=A7=E3=80=81
-+=E8=87=AA=E8=BA=AB=E3=81=AE=E6=89=80=E5=B1=9E=E7=B5=84=E7=B9=94=E3=82=84=
-=E4=BD=9C=E6=A5=AD=E3=81=AE=E3=82=B9=E3=83=9D=E3=83=B3=E3=82=B5=E3=83=BC=E3=
-=82=92=E7=A4=BA=E3=81=99=E3=81=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=
-=BE=E3=81=99=E3=80=82=E4=BE=8B=E3=81=88=E3=81=B0::
++$(obj)/movmem.o: $(srctree)/arch/sh/lib/movmem.S FORCE
++	$(call if_changed_dep,as_o_S)
 +
-+    From: Patch Author (Company) <author@example.com>
++$(obj)/udivsi3_i4i.o: $(srctree)/arch/sh/lib/udivsi3_i4i.S FORCE
++	$(call if_changed_dep,as_o_S)
 +
-+=E8=AA=AC=E6=98=8E=E6=9C=AC=E6=96=87
-+^^^^^^^^
++$(obj)/udivsi3_i4i-Os.o: $(srctree)/arch/sh/lib/udivsi3_i4i-Os.S FORCE
++	$(call if_changed_dep,as_o_S)
 +
-+=E8=AA=AC=E6=98=8E=E6=9C=AC=E6=96=87=E3=81=AF=E6=81=92=E4=B9=85=E7=9A=84=
-=E3=81=AA=E3=82=BD=E3=83=BC=E3=82=B9=E3=82=B3=E3=83=BC=E3=83=89=E3=81=AE=E5=
-=A4=89=E6=9B=B4=E5=B1=A5=E6=AD=B4=E3=81=AB=E8=A8=98=E9=8C=B2=E3=81=95=E3=82=
-=8C=E3=81=BE=E3=81=99=E3=80=82=E3=81=9D=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81
-+=E3=83=91=E3=83=83=E3=83=81=E3=81=AE=E4=BD=9C=E6=88=90=E3=81=AB=E3=81=A4=
-=E3=81=AA=E3=81=8C=E3=81=A3=E3=81=9F=E8=AD=B0=E8=AB=96=E3=81=AE=E8=A9=B3=E7=
-=B4=B0=E3=82=92=E3=81=99=E3=81=A7=E3=81=AB=E5=BF=98=E3=82=8C=E3=81=A6=E3=81=
-=84=E3=82=8B=E3=80=81=E5=8D=81=E5=88=86=E3=81=AA=E7=9F=A5=E8=AD=98=E3=82=92=
-=E6=8C=81=E3=81=A4
-+=E8=AA=AD=E8=80=85=E3=81=AB=E3=82=82=E7=90=86=E8=A7=A3=E3=81=A7=E3=81=8D=
-=E3=82=8B=E5=86=85=E5=AE=B9=E3=81=AB=E3=81=99=E3=82=8B=E5=BF=85=E8=A6=81=E3=
-=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+ $(obj)/vmlinux: $(addprefix $(obj)/, $(OBJECTS)) FORCE
+ 	$(call if_changed,ld)
+ 
+@@ -48,6 +70,8 @@ $(obj)/vmlinux.bin.xz: $(obj)/vmlinux.bin FORCE
+ 	$(call if_changed,xzkern_with_size)
+ $(obj)/vmlinux.bin.lzo: $(obj)/vmlinux.bin FORCE
+ 	$(call if_changed,lzo_with_size)
++$(obj)/vmlinux.bin.zst: $(obj)/vmlinux.bin FORCE
++	$(call if_changed,zstd22_with_size)
+ 
+ OBJCOPYFLAGS += -R .empty_zero_page
+ 
+diff --git a/arch/sh/boot/compressed/clz_ctz.c b/arch/sh/boot/compressed/clz_ctz.c
+new file mode 100644
+index 000000000000..81a708c6808b
+--- /dev/null
++++ b/arch/sh/boot/compressed/clz_ctz.c
+@@ -0,0 +1,3 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +
-+=E3=83=91=E3=83=83=E3=83=81=E3=81=8C=E5=AF=BE=E5=87=A6=E3=81=99=E3=82=8B=
-=E5=95=8F=E9=A1=8C=E3=81=AE=E7=97=87=E7=8A=B6=EF=BC=88=E3=82=AB=E3=83=BC=E3=
-=83=8D=E3=83=AB=E3=83=AD=E3=82=B0=E3=81=AE=E3=83=A1=E3=83=83=E3=82=BB=E3=83=
-=BC=E3=82=B8=E3=82=84 oops
-+=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=AA=E3=81=A9=EF=BC=89=
-=E3=82=92=E5=90=AB=E3=82=81=E3=82=8B=E3=81=93=E3=81=A8=E3=81=AF=E3=80=81=E8=
-=A9=B2=E5=BD=93=E3=81=99=E3=82=8B=E3=83=91=E3=83=83=E3=83=81=E3=82=92=E6=8E=
-=A2=E3=81=99=E3=81=9F=E3=82=81=E3=81=AB
-+=E3=82=B3=E3=83=9F=E3=83=83=E3=83=88=E3=83=AD=E3=82=B0=E3=82=92=E6=A4=9C=
-=E7=B4=A2=E3=81=99=E3=82=8B=E4=BA=BA=E3=81=AB=E3=81=A8=E3=81=A3=E3=81=A6=E7=
-=89=B9=E3=81=AB=E6=9C=89=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82
-+
-+=E6=95=B0=E9=80=B1=E9=96=93=E3=80=81=E6=95=B0=E3=81=8B=E6=9C=88=E3=80=81=
-=E3=81=82=E3=82=8B=E3=81=84=E3=81=AF=E6=95=B0=E5=B9=B4=E5=BE=8C=E3=81=AB=E8=
-=AA=AD=E3=82=93=E3=81=A7=E3=82=82=E3=80=81=E3=83=91=E3=83=83=E3=83=81=E3=81=
-=8C=E4=BD=9C=E6=88=90=E3=81=95=E3=82=8C=E3=81=9F
-+**=E7=90=86=E7=94=B1** =E3=82=92=E7=90=86=E8=A7=A3=E3=81=99=E3=82=8B=E3=81=
-=9F=E3=82=81=E3=81=AB=E5=BF=85=E8=A6=81=E3=81=AA=E8=A9=B3=E7=B4=B0=E3=81=8C=
-=E5=BE=97=E3=82=89=E3=82=8C=E3=82=8B=E3=82=88=E3=81=86=E3=81=AB=E8=A8=98=E8=
-=BF=B0=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
-+
-+=E3=83=91=E3=83=83=E3=83=81=E3=81=8C=E3=82=B3=E3=83=B3=E3=83=91=E3=82=A4=
-=E3=83=AB=E3=82=A8=E3=83=A9=E3=83=BC=E3=82=92=E4=BF=AE=E6=AD=A3=E3=81=99=E3=
-=82=8B=E3=82=82=E3=81=AE=E3=81=A7=E3=81=82=E3=82=8C=E3=81=B0=E3=80=81=E3=81=
-=99=E3=81=B9=E3=81=A6=E3=81=AE
-+=E3=82=B3=E3=83=B3=E3=83=91=E3=82=A4=E3=83=AB=E3=82=A8=E3=83=A9=E3=83=BC=
-=E3=82=92=E8=A8=98=E8=BC=89=E3=81=99=E3=82=8B=E5=BF=85=E8=A6=81=E3=81=AF=E3=
-=81=82=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=E3=83=91=E3=83=83=E3=83=
-=81=E3=82=92=E6=8E=A2=E3=81=97=E3=81=A6=E3=81=84=E3=82=8B=E4=BA=BA=E3=81=8C
-+=E6=A4=9C=E7=B4=A2=E3=81=A7=E8=A6=8B=E3=81=A4=E3=81=91=E3=82=89=E3=82=8C=
-=E3=82=8B=E7=A8=8B=E5=BA=A6=E3=81=AE=E6=83=85=E5=A0=B1=E3=81=8C=E3=81=82=E3=
-=82=8C=E3=81=B0=E5=8D=81=E5=88=86=E3=81=A7=E3=81=99=E3=80=82
-+``summary phrase`` =E3=81=A8=E5=90=8C=E6=A7=98=E3=81=AB=E3=80=81=E7=B0=A1=
-=E6=BD=94=E3=81=A7=E3=81=82=E3=82=8A=E3=81=AA=E3=81=8C=E3=82=89=E5=8D=81=E5=
-=88=86=E3=81=AA=E8=AA=AC=E6=98=8E=E3=82=92
-+=E5=90=AB=E3=82=81=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E9=87=8D=E8=A6=81=
-=E3=81=A7=E3=81=99=E3=80=82
-+
-+.. _jp_backtraces:
-+
-+=E3=82=B3=E3=83=9F=E3=83=83=E3=83=88=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=
-=E3=82=B8=E5=86=85=E3=81=AE=E3=83=90=E3=83=83=E3=82=AF=E3=83=88=E3=83=AC=E3=
-=83=BC=E3=82=B9
-+""""""""""""""""""""""""""""""""""""
-+
-+=E3=83=90=E3=83=83=E3=82=AF=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B9=E3=81=AF=
-=E3=80=81=E5=95=8F=E9=A1=8C=E3=81=AB=E8=87=B3=E3=82=8B=E3=81=BE=E3=81=A7=E3=
-=81=AE=E9=96=A2=E6=95=B0=E5=91=BC=E3=81=B3=E5=87=BA=E3=81=97=E3=81=AE=E6=B5=
-=81=E3=82=8C=E3=82=92=E8=A8=98=E9=8C=B2=E3=81=99=E3=82=8B=E3=81=AE=E3=81=AB
-+=E5=BD=B9=E7=AB=8B=E3=81=A1=E3=81=BE=E3=81=99=E3=80=82=E3=81=9F=E3=81=A0=
-=E3=81=97=E3=80=81=E3=81=99=E3=81=B9=E3=81=A6=E3=81=AE=E3=83=90=E3=83=83=E3=
-=82=AF=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B9=E3=81=8C=E6=9C=89=E7=94=A8=E3=81=
-=A8=E3=81=AF=E9=99=90=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82
-+=E4=BE=8B=E3=81=88=E3=81=B0=E3=80=81=E8=B5=B7=E5=8B=95=E5=88=9D=E6=9C=9F=
-=E3=81=AE=E5=91=BC=E3=81=B3=E5=87=BA=E3=81=97=E7=B5=8C=E8=B7=AF=E3=81=AF=E5=
-=9B=BA=E6=9C=89=E3=81=A7=E3=81=82=E3=82=8A=E3=80=81=E6=98=8E=E7=99=BD=E3=81=
-=AA=E3=82=82=E3=81=AE=E3=81=A7=E3=81=99=E3=80=82
-+
-+=E4=B8=80=E6=96=B9=E3=80=81``dmesg`` =E3=81=AE=E5=87=BA=E5=8A=9B=E5=85=A8=
-=E4=BD=93=E3=82=92=E3=81=9D=E3=81=AE=E3=81=BE=E3=81=BE=E3=82=B3=E3=83=94=E3=
-=83=BC=E3=81=99=E3=82=8B=E3=81=A8=E3=80=81=E3=82=BF=E3=82=A4=E3=83=A0=E3=82=
-=B9=E3=82=BF=E3=83=B3=E3=83=97=E3=80=81
-+=E3=83=A2=E3=82=B8=E3=83=A5=E3=83=BC=E3=83=AB=E4=B8=80=E8=A6=A7=E3=80=81=
-=E3=83=AC=E3=82=B8=E3=82=B9=E3=82=BF=E3=82=84=E3=82=B9=E3=82=BF=E3=83=83=E3=
-=82=AF=E3=81=AE=E3=83=80=E3=83=B3=E3=83=97=E3=81=AA=E3=81=A9=E3=80=81=E5=95=
-=8F=E9=A1=8C=E3=81=AE=E7=90=86=E8=A7=A3=E3=82=92
-+=E5=A6=A8=E3=81=92=E3=82=8B=E6=83=85=E5=A0=B1=E3=81=BE=E3=81=A7=E5=90=AB=
-=E3=81=BE=E3=82=8C=E3=81=A6=E3=81=97=E3=81=BE=E3=81=84=E3=81=BE=E3=81=99=E3=
-=80=82
-+
-+=E3=81=9D=E3=81=AE=E3=81=9F=E3=82=81=E3=80=81=E6=9C=89=E7=94=A8=E3=81=AA=
-=E3=83=90=E3=83=83=E3=82=AF=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B9=E3=81=A7=E3=
-=81=AF=E3=80=81=E3=83=80=E3=83=B3=E3=83=97=E3=81=8B=E3=82=89=E9=96=A2=E9=80=
-=A3=E3=81=99=E3=82=8B=E6=83=85=E5=A0=B1=E3=82=92
-+=E6=8A=BD=E5=87=BA=E3=81=97=E3=80=81=E5=AE=9F=E9=9A=9B=E3=81=AE=E5=95=8F=
-=E9=A1=8C=E3=81=AB=E9=9B=86=E4=B8=AD=E3=81=97=E3=82=84=E3=81=99=E3=81=8F=E3=
-=81=99=E3=82=8B=E5=BF=85=E8=A6=81=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=
-=99=E3=80=82
-+=E4=BB=A5=E4=B8=8B=E3=81=AF=E3=80=81=E9=81=A9=E5=88=87=E3=81=AB=E4=B8=8D=
-=E8=A6=81=E9=83=A8=E5=88=86=E3=82=92=E5=89=8A=E9=99=A4=E3=81=97=E3=81=9F=E3=
-=83=90=E3=83=83=E3=82=AF=E3=83=88=E3=83=AC=E3=83=BC=E3=82=B9=E3=81=AE=E4=BE=
-=8B=E3=81=A7=E3=81=99::
-+
-+  unchecked MSR access error: WRMSR to 0xd51 (tried to write 0x00000000000=
-00064)
-+  at rIP: 0xffffffffae059994 (native_write_msr+0x4/0x20)
-+  Call Trace:
-+  mba_wrmsr
-+  update_domains
-+  rdtgroup_mkdir
-+
-+=E8=A3=9C=E8=B6=B3=E3=82=B3=E3=83=A1=E3=83=B3=E3=83=88
-+^^^^^^^^^^^^
-+
-+``---`` =E3=81=AE=E5=8C=BA=E5=88=87=E3=82=8A=E8=A1=8C=E3=81=AB=E3=81=AF=E3=
-=80=81=E3=83=91=E3=83=83=E3=83=81=E3=82=92=E5=87=A6=E7=90=86=E3=81=99=E3=82=
-=8B=E3=83=84=E3=83=BC=E3=83=AB=E3=81=AB=E5=AF=BE=E3=81=97=E3=81=A6=E3=80=81
-+=E5=A4=89=E6=9B=B4=E5=B1=A5=E6=AD=B4=E3=81=AE=E3=83=A1=E3=83=83=E3=82=BB=
-=E3=83=BC=E3=82=B8=E3=81=8C=E3=81=A9=E3=81=93=E3=81=A7=E7=B5=82=E3=82=8F=E3=
-=82=8B=E3=81=8B=E3=82=92=E7=A4=BA=E3=81=99=E3=81=A8=E3=81=84=E3=81=86=E9=87=
-=8D=E8=A6=81=E3=81=AA=E5=BD=B9=E5=89=B2=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=
-=E3=81=99=E3=80=82
-+
-+``---`` =E3=81=AE=E5=BE=8C=E3=81=AB=E8=BF=BD=E5=8A=A0=E3=81=99=E3=82=8B=E3=
-=82=B3=E3=83=A1=E3=83=B3=E3=83=88=E3=81=AE=E6=9C=89=E7=94=A8=E3=81=AA=E4=BE=
-=8B=E3=81=A8=E3=81=97=E3=81=A6=E3=80=81
-+=E5=A4=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=81=9F=E3=83=95=E3=82=A1=E3=82=A4=
-=E3=83=AB=E3=81=A8=E3=80=81=E3=83=95=E3=82=A1=E3=82=A4=E3=83=AB=E3=81=94=E3=
-=81=A8=E3=81=AE=E8=BF=BD=E5=8A=A0=E8=A1=8C=E6=95=B0=E3=81=8A=E3=82=88=E3=81=
-=B3=E5=89=8A=E9=99=A4=E8=A1=8C=E6=95=B0=E3=82=92=E7=A4=BA=E3=81=99
-+``diffstat`` =E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82``diffs=
-tat`` =E3=81=AF=E3=80=81=E7=89=B9=E3=81=AB=E5=A4=A7=E3=81=8D=E3=81=AA=E3=83=
-=91=E3=83=83=E3=83=81=E3=81=A7
-+=E5=BD=B9=E7=AB=8B=E3=81=A1=E3=81=BE=E3=81=99=E3=80=82
-+
-+``---`` =E3=81=AE=E5=BE=8C=E3=81=AB ``diffstat`` =E3=82=92=E5=90=AB=E3=82=
-=81=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81
-+``-p 1 -w 70`` =E3=82=AA=E3=83=97=E3=82=B7=E3=83=A7=E3=83=B3=E3=82=92=E4=
-=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=
-=82
-+=E3=81=93=E3=82=8C=E3=81=AB=E3=82=88=E3=82=8A=E3=80=81=E3=83=95=E3=82=A1=
-=E3=82=A4=E3=83=AB=E5=90=8D=E3=81=8C=E3=82=AB=E3=83=BC=E3=83=8D=E3=83=AB=E3=
-=82=BD=E3=83=BC=E3=82=B9=E3=83=84=E3=83=AA=E3=83=BC=E3=81=AE=E3=83=AB=E3=83=
-=BC=E3=83=88=E3=81=8B=E3=82=89=E3=81=AE
-+=E3=83=91=E3=82=B9=E3=81=A7=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=E3=80=81=
-=E6=A8=AA=E5=B9=85=E3=82=82=E5=BA=83=E3=81=8F=E3=81=AA=E3=82=8A=E3=81=99=E3=
-=81=8E=E3=81=9A=E3=80=81=E3=82=A4=E3=83=B3=E3=83=87=E3=83=B3=E3=83=88=E3=82=
-=92=E5=90=AB=E3=82=81=E3=81=A6=E3=82=82
-+80 =E6=A1=81=E4=BB=A5=E5=86=85=E3=81=AB=E5=8F=8E=E3=81=BE=E3=82=8A=E3=82=
-=84=E3=81=99=E3=81=8F=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
-+=E3=81=AA=E3=81=8A=E3=80=81``git`` =E3=81=AF=E3=83=87=E3=83=95=E3=82=A9=E3=
-=83=AB=E3=83=88=E3=81=A7=E9=81=A9=E5=88=87=E3=81=AA ``diffstat`` =E3=82=92=
-=E7=94=9F=E6=88=90=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
-+
-+=E3=81=9D=E3=81=AE=E6=99=82=E7=82=B9=E3=81=A7=E3=81=AE=E3=81=BF=E6=84=8F=
-=E5=91=B3=E3=82=92=E6=8C=81=E3=81=A4=E3=82=B3=E3=83=A1=E3=83=B3=E3=83=88=E3=
-=82=84=E3=80=81=E3=83=A1=E3=83=B3=E3=83=86=E3=83=8A=E3=83=BC=E5=90=91=E3=81=
-=91=E3=81=AE=E3=82=B3=E3=83=A1=E3=83=B3=E3=83=88=E3=81=AA=E3=81=A9=E3=80=81
-+=E6=81=92=E4=B9=85=E7=9A=84=E3=81=AA=E5=A4=89=E6=9B=B4=E5=B1=A5=E6=AD=B4=
-=E3=81=AB=E5=90=AB=E3=82=81=E3=82=8B=E3=81=AE=E3=81=8C=E9=81=A9=E5=88=87=E3=
-=81=A7=E3=81=AA=E3=81=84=E6=83=85=E5=A0=B1=E3=82=82=E3=81=93=E3=81=93=E3=81=
-=AB=E8=A8=98=E8=BC=89=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
-+=E3=81=9D=E3=81=AE=E4=BE=8B=E3=81=A8=E3=81=97=E3=81=A6=E3=80=81=E3=83=91=
-=E3=83=83=E3=83=81=E3=81=AE v1 =E3=81=A8 v2 =E3=81=AE=E9=96=93=E3=81=A7=E4=
-=BD=95=E3=81=8C=E5=A4=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=81=9F=E3=81=8B=E3=82=
-=92=E8=AA=AC=E6=98=8E=E3=81=99=E3=82=8B
-+``patch changelog`` =E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
-+
-+=E3=81=93=E3=82=8C=E3=82=89=E3=81=AE=E6=83=85=E5=A0=B1=E3=81=AF=E3=80=81=
-=E5=A4=89=E6=9B=B4=E5=B1=A5=E6=AD=B4=E3=81=A8=E3=83=91=E3=83=83=E3=83=81=E3=
-=81=AE=E6=AE=8B=E3=82=8A=E3=81=AE=E9=83=A8=E5=88=86=E3=82=92=E5=8C=BA=E5=88=
-=87=E3=82=8B
-+``---`` =E8=A1=8C=E3=81=AE **=E5=BE=8C** =E3=81=AB=E8=A8=98=E8=BC=89=E3=81=
-=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
-+
-+=E3=83=90=E3=83=BC=E3=82=B8=E3=83=A7=E3=83=B3=E9=96=93=E3=81=AE=E5=A4=89=
-=E6=9B=B4=E6=83=85=E5=A0=B1=E3=81=AF=E3=80=81Git =E3=83=84=E3=83=AA=E3=83=
-=BC=E3=81=AB=E8=A8=98=E9=8C=B2=E3=81=95=E3=82=8C=E3=82=8B=E5=A4=89=E6=9B=B4=
-=E5=B1=A5=E6=AD=B4=E3=81=AE
-+=E4=B8=80=E9=83=A8=E3=81=A7=E3=81=AF=E3=81=AA=E3=81=8F=E3=80=81=E3=83=AC=
-=E3=83=93=E3=83=A5=E3=83=BC=E3=82=A2=E5=90=91=E3=81=91=E3=81=AE=E8=BF=BD=E5=
-=8A=A0=E6=83=85=E5=A0=B1=E3=81=A7=E3=81=99=E3=80=82
-+=E3=82=B3=E3=83=9F=E3=83=83=E3=83=88=E3=82=BF=E3=82=B0=E3=82=88=E3=82=8A=
-=E5=89=8D=E3=81=AB=E8=A8=98=E8=BC=89=E3=81=99=E3=82=8B=E3=81=A8=E3=80=81=E5=
-=89=8A=E9=99=A4=E3=81=99=E3=82=8B=E3=81=9F=E3=82=81=E3=81=AB=E6=89=8B=E4=BD=
-=9C=E6=A5=AD=E3=81=8C=E5=BF=85=E8=A6=81=E3=81=AB=E3=81=AA=E3=82=8A=E3=81=BE=
-=E3=81=99=E3=80=82
-+=E4=B8=80=E6=96=B9=E3=80=81=E5=8C=BA=E5=88=87=E3=82=8A=E8=A1=8C=E3=81=AE=
-=E5=BE=8C=E3=81=AB=E8=A8=98=E8=BC=89=E3=81=99=E3=82=8C=E3=81=B0=E3=80=81=E3=
-=83=91=E3=83=83=E3=83=81=E3=82=92=E9=81=A9=E7=94=A8=E3=81=99=E3=82=8B=E9=9A=
-=9B=E3=81=AB=E8=87=AA=E5=8B=95=E7=9A=84=E3=81=AB
-+=E5=8F=96=E3=82=8A=E9=99=A4=E3=81=8B=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82
-+
-+=E5=8F=AF=E8=83=BD=E3=81=A7=E3=81=82=E3=82=8C=E3=81=B0=E3=80=81=E3=83=AC=
-=E3=83=93=E3=83=A5=E3=83=BC=E3=82=A2=E3=81=AE=E5=8F=82=E8=80=83=E3=81=AB=E3=
-=81=AA=E3=82=8B=E3=82=88=E3=81=86=E3=81=AB=E3=80=81=E9=81=8E=E5=8E=BB=E3=81=
-=AE=E7=89=88=E3=81=B8=E3=81=AE=E3=83=AA=E3=83=B3=E3=82=AF
-+=EF=BC=88=E4=BE=8B=E3=81=88=E3=81=B0 lore.kernel.org =E3=81=AE=E3=82=A2=E3=
-=83=BC=E3=82=AB=E3=82=A4=E3=83=96=E3=81=B8=E3=81=AE=E3=83=AA=E3=83=B3=E3=82=
-=AF=EF=BC=89=E3=82=92=E8=BF=BD=E5=8A=A0=E3=81=99=E3=82=8B=E3=81=93=E3=81=A8=
-=E3=82=92
-+=E6=8E=A8=E5=A5=A8=E3=81=97=E3=81=BE=E3=81=99::
-+
-+  <commit message>
-+  ...
-+  Signed-off-by: Author <author@mail>
-+  ---
-+  V2 -> V3: Removed redundant helper function
-+  V1 -> V2: Cleaned up coding style and addressed review comments
-+
-+  v2: https://lore.kernel.org/bar
-+  v1: https://lore.kernel.org/foo
-+
-+  path/to/file | 5+++--
-+  ...
-+
-+=E9=81=A9=E5=88=87=E3=81=AA=E3=83=91=E3=83=83=E3=83=81=E5=BD=A2=E5=BC=8F=
-=E3=81=AE=E8=A9=B3=E7=B4=B0=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AF=E3=
-=80=81=E4=BB=A5=E4=B8=8B=E3=81=AE=E8=B3=87=E6=96=99=E3=82=92=E5=8F=82=E7=85=
-=A7=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
---=20
-2.52.0
++#include "../../../../lib/clz_ctz.c"
+diff --git a/arch/sh/boot/compressed/misc.c b/arch/sh/boot/compressed/misc.c
+index 3690379cc86b..3739e5dd6250 100644
+--- a/arch/sh/boot/compressed/misc.c
++++ b/arch/sh/boot/compressed/misc.c
+@@ -66,6 +66,9 @@ static unsigned long free_mem_end_ptr;
+ #ifdef CONFIG_KERNEL_LZO
+ #include "../../../../lib/decompress_unlzo.c"
+ #endif
++#ifdef CONFIG_KERNEL_ZSTD
++#include "../../../../lib/decompress_unzstd.c"
++#endif
+ 
+ int puts(const char *s)
+ {
+-- 
+2.56.1
 
