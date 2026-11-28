@@ -1,80 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.185.148
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795824708;
-	b=lvU9hmNmfL1+6Z0GH0nPScs3xYWbdqm5spFZrA5tVRCLfF5Wd6vXd4Hk7FjM/8CQA8VS
-	 pdcsld66B17/A7m8BLhCVy7zjkHWh8OkzqLdM1W9sjosc3YNGwDqs+aHOG094BYwRjyc9
-	 +qQBHuzImNL4QNBjsRbj8xLojjff7mCgvHoMBQOTKr2/5Y9juMhO0Iy8V4R7hqIfGab4a
-	 bNz/D1pDABP3UWMbTUphYVTOmnrkETXomHuLG64IUKN4FMyqdb0OKTGt8Hp+jfZu6wseZ
-	 Cr6XQgLSM7pBuYf8d7XmCD9mDvKHiJpUf67o9ZmuQ7qAzTILtHURS1zSTiwUZ21S07A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795824708;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=syl8z+fGJReCETcQSL1fbSQ4yMhWfwJdu8YJxP6hi/c=;
-	b=bBNCJwPYWzrSSrVrFJ/2QUUxnDH+MNv/bVMCM5yBithbZ+3IudppO30rjQ7bc4IG0JXt
-	 Lai5771EJUih1xbZo069gvvHmYBdF+pDQLsDqqqQXmKS3wH1/VpYYDZXl+SbgctGBlyGG
-	 Hxpc4nBBWW/Bij1oxED9W3CwHZcUiUhckNGqx+lFENjYUSMlTvZeOOpRKnPz3lJlX5W/k
-	 8TWMGhZnTIh0VS+hbd8VQEpvmCg1fE1BTsuq6tejPge3DuOo0ifvEJzzpshlTjyZelQL7
-	 c8Nh9KmspFVw++IA1uSisjCQWy8nbYGmkjqWnm6oGVwt8fJFg/3MFJDQ3ntMJ9VoTrw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=R6EuRgJN;
-	arc=none smtp.remote-ip=66.163.185.148
-Received: from sonic305-22.consmr.mail.ne1.yahoo.com (sonic305-22.consmr.mail.ne1.yahoo.com [66.163.185.148])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795824947;
+	b=lfrbHfgGkHJuwXo/bZQzilifPUR+gKKQKlZs5Zkb5gF/zEZZSvF+RtO0WIxechUazRSz
+	 BkxsC0vEtBO0cvR1eb2Im0BxgmqIx+5Rik/jKF6xqUc+4pDmmV/3g08K3efXYYv2Y1mv5
+	 6gc45HkvLBcI1X8KPjZbriMBFnGLxs8uJWRs+iDJWrfV2RoIxxmb+74FY6S0KRiHta+Zw
+	 KgZf0QAXIwnUosory69bX64HWKnJ+o1/BZhAuy7RJIQH1KXsUA6/Wl+VxlLunmWCqwzRh
+	 ldsfW0sLHL6dSOs0uK/mvaAsSsPYLD1vzPDWBT0IkxKaDZPzhAJIXxVjNpCKpxHFPiA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795824947;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=EkG+Dr/aMoMzUSj5tk5nyxA5r22ol56pbCQ3Z9eMFeE=;
+	b=RVcZsN6bMmOMio3tjDj/Z4O2qAOcDOzOqNDaphcEkNHwRMvJQJEpdoHPW5IsjeZWu4D1
+	 lf8JU34aLgP8dUjoXAmWS55odZrlItWP3qxx40If+bH9WelbstEWhpbfi3PAizCUuqzpV
+	 saH1s7pNUW1Wmxs4xP5HKGeq9BHakX2PX1We0gtvs38MfkZmCpeheYcJWV1xpBE+Z1sHs
+	 jDWNZGcOQ5hG8J1Za5VsHvSTXUru8+Q4X5+AX39Dk1T0tkxMN3PTu3G45FpNadmDpeRXq
+	 OIv+4awh3vPcXkyxP8A4wS9rV9lS2EipMHF2m47K4LG0akEUL6ApXM5MY+xRCBUaQZw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X5KSnCc3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FF97606A31C;
+	Sat, 28 Nov 2026 00:15:46 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X5KSnCc3
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795824946;
+	b=0G1kl51kUIBufk8zyKl2SAzsy1WvmNI7UFnAsTeZCxvB7sQ9a6htL9K2TuA2NuVO4any
+	 xDqWuyqr6b65Da7nhUs9Tr68Hynvb1C/FZpJlip5X2O2VSOuQv1v8WW7c9y5uoYQtZBmb
+	 afDvor+zdGxpJ+GsV30CHIj/9RW8/WL1zJUHDpF+YXJ46R2wheZPKfpEBDQPQjg/4NAcb
+	 NiVWV+56SpQM00H0RazITZkQcjrcvuo+s/EAZqTGOtQ8KTBUsuQ+poKCdj9PM/zGemYzL
+	 Ta46xeqC0MStz71YJBAL147LwAx2uGzHOX/52BPTAoPtg+pLecDLMrmYl687fXtcacQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795824946;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=EkG+Dr/aMoMzUSj5tk5nyxA5r22ol56pbCQ3Z9eMFeE=;
+	b=HFcgasndquT2PBlmAW6uJ8QAi5DtjcLIDB0aVfdB2UHwjbORsN0U8IazmQj8b8SlkGxg
+	 ei+H9ix3ltYHoGErEk7yOEXDqqVyqSabC8P+kn1I5psv/0Lr6J5AKG1M/b3bFadIqEXhJ
+	 y5Jo4ExdfCuL0cnJsGnz0i5++2UD84hQumm5JgSqjJvAc7zu3pvMmftnxsAlz3MDLif3c
+	 uvwwU+jfywK+USqPaiVKdCoNOjDF/A2Lxvqrg0oBZYxUzWOMObXQN8xw0bPLVllkoD3aR
+	 +qWlxuwHwBudx0jhA3kXFoQqmNPO9wlu4waHWdeHN+CV47sUxug4oc9Zl4jxuEp740w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9D66606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:11:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9D66606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=R6EuRgJN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795824707; bh=syl8z+fGJReCETcQSL1fbSQ4yMhWfwJdu8YJxP6hi/c=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=R6EuRgJNEFvB9uYCk7iVFOzc+rq8fFO9l1sQCvI1nifYPCL7g8A+MWDVwwGWp42IZ2zkhDoPS1Lys+RGEgBVeUGx23O50pjt0iCnrj3Xi6vNxtFAiIDXYaPHop/4Biu42nwLZxRRv4c3HdRTrqCcGUTX3txaF1WLcRXr7q0oaiOHKsCq7IAS5qxp+vO4ofEVjaEXIOZncU8Hd1LkRqXFZmKs8wEVksAzVi5k0abRP4GT1AlYMpZChHF7fB6dc54C0LClGKN3HCn/sPwLXmixDYiZ4SinQ2ahTo4fN5dfFi65lSXLzdKHDzGFKc5gpFsLAzV+X7LbeFSv2HbfmHXQCw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795824707; bh=lcMRXOZMXQxMcR9LqBMiXNPzjcvyocncsAVh/MLXS2d=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=PZAor1I630VXAhA5FjPgvaMkJ5H936+sJesEl/tX1j6nO0I19VVFA9aJG4oSPV4r4DVTXCEYnh57dUW5J0Kn27HOr9v27Qzl0cgPjpbeAxtrwHdf7deE6X1s8EnSOGBoMqNORL9BSCKbSLtNFaVMyR4gvRv12F6JFXT/kc1VESdun5c6Zo/VEbC9wzI7gWIQgDuevMgVKkX0HiE4bm88ZgJ2MUT4gDWlEd0E/NWcM2QOU5fTCEM/am41rkCOCTJGig2yRuUgyPMOqVzs2MUUPtT658GKYMQjFz/Rmaes93OJP+eezwb5dpzKNOV2nupvyV18dV6zcWyKwW4tc3z9bA==
-X-YMail-OSG: .PGiI6QVM1n4._ho6S_BqqDvlgy.mxpMFtcPYzlrWdbDpIGIfSQKizEJBUVH1Dw
- 0tOIR.hS8LXisY6hzeDi9MizO1xByw7rHVrn3es33XR8h1Jb6q0FVaPADGpYZmnWNttPDPG1ahEG
- OyqfUsU.WU9bbKP5iKts6vdDEk8eCoTKRcwqjrYLKQ4yS8kr2iM1lIDcBqfploCs2E.tJLqURnwM
- WJP8P8GnInTe8ECeeNDPjtKFZy_sRq2VtAgURwFs2.fSpHJM54Gz.Roz8TOTNUzNxMrc24OxBdcR
- ssSzMySLN4ykGTRaWIrcTWgPgscYL31j9cpZwzoC3GmSOe8MPoO6pHFT9vjnsr06vj7ylxmlrp9v
- vwyVtTDcz_i8oRwEkh_P7YQaSGnyS1neIiX2V_3NpWHqdtUYSlTOzWz6dbNELvtL8aNcc3W_Awe.
- 9Emgbg1B2venv5XPtLOiVBvhPaTqqxj8ZLLYUqMPwgoObtO.BR0IYhPXYY_kDWrmazPy0CXbAjGv
- yBbF4NyuLeTNTDxRT0CQilhU6HTDd6MKzEXcovY6EBRQ.MhEcRIrVq3U9hFWoH9NXF2bLF3Ey6iU
- JOMZSRNnNGdjB8qHqh12RIXp5akcsyycN8YmT4heMX8rCJPqUzH9Sz5ck9TuyVaZX.R63ysC4dlR
- KF5JTBB.BcnGNjolPlAveanmJPeo.EtPv8L8N9hNC4K_iCcsV1DTF9kNAICURrOgSwy9H0kceaVu
- 7.jLVd2vMnmayLlHH89ynpQFiB1Cf5D3M8V4R1fhPd89gyfc9Gvw7AtXucECaODvCF0PaGnw.JzY
- VdnHfy3g5.kvkomW.yvWrdxYRcWP3RJVQAkAs5tZPgR37dhd_YEnKbHLuPpCceRHNxc.FnzN6CSf
- cEaysvug8xvb4hAWtpekwhvv5.54QVtclRPzphpkhTs8wciKtGqo7SDyS7JX8YjI_Z8M4DYkPdFn
- bEt9PqwKclwZ1PRfDx7.eH.wrfwKfHz2QQcr5NBKwgCEq.WeLi3tJ4VEbj3_UQLdOoir7.baik7Y
- QUrtn6ZsfSr0wNlEoUf_TXG8Bpc0C3z8dVy2BWM.GyyWWBuFhUmQimo6AbrZsBUFbduMzA1qjsqX
- 6DFOZfxRSE4G2N9SyPzb2135jbsnKxBb.HT9e1rCrRY2ZReZwqPgkn3nyFEEFPM1tLQdPF52mHvS
- ln.3JYFEsePG43CAoauHo.osaM5JOSC..jtyEemM.wK4bEt_AyCZ9QvCttI6m5vXnFfJO1qNxPf6
- VD8EUlgrS_qSekWCPz9yZXxyv4gazrQ1pg.5K8uvfd7lPJyR8NbNKCwZy.fefvrLzdh3saDuJuYD
- TcSFpVkL2k5t4m0WOTQ8wX9xWbKyrEUdhDbHPfVg0k.wzi4FO8qUwrWLMNRGnTiiLJfIQNzJga1L
- 1zkhE9HmOaUw8CLbKM8TT0FOzP5IEvSNcAUs3Qqu.JTiY8EikeZfCbGKlFXGtaEC81dDiR0TPd0W
- nhgFFv3Vs4KcWSiXT34gnLyWoCD__dJBauoajumXN4X330X205A4npIa1X1TPVNlduwbLc64ho6x
- v6oW_HT_Btq_FVE.DC8ht_ALuFrrNeA8zRbrB7ZpD8_E1ZaTmeAj32GPFTFzuTmZ2VBQDlzjDL2s
- WcrKzXfk.ngyM.klfJWJyCFUMdrt6kEMcWTOt3HK8dtTa3DvTtOpT5hL4N6q625xHzVLPF_YbJ6P
- h3sJb9MXvwaVDicMxIS2hvXgy4WU5sU9y7TiNULMNy64IyHSzQgZyF6cS1pdfXm.bcKNiSIVlZyV
- i1.mo3X3MWzz1aRmJVCJuuR86RLLztKMb9ujgFCdroF_L4jFqARxtL9_r96CoPMGiRE6dp3VHjab
- LUthQnHCax_T8xDmxBtkskFOxONPawzSDy0Il5_titZsti8xqWo7NiOhAeG6GQmco6d4bF1K3.Mg
- 8P728iDO7nJJ6whHQA9s8fOvTmBMZAlnuEeFs6EGcxk0z35x0runu_QV6wztQN9Ic8OZq7o8T7bi
- nFU9VcJhoIGvTZqHeZqJF6AZVsTp2pSiRIDJKLlZq.UQSvFp.hWqDwaTFzOH3Qq.72tUrfFYWl17
- 55ICMshLeYEM9.iZkSA18VnC2jaRV2GZN52kfKR3pR9Qss9NMDQaNpSp5OkXZMKoF0pnnkbPi9iP
- Om6iuwrVWLqFKvZCgzp7m9wge2Tw0g1oelEkCykqhwxIKQjyov0RhPiZjrm32UhlSHaDfpWUsKY3
- ZEpAvZBN4F1_bWoy42MACcSl7DvVVM75xLIIkJgRrJ5tkjoEpfVoM0bw6rEBwC.ZyAMBHkehQLk2
- zugLb3VvcB_0k4ihRqxJeFxYttd5ZU1scral98Kh4og--
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 31a28056-8112-4000-92a6-24ece894b72d
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic305.consmr.mail.ne1.yahoo.com with HTTP; Sat, 28 Nov 2026 00:11:47 +0000
-Received: by hermes--production-ir2-7c4859dc89-qhgqd (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 5995495912d2a81d0473510ef3344d23;
-          Sat, 28 Nov 2026 00:11:41 +0000 (UTC)
-Message-ID: <53029d03-873e-4799-8982-290f4f912750@yahoo.com>
-Date: Sat, 28 Nov 2026 01:11:39 +0100
+	by smtp.kernel.org (Postfix) with ESMTPS id 557E91F000C1;
+	Sat, 28 Nov 2026 00:15:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795824946;
+	bh=EkG+Dr/aMoMzUSj5tk5nyxA5r22ol56pbCQ3Z9eMFeE=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=X5KSnCc3RR5u9MtXkP5u6O66AlVgZNLqKGyvC3Gxpr0NoHSPrA1vQ9Tu5h4N5M2a4
+	 EYF9p9APgQMlLakThl6BihyrKLVHfZwJhMC6oZjsfHZcNr4SDmZKorpvudQuSzPmpR
+	 J8AznDSoGXwuwlkE1wmm3H6380uv8d1YGDo/ogHhBCoUHiy8hxyQPBNajG4uVp36wP
+	 CclKdQDZSTR72+OdYiY22RPWVKUnFrmhPYVj5oE130QFJJKh9WHteSCuoRiGw5AHb7
+	 jupn9/gp+Hp/t6YuckcoT8biTQ6uv2Hg/ugKoDiWTwuLpA+aIkLrSTocmN44YwD+0F
+	 CBWHYQHl18etA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D78BC4DEA9;
+	Sat, 28 Nov 2026 00:15:44 +0000 (UTC)
+From: Felix Huang via B4 Relay <devnull+akafelixab.gmail.com@kernel.org>
+Date: Fri, 27 Nov 2026 19:16:55 -0500
+Subject: [PATCH] staging: fbtft: fb_tinylcd: align arguments with open
+ parenthesis
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,192 +83,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v15 15/15] net: dsa: realtek: rtl8365mb: add support
- for RTL8367S-VB
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-References: <790b9ea4-09d9-4a57-a393-cf10d58ed8cf@yahoo.com>
-Content-Language: pl
-In-Reply-To: <790b9ea4-09d9-4a57-a393-cf10d58ed8cf@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-fbtft-align-v1-1-92de6f92ebe8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyNz3bSkkrQS3cSczPQ8XdNks8TkZEtzY4ukJCWgjoKi1LTMCrBp0bE
+ QfnFpUlZqcgnICKXaWgBeq9lObwAAAA==
+X-Change-ID: 20261127-fbtft-align-5c6acc9738bb
+To: Andy Shevchenko <andy@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org, 
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Felix Huang <akafelixab@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795825022; l=1084;
+ i=akafelixab@gmail.com; s=20261128; h=from:subject:message-id;
+ bh=I+0cYZeTLzqxiZSLHzV9PNt605lEdXdHOIenXaZROZ8=;
+ b=JmL5hJ8fJbaXQJtTCdgX3n0mKDHm2kGaJuFYf4Oa/FIgQJFLQTK1Mgd97AahsOxXSa/QS/nvK
+ lZUCN+x83s7AA+GfI4FqTaz/m1ZQyf/tPe4Bc4ogDfbSW8kAEgh1B2z
+X-Developer-Key: i=akafelixab@gmail.com; a=ed25519;
+ pk=Axl3BM1UWa+m0/AWcEhRIdIk/WY9FnY4wZkyQn64uVY=
+X-Endpoint-Received: by B4 Relay for akafelixab@gmail.com/20261128 with
+ auth_id=1670
+X-Original-From: Felix Huang <akafelixab@gmail.com>
+Reply-To: akafelixab@gmail.com
 Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Add the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip table.
-It is the first chip of family D, whose handling was added in the
-preceding patches, so this is the patch that makes it reachable.
+From: Felix Huang <akafelixab@gmail.com>
 
-The SGMII/HSGMII SerDes of this chip sits on port 6 and the
-MII/TMII/RMII/RGMII interface on port 7, as on family C, but the external
-interface indices are one lower (EXT0 and EXT1 instead of EXT1 and EXT2).
-Unlike family C, rtl8365mb_family_d leaves jam_table unset (NULL), so no
-family C initialization jam sequence is run during switch setup; the
-subsystems touched by family D program their required registers
-explicitly.
+Align multi-line function call arguments with the opening parenthesis
+to adhere to the Linux kernel coding style and fix checkpatch.pl
+alignment checks.
 
-The chip exposes seven ports, numbered 0-4, 6 and 7. This is described
-by port_mask in its chip info, as for the other chips.
-rtl8365mb_family_d selects the family D implementations added in the
-preceding patches: the force-mode configuration, the VLAN 4k accessors,
-the PVID handling, the L2 entry (de)serializers and the QoS priority
-numbering.
-
-The L2 learning limit is the same as on family C (2112 entries), as
-given by the Realtek rtl8367 common API (rtl8367_common V1.4.2), so
-RTL8365MB_LEARN_LIMIT_MAX needs no per-family handling; only its
-comment is updated.
-
-Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port over HSGMII
-(2500base-x) to an IPQ5018) with bridge VLAN filtering and per-port
-PVIDs, and on a TP-Link EX511 v2 (RTL8367S-VB, CPU port over 1G SGMII
-to an IPQ5018). RGMII mode has not been tested. See the cover letter for
-details.
-
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Signed-off-by: Felix Huang <akafelixab@gmail.com>
 ---
- drivers/net/dsa/realtek/Kconfig          |  3 +-
- drivers/net/dsa/realtek/rtl8365mb.h      |  4 --
- drivers/net/dsa/realtek/rtl8365mb_main.c | 55 +++++++++++++++++++++---
- 3 files changed, 51 insertions(+), 11 deletions(-)
+ drivers/staging/fbtft/fb_tinylcd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/dsa/realtek/Kconfig b/drivers/net/dsa/realtek/Kconfig
-index f1530ba..e366632 100644
---- a/drivers/net/dsa/realtek/Kconfig
-+++ b/drivers/net/dsa/realtek/Kconfig
-@@ -35,7 +35,8 @@ config NET_DSA_REALTEK_RTL8365MB
- 	depends on NET_DSA_REALTEK_SMI || NET_DSA_REALTEK_MDIO
- 	select NET_DSA_TAG_RTL8_4
- 	help
--	  Select to enable support for Realtek RTL8365MB-VC and RTL8367S.
-+	  Select to enable support for Realtek RTL8365MB-VC, RTL8367S and
-+	  RTL8367S-VB.
- 
- config NET_DSA_REALTEK_RTL8366RB
- 	tristate "Realtek RTL8366RB switch driver"
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index 4ebc46d..e3d5b07 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -71,10 +71,6 @@ struct rtl8365mb_family_info {
- const struct rtl8365mb_family_info *
- rtl8365mb_get_family_info(struct realtek_priv *priv);
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause);
--
- static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
- {
- 	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index 81c35f4..d84b27b 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -89,6 +89,14 @@
-  * things will work out-of-the-box for other chips, and a careful review of the
-  * vendor driver may be needed to expand support. The RTL8365MB-VC seems to be
-  * one of the simpler chips.
-+ *
-+ * The RTL8367S-VB (chip ID 0x6642) is not part of the family listed above. It
-+ * belongs to a newer generation, which this driver calls family D. Its
-+ * registers differ in the VLAN table, the external interface speed and RGMII
-+ * configuration, the SerDes, the L2 lookup table (FDB/MDB entry layout, no
-+ * EFID, LUT configuration registers) and the table access control register,
-+ * so the code paths specific to it are selected with rtl8365mb_is_d() or
-+ * through struct rtl8365mb_family_info.
-  */
- 
- #include <linux/bitfield.h>
-@@ -119,9 +127,9 @@
- #define RTL8365MB_NUM_PHYREGS		32
- #define RTL8365MB_PHYREGMAX		(RTL8365MB_NUM_PHYREGS - 1)
- #define RTL8365MB_MAX_NUM_PORTS		11
--/* Valid for the whole family except RTL8370B, which has 4160 entries.
-- * RTL8370B is mentioned in vendor code but it might not even belong
-- * to the same RTL8367C family.
-+/* Valid for the whole RTL8367C family (and for family D, RTL8367S-VB)
-+ * except RTL8370B, which has 4160 entries. RTL8370B is mentioned in
-+ * vendor code but it might not even belong to the same RTL8367C family.
-  */
- #define RTL8365MB_LEARN_LIMIT_MAX	2112
- #define RTL8365MB_MAX_NUM_EXTINTS	3
-@@ -824,6 +832,10 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 					    bool link, int speed, int duplex,
- 					    bool tx_pause, bool rx_pause);
- 
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause);
-+
- static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.family = RTL8365MB_FAMILY_C,
- 	.jam_table = rtl8365mb_c_init_jam,
-@@ -845,6 +857,24 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.qos_set_untag_pcp = rtl8365mb_c_qos_set_untag_pcp,
- };
- 
-+static const struct rtl8365mb_family_info rtl8365mb_family_d = {
-+	.family = RTL8365MB_FAMILY_D,
-+	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
-+	.vlan_port_get_pvid = rtl8365mb_d_vlan_port_get_pvid,
-+	.vlan_port_reset_pvid = rtl8365mb_d_vlan_port_reset_pvid,
-+	.vlan_pvid_port_set = rtl8365mb_d_vlan_pvid_port_set,
-+	.vlan_pvid_port_clear = rtl8365mb_d_vlan_pvid_port_clear,
-+	.l2_entry_size = RTL8365MB_D_L2_ENTRY_SIZE,
-+	.l2_data_to_uc = rtl8365mb_d_l2_data_to_uc,
-+	.l2_uc_to_data = rtl8365mb_d_l2_uc_to_data,
-+	.l2_data_to_mc = rtl8365mb_d_l2_data_to_mc,
-+	.l2_mc_to_data = rtl8365mb_d_l2_mc_to_data,
-+	.qos_iprio_to_hw = rtl8365mb_d_qos_iprio_to_hw,
-+	.qos_hw_to_iprio = rtl8365mb_d_qos_hw_to_iprio,
-+};
-+
- /**
-  * struct rtl8365mb_chip_info - static chip-specific info
-  * @name: human-readable chip name
-@@ -935,6 +965,19 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
- 		},
- 		.num_tx_queues = 8,
- 	},
-+	{
-+		.name = "RTL8367S-VB",
-+		.chip_id = 0x6642,
-+		.chip_ver = 0x0010,
-+		.family_info = &rtl8365mb_family_d,
-+		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
-+		.extints = {
-+			{ 6, 0, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
-+			{ 7, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
-+				PHY_INTF(RMII) | PHY_INTF(RGMII) },
-+		},
-+		.num_tx_queues = 8,
-+	},
- };
- 
- enum rtl8365mb_stp_state {
-@@ -2018,9 +2061,9 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 	return 0;
- }
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause)
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause)
- {
- 	u32 r_tx_pause;
- 	u32 r_rx_pause;
--- 
-2.53.0
+diff --git a/drivers/staging/fbtft/fb_tinylcd.c b/drivers/staging/fbtft/fb_tinylcd.c
+index afa8f1c74..d58b12472 100644
+--- a/drivers/staging/fbtft/fb_tinylcd.c
++++ b/drivers/staging/fbtft/fb_tinylcd.c
+@@ -38,7 +38,7 @@ static int init_display(struct fbtft_par *par)
+ 	write_reg(par, 0xE5, 0x00);
+ 	write_reg(par, 0xF0, 0x36, 0xA5, 0x53);
+ 	write_reg(par, 0xE0, 0x00, 0x35, 0x33, 0x00, 0x00, 0x00,
+-		       0x00, 0x35, 0x33, 0x00, 0x00, 0x00);
++		  0x00, 0x35, 0x33, 0x00, 0x00, 0x00);
+ 	write_reg(par, MIPI_DCS_SET_PIXEL_FORMAT, 0x55);
+ 	write_reg(par, MIPI_DCS_EXIT_SLEEP_MODE);
+ 	fsleep(250);
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261127-fbtft-align-5c6acc9738bb
+
+Best regards,
+--  
+Felix Huang <akafelixab@gmail.com>
+
 
