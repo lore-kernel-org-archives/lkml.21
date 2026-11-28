@@ -1,59 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795874704;
-	b=ZcrkoCHF6BG5o02GcUEeTHsv5nhXR3PIMwPhtx3fFJthE8oOxjgNYZ3gv1dn8gakre9C
-	 mUsy7uNyKl2akD+Q/DvaecfeLsRKTpNZFMnhnFnZbT9DRZTIkhVAX4PZDps/l5xmFwJmB
-	 Bok8BLScMJQAcMOiq2TATbkSPFqsprXN0+qJxTwpVom+zf1V/XyyUjUagjebVXTsxIBx4
-	 7dU/obzxRuKUwYpNGPCV7KCK6K3joS/PEsZNHkvjuZjvyDXC8gLI+H1NCzQHUoXvgvCFF
-	 lBazFGmSLYSzkoQ1y/CWFCMbE2tZm+T6ir7Ly2UwE4/XL8E5mQsIQQnemFukxeXMjlA==
+	t=1795874791;
+	b=fBYIH4v9DwAcLr6yUZDSWSE3z9h5u/QqOabdMs8AhXvFeH6ZgB3WsLo9YGg7NutC7QGu
+	 SXVrJ/dQkyL+OjAbuw0UiROCuz4YUR8WXUvyJ/NQHA4J1H2jQr5SxXJQV/AVkuKmAlCz5
+	 fjqcNw/lkmzgQHw71O0WKnHdQ2RYXxTNDYCMM+gra4wMezLS0qwF1MrFM3zKrbGregtGe
+	 DcqRUrZs87Gbr58STlFbriBAB1hO738pguS6ciHYLjqT14ngM4m+PJQ+vi9b7tmQZj+VV
+	 FMNcviGIi9UFIHypZuKnzlfdVIYkTMgZEHHhtnEczy9TC3IBUUQA3YGlIURSrvCq3Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795874704;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=1kL/kVi9FLivbu0QpgaVJbeg+aQLHjcC22M38emRNmY=;
-	b=LdSOzXCeqdjqLBFaqEZK00ZdhyUnLvYLo7v3jFOdDoc9RHCUWMp7zi5ChE8ww9SHbfGB
-	 Iv4f273rnaw6HijWTqg3R0VJvBIZ4gZND01WMPqtjyUQq0o+REXY1g57nFvW3AiXesF81
-	 kKsy5UWWbJ4c0Rwq1oAb5vIXDzZpWWnLq4Z8Cu56HFd7uK76wkM4cenQTeKkCv5qKIe7Z
-	 XbF1o/RDNSwruoc2ItfYvsu9GwjNCQri9SL5JztfwQNxfF5jZfegjAciZDXh7g3E3ZYqB
-	 nO2QLZ2DX+/UwdhYwUPcBtGzViGiuPVqfEy4xwm1ZlUIHvoPaZ8VZggmaU57CD7WtDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795874791;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Hu4rTYZRq8CRBWytQe/3nd1VmbMLjbiC2A6r+ZmdVf8=;
+	b=ubcy+G0tkagl+tmh4d7cT872wVt/paavclCnBDBBDhRocaMRuzS+p4MhbROxPZwAPns2
+	 DAWqlVCUq3diIiTzzrnJNG9NBr7qAw2fYsf7NhQaaRvJ/e+m43V54gkJTSW75WLcpFA+t
+	 B3ucNdD8kZcHdraEj2ysjsfAKPr8JHJ1IYAZoMvSMfW8Ik9W/NQtTt8easJYgCbYonJ+w
+	 mrHGhsEcKcE4oP5QdAmcxKNpPzfRA+ZHVK2J7RHMY4ZPUIX2g2OyKuisz385Xj1iTlf8n
+	 5qCM+9WeywOzN4j0gz9lKjayCtVbFbb65BbrfnHj2EOhnet7zbsmOXbDP50KwP/DiOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=LpxtQDSP;
-	arc=none smtp.remote-ip=220.197.31.7
-Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qmp30UDl;
+	arc=none smtp.remote-ip=209.85.160.182
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF76F606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:05:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF76F606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A180A606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:06:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A180A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=LpxtQDSP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
-	Content-Type; bh=1kL/kVi9FLivbu0QpgaVJbeg+aQLHjcC22M38emRNmY=;
-	b=LpxtQDSPTn/iCfbZWJIeopptHMn18L1Y8fTbdflM55W+GqMlTxBM7WoNSbZ/mL
-	y6sFd0RGUCqkXTKpkBEwpITWWs+Mb9T+Py1kSKVjKYiLteQi1VSaRc9uKrPw6E8O
-	Butf8CAdiF+h/SjsmhPnrh36IMn8dNakfZ1ebd2f1xnWQ=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3nwti3wprLZnAEA--.10725S2;
-	Sat, 28 Nov 2026 22:04:19 +0800 (CST)
-From: Bilal Hashim <AeeSec@126.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Oded Gabbay <ogabbay@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qmp30UDl
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-55c5b6584ceso65688971cf.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:06:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795874790; x=1796479590; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Hu4rTYZRq8CRBWytQe/3nd1VmbMLjbiC2A6r+ZmdVf8=;
+        b=qmp30UDlRJrw8D65dtGD3Y4sLmXyuySPR2zFk4D4VglYBX1w3L9bsDC4lvVVgTKTDn
+         0y2BW2EZ5jAwVsCIMh25KHvQWY15I6Ogp2PZepWQXDyyj8CPKDnovWRP1q1Xt3LOAkZR
+         hAQ91GmjHVOkYlwar1+pq80tMUlQGAkIjY/maUd3pvOVNNCBjgB3fosVtA6IdxYTkIRK
+         MlChkve4wIRqupfcCXDepISVUYgMXU3qrCInPK+WjqNamVprJN0yOfYJ6la2bMx/dWo1
+         fjlwvIxVfeuwLZIHlfqEdEpDwfi8j6Wukyc75ui5zEhEZy47UnXbgz/g7mYPDfYRp58r
+         V9gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795874790; x=1796479590;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Hu4rTYZRq8CRBWytQe/3nd1VmbMLjbiC2A6r+ZmdVf8=;
+        b=F+QIM6IOWdfVp36LfvC5XAjLRJUMrvj2xaJgkgu8DJDrXPwSwQ0p8gJ30WxWysWnDF
+         XyHbQICPHYd0xN4xf+kntrc3WYtWeomUlOVu68jZBWwpKXPAIz8PEjLOWiaSHOk4eqsJ
+         hyGV1uZsfZ88QZB8KLsuvH0fkQlKrnyOmSErJ/H1x+LCwZyNGbGGGwt4WQhX+OtBg8Sh
+         xecvhNquaNVHg8xtzt8twHpE19Bi34nLkYE/7wi4GWiI0CZJSvx+RJpIen2mJl4ziJoz
+         Wc5cuKiCNo3iIz7kOE11Q9/yK/suJj7pEwMq77VVjJ/booV6CEPByUTjjiZuyBNVmwVT
+         EhWA==
+X-Forwarded-Encrypted: i=1; AL+hErFMW2KAdKFniIaLDbMYQrEewyZ16fTGX4ijmbMDDKw6ykxJaS1WcRrLD9FFyl5n4dR3hKb0l4YsktH+g+A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zidOdZffQfQ6RI9tTz+sMiwgw+S3g8/T8QQQpQZ1ueGs71htk
+	rD+rIP8RIQ5PJ4xWImrKnw/6qtbBVyS2ozNV5r9edrRoXKufRQQhmifN
+X-Gm-Gg: AZFdTZeRIrBzjMRFZ0WgqP2m0WBBiPrbaCg8Z1QR2U0Cqy6j2zor5z3VlJuVJ8RE2iv
+	OapViwr34wRNsWylhJsXohhOt76cyD46XEHLbuLsu9iYDp5in5cH+G8ToBmgG0M4JDN4DEXGGp3
+	Rv6XU0ISwmuZchY+aqh1PLvpgsBYYHGUbsvT7OhO+DV/8cYU8gSFLmeoQB36WlNehncqoSjcjik
+	esfeKn5r0KQhkSpNpgL6tKE3OB91/VlP7Zm/Lyv9X1L43O/+3WgIWIYxY120ZasONA9zFk/PJWj
+	aMRXpt3kIAAGKf+kuniEg2ZT7PPnQH7hkYh4ds5WaVBVXpQK8I/qj814354NRdAqdcmnXdipS5u
+	DYzo33gh4fbp5gdFu9ziGhoEiMCwjzRsXjJ9+KH1+yA9XjP1ZurQHSjXlKTLCNWl8uNJwp+eLNC
+	ckXOg3nFfVkgZGNjmYzn6QHQFdYO2i+yiezCaUHKRgzzhAHQ/XPa5y6c/R6beYwhUDcEPmU5JHe
+	8pKJhb4S7GPSpkxwkgotfJ501+KdWwnVTKS8Oa5MNvDY4geeL33gisr7OmsjF1LuKiIPgJA+FQV
+	GuVfyAXoOlHUO3hLB0ZyBuSbwePGhiWqmsjvSvBkCvC/X/bW02r7DWrHwfk+s8lJs7qW1++2fXz
+	2Ry01
+X-Received: by 2002:a05:620a:4056:b0:949:7893:397d with SMTP id af79cd13be357-949ba9b8ccdmr5414402485a.23.1795874788655;
+        Sat, 28 Nov 2026 06:06:28 -0800 (PST)
+Received: from localhost ([138.197.109.108])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-94a017cfb46sm1038426385a.28.2026.11.28.06.06.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 06:06:28 -0800 (PST)
+From: Nikolai Dokutovich <ndokutovich@gmail.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	Bilal Hashim <AeeSec@126.com>
-Subject: [PATCH] accel/rocket: fix UAF of rocket_file_priv in rocket_gem_bo_free()
-Date: Sat, 28 Nov 2026 22:03:53 +0800
-Message-ID: <20261128140353.90-1-AeeSec@126.com>
-X-Mailer: git-send-email 2.47.0.windows.2
+	stable@vger.kernel.org,
+	Nikolai Dokutovich <ndokutovich@gmail.com>
+Subject: [PATCH 1/2] nstree: reject a non-zero spare2 in the listns() request
+Date: Sat, 28 Nov 2026 17:06:22 +0300
+Message-ID: <20261128140623.19-2-ndokutovich@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261128140623.19-1-ndokutovich@gmail.com>
+References: <20261128140623.19-1-ndokutovich@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,207 +103,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3nwti3wprLZnAEA--.10725S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3WFykCryxZrWxuF1DKFW3ZFb_yoWxZF1fpF
-	45CryagrWjgw4jgrsrAw4DZrWFkw12ga4jga43tr15GrZ7tr90g3W0qFyj9ry5AFy7JFs0
-	kF1jqry5Zr42yFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_3kuUUUUUU=
-X-CM-SenderInfo: 5dhh2vbf6rjloofrz/xtbBngNtCGsK32M88AAA3p
 
-Each `struct rocket_gem_object` stores a raw, unrefcounted pointer to
-`struct rocket_file_priv` (`bo->driver_priv`) so that
-`rocket_gem_bo_free()` can lock `rocket_priv->mm_lock` and remove
-`bo->mm` from `rocket_priv->mm`.
+struct ns_id_req documents @spare2 as reserved, and copy_ns_id_req()
+already rejects a non-zero @spare.  Reject a non-zero @spare2 the same
+way so that both reserved fields are validated consistently and the
+field can be given a meaning later without having to keep accepting
+callers that filled it with arbitrary bits.
 
-However, a GEM buffer object can outlive `rocket_postclose()` — for
-example, when userspace `mmap()`s the BO (via `drm_gem_shmem_object_mmap`,
-which holds a `drm_gem_object` reference on the VMA), closes the accel
-file descriptor, and later `munmap()`s the mapping; or when a queued job
-holds a reference to the BO across `close()`.
+This makes kernels that already have listns() reject a value they used
+to accept; no valid caller has a reason to set the field.
 
-In `rocket_postclose()`, `rocket_priv->mm_lock` is destroyed,
-`rocket_priv->mm` is torn down while nodes are still allocated, and
-`rocket_priv` is freed with `kfree()`. When the last reference to the BO
-is subsequently dropped, `rocket_gem_bo_free()` dereferences the freed
-`rocket_priv` to call `mutex_lock(&rocket_priv->mm_lock)` and
-`drm_mm_remove_node(&bo->mm)`, causing a deterministic slab
-use-after-free.
-
-Move `mm` and `mm_lock` from `struct rocket_file_priv` into the
-already-refcounted `struct rocket_iommu_domain` (which is held by every
-`rocket_gem_object` until `rocket_gem_bo_free()` finishes unmapping and
-removing the node), drop `bo->driver_priv`, and release `rkt_obj->domain`
-on the `rocket_ioctl_create_bo()` error path.
-
-Signed-off-by: Bilal Hashim <AeeSec@126.com>
+Fixes: 76b6f5dfb3fd ("nstree: add listns()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Nikolai Dokutovich <ndokutovich@gmail.com>
 ---
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -30,6 +30,8 @@ rocket_iommu_domain_destroy(struct kref *kref)
- {
- 	struct rocket_iommu_domain *domain = container_of(kref, struct rocket_iommu_domain, kref);
- 
-+	mutex_destroy(&domain->mm_lock);
-+	drm_mm_takedown(&domain->mm);
- 	iommu_domain_free(domain->domain);
- 	domain->domain = NULL;
- 	kfree(domain);
-@@ -39,6 +41,7 @@ static struct rocket_iommu_domain*
- rocket_iommu_domain_create(struct device *dev)
- {
- 	struct rocket_iommu_domain *domain = kmalloc_obj(*domain);
-+	u64 start, end;
- 	void *err;
- 
- 	if (!domain)
-@@ -52,6 +55,11 @@ rocket_iommu_domain_create(struct device *dev)
- 	}
- 	kref_init(&domain->kref);
- 
-+	start = domain->domain->geometry.aperture_start;
-+	end = domain->domain->geometry.aperture_end;
-+	drm_mm_init(&domain->mm, start, end - start + 1);
-+	mutex_init(&domain->mm_lock);
-+
- 	return domain;
- }
- 
-@@ -73,7 +81,6 @@ rocket_open(struct drm_device *dev, struct drm_file *file)
- {
- 	struct rocket_device *rdev = to_rocket_device(dev);
- 	struct rocket_file_priv *rocket_priv;
--	u64 start, end;
- 	int ret;
- 
- 	if (!try_module_get(THIS_MODULE))
-@@ -94,20 +101,13 @@ rocket_open(struct drm_device *dev, struct drm_file *file)
- 
- 	file->driver_priv = rocket_priv;
- 
--	start = rocket_priv->domain->domain->geometry.aperture_start;
--	end = rocket_priv->domain->domain->geometry.aperture_end;
--	drm_mm_init(&rocket_priv->mm, start, end - start + 1);
--	mutex_init(&rocket_priv->mm_lock);
--
- 	ret = rocket_job_open(rocket_priv);
+ kernel/nstree.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/nstree.c b/kernel/nstree.c
+index 44e07d0fa8e5..ba5743dd4f17 100644
+--- a/kernel/nstree.c
++++ b/kernel/nstree.c
+@@ -437,7 +437,7 @@ static int copy_ns_id_req(const struct ns_id_req __user *req,
+ 	ret = copy_struct_from_user(kreq, sizeof(*kreq), req, usize);
  	if (ret)
--		goto err_mm_takedown;
-+		goto err_put_domain;
- 
- 	return 0;
- 
--err_mm_takedown:
--	mutex_destroy(&rocket_priv->mm_lock);
--	drm_mm_takedown(&rocket_priv->mm);
-+err_put_domain:
- 	rocket_iommu_domain_put(rocket_priv->domain);
- err_free:
- 	kfree(rocket_priv);
-@@ -122,8 +122,6 @@ rocket_postclose(struct drm_device *dev, struct drm_file *file)
- 	struct rocket_file_priv *rocket_priv = file->driver_priv;
- 
- 	rocket_job_close(rocket_priv);
--	mutex_destroy(&rocket_priv->mm_lock);
--	drm_mm_takedown(&rocket_priv->mm);
- 	rocket_iommu_domain_put(rocket_priv->domain);
- 	kfree(rocket_priv);
- 	module_put(THIS_MODULE);
---- a/drivers/accel/rocket/rocket_drv.h
-+++ b/drivers/accel/rocket/rocket_drv.h
-@@ -13,15 +13,16 @@ extern const struct dev_pm_ops rocket_pm_ops;
- 
- struct rocket_iommu_domain {
- 	struct iommu_domain *domain;
-+	struct drm_mm mm;
-+	/* Protects mm */
-+	struct mutex mm_lock;
- 	struct kref kref;
- };
- 
- struct rocket_file_priv {
- 	struct rocket_device *rdev;
- 
- 	struct rocket_iommu_domain *domain;
--	struct drm_mm mm;
--	struct mutex mm_lock;
- 
- 	struct drm_sched_entity sched_entity;
- };
---- a/drivers/accel/rocket/rocket_gem.c
-+++ b/drivers/accel/rocket/rocket_gem.c
-@@ -14,7 +14,7 @@
- static void rocket_gem_bo_free(struct drm_gem_object *obj)
- {
- 	struct rocket_gem_object *bo = to_rocket_bo(obj);
--	struct rocket_file_priv *rocket_priv = bo->driver_priv;
-+	struct rocket_iommu_domain *domain = bo->domain;
- 	size_t unmapped;
- 
- 	drm_WARN_ON(obj->dev, refcount_read(&bo->base.pages_use_count) > 1);
-@@ -22,11 +22,11 @@ static void rocket_gem_bo_free(struct drm_gem_object *obj)
- 	unmapped = iommu_unmap(bo->domain->domain, bo->mm.start, bo->size);
- 	drm_WARN_ON(obj->dev, unmapped != bo->size);
- 
--	mutex_lock(&rocket_priv->mm_lock);
-+	mutex_lock(&domain->mm_lock);
- 	drm_mm_remove_node(&bo->mm);
--	mutex_unlock(&rocket_priv->mm_lock);
-+	mutex_unlock(&domain->mm_lock);
- 
--	rocket_iommu_domain_put(bo->domain);
-+	rocket_iommu_domain_put(domain);
- 	bo->domain = NULL;
- 
- 	drm_gem_shmem_free(&bo->base);
-@@ -74,7 +74,6 @@ int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *
- 	gem_obj = &shmem_obj->base;
- 	rkt_obj = to_rocket_bo(gem_obj);
- 
--	rkt_obj->driver_priv = rocket_priv;
- 	rkt_obj->domain = rocket_iommu_domain_get(rocket_priv);
- 	rkt_obj->size = args->size;
- 	rkt_obj->offset = 0;
-@@ -85,11 +84,11 @@ int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *
- 		goto err;
- 	}
- 
--	mutex_lock(&rocket_priv->mm_lock);
--	ret = drm_mm_insert_node_generic(&rocket_priv->mm, &rkt_obj->mm,
-+	mutex_lock(&rkt_obj->domain->mm_lock);
-+	ret = drm_mm_insert_node_generic(&rkt_obj->domain->mm, &rkt_obj->mm,
- 					 rkt_obj->size, PAGE_SIZE,
- 					 0, 0);
--	mutex_unlock(&rocket_priv->mm_lock);
-+	mutex_unlock(&rkt_obj->domain->mm_lock);
- 	if (ret)
- 		goto err;
- 
-@@ -122,11 +121,12 @@ int rocket_ioctl_create_bo(struct drm_device *dev, void *data, struct drm_file *
- 		    rkt_obj->mm.start, rkt_obj->size);
- 
- err_remove_node:
--	mutex_lock(&rocket_priv->mm_lock);
-+	mutex_lock(&rkt_obj->domain->mm_lock);
- 	drm_mm_remove_node(&rkt_obj->mm);
--	mutex_unlock(&rocket_priv->mm_lock);
-+	mutex_unlock(&rkt_obj->domain->mm_lock);
- 
- err:
-+	rocket_iommu_domain_put(rkt_obj->domain);
- 	drm_gem_shmem_object_free(gem_obj);
- 
- 	return ret;
---- a/drivers/accel/rocket/rocket_gem.h
-+++ b/drivers/accel/rocket/rocket_gem.h
-@@ -9,8 +9,6 @@
- struct rocket_gem_object {
- 	struct drm_gem_shmem_object base;
- 
--	struct rocket_file_priv *driver_priv;
--
- 	struct rocket_iommu_domain *domain;
- 	struct drm_mm_node mm;
- 	size_t size;
+ 		return ret;
+-	if (kreq->spare != 0)
++	if (kreq->spare != 0 || kreq->spare2 != 0)
+ 		return -EINVAL;
+ 	if (kreq->ns_type & ~NS_ALL)
+ 		return -EOPNOTSUPP;
+-- 
+2.43.0
 
