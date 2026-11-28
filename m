@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.42
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.12
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795870919;
-	b=rcsJr6tTp3uGIMhtqmCPDa90E8HlMJvkWzv1iSEcEcEOaKjbXT0rksoydL+REFZmJU3g
-	 yx9DDXJT5gLcP1VU90aVhkJ29+i3NCz/QbHHASuEBqaC3391m9EvjFWGD6C/11tRDBjD9
-	 mmDiifFmgfhxsQ+A7Jgqwcs7OjcB7foRflVRvVa7m+lytoH/HgknvD3k7wHJiagY3QlsD
-	 xDEsWbRf/lGhYpGWdEWmI+ptnPO1D30rNY3K3BY5K2Ws4wJvnaQCNt85WrOilk8EbmepY
-	 uQrWTawbhFpGO0gZYBdzk3eMHudutDTRQ16rf5PNXG4cGvVgXmsMWZgk5L2BWMZJovA==
+	t=1795870927;
+	b=L/fJsxQepa+17h5vypJXSd80T7xAL7PbYGyZSZYgFrS0f81ShXEX/eipJNZSGAOdeXSx
+	 ZZvNmIlLx90AO4r68cSm1sACZ8TDfPcqPBLKp7YQzpfwFNWhI/lGPVXsHqbxLMyTfEFt7
+	 9jmYp6zMdRLDdd/OH4o5PqXGBhjRrePagJqyDphtRtgHC+PAPtCgnYxohAqJHO41D1d8+
+	 tyOu6LLX7o5WjtGNX2Z8sETL+fqjygs3vGx+GIXLuqPTVHiotutSWnk1imi1YNfyhjZwM
+	 g2LnD5J7NWzo+kG1vgpBCdC6nHqDvVwZrRl2cwECLW7J6QgJ5Vlk4hRCgUmdDhlxEsA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795870919;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795870927;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:Date:Subject:MIME-Version:Content-Type:
@@ -27,35 +27,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OVo5fhiPLXV5Sx5QjoPohcoGYRHMSrccxhsGGAArAdM=;
-	b=Gpu2OjspUWaGlZeyrkHwvpOBIaPzDf1tjJ4Ol5Sqqdb5mP4UIHOmYTqfr239kJMpGJeQ
-	 uq5+1FJdte3A+YupdxJvdUcXdVo+hLM7DjHwh65dL8mcAXA4Ogr0XXZvt40AbRkxKlZcs
-	 4gpvR28mAHH+zcPbIrMEHWQfgxHE+Df1RKid3wgQAOu1bAThILc3k+/X7NnuH+eUwWHJ7
-	 AvxNdWMsluFM6LZSmTmRoeqQz23BV9jj5tJYxhHFzAYgBXW7Rr22OBjH1rF/H4i6UxfBR
-	 nM9JE9PG9y+9gCQEmFBEZcsJaIn+CznNdBFJYxawuiGQCEsfM2Aq4eVF22nCL4KRBPw==
+	bh=kiekMkZhfF0m+/MddKf+/JZxKUDzijTmVgYHYBZ3fWQ=;
+	b=w5hjIJ8PxhicbWJu3higbCHsyJaR+52DPkFR7O/eekVQVaJy7oya9PF0GxSKLOdah1WC
+	 AhYHwsKZiT20QxejvHErXQPpDV5asOgYlqMTriRjbRX75Otw19lmD3uh4tAM+IxCg0EfG
+	 8pzP9ER2qbdugGY5nG4xNET6aMVQOVyLUmK4QBHVvNpeTFH8R4wfohuZl7yDmN0WjdfaA
+	 Ga3ruvzNptHRGVMY4r+s5uBJ/wlyslK5DIciXrDVf9wIbpS/JtbLb/VyJBLAYmH1xQqQS
+	 Cda5P+4RueIzQB8PwynmRe0VDRkg0P1nUZ+nFJzGMRKvIIJz9LHZEC1JqAy5w7OsNVA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tYvP+zxU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.42
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012042.outbound.protection.outlook.com [40.93.195.42])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KcPIlA0T;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.12
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010012.outbound.protection.outlook.com [52.101.56.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E95A1606A336;
-	Sat, 28 Nov 2026 13:01:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E95A1606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E76D9606A32D;
+	Sat, 28 Nov 2026 13:02:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E76D9606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tYvP+zxU
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KcPIlA0T
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XEoraY0ZiGIwXDfppSG21uTAoEZ5q1l6nwajw229cY6Y8HIbM5UVkkaql3naamwE3Qih4XoDSe9UnJHiAP4NsFTx0R+0gJxm/8Z5d9IeiMbqqZWLxcoHnRCeoCGXnwxFmMNYa6DLofJsjFB/g8aGMrh0vu5Gi9vhhIIDTMYGrv0N+YwB+nwL8fIkZyr1yzUriebgQJEd1OOtm3NHd5UNEDd9Sue2uMCq0dLrUfHM1S2DNJCSs8Ibn9RKSegCrTY8I6ZqbgQmq3IxnHfd64Hou/MIcop1+1UUv5Y+ld5Vr4nQQR1AiJDhst2Ce2fbIuwiMcjg9HYPK6OwJ9XISbKsUw==
+ b=e4X5d7DTQdxR4CojTzNTjI0geQLtN9ekszEh2za6afgeq3ZcJF+160JS44wTwGNOxEM+KwvwhicKWs+aCjkT9+3ckgZk9GunKl8ROzEfIZ+PN3RS5qLylHwPCn6M/1RKNtwRoQebsInRP89dDQkvtT7nRQIQDR8Nb+GiKpEknb5ubIgeJgLY6cRXU80WL2h7eXJnomw8Ic/C34y83v7AOLjNZTQRc4iyHcuHrQsO0/Ng7nRy49wqVmhmR340y/suNvrQW1qUC0uY1CYwBVOLPgoUUB03pSwL3JiA2Ib7nngAiaGqh93LQXE+C1oAZmwNQl0w7GwuMvpPmpoeSaJgTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OVo5fhiPLXV5Sx5QjoPohcoGYRHMSrccxhsGGAArAdM=;
- b=ggtLNcf/hgWmJWQeuGTnRMaMmazkzU0dn2bSR7llwLlVKQFourdIPhFepHkUilq/ttvYXbtzEyDlATBllnWD0/QU+N2tWqEfRRZSpiRBrKLMEcsrf3TF/0cZzDylJyunYYWW8z8rUYBcsOoTjvVBwv+XA8B23r5d3yiemqig0we5hkPTlgmIbtoORBHmHNA7KK7dKpdctHwhylDt7yqmh+m64hu3Y0oFxWYeq97NHBs2o/a6bxmfyONjMGPfWBErgX2Xs4mtDrhHRPq/ebeNgBtab7Y2cLbwKqWl0+j5uTXfCS29a2XO/SIX/xKz+bzEyjtFBQLhj9MhFoBh7rtoVg==
+ bh=kiekMkZhfF0m+/MddKf+/JZxKUDzijTmVgYHYBZ3fWQ=;
+ b=XigxzDg+PiPRAPy7yxGXAVH2SWUdjWahysprXRLaWD8BmfnVkOVabQBxCS7I9bCeT9Tx4/UA6lcqnfcoafliOsQOrlB2DHYzfdiJktjPsrmoXlnU5x5//6qUmCCOOzEoFeGgojIXzl/GQ9rexP6SSsXfklU1E37I2s6rVBTJIl4aQQPvtk2ySD8pXpvA1IvztaEe+Jt57v6UFDWBk5RWuqUVI3XGA+ggemhXa8LyuIv3srzBhImQdJqwaD/tC5KQzn83PQjL46/fhx4A5itUnQb4S6bm8/9JSOwNAd2ENlkRuocibmF0EBVzy6n4TWlEBFZ78YX0QsA4hfV6vIIVBg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -63,18 +63,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OVo5fhiPLXV5Sx5QjoPohcoGYRHMSrccxhsGGAArAdM=;
- b=tYvP+zxUIQxAbLajnCSrkZ3nT0WnOTdIJsyYNVFiyp81qctTomcKHxFoXEnjhhOKNt05nUMiN61NZJFasTjLaBFlR59T/f4N/Ke754Omx8dqcyHI5ff4jZR/8gqHFgfuPwUF4WEhni9boUpMn7ipDmIFuoszuTent+mdaSYBt1ZtkG6Did/T9+nQfwIDpn9omSF8RGWF7AZGpxjEPvYZuFi9IoxLNVfx5eyyLSWxOXiJv1jDSzs8n1w8UPjyYkVH9skbwuVjVokbb3/bXk2VJOIx9heu26VfzR+ZXaAg3aZMjw+Wk5iIctjM83DHZlHgiIPX7Ek7JigTJfG7j07i4A==
-Received: from BN0PR04CA0078.namprd04.prod.outlook.com (2603:10b6:408:ea::23)
- by CY8PR12MB8241.namprd12.prod.outlook.com (2603:10b6:930:76::10) with
+ bh=kiekMkZhfF0m+/MddKf+/JZxKUDzijTmVgYHYBZ3fWQ=;
+ b=KcPIlA0TyKIZSkEOHVkrSPvzoxBYgB1eEPV+Foo4wCLTYGdSHp2DcDMQl20pRHoRPpcXXXyRRccnv52UP3KRUizZHyt+0DHPbnOw89gGcqJx9abovLEb9DRyH7WRgZ7CHDR18RPasBztN9JPqQHjHy/TCN5ZO52lBkOuHkhXRFkjjVOAdPpQ0H35AjWtDheyTQiiQGf1tOXic8krnMBZmHFxZ0rPLBEVT4jg8+6pir3kJBjYR2TwLENK2UsawyHeI/53UD+S/j+KdXdTGKatugT8aO1N5+A8W5Ib3WjHTXf6qsYdavBSCUAj5zKGq6/VIQETIBWoGnJfvaWfJhHPMw==
+Received: from BN0PR04CA0075.namprd04.prod.outlook.com (2603:10b6:408:ea::20)
+ by DS7PR12MB9503.namprd12.prod.outlook.com (2603:10b6:8:251::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.11; Sat, 28 Nov
- 2026 13:01:52 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Sat, 28 Nov
+ 2026 13:01:57 +0000
 Received: from BN5PEPF0004698D.namprd02.prod.outlook.com
- (2603:10b6:408:ea:cafe::22) by BN0PR04CA0078.outlook.office365.com
- (2603:10b6:408:ea::23) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:408:ea:cafe::85) by BN0PR04CA0075.outlook.office365.com
+ (2603:10b6:408:ea::20) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.11 via Frontend Transport; Sat,
- 28 Nov 2026 13:01:52 +0000
+ 28 Nov 2026 13:01:57 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -84,22 +84,22 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
 Received: from mail.nvidia.com (216.228.118.232) by
  BN5PEPF0004698D.mail.protection.outlook.com (10.167.245.42) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Sat, 28 Nov 2026 13:01:52 +0000
+ 15.21.688.5 via Frontend Transport; Sat, 28 Nov 2026 13:01:56 +0000
 Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Sat, 28 Nov
- 2026 05:01:43 -0800
+ 2026 05:01:48 -0800
 Received: from drhqmail203.nvidia.com (10.126.190.182) by
  drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Sat, 28 Nov 2026 05:01:42 -0800
+ 15.2.2562.57; Sat, 28 Nov 2026 05:01:47 -0800
 Received: from [192.168.122.1] (10.127.8.10) by mail.nvidia.com
  (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Sat, 28 Nov 2026 05:01:41 -0800
+ Transport; Sat, 28 Nov 2026 05:01:45 -0800
 From: Edward Srouji <edwards@nvidia.com>
-Date: Sat, 28 Nov 2026 15:01:22 +0200
-Subject: [PATCH rdma-next v2 09/11] RDMA/mlx5: Cache the CQ core device and
- resolve it via cq_to_mdev()
+Date: Sat, 28 Nov 2026 15:01:24 +0200
+Subject: [PATCH rdma-next v2 11/11] RDMA/mlx5: Resolve UAR and mmap core
+ devices via the ucontext
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,7 +111,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261128-mlx5-sd-prep-v2-9-751878123711@nvidia.com>
+Message-ID: <20261128-mlx5-sd-prep-v2-11-751878123711@nvidia.com>
 References: <20261128-mlx5-sd-prep-v2-0-751878123711@nvidia.com>
 In-Reply-To: <20261128-mlx5-sd-prep-v2-0-751878123711@nvidia.com>
 To: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
@@ -119,49 +119,46 @@ CC: <linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Edward
  Srouji" <edwards@nvidia.com>, Akiva Goldberger <agoldberger@nvidia.com>,
 	Michael Gur <michaelgur@nvidia.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795870878; l=15709;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795870878; l=19971;
  i=edwards@nvidia.com; s=20251029; h=from:subject:message-id;
- bh=BGEZSk7Ue3KDmou2oAmIoyZ1rt7R152iPXjbekuYMuA=;
- b=EUX1/9q4BPKKbOKoRR0zO4q0l/qDFgpS9ySu+UrS5jFPh+xImIAowRhFQd+KZa7b6hxIlGx8V
- A4HcJX8Yj2sCZ82WQDyPNRE2aCl/ywqRhaU7UHsOlwqJLXyyPjj9Lxo
+ bh=8DJWUMDC5XnAa7R6BVipjq79IJJ8HAaEt2waB0JwE7Q=;
+ b=Ioc9FJ/2uzkYi7OpcrBgv4qxVqHq4OLTm2lltXybZD7LfXofsU29v2adCLgwoDFAjzazTHvIs
+ Y+qV304aQGmA5+amI7HwMrCIefkO3flu72vMABFxa5oBYE3FqNuQSMm
 X-Developer-Key: i=edwards@nvidia.com; a=ed25519;
  pk=VME+d2WbMZT5AY+AolKh2XIdrnXWUwwzz/XLQ3jXgDM=
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PEPF0004698D:EE_|CY8PR12MB8241:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88000bf5-cd50-475b-66e4-08df4d4fc5a9
+X-MS-TrafficTypeDiagnostic: BN5PEPF0004698D:EE_|DS7PR12MB9503:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6aee147c-d211-4cfc-df20-08df4d4fc87f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|23010399003|18002099003|22082099003|6133799003|261009223027099003|10067099003|261026140227099003|261026121527099003|261021121427099003|261028144727099003|261102123227099003|261021123027099003|261022105027099003|261022075727099003|11063799006|56012099006|260925021911599003|260925022911599003|260925021311599003;
+	BCL:0;ARA:13230040|23010399003|36860700016|376014|1800799024|82310400026|10067099003|56012099006|11063799006|261028144727099003|261022075727099003|261026121527099003|261026140227099003|261021123027099003|261102123227099003|261022105027099003|261021121427099003|261009223027099003|18002099003|22082099003|6133799003;
 X-Microsoft-Antispam-Message-Info:
-	rPLOo4A45D9wIIC5ZxOuKyG32BvEp0VzL+e+zkz932h0ZE7/g+Or+mRWwHATFXW7qxn0byMXMEFt01YuR4t88kmbxKeLimbPWU840Mwfo+2UHSaHxp456OJpUBgVbWHmgOEF04N6lPqXpd6fJGP/y/6b5eWnTeezPQ0YfNJ3BCR6E3Zn1K9ytkrKBLzhxcitTvwIJ+8TZ/1/d2p1tE+DE0/fi0PaPfSWGdZZZwiJ9ozb8Nq9jrssz/oRs9AQBOXa1wJaYkVXs5TRdyXFXhWzC3yMsh+ZRWqwT/siX+trXxeD7nNb+DoYvGxZ8wbnDQhdh29mK+te9fqS02nlwARIBdVZNtsN9R4jx+stqG1BclTJPCtRg4LnUAfvG9hiqmxE2Z+Dae/RF9I2CujVqiU8k2Vlz0f4230G5yRS7QZ+o6kXejUyZc7MT/77jU4o7fXy0tFyHD/3sPVS0S1Ff9S9hN1Svb8WK+x9WH6iucOSJHwHZHWvstDMj1pdopNVsmOO1++eAt4ZEQM1Z2dvfLNyM9hWTXtVgbMf01FcI7lQnDcI0BnvIHDTquDYYCk7tmLbFPj/hr+3YYB44y2Fm1k6uBn5BER3Jdds6YZFVsXXP7Oon54K0RmvnRNfM7TXAPnUO+jCGtg9FeA3LZGAWp7du1+d/0v0HVUKlbaGgdaLqku9KkV5dIQQX6pV9CDEdNVtDLks95cS+D+I3ckRpquSrw==
+	ng2m9HwOmNLCL7CarC4c3IPLTUgC2OPnumMQcG6WdV61jq+2OHiCTgLYQJdl5wUb0RwipT4GujTJ5YCnvY2hp8h7AnEybP1D3w9ChKdWyN7X9s07jkr4uNb4G0qjW5TH1TDIDfuC83WmB95w7/3Nd5hhXCAYcf+laJdZ6R3aG30W3xTMA/5X2tbMZcIJHNwNu5fHmNqg4HSbCbmrmTh5vtZLOlEBIXa6O42KF5HPPHtmjMIlJy/vW9G4RW3CsvFRQkNHeL2z4SdxL/m2ORzOaoMhwpC8AEUU3sUkL8WDUipwbe7g3XhC5S6nNVZGvbOGdjAZYRnfPSkRcBBFg9WzGpvoMT3KY3EDlJvJnz+CAPtG2sFQ0SuhxZ+rwXBqY2MVZG8s+aMDOSHIkPa3NTXxc9MMdc39+CqSqq1vXGVKcZUin4hOdYMtlk+cD9BqZ7j3HiOOcsuymzAmlCPSO4j54Sg6oYGLLXTB7t/BNSfMpP0BjMEUSzeTs29wmJFAglHn07RrhUUU62fp1rvQKW6T2MTbD1ON8QRWROd2JM08hnN4aLBJJXbBWnY6Rbj4v0Pf3XAo4/d7dBtLw98cvmnkRsJkJ8pe5OLiOsqMO2DEfrTXGG5xxDcqbdFyGcaQrSxd/vsag+hmF69aa12bPN9FPtjcFOvwQw+J2Q8RVV82gNhwM5Vww6QrYeuDHIU+PBz56HZxXDQce0A6hIzM59K/Rg==
 X-Forefront-Antispam-Report:
-	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(23010399003)(18002099003)(22082099003)(6133799003)(261009223027099003)(10067099003)(261026140227099003)(261026121527099003)(261021121427099003)(261028144727099003)(261102123227099003)(261021123027099003)(261022105027099003)(261022075727099003)(11063799006)(56012099006)(260925021911599003)(260925022911599003)(260925021311599003);DIR:OUT;SFP:1101;
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(1800799024)(82310400026)(10067099003)(56012099006)(11063799006)(261028144727099003)(261022075727099003)(261026121527099003)(261026140227099003)(261021123027099003)(261102123227099003)(261022105027099003)(261021121427099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	zKm8wjuiZZqfxbX5WN7/45QiFt4afaXODUzvaFwG2PFG1tCNO2qXMjh11PLu1l5dVQJ2yiv815nMFiPZjECXyMuf6VdlG3E7PjXZATtAhKQIGR/EFNv+PH2xeiii8pwjmSeZQb/wCdQLAHqLULUdXL5UZXYd7BQjxGxZHAsFpvye0AhHIMet7rMsHwyz53yg8RiXFG9EX9Uh0SWr5So1+bRMYyAwUUtPP1fyjtyXOQmGh+MHGp08ivs6UM1wd5XAe7jWegxX8z6KkjuBCVPpWiEX7A8vU/35z/4HVx60Nak55Eyd6piOT0vNa9EZe67n1ve0j9IGRBitbvVaQo2aV/9vEpcjKC5EARwGIRFnEFF5SoUj1d09pU5tnAT+QbB0bFktA2sd82fgkwMIDlxaBBVebIbKAeA+8/G5RhB8qCs7HJ0bQCcRc6o/ugIGr607
+	+qbZzf9uUiMoZiwjBOYMKb47Xc0cydvH0AmWSr9Gx9jW+rGX+ZZ8G44AaAeCaaB4zhhjBoS3lf9YFnrIvtKoDxr5zczrO+NE2c+TlO2M1rv8SpECBFSfgeChAUUACBytL9aAoF0B2xJ4trtlOOlyhdWu790DcX3iDlqutXrgIMnx8QNS1UJJmnIAuESvwpZ1rrpcP5RFeXtujCtU0ccwc1kvNMnkn4RN++ynFTBNKNJwEr2GdQDvk04s2oxazLbUK12wy8M/BG5I/YGnRpTsDjdhbN6MRhwPYQh5H8B0L0NDshRhUlpcTlON30YbY7GcaF9lRAJ7smp19n/Au6tF8dVB50XMVx+Y36W/+lNHMORq3ZyUkvAPusr0vqoBeKxde1UD/FkhVF/KbJFAi1iYtRNAgFdCMMs7VGmgDiCJJZLbYxuHE6ZuMj4IqsRS8JC+
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 13:01:52.0914
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 13:01:56.9469
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88000bf5-cd50-475b-66e4-08df4d4fc5a9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6aee147c-d211-4cfc-df20-08df4d4fc87f
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource:
 	BN5PEPF0004698D.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8241
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9503
 
 From: Akiva Goldberger <agoldberger@nvidia.com>
 
-A CQ can be created by the user or the kernel, so it doesn't always have
-a user context, and it has no attached PD. Therefore, it lacks a
-reliable source for resolving the core device it was created on.  Cache
-the core device in mlx5_ib_cq at create time and add the cq_to_mdev()
-helper to resolve the core device instead of using the dev->mdev
-reference.
+The ucontext is tied to one core device, so resolve the core device from
+the ucontext instead of mlx5_ib_dev::mdev across the UAR allocation,
+transport domain, ucontext response and mmap paths.
 
 No functional change.
 
@@ -169,428 +166,519 @@ Signed-off-by: Akiva Goldberger <agoldberger@nvidia.com>
 Reviewed-by: Michael Gur <michaelgur@nvidia.com>
 Signed-off-by: Edward Srouji <edwards@nvidia.com>
 ---
- drivers/infiniband/hw/mlx5/cq.c       | 89 ++++++++++++++++++-----------------
- drivers/infiniband/hw/mlx5/mlx5_ib.h  |  6 +++
- drivers/infiniband/hw/mlx5/qp.c       |  2 +-
- drivers/infiniband/hw/mlx5/restrack.c | 14 +++---
- 4 files changed, 59 insertions(+), 52 deletions(-)
+ drivers/infiniband/hw/mlx5/main.c | 177 ++++++++++++++++++++------------------
+ 1 file changed, 94 insertions(+), 83 deletions(-)
 
-diff --git a/drivers/infiniband/hw/mlx5/cq.c b/drivers/infiniband/hw/mlx5/cq.c
-index 6b9777e2622ea30abce1156bb4369668e07cc3c9..79a2ef1a767fb7d8db82070798b6598f217f644e 100644
---- a/drivers/infiniband/hw/mlx5/cq.c
-+++ b/drivers/infiniband/hw/mlx5/cq.c
-@@ -353,9 +353,9 @@ static void handle_atomics(struct mlx5_ib_qp *qp, struct mlx5_cqe64 *cqe64,
- 	qp->sq.last_poll = tail;
+diff --git a/drivers/infiniband/hw/mlx5/main.c b/drivers/infiniband/hw/mlx5/main.c
+index c56968ff31f1c5a9fe6e85be81ba9f013a08eea7..81f8498a924639fbb5758d63e54625e1566f1c18 100644
+--- a/drivers/infiniband/hw/mlx5/main.c
++++ b/drivers/infiniband/hw/mlx5/main.c
+@@ -1937,15 +1937,17 @@ static int calc_total_bfregs(struct mlx5_ib_dev *dev, bool lib_uar_4k,
+ 	return 0;
  }
  
--static void free_cq_buf(struct mlx5_ib_dev *dev, struct mlx5_ib_cq_buf *buf)
-+static void free_cq_buf(struct mlx5_core_dev *mdev, struct mlx5_ib_cq_buf *buf)
+-static int allocate_uars(struct mlx5_ib_dev *dev, struct mlx5_ib_ucontext *context)
++static int allocate_uars(struct mlx5_ib_ucontext *context)
  {
--	mlx5_frag_buf_free(dev->mdev, &buf->frag_buf);
-+	mlx5_frag_buf_free(mdev, &buf->frag_buf);
++	struct mlx5_ib_dev *dev = to_dev(context->ibucontext.device);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	struct mlx5_bfreg_info *bfregi;
+ 	int err;
+ 	int i;
+ 
+ 	bfregi = &context->bfregi;
+ 	for (i = 0; i < bfregi->num_static_sys_pages; i++) {
+-		err = mlx5_cmd_uar_alloc(dev->mdev, &bfregi->sys_pages[i],
++		err = mlx5_cmd_uar_alloc(mdev, &bfregi->sys_pages[i],
+ 					 context->devx_uid);
+ 		if (err)
+ 			goto error;
+@@ -1960,16 +1962,16 @@ static int allocate_uars(struct mlx5_ib_dev *dev, struct mlx5_ib_ucontext *conte
+ 
+ error:
+ 	for (--i; i >= 0; i--)
+-		if (mlx5_cmd_uar_dealloc(dev->mdev, bfregi->sys_pages[i],
++		if (mlx5_cmd_uar_dealloc(mdev, bfregi->sys_pages[i],
+ 					 context->devx_uid))
+ 			mlx5_ib_warn(dev, "failed to free uar %d\n", i);
+ 
+ 	return err;
  }
  
- static void get_sig_err_item(struct mlx5_sig_err_cqe *cqe,
-@@ -598,8 +598,7 @@ int mlx5_ib_poll_cq(struct ib_cq *ibcq, int num_entries, struct ib_wc *wc)
+-static void deallocate_uars(struct mlx5_ib_dev *dev,
+-			    struct mlx5_ib_ucontext *context)
++static void deallocate_uars(struct mlx5_ib_ucontext *context)
  {
- 	struct mlx5_ib_cq *cq = to_mcq(ibcq);
- 	struct mlx5_ib_qp *cur_qp = NULL;
--	struct mlx5_ib_dev *dev = to_dev(cq->ibcq.device);
--	struct mlx5_core_dev *mdev = dev->mdev;
-+	struct mlx5_core_dev *mdev = cq_to_mdev(cq);
- 	unsigned long flags;
- 	int soft_polled = 0;
- 	int npolled;
-@@ -633,8 +632,8 @@ int mlx5_ib_poll_cq(struct ib_cq *ibcq, int num_entries, struct ib_wc *wc)
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	struct mlx5_bfreg_info *bfregi;
+ 	int i;
  
- int mlx5_ib_arm_cq(struct ib_cq *ibcq, enum ib_cq_notify_flags flags)
- {
--	struct mlx5_core_dev *mdev = to_dev(ibcq->device)->mdev;
- 	struct mlx5_ib_cq *cq = to_mcq(ibcq);
-+	struct mlx5_core_dev *mdev = cq_to_mdev(cq);
- 	void __iomem *uar_page = mdev->priv.bfreg.up->map;
- 	unsigned long irq_flags;
- 	int ret = 0;
-@@ -655,7 +654,7 @@ int mlx5_ib_arm_cq(struct ib_cq *ibcq, enum ib_cq_notify_flags flags)
- 	return ret;
+@@ -1977,7 +1979,7 @@ static void deallocate_uars(struct mlx5_ib_dev *dev,
+ 	for (i = 0; i < bfregi->num_sys_pages; i++)
+ 		if (i < bfregi->num_static_sys_pages ||
+ 		    bfregi->sys_pages[i] != MLX5_IB_INVALID_UAR_INDEX)
+-			mlx5_cmd_uar_dealloc(dev->mdev, bfregi->sys_pages[i],
++			mlx5_cmd_uar_dealloc(mdev, bfregi->sys_pages[i],
+ 					     context->devx_uid);
  }
  
--static int alloc_cq_frag_buf(struct mlx5_ib_dev *dev,
-+static int alloc_cq_frag_buf(struct mlx5_core_dev *mdev,
- 			     struct mlx5_ib_cq_buf *buf,
- 			     int nent,
- 			     int cqe_size)
-@@ -665,10 +664,10 @@ static int alloc_cq_frag_buf(struct mlx5_ib_dev *dev,
- 	u8 log_wq_sz     = ilog2(cqe_size);
+@@ -2072,41 +2074,48 @@ void mlx5_ib_disable_lb(struct mlx5_ib_dev *dev, bool td, bool qp)
+ 	mutex_unlock(&dev->lb.mutex);
+ }
+ 
+-static int mlx5_ib_alloc_transport_domain(struct mlx5_ib_dev *dev, u32 *tdn,
+-					  u16 uid)
++static int mlx5_ib_alloc_transport_domain(struct mlx5_ib_ucontext *context)
+ {
++	struct mlx5_ib_dev *dev = to_dev(context->ibucontext.device);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
++	u32 *tdn = &context->tdn;
++	u16 uid = context->devx_uid;
  	int err;
  
--	err = mlx5_frag_buf_alloc_node(dev->mdev,
-+	err = mlx5_frag_buf_alloc_node(mdev,
- 				       nent * cqe_size,
- 				       frag_buf,
--				       dev->mdev->priv.numa_node);
-+				       mdev->priv.numa_node);
+-	if (!MLX5_CAP_GEN(dev->mdev, log_max_transport_domain))
++	if (!MLX5_CAP_GEN(mdev, log_max_transport_domain))
+ 		return 0;
+ 
+-	err = mlx5_cmd_alloc_transport_domain(dev->mdev, tdn, uid);
++	err = mlx5_cmd_alloc_transport_domain(mdev, tdn, uid);
  	if (err)
  		return err;
  
-@@ -686,7 +685,7 @@ enum {
- 	MLX5_CQE_RES_FORMAT_CSUM_STRIDX = 3,
- };
+-	if ((MLX5_CAP_GEN(dev->mdev, port_type) != MLX5_CAP_PORT_TYPE_ETH) ||
+-	    (!MLX5_CAP_GEN(dev->mdev, disable_local_lb_uc) &&
+-	     !MLX5_CAP_GEN(dev->mdev, disable_local_lb_mc)))
++	if ((MLX5_CAP_GEN(mdev, port_type) != MLX5_CAP_PORT_TYPE_ETH) ||
++	    (!MLX5_CAP_GEN(mdev, disable_local_lb_uc) &&
++	     !MLX5_CAP_GEN(mdev, disable_local_lb_mc)))
+ 		return 0;
  
--static int mini_cqe_res_format_to_hw(struct mlx5_ib_dev *dev, u8 format)
-+static int mini_cqe_res_format_to_hw(struct mlx5_core_dev *mdev, u8 format)
+ 	err = mlx5_ib_enable_lb(dev, true, false);
+ 	if (err)
+-		mlx5_cmd_dealloc_transport_domain(dev->mdev, *tdn, uid);
++		mlx5_cmd_dealloc_transport_domain(mdev, *tdn, uid);
+ 
+ 	return err;
+ }
+ 
+-static void mlx5_ib_dealloc_transport_domain(struct mlx5_ib_dev *dev, u32 tdn,
+-					     u16 uid)
++static void mlx5_ib_dealloc_transport_domain(struct mlx5_ib_ucontext *context)
  {
- 	switch (format) {
- 	case MLX5_IB_CQE_RES_FORMAT_HASH:
-@@ -694,7 +693,7 @@ static int mini_cqe_res_format_to_hw(struct mlx5_ib_dev *dev, u8 format)
- 	case MLX5_IB_CQE_RES_FORMAT_CSUM:
- 		return MLX5_CQE_RES_FORMAT_CSUM;
- 	case MLX5_IB_CQE_RES_FORMAT_CSUM_STRIDX:
--		if (MLX5_CAP_GEN(dev->mdev, mini_cqe_resp_stride_index))
-+		if (MLX5_CAP_GEN(mdev, mini_cqe_resp_stride_index))
- 			return MLX5_CQE_RES_FORMAT_CSUM_STRIDX;
+-	if (!MLX5_CAP_GEN(dev->mdev, log_max_transport_domain))
++	struct mlx5_ib_dev *dev = to_dev(context->ibucontext.device);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
++	u32 tdn = context->tdn;
++	u16 uid = context->devx_uid;
++
++	if (!MLX5_CAP_GEN(mdev, log_max_transport_domain))
+ 		return;
+ 
+-	mlx5_cmd_dealloc_transport_domain(dev->mdev, tdn, uid);
++	mlx5_cmd_dealloc_transport_domain(mdev, tdn, uid);
+ 
+-	if ((MLX5_CAP_GEN(dev->mdev, port_type) != MLX5_CAP_PORT_TYPE_ETH) ||
+-	    (!MLX5_CAP_GEN(dev->mdev, disable_local_lb_uc) &&
+-	     !MLX5_CAP_GEN(dev->mdev, disable_local_lb_mc)))
++	if ((MLX5_CAP_GEN(mdev, port_type) != MLX5_CAP_PORT_TYPE_ETH) ||
++	    (!MLX5_CAP_GEN(mdev, disable_local_lb_uc) &&
++	     !MLX5_CAP_GEN(mdev, disable_local_lb_mc)))
+ 		return;
+ 
+ 	mlx5_ib_disable_lb(dev, true, false);
+@@ -2118,29 +2127,29 @@ static int set_ucontext_resp(struct ib_ucontext *uctx,
+ 	struct ib_device *ibdev = uctx->device;
+ 	struct mlx5_ib_dev *dev = to_dev(ibdev);
+ 	struct mlx5_ib_ucontext *context = to_mucontext(uctx);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	struct mlx5_bfreg_info *bfregi = &context->bfregi;
+ 
+-	if (MLX5_CAP_GEN(dev->mdev, dump_fill_mkey)) {
++	if (MLX5_CAP_GEN(mdev, dump_fill_mkey)) {
+ 		resp->dump_fill_mkey = dev->mkeys.dump_fill_mkey;
+ 		resp->comp_mask |=
+ 			MLX5_IB_ALLOC_UCONTEXT_RESP_MASK_DUMP_FILL_MKEY;
+ 	}
+ 
+-	resp->qp_tab_size = 1 << MLX5_CAP_GEN(dev->mdev, log_max_qp);
+-	if (mlx5_wc_support_get(dev->mdev))
+-		resp->bf_reg_size = 1 << MLX5_CAP_GEN(dev->mdev,
+-						      log_bf_reg_size);
++	resp->qp_tab_size = 1 << MLX5_CAP_GEN(mdev, log_max_qp);
++	if (mlx5_wc_support_get(mdev))
++		resp->bf_reg_size = 1 << MLX5_CAP_GEN(mdev, log_bf_reg_size);
+ 	resp->cache_line_size = cache_line_size();
+-	resp->max_sq_desc_sz = MLX5_CAP_GEN(dev->mdev, max_wqe_sz_sq);
+-	resp->max_rq_desc_sz = MLX5_CAP_GEN(dev->mdev, max_wqe_sz_rq);
+-	resp->max_send_wqebb = 1 << MLX5_CAP_GEN(dev->mdev, log_max_qp_sz);
+-	resp->max_recv_wr = 1 << MLX5_CAP_GEN(dev->mdev, log_max_qp_sz);
+-	resp->max_srq_recv_wr = 1 << MLX5_CAP_GEN(dev->mdev, log_max_srq_sz);
++	resp->max_sq_desc_sz = MLX5_CAP_GEN(mdev, max_wqe_sz_sq);
++	resp->max_rq_desc_sz = MLX5_CAP_GEN(mdev, max_wqe_sz_rq);
++	resp->max_send_wqebb = 1 << MLX5_CAP_GEN(mdev, log_max_qp_sz);
++	resp->max_recv_wr = 1 << MLX5_CAP_GEN(mdev, log_max_qp_sz);
++	resp->max_srq_recv_wr = 1 << MLX5_CAP_GEN(mdev, log_max_srq_sz);
+ 	resp->cqe_version = context->cqe_version;
+-	resp->log_uar_size = MLX5_CAP_GEN(dev->mdev, uar_4k) ?
++	resp->log_uar_size = MLX5_CAP_GEN(mdev, uar_4k) ?
+ 				MLX5_ADAPTER_PAGE_SHIFT : PAGE_SHIFT;
+-	resp->num_uars_per_page = MLX5_CAP_GEN(dev->mdev, uar_4k) ?
+-					MLX5_CAP_GEN(dev->mdev,
++	resp->num_uars_per_page = MLX5_CAP_GEN(mdev, uar_4k) ?
++					MLX5_CAP_GEN(mdev,
+ 						     num_of_uars_per_page) : 1;
+ 	resp->tot_bfregs = bfregi->lib_uar_dyn ? 0 :
+ 			bfregi->total_num_bfregs - bfregi->num_dyn_bfregs;
+@@ -2149,11 +2158,11 @@ static int set_ucontext_resp(struct ib_ucontext *uctx,
+ 				      MLX5_USER_CMDS_SUPP_UHW_CREATE_AH;
+ 
+ 	if (mlx5_ib_port_link_layer(ibdev, 1) == IB_LINK_LAYER_ETHERNET) {
+-		mlx5_query_min_inline(dev->mdev, &resp->eth_min_inline);
++		mlx5_query_min_inline(mdev, &resp->eth_min_inline);
+ 		resp->eth_min_inline++;
+ 	}
+ 
+-	if (dev->mdev->clock_info)
++	if (mdev->clock_info)
+ 		resp->clock_info_versions = BIT(MLX5_IB_CLOCK_INFO_V1);
+ 
+ 	/*
+@@ -2170,18 +2179,18 @@ static int set_ucontext_resp(struct ib_ucontext *uctx,
+ 				 internal_timer_h) % PAGE_SIZE;
+ 	}
+ 
+-	if (MLX5_CAP_GEN(dev->mdev, ece_support))
++	if (MLX5_CAP_GEN(mdev, ece_support))
+ 		resp->comp_mask |= MLX5_IB_ALLOC_UCONTEXT_RESP_MASK_ECE;
+ 
+-	if (rt_supported(MLX5_CAP_GEN(dev->mdev, sq_ts_format)) &&
+-	    rt_supported(MLX5_CAP_GEN(dev->mdev, rq_ts_format)) &&
+-	    rt_supported(MLX5_CAP_ROCE(dev->mdev, qp_ts_format)))
++	if (rt_supported(MLX5_CAP_GEN(mdev, sq_ts_format)) &&
++	    rt_supported(MLX5_CAP_GEN(mdev, rq_ts_format)) &&
++	    rt_supported(MLX5_CAP_ROCE(mdev, qp_ts_format)))
+ 		resp->comp_mask |=
+ 			MLX5_IB_ALLOC_UCONTEXT_RESP_MASK_REAL_TIME_TS;
+ 
+ 	resp->num_dyn_bfregs = bfregi->num_dyn_bfregs;
+ 
+-	if (MLX5_CAP_GEN(dev->mdev, drain_sigerr))
++	if (MLX5_CAP_GEN(mdev, drain_sigerr))
+ 		resp->comp_mask |= MLX5_IB_ALLOC_UCONTEXT_RESP_MASK_SQD2RTS;
+ 
+ 	resp->comp_mask |=
+@@ -2204,6 +2213,7 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ 	struct mlx5_ib_alloc_ucontext_req_v2 req;
+ 	struct mlx5_ib_alloc_ucontext_resp resp = {};
+ 	struct mlx5_ib_ucontext *context = to_mucontext(uctx);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	struct mlx5_bfreg_info *bfregi;
+ 	int ver;
+ 	int err;
+@@ -2245,7 +2255,7 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ 		context->devx_uid = err;
+ 
+ 		if (uctx_rdma_ctrl_is_enabled(uctx->enabled_caps)) {
+-			err = mlx5_cmd_add_privileged_uid(dev->mdev,
++			err = mlx5_cmd_add_privileged_uid(mdev,
+ 							  context->devx_uid);
+ 			if (err)
+ 				goto out_devx;
+@@ -2281,13 +2291,12 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ 		goto out_count;
+ 	}
+ 
+-	err = allocate_uars(dev, context);
++	err = allocate_uars(context);
+ 	if (err)
+ 		goto out_sys_pages;
+ 
+ uar_done:
+-	err = mlx5_ib_alloc_transport_domain(dev, &context->tdn,
+-					     context->devx_uid);
++	err = mlx5_ib_alloc_transport_domain(context);
+ 	if (err)
+ 		goto out_uars;
+ 
+@@ -2295,7 +2304,7 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ 	mutex_init(&context->db_page_mutex);
+ 
+ 	context->cqe_version = min_t(__u8,
+-				 (__u8)MLX5_CAP_GEN(dev->mdev, cqe_version),
++				 (__u8)MLX5_CAP_GEN(mdev, cqe_version),
+ 				 req.max_cqe_version);
+ 
+ 	err = set_ucontext_resp(uctx, &resp);
+@@ -2312,7 +2321,7 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ 	context->lib_caps = req.lib_caps;
+ 	print_lib_caps(dev, context->lib_caps);
+ 
+-	if (mlx5_ib_lag_should_assign_affinity(dev, dev->mdev)) {
++	if (mlx5_ib_lag_should_assign_affinity(dev, mdev)) {
+ 		u32 port = mlx5_core_native_port_num(dev->mdev) - 1;
+ 
+ 		atomic_set(&context->tx_port_affinity,
+@@ -2323,10 +2332,10 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ 	return 0;
+ 
+ out_mdev:
+-	mlx5_ib_dealloc_transport_domain(dev, context->tdn, context->devx_uid);
++	mlx5_ib_dealloc_transport_domain(context);
+ 
+ out_uars:
+-	deallocate_uars(dev, context);
++	deallocate_uars(context);
+ 
+ out_sys_pages:
+ 	kfree(bfregi->sys_pages);
+@@ -2337,7 +2346,7 @@ static int mlx5_ib_alloc_ucontext(struct ib_ucontext *uctx,
+ out_ucap:
+ 	if (req.flags & MLX5_IB_ALLOC_UCTX_DEVX &&
+ 	    uctx_rdma_ctrl_is_enabled(uctx->enabled_caps))
+-		mlx5_cmd_remove_privileged_uid(dev->mdev, context->devx_uid);
++		mlx5_cmd_remove_privileged_uid(mdev, context->devx_uid);
+ 
+ out_devx:
+ 	if (req.flags & MLX5_IB_ALLOC_UCTX_DEVX)
+@@ -2373,43 +2382,42 @@ static int mlx5_ib_query_ucontext(struct ib_ucontext *ibcontext,
+ static void mlx5_ib_dealloc_ucontext(struct ib_ucontext *ibcontext)
+ {
+ 	struct mlx5_ib_ucontext *context = to_mucontext(ibcontext);
+-	struct mlx5_ib_dev *dev = to_dev(ibcontext->device);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	struct mlx5_bfreg_info *bfregi;
+ 
+ 	bfregi = &context->bfregi;
+-	mlx5_ib_dealloc_transport_domain(dev, context->tdn, context->devx_uid);
++	mlx5_ib_dealloc_transport_domain(context);
+ 
+-	deallocate_uars(dev, context);
++	deallocate_uars(context);
+ 	kfree(bfregi->sys_pages);
+ 	kfree(bfregi->count);
+ 
+ 	if (context->devx_uid) {
+ 		if (uctx_rdma_ctrl_is_enabled(ibcontext->enabled_caps))
+-			mlx5_cmd_remove_privileged_uid(dev->mdev,
++			mlx5_cmd_remove_privileged_uid(mdev,
+ 						       context->devx_uid);
+ 		mlx5_ib_devx_destroy(uctx_to_mdev(context), context->devx_uid);
+ 	}
+ }
+ 
+-static phys_addr_t uar_index2pfn(struct mlx5_ib_dev *dev,
++static phys_addr_t uar_index2pfn(struct mlx5_core_dev *mdev,
+ 				 int uar_idx)
+ {
+ 	int fw_uars_per_page;
+ 
+-	fw_uars_per_page = MLX5_CAP_GEN(dev->mdev, uar_4k) ? MLX5_UARS_IN_PAGE : 1;
++	fw_uars_per_page = MLX5_CAP_GEN(mdev, uar_4k) ? MLX5_UARS_IN_PAGE : 1;
+ 
+-	return (dev->mdev->bar_addr >> PAGE_SHIFT) + uar_idx / fw_uars_per_page;
++	return (mdev->bar_addr >> PAGE_SHIFT) + uar_idx / fw_uars_per_page;
+ }
+ 
+-static u64 uar_index2paddress(struct mlx5_ib_dev *dev,
+-				 int uar_idx)
++static u64 uar_index2paddress(struct mlx5_core_dev *mdev, int uar_idx)
+ {
+ 	unsigned int fw_uars_per_page;
+ 
+-	fw_uars_per_page = MLX5_CAP_GEN(dev->mdev, uar_4k) ?
++	fw_uars_per_page = MLX5_CAP_GEN(mdev, uar_4k) ?
+ 				MLX5_UARS_IN_PAGE : 1;
+ 
+-	return (dev->mdev->bar_addr + (uar_idx / fw_uars_per_page) * PAGE_SIZE);
++	return (mdev->bar_addr + (uar_idx / fw_uars_per_page) * PAGE_SIZE);
+ }
+ 
+ static int get_command(unsigned long offset)
+@@ -2454,10 +2462,11 @@ static inline char *mmap_cmd2str(enum mlx5_ib_mmap_cmd cmd)
+ 	}
+ }
+ 
+-static int mlx5_ib_mmap_clock_info_page(struct mlx5_ib_dev *dev,
+-					struct vm_area_struct *vma,
++static int mlx5_ib_mmap_clock_info_page(struct vm_area_struct *vma,
+ 					struct mlx5_ib_ucontext *context)
+ {
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
++
+ 	if ((vma->vm_end - vma->vm_start != PAGE_SIZE) ||
+ 	    !(vma->vm_flags & VM_SHARED))
+ 		return -EINVAL;
+@@ -2469,11 +2478,11 @@ static int mlx5_ib_mmap_clock_info_page(struct mlx5_ib_dev *dev,
+ 		return -EPERM;
+ 	vm_flags_clear(vma, VM_MAYWRITE);
+ 
+-	if (!dev->mdev->clock_info)
++	if (!mdev->clock_info)
  		return -EOPNOTSUPP;
+ 
+ 	return vm_insert_page(vma, vma->vm_start,
+-			      virt_to_page(dev->mdev->clock_info));
++			      virt_to_page(mdev->clock_info));
+ }
+ 
+ static int phys_addr_to_bar(struct pci_dev *pdev, phys_addr_t pa)
+@@ -2504,7 +2513,9 @@ static int mlx5_ib_mmap_get_pfns(struct rdma_user_mmap_entry *entry,
+ 				 struct p2pdma_provider **provider)
+ {
+ 	struct mlx5_user_mmap_entry *mentry = to_mmmap(entry);
+-	struct pci_dev *pdev = to_dev(entry->ucontext->device)->mdev->pdev;
++	struct mlx5_core_dev *mdev =
++		uctx_to_mdev(to_mucontext(entry->ucontext));
++	struct pci_dev *pdev = mdev->pdev;
+ 	int bar;
+ 
+ 	phys_vec->paddr = mentry->address;
+@@ -2572,7 +2583,7 @@ static void mlx5_ib_mmap_free(struct rdma_user_mmap_entry *entry)
+ 		break;
+ 	case MLX5_IB_MMAP_TYPE_UAR_WC:
+ 	case MLX5_IB_MMAP_TYPE_UAR_NC:
+-		mlx5_cmd_uar_dealloc(dev->mdev, mentry->page_idx,
++		mlx5_cmd_uar_dealloc(uctx_to_mdev(context), mentry->page_idx,
+ 				     context->devx_uid);
+ 		kfree(mentry);
+ 		break;
+@@ -2586,6 +2597,7 @@ static int uar_mmap(struct mlx5_ib_dev *dev, enum mlx5_ib_mmap_cmd cmd,
+ 		    struct mlx5_ib_ucontext *context)
+ {
+ 	struct mlx5_bfreg_info *bfregi = &context->bfregi;
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	int err;
+ 	unsigned long idx;
+ 	phys_addr_t pfn;
+@@ -2630,8 +2642,7 @@ static int uar_mmap(struct mlx5_ib_dev *dev, enum mlx5_ib_mmap_cmd cmd,
+ 	if (dyn_uar) {
+ 		int uars_per_page;
+ 
+-		uars_per_page = get_uars_per_sys_page(dev->mdev,
+-						      bfregi->lib_uar_4k);
++		uars_per_page = get_uars_per_sys_page(mdev, bfregi->lib_uar_4k);
+ 		bfreg_dyn_idx = idx * (uars_per_page * MLX5_NON_FP_BFREGS_PER_UAR);
+ 		if (bfreg_dyn_idx >= bfregi->total_num_bfregs) {
+ 			mlx5_ib_warn(dev, "invalid bfreg_dyn_idx %u, max=%u\n",
+@@ -2652,7 +2663,7 @@ static int uar_mmap(struct mlx5_ib_dev *dev, enum mlx5_ib_mmap_cmd cmd,
+ 		bfregi->count[bfreg_dyn_idx]++;
+ 		mutex_unlock(&bfregi->lock);
+ 
+-		err = mlx5_cmd_uar_alloc(dev->mdev, &uar_index,
++		err = mlx5_cmd_uar_alloc(mdev, &uar_index,
+ 					 context->devx_uid);
+ 		if (err) {
+ 			mlx5_ib_warn(dev, "UAR alloc failed\n");
+@@ -2662,7 +2673,7 @@ static int uar_mmap(struct mlx5_ib_dev *dev, enum mlx5_ib_mmap_cmd cmd,
+ 		uar_index = bfregi->sys_pages[idx];
+ 	}
+ 
+-	pfn = uar_index2pfn(dev, uar_index);
++	pfn = uar_index2pfn(mdev, uar_index);
+ 	mlx5_ib_dbg(dev, "uar idx 0x%lx, pfn %pa\n", idx, &pfn);
+ 
+ 	err = rdma_user_mmap_io(&context->ibucontext, vma, pfn, PAGE_SIZE,
+@@ -2682,7 +2693,7 @@ static int uar_mmap(struct mlx5_ib_dev *dev, enum mlx5_ib_mmap_cmd cmd,
+ 	if (!dyn_uar)
+ 		return err;
+ 
+-	mlx5_cmd_uar_dealloc(dev->mdev, uar_index, context->devx_uid);
++	mlx5_cmd_uar_dealloc(mdev, uar_index, context->devx_uid);
+ 
+ free_bfreg:
+ 	mlx5_ib_free_bfreg(dev, bfregi, bfreg_dyn_idx);
+@@ -2746,6 +2757,7 @@ static int mlx5_ib_mmap(struct ib_ucontext *ibcontext, struct vm_area_struct *vm
+ {
+ 	struct mlx5_ib_ucontext *context = to_mucontext(ibcontext);
+ 	struct mlx5_ib_dev *dev = to_dev(ibcontext->device);
++	struct mlx5_core_dev *mdev = uctx_to_mdev(context);
+ 	unsigned long command;
+ 	phys_addr_t pfn;
+ 
+@@ -2753,7 +2765,7 @@ static int mlx5_ib_mmap(struct ib_ucontext *ibcontext, struct vm_area_struct *vm
+ 	switch (command) {
+ 	case MLX5_IB_MMAP_WC_PAGE:
+ 	case MLX5_IB_MMAP_ALLOC_WC:
+-		if (!mlx5_wc_support_get(dev->mdev))
++		if (!mlx5_wc_support_get(mdev))
+ 			return -EPERM;
+ 		fallthrough;
+ 	case MLX5_IB_MMAP_NC_PAGE:
+@@ -2775,7 +2787,7 @@ static int mlx5_ib_mmap(struct ib_ucontext *ibcontext, struct vm_area_struct *vm
+ 		if (PAGE_SIZE > 4096)
+ 			return -EOPNOTSUPP;
+ 
+-		pfn = (dev->mdev->bar_addr +
++		pfn = (mdev->bar_addr +
+ 		       offsetof(struct mlx5_init_seg, internal_timer_h)) >>
+ 			PAGE_SHIFT;
+ 		return rdma_user_mmap_io(&context->ibucontext, vma, pfn,
+@@ -2783,7 +2795,7 @@ static int mlx5_ib_mmap(struct ib_ucontext *ibcontext, struct vm_area_struct *vm
+ 					 pgprot_noncached(vma->vm_page_prot),
+ 					 NULL);
+ 	case MLX5_IB_MMAP_CLOCK_INFO:
+-		return mlx5_ib_mmap_clock_info_page(dev, vma, context);
++		return mlx5_ib_mmap_clock_info_page(vma, context);
+ 
  	default:
-@@ -793,9 +792,9 @@ static int create_cq_user(struct mlx5_ib_dev *dev, struct ib_udata *udata,
- 		int mini_cqe_format;
- 
- 		if (!((*cqe_size == 128 &&
--		       MLX5_CAP_GEN(dev->mdev, cqe_compression_128)) ||
-+		       MLX5_CAP_GEN(cq_to_mdev(cq), cqe_compression_128)) ||
- 		      (*cqe_size == 64  &&
--		       MLX5_CAP_GEN(dev->mdev, cqe_compression)))) {
-+		       MLX5_CAP_GEN(cq_to_mdev(cq), cqe_compression)))) {
- 			err = -EOPNOTSUPP;
- 			mlx5_ib_warn(dev, "CQE compression is not supported for size %d!\n",
- 				     *cqe_size);
-@@ -803,7 +802,7 @@ static int create_cq_user(struct mlx5_ib_dev *dev, struct ib_udata *udata,
- 		}
- 
- 		mini_cqe_format =
--			mini_cqe_res_format_to_hw(dev,
-+			mini_cqe_res_format_to_hw(cq_to_mdev(cq),
- 						  ucmd.cqe_comp_res_format);
- 		if (mini_cqe_format < 0) {
- 			err = mini_cqe_format;
-@@ -818,7 +817,7 @@ static int create_cq_user(struct mlx5_ib_dev *dev, struct ib_udata *udata,
- 
- 	if (ucmd.flags & MLX5_IB_CREATE_CQ_FLAGS_CQE_128B_PAD) {
- 		if (*cqe_size != 128 ||
--		    !MLX5_CAP_GEN(dev->mdev, cqe_128_always)) {
-+		    !MLX5_CAP_GEN(cq_to_mdev(cq), cqe_128_always)) {
- 			err = -EOPNOTSUPP;
- 			mlx5_ib_warn(dev,
- 				     "CQE padding is not supported for CQE size of %dB!\n",
-@@ -868,7 +867,7 @@ static void init_cq_frag_buf(struct mlx5_ib_cq_buf *buf)
- 	}
- }
- 
--static int create_cq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_cq *cq,
-+static int create_cq_kernel(struct mlx5_ib_cq *cq,
- 			    int entries, int cqe_size,
- 			    u32 **cqb, int *index, int *inlen)
- {
-@@ -876,7 +875,7 @@ static int create_cq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_cq *cq,
- 	void *cqc;
- 	int err;
- 
--	err = mlx5_db_alloc(dev->mdev, &cq->db);
-+	err = mlx5_db_alloc(cq_to_mdev(cq), &cq->db);
- 	if (err)
+ 		return mlx5_ib_mmap_offset(dev, vma, ibcontext);
+@@ -4290,11 +4302,11 @@ static int UVERBS_HANDLER(MLX5_IB_METHOD_VAR_OBJ_ALLOC)(
  		return err;
  
-@@ -884,7 +883,7 @@ static int create_cq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_cq *cq,
- 	cq->mcq.arm_db     = cq->db.db + 1;
- 	cq->mcq.cqe_sz = cqe_size;
- 
--	err = alloc_cq_frag_buf(dev, &cq->buf, entries, cqe_size);
-+	err = alloc_cq_frag_buf(cq_to_mdev(cq), &cq->buf, entries, cqe_size);
- 	if (err)
- 		goto err_db;
- 
-@@ -907,22 +906,22 @@ static int create_cq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_cq *cq,
- 		 cq->buf.frag_buf.page_shift -
- 		 MLX5_ADAPTER_PAGE_SHIFT);
- 
--	*index = dev->mdev->priv.bfreg.up->index;
-+	*index = cq_to_mdev(cq)->priv.bfreg.up->index;
- 
- 	return 0;
- 
- err_buf:
--	free_cq_buf(dev, &cq->buf);
-+	free_cq_buf(cq_to_mdev(cq), &cq->buf);
- 
- err_db:
--	mlx5_db_free(dev->mdev, &cq->db);
-+	mlx5_db_free(cq_to_mdev(cq), &cq->db);
- 	return err;
- }
- 
--static void destroy_cq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_cq *cq)
-+static void destroy_cq_kernel(struct mlx5_ib_cq *cq)
+ 	if (flags & MLX5_IB_UAPI_VAR_ALLOC_FLAG_TLP) {
+-		if (!MLX5_CAP_GEN(to_dev(c->ibucontext.device)->mdev,
++		if (!MLX5_CAP_GEN(uctx_to_mdev(c),
+ 				  tlp_device_emulation_manager))
+ 			return -EOPNOTSUPP;
+ 	} else {
+-		if (!(MLX5_CAP_GEN_64(to_dev(c->ibucontext.device)->mdev,
++		if (!(MLX5_CAP_GEN_64(uctx_to_mdev(c),
+ 				      general_obj_types) &
+ 		      MLX5_GENERAL_OBJ_TYPES_CAP_VIRTIO_NET_Q))
+ 			return -EOPNOTSUPP;
+@@ -4368,8 +4380,8 @@ static struct mlx5_user_mmap_entry *
+ alloc_uar_entry(struct mlx5_ib_ucontext *c,
+ 		enum mlx5_ib_uapi_uar_alloc_type alloc_type)
  {
--	free_cq_buf(dev, &cq->buf);
--	mlx5_db_free(dev->mdev, &cq->db);
-+	free_cq_buf(cq_to_mdev(cq), &cq->buf);
-+	mlx5_db_free(cq_to_mdev(cq), &cq->db);
- }
- 
- static void notify_soft_wc_handler(struct work_struct *work)
-@@ -953,14 +952,16 @@ int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 	int eqn;
++	struct mlx5_core_dev *mdev = uctx_to_mdev(c);
+ 	struct mlx5_user_mmap_entry *entry;
+-	struct mlx5_ib_dev *dev;
+ 	u32 uar_index;
  	int err;
  
--	if (attr->cqe > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	cq->mdev = dev->mdev;
-+
-+	if (attr->cqe > (1 << MLX5_CAP_GEN(cq_to_mdev(cq), log_max_cq_sz)))
- 		return -EINVAL;
+@@ -4377,13 +4389,12 @@ alloc_uar_entry(struct mlx5_ib_ucontext *c,
+ 	if (!entry)
+ 		return ERR_PTR(-ENOMEM);
  
- 	if (check_cq_create_flags(attr->flags))
+-	dev = to_dev(c->ibucontext.device);
+-	err = mlx5_cmd_uar_alloc(dev->mdev, &uar_index, c->devx_uid);
++	err = mlx5_cmd_uar_alloc(mdev, &uar_index, c->devx_uid);
+ 	if (err)
+ 		goto end;
+ 
+ 	entry->page_idx = uar_index;
+-	entry->address = uar_index2paddress(dev, uar_index);
++	entry->address = uar_index2paddress(mdev, uar_index);
+ 	if (alloc_type == MLX5_IB_UAPI_UAR_ALLOC_TYPE_BF)
+ 		entry->mmap_flag = MLX5_IB_MMAP_TYPE_UAR_WC;
+ 	else
+@@ -4396,7 +4407,7 @@ alloc_uar_entry(struct mlx5_ib_ucontext *c,
+ 	return entry;
+ 
+ err_insert:
+-	mlx5_cmd_uar_dealloc(dev->mdev, uar_index, c->devx_uid);
++	mlx5_cmd_uar_dealloc(mdev, uar_index, c->devx_uid);
+ end:
+ 	kfree(entry);
+ 	return ERR_PTR(err);
+@@ -4427,7 +4438,7 @@ static int UVERBS_HANDLER(MLX5_IB_METHOD_UAR_OBJ_ALLOC)(
+ 	    alloc_type != MLX5_IB_UAPI_UAR_ALLOC_TYPE_NC)
  		return -EOPNOTSUPP;
  
- 	entries = roundup_pow_of_two(entries + 1);
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	if (entries > (1 << MLX5_CAP_GEN(cq_to_mdev(cq), log_max_cq_sz)))
- 		return -EINVAL;
- 
- 	cq->ibcq.cqe = entries - 1;
-@@ -976,7 +977,7 @@ int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 	if (err)
- 		return err;
- 
--	err = mlx5_comp_eqn_get(dev->mdev, vector, &eqn);
-+	err = mlx5_comp_eqn_get(cq_to_mdev(cq), vector, &eqn);
- 	if (err)
- 		goto err_cqb;
- 
-@@ -997,7 +998,8 @@ int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 	cq->mcq.comp = mlx5_add_cq_to_tasklet;
- 	cq->mcq.tasklet_ctx.comp = mlx5_ib_cq_comp;
- 
--	err = mlx5_core_create_cq(dev->mdev, &cq->mcq, cqb, inlen, out, sizeof(out));
-+	err = mlx5_core_create_cq(cq_to_mdev(cq), &cq->mcq, cqb, inlen, out,
-+				  sizeof(out));
- 	if (err)
- 		goto err_cqb;
- 
-@@ -1015,7 +1017,7 @@ int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 	return 0;
- 
- err_cmd:
--	mlx5_core_destroy_cq(dev->mdev, &cq->mcq);
-+	mlx5_core_destroy_cq(cq_to_mdev(cq), &cq->mcq);
- 
- err_cqb:
- 	kvfree(cqb);
-@@ -1041,11 +1043,13 @@ int mlx5_ib_create_cq(struct ib_cq *ibcq, const struct ib_cq_init_attr *attr,
- 	int eqn;
- 	int err;
- 
--	if (attr->cqe > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	cq->mdev = dev->mdev;
-+
-+	if (attr->cqe > (1 << MLX5_CAP_GEN(cq_to_mdev(cq), log_max_cq_sz)))
- 		return -EINVAL;
- 
- 	entries = roundup_pow_of_two(entries + 1);
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	if (entries > (1 << MLX5_CAP_GEN(cq_to_mdev(cq), log_max_cq_sz)))
- 		return -EINVAL;
- 
- 	cq->ibcq.cqe = entries - 1;
-@@ -1055,14 +1059,14 @@ int mlx5_ib_create_cq(struct ib_cq *ibcq, const struct ib_cq_init_attr *attr,
- 	INIT_LIST_HEAD(&cq->list_recv_qp);
- 
- 	cqe_size = cache_line_size() == 128 ? 128 : 64;
--	err = create_cq_kernel(dev, cq, entries, cqe_size, &cqb, &index,
-+	err = create_cq_kernel(cq, entries, cqe_size, &cqb, &index,
- 			       &inlen);
- 	if (err)
- 		return err;
- 
- 	INIT_WORK(&cq->notify_work, notify_soft_wc_handler);
- 
--	err = mlx5_comp_eqn_get(dev->mdev, vector, &eqn);
-+	err = mlx5_comp_eqn_get(cq_to_mdev(cq), vector, &eqn);
- 	if (err)
- 		goto err_cqb;
- 
-@@ -1080,7 +1084,7 @@ int mlx5_ib_create_cq(struct ib_cq *ibcq, const struct ib_cq_init_attr *attr,
- 
- 	cq->mcq.comp = mlx5_ib_cq_comp;
- 
--	err = mlx5_core_create_cq(dev->mdev, &cq->mcq, cqb, inlen, out,
-+	err = mlx5_core_create_cq(cq_to_mdev(cq), &cq->mcq, cqb, inlen, out,
- 				  sizeof(out));
- 	if (err)
- 		goto err_cqb;
-@@ -1094,25 +1098,24 @@ int mlx5_ib_create_cq(struct ib_cq *ibcq, const struct ib_cq_init_attr *attr,
- 
- err_cqb:
- 	kvfree(cqb);
--	destroy_cq_kernel(dev, cq);
-+	destroy_cq_kernel(cq);
- 	return err;
- }
- 
- int mlx5_ib_pre_destroy_cq(struct ib_cq *cq)
- {
--	struct mlx5_ib_dev *dev = to_dev(cq->device);
- 	struct mlx5_ib_cq *mcq = to_mcq(cq);
- 
- 	if (!cq->uobject)
- 		cancel_work_sync(&mcq->notify_work);
- 
--	return mlx5_core_destroy_cq(dev->mdev, &mcq->mcq);
-+	return mlx5_core_destroy_cq(cq_to_mdev(mcq), &mcq->mcq);
- }
- 
- void mlx5_ib_post_destroy_cq(struct ib_cq *cq)
- {
- 	WARN_ON(!list_empty(&to_mcq(cq)->wc_list));
--	destroy_cq_kernel(to_dev(cq->device), to_mcq(cq));
-+	destroy_cq_kernel(to_mcq(cq));
- }
- 
- int mlx5_ib_destroy_cq(struct ib_cq *cq, struct ib_udata *udata)
-@@ -1203,13 +1206,13 @@ int mlx5_ib_modify_cq(struct ib_cq *cq, u16 cq_count, u16 cq_period)
- 	struct mlx5_ib_cq *mcq = to_mcq(cq);
- 	int err;
- 
--	if (!MLX5_CAP_GEN(dev->mdev, cq_moderation))
-+	if (!MLX5_CAP_GEN(cq_to_mdev(mcq), cq_moderation))
+-	if (!mlx5_wc_support_get(to_dev(c->ibucontext.device)->mdev) &&
++	if (!mlx5_wc_support_get(uctx_to_mdev(c)) &&
+ 	    alloc_type == MLX5_IB_UAPI_UAR_ALLOC_TYPE_BF)
  		return -EOPNOTSUPP;
- 
- 	if (cq_period > MLX5_MAX_CQ_PERIOD)
- 		return -EINVAL;
- 
--	err = mlx5_core_modify_cq_moderation(dev->mdev, &mcq->mcq,
-+	err = mlx5_core_modify_cq_moderation(cq_to_mdev(mcq), &mcq->mcq,
- 					     cq_period, cq_count);
- 	if (err)
- 		mlx5_ib_warn(dev, "modify cq 0x%x failed\n", mcq->mcq.cqn);
-@@ -1266,16 +1269,16 @@ int mlx5_ib_resize_cq(struct ib_cq *ibcq, unsigned int entries,
- 	int inlen;
- 	int cqe_size;
- 
--	if (!MLX5_CAP_GEN(dev->mdev, cq_resize)) {
-+	if (!MLX5_CAP_GEN(cq_to_mdev(cq), cq_resize)) {
- 		pr_info("Firmware does not support resize CQ\n");
- 		return -ENOSYS;
- 	}
- 
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	if (entries > (1 << MLX5_CAP_GEN(cq_to_mdev(cq), log_max_cq_sz)))
- 		return -EINVAL;
- 
- 	entries = roundup_pow_of_two(entries + 1);
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)) + 1)
-+	if (entries > (1 << MLX5_CAP_GEN(cq_to_mdev(cq), log_max_cq_sz)) + 1)
- 		return -EINVAL;
- 
- 	if (entries == ibcq->cqe + 1)
-@@ -1330,7 +1333,7 @@ int mlx5_ib_resize_cq(struct ib_cq *ibcq, unsigned int entries,
- 	MLX5_SET(modify_cq_in, in, op_mod, MLX5_CQ_OPMOD_RESIZE);
- 	MLX5_SET(modify_cq_in, in, cqn, cq->mcq.cqn);
- 
--	err = mlx5_core_modify_cq(dev->mdev, &cq->mcq, in, inlen);
-+	err = mlx5_core_modify_cq(cq_to_mdev(cq), &cq->mcq, in, inlen);
- 	if (err)
- 		goto ex_alloc;
- 
-diff --git a/drivers/infiniband/hw/mlx5/mlx5_ib.h b/drivers/infiniband/hw/mlx5/mlx5_ib.h
-index 76882a692994e2473a46893876244436d6f69a63..0ffd2ab5b5ade17c43fb7323381268edb5677b75 100644
---- a/drivers/infiniband/hw/mlx5/mlx5_ib.h
-+++ b/drivers/infiniband/hw/mlx5/mlx5_ib.h
-@@ -573,6 +573,7 @@ enum mlx5_ib_cq_pr_flags {
- struct mlx5_ib_cq {
- 	struct ib_cq		ibcq;
- 	struct mlx5_core_cq	mcq;
-+	struct mlx5_core_dev	*mdev;
- 	struct mlx5_ib_cq_buf	buf;
- 	struct mlx5_db		db;
- 
-@@ -1320,6 +1321,11 @@ static inline struct mlx5_core_dev *uctx_to_mdev(struct mlx5_ib_ucontext *uctx)
- 	return to_dev(uctx->ibucontext.device)->mdev;
- }
- 
-+static inline struct mlx5_core_dev *cq_to_mdev(struct mlx5_ib_cq *cq)
-+{
-+	return cq->mdev;
-+}
-+
- static inline struct mlx5_ib_mw *to_mmw(struct ib_mw *ibmw)
- {
- 	return container_of(ibmw, struct mlx5_ib_mw, ibmw);
-diff --git a/drivers/infiniband/hw/mlx5/qp.c b/drivers/infiniband/hw/mlx5/qp.c
-index be0b3437eb86329edb66bb8fc6d0dfdd8c18f8dd..87fd27c9279f5df2ee612af1b4451b3eef920f49 100644
---- a/drivers/infiniband/hw/mlx5/qp.c
-+++ b/drivers/infiniband/hw/mlx5/qp.c
-@@ -5874,7 +5874,7 @@ static void handle_drain_completion(struct ib_cq *cq,
- 				    struct mlx5_ib_drain_cqe *sdrain,
- 				    struct mlx5_ib_dev *dev)
- {
--	struct mlx5_core_dev *mdev = dev->mdev;
-+	struct mlx5_core_dev *mdev = cq_to_mdev(to_mcq(cq));
- 
- 	if (cq->poll_ctx == IB_POLL_DIRECT) {
- 		while (wait_for_completion_timeout(&sdrain->done, HZ / 10) <= 0)
-diff --git a/drivers/infiniband/hw/mlx5/restrack.c b/drivers/infiniband/hw/mlx5/restrack.c
-index 866252cdce52452968519c8e785068a27cd40a34..f38fe7f694bae29bf23b15dddc46aa541545f761 100644
---- a/drivers/infiniband/hw/mlx5/restrack.c
-+++ b/drivers/infiniband/hw/mlx5/restrack.c
-@@ -56,7 +56,7 @@ static int dump_rsc(struct mlx5_core_dev *mdev, enum mlx5_sgmt_type type,
- 	return err;
- }
- 
--static int fill_res_raw(struct sk_buff *msg, struct mlx5_ib_dev *dev,
-+static int fill_res_raw(struct sk_buff *msg, struct mlx5_core_dev *mdev,
- 			enum mlx5_sgmt_type type, u32 key)
- {
- 	int len = 0;
-@@ -67,7 +67,7 @@ static int fill_res_raw(struct sk_buff *msg, struct mlx5_ib_dev *dev,
- 	if (!data)
- 		return -ENOMEM;
- 
--	err = dump_rsc(dev->mdev, type, key, data, &len);
-+	err = dump_rsc(mdev, type, key, data, &len);
- 	if (err)
- 		goto out;
- 
-@@ -124,7 +124,7 @@ static int fill_res_mr_entry_raw(struct sk_buff *msg, struct ib_mr *ibmr)
- {
- 	struct mlx5_ib_mr *mr = to_mmr(ibmr);
- 
--	return fill_res_raw(msg, mr_to_dev(mr), MLX5_SGMT_TYPE_PRM_QUERY_MKEY,
-+	return fill_res_raw(msg, mr_to_mdev(mr), MLX5_SGMT_TYPE_PRM_QUERY_MKEY,
- 			    mlx5_mkey_to_idx(mr->mmkey.key));
- }
- 
-@@ -158,10 +158,10 @@ static int fill_res_mr_entry(struct sk_buff *msg, struct ib_mr *ibmr)
- 
- static int fill_res_cq_entry_raw(struct sk_buff *msg, struct ib_cq *ibcq)
- {
--	struct mlx5_ib_dev *dev = to_dev(ibcq->device);
- 	struct mlx5_ib_cq *cq = to_mcq(ibcq);
- 
--	return fill_res_raw(msg, dev, MLX5_SGMT_TYPE_PRM_QUERY_CQ, cq->mcq.cqn);
-+	return fill_res_raw(msg, cq_to_mdev(cq), MLX5_SGMT_TYPE_PRM_QUERY_CQ,
-+			    cq->mcq.cqn);
- }
- 
- static int fill_res_qp_entry(struct sk_buff *msg, struct ib_qp *ibqp)
-@@ -191,9 +191,7 @@ static int fill_res_qp_entry(struct sk_buff *msg, struct ib_qp *ibqp)
- 
- static int fill_res_qp_entry_raw(struct sk_buff *msg, struct ib_qp *ibqp)
- {
--	struct mlx5_ib_dev *dev = to_dev(ibqp->device);
--
--	return fill_res_raw(msg, dev, MLX5_SGMT_TYPE_PRM_QUERY_QP,
-+	return fill_res_raw(msg, qp_to_mdev(ibqp), MLX5_SGMT_TYPE_PRM_QUERY_QP,
- 			    ibqp->qp_num);
- }
  
 
 -- 
