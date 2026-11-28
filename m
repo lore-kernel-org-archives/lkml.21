@@ -1,121 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.163.59.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795826364;
-	b=WZbPRxc/igFmEloWjnq/swEHogeyZcbhI8mMPd16dQ3HCzzuXKXuKlB7zHy5MtiKWxIC
-	 Q8LgWxCqFJtyHov2XfERWsvzc9fKw+BhrqvkEuu8DynJyFFWjkVFiYjrx8y9rUgXY4/9D
-	 Hogn7xVUm2+31ZYZNxc+lK5bkgkcvQ4/PzGQ9uryFt7bPrYDR+75O5m18mZThUv1xTt5g
-	 pyOlNQdVyuyW3PsfgNaF9CJOseo6GQWg/h1gKecVfygwQM8v9gcFS0fngYM9Zi94UazQq
-	 hUZNfsZ0cC4L1ZPBmu1b1Ox6AC2yLa7kyWpEQhgnUdMomYgO/hfM3ipLBv1eZM5p5dA==
+	t=1795826431;
+	b=sRgygzYPdF8TvGtIIEz8VB2pCfQwpFxGoT0RcbVNjHUKojqYQ1BjjrZLuCiTcHXSIaDl
+	 nkdwllUE59Ih4YhTNoygNnATMAmv0VyQ5+758/tVoGQsrAm3mWJur2lHrJphAPs1aa7U+
+	 j4bNhFa6Vl8iNmX2Fh3r/IooNR60mybB9tI4iTt6pJZ0X0T/dRicImfFesB7ahmSbhZ6M
+	 YoJ2l/PkA3LdGDTIcClPAVRxZAaS11tHbdASSHV9oadtKl1qwUI0BPf+TKxjk28F1gH9H
+	 WBubuAeLAVLOkCEWRmBXx/NiunRqrS7Mw5+4/zFC/q6/I8kxQj12MIR+3oW5sqlfCew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795826364;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=aeeXEgRGrXBp0WNIg3HPkypWo0vJUr6jXxVIO9eyi/c=;
-	b=Tk1mM6FIQ0EOeu4+DoaxmNxs9IIrj98sLddwzVp+qIB9QJe3LPM/EdZ+3I5H/qR2vQte
-	 qZXpW4mwfe4VSCbc74/DdGqPufOUR2h8HyxRv0vyJdknuIxWj1TOU20JK9KHsOm8FEudz
-	 DHOys7aixXuXnAsQG/+UctXba2tw/YfW0p8l+bwegcUtMfkJuNrilbVjDtEciXe/FRVZs
-	 RfyiF4OQbmQWS7tU3GFFl9XdtPmTRMd5WDfJj3bzGi/wTkDuLUZMtoPrJS1ALkhw7Lnbz
-	 4isGZmPanttTobH5M4/POyqH4oVmMdGo0r7IB1qo0Su6+NhJyxIWLEZjVxdpA+ohIPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795826431;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Mailru-Src:X-7564579A:X-77F55803:X-7FA49CB5:X-C1DE0DAB:X-C8649E89:
+	 X-D57D3AED:X-Mailru-Sender:X-Mras;
+	bh=H2hZMntLjPLainFLIhHryA+8isJD850elzVs2K4qs+w=;
+	b=ERC/l/y1PYPnsRVNdy43FvVvP7u1fnJ6wO31/mqfx2x4XRRBs1j94bFaYOb8T96VTYMv
+	 mJhNc1MCSDWzoEXUaB1dms+eHuUUwDc45cT48x1HMwUlh6ad5TaaGK4lftmg+j4taiKjv
+	 1BxamvQPdqYkht2UX89BwFICWOYexLfhm5+PVz/Vgwu/jke9tS4RK541cx2j53f2dEAXB
+	 e0dU7MRFjwO0DtmEua8kxlBnN7aGrLTAPAP9aAqVeZIPMdU0S9kCIFxqJLg4CMm2s5i/H
+	 b41Bf7Q+kV3TMFkPUMUkfL4jaW/BlaC/+lEG1DdhiaWVH0yF93HJ7OmZuhMhauBkdTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.org;
-	spf=pass smtp.mailfrom=fastmail.org;
-	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=oMq3Tc3V;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=j+Sj57zA;
-	arc=none smtp.remote-ip=202.12.124.158
-Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
+	dmarc=pass header.from=mail.ru;
+	spf=pass smtp.mailfrom=mail.ru;
+	dkim=pass header.d=mail.ru header.i=@mail.ru header.a=rsa-sha256 header.s=mail4 header.b=N03gsnaG;
+	arc=none smtp.remote-ip=95.163.59.35
+Received: from send196.i.mail.ru (send196.i.mail.ru [95.163.59.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0AFE606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:39:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0AFE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 303CE606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:40:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 303CE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mail.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=oMq3Tc3V;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=j+Sj57zA
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 58C307A050A
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:39:23 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Fri, 27 Nov 2026 19:39:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795826362; x=1795912762; bh=aeeXEgRGrXBp0WNIg3HPk
-	ypWo0vJUr6jXxVIO9eyi/c=; b=oMq3Tc3VS/rw1Odc1HBgC7Nk9M7WpSBwLbDxF
-	Xdb5mmsT4hH21WK3hNHkDO3BOAPyzTGg092cGWKMGPMPg1SMNP0iBQWnUxMYSho9
-	ip/Ck4RvgosAcdB5lk161bzZPeZFQv7XnglNpUAVkZWmJ8s/J6Mo7gaZ4wQdgy1L
-	I7r64N+7CwJ4ICI+YyyeMENyq8gClSSH4wPbpov51ezJ5V35MuP4T5iP9F7qPUmK
-	RiCMTvFSBU+Ez6rOTMLxANPQ64amdSEB3SffdXd5Ul9RLuknfntShXArEb+F6a9v
-	UY0MkeSR4Oc6fTdOm+ruyKIG3sgT/mtXjGC+qY1nvQfGCmR9g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795826362; x=1795912762; bh=aeeXEgRGrXBp0WNIg3HPkypWo0vJUr6jXxV
-	IO9eyi/c=; b=j+Sj57zALFe5ugbxVWKpwaPrEeCq8hZbAc/ouhouwaDNSEBXp3X
-	s8zUMGw8zF/Elmsq7iC/pFNghh0xVodHKGxSqAF6ezz3t0ci4LdwxYV00ujl17VW
-	UA9XZdEkBI8rVKQdJ1sGm/sWyUFCSCoE1oZlCadRXUdF7ZkR/dgj4/psh0NgZp8i
-	6aqtVyOFX/zAndc5B/pOJFuqiWB7wZcScVaDY6yV/zYaNwd65y30zhMB+p8QyOb0
-	G7bRDc69SVdb1attyqA2Mg/4I6qujVhGMQe/IYtMV/c2cy7JKU4ZO/irAF9lZKAT
-	Tp1Yh5cq0yLWlUTOCp0V/nUZppMA7v8mOXw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795826362; d=fastmail.org;
-	mf=PGljYkBmYXN0bWFpbC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:wkT7z2gFllQ/4ANErQxCXiEGj8hPTUBSDteHrycXv1TwOYL
-	/fQB6ulargAFDWWsQpcBWuanwabZUykuCWnTBlON14AOtdJvT8coy32W8e7ZEkh8
-	kO95JWLNuZG6xc+Vy5Rx9ElNETTfTvuDrMWOAlylt+IyXVIYchFfKtCzIPNQA1Ry
-	Z18u0LSsTF4A+DY+wSThMIZ4yCGJYvLgJUzZAgXMx5P1Va90lREhXEfR4iN/iBGY
-	6McIyq+70yV1oqd3++B/lNFnyXnLLfQz2xyC/I3kKwDuaYw58AHTAWX0ZgAoQIOO
-	XVkz9+b287DxY8kNoDmp84R+XssGCfON4oZl48w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:gXaEZubuebzK0oJKahd3fl4fqe2d2VUQPEIDAYbIXTI=:55cN1rUFe0VIv/p1QQczzqnZDu49c3rQHebGxb15qBs=;
-X-ME-Sender: <xms:uSIKa29hvsNB2l8hHMK6tWk-6_ve8tjaVpA_WG1xhUeZN6smCRdnvg>
-    <xme:uSIKa3aknAbEtliy-uMQ7NzmaL8LTByvh1ZZhpwMhghFG-A9Oc-08E-d9FwubeuIN
-    TLaX8Nmsv54YKGOFg3DBnuk-_OtR2BAHQ1GkIYBSoUgB9hf1E_UlOZn>
-X-ME-Received: <xmr:uSIKa6Pe8MRqqiWeKaSnDLY4aGjiiaiVs3BFbKeEuJiQEQ2cqcddCCQJmm39uipF>
-X-ME-Proxy-Cause: dmFkZTEMtb+Bkbxw0xdEEkXjXievSQYOjZRG4/Key20VA66I2NYvrkjZYsQTcGwAvpJmAo
-    J3QjQNUCQaYURc5PBR4bM2//jlJIHxu+A7WRI7/I0eha2podk4asJJsKKOi0mDjqizjolb
-    n0TYkzc2uPrmcC7McEn7/OnuZ3gj9gcreywYBv/g3OwRwxBLQ95E43iNkrZZ1uKXJjzUxi
-    YM+Kjz+LVvHb4DNiBwAuvxtZqEgOhfy0OsZe/LHAm+7hWeW9J4KzmQCUXPSOCsgvDlBOUU
-    BOo9/2fJ4guM7XOC9LsBtOzrSDT7hfn29NAzDSrdprzHm2ii4j+bO8rOb/xtZBGJx54tNY
-    shkVN/trL0mGRWucjtgO5vAG67aybNDHlRQ2jMsLLu7zv5TMLc4+9eHb+OTvfZKmMJTGRC
-    C89Zfxhtei3XK2zeLhNiagZNslbOCfWdHnqbvliax+uCQxLF5CcmvBFeqh1rhdojSfyKUg
-    44I8BMrjSUVO7za0hr4hjKWdxYVZqlzmrYxs4N+qxW69XPdpx6uQ4PmoNsU+PB5oZSXzoV
-    qPAHXkW0HOMbebF7ShE2kxoOuE7rD0mDlJ57igCiE8eWo15rRUllDwVO6i0HTBagnS5MdY
-    g3L06nFsycVjKSlMx5T0xH2hb4VY471DoyQzanQXTL762JjsI7I8lGjMuu0g
-X-ME-Proxy: <xmx:uSIKazCdJi0Y2QxtnpkNCDLuumXaDGbDuzBGwPGND7lDzPmeU81PDw>
-    <xmx:uSIKaxJpxOa_m8WeN6T_gf1oKb7H2hi0-qBq5Rxr5sxGW3Hu_OPcTw>
-    <xmx:uSIKa8PjB78c-ysuJAgNu8KIehqB8oRJ9-XU3PqFYLKEqicFEisg6w>
-    <xmx:uSIKa_7pTRK5CnjIXhKBvnAzhAzTh-SUE5HHWBDl1fHFfMkbiXJMIQ>
-    <xmx:uiIKaxRy13-Z3qCrjeuBnRAn0J-3QDvoiV2R8EfcuEbCk1d7Upi-4CQh>
-Feedback-ID: ib53e4b78:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 19:39:21 -0500 (EST)
-From: Ian Bridges <icb@fastmail.org>
-To: linkinjeon@kernel.org
-Cc: senozhatsky@chromium.org,
-	tom@talpey.com,
-	chenxiaosong@chenxiaosong.com,
-	linux-cifs@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=mail.ru header.i=@mail.ru header.a=rsa-sha256 header.s=mail4 header.b=N03gsnaG
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mail.ru;
+	s=mail4; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:
+	To:From:From:Sender:Reply-To:To:Cc:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive:
+	X-Cloud-Ids:Disposition-Notification-To;
+	bh=H2hZMntLjPLainFLIhHryA+8isJD850elzVs2K4qs+w=; t=1795826429; x=1795916429; 
+	b=N03gsnaGoihcfnCZRuxlzdalr2RN41frKMIhDQFCWsvo1M6e/nIWWbiRo3cHWUSgIqLqajmBtBT
+	B/MF+wQCsv/ZFdQeahEZKUfPrA48wo3C0eJ0p/U0SxGLN/Gz6sxLAZFZ9xehaIyk03xu8YSfSGVt3
+	u9FrmyPGlOyar15S8+1m/OZnhnsfKybRhAPV3H8w/soE32pTcTCyTxMGMyCnGeHQ4D0qMfWobB1H0
+	pymkA1CqFyUrfsSyCuJ32LMf4QxdiiZBfejascStKvxEsFTr4ENSLh9NHKkCdRvP1rM7NI6OpgJH5
+	Lgj41LTeTKf87KXFmuGuFtIquO/kletulYng==;
+Received: by exim-smtp-canary-10-77684c7744-gggtd with esmtpa (envelope-from <listdansp@mail.ru>)
+	id 1xX6UG-00000000TLX-1fns; Sat, 28 Nov 2026 03:40:20 +0300
+From: Danila Chernetsov <listdansp@mail.ru>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Danila Chernetsov <listdansp@mail.ru>,
 	linux-kernel@vger.kernel.org,
-	Ian Bridges <icb@fastmail.org>
-Subject: [PATCH] ksmbd: don't create a missing stream for FILE_OVERWRITE
-Date: Fri, 27 Nov 2026 18:39:13 -0600
-Message-ID: <20261128003913.1684555-1-icb@fastmail.org>
-X-Mailer: git-send-email 2.47.3
+	lvc-project@linuxtesting.org
+Subject: [PATCH] lib: interval_tree_test: fix division by zero on a zero endpoint
+Date: Sat, 28 Nov 2026 00:40:18 +0000
+Message-Id: <20261128004018.135865-1-listdansp@mail.ru>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,43 +68,88 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Authentication-Results: exim-smtp-canary-10-77684c7744-gggtd; auth=pass smtp.auth=listdansp@mail.ru smtp.mailfrom=listdansp@mail.ru
+X-Mailru-Src: smtp
+X-7564579A: 646B95376F6C166E
+X-77F55803: 4F1203BC0FB41BD9D70A5F1A44F40AC4984B02CC9DA0F8A0E2091737D616347F182A05F53808504071A0CFFAFA803B0D3DE06ABAFEAF67058E84F7D53324831625BBD0028A0D3B59CD5BE68A8FD4D49C
+X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE7EFCED9770EA041F4EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F7900637AC83A81C8FD4AD23D82A6BABE6F325AC2E85FA5F3EDFCBAA7353EFBB553375669F88000598BFA233EB9F76B879C6F13A3D18A4B34A6A855213EDC0067123BB208EEF46B7454FC60B9742502CCDD46D0DA85A14DF5F041C99F6B57BC7E64490611E7FA7ABCAF51C92176DF2183F8FC7C012F9184CEE6480E98941B15DA834481F9449624AB7ADAF37BA3038C0950A5D36D5E8D9A59859A8B6042F1592492B88C63AA81AA40904B5D99C9F4D5AE37F343AD1F44FA8B9022EA23BBE47FD9DD3FB595F5C1EE8F4F765FC72CEEB2601E22B093A03B725D353964B0B7D0EA88DDEDAC722CA9DD8327EE4931B544F03EFBC4D579E834CA16AA0C2CCC4224003CC83647689D4C264860C145E
+X-C1DE0DAB: 0D63561A33F958A5D2AC1AA3E276420C5002B1117B3ED696F6E0810AFD27E444B91D2EB2DEE3878CC21EFC0AA0C58C2ABFBD89AD4F5B216C1E618B5D5F965AFD97DA6AD59C166F02B2D1C9E48B6DC60AE2A7E19323554B12787CBDA4B9FA07ACEB92124CBCF2EAAC4EAF44D9B582CE87C8A4C02DF684249CC203C45FEA855C8F
+X-C8649E89: 1C3962B70DF3F0AD73CAD6646DEDE1918E10F71CB4DF9F9677DD89D51EBB774225B6776AC983F447FC0B9F89525902EE6F57B2FD27647F25E66C117BDB76D6591E4B266248157916076BD09F9B1CB26D1DCA65A96FA1704FEE3C090777ADC209878E73AD5846AEB0B8341EE9D5BE9A0A5DF25E55392EE77DE665EC062CEB51BB26F6173994616A31C7CEAA0681F5848F4C41F94D744909CE04437D853D7CD20871FE3B1D98EC473624A389F0E278DBF4
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu53w8ahmwBjZKM/YPHZyZHvz5uv+WouB9+ObcCpyrx6l7KImUglyhkEat/+ysWwi0gdhEs0JGjl6ggRWTy1haxBpVdbIX1nthFXOcIETfglQORZ0zpDET4Zrk3igikrdHlWNVM5hkPswc/sl0Q2O/NArY=
+X-Mailru-Sender: 4CE1109FD677D277CCA829E46AA49FF568867F41D5623724B951B70A5BD4BD8EB536AEDD130063A915634F2D3208598DC53BD13D3F6EEB2F3DDE9B364B0DF289C95E31D8FCF52BE1594FB4C9F0DBF4120D4ABDE8C577C2ED
+X-Mras: Ok
 
-An open of a named stream that does not exist fails with
-STATUS_OBJECT_NAME_NOT_FOUND only for FILE_OPEN. With FILE_OVERWRITE
-the stream is created and the open succeeds. MS-FSA 2.1.5.1.2 fails
-both dispositions when the stream is not found. Fail FILE_OVERWRITE the
-same way. FILE_OVERWRITE_IF still creates the stream.
+The test draws an interval endpoint with
 
-Signed-off-by: Ian Bridges <icb@fastmail.org>
+  last = (prandom_u32_state(&rnd) >> 4) % max_endpoint;
+
+so last is in [0, max_endpoint), and then draws the start with
+
+  start = (prandom_u32_state(&rnd) >> 4) % last;
+
+When last is zero this is a division by zero. The result is undefined,
+and on x86 it triggers a divide error and causes a kernel oops during
+module initialization.
+
+Commit c1fff9794a16 ("lib: interval_tree_test: validate benchmark
+parameters") rejects max_endpoint values below 2, so the case where
+every endpoint is zero is already excluded. It does not prevent an
+individual draw from being zero. With max_endpoint=2 about half of the
+draws are zero, and with the default max_endpoint of ~0 it takes a
+shifted random value of zero, roughly 1 in 2^28 per draw.
+
+The same two-statement pattern is used in init() to generate the nodes
+and in intersection_range_check() and span_iteration_check() to
+generate search ranges, so all three are affected.
+
+The only interval whose last endpoint is 0 is the point [0, 0], and the
+tree allows start == last. When last is zero, use that point and skip
+the modulo. Behavior for last > 0 is unchanged.
+
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
+
+Fixes: a8ec14d4f6aa ("lib/interval_tree_test.c: allow users to limit scope of endpoint")
+Fixes: 82114e45131f ("lib/interval_tree: add test case for interval_tree_iter_xxx() helpers")
+Fixes: ccaf3efceefc ("lib/interval_tree: add test case for span iteration")
+Signed-off-by: Danila Chernetsov <listdansp@mail.ru>
 ---
-Tested on ksmbd-for-next b9eab18ab72e with KASAN. A FILE_OVERWRITE open
-of a missing named stream now fails with STATUS_OBJECT_NAME_NOT_FOUND,
-and no stream is created. FILE_OVERWRITE of an existing stream and
-FILE_OVERWRITE_IF of a missing one still succeed. smbtorture gives the
-same results as on the base.
+ lib/interval_tree_test.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-This patch was developed with LLM assistance.
-
- fs/smb/server/smb2pdu.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
-index f286f9818643..e073b96d92a6 100644
---- a/fs/smb/server/smb2pdu.c
-+++ b/fs/smb/server/smb2pdu.c
-@@ -3747,6 +3747,10 @@ static noinline int smb2_set_stream_name_xattr(const struct path *path,
- 		return -EBADF;
- 	}
+diff --git a/lib/interval_tree_test.c b/lib/interval_tree_test.c
+index 06f77fb3179f..a01ba4f16015 100644
+--- a/lib/interval_tree_test.c
++++ b/lib/interval_tree_test.c
+@@ -48,7 +48,8 @@ static void init(void)
  
-+	/* FILE_OVERWRITE does not create a missing stream (MS-FSA 2.1.5.1.2) */
-+	if (fp->cdoption == FILE_OVERWRITE_LE)
-+		return -EBADF;
-+
- 	if (!test_tree_conn_flag(fp->tcon, KSMBD_TREE_CONN_FLAG_WRITABLE))
- 		return -EACCES;
+ 	for (i = 0; i < nnodes; i++) {
+ 		u32 b = (prandom_u32_state(&rnd) >> 4) % max_endpoint;
+-		u32 a = (prandom_u32_state(&rnd) >> 4) % b;
++		/* A zero endpoint is the point [0, 0], not a divisor. */
++		u32 a = b ? (prandom_u32_state(&rnd) >> 4) % b : 0;
  
-
-base-commit: b9eab18ab72ec25abf431cba58e5239f695632f7
+ 		nodes[i].start = a;
+ 		nodes[i].last = b;
+@@ -165,7 +166,8 @@ static int intersection_range_check(void)
+ 				last = ULONG_MAX;
+ 			} else {
+ 				last = (prandom_u32_state(&rnd) >> 4) % max_endpoint;
+-				start = (prandom_u32_state(&rnd) >> 4) % last;
++				/* A zero endpoint is the point [0, 0], not a divisor. */
++				start = last ? (prandom_u32_state(&rnd) >> 4) % last : 0;
+ 			}
+ 
+ 			/* Walk nodes to mark intersection nodes */
+@@ -272,7 +274,8 @@ static int span_iteration_check(void)
+ 				last = ULONG_MAX;
+ 			} else {
+ 				last = (prandom_u32_state(&rnd) >> 4) % max_endpoint;
+-				start = (prandom_u32_state(&rnd) >> 4) % last;
++				/* A zero endpoint is the point [0, 0], not a divisor. */
++				start = last ? (prandom_u32_state(&rnd) >> 4) % last : 0;
+ 			}
+ 
+ 			mas_span.first_index = start;
 -- 
-2.47.3
+2.25.1
 
