@@ -1,65 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.212
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795857924;
-	b=ucrdTlE5yE1HGBoOzNLq3P3b3AxJiJ7WMbyr24qxFZd6wCdXcEC4LnMnr6DLJQNqU0WX
-	 kXkxxpG5ZHLl88biDo3UdjkkzHdGQAUV3v5otLyfszEGAdDJ5SurC+EdA2rIbSUykXaVs
-	 Ju8hA8bPVdmeBn4mXlPlah/kVYQ9cKIkFqCS6TroNBKImBkNh/bmOiyXBHqEILhEG2c1Q
-	 vmlqICdYIBbW9DVPbARcfh3TvKh1mb9vzYF19K562Qfe2R14yUOLDKq9UGCPn+TT4s+n6
-	 pVdWN25IZgxP450Z4szZmeMmzg+Beyrhsgse7ZJv8mtRi8B9k+CxiMkIkaL+B5srHHg==
+	t=1795857992;
+	b=w+ai0RIiZSAuPdoW5Y1T56yRZuTT7rzT39R9LGyfNv9B135TAQukt2G4J04sIvzyULtk
+	 FXdDLzIpXs7Mekxjr4hwUkqsnlfmYniyVpR067ZRTTyZzK2Ahi23ByCY5VAIUYr0AlBzt
+	 0VRZChFAZTR2vz2+vAS+lQro/4QN7GTaWP4hi04ishsIAObojDmlCZi9pz0sDaT7SxPbW
+	 04EIvVV4t3Xr/C62aIPLE2biEnouO4DRLOb+K6JoTqFHXr5VE6bLsxAYXtJ0t2FnnlJMd
+	 q49RbLAGYTyj8X+04ZPZpK4l5VgpdU+cJyYMLlbVMfYBqrr1bxvhb2DvELWZPCn9GoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795857924;
-	h=DMARC-Filter:Date:X-Lima-ML-UUID:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=dWy5vppk5Bd5EKXu+uZhGipgVqabP9s6/+f0QID0eVs=;
-	b=B/gGcF7i5iDRxKddHXBmDVR7DkWRn9jptqDwfV0qcL1i4aK4wFQr4Omx+ujqkqux3LQf
-	 sYTjHZNleaXzBBdg7Hse096eZxAs18NzHyMBU664ejuKRTp47ZBCUBKqMC6rZ77tLh1WH
-	 rNYFWKEkpMAh9oVAlDeprbStdSG+9ZvzfUeigU13V3aMrqOCAEyp/B5SlQRxkQzPNaZyn
-	 i5CnvTGf+/xNzaOl+iuu/D7npY1d822oLsb2S/l8U/aX0q2UgS0LkrSh6Hn9BmH/kYuV0
-	 yhZ0/cf0EfxRxU8m3eYRhxogWthIkjI7McYNMjbMN19ZFRTEeGy0TIEehH0Y3rl7+YQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795857992;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:Subject:To:Cc:MIME-Version:Content-Type:
+	 Content-Disposition:User-Agent;
+	bh=tdLkNGqwXWjcjO6fjZ/pKxrW+PPoYQ4yhJUHrTAmaIc=;
+	b=mORQi6OGAsAc51qsmQAapJobsZVZcZxI3PNVs6v0ju8GQVXugJOwfhMx1RjgwToN5a3D
+	 2BpJ4+jazVfBlt8bDY/0dsC/oh+yGgv85n8NtdfHVmWYZ/tAruRURuTbXAGwImR2rbrpE
+	 WCUoTSe1uDT8pGHq0VUua7P6No6NUjvFhzl8vsQryk1TdhNpjGa+/IoxD8H+80G5ElngQ
+	 ESbI98XMk2XKMsJNwF6oq5f5TnSxsDYuCfq0KfdAvOgwpSNBq/17LtYcH4Hh7GNpBLU8Q
+	 gmSBg5nmHIqb7kUrFPxXZ+MtKAAOgOxXo4w0Qjzb8RUwz2m4b42VUmszyEMznToYjdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=bDpsaei+;
-	arc=none smtp.remote-ip=91.216.248.212
-Received: from bulk0.mail-out.lima-city.de (bulk0.mail-out.lima-city.de [91.216.248.212])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=chrisdown.name;
+	spf=pass smtp.mailfrom=chrisdown.name;
+	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=XCSibyds;
+	arc=none smtp.remote-ip=209.85.128.172
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B8FE606A31C;
-	Sat, 28 Nov 2026 09:25:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B8FE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EB63606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:26:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EB63606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=bDpsaei+
-Date: Sat, 28 Nov 2026 10:25:14 +0100
-X-Lima-ML-UUID: 1454ecc1-9183-4fb8-a07c-019e95145569
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795857919;
-	bh=Og3u6C4I0eE4pTOJQJ6ILXthej354cxUmnYcEgJpV5E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bDpsaei+xs+AQRBejgA6MnnP3A+7i6QsfywCpCf/beA7C3nS5TR38Gh5IkXGDALvB
-	 Q0+F0N4GAsiScsz4R9C2g/PFreeXUREAZtWQVz6FhsG83DBYwY7qLl3/vCBAGF71OH
-	 hLzMz4oYCy2vi1gRTbFVb8vEQCEyK4M6ZTIU33F0MK1eK08VYlHT6PH3DzM3QjbWoI
-	 jOKMlgaxyC0eLnNMH1v02t/C4tc2Yo9VXJzu/jt41HmPKPd1vlRPXrsd1w3a+3LlJv
-	 BbRysuAc+8wHClfNBsfF8ewCQdASq8UtvbXZjS5NpMdij7GKON4zHwS7yYUzem/oLS
-	 2bgyaY/DOrptA==
-From: =?UTF-8?B?QW5kcsOp?= Eikmeyer <dev@deq.rocks>
-To: Borislav Petkov <bp@alien8.de>
-Cc: tglx@kernel.org, mingo@redhat.com, dave.hansen@linux.intel.com,
- x86@kernel.org, hpa@zytor.com, linux-kernel@vger.kernel.org,
- rafael@kernel.org, linux-pm@vger.kernel.org, lukas@wunner.de,
- yu.c.chen@intel.com
-Subject: Re: [PATCH] x86/cache: Restore AP cache state while bringing CPUs
- online on resume
-Message-ID: <20261128102514.30252d9b@kait2en-mbp15-1>
-In-Reply-To: <20261128011842.GBawor8g-JODmLyVCY@fat_crate.local>
-References: <20261111123747.49446-1-dev@deq.rocks>
-	<20261127150014.285304-1-dev@deq.rocks>
-	<20261128011842.GBawor8g-JODmLyVCY@fat_crate.local>
-Organization: KaiT2en
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=XCSibyds
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b4fb5d96b3so134489437b3.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:26:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chrisdown.name; s=google; t=1795857991; x=1796462791; darn=vger.kernel.org;
+        h=user-agent:content-disposition:content-type:mime-version:cc:to
+         :subject:from:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tdLkNGqwXWjcjO6fjZ/pKxrW+PPoYQ4yhJUHrTAmaIc=;
+        b=XCSibydsurMTONfd9P0H4TNm1a4sevJgxr35dF/UJ6OpmvZVzrGQDKYR9P+uW6smgB
+         tkWrFWE75OQdALnvjKTHHe4p4YeZjEpcUwhZFrSeUOZUC3Gi1m8SsBq+o6lsQqBUpsst
+         eaORUg1tiO3IhYzxVLMpbBNp/eEl3UICcmxgE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795857991; x=1796462791;
+        h=user-agent:content-disposition:content-type:mime-version:cc:to
+         :subject:from:message-id:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=tdLkNGqwXWjcjO6fjZ/pKxrW+PPoYQ4yhJUHrTAmaIc=;
+        b=BZ4PqVmf8oewtXmF2aLCAHSS3J2UOWEjfny2R+GmnVXmQTNFiSm1uLWb+gXdVSRdNk
+         hudqr/DMDFhG7Vxl9No4vu20K6DLPk9FNu78iXg1J+/UtoP6vOJIqRZOqpwkU1PiQh43
+         eNjm/lWfX0ico64w9qV13SHr+/i+JTZZwZasOO+5kBfBI3yGW8PEEahCvru8vAdGR4QK
+         wc+r1gsyCO4iPeysW3RQUEoggRUSLWqX8SzRrR8TdutfSQXe5dQmbjWLUps4mPQ6AEU9
+         3kGzzbo0wspUhTSPMpjVCeQCzHZCRokijfdlFOXvyNzk4YAZSDZEJfObRrchJH0UdbmA
+         0iWA==
+X-Forwarded-Encrypted: i=1; AL+hErG/9BKCLiMWfVMps+T4KGe7MfPi7Ofh0j0AK/+cv9WFjF3dMypgySFF4e5uRdu/spQAeMDOJ3PO+BSQW7s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EneNS4VSeTp543oPgcr+YeF/6VWJnC1YqmjxBCp+bTuwoAVQi
+	cWSTltt2nb9fnQz3AeL7axSrQ3hwcyNMgtw1ZD0JCMNIPwYs+IEU5/040aItHTy/keQR5lp1V7E
+	oVTkGqKnCcfpp1m4=
+X-Gm-Gg: AZFdTZelccrQyQjT4NUqFb4LV5rL68WZKVwmS3MKf0TZm7SUsHKx5tiKf01Nxfgxg8P
+	EuitarRvERjHPBOxGdSEu9KbT390sfK8TbbBby31UFe4wMObnVSi0k61DU7ziKatpxZooG/WXJ6
+	A9ZZ0J1YKFenaH0kKTuYLlfZD2WANPEee4IHOQljPw1dE9xknkNECbpvmuxbVtd69apWzh5lu65
+	lsDPBH9HjMwxYR6a5Xr0mwCEMd5ITAdFYFo3zJuhd/v31y5CI2milIm//kuiF5ub4pMRGf0eIgp
+	awSaqVQQhzQRwNUgDgheWRhLQuMjGQWaXBOrQMJA6sVsgusuF7p8NO93a1saC5OmMQ7I2X0c+DD
+	VrOHzlHc36YvoBD/B2Qy98ANatScb5Gzial8xBk3wB3wHsO2aWmnInzC2wuZpm3VUBeJusN1dJ5
+	gelHQmc29rPkKuLnmu1yCMl8jl7N6aJPSAdFSiw9M4Wtb9hwjeNNJ4XqP2XM1x+woBMmpHZxK9k
+	xP1gR2n5xflZruIQ2JDBk5lavbelt0qoi1y8kEFTJGmKf6GZIb8Bq+pD/nRTYts35eMYpw3TP0M
+	tznvPqMC07jAtipBc4O2tygDgh0K4pUk2HP0DcSD5p3tgxY8nr2wmDUd2MuPoZMMdTTgJKL2IIt
+	ezbctrrr9wiBkVQoWYBdNUlsYMLFGD3pEdWtoCWUdTK7y+WzLt1eM/hXK33ref/LBUzJHemZ9Zx
+	38xlUUKLbEY0rg9ngJrUL4rKJhFjXeBhenepm5emN4wfCtzTbfxlluXTOh6autTPglvEdDJGqQN
+	LlSl2eJeTgJaeJUAw+8nQk=
+X-Received: by 2002:a05:690c:6d83:b0:8b1:6c4d:6b83 with SMTP id 00721157ae682-8b518f1cf54mr110028987b3.24.1795857991028;
+        Sat, 28 Nov 2026 01:26:31 -0800 (PST)
+Received: from [172.20.0.3] (c-73-207-185-9.hsd1.ga.comcast.net. [73.207.185.9])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201bb6c7sm104732457b3.6.2026.11.28.01.26.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 01:26:29 -0800 (PST)
+Date: Sat, 28 Nov 2026 01:26:29 -0800
+Message-ID: <cover.1795842371.git.chris@chrisdown.name>
+From: Chris Down <chris@chrisdown.name>
+Subject: [PATCH v2 0/5] scsi: sd: Fix WRITE SAME(10) data corruption
+To: "Martin K. Petersen" <mkp@kernel.org>,
+    "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>
+Cc: Christoph Hellwig <hch@lst.de>,
+    linux-scsi@vger.kernel.org,
+    linux-kernel@vger.kernel.org,
+    kernel-team@meta.com
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,57 +98,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-On Fri, 27 Nov 2026 17:18:42 -0800
-Borislav Petkov <bp@alien8.de> wrote:
+With scsi_debug and 512-byte logical blocks, a 1 MiB discard at 2 TiB
+succeeds, but it's the first MiB of the disk that gets discarded. This
+happens because the starting LBA wraps to zero, because it doesn't fit
+in WRITE SAME(10).
 
-> Yes, why is your change correct for all x86 out there?
-> 
-> Yu Chen in his original patch at least tried to do some git
-> archeology, you're simply axing them off because works-for-me.
-> 
-> Sorry.
+Write zeroes can also run out of bits for the block count. With a
+0x20000-block WRITE SAME limit, a 64 MiB hole punch sends a count of
+zero and leaves the whole range as it was.
 
-Hi Boris,
+Let's only use the WRITE SAME(10) modes when a 32-bit LBA can address
+the whole disk, and keep the queue limits and the modes in step so that
+requests fit in the count.
 
-No worries, I get you. I should have provided more background info. I am
-not trying to axe them off. I could simply use your help.
+v2:
 
-The patch refers to this discussion with Lukas and Chen Yu on a patch I
-sent for early CPU offlining on T2 Macs
+- Don't select or accept the WRITE SAME(10) modes when a 32-bit LBA
+  can't address the whole disk, instead of checking each request
+  (Christoph)
+- Clear max_hw_wzeroes_unmap_sectors when the zeroing mode doesn't
+  unmap, since the zeroing mode can now change on a resize
+- Change the modes with the queue frozen, so that queued requests are
+  not sent in a mode they were not sized for
+- Disable discard when the granularity is above the discard limit,
+  since the block layer doesn't split discards in that case
 
-https://lore.kernel.org/all/aoCJGj8HixmJ9oaZ@wunner.de/
+v1: https://lore.kernel.org/r/cover.1794069087.git.chris@chrisdown.name
 
-This is what I found in the history
+Chris Down (5):
+  scsi: sd: Fix stale max_hw_wzeroes_unmap_sectors after a mode change
+  scsi: sd: Fix data corruption in WRITE SAME(10) write zeroes
+  scsi: sd: Fix data corruption in WRITE SAME(10) discards
+  scsi: sd: Fix WRITE SAME(10) count truncation when the mode changes
+  scsi: sd: Fix unsplit discards when the granularity exceeds the limit
 
-- d0af9eed5aa9 made each AP init a stop_machine() rendezvous as the SDM
-  requires. Boot and resume delay the AP init until all APs are up. So
-  one rendezvous covers all of them.
+ drivers/scsi/sd.c | 75 +++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 66 insertions(+), 9 deletions(-)
 
-- The delay assumes that the APs come back from S3 with usable MTRRs.
-  Some firmware leaves them uncached and each AP then runs uncached
-  until thaw_secondary_cpus() ends. Lukas saw this on his older
-  Macbook Pro 9,1, I see it on the T2 Macs.
 
-- Chen Yu's v4 from 2018 did one rendezvous per AP on resume and
-  reprogrammed only the incoming CPU. It slipped through the cracks.
+base-commit: efd68f17acca65f581b9f2fa9ba50c8643ab544d
+-- 
+2.56.1
 
-- Since 0b9a6a8bedb, a rendezvous outside the delayed phase
-  reprograms only the incoming CPU. Without the thaw hooks resume
-  takes the same path as CPU hotplug.
-
-You will agree that a resume from S3 taking longer than rebooting is
-annoying. Especially on a portable device. It's getting worse the more
-cores a CPU has. Like exponentially worse. We see 30 seconds on a 10th
-gen I5 and around 3 minutes on a Coffee Lake I9.
-
-However, the only drawback I see is one rendezvous per AP instead of one
-for all. I can only test what the T2 community and I have. If this has a
-downside on systems that are not affected, please point me to it. As
-is, the patch is small and fixes our stuff, from what I thought was a
-good thing to begin with. And we could go from here.
-
-Best,
-Andre
