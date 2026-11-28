@@ -1,64 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.218
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795834633;
-	b=XFZP2dkAqKkQupr4H0HwRPZfevSqu1DSKGfBR6cxqIUBBybe8L+AEcR3k2trSUe+q5Kf
-	 IrrCpoJaZ9HIXni2HgKkKpXhyJN9oKoshtj/wKsNC96YPfWYpECRMjgXtqo/aqcL6agxf
-	 etzZqxuiUygmx+YnvtCWH0D9fUX1hoaH5b4JDaUwrEEQT2Hmhw+Ivy8QApuI8Itlh3D4c
-	 xojvIRlszPPUcJMy488gaX5aTvH8l42/gJqqeW+COtWIq4Z1rwy+79XTO4bcoebjoVlFB
-	 rrip16uu6tCugYxJfEVWaPuJAS83kmtVNqWZnZCtOf01ShMY0PYHlWkBXpvcS9lyJIg==
+	t=1795834714;
+	b=N4PNFugUAn/VSnvPz6OpB6OggSwPLVIGt026jeH4GqCkB/8lJXd2n3sWkyueqI4fBTEo
+	 S2k0lYfV/BAg9973+GMOEDGG/k4UOE5H86IwryacbgWWJsHlQqxwC/zWXVDSuBd0rBwSe
+	 Z9RcitkiO8s6IyvP+SG3w33BT/IMTEqdEVQtOECrJRiM1pBOq0duj8+RyoYNCzV8us8dp
+	 XpW9t0AZzYDNEu63vhHHwJIE3qg7FUtcR6OksURR/MjjR/loe1f0zioGTpsSjmvszAtux
+	 q5K5zV2lxTDfwu6YJ/B6AcZWDFbvuH8A1pMmWQihAaVqAVCoiBV2he0QYzgwWb/JI1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795834633;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=TEVRiiwR27pO3qj4uIut0otLLl5Ia7Ba2IoOxSLJZTQ=;
-	b=ZGq2zcEzd4XDWQJ3NdvWtwimGKb1ZXHrcMBY3mifDh9odUej7waJ5d6kop2RsSRgNzLR
-	 x09zq69ghPjwiIpzAOj8FTyYCCAXQZaG2nkkENC0jseLmnaWjAMq3MVuFWO/Pl61CDAgk
-	 +ITvAPCHzySAXApC7aUuUTt5xl9YsAYfIwJixSfR4DgWXUliVPwE7s23w2buUi9EST1/7
-	 4joGOW1E2j7JKPjSHBpq2SPrpxJYuqir/8WoW+Jjhz52dDEQsWGn5eKPYF+2pUElD9gzm
-	 UaciApyXnyFsdyX2Q32tldsNZJrk55RI7GX5GuUaxEgeMZiuzoxkNzZl+bzSGLlhHwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795834714;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=iXm9bjNklHkCJkXC6cXS/6l9msjPSXzfutfiuU6LTJE=;
+	b=ljz0UTdzI3pQ16tCXXiTq8V0Rwflw/dSo3XJUc9Z9hNILd7mIlwD5TyjQfZTwRin3Rjo
+	 wbdyXDXuOjinWdyTUUZJuFtuDfJWeGQ33IGQhIRxULExle/mT+3FVZjevdP7EJcFQ1uOr
+	 mrA+PDHMaVl6Nhn34XtatNeSwQnZJSE+VjjgBAB1rq6grM/k9gLVrpMHnGfPS9lyYs5Lq
+	 k4Mxx+pJyVAZed27z3j+BQVP2B0MWrMU4+eo7elQwCSKBFZ/lbr+IjbzZXt0gLm9J6/UL
+	 so8oZBu4dVNsUGlG/l+QGEf+GbLTCialvEnGVKJrjVf8SZoo8Wxt6u7SoK+RfC/j3wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XGw68F6F;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=SfKvHHDA;
+	arc=none smtp.remote-ip=113.46.200.218
+Received: from canpmsgout03.his.huawei.com (canpmsgout03.his.huawei.com [113.46.200.218])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 428AB606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:57:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34B99606A31E;
+	Sat, 28 Nov 2026 02:58:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34B99606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XGw68F6F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F34371F00893;
-	Sat, 28 Nov 2026 02:57:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795834633;
-	bh=TEVRiiwR27pO3qj4uIut0otLLl5Ia7Ba2IoOxSLJZTQ=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=XGw68F6FtkpZtoscfmzVpeD9AXW7jZ9N2IACG3rPiX9JsA7DImgrbwQUGVi6MtTbG
-	 1M+f3iB9EYaCPPrw3mfHP7SFaclhYA27dydvagper95laYFRdDNCtfvbu4FxIyf8rP
-	 04/9ukGLNmNvu11ACxfYKwxeXI+xXwdLfFIV5hPKNqdlR4t5DZ5nmtMuibnvqvZgNF
-	 ZqOrU0XHa31zif7wx7Dy/cDBeBg14GwfumvGlvVMGHOPzDGTz5vHsrbAVa0NHeLxDY
-	 eNcldCh+e3I0++krdz6Ij3PjYQTZHwTv2erK+7vMtwYxXLwo0fbMWuYeCthEenv1Ya
-	 SeK/7kqlSMI7Q==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB9F7392707B;
-	Sat, 28 Nov 2026 02:57:12 +0000 (UTC)
-Subject: Re: [GIT PULL] tracing: Fixes for v7.4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20261127172900.433b05bf@gandalf.local.home>
-References: <20261127172900.433b05bf@gandalf.local.home>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20261127172900.433b05bf@gandalf.local.home>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git trace-v7.4-rc4
-X-PR-Tracked-Commit-Id: 76a0a6d58318fff8b14530ed9b99c7065995db29
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 673af170ceca345ce010aeeb1818172844f6b8c9
-Message-Id: <179583463166.1775590.13386320384705853474.pr-tracker-bot@kernel.org>
-Date: Sat, 28 Nov 2026 02:57:11 +0000
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, LKML <linux-kernel@vger.kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Morton <akpm@linux-foundation.org>, Andrea Parri <parri.andrea@gmail.com>, Jeff Barnes <jeffbarnes@linux.microsoft.com>, Vincent Donnefort <vdonnefort@google.com>, Yifan Feng <evanfengff@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=SfKvHHDA
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=iXm9bjNklHkCJkXC6cXS/6l9msjPSXzfutfiuU6LTJE=;
+	b=SfKvHHDA5DZy5PHVuUfUp7ZJIYPFO/O1wYHgqxN6U4/eJpLR+3Ela1UpPw9XS8p/TtJJrEZrr
+	gDPn1UZB2A8lTM0A3I9jkCqzQxTZVWI0Nmo8f3SKrZ6KPSFo+ihxjnn+PVobzzgk/65BELmIsiR
+	LEeIYm+6onwT1S/RxJyVyGY=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jbw1Y64lPzpStH;
+	Sat, 28 Nov 2026 10:57:21 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 102B5202E6;
+	Sat, 28 Nov 2026 10:58:29 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 28 Nov
+ 2026 10:58:28 +0800
+Message-ID: <ad0126a1-0d5d-47eb-87fd-1df6ccfece02@huawei.com>
+Date: Sat, 28 Nov 2026 10:58:27 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,16 +61,103 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 4/8] crash_core: replace for_each_mem_range() with
+ for_each_mem_region()
+To: Wandun Chen <chenwandun1@gmail.com>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<robh@kernel.org>, <baoquan.he@linux.dev>, <rppt@kernel.org>,
+	<m.szyprowski@samsung.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, <hpa@zytor.com>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <pasha.tatashin@soleen.com>,
+	<pratyush@kernel.org>, <ruirui.yang@linux.dev>, <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
+	<linux-mm@kvack.org>, <iommu@lists.linux.dev>
+References: <20261127090723.741253-1-chenwandun1@gmail.com>
+ <20261127090723.741253-5-chenwandun1@gmail.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20261127090723.741253-5-chenwandun1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-The pull request you sent on Fri, 27 Nov 2026 17:29:00 -0500:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git trace-v7.4-rc4
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/673af170ceca345ce010aeeb1818172844f6b8c9
+在 2026/11/27 17:07, Wandun Chen 写道:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> for_each_mem_range() skips MEMBLOCK_NOMAP regions implicitly. Switch the
+> weak defaults to for_each_mem_region(), which exposes struct
+> memblock_region and per-region flags, and filter NOMAP regions explicitly
+> via the new crash_should_skip_region() helper. This prepares for a
+> subsequent patch to extend the skip filter.
+> 
+> No functional change.
+> 
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> Acked-by: Baoquan He <baoquan.he@linux.dev>
+> ---
+>  kernel/crash_core.c | 25 +++++++++++++++++--------
+>  1 file changed, 17 insertions(+), 8 deletions(-)
+> 
+> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+> index 8a861a946e26..e161c8b65e00 100644
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -283,25 +283,34 @@ static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
+>  }
+>  
+>  #ifdef CONFIG_ARCH_KEEP_MEMBLOCK
+> +/* Exclude NOMAP regions from the vmcore. */
+> +static bool crash_should_skip_region(struct memblock_region *reg)
+> +{
+> +	return memblock_is_nomap(reg);
 
-Thank you!
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> +}
+> +
+>  unsigned int __weak arch_get_system_nr_ranges(void)
+>  {
+>  	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* crashk_res + crashk_low_res, +CMA splits */
+> -	phys_addr_t start, end;
+> -	u64 i;
+> +	struct memblock_region *reg;
+>  
+> -	for_each_mem_range(i, &start, &end)
+> +	for_each_mem_region(reg) {
+> +		if (crash_should_skip_region(reg))
+> +			continue;
+>  		nr_ranges++;
+> +	}
+>  	return nr_ranges;
+>  }
+>  
+>  int __weak arch_crash_populate_cmem(struct crash_mem *cmem)
+>  {
+> -	phys_addr_t start, end;
+> -	u64 i;
+> +	struct memblock_region *reg;
+>  
+> -	for_each_mem_range(i, &start, &end) {
+> -		cmem->ranges[cmem->nr_ranges].start = start;
+> -		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> +	for_each_mem_region(reg) {
+> +		if (crash_should_skip_region(reg))
+> +			continue;
+> +		cmem->ranges[cmem->nr_ranges].start = reg->base;
+> +		cmem->ranges[cmem->nr_ranges].end = reg->base + reg->size - 1;
+>  		cmem->nr_ranges++;
+>  	}
+>  	return 0;
+
