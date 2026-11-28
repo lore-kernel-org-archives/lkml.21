@@ -1,61 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858587;
-	b=qaC6qu31aNN0YPttU9bsXZTv/Hdc6Oy/uMbQ3oQA4yDZdfk+06FsCipYUBF1PNXNDJGy
-	 METkjfwUThRXiRFAkZYQNi+R/xoPj79xASblNLmxGj3ccflyZ54KOXfYbWs8sHdrrJcId
-	 WMlK6ltjJxGhVw47m6D8o4QoKwse78BHF0wlv3/UQuakhpw4BUK5hPGKY4wrd2fx+xgWx
-	 +tfaH1qWuo/jqDnrTUssOAGB45lxIa2YjXLJ2B3xSBNH2jntMygPptxyQXHPXf8bQMJea
-	 TuXZjRgpTAb8YHvbdBHtP4pDpYqMe78rGPAe9W1I9awPaWOU2zcW4yJCFzUTCqVlfgw==
+	t=1795858620;
+	b=c0Bz9OLM9rOrTTnUwI86sURhEXEEmaiSuKfJs/48WCBJljtlh7TJZtV4orIJ5saXNoHJ
+	 yJtEGaJxgQJZEMWOUedtxOo6EjJdEWsMW0UacNF5EXBCFwFNKf6PhJUg24ukzOXncrvqS
+	 p3Qn+wk+DZwVKnRn5s1yzUdlXtC5uGGk0AfYYGWXs2JQWxHlG+O62PuN7Qx79d6SISSxW
+	 xylKiEfs8UMrDIhTxsKvY3tlMrDySvCWXVnRZ7vjeohhHHHCmYM66raA+Mdh8CCyzPy5Q
+	 B6cnqqTUYD7cjnNxhso4SQJ24N9yJX8GWek/5xfp9rrmBxt3OjYgIoGIokdQjOGUWig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858587;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=DVKtRB77pjKumLl0InNIzwfOdZ0b+h+a09XoRP57V3Q=;
-	b=s/SW89tSixlQ/AgAsUblyHL6wPKQmkU1o0LhdSDt08rSAGrLwhKZjsW1759bExErEBSx
-	 pRKFVGNQMuVidZYhWo5dWmUQL2Ae9AM/jI7iV3nfI+9RaiF6kF5l48kqmeXQi50G74i11
-	 x7td9pMLo4epIS29hXrLZmWQHl3oiTyHunsPQSOnMNnshNxT1bmW/qUcD3TfwEdPkfj17
-	 otCx7zPa+fKEqX5spMrJsQtistABrDMgyHXuSuW8GENZbCO1pFu8dvyOGjgvU2h89rKge
-	 zOUzGOopc/bDjQ6KU1ZaYV0zd4g/IaTdixbt7MVOwrKixFJmUT1QMaf0OBf+SpCbB1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858620;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:Message-ID:From:
+	 Subject:To:Cc:MIME-Version:Content-Type:Content-Disposition:
+	 User-Agent;
+	bh=aFuH3CwyqkMoGdxfnHGMpD/JLCCKLuO9Rr2dCftzpuI=;
+	b=KXWB4XAez/D8/j6tjS2XtOP9hNkT6mOP6k6W5XYMvWEPZ88z8MmKI4SKyljdSh3KoPwq
+	 jmgkjxqVsnmc17U3r/90JTbQ/oQcTwJA030KR0U5VL7Rv2dpOW1T7JqEMfQP618tBwFvm
+	 dy5ulHP3vqCaOQ9ntI9gp0sozrbhd88LdVyiAwtHCDEvPXXR0IRWX3sPW3Qi93N+RZ/dT
+	 6XPnpQoO7mmb3cMT5XEq2SPkP4isCIS7qyqbnSXylnCmXCOwb+fKJQiBsyn1tCOKUcX0X
+	 4uXK90igztlYR1HYlcUEzB0oih/seygylZ3S4N+9ufS3ni2rpusxF+SeJF1WxYdh3eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e099H928;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=chrisdown.name;
+	spf=pass smtp.mailfrom=chrisdown.name;
+	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=JikK7AiD;
+	arc=none smtp.remote-ip=209.85.128.178
+Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5123B606A32C;
-	Sat, 28 Nov 2026 09:36:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0F58606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:36:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0F58606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e099H928
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C832F1F00898;
-	Sat, 28 Nov 2026 09:36:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858586;
-	bh=DVKtRB77pjKumLl0InNIzwfOdZ0b+h+a09XoRP57V3Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=e099H928jPFmoT7jqR3wrxa76wXy7PWyyLoc1j71uvisiJy1MxuLKx5ntf9l0Ng/C
-	 ckk/zIKeZR1qpgbA4JpysmKonK8ggAHz4JYG39A1B/hYLH20czOt0S01Z47Ywqs7RC
-	 0WeJHg/RgAGFapL2FQx18xgcwR4LND/DvlSOyac99Oj9M7h6e6A36e5jiz6bGzZNDM
-	 tPP6JeFPhl5giT8zlJHg26QAdDU5HxhjIoxFtw4sRNb8ivuqDymvUAhr9qtFBwaklU
-	 94i/fEo8+8lMJApsv+zE72vlGjbny23XsEgkhKzST+TCJkAkrYmjVJsJiQb0y/oESc
-	 uz3XmqRt4R//g==
-Subject:
- Re: [PATCH net 2/2] xfrm: fix use-after-free in xfrm_lookup_with_ifid()
-From: netdev-bot+sashiko@kernel.org
-To: n0ps1edzz@gmail.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- kuniyu@amazon.com, steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, willemb@google.com, liuhangbin@gmail.com,
- ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:36:25 +0000
-Message-ID: <179585858536.3135.14235570619606863005@kernel.org>
-In-Reply-To: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
-References: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=JikK7AiD
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b4cd576f2aso63969567b3.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:36:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chrisdown.name; s=google; t=1795858619; x=1796463419; darn=vger.kernel.org;
+        h=user-agent:content-disposition:content-type:mime-version:cc:to
+         :subject:from:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=aFuH3CwyqkMoGdxfnHGMpD/JLCCKLuO9Rr2dCftzpuI=;
+        b=JikK7AiDXvJDf/ciqvCah0/KWbCdIMfKgZGcXs0V9aYVk6ytiwQ6DTBuSrUkytQBfJ
+         PMzhzsA+Tt5cyubk3p4ThBmzd1dmMF9425d09sXLUjV6+8ZA347gWoSbmjGlyj6gGOcA
+         mUG+o4VpqAbnIZedNFHL5fcwb8iR8lTSrbaaM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795858619; x=1796463419;
+        h=user-agent:content-disposition:content-type:mime-version:cc:to
+         :subject:from:message-id:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=aFuH3CwyqkMoGdxfnHGMpD/JLCCKLuO9Rr2dCftzpuI=;
+        b=kZPqb70mnZlBzBjYTQkkC7jleRYGU+4O/+rDMzSH8k2USGpo3pjnP6G9ukNpIjDU8m
+         s/v2OJy+fxChETMFdI2S5y8LfFMuvKBJCDh7hlsTBn8NQY+SCCipwvwYABqiarU3HI8m
+         JOmjOspDqJgqTQDjkaSw0y+s5omLXU3QI8vJglYQqHtHPaXoOBImvZ6Tfb70NrsWLJv4
+         +D+3iW0dV5z9LoeAC4hk3rAgHa6ON5n0KcFOlZLibo/XtFy3JDFKMxjh4iGHWdloRe9G
+         IMVbzuvBEjpax64JMymXj8IREUE1FrqRsJ0jfHxfwm7n8zF7lEO3fes8MxCZZjy2LCxi
+         302w==
+X-Gm-Message-State: APuU4Z9MruKkL3WU9g3xbi1YjzwCAepW4CaPEzOJxlUphA2J5JH9vLxQ
+	go7+xTbkupau22+Pd9R361BNS3TDUJMT5aV6wVjwYbm7OK3QTAzvjOMXNTEuMDWXzKo=
+X-Gm-Gg: AZFdTZdiIO05xjnATt6D5RfmDXjMwhVd7Be8xAAez0kJfSMWyV/T0xxf4Ej7ATlRKLx
+	9N+FRlkrvPNubs69CtUNc/8sPxEtAQ20LLLoVrKRQuJTBrOTwZVuLnyHpuE3kvdPgjyWOGy6Suq
+	sbPOCJEksvjZ6usX+XlZE2OQyaBWuQihggndeqEAm+McMZDiEgWr9GDcAA9sTcym0BssKNSmJvJ
+	18fJ5Y1jfDxsW6lnSpiWOgGqPtfKSS9SOldXMJajbZVlXI0O5lFuMv5WdwW8XbaMPl0C7ugdK4E
+	PeG/e9tSDDI+xOkBM4yE8+8n+GHJpFzxcglteGUkesOxj+9Yl0F2AiwuJK305YEDflASe9L+OXw
+	fKyBRihA+LbOjClsxgsXrM6hdsjX1TQ69rfIcAk9Edxq2aV+2VnvRJygQko7OJAXny7ca5YWHWo
+	YzlPv2DZcIBqZoyPSf7IJqTmIrg6PeiWHVbwzmz5F+Hlpr1BRlWr3aO3iJ/a4BX8MMBWcplApDn
+	03xxFTQNDivnSw02YTY0bsh1fMEIAqa3rMzHaAklzdQDHcbJP5tlLjDMPQIQMVOUaqNzGCiskUz
+	Qou3QBiDKzGqkPH22LfCH65gEyUzJivYEAsR+a4p8b6NAA+jWDQH76YDHjL1SxABReCkzn6m4fc
+	UG8t9RyO17fA0SxwFgQEfYdNBnDIRTd5B/Cu0+tcUXpKffy57A65+JP2o6Xs8ctVIF313TrLych
+	Tla6tZHXL3VX5mK7wyD+E4n0HbzA2YBVbH/Pq/0PdS0OUKU1zu5kjG1QQ4EIfwkNtOKIdCg/esU
+	63rJdTS0t7ko4r8avorZOd4S2clNg7jqEK6+N6Ou2Xw
+X-Received: by 2002:a05:690c:4a03:b0:8a8:5c3d:903 with SMTP id 00721157ae682-8b520519690mr101400097b3.62.1795858618844;
+        Sat, 28 Nov 2026 01:36:58 -0800 (PST)
+Received: from [172.20.0.3] (c-73-207-185-9.hsd1.ga.comcast.net. [73.207.185.9])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201ba5c1sm105483647b3.3.2026.11.28.01.36.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 01:36:57 -0800 (PST)
+Date: Sat, 28 Nov 2026 01:36:56 -0800
+Message-ID: <cover.1795855037.git.chris@chrisdown.name>
+From: Chris Down <chris@chrisdown.name>
+Subject: [PATCH v2 0/2] timerfd: Support CLOCK_TAI
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+    Alexander Viro <viro@zeniv.linux.org.uk>,
+    Christian Brauner <brauner@kernel.org>,
+    Jan Kara <jack@suse.cz>,
+    Anna-Maria Behnsen <anna-maria@linutronix.de>,
+    Frederic Weisbecker <frederic@kernel.org>,
+    Thomas Gleixner <tglx@kernel.org>,
+    kernel-team@meta.com
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,134 +99,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Both hrtimers and POSIX timers accept CLOCK_TAI, but timerfd_create()
+rejects it. An application with TAI deadlines and an epoll based event
+loop is left with two options. It can convert the deadlines to
+CLOCK_REALTIME, which brings back the exposure to wall clock jumps it
+was trying to avoid, or it can stop using timerfd.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Patch 1 makes timerfd_create() accept CLOCK_TAI and makes
+TFD_TIMER_CANCEL_ON_SET work for it. A CLOCK_TAI timer is cancelled when
+CLOCK_REALTIME is set and when adjtimex(ADJ_TAI) changes the TAI offset.
+Nothing changes for CLOCK_REALTIME timers.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Patch 2 adds a selftest for this.
 
-- [High] The patch does not fix the use-after-free it claims to fix.
+There are two existing limitations I noticed which I have not fixed here:
 
---
+- Relative CLOCK_TAI timers stay on the TAI base, but hrtimer_setup()
+  moves relative CLOCK_REALTIME timers to CLOCK_MONOTONIC. That makes a
+  relative CLOCK_TAI timerfd expire early if the clock is stepped
+  forwards. The same happens with timer_settime() and clock_nanosleep()
+  on CLOCK_TAI today. TFD_TIMER_CANCEL_ON_SET does not report it because
+  it only applies to absolute timers.
+- The offset which cancel on set compares against is first recorded in
+  timerfd_create() rather than when the timer is armed. If the clock is
+  stepped between the two, the next clock_was_set() cancels the timer
+  even if nothing moved, and a later step back by the same amount is not
+  reported. This happens with CLOCK_REALTIME timers today.
 
-xfrm: fix use-after-free in xfrm_lookup_with_ifid()
+I can send patches for these separately if you think they are worth
+fixing.
 
-This patch changes the no-policy path of xfrm_lookup_with_ifid(). It now
-reads the device of dst_orig through dst_dev_rcu() inside an RCU read-side
-critical section, instead of dereferencing dst_orig->dev directly. The
-commit message says this depends on a netdev_run_todo() change that waits
-for RCU readers.
+v2:
 
-Link: https://lore.kernel.org/netdev/20260908224901.1591334-1-kuba@kernel.org/
+- Make TFD_TIMER_CANCEL_ON_SET work for CLOCK_TAI timers (tglx)
+- Add a selftest
+- Rebase onto tip timers/core
 
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index cea6842e6454d..eafd090e3aebc 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
+v1: https://lore.kernel.org/r/abuTTv9FC__H_8RC@chrisdown.name
 
-[ ... ]
+Chris Down (2):
+  timerfd: Support CLOCK_TAI
+  selftests: timers: Add a test for CLOCK_TAI timerfds
 
-> @@ -3312,7 +3314,12 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
->  	return dst;
->  
->  nopol:
-> -	if ((!dst_orig->dev || !(dst_orig->dev->flags & IFF_LOOPBACK)) &&
-> +	rcu_read_lock();
-> +	dev = dst_dev_rcu(dst_orig);
-> +	is_loopback = dev && (dev->flags & IFF_LOOPBACK);
-> +	rcu_read_unlock();
+ fs/timerfd.c                                 |  20 +-
+ tools/testing/selftests/timers/.gitignore    |   1 +
+ tools/testing/selftests/timers/Makefile      |   2 +-
+ tools/testing/selftests/timers/timerfd-tai.c | 183 +++++++++++++++++++
+ 4 files changed, 201 insertions(+), 5 deletions(-)
+ create mode 100644 tools/testing/selftests/timers/timerfd-tai.c
 
-[Severity: High]
-In this tree, does this RCU section close the race?
 
-The commit message says:
-
-  This requires netdev_run_todo() to wait for RCU readers after flushing
-  routes; that fix is a prerequisite of this patch.
-
-That change isn't in this tree. Neither this patch nor the earlier
-"ipv4: route: fix use-after-free in ip_route_output_flow()" touches
-net/core/. The only rcu_barrier() in netdev_run_todo() still runs before
-the route flush, and nothing waits for readers after the flush:
-
-net/core/dev.c:netdev_run_todo() {
-    ...
-	if (!list_empty(&list))
-		rcu_barrier();
-    ...
-	if (!list_empty(&list)) {
-		rt_flush_dev(NULL);
-		rt6_uncached_list_flush_dev(NULL);
-	}
-
-	cnt = 0;
-	while (!list_empty(&list)) {
-		struct net *net;
-
-		dev = netdev_wait_allrefs_any(&list);
-    ...
-}
-
-rt_flush_dev() and rt6_uncached_list_flush_dev() call
-rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev). They then drop the
-old device reference at once through netdev_ref_replace().
-
-netdev_wait_allrefs_any() returns immediately when netdev_refcnt_read(dev)
-is 1. The device is then released through kobject_put() and
-netdev_release(), which calls kvfree(dev) without waiting for an RCU grace
-period.
-
-The only grace period on the free path is the synchronize_net() in
-netdev_napi_exit(). It is skipped when napi_list is empty, which is the
-case for the dummy device used in the reproducer.
-
-If dst_orig is an uncached output route, can this sequence still happen?
-
-CPU A
-xfrm_lookup_with_ifid()
-    rcu_read_lock();
-    dev = dst_dev_rcu(dst_orig);
-    <preempted under CONFIG_PREEMPT_RCU>
-
-CPU B
-netdev_run_todo()
-    rt_flush_dev(NULL)
-        rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
-        netdev_ref_replace(...);
-    netdev_wait_allrefs_any()        <-- refcnt is 1, returns at once
-    kobject_put(&dev->dev.kobj)
-        netdev_release()
-            kvfree(dev);
-
-CPU A
-    is_loopback = dev && (dev->flags & IFF_LOOPBACK);   <-- freed dev
-
-As far as I can tell, this makes the window smaller but doesn't close it.
-That would need a synchronize_rcu() or synchronize_net() in
-netdev_run_todo() after the flush and before the devices are freed.
-
-The commit message doesn't give a SHA, Link or Depends-on for the
-prerequisite, and the patch is tagged Cc: stable with Fixes: 2d151d39073a.
-Could the prerequisite be named explicitly, or sent in the same series as
-this patch? Otherwise a stable backport could pick up this patch without
-it.
-
-The commit message also names dst_dev_put() as the writer:
-
-  dst_dev_put() can replace a dst's device with the blackhole device and
-  drop the reference to the original device.
-
-The dst_dev_put() calls made from NETDEV_UNREGISTER notifiers are followed
-by synchronize_net() in unregister_netdevice_many_notify(). The pointer
-swap with no grace period after it seems to be the rt_flush_dev(NULL) and
-rt6_uncached_list_flush_dev(NULL) calls in netdev_run_todo(). Would it be
-more accurate to describe those calls instead?
-
+base-commit: 0359ecff58853a491dd0f09792fea8e87235ae06
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795769101.git.n0ps1edzz%40gmail.com
+2.56.1
+
