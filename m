@@ -1,55 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795828662;
-	b=us7QAhAWb8orqLdoe170bL3hFRGHRsQLVw5uMMY2aaeCeguRQ9Bds/BJ4ZCPiuN6PHP4
-	 UzkyMGqxsbXPY4MSnzAqin+fWAAG3asl37+wMbtVD7H/+DDJDBKMfku0BLUnlQQ90aZD2
-	 SBc/eH35J7Ino5A5EkEKaG6ksZUwd35OiEyoi8ink5TAviXTKgl57E2foDBh4YZ0pQt1l
-	 wMartLsK3sqev76PGvxQNgRRXjayEP3zSP27TBDXqsSNXFKcoVx+sm7AzAQALlZI2PcPN
-	 CMhPg/vufs2gMYU4qwakzM6GTX2kOOeMNEUzea88NooOpKIvlNvoq8CqM4W7MfAMWUg==
+	t=1795828743;
+	b=HaGgXAQbSquStFHuGtRGnFj+QHPcUctXauREYJ6uHpM6Vz2yCt8D8R2+BtF+5SKqd0Rv
+	 sq3FsIArvDqJg07b2Xtqx+QFiQYImAcpgSsf9LyjiBrTDAbXumQbV5m1b3XlNZ4kj5W1Q
+	 0dHpXOJsHffaDLBzQdI/WziYgyMZi20BSJ6ip1Dl9XxXEf8COe+XHlRqoXdJMagSvaX5o
+	 cgEVq7cuKSmion7hhWtS8xqLyv3l34w0l00/+YRppS3evnZX7UyVPCpjlyGNOT9taApZH
+	 9GUhJ112NW5gSC6eDa1Yu7ijeRZAhQR2zN+BbqRvm4eJkgdyfPPM9uAEOcg5/EBA1vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795828662;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ynYpBMFbnjt1BZ3puDYcCNO837G+Oo0nRDEUrJjBmwA=;
-	b=BGqIf3A0wvgVFYiV65ZuvYWdMZwOG4CSsWamDW76/CHZVv7wr7GLjqMbOGYysB2CcArD
-	 IOCEJsde4RsEW4t5tGdlL8fl5E+X0L19Dwah83mk6VwBH8/kI3RtEmlEBaE1gAyeOwcsi
-	 vGBmEHg1XHy5SlhT+QSUk5vAb7jto19Sh5x1u26R4WGfBNNwnJym4ywTn7TilCDNkZteQ
-	 A27v2/1jRCoOjfsqHlz1GMc2fHlhDduus+3mF3detKWMDDI+nut9xGP4f2xf1Amz4L0CA
-	 VMaPMijbTWv0gQVKRQKO8Ow1Rm9XwJnIPLJ0/rlCq23e4J+04CPy8rYCfctdd61N55g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795828743;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=RwcVg3+rV7Sl5vgXGmdhNKL0T6Nnr1F7uikU1pgMnzo=;
+	b=Idt2aEvbyDdQsSoS69BfSdfpIfBknbDA0NWiZNpJ0U0ygKB9f6z/keUIIY4+kWsZE9zf
+	 ytg14pdE0VOHw/azr6l3vtgYRDUvuggXEFvhkRypCGlK/qERMrk8fZ3C6+l4ALNy1/egs
+	 WFlY3S04mTBYK/d286fNwwlvge5n6+Bzkr/5osjMc6HWAo1Z/24m4uEvR1WAYYxuJ49hE
+	 jVQv+xlfEwHcPwp2Tf0tt5xPpOMfqM8QS59ptNx4EDCx9ascEMvj5e1BexuXAsZJUpKYH
+	 06yfygeqUIuYv+xgJs/sVUEVzjVidhUr9VMPPowPnQBy0HQoK5YfQXOf0Hz6WtwxtqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fknHhXfK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=P6TosyJH;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE6A2606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1E54606A31C;
+	Sat, 28 Nov 2026 01:19:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1E54606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fknHhXfK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51BBD1F00929
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795828662;
-	bh=ynYpBMFbnjt1BZ3puDYcCNO837G+Oo0nRDEUrJjBmwA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fknHhXfKVkJOJtN4EUHQe0uCE0r0o4h4teyp+31+R0yo5r9nzyYzWzWF6YH7CpY1F
-	 w3MA/7cIGbzLsBiTiQCx07IcSV5GfW9MzE4Yk4CS8YOay32MR5EY8y3+cPoED1epbv
-	 T0+M6jWFfdDANAo04Lvn3rPWDm224OUNGNxtUmmc44X+yqHShw3mCw16SsIrXC2PcP
-	 3Ho1EV9UsIZEPH5epP+mhi+bPm2UwfsN+15qm739+sWqNmH7IFn2LXC6esiDSt/QgG
-	 JL3vN++Azd8ggesX34Lb7d8ONhqb+XWn2E2bSwzLoKyiAImdw7rDkUIzKJAA8xee1P
-	 NV7vQiZyh2BDg==
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c4322d310e7so464965966b.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:17:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErF4RFbsxQYmRRnxydQvaLVvw1DfirzmsGmBACEHUh/fNGNpmUKdroImyVdwnvdj7WTLvoUuh2OklgtqEzU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NM5Hk7AJ3Uo4eupAvQW/Z392lVvqAE9bNaEeQBmTP1v1SsHS+
-	t/LIRqEXPNV74NHWo/pR15X1AT5vGkj2S8bMMPCh2HF0AzOlDbhtGz+BNcpmiDyLg3aJW03qHJJ
-	VL1YHno/gbOduYwb7/rGYqI+SFjI7ons=
-X-Received: by 2002:a17:906:f59d:b0:c31:5bb8:4b3b with SMTP id
- a640c23a62f3a-c513a47d551mr2219289266b.2.1795828660929; Fri, 27 Nov 2026
- 17:17:40 -0800 (PST)
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=P6TosyJH
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 8697640E015B;
+	Sat, 28 Nov 2026 01:19:00 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id U279ELJDDiNH; Sat, 28 Nov 2026 01:18:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795828737; bh=RwcVg3+rV7Sl5vgXGmdhNKL0T6Nnr1F7uikU1pgMnzo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P6TosyJHo0QNL1RuhiDynv6VRUsaX4qiWq5q4ZzaALCHnELu86O0uilO/Rt1kdq62
+	 UO69pXxQLj9epskIxnlYaXCbR372z3YWJqFEXBNQaCMIBJvK6DpAq5Lg3e7NKKXfUf
+	 nWu3yzBJoINmpRYOL70SfFNePyqhGI8yOHZrXGIhSo/2E2T4oOkDTrtMY8wT5fO7iZ
+	 QBPH3EHU3vOaMVOMjmMstP+aPRNeqSntEjfFSSndBzr25JHsQJDuOsenARGG9l9Z3w
+	 KRp0PAZf9Bxegdzy8Dz+1Vb1chUsGDYUjXqk1LIBlrik/0fRr5HTTdESzAJ2+H4Gor
+	 X0ts20HFCK3/qGmGerwoM13GgJ1gKOQfSyaifrjAjTU57J4u/wJnDFJ7q4Yt62fENN
+	 y/99hbdN/VUn+O7biVUtAaaoU/tA8UQHd/Sj6IItMROibGQjWAoBO8bqDWFKOkn8mI
+	 Toa3huhnQRi2aLAj1OHgwvPkfn1uveh85YLENMjUFZwRLm7n+sK7mfHtJ069foAHrg
+	 n28/VcMv1X1WckXWXXS9jZ2eQveuvVPZcXhE9L12a9WMf7Bsjn3Rt2yX6tBRYgIwlZ
+	 gqX9PPAx5/nEAL4orio+YYsgSsBD8KCsrQBWT1qA2tFyJ9H836CeTvA981qu/W96AF
+	 YEGzkQzNqk9+ErAiPKSY13VM=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id DA71C40E00C2;
+	Sat, 28 Nov 2026 01:18:45 +0000 (UTC)
+Date: Fri, 27 Nov 2026 17:18:42 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Andre Eikmeyer <dev@deq.rocks>
+Cc: tglx@kernel.org, mingo@redhat.com, dave.hansen@linux.intel.com,
+	x86@kernel.org, hpa@zytor.com, linux-kernel@vger.kernel.org,
+	rafael@kernel.org, linux-pm@vger.kernel.org, lukas@wunner.de,
+	yu.c.chen@intel.com
+Subject: Re: [PATCH] x86/cache: Restore AP cache state while bringing CPUs
+ online on resume
+Message-ID: <20261128011842.GBawor8g-JODmLyVCY@fat_crate.local>
+References: <20261111123747.49446-1-dev@deq.rocks>
+ <20261127150014.285304-1-dev@deq.rocks>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,29 +83,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261128003913.1684555-1-icb@fastmail.org>
-In-Reply-To: <20261128003913.1684555-1-icb@fastmail.org>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sat, 28 Nov 2026 10:17:28 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd9As9f-7Q=F7CJBqcF7qCdbwnFeQYQ0HytdU5wTvBPuag@mail.gmail.com>
-X-Gm-Features: Aa3M54oxvdO9s8JRrz7L-H09Rdnc8vxQ05eSOl7Ki45QmXcG_h5g_M20FbFOIH4
-Message-ID: <CAKYAXd9As9f-7Q=F7CJBqcF7qCdbwnFeQYQ0HytdU5wTvBPuag@mail.gmail.com>
-Subject: Re: [PATCH] ksmbd: don't create a missing stream for FILE_OVERWRITE
-To: Ian Bridges <icb@fastmail.org>
-Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
-	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261127150014.285304-1-dev@deq.rocks>
 
-On Sat, Nov 28, 2026 at 9:39=E2=80=AFAM Ian Bridges <icb@fastmail.org> wrot=
-e:
->
-> An open of a named stream that does not exist fails with
-> STATUS_OBJECT_NAME_NOT_FOUND only for FILE_OPEN. With FILE_OVERWRITE
-> the stream is created and the open succeeds. MS-FSA 2.1.5.1.2 fails
-> both dispositions when the stream is not found. Fail FILE_OVERWRITE the
-> same way. FILE_OVERWRITE_IF still creates the stream.
->
-> Signed-off-by: Ian Bridges <icb@fastmail.org>
-Applied it to #ksmbd-for-next.
-Thanks!
+On Fri, Nov 27, 2026 at 04:00:14PM +0100, Andre Eikmeyer wrote:
+> gentle ping on this patch. Is there anything you would like me to
+> change?
+
+Yes, why is your change correct for all x86 out there?
+
+Yu Chen in his original patch at least tried to do some git archeology, you're
+simply axing them off because works-for-me.
+
+Sorry.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
