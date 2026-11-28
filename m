@@ -1,66 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795883996;
-	b=r3sU4x18CqzmM1QgbhXjmgA0AJyBgs8+ULcJ0CHBAtveumk/phC7ZRLC/f0d4VDr+XaW
-	 cm62ZV/Q1hgB94szpSpw/Qeep+y0sKID7LgeFGNB5nRJU9tQDKpeNl0FGQxkZZo31BNkI
-	 XeQcysA34ndMVlKFGkzoW940NYejNOEY7w2psQtJ2T/iPOcrGsdHsq/TpSdpG/l3jhggR
-	 euCu+u0MkAx3vR/sYle2NWBTi6xYPNmBiaM5oDw1gxl9/kwcptCUka2LFAd1lP3r5rPg2
-	 BGoXF6k3GWIiRSdEB50xibEYn/AidGptPkgAz2sJy1OXdfbZyqsoaehuO0eSNDIi15A==
+	t=1795884046;
+	b=EzthbYXrmDllk81WJEo+Gv809acgAuvtnpp9m1kXi+Cx4oUUolNbKKU5lNYN8yffM2aL
+	 4mCTo/TcHqIeGnmM0JKShJBopTF2UhEiotzbW9cocTeGvAOrN6SFBBXKeCfkjS3gUr7y6
+	 D9Mvi/jA5Gi+y429n6b0KRTwgoOS7UItfIQJwLPkKeVvF8lcipUHjJN9p0hOwMrSVkk/X
+	 QGk/Wa+Wr3tvJz8uVoX0DbKy5zzDeJ4LLD6ktIE9nCXMWwQsHQeUOxHqk0X4l6yGHShfs
+	 14yALwc1mUNRG2ITD+1XIjDBEfC/Gbievby5r9eEarXDo4pn6t3YyLD3SVrXKAN8Uxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795883996;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=f7yih6Q8yEFy5xRz0HMwq8FiPEUkseJ7ijl9DnPpcgQ=;
-	b=OoVesyAAymEVvmpJjnaCIPMwgQhZE9Kl5jftk5RATbdy3NbpcDIIfmL+pp/ULfbFnzRQ
-	 LG9RcDwoagEPV/dnRbpaxnCtM0gQlu5FNb4bn+vY7rKct0LYZIqAZEvUwsLF3+NcVBNcx
-	 +lxkG/p1ykMTudlOeVNjsfQEmgtkD0gMBfFWM0mujSpOXW02NqNyw/3bjAxQixDbiINO5
-	 meuIQITwSLDOtvysGzHwSZ+KGv4QPOnmaqBxN7KUig2W4/jEW8a1U5lGy76gg4Op2HU+2
-	 Ll3tod1Not2UZP3YDMd57n7QPCnUVBWPQoDVNI8q6dO0L3/Ug/m+Oyxy9lwmNrQuTsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795884046;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=z9oFq5m4Sf+jgbyEuQxS12qQ16CYzT1vsxpvB6tN9r8=;
+	b=GbrJDaJZ8/1OmVSeMpaRhzKn/VvDh1MzgfW8ecBi4YMWnz0yuXZhrIOA6QxgThtM5OLf
+	 5ZAicbK45QwMydxxJ0NRxGCgyx+0xq8xLXQGL5EsGlxnBm7K265IPjQ6jiOixSONaCkvR
+	 ocgt05k10nhGUpXPTT9ymOXhLm2i42XYObobdLJk3jOcYeTLMHpUd/TNaLYwvQ+RM2HbZ
+	 lJHM3lOlQV14d3wOIkLV0E2pz5oJ4ciM/D+NRGEKkcKTBQM8bs1RV/kE7WbuZsJyM6nZc
+	 gwp1aGJp97SNYG+XnSUT+WBrfYpAVYYMdzeIjJft/mjjQ4MMTwgoz8v/a/rq0T4Twgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzu+TXGE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0nstONax;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31889606A323;
-	Sat, 28 Nov 2026 16:39:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9920606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:40:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9920606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzu+TXGE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C05871F00925;
-	Sat, 28 Nov 2026 16:39:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795883995;
-	bh=f7yih6Q8yEFy5xRz0HMwq8FiPEUkseJ7ijl9DnPpcgQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Qzu+TXGE64WwWr8fJzK+n4Eg/AlcnZyV55egFjn/nBLYWnBEZeEcQqoy/ZOViMLZF
-	 Ga+2SA2A6JCgnFGoakwX4dVhgC1RLqQROHm5Yz4a03Dqszn3va3LIBzqV05SyIr0Bu
-	 1c4eGpZE6lgQeZe9kPPD/djnMACqaJMlPoUmRtO2+M/zPNbDkCYGdqQwS+9vDPsW3U
-	 3RfiKjdenhLz1F1MWS+gGlUCp4BFLr5yuDoQIcBnTAu7QH4oBU4Cq/L7P2jLAxm+9X
-	 hvGQbEDfTMUN/5DMNJeB8eOAZI2RCCsnE2hDZ3kmePgq0hi7MescmOPBTbIq+dqsxi
-	 u9LGze28pls5g==
-Subject:
- Re: [PATCH net-next v12 5/5] net: mana: use the reported HWC queue depth
-From: netdev-bot+sashiko@kernel.org
-To: weh@linux.microsoft.com
-Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
- davem@davemloft.net, pabeni@redhat.com, edumazet@google.com,
- andrew+netdev@lunn.ch, jgg@ziepe.ca, leon@kernel.org, haiyangz@microsoft.com,
- wei.liu@kernel.org, decui@microsoft.com, shradhagupta@linux.microsoft.com,
- horms@kernel.org, ernis@linux.microsoft.com, stephen@networkplumber.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
- gargaditya@linux.microsoft.com, kees+treewide@kernel.org, kees@kernel.org,
- mawasthi@linux.microsoft.com, weh@microsoft.com, edumazet@kernel.org,
- shacharr@microsoft.com
-Date: Sat, 28 Nov 2026 16:39:53 +0000
-Message-ID: <179588399336.3135.15832712725709611248@kernel.org>
-In-Reply-To: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.5@linux.microsoft.com>
-References: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.5@linux.microsoft.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0nstONax
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso322291eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:40:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795884045; x=1796488845; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z9oFq5m4Sf+jgbyEuQxS12qQ16CYzT1vsxpvB6tN9r8=;
+        b=0nstONaxJkdkuo2QMwX+1ogS3SYBuIyxpk6/EberBKChQFeyn/sYZqvkQplVM3AA83
+         cxsB6Im3HRrKE8tASvNTo0Mtbaf4XLSkVzYRnFAVFdzzCm83For4MH1kYs0fPBoYT+Jd
+         8J9AXggx3jl8oHa/HrgPaE7YoNcSysUl52ds3mpkEZNJ8dolnoNnoGF9OPgScB1gIKaT
+         a+dzXfygxUidVqDoV42QOhVKbNLN1RKiGiONrdHkPnMwTV+/nFq7YprcDU7FAI42pXbZ
+         Lj/N45UZFiYDHq+VLC0YXnFmhhqP2jgX7JtMyvuclOq56CGu7+wB1+ft3vb5NpF7Q+MD
+         5OvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795884045; x=1796488845;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z9oFq5m4Sf+jgbyEuQxS12qQ16CYzT1vsxpvB6tN9r8=;
+        b=ofsjMVxFNv2f1KafRIY7SrSGhb8+z+n1T6RuvyO8Q1YrF4//HQYpTFAaegTI7I+Od/
+         T/9gKUV/yb5RoNxfi3eIeYZuxlC/KqqlgHZ36+7pV07s3x9SqXJnk1hOwmZ8l5vf9ina
+         32rI0qTFMkcusXdQe4A5tW0kTXNiGpHb7ZmJVQMshkXjKlaV6BNdqw4U6k37eNAXG9eT
+         lZYcMjq4raBKUx/wzuyiDgVgI02Ntue+KgHIoRpwBMd0gMzhZnCcqHjDcCJeyfj7jLPd
+         DpPkyA3PoHmLtLjQ9aB25udGW+B3pDLW3vA1rTkDmLrET4W1R5rgU3foRujIPqn9BB6F
+         Ts5g==
+X-Forwarded-Encrypted: i=1; AL+hErERJmdIcUXX8FUILMnxneKRBDhEzWM1R9bb9WD6i6G6WFm20y68Qk0arupiIalWkGcPRkhYZGsc+kJ4K60=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1WEz8+nKS/CP+G3JrYaPMt8b9mknjZ67Aetjkzdil5P9hsVvx
+	h1m1wsdq42bT+Ven4jr16dMPef90+7Rudwqk4OzFGRefiMEjcSjuous/
+X-Gm-Gg: AZFdTZeVZE/57WiGf6LemsrxiBUt0zqAEgIP8X+sYgIdmuGIRkhlymn24bDwDuxA5K8
+	CUZglhS+lMKgosNy6weB90SPXy1zh11uDHe/yRumzZLjUGqSAj//rFrD9CK1D5eA9q0q6hhFtc4
+	X4/53AmyhJoFSeZvbOioba5pUF0n0a7d6Ep4bmngCh36zOPX9vxu9ukNmsufJyBCBkGMxXxXOq3
+	q866D/3/+LCeKCWr2UNp1LaqKmh9VFyDrmAoJjhfb2q6HSXw1z355Z4ii7WaqyZlGnZRfZKBInV
+	cVWMWRFQWmUO3TcsjS1GVo6cVWmOAHKoIbl/5Sc3NkjoufxoPNvS81QznVYLUW204wv37KVBCAN
+	wRyEJXYNSriJkMiHuH/M9r/11LS5bNTrvNCuHpJpXQVh4Hn1hWsdXj0WL2BW+96c++0rn2189xN
+	8J5XIPHAL+NUYUhROVPOINeVp34HNqBefWFZClTq32IbIazMiIoDUiOYueKxPcgtxXOzvISU3kr
+	qcNM1WQZ2Ge23dV4fEb2H/U8yq2sQdguMiusaew5wZOXLCinkJ5DfO2OuIR+PHuIy8bkTJhxH+z
+	s00IPzP34QezjpeUHwf+QR16Pe5TndX90ntEIQysf6YfwbE=
+X-Received: by 2002:a05:7300:f483:b0:384:e31e:3c58 with SMTP id 5a478bee46e88-385714160f6mr27004687eec.33.1795884044764;
+        Sat, 28 Nov 2026 08:40:44 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm50903467eec.9.2026.11.28.08.40.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 08:40:44 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] regulator: qcom-labibb: use the platform device in dev_err_probe()
+Date: Sat, 28 Nov 2026 23:40:39 +0700
+Message-Id: <20261128164039.1831620-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,129 +95,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+When the short-circuit interrupt cannot be found, the probe loop calls
+dev_err_probe() with vreg->dev. vreg->dev is only set a few lines further
+down, so at this point it is still NULL.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+If of_irq_get_byname() returned -EPROBE_DEFER, dev_err_probe() passes the
+device to device_set_deferred_probe_reason(), which calls
+dev_driver_string() on it.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Pass the platform device, which probe already has in dev.
 
-- [Medium] The patch may apply each firmware-reported HWC message limit
-  to the wrong direction.
+Fixes: 390af53e0411 ("regulator: qcom-labibb: Implement short-circuit and over-current IRQs")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/regulator/qcom-labibb-regulator.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---
-
-net: mana: use the reported HWC queue depth
-
-This commit rebuilds the HWC at the PF-reported queue depth when all four
-descriptor rings fit in 4 KiB and the reported message sizes match the
-bootstrap allocations. Otherwise it keeps the bootstrap queues and
-enforces the reported transmit and receive limits. It also tests the
-rebuilt channel and restores a depth-one channel if that test fails.
-
-> diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-> index cf1b9c75b10e2..c78c2baf7048d 100644
-> --- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
-> +++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-
-[ ... ]
-
-> @@ -1097,32 +1138,177 @@ void mana_hwc_free_retained_channel(struct gdma_context *gc)
-
-[ ... ]
-
-> +static int mana_hwc_finish_channel(struct hw_channel_context *hwc,
-> +				   const struct mana_hwc_init_report *report)
->  {
-> -	u32 max_req_msg_size, max_resp_msg_size;
-> -	u16 q_depth_max;
->  	int err;
->  
-> -	err = mana_hwc_init_queues(hwc, HW_CHANNEL_VF_BOOTSTRAP_QUEUE_DEPTH,
-> +	/* MAX_REQUEST sizes the RQ; MAX_RESPONSE sizes the SQ. */
-> +	hwc->rx_msg_size_limit = report->max_req_msg_size;
-> +	hwc->tx_msg_size_limit = report->max_resp_msg_size;
-
-[Severity: Medium]
-Are these two limits applied to the right directions?
-
-HWC_INIT_DATA_MAX_REQUEST is stored as rx_msg_size_limit, and
-HWC_INIT_DATA_MAX_RESPONSE as tx_msg_size_limit. The tx limit then bounds
-every host-to-PF request, first in mana_hwc_get_max_req_size():
-
-    return min(hwc->tx_msg_size_limit, hwc->max_resp_msg_size);
-
-and then in mana_hwc_stage():
-
-    if (sub->len > min(hwc->tx_msg_size_limit, tx->buf_len) ||
-        sub->resp_len > min(hwc->rx_msg_size_limit, hwc->max_req_msg_size))
-        return -EMSGSIZE;
-
-Before this patch, mana_gd_create_dma_region() and
-mana_ib_gd_create_dma_region() bounded outgoing requests by
-hwc->max_req_msg_size. So the request maximum was treated as the bound
-for requests.
-
-The comment "MAX_REQUEST sizes the RQ; MAX_RESPONSE sizes the SQ" follows
-the driver's own buffer naming in mana_hwc_init_queues(). Nothing in the
-tree says what the PF means by these two values.
-
-Suppose MAX_REQUEST is the largest request the PF accepts. Then on the
-keep-bootstrap path in mana_hwc_prepare_channel(), wouldn't each
-direction get the other direction's limit? For example:
-
-  If the PF reports MAX_REQUEST=2048 and MAX_RESPONSE=4096, the driver
-  sends CREATE_DMA_REGION and ADD_PAGES messages of up to 4 KiB to a PF
-  that accepts only 2 KiB.
-
-  If the PF reports MAX_REQUEST=4096 and MAX_RESPONSE=1024, requests are
-  capped at 1 KiB. mana_gd_create_dma_region() then returns -EINVAL for
-  queue buffers that need more than about 120 page entries. The RDMA
-  max_pgs_create_cmd and max_pgs_add_cmd batches also shrink.
-
-The rebuild path requires both values to be 4096. So this only matters
-when the bootstrap queues are kept and the PF reports other sizes.
-
-The commit message says "enforce the reported transmit and receive
-limits", but it does not say which report maps to which direction.
-
-Could the mapping be checked against the firmware definition and
-documented?
-
-> +
-> +	err = mana_hwc_test_channel(hwc);
-> +	if (err)
-> +		dev_err(hwc->dev, "Failed to test HWC: %d\n", err);
-> +
-> +	return err;
-> +}
-
-[ ... ]
-
-> diff --git a/include/net/mana/hw_channel.h b/include/net/mana/hw_channel.h
-> index c154264f0f7c3..23df7222e8339 100644
-> --- a/include/net/mana/hw_channel.h
-> +++ b/include/net/mana/hw_channel.h
-
-[ ... ]
-
-> @@ -233,6 +240,13 @@ struct hw_channel_context {
->  	struct hwc_caller_ctx *caller_ctx;
->  };
->  
-> +/* Host-to-PF requests are bounded by the negotiated TX limit and SQ stride. */
-> +static inline u32
-> +mana_hwc_get_max_req_size(const struct hw_channel_context *hwc)
-> +{
-> +	return min(hwc->tx_msg_size_limit, hwc->max_resp_msg_size);
-> +}
-
-[ ... ]
-
+diff --git a/drivers/regulator/qcom-labibb-regulator.c b/drivers/regulator/qcom-labibb-regulator.c
+index 8641e69b55c3..83fb6f70e3ed 100644
+--- a/drivers/regulator/qcom-labibb-regulator.c
++++ b/drivers/regulator/qcom-labibb-regulator.c
+@@ -821,7 +821,7 @@ static int qcom_labibb_regulator_probe(struct platform_device *pdev)
+ 				irq = -EINVAL;
+ 
+ 			of_node_put(reg_node);
+-			return dev_err_probe(vreg->dev, irq,
++			return dev_err_probe(dev, irq,
+ 					     "Short-circuit irq not found.\n");
+ 		}
+ 		vreg->sc_irq = irq;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0%40linux.microsoft.com
+2.25.1
+
