@@ -1,111 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795833215;
-	b=mIPSDNeQ84+TFhzSIlhTZZ+5h6TAx1LKUoPaOZ/siaO2HqCOXXS48rM/lvOBKDv2dj++
-	 XXjf5t2/tu8pYfW6xUwtOBV6c5Bq5cUBbnhVssDqRzVObkf8U6o/pWJvzHe5eZbEFbSdF
-	 J/rNKjatVGe2V4nGiMtSPMeqfAAXoQGAy8j/N2u5PuLpDDGDhZWG7pnhUL71iJFovz6GQ
-	 WpdA7MhMDvb65MuhgYMQk21qBC7cJwm5kN/MPf++gQijHKAvWP157eeEfyqOSbOPx+t1k
-	 rCKNhcssTNP3N/drD+Gf1+IUM1a6Pu2CCUl4zG+PrXUXCIgeWiry/Ftl3L98Dl+DlCA==
+	t=1795833217;
+	b=azErF5lOTHA+T3Fk7IyiQwVve4sg+herAIU9dYGxy3z8NOy5EFcSdA8GK4DpAFzytO7i
+	 Ivvz6QVZsf2Os1VHKhDqOKhouwifgGsXCMNssqFZK9r2VZ8TwCXTdHWuZPbLxTsJbDCYi
+	 2wgAUvKx+NSTjkXQY/WRq953ujsEsPY+wZWR8Zg6voCCtoJWFR7cvrBljacaG8hdfOWD4
+	 zD0hRxVW92joaBrK+iLjhvNzv0XSif8CubV+i10xYY+kOYxtqbzaQeqs4+Yxsb0rZkSFJ
+	 Bp2iMQr+2sPNkf2qDX390o+rywh892k7HzVmwol2L2hI+cX5gKMlf92kf0MvOWxPazg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795833215;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=PSI/nLFxYSbRJK1yAtZse7jfYwGBG9msuHYmXC1mtEU=;
-	b=q/NkttSXR9PZoIbnV53NYE51S1/J7iI31k5wmTf4x8ywhCU9A729yph56VO/J9VDzbkK
-	 PaC1Bwm56s9id9JGRDiLN20Fr+crQkkTDH+Sc9MyeganPSNaPKd7X6pZmAAasAQ1RO2AF
-	 6kaH+fopVb/LPNpKRoZFn5tosXi8Es6MDRemxLO7nZCI/cBGIIIwb/wAE0O1v5Gu+Hqa8
-	 S+k868+s91CBUPIjSE8Ar1oLX4QEEDYQzltSOur7RdeOkXYCGrbWFZbo+OA16qoREBdMT
-	 1wSjEoAQoDYEuUheuyIlVXt3woOF9uogZhCLoNiazRHarXxUEnxsSp70h7L87P5HKzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795833217;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8auMlamrtMjVlgacbgikZGn2a5GvMMBHqeONTcWM4EA=;
+	b=Zff7/6YDzlxOoBeA+5MV5tneWlamuJVriyNcDj6/1zmk32Fi19eEs8i2GwgF1t1dX8Bx
+	 7rvpiHqiiiBuT9qlL/o1XqClsFd/t+aPDuNxvwNcXejYU8s7acX88Z3oSnowgWRUAZQXX
+	 xuDscgFkHlBEX6JPwLTS334WRE/wAisK+cARaW2ZnthZvfYRLkLGJvCDPEvWYpeerlQUP
+	 08n9M4NOMOi2jwWPeMUj5KPXxGOhi9O6+ihtPWLYXGYUCQcj1TlelKc5YQFNihh3PEboB
+	 44UHY4CnGWSR09drlyxY7ouKrDgNu5l6HcyRfyxEHq6rk0v8q3Pbr4n8pzyy4RC0rXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=ZBKidjKx;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=t1UIlEgr;
-	arc=none smtp.remote-ip=103.168.172.154
-Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UuT+PvST;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B6B1606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:33:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B6B1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4EDC606A31F;
+	Sat, 28 Nov 2026 02:33:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=ZBKidjKx;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=t1UIlEgr
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 6B6D21400354
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 21:33:33 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Fri, 27 Nov 2026 21:33:33 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795833212;
-	 x=1795919612; bh=PSI/nLFxYSbRJK1yAtZse7jfYwGBG9msuHYmXC1mtEU=; b=
-	ZBKidjKx3eA5G6QgnVFV9Zksi7sopQMXL2Gk2jGqI9MF5I3snhgiReb+SnYl5XnO
-	gTvog25zGNKprI15bqB1W9gQC58zAN6bRrvAYMzkbDKIrmbz4GhwEuVIhWJHOMTi
-	WrtrXtFL2jSLXh39gHeyC2vv2+oa9cOJKWO4bgI1Gex8dovYHA3O8n+k6Sln4dYf
-	Z1cHQnG1avYa68zMMBibE4RgcbbafCgHOZI3yFmB4gTBFKaPg982MvlES6UsK+RM
-	8JhvY1QD9uC1GQpH8xExN4L/WVA6whOSEtZS4k1dgMsMNDS8CfrHRPZRfI3aNMcd
-	8yi2RdKGrJGiEahrL0ZcWA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795833212; x=
-	1795919612; bh=PSI/nLFxYSbRJK1yAtZse7jfYwGBG9msuHYmXC1mtEU=; b=t
-	1UIlEgrDqT21T+9PAahayLjxx4b97P8TscaYNhb+RVyfJ68P52JFxHvjL2mVTzhW
-	yOTF4AWwATuyD9z31kI7aXwumwth32KvGg1CnXWJ3FIcExoAa6FtDO5ykAmz1cis
-	laZUgIet2njblZNXZi7Ka1QMqYr4p8E78QtxsFvvuYhaNv+UGDCG3E7PhMHpNUAo
-	X68uLsmbbOVNHYbdBYevDUnlXw2j4ozx3Iaq37WhuS97bDGB1U59Kcwu7fESOfTS
-	hb4iGR9LudHukSS1ARD5se7A/wzr1tGQYmbbN3U0dfGqWVxLPTUhLILQeDwz+AYX
-	J1mpwydfhpwlPGVKnHR9Q==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795833212; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:AW1gjxbaCd5ZrXgnH5rCIi1Sn7fqoHVcM64sAxpfQjF12K5
-	CpxI5WV2H3jj9DeMNDNcKmHsDRu270HDbXfxMLT/2GeIAlBeVFEqmsmsq4+JrKjZ
-	D8Z69Y0C2N1O9vDrlqpB5bRk7sIspcW4TVUPUCrEQBvbVhUvM5lHPwVqkEqz2ivb
-	YEtjqvnVF97+6P8z3MPxURsB9V6eg7i1jlR+56g8DIbq5InGmABlEvu/PwQptItd
-	iNqpPFqlRCsck5KaWOkkPU3zuk9adfw8H4sRotC51mqC9K9j22fNDPWfhxRvFloR
-	YkOOHBIcpVJVN0D45dTnElU9LgzBYZ6IhPBGHBg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:lBeh1tJFHNJj3dC39zm6eNlwXag/aRES3/ZjqNvr/Sw=:WYD20Vz6rVujFgM/NbQreaHSe8ZpueAJZFcCX4XUjFE=;
-X-ME-Sender: <xms:ez0Ka6ufo34kBXAhn7Q5FuqCSWbgDaJIgrBOVM4AZ35FIWg7-ID_Sw>
-    <xme:ez0Ka6RxUURUyo96nciWUfCd7N9m3ltnAvWAkxqyOYfWLeiP6A1X1ihMCY3HyuJ__
-    Kx49XH3ld5Pb4rINVQDNIeC1ij3mdGvoBeHcB3zlCtUhoUD2K4_8Vxj>
-X-ME-Proxy-Cause: dmFkZTGSFT9LCcaN3SJpvNQvvh5imKz0ByM9cmRSUirYALsqrsjaZNG+cxZdTbWRuHMTAq
-    AJCzV0lfWrVRle6hjbVDhWvBIcr/98dmipjNO3rydu5laMylbaLzbtYWDA4v4h4l5O83m6
-    aIlS4dN+Udwz4/mv1Fgwj0sYDOIeUqZFJr+SsgZdUPB14uHqqpGG8080QPAD2aED9tzlAw
-    a9jNPF71XhjTqlKlrtxA14P2YyhE7PSSZ9fohZsW9h12jBCMTeMgMDCrcnoLizJDZ/oclY
-    F/AUIn28sQBwn0W/y3sGyoAocosm/ERZn7CfJ996RirHn9oAUf+dhfS/y320FSqvJzJOfd
-    tWMkkFRBX76qSGV5p0/i/xlSzq3n8A3QpHfxtvWTz+GrQ+AlEBwBitk3f56JmO34KzmAzj
-    EcUDRgbMtgF19aVldndWYwxv5O5/vmqEujSj9vGTLBFPkkiNBtYf5LsbJBK25YJaiYj+YU
-    EDFcqJq0pu4qARy7nSVS2BunkHDuXUuYoze4wtnqB0IIeDUYBtznVkwql04kNazffTtl/j
-    6S2rJhffGzNhpjP5jg60RRzSOOGFTqvnNRW+BroVKZ9qyd/LQOyMCHz8YMr7GVpXdyTNnH
-    j6WB8iIJYlAnMwL6w/2Ulsg4eBGOCnNTY2tXqubURcYrgLMGXn72zU3KPFpA
-X-ME-Proxy: <xmx:ez0Ka8brg1fMZdXcnJTwGB3G8XNo61bCWmTy-j2Nm8kuaaFbu3jR4A>
-    <xmx:ez0Ka-QttPK_dq49zQx4AxvpK0P-ehXWZ0w6iC80Xxo6JDlMAwTagQ>
-    <xmx:ez0Ka_T0NOGVMXO2bF8vXSafxbqnxnNGB7GULC2BqRBTpJfXlnoVrw>
-    <xmx:ez0KaySuMGZgvgjV4K8G696uSdp0Xc-zVjlETqm2EiQlbZWnYqJQ0g>
-    <xmx:fD0Ka4DzloZ_KpTgSCGyFqD87nhSGvo0g7m8J5PhgvvNLaIR0Uo9am1t>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id 408CF2C00085; Fri, 27 Nov 2026 21:33:31 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UuT+PvST
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BAAA1F000C1;
+	Sat, 28 Nov 2026 02:33:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795833216;
+	bh=8auMlamrtMjVlgacbgikZGn2a5GvMMBHqeONTcWM4EA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UuT+PvSTJfBSMzu9xcK6TkXcffGKa3KQ03B5tBdBQbv7TxalXTg1Ulg1AF64uboFW
+	 3NeEfl+LBegM3ykALxhzunPVaA0zZlxEz5+s0uCNKGE2UrZXXM9ocAQsI7e7Z/AD+O
+	 5CjGHImmKcw9Z5FLzXMwk+TWYs8W+8qH5xKZM+ReosVhZNdaeqEB4LWPigUKzBxC0U
+	 Y1iizpkVsCDzhh9n6cc4eKHF4eXnGjyFoc9NOXKq3UEFckOQlVZwKyseZ1K5SSp8Hc
+	 QdcSGpguCdOgtxleT0pxOEjTlTA4tYxAPhj05T74Eo9ZlmYe21WJOdn87RqKBtv6HH
+	 uyjxrhim5TTjQ==
+Date: Sat, 28 Nov 2026 02:33:33 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Romain TISSERAND <romain.tisserand@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, sashiko-reviews@lists.linux.dev
+Subject: Re: [PATCH 4/4] iio: adc: Add the PocketGo S30 analog stick MCU
+Message-ID: <20261128023333.5873929d@jic23-hlaptop>
+In-Reply-To: <20261127012612.1589039-5-romain.tisserand@gmail.com>
+References: <20261127012612.1589039-1-romain.tisserand@gmail.com>
+	<20261127012612.1589039-5-romain.tisserand@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,77 +64,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AhK4IBiDdJJ-
-Date: Fri, 27 Nov 2026 21:33:11 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Greg KH" <gregkh@linuxfoundation.org>
-Cc: "Heikki Krogerus" <heikki.krogerus@linux.intel.com>,
- linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <25933253-59d6-4e1f-86c2-a8ae60a4cf82@app.fastmail.com>
-In-Reply-To: <2026112733-bobtail-undoing-be7f@gregkh>
-References: <mpearson-lenovo@squebb.ca>
- <20261104205654.3518943-1-mpearson-lenovo@squebb.ca>
- <9f5f0a57-dde5-44c9-ade6-96d1b8648ebb@app.fastmail.com>
- <2026112733-bobtail-undoing-be7f@gregkh>
-Subject: Re: [PATCH v2] usb: typec: ucsi: Retry if notification enable timesout
-Content-Type: text/plain
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-Hi Greg,
+On Fri, 27 Nov 2026 02:26:12 +0100
+Romain TISSERAND <romain.tisserand@gmail.com> wrote:
 
-On Fri, Nov 27, 2026, at 3:47 PM, Greg KH wrote:
-> On Fri, Nov 27, 2026 at 03:42:39PM -0500, Mark Pearson wrote:
->> On Wed, Nov 4, 2026, at 3:56 PM, Mark Pearson wrote:
->> > Found on Thinkpad E14 G8.
->> > When UCSI notifications are enabled the FW does not ack the enablement
->> > itself. Future commands will be acked correctly.
->> >
->> > If this happens try enablement again and confirm acks are working
->> > correctly.
->> >
->> > Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
->> > Signed-off-by: Mark Pearson <mpearson-lenovo@squebb.ca>
->> > ---
->> > Changes in v2:
->> >  - No functional change. Rebased as requested
->> >  = Added Heikki's review tag
->> >
->> >  drivers/usb/typec/ucsi/ucsi.c | 6 ++++++
->> >  1 file changed, 6 insertions(+)
->> >
->> > diff --git a/drivers/usb/typec/ucsi/ucsi.c b/drivers/usb/typec/ucsi/ucsi.c
->> > index 5aab8ab9f013..6633ad6658f2 100644
->> > --- a/drivers/usb/typec/ucsi/ucsi.c
->> > +++ b/drivers/usb/typec/ucsi/ucsi.c
->> > @@ -2095,6 +2095,12 @@ static int ucsi_init(struct ucsi *ucsi)
->> >  	ntfy = UCSI_ENABLE_NTFY_CMD_COMPLETE | UCSI_ENABLE_NTFY_ERROR;
->> >  	command = UCSI_SET_NOTIFICATION_ENABLE | ntfy;
->> >  	ret = ucsi_send_command(ucsi, command, NULL, 0);
->> > +	/*
->> > +	 * Some FW may not ack the notification enable the first time.
->> > +	 * If this happens, repeat to confirm it is actually working
->> > +	 */
->> > +	if (ret == -ETIMEDOUT)
->> > +		ret = ucsi_send_command(ucsi, command, NULL, 0);
->> >  	if (ret < 0)
->> >  		goto err_reset;
->> > 
->> > -- 
->> > 2.43.0
->> 
->> Can I float this back to the top of the mailing list please. I don't believe any issues have been identified and the initial version was posted back in July. This does fix an issue seen on platforms that are being sold with Linux preloaded and Linux users are using - it's real.
->> 
->> I can see Dell and HP fixes being pulled in quickly - what am I doing wrong on my side?
->
-> I have 1000+ pending USB patches to review/apply still.  Please be
-> patient for things that are just normal feature additions like this.
->
-Ack - understood. I get it and my note was poorly phrased. My apologies.
-I just wanted to understand if I'm doing something wrong - there were other patches in ucsi_acpi that landed after mine and went straight through and I didn't know why.
+> The PocketGo S30 handheld (Allwinner A33) reads its analog stick through
+> a microcontroller at address 0x60 on i2c0. A four-byte read returns the
+> two raw 8-bit potentiometer readings, each followed by its complement:
+> 
+>   <a> <~a> <b> <~b>
+> 
+> The value and its complement appear to come from consecutive samples:
+> they differ by a count or two at rest and by more while the stick moves
+> fast. With an exact check, about one read in four is rejected, and
+> about 4% still fail after three tries when polled as adc-joystick does.
+> The stock driver uses an exact check and silently drops such frames.
+> Accept a difference of up to 2 instead and read again, up to three
+> times, beyond it or on a bus error (the MCU occasionally NACKs its
+> address): over 2 x 6000 reads at rest and moving, none failed and under
+> 2% needed a second try.
+> 
+> Add an I2C driver that exposes the two readings as raw IIO channels, so
+> that adc-joystick can read the stick in polled mode. Each channel read
+> fetches a fresh frame.
+> 
+> Signed-off-by: Romain TISSERAND <romain.tisserand@gmail.com>
+Hi Romain,
 
-Looking at them again (e.g  8c51ea6 and b0baaf6) - I believe it's because they're tagging stable. I didn't realise it was OK to use the stable tag for patches that addressed FW issues (i.e. not correcting something that was previously wrong in the kernel itself - I normally only use stable for regressions).
+A few minor things inline.
 
-Should I repost my patch with stable tag used? I don't want to jump the queue or cause extra workload - but I am addressing a real problem for real users on real hardware.
+Thanks,
 
-Mark
+Jonathan
 
+> diff --git a/drivers/iio/adc/pocketgo-s30-stick.c b/drivers/iio/adc/pocketgo-s30-stick.c
+> new file mode 100644
+> index 000000000000..09a60cb307d9
+> --- /dev/null
+> +++ b/drivers/iio/adc/pocketgo-s30-stick.c
+> @@ -0,0 +1,149 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * PocketGo S30 analog stick MCU
+> + *
+> + * The MCU samples the two stick potentiometers and answers an I2C read of
+> + * four bytes with the raw 8-bit readings, each followed by its complement:
+> + *
+> + *   <a> <~a> <b> <~b>
+> + *
+> + * The value and its complement appear to come from consecutive samples:
+> + * they differ by a count or two at rest, and by more while the stick moves
+> + * fast, so an exact check would drop about one read in four. Accept a
+> + * difference of up to S30_STICK_TOLERANCE and read again beyond it. The
+> + * readings are exposed as two IIO channels, for adc-joystick.
+> + */
+
+I'd guess this is swapping ends of the pot to detect shorts or broken connections?
+That has to be on consecutive samples.
+
+> +
+> +#define S30_STICK_RETRIES	3
+> +/* largest accepted difference between a reading and its complement */
+> +#define S30_STICK_TOLERANCE	2
+> +
+> +/* signed distance of a + b from 0xff, -255..255 */
+> +static int s30_stick_mismatch(u8 a, u8 b)
+> +{
+> +	return a + b - 0xff;
+> +}
+> +
+> +static int s30_stick_read(struct i2c_client *client, u8 *val)
+> +{
+> +	u8 buf[4];
+> +	int i, ret = -EIO;
+> +
+> +	for (i = 0; i < S30_STICK_RETRIES; i++) {
+
+	for (unsigned int i = 0; ...)
+
+> +		ret = i2c_master_recv(client, buf, sizeof(buf));
+> +		if (ret != sizeof(buf)) {
+> +			if (ret >= 0)
+> +				ret = -EIO;
+> +			continue;
+
+Does this actually happen?   It is fairly unusual for a recv to
+fail. 
+
+> +		}
+> +
+> +		if (abs(s30_stick_mismatch(buf[0], buf[1])) > S30_STICK_TOLERANCE ||
+> +		    abs(s30_stick_mismatch(buf[2], buf[3])) > S30_STICK_TOLERANCE) {
+> +			ret = -EIO;
+> +			continue;
+> +		}
+> +
+> +		val[0] = buf[0];
+> +		val[1] = buf[2];
+> +		return 0;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int s30_stick_read_raw(struct iio_dev *indio_dev,
+> +			      struct iio_chan_spec const *chan, int *val,
+> +			      int *val2, long mask)
+> +{
+> +	struct i2c_client *client = iio_device_get_drvdata(indio_dev);
+
+Prefer that the client is embedded in the iio_priv().  That is a lot
+more flexible than using the iio_device drvdata.
+Currently you have set the size of that to 0.  Instead provide
+a structure for any state you need for the driver.
+
+
+> +	u8 v[2];
+> +	int ret;
+> +
+> +	if (mask != IIO_CHAN_INFO_RAW)
+> +		return -EINVAL;
+> +
+> +	ret = s30_stick_read(client, v);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*val = v[chan->channel];
+> +	return IIO_VAL_INT;
+> +}
+
+> +
+> +static const struct of_device_id s30_stick_of_match[] = {
+> +	{ .compatible = "miyoo,pocketgo-s30-stick" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, s30_stick_of_match);
+> +
+> +static const struct i2c_device_id s30_stick_id[] = {
+> +	{ "pocketgo-s30-stick" },
+
+Sashiko got this.  Named initializers for these structures.
+There is some rework going on that will shortly require them.
+
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(i2c, s30_stick_id);
