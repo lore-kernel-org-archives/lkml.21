@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795886181;
-	b=TLOTrmdwSb5gM1mAttWetfXSaAa0+X5O88BFCY8WL3v2OwS86ijZq7UjCZmDjLrAkooR
-	 ENKUVUAO18VwbKq9nbyjXqIg3Y3kAHQKpNpNefLDwthxQL1wDAV6PkYRs07v5TPQoYZ1C
-	 qF0vU43pahxcpwfTwthJ6Zdu8kb1SwmOFvCleW3wI+OmKFFrzCp8+VxoQgAgUjHvxHp3z
-	 lVL+9NkpxHQwkIKU7FefLWFmllZAhVf+9muvUCyaPky4n7GHUck2rgJVZDSSUSp4y/OFE
-	 8JX2jDFOrtSM6SapGf+QWS3UoKi2IzryFVplZGa2mUukUvqGcMClkj4yzPkyVNPj5rQ==
+	t=1795886189;
+	b=TK1nEKkgFvdo90jj7TXhoMVkG5gF8iGkXY0jCwELW0KoUY5Cf55B4iccMgdkWFtw9d90
+	 BMvj1HrZiQd60Y26Ru1yWR+yTnd9M9Lednw/7rWU2kp1sxKvoy13LlxJOrgO4bAzXGrp5
+	 zR7O5EbT+XF2ZX3s7+zwHahJdFVP/TsLSRpHjmfOswcWOt2NxSAldUKsCYY+gApCm147+
+	 cj1Kc2QGcMrFfcshUbzU7aH8Yr+l2ePbK9HU0BerOTcV7ZM9AWekUqAOsnVIASJlHQNRs
+	 H76wZ2Ur9qKYGN6F9GxXoMDf9ZEY8kmchrXh+CQHFJbarinBwmWzl1dvKfe9JblZTXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886181;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886189;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=Yd/VwvUqJJIqFqY9twXj4iOv0vtupXkf/Ao+p68hXVU=;
-	b=lq3kZMDJXgzBPm/mTl0SjmuczI0E32ZqYI5qAMcOIbqdTk0H5hqXD4s1hSiiv6DtMPvC
-	 eanTtmq9K7jFkE5ezcr2ku2yUGTcEdDjOaWGIqUjUH7BeISA4NwbEFcm4cZbnc2ReCoo5
-	 jC3uVkVZYKisl00WNI3Ehsk2Iwv/LiWAI8WeJxgqfjqM/sA8LDOROS/u3fuIcM+PB+Vst
-	 mHYi39xL048L/+Nk8X5ZorIPSEvNs0tySR4NKExa9o4qHPlV7K/8DS2ktubjpsJvunbil
-	 zmOQ+Q75xGnyR+ALo8lk4BVHEWr83YB3ENCVNI0bCIZXelIgC0JIp1/zBul5JpivQmQ==
+	bh=4iuG6AWSDaowvXh/YsqYhfb5Mttxr4/Y9Bs8/UE258w=;
+	b=QyeSUjskLr6rOu4Dc0V6o0Uj3gxIZqpHNoDFYpS4RRCJHejJdql3IQLFCiAkXoPNSenL
+	 9dNU8nvceUOS/7xIx1/royqe6o0H0RFeA0C6Y+oILQcX8p148FrH/3e0oT7WhgzNOTpp+
+	 sBd6335JJuLkqMGIUBmgPX8GoRK94zL3f5CIF3ZrOD0oHS0j/1G2DmER0LgAbEP2OQw6d
+	 VAuncgTbkr/v7L34lW5lUWXxrvP0F9s2fDqiLfdqrgAJ5kkrvw/UAEtYkkST3+xXZTQCX
+	 s4R7Ye++t74qLxNTFOa/Eggoi1rArLbYXeLLib+Jf7tfARgbmDpJPd/n1ta6go+cAAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T6KqdOzg;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iTtrTek8;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B7D606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82B7D606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CAEF606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CAEF606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T6KqdOzg
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so6408753f8f.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iTtrTek8
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-49412eb1474so5977454f8f.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795886180; x=1796490980; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795886188; x=1796490988; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Yd/VwvUqJJIqFqY9twXj4iOv0vtupXkf/Ao+p68hXVU=;
-        b=T6KqdOzgS0AIO4gz44Zl3CNiEpSWGFlPSpMVXnM8fQ7RetVu8w+M5DQYeyN0zjAwRq
-         8nR1GN9JmyG+W3e/53TGk35G5bYpdiuK+uBYpWNfhA7wyG/xDArLEsI6sHMX4RwaQ98R
-         43cuIQ3s3tauq5fClad8cnIozttOjKlfk76wRn0yGy6DHPcQ6tjJPKn6r8oakONQhZxg
-         52a8BOnkKni1llraXMcDs9W/w8GiXqqlIjYRZ1KNoI3bqIeZZlELsBTOL4x5A6y3+PEh
-         QOan8LQrXgCHCfBHXxWvxXJGno5FxCTfHO6rtehizgZ6KcqbBwqq0KmXD18WWy5tWl+F
-         O42A==
+        bh=4iuG6AWSDaowvXh/YsqYhfb5Mttxr4/Y9Bs8/UE258w=;
+        b=iTtrTek8HTlF7vvXfecmGgtPf7++ph/wNlp+jNUHx2NatlCDTF/vAlFArvtOJ3fxf+
+         PRlXFRmsW3fQHrVz0Qxa3EvXY7B/WKeo/8guTsF1NEd9pUvadhlNnwkF2Wx28pNXeR1z
+         f919hBOMFm+kkWCm+UNc+CKhvwDwPKU5/31ziaUE/Q8XiQVEdNjfF9TBdylQ/MZf6Oyk
+         w0AXBCWGHZNznXMxb6vGW/FBA76oQ9eHHFJdohpYO2mI909YNXaFm7oR7mmFp+ayuEUD
+         GGsBb2FlcETg1cWaheAw9HuwwrLp4yWA2XGC2KxoKxMUsG87CfpJRt2plvrrXMl5tBIg
+         KxDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795886180; x=1796490980;
+        d=1e100.net; s=20260707; t=1795886188; x=1796490988;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Yd/VwvUqJJIqFqY9twXj4iOv0vtupXkf/Ao+p68hXVU=;
-        b=XfiOEynFMNekMv4+5h56x8SOQQQ0HnOF1MEIjiUuXBa0U24MKhVk0hl0blmM4IEbjI
-         IFMdecCnIl2mIM1DpDWNyRqnM75LmtXPvbBmHhYTX3hZyJOcEBWnfZgNIWbohn+OMB/9
-         RJzfRTtny+S1RkTE4yNDDzg7vFHAporgP5JgweNJA7pQdRAzHUQ12bE5J/e36JRY5VJ3
-         p77v22XunFcoFn1jO9NJ9o4vsX7VSNOYvYsGqELGqnQ4t0lEla+cIIuSYSpVtJnwMTTe
-         qzWtOjzGV3Mj768oT1kRYCC3y3lMfER47xmrg/jwSKwxa72sN9Dp7C9JNrIy6JH0vl4K
-         Z73w==
-X-Forwarded-Encrypted: i=1; AL+hErEczxw/wHc3lZt2HevMQ1qZxEDS2nstYN51YeR7ue2jqQS248PFE/dhj19MJ6udyLVoWuuZaNR0cLuR9yM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8H0yH0Fdoswl/D7w1CWgm7k8WNYQeN3nGfirFUZffBtgxax8mM
-	stW5nxmnm2MtlnujClCKbPp2Gp0eblTQOKga4YsIBfZCPllcpNk8besz
-X-Gm-Gg: AZFdTZe8kV9/XtzvJSlOYKov1/Pa1eQ9FQxPFAu4dgkZbk5vsRiK6pS1w5EgkqjDg4a
-	sqGsAIycGf/VZ/tMV/iNpAx77kL64U3xLP2icTqP9LpGYj5RA96Yw+51Htoy/eJkNlgTKSLHxhb
-	gjpm/0PTVzpkjcNw4Eu5Tlz1/s0iBQDtd81yPUnKfJcHhYcS1dNwVSsc+xIXBbpnZmJeoswTDuM
-	8jjR6VnG9RRatCMCyYyImycfj8WugyqA2km2XQKI9wkGKTO24MeE2b+h6FsU1Z/433UwqswQSJm
-	glRq3NHzAYgfmGHnahpso20TgumRO/bAH5zduKReT+lzliCLTeHcn/znR1mERIpcHMIEdPy+NSY
-	DMxgad4/icNneKaLRGnhKtsWKjCv5LpNNu6TsBu1YmesoMJC+WD1otodIvSues2jOqx1lMrGYQr
-	BqNdItudBCroY+cpvzZvf2uf3y/jjTiUHw56M370bGfY9X+T7j9SdShD35+TpZypNkR8wiR06DQ
-	bkFVd7lioCSrp8dmfyK5WN+Yulsz0bEsdvuHmWuvx1gtD0gzD1ri0QBn+ypjHthDQwERojGl/GY
-	R12TzZ3HDL3bTxqXzc4XAk63jwVpoPT8lwhnbQ==
-X-Received: by 2002:a05:6000:2c05:b0:48e:870:7791 with SMTP id ffacd0b85a97d-4abb18cbe21mr55732970f8f.26.1795886179740;
-        Sat, 28 Nov 2026 09:16:19 -0800 (PST)
+        bh=4iuG6AWSDaowvXh/YsqYhfb5Mttxr4/Y9Bs8/UE258w=;
+        b=okdaGDBZDvH46cAX5N/iSvPoqNi90Gvkw4pc6wv8TEQGOzniI7xqKO508iTG0pusa1
+         gUd6GEZLQ/8+wbALQQSDQ9aXp2Z19BHvP506snP/L8rGoRWqcSxKI4cZUrscPSZv+4j2
+         Lhi/rksi5xz9JYNiyJXdJFaDkjeQEn8j8WtQgWlRD+CIIqwNE3BscT6OeyNjPMtVX35T
+         Mcm1RSF68bL79+jEzwAke4+nkhL7CCCelXuQsowMlyV9setVlNcp0a9m0e6kb7D0L348
+         0KagULyrzDzg6GdxkN1ya09v3NMllSIxWPlCgOm9won+zE+Ih0SdqeIdWaFAvkSvsXIa
+         tTcA==
+X-Forwarded-Encrypted: i=1; AL+hErEjlJcT2EMRHULA3p4gODb58dexKp0UlhHn2v3jR9953lzYu/NTqY/5JRmlnY5VUDzoeGoUSq0O0XqWhlM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+oIEADgBXUJ9YANilG7V1yJE1j3en5HizsRqeWwnJ2bM70HlI6
+	5JKMYZN35GmM0mI8YuRC1dSweW1j0nGNzh6oV+RF8NdOE5Kr7YP9HOp+
+X-Gm-Gg: AZFdTZdE1qnUvO+RN/dDGUa4uY7VbQk47mSMSgErfrC10gl/C5t0rQDanByYThrTCMt
+	gHeoUt85nY0AG9UHGBlizA5TO3GMg3Vl5+VHNEcqOFinuO+GlZehgToX7S7VXtFGBfYfOkNXbHq
+	mG2r7JYq7kC/HacNjF+r4HmqnNbBkOsOJu1su1i/MOVdZsTnwUVw5k0Qvt/Wpso6JpXdWit+60f
+	XgU6/qcUHX5FiAiVg4ejBoti+fFFkd6Qvef938uAaQBg0xGmAHOOaOWWXxPVk1au84MHDEFI53w
+	DdBAGQMUeXkgrm7OO2RQMr7cTcdMniCx9oBXc6IKGfnUtH1Q3AZntjCb3eHPWCKeISPwWUD80JT
+	ZKfedJv89nnVgzt+B8BxXg0Gca1OpAUE6uank1y0Otd5aQT2A8VsO3Ktta4UC8Z5uh1BanWU7PH
+	r2RSdC7MhFYuy8KE4LJvRNpcH6nRHKeMcVtasCBtxOoWv1cLfKgkapYf54gkCdcY3xBUWMSWDGY
+	K/r2liHJjdrDyCLRLTloSL+PP90zVpsEClHa/B3sgqWtV7paJsvDBQsWykPSEDUUX2Zgw4GPYZc
+	LV8a48mou/uGnTr65I3MUHLB9dt/xrtpuTyrSw==
+X-Received: by 2002:adf:e009:0:10b0:492:b1c5:6db4 with SMTP id ffacd0b85a97d-4abb4c7ab68mr39436606f8f.26.1795886187873;
+        Sat, 28 Nov 2026 09:16:27 -0800 (PST)
 Received: from [10.56.169.198] ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.16.11
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.16.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 09:16:18 -0800 (PST)
+        Sat, 28 Nov 2026 09:16:26 -0800 (PST)
 From: Oarora Etimis <oaroraetimis@gmail.com>
-Date: Sat, 28 Nov 2026 18:15:23 +0100
-Subject: [PATCH 5/7] drm/vkms: add a 3D LUT colorop
+Date: Sat, 28 Nov 2026 18:15:24 +0100
+Subject: [PATCH 6/7] drm/vkms: add a multiplier colorop
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +93,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-colorop-v1-5-dd79919f822b@gmail.com>
+Message-Id: <20261128-colorop-v1-6-dd79919f822b@gmail.com>
 References: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 In-Reply-To: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 To: Louis Chauvet <louis.chauvet@bootlin.com>, 
@@ -108,32 +108,28 @@ To: Louis Chauvet <louis.chauvet@bootlin.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 
-Add a 3D LUT colorop of 17x17x17 entries, interpolated tetrahedrally.
-The composer picks the cell each value falls in and weights the four
-corners of the selected tetrahedron. Red is the fastest moving index, as
-the uapi documents.
-
-The existing colorops and their order are unchanged.
+Add a multiplier colorop that scales the channels by an S31.32 gain. The
+value is sign-magnitude like the 3x4 matrix, so it goes through
+drm_sm2fixp() first.
 
 Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
 ---
- drivers/gpu/drm/vkms/vkms_colorop.c  |  19 ++++++
- drivers/gpu/drm/vkms/vkms_composer.c | 126 +++++++++++++++++++++++++++++++++++
- drivers/gpu/drm/vkms/vkms_composer.h |   2 +
- drivers/gpu/drm/vkms/vkms_drv.h      |   2 +
- 4 files changed, 149 insertions(+)
+ drivers/gpu/drm/vkms/vkms_colorop.c  | 17 +++++++++++++++++
+ drivers/gpu/drm/vkms/vkms_composer.c | 14 ++++++++++++++
+ drivers/gpu/drm/vkms/vkms_composer.h |  1 +
+ 3 files changed, 32 insertions(+)
 
 diff --git a/drivers/gpu/drm/vkms/vkms_colorop.c b/drivers/gpu/drm/vkms/vkms_colorop.c
-index 584305b0abfd..cceb9acca0da 100644
+index cceb9acca0da..1e1e470be4dd 100644
 --- a/drivers/gpu/drm/vkms/vkms_colorop.c
 +++ b/drivers/gpu/drm/vkms/vkms_colorop.c
-@@ -138,6 +138,25 @@ static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_pr
+@@ -157,6 +157,23 @@ static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_pr
  
  	drm_colorop_set_next_property(ops[i - 1], ops[i]);
  
 +	i++;
 +
-+	/* 7th op: 3D LUT */
++	/* 8th op: multiplier */
 +	ops[i] = kzalloc_obj(*ops[i]);
 +	if (!ops[i]) {
 +		drm_err(dev, "KMS: Failed to allocate colorop\n");
@@ -141,10 +137,8 @@ index 584305b0abfd..cceb9acca0da 100644
 +		goto cleanup;
 +	}
 +
-+	ret = drm_plane_colorop_3dlut_init(dev, ops[i], plane, &vkms_colorop_funcs,
-+					   VKMS_LUT3D_SIZE,
-+					   DRM_COLOROP_LUT3D_INTERPOLATION_TETRAHEDRAL,
-+					   DRM_COLOROP_FLAG_ALLOW_BYPASS);
++	ret = drm_plane_colorop_mult_init(dev, ops[i], plane, &vkms_colorop_funcs,
++					  DRM_COLOROP_FLAG_ALLOW_BYPASS);
 +	if (ret)
 +		goto cleanup;
 +
@@ -154,182 +148,49 @@ index 584305b0abfd..cceb9acca0da 100644
  
  	return 0;
 diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-index e00d1d0b2f2d..51ac2ae75cf0 100644
+index 51ac2ae75cf0..b94c51264c64 100644
 --- a/drivers/gpu/drm/vkms/vkms_composer.c
 +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-@@ -256,6 +256,115 @@ VISIBLE_IF_KUNIT u16 apply_lut32_to_channel_value(const struct drm_color_lut32 *
+@@ -365,6 +365,17 @@ VISIBLE_IF_KUNIT void apply_3dlut_to_pixel(struct pixel_argb_s32 *pixel,
  }
- EXPORT_SYMBOL_IF_KUNIT(apply_lut32_to_channel_value);
+ EXPORT_SYMBOL_IF_KUNIT(apply_3dlut_to_pixel);
  
-+/*
-+ * Tetrahedral interpolation of one channel in a 3D LUT. The input value of
-+ * each axis selects a cell of the LUT; the fractions pick one of the six
-+ * tetrahedra the cell is split into, and the four corners of that
-+ * tetrahedron are weighted.
-+ */
-+static u16 apply_3dlut_to_channel_value(const struct drm_color_lut32 *lut, u32 size,
-+			       enum lut_channel channel, u16 r, u16 g, u16 b)
++VISIBLE_IF_KUNIT void apply_multiplier_to_pixel(struct pixel_argb_s32 *pixel,
++						u64 multiplier)
 +{
-+	u32 max_index = size - 1;
-+	u32 r_index, g_index, b_index;
-+	u32 r_fraction, g_fraction, b_fraction;
-+	const struct drm_color_lut32 *v000;
-+	u64 position, sum;
-+	u16 v000_c, v100_c, v010_c, v001_c;
-+	u16 v110_c, v101_c, v011_c, v111_c;
++	s64 gain = drm_sm2fixp(multiplier);
 +
-+	position = (u64)r * max_index;
-+	r_index = position / U16_MAX;
-+	r_fraction = position - (u64)r_index * U16_MAX;
-+
-+	position = (u64)g * max_index;
-+	g_index = position / U16_MAX;
-+	g_fraction = position - (u64)g_index * U16_MAX;
-+
-+	position = (u64)b * max_index;
-+	b_index = position / U16_MAX;
-+	b_fraction = position - (u64)b_index * U16_MAX;
-+
-+	if (r_index >= max_index) {
-+		r_index = max_index - 1;
-+		r_fraction = U16_MAX;
-+	}
-+
-+	if (g_index >= max_index) {
-+		g_index = max_index - 1;
-+		g_fraction = U16_MAX;
-+	}
-+
-+	if (b_index >= max_index) {
-+		b_index = max_index - 1;
-+		b_fraction = U16_MAX;
-+	}
-+
-+	v000 = &lut[r_index + size * (g_index + size * b_index)];
-+
-+	v000_c = lut32_channel_value(v000, channel);
-+	v100_c = lut32_channel_value(v000 + 1, channel);
-+	v010_c = lut32_channel_value(v000 + size, channel);
-+	v001_c = lut32_channel_value(v000 + size * size, channel);
-+	v110_c = lut32_channel_value(v000 + size + 1, channel);
-+	v101_c = lut32_channel_value(v000 + size * size + 1, channel);
-+	v011_c = lut32_channel_value(v000 + size * size + size, channel);
-+	v111_c = lut32_channel_value(v000 + size * size + size + 1, channel);
-+
-+	if (r_fraction >= g_fraction) {
-+		if (g_fraction >= b_fraction)
-+			sum = (u64)v000_c * (U16_MAX - r_fraction) +
-+			      (u64)v100_c * (r_fraction - g_fraction) +
-+			      (u64)v110_c * (g_fraction - b_fraction) +
-+			      (u64)v111_c * b_fraction;
-+		else if (r_fraction >= b_fraction)
-+			sum = (u64)v000_c * (U16_MAX - r_fraction) +
-+			      (u64)v100_c * (r_fraction - b_fraction) +
-+			      (u64)v101_c * (b_fraction - g_fraction) +
-+			      (u64)v111_c * g_fraction;
-+		else
-+			sum = (u64)v000_c * (U16_MAX - b_fraction) +
-+			      (u64)v001_c * (b_fraction - r_fraction) +
-+			      (u64)v101_c * (r_fraction - g_fraction) +
-+			      (u64)v111_c * g_fraction;
-+	} else {
-+		if (r_fraction >= b_fraction)
-+			sum = (u64)v000_c * (U16_MAX - g_fraction) +
-+			      (u64)v010_c * (g_fraction - r_fraction) +
-+			      (u64)v110_c * (r_fraction - b_fraction) +
-+			      (u64)v111_c * b_fraction;
-+		else if (g_fraction >= b_fraction)
-+			sum = (u64)v000_c * (U16_MAX - g_fraction) +
-+			      (u64)v010_c * (g_fraction - b_fraction) +
-+			      (u64)v011_c * (b_fraction - r_fraction) +
-+			      (u64)v111_c * r_fraction;
-+		else
-+			sum = (u64)v000_c * (U16_MAX - b_fraction) +
-+			      (u64)v001_c * (b_fraction - g_fraction) +
-+			      (u64)v011_c * (g_fraction - r_fraction) +
-+			      (u64)v111_c * r_fraction;
-+	}
-+
-+	return (u16)min_t(u64, DIV_ROUND_CLOSEST_ULL(sum, U16_MAX), U16_MAX);
++	pixel->r = drm_fixp2int_round(drm_fixp_mul(drm_int2fixp(pixel->r), gain));
++	pixel->g = drm_fixp2int_round(drm_fixp_mul(drm_int2fixp(pixel->g), gain));
++	pixel->b = drm_fixp2int_round(drm_fixp_mul(drm_int2fixp(pixel->b), gain));
 +}
-+
-+VISIBLE_IF_KUNIT void apply_3dlut_to_pixel(struct pixel_argb_s32 *pixel,
-+					   const struct drm_color_lut32 *lut,
-+					   u32 size)
-+{
-+	u16 r = clamp_val(pixel->r, 0, 0xffff);
-+	u16 g = clamp_val(pixel->g, 0, 0xffff);
-+	u16 b = clamp_val(pixel->b, 0, 0xffff);
-+
-+	if (size < 2)
-+		return;
-+
-+	pixel->r = apply_3dlut_to_channel_value(lut, size, LUT_RED, r, g, b);
-+	pixel->g = apply_3dlut_to_channel_value(lut, size, LUT_GREEN, r, g, b);
-+	pixel->b = apply_3dlut_to_channel_value(lut, size, LUT_BLUE, r, g, b);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(apply_3dlut_to_pixel);
++EXPORT_SYMBOL_IF_KUNIT(apply_multiplier_to_pixel);
 +
  
  static void apply_lut(const struct vkms_crtc_state *crtc_state, struct line_buffer *output_buffer)
  {
-@@ -347,6 +456,20 @@ static void apply_1d_lut(struct pixel_argb_s32 *pixel,
- 						clamp_val(pixel->b, 0, 0xffff), LUT_BLUE);
- }
- 
-+static void apply_3d_lut(struct pixel_argb_s32 *pixel,
-+			 const struct vkms_colorop_state *state)
-+{
-+	const struct drm_colorop *colorop = state->colorop;
-+	const struct drm_color_lut32 *lut;
-+
-+	if (!state->data)
-+		return;
-+
-+	lut = state->data->data;
-+
-+	apply_3dlut_to_pixel(pixel, lut, colorop->size);
-+}
-+
- static void apply_colorop(struct pixel_argb_s32 *pixel,
- 			  const struct vkms_colorop_state *state)
- {
-@@ -363,6 +486,9 @@ static void apply_colorop(struct pixel_argb_s32 *pixel,
- 	case DRM_COLOROP_1D_LUT:
- 		apply_1d_lut(pixel, state);
+@@ -489,6 +500,9 @@ static void apply_colorop(struct pixel_argb_s32 *pixel,
+ 	case DRM_COLOROP_3D_LUT:
+ 		apply_3d_lut(pixel, state);
  		break;
-+	case DRM_COLOROP_3D_LUT:
-+		apply_3d_lut(pixel, state);
++	case DRM_COLOROP_MULTIPLIER:
++		apply_multiplier_to_pixel(pixel, state->multiplier);
 +		break;
  	case DRM_COLOROP_FIXED_MATRIX:
  		break;
  	default:
 diff --git a/drivers/gpu/drm/vkms/vkms_composer.h b/drivers/gpu/drm/vkms/vkms_composer.h
-index 6da85efc5524..28323df662a4 100644
+index 28323df662a4..5546ee864504 100644
 --- a/drivers/gpu/drm/vkms/vkms_composer.h
 +++ b/drivers/gpu/drm/vkms/vkms_composer.h
-@@ -24,6 +24,8 @@ u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut, u16 channel_val
- 			       enum lut_channel channel);
- u16 apply_lut32_to_channel_value(const struct drm_color_lut32 *lut, u32 lut_size,
+@@ -26,6 +26,7 @@ u16 apply_lut32_to_channel_value(const struct drm_color_lut32 *lut, u32 lut_size
  				 u16 channel_value, enum lut_channel channel);
-+void apply_3dlut_to_pixel(struct pixel_argb_s32 *pixel,
-+			  const struct drm_color_lut32 *lut, u32 size);
+ void apply_3dlut_to_pixel(struct pixel_argb_s32 *pixel,
+ 			  const struct drm_color_lut32 *lut, u32 size);
++void apply_multiplier_to_pixel(struct pixel_argb_s32 *pixel, u64 multiplier);
  void apply_3x4_matrix(struct pixel_argb_s32 *pixel, const struct drm_color_ctm_3x4 *matrix);
  #endif
  
-diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
-index 05fba864cf36..d975cb684fd9 100644
---- a/drivers/gpu/drm/vkms/vkms_drv.h
-+++ b/drivers/gpu/drm/vkms/vkms_drv.h
-@@ -38,6 +38,8 @@
- /* Entries in the 1D LUT colorop of a plane's color pipeline. */
- #define VKMS_LUT1D_SIZE 256
- 
-+/* Entries per dimension in the 3D LUT colorop of a plane's color pipeline. */
-+#define VKMS_LUT3D_SIZE 17
- /**
-  * struct vkms_frame_info - Structure to store the state of a frame
-  *
 
 -- 
 2.56.1
