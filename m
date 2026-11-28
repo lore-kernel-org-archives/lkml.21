@@ -1,54 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.189
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795828049;
-	b=n0D0iunah626SMpO9gnYed/U0nIjE9+KwXAxmf401iAU0o5lzv4eJBfASZN0ZIt619KT
-	 mhtLiM9flmKMe7opZf1VBp2PfinueamRw7ugPSRSrN8zsC5CKGyE0UTebi35o78MD2bEp
-	 PEY5EJ/gkhzJpLZov+EqQQrZndqjHSzSMeT8OWRL04wdk+eh2omwHzvi0NgmXLFuvfHK1
-	 R9NK5FndWRS9m6/n5Jc149sSFbc13BDhIghQNtBBPxbN9we7Ts45PnIl7OaLAX4/BSra3
-	 zY8gYhD5+23kSQuEr5h9q3iH5KgLZnJIv7xPICMERJyNPlBe543BGeSUyBsM8wyT8KQ==
+	t=1795828136;
+	b=FNkfPSoHVCw3SiUPPSEmvmw+Wh5U8xLcNwhuOrvIo2uJFSlQwS6tO2lE3ScIZJEKHLfk
+	 EkPLcVyyvqJ7abf9pEv0sKTVTAC6mJcsVq2DYl+nONgESZhk26d4Z+d4ZzHGyS3/Ws4vb
+	 VOVCkQdhf0jHOWB2pmpN/48IRB44RxC8VxSvwqRyWIzs2lMPsPwLY6l/Sj7EKzvR7XI+t
+	 fQWkbpMBqj7LkgvA/yFW6N4aBe0S6BnMDZrXOgIAEomIzrjXtCLWrI8OQqq3rZ4dC3ral
+	 j9tdryGAUXgifOoLnoxLDQOQ/vHYi6xjpL4pApIiFE48F1D4c11Sn4xxwGt8r/Ntogw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795828049;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=a65dJjXELLvBjblKrcEEJmFH72J16tMPfL8+2JJSMhA=;
-	b=EQST/VdftSpToLGzoaywiqm3ENpD1ZzZt5FV/z0DtWlKoNFntZSKFMwbeXAh0iatdBiZ
-	 0+i3VdRpHtBICtZkXdZy5tIqUX+thWYNu1ATtBt+ZiXuQYQtJh+31aJlDulPNrl8TXT1f
-	 ZbrNTXmIQbHw44QlpODAFIwPKLkYCczbhSD6TAMmnrd4y2ef+GkZ1kLPd3W37cWxeCDc/
-	 clxayVAhMoPxL92jobv1sVp33sljrhz24noFEnqacSpedChI3+bxSJgybd0TucSanuIT7
-	 M9X0Nx3O2od7t8fAwV2pecVGDCbBwntzpp6cPag7mUVH2IWYeH6WQaA15vWb6Q8GGLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795828136;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=BiX6ZyljcdQPQcS9kGO9WzZ1LmpsTkhRSgDRiHn9c1o=;
+	b=B8F6SatI2g49+Upcak7smdW9E5GuosVTBUYE/rCLQS8TbTtMjOmKc2EOhvpeSLGfGp9z
+	 w/pi4V2bkR0Wq1M6MXtKSKwi3vA+xtCuJCtNyhbK5bkrtnzhOVZxzpy1c8DJJIoBZpf+/
+	 KbpyMoCis7wd5S9R743/Nj7UKyEY5XhkO1bp/jHohwGvZf0bmGmbuaA1NDw7zsTxdTAuS
+	 lvYzrRzUwB3wMzcgI3mu5arnE3IeoE8firc0RY07wCmsAT1gvPKkFwriEG90VF1mvxeBA
+	 rXRVqraVfV+XtcBdAXzc4BKWmE1gGMLDwJe5TS3LnjeSKyzwc6oiRRa0YQd+T2QjHEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Yvikbyzl;
-	arc=none smtp.remote-ip=91.218.175.189
-Received: from mta0.migadu.com (out-189.mta0.migadu.com [91.218.175.189])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m7iLJfrH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 036F2606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:07:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 036F2606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A6D99606A31F;
+	Sat, 28 Nov 2026 01:08:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Yvikbyzl
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=6o1m5Sj0nUNsooY5Q6+XpT1gVnU3nCsPrMfZZdGQvm8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795828046; v=1; x=1796432846;
- b=Yvikbyzl96oTGl48ew7/zn5/ACkXbb34oJfA8SvyxPQWJJpZta/Z3U+C08eY8Ook3UO5DpX1
- zaXt1Wj8Mwx8lhJ5EuYPe5jMPc90gkYfFXsxBHB27RbRxvxs9uFK5AHXgbqMZb8j8WXMcG0Bi5z
- UKeUBsZOPF9Bqtr21HzTWUVg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4ce7dcfcfce2fff3;
-	Sat, 28 Nov 2026 01:07:25 +0000
-X-Mizu-Trace-ID: 4ce7dcfcfce2fff3
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <200b9f7c-e533-4875-8cd4-3debd4e7ae94@linux.dev>
-Date: Sat, 28 Nov 2026 09:07:19 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m7iLJfrH
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 91B211F00893;
+	Sat, 28 Nov 2026 01:08:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795828136;
+	bh=BiX6ZyljcdQPQcS9kGO9WzZ1LmpsTkhRSgDRiHn9c1o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=m7iLJfrHpA8eePZ6FYzysI93EHHYYCIo2ytcOQKp7ORyyDMSYxAtkEvF/yx09Cg4R
+	 iJpoHjXY0fVAvXCIvIs1NJ/9w+qIsCt6RlwL4ajRU1yO+cHTh7Kqs9xPXT70wa2ztz
+	 w9aAxfd4oLS/lkq6tKivYGYmqxvSr9+PmXk6sL5aSxkY+3hL8PAK3/XCPEqMlKxIz+
+	 HQtEFMtzRMrzi4vfR0aKtXsT0Hn90k3NcrBuaz2Pdcy1JZLE49YB2Eq7UcGR+3pIPL
+	 0oJTU3Xa3CDhp1P5hE3sz1DkIOuyxJP2Em7qSR+Y9YvoBlBS1Ske2Iz2DgAlZ38EGJ
+	 V6CXPjiHUEcjA==
+Date: Sat, 28 Nov 2026 03:08:52 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Askar Safin <safinaskar@gmail.com>
+Cc: aleksa@amutable.com, alex@amutable.com, arnd@arndb.de,
+	bpf@vger.kernel.org, brauner@kernel.org, containers@lists.linux.dev,
+	corbet@lwn.net, dhowells@redhat.com, ebiggers@kernel.org,
+	giuseppe@scrivano.org, hughd@google.com, jack@suse.cz,
+	jlayton@kernel.org, josef@toxicpanda.com, kees@kernel.org,
+	kpsingh@kernel.org, lennart@poettering.net,
+	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	luto@amacapital.net, neal@gompa.dev, oleg@redhat.com,
+	paul@paul-moore.com, ptikhomirov@virtuozzo.com, sergeh@kernel.org,
+	skhan@linuxfoundation.org, viro@zeniv.linux.org.uk,
+	zygmunt.krynicki@canonical.com
+Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
+Message-ID: <awoppInSWN0XVPz-@kernel.org>
+References: <20261122193539.3334213-1-jarkko@kernel.org>
+ <20261128005541.873229-1-safinaskar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,42 +69,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under
- cpuset_mutex
-To: Tejun Heo <tj@kernel.org>
-Cc: longman@redhat.com, frederic@kernel.org, peterz@infradead.org,
- mingo@redhat.com, juri.lelli@redhat.com, vincent.guittot@linaro.org,
- dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
- mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
- hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org,
- cgroups@vger.kernel.org, guopeng.zhang@linux.dev,
- mathieu.desnoyers@efficios.com, Ridong Chen <chenridong@xiaomi.com>
-References: <054a53a3-c038-48fe-ac01-fc24fd8065d0@linux.dev>
- <20261117083915.2971979-1-ridong.chen@linux.dev>
- <bc6e38f6-1412-49d0-95e2-76d5e9fc3858@linux.dev>
- <6f3d7612a6b2628fae3c14aaa87771ec@kernel.org>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <6f3d7612a6b2628fae3c14aaa87771ec@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261128005541.873229-1-safinaskar@gmail.com>
 
-
-
-On 11/28/2026 5:07 AM, Tejun Heo wrote:
-> Hello, Ridong.
+On Sat, Nov 28, 2026 at 03:55:41AM +0300, Askar Safin wrote:
+> Jarkko Sakkinen <jarkko@kernel.org>:
+> > Work on this feature started in 2025 after reviewing David Howells'
+> > container object patch set [1], whose underlying mechanics made sense to
 > 
-> On Fri, Nov 27, 2026 at 10:15:07AM +0800, Ridong Chen wrote:
->> If it is this one, I will send a v2 rebased onto for-7.5, as it now
->> conflicts with housekeeping_set_cpu() from commit 884e88175b95.
+> > [1] https://lore.kernel.org/all/155059610368.17079.2220554006494174417.stgit@warthog.procyon.org.uk/
+> > [2] https://lwn.net/Articles/1102593/
 > 
-> Can you please send v2 based on cgroup/for-7.4-fixes instead?
+> You put wrong link in "[1]". This is not Howells' container patchset. This
+> is Howells' fsopen/fsmount patchset.
 > 
-Sure.
+> Link "[2]" seems to be wrong, too. It is not something "earlier", this is
+> very recent LWN article.
 
-https://lore.kernel.org/cgroups/20261128010535.1831141-1-ridong.chen@linux.dev/T/#u
+Thanks for pointing that out: https://lwn.net/Articles/780364/
 
--- 
-Best regards
-Ridong
-
+Br, Jarkko
