@@ -1,61 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795841160;
-	b=Od03Vx8b8dD2WTz5dLVkQOVM75jaOp0gff94tK+uyvndx/o4YNq4nDFGkvc1ppB/ndxE
-	 iPXk4mLbc+k/jjp0a1hXhF2leYiyTkj+T1q22Nl7rk2ADLuZV1EPClgyRatMKoUlgGbWD
-	 5oOmIUNvRFxCoLPs0w5APylchek1ktJO1kAEwdwZsH39UZOXTEuye/FT0F2rnt1iOYouI
-	 GnOr/4YjwbyXCSPGwcf8FtXBfvjtiO+fRGWIawY/dnVyCHP04v26232leVNyQq38VnAfB
-	 Y7BoZdp8oYzUX0W4jKMkTIdqySMSWNea+tZZiYk8nFr8xzz9UVb+HDIuWDFkhCl514w==
+	t=1795841566;
+	b=XID4F/uZE4qUBPeEc/KYJiYe0irMU+1pf3B9uS4m6Y5ck4uOYCD1xROETW2NFa5ajl/P
+	 q9bRjgtkc3pAmVbU5Xm8T2nzDLzMZdvQUsV2Fxv9pZHK1/elCGHMeAVCuEmPL/jyi4WRf
+	 HVj5pIR9Q233/AgiRCDXFFeRFn1N5dpBOjyfMS0ZeBnhcGpiwGubaexhhQQ13QN3EJA0p
+	 avnYOaYtTVHjcPn+337C3Aa4g5FO+4nM978giB4Vi1nagF2uhMQA/nd2Aga/9KJ3DVCxD
+	 /rP/dA+ATcgYe+q7dwEcBVtE33Aq4STXSOEGG8VBtBD06TZBPwji7pG7p5zaIuH3nhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795841160;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nvQgGmaz+1Yaxt2xBwkGWoCj42B/5xoZDotx73Xgz9Q=;
-	b=Milsn/fxKr9o3m3VDSrJ1uVtf1nvNjtQ+kj3IQdbBdGnQVMQ5mt8ljuYnfyULcQ0AFj5
-	 7cYQF/Mi1D2tWwUJOvrZqsSURAfsvY1h8L4RrMPMmtGYqNACBGq9t6j9BgR0MYaWqk45t
-	 SrTWF3dN+aqBwCoaMH0vjFLmFrdG4j+cDtUhTJEiw0PzLvxz/SC7VPKDN2dvHWoyy8vlm
-	 mZNuokx3glCjyb5ms2hBm8Z1U0JZrWTm27OUwmknuIE1giBiTKa97/jmSeQTVDVV++4T1
-	 ovNUC+cbCnvEmQxr/wcDTkVJaKpy2FY0CkPl7IWrsAUE1AId2g2c+GJUP1snCSvGDsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795841566;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=Z3Eg/TDgQlbuYBlVYpaUHQDisAK33SjWZFw9CvUkfew=;
+	b=pr6h6pD3FcE3LW7cHcDnDhXYAOnszwETy1AjFmCg9u+LHgevyBhGShJ+HurTmxseZIya
+	 H0lxwCdT6b1Qz9e1gUZj1OBhXFzIuyYA4iVrHKSQ6G067yd+YGigc3PYg50ROFsLQ7jZ1
+	 MMIZO6Cf6LTpbA8iJWiyBonwcVAZsNlZeS6wNb7eP/5LGmkne7PJdv6CTQnGyTZlVE+QG
+	 NjWbr9hVHG0Oif4SmPcE7ALL4EZO3krBP6ks8Etni81HzSjYnRdoiL/J0cs7lvfV+hBSx
+	 pcjWBr60Q44W1BhDr1PR3tC4ofVthN9linMkqT+qLPozWAGalGLFUTRnPWwanPr/Fgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZX+z8A4H;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BB59606A31C;
-	Sat, 28 Nov 2026 04:46:00 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZX+z8A4H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A68AB1F00897;
-	Sat, 28 Nov 2026 04:45:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795841160;
-	bh=nvQgGmaz+1Yaxt2xBwkGWoCj42B/5xoZDotx73Xgz9Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ZX+z8A4HWRYZWy3zyIf9EW5i57eN0XDBUjdW2jCUAA0MefstOB4JXLwhqHttM3ZnR
-	 9Vz3DnBhV+zmMfBsbk/O4FgcAj/ThcVMy5DU+ysx/DCZCpKcCkEHYXNEcv1KG+cdBV
-	 5ixYJy2aZgegia0JAEmDL4yNRHyhdM2bMTxIgT+cRY+HLmqb8SwmUPUeALSsxzKonC
-	 A4+ob8byJdcSoWb177uTwfec0JOhbh4O7yeFlOi5Zl7T4D2h1nRmTs9i5Dpw+c/yei
-	 0RmkFfw0eN533C3E2NIZtKKh7olVhgyabK2PfLaBy7XTVngjb8bBlNnTwsfEeZXdqt
-	 mYE3Jg22TItBw==
-Date: Sat, 28 Nov 2026 04:45:52 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Michal Simek
- <michal.simek@amd.com>, Conall O'Griofa <conall.ogriofa@amd.com>,
- <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <git@amd.com>, Sai Krishna Potthuri
- <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v6 14/16] iio: adc: xilinx-xadc: Split driver into core
- and platform files
-Message-ID: <20261128044552.6bf275be@jic23-hlaptop>
-In-Reply-To: <20261125171045.1246381-15-dileepkumar.nagavarapu@amd.com>
-References: <20261125171045.1246381-1-dileepkumar.nagavarapu@amd.com>
-	<20261125171045.1246381-15-dileepkumar.nagavarapu@amd.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id F22DF606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 04:52:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F22DF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=Z3Eg/TDgQl
+	buYBlVYpaUHQDisAK33SjWZFw9CvUkfew=; b=kc50YQnGZkY1IMYBoSic5n39Mt
+	fTaS6HF8QF6+767+Yi+aGb6A39JMb/0EmHpkCrHQSeoMWEZmC3/LzZMhXlxqcf19
+	CXuHzJ/YWwgJ8Zf/BhmdesWCfTC6E6sTi1bum30Ar0hTtyo0nUpZA//0OIC8arkw
+	Qh3AQFYmMgvMCOPRY=
+Received: from LAPTOP-FRMFRHCN.localdomain (unknown [240e:454:4310:1b87:e5a4:80eb:60e9:9d2b])
+	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkAWPAIJXgprVulaAg--.2142S2;
+	Sat, 28 Nov 2026 12:52:26 +0800 (CST)
+From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+To: shaggy@kernel.org
+Cc: jfs-discussion@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	syzbot+706dff62c3dd6a366ff9@syzkaller.appspotmail.com,
+	25031212117@stu.xidian.edu.cn,
+	byu@xidian.edu.cn
+Subject: [PATCH] jfs: skip metapage cleanup for rebound BTROOT locks
+Date: Sat, 28 Nov 2026 12:52:21 +0800
+Message-Id: <20261128045221.2824867-1-26031212468@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,65 +57,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BrQMCkAWPAIJXgprVulaAg--.2142S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw43uFWxXryrXF1kKr4fAFb_yoW5Cw4fpF
+	WrCF4UKrWDGrZrJwn3Jwsru39Yya9avFWUAry7trn7Z3ZxKw4IkF1Sq34q9F13CrWIyrWY
+	qF45tw4kWF4UZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r1j
+	6r4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
+	W8Jr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK6IIF6r45MxAIw28IcxkI7VAKI48JMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	WUJVW8JbIYCTnIWIevJa73UjIFyTuYvjTRC89MDUUUU
+X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAgUKEWsITcul2wABsG
 
-On Wed, 25 Nov 2026 22:40:28 +0530
-Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com> wrote:
+When a transaction is aborted after diWrite() has processed an inode, an
+inline B-tree root tlock can point at the same on-disk inode metapage as
+the regular inode-page tlock. diWrite() marks the root tlock with
+tlckBTROOT but does not acquire another nohomeok reference for the
+metapage.
 
-> Split the xilinx-xadc-core.c into separate core and platform specific
-> files to prepare for I2C interface support.
-> 
-> xilinx-xadc-core.c is reorganized as follows:
-> xilinx-xadc-core.c:
->   - Platform-independent IIO/ADC operations
->   - Channel definitions and management
->   - Buffer and trigger management
->   - Device tree parsing
-> 
-> xilinx-xadc-platform.c:
->   - ZYNQ platform (FIFO-based) register access and interrupt handling
->   - AXI platform (memory-mapped) register access and interrupt handling
->   - Platform-specific setup and configuration
->   - Platform device probe function
-> 
-> Update Kconfig to introduce XILINX_XADC_CORE as a helper module selected
-> by XILINX_XADC and update Makefile to build the split modules:
->   - xilinx-xadc-common.o (core + events)
->   - xilinx-xadc-platform.o (platform-specific)
-> 
-> Reorganize the code with no behavioral changes.
-> 
-> Co-developed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-> Signed-off-by: Dileep Kumar Nagavarapu <dileepkumar.nagavarapu@amd.com>
-Sashiko calls out that the module name changes and even if that is fine
-for userspace on these devices, the help text in Kconfig need an update.
+If a later diWrite() in the transaction fails, txAbort() currently clears
+mp->lid and calls LogSyncRelease() for both tlocks. When the page already
+has an lsn from an earlier lazy commit, this releases the nohomeok
+reference twice. The count can reach zero while the lazy transaction
+still has a tlock pointing at the metapage, allowing reclaim to free it
+before txUnlock() uses it.
 
-https://sashiko.dev/#/patchset/20261125171045.1246381-1-dileepkumar.nagavarapu%40amd.com
-A few other comments apply to this patch.
+An inline root that has not yet been processed by diWrite() still points
+at the pseudo-metapage overlaid on bxflag; its lid aliases blid and must
+be cleared. Skip the metapage cleanup only for a BTROOT tlock that
+retains its inode-lock flag but now points at a real COMMIT_PAGE. In that
+case, leave the shared page state to the regular inode-page tlock. This
+preserves cleanup of unprocessed inline roots and prevents the rebound
+root tlock from releasing page state it does not own.
 
-There is stuff on patch 16 as well.
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Reported-by: syzbot+706dff62c3dd6a366ff9@syzkaller.appspotmail.com
+Closes: https://syzbot.org/bug?extid=706dff62c3dd6a366ff9
+Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+---
+ fs/jfs/jfs_txnmgr.c |  30 ++++++++++++++++++++----------
+ 1 file changed, 20 insertions(+), 10 deletions(-)
 
-There is also something strange about the patch split up.
-This should be moving code but a lot more is removed than added. 
-I think that's because this is treating xilinx-xadc-core.c in two
-ways, both as the basis for itself (lots of code removed) and
-as the base for xilinx-xadc-platform.c (lots of code removed there
-as well).  This has the odd result of seeing like lots of code
-is being remove whereas it is just moving around.  Probably easiest
-solution to make this revieweable is to turn move detection off
-for the git format-patch.
-
-
-
-> ---
->  drivers/iio/adc/Kconfig                       |   8 +-
->  drivers/iio/adc/Makefile                      |   5 +-
->  drivers/iio/adc/xilinx-xadc-core.c            | 688 +--------------
->  drivers/iio/adc/xilinx-xadc-events.c          |   1 +
->  ...inx-xadc-core.c => xilinx-xadc-platform.c} | 805 +-----------------
->  drivers/iio/adc/xilinx-xadc.h                 |  28 +
->  6 files changed, 67 insertions(+), 1468 deletions(-)
->  copy drivers/iio/adc/{xilinx-xadc-core.c => xilinx-xadc-platform.c} (44%)
+diff --git a/fs/jfs/jfs_txnmgr.c b/fs/jfs/jfs_txnmgr.c
+--- a/fs/jfs/jfs_txnmgr.c
++++ b/fs/jfs/jfs_txnmgr.c
+@@ -2604,28 +2604,38 @@
+ 	 */
+ 	for (lid = tblk->next; lid; lid = next) {
+ 		tlck = lid_to_tlock(lid);
+ 		next = tlck->next;
+ 		mp = tlck->mp;
+ 		JFS_IP(tlck->ip)->xtlid = 0;
+ 
+ 		if (mp) {
+-			mp->lid = 0;
+-
+ 			/*
+-			 * reset lsn of page to avoid logwarap:
+-			 *
+-			 * (page may have been previously committed by another
+-			 * transaction(s) but has not been paged, i.e.,
+-			 * it may be on logsync list even though it has not
+-			 * been logged for the current tx.)
++			 * diWrite() rebinds an inline-root tlock to the on-disk
++			 * inode page. Its lid and nohomeok reference belong to the
++			 * inode-page tlock; the inline root pseudo-page lid still
++			 * needs to be cleared.
+ 			 */
+-			if (mp->xflag & COMMIT_PAGE && mp->lsn)
+-				LogSyncRelease(mp);
++			if (!(tlck->type & tlckBTROOT) ||
++			    !(tlck->flag & tlckINODELOCK) ||
++			    !(mp->xflag & COMMIT_PAGE)) {
++				mp->lid = 0;
++
++				/*
++				 * reset lsn of page to avoid logwarap:
++				 *
++				 * (page may have been previously committed by another
++				 * transaction(s) but has not been paged, i.e.,
++				 * it may be on logsync list even though it has not
++				 * been logged for the current tx.)
++				 */
++				if (mp->xflag & COMMIT_PAGE && mp->lsn)
++					LogSyncRelease(mp);
++			}
+ 		}
+ 		/* insert tlock at head of freelist */
+ 		TXN_LOCK();
+ 		txLockFree(lid);
+ 		TXN_UNLOCK();
+ 	}
+ 
+ 	/* caller will free the transaction block */
 
