@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795874791;
-	b=fBYIH4v9DwAcLr6yUZDSWSE3z9h5u/QqOabdMs8AhXvFeH6ZgB3WsLo9YGg7NutC7QGu
-	 SXVrJ/dQkyL+OjAbuw0UiROCuz4YUR8WXUvyJ/NQHA4J1H2jQr5SxXJQV/AVkuKmAlCz5
-	 fjqcNw/lkmzgQHw71O0WKnHdQ2RYXxTNDYCMM+gra4wMezLS0qwF1MrFM3zKrbGregtGe
-	 DcqRUrZs87Gbr58STlFbriBAB1hO738pguS6ciHYLjqT14ngM4m+PJQ+vi9b7tmQZj+VV
-	 FMNcviGIi9UFIHypZuKnzlfdVIYkTMgZEHHhtnEczy9TC3IBUUQA3YGlIURSrvCq3Qw==
+	t=1795874792;
+	b=rGiDvxFIfcx9FCVtlb4icUwIj/IzUJGy3ENdH1fjxuIZuh5NcPpv4onCp4BdH799Rk0d
+	 6IOxO6xg1GfJTuyS7WwoRF30lx7l0SfL1KfTE/gKvGPi9JBuhCzoiRfHk3PCcLvJPcMSA
+	 GUwhlpxXmIK8KhMNXs9fEW/aIVTB0s72gv2jHUoCbniilcjJUSaeBxIqGsLM4iiOBOpmF
+	 pK/SGTTXE5uLsTybFAsDWj5urcEcrCMHxgIzZ4kngzZv6MxRo8b0AhGajUX6Kp6J7fW/N
+	 Z1vo0/XtHLjONZh/xicw+1zZ0hsrlbIpYKeXyL9jy5hHwyyzCZVkoF6Z4fXytS0y70Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795874791;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795874792;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Hu4rTYZRq8CRBWytQe/3nd1VmbMLjbiC2A6r+ZmdVf8=;
-	b=ubcy+G0tkagl+tmh4d7cT872wVt/paavclCnBDBBDhRocaMRuzS+p4MhbROxPZwAPns2
-	 DAWqlVCUq3diIiTzzrnJNG9NBr7qAw2fYsf7NhQaaRvJ/e+m43V54gkJTSW75WLcpFA+t
-	 B3ucNdD8kZcHdraEj2ysjsfAKPr8JHJ1IYAZoMvSMfW8Ik9W/NQtTt8easJYgCbYonJ+w
-	 mrHGhsEcKcE4oP5QdAmcxKNpPzfRA+ZHVK2J7RHMY4ZPUIX2g2OyKuisz385Xj1iTlf8n
-	 5qCM+9WeywOzN4j0gz9lKjayCtVbFbb65BbrfnHj2EOhnet7zbsmOXbDP50KwP/DiOQ==
+	bh=OW9iVuHkIi0uGMCb5+4kVxSMn6nqDiy+SCxTvwwwbsk=;
+	b=aJVsKC1rc8nL0KMk8VMqnlX5ANijAuyrNPzgXjfo3AS/y+vXAznvLjt8v49yMiUcDtPX
+	 4ogBVEP8jV8SwmXg0yO3QaByQM5mcybJRZP/posQVhWB3/E+a2gW/KsbXAaagXKmA1YGD
+	 OsCx/mH8cnqArhzeeRjM3y4Hh9OgVT1dIp2kxCfA5N6fj+xgsy+Ocv9CNpkQwYXNGDetm
+	 nZH3356bdh9kTe+/axRZ0VNvwPmZ6hKCciYW2JAKen2PPDIvWxSekIgVJYpcJwKIAim71
+	 hYnFdSmzePneMPJRB+1L9eMEdlZhjXDWyp87EEPJSal9OvbarI9Cy+RBHnwUjviGKWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qmp30UDl;
-	arc=none smtp.remote-ip=209.85.160.182
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M0+D1Mcn;
+	arc=none smtp.remote-ip=209.85.219.45
+Received: from mail-qv1-f45.google.com (mail-qv1-f45.google.com [209.85.219.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A180A606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:06:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A180A606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AA58606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:06:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AA58606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qmp30UDl
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-55c5b6584ceso65688971cf.2
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:06:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M0+D1Mcn
+Received: by mail-qv1-f45.google.com with SMTP id 6a1803df08f44-920fed989b2so84078776d6.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:06:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795874790; x=1796479590; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795874791; x=1796479591; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Hu4rTYZRq8CRBWytQe/3nd1VmbMLjbiC2A6r+ZmdVf8=;
-        b=qmp30UDlRJrw8D65dtGD3Y4sLmXyuySPR2zFk4D4VglYBX1w3L9bsDC4lvVVgTKTDn
-         0y2BW2EZ5jAwVsCIMh25KHvQWY15I6Ogp2PZepWQXDyyj8CPKDnovWRP1q1Xt3LOAkZR
-         hAQ91GmjHVOkYlwar1+pq80tMUlQGAkIjY/maUd3pvOVNNCBjgB3fosVtA6IdxYTkIRK
-         MlChkve4wIRqupfcCXDepISVUYgMXU3qrCInPK+WjqNamVprJN0yOfYJ6la2bMx/dWo1
-         fjlwvIxVfeuwLZIHlfqEdEpDwfi8j6Wukyc75ui5zEhEZy47UnXbgz/g7mYPDfYRp58r
-         V9gA==
+        bh=OW9iVuHkIi0uGMCb5+4kVxSMn6nqDiy+SCxTvwwwbsk=;
+        b=M0+D1McnIblrhRrp2kLKdAcCGAQTJxZp2eJaA/DYlU1hVHRoDK2kVBt9aCjHVWNz+m
+         Cb6UgiOXaYF1KlhoUnP4qR9SUCTvpLBNuQnkDpzl9FchbLlpZwNkOC+AD5hETG3TvKf7
+         /kDrzMpMwA0v/LFFO1fkyqRL4e+Ypsr4dYYbBcd8+zl7kZP8T2cOwK0Z9ogilwxVgmgA
+         Fyv1rFxxE0VQjkWhw1FM0FNUwvDe3kQcpxiirk81ivqTrMSqIAqQ8/uvWzlaK4dUObIG
+         VIcwJz7JkWLJjvvV2SlvtKDuXtCxOnLYC7TM897ADTP2kWmV+JK3GWiENaJUKpbPx8jN
+         uUrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795874790; x=1796479590;
+        d=1e100.net; s=20260707; t=1795874791; x=1796479591;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Hu4rTYZRq8CRBWytQe/3nd1VmbMLjbiC2A6r+ZmdVf8=;
-        b=F+QIM6IOWdfVp36LfvC5XAjLRJUMrvj2xaJgkgu8DJDrXPwSwQ0p8gJ30WxWysWnDF
-         XyHbQICPHYd0xN4xf+kntrc3WYtWeomUlOVu68jZBWwpKXPAIz8PEjLOWiaSHOk4eqsJ
-         hyGV1uZsfZ88QZB8KLsuvH0fkQlKrnyOmSErJ/H1x+LCwZyNGbGGGwt4WQhX+OtBg8Sh
-         xecvhNquaNVHg8xtzt8twHpE19Bi34nLkYE/7wi4GWiI0CZJSvx+RJpIen2mJl4ziJoz
-         Wc5cuKiCNo3iIz7kOE11Q9/yK/suJj7pEwMq77VVjJ/booV6CEPByUTjjiZuyBNVmwVT
-         EhWA==
-X-Forwarded-Encrypted: i=1; AL+hErFMW2KAdKFniIaLDbMYQrEewyZ16fTGX4ijmbMDDKw6ykxJaS1WcRrLD9FFyl5n4dR3hKb0l4YsktH+g+A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+zidOdZffQfQ6RI9tTz+sMiwgw+S3g8/T8QQQpQZ1ueGs71htk
-	rD+rIP8RIQ5PJ4xWImrKnw/6qtbBVyS2ozNV5r9edrRoXKufRQQhmifN
-X-Gm-Gg: AZFdTZeRIrBzjMRFZ0WgqP2m0WBBiPrbaCg8Z1QR2U0Cqy6j2zor5z3VlJuVJ8RE2iv
-	OapViwr34wRNsWylhJsXohhOt76cyD46XEHLbuLsu9iYDp5in5cH+G8ToBmgG0M4JDN4DEXGGp3
-	Rv6XU0ISwmuZchY+aqh1PLvpgsBYYHGUbsvT7OhO+DV/8cYU8gSFLmeoQB36WlNehncqoSjcjik
-	esfeKn5r0KQhkSpNpgL6tKE3OB91/VlP7Zm/Lyv9X1L43O/+3WgIWIYxY120ZasONA9zFk/PJWj
-	aMRXpt3kIAAGKf+kuniEg2ZT7PPnQH7hkYh4ds5WaVBVXpQK8I/qj814354NRdAqdcmnXdipS5u
-	DYzo33gh4fbp5gdFu9ziGhoEiMCwjzRsXjJ9+KH1+yA9XjP1ZurQHSjXlKTLCNWl8uNJwp+eLNC
-	ckXOg3nFfVkgZGNjmYzn6QHQFdYO2i+yiezCaUHKRgzzhAHQ/XPa5y6c/R6beYwhUDcEPmU5JHe
-	8pKJhb4S7GPSpkxwkgotfJ501+KdWwnVTKS8Oa5MNvDY4geeL33gisr7OmsjF1LuKiIPgJA+FQV
-	GuVfyAXoOlHUO3hLB0ZyBuSbwePGhiWqmsjvSvBkCvC/X/bW02r7DWrHwfk+s8lJs7qW1++2fXz
-	2Ry01
-X-Received: by 2002:a05:620a:4056:b0:949:7893:397d with SMTP id af79cd13be357-949ba9b8ccdmr5414402485a.23.1795874788655;
-        Sat, 28 Nov 2026 06:06:28 -0800 (PST)
+        bh=OW9iVuHkIi0uGMCb5+4kVxSMn6nqDiy+SCxTvwwwbsk=;
+        b=dMVK/H9zbg+Br7QA3r69nnRwaCdFEecoFkMgJ5a4eAOxXaeoK/LCPa3c/U6v0e02mG
+         45UNQT37lQ7ULizPE/SLsnwi3zAefoBEs4GBAM92OrPHWCfRXh7jS8OZNJPZI2xSf1DK
+         9m5/Dugp5ds+ewAiv5eSlU36F5VG4iMwQxlDNjeNBrz08mEqAJDyh1NSq6ZJ1igvLHXw
+         HHjB+n1+EksM7hHdT5CrcZtRzmbxAj8FX3ycsbbtBqR31HR44k3Mp6SzBWopOImwN/LR
+         m2ODKKeakEq/2UxoNWz2t9cHcyapKPqMJarilXrR7aURsWbIarq7QhIiJmP5OEa4Z6SR
+         frAw==
+X-Forwarded-Encrypted: i=1; AL+hErGP73JDepK5azRjShNSQd6DDqwgpXKwDDuvh5ZiMrtsy/u+WerB/Nn3Gn1B82UnDDPuPd4jh2Eas8IeOXk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8GTj+A7mxjTbnUALKyt+2E+NJm6dsAZmMmXkP3DHqJ0lH+OR16
+	IoQbGAe7TRIRxzp3yw3xWEXnZANbk0kYvUxIksptQQgU28eK2sXa159f
+X-Gm-Gg: AZFdTZc8yYp5Tbbts4lpSqIjzHo8jsGj/hnFrtZb3gasl1QQU+FWpUzIt82iylNS67J
+	mZFkgSWgN105uIEVKPmmqxH0smUeiYsP5o6EU7ZhVc8bVhjVFRSRclox+DzRYzD0qmWgwEoPWrl
+	+oPGXIguYS/7nEhzZqO9GVvH8lsbYYzmDB6VJGnB4i2hcn4B5tMAomNqObEQ9AKq2etCyV5WqZE
+	K2fZ8UYCWqInGitkLd65uclExkvBPm2oCxCnGiPzD+BIKIwYNgVh4/pZaj0HZ8M5h7oXfdjqfPd
+	GahcwUqV5zoclQYhzny6cmiEXh5O0sSyheStHggm177rmLAFZCTQoudGlhOx7zYIUmCkwysaM4O
+	V47VbDBBSUKtJGPkzXUkl5foLHoIeyDOyP4UFFT8M8HNPnOL9N7j60oMYTKdod542/PyPmF/XuD
+	l+Ojf/uqklNMAaaHhoZ1KZBfe5HJiK4E9fKrB09uhbVTeM7q6XF1p04b5Pcd77qGe2Q5qLWQVFk
+	Ks4Tt2EOKq/4/eOvsEg6crEHbBMQUGKU/XoGpbIzb+IKqwi/uSo6k2UxdSJ/JByu/WPLg7BPPkm
+	QA+tPvdpfxLVrWuZcF8/HF+Z2fjG967iBML4m2k2i85wk245kFLxaVn5TKAU36Gz/Ade7pkZZ9W
+	R9G9Z
+X-Received: by 2002:ad4:5cc7:0:b0:921:e08:1d9d with SMTP id 6a1803df08f44-92134b93acbmr546792206d6.49.1795874791266;
+        Sat, 28 Nov 2026 06:06:31 -0800 (PST)
 Received: from localhost ([138.197.109.108])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-94a017cfb46sm1038426385a.28.2026.11.28.06.06.27
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a08552sm241627116d6.34.2026.11.28.06.06.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 06:06:28 -0800 (PST)
+        Sat, 28 Nov 2026 06:06:30 -0800 (PST)
 From: Nikolai Dokutovich <ndokutovich@gmail.com>
 To: Christian Brauner <brauner@kernel.org>
 Cc: linux-fsdevel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Nikolai Dokutovich <ndokutovich@gmail.com>
-Subject: [PATCH 1/2] nstree: reject a non-zero spare2 in the listns() request
-Date: Sat, 28 Nov 2026 17:06:22 +0300
-Message-ID: <20261128140623.19-2-ndokutovich@gmail.com>
+Subject: [PATCH 2/2] selftests/namespaces: check that listns() rejects a non-zero spare2
+Date: Sat, 28 Nov 2026 17:06:23 +0300
+Message-ID: <20261128140623.19-3-ndokutovich@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261128140623.19-1-ndokutovich@gmail.com>
 References: <20261128140623.19-1-ndokutovich@gmail.com>
@@ -105,35 +105,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-struct ns_id_req documents @spare2 as reserved, and copy_ns_id_req()
-already rejects a non-zero @spare.  Reject a non-zero @spare2 the same
-way so that both reserved fields are validated consistently and the
-field can be given a meaning later without having to keep accepting
-callers that filled it with arbitrary bits.
+copy_ns_id_req() rejects a non-zero reserved field.  Extend the error
+case test to cover @spare2 as well as @spare.
 
-This makes kernels that already have listns() reject a value they used
-to accept; no valid caller has a reason to set the field.
-
-Fixes: 76b6f5dfb3fd ("nstree: add listns()")
-Cc: stable@vger.kernel.org
 Signed-off-by: Nikolai Dokutovich <ndokutovich@gmail.com>
 ---
- kernel/nstree.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/namespaces/listns_test.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/kernel/nstree.c b/kernel/nstree.c
-index 44e07d0fa8e5..ba5743dd4f17 100644
---- a/kernel/nstree.c
-+++ b/kernel/nstree.c
-@@ -437,7 +437,7 @@ static int copy_ns_id_req(const struct ns_id_req __user *req,
- 	ret = copy_struct_from_user(kreq, sizeof(*kreq), req, usize);
- 	if (ret)
- 		return ret;
--	if (kreq->spare != 0)
-+	if (kreq->spare != 0 || kreq->spare2 != 0)
- 		return -EINVAL;
- 	if (kreq->ns_type & ~NS_ALL)
- 		return -EOPNOTSUPP;
+diff --git a/tools/testing/selftests/namespaces/listns_test.c b/tools/testing/selftests/namespaces/listns_test.c
+index 538d60f908b4..c52b02bd416a 100644
+--- a/tools/testing/selftests/namespaces/listns_test.c
++++ b/tools/testing/selftests/namespaces/listns_test.c
+@@ -667,6 +667,17 @@ TEST(listns_error_cases)
+ 	}
+ 	req.spare = 0;
+ 
++	/* Test with invalid spare2 field */
++	req.spare2 = 1;
++	ret = sys_listns(&req, ns_ids, ARRAY_SIZE(ns_ids), 0);
++	if (errno == ENOSYS) {
++		/* listns() not supported, skip this check */
++	} else {
++		ASSERT_LT(ret, 0);
++		ASSERT_EQ(errno, EINVAL);
++	}
++	req.spare2 = 0;
++
+ 	/* Test with huge nr_ns_ids */
+ 	ret = sys_listns(&req, ns_ids, 2000000, 0);
+ 	if (errno == ENOSYS) {
 -- 
 2.43.0
 
