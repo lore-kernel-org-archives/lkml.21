@@ -1,93 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795826655;
-	b=Tqe2HsZQtSQKFDjWQi4qsqc+orA8tTI2dmZZQVgM+cViP3cHUce6QgfjdpFaLtZ+uMfb
-	 GDcT4m2SxH3f8Ker5JonWEv4N773oBPonaZeH1mOQef8Ii+DkxoLmi56nojt72lpo5LHd
-	 M+byvtjFNAqIVuQjYaykXG3Eo4EPFKuQQTnt0TkPnElz8bvoaAwxWSy6dkQ/W4kR5/YMT
-	 cZBEVf7tykUKRHgkqDAgfFM/cct+vZEDkwrNSBg7BnLhOOgCuIvBpFAqVNOXh0boymGO2
-	 uRCKqx3JUX/s2Iq9bkDsLC7gbhEuQMtEHipmQFlBrUeanppzut/iCBdFUpPAuJG1N8w==
+	t=1795826661;
+	b=jBbQOANyQagXF7Kx8bx0hH2s9WBZ2cWvXyUiFNu8OU2B02j1GGaNz972tPSmgUvzsGFZ
+	 2PGBD+Q1QFm/hRQ/oeLVF3dP52FNeA4yzXMDOAa+4F6UrPswRpKRWlxXfrFPa0qYN3QC5
+	 NXaf2pCRBF+5jkvLB+16+SEKREJIUZXqSB1HWUj4iir0K1qGKNbCkyfBX3ucp2n1oLEWH
+	 vn8I/eU1It7boHgZivOfHanC5lwQd5GSoRzqLJ5vPS2N3fKfIPbUqM9C81O9w10lG7YKN
+	 tgmSV1jfbRZwAb+3ieKRZXCndt2ylSiyyaINOvz9JGN3/0UV3VclMgey1am3FhFT4cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795826655;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ctlHt2JLaIfhdJqip8B29uE4209TAh6ZSBNTqgalats=;
-	b=KNj9eX4p4S6OPmAVqNaBF2FI6B/KgbX3GsdmFY/4HIggPqxej/TuDvbU0kpvB2MmN4SA
-	 cMOEauqwYPKSy8stwpXtD3pgXQ0nqTo97XmWuroyyjG1FC1uk3/bCM9ve5RPpsODLFkDi
-	 vL0M6CgBDMgooAD8YG9u4rLoAYAhsCDDPzh5hNm16917/R+9HVoXjk5mKBbCsKV6gLQw/
-	 Wy8lHGgBVq6q/SyiFcCQWwSEYIiX5l9OfdHRNsBr+07BtoCCdlRQYOfON0D+F6/D4aOTm
-	 c7bKxiO7VRAsZyPW4f/U1yDVmVi6hWmZ3QxK3ySAcWSp/gQamHx7no+y/T9bUC+DsBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795826661;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=617ht0+271aJEWj5NKC+RogwfXVw7QuuuxCq4hvGCmU=;
+	b=u7XF6p/DWkNiaDnEuNomU8SFbceexXY/X3ycXQJMuEOL7NohzqAKKADJLr51/RH7fKQc
+	 JFSU2EJNAZLgQR+/lfgeS+5bC/rI4v+TNQu+bh4rz1qsZ/7NYvR1pI9jnRRk8JrKo/DTm
+	 tMLXfHG5nQ5U2PjfKsrXd3dohE0HXDvGWbvdci48MNkzdoO8zEu1kOdeCXnZIFKdr2XHm
+	 yMZJrY3VkJiE20wSUNo/dnA+dApJwv7n454CTcxht2uFxfxKXxQ40A5CNa1Sul5gA9QYW
+	 kEZyxXkMkHQqnUq9DxuKPIFydzE1w/EGnibLzaXlmcsvnF5i3XWl3z0MTrfr+qp/CkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dUL1TbNK;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CD5Od50N;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 814F8606A324;
-	Sat, 28 Nov 2026 00:44:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 814F8606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 528A8606A31F;
+	Sat, 28 Nov 2026 00:44:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dUL1TbNK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795826654; x=1827362654;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jnEq3ovZP6cM1oJUZcdyFoF/mxkTAfO3qY5KxdsrpDQ=;
-  b=dUL1TbNKaSYqplYMJoa59V/omukcgOOs6dFLo2SsRqF7Z4QDbZoJFJM3
-   ghE0hC/WnMs8xk67I7KIhbg8iqzIY+O/KvkayGwhcsm/c6LY/7PvqkRdh
-   WtgwZUxaD1kBBhPFRuM0x1ZRnasoG7u09X584HQ9j9yrswYYB7bnHzzTc
-   dMG48b4ZoYYmsPYdvwGC0Vrf78b4y9EveCecar6Zig/bvlaepLbgRS5mp
-   FHnehGnXq/iZ/BpmJlm4WTg9f1d5LPzsoMocxv2xPEYZ+SIfzi/c5Qi5P
-   thDHDTRPDGA7Mv35BD3ad+QmjXEZO/0ZkckPtAxQCy+Le8d6Akn50UwPw
-   g==;
-X-CSE-ConnectionGUID: Ay/LmSQhSDe0n29Bf3BMuA==
-X-CSE-MsgGUID: YLmWf3A+RnW75pZLCj9HBw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4739372"
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4739372"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 16:44:14 -0800
-X-CSE-ConnectionGUID: UyqdbBtAQRuPeqKB5NLzuQ==
-X-CSE-MsgGUID: IhKfo2BlQn665SiqLkNS2g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="14508775"
-Received: from igk-lkp-server01.igk.intel.com (HELO 146cf1e082f1) ([10.211.93.152])
-  by fmviesa013.fm.intel.com with ESMTP; 27 Nov 2026 16:44:10 -0800
-Received: from kbuild by 146cf1e082f1 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xX6Xv-000000000Ss-2ZRS;
-	Sat, 28 Nov 2026 00:44:07 +0000
-Date: Sat, 28 Nov 2026 01:43:51 +0100
-From: kernel test robot <lkp@intel.com>
-To: Anthony McGivern <anthony.mcgivern@arm.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Anthony McGivern <anthony.mcgivern@arm.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Nayden Kanchev <nayden.kanchev@arm.com>,
-	Konstantin Babin <konstantin.babin@arm.com>,
-	Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com,
-	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
-	dan.scally@ideasonboard.com,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH 15/24] media: Documentation: Add Mali-C720 ISP
- documentation
-Message-ID: <20261128014225.kEBjBbCy-lkp@intel.com>
-References: <20261124-b4-initial-upstream-candidate-v1-15-0cb9bde1bd30@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CD5Od50N
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8F11F0089B;
+	Sat, 28 Nov 2026 00:44:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795826660;
+	bh=617ht0+271aJEWj5NKC+RogwfXVw7QuuuxCq4hvGCmU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CD5Od50N/heCpUoiJ47KEDjOxuuRF+skA+3a7THX3KSNNY3XsSfeLZloHLOf4ivfs
+	 EPFIuPon2hqTzo8t2QXYmxlo5Vz4MSRwCS6X5rpy1xaNYBOJzM1oVjsLlOW95Nha1r
+	 0fgsDu1t+rXIRA+UsPS8UzE71DpPuw8rumNKZkxzzcJnuDbQDNJFCIEzrZ+x3bJXKn
+	 RPz36bWz7kQPCKhdCBIJIRIm05I++QeJeBX4AMdE9g3XFI377pnh6hN4oAjo/zIn++
+	 S6RyB49tXYVE4Qv6VEryeqBX0KLi51XDgh5T144q1vaIayfNk949AJJ/Wtq5nj4h7H
+	 5JvnNiDHjIaDA==
+Date: Sat, 28 Nov 2026 00:44:17 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: thomas@exein.io
+Cc: linux-kernel@vger.kernel.org, "Martin K. Petersen" <mkp@kernel.org>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Bart Van Assche <bvanassche@acm.org>, linux-scsi@vger.kernel.org
+Subject: Re: [PATCH] scsi: ufs: spacemit: k3: change to FASTAUTO before the
+ FAST power mode
+Message-ID: <20261128004417-GKB27669@kernel.org>
+References: <20261124-fastauto-v1-1-32ec8da5af04@exein.io>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,212 +62,212 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261124-b4-initial-upstream-candidate-v1-15-0cb9bde1bd30@arm.com>
+In-Reply-To: <20261124-fastauto-v1-1-32ec8da5af04@exein.io>
 
-Hi Anthony,
+Hi Thomas Roos,
 
-kernel test robot noticed the following build warnings:
+Thanks for bringing up of this, and sending the patch.
 
-[auto build test WARNING on b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f]
+On 09:11 Tue 24 Nov     , Thomas Roos via B4 Relay wrote:
+> From: Thomas Roos <thomas@exein.io>
+> 
+> The SpacemiT vendor kernel and U-Boot never change the link straight to
+> FAST: they change to FASTAUTO at the target gear/rate first, wait
+> 100 ms, and only then to FAST. A direct FAST change kills the link at
+> the M-PHY PLL rate change: on the K3 CoM260 IFX (YMTC YMUS8B5TH1A1C1)
+> every mode except HS-G1 rate A fails with DL errors 0x80000002 /
+> 0x80000001 / 0x80002000 and PA_ERR 0x80000010, and the disk is lost.
+> 
+I actually do get report of this issue on YMTC UFS chip, but haven't seen
+ problem with Kingston UFS chip
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Anthony-McGivern/media-uapi-Add-24-bit-Bayer-media-bus-formats/20261124-170729
-base:   b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-patch link:    https://lore.kernel.org/r/20261124-b4-initial-upstream-candidate-v1-15-0cb9bde1bd30%40arm.com
-patch subject: [PATCH 15/24] media: Documentation: Add Mali-C720 ISP documentation
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-docutils: docutils (Docutils 0.23, Python 3.13.5, on linux)
-sphinx: sphinx-build 9.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20261128/20261128014225.kEBjBbCy-lkp@intel.com/reproduce)
+> Do the FASTAUTO step in the PRE_CHANGE hook; the core then sends the
+> FAST request. With this the link runs at HS-G3 rate B on two lanes.
+> 
+> Skip the step only when the link already runs in FAST with the
+> requested parameters, judged by PA_PWRMODE and not by hba->pwr_info
+> alone. After a LINERESET, ufshcd_err_handler() restores the power mode
+> with ufshcd_config_pwr_mode(hba, &hba->pwr_info, UFSHCD_PMC_POLICY_FORCE):
+> the requested parameters equal hba->pwr_info, but the link has fallen
+> back to a slow mode, and the forced FAST request would kill it again.
+> 
+> The step also writes ANA_HSGEAR_CTRL_ATTR = 0x25 and waits for the PLL
+> lock, as ufs_spacemit_apply_dev_quirks() does at probe. Every POST_CHANGE
+> clears the attribute, so without this a LINERESET recovery would run the
+> FASTAUTO and FAST changes with a different analog setting than probe.
+> 
+Vendor provide similar patch for this, but I'm rather skeptical on it
+as a proper fix and ask them to clarify with IP/UFS chip vendor..
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261128014225.kEBjBbCy-lkp@intel.com/
+FYI, I'd expect to see basic UFS patch merged first, then we can address
+this issue separately. Besides, I do have several boards on hand, but none
+of them shipped with YMTC UFS, so need someone to help reviewing and
+ testing the patch.
 
-All warnings (new ones prefixed by >>):
+> Assisted-by: claude-opus-5-5
+> Signed-off-by: Thomas Roos <thomas@exein.io>
+> ---
+> This applies on top of v8 of "scsi: ufs: spacemit: k3: Add UFS Host
+> Controller driver":
+> https://lore.kernel.org/r/20261116-08-k3-ufs-support-v8-2-e3b256972dd4@kernel.org
+> 
+> Yixun, feel free to fold it into the next version of the series.
+> 
+I'd prefer it iterated as a separate patch on top of mine, thanks
 
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index is defined 2 times: Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:373; Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:243
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled is defined 2 times: Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:636; Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:252
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index is defined 2 times: Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:645; Documentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:261
-   Documentation/ABI/testing/sysfs-class-power-rt9467:1: WARNING: Inline emphasis start-string without end-string. [docutils]
-   Documentation/ABI/testing/sysfs-class-power-rt9471:1: WARNING: Inline emphasis start-string without end-string. [docutils]
->> Documentation/admin-guide/media/mali-c720.rst:215: WARNING: Title underline too short.
---
-   Capturing Bayer data and processing it to RGB
-   -------------------------------------------- [docutils]
->> Documentation/admin-guide/media/mali-c720.rst:370: WARNING: Footnote [3] is not referenced. [ref.footnote]
-   Documentation/driver-api/basics:42: ./kernel/time/time.c:387: WARNING: Duplicate C declaration, also defined at driver-api/basics:436.
-   Declaration is '.. c:function:: unsigned int jiffies_to_msecs (const unsigned long j)'. [duplicate_declaration.c]
-   Documentation/driver-api/basics:42: ./kernel/time/time.c:410: WARNING: Duplicate C declaration, also defined at driver-api/basics:453.
-   Declaration is '.. c:function:: unsigned int jiffies_to_usecs (const unsigned long j)'. [duplicate_declaration.c]
-   Documentation/driver-api/target:25: ./drivers/target/target_core_user.c:35: ERROR: Unexpected section title.
+> Tested on a K3 CoM260 IFX (YMTC YMUS8B5TH1A1C1) on 7.3.4 with the
+> equivalent v7-based driver: without the change only HS-G1 rate A works;
+Just curious, is "HS-G1 rate A" mode stable without this patch?
+or any specific change needed to change to this mode?
 
-
-vim +215 Documentation/admin-guide/media/mali-c720.rst
-
-   211	
-   212	    media-ctl -l "'mali-c720 fr 0 pipe':1->'mali-c720 fr0-rgb':0[1]"
-   213	
-   214	Capturing Bayer data and processing it to RGB
- > 215	--------------------------------------------
-   216	
-   217	To capture 1920x1080 Bayer data from the source and push it through the ISP's
-   218	full processing pipeline, we configure formats from the input source towards
-   219	the output.
-   220	
-   221	The TPG produces 16-bit Bayer data, the input subdevice outputs this as 24-bit
-   222	Bayer. The input pipeline, represented by the ISP subdevice, transforms the
-   223	data into the square-root domain and feeds 16-bit Bayer into HV. Within HV,
-   224	the debayering occurs and then produces the 12-bit RGB input used by FR0.
-   225	
-   226	For our example, the formats are configured as follows:
-   227	
-   228	.. code-block:: none
-   229	
-   230	    media-ctl -V "'mali-c720 tpg 0':0[fmt:SRGGB16_1X16/1920x1080]"
-   231	    media-ctl -V "'mali-c720 input':1[fmt:SRGGB16_1X16/1920x1080]"
-   232	    media-ctl -V "'mali-c720 isp':0[fmt:SRGGB24_1X24/1920x1080]"
-   233	    media-ctl -V "'mali-c720 hv pipe':0[fmt:SRGGB16_1X16/1920x1080]"
-   234	    media-ctl -V "'mali-c720 fr 0 pipe':0[fmt:RGB121212_1X36/1920x1080]"
-   235	
-   236	Images can then be captured from the FR0-RGB video device:
-   237	
-   238	.. code-block:: none
-   239	
-   240	    yavta -f RGB24 -s 1920x1080 -c10 /dev/video0
-   241	
-   242	Capturing from multiple outputs
-   243	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   244	
-   245	The RGB and YUV outputs can capture images at the same time. For example,
-   246	enable both FR0 capture nodes:
-   247	
-   248	.. code-block:: none
-   249	
-   250	    media-ctl -l "'mali-c720 fr 0 pipe':1->'mali-c720 fr0-rgb':0[1]"
-   251	    media-ctl -l "'mali-c720 fr 0 pipe':2->'mali-c720 fr0-yuv':0[1]"
-   252	
-   253	Starting the first video device validates the entire media pipeline and
-   254	prevents further format changes. As such, when capturing from multiple outputs,
-   255	formats must be configured on all enabled subdevices and linked video devices
-   256	before starting any streams. For example, set both capture formats using v4l2-ctl:
-   257	
-   258	.. code-block:: none
-   259	
-   260	    v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=RGB3
-   261	    v4l2-ctl -d /dev/video1 --set-fmt-video=width=1920,height=1080,pixelformat=NV12
-   262	
-   263	Then run the two capture processes concurrently:
-   264	
-   265	.. code-block:: none
-   266	
-   267	    yavta -c10 /dev/video0 &
-   268	    yavta -c10 /dev/video1 &
-   269	    wait
-   270	
-   271	Cropping the image
-   272	~~~~~~~~~~~~~~~~~~
-   273	
-   274	The full-resolution pipeline can crop to a minimum resolution of 64x64.
-   275	To crop the image, configure the pipe's source pad crop rectangle and set
-   276	the format on the video device. The FR pipeline has one shared crop for
-   277	its RGB and YUV outputs. Setting the crop on either source pad updates
-   278	both source crops and output dimensions:
-   279	
-   280	.. code-block:: none
-   281	
-   282	    media-ctl -V "'mali-c720 fr 0 pipe':1[crop:(640,300)/640x480]"
-   283	    yavta -f RGB24 -s 640x480 -c10 /dev/video0
-   284	
-   285	Downscaling the image
-   286	~~~~~~~~~~~~~~~~~~~~~
-   287	
-   288	The full-resolution pipeline can produce full-size, cropped or downscaled
-   289	images. Downscaling by up to ~16x is supported, provided the minimum 64x64
-   290	output resolution is adhered to. For the best image result the scaling ratio
-   291	for each direction should be the same. Scaling is configured with the compose
-   292	rectangle on the pipe's sink pad. RGB and YUV outputs share the same
-   293	scaling configuration:
-   294	
-   295	.. code-block:: none
-   296	
-   297	    media-ctl -V "'mali-c720 fr 0 pipe':0[compose:(0,0)/640x360]"
-   298	    yavta -f RGB24 -s 640x360 -c10 /dev/video0
-   299	
-   300	Cropping is applied after scaling. To combine the two operations, set the
-   301	compose rectangle first, then the crop rectangle.
-   302	
-   303	Capturing images in YUV formats
-   304	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   305	
-   306	Within the full resolution pipe there is a colour space conversion block for
-   307	the YUV conversion, but its design permits the RGB and YUV to be output
-   308	simultaneously. Enable the link between the pipe and the YUV video device,
-   309	then configure a capture format like NV12:
-   310	
-   311	.. code-block:: none
-   312	
-   313	    media-ctl -l "'mali-c720 fr 0 pipe':1->'mali-c720 fr0-rgb':0[0]"
-   314	    media-ctl -l "'mali-c720 fr 0 pipe':2->'mali-c720 fr0-yuv':0[1]"
-   315	    yavta -f NV12 -s 1920x1080 -c10 /dev/video1
-   316	
-   317	.. _mali-c720-frame-scheduling:
-   318	
-   319	Frame scheduling and Media Requests
-   320	===================================
-   321	
-   322	Frame scheduling depends on whether the streaming videobuf2 (VB2) queues use
-   323	direct buffer queuing or Media Requests. Use of Media Requests is optional.
-   324	
-   325	Direct mode
-   326	-----------
-   327	
-   328	When all streaming image capture queues use direct buffer queuing through
-   329	:ref:`VIDIOC_QBUF`, the driver schedules frames in free-running mode.
-   330	Scheduling starts only when at least one image output buffer is ready.
-   331	Once started, it continues scheduling frames using the available buffers.
-   332	Empty image capture queues disable their respective capture for the
-   333	scheduled frame.
-   334	
-   335	Request mode
-   336	------------
-   337	
-   338	If any of these streaming VB2 queues uses Media Requests, scheduling starts
-   339	when a request is queued. Each subsequent frame also requires a queued
-   340	request.
-   341	
-   342	Applications allocate a request using :ref:`MEDIA_IOC_REQUEST_ALLOC` on the
-   343	media device.
-   344	Image buffers are associated with it through
-   345	:ref:`VIDIOC_QBUF`, setting ``V4L2_BUF_FLAG_REQUEST_FD`` and ``request_fd``.
-   346	The request is then submitted using :ref:`MEDIA_REQUEST_IOC_QUEUE` on the
-   347	request file descriptor.
-   348	
-   349	Controls cannot currently be associated with Media Requests. Requests
-   350	containing controls are rejected when queued.
-   351	
-   352	A request does not need to include a buffer for every capture queue.
-   353	Queues without a buffer will be disabled for the scheduled frame.
-   354	
-   355	All buffers associated with the request are usually applied on the same
-   356	frame, but a request could span multiple frames if multiple buffers are
-   357	queued for the same buffer queue. Completed buffers are returned to userspace through
-   358	:ref:`VIDIOC_DQBUF <VIDIOC_QBUF>`.
-   359	
-   360	It is permitted to queue buffers directly in other VB2 queues alongside
-   361	those operating in request mode, with requests still driving scheduling.
-   362	Whenever a request is scheduled, available buffers from these queues can
-   363	be used for the same frame, alongside buffers associated with the request.
-   364	
-   365	References
-   366	==========
-   367	
-   368	.. [1] https://git.linuxtv.org/v4l-utils.git/
-   369	.. [2] https://git.ideasonboard.org/yavta.git/
- > 370	.. [3] https://support.arm.com/compute-ip/mali-c720ae
+> with it the link runs at HS-G3 rate B x2 and the rootfs on UFS is
+> stable. Builds without warnings at W=1 on top of v8.
+> 
+> The restore path was exercised with this patch: a test-only debugfs
+> hook drops the link to PWM-G1 SLOWAUTO behind the core (raw reads fall
+> from ~900 MB/s to 1 MB/s), then a PA generic error is injected through
+> the ufshcd debugfs saved_uic_err. In 6 of 6 runs the restore went
+> through FASTAUTO back to G3B FAST, with reads at 850-980 MB/s again and
+> a matching write/read-back. That setup keeps the PHY on rate B, so it
+> does not reproduce a LINERESET that also resets the PLL rate.
+> 
+> The FASTAUTO step open-codes the attribute writes of the core's
+> ufshcd_dme_change_power_mode(). A core helper that takes an explicit
+> PA_PWRMODE value and leaves hba->pwr_info alone would avoid that; I kept
+> it in the driver for now.
+> ---
+>  drivers/ufs/host/ufs-spacemit.c | 96 +++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 96 insertions(+)
+> 
+> diff --git a/drivers/ufs/host/ufs-spacemit.c b/drivers/ufs/host/ufs-spacemit.c
+> index eb2ad50..04380a0 100644
+> --- a/drivers/ufs/host/ufs-spacemit.c
+> +++ b/drivers/ufs/host/ufs-spacemit.c
+> @@ -343,6 +343,87 @@ static int ufs_spacemit_negotiate_pwr_mode(struct ufs_hba *hba,
+>  	return ret;
+>  }
+>  
+> +/*
+> + * As in the vendor kernel and U-Boot: change to FASTAUTO at the target
+> + * gear/rate first and only then (from the core) to FAST. A direct FAST
+> + * change kills the link after the M-PHY PLL rate change, so only HS-G1A
+> + * would work.
+> + */
+> +static int ufs_spacemit_fastauto_step(struct ufs_hba *hba,
+> +				      struct ufs_pa_layer_attr *p)
+> +{
+> +	int ret;
+> +
+> +	/*
+> +	 * Restore the value and PLL lock wait of ufs_spacemit_apply_dev_quirks()
+> +	 * at probe: every POST_CHANGE resets it, which matters for a LINERESET
+> +	 * recovery.
+> +	 */
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(ANA_HSGEAR_CTRL_ATTR), 0x25);
+> +	ret = ufs_spacemit_wait_mphy_pll_lock(hba);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_RXGEAR), p->gear_rx);
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_ACTIVERXDATALANES), p->lane_rx);
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_RXTERMINATION), 1);
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_TXGEAR), p->gear_tx);
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_ACTIVETXDATALANES), p->lane_tx);
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_TXTERMINATION), 1);
+> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_HSSERIES), p->hs_rate);
+> +	/* as in ufshcd_dme_change_power_mode() */
+> +	if (!(hba->quirks & UFSHCD_QUIRK_SKIP_DEF_UNIPRO_TIMEOUT_SETTING)) {
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA0),
+> +			       DL_FC0ProtectionTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA1),
+> +			       DL_TC0ReplayTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA2),
+> +			       DL_AFC0ReqTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA3),
+> +			       DL_FC1ProtectionTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA4),
+> +			       DL_TC1ReplayTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA5),
+> +			       DL_AFC1ReqTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(DME_LocalFC0ProtectionTimeOutVal),
+> +			       DL_FC0ProtectionTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(DME_LocalTC0ReplayTimeOutVal),
+> +			       DL_TC0ReplayTimeOutVal_Default);
+> +		ufshcd_dme_set(hba, UIC_ARG_MIB(DME_LocalAFC0ReqTimeOutVal),
+> +			       DL_AFC0ReqTimeOutVal_Default);
+> +	}
+> +
+> +	ret = ufshcd_uic_change_pwr_mode(hba, FASTAUTO_MODE << 4 | FASTAUTO_MODE);
+> +	if (ret)
+> +		return ret;
+> +	msleep(100);
+> +
+> +	return ufs_spacemit_wait_mphy_pll_lock(hba);
+> +}
+> +
+> +/*
+> + * True if the link already runs in FAST with the gear, lanes and rate of
+> + * @p, so no FASTAUTO step is needed. Read PA_PWRMODE rather than trust
+> + * hba->pwr_info alone: after a LINERESET the error handler restores the
+> + * mode with UFSHCD_PMC_POLICY_FORCE and parameters equal to hba->pwr_info
+> + * while the link has fallen back to a slow mode, and the forced FAST
+> + * request from there kills the link.
+> + */
+> +static bool ufs_spacemit_link_in_fast(struct ufs_hba *hba,
+> +				      struct ufs_pa_layer_attr *p)
+> +{
+> +	u32 mode;
+> +
+> +	if (memcmp(p, &hba->pwr_info, sizeof(*p)))
+> +		return false;
+> +
+> +	if (ufshcd_dme_get(hba, UIC_ARG_MIB(PA_PWRMODE), &mode))
+> +		return false;
+> +
+> +	return ((mode >> PWRMODE_RX_OFFSET) & PWRMODE_MASK) == FAST_MODE &&
+> +	       (mode & PWRMODE_MASK) == FAST_MODE;
+> +}
+> +
+>  static int ufs_spacemit_pwr_change_notify(struct ufs_hba *hba,
+>  					  enum ufs_notify_change_status status,
+>  					  struct ufs_pa_layer_attr *dev_req_params)
+> @@ -356,6 +437,21 @@ static int ufs_spacemit_pwr_change_notify(struct ufs_hba *hba,
+>  
+>  	switch (status) {
+>  	case PRE_CHANGE:
+> +		/* the core sends the FAST request after this hook */
+> +		if (dev_req_params->pwr_rx == FAST_MODE &&
+> +		    dev_req_params->pwr_tx == FAST_MODE &&
+> +		    !ufs_spacemit_link_in_fast(hba, dev_req_params)) {
+> +			/*
+> +			 * The core ignores the result. If the FASTAUTO PMC
+> +			 * failed outside a PM operation, the link is marked
+> +			 * broken and the FAST request is not sent; if only the
+> +			 * PLL lock wait timed out, the link already runs at
+> +			 * the target rate.
+> +			 */
+> +			ret = ufs_spacemit_fastauto_step(hba, dev_req_params);
+> +			if (ret)
+> +				dev_warn(hba->dev, "FASTAUTO step failed: %d\n", ret);
+> +		}
+>  		break;
+>  	case POST_CHANGE:
+>  		ret = ufs_spacemit_wait_mphy_pll_lock(hba);
+> 
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261123-fastauto-306d20d17590
+> prerequisite-message-id: <20261116-08-k3-ufs-support-v8-0-e3b256972dd4@kernel.org>
+> prerequisite-patch-id: 70385741c42f21fbc79b3ef967e48cb8214e5cd0
+> prerequisite-patch-id: 5198841accdd660ed1597e92dcdef85a6accc8cd
+> 
+> Best regards,
+> --  
+> Thomas Roos <thomas@exein.io>
+> 
+> 
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Yixun Lan (dlan)
