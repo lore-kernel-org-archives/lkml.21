@@ -1,47 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795846465;
-	b=Dqnu9a5/7SlZ0M69yf2jzVs1tE18oT1LJl/HiGQdQyXlj3IqlvT9DaRjmxbmvutpuofi
-	 YAs+oeUtGlZU36INZhYnOvirsfW8qWPDKGnHU1bcWTrc8wINFLHPGnPWeUpRZ2Pr+J9nN
-	 pkmHR95lBgS7mX0wDBtIPbsDtLvmuBr+lFv2pgdrlw7058a9B8zDdOEWbiSLtTy/o/RKd
-	 nFdinbiXZkkoNF4z/EJgXw8Q0/ieqjrnO1pRdH0HMdDF6gmb6RG0BANoVQ+qbPKg3vF6T
-	 mo5yAnVJPL349Rn/ISOVvxVDiLiyJKBcwccjIoj6KfGABM8IengIvuLVeSXLpqxbTWA==
+	t=1795846753;
+	b=O238cx2PZP2cTJVfwp71HPF89E4xz6RVIYKEWr2Xwp2bpckHj7BI6QO7ZoDHE5eYne+6
+	 qkJzJ9GPlj+sVLXUnDmnbdKFkFDl+1EZD7r4hYPIl7gl2WgBetTtVN0TtbB4XUUZdJEIy
+	 kZfWlLmLtbX2xeu306az6sBrt2pSwRbFAwiC1nAzqS+ZqyfP9c14fKuOl3NiWjq6SSYD3
+	 0S9iLWof9uI8OxcOUk8s7lVltXlW68wA/i740G/aiVVQBHJGNnqySUATwvIP2qtruNHHH
+	 ubCvqme+7Bvrt99FbcVsCSbPW2/93AplCRROqs5EdLsLdYiK8PDpffD12bjdgHSbyig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795846465;
-	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=BpeYc5qapvr7db1WC0PM9BXoxCZrn7LTw/6t/OyLwrM=;
-	b=tu+jXMZmrae/+LOUb50iM+a+1mtTeX3BXLw9fx5numgTNCB6OFqnV9QsgQ9vC097thZp
-	 3r6srEguOXcc5z7f3J+jWlSxDPcNDPo59h/qjXT+efiNCPvRhTPTD1udI+rL61Vp7qhwH
-	 +Ke8+wsc3CrR71Yq9FZ/3qVt1WNJWsenmY1DOE/TcPmNLZViokuOlbd0J0NhEZcV+Gi9P
-	 UFPb0kbxarXEe0FI1RZkrh/8JADddgrWcpuUteTf5sFWOq7H8lqVK1mSf0jhS/IS0aR0o
-	 uYR6iNwaxcCfsVLJaju95sBTdjxw7RMDsTVjxcdwGL54UxyztRvI5dz1uFKILyp2TKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795846753;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=LwkixGIut82JdvZ7GR3OWnVuJ+wu+yVSiif+/L1vzPI=;
+	b=cln2HFpFcb5/zhQaDCqwxHHaaaULNdWZwwEbuCoVcSfZyhyWSXg/iR6ptghZO/q685JX
+	 kQLwxvyq/jhU6w4RpROB1OXq7xjWVLsfh4aRDOM8yNajnoD7ufxdmOj6G49uAsE5Lmg39
+	 tt3UBYk1tnE/oj7xpi9GvGEh3JQQ8eib8/eGfOReeGNoula892cUTGIUJeAoZJ5brDp5o
+	 JGvi/dRA5OoiXbq77shr8Bnn5ZgpHC37ddfqYQ3+OQBgBcWwv9QMg/TSYMnO7plH49CFB
+	 UM9URaK3TvfkyRgGb2dmMdzMWqsmhDy8W231ffAy+zACKVKxZPPBQ0xDskHAMRENeog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=pass smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.99
-Received: from dggmsgout11.his.huawei.com (dggmsgout11.his.huawei.com [124.71.93.99])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DdfmLEwZ;
+	arc=none smtp.remote-ip=209.85.219.48
+Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D30D2606A31C;
-	Sat, 28 Nov 2026 06:14:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D30D2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggmsgout11.his.huawei.com (SkyGuard) with ESMTP id 4jc0Nb11wvz1c1Tr;
-	Sat, 28 Nov 2026 14:14:07 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 25AFF4058F;
-	Sat, 28 Nov 2026 14:14:17 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP1 (Coremail) with UTF8SMTPA id cCh0CgDXKM43cQpr6dATGA--.2610S2;
-	Sat, 28 Nov 2026 14:14:16 +0800 (CST)
-Message-ID: <a27f5e70-8a42-468b-82e7-4a6d47969814@huaweicloud.com>
-Date: Sat, 28 Nov 2026 14:14:15 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9D47606A31E
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:19:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9D47606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DdfmLEwZ
+Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-92110499585so78212716d6.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:19:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795846751; x=1796451551; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LwkixGIut82JdvZ7GR3OWnVuJ+wu+yVSiif+/L1vzPI=;
+        b=DdfmLEwZ7o7QhnLgq298NVLTmp+v1Zw5KGDQR5HL/4YjkoIUnVkEtJQkzAtezPtEUy
+         Lueu3cLUY0nqc62kWSkh7wwvOgqhaHpIOp63gT/oyf+CTdfxuGsbiUSlN3GskLxq5vNu
+         43mq7oAV0ZndNOZ5gpHBk8LxivD4M5yxWCUW055yovDK51xZy1zFtUVsqw+AU1xl/g5m
+         A9M+Usz0EIokbL/7tx5QjBzl9WXwBMVLdcUxO3x+16c/wiuJl1MZUdCDMQhxjgtBQACR
+         eu+agRAQGopjkaO2Us1/xFUEEJkOsU48sR/twgCfuM4qnSj+Bcp5T4tbE8/BeKHwMSUa
+         kBRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795846751; x=1796451551;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LwkixGIut82JdvZ7GR3OWnVuJ+wu+yVSiif+/L1vzPI=;
+        b=C/cabzhWPe7K3JwLKwefs/9mCSuxfypYEiK+gY72iG6wYW2MCi/vrw7XNHj+KAuozD
+         ZQTE9dQNVXDQ+wZcPGaB/2lW4FFN0AgTC4Rybrs6glknsZzjg2gVaTgEglBM9LVZkYTN
+         +bYISJazbhSxkGs10M1CXG6qoeQKtZVmt0TisfzILfIPgbZytcEWIX1MxA07WKNui25q
+         xtamquijzdveh3ERwmYKEjQfhhdVv4pxkJwTTGXEufEh2K6hwhGTFo9wc4N+JjBgd2WE
+         W+RfxpR1UB4BuACjXhVarmiePfS7snzBSvBHTDEooF4E4mJIMeL/7CukG4QaujUysA+z
+         FLSg==
+X-Forwarded-Encrypted: i=1; AL+hErG3s6skNXOV+L1Hr8R2Ysbe/Y3UdGiku2gxeNRibl6aw95k522n08EPzKN/uV9P9tiHNM9sJo8XvAv1my4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/TZK+MsKrR9Dvu0Qybp3H5ZIOJYR9xzhmyqbkLTvoxehleQc5m
+	AbCZICJaxQUqZa6KGDDSWq/InxftaBDkJs19YmTsPMxbssa2bSWspj06
+X-Gm-Gg: AZFdTZfo/g0LhGN+0FqUUsKe8FQ02q5mC5OWAS/PDplOSVA35AftlKXnc0qTNR7Ku/C
+	W0aOYRtzFLDSKTOea8//VTumEpskO22zq8jAaeGfn5p2Zhu9tm4CnIX78STKREFJ7zQqZ0zq3yp
+	jrQRH5pwDGI5ZLqzYbFF6Va+ZTnrKMaL7xOtX/hjQUZa/oi33LrnNT05riBos4jzQbb1nJO+XBT
+	eDugQBlJ1e+7KE4c0vnIv48sZCbagDJtL6r/5cgoh5dk7TsAhLi5nJt/mde6ILEzupW55oRjefy
+	WF4jnx7XLZNBxBqJoT06XKRXeYt37fZDZSlJUn0vPQ4whEo06530gLZv4u4CCgoSr/xUfIBSf7p
+	jdvW6UCCREMGLZ+7huF27uQUdSXP34kNEZFb6aU5i1MIq6y8WBwk1mn5KvASjsSZyx1NdLCdOu9
+	XO6ZQepoJ9o4WCAlpVIQOeCAhhmbaDQJxz7el5dMjSIfW074taU3MrtXy0pVc9+oNEtj/VMsFT7
+	sGD7wYYFUjJnJHu6fHw7wQ99BbCQPDS3zVAGJext8YK70YI03WGiCXG66aNleFk0hj3hkVK2lQx
+	s29Hu24JLupNg7JxYyU4vnvAds524onrpNbkjJpyE5Za
+X-Received: by 2002:a05:6214:2f01:b0:921:2e36:b781 with SMTP id 6a1803df08f44-92134a5457cmr539622096d6.16.1795846751423;
+        Fri, 27 Nov 2026 22:19:11 -0800 (PST)
+Received: from zmitepc.ad.psu.edu ([128.118.12.1])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921347966desm232907746d6.3.2026.11.27.22.19.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 22:19:11 -0800 (PST)
+From: Mehmet Ilhan Bayoglu <memobayoglu2007@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] usb: quirks: add WINDOWS_CONFIG_REQ_SIZE for Razer BlackShark V3
+Date: Sat, 28 Nov 2026 01:19:10 -0500
+Message-ID: <20261128061910.742824-1-memobayoglu2007@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <2026112051-smirk-omnivore-0d65@gregkh>
+References: <2026112051-smirk-omnivore-0d65@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,69 +97,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/3] Introduce a classic BPF filter cache for seccomp
-Content-Language: en-US
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, io-uring@vger.kernel.org,
- netdev@vger.kernel.org
-Cc: Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@amacapital.net>,
- Will Drewry <wad@chromium.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Stanislav Fomichev <sdf@fomichev.me>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Jens Axboe <axboe@kernel.dk>
-References: <cover.1795139109.git.xukuohai@huaweicloud.com>
- <DN0AIFQ82CFP.34SDTH6ZFZC1G@gmail.com>
- <309b8e49-2f9c-4a2f-9b40-8e7e7cce3455@huaweicloud.com>
- <DN5F4EBDNESC.3UOJRTCXCL4HI@gmail.com>
- <5b1c03a4-f910-4f97-af3e-1b8c328dd1ba@huaweicloud.com>
- <DN6F6Y9I0QD7.1B49UETL2EKDJ@gmail.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <DN6F6Y9I0QD7.1B49UETL2EKDJ@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID:cCh0CgDXKM43cQpr6dATGA--.2610S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtr4rKw1UWr4xWrW3uw1DAwb_yoWDJFb_Xw
-	srWFs8tw1ag3ZxJ3WUKw45Ar4kKryrXFy8JFy8Gr17AryDXr1rCF4kKrsa9FZ3AayxAFZx
-	Gwn0qay0qr9F9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbxxYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
-	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x02
-	67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
-	v3UUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+Content-Transfer-Encoding: 8bit
 
-On 11/28/2026 8:33 AM, Alexei Starovoitov wrote:
-> On Fri, Nov 27, 2026 at 07:15 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
->> The free path is dominated by bpf_arch_text_invalidate(), which sends IPIs
->> to all CPUs and waits for completion. The wait happens after put_cpu(), so
->> the task is preemptible. If the task is preempted, other lock waiters remain
->> blocked until it is scheduled back and releases the lock. This can extend
->> the lock hold time to seconds.
-> 
->> After moving bpf_arch_text_invalidate() out of pack_mutex, the p99 VM
->> startup latency drops from 2.79 s to 170 ms under the same workload.
-> 
-> Awesome!
-> 
-> btw every free still sends these IPIs.
-> We can probably remove them.
-> 
-> aarch64_insn_set() can do caches_clean_inval_pou() only
-> like aarch64_insn_patch_text_nosync().
-> bpf_arch_text_invalidate() is its only caller and nothing runs in
-> the freed chunks.
-> 
-> It can be a separate patch, of course.
+The Razer BlackShark V3 and V3 Pro wireless dongles fingerprint the
+USB host by its configuration-descriptor read pattern during
+enumeration. Unless they see a single full-length (wLength=255)
+request like Windows sends, they refuse to bring up the wireless
+telemetry relay and battery, charging and EQ state all read back as
+zero.
 
-Yeah, I'll look into it.
+USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE already implements exactly this
+behaviour, so just register it for the four BlackShark V3 PIDs:
+
+  0x0576  V3 Pro (wired USB-C)
+  0x0577  V3 Pro (2.4GHz dongle)
+  0x0579  V3     (wired USB-C)
+  0x057a  V3     (2.4GHz dongle)
+
+Both the dongle and the wired transport enumerate the same firmware
+and need the quirk. Verified on 0x057a and 0x0577: with the quirk the
+vendor channel answers and battery/charging/EQ read correctly;
+without it every vendor GET returns zero.
+
+Tested-by: Mehmet Ilhan Bayoglu <memobayoglu2007@gmail.com>
+Signed-off-by: Mehmet Ilhan Bayoglu <memobayoglu2007@gmail.com>
+---
+v2: move the new entries before the Kiyo Pro (0x0e05) so the table
+    stays sorted by vendor/product ID, as requested in review.
+
+ drivers/usb/core/quirks.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/usb/core/quirks.c b/drivers/usb/core/quirks.c
+index b5b577f0b..dd926957c 100644
+--- a/drivers/usb/core/quirks.c
++++ b/drivers/usb/core/quirks.c
+@@ -500,6 +500,11 @@ static const struct usb_device_id usb_quirk_list[] = {
+ 	/* Razer - Razer Blade Keyboard */
+ 	{ USB_DEVICE(0x1532, 0x0116), .driver_info =
+ 			USB_QUIRK_LINEAR_UFRAME_INTR_BINTERVAL },
++	/* Razer - Razer BlackShark V3 / V3 Pro (wired and dongle) */
++	{ USB_DEVICE(0x1532, 0x0576), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
++	{ USB_DEVICE(0x1532, 0x0577), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
++	{ USB_DEVICE(0x1532, 0x0579), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
++	{ USB_DEVICE(0x1532, 0x057a), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
+ 	/* Razer - Razer Kiyo Pro Webcam */
+ 	{ USB_DEVICE(0x1532, 0x0e05), .driver_info = USB_QUIRK_NO_LPM },
+ 
+-- 
+2.56.0
 
