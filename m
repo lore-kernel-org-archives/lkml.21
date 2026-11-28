@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795828967;
-	b=wPUtP8ijOuac/q6rVqnG8jTpV1xyUgrXa8E4RVScgQ8IwaBq1EdFP1vF+geky079wioJ
-	 xkP2RBp6JOqd4E+QuiCbNGDA7/4NKjDhntTeJMyz3U+NsHOgbsFTgQUhZoVEjA2YAYLHI
-	 eynWK6ZGlKTYDtVPVUZqRjbiLLXPE4ZukFEuyQIdUae1CAgXMRS7+WUMEz4alvx9QY/uC
-	 aRteYsyXk7mOViacSTgXFh5RU2lwnudLUJaCSBDDXleRe0S+S0a3v67rtCn/OaZ3pYgbI
-	 ZE7FXsBJybFM464togtYtja1uhCM+Xf0BxSqG/t9OF5swVjJlimTs3e+VYgLLyRzq4g==
+	t=1795829080;
+	b=MpsWr4mG9dhxV/c8ajLaiDdvdy3QtGa4rQfPBPRe7ucDPMGJcQnqQdF+TIdHY8bjMwn+
+	 yt6BhPln0hP528iRjxaCeFflDRfr+NAVPXY6F+oZfrG2MnGOJndV7lmFqcOI8tHXGYMTs
+	 n4YzCG1gauMT6KUV5cFnZFlv0htkdqmjM7CQPScg2DmZ1w1INYRTWVLAxoXFWgG7JuiCu
+	 xRkGTE6SKSdMjYPUrBOSsYrdhwMoIbhcm5kxzTjiDCaSniMKfzdEQz6Oegeur6vbmeP80
+	 DRH9Fzc0uwFDAmgDhhVNwHO0J8pkqs6bUKFogEqYVEF+oNlSGRdV3JXTm+U4b/vlrDg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795828967;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795829080;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cFBbiXkN5r28OvuYPToLrq7vCtbDjfKbRh3y/3moQBI=;
-	b=AgooQ7UHFX503sfvlXvjEY2GGNhzJfmSWS7N4GCvYXojAlFZmPvFjqiHSwCnIlu+k7AC
-	 /XnIL5YjCa+/JWqDVbNbDQMD0HaUjTVwMGWTVi48+VF4CojR20n1wi0YAmVqni3Q6qa9u
-	 kn4F/BsOhADBEc/7F00VvQipi59Hz8MYU0wdPmrlo/KFWq1uwwqOYf5dsrkYyucoLbu1e
-	 ikBmiNF+gW7Irv7ihPVPUT6qs2QodvkoVuwt/Jso2SslQuWOmH/P8nCPnO/mglSNyvthR
-	 FZpDh99OiMoGdnsFS52FbV4TPL9Qo/QR67w7zUreMgnIRl33TB326ke8wfPfnDQM64Q==
+	bh=hXkDVuAr9qA224/tgLfxZAkp54fhq25Xt/MuC3ZvONk=;
+	b=YS//UPdfqS0GO9JBec7HADhfxfdew6fJqIvDH0IE35MGtvN8WKKnNOw2qz5KK59CwJVe
+	 MOlDts3/6c6j66ypf73ZbuPxDuz33TgNJa+UsM9ZifCJQYTAQNtp53XE3EsM3rmWk8bco
+	 6zQRnQ1B9OMUS0ia8HUEzhvQNOTmo25cEi0XaEFN/mHGxKo2qUEEGoKxBWezO2ABK1GVH
+	 9nftsmiv+qIkPuVVMUwEzOGCJhVyd9jOpBPmJLiMID70zQfPCPtCLyDeqaUek9n3OxLlm
+	 dSozQ8JwzReZEQNoBiAiN4YC72kXqAbx3Qn0+/JP91/maEKhxUtXqmyUVIzoRvidmyA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NjlkenYE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ld1gFwTL;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3CFC606A31C;
-	Sat, 28 Nov 2026 01:22:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83189606A31C;
+	Sat, 28 Nov 2026 01:24:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NjlkenYE
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ld1gFwTL
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795828966;
-	b=L7TpsyzMNYrXdSyDzjS30QSdWK0526H0+RsVdrhIGo80+IN5b6qVbMMwO8CB/44+d1It
-	 bqDNRayXpYmL0KlPovxHjzjnoJQJr9rKnv8XrW22EMF10gVzvopVonjphoQ7VWMn4weer
-	 029pWWLnG4f4uGfHm95Y4ykUPmlpCGDCzRkthmTceIghXxEmElaf0z8gDapA0t7JMylv7
-	 5rMZz6KwNwTW5XsQMh/MClNypM7IlRTKK41wdc41kmKliCc6p9gAJiSKDJahmJybrOm0L
-	 u2V5IpZI/5gI5G3bKqDTnSjEGHwFH5MZ3DQ+SAmZIvc8RNI9w4hJmjSclVFVXvRpZHA==
+	t=1795829080;
+	b=qPVUF+LC05Xe4XkAbOhGzjBeBf/XtVIHukzt4Xw7v9EyEWYj19mAL99lJ4HM7qj1Fuht
+	 3HdjX+jbXrU1AuuDQqagyInsycvtdizAD8lpWQvq54WoIkbEEVdxWmpJxIOxEYk2d7v+g
+	 KFYcbdCg0UrtgSYhTuFPWKLWWyPj7ZfXWiGUVdaaeSaisogo5cd6+CObr72s6tghPpN8+
+	 M81zDIRbaJloWotnvdSuBrcQwlaR8cUjil12fSQXmzubI/zjkojQLcEov7NACNuQxjc8f
+	 znWVfiGX+nB0/S+DOuJ5mJO2zZlydYOOD0x6UskEXcrkl7rjg7lkKlxW5MdFu4uXYtg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795828966;
+	c=relaxed/relaxed; t=1795829080;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cFBbiXkN5r28OvuYPToLrq7vCtbDjfKbRh3y/3moQBI=;
-	b=Psjx8C65Y2NHMaanNvzcEWgPdhALQ+qXOywI2opTOtpqVxt3LODQhdvBi2Ve5svH15O7
-	 pd5j2YnWRs5HNCS1CH3rmeGHhjpb5dSU5iVuX4Cfd0zLR+XaLQGpN4u1gu/MGH72WtMz5
-	 wevGoS/1sfMsHz9+OVpBhAkHH79fmsAc684PfCMNaDQ5ZCUsZAVOvn4TsZS7EBawph2hd
-	 UwbSqv4a4UZ1qCr/3kONC2OnWts6mQVR3mNxX6adu68Ne020TF9e+2TU/id53MaeqkR2f
-	 1twRmYQCm9wS5o2D6LIwDVk7EWuMEXCf6gmfoE7l4Cob1kXt/cJrD4UlpcXMOWIhL5w==
+	bh=hXkDVuAr9qA224/tgLfxZAkp54fhq25Xt/MuC3ZvONk=;
+	b=j4Agak9L2F5nfvYCgRhrg8k+qFlSUsev1AGS6UtMYFU5DpRSLIyZBzP8YtiZZJjCxHOi
+	 AJfx2496YNoOtrzIkZSyzb8tXkEbopwP9Wlkmc5gb9XU30RNTTC4mlCOOP4nvRO2eX61I
+	 IfN6l8/3MTxo0alf0SmUBF8T8L6fjMwwGPi6HOI2nkqI5+/jS6eSRmI6qm2B7M2PCVab5
+	 +YN4HKOYE2Az+MNhMu5Jlx0sSSmRiunMb2wqMF30ejpvT5MOgdVICzBPk5FLQqmxgr4X+
+	 qjBNxs/cdNicsLDTNQW49cqrQWgsOfOErVCr+coXAMExh9/SuhDBxSvUIkn+mvuoI1g==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3B0991F00893;
-	Sat, 28 Nov 2026 01:22:46 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id B79031F000C1;
+	Sat, 28 Nov 2026 01:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795828966;
-	bh=cFBbiXkN5r28OvuYPToLrq7vCtbDjfKbRh3y/3moQBI=;
+	s=k20260515; t=1795829080;
+	bh=hXkDVuAr9qA224/tgLfxZAkp54fhq25Xt/MuC3ZvONk=;
 	h=From:Date:Subject:To:Cc:Reply-To;
-	b=NjlkenYEc627NDQ1slSHvi7z1MNX1G6CWPBBuWHwRmdtXHTH4DfxHaUZ0JgVNLJNC
-	 MOMRZDzcjvCe1i+hKrKiasxv6U537ISIz6Nl3+xyVzSDGESDKT+7bN2YZ3HaCUgQTf
-	 VFnD3U+PuIcDYf/KQBupwHuOSDUij0CAmKzTc5CxWy9K3VgUoHIo8FUlf2aFwnWTHf
-	 Tf2uNXL9sfZHCvfvZOMHPIUSThQ699akR/oPUA6KPQ1vyneLH29yn6oW4YMkgwbWWk
-	 FeIhorGY1n+Al4g11rIGdQQF5bHzO/3S9G1LBA2fRFqbGaOw1s9e7q9v2Hf/1UAYgd
-	 u5LLaIqv4rsdA==
+	b=Ld1gFwTLygpNhJGL/S4tCL5j8T6dKiSU85IUiXCSHHGt478lD6ZH4fyW5FqtO9/XR
+	 eeu//WkyWnRNCEmarWiKSZbbuTmkWfaBdLc6gZM3wp5Vx84grblRcMKQ2zuM5jWdtH
+	 5ybcfK5dqdfF+GExbKJjcXiZumFhrMxOi27kEM2aCwciwptwWqh4/agb2abpETp3tu
+	 SbjOfYjzC6YXqUDCi8LyA/P6a1nKxeuSaX7vj5btei5rXsDZ4DOzfAIruqAmKQu24x
+	 aO2xIXvQA2NcB+PRzwlXmxkWeLovTU3/k432XnnaXZ3kdJQc8RIFMGjiohW23GBCEa
+	 34ZT5u1JXqwLg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 91B1B4DEF4;
-	Sat, 28 Nov 2026 01:22:45 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 345D74DEF4;
+	Sat, 28 Nov 2026 01:24:39 +0000 (UTC)
 From: Silvio Unkovic via B4 Relay <devnull+silvio.unkovic.pm.me@kernel.org>
-Date: Sat, 28 Nov 2026 02:22:30 +0100
-Subject: [PATCH] ALSA: usb-audio: Add quirks for Sony PlayStation Eye
+Date: Sat, 28 Nov 2026 02:24:29 +0100
+Subject: [PATCH] media: gspca: ov534: Relabel the 137 fps QVGA mode as 143
+ fps
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,20 +84,20 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261128-pseye-audio-v1-1-b751d7911847@pm.me>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ5EQBBG4atIrXWimkjHVSazQP8oC6SLyYi4u
- 8byW7x3kCIIlKrkoICfqMxTBKcJtUM99TDio8lmtmS2ziyKHabevMzGOVuUyJi73FMsloBO/s/
- t832tWzOiXe8FnecFI2Qgg28AAAA=
-X-Change-ID: 20261128-pseye-audio-88246e011f3d
-To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Silvio Unkovic <silvio.unkovic@pm.me>
+Message-Id: <20261128-pseye-ov534-v1-1-a71e4661d994@pm.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyML3YLi1MpU3fwyU2MTXYNEs5SURGPzxERLYyWgjoKi1LTMCrBp0bE
+ QfnFpUlZqcgnICKXaWgBGSfMvbwAAAA==
+X-Change-ID: 20261128-pseye-ov534-0a6dda37aa93
+To: Hans Verkuil <hverkuil@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Silvio Unkovic <silvio.unkovic@pm.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795828965; l=3921;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795829078; l=3137;
  i=silvio.unkovic@pm.me; s=20261128; h=from:subject:message-id;
- bh=JrLnAEHr27j9SpqNizQ3trGT7b8Z6DBmJXWrIsAhv18=;
- b=PDxWC7aricQBhCiifOAYidPVGV3Hgzfp56TCkwXuwUR8T6pHIwgr19ZkDOIjmcEKE8ZH9N7di
- hjC7+Cvw6jMBH5X5A1ven+shB6IcgvYxZfFp4ABmGtcPlyJ11W7zHd+
+ bh=8fULFlrKgnlUMHAfhORSxpngQfJXvNB/Ft2M6SHjW8A=;
+ b=o4SsLptTWwuz1h/BEDYhy/x32HByRpK63H8pC0OsR9Gs21cPx1UEFR5pIwZyfQ77zSSkqPVSW
+ apN0Zshs4RgB2by3nGhTwEWS4K0EDPff/LsqJfZeMDKrz1IsZaI6ufr
 X-Developer-Key: i=silvio.unkovic@pm.me; a=ed25519;
  pk=EnRsDjntfFouyIMyaboNgoB+wQ65iMW873YmPIjPiII=
 X-Endpoint-Received: by B4 Relay for silvio.unkovic@pm.me/20261128 with
@@ -107,100 +108,75 @@ Content-Transfer-Encoding: 7bit
 
 From: Silvio Unkovic <silvio.unkovic@pm.me>
 
-The Sony PlayStation Eye camera (1415:2000) has a UAC1 four-microphone
-array capture interface with a single 16 kHz rate.
+The OV772x QVGA rate table has an entry labelled 137 fps using the
+register values r11=0x02, r0d=0xc1, re5=0x02.  On a PlayStation Eye
+(1415:2000) this setting delivers about 143 fps: 143.27 fps measured
+shortly after plugging in, drifting down to about 141.3 fps as the
+camera warms up.  All other entries in both tables deliver their
+labelled rate to within 0.1% and do not drift.
 
-Reading back the sampling frequency from its endpoint returns garbage
-(e.g. 33186, 17004 or 2199316 instead of 16000), producing a "current
-rate ... is different from the runtime rate" warning on every stream
-start.  This was already reported in 2012 [1].  Set
-QUIRK_FLAG_GET_SAMPLE_RATE to skip the read.
+No combination of the three registers used by the table gives 137 fps,
+so relabel the entry with the rate it really produces.  The images in
+this mode are valid.
 
-Its feature unit 3 advertises a per-channel volume control, but the
-device answers GET_MIN, GET_MAX, GET_RES and GET_CUR with a single zero
-byte instead of two bytes, so the driver logs "cannot get min/max
-values" and creates a "Mic Capture Volume" control with a fallback 0..1
-range that returns -EINVAL on read.  SET_CUR is accepted for any value,
-but the capture level does not change: with a fixed range forced in the
-driver, recordings stayed at the same level for every setting from
--80 dB to +60 dB.  Skip the control via a mixer map.
-
-[1] "Usb audio - unsuported sampling rates", alsa-devel, 2012-07-10
+Note that set_frame_rate() selects the highest entry not above the
+requested rate, so a request for exactly 137 fps now selects 125 fps
+instead of this mode.
 
 Assisted-by: Claude:claude-fable-5-2
 Signed-off-by: Silvio Unkovic <silvio.unkovic@pm.me>
 ---
-Tested on a PlayStation Eye (1415:2000, bcdDevice 2.00, product string
-"USB Camera-B4.09.24.1") on 7.3.4 with snd-usb-audio rebuilt with this
-patch: no "current rate" or "cannot get min/max values" messages on
-plug-in or stream start, the control is gone, and 4-channel 16 kHz
-capture works as before.
+Tested on a PlayStation Eye (1415:2000, bcdDevice 2.00, sensor OV772x)
+on 7.3.4 with ov534 rebuilt with this patch.  Rates were measured with
+"v4l2-ctl --stream-mmap" in YUYV:
 
-The volume findings come from sending the FU 3 requests through usbfs
-with the control interface unbound, and from a test build that gave the
-control a fixed -80..+60 dB range and stepped it with amixer while
-recording, in a quiet room and with music playing.
+  label  measured        label  measured
+  187    187.34          75     74.93
+  150    149.87          60     59.95
+  137    143.27..141.3   50     49.96
+  125    124.89          37     37.47
+  100    99.91           30     29.97
 
-Tool use: an AI coding assistant (Claude Code) did the investigation of
-the driver code, wrote the patch and the test scripts, and drafted this
-changelog, working on my machine with the camera attached.  I ran the
-tests on the hardware and reviewed the change and the results.
+With the patch VIDIOC_ENUM_FRAMEINTERVALS lists 143 instead of 137 and
+the other modes are unchanged.  This mode uses the same r0d/re5 pair as
+the commented-out 205 fps entry, and it is the only one whose rate
+drifts, so its clock may not be locked; I have not confirmed that.
+Dropping the entry instead would also be fine with me.
+
+Tool use: an AI coding assistant (Claude Code) did the measurements and
+the analysis of the rate table, wrote the patch and drafted this
+changelog, working on my machine with the camera attached.  I loaded
+the modules, and reviewed the change and the results.
 ---
- sound/usb/mixer_maps.c | 16 ++++++++++++++++
- sound/usb/quirks.c     |  2 ++
- 2 files changed, 18 insertions(+)
+ drivers/media/usb/gspca/ov534.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/sound/usb/mixer_maps.c b/sound/usb/mixer_maps.c
-index 9218ca631..26319ed0a 100644
---- a/sound/usb/mixer_maps.c
-+++ b/sound/usb/mixer_maps.c
-@@ -562,6 +562,17 @@ static const struct usbmix_name_map avermedia_gc553pro_map[] = {
- 	{}
+diff --git a/drivers/media/usb/gspca/ov534.c b/drivers/media/usb/gspca/ov534.c
+index bdff64a29..5b7bd1922 100644
+--- a/drivers/media/usb/gspca/ov534.c
++++ b/drivers/media/usb/gspca/ov534.c
+@@ -116,7 +116,7 @@ static const struct v4l2_pix_format ov767x_mode[] = {
+ 		.colorspace = V4L2_COLORSPACE_JPEG},
  };
  
-+/*
-+ * Sony PlayStation Eye: FU 3 advertises per-channel volume for the four
-+ * microphones, but the device answers GET_MIN, GET_MAX and GET_CUR with a
-+ * single zero byte, and SET_CUR is accepted without changing the capture
-+ * level.  Skip the control.
-+ */
-+static const struct usbmix_name_map sony_ps_eye_map[] = {
-+	{ 3, NULL, UAC_FU_VOLUME },
-+	{}
-+};
-+
- /*
-  * Control map entries
-  */
-@@ -640,6 +651,11 @@ static const struct usbmix_ctl_map usbmix_ctl_maps[] = {
- 		.id = USB_ID(0x13e5, 0x0001),
- 		.map = scratch_live_map,
- 	},
-+	{
-+		/* Sony PlayStation Eye */
-+		.id = USB_ID(0x1415, 0x2000),
-+		.map = sony_ps_eye_map,
-+	},
- 	{
- 		.id = USB_ID(0x200c, 0x1018),
- 		.map = ebox44_map,
-diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
-index bd00db820..ff2bfe850 100644
---- a/sound/usb/quirks.c
-+++ b/sound/usb/quirks.c
-@@ -2713,6 +2713,8 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
- 		   QUIRK_FLAG_PLAYBACK_FIRST | QUIRK_FLAG_GENERIC_IMPLICIT_FB),
- 	DEVICE_FLG(0x13e5, 0x0001, /* Serato Phono */
- 		   QUIRK_FLAG_IGNORE_CTL_ERROR),
-+	DEVICE_FLG(0x1415, 0x2000, /* Sony PlayStation Eye */
-+		   QUIRK_FLAG_GET_SAMPLE_RATE),
- 	DEVICE_FLG(0x152a, 0x85dd, /* SMSL USB DAC */
- 		   QUIRK_FLAG_DSD_RAW | QUIRK_FLAG_DISABLE_AUTOSUSPEND |
- 		   QUIRK_FLAG_SKIP_IFACE_SETUP),
+-static const u8 qvga_rates[] = {187, 150, 137, 125, 100, 75, 60, 50, 37, 30};
++static const u8 qvga_rates[] = {187, 150, 143, 125, 100, 75, 60, 50, 37, 30};
+ static const u8 vga_rates[] = {60, 50, 40, 30, 15};
+ 
+ static const struct framerates ov772x_framerates[] = {
+@@ -828,7 +828,7 @@ static void set_frame_rate(struct gspca_dev *gspca_dev)
+ /*		{205, 0x01, 0xc1, 0x02},  * 205 FPS: video is partly corrupt */
+ 		{187, 0x01, 0x81, 0x02}, /* 187 FPS or below: video is valid */
+ 		{150, 0x01, 0xc1, 0x04},
+-		{137, 0x02, 0xc1, 0x02},
++		{143, 0x02, 0xc1, 0x02}, /* measured 141-143 FPS, not crystal-stable */
+ 		{125, 0x02, 0x81, 0x02},
+ 		{100, 0x02, 0xc1, 0x04},
+ 		{75, 0x03, 0xc1, 0x04},
 
 ---
-base-commit: e1aff4d4241057636394751508e633a92f1cbbab
-change-id: 20261128-pseye-audio-88246e011f3d
+base-commit: b7ac871daee981f1963f632586ff9b9d898ce5dd
+change-id: 20261128-pseye-ov534-0a6dda37aa93
 
 Best regards,
 --  
