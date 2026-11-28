@@ -1,52 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795886127;
-	b=NBORbKw//KYRHfWAhocmbXSO3IA9qg5iXWmm6je5KQtizPSDBAMvO4jPvL78Y5eL6ACp
-	 CGAO1qQOb4aXyZ5TbPOMhROO6U1gYHqy2ymI1ghte/aRufWq7PkDNKpoztlth4sSM1XuO
-	 F7yVurk7i5LPknKRYmb8Ti29Hk6vZCTWdY+4igJxVeyWaFQdZBTMKjTXQ3Lg1bB/NtgML
-	 yZ65a94qgh7hW9tjyXJuZrWHhWPqL6lsas7paom8ZGDKyNxUBNUBH0vjIeeDUjXD0e53y
-	 jSEUZCLBAS1lCxtb/4F+WoffZVXjqS8dIsjLXKkAIYnoC7PW1cr8oOXCcvcZ630ABaQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886127;
-	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
-	bh=mxLdkY6vzsVozs32pWOO6o78TSdG6gnBKlks6tfg/FI=;
-	b=Ifd1+2LXEcEQL2QQkWLYc6oBm3oOC+EgIYhUUhW+7PClXWynxhz7XzpVhvD3NPB2k4N/
-	 hTVpwKWus3AWMnovC9LOnxYkaVQFTQAqgBcQ95D2nBkQ3SGQMB1NcXygBIW2Wn38z4kuW
-	 oC51BZr67UKII1OKx2XBWjdxJLuSWQDdC9OEC8sDZAfguRQOvnNWZKjFPqNmFvFjIaVRW
-	 9YLdaM2myozQm97wdcsdqlkqqdIAQFv3DqcwxTuPTGHlX5EriwxtYpMWY9L0tVdoiW5E8
-	 cEunsLOQVzEgKJmQ2i9JVeBf4JgtId6BkTjSlaWX1HibCyrqMlzFGgUNOPZpOHfhLuw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pigmoral.tech;
-	spf=pass smtp.mailfrom=pigmoral.tech;
-	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=n3Rb+4u3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795886144;
+	b=V9YoR9qDiJHA4cKo8HUI8A5mbsyBP41Pg/prGSlL0r0G0pSj+VVTnW8HBhlF0WMfUs0N
+	 da9pCAqeogrfAQZvw98a8Mv43ettOep/89NHoAdhH6BRb8M5O8M6oWVz+VwbOliCJovv+
+	 KNSSNAQl7dr0uTtJf5tlXMaVfPYN1P/F12R+p46iRUss5Ik+qWHv/INkzrBNGaABxu3Ne
+	 4IUtg0fs9O5HMzqtU7Gdl8WbVUAXmG6Kb+cdrYen4AG2DT+9JNg1cXT4H4wG123BiFNcq
+	 2TjfyW0e77+Iy5NhpowFtWX/iaxZR3j7qbTvnExYUOJBtpVRYDUTvllkwqY/O9xhXoA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886144;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=c7lRhIZ1lucgxxIozXg9UvJgXnzl7rH+vnRSnjlvfRk=;
+	b=BLhNn5sEqJBC0skA0pcT4x9VyGum4Iw4mIKc4/5ge1wYVkgME80gq52Up3zICduaC9YJ
+	 gX9Tq4FacG7ExbazR16605ySbPrkgWUaKrmXTf0RNUCwMkszYzvZy4+WUTOUv2n7h0maL
+	 NKE8A01KybmQgbcYFom6R+wXYQPFMDo+rHrqKbbom1UJOg+OirAOFGp+6QueC+YlHqsh7
+	 qdk2RD+DXVOf+MNIaPeQtZ5T3Soh+RmLJS9GAMFY6K+SZTm6QZDTQvWLl6yw4cdo84U/M
+	 hkUFWch3PKsC6L0mtVKrEyNLBm8mU8ZLRctVqmHMbBozSJG1+ibZNpeJGWXN2VCcH7A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H0cm26yp;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF5ED606A31C;
-	Sat, 28 Nov 2026 17:15:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF5ED606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3338606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:15:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3338606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=n3Rb+4u3
-ARC-Seal: i=1; a=rsa-sha256; t=1795886097; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NC2klko8jRLoHNet+utc/pJ7VOTIikmUThVKPCUUuw6VYSVBbkSoD2U8+g6yycJG7U/kJJle6/fxSJgDeZkYL9/dGA2IswgWPyx5F9qC0WSUPX/pz3EE27Kw4l6p2vX2bH42F76mGTurJKHFzcEDTTbJcj6GAVw8Wfe6+cMjWzY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795886097; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=mxLdkY6vzsVozs32pWOO6o78TSdG6gnBKlks6tfg/FI=; 
-	b=CdzcEpIsN5Wcwn1sL9gd/2PaWYgHaN9KfgWfk+oeQMgptXJFLomRR//ae8XWfXuqAo+gHsaJN98HKoH5YIQhHL5zPgygoigurKV0COuZQgdS/iYhrWpR7MsxG1a2gWRwbNRAVc26FXIFxHCohT8PInGztY2RrYa8AlTLiufl9e0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: a=rsa-sha256; b=n3Rb+4u3lNvXBbhrd3qnrekDgZyf9P/MtXD68fbi3LkmFsf3lo9Gd08NARHFbxSdjFDdMG8kQKzEOlR5kBxPzIBJv0F28l1s1P+z8ZxMT7S8d9wwshrqL6PIocf+YQdtv35Bf29709IE8kmsSTGVDDnt9ZH2Rm1lbgJObUof+fk=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=mxLdkY6vzsVozs32pWOO6o78TSdG6gnBKlks6tfg/FI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795886094973517.1431723157222;
-	Sat, 28 Nov 2026 09:14:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H0cm26yp
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so87752275e9.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:15:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795886142; x=1796490942; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=c7lRhIZ1lucgxxIozXg9UvJgXnzl7rH+vnRSnjlvfRk=;
+        b=H0cm26ypmaz44xK5JM4E3zI9jwq6545wC43rhQViTff/bFTLwv8pIXvsehH6aealjW
+         pbaym43Fq3HgjRT+aGk2i0BEuZ7ZFfNsojaXQxGcoLBygvvcwvX3tPe7BVP+RsxShsGf
+         NvvObQwvK0GEd2LLorsu9tcO0BSluSXolSLO2bOTkjMyMUY0AfITxvljMxVMV9D+zFBi
+         SAsIMWVUaS+6MnDpqzrdEb8G21M5jg5mtIu50xR/DlJMz9QPTX5/JVAgtP5udNNrQ7cp
+         Vc0BmDGfU3WeXCSJ0AJGal2xqmD59Unx9bZW+2z9H5V9hkfruGAOaeA7UdZwUKRx17DK
+         YeyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795886142; x=1796490942;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=c7lRhIZ1lucgxxIozXg9UvJgXnzl7rH+vnRSnjlvfRk=;
+        b=qrDlXsx8I5Aunc9ydZ1xAShuRgpKhjA8jR/aAggq8TVLpmO5vHFf4EJ6YxIvtO3pnl
+         pZeoGncCVtcJ6BJchE2Xb6CuHrut8ejoGrJ4Z7JauzYFS4Bc+aIT+yAvEeTAhpd2Ozeg
+         NCXdkXqwzUHc+fXfmVPDhzt5yJ7dtLZNBvZU/Rc1Eu05Tlsho3ZO31VfqwpvqO6s7tFw
+         /6NwmD2s3QQB4BQuS/P1OlUUx8dwtdraZfQkDDxppi8pQU3bcR7ew5RQ0J7UxS1tT1Xm
+         NgJabqlTVU5bHl9M36tENXE7XOKTfS4oIgHR3l4VhOrgCv7qVWwxkS50RdViA6lfB6Pj
+         UEGw==
+X-Forwarded-Encrypted: i=1; AL+hErFBjlNes4mpJfJl7JRknEvvYRT4VOFGHIKYCZJRVSuKGY828WwIQWxe64nUHWtQHSi6nYplk3xyYyXrJkE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+JqarWt0GLKDp6h6MLk0QRhaE6NTMjpVWKDPM96JlO5oZNw/hf
+	50YLrFOp9JXIQwhQKT1m7yekBIqmRuY+BiBCQCrY9mI4i12ICfkcPQ1Nu8SB8xGQU2ddTRWB
+X-Gm-Gg: AZFdTZfsuE1We/swSL4Vs7gl5WrUlFYmY5R9NW2YMn9fpFRE3ZaZSaCH5FxkCvUR+o/
+	3yqpSCWD5x0kf8/ot3AU507srSdJ7NxBJBrAEKcJ3uSfMfZmPEEhvK41bJDlqfo4OiXXczHIU2J
+	PxdNxg8PmadnBksVSJDezEm04bvbGMUxqELlfUWUDl4PvAwvi3ZK6UDrilzaEX6eDtcnXkfPbGv
+	Ejvuop/ZDQXf7JLVl1jCeQMWJDX9phlQXn7QY0oZBZQIJKfvuhzhg50D+nj9pFre0A7P/XJ4oK7
+	MgF4hxsIh7vMafAFRP7d+n17d1VGRrIT+1+nGAtzpUOphG/dBRu5Uc+ZZpgEfvZnJ0afoC+raRx
+	1/zsmP/EgtVp2f7NW+ndyu67GcTDpuYP45Z2F4x5ovNtbEHdsZTgMMps8KtWEjPQ8g9mPADCNvw
+	vyqTT9aMWJc9afgdwN/qJ9D9+OFMMw0UgChev9N322mGCAj+0Ero0f8pNdw4/Fb2fZPsmAWyvOW
+	tKWo5X46p87XDh/6TPkD1yem5NmI5z4N27iNi9sUfyUqGXgpf+QAKQc0++xgJfSdApP/tXMI9n9
+	V2sV3n48j1OBs4eOKccM0oDttzQ3DePldk+fwQ==
+X-Received: by 2002:a05:600c:64c9:b0:4bb:679a:86ee with SMTP id 5b1f17b1804b1-4bb88938dbemr559567025e9.29.1795886141801;
+        Sat, 28 Nov 2026 09:15:41 -0800 (PST)
+Received: from [10.56.169.198] ([95.179.249.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.15.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 09:15:40 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+Subject: [PATCH 0/7] drm/vkms: complete the plane color pipeline
+Date: Sat, 28 Nov 2026 18:15:18 +0100
+Message-Id: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,144 +90,62 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 29 Nov 2026 01:14:37 +0800
-Message-Id: <DN70HEN4EFL9.RHMQ0H4T77RG@pigmoral.tech>
-Cc: <spacemit@lists.linux.dev>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, "Chunyan Zhang" <zhang.lyra@gmail.com>,
- "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V2] riscv: dts: spacemit: k3: add USB3 port A (DRD)
- nodes
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Chunyan Zhang" <chunyan.zhang@linux.spacemit.com>, "Yixun Lan"
- <dlan@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
-X-Mailer: aerc 0.22.0
-References: <20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com>
-In-Reply-To: <20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com>
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QpAQBCF4VfRXNsyNlO8ilywBiNZ7SK1eXeLy
+ 6/+cwJ4dsIeqiSA41O82DUC0wTM1K4jK+mjIc9yQkStjF2ss5uiUg8ZUosF9RDrzfEg1/dUN7/
+ 90c1s9ncO9/0ACJT0emsAAAA=
+X-Change-ID: 20261113-colorop-693f016a156d
+To: Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Alex Hung <alex.hung@amd.com>, 
+ Robert Mader <robert.mader@collabora.com>, 
+ Harry Wentland <harry.wentland@amd.com>, Simon Ser <contact@emersion.fr>, 
+ Daniel Stone <daniels@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
 
-Hi Chunyan,
+The vkms plane pipeline has a fixed matrix, two 1D curves and two 3x4
+matrices. Userspace cannot supply its own LUT, do a 3D lookup, or apply
+a gain to the channels.
 
-Thanks for your work, but I found an issue when testing this patch...
+Patches 1 to 3 fix three bugs in the pipeline plumbing. Patches 4 to 6
+add a 1D LUT, a 3D LUT and a multiplier. Patch 7 adds KUnit coverage for
+the 3D LUT and the multiplier; the 1D LUT gets its coverage in patch 4.
 
-On Thu Nov 5, 2026 at 6:31 PM CST, Chunyan Zhang wrote:
-> Describe the DWC3 controller and its USB 2.0 PHY for USB3 port A
-> of the K3 SoC.
->
-> Only the U2 lane is described: Port A's SuperSpeed PHY has no driver
-> yet, so the port runs at high-speed (maximum-speed =3D "high-speed").
->
-> On the K3 Pico-ITX, Port A is a Type-C connector behind a FUSB301 CC
-> controller, which is not described yet. Nothing configures the
-> FUSB301, so the port relies on its power-on CC mode. Enable Port A
-> with dr_mode =3D "peripheral"; it is device-only until the CC
-> controller is described.
+The color math has KUnit coverage; there is no IGT test for the color
+pipeline yet, so the uAPI paths are not exercised end-to-end.
 
-In my testing, this patch alone does not make the USB gadget work unless
-I manually run the following command after the kernel has booted:
+The three new colorops are appended after the existing ones; their order
+is unchanged.
 
-  devmem2 0xcad30040 w 0xA4080401
+---
+Oarora Etimis (7):
+      drm/vkms: add the colorops of a plane that is being enabled
+      drm/vkms: free the colorop whose initialization failed
+      drm/vkms: use the colorop states of the state being composed
+      drm/vkms: add a programmable 1D LUT colorop
+      drm/vkms: add a 3D LUT colorop
+      drm/vkms: add a multiplier colorop
+      drm/vkms: add KUnit coverage for the 3D LUT and multiplier colorops
 
-0xCAD30040 is a register in Port A's USB3 PHY. It seems that even when
-using only USB2, the USB3 PHY registers still need to be configured,
-so USB3 PHY driver support appears to be needed first for the gadget
-to work properly.
-
->
-> Signed-off-by: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
-> ---
-> Changes in v2:
-> - Rebase onto v7.4-rc1.
-> - Move phys/phy-names to the board dts, matching usb3b/c/d.
-> - Add snps,dis_u3_susphy_quirk and snps,parkmode-disable-ss-quirk.
-> - Note in the commit message that Port A is a Type-C port behind a
->   FUSB301 and is device-only until the CC controller is described.
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 12 ++++++++
->  arch/riscv/boot/dts/spacemit/k3.dtsi         | 29 ++++++++++++++++++++
->  2 files changed, 41 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/bo=
-ot/dts/spacemit/k3-pico-itx.dts
-> index dda420900aa2..d0fbed23ccca 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> @@ -337,6 +337,18 @@ &usb2_phy {
->  	status =3D "okay";
->  };
-> =20
-> +&usb3a {
-> +	phys =3D <&usb3a_u2phy>;
-> +	phy-names =3D "usb2-phy";
-> +	maximum-speed =3D "high-speed";
-> +	dr_mode =3D "peripheral";
-> +	status =3D "okay";
-> +};
-> +
-> +&usb3a_u2phy {
-> +	status =3D "okay";
-> +};
-> +
->  &usb3b {
->  	phys =3D <&usb3b_u2phy>;
->  	phy-names =3D "usb2-phy";
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/s=
-pacemit/k3.dtsi
-> index e89d2cc5ca8c..2d2569cfe676 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> @@ -687,6 +687,35 @@ gmac2_axi_setup: stmmac-axi-config {
->  			};
->  		};
-> =20
-> +		usb3a: usb@cad00000 {
-> +			compatible =3D "spacemit,k3-dwc3";
-> +			reg =3D <0x0 0xcad00000 0x0 0x10000>;
-> +			interrupts =3D <118 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-parent =3D <&saplic>;
-> +			clocks =3D <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
-> +			clock-names =3D "usbdrd30";
-> +			resets =3D <&syscon_apmu RESET_APMU_USB3_A_AHB>,
-> +				 <&syscon_apmu RESET_APMU_USB3_A_VCC>,
-> +				 <&syscon_apmu RESET_APMU_USB3_A_PHY>;
-> +			reset-names =3D "ahb", "vcc", "phy";
-
-I also tried booting through the BootROM's USB download mode (fastboot,
-with USB worked as a gadget), so that the BootROM would initialize the
-PHY registers needed for USB gadget operation. However, I found that
-asserting RESET_APMU_USB3_A_AHB during the kernel driver's probe resets
-the PHY register state, losing the configuration left by the BootROM.
-
-Am I missing something? How did you test this?
+ drivers/gpu/drm/vkms/tests/vkms_color_test.c | 194 +++++++++++++++++
+ drivers/gpu/drm/vkms/vkms_colorop.c          |  61 +++++-
+ drivers/gpu/drm/vkms/vkms_composer.c         | 314 +++++++++++++++++++++++----
+ drivers/gpu/drm/vkms/vkms_composer.h         |   5 +
+ drivers/gpu/drm/vkms/vkms_crtc.c             |  59 ++++-
+ drivers/gpu/drm/vkms/vkms_drv.h              |  61 ++++++
+ drivers/gpu/drm/vkms/vkms_plane.c            |   2 +
+ 7 files changed, 646 insertions(+), 50 deletions(-)
+---
+base-commit: 5ce32a0c94a827ff44ee60898c28060714dcff75
+change-id: 20261113-colorop-693f016a156d
 
 Best regards,
-Junhui Liu
-
-> +			phy_type =3D "utmi";
-> +			snps,dis_enblslpm_quirk;
-> +			snps,dis_u2_susphy_quirk;
-> +			snps,dis_u3_susphy_quirk;
-> +			snps,dis-del-phy-power-chg-quirk;
-> +			snps,dis-tx-ipgap-linecheck-quirk;
-> +			snps,parkmode-disable-ss-quirk;
-> +			status =3D "disabled";
-> +		};
-> +
-> +		usb3a_u2phy: phy@cad20000 {
-> +			compatible =3D "spacemit,k3-usb2-phy";
-> +			reg =3D <0x0 0xcad20000 0x0 0x200>;
-> +			clocks =3D <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
-> +			#phy-cells =3D <0>;
-> +			status =3D "disabled";
-> +		};
-> +
->  		pdma: dma-controller@d4000000 {
->  			compatible =3D "spacemit,k3-pdma";
->  			reg =3D <0x0 0xd4000000 0x0 0x4000>;
+--  
+Oarora Etimis <oaroraetimis@gmail.com>
 
