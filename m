@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795880349;
-	b=gUq4EZEgYKApTpOy2BS4+x6q/+I7QvfmEG7Mh1ZxL/iopdg/v/xXvRYO86YfJA4mN69B
-	 /ZGJuteAkmseHrVMQcmoYB/bzAsMWQ3lfL+x+0Ux3k2sc/5ycvTnl60PFT/UEJuhL1z9S
-	 AszHlxWBquG+ciLWj/fw4PzX/SlzURuSssEghFNenRp/pfKIR3RmAIdk6Zr944fIdea3/
-	 xGXJnWseIVMLrDnFPkDlPyrsSt4EAd/Ec3xOg05BnkhEZZUCcL2wzLbYd3m4+mvskZ1lb
-	 wIhAjHZthSLWx90bXR9BgUBx4ls5wwQsG4MNIGLskvxVo9zInYZHVr4/lQGNmhYdw2w==
+	t=1795880351;
+	b=kleWS49wV77RMMwfvefS7F73FhHW6pfr/qrwEgg4AYZ0tmbv/YM9f7d8qu10mBIEP2j1
+	 RrXYESeRq95BspBZtukCfyzak6C80r/bnw2fPkPiDFd0uX5v2OjAq0f3/4YD7DmAL/lXP
+	 FNvTLTX5QHm2FEOgPR+b8vDp3jb/L1viYKOkNv2Wh30/57ZLoGbs3ZumBF+/XW+t0Xs4B
+	 nKJ7ziZCJzCd7/oqFl6jOaSwLq2LlgrmcpryUR96hcFW4mFiwxIgQtTzYXdnc9vXsXB0J
+	 ftPxiweRNubfyXnOb7D+L820V2UKcMbMZNDBA3dRrK0s4aLsOj7kt8Ka+DxAo1g05yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795880349;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795880351;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=LShtitvz7DRRsTeVyGIjUpCoy6XLU9LzpKYb3S4c5x0=;
-	b=IvY4+TvDMZnQ5RzmsiAT3LKGEr9qyYt1MykcGubzG2LRE8HNSzSVVH/BszUW+c7mqtx9
-	 hosoS0fmWFRqx04i6nZhOm9N2jH8/Idv2XMcquW+yhOKoUSNUy6PvLxwI9USn8fq7hLVv
-	 77z1L0lnNVXFHlK33zZ9ShU1saeUChQvLXdKlTwUPM7n711VM5MTlr2KdhPKK9cLe3x4a
-	 x6xog1SbrgsYtUQQnY7jVm7CGCLdcpccazgzPUA637LfEka+mgvGTz0F0RoNoSbMi1AGE
-	 RbwJeQtU8oZL7XujPTPyR1Zvz88YTl1hsmnzjWQQ3u6yRJ+tqTdwl+HGZhf4iBQp/ug==
+	bh=LZkDUpW5lcBiMmS7XikDtOe8pmsL+bMP3t+U/T7flfw=;
+	b=KS7pT5/wqTG2zY5MX4InJvIoldVMJ2KckZiNchkHSonVwRvQfbmbsDz7UeCWfmf21a83
+	 ng2leQEwxbwEUB1lWniJoTKNJ+yi+zfooTHGdXkUMJlJFOxRUoZ2PgdvH2j1ZI5ggO9Vq
+	 JPCHhFvs8Sglni+OwUGmv4n2jpnAajZeBUsHBjD63d3J3s8ndmQY0367O+vpVi9BxlTL2
+	 ymc3NfB5Kn4zbt1Y7VI3JVhvz5pqmyc0hIrO00H7K8Uq7wSPE/wzIB6E+JTng1/+m2nc8
+	 CBjnuQTvhcnGgmhL1BSzEnINj2cOmxGKwoeKoDl1bNeMZjcXaaP089EBN2wthq4VmCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EGuT6NUG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Aou6cs1I;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEF0F606A32C;
-	Sat, 28 Nov 2026 15:39:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D59AB606A31F;
+	Sat, 28 Nov 2026 15:39:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EGuT6NUG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01E1E1F00893;
-	Sat, 28 Nov 2026 15:39:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Aou6cs1I
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C931F00893;
+	Sat, 28 Nov 2026 15:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795880349;
-	bh=LShtitvz7DRRsTeVyGIjUpCoy6XLU9LzpKYb3S4c5x0=;
+	s=k20260515; t=1795880350;
+	bh=LZkDUpW5lcBiMmS7XikDtOe8pmsL+bMP3t+U/T7flfw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EGuT6NUGO5FCeAjYFWE5zDDrS46diaMjUQmPrYMgee1ztUNv7HzCH2/hu4MjIoPTi
-	 /TvR5m7v5+97FyuTamoca18j8dQHZPRTgoACUxO0XeYCIKwOpdCZ/C7KDpRxt4g8aM
-	 G1d68NM/jcvbCsCPgpSHaqrbvjQa1R1LppdxXAvO35hTg4kCOWtrpyJZ1gBCV2EFo7
-	 J5nUEvIr1+1B8h4gTaa1ZpnB5Dcgoa1QL+KNYZqCg6px0D+ND1KAP3inxz3gsER0Wv
-	 zLaCWevGfD5ZcqMlXbarweKW+d4w6BfNa4h6hp90dnU87yOEOYr53AQzoXoTGS7Qmq
-	 zwsdGlM/AmodQ==
-Subject: Re: [PATCH v3 2/3] net: atlantic: AQC113: Limit multicast filters to
- available slots
+	b=Aou6cs1Ib4ILaFtM8rok7LwIZ7Ry7XDFdvPbD+P4XTp9UkNaqeo+y6QIZfpZrTErr
+	 wH+h52n0tz8h0dBpon1kJt9Q8j4JNR3MrKucnH1h9SMHj7ScD5etsaWeo3N8hphoEF
+	 z0janFbdyckzDK46/sm1TDdX64pgAC9ayxf0+c7+dUySdDhHVwY6/EXJ0xcfELoCnh
+	 1P8TYYUkKkkPvz8yrvQGzBn22hP4z0+hJxxtZc6JT3gS1rNSb+Ey9dalucwSPkLdir
+	 u095DdOazykJoFSUzDqD2y2BCdmyYOzYYfcoJ0wqVtM+K8siEmKd4UE/LiE9NWQi98
+	 wy7IHzi1WfmDg==
+Subject: Re: [PATCH v3 3/3] net: atlantic: AQC113: Fix
+ hw_atl2_hw_packet_filter_set for L2 filter base index > 0
 From: netdev-bot+sashiko@kernel.org
 To: j@jannau.net
 Cc: sukhdeeps@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Sat, 28 Nov 2026 15:39:08 +0000
-Message-ID: <179588034859.3135.5963966861559896048@kernel.org>
-In-Reply-To: <20261127-net-atlantic-aq113-apple-l2-filter-slots-v3-2-b5efbc124dcc@jannau.net>
-References: <20261127-net-atlantic-aq113-apple-l2-filter-slots-v3-2-b5efbc124dcc@jannau.net>
+Date: Sat, 28 Nov 2026 15:39:09 +0000
+Message-ID: <179588034965.3135.11135930842841069370@kernel.org>
+In-Reply-To: <20261127-net-atlantic-aq113-apple-l2-filter-slots-v3-3-b5efbc124dcc@jannau.net>
+References: <20261127-net-atlantic-aq113-apple-l2-filter-slots-v3-3-b5efbc124dcc@jannau.net>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,100 +75,102 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The new helper hw_atl2_get_multicast_address_max() returns
-  `min(priv->l2_filter_count - 1, AQ_HW_MULTICAST_ADDRESS_MAX)`.
+- [Medium] This patch adds an off-by-one in
+  hw_atl2_hw_packet_filter_set()…
 
 --
 
-net: atlantic: AQC113: Limit multicast filters to available slots
+net: atlantic: AQC113: Fix hw_atl2_hw_packet_filter_set for L2 filter base index > 0
 
-This adds a hw_get_multicast_address_max() hw op. With it,
-aq_nic_set_multicast_list() can fall back to IFF_PROMISC or IFF_ALLMULTI
-based on how many L2 filter slots the firmware really provides. hw_atl2
-takes the value from the firmware-reported l2_filter_count, and the bounds
-check in hw_atl2_hw_multicast_list_set() now uses l2_filter_count too.
+hw_atl2_hw_packet_filter_set() used to wrap hw_atl_b0_hw_packet_filter_set().
+That function enables or disables L2 filters 1..32 without taking
+l2_filters_base_index into account. With l2_filters_base_index = 9 on Apple
+silicon systems, this could disable the MAC address filter.
+
+This patch copies the b0 function into hw_atl2.c and changes the unicast
+filter enable loop to start at base_location.
 
 > diff --git a/drivers/net/ethernet/aquantia/atlantic/hw_atl2/hw_atl2.c b/drivers/net/ethernet/aquantia/atlantic/hw_atl2/hw_atl2.c
-> index 25dd7150aaaf2..0b5a5bc420e92 100644
+> index 0b5a5bc420e92..89841612be168 100644
 > --- a/drivers/net/ethernet/aquantia/atlantic/hw_atl2/hw_atl2.c
 > +++ b/drivers/net/ethernet/aquantia/atlantic/hw_atl2/hw_atl2.c
-> @@ -777,7 +777,7 @@ static int hw_atl2_hw_multicast_list_set(struct aq_hw_s *self,
->  	struct aq_nic_cfg_s *cfg = self->aq_nic_cfg;
->  	int err = 0;
->  
-> -	if (count > (HW_ATL2_MAC_MAX - HW_ATL2_MAC_MIN)) {
-> +	if (count > (priv->l2_filter_count - 1)) {
->  		err = -EBADRQC;
->  		goto err_exit;
->  	}
+> @@ -759,9 +759,43 @@ static int hw_atl2_hw_ring_tx_init(struct aq_hw_s *self,
+>  static int hw_atl2_hw_packet_filter_set(struct aq_hw_s *self,
+>  					unsigned int packet_filter)
+>  {
+> +	struct aq_nic_cfg_s *cfg = self->aq_nic_cfg;
+> +	struct hw_atl2_priv *priv = self->priv;
+> +	u32 base_location = priv->l2_filters_base_index + 1;
 
 [ ... ]
 
-> @@ -1602,6 +1602,14 @@ static int hw_atl2_hw_vlan_ctrl(struct aq_hw_s *self, bool enable)
->  	return aq_hw_err_from_flags(self);
->  }
->  
-> +static unsigned int hw_atl2_get_multicast_address_max(struct aq_hw_s *self)
-> +{
-> +	struct hw_atl2_priv *priv = self->priv;
+> +	hw_atl_rpfl2broadcast_en_set(self, IS_FILTER_ENABLED(IFF_BROADCAST));
 > +
-> +	return min_t(unsigned int, priv->l2_filter_count - 1,
-> +		     AQ_HW_MULTICAST_ADDRESS_MAX);
-> +}
+> +	for (i = 0; i < num_l2_filters; ++i)
+> +		hw_atl_rpfl2_uc_flr_en_set(self,
+> +					   (cfg->is_mc_list_enabled &&
+> +					    (i <= cfg->mc_list_count)) ?
+> +					   1U : 0U, base_location + i);
 
 [Severity: Medium]
-Should this helper also account for the firmware base index?
-hw_atl2_hw_multicast_list_set() writes slots starting at
-l2_filters_base_index + 1. Neither this helper nor the new check above
-limits the count to the part of the HW_ATL2_MAC_MAX (38) entry bank that
-sits above that base.
+Does this enable one more L2 unicast filter slot than the driver
+programmed?
 
-hw_atl2_utils_get_filter_caps() checks the two firmware values separately:
+The old b0 loop started at HW_ATL_B0_MAC_MIN (1) and used the absolute
+slot number:
 
-    priv->l2_filters_base_index = filter_caps.l2_filters_base_index;
-    if (priv->l2_filters_base_index >= HW_ATL2_MAC_MAX)
-        priv->l2_filters_base_index = HW_ATL2_MAC_UC;
-    priv->l2_filter_count = filter_caps.l2_filter_count;
-    if (priv->l2_filter_count < 1 || priv->l2_filter_count > HW_ATL2_MAC_MAX)
-        priv->l2_filter_count = HW_ATL2_MAC_MAX - priv->l2_filters_base_index;
+hw_atl_b0_hw_packet_filter_set() {
+    ...
+	for (i = HW_ATL_B0_MAC_MIN; i < HW_ATL_B0_MAC_MAX; ++i)
+		hw_atl_rpfl2_uc_flr_en_set(self,
+					   (cfg->is_mc_list_enabled &&
+					    (i <= cfg->mc_list_count)) ?
+					   1U : 0U, i);
+    ...
+}
 
-This means firmware caps such as base=9 and count=38 are accepted. With
-those values:
+The inclusive "i <= cfg->mc_list_count" test was correct there. Here the
+loop is 0-based and offset by base_location, so the same test enables
+mc_list_count + 1 slots: base_location + 0 through
+base_location + mc_list_count.
 
-  - this helper returns 32
-  - aq_nic_set_multicast_list() can pass 32 addresses
-  - the count > 37 check in hw_atl2_hw_multicast_list_set() passes
+hw_atl2_hw_multicast_list_set() only programs count slots:
 
-The loop then writes the DA LSW/MSW, tag and enable registers at
-base_location + i, which covers slots 10 to 41. Slots 38 to 41 are past the
-L2 unicast filter bank that hw_atl2_hw_init() initialises.
+hw_atl2_hw_multicast_list_set() {
+    ...
+	for (cfg->mc_list_count = 0U;
+			cfg->mc_list_count < count;
+			++cfg->mc_list_count) {
+		u32 i = cfg->mc_list_count;
+		...
+		hw_atl2_rpfl2_uc_flr_tag_set(self, 1, base_location + i);
 
-HW_ATL_RPFL2UC_DAFLSW_ADR(f) is 0x5110 + f * 8. So slot 40 maps to 0x5250,
-which is HW_ATL_RPFL2MC_ENF_ADR(0), and slot 41 maps to ENF_ADR(2) and
-ENF_ADR(3).
+		hw_atl_rpfl2_uc_flr_en_set(self, (cfg->is_mc_list_enabled),
+					   base_location + i);
+	}
+    ...
+}
 
-Can this overwrite the L2 multicast filter registers? The Apple values
-(9 + 29) add up to exactly 38, so this only happens with firmware that
-reports base + count > 38.
+So slot base_location + mc_list_count is enabled but never written in this
+pass. Take this sequence:
 
-The later patch in this series, "net: atlantic: AQC113: Fix
-hw_atl2_hw_packet_filter_set for L2 filter base index > 0", sizes the same
-slot range like this:
+- add a secondary MAC so the list has N + 1 entries
+- remove it so the list has N entries
+- hw_atl2_hw_multicast_list_set() rewrites slots 0..N-1 only
+- hw_atl2_hw_packet_filter_set() turns base_location + N back on
 
-    min_t(unsigned int, HW_ATL2_MAC_MAX - base_location,
-          priv->l2_filter_count - 1);
+The hardware would then keep accepting frames for the removed address.
+With mc_list_count == 0 and IFF_MULTICAST set, slot base_location is enabled
+even though it was never programmed.
 
-At the end of the series, three places therefore use different slot
-counts:
+This affects every AQC113, including l2_filters_base_index == 0. Should the
+test be "i < cfg->mc_list_count" in the new 0-based loop?
 
-  - this helper
-  - the check in hw_atl2_hw_multicast_list_set()
-  - the loop in hw_atl2_hw_packet_filter_set()
-
-Could the helper and the check both use the same limit?
-
-    min(HW_ATL2_MAC_MAX - (l2_filters_base_index + 1),
-        l2_filter_count - 1, AQ_HW_MULTICAST_ADDRESS_MAX)
+> +
+> +	return aq_hw_err_from_flags(self);
+>  }
+>  
+>  #undef IS_FILTER_ENABLED
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-net-atlantic-aq113-apple-l2-filter-slots-v3-0-b5efbc124dcc%40jannau.net
