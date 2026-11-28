@@ -1,101 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.180
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795870044;
-	b=3fkwxsY3ndk48bo69H0hQnFKPYURXKvl9vd41wvTD7mVXCj/To08Vz5p2kQV9JaTT6+K
-	 GJSn3ThpEMwMzNqY11405GcC5CAe4WqQFSJ6xu7gBAiE5F6SBbvbkhpndJkXTHZbfqJZl
-	 i1Jo7yRokrKtjUDtrBoOAWwfXHERW3GaKScoO8edntbbozpiAk9Z4qQFfx5YIpG4eeODm
-	 UmK/MKNYIPJT4I5mNj4NWlEP/ZMMRto+qtbnNf8vgtXAssymZCNyXu2c8O1TkX11/Cvzs
-	 tIKfYICnKQOHmwWKWhm9+oSiFyyUw/bAuX8IqZ7KU3vCRXRCZoRwIsRpGQHQhZpCCmA==
+	t=1795870049;
+	b=wTlptqCzLpuSNmyBiTMmP3OLXsUGm6axNCQwvCAAxq6LGEsvjWuJiCKwQcaJGSJB3eZH
+	 VNIt82S7QKH0hnOCpr6eSq9uuvi0wm4077EXaalt6bIg3W7u9k1Dy9WJcjwc1e99/72IM
+	 qbaOgV6gB38/gE1zXjaiIsqGBmYI3zhqEKrgZcZ/zqCnsUqQbarVGJvor4RIgtj575ll+
+	 xmMRLTaL5RfX4R9+NQz0C51zvD/a28xDiJgi9QmW2zvK3/NzkHrrAImV3ZKcSRUUCkUZz
+	 TgAsl4JG/hNkMS8Cs0L6jTxr7xRp7JIdD8mGT5H/wSwxq+VcPpAaWjvdcI4clH1PJbA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795870044;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795870049;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
-	b=HUnsKUvT5c7BfY7DGnQRYxXFB95HX5czLR3fhV4JJe3FEcODV1QGrFKqev1DvjvGH1cA
-	 lYVWpE4IcSH86PFlpJ1T/dM3nrsaNpYDrNKWxY8x0TEcS/X60DBmGVNidTX6w7NyCovbv
-	 QC+D9Al4NLDJj+t9fM4Fc3cbB2MhPBmO0AxjYNVkS9NBOGkF6I9WsF8vakNlET6CnB+Cd
-	 1w4yLIoPtONPQZpeB1p2K9GOnO56BGgu+HIreDPLgNolX7OLZGPNc71sMhNN7cfDTV5q5
-	 WOB8ErUoITS8gJL0lv6tSsrsPoT7E1ZYTSmc6qwUAwC7Ht+Y1hl/zRy26yAX+l+vXKw==
+	bh=Neleil5nC8s9bt0MpU40WqwbR7w+O9HixUWBXPDe1yo=;
+	b=fcLDDHSmweJ18guUidBdIxWoknxZ/xHC2fymuIlSENOvaMYsTcHEWe/B1wwYLbdt9ygS
+	 DTrnkJwED0y+wmWJGPMuuGmS3Suj/G/3Hl37tkztAoXf4VYp69SlG13uR9U0LhR/zBAvM
+	 3EwRVwWnb4pIvCH/EDiY51jTvl0CsSjCB5XU0SF7Uzh7ZU3gyBjjwZrSg+1NPmsI5xUiy
+	 SQTWxuhvM/eGc/PaGIyM4agCZngCGPnQK1p6O71JzaXygkZftW6sN+IpylkQWMmfd/91L
+	 k2BDX9jtAOcaS+Vt7VC+7PEW8jYMRzvttI9ykVsIZG1rSHJVdiZFbGbPp24Y99NQTmw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tomeuvizoso.net;
-	spf=pass smtp.mailfrom=tomeuvizoso.net;
-	dkim=pass header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=BeILgea6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.180
-Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com [209.85.222.180])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IWTHYpLR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 484E1606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 12:47:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 484E1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tomeuvizoso.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tomeuvizoso.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83927606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 12:47:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83927606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=BeILgea6
-Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-94965745d92so880842985a.2
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 04:47:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795870042; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IWTHYpLR
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso82839755e9.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 04:47:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795870048; cv=none;
         d=google.com; s=arc-20260327;
-        b=g4CR2esSsCWW3psqBOcSWEWDGPPxXf7XttDHUr1UNjMayycnr9vZfJMrF+9raLjTWU
-         eY0cXyplkjw6UoqH+dqNsSS1DaanrhVmm3nPbDpKVZIJqq4lP4XzIf/8Y65q5H6DZu3/
-         49/4gONhmjBXeX3urQj3JrH23QOaUaTyipc0siQp5auraIl7gdps7DrXVPcUxHhCfCSW
-         rg+5BPi6kc10YUg9aJOybtxaXaxpBn8KdaDgOO8cgsBZPzkE3Jot3assP9+9H1RLDlo/
-         UVqngkrFSKIvpA8nKn/JZUo2QUSUfUAZBM+2zltPpHJaSqhaC9ztmKOOJ4RmjJXRRFBe
-         tBEQ==
+        b=iaytnMdGToQvRkLrNGE5cKJpjQgSi4Hb1uXqlRPsg+nyV/HltAAx7lNpwKZFRFKXi1
+         A2jJTz8+BL+CWGFXYv8yQUVL4J1OZR2KlsdKWZnTeRoOTqQ7R+BMmgtGV6qyZEtLQiSo
+         SxsyoNz6FfiGg0M2pvx8+uDDgXh1mJJJLWP0R62H0Opgm0+DeS9SXb/r8AyyAHjn/Ncz
+         1qOBUQvYYI1xG858mwDdAN1XgPwscrJ6Flt3ftgHHVHkyOM4gZUmE3XXW8Eys1i3rlEl
+         4Rrrmc6auy8mnAQB1aRnY/SxPPkelhs025Xm5vUT7OQQRdeWIyuPa8jV2J1NBnbXbQzx
+         dnhA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
-        fh=aDqgsiSK12pakoJ4YR/zesND7aPFhNpfQjcjSNo8Rwo=;
-        b=LLBopRKM2ytt1PqTjmsCXZ4uyZbKkts9soWdLZFUZUNC6aui7WlvnOyUoVnqCZCTqS
-         IsTPIm4WH1DTvtV0u7pmNYpb+7nfr8wuaj5uODHl6fYzmo+JrG/Y9jCWmkT12B/S91wJ
-         zg60lrWT5HlUbF3n1xQWjq+vRMG6njjcvVY1lD6Te2wiUTFT6o4ernOYPd3HTy2S40LH
-         6i8YryvNj+QavJXi24PMhJN3JBmcfdt/tAoVZ9aEv1JBUaxB7cibvsJZavCz+Fn3Zq/B
-         ISB9TUMvC/ox/Y29WNaznS1PSPIpbO5Y7OWsBPP/FfzNNeliP8iO9bbeIqD7mN0Zy9V5
-         JCPw==;
+        bh=Neleil5nC8s9bt0MpU40WqwbR7w+O9HixUWBXPDe1yo=;
+        fh=xzxs5qxAwyTkkhn13LIlsPTxewKVS1/Lw2/PtRdSqNg=;
+        b=mHpLSHwV1AD/3L4P0pC4WATBg/YcyKdEAhtwK4yLL9g/ISrDm9PlpfIfRfeBTrzyll
+         sQ570E0qn7c8ZAvAyLlzITd0IWYFE+qCU69LxfOi//r/HvuaxZyaxF6qILnzTBNH1xoF
+         a7i6aBUmOmZ3FlAHtGgbwAJHCNF0XwZbT2jEJeEAnmoWSIyU9hwpCBvEGx3AdJR0UOOi
+         uxIeI8YZvavyy4ChLWp0Dl0OfywVFZY5NiGk8kcQxxuJsDDmrJXo4o/mEvKOTWtAX4bq
+         NVTCLc2zdfEaFs7rZ+wCZ6Rgwe9boo+KXbUfWB+CuAN7mU5g8Qj5zOAHRWyJ5yrsQVXA
+         3+tA==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tomeuvizoso-net.20260707.gappssmtp.com; s=20260707; t=1795870042; x=1796474842; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795870048; x=1796474848; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
-        b=BeILgea6h6Wg8RaehQvjTj8f0K9g12bAmgGs/XFxkw7J6G34pnn6kCTfXx/5VP73om
-         OHUhNTPxJOoZdWHMgfRtiDdDn+jvsRXPh/Q9GoNot5kFOpeHEUUJZN5lbu++iOQPzzyt
-         WRvJod3QyNB7FkxvZ+M2TVdW4yHfv/ygPzmnyK92F4G0XzUKoY4fzxvfqM7zgH3sDATT
-         fRdTntp3geFBYiCkDqakDR0JCM/TSg8WUOcHsAdl3YT3Kq6JRLg0Kyqi208aDXSfDdxO
-         n7JTQtplfyAVYeDMpLyam00amRGOmMizjQM1tvsa7UWIOlGmxSB3Npv84mfTGmBPr+fa
-         53bQ==
+        bh=Neleil5nC8s9bt0MpU40WqwbR7w+O9HixUWBXPDe1yo=;
+        b=IWTHYpLRVilbZbTG6IWjaAeWqjgP+sIuMzicPDehF2Wq5ifxICQvgjljBm8aZsWWu5
+         P1q8lKSZZ+QzG675XjXJfggQKDEueR72g6RudWpuixtEeQZw1LXddzEnj6SQ8n2BH7iB
+         9IwGSfvyQzfs18CQQg1fwaPXLb9YvFHO4LhDP0wsIPcHPfDXlJ8B0dkg6X1O/mmnPbeA
+         BbNcH5SUZezaJyVEFk5BiFxs6Wd2DNbE3olZsiu8CWmqOzjeSSH9+jYRi0I1V+aWXNeW
+         MgqAY996GuJs1ONySZ6+Uc4vhosEiZ6vU+6xgLhoy5iOGx2+an5sUBNpf9lj+1snfvM2
+         UQAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795870042; x=1796474842;
+        d=1e100.net; s=20260707; t=1795870048; x=1796474848;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rYecEGH2/8QLU6ICTjxFNFwVGEvUl5Te2zyk3KgiCIA=;
-        b=wAlIrBfz7BlYY2qU7H0+1HZu58jkvrRdbURlwX41dpcfPrGx+bRziYIwKwbxf3tccH
-         Gt56HIpFw8YJqIy+jqTtUAIaoNm8pGcbEhAvkN0tW0kn7g9ZYmeFWRxqwqI59mPEP7kG
-         xw4jjsQ/wcr7p761J5VJp0vSklH1mj//JSEn7DV33KX5QCFSIEb7gUQ94ASAq2fA6uMx
-         HmU52wrRDlH/wJn0q54RwEpUXEhWesXs98UpnNUTo/rF5q+7tYLh+fieIwAFmpbCE37O
-         gY6jU/KEwpM7a+paROoMkXBL/5Rbipw4HZP3FcXLydQrwiMZvXOC1RrW+YHFnsHuKrUr
-         Y8cA==
-X-Forwarded-Encrypted: i=1; AL+hErGCCUbHRhXAa6URD1kM5PdpuFnk/I20M7r2E3jPiJKqcmGfY76rTHrVJRbcXA/NjrLhBOxsS/B3tgOc6Ng=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92kqkMQYnqURRxA4xbYsJtGlE4UzHoCoFi250yLQRpul6/PPxm
-	Ssiqnruh1IUjSdvS3RaCOQD/v5vZ4J0Snd4vAqubrKkjbH4jTp/lspz9vxtMxEyMSfpWurBeWKS
-	FgPf8xSsbUhoZI3M0N0PKr43aNJtNj00uQpyoGLaOnA==
-X-Gm-Gg: AZFdTZd4MWpJK1vWrhXrflARNCwdmu2vWDokFaT8h4Oiw/qN+ECeeqY3zb73C4tU7cr
-	dSQ9IchJ+SSRdt5ANMALtSTTxHICCGvhZnpevI28y6DiyoHCWtOqKabsc3Q648GRlUb4P5Ci0+J
-	2HAQcujFODd9/K1YR5KBCXYq83r7f745YRNcOOu8bAx3svSLtjnHYLjDOb/bJ9YW+bk30SaihwF
-	CSTq8B0npMx4Kw6wBzoPMKfriTt2nQO3vDgFmgvAzd44WvyzPtxu7SFzK7lH1h8PIc6okcpAPQB
-	weLPxS+GRqBF3adiYiXjbMkSs4UMB63h6+/x/MeQJIOvAggcTiI5C15mtOmRZezxgOqtxzfiF+X
-	N3HtDEcEHLGYh3n+RSWqx+ZMNlnVyhShEaYldVRrPHkEIzXD8qYe5Jq+3IL1H2LEm6S7wbGluLj
-	2RzPJD8+R2yqybxY5Mmns=
-X-Received: by 2002:a05:620a:2685:b0:945:c4b9:3de2 with SMTP id
- af79cd13be357-949bab3e44bmr4797027885a.73.1795870042110; Sat, 28 Nov 2026
- 04:47:22 -0800 (PST)
+        bh=Neleil5nC8s9bt0MpU40WqwbR7w+O9HixUWBXPDe1yo=;
+        b=RJiA+XwXWO4O2duTsTH6h1bxTOcTgsi2e+JyPE9SN2LoROdD1F+TROzjnlo73CFWxa
+         +ZUtct8ZwqOAKw4wEIEYnVnfv6jBYf+cA4ayvZAOuSLTtC42L+XqAZOqbwpUunob2a1u
+         aAUdpsFE55PwGNnHhwQXsb6Yo4ea+k6yGOl7tnWftKKs7UQEtRGkEXJlh44A9kwjs7kD
+         uIHVZeiX8VQQ+M6bCNGtItey9ahvqF+DAuSSqcd6kISEHNamNcAr7mksHfBpOB4B/mSV
+         4JjvsNXYjmTYbWGwQW3M7cQybacqlteoK9ngIMfdXG+m6XEXD9itMysDeu84AG5vGClp
+         oY8A==
+X-Forwarded-Encrypted: i=1; AL+hErFOJtz1BBKXyMgoRKny65mQ/u/UZctbLl00Jaa68ae8e6bj99s/o/eyt9+5AZp/YUsh3YTyLcvINpvldfw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8j5rtiz7v2R3SrbcTUaor/1Oy1yjV2OJmSB8jxbju45ngeeyRV
+	n9wDCnP/KBURa/mIhj+vSnbtxL3SKaVHtxp2PYgThY3eFFhkQjW+cHzTMnlevyhlDUgcxWLoyC6
+	EfwLQsd0cjzyylBYT0BeaPuozVgTj82c=
+X-Gm-Gg: AZFdTZc7yfwLMR3Yz+37tXrVi2CiS8P/uiF01OIlpToxfGuboHw51VMFBfF8+JPLlQk
+	95tdJ7DBEEj3EucOJNr7z+HTA3kASVhqHO5z+W/Ic9DO5I+C0xQqIoDo1ZctlYjxXlC51dBFqvQ
+	DzshtzTq+ytqZWIui5qHVVgw5hxi9MGnRMUZ8cc+svs9qlHX/UzaXZfpIFkUBpPEHG4G4USK/4E
+	NhTWUz73oy1iCVThW7V5NgO8RKQAK2sjGQN9JhxW7In/KgEkG3EzWNjDhwnXGN4oxhN8E/VAqPC
+	4y0seo5pB36cYwlggfmM7WCjbPmGNOoBkPsVZHOJqbhO6PrFvBRkMEa5r/EUax2JREapw7qZtzv
+	5mCqRmMcVv18O0a5g/xMUPdolQpZQ4ybclr5OCmPCx7UwsnvBwQmbVqVMxn1znNUsvJmLtYyizH
+	8ibvUDH1qlu+duf16Vu+ne9j+3qUBFhKcgSE17Fm5i
+X-Received: by 2002:a05:600c:45d4:b0:4bb:6994:abf0 with SMTP id
+ 5b1f17b1804b1-4bb88817d91mr585296145e9.23.1795870047116; Sat, 28 Nov 2026
+ 04:47:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,100 +105,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org> <20261120-ethosu-fixes-v5-8-52d459acdb84@kernel.org>
-In-Reply-To: <20261120-ethosu-fixes-v5-8-52d459acdb84@kernel.org>
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Sat, 28 Nov 2026 13:47:11 +0100
-X-Gm-Features: Aa3M54qpbAQbDlEgPyrcTk_PogN89shWh1HvSZaSgocnlIamF2kUnd8sMgtnawg
-Message-ID: <CAPsqS2RB-Dejz+L6joynr6DmbXE9nyADOAutwWCsT2hiKedWkg@mail.gmail.com>
-Subject: Re: [PATCH v5 08/19] accel: ethosu: Validate all feature map tiles
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Oded Gabbay <ogabbay@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-8-8ffea39934a6@tencent.com> <e85a2666-9722-420b-9a60-9d4251fc3d4c@kernel.org>
+ <awa30hwg6x82REoo@KASONG-MC4> <8ec3f3e2-5d3a-4bed-a571-88f7ba473b00@linux.dev>
+ <CAMgjq7Ayu9H85wurRAUdmXEPWYi9BdLJW13BhK+LMYoBX_7fuw@mail.gmail.com>
+ <CAMgjq7DwCNbke2G25Bxfj3bi5aRp3_qkGeYmCTGVGv+Y5XzKTw@mail.gmail.com>
+ <60e890bf-d5c4-44db-9f90-ae7970b5de32@linux.dev> <CAMgjq7B9r17gQrOfxffRBiTSepitThjLAUbnraFFjze35t2P6w@mail.gmail.com>
+In-Reply-To: <CAMgjq7B9r17gQrOfxffRBiTSepitThjLAUbnraFFjze35t2P6w@mail.gmail.com>
+From: KunWu Chan <kunwu.chan@gmail.com>
+Date: Sat, 28 Nov 2026 20:47:14 +0800
+X-Gm-Features: Aa3M54oCldtT2Qc6Xyokk6e6N_BkN7eNxmqD5B8ZoTIPwfqT_iCVOdBBMSKp3p8
+Message-ID: <CAN_Opa-fUhr5cFDP8vr_47Zb3WOUnSX03LQyNo5c1uQtpyfBHw@mail.gmail.com>
+Subject: Re: [PATCH v6 08/18] mm/mglru: make folio lru referenced times count
+ a generic API
+To: Kairui Song <ryncsn@gmail.com>, "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Ridong Chen <ridong.chen@linux.dev>, linux-mm@kvack.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, 
+	Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, 
+	Baoquan He <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
+	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
+	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Tal Zussman <tz2294@columbia.edu>, Xiang Liu <liuxiang.277@bytedance.com>, 
+	Ehab Ababneh <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+	Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+	Hui Zhu <hui.zhu@linux.dev>, Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, 
+	cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org, 
+	Tianyi Chen <hi@tychen.cc>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Rob,
+On Sat, Nov 28, 2026 at 3:41=E2=80=AFAM Kairui Song <ryncsn@gmail.com> wrot=
+e:
+>
+> On Fri, Nov 27, 2026 at 11:33=E2=80=AFAM Ridong Chen <ridong.chen@linux.d=
+ev> wrote:
+> > Thinking about it more, the header move is not urgent, while this
+> > series has been iterated for a long time and fixes real problems, e.g.
+> > the swappiness 200 regression you mentioned. Making it depend on a
+> > code shuffle would only delay it.
+>
+> I also prefer to land the FG series first. It's not just a feature &
+> optimization, it covers several "bug"-level issues for MGLRU and fixes
+> regressions, which are hard to solve without a rework like this.
+>
 
-On Fri, Nov 20, 2026 at 3:58=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
->
-> The command-stream validator checked only the final feature-map
-> coordinate. For tiled tensors, this can leave an earlier tile base
-> address unchecked even though the operation accesses it.
->
-> Check the final coordinate of every tile touched by an operation. Also
-> treat U65 feature maps as 2x2 tiled: its precision rounding bits are not
-> the U85 storage encoding.
->
-> Fixes: 5a5e9c0228e6 ("accel: Add Arm Ethos-U NPU driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> v5:
->  - No changes.
->
-> v4:
->  - NHCWB16 feature maps may be vertically tiled. Account for tile 0's
->    maximum Y coordinate when calculating the feature map bounds.
->
-> v3:
->  - Fix for storage mode 0 intermediate tile calculations
->
-> v2:
->  - no changes
-> ---
->  drivers/accel/ethosu/ethosu_gem.c | 147 ++++++++++++++++++++++++++++++--=
-------
->  1 file changed, 119 insertions(+), 28 deletions(-)
->
-> diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/eth=
-osu_gem.c
-> index 9a66d8439408..11f41382dc5d 100644
-> --- a/drivers/accel/ethosu/ethosu_gem.c
-> +++ b/drivers/accel/ethosu/ethosu_gem.c
-> @@ -444,6 +444,96 @@ static u64 feat_matrix_length(struct ethosu_device *=
-edev,
->         return addr;
->  }
->
-> +static int feat_matrix_check_location(struct ethosu_device *edev,
-> +                                     struct ethosu_validated_cmdstream_i=
-nfo *info,
-> +                                     struct cmd_state *st, struct feat_m=
-atrix *fm,
-> +                                     enum feat_matrix_type type, u32 x, =
-u32 y,
-> +                                     u32 c, bool ofm, u64 *max_len)
-> +{
-> +       u64 len;
-> +
-> +       len =3D feat_matrix_length(edev, info, st, fm, type, x, y, c, ofm=
-);
-> +       if (len =3D=3D U64_MAX)
-> +               return -EINVAL;
-> +
-> +       *max_len =3D max(*max_len, len);
-> +       return 0;
-> +}
-> +
-> +static int feat_matrix_size(struct ethosu_device *edev,
-> +                           struct ethosu_validated_cmdstream_info *info,
-> +                           struct cmd_state *st, struct feat_matrix *fm,
-> +                           enum feat_matrix_type type,
-> +                           u32 x, u32 y, u32 c, bool ofm, u64 *max_len)
-> +{
-> +     u32 storage =3D ethosu_is_u65(edev) ? 0 : fm->precision >> 14;
-
-Not something this patch introduces, but an OFM with storage none (3)
-ends in the default case of feat_matrix_length() and is rejected. The
-U85 TRM (3.6.5, write_ofm) allows it: nothing is written and the result
-stays in the accumulator. Vela uses it when it splits an operator over
-several operations. Could it be handled like chained storage?
-
-Future optimizations in Mesa will need this fixed.
+I'd also like to see FG go in first, with the header split as a
+follow-up.
 
 Thanks,
+Kunwu
 
-Tomeu
+> > So if David doesn't object, I would suggest landing MGLRU-FG first,
+> > and doing the mm_inline.h split as a follow-up on top of it. That also
+> > avoids rebasing this large series onto a moving header. I am happy to
+> > work on the follow-up then, keeping the folio refs helpers in a public
+> > header for the fs users as you said.
+>
+> Let's see how others think about this :)
+>
+> > David, would that work for you?
+> >
+> > --
+> > Best regards
+> > Ridong
+> >
