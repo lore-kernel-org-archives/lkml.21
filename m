@@ -1,107 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795876097;
-	b=y/p2zqaY7HOREvYfZU3b6Mt33fPtCVTgiBwQdd/oB4IQtWHeMAbT3bo+DAWnTZgC7J0W
-	 YpIu0fXzAR0cWkDSpS1spMsv+NTvXCzFuWFXLxPSr+2NLVrCxZwCDF7+UaGNoFqms+Fzc
-	 kTT1OkdBVcd2HJZXUbQr3LzulBKC5OsJlEFBv16gIAIlNbIWXGF20lvZNJvtfTCv2nvUV
-	 GxTwZvyrqh0wzjvBCCCxE8Ytc6bFcjFDiW5o+uSFJZGH6n4UrB5X868Hsk1XIaftO1Xg7
-	 9af5RC5/EBPQxAMoP9X2J5FKr9+KF6isw0dAu8uWg3F/mvQPVFHWMLFQDZ6a7B8jxFw==
+	t=1795876175;
+	b=oeOX5QpejNQh4mQ1wZrXaK7LFTiL3Cl604L3CtFV7amtI5woW2BDOe8qH8dmqHJfNuNQ
+	 CFpXNZSGy3i+Am7CLSClhM75tNifoHrG8REeCRKjymMoinMn5lkq4ihIzM7oLyCvxoJwL
+	 /LjUe8TcxisPLWeLBWqgUWIIWTyGPCM6F7Zz6G7q2CGmhzq+0sMt1I2BwBtcU5rFcyTwp
+	 ZYYelCOK+nXstpZrNpeaDKu7vA/URjTMw3RrvXNC9bt0njwqQ7DlYV++NFn5NJhbKJkDo
+	 S2M19WWqhe1UTvRbbP8cvEqyCe7DXaTuP6uSQIGCaFjzDMnlRmV1S30ziZBVJkrpMhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795876097;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795876175;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=SVXDDamLHMF92XnuX0UjakXuHcnZyMGPGvNPTWLGMxo=;
-	b=bQe4Q4Tfmw8iovkKaqw9/iVKFnC+Hn+1rVDobzmlZePg2rkCNVBA7nj5jwQMlOMYtHZf
-	 gLOG73el0Dt2SG8lwsgKYbuId71hXzzkX+wcXgXdK5py8fQhL2E9oMauDaOjLWYFXcLF1
-	 SPtmHFhXiNLm2dfm4+dqIi2zNE+lBUy7htJ+L02UnnN4ZuRp8aCHULiMnF9Z3E7gOM7Lu
-	 lgFcW9BRCTII5UM76jMa5bn7Pgo71l7u4N5Ql21LdXPGbfJGyn3BgKdfpAHkseD+WkoCW
-	 LDn5VB8IBKe4R97Nefxs3jnraZZDoUBNW5CiSClS/qbgIp5jyKGOCNRZP40h8u9S3zw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=z0nelkgsttjMzmTd+Yp8eBgqwz9rFIDFjygYtpWYvts=;
+	b=XE99uHXy1RJw1ei6hIXpIIAqssqU/O60rfVPQ5WI9mEsgs2yBs3r0b/CgjajkycjVHhj
+	 qlPnAbKnj10MGisUA6Dj7IDT5udkWxKz8/ndeBBPbhKkMC3KXetChcaqd7O0BYY7lY9SL
+	 I/1z4PGR2c7o/u12dL4LpqkWH6kUnXQcAV8D43XOnxjZS1xSx6lnhHuW7D7OyIw9hLRBh
+	 Ytu7a4cBqnLJZYIlQGFXHDAi+Sr624dPS2pZ5ZFGOP9kOuFctZjP5YfntQZKiBUclFFQF
+	 FLJ8xj+h86f+pVUETmKfCNN6qMWn05LpydtQwVwP39lQAXPC0drl+HgGX3CEwJbyYYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ece1USJV;
-	arc=none smtp.remote-ip=209.85.208.43
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--tarunsahu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DJYRTv87;
+	arc=none smtp.remote-ip=209.85.218.71
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 706B4606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:28:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 706B4606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 597A0606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:29:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 597A0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--tarunsahu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ece1USJV
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b894d9a075so9940021a12.2
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:28:17 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DJYRTv87
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c5101fd59e3so721450466b.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:29:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795876096; x=1796480896; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SVXDDamLHMF92XnuX0UjakXuHcnZyMGPGvNPTWLGMxo=;
-        b=Ece1USJV+dGTn5Owg1jCUwffrcrgKvqQOTDu05sdL7GQYK+8jyRf69VgBxqm2/5Bul
-         7lg1bUinaEEgR/evmcR0/+DhgsMGsod/LG3FT2aTl7uCIzYmilu//qljKzFg1udAm4b7
-         E6kvEiK/GyQHvy6oXYfn+yPXb/2Q+7gMziq/DDdbPhTTtwC4d8Jv4Z8ZrDx4vA6CUf8W
-         wCK0Jwp3xTgG83ABKn7epoWfhD24lO2RjOX4a0IAAsXBt6AUq2Sw3LSsEUKGUyqVGxX+
-         wVv8CRWFLOxid7EXsxQvgbTP5ztWnH+018szdP4nmMXYBgnB8DTqRbJV6/hLfq0B73Tz
-         H3VA==
+        d=google.com; s=20260707; t=1795876174; x=1796480974; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=z0nelkgsttjMzmTd+Yp8eBgqwz9rFIDFjygYtpWYvts=;
+        b=DJYRTv87JjR0yAEknGapOna/p/FQ6IETtRx7is9ICaIrM0Q8x2l+BRu2eUvRcJB1vW
+         k8xhApue79G1UgvAItjPOkmKDkLSXxUusUXZExjLDPsJz+j7Q2/MA+i2fgM7H26u1OHO
+         6ndY57xndMeiGRLlc/wcaRkh5LHKCmRdcONvOuheTNGcOZLqe7rSEKI5ueune4HRgWKu
+         T8hlyAU9nOX8YfPsorAW9OlUIhDQc4IHXfjXIqbh6GWEF2VeLVOXKOZpJ4f1OLUUXP0+
+         z+3GmOcPJ4xIo9BihesdBG41ydk1ht3iIWz1fIxRBtfjBbmJRaoDjnIKSWKahNPWeipd
+         l30A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795876096; x=1796480896;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SVXDDamLHMF92XnuX0UjakXuHcnZyMGPGvNPTWLGMxo=;
-        b=S3kWOvDf8mBtUEo8uHRVD7BI06B1z5HPyVXMN0AEW0XBGV5ULXfin1f/++foYMKe93
-         GsPglCJ/754PqF07b3rp8R2K5wahekrMU5BXpO5355UQrjO5EhVl8QD9aGQigVawiHyK
-         XSEUUGy/BYq7CkKJzSJYzx21DHQ3vloXnhb/p2i3e6MzEEa9u4Jo/cWLgqDdKEN8DzN7
-         5RZUyWm+Zpi+0YHjy9W3wH9zmn9hcdBHUai6g4zIDYNRhN9+FLj4/LzvvPxM4yTrBjUH
-         V72oZoRF5i+FjVfJxCxcjKZVpOIigwEKgrFNNOUCrRQZlN5cawD5JUrMQ5pFf/iY0SeQ
-         ijYw==
-X-Forwarded-Encrypted: i=1; AL+hErHMCx17jdcDMY3xIVbPibB26olp4lKArv/Vcl9Twb6Uu+nVtMdedC+vLd3jPozrnE4ur1y4KOKnJj/FpYs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8G5FGPqujOf4Hu7JJoFKfLj2Buxt4m2BpI/KfcePbIrdJwjrW5
-	kSrE+tvZz2QzYLUlW6giRlbxtJlwrEC1IF8ouzrSpOctT1EHBCGjZCWc
-X-Gm-Gg: AZFdTZcqdRPQdvKJlNf50/DW9QGxSxhXogYwicDGwDbShFQMATNDoTNhNA6DuU8g8l0
-	PcS5K5wKNc4rczEEZ3i8WoiokvNjzuwvuizDkB3HPzKpGgUFx85odpvv8+v6p/zYpBtBwgSd59X
-	snfslvi5lZ/KlcUQltoyHjQtFPiOxVQ4Mx2EoGVoqvqe4wCzsrq1eQOHiJLR5IOGc14cc0ZQGsT
-	ZrHks5A5EenITN5xxXR3iiMl/tLdtH3SVBySgfY+asUMsrTxoXFhzMZ1VbHctq4N4gzG7FXf7ox
-	9WWhAvSm/gd4dYp/zuQLjlc5n0WM3bnzjvvhhUgNZ2BnQC93A5G8zbj2ab0PVcjWiu3ApqdEHs0
-	cdaXW1Eyluf4z7Ufh/7OGwLjCvE+DCLFMizE9B6I03h37cBRBl4Td0xApQbPK7f2j/9B4rAFfS2
-	/KNDP4CDs13JMSUdZVqhA12Up6Xh/8Rqco+P/aGBZQzl+zTzhwDs5fI4TYrLoDN0ZICo6p6hjAS
-	l5WavzEsR0QYsozRM67Op5Cq27VydXE42/n3QuOoMGZq62L82BjKI0vQhIK+0MOwRBwICNFJ/bv
-	7oEA26BQ6SECTZU0qiqYiaFGqOE7lzIdyjcO6wYFs7bUkFcvK/L2CxDPiyajeZc+U4fTP7WdDtd
-	zRYivfb0qckIVxs6F
-X-Received: by 2002:a05:6402:249c:b0:6bb:7b37:2e09 with SMTP id 4fb4d7f45d1cf-6bb7b372ed2mr4454533a12.32.1795876095428;
-        Sat, 28 Nov 2026 06:28:15 -0800 (PST)
-Received: from kernel.. ([191.40.25.3])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e35ca6sm12448436a12.4.2026.11.28.06.28.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 06:28:15 -0800 (PST)
-From: Kunwu Chan <kunwu.chan@gmail.com>
-To: dave@stgolabs.net,
-	paulmck@kernel.org,
-	josh@joshtriplett.org,
-	frederic@kernel.org,
-	neeraj.upadhyay@kernel.org,
-	joelagnelf@nvidia.com,
-	boqun@kernel.org,
-	urezki@gmail.com
-Cc: rostedt@goodmis.org,
-	mathieu.desnoyers@efficios.com,
-	jiangshanlai@gmail.com,
-	qiang.zhang@linux.dev,
-	linux-kernel@vger.kernel.org,
-	rcu@vger.kernel.org,
-	Kunwu Chan <kunwu.chan@gmail.com>,
-	Kunwu Chan <chentao@kylinos.cn>
-Subject: [PATCH v3 7/7] rcutorture: Accept TRIVIAL-PREEMPT skips in kasan-aux.sh
-Date: Sat, 28 Nov 2026 22:27:29 +0800
-Message-ID: <20261128142729.3756679-8-kunwu.chan@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261128142729.3756679-1-kunwu.chan@gmail.com>
-References: <20261128142729.3756679-1-kunwu.chan@gmail.com>
+        d=1e100.net; s=20260707; t=1795876174; x=1796480974;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z0nelkgsttjMzmTd+Yp8eBgqwz9rFIDFjygYtpWYvts=;
+        b=0x8N7n20f1xtYWeakPybs1Td6gizuuiyVw1AoDsRqPExP+HismM0WFlutjJBNanlfn
+         m8+Nt+/2KN4HKlK2sFX5lgQb3uC1cez202Fwosx0ug+obR0W85nj0vC9aXGpX0gPkmAW
+         M8ag8TTMYiKHIGB2GQjxhOqACwYRJyWkdNkyoBWIUyrRWA3YsPXDgmD7HjKLYGEFmwV/
+         qwesI7/mviKm3V63ko1II3y+XhQeAg80YIUEOq5YScDkhisElNhl8mVk+nYcgP2qoylL
+         79dda7B2MLHLnACFardYD9mDowRX3f4XA7MXHgHU0O8fRRQM3DekYh4rBzzM0jx45JTF
+         qmew==
+X-Forwarded-Encrypted: i=1; AL+hErFaxevqRnns18Adi0/xAouqi3hYOACPB5SoXs61kggSidi5NuizXMlbcdHyg5P9bkQqHwsqHv3P4m6L3ng=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/kUkBKaiv4XKij91l/hzSZMpdk0VN6Vs3jiIqtiCqlqAxw97Wm
+	JEJacqq14vnNV4fG34PC8a+lmpJeoTvmVeU5jctulyaJmJPAbG9Fz06VdNRNGf3gLHgvdancPVB
+	SW1q2XA4l5noejgBLig==
+X-Received: from edev9-n2.prod.google.com ([2002:a05:6402:a2c9:20b0:6ba:e512:ca4f])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:906:d263:b0:c2e:4fa2:f3f7 with SMTP id a640c23a62f3a-c513aacbdc7mr2144767266b.22.1795876173493;
+ Sat, 28 Nov 2026 06:29:33 -0800 (PST)
+Date: Sat, 28 Nov 2026 14:29:32 +0000
+In-Reply-To: <2vxzo6bbwlqv.fsf@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,51 +77,459 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261110050202.529473-1-tarunsahu@google.com> <20261110050202.529473-6-tarunsahu@google.com>
+ <2vxzo6bbwlqv.fsf@kernel.org>
+Message-ID: <9huzld6dghbn.fsf@tarunix.c.googlers.com>
+Subject: Re: [PATCH v4 05/19] kho: Add feature header for fine-grained ABI compatibility
+From: tarunsahu@google.com
+To: Pratyush Yadav <pratyush@kernel.org>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, Mike Rapoport <rppt@kernel.org>, robin.murphy@arm.com, 
+	maz@kernel.org, will@kernel.org, David Matlack <dmatlack@google.com>, 
+	Alexander Graf <graf@amazon.com>, seanjc@google.com, jgg@nvidia.com, loganodell@google.com, 
+	arnd@arndb.de, dwmw2@infradead.org, baolu.lu@linux.intel.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, oupton@kernel.org, alex@shazbot.org, 
+	gle.com@google.com, pbonzini@redhat.com, 
+	Andrew Morton <akpm@linux-foundation.org>, kevin.tian@intel.com, joro@8bytes.org, 
+	kvmarm@lists.linux.dev, linux-pci@vger.kernel.org, 
+	Pratyush Yadav <pratyush@kernel.org>, kexec@lists.infradead.org, kvm@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	skhawaja@google.com, sagis@google.com, linux-arch@vger.kernel.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-The TRIVIAL-PREEMPT scenario selects trivial-preempt, which has no
-callback or barrier operations. The kernel correctly skips the
-KASAN aux-stack self-test, but kasan-aux.sh rejects the saved flavor
-and kasan-aux-check.sh does not recognize the expected skip.
+Pratyush Yadav <pratyush@kernel.org> writes:
 
-Accept trivial-preempt in both scripts and require its skip message
-and a successful torture run, as for the other skip-only flavors.
+> Hi,
+>
+> Other than the general discussion around how we should lay out the bits,
+> here's some quick code review.
+>
+> On Tue, Nov 10 2026, Tarun Sahu wrote:
+> [...]
+>> ---
+>>  include/linux/kho/abi/feature.h | 372 ++++++++++++++++++++++++++++++++
+>>  1 file changed, 372 insertions(+)
+>>  create mode 100644 include/linux/kho/abi/feature.h
+>>
+>> diff --git a/include/linux/kho/abi/feature.h b/include/linux/kho/abi/feature.h
+>> new file mode 100644
+>> index 000000000000..55ff1b9e9b73
+>> --- /dev/null
+>> +++ b/include/linux/kho/abi/feature.h
+>> @@ -0,0 +1,372 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +
+>> +/**
+>> + * DOC: KHO Serialization Feature Header ABI
+>> + *
+>> + * Generic feature header for serialized binary data structures preserved
+>> + * across kexec via KHO or Live Update Orchestrator (LUO).
+>> + *
+>> + * Serialized structures start with an 8-byte base header (struct kho_ser_hdr)
+>> + * containing the total structure size (size, including header, flags, and
+>> + * payload) in bytes, the number of required features (nr_required), and the
+>> + * number of optional features (nr_optional). Following the header is a
+>> + * flexible array of 64-bit flags entries (flags[]) containing one bit per
+>> + * feature.
+>> + *
+>> + * Feature bits:
+>> + *   - Required feature N is at bit N of flags[].
+>> + *   - Optional feature N is at bit (nr_required + N) of flags[].
+>> + *   - The number of __u64 entries in flags[] is
+>> + *     DIV_ROUND_UP(nr_required + nr_optional, 64).
+>> + *   - When nr_required == 0 and nr_optional == 0, flags[] has zero entries
+>> + *     and the header is exactly 8 bytes.
+>> + *
+>> + * A set bit indicates that the feature is present in the payload.
+>> + *
+>> + * Deserialization truth table:
+>> + *
+>> + *   Source bit       Target            Action
+>> + *   ----------       ------            ------
+>> + *   Not set          -                 Accept: feature absent
+>> + *   Optional set     unknown or known  Accept: ignore or use the data
+>> + *   Required set     known             Accept: use the feature data
+>> + *   Required set     unknown           Reject: -EOPNOTSUPP
+>> + *
+>> + * Validation trusts the incoming header: only set required feature bits at or
+>> + * beyond the target's known required feature count are rejected (-EOPNOTSUPP).
+>> + * Optional feature bits are never validated.
+>
+> I don't understand what this paragraph is supposed to mean.
 
-Cc: Kunwu Chan <kunwu.chan@gmail.com>
-Signed-off-by: Kunwu Chan <chentao@kylinos.cn>
----
- tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh | 2 +-
- tools/testing/selftests/rcutorture/bin/kasan-aux.sh       | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+Tursting the header means, it trust the nr_optiopnal, nr_required,
+fhdr->size. Based on their values it parse feature flags to validate
+them.
 
-diff --git a/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh b/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
-index 7a6f425975207..5518ca507557f 100755
---- a/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
-+++ b/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
-@@ -25,7 +25,7 @@ BEGIN {
- 	test_name = "rcutorture: WARN: KASAN aux-stack call_" flavor "()";
- 	success = flavor "-torture:--- End of test: SUCCESS: ";
- 	skip_name = "rcutorture: " flavor " has no callback/barrier ops, skipping KASAN test";
--	skip_mode = flavor ~ /^(tasks-rude|busted|trivial)$/;
-+	skip_mode = flavor ~ /^(tasks-rude|busted|trivial(-preempt)?)$/;
- }
- 
- function fail(message)
-diff --git a/tools/testing/selftests/rcutorture/bin/kasan-aux.sh b/tools/testing/selftests/rcutorture/bin/kasan-aux.sh
-index ae7896658e94d..6b6d9971f03d7 100755
---- a/tools/testing/selftests/rcutorture/bin/kasan-aux.sh
-+++ b/tools/testing/selftests/rcutorture/bin/kasan-aux.sh
-@@ -157,7 +157,8 @@ check_results () {
- 			}
- 		END {
- 			if (!valid || commands != 1 || !multi_shot ||
--			    flavor !~ /^(rcu|srcu|srcud|tasks|tasks-tracing|tasks-rude|busted|trivial)$/)
-+			    (flavor !~ /^(rcu|srcu|srcud|tasks|tasks-tracing)$/ &&
-+			     flavor !~ /^(tasks-rude|busted|trivial(-preempt)?)$/))
- 				exit 1;
- 			print flavor;
- 		}' "$dir/qemu-cmd")
--- 
-2.43.0
+Required features are validated to check if the incoming features that
+are marked required are supported by current kernel or not.
 
+Optional features are the features that are set in the incoming header
+by the previous kernel, but current kernel does not need to worry about
+even if it does not support them.
+
+I will reword it to make it clear.
+
+If your question is about the whether we should have optional feature at
+all, then lets keep the discussion to the exisitng thread for the same
+discussion.
+
+>
+>> + *
+>> + * Defining features:
+>> + *
+>> + * A serialized structure defines its features using enums and registers with
+>> + * DECLARE_KHO_SER()::
+>> + *
+>> + *   enum foo_ser_required {
+>> + *           FOO_SER_REQ_BAR,
+>> + *           __FOO_SER_NR_REQUIRED,
+>> + *   };
+>> + *
+>> + *   enum foo_ser_optional {
+>> + *           FOO_SER_OPT_BAZ,
+>> + *           __FOO_SER_NR_OPTIONAL,
+>> + *   };
+>> + *
+>> + *   struct foo_ser {
+>> + *           __u64 base;     // base fields, always present
+>> + *           __u64 bar;      // FOO_SER_REQ_BAR
+>> + *           __u64 baz;      // FOO_SER_OPT_BAZ
+>> + *   };
+>> + *
+>> + *   DECLARE_KHO_SER(foo_ser, 24,
+>> + *                   __FOO_SER_NR_REQUIRED, __FOO_SER_NR_OPTIONAL);
+>> + *
+>> + *   // Serialize
+>> + *   kho_ser_init(fhdr, foo_ser);
+>> + *   ser = kho_ser_payload(fhdr, foo_ser);
+>> + *   ser->bar = ...;
+>> + *   kho_ser_set_required(fhdr, FOO_SER_REQ_BAR);
+>> + *   ser->baz = ...;
+>> + *   kho_ser_set_optional(fhdr, FOO_SER_OPT_BAZ);
+>> + *
+>> + *   // Restore
+>> + *   err = kho_ser_validate(fhdr, foo_ser);
+>> + *   ser = kho_ser_payload(fhdr, foo_ser);
+>> + *   if (kho_ser_has_required(fhdr, FOO_SER_REQ_BAR))
+>> + *           use ser->bar;
+>> + *   if (kho_ser_has_optional(fhdr, FOO_SER_OPT_BAZ))
+>> + *           use ser->baz;
+>> + *
+>> + * Rules:
+>> + *   - Required and optional features each have their own enum, numbered
+>> + *     independently from 0.
+>> + *   - New features are only appended at the end of their enum, never
+>> + *     reordered or reused.
+>> + *   - The last entry of each enum (e.g. __FOO_SER_NR_REQUIRED) is the
+>> + *     feature count passed to DECLARE_KHO_SER and stays last.
+>
+> Why are these rules? They read more like design patterns to me. Is there
+> a reason for only using enums, and only using them in this form?
+>
+
+Feature flags is new mechanism to handle compatibility. It will be
+complex to understand for any new person wants to utilize this
+for their patches in a subsystem. For future new addition of features
+should be clear how it should be done. I tried to document it for the
+purpose: Currently no system defines any flags, and by mentioning these
+rules, I intend on documenting how it should be used in future. I agree
+that third rule is redundant and second rule expliclty enforce the
+ordering that is decided in design discussion.
+
+As Pasha mentioned, I am going to reduce this documentation to not list
+something that is obvious.
+
+>> + *   - The fields of a new feature are appended at the end of the payload.
+>> + *   - A reader accesses the fields of a feature only when its bit is set in
+>> + *     the incoming header (kho_ser_has_required() or
+>> + *     kho_ser_has_optional()), because an older source kernel does not
+>> + *     serialize them.
+>
+> Nit: newer source kernel might also not serialize them. No point in
+> saying that. It is enough to say that the field should not be used.
+>
+>> + *   - Use required for data the target must understand to restore
+>> + *     correctly, and optional for data it can safely ignore.
+>> + *   - Variable length data that follows the payload, such as an array of
+>> + *     entries, starts at fhdr->size, the size recorded by the source kernel,
+>> + *     so it stays correct when a later feature appends fields to the
+>> + *     payload.
+>
+> I don't understand this line.
+>
+>> + *
+>> + * Writing and reading:
+>> + *
+>> + * kho_ser_size(), kho_ser_init(), kho_ser_set_required() and
+>> + * kho_ser_set_optional() (and the clear variants) use the values this
+>> + * kernel registered with DECLARE_KHO_SER(), so they describe this
+>> + * kernel's layout and are used when serializing.
+>> + *
+>> + * A reader of handed-over data uses only the incoming header:
+>> + * kho_ser_validate(), kho_ser_hdr_size(), kho_ser_payload(),
+>> + * kho_ser_has_required(), kho_ser_has_optional() and fhdr->size, so
+>> + * it follows the layout of the kernel that wrote the data. On data
+>> + * this kernel serialized, these give the same result.
+>> + *
+>> + * Use DECLARE_KHO_SER_HDR(name, *fhdr) (or const
+>> + * DECLARE_KHO_SER_HDR(name, *fhdr)) to document which registered
+>> + * structure a feature header pointer belongs to while verifying at
+>> + * compile time that the structure is registered with DECLARE_KHO_SER().
+>> + */
+>> +
+>> +#ifndef _LINUX_KHO_ABI_FEATURE_H
+>> +#define _LINUX_KHO_ABI_FEATURE_H
+>> +
+>> +#include <linux/build_bug.h>
+>> +#include <linux/err.h>
+>> +#include <linux/errno.h>
+>> +#include <linux/math.h>
+>> +#include <linux/string.h>
+>> +#include <linux/types.h>
+>> +
+>> +/**
+>> + * struct kho_ser_hdr - Header for serialized data structures in KHO.
+>> + * @size:        Total size in bytes (header + flags + payload).
+>> + * @nr_required: Number of required features known to the source kernel.
+>> + * @nr_optional: Number of optional features known to the source kernel.
+>> + * @flags:       Bitmask of present features (required, then optional).
+>> + */
+>> +struct kho_ser_hdr {
+>> +	__u32 size;
+>> +	__u16 nr_required;
+>> +	__u16 nr_optional;
+>> +	__aligned_u64 flags[];
+>> +};
+>
+> Nit: why __u32 and so on? This isn't a uAPI header.
+>
+>> +
+>> +static_assert(sizeof(struct kho_ser_hdr) == 8);
+>> +static_assert(__alignof__(struct kho_ser_hdr) == 8);
+>> +
+>> +#define KHO_SER_NR_FLAGS(nr_required, nr_optional) \
+>> +	DIV_ROUND_UP((__u32)(nr_required) + (__u32)(nr_optional), 64)
+>
+> That's not number of flags, that the number of bits in the bitmap.
+> Reading KHO_SER_NR_FLAGS() would make me think this is just nr_required
+> + nr_optional.
+>
+>> +
+>> +/**
+>> + * kho_ser_hdr_size - Calculate header size in bytes including flags.
+>> + * @fhdr: Pointer to the serialization header.
+>> + *
+>> + * Return: Size of the header and flags array in bytes.
+>> + */
+>> +static inline size_t kho_ser_hdr_size(const struct kho_ser_hdr *fhdr)
+>> +{
+>> +	return sizeof(*fhdr) + sizeof(__u64) *
+>> +		KHO_SER_NR_FLAGS(fhdr->nr_required, fhdr->nr_optional);
+>> +}
+>> +
+>> +/**
+>> + * kho_ser_set_required - Mark a required feature present in the payload.
+>> + * @fhdr:  Pointer to the serialization header.
+>> + * @feat: Required feature index to set.
+>> + */
+>> +static inline void kho_ser_set_required(struct kho_ser_hdr *fhdr, unsigned int feat)
+>> +{
+>> +	if (feat < fhdr->nr_required)
+>> +		fhdr->flags[feat / 64] |= 1ULL << (feat % 64);
+>
+> fhdr->flags[BIT_ULL_WORD(bit)] |= BIT_ULL_MASK(bit);
+>
+> Is way more readable.
+>
+> Also,
+>
+> using the below avoids repeating this incantation multiple times.
+>
+> static inline void __kho_ser_set_bit(struct kho_ser_hdr *fhdr, unsigned int bit)
+> {
+> 	fhdr->flags[BIT_ULL_WORD(bit)] |= BIT_ULL_MASK(bit);
+> }
+>
+> static inline bool __kho_ser_test_bit(const struct kho_ser_hdr *fhdr, unsigned int bit)
+> {
+> 	return fhdr->flags[BIT_ULL_WORD(bit)] & BIT_ULL_MASK(bit);
+> }
+>
+>> +}
+>> +
+>> +/**
+>> + * kho_ser_clear_required - Clear a required feature in the payload.
+>> + * @fhdr:  Pointer to the serialization header.
+>> + * @feat: Required feature index to clear.
+>> + */
+>> +static inline void kho_ser_clear_required(struct kho_ser_hdr *fhdr, unsigned int feat)
+>> +{
+>> +	if (feat < fhdr->nr_required)
+>> +		fhdr->flags[feat / 64] &= ~(1ULL << (feat % 64));
+>> +}
+>> +
+>> +/**
+>> + * kho_ser_set_optional - Mark an optional feature present in the payload.
+>> + * @fhdr:  Pointer to the serialization header.
+>> + * @feat: Optional feature index to set.
+>> + */
+>> +static inline void kho_ser_set_optional(struct kho_ser_hdr *fhdr, unsigned int feat)
+>> +{
+>> +	if (feat < fhdr->nr_optional) {
+>> +		unsigned int bit = (unsigned int)fhdr->nr_required + feat;
+>> +
+>> +		fhdr->flags[bit / 64] |= 1ULL << (bit % 64);
+>> +	}
+>> +}
+>> +
+>> +/**
+>> + * kho_ser_clear_optional - Clear an optional feature in the payload.
+>> + * @fhdr:  Pointer to the serialization header.
+>> + * @feat: Optional feature index to clear.
+>> + */
+>> +static inline void kho_ser_clear_optional(struct kho_ser_hdr *fhdr, unsigned int feat)
+>> +{
+>> +	if (feat < fhdr->nr_optional) {
+>> +		unsigned int bit = (unsigned int)fhdr->nr_required + feat;
+>> +
+>> +		fhdr->flags[bit / 64] &= ~(1ULL << (bit % 64));
+>> +	}
+>> +}
+>> +
+>> +/**
+>> + * kho_ser_has_required - Check if a required feature is present in the payload.
+>> + * @fhdr:  Pointer to the serialization header.
+>> + * @feat: Required feature index to check.
+>> + *
+>> + * Return: True if the feature is present, false otherwise or if the index
+>> + *         exceeds the header's known required feature count.
+>> + */
+>> +static inline bool kho_ser_has_required(const struct kho_ser_hdr *fhdr,
+>> +					unsigned int feat)
+>> +{
+>> +	if (feat >= fhdr->nr_required)
+>> +		return false;
+>> +	return !!(fhdr->flags[feat / 64] & (1ULL << (feat % 64)));
+>> +}
+>> +
+>> +/**
+>> + * kho_ser_has_optional - Check if an optional feature is present in the payload.
+>> + * @fhdr:  Pointer to the serialization header.
+>> + * @feat: Optional feature index to check.
+>> + *
+>> + * Return: True if the feature is present, false otherwise or if the index
+>> + *         exceeds the header's known optional feature count.
+>> + */
+>> +static inline bool kho_ser_has_optional(const struct kho_ser_hdr *fhdr,
+>> +					unsigned int feat)
+>> +{
+>> +	unsigned int bit;
+>> +
+>> +	if (feat >= fhdr->nr_optional)
+>> +		return false;
+>> +	bit = (unsigned int)fhdr->nr_required + feat;
+>> +	return !!(fhdr->flags[bit / 64] & (1ULL << (bit % 64)));
+>> +}
+>> +
+>> +/**
+>> + * __kho_ser_init - Initialize a serialization header and flags.
+>> + * @fhdr:          Pointer to the memory for the serialization header.
+>> + * @payload_size: Size of the payload structure in bytes.
+>> + * @nr_required:  Number of required features known by the caller.
+>> + * @nr_optional:  Number of optional features known by the caller.
+>> + */
+>> +static inline void __kho_ser_init(struct kho_ser_hdr *fhdr, __u32 payload_size,
+>> +				  __u16 nr_required, __u16 nr_optional)
+>
+> I really dislike all the __u32, __u16 and so on. This isn't uAPI code,
+> so should use plain u32, u16 and so on.
+>
+>> +{
+>> +	__u32 nr_flags = KHO_SER_NR_FLAGS(nr_required, nr_optional);
+>
+> flags_size or something like that. nr_flags reads like number of
+> _actual_ flags.
+>
+>> +
+>> +	fhdr->size = sizeof(*fhdr) + sizeof(__u64) * nr_flags + payload_size;
+>> +	fhdr->nr_required = nr_required;
+>> +	fhdr->nr_optional = nr_optional;
+>> +	memset(fhdr->flags, 0, sizeof(__u64) * nr_flags);
+>> +}
+>> +
+>> +/**
+>> + * __kho_ser_payload - Return pointer to the payload following the header.
+>> + * @fhdr: Pointer to the serialization header.
+>> + *
+>> + * Return: Pointer to payload memory immediately after the flags array.
+>> + */
+>> +static inline void *__kho_ser_payload(const struct kho_ser_hdr *fhdr)
+>> +{
+>> +	return (void *)((const char *)fhdr + kho_ser_hdr_size(fhdr));
+>
+> return (void *)fhdr + kho_ser_hdr_size();
+>
+> does the same thing and is simpler.
+>
+>> +}
+>> +
+>> +/**
+>> + * __kho_ser_validate - Validate an incoming header against target capabilities.
+>> + * @fhdr:                Pointer to the serialization header.
+>> + * @target_nr_required: Number of required features supported by the target.
+>> + *
+>> + * Checks that the source did not set any required feature bits that the target
+>> + * kernel does not support (index >= @target_nr_required).
+>> + *
+>> + * Return: 0 if all required features are supported, or -EOPNOTSUPP on failure.
+>> + */
+>> +static inline int __kho_ser_validate(const struct kho_ser_hdr *fhdr,
+>> +				     __u16 target_nr_required)
+>> +{
+>> +	unsigned int i;
+>> +
+>> +	for (i = target_nr_required; i < fhdr->nr_required; i++) {
+>> +		if (fhdr->flags[i / 64] & (1ULL << (i % 64)))
+>
+> Same here, this incantation should go away.
+>
+>> +			return -EOPNOTSUPP;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +/**
+>> + * DECLARE_KHO_SER - Register a serialized payload structure with KHO.
+>> + * @name:         Structure tag name (e.g. luo_ser).
+>> + * @payload_size: Compile-time expected size of struct @name in bytes.
+>> + * @nr_required:  Total number of defined required features.
+>> + * @nr_optional:  Total number of defined optional features.
+>> + *
+>> + * Size and 8-byte alignment are asserted under CONFIG_64BIT: KHO and LUO are
+>> + * 64-bit only, while !CONFIG_KEXEC_HANDOVER stubs pull ABI headers into
+>> + * 32-bit builds where u64 has 4-byte or 2-byte alignment.
+>> + */
+>> +#define DECLARE_KHO_SER(name, payload_size, nr_required, nr_optional)	\
+>> +	static_assert(!IS_ENABLED(CONFIG_64BIT) ||			\
+>> +		      sizeof(struct name) == (payload_size),		\
+>> +		      "struct " #name " size mismatch");		\
+>> +	static_assert(!IS_ENABLED(CONFIG_64BIT) ||			\
+>> +		      __alignof__(struct name) == 8,			\
+>> +		      "struct " #name " must be 8-byte aligned");	\
+>> +	extern struct kho_ser_hdr __kho_ser_hdr_##name;			\
+>> +	enum {								\
+>> +		__KHO_SER_SIZE_##name = (payload_size),			\
+>> +		__KHO_SER_NR_REQUIRED_##name = (nr_required),		\
+>> +		__KHO_SER_NR_OPTIONAL_##name = (nr_optional),		\
+>> +	}
+>
+> Yeah, I agree with Pasha and Chris. Plain types are much better.
+>
+> [...]
+>
+> -- 
+> Regards,
+> Pratyush Yadav
