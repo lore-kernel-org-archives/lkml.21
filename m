@@ -1,108 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.29
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795829335;
-	b=kvU+ysYmJJC2zo35Vj7rvVe/KaboIBS9dmRBejtvVgX/XACY+5S+yNxB8yFpqmBdOhfO
-	 d++Jtj21vWd3Uz0bvxMGPV/P/hkgNmtSus2aFkGxNBIhtTj2NY9NYmifffl7EKwbj1V1h
-	 T0rXW+BUDsuK3RfkUyoLFrd4JoP3AikMKDeeWP+jtqeXCVQ/PheJ8fiZP5TCUTktAowp+
-	 SmUIgSI+bk0qxvXKOwr1kGrmb3GYIH4Kn8Cd1qz3RvDc/DPClcl28HG2fmXTImcQw9s9j
-	 U2yDtGXuKEWXf/MVbobS118jZYL3E0ujXCHfeVWbqdTPrjPlr/g+xqswp0S6D8g5LJg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795829335;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=zGOwSFxN0edfQj/G4mEegGtWrcAmhol3Bgb5It8TljE=;
-	b=10In8+hr9rbzQhzxDA+qEOXkgo7iOD3lQu2P3TLoNgWct8zDQ78iCdEHxBFKgFsY61tI
-	 2XE1yzzx1LbTux3KGLa3ISTEMre1CLK7v6Fb6J5Vremk7ASTZSaZGPj/aeY60orFnA880
-	 5ALsLAlp8JtRpFIyZ7WjJR+lYTVHyN7yQRVvim4kSokSoR1UovI3RAiFKPhpDzTKTtvCY
-	 VAOGNdBZTW0/DwBOaNpyBNKS6ADKIi5Msi3DUOZFtkD8pBZ8lQb0A/91mJsYN/2wzv5BP
-	 Gm5SOIFs5iRnZ3RY/o8niDXjJIiWV16r/qsO1RR9eI5rO6R5CwhzYDDmA0tIUeAzq4A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=j999Tdlc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.29
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013029.outbound.protection.outlook.com [40.93.201.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.137
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795829341;
+	b=IqRPbxIr5wCy9KeFglZLFMR3jLW9n/24lteO2IPjlqXQlwLP3VNUXYpxnI22cH+V99hz
+	 vVB4fDnBSn5tMyCZH9Vx5Uvl9F/v7HgrDC0YbPBoC78efWViPpbDYAS9ofZpRH4TlY9f4
+	 gr7oXMy8Z2olkyUO9PZTZB8MnF+rn+T1l+46O0z8OrTxW23AD48SFzDHyktfleJyCKanl
+	 +tCcS0Igyamda4CHG9UWUk6K9FfBdqUf7vc6SLtDx7ZMuV81zjNm3pOmSWo1SVIy0Y1WZ
+	 MA3HZjG9Afi3d6ZA7/JTwQQ684Uh5ZCiXeo73Pda4VLN1HvjwjL0P5hFw4BaCe9CTPg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795829341;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
+	bh=eUAulIRr9Zu4AiAFvykX8TUdGYjpqnm4xenVw0jkEZs=;
+	b=Mk2IGAuu+zNamC/ibHLdmPzbPiJhhRNPOIoQqo7oKMlhmIOofO1HclTlIQA+nptVvpya
+	 lPXJC9KWULwLVugaY0KA9Bfk6Jw3cyJSGG38DX4o2Y1gTKOWdUp0xKb8tPZFdM9zTehLo
+	 9PpD8pu6DD+DRuTcLa80qE1ziCJrQhocafYZbPIuCYUJNNIZfeMrONIoo5IGVF6+C1r6i
+	 DhMM5cTDmqEYCVOe6cdAGfLCvERzJZctkjWxl8Z3gTQM7LDMbdQv134Lby3wciiCQmU/L
+	 o5BH0FYfxnrhegwLBH8UcpfVAfzfldgi0+F3row40VRA5XTmNEIfvFDRSVMOjmkdN6w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IMi2igeB;
+	arc=none smtp.remote-ip=74.125.231.137
+Received: from mail-oo2-f9.google.com (mail-oo2-f9.google.com [74.125.231.137])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E511E606A31C;
-	Sat, 28 Nov 2026 01:28:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E511E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 021D1606A326
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:29:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 021D1606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=j999Tdlc
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZZnVRLIX7PZQB5Rf9xj0DEDw2JLAd+c5LxKYvNFWScZNg4x/eQlADCi3o+rDn4PY0Qz76iLpYgWzmz1s8Q/v+IfXIMdBfpI/0GzJqrP/d8HHxVcZP+Mxh1ooUFoNDWMdJN5l1szn9AJiGMTqmqwbk1w8KveTibSH09QbopTaUcEFTdbZG+2CXk9+2LvplAKy4ziYMSaeP1vd4ip9+U0FTlcJRvpHzuSh6PV8OvG5WVnjiiuZdvvt4OrMLowXIxGsLD1pfGR72K5Wj/pjEs+Hfzjn3q31k0uTc16wUj8jwN5ETmcQKt7CMA2pS1yxRCtoTMAP7CO6GWVMxSI5noFn6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zGOwSFxN0edfQj/G4mEegGtWrcAmhol3Bgb5It8TljE=;
- b=PTYakuKHA49y1Q1Nn56jff9oRgelxRZlOmwAdUzhe/By7crUMTi4i5/BerAXwd0+lazYsAmhcdaevPrT8b0kdeSjEGqo8IJtQ+uKL13b+kEE5wCzludBsuHTH+8cBTfXZtAhYUP7ltL+iypsVSPlMzAI26csNFGCNkH5eTSsCZUtUCiL8JCOEJ0xCymwf9GezwujF0nxTpL6VplMFAqNl7uYEY5KuDA3IWLg1o543GrQsdAr9pS/6dkBLCqelku21RWUnuNzMmRKh+pAuZOeILFj0cqjAzSBbxpUGxPvcnpab/TDwRITNBXTeDA9YRDVxFTbUjY2qNC89HKRO7wkNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zGOwSFxN0edfQj/G4mEegGtWrcAmhol3Bgb5It8TljE=;
- b=j999TdlcdpLjU+/Nsh9Re5i8zDJUnO8iqX/GA1fcc9Tb+2KyW4FDNq3kQZWsRvwJetpNl040n3GRuRU6izTMBVpve/ndNTTg6BBEacDC6pZJPP46VACk8pPW2h7ShjbV8pz/LCuVUui6ZDvfYNP1ED6eKT7RoAwMFMimsSl4Ya9j2fz7Sqgw4c6Fh2cnMf4zvnsi1ELcPnMXhsBwCzMMKowWKgfjIlB7F1W29+kjsMieV6eqN9QhsGwV19GWfriC8fJDjWM13Jhi4WtN7yanSqgXvbjtrJgb6Xt40YG5LP/XPiGdDzxVLKmGBPHRE9eRuHHjTp2DBsa84LdlNrs4vw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by BL3PR12MB6377.namprd12.prod.outlook.com (2603:10b6:208:3b0::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Sat, 28 Nov
- 2026 01:28:50 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0662.004; Sat, 28 Nov 2026
- 01:28:50 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: devicetree@vger.kernel.org
-Cc: devicetree@vger.kernel.org,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- Svyatoslav Ryhel <clamor95@gmail.com>
-Subject:
- Re: [PATCH v8 10/12] drm/tegra: rgb: Parameterize configuration based on bus
- flags
-Date: Sat, 28 Nov 2026 10:28:46 +0900
-Message-ID: <TYDAsh0fQ52x0yM4_wAp5A@nvidia.com>
-In-Reply-To:
- <CAPVz0n2xxEG5vR4X_dZeyQfN9TVSCBn+2uW1wY7Z+P3N8BhNqQ@mail.gmail.com>
-References:
- <20261122081820.53199-1-clamor95@gmail.com>
- <QEeSnm4uTjq24quMQBzlfQ@nvidia.com>
- <CAPVz0n2xxEG5vR4X_dZeyQfN9TVSCBn+2uW1wY7Z+P3N8BhNqQ@mail.gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0028.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:263::15) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IMi2igeB
+Received: by mail-oo2-f9.google.com with SMTP id 006d021491bc7-71adbc33a72so2530349eaf.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:29:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795829340; x=1796434140; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eUAulIRr9Zu4AiAFvykX8TUdGYjpqnm4xenVw0jkEZs=;
+        b=IMi2igeB+D1H0r4RXRLRTfyyJ/i4apYP99O3CzAyLrhGgM47yV6xgJhQ5iuYBCJQDp
+         j+ZHMhtSZHhME9H3RO6i5idv94+ywBbAOtkP0u9pX8ZyTLVnvSLJAvcFJLUXAsekKnaw
+         N/TB4zsy73btf8TBI1IjUjAeT/nwXR+MwoPrSFMGM+od43ffL7nvI1e1U74XVEScKc3j
+         svAqJVeASg13KjexJMqRqIMF05sTz28guZDehkjqs2qrLZPXnR0QMA3GteNDhht+XVmU
+         6Z/iPyeknsdyFsthrd2qVrk3aN0wgyojVR15nXR/CX5a02/9jArgparJu42sBCkAy6ya
+         X3+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795829340; x=1796434140;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eUAulIRr9Zu4AiAFvykX8TUdGYjpqnm4xenVw0jkEZs=;
+        b=csV45NXiE8Raywt8PDcZXVPVjnnV+aVy6Fzn15VQovoCRmiwWdOarhuCA+S7jXIxOH
+         i8xy2Q1QjXbMNhDd4TnUXQz7il3XksgQxwOzI68f2mtb4JB7fgz1TGpnb1QVSzXomqXy
+         tUS+fU6hKsMAd4JQHdhg0OxCRvziReEtXDbrh/Cjcf5r6aPabHL13G8/sZSopAmfe6vW
+         1YxQWZhkOhuzrPs5u1fs0keIaGIeNkOQ3xL6BBRpjIcn1PI6Jt//hjroZc7+6mo8URKU
+         5rj7mBhUPcpCqi4PMpU2Fo5Cd7hNhGYvYSA6k/xIDcibWSVv1eXJHXqtGPWEJugVZjod
+         Z2KQ==
+X-Forwarded-Encrypted: i=1; AL+hErF6QTsC2CMWeu+vQWLcZc1TFhHEifDs1q8nyXULPyWo837BXhcF7gU0uEc3JOXwuttKOMMu/2hVSMbczsU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GRFAKNxjp/5xzH1CRrbEiuF02cXYD3FLEeO1XRafjIuwjAvXs
+	c6sRG6GsWkyZ3K1KRbkzv2NGZ9H6djjYgTV+ZnbnNp1GTx9RQ3fkq+FN
+X-Gm-Gg: AZFdTZdW4Aco0RT+ST4H/R9UOZ39PoBrGrTEjeVsWUttYWze5n2IfKBr6zU/hsNLnnG
+	VO1KZTuyMPpMP0/xexI6oOc0560pqpTsl8sJQk2ww7b/SSima86y+aafkJl2z6DxtXROaY9/5ZZ
+	ZO8qQ2oeoUnOYUJ3I3VL6Z5qEIBWNcf8fGB6RMOIStXh16EVHgYH3s+WG8BGiKk/bG4H/NZEccJ
+	bXwYmaVNdmw1PfnsNmsKRUXhv8hsw8bHWvdS+8APGAhy3m2h6+ZEyuAOjyDA/CJHNOE1BPB+nJs
+	9NQgtit6CL9WMiFfknhbpK2Fj5fyMUZNe7wsQzRpmd8I6/uebU00fOItm/YanM799EAPGjoiZ6v
+	zra3ABI2eP58D4zS4d/9bsTM/7cozN3moKcRr6mUs7TLTNCeBMVrX0CzL4TE+xHM5YTH5hSu+SQ
+	0cqEefIWXr1tJ/koxwdeHue84pek+loeFaz0xvcn0FGljxT/DVp+HzseHroD+YjZr6pEXgejucZ
+	nS6fwTBI8IRIFEb/VdX0Jjc4BWfuPNRuT2wml9KWCRrH/Jk2Hr5SkpVoMqsdJGZANJLmau4eBsI
+	WklFl591ca1GRf6ay4Qg5hBeAvENEJvOagImYuoc3r3Tl4zz3zi3SqD0DAllvKgxKWfSVwG66dy
+	7DkmVySHlAg/CglaCJeuBPdvBHH3BOcDVA3CE
+X-Received: by 2002:a05:6820:410b:b0:71b:8dd:7e8c with SMTP id 006d021491bc7-71b394899bdmr19349958eaf.28.1795829339752;
+        Fri, 27 Nov 2026 17:28:59 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:58::])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b3806ef20sm17227849eaf.7.2026.11.27.17.28.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 17:28:58 -0800 (PST)
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	kkd@meta.com,
+	kernel-team@meta.com,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	x86@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v2 0/3] bpf, x86: Drop the PROBE_MEM address range check under SMAP
+Date: Sat, 28 Nov 2026 02:28:53 +0100
+Message-ID: <cover.1795829324.git.memxor@gmail.com>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,286 +110,368 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|BL3PR12MB6377:EE_
-X-MS-Office365-Filtering-Correlation-Id: f54bf2aa-d375-4a42-b428-08df4ceef4c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|10070799003|4143699003|6133799003|22082099003|18002099003|3023799007|11063799006|10067099003|56012099006|261026140227099003|261026121527099003|261028144727099003|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261102123227099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	Cp75Qhlf6dN7cL3b1wxu/njg7estD8hQBz9iffb+pdjJ6MaMxLu8FUt8ALMAdpGdbCe3Kepv3dFLdQ7XJXNeJRNbWXmDl1o3BHmM9gV8DENBDTgjgk3yAKRQdd2kFltrcwzvhUXZy+lESy1SHNXvzTkeKeg6LVV9zd+B/g7422h74A1c0jwxQTznwqboPI4q+LJk8t2RyMavVUdcY5hRoMtnWiMfPfdBgiWUHy0A8K/HK7TnEkYn2qTwzFPrM/VKFF+RZVp9yOnix73e3VrpfuML593opTDvY03oyZgeygLDETzQx5h7YRxx065F0beQsseOFe9Lxspy2pXLc3BMeL9XyEtubPVIJ6ZPbOh0PpyZo++13B5/s3GKeYF5NWRbc5a0/dqr4+FvDJcHfpg5yyM1ON1xPEoG+66+tvOJkQw8OOBIuWsXZa/Il1C/wG4DglQwisriZef3BqvdAtFOWA6bfmKEP7D8xJ+gk+KfLR8p9Vq7zTLdIZkVEueKVOIKCT4nbwu5CpXMIafM8EyybTfNewFHHxm4q72FMC8WJtgUw0fhu1m4IqwVCag/lwrG84id23yCvI94ZXIV6TAGcNGPnwoALF+O1hsEdWzy2KjhnLvHincHdFISb1JR1wXVxj1kV3/dXAU1rv1+fVaPZkw5M1OIn+igE62RYs7i6UU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(10070799003)(4143699003)(6133799003)(22082099003)(18002099003)(3023799007)(11063799006)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261102123227099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RHAzMWlRZExKbFhna0p3SFVCTU5MRDc0NVNTN2syMzNwbzMwVnpzQVVoNVcw?=
- =?utf-8?B?NkFndVVFQ3cvR293WW1jWGJzZnV6UklSVDZlWTc0K1NqZE5JNkpIMlNnUDdI?=
- =?utf-8?B?aE95Q2t0c3ZaL000TmFyWnZFcGpwdmNaWlJDKzZUKy93L1RCeEdLbUlWbWZl?=
- =?utf-8?B?K2l1TVo1Q0kzdXNKdHV4N2p0UlU2a3BNamNlc2FjdEM1RGdMZzVCUkpFQVY3?=
- =?utf-8?B?VGY5bVRuWFVNcWsrVjhIVllsUSt6ZUVnUWRCSHFYUUk1Q0JDcnpSdW8ycFlX?=
- =?utf-8?B?V1YwclZucjFBekM3R0tDTSt5MU9kNGgxa3NkRGVkM1pZVjJ6bXY4eC8wVG5E?=
- =?utf-8?B?QVAzcHJwandGejJpMk8zNWp0Q0hsYTRFdFFCR0RBUzVSbkJGMEVMYXNhVzVJ?=
- =?utf-8?B?VGZNcVJQNk1oekR1VHJOMGFIUnNhNHJudm5Ec25pOG0zWmpsamtBVWI0YTZz?=
- =?utf-8?B?UlRJRy9hY1lSYndxZGJndVhtNGo0RWpUUlFiWkNVd1dyclJJVUpMWWh6Z2U5?=
- =?utf-8?B?aWVYaGlobSthVy9XNUNVcEE1SlJWdlpWYWhNcXBJS0JCeDk4Wk9vR0pRTnVl?=
- =?utf-8?B?a09BQzZQVHhxU3FpR2pHeXl6VklsaThRZ1ZoOWhVUUd2RGNvOXlaUHNGS0pJ?=
- =?utf-8?B?RTZQNmY4U1IyMXV5NjdTMnlMWVZ0UXYrVWJSbGtuWEZoWDNaa29MUEFqZjRp?=
- =?utf-8?B?dStIYVJRSStFUHJaTW9OR0xYeld2RHpMM1c0Y29zQTVTbzNUUGx6VmkxS3pG?=
- =?utf-8?B?V3pOcEg0OFdQd1pBMVZpN3cwU2YvT3hCT29yVzQzVkE4dVBGdVQ5SEJWeUl2?=
- =?utf-8?B?Q0RjaDZtYWduYnhTTE04WlB1ZUZsUDcwZVY1S096VVVxSFB4S2tlYTJMR3ZP?=
- =?utf-8?B?a2x3T2YxNlZoaW9OU2hnWndIYnFCY25IL3pheGdhWEluejJ1OFJMQzVtbzJB?=
- =?utf-8?B?TEhnbFF0V1ArVzQyNDU4SnZXMGtEVDR0OGt3dXhnaHZmME1sQlQzRGJyNTlK?=
- =?utf-8?B?eWVaMW1acWpEMlNnWWYxTTNHODE5bk41U0FrazVKWnVzYjdFQ0svYzh0dVNn?=
- =?utf-8?B?bzl3V2gwb1ZUQVg1V3ZMb2Y3SG1lUlVjN3I4SVhvQkZDMTZTVG4vZWp3Zkhi?=
- =?utf-8?B?cTV2OTJ5Q3RWWTlSR1lqUGZNdzV5NnZTWS9PRWhDUTQxSHhSVWltM1YwdnBC?=
- =?utf-8?B?WmQ4bkg0SW1PN1dpeGtQdnBBMXlNSDB6YVFVM3RmOHUyWUl1RFpnUHBETncv?=
- =?utf-8?B?RXdZWVMza1pGYi9ZZEpMMVYzK24yMm84N0pyWDlLZlFJTFFlcGpBN21zRytw?=
- =?utf-8?B?MTBkWnBqRVptNjVFdTROaU54QkVCTFJ1Q05LM1dVL0R1VmY3RGVYQmtLeGI1?=
- =?utf-8?B?K005cm4veEdlSkE0ZkNtaTRtM1p1T2tXdm5maXRFYzdNWXFad1BpT00zY3py?=
- =?utf-8?B?QVpHNU51ellYem5JRkhWd1dPV2ZRK3VPNjhwQnZhU2hPcjZKT1F5aWVQL0RW?=
- =?utf-8?B?dnJEaFNwVFNVWFN4WWg2RzRLUzAzakxsdng5ZlU1cFB0R1BadnZCVWZNWVkr?=
- =?utf-8?B?eE9oMUtMbFdYSy9jQzJaZnZkdWRCM0MwdWI0Z3RsZmN0YjNqMmVZK3JEVDhV?=
- =?utf-8?B?QUVKN09WS3FuQ2ZGSWVaSmI3SWNvYVc3R3RBbEVvN2Z0aFRndjBoSktOUHBE?=
- =?utf-8?B?V1UrZm9NTmZ0UVJMSmh2YlowRTIxRjlHUENadkRyams2Y2RlbG9adDVORi9x?=
- =?utf-8?B?NVdhR3l6alBXSUpRdVdXRzlON0tXYWVnejRjRytZdHBpcTc2VjJhTklZWmZ4?=
- =?utf-8?B?ZFBXcEhGMktDUlJQbHJxK2dRNHBHb0JMSnFkWEsxM2J3YnlCdXhtMStTcHV3?=
- =?utf-8?B?WmdHQmtZTjVTL0c3T0JGWjlyelAxWWxmTlEyYmJiV0g0QVV2WnRkR01MczNn?=
- =?utf-8?B?YlNvY0puSkVZUlBhUFIxbUkzTVc4MmR4ZWdaNWV2eXFRTWwyT0grVG1GWU5x?=
- =?utf-8?B?Y2JTdUcycTVlYjBqU2Y0T2t1VDFHUkJDbkYvalV5YkNsRS8yVnE0ZXRvRkF5?=
- =?utf-8?B?SW16WTUvR1Z4K0hxaVRFSnpqaTVVWGZWNi8xT0kxaWk1M1FaNHZoM3lzTkJV?=
- =?utf-8?B?dm1ka09KZUt4N3RjemxtRG05a01mVUdqdDNCVStRREZrVGdXeW02SWhobkY4?=
- =?utf-8?B?aldLNE5WTzNZZW5lZnBoRmhVRjBDSHAxM2lmN0RPTTBSdzk4ajRsazlkYmR3?=
- =?utf-8?B?NnRrOTM4US8wMHVNWTlMSEs1UUdTQXBUUGFoZStYSXFHT2RiZVJWT0NWekgw?=
- =?utf-8?B?TGd4TFkxM2RNdG5paFkvNitmWEZkcFI1TStWU2pyeEdJTWp4UWZ5VFVQL1NM?=
- =?utf-8?Q?KeI3B9nBqn+Hy1wiv8IzlWl4UzzquNZbzUBe5k53IbRGJ?=
-X-MS-Exchange-AntiSpam-MessageData-1: MingsDkVl+r21w==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f54bf2aa-d375-4a42-b428-08df4ceef4c5
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 01:28:50.3967
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 66ZgphdK8ZiFdkXYOIL9rNp7oedNqGhbtQe1oTtRWzBU5QedO69CIo+OcFtVgGI85Xy4tuOdfU3BFubs33D31A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6377
+X-Developer-Signature: v=1; a=openpgp-sha256; l=21478; h=from:subject:message-id; bh=omn+sBk3KgFYHE/2h/juNxBfoDyBsG/IMxBZK5LBBjs=; b=owGbwMvMwCXmrmtenRyi38x4Wi2JIZtLz+eO3I0NUXc4JP5YvWtVCNyVcc3/J9Nq/UjtkFDBvqKv rrM6SlkYxLgYZMUUWUr+72MyPlH5O9B2GTfMHFYmkCEMXJwCMJFHNowM/3vj3+cXNt087Kq4cpPkzX NTEuaVHH7wlfFE0K9bL9JfBDL8s913agHz3SPGX65dffO8pcH6xZwFlycYspcLMF6yrLuSyg0A
+X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=B34BD741DE8494B76E2F717880EF20021D46C59B
+Content-Transfer-Encoding: 8bit
 
-On Friday, November 27, 2026 10:21=E2=80=AFPM Svyatoslav Ryhel wrote:
-> =D0=BF=D1=82, 27 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 14=
-:35 Mikko Perttunen <mperttunen@nvidia.com> =D0=BF=D0=B8=D1=88=D0=B5:
-> >
-> > On Friday, November 27, 2026 6:21=E2=80=AFPM Svyatoslav Ryhel wrote:
-> > > =D0=BF=D1=82, 27 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=
-=BE 08:22 Mikko Perttunen <mperttunen@nvidia.com> =D0=BF=D0=B8=D1=88=D0=B5:
-> > > >
-> > > > On Sunday, November 22, 2026 5:18=E2=80=AFPM Svyatoslav Ryhel wrote=
-:
-> > > > > Parameterize configuration based on bus flags passed from the bri=
-dge or
-> > > > > panel. The list of supported flags includes now pixel clock polar=
-ity,
-> > > > > display enable (DE) polarity, and data alignment.
-> > > > >
-> > > > > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> > > > > ---
-> > > > >  drivers/gpu/drm/tegra/rgb.c | 39 +++++++++++++++++++++++++++++++=
-++----
-> > > > >  1 file changed, 35 insertions(+), 4 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/gpu/drm/tegra/rgb.c b/drivers/gpu/drm/tegra/=
-rgb.c
-> > > > > index d48d498068ac8..faecd6f94359f 100644
-> > > > > --- a/drivers/gpu/drm/tegra/rgb.c
-> > > > > +++ b/drivers/gpu/drm/tegra/rgb.c
-> > > > > @@ -5,6 +5,7 @@
-> > > > >   */
-> > > > >
-> > > > >  #include <linux/clk.h>
-> > > > > +#include <linux/media-bus-format.h>
-> > > > >  #include <linux/of.h>
-> > > > >
-> > > > >  #include <drm/drm_atomic_helper.h>
-> > > > > @@ -106,6 +107,7 @@ static void tegra_rgb_encoder_enable(struct d=
-rm_encoder *encoder,
-> > > > >       struct tegra_output *output =3D encoder_to_output(encoder);
-> > > > >       struct tegra_rgb *rgb =3D to_rgb(output);
-> > > > >       struct drm_connector_state *conn_state;
-> > > > > +     struct drm_bridge_state *bridge_state;
-> > > > >       struct drm_crtc_state *crtc_state;
-> > > > >       struct drm_connector *connector;
-> > > > >       struct drm_display_mode *mode;
-> > > > > @@ -117,12 +119,21 @@ static void tegra_rgb_encoder_enable(struct=
- drm_encoder *encoder,
-> > > > >       crtc_state =3D drm_atomic_get_new_crtc_state(state, conn_st=
-ate->crtc);
-> > > > >       mode =3D &crtc_state->adjusted_mode;
-> > > > >
-> > > > > +     /* Get but flags from the bridge state. */
-> > > >
-> > > > s/but/bus/
-> > > >
-> > > > > +     bridge_state =3D drm_atomic_get_new_bridge_state(state, out=
-put->bridge);
-> > > > > +     if (bridge_state)
-> > > > > +             bus_flags =3D bridge_state->input_bus_cfg.flags;
-> > > > > +     else
-> > > > > +             bus_flags =3D DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
-> > > > > +                         DRM_BUS_FLAG_DE_HIGH |
-> > > > > +                         DRM_BUS_FLAG_DATA_MSB_TO_LSB;
-> > > > > +
-> > > > >       tegra_dc_write_regs(rgb->dc, rgb_enable, ARRAY_SIZE(rgb_ena=
-ble));
-> > > > >
-> > > > >       value =3D DE_SELECT_ACTIVE | DE_CONTROL_NORMAL;
-> > > > >       tegra_dc_writel(rgb->dc, value, DC_DISP_DATA_ENABLE_OPTIONS=
-);
-> > > > >
-> > > > > -     /* configure H- and V-sync signal polarities */
-> > > > > +     /* configure H- and V-sync and pixel clock signal polaritie=
-s */
-> > > > >       value =3D tegra_dc_readl(rgb->dc, DC_COM_PIN_OUTPUT_POLARIT=
-Y(1));
-> > > > >
-> > > > >       if (mode->flags & DRM_MODE_FLAG_NHSYNC)
-> > > > > @@ -135,11 +146,31 @@ static void tegra_rgb_encoder_enable(struct=
- drm_encoder *encoder,
-> > > > >       else
-> > > > >               value &=3D ~LVS_OUTPUT_POLARITY_LOW;
-> > > > >
-> > > > > +     if (bus_flags & DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE)
-> > > > > +             value &=3D ~BIT(PIN_LSC0);
-> > > > > +     else
-> > > > > +             value |=3D BIT(PIN_LSC0);
-> > > >
-> > > > I think this is the wrong way around: SAMPLE_POSEDGE means that the
-> > > > pixel data is sampled on a rising edge. That is, it should be drive=
-n on
-> > > > the low edge so it's ready for sampling in time for the rising edge=
-.
-> > > >
-> > > > LSC0_OUTPUT_POLARITY says that the value "LOW" (a bit confusingly, =
-1)
-> > > > corresponds to a data transition on the falling edge, i.e. sampling=
- on
-> > > > the rising edge.
-> > > >
-> > > > Section 31.9.6 states this a bit more clearly: "an active low pixel
-> > > > clock means that the data changes on the falling edge of the clock,=
- to
-> > > > be latched on the rising edge".
-> > > >
-> > >
-> > > DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE =3D DRM_BUS_FLAG_PIXDATA_DRIVE_NE=
-GEDGE
-> > >
-> > > Should I replace with DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE?
-> >
-> > No -- with the current code, let's say
-> > DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE is set. I.e. the panel tells us tha=
-t
-> > it will be sampling pixel data on the positive (rising) edge.
-> >
-> > LSC0_OUTPUT_POLARITY will be set to 0. The TRM documents the value 0 as
-> > "active high", and "means that rising edge coincides with data
-> > transition". That is, the display controller will change the output pin
-> > state to color data on the rising edge. So the SoC pins will change
-> > state at the rising edge, and the panel will sample at the rising edge.
-> >
-> > But the pins will take some time to take their new values, so this migh=
-t
-> > not work or could be unreliable depending on all kinds of timing
-> > factors. So if the panel is sampling as the rising edge, the SoC should
-> > be driving the pins at the falling edge, that way there is time for the
-> > pins to settle before the panel samples them.
-> >
-> > So the value written to LSC0_OUTPUT_POLARITY should be the opposite of
-> > what it's now. If that breaks the panel, either it's reporting the
-> > incorrect DRM_BUS_FLAG_PIXDATA_SAMPLE_* value or something else is
-> > incorrect.
-> >
->=20
-> This may/will cause regressions across multiple panels and devices.
+GPL-compatible BPF programs loaded with CAP_PERFMON can read through
+pointers that the verifier cannot prove valid. The verifier marks such
+loads PROBE_MEM and the JIT gives each one an exception table entry: on a
+fault, the destination register is zeroed and the program continues. Each
+load is a single mov, movzx, movsx or movsxd into a register, and it is not
+retried.
 
-Looking at the panels we have, if we retain the previous behavior when=20
-neither PIXDATA_SAMPLE_POSEDGE nor PIXDATA_SAMPLE_NEGEDGE is set, then=20
-we'll retain the same programming as we've had before.
+On x86 this does not work for user addresses. With SMAP, a kernel-mode
+fault on a user address oopses without looking at the exception table, so
+the JIT puts a range check in front of every PROBE_MEM load: five
+instructions and 17 or 18 bytes, for a load of three to eight bytes.
 
-Actually, from what I can tell, the change in this patch will change the=20
-programmed polarity compared to before the patch for the panels/bridges=20
-on the Colibri/Apalis/TF700T boards, which do specify SAMPLE_POSEDGE.
+Patch 1 lets do_user_addr_fault() fix up such a fault when it came from
+kernel mode, is a read, and the faulting instruction has an EX_TYPE_BPF
+exception table entry. Every other fault there still oopses. Patch 2 drops
+the range check from the JIT when SMAP is enabled. Patch 3 adds a selftest
+that reads through NULL, user, guard page, non-canonical and vsyscall
+addresses. It oopses on a kernel with only patch 2 applied.
 
-So if we flip the logic around, and default to SAMPLE_POSEDGE if neither=20
-is specified, we should retain previous programming for existing panels.
+Limits:
 
->=20
-> > >
-> > > > > +
-> > > > >       tegra_dc_writel(rgb->dc, value, DC_COM_PIN_OUTPUT_POLARITY(=
-1));
-> > > > >
-> > > > > -     /* XXX: parameterize? */
-> > > > > -     value =3D DISP_DATA_FORMAT_DF1P1C | DISP_ALIGNMENT_MSB |
-> > > > > -             DISP_ORDER_RED_BLUE;
-> > > > > +     /* configure DE signal polarities */
-> > > > > +     value =3D tegra_dc_readl(rgb->dc, DC_COM_PIN_OUTPUT_POLARIT=
-Y(3));
-> > > > > +
-> > > > > +     if (bus_flags & DRM_BUS_FLAG_DE_LOW)
-> > > > > +             value |=3D BIT(PIN_LSPI);
-> > > > > +     else
-> > > > > +             value &=3D ~BIT(PIN_LSPI);
-> > > > > +
-> > > > > +     tegra_dc_writel(rgb->dc, value, DC_COM_PIN_OUTPUT_POLARITY(=
-3));
-> > > > > +
-> > > > > +     /* configure DATA order and alignment */
-> > > > > +     value =3D DISP_DATA_FORMAT_DF1P1C | DISP_ORDER_RED_BLUE;
-> > > > > +
-> > > > > +     if (bus_flags & DRM_BUS_FLAG_DATA_LSB_TO_MSB)
-> > > > > +             value |=3D DISP_ALIGNMENT_LSB;
-> > > > > +     else
-> > > > > +             value &=3D ~DISP_ALIGNMENT_LSB;
-> > > >
-> > > > DRM_BUS_FLAG_DATA_LSB_TO_MSB does not seem the correct thing to che=
-ck
-> > > > here. According to the TRM, DISP_ALIGNMENT doesn't swap between LSB=
-/MSB
-> > > > bit ordering in a classical way, instead:
-> > > >
-> > > >   // DISP_DATA_ALIGNMENT =3D 0 (MSB)
-> > > >   LD[23:0] =3D {R[1:0], G[1:0], B[1:0],
-> > > >               R[7:2], G[7:2], B[7:2]};
-> > > >
-> > > >   // DISP_DATA_ALIGNMENT =3D 1 (LSB)
-> > > >   LD[23:0] =3D {R[7:0], G[7:0], B[7:0]};
-> > > >
-> > > > I suppose MSB is more natural for 18-bit panels and LSB for 24-bit
-> > > > panels depending on the layout. So the correct value depends on how=
- the
-> > > > panel is wired to the SoC on the board. Hence, I think we should
-> > > > describe this with a new property in device tree under rgb/dbi or
-> > > > endpoint node. Something like 'nvidia,rgb888-wiring' for LSB? And
-> > > > document that this means the above kind of wiring - not all RGB888
-> > > > panels use it.
-> > > >
-> > >
-> > > Ugh, why is this so confusing...
-> > >
-> > > > > +
-> > > > >       tegra_dc_writel(rgb->dc, value, DC_DISP_DISP_INTERFACE_CONT=
-ROL);
-> > > > >
-> > > > >       tegra_dc_commit(rgb->dc);
-> > > > > --
-> > > > > 2.53.0
-> > > > >
-> >
-> >
-> >
-> >
+ * Kernels without SMAP keep the range check.
+ * Programs loaded without CAP_BPF keep it too. They are not in kallsyms,
+   so the fault handler cannot find their exception table.
+ * The addresses a program can read do not change. SMAP still refuses user
+   memory. MMIO and, in confidential guests, unaccepted pages are filtered
+   neither by the range check nor by copy_from_kernel_nofault(), before or
+   after the series. Patch 1 has a table.
+
+Patch 2 depends on patch 1, so the series is meant for bpf-next as a whole.
+Patch 1 needs an x86 Ack.
+
+Results
+-------
+
+JITed code size from veristat, on one kernel booted with and without
+clearcpuid=smap (bpf-next at 8dfce13340ae with the series), over the BPF
+selftests and 474 production objects from Meta:
+
+                        programs  with PROBE_MEM  reduction per program
+                                                  mean  median    max
+  BPF selftests             5486             100  20.2%  19.9%  58.2%
+  Meta production programs  1942             262   3.5%   0.8%  51.4%
+
+No program grows. Most programs are unchanged, because loads through
+trusted pointers and the probe_read helpers do not use PROBE_MEM.
+
+The branchless mask Peter suggested for v3 (lea, mov, sar, inc, and, dec,
+no x86/mm change) was measured the same way on bpf-next at 0fb18ce8a2e9. It
+is larger than the current range check: programs with PROBE_MEM loads grow
+by 2.9% on average in the selftests and by 0.5% in production. It also lets
+the vsyscall page through, so such a load still oopses under SMAP, and the
+selftest from patch 3 crashes that kernel at that address.
+
+BPF selftests:
+
+  Largest relative savings (JITed bytes before->after, saved, percent):
+  type_cast/md_xdp                                    584->  244   -340  -58.2%
+  connect_unix_prog/connect_unix_prog                1075->  571   -504  -46.9%
+  sendmsg_unix_prog/sendmsg_unix_prog                1075->  571   -504  -46.9%
+  test_lwt_ip_encap/fexit_lwt_push_ip_encap           362->  205   -157  -43.4%
+  sock_iter_batch/iter_udp_soreuse                    548->  327   -221  -40.3%
+  test_skc_to_unix_sock/unix_listen                   330->  205   -125  -37.9%
+  bpf_smc/bpf_smc_release                              90->   56    -34  -37.8%
+  cgrp_ls_attach_cgroup/update_cookie_tracing         183->  115    -68  -37.2%
+  verifier_typedef/resolve_typedef                     48->   31    -17  -35.4%
+  bpf_iter_vma_offset/get_vma_offset                  369->  240   -129  -35.0%
+  type_cast/md_skb                                    198->  130    -68  -34.3%
+  kfree_skb/fentry_eth_type_trans                     102->   68    -34  -33.3%
+  socket_cookie_prog/update_cookie_tracing            156->  105    -51  -32.7%
+  bpf_iter_tcp6/dump_tcp6                            3142-> 2129  -1013  -32.2%
+  mptcp_sock/_sockops                                 410->  280   -130  -31.7%
+  plain_c_mptcp_subflow/_getsockopt_subflow          1433->  980   -453  -31.6%
+  mptcp_subflow/_getsockopt_subflow                  1462-> 1012   -450  -30.8%
+  mem_rdonly_untrusted/btf_id_to_ptr_mem              118->   82    -36  -30.5%
+  sock_iter_batch/iter_tcp_soreuse                   1025->  714   -311  -30.3%
+  test_signed_loader_lsm/inspect_prog_load            197->  138    -59  -29.9%
+  bpf_iter_task_file/dump_task_file                   464->  328   -136  -29.3%
+  verifier_kfunc_perfmon/rdonly_cast_noperfmon         59->   42    -17  -28.8%
+  bpf_iter_ksym/dump_ksym                             900->  642   -258  -28.7%
+  plain_c_test_wakeup_source/iterate_wakeupsources    719->  513   -206  -28.7%
+  kfree_skb/fexit_eth_type_trans                      119->   85    -34  -28.6%
+  bpf_iter_unix/dump_unix                             897->  641   -256  -28.5%
+  bpf_iter_ipv6_route/dump_ipv6_route                 725->  519   -206  -28.4%
+  bpf_iter_tcp4/dump_tcp4                            2621-> 1914   -707  -27.0%
+  bpf_iter_bpf_sk_storage_helpers/fill_socket_owner   127->   93    -34  -26.8%
+  bpf_iter_netlink/dump_netlink                       660->  490   -170  -25.8%
+  sk_storage_omem_uncharge/bpf_sk_storage_free        135->  101    -34  -25.2%
+  bpf_iter_setsockopt/change_tcp_cc                   409->  307   -102  -24.9%
+  bpf_iter_task_vmas/proc_maps                        766->  577   -189  -24.7%
+  fentry_test/test8                                    70->   53    -17  -24.3%
+  fexit_test/test8                                     70->   53    -17  -24.3%
+  mptcp_sock/trace_mptcp_pm_new_connection             70->   53    -17  -24.3%
+  test_wakeup_source/iterate_wakeupsources            867->  660   -207  -23.9%
+  core_kern/fentry_eth_type_trans                     219->  168    -51  -23.3%
+  core_kern/fexit_eth_type_trans                      219->  168    -51  -23.3%
+  rcu_read_lock/rcu_untrusted_union_ld                 73->   56    -17  -23.3%
+  lsm/test_sys_setdomainname                          148->  114    -34  -23.0%
+  lsm_bdev/bdev_free_security                          74->   57    -17  -23.0%
+  plain_c_mem_rdonly_untrusted/offset_not_tracked      75->   58    -17  -22.7%
+  bpf_smc/bpf_smc_switch_to_fallback                   77->   60    -17  -22.1%
+  verifier_kfunc_perfmon/arg_untrusted_read_noperf~    77->   60    -17  -22.1%
+  verifier_btf_array_access/flex_array_far_join        78->   61    -17  -21.8%
+  bpf_iter_setsockopt_unix/change_sndbuf              822->  644   -178  -21.7%
+  btf_type_tag_percpu/test_percpu_helper               81->   64    -17  -21.0%
+  bpf_smc/smc_run                                     167->  133    -34  -20.4%
+  find_vma/handle_getpid                              342->  274    -68  -19.9%
+
+  Largest absolute savings (JITed bytes before->after, saved, percent):
+  bpf_iter_tcp6/dump_tcp6                            3142-> 2129  -1013  -32.2%
+  bpf_iter_tcp4/dump_tcp4                            2621-> 1914   -707  -27.0%
+  connect_unix_prog/connect_unix_prog                1075->  571   -504  -46.9%
+  sendmsg_unix_prog/sendmsg_unix_prog                1075->  571   -504  -46.9%
+  plain_c_mptcp_subflow/_getsockopt_subflow          1433->  980   -453  -31.6%
+  mptcp_subflow/_getsockopt_subflow                  1462-> 1012   -450  -30.8%
+  type_cast/md_xdp                                    584->  244   -340  -58.2%
+  sock_iter_batch/iter_tcp_soreuse                   1025->  714   -311  -30.3%
+  setget_sockopt/skops_sockopt                       4862-> 4563   -299   -6.1%
+  bpf_iter_ksym/dump_ksym                             900->  642   -258  -28.7%
+  bpf_iter_unix/dump_unix                             897->  641   -256  -28.5%
+  sock_iter_batch/iter_udp_soreuse                    548->  327   -221  -40.3%
+  test_wakeup_source/iterate_wakeupsources            867->  660   -207  -23.9%
+  bpf_iter_ipv6_route/dump_ipv6_route                 725->  519   -206  -28.4%
+  plain_c_test_wakeup_source/iterate_wakeupsources    719->  513   -206  -28.7%
+  bpf_iter_task_vmas/proc_maps                        766->  577   -189  -24.7%
+  bpf_iter_setsockopt_unix/change_sndbuf              822->  644   -178  -21.7%
+  bpf_iter_netlink/dump_netlink                       660->  490   -170  -25.8%
+  test_lwt_ip_encap/fexit_lwt_push_ip_encap           362->  205   -157  -43.4%
+  bpf_iter_task_file/dump_task_file                   464->  328   -136  -29.3%
+  mptcp_sock/_sockops                                 410->  280   -130  -31.7%
+  bpf_iter_vma_offset/get_vma_offset                  369->  240   -129  -35.0%
+  test_skc_to_unix_sock/unix_listen                   330->  205   -125  -37.9%
+  test_tc_tunnel/decap_f                             1074->  955   -119  -11.1%
+  bpf_iter_setsockopt/change_tcp_cc                   409->  307   -102  -24.9%
+  kfree_skb/trace_kfree_skb                           479->  409    -70  -14.6%
+  cgroup_hierarchical_stats/flusher                   430->  361    -69  -16.0%
+  bpf_ma_ttrace/check_ttrace                          548->  480    -68  -12.4%
+  cgrp_ls_attach_cgroup/update_cookie_tracing         183->  115    -68  -37.2%
+  find_vma/handle_getpid                              342->  274    -68  -19.9%
+  find_vma/handle_pe                                  342->  274    -68  -19.9%
+  net_timestamping/skops_sockopt                     1043->  975    -68   -6.5%
+  plain_c_bpf_ma_ttrace/check_ttrace                  397->  329    -68  -17.1%
+  type_cast/md_skb                                    198->  130    -68  -34.3%
+  test_signed_loader_lsm/inspect_prog_load            197->  138    -59  -29.9%
+  bpf_qdisc_fq/bpf_fq_init                            765->  713    -52   -6.8%
+  plain_c_bpf_qdisc_fq/bpf_fq_init                    765->  713    -52   -6.8%
+  core_kern/fentry_eth_type_trans                     219->  168    -51  -23.3%
+  core_kern/fexit_eth_type_trans                      219->  168    -51  -23.3%
+  sk_bypass_prot_mem/fentry_tcp_init_sock             357->  306    -51  -14.3%
+  sk_bypass_prot_mem/fentry_udp_init_sock             357->  306    -51  -14.3%
+  socket_cookie_prog/update_cookie_tracing            156->  105    -51  -32.7%
+  tcp_autolowat/tcp_autolowat_enqueue_rcvq            670->  619    -51   -7.6%
+  test_ksyms_btf/handler                              300->  249    -51  -17.0%
+  verifier_global_ptr_args/anything_to_untrusted_m~   313->  262    -51  -16.3%
+  test_tcpbpf_kern/bpf_testcb                        1029->  989    -40   -3.9%
+  test_cgroup1_hierarchy/lsm_s_run                    306->  267    -39  -12.7%
+  cgroup_ancestor/log_cgroup_id                       196->  158    -38  -19.4%
+  tcp_autolowat/tcp_autolowat_setsockopt              271->  233    -38  -14.0%
+  test_btf_skc_cls_ingress/cls_ingress               1107-> 1069    -38   -3.4%
+
+Meta production programs, listed by category only:
+
+  Largest relative savings (JITed bytes before->after, saved, percent):
+  security enforcement 14     280->  136   -144  -51.4%
+  TCP congestion control 24   511->  257   -254  -49.7%
+  container runtime 9         520->  310   -210  -40.4%
+  network tuning 46           201->  125    -76  -37.8%
+  security monitoring 145     100->   66    -34  -34.0%
+  profiling 22                433->  310   -123  -28.4%
+  security monitoring 35      154->  119    -35  -22.7%
+  security monitoring 37      154->  119    -35  -22.7%
+  security monitoring 33       83->   66    -17  -20.5%
+  security monitoring 25      346->  287    -59  -17.1%
+  load balancing 20           401->  333    -68  -17.0%
+  profiling 21                426->  358    -68  -16.0%
+  host monitoring 10          983->  830   -153  -15.6%
+  security monitoring 157     675->  573   -102  -15.1%
+  security monitoring 158     711->  609   -102  -14.3%
+  security monitoring 48      119->  102    -17  -14.3%
+  security enforcement 2     1487-> 1293   -194  -13.0%
+  network telemetry 4         423->  371    -52  -12.3%
+  network telemetry 3         428->  376    -52  -12.1%
+  TCP congestion control 3   2344-> 2072   -272  -11.6%
+  TCP congestion control 10  2344-> 2072   -272  -11.6%
+  network telemetry 18        982->  880   -102  -10.4%
+  security enforcement 85     170->  153    -17  -10.0%
+  security enforcement 92     175->  158    -17   -9.7%
+  security enforcement 93     175->  158    -17   -9.7%
+  network telemetry 2         361->  326    -35   -9.7%
+  security monitoring 194     975->  889    -86   -8.8%
+  TCP congestion control 26  3699-> 3427   -272   -7.4%
+  TCP congestion control 32  3699-> 3427   -272   -7.4%
+  storage telemetry 44       1297-> 1208    -89   -6.9%
+  storage telemetry 36       1300-> 1211    -89   -6.8%
+  storage telemetry 42       1300-> 1211    -89   -6.8%
+  storage telemetry 46       1300-> 1211    -89   -6.8%
+  storage telemetry 50       1300-> 1211    -89   -6.8%
+  storage telemetry 71       1300-> 1211    -89   -6.8%
+  storage telemetry 38       1308-> 1219    -89   -6.8%
+  storage telemetry 40       1308-> 1219    -89   -6.8%
+  storage telemetry 48       1308-> 1219    -89   -6.8%
+  storage telemetry 52       1308-> 1219    -89   -6.8%
+  storage telemetry 54       1308-> 1219    -89   -6.8%
+  storage telemetry 56       1308-> 1219    -89   -6.8%
+  storage telemetry 58       1308-> 1219    -89   -6.8%
+  storage telemetry 60       1308-> 1219    -89   -6.8%
+  security monitoring 197    1301-> 1215    -86   -6.6%
+  host monitoring 11          801->  750    -51   -6.4%
+  security monitoring 114     844->  793    -51   -6.0%
+  security enforcement 34     606->  572    -34   -5.6%
+  host monitoring 12          303->  286    -17   -5.6%
+  network tuning 48          2619-> 2479   -140   -5.3%
+  security enforcement 110   6224-> 5894   -330   -5.3%
+
+  Largest absolute savings (JITed bytes before->after, saved, percent):
+  security enforcement 77   13763->13404   -359   -2.6%
+  security enforcement 110   6224-> 5894   -330   -5.3%
+  security enforcement 75   13240->12966   -274   -2.1%
+  security enforcement 69   11670->11397   -273   -2.3%
+  TCP congestion control 3   2344-> 2072   -272  -11.6%
+  TCP congestion control 10  2344-> 2072   -272  -11.6%
+  TCP congestion control 26  3699-> 3427   -272   -7.4%
+  TCP congestion control 32  3699-> 3427   -272   -7.4%
+  load balancing 15          5059-> 4797   -262   -5.2%
+  load balancing 16          5059-> 4797   -262   -5.2%
+  security enforcement 71   13064->12808   -256   -2.0%
+  TCP congestion control 24   511->  257   -254  -49.7%
+  security enforcement 46   11198->10955   -243   -2.2%
+  security monitoring 115   10522->10280   -242   -2.3%
+  security enforcement 73    9054-> 8815   -239   -2.6%
+  security enforcement 15   33473->33249   -224   -0.7%
+  security enforcement 16   25000->24778   -222   -0.9%
+  security enforcement 19   25039->24817   -222   -0.9%
+  security enforcement 20   25039->24817   -222   -0.9%
+  security enforcement 21   25039->24817   -222   -0.9%
+  security enforcement 76   12863->12641   -222   -1.7%
+  security enforcement 17   25336->25115   -221   -0.9%
+  container runtime 9         520->  310   -210  -40.4%
+  security enforcement 4    24666->24459   -207   -0.8%
+  security enforcement 2     1487-> 1293   -194  -13.0%
+  security enforcement 18   28083->27895   -188   -0.7%
+  security enforcement 50   10779->10626   -153   -1.4%
+  security enforcement 97   22794->22641   -153   -0.7%
+  security enforcement 98    8869-> 8716   -153   -1.7%
+  host monitoring 10          983->  830   -153  -15.6%
+  security enforcement 14     280->  136   -144  -51.4%
+  security monitoring 5     20270->20128   -142   -0.7%
+  security enforcement 61   25296->25156   -140   -0.6%
+  security enforcement 64   25296->25156   -140   -0.6%
+  security enforcement 65   20458->20318   -140   -0.7%
+  network tuning 47          2644-> 2504   -140   -5.3%
+  network tuning 48          2619-> 2479   -140   -5.3%
+  security enforcement 74   12340->12203   -137   -1.1%
+  security enforcement 24   25005->24869   -136   -0.5%
+  security enforcement 1    10135->10012   -123   -1.2%
+  security enforcement 8    19588->19465   -123   -0.6%
+  security enforcement 56   16559->16436   -123   -0.7%
+  security enforcement 57   17098->16975   -123   -0.7%
+  security enforcement 58   18871->18748   -123   -0.7%
+  security enforcement 59   16532->16409   -123   -0.7%
+  security enforcement 62   22632->22509   -123   -0.5%
+  security enforcement 66   22632->22509   -123   -0.5%
+  security enforcement 101  15340->15217   -123   -0.8%
+  profiling 22                433->  310   -123  -28.4%
+  security enforcement 44   16189->16069   -120   -0.7%
+
+Changelog:
+----------
+v1 (Reworked) -> v2
+v1: https://lore.kernel.org/bpf/20261009024925.3169077-1-memxor@gmail.com
+
+ * Keep the range check for programs loaded without CAP_BPF, which are not
+   registered in kallsyms, so the fault handler cannot find their exception
+   table entries; add bpf_prog_kallsyms_allowed() for the decision. (BPF CI)
+ * Stop crediting arm64, riscv and loongarch with bare PROBE_MEM loads; they
+   use the verifier's generic user address guard. (BPF CI)
+ * Mention the LASS #GP path in the JIT comment and the commit messages, and
+   update the bpf_arch_uaddress_limit() comment. (BPF CI)
+ * Rewrite the commit message of patch 1 around a concrete program and the
+   check the JIT emits for it, without references to neighbouring
+   patches. (Boris)
+ * Use __u64 for the test addresses and the BPF global. (Sashiko)
+ * Cover the last user page and the guard page of both paging layouts in
+   the selftest.
+ * Leave the NULL and low user address subtests out on s390x, which has its
+   lowcore there.
+ * Rebase on bpf-next, where the range check is down to five instructions and 17
+   or 18 bytes (lea, shr, jne, xor, jmp); redo the code size measurements
+   against it, over 474 current production objects.
+ * Take the listing in the commit message of patch 1 from the JIT; the offsets
+   in the old one were wrong.
+ * Report that the branchless mask now produces larger code than the range check
+   in bpf-next.
+ * Rebase onto commit 4eaf4d71b91a ("bpf: Keep the symbols of a program until it
+   has ended"), which keeps a program in kallsyms until it can no longer run, so
+   a faulting load in a program whose last reference is gone still finds its
+   exception table. (Sashiko)
+ * Check for kernel mode, a read fault and an EX_TYPE_BPF exception table entry
+   in do_user_addr_fault() instead of is_bpf_text_address(). (Boris, Alexei)
+ * List the instructions a PROBE_MEM entry covers and say what the fixup does.
+   (Dave)
+ * Replace the comparison with get_kernel_nofault() by a table of who refuses
+   which address. (Dave)
+ * Say that MMIO is filtered neither before nor after the series. (Andy)
+ * Say that PROBE_MEM needs CAP_PERFMON and a GPL-compatible program. (Dave)
+ * Aim the series at bpf-next as a whole, since patch 2 depends on patch 1.
+   (Alexei)
+ * Drop Puranjay's Ack on patch 1 since the check changed.
+ * Shorten the commit messages of patches 1 and 2 and the cover letter.
+
+v3 -> v1 (Reworked)
+v3: https://lore.kernel.org/bpf/20241103193512.4076710-1-memxor@gmail.com
+
+ * Rebase on bpf-next.
+ * Drop "zero overhead" from the title and state the fault handler cost up
+   front. (Dave)
+ * Spell out what the series does and does not change for confidential
+   guests. (Dave)
+ * Measure code size over the selftests and Meta production objects, for
+   this series and for the branchless mask alternative. (Peter)
+ * Add a selftest for PROBE_MEM loads from user, vsyscall and non-canonical
+   addresses.
+ * Call fixup_exception() directly in the SMAP branch and fall through to
+   the existing page_fault_oops() instead of kernelmode_fixup_or_oops().
+ * Restructure the JIT change around probe_mem and bounds_check flags
+   instead of a goto; drop Puranjay's Ack on it since the code changed.
+
+v2 -> v3
+v2: https://lore.kernel.org/bpf/20240619092216.1780946-1-memxor@gmail.com
+
+ * Rebase on bpf-next
+ * Add Puranjay's Acks
+
+v1 -> v2
+v1: https://lore.kernel.org/bpf/20240515233932.3733815-1-memxor@gmail.com
+
+ * Rebase on bpf-next
+
+Kumar Kartikeya Dwivedi (3):
+  x86/mm: Resolve BPF exception fixups for user address faults under
+    SMAP
+  bpf, x86: Skip the PROBE_MEM address range check under SMAP
+  selftests/bpf: Test PROBE_MEM loads from invalid addresses
+
+ arch/x86/mm/fault.c                           | 11 ++-
+ arch/x86/net/bpf_jit_comp.c                   | 33 ++++++--
+ include/linux/bpf.h                           |  1 +
+ include/linux/filter.h                        |  1 +
+ kernel/bpf/core.c                             | 16 +++-
+ kernel/bpf/syscall.c                          |  1 +
+ .../bpf/prog_tests/probe_mem_fault.c          | 77 +++++++++++++++++++
+ .../selftests/bpf/progs/probe_mem_fault.c     | 41 ++++++++++
+ 8 files changed, 172 insertions(+), 9 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/probe_mem_fault.c
+ create mode 100644 tools/testing/selftests/bpf/progs/probe_mem_fault.c
 
 
-
+base-commit: 7bba28b399b36f6d50f904a53cfe900e79f1e1e5
+-- 
+2.53.1-Meta
 
