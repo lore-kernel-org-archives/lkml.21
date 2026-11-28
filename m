@@ -1,45 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=89.147.111.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795854689;
-	b=w4R9wMXMtREt5CD30Dir3ICculmrrtMtnPx4PKdIHXyvI4lNY+285vE0myN0dG0Dm6DK
-	 St61yvdeyflABTIQCuw4TIz/ouognAvmuYtPRo8IewbyXKvUROFSKcOk7gF6ngBmcIRV3
-	 YeCIgTKPikCUqoaQ+/b2/UQWMy91AnxCglZpVKFcRWOQSfaVKuUv+ClnxYOQk14WoG7u7
-	 jRLKZHC187sBXaRF9lr3qSnZBTUUx6+NGmhwhLPbdhKRFPxbCO6oE10+AtytdtXbck6yH
-	 eI54HIq4R/TSAp3ifsNTpMtgFNf+ElZqirazRxBqIQiD8kSLy53yzL08ApgiKTZswMw==
+	t=1795854861;
+	b=ro3xYKX7HO8a2L0IcwOScWFcDndSCd5gBdyeGxh/rYS/VgWNycQpjtcWy+kCX7Onsbfg
+	 8h71ycw9GvCD/lFlXgS2y/n4pmP6skYd0bFs7GIuQmeob8sW5Tshp1GPOXii3D6Ex3guX
+	 zq4SDGapq/NtcpKQTFCTj9YMOrN4QXCpAH74k/y0EIqyy8eUNFtJtK9F70OSEd2dnEHOz
+	 4Wk9CqgLx5QJ2XrDWyH/zAgb0i0T6IY+oP8aPCE0hlLqnaI5CCCWkCZs8T39nLjN5sbC2
+	 9iPSEPYH5sJjDOqbABZbzc1sM6ykuT4XJc/3aFVb5t97irjOFHNlVlyoqqBQXisoYrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795854689;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=2PRJhrxEiMj8DGY7aal2VC8ZsNrTCMwpNJd8RYsAFwk=;
-	b=hMbZ+3oNLqIaRTEPXQ+fPA+qcs7+YtsvpUIa8GbVtMz4MkydEPe1WwcETIA2uZpnuAP3
-	 2HrMvnoJC4IkXiKOj2g8gqH0if6e7A1NfbUhZ+llzd0jORdiiKQh+/5Hxki+Q56/umuzB
-	 HuddOpfZCMVoU7WsimOA4Ai+eUfDPzR7A4qtJpi4FtLkgYrevGJvDC65zmzpM51wZFE05
-	 mNfw5lj9g5E3cWtOz5EW/i0orXf35UJJLsMIrmTlFGemGlwetcs16gf3oIzFG3sea5Nyl
-	 EBO7HFjTuCqX6IWylghWEV1VHdJJ2XlWAZ4hvvsXjaF//LBq7zsta9ze9auTpl0VKoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795854861;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=sC0u+Ypx4dW4BDufXD8QEGkBrDgreDlR4Dt/7XSyxFU=;
+	b=Y+L9+P89Nqn9jfcJnxu4zKV7rlahoFXKt/2mFSWNM9a58Zlsghv//KwMdHEY9mCX6Koa
+	 4ShsUKot86zrL2FlPlXM+/X98bwXMjesyAfT3VQyDvGdJunilVHoUxvs8rXpv/0sb/vYs
+	 g0O4E0OFgEHCI6nhH3V9Np4DaQ6Zn/d+1FX/0AHtXV0cpCLwFugA1ydyUgSuL8/0fNnhg
+	 Qq1Hkjnhh5Hk8TUmBQJdjBBMIblepLcGs3PBsbb1LbuZqGQkN1qRXFQEdYte8H6x2TVqy
+	 uIAty6pY1vM9LL2NmInXtzjl3I58h4fEgUweG9mtBmUG3YBlYkee2YkuHWXPV0/fTew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U6kHhgvB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=fiftyone-percent.net;
+	spf=pass smtp.mailfrom=fiftyone-percent.net;
+	arc=none smtp.remote-ip=89.147.111.13
+Received: from mx1.markusglobal.com (mx1.markusglobal.com [89.147.111.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 126CD606A31F;
-	Sat, 28 Nov 2026 08:31:28 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U6kHhgvB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 103471F00898;
-	Sat, 28 Nov 2026 08:31:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795854688;
-	bh=2PRJhrxEiMj8DGY7aal2VC8ZsNrTCMwpNJd8RYsAFwk=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=U6kHhgvB38mcpaVHD3xQMQ7gkE4S6RKF7+1+i4mb5ax6yiH9SkvSn5AQM47+RmU8A
-	 hkZNl7asFVA5bKwmjnC/noKRqxq5YNCa4EjFspchV933cST7b82WZD7c9wB7W1cB1N
-	 p9JYZyHG2u3g30V56I/PzRaFItMG7h7xXxBKO9GDICWxNJqS6zfzGXa3RltRfYoB+l
-	 tfXE7hoNnToo9p2/KdyhtPH0CUXGQzP9vlfE8cyPoMnqZoiND/+8k8OAwOjuxstE/p
-	 JB5OhPjBI3AXdyXih0VFPf7iBirQIDKGLHzumPNgwu6Q4Uwk/5cZyB0t5bvX6SpjuQ
-	 qswwsSP1GM8Bw==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB831606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:34:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB831606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fiftyone-percent.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fiftyone-percent.net
+Received: from mx1.markusglobal.com (localhost [127.0.0.1])
+	by mx1.markusglobal.com (Postfix) with ESMTP id 4jc3VD55RhzCs00
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:34:12 +0000 (UTC)
+X-Virus-Scanned: Debian amavis at mx1.markusglobal.com
+Received: from mx1.markusglobal.com ([127.0.0.1])
+ by mx1.markusglobal.com (mx1.markusglobal.com [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id qLQi8ZNgRuWp for <linux-kernel@vger.kernel.org>;
+ Sat, 28 Nov 2026 08:34:12 +0000 (UTC)
+Received: from [10.132.52.115] (unknown [150.228.243.38])
+	by mx1.markusglobal.com (Postfix) with ESMTPSA id 4jc3V520ZzzCrhR;
+	Sat, 28 Nov 2026 08:34:04 +0000 (UTC)
+Message-ID: <17e86b6f-25af-43fc-b0ca-a0eb982e6cf4@fiftyone-percent.net>
+Date: Sat, 28 Nov 2026 19:34:01 +1100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,57 +53,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 1/3] net: ethernet: mtk_eth_soc: fix the RX
+To: Sandeep Haemoon <sandeeph@loljews.com>, netdev@vger.kernel.org
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>, Daniel Golle <daniel@makrotopia.org>,
+ Mason Chang <mason-cw.chang@mediatek.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <patch-295a65477d87017ff5b65482ffae46fb@loljews.com>
+Content-Language: en-US
+From: Eugene Markus <eugene@fiftyone-percent.net>
+In-Reply-To: <patch-295a65477d87017ff5b65482ffae46fb@loljews.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] clk: tegra: Fix Tegra210 IQC2 clock lookup
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Prashant Gaikwad <pgaikwad@nvidia.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, linux-clk@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261024110113.63341-1-kmehltretter@gmail.com>
-References: <20261024110113.63341-1-kmehltretter@gmail.com>
-Date: Sat, 28 Nov 2026 09:31:17 +0100
-Message-Id: <179585467757.1887007.15818795989969388952.b4-review@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=832; i=treding@nvidia.com;
- h=from:subject:message-id; bh=4TUBVna9/bwl0IiOiLvpzVlvjVDGiytdGaGagtKamws=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBrCpFac8mP//F5Gydzg7sAQS4TV7dABH/cCtTHN
- HKJrVYqkzWJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCawqRWgAKCRDdI6zXfz6z
- oamKEACjYEnAQ//j9ixi6wsweWcUIkmWAhTkJzclZDGwkxVDfjbxG0GNfG8ttcbopOdazMUcAlS
- irXHQpnF7PyIEGi0wKRwUNHvrrY9HNABjeHS3E+GDBA/AItfhUZZ7O8xySAYhtU0+8MlTUUmwZa
- qgZo3Yd7lZnRmqMmDBeKzNknrgd6LyQSn24w4BzY5yYfeNma/qyCCcID8pXfrxBASewE4ZKx0qm
- 1IPsB+FUwY7ZfnN1waOKL0GSTXha3aA5P9MK2ey2oJqQSXU0/+TdxXB1v3sJCZBBDQlsuyG8Hb4
- Xyy0cs4WVIzcFN4i/S7QSt5DorEe5cG3BiaFS//9cPkPdyX3hasb6lx9/v4boXZn0zxbSGbE2bk
- nUez4D8qyhgR8NF0+bjrmw84LbrrHeKUHVQ7HLqvNJU2f5bIeCW1Y2WJ8WE5w4x5t0MvxxkWLs3
- 8aXQW0R2hl00UbmFZ3Vw4/jWjzOen+AmKU53YUcVJSpUCUxhn+ZugltkVzml2j08Wlp7eQ/KVTO
- 4/6wcLdIwt3eGSrQ7KZS3BQP8YrCYGtu53F6S3ituYsE4aTMaA2gmPKmHVe8TPh2xPVDKsXg06t
- ZtL6gPVSYiplCjBYt5qwH7uY7Usg060FtSJLqNo7k/nA1QSBpXy+Ff42sfP3zSq6/60haIqrBVN
- lb3zDfLbbWUZKvA==
-X-Developer-Key: i=treding@nvidia.com; a=openpgp;
- fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 
-On Sat, 24 Oct 2026 13:01:13 +0200, Karl Mehltretter <kmehltretter@gmail.com> wrote:
-> gate_clks[] uses tegra_clk_iqc1 for both iqc1 and iqc2. On Tegra210,
-> gate_clk_init() overwrites the TEGRA210_CLK_IQC1 provider entry with
-> iqc2 and leaves TEGRA210_CLK_IQC2 unpopulated, so looking up
-> TEGRA210_CLK_IQC2 fails with -EINVAL.
-> 
-> Use tegra_clk_iqc2 for the iqc2 gate.
-> 
-> Fixes: 88da44c5edb9 ("clk: tegra: Add missing Tegra210 clocks")
 
-We might want to remove this line. There's no driver for IQC, so this is
-totally unused and fixing the lookup doesn't have any impact at all. The
-patch doesn't fix a bug, so there's no need to get this backported all
-the way to Linux v4.12.
+On Sat, 14 Nov 2026 00:34:14 +0200, Sandeep Haemoon wrote:
+ > Reset dma_addr to DMA_MAPPING_ERROR at the start of every iteration,
+ > so a descriptor that is released without a new mapping keeps its own
+ > address bits.
 
-That said, the fix is correct, so:
+This bug is not theoretical: it has been corrupting memory in the field
+on a BPI-R4 Pro 8X (MT7988A, 8 GiB) running OpenWrt main (r38441,
+kernel 6.18.60) as a home router with a Bitcoin node behind it. We
+arrived at the same one-line fix independently before finding this
+series, and have tested it on that board.
 
-Reviewed-by: Thierry Reding <treding@nvidia.com>
+You wrote on 22 Nov that the issue fixed in 1/3 came from automated
+review and had not been triggered at runtime. On this board it is
+triggered, through the refill allocation failure path, as below.
 
--- 
-Thierry Reding <treding@nvidia.com>
+Symptoms, five times, between 8 minutes and 2 h 47 min into a sync with
+the node's peers on the WAN port (the GMAC's own port, not DSA):
+  - "BUG: Bad page map" in the node's process, then "Unable to handle
+    kernel paging request" in unmap_page_range() and a panic;
+  - "get_swap_device: Bad swap file entry" with no swap configured;
+  - LevelDB "block checksum mismatch" on files intact on disk.
+The corrupted pages held a received WAN frame starting at byte 256
+(MTK_PP_HEADROOM): a page-table page had the board's WAN MAC followed by
+the gateway's MAC at entry 32, and a LevelDB page in the page cache held
+a complete IPv4/TCP frame from a peer's port 8333. The trigger is a
+page_pool allocation failure: the page cache fills the 8 GiB and free
+memory sat at 60-120 MB.
+
+Bench test, RAM-booted kernel with PAGE_TABLE_CHECK, DEBUG_PAGEALLOC
+and KFENCE; a test-only switch making every Nth RX refill fail (standing
+in for a page_pool failure) and another restoring the old dma_addr
+handling; a user process holding 6000 MB with a known pattern that
+reports every changed page with its physical address (pagemap); TCP
+into the GMAC at line rate:
+
+   dma_addr handling   refills released with   pages changed
+                       another buffer's bits
+   old, run 1          166                     70, each a WAN frame
+                                               at byte 256
+   old, run 2          11                      4, each at exactly the
+                                               address the driver
+                                               computed (e.g. frame to
+                                               0x1613cf100, page
+                                               0x1613cf000 changed in
+                                               bytes 256..1775)
+   this patch          0 (59,817 and 45,274    0
+                       would have been)
+
+The other misdirected frames pointed below 0x40000000, where this SoC
+has no RAM but has device registers and PCIe windows. No kernel errors
+were logged in any phase: the debug options cannot see a device write.
+
+On the board itself, the node then synced 57,736 blocks (about 6 hours
+of continuous peer traffic) with this patch and no corruption; the build
+before it, without the patch, corrupted after 2 h 47 min.
+
+As this is silent memory corruption with network-supplied contents on
+shipping MT7988 boards with more than 4 GiB, could 1/3 go to net on its
+own, with Cc: stable, ahead of the jumbo frame work?
+
+The analysis of the corrupted pages, the driver reading and the bench
+tests were done with an AI coding assistant (Claude Code); I ran them on
+my board and have checked the results.
+
+Tested-by: Eugene Markus <eugene@fiftyone-percent.net>
