@@ -1,99 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795860579;
-	b=SHaNxR9gGl4EjcIWlRaV2iyyXbSnlVHa7nFMyJBsvxMa+FraUNbTUHH9LkZYAKpR1M/w
-	 pb6bCAdrYavzLnY1KhO1sgfOAlMrv56jHDGsaxhV5VjpitOy0pdcfaF5Oco6OdDnuSTsN
-	 kE0UjaqbLl5rNHT8YnPUTWFfokStJUsBzbptzwvxcfzF6N7/s/Kl7jX71MPfma6zHxtzU
-	 0Zj21vPjpq1RzC9L/B3rHDi67lU9rNOKU3pySRGx9q7TZvTkYafpWZh+VO/pIzDJaeRbX
-	 1BVc72smRUFX099O21U+2Jw1W+2Hrts26m5rcxsoRAL5Z60sMO0IBfPZZDPWKRUBnvA==
+	t=1795861010;
+	b=Uv+0hYgPAyTdvow0jFREZwNf0qXUP/t8DB4VJiPgE0H9URZJrtQo8cuD4417agUgDIBs
+	 NsjaowexT/q6A4XVN/JV7bl+pUVkiwUqawVYlNTn1rGZPQTf3BENr87/L5+MLNEkeXUob
+	 DB2B3eju0TsL1oJPj3PXAY045XcEBN4Ea9qIV4oYRjzGnwtB9WZO92z7Dp2zBkgrdl5qP
+	 3+Pcs+4qFU0dpUiGR8SaCKgn2wY3zHSdCKUZIvmbwqfrs6+l0vh05t0C9nVtBllqmP1W0
+	 tXc2uHlEYfkyu/vP4h+h4ByE/I6U8yctEq8jGj09RJmtjM0Lwqamx180d0LK6d2Lmzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795860579;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3jFkQl+1kffZkQUkv18i3cnYxd2zz1oEQ3A2zDQZ/xs=;
-	b=c1BlJroMBgHzh4MfhBUuZVoRDabYpuuxlhbVp4vy1dxmJpl6O52VQ2NUvvNmLlpZSC4U
-	 hKjrPzgKcoZpv5ItdYgRqG/g7p5fOJQBz/KXFgfhIdR4n2eTfgxvog85dtZF82RwNgPBd
-	 roPnE5v6Ga32/e5rdqXmQFeOgZuJhFSZFkwHyi4ym6Vs2xP+SwMUbpLoPMF3Jh5VZbMOv
-	 ab8QnoEyiKuID8i26Z65T7e1QRSlCerSeWIK0s3sLFn1Ut2rluMsL3NAAOPFCewHU8pxA
-	 L6ezJBQoZFZxSyarTVj1hXg1SEp1KTg/QqFYYtGrKcPdbRwHEHCtCjNSIh5WM2wp/+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795861010;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=a19TK0+SU6/Jn4mvBvBHcDnmBupvTyQGHJGLuscEEMU=;
+	b=lps5xuK2fOwQSfOdLwebSxqKNLzxOWblsah0mfAanTq6ro5DNpTUeyqw5YNhlxIypXBf
+	 Mlg3nPkNNzp0/yVjRTDt7TvaoVZnMDaGP1th7OYYjc3DbNw0vNIqDSyySuN2gET55rC/A
+	 9fF7DfkW0oUJWEnDsTvzeUQBFvQ3XYNss/reNGbLxW1NNTNw0LZ31Li6muNEjObvj490w
+	 mr88AkBCaK7yNcbv2//XyNogVxXsNj0BGsIokCu6kCOzBJXLzVVCHS61aK00WKGEmxGpH
+	 8ryX0b7hmSgYlNDiaTbXnQfh0FpLOHxN8TO8QsNbAM/kn2IvkDI4p2pSU5Wnj+67ang==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QRcuHncE;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=h-partners.com;
+	spf=pass smtp.mailfrom=h-partners.com;
+	dkim=pass header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=li7jUiuR;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2076606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:09:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2076606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07A75606A31C;
+	Sat, 28 Nov 2026 10:16:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07A75606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=h-partners.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=h-partners.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QRcuHncE
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so75980765e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:09:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795860577; x=1796465377; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3jFkQl+1kffZkQUkv18i3cnYxd2zz1oEQ3A2zDQZ/xs=;
-        b=QRcuHncEDc8jX2CaVQr9tB0YRx8yimBZsVErESyXrG8bQXBU4H7Wk8vm2VCt9OqcA/
-         rgNZdYjTTzbpbBp/L+SePcvq4qh4Pba+NQH3SHFxrnmXizvPvWEENXJeNXzc8s6DkJgx
-         JPBC3SMKgjBvj1r70K1QD/+uU/GsP2EK7CdA63BnG0wjA14TZfIGyKEmY9rn2MEU7APp
-         kg/Dk4F7QRFsWaqwUDpGyPs32nn3lOKGOzyJlefVuVagrVNrZvCKoaC/pDVdis9WYLsi
-         1HGRz/YZanKjjEr2Kdw1+WKT3AdeGGa9jFtwMw7eXlVZZSHd+wk/R3YjaXoCanfb6crL
-         N1oQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795860577; x=1796465377;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3jFkQl+1kffZkQUkv18i3cnYxd2zz1oEQ3A2zDQZ/xs=;
-        b=u8FlQ0G0hfiDxOD0BAYRfj2abycwAiMtuE1zAQ9Shqg/0fkR/HBx5h0gUO3k9k8eSd
-         k7zqdas1cKDdCWeVMk3/MOfY2FvCnXxk4UYOEyNKDpDMEYCn6Aduu2cCIvoZI9Oc2jUe
-         86dSlqZHHY8m7jwYQrqfxD6/8fXD1c+sWgEfXQ5CSbu0sf6U2JtnLZeBHoZoLhVWfeZc
-         KtPg2yOlMYIhHtcM/l8IkK4Sh8yimEllUQRlO5lIK88kSJ0kr61372VDK/CU83PxCz5Z
-         a4J4J6F5lsmrLwW6dHIMFeaYGdwrQLMZMHaTJg4Bmg5fs44wICqImOYfqzybQzwd/NYx
-         daaA==
-X-Forwarded-Encrypted: i=1; AL+hErF2u/w7S3ClQYEEzweA1GNcmztM3/QIYy7Pxr7VONpdNglf563dkvUULfc+JPAouM69EkJ8pG2VbT8QFz4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rEvLc5hgtAL5bKcFcpeHatlkgd6nfHgbku/FTA9JBJMbwEfeI
-	+cT9aAVxqG3ShxFK7HKCZdfletDuBaNr1I7ii/NPwlrQnglEhZKb/baW
-X-Gm-Gg: AZFdTZch2zujYhlMAbN+4cP3b6Suc9lxsGUU8ChLpdRl/biURbBv1AANlZ0DE9ICeYH
-	ksZQEphhgTVDeJ05ojkV1eE6AGc/7iI02PNrkgCcaDxhRFmhDtFONkkUY+YMe10hV4O6X5LKiWE
-	vJ0YBVhRW55lCacCbr4zLcgqoac9M4gCqYuMt4R+KTmfCzJ9FIF5MF+iE1ghEBQoeKMf5/q4d1Q
-	AhzMtWkF+TEzU0xzr1Z+7qMzPORk3dEFms9ZGnvb3cWEwc68bbIV97Tssl8PaWn8n+b16DHq6Ym
-	yhP+SVE3JwA6i5AwPrbqmuEKRsbGCANxc1zy+IsYTjhL82iEn6ENKuxgSMHyAtihy1qCKqn9DbX
-	Wxanxacny3syQfZcskaIekWzAXHzRSKtZTCZi3RRwWDPv5cbsjpYYkzxvjnPqS4sIwEKq8XLURS
-	FwfoPFZfaJT/Hs5XydEnFlCnSuqpfqPi+39d8b5lZ2byOBHyjkSnV13CJwmoJ6S2eSiEm8mce8G
-	TZO1Oy8pGyBMa5eegydQjQMo202Im9eYjRyhD8bB/Y4iqBUNP9PIWle9PQXHY8VJs0tEYmBJ1GU
-	ymvJcBhZgn06z/OMNUYMqZBjL9P6AoelQnKvzBeBLvYnwp8HjP2jyHr8AVRkS3OJwEgCS+UThX4
-	0D5YHj6WbfZxa4hWzN8wtUH/BrNWIXGWRcYANu18s+VtfOibOAUTcyDPnvE+7YSH7jWs=
-X-Received: by 2002:a05:600c:a55:b0:49f:ce78:356d with SMTP id 5b1f17b1804b1-4bb88827db0mr588682865e9.30.1795860576991;
-        Sat, 28 Nov 2026 02:09:36 -0800 (PST)
-Received: from localhost.localdomain (dynamic-095-117-034-170.95.117.pool.telefonica.de. [95.117.34.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm698641065e9.9.2026.11.28.02.09.35
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 28 Nov 2026 02:09:35 -0800 (PST)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Prashant Gaikwad <pgaikwad@nvidia.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Thierry Reding <treding@nvidia.com>,
-	Mikko Perttunen <mperttunen@nvidia.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-clk@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] clk: tegra: Fix Tegra210 IQC2 clock lookup
-Date: Sat, 28 Nov 2026 11:08:09 +0100
-Message-Id: <20261128100809.97430-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	dkim=pass (1024-bit key, unprotected) header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=li7jUiuR
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=a19TK0+SU6/Jn4mvBvBHcDnmBupvTyQGHJGLuscEEMU=;
+	b=li7jUiuRoEUn+xXvDsNI615hlT5X3pFQJx+66NUvN3SPZZtn0y3SUZMmq5KFlZZUk5rlB8aay
+	Zro17kNYWz/ZYTxCJj0APtSIZIMRYeeVMnKfyk6gJB8jIJva8YYMNSTwiY99Zsr8ottcOx3FbqB
+	ZL/4I6I7aTcfIcFjbUqwvnE=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jc5m34Y6Kz1prKt;
+	Sat, 28 Nov 2026 18:16:19 +0800 (CST)
+Received: from kwepemr100001.china.huawei.com (unknown [7.202.195.168])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7393B4057D;
+	Sat, 28 Nov 2026 18:16:38 +0800 (CST)
+Received: from [10.136.112.147] (10.136.112.147) by
+ kwepemr100001.china.huawei.com (7.202.195.168) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Sat, 28 Nov 2026 18:16:37 +0800
+Message-ID: <1b5e72f9-007e-4b99-b452-a57e8767b436@h-partners.com>
+Date: Sat, 28 Nov 2026 18:16:36 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,51 +62,174 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] netdevsim: fix rate node leak during reload and
+ removal
+To: <netdev-bot+sashiko@kernel.org>
+CC: <kuba@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@kernel.org>, <pabeni@redhat.com>, <dlinkin@nvidia.com>,
+	<vladbu@nvidia.com>, <jiri@resnulli.us>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
+	<syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com>,
+	<gaoxingwang1@huawei.com>, <huyizhen2@huawei.com>, <xuanqiang.luo@linux.dev>
+References: <20261121110858.1337003-1-xietangxin@h-partners.com>
+ <179560577028.3135.18386607599971206035@kernel.org>
+Content-Language: en-US
+From: xietangxin <xietangxin@h-partners.com>
+In-Reply-To: <179560577028.3135.18386607599971206035@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100001.china.huawei.com (7.202.195.168)
 
-gate_clks[] uses tegra_clk_iqc1 for both iqc1 and iqc2. On Tegra210,
-gate_clk_init() overwrites the TEGRA210_CLK_IQC1 provider entry with
-iqc2 and leaves TEGRA210_CLK_IQC2 unpopulated, so looking up
-TEGRA210_CLK_IQC2 fails with -EINVAL.
 
-Use tegra_clk_iqc2 for the iqc2 gate.
 
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
-Reviewed-by: Thierry Reding <treding@nvidia.com>
----
-Assisted by an LLM.
+On 11/25/2026 7:22 PM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The fix is incomplete: rate nodes still leak, and the same
+>   WARNs still fire, when the device has been left in the devlink…
+> 
+> --
+> 
+> netdevsim: fix rate node leak during reload and removal
+> 
+> nsim_dev_reload_destroy() now checks the eswitch mode unconditionally.
+> Rate nodes created on a zero-VF switchdev device are then destroyed via
+> nsim_esw_legacy_enable() -> devl_rate_nodes_destroy() on both reload and
+> removal, which avoids the devlink_free() and
+> devlink_reload_reinit_sanity_check() WARNs.
+> 
+> Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
+> 
+>> diff --git a/drivers/net/netdevsim/dev.c b/drivers/net/netdevsim/dev.c
+>> index c6b17b3873271..b483c25dfecdd 100644
+>> --- a/drivers/net/netdevsim/dev.c
+>> +++ b/drivers/net/netdevsim/dev.c
+>> @@ -1700,11 +1700,10 @@ static void nsim_dev_reload_destroy(struct nsim_dev *nsim_dev)
+>>  		return;
+>>  	debugfs_remove(nsim_dev->take_snapshot);
+>>  
+>> -	if (nsim_dev_get_vfs(nsim_dev)) {
+>> +	if (nsim_dev_get_vfs(nsim_dev))
+>>  		nsim_bus_dev_set_vfs(nsim_dev->nsim_bus_dev, 0);
+>> -		if (nsim_esw_mode_is_switchdev(nsim_dev))
+>> -			nsim_esw_legacy_enable(nsim_dev, NULL);
+>> -	}
+>> +	if (nsim_esw_mode_is_switchdev(nsim_dev))
+>> +		nsim_esw_legacy_enable(nsim_dev, NULL);
+> 
+> [Severity: Medium]
+> Can rate nodes still leak when the device is in the reload_failed state?
+> 
+> The new unconditional check sits after the early return at the top of
+> nsim_dev_reload_destroy():
+> 
+> drivers/net/netdevsim/dev.c:nsim_dev_reload_destroy() {
+>     ...
+> 	if (devlink_is_reload_failed(devlink))
+> 		return;
+>     ...
+> }
+> 
+> When reload_failed is set, devl_rate_nodes_destroy() is never reached.
+> 
+> Nothing seems to stop rate nodes from being created while reload_failed
+> is set. One possible sequence:
+> 
+> 1) devlink dev reload runs nsim_dev_reload_down(), which resets
+>    esw_mode to legacy. nsim_dev_reload_up() then fails, either through
+>    the fail_reload debugfs knob (returns -EINVAL) or through an error in
+>    nsim_dev_reload_create(). devlink_reload() then calls:
+> 
+> 	devlink_reload_failed_set(devlink, !!err);
+> 
+> 2) devlink dev eswitch set ... mode switchdev still succeeds. With zero
+>    VFs, nsim_esw_switchdev_enable() only does:
+> 
+> 	nsim_dev->esw_mode = DEVLINK_ESWITCH_MODE_SWITCHDEV;
+> 
+>    No devlink command in net/devlink/ checks reload_failed.
+> 
+> 3) devlink port function rate add .../n1 also succeeds.
+>    devlink_nl_rate_new_doit() has no reload_failed check, and
+>    nsim_rate_node_new() only checks nsim_esw_mode_is_switchdev(). The
+>    node is added to devlink->rate_list.
+> 
+> 4) del_device leads to nsim_drv_remove() -> nsim_dev_reload_destroy(),
+>    which returns early. nsim_drv_remove() has no other rate cleanup, so
+>    devlink_free() hits:
+> 
+> 	WARN_ON(devlink_rates_check(devlink, NULL, NULL));
+> 
+>    The devlink_rate and nsim_rate_node allocations and their debugfs
+>    directories are leaked.
+> 
+> If step 4 is a second devlink dev reload instead,
+> nsim_dev_reload_down() -> nsim_dev_reload_destroy() returns early again,
+> and the WARN in devlink_reload_reinit_sanity_check() fires.
+> 
+> These are the same two WARNs the commit message describes. The early
+> return is older than this patch. However, the subject promises to fix the
+> rate node leak during reload and removal, and this case is still
+> reachable.
+> 
+> Would it make sense to also destroy the rate nodes before the
+> reload_failed early return, or in nsim_drv_remove()?
+> 
+>>  
+>>  	nsim_dev_port_del_all(nsim_dev);
+>>  	nsim_dev_hwstats_exit(nsim_dev);
+> 
+You are right, the case is reachable. I confirmed it on an unfixed
+kernel (v7.4-rc4):
 
-Changes in v2:
-- Drop the Fixes tag since no IQC driver uses these lookups (Thierry).
-- Add review tags from Mikko and Thierry.
+  # echo 1 > /sys/kernel/debug/netdevsim/netdevsim10/fail_reload
+  # devlink dev reload netdevsim/netdevsim10
+  Error: netdevsim: User setup the reload to fail for testing purposes.
+  # devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
+  # devlink port function rate add netdevsim/netdevsim10/n1
+  # echo 10 > /sys/bus/netdevsim/del_device
+  [  962.254414] WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c
 
-v1: https://lore.kernel.org/r/20261024110113.63341-1-kmehltretter@gmail.com/
+So a rate node added after a failed reload is not cleaned up on removal
+and the devlink_free() WARN fires again.
 
-Tested on a Jetson Nano 4GB (Tegra210) with a small probe module that
-calls of_clk_get_from_provider() on the Tegra210 CAR node. Unpatched,
-TEGRA210_CLK_IQC2 (220) returns -EINVAL and TEGRA210_CLK_IQC1 (221)
-resolves to iqc2. With this patch on 5b0764a53235, ID 220 resolves to
-iqc2 and ID 221 resolves to iqc1.
+I will respin. Instead of destroying the rate nodes before the
+reload_failed early return, v3 will follow the approach of commit
+39c23556e79f ("netdevsim: reject port addition and clean up ports after
+a failed reload") and reject rate node creation with -EIO while the
+reload has failed.
+The respin will also be posted targeting net-next instead of net and
+will drop the Cc: stable tag, following the routing of that commit.
 
- drivers/clk/tegra/clk-tegra-periph.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ static int nsim_rate_node_new(struct devlink_rate *node, void **priv,
+ 			      struct netlink_ext_ack *extack)
+ {
+	struct nsim_dev *nsim_dev = devlink_priv(node->devlink);
+	struct nsim_rate_node *nsim_node;
 
-diff --git a/drivers/clk/tegra/clk-tegra-periph.c b/drivers/clk/tegra/clk-tegra-periph.c
-index 4dcf7f7..47bb657 100644
---- a/drivers/clk/tegra/clk-tegra-periph.c
-+++ b/drivers/clk/tegra/clk-tegra-periph.c
-@@ -813,7 +813,7 @@ static struct tegra_periph_init_data gate_clks[] = {
- 	GATE("apb2ape", "clk_m", 107, 0, tegra_clk_apb2ape, 0),
- 	GATE("cec", "pclk", 136, 0, tegra_clk_cec, 0),
- 	GATE("iqc1", "clk_m", 221, 0, tegra_clk_iqc1, 0),
--	GATE("iqc2", "clk_m", 220, 0, tegra_clk_iqc1, 0),
-+	GATE("iqc2", "clk_m", 220, 0, tegra_clk_iqc2, 0),
- 	GATE("pll_a_out_adsp", "pll_a", 188, 0, tegra_clk_pll_a_out_adsp, 0),
- 	GATE("pll_a_out0_out_adsp", "pll_a", 188, 0, tegra_clk_pll_a_out0_out_adsp, 0),
- 	GATE("adsp", "aclk", 199, 0, tegra_clk_adsp, 0),
++	if (devlink_is_reload_failed(node->devlink))
++		return -EIO;
++
+	if (!nsim_esw_mode_is_switchdev(nsim_dev)) {
 
-base-commit: 5b0764a53235d3c77e1ed674e836e1b3fe1a4b1f
+Rate nodes cannot exist at the moment reload_failed is set: the failing
+reload's reload_down() -> nsim_dev_reload_destroy() destroys them before
+reload_up() records the failure, so blocking the post-failure creation
+path closes the leak completely.
+
+pw-bot: cr
 -- 
-2.39.5 (Apple Git-154)
+Best regards,
+Tangxin Xie
 
