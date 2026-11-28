@@ -1,56 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795872865;
-	b=Hp/7TAlTgH01J3MiG00opuvYh6xYb7F5yc4c/rqT3gSMlP3+RfNmqbJlEbANyblLNktP
-	 EBzp/ZDSPZK+XR2CNnXBNg0jhn6wjIZWDv7Lh+kf4kDWln+lUd3MkbKepFztTak7hRrAY
-	 zE1qZwDoXg6O75jQxpf71p7snlFJGC5NmwAFJjB1+YtkahCFqQx9klJPFtbHae8COaHBm
-	 uEmVBVdHua1G37CtW5PCPNsDoXEjupQbjht7Bjz+ip+1Xf2uISqd4L8eetCHQaTa2pi6J
-	 Z4WpIo42zKZevxMCUmpQgnLm3G/YXhELDRzrMtw5rD9MSQJvNdWB6442BTx4rY7WRSA==
+	t=1795872999;
+	b=kd4yOjCrXbBnZoAcJSsktHC6p3Qdbz3K2mW7zfqqn97sdxbpeIqFowNOv8aZV/sB+JFG
+	 qdPsj+1udb1zKLzf3lVEtbUFccw7lydxoS5A7ALjwvOwzHs1qan3HEt/5UTuSmW4YH86+
+	 Pb4AUCv5+buI+ZrAmiWVSig4W4L95UAYQftwoX7IdTmkuLJJJBTdoDRYy6Fy6jSnapS3x
+	 jhO410vWuZX4SRn4iFiP+vqnAAhwbGbrylEaLcCFIOglZx9jq0dDxoUke1q/mh2GL675S
+	 5yIti8ivqoIn4GmTFX5g8mRm6KU42juZgvAkhfP2ibH10fgoAyfsbCcsa03tmH7PKcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795872865;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
-	bh=ibyN4UPqhfd0UnYPvRCvg3lzGL9+KsQkfNnJq6GWEN4=;
-	b=R2xrez+rfWrIG05HgT3Jm7iOXxY/eA0E5KIFW/2TP5FJXEz2iWmm1dlahuybgE91gge3
-	 Ea7KmZaC6zZjUgThBXxamI/3JzKEMyZ0g8sBBePiQuZE9YRbtv+b9XqCAmJo8bTvIU0N6
-	 +PAMUtGcGibV+t0PdhXzvGsmt5jeFx6o9O3O3kT/Ujsmafvj2yiwL2n4a0VbVwJptdlCC
-	 gZO9HFzR9vsAfO5Xk594nYwmi53SWkej/gNRB2Vz4Ax4oXfl77Nf4DEo1dGVAEciVc+5Q
-	 +Q2C6OOb1I3SDOz0CvyfoU3JIiKBt45ouQZr6dswqo2Wn7fuZAJj7qI4ZDt3YiCKscg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795872999;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=a5WxxRcYdBHgsweyummlp7eYA7vC+58yNVZbC9L/D58=;
+	b=IuwlB/INI1o6MppjJQHQcpQf6Oz7mpTK4oH1OoOCad7KU2Y/3ys/4VQ3fnWRcTMPtv1D
+	 QTWZQ1QQL9s6UFmoSdbTCUIsAgwtjVWh/wSiWGiqRH7xCO/BocSQ+iyYeEzrsC3Z59Oyp
+	 DxICnEFrTLW6/L/VCYVXMeecVHaZzmJIPw8z+zUam/KA/tGEwLIJAmLZCbbxM3PTl7o+a
+	 aRFjnVKkm8gZlfzO3ehHg2KXTWLiTRvmaS6lNhAEhl9lYfhOh2o9mslEn10UcgkJaqHDP
+	 ChEueYoPZJRofhclfNDFM9QbPB2DpXkkMIMKHkRn6EUrdo0s5yveHZgwQwwHpYcZzRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mzfr.me;
-	spf=pass smtp.mailfrom=mzfr.me;
-	dkim=pass header.d=mzfr.me header.i=@mzfr.me header.a=rsa-sha256 header.s=protonmail2 header.b=R6gACOIr;
-	arc=none smtp.remote-ip=109.224.244.20
-Received: from mail-24420.protonmail.ch (mail-24420.protonmail.ch [109.224.244.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="kp/deqQ9";
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEE1B606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:34:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEE1B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mzfr.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mzfr.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95148606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:36:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95148606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mzfr.me header.i=@mzfr.me header.a=rsa-sha256 header.s=protonmail2 header.b=R6gACOIr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mzfr.me;
-	s=protonmail2; t=1795872861; x=1796132061;
-	bh=ibyN4UPqhfd0UnYPvRCvg3lzGL9+KsQkfNnJq6GWEN4=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=R6gACOIrIr0yb9YygS7zSIfS5kS1yC9ilAe4m4suhpHfKmN9UbK1Iz6aDNp61vcSn
-	 gvRviWYes/CLinEd/hqy4ALdBBiTYkgmVUVV2az0tDaEnaO0kCQTpnPp4uUo/ZYepk
-	 yxHOP9i3lnBDmkGrWGG4Ee5Ked9Txuxpsg1k5DV4fqVOsI9jr8zawxdlbBvE3jhk/N
-	 gpQil3CjOO7Obhv5X772DO2RaITPC6ORS1mkE9tYsVbD4RHPeBMkj6X9XpiJM2IIbV
-	 qPvG1qdBC2pdQ5+b41IturS0KUvcqWLRW2eN45N2kJk2tE4xVBjKejV8hP/ACRlNde
-	 nDGAjLtf4Futw==
-Date: Sat, 28 Nov 2026 13:34:14 +0000
-To: Jens Axboe <axboe@kernel.dk>, io-uring@vger.kernel.org
-From: Mehtab Zafar <hello@mzfr.me>
-Cc: Christian Brauner <brauner@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org
-Subject: [PATCH] io_uring/rw: complete partial writes from io-wq
-Message-ID: <20261128133400.62759-1-hello@mzfr.me>
-Feedback-ID: 37505322:user:proton
-X-Pm-Message-ID: b0f532564e3c66afd64b107f7752383ae92a0dc4
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kp/deqQ9
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so6980189f8f.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:36:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795872997; x=1796477797; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=a5WxxRcYdBHgsweyummlp7eYA7vC+58yNVZbC9L/D58=;
+        b=kp/deqQ9IVh4qK8O0NDOHe7xQOIWdZ4nMx5bHaOb10okIw0aUCzCFBujPy9iUIEqzs
+         sCZ/nWvycqf4/xC+0TaYXn+HUlLCPpvKf3pF6SZknBVO02qRgjbqkIPiEVYMN0K/2Tsm
+         VNqWmPh7DpUsOzylXrV+yNFHfYwA63e1u00wFZW8HYj0XF2Ru45lgYQ/eDKgPapphx1x
+         NSwM+3PP1qjAnACQGbGdK65NisXXmyLaiQ8uDMV/W7GAeCS57ZeHCJ3ro9hnVVR0k/n3
+         Uhge6yisrtubcJB7cMzN6RDaIyD4cg7onO0u7xUytLj2DU2tjDepqxeL8rrGZ2Bq+OZD
+         KRvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795872997; x=1796477797;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a5WxxRcYdBHgsweyummlp7eYA7vC+58yNVZbC9L/D58=;
+        b=Q0+cqU+EsnzNxAzPDsAPydN0R7MRu8PwRajFnhfYk3FNgkEXbqxdFPxGxE1uMmwm1V
+         fuu3zUAik4CC5yFhFDaW6onjSnS3FzRAGhbYzIz0vZfvfSSTU6CigvaVvlUjcfUWte32
+         S6bcjHyGZ6F1dn6J4O3DjXRD6bnaW8B3iqsROAz9uO0EJzQ/VSz75dxZtVYQvGpftYuz
+         wW34043njHcC2zyXTsQ7GICLd9QqZkfJMfUnlcDqZmkWa8rO05qdM8CNvOzugk9omdOz
+         H2A1OLWQd3jn64Qm8ZMyDjW9LK30bZaS0JJe4gBdhEUpVMMtAKi3m9yVasWVs4Q3/t1b
+         uh9w==
+X-Forwarded-Encrypted: i=1; AL+hErErsNzjKTX2Q151w5tcdVjkkiWQEMos8C/n4AHQemmIzrpmyfYLK5LNRx5akJlQfae7vlDHGLy6sNonL5I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8svWeNdzL+BEspNU0Arni/i1IJbCmkgb7PrfZMB8pyFXmdZhX7
+	gyzgZUfE4Oes555Obb4CaUTQrfKvLBQISInjSCQaT3zbgQyumRr+gqTS
+X-Gm-Gg: AZFdTZcurHf2x89vDbxWcPP/Rdx/FS03Ato4BIzhp1ducvjPWn7epWHfmk5zAiV1Ouj
+	xx51ODA4G0WiDTzkELV4ZSrUC7EaNqzrkqglaW6WSR3LBufQQ3s4KQDAgMeukjYPeH2ivLnJTo0
+	t3FywR4jYw9q52sM7bShuXlzgMBycIb8DxuUPJTpX+ghlv1JIQxFtilTsfEuzG48cmN8eYn55u+
+	ObQIaRq/yCYHmdQ+xngoFyqcOfjShTCgfc388h35kSzIfSnzbgaBSwhkMcdBZB4PJwoMXl7GB+O
+	fK5zgaJ7aZnahLVy6OKkcMAzvsDRW99KqvW3b0bVeDcWUa+2BN3ZA0gbFIPSBFWrG6wxzcAwsxV
+	ZBhLytajKSprL2nTnCeVP/IDgW2vGaEpoCsWjnO24nPyvIvcqDkwOTA2m52xBeTuQ0R8QU18QYM
+	c/nJ9/HRCw10ikecKn/ptR/Yja2Rr/ickzQd70p9cJNl4/ihCZOeu+526yNJIPkK8U+OhD8xQ75
+	CEiCYw08ruf3B+w0K9ZVJkxE2u57NOrW4R+NxIejX/p0Ydy2AqfD6AXXlj6vh9vI/ts5kNpO9xO
+	LqdD95ieQh4yxPgg4goCMsIa01u4yk9kRAqmMQVTGtFLR+L6Ut88EGnheHwMK11uv1rAyu2Nnt9
+	gHeoLk/FrA8+fDU6brrK19D5c++d9OWV2Zao=
+X-Received: by 2002:a5d:64c9:0:b0:4a6:bc53:2478 with SMTP id ffacd0b85a97d-4abb0d5256fmr54313922f8f.13.1795872996813;
+        Sat, 28 Nov 2026 05:36:36 -0800 (PST)
+Received: from pc.tail250202.ts.net ([87.110.86.243])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm54895678f8f.58.2026.11.28.05.36.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 05:36:36 -0800 (PST)
+Date: Sat, 28 Nov 2026 15:36:33 +0200
+From: Janis Edvarts Lacis <janislacis06@gmail.com>
+To: Antonio Quartulli <antonio@mandelbit.com>
+Cc: intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>, Kurt Kanzenbach <kurt@linutronix.de>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net v5 1/6] igb: don't touch rings that don't exist when
+ disabling an XSK pool
+Message-ID: <qyifvivvv45lstdhummsoji6jdlgxzkfcai5uet53w2spppj6g@amdcea4m54w5>
+References: <20261124235723.1135808-1-antonio@mandelbit.com>
+ <20261124235723.1135808-2-antonio@mandelbit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,192 +107,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98"; charset=utf-8
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261124235723.1135808-2-antonio@mandelbit.com>
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-From: Mehtab Zafar <hello@mzfr.me>
-To: Jens Axboe <axboe@kernel.dk>,
-	io-uring@vger.kernel.org
-Cc: Christian Brauner <brauner@kernel.org>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] io_uring/rw: complete partial writes from io-wq
-Date: Sat, 28 Nov 2026 21:34:00 +0800
-Message-ID: <20261128133400.62759-1-hello@mzfr.me>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-
-IORING_OP_WRITE with an offset of -1 uses and advances the current file
-position. A partial write is currently returned as -EAGAIN so the remainder
-can be retried from io-wq.
-
-That is only appropriate for the initial nonblocking attempt. If the
-partial write already happened in an io-wq worker, returning -EAGAIN ends
-the worker attempt, drops req->file, and reaches io_rw_fail(). The CQE is
-fixed up to report the successful bytes, but kiocb_done() never updates
-f_pos.
-
-Only punt partial writes from the nonblocking submission path. A partial
-write from a blocking worker then completes normally through kiocb_done(),
-which updates f_pos and performs the usual write completion accounting.
-
-Keep the last known-good position for a partial nonblocking write. If its
-later retry fails through a normal completion path, commit that saved
-position rather than trusting ki_pos from the failed write.
-
-This bug was found with AI assistance, which also helped
-prepare the fix, tests, a
-nd description.
-
-Fixes: 1939316bf988 ("io_uring: kiocb_done() should *not* trust ->ki_pos if ->{read,write}_iter() failed")
-Cc: stable@vger.kernel.org
-Signed-off-by: Mehtab Zafar <hello@mzfr.me>
----
-Testing on x86_64 against axboe/for-next at e00ba7334fc2:
-- Three fresh KVM boots per kernel, using identical userspace binaries
-  and initramfs, with no guest disk or NIC.
-- Baseline: a 100-byte current-position write limited to 10 bytes returned
-  10 in the CQE but left f_pos at 0. Patched: CQE=10 and f_pos=10.
-- Wholly failed writes remained -EFBIG with f_pos=0; complete writes
-  remained successful with the expected position advance.
-- liburing fpos.t and read-write.t passed on the patched kernel.
-- A partial-read control returned 4096 bytes and advanced f_pos correctly
-  on both kernels; no analogous read-side regression was reproduced.
-- W=1 io_uring/rw.o and full bzImage builds passed. Strict checkpatch
-  reported no errors, warnings, or checks; git diff --check was 
-clean.
-
- io_uring/rw.c | 43 +++++++++++++++++++++++++++++++++----------
- io_uring/rw.h |  1 +
- 2 files changed, 34 insertions(+), 10 deletions(-)
-
-diff --git a/io_uring/rw.c b/io_uring/rw.c
-index 3ecb842147a4..e658a9b2e1b4 100644
---- a/io_uring/rw.c
-+++ b/io_uring/rw.c
-@@ -200,6 +200,7 @@ static int io_rw_alloc_async(struct io_kiocb *req)
- 	if (rw->vec.iovec)
- 		io_req_set_flags(req, REQ_F_NEED_CLEANUP);
- 	rw->bytes_done = 0;
-+	rw->partial_pos = -1;
- 	return 0;
- }
- 
-@@ -551,6 +552,24 @@ static void __io_complete_rw_common(struct io_kiocb *req, long res)
- 	}
- }
- 
-+static inline void io_save_partial_pos(struct io_kiocb *req,
-+				       struct kiocb *kiocb)
-+{
-+	struct io_async_rw *io = req->async_data;
-+
-+	if (req->flags & REQ_F_CUR_POS)
-+		io->partial_pos = kiocb->ki_pos;
-+}
-+
-+static inline void io_commit_partial_pos(struct io_kiocb *req, long res)
-+{
-+	struct io_async_rw *io = req->async_data;
-+
-+	if (res < 0 && req_has_async_data(req) && io->bytes_
-done > 0 &&
-+	    (req->flags & REQ_F_CUR_POS) && io->partial_pos >= 0)
-+		req->file->f_pos = io->partial_pos;
-+}
-+
- static inline int io_fixup_rw_res(struct io_kiocb *req, long res)
- {
- 	struct io_async_rw *io = req->async_data;
-@@ -590,6 +609,8 @@ static void io_complete_rw(struct kiocb *kiocb, long res)
- 		io_req_end_write(req);
- 
- 	__io_complete_rw_common(req, res);
-+	if (!(req->flags & REQ_F_REISSUE))
-+		io_commit_partial_pos(req, res);
- 	io_req_set_res(req, io_fixup_rw_res(req, res), 0);
- 	req->io_task_work.func = io_req_rw_complete;
- 	__io_req_task_work_add(req, IOU_F_TWQ_LAZY_WAKE);
-@@ -604,11 +625,14 @@ static void io_complete_rw_iopoll(struct kiocb *kiocb, long res)
- 	if (kiocb->ki_flags & IOCB_WRITE)
- 		io_req_end_write(req);
- 
--	if (res == -EAGAIN && io_rw_should_reissue(req))
-+	if (res == -EAGAIN && io_rw_should_reissue(req)) {
- 		io_req_set_flags(req, REQ_F_REISSUE | REQ_F_BL_NO_RECYCLE);
--	else if (unlikely(final_res != req->cqe.res)) {
--		req_se
-t_fail(req);
--		req->cqe.res = final_res;
-+	} else {
-+		io_commit_partial_pos(req, res);
-+		if (unlikely(final_res != req->cqe.res)) {
-+			req_set_fail(req);
-+			req->cqe.res = final_res;
-+		}
- 	}
- 
- 	/* order with io_iopoll_complete() checking ->iopoll_completed */
-@@ -1178,15 +1202,14 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
- 		if (ret2 == -EAGAIN && (req->flags & REQ_F_IOPOLL))
- 			goto ret_eagain;
- 
--		if (ret2 != req->cqe.res && ret2 >= 0 && need_complete_io(req)) {
-+		if (force_nonblock && ret2 != req->cqe.res && ret2 >= 0 &&
-+		    need_complete_io(req)) {
- 			trace_io_uring_short_write(req->ctx, kiocb->ki_pos - ret2,
- 						req->cqe.res, ret2);
- 
--			/* This is a partial write. The file pos has already been
--			 * updated, setup the async struct to complete the request
--			 * in the worker. Also update bytes_done to account for
--			 * the bytes already written.
--			 */
-+			/* Save the last known-good position before retrying. */
-
-+			if (ret2 > 0)
-+				io_save_partial_pos(req, kiocb);
- 			iov_iter_save_state(&io->iter, &io->iter_state);
- 			io->bytes_done += ret2;
- 
-diff --git a/io_uring/rw.h b/io_uring/rw.h
-index 1179506f929f..63c53cd21286 100644
---- a/io_uring/rw.h
-+++ b/io_uring/rw.h
-@@ -12,6 +12,7 @@ struct io_meta_state {
- struct io_async_rw {
- 	struct iou_vec			vec;
- 	size_t				bytes_done;
-+	loff_t				partial_pos;
- 
- 	struct_group(clear,
- 		struct iov_iter			iter;
--- 
-2.34.1
-
-
---------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsCpBAEBCABdBYJrCthVCRBCkCzGpVLSJDUUAAAAAAAcABBzYWx0QG5vdGF0
-aW9ucy5vcGVucGdwanMub3JnpaIRLUsWCjUIE8wIkN6PshYhBJC8NTVod5IV
-Rdc7/kKQLMalUtIkAABdzggAhV0Vs4jx2eztN1HMrjJOQx5mbOvyn9YTYc0H
-ARUTSKm+oFWzG4h6f4xYf1yG+dPWAfWHV3IxFq04T4HLo2JcK0p9kxmvg28+
-UhA5cICObWSzVNjPfWtRynLlC0lzvqLgKgxVAxVDjNN0zpien+ZQcudIApGe
-GEwzdRqYL9d0nJJQVjIoreto4QeOeimACldP22WTpo4bO/oHj/R4wQDLhoiK
-SsTgSHLuto2CRFhtD6kGPT7bFQPw/EQROQpgUm4/ltdgy117DY7qvKJ+1Y38
-Czy3Pxno2eS1S3WhfLgQgEwaiPi46RHmI64NQeM73UPVSfxnOdVPxhV/iLlW
-BaH8aA==
-=Gsvd
------END PGP SIGNATURE-----
-
-
---------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98--
-
+On 25 Nov 00:57, Antonio Quartulli wrote:
+>xsk_get_pool_from_qid() checks the queue id against the stack's real
+>queue counts, which can be higher than the number of rings the device
+>has: on 82576, enabling VFs leaves a single Tx queue while keeping two
+>Rx queues, and igb can fall back from MSI-X to MSI with a single queue
+>on resume. Disabling the pool of such a queue, e.g. one bound to queue 1
+>before enabling VFs, then passes a NULL Tx ring to
+>igb_txrx_ring_disable().
+>
+>Only disable and re-enable the rings the device has: skip the queue if
+>it has no Rx ring, and only the Tx part if it has no Tx ring, so that
+>an Rx ring using the pool still stops using it. This also stops a NULL
+>dereference when the socket is closed while the device is runtime
+>suspended, which frees its rings.
+>
+>Tested with the 82576 emulated by QEMU and a zero-copy AF_XDP socket on
+>queue 1: closing it after enabling a VF no longer oopses and the Rx ring
+>no longer references the pool afterwards (checked with a debug print, as
+>QEMU doesn't spread traffic over the PF queues with VFs), and without
+>VFs queue 1 keeps receiving after the close. Not run under KASAN.
+>
+>Fixes: 80f6ccf9f116 ("igb: Introduce XSK data structures and helpers")
+>Cc: stable@vger.kernel.org # 6.14+
+>Link: https://lore.kernel.org/netdev/20261116153041.3002666-2-antonio@mandelbit.com/
+>Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+>---
+>v5: the message also mentions the runtime suspended case (no code
+>changes)
+>v4: also handle queues with an Rx but no Tx ring, as with VFs (Sashiko):
+>tear down the Rx ring and skip only the Tx part; tested with a
+>zero-copy AF_XDP socket; subject was "don't disable rings that don't exist
+>..."
+>v3: new patch.
+>
+> drivers/net/ethernet/intel/igb/igb_xsk.c | 37 +++++++++++++++++-------
+> 1 file changed, 26 insertions(+), 11 deletions(-)
+>
+>diff --git a/drivers/net/ethernet/intel/igb/igb_xsk.c b/drivers/net/ethernet/intel/igb/igb_xsk.c
+>index ce4a7b5..3b4212a 100644
+>--- a/drivers/net/ethernet/intel/igb/igb_xsk.c
+>+++ b/drivers/net/ethernet/intel/igb/igb_xsk.c
+>@@ -31,15 +31,22 @@ static int igb_realloc_rx_buffer_info(struct igb_ring *ring, bool pool_present)
+> 	return 0;
+> }
+>
+>+/* With VFs, the device has a single Tx queue but can have more Rx queues */
+>+static struct igb_ring *igb_xsk_tx_ring(struct igb_adapter *adapter, u16 qid)
+>+{
+>+	return qid < adapter->num_tx_queues ? adapter->tx_ring[qid] : NULL;
+>+}
+>+
+> static void igb_txrx_ring_disable(struct igb_adapter *adapter, u16 qid)
+> {
+>-	struct igb_ring *tx_ring = adapter->tx_ring[qid];
+>+	struct igb_ring *tx_ring = igb_xsk_tx_ring(adapter, qid);
+> 	struct igb_ring *rx_ring = adapter->rx_ring[qid];
+> 	struct e1000_hw *hw = &adapter->hw;
+>
+>-	set_bit(IGB_RING_FLAG_TX_DISABLED, &tx_ring->flags);
+>-
+>-	wr32(E1000_TXDCTL(tx_ring->reg_idx), 0);
+>+	if (tx_ring) {
+>+		set_bit(IGB_RING_FLAG_TX_DISABLED, &tx_ring->flags);
+>+		wr32(E1000_TXDCTL(tx_ring->reg_idx), 0);
+>+	}
+> 	wr32(E1000_RXDCTL(rx_ring->reg_idx), 0);
+>
+> 	synchronize_net();
+>@@ -47,24 +54,27 @@ static void igb_txrx_ring_disable(struct igb_adapter *adapter, u16 qid)
+> 	/* Rx/Tx share the same napi context. */
+> 	napi_disable(&rx_ring->q_vector->napi);
+>
+>-	igb_clean_tx_ring(tx_ring);
+>+	if (tx_ring) {
+>+		igb_clean_tx_ring(tx_ring);
+>+		memset(&tx_ring->tx_stats, 0, sizeof(tx_ring->tx_stats));
+>+	}
+> 	igb_clean_rx_ring(rx_ring);
+>-
+> 	memset(&rx_ring->rx_stats, 0, sizeof(rx_ring->rx_stats));
+>-	memset(&tx_ring->tx_stats, 0, sizeof(tx_ring->tx_stats));
+> }
+>
+> static void igb_txrx_ring_enable(struct igb_adapter *adapter, u16 qid)
+> {
+>-	struct igb_ring *tx_ring = adapter->tx_ring[qid];
+>+	struct igb_ring *tx_ring = igb_xsk_tx_ring(adapter, qid);
+> 	struct igb_ring *rx_ring = adapter->rx_ring[qid];
+>
+>-	igb_configure_tx_ring(adapter, tx_ring);
+>+	if (tx_ring)
+>+		igb_configure_tx_ring(adapter, tx_ring);
+> 	igb_configure_rx_ring(adapter, rx_ring);
+>
+> 	synchronize_net();
+>
+>-	clear_bit(IGB_RING_FLAG_TX_DISABLED, &tx_ring->flags);
+>+	if (tx_ring)
+>+		clear_bit(IGB_RING_FLAG_TX_DISABLED, &tx_ring->flags);
+>
+> 	/* call igb_desc_unused which always leaves
+> 	 * at least 1 descriptor unused to make sure
+>@@ -148,7 +158,12 @@ static int igb_xsk_pool_disable(struct igb_adapter *adapter, u16 qid)
+> 		return -EINVAL;
+>
+> 	rx_ring = adapter->rx_ring[qid];
+>-	if_running = netif_running(adapter->netdev) && igb_xdp_is_enabled(adapter);
+>+	/* The stack can know more queues than the device has, e.g. after a
+>+	 * fallback to fewer queues on resume: skip the rings it doesn't have.
+>+	 */
+>+	if_running = netif_running(adapter->netdev) &&
+>+		     igb_xdp_is_enabled(adapter) &&
+>+		     qid < adapter->num_rx_queues;
+> 	if (if_running)
+> 		igb_txrx_ring_disable(adapter, qid);
+>
+>-- 
+>2.56.1
+>
+Reviewed-by: Janis Edvarts Lacis <janislacis06@gmail.com>
