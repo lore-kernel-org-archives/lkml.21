@@ -1,61 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795828654;
-	b=rdCtigr8aU1lDsHS53PLaJNm8cFfCpD/Kfx9p7xrC1c3CQ1nem+rCsGFf2NrQYCTcK8D
-	 A8bNZ9vOOvTB1KrWBCENKrPGigUA0CWNvjWnM8k0XcHDYqe1bKUARJtvDTxCK599f1YfN
-	 mXRfGi2PQkWzV4UEARhuO38dKFDXMyy/J7hczhx7ZuH/BcBsVoi3yt4wDsR4MzE7Qi4Q2
-	 Ti05XrBBmi1CBakCCSnbcWX8kHtXQImR4WQ2AnxEzFz8pqLWXL/hHOJDlbvT42xYMpkTg
-	 GW/8yaSCh8kF8Fgs3PRsd/isuI196JsWMYTbJKn1g/suimWhp61mm+FR/n8uDImGUOw==
+	t=1795828662;
+	b=us7QAhAWb8orqLdoe170bL3hFRGHRsQLVw5uMMY2aaeCeguRQ9Bds/BJ4ZCPiuN6PHP4
+	 UzkyMGqxsbXPY4MSnzAqin+fWAAG3asl37+wMbtVD7H/+DDJDBKMfku0BLUnlQQ90aZD2
+	 SBc/eH35J7Ino5A5EkEKaG6ksZUwd35OiEyoi8ink5TAviXTKgl57E2foDBh4YZ0pQt1l
+	 wMartLsK3sqev76PGvxQNgRRXjayEP3zSP27TBDXqsSNXFKcoVx+sm7AzAQALlZI2PcPN
+	 CMhPg/vufs2gMYU4qwakzM6GTX2kOOeMNEUzea88NooOpKIvlNvoq8CqM4W7MfAMWUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795828654;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=OSBwzpdqGrkNuDnhZM4boZGZHKeJDG3XgxYt1ZiYd2g=;
-	b=Qxtm72THzojOmcjnzVdJ1p8nmCp0rqjBU79STSSB3u8OQ4fWQPHPmpd2JtC1wrFxAjlh
-	 HqGzehpYsFRtAGhTvGB40Ph331cepj+8uR+bi6wUj+b66BLXe4Cd9zfTVEZqFaJoDAvg5
-	 k43iNgeEWwHeldtsJQQ20oTo09PdgXc7+M6smDv7MbPNrDE9BJyDez8tEjxNd7bXzpPWZ
-	 /Xt6IdoR6hsTHtWyn1vJRfd1l8o9qWYV+YBBEP5n058G8Qo9ol027LTWXtYy6EthCV7zB
-	 NkKVOaCFF0vah0nSUOda9QYYJkobjSVRi05Xr9usN+F3JWX+m5Pqibx91zIbQvNvnbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795828662;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ynYpBMFbnjt1BZ3puDYcCNO837G+Oo0nRDEUrJjBmwA=;
+	b=BGqIf3A0wvgVFYiV65ZuvYWdMZwOG4CSsWamDW76/CHZVv7wr7GLjqMbOGYysB2CcArD
+	 IOCEJsde4RsEW4t5tGdlL8fl5E+X0L19Dwah83mk6VwBH8/kI3RtEmlEBaE1gAyeOwcsi
+	 vGBmEHg1XHy5SlhT+QSUk5vAb7jto19Sh5x1u26R4WGfBNNwnJym4ywTn7TilCDNkZteQ
+	 A27v2/1jRCoOjfsqHlz1GMc2fHlhDduus+3mF3detKWMDDI+nut9xGP4f2xf1Amz4L0CA
+	 VMaPMijbTWv0gQVKRQKO8Ow1Rm9XwJnIPLJ0/rlCq23e4J+04CPy8rYCfctdd61N55g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YwFQFO9O;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fknHhXfK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E83D606A31C;
-	Sat, 28 Nov 2026 01:17:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE6A2606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YwFQFO9O
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8E11F0089B;
-	Sat, 28 Nov 2026 01:17:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fknHhXfK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51BBD1F00929
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795828654;
-	bh=OSBwzpdqGrkNuDnhZM4boZGZHKeJDG3XgxYt1ZiYd2g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YwFQFO9ORRWN227/l0GCnmRpWQK2NbB7lShlcN7s9QtxxMtBiY5L+V9/8GYTxgvzC
-	 UHigp8GPJoqdqmze5EQz1rPCz97pFahvKRDxLZSS6i9SxC823lGpxDbn4Rbeyh0Okt
-	 TR/QF7EdGsyb4iX9xEema999kED+0qHOXTSC/zd9W6SqwEk9t6Tq7kV9VRLpw/2ULX
-	 lZDU+LXHYelHhnbJYShr7VmPhRuzE46TyOGynMxiWc9nAwYPf08wj+7j5tMlEebMPw
-	 La/jbPw8aTHKVyNuWkmLIdCrY4HKAU0JGcs7rf3I0ZFJY3TUwn7hzwnRpX1wHag7fv
-	 vSZXRK6okGcuw==
-Date: Sat, 28 Nov 2026 01:17:27 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: robertijtsma@gmail.com, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iio: light: add ams OSRAM TCS3430 XYZ and
- ambient light sensor driver
-Message-ID: <20261128011727.297d2a27@jic23-hlaptop>
-In-Reply-To: <awnB1KT-oJQoPjOM@ashevche-desk.local>
-References: <20261127-iio-tcs3430-v3-0-e191a40a4ae9@gmail.com>
-	<20261127-iio-tcs3430-v3-2-e191a40a4ae9@gmail.com>
-	<awnB1KT-oJQoPjOM@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795828662;
+	bh=ynYpBMFbnjt1BZ3puDYcCNO837G+Oo0nRDEUrJjBmwA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=fknHhXfKVkJOJtN4EUHQe0uCE0r0o4h4teyp+31+R0yo5r9nzyYzWzWF6YH7CpY1F
+	 w3MA/7cIGbzLsBiTiQCx07IcSV5GfW9MzE4Yk4CS8YOay32MR5EY8y3+cPoED1epbv
+	 T0+M6jWFfdDANAo04Lvn3rPWDm224OUNGNxtUmmc44X+yqHShw3mCw16SsIrXC2PcP
+	 3Ho1EV9UsIZEPH5epP+mhi+bPm2UwfsN+15qm739+sWqNmH7IFn2LXC6esiDSt/QgG
+	 JL3vN++Azd8ggesX34Lb7d8ONhqb+XWn2E2bSwzLoKyiAImdw7rDkUIzKJAA8xee1P
+	 NV7vQiZyh2BDg==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c4322d310e7so464965966b.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:17:42 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF4RFbsxQYmRRnxydQvaLVvw1DfirzmsGmBACEHUh/fNGNpmUKdroImyVdwnvdj7WTLvoUuh2OklgtqEzU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NM5Hk7AJ3Uo4eupAvQW/Z392lVvqAE9bNaEeQBmTP1v1SsHS+
+	t/LIRqEXPNV74NHWo/pR15X1AT5vGkj2S8bMMPCh2HF0AzOlDbhtGz+BNcpmiDyLg3aJW03qHJJ
+	VL1YHno/gbOduYwb7/rGYqI+SFjI7ons=
+X-Received: by 2002:a17:906:f59d:b0:c31:5bb8:4b3b with SMTP id
+ a640c23a62f3a-c513a47d551mr2219289266b.2.1795828660929; Fri, 27 Nov 2026
+ 17:17:40 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,61 +59,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20261128003913.1684555-1-icb@fastmail.org>
+In-Reply-To: <20261128003913.1684555-1-icb@fastmail.org>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Sat, 28 Nov 2026 10:17:28 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd9As9f-7Q=F7CJBqcF7qCdbwnFeQYQ0HytdU5wTvBPuag@mail.gmail.com>
+X-Gm-Features: Aa3M54oxvdO9s8JRrz7L-H09Rdnc8vxQ05eSOl7Ki45QmXcG_h5g_M20FbFOIH4
+Message-ID: <CAKYAXd9As9f-7Q=F7CJBqcF7qCdbwnFeQYQ0HytdU5wTvBPuag@mail.gmail.com>
+Subject: Re: [PATCH] ksmbd: don't create a missing stream for FILE_OVERWRITE
+To: Ian Bridges <icb@fastmail.org>
+Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
+	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, 27 Nov 2026 19:45:56 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
-
-> On Fri, Nov 27, 2026 at 09:12:50AM +0100, Robert Ijtsma via B4 Relay wrote:
-> > 
-> > Add an IIO driver for the ams OSRAM TCS3430 ambient light and CIE 1931
-> > XYZ tristimulus color sensor (found at I2C address 0x39 on devices such
-> > as the Microsoft Surface Pro X).
-> > 
-> > Unlike the older TAOS RGBC drivers (tcs3414, tcs3472) that use the 0x80
-> > COMMAND-bit SMBus protocol and RGBC channels, and unlike the banked
-> > MAZeT/JENCOLOR as73211 driver, the TCS3430 uses ams's direct-addressed
-> > 0x80..0xdd register map and exposes Z, Y, IR1, and X tristimulus channels.
-> > 
-> > The driver exposes:
-> > - Illuminance (photopic Y channel) with raw counts and lux scale
-> > - Modified intensity channels for X, Y, Z, and IR1
-> > - Selectable scale and integration time via the IIO GTS helper across
-> >   1x/4x/16x/64x/128x gain and 50.04/100.08/200.16/400.32 ms integration
-> >   time settings
-> > - Regulator management and system sleep suspend/resume support
-> > 
-> > Tested on Microsoft Surface Pro X SQ2 (SC8180X).  
-> 
-> 
-> There are a couple of nit-picks below, but overall LGTM, after addressing them
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-> 
-> ...
-> 
-> > +config TCS3430
-> > +	tristate "ams OSRAM TCS3430 ambient light and CIE 1931 XYZ sensor"  
-> 
-> This doesn't scale, but okay, I don't expect this kind of compatible devices
-> appear in a volume, we may rephrase this later on.
-> 
-> > +	depends on I2C
-> > +	select IIO_GTS_HELPER
-> > +	select REGMAP_I2C
-> > +	help
-> > +	  If you say yes here you get support for the ams OSRAM TCS3430
-> > +	  ambient light and CIE 1931 XYZ tristimulus color sensor.  
-> 
-> Usually when it starts with more that a single vendor line of the devices
-> the list of them is better as it's easier to tweak later on:
-> 
-> 	  If you say yes here you get support for the following sensors:
-> 	  - ams OSRAM TCS3430 ambient light
-> 	  - CIE 1931 XYZ tristimulus color
-
-Agree with general statement and perhaps only know this because of
-a history with colour spaces: That second bit is a colour space in which
-the ams OSRAM sensor presents its data, not another sensor.
-
-Jonathan
+On Sat, Nov 28, 2026 at 9:39=E2=80=AFAM Ian Bridges <icb@fastmail.org> wrot=
+e:
+>
+> An open of a named stream that does not exist fails with
+> STATUS_OBJECT_NAME_NOT_FOUND only for FILE_OPEN. With FILE_OVERWRITE
+> the stream is created and the open succeeds. MS-FSA 2.1.5.1.2 fails
+> both dispositions when the stream is not found. Fail FILE_OVERWRITE the
+> same way. FILE_OVERWRITE_IF still creates the stream.
+>
+> Signed-off-by: Ian Bridges <icb@fastmail.org>
+Applied it to #ksmbd-for-next.
+Thanks!
