@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795865169;
-	b=Y4me62kzFFXJuf/X9fhIL3ijWMyeEZXvI/CR4gIe83niU50iqXzNygad1casy2kRn+nI
-	 wn8Csn49jmDs52eeR0N6hERfe144l9jjsHdxkH34tigmsX3zsiwuyDxQhlc6cmI4CfPOL
-	 SNEDSzRTdc+ffMKQJBTDvg251mXlZDj3Sod0z0IWPnWOmXG6vU3JXvSXUBQXunJA62ouO
-	 mpDKhm90XeKOZbgTD5EKLvupxDJ4dhUmW3i7c08Gd6juCbviplpBvD0sAUA4qcYcsdFkC
-	 370KnK74TqdyXFO2FkSD+rMxsA/zrIqM5gw/btrYs7lI+ypiEdUejZjYPA2+juabXYw==
+	t=1795865167;
+	b=N3y4g8GqUlNvXxCklEOkEAwiWpJV7F9G9x9AcOTPChDwiftPJ2h2bgNRZjLxbhD8pYeU
+	 insuenTkUbtMKt+ThgTwCtJDDiOtfdQW1HGwEx9M2cZOUmBRTkVSwLp7Nhw1FY/8A/XTB
+	 +yvPo9n5nRScfnfnRvLdgBw0TLyTHIcQYqioSaWO/0pdV0CDoHr7bGoY2E2jtwiCtJey8
+	 kqd5g38HtxRYdhfbRWB4LMQun+b+gprNqO79SR87piXTjVqdV7MMSqfn7yEY+KtyCqTVu
+	 Qb9tJGJ9QsTA9EaUnuQDvRc8ktEm+nXmKbEenhS+4A2iiSZWFsKfSUP+wAv9RJTCZkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795865169;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795865167;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=M3vPYBJiPxyLP36lahQYU95y0TVImom/Y+A7y5gQtDU=;
-	b=CRWlHDq02iI1yYJYVxvqxmzJ3jIbBjxkQT8ywV9qHRyTlEoFT7UZiPnImoSmfOZghULo
-	 E0m91xSRpcb4kXjoVf5OUXTLctc91yC37Mew0f1NaiBom+G5BvF8lInmnrlNjPwfaTEUb
-	 ltqtBg0PaEILysccCAeF/MdsjVTo0oQtUsVZKKQF1CfWxYyApKtGWhCS9efWRS1EOQHQk
-	 8ERjdbWk7S9gVsAoRlsrNFWi9+J2XaLUPE1oJzTz7huHFiFN6V7xDSX//PWkAGVl6jsDB
-	 RGM7B66ARQKuxu0dxyQa5SuLtc2fWVsCDHltX/UiGCv/tTh7IN9QR5YDCxf2opqNQVQ==
+	bh=7nWpsNkQ/FECtBOaFJYN/WmsU4Xm7G8h2gwo8mdaPx0=;
+	b=Vo/3e+I1enqoxegEdAfHHyl9hQc/uwuGmuHJKiV7ty6XVMFF1ehcKzJimujpSz76WmHY
+	 diSfcUih2qTgiNUKrj1cmV6yQTxXWUUx/kESssSu+eLXiLooKxbjm9rQp93o/KWOGjMHk
+	 aOUa+g7lS+47biBOIACRrOhXibsqTAUWs/A969Ca4QiMhbShChasLW3wW8otm7Fng7lc/
+	 ybLReNpgOyGuizRVBp9eF4q+Z10RBJSQlr86cqVK07xmQDGqRgCUVxJCQJXEKaIHtBXgb
+	 TVV1vV2tP7v5AY4kWcKU1iNb3IY4Y0K7b2hBgE9QekUzSc/95tyyDw8FztJb1+wTEwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C8LVZOEh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cyAYUJn9;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF323606A683;
-	Sat, 28 Nov 2026 11:26:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15BDB606A338;
+	Sat, 28 Nov 2026 11:26:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C8LVZOEh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E503F1F008A0;
-	Sat, 28 Nov 2026 11:26:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cyAYUJn9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 334AC1F00893;
+	Sat, 28 Nov 2026 11:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795865169;
-	bh=M3vPYBJiPxyLP36lahQYU95y0TVImom/Y+A7y5gQtDU=;
+	s=k20260515; t=1795865166;
+	bh=7nWpsNkQ/FECtBOaFJYN/WmsU4Xm7G8h2gwo8mdaPx0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=C8LVZOEhan5kZMS4R5XTDV7ZZuytAZCD4Z4CPxh/AJTnIGx9yPW0g8RfjqMfVPMke
-	 EoBxCxKEzs6afbuS6hVZ1B6vqVkKLi+kXJd7NPL+CBLt3RMfaCblySQ5Z82p4w9uxF
-	 DbIhaUw2hwua5zbrhId1lNKnEnmmfwepjKIn0mmejeixGjZ1Jc3sTnliiEOzZogGrG
-	 eNfZTNFtshOO1+4wIxu5WluvDzm6q2GYflSM/R6+mEF5i+bPUjpVPP+EvgfsYlS2R3
-	 VlLIHiOsPuQZR08n8ghQY2Ra4wlFRl3Q0UfDzwyk9OPsRSiJn1hSsVquISOTC5auhH
-	 ZbvYNBLTM1tgw==
-Subject: Re: [PATCH net-next v10 8/8] net: bcmgenet: reassemble jumbo frames
- from status block fragments
+	b=cyAYUJn9KyAsA9092cmqMqazRCEseT1SigdUFsSKovBQSRKAnblmQkCaXE4Tx1qW5
+	 A22IZwI6v6D31cTjUBi97nusrwO8sOZcG3F8iNgQJZ99E0rjI5ZxzVx8iF/vYlNb2I
+	 GvITHdum/AOzqqGxdE+tAT1Q1s81fyMjvW513umRvLPGII7fi8AEdoGAQsAWHywY/H
+	 z9OAJyNs6uyT4uDdleSkoRUq8zFuih/4iIFSFZvzCg9KqOzCtJiw0pLlWv0ySlbD+V
+	 K2hoOQ/7PvU1PU1D+/E7sM5+mJgyG+a5dqtbCm8DrK3l/Pd3Yw5OcbuJqDrn7kyQTo
+	 3qNgGilFaA3dg==
+Subject: Re: [PATCH net-next v10 5/8] net: bcmgenet: split frames that end
+ just past the transmit threshold
 From: netdev-bot+sashiko@kernel.org
 To: nb@tipi-net.de
 Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
@@ -50,10 +50,10 @@ Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
  f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com,
  justin.chen@broadcom.com
-Date: Sat, 28 Nov 2026 11:26:08 +0000
-Message-ID: <179586516852.3135.10254038893964145277@kernel.org>
-In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-8-749c7cc45d97@tipi-net.de>
-References: <20261127-nb-genet-mtu-nn-v2-v10-8-749c7cc45d97@tipi-net.de>
+Date: Sat, 28 Nov 2026 11:26:05 +0000
+Message-ID: <179586516579.3135.9485431888259061826@kernel.org>
+In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-5-749c7cc45d97@tipi-net.de>
+References: <20261127-nb-genet-mtu-nn-v2-v10-5-749c7cc45d97@tipi-net.de>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +67,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,137 +78,166 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In bcmgenet_desc_rx()
-  (drivers/net/ethernet/broadcom/genet/bcmgenet.c), the patch raises the…
-- [Medium] For a frame reassembled from several descriptors,
-  bcmgenet_desc_rx() jumps from the bcmgenet_add_frag() path to…
+- [Medium] The transmit stall window is extrapolated, not measured, on
+  every GENET that programs a DMA burst of 0x10.
+- [Low] bcmgenet_xmit() now calls skb_checksum_help() for any
+  CHECKSUM_PARTIAL frame with skb->len > priv->tx_thld_len, and it does…
+- [Low] (Baseline decision: not a functional bug; kept because
+  requires_validation=true.) bcmgenet_set_mtu_regs() now writes…
+- [Low] (Baseline decision: not a bug; kept because
+  requires_validation=true.) bcmgenet_set_mtu_regs() sets…
 
 --
 
-net: bcmgenet: reassemble jumbo frames from status block fragments
+net: bcmgenet: split frames that end just past the transmit threshold
 
-GENET splits frames longer than the RX packet ready threshold across
-several descriptors, each with its own status block. This patch removes
-those status blocks and reassembles the fragments into one skb, which
-lifts the MTU cap. The maximum MTU is now 16347, based on the 14-bit
-UMAC_MAX_FRAME_LEN.
+Transmit frames that end just past the TBUF packet ready threshold are now
+split over two descriptors that share one DMA mapping. This avoids a
+transmitter stall after which Tx DMA refuses to halt. The patch also
+programs TBUF_PKT_RDY_THLD based on the MTU, and frames longer than the
+threshold fall back to a software checksum.
+
+Link: https://github.com/raspberrypi/linux/pull/7617#issuecomment-6201096155
 
 > diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> index 1307faf135bd4..ec196a71a7347 100644
+> index 15b7c8a525201..5ad38b4eccd1e 100644
 > --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 > +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+> @@ -65,6 +65,13 @@
+>  #define ENET_THLD_DEFAULT	0x80
+>  #define ENET_THLD_MAX		0xf0
+>  
+> +/* A frame that ends within one DMA transfer past the transmit threshold
+> + * stops the transmitter once a shorter frame follows. The burst register
+> + * has no documented unit, 8 bytes per count matches the 46 bytes measured
+> + * on a bcm2711, which programs 0x08.
+> + */
+> +#define ENET_BURST_UNIT		8
+
+[Severity: Medium]
+bcmgenet_probe() computes the window for every part as:
+
+    priv->tx_thld_window = priv->dma_max_burst_length * ENET_BURST_UNIT;
+
+The 8 bytes per count comes from a single bcm2711 measurement at burst
+0x08. The commit message says the bcm2711 sends nothing at 0x10, so the
+0x10 case (16 * 8 = 128 bytes) was never measured.
+
+The 46 byte result shows the unit is at least about 5.75 bytes per count.
+Does it show that the unit is exactly 8, or that the window grows linearly
+with the burst count?
+
+v5_plat_data and bcm7712_plat_data both use DMA_MAX_BURST_LENGTH (0x10).
+Their real window could be wider than 128 bytes, for example because of a
+wider bus. In that case bcmgenet_xmit() would send a frame with
+
+    tx_thld_len + tx_thld_window <= skb->len < real window end
+
+without splitting it. If a shorter frame follows, wouldn't that bring back
+the Tx DMA stall where every later bcmgenet_init_dma() fails?
+
+Later in the series, "net: bcmgenet: allow the MTU to be changed" raises
+max_mtu for every GENET_IS_V5() part, so this becomes reachable on those
+0x10 parts. Has the window been verified on any part that programs 0x10?
 
 [ ... ]
 
-> @@ -2527,24 +2572,43 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
->  			  __func__, p_index, ring->c_index,
->  			  ring->read_ptr, dma_length_status);
+> @@ -2185,7 +2207,7 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	}
 >  
-> -		/* Only the first descriptor carries the alignment pad */
-> -		min_len = dma_flag & DMA_SOP ? GENET_RSB_PAD
-> -					     : sizeof(struct status_64);
-> +		/* Only the first descriptor carries the alignment pad. A head
-> +		 * with more to come needs the Ethernet header in it, a
-> +		 * continuation needs at least one payload byte.
-> +		 */
-> +		if (dma_flag & DMA_SOP) {
-> +			min_len = GENET_RSB_PAD;
-> +			if (!(dma_flag & DMA_EOP))
-> +				min_len += ETH_HLEN;
-> +		} else {
-> +			min_len = sizeof(struct status_64) + 1;
-> +		}
->  
->  		/* Reject lengths that would underflow the SKB build path. */
->  		if (unlikely(len > priv->rx_buf_len || len < min_len)) {
->  			netif_err(priv, rx_status, dev,
->  				  "invalid packet length %d\n", len);
->  			BCMGENET_STATS64_INC(stats, length_errors);
-> +			if ((dma_flag & DMA_SOP) && ring->frag_head)
-> +				BCMGENET_STATS64_INC(stats, fragmented_errors);
-> +			bcmgenet_discard_frags(ring, dma_flag & DMA_EOP);
-
-[Severity: Medium]
-Can a split frame end with a descriptor that holds only its status
-block plus DMA_EOP, with no payload?
-
-The previous patch in this series ("net: bcmgenet: allow a continuation
-descriptor without the alignment pad") set the non-SOP minimum to
-sizeof(struct status_64). This patch raises it to
-sizeof(struct status_64) + 1.
-
-Suppose the hardware posts an EOP descriptor with
-len == sizeof(struct status_64). It would then land in this branch.
-The branch logs "invalid packet length" and bumps length_errors. Then
-bcmgenet_discard_frags() frees ring->frag_head, which at that point
-holds every payload byte of a complete, valid frame.
-
-That can only happen when the alignment pad plus the frame length is an
-exact multiple of the RX threshold. On 4K pages the threshold is 3584
-bytes, so frames of 7166, 10750 and 14334 bytes would hit it (FCS
-included when crc_fwd_en is set). MTU 9000 and MTU 16347 can both reach
-these sizes.
-
-The 16361 byte loopback test in the commit message doesn't fall on one
-of these boundaries.
-
-Would it make sense to accept len == sizeof(struct status_64) with
-DMA_EOP as an empty terminator? bcmgenet_add_frag() would add no frag
-and deliver frag_head with that descriptor's checksum. Or can Broadcom
-confirm that the hardware never emits such a descriptor?
-
->  			page_pool_put_full_page(ring->page_pool, rx_page,
->  						true);
->  			goto next;
->  		}
+>  	spin_lock(&ring->lock);
+> -	if (ring->free_bds <= (nr_frags + 1)) {
+> +	if (ring->free_bds <= (nr_frags + 1 + split)) {
+>  		if (!netif_tx_queue_stopped(txq))
+>  			netif_tx_stop_queue(txq);
+>  		ret = NETDEV_TX_BUSY;
 
 [ ... ]
 
-> @@ -2574,17 +2638,27 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
->  						DMA_RX_RXER)) == DMA_RX_RXER)
->  				u64_stats_inc(&stats->errors);
->  			u64_stats_update_end(&stats->syncp);
-> +			bcmgenet_discard_frags(ring, dma_flag & DMA_EOP);
->  			page_pool_put_full_page(ring->page_pool, rx_page,
->  						true);
->  			goto next;
->  		} /* error packet */
+> @@ -2202,6 +2224,20 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+>  		goto out;
+>  	}
 >  
-> +		if (!(dma_flag & DMA_SOP)) {
-> +			skb = bcmgenet_add_frag(ring, rx_page, rx_offset,
-> +						rx_size, dma_flag, len);
-> +			if (!skb)
-> +				goto next;
-> +			goto deliver;
-> +		}
+> +	/* The MAC inserts a checksum only into a frame it holds in full and
+> +	 * silently drops a longer one, so fall back to software.
+> +	 */
+> +	if (unlikely(skb->len > priv->tx_thld_len) &&
+> +	    skb->ip_summed == CHECKSUM_PARTIAL) {
+> +		if (skb_checksum_help(skb)) {
 
-[Severity: Medium]
-For a reassembled frame, dma_flag at the deliver label holds the status
-word of the final EOP descriptor. The stats code in bcmgenet_desc_rx()
-then does:
+[Severity: Low]
+This calls skb_checksum_help() with ring->lock held. For a jumbo frame it
+checksums the whole payload, and it may also linearize the skb or expand
+its head. Meanwhile bcmgenet_tx_poll() and bcmgenet_tx_reclaim() spin on
+the same ring->lock.
 
-	if (dma_flag & DMA_RX_MULT)
-		u64_stats_inc(&stats->multicast);
-	else if (dma_flag & DMA_RX_BRDCAST)
-		u64_stats_inc(&stats->broadcast);
+The checksum depends only on the skb, which xmit already owns. Could it run
+outside the critical section? One option is to clear NETIF_F_CSUM_MASK in
+an ndo_features_check callback when skb->len > tx_thld_len, so that
+validate_xmit_skb() does the fallback before the driver is entered.
 
-The commit message says the status blocks of a split frame differ
-("Only the last block holds the checksum of the whole frame"). It
-doesn't say which block carries the DMA_RX_MULT and DMA_RX_BRDCAST
-classification. The MAC already has that from the destination address
-when it writes the SOP block.
+At this commit the path is dormant because the MTU is capped at
+ETH_DATA_LEN. Once the larger MTU is allowed, it applies to every
+CHECKSUM_PARTIAL frame above the threshold.
 
-If these flags are set only in the SOP status block, would jumbo
-multicast and broadcast frames go uncounted in stats->multicast and
-stats->broadcast?
+[ ... ]
 
-Could the SOP descriptor's flags be saved when frag_head is set up and
-used here instead?
-
+> @@ -2691,6 +2772,17 @@ static unsigned int bcmgenet_pkt_rdy_thld(unsigned int mtu)
+>  		       ENET_THLD_MAX_LEN / ENET_THLD_UNIT);
+>  }
 >  
->  		/* Build SKB from the page - data starts at hard_start,
->  		 * frame begins after RSB(64) + pad(2) = 66 bytes.
->  		 */
+> +/* The transmit threshold in register units. Keep the reset value while the
+> + * MTU has no use for more, the hardware never reaches it below ETH_DATA_LEN.
+> + */
+> +static unsigned int bcmgenet_tx_pkt_rdy_thld(unsigned int mtu)
+> +{
+> +	if (mtu <= ETH_DATA_LEN)
+> +		return ENET_THLD_DEFAULT;
+> +
+> +	return ENET_THLD_MAX;
+> +}
+
+[Severity: Low]
+This isn't a functional bug, but the comment says the reset value is kept.
+The function actually returns a fixed ENET_THLD_DEFAULT (0x80), and the
+commit message only confirms 0x80 as the reset value on v5.
+
+bcmgenet_set_mtu_regs() now writes this value on v2-v4 too, and their
+reset value isn't documented in the tree. At MTU <= ETH_DATA_LEN no frame
+reaches 2048 bytes, so behaviour on those parts shouldn't change.
+
+Could the comment say that a fixed value is written?
+
+> @@ -2701,8 +2793,10 @@ static unsigned int bcmgenet_rx_buf_len(unsigned int mtu)
+>  /* Call with the MAC disabled */
+>  static void bcmgenet_set_mtu_regs(struct bcmgenet_priv *priv, unsigned int mtu)
+>  {
+> +	u32 tx_thld = bcmgenet_tx_pkt_rdy_thld(mtu);
+>  	u32 thld = bcmgenet_pkt_rdy_thld(mtu);
+>  
+> +	priv->tx_thld_len = tx_thld * ENET_THLD_UNIT;
+>  	bcmgenet_umac_writel(priv, ENET_MAC_FRAME_LEN(mtu), UMAC_MAX_FRAME_LEN);
+>  
+>  	/* GENET v1 maps other registers at these offsets */
+> @@ -2710,6 +2804,8 @@ static void bcmgenet_set_mtu_regs(struct bcmgenet_priv *priv, unsigned int mtu)
+>  		return;
+>  
+>  	bcmgenet_rbuf_writel(priv, thld, RBUF_PKT_RDY_THLD);
+> +	bcmgenet_writel(tx_thld, priv->base + priv->hw_params->tbuf_offset +
+> +			TBUF_PKT_RDY_THLD);
+>  }
+
+[Severity: Low]
+This isn't a bug, but priv->tx_thld_len is set before the GENET_IS_V1()
+early return. On v1 the cached value is never written to
+TBUF_PKT_RDY_THLD, yet bcmgenet_xmit() still uses it for the split and
+software checksum decisions.
+
+v1 never gets an MTU above ETH_DATA_LEN in this series, so tx_thld_len
+stays at 2048 and neither path can run.
+
+Would a short comment noting that the value has no effect on v1 help
+future readers?
 
 [ ... ]
 
