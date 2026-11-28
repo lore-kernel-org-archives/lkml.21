@@ -1,121 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795830002;
-	b=aefjVsQmbvg38PjIxkJSrA4dzgVnGrC3K+fvvPR5eAQRw8kLlGM0jKco1RbMFxHasKI4
-	 +ZDS3P5RnfMu8t5qWrpi7BbPlkqCaJjf+ZGroaX8nwA9LGzWpbmFEl4xrxMgtT/2I4nbw
-	 awzPZNc6ecP8mni8LcTVzC3+tH7rR1IL1pSwHYkSvcsG++lqFc8LnWADgv+oQ5xUhf82O
-	 nWQKkK4VSQVdT5GEI+jZhcSRfZtvkeXtRxXV27DCmPSQb3BDDFrFjmmZLVnCDApvEfkeL
-	 mhhVbb8+OMrhld+kptqvtOVRSCsDbAhTdocJnjOPQQxoP6EqrtSRIVnfHey3CKslUpw==
+	t=1795830138;
+	b=JhyZ+Cc0RxOYv7hVogbkTGUNnCSnmsU2Id0N/AmuUfZnQa0YSZxQC7ZCxE7Ty/LYFLp7
+	 /CSEiNKQAV3K881jF9vea9T69RQOPXhUHrkmZE3LeBaJhjYWnKdMATUC3EYboG43RI+ev
+	 FC1w2EcjobWa4sonpFRY8jgLeCdNdpXaBspyLTpX0ofs1fSAYg6CO2mO4PFDoqyBeF0qn
+	 vLBqU1Q3xI89KN12Fn02oJlk5Qv4KV2iKmS0Jj8OXeXExBQuAu5D0wbLGrTZMUu4ebsFZ
+	 UWxKMT/IChmCl2vIZ9r43TxxDVlnrmWhD/nwDb2hC03uOewTAm6P0rzKpuah17T7JCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795830002;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795830138;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=n+kvE27be363NyxQQHbSrK8teWAh3Otp3BVkAILbX8M=;
-	b=eQTQhyhgbLovosYmEnz3nzmETxMfS5r3duYQghohruBOsXAYRQUpY270lI/6GQN+KwVi
-	 ZzW9q+SHCZQGOJdyzoAtSArVLV5ciPzSlDA4RS/3Ge/79wAgc+suQxn89aOddHSjfWCpG
-	 lBIUlozC8g/aOUeK2uj83yHwpb8UYZATLTVfy1QUOBcxkT/JFf6FZ5nvt/SvgYDs2g6IZ
-	 fyvYLQIXBhIOhEM5S1iuUtIGWvdQtdy/uYhtJMzv5dsabbtH+z8JF1uhHlZ2ZsDYwjV6o
-	 Xx1HTiPMIIomQvsD5SWjqlVnXqmDqOqvyF+Vq9p3dw/MuDO56TojcDzEghfvUAaB5QQ==
+	bh=NGxIKYlTWLs9BdPsJCG0LMDXFmXTxHrXo25j3QkL8Q0=;
+	b=3OkEHxbuFxo5kz6VDgtOhkQq8VfnYtPrqp83Jy9uFPtpo6F62n1KAtQCuSYFmzrwrkFJ
+	 r5sepn7Gvo5VoX78r0dll4hP3I2jXczm3CwnwMYqh5TxtcU2ltS2titzkpYZo9N6ca4JA
+	 O3zX8ianCw7jK+k534MAIByl0nJedK/GDHTq3gR9he2Yryo3bLrZtx+bMSD/rNilHqJMI
+	 ZsLWpd/UGtn6BDvdU8voEPAwVux10NcEzIDhh+hfxZaugPb3qinStGatYb5unij4JSk79
+	 jLlZnm5YJdShRPIGcvcsgVnSy0TA46XTvb/wy6tkFIYejssaBEVudLjp5VqF7bmso0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.org;
-	spf=pass smtp.mailfrom=fastmail.org;
-	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=PO7JyoAF;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=GJDwgd8O;
-	arc=none smtp.remote-ip=202.12.124.158
-Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNXr230Y;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2783606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:40:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2783606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 282A2606A31C;
+	Sat, 28 Nov 2026 01:42:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=PO7JyoAF;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=GJDwgd8O
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4ED8A7A051D
-	for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 20:40:01 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Fri, 27 Nov 2026 20:40:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795830000; x=1795916400; bh=n+kvE27be363NyxQQHbSr
-	K8teWAh3Otp3BVkAILbX8M=; b=PO7JyoAFO8ehW3MO8OL8nNgyz9TE053qXrnxN
-	JBDdAaoEGTXX60EQQbv3uJaatP0ljh4a1NI5qlscizl29NFUtTjsnM69GuKZXAwC
-	N4mCU3gdEcpAWcu1F5bOl4YGDRbYhEBtwlFQrT9Vpk+XRgpGA6D0xBNNk0NvbWr1
-	kWRQ6oHlsK0QqxqTrNdt6KDdEmK1ouncO3hbOpo/Rz4N6ERHpaW5wRtaOBWCyX1K
-	fKoriwPh/ImbC+GFFm9M7sgx5+Dh3jaE2SQhSOBJNWIm8lLaChY7EKI6fAxEtNA/
-	RCB5WIH6+Y5wWcC4oL4P4HOQuLXqv/ej/dwLWHVoM4rg8IqCw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795830000; x=1795916400; bh=n+kvE27be363NyxQQHbSrK8teWAh3Otp3BV
-	kAILbX8M=; b=GJDwgd8Oe7uFCl70y6wJW6QTGIvNZSZHiFXpmfre7397NuFB/hk
-	C1Yf+/fQQ5Fli3zMk5Zme68YKh1QeHtX/8fvMtUM9b1Tmr3JNjRFPbDC9B4ySiZh
-	KDLqxq90mCpA82kVcVqbGyTsjYFRErsFsqFoZtCE2PsVgEVu9EMKURENnC5nm5ma
-	N3miLqJJbon2Hh4DmgXjJwVZ0q5uKul3CtiyFB1z9jsdmU282eRPlj/xuKiHxWOd
-	iEaGqWxpwrgjZKFgJrmwnlCFsOHjyALZlFCz19w+ojA0yuq2CogG12xpQ+RdUcON
-	nKkKXl1mCsN8/nlwkiJji4kcJtMrpGJsCDQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795830000; d=fastmail.org;
-	mf=PGljYkBmYXN0bWFpbC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:OhyEyw9RmgDG+UYhCIIDG/WtEkupF/8cxZ6334Q9wSoJ2wQ
-	KCVI8smO1+HtXHtfL/n/dwH6Kl8aj6eN5WN/Di5GNdmUw7EwB6uYxO3pAVM5eO5l
-	MMilkO7KB+7arzwocvgb7KoMGKGx6r3hIg4o2xvtCXDvaOzlTBaP1iS1U9RSZm1a
-	KCDsMd9RSWR6c2If4ruZt/Sm7b4YR4ikB8CBsD4oPqwHI7km7vBZlLO15mYRsmHG
-	or4FiOlpn7V7+HtW6Jlhs42KDlPjUCJGXs47RFtqOYbspBLhgQRyOe+1RD77kTOk
-	8dri5K8kdnfmwJlW7fdZOjIKbrDLC/EUfuZNYgg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:aJMZ5WVaHzprxUhtUbXWb5dWepoEU+OdYw08M5fbNsQ=:mT/wbfLBkMxa3Yo+pafoy4G0U+kURieWsn7M7GeCnj8=;
-X-ME-Sender: <xms:7zAKa5_Oncp9Qpi63MPW0qUBXtLVmtlfqzsQ16-CpLy9ZrEXnWtlGQ>
-    <xme:7zAKa-ZBF_gQDVv83bIOr4kJ4YJcLITL7EM6Ejn22N9AlPoI81OjDP-HfVbvrvzUh
-    DMvTB2jVZbLT4mZyywvlTYey9h7jm8sWaP0gJoCxaJOggMjiasudQ>
-X-ME-Received: <xmr:7zAKa1OH2AK_ceI-rDVGhyHPdZhAcn8eIcKaHTY-ZrIGucFDHF0SBEl37cg0_aTH>
-X-ME-Proxy-Cause: dmFkZTFBcALkEyB+Y09OQP87bxuTguYHmOTlWsEL/K6L4WhU/r4VziyS5xZ7Y9xwTF3IQV
-    U+VzEQa5vtc/R1zlvtsolYtOqHFoLSTxNTFzcEGAz9GwQFcmsUwWgr2krXjC5x1GSSPVMB
-    xtOCK7La9hTgSS6RRW4KEEcQGEafHhf1ZSAxiZjBBtWuCDNbWjdIg7xxZHy81h9Vzkd2BP
-    nHhdhPlYPApyhrmlAJBXnrsLCArzXGeA93H2lc/wbUeXfkCd2PvGa0DWjjzV+z4H8JqSWQ
-    EV3Pqmwxd9LfzFkiGVC+/7mBvh2JMGQSxJ9TicHQZ8gUah3ycNREeNsSCLwwilzEAHS8Dt
-    6PZCNn2W6jMWQgMijr/qeDggDmVjLIMnhSX/FoPBul0SqmjMgu+sWw6z4Wo8vSooaafUil
-    hM9H8u9KSj9Ny2yTGzogX9agydKtMaUFM5IQT68AdmUpv2AdO+KL3uEWOskHMOm6Eo8S++
-    687ZnV6ImlvxX44h+yoLjerKWAgZFbjrnte2Lal3n/zkDJbA/kJVMrAqr437mVuVv8cMuD
-    LOobk4/CAOu76qBDpPl8eTn+TBRiEqRCyWMlhBDQspZJWSTXfRMQJMvMZjC/amFSaBBHrm
-    2XV2+VPlwFECrHwVlRMxEIy2Oq+u2+p7nDW30pSe/kDYDnk0TAl4qz2dLOcQ
-X-ME-Proxy: <xmx:7zAKayCQl8yo6joDDaDIuid7uCo54Mwv5jFGh7SBhCoHG9h8Q2q_2w>
-    <xmx:7zAKa0J5X1nCmNv-RJPt2ZY6YPlz1JVV_M-AeqBYOV3ShMfkqUYX6A>
-    <xmx:7zAKazPo2GdxOizvLe813TB826ULPRvJUjwNipAYFjD9-oYnVq9Gsw>
-    <xmx:7zAKa65tifTqINelpTWXKaeWGL_HFFINGXR1pxdhdm0_eFPM1Upymw>
-    <xmx:8DAKa4TvJwXds8IFPaQ0YouenDl-Scz0Z3JXCVqKY9Ws8HwRd7sF61ED>
-Feedback-ID: ib53e4b78:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 27 Nov 2026 20:39:59 -0500 (EST)
-From: Ian Bridges <icb@fastmail.org>
-To: linkinjeon@kernel.org
-Cc: senozhatsky@chromium.org,
-	tom@talpey.com,
-	chenxiaosong@chenxiaosong.com,
-	linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ian Bridges <icb@fastmail.org>
-Subject: [PATCH] ksmbd: return the cause of a failed link
-Date: Fri, 27 Nov 2026 19:39:52 -0600
-Message-ID: <20261128013952.1691873-1-icb@fastmail.org>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNXr230Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03EB81F000C1;
+	Sat, 28 Nov 2026 01:42:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795830137;
+	bh=NGxIKYlTWLs9BdPsJCG0LMDXFmXTxHrXo25j3QkL8Q0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nNXr230YLXe7qRNa6cff7PJMk4+5H/ebByyucSmlZxTmYxpSwUtUUUDO4SayTGSrc
+	 IrK93o4EiCl883KNuHtjOjxPxkleWHWQzgNGOfz2yaipODcECiWb0mVt/hl2WPRnaZ
+	 pPWF33NEYSVe8fX9jHsJhMjRq7qNAaHcFuud1XB1DLhx1jgeJ+m2ndJdOX727rVVuI
+	 gIB414vsgClROTtG9jep2lrWGmA56xTxT+qg3fDPEJoQ0KDrgOD4Z/RjwLVpS98xcM
+	 8xCyLL0cxUmiD4AKQx3JmpERUioes0CEZO82vfhazhNp+66tqun7cSvkT1YyT/FAQk
+	 QUZZCOcZjDnZQ==
+Date: Sat, 28 Nov 2026 01:42:14 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
+Cc: robertijtsma@gmail.com, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Matti Vaittinen
+ <mazziesaccount@gmail.com>
+Subject: Re: [PATCH v3 2/2] iio: light: add ams OSRAM TCS3430 XYZ and
+ ambient light sensor driver
+Message-ID: <20261128014214.1541d7ee@jic23-hlaptop>
+In-Reply-To: <20261127-iio-tcs3430-v3-2-e191a40a4ae9@gmail.com>
+References: <20261127-iio-tcs3430-v3-0-e191a40a4ae9@gmail.com>
+	<20261127-iio-tcs3430-v3-2-e191a40a4ae9@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,58 +65,165 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-smb2_create_link() turns every error of the link, and of the removal of
-a target that the link replaces, into -EINVAL. A link that fails
-because the caller cannot write the directory therefore returns
-STATUS_INVALID_PARAMETER. Return the errors as they are, as
-smb2_rename() does, so that smb2_set_info() maps them in the same way
-as the errors of a rename.
+On Fri, 27 Nov 2026 09:12:50 +0100
+Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org> wrote:
 
-Signed-off-by: Ian Bridges <icb@fastmail.org>
----
-Tested on ksmbd-for-next 4543a3349127 with KASAN. A link into a
-directory that the caller cannot write now fails with
-STATUS_ACCESS_DENIED instead of STATUS_INVALID_PARAMETER. On a Linux
-cifs mount, ln into such a directory now reports "Permission denied".
-Before, it reported "Operation not supported". A link into a writable
-directory still succeeds. smbtorture gives the same results as on the
-base.
+> From: Robert Ijtsma <robertijtsma@gmail.com>
+> 
+> Add an IIO driver for the ams OSRAM TCS3430 ambient light and CIE 1931
+> XYZ tristimulus color sensor (found at I2C address 0x39 on devices such
+> as the Microsoft Surface Pro X).
+> 
+> Unlike the older TAOS RGBC drivers (tcs3414, tcs3472) that use the 0x80
+> COMMAND-bit SMBus protocol and RGBC channels, and unlike the banked
+> MAZeT/JENCOLOR as73211 driver, the TCS3430 uses ams's direct-addressed
+> 0x80..0xdd register map and exposes Z, Y, IR1, and X tristimulus channels.
+> 
+> The driver exposes:
+> - Illuminance (photopic Y channel) with raw counts and lux scale
+> - Modified intensity channels for X, Y, Z, and IR1
+> - Selectable scale and integration time via the IIO GTS helper across
+>   1x/4x/16x/64x/128x gain and 50.04/100.08/200.16/400.32 ms integration
+>   time settings
+> - Regulator management and system sleep suspend/resume support
+> 
+> Tested on Microsoft Surface Pro X SQ2 (SC8180X).
+> 
+> Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+Looking good.
 
-This patch was developed with LLM assistance.
+Only significant remaining question I had is over scaling of the
+channels other than the illuminance one.  
 
- fs/smb/server/smb2pdu.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+I'm not sure how easy it is to make the gts helper deal with the
+different scales (it was written much more recently than when I last
+touched a light sensor and I haven't used it myself yet as a result!)
 
-diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
-index 38326db8da40..9504c2e35819 100644
---- a/fs/smb/server/smb2pdu.c
-+++ b/fs/smb/server/smb2pdu.c
-@@ -8953,11 +8953,9 @@ static int smb2_create_link(struct ksmbd_work *work,
- 	} else {
- 		if (file_info->ReplaceIfExists) {
- 			rc = ksmbd_vfs_remove_file(work, &path);
--			if (rc) {
--				rc = -EINVAL;
-+			if (rc)
- 				ksmbd_debug(SMB, "cannot delete %s\n",
- 					    link_name);
--			}
- 		} else {
- 			rc = -EEXIST;
- 			ksmbd_debug(SMB, "link already exists\n");
-@@ -8967,8 +8965,6 @@ static int smb2_create_link(struct ksmbd_work *work,
- 			goto out;
- 	}
- 	rc = ksmbd_vfs_link(work, target_name, link_name);
--	if (rc)
--		rc = -EINVAL;
- out:
- 
- 	if (!IS_ERR(link_name))
++CC Matti for input on this.
 
-base-commit: 4543a3349127baa8395397b7f4aa930d9a4f8dd5
--- 
-2.47.3
+Thanks,
+
+Jonathan
+
+> diff --git a/drivers/iio/light/tcs3430.c b/drivers/iio/light/tcs3430.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..06e5ecd91f6502a1d8c99de4707e590dac4f5beb
+> --- /dev/null
+> +++ b/drivers/iio/light/tcs3430.c
+> @@ -0,0 +1,521 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * ams OSRAM TCS3430 ambient light and CIE 1931 XYZ sensor driver
+> + *
+> + * Copyright (C) 2026 Robert Ijtsma <robertijtsma@gmail.com>
+> + *
+> + * Datasheet:
+> + *   https://look.ams-osram.com/m/43d518b4cd81e3f2/original/TCS3430-DS000539.pdf
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/device.h>
+
+I didn't check, but do we need device.h itself or can we use
+more specific headers like dev_printk.h?
+
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/pm.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/types.h>
+> +
+> +#include <asm/byteorder.h>
+
+> +
+> +/*
+> + * Photopic Y channel typical sensitivity from datasheet optical characteristics:
+> + * ~0.537 counts/lux at AGAIN = 16x and ATIME = 100 ms (36 cycles), giving:
+> + *   lux/count = 2980 / (gain * integration_time_ms)
+> + *
+> + * At minimum gain (1x) and shortest integration time (50.04 ms, 18 cycles):
+> + *   max_scale = 2980 / 50.04 = 59.552358113 lux/count
+> + */
+> +#define TCS3430_MAX_SCALE_INT		59
+> +#define TCS3430_MAX_SCALE_NANO		552358113
+
+
+> +static int tcs3430_apply_itime(struct tcs3430_data *data, u8 atime)
+> +{
+> +	int ret;
+> +
+> +	ret = regmap_write(data->regmap, TCS3430_REG_ATIME, atime);
+> +	if (ret)
+> +		return ret;
+> +
+> +	data->atime = atime;
+
+Trivial but slightly preference for a blank line before simple
+returns of 0 for success like these.  Just makes them stand out a tiny
+bit more as being the good path.
+
+> +	return 0;
+> +}
+
+> +
+> +#define TCS3430_INTENSITY_CHANNEL(_mod, _addr) {			\
+> +	.type = IIO_INTENSITY,						\
+> +	.modified = 1,							\
+> +	.channel2 = (_mod),						\
+> +	.address = (_addr),						\
+> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),			\
+> +	.info_mask_shared_by_all = BIT(IIO_CHAN_INFO_INT_TIME),		\
+> +	.info_mask_shared_by_all_available =				\
+> +		BIT(IIO_CHAN_INFO_INT_TIME),				\
+> +}
+> +
+> +static const struct iio_chan_spec tcs3430_channels[] = {
+> +	{
+> +		.type = IIO_LIGHT,
+> +		.address = TCS3430_REG_CH1DATAL,
+> +		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
+> +				      BIT(IIO_CHAN_INFO_SCALE),
+> +		.info_mask_separate_available = BIT(IIO_CHAN_INFO_SCALE),
+
+Scale is a bit of a weird concept for the various intensity channels
+but I'd still expect that if we change this scale, they would be affected
+(if it modifies AGAIN rather than the integration time that you are exposing).
+Hence I'm a little surprised to see it only here.
+
+The actual scaling doesn't matter for intensity channels because they are
+normally poorly defined though for CIE XYZ we are in a better state than
+normal so if the gain doubles they should double.  I'd expect the same
+for the IR channel. Or am I missing something?
+
+Upshot, I think this is either shared_by_all or separate but for
+each element with appropriate additional scale factors rolled in
+I played with an LLM and it thinks the values are a bit wrong for the
+listed 2700K white test relecting perhaps a small channel specific scaling?
+
+I'm not immediately sure how we do that with the gts code.
+
+Perhaps just keeping the one simple scaling control is the right option
+but I think we do need to expose it for all channels.
+
+
+
+> +		.info_mask_shared_by_all = BIT(IIO_CHAN_INFO_INT_TIME),
+> +		.info_mask_shared_by_all_available =
+> +			BIT(IIO_CHAN_INFO_INT_TIME),
+> +	},
+> +	TCS3430_INTENSITY_CHANNEL(IIO_MOD_Z, TCS3430_REG_CH0DATAL),
+> +	TCS3430_INTENSITY_CHANNEL(IIO_MOD_Y, TCS3430_REG_CH1DATAL),
+> +	TCS3430_INTENSITY_CHANNEL(IIO_MOD_LIGHT_IR, TCS3430_REG_CH2DATAL),
+> +	TCS3430_INTENSITY_CHANNEL(IIO_MOD_X, TCS3430_REG_CH3DATAL),
+> +};
+
 
