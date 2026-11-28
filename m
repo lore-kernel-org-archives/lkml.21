@@ -1,94 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.171.160.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795852111;
-	b=zzTGMN+nACjSP5Y9SDQhCRgCXZzB7rDCSjGNE8lPul/M6MEgl5YdgB5bn9aKouZqqn0T
-	 Hj0nl8DD5B+18wy/1uXp0svIsnsZr+bal5tu4BESsOZT7SQoQAWF7yd8dz1dk+pf1rEm5
-	 DsoG1l1w+/KvB+1K8TwFjwd+sLgKZe8M7XsB47VK5+5LVqDpzUUKSkUfsIvoJIhhwC1vQ
-	 Fus/FPkDIP+WSCSf3ER7laBHLkzvIanXF3vzUVrilcxxalfqkTcEOmt8LZj84obiI239H
-	 Eka+8l6NKnX08AyAwVuv5JqOpnWITmmZINmb0ZAU6H5z//ddrVyv0A1RimBVGs5+hhQ==
+	t=1795852266;
+	b=JoSPQtrKin/jm7/ppqxjkl0/Si29FArF/CPpldN/L22JLwgnhYO09YhRv02ezVIrwS0g
+	 OeUegsO/WmH32Sg8x3m9P7BbYso0A6NpeiGj5ffSz+PxBmvuSld3sp0WYrRNlLGTjcEh3
+	 G1xvkM7N1zeeLRN6lnfD4t8gPcKR3i/8jqkxuN37zjUY2YW8Ev031pYSMNvFKMB7f4Q38
+	 x9H2B1jnm/zMb+ObMLb9Kjed4gyEEuoUY0Hupx/UgVYR8tyW6jlesFmTK+1o7wUAfPjvY
+	 bPphAhURrQE6dEVnWzTEkLginj/XMP9ka94tR1HkiQu1mma7I2n8TwOEaOhfuhzjA8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795852111;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-MTK;
-	bh=E+173aj9W1CQUJ1n+dj88FblF5rxwIvl1pCcPl7OP8c=;
-	b=Gxw5L/pAd5PGq5FqMI+clr4qG8yrFxYgS+Dno+p4u9h7o49YsGpjqyH3VGzpOqf+7Y5E
-	 88qVZ4yHhnPt7Cb1Jxz3iJsX2wpbtgSmaE2/dxk1p22tvtHqgt1z9RW7594AMCVf0nL+K
-	 SWkUdInLLML2XOPLwePV83evPSvT5NN4jVHAYKUsjYOvKp6xjd1jzdecXly2+TQI0Iq+6
-	 nV3O2lNbpkVELqdn88T4sogbGi78qFHK4XORfkcVHnzZ5hRQgCaV+KkQBjR5khmjqdm0v
-	 ysCxKBWL8675mRzgI4GPZe7Cm3e/UyjbKn50Hb2TYsJVr4WgJexUq7VLM8GKVZeU7Uw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795852266;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
+	 User-Agent:MIME-Version:Content-Type;
+	bh=98031xNii7Sl8gn1ue6ZuB2M2pAzYOkrCW/79fWX61c=;
+	b=VaCtVvVQvXxuzV6gC/eituUQJw+l80yqB3ENmiFGH0qCjGQBo7treJIKswOkS8mLA+fo
+	 peNGrSUjYNpOrWevPd6I8zfIoI1v+ewr4P8zV3ToNCdRSMQxg9oO3mXlimHiD+J3M9c1j
+	 Z3eP9hjkne2W174Gy2p89562xT6U1UqpUtEOBLuTpJ1240TBNn7GCvIW9atgoBu13tDlX
+	 YTUmZB0omGEmWk9mGkZsL1DVLPHDnxw3SpObiBjl13ueWe/wQkpyoWeAZ6nbO0KywQoqx
+	 xJLnPT0iYzo00jzGxlfl65pHsALpLlh6zg2FFaFK3Lfon6Mn5jTxWZVJkma7X34BjsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=KnUfKic3;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=mail.parknet.co.jp;
+	spf=pass smtp.mailfrom=parknet.co.jp;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=WjqSyvQ3;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=AR7jz+8F;
+	arc=none smtp.remote-ip=210.171.160.6
+Received: from mail.parknet.co.jp (mail.parknet.co.jp [210.171.160.6])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4189F606A329;
-	Sat, 28 Nov 2026 07:48:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4189F606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B4F2606A31C;
+	Sat, 28 Nov 2026 07:51:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B4F2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.parknet.co.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=parknet.co.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=KnUfKic3
-X-UUID: 1727e660eb0011f1b9cf3d4034dccee2-20261128
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=E+173aj9W1CQUJ1n+dj88FblF5rxwIvl1pCcPl7OP8c=;
-	b=KnUfKic3aIFcrmyjVOCietCgVaBSx//8CTLhKNWD95Fs8/zD2uCIl9mmWDEzkD9ram+XWoF8TBkIzJOz7zK+Tor+iSctiPrDuG2H8AQjzt8IEW2JCWfKf4LodupPQeZwWwDsAqVWn/wIfelvLscGdL443XPn1o8ORvdhpt2J6N4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:bc0fe6cf-44e0-4e51-b07e-63ac8bb2c316,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:84cd2c1a-ae4c-4a2b-b1c4-72e411efd0c9,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1727e660eb0011f1b9cf3d4034dccee2-20261128
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1418819399; Sat, 28 Nov 2026 15:48:24 +0800
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sat, 28 Nov 2026 15:48:23 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Sat, 28 Nov 2026 15:48:21 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Ricardo Ribalda
-	<ribalda@chromium.org>, Kees Cook <kees@kernel.org>, Hans Verkuil
-	<hverkuil+cisco@kernel.org>, Fei Shao <fshao@chromium.org>, Haoxiang Li
-	<haoxiang_li2024@163.com>, Chen-Yu Tsai <wenst@chromium.org>, Laurent
- Pinchart <laurent.pinchart+renesas@ideasonboard.com>, Tomasz Figa
-	<tfiga@chromium.org>, Philipp Zabel <p.zabel@pengutronix.de>, Benjamin
- Gaignard <benjamin.gaignard@collabora.com>, Qianfeng Rong
-	<rongqianfeng@vivo.com>, Irui Wang <irui.wang@mediatek.com>, Jacopo Mondi
-	<jacopo.mondi@ideasonboard.com>, Fan Wu <fanwu01@zju.edu.cn>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Sakari Ailus <sakari.ailus@linux.intel.com>
-Subject: [PATCH v10 12/14] media: mediatek: vcodec: clean xpc status
-Date: Sat, 28 Nov 2026 15:47:58 +0800
-Message-ID: <20261128074800.3108429-13-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261128074800.3108429-1-kyrie.wu@mediatek.com>
-References: <20261128074800.3108429-1-kyrie.wu@mediatek.com>
+	dkim=pass (2048-bit key, unprotected) header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=WjqSyvQ3;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=AR7jz+8F
+Received: from ibmpc.myhome.or.jp (server.parknet.ne.jp [210.171.168.39])
+	by mail.parknet.co.jp (Postfix) with ESMTPSA id B280B20BD2A0;
+	Sat, 28 Nov 2026 16:50:56 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=parknet.co.jp;
+	s=20250114; t=1795852256;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=98031xNii7Sl8gn1ue6ZuB2M2pAzYOkrCW/79fWX61c=;
+	b=WjqSyvQ3uqs/M0wppCJ9gWFDBAZDxACvOXZ84U1WTBMMQStM0tzj9pNZQV4QY3MWXp8qyf
+	QiYiSimjYrwfIeF+oj1cj1NxbVP9xzL6ksVOUBeLeW+jBXjdLIUVP0Up3UEHvWkdtrDwR4
+	RctbaO5bTFxKhnypPCOTyVGrMwTxwnMc7pBQWhvN6Mf44SxNGG3xdm5Q+0+fovQUbOwcRK
+	S78LJydQykYgmqzvGvGIv0+dDphVVn2p+EwAb0BZRiEyL3Vax6SjUV/M0cE12pdNfWkEPP
+	VFmFpS1BaghmTAcgDiCsCYxFBWEqOvkin+ULuK9xgDWGAt5gdp0D9nVZY+zAHA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=parknet.co.jp;
+	s=20250114-ed25519; t=1795852256;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=98031xNii7Sl8gn1ue6ZuB2M2pAzYOkrCW/79fWX61c=;
+	b=AR7jz+8FVqlYNYzH4xiy+sUvLhw1i1U9z6egzVFtP2w8e9tL05OvifTOXZV+BW2KwoTx8w
+	N4QOdMnhckRbm1BQ==
+Received: from devron.myhome.or.jp (devron.myhome.or.jp [192.168.0.3])
+	by ibmpc.myhome.or.jp (Postfix) with ESMTPS id 3EAB4E002C5;
+	Sat, 28 Nov 2026 16:50:56 +0900 (JST)
+Received: by devron.myhome.or.jp (Postfix, from userid 1000)
+	id 327992200208; Sat, 28 Nov 2026 16:50:56 +0900 (JST)
+From: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-kernel@vger.kernel.org,  linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 2/4] fat: support O_TMPFILE on vfat
+In-Reply-To: <20261126-work-fat-tmpfile-v1-2-3bca7b2dbc20@kernel.org>
+References: <20261126-work-fat-tmpfile-v1-0-3bca7b2dbc20@kernel.org>
+	<20261126-work-fat-tmpfile-v1-2-3bca7b2dbc20@kernel.org>
+Date: Sat, 28 Nov 2026 16:50:56 +0900
+Message-ID: <87a4mtqtr3.fsf@mail.parknet.co.jp>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,109 +80,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-MTK: N
 
-The driver need to clean xpc status when receive decoder hardware
-interrupt for mt8196 platform.
+Christian Brauner <brauner@kernel.org> writes:
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
----
- .../vcodec/decoder/mtk_vcodec_dec_hw.c        | 31 +++++++++++++++++++
- .../vcodec/decoder/mtk_vcodec_dec_hw.h        | 13 ++++++--
- 2 files changed, 42 insertions(+), 2 deletions(-)
+> Currently, vfat doesn't implement ->link() since FAT has no hard links
+> and link(2) fails with EPERM. But O_TMPFILE is only half a feature
+> without linkat(). Worse, implementing just ->tmpfile() would break
+> userspace that works fine right now. systemd's
+> open_tmpfile_linkable_at() only falls back to a named temporary file if
+> opening with O_TMPFILE fails. If the open succeeds link_tmpfile_at()
+> calls linkat() and gives up if that fails. bootctl writes loader.conf,
+> entries.srel and the boot loader binaries to the ESP like that.
+>
+> So add a ->link() that only gives an O_TMPFILE its first name.
+> vfs_link() refuses to link an inode without links unless it is
+> I_LINKABLE and it checks that under the inode lock. So an inode without
+> links that makes it into vfat_link() is an O_TMPFILE that may be
+> linked. Everything else still gets EPERM.
+>
+> Linking does what vfat_rename() does for a new name: add the directory
+> entry, attach the inode at its position and let the inode write fill in
+> the start cluster and the size.
+>
+> If the system crashes while an O_TMPFILE is open its clusters stay
+> allocated but no directory entry refers to them. The same thing happens
+> to an open file that was unlinked. fsck.fat finds them as lost
+> clusters, with -a it saves them to FSCKnnnn.REC files. ext2, minix and
+> udf implement O_TMPFILE without orphan handling as well.
+>
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> ---
+>  fs/fat/namei_vfat.c | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>
+> diff --git a/fs/fat/namei_vfat.c b/fs/fat/namei_vfat.c
+> index 791f2d7b85092..31b4a293c0493 100644
+> --- a/fs/fat/namei_vfat.c
+> +++ b/fs/fat/namei_vfat.c
+> @@ -938,6 +938,50 @@ static void vfat_update_dir_metadata(struct inode *dir, struct timespec64 *ts)
+>  		(void)sync_inode_metadata(dir, 1);
+>  }
+>  
+> +static int vfat_link(struct dentry *old_dentry, struct inode *dir,
+> +		     struct dentry *dentry)
+> +{
+> +	struct inode *inode = d_inode(old_dentry);
+> +	struct super_block *sb = dir->i_sb;
+> +	struct fat_slot_info sinfo;
+> +	struct timespec64 ts;
+> +	int err, err2;
+> +
+> +	/* No hard links on FAT, only give an O_TMPFILE its first name. */
+> +	if (inode->i_nlink)
+> +		return -EPERM;
+> +
+> +	mutex_lock(&MSDOS_SB(sb)->s_lock);
+> +
+> +	ts = current_time(dir);
+> +	err = vfat_add_entry(dir, &dentry->d_name, 0, 0, &ts, &sinfo);
+> +	if (err)
+> +		goto out;
+> +	inode_inc_iversion(dir);
+> +
+> +	fat_attach(inode, sinfo.i_pos);
+> +	err = vfat_sync_ipos(dir, inode);
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.c
-index fa0e13145..e75fe79d0 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.c
-@@ -61,6 +61,34 @@ static int mtk_vdec_hw_prob_done(struct mtk_vcodec_dec_dev *vdec_dev)
- 	return 0;
- }
- 
-+static void mtk_vdec_hw_write_reg_mask(void __iomem *reg_base, u32 reg_offset, u32 val, u32 mask)
-+{
-+	void __iomem *reg_addr = reg_base + reg_offset;
-+	u32 reg_val;
-+
-+	reg_val =  readl(reg_addr);
-+	reg_val &= ~mask;
-+	reg_val |= (val & mask);
-+	writel(reg_val, reg_addr);
-+}
-+
-+static void mtk_vdec_hw_clean_xpc(struct mtk_vdec_hw_dev *dev)
-+{
-+	unsigned long flags;
-+	u32 val, mask, addr = VDEC_XPC_CLEAN_ADDR;
-+
-+	if (dev->main_dev->chip_name != MTK_VDEC_MT8196)
-+		return;
-+
-+	val = dev->hw_idx == MTK_VDEC_LAT0 ? VDEC_XPC_LAT_VAL : VDEC_XPC_CORE_VAL;
-+	mask = dev->hw_idx == MTK_VDEC_LAT0 ? VDEC_XPC_LAT_MASK : VDEC_XPC_CORE_MASK;
-+
-+	spin_lock_irqsave(&dev->main_dev->irqlock, flags);
-+	mtk_vdec_hw_write_reg_mask(dev->reg_base[VDEC_HW_XPC], addr, val, mask);
-+	mtk_vdec_hw_write_reg_mask(dev->reg_base[VDEC_HW_XPC], addr, 0, mask);
-+	spin_unlock_irqrestore(&dev->main_dev->irqlock, flags);
-+}
-+
- static irqreturn_t mtk_vdec_hw_irq_handler(int irq, void *priv)
- {
- 	struct mtk_vdec_hw_dev *dev = priv;
-@@ -88,6 +116,8 @@ static irqreturn_t mtk_vdec_hw_irq_handler(int irq, void *priv)
- 	writel(dec_done_status | VDEC_IRQ_CFG, vdec_misc_addr);
- 	writel(dec_done_status & ~VDEC_IRQ_CLR, vdec_misc_addr);
- 
-+	mtk_vdec_hw_clean_xpc(dev);
-+
- 	wake_up_dec_ctx(ctx, MTK_INST_IRQ_RECEIVED, dev->hw_idx);
- 
- 	mtk_v4l2_vdec_dbg(3, ctx, "wake up ctx %d, dec_done_status=%x",
-@@ -166,6 +196,7 @@ static int mtk_vdec_hw_probe(struct platform_device *pdev)
- 	subdev_dev->hw_idx = hw_idx;
- 	subdev_dev->main_dev = main_dev;
- 	subdev_dev->reg_base[VDEC_HW_SYS] = main_dev->reg_base[VDEC_HW_SYS];
-+	subdev_dev->reg_base[VDEC_HW_XPC] = main_dev->reg_base[VDEC_HW_MISC];
- 	set_bit(subdev_dev->hw_idx, main_dev->subdev_bitmap);
- 
- 	if (IS_SUPPORT_VDEC_HW_IRQ(hw_idx)) {
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.h
-index 83fe8b942..5c906143c 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.h
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_hw.h
-@@ -18,17 +18,26 @@
- #define VDEC_IRQ_CLR 0x10
- #define VDEC_IRQ_CFG_REG 0xa4
- 
-+#define VDEC_XPC_CLEAN_ADDR 0xc
-+#define VDEC_XPC_LAT_VAL BIT(0)
-+#define VDEC_XPC_LAT_MASK BIT(0)
-+
-+#define VDEC_XPC_CORE_VAL BIT(4)
-+#define VDEC_XPC_CORE_MASK BIT(4)
-+
- #define IS_SUPPORT_VDEC_HW_IRQ(hw_idx) ((hw_idx) != MTK_VDEC_LAT_SOC)
- 
- /**
-  * enum mtk_vdec_hw_reg_idx - subdev hardware register base index
-- * @VDEC_HW_SYS : vdec soc register index
-+ * @VDEC_HW_SYS:  vdec soc register index
-  * @VDEC_HW_MISC: vdec misc register index
-- * @VDEC_HW_MAX : vdec supported max register index
-+ * @VDEC_HW_XPC:  vdec xpc register index
-+ * @VDEC_HW_MAX:  vdec supported max register index
-  */
- enum mtk_vdec_hw_reg_idx {
- 	VDEC_HW_SYS,
- 	VDEC_HW_MISC,
-+	VDEC_HW_XPC,
- 	VDEC_HW_MAX
- };
- 
+Please add "FIXME: this sync should be done within vfat_add_entry()"
+
+Thanks.
+
+> +	if (err)
+> +		goto out_detach;
+> +	brelse(sinfo.bh);
+
+[...]
 -- 
-2.51.0.windows.2
-
+OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
