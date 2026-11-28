@@ -1,52 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795859183;
-	b=SwzyBTS2vFMvlleyRBxJy3CmA/mgCn2D9IorLYuVle/BU+ihHOpa8Efufn4mjruj2FB/
-	 Ih+RTgSLVvZBxBExh3IGNA1If3+sFdLvzI8K1/gxg2dgmomwq9kcCn52mGXBscojm5FB2
-	 IW6sOGTyzoJWgKtT9JZfAFvPlYBCmbnOJ/PtAoZw9Xxi/7kzsDnBeEL/Gd2TRj7pR5ZT/
-	 gwuYP7bngOzGpACGpALcs6mVUEpMNq+rtUBPg2qipqoVI+wKG3B6Orxdn/fIKq11LMZsv
-	 z9QMMOzJ2hNk5nIk9LS3Q9knz8lv5bONnucEFPP9zhRf23nIA5UQtWcor6fSi/mRTWg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795859183;
-	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
-	bh=N1Pv9e90sqGPpxpDoeaBna5JxW1ylKtr6jEfKiV54yw=;
-	b=OC+WzHFnniKFulwbEHmnFRgFlI0rZ/jrORXtqOSRwGd4baO4JsrRIpQasC4CQVy4Dl8c
-	 HWOlW0x9gOhoj2CYojU/0OePBHMY4hqlKkwBu4q7V6GoGA67SC59SMaUgTXQRFFS0DR37
-	 E1wh10jSeomFfc3G9sKbB9G+56wY7ftE/pr8ciyHfOC4CJmcAmcasGImhP7qstxLOqbLc
-	 VTaIkuWI/wgM5Hyy/pkiMd/ieybfCqOe6TSYupl6N1Sqqbo55fFhdNX8E67l8ddiUYNzc
-	 lr4Lya3wq9CKvZF+vj1jhfdyHT81ZvnvR/Sybwa8Etd84GUWeLoxknvFrLBxnRccwzg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pigmoral.tech;
-	spf=pass smtp.mailfrom=pigmoral.tech;
-	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=mh3ywakH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
-Received: from sender6-op-o12.zoho.com (sender6-op-o12.zoho.com [165.173.180.12])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795859287;
+	b=sBoSsOTcOkqIdolO7ax+K45MkLZXhhL7x+YSqEa5SG6xC6zWUiQhWNWhjAsI2IkX8kXh
+	 Wl9RxlLabeZRW2T1SwRNuloq9q9J69WEGhQ7fnFT6iqVVqtOtmZWVkgOBM6nWRSv9yz1W
+	 +Cc0GhnQkHKRgqY5I6a4zID41aCXdZYfL//zvk+Ggmcruhyl6YLxeR5as4XxIc69jHLoi
+	 BE87jTFLf60frKVVjvnlGCfjtqqCBNexDRI/v4eAix2orGaGrY8q7I95LXeggtflcoL/R
+	 EG2fy5pLWl1YKxGQCOaVgf8P7q9XsAa5F/jzZkW1orMnJYo0uXvsXixDHfBsVonBDJw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859287;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=A6lwpGgzwvCeFJDP70YLU2vCok5Bu0SL9HPAQj+3Xw8=;
+	b=gVOEJgNWYDjyWpVIP279iDskQ7qle0VAUSuhqCBmm9sm9r9RIoLbaRvctYHS2X/6P1E5
+	 z0gBymQyqn+1Cgbe9P4iyvsSVlQ8hKt8Nc28OfGRmMuUphr8YppfU7aTPMtQKSJe/dyk+
+	 FJwlkkra0+oB/X9sAjU6/cPlnHHpvv60FpyShlmI6xiptcz5UXp0zWJ7fP4X0i2MgtIkc
+	 mjzON7gg8cS43CXvS0lREYC0qIumPp3B8gFzPIv0nlJD/j9dcgGNjIt47ErSNxNyF8v70
+	 xkPnYyDicpUEp+kEc3K6TNc61Ucrr0uVX8n6j3x/PHD6l/6NbekiDlLRgvunYGG9cLg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=QNE6Ovwk;
+	arc=none smtp.remote-ip=45.254.49.197
+Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ABBA606A31C;
-	Sat, 28 Nov 2026 09:46:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ABBA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13E74606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:48:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13E74606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=mh3ywakH
-ARC-Seal: i=1; a=rsa-sha256; t=1795859137; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MXA6S8xwgPT1pT0HqddVqnOOSk5JyP0352e6/MSGVG+1MAtzOKD5KsuJ91Fx3oibidgBPFwEwz0Drfwe6Sgp4vZd+2hm+fVTUq18q3kBYVpdps5IKl0kF5LZQJp1EWbg7MxZMqAfbYi4NR4vykcYZG5URXylFqnuLS07QFCtBmM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795859137; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=N1Pv9e90sqGPpxpDoeaBna5JxW1ylKtr6jEfKiV54yw=; 
-	b=f5CElqCZ9I0CwSQf4paMuvYkNnHqd2zCAych16WDHYz0zSVNlKNqqYUzJfJcNBjE4cObdNREN67ku2hTut7OBjgis5H7PGC5bhNdkVfeFNF+PIVMySEokbDJf7JdYQ+TDZZV4GfJXYj4MzR3xr0xJdMocd6dmC8bPi1ls/TzKDA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: a=rsa-sha256; b=mh3ywakHBA5q8LPU08XHX+FUnPhJIBuxeVEOVI/NtpJpkJBM4WxEo8MNK9GPm3FlLTb77B6QFnRSgoh3UWq3NhabU6cJyLz6BbnO/3ZlYtGTqMGJt7uzHNv86yUrMZopxw57Cismm6Y+oKa3uvQEqtR7Fl2RfeOtjYnCvhgrx4U=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=N1Pv9e90sqGPpxpDoeaBna5JxW1ylKtr6jEfKiV54yw=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795859134420900.6792305425204;
-	Sat, 28 Nov 2026 01:45:34 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=QNE6Ovwk
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5655b08ae;
+	Sat, 28 Nov 2026 17:48:03 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: arnd@arndb.de,
+	gregkh@linuxfoundation.org,
+	mchehab+huawei@kernel.org,
+	mayulong1@huawei.com
+Cc: linux-kernel@vger.kernel.org
+Subject: [PATCH] misc: hi6421v600-irq: Release IRQ mappings and domain on teardown
+Date: Sat, 28 Nov 2026 17:48:03 +0800
+Message-ID: <20261128-f81b700d6c-u37-0@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,142 +54,66 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 28 Nov 2026 17:45:15 +0800
-Message-Id: <DN6QXCF5LYQM.1F5IA58ETMXVM@pigmoral.tech>
-Cc: "Daniel Lezcano" <daniel.lezcano@kernel.org>, "Thomas Gleixner"
- <tglx@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Yixun Lan"
- <dlan@kernel.org>, "Inochi Amaoto" <inochiama@outlook.com>, "Radu Rendec"
- <radu@rendec.net>, "Paul Walmsley" <pjw@kernel.org>, "Samuel Holland"
- <samuel.holland@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Anup
- Patel" <anup@brainfault.org>, "Guodong Xu" <docular.xu@gmail.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, "Conor
- Dooley" <conor.dooley@microchip.com>, "Bo Gan" <ganboing@gmail.com>
-Subject: Re: [PATCH v3 6/6] riscv: dts: spacemit: k3: Replace incorrect
- CLINT node with ACLINT nodes
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Anirudh Srinivasan" <asrinivasan@oss.tenstorrent.com>, "Junhui Liu"
- <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.22.0
-References: <20260918-k3-aclint-v3-0-cf4fd4050e14@pigmoral.tech>
- <20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech>
- <yf2dawzefycxhhs7zkua3v3hoirals3wtr6rheh4li33eq7r4i@yb7cem4r6x3z>
-In-Reply-To: <yf2dawzefycxhhs7zkua3v3hoirals3wtr6rheh4li33eq7r4i@yb7cem4r6x3z>
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa2218dffa103a1kunm01b2ca9d4522a6
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCH01KVh1CQ08aHhpIHxgeHVYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWUtVS1VLVUtZBg
+	++
+DKIM-Signature: a=rsa-sha256;
+	b=QNE6Ovwkz9kDN4k5QKEGbrDixy8/1b/yQCHNIr9SfVaHIyrYQfqZTyWiAUKHbXDnYMZChjKpyCD1SYzNUWhnLumx+y/SxIFYX3j48/1Kgkp6KDcxK47mRjGEwyhXVytXu3bRkd/QivNqZ99dOUFYl2ih7QHL1/QJbvL5EMu72BY=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=A6lwpGgzwvCeFJDP70YLU2vCok5Bu0SL9HPAQj+3Xw8=;
+	h=date:mime-version:subject:message-id:from;
 
-Hi Anirudh,
+A mapping or IRQ request failure leaves the domain and earlier mappings
+registered. They also outlive the PMIC interrupt data on removal. Add
+a managed cleanup before creating the first mapping, so the parent
+handler is freed before the mappings are disposed of.
 
-On Fri Nov 27, 2026 at 1:27 PM CST, Anirudh Srinivasan wrote:
-> Hi Junhui,
->
-> On Fri, Sep 18, 2026 at 12:29:38AM +0800, Junhui Liu wrote:
->> The K3 implements separate ACLINT MSWI, MTIMER and SSWI devices. The
->> existing CLINT node at 0xe081c000 incorrectly describes the SSWI
->> register space in the non-secure window as a legacy CLINT.
->>=20
->> The ACLINT register space is mapped at two base addresses: a secure
->> window at 0xf1810000 and a non-secure window at 0xe0810000. The
->> secure window exposes all three components, while the non-secure
->> window only exposes SSWI; the MSWI and MTIMER offsets are reserved
->> there. Moreover, depending on the eFuse configuration, the non-secure
->> window may be entirely inaccessible, whereas the secure window is
->> always available.
->>=20
->> Replace the CLINT node with the three ACLINT devices, all using
->> secure-window addresses: MSWI and MTIMER for machine-level firmware
->> such as OpenSBI, and SSWI for supervisor software interrupts.
->>=20
->> Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 S=
-oC")
->> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->> ---
->>  arch/riscv/boot/dts/spacemit/k3.dtsi | 43 +++++++++++++++++++++++++----=
--------
->>  1 file changed, 30 insertions(+), 13 deletions(-)
->>=20
->> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/=
-spacemit/k3.dtsi
->> index c3f2dce0969c..74831974435e 100644
->> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
->> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
->> @@ -1261,19 +1261,6 @@ saplic: interrupt-controller@e0804000 {
->>  			riscv,num-sources =3D <512>;
->>  		};
->> =20
->> -		clint: timer@e081c000 {
->> -			compatible =3D "spacemit,k3-clint", "sifive,clint0";
->> -			reg =3D <0x0 0xe081c000 0x0 0x4000>;
->> -			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>,
->> -					      <&cpu1_intc 3>, <&cpu1_intc 7>,
->> -					      <&cpu2_intc 3>, <&cpu2_intc 7>,
->> -					      <&cpu3_intc 3>, <&cpu3_intc 7>,
->> -					      <&cpu4_intc 3>, <&cpu4_intc 7>,
->> -					      <&cpu5_intc 3>, <&cpu5_intc 7>,
->> -					      <&cpu6_intc 3>, <&cpu6_intc 7>,
->> -					      <&cpu7_intc 3>, <&cpu7_intc 7>;
->> -		};
->> -
->>  		/* sec_i2c3: 0xf0614000, not available from Linux */
->> =20
->>  		mimsic: interrupt-controller@f1000000 {
->> @@ -1305,5 +1292,35 @@ maplic: interrupt-controller@f1800000 {
->>  			riscv,num-sources =3D <512>;
->>  			status =3D "reserved";
->>  		};
->> +
->> +		aclint_mswi: interrupt-controller@f1810000 {
->> +			compatible =3D "spacemit,k3-aclint-mswi";
->> +			reg =3D <0x0 0xf1810000 0x0 0x4000>;
->> +			interrupts-extended =3D <&cpu0_intc 3>, <&cpu1_intc 3>,
->> +					      <&cpu2_intc 3>, <&cpu3_intc 3>,
->> +					      <&cpu4_intc 3>, <&cpu5_intc 3>,
->> +					      <&cpu6_intc 3>, <&cpu7_intc 3>;
->> +		};
->> +
->> +		aclint_mtimer: timer@f1814000 {
->> +			compatible =3D "spacemit,k3-aclint-mtimer";
->
-> I think you'll need to also include the "riscv,aclint-mtimer" compatible
-> here so that this DT can be used with upstream OpenSBI. OpenSBI doesn't
-> include the spacemit specific compatible. OpenSBI boot prints this
-> currently.
->
-> Platform Timer Device       : --- @ 0Hz
->
+This issue was found by our static analysis tool under development.
 
-Currently, "riscv,aclint-mtimer" is not part of an upstream Linux
-binding, so I don't think we should add it to the K3 DTS yet.
+Fixes: 4524ac56cdca ("staging: mfd: add a PMIC driver for HiSilicon 6421 SPMI version")
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+ drivers/misc/hi6421v600-irq.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-Your colleagues at Tenstorrent proposed adding this compatible in v3
-of the Atlantis series [1], but it was dropped from v4. The v4
-changelog says that the binding will be submitted separately [2].
+diff --git a/drivers/misc/hi6421v600-irq.c b/drivers/misc/hi6421v600-irq.c
+index 7d2eb7ed7698..5b9d08b057f9 100644
+--- a/drivers/misc/hi6421v600-irq.c
++++ b/drivers/misc/hi6421v600-irq.c
+@@ -211,6 +211,16 @@ static void hi6421v600_irq_init(struct hi6421v600_irq *priv)
+ 	}
+ }
+ 
++static void hi6421v600_irq_domain_remove(void *data)
++{
++	struct hi6421v600_irq *priv = data;
++	int i;
++
++	for (i = 0; i < PMIC_IRQ_LIST_MAX; i++)
++		irq_dispose_mapping(priv->irqs[i]);
++	irq_domain_remove(priv->domain);
++}
++
+ static int hi6421v600_irq_probe(struct platform_device *pdev)
+ {
+ 	struct device *pmic_dev = pdev->dev.parent;
+@@ -260,6 +270,10 @@ static int hi6421v600_irq_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	}
+ 
++	ret = devm_add_action_or_reset(dev, hi6421v600_irq_domain_remove, priv);
++	if (ret)
++		return ret;
++
+ 	for (i = 0; i < PMIC_IRQ_LIST_MAX; i++) {
+ 		virq = irq_create_mapping(priv->domain, i);
+ 		if (!virq) {
 
-If the binding is accepted, we can then add the generic compatible
-to the K3 DTS. Otherwise, OpenSBI will need to add support for the
-K3-specific compatible.
-
-[1] https://lore.kernel.org/linux-riscv/20261109051050.105623-5-joel@jms.id=
-.au/
-[2] https://lore.kernel.org/linux-riscv/20261127061432.17306-1-joel@jms.id.=
-au/
-
-Best regards,
-Junhui Liu
-
->> +			reg =3D <0x0 0xf1814000 0x0 0x8000>;
->> +			reg-names =3D "mtimecmp";
->> +			interrupts-extended =3D <&cpu0_intc 7>, <&cpu1_intc 7>,
->> +					      <&cpu2_intc 7>, <&cpu3_intc 7>,
->> +					      <&cpu4_intc 7>, <&cpu5_intc 7>,
->> +					      <&cpu6_intc 7>, <&cpu7_intc 7>;
->> +		};
->
->
-> Regards
-> Anirudh Srinivasan
+base-commit: 86266f137b5c18d477a2df8168149203852b037d
+-- 
+2.43.0
 
