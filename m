@@ -1,70 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795876490;
-	b=3TWUjpB7YCl5g5hM5otIxLGU4plAFBwnG1FRRDJ02rtCySW4AJa1fNwIid3YGXF0YWkA
-	 KsOYsY6cHmcYpT5WSBDVLd1F3lOB1zmgxYiksPGR1Ja15CShqdRrx3UaA2GX3zZE70SW7
-	 vn+GHLXuYM3wk5Al62fnvUddBmsE79IYo6GLnzXPeMkUJc/uqoQ5IKGh5L/JrKweBW/53
-	 5Bqe8eNmAEs+1scAiverh71tjpj6PmIjic4yDKrksZ64eY/HMQxfO5a8JjHPeKDqvt8g8
-	 CrokMuoIrMxzSji5tE8hAhazHqz1JWXys7hLHMFbAAPjPVTszANdkwdI5iy8TkJkEUQ==
+	t=1795876801;
+	b=sD1baqk2s9qj8MVNgFleEPfmIJh+W/uEpk2yAnTr0aRo92s0RmDrkxJaoz6KMKy116M1
+	 FWtoFoJtj24l98fm2AHpD7SIFj2NNaFSs4nCOmuRe3i7tfwtvSa5Xm/JEyp3zm86Hlcgw
+	 tutariSXt6XqhWy0P9LVRqCyHvdxFR1JlNhz02GgaZaxEMJNuLdolRVd9GzwyaOr3bAik
+	 IPAM5Mk83nXKHFaoaQDg1Tb+mHm77mKHPQdPxGJCM3kAsQCxHAXRoDHlmXkSh0yrw3fvS
+	 bNiG9uEjusVeB9nmmHz+26u5s4/U4VM3S+RkVXGotiwKifgKb+K7jdmpcPFdS3EQJPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795876490;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ba82/DXHsGp7zImrCLEDml3NZDfk5cE/Qz7vmkljABw=;
-	b=jTwj6AaDjJMNeWkRBR6NLvESwEGIM8RiMVhdikO5cuuaMjsItzVsEwnPP8vgWitPUINm
-	 a8dDEovx2VNp0axXLgTHTMLZYoaZ2dFYNj24vd8leRj0rOLId9QipE7VTHGpIH2n8tJyu
-	 SviH9G1R9+P9U7H386TRIqVpDzdSBFW3S924O+aegQ1CfeIqYBmES0l4wRWedhvYKiFO7
-	 bz8H7/Mgmvk5bQJWGhlMSjmLpUdcywR1v6MxL2vpV80jsz2v9rF4bReM4vs2fJKrnSdrb
-	 3Hx54mYxpTyiYb80/GFVbkzSJK0vv2+QdnvZzLBv7tb0YHl7v6LkjHOtq7RhDWFs4Mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795876801;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=CqRWFQU4HAOohXLgQtCLu/UPaRloWyOWXgxDIeawiJA=;
+	b=giNPOQhPXtizowdTl8ywWO/igrUSOArsHd52a9PaA5y0mJu1w3Rm9gLTb2s9wKXftAe7
+	 JxlJXnePtpZ0lC08qYlqSSWYcJxQwbgX0lA6ZKu/QktbaMHbDjbGcKX5SPBOYdt3Qo/Uz
+	 tbXChdJs6qqrPskvhl+2Ho+Itey+Wc/xYSBdgbNsYZGpe55Y8eJrCWYc3/U4EHDEdL6Cu
+	 Qftj/peHY/AThzwPg9dfu8G+ev+xPmZwnRhxZmz+1DBM+4+j8QTvTdbKVhwEIEmAVQbIJ
+	 hi8ytl4+SFtukQ5Rs3xmgTBjxP286PEf+rvAndV8h7jKs6H0lcv3j9FqVmeUsARtzpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wyuan.org;
-	spf=pass smtp.mailfrom=wyuan.org;
-	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=jw4T3eEB;
-	arc=none smtp.remote-ip=91.218.175.147
-Received: from mta0.migadu.com (out-147.mta0.migadu.com [91.218.175.147])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=baM8f1mr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E40D6606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:34:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E40D6606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B8C1606A31F;
+	Sat, 28 Nov 2026 14:40:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=jw4T3eEB
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=BO/h53Ng34EMcvdjK8J7dduiAaDS2ZOqKazQyDtzkBo=;
- c=simple/simple; d=wyuan.org;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795876487; v=1; x=1796481287;
- b=jw4T3eEBFLR52rJgwlTtfMGm22cRErZg24u9Y/R6AL+7okLT7iQ6jDfRQNeIzXkCuTbl19MN
- n81+bbTOAAFc75Q3IHG1eJUNIZN85BB9RPIeIODl1yVaMpY2T/bnacGgJvqXOH6JVIgpcz/oith
- 325dtV3rAQobNo9RnBL+0FTtVJraUygGgsXvryBTb3cyaz5pvTmB4/qcAskDg9c3ralqYOHLE1H
- pgDxO3xOzknZ1P+ETxPW4PCNopFQ+UwX8GZplzvW1DvZQm2lsdAr5hsuHMAKEq7NvtIbwqgr6im
- no0kTtofgyBW76OiiHGZAyR7ze7Mw45kQTScsS4O7npTA==
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7a8542db2b98a6a7;
-	Sat, 28 Nov 2026 14:34:47 +0000
-X-Mizu-Trace-ID: 7a8542db2b98a6a7
-X-Migadu-Flow: FLOW_OUT
-Date: Sat, 28 Nov 2026 22:34:43 +0800
-From: Weijie Yuan <wy@wyuan.org>
-To: Daniel Pereira <danielmaraboo@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Alex Shi <alexs@kernel.org>,
-	Yanteng Si <si.yanteng@linux.dev>, Dongliang Mu <dzm91@hust.edu.cn>,
-	Chen-Yu Yeh <chenyou910331@gmail.com>,
-	Federico Vaga <federico.vaga@vaga.pv.it>,
-	Akira Yokosawa <akiyks@gmail.com>,
-	Carlos Bilbao <carlos.bilbao@kernel.org>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] docs: doc-guide: add a guide for translators
-Message-ID: <awrmgxPwwPICvTVG@wyuan.org>
-References: <20261119041009.63651-1-danielmaraboo@gmail.com>
- <20261119041009.63651-2-danielmaraboo@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=baM8f1mr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5B41F00893;
+	Sat, 28 Nov 2026 14:39:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795876801;
+	bh=CqRWFQU4HAOohXLgQtCLu/UPaRloWyOWXgxDIeawiJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=baM8f1mres9uO12OFtOaFlb3HfysDztOwr+6e4+HBes09OTmAg0wFd64Z3M6l/C5R
+	 aXLfcLuuSy/3VX0ad+w6/SR6tyw+mq3NhgaYu02a/002VbNkbf1ZSWf63VXLqXGtVY
+	 plAt18yjJoNH8rFP7RaMLPf0fDU7Er1/ROhJ9aOVbaZ5tYAKwC46ct7zq847c4W/Jb
+	 rz0vcU6riiew1UWOPlZWbUM8h9ETslnQDqm7BGLyOKSTfxH5OTA5cZF6Ls4YIlY/Gu
+	 3iroaaKXmQmg3ekcFa2+s5d7Q8XeXwWfzn0AYhYdimTE5LoE7JGk5yiSdNHemBPZny
+	 7G1ltZUF1h6OQ==
+Date: Sat, 28 Nov 2026 14:39:55 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Aryan Sinha <sinha.aryan03@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	Leilk Liu <leilk.liu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6]  arm64: dts: mediatek: Add MT8189 Skywalker based
+ Tarkin Chromebook
+Message-ID: <9ec63a02-b5bc-4053-a57e-73fd8d290531@sirena.org.uk>
+References: <20261128141443.13065-1-sinha.aryan03@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,72 +70,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="V8m+wOKX6nK14KkC"
+Content-Disposition: inline
+In-Reply-To: <20261128141443.13065-1-sinha.aryan03@gmail.com>
+X-Cookie: /earth: file system full.
+
+
+--V8m+wOKX6nK14KkC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119041009.63651-2-danielmaraboo@gmail.com>
 
-On Thu, Nov 19, 2026 at 01:10:08AM -0300, Daniel Pereira wrote:
+On Sat, Nov 28, 2026 at 07:44:24PM +0530, Aryan Sinha wrote:
+> This series adds initial support for Tarkin, an ASUS Chromebook (CM1405,
+> CM1406) on Google's MT8189 (Kompanio 540) Skywalker platform.
 
-[...]
+This doesn't apply against current code, please check and resend.
 
-> +Labels
-> +------
-> +
-> +Sphinx labels (``.. _label:``) are global to the whole documentation
-> +build.  A label copied unchanged from the original therefore defines the
-> +same name twice, which breaks the build or, at best, makes references
-> +resolve to the wrong document.
-> +
-> +- Labels placed at the very top of a file are usually not needed at all
-> +  in the translation; simply drop them.
-> +
-> +- Labels that are needed, for example because other parts of the
-> +  translated document refer to them, must be made unique by adding a
-> +  language prefix.  Each translation already uses one; look at existing
-> +  files to find it (``it_``, ``sp_``, ``cn_``, ``tw_``, ``pt_``, ...)::
-> +
-> +    .. _it_process_howto:
-> +
-> +- References to labels of the English documentation are fine and
-> +  expected.  When the target document is not translated yet, linking to
-> +  the English version is the right thing to do.
+--V8m+wOKX6nK14KkC
+Content-Type: application/pgp-signature; name="signature.asc"
 
-So sorry for bringing up this matter just now, here's what's recently
-re-discussed in zh_CN:
+-----BEGIN PGP SIGNATURE-----
 
-Some contributors are adding unused (not referred) labels when sending
-translations. Basically, in most(?) cases, they see this label in the
-original English text, so they add it accordingly (and with "sp_").
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsK57oACgkQJNaLcl1U
+h9Dh8wgAhupAOzs6+deFwZFiqJq70oQELcg4aIForI/rMIZH8rAKG4Dga+Ea4E34
+0VRBwb5ocmyZrm20NFpj+4WjKnejGQVNlDoCixTEI+3+Ay9ZnCxSKgA4d5BGv/EZ
+c/1ybKEPiq+ejX1RaOGgTgjbvETFt3q5k9qQiSceNQvq3NtTo/1XB/3D3RU/etGP
+SSrcIiqDJL0gpv7rDNB9/iIdwp+25Z1vSvS36HUs98UdERooKnZBuAhq7hH8J4yO
+ZNsl/20kqqu6JkV2NYAcM2Wq90EwfmF0TPl0UZrV89zNBb804LVnyBjeiZnm210n
+kk3dT9sF3dTgvd1SNrL315i7zRfP0g==
+=qnep
+-----END PGP SIGNATURE-----
 
-So far, sorry that I haven't systematically investigated the situation
-where these labels are cited. But I have come across some examples where
-the labels in the original English text were not used at all. So the
-labels in the newly added translation will definitely not be used. Or
-there is another situation where the labels used in the original English
-text come from articles that do not yet exist in this translation, or
-vice versa.
-
-For consistency, on the Simplified Chinese side, we have roughly decided
-to follow the first principle, that is, do not add labels that have not
-been used; if it needs to be used in the future, then add it in the
-subsequent patches. However, it should be pointed out that this might
-require more work from contributors and reviewers, because sphinx does
-not warn labels that are not in use; therefore I mainly grep them every
-time.
-
-The following point may be beyond the scope of discussion in this patch
-set: Currently, it is not seen in the existing documentation (sorry if I
-missed any docs): Do not add unused labels. Do we need to notify it in
-the existing documents not to do this? This might be helpful in
-preventing the introduction of unused labels in new translations.
-
-This is only the discussion result reached between me and Dongliang Mu.
-It may not be applicable to all languages. Suggestions from everyone are
-welcome as well.
-
-Related thread:
-
-https://lore.kernel.org/linux-doc/9d2b25e4-c5a0-4ef0-8698-1a622d05223e@hust.edu.cn/
-
-Thanks.
-
+--V8m+wOKX6nK14KkC--
