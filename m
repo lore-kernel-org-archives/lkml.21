@@ -1,88 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795873134;
-	b=c1MJ0uPzz8EFea/SEukVt8FZVV0Fvq9QrCyo+GMsKyD4aC9gODUAdbQOBLIXtwJPOJWO
-	 PNwoYFdVBjqj44/J3WMkvUzlYR42CpxmbnaLIBDqDO1s+Jgm7hM20c1VWN5jMUTPitK1N
-	 f3+sGz62itBPyv3FnE8sA+As03iVFSNc2h67E5bOeOFBps8yKhaiiG+7/ukvXK5fRHogP
-	 q8euiykGpGHu2Nb3Iu8lVgdVSyhbA96Q6QirV2EZqQ9YuZuYcincTEYPajP72en5ZPpyB
-	 4NoqDAZ2LyA7Fne6nVuuCx78icKj9BliZRhu3sZtODfTf+wGCJF/TFMG91M1fwr3YHQ==
+	t=1795873141;
+	b=Qwj5U1mXv3L58aUG5bMtptkUtuDoNXjBkZSI2wlr3QrLBwF1cSKnPQ29KlhKlK692MDz
+	 E5XsC/dDWPMDjjDACEHinUMe4bPmsMMWA4kV/L/TLNT5OQmodiYw6JY1gWTU6NlwranRy
+	 ZUloqOydzSrGfcHrX7zTERq93xHofrt8nlCZCuh2xj+1ibsROFKhpNy/hKwcXDkwWDIP+
+	 7IwMiB6nF+CyewQ1/f1J0/ij9ZGA+E/Tu3hJbnkb5F9mZ/jEsTdP9PozDNCDrcozeYuaj
+	 hr/O0yuDDpFNmlmOiWSJrDm/YTAHISkOSdKXBJME7YhR65PQkGyKnUhzK7lxBR6htAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795873134;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795873141;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=dCmAGX2Omd/g9y7jDZCpeWTJ9I+W1z7gL0oCYL7gw10=;
-	b=ryxLQvkOjh1rC3p0xBug6Gc97T2fjYd2q6M0+QVbNLigwBteSLDCDnWyFsEVdWNW8y/1
-	 1Pccsf418aaUzEQmrbA3R1tlmzVV83aW2UZezxLbV2MWjqBaFxwY1P5FmCDGqq/6gPzWo
-	 rSe7HcUzWcTzKArmrIMZQDgt4mGZA1vRJsYeu9JN25taLzaZzuxGPcXY3pQS6qMAZrpE8
-	 3J9xuKhldQ657IyJYibGkxelv2JZ2dn5wZiOR+EQQBkk7SySdz26HIjO2jpst/L+k4aay
-	 5d9366FhULz8Ca7zcweCeJgZ64WMArq1Q20wmzlHZX9dv6IjtpxJet0dMBPKnPdHm2A==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=4lDF0vQqikD7LUr8D749WPrms9ik25wN2smo9HvyhNI=;
+	b=rqkZ69VMcvA32Dixnl1Pl7EWl+HNbBwBpsxoMU77gvPdD/dRZQu6WvB8fuyByhsQkqcB
+	 fFLz3K7He4v65TGZX2Hff+JsCI6Hlom6t+NyVLV5xQRiTN8WNWJU8I8O2zfhg7MXWcW+l
+	 /H4JBNV87KY6lEdx9Bu3AeT7n6Wrcw/yJxwgFOQXaoQN3/QLEyrIaVNMeAJQltlqSUa9D
+	 JcvJcuoIphBfJ6cD/82g1RJJuMzcAgGHKwmF1lozYt7fU4U2YBl1QvgDAWdTHw/9ffBUx
+	 tKtb+moN/Wx9pMHOPynv3C6VYWxK0HL6dNSrDNmcaMNHCYRBsCyi+TBozyXo4YcRotA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wTyeE1UY;
-	arc=none smtp.remote-ip=209.85.208.172
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com [209.85.208.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h0ZO1ZrT;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14878606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:38:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14878606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F015D606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:39:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F015D606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wTyeE1UY
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3adfed9a887so81548651fa.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:38:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h0ZO1ZrT
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so82079405e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:39:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795873132; x=1796477932; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dCmAGX2Omd/g9y7jDZCpeWTJ9I+W1z7gL0oCYL7gw10=;
-        b=wTyeE1UYXKFFlRlLAUJLkr9C9/Brmuh5IhKjiX+lPzzs+/9twKhj5S3a4LKPpGRO1R
-         Z2KoeptxVlTXvErSql4Wy15JF/SLVpFMKE3Tj9EUe6EQhCTaBdAZKXYuA6NVcvs/TPa0
-         Qonbh/BnIA+78Piovo5I7+tHAke7nbjedz8z0p8bN8hdosjDNMQR9HylVUq+qa6g9rxE
-         hp2CX8u+SswX1VCZhDsVuBkYmC5Sh4ktO4nsAWbzXUuBQKmjxmqnJHPn5cEQB9AlR/ZP
-         vDK9sEvN9TUdDS84TIyfSlMdsXwGKBS2IG8Jh7QSnZPqoFUCIk77zqz4WPa+L0yWaCgr
-         0XBw==
+        d=gmail.com; s=20260707; t=1795873139; x=1796477939; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4lDF0vQqikD7LUr8D749WPrms9ik25wN2smo9HvyhNI=;
+        b=h0ZO1ZrTkM9NyNAhi4fxHRTUl0gaVwC4ROmUsoC0qiXHFQjZeDXILFRh3Gx2Ui0U3X
+         aIjZ4Hv4vALD2DbtMtViShapkv8q4UyeOGuSesqYT7UH3h1xfxKph+nSaDQHxZM3cesf
+         z5lj8NJF3QJRh0Up8YdzjBQmc61O5e+m8XQv5wC2Y+mgJlkFAvifbZWS6d+JPS6GF29J
+         /+TRJcWOZ/TMPOVKwndYWEj8nbEnvx3ku6lA0Wm/lZ9m3aVpi6oujiAgdIw2Mbecu0zo
+         Qo19v5K9pmIpk+r39p5LN+1tnBklNyhpq7ulkSNEfOSm+BVESD9/YKDkXnEr55oqPd9d
+         KMhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795873132; x=1796477932;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dCmAGX2Omd/g9y7jDZCpeWTJ9I+W1z7gL0oCYL7gw10=;
-        b=vswltc6skIIMz2KScb37SIaR8f1p2fQotJ3itsFY9TgHz29HRF8BBJfdTBLaP0JQR7
-         /n37E53+67vjCKkDJZX6cEdyEi55F1adB22/Vyya+/y+oec/FOB898FaLrLXGefFJT35
-         bQJl/S7pwljJIsIpJXNCjQ1D2AzmCTYFYFJSImQ74wPbx2MAyxgtfpHGTl9Gzms3B1Mf
-         x6bj4XA+C01MjOlBmDSMQzYKoWtSaXoi3d6dnWRxCwyzYYyXivae/fcals555UXtEEq0
-         WIB4IZ0Q1yHmPoymGDjpm8otFHOi/MKBS6uI/4InhyD9HI3QSyryP2aJ838nPCbNHfKY
-         yueA==
-X-Forwarded-Encrypted: i=1; AL+hErFata2MQDoDbpEVs3eNdJ3ytPntS1mofnuXtxcSSgpwKr+yD1r0w4cOJ/6aVmf5f8GExh9mYMpyVe278b8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95StduJjuRUQ7rkS360+ceBWIatuLvhtzFBQxek2jQzxd5cuSf
-	sS7UGn3a/ilpphAhzNWDw1WITmtp3FBrb5YPHgfgwP3IuOKEU4652wS0
-X-Gm-Gg: AZFdTZfPTtrR67kCSbmPaWUPhPWNqR0Y8HPMSnGfMnhBS4xlT0nWbw04U/WFQ5wGfl+
-	gL51/6gFyNOrgBsHF6qvs+1+zPtdLGctimfmlUMHUpVjcfN746DCxmtsTa9/5dhG62w2CHOTKAQ
-	cE7WcfdvB2eT/UfDuEykhYUL7Pmdn8m0eFBhLJ/x+ULNh8sYaTBxwqZ61wBcgzVbJUl2Pyp5ETu
-	lANEqV6DtRTgU6PP3ae4/z/4l+6sT4cb2+BvajnFidz+LxX3gS77FrRDsjhUN72khVkQy9Ej/65
-	2qMKBdfSut5fmvDr7n9SuDhjNi93xle2RD3TB5BPlwC9rskpeWHIRGSvRP5lJWz6gggph2BCIZF
-	34vkhe2jzhje11ZBPqIMNO1pPSKIB+3Lp/O7/NzjyYF0cNUwjRBGqauMDyFcJTSNQrYP0ROz/Xs
-	osK8oi8Gw5wbNKHmzI4S+Flf7TmLRfU6jIfgXdUjSGQCzoZu6bssokN4ZjL4UlmGgVjlPWhd8qY
-	frG2zn364ebLwEpXuJKhgpZL+XYRf5veRK2/FhzZef0EmjSYU4TuvjcyJ7h75XBVFtOs3KjjF7Q
-	G65MRSbsI6NB26J3KX2SWN0+tILXSndVOqH4s9l4z0sy
-X-Received: by 2002:a05:6512:3b89:b0:5c3:3dfd:c4e8 with SMTP id 2adb3069b0e04-5c33dfdc807mr1617419e87.2.1795873131953;
-        Sat, 28 Nov 2026 05:38:51 -0800 (PST)
-Received: from [10.127.127.83] ([5.195.0.145])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bcff8b82sm6968991e87.16.2026.11.28.05.38.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Nov 2026 05:38:50 -0800 (PST)
-Message-ID: <2528005e-67b5-4e23-a357-fbf853c2ff38@gmail.com>
-Date: Sat, 28 Nov 2026 17:38:44 +0400
+        d=1e100.net; s=20260707; t=1795873139; x=1796477939;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4lDF0vQqikD7LUr8D749WPrms9ik25wN2smo9HvyhNI=;
+        b=KPCKNqkcM/+OeoIHxN4gko58Fn2aROupvn6NWpqETza/jxdx10lPzoSijQ+uxyyMV5
+         x5k61AhHHT9aZVzmTijzQyV+Uk7Fo9M1iCfluqSxrUho2FCUD/3E107oI3TpxnTBGXLp
+         kx/clvcCd9zP2ie51QyC9NlvLH1fVEoWodYj6GTwrOoXG36SIvYkN8nU0estf50IKvFE
+         0CgEmLX6ap7ylLByqN0G6Eqe1xFNCQ8TLQ4QtyE5YfWWsoo1JsKWptjBpDqAl5KEGZhm
+         fGHgP/YdOT8x00QNvFPxnsc8ZkbZNKN5b5WKCEbPBGR3ImYYOd+ttvgfzi0QTYhCIkPb
+         Zmkw==
+X-Forwarded-Encrypted: i=1; AL+hErFsk7oe+KqTdQB7/sgS1VkHjYIjCAno1jx/Ea0NR//pXYz6rTQXDbbubpyD5Or2XBKvqakeXj2sQLbuII8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Qv55upX9+UfdRO4Ak7Gl+darktXu6iwp871sJ2QN6/1wE4ZnQ
+	E7h5C/mnx04e2YVQko2aZuzIT3Ea1bnjffP3a80GOGZLkqygncrllJ7f
+X-Gm-Gg: AZFdTZevnrM28jmKn1alJvi3Kv31msph4ajRf5iOt5jHSSq/j2GDOpVxyeAz6CVVQi+
+	CoAKVdwtqe7zjab4EBnSouxU1YLyBKbDXFe3ha2+w9bFMWJRN86wNbU87vgxwpyC45UseSitlU3
+	HmO6P9aeDYECWa2g+A+LMRJc3Y0HGk3c8sn0QcIDoMENZHbFEV5Zmttg70iRKTAn8Y5wkecxlaO
+	pVcRlrrCG16CytnCYZ4h990va8JOJNBgUH/KLl8rja8KVDPN0tOJ+T1NUkQjZLXd1ZBJz1D8xpH
+	EgFV1LsCg/7UtpYLreEY84inu3/n8LcH8aCXm2qK3mbzpMbP36xdOYarXRrGQYI3mnhbYaXbal9
+	W6s00ZmmOmhPgc+TXTBqsqznMAGynXxDXgz0HdxmaxgSKHLFnRenYQN+snmzFdL983/l/dy3YmV
+	I6GuhjD7chsn1yBhWRXM6Rgyx0JBSgcAt/xerQYPr2DEE6Qn2jb69jTnvE72U8oUclm43wR7fP6
+	pNoZfnHLpf8bX8FhybgcSHJQsQJD9+sLlGgp9iFAKIJfVPDs/POlBlq3bviiyOGODvjICcH/KRM
+	dkYKqpoFczM7ftD7w55lKCbc9mZ0Xw2VBvWbKT61MlBFjw13LDcMTTjUOQqC6+i8Z2EIoW8iAwC
+	xd7aCNJCX6DKaomGChUY4rp8rmKE5lOoUNyoGqQ2oQNyIAaXDDaQjVo/4
+X-Received: by 2002:a05:600c:a115:b0:4bb:a5e1:74ac with SMTP id 5b1f17b1804b1-4bba5e195bcmr184828885e9.4.1795873139198;
+        Sat, 28 Nov 2026 05:38:59 -0800 (PST)
+Received: from pc.tail250202.ts.net ([87.110.86.243])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba6a0d65fsm295847225e9.3.2026.11.28.05.38.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 05:38:58 -0800 (PST)
+Date: Sat, 28 Nov 2026 15:38:55 +0200
+From: Janis Edvarts Lacis <janislacis06@gmail.com>
+To: Antonio Quartulli <antonio@mandelbit.com>
+Cc: intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Sven Auhagen <sven.auhagen@voleatech.de>, Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>, 
+	Kurt Kanzenbach <kurt@linutronix.de>, Maciej Fijalkowski <maciej.fijalkowski@intel.com>, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net v5 5/6] igb: resume the device before changing XDP or
+ XSK settings
+Message-ID: <lwmb2es2v4j6ec2kha24lk3uxtour2q45fqvjwihl7ik4auvet@jyhouq2ojte2>
+References: <20261124235723.1135808-1-antonio@mandelbit.com>
+ <20261124235723.1135808-6-antonio@mandelbit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,67 +107,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/12] clk: samsung: exynos8895: Terminate PLL rate tables
- with sentinels
-To: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Takashi Sakamoto <o-takashi@sakamocchi.jp>,
- Danilo Krummrich <dakr@kernel.org>, linux-samsung-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20261127180416.3277544-1-lee@kernel.org>
- <20261127180416.3277544-11-lee@kernel.org>
-Content-Language: en-US
-From: ivaylo ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20261127180416.3277544-11-lee@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261124235723.1135808-6-antonio@mandelbit.com>
 
-On 11/27/26 22:03, Lee Jones wrote:
-> _samsung_clk_register_pll() sizes each PLL rate table by scanning until
-> it encounters an entry with .rate == 0, then copies the counted entries
-> into pll->rate_table.  However, pll_shared0_rate_table,
-> pll_shared1_rate_table, pll_shared2_rate_table, pll_shared3_rate_table,
-> and pll_shared4_rate_table all omit a terminating zero sentinel, causing
-> out-of-bounds reads into adjacent read-only data and populating
-> pll->rate_table with bogus entries.
+On 25 Nov 00:57, Antonio Quartulli wrote:
+>igb_xdp() can run while the device is runtime suspended or resuming,
+>and __igb_resume() rebuilds the queue counts and the rings without
+>RTNL. igb_xdp_setup() and igb_xsk_pool_setup() can then see a queue
+>count whose rings don't exist yet (NULL dereference), or a NAPI that
+>isn't enabled yet (napi_disable() never returns). Changing the XDP
+>program of a runtime suspended device also opened it twice.
 >
-> Append a sentinel entry to each of the 5 PLL rate tables.
+>Resume the device for the duration of igb_xdp(), as ethtool does. Like
+>the other resumes done with RTNL held, this can still deadlock with a
+>runtime suspend already in progress, which takes RTNL itself; closing
+>an AF_XDP socket or changing the XDP program is now one of them.
 >
-> Fixes: 9174fac3b302 ("clk: samsung: Introduce Exynos8895 clock driver")
-
-Looks good to me. Thanks, nice catch!
-
-Reviewed-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
->   drivers/clk/samsung/clk-exynos8895.c | 5 +++++
->   1 file changed, 5 insertions(+)
+>Tested with the 82576 emulated by QEMU by closing a zero-copy AF_XDP
+>socket and attaching an XDP program while the device is runtime
+>suspended; the latter no longer warns in __netif_napi_del_locked()
+>because of the double open. The races themselves weren't reproduced.
 >
-> diff --git a/drivers/clk/samsung/clk-exynos8895.c b/drivers/clk/samsung/clk-exynos8895.c
-> index 259481c4276e..daf337f47e4f 100644
-> --- a/drivers/clk/samsung/clk-exynos8895.c
-> +++ b/drivers/clk/samsung/clk-exynos8895.c
-> @@ -478,22 +478,27 @@ static const unsigned long top_clk_regs[] __initconst = {
->   
->   static const struct samsung_pll_rate_table pll_shared0_rate_table[] __initconst = {
->   	PLL_35XX_RATE(26 * MHZ, 2132000000U, 328, 4, 0),
-> +	{ /* sentinel */ }
->   };
->   
-
-...
-
-Best regards,
-Ivaylo
+>Fixes: 9cbc948b5a20 ("igb: add XDP support")
+>Fixes: 80f6ccf9f116 ("igb: Introduce XSK data structures and helpers")
+>Cc: stable@vger.kernel.org
+>Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+>---
+>v5: new patch (Sashiko)
+>
+> drivers/net/ethernet/intel/igb/igb_main.c | 20 ++++++++++++++++----
+> 1 file changed, 16 insertions(+), 4 deletions(-)
+>
+>diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
+>index acd9a33..80ae03d 100644
+>--- a/drivers/net/ethernet/intel/igb/igb_main.c
+>+++ b/drivers/net/ethernet/intel/igb/igb_main.c
+>@@ -2942,16 +2942,28 @@ static int igb_xdp_setup(struct net_device *dev, struct netdev_bpf *bpf)
+> static int igb_xdp(struct net_device *dev, struct netdev_bpf *xdp)
+> {
+> 	struct igb_adapter *adapter = netdev_priv(dev);
+>+	int err;
+>+
+>+	/* The rings only exist while the device is resumed, and resuming
+>+	 * rebuilds them without RTNL
+>+	 */
+>+	pm_runtime_get_sync(&adapter->pdev->dev);
+>
+> 	switch (xdp->command) {
+> 	case XDP_SETUP_PROG:
+>-		return igb_xdp_setup(dev, xdp);
+>+		err = igb_xdp_setup(dev, xdp);
+>+		break;
+> 	case XDP_SETUP_XSK_POOL:
+>-		return igb_xsk_pool_setup(adapter, xdp->xsk.pool,
+>-					  xdp->xsk.queue_id);
+>+		err = igb_xsk_pool_setup(adapter, xdp->xsk.pool,
+>+					 xdp->xsk.queue_id);
+>+		break;
+> 	default:
+>-		return -EINVAL;
+>+		err = -EINVAL;
+> 	}
+>+
+>+	pm_runtime_put(&adapter->pdev->dev);
+>+
+>+	return err;
+> }
+>
+> int igb_xdp_xmit_back(struct igb_adapter *adapter, struct xdp_buff *xdp)
+>-- 
+>2.56.1
+>
+Reviewed-by: Janis Edvarts Lacis <janislacis06@gmail.com>
