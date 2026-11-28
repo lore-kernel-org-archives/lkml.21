@@ -1,79 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795875836;
-	b=rTh2PcUJOnhOkeK/NsBrpKk9wzH0ruQZN/c27jqImR1KXOk7I/3Efa18TtPMvM4wYtWx
-	 jdg2tCPSNQnvZKokF4ZYeLyJDuqdGYOAMKjCllLfmw24o6xNTd4OGJhYbauixa7MqbHQg
-	 GuLpVhwuPzFZ+YOKiTqhlaVXy9TwAiwjc4T9Dz/0KcPZ6uDXS+nGj652HNzOPolLJyaGt
-	 xPhFIA2yeF7r9hv+qISoSeHz0KHBkaGQ95TYf+CqZ0fPvP6FPH5veWNZlOCkj3oMuxFSJ
-	 Gl+VEzHAAhvPrkhPGGTSZw41yyprUrgUMq99tH38kSvMBGiGNcTEbjA5r6RGupv7WaA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795875836;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Kv7pdAIuxaJIEPokEi6ey+MAceVbmrIyDVFIOKizjlc=;
-	b=yBcvH7/PywrbHx14uXRaPEufYO4mWZ48VleK28vPi2yhq7BnuAjz0iIUT+amxIHeCI2I
-	 EK5uXEcDznBzuF9LsK7UtMUGXOuR/y8I4aAqEFaTtnA6BJflL6XtWyRwYXpW74f9+/aBq
-	 hem63VdRgsqHaMqpNRK8bJNSxRh6+n42YrJj9msbe8BvNA35U+qBiSyNIxKAN76nlyqXS
-	 Q1Xams4QP95HkdWufMT1gLLNpbTyOytuEV5IhVMT73J2NDj5HA08g0U9xR5K3hxuK+lue
-	 UQLg1/WygIScrUHO5UbTnFWItOQIg10ASrSVkyfIHhBnrgKU2UIez6m8LRBWOkhLymQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OX5IZgus;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AF33606A331;
-	Sat, 28 Nov 2026 14:23:56 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OX5IZgus
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795875835;
-	b=HSBO1w+O2CrSbC3KG0M6ReAPTvT+y6+wXHYPWYTML/1h1RNHF1c7dx+U7NDR5cX3NaU0
-	 QcGCDBQqro1OHVxMCX/roA6k11+Ml0ITWUOuBix44QXTHm2NOAslLaNmH68tZ07FUS9ZH
-	 jvEBhHfWVNj6FNsCKcC8+tKLcr1jo7FNX5FR8CITN7cKvktKOv7CZT3jFfoljEMtCzmOf
-	 jtxbAv04YF2CN+/Car0uWqikOyUEaNidmRpTeaDnwfAgLqviR+b9zugUdIMtLNfAf39bm
-	 uDujsQXJY+VHoq0pJA+mGDp5z1o3Rj0TS+rSVkSLEe9oTjcObMITxujsnMjr6pp8eog==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795875835;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Kv7pdAIuxaJIEPokEi6ey+MAceVbmrIyDVFIOKizjlc=;
-	b=1mo3sBWkJ16ickCNavcFu3XM7ho0dpZbYSenJrRivEo5FxiovxByLqJ79S0qdEpC0SxP
-	 prmg6WW9MxflZHE8wtOTRfLoSqsIXl+kNrvgqnrP2LkI6PwbqXpXvRwAG0cBnttrFl/4n
-	 5DGFYZey88/NF0RYFCg7qyBQ/xNpyKWC+zgswdMe05rehHYLHWrVlw7fxWDdOEcdGJnCU
-	 +xdoCeyvOVFdTSmAHoi3eijeA39pferiKkEoi93CHmR0iE/h2sPRiRIyG/qKCVuq/RqIe
-	 RpFJvT7mbey5oWF5bCIPNQsTjJWyLBNt9d1f+yYK218NwZXipb2bMn+KMrYkxbnes4w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795875867;
+	b=pzPq2RnRzf14TTbX40LuPRsyRvpZI+4TAvzkHiihAJFIdiUvnMjc0gerC7hndT+6RyE6
+	 YniEacl5tXJCLrhIpoO29SBXO5tetQzjqDe4W6E54at0z6tQLzEEDD3/rrxv6fd4kGZEK
+	 eI5Y3owmWvh8gBIiyjucZCBIrmS4MvvG/Bc5H+JjX8J/O0KHhyZ92gXPXSuJ138VrtBOg
+	 9y1bpgT7zRSNp0LvRFqFMLm8fdUVaATD4UVqCPj+CvEzqnYtaV+wUTIhSdTU5ohmErw3I
+	 9ID8+wQEIIqG25/LI1MpI4+NJaxCYYkOfngzSzA7NMPXCtUBhI1Mx2zXqXLB7bqOjmw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795875867;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5X8d3HsDBivPLdnAdOrzG4BO+ebQzBXrIMOSDxhQM0I=;
+	b=jqTK2nZZtyiStjJ8R7pfq+WGF9sFRdUm+SDVW6PmifTL+AAN1V/6QmFqam/eNQVRador
+	 sOyZdhPnDymQB12fwsrTT8ej045kmWtmKYjppgRx6XyYD6Zon1mzeRwLw8rPWSbpQqaqS
+	 q7aFeRdbG3KNkCmKnA+yyZmE6KRIcNxQHxisg67JJgNnp3F9ze6OxPBX1FOj/ydOi+Tbx
+	 Q8b2KyywHZiPV9jGaHS28YZx6e8oIHMiuNnP6mFzfLtkkNpSYvHYrrZOKrrpqsIiOXnnz
+	 5h7w/oqBO2TTymdo6tPP+qUHdJY3goBn+DXmkAchnz5SRnTRlDafzKKKpPmoa3cxP0A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MXvWUoup;
+	arc=none smtp.remote-ip=209.85.167.50
+Received: from mail-lf1-f50.google.com (mail-lf1-f50.google.com [209.85.167.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3B8F41F000C1;
-	Sat, 28 Nov 2026 14:23:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795875835;
-	bh=Kv7pdAIuxaJIEPokEi6ey+MAceVbmrIyDVFIOKizjlc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=OX5IZgus2lOAJOLtuoHXPrgTCt/cMa8xoxm1zynVqWTpQOwDGKXPk+ExF3DHzPPov
-	 pbVogSr8GL1PPN/VvZaZxnAArDASjSwDTw+ePPG+8ayLHuCFMFXey7BVgYCahojAne
-	 fci+R4kFydegOmaoWCUr2YmWwlX6aX4Ye9gv6npcO7FLSbFeXFnVrX5KQVxWDpbkUU
-	 IbtVoWqvz6I3hLIAiDU6gp0vpbYnCWjmUm88d4sD5JU9tewGbfx8CyFAP6w4cl6q6v
-	 3Lalv/wmPvs4glABtl/WGURZ6XAB/2+Iq7rttT08Q8e9jnqziFnTBsAb0bEINLajOW
-	 MCy4tOlFEUtTw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 586234E116;
-	Sat, 28 Nov 2026 14:23:44 +0000 (UTC)
-From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
-Date: Sat, 28 Nov 2026 09:23:47 -0500
-Subject: [PATCH net v2 5/6] net/smc: order the urgent mark across the
- cursor wrap rollover
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B0DF606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:24:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B0DF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MXvWUoup
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso8123775e87.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:24:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795875866; x=1796480666; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5X8d3HsDBivPLdnAdOrzG4BO+ebQzBXrIMOSDxhQM0I=;
+        b=MXvWUoup056aojkZQ64kDIhuF72O54OMEH/2rvWL0ShljRoGjaKEqN03MATwapdPF2
+         baf+o5EUuQKsYq7e+b1wKfnu1a818OdkTOJL1mluAV08w8E4rYIjKwj5GqHCxlrqNJJs
+         sZJ7Ympoxh9gYih8zbcOmyB08m9wco9SlU6CEzHlssjmgAzBcj2GiPtVaFEnqVFwEu8b
+         7bPGyaeZpLmRwOXwCE/yW03qfzxtJuxjMcctj4CqlGvfEyNorX6rQ6kjcJsWyniTlInf
+         DnCc6jAE599wdemXnSerfkcTx3LIEwBn/c97tb3Ajno2HjE2MQtIHWHpkJsJmXp5LoCC
+         Ikcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795875866; x=1796480666;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5X8d3HsDBivPLdnAdOrzG4BO+ebQzBXrIMOSDxhQM0I=;
+        b=gUEfO6i5xGjfbK7eF+hj5b/65H4TpuLTTObNqezFyywSGAzSbpnGmepc6dSr3rmIJT
+         yNML1Mec4CX+Qp3heFanWXPNTsoz78Y++40oax7FnTMvDYiAScoBgAKp0fy45qnUBQLA
+         pCDLBJx9OE8q7j7DakS9oSqnzErhk9dOzeWTjxtHS9h3K0bOzaxfw+vUshhSiTAI+29F
+         zhtkTvKCcTBrBVYZ45ex7hR6rbw+2nRoJq/lDN9PunFML2Vmoih//G6e9eSIgdacfoEN
+         4QeApSZFF9+ukWSkDYkAyV/MymWLhlq5eviu07rkrSxfNO76WQ0mqqUQeJdKeQ9grz7y
+         9jyA==
+X-Forwarded-Encrypted: i=1; AL+hErGjGuAmh2J/9rCLJTfvkzD9Flpsyh49eOu3RlTbZP1dfT5arNuF/u8ygphHznZaJm0tG6oN0Kl61d4K4qk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z966TUnKAZ2UpIcdgQb6ZbULlGOMu2BqBk3TO0oXMsVI58amDsT
+	wmOyr1N4CL1aWB+daAn6zzwQopPKBTM7NdCBz4bVseOR153cSdQ86xKl
+X-Gm-Gg: AZFdTZft7tAXGGRsBzDRA6rr/88YtBoH7DSNfdy1jIHr38Lt/drn7r/XJRA9/keAmMH
+	H1w39FCO8HwB2uT79QQxNAIx8XD9tI8hOrevGOZffVgOuvlUECFqTOmHsPLZCmnjo2CRoHCNPDG
+	D40vw5bICm2fj/4dXRdkweXyCcm29BiKXsEvUPiy/EO+R1P2GpOl3rgWuJwIczCfJrPOvbnIG4D
+	TFjjIIAFvSmokQrk4DlXYGmz6dEYEg4iWkjOTE7VRmi3p/2p43Rrh6FTRj7A4SawxEjd4iH4Mz9
+	wf42Mzt1K9C1KiukvMbhB40aromuo6KsUJxO5q/iKJ3duhs6au5vio+7VLmir2XDrNr5kOXoiqL
+	dM6XBBpxDJmjQZbcSklWTSG8F6/QoKmb11CbLQiHjgVUJndDRkROiCOxiKu1NQJu3KgfkX+/kc7
+	yHuREJsp/hQzJkMMibsUQu9dt1WbBuqIZ3RRZ0ICB0ph10x6hDlizgRk038Gsd+iK4PyTY8jKTy
+	9ZCbk7zQAJ4gI3KwTMiXUS3b39oGfyb3/Ltf77miUpPNmKhUKOZiNzXYeZ1WjxyypKNKy9eX0xa
+	xNuqZ/hhYlSjNJPbZbkAyel8agP/YlhZr1329ULQbPXkfF+5PSNMOACMp/zdmz6bsBz6
+X-Received: by 2002:a05:6512:401d:b0:5c3:38ba:937b with SMTP id 2adb3069b0e04-5c338ba94bamr2049562e87.36.1795875865485;
+        Sat, 28 Nov 2026 06:24:25 -0800 (PST)
+Received: from CCM-PC ([2a00:1598:d30f:a700:4c20:59e5:ba8a:3252])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c344c5e10asm501588e87.43.2026.11.28.06.24.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 06:24:25 -0800 (PST)
+From: Yongzhao Chen <yongzhao.derek@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Cc: Stanislaw Pal <kuncy7@gmail.com>,
+	netdev@vger.kernel.org,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-kernel@vger.kernel.org,
+	Ziyang Huang <hzyitc@outlook.com>
+Subject: Re: [PATCH net-next v8 1/2] net: dsa: qca8k: let regmap serialize register access
+Date: Sat, 28 Nov 2026 15:24:25 +0100
+Message-ID: <20261128142425.5385-1-yongzhao.derek@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.5
+In-Reply-To: <20261106225403.272212-1-yongzhao.derek@gmail.com>
+References: <20261104120130.48455-1-yongzhao.derek@gmail.com> <20261104120130.48455-2-yongzhao.derek@gmail.com> <6aca850a-ef67-4451-aaf2-977be884d1b0@lunn.ch> <6aee175b.f01aa0c8.37eba4.18ea@mx.google.com> <20261106225403.272212-1-yongzhao.derek@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,121 +108,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261128-b4-disp-360e65c5-v2-5-d9c05004d430@proton.me>
-References: <20261128-b4-disp-360e65c5-v2-0-d9c05004d430@proton.me>
-In-Reply-To: <20261128-b4-disp-360e65c5-v2-0-d9c05004d430@proton.me>
-To: Mahanta Jambigi <mjambigi@linux.ibm.com>, 
- "D. Wythe" <alibuda@linux.alibaba.com>, Eric Dumazet <edumazet@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Sidraya Jayagond <sidraya@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, 
- Jakub Kicinski <kuba@kernel.org>, Dust Li <dust.li@linux.alibaba.com>
-Cc: Stefan Raspl <raspl@linux.ibm.com>, Simon Horman <horms@kernel.org>, 
- Guangguan Wang <guangguan.wang@linux.alibaba.com>, 
- Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, 
- linux-rdma@vger.kernel.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Tony Lu <tonylu@linux.alibaba.com>, 
- Ursula Braun <ubraun@linux.ibm.com>, Hidayath Khan <hidayath@linux.ibm.com>, 
- Wenjia Zhang <wenjia@linux.ibm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795875822; l=3361;
- i=hexlabsecurity@proton.me; s=default; h=from:subject:message-id;
- bh=Rc4x6htG50veeFexiJAu4UvukFo13BH1Sck0r9zaQTY=;
- b=j4YK2CVd4P1ZR5Zj0nEBlLM12vRNgq6xNEgx/lFQebYHO6m3RflBXw0d942nMmqCSUIIRNfaa
- BI5CIUtZRVkDNogPrXIx9megx8qC5C9pfDV1GU/oJFTpRIHu7dmiwDM
-X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
- pk=xw1AhCtQdvuoQc+bOQIYy9o8G++cp4/VniI2G/tc3G8=
-X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/default with
- auth_id=893
-X-Original-From: Bryam Vargas <hexlabsecurity@proton.me>
-Reply-To: hexlabsecurity@proton.me
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Bryam Vargas <hexlabsecurity@proton.me>
+Hi Ansuel and Andrew,
 
-smc_rx_update_consumer() orders the consumer cursor against urg_curs
-with smc_curs_comp(), which misorders them across the 65535 -> 0
-rollover of the RMB wrap. Without SO_OOBINLINE, with the reader on wrap
-65535 and the urgent byte on wrap 0, the mark reads as already passed:
-urg_state becomes SMC_URG_READ before the byte is reached and
-recv(MSG_OOB) fails with -EINVAL. The urgent byte, which bytes_to_rcv
-leaves out, is then never skipped. The sender waits for its urgent data
-to be consumed before it sends more, so the connection stalls.
-smc_rx_recv_urg() compares the same two cursors with smc_curs_diff(). A
-consumer cursor that is past the mark on the RMB's next wrap reads as
-far behind it, and urg_rx_skip_pend is set with nothing left to skip.
+I am following up on this thread because Patchwork marked v8 as
+changes-requested on November 11, with no replies after Stanislaw's
+and my messages on November 6. Stanislaw's MIB and management frame
+series has now been applied to net-next, leaving .disable_locking = true
+in qca8k_regmap_config as agreed.
 
-Use smc_curs_sdiff() in both, which orders the two cursors whatever
-their wraps. smc_curs_comp() has no other user; remove it.
+Before I rebase and send v9, could you let me know whether our
+November 6 replies answered your questions on 1/2? If they did, I
+would keep 1/2 unchanged in v9 and add the two-reader work_buf case
+to its commit message. Otherwise, please let me know what fix you
+would prefer.
 
-Fixes: de8474eb9d50 ("net/smc: urgent data support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
----
- net/smc/smc_cdc.h | 13 -------------
- net/smc/smc_rx.c  | 11 ++++++-----
- 2 files changed, 6 insertions(+), 18 deletions(-)
-
-diff --git a/net/smc/smc_cdc.h b/net/smc/smc_cdc.h
-index 4b586a20dfc2..eecd0cc5bb79 100644
---- a/net/smc/smc_cdc.h
-+++ b/net/smc/smc_cdc.h
-@@ -167,19 +167,6 @@ static inline int smc_curs_diff(unsigned int size,
- 	return max_t(int, 0, (new->count - old->count));
- }
- 
--/* calculate cursor difference between old and new - returns negative
-- * value in case old > new
-- */
--static inline int smc_curs_comp(unsigned int size,
--				union smc_host_cursor *old,
--				union smc_host_cursor *new)
--{
--	if (old->wrap > new->wrap ||
--	    (old->wrap == new->wrap && old->count > new->count))
--		return -smc_curs_diff(size, new, old);
--	return smc_curs_diff(size, old, new);
--}
--
- /* signed distance from old to new; the wrap difference is taken as s16,
-  * so it holds across the u16 wrap rollover, for cursors less than 32768
-  * rings apart
-diff --git a/net/smc/smc_rx.c b/net/smc/smc_rx.c
-index 63c178c10bf1..564b976426ca 100644
---- a/net/smc/smc_rx.c
-+++ b/net/smc/smc_rx.c
-@@ -62,14 +62,15 @@ static int smc_rx_update_consumer(struct smc_sock *smc,
- 	struct smc_connection *conn = &smc->conn;
- 	struct sock *sk = &smc->sk;
- 	bool force = false;
--	int diff, rc = 0;
-+	int rc = 0;
-+	s64 diff;
- 
- 	smc_curs_add(conn->rmb_desc->len, &cons, len);
- 
- 	/* did we process urgent data? */
- 	if (conn->urg_state == SMC_URG_VALID || conn->urg_rx_skip_pend) {
--		diff = smc_curs_comp(conn->rmb_desc->len, &cons,
--				     &conn->urg_curs);
-+		diff = smc_curs_sdiff(conn->rmb_desc->len, &cons,
-+				      &conn->urg_curs);
- 		if (sock_flag(sk, SOCK_URGINLINE)) {
- 			if (diff == 0) {
- 				force = true;
-@@ -330,8 +331,8 @@ static int smc_rx_recv_urg(struct smc_sock *smc, struct msghdr *msg, int len,
- 				rc = memcpy_to_msg(msg, &conn->urg_rx_byte, 1);
- 			len = 1;
- 			smc_curs_copy(&cons, &conn->local_tx_ctrl.cons, conn);
--			if (smc_curs_diff(conn->rmb_desc->len, &cons,
--					  &conn->urg_curs) > 1)
-+			if (smc_curs_sdiff(conn->rmb_desc->len, &cons,
-+					   &conn->urg_curs) > 1)
- 				conn->urg_rx_skip_pend = true;
- 			/* Urgent Byte was already accounted for, but trigger
- 			 * skipping the urgent byte in non-inline case
-
--- 
-2.56.1
-
-
+Thanks,
+Yongzhao Chen
