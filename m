@@ -1,49 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.40.28.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795871273;
-	b=cF69G0pKQuL4gjR0gdxO7wmZb6fFhTDt+FQPJJOJXjq7Cbqq6HAeP5ZNqzl94zP6xDxI
-	 8W4gXQP5W+9x7fGDyZEe6lJ9WyYlfboElJl2alJc/mwMhPIwmHqz9qZZMMDlTPJ1ec0jS
-	 G/b+bE2h/mD8b3h4598HVuMXzLp5UdHjLk+3/l7piydpy08zir9t0yetSr4i5YAJNUIz4
-	 /aAS+JIS+ra4D6ZY48m3/dk6iRBlGHdf2SA5HjyTyk0WH2o5F+pt5SCPh7qmB5iSZ3tQx
-	 Wj8NCJ/AFKsOSGllRH1DZ1iIunUWebTRLyXphaCCt80h2niCVmgIUmujSxby5u5L4jQ==
+	t=1795871362;
+	b=wKnpo1S7Tn453I1ytcgiGGE1I51H2Z71NH4QTKLcIBEHTru4iG9T3uXoMH50urB7DniT
+	 mLewbcVxv+uKanTEURoJyllKqAiAueLzZqa5uECkKO+bPsFy72XOL3eqvdzZiJOqS4X/M
+	 KXybPiTaWFqhEsBh+fkP6pK7T2J8JIXIuUz089J/TBD2tCbrJdQUxEf/k4W4Y0Bz0m+3O
+	 gjGO56Zm1kjIkMUq/MaZkoPDvyfUaIpKgmYU65txnnhmWSe4i8mRZy85V+J64iy3mgD3D
+	 PNAeya2Tw0FwkDrbeIMuAsJbDZtTm+izU4NuADtn64vINK0qHYVhJSZaFE76at3UAVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795871273;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=MgMdCErDAl9lNyx3ZArtb3lI+zucIqO5QOch/2GPlbY=;
-	b=VJBRV0/28pqVrrrpQ1T066unodhuvsnyy6BdFvGaQN9ygRfWMsOYQXfBJoXks5nUDi+9
-	 OTuhtrSbzX7d/n+iK3j27Pp0ZK0294H8QDwQ89BDxaCfhRmojCs+kFkm3IRUF19sEp4CV
-	 as0zSA6uNR1ofdMND198T0+lRzopIHWVwM1TAiTTmWT9H8LmuafsABCBj+IrEGCvQ2u1C
-	 T0Ref0rihpApYJnVM70L+o3f+sJ+nNf35+0hLRhKVRas5zCZKUT6FamQEXFzos+Zswne3
-	 JhSAWbnRtrymbostGGB1dEM0I0c1EGECFJr+LACQ0F2POu+4Ve0Q63BmgnyKbUxs8gg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795871362;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:Message-ID:From:
+	 To:Cc:Subject:References:In-Reply-To:User-Agent:Content-Type:
+	 MIME-Version:Content-Disposition:X-Virus-Scanned;
+	bh=RkFBDftSWSeXoHyoMZO410zae8B87vQ2YQXaCOtoDUI=;
+	b=fGKS3/nCyxvSyLlzNIALc38ryXucXg/duBslzPFphFOi1ffNcuaMsMGwSQPAK1Xg5sGv
+	 2UPSDiomv+w8kwxFX6Pp/Z5VDBTlCwkQiL/lCFwHJGoFMYD38SkrT9C3OB0A2QheKEoPY
+	 MFZXNu+SQPeYAGbLwJWwaNrQvckTQJA/EzXzuSo9ecPordaMbtaEG7SM61jKBdAbcqFJP
+	 p8PumnVSj8ekpMMwlsC6TSQjPTSdVgC+RzF2R45JxXvUwU9sRjHgaQQppAfF2lzuG9q3N
+	 j0xWXIa4fafwybyW//lUwkek28Rxm0vGOFmNZWYJ1md9IGLmlkT11e3U3LBa7l6Uypg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b="1I477tZ/";
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dmarc=none header.from=rfdeck.de;
+	spf=pass smtp.mailfrom=rfdeck.de;
+	dkim=pass header.d=rfdeck.de header.i=@rfdeck.de header.a=rsa-sha256 header.s=default2609 header.b=Fatk6iIR;
+	arc=none smtp.remote-ip=188.40.28.6
+Received: from www226.your-server.de (www226.your-server.de [188.40.28.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 588B1606A31C;
-	Sat, 28 Nov 2026 13:07:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 588B1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5820A606A31C;
+	Sat, 28 Nov 2026 13:09:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5820A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=rfdeck.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rfdeck.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=1I477tZ/
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5D963A0E36;
-	Sat, 28 Nov 2026 14:07:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795871271; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=MgMdCErDAl9lNyx3ZArtb3lI+zucIqO5QOch/2GPlbY=;
-	b=1I477tZ/fI/TN4Z3BClLIGq3rOVIHBtCPd9i+MNTLHouDQov+ESneeStBQozBji8MCFrMm
-	exPAIoql1I9XsDJaA+RAJ+PpIJpKm0lHbI8Zr9XuzicAv4BqZxb94WYRLiOL899wkAcxfU
-	Rdw8JixW9WVNGPFoidm/6g6An96wP1SLerwhHQg7ayqkgZHiudd08yLrCUqHC5kxUD5IMl
-	H5b8K57Z4D30KX0afbUGdYCih69FCAcQWvR7KaO1UWYVD0ZzbG4WT+X2Ak+tE6gOjRi260
-	HEatwyW7U7Il3ouUzps0Yf3H41kHVLaBSegmyV+L1aFMaW1od0f3PxfIY36wDg==
+	dkim=pass (2048-bit key, unprotected) header.d=rfdeck.de header.i=@rfdeck.de header.a=rsa-sha256 header.s=default2609 header.b=Fatk6iIR
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rfdeck.de;
+	s=default2609; h=MIME-Version:Content-Type:In-Reply-To:References:Subject:Cc:
+	To:From:Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=RkFBDftSWSeXoHyoMZO410zae8B87vQ2YQXaCOtoDUI=; b=Fatk6i
+	IRt5ZP/RRqL++rlUwM2mE8QfroTW/Z/o+yif0GHwsy4eE8ETEe6B6lkzO+bWjFnAVsHrskk642ZY5
+	mVZmg3hgoJFofo2O+zBXIKvXajMwczggLdpxz8bM+iB6KacRtuc28HZiWij9Kvsi1ZZmZkuozJiSU
+	gc7r4sZbcECjrG/SG6wpBa8Z8tyZCi6nnClfYiIjJvBj0rdysRUITH8mXBVtYB5YopJv61Wn1b/2M
+	MUv7ClD6JJiGDoTMYMXOx/BC/FP9ZM9DaLL/ss4GkfHQcKMfpvpz4YZxMhYB55CCdPVBO1/yWhZ8q
+	qCbKtj4a0bm/3eDOWHeJ/gelvZ5Q==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www226.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <martin@rfdeck.de>)
+	id 1xXIB4-0002C3-2R;
+	Sat, 28 Nov 2026 14:09:18 +0100
+Received: from [192.168.0.32] (helo=mail.your-server.de)
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <martin@rfdeck.de>)
+	id 1xXIB4-0000mL-1A;
+	Sat, 28 Nov 2026 14:09:18 +0100
+Date: Sat, 28 Nov 2026 14:09:18 +0100
+Message-ID: <20261128140918.Horde.8QMYup08ZG5LMHxtcgKoZPf@mail.your-server.de>
+From: martin@rfdeck.de
+To: Ahmet Zeren <niko3x@proton.me>
+Cc: Ping-Ke Shih <pkshih@realtek.com>, linux-wireless@vger.kernel.org, Luka
+ Gejak <luka.gejak@linux.dev>, Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFT rtw-next v2 0/2] wifi: rtw88: honour rate, retries
+ and bandwidth of injected frames
+References: <20261127161943.Horde.JkGhYA0aQ3kFZkRWztLNi5H@mail.your-server.de>
+ <semDCz-DacL4vKeB_8iKu6ZwI8pQDusEK2fvgerTJWRkQ1MAxvs0nX-lSJviX_LDplBuBKniLMaMy9FtGH2_EkckFD-LR2YY6pPSPwrTCk0=@proton.me>
+ <20261128113304.Horde.AlVGhIssVk0T26G9XwXTpD-@mail.your-server.de>
+ <VlXplLX5apZBM3LPGxqkM1o7u2AvhUYD8YHGKQVhZo2aZhE5oLqDDEAP1nheF3fmtNHE3TCLvFSMhnFddrGV7PBF2z9h_kXHMHxX0BlLyBA=@proton.me>
+In-Reply-To: <VlXplLX5apZBM3LPGxqkM1o7u2AvhUYD8YHGKQVhZo2aZhE5oLqDDEAP1nheF3fmtNHE3TCLvFSMhnFddrGV7PBF2z9h_kXHMHxX0BlLyBA=@proton.me>
+User-Agent: Horde Application Framework 5
+Content-Type: text/plain; charset=utf-8; format=flowed; DelSp=Yes
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,38 +80,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sat, 28 Nov 2026 14:07:50 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, pierremarinleclercq88@gmail.com,
- dave.stevenson@raspberrypi.com, justin.chen@broadcom.com
-Subject: Re: [PATCH net-next v10 7/8] net: bcmgenet: allow the MTU to be
- changed
-In-Reply-To: <179586516710.3135.10478962975495152164@kernel.org>
-References: <20261127-nb-genet-mtu-nn-v2-v10-7-749c7cc45d97@tipi-net.de>
- <179586516710.3135.10478962975495152164@kernel.org>
-Message-ID: <7f4cf6c6e06c33c57bfa75042c98b96d@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Disposition: inline
+X-Virus-Scanned: Clear (ClamAV 1.4.6/28194/Wed Nov 25 07:26:59 2026)
 
-On 28.11.2026 12:26, netdev-bot+sashiko@kernel.org wrote:
+Ahmet Zeren <niko3x@proton.me> wrote:
 
-> [...]
+Hi Ahmet,
 
-> [Severity: Medium]
-> What happens to the RX buffers here if the DMA engine does not halt?
+> Does your RTL8812AU ever reach VHT MCS8 or MCS9 in station mode, e.g.
+> in the tx bitrate of "iw dev <dev> station dump" with a VHT AP close
+> by?
 
-They get freed while the hardware may still write into them. But this is
-not new, close, suspend and resume all ignore the teardown result too.
-I'm not aware of any bug reports in the field regarding this.
+No. Unpatched rtw88, the RTL8812AU (both antennas) as a station on a
+VHT80 test AP on channel 36, iperf3 TCP in both directions, with a
+sniffer and the AP side watched as well:
 
-I can fix this in a fllow up series.
+- uplink, at -54 to -63 dBm at the AP: at most VHT MCS7 NSS1, mostly
+   MCS3-6 with one or two streams, never MCS8/9 and never short GI,
+   although the AP offers SGI-80
+- uplink with the two right next to each other (-47 to -54 dBm at the
+   AP, -28 to -34 dBm at the station): still at most MCS7 NSS1, mostly
+   MCS6, 0 retransmits
+- downlink: the RTL8812AU receives up to MCS9 NSS2 at 80 MHz
+- with "iw dev <dev> set bitrates vht-mcs-5 1:9" the frames in the air
+   and at the AP stayed at MCS0-7 NSS1
 
-> [...]
+So it never sends VHT MCS8/9, not only when injecting. That points away
+from the rate ID of injected frames and more to the rate adaptation,
+the firmware or the TX side.
+
+One more thing: the tx bitrate rtw88 reports for the station doesn't
+match the air. It showed MCS8/9 NSS2 at times (NSS2 even with the NSS1
+mask, and "VHT-MCS 9 80MHz VHT-NSS 1" with the mask), while neither
+the sniffer nor the AP ever saw MCS 8 or higher from the station. So I
+went by the sniffer and the AP side, not by iw.
+
+Thanks,
+Martin
+
