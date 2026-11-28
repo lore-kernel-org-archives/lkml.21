@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795865163;
-	b=LNDlCxI8ajIqohWh6TlxUubUr+sQdbuGpUQFz+3fbIx0MwJ8018kwPo1Ah2aH846yYqZ
-	 0kE4uzlOFEy4+mY90Pm2anq7kj+n+jxbazrUB9+gDn1v47/N6Q54J2lqjwds7sFSozXRo
-	 L45svkwyO2lS5GwpJn5bNyg+dxXdJUqexoqVCmjFq0ZtHYgyqOk/b4VVkAMhs++EckUaN
-	 w8G3whLuqRJk1dg4NsYNujLdD2S5x9A4FvtG1zCO05qaLSUhM+KgTjlg+PN3KsolQNjpl
-	 7c0cEVTs1XzWL6fh0jYXDW4ZUuJ1hcO/9Uy8qrzhe8+MhmCpQ5+qW0SZVYE5jNZhFMA==
+	t=1795865168;
+	b=K4QBAvMnAC/4Ay+ml6obniHP0rMRPFjiXzPVdG43tKrZkuKeYkQHbFirZ7nfBn38fKLt
+	 wGJFjvNUXrMMuSPy0zlTIbnYIMLOLBO4YUJ2N2o1pWl+u5jfImZb+5yt9Q9YQbvDpn6bL
+	 pBpzb5aByN2XIfon62M6/HlTxq8X6o/XpODtAM012qM0/P3y/zeOOARFJCcoEe2EL99TQ
+	 MaFL/2xIcysDhvJlS6heRQtlQSTzyFUnrE2ajfyaL28lZZN4QJhdPOV6nWXN1hdyjkdpr
+	 xMo+Yu7IVkFZzkBuGViH/zloaNYDGJaZHssgvNDEM2LJHR8Hyp4zSow65znV8MFai1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795865163;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795865168;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=e0p66sCFiRDmHakXf0/+dm4/kpSJWzWCKHTUu/k0+tM=;
-	b=vIXBFzkvjh3MlVVjqKZeYTSUTnBnd4LR3oGHrHx17C8zyCU9hUkk19vORRZpAbEuDzw7
-	 OmE46scOTlUwcYXZLm4SKq8Gl6M0aw9LjrScwgjjJg5Kyay8kwoe5F00HQu90JFglcyWy
-	 fc43L4xxHTYP69BelZrqq3X5FNpidqcBIIaj6MR+BdpW3rDYfj2h1CFP59VdgvXSAzwXg
-	 ctn3RT0wh6yG5n2Clw3gdn0bUnUVyPi33JK119vSE5c6TeeKpp6ILPBt8/WJUFmCE1sVE
-	 tV0aFCrE97JFK3VB97uACk9Qgd4hR6uNEyVWGFXsdq0C8H0HaDEm6im+KKlORNyrAxA==
+	bh=7/IzRSVqpBXh3OwZH68IFnTpCTODTiydWIbXaZLP4uQ=;
+	b=JM9GA2osRQIzX52roS1yIQ7boS2pdT7poNc5v2pM28Zit6vmQk9rqzuXfuDaJnXqXk0Z
+	 BcZg403m8XfVDTyhcdMq9nVgkMVQGzZhEKLUfdIIXGp3xWIbD30uy8FMHne1tKxejGXZX
+	 FLm9a3QRqbUn6532rzIArSNT37DbpiwZDMfWCp+hRgMQdxX7a8oRM5v+eNgLZPFBR8mWD
+	 HXE6ntxNO1h8FjXSa3O04vIR7JfYyfXcXxSSUxadbrchBG34Za/H/v9dqA/yK+qSVjeqM
+	 zXb0/X5E4BZRJ01vLdPpyodNeDd+VTouEFNFr5R1XlmWlFK9jF53fhJ7IhYwDJ4blLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b4GFCA4M;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PfUySNCQ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B4A9606A31C;
-	Sat, 28 Nov 2026 11:26:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA56C606A696;
+	Sat, 28 Nov 2026 11:26:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b4GFCA4M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01AD71F00893;
-	Sat, 28 Nov 2026 11:26:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PfUySNCQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 884951F00924;
+	Sat, 28 Nov 2026 11:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795865162;
-	bh=e0p66sCFiRDmHakXf0/+dm4/kpSJWzWCKHTUu/k0+tM=;
+	s=k20260515; t=1795865168;
+	bh=7/IzRSVqpBXh3OwZH68IFnTpCTODTiydWIbXaZLP4uQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=b4GFCA4MeTbZN22JpuOcUiXAZm+p9v69s/mV5Km8yJR+HI98GoOX0fUiCpZ7ZtCIQ
-	 l0lw5sH13VdNvlakzhv8KCncUdv/MA6z9KfCn0M8RhAFXcfRSCy2p194/D4sfP0ye3
-	 Xt/3w1m0+dQp34K3ik8H/H0R9BQOABdaxKzEUqQlKtpqOaj6N9rYNZcUaF0dBTXNtz
-	 zAXI1dVIqjvGPetPzUpt6o3eKF2aQ3MnlkbDUvwiXQA8Gl3dbSU8uiphxiVJ9VI19/
-	 Cn+u1k7bnmMhbT95dkZgOhgyK0F36p6v7By5WFs7lJpmJpy7aL5NsAUGw6A/2onOny
-	 efMPwTV5RuoBQ==
-Subject: Re: [PATCH net-next v10 2/8] net: bcmgenet: allow a continuation
- descriptor without the alignment pad
+	b=PfUySNCQbfW9hUezQhOJgNXZP4RKbhL/zg+42ZAw5i+SUKdCN/KdlO08kn5GrfvL4
+	 MpuE37YOlGXu04eO+q2cTQsRE1JKdtK45I/rRMWgkRJC++yBu2sNe1DQYwezpZvk1k
+	 1Y+0MWP7JYwZuRUJFqTel7QA6ep6ENoanISmr//Zrg6444rUyfmGOZo4zWFOR8l4Jg
+	 YYwlu4Pb9UtYe+Eb62y/qZX5uDaOWbBgvdiTv2l5rDxYAGOCo+nsrf7jW4BKxQbqaz
+	 upO/0uIlAPpmZ64Htx6nRTXp+UP8RX4FKnyMLN0PtZoWwRWdTLs/UXkTYZOlTneBun
+	 yiTA7pS7YNNbA==
+Subject:
+ Re: [PATCH net-next v10 7/8] net: bcmgenet: allow the MTU to be changed
 From: netdev-bot+sashiko@kernel.org
 To: nb@tipi-net.de
 Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
@@ -50,11 +50,11 @@ Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
  f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com,
  justin.chen@broadcom.com
-Date: Sat, 28 Nov 2026 11:26:01 +0000
-Message-ID: <179586516149.3135.9738232664292864629@kernel.org>
-In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-2-749c7cc45d97@tipi-net.de>
-References: <20261127-nb-genet-mtu-nn-v2-v10-2-749c7cc45d97@tipi-net.de>
-X-sashiko-severity: Low
+Date: Sat, 28 Nov 2026 11:26:07 +0000
+Message-ID: <179586516710.3135.10478962975495152164@kernel.org>
+In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-7-749c7cc45d97@tipi-net.de>
+References: <20261127-nb-genet-mtu-nn-v2-v10-7-749c7cc45d97@tipi-net.de>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -67,77 +67,144 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] Concern: after this patch, the length check in bcmgenet_desc_rx()
-  (drivers/net/ethernet/broadcom/genet/bcmgenet.c), commented "Reject…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] In bcmgenet_change_mtu(), if the DMA engine will not halt, the
+  driver frees RX buffers and page pools that the hardware descriptors…
 
 --
 
-net: bcmgenet: allow a continuation descriptor without the alignment pad
+net: bcmgenet: allow the MTU to be changed
 
-This patch changes the RX length check in bcmgenet_desc_rx(). Only
-descriptors with DMA_SOP now need room for the 64 byte status block plus
-the 2 byte alignment pad. Continuation descriptors only need room for the
-64 byte status block. The patch prepares for a larger MTU.
+This commit sets dev->max_mtu on GENET v5 from the packet ready threshold
+and adds bcmgenet_change_mtu(). On a running interface it stops the
+datapath, reprograms the MTU registers and restarts DMA while the PHY
+keeps running. When the new MTU maps to the same rx_buf_len, the existing
+rings are reused.
+
+Link: https://github.com/raspberrypi/linux/issues/5561
 
 > diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> index 7e78db243442c..67296eb22a5c3 100644
+> index fc8b8400fcbb5..1307faf135bd4 100644
 > --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 > +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 
 [ ... ]
 
-> @@ -2394,8 +2396,12 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
->  			  __func__, p_index, ring->c_index,
->  			  ring->read_ptr, dma_length_status);
+> @@ -3997,6 +4023,97 @@ static int bcmgenet_change_carrier(struct net_device *dev, bool new_carrier)
+>  	return 0;
+>  }
 >  
-> +		/* Only the first descriptor carries the alignment pad */
-> +		min_len = dma_flag & DMA_SOP ? GENET_RSB_PAD
-> +					     : sizeof(struct status_64);
+> +static int bcmgenet_change_mtu(struct net_device *dev, int new_mtu)
+> +{
+
+[ ... ]
+
+> +	/* The threshold is quantised, so a band of MTUs shares one buffer
+> +	 * length and the running rings can serve the new MTU as they are.
+> +	 */
+> +	reuse = buf_len == priv->rx_buf_len;
+> +	if (!reuse) {
+> +		ret = bcmgenet_alloc_dma(priv, buf_len, &set);
+> +		if (ret)
+> +			return ret;
+> +	}
 > +
->  		/* Reject lengths that would underflow the SKB build path. */
-> -		if (unlikely(len > RX_BUF_LENGTH || len < GENET_RSB_PAD)) {
-> +		if (unlikely(len > RX_BUF_LENGTH || len < min_len)) {
+> +	/* The watchdog trips on an idle queue once the rings are gone */
+> +	netif_device_detach(dev);
+> +
+> +	/* The PHY stays up, hold its lock. A link event would otherwise take
+> +	 * the MAC out of reset and enable it mid rewrite.
+> +	 */
+> +	mutex_lock(&dev->phydev->lock);
+> +	bcmgenet_netif_stop(dev, false, reuse ? &set : NULL);
+> +
+> +	WRITE_ONCE(dev->mtu, new_mtu);
+> +	priv->rx_buf_len = buf_len;
+> +	bcmgenet_set_mtu_regs(priv, new_mtu);
+> +
+> +	ret = bcmgenet_init_dma(priv, true, &set);
+> +	if (ret) {
 
-[Severity: Low]
-The comment above this check still says it rejects lengths that would
-underflow the SKB build path. For a non-SOP descriptor, though, it now
-accepts len values of 64 and 65.
+[Severity: Medium]
+What happens to the RX buffers here if the DMA engine does not halt?
 
-Further down in bcmgenet_desc_rx(), the build path always subtracts the
-full 66 byte GENET_RSB_PAD:
+bcmgenet_netif_stop() ignores the return value of bcmgenet_dma_teardown():
 
-	skb_reserve(skb, GENET_RSB_PAD);
-	__skb_put(skb, len - GENET_RSB_PAD);
+bcmgenet_netif_stop() {
+    ...
+	bcmgenet_dma_teardown(priv);
+    ...
+	bcmgenet_tx_reclaim_all(dev);
+	bcmgenet_fini_dma(priv, keep);
+}
 
-At this commit, only the fragmented drop that comes next keeps such a
-descriptor away from that subtraction:
+On the reuse path, bcmgenet_fini_dma() moves the live rx_cbs, tx_cbs and
+page pools into set. The RDMA descriptors still hold the DMA addresses of
+those pages.
 
-	if (unlikely(!(dma_flag & DMA_EOP) || !(dma_flag & DMA_SOP))) {
+bcmgenet_init_dma() then checks the halt again with
+bcmgenet_tdma_disable() and bcmgenet_rdma_disable(). On a timeout it
+jumps to err before it rewrites any descriptor:
 
-So nothing can be hit at runtime here. Still, is it intended that the
-guard and the build path disagree at this point in the series?
+err:
+	bcmgenet_free_dma_set(priv, set);
 
-Later in the series, "net: bcmgenet: reassemble jumbo frames from status
-block fragments" sends non-SOP descriptors to bcmgenet_add_frag(), which
-subtracts sizeof(struct status_64). That commit also raises the non-SOP
-minimum to sizeof(struct status_64) + 1, which brings the guard and both
-build paths back in line.
+bcmgenet_free_dma_set() is documented as:
 
-The commit message describes a continuation "holding a single byte", which
-is a len of 65. A len of 64, with no data bytes, also passes this check.
+/* Hand back a set that was never installed */
 
-Would it make sense to use sizeof(struct status_64) + 1 here already, or
-to adjust the comment in this patch?
+Here the set is the one the hardware is armed with. The helper returns
+every page to its pool and calls page_pool_destroy(), which unmaps the
+pages and hands them back to the page allocator.
 
->  			netif_err(priv, rx_status, dev,
->  				  "invalid packet length %d\n", len);
->  			BCMGENET_STATS64_INC(stats, length_errors);
+After that, netif_close() runs bcmgenet_close(). Because tx_cbs is NULL,
+bcmgenet_close() skips bcmgenet_netif_stop(), and nothing resets RDMA,
+UMAC or RBUF. Can an RX engine that never reported halted then write into
+pages that have been freed and reused?
+
+The non-reuse path looks similar. bcmgenet_fini_dma(priv, NULL) frees the
+old, still-armed rings regardless of what bcmgenet_dma_teardown()
+returned. bcmgenet_close() and the resume path already have the same
+"teardown failed, free anyway" pattern, but this patch makes it reachable
+at runtime through an MTU change on a running v5 interface.
+
+The commit message only says:
+
+    Only a DMA that refuses to halt still takes the interface down, because
+    nothing is left to run on.
+
+It does not cover the hardware still referencing the freed buffers.
+
+On a halt failure, would it be safer to WARN and leak the set rather than
+free it? Another option is to reset the block before releasing the
+buffers.
+
+As far as I can tell, the later patch "net: bcmgenet: reassemble jumbo
+frames from status block fragments" does not change this error path in
+bcmgenet_init_dma() or bcmgenet_change_mtu(), so the issue remains at the
+end of the series.
+
+> +		/* The datapath is gone, do not leave the interface up */
+> +		netdev_err(dev, "failed to initialize DMA, closing\n");
+> +		WRITE_ONCE(dev->mtu, old_mtu);
+> +		priv->rx_buf_len = bcmgenet_rx_buf_len(old_mtu);
+> +		mutex_unlock(&dev->phydev->lock);
+> +		/* bcmgenet_close() attaches the device again */
+> +		netif_close(dev);
+> +		return ret;
+> +	}
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97%40tipi-net.de
