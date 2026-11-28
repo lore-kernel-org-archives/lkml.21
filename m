@@ -1,94 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.61
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795831489;
-	b=inzNZ6QDipFfbo+7lsSL+6KVsachG5V87jNtHuFRYFxPl5y6W8T/it4UdVe7Fakdqc+Q
-	 GFLDwfyk2p+4XuByykdkmBlTS8J9uka2OrQ3yLcnbvhDjNeqflOxLd+q7HzxFWKuM/pbo
-	 yyLD+YxVMOOPzwTjNcEMSdGmvLIZenTvjcw5M4A0tMzuEdJjthtLnc8SDLDp/q3eJT/rh
-	 kF95Gw7cHFvCuHB9cWPyXpXvUjwnXqjsDuawn58jAowB8iG4cSa7FPo4R89aK0+cDawEy
-	 CoKsjyeB/vj1m/G3JVRNiamXL5B6qDKmV1MB4O9tyzALdXTcT8Ap4UGPEPizrRNkNLw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795831489;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=DBvtikyQIHMFDwWjDYgkPu9ooQ493Xt7VugNFAL3PnY=;
-	b=oph2pjQRhXcModR2cFiB0sdtXh7ZbOr7mCS5cC6LNDEi4Y1JHQM1NuViQcm65fnqiNhM
-	 +lnqUfcRiadhuQUtA7WAdyQZdPb0geJb8h+3vN3CoWLv5Jo4tqj42frzy2Zv7MoqPjiLB
-	 45suQUNaJZAEWFjFy75YrWcDjgtG6WBdMgze4Y4Mup8VjnsNV8BpcWXgUUdcNrPpolD37
-	 luKCUTKaPdkrXEMdIRNm/noE1awvma7Q28sGFV87rApPXRXcFuQtPl2LbXXOnT8s0FYsi
-	 GxRwNq+UbtcrpeNuIjaMFKpI6A0cjMb0Fof/XObKs7c6sc1ejjZoUdsdR2IrY7suEsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=bxu4dnSV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.61
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010061.outbound.protection.outlook.com [52.101.61.61])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795831511;
+	b=UiOWFHyqW8WZNnk7wcaWFs7MfEItzLxsoW262gyP/fP2XQcy9nffaGIGAyLcFQC8xYCn
+	 FNgTFkzOWo70flzvCxHG4Huf7UtqT5DV8exe1rUancytjUVHurUbbnRAoEzMLAqo5t/ZB
+	 da+gBPKWHnX5uNcHexw8Qg7B91UOUBGfRu4bS61ltvEchaZenMZAOvxKY8xoLEicTRHKR
+	 /edtFyWR0BjIgMNrqbj+fCB1ZbGPgoYKqWX9CSNXhTLJz8CLwZMQ5qVgimydiF1MZ7Vy9
+	 9C8MKdtMYNHdsHwsM3MphjdcPu+ojeebuqCH+sZe30bBIb6Rpz9fiFiX+fbaf1Haf8w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795831511;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4/y7+l7+EWAi2AyE4VivUN5vGlD65eVWxEAZNKww8cg=;
+	b=ydFTtGbar3ZAganrQFfaa3mLgSRe7oWZ5mrA1UCl4FSD4765Nqq23iriJ8SPFwUUZbR6
+	 rETSVVdMHjxqz605BdV+BTkzJjy8jXwFZxL06bAlW03qPt0/stlUnB0IyNwZNJQMfIDLJ
+	 EGh/di8FOE/ExzFooj91ZyBx2MpAt8suZyWEPxBT+MhdZdQI0gMDvTSOc6uu8ShmOd1ty
+	 Q/fiCJyqNsYRzlYzqZgKjDlXjwTR4TW+v1rsI5kfC1FOaNtFzawOg5kYpK/4C6qakulBe
+	 vp9Jt9pV15f+5DwRvKa89Z6sktaTvcuHpdRXaEItiF95iAgNkfcbZJ37PIEHuqmJ+XA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=blu7n8kI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 632A7606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:04:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 632A7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3352606A31F;
+	Sat, 28 Nov 2026 02:05:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=bxu4dnSV
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=opqHCbwioewhRGQsTrg8qthz7NzIsdwlkRVYB8FYo3p5SECWScXccm1zdnAvj35vhViUmEtU4oD83og7Es43CjCXWLXHKUJPBmL2GrCv+mcGbSEA7lEHAO6xBhfhdYsJkkFKQUeb3ulUGAlWuXb1NXgoxk+3k++PAijtr8SGIFCUVAA/VH0ihH2WQsnMzJ4GWF/2FTdYPMyqDesFgY+tDG1cpo212jh67Ea0B6MUHyGZKPE7Qj03DKa8QV5jq+QNQWlW78WjersnMx5ucnAM9h6nN1pAePE2eI/HpXQzKftkyMqWmuE+3D8/CyIrL+lpacZ4IiXPjfAwJ9kGmEVyrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DBvtikyQIHMFDwWjDYgkPu9ooQ493Xt7VugNFAL3PnY=;
- b=Zb5o08kchCJ5dik+2PNZVVC0rWw0CzF+bmEtyapYKSObn1RuKZ3YqZbaa2NgRl/S7elQt6vHDSQ7gB2jNtovcO7yLAdkJiteWRBdZuAuU3tWCBJI+A6fAC62h0Fst9rTQQJnzl2z0vBjb1ek4v16uNdLc1CL9d6pp2a5AZnv+9fWX7fNlug1xsQa2ShsZme0gFmFKErP16Ir0wy/+SHS2YIUSGKRdWHnV7KDe2tROQ0PmNGtfNkfBujc/QaqRna8mx+Ff5op300bNwwip4rHL0dQQTRitksc3YuvD/ehmmIObjjWTZufPn79FsPQ2X0guZIOJYidp90YobIWMTQr2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DBvtikyQIHMFDwWjDYgkPu9ooQ493Xt7VugNFAL3PnY=;
- b=bxu4dnSVw70psmDuFJf5eQum7DZ1Lsst/xWJg4Q7WYTbo8FK+c27UsqFH3APQWadFtHoCz8iT7tmp8HQ9qNoqLCUqFZiIg9m4p1ATC/s2AKzz80KpJ2ptPBrKXBSNU2ljpWzIuOzMtddccwpFm8d8gHxFpuLv7c1WH21eogIFsfTJ8JTyan4ne7dhS0yPwFE+75wuzzwJ+CwqKkomkFPtLeedImexttBR2cr2thpZ1F1sBaeKXTuPqqtok80MfHyl/uCHhkhIDUwocwYLUy7IVog0jHM9+oGeR20RWCDwULbXUfyyhHWAIzBfijf+SFf6lef+g594w81DybExL7KWg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MW4PR12MB6873.namprd12.prod.outlook.com (2603:10b6:303:20c::17)
- by IA0PR12MB7773.namprd12.prod.outlook.com (2603:10b6:208:431::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Sat, 28 Nov
- 2026 02:04:46 +0000
-Received: from MW4PR12MB6873.namprd12.prod.outlook.com
- ([fe80::a338:bd2c:3a38:ece1]) by MW4PR12MB6873.namprd12.prod.outlook.com
- ([fe80::a338:bd2c:3a38:ece1%5]) with mapi id 15.21.0662.001; Sat, 28 Nov 2026
- 02:04:45 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 28 Nov 2026 11:04:42 +0900
-Message-Id: <DN6H4Q2ZBZ5E.6QBWI631Z4ZU@nvidia.com>
-Cc: <aliceryhl@google.com>, <airlied@gmail.com>, <simona@ffwll.ch>,
- <lossin@kernel.org>, <gary@garyguo.net>, <ecourtney@nvidia.com>,
- <jhubbard@nvidia.com>, <nova-gpu@lists.linux.dev>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/4] gpu: nova-core: prepare GpuMm for shared access
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Danilo Krummrich" <dakr@kernel.org>
-References: <20261126213652.3716162-1-dakr@kernel.org>
-In-Reply-To: <20261126213652.3716162-1-dakr@kernel.org>
-X-ClientProxiedBy: TYCP286CA0369.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:79::13) To MW4PR12MB6873.namprd12.prod.outlook.com
- (2603:10b6:303:20c::17)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=blu7n8kI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 655EB1F00893;
+	Sat, 28 Nov 2026 02:05:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795831511;
+	bh=4/y7+l7+EWAi2AyE4VivUN5vGlD65eVWxEAZNKww8cg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=blu7n8kIBgrY/XPFGmvxjXnxhmQf65TfpkQbGNFy2j996iIGxEzO2+DKMQarGKQaG
+	 cpp6QM9HKXxB5062gDX94ZYnLvS0KxLxt0G3LcvLYrcJpzsClFiHWRUKNIlmB9/lEx
+	 cdCOKY9172yKW7Yd1xursIkDVQ2FaQldFia13QZDPMyVAvAwL2oRSTlX6hVKTIfIsD
+	 zPFKtgn8z6qV/2dvzDOxNEOcfqpHiytTyK9vwH4s1ge/ZwGoIy2ZL9S0D75xGColub
+	 PUK5ytnHvF5zD7MJXI12+NEYlsg52Dwwd+P5OjJJwym6H89lc6ONnEg7SRWhnoL9yV
+	 3TipnUzCVnnCQ==
+Date: Fri, 27 Nov 2026 16:05:10 -1000
+Message-ID: <c9eeab238a98617755772b8030109a31@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Juri Lelli <juri.lelli@redhat.com>
+Cc: luca abeni <luca.abeni@santannapisa.it>, Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, peterz@infradead.org, rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com, yuri.andriaccio@santannapisa.it
+Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
+In-Reply-To: <awfe_r5McCTzr84x@jlelli-thinkpadt14gen4.remote.csb>
+References: <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
+ <20261119151416.33f90a64@linux.fritz.box>
+ <471bf8d446becabfca00041fb2a78067@kernel.org>
+ <20261120120659.2e902463@linux.fritz.box>
+ <6fef47e08a37079c08806b3c57994778@kernel.org>
+ <20261120212418.10221f2e@linux.fritz.box>
+ <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
+ <20261123084345.4e24e3ca@luca64>
+ <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
+ <20261123151846.3fdcbf4e@linux.fritz.box>
+ <awfe_r5McCTzr84x@jlelli-thinkpadt14gen4.remote.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,85 +67,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR12MB6873:EE_|IA0PR12MB7773:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99c53fd9-3264-4c42-99e5-08df4cf3f97b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|10070799003|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	HMMgNSxwDSYkzZ5V0ny96WpG0Icb7M+phFFK+f4a0zty6llOCzmMPTJWvkTsAJhqVeOpkK85CWKk3GJ4dc/x3PISXPHrGKjQFV3x9khj7cNhpdXoQ6gn5MG3oCF9qKJV6mqvHKflsreAAEYZLjKr5cuyWSxaPLpyzz6qz/CiABqOb2tt3ChzMhbiBb3TxL6sJT85bkkU0vChaLNfxFJPGy/DveNko7R43bHHrYuWZ4pT1Tx/e1IV8c1dOLthtArXHhmgU3mgDevKnvFCSoj03abjkVSpVzqxkGZtH4NJsftJ/j+ISw9nj3tcuemmKgwPlVn2YLBxe5RP9+EQy/QxVMHqN/qLCtjkSKyiQEdZu3QiuePRp739YJqlJ1VePES3e/eixCNiZy1Tz/QhTT6qrrjlEEtQH7jLF/0wpzjGkzkgSN0N9roAISazfQDYZlSKQaxXhoUhfl+YXVn8Cia3mo28DmBeoXKqWw12bc5xmyOxRsAkcl+jUwbeed/HGlhuWU7NqLWizj/CI00dUJvaIhx2Lbr/VM7bcFhM1aF5RGPVr2txqcM09CjA+WHbOZWvr6qKBkjpnaMRZDh/jo0rwxgZk28kycMc08NGwKgRpoxr1SvBB9bPs/Cs+q6i3wuKWE8kS89gPycs/lzIWZvtEfxqcuQVj+jT95OiJG4IoFk=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB6873.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(10070799003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?KzZYT1JXWllya3pJVWc0bGFlTC9FWHR3K3FtckFRYjlwRjdEZHJaREtVamtX?=
- =?utf-8?B?aTJsV1BESVBDK1p3QVRYby8rbUNXQUFjOVFlWHBoRUdSVG9TZGFrckZRZjcr?=
- =?utf-8?B?YWxjZnUyaVZQNUdBMkdiamttUi80emYxVWg1dk1PL09jeWIxdkkzeEUvV0JG?=
- =?utf-8?B?aFFxUTNMVEUvd3lkY2liQ3gwTGFPSE9ZV2g3U0RNOGpJaDJhRDg0TTFvMTlt?=
- =?utf-8?B?bHlQc2ZLdDdLMUVGamdxZ2tjYm9Oa3hpcHJKOXNEMnJ4M0piTGtoQmQ5dHph?=
- =?utf-8?B?SURCT0xRZmdZbks4MUlmQjVMYlR2QkUxTFRnV3RPY1F3ZFRWWENwd0JzTjZl?=
- =?utf-8?B?SE9PVi9BdWJyOHVEUXVLbnlxOUtkMSs4RENGT1FQVU9TS1I3T2d4SGhLRjZM?=
- =?utf-8?B?M0F0ZTZqTkorZS91MFNad3VqQUZ2SXpnU0ZYcEY5OXhkRGErWVV6ZTdUY251?=
- =?utf-8?B?OGZoTTBnMDAzZ2JxNG5LZWM5MytmdUx0VUJ5MC9hb2l2QzBiNm9oelJ0NUpv?=
- =?utf-8?B?aDgwQXJmRmhWRXl3ZGlJKzJhREZsU3dVQWNkSWVqV2IvbmI1YXA2RTNUS3Y3?=
- =?utf-8?B?Njh5bGRxM0s4SWJndHJWV2VVWHJYSVNWUHkrek5Odk1QS0Z3UFAwdzc1ejJR?=
- =?utf-8?B?RFBnNkRhSXNjMENsdzF2aDhQQVB3WWJsdHBJdmdzV1ZEdE5uMStlN1Q1dTF0?=
- =?utf-8?B?Mmx6WVBMNmc1VXpPMnQvUkpTQnVxcUp3UGtWMmRpakxqOW00eWlRb1BwaDgy?=
- =?utf-8?B?c1QzeTVJUm1TMkNFL2s3aHNSUnJ1ckFQbVc4TlkzN1d5S1VwbmsrNG9SR2NW?=
- =?utf-8?B?cUJZZmFiVzE5Qjg4SHVXaUcxWXJzTjdWL0w3ZU1mNGlzNmRncGpISVAvQVRT?=
- =?utf-8?B?MllaZEJlZXFHZ1NMampUUFlKeWN3UXF3ZVBybTFBS2M0N1o2WXVrZVdjcU9r?=
- =?utf-8?B?SmZsaVhVYW4yZ2RsM3lhaEkvOEZTOXoxWXJGbEpSOUZ6Mjh0M3RTczJqamgr?=
- =?utf-8?B?RDJXaUJaS1NPZllpcnBST2E3TUZQSEVndmp0UHZvaDJLZS82N2RGUFJqbnBy?=
- =?utf-8?B?aVIvUEY0cS9KaUxNc0pURXpBZlAwU2RTMzJjbU5EQXRuOXRWenF3WExRTFR0?=
- =?utf-8?B?aWU0cWRybXIzcXhnbExtaXpVQ2F3aUdHUGI2MElxWUg4emEwS1ZnN2ZKTjBu?=
- =?utf-8?B?TzJJZ0tCbFBiT0tWNGl2cVBIaTZRVy8rYm1VUFhkZm9yVFNxL00zMmFvSmtC?=
- =?utf-8?B?SGdFeVRKWWFUQ1ZDNDR6VlBwOWx5aDBBS0w0ZzlMMExxeDI5ZkRoc3lwdzBp?=
- =?utf-8?B?a1VnNmxPdTRObXdxVGJsdHBLTnlISS94OW1uNUx4alNuQkFERE5WV050R1c2?=
- =?utf-8?B?TERtaitLS3luc1FXYW9NMkZxSXZ6SmJaYVNMU0YzSTNBMGRQQk1uNzJYOXFv?=
- =?utf-8?B?WUxsM3pBS3NKUnRUVGM0SUt6N3NDa3YzVFJZSG1NcUVWZlNvbGsvZGlEWEpI?=
- =?utf-8?B?QzZyL3BWWUZaYU5wRzJsbVdYMjVBQ2lYcStEOG15R09SbUV4UEJ6VXRiem5q?=
- =?utf-8?B?YVFSNXdpNmhmSnZzV2kyRUVwMnc3a01PRDBYNDU1WUJZSzh5WTV3NzZOdEFw?=
- =?utf-8?B?cU5SbTFFcjgrblN0YURXT3VMTkNOaEkyRWVDOWNHZWtvRWJ5MHEyMldxRllY?=
- =?utf-8?B?OVNIUU4wNTJmT0FLOVNUNERLeHpZeG1hOXVsSGNqUE5Fc2dGbXo2L21PS1M3?=
- =?utf-8?B?eEFldmJadUN2U0hzZmF3NUlSUnhyS3RZZmgyWEZXVkNVY2o3MmVWTk9MRSs2?=
- =?utf-8?B?ZXRHakk3U2JiMDR5T0duUG5kR2lzSjJ4ZkpaeVdBMEl3eHROY1ZicEVla25G?=
- =?utf-8?B?R3hwdHowNXlQd1FjMXM5c3pUckZjWjBNVHVGQmhNVHNNOGNhemlMNEJ1NHlr?=
- =?utf-8?B?UFhYOVF0b3BaQlQzbUxiZWh6THI1TW1RZFozTCtxN2ZBbWNBZzJZOFRZN2Mw?=
- =?utf-8?B?eitjYU5XMjJNZUc3SFF5WE9xdmR5bmY5MVVvYzdLZWoxWXlrQWwycW9LbUZu?=
- =?utf-8?B?WlBZcFpvZ2Iwdzk5QXA1NDc0QnI2QUpabHYwODVMWCtsemI4VFp6V3V6TUQr?=
- =?utf-8?B?bGVvQzhpSnRJNDgrZnBRVURTQXRFbVJUVWEwZExnZVJhRFQyRDgvZ1BnQTRO?=
- =?utf-8?B?WHRneHF6bm55c09mNk9DSExnTTZtcFlORTNZY2I0cE1HN1FHdkxnWFJ6eFBn?=
- =?utf-8?B?TTlWbXJ5dHhYaXBNSUR3QmJnMThvUFB4bEhwQlptM0pQVUEyTFVZU0xFSEtQ?=
- =?utf-8?B?dEFodnlmRmcyNS96V05qa1VrVDdmckNHV2Riek5WQnZ0QVg5Vy9OR1Y1OU9h?=
- =?utf-8?Q?4hHqyc+7QLTdENZz3YrZtIAMZMZnmmdWc5ED0+VpE9bUV?=
-X-MS-Exchange-AntiSpam-MessageData-1: G+r+oOyMeJTiPg==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99c53fd9-3264-4c42-99e5-08df4cf3f97b
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB6873.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 02:04:45.8043
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Jy0f2EGzaoq8gdv+VTl5BAagtO34U/5Sl5BlXTYH5AZJ3voqn/a43415bZNpGjZrkGtGa9gTKrZZK0KZhaFkyw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7773
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Fri Nov 27, 2026 at 6:36 AM JST, Danilo Krummrich wrote:
-> Give PRAMIN independent locking so GpuMm can be accessed through shared
-> references. Initialize GpuMm in place so PRAMIN and TLB can be embedded
-> directly, eliminating their separate heap allocations.
->
-> Danilo Krummrich (4):
->   gpu: nova-core: mm: serialize PRAMIN access
->   gpu: nova-core: mm: use shared references to GpuMm
->   gpu: nova-core: mm: initialize GpuMm in place
->   gpu: nova-core: mm: remove SharedPramin
+Hello, Juri.
 
-Thanks, this is going to improve the vGPU code quite a bit.
+On Thu, Nov 26, 2026 at 08:25:50AM +0100, Juri Lelli wrote:
+>   P/          cpuset.cpus=0-10
+>               cpu.rt.max: 4-10 runtime=400 period=1000
+>   P/noncrit   cpuset.cpus=0-3   (threaded, no cpu.rt.max entries)
+>   P/crit      cpuset.cpus=4-10  (threaded, no cpu.rt.max entries)
+...
+> Tejun, is this the kind of usage you had in mind?
 
-The series,
+Yes, and let me build on it a bit because I think it also shows why
+tying cpu.rt.max to cpuset is problematic.
 
-Reviewed-by: Alexandre Courbot <acourbot@nvidia.com>
+Here, cpuset is what keeps the two sets of threads apart, but cpuset
+isn't just for RT tasks. Say the process also has normal threads which
+should be able to run anywhere on 0-10. The two children can't carry
+different cpusets then. The RT threads would be affined instead and
+crit would carry the budget so that only its threads use it:
+
+  P/            cpuset.cpus=0-10
+                cpu.rt.max: 4-10 runtime=400 period=1000
+  P/noncrit     RT threads affined to 0-3
+  P/crit        cpu.rt.max: 4-10 runtime=400 period=1000
+                RT threads affined to 4-10
+
+cpuset confines everything in P, RT or not, to 0-10 and cpu.rt.max
+says where the RT budget is. crit takes all of P's budget on 4-10, so
+the noncrit threads have nothing to run on there and stay on 0-3. If
+the budget followed cpuset, it gets tricky to express the restrictions
+for the normal threads.
+
+Now, say P sits under S and a second container Q is added next to it,
+sharing 8-10 with P:
+
+  S/            cpu.rt.max: 4-14 runtime=500 period=1000
+  S/P/          cpuset.cpus=0-10
+                cpu.rt.max: 4-7 runtime=400 period=1000
+                            8-10 runtime=200 period=1000
+  S/P/noncrit   RT threads affined to 0-3
+  S/P/crit      cpu.rt.max: 4-7 runtime=400 period=1000
+                            8-10 runtime=200 period=1000
+                RT threads affined to 4-10
+  S/Q/          cpu.rt.max: 8-10 runtime=200 period=1000
+                            11-14 runtime=400 period=1000
+
+P and Q each have 200 out of S's 500 on 8-10 and 400 on the CPUs they
+don't share. Nothing has an entry on 0-3 and the noncrit threads run
+there as before. P and crit now need different budgets on different
+CPUs, so expressing partial sharing takes full per-CPU config anyway.
+
+I'm not familiar with the analysis side, but wouldn't it be okay for
+the guarantees to come with conditions? e.g. If the crit threads stay
+affined to 4-10, they get the budgets crit has there. A thread which
+doesn't follow the setup gets whatever is left where it runs, which
+may be nothing, as with a noncrit thread on 4-10 above.
+
+I think something like this, per-CPU and independent of cpuset, is the
+most orthogonal. Intertwining configs across controllers or CPUs is
+likely to lead to complications in the future, many of which we can't
+foresee now.
+
+Thanks.
+
+--
+tejun
