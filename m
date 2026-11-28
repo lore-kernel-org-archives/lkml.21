@@ -1,80 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.188.153
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795887456;
-	b=djdqj96iqbLdnjG80hxmaSwE92MJAaB5nPW27VII0NzzXxUY/ckYX4NIUhVDHp2CgByr
-	 JCUpe/ReC3hF3AfJ7M4Rm+Sr7owEjszaU7Y05TxMzLv+KZBio9Ha4A9UJpujohY80hWFF
-	 veMF+kvPtQa1+rR4K9Hgff80BgoMxR98gMfRZUkR2C/QG6LNYAecDhMXLX3uepk/vNVXr
-	 zxx9fB4QUGkOKfcRL0mm1VhXBhvkH28feoCu/3WTrclIxYf4wTtVqZZ9h/5GdXXuGcXHH
-	 moSvZjCMU/8XcvQyvElz9/lngyYSzb3tg7FjUxuWjUSs0I8n0k34RiMfXPz3OWIedyA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795887456;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=b2SvXRP/HyaLtE5GTf4mgqpBfNERWI+DPy54Q3r0I3s=;
-	b=acbCtQ7s5fXoEv/5WLaPuJ8ynjxAzFHvojZRPMmhKB6eZ7VYVrjJZsOjgZ6EKDWnXil1
-	 HT/VzCSc5WWs+RamdNsG0ljMGW2guA71pBrsc1Hj3jk7EaJj3fdzbRZKlt+TnWcFB2VNa
-	 AaL3rkgb0XWA6cwakWOHG6zdaKfa1v4D1oLVjgFh8W+mh8FWxgE7l+z6MVbvrboOLnHq1
-	 NN6+Xg7+An6iRB8KjGVyq8Vp856VlWBpz+dOShYaqC1ba7Ajx095f2/FxEsygkX+T9BbT
-	 +ZElTFWLaEqDj+wWrudpXF83vR4rY2ZtLBc+WwuVrvTi6/sjsDsEoxExeoORTornBgw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=schaufler-ca.com;
-	spf=pass smtp.mailfrom=schaufler-ca.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=HCN3s7+i;
-	arc=none smtp.remote-ip=66.163.188.153
-Received: from sonic303-27.consmr.mail.ne1.yahoo.com (sonic303-27.consmr.mail.ne1.yahoo.com [66.163.188.153])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795887524;
+	b=ZUGdu6o20xGEcWel4wBzyCgted6iNKRW3unwfRq9bbOy0O53Sntt7Fdu3cGq7WajtITu
+	 JnRMmfHBuQmbh/0LubeZRTQz8fITfSexMlyzyAfGnrgR7XLPXV6Ry7AXDExmPvDOVelj8
+	 vhgnvO45OT4BbaoNfc8x2uGzjY90wj5zH4+3Grpjt1Z0jCewwGJabynyzRFbTNXlZV2NC
+	 gC+ECW2SRaDQ5Dg3WMawxWeEbmz6Cme51OGy9tuvrlgUQC7V7dfQ97MBaAppRE80DC+UE
+	 XAMj3kW0Sj8UBjKORf3dRwTYHXBMdBkde7cTnWD+1LWWilAEp+D7mlWA1/Hr9sBRfQg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795887524;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Ss3ZCTu7XA1ZhYeb6VBo0mrV1uUxDqZ/FutaykT3aRE=;
+	b=zDVrDdKHfyWMJojT0RDixQCqa7mN8cyW+4JV/eIGOYSf9xEQZ5Kg2H23HPCc+TOIPGp0
+	 gCOLXY6xBiJJy6Wk+irabDiK1C/cG4iuc8PtBIp0bn2xvK54NLT/he9+M+upcRrE7K1np
+	 92l2cgXtk9gy215HQm8DcI2Kmn0bE8Z4LhffDffc6VtREOYzeOjbV6c8GRbgVZwwzVO1o
+	 7lTNo191VkEVd/YqoVwCjrJQN7TJx3pZTEXcHJ3Ar9SVUzMb2kT6//Vm3IVdIutuXEbqC
+	 m6xNddjRAdabT+AbGrOkRTuoLcbOLAEeRoqElmc1eXpUY4US3N/ZUdd2/EyIk3agawg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HxeDlk4n;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC0ED606A321;
+	Sat, 28 Nov 2026 17:38:43 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HxeDlk4n
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795887523;
+	b=lpatwG25OCTGX7n/upbpr7+l/Fi2xR3fC3/3hiPW3IcKoB7iaFntGiLBl9iJ+baLRLOb
+	 24Ba6mgQADehcbubtriK7NTA1HUPxDJgwKZpggWetoISDSY+WKB2hqYUkytNNtkhNWDgX
+	 52epalF8ndpjRtwvsXiE+EMYk2qKBoZUZyCkE6NtqmY6qExlCXGK6LniR9rDQuHJTkQX2
+	 N4gvfpnClzQwNa2I4dnEbu//31RHRDtReBWuWFsPU8HQIwXPc5+JYT1u01nGr4VHv62Fi
+	 p1o4WRnGL4u0TTgj0+APCCuMUXH4n0cdO44kXa0yKBpiPplpw97EjAtjOxw9WyLz9OQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795887523;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Ss3ZCTu7XA1ZhYeb6VBo0mrV1uUxDqZ/FutaykT3aRE=;
+	b=0uPCyc79NpsvdCWBK+BjYva7ER1T+UQj9srzr1vhzD/lT8pnVikT/6BGjr6UK1JetPR+
+	 1MU1jxcuHLzkDuQMKC/r9kLdi0VQpim/AwwcBmdNux+mPcnKj1GIXsWjX5Rl17UEpnPOJ
+	 eRNARj43cIhLfHXaS6qVx2YOP28daH+Cq4EAkz0EtRfPSLYxRrP5sC13iBEr8HEE6+E7g
+	 biyvZw28EkL613K+4oQoaLNrgjwVMUlTOLAXnl+Ua7rEI8QlTC2zZ76nPgcOEXKlhCp92
+	 Cmg7yYyDoFFcjIzYNb0DV4oUV3pojXpE4XhkSj2ls0bjVcspJu2GEt438kQEGKtLPhw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5C6C606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:37:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5C6C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=schaufler-ca.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=schaufler-ca.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=HCN3s7+i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795887454; bh=b2SvXRP/HyaLtE5GTf4mgqpBfNERWI+DPy54Q3r0I3s=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=HCN3s7+iIvpT15dVddxJ6vmzDJSH8VuijbCV86GnvKNy5Et1MElGK9YrfjdxBqB0wUVJKLggKKEzpfphvSS+uF+krLM3x48JAP1YB84OXDYFtL/lRuEGrCs/kouSn+1iYmIrsQ2GZkHH2rEp7l580KJGA0rXCfDJvqzdjJkWVGOtugEg+mePyDqEinkcOpeijOiLHQ4PcUgN5YH7IHxLiwJdts6MLHIQJ9l0YxJ3hjWETxapA87kTCVeH/AXUVzKAczpNjWXEJ2XUmPY8waUHsSlJ2zTUYMpYd+8f8as6WR5VrvwzKm2qj6lQoV24mbylxJWAyE/uKyAvJIwOdi4yw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795887454; bh=5efnk+wOwjKIC6tVyIWOXf9/QpKI2Y7KWwmRTTKIc8J=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=D75pcEdVCCxwMqmVbCL35Lhpil96MRYWY4o2gy6uiYgnoXTePZEBdRkPQwYTEYYJIk6hHCmFbm72M5RdyU0N0J5ffnZqVTyX/EFTZMgo9V2rdqmH/rY8psnRcbAAuMRkrPaRyzDEGWw/9Es33pkf7dFNldkceYK2laf1TXmCY/9k2u7bfIBJMz8Ka9XRomeJ2X7ScSV4U41UpUrrLsRVWWXvxAax0iPINqb9oPHDqwYsClQ9pVo1aIuVvXkRHvZANrFSAiwqF5YVzlv8laK/mEd4R2FZAKyTalAqmk7VusIyjGDzw6nEYFZwZF3bT7mILDRBdTaDs5PIzqMoWeqw+A==
-X-YMail-OSG: QWNVLqIVM1kjokMZdp5HiLOjy6f7n_CGBFnDFhSfM_Ai.op5AQmfCv4DiYBILIJ
- fmxLSuVpCnLKx2qxjNAq7E1pdiuFayV522m6rL21REwyeT7noDqGhXarjAqDlWo88piLMCbJwnbP
- rLjtGPqd9gHAhdbrlHGzTW.tv.d3ViFpUaoDuD7xR4ulBJJVxI1XvRSTR9_iAfxyuR3HClxlolPi
- 1bUWyYvj0Jwg_cqslrVLFxWq7hhnoBDMDCnSDJxOzhwHGKxCjTvb0kgWduuyTeUEfjZ70iW.Qeqm
- Zm3p57BHKH28cUKyR3xrWBaNjouMKwJUGwloUSx0BHnnADhxTj.jWqTyMBrIdM7dhK66w4CT1mg4
- vDlZU5zZ39KRHJCGyQdhwVjI5t5yIWdgYGSTMmnTpIyQGsxZ2UqR_MMG5rZkzfzFAu0LjPRYEMdm
- 29eaB6cKOhqpcKLMa8ZnIKmCPg6UlGLqh3wp_nQNR99Y8zWF5FxYcCVo0tyh.Cov9et71fcIfv1I
- bKSd1XblTaRMLcJbuIPiGiK3Kd.Muib4HFvJRHOxL6s_HpPtvQbPESX0tC9r43jB1MCoXzzAOaAo
- 9GWdPbenqZLHDT5qTiIrAJnQWixeH9j9TH2yayBQC8sYka._tmJ13vki_VbKFiMpA3LDl_F0.3lf
- 4ywTo4tp4EKj5VkPIomgK09Zs_vt8DsML1MXtB.jrKm7ahk2Q78ac7detW4rXv770L7tGp5k71dW
- 7DVQTwJsd6bjeZym3Ht0u3pqqbdPEb40z_lw5fplPGwPX6i5heL_wor5osTdu30zecmAzgMmAt3k
- GzN8ANqyiI6y4uYRRKkZ5aA205MQLPXR6DS_hcCYyDNl5OUWAvyZyLCSR7rlQa9GWh77agvk5_Lc
- 9jJmGBtwJ.ypnVMSn64tsoQBMktW7TeOs2Mh1ilZmgfi4GwJuYV1RTy5QTjJgAmUMITFIeR08Cmy
- bgsyG5l.gy2UvpMU28hH0januKqxBRXhuJnFtAvtlfr8PRGsHTqVscmIYe0A3muL1FifF1UKSwWv
- NtQziESOiZNRQnjMHtgTt4aBA.3g0ZWlIMvn1wIJuHjCJgUWmTg0dt_KpVtgEwLMeJAVum6O9XBo
- JiloBK7Xhd_VSSzDLVaZyFWvMKUl.k_2VUCzMfcEJsbfauGr8r9ZGohebwPqbcSJ4jDfbr4lFGu.
- Ez3ukLF0rS1fyoOf1jEs.TuYrbVN1.V_ZJoQbebLrFK_zKKSko4KKID8e17woY0AogMvZWCt9Szw
- mPLs7GdqF_CFMTONQ9UFAUmTC13FrA8OJbAvzmH1s91ropCC1HWe2jDMZ9U.DIaLnGoheDzl1dCX
- 72jBFZxzYSI0XcpmAQ5DAUcbbD8DOeZAGkT7NrrWc21AQ_qR_luN.FYCSOO26iDwqGpwMNZ0yT4N
- zyhNdJ7KWfONNzbH8OI5CGRqJBSiW3xo1NN3wqalXxEeogWRU3RL8z4ZFGTZH1jAJVOYzhN.o.rb
- I3eIIvOQXhWVG_U8Kg8z8AF5azQUO_lXDktDTb2t6MPv78Oc4ZaKvS_ry2tQluECGoqAf0XS3eGX
- lc6Onit0uJB5RywXMe8gXlamifqetoN4dh3_DO0a06I8hkf1qfn_uhOMO0b.7mSllBa5WP2BEnxq
- bATKLVFfPaqXT38Y3u3bubzhYOF9zqa_UM6mOvaUPs_nUatnqwHetNb1HOH4bDARK3jQULP8oXRs
- Qouww__XZCQCTmdRxc0_JNSCbLNARBxJTArvv28N4htaGde8GG0RiNpV8iXpxQ3Q6JGd_CWIytZE
- GFV23wlO93iSXEHE9bzH6l0CzWo6lkTajfxBOnCp67vKJeGjt0pAIqFd2XBu4koA5f2DP_eWoE8q
- e41n3UKpIhHJFIoV.sVcVuSUg.iK9PUk9jT7Zp1rTKRyvQuM9HbhYDhP9CrHbPeZP_tJrHWBYn.s
- FTuZh5utOhJXwN0VlzpaGOwtbxJpXER7iWbMgl9iaC1TJUakVnevxvpEiL46Sz8oCd6dDecLq_Mp
- 9kbvHwpl5sW3rIWpBO9u6M8Wy.qdd7LEXVoRRol0yj92My7BEOoJWDiFyNw_FJfm2ulfgSnTCHOX
- z3yGIm682dvoVNSoM1byId4Z4w2VQXtr3RpwWmzxQI4wXGnbiEf5t8PJT5jb2JaiUQ.CJB4BYKlU
- KwvT3YQdGZW3BNBOZk0IQ3AnL8oNoOxZQP6zR8QdPoPW8.SXjwqfRe6wjdgBsNFtrOoxf_KuZHJ3
- D_ixP5_oYZ65gq6JEwbpWsaMCTineSDmyED96e0NQT3rbz.ifI8Hrnckt0j44g.qSod_2MJEYUIL
- 6v83GzJbyOvmzcAC8Dhgbg1AGeg_W
-X-Sonic-MF: <casey@schaufler-ca.com>
-X-Sonic-ID: 96afbf62-d46a-43ed-aa50-2a6f2bb7d4ab
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic303.consmr.mail.ne1.yahoo.com with HTTP; Sat, 28 Nov 2026 17:37:34 +0000
-Received: by hermes--production-gq1-7c58b65db6-rd56z (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID b065bd60311b2abbe862eeb713695335;
-          Sat, 28 Nov 2026 17:37:32 +0000 (UTC)
-Message-ID: <9cd7e2c5-22a0-45fc-ad41-56bac8bcbbeb@schaufler-ca.com>
-Date: Sat, 28 Nov 2026 09:37:30 -0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 55F571F00898;
+	Sat, 28 Nov 2026 17:38:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795887523;
+	bh=Ss3ZCTu7XA1ZhYeb6VBo0mrV1uUxDqZ/FutaykT3aRE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=HxeDlk4nCXErRkCwqzkR/6Bj0wUzru4USE6xvrNmiIJWsigF93tT+tgIWTKuDdw9e
+	 UfZLHbM5C5nba8Bej/Ab61cwAA90jDhzXKlVu0RgskKuDmSfUSuOT6hrCWuijfO7VP
+	 2KT1+o1fAAOhSkODJ7csephtXZ3JeZD85eGW/2ghBDe46mmkC1Bs2bTB6aEhovnoUS
+	 qgk8iLn8R4IwmUqtSddr4t5dXLY9cx19d0dWGKilHIXyFvc1hokhCUyPAkOn/9B82Q
+	 6/fX3oSUZydv1wDQOQFZd4etprwtlISq1Mlxpa0rsLkLoRI1VDkCidWhTE8m21Uu8l
+	 WTPNb4VFBytcw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id DF0B94E1CC;
+	Sat, 28 Nov 2026 17:38:28 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Sat, 28 Nov 2026 17:38:30 +0000
+Subject: [PATCH v2 3/3] crypto: ecc - Add KUnit test for P-521 public key
+ generation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,140 +83,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] smack: mediate file attribute syscalls
-To: shaos <shawnq1@163.com>
-Cc: Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
- "Serge E. Hallyn" <serge@hallyn.com>, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Casey Schaufler <casey@schaufler-ca.com>
-References: <20261128082823.3074924-1-shawnq1@163.com>
-Content-Language: en-US
-From: Casey Schaufler <casey@schaufler-ca.com>
-In-Reply-To: <20261128082823.3074924-1-shawnq1@163.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261128-ecc-p521-small-scalars-v2-3-0648f492bca4@gmail.com>
+References: <20261128-ecc-p521-small-scalars-v2-0-0648f492bca4@gmail.com>
+In-Reply-To: <20261128-ecc-p521-small-scalars-v2-0-0648f492bca4@gmail.com>
+To: Lukas Wunner <lukas@wunner.de>, Ignat Korchagin <ignat@linux.win>, 
+ Stefan Berger <stefanb@linux.ibm.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Jarkko Sakkinen <jarkko@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Erwin Pawliczek <pawliczekerwin@gmail.com>, 
+ Laveesh Bansal <laveeshb@laveeshbansal.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795887508; l=5021;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=9RQyvQkr/A2WLGr5xZoUEE44IbUDVhuj+Vnj7i9lKK0=;
+ b=OfKJSsgXE0SDU/iPWggNaFSXdPSAnJhYBOMfEqEncW3eg9oLg9HqRQc/gvo4KHDxiyKYcdfm9
+ +PE3+HEuM/1CkmDNTTb14VC43pKTRyOSb272FFafyWmmGuB+tvgonu4
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-On 11/28/2026 12:28 AM, shaos wrote:
-> Hello,
->
-> Smack does not implement the inode_file_getattr and inode_file_setattr
-> hooks.  As a result, the file_getattr() and file_setattr() system calls
-> bypass Smack's existing read and write checks.
->
-> The reproducer runs as uid 1000 without capabilities and changes its
-> Smack label to Subject.  A stat() on /mnt/secret is denied, but
-> file_getattr() on the same file succeeds.  The Subject label has only
-> read access to the Control label, yet file_setattr() clears the file
-> flags on /mnt/control.  Ordinary open() checks continue to be enforced.
->
-> This bypass exposes file attribute metadata and permits changes to file
-> attributes that the Smack policy denies.  It does not expose file contents
-> or demonstrate privilege escalation.
->
-> Tested source revision:
-> HEAD commit:    8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-> git tree:       fe970b05333fb8e41da21e9e289f652abcc7cba7
-> source version: Linux 7.4.0-rc4
-> compiler:       gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0,
->                 GNU ld 2.38
->
-> console output:
-> https://gist.githubusercontent.com/shaos26/fbf8b7f663ee82593d7d41623aa2e2c4/raw/2ad22ab46d2cf376b59ef361d9c7ca2b691c6eda/console-output.txt
-> kernel config:
-> https://gist.githubusercontent.com/shaos26/fbf8b7f663ee82593d7d41623aa2e2c4/raw/f9e1ceca2f52ead87738af313610fc49834654dc/kernel-config.txt
-> reproducer:
-> https://gist.githubusercontent.com/shaos26/fbf8b7f663ee82593d7d41623aa2e2c4/raw/d9b447aad65076391390d150d752b6b9cb116abc/poc.c
->
-> Build the kernel at the tested revision with the attached configuration.
-> The reproducer is a static init program and expects an ext4 image on
-> /dev/vda containing empty files named secret, control, and public:
->
->     truncate -s 32M smack.img
->     mkfs.ext4 -F smack.img
->     mkdir mnt
->     mount -o loop smack.img mnt
->     touch mnt/secret mnt/control mnt/public
->     umount mnt
->     gcc -O2 -Wall -Wextra -static -o poc poc.c
->     mkdir -p rootfs
->     cp poc rootfs/init
->     chmod 0755 rootfs/init
->     (cd rootfs && find . -print0 | cpio --null -o -H newc) |
->         gzip -9 > initramfs.cpio.gz
->
-> Boot the initramfs and ext4 image with:
->
->     qemu-system-x86_64 -m 2G -smp 2 \
->         -kernel <linux-tree>/arch/x86/boot/bzImage \
->         -initrd initramfs.cpio.gz \
->         -drive file=smack.img,format=raw,if=virtio \
->         -append 'console=ttyS0 rdinit=/init lsm=smack loglevel=7' \
->         -nographic -monitor none -no-reboot
->
-> On two vulnerable boots, file_getattr() on /mnt/secret returned success
-> while stat() returned -EACCES.  file_setattr() on /mnt/control also
-> returned success and cleared its flags.  With this patch, both denied
-> operations return -EACCES; permitted operations on /mnt/public still
-> succeed.
->
-> Implement both hooks with the same Smack access checks used by the
-> existing getattr and setattr hooks:
->
-> Fixes: defdd02d783c ("lsm: introduce new hooks for setting/getting inode fsxattr")
-> Signed-off-by: shaos <shawnq1@163.com>
-> ---
->  security/smack/smack_lsm.c | 30 ++++++++++++++++++++++++++++++
->  1 file changed, 30 insertions(+)
->
-> diff --git a/security/smack/smack_lsm.c b/security/smack/smack_lsm.c
-> index 3a4a33568297b..6da2492f9bb61 100644
-> --- a/security/smack/smack_lsm.c
-> +++ b/security/smack/smack_lsm.c
-> @@ -1311,6 +1311,34 @@ static int smack_inode_getattr(const struct path *path)
->  	return rc;
->  }
->  
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-Please include a kernel-doc comment on each of these functions.
+Nothing tests ecc_make_pub_key() on P-521. Add a KUnit test that
+compares the public keys for k = 2, 2^259 and n - 3 with known values.
+It fails without the previous two patches.
 
-> +static int smack_inode_file_getattr(struct dentry *dentry,
-> +				    struct file_kattr *fa)
-> +{
-> +	struct smk_audit_info ad;
-> +	struct inode *inode = d_backing_inode(dentry);
-> +	int rc;
-> +
-> +	smk_ad_init(&ad, __func__, LSM_AUDIT_DATA_DENTRY);
-> +	smk_ad_setfield_u_fs_path_dentry(&ad, dentry);
-> +	rc = smk_curacc(smk_of_inode(inode), MAY_READ, &ad);
-> +	rc = smk_bu_inode(inode, MAY_READ, rc);
-> +	return rc;
-> +}
-> +
-> +static int smack_inode_file_setattr(struct dentry *dentry,
-> +				    struct file_kattr *fa)
-> +{
-> +	struct smk_audit_info ad;
-> +	struct inode *inode = d_backing_inode(dentry);
-> +	int rc;
-> +
-> +	smk_ad_init(&ad, __func__, LSM_AUDIT_DATA_DENTRY);
-> +	smk_ad_setfield_u_fs_path_dentry(&ad, dentry);
-> +	rc = smk_curacc(smk_of_inode(inode), MAY_WRITE, &ad);
-> +	rc = smk_bu_inode(inode, MAY_WRITE, rc);
-> +	return rc;
-> +}
-> +
->  /**
->   * smack_inode_xattr_skipcap - Skip the xattr capability checks?
->   * @name: name of the xattr
-> @@ -5185,6 +5213,8 @@ static struct security_hook_list smack_hooks[] __ro_after_init = {
->  	LSM_HOOK_INIT(inode_permission, smack_inode_permission),
->  	LSM_HOOK_INIT(inode_setattr, smack_inode_setattr),
->  	LSM_HOOK_INIT(inode_getattr, smack_inode_getattr),
-> +	LSM_HOOK_INIT(inode_file_getattr, smack_inode_file_getattr),
-> +	LSM_HOOK_INIT(inode_file_setattr, smack_inode_file_setattr),
->  	LSM_HOOK_INIT(inode_xattr_skipcap, smack_inode_xattr_skipcap),
->  	LSM_HOOK_INIT(inode_setxattr, smack_inode_setxattr),
->  	LSM_HOOK_INIT(inode_post_setxattr, smack_inode_post_setxattr),
+Suggested-by: Laveesh Bansal <laveeshb@laveeshbansal.com>
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+ crypto/Kconfig    | 11 +++++++
+ crypto/Makefile   |  1 +
+ crypto/ecc_test.c | 94 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 106 insertions(+)
+
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 6682ac091b38..a4c8632ef4f4 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -296,6 +296,17 @@ config CRYPTO_DH_RFC7919_GROUPS
+ config CRYPTO_ECC
+ 	tristate
+ 
++config CRYPTO_ECC_KUNIT_TEST
++	tristate "KUnit tests for ECC public key generation" if !KUNIT_ALL_TESTS
++	depends on KUNIT && CRYPTO_ECC
++	default KUNIT_ALL_TESTS
++	help
++	  Enable KUnit tests for ecc_make_pub_key().  The tests generate
++	  NIST P-521 public keys for small, mid-sized and large private
++	  keys and compare them with known values.
++
++	  If unsure, say N.
++
+ config CRYPTO_ECDH
+ 	tristate "ECDH (Elliptic Curve Diffie-Hellman)"
+ 	select CRYPTO_ECC
+diff --git a/crypto/Makefile b/crypto/Makefile
+index 42a4a0d5a466..32a3d3e7fd8e 100644
+--- a/crypto/Makefile
++++ b/crypto/Makefile
+@@ -167,6 +167,7 @@ obj-$(CONFIG_CRYPTO_USER_API_RNG) += algif_rng.o
+ obj-$(CONFIG_CRYPTO_USER_API_AEAD) += algif_aead.o
+ obj-$(CONFIG_CRYPTO_ZSTD) += zstd.o
+ obj-$(CONFIG_CRYPTO_ECC) += ecc.o
++obj-$(CONFIG_CRYPTO_ECC_KUNIT_TEST) += ecc_test.o
+ obj-$(CONFIG_CRYPTO_ESSIV) += essiv.o
+ 
+ # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=124949
+diff --git a/crypto/ecc_test.c b/crypto/ecc_test.c
+new file mode 100644
+index 000000000000..cf6522b7eea4
+--- /dev/null
++++ b/crypto/ecc_test.c
+@@ -0,0 +1,94 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * KUnit tests for ecc_make_pub_key() on NIST P-521.
++ *
++ * The expected points were computed with a Python reference and checked
++ * against OpenSSL.
++ */
++#include <kunit/test.h>
++#include <linux/module.h>
++#include <crypto/ecdh.h>
++#include <crypto/internal/ecc.h>
++
++#define P521_DIGITS	ECC_CURVE_NIST_P521_DIGITS
++
++struct ecc_p521_vec {
++	const char *desc;
++	u64 k[P521_DIGITS];
++	u64 x[P521_DIGITS];
++	u64 y[P521_DIGITS];
++};
++
++static const struct ecc_p521_vec ecc_p521_vecs[] = {
++	{
++		.desc = "k = 2",
++		.k = { 2 },
++		.x = { 0xf43e3933ba6d783dull, 0xcf2fa364d60fd967ull,
++			0xaa104a3a35c5af41ull, 0xb3b204da6ef55507ull,
++			0x2c6e5505d769be97ull, 0x7403279b1ccc0635ull,
++			0x2fcb288148c28274ull, 0x3c219024277e7e68ull, 0x43ull },
++		.y = { 0x1be356d661f41b02ull, 0xeafcbe95edc0f4f7ull,
++			0x93937fa99a3248f4ull, 0xb3e377de9f251f6bull,
++			0xab21a29906c42dbbull, 0xc6b5107c4da97740ull,
++			0xa7f3eceeeed3f0b5ull, 0xbb8cc7f86db26700ull, 0xf4ull },
++	},
++	{
++		.desc = "k = 2^259",
++		.k = { [4] = 0x8ull },
++		.x = { 0xdfbfa8c0b9f59031ull, 0x683df70ba5e17023ull,
++			0x07958fdc42ce28b7ull, 0xb8965b5bc6d4dc78ull,
++			0x78441b9a6e4b4290ull, 0x3909e659ea4b4aa1ull,
++			0x9c8f59c629b6cd62ull, 0xf400a01919a026ccull, 0xcfull },
++		.y = { 0x09844edef77fa34full, 0x9da8cdc495b4acfaull,
++			0x5bb762074d52835bull, 0xc39505e29c0584e1ull,
++			0x4c9a0f296c4f318eull, 0xdd1a8f417d87f206ull,
++			0x423805cd95ec312cull, 0x21639f519304343eull, 0x92ull },
++	},
++	{
++		.desc = "k = n - 3",
++		.k = { 0xbb6fb71e91386406ull, 0x3bb5c9b8899c47aeull,
++			0x7fcc0148f709a5d0ull, 0x51868783bf2f966bull,
++			0xfffffffffffffffaull, 0xffffffffffffffffull,
++			0xffffffffffffffffull, 0xffffffffffffffffull,
++			0x1ffull },
++		.x = { 0xa5919d2ede37ad7dull, 0xaeb490862c32ea05ull,
++			0x1da6bd16b59fe21bull, 0xad3f164a3a483205ull,
++			0xe5ad7a112d7a8dd1ull, 0xb52a6e5b123d9ab9ull,
++			0xd91d6a64b5959479ull, 0x3d352443de29195dull,
++			0x1a7ull },
++		.y = { 0xa0a7735e11793f1aull, 0x0efa36436c5a6fbdull,
++			0xd2a5312e213c38f3ull, 0xd1d22b30723a8a4full,
++			0x2d0754e05caa3113ull, 0x0eaa8057d562fce8ull,
++			0x686079393547eb0dull, 0x64fc4682059d2226ull, 0xc1ull },
++	},
++};
++
++KUNIT_ARRAY_PARAM_DESC(ecc_p521, ecc_p521_vecs, desc);
++
++static void ecc_p521_make_pub_key(struct kunit *test)
++{
++	const struct ecc_p521_vec *v = test->param_value;
++	u64 pub[2 * P521_DIGITS], x[P521_DIGITS], y[P521_DIGITS];
++
++	KUNIT_ASSERT_EQ(test, ecc_make_pub_key(ECC_CURVE_NIST_P521, P521_DIGITS,
++					       v->k, pub), 0);
++	ecc_swap_digits(pub, x, P521_DIGITS);
++	ecc_swap_digits(&pub[P521_DIGITS], y, P521_DIGITS);
++	KUNIT_EXPECT_MEMEQ(test, x, v->x, sizeof(x));
++	KUNIT_EXPECT_MEMEQ(test, y, v->y, sizeof(y));
++}
++
++static struct kunit_case ecc_test_cases[] = {
++	KUNIT_CASE_PARAM(ecc_p521_make_pub_key, ecc_p521_gen_params),
++	{}
++};
++
++static struct kunit_suite ecc_test_suite = {
++	.name = "ecc",
++	.test_cases = ecc_test_cases,
++};
++
++kunit_test_suite(ecc_test_suite);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("KUnit tests for ECC public key generation");
+
+-- 
+2.55.0
+
+
