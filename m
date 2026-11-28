@@ -1,93 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795846753;
-	b=O238cx2PZP2cTJVfwp71HPF89E4xz6RVIYKEWr2Xwp2bpckHj7BI6QO7ZoDHE5eYne+6
-	 qkJzJ9GPlj+sVLXUnDmnbdKFkFDl+1EZD7r4hYPIl7gl2WgBetTtVN0TtbB4XUUZdJEIy
-	 kZfWlLmLtbX2xeu306az6sBrt2pSwRbFAwiC1nAzqS+ZqyfP9c14fKuOl3NiWjq6SSYD3
-	 0S9iLWof9uI8OxcOUk8s7lVltXlW68wA/i740G/aiVVQBHJGNnqySUATwvIP2qtruNHHH
-	 ubCvqme+7Bvrt99FbcVsCSbPW2/93AplCRROqs5EdLsLdYiK8PDpffD12bjdgHSbyig==
+	t=1795846784;
+	b=OCVnIbXyezKv7peLxoO76w7b8bZN5XqXc6d9DqGoGMZjmU1BBrRIGfXslvtJcYBM78nI
+	 KXUSvezgGIvqV11oR51iafu37y0oqcaHfjscr6fPGT3j3hz/0JeUEUA+09+YIEFsFn8DR
+	 w7nFCCM5AhRK2tUszYz9DxL7SuZ4bP72c0vrcI4tu5TL0HEH/eEwT2yAlrlxdlzBdvGMO
+	 NxTuk7jXP1fNuNFSKm1Hjjkg0DBGEU+9Fsb3SgqLYpuFQ8P4vB//pn/j7uYt+oiV1MyKv
+	 82J1RbMo6QaOPNp3gdm0J4ycez1YUaN5seFxibVgtvzX+yAkXqKy9KonVpNmBBLvZGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795846753;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=LwkixGIut82JdvZ7GR3OWnVuJ+wu+yVSiif+/L1vzPI=;
-	b=cln2HFpFcb5/zhQaDCqwxHHaaaULNdWZwwEbuCoVcSfZyhyWSXg/iR6ptghZO/q685JX
-	 kQLwxvyq/jhU6w4RpROB1OXq7xjWVLsfh4aRDOM8yNajnoD7ufxdmOj6G49uAsE5Lmg39
-	 tt3UBYk1tnE/oj7xpi9GvGEh3JQQ8eib8/eGfOReeGNoula892cUTGIUJeAoZJ5brDp5o
-	 JGvi/dRA5OoiXbq77shr8Bnn5ZgpHC37ddfqYQ3+OQBgBcWwv9QMg/TSYMnO7plH49CFB
-	 UM9URaK3TvfkyRgGb2dmMdzMWqsmhDy8W231ffAy+zACKVKxZPPBQ0xDskHAMRENeog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795846784;
+	h=DMARC-Filter:X-Pm-Submission-Id:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=612l9hGtZR6jYCnlr2HjmvnUPOcGnYBIaLlGvgaiX7o=;
+	b=jcRwDJfcZ6TOBenNMV76oDXOS/xlGIxW3tDsrlDhnApUIzXFsHbm01pcXPjaO+l4r+Wy
+	 hyry763Uevoe+YqRje/zj4NX5yEOkqvAn1/NHld6NLLvJdhObKqBPwPdszB+8bjzYmMWJ
+	 by5BW+Jl04quSAxQsvdC7LVPm5mnXgMFErlP9ihvqNHSUNu/aYCGV6ECgJNhiU91Fc3iv
+	 sP8ZgoGiVdcyaw8Qijskyr6dKO5KzEz7vm1dzZ/t5ybxqSzED5xNOhITjz0pOJN4WyDEF
+	 AaG0VVl7qcTbhv4ThmSpdCZ5Vc2f+6uLgIOVwWaa3AxC6AcGy8YvPLB6/xZ6vVbId5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DdfmLEwZ;
-	arc=none smtp.remote-ip=209.85.219.48
-Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=phorex.org;
+	spf=pass smtp.mailfrom=phorex.org;
+	arc=none smtp.remote-ip=79.135.106.113
+Received: from mail-106113.protonmail.ch (mail-106113.protonmail.ch [79.135.106.113])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9D47606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:19:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9D47606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DdfmLEwZ
-Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-92110499585so78212716d6.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:19:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795846751; x=1796451551; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LwkixGIut82JdvZ7GR3OWnVuJ+wu+yVSiif+/L1vzPI=;
-        b=DdfmLEwZ7o7QhnLgq298NVLTmp+v1Zw5KGDQR5HL/4YjkoIUnVkEtJQkzAtezPtEUy
-         Lueu3cLUY0nqc62kWSkh7wwvOgqhaHpIOp63gT/oyf+CTdfxuGsbiUSlN3GskLxq5vNu
-         43mq7oAV0ZndNOZ5gpHBk8LxivD4M5yxWCUW055yovDK51xZy1zFtUVsqw+AU1xl/g5m
-         A9M+Usz0EIokbL/7tx5QjBzl9WXwBMVLdcUxO3x+16c/wiuJl1MZUdCDMQhxjgtBQACR
-         eu+agRAQGopjkaO2Us1/xFUEEJkOsU48sR/twgCfuM4qnSj+Bcp5T4tbE8/BeKHwMSUa
-         kBRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795846751; x=1796451551;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LwkixGIut82JdvZ7GR3OWnVuJ+wu+yVSiif+/L1vzPI=;
-        b=C/cabzhWPe7K3JwLKwefs/9mCSuxfypYEiK+gY72iG6wYW2MCi/vrw7XNHj+KAuozD
-         ZQTE9dQNVXDQ+wZcPGaB/2lW4FFN0AgTC4Rybrs6glknsZzjg2gVaTgEglBM9LVZkYTN
-         +bYISJazbhSxkGs10M1CXG6qoeQKtZVmt0TisfzILfIPgbZytcEWIX1MxA07WKNui25q
-         xtamquijzdveh3ERwmYKEjQfhhdVv4pxkJwTTGXEufEh2K6hwhGTFo9wc4N+JjBgd2WE
-         W+RfxpR1UB4BuACjXhVarmiePfS7snzBSvBHTDEooF4E4mJIMeL/7CukG4QaujUysA+z
-         FLSg==
-X-Forwarded-Encrypted: i=1; AL+hErG3s6skNXOV+L1Hr8R2Ysbe/Y3UdGiku2gxeNRibl6aw95k522n08EPzKN/uV9P9tiHNM9sJo8XvAv1my4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/TZK+MsKrR9Dvu0Qybp3H5ZIOJYR9xzhmyqbkLTvoxehleQc5m
-	AbCZICJaxQUqZa6KGDDSWq/InxftaBDkJs19YmTsPMxbssa2bSWspj06
-X-Gm-Gg: AZFdTZfo/g0LhGN+0FqUUsKe8FQ02q5mC5OWAS/PDplOSVA35AftlKXnc0qTNR7Ku/C
-	W0aOYRtzFLDSKTOea8//VTumEpskO22zq8jAaeGfn5p2Zhu9tm4CnIX78STKREFJ7zQqZ0zq3yp
-	jrQRH5pwDGI5ZLqzYbFF6Va+ZTnrKMaL7xOtX/hjQUZa/oi33LrnNT05riBos4jzQbb1nJO+XBT
-	eDugQBlJ1e+7KE4c0vnIv48sZCbagDJtL6r/5cgoh5dk7TsAhLi5nJt/mde6ILEzupW55oRjefy
-	WF4jnx7XLZNBxBqJoT06XKRXeYt37fZDZSlJUn0vPQ4whEo06530gLZv4u4CCgoSr/xUfIBSf7p
-	jdvW6UCCREMGLZ+7huF27uQUdSXP34kNEZFb6aU5i1MIq6y8WBwk1mn5KvASjsSZyx1NdLCdOu9
-	XO6ZQepoJ9o4WCAlpVIQOeCAhhmbaDQJxz7el5dMjSIfW074taU3MrtXy0pVc9+oNEtj/VMsFT7
-	sGD7wYYFUjJnJHu6fHw7wQ99BbCQPDS3zVAGJext8YK70YI03WGiCXG66aNleFk0hj3hkVK2lQx
-	s29Hu24JLupNg7JxYyU4vnvAds524onrpNbkjJpyE5Za
-X-Received: by 2002:a05:6214:2f01:b0:921:2e36:b781 with SMTP id 6a1803df08f44-92134a5457cmr539622096d6.16.1795846751423;
-        Fri, 27 Nov 2026 22:19:11 -0800 (PST)
-Received: from zmitepc.ad.psu.edu ([128.118.12.1])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921347966desm232907746d6.3.2026.11.27.22.19.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 22:19:11 -0800 (PST)
-From: Mehmet Ilhan Bayoglu <memobayoglu2007@gmail.com>
-To: gregkh@linuxfoundation.org
-Cc: linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] usb: quirks: add WINDOWS_CONFIG_REQ_SIZE for Razer BlackShark V3
-Date: Sat, 28 Nov 2026 01:19:10 -0500
-Message-ID: <20261128061910.742824-1-memobayoglu2007@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <2026112051-smirk-omnivore-0d65@gregkh>
-References: <2026112051-smirk-omnivore-0d65@gregkh>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26EB0606A31C;
+	Sat, 28 Nov 2026 06:19:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26EB0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=phorex.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phorex.org
+X-Pm-Submission-Id: 4jc0Vx6l1dz2ScQ9
+From: Luke Macken <luke@phorex.org>
+To: kbusch@kernel.org,
+	axboe@kernel.dk,
+	hch@lst.de,
+	sagi@grimberg.me
+Cc: linux-nvme@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Luke Macken <luke@phorex.org>
+Subject: [PATCH] nvme-pci: add NVME_QUIRK_DMAPOOL_ALIGN_512 for UMIS AM6B0
+Date: Fri, 27 Nov 2026 23:19:28 -0700
+Message-ID: <20261128061928.337587-1-luke@phorex.org>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,51 +54,107 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The Razer BlackShark V3 and V3 Pro wireless dongles fingerprint the
-USB host by its configuration-descriptor read pattern during
-enumeration. Unless they see a single full-length (wLength=255)
-request like Windows sends, they refuse to bring up the wireless
-telemetry relay and battery, charging and EQ state all read back as
-zero.
+A Lenovo ThinkPad T14s Gen 7 (arm64, arm-smmu-v3) with a UMIS AM6B0 SSD
+(1cc4:6b04, model RPJTJ1T24MMW1QDQ, firmware 1.0Q06B0) hangs under
+write load. One or two CPUs stop taking interrupts. With
+irqchip.gicv3_pseudo_nmi=1 on the command line, they do not respond to
+the backtrace NMI either:
 
-USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE already implements exactly this
-behaviour, so just register it for the four BlackShark V3 PIDs:
+  After 10 seconds, these CPUS still haven't responded to the NMI: 2,8
 
-  0x0576  V3 Pro (wired USB-C)
-  0x0577  V3 Pro (2.4GHz dongle)
-  0x0579  V3     (wired USB-C)
-  0x057a  V3     (2.4GHz dongle)
+On writes, the drive accesses the page after a PRP list that ends at a
+page boundary, and the machine hangs if that page is not mapped in the
+IOMMU. Commit c64d9b2c1f4f ("nvme-pci: add NVME_QUIRK_DMAPOOL_ALIGN_512
+for KIOXIA XG10d") describes the same access, but there the IOMMU
+faults and the controller is reset. Here no fault is logged and the
+controller is not reset; why the CPUs stop instead is not known.
 
-Both the dongle and the wired transport enumerate the same firmware
-and need the quirk. Verified on 0x057a and 0x0577: with the quirk the
-vendor channel answers and battery/charging/EQ read correctly;
-without it every vendor GET returns zero.
+The drive has no SGL support, so a request that spans 33 pages (4 KiB
+each) gets a PRP list of 32 entries. That fills a 256 byte small pool
+block completely, so in the last block of a dmapool page the list ends
+at the page boundary. The hang starts with commit 2e8e30b3cf9f ("Revert
+"nvme-pci: clamp max_hw_sectors based on DMA optimized limitation"").
+Before that commit, requests behind an IOMMU were limited to 128 KiB on
+kernels with 4 KiB pages. A page aligned 128 KiB request spans 32 pages
+and gets 31 list entries, one short of a full block; only an unaligned
+request could fill one.
 
-Tested-by: Mehmet Ilhan Bayoglu <memobayoglu2007@gmail.com>
-Signed-off-by: Mehmet Ilhan Bayoglu <memobayoglu2007@gmail.com>
+A debug patch that puts every 32 entry list at the end of a page shows
+that the next page matters. If it is mapped, writes complete and the
+data is written correctly. If it is not mapped, reads complete, but the
+first write with a 32 entry list hangs the machine.
+
+Use 512 byte aligned small pool blocks for this controller, so that a
+32 entry list no longer ends at a page boundary.
+
+Tested with 32 dd processes doing 132 KiB O_DIRECT writes in parallel:
+with the quirk they complete; without it they hang the machine.
+
+Assisted-by: LLM
+Signed-off-by: Luke Macken <luke@phorex.org>
 ---
-v2: move the new entries before the Kiyo Pro (0x0e05) so the table
-    stays sorted by vendor/product ID, as requested in review.
+Tested on v7.4-rc4 plus the out-of-tree patches this laptop still needs
+(none in block, nvme, iommu or dma code). All v7.4-rc4 kernels below
+share that base and one config; they differ only in this patch, the
+debug patch or a revert of commit 2e8e30b3cf9f.
 
- drivers/usb/core/quirks.c | 5 +++++
- 1 file changed, 5 insertions(+)
+The hang was traced to commit 2e8e30b3cf9f with a workload that unpacks
+container images. It ran 20 times without a hang on linux-next 20261019
+and hung the machine in the sixth run on 20261020, the first to contain
+that commit. On v7.4-rc4, it hung the machine in the first run on one
+boot and in the second on another; with the commit reverted, it ran 30
+times without a hang.
 
-diff --git a/drivers/usb/core/quirks.c b/drivers/usb/core/quirks.c
-index b5b577f0b..dd926957c 100644
---- a/drivers/usb/core/quirks.c
-+++ b/drivers/usb/core/quirks.c
-@@ -500,6 +500,11 @@ static const struct usb_device_id usb_quirk_list[] = {
- 	/* Razer - Razer Blade Keyboard */
- 	{ USB_DEVICE(0x1532, 0x0116), .driver_info =
- 			USB_QUIRK_LINEAR_UFRAME_INTR_BINTERVAL },
-+	/* Razer - Razer BlackShark V3 / V3 Pro (wired and dongle) */
-+	{ USB_DEVICE(0x1532, 0x0576), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
-+	{ USB_DEVICE(0x1532, 0x0577), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
-+	{ USB_DEVICE(0x1532, 0x0579), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
-+	{ USB_DEVICE(0x1532, 0x057a), .driver_info = USB_QUIRK_WINDOWS_CONFIG_REQ_SIZE },
- 	/* Razer - Razer Kiyo Pro Webcam */
- 	{ USB_DEVICE(0x1532, 0x0e05), .driver_info = USB_QUIRK_NO_LPM },
- 
+Reproducer, on ext4 on dm-crypt on the drive:
+
+  for i in $(seq 32); do
+          dd if=/dev/zero of=w$i bs=132k count=300 oflag=direct &
+  done; wait
+
+With the quirk, the loop completed five times, and also five times each
+with 1, 2, 4, 8, 16 and 64 parallel dd processes instead of 32. Without
+the quirk, the loop as shown hung the machine on its first run.
+
+The debug patch (I can send it) makes nvme_pci_setup_data_prp() put
+every 32 entry list into a separate two page buffer. A list at the end
+of the buffer's first page has the second page after it. For a list in
+the second page, the patch first checks in the IOMMU page table that
+nothing is mapped after the buffer. Results for dd writing or reading
+in 132 KiB O_DIRECT requests ("-" = not run):
+
+  list ends                      next page    writing    reading
+  at a page end                  mapped       complete   -
+  at a page end                  not mapped   hang       complete
+  256 bytes before a page end    not mapped   complete   -
+
+With the list at a page end and the next page not mapped, a single dd
+was enough: its first write with a 32 entry list hung the machine in
+each of three boots. With the list 256 bytes before a page end, the
+closest the quirk allows, more than 20000 such writes completed.
+
+Only this one drive was tested, and only with the IOMMU enabled.
+
+This patch, the analysis, the debug patch and the test scripts were
+produced with Claude.
+
+ drivers/nvme/host/pci.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
+index 987ce5f536d6..b11360052c0d 100644
+--- a/drivers/nvme/host/pci.c
++++ b/drivers/nvme/host/pci.c
+@@ -4448,6 +4448,8 @@ static const struct pci_device_id nvme_id_table[] = {
+ 		.driver_data = NVME_QUIRK_DISABLE_WRITE_ZEROES, },
+ 	{ PCI_DEVICE(0x1cc4, 0x6302),   /* UMIS RPJTJ256MGE1QDY 256G */
+ 		.driver_data = NVME_QUIRK_DISABLE_WRITE_ZEROES, },
++	{ PCI_DEVICE(0x1cc4, 0x6b04),   /* UMIS AM6B0 */
++		.driver_data = NVME_QUIRK_DMAPOOL_ALIGN_512, },
+ 	{ PCI_DEVICE(0x2646, 0x2262),   /* KINGSTON SKC2000 NVMe SSD */
+ 		.driver_data = NVME_QUIRK_NO_DEEPEST_PS, },
+ 	{ PCI_DEVICE(0x2646, 0x2263),   /* KINGSTON A2000 NVMe SSD  */
+
+base-commit: 08be423d20e892e2606172cf69015d34ac170786
 -- 
-2.56.0
+2.43.0
 
