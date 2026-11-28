@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.10
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.10
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795870911;
-	b=tlNPTArLR3qf+JCuWRaHYHum4I/6A39Cjec7Pr8YunpwmL42JJK19gWEsh6JBAtoCoaU
-	 XvITSpOlO8g0hImPCM3SC3hgGbeJ9SVDJxsYNbADABSWjL4R8mhz3yd2YGeXNtIyATwuK
-	 0swqSElFfQpBCl4DeZVTgSpeDVm6CYceB7/F0UiTfAONe4r136CilyMbmXAW7l2kLeZPS
-	 LhQu8vpdZppPRbVqNWgr3CThM19qx6X4VxQMe80knBtcWqPxkZdqYbnZJePoCHvGYsPBU
-	 gddaMKOTLqarGWinh4wg8GIARzXTE9vWaExJZJ2Xu3wB/FvLJoUs6HiVXBBAQYFwTAQ==
+	t=1795870916;
+	b=qkMTvR6aSS+OHU89XzbbT6kLIsXrRbasE5iUFgsCk6mmHSZnSIPoAi/SfgLWmUHYfQz1
+	 pc596ZkG7kSjQEY6SMBkF4uDuy1tcsdJp6fG3g6Ebxr0vC2MFRddZp3Qqo6n6XQ7ZZIQl
+	 SaTP/FukRcmMHlTt0NqNKKGs5x04xY2bO7DeOvkWsLi30TeAlX9wEimmHMHapc1wV+Z0n
+	 MlfYBv5hMXDapyhg+b0rHiDQYYRxtvJ9tgGjP5W3jYyDrxeprqlFmZq+Ux5NNS7pI3T8r
+	 FBZKyNNI/FRxiFkVnekbBIsf2gKUVwdw5qYych2py174NrhdhODE6jzM744uT/GDkRQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795870911;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795870916;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:Date:Subject:MIME-Version:Content-Type:
@@ -27,35 +27,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=jgJClTwJzZ0uFZjTmxQpT7qLKJwHwwz9DUEEazJvI/c=;
-	b=GMNomhaWCDMq6UTF2/JDJLtfGc5DovUTuwLmEHDAjEmaubqoVAgDQqkthSgXEjlRzCkN
-	 Idt2go3gxGy8KZQ1FpqHF6yug8071oKjsKAZ/1P1PDy6slxVcAXOIA9X2LBiqxsvJLXGp
-	 3ZA8VIdodCaFUctnduxX5mcoMIzY7vsCwSAriyN1SlKoOTKgxDPD0g9MgU5bMENkTRnxy
-	 6aCeg6/dnoEaM2fwmoIPK5bAHguPwTvjAbnX7HNNRbmO00NtdpWDHvgGlFxPKEo9s9biN
-	 Q/9EDRnaiwPK6Eqd/6X9Zu1RvHeO+0xQ8qpKOA2Ce2J0HqJwOHlA7HuWpsKC2AECzqw==
+	bh=i48eh/zkd7dhST9F/l1JOp9TXqxXjIAc6DrEeKrASSo=;
+	b=0ZN8V5ISbSIBs6yre5K3oGOWLmWR/YOGbVSb76O+rgz6ojR8WPTIhm9f4FAufsNDdPTd
+	 I9lMHZQeyOnwoX2yoArakw/cCAbUlyvTu9lK3oE2/c5Srvz2GACsVy+5jDTcAtjAy+OdC
+	 27jaiQdsRMIrp9G1aJvj8pasXAWAvg9hDOvFgTmF9BY9VDRdJ/CcHYWGGhDdmU1q+VnwD
+	 zDw2d3iSC7CrJzreCodYKZ5Y5QL4mlPk1oA1SJHn1kT6DknEUqu2ehHtLmmK5Id32oz7v
+	 JutbfPczAxViKGQDXKXV458hECfJXjdhvLYrdwa6K/B/K5rGiXpq6Pe08oTUtmvNhNQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ph9UoM2m;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.10
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010010.outbound.protection.outlook.com [52.101.201.10])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=qzM+FUhi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.10
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010010.outbound.protection.outlook.com [52.101.61.10])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35B4B606A338;
-	Sat, 28 Nov 2026 13:01:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35B4B606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FD82606A31F;
+	Sat, 28 Nov 2026 13:01:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FD82606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ph9UoM2m
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=qzM+FUhi
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E34wVhcMDB0BnGegWYemijjRYncb15KjgIa+X5bOKpFe7T7bdSgKGR3Zo7k5DzElBqanZZ+2IPpGfdT0BXA4u2mQ6pR+pO1xeueh/A+KOPQj/fw0vJvYr9sSd3ihCgyxSV5hCf1FmiY79evA8BwKlNeW1uhp8NKp35IGoxqA+fHGID9F2TdRBDh1wG+Pqy7PC2164PkW1vDtHaCbWEdU/bpUXqknaF/P839sX4tHoAPkDlrD1QGNuM6mKlQ5KaucL/Hdo7XDrkGRl75XhiLVdT1MNBvlbsbclDJu77Q2jtEUPpjtv/mV3H3XUBEh8owxQ2n/xy1PLRxAKBtn+oeW+w==
+ b=O8ZYWUwhQlGiL4XPQxYNe0YmeZFkzzdwkiToOdpAfNgA3G4D49ZMrPmSso25RSPHZ6b4mGUEGizBcG18AoVRhQ+iprMUtfQ4b5lpV0p57zZo1zPMZ5QbIsIA0sXHZLCsnubDpZm1ngn4GP/4rfunXPqxuc9stfAIFitN4PAvASvZQ6eM9na73RXmsrwHQw2MawepZ/FQYL3Kti8Dy/V8sBV6Wl4MThQDLV2JWhvINbGt3CtjW6CLhEJQj4pEi8V4VOZxjQznlQ7qWHfErxOdL/iF118MP/4VllV1v3shtKUndLTCX/mx2nFXiulNJSj2bI5zVjWMXOMS5KEEr4Hrxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jgJClTwJzZ0uFZjTmxQpT7qLKJwHwwz9DUEEazJvI/c=;
- b=mqdDEBDkiiGoDub6to1QoCh+5fCxI1WD6velUSjd0y2HPH0agW2KMiYKnf9ykIm0CaIWho5gBEqde3JxkNIemI0v7MZlSsg/A37uW9e4Nx9Aj16mLDxwXffKbEPKs0JCktgBSM2EWuOXMb0JYO7oX8mniJNusKrBznTAcQlQIDkx8OMBhnX0Ug+mqOd2mSwmg5NnZshfMQU1aHRvj66jECeNFhPehQ8Fyh1+kQlVwEhfMQ7zYYXk/Vqthwvja+zJISK8HAFII7WjNBrnvqUcYzOP3oSLAMnLkDB25Vkg9Qz0GHUhzBrReZbU8D/jTDZKKSp0Ibm2LMdNq2zHZPBz1w==
+ bh=i48eh/zkd7dhST9F/l1JOp9TXqxXjIAc6DrEeKrASSo=;
+ b=HOlfS3DuNR5KbiI2A5hFhxjIod7u1xjev9tHl2vl3NpxDDNS+YtIOaXhKalBntrV3zl+nbctlMS+4bVmqECC/46/aIV8z/lrUwxPEsSDVj1OF/mR4ff+XebS+t1gDkVYWDpQoIAkxwFjgDbOpikD+2b/I0+eLOjjiJ7TdnoDl3wcuLhglBJmH4zal8G0qai15mwvW/w45YNtvDPPYp2cxbzYqVPnyUdfUuy4m2oq95TejICD3lrflEyB/bEuDYZQS0q30GV/WLCn3nKJeUB421riL/dgpt4KaB6WsxQvth5EiPVpdY4QVJwRx57t8kTLAx+8FEF10w8wbg1KyIJykw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -63,18 +63,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jgJClTwJzZ0uFZjTmxQpT7qLKJwHwwz9DUEEazJvI/c=;
- b=ph9UoM2m7DdcEVCJtH2kGR2U0j3NjYmWJyMhPfcDvdXPLldxTgrAL/CYkwLPOT+xt8xf+9iTACBrhwp14P33xD2pWF7zasEvjlAfaGKbbnmVKMsCPH4oEOb01c49L+kwSqcxi7p+qHKp8blUfB3NCJe+0M56kxJbslf1SXTXO4gqsZsfeDWZ+prZwpDWT2LA6YiEbzmNSOoEb4AFpxUV8lXmcanUgvZNdsuXErYvz/VGRw9UXvpg9TGIfqdkljV+AW2HXG4kIVTpc+DGpL1t/wRtZiP5MrA0Qmx1YBnrWB6B5vPo0b5M5L3cfD9s/DuvwtRIR9K9G01dvFrY0PILCw==
-Received: from BN9PR03CA0398.namprd03.prod.outlook.com (2603:10b6:408:111::13)
- by IA1PR12MB7685.namprd12.prod.outlook.com (2603:10b6:208:423::21) with
+ bh=i48eh/zkd7dhST9F/l1JOp9TXqxXjIAc6DrEeKrASSo=;
+ b=qzM+FUhidEpIa636j9qgYrHwqmXXWOIZHizBiACTJTb0BGhTS9esujk5rkwTPK3o5J4HBOKIZzRn5SjQdHE0BHo3ed+relI9Ete2evlx58u3S/djI3ivBQ77HKMwAlgxykNXj6NffG2eye9uCSuc0X68MPqePKEy2DaRHh7vzcuZ3mZpC0m5bHRyakr/isF6k8YoJyr/93q1TjgRTI7FuHazz5v8ZWLlYCU0Z5sCvoFGJrWFY/g0mmGG2qhZgKY38NQdsKMeNNiQiUKVHGdBKpkzTAO4Hc1Qui/ZvHw8srsvMJhyyVQ45nCHpRw1tJpPs7mA39fH1v4UyY9CRyI5Ww==
+Received: from BN9PR03CA0409.namprd03.prod.outlook.com (2603:10b6:408:111::24)
+ by CH3PR12MB9025.namprd12.prod.outlook.com (2603:10b6:610:129::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Sat, 28 Nov
- 2026 13:01:41 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Sat, 28 Nov
+ 2026 13:01:40 +0000
 Received: from BN5PEPF0004698C.namprd02.prod.outlook.com
- (2603:10b6:408:111:cafe::3a) by BN9PR03CA0398.outlook.office365.com
- (2603:10b6:408:111::13) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:408:111:cafe::a0) by BN9PR03CA0409.outlook.office365.com
+ (2603:10b6:408:111::24) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.11 via Frontend Transport; Sat,
- 28 Nov 2026 13:01:41 +0000
+ 28 Nov 2026 13:01:40 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -84,22 +84,22 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
 Received: from mail.nvidia.com (216.228.118.232) by
  BN5PEPF0004698C.mail.protection.outlook.com (10.167.245.41) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Sat, 28 Nov 2026 13:01:41 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ 15.21.688.5 via Frontend Transport; Sat, 28 Nov 2026 13:01:39 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Sat, 28 Nov
- 2026 05:01:31 -0800
+ 2026 05:01:29 -0800
 Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Sat, 28 Nov 2026 05:01:30 -0800
+ 15.2.2562.57; Sat, 28 Nov 2026 05:01:28 -0800
 Received: from [192.168.122.1] (10.127.8.10) by mail.nvidia.com
  (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Sat, 28 Nov 2026 05:01:29 -0800
+ Transport; Sat, 28 Nov 2026 05:01:26 -0800
 From: Edward Srouji <edwards@nvidia.com>
-Date: Sat, 28 Nov 2026 15:01:17 +0200
-Subject: [PATCH rdma-next v2 04/11] RDMA/mlx5: Select the core device
- through PD for QP commands
+Date: Sat, 28 Nov 2026 15:01:16 +0200
+Subject: [PATCH rdma-next v2 03/11] RDMA/mlx5: Select the PD and SRQ core
+ device through the PD
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,7 +111,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261128-mlx5-sd-prep-v2-4-751878123711@nvidia.com>
+Message-ID: <20261128-mlx5-sd-prep-v2-3-751878123711@nvidia.com>
 References: <20261128-mlx5-sd-prep-v2-0-751878123711@nvidia.com>
 In-Reply-To: <20261128-mlx5-sd-prep-v2-0-751878123711@nvidia.com>
 To: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
@@ -119,51 +119,56 @@ CC: <linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Edward
  Srouji" <edwards@nvidia.com>, Akiva Goldberger <agoldberger@nvidia.com>,
 	Michael Gur <michaelgur@nvidia.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795870878; l=28334;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795870878; l=25131;
  i=edwards@nvidia.com; s=20251029; h=from:subject:message-id;
- bh=AYaM2y/fhNNMZLbu7rbeNOaefAwgru+n10PwrvQ9ZHM=;
- b=PZdjNCF9IwGDs2tK8yp/wUA9GFS7V04/2nwpntcGBtynFup55PmG34jCExmRegIbkXnDlK7dN
- 88Bb9ZV/XliAalpScKh97Y8EvYsrWFIpLjSWR24uHxPSZGGuT+iABEg
+ bh=AhUJw5+TLP6wX1RVHPUrMehlbPsqiX9YAnzJ7sI/Oq4=;
+ b=crOBK1/w5kXL8ZmnK/W3W4XusCYGwWSM6A9W2XYbmO9Eh20QShNiY92A7VRy6ctI+6f0DPOHc
+ PL59PjIgyuhAzUkGRK0ojIzWvzasvYWbSHxIHwRzVFkagZgua6HCSlG
 X-Developer-Key: i=edwards@nvidia.com; a=ed25519;
  pk=VME+d2WbMZT5AY+AolKh2XIdrnXWUwwzz/XLQ3jXgDM=
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PEPF0004698C:EE_|IA1PR12MB7685:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3227bc9-f476-4038-79f0-08df4d4fbf45
+X-MS-TrafficTypeDiagnostic: BN5PEPF0004698C:EE_|CH3PR12MB9025:EE_
+X-MS-Office365-Filtering-Correlation-Id: 29f13066-1f2d-4544-5f37-08df4d4fbe44
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|1800799024|82310400026|376014|261102123227099003|261021123027099003|261022105027099003|261021121427099003|261026121527099003|261026140227099003|261028144727099003|56012099006|260925021311599003|260925022911599003|260925021911599003|11063799006|10067099003|22082099003|18002099003|261009223027099003|3023799007;
+	BCL:0;ARA:13230040|36860700016|376014|23010399003|1800799024|82310400026|261021135927099003|56012099006|10067099003|260925021911599003|260925022911599003|260925021311599003|261021121427099003|261022115727099003|261028144727099003|261022113327099003|261026121527099003|261021123027099003|261026135527099003|261021130227099003|261022075727099003|261026140227099003|261021133027099003|261102123227099003|261026130827099003|261022105027099003|261009223027099003|22082099003|18002099003|11063799006;
 X-Microsoft-Antispam-Message-Info:
-	3Ow0GPMDof8ouiew02n5+3p3T9OpFd3PNCzv+X9bZgqsf8GN2OBpJ/ZKDIJA2Qx5cOt8WK+/9NGr1X3qpzZfPIHkHnNIhtYy0pZ7qgxV8qocBOlwoWLgLzpp6S4qfAPSerewIywDFJ6/3UsVEiTP0ugcUlUfmW6Ui9qfYnYjQZoSLThpDG38dJzfwUr31J0uIFj053duqR6Mc3vlYEnBna6NZ2IWroQ/TTkznNj1H1OKBAXuTM6Nn+tA6GQqzmfoQ/+8pMrBTJrXC/VHXK36rfeZg0sw8c4QBxzXoE5YKTSbt7BVYdbX4iqBRkAoj7Pnfftmh1dvSmSdeRn6+Sxa+jVY356Jbey7N9UQ8MdD0kKa0vfTQdUYdPPet7BYkgAN/Wx1uHv5LgeCdgvH4mg7UALE8mfmeFPaxh/QEvWKZ3es5gUCIxvtspPLRttkxyhmqaBY7dhVcIhCcm7RcBoHxhGJuPckJHq/AUA8qUm5Ra7xr10ofMfnu+NWGvW8DDANSf20bJAGISs//5VM5mZMT5o7ghysUiDNz7s8x8iGzfbzSmN/UW9uPk6IT07S76tQKTvJHPvuAHrEApAZRKnees0MYSVBcpOwOjPg96D1b1BRczMH8p75jeAU3wNSpOnJKSezwrAlsx7P8WyEToYC00sxJj81XG0jDVzBBgi6Hf24AbhjqnCn1v0tXv5sngOBfjGCqgOT4tnLGh7iAHBhkw==
+	7E8Z3EgR/G/7XC/0MXJB8fbQ9bvQKluBnEJnnNwgWxV9ZmVVcrHAvuJoknqvCuZOq3bRbTvfBpwQrKuEIkCLG/AFottrccYjxF/DpixiJ6AaG66GByQ4O6LqYXdOewY953lGVLlE3kVBw4axBc+WR3PKxfpKZtJ3m1YaF/KtNvblacfaSQcJBMcwhuVvIJhzT0dZiC/s/jg54uVV8krdTWxuHB9w4BQXjYR0CNacEl80WfhlddcFZUy2skoXr1VAsSXnyBp8P+Yx0uKMzebLLZJCD4e+nZeBLuhcw+p+B4wqiXziLziaKa5KCoa7RY61nRbZhxi5H+xKlLefejE5j3y8w0kNMdefKnfKsFsc4u+aWZvgfbfQ7NQJKTHvy4T9l2WDoxxgWybLmoBIXIE5XURcAvXcBEe8mi8DZav6WpmPOcYvImXrBwPVJinEWJNADRa9+THtu9w+HsptPWEeslsVGQPmA89XmXwxjy58bOn6ncMIvwHybnH8mD3dZuMgw49oy2ILFWUc8zO5dDmWZ4pAgX/KuG2W2kd9TzRPN4G378tfsPSLcuCRBKpBj2RTyRCU37DUv5SRJcRoG3QJ5wVwj1LOdY3nboxOxK+yPUpk5SDure8FzjTlT79Dv2YuUceWjEe8U2b1vMpuUnxN/myIvq+ircKKaHcNufWtIOOrQqL1T7bxQ+e/Ygd6dlTpxb7EXpYyvvkuRK8nHrjitA==
 X-Forefront-Antispam-Report:
-	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(82310400026)(376014)(261102123227099003)(261021123027099003)(261022105027099003)(261021121427099003)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(260925021311599003)(260925022911599003)(260925021911599003)(11063799006)(10067099003)(22082099003)(18002099003)(261009223027099003)(3023799007);DIR:OUT;SFP:1101;
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(1800799024)(82310400026)(261021135927099003)(56012099006)(10067099003)(260925021911599003)(260925022911599003)(260925021311599003)(261021121427099003)(261022115727099003)(261028144727099003)(261022113327099003)(261026121527099003)(261021123027099003)(261026135527099003)(261021130227099003)(261022075727099003)(261026140227099003)(261021133027099003)(261102123227099003)(261026130827099003)(261022105027099003)(261009223027099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	oKyRaCuiVCUwGKuiIoEev4o1sxzljkTqvdkhZw5G8tXUWlWCh4B+rdrbAfEiBUS5dHJ6hv1DxFlAYzzu/NuUHLPyFnyvA+2zjC1D9v2rxFyy5lz3cK3yRcDb710v2noBzClQbOhI22vpCN5NV0OuYpY+5eTBsHhBHwf8T8sQplrX9Q91nVDYEHTSfPv/1Kcx2uPKpFJnDdoTdC2BFxDc+pFrPu+aOj01y52Z/ot2mOK0ThuY9kxcNZrq7XiP4XD/p99RaydUGiJZmYdqyryLPccvSgZhyqWBktM3gv4fXXjWz02WQjA3GmSjJ3bgU4yJo5aOOzonJlRfAEjeHHG0kUfMKQaycqpnJJCGjOGEHyccIzTwclM8EENbcm1xJ2rB1LHYBUkP7q9YfpArazbasq4OrLb2MN3he2ICAE6eoNU7DlS+/ZLy0OXLhcYanKe6
+	a0sN3pleWlkEBniYbMADLWUwocnLb4xLLxNZwbGKnnp1zKqw9csGzHvVaf2zVnwlTc79aYNxvWEqWg3M9/bR4g5WYamgbvoYOI9ujMBzNEn8hvfyw869ymwmxiMR3K1Jjz3n/F6hT/SOEY3clM3baDmsKcri9EL/HWHEVtYwDkxrGwsJo5MBImNFLvj0fz0H1iTWOQdhPLfCQ+dA0IZxmgin2THsZuqQ8SFP81xAuRkqCNKYCsHFHyTRS2YI4swt7l7biRQz+MCUuj2D6Rpg7yBv767VUnvvTWcQeDsm4SZ4GzaQHrFWcXgG69gWtwJ/j+kfem1zkjFIFhfGn8TQqjRxxGEiZXEn+NVUxud99bY/0cO2fAiL8vb0Dy/7pkeHsOnjTFPNWrnh0tXYeZRUFdmtuFMwOQO7fqWq5YbCQLwop0YgID9k0okTfbVUf2fR
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 13:01:41.4855
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 13:01:39.7958
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3227bc9-f476-4038-79f0-08df4d4fbf45
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29f13066-1f2d-4544-5f37-08df4d4fbe44
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource:
 	BN5PEPF0004698C.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7685
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9025
 
 From: Akiva Goldberger <agoldberger@nvidia.com>
 
-All QPs are bound to a PD, either through ibqp->pd or, for XRC target
-QPs, through the devr.p0 PD. Add qp_to_mdev() to derive the core device
-from a QP through its associated PD.
+An SRQ is tied to a PD when it is allocated. Use the SRQ's PD to select
+the backend mlx5_core_dev for all SRQ flows that require it.
 
-A DCT is created either by verbs, inside an mlx5_ib_qp, or by DEVX,
-inside a devx_obj, so the DCT commands cannot reach its PD the same way.
-Rather than store a core device in every DCT, have their callers pass
-it, resolved from the QP or the ucontext that owns the DCT.
+Add helpers pd_to_mdev() and srq_to_mdev() to replace dev->mdev
+references in the SRQ flows, and allocate and free the PD itself on
+the core device pd_to_mdev() returns.
+
+Also, enforce a single naming scheme for dev/mdev resolvers in mlx5_ib.
+A resolver is named <resource>_to_mdev() or <resource>_to_dev() after
+the resource it takes, as the helpers renamed in the previous patch
+already are. Where several resource types have to be accepted, as an
+ib_pd and an mlx5_ib_pd are for pd_to_mdev(), the resolver is a
+_Generic() over per-type helpers.
 
 No functional change.
 
@@ -171,719 +176,650 @@ Signed-off-by: Akiva Goldberger <agoldberger@nvidia.com>
 Reviewed-by: Michael Gur <michaelgur@nvidia.com>
 Signed-off-by: Edward Srouji <edwards@nvidia.com>
 ---
- drivers/infiniband/hw/mlx5/devx.c    |  11 ++--
- drivers/infiniband/hw/mlx5/main.c    |   3 +-
- drivers/infiniband/hw/mlx5/mlx5_ib.h |  23 ++++++++
- drivers/infiniband/hw/mlx5/qp.c      |  59 +++++++++----------
- drivers/infiniband/hw/mlx5/qp.h      |  32 +++++------
- drivers/infiniband/hw/mlx5/qpc.c     | 107 +++++++++++++++++++----------------
- 6 files changed, 136 insertions(+), 99 deletions(-)
+ drivers/infiniband/hw/mlx5/main.c    |   8 +--
+ drivers/infiniband/hw/mlx5/mlx5_ib.h |  27 ++++++++
+ drivers/infiniband/hw/mlx5/srq.c     |  42 ++++++------
+ drivers/infiniband/hw/mlx5/srq.h     |   4 +-
+ drivers/infiniband/hw/mlx5/srq_cmd.c | 124 +++++++++++++++++------------------
+ 5 files changed, 115 insertions(+), 90 deletions(-)
 
-diff --git a/drivers/infiniband/hw/mlx5/devx.c b/drivers/infiniband/hw/mlx5/devx.c
-index 9c5527a10d0ac832859cbf8e948addb3c50c4bed..2317220e9cacaa31fbc2455b5da5aa5af301622a 100644
---- a/drivers/infiniband/hw/mlx5/devx.c
-+++ b/drivers/infiniband/hw/mlx5/devx.c
-@@ -1469,7 +1469,8 @@ static int devx_obj_cleanup(struct ib_uobject *uobject,
- 	if (obj->flags & DEVX_OBJ_FLAGS_HW_FREED)
- 		ret = 0;
- 	else if (obj->flags & DEVX_OBJ_FLAGS_DCT)
--		ret = mlx5_core_destroy_dct(obj->ib_dev, &obj->core_dct);
-+		ret = mlx5_core_destroy_dct(obj->ib_dev, obj->ib_dev->mdev,
-+					    &obj->core_dct);
- 	else if (obj->flags & DEVX_OBJ_FLAGS_CQ)
- 		ret = mlx5_core_destroy_cq(obj->ib_dev->mdev, &obj->core_cq);
- 	else
-@@ -1572,8 +1573,9 @@ static int UVERBS_HANDLER(MLX5_IB_METHOD_DEVX_OBJ_CREATE)(
- 
- 	if (opcode == MLX5_CMD_OP_CREATE_DCT) {
- 		obj->flags |= DEVX_OBJ_FLAGS_DCT;
--		err = mlx5_core_create_dct(dev, &obj->core_dct, cmd_in,
--					   cmd_in_len, cmd_out, cmd_out_len);
-+		err = mlx5_core_create_dct(dev, dev->mdev, &obj->core_dct,
-+					   cmd_in, cmd_in_len, cmd_out,
-+					   cmd_out_len);
- 	} else if (opcode == MLX5_CMD_OP_CREATE_CQ &&
- 		   !is_apu_cq(dev, cmd_in)) {
- 		obj->flags |= DEVX_OBJ_FLAGS_CQ;
-@@ -1631,7 +1633,8 @@ static int UVERBS_HANDLER(MLX5_IB_METHOD_DEVX_OBJ_CREATE)(
- 
- obj_destroy:
- 	if (obj->flags & DEVX_OBJ_FLAGS_DCT)
--		mlx5_core_destroy_dct(obj->ib_dev, &obj->core_dct);
-+		mlx5_core_destroy_dct(obj->ib_dev, obj->ib_dev->mdev,
-+				      &obj->core_dct);
- 	else if (obj->flags & DEVX_OBJ_FLAGS_CQ)
- 		mlx5_core_destroy_cq(obj->ib_dev->mdev, &obj->core_cq);
- 	else
 diff --git a/drivers/infiniband/hw/mlx5/main.c b/drivers/infiniband/hw/mlx5/main.c
-index 6dc25fae205656725d9a118379af04cca41f080f..5bba04ac16d5b749ddb50ae7ec7823a7a0115fc9 100644
+index b5d887250c05cdd5389113f69b8bbd2846253521..6dc25fae205656725d9a118379af04cca41f080f 100644
 --- a/drivers/infiniband/hw/mlx5/main.c
 +++ b/drivers/infiniband/hw/mlx5/main.c
-@@ -3030,7 +3030,8 @@ static void delay_drop_handler(struct work_struct *work)
- 	atomic_inc(&delay_drop->events_cnt);
- 
- 	mutex_lock(&delay_drop->lock);
--	err = mlx5_core_set_delay_drop(delay_drop->dev, delay_drop->timeout);
-+	err = mlx5_core_set_delay_drop(delay_drop->dev->mdev,
-+				       delay_drop->timeout);
- 	if (err) {
- 		mlx5_ib_warn(delay_drop->dev, "Failed to set delay drop, timeout=%u\n",
- 			     delay_drop->timeout);
-diff --git a/drivers/infiniband/hw/mlx5/mlx5_ib.h b/drivers/infiniband/hw/mlx5/mlx5_ib.h
-index c8b658c963b2cfebec49d423dfdebb8a09a597e4..03261e22de9bd1532d50d8024ae989d5af0ffaa8 100644
---- a/drivers/infiniband/hw/mlx5/mlx5_ib.h
-+++ b/drivers/infiniband/hw/mlx5/mlx5_ib.h
-@@ -1277,6 +1277,29 @@ static inline struct mlx5_core_dev *__mlx5_ib_pd_to_mdev(struct mlx5_ib_pd *pd)
- 		struct ib_pd * : __ib_pd_to_mdev, \
- 		struct mlx5_ib_pd * : __mlx5_ib_pd_to_mdev)(pd)
- 
-+static inline struct mlx5_core_dev *__ibqp_to_mdev(struct ib_qp *ibqp)
-+{
-+	struct ib_pd *pd = ibqp->pd ?: to_dev(ibqp->device)->devr.p0;
-+
-+	return pd_to_mdev(pd);
-+}
-+
-+static inline struct mlx5_core_dev *__mlx5_ibqp_to_mdev(struct mlx5_ib_qp *qp)
-+{
-+	return __ibqp_to_mdev(&qp->ibqp);
-+}
-+
-+static inline struct mlx5_core_dev *__mqp_to_mdev(struct mlx5_core_qp *mqp)
-+{
-+	return __mlx5_ibqp_to_mdev(to_mibqp(mqp));
-+}
-+
-+#define qp_to_mdev(q) \
-+	_Generic((q), \
-+		struct ib_qp * : __ibqp_to_mdev, \
-+		struct mlx5_ib_qp * : __mlx5_ibqp_to_mdev, \
-+		struct mlx5_core_qp * : __mqp_to_mdev)(q)
-+
- static inline struct mlx5_core_dev *srq_to_mdev(struct mlx5_core_srq *msrq)
+@@ -2793,7 +2793,6 @@ static int mlx5_ib_mmap(struct ib_ucontext *ibcontext, struct vm_area_struct *vm
+ static int mlx5_ib_alloc_pd(struct ib_pd *ibpd, struct ib_udata *udata)
  {
- 	return pd_to_mdev(to_mibsrq(msrq)->ibsrq.pd);
-diff --git a/drivers/infiniband/hw/mlx5/qp.c b/drivers/infiniband/hw/mlx5/qp.c
-index b8ca60903090298a41c11df2e10f612a10236fca..416d3abfaeee0773bee5c1cf9245c373c3568449 100644
---- a/drivers/infiniband/hw/mlx5/qp.c
-+++ b/drivers/infiniband/hw/mlx5/qp.c
-@@ -326,22 +326,22 @@ int mlx5_ib_read_wqe_srq(struct mlx5_ib_srq *srq, int wqe_index, void *buffer,
- 
- static void mlx5_ib_qp_err_syndrome(struct ib_qp *ibqp)
- {
--	struct mlx5_ib_dev *dev = to_dev(ibqp->device);
-+	struct mlx5_core_dev *mdev = qp_to_mdev(ibqp);
- 	int outlen = MLX5_ST_SZ_BYTES(query_qp_out);
- 	struct mlx5_ib_qp *qp = to_mqp(ibqp);
- 	void *pas_ext_union, *err_syn;
- 	u32 *outb;
+ 	struct mlx5_ib_pd *pd = to_mpd(ibpd);
+-	struct ib_device *ibdev = ibpd->device;
+ 	struct mlx5_ib_alloc_pd_resp resp = {};
  	int err;
- 
--	if (!MLX5_CAP_GEN(dev->mdev, qpc_extension) ||
--	    !MLX5_CAP_GEN(dev->mdev, qp_error_syndrome))
-+	if (!MLX5_CAP_GEN(mdev, qpc_extension) ||
-+	    !MLX5_CAP_GEN(mdev, qp_error_syndrome))
- 		return;
- 
- 	outb = kzalloc(outlen, GFP_KERNEL);
- 	if (!outb)
- 		return;
- 
--	err = mlx5_core_qp_query(dev, &qp->trans_qp.base.mqp, outb, outlen,
-+	err = mlx5_core_qp_query(mdev, &qp->trans_qp.base.mqp, outb, outlen,
- 				 true);
+ 	u32 out[MLX5_ST_SZ_DW(alloc_pd_out)] = {};
+@@ -2805,7 +2804,7 @@ static int mlx5_ib_alloc_pd(struct ib_pd *ibpd, struct ib_udata *udata)
+ 	uid = context ? context->devx_uid : 0;
+ 	MLX5_SET(alloc_pd_in, in, opcode, MLX5_CMD_OP_ALLOC_PD);
+ 	MLX5_SET(alloc_pd_in, in, uid, uid);
+-	err = mlx5_cmd_exec_inout(to_dev(ibdev)->mdev, alloc_pd, in, out);
++	err = mlx5_cmd_exec_inout(pd_to_mdev(pd), alloc_pd, in, out);
  	if (err)
- 		goto out;
-@@ -1435,7 +1435,7 @@ static int create_raw_packet_qp_sq(struct mlx5_ib_dev *dev,
- 	pas = (__be64 *)MLX5_ADDR_OF(wq, wq, pas);
- 	mlx5_ib_populate_pas(sq->ubuffer.umem, page_size, pas, 0);
- 
--	err = mlx5_core_create_sq_tracked(dev, in, inlen, &sq->base.mqp);
-+	err = mlx5_core_create_sq_tracked(pd, in, inlen, &sq->base.mqp);
- 
- 	kvfree(in);
- 
-@@ -1451,11 +1451,10 @@ static int create_raw_packet_qp_sq(struct mlx5_ib_dev *dev,
- 	return err;
- }
- 
--static void destroy_raw_packet_qp_sq(struct mlx5_ib_dev *dev,
--				     struct mlx5_ib_sq *sq)
-+static void destroy_raw_packet_qp_sq(struct ib_pd *pd, struct mlx5_ib_sq *sq)
- {
- 	destroy_flow_rule_vport_sq(sq);
--	mlx5_core_destroy_sq_tracked(dev, &sq->base.mqp);
-+	mlx5_core_destroy_sq_tracked(pd, &sq->base.mqp);
- 	ib_umem_release(sq->ubuffer.umem);
- }
- 
-@@ -1522,17 +1521,16 @@ static int create_raw_packet_qp_rq(struct mlx5_ib_dev *dev,
- 	pas = (__be64 *)MLX5_ADDR_OF(wq, wq, pas);
- 	mlx5_ib_populate_pas(umem, page_size, pas, 0);
- 
--	err = mlx5_core_create_rq_tracked(dev, in, inlen, &rq->base.mqp);
-+	err = mlx5_core_create_rq_tracked(pd, in, inlen, &rq->base.mqp);
- 
- 	kvfree(in);
- 
- 	return err;
- }
- 
--static void destroy_raw_packet_qp_rq(struct mlx5_ib_dev *dev,
--				     struct mlx5_ib_rq *rq)
-+static void destroy_raw_packet_qp_rq(struct ib_pd *pd, struct mlx5_ib_rq *rq)
- {
--	mlx5_core_destroy_rq_tracked(dev, &rq->base.mqp);
-+	mlx5_core_destroy_rq_tracked(pd, &rq->base.mqp);
- }
- 
- static void destroy_raw_packet_qp_tir(struct mlx5_ib_dev *dev,
-@@ -1686,11 +1684,11 @@ static int create_raw_packet_qp(struct mlx5_ib_dev *dev, struct mlx5_ib_qp *qp,
- 	return 0;
- 
- err_destroy_rq:
--	destroy_raw_packet_qp_rq(dev, rq);
-+	destroy_raw_packet_qp_rq(pd, rq);
- err_destroy_sq:
- 	if (!qp->sq.wqe_cnt)
  		return err;
--	destroy_raw_packet_qp_sq(dev, sq);
-+	destroy_raw_packet_qp_sq(pd, sq);
- err_destroy_tis:
- 	destroy_raw_packet_qp_tis(dev, sq, pd);
  
-@@ -1706,11 +1704,11 @@ static void destroy_raw_packet_qp(struct mlx5_ib_dev *dev,
- 
- 	if (qp->rq.wqe_cnt) {
- 		destroy_raw_packet_qp_tir(dev, rq, qp->flags_en, qp->ibqp.pd);
--		destroy_raw_packet_qp_rq(dev, rq);
-+		destroy_raw_packet_qp_rq(qp->ibqp.pd, rq);
- 	}
- 
- 	if (qp->sq.wqe_cnt) {
--		destroy_raw_packet_qp_sq(dev, sq);
-+		destroy_raw_packet_qp_sq(qp->ibqp.pd, sq);
- 		destroy_raw_packet_qp_tis(dev, sq, qp->ibqp.pd);
- 	}
- }
-@@ -2718,7 +2716,7 @@ static void destroy_qp_common(struct mlx5_ib_dev *dev, struct mlx5_ib_qp *qp,
- 	if (qp->state != IB_QPS_RESET) {
- 		if (qp->type != IB_QPT_RAW_PACKET &&
- 		    !(qp->flags & IB_QP_CREATE_SOURCE_QPN)) {
--			err = mlx5_core_qp_modify(dev, MLX5_CMD_OP_2RST_QP, 0,
-+			err = mlx5_core_qp_modify(MLX5_CMD_OP_2RST_QP, 0,
- 						  NULL, &base->mqp, NULL);
- 		} else {
- 			struct mlx5_modify_raw_qp_param raw_qp_param = {
-@@ -3252,7 +3250,8 @@ static int mlx5_ib_destroy_dct(struct mlx5_ib_qp *mqp)
- 	if (mqp->state == IB_QPS_RTR) {
- 		int err;
- 
--		err = mlx5_core_destroy_dct(dev, &mqp->dct.mdct);
-+		err = mlx5_core_destroy_dct(dev, qp_to_mdev(mqp),
-+					    &mqp->dct.mdct);
- 		if (err) {
- 			mlx5_ib_warn(dev, "failed to destroy DCT %d\n", err);
- 			return err;
-@@ -4546,7 +4545,7 @@ static int __mlx5_ib_modify_qp(struct ib_qp *ibqp,
- 					ucmd->ece_options : 0;
- 			resp->response_length = sizeof(*resp);
- 		}
--		err = mlx5_core_qp_modify(dev, op, optpar, qpc, &base->mqp,
-+		err = mlx5_core_qp_modify(op, optpar, qpc, &base->mqp,
- 					  &resp->ece_options);
- 
- 		if (err) {
-@@ -4754,7 +4753,8 @@ static int mlx5_ib_modify_dct(struct ib_qp *ibqp, struct ib_qp_attr *attr,
- 			MLX5_SET(dctc, dctc, dp_ordering_force, 1);
- 		}
- 
--		err = mlx5_core_create_dct(dev, &qp->dct.mdct, qp->dct.in,
-+		err = mlx5_core_create_dct(dev, qp_to_mdev(qp), &qp->dct.mdct,
-+					   qp->dct.in,
- 					   MLX5_ST_SZ_BYTES(create_dct_in), out,
- 					   sizeof(out));
- 		err = mlx5_cmd_check(dev->mdev, err, qp->dct.in, out);
-@@ -4765,7 +4765,8 @@ static int mlx5_ib_modify_dct(struct ib_qp *ibqp, struct ib_qp_attr *attr,
- 			resp.ece_options = MLX5_GET(create_dct_out, out, ece);
+@@ -2815,7 +2814,7 @@ static int mlx5_ib_alloc_pd(struct ib_pd *ibpd, struct ib_udata *udata)
+ 		resp.pdn = pd->pdn;
  		err = ib_respond_udata(udata, resp);
  		if (err) {
--			mlx5_core_destroy_dct(dev, &qp->dct.mdct);
-+			mlx5_core_destroy_dct(dev, qp_to_mdev(qp),
-+					      &qp->dct.mdct);
+-			mlx5_cmd_dealloc_pd(to_dev(ibdev)->mdev, pd->pdn, uid);
++			mlx5_cmd_dealloc_pd(pd_to_mdev(pd), pd->pdn, uid);
  			return err;
  		}
- 	} else {
-@@ -5118,8 +5119,8 @@ static int query_qp_attr(struct mlx5_ib_dev *dev, struct mlx5_ib_qp *qp,
- 	if (!outb)
- 		return -ENOMEM;
+ 	}
+@@ -2825,10 +2824,9 @@ static int mlx5_ib_alloc_pd(struct ib_pd *ibpd, struct ib_udata *udata)
  
--	err = mlx5_core_qp_query(dev, &qp->trans_qp.base.mqp, outb, outlen,
--				 false);
-+	err = mlx5_core_qp_query(qp_to_mdev(qp), &qp->trans_qp.base.mqp, outb,
-+				 outlen, false);
- 	if (err)
- 		goto out;
+ static int mlx5_ib_dealloc_pd(struct ib_pd *pd, struct ib_udata *udata)
+ {
+-	struct mlx5_ib_dev *dev = to_dev(pd->device);
+ 	struct mlx5_ib_pd *mpd = to_mpd(pd);
  
-@@ -5197,7 +5198,7 @@ static int mlx5_ib_dct_query_qp(struct mlx5_ib_dev *dev, struct mlx5_ib_qp *mqp,
+-	return mlx5_cmd_dealloc_pd(dev->mdev, mpd->pdn, mpd->uid);
++	return mlx5_cmd_dealloc_pd(pd_to_mdev(mpd), mpd->pdn, mpd->uid);
+ }
+ 
+ static int mlx5_ib_mcg_attach(struct ib_qp *ibqp, union ib_gid *gid, u16 lid)
+diff --git a/drivers/infiniband/hw/mlx5/mlx5_ib.h b/drivers/infiniband/hw/mlx5/mlx5_ib.h
+index 6fb4069660c43643424ffc65622817467c8cbc3a..c8b658c963b2cfebec49d423dfdebb8a09a597e4 100644
+--- a/drivers/infiniband/hw/mlx5/mlx5_ib.h
++++ b/drivers/infiniband/hw/mlx5/mlx5_ib.h
+@@ -1255,6 +1255,33 @@ static inline struct mlx5_ib_mr *to_mmr(struct ib_mr *ibmr)
+ 	return container_of(ibmr, struct mlx5_ib_mr, ibmr);
+ }
+ 
++/*
++ * Device resolvers.
++ *
++ * Each helper is named <resource>_to_mdev() or <resource>_to_dev(). Where more
++ * than one resource type has to be accepted, the interface is a _Generic()
++ * that dispatches to one helper per type.
++ */
++static inline struct mlx5_core_dev *__ib_pd_to_mdev(struct ib_pd *pd)
++{
++	return to_dev(pd->device)->mdev;
++}
++
++static inline struct mlx5_core_dev *__mlx5_ib_pd_to_mdev(struct mlx5_ib_pd *pd)
++{
++	return to_dev(pd->ibpd.device)->mdev;
++}
++
++#define pd_to_mdev(pd) \
++	_Generic((pd), \
++		struct ib_pd * : __ib_pd_to_mdev, \
++		struct mlx5_ib_pd * : __mlx5_ib_pd_to_mdev)(pd)
++
++static inline struct mlx5_core_dev *srq_to_mdev(struct mlx5_core_srq *msrq)
++{
++	return pd_to_mdev(to_mibsrq(msrq)->ibsrq.pd);
++}
++
+ static inline struct mlx5_ib_mw *to_mmw(struct ib_mw *ibmw)
+ {
+ 	return container_of(ibmw, struct mlx5_ib_mw, ibmw);
+diff --git a/drivers/infiniband/hw/mlx5/srq.c b/drivers/infiniband/hw/mlx5/srq.c
+index f87b4c62d7d17867f16b65d5cd02ee09e3d64c51..ed0d4ce4b45d2961e265b1fe5d1c373fdd6c415e 100644
+--- a/drivers/infiniband/hw/mlx5/srq.c
++++ b/drivers/infiniband/hw/mlx5/srq.c
+@@ -90,7 +90,7 @@ static int create_srq_user(struct ib_pd *pd, struct mlx5_ib_srq *srq,
+ 	}
+ 
+ 	in->uid = (in->type != IB_SRQT_XRC) ?  to_mpd(pd)->uid : 0;
+-	if (MLX5_CAP_GEN(dev->mdev, cqe_version) == MLX5_CQE_VERSION_V1 &&
++	if (MLX5_CAP_GEN(pd_to_mdev(pd), cqe_version) == MLX5_CQE_VERSION_V1 &&
+ 	    in->type != IB_SRQT_BASIC)
+ 		in->user_index = uidx;
+ 
+@@ -105,18 +105,19 @@ static int create_srq_user(struct ib_pd *pd, struct mlx5_ib_srq *srq,
+ static int create_srq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_srq *srq,
+ 			     struct mlx5_srq_attr *in, int buf_size)
+ {
++	struct mlx5_core_dev *mdev = pd_to_mdev(srq->ibsrq.pd);
+ 	int err;
+ 	int i;
+ 	struct mlx5_wqe_srq_next_seg *next;
+ 
+-	err = mlx5_db_alloc(dev->mdev, &srq->db);
++	err = mlx5_db_alloc(mdev, &srq->db);
+ 	if (err) {
+ 		mlx5_ib_warn(dev, "alloc dbell rec failed\n");
+ 		return err;
+ 	}
+ 
+-	if (mlx5_frag_buf_alloc_node(dev->mdev, buf_size, &srq->buf,
+-				     dev->mdev->priv.numa_node)) {
++	if (mlx5_frag_buf_alloc_node(mdev, buf_size, &srq->buf,
++				     mdev->priv.numa_node)) {
+ 		mlx5_ib_dbg(dev, "buf alloc failed\n");
+ 		err = -ENOMEM;
+ 		goto err_db;
+@@ -151,7 +152,7 @@ static int create_srq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_srq *srq,
+ 	srq->wq_sig = 0;
+ 
+ 	in->log_page_size = srq->buf.page_shift - MLX5_ADAPTER_PAGE_SHIFT;
+-	if (MLX5_CAP_GEN(dev->mdev, cqe_version) == MLX5_CQE_VERSION_V1 &&
++	if (MLX5_CAP_GEN(mdev, cqe_version) == MLX5_CQE_VERSION_V1 &&
+ 	    in->type != IB_SRQT_BASIC)
+ 		in->user_index = MLX5_IB_DEFAULT_UIDX;
+ 
+@@ -161,10 +162,10 @@ static int create_srq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_srq *srq,
+ 	kvfree(in->pas);
+ 
+ err_buf:
+-	mlx5_frag_buf_free(dev->mdev, &srq->buf);
++	mlx5_frag_buf_free(mdev, &srq->buf);
+ 
+ err_db:
+-	mlx5_db_free(dev->mdev, &srq->db);
++	mlx5_db_free(mdev, &srq->db);
+ 	return err;
+ }
+ 
+@@ -181,11 +182,13 @@ static void destroy_srq_user(struct ib_pd *pd, struct mlx5_ib_srq *srq,
+ }
+ 
+ 
+-static void destroy_srq_kernel(struct mlx5_ib_dev *dev, struct mlx5_ib_srq *srq)
++static void destroy_srq_kernel(struct mlx5_ib_srq *srq)
+ {
++	struct mlx5_core_dev *mdev = pd_to_mdev(srq->ibsrq.pd);
++
+ 	kvfree(srq->wrid);
+-	mlx5_frag_buf_free(dev->mdev, &srq->buf);
+-	mlx5_db_free(dev->mdev, &srq->db);
++	mlx5_frag_buf_free(mdev, &srq->buf);
++	mlx5_db_free(mdev, &srq->db);
+ }
+ 
+ int mlx5_ib_create_srq(struct ib_srq *ib_srq,
+@@ -194,12 +197,13 @@ int mlx5_ib_create_srq(struct ib_srq *ib_srq,
+ {
+ 	struct mlx5_ib_dev *dev = to_dev(ib_srq->device);
+ 	struct mlx5_ib_srq *srq = to_msrq(ib_srq);
++	struct mlx5_core_dev *mdev = pd_to_mdev(ib_srq->pd);
+ 	size_t desc_size;
+ 	size_t buf_size;
+ 	int err;
+ 	struct mlx5_srq_attr in = {};
+-	__u32 max_srq_wqes = 1 << MLX5_CAP_GEN(dev->mdev, log_max_srq_sz);
+-	__u32 max_sge_sz =  MLX5_CAP_GEN(dev->mdev, max_wqe_sz_rq) /
++	__u32 max_srq_wqes = 1 << MLX5_CAP_GEN(mdev, log_max_srq_sz);
++	__u32 max_sge_sz =  MLX5_CAP_GEN(mdev, max_wqe_sz_rq) /
+ 			    sizeof(struct mlx5_wqe_data_seg);
+ 
+ 	if (init_attr->srq_type != IB_SRQT_BASIC &&
+@@ -269,7 +273,7 @@ int mlx5_ib_create_srq(struct ib_srq *ib_srq,
+ 		in.tm_log_list_size =
+ 			ilog2(init_attr->ext.tag_matching.max_num_tags) + 1;
+ 		if (in.tm_log_list_size >
+-		    MLX5_CAP_GEN(dev->mdev, log_tag_matching_list_sz)) {
++		    MLX5_CAP_GEN(mdev, log_tag_matching_list_sz)) {
+ 			mlx5_ib_dbg(dev, "TM SRQ max_num_tags exceeding limit\n");
+ 			err = -EINVAL;
+ 			goto err_usr_kern_srq;
+@@ -316,7 +320,7 @@ int mlx5_ib_create_srq(struct ib_srq *ib_srq,
+ 	if (udata)
+ 		destroy_srq_user(ib_srq->pd, srq, udata);
+ 	else
+-		destroy_srq_kernel(dev, srq);
++		destroy_srq_kernel(srq);
+ 
+ 	return err;
+ }
+@@ -324,7 +328,6 @@ int mlx5_ib_create_srq(struct ib_srq *ib_srq,
+ int mlx5_ib_modify_srq(struct ib_srq *ibsrq, struct ib_srq_attr *attr,
+ 		       enum ib_srq_attr_mask attr_mask, struct ib_udata *udata)
+ {
+-	struct mlx5_ib_dev *dev = to_dev(ibsrq->device);
+ 	struct mlx5_ib_srq *srq = to_msrq(ibsrq);
+ 	int ret;
+ 
+@@ -337,7 +340,7 @@ int mlx5_ib_modify_srq(struct ib_srq *ibsrq, struct ib_srq_attr *attr,
+ 			return -EINVAL;
+ 
+ 		mutex_lock(&srq->mutex);
+-		ret = mlx5_cmd_arm_srq(dev, &srq->msrq, attr->srq_limit, 1);
++		ret = mlx5_cmd_arm_srq(&srq->msrq, attr->srq_limit, 1);
+ 		mutex_unlock(&srq->mutex);
+ 
+ 		if (ret)
+@@ -349,7 +352,6 @@ int mlx5_ib_modify_srq(struct ib_srq *ibsrq, struct ib_srq_attr *attr,
+ 
+ int mlx5_ib_query_srq(struct ib_srq *ibsrq, struct ib_srq_attr *srq_attr)
+ {
+-	struct mlx5_ib_dev *dev = to_dev(ibsrq->device);
+ 	struct mlx5_ib_srq *srq = to_msrq(ibsrq);
+ 	int ret;
+ 	struct mlx5_srq_attr *out;
+@@ -358,7 +360,7 @@ int mlx5_ib_query_srq(struct ib_srq *ibsrq, struct ib_srq_attr *srq_attr)
  	if (!out)
  		return -ENOMEM;
  
--	err = mlx5_core_dct_query(dev, dct, out, outlen);
-+	err = mlx5_core_dct_query(qp_to_mdev(mqp), dct, out, outlen);
- 	if (err)
- 		goto out;
- 
-@@ -5357,7 +5358,7 @@ static int set_delay_drop(struct mlx5_ib_dev *dev)
- 	if (dev->delay_drop.activate)
- 		goto out;
- 
--	err = mlx5_core_set_delay_drop(dev, dev->delay_drop.timeout);
-+	err = mlx5_core_set_delay_drop(dev->mdev, dev->delay_drop.timeout);
- 	if (err)
- 		goto out;
- 
-@@ -5469,13 +5470,13 @@ static int  create_rq(struct mlx5_ib_rwq *rwq, struct ib_pd *pd,
- 	}
- 	rq_pas0 = (__be64 *)MLX5_ADDR_OF(wq, wq, pas);
- 	mlx5_ib_populate_pas(rwq->umem, 1UL << rwq->page_shift, rq_pas0, 0);
--	err = mlx5_core_create_rq_tracked(dev, in, inlen, &rwq->core_qp);
-+	err = mlx5_core_create_rq_tracked(pd, in, inlen, &rwq->core_qp);
- 	if (!err && init_attr->create_flags & IB_WQ_FLAGS_DELAY_DROP) {
- 		err = set_delay_drop(dev);
- 		if (err) {
- 			mlx5_ib_warn(dev, "Failed to enable delay drop err=%d\n",
- 				     err);
--			mlx5_core_destroy_rq_tracked(dev, &rwq->core_qp);
-+			mlx5_core_destroy_rq_tracked(pd, &rwq->core_qp);
- 		} else {
- 			rwq->create_flags |= MLX5_IB_WQ_FLAGS_DELAY_DROP;
- 		}
-@@ -5642,7 +5643,7 @@ struct ib_wq *mlx5_ib_create_wq(struct ib_pd *pd,
- 	return &rwq->ibwq;
- 
- err_copy:
--	mlx5_core_destroy_rq_tracked(dev, &rwq->core_qp);
-+	mlx5_core_destroy_rq_tracked(pd, &rwq->core_qp);
- err_user_rq:
- 	destroy_user_rq(dev, pd, rwq, udata);
- err:
-@@ -5656,7 +5657,7 @@ int mlx5_ib_destroy_wq(struct ib_wq *wq, struct ib_udata *udata)
- 	struct mlx5_ib_rwq *rwq = to_mrwq(wq);
- 	int ret;
- 
--	ret = mlx5_core_destroy_rq_tracked(dev, &rwq->core_qp);
-+	ret = mlx5_core_destroy_rq_tracked(wq->pd, &rwq->core_qp);
+-	ret = mlx5_cmd_query_srq(dev, &srq->msrq, out);
++	ret = mlx5_cmd_query_srq(&srq->msrq, out);
  	if (ret)
- 		return ret;
- 	destroy_user_rq(dev, wq->pd, rwq, udata);
-diff --git a/drivers/infiniband/hw/mlx5/qp.h b/drivers/infiniband/hw/mlx5/qp.h
-index 2530e7730635f30cf6b2fe9b54a3c61de5d1f53c..9dabf0326071814eb44c47637ef95e6088ba35d8 100644
---- a/drivers/infiniband/hw/mlx5/qp.h
-+++ b/drivers/infiniband/hw/mlx5/qp.h
-@@ -21,29 +21,29 @@ struct mlx5_qp_table {
- int mlx5_init_qp_table(struct mlx5_ib_dev *dev);
- void mlx5_cleanup_qp_table(struct mlx5_ib_dev *dev);
+ 		goto out_box;
  
--int mlx5_core_create_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dct *qp,
--			 u32 *in, int inlen, u32 *out, int outlen);
-+int mlx5_core_create_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dev *mdev,
-+			 struct mlx5_core_dct *qp, u32 *in, int inlen,
-+			 u32 *out, int outlen);
- int mlx5_qpc_create_qp(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
- 		       u32 *in, int inlen, u32 *out);
--int mlx5_core_qp_modify(struct mlx5_ib_dev *dev, u16 opcode, u32 opt_param_mask,
--			void *qpc, struct mlx5_core_qp *qp, u32 *ece);
-+int mlx5_core_qp_modify(u16 opcode, u32 opt_param_mask, void *qpc,
-+			struct mlx5_core_qp *qp, u32 *ece);
- int mlx5_core_destroy_qp(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp);
--int mlx5_core_destroy_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct);
--int mlx5_core_qp_query(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
-+int mlx5_core_destroy_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dev *mdev,
-+			  struct mlx5_core_dct *dct);
-+int mlx5_core_qp_query(struct mlx5_core_dev *mdev, struct mlx5_core_qp *qp,
- 		       u32 *out, int outlen, bool qpc_ext);
--int mlx5_core_dct_query(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct,
-+int mlx5_core_dct_query(struct mlx5_core_dev *mdev, struct mlx5_core_dct *dct,
- 			u32 *out, int outlen);
- 
--int mlx5_core_set_delay_drop(struct mlx5_ib_dev *dev, u32 timeout_usec);
-+int mlx5_core_set_delay_drop(struct mlx5_core_dev *mdev, u32 timeout_usec);
- 
--int mlx5_core_destroy_rq_tracked(struct mlx5_ib_dev *dev,
--				 struct mlx5_core_qp *rq);
--int mlx5_core_create_sq_tracked(struct mlx5_ib_dev *dev, u32 *in, int inlen,
-+int mlx5_core_destroy_rq_tracked(struct ib_pd *pd, struct mlx5_core_qp *rq);
-+int mlx5_core_create_sq_tracked(struct ib_pd *pd, u32 *in, int inlen,
- 				struct mlx5_core_qp *sq);
--void mlx5_core_destroy_sq_tracked(struct mlx5_ib_dev *dev,
--				  struct mlx5_core_qp *sq);
-+void mlx5_core_destroy_sq_tracked(struct ib_pd *pd, struct mlx5_core_qp *sq);
- 
--int mlx5_core_create_rq_tracked(struct mlx5_ib_dev *dev, u32 *in, int inlen,
-+int mlx5_core_create_rq_tracked(struct ib_pd *pd, u32 *in, int inlen,
- 				struct mlx5_core_qp *rq);
- 
- struct mlx5_core_rsc_common *mlx5_core_res_hold(struct mlx5_ib_dev *dev,
-@@ -51,8 +51,8 @@ struct mlx5_core_rsc_common *mlx5_core_res_hold(struct mlx5_ib_dev *dev,
- 						enum mlx5_res_type res_type);
- void mlx5_core_res_put(struct mlx5_core_rsc_common *res);
- 
--int mlx5_core_xrcd_alloc(struct mlx5_ib_dev *dev, u32 *xrcdn);
--int mlx5_core_xrcd_dealloc(struct mlx5_ib_dev *dev, u32 xrcdn);
-+int mlx5_core_xrcd_alloc(struct mlx5_core_dev *mdev, u32 *xrcdn);
-+int mlx5_core_xrcd_dealloc(struct mlx5_core_dev *mdev, u32 xrcdn);
- int mlx5_ib_qp_set_counter(struct ib_qp *qp, struct rdma_counter *counter);
- int mlx5_ib_qp_event_init(void);
- void mlx5_ib_qp_event_cleanup(void);
-diff --git a/drivers/infiniband/hw/mlx5/qpc.c b/drivers/infiniband/hw/mlx5/qpc.c
-index a1b15c0346d34e9b969a2b60298b78930d8769d6..5fde1570c75da4d91aa3dc9de2962e89d21a2448 100644
---- a/drivers/infiniband/hw/mlx5/qpc.c
-+++ b/drivers/infiniband/hw/mlx5/qpc.c
-@@ -9,7 +9,7 @@
- #include "mlx5_ib.h"
- #include "qp.h"
- 
--static int mlx5_core_drain_dct(struct mlx5_ib_dev *dev,
-+static int mlx5_core_drain_dct(struct mlx5_core_dev *mdev,
- 			       struct mlx5_core_dct *dct);
- 
- static struct mlx5_core_rsc_common *
-@@ -208,7 +208,7 @@ static void destroy_resource_common(struct mlx5_ib_dev *dev,
- 	wait_for_completion(&qp->common.free);
- }
- 
--static int _mlx5_core_destroy_dct(struct mlx5_ib_dev *dev,
-+static int _mlx5_core_destroy_dct(struct mlx5_core_dev *mdev,
- 				  struct mlx5_core_dct *dct)
- {
- 	u32 in[MLX5_ST_SZ_DW(destroy_dct_in)] = {};
-@@ -217,11 +217,12 @@ static int _mlx5_core_destroy_dct(struct mlx5_ib_dev *dev,
- 	MLX5_SET(destroy_dct_in, in, opcode, MLX5_CMD_OP_DESTROY_DCT);
- 	MLX5_SET(destroy_dct_in, in, dctn, qp->qpn);
- 	MLX5_SET(destroy_dct_in, in, uid, qp->uid);
--	return mlx5_cmd_exec_in(dev->mdev, destroy_dct, in);
-+	return mlx5_cmd_exec_in(mdev, destroy_dct, in);
- }
- 
--int mlx5_core_create_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct,
--			 u32 *in, int inlen, u32 *out, int outlen)
-+int mlx5_core_create_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dev *mdev,
-+			 struct mlx5_core_dct *dct, u32 *in, int inlen,
-+			 u32 *out, int outlen)
- {
- 	struct mlx5_core_qp *qp = &dct->mqp;
- 	int err;
-@@ -229,7 +230,7 @@ int mlx5_core_create_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct,
- 	init_completion(&dct->drained);
- 	MLX5_SET(create_dct_in, in, opcode, MLX5_CMD_OP_CREATE_DCT);
- 
--	err = mlx5_cmd_do(dev->mdev, in, inlen, out, outlen);
-+	err = mlx5_cmd_do(mdev, in, inlen, out, outlen);
- 	if (err)
- 		return err;
- 
-@@ -241,19 +242,20 @@ int mlx5_core_create_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct,
- 
+@@ -384,7 +386,7 @@ int mlx5_ib_destroy_srq(struct ib_srq *srq, struct ib_udata *udata)
+ 	if (udata)
+ 		destroy_srq_user(srq->pd, msrq, udata);
+ 	else
+-		destroy_srq_kernel(dev, msrq);
++		destroy_srq_kernel(msrq);
  	return 0;
- err_cmd:
--	_mlx5_core_destroy_dct(dev, dct);
-+	_mlx5_core_destroy_dct(mdev, dct);
+ }
+ 
+@@ -409,7 +411,7 @@ int mlx5_ib_post_srq_recv(struct ib_srq *ibsrq, const struct ib_recv_wr *wr,
+ 	struct mlx5_wqe_srq_next_seg *next;
+ 	struct mlx5_wqe_data_seg *scat;
+ 	struct mlx5_ib_dev *dev = to_dev(ibsrq->device);
+-	struct mlx5_core_dev *mdev = dev->mdev;
++	struct mlx5_core_dev *mdev = pd_to_mdev(ibsrq->pd);
+ 	unsigned long flags;
+ 	int err = 0;
+ 	int nreq;
+diff --git a/drivers/infiniband/hw/mlx5/srq.h b/drivers/infiniband/hw/mlx5/srq.h
+index a7e3dc5564ac90ec8ddc536480e7ea5201e06cd5..76d389ec6b08f188a74cd555c9477dccb4f2368f 100644
+--- a/drivers/infiniband/hw/mlx5/srq.h
++++ b/drivers/infiniband/hw/mlx5/srq.h
+@@ -58,9 +58,9 @@ struct mlx5_srq_table {
+ int mlx5_cmd_create_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 			struct mlx5_srq_attr *in);
+ int mlx5_cmd_destroy_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq);
+-int mlx5_cmd_query_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++int mlx5_cmd_query_srq(struct mlx5_core_srq *srq,
+ 		       struct mlx5_srq_attr *out);
+-int mlx5_cmd_arm_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++int mlx5_cmd_arm_srq(struct mlx5_core_srq *srq,
+ 		     u16 lwm, int is_srq);
+ struct mlx5_core_srq *mlx5_cmd_get_srq(struct mlx5_ib_dev *dev, u32 srqn);
+ 
+diff --git a/drivers/infiniband/hw/mlx5/srq_cmd.c b/drivers/infiniband/hw/mlx5/srq_cmd.c
+index c1a088120915c5741f37ed44fd2e8139bcb6802e..944b53074f69dca3a1b25b2dc8a41dae7546dcac 100644
+--- a/drivers/infiniband/hw/mlx5/srq_cmd.c
++++ b/drivers/infiniband/hw/mlx5/srq_cmd.c
+@@ -111,7 +111,7 @@ static int __set_srq_page_size(struct mlx5_srq_attr *in,
+ 					MLX5_ADAPTER_PAGE_SHIFT, page_offset,  \
+ 					64, &(in)->page_offset))
+ 
+-static int create_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int create_srq_cmd(struct mlx5_core_srq *srq,
+ 			  struct mlx5_srq_attr *in)
+ {
+ 	u32 create_out[MLX5_ST_SZ_DW(create_srq_out)] = {0};
+@@ -150,7 +150,7 @@ static int create_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	MLX5_SET(create_srq_in, create_in, opcode,
+ 		 MLX5_CMD_OP_CREATE_SRQ);
+ 
+-	err = mlx5_cmd_exec(dev->mdev, create_in, inlen, create_out,
++	err = mlx5_cmd_exec(srq_to_mdev(srq), create_in, inlen, create_out,
+ 			    sizeof(create_out));
+ 	kvfree(create_in);
+ 	if (!err) {
+@@ -161,7 +161,7 @@ static int create_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
  	return err;
  }
  
- int mlx5_qpc_create_qp(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
- 		       u32 *in, int inlen, u32 *out)
+-static int destroy_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
++static int destroy_srq_cmd(struct mlx5_core_srq *srq)
  {
-+	struct mlx5_core_dev *mdev = qp_to_mdev(qp);
- 	u32 din[MLX5_ST_SZ_DW(destroy_qp_in)] = {};
- 	int err;
+ 	u32 in[MLX5_ST_SZ_DW(destroy_srq_in)] = {};
  
- 	MLX5_SET(create_qp_in, in, opcode, MLX5_CMD_OP_CREATE_QP);
+@@ -169,10 +169,10 @@ static int destroy_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
+ 	MLX5_SET(destroy_srq_in, in, srqn, srq->srqn);
+ 	MLX5_SET(destroy_srq_in, in, uid, srq->uid);
  
--	err = mlx5_cmd_exec(dev->mdev, in, inlen, out,
-+	err = mlx5_cmd_exec(mdev, in, inlen, out,
- 			    MLX5_ST_SZ_BYTES(create_qp_out));
+-	return mlx5_cmd_exec_in(dev->mdev, destroy_srq, in);
++	return mlx5_cmd_exec_in(srq_to_mdev(srq), destroy_srq, in);
+ }
+ 
+-static int arm_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int arm_srq_cmd(struct mlx5_core_srq *srq,
+ 		       u16 lwm, int is_srq)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(arm_rq_in)] = {};
+@@ -183,10 +183,10 @@ static int arm_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	MLX5_SET(arm_rq_in, in, lwm, lwm);
+ 	MLX5_SET(arm_rq_in, in, uid, srq->uid);
+ 
+-	return mlx5_cmd_exec_in(dev->mdev, arm_rq, in);
++	return mlx5_cmd_exec_in(srq_to_mdev(srq), arm_rq, in);
+ }
+ 
+-static int query_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int query_srq_cmd(struct mlx5_core_srq *srq,
+ 			 struct mlx5_srq_attr *out)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(query_srq_in)] = {};
+@@ -200,7 +200,7 @@ static int query_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 
+ 	MLX5_SET(query_srq_in, in, opcode, MLX5_CMD_OP_QUERY_SRQ);
+ 	MLX5_SET(query_srq_in, in, srqn, srq->srqn);
+-	err = mlx5_cmd_exec_inout(dev->mdev, query_srq, in, srq_out);
++	err = mlx5_cmd_exec_inout(srq_to_mdev(srq), query_srq, in, srq_out);
  	if (err)
- 		return err;
-@@ -274,7 +276,7 @@ int mlx5_qpc_create_qp(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
- 		goto err_cmd;
+ 		goto out;
  
- 	if (dev->ib_dev.type != RDMA_DEVICE_TYPE_SMI)
--		mlx5_debug_qp_add(dev->mdev, qp);
-+		mlx5_debug_qp_add(mdev, qp);
- 
- 	return 0;
- 
-@@ -282,11 +284,11 @@ int mlx5_qpc_create_qp(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
- 	MLX5_SET(destroy_qp_in, din, opcode, MLX5_CMD_OP_DESTROY_QP);
- 	MLX5_SET(destroy_qp_in, din, qpn, qp->qpn);
- 	MLX5_SET(destroy_qp_in, din, uid, qp->uid);
--	mlx5_cmd_exec_in(dev->mdev, destroy_qp, din);
-+	mlx5_cmd_exec_in(mdev, destroy_qp, din);
+@@ -213,8 +213,7 @@ static int query_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
  	return err;
  }
  
--static int mlx5_core_drain_dct(struct mlx5_ib_dev *dev,
-+static int mlx5_core_drain_dct(struct mlx5_core_dev *mdev,
- 			       struct mlx5_core_dct *dct)
+-static int create_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+-			      struct mlx5_core_srq *srq,
++static int create_xrc_srq_cmd(struct mlx5_core_srq *srq,
+ 			      struct mlx5_srq_attr *in)
  {
- 	u32 in[MLX5_ST_SZ_DW(drain_dct_in)] = {};
-@@ -295,19 +297,19 @@ static int mlx5_core_drain_dct(struct mlx5_ib_dev *dev,
- 	MLX5_SET(drain_dct_in, in, opcode, MLX5_CMD_OP_DRAIN_DCT);
- 	MLX5_SET(drain_dct_in, in, dctn, qp->qpn);
- 	MLX5_SET(drain_dct_in, in, uid, qp->uid);
--	return mlx5_cmd_exec_in(dev->mdev, drain_dct, in);
-+	return mlx5_cmd_exec_in(mdev, drain_dct, in);
+ 	u32 create_out[MLX5_ST_SZ_DW(create_xrc_srq_out)];
+@@ -255,7 +254,7 @@ static int create_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+ 		 MLX5_CMD_OP_CREATE_XRC_SRQ);
+ 
+ 	memset(create_out, 0, sizeof(create_out));
+-	err = mlx5_cmd_exec(dev->mdev, create_in, inlen, create_out,
++	err = mlx5_cmd_exec(srq_to_mdev(srq), create_in, inlen, create_out,
+ 			    sizeof(create_out));
+ 	if (err)
+ 		goto out;
+@@ -267,8 +266,7 @@ static int create_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+ 	return err;
  }
  
--int mlx5_core_destroy_dct(struct mlx5_ib_dev *dev,
-+int mlx5_core_destroy_dct(struct mlx5_ib_dev *dev, struct mlx5_core_dev *mdev,
- 			  struct mlx5_core_dct *dct)
+-static int destroy_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+-			       struct mlx5_core_srq *srq)
++static int destroy_xrc_srq_cmd(struct mlx5_core_srq *srq)
  {
- 	struct mlx5_qp_table *table = &dev->qp_table;
- 	struct mlx5_core_dct *tmp;
- 	int err;
+ 	u32 in[MLX5_ST_SZ_DW(destroy_xrc_srq_in)] = {};
  
--	err = mlx5_core_drain_dct(dev, dct);
-+	err = mlx5_core_drain_dct(mdev, dct);
- 	if (err) {
--		if (dev->mdev->state == MLX5_DEVICE_STATE_INTERNAL_ERROR)
-+		if (mdev->state == MLX5_DEVICE_STATE_INTERNAL_ERROR)
- 			goto destroy;
+@@ -276,10 +274,10 @@ static int destroy_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+ 	MLX5_SET(destroy_xrc_srq_in, in, xrc_srqn, srq->srqn);
+ 	MLX5_SET(destroy_xrc_srq_in, in, uid, srq->uid);
  
+-	return mlx5_cmd_exec_in(dev->mdev, destroy_xrc_srq, in);
++	return mlx5_cmd_exec_in(srq_to_mdev(srq), destroy_xrc_srq, in);
+ }
+ 
+-static int arm_xrc_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int arm_xrc_srq_cmd(struct mlx5_core_srq *srq,
+ 			   u16 lwm)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(arm_xrc_srq_in)] = {};
+@@ -291,11 +289,10 @@ static int arm_xrc_srq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	MLX5_SET(arm_xrc_srq_in, in, lwm, lwm);
+ 	MLX5_SET(arm_xrc_srq_in, in, uid, srq->uid);
+ 
+-	return  mlx5_cmd_exec_in(dev->mdev, arm_xrc_srq, in);
++	return  mlx5_cmd_exec_in(srq_to_mdev(srq), arm_xrc_srq, in);
+ }
+ 
+-static int query_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+-			     struct mlx5_core_srq *srq,
++static int query_xrc_srq_cmd(struct mlx5_core_srq *srq,
+ 			     struct mlx5_srq_attr *out)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(query_xrc_srq_in)] = {};
+@@ -310,7 +307,8 @@ static int query_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+ 	MLX5_SET(query_xrc_srq_in, in, opcode, MLX5_CMD_OP_QUERY_XRC_SRQ);
+ 	MLX5_SET(query_xrc_srq_in, in, xrc_srqn, srq->srqn);
+ 
+-	err = mlx5_cmd_exec_inout(dev->mdev, query_xrc_srq, in, xrcsrq_out);
++	err = mlx5_cmd_exec_inout(srq_to_mdev(srq), query_xrc_srq, in,
++				  xrcsrq_out);
+ 	if (err)
+ 		goto out;
+ 
+@@ -325,7 +323,7 @@ static int query_xrc_srq_cmd(struct mlx5_ib_dev *dev,
+ 	return err;
+ }
+ 
+-static int create_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int create_rmp_cmd(struct mlx5_core_srq *srq,
+ 			  struct mlx5_srq_attr *in)
+ {
+ 	void *create_out = NULL;
+@@ -371,7 +369,8 @@ static int create_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 		memcpy(pas, in->pas, pas_size);
+ 
+ 	MLX5_SET(create_rmp_in, create_in, opcode, MLX5_CMD_OP_CREATE_RMP);
+-	err = mlx5_cmd_exec(dev->mdev, create_in, inlen, create_out, outlen);
++	err = mlx5_cmd_exec(srq_to_mdev(srq), create_in, inlen, create_out,
++			    outlen);
+ 	if (!err) {
+ 		srq->srqn = MLX5_GET(create_rmp_out, create_out, rmpn);
+ 		srq->uid = in->uid;
+@@ -383,17 +382,17 @@ static int create_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	return err;
+ }
+ 
+-static int destroy_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
++static int destroy_rmp_cmd(struct mlx5_core_srq *srq)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(destroy_rmp_in)] = {};
+ 
+ 	MLX5_SET(destroy_rmp_in, in, opcode, MLX5_CMD_OP_DESTROY_RMP);
+ 	MLX5_SET(destroy_rmp_in, in, rmpn, srq->srqn);
+ 	MLX5_SET(destroy_rmp_in, in, uid, srq->uid);
+-	return mlx5_cmd_exec_in(dev->mdev, destroy_rmp, in);
++	return mlx5_cmd_exec_in(srq_to_mdev(srq), destroy_rmp, in);
+ }
+ 
+-static int arm_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int arm_rmp_cmd(struct mlx5_core_srq *srq,
+ 		       u16 lwm)
+ {
+ 	void *out = NULL;
+@@ -427,7 +426,7 @@ static int arm_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	MLX5_SET(rmpc, rmpc, state, MLX5_RMPC_STATE_RDY);
+ 	MLX5_SET(modify_rmp_in, in, opcode, MLX5_CMD_OP_MODIFY_RMP);
+ 
+-	err = mlx5_cmd_exec_inout(dev->mdev, modify_rmp, in, out);
++	err = mlx5_cmd_exec_inout(srq_to_mdev(srq), modify_rmp, in, out);
+ 
+ out:
+ 	kvfree(in);
+@@ -435,7 +434,7 @@ static int arm_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	return err;
+ }
+ 
+-static int query_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int query_rmp_cmd(struct mlx5_core_srq *srq,
+ 			 struct mlx5_srq_attr *out)
+ {
+ 	u32 *rmp_out = NULL;
+@@ -457,7 +456,7 @@ static int query_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 
+ 	MLX5_SET(query_rmp_in, rmp_in, opcode, MLX5_CMD_OP_QUERY_RMP);
+ 	MLX5_SET(query_rmp_in, rmp_in, rmpn,   srq->srqn);
+-	err = mlx5_cmd_exec_inout(dev->mdev, query_rmp, rmp_in, rmp_out);
++	err = mlx5_cmd_exec_inout(srq_to_mdev(srq), query_rmp, rmp_in, rmp_out);
+ 	if (err)
+ 		goto out;
+ 
+@@ -472,7 +471,7 @@ static int query_rmp_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	return err;
+ }
+ 
+-static int create_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int create_xrq_cmd(struct mlx5_core_srq *srq,
+ 			  struct mlx5_srq_attr *in)
+ {
+ 	u32 create_out[MLX5_ST_SZ_DW(create_xrq_out)] = {0};
+@@ -521,7 +520,7 @@ static int create_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	MLX5_SET(xrqc, xrqc, cqn, in->cqn);
+ 	MLX5_SET(create_xrq_in, create_in, opcode, MLX5_CMD_OP_CREATE_XRQ);
+ 	MLX5_SET(create_xrq_in, create_in, uid, in->uid);
+-	err = mlx5_cmd_exec(dev->mdev, create_in, inlen, create_out,
++	err = mlx5_cmd_exec(srq_to_mdev(srq), create_in, inlen, create_out,
+ 			    sizeof(create_out));
+ 	kvfree(create_in);
+ 	if (!err) {
+@@ -532,7 +531,7 @@ static int create_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	return err;
+ }
+ 
+-static int destroy_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
++static int destroy_xrq_cmd(struct mlx5_core_srq *srq)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(destroy_xrq_in)] = {};
+ 
+@@ -540,11 +539,10 @@ static int destroy_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
+ 	MLX5_SET(destroy_xrq_in, in, xrqn, srq->srqn);
+ 	MLX5_SET(destroy_xrq_in, in, uid, srq->uid);
+ 
+-	return mlx5_cmd_exec_in(dev->mdev, destroy_xrq, in);
++	return mlx5_cmd_exec_in(srq_to_mdev(srq), destroy_xrq, in);
+ }
+ 
+-static int arm_xrq_cmd(struct mlx5_ib_dev *dev,
+-		       struct mlx5_core_srq *srq,
++static int arm_xrq_cmd(struct mlx5_core_srq *srq,
+ 		       u16 lwm)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(arm_rq_in)] = {};
+@@ -555,10 +553,10 @@ static int arm_xrq_cmd(struct mlx5_ib_dev *dev,
+ 	MLX5_SET(arm_rq_in, in, lwm, lwm);
+ 	MLX5_SET(arm_rq_in, in, uid, srq->uid);
+ 
+-	return mlx5_cmd_exec_in(dev->mdev, arm_rq, in);
++	return mlx5_cmd_exec_in(srq_to_mdev(srq), arm_rq, in);
+ }
+ 
+-static int query_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int query_xrq_cmd(struct mlx5_core_srq *srq,
+ 			 struct mlx5_srq_attr *out)
+ {
+ 	u32 in[MLX5_ST_SZ_DW(query_xrq_in)] = {};
+@@ -574,7 +572,7 @@ static int query_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	MLX5_SET(query_xrq_in, in, opcode, MLX5_CMD_OP_QUERY_XRQ);
+ 	MLX5_SET(query_xrq_in, in, xrqn, srq->srqn);
+ 
+-	err = mlx5_cmd_exec_inout(dev->mdev, query_xrq, in, xrq_out);
++	err = mlx5_cmd_exec_inout(srq_to_mdev(srq), query_xrq, in, xrq_out);
+ 	if (err)
+ 		goto out;
+ 
+@@ -597,32 +595,32 @@ static int query_xrq_cmd(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	return err;
+ }
+ 
+-static int create_srq_split(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++static int create_srq_split(struct mlx5_core_srq *srq,
+ 			    struct mlx5_srq_attr *in)
+ {
+-	if (!dev->mdev->issi)
+-		return create_srq_cmd(dev, srq, in);
++	if (!srq_to_mdev(srq)->issi)
++		return create_srq_cmd(srq, in);
+ 	switch (srq->common.res) {
+ 	case MLX5_RES_XSRQ:
+-		return create_xrc_srq_cmd(dev, srq, in);
++		return create_xrc_srq_cmd(srq, in);
+ 	case MLX5_RES_XRQ:
+-		return create_xrq_cmd(dev, srq, in);
++		return create_xrq_cmd(srq, in);
+ 	default:
+-		return create_rmp_cmd(dev, srq, in);
++		return create_rmp_cmd(srq, in);
+ 	}
+ }
+ 
+-static int destroy_srq_split(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
++static int destroy_srq_split(struct mlx5_core_srq *srq)
+ {
+-	if (!dev->mdev->issi)
+-		return destroy_srq_cmd(dev, srq);
++	if (!srq_to_mdev(srq)->issi)
++		return destroy_srq_cmd(srq);
+ 	switch (srq->common.res) {
+ 	case MLX5_RES_XSRQ:
+-		return destroy_xrc_srq_cmd(dev, srq);
++		return destroy_xrc_srq_cmd(srq);
+ 	case MLX5_RES_XRQ:
+-		return destroy_xrq_cmd(dev, srq);
++		return destroy_xrq_cmd(srq);
+ 	default:
+-		return destroy_rmp_cmd(dev, srq);
++		return destroy_rmp_cmd(srq);
+ 	}
+ }
+ 
+@@ -643,7 +641,7 @@ int mlx5_cmd_create_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 		srq->common.res = MLX5_RES_SRQ;
+ 	}
+ 
+-	err = create_srq_split(dev, srq, in);
++	err = create_srq_split(srq, in);
+ 	if (err)
  		return err;
-@@ -319,7 +321,7 @@ int mlx5_core_destroy_dct(struct mlx5_ib_dev *dev,
- 	if (WARN_ON(tmp != dct))
+ 
+@@ -657,7 +655,7 @@ int mlx5_cmd_create_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
+ 	return 0;
+ 
+ err_destroy_srq_split:
+-	destroy_srq_split(dev, srq);
++	destroy_srq_split(srq);
+ 
+ 	return err;
+ }
+@@ -673,7 +671,7 @@ int mlx5_cmd_destroy_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
+ 	if (WARN_ON(tmp != srq))
  		return xa_err(tmp) ?: -EINVAL;
  
--	err = _mlx5_core_destroy_dct(dev, dct);
-+	err = _mlx5_core_destroy_dct(mdev, dct);
+-	err = destroy_srq_split(dev, srq);
++	err = destroy_srq_split(srq);
  	if (err) {
- 		xa_cmpxchg_irq(&table->dct_xa, dct->mqp.qpn, XA_ZERO_ENTRY, dct, 0);
- 		return err;
-@@ -337,20 +339,21 @@ int mlx5_core_destroy_dct(struct mlx5_ib_dev *dev,
- 
- int mlx5_core_destroy_qp(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp)
- {
-+	struct mlx5_core_dev *mdev = qp_to_mdev(qp);
- 	u32 in[MLX5_ST_SZ_DW(destroy_qp_in)] = {};
- 
- 	if (dev->ib_dev.type != RDMA_DEVICE_TYPE_SMI)
--		mlx5_debug_qp_remove(dev->mdev, qp);
-+		mlx5_debug_qp_remove(mdev, qp);
- 
- 	destroy_resource_common(dev, qp);
- 
- 	MLX5_SET(destroy_qp_in, in, opcode, MLX5_CMD_OP_DESTROY_QP);
- 	MLX5_SET(destroy_qp_in, in, qpn, qp->qpn);
- 	MLX5_SET(destroy_qp_in, in, uid, qp->uid);
--	return mlx5_cmd_exec_in(dev->mdev, destroy_qp, in);
-+	return mlx5_cmd_exec_in(mdev, destroy_qp, in);
- }
- 
--int mlx5_core_set_delay_drop(struct mlx5_ib_dev *dev,
-+int mlx5_core_set_delay_drop(struct mlx5_core_dev *mdev,
- 			     u32 timeout_usec)
- {
- 	u32 in[MLX5_ST_SZ_DW(set_delay_drop_params_in)] = {};
-@@ -359,7 +362,7 @@ int mlx5_core_set_delay_drop(struct mlx5_ib_dev *dev,
- 		 MLX5_CMD_OP_SET_DELAY_DROP_PARAMS);
- 	MLX5_SET(set_delay_drop_params_in, in, delay_drop_timeout,
- 		 timeout_usec / 100);
--	return mlx5_cmd_exec_in(dev->mdev, set_delay_drop_params, in);
-+	return mlx5_cmd_exec_in(mdev, set_delay_drop_params, in);
- }
- 
- struct mbox_info {
-@@ -509,18 +512,19 @@ static int modify_qp_mbox_alloc(struct mlx5_core_dev *mdev, u16 opcode, int qpn,
+ 		/*
+ 		 * We don't need to check returned result for an error,
+@@ -697,33 +695,33 @@ int mlx5_cmd_destroy_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq)
  	return 0;
  }
  
--int mlx5_core_qp_modify(struct mlx5_ib_dev *dev, u16 opcode, u32 opt_param_mask,
--			void *qpc, struct mlx5_core_qp *qp, u32 *ece)
-+int mlx5_core_qp_modify(u16 opcode, u32 opt_param_mask, void *qpc,
-+			struct mlx5_core_qp *qp, u32 *ece)
+-int mlx5_cmd_query_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++int mlx5_cmd_query_srq(struct mlx5_core_srq *srq,
+ 		       struct mlx5_srq_attr *out)
  {
-+	struct mlx5_core_dev *mdev = qp_to_mdev(qp);
- 	struct mbox_info mbox;
- 	int err;
- 
--	err = modify_qp_mbox_alloc(dev->mdev, opcode, qp->qpn, opt_param_mask,
-+	err = modify_qp_mbox_alloc(mdev, opcode, qp->qpn, opt_param_mask,
- 				   qpc, &mbox, qp->uid, (ece) ? *ece : 0);
- 	if (err)
- 		return err;
- 
--	err = mlx5_cmd_exec(dev->mdev, mbox.in, mbox.inlen, mbox.out,
-+	err = mlx5_cmd_exec(mdev, mbox.in, mbox.inlen, mbox.out,
- 			    mbox.outlen);
- 
- 	if (ece)
-@@ -556,7 +560,7 @@ void mlx5_cleanup_qp_table(struct mlx5_ib_dev *dev)
- 		mlx5_qp_debugfs_cleanup(dev->mdev);
+-	if (!dev->mdev->issi)
+-		return query_srq_cmd(dev, srq, out);
++	if (!srq_to_mdev(srq)->issi)
++		return query_srq_cmd(srq, out);
+ 	switch (srq->common.res) {
+ 	case MLX5_RES_XSRQ:
+-		return query_xrc_srq_cmd(dev, srq, out);
++		return query_xrc_srq_cmd(srq, out);
+ 	case MLX5_RES_XRQ:
+-		return query_xrq_cmd(dev, srq, out);
++		return query_xrq_cmd(srq, out);
+ 	default:
+-		return query_rmp_cmd(dev, srq, out);
++		return query_rmp_cmd(srq, out);
+ 	}
  }
  
--int mlx5_core_qp_query(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
-+int mlx5_core_qp_query(struct mlx5_core_dev *mdev, struct mlx5_core_qp *qp,
- 		       u32 *out, int outlen, bool qpc_ext)
+-int mlx5_cmd_arm_srq(struct mlx5_ib_dev *dev, struct mlx5_core_srq *srq,
++int mlx5_cmd_arm_srq(struct mlx5_core_srq *srq,
+ 		     u16 lwm, int is_srq)
  {
- 	u32 in[MLX5_ST_SZ_DW(query_qp_in)] = {};
-@@ -565,10 +569,10 @@ int mlx5_core_qp_query(struct mlx5_ib_dev *dev, struct mlx5_core_qp *qp,
- 	MLX5_SET(query_qp_in, in, qpn, qp->qpn);
- 	MLX5_SET(query_qp_in, in, qpc_ext, qpc_ext);
- 
--	return mlx5_cmd_exec(dev->mdev, in, sizeof(in), out, outlen);
-+	return mlx5_cmd_exec(mdev, in, sizeof(in), out, outlen);
+-	if (!dev->mdev->issi)
+-		return arm_srq_cmd(dev, srq, lwm, is_srq);
++	if (!srq_to_mdev(srq)->issi)
++		return arm_srq_cmd(srq, lwm, is_srq);
+ 	switch (srq->common.res) {
+ 	case MLX5_RES_XSRQ:
+-		return arm_xrc_srq_cmd(dev, srq, lwm);
++		return arm_xrc_srq_cmd(srq, lwm);
+ 	case MLX5_RES_XRQ:
+-		return arm_xrq_cmd(dev, srq, lwm);
++		return arm_xrq_cmd(srq, lwm);
+ 	default:
+-		return arm_rmp_cmd(dev, srq, lwm);
++		return arm_rmp_cmd(srq, lwm);
+ 	}
  }
  
--int mlx5_core_dct_query(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct,
-+int mlx5_core_dct_query(struct mlx5_core_dev *mdev, struct mlx5_core_dct *dct,
- 			u32 *out, int outlen)
- {
- 	u32 in[MLX5_ST_SZ_DW(query_dct_in)] = {};
-@@ -577,49 +581,51 @@ int mlx5_core_dct_query(struct mlx5_ib_dev *dev, struct mlx5_core_dct *dct,
- 	MLX5_SET(query_dct_in, in, opcode, MLX5_CMD_OP_QUERY_DCT);
- 	MLX5_SET(query_dct_in, in, dctn, qp->qpn);
- 
--	return mlx5_cmd_exec(dev->mdev, (void *)&in, sizeof(in), (void *)out,
--			     outlen);
-+	return mlx5_cmd_exec(mdev, (void *)&in, sizeof(in),
-+			     (void *)out, outlen);
- }
- 
--int mlx5_core_xrcd_alloc(struct mlx5_ib_dev *dev, u32 *xrcdn)
-+int mlx5_core_xrcd_alloc(struct mlx5_core_dev *mdev, u32 *xrcdn)
- {
- 	u32 out[MLX5_ST_SZ_DW(alloc_xrcd_out)] = {};
- 	u32 in[MLX5_ST_SZ_DW(alloc_xrcd_in)] = {};
- 	int err;
- 
- 	MLX5_SET(alloc_xrcd_in, in, opcode, MLX5_CMD_OP_ALLOC_XRCD);
--	err = mlx5_cmd_exec_inout(dev->mdev, alloc_xrcd, in, out);
-+	err = mlx5_cmd_exec_inout(mdev, alloc_xrcd, in, out);
- 	if (!err)
- 		*xrcdn = MLX5_GET(alloc_xrcd_out, out, xrcd);
- 	return err;
- }
- 
--int mlx5_core_xrcd_dealloc(struct mlx5_ib_dev *dev, u32 xrcdn)
-+int mlx5_core_xrcd_dealloc(struct mlx5_core_dev *mdev, u32 xrcdn)
- {
- 	u32 in[MLX5_ST_SZ_DW(dealloc_xrcd_in)] = {};
- 
- 	MLX5_SET(dealloc_xrcd_in, in, opcode, MLX5_CMD_OP_DEALLOC_XRCD);
- 	MLX5_SET(dealloc_xrcd_in, in, xrcd, xrcdn);
--	return mlx5_cmd_exec_in(dev->mdev, dealloc_xrcd, in);
-+	return mlx5_cmd_exec_in(mdev, dealloc_xrcd, in);
- }
- 
--static int destroy_rq_tracked(struct mlx5_ib_dev *dev, u32 rqn, u16 uid)
-+static int destroy_rq_tracked(struct mlx5_core_dev *mdev, u32 rqn, u16 uid)
- {
- 	u32 in[MLX5_ST_SZ_DW(destroy_rq_in)] = {};
- 
- 	MLX5_SET(destroy_rq_in, in, opcode, MLX5_CMD_OP_DESTROY_RQ);
- 	MLX5_SET(destroy_rq_in, in, rqn, rqn);
- 	MLX5_SET(destroy_rq_in, in, uid, uid);
--	return mlx5_cmd_exec_in(dev->mdev, destroy_rq, in);
-+	return mlx5_cmd_exec_in(mdev, destroy_rq, in);
- }
- 
--int mlx5_core_create_rq_tracked(struct mlx5_ib_dev *dev, u32 *in, int inlen,
-+int mlx5_core_create_rq_tracked(struct ib_pd *pd, u32 *in, int inlen,
- 				struct mlx5_core_qp *rq)
- {
-+	struct mlx5_ib_dev *dev = to_dev(pd->device);
-+	struct mlx5_core_dev *mdev = pd_to_mdev(pd);
- 	int err;
- 	u32 rqn;
- 
--	err = mlx5_core_create_rq(dev->mdev, in, inlen, &rqn);
-+	err = mlx5_core_create_rq(mdev, in, inlen, &rqn);
- 	if (err)
- 		return err;
- 
-@@ -632,14 +638,14 @@ int mlx5_core_create_rq_tracked(struct mlx5_ib_dev *dev, u32 *in, int inlen,
- 	return 0;
- 
- err_destroy_rq:
--	destroy_rq_tracked(dev, rq->qpn, rq->uid);
-+	destroy_rq_tracked(mdev, rq->qpn, rq->uid);
- 
- 	return err;
- }
- 
--int mlx5_core_destroy_rq_tracked(struct mlx5_ib_dev *dev,
--				 struct mlx5_core_qp *rq)
-+int mlx5_core_destroy_rq_tracked(struct ib_pd *pd, struct mlx5_core_qp *rq)
- {
-+	struct mlx5_ib_dev *dev = to_dev(pd->device);
- 	int ret;
- 
- 	/* The rq destruction can be called again in case it fails, hence we
-@@ -647,7 +653,7 @@ int mlx5_core_destroy_rq_tracked(struct mlx5_ib_dev *dev,
- 	 * is completed successfully we actually destroy the resources.
- 	 */
- 	modify_resource_common_state(dev, rq, true);
--	ret = destroy_rq_tracked(dev, rq->qpn, rq->uid);
-+	ret = destroy_rq_tracked(pd_to_mdev(pd), rq->qpn, rq->uid);
- 	if (ret) {
- 		modify_resource_common_state(dev, rq, false);
- 		return ret;
-@@ -656,24 +662,26 @@ int mlx5_core_destroy_rq_tracked(struct mlx5_ib_dev *dev,
- 	return 0;
- }
- 
--static void destroy_sq_tracked(struct mlx5_ib_dev *dev, u32 sqn, u16 uid)
-+static void destroy_sq_tracked(struct mlx5_core_dev *mdev, u32 sqn, u16 uid)
- {
- 	u32 in[MLX5_ST_SZ_DW(destroy_sq_in)] = {};
- 
- 	MLX5_SET(destroy_sq_in, in, opcode, MLX5_CMD_OP_DESTROY_SQ);
- 	MLX5_SET(destroy_sq_in, in, sqn, sqn);
- 	MLX5_SET(destroy_sq_in, in, uid, uid);
--	mlx5_cmd_exec_in(dev->mdev, destroy_sq, in);
-+	mlx5_cmd_exec_in(mdev, destroy_sq, in);
- }
- 
--int mlx5_core_create_sq_tracked(struct mlx5_ib_dev *dev, u32 *in, int inlen,
-+int mlx5_core_create_sq_tracked(struct ib_pd *pd, u32 *in, int inlen,
- 				struct mlx5_core_qp *sq)
- {
-+	struct mlx5_ib_dev *dev = to_dev(pd->device);
-+	struct mlx5_core_dev *mdev = pd_to_mdev(pd);
- 	u32 out[MLX5_ST_SZ_DW(create_sq_out)] = {};
- 	int err;
- 
- 	MLX5_SET(create_sq_in, in, opcode, MLX5_CMD_OP_CREATE_SQ);
--	err = mlx5_cmd_exec(dev->mdev, in, inlen, out, sizeof(out));
-+	err = mlx5_cmd_exec(mdev, in, inlen, out, sizeof(out));
- 	if (err)
- 		return err;
- 
-@@ -686,16 +694,17 @@ int mlx5_core_create_sq_tracked(struct mlx5_ib_dev *dev, u32 *in, int inlen,
- 	return 0;
- 
- err_destroy_sq:
--	destroy_sq_tracked(dev, sq->qpn, sq->uid);
-+	destroy_sq_tracked(mdev, sq->qpn, sq->uid);
- 
- 	return err;
- }
- 
--void mlx5_core_destroy_sq_tracked(struct mlx5_ib_dev *dev,
--				  struct mlx5_core_qp *sq)
-+void mlx5_core_destroy_sq_tracked(struct ib_pd *pd, struct mlx5_core_qp *sq)
- {
-+	struct mlx5_ib_dev *dev = to_dev(pd->device);
-+
- 	destroy_resource_common(dev, sq);
--	destroy_sq_tracked(dev, sq->qpn, sq->uid);
-+	destroy_sq_tracked(pd_to_mdev(pd), sq->qpn, sq->uid);
- }
- 
- struct mlx5_core_rsc_common *mlx5_core_res_hold(struct mlx5_ib_dev *dev,
 
 -- 
 2.49.0
