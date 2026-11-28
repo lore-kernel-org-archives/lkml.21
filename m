@@ -1,62 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795861689;
-	b=rlzk8qmJXuk3l/1XaMlfSlLlP5aRpeXc9YAz9rtxx+AvXebPshHUM+BN8Twt6cAm5XYr
-	 7/eyiQDWNby4PvyWGiDdHx6Jap43jBfz+YjMGcJVyk88t+pl/OaptAb2avW8ZC59vz8IT
-	 67/vuC2FLZ6CeD8tAxeG8Mha6caaHv4j8PzwmbeV53YJQHBhGM4v1vtAaxjl7+x7uyPOq
-	 KOs2zOMP2JoJQYH3nEe0tJSLoI8rPAAQlgmb3mMV9Za1hPTjpv3jf7Y6OTYWYwyVDWjUC
-	 JGP7RdJo/lwnbEBML4TM9mYigDvjWnJ2RW/zWnTtIm+HEuoG5Yw7zblaM18+k7F0fVA==
+	t=1795861701;
+	b=rAjSjlsEtq20iIvnLqzpTvI2uJYXto4LrTbcLdKJH5bFe6y745uUBjI8c3aOfoKiGd7u
+	 1SKpiyV7EQE8/lip5xsgE1D+5FaWrYUJ/+Lp8B3v+3hlmjxEhUs78o1VP3vUs90yW8XDI
+	 rzdMvtXBXnm9agKCq+0CuuH295UTwmdisLE5stv6fRcULnqtWLZbpfuFmvlJXo2V2TVcI
+	 Wq/6XlxCWWd6sOEJp2YQlBImgXeT+kzPkLtO1agGQdekkyUIPv48Lork76DE/dOIrIdFd
+	 ZWAIZV8SzX2jZzAjbnQ5pSCm6GjsuYJ992tEx3SpZu8zbo6SgmcBGSCGyQsj1E6AahA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795861689;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type;
-	bh=9Lskh+N7JQvWM1QZ5Sr9CMmPwP72CT3UqVM90SLhC8k=;
-	b=yBc1V12efsWKAB9mvWQbnyIjrG3T9b5VeHiP0z1d3ImUiBFAjab7m/hbNDbxJRKV+tLD
-	 Pa6nG0ziVpq3seSPPV3SxLY4gPnZzKnW1l2IOkc6K11ViVYOgQDF8yIf1TObOIQw41n27
-	 cVbtajQEfYV7MabsVq/UTO3spFVx2wKtv3vvpp6JNbA1vefBelvMA4m3uLiaosGf1uNe/
-	 MsBW1X8Kq786zU9K+9ysPeIVJo2sy/SOvcWPIzgpsGc00boEj1wKZk8VTrExiKfo6IK4Y
-	 2Cj6zEHqMxrSEbwS3IImBOtiYF5gsBn/A295GsicBu9e8ktidyf9ejyj0itNDOg0r6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795861701;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=O9VK4etYNiBsDB79WMihHGteRv1FPxivaQCYnVGg0D0=;
+	b=Lizdcu2SeoWgl14p0w7uV8H9aE0NRYW8Ab3Eh7Bc0Ru5gXSgn+FZT9R68cyCokeXmcaa
+	 4HBi8GOmgdAryhZZcbONjkipNBfhBAJCkZbTtoIF/s2Hfd+yXCtj0r+ryLb9B7AC6RkoY
+	 nDrCrNVNiwYTTruj7VdA4WiqP60NaTIibKA6C6QjWAUzMX96l5z/ySmDft/nebjJGab1r
+	 FgrT+brjQRkcoZRV6Of1i0ilG7J4XD0f520s4zpQzmNVmSRUJZb6SMwY6PKMf2qXdmWms
+	 kVafDdzW9+mfNaFVR/FiFWaJmDb5ot2z7kIOZJY32uXZVLJNUQrTznObzAKa6oo328g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cL2X3L7l;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="MEhHub/U";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46AB1606A31C;
-	Sat, 28 Nov 2026 10:28:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F0A33606A31C;
+	Sat, 28 Nov 2026 10:28:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cL2X3L7l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79F21F00897;
-	Sat, 28 Nov 2026 10:28:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MEhHub/U
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1C9DE1F00899;
+	Sat, 28 Nov 2026 10:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795861688;
-	bh=9Lskh+N7JQvWM1QZ5Sr9CMmPwP72CT3UqVM90SLhC8k=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=cL2X3L7lNbnr6CCN3wycQ7lBD4D0QUrGFLYnKkWeFpFCi2ohet7l2y6F+B+7o47cC
-	 ZhG5JHdwZejbSpHHqqKzoBza+HyuJmbhTRvApnRcbcka5rLnEzHtk86rRaf7PwrnKu
-	 xw6T2wXwMxpw6CfNf2cdijFqJR6Mw2zjiHnLiJzkQB+mE1dWmiBuKMaR4im/KvjPgC
-	 yONscOLVeaJjIZGw5a2mSY5OV5qCOmN8aS77IEWxJy5rKnKeGxNkyKX5V60kp9Xe2k
-	 WNLoN/HQqLHE7JhBdT26jm6MLZfs0iK4P2FcVigb6mTnrEI8VhHJlSsEKd7xlegWvW
-	 JYeTqwNC6okbw==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, peterz@infradead.org
-Cc: linux-kernel@vger.kernel.org, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, mingo@redhat.com, juri.lelli@redhat.com,
- vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- kprateek.nayak@amd.com, paulmck@kernel.org, boqun@kernel.org,
- shuah@kernel.org, kees@kernel.org, viro@zeniv.linux.org.uk,
- brauner@kernel.org, jack@suse.cz, oleg@redhat.com, bestswngs@gmail.com,
- xmei5@asu.edu, xujiakai24@mails.ucas.ac.cn, linux-mm@kvack.org,
- linux-fsdevel@vger.kernel.org, linux-kselftest@vger.kernel.org, Dominik
- Maier <dmnk@google.com>
-Subject: Re: [PATCH 00/17] sched/mmcid: fixes for execve, mode switches and
- affinity
-In-Reply-To: <cover.1794932121.git.mathieu.desnoyers@efficios.com>
-References: <cover.1794932121.git.mathieu.desnoyers@efficios.com>
-Date: Sat, 28 Nov 2026 11:28:05 +0100
-Message-ID: <87bj79s11m.ffs@fw13>
+	s=k20260515; t=1795861700;
+	bh=O9VK4etYNiBsDB79WMihHGteRv1FPxivaQCYnVGg0D0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MEhHub/UKtJKfeuRAAevq3+yJKPP2gp94KL6lU+CCYC/uYsFRrfvSIMUFYReoONG1
+	 HnAIJXiW7N7vAASI1CPwvmGA5FCmLUiM8AkKHhFxPALKZhuSDAwNsDdH+5Hk7bor9U
+	 Odlz4k4wBBcv018u+YBSysY6WWBXerA+17kfz06SxSS9nO3ZEjiGYAkba8im+h0UM/
+	 zs+aIfhQMaPJfxGvWY+kU8snPWQEPI5RxPqyKpXYijn7a4TKdjUYmMXst4ZmkZSy5l
+	 MBxw/T7FGow4BooXjgKL39M9oxig/jOKhGLulV08k83lf7MEVVJNAMFeWczt+yFfAl
+	 w/DG+WHVQkR8A==
+Date: Sat, 28 Nov 2026 12:28:17 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Guicai Ma <maguicai@kylinos.cn>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Cc: David Howells <dhowells@redhat.com>, Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] KEYS: Protect key instantiation and rejection against
+ type removal
+Message-ID: <awqswXcxSseHA1wZ@kernel.org>
+References: <20261125032605.1327954-1-maguicai@kylinos.cn>
+ <20261126023920.1981107-1-maguicai@kylinos.cn>
+ <awhb3uC83WDzQup3@kernel.org>
+ <awmE8ykDdfSqPxgw@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,113 +63,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awmE8ykDdfSqPxgw@kernel.org>
 
-On Tue, Nov 17 2026 at 11:17, Mathieu Desnoyers wrote:
-> This series fixes six problems of the rseq concurrency IDs (mm_cid),
-> and adds selftests for them. I looked for cases the existing tests do
-> not reach:
-> - a thread count that goes up and down;
-> - exit, fork and a failed execve();
-> - affinity changes made by another process.
->
-> The fixes come first, and all six are marked for stable:
->
->   1  Give a CID to a task that joins its mm while running. A failed
->      execve() then no longer returns to user space with an mm_cid of
->      0x80000000.
->   2  Give no CID to io_uring and vhost workers, so that they do not
->      take IDs from the threads of the process.
->   3  Reset the stale per CPU state of an mm when its first user joins.
->      A machine with two or three CPUs no longer locks up after a failed
->      execve().
->   4  Keep a running joiner inactive until the fixups are done, so that
->      it cannot loop in mm_get_cid() while it holds mm_cid.mutex.
->   5  Add the allowed CPUs of the first user to the mm when it joins.
->      An affinity change by another task during execve() is then not
->      lost. 
->   6  Fix the use after free of the old mm in set_cpus_allowed_common().
+On Fri, Nov 27, 2026 at 03:26:11PM +0200, Jarkko Sakkinen wrote:
+> On Thu, Nov 26, 2026 at 06:18:38PM +0200, Jarkko Sakkinen wrote:
+> > On Wed, Nov 25, 2026 at 09:39:20PM -0500, Guicai Ma wrote:
+> > > key_instantiate_and_link() and key_reject_and_link() access key->type
+> > > and link keys without synchronizing against unregister_key_type(). If
+> > > the type is removed during construction, key_instantiate_and_link() can
+> > > call key_type_dead.instantiate, which is NULL, and either function can
+> > > link a dead key into the keyring before GC pass 3 retypes it.
+> > > 
+> > > key->sem cannot be used here because it inverts lock order with
+> > > encrypted_instantiate() and uses a freed lockdep class after a modular
+> > > type unloads, while key_types_sem may be held and methods may sleep.
+> > > Guard both paths with key_type_srcu and a KEY_FLAG_DEAD check, waiting
+> > > with synchronize_srcu(&key_type_srcu) after GC pass 1; for a dead key in
+> > > key_reject_and_link(), just wake waiters and invalidate @authkey under
+> > > key_construction_mutex, leaving the key uninstantiated.
+> > > 
+> > > Fixes: 0c061b5707ab ("KEYS: Correctly destroy key payloads when their keytype is removed")
+> > > Cc: stable@vger.kernel.org
+> > > Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+> > > ---
+> > > v4:
+> > > - Rebase onto jarkko/master.
+> > > - In key_reject_and_link(), handle KEY_FLAG_DEAD under
+> > >   key_construction_mutex alone without taking key->sem or changing
+> > >   key->state, and document the result in the kerneldoc.
+> > > 
+> > > v3:
+> > > - Shorten the commit message and focus on why SRCU is used.
+> > > - Change Fixes tag to 0c061b5707ab.
+> > > 
+> > > v2:
+> > > - Switch from key->sem to key_type_srcu and check KEY_FLAG_DEAD in
+> > >   key_instantiate_and_link() and key_reject_and_link().
+> > > 
+> > >  security/keys/gc.c       |  13 ++++
+> > >  security/keys/internal.h |   2 +
+> > >  security/keys/key.c      | 160 ++++++++++++++++++++++++++++-----------
+> > >  3 files changed, 129 insertions(+), 46 deletions(-)
+> > 
+> > It's unfortunate that the fix needs to be this complicated but as we've
+> > looked this through, also with failed alternatives, I still think this
+> > is a feasible fix.
+> > 
+> > And it's good to now before I even consider moving forward with my
+> > keyring GC overhaul, which ties keys to their key type's LKM, and
+> > removes racy key types altogether.
+> > 
+> > Linus, I'll give a forewarning on this fix because is not every day
+> > thing to introduce SRCU in stable fixes.
+> > 
+> > 
+> > Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+> 
+> I rebased my series on top of this and yeah, it will be erased by the
+> last commit:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/commit/?h=keyring_gc&id=5028b0336d35f14981116926d9ee5e131ff7c7ed
+> 
+> That does not make the fix less important. On contrary, it is good to
+> have it in place for stable kernels.
 
-#1, #3 and #4 are all caused by the fact that the exec()'ing task
-disables MM CID right at the beginning of exec(). But that can be
-completely avoided because the only requirement to deactivate it is when
-the task is about to switch to the new MM, i.e. after all other threads
-are torn down.
+It's better not to have these changes in v7.5 yet so that there is
+more window for fixes.
 
-So instead of adding duct tape and haywire in the MM CID core code we
-really should fix the underlying problem. See untested patch below.
+I.e., only rhashtable changes will land to that release and keyring_gc
+with current ETA to  v7.6.
 
-#6 is incomplete vs. exec() switching MMs because the new MM is visible
-before MMCID has been initialized on it. I look into that seperately.
-
-Thanks,
-
-        tglx
----
---- a/fs/exec.c
-+++ b/fs/exec.c
-@@ -1171,6 +1171,21 @@ int begin_new_exec(struct linux_binprm *
- 	 */
- 	posixtimer_exec();
- 
-+	/*
-+	 * Remove the task from the MM CID management which is associated to the
-+	 * original MM. This is done here to avoid leaving and rejoining the MM
-+	 * CID management _before_ all threads of the the process have been
-+	 * terrminated.
-+	 *
-+	 * On success the task invokes sched_mm_cid_after_execve() in
-+	 * bprm_execve().
-+	 *
-+	 * In case that the below fails, the task will not return to user space
-+	 * because bprm->point_of_no_return is set so there is no point to bring
-+	 * the task back into MM CID management.
-+	 */
-+	sched_mm_cid_before_execve(current);
-+
- 	/* see the comment in check_unsafe_exec() */
- 	current->fs->in_exec = 0;
- 
-@@ -1853,7 +1868,6 @@ static int bprm_execve(struct linux_binp
- 	 */
- 	check_unsafe_exec(bprm);
- 	current->in_execve = 1;
--	sched_mm_cid_before_execve(current);
- 
- 	sched_exec();
- 
-@@ -1866,7 +1880,14 @@ static int bprm_execve(struct linux_binp
- 	if (retval < 0)
- 		goto out;
- 
-+	/*
-+	 * Reactivating MM CID is only required for the success case. The
-+	 * exec()'ing task deactivates MM CID after bprm->point_of_no_return has
-+	 * been set true, so any failure after that point will prevent the task
-+	 * from going back to user space.
-+	 */
- 	sched_mm_cid_after_execve(current);
-+
- 	rseq_execve(current);
- 	/* execve succeeded */
- 	current->in_execve = 0;
-@@ -1885,7 +1906,6 @@ static int bprm_execve(struct linux_binp
- 	if (bprm->point_of_no_return && !fatal_signal_pending(current))
- 		force_fatal_sig(SIGSEGV);
- 
--	sched_mm_cid_after_execve(current);
- 	rseq_force_update();
- 	current->in_execve = 0;
- 
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -11166,7 +11166,7 @@ void sched_mm_cid_exit(struct task_struc
- 	cancel_work_sync(&mm->mm_cid.work);
- }
- 
--/* Deactivate MM CID allocation across execve() */
-+/* Deactivate MM CID allocation across execve() switching MM */
- void sched_mm_cid_before_execve(struct task_struct *t)
- {
- 	sched_mm_cid_exit(t);
-
+Br, Jarkko
