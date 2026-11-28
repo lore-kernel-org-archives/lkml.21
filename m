@@ -1,97 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795859760;
-	b=xHEgmSHGBCCcD/HYSKQSsagt5UjcVzKbxC1Xy2wuMMuyKxhz6Hp3C0yTepp1Xpeyre5s
-	 /3e3W+v6soMIu0q+jaMptk/y8+yxydQQ6yJp0znAv9Wanim+rckQrJn9uYFkhLd2u+6rg
-	 rcV3jVPBcn+KgodnUKUAoMMYjkNFsHziRb24UeT/3l2aguWUh/NWDBY7ugebRyvV/4Icu
-	 Fk4UB9TFXXJGPlkQpu8wdCK0N25m9i8Ey9pOVpmK1EX43diHFN9MtELpTGw/Ws74FUPxQ
-	 vOnj/qKkivtVnvPVQdTaIhnUMa4n9YnqkvperH//0lQR8cdNWuj/k2EM/MFoAO1M5iA==
+	t=1795859891;
+	b=MKEXNyUCvkAEBv247KqMHo7L5E8dxcxZ3HEur6ZoAcM+Vhg/NlrMNjX22a3pTdiYVVx2
+	 jyQTl0PI9YdgZzMojlblPA5xISmzAoWzhhuWICFZf4aQ5qIeh6a/y4gfCF2NjL9dzCtsD
+	 J/ISs0tRgbQsolSNtQiKiknut5FhbImBgFOKXy1mVCMl1bM7icZk8by+qL4o34pZCel+f
+	 rkCFTKxwG7DBENuY+hRn+BJ9qudjtePTU1klGTQgXcdOJigMKchwCqpB3NxMCdLKgUo+t
+	 nCG3elY3N6boWl2dQ2sq4TvNbWArhXs9zxbV+Of/oAS8bJWp+NxSrOOOPVkenvD7d3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795859760;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=PvlEG+ER8M2Vy2xbs4JceEuPCkBHgu2+F8E6dhnU3BQ=;
-	b=lsF8uJBzrXdMOOu3Gp6SNPpLYNCxm6NuNhbyBJ8OPx09Wmuaa+gVgVfxo/JJZJh5Sv8z
-	 NdwRARaYcIadL3C3z0hzXjUWCpvQc1YdGafZcqXACrsDGRGmz0cGu7CUpTlDNK3R3i2OY
-	 kRRcjRTPm3q0SeoXjJgFNkK7ErppIjc1RZV/7s0ydQaNnwr5tvIAphL0goHBBSZOlCv5T
-	 hxOqzIrT1io9YH7+S6Q601cHkpwRfgNW3ZHqrO1veL1IyYmK6BcCPv9x68YzLSwcSmYg/
-	 4CNhZTK4nQGq2sYU+K/iK3OPVGv/L1g8rqIxq2d0Jkg/ucJ1wMtLFLLjhOX/85JUotg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859891;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=xkqf+7x7yPJWp9LWVs41Meh3hUDnubnEWLvvXH1f0OM=;
+	b=QaQUyxx7gec5B7zyatlIuYVQD/5Fcxhclttd8AYQsyby4TLj50olD2tSzs0hRqCUHD+V
+	 VdOOI0gQbGXEjsWZNNAEvcLDbWQRWbmofO7m+KwyerURfvB9Eqen747xKflHl4A+oCzMm
+	 2TlLgbi2mKW1Z7LrnRxJF0K7kYP/XeT4dXBVKOMFkPMALUjsTCjrcEePAjo+5E5HLNFGI
+	 982Cf+1d00kCjsYuVX4K8ljVQMRCtuPZpIIfPrEPjqwr1fHYdvCscEh85EVtaR1AGwZ8V
+	 8VjQDYkyrLuUkv7+I618rgscxBGa9Rr4xjlkuDlVEBNRTqF33c19m9MeH7MzD4mydiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZbJz1Nyz;
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QX+pDT2F;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 996CD606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:55:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 996CD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08594606A326;
+	Sat, 28 Nov 2026 09:58:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08594606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZbJz1Nyz
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cddc597d062so5356836a12.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:55:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795859759; x=1796464559; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PvlEG+ER8M2Vy2xbs4JceEuPCkBHgu2+F8E6dhnU3BQ=;
-        b=ZbJz1Nyzfsy699ZCq1Nvvbd9tIXOvJPsqYRr1U/Mx4SsbxOBcL15Ddq+nFsCFmHSX6
-         HpbKl6yqDVbQf+iVLQYaWc/CSdE2D1N2lZ3i/l1k5RmlNLnhSaJg/1iGRu/vUjzIQ2Rj
-         0EFkB9pnlwO7xAnuW8uDNw7kfjLSODBXAtsY/zHGIbpj+Cq3YJ/L/S4O4ud81eOF47DF
-         XLbkvL+FfgZaibN0+UUsfZeChV5HpbbCc74huY7Z0qf5q+zGxgyhdqHIlB/mIxS9GEzS
-         /nEYt1CVMW3RmkavL4OIOCCF3BKhG9jayxnP0+i3vfJoLL/VCsE7zr/Q79yCLsh0WY/J
-         zhRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795859759; x=1796464559;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PvlEG+ER8M2Vy2xbs4JceEuPCkBHgu2+F8E6dhnU3BQ=;
-        b=CV8zC2cAoeLd/S1aVqSHp699CHPcCQIYNY1zW/K4Vzt4NW3blI4TVEk3eFhQkRZZ9m
-         ASSvU7RMucjEwjh5tP5fOUDNJN9sj/BApA4TWicS7AKNyyzt9fbojNCg8jDJ37eEIXEr
-         QtfEksfZzr6tDrJofBFpW9VYKOEK4nJ92A3PsKRs99M9OSVwsVEv4pel9bYS8scw2wKe
-         AFsnZAOdTN7K/Lvkbj5QfyzsIceFUiw1rj0G+mSR42uQdOilAArFF1zAkLFeras8H6b1
-         kPes4QCmO4uyfCgmUUgBMQBLIMwo7giF4yFrmgPBaw1kOFZ8BC5LwBIM1zDLctgsLlig
-         DY5Q==
-X-Forwarded-Encrypted: i=1; AL+hErEu2QFs7x7B3VkS+d0TEmht4CffGg4CfVLfmQMm9AjyfRDTcDPrHRuJ8IMUCNoWv6wpnTADgGrGD12l0AE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/g8eUsM8VEOugviWKEATb10MzkS3tZhWa0xv10Tt+V+W6sHoTt
-	tkCH4HNGVrEA0pCemV3m1MhPyt7Z7BHlozI43OMu13Rop3vlapG2dJok
-X-Gm-Gg: AZFdTZeSk4Ts+0t96T/KB6gliyMINqvC+CudSGrcP3teuU9zC2e1jKfe9uctesU0Zxb
-	hjrC0njuCaKAQEAfl/FfXm4+TJ1EXZpDnL83b1aSEiaB4nvnTutAJyhP9bwhpJJnXIQW3c9AQGp
-	jdFwKLAkHYtVgwVeTz0l1kIqGVVjhgseH79UPVWOp+RM3DV4q0pxoRnGXrSoJEQcAxLfCEOg/cf
-	luq2wSOjuNH/RUxnRnOs3vOwpDu4H6XtQ3NroKOGSzzJjc6NGF9Re5OS1N8FZeM/vqSZZg7oQEw
-	Z20rOkXO2IIqA0zrqGFyb2Ujme+NG/113rqR+0rh/qN2bjOwx/IGhtRRTI4VYeOq0zzYTtqjEqC
-	GoVuRlq5r8pIvMe28E66Bs1XAl5pnI/PaTsuQbt6fwpPY0MfuWoJVIqvpBYjjh72+mYNTA89fAF
-	WAMBwBn4u1TBDA9ANSkmXZxuwqFNv3hNAOuSWi5LF3r5EYsNhiQHsO174xwJ6FL4FfzNub9VrFu
-	ZX3+3gyxATGZAts3zErRk90I6ibR3M0GGzVSJydJ2uGb6jTik+NOLoRV+pE+D82iBOS0kVco+j+
-	lB7lJpaVln6OoEQ84QFzbeMoZqbuM5FfjD9TbIR3NVPZXd4djTVqjPPsgLNP6j59tVV6Gg6n9Ki
-	jfJOq1QRvC5NUA6FTxB8qj1ws2PuQ09+VzL5y7fhSly7j3xKvT2cESfI25iVF2DEsDQGTGDwTIh
-	7fUstI2ywxCkc0O81JZxFfUrmXnFA6Xq42x9nr3bI8
-X-Received: by 2002:a17:90b:258e:b0:3b4:fd89:5f99 with SMTP id 98e67ed59e1d1-3b4fd896a22mr11593107a91.17.1795859758798;
-        Sat, 28 Nov 2026 01:55:58 -0800 (PST)
-Received: from LAPTOP-3B99V33A (ec2-18-138-229-8.ap-southeast-1.compute.amazonaws.com. [18.138.229.8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8c2fcesm15732795a91.4.2026.11.28.01.55.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 01:55:57 -0800 (PST)
-From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: rafael@kernel.org
-Cc: tony.luck@intel.com,
-	bp@alien8.de,
-	guohanjun@huawei.com,
-	mchehab@kernel.org,
-	xueshuai@linux.alibaba.com,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ACPI: APEI: GHES: drain per-CPU estatus irq_work before freeing ghes
-Date: Sat, 28 Nov 2026 17:55:46 +0800
-Message-ID: <20261128095546.1364-1-luob87709@gmail.com>
-X-Mailer: git-send-email 2.51.0.windows.1
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QX+pDT2F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795859891; x=1827395891;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mDFNMlF4soO+khi9YXxQn3h0Ih/euUVIAPICgfLuLHc=;
+  b=QX+pDT2FGyhSRGh1W3pmlhFmLl3iXJ3nDJT+0aCNAXZ7WrxN7zGLY9pV
+   xEU5sm5u3JEb+VKa/LSHaGxQ4epu8zQgpNY1gbm5N4PAyu6zRCqxzV4VS
+   FmbnWY5gqerW3EUV1V/ltzRR59VvUfqLg7EX/gQikOjOY/SJ7qiQEBlX2
+   yE8bwRI62vqrtJsedFvOb547sTsmGozW7OWp7xtScqI04y0Nqb/QNk81y
+   ncaNJ16v2e/tlnkHCxv2jZWzYjBRmszzaftGU6PrnMV6WuX6ya7cKLTLc
+   mHdkmvrJkANHfPvpzd6tp0f2dBXcFaqLJSjGzrcs0pDOp0HfsveLgEBg2
+   g==;
+X-CSE-ConnectionGUID: b4Qdi9tqSt+TJCGu2C3//w==
+X-CSE-MsgGUID: 0mQ2ZOmHTMy9J/P6+jsypw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4759773"
+X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
+   d="scan'208";a="4759773"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 01:58:10 -0800
+X-CSE-ConnectionGUID: fLpdUTWaRgyZzB03ldX3pQ==
+X-CSE-MsgGUID: KJ5g+UYZTxmbGOq8qHT3/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
+   d="scan'208";a="12409550"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by orviesa004.jf.intel.com with ESMTP; 28 Nov 2026 01:58:08 -0800
+Date: Sat, 28 Nov 2026 17:47:46 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Chao Gao <chao.gao@intel.com>
+Cc: x86@kernel.org, linux-coco@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rick.p.edgecombe@intel.com,
+	kevin.tian@intel.com, yilun.xu@intel.com, chao.p.peng@intel.com,
+	baolu.lu@linux.intel.com, Kiryl Shutsemau <kas@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [RFC PATCH 3/7] coco/tdx-host: Exchange SPDM messages through DOE
+Message-ID: <awqjQt8n7dUJ3RJo@yilunxu-OptiPlex-7050>
+References: <20261116111037.3478844-1-chao.gao@intel.com>
+ <20261116111037.3478844-4-chao.gao@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,225 +82,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116111037.3478844-4-chao.gao@intel.com>
 
-NMI, SEA, and SDEI handlers enqueue estatus nodes holding a raw
-estatus_node->ghes pointer and schedule irq_work to run
-ghes_proc_in_irq().
+>  static int tdx_spdm_msg_exchange(struct tdx_tsm_link *tlink)
 
-During ghes_remove(), ghes_nmi_remove(), ghes_sea_remove(), and
-apei_sdei_unregister_ghes() stop further callbacks and synchronize RCU,
-but do not wait for queued ghes_proc_in_irq() work before calling
-ghes_fini() and kfree(ghes). In addition, ghes_in_nmi_spool_from_list()
-calls irq_work_queue() after rcu_read_unlock(), leaving a window where
-synchronize_rcu() can finish before the irq_work is queued.
+I remember there is a comment in internal review that suggests we use
+struct pci_dev *pdev for this function, to explicit this is purly about
+PCI, nothing to do with TSM firmware. I accept it at that time and still
+feel good today. How do you think?
 
-Furthermore, a single global ghes_proc_irq_work and ghes_estatus_llist
-cannot be safely synchronized across CPUs with irq_work_sync(): once
-irq_work_single() clears IRQ_WORK_PENDING on one CPU, a notification on
-another CPU can reclaim and complete the same irq_work first, clearing
-IRQ_WORK_BUSY while the first CPU is still executing ghes_proc_in_irq()
-or allowing another CPU to dequeue nodes from the shared llist after its
-CPU has already been synced.
-
-Convert the estatus llist and irq_work to a paired per-CPU
-ghes_estatus_work structure (all callers hold a raw_spinlock, keeping
-llist_add() and irq_work_queue() on the same CPU), move irq_work_queue()
-inside the RCU read-side critical section in
-ghes_in_nmi_spool_from_list(), and synchronize every possible CPU's
-irq_work in the NMI, SEA, and SDEI removal paths before freeing ghes.
-
-Found by static code audit.
-
-Fixes: 21480547c8b8 ("ghes: add the needed hooks for EDAC error report")
-Fixes: ee2eb3d4ee17 ("ACPI / APEI: Generalise the estatus queue's notify code")
-Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
----
-Changes in v2:
-- Replace the single global ghes_estatus_llist and ghes_proc_irq_work
-  with a paired per-CPU struct ghes_estatus_work and sync all possible
-  CPUs via ghes_sync_irq_work(), eliminating the multi-CPU
-  IRQ_WORK_BUSY / llist-stealing race flagged by Sashiko on v1.
-- Update Fixes: tags to reference 21480547c8b8 and ee2eb3d4ee17.
-
-Testing note:
-Compile-tested on x86_64 with W=1 and KASAN (drivers/acpi/apei/ghes.o);
-not runtime-tested on APEI/NMI/SEA/SDEI hardware.
-
- drivers/acpi/apei/ghes.c | 80 ++++++++++++++++++++++++++++------------
- 1 file changed, 56 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-index 5d888c8..bcd86a3 100644
---- a/drivers/acpi/apei/ghes.c
-+++ b/drivers/acpi/apei/ghes.c
-@@ -33,8 +33,10 @@
- #include <linux/mutex.h>
- #include <linux/ratelimit.h>
- #include <linux/vmalloc.h>
-+#include <linux/cpumask.h>
- #include <linux/irq_work.h>
- #include <linux/llist.h>
-+#include <linux/percpu.h>
- #include <linux/genalloc.h>
- #include <linux/kfifo.h>
- #include <linux/pci.h>
-@@ -1339,18 +1341,25 @@ static struct notifier_block ghes_notifier_hed = {
-  * Memory from the ghes_estatus_pool is also used with the ghes_estatus_cache
-  * to suppress frequent messages.
-  */
--static struct llist_head ghes_estatus_llist;
--static struct irq_work ghes_proc_irq_work;
-+struct ghes_estatus_work {
-+	struct llist_head llist;
-+	struct irq_work irq_work;
-+};
-+
-+static DEFINE_PER_CPU(struct ghes_estatus_work, ghes_estatus_work);
- 
- static void ghes_proc_in_irq(struct irq_work *irq_work)
- {
-+	struct ghes_estatus_work *ew = container_of(irq_work,
-+						    struct ghes_estatus_work,
-+						    irq_work);
- 	struct llist_node *llnode, *next;
- 	struct ghes_estatus_node *estatus_node;
- 	struct acpi_hest_generic *generic;
- 	struct acpi_hest_generic_status *estatus;
- 	u32 len, node_len;
- 
--	llnode = llist_del_all(&ghes_estatus_llist);
-+	llnode = llist_del_all(&ew->llist);
- 	/*
- 	 * Because the time order of estatus in list is reversed,
- 	 * revert it back to proper order.
-@@ -1384,23 +1393,36 @@ static void ghes_print_queued_estatus(void)
- 	struct ghes_estatus_node *estatus_node;
- 	struct acpi_hest_generic *generic;
- 	struct acpi_hest_generic_status *estatus;
-+	int cpu;
- 
--	llnode = llist_del_all(&ghes_estatus_llist);
--	/*
--	 * Because the time order of estatus in list is reversed,
--	 * revert it back to proper order.
--	 */
--	llnode = llist_reverse_order(llnode);
--	while (llnode) {
--		estatus_node = llist_entry(llnode, struct ghes_estatus_node,
--					   llnode);
--		estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
--		generic = estatus_node->generic;
--		ghes_print_estatus(NULL, generic, estatus);
--		llnode = llnode->next;
-+	for_each_possible_cpu(cpu) {
-+		llnode = llist_del_all(per_cpu_ptr(&ghes_estatus_work.llist,
-+						   cpu));
-+		/*
-+		 * Because the time order of estatus in list is reversed,
-+		 * revert it back to proper order.
-+		 */
-+		llnode = llist_reverse_order(llnode);
-+		while (llnode) {
-+			estatus_node = llist_entry(llnode,
-+						   struct ghes_estatus_node,
-+						   llnode);
-+			estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
-+			generic = estatus_node->generic;
-+			ghes_print_estatus(NULL, generic, estatus);
-+			llnode = llnode->next;
-+		}
- 	}
- }
- 
-+static void ghes_sync_irq_work(void)
-+{
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu)
-+		irq_work_sync(per_cpu_ptr(&ghes_estatus_work.irq_work, cpu));
-+}
-+
- static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
- 				       enum fixed_addresses fixmap_idx)
- {
-@@ -1461,7 +1483,7 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
- 		goto no_work;
- 	}
- 
--	llist_add(&estatus_node->llnode, &ghes_estatus_llist);
-+	llist_add(&estatus_node->llnode, this_cpu_ptr(&ghes_estatus_work.llist));
- 
- 	return rc;
- 
-@@ -1483,10 +1505,9 @@ static int __maybe_unused ghes_in_nmi_spool_from_list(struct list_head *rcu_list
- 		if (!ghes_in_nmi_queue_one_entry(ghes, fixmap_idx))
- 			ret = 0;
- 	}
--	rcu_read_unlock();
--
- 	if (IS_ENABLED(CONFIG_ARCH_HAVE_NMI_SAFE_CMPXCHG) && !ret)
--		irq_work_queue(&ghes_proc_irq_work);
-+		irq_work_queue(this_cpu_ptr(&ghes_estatus_work.irq_work));
-+	rcu_read_unlock();
- 
- 	return ret;
- }
-@@ -1600,6 +1621,7 @@ static void ghes_sea_remove(struct ghes *ghes)
- 	mutex_unlock(&ghes_list_mutex);
- 	ghes_unmap_error_status(ghes);
- 	synchronize_rcu();
-+	ghes_sync_irq_work();
- }
- #else /* CONFIG_ACPI_APEI_SEA */
- static inline int ghes_sea_add(struct ghes *ghes) { return -EINVAL; }
-@@ -1663,10 +1685,11 @@ static void ghes_nmi_remove(struct ghes *ghes)
- 	ghes_unmap_error_status(ghes);
- 
- 	/*
--	 * To synchronize with NMI handler, ghes can only be
--	 * freed after NMI handler finishes.
-+	 * To synchronize with NMI handler and any queued estatus work,
-+	 * ghes can only be freed after both complete.
- 	 */
- 	synchronize_rcu();
-+	ghes_sync_irq_work();
- }
- #else /* CONFIG_HAVE_ACPI_APEI_NMI */
- static inline int ghes_nmi_add(struct ghes *ghes) { return -EINVAL; }
-@@ -1675,14 +1698,22 @@ static inline void ghes_nmi_remove(struct ghes *ghes) { }
- 
- static void ghes_nmi_init_cxt(void)
- {
--	init_irq_work(&ghes_proc_irq_work, ghes_proc_in_irq);
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct ghes_estatus_work *ew =
-+			per_cpu_ptr(&ghes_estatus_work, cpu);
-+
-+		init_llist_head(&ew->llist);
-+		init_irq_work(&ew->irq_work, ghes_proc_in_irq);
-+	}
- }
- 
- static int __ghes_sdei_callback(struct ghes *ghes,
- 				enum fixed_addresses fixmap_idx)
- {
- 	if (!ghes_in_nmi_queue_one_entry(ghes, fixmap_idx)) {
--		irq_work_queue(&ghes_proc_irq_work);
-+		irq_work_queue(this_cpu_ptr(&ghes_estatus_work.irq_work));
- 
- 		return 0;
- 	}
-@@ -1921,6 +1952,7 @@ static void ghes_remove(struct platform_device *ghes_dev)
- 				ERR_PTR(rc));
- 			return;
- 		}
-+		ghes_sync_irq_work();
- 		break;
- 	default:
- 		BUG();
--- 
-2.51.0.windows.1
-
+>  {
+> -	/* TODO: implement the PCI DOE transfer */
+> +	struct pci_dev *pdev = tlink->pci.base_tsm.pdev;
+> +	struct pci_doe_msg *req  = page_address(tlink->out_msg);
+> +	struct pci_doe_msg *resp = page_address(tlink->in_msg);
+> +
+> +	size_t req_sz		= req->header.length * sizeof(u32);
+> +	size_t resp_sz		= PAGE_SIZE;
+> +
+> +	size_t req_payload_sz	= req_sz  - sizeof(struct pci_doe_header);
+> +	size_t resp_payload_sz	= resp_sz - sizeof(struct pci_doe_header);
+> +
+> +	void *resp_payload_addr	= resp->payload;
+> +	void *req_payload_addr	= req->payload;
+> +
+> +	u8 type = req->header.type;
+> +
+> +	int ret;
+> +
+> +	ret = pci_tsm_doe_transfer(pdev, type,
+> +				   req_payload_addr, req_payload_sz,
+> +				   resp_payload_addr, resp_payload_sz);
+> +	if (ret < 0) {
+> +		pci_err(pdev, "spdm msg exchange fail %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	resp->header.vendor = PCI_VENDOR_ID_PCI_SIG;
+> +	resp->header.type = type;
+> +	resp->header.length = (ret + sizeof(struct pci_doe_header)) / sizeof(u32);
+> +
+>  	return 0;
+>  }
+>  
+> -- 
+> 2.52.0
+> 
+> 
