@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795886803;
-	b=pcV+sE8Y1RCRIKE5px7eIwE2qjcdoCsEwJP0sC9cAaoQG52MG6vv9UM2QRhcUT3jLps6
-	 bC4ogYCmaGhzRzdJ4NuS6U7mMkus4+Czp7L75ZmR+GOujwu8Fp6dIAWFL0FFN7U9Tf8RB
-	 fyDi6QwAndycB6aVbil1H8KQxwvikYwOfXE7XWKbIzKSjmORaLTKjrGZs+70z7an5l4DA
-	 fOL6QQFoi2YlvFzrRtVxrqykjF+/XbKbuFh35JhMIutifM2dFDJivSmCygGXvKaeP+nVg
-	 ezONWvwyi2OuIdUuedVBRT4yGbK4r6L1apm753aqUgx5kxkmyKIs/ibHb9ir+R9e6xg==
+	t=1795886804;
+	b=DejPOg+lczlBu7SreIGAZg7rcru5SJWhKzZAgcxm6nC54DLe/M2Ub9pglGPiLlWn7oNZ
+	 danUpLSLR8+M/gCCTlJ2iF06jHbPMdQbqPcnHJhfr5OXbSFAP9MSHV1+uVbpAmo1h3od1
+	 VlTb3uJy+Y9KA+0cloRE8L7j6Fyigdi9AigvHNKBd83mDPPjhU88OncTc9ZHptEI7rFPI
+	 6NdzsutRAyfyluE1qL24hDV+Cj9OQElH3YkpYPWRI3aBVzDvN8kdnLtIxetsn+xRM0G2s
+	 qCQiygG2BBJKHeVKfIpKWAdaD4f7+T2dKZUzMgreNW4KHsVMqq8DBQubVayI8YGKtBA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886803;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886804;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z8rRhNnnx7xvbNdHoowQ2dZg6MGm9QtwIQEbr+lOv9s=;
-	b=5HiSdclRmdzN+6UqyQT4Uw2IvsfiS+tkUs2fMgG6x1fszynsZjZOMFs7K2FtN3rs2ID7
-	 fRMtAEILsS4Ve4xPaTotBW89qW0DLDoUdV/cJIAwnpkMPozIR+WE1HGwxGcqXk5UUMWP8
-	 4vd2XUoIWmrOybFQG22EElb7wrZwtBObuTGHD8oTzl/Mnfxbr/nHIi0YL6cOZY3D2LXyt
-	 m9tgobN6089m2q18hfqeXGyqAAAJ7bkjATj1NHIe9GHjK1A8xdlrXd9K5WsA8x+c/JKgE
-	 jamRjGnDWJ4VCBhZKNhPFoHWuhM53gtBYj3awlRy1v0FGmDMTqWZ5Xm+vHsuQsOd93g==
+	bh=Px40m0YjZ0/FcREAQzSI37lydK8nL5M7PoD7PHIoihE=;
+	b=jkdjNa/kwPmqKEwaPLOGljZZwyVCv9ulKLBDt0lqiTehQO+zdy74bf2xzGCtfsoLwfKQ
+	 yQPfaHlw+7Bf7Rbx+ZVIAQYFYfYR68ARs6Si5Rf5qNybDR4dzZ/ByE6kwhbegkW86baxT
+	 JHpwGmvPRzS1oTnWF1hXmcESIhEYh2TyjLdYuYnXki6iq/+uo0A9KY+6hdez8UvjFbxeh
+	 i80VH07IHyU4HwYy6R0uMxaHqJ9AGm0p2G0hTmfq/gZWdbcIyMA0Sc+p21V3XbudBwIgD
+	 zGmG6whL0XzehFhTV3lWe1A6f8tL2uydhoF0PyEjsYj9Znmdt/QRboOQaYlyO/cwyyw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f3OMZ8fL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NV6Hj2qj;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF2ED606A327
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:26:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 992AD606A329
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:26:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f3OMZ8fL
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NV6Hj2qj
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795886803;
-	b=fsp2GKdPma561rBTIVzVjNU/eIVYxdaGyCeX51dZg23+ComJ9XeiQggZbWl0a1ABiB5G
-	 QePiPUebKqbBbm+G250KTja3+2x3/JRMh0vQcDN7yIyyljNcRda6KUFsPxZ2urLfN1KdP
-	 4e9MeuNCPThl9lA0u5xl4v9CGTETKn/ATfbjiD0t5ktLy3qNRaMotROOtaajf+k0Js5dw
-	 ToVYsCT8QIZ/eMNBz8YeAZbtnQ9NFRBvFWn7GxlEov3rrreD1JagOLHg5czU82eRLSura
-	 zo3TF2ZM+BoPFZ4Ks+9ReqpcikS4QgzC0b2JvHbhOfxdcA5wbekT/uRTM+Grqj2xm4w==
+	t=1795886804;
+	b=YgOxigUqDfJUJGGH2aukitl/SiQEg/XVXoJYYKndCEDn90cKM9WxpG6Zms50jhg0Jzpo
+	 JclnS4rALnNAJg8zyJFTEj25208EhE7h4J/eesT2joURt5fF7YFgG4Ihei01cPs0Xc0CL
+	 oEdycUdRiJdFAt0mTOffvnQ8326scQAMcpiW1cFL2uzd3JviycAK9XSnV4dSQCLQuqmPB
+	 hXsW/Xz8g0jzEcUQJ9neKziouwS/DIZMjIUwkFF2sUCDVQRWMDrPvNi8chxvImSN6TDfO
+	 F6SyNcpxe5YtjVOKK1AMdrYqrZdok4sUrvvb/AMkehojCKqoSzsmKg1KprAbDIunWUg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795886803;
+	c=relaxed/relaxed; t=1795886804;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z8rRhNnnx7xvbNdHoowQ2dZg6MGm9QtwIQEbr+lOv9s=;
-	b=2E3QCYKvmxavZw5Tw7AmO8YmoglDi/ODeiioBJzRyvnmQm9LHEzH9IRfdvWTBDOWeWrH
-	 ocjOZ/G6elMSJAm30BzBCFk/3nwk+A3Xi51+8t5QcasBZCY1OM57s/0eIS8Txs3eT5StA
-	 2C8Wjzudai8ugVC0oy02dgsQdq04shbGj+DIvNFcoO7etgGLyOQnI+zk059nueYVbJrTO
-	 6G+gDNVQ5zNBudhnKnNo2GRI3L5OJGh2ZpxwWiEDY8NnKiZ60WIyQKD7Qo9fLXD6eFAUd
-	 HyVdIZ1bkoM8SYTlSjvjC2AKKzso99Bl6w6Px4UmEY+D3naEYjvP1XVCxrn4/TNIy/A==
+	bh=Px40m0YjZ0/FcREAQzSI37lydK8nL5M7PoD7PHIoihE=;
+	b=09PVkEVqkhq2ZSzqvF+IjAqpv0VYGgA73yVX46zaVSXm0VnUSUf4EG6ZNj+e2dOBAB9a
+	 TUyoG9yHAls0Lk/XCBK1tXP0aDT5dbXWqs/miILab9CqmzZyANWckyj7nGbi4ChtjXSU2
+	 pAdNU9wAXjfgST6Q/FFOy0cUpK0y5tZt2OKT3C7/isaSxEBiVuHTWKUI2fQF/R+JQvfmx
+	 ccLFUoiWUd4BZWCtfEmMrCLEsGwGn+K17KZdoC8erp2J992sFelXZO5JLOhSLXXiGfSAH
+	 RX2Zd57ybAJdFxyd5Mz1qnhNNLN3fiseTJ/lglXGGdu7dbNgALiOz7iblykP2ensh7A==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B441D1F0089A;
+	by smtp.kernel.org (Postfix) with ESMTPS id D78381F0089B;
 	Sat, 28 Nov 2026 17:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795886803;
-	bh=Z8rRhNnnx7xvbNdHoowQ2dZg6MGm9QtwIQEbr+lOv9s=;
+	s=k20260515; t=1795886804;
+	bh=Px40m0YjZ0/FcREAQzSI37lydK8nL5M7PoD7PHIoihE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=f3OMZ8fLPUIIdejwBMZwHrr3ResGLVQRCGx6rn03cJ5+8vxydbmTQrWzy9i0CcxiG
-	 Ns8XqVE9g0bHI4DkWverddGEKEA+WS/nVst+DZ/IhODV+Jn72UfSXt5a3Wpi1pegYd
-	 Xez0JGgLCR9uwB6tKMzV6N54+yDM3pQhW6gMcHFiqwOgi/WQfAAugGXv90YCETOtGd
-	 Tc63aS5/BKt9vk8Gi6kl82PhfH7ZmsW44QjG4davLVqC04UnOryOAr+OKNTBUE4uox
-	 efkyTtjNtG81Wg+NpyNjELuTBsdoPobl5th/qxIJGBITqRU7rO5Mazk5m82Ez0GDkl
-	 qz9h5ikJy5ZTA==
+	b=NV6Hj2qjCnQQ4v4FUOR1r/TkSOCjE/yxYYdKDb++6iRG85FDUAjJE5f8ljaB4aKRE
+	 f16yTlpHIXUAsv45wLj9QxOBT+du+bC6ZJgyBxOa7OssR8ovst3ABetbdT/EK18wQt
+	 D3oUMDxCTP0rinXnmfOTape/eln16HhYQXz8W3u3b7wIfl585El9uvuMfOCYjSWqoX
+	 px6etkkURiVkhYtHqCoud+6ndHKNDDBhpvXPih34bLtCgYuS5DrDGRsBBO7icIy28W
+	 rgQ2Tn6MtW6qJDhRll3So1fsKXAg2gxbayQs5XbRSKK95FAyZAVli8JdsyydhmWXOj
+	 BEz1SAxQ923oA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3DADD4E16F;
+	by lkml.kernel.org (Postfix) with ESMTP id 60D674E173;
 	Sat, 28 Nov 2026 17:26:33 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Sat, 28 Nov 2026 17:26:34 +0000
-Subject: [PATCH v5 03/17] drm/panfrost: Refuse to sync the CPU caches of a
- heap BO
+Date: Sat, 28 Nov 2026 17:26:35 +0000
+Subject: [PATCH v5 04/17] drm/panfrost: Don't take a reference on a mapping
+ that is being freed
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261128-panfrost-long-jobs-v5-3-e7d62045a676@gmail.com>
+Message-Id: <20261128-panfrost-long-jobs-v5-4-e7d62045a676@gmail.com>
 References: <20261128-panfrost-long-jobs-v5-0-e7d62045a676@gmail.com>
 In-Reply-To: <20261128-panfrost-long-jobs-v5-0-e7d62045a676@gmail.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>, 
@@ -96,11 +96,11 @@ To: Boris Brezillon <boris.brezillon@collabora.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795886791; l=1145;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795886791; l=1091;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=RVUC7wk0C94NNPazliV5oYEit+c6cilShSIsrPrq+ds=;
- b=9ovKzVW5b4IBCwtyLr5G7GAFFqiBIcYb0Q6U41w1TUtZ6ZSY4T+B+2vdDEaj4BffQKb0FSCQz
- R9+4eaDAhEPCPsQknGf11n7La4zmc/FJUvLHE8+Bx+uJ5x4ai/YQMLA
+ bh=DRy+Ft25cf0YsAswanqBu0wCkKWVe6G3uWYwsT/P0E0=;
+ b=0wScwfnCs5vnBVKPMRup4vi+ZsugAvfbNfaAMLjLirdbsYmHLZESiIj8++8VlcnCmrbkgb5bA
+ xiAltXXe6CYAyEuxy712nFOkmEYC7Fkr+GwuzsBg/4kC5Xy9d2GJS+F
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -111,35 +111,34 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-On a coherent GPU, PANFROST_SYNC_BO on a heap BO dereferences the NULL
-entries of its sparse page array. Heap BOs cannot be CPU-mapped:
-return -EINVAL. Not tested on a coherent GPU.
+A mapping stays in the drm_mm after its last reference is dropped, so
+a GPU fault can revive it with kref_get(). Use kref_get_unless_zero().
+Not reproduced.
 
-Fixes: 7be45f548976 ("drm/panfrost: Add a PANFROST_SYNC_BO ioctl")
+Fixes: bdefca2d8dc0 ("drm/panfrost: Add the panfrost_gem_mapping concept")
 Cc: stable@vger.kernel.org
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/sashiko-outbox-206561@kernel.org/
+Link: https://lore.kernel.org/all/sashiko-outbox-206570@kernel.org/
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
 v4: shorter commit message.
 ---
- drivers/gpu/drm/panfrost/panfrost_gem.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/gpu/drm/panfrost/panfrost_mmu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_gem.c b/drivers/gpu/drm/panfrost/panfrost_gem.c
-index 518f24549..8067c5533 100644
---- a/drivers/gpu/drm/panfrost/panfrost_gem.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_gem.c
-@@ -569,6 +569,9 @@ panfrost_gem_sync(struct drm_gem_object *obj, u32 type, u32 offset, u32 size)
- 	if (drm_gem_is_imported(&shmem->base))
- 		return -EINVAL;
+diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+index faa62643c..789a64fd3 100644
+--- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
++++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+@@ -576,7 +576,8 @@ addr_to_mapping(struct panfrost_device *pfdev, int as, u64 addr)
+ 		    offset < (node->start + node->size)) {
+ 			mapping = drm_mm_node_to_panfrost_mapping(node);
  
-+	if (bo->is_heap)
-+		return -EINVAL;
-+
- 	switch (type) {
- 	case PANFROST_BO_SYNC_CPU_CACHE_FLUSH:
- 	case PANFROST_BO_SYNC_CPU_CACHE_FLUSH_AND_INVALIDATE:
+-			kref_get(&mapping->refcount);
++			if (!kref_get_unless_zero(&mapping->refcount))
++				mapping = NULL;
+ 			break;
+ 		}
+ 	}
 
 -- 
 2.55.0
