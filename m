@@ -1,83 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.201
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795834402;
-	b=EDcTnt5/DjKtMQnIqiVaKzXmiSmgGrni7CFg0nMaw48VfL/Lq2ELvP0O0jv5/sSXpnl9
-	 HLYhUd32YTfClvTXjbtyzMgW7Nfu1NN97BepHKtenpL7Xy6Xmdlz4lWOEKQHA4ic1ORy0
-	 25oMwA6fWyR54tC22H1jtLrhjwU/LRXxe05BFLKu43eJ1ErxFGFF/kV2SGjTCK2SHuKds
-	 0JIdqkC1OlcdkjD7HlIzYWyvDlkh7Q2KJi00rKhe4HZMGZ+CKSnuLXh7UHF0BeSWyqWW+
-	 JIGPwUfQLkP4fjkD1cskZJkgH4ipQg/1/3ifI+doyaqvQv6IqNwGCh9Q4k6TRg8tSmQ==
+	t=1795834408;
+	b=XEy2fVy4ptaVz6jDhdp1aX6UaSdRurB7YhJMji2NMKWGmzTiunT7uhvaZs/NW04ljB8K
+	 aW6Fi/8jH5YM/tz3x4t4zzP3YctnP4Qjobtj81hNZ0ev/IInnOJr507Ec5lVJy9KegKwG
+	 ucJTMKTA70r3sVIh9l4IjdGV4y5ZFRmsZERf7AR4wwTAyA6YItBCs9XTNQXYOvkq8qtU4
+	 LxNQr3yV+YE5pCJ3mweK5/sIZDc9EW27R44yWno889ahlVMwP87AwGVCte8HCe2KXNuTx
+	 cGIpeEasMH4KCDaFFaqJ6tcF0sAv+7PHN3cloUOYiEpKbnfvi8azGS0OsWb+4+MDAUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795834402;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795834408;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=R0kCwO2dA78O9IErWGqjxytV2TbDnWKV61Iue3IYRdw=;
-	b=30UYKopNHoY40AifUIEgqhu/sGq+1HKa9O0r+UYoBqhCa7uS+KH9jQQT5FAsdFblzYK6
-	 jvihaZ+Lx4aDM5Zn6sgxOu3/+VniuymEUlEnI9GMsF9BOyM+FYrXVL5ZdwUVCTs3b5oNg
-	 5XRHTK/9yIewKqkjSupx62OHH6PmC7Y1qb281Hb99HeP/uwMhA8HqYoOtCV2VdP3JxCBm
-	 DWPjMTV7uboNFm/d08V7AV7NsABk3e38TjjcP9+xHKd6m0z7UtXFH4rM6O1kU/SZDmESN
-	 UbY0pW6gLaprx1Ckwx2HsRXAuhpRBPQXsX4lLOCL5HcCJnI+GGMNBsgfb1nlts2kr8g==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:X-Developer-Signature:X-Developer-Key:
+	 Content-Transfer-Encoding;
+	bh=o/yA7udvOXyy4uaWhVZUf8NM3Y57Zr7Wl3fusqPbyG4=;
+	b=R5mCOBQLLtXD66xzVDrlsomFGLtqUUHEqsBCBsYjB4kqfjgBtWRPt1QSBzpFa/MUQJKl
+	 zgBGiQHvihs9KXDfitU0clMHVOG8YQWfsxn035PM8+aFtcTZqxeiUtO964Za4eLUWMuj0
+	 NTkpqTFoOe9Ee9MZ4BiYN87eELIzjz74I858mTRY+/QCV6H+2T/tCR6I2w5qHAhlmmlF4
+	 ST46jG/qnEn5Srf7CzcxBRIyVhWUNNFftNYhZUHOHjzyG9kZys5Fm2UONcrUNxWNfo4gA
+	 eG+G2SjYBqRy4ynfjGjSz3AAK6SRKt/ouaUvjYYr4vnMSgs9sJUm9+OAngBBtQa9zpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xz8iIQwP;
-	arc=none smtp.remote-ip=74.125.231.201
-Received: from mail-oi2-f9.google.com (mail-oi2-f9.google.com [74.125.231.201])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y+q4mTXy;
+	arc=none smtp.remote-ip=74.125.231.134
+Received: from mail-oo2-f6.google.com (mail-oo2-f6.google.com [74.125.231.134])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE90D606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:53:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE90D606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF59C606A32D
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:53:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF59C606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xz8iIQwP
-Received: by mail-oi2-f9.google.com with SMTP id 5614622812f47-57391a89682so2490073b6e.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:53:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=y+q4mTXy
+Received: by mail-oo2-f6.google.com with SMTP id 46e09a7af769-8629eb92bebso2998653a34.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:53:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795834401; x=1796439201; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=R0kCwO2dA78O9IErWGqjxytV2TbDnWKV61Iue3IYRdw=;
-        b=Xz8iIQwPrz3UXXC7kRWAAxzvKVj/HU7EAdERFZunkGhTxzrDkFsAWIqJM0+E4/k7Vu
-         yjDrWroAYQ+pKfzA17gl6LuEHH0huBIide5ecTQEc9tu7W592QR6Rvvob7UcoGVFV1VS
-         Jhz/HjFsmHeRgwzHzhK5JhZYOwWY0nPw+HWcMxff7G+L/OLkc9bjJ4XmUwiHYoWlndUs
-         ehplCIK6cWT7AUo/TyY2ADJLkg0dhxfcKQFxfas9/pK0aQHCiL4UU1FQ1Zs4ILwJLdU3
-         aMkWa3w/krHXD9qsSFnX+fY636idLG1l11mf4Ymm1C3E0EdUhHJysCvBGuVw9zKT6f5m
-         XQ6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795834401; x=1796439201;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795834407; x=1796439207; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=R0kCwO2dA78O9IErWGqjxytV2TbDnWKV61Iue3IYRdw=;
-        b=ilxcuup3LZPVjHHpJWQE2e6AXapD6dLKd2IbDvCJ/MbxDwWBRcvxwCJhfGrA0LbP1s
-         t+AKe4vFtC0kj/g7iZlPB3LR3HNJO4jT5EcCHwgKfC0ca7KTTLqNKgck34MzMXZpgQrQ
-         gbbFTB0r9/g63UXJuNyzxvgT5QYx/WemCPIfrP2sfYZo61QfWZDd0rOfM103pINa3jp/
-         1ggxZxlM6vqriTmushSt9PFIVELzJFldZo3F8H/ZYkYIGQi+Y3vl49JY+QXahDuIUwY+
-         oNnKWhP0OYJSnn51zERUIuqvVb4ncLzA/YTSPKNpTGwRw2ZJM3tE7V/CUO5PnNP4jBCm
-         ObFg==
-X-Forwarded-Encrypted: i=1; AL+hErG4eVfIw8ySz+d6sYp/QcsqNBCFuFcRRAOZtMp8OVgdpq4KxBLMgTsRwj09TiR7E7gvJ/vkEQRsU8H+w1g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84XXAsKIBzVSs2tLlx6NmZFGX6uqIjf1YYHGvnmw/AGAFtjUcN
-	KTOSgDkEDB2KcDpMj3hRj5UWKHVPTBYCErd5kBBC5muuKzR8aMfXIw+o
-X-Gm-Gg: AZFdTZeg6Q6oAAkprwwaSZmMaLuQwBPYRX+OGGU36VUz+Zpk8ylglB+I+9KAvC4DVpF
-	gYQZfTDDzTva41f6KU00WkItcolI6XD/XP5+h8N+sD2pCcURCYIDJv4VMYxsvgKjqsQmENG3DWf
-	5VfqCSkR09Daywkog3mQXDv4QKc5dZwNW+SN14vZWuaMklQLtHfB56+ATlKNQlkqDpdeP6OIN5Y
-	gtME8U93mhp2bnyUZwdxbI+zbOhNObCQxlqGo8szejj2PYbsVyoJxWdppIwwpF9dK8Ym6Jlt/rh
-	sXATDNqPrFOJc4S0Hw+7bbOLHFq3DvQjrzfdoWfHaeNh9WVAlykhZQ3A+i8h7dBYPW8m2koHTGu
-	0PirhNselIZmjbqN4oO8aO/F0vmuuJVyr4NE/Y17xbQnuH4RQHc8gXve0CMjHZvNXwA/f9jtUnc
-	Y+aXMJg7Ju/oT+xHbLY0noYXWp0nKqM0vkq1Yj5GdTw8tT+o9ejJOeSJd1tR/SNGywvo119xkso
-	X06wHUHFfww/r3EnooGK3cOXZq9XshIRxoR3x4Nl1wF94XSuZ/ozzICb6Ta4tVV7gr3/c1qL4Il
-	56foui154MBBDG6hS7/YmeACg0qOy3XnH7YtbmvK/hNepEWg/wMajhBqdtVJ1fb+0IMEyuT2RO5
-	x7LrTFD1D7HpzLfVxUOodgKfEgZK7m7udMIrO
-X-Received: by 2002:a05:6808:c3ee:b0:54f:c850:fa53 with SMTP id 5614622812f47-57a0891786amr30906094b6e.17.1795834400878;
-        Fri, 27 Nov 2026 18:53:20 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:44::])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc55895b9csm21381575fac.0.2026.11.27.18.53.19
+        bh=o/yA7udvOXyy4uaWhVZUf8NM3Y57Zr7Wl3fusqPbyG4=;
+        b=y+q4mTXy5ZlrWB2wUUxP5TEJaTaMK15HC8OGThrmvFuUXOEA7bmIXJWpeEIfBlOZ1C
+         cVaaoHO+8VFcW7BXkV+0KDhuEEfJInWIpU015X9kcf2+xavryXh/bnyxgA2IAZRRbPkP
+         3h+pjnKZmuoCnJT74nI4KftDRiaSxjn4CdQYxhVxt28WEB8H03nrcWVJJo9mYd1Z7RlA
+         AOGXFZRU6CL5VPWlN7AXbw/nMxS2DSKF9s69CgIpg60YPolWykIVYcy40Ge6mWOcVbH7
+         04HpuhHf5ALQLxALyYumIWb49hBxw5+8T8+DjhXOOhRgOOJBmmWJAlUYKhotM0SYqQYy
+         jv4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795834407; x=1796439207;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=o/yA7udvOXyy4uaWhVZUf8NM3Y57Zr7Wl3fusqPbyG4=;
+        b=ZAaxcIBl8dj7K4GgeMkhq7wvkqSGizPdc7bWJH0aOy6wIV+flDmwmSzFhIQ90gSdlH
+         ldS2cS6Dn8inPJzpVh7sOjbmzFjJyzINVEJZ59+gjy5UR6F4PII6E8BtQjPYhOcyYr5B
+         Q5SWcRkonyXLmSAnlM1mg/qSbamYswXO2j5hk94gDHnEWxQGWqDuogN5oaOqd5WY9oMw
+         6yseJPCtTGRa7gHORJJzJRFdUP2OI4xbL6jt2wrqS7rR4N8q6f8CPlHgNmGuBykjtsdQ
+         QN1Bm7gsumRWm+YoGPUN3u+qa6kCIB7QnBVm0kfMP75lkPWkJQP8o/Dwavytz34xn+BB
+         1dqA==
+X-Forwarded-Encrypted: i=1; AL+hErHrNKSiNG5MzuaaE1upOHaPd6UWXjEUUqN09S5NrKiGCnKMgJ9tddncbOk0dbiu7R/xx4lPjC4DDo8zi4o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ZYau7ZxlG6P32i65ao6YW3DB+20ZHqF19IG2/qsl6HeQEaI6Y
+	TlDTZyJ3nBnDIrtCd30JMM8bKocKjapC0QLjoYfI1kN1qNcouLB0AwOZ
+X-Gm-Gg: AZFdTZfjhmoy9ioQl8NzhyZfF1PJ3jchBdXLHMcmVx270qJMwKpfuVPbaDgdepClDc6
+	Zv/ad4I2mrQwEd3pci/oj/JiIb8ldYJ+MFP4UYvIwbY6JspDz34GNEIYkP76o7yFJLrLNwnO0ml
+	W3SeUPvSsX8rpESQLxBpgyEfVJ90FrxgOF8j7wsBgCEm/xEtQgYrGfRd4ID/5DpcVqhFqLqfapx
+	zaYzgEOOwY0/71kAyqJEowBDRhKkAg5JbZxO1RK4uwA/OuKWpzyg4q8YDNf8E3e/rmWwa6qbylN
+	xnitk4HhTpBD3MyNXzdGCaCU1Ukfb2sVathneyYBnHpPclx5zSfGty5ZCIyLlH7DSyTKXMX8/V/
+	8kRIfRzqHiS5dBbTrYqKrMGGX7WE0Ibhr3UTkdYr6nCR4fSY2qPSo8YFBpkolIslLMw0bIP8uJC
+	ypyE78nmkkLvqm3lMvqJ5aTDT/oNL05ThpOM3+W4467XPEdaTrg/ujOmQ3N6td6cSCCQblHl+tK
+	MOp6dMEDY5rjBcXKTW2o6h8zFxKQ+YAsL4vOTa5NrXaLq2BLu4mMyMauYEPx0TZ5uzkTJnb5Kl0
+	2nqjIr6cBFgFUCeH+gdHGW8k+Ybf8c6xMplOcLaeMEfsnxDqazpor6yaC+KlypOa1BzBn+4qp7z
+	Fw82QzZC36/jWxKWm5ZsZ3ZjrlqOesVvTEzib
+X-Received: by 2002:a05:6830:a257:10b0:863:9f9:4eac with SMTP id 46e09a7af769-8631593a1dbmr18727324a34.9.1795834406810;
+        Fri, 27 Nov 2026 18:53:26 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:49::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168c1bc5sm17698611a34.6.2026.11.27.18.53.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 18:53:19 -0800 (PST)
+        Fri, 27 Nov 2026 18:53:25 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org
 Cc: Alexei Starovoitov <ast@kernel.org>,
@@ -97,10 +99,12 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Puranjay Mohan <puranjay@kernel.org>,
 	x86@kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v1 0/3] bpf: Do not follow __iomem pointers
-Date: Sat, 28 Nov 2026 03:53:14 +0100
-Message-ID: <cover.1795834380.git.memxor@gmail.com>
+Subject: [PATCH bpf-next v1 2/3] bpf: Treat __iomem pointers as scalars
+Date: Sat, 28 Nov 2026 03:53:16 +0100
+Message-ID: <52249df7401e63679e1ec5c416ef9b12d3ad318c.1795834380.git.memxor@gmail.com>
 X-Mailer: git-send-email 2.53.1
+In-Reply-To: <cover.1795834380.git.memxor@gmail.com>
+References: <cover.1795834380.git.memxor@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,38 +114,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1373; h=from:subject:message-id; bh=7KRdKeGEPtd7wqWnWHL9bmdrZHoQfk3ywZxqsxMmWK4=; b=owGbwMvMwCXmrmtenRyi38x4Wi2JIZvLiWflNaM5dXPXfZC1q0sP3/x98X674yvORjz5+tF/8vaF M3mkO0pZGMS4GGTFFFlK/u9jMj5R+TvQdhk3zBxWJpAhDFycAjCR9bkM/2N3/EmqMNwWHGQjc0ry2B cRz+kb3t+ZFGjTrcCqd8nqSC4jw4ZZWiJe8d2zfTZ3as9+KFbY8p6PteTrY02n6E+/u1o7OAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2509; h=from:subject:message-id; bh=N/0L7RU1DZg49E/9V+NTDUu73bODlWpWWMAIjmhlL5I=; b=owGbwMvMwCXmrmtenRyi38x4Wi2JIZvLieeb9pkjpRNvceVYaP07wJidcEM/TtbDKr16/8nSCeGe y+52lLIwiHExyIopspT838dkfKLyd6DtMm6YOaxMIEMYuDgFYCJOQgx/+HuenZgbO09DL19vWsO2Vu kPn+bcv5k7/eEc67Kc428fBjP8L7uqsf/PgUnmKTPT/u8KFt7yIWtPxrHLR79wN80VPCwVwQ8A
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=B34BD741DE8494B76E2F717880EF20021D46C59B
 Content-Transfer-Encoding: 8bit
 
-A BPF tracing program can read a device register with a plain field walk,
-for example mdev->common->device_status through a
-struct virtio_pci_common_cfg __iomem *. The load is a PROBE_MEM load of a
-mapped address, so it does not fault and reads the register. Such a read
-can have side effects. This came up in the discussion of [1].
+A BPF program can read a device register with a plain field walk. Given
 
-Patch 1 gives __iomem a BTF type tag, as __user, __percpu and __rcu have.
-Patch 2 makes the verifier hand out a scalar for a struct member, function
-argument or return value with that tag, so a program cannot load through
-it. Patch 3 adds selftests.
+  struct virtio_pci_modern_device {
+          struct virtio_pci_common_cfg __iomem *common;
+          void __iomem *device;
+          ...
+          u8 __iomem *isr;
 
-  [1]: https://lore.kernel.org/bpf/DN6GS9V7A3HS.1COD0JUQQDHQ@gmail.com/
+all of mdev->common->device_status, *mdev->isr and
+*(u8 *)(mdev->device + 4) load today. The verifier turns the first pointer
+into a pointer to the struct and the other two into untrusted memory, and
+each load becomes a PROBE_MEM load. The address is mapped, so the load does
+not fault and reads the register. Such a read can have side effects: the
+virtio ISR above is cleared by reading it.
 
-Kumar Kartikeya Dwivedi (3):
-  compiler_types: Emit a BTF type tag for __iomem
-  bpf: Treat __iomem pointers as scalars
-  selftests/bpf: Test loads through __iomem pointers
+These pointers now have the "iomem" BTF type tag. When a struct member, a
+function argument or a return value has it, give the program a scalar. A
+scalar cannot be followed, so the three loads above are rejected with
+"R1 invalid mem access 'scalar'". The value of the pointer can still be
+read.
 
- include/linux/compiler_types.h                |  2 +-
- kernel/bpf/btf.c                              | 15 +++++
- .../selftests/bpf/prog_tests/btf_tag.c        | 55 +++++++++++++++++++
- .../selftests/bpf/progs/btf_type_tag_iomem.c  | 49 +++++++++++++++++
- .../selftests/bpf/test_kmods/bpf_testmod.c    | 15 +++++
- 5 files changed, 135 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/bpf/progs/btf_type_tag_iomem.c
+Programs that load through such a pointer today stop loading.
 
+bpf_probe_read_kernel() is not changed. It calls copy_from_kernel_nofault()
+and should inherit any check that gets for I/O memory.
 
-base-commit: 71ad211eb086d0f8fc7ae595a37943bed58cad6f
+Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+---
+ kernel/bpf/btf.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
+index c4386a9a1ad4..c78b37b813e2 100644
+--- a/kernel/bpf/btf.c
++++ b/kernel/bpf/btf.c
+@@ -7632,6 +7632,13 @@ bool btf_ctx_access(int off, int size, enum bpf_access_type type,
+ 	if (!btf_type_is_struct_ptr(btf, t))
+ 		return true;
+ 
++	/*
++	 * An __iomem pointer holds the address of a device register. A load
++	 * through it would read the device, so treat it as a scalar too.
++	 */
++	if (btf_ptr_has_type_tag(btf, t, "iomem"))
++		return true;
++
+ 	/* this is a pointer to another type */
+ 	for (i = 0; i < prog->aux->ctx_arg_info_size; i++) {
+ 		const struct bpf_ctx_arg_aux *ctx_arg_info = &prog->aux->ctx_arg_info[i];
+@@ -8018,6 +8025,14 @@ static int btf_struct_walk(struct bpf_verifier_log *log, const struct btf *btf,
+ 				return -EACCES;
+ 			}
+ 
++			/*
++			 * An __iomem pointer holds the address of a device
++			 * register. A load through it would read the device, so
++			 * hand out a scalar, which cannot be followed.
++			 */
++			if (btf_ptr_has_type_tag(btf, mtype, "iomem"))
++				return WALK_SCALAR;
++
+ 			err = btf_type_tag_walk(btf, &ctx, walk_type_tags,
+ 						ARRAY_SIZE(walk_type_tags));
+ 			if (err) {
 -- 
 2.53.1-Meta
 
