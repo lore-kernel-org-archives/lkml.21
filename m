@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795873375;
-	b=3KOacEEgQGzsLQKyl2xAN73PPhIFVZvtOp8kyTj0ci2FrKRGAVz5hwzCTZe0zsWAQQO4
-	 HZR6dChtpVcjTo5zhEKDNHQWhmZjqvIbo5Lju6xKHZ+zx90RQhfxFxkdFfLMKBi2GYY+P
-	 HC0BObH3v4WX5K/RRna6NBSDJne2Ozna5Y4hHSPQQbtvFOYd9sy41dDiUV2sU2L84EhCx
-	 1yYhetUbrJwV44J7k+w509WjjBjbtCj6lpVI1I3GPJ62a5uQ3HdsyiVgbJdWs+6qeNNem
-	 HjwjflLXy2U8Y0hkY1E6k69fYtokSjl1PKaxZ5r+lOo1VBpX5fLNwdN75mZtgIFWRhg==
+	t=1795873558;
+	b=BrdDkaMHwlJdA+mpgxyC/B9AYnPh7cUvFVLXZd5ZkAuEP1XusEPv5tdpiub1zCQA4Vzt
+	 mg/S23Vgc9JzQ1xeAb+QW9DK15ykT/6qQVtWqGfY2QsGEXBUDvz0ox1uucI+kVEqXn1xX
+	 WdqOwfEZ8eJ4eyRLH7Y7o7Tv80gK+Y1x3fc57gHGxTsTSN88W4gCiWj2d/KX5L6gG5WjV
+	 I0UKlaJQeNAR60uzcCWIF2ZR0DPKWEtZsPo+l+RAENGvBs2OQWuflK9hMFTZ1bSyVk2WQ
+	 HGCY71+Xeep8zyF1Epi9KujlUzOUmLQBwf97sXcxHGzulzGxucsI8+ig6qSP+MkoopQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795873375;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type;
-	bh=ogMgdvQpGGoQmIF6CpJpsTzdhhvKznudi12MCR8DEy8=;
-	b=PV/KfpcdQlC6BjtiuSkGvMNTfUFc2iNuBDLdPVtWfrL0xChZrMvIvfEQd/PTpiUlptIw
-	 znhV2dp+dyxQD6FnhAo05UPCo9hIe45i80bxOp2HXcmCAq2il0OQwqMwcXoZcD4+DTKme
-	 8Aj6nWFxfy1O1/UYMJpkhjvLpbIraIWmit9/rchrvlNXnSkKwxOfm7cCUEjQ5F9v122EU
-	 EOwvO8n0YSLlQ59/L6JSd5x0pw/TBHcR1AR1v149FEXbLkXKC1JA6JZvQcserPhlH3S9R
-	 FMxU0X/s3pTIGT1ylTM6mYsCrdXeX2WRCe2lNxUB+76kR9QTdoE0j58O4VpDfwx09CA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795873558;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=WnNjUnhpV2/X/O4OU64HGrypP0u1i3XqylPZ6a6hHo4=;
+	b=JQ7lMdF7a1cgey02t33ti+JwrjmYJXW3yk0G0CQexL4ojp93tg0AMcQlhkewfMVeOn03
+	 pihJJ68inDAsPQhshGfHmy/HnG3nsTGys+3hgx7ELl7VNIFCqgcUYYOz/Ce7Spn6fNfXb
+	 yp4gomDXwmQ4wEAHM1EJDWXVMELn4r/rkWsxkd66rcLy4qw0fUfz3JR8w3h+N/uMexObz
+	 swK8yqnDPhnxp/W/njHLOsynQcgti+gjeZSOejlgGoHdZi65lgB7ObWyRimwMWa7fU8aG
+	 pnsTrTEelG7UCuCgnPn0Vr4cSdsQk0NSMWEacdodD2a7/neMnObnA5wSC6LEyr7sAWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mzfr.me;
-	spf=pass smtp.mailfrom=mzfr.me;
-	dkim=pass header.d=mzfr.me header.i=@mzfr.me header.a=rsa-sha256 header.s=protonmail2 header.b=LUdS3qqJ;
-	arc=none smtp.remote-ip=185.70.43.18
-Received: from mail-4318.protonmail.ch (mail-4318.protonmail.ch [185.70.43.18])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="l/t76jlx";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AD10606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:42:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AD10606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mzfr.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mzfr.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8AB2606A31F;
+	Sat, 28 Nov 2026 13:45:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mzfr.me header.i=@mzfr.me header.a=rsa-sha256 header.s=protonmail2 header.b=LUdS3qqJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mzfr.me;
-	s=protonmail2; t=1795873372; x=1796132572;
-	bh=ogMgdvQpGGoQmIF6CpJpsTzdhhvKznudi12MCR8DEy8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=LUdS3qqJlFipr12kmswDnkSKIYZ7A3cK2SUWnofdd36XskWCc5V6/u5ymTS8XF6uh
-	 WgNEHecJsk9n0KTLseA0t7Ul82TDmluqIRs+XnflrqZUhDzE+c3VD1NiZI1nCg462i
-	 2wp2LqYjxXwK9KCOJwK7s23NxvgnKXSK9rVm8cCv1925NwD586VLJYfE6+XlCEJJBf
-	 /A2gtEy4Ducqy44eoFP0/v8RduAMNKTvFz0VioPboK30o0cSvy5EwpjYcPrbc6g/mX
-	 ndSb0WI82pCpjEU6LvutKnnHLkbP7Yr9LieV1ZAnCeqxvKHLrGoaE0ZCBGBnOniTlF
-	 GHBXCTxGANY/A==
-Date: Sat, 28 Nov 2026 13:42:48 +0000
-To: Al Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
-From: Mehtab Zafar <hello@mzfr.me>
-Cc: Jan Kara <jack@suse.cz>, Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] selftests/splice: cover zero-count sendfile to a full pipe
-Message-ID: <20261128134221.64884-3-hello@mzfr.me>
-In-Reply-To: <20261128134221.64884-1-hello@mzfr.me>
-References: <20261128134221.64884-1-hello@mzfr.me>
-Feedback-ID: 37505322:user:proton
-X-Pm-Message-ID: 451ce0ddd8f4fc2bd8b6b3926ba0e6b606190288
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l/t76jlx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9FB31F000C1;
+	Sat, 28 Nov 2026 13:45:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795873558;
+	bh=WnNjUnhpV2/X/O4OU64HGrypP0u1i3XqylPZ6a6hHo4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=l/t76jlx0ZGzB60H9D0AdIoFlCH0CvtiG+66xIpXgXv/kgP0IApoD0IaDjjBu+iio
+	 DdMsTSdYrUnJbgoHMUXEs9xY36B09x1BjtX/UopS54N5RROZ7TlrXTnhpLB999EuOm
+	 QezM8k2IvKShB1cKdmyTSf4zMyrEOi+7OlfRCfvd9MPP9BKh6qfqnbh5qIsqxyBNj5
+	 hPqvzspgmVUJQmsPQhKQr4ISHLikfeBaXsVzCX54egsZWoTs5ZdChpn4em+YH8sqKE
+	 TxNas9UxnBnEPliUCyY/rCIkpYPQGnFyOJwY7cPViRcVoHIogKelhvXel5Rjp98YSL
+	 9ZSanq4TSmssA==
+Subject: Re: [PATCH] rxrpc: rxgk: round up appdata and authx lengths in
+ rxgk_construct_response()
+From: netdev-bot+sashiko@kernel.org
+To: AeeSec@126.com
+Cc: dhowells@redhat.com, marc.dionne@auristor.com,
+ linux-afs@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kuba@kernel.org
+Date: Sat, 28 Nov 2026 13:45:57 +0000
+Message-ID: <179587355717.3135.4913063237804466427@kernel.org>
+In-Reply-To: <20261127125250.1434-1-AeeSec@126.com>
+References: <20261127125250.1434-1-AeeSec@126.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,197 +63,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------f76c3cbc752918eb2ddd3c2e8da20766fdcf629ed2a59e6cec25637707d44c07"; charset=utf-8
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------f76c3cbc752918eb2ddd3c2e8da20766fdcf629ed2a59e6cec25637707d44c07
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-From: Mehtab Zafar <hello@mzfr.me>
-To: Al Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	linux-fsdevel@vger.kernel.org
-Cc: Jan Kara <jack@suse.cz>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] selftests/splice: cover zero-count sendfile to a full pipe
-Date: Sat, 28 Nov 2026 21:42:21 +0800
-Message-ID: <20261128134221.64884-3-hello@mzfr.me>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261128134221.64884-1-hello@mzfr.me>
-References: <20261128134221.64884-1-hello@mzfr.me>
-MIME-Version: 1.0
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Add blocking and nonblocking cases for sendfile() with count zero and
-a full output pipe. Both calls must return zero without waiting for pipe
-space.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-This regression test was developed with AI assistance.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Signed-off-by: Mehtab Zafar <hello@mzfr.me>
----
-The selftest passed 0/2 cases on baseline and 2/2 on the patched kernel
-in each of three fresh x86_64 KVM boots per kernel. The static test binary
-was built with warnings treated as errors; git diff --check was clean.
-With the generic FILE_PATH_CHANGES message ignored, final strict
-checkpatch reported no errors, warnings, or checks. Its final run also
-logged an spdxcheck.py traceback because Python ply was missing; the
-source and SPDX line were unchanged from the earlier successful SPDX
-validation.
+- [Medium] The commit message has no Fixes: tag and no Cc: stable, but
+  the patch fixes a bug that userspace can trigger.
+- [Low] The commit message gets three details of the failure wrong.
 
- tools/testing/selftests/splice/.gitignore     |  1 +
- tools/testing/selftests/splice/Makefile       |  1 +
- .../testing/selftests/splice/sendfile_zero.c  | 93 +++++++++++++++++++
- 3 files changed, 95 insertions(+)
- cre
-ate mode 100644 tools/testing/selftests/splice/sendfile_zero.c
+--
 
-diff --git a/tools/testing/selftests/splice/.gitignore b/tools/testing/selftests/splice/.gitignore
-index be8266f5d04c..0b7414d3bbf1 100644
---- a/tools/testing/selftests/splice/.gitignore
-+++ b/tools/testing/selftests/splice/.gitignore
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
- default_file_splice_read
-+sendfile_zero
- splice_read
-diff --git a/tools/testing/selftests/splice/Makefile b/tools/testing/selftests/splice/Makefile
-index 541cd826d5a5..b77c12767846 100644
---- a/tools/testing/selftests/splice/Makefile
-+++ b/tools/testing/selftests/splice/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- TEST_PROGS := default_file_splice_read.sh short_splice_read.sh
-+TEST_GEN_PROGS := sendfile_zero
- TEST_GEN_PROGS_EXTENDED := default_file_splice_read splice_read
- 
- include ../lib.mk
-diff --git a/tools/testing/selftests/splice/sendfile_zero.c b/tools/testing/selftests/splice/sendfile_zero
-.c
-new file mode 100644
-index 000000000000..b597420be687
---- /dev/null
-+++ b/tools/testing/selftests/splice/sendfile_zero.c
-@@ -0,0 +1,93 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <signal.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/sendfile.h>
-+#include <unistd.h>
-+
-+#include "../kselftest_harness.h"
-+
-+FIXTURE(sendfile_zero) {
-+	int input_fd;
-+	int pipefd[2];
-+};
-+
-+FIXTURE_SETUP(sendfile_zero)
-+{
-+	char path[] = "/tmp/sendfile_zero.XXXXXX";
-+	char buf[4096] = {};
-+	ssize_t ret;
-+
-+	self->input_fd = -1;
-+	self->pipefd[0] = -1;
-+	self->pipefd[1] = -1;
-+
-+	self->input_fd = mkstemp(path);
-+	ASSERT_GE(self->input_fd, 0);
-+	ASSERT_EQ(0, unlink(path));
-+	ASSERT_EQ(1, write(self->input_fd, "x", 1));
-+	ASSERT_EQ(0, lseek(self->input_fd, 0, SEEK_SET));
-+
-+	ASSERT_EQ(0, pipe2(self->pipefd, O_NONBLOCK));
-+	while ((ret = write(self->pipefd[1], buf, sizeof(buf))) > 0)
-+		;
+rxrpc: rxgk: round up appdata and authx lengths in rxgk_construct_response()
 
-+	ASSERT_EQ(-1, ret);
-+	ASSERT_EQ(EAGAIN, errno);
-+}
-+
-+FIXTURE_TEARDOWN(sendfile_zero)
-+{
-+	if (self->pipefd[0] >= 0)
-+		close(self->pipefd[0]);
-+	if (self->pipefd[1] >= 0)
-+		close(self->pipefd[1]);
-+	if (self->input_fd >= 0)
-+		close(self->input_fd);
-+}
-+
-+TEST_F(sendfile_zero, nonblocking_full_pipe)
-+{
-+	off_t offset = 0;
-+	ssize_t ret;
-+
-+	ret = sendfile(self->pipefd[1], self->input_fd, &offset, 0);
-+	ASSERT_EQ(0, ret) TH_LOG("sendfile: %s", strerror(errno));
-+	ASSERT_EQ(0, offset);
-+}
-+
-+static void alarm_handler(int signal)
-+{
-+	(void)signal;
-+}
-+
-+TEST_F(sendfile_zero, blocking_full_pipe)
-+{
-+	struct sigaction action = {
-+		.sa_handler = alarm_handler,
-+	};
-+	struct sigaction old_action;
-+	off_t offset = 0;
-+	ssize_t ret;
-+	int error;
-+	int flags;
-+
-+	flags = fcntl(self->pipefd[1], F_GETFL);
-+	ASSERT_GE(flags, 0);
-+	ASSERT_EQ(0, fcntl(self->pipefd[1], F_SETFL,
-+			   flags & ~O_NONBLOCK));
-+	ASSERT_EQ(0, sigaction(SIGALRM, &action, &
-old_action));
-+
-+	alarm(1);
-+	ret = sendfile(self->pipefd[1], self->input_fd, &offset, 0);
-+	error = errno;
-+	alarm(0);
-+	ASSERT_EQ(0, sigaction(SIGALRM, &old_action, NULL));
-+
-+	ASSERT_EQ(0, ret) TH_LOG("sendfile: %s", strerror(error));
-+	ASSERT_EQ(0, offset);
-+}
-+
-+TEST_HARNESS_MAIN
+This patch fixes the RESPONSE buffer length calculation in
+rxgk_construct_response(). auth_len now uses xdr_round_up(appdata->len),
+which matches the size rxgk_construct_authenticator() writes. The authx
+part of len is now rounded up with xdr_round_up(authx_len).
+
+> 1. `auth_len` is computed using `appdata->len` instead of
+
+[ ... ]
+
+>    message, the allocated authenticator buffer is up to 3 bytes too
+>    short, causing `skb_store_bits()` / `crypto_krb5_encrypt()` to fail
+>    or hit `WARN_ON()` in `crypto_krb5_encrypt()`.
+> 2. `len` uses `(4 + authx_len)` instead of `(4 + xdr_round_up(authx_len))`,
+>    even though `rxgk_pad_out()` subsequently writes up to 3 trailing XDR
+>    padding bytes after `authx_offset + authx_len`.
+
+[Severity: Low]
+Is this description accurate? A few details don't seem to match the code.
+
+Can skb_store_bits() actually fail here? rxgk_construct_authenticator()
+writes up to authx_offset + conf_len + 56 + xdr_round_up(appdata->len).
+Even before this patch, the skb extended to authx_offset + conf_len + 56 +
+appdata->len + cksum_len.
+
+The padding is at most 3 bytes. cksum_len is at least 12 for every
+supported enctype (rfc3962: 12, rfc6803: 16, rfc8009: 16/24). So every
+store appears to fit.
+
+The WARN_ON() that fires also isn't the one in crypto_krb5_encrypt(). It
+is the one in the profile encrypt routine, either krb5_aead_encrypt() in
+crypto/krb5/rfc3961_simplified.c or rfc8009_encrypt() in
+crypto/krb5/rfc8009_aes2.c:
+
+	if (WARN_ON(cksum_offset + krb5->cksum_len > sg_len))
+		return -EFAULT;
+
+For item 2, can rxgk_pad_out() write any padding after authx_offset +
+authx_len? After encryption, authx_len is conf_len + auth_len + cksum_len:
+
+  - conf_len is 16.
+  - auth_len is sizeof(a) + xdr_round_up(appdata->len) + sizeof(b), which
+    is always 4-aligned.
+  - Every cksum_len is a multiple of 4.
+
+That means rxgk_pad_out(response, authx_len, ...) always pads 0 bytes, and
+xdr_round_up(authx_len) equals authx_len for every supported enctype.
+
+Should the message describe the second hunk as hardening rather than a
+second bug fix?
+
+> diff --git a/net/rxrpc/rxgk.c b/net/rxrpc/rxgk.c
+> index 77a67ace1d248..6dc4bfd2445a3 100644
+> --- a/net/rxrpc/rxgk.c
+> +++ b/net/rxrpc/rxgk.c
+> @@ -936,11 +936,12 @@ static int rxgk_construct_response(struct rxrpc_connection *conn,
+>  	if (IS_ERR(gk))
+>  		return PTR_ERR(gk);
+>  
+> -	auth_len = 20 + (4 + appdata->len) + 12 + (1 + 4) * 4;
+> +	auth_len = 20 + (4 + xdr_round_up(appdata->len)) + 12 + (1 + 4) * 4;
+>  	authx_len = crypto_krb5_how_much_buffer(gk->krb5, KRB5_ENCRYPT_MODE,
+>  						auth_len, &auth_offset);
+>  	len = sizeof(struct rxrpc_wire_header) +
+> -		8 + (4 + xdr_round_up(gk->key->ticket.len)) + (4 + authx_len);
+> +		8 + (4 + xdr_round_up(gk->key->ticket.len)) +
+> +		(4 + xdr_round_up(authx_len));
+
+[Severity: Medium]
+Both of these calculations came from commit 9d1d2b59341f ("rxrpc: rxgk:
+Implement the yfs-rxgk security class (GSSAPI)"). Should this patch carry a
+Fixes: tag for that commit, and possibly a Cc: stable?
+
+Userspace can reach this with sendmsg(). rxgk_sendmsg_respond_to_challenge()
+takes the appdata length from the cmsg without checking alignment:
+
+	appdata.len = cmsg->cmsg_len - sizeof(struct cmsghdr);
+
+The call chain is:
+
+sendmsg()
+  rxgk_sendmsg_respond_to_challenge()
+    rxgk_construct_response()
+      rxgk_encrypt_authenticator()
+        crypto_krb5_encrypt()
+          krb5_aead_encrypt() / rfc8009_encrypt()
+
+If appdata->len is not a multiple of 4, rxgk_construct_authenticator()
+returns 56 + xdr_round_up(appdata->len). Before this patch, sg_len was only
+conf_len + 56 + appdata->len + cksum_len. The WARN_ON() in the encrypt
+routine therefore always fires and returns -EFAULT.
+
+The result is a WARN that userspace can trigger at will (a panic with
+panic_on_warn), and the RESPONSE is never sent. Without a Fixes: tag,
+stable trees that include rxgk (6.16 onwards) might not pick up this fix.
+
+>  
+>  	response = alloc_skb_with_frags(0, len, 0, &ret, GFP_NOFS);
+>  	if (!response)
+
 -- 
-2.34.1
-
-
---------f76c3cbc752918eb2ddd3c2e8da20766fdcf629ed2a59e6cec25637707d44c07
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsCpBAEBCABdBYJrCtpYCRBCkCzGpVLSJDUUAAAAAAAcABBzYWx0QG5vdGF0
-aW9ucy5vcGVucGdwanMub3JnMPcH3sFolW/lVvgwPO2jiRYhBJC8NTVod5IV
-Rdc7/kKQLMalUtIkAACb7Af+Mqu5aPcpErgXgpPrmplUbYv+wVrTzeoKnapx
-f45DpNrLhBAETtQRDhwhad/u/jL9A95hw4zNjnShnLh02nNJpfphBbTY8Vqs
-TC9pyHb96cJyKg60xJytEx/f+zEFp0ztJswUuwdI6x8UfWmCkOAaiBhUeYZA
-YeYHcIl28eUbmgsLumFS3va46ZpzBjrfs3sec+e44Pl6Ow7TBh3YdB/0JlSK
-zI52B2OkPyLVVraCb8tj4OiJk5pAvA5ACcIwdFcpqb9W4VzOaIf+LsWMDvvf
-h6ontkwmMRt/NaGaQA6Od8buQRfmsGp43LsJDW2w3xJhV5ZTzyJN5ZEgOruI
-GO0w2g==
-=YIv+
------END PGP SIGNATURE-----
-
-
---------f76c3cbc752918eb2ddd3c2e8da20766fdcf629ed2a59e6cec25637707d44c07--
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127125250.1434-1-AeeSec%40126.com
