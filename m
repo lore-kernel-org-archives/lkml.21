@@ -1,76 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795875969;
-	b=neS8bzTH21DJNcnq7ouGyne4FSUCVJ8Q94+mh3yyZDvZOhQzOegUmTeyyrDzb2PCH2hN
-	 +79OmNc/q3s/6DRgD2C1Be47w4TvJPNoC14BAs9OzVqRv0ZknsdXLx3jZyeJA+iOqNIZj
-	 Ogrx0ThtPJMpyI7/jPoThpj7mJ8Iq4+i7ebeEydeiXGN613Gtjv5uwoX+Wa3A/z3bR4Wo
-	 4/AVOocodLEEZEIhTrU8sISe0Bsf/swgKXk+P8PEWIVMcszNfrk/fLkAYZXdJ+i7Hd0zg
-	 vNCtlEnzIBQo5PpPSFybHGOdTJnrnpjNVtykcjzfW2OAJveMXW0rkhFa3HWGVm7ptyA==
+	t=1795876066;
+	b=jfSUYFnTsofqOPN0nAoWjbI3Y9QEbJCLMjLlp4KtYb0GAQ9UyRJFpjgtj2RvhzbWdkm8
+	 RI5C7uHZmKbX5R0w0C0Eqx/DpXwwiu8py9GVkE4kabEp/RUpaFumCR/JpdgyYTqle1S5F
+	 we26GZKxQMiyBW0xiH2WMp8qdHCKYfsTybtbuGbgsJVUHF2XqvaCHKGnHMgWlIcz/l5ql
+	 A6TsgRKPrBwWdiCaTpRtGEAoZnxhsKm4EdUI3cax8zu8aieNYQ/UEjTAMeoNnYzmLTaKb
+	 l0Z3bQ3qORP82f1+1qpso8bpNeBrsznGqLR3r2D0JgwLvI9U+wuRAWv8wiz2lU7gtrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795875969;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=MY2uFTiPHrQMA4/9MXt16v0yoXdkAqWzROWuYVrR1UQ=;
-	b=ZZy2uGNKwbrQXn6QxyQiqKMzjbU+V4rSZkv5fqktHHH9+SSjCpCVM/8leQQuIlqyyfyK
-	 E5506Nz5CI1eHHVgW4dAc7fqelN3evOZ/CFkw2ZQlspkKMeEAH+lrmdfOnsShFoafKurs
-	 uL0nbDWGxCf5XoZEFGoeYX6JEy8PT7KqHrB6uUk5lVrGJuMxeqmnMB0Ugi0kcZeh3QocJ
-	 UvRZHbCbzzgEvAQmfmUAImHlj4I/FjaKih6HQLpYVjR1xCeokvHcZZBgF2hqdrL9uZO8d
-	 m9NWs8uj8Aq6HHjocGkgEZmv96kq5ry+Ysj1vNrPeVLVsMootNKyMyeHCRDqPUBsJ9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795876066;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=YxaWrVn6n33eWhiL/bZzA2e/NdKxWhMxiAZXgWJylYY=;
+	b=TIFT5WX+aXrsCqVrnxoakBH7Uro7earJ0WrPE8iyA7liclWwAjnmvE4hVzpOrpMwFZoX
+	 iQb8oyw/j5OFmgD4iLebbbnLRobs1zWWWG/HCeCRfHBTrIvcw7YPU2SPaCbtg+RJ3JmA4
+	 B/F1yTTV5jxF3qQPyJPlOQNKiNkDJVl64I5dndpqqPp6QQwSCd4o5tAQnMzWayDvDCObz
+	 0Y1qiwI6XvUGPKSEMYnPBv80WoqvrzWgSkC9mmkV5QJVhXJe7LCyjllflR+M7u/vxH70z
+	 oz+h2khxOvRVQacuKU711YYKBM3qfJ89FNGPxoDk7e2UnQK91Ev9UKqzb32Q3J9ZbrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=H1IQPEsW;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UqXgLHxZ;
+	arc=none smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBDF5606A31F;
-	Sat, 28 Nov 2026 14:26:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBDF5606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A64DE606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:27:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A64DE606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=H1IQPEsW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795875969; x=1827411969;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WuqgJ38tny/WpKpeTa0Yrp3OJgllRuWAxpM8lrzahPk=;
-  b=H1IQPEsW6INnMz5ytewY/MYXdvInQXbVegad4d03UW7KK8ohQU0u3GM9
-   gVzL4/rNnnrePV3xDHq6DiYqavZd+p5RyI0K6W3/AtmQclxNWwqN+/lDb
-   6YBtw7JmSh5YS+3IehfIrRTlRJrlLhuP+S2SvjPcxI/M+eFIrKnvmMInd
-   ASn1aHkAmu4Or2m5lWisyujv8YYEgP6cJTxinhdG8UuQBSD6IuXT4TObb
-   JUOP32C7nANGu89CeNZDDcxR/azvE0WLHAzRqVS2Na9Ly29yJ2NcWMDRy
-   w+XXLARnTSS0g/B0n4+tslOCEQJQWaNKiHv5redgyfU0LOejBlbrY3KoL
-   Q==;
-X-CSE-ConnectionGUID: sdUwH1uYQtmrIW6mE2U6qQ==
-X-CSE-MsgGUID: G+8HnaRwT0mos5YtC0MKtQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11980"; a="4664035"
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="4664035"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 06:26:08 -0800
-X-CSE-ConnectionGUID: X1gJXZarTMycwgwdP9EMpQ==
-X-CSE-MsgGUID: x3RALWu1ScKjXOgtfqpnhQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="12819257"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by fmviesa003.fm.intel.com with ESMTP; 28 Nov 2026 06:26:06 -0800
-Date: Sat, 28 Nov 2026 22:15:43 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: tze.yee.ng@altera.com
-Cc: Moritz Fischer <mdf@kernel.org>, Xu Yilun <yilun.xu@intel.com>,
-	Tom Rix <trix@redhat.com>, linux-fpga@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] fpga: altera-cvp: Handle truncated bitstream with
- padding buffer
-Message-ID: <awriD1uAiBgmq0Rk@yilunxu-OptiPlex-7050>
-References: <3c1bb384cb9cd5bb35b3c7e68a4feab95ef4ad60.1794987679.git.tze.yee.ng@altera.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UqXgLHxZ
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b887ca9f5cso12912529a12.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:27:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795876064; x=1796480864; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YxaWrVn6n33eWhiL/bZzA2e/NdKxWhMxiAZXgWJylYY=;
+        b=UqXgLHxZd1hm/r4ldhii3WGqA3vrRbdeuEi2fbZBysuaiXrKfeEfD/YJiPdTbvex4B
+         a0eU+UFzIb94rHHXFahFNDd/nzk1uIszWKx2/WerqQGdpzPay994jv2YDXWqNhPxsRND
+         SqNyT5abmomc06bb7/5MQCAVPvXXP0F/oyXOl0F5sxoBMdyi4+6oakgH32IWjTUiLAR1
+         q5uLSKj0Tjnhm0QcB2EqQmxP+lCUZ2QT3a+0wUIXm+r3q1xZryUZLR7skNNa72uMtfJC
+         vrCQsOtulrKVgiZvmcQrZIT4ww+WSCz+JwFh1EvMUNgDwImZ1IR6lBYBBoPCo0cABaHl
+         5x4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795876064; x=1796480864;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YxaWrVn6n33eWhiL/bZzA2e/NdKxWhMxiAZXgWJylYY=;
+        b=StyedrtlMGJSEcUjDqShVctigLrdo8BuhqpqGnQVqF1ntJavMnyzpaLvAPlatlqbJC
+         JmwgxWFtNOiUaBiqerOaIh9XWYCHUa/QoeINdcRrRhMfAE4Pk9BviPmn7OjvS7Ux5YrL
+         whOpU9YnsZ/kNpAwMx02bHQarzQVO2q6QyutpXBte5cHGNulggt4gqOsjUkknLc/ZWUp
+         i304k5gRkVI05dhMhbHaQAck4mVbuc4YkVIJJyc/vsV3ubhAYv/fHSkMaEoL1IMBG4+n
+         iRxrKfXXVhSKTxsOk/EICkqVCT0eWYE1aWZNA3AdY+1L5nao5FJcc7k4ak7aO298Lb6F
+         DIpQ==
+X-Forwarded-Encrypted: i=1; AL+hErFKz7gq45SGF7tChNZpHme2d1awI+XKGqegex81VpZAweRo5SYh4pzhr28JnERZMAhgKA9Ka5Cpit0kTZM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8KsRKmpmXNh5WNk5KTKFwcaq/TxGqqI98frQ21VVJzK2Z5FBto
+	poxI+FnfKQla/lTc4DIUI6HcbG9JBOAvpuzn//iAkomSb2vPDGOx7G+5
+X-Gm-Gg: AZFdTZd190xpxxLrcVwd/FPG0d/VWylF3OW442d3jdeBvfQHfA3/+Cw0XuDST9eWrWZ
+	/EWGQDrehTNyY3eqtnKAUUfTZ1qeySl8IILkSv7mwW9z0y1AnOhs22WaM79QAqkSFfNoNdCF0dl
+	aO0Z2x3pgPBM/CYOGKNHY3XutxZieoVBidN47qIZabopPjY22OW948BZ4Yj7VoiMct0GY3mDA0p
+	zh5KHV9Jxw+3eQD7fw0n80hzl7hJpbRLgOTivO8phUwfpLetMTOXuHiaKpsTo/flzE4GPh6qwjA
+	VTdN2UMzOv0dQLCo5Cng+oM9NiOyMWuhfuDHbKtAiQxzjMy3nLhfg9biCc4/jvAzbH/TP/CdPvi
+	zPn3lGtF9oxW6ALo29R66Xtk0xxS1QRORo68s+O2TroqIb0WKlJ9GMjiDXfiFkokRJxMqIPQt/p
+	wmBus07iCM4oszEJfpr3Mifxu80ydTcHBBRoLB8eAxQKuNaHrwDtW8/j2iprPQqZ2Ge8XDWyT3G
+	AMBMVvBZ4Sex4HKe8GFEmbR+l+YLdDgR8LqF/qnLu/SGcY1HKD7HofQ+4m7J5mf9MubI3nzopfq
+	VwnS+FB2acetgne8oz8abrXby8TwJyXJZBphsaRhMgH3DNz8hGQxyWc/xf8GT7R7YWEbNBFK++P
+	S2/iUqZhIKnEGHWU/
+X-Received: by 2002:a05:6402:1941:b0:6ba:7b46:78c3 with SMTP id 4fb4d7f45d1cf-6ba7b46833cmr16806864a12.22.1795876063386;
+        Sat, 28 Nov 2026 06:27:43 -0800 (PST)
+Received: from kernel.. ([191.40.25.3])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e35ca6sm12448436a12.4.2026.11.28.06.27.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 06:27:43 -0800 (PST)
+From: Kunwu Chan <kunwu.chan@gmail.com>
+To: dave@stgolabs.net,
+	paulmck@kernel.org,
+	josh@joshtriplett.org,
+	frederic@kernel.org,
+	neeraj.upadhyay@kernel.org,
+	joelagnelf@nvidia.com,
+	boqun@kernel.org,
+	urezki@gmail.com
+Cc: rostedt@goodmis.org,
+	mathieu.desnoyers@efficios.com,
+	jiangshanlai@gmail.com,
+	qiang.zhang@linux.dev,
+	linux-kernel@vger.kernel.org,
+	rcu@vger.kernel.org,
+	Kunwu Chan <kunwu.chan@gmail.com>
+Subject: [PATCH v3 0/7] rcu: Record callback enqueue stacks and add torture tests
+Date: Sat, 28 Nov 2026 22:27:22 +0800
+Message-ID: <20261128142729.3756679-1-kunwu.chan@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,112 +107,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3c1bb384cb9cd5bb35b3c7e68a4feab95ef4ad60.1794987679.git.tze.yee.ng@altera.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 03:43:15PM +0800, tze.yee.ng@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> 
-> The AIB CvP firmware requires a minimum transfer size of 4096 bytes.
-> When a bitstream smaller than this is sent, the firmware DMA engine
+This series records the enqueue stack for RCU Tasks callbacks and adds
+rcutorture coverage for duplicate callbacks and KASAN auxiliary-stack
+recording.
 
-Only when < 4096? E.g. if a bitstream is 4096 + 1, it is good?
+kasan-aux.sh runs the auxiliary-stack self-test on existing scenarios
+and checks for the enqueue caller in the intentional KASAN report.
+Patch 6 runs it from torture.sh when both RCU torture and KASAN testing
+are enabled. The extra builds follow --configs-rcutorture. --no-kasan
+disables both ordinary KASAN torture and the auxiliary-stack checks.
 
-> stalls waiting for the remaining data, causing a hang.
-> 
-> Allocate a 4096-byte send_buf at probe time and copy host data into
-> it before each block transfer, ensuring the full block size is always
-> sent regardless of the actual data length. Also improve error
-> detection in write_complete() by checking VSE_CVP_STATUS_CFG_ERR
-> instead of VSE_UNCOR_ERR_CVP_CFG_ERR to catch truncated or
-> mismatched bitstream errors.
+Changes since v2 [1]
 
-What VSE_CVP_STATUS_CFG_ERR checks? and what VSE_UNCOR_ERR_CVP_CFG_ERR
-checks? why it is an improvement? Please specify in log.
+- Rebased onto Paul's dev branch at 68dcfb0e34ee. The previous callback
+  stack and duplicate-enqueue series is already in dev. Joel's Tasks
+  RCU barrier debugobjects fix is included in f9857faffbb2
+  ("rcu-tasks: Detect duplicate callback enqueue").
+- Dropped v2 patch 4/7. Zqiang's 6abf78ac6a2c ("rcutorture: Make
+  tasks-tracing support duplicate call testing") already sets
+  debug_objects for Tasks Trace.
+- Adjusted the torture.sh patch to keep dev's NMI boot parameters and
+  QEMU arguments for ordinary RCU torture. The dedicated aux-stack run
+  uses its own boot parameters.
+- Added patch 7/7 to accept the expected KASAN aux-stack skip in the
+  TRIVIAL-PREEMPT scenario. Codex found and helped fix the checker
+  omission while comparing the rebased series with v2.
 
-> 
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> Signed-off-by: Tze Yee Ng <tze.yee.ng@altera.com>
-> ---
-> Note: I am taking over this patch from Nazim Amirul, who is no longer
-> working on it. Nazim is kept as the author.
-> 
-> Changes in v2:
-> - Rebase from linux-fpga/for-next without code changes.
+On the rebased x86-64 tree, I built the RCU objects with Generic KASAN
+enabled and checked torture.sh argument handling. A 30-second QEMU
+run of TRIVIAL-PREEMPT skipped the KASAN self-test and reached
+SUCCESS.
 
-I'm wondering if you agree with all his code/log so you don't change, or
-you just wait for me to find all the issues anyway.
+[1] https://lore.kernel.org/all/20261118085147.1668598-1-kunwu.chan@gmail.com/
 
-> 
-> v1: https://lore.kernel.org/all/20260619040811.20038-1-muhammad.nazim.amirul.nazle.asmade@altera.com/
-> ---
->  drivers/fpga/altera-cvp.c | 18 +++++++++++++-----
->  1 file changed, 13 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/fpga/altera-cvp.c b/drivers/fpga/altera-cvp.c
-> index 103446465e0c..c9357cbe7fc0 100644
-> --- a/drivers/fpga/altera-cvp.c
-> +++ b/drivers/fpga/altera-cvp.c
-> @@ -82,6 +82,7 @@ struct altera_cvp_conf {
->  	u8			numclks;
->  	u32			sent_packets;
->  	u32			vsec_offset;
-> +	u8			*send_buf;
->  	const struct cvp_priv	*priv;
->  };
->  
-> @@ -518,7 +519,9 @@ static int altera_cvp_write(struct fpga_manager *mgr, const char *buf,
->  		}
->  
->  		len = min(conf->priv->block_size, remaining);
-> -		altera_cvp_send_block(conf, data, len);
-> +		memcpy(conf->send_buf, data, len);
+Kunwu Chan (7):
+  rcu-tasks: Record callback enqueue stack
+  rcutorture: Require debug_objects flag for debug-objects test
+  rcutorture: Test duplicate call_rcu_tasks() callback enqueue
+  rcutorture: Add KASAN aux-stack self-test
+  rcutorture: Add kasan-aux.sh aux-stack checker
+  rcutorture: Run KASAN aux-stack checks from torture.sh
+  rcutorture: Accept TRIVIAL-PREEMPT skips in kasan-aux.sh
 
-So you copied the whole bitstream just because of some bytes of unalignment?
+ Documentation/RCU/torture.rst                 |  46 ++++
+ .../admin-guide/kernel-parameters.txt         |  11 +
+ kernel/rcu/rcutorture.c                       |  54 ++++-
+ kernel/rcu/tasks.h                            |   4 +
+ .../rcutorture/bin/kasan-aux-check.sh         | 158 ++++++++++++
+ .../selftests/rcutorture/bin/kasan-aux.sh     | 229 ++++++++++++++++++
+ .../selftests/rcutorture/bin/torture.sh       |   9 +
+ 7 files changed, 509 insertions(+), 2 deletions(-)
+ create mode 100755 tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
+ create mode 100755 tools/testing/selftests/rcutorture/bin/kasan-aux.sh
 
-Frankly speaking, I really think the image or the firmware should fix,
-you can't produce a image that the FW can't handle.
 
-> +		altera_cvp_send_block(conf, (const u32 *)conf->send_buf,
-> +				      conf->priv->block_size);
->  		data += len / sizeof(u32);
->  		done += len;
->  		remaining -= len;
-> @@ -557,10 +560,10 @@ static int altera_cvp_write_complete(struct fpga_manager *mgr,
->  	if (ret)
->  		return ret;
->  
-> -	/* STEP 16 - check CVP_CONFIG_ERROR_LATCHED bit */
-> -	altera_read_config_dword(conf, VSE_UNCOR_ERR_STATUS, &val);
-> -	if (val & VSE_UNCOR_ERR_CVP_CFG_ERR) {
-> -		dev_err(&mgr->dev, "detected CVP_CONFIG_ERROR_LATCHED!\n");
-> +	/* STEP 16 - check CVP_CONFIG_ERROR bit */
-> +	ret = altera_read_config_dword(conf, VSE_CVP_STATUS, &val);
-> +	if (ret || (val & VSE_CVP_STATUS_CFG_ERR)) {
-> +		dev_err(&mgr->dev, "CVP_CONFIG_ERROR!\n");
+base-commit: 68dcfb0e34ee3a9628f6b5ce7e06931b5248bb9e
+-- 
+2.43.0
 
-Why we don't check the ret before and now we do check? Why there are
-many other reads that don't check?
-
-And I find nearly exact the same 5 lines, any reason to duplicate them.
-
->  		return -EPROTO;
->  	}
->  
-> @@ -729,6 +732,11 @@ static int altera_cvp_probe(struct pci_dev *pdev,
->  
->  	pci_set_drvdata(pdev, mgr);
->  
-> +	conf->send_buf = devm_kzalloc(&pdev->dev, conf->priv->block_size, GFP_KERNEL);
-> +	if (!conf->send_buf) {
-> +		ret = -ENOMEM;
-> +		goto err_unmap;
-> +	}
->  	return 0;
->  
->  err_unmap:
-> -- 
-> 2.43.7
-> 
-> 
