@@ -1,98 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795846154;
-	b=iaJmHBr6mRzBQTE+pmoLFOYB8aQfFGhF5rhPQO+UxvmBIcJflL7ZcwR5SvXgpsSQJyug
-	 KCmsUBhMotrEh+PoPWUh3tUfYVgq6GyUE1I4mmjVPlcKplR3iuU3pUHTxCYkrwP3abOr+
-	 1eTn3HXHlrLsANiNVN/949jsK2Gt3cXoONX8f5eROicToMSkNfYnGGRcDVg08GvZoinIj
-	 Ji4zlfgR4tW3Kpb/beVUK+cCBJ3v+d0a/BpkxIFJbSjlqWFY8LPEvkFF6lEk3SceW+MoK
-	 EvCQgJjtRrqAPYlcFpcmAyYy6/lCRJTyzGvnVqzqxyve7nYrgvq/p1pAon1lyWxseog==
+	t=1795846465;
+	b=Dqnu9a5/7SlZ0M69yf2jzVs1tE18oT1LJl/HiGQdQyXlj3IqlvT9DaRjmxbmvutpuofi
+	 YAs+oeUtGlZU36INZhYnOvirsfW8qWPDKGnHU1bcWTrc8wINFLHPGnPWeUpRZ2Pr+J9nN
+	 pkmHR95lBgS7mX0wDBtIPbsDtLvmuBr+lFv2pgdrlw7058a9B8zDdOEWbiSLtTy/o/RKd
+	 nFdinbiXZkkoNF4z/EJgXw8Q0/ieqjrnO1pRdH0HMdDF6gmb6RG0BANoVQ+qbPKg3vF6T
+	 mo5yAnVJPL349Rn/ISOVvxVDiLiyJKBcwccjIoj6KfGABM8IengIvuLVeSXLpqxbTWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795846154;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=nQ2O6ohYt8StqDgtNbo2hP/n3Jenud58IIFUvX2imSg=;
-	b=TBqB8+XBKRrPLXzuBVw+RyiH+/Q0J6KvDbRYWwQuerWkomeQlHliPMmRX2gcF6KXQ50e
-	 PS19Gsw5IslsftVszcO2Wt8WlnKGDfAyaz3BpAg1nBFnOE2br4hrCwGp2iNZwdMXrIX2W
-	 o7OjMtFh+LBLCjgwDR5wjxCyEmKBik3V7xCdIJyiy/6nU6kjO/ubNXqGkQCokR3q9vlkw
-	 pi+MTdGYqEGrSkNq47ksE9YDrUp+JZmOSxvDURG80MRhpAOEk/zJ4bCmyXr44FecJBPF6
-	 R++Vwr3kAsK1+pf7ptv0S70osYHiwp6ypt4VkkPKOsL0OTQl39gs+jqrQ2FJwNrFYaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795846465;
+	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=BpeYc5qapvr7db1WC0PM9BXoxCZrn7LTw/6t/OyLwrM=;
+	b=tu+jXMZmrae/+LOUb50iM+a+1mtTeX3BXLw9fx5numgTNCB6OFqnV9QsgQ9vC097thZp
+	 3r6srEguOXcc5z7f3J+jWlSxDPcNDPo59h/qjXT+efiNCPvRhTPTD1udI+rL61Vp7qhwH
+	 +Ke8+wsc3CrR71Yq9FZ/3qVt1WNJWsenmY1DOE/TcPmNLZViokuOlbd0J0NhEZcV+Gi9P
+	 UFPb0kbxarXEe0FI1RZkrh/8JADddgrWcpuUteTf5sFWOq7H8lqVK1mSf0jhS/IS0aR0o
+	 uYR6iNwaxcCfsVLJaju95sBTdjxw7RMDsTVjxcdwGL54UxyztRvI5dz1uFKILyp2TKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="hpeu6/EH";
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=huaweicloud.com;
+	spf=pass smtp.mailfrom=huaweicloud.com;
+	arc=none smtp.remote-ip=124.71.93.99
+Received: from dggmsgout11.his.huawei.com (dggmsgout11.his.huawei.com [124.71.93.99])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFE75606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:09:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFE75606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hpeu6/EH
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-386c71feeeaso5375357eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:09:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795846153; x=1796450953; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nQ2O6ohYt8StqDgtNbo2hP/n3Jenud58IIFUvX2imSg=;
-        b=hpeu6/EH1AuoMfRw2oJ6yRS0XG3jb8g7+4INvymDZDTO786NoYh0nYs5X7nkugYLZJ
-         7jlFYhQl8Z+w2GGBQ+/FXkUxEZaOUQ4j20E03Zrs+4WauRDRGOjSpM+7u885W9UXMeGv
-         4ojNOZ0yGsu8BF/7iHPP8VKZ8brkhe/TCvjE0RgTHiksbrTkDNdVnMRunY04himK9uAR
-         LuW2vOtyR2uQWqpBKgc8qRdDyEU63S+5hNui5CI+qoMBCfxqgyUhk444O1PKE0MYrGGf
-         FM4EucSA5FUL2NS8rpTIDVdg70ZpZAZYdbm/Phw/N1JBmJeRGRYdyBh0G5FtSY9Km5ZD
-         my8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795846153; x=1796450953;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nQ2O6ohYt8StqDgtNbo2hP/n3Jenud58IIFUvX2imSg=;
-        b=LOlEMx8s/mswrfbRx0V5Evg+L+xv7Vu6CyOuFLU2V2P5yrLzjqjh7VkfL8oA3zXJ0m
-         S4MHq/+JYta0/lIgZ2GO9OG2oLyZ7hLVCvB/gjTTjWCXOhdt3Nlm2HixUIoYnspQDVd3
-         pcW7ewA9lVacKRBssUdCVAfdXCOTVWfzbTBb2hqODpI5J6oo8kT8XHdtCMZ3wOY4fouY
-         N6IfRDlc8RLc1hfHwaWuS2vue/3lPH++jD9P8HTlc0Jy4AIfYz5Ba05r6sLEKFj3fsI4
-         5eFtEsCCIUjiituH3A9D4+TQpfB517kBzywZ65Dgi9uG6+iB/72mpowCCqkHZf2tMrEx
-         wIQw==
-X-Forwarded-Encrypted: i=1; AL+hErE0K2m2IYPnLUOpqZWR++HgWtPQugEtVWaU9KO7ejgNlEmfUdOXC97STEU4iX9OhUlppj/SeBSrWT6mkXk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Fgu27WP1+7K8aFTokhvleuntJz321SxKF6TldDXB/xMmct091
-	XgFTSSZAy4TKQlEFcRNJecEweCW9Suz7+Fap/dCbf+ppTtKKcMlP+DIb
-X-Gm-Gg: AZFdTZfFUgOQ77xWmn0Rw7M/0Z8/ErL4+vEoGwuNA1qoMr7eRxFtXdGmd6QJFpKI9ag
-	ira9g96K/ajkrQhZJxkzF6q6Lv4cHnIzfDRdJYVxX85eA4gXk+L8JDxBsukfttyKtKa4WrXklUI
-	ztl5GIIISFSWC9xnFJlu/5OsmCm+qR3PoIzjQW2iXBMGVXy4TvvNXOOyZ20XmF8w5SLwZTyh5nb
-	jdn4aCm7VyAr5qQFYOgzqdTgcFu9f3R1EGfgMNi5Ul+axQ/JDPt+aVdaHLPygjeesFrHezmy5aH
-	R1Tzn+5jVrJMUICGfwwCQtujFZYHPJz8ZdTWaBeIH/5UpJGMbadMUzAFrUHfiH+YlqYHE4a2uLv
-	oBRBr9rvZa4/DxPPwgpmlR+1WKP0LW5lv4DOZfYrVERNr+rV7QnEpFs3jGE4kFAmKTgjJsEP6yL
-	tC4C2lTCeBND/ioyEW+4/2a+STkbLZ9J4iPOLkfDbKpyZ/t85LcALa48jixRs497qFjHlPm7j96
-	fu/dg8aEv/nMjoQOJ3Uu+bVgxGc8b3ILDBkTS8AbULF0/n+L8qVZ8+C816KId9GkLam78JMDYJf
-	i6ItCY5AXrwCvMdOnpKW3AFllJlQRxEIBA63ZyuNZv5VEBvdmwP5mW3MyDhWBaUuSQP+CJYHg3e
-	vCvvBrNyKC2cRxfw=
-X-Received: by 2002:a05:693c:87d8:b0:386:b896:319c with SMTP id 5a478bee46e88-386b8963d3amr15639221eec.35.1795846152934;
-        Fri, 27 Nov 2026 22:09:12 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:aaa:5a07:6335:86c8])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm83886487eec.14.2026.11.27.22.09.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 22:09:12 -0800 (PST)
-Date: Fri, 27 Nov 2026 22:09:09 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, David Heidelberg <david@ixit.cz>, Andi Shyti <andi@etezian.org>, 
-	Rob Herring <robh@kernel.org>, Javier Martinez Canillas <javier@osg.samsung.com>, 
-	linux-input@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 05/10] Input: stmfts - fix
- i2c_smbus_read_i2c_block_data() check in status sysfs
-Message-ID: <awpwAc8i8VE29tt7@google.com>
-References: <20261127201050.3532488-1-lee@kernel.org>
- <20261127201050.3532488-6-lee@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D30D2606A31C;
+	Sat, 28 Nov 2026 06:14:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D30D2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggmsgout11.his.huawei.com (SkyGuard) with ESMTP id 4jc0Nb11wvz1c1Tr;
+	Sat, 28 Nov 2026 14:14:07 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 25AFF4058F;
+	Sat, 28 Nov 2026 14:14:17 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgDXKM43cQpr6dATGA--.2610S2;
+	Sat, 28 Nov 2026 14:14:16 +0800 (CST)
+Message-ID: <a27f5e70-8a42-468b-82e7-4a6d47969814@huaweicloud.com>
+Date: Sat, 28 Nov 2026 14:14:15 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,26 +51,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127201050.3532488-6-lee@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/3] Introduce a classic BPF filter cache for seccomp
+Content-Language: en-US
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, io-uring@vger.kernel.org,
+ netdev@vger.kernel.org
+Cc: Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@amacapital.net>,
+ Will Drewry <wad@chromium.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Stanislav Fomichev <sdf@fomichev.me>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Jens Axboe <axboe@kernel.dk>
+References: <cover.1795139109.git.xukuohai@huaweicloud.com>
+ <DN0AIFQ82CFP.34SDTH6ZFZC1G@gmail.com>
+ <309b8e49-2f9c-4a2f-9b40-8e7e7cce3455@huaweicloud.com>
+ <DN5F4EBDNESC.3UOJRTCXCL4HI@gmail.com>
+ <5b1c03a4-f910-4f97-af3e-1b8c328dd1ba@huaweicloud.com>
+ <DN6F6Y9I0QD7.1B49UETL2EKDJ@gmail.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <DN6F6Y9I0QD7.1B49UETL2EKDJ@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:cCh0CgDXKM43cQpr6dATGA--.2610S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtr4rKw1UWr4xWrW3uw1DAwb_yoWDJFb_Xw
+	srWFs8tw1ag3ZxJ3WUKw45Ar4kKryrXFy8JFy8Gr17AryDXr1rCF4kKrsa9FZ3AayxAFZx
+	Gwn0qay0qr9F9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbxxYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E6xAIw20E
+	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwV
+	A0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x02
+	67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
+	v3UUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 
-On Fri, Nov 27, 2026 at 08:09:59PM +0000, Lee Jones wrote:
-> i2c_smbus_read_i2c_block_data() returns the positive byte count on
-> success or a negative error code on failure.  stmfts_sysfs_read_status()
-> checks if (err) and returns err directly, so a normal 4-byte read
-> returns 4 without formatting buf (exposing unpopulated sysfs buffer
-> bytes), while a 0-byte read formats uninitialised stack memory.
+On 11/28/2026 8:33 AM, Alexei Starovoitov wrote:
+> On Fri, Nov 27, 2026 at 07:15 AM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
+>> The free path is dominated by bpf_arch_text_invalidate(), which sends IPIs
+>> to all CPUs and waits for completion. The wait happens after put_cpu(), so
+>> the task is preemptible. If the task is preempted, other lock waiters remain
+>> blocked until it is scheduled back and releases the lock. This can extend
+>> the lock hold time to seconds.
 > 
-> Return negative errors immediately and require sizeof(status) bytes to
-> be read, matching stmfts_read_system_info().
+>> After moving bpf_arch_text_invalidate() out of pack_mutex, the p99 VM
+>> startup latency drops from 2.79 s to 170 ms under the same workload.
 > 
-> Fixes: 78bcac7b2ae1 ("Input: add support for the STMicroelectronics FingerTip touchscreen")
-> Closes: https://sashiko.dev/#/bug/linux-bd87edf0-6f79-4318-8780-d69205787e7d
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+> Awesome!
+> 
+> btw every free still sends these IPIs.
+> We can probably remove them.
+> 
+> aarch64_insn_set() can do caches_clean_inval_pou() only
+> like aarch64_insn_patch_text_nosync().
+> bpf_arch_text_invalidate() is its only caller and nothing runs in
+> the freed chunks.
+> 
+> It can be a separate patch, of course.
 
-Applied, thank you.
+Yeah, I'll look into it.
 
--- 
-Dmitry
