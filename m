@@ -1,66 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.42.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795825610;
-	b=Dhg4dD+moOkfiUMOWlleG8xee4AICFAMM9Q6D+pHhDaVRc+s2fAPJ/CIzrpjaGD5Qc7L
-	 4B+SXL35t+LueeSMLNX099mYWwE9w2fZnxnJZmBU+14xlc2IY1I7Qi5sZZIKMJOwTa02/
-	 9gWwqRm89ab1ovA9ABYFNhboR+dtl+94oV9cqS6H6Knv7J78He+s3IEJvIUbL4Ax//++m
-	 ZRXZm+sOMBHIbSm0kYebFNKilWvQbxDClAMSiwVe85gVAZqDFnzMqDiGR+lRcAy7YVcO3
-	 n+TNiDsSb+FIkDI0ngGZ8NfXBow1ygfBytXPB76V/xQnrzMDtu9LWp/u7lwOBql9exw==
+	t=1795825660;
+	b=xqi4a/hDs8FIq489BMcJxzYC0g1rZb/CBV5XslrNeAwNazTKhSg7ab5AXVHNq6EK43a0
+	 9DPB1OA4kMS59p9FEbtFGs1ghHCFv5B9SX9ry6gTGtVOY6SiiJZw2wmj9NGPg1RbMOSOn
+	 LrmzQfQgcpMCCl8EhQh2/WcZWYbQjb4DUH1ks4gKbM6msYcUzxHbaDOrKfAa3UBgB8CYb
+	 7GDcwrCZaJIpjMAYyBpyax14b/l6UWQTT5KMkg0fttSrWbdGJRkIDgj79bPy/WcuCBgmm
+	 Kz8ophdV/fTmHRgyyXv2/NbAEO1k1x64Q0QGkOMpexOILVhNA2EJPOVvpx2PWKk5qsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795825610;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=ABybapq55FqvbJkvtP3uamYyGzXCYZHrbWKdOK5dFC0=;
-	b=EFw2wWtoqqEmVUNDAvXHjDMqtNCioWrNrxtv6O79/fjjZRIz65L3/GBamCbdUhUc0B2d
-	 mFuwt2GCn+gNEJPfNuPSfW/HXPkWzrUC7PfzBdWHEQa0RQ4zRE4Rn3Sh8xokrOLT3vei8
-	 1jKJDPaBRLWjdHVpxiLdzsMrY/PaMCmzYvG9weBAPOg6/HFG0fn9kpbha3nROcYxePMtM
-	 JT21JuMcw256u9DAyQtj4ZI8NwlKAlK60uRRj8WW9x0tad3b6HmiF2DmiFcubm0hDhDch
-	 CCBdkjUEUvRVSLtSqVPu+PcIuZV81PZ5ITynILERZsWsV2QcDTl5D4Gy1HUzJzCSONg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795825660;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=PmAsgEuxcUceiXNg69sQRPAQXrCE9XqCgcnntSDppbc=;
+	b=PHYI1iWcxMc9BV3QVgUwwQCsdrerxNHwwB1VmBCbPAJKcMgEUa3bpxPKJ/4FjvTUf/gD
+	 dv778fYg3rJZajXaCzDLenkc2dh1gLq/pJXFkBXalLLHTGsOA1ra48iEhfel9DDf2uYkL
+	 LB39W+/h7sEPgKlTiFw7n01hmZOHRFw4il81lZB9S0lt5mUgouqiAm9Nsf6zhDQNWluty
+	 muQ3EHRkoMvOpHOgCU6piaqJ8wxuL5sTigyTyLhQDEu8VDGD79wrjxOq7jGQkdGeviVys
+	 RDhreHVl4kstxWmT1pIE7IfyP3rULQRYmDEy4oypFvzQBSVYcy1kGlY/xbdbx27h7qQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=free.fr;
-	spf=pass smtp.mailfrom=free.fr;
-	dkim=pass header.d=free.fr header.i=@free.fr header.a=rsa-sha256 header.s=smtp-20201208 header.b=Ke0ZFa+e;
-	arc=none smtp.remote-ip=212.27.42.3
-Received: from smtp3-g21.free.fr (smtp3-g21.free.fr [212.27.42.3])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EOYlPsbf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2871606A31C;
-	Sat, 28 Nov 2026 00:26:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2871606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=free.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AE19606A31C;
+	Sat, 28 Nov 2026 00:27:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=free.fr header.i=@free.fr header.a=rsa-sha256 header.s=smtp-20201208 header.b=Ke0ZFa+e
-Received: from L30177.local (unknown [IPv6:2a02:8440:2604:bcb1:f5b7:22a4:6087:fc04])
-	(Authenticated sender: vjardin@free.fr)
-	by smtp3-g21.free.fr (Postfix) with ESMTPSA id 3666113F86E;
-	Sat, 28 Nov 2026 01:26:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1795825602;
-	bh=6xuunTwk8s9nzGN3zpOQxwbIi5m+uXRPmm7vN6fZ02U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ke0ZFa+eGJmx52/ko6MLSebhG8pWqCkTdmFua2NodJxMoa05LsDF5HQVuawR0DMS+
-	 T6vM2fbSB6A4qhYxzquEZP/9+HWbTGwYPP5pxDQ82HgEi14VveT5omzSPE9L+IXeiK
-	 ayVBjToq7xfppui9DfBxpDH6tYjb1XKX1xBV9d+McgjL0Dte1WMo+lgv3dvR/zvhf/
-	 s+/nui2tcWrxEGS6ufycSiAB2aXooo2boa2idslWt6J3FdBkX8Yk6eWzJwZJ9Xecul
-	 EkvSg0AOWLe+qXm8kg2IyeWRZ+2pQrJ27VwYI494AiolLR8Mr8+NmSHwgQCFsXj20R
-	 nCHRVwz5k8X/w==
-Date: Sat, 28 Nov 2026 01:26:22 +0100
-From: Vincent Jardin <vjardin@free.fr>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, donald.hunter@gmail.com,
-	nicolas.dichtel@6wind.com, horms@kernel.org, corbet@lwn.net,
-	skhan@linuxfoundation.org, rdunlap@infradead.org, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next 1/5] lisp: add LISP (Locator/ID Separation
- Protocol)
-Message-ID: <awofrlJOdFwFqj6e@L30177.local>
-References: <20261126-for-upstream-lisp-v1-v1-1-7382a4bcfd9b@free.fr>
- <179581834896.3135.15923750690737278293@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EOYlPsbf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EA171F00898;
+	Sat, 28 Nov 2026 00:27:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795825660;
+	bh=PmAsgEuxcUceiXNg69sQRPAQXrCE9XqCgcnntSDppbc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EOYlPsbfcCCilc8DyKbjd4AFq99WXqn3LRfn67aS9kOoSSzsNuPP8Wk6Xej0iC0y7
+	 sNW+UhPaUpG4NjoZqR5lYBsekFsL+vOpGD43hg/sa9X2PDP1L0Xnh+mtGsQTcRcaTT
+	 dMWqsi1UEuaIchVRhWR5ZGYK2rWjM0HXja4QWpTXo5k3tdRXR4e8MXXmBCKTqKBqIF
+	 352FQUFM0Hs/HxqBxcXdXTjy00YfbBOhB0xKamAJrq6yjo+NuAwbv6m13nxY9dD7L0
+	 xTpEFEZEKPRuF6eGHZW4irwIWzRpdasmsgWP7QUr79ozOZTqTlWc5fpXS/Tk99RkB2
+	 9W+PsLUubO35Q==
+Date: Sat, 28 Nov 2026 00:27:32 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org>
+Cc: development@redaril.me, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich
+ <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, Peter Rosin
+ <peda@lysator.liu.se>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] drivers: core: platform: Add
+ platform_get_match_data() helper
+Message-ID: <20261128002732.7c47a16d@jic23-hlaptop>
+In-Reply-To: <20261128-iio_rescale_platform_ids-v2-1-4c35f16c4f77@redaril.me>
+References: <20261128-iio_rescale_platform_ids-v2-0-4c35f16c4f77@redaril.me>
+	<20261128-iio_rescale_platform_ids-v2-1-4c35f16c4f77@redaril.me>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,16 +66,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <179581834896.3135.15923750690737278293@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi M. Bot,
+On Sat, 28 Nov 2026 00:22:09 +0100
+Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org> wrote:
 
-Thanks for the review. All the comments of the series (including Medium
-and low) are right and they'll be fixed in v2.
+> From: Fabio Forni <development@redaril.me>
+> 
+> device_get_match_data() retrieves driver data through the device's
+> fwnode. However, software nodes don't implement
+> fwnode->device_get_match_data(), so for a platform device that is
+> dynamically instantiated, device_get_match_data() is of no use.
+> platform_get_device_id() can be used instead, but this doesn't make the
+> driver code abstract enough.
+> 
+> Add the platform_get_match_data() helper, so that driver data can be
+> retrieved from platform_device's fwnode *or* device_id as a fallback.
+I'd have added a reference to similar cases like i2c_get_match_data()
+or spi_get_device_match_data()
+and perhaps have followed the naming in there for the return variable.
+Both call it match.
 
-Thank you,
-  Vincent
+Other than that, LGTM.
 
-pw-bot: cr
+Thanks,
+
+Jonathan
+
+> 
+> Signed-off-by: Fabio Forni <development@redaril.me>
+> ---
+>  drivers/base/platform.c         | 28 ++++++++++++++++++++++++++++
+>  include/linux/platform_device.h |  2 ++
+>  2 files changed, 30 insertions(+)
+> 
+> diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+> index 3593d45f4a7a..7db56ffbb6b1 100644
+> --- a/drivers/base/platform.c
+> +++ b/drivers/base/platform.c
+> @@ -1090,6 +1090,34 @@ int __init_or_module __platform_driver_probe(struct platform_driver *drv,
+>  }
+>  EXPORT_SYMBOL_GPL(__platform_driver_probe);
+>  
+> +/**
+> + * platform_get_match_data - get match data from fwnode or device ID
+> + * @pdev: platform device to get data of
+> + *
+> + * Get match data from fwnode if available, otherwise get match data
+> + * from pdev's platform_device_id->driver_data. driver_data is
+> + * cast into a void* pointer.
+> + *
+> + * Return: -ENODATA if no match data is available.
+> + */
+> +const void *platform_get_match_data(const struct platform_device *pdev)
+> +{
+> +	const struct platform_device_id *id;
+> +	const void *ret;
+To follow similar cases this would be named match.
+
+> +
+> +	ret = device_get_match_data(&pdev->dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	id = platform_get_device_id(pdev);
+> +	if (id && id->driver_data)
+> +		return (const void *)id->driver_data;
+> +
+> +	return ERR_PTR(dev_err_probe(&pdev->dev, -ENODATA,
+> +				     "no match data available"));
+> +}
+> +EXPORT_SYMBOL_GPL(platform_get_match_data);
+> +
+>  /**
+>   * __platform_create_bundle - register driver and create corresponding device
+>   * @driver: platform driver structure
+> diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+> index 3bd0f1f0d870..426148768b38 100644
+> --- a/include/linux/platform_device.h
+> +++ b/include/linux/platform_device.h
+> @@ -326,6 +326,8 @@ static inline void platform_set_drvdata(struct platform_device *pdev,
+>  	dev_set_drvdata(&pdev->dev, data);
+>  }
+>  
+> +const void *platform_get_match_data(const struct platform_device *pdev);
+> +
+>  /* module_platform_driver() - Helper macro for drivers that don't do
+>   * anything special in module init/exit.  This eliminates a lot of
+>   * boilerplate.  Each module may only use this macro once, and
+> 
+
