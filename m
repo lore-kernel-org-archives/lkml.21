@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795865166;
-	b=nU0hN3imaEToGPRqT/4jYYzPPHGXw0h0uALc0IrkYLMJOY9ioKsrqA67XVJ4lJxFsmPS
-	 gRsGJhv3ZB6BsIAvzJV8tTv+/zqkLO2L9hMfVQmYxSWdpe6yuFUIK5VVTkfbeR6JpcvXV
-	 EtlAjwwp7RVaQeNC9SNLKUmAKxHvID7JVlYrULdjrs4d0CIVltwk2/d6vdZzxQG1fY1RS
-	 TIECXLdPQwogIMny5nRXUylN4uOYSYzxw0KGbxQCmJ0R5vQeuS62sstiu+e95iKWOPMTA
-	 6tAWDR111UrlFvdsqoBUpDabbcY4MtypufbD9BRSSEcT8QLDsGCCX+uiSbHUMnKV3Dg==
+	t=1795865163;
+	b=LNDlCxI8ajIqohWh6TlxUubUr+sQdbuGpUQFz+3fbIx0MwJ8018kwPo1Ah2aH846yYqZ
+	 0kE4uzlOFEy4+mY90Pm2anq7kj+n+jxbazrUB9+gDn1v47/N6Q54J2lqjwds7sFSozXRo
+	 L45svkwyO2lS5GwpJn5bNyg+dxXdJUqexoqVCmjFq0ZtHYgyqOk/b4VVkAMhs++EckUaN
+	 w8G3whLuqRJk1dg4NsYNujLdD2S5x9A4FvtG1zCO05qaLSUhM+KgTjlg+PN3KsolQNjpl
+	 7c0cEVTs1XzWL6fh0jYXDW4ZUuJ1hcO/9Uy8qrzhe8+MhmCpQ5+qW0SZVYE5jNZhFMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795865166;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795865163;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=1DFYlrDF3uE1lFPUw88GuZ1Rh3mCYC0EoZqEahQW3+M=;
-	b=RcqXkUyHi9OPOloE/vgCXwsiN6VCbghLd2j+ctEW1AXpDO3cOP76WZfDrZ1pvwzufYdM
-	 dZK72YUWMAkuYet7RM8sZqbYVcIZsQpUncgRcHxdgHkhjYYAPDzm7FcDPKqvPzufXLb4q
-	 0UGp5zOBJcQabflUEHpc/cEMlOkYqd6xsTrfircRSkPh7K4BiZ0kVebdt8Na9YBQ1j5b5
-	 VKNahh76QaYQdErQQbLxgrm8CsNaNcn8zM/SAgcgRhUtOmO/QcZ+jMl8xWn2wY669pFWi
-	 XkShFqP6SEEI1CjIGGu5FEKxPRljZ9hDL17PikAMhU6aHGdpF/TdVicCW64FPFxYNFw==
+	bh=e0p66sCFiRDmHakXf0/+dm4/kpSJWzWCKHTUu/k0+tM=;
+	b=vIXBFzkvjh3MlVVjqKZeYTSUTnBnd4LR3oGHrHx17C8zyCU9hUkk19vORRZpAbEuDzw7
+	 OmE46scOTlUwcYXZLm4SKq8Gl6M0aw9LjrScwgjjJg5Kyay8kwoe5F00HQu90JFglcyWy
+	 fc43L4xxHTYP69BelZrqq3X5FNpidqcBIIaj6MR+BdpW3rDYfj2h1CFP59VdgvXSAzwXg
+	 ctn3RT0wh6yG5n2Clw3gdn0bUnUVyPi33JK119vSE5c6TeeKpp6ILPBt8/WJUFmCE1sVE
+	 tV0aFCrE97JFK3VB97uACk9Qgd4hR6uNEyVWGFXsdq0C8H0HaDEm6im+KKlORNyrAxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U0bNoOAZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b4GFCA4M;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E987E606A32F;
-	Sat, 28 Nov 2026 11:26:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B4A9606A31C;
+	Sat, 28 Nov 2026 11:26:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U0bNoOAZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB87A1F00893;
-	Sat, 28 Nov 2026 11:26:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b4GFCA4M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01AD71F00893;
+	Sat, 28 Nov 2026 11:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795865165;
-	bh=1DFYlrDF3uE1lFPUw88GuZ1Rh3mCYC0EoZqEahQW3+M=;
+	s=k20260515; t=1795865162;
+	bh=e0p66sCFiRDmHakXf0/+dm4/kpSJWzWCKHTUu/k0+tM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=U0bNoOAZCYl9lpxXDqw2aRNoB1/iPwcgpq1m//3FgkSOrkL9k3+Qaz2+UbngKEhk3
-	 p/nb8c22NW3T+UFSqQMQozoDSR94kH2iids0cUrbPNsl2v33VeL1KZt7oRjqZwTCto
-	 fCPKadzrzH9VxxTD04wy2t8aY9juM2B9ofY2fIpJYuA/0D+V/zgwlwcjhIxiP/mHr4
-	 0VLF0DgwevSCscB9s3zyKRAAGi/E6Dlxmb+l48TbdWnAEk2SPdxiTUv3IlnsS+Dtkr
-	 OoevmMZ32NDO/z+6FPBOuL/78R8g7VyaNUTrvSTnCEnhR9f1zoemUponsYy+oD99UJ
-	 V701opvNlUfWg==
-Subject: Re: [PATCH net-next v10 4/8] net: bcmgenet: derive the receive buffer
- length from the MTU
+	b=b4GFCA4MeTbZN22JpuOcUiXAZm+p9v69s/mV5Km8yJR+HI98GoOX0fUiCpZ7ZtCIQ
+	 l0lw5sH13VdNvlakzhv8KCncUdv/MA6z9KfCn0M8RhAFXcfRSCy2p194/D4sfP0ye3
+	 Xt/3w1m0+dQp34K3ik8H/H0R9BQOABdaxKzEUqQlKtpqOaj6N9rYNZcUaF0dBTXNtz
+	 zAXI1dVIqjvGPetPzUpt6o3eKF2aQ3MnlkbDUvwiXQA8Gl3dbSU8uiphxiVJ9VI19/
+	 Cn+u1k7bnmMhbT95dkZgOhgyK0F36p6v7By5WFs7lJpmJpy7aL5NsAUGw6A/2onOny
+	 efMPwTV5RuoBQ==
+Subject: Re: [PATCH net-next v10 2/8] net: bcmgenet: allow a continuation
+ descriptor without the alignment pad
 From: netdev-bot+sashiko@kernel.org
 To: nb@tipi-net.de
 Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
@@ -50,10 +50,10 @@ Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
  f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com,
  justin.chen@broadcom.com
-Date: Sat, 28 Nov 2026 11:26:04 +0000
-Message-ID: <179586516438.3135.112504100191824754@kernel.org>
-In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-4-749c7cc45d97@tipi-net.de>
-References: <20261127-nb-genet-mtu-nn-v2-v10-4-749c7cc45d97@tipi-net.de>
+Date: Sat, 28 Nov 2026 11:26:01 +0000
+Message-ID: <179586516149.3135.9738232664292864629@kernel.org>
+In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-2-749c7cc45d97@tipi-net.de>
+References: <20261127-nb-genet-mtu-nn-v2-v10-2-749c7cc45d97@tipi-net.de>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,136 +73,71 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] In drivers/net/ethernet/broadcom/genet/bcmgenet.c,
-  bcmgenet_set_mtu_regs() now writes RBUF_PKT_RDY_THLD (RBUF + 0x08)…
+- [Low] Concern: after this patch, the length check in bcmgenet_desc_rx()
+  (drivers/net/ethernet/broadcom/genet/bcmgenet.c), commented "Reject…
 
 --
 
-net: bcmgenet: derive the receive buffer length from the MTU
+net: bcmgenet: allow a continuation descriptor without the alignment pad
 
-This patch drops the fixed 2048 byte receive buffer length. The length is
-now derived from an MTU-based packet ready threshold, which the patch also
-programs into RBUF_PKT_RDY_THLD. UMAC_MAX_FRAME_LEN and the TDMA flow
-period are also derived from the MTU, with a floor at ETH_DATA_LEN.
+This patch changes the RX length check in bcmgenet_desc_rx(). Only
+descriptors with DMA_SOP now need room for the 64 byte status block plus
+the 2 byte alignment pad. Continuation descriptors only need room for the
+64 byte status block. The patch prepares for a larger MTU.
 
 > diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> index 5c050331da690..15b7c8a525201 100644
+> index 7e78db243442c..67296eb22a5c3 100644
 > --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 > +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 
 [ ... ]
 
-> @@ -2653,6 +2677,41 @@ static void bcmgenet_link_intr_enable(struct bcmgenet_priv *priv)
->  	bcmgenet_intrl2_0_writel(priv, int0_enable, INTRL2_CPU_MASK_CLEAR);
->  }
+> @@ -2394,8 +2396,12 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
+>  			  __func__, p_index, ring->c_index,
+>  			  ring->read_ptr, dma_length_status);
 >  
-> +/* Receive threshold in register units. Covers the alignment bytes and the
-> + * frame, but not the status block, which the hardware adds on top.
-> + */
-> +static unsigned int bcmgenet_pkt_rdy_thld(unsigned int mtu)
-> +{
-> +	unsigned int len = GENET_RBUF_ALIGN + mtu + ETH_HLEN + VLAN_HLEN;
+> +		/* Only the first descriptor carries the alignment pad */
+> +		min_len = dma_flag & DMA_SOP ? GENET_RSB_PAD
+> +					     : sizeof(struct status_64);
 > +
-> +	len = round_up(len, ENET_THLD_BURST) / ENET_THLD_UNIT;
-> +
-> +	/* Keep the reset default for the common MTUs */
-> +	return clamp_t(unsigned int, len, ENET_THLD_DEFAULT,
-> +		       ENET_THLD_MAX_LEN / ENET_THLD_UNIT);
-> +}
-
-[ ... ]
-
-> +/* Call with the MAC disabled */
-> +static void bcmgenet_set_mtu_regs(struct bcmgenet_priv *priv, unsigned int mtu)
-> +{
-> +	u32 thld = bcmgenet_pkt_rdy_thld(mtu);
-> +
-> +	bcmgenet_umac_writel(priv, ENET_MAC_FRAME_LEN(mtu), UMAC_MAX_FRAME_LEN);
-> +
-> +	/* GENET v1 maps other registers at these offsets */
-> +	if (GENET_IS_V1(priv))
-> +		return;
-> +
-> +	bcmgenet_rbuf_writel(priv, thld, RBUF_PKT_RDY_THLD);
+>  		/* Reject lengths that would underflow the SKB build path. */
+> -		if (unlikely(len > RX_BUF_LENGTH || len < GENET_RSB_PAD)) {
+> +		if (unlikely(len > RX_BUF_LENGTH || len < min_len)) {
 
 [Severity: Low]
-The commit message treats this write as a no-op:
+The comment above this check still says it rejects lengths that would
+underflow the SKB build path. For a non-SOP descriptor, though, it now
+accepts len values of 64 and 65.
 
-  "so the threshold comes out at 0x80, the value a v5 holds out of reset"
+Further down in bcmgenet_desc_rx(), the build path always subtracts the
+full 66 byte GENET_RSB_PAD:
 
-Before this patch the driver never wrote RBUF_PKT_RDY_THLD. Now every
-open and resume on v2, v3, v4 and v5 writes it, via
-init_umac()->bcmgenet_set_mtu_regs().
+	skb_reserve(skb, GENET_RSB_PAD);
+	__skb_put(skb, len - GENET_RSB_PAD);
 
-Is it known that v2-v4 match v5 here? That covers the reset value, the
-RBUF + 0x08 offset, the 8 bit field in 16 byte units and the 256 byte
-burst rule.
-
-The driver's own register map already shows that the RBUF block differs
-between revisions:
-
-  #define RBUF_OVFL_CNT_V2		0x80
-  #define RBUF_OVFL_CNT_V3PLUS		0x94
-  ...
-  #define RBUF_ERR_CNT_V2			0x84
-  #define RBUF_ERR_CNT_V3PLUS		0x98
-
-Also, init_umac() writes RBUF_TBUF_SIZE_CTRL only on v3 and later.
-
-If something else lives at RBUF + 0x08 on v2, or the units differ, could
-RX frames end up split across descriptors? At this commit,
-bcmgenet_desc_rx() drops those:
+At this commit, only the fragmented drop that comes next keeps such a
+descriptor away from that subtraction:
 
 	if (unlikely(!(dma_flag & DMA_EOP) || !(dma_flag & DMA_SOP))) {
-		netif_err(priv, rx_status, dev,
-			  "dropping fragmented packet!\n");
 
-v1 skips the write, but bcmgenet_probe() still sizes rx_buf_len from the
-threshold formula on every revision:
+So nothing can be hit at runtime here. Still, is it intended that the
+guard and the build path disagree at this point in the series?
 
-	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
+Later in the series, "net: bcmgenet: reassemble jumbo frames from status
+block fragments" sends non-SOP descriptors to bcmgenet_add_frag(), which
+subtracts sizeof(struct status_64). That commit also raises the non-SOP
+minimum to sizeof(struct status_64) + 1, which brings the guard and both
+build paths back in line.
 
-So on v1, the rule "A buffer has to hold everything the threshold lets
-the hardware deliver" depends on a threshold that is never programmed.
+The commit message describes a continuation "holding a single byte", which
+is a len of 65. A len of 64, with no data bytes, also passes this check.
 
-The later patch "net: bcmgenet: split frames that end just past the
-transmit threshold" adds an unconditional TBUF_PKT_RDY_THLD write on the
-same revisions, with the same v5-only reasoning.
+Would it make sense to use sizeof(struct status_64) + 1 here already, or
+to adjust the comment in this patch?
 
-Could the commit message state that the v2-v4 reset values and register
-semantics match v5? Alternatively, the write could be limited to
-revisions where it is known to change nothing.
-
-> +}
-> +
->  static void init_umac(struct bcmgenet_priv *priv)
-
-[ ... ]
-
-> @@ -4156,6 +4216,7 @@ static int bcmgenet_probe(struct platform_device *pdev)
->  	/* Mii wait queue */
->  	init_waitqueue_head(&priv->wq);
->  	bcmgenet_hfb_init(priv);
-> +	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
->  	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.h b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-> index afaccb7699336..b40e56872132c 100644
-> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-
-[ ... ]
-
-> @@ -218,6 +226,8 @@ struct bcmgenet_rx_stats64 {
->  #define  RBUF_ALIGN_2B			(1 << 1)
->  #define  RBUF_BAD_DIS			(1 << 2)
->  
-> +#define RBUF_PKT_RDY_THLD		0x08
-> +
-
-[ ... ]
+>  			netif_err(priv, rx_status, dev,
+>  				  "invalid packet length %d\n", len);
+>  			BCMGENET_STATS64_INC(stats, length_errors);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97%40tipi-net.de
