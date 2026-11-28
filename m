@@ -1,58 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795853090;
-	b=5Je+e9Cs7NIXf/QHYLoEiWwF/iTMNkUSX8L6TxfQXR3BQe4/HwF77OBX0YoO4y/JRy+C
-	 Ft66niTaDE6WkycZSs5WYajYtKqUpv4XhWoICPT2AVa7YAKxSlxwL8s8kvqp2+Qonwr/T
-	 WqOf2gfkmZGSA+srXDbEvvjG4+y9VephYperVxRKCJzf7HBcvy7XNs3f3pukM3zpdI0Zl
-	 jVOi0N7uwf0MkGk129WIdcunGnHOdYbnOshrkoFa6PFx8edtrzbjOQBqOVHjgTDyW/1m7
-	 1VMsF6wt3sth6RjPWgWPSxZicStgL3mGssiHAWwDKUm0IOqn6weqaBWlcgaco5hP0NA==
+	t=1795853256;
+	b=tLZ52GvhLOr8MhhL1hgwyqAaModbyNmOmwIzz+rhGpE5KLBIexaZQFoEY9AXyQKU72zQ
+	 MagTy+7ZHUh6bziQE4cZ5d2uIAiqX/iS2q+pJgmLHfqSAdIlE6jlPW8OkU1kFG69Mwj99
+	 LBYQIhEH1Mq1cF4YPgSJmfqFDXcmNTiGWvQ7YoKeyfAO6l+3wNJubxCZT36nYZaRaXGgG
+	 fvJo9t3oKoj6QvGte8qMubmaz830Jdp2nqP0RdSlT5hlcXbUFtbG5nfsNpfEFkJbdanFY
+	 UaDflnBrezBz+TxVX/wPe3IIEUzsyMjA5SD4bLpbgy9zZplUpHTfcN42A/I34Z9OVJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795853090;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=MEmK62uLXuWw4WdQtZl8BjBNwRsMM/P7sRqpkRfqtuc=;
-	b=SxA3uxbxscM+1e7UTNSsptzhCQ2gcvEs4tNgVvp1GcJAwzlzfJORefaVclW+BAFJnpxM
-	 W82eefEDzlIutUuxA2YFZ4Ma7+/bGg0jhhBwuDbupMQmrfjYLR+9Zi3pvh9iX+//j4H7O
-	 r0gfC0ynGin5LA+3WHxQElVlVeF85jGoJMrXyltTltL2EU8dS8GvvP9g8qrp+/eWYHq2/
-	 1BzU3QtK+udnjn0PTBfgUMpsm0Lz7LxFuMwpnytfabYY75uYnE4U5Hk4/P5mTP/TK+OB/
-	 iXSa17USU4JyFQ8VgaTPPQ82x+2MLojx2x8ZKLUUlipfbdti0Xr8Tb9xSroDC7scCrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795853256;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=OnTzIn2jKSF+Ir2yMa+jaLQwl/LmxUFwy2QAbjh4kSk=;
+	b=3218+2VdRfj6CmC3MJBsqQgAwigDCY/ZFYuMmMCo3RkEjYO0oFnnvLV3kGOBoUWxQEMJ
+	 Oo1KjVxYOPvrv7HGmRButUWmfIySwOvfXJsUfpPyU3a++67o9P3VQiDAoJwlDpfhdaZ0L
+	 oUZMP3qoI0la5kRrToH74gwb8yLIxJpNdkCwqYMM4n3Gio9aDGbbZJyXkHH4p7uvzKcKv
+	 t2CInuTCxo+nX8uB7C/uGaFT+dxbcmyu/3lfbBP50lWAj3ArHnRbzLwBJnIRT0ZURiujX
+	 WrxlHoEqItZjJzY7CGnrvYeE6FcRRSNsfW15UDIUdnJyGsrCtO5YU1cQvI2Fixm+4Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ftYq+aB3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=gyYXXEVm;
+	arc=none smtp.remote-ip=115.124.28.122
+Received: from out28-122.mail.aliyun.com (out28-122.mail.aliyun.com [115.124.28.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2856A606A31C;
-	Sat, 28 Nov 2026 08:04:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 531D4606A31C;
+	Sat, 28 Nov 2026 08:07:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 531D4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ftYq+aB3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 752A61F00893;
-	Sat, 28 Nov 2026 08:04:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795853089;
-	bh=MEmK62uLXuWw4WdQtZl8BjBNwRsMM/P7sRqpkRfqtuc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ftYq+aB3NOJ2EeyX8dRMQVMIIMpcSorM4DO5VbjACov9P/d7USAeqEq8S+XeP8Cma
-	 qyEzIQCXFjh+ihegTlZZi3eE0bN8Ysqb3gnvLlMQDhQuRJh4XD7PyKALFF7YaN4bLl
-	 5z8RvK9gH7sUXLw3dRwsBc4IrygVq2+/x4gf5E39nT7yK1ISSmXfA1RxQ3OKf4n7cG
-	 t4dRiQUYKGtsKROStjhUnptfiTdmNU5uWjSgo4mK0AbGKyHv87fbQoghXiPScQs94v
-	 MZ8DeMyqqJc3RctfkIcyryZbZx3KUJmdFNDT+Jw8CdZr5TAoeIBXKqcyPR/AcXnurq
-	 +xlZh/11UDSAQ==
-Subject: Re: [PATCH] net: ethernet: sunplus: spl2sw: fix OF node leak in
- spl2sw_probe()
-From: netdev-bot+sashiko@kernel.org
-To: zhaofeng2@cmss.chinamobile.com
-Cc: wells.lu@sunplus.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- kuba@kernel.org
-Date: Sat, 28 Nov 2026 08:04:49 +0000
-Message-ID: <179585308901.3135.3807804002976380282@kernel.org>
-In-Reply-To: <20261127074228.268-1-zhaofeng2@cmss.chinamobile.com>
-References: <20261127074228.268-1-zhaofeng2@cmss.chinamobile.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=gyYXXEVm
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795853245; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=OnTzIn2jKSF+Ir2yMa+jaLQwl/LmxUFwy2QAbjh4kSk=;
+	b=gyYXXEVmfw46jXhz0r3z+3MkusAFBQoF1bD0iJxdiG7rjdekmzdaZunOOOxQ/g6Ool3nYdYj6AV6Blz4MZC3KwMOoSPog1H36nJmD51wJ4Ck7MXXhRAxwayGptpMRbkwgJg2WoCEcMRyfjVR++60gwL4ybKu0n+l5YCNcqj8Iv0=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07892613|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.0176764-0.000741304-0.981582;FP=16842467091372412336|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033071099199;MF=liuc63@xiaopeng.com;NM=1;PH=DS;RN=15;RT=15;SR=0;TI=SMTPD_---.kC0FY2a_1795853242;
+Received: from localhost(mailfrom:liuc63@xiaopeng.com fp:SMTPD_---.kC0FY2a_1795853242 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Sat, 28 Nov 2026 16:07:23 +0800
+From: Liu Chao <liuc63@xiaopeng.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	khtsai@google.com,
+	fangxy@xiaopeng.com,
+	Randy Dunlap <rdunlap@infradead.org>,
+	dbrownell@users.sourceforge.net,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH v6 0/2] usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
+Date: Sat, 28 Nov 2026 16:07:13 +0800
+Message-ID: <20261128080722.1469508-1-liuc63@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,133 +71,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Rework of
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
+  [PATCH v5] usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
+  https://lore.kernel.org/all/20261117090110.3263592-1-liuc63@xiaopeng.com/
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+following Andy's reply to the Sashiko bot on the v5 2/2 thread: 1/2 prepares a
+parse_mac_pton() helper in lib/net_utils.c, 2/2 uses it in get_ether_addr().
 
-- [High] The fix is incomplete.
-- [Low] The patch fixes a reference leak that dates back to the original
-  driver, but it has no Fixes: tag.
-- [Low] The diffstat in the patch notes does not match the diff.
+The two patches belong to different trees: 1/2 touches lib/ and should go via
+netdev or -mm, 2/2 is for the USB tree.  2/2 depends on 1/2, so it can only be
+applied once 1/2 has reached Linus' tree.
 
---
+Changes since v5:
+  - 2/2: the commit message wrongly said the legacy module parameters go
+    through gether_setup_name(), which has no callers; describe the path
+    they really take, through gether_set_dev_addr() and
+    gether_set_host_addr(), which return -EINVAL and keep the random
+    address picked at setup
+  - 2/2: as Andy suggested, make both setters warn when get_ether_addr()
+    rejects the input, so a rejected legacy address is no longer silent
+  - 2/2: amend the five configfs ABI notes: the raw twelve-digit notation
+    matches at the beginning of the input, trailing characters are
+    ignored, and the address must be unicast and not all-zero
+  - 1/2: unchanged
 
-net: ethernet: sunplus: spl2sw: fix OF node leak in spl2sw_probe()
+Changes since v4:
+  - no driver code change; only documentation and the commit messages
+  - 1/2: reword the parse_mac_pton() kernel-doc to say at least
+    MAC_ADDR_STR_LEN characters, only the first MAC_ADDR_STR_LEN checked
+  - 2/2: describe the configfs behaviour, name all five functions, restore
+    a Fixes: tag for 1da177e4c3f4 ("Linux-2.6.12-rc2") keeping the real
+    introducing commit in prose, and say "minimum length"
 
-In spl2sw_probe(), the "ethernet-ports" node comes from
-of_get_child_by_name(). This patch adds an of_node_put() for it after
-the port setup loop, to fix a leaked reference on the probe path.
+Changes since v3:
+  - no code change, only the log of 2/2 changed; name 331a2d82bcaf from
+    v2.6.7 as the commit that introduced the loop; pick up the Reviewed-by
 
-> spl2sw_probe() calls of_get_child_by_name() to obtain the
-> "ethernet-ports" child node and uses it as the parent for
-> spl2sw_get_eth_child_node() in a loop, but never releases
-> the reference, leaking it on every probe (and on every
-> goto error path).
->
-> Drop the reference with of_node_put() once the node is no
-> longer needed.
->
-> Signed-off-by: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
+Changes since v2:
+  - 1/2: pick up Andy's Reviewed-by, no code change
+  - 2/2: keep the separator-less notation "aabbccddeeff" working by
+    falling back to hex2bin() when parse_mac_pton() does not match
+  - 2/2: spell out in the log which notations stop being accepted
 
-[Severity: Low]
-Should this have a Fixes: tag? The of_get_child_by_name("ethernet-ports")
-call in spl2sw_probe() arrived with the original driver:
+Changes since v1:
+  - rework the fix on top of parse_mac_pton() as suggested by Andy instead
+    of open coding the bounds checks in get_ether_addr()
+  - add the KASAN report and the malformed address example
+  - select GENERIC_NET_UTILS for USB_U_ETHER
 
-Fixes: fd3040b9394c ("net: ethernet: Add driver for Sunplus SP7021")
+One user visible effect remains: the Cisco notation "aabb.ccdd.eeff" and
+irregular groupings such as "123456:789abc" are no longer parsed.  A
+configfs store then fails with -EINVAL and keeps the previous value, while
+the legacy module parameters keep the random address set up earlier and,
+with this version, log a warning naming the rejected address.
 
-> ---
-> Verified against current tree. Leak found by code inspection
-> (OF reference-counting audit of spl2sw_probe()).
->
->  net/ethernet/sunplus/spl2sw.c | 2 +--++
->  1 file changed, 2 insertions(+), 0 deletion(-)
+Liu Chao (2):
+  lib/net_utils: allow mac_pton() to take a custom delimiter
+  usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
 
-[Severity: Low]
-This isn't a bug, but the diffstat doesn't match the diff. The patch
-changes drivers/net/ethernet/sunplus/spl2sw_driver.c, and
-net/ethernet/sunplus/spl2sw.c does not exist. The bar also shows
-deletions, but the diff has none.
+ .../ABI/testing/configfs-usb-gadget-ecm       |  9 +++++-
+ .../ABI/testing/configfs-usb-gadget-eem       |  9 ++++++
+ .../ABI/testing/configfs-usb-gadget-ncm       |  8 +++++
+ .../ABI/testing/configfs-usb-gadget-rndis     |  9 ++++++
+ .../ABI/testing/configfs-usb-gadget-subset    |  9 ++++++
+ drivers/usb/gadget/Kconfig                    |  1 +
+ drivers/usb/gadget/function/u_ether.c         | 30 +++++++++++--------
+ include/linux/hex.h                           |  7 ++++-
+ lib/net_utils.c                               | 19 ++++++++++--
+ 9 files changed, 84 insertions(+), 17 deletions(-)
 
-Was this diffstat written by hand rather than generated by git
-format-patch? With the error paths noted below, is the "Verified against
-current tree" note accurate?
 
-> diff --git a/drivers/net/ethernet/sunplus/spl2sw_driver.c b/drivers/net/ethernet/sunplus/spl2sw_driver.c
-> index b5ae950f6d5b0..ce1045813f9cc 100644
-> --- a/drivers/net/ethernet/sunplus/spl2sw_driver.c
-> +++ b/drivers/net/ethernet/sunplus/spl2sw_driver.c
-> @@ -476,6 +476,8 @@ static int spl2sw_probe(struct platform_device *pdev)
->  		spl2sw_mac_rx_mode_set(mac);
->  	}
->  
-> +	of_node_put(eth_ports_np);
-> +
-
-[Severity: High]
-The commit message says the reference leaks "on every goto error path".
-Does this release cover those paths?
-
-Only a normal exit from the port loop reaches this of_node_put(). Three
-exits inside the loop jump straight to out_unregister_dev:
-
-drivers/net/ethernet/sunplus/spl2sw_driver.c:spl2sw_probe() {
-    ...
-		ret = spl2sw_nvmem_get_mac_address(&pdev->dev, port_np, mac_addr);
-		if (ret == -EPROBE_DEFER) {
-			goto out_unregister_dev;
-    ...
-		ret = spl2sw_init_netdev(pdev, mac_addr, &ndev);
-		if (ret)
-			goto out_unregister_dev;
-    ...
-		ret = spl2sw_mac_addr_add(mac);
-		if (ret)
-			goto out_unregister_dev;
-    ...
-out_unregister_dev:
-	for (i = 0; i < MAX_NETDEV_NUM; i++)
-		if (comm->ndev[i])
-			unregister_netdev(comm->ndev[i]);
-
-out_free_mdio:
-	spl2sw_mdio_remove(comm);
-
-out_clk_disable:
-	clk_disable_unprepare(comm->clk);
-	return ret;
-}
-
-None of these labels drop eth_ports_np. Doesn't the reference on the
-ethernet-ports node still leak whenever one of these gotos is taken?
-
-The -EPROBE_DEFER case happens routinely. of_nvmem_cell_get() returns
--EPROBE_DEFER until the nvmem provider binds. Each deferred probe retry
-would then leak one more reference on the node.
-
-Could this use an unwind label that drops eth_ports_np before falling
-through to out_unregister_dev? Declaring eth_ports_np with
-__free(device_node) would also work.
-
-The next leaks are pre-existing and were not introduced by this patch:
-
-- spl2sw_get_eth_child_node() returns early from inside
-  for_each_child_of_node(), and the port_np reference it returns is never
-  released.
-- phy_np leaks on the error exits.
-
-Would a respin be a good time to fix those as well?
-
->  	/* Find first valid net device. */
->  	for (i = 0; i < MAX_NETDEV_NUM; i++) {
->  		if (comm->ndev[i])
-
+base-commit: 24a19b953e2a3d0ea5a8c4951a0ab8f32720c907
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127074228.268-1-zhaofeng2%40cmss.chinamobile.com
+2.50.1
+
