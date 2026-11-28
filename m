@@ -1,91 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795830799;
-	b=ReTM+r/ZcBlbSxOG6vut4iv33aaUyoe3iyEc7w9eiDffcVT/CFiYMp8mje5aqOgIJaI5
-	 D5f1DzokJYCT1WOWJ6SnZCpn56K75WhzIGeuvRqFdeGBg3u3aahMB0bf/Uz7UsSPKWO/J
-	 qHdR/GYxKogi/TodgW5DG/HJyQh9otXEnydH/E0ec8iPtzXGXWaajB1r+e89/tVCNaP75
-	 EbAOb0nFTcWND6RWkfzm+YZSprAphhMi83giayiYk7Zo43brgaYZQ6UJXZjvTeubFS+Uu
-	 Ming4K//6LoM8IAW9H5FkUpiq9Lw6dp8qo8/QSGF81O9Wdcw8f8/y4TqMem7Nub/a0g==
+	t=1795830910;
+	b=rKw8fp5wOWuqoU9GTS8C9WdL9xD1NjtAuM2K0xNmwI+LCEnZPkw9lm5OUZVOZkDdbwO1
+	 ECAtxRn2NrnTdbfgmKY0ksm9upNG+HS/vFCAXaZdV1OTGkqIkG7b/sBIpaLj/v7gRC0DD
+	 B3croF6jDrwGEMrpl96Bz40evar5HCiPrm1j3xEGmjotOV1X71Cm6sMDD9FfhEP1xP3rF
+	 e+oeAvSxg99mXm6kkZyl0VteOkxxvQ9h9xq6a1KrU+HwEPN9A3ej4DnD5a+J26NVNgQoF
+	 MK8WuFi9c77rXmezMwR6GZZJKwulESCAj+Bz5ig/pd5Ew49M+TNycs3kzzoPNH9B7nA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795830799;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795830910;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=hyZ/R6k/xIQG/tPusrclgUu0QXpjH1Ks1DGOLNZIqaE=;
-	b=HGfWlODsxQvI2ATwt6FTcc40yoXqTUHkmtEj3A+aatmtbxvvm3Mh+Q+0EruR7igLy8jG
-	 UHMRX7n/h5wFTjPfmG4YqqfXWj+6oq1BfnY9YpdMJvPKLiSown/sBgCFHJi234OeE1l/X
-	 wMDSxLcDyazR2QiejNS4z/kIeqYAcz/TB6p3QI0Ngvmc9X1fcxJ/9JSE5iBajYJT3Zs2P
-	 P02+EnnlrFRG0kE6Y0reAU5apAlF9mIjcD9usR6t634whPG3N7zYN4m9G8xDv3gC48b8r
-	 piH8PbLSc5zmJxM6ZnSFYNB27QV0ocSukJdXx353gglIZr9cTshoDh1t8Jnka6tcGMA==
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=yg+nF3/DHZWeCaclfzP17sLUa502E0ljh1IjEbDb6aA=;
+	b=VpoGXuDkGfwCCc6P02XIXuDV3MoCoT6Qi4HFMYjddhzd/t05i3zxSvqfmGYf/4zuhfWV
+	 ZIRb4Rj+CZEOiZOPSj+AdRdprzKYKIBAwgfFenf+5pC0D8nEdSnspk+N22ir2Lm2BBNj4
+	 hKOdwP/Wn2wR+tuvoVKgowhljlnE6IV9ScnFFot+qKSHbTnXW7ZsBEpBFhSQkCfaYjmT/
+	 e6U9jiXSrtcLHDq0zMzrSASS4E0EXx2mtDQgTyC75OIbtU92JXxaDbQLMz1rZdYefLJMI
+	 FH+DRqiZCZ8txLbW02OKqFmjruhrCPsqk+OkUMP5EkgsfA36IKNBtaf6p8zH0yA6VFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Nxjnecsu;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aRbNcXqq;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CEDF606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:53:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CEDF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92CB2606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:55:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92CB2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Nxjnecsu
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f02f04a426so69089885ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:53:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aRbNcXqq
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b41188c8b9so5868839a91.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:55:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795830797; x=1796435597; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hyZ/R6k/xIQG/tPusrclgUu0QXpjH1Ks1DGOLNZIqaE=;
-        b=Nxjnecsu6920Ks6n62WNYxsEUypFF6bQ4PVVqgMR71ygzC0qwyH71uv4eZqSNRSWY1
-         9HZTHm0nxweCElYkCDv7qqBTmH71Rt34D/+DrKSqZuWa3AGay1gk+vlBW14bX7ZRG4Sj
-         v+0UYv1j3SJ7rJYcmzjgk1eK3+RYZzcPWU98o=
+        d=gmail.com; s=20260707; t=1795830910; x=1796435710; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yg+nF3/DHZWeCaclfzP17sLUa502E0ljh1IjEbDb6aA=;
+        b=aRbNcXqquXrzlHDhQ/WiHF1nWVm7wRVifH0QKrfHvm4lRbtM0U8Dd7uXsDC7/eU8XP
+         paZjJ192mFNh+jFDIHeh6MpMtFXXHw63KsgsAI2aMQ3DQ0uMnb/2jieMB24cRQi+wY/v
+         d8qk+NW/uO0jfWpzoSPD7lAkj6DWWYWhcgPMXfdS9rAaZH47o7mfBoednZPfRWx0J+a9
+         2MDQVqHcqgqhhwfCN4lSuLJYoyDQ1x4HK+QwiLY5FxUjOw+bQ0fQSeryHhxY5x9qxJwP
+         6khDFa7yZQQ3F0wKgBb5ju4qWXKxGVb5Kx7p9Inv+s35Dijngb6wUYitDGyFSA+A/Be6
+         uX+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795830797; x=1796435597;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795830910; x=1796435710;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hyZ/R6k/xIQG/tPusrclgUu0QXpjH1Ks1DGOLNZIqaE=;
-        b=J/l6KAONOa7AfNaUxMRmTtS6kdxwDbzQFgNZlBVfi9NUpJAB1aDMeAzCJs8aqPkjZs
-         mfh70K/f7YSidGEZzqRTod/cn7oA3tRsKMxR0RRokPZKf4t/3G223oFuz2r68cr/AdIW
-         XKpYrU+oslSrWg7xZ2gcA7Cavy5yskKbSHpazLdLCuq6jG0V/tt/7IWMjqXaLPdz+IO9
-         tJcTqxq8vJ+F2FQOVc7dqI10Q7twGI/VJB0VYj9wlIGumCdz7F6BcXgRGLICXHynkbZk
-         Lk87ea24roirUWe+eiUSOlWilddRzYt/H2rNLIPfs+oGdb3bV5l1gfk/XTbPqkTYNA7Q
-         KT+A==
-X-Forwarded-Encrypted: i=1; AL+hErE6Zk5z5s04KoIw8FkbH5TEX9/JXQJetfGGcfwlhWvddUItFv6hlo85BQ1P1uF6iqO1E9wcXic+B5F57w0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z813imXquQfr1E5mWrPeVQpMVsS2M7gUh8HrcEQWUtn+gkDYvmr
-	3CYP3uOHwhftiucd0TPLlTEVGbqpKCjfclXpGcXN3QgO2Tzk51qKgHz7gj+ZoKEveg==
-X-Gm-Gg: AZFdTZeYKv3AYj31Ficbi2ZAmLqg4p5XxlO32Yo4MucwC4lKcpz9tUf7dlaag8JBiTq
-	4pVT9dPxp3adEzvqxFuKmi0tKl7NuaW6Rc3V16Zm8kwmNCwTenjCxh7c9ZMDGHOxEu3a5DnktKL
-	eHgd6xp3sbpqpekx76KJRkatSEFSWefJuHZ4Pn/l6hNGpCW0+jmTfzIVNWDLUTVqiqSeWu7k91L
-	l4UgESt2dJfYHY1ozysPbCUUjHkUufYZM4gEhwk7Dwc3QXcQmcSEibH2xbrubQsmDmpi5bV3Rss
-	4KZKa+I4Sw40jUnIWl/0cAWM90B35G5XxVZqq62ShUawNO4gMblgMhQ7+/Ac8JAqRdasrp0awio
-	JfRaYKWenLwDUnxo1aArPgoKn/a40ZimzBtADGeA/Y6WAIEhnlqwQxoZDm94ixpHsCITsx75dKp
-	x7a6Az0pDD5O2eaPuKOcUi4lEg8MCRVJRPdT8P8q+Tjv9jI2/PpS2w16LncnlwnStH581YK2djT
-	zHcTRgLirMb3CpMBoEOQs6dZugP2+zWt2n7TZQW6tnvDXqH8HCG1cRpdGWEUDGilcbFI2csjpqC
-	gStpFFKH6SwZC5wYmbfPUrxYnpnPOmCKpYX1CAB/0rLhNFiN/BfsA69McrYRiQo2svljhA==
-X-Received: by 2002:a17:90b:3d4d:b0:3ab:36c4:b502 with SMTP id 98e67ed59e1d1-3b41c90329emr26496488a91.30.1795830797454;
-        Fri, 27 Nov 2026 17:53:17 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:6b7e:ff5:f0cb:5bb0])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b3c71192sm24769916a91.5.2026.11.27.17.53.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 17:53:15 -0800 (PST)
-Date: Sat, 28 Nov 2026 10:53:08 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: SJ Park <sj@kernel.org>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-block@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH] MAINTAINERS: add mm and block lists to zram entry
-Message-ID: <awozzzB7zkfAVBqE@google.com>
-References: <20261127031658.2049871-1-senozhatsky@chromium.org>
- <20261127185347.87793-1-sj@kernel.org>
+        bh=yg+nF3/DHZWeCaclfzP17sLUa502E0ljh1IjEbDb6aA=;
+        b=QnAnCPJ9OccHdcAkfOE0XEsyG6K7j5OYw8dyjuNTodE5dts/+KtVgYqfV3pMrbgMST
+         DKKdo+/Bd95QRCz5mdIYQFbPXbXmoZXJRjLXQnMf/Epq2+CN5QN/kC4mHIx4uEzDTFVh
+         Y5VgBKdo6BfWbAHRl+us7aRfG9FWa1Hz0zWRPO/wfrvPRQFKq0Hn+1y1hlVdjuvSv/O2
+         8LdQLAg5KXuF1o5cI1q55MSMj8ftxEI4+A7ILqyc+mKWPf5af4HBS+1BwHsDRbNO5Oy9
+         A0Bbhh9xoE60yP43fu+a78gLPNkG8HP3pP2VOzTaFxLHJZA3whX8PW9pkiIL+Y1G7auD
+         cPhQ==
+X-Forwarded-Encrypted: i=1; AL+hErGpBv7eegKWYzXLx4+Vib2vX96ztblPWdPYPwmK6JCVoGXBjqrW51MADo2Trm8pz3kDAZ53dtmF8sGJM/c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BjBs2a62H14U2mh+CCGJablnETbbHA0LyoJd6frfHQMglSOS8
+	UD7t2JplFDiuqBDWdaB8t4o/JgBl7iBijyefKFm2QfGHixelLJajA+Jq
+X-Gm-Gg: AZFdTZc6wVTSovfb/4HFLCAoTXOiQtURPFSR2dJIHwy64jIapXDvMvmHvJjiuAFiZal
+	OBs+uXwJlnl1j2x8ncxqx3ACSnTwbNuxwYHphx/asG2VSI0tq5WotYWKSNcL5xPE35raqYwjgvg
+	xVjVqo92Yw9Mdju5ZLh8C4Ym46GCUZFZmpObLKRy4hr0ojjVsV+yK06sckSiJw9K6LUAqXMVB/I
+	9UqoI4w22cjbWX2p4mvQ6c/WFB2gYdEsX3BURpOcte4mHIKgbpCc0LC7TJav6x9V81r8SlMwNzK
+	LXmY3IDpXGqQtWgp9djj+axO3cC+6+JIQV7f+Dp6vloyfy4Yd4ElqK59TZIYQX7emvB7RTgvQx3
+	k6nIvX6/BjR3FWbGwYBQZfHGeOsvhEt90jNAyXXcBGmL7+iJQxI1N7fI4uTRvI6ZQY6QkObM/Kx
+	Kc+hIIr7RtMH8VdqkCmm/NQAL7AYcsY25TgoKuC+WUfQ4sWOL7gEt7UiS0CUw1viXJghOcYML/O
+	oCCQyl40qxgPsCVFIcEZZUqykResEtgvsceVS5NjsYfb0IHmx5Eq51YxGGjRuGcwIG84drQtYv4
+	1zbDSy5HyDzSD9FoyjuhyQyam6XNG6GrM8dWjcZcsONSldVDI2gQajG0ygJuiUXkdWrdYCJbas6
+	d3W6OK3O72WIj+2haGCMZDJRfroIz5Uq1lQ==
+X-Received: by 2002:a17:90b:1a92:b0:3b5:32db:124 with SMTP id 98e67ed59e1d1-3b532db04e4mr5148880a91.9.1795830909886;
+        Fri, 27 Nov 2026 17:55:09 -0800 (PST)
+Received: from localhost ([153.61.198.248])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b559644e16sm116344a91.12.2026.11.27.17.55.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 17:55:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,28 +88,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127185347.87793-1-sj@kernel.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 28 Nov 2026 01:55:08 +0000
+Message-Id: <DN6GXEDDDMGG.16VXQP61BMM2P@gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
+ for user address faults under SMAP
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Andy Lutomirski"
+ <luto@kernel.org>, <bpf@vger.kernel.org>
+Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "Peter Zijlstra (Intel)"
+ <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar"
+ <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, <kkd@meta.com>,
+ <kernel-team@meta.com>, "the arch/x86 maintainers" <x86@kernel.org>, "Linux
+ Kernel Mailing List" <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.20.1-355-gf870624f6c37
+References: <20261009024925.3169077-1-memxor@gmail.com>
+ <20261009024925.3169077-2-memxor@gmail.com>
+ <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+ <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
+ <5f46d1c1-fdce-4f3b-9d56-675a822b2d65@app.fastmail.com>
+ <DN4X9KVYMONH.VHKD1QED1BUQ@gmail.com>
+ <03275761-8de2-41be-92fd-8e3012a87eeb@app.fastmail.com>
+ <DN5K8Y9824AE.3GPOE0WP9ELFN@gmail.com>
+ <DN6GS9V7A3HS.1COD0JUQQDHQ@gmail.com>
+In-Reply-To: <DN6GS9V7A3HS.1COD0JUQQDHQ@gmail.com>
 
-On (26/11/27 10:53), SJ Park wrote:
-> On Fri, 27 Nov 2026 12:16:38 +0900 Sergey Senozhatsky <senozhatsky@chromium.org> wrote:
-> 
-> > Route zram patches via linux-mm and linux-block lists,
-> > rather than through the generic linux-kernel.
-> > 
-> > While at it, fix a DRVIER typo.
-> > 
-> > Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+On Sat Nov 28, 2026 at 1:48 AM UTC, Kumar Kartikeya Dwivedi wrote:
+> On Fri Nov 27, 2026 at 1:18 AM CET, Alexei Starovoitov wrote:
+>> On Thu, Nov 26, 2026 at 09:30 AM Andy Lutomirski <luto@kernel.org> wrote=
+:
+>>> Okay.  So maybe there should be a nice patch set to *fix* it.
+>>
+>> [[...]
+>>
+>> The main point that it's orgonal to this patchset.
+>>
+>
+> I was wondering whether one concrete improvement could be to emit BTF typ=
+e tags
+> for __iomem annotations in the kernel, then reject accesses on BTF pointe=
+rs
+> formed using such walks in the verifier, so such programs would fail to l=
+oad.
+>
+> I think in practice, at least for BPF users, this will close the issue.
 
-[.]
-
-> >  
-> > -ZRAM COMPRESSED RAM BLOCK DEVICE DRVIER
-> > +ZRAM COMPRESSED RAM BLOCK DEVICE DRIVER
-> 
-> Thinking loud.  I was wondering what is changed here.  I found it is fixing the
-> typo: s/drvier/driver/.
-
-It is mentioned in the commit message, the last sentence :)
+That's a great idea. Much better than Andy's 1-3 options.
