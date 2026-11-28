@@ -1,102 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795866979;
-	b=L/Ye1fOKhDtiJ4b01RfzKozCJTSvFsi4wHP8zcwzUZl94LCl+xSgO47Hj9LCVXl1bQ8b
-	 a5kISWvLqdlcg+xlI6Ml/jJMzHh39FcCe6ZMBb5hRW9C0P0b93CZIHGZlYH1dloeXkJg3
-	 d//T+sTMSwpcBNLnvQBQ66NA6ImYgB/8CGo/r1En0eNIfBlANXaGztHEfdhwM3MJYpsO2
-	 kueaKj83psyFXLup+VfT3nMPZOL0S1FQt7auasqCxqHHSTJ43sop47awSLKojsXCgdJZl
-	 z/tw+FzLnL2LZufngZoteFr8cAg/RCn5d0fGM0MIlKoeb9R2+hMUjU/9UnwNMYXJuAg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795866979;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795867026;
+	b=KGkmVaA530ozzMLO4IVVlcS3dzlqtHUnpZ/E/2scv/UsfMXfP171qIpsLA5c6dRMhJX3
+	 gWb9qPvNj5tlT55XEs/RcsaeqnnZhznqKKlhhTDeit3IpYQfKkZDe3rpo5DI3mTu2DQbQ
+	 AoPYkhObd41UkVP31n61RENnvc6naLGohUizbQO0yEJzzBTAcUAE91QbV8Ro8mIlRNa3j
+	 ekjJVpGmbWaI5SbiWh55j5iCHQS6ywWFFJqFxjA1Y++CftZ0vTMUlvgDkuvVwOPo8Pn5k
+	 VQKkLjDBLlStpbwpnfybcJ4DXZwoB4tl0F+x/BZZp9eCLCWA5mw0VvZzQN+JYfqPyqA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795867026;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=IKfrKBdHp1p/3dKcSiRvczq1zRYGfEHZWOwCgXIb+40=;
-	b=WRFg/DLtFpGlPCUrvYwLUuTW2WQArRfvgYXK0aYpyjvHy8ZSgAuHXqCb8VAkgKHrknai
-	 IMgrZQ6Q6Yp7dtsY8F//UiwIe9zj+2suOLsJAUmwvS0E14nYiuD4Kr7+K8l1NjF1I/AN4
-	 M045TfkBGUcbXFCPoVB8txBjewezrBEmSR59URd8eT5W37QsWNtMmsWW2dd67U6xSm35L
-	 Iag6DPu8NF7K2MjQSz1gNAfdjC6vcjF0Dcu3N8j68IXntZbbrBt7iMbGa18TcaBU/gpwZ
-	 cwlF5IHxBp6Z8iDOA4EmNyjB1vo1GfjBufW4bJ02SVAQImMbTH+fMVCjhX2bpTnFqKw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e4ZvGN+v;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=pO+fkVAr0bqXpqb3slH6WVkeYcbxuHUYXnMSGnc23Oo=;
+	b=I6PH1oLyUYGw+jLW1Q2TXrChmUFOluN+x+NwDgo80LKKjh/QNyMywvI+QpT7QiZZAmMC
+	 HdfviIp3oG2abHc8/aDRTxRKPQaDhWS8tE8aWhrf0C9oIrBnu8ECXUARSacDpOQT+iY3b
+	 BzEGb0aVDmgVdLBBXRqCOegPjx7X7K2sb1nVojn9Dj4ZozunGdPScoHyfHVN4gm5v2dIy
+	 khpHUsqVCCDyHuEdsmeKqzJ9xlUcSibMjRzOKb/ajYTapuZTKsZMRM1na1mTLBedXJJfK
+	 s8j7GJ2w8qAYG8175d1vAetj38L7ye3Iq63HF2PuBIAzU6Xr2VWwlXH71+KoKFfvylA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=tomeuvizoso.net;
+	spf=pass smtp.mailfrom=tomeuvizoso.net;
+	dkim=pass header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kb9GGC1z;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3040A606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:56:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3040A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 551E7606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:57:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 551E7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tomeuvizoso.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tomeuvizoso.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e4ZvGN+v
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38190551625so16962478eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:56:19 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kb9GGC1z
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-921276742e3so80121856d6.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:57:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795867024; cv=none;
+        d=google.com; s=arc-20260327;
+        b=E6PWqnn88h6Z1V81NM3dxC5U3rezlwET+zLlt8F8ajaqxC1pqxsHoeg6rbc8NgZfBQ
+         JTqDT0c3i9eOLlrLpeKMI7RPA7Lgc5PsRfNLSHCnIhRt3+VG9YggQ3T9i14cvG8dhE6C
+         k2AHQ0jfonGpqTCjuzqoB6p5aTdkv6tZA0fwIhbOqEr0lqck/u4CbDYrKqLd5iuvvee5
+         EA8I+59BKR1YH4ktRjNl68nup3Abo4HYPBqnABqLJcwI08ZK0Q4Gj1BCp2GvxutPNq2e
+         GQOiueIh89ArRSgc57JpLzmrRTvAcV8yln12+NWa0Dcl6pGJbbkZ0sgjwU0XLtvdaLrk
+         1lsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pO+fkVAr0bqXpqb3slH6WVkeYcbxuHUYXnMSGnc23Oo=;
+        fh=wH5U/KuSDpOXQdZjsczi1zyvUiQ86sdX76PjytJAicI=;
+        b=XDQuon3XNxzeGuoLw2DtRwZflbVbWGEeTGhpc9QtIO0bn1Z3ih7WL/tfQEfHH6wHl4
+         yYtKF21SV64+nt2hEccEyGCrG1P71WJoJ059VZgDMHNnqMYFL+DI9/Np2aUYwdfA+Xnk
+         qfEpPrMyob3Z2vR3Lg8tGt1/nTJTyBKCfzbb8hNYTrmPipZ1KduNj06S6dvwoj/YLEND
+         9RvgNGnH8y+oNmXgtrXD7cg6Y9Og+5JrQu+LbtXoHhINb4ffGjUSrfYpBXmFd9mZgkZD
+         +kt+tUa4ARmvdmp/WPReN3PrRTY0fH4XBuVVaNmMukr6U2LN6dnBvLj8IO0CBwQE5qDA
+         iPNg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795866978; x=1796471778; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IKfrKBdHp1p/3dKcSiRvczq1zRYGfEHZWOwCgXIb+40=;
-        b=e4ZvGN+vto5zXBUNPA6YbVWLUF/1ivFDEsyf9G8oshmjO5VjoW56dNfcyUFBP1DrwH
-         BTQRsLhr5kkPKTCUOUYEUEURmuKMICwSmt/2dsCD1K7mGfOTxgVRJ0sSOuTauyxrb6kw
-         JGn931WeC5W8+OtDZvSVqlBlQXGg5VAWwHdK2i8Z8vV5vwwTcsxtAio0snR2gprMgaE1
-         2a5TgTTpbSdSJDnD0RKzRDSATmPpDvFvJTNK+2oY4khqGkMCeD1CYYeH3cmhLTpgwSU4
-         Ia0p0bxaiZNcFJj3M1L2rTjjnn0vjBGmQ8W8yoE8g0G5mDV673WQ17/D4En7Z9QyR0/p
-         plvw==
+        d=tomeuvizoso-net.20260707.gappssmtp.com; s=20260707; t=1795867024; x=1796471824; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pO+fkVAr0bqXpqb3slH6WVkeYcbxuHUYXnMSGnc23Oo=;
+        b=kb9GGC1zfon7OiQDTIC10GH9+r9zFH4KfUqMRnsH+suM1/NpoQU6PAd2vA8fs3gq9E
+         Zr3aH5AwuUYrcKOfEvuj7dSuldVy/gaT3X2Ojj5zgQrsQx6hmUPn3bPr6PjPjFqeydAf
+         5MD/wiS8Vt7iCl13DTIITil/SLi43LtCkH2NF+0O2YKoRnpx4lCct90vf9WxVO3PU+eN
+         qPQRTjBeDp5ZIQWEOzdNrzycKOBiLaeE5DOE0ciSxixTXHdNOdHTZVH3JGq8UOh4WYBX
+         5oJQl8G3DPAFTz+mscPeknLulHTZFQ6U4Guffb5XVV6qyj/uaIYaJk2GpxgL/FtuGlIs
+         mG+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795866978; x=1796471778;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IKfrKBdHp1p/3dKcSiRvczq1zRYGfEHZWOwCgXIb+40=;
-        b=jrkzFwBrxCpio+LAB9QKtK5TkYrpBe/QLFMGkyQ8S36LDigNUEJHqVN4GT3mmlCuZu
-         lSsozX2SWw1ZsTgGoDvPSsKRDwjmMekYAbqGixxDwPtEbp5zgRDYknV+ZB3sDhjo8nfr
-         HJHyGcnrDBYL9EOTFqCCfzyWsO0KSC88VGjJxiQZbjmKi7YTjjJ2ZVTJZWJR5ZkZpu8b
-         idqw4gLwfYwfZ8s5bf6Rj/SFolQy8zhw4HD2bnE/vKWJ3O1eHMZsxT6u5Yzx5U75rox2
-         byBKHnc+5Qz1+xYPJLX/40syBsO27upqXFeF0WdXML0JKvZ63u9INNPZ57J3SOF11kT4
-         cwJQ==
-X-Forwarded-Encrypted: i=1; AL+hErHfB4eYjABoX4yF5Ay8i8Y9IBfhdssuTPJ/GSj2V2OqhlH7n91VEQF0nysnbSOzJV0KXzUFloNpctTDJ88=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/I5TZzz0Qmr1WuLxwUTD3eX+cM8disBQdYjFtYbNCOYotr84F2
-	HthMR0ZXvw5vx5bQRNBi7gQRZGoeQnXIrJz3/wtN7Rxddi3mvC4wZIgW
-X-Gm-Gg: AZFdTZczMF9JPYL1Ew+JheoqM6RmjHWLZEKmglj19aq9N6QysseyHkP66tBQkmw0p31
-	G7Hj5LpgsVYtnaGqxk4EENdCo85bb3kDZYdA67ZiWivMZn5bl/4fggUK0LUosGtjZVlJCgqoEDW
-	RRJ8XsbLWw9VIzr6LCcuMisnxKUfqLUVX5CTDbkjbDtUAdzcuRwHK+loxfQ2BKYou6CzlXKdBaH
-	qSFxO8aSpq/+UNCNm0KeB2TvSM5Pj/uNjEtICKzr76w30TZLHCL2squCPnQdlViZRov0yu/kabT
-	/HWonVuIk6gq5LFgyPwA2AzK6W40jkOroK/4e4oHlWwGF04uK+EkG27dRcS0n9DYS2Xw6UY5+mM
-	r4ASxssORW+uztEeWPOqeCLbi3FbDnbiQys7wTR9ciDKbXeoz7bLneXm70my0dp6Xws4U+hiKmC
-	cXLMCLZHkNuBaTKp+TiOWtVR4i+RRwjUVXIYxzgzL/mK513npatEQtld44Yz/CmfgLic8AdDsfi
-	roFAnqutjPPSVHKntiKAbABgtpsXpk0MTTwf2+yj0WiMQnFpbqxrbwCylHKt9qwTvPO7Iciqc4S
-	QUMuCFXa4Wz4C4KwMGbRdFC0NIzON/kusrFvLyJ25N6fReE5hX986BKIrE3l25h5JFVMdWUBm93
-	v+4RqSHMRNz6Q5Vj+IO8kgJcFhP8aSQf5A3AGUsSEJzZ8Ja0YXJm8n9wJCUi7aztMGBQ5dyS75+
-	dhDbgvgRsnQuJAYK4m745kc5uaGW6PoXYNkkUiHDrkag==
-X-Received: by 2002:a05:693c:69c7:b0:386:b745:ac60 with SMTP id 5a478bee46e88-386b745b019mr15169711eec.18.1795866978349;
-        Sat, 28 Nov 2026 03:56:18 -0800 (PST)
-Received: from kapoor.iiserb.ac.in ([203.18.51.239])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm76783178eec.13.2026.11.28.03.56.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 03:56:17 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Gwendal Grignou <gwendal@chromium.org>,
-	Stephen Boyd <swboyd@chromium.org>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH v3 6/6] iio: proximity: sx9360: reject negative hysteresis values
-Date: Sat, 28 Nov 2026 17:24:54 +0530
-Message-ID: <20261128115534.558478-7-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261128115534.558478-1-kapoorarnav43@gmail.com>
-References: <20261128115534.558478-1-kapoorarnav43@gmail.com>
+        d=1e100.net; s=20260707; t=1795867024; x=1796471824;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pO+fkVAr0bqXpqb3slH6WVkeYcbxuHUYXnMSGnc23Oo=;
+        b=Jb9gksrM8K78WBSPC7ftIGXUU6AlOHkGzbBy/1l5GN7eROMplSuhHZT1iQQz1KnNN0
+         rZkTl6K/YuMxExVR9FbGwPWmbzRXmOHbjmQv1ZwJdR3smfcscrSWRtOQK6jQyhaN8qwT
+         gRe/fN1MpgbdpvXnJDA+NnO5Ky9vFqxJI8JP7C0G7UPxkQ+3tRGgQSCPScUdlDYQpDCp
+         vgRwER2Z4pEAI1ii48qfvOxAuKKfgTpoY7kWGpfjPzD5oMX/ABINbqXm2tFPuuN90yzH
+         FyTHk0mQDInsn4fOjmjSn8ehhuXamCf41787iGAIJniHUrwh0gRaU8yu4+j6EfqaSdWS
+         YtMA==
+X-Forwarded-Encrypted: i=1; AL+hErGZtNKhG2sYoinQnNAWRf/ZK/MYeCVUAvLIX3MGtwaz1ylTE2vt+zyZfL+LkCYXllx7+M6ueJ3vWjhE3sY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9vKyJ9SbLvrYIW8grC696lvNDKEk60DslQitlP0NG4gzQ0JevS
+	ZSMuFIvsUIzhhNjpGcHevmWAl5qz47+VpY0IPM+D6sau4Ap6fUd0W/okTKlsY4gguNIpAJDjLRO
+	e0z0ymR6ga3whC6fBW04Xr48dMdZjI5HCkjfB2h5xGQ==
+X-Gm-Gg: AZFdTZfTIPeMUUVH+sWB0k8agbnyOCEsziVxU99L2s8nutMqOwfx4YxzcDA/9VFZ8OV
+	Fe3Sw1gXyD8pJXXBDImqxUpOv9HR7Lx684gmtQ8LnTmNcCdkuaPaW/cFKweUxLNwy+kNZFWMiWU
+	e7Y2uVt/gS4n9rkSVi9FhR8ISuqszyeGmQUmB9YfkTUrkSxH9wJGtEogEOvErsfAoi0m8/7EkNk
+	UP5SXQ+lxTWaFwtmFbR7UeLct7zyTYgvYLcNyn39gMLlLcAG1vuTfrRndSR2mbax46QRfm9WEcL
+	KYavDGYvCvvKEn/TmDPIdolXOQV0dJAS5lx/kCXNgHL6QhTKjlGxF5xhtKT+8XMRi0nVJlEqGJR
+	HtSuyIG2jquv8yU/Sva9DLN2SS2AG5sbTGQYWyd4JfRKfRG2tloHwhIOyU4/1IXHUGXl93m6tTC
+	yUoR/5ESWPR5cjZ/uGGbVESg5n2miKJIUmu5vksnyX
+X-Received: by 2002:a05:620a:44d4:b0:944:a46:5c1f with SMTP id
+ af79cd13be357-949ba9a3cddmr4674349185a.40.1795867024192; Sat, 28 Nov 2026
+ 03:57:04 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,42 +105,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
+In-Reply-To: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Sat, 28 Nov 2026 12:56:53 +0100
+X-Gm-Features: Aa3M54qNBEqtPjZ7TGseKLEMTlgJZCDptZfVFaaN0whu0pURN15ayQEVcC1qRrs
+Message-ID: <CAPsqS2TFHzgZm5mdpQbS+H2za6fmHGinTR6sgzgOSAVW9evgvQ@mail.gmail.com>
+Subject: Re: [PATCH v5 00/19] accel: ethosu: Cmd stream validation fixes
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Oded Gabbay <ogabbay@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, sashiko-bot@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-sx9360_write_hysteresis() copies the value into an unsigned int before
-comparing it with the threshold, so a negative value becomes a large
-one, passes the "val >= pthresh >> 2" check and sets the largest
-hysteresis instead of being rejected. The comparison is done in
-unsigned int, so this happens on both 32-bit and 64-bit architectures.
+Hi Rob,
 
-Return -EINVAL for negative values, before converting them.
+On Fri, Nov 20, 2026 at 3:57=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
+ wrote:
+>
+> The series was getting a bit long, so I split out the cmd stream
+> validation fixes from the error path, close/unbind, lifetime, etc.
+> fixes. It's a mixture of AI reported issues, different solutions to
+> other posted issues and fixes[1] and my own fixes. It also adds U85 OFM
+> transpose, resize and IFM upscaling support.
+>
+> The series adds rejecting OFM transpose in cmd stream, but then a later
+> patch adds support for it. I did this so the rejection can be
+> backported, but maybe supporting OFM transpose is small enough that it
+> should just be backported too?
 
-Fixes: 1cdb4c47f7f5 ("iio:proximity:sx9360: Add sx9360 support")
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
----
- drivers/iio/proximity/sx9360.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+I think we should backport the whole series, TBH. Some of the patches
+you have marked with Fixes: depend on others that don't have it, and
+as far I can see these are all fixes. I have also run the series on
+the two previous stable releases of Mesa and haven't seen any
+regression.
 
-diff --git a/drivers/iio/proximity/sx9360.c b/drivers/iio/proximity/sx9360.c
-index 2d1525547ce9..b03149344e69 100644
---- a/drivers/iio/proximity/sx9360.c
-+++ b/drivers/iio/proximity/sx9360.c
-@@ -545,9 +545,14 @@ static int sx9360_write_thresh(struct sx_common_data *data, int _val)
- 
- static int sx9360_write_hysteresis(struct sx_common_data *data, int _val)
- {
--	unsigned int hyst, val = _val;
-+	unsigned int hyst, val;
- 	int ret, pthresh;
- 
-+	if (_val < 0)
-+		return -EINVAL;
-+
-+	val = _val;
-+
- 	ret = sx9360_read_thresh(data, &pthresh);
- 	if (ret < 0)
- 		return ret;
--- 
-2.53.0
+I don't know of any other user of the driver, so I think it should be
+fine to backport, specially as these patches close security holes that
+could be abused.
 
+Regards,
+
+Tomeu
+
+
+> Rob
+>
+> [1] https://lore.kernel.org/all/20260717061145.1478139-1-zhaoguohan@kylin=
+os.cn
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> Changes in v5:
+> - Drop all but cmd stream validation patches
+> - IFM upscaling also supported on U65
+> - Fix U85 shared DMA stride mode and mixed contiguous/strided U65 DMA.
+>   Ignore stale bounds for inactive weight and scale streams.
+> - Correct resize bounds for signed offsets and programmed input sizes.
+> - New patch to reject U85 IFM broadcasting on U65
+> - Fixes for handling multiple weight streams and U85 fast weights mode
+> - Handle accumulator size mismatch with IFM2 size and ensure ACC_FORMAT
+>   is set.
+> - Drop "accel: ethosu: Account for kernel dilation in IFM size" which
+>   wasn't correct.
+> - Link to v4: https://patch.msgid.link/20261029-ethosu-fixes-v4-0-4aa25e2=
+2578e@kernel.org
+>
+> Changes in v4:
+> - More patches added for existing issues raised by Sashiko in v3 and
+>   local runs
+> - Combined the 2 patches for unknown cmds and unhandled parameters into
+>   one patch
+> - Link to v3: https://patch.msgid.link/20260908-ethosu-fixes-v3-0-490fe21=
+5286f@kernel.org
+>
+> Changes in v3:
+> - Address Sashiko comments
+> - Another runtime-PM fix for driver remove()
+> - Add a fix for NHCWB16 bounds calculation
+> - Link to v2: https://patch.msgid.link/20260904-ethosu-fixes-v2-0-3767738=
+756a4@kernel.org
+>
+> Changes in v2:
+> - Dropped first 5 patches which are already applied
+> - Patches 11-17 and 19 are new patches with more cmd stream validation
+> - Add fix to diable clocks on PM setup failure
+> - Rework the runtime-PM to suspend after initialization and before
+>   drm_dev_register(). This simplifies the error clean-up in probe.
+> - Handle quiescing jobs before scheduler teardown
+> - Rework the cmd stream register initialization tracking to use a bitmap
+>   of registers instead of relying on initial state values.
+> - Handle U85 DMA 2D/3D modes correctly
+> - Link to v1: https://patch.msgid.link/20260827-ethosu-fixes-v1-0-346f9ea=
+8791c@kernel.org
+>
+> ---
+> Rob Herring (Arm) (19):
+>       accel: ethosu: Prevent command stream export
+>       accel: ethosu: Move DMA mode to src/dst struct
+>       accel: ethosu: Track command stream register setup
+>       accel: ethosu: Factor buffer bounds checks
+>       accel: ethosu: Fix NHCWB16 bounds calculation
+>       accel: ethosu: Validate secondary streams
+>       accel: ethosu: Reject unsupported commands and params
+>       accel: ethosu: Validate all feature map tiles
+>       accel: ethosu: Account for feature map element size
+>       accel: ethosu: Validate convolution parameter
+>       accel: ethosu: Validate accumulator input
+>       accel: ethosu: Restrict dynamic IFM2 weights
+>       accel: ethosu: Split U65 and U85 DMA length validation
+>       accel: ethosu: Validate OFM transpose
+>       accel: ethosu: Validate resize operations
+>       accel: ethosu: Ensure cmd stream is multiple of 4 bytes
+>       accel: ethosu: Require active weight streams setup
+>       accel: ethosu: Support IFM upscaling
+>       accel: ethosu: Reject IFM broadcast on U65
+>
+>  drivers/accel/ethosu/ethosu_device.h |   32 ++
+>  drivers/accel/ethosu/ethosu_gem.c    | 1009 ++++++++++++++++++++++++++++=
++++---
+>  2 files changed, 961 insertions(+), 80 deletions(-)
+> ---
+> base-commit: b4d01c788bfa50dc65ffb5fbc9db4135004c0e01
+> change-id: 20260827-ethosu-fixes-ee58386e9000
+>
+> Best regards,
+> --
+> Rob Herring (Arm) <robh@kernel.org>
+>
