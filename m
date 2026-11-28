@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795876074;
-	b=3xXBSF8GbTDC7Xaefr6ZLFxpRnFIPjXpPeS9E4WIJbury+3l5TKnyUrjPKZkl7F49mwy
-	 BXpwKbwRwYbrO5AgtibQgaLjkCRuQfXLtSKslQY44cf/B0bf9AxgQqiIbaHDyBn31a1NX
-	 dI1nnz4X9b0Gg5oEkcryDZbAeue/vuz3wxmv8fbAuMkeJe6bnXYOtYL4aNAKt8jNj8jpW
-	 RtHpUUNHtK7U2JJhStsELoojNdOq3f4NmXq33YC3bq3YPgMhBNSlD8JWMqL63Xl6UstHj
-	 QdVAIesKwOlLSEj7FAed5fRpOlxDR6pzJ/u1PQGu+iFH5hf+bhkbqOOP8pYQsHCwlQA==
+	t=1795876078;
+	b=TyoObMMuNhB/aiVlpawNGoy4AG629oPiCVGV5vZNpY62CRIUSOZJLzGhBWGtBdR7MMO6
+	 D/s5A5SJfGPCV3ezA6+LHDSfprG2aVkscuXX7VqkCXAZ5AcAD/ZEm7bsa2+al6Q4TCL4/
+	 nxwzk4caaVyMgJm1fOXKoM+PMrp3fhLPkAqvx35vtqghmTfyGLLWenvCV0XheDWHrKLWL
+	 SAfom4mOIe8wtVWe6F+vrlNbfh/6oUh6KEPvUbrD5aXpBNp1z+HJ0LSegH1rR7M28qaPD
+	 KA/Oj+COvmlBBrgXf/ElHZ2MaLFjKseZfem6qfvDBOqrrvE4cciq7wEntQUNw9KR5Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795876074;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795876078;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=MkgKFbzxRvqlDBlKVb19mgxF/hamc+QGmi07NyAUxmk=;
-	b=Q3ECO/dsmu9BDLln4leGrBRb0TwIgakJYQy4smHbnXVnNcIzPzvMRwOSzMxiXWRaR8ob
-	 4Se6S3AlRodyUtwgrl/02ZGzl+WnwwPFQhbfBSBqaqAWtK6JEZWnITXFTu/KAWC0cEteA
-	 NsTr/3Q2/rVzT/ChqnQJSK3cpE0/UdBqjd486WOY6DaQiGkG7Aph4Z2gzpkv2ix32jtGt
-	 CePzco/DKO/MI26rQM1SNstRQxyePv7o9yV6Tanb5UgwBfJlP5YChNxzBJ16KMjKvoQJv
-	 ten5W8yChX1c0+AvotrvG+07reMykYKkospoVrv2vLbpBnPIAlaobfqv7vU/V9B1bQA==
+	bh=hvp7TwQHCrNMIqm7jRQRWAQZXft95G4xN1Dkhbod8bI=;
+	b=S6JMoDOgqRU3flGPWqz9ki9T9pEnezLX1mhUCtLkxuiGZq4t4HsLcPLeRufR9S2GAu+2
+	 tEEi6M85YOZQKCQ7MYgRGltx5hL7bH/CnAvnFDWWYhAha0oJTI/jmtF85UsLCIJ+RTrks
+	 jL4l+mkFVeaMhoScu2ggsaNXdrydhoSgsqlpWK1wOaDCvmttmx2QnYl/GBBqSTsnWMuH+
+	 +0XN9qTaTOPYxUN0uMJqsAxaNMURjMcjBdgbT6EUvXUJqyrz1fSzDejJR08/piZOGhC0r
+	 /3+iEJGg6Vs6MKCC7evuMzJiyYwoEs0z2Ghs/yBfCyiT+aznQbB49ekU18kKNXyYN+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="rCu5y9z/";
-	arc=none smtp.remote-ip=209.85.208.49
-Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YzNflN9x;
+	arc=none smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39586606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:27:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39586606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C940606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:27:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C940606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rCu5y9z/
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b894a5ce3dso3527442a12.2
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:27:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YzNflN9x
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6ba12b00c76so9309855a12.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:27:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795876072; x=1796480872; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795876077; x=1796480877; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MkgKFbzxRvqlDBlKVb19mgxF/hamc+QGmi07NyAUxmk=;
-        b=rCu5y9z/rp7OY3VQW2Z6OFQD5U01/DHLLY4eGc8I09Ek9/D0uchdw84eR5ZRmrPxN7
-         gb3QnGZt4dLvOFcrMmqLV1/Uvz2SElZZb8MU2VtkmyRXpkY1xhl+mOlfov3PDi4P75Qr
-         4tcfVNusp2PeRAIzY8QUSW8FIb8G146D30PNDRcz/rRVV8wxvg7fNvp7LtyYvIEEnB6d
-         qy2MJQoc05an7AeVrrr4UNehmAwieSXhlhnitFsDzzxRYyQuWsQZJDKSP4Xw92IT7DSF
-         0P15CAhlG/Ik/z1Lo73Zf216Dyl4bSth/ixWaF7tZuKA5RdYYmUIcprSAkPmwRGjba7P
-         BOsw==
+        bh=hvp7TwQHCrNMIqm7jRQRWAQZXft95G4xN1Dkhbod8bI=;
+        b=YzNflN9xxjMkoLx8oCHUhxYeI78BZR01+EJWRQTgigjHF74qZzkfQ0SXnWpiS9fZrw
+         YqdfB/I8fWK9mT5xE/YM/HqYU5rbT7YYmyMiMRF4QruYkehor5yPq4C7ifDs3Qhpw9Hl
+         0qtRB7Bd6hSM8Q3laHsVpzWEHp6SZoZyFntxTfQDAMQRhtIYxZiVT95QLNvMOdPihjIu
+         ZjSOrrkuGLx7GUvzEFb01c3HIDEc+of5MixiWv6LzidPmC+U3RiVGF5NbI89IGaUsoiB
+         sBWdNoMECXguXEuqvd6oDcCr8cKHvam+/pKigVhalTDW9OVPY75gn1PrpvIoEdj5N9RW
+         VUQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795876072; x=1796480872;
+        d=1e100.net; s=20260707; t=1795876077; x=1796480877;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MkgKFbzxRvqlDBlKVb19mgxF/hamc+QGmi07NyAUxmk=;
-        b=rj2VjAidnXGZRFZfbv//EUvwBwzYFwd1Kwr/IsiCCbmVTd8iW/1DruKevh3ta5jKjC
-         esYph7zmO0oi7SZFT1LxXYm1cU2iaZPxdMPueIHKgG+9B8gkYE4YMQdGm0bG9Gk7pod+
-         Zkp4ST4OPNQLi1RWBddLHkFMZeTm55k3VBhykl/RGpVnQaWqJKza6+I7yP1LMiXKwUYn
-         /hCx253PZu3E1OBrg75T6cPJZKQG620QWKFLNMVNB6Vakv7QBqmtT5Sr7TFTEVKjUu5g
-         9vhuO5UjfLc16HNXdiX4XwU/P0kCZVv/6r6bNwObhnac1DEDMyIbW7SJUDRywSRVyVPb
-         d76g==
-X-Forwarded-Encrypted: i=1; AL+hErGlY9eMs2TOalxZc53a7kDiJStEzPHJcogB06g7Yif3J8LD5VOdxZYHp/ye4u0gMWoZmc5UiKCqgwYxK5I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/D31aD0MJrL+A2w4WLHqvehAD2MvFFNL1GPDg9sE4vmJtfGVgw
-	zIreXG0MYjpa3PZHJB8W9pobKp5alLEG5AxTHCewi/TwBCtfxB5wwwjj
-X-Gm-Gg: AZFdTZfDHlkqU7XsbDVL6FZaBIgHEx9z8L2A2wGEHV3amr3sXoUhvPzSi0y2GMOFFyX
-	7KCdNMUAuVGtErbwlBqpBTabDsZqmEnT+az2r7Mlo2qkdxG/c96MYV2/7KfE31Lt5WT0aLmXuc2
-	09ysYeU4DGajT9KLL5fP/kWqEAafby6M1nOHc316fqOp/trY3kiAeDuCzFG4P4BBNLd+LDZOUAu
-	aWx4c//6GgcIEcoiLu9U7Ytg14xGldBZrMf7bM5rRYJkAsCdg9ybDmAZptAyVd1yDWE9dmTSpaa
-	og2I1J/UwxOIMqfVIJwLlPnZ7a3d+L1w7Gag6dcx5H82STfj4EUvY9W8N4wd1o0Wt8mS0/I9Ylw
-	LsoUJ6DPXlxqi77vcU+tZmX5RYDD84BmRUbJJr29nCrRpVR+dhjVF+FQF5T0NCJ7uLhnWSbVEcP
-	IiZE0l6zvbmJqd+3chlDYzvcQistKDzopsF/dBAN7Flqqz68HamgU+9aQZlKsxXm4UV48p54buX
-	QXEwFQT+g+Q5zjJEh9w4YSSNw8nprEeFFSGCqimFx/bCy0cHHf0ZQ5ZITcWvMO7lMcq68MAffFn
-	NZBjod74ntmNgGHu2opoRhg3vRGA7VnIcYdagm06BBLWNDdSrACKwFFIGjRqwRav0yY4O4EY+8y
-	kCyFy8NCiA1aN3d/VcF1sYXTPUxSc3vRh/E5uFA==
-X-Received: by 2002:aa7:df08:0:b0:6b7:1c:eae6 with SMTP id 4fb4d7f45d1cf-6ba37d63d91mr14903374a12.10.1795876072181;
-        Sat, 28 Nov 2026 06:27:52 -0800 (PST)
+        bh=hvp7TwQHCrNMIqm7jRQRWAQZXft95G4xN1Dkhbod8bI=;
+        b=lbKnqiz2DVnsBj8we1Nnq2JXbYnqqDGXldQ2TjEK9tnlM30BKNzfYINQbAWEaXwBz9
+         yUm9uMX1PoFPPd6lIzQmLOrgdO0rQWYtzlGtXOvMco0OYWJNyy/Yxqo1ILD+zUk7flR8
+         QKlQa3rR3QuhaNVzRzxx2HSF0WJsslsUSf2iVyo8sbdF86Iy+/Os6+TGF6ROQS78G35m
+         BtNNx4CiCm8two7K5UIBv/XEkwM+iMIUqrrTQxpuzwVcn3eMKjclVj7CA6TEnc1zEDC3
+         2ZVYbBsGwCNzEs7N/6O1e+ilyrl4EY18faKHe78c9G6CV+eBXESu/9iGuI8M19gBoUxH
+         oziA==
+X-Forwarded-Encrypted: i=1; AL+hErHm/VLY8COzOnzApcqeST212i808nxeHlkzKw4PrVbs6X97dkcSknit+ngvk/uvVYe6tNDqZ1ocZ6jv4qQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JnYV2ItrnufYs3OYXFuUqqEcxe6BY1lpHUCKTW07da1ejdVeL
+	C0vw6QyS7VVzq7PK4ZEJ6tcvpT/F5iRkzfQnTGeGNak6jaRg48rDch0x
+X-Gm-Gg: AZFdTZd4JTbz8kLQ1pIN9sMXJ0n826nzFXY3uzpiu3nPi+SuaRq73WDkVtfkM9MYLR2
+	1I0Hf9816FjWtNKHS2QcbxwTrOD0HjqknMRlR05TUkTp1Ek/eWhVqW/waAdUr8RJBOg5ZnuCghy
+	VQyweELUGl3a5eoOUk/Y9X9V6BM97biLUm/JzVJv2TofijtHI+nJgOi2IFRugju68pbyLlmVMTm
+	qxU1ln0N8LHZI753c/oVYzUzamrxZmj56lzLcwCvBOeHsXjG2TNAXi6SZKOX0Tplpd0BPqzj1UM
+	maeZyHXMvvNezDBigSTt6GgQCQB53o3H5GklfGJr3Cajwg7RCsghX9h8iF/wO4vpLw3o5uyN3HF
+	btfUON1Aq4zjGzu+zEXkga0znLlpX8xOq+HtmM8RCpXxXPvZN7QI+ViSBjFQA8Wu1M7n3xI6wL4
+	XlHmCNY8G+NDC4eij9j1i0jeCcJLelS6ghEY7O8CzQ1GvMT84t9Y8HTy2Cj3Ab4PNYqzZSomz4d
+	5+s2WGLpvB1hiHRh6AcdNoHWFhC110P1BddyXN3h5RopKybvdStrTWb3SW0bs96lAAOI1ZK46mR
+	j/QjkvjQUz/e/WXQZi65fIrv0iqMmRwUxqc6PnObF2FJCwmxBS5Uf3IKucep8JBiHbBiwnJ8ykq
+	9JS2JI5wDt3lRkHGj
+X-Received: by 2002:a05:6402:4416:b0:6ba:b24b:a25 with SMTP id 4fb4d7f45d1cf-6bab24b0fc3mr13921304a12.7.1795876076510;
+        Sat, 28 Nov 2026 06:27:56 -0800 (PST)
 Received: from kernel.. ([191.40.25.3])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e35ca6sm12448436a12.4.2026.11.28.06.27.48
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e35ca6sm12448436a12.4.2026.11.28.06.27.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 06:27:51 -0800 (PST)
+        Sat, 28 Nov 2026 06:27:56 -0800 (PST)
 From: Kunwu Chan <kunwu.chan@gmail.com>
 To: dave@stgolabs.net,
 	paulmck@kernel.org,
@@ -96,9 +96,9 @@ Cc: rostedt@goodmis.org,
 	rcu@vger.kernel.org,
 	Kunwu Chan <kunwu.chan@gmail.com>,
 	Kunwu Chan <chentao@kylinos.cn>
-Subject: [PATCH v3 2/7] rcutorture: Require debug_objects flag for debug-objects test
-Date: Sat, 28 Nov 2026 22:27:24 +0800
-Message-ID: <20261128142729.3756679-3-kunwu.chan@gmail.com>
+Subject: [PATCH v3 3/7] rcutorture: Test duplicate call_rcu_tasks() callback enqueue
+Date: Sat, 28 Nov 2026 22:27:25 +0800
+Message-ID: <20261128142729.3756679-4-kunwu.chan@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261128142729.3756679-1-kunwu.chan@gmail.com>
 References: <20261128142729.3756679-1-kunwu.chan@gmail.com>
@@ -113,41 +113,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-rcu_test_debug_objects() checks for missing callback and barrier
-operations only when ->debug_objects is set.  With the flag clear,
-execution falls through to the test even if those operations are
-missing.
+Enable the existing duplicate-callback test for RCU Tasks by
+setting ->debug_objects.
 
-With CONFIG_DEBUG_OBJECTS_RCU_HEAD=y and rcutorture.object_debug=1,
-the trivial flavor can therefore call a NULL function pointer.
-
-Skip the test for flavors that do not set ->debug_objects.
-
+Suggested-by: Zqiang <qiang.zhang@linux.dev>
+Cc: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Kunwu Chan <chentao@kylinos.cn>
 ---
- kernel/rcu/rcutorture.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ kernel/rcu/rcutorture.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
-index 67fc770abc102..1648e6369d809 100644
+index 1648e6369d809..8c264aaf1727a 100644
 --- a/kernel/rcu/rcutorture.c
 +++ b/kernel/rcu/rcutorture.c
-@@ -4774,8 +4774,13 @@ static void rcu_test_debug_objects(void)
- 		return;
- 	}
+@@ -1327,6 +1327,7 @@ static struct rcu_torture_ops tasks_ops = {
+ 	.get_gp_data	= rcu_tasks_get_gp_data,
+ 	.irq_capable	= 1,
+ 	.slow_gps	= 1,
++	.debug_objects	= 1,
+ 	.name		= "tasks"
+ };
  
--	if (WARN_ON_ONCE(cur_ops->debug_objects &&
--			(!cur_ops->call || !cur_ops->cb_barrier)))
-+	if (!cur_ops->debug_objects) {
-+		pr_alert("%s: %s does not support debug-object testing\n",
-+			 KBUILD_MODNAME, cur_ops->name);
-+		return;
-+	}
-+
-+	if (WARN_ON_ONCE(!cur_ops->call || !cur_ops->cb_barrier))
- 		return;
- 
- 	struct rcu_head *rhp = kmalloc_obj(*rhp);
 -- 
 2.43.0
 
