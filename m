@@ -1,88 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795872686;
-	b=JGPDO93nb+RIwFGa54k7cEnVyyidlHbYqbIVCw5xHQa/3nq6FlQWR1rCj/StuP1WiuXm
-	 Jy+3CHR2BopEfTyt1tH8TshOjsP3unAD8mmXxHuE8hyWLwL+w6+QV1MIgqLkHJI3BVgpJ
-	 TiLGAyzJ+b4/EBQ/GYUyRxtgFVfoxGe4bgKM/KZLp7u4b51CEpfde14Qr4ZdihQYtZDDo
-	 xQwrMUYbKpol6liRVsodZrboh4wmX3ugcPjYm42PpFMTMSeValAM2SY/yQ0AtJGiUNCJ5
-	 spIgizS10CgSjRYICEZoabGVubfIlxwZNkim5rPO1VAWBJQB11sMGjffOjbwCmvbM2g==
+	t=1795872750;
+	b=gxdJwP7Jt+J1lnxYgSZI7btNCZfhAbbyw4E50T5bQn+czR0H1uHTyk/ARFGdJo/Tc/Hp
+	 ixNLLFFkFMwlP5F4Ln0ZjN/0MIbazef0z3/T/IM3v//YoouKja8MtYmkiulgv8U0n/EfJ
+	 TCilMWUr5vbuXi+osKoN2XtAdKPJqgmA0ZGF+EZC53aY6LKe8Hup2oDhDOwvJqTnae4U3
+	 StspHTA7UNNXFpZoZL+yakOMozXuWw38CiTu3jz4UcXPsbd5zJ9xEkYM+q8v0FRoN2SOI
+	 0gMAOydxj4IM5H5GTWTP4jhWUlbvLsR/k6M9wsG39muQ8IC0NZsN4Dfwi4QSjwPLG7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795872686;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795872750;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6+D7ojb2oXDOZEL51IaokC8wnBnQPJ6hQBVyXoL6hYw=;
-	b=05Wr0KdarqN83/d4KFMd2QBzW8G54oO8ZA0nDbVzSwl5wE3gpJb/xcsTjXF/lZlMtPBO
-	 tVyVgDlZBX8tnCjYBu0jbItgsU0ORTD2kRqZSbWKcKMQH5wU0o7MHCFAXUXa/irjIBjf5
-	 Twni9px+VvjXINbQVOmB9XcNaj50VD6EfuhFgZ9jSUwfQaB7p8Ek2LcOQrtg+nds53DbC
-	 7+YKY+iJ9zI4wgc0Usrin/VEjmXZlGBhfPMfiRyZYVyGica6iiEnIoT4/KTSxaQqgRrV1
-	 DD6Rr5hIagQ58IHWZaJthk1ZGP2uzGocuDHZ3UVgQEiSZ5No1/uTGfwHI5FE/w9X7FQ==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=4V2a+V6fQG2NiQXAdRuUPTgWpRpo/WBcKKqghb1iDS8=;
+	b=eBqlJK+oJ3EuA2YhT0hRSAok+X5LtoY0BIdoV2YG8pEWFEasbpF/5MSpPwPzpXHZpyJy
+	 GM2I3N3/uJ3Nr3H/4n/XewbgSFTimjHmFm9Sk6LnpZS78t3aB9R886dox+DKASudLHOOC
+	 phz8uHMXTIgyu0+bzF24GkKUriJdywltg7lkFnErOR1mRO7pwQYh2iCLUg0eJ7BSB4NbK
+	 qAR4CgBOnbaGhtQATH6azHfLw7ljqvFx/GELVWRVLwYWypU1r1GzPJ10ayF9b47X7HbIu
+	 /QLgMFf4TG+MsnzimxHVRBUDrdyQa8Z5KDDbo9p3RRPMcSVLxyKZpEQ1MbyDYWn7oSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T+HT08Em;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TMFbXXy3;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12639606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:31:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12639606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49475606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:32:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49475606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T+HT08Em
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38431138772so11835589eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:31:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TMFbXXy3
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so61164225e9.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:32:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795872685; x=1796477485; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6+D7ojb2oXDOZEL51IaokC8wnBnQPJ6hQBVyXoL6hYw=;
-        b=T+HT08Em46PTn4En7T4YmTdV7dzjABlXfj4ekayVyaUHe2ONy57PHpD8cjuFQSsC+0
-         sI9ynWUImMFr9WMFJl2FS2mJoH50G51Ul9Q+vXxL49PLg+OlmNaietTeI1S3iG4j8oFn
-         xALSNeDlGF/b1C6cSxf6h+JoW+MYFGiTzAHwnz9iWmJTn1L9FJ2z+ybVNvN+4ixfmC5N
-         qr0kar80xjZHFnujzCVowey2eHTOhlMVUx4z4BO9/Bl4H1MSaFXstnRNgGEGIW5Cboy+
-         o1oNVqKRb80UzG8Vq8ZUdvbz0YHux3sc4yDKJMbaVjFQZni8hDnHftaMgNZnnhtLtKfO
-         9Ncg==
+        d=gmail.com; s=20260707; t=1795872748; x=1796477548; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4V2a+V6fQG2NiQXAdRuUPTgWpRpo/WBcKKqghb1iDS8=;
+        b=TMFbXXy3VkgZTK+h4ARTANj0bd2OJWcSuDzdl4CAQt389Lpai+AVfRc4XA/gYyacly
+         R879Dgv0XBK8CYbhAZ65Kc2El88wpAV7RM+wotXPg60QlWi7LV6TpyZIbr8Um0C23an6
+         u8TQHz1N77s+FngyeyQ1L9xezzYMnq3z1q5gZyPlEmGptbiiGxR+FxenDTbXlJBq90e9
+         mWsGq3acSFGPFShfLOaefOfjfSYazcTTWM+chxcEoBBQ9QljloO9eXgUQTZEX7eoBpeK
+         bbiItkLRT3BRPAdlFbxhWj+dtp56eg+NcFz0UNzFKiLv8c1LTAHMzmFtQU8SlAwAy5pU
+         W14w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795872685; x=1796477485;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6+D7ojb2oXDOZEL51IaokC8wnBnQPJ6hQBVyXoL6hYw=;
-        b=RAsAlsnNcyebL5m6LpIUpsk53XqikQsGuf8Xmo/9DFTzsP/IwwoKV5kpB2F+mpZx6Y
-         /lPHfxl6wcWI0Dlx6u9iYjFoJxOOASrOtQtwJddSUZsJmUaGwB3XIfcwGJEpu2aY9agU
-         2G2i2hBOjAbPHkX3KqkuIwrlkguvMYsT6fdZYQf46C1ohuakc3x0UwzfMYZ989+RAwsl
-         9sDRJ8CCnobJU34dS/0ORtx0NDlyWC98pU1JhN71AG3UFlK9moxTPAsuks4NVZ6SVSrX
-         MXTzSKYEPi+2oM+AYRze3P/oWoZfNMG5Z7BlumuAv7HvbOSuglKMWwiBrHiZsmTW24M3
-         VuQg==
-X-Forwarded-Encrypted: i=1; AL+hErFEYzW7YK9QRU2A3aUgf3+edxSCqQRxEx6n7h+IKn4TfwiHUDH+1RQclz0RYkXMLJ2n72XH7CyjUM2GoLo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/no67m8dxYpeEnUlmyKrrKRq8iL+YQnnjQOpogQkUwwVFqBGAV
-	46heSKEzZaRXnUf6Mdvpt9FC2I4ohs+TCb1WKz4e2bNM77j6a2irR1Dj
-X-Gm-Gg: AZFdTZfFXs2gamkY8msPP6smtfA0F0Sw26vlSYgBRSc7p1SqQDhgHBGlsawxcYPcPjg
-	q735n/Vr/W7+/etQKTTkISxeArbkOa03mOltooRi3BDZg/iro8/EaCFl4zrHXFuwO0Ocec1d3zF
-	I9sj6hdCVhYAtT0t1AwxHGZ+fcsBCjqCjvC33yg5RhRAax43XpHrvtsCLm6y4AI+Kz3yje2lJy2
-	LYE43yBbRrL3m8UV7lvOPpoXuDTXfXg1Q4Vi0f9OJf5dVp/kyblAb5f9fo7m7ty+j3WVut+tG7+
-	atBT1yX1wsWwsnsBNeCvGeKPFZwTSExqEafuQbc3OrNbMDLKFU45P/qXTlvIckjz5LDXx2uuDqZ
-	d23MIApzMfdkpZFwqDZY0nC/rIZDQRx+EecvzErHRzYY1mJQcOr2XedpyW3G1D6Oecef3m151bZ
-	qpJeyI57ijkgmWLx5fWlnTJFcQ2h2CUzB79C9pG6nZD9/Ipk/cybJN9D/1gAqZLqTBsnpVaH9mc
-	F2UEHkjy9MCH/pEx/81XfAPH4/DhRpiVDR8tzIVFXsJgq+c4KEWtj0ZnwCCaP3bIN6svE+S6iIU
-	aPTAV2nNVfzDFHlmQAcOWlBTAaVXyPJ9jhSc0kgloLE=
-X-Received: by 2002:a05:7301:fc18:b0:36f:2e77:93e2 with SMTP id 5a478bee46e88-38570f27031mr26530218eec.28.1795872685065;
-        Sat, 28 Nov 2026 05:31:25 -0800 (PST)
-Received: from [0.0.0.0] ([20.89.137.63])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm74962402eec.20.2026.11.28.05.31.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Nov 2026 05:31:24 -0800 (PST)
-Message-ID: <935e17b4-6053-43f5-b384-c5c9952ecd14@gmail.com>
-Date: Sat, 28 Nov 2026 21:31:21 +0800
+        d=1e100.net; s=20260707; t=1795872748; x=1796477548;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4V2a+V6fQG2NiQXAdRuUPTgWpRpo/WBcKKqghb1iDS8=;
+        b=UgAPDuQW49dyeVYQp+NxLp01BX4E+BdTGd5HJJbtb5p5ptYhEGLaR4mn6NMBwcCuFX
+         /iI8NOq1NqBWyGJFNAZvTiRlJHU3jDibu3xu5ouTUP4ilhifnoZMS3u4Wdw0CkYDO35/
+         U//1f78O4Z0oYugDd0L/8SnBgM5gwgdwcR8gQuWwQi68RJAapzDpiAS1SPxxH5z9Qw9c
+         ElUA5GQ6OUTd8CN4AekUDzx/TEjZMSUCgNBBwQoriLtytstcDv4/YME2Zr29npZiYPol
+         rWhxP/1kidKNeDAu8VclcxsqGEJg7Fm5XvebYpA2Fn7fX2fkaXIR3TTdiZ/J29Hfvpcd
+         Uzww==
+X-Forwarded-Encrypted: i=1; AL+hErF8ovTJf94lYkNgalmAW3F8ntgmooAfUHAisdnYdPEDCZqJfYAu/Y6ivMhhc1gATPKlkMIflRxIXP7naF8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+WzL1qdaNOZksl5/DCVs6sNE2ZYEcrkJ28+RttgEgd+nIApBSV
+	A7VAQRHY1IxeB1QEfNxgtqZnkETnWksDsu8hhzxbgUpw/F9obVGQMd4A
+X-Gm-Gg: AZFdTZcllvUJP+sYf2ozKN1bGoeKJkdQms1VBnkYl0iatntC9IAFEolCPnivwdRLzht
+	2hZqeOXt3tn18dEfGo31wi66SaLV7ImqI6VCQwjqx6NTLqEAz2GN6RC0aj/MK4yKLmHE7JXIN2L
+	CNvEuy5H673428m1VsE7OwHmFcnaTLjoTb8JLKiL5VeGnAVLtq1UtmjuzwoHkm1xI4BOMoTnuEa
+	Zy9TZ1We1EBhor9506nR7JekuNJV8icY6CH7dbsgzW3c11uVxkGowiJZQl7e+ctpKmphkKFWS9Q
+	DjnUMdE4jRofDQTISLr4g1U4+jymaGJ74WKLzIDSPJCyNBB9UyQcYgdecTdnUhPQVOo3IzqLMzp
+	hd7Zfmh9EnsvXygEpiyte00clkeNtuTJ6JnBVqv0iggKTb5/PMTWQ5AGBJK3uhn7iWOI81giI9f
+	XafR+qaffGGeBOdriGAtB5fZWRoPhPDFHk3OLY6SNNAYkPO9i0QfJA8Cl0b2TUG4T16Q7nTDLi2
+	f9JBEWbajMCe8wEYDLeucqZ564Y0ONlTJAuOVD9IoNZlCqFqBSkPuMy6C6w6Nv4y8Gty5tERGie
+	q8w+mzMu/Zp7REXHTM545uQRh7GfPBsSnh2RtiHfJ271Gg89ZOOMc0MZnCZbYodN65qI0z6UN4M
+	fkwZC0YnCXMCGJ/iT2FnMeWczA/P8EptApBt3
+X-Received: by 2002:a05:600c:1d2a:b0:4b7:6942:39bf with SMTP id 5b1f17b1804b1-4bb88814031mr666559775e9.28.1795872748317;
+        Sat, 28 Nov 2026 05:32:28 -0800 (PST)
+Received: from pc.tail250202.ts.net ([87.110.86.243])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm790112755e9.5.2026.11.28.05.32.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 05:32:26 -0800 (PST)
+Date: Sat, 28 Nov 2026 15:32:23 +0200
+From: Janis Edvarts Lacis <janislacis06@gmail.com>
+To: Antonio Quartulli <antonio@mandelbit.com>
+Cc: intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>, Kurt Kanzenbach <kurt@linutronix.de>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Heiner Kallweit <hkallweit1@gmail.com>, Joe Damato <joe@dama.to>, 
+	Sven Auhagen <sven.auhagen@voleatech.de>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org
+Subject: Re: [PATCH net v5 0/6] igb: fix runtime PM resume issues
+Message-ID: <5k4igk5etdbmaweimm5ams44kwe3vzcqjmnck6a2w2iyhsfsvd@ianca2g23kva>
+References: <20261124235723.1135808-1-antonio@mandelbit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,122 +106,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] platform/x86: bitland-mifs-wmi: Add Xiaomi Redmi Book Pro
- 14 2024
-To: =?UTF-8?Q?Milo=C5=A1_Vlku?= <vlku.milos.fun@gmail.com>,
- ilpo.jarvinen@linux.intel.com, hansg@kernel.org
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
- ilya.gladyshev@linux.dev, uselessfire@gmail.com
-References: <20261128074912.20008-1-vlku.milos.fun@gmail.com>
-Content-Language: en-US
-From: Mingyou Chen <qby140326@gmail.com>
-In-Reply-To: <20261128074912.20008-1-vlku.milos.fun@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261124235723.1135808-1-antonio@mandelbit.com>
 
-On 11/28/26 15:49, Miloš Vlku wrote:
-> The Redmi Book Pro 14 2024 (board TM2307) uses the same WMAA method
-> (SSDT with OEM Table ID XMCC1806) as the Redmi Book Pro 16 2024 (TM2309)
-> and stores the WMI_FN_SYSTEM_PER_MODE value directly in the EC register
-> QFAN. NTDP in the DSDT maps it onto the DPTF variable ODV1:
+On 25 Nov 00:57, Antonio Quartulli wrote:
+>igb can be runtime suspended when the link goes down (with
+>power/control set to auto). Resuming it calls functions that need RTNL
+>without holding it (patches 2 and 4), XDP and XSK changes race with a
+>resume (patch 5), and devices that can't signal a wake-up are suspended
+>anyway, so their port stays down when the link comes back (patch 6).
 >
->    QFAN  mode        ODV1
->    1     balanced    0
->    2     quiet       2
->    3     Turbo       1
->    4     full speed  4
+>Patch 1 fixes the XSK pool disable path when the device has fewer rings
+>than the stack has queues: a NULL dereference with VFs (a single Tx
+>queue on 82576), or after a fallback from MSI-X to MSI on resume. Patch
+>3 keeps such queues while they still have an XSK pool, so that the pool
+>can still be disabled.
 >
-> Map these as low-power 2, balanced 1, performance 3 and max-power 4.
-> Fn+K only cycles 1 -> 3 -> 2 and never offers full speed, and
-> power-profiles-daemon maps its "performance" profile to platform_profile
-> "performance", so full speed is exposed as max-power and is only used
-> when chosen explicitly.
+>Tested with the 82576 emulated by QEMU, including, with test-only hooks,
+>a runtime resume and a simulated system sleep (the suspend/resume
+>callbacks called directly, as the test kernel has no CONFIG_SUSPEND)
+>with the device forced to come back with MSI and a single queue.
+>Patches 1 and 3 were tested with a zero-copy AF_XDP socket: closing it
+>after enabling a VF oopses (queue 1, stock igb and v3) or warns and
+>leaks (queue 2, v4), and warns after a resume forced to use MSI (v4);
+>patch 5 by closing a socket and attaching an XDP program while runtime
+>suspended. Not tested: real hardware and PME wake-up, a real system
+>sleep, the MSI-X allocation failure itself, the window before the work
+>item runs, SR-IOV with runtime PM, and a device that can wake up. Not
+>run under KASAN.
 >
-> GET returns QFAN for 1..4 and 0 for anything else, for example a 0 left
-> by the default mapping, so read 0 back as balanced. Writing 0 is not
-> useful: from the same 80 C start at the same power, the package cooled
-> by 15.2 C in 150 s at QFAN 0 against 29.5 C at QFAN 1 (n=4 each, no
-> overlap).
+>Sashiko also found two pre-existing issues in the XSK queue disable/
+>enable paths (the Tx NAPI isn't stopped when Rx and Tx don't share a
+>vector; a failed buffer reallocation leaves the queue half torn down);
+>they will be fixed separately.
 >
-> The firmware also accepts Turbo on battery (QFAN 3 sticks with no
-> charger connected), so add a battery entry for it. WMI_FN_SYSTEM_AC_TYPE
-> is not implemented on this firmware, so skip the AC type check as for
-> the other Xiaomi models.
+>igc has the same issues (see the notes); Joe Damato offered to test on
+>igc, so its fix will be sent separately.
 >
-> Values measured on BIOS RMAMT4B0P0B0B (bios_release and
-> ec_firmware_release 1.11).
+>Changes in v5:
+>- new patch 3: keep the stack's Rx queues that still have an XSK pool
+>  (Janis)
+>- patch 4: cancel the work item before a suspend (Sashiko)
+>- new patch 5: resume the device before changing XDP or XSK settings
+>  (Sashiko)
+>- patch 6: check pci_dev_run_wake() when scheduling the suspend
+>  (Sashiko)
 >
-> This change was prepared with an AI coding assistant (Claude, by
-> Anthropic), which read the ACPI tables and driver code and drafted the
-> patch. The values and behaviour were measured on the hardware by the
-> submitter.
+>Changes in v4:
+>- patch 1: also handle queues with an Rx but no Tx ring, as with VFs:
+>  tear down the Rx ring and skip only the Tx part (Sashiko); subject
+>  changed from "don't disable rings ..." to "don't touch rings ..."
 >
-> Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-
-Hi, please make sure the commits are signed by humans.
-
-https://docs.kernel.org/process/coding-assistants.html
-
-Replace with Assisted-by tag instead.
-
-> Signed-off-by: Miloš Vlku <vlku.milos.fun@gmail.com>
-> ---
+>Changes in v3:
+>- new patch 1
+>- patch 2: set the real queue counts on system sleep resume and from a
+>  work item on runtime resume, and drop packets for queues the device
+>  doesn't have until then (Janis, Sashiko)
+>- patch 3 (now 4): link the NAPIs from the same work item
 >
-> Notes:
->      Tested on the TM2307 on top of pdx86 for-next (61c0dac952b9), built for
->      7.3.6 for the hardware test: all four profiles apply and read back as
->      expected on AC and on battery, a stale QFAN of 0 reads back as balanced,
->      and power-profiles-daemon's power-saver/balanced/performance map to
->      QFAN 2/1/3. Builds cleanly in-tree with W=1.
->      
->      Anton: when we compared tables in October, the TM2309 matched these on
->      every point, so the same entry should fit with a second DMI match on
->      board_name TM2309. Happy to add it here if you can test it, or for you
->      to send it on top.
+>Changes in v2:
+>- patch 2 (v2 patch 1): keep setting the queue counts in __igb_open(),
+>  only skipping them on resume (Sashiko)
+>- mention the tested hardware in the commit messages
 >
->   drivers/platform/x86/bitland-mifs-wmi.c | 23 +++++++++++++++++++++++
->   1 file changed, 23 insertions(+)
+>v4: https://lore.kernel.org/netdev/20261120210134.133238-1-antonio@mandelbit.com/
+>v3: https://lore.kernel.org/netdev/20261119140412.163202-1-antonio@mandelbit.com/
+>v2: https://lore.kernel.org/netdev/20261116153041.3002666-1-antonio@mandelbit.com/
+>v1: https://lore.kernel.org/netdev/20261113105835.3821433-1-antonio@mandelbit.com/
 >
-> diff --git a/drivers/platform/x86/bitland-mifs-wmi.c b/drivers/platform/x86/bitland-mifs-wmi.c
-> index f71c93aff..9bf705d4e 100644
-> --- a/drivers/platform/x86/bitland-mifs-wmi.c
-> +++ b/drivers/platform/x86/bitland-mifs-wmi.c
-> @@ -139,6 +139,22 @@ static const struct bitland_mifs_quirks tm2135_quirks = {
->   	.skip_ac_type_check = true,
->   };
->   
-> +/* GET reports 0 for an out-of-range QFAN value; treat it as balanced. */
-Please remove the AI slop comment.
-> +static const struct bitland_profile_entry tm2307_profile_entries[] = {
-> +	{ PLATFORM_PROFILE_LOW_POWER,	0x02 },
-> +	{ PLATFORM_PROFILE_BALANCED,	0x01 },
-> +	{ PLATFORM_PROFILE_BALANCED,	0x00, .no_set = true },
-> +	{ PLATFORM_PROFILE_PERFORMANCE,	0x03 },
-> +	{ PLATFORM_PROFILE_PERFORMANCE,	0x03, .battery = true },
-> +	{ PLATFORM_PROFILE_MAX_POWER,	0x04 },
-> +};
-> +
-> +static const struct bitland_mifs_quirks tm2307_quirks = {
-> +	.profile_entries = tm2307_profile_entries,
-> +	.num_profile_entries = ARRAY_SIZE(tm2307_profile_entries),
-> +	.skip_ac_type_check = true,
-> +};
-> +
->   static const struct bitland_profile_entry tm2424_profile_entries[] = {
->   	{ PLATFORM_PROFILE_LOW_POWER,   0x02 },
->   	{ PLATFORM_PROFILE_LOW_POWER,   0x0a, true },
-> @@ -169,6 +185,13 @@ static const struct dmi_system_id bitland_mifs_dmi_table[] = {
->   		},
->   		.driver_data = (void *)&tm2135_quirks,
->   	},
-> +	{
-> +		.matches = {
-> +			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "XIAOMI"),
-> +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "TM2307"),
-> +		},
-> +		.driver_data = (void *)&tm2307_quirks,
-> +	},
->   	{
->   		.matches = {
->   			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "XIAOMI"),
+>Antonio Quartulli (6):
+>  igb: don't touch rings that don't exist when disabling an XSK pool
+>  igb: fix RTNL assertion when resuming from runtime suspend
+>  igb: keep the stack's Rx queues that still have an XSK pool
+>  igb: link queues to NAPIs under RTNL after runtime resume
+>  igb: resume the device before changing XDP or XSK settings
+>  igb: only allow runtime PM if the device can wake up
+>
+> drivers/net/ethernet/intel/igb/igb.h      |   1 +
+> drivers/net/ethernet/intel/igb/igb_main.c | 144 +++++++++++++++++-----
+> drivers/net/ethernet/intel/igb/igb_xsk.c  |  37 ++++--
+> 3 files changed, 143 insertions(+), 39 deletions(-)
+>
+>-- 
+>2.56.1
+>
+Reviewed-by: Janis Edvarts Lacis <janislacis06@gmail.com>
