@@ -1,97 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795879072;
-	b=xsCuxU6ONqophf+/kdgNModdqLuC0T/WQc6EuYMyb6Bo2QbQDfJ/8Pr6or1G2+j9mCZi
-	 VHAptJpy5ZxnMTDqFtAFGcIzKYBAglf9eAn/Gl//4P93I6KJhpv/EYrFjtNWk+Dh7M9J8
-	 BRQX4a7/AXM+8DFRI4fCNEEo4SeSpG5FnJ2kDvCc1GZpmzhdnOUywZT/kIsdAnbnZS5B3
-	 hH9gdMy6T+FhrDLFRH9yD/+J1LPFscijcmhClTntVbcYJTIcI5mhOSxMcPpMXSuTeZrNx
-	 yblzQBKEcW1nwIbCSVXPQqub7pG7K7eJDYlBmo1omSZObCHXHXHlYjmWUWP39zJJ5PA==
+	t=1795879105;
+	b=PIBXczxUDoqKfLAPXgr28Oiex91GjQkXMqvpmd/0Soz/q1sqVZN6l0sKtL9pPsfgbtSZ
+	 poYvys1Qo6NTzq6sON6zExR1F2xf55H0JNE173ZjgRHBwbcZBmIojHkWKrcrymTX8CaFd
+	 j/+w3JDqcvPA5rs4JahlFRBEWPGBZMHlenZTvFFGcRmYEsQ/RWYCvwb76LDonBQclzepC
+	 Q2qtRrRR4Bacnsrv4yzykJoNA5Tm02QhdR8MQKp8U4mIMrzzdgN/v6LH7ZJEXEz5PnpW9
+	 ox3KucUhkO/wVUSSgq5PJDXUIwxeVpYSCEHJbtBehJRW5dIvPsyheQg4DiPJjqBMQKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795879072;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=boJHVtZaNd2Ip0sYxyQoGj4OCG9SDHvMT5R5+mkI9p4=;
-	b=pVa2J7orssqJVuerFDOZvnzSb01TO5TSr7ClcpatafVZ2PNs7fLC4ZsS1diU4attba8v
-	 5fRJf4J6kKrJcAGb3NgpG4XYbEIcZIbyIrBWTVxky3LLSTajCJeHVS4vxBviHv9jC6CHm
-	 89JXNISnLGy0ywJcjqCFdz96SIQyZzDWkZOnWb9FQtORALM3V3OmJIsMV4C8IkZ/8fIPw
-	 mq4xO46RSE/7YoBq+1oevbAUNO+EXFJkuPb78sIWmYfR1GJwXMytouIEvcNyLmyLmZR61
-	 CA59B0t7yC9i65QIyXTeV+KAvYetYNAcPZCNTFW48WF+lwsz21kLELEWxeE7icqbrEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795879105;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4fBsMa0cXMKTPhRtV0qWiGuZf6SgJhqoJnizvYik+ps=;
+	b=yDFlP281WB1sr8gemMJYiVOIZJ95N6H4iCPdv8VL04L1EIXw+7am5eoMPkZ/m+YoZ7vw
+	 ZywF5Z7Wdxi2emLfYsIz/UXYW0CkoKBBbL+Xau2jhzl19zVXneJVw04EXafmd9a+dqfbp
+	 bvbSlh26OXwziPVnvwMj2fgiEVO1PjZHFrhUOuksYZ46lXVnYnz3A/nv45yC/7aVk15Di
+	 LemegTajM+eBSOzBm+4BM8I0g2GLvhAbkpEnmMg/CH907jbUqZ1LUUcs2QpH6s675XgYb
+	 xueYvGu+drQMKzF/UhNxotKDSzSBhwh6xANdGZmGirQnhwzX9VYwir7GIullVv03eTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VdNXrhtf;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=fastmail.org;
+	spf=pass smtp.mailfrom=fastmail.org;
+	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=VVHLrB1a;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=i6sVtG68;
+	arc=none smtp.remote-ip=103.168.172.154
+Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 525B3606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:17:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 525B3606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F618606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:18:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F618606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VdNXrhtf
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2efddf749e5so37801135ad.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:17:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795879072; x=1796483872; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=boJHVtZaNd2Ip0sYxyQoGj4OCG9SDHvMT5R5+mkI9p4=;
-        b=VdNXrhtfkquQyB+weXIUQzt1WPqF0QGhE/StYFjscKu36SfwJ9AkNy4R0F6Y1Z+ghs
-         +t8QXCNjF6sKYMHnPSkmWOOgJTjOQMUE1J4OTWbov6OG7ZwC9O0EjFyC0gbTRr56s898
-         wGe1e2/u6PZHVVu+m+dbUI2oXGn61oDqI0AwWo6OG3GLEObFYkL4U3RFTwR6A3DOHPoG
-         JZmEkOJOa70FfCvxReI2A4wJ+c8GZM1AWOHZzygGRkHoJ77AOUdPBCdoA9BwZ+K+wMjH
-         gC4LVe1EdboJq2Eucd9+HUkSTEpQvohPB1I7Q5vym8PjKK7tzyuHvfjenoeoXoOiRhSq
-         nkcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795879072; x=1796483872;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=boJHVtZaNd2Ip0sYxyQoGj4OCG9SDHvMT5R5+mkI9p4=;
-        b=arKFfHcXBmjggNNtxJMea/NYOSp4v0eeuGP/tFz1vS7F9T3gcO/XM/U3qB/umPQHfk
-         x4OHamA6Y+ZDLzEY/t+g8xxMmC5fng5Wk+dLt83Co44XyOXetm2WqjDfh7F4OvFNSsQE
-         3zg5sLwhdtVBcbROT7G4t06ps+cfL2ADKUbG32PF8IawMY2XXrIQ5Si7GKz9WFxH85Ct
-         qVVqWmHTTJnZ9suW0/mJONMU08Bgxvk7VySpYTJ6xSmdS9rySoP2RENpfyWa8tQp1asC
-         BQ5ynHyrlC4pBTADF5GCllvzOTZbmU6hQ8ml6vLD8GIYWOvNpGUtBbuiBI5fFElK5+rv
-         qWEA==
-X-Forwarded-Encrypted: i=1; AL+hErFWK1di8xwmTgtjU681NSeN5wG79mXgfjF+gopW7OvZJ7ya7o17HWjFw0JPzmLkee62qz5NCI7GwngMUbE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/XL1txf6hadQ1SGTYaZmx51ocjpn6ycHBCB/N2vrzlnD8/KY1t
-	xRGYUg8zy6gX+LtLJbBxy/e7U/GEbXG9y/jzo0M9LXlguOgSc0XhNQkb
-X-Gm-Gg: AZFdTZemQXsuHq1FeQeq+PROrg5WTpeW78r4ZM3bahxYZO452tJdGuYklpLJtTpOIxC
-	6FKt7Ro4jwZ3JAWQUA1VM3AdWQDTn6WgPYOHprARBX6OGnWpmVRD7VfHBZIKTbTRyz9a9/oEDTC
-	QQvbeKhASzssz5re0nsY5o9dK35i9AxM68vl8Cms0KEOhH6Cdg47OfFXu6ZvY3Mmm2kojxYS2hi
-	dBk+UNtqhMiTY6c9mmzdIY2sifFYT41cF2W1hQF9zFy2+zHKMJ4ndAKd+uhF1wMnfjkqyjnv5Ln
-	xXztJlNJnnTBx/QW035HE6PErU9yU3TC8b5lQHyau41kPxh4JFvrux1hDJavaABAer2B+A3hzqB
-	k0q69USD2Q/qpbDlhzWboJQPdgmnXIaRlI07oMrOrJp2DhUp1dkSqQ0K5vEdGscAw2HXvlfGD7K
-	OjSYaocU8EWAHPeKtS1cGnbh/3j2nsYaCoR5FNr3rC8kHWsgZnrYgzElVY7eN3lLeYN99s7MxXe
-	6clM54hMladgjGZYk2n5x0h9gc98JpBVKp2QBWLeb5bN/Alu1LhtLQy/YtJWbvyOOLb40bqY977
-	n2FOB6pJqlcaZB9B243tCHJJbQ4gunP7PR4veL4FsKOfuHC1zCgAZDc+yKkooDtLi/tSSgT3sXE
-	XYWWvlpg4gDZ6XcsjTdtdFuMn1ZW8n5JsuKVfmAZsgqm64Rx6
-X-Received: by 2002:a17:903:244b:b0:2e5:457d:6c20 with SMTP id d9443c01a7336-2f031f7a49emr234013155ad.23.1795879071469;
-        Sat, 28 Nov 2026 07:17:51 -0800 (PST)
-Received: from localhost.localdomain ([2405:201:301c:f8cd:241f:982d:147f:bf76])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c6e50sm138078425ad.13.2026.11.28.07.17.48
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 28 Nov 2026 07:17:50 -0800 (PST)
-From: Aryan Sinha <sinha.aryan03@gmail.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-spi@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] arm64: dts: mediatek: Add MT8189 Skywalker based Tarkin Chromebook
-Date: Sat, 28 Nov 2026 20:47:32 +0530
-Message-ID: <20261128151743.17053-1-sinha.aryan03@gmail.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <9ec63a02-b5bc-4053-a57e-73fd8d290531@sirena.org.uk>
-References: <9ec63a02-b5bc-4053-a57e-73fd8d290531@sirena.org.uk>
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=VVHLrB1a;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=i6sVtG68
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 4147F14002F9
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:18:24 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Sat, 28 Nov 2026 10:18:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1795879104; x=1795965504; bh=4fBsMa0cXMKTPhRtV0qWi
+	GuZf6SgJhqoJnizvYik+ps=; b=VVHLrB1a1uJs5wZ66pYGj6OGwD5dAVjBwdLf6
+	L+zn+/AfbXbYxeJGeJiuB85T6DRuayAs+in3ggYbaTfUnEAI6cq1M0W5SADVXwXD
+	yZ/jaSU2JG34FzDHusr63FLNnbxJDFTXnu3ogkjHp6jHl0YFaJFsRT230c4bUOQz
+	R9Mmelsa9WjiOI6SemA+YEjI21YAyRyL3mjMzimFj1bQCE3eCGYwA8qcy7Izr+VH
+	fQ5p8pn/GPwfTX52ezWg7aDr/pn1/gejgrP4r/MwjFX3lTl6VHV8cT5PCMTU6MYU
+	fLD58k0MAT6n7xU+7Nmimb2z2DhNfvpkj/TjYYdXKncq5DGGA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795879104; x=1795965504; bh=4fBsMa0cXMKTPhRtV0qWiGuZf6SgJhqoJni
+	zvYik+ps=; b=i6sVtG68jn+siOYXeJCSGm0q87sDKMqLST7Ko/Rt5xBEb7bmhlp
+	+bu+bClfN3HA3CZwe7AdjuNJuZk6nqwGuEFERdChMJHhKb/ErYw5e9gkYf5vwIEF
+	6ouqm2aF0mrABk8ZvDB8nnXA5fkClFr/8mD1VKGXmq6K08QrP5ciiabV4XYi/qDm
+	T11Rjw5PPVxM8pY7X1JRzviKWsaMAJvo2uIPbno2nOMkWExYDcQBAhhD16jqXuve
+	QiJFT5vvoSWr5Z1HJzsQwKtQy8/GgyLf5qxyzV5VpXyfX+rcAFWlYWK9i/U+qO+J
+	+3qYduNW8FDxGexd5o8+Lk+uEE65fEnIEMg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795879104; d=fastmail.org;
+	mf=PGljYkBmYXN0bWFpbC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:Rh97b2yQ5DkHuQSiHyJ3Qg6QmQWS4MfqcR98bbaHVS8z/T8
+	W2XG6aPFckNjxzTlIw21j2WpbMlZofULQ5HIVswkigZoWcksPXF3cU63JbiiM0du
+	DwwIfK0GRTs+R+oK8CBHx3Zs557UJDSu2O6EsYy7MJcquzY0TU8w+2H3iZ5eWGd3
+	6m9KEz+KRZRvSRhhs9Kgr0ydYXyvYmqRBqriRhcafgO4M0CUzKH9HnOMwOCiTqql
+	WjYIiNVu/IRKjBknCr8UHNkfcealOha4+kxZ+nlTZ0HjlQIPp/c7423e/l+rN/mR
+	kx1gqjm0Sjn8ERomX3kyTIrk9uyAtSHW0U8uudw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:5Y7gVK0pjKbNs1dJTVWQ2/A1Weu5G1JBFOERCEcLy58=:48gbnP9g/IoE6DCjV4UnP4dC1w8CGJZW0fHI/oL7S1Q=;
+X-ME-Sender: <xms:v_AKaybK0-k39hL5z8VFFUTlsg2nQOfEw6fuPcZxhM7x87rVrF2zGA>
+    <xme:v_AKa2GkgrRgKc3CAOsi0-GwWL3MT1g2m2f8aa-Xg_vrv1q9spX795EnTZb3UV6pP
+    2N0MjO1Tf_-2jnCvtt4-dhWr-iV8_j6UFOkaUINfMHDDNfaPDNX2Ts>
+X-ME-Received: <xmr:v_AKa7L3byqqPOZzK0aKUItGeB_v0iwWn3MzTz2mYDocyKslh5zy5WGc_s4N5-tZ>
+X-ME-Proxy-Cause: dmFkZTGFIS0a3xrZ5VK4vGC/CE1BaC2gRhjFwoOuDU1ztpuh5IaZJ2J02DXsaufj9EZf7U
+    QeLcNBtqw6e3lm2l1FIvBPcYwWD31+yYZCq/4j3apKoNhxZoqSkbmEYZjOwnKWLagDErnw
+    hXeA6tDkjZ/RWa0e9kfBrsL+CB2kV68/x2sdHI80HmbY73HlBb0KBiIlo7RLlCRe/fOPgJ
+    WlgIYEc5PzXYtNKHxTuqfGqmEmmzDZ83eeQCfCVL12rgT6cyNoJRxirxvmZpnV/FAD04PH
+    bXB5CxlXFWXLHxFXnwqg9rIyICrDQ3GjcSzD9Roc2oXNAi+6kYPtHOGfPoUj2iM3ARX3CS
+    ht/9ybzhyaQb7/M8YjYHkkUrTGnc13klhBoGNLMmkdpNLLdsmIKsyvBSuTg9SFyamZ5Kbz
+    FlT3LBYdNBnimGtu/8SXdHsTUhVimdfLGdE1A6wsQDefbCkEp+ERGW1CS67k+91rOijjnj
+    IWiDxsejGDPMin6KZf2yfCIAWhw9v//DebuiEwxXzI6MP3KZVhnfcFiamdlxG742Pne1GA
+    aAmz1TtQD1rnkYMNWLA5Nml8/OTboXF3+VtfxUEzauczlb7ZfvHXPsumVg0m6OQSZS0ahk
+    U1Op+OIPYI3Vr3CH8oXkr75Jk7nBT6//ltwpOxzsIZ3+JJOsQHb/wnDd9/TQ
+X-ME-Proxy: <xmx:v_AKa5PCm7AX64MbE0l-UlCbowYiLjmqzGWeVKgKzJ2FzW13DNIAbw>
+    <xmx:v_AKazlGgHC4mSOgAfEKc-GTc_H_cI1mBlAvnGNJsUOx_VLcg6_tHQ>
+    <xmx:v_AKa14Xqt6rRVe0byn9_NY2F6mvXAQGSZ7ofHBeRnAOxn5JKorMyw>
+    <xmx:v_AKa_0kn0GM458xLgphCRpzm15QXMaveB9oYsldQgEn1JReBh2Kkw>
+    <xmx:wPAKa_83m7i3_wwJ8I6x5yWPfIWIaWH7cTajJU4i_FsDIiftRt2pFoYx>
+Feedback-ID: ib53e4b78:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 28 Nov 2026 10:18:22 -0500 (EST)
+From: Ian Bridges <icb@fastmail.org>
+To: linkinjeon@kernel.org
+Cc: senozhatsky@chromium.org,
+	tom@talpey.com,
+	chenxiaosong@chenxiaosong.com,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ian Bridges <icb@fastmail.org>
+Subject: [PATCH v2] ksmbd: return the cause of a failed link
+Date: Sat, 28 Nov 2026 09:18:18 -0600
+Message-ID: <20261128151818.1784793-1-icb@fastmail.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,13 +127,221 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 28, 2026 at 02:39 PM UTC, Mark Brown wrote:
-> This doesn't apply against current code, please check and resend.
+smb2_create_link() turns every error of the link, and of the removal of
+a target that the link replaces, into -EINVAL. The client gets
+STATUS_INVALID_PARAMETER whatever the cause.
 
-Sorry about that, the dts patches depend on the Genio 520/720-EVK series
-which is not merged yet. I have resent the SPI binding on its own with the
-subject fixed, it applies to your tree now. The rest will go to the
-MediaTek folks without you in Cc.
+Add smb_errno_to_ntstatus(), a default mapping from errno values to NT
+status codes. Return the errors of the link path as they are and map
+them with it in smb2_set_info().
 
-Thanks,
-Aryan
+A directory as the source now returns -EISDIR. vfs_link() returns
+-EPERM for a filesystem without hard links. Check for that case in
+ksmbd_vfs_link() before the target lookup and return -EOPNOTSUPP.
+
+The lookup of the link name returns -EXDEV for a name that leaves the
+share. Turn it into -EACCES so that it is still reported as access
+denied and not as a different device.
+
+Signed-off-by: Ian Bridges <icb@fastmail.org>
+---
+Changes in v2:
+- v2 maps the errors with a new default mapping in smb_common.c instead
+of the existing mapping in smb2_set_info(). Later patches will convert
+the other handlers to this mapping, one handler per patch.
+- A filesystem without hard links now gives STATUS_NOT_SUPPORTED.
+- A source at the link limit gives STATUS_TOO_MANY_LINKS.
+- A directory source fails before the link name is parsed.
+ksmbd_vfs_link() checks for hard link support before its own lookup
+of the target.
+
+Tested on ksmbd-for-next 4543a3349127 with KASAN. The patch builds with
+W=1 and sparse and adds no smatch warning. A script tried one link for
+each cause of failure. A link into a directory without write access and
+a link of an immutable file now return STATUS_ACCESS_DENIED. A link on
+vfat and a link from vfat into ext4 return STATUS_NOT_SUPPORTED. A link
+from ext4 into vfat returns STATUS_NOT_SAME_DEVICE. A source with 65000
+links on ext4 returns STATUS_TOO_MANY_LINKS. A directory as the source
+returns STATUS_FILE_IS_A_DIRECTORY. Replacing a directory that is not
+empty returns STATUS_DIRECTORY_NOT_EMPTY. Before this patch, all of
+these returned STATUS_INVALID_PARAMETER. A name that leaves the share
+still returns STATUS_ACCESS_DENIED. A normal link and a link that
+replaces a file still succeed. smbtorture gives the same results as on
+the base.
+
+v1: https://lore.kernel.org/linux-cifs/20261128013952.1691873-1-icb@fastmail.org/
+
+This patch was developed with LLM assistance.
+
+ fs/smb/server/smb2pdu.c    | 21 ++++++++++++--------
+ fs/smb/server/smb_common.c | 40 ++++++++++++++++++++++++++++++++++++++
+ fs/smb/server/smb_common.h |  1 +
+ fs/smb/server/vfs.c        |  9 +++++++++
+ 4 files changed, 63 insertions(+), 8 deletions(-)
+
+diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
+index 38326db8da40..ab75104e5aa6 100644
+--- a/fs/smb/server/smb2pdu.c
++++ b/fs/smb/server/smb2pdu.c
+@@ -8924,6 +8924,9 @@ static int smb2_create_link(struct ksmbd_work *work,
+ 			le32_to_cpu(file_info->FileNameLength))
+ 		return -EINVAL;
+ 
++	if (S_ISDIR(file_inode(filp)->i_mode))
++		return -EISDIR;
++
+ 	ksmbd_debug(SMB, "setting FILE_LINK_INFORMATION\n");
+ 	pathname = kmalloc(PATH_MAX, KSMBD_DEFAULT_GFP);
+ 	if (!pathname)
+@@ -8932,7 +8935,7 @@ static int smb2_create_link(struct ksmbd_work *work,
+ 	link_name = smb2_get_name(file_info->FileName,
+ 				  le32_to_cpu(file_info->FileNameLength),
+ 				  local_nls);
+-	if (IS_ERR(link_name) || S_ISDIR(file_inode(filp)->i_mode)) {
++	if (IS_ERR(link_name)) {
+ 		rc = -EINVAL;
+ 		goto out;
+ 	}
+@@ -8948,16 +8951,17 @@ static int smb2_create_link(struct ksmbd_work *work,
+ 	rc = ksmbd_vfs_kern_path_start_removing(work, link_name, LOOKUP_NO_SYMLINKS,
+ 						&path, 0);
+ 	if (rc) {
++		/* -EXDEV here means the name leaves the share */
++		if (rc == -EXDEV)
++			rc = -EACCES;
+ 		if (rc != -ENOENT)
+ 			goto out;
+ 	} else {
+ 		if (file_info->ReplaceIfExists) {
+ 			rc = ksmbd_vfs_remove_file(work, &path);
+-			if (rc) {
+-				rc = -EINVAL;
++			if (rc)
+ 				ksmbd_debug(SMB, "cannot delete %s\n",
+ 					    link_name);
+-			}
+ 		} else {
+ 			rc = -EEXIST;
+ 			ksmbd_debug(SMB, "link already exists\n");
+@@ -8967,8 +8971,6 @@ static int smb2_create_link(struct ksmbd_work *work,
+ 			goto out;
+ 	}
+ 	rc = ksmbd_vfs_link(work, target_name, link_name);
+-	if (rc)
+-		rc = -EINVAL;
+ out:
+ 
+ 	if (!IS_ERR(link_name))
+@@ -9442,7 +9444,7 @@ int smb2_set_info(struct ksmbd_work *work)
+ 	struct smb2_set_info_rsp *rsp;
+ 	struct ksmbd_file *fp = NULL;
+ 	int rc = 0;
+-	bool chseq_err = false;
++	bool chseq_err = false, map_err = false;
+ 	unsigned int id = KSMBD_NO_FID, pid = KSMBD_NO_FID;
+ 
+ 	ksmbd_debug(SMB, "Received smb2 set info request\n");
+@@ -9494,6 +9496,7 @@ int smb2_set_info(struct ksmbd_work *work)
+ 	case SMB2_O_INFO_FILE:
+ 		ksmbd_debug(SMB, "GOT SMB2_O_INFO_FILE\n");
+ 		rc = smb2_set_info_file(work, fp, req, work->tcon->share_conf);
++		map_err = req->FileInfoClass == FILE_LINK_INFORMATION;
+ 		break;
+ 	case SMB2_O_INFO_SECURITY:
+ 		ksmbd_debug(SMB, "GOT SMB2_O_INFO_SECURITY\n");
+@@ -9519,7 +9522,9 @@ int smb2_set_info(struct ksmbd_work *work)
+ 	return 0;
+ 
+ err_out:
+-	if (rc == -EACCES || rc == -EPERM || rc == -EXDEV) {
++	if (map_err && rc != -EMSGSIZE) {
++		rsp->hdr.Status = smb_errno_to_ntstatus(rc);
++	} else if (rc == -EACCES || rc == -EPERM || rc == -EXDEV) {
+ 		if (fp && req->InfoType == SMB2_O_INFO_FILE &&
+ 		    req->FileInfoClass == FILE_DISPOSITION_INFORMATION &&
+ 		    fp->f_ci->m_fattr & FILE_ATTRIBUTE_READONLY_LE)
+diff --git a/fs/smb/server/smb_common.c b/fs/smb/server/smb_common.c
+index 6595d40b06bc..4996840bc9d1 100644
+--- a/fs/smb/server/smb_common.c
++++ b/fs/smb/server/smb_common.c
+@@ -909,3 +909,43 @@ __le32 smb_map_generic_desired_access(__le32 daccess)
+ 
+ 	return daccess;
+ }
++
++/* Map a negative errno to a default NT status. */
++__le32 smb_errno_to_ntstatus(int err)
++{
++	switch (err) {
++	case -EACCES:
++	case -EPERM:
++		return STATUS_ACCESS_DENIED;
++	case -ENOENT:
++		return STATUS_OBJECT_NAME_NOT_FOUND;
++	case -ENOTDIR:
++		return STATUS_OBJECT_PATH_NOT_FOUND;
++	case -EEXIST:
++		return STATUS_OBJECT_NAME_COLLISION;
++	case -EISDIR:
++		return STATUS_FILE_IS_A_DIRECTORY;
++	case -ENOTEMPTY:
++		return STATUS_DIRECTORY_NOT_EMPTY;
++	case -ENAMETOOLONG:
++		return STATUS_OBJECT_NAME_INVALID;
++	case -EXDEV:
++		return STATUS_NOT_SAME_DEVICE;
++	case -EMLINK:
++		return STATUS_TOO_MANY_LINKS;
++	case -ENOSPC:
++		return STATUS_DISK_FULL;
++	case -EDQUOT:
++		return STATUS_DISK_QUOTA_EXCEEDED;
++	case -EROFS:
++		return STATUS_MEDIA_WRITE_PROTECTED;
++	case -EOPNOTSUPP:
++		return STATUS_NOT_SUPPORTED;
++	case -ENOMEM:
++		return STATUS_INSUFFICIENT_RESOURCES;
++	case -EINVAL:
++		return STATUS_INVALID_PARAMETER;
++	default:
++		return STATUS_UNEXPECTED_IO_ERROR;
++	}
++}
+diff --git a/fs/smb/server/smb_common.h b/fs/smb/server/smb_common.h
+index d3d19f1a23ea..1d93bd00fcd1 100644
+--- a/fs/smb/server/smb_common.h
++++ b/fs/smb/server/smb_common.h
+@@ -300,6 +300,7 @@ unsigned int ksmbd_server_side_copy_max_chunk_size(void);
+ unsigned int ksmbd_server_side_copy_max_total_size(void);
+ bool is_asterisk(char *p);
+ __le32 smb_map_generic_desired_access(__le32 daccess);
++__le32 smb_errno_to_ntstatus(int err);
+ 
+ /*
+  * Get the body of the smb message excluding the 4 byte rfc1002 headers
+diff --git a/fs/smb/server/vfs.c b/fs/smb/server/vfs.c
+index 5b0722fe7788..2a48b875c327 100644
+--- a/fs/smb/server/vfs.c
++++ b/fs/smb/server/vfs.c
+@@ -705,6 +705,15 @@ int ksmbd_vfs_link(struct ksmbd_work *work, const char *oldname,
+ 		goto out1;
+ 	}
+ 
++	/*
++	 * Fail first if the source filesystem has no hard links.
++	 * vfs_link() would only see this on the target directory, and it
++	 * returns -EPERM for it.
++	 */
++	err = -EOPNOTSUPP;
++	if (!d_inode(oldpath.dentry->d_sb->s_root)->i_op->link)
++		goto out2;
++
+ 	dentry = ksmbd_vfs_kern_path_create(work, newname,
+ 					    LOOKUP_NO_SYMLINKS | LOOKUP_REVAL,
+ 					    &newpath);
+
+base-commit: 4543a3349127baa8395397b7f4aa930d9a4f8dd5
+-- 
+2.47.3
+
