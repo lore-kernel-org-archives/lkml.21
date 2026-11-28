@@ -1,54 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.213
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795830393;
-	b=TbVXTmCCjohhu8hbUSU3rKxYHQ3zb5L2hPuir5PJS3xwj0tlnMyBc5oGW5Zd3154Hf7s
-	 86HIdEIl4TiufHBJPVNQxBDBxv9+5qcUGwfiK/15n+ZcZc1aKD0U8ulLUcHsHK0NPj2jX
-	 JHl7Jl3dumIxBc9Tp12afZ4hT5i2qxMEmWgqfvCUop80lmdozKPbwVlbSzmPuoiZjXUQ6
-	 7h5jlZtv1RZVtCuc7B3ddgaOVPsCXHhiMRCCKMmFOzrDJlLEAinjVGcVPvCoEi3hcg1vw
-	 lvAqp2i1iBgmWYC1yMRMUaKYZUXOyiikt7ZGTLWcOn9RE11Tnk6njjqhcWq+QCmWslQ==
+	t=1795830512;
+	b=t6/01xqoeJn0qOJ1yeyfEzR3nLW+mtKfL8BDUB47A1DveUqS/j6QIvazV83Lr9KJecBF
+	 mrmKyQWaBl1wpSU5goeSThO//I84nrbR3rNLcc/ZMRZX9sqGcwZabOIfQspslWw3T0IGo
+	 HBfs6oLyDGVQx0xhCbfVvx6HcaxEkSP2BnODpv5qyzjNNG4bW6mJ+kuulUKtOOBGO2V9z
+	 pUR9pwEZQnHv417GnsA0C6LsFvceheXhV55Xdezrn8AewfQHbl70e/UWuSTnb+23YcOmg
+	 xxEPYJdm+rz+UAr9MKl9UPDvA/v7QmThT555A8J5PQh/HXKDkjE5RAFIOtlb4+2dokQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795830393;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=3FvS8FtGQ6aPw+HEAnB6v1qG/uMn95oCLDLXDWQpCpY=;
-	b=eV6Cg+VZ8yiYA2dFYRPsDVYGtb2L/ADztd4vRCHPfpU+PQB6E/okAuoivpELMZpCzvxv
-	 xAZV8zKsKrUZb2tiB+/3PY7Blw72EyZeR2n2h48iUizGOSqaw535d6puw+gxCOiO7XzBH
-	 0eQi3Xzin+NvHIMimoxHL5mWeRdEEby2rXYyoP1Deym0/8ck5serVGcQU+PKYO0oufZvb
-	 it6sYS3pBvfhwGZANZ+yVJq0qRNOwNO2JmL2zbNOT8vJfAHO9CpeLqoi0SmC0KW+xwLOk
-	 fq11CZ0gPVaGKzhe4LYsC+v2FGwRVHNlriGjikzTch4v0C5qyDcl/rfHOboHz/HoN/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795830512;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
+	bh=21r2hb/jryykCmBdAXC3ICR29YFM48iOqHSTEFvPQaE=;
+	b=qOmXFXDRMtJqi79N1MCswWKKD2liMTikFIKVdTLt7fOJG9NBI9Mm+0fUB6Xx9nndmirB
+	 iJR92mtrNd1hbiiaUwKmOHQiK4LTs6RV7NNGmtUXzvZjPPns1KxwDVYIJTVSzA7q/No0s
+	 nQLwP3WWPlSuOb1xVWcC9ktcbuhROHVnqhODA70Z/ifpkNp9Z8cxD+37o5O4kQBSABp2m
+	 r7rgNOKhevOJzxphpo0rolkgwpgmsV4J4hyUirGs/eGDIjH8hNkpSz5jo+dxO8UXvxVuq
+	 eBiVnqCnKU9rxyLsjAkOKE3K+D7w8cz0nxTTLniT2y9uxIa3EVPL/TKkQoGRt7CKr4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=waIn7u7l;
-	arc=none smtp.remote-ip=91.218.175.213
-Received: from mta0.migadu.com (out-213.mta0.migadu.com [91.218.175.213])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PFCsrOuh;
+	arc=none smtp.remote-ip=74.125.231.139
+Received: from mail-oo2-f11.google.com (mail-oo2-f11.google.com [74.125.231.139])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D06A9606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:46:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D06A9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A419C606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:48:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A419C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=waIn7u7l
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=UoaWF2UOgdIt1xm3obgw+ytYgy/p7Hbugvx0fIXYnzQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795830389; v=1; x=1796435189;
- b=waIn7u7l+6+/Im2MolrMT1bjG7ljXIOBQ/JMlyofBE1tf4Q+Rp8CU+XP8tk2OVs3/M9+rxEU
- HUmvTj7dphw7ltLPaET9wg6HWisHDAcOkCEdP/hjAzFElz9Pn3C0LetDF2TffdJRHaW7MCXaa3Z
- qKgrAIK0A53gzdvgqNGT1fcw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 650c92153ae3d674;
-	Sat, 28 Nov 2026 01:46:29 +0000
-X-Mizu-Trace-ID: 650c92153ae3d674
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <628e83e6-fc30-4c02-a067-ee6ad9b74666@linux.dev>
-Date: Sat, 28 Nov 2026 09:46:26 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PFCsrOuh
+Received: by mail-oo2-f11.google.com with SMTP id 006d021491bc7-71b7aac1211so1190004eaf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:48:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795830510; x=1796435310; darn=vger.kernel.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=21r2hb/jryykCmBdAXC3ICR29YFM48iOqHSTEFvPQaE=;
+        b=PFCsrOuhKvYWkecKExagreSZMqNIYx1J9I4Yf4CUrLdWpMnVcm/nOL25IFScfnTlDG
+         EbehVJaCCimcsR/2V1R7vnG1t4qDYbdszIYo7hyfrQn8m+Afr+apqdbHuknMNYo39Wao
+         AcXet7EkLqfv91/xOUshEi+N7lscAIojxeCM8xXhdKGRn11ZrgKgY1+S2XfIZjkEV31/
+         c5M9HmOkN/S8uafflqaubnEL3hWG8548wZiXvnxbYdzKxH6hY6SeXJS+aikJ0mcdS/3T
+         AnYsPsFTFIsfOboi5rt+NK7/tezwqPdGkP8Co3XBJEInvKX3aUa1J1sbas/eMwv5MQit
+         simg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795830510; x=1796435310;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=21r2hb/jryykCmBdAXC3ICR29YFM48iOqHSTEFvPQaE=;
+        b=Pn5NxcWV0IzoNgqryL43ls8mxWiP/xp7GqjdxG+J3bgPdZ4YKl00um3SZwup3mRVNB
+         kYPdb1esj55Pyn/aOSQmM4cykv9bd4IHv2GPaEGLd74X+ZK74cvYVnrp2yncrDpbQDqd
+         ZJcX/d/EH9JO5AhVcLnr/QZa9lg4wUmSa560+6/XY/JQScL8UtunOujdzC7MAO7+dnmM
+         SSxF/M8leoVH00KWHOjlMnmHsEuQoQV764bYBLqN8Yw/GftawVlNT4fm2VWh/aeA6Sdx
+         tYe7UK+rIAT11IP8Ef9GlFPv1lh/SvQ+Nbz0cjxIDPtOKVjfTpsMcQwyLsMblTtZp48X
+         UBLw==
+X-Forwarded-Encrypted: i=1; AL+hErF/WqhYULfBxf99dxMdP4Hq2H8L59matdgcA4xWnZQ5z5qZAKU03ADlZO+P1aEd5u+qFgVBg+T1UIflPwQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OctwuQx8Mi0NLJ+tTFgiixH8CbTKQawA/tmaIwAtG4j8h6ABq
+	WkbFHuQW7fKi5/48Pa7qH+43vLODjpCw0uG4cVWD29XeosX2tYf6VK5I
+X-Gm-Gg: AZFdTZf1CAaYKwFltsyWrd8EHpB7nNc1UKRlE4xM5DYR20l9ZReLgnBNnBsI7uOy9B8
+	8Z1NCcylCchHjODSlPpz0GUmqjsQ64wqU7ikk8ticR1AHvfQ3NZOQF9rJrGi7wRVAVAtkpafKpw
+	6Ev3hG2qLsytRxfeUGRWddGtO923Gfw3u8828vUtg0MIXIlCKb4cinAJKWMwePtFYdcX92UOqD7
+	OVAYuMDV/Gl+VS9Cx0OkUbt+9vWhSVdKl+bg2YtmJbljK3jyphiPbDZaYE4L/XmVnmUHDg/gWgV
+	uOKX3PmCbVvUbwv7t9avTtMa1JLEZEW5Ep6YNaIpuUJSuUULSaPACJTrN9nL2AB/BiiahXjXJtM
+	EaX6OIv9aotNbINwtyKVO7ePN1POmD3Tfy8UdlDqYspOCwlHIuqpu/Ie/rYwcHRsYtrXapSF7VD
+	3xD5s+sblJ7HQbmxSTYZ9bVfxieWhyPU7r2oY6CrF08CWUSSz6Zs9l5KN8A69T4046A84DC9xNK
+	yYKqx29PhCilxM6nvaxvEa+eIxsw7EfK5bMt6IQINvnr/8QanW4uTyC8RYJ2naqyUAHel0GZjXO
+	gDU0Hj8zkKB0gHvRjUkBb/6j+NG7lgj4AhnJvklMadKbOWSmmvbWhaDjd8w5U11B7VVYOs5eFj4
+	XadBXoajo6TBNvlJasB4dRNDO+gKjRmD0I5q0
+X-Received: by 2002:a05:6820:f034:b0:71b:3fec:38a6 with SMTP id 006d021491bc7-71b3fec4b36mr20333111eaf.12.1795830510586;
+        Fri, 27 Nov 2026 17:48:30 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:57::])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380bdff9sm17750840eaf.11.2026.11.27.17.48.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 17:48:29 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,193 +88,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] cgroup/cpuset: Check v2 partition overlap in a single
- pass
-To: Chuyi Zhou <zhouchuyi@bytedance.com>, longman@redhat.com, tj@kernel.org,
- hannes@cmpxchg.org, mkoutny@suse.com
-Cc: linux-kernel@vger.kernel.org
-References: <cover.1795436486.git.zhouchuyi@bytedance.com>
- <95bc3ba0a481b2ef09ce8e3258c78b58b6a42a02.1795436486.git.zhouchuyi@bytedance.com>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <95bc3ba0a481b2ef09ce8e3258c78b58b6a42a02.1795436486.git.zhouchuyi@bytedance.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 28 Nov 2026 02:48:27 +0100
+Message-Id: <DN6GS9V7A3HS.1COD0JUQQDHQ@gmail.com>
+From: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>, "Andy Lutomirski"
+ <luto@kernel.org>, <bpf@vger.kernel.org>
+Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "Peter Zijlstra (Intel)"
+ <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar"
+ <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, <kkd@meta.com>,
+ <kernel-team@meta.com>, "the arch/x86 maintainers" <x86@kernel.org>, "Linux
+ Kernel Mailing List" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
+ for user address faults under SMAP
+X-Mailer: aerc 0.22.0
+References: <20261009024925.3169077-1-memxor@gmail.com>
+ <20261009024925.3169077-2-memxor@gmail.com>
+ <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+ <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
+ <5f46d1c1-fdce-4f3b-9d56-675a822b2d65@app.fastmail.com>
+ <DN4X9KVYMONH.VHKD1QED1BUQ@gmail.com>
+ <03275761-8de2-41be-92fd-8e3012a87eeb@app.fastmail.com>
+ <DN5K8Y9824AE.3GPOE0WP9ELFN@gmail.com>
+In-Reply-To: <DN5K8Y9824AE.3GPOE0WP9ELFN@gmail.com>
 
+On Fri Nov 27, 2026 at 1:18 AM CET, Alexei Starovoitov wrote:
+> On Thu, Nov 26, 2026 at 09:30 AM Andy Lutomirski <luto@kernel.org> wrote:
+>> Okay.  So maybe there should be a nice patch set to *fix* it.
+>
+> [[...]
+>
+> The main point that it's orgonal to this patchset.
+>
 
+I was wondering whether one concrete improvement could be to emit BTF type =
+tags
+for __iomem annotations in the kernel, then reject accesses on BTF pointers
+formed using such walks in the verifier, so such programs would fail to loa=
+d.
 
-On 11/23/2026 8:45 PM, Chuyi Zhou wrote:
-> generate_sched_domains() checks that the effective CPU masks of cgroup
-> v2 root partitions with load balancing enabled are disjoint. It compares
-> every pair of nonempty masks and warns on overlap. For P masks, this
-> takes P * (P - 1) / 2 intersection tests.
-> 
-> Copy the first mask into a scratch mask. Check each remaining mask for
-> overlap with the scratch mask before adding its CPUs. This takes one
-> intersection test and one union per remaining partition.
-> 
-> Reuse the scratch mask allocated at boot for task attachment. Both
-> users hold cpuset_mutex and overwrite the mask before reading it, so
-> the check needs no additional allocation.
-> 
-> On a dual-socket Xeon Platinum 8582C with 240 online CPUs, changing a
-> child partition's cpuset.cpus triggered a domain rebuild. The table
-> shows median time in generate_sched_domains() in microseconds. The
-> partition count includes the top partition.
-> 
->      Partitions      Before         After
->               2       0.524         0.520
->               8       0.775         0.657
->              32       3.734         1.222
->              64      11.875         1.797
->             128      42.936         3.138
->             192      93.781         4.700
->             238     142.305         5.424
-> 
-> Signed-off-by: Chuyi Zhou <zhouchuyi@bytedance.com>
-
-The numbers look nice. I'm not sure how often this is a bottleneck in
-practice, but it's a simple change and a clear win, so I'm all for it.
-
-> ---
->   kernel/cgroup/cpuset-internal.h |  1 -
->   kernel/cgroup/cpuset.c          | 41 +++++++++++++++++----------------
->   2 files changed, 21 insertions(+), 21 deletions(-)
-> 
-> diff --git a/kernel/cgroup/cpuset-internal.h b/kernel/cgroup/cpuset-internal.h
-> index 1ba94ffaff9d..42abe241a251 100644
-> --- a/kernel/cgroup/cpuset-internal.h
-> +++ b/kernel/cgroup/cpuset-internal.h
-> @@ -257,7 +257,6 @@ static inline int is_spread_slab(const struct cpuset *cs)
->   }
->   
->   /*
-> - * Helper routine for generate_sched_domains().
->    * Do cpusets a, b have overlapping effective cpus_allowed masks?
->    */
-
-cpuset1_generate_sched_domains() still uses it, so maybe say that
-instead of dropping the line.
-
-With this change, cpusets_overlap() is only used by
-cpuset1_generate_sched_domains(), and the rest of cpuset-v1.c already
-calls cpumask_intersects() directly. Maybe just open-code it there and
-remove the helper from cpuset-internal.h, either in this patch or as a
-separate cleanup.
-
->   static inline int cpusets_overlap(struct cpuset *a, struct cpuset *b)
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 633fd05f513e..2e09abb9e864 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-> @@ -119,6 +119,12 @@ static const char * const perr_strings[] = {
->   static DEFINE_MUTEX(cpuset_top_mutex);
->   static DEFINE_MUTEX(cpuset_mutex);
->   
-> +/*
-> + * Scratch mask for task attachment and sched domain generation. Each user
-> + * must initialize the mask and hold cpuset_mutex for its entire use.
-> + */
-> +static cpumask_var_t cpuset_scratch_mask;
-> +
->   /*
->    * File level internal variables below follow one of the following exclusion
->    * rules.
-> @@ -865,10 +871,10 @@ static int generate_sched_domains(cpumask_var_t **domains,
->   {
->   	struct cpuset *cp;	/* top-down scan of cpusets */
->   	struct cpuset **csa;	/* array of all cpuset ptrs */
-> -	int i, j;		/* indices for partition finding loops */
->   	cpumask_var_t *doms;	/* resulting partition; i.e. sched domains */
->   	int ndoms = 0;		/* number of sched domains in result */
->   	struct cgroup_subsys_state *pos_css;
-> +	int i;
->   
->   	if (!cpuset_v2())
->   		return cpuset1_generate_sched_domains(domains, attributes);
-> @@ -907,14 +913,16 @@ static int generate_sched_domains(cpumask_var_t **domains,
->   	}
->   	rcu_read_unlock();
->   
-> -	for (i = 0; i < ndoms; i++) {
-> -		for (j = i + 1; j < ndoms; j++) {
-> -			if (cpusets_overlap(csa[i], csa[j]))
-> -				/*
-> -				 * Cgroup v2 shouldn't pass down overlapping
-> -				 * partition root cpusets.
-> -				 */
-> -				WARN_ON_ONCE(1);
-> +	/* Each CPU can belong to only one load-balancing partition. */
-> +	if (ndoms > 1) {
-> +		struct cpumask *seen = cpuset_scratch_mask;
-> +
-> +		cpumask_copy(seen, csa[0]->effective_cpus);
-> +		for (i = 1; i < ndoms; i++) {
-> +			const struct cpumask *cpus = csa[i]->effective_cpus;
-> +
-> +			WARN_ON_ONCE(cpumask_intersects(seen, cpus));
-> +			cpumask_or(seen, seen, cpus);
->   		}
->   	}
->   
-
-A pair of masks overlaps iff some mask intersects the union of the
-ones before it, so this is equivalent, and there was only one
-WARN_ON_ONCE() before as well. Sharing the scratch mask with
-cpuset_attach_task() is fine: both run under cpuset_mutex, overwrite
-the mask before reading it, and don't nest.
-
-
-> @@ -3307,13 +3315,6 @@ static void cpuset_cancel_attach(struct cgroup_taskset *tset)
->   	mutex_unlock(&cpuset_mutex);
->   }
->   
-> -/*
-> - * Protected by cpuset_mutex. cpus_attach is used only by cpuset_attach_task()
-> - * but we can't allocate it dynamically there.  Define it global and
-> - * allocate from cpuset_init().
-> - */
-> -static cpumask_var_t cpus_attach;
-> -
->   static void cpuset_attach_task(struct cpuset *cs, struct task_struct *task)
->   {
->   	struct mm_struct *mm;
-> @@ -3321,15 +3322,15 @@ static void cpuset_attach_task(struct cpuset *cs, struct task_struct *task)
->   	lockdep_assert_cpuset_lock_held();
->   
->   	if (cs != &top_cpuset)
-> -		guarantee_active_cpus(task, cpus_attach);
-> +		guarantee_active_cpus(task, cpuset_scratch_mask);
->   	else
-> -		cpumask_andnot(cpus_attach, task_cpu_possible_mask(task),
-> +		cpumask_andnot(cpuset_scratch_mask, task_cpu_possible_mask(task),
->   			       subpartitions_cpus);
->   	/*
->   	 * can_attach beforehand should guarantee that this doesn't
->   	 * fail.  TODO: have a better way to handle failure here
->   	 */
-> -	WARN_ON_ONCE(set_cpus_allowed_ptr(task, cpus_attach));
-> +	WARN_ON_ONCE(set_cpus_allowed_ptr(task, cpuset_scratch_mask));
->   
->   	if (cpuset_v2() && !attach_ctx.mems_updated)
->   		return;
-> @@ -3915,7 +3916,7 @@ int __init cpuset_init(void)
->   
->   	cpuset1_init(&top_cpuset);
->   
-> -	BUG_ON(!alloc_cpumask_var(&cpus_attach, GFP_KERNEL));
-> +	BUG_ON(!alloc_cpumask_var(&cpuset_scratch_mask, GFP_KERNEL));
->   
->   	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
->   		cpumask_andnot(isolated_cpus, cpu_possible_mask,
-
-Overall, it looks good to me.
-
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
-
--- 
-Best regards
-Ridong
-
+I think in practice, at least for BPF users, this will close the issue.
