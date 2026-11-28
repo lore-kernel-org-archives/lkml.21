@@ -1,62 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795876320;
-	b=LSHZdwS5Qyul74rLTww8/RHYigPupL8+Xo2UNfi7kgl9P+5HBXnzI+Rg7Orj6xaIWSNA
-	 nCI9bVQPlv9d95hfkAzx2Pd11itXACqDdCJkVliGsB390i4NDX4YD0WWVARwHWRnSkSAv
-	 SsH2J8Amf+OYTO2ya+7rcoEMrB8p3en2eR498nU2xOtzvr5J6Sg6IpDC3ZcyCFCp/1YXN
-	 jUuX0iPTjYth4sxWEKEvck/AER+IY4p7HTwCf5wapgDstsEgx/ljEdCS/C3C621vHNmJQ
-	 uc3q/ww9GPtlB2n/NokTDNY0OrkHLB3VhoJ0fJaUvy5HV2XHAHQggUkc/oELEPTGWgw==
+	t=1795876490;
+	b=3TWUjpB7YCl5g5hM5otIxLGU4plAFBwnG1FRRDJ02rtCySW4AJa1fNwIid3YGXF0YWkA
+	 KsOYsY6cHmcYpT5WSBDVLd1F3lOB1zmgxYiksPGR1Ja15CShqdRrx3UaA2GX3zZE70SW7
+	 vn+GHLXuYM3wk5Al62fnvUddBmsE79IYo6GLnzXPeMkUJc/uqoQ5IKGh5L/JrKweBW/53
+	 5Bqe8eNmAEs+1scAiverh71tjpj6PmIjic4yDKrksZ64eY/HMQxfO5a8JjHPeKDqvt8g8
+	 CrokMuoIrMxzSji5tE8hAhazHqz1JWXys7hLHMFbAAPjPVTszANdkwdI5iy8TkJkEUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795876320;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wHEpWiTKlcV7eo5kxboULZbcV5KCmM/FnbLliE7J2KM=;
-	b=q+WmOgxbVw/n5SIpkcQK1RMDvCUfNCEkpCBZgYQfZBUhd4w24d2Eqri7MMSAT6POf130
-	 UP+692Xx/i55sNdP2MC67ykaYvckek7pjtCuAqXa748Nf12rlU0fAbUenJeE5o1LmOWMJ
-	 v9dQpH0RWZgLtKNRnupqWAgEGYfvlaHenPAzSwp6Bi4wCw2o5aLF7hiWQopo2hv33/l0y
-	 xQbYKyQSyvRKh289yZyyHIX/uOSUfJDmrNoEkKB0qRM0tzqyghnI0C5B6W8ZyKGH1cETp
-	 n8KVELOjcLBaeVbe6WfG5KMWmtRXfTxxwqakJ11+3m2Ui4XYwD12XL2GSXcGCz4NUKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795876490;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ba82/DXHsGp7zImrCLEDml3NZDfk5cE/Qz7vmkljABw=;
+	b=jTwj6AaDjJMNeWkRBR6NLvESwEGIM8RiMVhdikO5cuuaMjsItzVsEwnPP8vgWitPUINm
+	 a8dDEovx2VNp0axXLgTHTMLZYoaZ2dFYNj24vd8leRj0rOLId9QipE7VTHGpIH2n8tJyu
+	 SviH9G1R9+P9U7H386TRIqVpDzdSBFW3S924O+aegQ1CfeIqYBmES0l4wRWedhvYKiFO7
+	 bz8H7/Mgmvk5bQJWGhlMSjmLpUdcywR1v6MxL2vpV80jsz2v9rF4bReM4vs2fJKrnSdrb
+	 3Hx54mYxpTyiYb80/GFVbkzSJK0vv2+QdnvZzLBv7tb0YHl7v6LkjHOtq7RhDWFs4Mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZFYp9oI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=wyuan.org;
+	spf=pass smtp.mailfrom=wyuan.org;
+	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=jw4T3eEB;
+	arc=none smtp.remote-ip=91.218.175.147
+Received: from mta0.migadu.com (out-147.mta0.migadu.com [91.218.175.147])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22815606A31C;
-	Sat, 28 Nov 2026 14:31:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E40D6606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:34:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E40D6606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZFYp9oI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD9D61F00893;
-	Sat, 28 Nov 2026 14:31:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795876319;
-	bh=wHEpWiTKlcV7eo5kxboULZbcV5KCmM/FnbLliE7J2KM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mZFYp9oIAFmV4r2TVx43nKEtLOVyzUabzl2WzioGz3lhQ6ECnaA7VbktItznfMZJa
-	 2dwgw5YVVz2waiIhujS6Jn3RfG+zKcU3cK1K85ekyLs2BKr7fJSv9VB+pgVoYGgXmM
-	 sDZKjwnpXm/EkqVXQqfVAARgReTElkoDDMNQt7j4/NJiYfXBl9khlBHt4mY6UGekx9
-	 BuDTyUmsxT1dSDJbZCFFUUhs+ta41g6X2U3sM7MrHusJDgYXOmJdMrrZEMguJyeaPX
-	 qKsd3jPNFUFSWeIddaaEoEC2iUIgNbCw7kbZTAJPuWCaTlCWRb8EV7oLMhIE5X2/Pm
-	 an/ND/jhjoxeg==
-Subject: Re: [PATCH net v2 1/2] bcm63xx_enet: Prevent unbalanced
- clk_disable_unprepare() call in bcm_enet_remove()
-From: netdev-bot+sashiko@kernel.org
-To: Markus.Elfring@web.de
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, hemanth.selam@gmail.com, kuba@kernel.org,
- jonas.gorski@gmail.com, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
- andriy.shevchenko@linux.intel.com, christophe.jaillet@wanadoo.fr,
- f.fainelli@gmail.com, Frank.Li@kernel.org, Julia.Lawall@inria.fr
-Date: Sat, 28 Nov 2026 14:31:58 +0000
-Message-ID: <179587631846.3135.16815258842003970286@kernel.org>
-In-Reply-To: <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
-References: <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=jw4T3eEB
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=BO/h53Ng34EMcvdjK8J7dduiAaDS2ZOqKazQyDtzkBo=;
+ c=simple/simple; d=wyuan.org;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795876487; v=1; x=1796481287;
+ b=jw4T3eEBFLR52rJgwlTtfMGm22cRErZg24u9Y/R6AL+7okLT7iQ6jDfRQNeIzXkCuTbl19MN
+ n81+bbTOAAFc75Q3IHG1eJUNIZN85BB9RPIeIODl1yVaMpY2T/bnacGgJvqXOH6JVIgpcz/oith
+ 325dtV3rAQobNo9RnBL+0FTtVJraUygGgsXvryBTb3cyaz5pvTmB4/qcAskDg9c3ralqYOHLE1H
+ pgDxO3xOzknZ1P+ETxPW4PCNopFQ+UwX8GZplzvW1DvZQm2lsdAr5hsuHMAKEq7NvtIbwqgr6im
+ no0kTtofgyBW76OiiHGZAyR7ze7Mw45kQTScsS4O7npTA==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7a8542db2b98a6a7;
+	Sat, 28 Nov 2026 14:34:47 +0000
+X-Mizu-Trace-ID: 7a8542db2b98a6a7
+X-Migadu-Flow: FLOW_OUT
+Date: Sat, 28 Nov 2026 22:34:43 +0800
+From: Weijie Yuan <wy@wyuan.org>
+To: Daniel Pereira <danielmaraboo@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Alex Shi <alexs@kernel.org>,
+	Yanteng Si <si.yanteng@linux.dev>, Dongliang Mu <dzm91@hust.edu.cn>,
+	Chen-Yu Yeh <chenyou910331@gmail.com>,
+	Federico Vaga <federico.vaga@vaga.pv.it>,
+	Akira Yokosawa <akiyks@gmail.com>,
+	Carlos Bilbao <carlos.bilbao@kernel.org>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] docs: doc-guide: add a guide for translators
+Message-ID: <awrmgxPwwPICvTVG@wyuan.org>
+References: <20261119041009.63651-1-danielmaraboo@gmail.com>
+ <20261119041009.63651-2-danielmaraboo@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,208 +74,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119041009.63651-2-danielmaraboo@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Thu, Nov 19, 2026 at 01:10:08AM -0300, Daniel Pereira wrote:
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
+[...]
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The patch fixes a bug that does not exist, but carries Fixes:
-  and Cc: stable tags.
-- [Low] The patch guards clk_disable_unprepare(priv->phy_clk) in
-  bcm_enet_remove() but leaves the identical unconditional call at the…
-- [Low] In bcm_enet_remove() the patch moves
-  clk_disable_unprepare(priv->phy_clk) ahead of…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it is in the
-  same probe/remove pair and survives the whole series.
-
---
-
-bcm63xx_enet: Prevent unbalanced clk_disable_unprepare() call in bcm_enet_remove()
-
-This patch moves clk_disable_unprepare(priv->phy_clk) in bcm_enet_remove()
-into the has_phy branch and guards it with !priv->use_external_mii. That
-matches the condition under which bcm_enet_probe() enables the clock. The
-patch has a Fixes: tag for commit 7e697ce99ceb and is marked for stable.
-
-> A clk_prepare_enable(priv->phy_clk) call was specified within an if branch
-> in the implementation of the function “bcm_enet_probe” while
-> a clk_disable_unprepare(priv->phy_clk) call was unconditionally performed
-> in the implementation of the function “bcm_enet_remove”.
-> Move this clk_disable_unprepare() call into a corresponding if branch.
->
-> Fixes: 7e697ce99ceb09538cdc1dfa9ebb3db60236b0a7 ("bcm63xx_enet: use managed functions for clock/ioremap")
-> Cc: stable@vger.kernel.org
-
-[Severity: Medium]
-Is the unconditional call actually unbalanced?
-
-bcm_enet_probe() only sets priv->phy_clk inside the branch that also
-enables it. If devm_clk_get() fails, it resets the pointer to NULL:
-
-	if (priv->has_phy && !priv->use_external_mii) {
-		/* using internal PHY, enable clock */
-		priv->phy_clk = devm_clk_get(&pdev->dev, "ephy");
-		if (IS_ERR(priv->phy_clk)) {
-			ret = PTR_ERR(priv->phy_clk);
-			priv->phy_clk = NULL;
-			goto out_disable_clk_mac;
-		}
-		ret = clk_prepare_enable(priv->phy_clk);
-		...
-	}
-
-In every other case phy_clk stays NULL, because the netdev priv area is
-zero-allocated.
-
-BCM63XX_ENET depends on BCM63XX, which uses the legacy clock code in
-arch/mips/bcm63xx/clk.c. Its clk_disable() returns early for NULL:
-
-arch/mips/bcm63xx/clk.c:clk_disable() {
-	if (!clk)
-		return;
-	...
-}
-
-clk_unprepare() is the inline stub in include/linux/clk.h, and it only
-calls might_sleep(). So the old unconditional call did nothing whenever
-the clock had not been enabled.
-
-This looks intentional. Commit 4e78e5c5d881 ("bcm63xx_enet: drop unneeded
-NULL phy_clk check") removed the earlier guard because "clk_disable and
-clk_unprepare are NULL-safe".
-
-The Fixes: target also doesn't seem to match. After 7e697ce99ceb,
-bcm_enet_remove() still had the guard:
-
-	if (priv->phy_clk)
-		clk_disable_unprepare(priv->phy_clk);
-
-Nothing changes after the later patch in the series ("bcm63xx_enet: Use
-devm_clk_get_enabled() in two probe functions") either.
-
-This patch doesn't change runtime behavior. Should the Fixes: and Cc:
-stable tags be dropped, and the change described as a cleanup instead of
-a fix?
-
-> diff --git a/drivers/net/ethernet/broadcom/bcm63xx_enet.c b/drivers/net/ethernet/broadcom/bcm63xx_enet.c
-> index f6595fdc888d1..cc9a5cd2a2a3f 100644
-> --- a/drivers/net/ethernet/broadcom/bcm63xx_enet.c
-> +++ b/drivers/net/ethernet/broadcom/bcm63xx_enet.c
-> @@ -1915,6 +1915,9 @@ static void bcm_enet_remove(struct platform_device *pdev)
->  	enet_writel(priv, 0, ENET_MIISC_REG);
->  
->  	if (priv->has_phy) {
-> +		if (!priv->use_external_mii)
-> +			clk_disable_unprepare(priv->phy_clk);
+> +Labels
+> +------
 > +
->  		mdiobus_unregister(priv->mii_bus);
->  		mdiobus_free(priv->mii_bus);
+> +Sphinx labels (``.. _label:``) are global to the whole documentation
+> +build.  A label copied unchanged from the original therefore defines the
+> +same name twice, which breaks the build or, at best, makes references
+> +resolve to the wrong document.
+> +
+> +- Labels placed at the very top of a file are usually not needed at all
+> +  in the translation; simply drop them.
+> +
+> +- Labels that are needed, for example because other parts of the
+> +  translated document refer to them, must be made unique by adding a
+> +  language prefix.  Each translation already uses one; look at existing
+> +  files to find it (``it_``, ``sp_``, ``cn_``, ``tw_``, ``pt_``, ...)::
+> +
+> +    .. _it_process_howto:
+> +
+> +- References to labels of the English documentation are fine and
+> +  expected.  When the target document is not translated yet, linking to
+> +  the English version is the right thing to do.
 
-[Severity: Low]
-Was it intended to move the EPHY clock disable ahead of
-mdiobus_unregister() and mdiobus_free()?
+So sorry for bringing up this matter just now, here's what's recently
+re-discussed in zh_CN:
 
-Probe enables mac_clk, then phy_clk, and then registers the MDIO bus.
-The probe error path in bcm_enet_probe() still undoes these in reverse
-order:
+Some contributors are adding unused (not referred) labels when sending
+translations. Basically, in most(?) cases, they see this label in the
+original English text, so they add it accordingly (and with "sp_").
 
-out_unregister_mdio:
-	if (priv->mii_bus)
-		mdiobus_unregister(priv->mii_bus);
+So far, sorry that I haven't systematically investigated the situation
+where these labels are cited. But I have come across some examples where
+the labels in the original English text were not used at all. So the
+labels in the newly added translation will definitely not be used. Or
+there is another situation where the labels used in the original English
+text come from articles that do not yet exist in this translation, or
+vice versa.
 
-out_free_mdio:
-	if (priv->mii_bus)
-		mdiobus_free(priv->mii_bus);
+For consistency, on the Simplified Chinese side, we have roughly decided
+to follow the first principle, that is, do not add labels that have not
+been used; if it needs to be used in the future, then add it in the
+subsequent patches. However, it should be pointed out that this might
+require more work from contributors and reviewers, because sphinx does
+not warn labels that are not in use; therefore I mainly grep them every
+time.
 
-out_uninit_hw:
-	/* turn off mdc clock */
-	enet_writel(priv, 0, ENET_MIISC_REG);
-	clk_disable_unprepare(priv->phy_clk);
+The following point may be beyond the scope of discussion in this patch
+set: Currently, it is not seen in the existing documentation (sorry if I
+missed any docs): Do not add unused labels. Do we need to notify it in
+the existing documents not to do this? This might be helpful in
+preventing the introduction of unused labels in new translations.
 
-I couldn't find a concrete failure caused by the reorder:
+This is only the discussion result reached between me and Dongliang Mu.
+It may not be applicable to all languages. Suggestions from everyone are
+welcome as well.
 
-- unregister_netdev() has already disconnected the PHY in ndo_stop.
-- MDC is already turned off.
-- The bcm63xx internal PHY driver has no .remove callback, so
-  mdiobus_unregister() does no MDIO access here.
+Related thread:
 
-Still, disabling the clock after the MDIO teardown would keep remove()
-as the exact reverse of probe.
+https://lore.kernel.org/linux-doc/9d2b25e4-c5a0-4ef0-8698-1a622d05223e@hust.edu.cn/
 
-> @@ -1927,7 +1930,6 @@ static void bcm_enet_remove(struct platform_device *pdev)
->  	}
->  
->  	/* disable hw block clocks */
-> -	clk_disable_unprepare(priv->phy_clk);
->  	clk_disable_unprepare(priv->mac_clk);
+Thanks.
 
-[Severity: Low]
-If the unconditional call here were a problem, wouldn't the same apply to
-the out_uninit_hw label in bcm_enet_probe()? This patch leaves it
-unchanged:
-
-out_uninit_hw:
-	/* turn off mdc clock */
-	enet_writel(priv, 0, ENET_MIISC_REG);
-	clk_disable_unprepare(priv->phy_clk);
-
-That label can be reached without phy_clk ever being enabled:
-
-- has_phy == 0 and pd->mii_config() fails.
-- An external PHY is used and mdiobus_alloc(), mdiobus_register() or
-  register_netdev() fails.
-
-Both calls are NULL-safe, so this has no functional effect. But the two
-teardown sites for the same clock now follow different conventions, and
-the later devm_clk_get_enabled() patch keeps the unconditional call in
-out_uninit_hw.
-
-Should the remove-side change be dropped, or should both sites be
-handled the same way?
-
->  
->  	free_netdev(dev);
-
-[Severity: High]
-This is a pre-existing issue, but it is in the same probe/remove pair.
-In bcm_enet_probe(), when has_phy == 0 and pd->mii_config(dev, 1, ...)
-fails:
-
-		if (pd && pd->mii_config &&
-		    pd->mii_config(dev, 1, bcm_enet_mdio_read_mii,
-				   bcm_enet_mdio_write_mii)) {
-			dev_err(&pdev->dev, "unable to configure mdio bus\n");
-			goto out_uninit_hw;
-		}
-
-ret is not set on this path. Its last value came from
-clk_prepare_enable(priv->mac_clk), which is 0. After the later patch in
-the series it comes from bcm_enet_change_mtu(), also 0. So probe calls
-free_netdev() and returns 0 without ever calling platform_set_drvdata().
-
-On unbind or module removal, bcm_enet_remove() then runs with
-dev == NULL:
-
-	dev = platform_get_drvdata(pdev);
-	priv = netdev_priv(dev);
-	unregister_netdev(dev);
-
-Can this oops in unregister_netdev(NULL)->rtnl_net_dev_lock()->dev_net()?
-
-No in-tree board file sets mii_config, so this path needs out-of-tree
-platform code.
-
-Should ret be set to the return value of mii_config(), or to a negative
-errno, before the goto?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/0302adc3-dbf2-4e62-ac9b-8923ac285506%40web.de
