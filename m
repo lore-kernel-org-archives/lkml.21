@@ -1,58 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795854555;
-	b=oo2cAvWqAks1c6fCdNxXNVGzoQylTNgl2iNNHN/F4FzVqG5Zj8rZw0YMkOL96uB6Jqen
-	 BGSCYYmxr6S2yCKOPsig0DTNiZQOE9BCKhYXZWoV1SoTZyAI7nEEyx1nSfIwkhSpDpWaL
-	 /czMGxUUlI+V4BMrsxOb172ONUrvvhk1jftnE6ijKoolWUZxqcIGuB9z+M80s1nPoTCHw
-	 ICWEUf+P6fPzvpsBJXIGvDfnnMsW4yYcJgWZqAHuhwDlu9rbNoo0qaVvNSuFt2DZYveNp
-	 purMsyyx2pytGZjX0uC2t63N6ObtkjTq6V+ZkinEo4ZfqBingmf78LFQp2f111vgX9A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795854555;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=04XWHo51I/iilyFUIsQQzqp7PbV+QbY/1nUKexvohFc=;
-	b=bOdkdk556OTDkQyoFz8zMO4o+Is/aEKgL9Mpx5aXYyhMT5W7KcfLIgGFG0yron00eNOh
-	 2byEk0FkL1RdFgHnuhQC/SIcrVEYVFdXxBp9YWRTAMjlwWabym70vRlnjBu6AECf1o8h6
-	 jgui/8lI79fmvKjre1U25dhrbjyh9RjZ5AOCx6I4ysQSBNlxLCgTDrnX2BQ2ARiK39+dx
-	 ZNhbblyKKg2ZcT6HMA9nDCQMHe3sc55rDSvPLMrWpRu3K6XvzytiD7NXHc4QmIZ8F+3Mi
-	 aKu/FNvDvkKPtG3w8mnvcb0zYOPYnRWFsgc2Jk3LuZBWhdK5HoIFbzR3EM3Q3Ra5oQQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=TFacgqbf;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795854611;
+	b=Hg700QlvKPEQHxMA35zFELHJm0PSz6peSJ5U66qUNSzTppqUNieRyzoEJ+G+MTDY8by/
+	 fXGts/+FUK1a/MXJxf9LAlpLU0o7G+lUGolWZbIEjEGXbkvu/NxsYH8fXv9JgRbx1mrRT
+	 0Z5CG4Y/PCOB+GB0hbUzP2sGTPC5FtJwjA7oHYN5tH/oD7LHmLCaVrZaaOtanNBzRN1li
+	 EGbvzM8K1JQ9/7Q/BKOXBA38R+91in8gTt0Kw7mAcusHQsMpsMXuynI09GPIJ+omvzxZi
+	 LRTpGx/C7OROWJO8R2LhwVMLCW5+HO2iGqakWKUDNE/Z3Go6vB4yvQ8m7wcUNQnpoVQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795854611;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=1L8y7/SvVJPBXVNhtWStywFXrh9qI7ojM3poj+inXm4=;
+	b=E04ScC16FKxQS+5VK7Pfmls2r7AvG67W/nLYD+u0NRl8Q9qCvVhsu0/FbF7IBdu+1fTx
+	 BcLZAT3E15th3qunq2Tu7SmypM073JThRvJJjtMD4jG9GsGWN856truN+WARqFhw6wso6
+	 nsa9c0hn61nCYwd4zTiCjlkwGvSXUanGzJGjGK56BLOwv+8qrmXqHapqoEEZQ7yAnUR3O
+	 6GzHBlzMYP2NobqNYppILNUG0QBCTFFE+5tjw4E3uRQX6FUeR/Mkp7ehKcJkclNLVpshM
+	 V6N+lp6rLRy6pSv+Y6U12QmYz7U+dt/wLw4TgYj3tRfD5jj+XoDn7Jh9FTR4lwIHYdA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NEvY7QnV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 867C0606A31C;
+	Sat, 28 Nov 2026 08:30:11 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NEvY7QnV
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795854610;
+	b=Z+CPoWJTsCXPq/PmCmXF+yrUaZqPIpFfTvPOQj24thyC6eWeQ0LrcPusNXLSb6L8wt4G
+	 RPsRdpGbYeJ1P03/VLqK9lRlINVMcYTzznteacvf5x9Xe31jDzpS1xgWD6a5KnJcwaBcW
+	 hmol/vavPDTwnJrJmYNQ6xzDT6yo+rueJJukDxyosacGwM2xDkSDkzS5GBTS8evCbKnPD
+	 CZnACewKP2xKe9qWXishfyCYDxkd7oR1pkcd6RwjT+BQfhf+MajKmu5janqNgMEOCNZod
+	 6g0QXWmRDsVO3wFFZtsWJwRkl19BUWpDPR1dWHUCt51gB880ZozkQXJ1p9SXyIYCWBg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795854610;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=1L8y7/SvVJPBXVNhtWStywFXrh9qI7ojM3poj+inXm4=;
+	b=IqpZmhAynb97lh27iyyjbcZV2IOmD1pMklyiEneoSAhHZmcAA+YmfqLJqYucy7+qvApS
+	 ddcBdKhVktqEnhyQF7lwlK3iJxKLAb6ESqWSSqjSw4R9nFEfk1g8Ywgqjo4qqPDZhKX3f
+	 SOje3QR/tm9GKHxHlMq/pZaPmB7ZaWNk8N/48XMPeQXAvDzASGjOJaMIXYkNTW4pYGlkL
+	 yIHGHnPei3dbPgzi5mgtvZgXXn2ZGMyp5+bmRPBOJqfd+6f3AXrle9fe4ICNDH8pRbIds
+	 SwY2cwjnzlzA6grsrbVyxPlcogJHTPgwwfXuJmlPp8/NsZ3hNik7v5z5kf9s8kFbRfw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16667606A31C;
-	Sat, 28 Nov 2026 08:29:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16667606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=TFacgqbf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=04
-	XWHo51I/iilyFUIsQQzqp7PbV+QbY/1nUKexvohFc=; b=TFacgqbfCdMuAnGz8f
-	T6/KpAcLGoZ13vVIgeEhdReGFTrXhcmVdCBc56zBPvHS5DCjGrp211RbLLpVE6Z0
-	v3hWieDLCOAGGxug5/7/FFIQW4vZfXO5lnYDfzN62IAV4EPWbwx3FH4Gcpz8xJ2i
-	F2X1LqqPjiUtgf0e2R9ple3iM=
-Received: from shaos.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3n7qokAprhidDKg--.24836S2;
-	Sat, 28 Nov 2026 16:28:25 +0800 (CST)
-From: shaos <shawnq1@163.com>
-To: casey@schaufler-ca.com
-Cc: Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] smack: mediate file attribute syscalls
-Date: Sat, 28 Nov 2026 08:28:23 +0000
-Message-Id: <20261128082823.3074924-1-shawnq1@163.com>
-X-Mailer: git-send-email 2.34.1
+	by smtp.kernel.org (Postfix) with ESMTPS id A5F671F00893;
+	Sat, 28 Nov 2026 08:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795854610;
+	bh=1L8y7/SvVJPBXVNhtWStywFXrh9qI7ojM3poj+inXm4=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=NEvY7QnVuWJ2zOQn2P9Wq/gOeNvr4e260/IgCjx1zN5XRz2tIZAHMU8QgfyKivqOL
+	 JYBtwnX8ab0p/BE6OkR6BOaAG6XUsLa28878KR97IsActpdXDIYDd6YY1cylOGScIV
+	 hCzS7J5kj9vgwW6gVuT5hRQZAR9zDStN/QF254qiJtgTcaCvaXsjfJkTtR5i/fnLOY
+	 hB8M+bLDGQNyaNwCQupR3lPvpsP8l5uFc74n7/0KtngVAjr/x2xflKYK27T5yiGvsQ
+	 F8p92XiizOz+Jsa9c3yKc0FwU1ih/p005dWWSFCDCbW3XhlJCRJT5TzS2bSWvO3A0p
+	 zyNfQ1eAJz9AQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 057454E03E;
+	Sat, 28 Nov 2026 08:30:08 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Subject: [PATCH v6 0/4] media: rockchip: Add the IEP2 deinterlacer of
+ RK3568/RK3588
+Date: Sat, 28 Nov 2026 08:30:06 +0000
+Message-Id: <20261128-iep2-v6-0-5f4f10a0dbeb@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,137 +84,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3n7qokAprhidDKg--.24836S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxur4fKryUGFyDWFWrtry3CFg_yoW7JFyUpF
-	Z0qa43Kws5JFW7Gr93KF1UZ3Z09F4xGr4UXwnF9F4xZ3ZxGw1xKFyjvw1jyF15Grykurs0
-	qF4jvF1UWa15A37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jz_M3UUUUU=
-X-CM-SenderInfo: pvkd40jtr6il2tof0z/xtbC8QmruWsKkKlgdgAA3k
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/13OTW7DIBAF4KtErEvFjPkxWfUeVRcYhoSqiSOTo
+ laR717suBLy8knvezMPlmlKlNnx8GATlZTTeK1BvxyYP7vriXgKNTMUqAFA8EQ35IN11msyxkv
+ JavU2UUw/68z7xzPn7+GT/H2xS+Oc8n2cftc7BZbe/6R8ThbggrueQiDlEAjeTheXvl79eGHLZ
+ MEWqQ1hRV3oje19sE6pPeoahNvzpauIrKTBRo024B7JFsGGZEVGCx9RxQ5x2CPVIr0htb5Hzgt
+ rdATRonme/wCLRsEmfgEAAA==
+X-Change-ID: 20261110-iep2-b9a9c6e77c44
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Alex Bee <knaerzche@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795854607; l=3235;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=rFNZILi2ME4y6OfNvGVSrCQyr6wuwJ3qgVj2XSS5dA8=;
+ b=WgtOWwnabvlgKjmdigImzuW1G0Qw7LJLJ+7qbj6QJSAT/WgbDKleaZjZoILRGeyC6qubZP/Px
+ zQMQRfKwRt6Akk3R2nDAjcR5FwmN4xyKJvGw2xljgrBM6rW4Ugcd5D7
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 
-Hello,
+Add a V4L2 mem2mem driver for the IEP2 deinterlacer of the RK3568 and
+RK3588, with its binding and the RK3588 DT node. The V4L2 side follows
+Alex Bee's IEP driver. 2/4 adds the Rockchip IOMMU helper the driver
+uses after a reset. 2/4 needs an ack from the IOMMU maintainers to go
+through the media tree.
 
-Smack does not implement the inode_file_getattr and inode_file_setattr
-hooks.  As a result, the file_getattr() and file_setattr() system calls
-bypass Smack's existing read and write checks.
+Tested on an Orange Pi 5 (RK3588S) with a 7.3-based kernel (KASAN,
+lockdep); build-tested on media next. The test kernel also carries the
+rockchip-iommu fixes 1-4 of
+<20261110-iommu-rockchip-faults-v1-0-b1dda574dbb8@gmail.com>.
+v4l2-compliance 59/59, FFmpeg deinterlacing (local patches; no
+upstream application uses the driver yet), suspend and unbind while
+streaming, forced watchdog and IOMMU fault resets. Not tested: RK3568.
 
-The reproducer runs as uid 1000 without capabilities and changes its
-Smack label to Subject.  A stat() on /mnt/secret is denied, but
-file_getattr() on the same file succeeds.  The Subject label has only
-read access to the Control label, yet file_setattr() clears the file
-flags on /mnt/control.  Ordinary open() checks continue to be enforced.
+Open: a reset that cuts a transfer (seen only with forced 1 ms
+watchdogs) can leave the IOMMU with the transfer outstanding: its
+stall and reset commands then time out. Jobs fail until PD_VDPU
+powers off.
 
-This bypass exposes file attribute metadata and permits changes to file
-attributes that the Smack policy denies.  It does not expose file contents
-or demonstrate privilege escalation.
+Developed with Claude (Anthropic), which wrote the code and the commit
+messages. I reviewed every change.
 
-Tested source revision:
-HEAD commit:    8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-git tree:       fe970b05333fb8e41da21e9e289f652abcc7cba7
-source version: Linux 7.4.0-rc4
-compiler:       gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0,
-                GNU ld 2.38
-
-console output:
-https://gist.githubusercontent.com/shaos26/fbf8b7f663ee82593d7d41623aa2e2c4/raw/2ad22ab46d2cf376b59ef361d9c7ca2b691c6eda/console-output.txt
-kernel config:
-https://gist.githubusercontent.com/shaos26/fbf8b7f663ee82593d7d41623aa2e2c4/raw/f9e1ceca2f52ead87738af313610fc49834654dc/kernel-config.txt
-reproducer:
-https://gist.githubusercontent.com/shaos26/fbf8b7f663ee82593d7d41623aa2e2c4/raw/d9b447aad65076391390d150d752b6b9cb116abc/poc.c
-
-Build the kernel at the tested revision with the attached configuration.
-The reproducer is a static init program and expects an ext4 image on
-/dev/vda containing empty files named secret, control, and public:
-
-    truncate -s 32M smack.img
-    mkfs.ext4 -F smack.img
-    mkdir mnt
-    mount -o loop smack.img mnt
-    touch mnt/secret mnt/control mnt/public
-    umount mnt
-    gcc -O2 -Wall -Wextra -static -o poc poc.c
-    mkdir -p rootfs
-    cp poc rootfs/init
-    chmod 0755 rootfs/init
-    (cd rootfs && find . -print0 | cpio --null -o -H newc) |
-        gzip -9 > initramfs.cpio.gz
-
-Boot the initramfs and ext4 image with:
-
-    qemu-system-x86_64 -m 2G -smp 2 \
-        -kernel <linux-tree>/arch/x86/boot/bzImage \
-        -initrd initramfs.cpio.gz \
-        -drive file=smack.img,format=raw,if=virtio \
-        -append 'console=ttyS0 rdinit=/init lsm=smack loglevel=7' \
-        -nographic -monitor none -no-reboot
-
-On two vulnerable boots, file_getattr() on /mnt/secret returned success
-while stat() returned -EACCES.  file_setattr() on /mnt/control also
-returned success and cleared its flags.  With this patch, both denied
-operations return -EACCES; permitted operations on /mnt/public still
-succeed.
-
-Implement both hooks with the same Smack access checks used by the
-existing getattr and setattr hooks:
-
-Fixes: defdd02d783c ("lsm: introduce new hooks for setting/getting inode fsxattr")
-Signed-off-by: shaos <shawnq1@163.com>
 ---
- security/smack/smack_lsm.c | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+Changes in v6:
+- 2/4: kernel-doc says the caller must own the IOMMU (Nicolas)
+- Collected Acked-by
+- Link to v5: https://patch.msgid.link/20261126-iep2-v5-0-3deac0976f10@gmail.com
 
-diff --git a/security/smack/smack_lsm.c b/security/smack/smack_lsm.c
-index 3a4a33568297b..6da2492f9bb61 100644
---- a/security/smack/smack_lsm.c
-+++ b/security/smack/smack_lsm.c
-@@ -1311,6 +1311,34 @@ static int smack_inode_getattr(const struct path *path)
- 	return rc;
- }
- 
-+static int smack_inode_file_getattr(struct dentry *dentry,
-+				    struct file_kattr *fa)
-+{
-+	struct smk_audit_info ad;
-+	struct inode *inode = d_backing_inode(dentry);
-+	int rc;
-+
-+	smk_ad_init(&ad, __func__, LSM_AUDIT_DATA_DENTRY);
-+	smk_ad_setfield_u_fs_path_dentry(&ad, dentry);
-+	rc = smk_curacc(smk_of_inode(inode), MAY_READ, &ad);
-+	rc = smk_bu_inode(inode, MAY_READ, rc);
-+	return rc;
-+}
-+
-+static int smack_inode_file_setattr(struct dentry *dentry,
-+				    struct file_kattr *fa)
-+{
-+	struct smk_audit_info ad;
-+	struct inode *inode = d_backing_inode(dentry);
-+	int rc;
-+
-+	smk_ad_init(&ad, __func__, LSM_AUDIT_DATA_DENTRY);
-+	smk_ad_setfield_u_fs_path_dentry(&ad, dentry);
-+	rc = smk_curacc(smk_of_inode(inode), MAY_WRITE, &ad);
-+	rc = smk_bu_inode(inode, MAY_WRITE, rc);
-+	return rc;
-+}
-+
- /**
-  * smack_inode_xattr_skipcap - Skip the xattr capability checks?
-  * @name: name of the xattr
-@@ -5185,6 +5213,8 @@ static struct security_hook_list smack_hooks[] __ro_after_init = {
- 	LSM_HOOK_INIT(inode_permission, smack_inode_permission),
- 	LSM_HOOK_INIT(inode_setattr, smack_inode_setattr),
- 	LSM_HOOK_INIT(inode_getattr, smack_inode_getattr),
-+	LSM_HOOK_INIT(inode_file_getattr, smack_inode_file_getattr),
-+	LSM_HOOK_INIT(inode_file_setattr, smack_inode_file_setattr),
- 	LSM_HOOK_INIT(inode_xattr_skipcap, smack_inode_xattr_skipcap),
- 	LSM_HOOK_INIT(inode_setxattr, smack_inode_setxattr),
- 	LSM_HOOK_INIT(inode_post_setxattr, smack_inode_post_setxattr),
--- 
-2.34.1
+Changes in v5:
+- 1/4: clocks before interrupts (Sashiko)
+- 2/4: new: rockchip_iommu_restore() (Nicolas)
+- 3/4: use it instead of attaching an empty domain (Nicolas)
+- 3/4: IRQ saves and clears the status; the thread finishes the job
+  only if it cancels the watchdog; no spinlock (Nicolas)
+- 3/4: drop the IOMMU fault detection, forced suspend and reset
+  retries (Nicolas)
+- 3/4: after a failed IOMMU restore, fail jobs until PD_VDPU powers
+  off
+- 3/4: defines for md_lambda and the default size; comment the motion
+  table (Nicolas)
+- Link to v4: https://patch.msgid.link/20261121-iep2-v4-0-760cf25f322b@gmail.com
 
-Thanks,
+---
+Arun Iyengar (4):
+      media: dt-bindings: Add Rockchip IEP2 deinterlacer
+      iommu/rockchip: Add rockchip_iommu_restore()
+      media: rockchip: Add IEP2 deinterlacer driver
+      arm64: dts: rockchip: Add IEP2 deinterlacer to RK3588
 
-shaos
+ Documentation/admin-guide/media/rockchip-iep2.rst  |   32 +
+ Documentation/admin-guide/media/v4l-drivers.rst    |    1 +
+ .../bindings/media/rockchip,rk3568-iep2.yaml       |   95 ++
+ MAINTAINERS                                        |    8 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   22 +
+ drivers/iommu/rockchip-iommu.c                     |   38 +
+ drivers/media/platform/rockchip/Kconfig            |    1 +
+ drivers/media/platform/rockchip/Makefile           |    1 +
+ drivers/media/platform/rockchip/iep2/Kconfig       |   16 +
+ drivers/media/platform/rockchip/iep2/Makefile      |    3 +
+ drivers/media/platform/rockchip/iep2/iep2-regs.h   |  191 +++
+ drivers/media/platform/rockchip/iep2/iep2.c        | 1263 ++++++++++++++++++++
+ drivers/media/platform/rockchip/iep2/iep2.h        |  107 ++
+ include/soc/rockchip/rockchip_iommu.h              |   17 +
+ 14 files changed, 1795 insertions(+)
+---
+base-commit: b7ac871daee981f1963f632586ff9b9d898ce5dd
+change-id: 20261110-iep2-b9a9c6e77c44
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
 
