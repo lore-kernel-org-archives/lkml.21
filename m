@@ -1,50 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.129
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795857022;
-	b=V7S9o0cIwNMwEurSjhMaQXCJwqFr7nD7FYYIrzNZK+R1nnAKZlmIFvHNzjDKdxW0kTh9
-	 SvroWOAn8aNAxFCmmklXta/fNLGS+/e5WiVzwue64sLRlGAONsLylskWHA/DFNcrhkm96
-	 XM9zQ3RKRlvSo8FgzRzKNUc+0/sGRnysOfhS7ybXSoWjLO/PMwDz3EqsN5+9NdnB9b6Hk
-	 /FQsx66Sy1MjprFJMxAmqewCwF1T2oQkAJRQQ7/pexizX4X4qxFfHbEGuuL8yYV1KJt03
-	 c8B1bx+wsLWVpm75+yB1Ft8VLtmyYcupr5tiNAn56rOKkVeSiCumoI1X63bKeWGX+4Q==
+	t=1795857462;
+	b=bAry42NAi0rtlY7f8FwfXtzEccRtsyfgumTbvUgZH9rFyAM/9PSvomYtAXTKXLUXLSww
+	 1KmP4gUgjZwsuGCSj/DCgyLAx9/i64bBYVk1/buAkSqXUDfvQwk986IvQARJ0HT2mG9IW
+	 w+o7mwm/At3Dg7h8rjYXzqxtC6t//dR5bBrvw+E7ntPqe3PHEpVbPpVe32872+k2UVIXe
+	 IrAphc7caHim2UONm1wkfnlmDQQtRvfaQxEXulQ+d/CHbL2eBVPsTKe7RxONCKdM/c1Nk
+	 pif9Z2zJM40B9DPwKANIZ3eU6m+fqFlRvJJ/svP60uGH23GA+R60/D64WwLjpDyfaUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795857022;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=RTnzyFnlH0n6VkFyzvU0eN9sd7NO/y5UXvFcLdOosig=;
-	b=HHvJOGE1gLW97qLvLgZYbI9eSfCmM+8akOPJMJyBuQmj20xXDUmHs5cNXo2sj4nGZEIQ
-	 EpKnW9sYI2Bym1fpa6pm0gUYUT+LhHALI/Fn1cnas2EmPRcMyGikOwjFTBEydViA4U96r
-	 vtRcP2qIu9tdac7XYyer+HdaKcUoEBOAG87UPLt5K+RTXV/YPIgLzZkSIdbgMg5Doh64f
-	 7zEms2uQHuz7WP+2X/VZE4MwaLH2ekni2UFb1VFTflFp54K1h3v2TtxPYqqV9Xw8tDcPh
-	 cwM5/aitXm3L8M778+Om7kf5Jzu+l3Qn8reCeh45LRFoVhGNqgqY0GndjLFeu+SHB1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795857462;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=wODeX8UGG2nsP7YgHIYYXfSoLShUg5hSO53xE9MKRLY=;
+	b=dZ1niLWC22U8/bGjsUeDO04/t/0nM4idzOHGtv/h7eV8/9nu7sA8qE21EGDb0p3EzFYe
+	 bHtkPlco7TVXz8sAi8vbmE8JQD6IP7p3hkt4zIblmDJrn50a7qFaIJ+2nAhLN+DWoqEOa
+	 qSC7FozTfITopARZIcJZcSDY8lfl0/Tp9XOpiCvVJzh883A1HJHAzNuKFfDJcyow501Dm
+	 qpeeAfUPLBGSgoqM2ces5D1hD7f3ZdYSTfizlBg2XKqXlr/0cs1QLi7tsd25yfV5JkRfE
+	 fkjzCVTDHi70K67iILM1X22URlqQfsK1BW5YepQ2rUfaMbZcKqppVX9Rwz7nI4/bwow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=loongson.cn;
-	spf=pass smtp.mailfrom=loongson.cn;
-	arc=none smtp.remote-ip=114.242.206.163
-Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 669CD606A31C;
-	Sat, 28 Nov 2026 09:10:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 669CD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
-Received: from loongson.cn (unknown [123.138.236.242])
-	by gateway (Coremail) with SMTP id _____8Bx69FymgprAsMjAA--.35435S3;
-	Sat, 28 Nov 2026 17:10:10 +0800 (CST)
-Received: from linux.localdomain (unknown [123.138.236.242])
-	by front1 (Coremail) with SMTP id qMiowJAx1cxxmgprh_I3AA--.16824S2;
-	Sat, 28 Nov 2026 17:10:10 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2 0/2] selftests/bpf: Fix uprobe_autoattach test
-Date: Sat, 28 Nov 2026 17:10:05 +0800
-Message-ID: <20261128091007.25084-1-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iM++7f5S;
+	arc=none smtp.remote-ip=74.125.227.129
+Received: from mail-pj2-f1.google.com (mail-pj2-f1.google.com [74.125.227.129])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAEA5606A323
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:17:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAEA5606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iM++7f5S
+Received: by mail-pj2-f1.google.com with SMTP id d9443c01a7336-2ed408b0d0bso49832705ad.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795857461; x=1796462261; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wODeX8UGG2nsP7YgHIYYXfSoLShUg5hSO53xE9MKRLY=;
+        b=iM++7f5SckGbMp9iLAhCTg04j2G6NKokyDFpe+h61fk9dsemXjjDyvUUP0RgMSdIpn
+         fDcejAyfhUkgxdvuWGqay7TRZB91GrzKbdjl6r+gshE5Rxl4DN2UDrT1oHa/LL/GUTLJ
+         T5bj0fjv45I2qrRyVSVN38R8LwZzhHskcj6LNO/hamfMLLOMcgoEZOwdn67HCZGuakFf
+         3ZWRUu3RngHO0nN0is3DomX0HS8UyehMTZzttdEFe5Y3cKPCrrLcwsUwFxSIM2+qrHsJ
+         GFKlN2KKgq8ywbSKlcMswxMoXYqixEX6oT3eolzJMKerukcPXe5I1PrTEe3TcptagjFf
+         6Nxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795857461; x=1796462261;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wODeX8UGG2nsP7YgHIYYXfSoLShUg5hSO53xE9MKRLY=;
+        b=heOdWcpYNEssitnyX8sEYwUcWLdJdNgtZAJKZOIm2s+HZLNWZX3zga+BzdCqvjuv6H
+         SZKuiVVfqQWWJHNSyLc75Z0403ErM5ykcheVxZR9fGjbWe0vCK+jrHP7chhZyzmlQuY1
+         BeURbCUrIaLHBA9E0Stxk0zBzEsnE1HeU7cn1OaDpxOVLlpgD29Mv4Zr7gS0ZDRB3E+e
+         jkEHpZZYFb5FoYdt/++s7UYCRPw3IQiehfwdWHKNKXpjSkDyHukx1QL+fEU1XaQP30YO
+         HMCwO5mgGrGkA8aNt1PJC99UFE6t2+1NLDgZ5wqLypU+osmtmxnK550U71NCsAPyqkYL
+         vQ9g==
+X-Forwarded-Encrypted: i=1; AL+hErFrNtRV5PSjjBrGLnC9wO5arPXxYPKGrA4VFuTeRJWNSQBsWCfZlamVeyUoW6/pgKEsNw8HjEKEiDoqVF0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wy1/2WTS3Kvuh2ISE9eF2bMNJoIflo1YfxHG8EVgDkXGI8lH/
+	169aH5p566Sfb7bxXYwNDDxYwvXek046ASSWdEi3FUQsnOBNI0bmH5jz
+X-Gm-Gg: AZFdTZddmdt0HBkJDxhgIYOQ9lPzgutPzc27yVYr5pjrVbbm3STzLIL+H4ZtOfOPE8O
+	x86tSeRXzxoE+l2Oo/4ft0cw1m8aPyhdxLqWmsf4ilNoyKowHlT3M2RqqFo/2XMXIK8TAAKgkUF
+	E+nrJAbyC8OKFOpWWE510FiF5pxG8hSnGm0j4M7ImgG+HSguPrk7ONyx6rZVDhGzUonDWUj9OB1
+	5ks7eSWkb/XNtXHvSIQOuX4Of3FU56tRxTfKDnGnHntuw7L0LCMbg+Pgw+YV/Yyry3kLfdSVrte
+	rLz234hEOFqT0HCyvSMAScNHCD+eArdgjdPSqrx0+A5kAwk1d2KP7gWlDt667xtEdB+AgNcdY1w
+	XvCFpxTr6Fooz5pMys9zFYEJzAHhkKh1WhKCUL/btcZrrFCFFZekvJ9ulihDuKofKTmilfAVIpf
+	y5Bj9CW8DKATbNzSZBHhouWCqbj6iS9vRF9whP4qaa9Tvjg0p+EAJohm6EapbPq26wDwe2BcvBq
+	IDKDxlQGrrVBHcwEnnWMflpNvkdDHVFNhCW2Xrx6kdAd+IE4fEq0htdNrsg3n/GlY2IUiEdEqyD
+	xx3B+IHTPUSN18HQCq2ZRUHNPuZjJ4zHzbFZcsAI/AmjC/A=
+X-Received: by 2002:a17:902:da81:b0:2ed:cab:e973 with SMTP id d9443c01a7336-2f03f0fbd8dmr290159125ad.13.1795857461054;
+        Sat, 28 Nov 2026 01:17:41 -0800 (PST)
+Received: from nixos ([2409:8a28:ae4:7f20:c549:2fb1:e189:bced])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f08164dacbsm103309195ad.68.2026.11.28.01.17.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 01:17:39 -0800 (PST)
+From: Zixin Wang <w1355457260@gmail.com>
+To: linux-doc@vger.kernel.org
+Cc: alexs@kernel.org,
+	si.yanteng@linux.dev,
+	dzm91@hust.edu.cn,
+	corbet@lwn.net,
+	chao.liu@processmission.com,
+	zenghui.yu@linux.dev,
+	linux-kernel@vger.kernel.org,
+	Zixin Wang <w1355457260@gmail.com>
+Subject: [PATCH v3] docs/zh_CN: Add core-api/irq managed_irq Chinese translation
+Date: Sat, 28 Nov 2026 09:17:23 +0000
+Message-ID: <20261128091723.983803-1-w1355457260@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,47 +101,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qMiowJAx1cxxmgprh_I3AA--.16824S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj9xXoW7Wr1xJF1xAFWkCryUtr4fZwc_yoWDXrgE9F
-	ZFqFykXayDZFy7CFW29r1rGFZ8JanxGr4xAFWUXay3Jr15Xr4UtF4kGr4UZ34vgrW5Grya
-	qF1kZFWfur4aqosvyTuYvTs0mTUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvT
-	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
-	cSsGvfJTRUUUb78YFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
-	vaj40_Wr0E3s1l1IIY67AEw4v_Jrv_JF1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	WUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8
-	JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27wAqx4
-	xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v2
-	6r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8xuctUUUUU==
 
-Changes in v2:
-- Move the definitions of FUNC_REG_ARG_CNT into a new shared
-  header bpf_arch_regs.h instead of including progs/bpf_misc.h
-  from user-space, and add bpf_arch_regs.h as a dependency of
-  test_uprobe_autoattach.bpf.o in Makefile.skel.
-- Name it bpf_arch_regs.h rather than uprobe_autoattach.h for
-  better generality, even though it is currently only used by
-  uprobe_autoattach.
+Translate Documentation/core-api/irq/managed_irq.rst into Chinese
+and add it to the zh_CN irq toctree.
 
-Tiezhu Yang (2):
-  selftests/bpf: Move FUNC_REG_ARG_CNT to bpf_arch_regs.h
-  selftests/bpf: Define FUNC_REG_ARG_CNT for LoongArch
+Update the translation through commit bb6a85b4b652
+("Documentation: Add managed interrupts")
 
- tools/testing/selftests/bpf/Makefile.skel     |  2 ++
- tools/testing/selftests/bpf/bpf_arch_regs.h   | 31 +++++++++++++++++++
- .../bpf/prog_tests/uprobe_autoattach.c        |  1 +
- tools/testing/selftests/bpf/progs/bpf_misc.h  | 24 --------------
- .../bpf/progs/test_uprobe_autoattach.c        |  2 +-
- 5 files changed, 35 insertions(+), 25 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/bpf_arch_regs.h
+Co-developed-by: Chao Liu <chao.liu@processmission.com>
+Signed-off-by: Chao Liu <chao.liu@processmission.com>
+Reviewed-by: Dongliang Mu <dzm91@hust.edu.cn>
+Signed-off-by: Zixin Wang <w1355457260@gmail.com>
+---
+v2 -> v3:
+  - Remove the unused cn_managed_irq.rst label, as suggested by
+    Dongliang Mu.
+---
+ .../translations/zh_CN/core-api/irq/index.rst |   1 +
+ .../zh_CN/core-api/irq/managed_irq.rst        | 105 ++++++++++++++++++
+ 2 files changed, 106 insertions(+)
+ create mode 100644 Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
 
+diff --git a/Documentation/translations/zh_CN/core-api/irq/index.rst b/Documentation/translations/zh_CN/core-api/irq/index.rst
+index ba6acc4..7951d69 100644
+--- a/Documentation/translations/zh_CN/core-api/irq/index.rst
++++ b/Documentation/translations/zh_CN/core-api/irq/index.rst
+@@ -20,3 +20,4 @@ IRQs
+    irq-affinity
+    irq-domain
+    irqflags-tracing
++   managed_irq
+diff --git a/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst b/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
+new file mode 100644
+index 0000000..c83eae3
+--- /dev/null
++++ b/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
+@@ -0,0 +1,105 @@
++.. SPDX-License-Identifier: GPL-2.0
++.. include:: ../../disclaimer-zh_CN.rst
++
++:Original: Documentation/core-api/irq/managed_irq.rst
++
++:翻译:
++
++ Zixin Wang <w1355457260@gmail.com>
++
++=============================
++亲和性托管中断（managed IRQ）
++=============================
++
++IRQ core 支持按指定 CPU 亲和性管理中断。正常运行时，每个中断关联到
++某个特定的 CPU。如果该 CPU 离线，中断会被迁移到另一个在线 CPU。
++
++中断向量很多时，设备可能给可用的向量空间带来压力。例如，一块带 128 个
++I/O 队列的 NVMe 设备，在至少有 128 个 CPU 的系统中，通常每个队列请求
++一个中断。两个这样的设备就会请求 256 个中断。在 x86 上，中断向量空间
++出了名地少：每个 CPU 只有 256 个向量，内核还要保留其中一部分，从而进一步
++减少可供设备中断使用的数量。实际使用中通常没有问题，因为中断分散在许多
++CPU 上，每个 CPU 只分到少量向量。
++
++然而在系统挂起时，所有次级 CPU 都会离线，所有中断都被迁移到唯一保持在线
++的那个 CPU 上。这可能会耗尽该 CPU 上可用的中断向量，从而导致挂起操作失败。
++
++亲和性托管（affinity-managed）中断应对了这一限制。每个中断都分配一个
++CPU 亲和性掩码，指定该中断可以定向到的 CPU 集合。当掩码中的某个 CPU 离线
++时，中断会移到掩码中的下一个 CPU。如果掩码中的最后一个 CPU 也离线，那么
++该中断会被关闭。使用亲和性托管中断的驱动程序必须确保，在中断被禁用之前
++关联的队列已处于静默（quiesced）状态，以免再产生新的中断。当亲和性掩码
++中的某个 CPU 重新上线时，中断会被重新使能。
++
++实现
++----
++
++设备必须提供按实例划分的中断，例如 NVMe 等存储设备的按 I/O 队列中断。
++驱动程序使用 struct irq_affinity 按所需的亲和性设置分配中断向量。对于
++MSI-X 设备，需要设置 PCI_IRQ_AFFINITY 标志并调用
++pci_alloc_irq_vectors_affinity() 来完成。
++
++IRQ core 会根据提供的亲和性信息，尽量在整个系统上均匀分散中断。亲和性
++掩码在这一分配阶段计算，但最终的 IRQ 分配是在调用 request_irq() 时完成的。
++
++隔离 CPU
++--------
++
++托管中断的亲和性完全由内核处理，无法通过 /proc 接口从用户空间修改。
++isolcpus 启动选项的 managed_irq 子参数可指定一个 CPU 掩码，托管中断会
++尽量避开这些 CPU。这种隔离是尽力而为的：只有当自动分配的掩码中也包含
++被避开掩码之外的在线 CPU 时才会生效。如果请求的掩码只包含隔离 CPU，
++该设置就没有任何效果。
++
++被避开掩码中的 CPU 仍属于该中断的亲和性掩码。也就是说，如果所有非隔离
++CPU 都离线、而隔离 CPU 仍在线，中断就会被分配到某个隔离 CPU 上。
++
++以下示例假设系统有 8 个 CPU。
++
++- 使用 "-device virtio-scsi-pci" 启动一个 QEMU 实例。该 MSI-X 设备会
++  暴露 11 个中断：3 个“管理”中断和 8 个“队列”中断。驱动程序请求这 8 个
++  队列中断，每个中断恰好亲和到一个 CPU。如果该 CPU 离线，该中断就会被
++  关闭。
++
++  假设中断 48 是其中一个队列中断，那么会看到::
++
++    /proc/irq/48/effective_affinity_list:7
++    /proc/irq/48/smp_affinity_list:7
++
++  这表明该中断只由 CPU7 服务。关闭 CPU7 并不会把中断迁移到其他 CPU::
++
++    /proc/irq/48/effective_affinity_list:0
++    /proc/irq/48/smp_affinity_list:7
++
++  可以通过 debugfs 接口 (/sys/kernel/debug/irq/irqs/48) 验证这一点。
++  dstate 字段会包含 IRQD_IRQ_DISABLED、IRQD_IRQ_MASKED 和
++  IRQD_MANAGED_SHUTDOWN。
++
++- 使用以下参数启动 QEMU 实例：
++  "-device virtio-scsi-pci,num_queues=2"
++  并在内核命令行中加入：
++  "irqaffinity=0,1 isolcpus=domain,2-7 isolcpus=managed_irq,1-3,5-7"。
++  该 MSI-X 设备会暴露 5 个中断：3 个管理中断和 2 个队列中断。管理中断
++  遵循 irqaffinity= 设置。队列中断分散到可用的 CPU 上::
++
++    /proc/irq/47/effective_affinity_list:0
++    /proc/irq/47/smp_affinity_list:0-3
++    /proc/irq/48/effective_affinity_list:4
++    /proc/irq/48/smp_affinity_list:4-7
++
++  这两个队列中断被均匀分配。中断 48 落在 CPU4 上，因为 managed_irq
++  掩码会尽可能避开 CPU 5-7。
++
++  将 managed_irq 参数换成
++  "isolcpus=managed_irq,1-3,4-5,7" 后，结果是::
++
++    /proc/irq/48/effective_affinity_list:6
++    /proc/irq/48/smp_affinity_list:4-7
++
++  此时中断 48 由 CPU6 服务，因为系统避开了 CPU 4、5 和 7。如果 CPU6
++  离线，中断会迁移到某个“隔离”CPU::
++
++    /proc/irq/48/effective_affinity_list:7
++    /proc/irq/48/smp_affinity_list:4-7
++
++  一旦其 smp_affinity 掩码中列出的所有 CPU 都离线，该中断就会被关闭。
 -- 
-2.42.0
+2.54.0
 
