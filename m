@@ -1,58 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795826661;
-	b=jBbQOANyQagXF7Kx8bx0hH2s9WBZ2cWvXyUiFNu8OU2B02j1GGaNz972tPSmgUvzsGFZ
-	 2PGBD+Q1QFm/hRQ/oeLVF3dP52FNeA4yzXMDOAa+4F6UrPswRpKRWlxXfrFPa0qYN3QC5
-	 NXaf2pCRBF+5jkvLB+16+SEKREJIUZXqSB1HWUj4iir0K1qGKNbCkyfBX3ucp2n1oLEWH
-	 vn8I/eU1It7boHgZivOfHanC5lwQd5GSoRzqLJ5vPS2N3fKfIPbUqM9C81O9w10lG7YKN
-	 tgmSV1jfbRZwAb+3ieKRZXCndt2ylSiyyaINOvz9JGN3/0UV3VclMgey1am3FhFT4cw==
+	t=1795826825;
+	b=b4jXCnrXTfJ4DqoVa+QlP+cI4tOTIDyELmqnNN+RKi0pSIsr/0zcAKVASXz21RF4TGR8
+	 QlLhlH/YS8Vdc3fci1oc5uAqDim/EPMnGmo1znWA39KVjFNQmoiMV+NRUaQ5Z2GjK8Mqe
+	 rLZJzveBky9T61vqir1XWqvYhSZNX8a9ZJYLjohQWu9+qJVMNz54rYzqc9IgT33JgoSw/
+	 RXOOx/GFEZhFETHTBgcCbWZEnveJwwQSWyo5G8RlSY4RrBY8X22o+LZll6S3Q07u0WzgS
+	 Y8N8LONer+ZsM9QlLiChK9J8Y+UXSnnDYtk3ZRDyB3htllozEz5zaitX2CJCn1lSh8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795826661;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=617ht0+271aJEWj5NKC+RogwfXVw7QuuuxCq4hvGCmU=;
-	b=u7XF6p/DWkNiaDnEuNomU8SFbceexXY/X3ycXQJMuEOL7NohzqAKKADJLr51/RH7fKQc
-	 JFSU2EJNAZLgQR+/lfgeS+5bC/rI4v+TNQu+bh4rz1qsZ/7NYvR1pI9jnRRk8JrKo/DTm
-	 tMLXfHG5nQ5U2PjfKsrXd3dohE0HXDvGWbvdci48MNkzdoO8zEu1kOdeCXnZIFKdr2XHm
-	 yMZJrY3VkJiE20wSUNo/dnA+dApJwv7n454CTcxht2uFxfxKXxQ40A5CNa1Sul5gA9QYW
-	 kEZyxXkMkHQqnUq9DxuKPIFydzE1w/EGnibLzaXlmcsvnF5i3XWl3z0MTrfr+qp/CkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795826825;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=gZdi2zUPdVC7tSoW/KR9ljEMmpMHwDaDJe/0ozkzl48=;
+	b=v9hg1wKVxU8nWe+b3RfXukvEpiBsyq0iE0D/uRimgbDzDBU819/MarP2b1r29bKMMxC1
+	 IDefiNTixMuk+gm/YO6Lf/IR5RI40wBLek3tuuJLfbAHKCp6m4jY2MTOlq9KBzz+ZIcrJ
+	 hDraEoIZevdjMMQpEnW4RbYBZeBmlRLfChlpyYayGY/bQHikHBnG5CeBkk60j0eulbP6H
+	 37LlyK9zcX+X/i9TSy55tSJ4zVHBCATGyQcA2gnOgsAEAsjprD87FdzPe/JzRzsioTtKL
+	 qXHJ8cyuuei3zWHs9inOjCzwazoDBXpj9bAezbyHC5RgVGd1q7rFzV3Uxt0AImDFMYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CD5Od50N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qtkTg22I;
+	arc=none smtp.remote-ip=74.125.225.137
+Received: from mail-wm2-f9.google.com (mail-wm2-f9.google.com [74.125.225.137])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 528A8606A31F;
-	Sat, 28 Nov 2026 00:44:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3863606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:47:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3863606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CD5Od50N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8F11F0089B;
-	Sat, 28 Nov 2026 00:44:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795826660;
-	bh=617ht0+271aJEWj5NKC+RogwfXVw7QuuuxCq4hvGCmU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CD5Od50N/heCpUoiJ47KEDjOxuuRF+skA+3a7THX3KSNNY3XsSfeLZloHLOf4ivfs
-	 EPFIuPon2hqTzo8t2QXYmxlo5Vz4MSRwCS6X5rpy1xaNYBOJzM1oVjsLlOW95Nha1r
-	 0fgsDu1t+rXIRA+UsPS8UzE71DpPuw8rumNKZkxzzcJnuDbQDNJFCIEzrZ+x3bJXKn
-	 RPz36bWz7kQPCKhdCBIJIRIm05I++QeJeBX4AMdE9g3XFI377pnh6hN4oAjo/zIn++
-	 S6RyB49tXYVE4Qv6VEryeqBX0KLi51XDgh5T144q1vaIayfNk949AJJ/Wtq5nj4h7H
-	 5JvnNiDHjIaDA==
-Date: Sat, 28 Nov 2026 00:44:17 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: thomas@exein.io
-Cc: linux-kernel@vger.kernel.org, "Martin K. Petersen" <mkp@kernel.org>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Bart Van Assche <bvanassche@acm.org>, linux-scsi@vger.kernel.org
-Subject: Re: [PATCH] scsi: ufs: spacemit: k3: change to FASTAUTO before the
- FAST power mode
-Message-ID: <20261128004417-GKB27669@kernel.org>
-References: <20261124-fastauto-v1-1-32ec8da5af04@exein.io>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qtkTg22I
+Received: by mail-wm2-f9.google.com with SMTP id 5b1f17b1804b1-4bb5e39bbf9so1516855e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:47:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795826823; x=1796431623; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gZdi2zUPdVC7tSoW/KR9ljEMmpMHwDaDJe/0ozkzl48=;
+        b=qtkTg22ICMYp1SwJmvH3P9xPlRqFQ23Pqff5+EyZ5xtFUxeZqChQTu+l5H1iuIxFL5
+         e2PMuxxM2jYzcmh+BkXL3InWtiyNmoVNWwV7ujwYH1s3NJCF/nOpcH4Odaa7V7ovDtLe
+         aiVRdzuGGaH+hN09baBEC6e5E+j59Ud2Bzd8jvBf4KgvNlSmylA8Z7Pg9p7mb+DUQbvT
+         agUTK9BgW4T8QeFsyX+ur1O0L8lwrvdMAI6mMMYROWOjIIcJYV9i5E3q88W7Q26w9jqa
+         1yWXHj/dc0lXqVqUsLyhUGkOMNEMbOrpUykifVK7+BfSt73K8ey/l3SuZzlIwWlo1OfM
+         DT4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795826823; x=1796431623;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gZdi2zUPdVC7tSoW/KR9ljEMmpMHwDaDJe/0ozkzl48=;
+        b=U/2I/W598HfW/SAYbMfTXp6SzQXxdtHzKBJPO91AbhE54+d6PnbgVy7yY3gncLNi67
+         0p7P0H2m6X/gw2ccOKVgb+w1+Xrj4R5wDNpYiOPgAe3lYG6s1mB02USNk9LA1CCh/DRT
+         IWewfN6FmXDf2Y1zLeUB24Qz2Spq9KPhF73mA+L0P0PVIUAM8LmIhxReW0bQKUPHew9Y
+         Z7abkVLxB8+3bhUbgYRQRBLKyrq2Lb/N++umhD4rua1WMxLbKdyIOWEHF22MIjAf2KEu
+         e82yxw24+eHH2iXLBAmHZUTmIAt88865AMnMwE8SzNaBhZv59zC6NTEl6ASb6t00e5Sh
+         68mQ==
+X-Forwarded-Encrypted: i=1; AL+hErH6LGlKpco26a+n6j5vjE4wQLB4cfGe0iC41S3HAaWprcIaaJWgDke5vm+/7Fd49YSplCK0oZoSKhLnzT0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z900v7XODXKCwvpTC+nr1PvsaQYwT0nej74SRzt+2Ka8rJS6o6q
+	odrTTbYBEDcT4A/2vB1tX9xp95Ho1Vwwl2xzP3iEWqgZNQrPcjUsy+nP
+X-Gm-Gg: AZFdTZfQBqI2K8hfoEhVRYAtc+RWK0vL2U//RGOTAjuOMcq54F3F1yrWfR9joh8xzV7
+	hXSwK+RHSxBuvfAvtWJzRVPOXmQGAOQOsOujV/rO3aE7NWPNvif/qY5wm08h8u2jLIi6iW9mUe3
+	M0GUIRl1KVBUDFnSdk4IspsgtwWxX9LWksLNzwuhd6gxFtcgD7H4DT7VDUMdbc8JJ1b1zMn+gX1
+	mo4xoPjQhXHx0dtWbAkZjXzFlNGt7wKQh4D7HimS89+cVMKrzGxfDkh1ez8GkMmHP2Qf0eW1yHF
+	7KtpnzSpLJ4jWt62ttWSbahzLl6MmJ3GE9qNQkGdtYD3tpGLCslFmdZKvGw+zEPhozCKCncYNwQ
+	acmbwK6PY/2ZSC5cJ5uF0oryB4xvq8vrsmhoa9xaCsV8u6tNal0VGXUhc8H/oKv4lUxmNYdsKA9
+	rKoCl9UVkBkKGc3ElEEoUoqMUv8+pjkgDdX8b/iCWkPvKoT2id8voNTfHrrNHVWK9UIHcArYYp9
+	umIZCrBt+nB4P+tosWIPqE+6aL++0zn9f0skPK1Vi10wlGwmJdRyaVfudv+VEwOUct8vdk3erds
+	Rs8xFD8pCZKAAA9pZov9l33+tP97B5Hhf6qcg9klknoStUn+1NMH/8IJCyKsDJQUOqmxAVqNefb
+	VAW69EqeJtUIESZ120LXUqXo4oelNoNw/SnIHmfXp5WJ9MMqx1BSLTqoTWycYWymETuIwq4vyv8
+	xmCi/mPeoUbIHrJA==
+X-Received: by 2002:a05:600c:4e94:b0:4bb:b796:66f5 with SMTP id 5b1f17b1804b1-4bbb79667d8mr62178775e9.6.1795826823272;
+        Fri, 27 Nov 2026 16:47:03 -0800 (PST)
+Received: from localhost (nat-icclus-192-26-29-3.epfl.ch. [192.26.29.3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm669627825e9.9.2026.11.27.16.47.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 16:47:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,213 +89,94 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261124-fastauto-v1-1-32ec8da5af04@exein.io>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 28 Nov 2026 01:47:02 +0100
+Message-Id: <DN6FH90QBQNL.3TQOK2LID5S8D@gmail.com>
+Cc: "Andrii Nakryiko" <andrii@kernel.org>, "Thomas Gleixner"
+ <tglx@kernel.org>, <x86@kernel.org>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [BUG] bpf: hard lockup with ringbuf used from NMI and
+ sched_switch on hpet clocksource
+From: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>
+To: "Tom Roozen" <rzn.tom@gmail.com>, "Alexei Starovoitov" <ast@kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20261128001825.38905-1-rzn.tom@gmail.com>
+In-Reply-To: <20261128001825.38905-1-rzn.tom@gmail.com>
 
-Hi Thomas Roos,
+On Sat Nov 28, 2026 at 1:17 AM CET, Tom Roozen wrote:
+> Hi,
+>
+> A BPF ring buffer written from a perf_event program (NMI context) and
+> from a tp_btf/sched_switch program hard-locks my machine within about
+> a second when the clocksource is hpet. On acpi_pm it doesn't hard-lock.
+>
+>
+> Environment
+> -----------
+>
+> - AMD Ryzen 7 7735HS, Lenovo ThinkBook 14 G7 ARP,
+>   BIOS P6CN22WW
+> - Kernel 7.3.3-1-default (openSUSE Tumbleweed), x86_64,
+>   PREEMPT_DYNAMIC (full), HZ=3D1000
+> - The TSC is marked unstable at every boot, so the kernel selects
+>   hpet:
+>
+>     TSC synchronization [CPU#0 -> CPU#2]:
+>     Measured 5354294254 cycles TSC warp between CPUs, turning off TSC clo=
+ck.
+>     tsc: Marking TSC unstable due to check_tsc_sync_source failed
+>
 
-Thanks for bringing up of this, and sending the patch.
+This is a known limitation. In general, we rely on ktime_get_mono_fast_ns()=
+ to
+be safe in NMI context in a bunch of places, rqspinlock is just one instanc=
+e of
+this pattern. In case of hpet, we definitely have this problem of a deadloc=
+k.
 
-On 09:11 Tue 24 Nov     , Thomas Roos via B4 Relay wrote:
-> From: Thomas Roos <thomas@exein.io>
-> 
-> The SpacemiT vendor kernel and U-Boot never change the link straight to
-> FAST: they change to FASTAUTO at the target gear/rate first, wait
-> 100 ms, and only then to FAST. A direct FAST change kills the link at
-> the M-PHY PLL rate change: on the K3 CoM260 IFX (YMTC YMUS8B5TH1A1C1)
-> every mode except HS-G1 rate A fails with DL errors 0x80000002 /
-> 0x80000001 / 0x80002000 and PA_ERR 0x80000010, and the disk is lost.
-> 
-I actually do get report of this issue on YMTC UFS chip, but haven't seen
- problem with Kingston UFS chip
+Maybe the documentation for ktime_get_mono_fast_ns() should be updated to s=
+top
+claiming it is NMI safe.
 
-> Do the FASTAUTO step in the PRE_CHANGE hook; the core then sends the
-> FAST request. With this the link runs at HS-G3 rate B on two lanes.
-> 
-> Skip the step only when the link already runs in FAST with the
-> requested parameters, judged by PA_PWRMODE and not by hba->pwr_info
-> alone. After a LINERESET, ufshcd_err_handler() restores the power mode
-> with ufshcd_config_pwr_mode(hba, &hba->pwr_info, UFSHCD_PMC_POLICY_FORCE):
-> the requested parameters equal hba->pwr_info, but the link has fallen
-> back to a slow mode, and the forced FAST request would kill it again.
-> 
-> The step also writes ANA_HSGEAR_CTRL_ATTR = 0x25 and waits for the PLL
-> lock, as ufs_spacemit_apply_dev_quirks() does at probe. Every POST_CHANGE
-> clears the attribute, so without this a LINERESET recovery would run the
-> FASTAUTO and FAST changes with a different analog setting than probe.
-> 
-Vendor provide similar patch for this, but I'm rather skeptical on it
-as a proper fix and ask them to clarify with IP/UFS chip vendor..
+Technically, the lock only needs elapsed time on the local CPU, so I think =
+the
+simplest fix may be to stop reading the clocksource for the timeout on x86 =
+and
+use sched_clock() instead. It reads the TSC directly, also when the TSC is
+marked unstable, never calls into the clocksource, and is already used from=
+ NMI
+(perf, printk).
 
-FYI, I'd expect to see basic UFS patch merged first, then we can address
-this issue separately. Besides, I do have several boards on hand, but none
-of them shipped with YMTC UFS, so need someone to help reviewing and
- testing the patch.
+That takes read_hpet() out of the waiter path, so the queue head or pending
+waiter can no longer block on hpet.lock.
 
-> Assisted-by: claude-opus-5-5
-> Signed-off-by: Thomas Roos <thomas@exein.io>
-> ---
-> This applies on top of v8 of "scsi: ufs: spacemit: k3: Add UFS Host
-> Controller driver":
-> https://lore.kernel.org/r/20261116-08-k3-ufs-support-v8-2-e3b256972dd4@kernel.org
-> 
-> Yixun, feel free to fold it into the next version of the series.
-> 
-I'd prefer it iterated as a separate patch on top of mine, thanks
+local_clock() does not work for this, since with an unstable TSC it is clam=
+ped
+to one tick past the last tick, so it stops advancing while IRQs are off. T=
+he
+clock ticking with IRQs off is mandatory.
 
-> Tested on a K3 CoM260 IFX (YMTC YMUS8B5TH1A1C1) on 7.3.4 with the
-> equivalent v7-based driver: without the change only HS-G1 rate A works;
-Just curious, is "HS-G1 rate A" mode stable without this patch?
-or any specific change needed to change to this mode?
+Other architectures keep can ktime_get_mono_fast_ns(). x86 also keeps it wh=
+en
+the TSC frequency is unknown, because sched_clock() is then based on jiffie=
+s,
+and would stop advancing. I don't think we can do better than that, even if=
+ that
+still falls back to hpet.
 
-> with it the link runs at HS-G3 rate B x2 and the rootfs on UFS is
-> stable. Builds without warnings at W=1 on top of v8.
-> 
-> The restore path was exercised with this patch: a test-only debugfs
-> hook drops the link to PWM-G1 SLOWAUTO behind the core (raw reads fall
-> from ~900 MB/s to 1 MB/s), then a PA generic error is injected through
-> the ufshcd debugfs saved_uic_err. In 6 of 6 runs the restore went
-> through FASTAUTO back to G3B FAST, with reads at 850-980 MB/s again and
-> a matching write/read-back. That setup keeps the PHY on rate B, so it
-> does not reproduce a LINERESET that also resets the PLL rate.
-> 
-> The FASTAUTO step open-codes the attribute writes of the core's
-> ufshcd_dme_change_power_mode(). A core helper that takes an explicit
-> PA_PWRMODE value and leaves hba->pwr_info alone would avoid that; I kept
-> it in the driver for now.
-> ---
->  drivers/ufs/host/ufs-spacemit.c | 96 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 96 insertions(+)
-> 
-> diff --git a/drivers/ufs/host/ufs-spacemit.c b/drivers/ufs/host/ufs-spacemit.c
-> index eb2ad50..04380a0 100644
-> --- a/drivers/ufs/host/ufs-spacemit.c
-> +++ b/drivers/ufs/host/ufs-spacemit.c
-> @@ -343,6 +343,87 @@ static int ufs_spacemit_negotiate_pwr_mode(struct ufs_hba *hba,
->  	return ret;
->  }
->  
-> +/*
-> + * As in the vendor kernel and U-Boot: change to FASTAUTO at the target
-> + * gear/rate first and only then (from the core) to FAST. A direct FAST
-> + * change kills the link after the M-PHY PLL rate change, so only HS-G1A
-> + * would work.
-> + */
-> +static int ufs_spacemit_fastauto_step(struct ufs_hba *hba,
-> +				      struct ufs_pa_layer_attr *p)
-> +{
-> +	int ret;
-> +
-> +	/*
-> +	 * Restore the value and PLL lock wait of ufs_spacemit_apply_dev_quirks()
-> +	 * at probe: every POST_CHANGE resets it, which matters for a LINERESET
-> +	 * recovery.
-> +	 */
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(ANA_HSGEAR_CTRL_ATTR), 0x25);
-> +	ret = ufs_spacemit_wait_mphy_pll_lock(hba);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_RXGEAR), p->gear_rx);
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_ACTIVERXDATALANES), p->lane_rx);
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_RXTERMINATION), 1);
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_TXGEAR), p->gear_tx);
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_ACTIVETXDATALANES), p->lane_tx);
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_TXTERMINATION), 1);
-> +	ufshcd_dme_set(hba, UIC_ARG_MIB(PA_HSSERIES), p->hs_rate);
-> +	/* as in ufshcd_dme_change_power_mode() */
-> +	if (!(hba->quirks & UFSHCD_QUIRK_SKIP_DEF_UNIPRO_TIMEOUT_SETTING)) {
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA0),
-> +			       DL_FC0ProtectionTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA1),
-> +			       DL_TC0ReplayTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA2),
-> +			       DL_AFC0ReqTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA3),
-> +			       DL_FC1ProtectionTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA4),
-> +			       DL_TC1ReplayTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(PA_PWRMODEUSERDATA5),
-> +			       DL_AFC1ReqTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(DME_LocalFC0ProtectionTimeOutVal),
-> +			       DL_FC0ProtectionTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(DME_LocalTC0ReplayTimeOutVal),
-> +			       DL_TC0ReplayTimeOutVal_Default);
-> +		ufshcd_dme_set(hba, UIC_ARG_MIB(DME_LocalAFC0ReqTimeOutVal),
-> +			       DL_AFC0ReqTimeOutVal_Default);
-> +	}
-> +
-> +	ret = ufshcd_uic_change_pwr_mode(hba, FASTAUTO_MODE << 4 | FASTAUTO_MODE);
-> +	if (ret)
-> +		return ret;
-> +	msleep(100);
-> +
-> +	return ufs_spacemit_wait_mphy_pll_lock(hba);
-> +}
-> +
-> +/*
-> + * True if the link already runs in FAST with the gear, lanes and rate of
-> + * @p, so no FASTAUTO step is needed. Read PA_PWRMODE rather than trust
-> + * hba->pwr_info alone: after a LINERESET the error handler restores the
-> + * mode with UFSHCD_PMC_POLICY_FORCE and parameters equal to hba->pwr_info
-> + * while the link has fallen back to a slow mode, and the forced FAST
-> + * request from there kills the link.
-> + */
-> +static bool ufs_spacemit_link_in_fast(struct ufs_hba *hba,
-> +				      struct ufs_pa_layer_attr *p)
-> +{
-> +	u32 mode;
-> +
-> +	if (memcmp(p, &hba->pwr_info, sizeof(*p)))
-> +		return false;
-> +
-> +	if (ufshcd_dme_get(hba, UIC_ARG_MIB(PA_PWRMODE), &mode))
-> +		return false;
-> +
-> +	return ((mode >> PWRMODE_RX_OFFSET) & PWRMODE_MASK) == FAST_MODE &&
-> +	       (mode & PWRMODE_MASK) == FAST_MODE;
-> +}
-> +
->  static int ufs_spacemit_pwr_change_notify(struct ufs_hba *hba,
->  					  enum ufs_notify_change_status status,
->  					  struct ufs_pa_layer_attr *dev_req_params)
-> @@ -356,6 +437,21 @@ static int ufs_spacemit_pwr_change_notify(struct ufs_hba *hba,
->  
->  	switch (status) {
->  	case PRE_CHANGE:
-> +		/* the core sends the FAST request after this hook */
-> +		if (dev_req_params->pwr_rx == FAST_MODE &&
-> +		    dev_req_params->pwr_tx == FAST_MODE &&
-> +		    !ufs_spacemit_link_in_fast(hba, dev_req_params)) {
-> +			/*
-> +			 * The core ignores the result. If the FASTAUTO PMC
-> +			 * failed outside a PM operation, the link is marked
-> +			 * broken and the FAST request is not sent; if only the
-> +			 * PLL lock wait timed out, the link already runs at
-> +			 * the target rate.
-> +			 */
-> +			ret = ufs_spacemit_fastauto_step(hba, dev_req_params);
-> +			if (ret)
-> +				dev_warn(hba->dev, "FASTAUTO step failed: %d\n", ret);
-> +		}
->  		break;
->  	case POST_CHANGE:
->  		ret = ufs_spacemit_wait_mphy_pll_lock(hba);
-> 
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20261123-fastauto-306d20d17590
-> prerequisite-message-id: <20261116-08-k3-ufs-support-v8-0-e3b256972dd4@kernel.org>
-> prerequisite-patch-id: 70385741c42f21fbc79b3ef967e48cb8214e5cd0
-> prerequisite-patch-id: 5198841accdd660ed1597e92dcdef85a6accc8cd
-> 
-> Best regards,
-> --  
-> Thomas Roos <thomas@exein.io>
-> 
-> 
+Untested pseudocode:
 
--- 
-Yixun Lan (dlan)
+/* arch/x86/include/asm/rqspinlock.h */
+#define res_clock_ns() (__use_tsc ? sched_clock() : ktime_get_mono_fast_ns(=
+))
+
+/* kernel/bpf/rqspinlock.c */
+#ifndef res_clock_ns
+#define res_clock_ns()  ktime_get_mono_fast_ns()
+#endif
+
+with check_timeout() calling res_clock_ns().
+
+> [...]
