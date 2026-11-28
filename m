@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795834348;
-	b=Qwm9drkB94vzea4L+3pMvi38wFMveRUYU/CBC15hXCZJkC7KTQ7CYYrAbETIazp+0rfa
-	 MLu0P1GggcfD60Bd9qGJBwZYZYIVp+bv6zNpXGeY280PmwHiAtb5ZqxF/9/p2xqdQttcb
-	 udE4XvcXS3Vf7m3raAil6WSwZkCkh+VtaB/gAhhiLCrd3U8ApVKsZK0bD21FnUzOMW1lk
-	 IdjCrIlhJiWM6mKjT9hqeG5jbNyzWhkQjJ900UOERKG2e293kVxZ3WuvBR+lNiK8o5cKT
-	 MUYW9d7KkENvM0nG7LR++m8C9yrHKTsILXprcG8uR41nYa0v2D+f8OGd/m2+z9WJu0Q==
+	b=oTW+8S1jfuEi+TT+h1NmS5lVrzKRwJui+oRkWvQ+emZjlV0Qol/AV2zm0siHZyEigx+T
+	 vARu+owWdoo+uWqykVYO91HAptA4pSPVsVsOujKDuz4bbMGG5wvEpl82ITamZlAONjZW1
+	 hCXBPoNFiH3dlaAgH5c2GdtwHLClUXaAgpWvrluHGM6GoSMl1ZxHetyImsXvBggocjuN/
+	 8SPTRlPas+oYpS7c58PjBe3GLqUiBqIvqW9pqjyOCdk3XoxUslezJWpHtl3Q1LvIEjmVS
+	 TTdpcyh5LhnjMoGrKKhcqjo7/kCVIQReE3HlMybILfB4YLIPah6Nxwy43P2syc52g9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795834348;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=kD3PzR5f3F9SwQ1UrQGTXoeuck2gocAg+UO4pHEVgvo=;
-	b=POewcVqeN1id4disZuKqaQZKA85cJL9Y8uRioS0bHUWT1sUZdsk3o7BkF6UdTVHqXjNA
-	 C/Hu3xxb+7KfJZ6w48OezDlQff3H0hjkQ26hAfGKLH6VxqakfvWeZKElGpVwl/ka+hG5z
-	 5cuUZC5uuDvMLgjRlcDuFcoR8GCUS1/U7E5MS44wTcbMwQbnzjeBFhfAciUaGGld/UOqY
-	 ODax3PPNFJydCibUTN3NDB0OuhAlo/akGk3ZlAIq49Gc3MPNNlv9AzxGDhG9sICdkchyZ
-	 YNG2ddA/qmElNuKel8smeQ1MkjJrD8sfs98NDOUtK7Bf2W/E0eAPl4JOwMEwcQn0sNw==
+	bh=tZEOAosPCU3HmTotZCFirLF+uBDQMvQZe2sF1tiSxjc=;
+	b=cfft1vd/nH2FuN8HLh8H9jlkkp+buo9ES/itekAs9XObnaPatQVZV57K+SG4IXwNPbNi
+	 TC9CNxhydm9KbWAnL6Uov9w7MGQt0xAbmcFcMUZMJTVlRZ54Uywbu8670vVZb68A4Vq3J
+	 5BwkVYgbJ0Br7QnybEsczXZE9l4eHNlBQy/HSACmDO3nogU5xS+tHF5B+q2b2e44vIxNv
+	 4a4P7loVVNtyK0RGcu//wDd6FH8SGRCGnb0zr8Cy3kUgH324tSuu9lZ5I0AcemPlZ7Nqw
+	 fVMgU9jVR3gm1zOsEXskuULtHDEIlGTDy81gNDiwA3sOFn9WwPMQYWQuM0eG9tvq5tA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=wkennington.com;
 	spf=none smtp.mailfrom=wkennington.com;
-	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cM0cy38M;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AXor6nH1;
+	arc=none smtp.remote-ip=209.85.216.46
+Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAEE2606A326
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:52:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAEE2606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65E5A606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:52:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65E5A606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cM0cy38M
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cddac941ed1so3907650a12.2
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:52:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AXor6nH1
+Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b4a93d0814so3159478a91.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:52:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795834347; x=1796439147; darn=vger.kernel.org;
+        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795834348; x=1796439148; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kD3PzR5f3F9SwQ1UrQGTXoeuck2gocAg+UO4pHEVgvo=;
-        b=cM0cy38M4mS/YkYw1EXP0XWAg5pM0V4Ck/YFS3+fqiRD7jpd9OhGPtUZtOdgddq/cc
-         pdj1Td5LkGH/Pl2si1nvXdGboGMxRTQONEF3gTrlF+vGliZw+/MFI6Teh4o2SecIyVBO
-         x7qgu6JFX6DZBwifoFkIwLfipWzKKtP9s1YQ7q1QrwEeSVcLxoRuXE84Bn04oNrBVjmE
-         f1DYJaCiAO50j6OjmrlxgnmrIi5lW6p5nADRpLL/Xxlk6J57N2WWQ4A+216RlQPGlTZT
-         fjxs6tZBqat5pfwSRs/8qeW2QdYn5O73sdVQG5y4zSJiot5k/Dl5i86bg6xN2pzwPh8A
-         wR0Q==
+        bh=tZEOAosPCU3HmTotZCFirLF+uBDQMvQZe2sF1tiSxjc=;
+        b=AXor6nH1PIBipL0ECKldgFBbuc/w4NGi3Wy/tr0lpnvUj8lZqUCraIZxfY9SEcEWsE
+         auQZU32U9ERANQHA3IX0UrGJL3ZZs3zMTaeIlL8TQ4Mg0weNGSj+NxYUm99UwJVHwpV4
+         /qecSAEN62hR7yibRb9yKqQvuuWbtdgJ69s/IZYjiomM6H8SZPJ0ubb/BOrBNi+9/5PG
+         /JHxfpIZJRmntWQomFhr21JpSgif3ZwNSpsI/zGK8USTkjTAOuA1XNh6BlvZylLzuR3y
+         Ob/7qLhyVHFAFyEhm0AKSqHsPvLyZ6do6j3K4PnlTIlvapOb5mf5qAgd0KDAB3W+ltFM
+         zppw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795834347; x=1796439147;
+        d=1e100.net; s=20260707; t=1795834348; x=1796439148;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kD3PzR5f3F9SwQ1UrQGTXoeuck2gocAg+UO4pHEVgvo=;
-        b=zuU0rhy9bXEkdnR1h0E5YUf31t19N90ShIlACLPXv/On+k+Ici/z55u3rmjhncqiAg
-         B1GPNScBe9+xD9ywubSC9wClBVR2o4C8gpy1pjK+ONLoCYDqGzdGlI54P3ULRVgpnh1N
-         jGoKXsQEQvLmgQaHoQNW58q+rltKLVB/sH6t+zkTHBdTEA45eoLg6W0UqCLf1W/pCxjd
-         zuVAX8TEjJr4ohxl/2AC7Siul37U3oz0QkPb+Ui6tahANX17D/qgkYbqR/SwWjDT8RGo
-         il5LWNolHtgNJl8i8lUJqzA4R9SdCw02WCndiuCedPO8sws3kT4oyZjRIIGuylNmAgzd
-         zrWA==
-X-Forwarded-Encrypted: i=1; AL+hErH/LgLCSUYvQP1bS8bMMSrJ3+imo4H0kwFg1qDXjEQ3lEUL51WQj9NNiLSno/8cVIN0+nFoV5pC68WQQSs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8xVhDZo4bP/iXkwZ9Jj6y5cgoSCGBeiUps8CdWc8tZgF3UQqW+
-	x0yiI2nLl1t2EaBrESndS+Ej6IoklFg9l91OChqcWenrXu0xLlCdxtWQ/Bygs8lCGFQ=
-X-Gm-Gg: AZFdTZebb0VAplBIfUzFyVUq/7EA7RwHUt4b+LrwG0YG8UtEDenEcUw6x7Fa94XSc9l
-	rXLW+O2EDUKr5wpMMqve78S8fNMsuxh16Ahh/UW6RChyIcYTPDfPzjUKn1S76ID3Cx+Y2nSMtRB
-	cWR/YruBqpcWsxxE7iY78U0ePpU5gtI3t9/vweuVpJxZKWrqf/CCgRwNCVyHlrkix09fKd9nEqV
-	/nuAs9N9s9HP4logWzVdkoEFx9Os9SSLqz17lmC7VjtSlKJ/SzquLIUk/d/h/nDqFkqLqbFOomu
-	S+7vB+qY9AtQa0Jom865B1V6Imasb10pjJAv8Ry4eWV/LkisesM28vRQqwnT6BQ+2PY0OreLbOP
-	5aiCtp8NzVYB+yvq/hCCtXOYrYJ+XJkP3Xppzgp998Z4JiftEheMbYFjs9Fqm1c/75izuXjmLrG
-	/rAzmN4c9Ex6E0jS7gH8EQpCNuyVXWV2LmRfT8IhxPNkPiAiZ60pirUtEEkKxBKLGqCNoGnyilF
-	IkHGxHVjJsesXrVm/S8UnAZT8yjKlXX8VahKknc+Ewr4ZOxoiiFXMGxuX8hc1SgpXENN0t9ICru
-	2oNqWsu3XYsXBgXP1PZuT10DDiU4FNmoujKa/XNTbIxfYvdhZIrUV0KIZnbESSUusBA0VB+LkS1
-	CJJpIVF6qVXo1uA==
-X-Received: by 2002:a17:90b:4b05:b0:3a0:516d:9f88 with SMTP id 98e67ed59e1d1-3b41c911c9emr24356298a91.26.1795834346952;
-        Fri, 27 Nov 2026 18:52:26 -0800 (PST)
+        bh=tZEOAosPCU3HmTotZCFirLF+uBDQMvQZe2sF1tiSxjc=;
+        b=qX4xEV79dgtTbfXHggFlogYYXFMFE1puLx0f+lqBInf4y/GVUXTS3awK95DPYHnGel
+         Y7dhxw8oF6gX+2nWwQR02c6LQlG48Q9qWYapSg4qK2WG9YoSc5YMxvIGWhWC+dwQQpWh
+         yNpKyC98PIRK7Qa9iWlhgkZegcqB8fzHbLyxaf8wvkwzuoT3zlI2yBoo1Kb2PsrQ9SBb
+         wGsy0lDhLnmjCQHFxYL4WrBMaTdHovTM0qeCwt/LTRVUDXkpi4OtL8IBCHwVh0sGdISb
+         bJMdrsBFq+Jy0P2gniGAQgmBZVLQdkG+6QV69cUMptNOYWW5/WEm6ywLq3TgOpWLFJkM
+         dt2Q==
+X-Forwarded-Encrypted: i=1; AL+hErGrXmSwngDKMKKbO6Oa8JW99BFOr9vcV2rtRO6yBYFTeHeCa7orS06gWiYaCe6HV75TbrvQIAfv4TC4Bd8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9gMc4GuRjNz+OaYMaWqNP2uf9ikHt7rMGnvP4qvfVGWU2y5IMe
+	034ceKGoHWEAtsIvKzNZ4P+Ixy869LuZU+Oxqlbue7GCeMxQ4lv0fb+u01uEsi7fB9A=
+X-Gm-Gg: AZFdTZcTpy++wJjH4tT3jJLtoYMBCgsqJV5XGK8n0dZwbtHKTCYHTQJNq5HN9FMnv7W
+	bMMqA8c/KVmv29elEGICjgjED5PJpOwWZXXu/aJE66/P68CQ02hmMREfXVylITipQt8D8VpHiCl
+	6bNGPlWs5Z+Dj8S9c6S71Ws0STAuV7yUhDUfidxFyh521EEnxPFbX1nR4iroqJmXysPZOGrqjBC
+	EKiqvJqddNvExxbtxsXvpGS/Z/4faOoaZhRsIcIaLPfgaky6nJII4eU0pNwaKTOBqMr/eN9FETR
+	lrVIovj4z7iZOKA1+F0MgiS5sk6UCKAGT008vQBWWopYTd9WAO5H/1lO1rM923aZ6p7Lz4o2TD0
+	vLrqjtzzclGayPUcG5AxBefk6buua04/efsKDVZLacc+1/cjVq/l9y0lxAydoMxBfEjrCjtrEUk
+	FpMTzPRTgCOJ2uliVK7hineES65jDYe4+acQXJO7u7lVCG+3jg3llMADfE2HZdA6uWRdixwZrpu
+	dW5B5FWx3s+u8NI/4+MuI+WgfJWXdcSpn6X7upF9ti/qeXVdZ3ocj7Ev7oUN9C/il6FKeUVPZqC
+	7Nvyta532uQhfrGXkZNWLLEWXEVkKfYbw5k/38qiDsQCIO4aCPB+kQEtj7BaUarRDakVZdo9VW/
+	rzOkxuo65NfhuUA==
+X-Received: by 2002:a17:90b:2f8f:b0:3b0:ad59:7199 with SMTP id 98e67ed59e1d1-3b41c942629mr23863138a91.32.1795834347869;
+        Fri, 27 Nov 2026 18:52:27 -0800 (PST)
 Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ffa98esm43492413a91.17.2026.11.27.18.52.26
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ffa98esm43492413a91.17.2026.11.27.18.52.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 18:52:26 -0800 (PST)
+        Fri, 27 Nov 2026 18:52:27 -0800 (PST)
 From: "William A. Kennington III" <william@wkennington.com>
 To: Daniel Lezcano <daniel.lezcano@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>
@@ -94,9 +94,9 @@ Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
 	openbmc@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	"William A. Kennington III" <william@wkennington.com>
-Subject: [PATCH 1/2] clocksource/drivers/timer-npcm7xx: Fix spurious timer1 clock warning
-Date: Sat, 28 Nov 2026 02:52:23 +0000
-Message-ID: <20261128025224.2680046-2-william@wkennington.com>
+Subject: [PATCH 2/2] clocksource/drivers/timer-npcm7xx: Register timer1 as sched_clock
+Date: Sat, 28 Nov 2026 02:52:24 +0000
+Message-ID: <20261128025224.2680046-3-william@wkennington.com>
 X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
 In-Reply-To: <20261128025224.2680046-1-william@wkennington.com>
 References: <20261128025224.2680046-1-william@wkennington.com>
@@ -111,44 +111,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-of_clk_get(np, 1) returns ERR_PTR(-ENOENT), not NULL, when only one
-clock is listed in the device tree. No in-tree device tree lists a
-second timer clock, so the existing if (clk) check always logs a
-warning on boot:
+timer-npcm7xx starts timer1 as a 24-bit free-running down-counter and
+registers it as a clocksource, but never calls sched_clock_register().
+sched_clock() then falls back to jiffies, which leaves
+CONFIG_IRQ_TIME_ACCOUNTING disabled at runtime and gives coarse
+scheduler and printk timestamps.
 
-  /ahb/apb/timer@8000: Failed to get clock for timer1: -ENOENT
+Register timer1 with sched_clock_register() using an inverted
+readl_relaxed() callback matching clocksource_mmio_readl_down(). The
+counter is the one the clocksource already reads, so its 24-bit wrap
+(about 1.3 s at 12.5 MHz) is not a new constraint.
 
-Ignore -ENOENT since the second clock is optional, add the missing
-trailing newline, and check clk_prepare_enable() for errors.
+Tested on an NPCM730 BMC, where sched_clock now has 80 ns resolution.
+The driver also binds nuvoton,wpcm450-timer, which was not tested.
 
-Fixes: db78539fc95c ("clocksource/drivers/timer-npcm7xx: Enable timer 1 clock before use")
 Signed-off-by: William A. Kennington III <william@wkennington.com>
 ---
- drivers/clocksource/timer-npcm7xx.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ drivers/clocksource/timer-npcm7xx.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/drivers/clocksource/timer-npcm7xx.c b/drivers/clocksource/timer-npcm7xx.c
-index 9af30af5f989..c7377f30e95a 100644
+index c7377f30e95a..f4b828d7c183 100644
 --- a/drivers/clocksource/timer-npcm7xx.c
 +++ b/drivers/clocksource/timer-npcm7xx.c
-@@ -202,11 +202,15 @@ static int __init npcm7xx_timer_init(struct device_node *np)
+@@ -14,6 +14,7 @@
+ #include <linux/clk.h>
+ #include <linux/io.h>
+ #include <linux/clockchips.h>
++#include <linux/sched_clock.h>
+ #include <linux/of_irq.h>
+ #include <linux/of_address.h>
+ #include "timer-of.h"
+@@ -166,6 +167,11 @@ static void __init npcm7xx_clockevents_init(void)
+ 					0x1, NPCM7XX_Tx_MAX_CNT);
+ }
  
- 	/* Enable the clock for timer1, if it exists */
- 	clk = of_clk_get(np, 1);
--	if (clk) {
--		if (!IS_ERR(clk))
--			clk_prepare_enable(clk);
--		else
--			pr_warn("%pOF: Failed to get clock for timer1: %pe", np, clk);
-+	if (!IS_ERR(clk)) {
-+		ret = clk_prepare_enable(clk);
-+		if (ret) {
-+			pr_warn("%pOF: Failed to enable clock for timer1: %d\n",
-+				np, ret);
-+			clk_put(clk);
-+		}
-+	} else if (PTR_ERR(clk) != -ENOENT) {
-+		pr_warn("%pOF: Failed to get clock for timer1: %pe\n", np, clk);
- 	}
++static u64 notrace npcm7xx_read_sched_clock(void)
++{
++	return ~(u64)readl_relaxed(npcm7xx_to.of_base.base + NPCM7XX_REG_TDR1);
++}
++
+ static void __init npcm7xx_clocksource_init(void)
+ {
+ 	u32 val;
+@@ -184,6 +190,9 @@ static void __init npcm7xx_clocksource_init(void)
+ 				"npcm7xx-timer1", timer_of_rate(&npcm7xx_to),
+ 				200, (unsigned int)NPCM7XX_Tx_TDR_MASK_BITS,
+ 				clocksource_mmio_readl_down);
++	sched_clock_register(npcm7xx_read_sched_clock,
++			     NPCM7XX_Tx_TDR_MASK_BITS,
++			     timer_of_rate(&npcm7xx_to));
+ }
  
- 	npcm7xx_clocksource_init();
+ static int __init npcm7xx_timer_init(struct device_node *np)
