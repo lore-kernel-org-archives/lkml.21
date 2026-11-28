@@ -1,85 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795834404;
-	b=gvx6w9Qt1TMJJxC4OzKshDkNrnF8gcyGbKBQxlgOlR0TjigwAyaUGvqGTfkeU8M90LJ9
-	 NYi8UbcRKSdPyFUUNKY12+tu0Wdfi+4cNQVYuQg2OTdec++Ckoo3BAiyCZ4YpCbV56nJk
-	 MbNBdw9ba3UDTT8Yis1x2SugWh85rZJQVGfk98Re2r6SxMB3vXVkGlIoqkzQ9kWJb5AYK
-	 uLF4GGGcM1PitKSTcIbM0n7HVVUi83OaUZsKp+RN1ZJ62Kpg/dFc6SdXV0ttyDGy4wy67
-	 nqXSekajzG4ebvBuXXN0lYjM633l3MJw06DWBpodTfKJqnpQgUReZfLfLOwesZbLuoA==
+	t=1795834402;
+	b=EDcTnt5/DjKtMQnIqiVaKzXmiSmgGrni7CFg0nMaw48VfL/Lq2ELvP0O0jv5/sSXpnl9
+	 HLYhUd32YTfClvTXjbtyzMgW7Nfu1NN97BepHKtenpL7Xy6Xmdlz4lWOEKQHA4ic1ORy0
+	 25oMwA6fWyR54tC22H1jtLrhjwU/LRXxe05BFLKu43eJ1ErxFGFF/kV2SGjTCK2SHuKds
+	 0JIdqkC1OlcdkjD7HlIzYWyvDlkh7Q2KJi00rKhe4HZMGZ+CKSnuLXh7UHF0BeSWyqWW+
+	 JIGPwUfQLkP4fjkD1cskZJkgH4ipQg/1/3ifI+doyaqvQv6IqNwGCh9Q4k6TRg8tSmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795834404;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795834402;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=+YV1M9xD+ag2ri/rWUEPchYapjamG4TNE1eJKE+P0Co=;
-	b=wnsUF3soAdH8IC7JjEChII6H25prfQ6vVBpyIQYc6ajkwcITIktWyOuV6u4+aV2+Di8p
-	 P8ts9n+hArmTbk7zI5B64BgoXS/gXugCXuuN37WmjVUa1rUpL6sHGA2h0o7KdtuVDFhSg
-	 Y6KLcwngq2ZTKgkOKaNA3ZSdkO6tj1UbtIgfR5So5GDGBBR/s7RGiAFhK0FnCpcKUWMSS
-	 7PhgTcE15wwacK6v/XAUgTCnNJM12LGnxmfsvvthHe2nmn+ZDfe4HIJbisusC0mKlSQaV
-	 9T6AnOVyn1Tl8lhouc0WNDCcNWwBpvbHkihVUvM2TOR9u+nHZ+PGnidPrFucfr6peAA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
+	bh=R0kCwO2dA78O9IErWGqjxytV2TbDnWKV61Iue3IYRdw=;
+	b=30UYKopNHoY40AifUIEgqhu/sGq+1HKa9O0r+UYoBqhCa7uS+KH9jQQT5FAsdFblzYK6
+	 jvihaZ+Lx4aDM5Zn6sgxOu3/+VniuymEUlEnI9GMsF9BOyM+FYrXVL5ZdwUVCTs3b5oNg
+	 5XRHTK/9yIewKqkjSupx62OHH6PmC7Y1qb281Hb99HeP/uwMhA8HqYoOtCV2VdP3JxCBm
+	 DWPjMTV7uboNFm/d08V7AV7NsABk3e38TjjcP9+xHKd6m0z7UtXFH4rM6O1kU/SZDmESN
+	 UbY0pW6gLaprx1Ckwx2HsRXAuhpRBPQXsX4lLOCL5HcCJnI+GGMNBsgfb1nlts2kr8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eDjF38Zp;
-	arc=none smtp.remote-ip=74.125.231.138
-Received: from mail-oo2-f10.google.com (mail-oo2-f10.google.com [74.125.231.138])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xz8iIQwP;
+	arc=none smtp.remote-ip=74.125.231.201
+Received: from mail-oi2-f9.google.com (mail-oi2-f9.google.com [74.125.231.201])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ACE3606A329
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:53:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ACE3606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE90D606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:53:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE90D606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eDjF38Zp
-Received: by mail-oo2-f10.google.com with SMTP id 46e09a7af769-862aa241d77so2818103a34.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:53:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xz8iIQwP
+Received: by mail-oi2-f9.google.com with SMTP id 5614622812f47-57391a89682so2490073b6e.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 18:53:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795834403; x=1796439203; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+YV1M9xD+ag2ri/rWUEPchYapjamG4TNE1eJKE+P0Co=;
-        b=eDjF38ZpcMRKEn3US4j8YDdhnSk76axcZ1xCjeaWL5/ZlXj6z4XpbxLVXKzlvjqH+u
-         OAIyQbRsaiEvdi97GNBisjq1PQa4JHOPPUZktBrVuL2D99uX0X6w+lGXCFd/z/xughEo
-         uRRpbfwrWYZH/A4DHvGIKMfIVlD8iIq7qYEcTNas8apbAcT81hWzZoPnJmyJtUJQQiKU
-         Rv0x1d0QwxllckaZh5ucWdX6IVE95nWAYtTHkz8+TPpVl1X0GDmTzVNH3xzL2a9PX9oW
-         L93Z4Dpg3wFJ/FczTsJV9B9kLe3gqXZ2LqPheyG3Q9JC2d2N/ezfM5CF+4kZDE/bxbwU
-         eQvg==
+        d=gmail.com; s=20260707; t=1795834401; x=1796439201; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=R0kCwO2dA78O9IErWGqjxytV2TbDnWKV61Iue3IYRdw=;
+        b=Xz8iIQwPrz3UXXC7kRWAAxzvKVj/HU7EAdERFZunkGhTxzrDkFsAWIqJM0+E4/k7Vu
+         yjDrWroAYQ+pKfzA17gl6LuEHH0huBIide5ecTQEc9tu7W592QR6Rvvob7UcoGVFV1VS
+         Jhz/HjFsmHeRgwzHzhK5JhZYOwWY0nPw+HWcMxff7G+L/OLkc9bjJ4XmUwiHYoWlndUs
+         ehplCIK6cWT7AUo/TyY2ADJLkg0dhxfcKQFxfas9/pK0aQHCiL4UU1FQ1Zs4ILwJLdU3
+         aMkWa3w/krHXD9qsSFnX+fY636idLG1l11mf4Ymm1C3E0EdUhHJysCvBGuVw9zKT6f5m
+         XQ6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795834403; x=1796439203;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+YV1M9xD+ag2ri/rWUEPchYapjamG4TNE1eJKE+P0Co=;
-        b=CqAiNyqDOV4LOwwlnGPNIKeccUvLcePgdD/TMx+q4NH55JdwKhDiSZ2VJ3bNbhltkm
-         tN8iCVPD/VGtyhNHOmER8Xzc8kvSpjFkiOtTJQJyWy+ZCfXwcmvBPdPZpWwHpD7GlkFP
-         rhNxzBav4FU2RZjNLb0daCP4pgcICzt0k9fqmcw2BX4OBkYiHZ/ObehC1a0EFJ8vbxOB
-         4QI0E4x6sHazV9PhabtgbDjq/AfQCbGsdayxJSpZUC0Pqn8tjZioECksV3jgsub0xUy9
-         o8MFS16WMVfX+raA97X6RjLnraTRmgIT537ubSSVNf5YMAyG8pEsqHg/TwoSoWbelhl0
-         7uqQ==
-X-Forwarded-Encrypted: i=1; AL+hErH4HuGGs6UBdRvQUp9UYHeode0E4Vzxc87lxb+ltCQQ9rUiUs4oYgxiuPJs8aSZPZM3LWX349STOReQffE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/kXga1lJPuWZvm17Ns6lAMcG9FccFgK1oTt/UK29qOdjUnmmW6
-	kTg6Fb+QHkeX/uOVAfXb6rcLfotvFxEGiegmX4nAID1rpuPB5/VHIE8c
-X-Gm-Gg: AZFdTZeBxWUzE+QjJUGaOVooYeKUCb7NjWY/z7W7QMMyzCPBwp5HS6VNTLpfWriBFe5
-	KoDM58K22rltowgG4cwVQ6/TI9RrmwvMN0nnO6kRzxFSCBIedZpBls39jzMT8bTdq3/N5SJakyT
-	ZR/VnHYlXehT2gwXB/N7P1RDOxm698NXLuV+DeWrpcwIpatXnr+kWQK6uzlEfnC3HY5xUp5OWvE
-	sxDBJZTx/tvficdFXLxZY2guuL8vbXoS81EJ1688yRIzjGi9B74OVH2NK2D6LE5mJtXWKyGdnad
-	9imbUVZtBgp4vwMmkVW/cR3QWOeSvqEPXnIZz98sW70hYIgsGmpwj+Hxg5nabtJDnhHrXyw+W7J
-	qEQLhC6owPGjgMST+C20vIT13Ke70gz4IH+kxSvrjFyjVG++TbDSSd0hFBJYb1KOWxf2SUW7uGP
-	+eUUX32AFmYDwm1wjNVptkiKftrAeO8k5zZhM5RCTejG1SZJly67tp3lorNKkNt+SuBO+EfrorB
-	ytgYFhA8NjNSL7BSLtM6AUE9l5TIb5Gov9HxZgU4kYl5GRvWdQ9nmjtPYd3WAoKUft/VOU8deI0
-	v+svMK4V7wBCgaNgmGpi56tlytrzOjkeH4K+5tcq30MItqMlzBKgSIpuZuyrYfgU6oM5RSEcJd9
-	nsOzg0VTd4UT4oEyyJLnvk8r4L/ERK25TEWZs
-X-Received: by 2002:a05:6808:3501:b0:567:d689:9b62 with SMTP id 5614622812f47-57a037b96e8mr29415803b6e.0.1795834403462;
-        Fri, 27 Nov 2026 18:53:23 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:4f::])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a2eb50d63sm19929493b6e.0.2026.11.27.18.53.21
+        d=1e100.net; s=20260707; t=1795834401; x=1796439201;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=R0kCwO2dA78O9IErWGqjxytV2TbDnWKV61Iue3IYRdw=;
+        b=ilxcuup3LZPVjHHpJWQE2e6AXapD6dLKd2IbDvCJ/MbxDwWBRcvxwCJhfGrA0LbP1s
+         t+AKe4vFtC0kj/g7iZlPB3LR3HNJO4jT5EcCHwgKfC0ca7KTTLqNKgck34MzMXZpgQrQ
+         gbbFTB0r9/g63UXJuNyzxvgT5QYx/WemCPIfrP2sfYZo61QfWZDd0rOfM103pINa3jp/
+         1ggxZxlM6vqriTmushSt9PFIVELzJFldZo3F8H/ZYkYIGQi+Y3vl49JY+QXahDuIUwY+
+         oNnKWhP0OYJSnn51zERUIuqvVb4ncLzA/YTSPKNpTGwRw2ZJM3tE7V/CUO5PnNP4jBCm
+         ObFg==
+X-Forwarded-Encrypted: i=1; AL+hErG4eVfIw8ySz+d6sYp/QcsqNBCFuFcRRAOZtMp8OVgdpq4KxBLMgTsRwj09TiR7E7gvJ/vkEQRsU8H+w1g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84XXAsKIBzVSs2tLlx6NmZFGX6uqIjf1YYHGvnmw/AGAFtjUcN
+	KTOSgDkEDB2KcDpMj3hRj5UWKHVPTBYCErd5kBBC5muuKzR8aMfXIw+o
+X-Gm-Gg: AZFdTZeg6Q6oAAkprwwaSZmMaLuQwBPYRX+OGGU36VUz+Zpk8ylglB+I+9KAvC4DVpF
+	gYQZfTDDzTva41f6KU00WkItcolI6XD/XP5+h8N+sD2pCcURCYIDJv4VMYxsvgKjqsQmENG3DWf
+	5VfqCSkR09Daywkog3mQXDv4QKc5dZwNW+SN14vZWuaMklQLtHfB56+ATlKNQlkqDpdeP6OIN5Y
+	gtME8U93mhp2bnyUZwdxbI+zbOhNObCQxlqGo8szejj2PYbsVyoJxWdppIwwpF9dK8Ym6Jlt/rh
+	sXATDNqPrFOJc4S0Hw+7bbOLHFq3DvQjrzfdoWfHaeNh9WVAlykhZQ3A+i8h7dBYPW8m2koHTGu
+	0PirhNselIZmjbqN4oO8aO/F0vmuuJVyr4NE/Y17xbQnuH4RQHc8gXve0CMjHZvNXwA/f9jtUnc
+	Y+aXMJg7Ju/oT+xHbLY0noYXWp0nKqM0vkq1Yj5GdTw8tT+o9ejJOeSJd1tR/SNGywvo119xkso
+	X06wHUHFfww/r3EnooGK3cOXZq9XshIRxoR3x4Nl1wF94XSuZ/ozzICb6Ta4tVV7gr3/c1qL4Il
+	56foui154MBBDG6hS7/YmeACg0qOy3XnH7YtbmvK/hNepEWg/wMajhBqdtVJ1fb+0IMEyuT2RO5
+	x7LrTFD1D7HpzLfVxUOodgKfEgZK7m7udMIrO
+X-Received: by 2002:a05:6808:c3ee:b0:54f:c850:fa53 with SMTP id 5614622812f47-57a0891786amr30906094b6e.17.1795834400878;
+        Fri, 27 Nov 2026 18:53:20 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:44::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc55895b9csm21381575fac.0.2026.11.27.18.53.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 18:53:21 -0800 (PST)
+        Fri, 27 Nov 2026 18:53:19 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org
 Cc: Alexei Starovoitov <ast@kernel.org>,
@@ -99,12 +97,10 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Puranjay Mohan <puranjay@kernel.org>,
 	x86@kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v1 1/3] compiler_types: Emit a BTF type tag for __iomem
-Date: Sat, 28 Nov 2026 03:53:15 +0100
-Message-ID: <c4f497b6646542ba7d856ddec7d912b680b017bf.1795834380.git.memxor@gmail.com>
+Subject: [PATCH bpf-next v1 0/3] bpf: Do not follow __iomem pointers
+Date: Sat, 28 Nov 2026 03:53:14 +0100
+Message-ID: <cover.1795834380.git.memxor@gmail.com>
 X-Mailer: git-send-email 2.53.1
-In-Reply-To: <cover.1795834380.git.memxor@gmail.com>
-References: <cover.1795834380.git.memxor@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,42 +110,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1354; h=from:subject:message-id; bh=CHaP6k63JJpG2wxpySBkgkJiMm4kbFlqyFVEkSg4BZQ=; b=owGbwMvMwCXmrmtenRyi38x4Wi2JIZvLiaepZo119sSTc0ovPN7to3d25ltD3W9mKnmC9ROSjrO+ PHqvo5SFQYyLQVZMkaXk/z4m4xOVvwNtl3HDzGFlAhnCwMUpABNplGZk2BxeOWc6//KnJXPXirv96f t9neN7wYOvfl90UvIspq5ZcIaR4VgDo27Dium77j9m4lyfEDore2WE/Pzmx+VLP0jfderr5AcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1373; h=from:subject:message-id; bh=7KRdKeGEPtd7wqWnWHL9bmdrZHoQfk3ywZxqsxMmWK4=; b=owGbwMvMwCXmrmtenRyi38x4Wi2JIZvLiWflNaM5dXPXfZC1q0sP3/x98X674yvORjz5+tF/8vaF M3mkO0pZGMS4GGTFFFlK/u9jMj5R+TvQdhk3zBxWJpAhDFycAjCR9bkM/2N3/EmqMNwWHGQjc0ry2B cRz+kb3t+ZFGjTrcCqd8nqSC4jw4ZZWiJe8d2zfTZ3as9+KFbY8p6PteTrY02n6E+/u1o7OAA=
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=B34BD741DE8494B76E2F717880EF20021D46C59B
 Content-Transfer-Encoding: 8bit
 
-__user, __percpu and __rcu pointers carry a BTF type tag, which tells the
-BPF verifier what they point to. __iomem pointers do not: outside of sparse
-the annotation expands to nothing, and in BTF such a pointer looks like any
-other.
+A BPF tracing program can read a device register with a plain field walk,
+for example mdev->common->device_status through a
+struct virtio_pci_common_cfg __iomem *. The load is a PROBE_MEM load of a
+mapped address, so it does not fault and reads the register. Such a read
+can have side effects. This came up in the discussion of [1].
 
-Define __iomem as BTF_TYPE_TAG(iomem), so that BTF records which pointers
-hold the address of a device register. The next patch uses it.
+Patch 1 gives __iomem a BTF type tag, as __user, __percpu and __rcu have.
+Patch 2 makes the verifier hand out a scalar for a struct member, function
+argument or return value with that tag, so a program cannot load through
+it. Patch 3 adds selftests.
 
-As for the other three, the tag is only emitted with CONFIG_DEBUG_INFO_BTF,
-a pahole that supports type tags and a compiler that has the btf_type_tag
-attribute. The attribute does not take part in type checking. With the
-config of the BPF selftests, vmlinux BTF grows by 892 bytes for 27 tagged
-types.
+  [1]: https://lore.kernel.org/bpf/DN6GS9V7A3HS.1COD0JUQQDHQ@gmail.com/
 
-Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
----
- include/linux/compiler_types.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Kumar Kartikeya Dwivedi (3):
+  compiler_types: Emit a BTF type tag for __iomem
+  bpf: Treat __iomem pointers as scalars
+  selftests/bpf: Test loads through __iomem pointers
 
-diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-index c5921f139007..8cfa555664e9 100644
---- a/include/linux/compiler_types.h
-+++ b/include/linux/compiler_types.h
-@@ -67,7 +67,7 @@ static inline void __chk_io_ptr(const volatile void __iomem *ptr) { }
- # else
- #  define __user	BTF_TYPE_TAG(user)
- # endif
--# define __iomem
-+# define __iomem	BTF_TYPE_TAG(iomem)
- # define __percpu	__percpu_qual BTF_TYPE_TAG(percpu)
- # define __rcu		BTF_TYPE_TAG(rcu)
- 
+ include/linux/compiler_types.h                |  2 +-
+ kernel/bpf/btf.c                              | 15 +++++
+ .../selftests/bpf/prog_tests/btf_tag.c        | 55 +++++++++++++++++++
+ .../selftests/bpf/progs/btf_type_tag_iomem.c  | 49 +++++++++++++++++
+ .../selftests/bpf/test_kmods/bpf_testmod.c    | 15 +++++
+ 5 files changed, 135 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/bpf/progs/btf_type_tag_iomem.c
+
+
+base-commit: 71ad211eb086d0f8fc7ae595a37943bed58cad6f
 -- 
 2.53.1-Meta
 
