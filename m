@@ -1,52 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.134
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795863250;
-	b=a5x3SgYAB4ZRdPeu7Blg6NChYmtOPv7Pe9HXYfBf8LgOkyDmofXFH51YnUMd8w/cC/Bb
-	 kah+NO4YnxrnvsOngvmJEPhXCkqOQIZ0gwECn745TeiPO2unQfPVXXJGWZeELlJc22Ynb
-	 kjzvjgbFkgSVNw29ZdBHBHPsKmm1KtSw9cyLBClOY3WMVeh+whTrJZae8/U3nbEZQ8KV9
-	 mx3T/EFYKcNiNncERZ8klneooj/SVf3yhJLVMVMZXEYsB25czMLXcYwC/fN75QHKadeFj
-	 VBW0e3btih/0pDMGk5+O/k7qEG8GellGdHdoClYz7URbsoAHCskjQVXyrNX7pSOISAQ==
+	t=1795863314;
+	b=oynLJTwq4DaMBH9x1Wv1RO3yUNfmOrjh8uuqa82l/mKp2xoHNw6W25D5V8VRgtN0Ir/3
+	 GSe0HTeIjG/S3nkG7YCgEjm8bWhQkvWpKHO6jdbQtqxZYXo8nS+llWjDJrMI2B3pp29RJ
+	 LA3lEpCWRrjxXXhQc9EdQrGK+Q/r3eh5BRvvTAxSWKk1QU+zoh+vyvU78TFQDm96quKGE
+	 IG45TxhuU2RWJRxT3xATTan7zo/nKq71o9zJxunooIzuU12Al4VvM0toW2QAu7zj+taUS
+	 mOE2PxJRV56PQlwCavpMSQX3zjczIixIH6gezS3dXe+g9nwg52AcjlC0/aelmFM0jzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795863250;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=kZJI92WSfPAdotPDRuAUvGN+lTnidbW9hfZq2rnUQB4=;
-	b=cqpiBBzDpSrplu/EO79O+68F8HVI6o+yiTJs4AmoIOWq4rDDtv6nkKlzcL9KT/VpVirr
-	 6HIqhSAdllke78uCB/Odv8/5eHrew4TiWGFVAPnsJ0sgwY2A78QncZOV3umc9Tn1XP2b9
-	 Tt8nI1h+NAPOk69AXgfID03/AC16EzouurI+W4jhcDQMGVcMojGVcWt4UqAcx2ql2t7PY
-	 XVnNuqBmbLkzmuMVYICJR/KEzjPPchYeQtMbwyEwCmJ043utAheQ5yhgdTzWgY4lhpGVn
-	 kpIHb5nWxT4ybyaifk+lDduzp7OQjhuCGBGxI15oq/hUg+a3pOA4pHchIxcpSb/9r7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795863314;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=xZC23EwdmFto70ebHtdkEH5phOBUP13a/R5oQY9xBM0=;
+	b=171fAqQm+5ALMF+a8oz072rrV/RoU1LUya3mHhnNihhQq9PPe7/IVuzPpBVMelHjOyD2
+	 aRajTVk9QDv6PDQYLsBQidRyYUDHbsPgKPOBCF6ZgRUR+S9ibptf0tEWjSYg4M3q9FkCl
+	 67x0ZdaREq/3GBSh/2eQFtl0cz1mTnBks51Ad6V0FvlNP5tawVKyP7hcZ9wzDBubKfdkd
+	 Pw+D6x7TPsWLQRjYi3dxmhC1NeZ32J7fN6oiwc7BPS24WwYcmlITFyqyKLVr60a//qWAB
+	 Oo80IRpxh2htg+Sgpur5DNCfTCFfP+wuUDibJ1dX4F/eGhUAyLukHiiD6Zpoyv9uo1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=feuoK0r4;
-	arc=none smtp.remote-ip=95.215.58.134
-Received: from mta1.migadu.com (out-134.mta1.migadu.com [95.215.58.134])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TgcJw5Xb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AD18606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:54:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AD18606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45659606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:55:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=feuoK0r4
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=iWwi2lH1Uju0BaXSu2zavvIXtR7UQypN1YDZdfaKdnY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795863247; v=1; x=1796468047;
- b=feuoK0r4nyDaNzAoDFwdsvWlb3Trh0WnkrcgykBsgksMgQW4S0MXim5Mc5F2imH3PQzUkOq4
- sjUUq93ecgzdsAi0CGSjJwZdN9MyMFfxjzVhuQNLr26m6wA0sBd91VZv4bZXvBfp2d9+CIWSRks
- UOKXkf1BGI1z5NimX9nIoR+8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 09dfd558ac3bb54b;
-	Sat, 28 Nov 2026 10:54:07 +0000
-X-Mizu-Trace-ID: 09dfd558ac3bb54b
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TgcJw5Xb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BCCC1F000C1;
+	Sat, 28 Nov 2026 10:55:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795863313;
+	bh=xZC23EwdmFto70ebHtdkEH5phOBUP13a/R5oQY9xBM0=;
+	h=Date:From:To:Cc:Subject;
+	b=TgcJw5XbFG32pID0CXFz7nYasKxmQ1QQMYiEIf0fwi3ydYFX9a1wBRS+RPim0ENXn
+	 tBHazVAdn7PaP0hyAPe3El99IgwpavC2a3y4wdDsFWDO8c0duHpZ4wykf6WDgVBezg
+	 lImywpYupH2OsujHqdj+yJrR4Ly3lVStOzl3otfNYdTV87csTs2l7kSx4iJu98qDZr
+	 YV1yvfXVbZ5ZKHUl2kyQlSwjieAmNJM9OsdL8erZmt4bsO85nTNcUkeS7O8tbcqHNF
+	 pXi1sPSYYCEZFSh2F9gnN3CE8JHw3SoIU34ArrrSHT3tJ7CyioT4WoT4x9TSCST9ua
+	 Gkyo5LiKhwP8A==
+Date: Sat, 28 Nov 2026 16:25:06 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: LKML <linux-kernel@vger.kernel.org>
+Subject: [GIT PULL]: Generic phy fixes for 7.4
+Message-ID: <awqzCpEEkssITBRQ@parshuram>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,123 +54,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sat, 28 Nov 2026 10:54:06 +0000
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="YcCimMCa4HLTQpgF"
+Content-Disposition: inline
+
+
+--YcCimMCa4HLTQpgF
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-From: "Luka Gejak" <luka.gejak@linux.dev>
-Message-ID: <64d36bd0ecc9447b616a4c8b55db121ea37b8f47@linux.dev>
-TLS-Required: No
-Subject: Re: [PATCH rtw-next v4 6/7] wifi: rtw88: 88xxa: correct
- carrier-frequency offset
-To: "Jie Feng" <hjf3108@gmail.com>
-Cc: "Ping-Ke Shih" <pkshih@realtek.com>, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Bitterblue Smith"
- <rtl8821cerfe2@gmail.com>
-In-Reply-To: <CABOQOSXgnFkSyL4hN9zDpq8iU24CFyS_yBS84Ts5QPzq9ntaxg@mail.gmail.com>
-References: <20261115114336.1739863-1-hjf3108@gmail.com>
- <20261115114336.1739863-7-hjf3108@gmail.com>
- <8ADDD0B3-609F-4E66-925E-997B11112E4C@linux.dev>
- <CABOQOSXgnFkSyL4hN9zDpq8iU24CFyS_yBS84Ts5QPzq9ntaxg@mail.gmail.com>
 
-November 27, 2026 at 6:37 PM, "Jie Feng" <hjf3108@gmail.com> wrote:
+Hi Linus,
 
->=20
->=20Hi Luka,
->=20
->=20On Sun, 15 Nov 2026 at 21:20, Luka Gejak <luka.gejak@linux.dev> wrote=
-:
->=20
->=20>=20
->=20> Hi Jie Feng,
-> >=20
->=20>  Thanks for the patch. One comment below.
-> >=20
->=20>  On November 15, 2026 12:43:32 PM GMT+01:00, Ho Jie Feng <hjf3108@g=
-mail.com>
-> >  wrote:
-> >=20
->=20>  diff --git a/drivers/net/wireless/realtek/rtw88/rtw88xxa.c b/drive=
-rs/net/wireless/realtek/rtw88/rtw88xxa.c
-> >  --- a/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
-> >  +++ b/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
-> >=20
->=20>  [ ... ]
-> >=20
->=20>  @@ -1632,6 +1637,17 @@ void rtw88xxa_query_phy_status(struct rtw_d=
-ev *rtwdev, u8 *phy_status,
-> >=20
->=20>  [ ... ]
-> >=20
->=20>  + rtw_phy_parsing_cfo(rtwdev, pkt_stat);
-> >=20
->=20>  [ ... ]
-> >=20
->=20>  @@ -2020,6 +2036,21 @@ void rtw88xxa_phy_pwrtrack(struct rtw_dev *=
-rtwdev,
-> >=20
->=20>  [ ... ]
-> >=20
->=20>  + crystal_cap =3D rtw_phy_cfo_xcap_track(rtwdev, RTW_XCAP_MASK, bt=
-_hold);
-> >  + if (crystal_cap =3D=3D cfo->crystal_cap)
-> >  + return;
-> >  +
-> >  + cfo->crystal_cap =3D crystal_cap;
-> >  + rtw88xxa_set_crystal_cap(rtwdev, crystal_cap);
-> >=20
->=20>  Could the shared helper discard the samples while sta_cnt !=3D 1? =
-In AP
-> >  mode, frames from both clients match the interface BSSID, so these n=
-ew
-> >  calls keep adding their CFO samples. But rtw_phy_cfo_xcap_track() re=
-turns
-> >  through rtw_phy_cfo_tracking_reset() before clearing the sums or cou=
-nts.
-> >=20
->=20If there are multiple clients, an argument can be made that correctin=
-g
-> the frequency so that it minimizes the frequency difference between
-> the AP and the clients can improve performance. Taking the average of
-> all the client offsets for the frames received might be good enough,
-> since it gives an estimate of which client needs more attention and
-> correct towards it. However, I feel like in this case, CFO tracking
-> should be the responsibility of the client instead of the AP, since it
-> can get all the devices to agree on the frequency.
->=20
+Please pull to receive the fixes collected for phy subsystem. Bunch of
+error handling/fixes patches and couple of reverts feature in this one.
 
-Makes=20sense.
+The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
 
-> >=20
->=20> So if I read it right, when one client leaves, the first adjustment=
- still
-> >  includes samples from that client. For example, on each reporting pa=
-th,
-> >  a +12 sample from the remaining client and a -48 sample from the oth=
-er,
-> >  followed by another +12, give an average of -20 kHz. The remaining c=
-lient
-> >  alone gives +30 kHz, so the first correction goes the wrong way.
-> >=20
->=20That does happen, although it might not be a big problem since as it
-> gets more samples the CFO tracking should converge to the correct
-> value.
->=20
->=20>=20
->=20> This was already present on 8822c, and this patch makes it reachabl=
-e on
-> >  88xxa too. I think the fix belongs in rtw_phy_cfo_xcap_track(), befo=
-re
-> >  these new callers start using it. Could the sums and counts be reset
-> >  there when there is no single peer to track?
-> >=20
->=20Since this bug is pre-existing and not specific to 88xxa, I think it
-> should be sent in as a separate patch?
->=20
+  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
 
-Yes.
+are available in the Git repository at:
 
->=20>=20
->=20> Best regards,
-> >  Luka Gejak
-> >
->
+  git://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git tags/phy-=
+fixes-7.4
+
+for you to fetch changes up to e7d2f93a4426ea6b33dbca1ce585a9876e3a7344:
+
+  phy: rockchip: inno-hdmi: Fix potential stale clock provider (2026-11-23 =
+20:24:53 +0530)
+
+----------------------------------------------------------------
+phy fixes for 7.4
+
+Couple of driver fixes
+ - bunch of error handling fixes for ingenic, ti, rockchip etc drivers
+ - Revert of skipping phy reset in Qualcomm pcie driver and revert of
+   freescale hdmi default rate due to reported regressions
+
+----------------------------------------------------------------
+Felix Gu (1):
+      phy: ingenic: fix unbalanced regulator disable in exit
+
+Francesco Dolcini (1):
+      phy: Revert "phy: freescale: fsl-samsung-hdmi: initialize default rat=
+e"
+
+Geert Uytterhoeven (1):
+      phy: PHY_GOOGLE_USB should depend on ARCH_GOOGLE
+
+Guangshuo Li (1):
+      phy: rockchip: inno-hdmi: Fix potential stale clock provider
+
+Hongling Zeng (4):
+      phy: ti-pipe3: Fix ignored clock enable return value in init
+      phy: ti: pipe3: Fix clock resource leak on probe errors
+      phy: ti-pipe3: Fix EPROBE_DEFER handling for clock resources
+      phy: ti-pipe3: Fix clock leaks in init/exit error paths
+
+Hyunjung Ko (1):
+      phy: phy-bcm-ns2-usbdrd: cancel extcon work on unbind to avoid use-af=
+ter-free
+
+Michael Burch (1):
+      Revert "phy: qcom: qmp-pcie: Skip PHY reset if already up"
+
+Oliver F. Brown (1):
+      phy: freescale: phy-fsl-imx8-mipi-dphy: Fix hs_zero underflow
+
+Selvarasu Ganesan (1):
+      phy: exynos5-usbdrd: Use dynamic phy_cfg size to prevent OOB access
+
+Shawn Lin (2):
+      phy: rockchip: naneng-combphy: Fix overwritten PLL SSC control bit
+      phy: rockchip: snps-pcie3: Raise the SRAM init timeout
+
+=C5=A0t=C4=9Bp=C3=A1n Daleck=C3=BD (1):
+      phy: marvell: a3700-comphy: Guard missing polarity argument
+
+ drivers/phy/Kconfig                                |  1 +
+ drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c          |  5 +-
+ drivers/phy/freescale/phy-fsl-imx8-mipi-dphy.c     |  5 +-
+ drivers/phy/freescale/phy-fsl-samsung-hdmi.c       | 59 ++++++------------=
+--
+ drivers/phy/ingenic/phy-ingenic-usb.c              |  1 -
+ drivers/phy/marvell/phy-mvebu-a3700-comphy.c       |  4 +-
+ drivers/phy/qualcomm/phy-qcom-qmp-pcie.c           | 31 ++++-------
+ drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      |  8 +--
+ drivers/phy/rockchip/phy-rockchip-naneng-combphy.c |  3 +-
+ drivers/phy/rockchip/phy-rockchip-snps-pcie3.c     |  9 ++--
+ drivers/phy/samsung/phy-exynos5-usbdrd.c           | 17 +++++-
+ drivers/phy/ti/phy-ti-pipe3.c                      | 63 ++++++++++++++++--=
+----
+ 12 files changed, 105 insertions(+), 101 deletions(-)
+
+--=20
+~Vinod
+
+--YcCimMCa4HLTQpgF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE+vs47OPLdNbVcHzyfBQHDyUjg0cFAmsKswoACgkQfBQHDyUj
+g0dqOg/9FdfS7K5mhu2VIfHkG1BRNVSvivrxrQf8DY+TedhgBeTE1j0nTmudhFJk
+SY7TuQ8gpicyYie8YrHtfe42cQKYBLMHlEEK7tya7ILlrf6gsZeUMoc+Ai4AqB0K
+zePuGHBmcelt/Op3uBiajlb41dnW9HyGbAq4SiEcyiJ4T50Rz7PJ4YbHYhbeA0jw
+fG3yTxBJjvm+Gfct1bYPvkzAQxSYbeySIN3CuogdP5OfWL0ljR9sGN0LqkYV+lxx
+3s8pqJXXOn8pXOqN4jIqQe8sd+/sbzqjlvQIGdKMBTVd3DM6UqPBm/TWOKMtzOCS
+IluCxkWjc7QDsU7orguqW5HyQPGxn+jPSM0aOLb4ZX/p0RIHSRzgpB0a4OK4wtpL
+0B76tcnDlNfArws9Cofbgq8i7+ryGQBrvheMZ619orOfFhu9+Ad8YAgmCH/AqYFQ
+CRFbplBbXuZ8QhKPQVGyxR1UyZoy5VVBSMxrmBGK1QrEYU+PxGhxn6Rni3HfuDsv
+4N40cNcKzkY29nM4oNnNMRKPMe8wrqv4jxHLyEt4mbN50+UIChvMrlhVSiAzc3sY
+N9+kzL0YE6odWHksvG6ljchG+DA8hGXTWL5U8Jqd0dUrtBbk8kgzjzs2L2nw7bwc
+d4mc3sNgkjpRD5AJy3uwVXJ4kStne2C9gXVE3RkDD65Nb8Xr8nM=
+=4GTw
+-----END PGP SIGNATURE-----
+
+--YcCimMCa4HLTQpgF--
