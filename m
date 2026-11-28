@@ -1,58 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795874863;
-	b=F7b8O3FhcNSR2LlFbfbu4DgYt67cU0/BC1PmXicPQlwiibO5w1uqLpR1nthKL7BF1cnQ
-	 Kx9CuGhAIjAzmUykq7gGxfj6y0tThWF7NzVRJ/bdLln57NfLZO74iQsfM2pB0JFKvSKSL
-	 KK/9VlzFuzERWSQFiHwZ05Z01J/oelRtS8fJmwjo84KieEKBL+88TT5uN/IHRSierYXzs
-	 Rh4V8K8gi4s2jFZCpArRWgTwrl6d7SZMIPd/n2ysaHn4H33CE2J4Cek55d7IYzTrl7xNQ
-	 V1aElIuQwsJ6y8afIDXjJ7oiXECcNyzmkm5OpUz3lf3HeWvs56rIK7MRq6ta2yAUKEg==
+	t=1795874918;
+	b=da2oAoAifXAvtfax1CTJu1NnUTIp/v7GsZoo6Wor1g30hn3u3hndum0LbcWYqUZ32LPk
+	 gNecbIThn2OVEgMhYXDBghTEO4x82/x1TJXSH9mI5/hmoBgakd/Uu1eNLp0uNZkEZgMSl
+	 /OWAbLwxepUqOUVfn9wvcKa5KOHFuTeYMM9/Ib3W/AMKKTA2jHqARrXGH6hKr4DM6p5bd
+	 Tt/X7ISYHyihBFDgTRh9VZw5yYq1EG6nAn7fpbtD2cewCyivDnULZeFyCOh5FQoCXg/ZM
+	 4Hy3bN+gR2fQcWhWlSrflKcymt1KFX0EOl5KI3QFkJOa27O+RaipUXV5fBkey8lqkjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795874863;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=4+6KQuyL0E3p3oxhKhM8zgbrpNWedg2mBg7UCQkIATY=;
-	b=5DN0/qZhTcMR3faJKctxpVTDt/ZjPoGGglTUPw55LcSRWqVXK9LpQbNnI13C8vXnKGZp
-	 rUL+46Tvm8ODd9oFKN1sgY3gtPG1q+6NPsU4hWVrPS71GxUTmU9emrb87qMBZjKm5U2TU
-	 fKG9wfpr7pNt2nZjgk7Uz72YfrmVclF2quNMwee4DiHcs7prY7phEJCzoE/gsNoBXCDyu
-	 OgLRiO7nI5XmlX0YLC4ym9sZfTO3PNrEgF645OgIFp7VvIE2j4PCnNCCr6gPQWAQyVld1
-	 7PiJDfq8ne1GfMUpzFxX0hhMuHYG/3NykLv57ImjyrMSqCXRO2vvAgrFTw3Fh1gRCFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795874918;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=y9d0KlkYkMPn1OGlex1T3FTiLNTnvIiCGzz3NKFSL5Q=;
+	b=Hkl6yS3bczEEPNew/bYPN+SfTMpRd6I8EWlRAQCpBpW8z4KpcKBHiFY9P9SPFIofQH/q
+	 rVz86P9PU0/LGQIi5TgCiN4pz0nBLFX2BZjDoLgLdg9Z1ZtjjrQns+Bt10TGqNBtOGxIj
+	 GhTY/eZi9aUme1Q94uWb7p9q9Al3SdzGMMYCtZbV39gY/ZYuirG+S6TehuyBEhYmx7awR
+	 jjgW2ARNZRjQHwYbucTTCQNlZPXKrGCr0UgOpaL5Iu8XsSkwEYOOEZUNWn1UxYzGi5BTc
+	 kIC68gFO+v+eajxTDp5Z33wy/N7wn8oL8tgEeFL0P4ntsdH6cRXrHRy7ptMbEYvS62A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=YcrihPzs;
-	arc=none smtp.remote-ip=117.135.210.6
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=stellman-greene.com;
+	spf=none smtp.mailfrom=stellman-greene.com;
+	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=R2epY8c7;
+	arc=none smtp.remote-ip=209.85.128.177
+Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com [209.85.128.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0EDF606A688
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:07:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0EDF606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFAA3606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:08:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFAA3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=YcrihPzs
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=4+
-	6KQuyL0E3p3oxhKhM8zgbrpNWedg2mBg7UCQkIATY=; b=YcrihPzs/cw1wf7xiH
-	laUXaqrKr7TaghCpoXDECpGJKL7/2kX4ctZmXxrerjaqktfxEcpqUe34kp/8DgPT
-	p1/EfG6SEXrno4ADjXDEqSFo5wms15rHgGC+lQLa3+1Mo00JokRrsD+PwTJ0vIzG
-	i5dALdKlNYPaSr11awa7+kd4A=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCkvCgDnN9f_3wprDjnOCw--.23165S2;
-	Sat, 28 Nov 2026 22:06:57 +0800 (CST)
-From: Bilal Hashim <AeeSec@126.com>
-To: Rob Herring <robh@kernel.org>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Bilal Hashim <AeeSec@126.com>
-Subject: [PATCH] accel/ethosu: validate strides, format, and overflow in feat_matrix_length()
-Date: Sat, 28 Nov 2026 22:06:30 +0800
-Message-ID: <20261128140630.1172-1-AeeSec@126.com>
-X-Mailer: git-send-email 2.47.0.windows.2
+	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=R2epY8c7
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8b10d24345dso80993427b3.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:08:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795874917; x=1796479717; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=y9d0KlkYkMPn1OGlex1T3FTiLNTnvIiCGzz3NKFSL5Q=;
+        b=R2epY8c7zatZG/RtMQ7ExJRvH9+vyyA2Z0aczkdjCHPzOeymu4tbOi+XPZOUhBAsbf
+         c1w3Pi29cXSWGFk0WlBMVw2OAyrtsGfIwQ2CjHCyRekc827nzxluaeXObjSBaYdP4Jx8
+         JhR3ixGFYw/8HUR/wVrYM/IjEgDHQrXSyvbsT+QCGgPoHJ8phpY5uGPxDvv8wzW5CUeA
+         WEUSqfXv/1MteZTIKHC68tPLkeOcBR/60PA/OwFusgXNIEwQj+ZvGHx6Sob0o4b9EDIH
+         8V7yYnVL125LpR0aSzazpGOp3gO/9FRTmdc9V8w3sNPwLq7V319kUsKhTcLfNvMs0ZTQ
+         DNDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795874917; x=1796479717;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=y9d0KlkYkMPn1OGlex1T3FTiLNTnvIiCGzz3NKFSL5Q=;
+        b=FpC73Yt0JAZeISq/YXpbtVPOTpa7BvtgLbCWRna7FqBQeaF3L7NHtU441P5E6cmt6n
+         DvmKJMz8BZqnPt+ubuquiqDT8nZuTall2xHctbEMXpVhul/tn23hxbkG3K6MOVRBi5Rd
+         rNweVpJN65Ub1Zm8buIuw26yVn9BhP8IfV9MHM+4hiyLTaP5KRTwTpQMPv7Qh/sP6k7M
+         cnkw0GgY2YfFzbNQ0xHu8DzlDzWKtAdjW5VBz5dR10UH+MB+xEY1chMBUsZt8yaTAOX/
+         +JYzucH+vsHUnjOq2MJUScoAGSyoHsqw4p2hxwLfYxJs3GNBL2JvxdHncZrb4Dj9YDYk
+         f+lQ==
+X-Forwarded-Encrypted: i=1; AL+hErF+QIZIi8vuy/emkicXV3Eru6fvp6A9gatKv7JFa7Sffz6uNmkm8owsCpDmjomdkQ7GzOE7ErY7jhCwaVQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z93DkI0uCIiqOolI1tmyRCI8ESduig9mCEuU8+fTV/FF7qik0gw
+	3m34ghn6yAsaacg7xlvMWJlnrzsCfdMPNfie9+FImyRL5vXcgtJ4IdN1AbEvkSUlqDs=
+X-Gm-Gg: AZFdTZe1lsFp7lALP4/SSGgJigBC3VHLoi4dSNOy0WJ4+TW9vZ8OPZPwCqISRUdCDon
+	kapPGQKFpkZ1l+ByTwv7HtPQby7lbo2lMBh8My0NkN1wnThgnsEMWDx7cNc2P8USTdqqK4Z6GhY
+	imtmqUJP+ghjEiy3ilQkQ9upKfRoEzUV3e6MyzRepJZp9Js7dcGW98zJFeWUdGABcKWHXCTHjN+
+	42rV2v3GJ1N5n5b9jK1At6LhgNib8svla5eW+Tiukr/Ym3bqJ5HznYlbVQozl0fkKnC+QUCgCRw
+	x5PlVYqpuPc3qP+LoHNYsmQKAL83Ylso1Sv6ycxAyfyUeovylFtgEW9fw4Xu8UBr3rqs+bPYwr0
+	JC/4jTmbU/ssfFkS2nj2BPlTvibAW65VyTNWpKr6G8sN+AKLv9avF+ggOMlzOX8sjPJK53x52gW
+	uJVuQBPUTzJEsGbPdl0wwBaAmCJ6lDD+tZJUdSaMLp05oq0sycxCt7jWBpiNvmXktCOCZrsYk67
+	KPTe3HoZCooPFTqfSUnt6pk35Qd6bGH6oYZpYqWT9dFM4ODUx5L9CY+UJShGLHgxQFkxM5ZK32N
+	P3VUeC+hmIjX/j3uEzEAaJlYIoIDDk5u90Gn2rm4uv0eiKI9Vp+ur4UY6yxm1SEcG/lxbYWV92d
+	cgfP+lIddhIykUZnNsU+tAuY=
+X-Received: by 2002:a05:690c:e3d2:b0:873:5c0f:27c with SMTP id 00721157ae682-8b5204ad248mr121148297b3.38.1795874916722;
+        Sat, 28 Nov 2026 06:08:36 -0800 (PST)
+Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a4e3:fb15:aef5:60c7])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb418241sm2050564885a.38.2026.11.28.06.08.36
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 28 Nov 2026 06:08:36 -0800 (PST)
+From: Andrew Stellman <bugs@stellman-greene.com>
+To: Jon Maloy <jmaloy@redhat.com>,
+	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	tipc-discussion@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tipc: reject bundles too short for an inner header
+Date: Sat, 28 Nov 2026 09:08:30 -0500
+Message-ID: <20261128140830.58925-1-bugs@stellman-greene.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,90 +103,51 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PCkvCgDnN9f_3wprDjnOCw--.23165S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWF18GFy8KrWxWryxur43Awb_yoW5Ww1kpr
-	W2qFy3Gr1DX3y09wsFyw1DXF18WF1kJr4UKas5A3yruFZaqr1UWFyIk3sxWF1xZrWfC347
-	XF4ktrW3Cw1qgaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zitEfwUUUUU=
-X-CM-SenderInfo: 5dhh2vbf6rjloofrz/xtbBrQGVMGsK4AFPmgAA3c
 
-In ethosu_gem_cmdstream_copy_and_validate(), `cmd_state_init()` fills
-`struct cmd_state` with `0xff` so that missing setup commands can be
-detected (leaving `s64 stride_x`, `stride_y`, and `stride_c` equal to
-`-1`).
+From: Andrew Stellman <astellman@stellman-greene.com>
 
-However, `feat_matrix_length()` never checks whether `fm->stride_y`,
-`fm->stride_x`, or `fm->stride_c` are negative (uninitialized), does not
-reject invalid format values `(fm->precision >> 6) & 0x3` greater than 1,
-and performs unchecked arithmetic on `addr` and `addr + 1`. If a command
-stream omits a stride setup command, multiplying by `-1` shrinks `addr`
-below `fm->base[tile]`, underestimating `info->region_size[fm->region]`
-and weakening the BO bounds check in `ethosu_ioctl_submit_job()`.
+tipc_msg_extract() checks *pos against msg_data_sz(hdr) - MIN_H_SIZE.
+msg_data_sz() is unsigned, so for a header-only MSG_BUNDLER, which
+tipc_msg_validate() accepts, the subtraction wraps and the check
+passes. The following msg_size(ihdr) then reads four bytes past the
+end of the bundle. Check that the data can hold an inner header
+before subtracting.
 
-Reject negative strides and unknown formats, and use `check_mul_overflow`
-and `check_add_overflow` when computing `addr` and `end = addr + 1`.
+Tested on mainline (7cd8495c0f16) in arm64 QEMU with KASAN. A test-only
+debugfs hook, not part of this patch, built a header-only bundle in the
+kernel, passed it to tipc_msg_validate() and tipc_msg_extract(), and
+poisoned 8 bytes of tailroom after it as a redzone so KASAN would flag
+the read. No live TIPC link was used, and the bundle didn't come from a
+peer. Without this patch KASAN reported a 4 byte read in
+tipc_msg_extract() in both of two runs; with it, none in one run. A
+bundle holding one valid 24 byte message was extracted the same way in
+all three runs. No selftests were run.
 
-Signed-off-by: Bilal Hashim <AeeSec@126.com>
+Fixes: ef9be755697f ("tipc: eliminate buffer cloning in function tipc_msg_extract()")
+Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
 ---
---- a/drivers/accel/ethosu/ethosu_gem.c
-+++ b/drivers/accel/ethosu/ethosu_gem.c
-@@ -206,7 +206,7 @@ static u64 feat_matrix_length(struct ethosu_device *edev,
- {
- 	u32 element_size, storage = ethosu_is_u65(edev) ? 0 : fm->precision >> 14;
- 	int tile = 0;
--	u64 addr;
-+	u64 addr, off, end;
- 
- 	if (fm->region < 0)
- 		return U64_MAX;
-@@ -237,24 +237,43 @@ static u64 feat_matrix_length(struct ethosu_device *edev,
- 	default:
- 		return U64_MAX;
- 	}
--	if (fm->base[tile] == U64_MAX)
-+	if (fm->base[tile] == U64_MAX || fm->stride_y < 0)
- 		return U64_MAX;
- 
--	addr = fm->base[tile] + y * fm->stride_y;
-+	if (check_mul_overflow((u64)y, (u64)fm->stride_y, &off) ||
-+	    check_add_overflow(fm->base[tile], off, &addr))
-+		return U64_MAX;
- 
- 	switch ((fm->precision >> 6) & 0x3) { // format
- 	case 0: //nhwc:
-+		if (fm->stride_x < 0)
-+			return U64_MAX;
- 		element_size = BIT((fm->precision >> (ofm ? 1 : 2)) & 0x3);
--		addr += x * fm->stride_x + c * element_size;
-+		if (check_mul_overflow((u64)x, (u64)fm->stride_x, &off) ||
-+		    check_add_overflow(addr, off, &addr) ||
-+		    check_mul_overflow((u64)c, (u64)element_size, &off) ||
-+		    check_add_overflow(addr, off, &addr))
-+			return U64_MAX;
- 		break;
- 	case 1: //nhcwb16:
-+		if (fm->stride_c < 0)
-+			return U64_MAX;
- 		element_size = BIT((fm->precision >> (ofm ? 1 : 2)) & 0x3);
--
--		addr += (c / 16) * fm->stride_c + (16 * x + (c & 0xf)) * element_size;
-+		if (check_mul_overflow((u64)(c / 16), (u64)fm->stride_c, &off) ||
-+		    check_add_overflow(addr, off, &addr) ||
-+		    check_mul_overflow((u64)(16ULL * x + (c & 0xf)),
-+				       (u64)element_size, &off) ||
-+		    check_add_overflow(addr, off, &addr))
-+			return U64_MAX;
- 		break;
-+	default:
-+		return U64_MAX;
- 	}
- 
--	info->region_size[fm->region] = max(info->region_size[fm->region], addr + 1);
-+	if (check_add_overflow(addr, 1ULL, &end))
-+		return U64_MAX;
-+
-+	info->region_size[fm->region] = max(info->region_size[fm->region], end);
- 
- 	return addr;
- }
+The issue was found by Claude Opus 5.5 running Quality Playbook, an
+LLM-driven code review tool:
+https://github.com/andrewstellman/quality-playbook
+The fix was drafted with OpenAI GPT-6 (Codex) and this changelog with
+Claude Opus 5.5, and both were reviewed by me.
 
+A reproducer is available on request.
+
+ net/tipc/msg.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/net/tipc/msg.c b/net/tipc/msg.c
+index 39dfd33c8eecc8..657c0709a0f7a1 100644
+--- a/net/tipc/msg.c
++++ b/net/tipc/msg.c
+@@ -600,7 +600,8 @@ bool tipc_msg_extract(struct sk_buff *skb, struct sk_buff **iskb, int *pos)
+ 		goto none;
+ 
+ 	hdr = buf_msg(skb);
+-	if (unlikely(*pos > (msg_data_sz(hdr) - MIN_H_SIZE)))
++	if (unlikely(msg_data_sz(hdr) < MIN_H_SIZE ||
++		     *pos > (msg_data_sz(hdr) - MIN_H_SIZE)))
+ 		goto none;
+ 
+ 	ihdr = (struct tipc_msg *)(msg_data(hdr) + *pos);
