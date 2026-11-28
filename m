@@ -1,62 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795880992;
-	b=HJ64GdioDeT60rUvtG+0jL/x8xigW3Zs0GsiHqqEqa/k2ygDv5AHZVBWai/ktE4vCPhx
-	 RM7i340X1vwyzdjmv4qbTtKDVmmK9HW/UI5JnI/axKtFHWUXrZgZMNSm7Q5P9dgFV6vLl
-	 KoVB9aNHsairVaqKQmu59iYSXak7seh9o7j5yJgkfk+Do+y6vGo/PPQWCjH87h2I5jJCF
-	 ZJEVV5LJRCVJn2UZ2zlao+lmLL7jvIM9RBQest/fmepvxaAi9EHTqDTJVFbSf4OZY40+c
-	 b99QWrym8cX9fr4yOEVmU36r+i6Jv4gl3OUkj45AmgwIbgIBmRwbgMlJBT3o4G84kxw==
+	t=1795881249;
+	b=Jkv25xHxuzH8QkEgs3o3IouKRBGsR4pYcRs9AGVnJ6Q4sCeMwBXUxa4tR1ACbIYJIJnl
+	 Asr+PH883u0ttKie/xZBYIN3InyWfI0kOEjI/v/SVR98298kfMu/SsIbdTVgIbbL6zSeZ
+	 /r0x/T1HjqumfcXosJiO/8SJ5NHB21fc6wzo2+v+pRAQ+9Skn5vSsvX5yfaRj07gGW+j8
+	 +9R3V5P/wtgDfTX3hpquzMyQAS4Ati5qCX3cjyrbiaNdPjFohT9KbvEQCwRV9k3tUxFXV
+	 mzZuK6yH+dpc1K/djeqlyaV8n2koe+rSlksmwasuqpbLdSxKnX9YhyrnBELco8NZBDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795880992;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=3tDHcCr13zYeauyEYlS1W+adMoKlAGX2HKcZrR7frLk=;
-	b=PYrYOK6iO5iwdvhpwxDpaTkQFZapJG40umf1UVZmIAPdibk78fUVgEUW+JdRrBZ2IoWD
-	 LUUZBoQU5c/Vf3/XSq5a4o/stA+lQyFPmGc98qJvw7CSDOu+AXHwZpPui+kQUhM7WTp1m
-	 PXP8srmXDRjE+nBWGtZXBSm5M64DyhN9S3XRpSTbz4UlrtdsfU7cAF+HzCEKXNqu330yG
-	 iSRV9UPtCUYO0qghJhCKz1IbQY6GoeyY/mX0qjHECsqvFmT3nch9AepQMtsS6n9AUkKke
-	 CG3+/OkvKqJgDxV+b9fi6z5umiJkpBBWatEN4e39L0VrFSlL5DHkU3s6eI9WtTCA1Uw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795881249;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=GEkTsONajPK1Co5cTsiFpwumQqUlmxmI4EKz6faDMnM=;
+	b=XG7ox84s4rtoU7xIBayvTpljesUd8Znd+leieme2wA+xnBGC5HH0rOO6b0ze+lqFH2dj
+	 foeIY46VxysRgBRHktnccpKdxuxz12JXRbNja2kshvk/6IPk6ryFUAngovQyYrL2YyrSz
+	 z73PkQdlmkJ/6OH8fuCJJWogwELncmhDArK+Bsy6lnGk51ycVSlkpX8PmY1wodAL1k8Al
+	 2XnOf/b/RuyNt2k35Qds9ChM+Hx4IExP9C+o8HD2SG6ehYp94dqrtga1BxtzY9Q8bsHdb
+	 rn4mMTseRhGDkS2zKq0vyw+vNOC/DY+TQL39PcmytT/Bd2f6607YX9ViKQu9lr+6nUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eO2HPSA0;
-	arc=none smtp.remote-ip=95.215.58.184
-Received: from mta1.migadu.com (out-184.mta1.migadu.com [95.215.58.184])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=Mbz5++10;
+	arc=none smtp.remote-ip=185.70.43.100
+Received: from mail-43100.protonmail.ch (mail-43100.protonmail.ch [185.70.43.100])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81CE3606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:49:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81CE3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44D9C606A323
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 15:54:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44D9C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eO2HPSA0
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=x/SfbLT+C+46sgDmsdu/nt9Gx03sWMPSsDca01XiedE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795880989; v=1; x=1796485789;
- b=eO2HPSA0D3vRqQrjQukuDAFkG4KVFL+qKB14HiqwS1dbt5qW3xeHA16u/Q03+UM94UnZxOQ6
- JWLQUoTKns6/0GmyFPF28bvfmsf8uZ9JB7LtOVuoM8+bIWvNOP3RRBNAvPxWKeXgGKuuVYBWBG/
- 6KTWNvi7pV/zqyYc/slnqtbQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 05e75da0e92dddfb;
-	Sat, 28 Nov 2026 15:49:49 +0000
-X-Mizu-Trace-ID: 05e75da0e92dddfb
-X-Migadu-Flow: FLOW_OUT
-Date: Sat, 28 Nov 2026 15:49:48 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: ndokutovich@gmail.com
-CC: brauner@kernel.org, jack@suse.cz, jlayton@kernel.org,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, viro@zeniv.linux.org.uk
-Subject: Re: [PATCH 0/2] listns(): validate the reserved spare2 field
-In-Reply-To: <2DE3E250-2C87-4816-B96F-CD951F02BD6E@linux.dev>
-References: <2DE3E250-2C87-4816-B96F-CD951F02BD6E@linux.dev>
-Message-ID: <B26886EB-B8B6-4892-B1A0-8893AA79343E@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=Mbz5++10
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795881245; x=1796140445;
+	bh=GEkTsONajPK1Co5cTsiFpwumQqUlmxmI4EKz6faDMnM=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Mbz5++10plNkTNAPwnSorYwRzxJCNns6mJMPhAE/A2wbh966iPwBOglAfjmQNVbNS
+	 Nh2GjAYgouzTX9785xvXjhr8rjn0+rtZ+4g5edPYeuOfZtHDKmk6WIc1/yKM6hVjBQ
+	 JNHjiHoLa9cWYO3zIq4vncxruUaDeMxCczbZYb1GXqqO8S2KbmWYziSeAR1HoZFAo4
+	 KS/JmSrObkAOTghqlbPWZ9tMy0keVRSx5KMKg4hzJj+rN0lC/8I1+qs15NjDvmg5ZT
+	 nxadbiLDqm90U5hFh7XFzi9B3ghbz7s7p/vflMMBG6ICEcNswFUa22db6dtZhWOvbH
+	 kWpspl6BQrbKQ==
+Date: Sat, 28 Nov 2026 15:53:56 +0000
+To: netdev-bot+sashiko@kernel.org
+From: Bryam Vargas <hexlabsecurity@proton.me>
+Cc: Mahanta Jambigi <mjambigi@linux.ibm.com>, Jakub Kicinski <kuba@kernel.org>, Dust Li <dust.li@linux.alibaba.com>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Sidraya Jayagond <sidraya@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, "D . Wythe" <alibuda@linux.alibaba.com>, Hans Wippel <hwippel@linux.ibm.com>, linux-kernel@vger.kernel.org, Wenjia Zhang <wenjia@linux.ibm.com>, netdev@vger.kernel.org, Hidayath Khan <hidayath@linux.ibm.com>, Ursula Braun <ubraun@linux.ibm.com>, Tony Lu <tonylu@linux.alibaba.com>, linux-rdma@vger.kernel.org, Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net v6 2/3] net/smc: clear the buffer pointers before registering a connection
+Message-ID: <20261128155344.1427660-1-hexlabsecurity@proton.me>
+In-Reply-To: <179487758425.3136.7345936021290037161@kernel.org>
+References: <20261112-b4-disp-1c8d3a53-v6-2-36a38ae35021@proton.me> <179487758425.3136.7345936021290037161@kernel.org>
+Feedback-ID: 199661219:user:proton
+X-Pm-Message-ID: f069d12f754163e21e81426a8fb11fe95c985d89
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,60 +64,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 28 November 2026 15:44:07 GMT, Bradley Morgan <bradley.morgan@linux.dev>
-wrote:
->On 28 November 2026 14:06:21 GMT, Nikolai Dokutovich
-><ndokutovich@gmail.com> wrote:
->>copy_ns_id_req() rejects a non-zero @spare but not @spare2, although
->>struct ns_id_req documents both as reserved.  Validate @spare2 the same
->>way, and extend the error-case selftest to cover it instead of only
->>@spare.
->>
->>Nikolai Dokutovich (2):
->>  nstree: reject a non-zero spare2 in the listns() request
->>  selftests/namespaces: check that listns() rejects a non-zero spare2
->
->Had a nice read through, thanks for the tests, for the whole series, let's
->put,
->
->Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
->
->Also, a nice question, since I tend to be a bit ^Winsane^W
->
->Is this bug a edge case? Most bugs found nowadays in the kernel are edge
->cases, but they would still need to be merged, because again, it's still a
->case that can be reached.
->
->My question to you, is could this bug be actually reached? Like, would a
->future caller set spare2 as non zero? would the driver maintainer for
->example be silly enough to set non zero spare2, probably knowing the
->consequences (if they understood the code), well, if they didn't, it'd be
->their problem, no?
+On Tue, 17 Nov 2026 01:06:24 +0000, netdev-bot+sashiko@kernel.org wrote:
+> - [High] This patch still leaves rmb_desc and sndbuf_desc dangling while
+>   the connection can be found by its token.
 
-Aw I was wrong, sorry, the function is called thru tests and as a syscall.
-Apologies for the wrongness :(
+It does, and the cover says so: it's the first item under "Not fixed
+here". A handler still runs on the released RMB if it found the
+connection before smc_conn_free() unregistered it. That predates this
+series, and it's the window Weiming Shi's patch [1] is about.
 
-R-B stands.
+2/3 is for another case, the retry that registers the connection again
+under a new token with the pointers from the failed attempt still set.
+A CDC with the new token then finds them at any time, with no race
+against the release. The note under 2/3 ("a pointer seen set stays
+set") is only about the pointer not going back to NULL under the lock;
+it says nothing about who owns the buffer.
 
->
->I had a look at some callers, mostly selftests, and they all patch up this
->correctly, so this wouldn't be reachable RIGHT now. I added my tag because
->we will have to account for the future callers silliness (adding non zero
->spare2)...
->
->
->
->>
->> kernel/nstree.c                                  |  2 +-
->> tools/testing/selftests/namespaces/listns_test.c | 11 +++++++++++
->> 2 files changed, 12 insertions(+), 1 deletion(-)
->>
->>
->
->--- Thanks!
+> Could the pointers instead be cleared under the slock where the buffers
+> are released, in smc_buf_unuse()/smc_conn_free()? Or could the token be
+> unregistered before the buffers are released? Either would replace the
+> clear in smc_conn_create() rather than add to it.
 
---- Thanks!
+Not with a clear in smc_buf_unuse(): smc_conn_free() skips it when the
+link group is already off its list, so the pointers stay set on that
+path and a later retry registers them again. Unregistering the token
+first clears nothing. Every registration goes through
+smc_conn_create(), so the one clear there covers them all.
+
+A clear in smc_conn_free() itself is different. Under the spinlock,
+before the buffers are released and on every path through the
+function, it would do what the clear in smc_conn_create() does. A
+handler that takes the spinlock after that clear would also find NULL
+at the check 2/3 adds, which closes the window above for that handler.
+By inspection; not written or run.
+
+2/3 keeps its clear in smc_conn_create(). That is enough for the retry,
+and the window above is left to [1].
+
+The two cases you list, is_reg_err set or not, are the ones the cover
+measured: after the negative CONFIRM_RKEY, the descriptor is back in
+the pool and the forged CDC runs on it; after a failed MR registration,
+KASAN reports the UAF. Both with the retry; without one, i.e. the
+window above, nothing was run here.
+
+[1] https://lore.kernel.org/all/20261021171256.166870-2-bestswngs@gmail.com=
+/
+
+Thanks,
+Bryam
+
