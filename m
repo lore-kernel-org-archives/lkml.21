@@ -1,75 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.134
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795827961;
-	b=1naOrscGHEsiHAyj8D7sZVB9+s1ly9I0ODMKzAqnpvpRFsiiue0nl46grd1MQ5Iomjpj
-	 AiZTydgp9G+tyyLeMZQ7xLtQMopL8e0NlRuhXF08ybGCptuT8XF0/nFb+J5d0smf2jPxR
-	 XrZ4wf/R+1/FezPm07YBmW2KJAmFPLR+uf46rJSLufhBZ9hWgGdIS9bfA/eaq7ZJqcoqY
-	 AICguYVi3onV4oN7GWhgx4VHfxAeL2f8ligjjGppDomdjaCA+D5Bxnpq3oejmUwT9mX6g
-	 TVBOKfMXtcQMN1pTkTMBCK6u4nVbe8o4HwLhNO6yJkdHRv+3IIy23236A9E/KHEEDGQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795827961;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=+zYXZvQ1eBUWJYLHgFwY23XJjKp2fFexOpnjIFJZ5w4=;
-	b=YP8hitZ2QWZR0xDDhrmFhzn1ziaGdpzOnVIoiq5GqloXMKV4ygdSmNkul4a1/mXk0TOt
-	 2HsmBwLKmra6H96VdBN/wOZteM9fYGFUMmid0R+HkdW/gQwb/rt/BT/uW85KueZZ1IRft
-	 lyItz2I1MlBy0s2/YnKIiTlIRN5Qcx7GTG98YTT1NNH9ozQC79uHIy7UuTCofjuP3xuB7
-	 8HkgQy+5QR1ajlPxcRRq4rEFZHp8ipjzarUv047blkQNaFjz56QuFLYGYfjkgGOa3qh3u
-	 YtE1hgqEy0bBLiHB5ZrM8Kdo4oOoxcdlQwTpq2PgPCFLGW2xRsKjDo2qeKkACtaUi2w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QT6dYP+p;
-	arc=none smtp.remote-ip=95.215.58.134
-Received: from mta1.migadu.com (out-134.mta1.migadu.com [95.215.58.134])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795828009;
+	b=ZlElmw6zHxL8CEGpJyt4lpF0+0HtoxYFmpCJ1zZ8QGtdgFNbVUCPUyTdWnPr1ZLyY6Br
+	 dwd/MKmRD8+CYPr49byr6VfcTmn0/OKQoJtA8JeHGcPI9Uy6dy8hqnoJTwZcM9qhYTtRz
+	 syjGX8jtwmvqMKjn3mHYUhVioZ0vIEpv1PORJUO2sv9iVhGziBxZaGV2ClWe5hEMDef6N
+	 9ov6wLYum2WpOYGMvWu+ALWH8NFDbC/bGrfpjS0xR2oq162itIy56DTB7RmimHs+6+sfW
+	 HpYRFD8G0+rb/AdYsCh/MbA/lwDjN1xYo8oLbyOfA1ojSYZ3ZBpGYvqzkOX5JV/336g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795828009;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=aguOstNiNosKFJOAXsnYWl5uoiVa6iE06IgtXJTe9mM=;
+	b=NvY8IV3sT8k1VLJ8AmZi5UhM5I3qjLfYJP4EvoNV/m4PHEjQ3cclEodeSmD53TK/RFfC
+	 dYbM/kGHlSgdsFbvfXGkb32n+q0NZBFY6dPqTg87JdznbR/ThCGXiA+rrhwAGhtqNA0gf
+	 O5G7SuDKhx+T+/P120EyqX8wPppuHa/m/1K1SaiS6VUVBw6GRmnR9bYOjMO506rvttCYj
+	 ZUgkChS2SdIB0AtdRTrE+9hohUX7slifrCvqfuvkMpmHsLB2OOJc9Gnvx2nY2GImSZ09M
+	 4DWWcwkKxYfC2YjonUXjL63Op1F6LabbcFrEndgFVhhsiotgQ715TfipQReRc0COVqQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TwBJoXSP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F4A7606A31C;
+	Sat, 28 Nov 2026 01:06:48 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TwBJoXSP
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795828008;
+	b=f8H+e5SwiP/eYqn4INZZxKhO8+rzxGfrKQpWFr7iihQRWry6vTV+82CL7X74XUZFromn
+	 zgtzsyT4Pjkh5yUg/SkKtHs/sXPUjV0VGUq/gDlKtYUu8fvhX51XXMe4qGU2AqWZjd7Jt
+	 jpfX1WoGeQyOyN5L0dbZRJtcMN8DmKqga+oGQgV2da0retpsCCqc605wwfZ1E9YqohDeL
+	 lEghVan5YTAbqZjXtvOmwCfRhrBK2FKyKFImOJ1TDyMNhlXNvdHYWVdfb8gfI8U8RVaot
+	 f5FGmNAYgfeYr12J+cg94bYX0y9M5GIz++UAzs5rxHSSftE7yegB3BBoJyYlqtP3epw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795828008;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=aguOstNiNosKFJOAXsnYWl5uoiVa6iE06IgtXJTe9mM=;
+	b=S3LBMYzHoAYm88k7XCJ8AG4m0TDyQ15ymFClcV2L7I3aOV9KFxEJDnCYi782DKbaP8Wg
+	 gR+Mj7ZiENZz6VG86UEoxYmMa+LTffqzvYaBSvsYb4aGqp6OQ7yjBx9nfLf0LSiC2No08
+	 FnuDcwPiKBL/RHeiHECHaL3GV0c+p64Uz+vr0LFsYhcEf5deNDNP1nDuUPaVNH+psfTAp
+	 C4+q75/Jia/S7iu+GRzE2gZgBYtQJOm3WVfVt5neZpb2ZQvfE2GwxDxJXjwY0PaJIjU0h
+	 JFQHAIY/zTrIVQ40c/V0ssM8XYSDHwxv0+5s03FnlG/9InuDuVQTJRVoybbzZ/HYZNw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7084B606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:05:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7084B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QT6dYP+p
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GUdrcGjdVPSvmjiLeH+nZFppbSikw7wi3nqfE1/0FPc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795827957; v=1; x=1796432757;
- b=QT6dYP+p+krVa9xFOajhbpxZmKlUhHIgK429qX8zqL++Mt0TJuqAGwTa1xcrufr/YcrkAmK2
- 3fSSXguPKOJOmsHC8hNYGPQlKjO++XSxoe5Mane1DQZBrc9Kf52/rzZcd00PmrLUwLjp+M6EyPG
- JF4tm5Zylz7huEUxo3ksEiCs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1d0e79abe3b1ff23;
-	Sat, 28 Nov 2026 01:05:56 +0000
-X-Mizu-Trace-ID: 1d0e79abe3b1ff23
-X-Migadu-Flow: FLOW_OUT
-From: Ridong Chen <ridong.chen@linux.dev>
-To: Waiman Long <longman@redhat.com>,
-	Tejun Heo <tj@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Ridong Chen <ridong.chen@linux.dev>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ridong Chen <chenridong@xiaomi.com>
-Subject: [PATCH v2 cgroup/for-7.4-fixes] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under cpuset_mutex
-Date: Sat, 28 Nov 2026 09:05:35 +0800
-Message-Id: <20261128010535.1831141-1-ridong.chen@linux.dev>
-X-Mailer: git-send-email 2.34.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 56BCD1F000C1;
+	Sat, 28 Nov 2026 01:06:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795828008;
+	bh=aguOstNiNosKFJOAXsnYWl5uoiVa6iE06IgtXJTe9mM=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=TwBJoXSPZB4npE8z1hJ/eEqSP/fckt7RkTpEF0Av8fRAHqWkIjCDwGtEfZftwSbuE
+	 cRUL9AaeHaUQK9ZUg+OcHL4mIbt0AkIuHi1aVFOIOIMLWr/4gZC8XyxhQjTcWLgTjM
+	 Wz1qA7Av9FpH+2TxCEUmfCKCHlI5X/ohS+OlUp410ESr/dHnWm3tjzjkFsuujoAMlS
+	 ecpIx/BFYXxlXQmjIju5d+KxI92JSwVx6VruO0TkVrvD6PC2U1qvQTwYwFNoV5iGU3
+	 xhVdjR17BCW4EYV/u2thtmrcNzNMgg4Awm34meyxqdPGcZ9h4ZErJ6YGSNPaMDkfFe
+	 7hprf3hx+w24Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D96044DED5;
+	Sat, 28 Nov 2026 01:06:47 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Sat, 28 Nov 2026 03:06:46 +0200
+Subject: [PATCH] ASoC: rk817: Do not free the regmap of the parent PMIC
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,182 +82,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261128-rk817-keep-parent-regmap-v1-1-de515c2899ed@iav.lv>
+X-B4-Tracking: v=1; b=H4sIACUpCmsC/x3MQQqDMBBG4avIrB1oorXRq4iLaH/tIMYwKUUQ7
+ 27o8lu8d1KCChJ1xUmKnyTZQ4YpC5o+PixgeWeTfdjGGOtYV2devAKRo1eELyuWzUeunrV3YzO
+ 1s2sp51Exy/Ff98N13VMNwg9qAAAA
+To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Chris Morgan <macromorgan@hotmail.com>, Lee Jones <lee@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1879; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=VRMDAVdATty+o32CLZkZxbTwRbwASeEGt2T/3vL6z4Y=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDNlcmmq6V7Y55yq95pH6bOB2/VrVltPnfaJua2g0RRyyE
+ D6121Gho5SFQYyLQVZMkWXCIY1bGUuu/vX3MH8AM4eVCWQIAxenAEwkIp2R4dIPw4sGhl26lcrR
+ 32RUZiZcjEratrHA33P2tYfBf8Q4VjEyPPl6Us76z0XbCZVexY9jhAs/tPUek+ezWvE6qvmp05+
+ jDAA=
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Reply-To: iav@iav.lv
+Content-Transfer-Encoding: 7bit
 
-From: Ridong Chen <chenridong@xiaomi.com>
+From: Igor Velkov <iav@iav.lv>
 
-Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
-holding cpus_read_lock") calls housekeeping_update() after dropping
-cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
-switched and freed outside of those locks. But readers holding either
-lock may still access it without rcu_read_lock() as allowed by
-housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
-for them:
+The codec uses the regmap of its RK817/RK809 PMIC parent, which the
+PMIC core, RTC and regulator drivers use too. rk817_remove() calls
+snd_soc_component_exit_regmap(), so removing the component, on a card
+unbind or a failed bind, runs regmap_exit() on that shared regmap. The
+other users are left with a freed regmap, and devm runs regmap_exit()
+on it again when the PMIC goes away.
 
-  CPU A                                  CPU B
-  rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
-                                           mutex_unlock(&cpuset_mutex)
-                                           cpus_read_unlock()
-    mutex_lock(&cpuset_mutex)
-    p = housekeeping_cpumask(DOMAIN)
-                                           housekeeping_update()
-                                             rcu_assign_pointer()
-                                             synchronize_rcu()
-                                             kfree(old)
-    access p <- UAF
+Clear the pointer instead, as commit 6d66c5ccf5cb ("ASoC: mediatek:
+mt6359: Fix unexpected error in bind/unbind flow") does for mt6359.
 
-Fix it by moving the pointer switch into housekeeping_publish(), which
-is called before dropping the locks. Then CPU A either finishes before
-CPU B switches the pointer, or only sees the new cpumask:
+On an ODROID-M1 (RK3568, RK809) the PMIC regmap (3-0020) disappears
+from debugfs after unbinding the card, and a later hybrid sleep oopsed
+in regmap_update_bits_base() called from rk808_rtc_readtime(). With
+this change the regmap stays, the RTC reads and binding the card again
+works.
 
-  CPU A                                  CPU B
-                                         cpuset_update_sd_hk_unlock()
-                                           housekeeping_publish()
-                                             rcu_assign_pointer()
-    mutex_lock(&cpuset_mutex) <- wait
-                                           mutex_unlock(&cpuset_mutex)
-                                           cpus_read_unlock()
-    p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
-        <- new cpumask                       synchronize_rcu()
-                                             kfree(old)
-
-The rest of housekeeping_update(), including the workqueue flushes,
-still runs without those locks.
-
-Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without holding cpus_read_lock")
-Acked-by: Tejun Heo <tj@kernel.org>
-Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
-Acked-by: Waiman Long <longman@redhat.com>
-Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+Fixes: 0d6a04da9b25 ("ASoC: Add Rockchip rk817 audio CODEC support")
+Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
-v2:
-- Rebase onto cgroup/for-7.4-fixes; resolve context conflict with
-  housekeeping_set_cpu() from commit 884e88175b95. No functional change.
-- Add Acked-by from Tejun and Waiman, Reviewed-by from Frederic.
+mt6660 has a similar issue: mt6660_component_remove() calls
+snd_soc_component_exit_regmap() on a regmap created with
+devm_regmap_init(). Not tested, I have no such hardware.
+---
+ sound/soc/codecs/rk817_codec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v1: https://lore.kernel.org/all/20261117083915.2971979-1-ridong.chen@linux.dev/
-
- include/linux/sched/isolation.h |  6 ++++--
- kernel/cgroup/cpuset.c          | 12 ++++++++----
- kernel/sched/isolation.c        | 23 ++++++++++++++++-------
- 3 files changed, 28 insertions(+), 13 deletions(-)
-
-diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-index ae5109450ac9..cb7f07cf1c41 100644
---- a/include/linux/sched/isolation.h
-+++ b/include/linux/sched/isolation.h
-@@ -43,7 +43,8 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
- extern bool housekeeping_enabled(enum hk_type type);
- extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
- extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
--extern int housekeeping_update(struct cpumask *isol_mask);
-+extern struct cpumask *housekeeping_publish(struct cpumask *isol_mask);
-+extern void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old);
- extern void __init housekeeping_set_cpu(int cpu, enum hk_type type);
- extern void __init housekeeping_init(void);
+diff --git a/sound/soc/codecs/rk817_codec.c b/sound/soc/codecs/rk817_codec.c
+index 2c0fe1dfd842..c7804b2b559c 100644
+--- a/sound/soc/codecs/rk817_codec.c
++++ b/sound/soc/codecs/rk817_codec.c
+@@ -434,7 +434,7 @@ static int rk817_probe(struct snd_soc_component *component)
  
-@@ -72,7 +73,8 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
- 	return true;
- }
- 
--static inline int housekeeping_update(struct cpumask *isol_mask) { return 0; }
-+static inline struct cpumask *housekeeping_publish(struct cpumask *isol_mask) { return NULL; }
-+static inline void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old) { }
- static inline void housekeeping_set_cpu(int cpu, enum hk_type type) { }
- static inline void housekeeping_init(void) { }
- #endif /* CONFIG_CPU_ISOLATION */
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index db32d330cfbc..aa82080dd1fa 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -1472,17 +1472,21 @@ static void cpuset_update_sd_hk_unlock(void)
- 		rebuild_sched_domains_locked();
- 
- 	if (update_housekeeping) {
-+		struct cpumask *old;
-+
- 		update_housekeeping = false;
- 		cpumask_copy(isolated_hk_cpus, isolated_cpus);
- 
- 		/*
--		 * housekeeping_update() is now called without holding
--		 * cpus_read_lock and cpuset_mutex. Only cpuset_top_mutex
--		 * is still being held for mutual exclusion.
-+		 * Publish the new cpumask with cpus_read_lock and cpuset_mutex
-+		 * held, but call housekeeping_update() without them. Only
-+		 * cpuset_top_mutex is still being held for mutual exclusion.
- 		 */
-+		old = housekeeping_publish(isolated_hk_cpus);
- 		mutex_unlock(&cpuset_mutex);
- 		cpus_read_unlock();
--		WARN_ON_ONCE(housekeeping_update(isolated_hk_cpus));
-+		if (!WARN_ON_ONCE(IS_ERR(old)))
-+			housekeeping_update(isolated_hk_cpus, old);
- 		mutex_unlock(&cpuset_top_mutex);
- 	} else {
- 		cpuset_full_unlock();
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index c0c8b8862cbd..d6318f81c216 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -131,23 +131,26 @@ void __init housekeeping_set_cpu(int cpu, enum hk_type type)
- 		cpumask_set_cpu(cpu, housekeeping_cpumask_dereference(type));
- }
- 
--int housekeeping_update(struct cpumask *isol_mask)
-+/* Called with cpus_read_lock and cpuset_mutex held */
-+struct cpumask *housekeeping_publish(struct cpumask *isol_mask)
+ static void rk817_remove(struct snd_soc_component *component)
  {
- 	struct cpumask *trial, *old = NULL;
--	int err;
-+
-+	lockdep_assert_cpus_held();
-+	lockdep_assert_cpuset_lock_held();
- 
- 	trial = kmalloc(cpumask_size(), GFP_KERNEL);
- 	if (!trial)
--		return -ENOMEM;
-+		return ERR_PTR(-ENOMEM);
- 
- 	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), isol_mask);
- 	if (!cpumask_intersects(trial, cpu_online_mask)) {
- 		kfree(trial);
--		return -EINVAL;
-+		return ERR_PTR(-EINVAL);
- 	}
- 
- 	if (!housekeeping.flags)
--		static_branch_enable(&housekeeping_overridden);
-+		static_branch_enable_cpuslocked(&housekeeping_overridden);
- 
- 	if (housekeeping.flags & HK_FLAG_DOMAIN)
- 		old = housekeeping_cpumask_dereference(HK_TYPE_DOMAIN);
-@@ -155,6 +158,14 @@ int housekeeping_update(struct cpumask *isol_mask)
- 		WRITE_ONCE(housekeeping.flags, housekeeping.flags | HK_FLAG_DOMAIN);
- 	rcu_assign_pointer(housekeeping.cpumasks[HK_TYPE_DOMAIN], trial);
- 
-+	return old;
-+}
-+
-+/* Called without cpus_read_lock and cpuset_mutex held */
-+void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old)
-+{
-+	int err;
-+
- 	synchronize_rcu();
- 
- 	pci_probe_flush_workqueue();
-@@ -171,8 +182,6 @@ int housekeeping_update(struct cpumask *isol_mask)
- 	WARN_ON_ONCE(err < 0);
- 
- 	kfree(old);
--
--	return 0;
+-	snd_soc_component_exit_regmap(component);
++	component->regmap = NULL;
  }
  
- void __init housekeeping_init(void)
+ static const struct snd_soc_component_driver soc_codec_dev_rk817 = {
 
-base-commit: af8b797b745780ff011d38e3fe6aeae775248242
+---
+base-commit: a6c7e545d8abac8ad0b48da4c8b4ca5ef8ea8eda
+change-id: 20261128-rk817-keep-parent-regmap-354a8b6c9f89
+
+Best regards,
 -- 
-2.34.1
+Igor Velkov <iav@iav.lv>
+
 
