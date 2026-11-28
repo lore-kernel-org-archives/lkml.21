@@ -1,122 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795886548;
-	b=YKsNtLzntgdFToWeskmUboSm7b5HW/obux9IOlKSJwX1x5YJp3h5gNNK6OGzGU7I1ANm
-	 I1xp05wKGEd/OldazaN3REZ6ZHrVT834gwNoe+u51sN3teVk+p6nAXwkZXq2uPwjR5BC3
-	 0PCOc9l43Vm0V0lWReMDypmqfMVn0l1g+iRN8bJ3kUme9YW3X4nowhOot/js3NkM4B/tm
-	 RH74MndHFDSvM1B90ptUEiyIg9oJL9HDeKLTbf3HctOB0CW9/CUzkj7kqVEfz49Odqwbt
-	 Qu0yNfj+68+n7vzkhUEFA+FRejh1LXcr3Z7EEUk4psPeC5MzPeEUMv9LcPnN0eE7d/g==
+	t=1795886688;
+	b=hPtywL/8+dpDiq60IOAaXafo/83bU6ooNSZX1NV7LSX9JvReMmDbK63EVu91Dl0TshCx
+	 PfcnJXhq/5XMJvGsV/sGYd7/MGaQz3C2B+JJKfgi8bDqHyNSXCoNTnNOqVy4SBAU2IOFy
+	 PCRqIGvLt49oakuucg+P0UlvnzxjqGJWnWphozSyvF5MdR0GRzphESCRqu0Of+63J5Cn/
+	 A7MLkcEARTlpnLsk4/XAJSE0iHupzJeraFsyW2T6qDmIQHyuoG4G8vCKeNbS5AVq0j8hl
+	 5ZB+6CHNmPHGr5lDcEzrIKxADw390VgkQ0cyYtJlEdieS456nHnok3w0ZkZA8CP+egA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886548;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886688;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=DMbvLhVt9/6Byoyb38QB8bC7RSl2nRVkt3CkxY9/jJY=;
-	b=kFVdL3tFmwo4hMRcc2/vZ15/QK0cdH4xUfLvnAUrFdmLEEzAxAI16Z080uInu2qlqpO4
-	 ZiZWKHPFJfFXhf1i1v2yz/hAvOT8aSgS9OigJ207/NwSgSZ2b3HtXDZyLjMplPcfI+paf
-	 Tiig3UM2+FjSBZWBItdgtvnOpQTOllcumaVGo4P4VWJhALU8do1e5EmWUMXyAWwtZ5Igu
-	 Q4xRvCA4cJNA0NzTJxyz30YbW/ol0QYjvwIyOvWTTSC3U+squGagzyxsybX3RDZDZjV8C
-	 BqM77QUD4YyD5SjIV1UBDIId3H5/cyyyh4FkWc2CyRYXqURUjIvhn6xn/+B98QP2Zgw==
+	bh=HX4A1kc6FHjjFrdzAiCfdAsyLd3uHpOMRy2Hc/fuj2Y=;
+	b=gPOODgM5XbQJO5zYSHwzHrPEKuGr4pWLdq7HzLgnI9toqHdS7WDbYKehc4NOkUb1soa6
+	 Vu3T8bAlRFAfkkAki++K01L8xw6TntTdDVxx0mXohfW2xk+HPE0hgUbQ2Nwv9aYncQVXf
+	 u1NeNiIDDdFtIfijOAfyc9M1alP83KRp+IAG9uf4W5NUIBwUg54bHq5SZBBC/PvMDs2gq
+	 z/rQ1jGywQRmyJ+5QUu2WsASUH8OiIFN3VdLBvP8ZyfWZ2+Fcij3B/uOuBpF73OJFB64v
+	 kpNDlYvto3RHmaq8hbCFnz7bXR4526sXtELcjmpNBTdEe5lTQHA9SpqlC4amK/RdSmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=vlp8VNGE;
-	arc=none smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Np/yxwjq";
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 110C2606A6AE
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:22:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 110C2606A6AE
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D87B3606A323
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:24:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D87B3606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=vlp8VNGE
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so1505010866b.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:22:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Np/yxwjq
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so8196116f8f.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:24:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795886545; x=1796491345; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795886686; x=1796491486; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DMbvLhVt9/6Byoyb38QB8bC7RSl2nRVkt3CkxY9/jJY=;
-        b=vlp8VNGEYW0LUa1Yv6yQojOikW8OjKUDUaii/i9HxCvyGp8+h4Kgtlgm+qgIKSNIzZ
-         UfktPhE4ZYWWh4Qs8vxNJGJg6m2uqm52mIPVzSCeCoOaX0OqSnZ/QZ2aWOHTeVCWTbTf
-         xxTXlHjPc7Pre4aiN/qJhkJh+694gaiStDwfy3wIHa4DSjILGS0BK3WhTtmHiNF4k+3Q
-         fO5dBt2ekdfEWZ6DTTSSxyo4HfgeqzVGINXZNzDLZed/Pxr59zEYJe/emxw8baElNlAP
-         EdndSrs/aSUU5f8VUb1jn0XnrWMd4r+c8QRTFmBDx5Frx8lJaRDJs44fe4a7i2D1bDii
-         HDUA==
+        bh=HX4A1kc6FHjjFrdzAiCfdAsyLd3uHpOMRy2Hc/fuj2Y=;
+        b=Np/yxwjqpG9ZBUDzBM5BB55cyBfHMsm5X5fsgLHPR2wy/y0DO0M8lvx2ozawHYmzbq
+         e0Yh0nXix9mCPEttu3VrVkTayDF3OWUSF4qTBF43BAgFUa3rSoDfPfWotAF6wed3zjSF
+         KTOcCsDC0k8oKnUa08u8yJNYQYF1bGeXKCy68gQXcxcoqT5lxMAMRLdLRNQYGxLP3wQa
+         UOM5mDyniFAd+j1O15r5p3/yaj/Ta6Lznml2HZQ1gLvbJdj0hvzj8NmbBkbn65d2/YCE
+         DhFiHt+BtAyqNjskQFky/k0h7LPu5Gw6AWF5QiiUSxZDjVVvY9y7pofXnbj3HAUEMQYY
+         xt6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795886545; x=1796491345;
+        d=1e100.net; s=20260707; t=1795886686; x=1796491486;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DMbvLhVt9/6Byoyb38QB8bC7RSl2nRVkt3CkxY9/jJY=;
-        b=nPacOD1Sc9YVGDzuLbeRrJXwZZzsG+Nf4nSHFybS62+RfZrtogEI9K00jdlxXl1tIM
-         2JQRNLYk0uOh3xV+NKXqyrcUE8lp13b7QdiaK6ezPmE4rGLMpW6dRJMiqQ6UF5tk/uf0
-         IOFpVIlatZj3dJdW2+S9Cj9twIMgoKQkysVbEZmw1mFHTkUlsn56Det5cOrBCk/S+LNo
-         YHt+KcAib/0t1AJEeVr04ATvg+CDO+vquBEFWxGe+9ckvI1NWIveFNpG/HHH2FizCPIl
-         mfKNlsoiu6lPncIb6p+GhWBKipmCTcDvYV3ii2po8O8l85rGwEicXIDB4Q3GhJSBRS1o
-         TWlg==
-X-Forwarded-Encrypted: i=1; AL+hErFpIJy6lX/7Oyfcjw3yrmPiBOzOPVHRZsMXVr9ik2Wyjm6DxpzTo8zUVUlo5JGak26ATwTp6tumxEaJk2k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jcupf3AKfNk3brTKHryhiYj5uAWoye1h5NKYccR99syngzJug
-	wf5f8/b6NJlB54wYvd+RZXqDPdDP841MNyY4sdiUC74UCf/biPxlrKr3qNYkG4QONQ==
-X-Gm-Gg: AZFdTZc9G/+1woT1vgZcHYie4+XKf6ub0AiS4AsA9xEo8cXmAevw9RSZ1XrkHARbxdj
-	3lzunmJbQjITRXya6oqS3+cdGtbbd+buU0REaWpHkg3FdYI4TFTJwqnFeCUHVCVuIr9HMQd/qGW
-	MiMll9qdTmjFgpQCCfrT/IUNyZDKe3W8hLWSPXWeWFyfFNWogwcE3LYFQGhu++aRXxUnDlPvYmH
-	pLSsRoa464YLFzaEP+uJw6PO4OsPHvSGWhHbitr82HSSv7b+8lZTMRI0s8eIrgg8RFlMkDhHjWX
-	f6i8oU+klsCKoJTw9MjKqwFibbEsIvPG2mzbFR7hq8cQhsXZdYbzngGlzF06pVrtx6wrNjTmOnf
-	GW1myDHJB4yoC6MhZicKVk+fNw4x3/4Zjv/k2jyj6mohYwOj2aKkemtKljkpGlPxkVAy/R+Njly
-	CbzbzO+4F2Jp4AZQHj/MQcz1nP/UOWBuOqLwojhwmzaXCYasOfdJ1QPHOKiQrCZvROV0ZmLlMuC
-	jI036G/9BQpac2NGTaxlCERgp1YDwVES8wnywmyLqYXZJsU2u3RM7FdAB7cNNtzc43PeFA/u+G1
-	9EPjjBwxcHBaHmCTTt0i4qf6lJKC47H+XISlybiz4g0iTzWnxTm0T8Y1XBIFnzf7lCzBatPZm/Z
-	d4X8AC0nLHYygUupqLN9+alYhHmLwrZbwLgW26IqXM3AyVF9edzNo1MBQ/bz91EvFZIhKt+QS/L
-	mz0qvFPhdbC74YBITFjuUCsH+loI5q3/AgQaHdSU0dKmp5v5jmwWaXhxkY5SWgU4bR7e+sRC8Mc
-	DnYMoShUFH/Vq2HYevg6+l4hrJtsd+luCs5NE/plN6hTbvpBbr4nhTKXBbem0oi1qnjMiniS1hI
-	epDF7smGAP9Pog==
-X-Received: by 2002:a17:906:9c03:b0:c46:2987:2169 with SMTP id a640c23a62f3a-c513a84c864mr1823750566b.24.1795886545446;
-        Sat, 28 Nov 2026 09:22:25 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net ([185.152.145.248])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b00117dsm981388866b.80.2026.11.28.09.22.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 09:22:25 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: Jeff Johnson <jjohnson@kernel.org>
-Cc: linux-wireless@vger.kernel.org,
-	ath11k@lists.infradead.org,
-	ath12k@lists.infradead.org,
+        bh=HX4A1kc6FHjjFrdzAiCfdAsyLd3uHpOMRy2Hc/fuj2Y=;
+        b=gk4jMMlbt63CpgWvK+TUk01ocxFkmoZERq6gUfslWwR/pxnJ/9n/H9yCMfY99Qh9Kj
+         PC0tRzyLOeAbw+M8XMQDHex2Hu7D6iTvFGr9evxo6qrnEhr37q3XqZoVa91HNTVRzorG
+         14tHKAOnx7o1cTHaL0pi7REfTpHT2pBC82d09GlWFUXatUz30mgSO7Yo0cGiAJg8HDLT
+         LglWyBax5UG+xB77Wi6WzCPWOQ0USt8D0e2gKvrjBUbtR0DvTsneJ7sLuwuWhOtsRpn4
+         R6ngeXc3AOeiUQZSAv/8g1Rd83glFnnyahqk/nsZ7zXtB4rwEampPf1O7qYmunwQ5YM+
+         tbwA==
+X-Forwarded-Encrypted: i=1; AL+hErGyX4KW1h3ve3EpFROpw1AkIMo8dFJU/duOP08/9WUt3JJ0vu4+90rK7aW+J3lnpfn3tcSxkfnnv3m1NDk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+WDBWxHZHcXf5iVaZxDbzW8qeNB1blVGD0KNOKGPYhEFqnsUqq
+	aruRSeV8ZbaajRqeza9/1gA1WQLKKIf5Yfl6qZpN0okx6UDp3fPue8ZT
+X-Gm-Gg: AZFdTZckhqiYN3NyxbDxG8dRWD6tQl39x/IoR++rzvZWkvyA0Iy9IZbaV33rVQBzUEx
+	AHdfLseuboJwkCxzvzRnhTl3PZPlDPhvQBPbLHEy7lYORrQHr4fJtJgv3MfGungav2nzoPgmx8U
+	piwUkRRdAg5hncIyMDcd/uqTWtNpkWGiiRvbiN7XEGMwpeKhYy5Ki7pGjsI9IBIzuB2FtXsMetB
+	y8/xs/rpuSmTTQV4BY8tCivO18KTemnb/Ilhzas/jxpsVkyfLQzSJYs9yhF7HI52nFV2FU4UncY
+	2RYYpNVGdL6m237h/PItEAZnqtHOdV4xkb3XsA7obLtyARNQ2Pc13aYB0ZRE91qUlyKcgYHquXX
+	2Bi/hNrzyMzMuXopBj4AkqdNi5f8XUKevrN2x2rwlJdF3OZXw8jVEPdXNiwfZM6p02nuSgA0jLt
+	5tope6sYxYG5YFIxJpz0Ue8ahBufosULhK7Zrjkm4YGjo9VZl3dii6ZOuVQGfrERS7X4ooJg0kD
+	Eck0T0zhURWbfY6apf/Xcf41AhXU1j1/nip/xdeG5gcre7RHrOljqsREIRYEv3pcDglo1UCXsy0
+	vC2Gt6K6eo31ldVJjJa7lfZSBFbPpbpIy5ROXeG5GraRSedmkfFxCq6jElETo96bY45DQ7ZWkhY
+	K8G5yRvkIRRyXvOUdVdvwQn99K2Zg00V04BGHtDS9c2jjAy3zuCgeaVIYzYw73bsxIULrcBAslp
+	sWhfX8eW822p3LynDhPavfisz8AsSSI8vWJ6pn3A==
+X-Received: by 2002:a05:6000:4381:b0:4a7:e4c7:2795 with SMTP id ffacd0b85a97d-4bb965c79f4mr21652449f8f.36.1795886685984;
+        Sat, 28 Nov 2026 09:24:45 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-a9a0-e301-d19e-76f1-f69d-bf77.310.pool.telefonica.de. [2a02:3100:a9a0:e301:d19e:76f1:f69d:bf77])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm54779276f8f.44.2026.11.28.09.24.44
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 28 Nov 2026 09:24:45 -0800 (PST)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	linux-kernel@vger.kernel.org,
-	Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-	Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>,
-	Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
-	Karthikeyan Periyasamy <karthikeyan.periyasamy@oss.qualcomm.com>,
-	Aaradhana Sahu <aaradhana.sahu@oss.qualcomm.com>,
-	P Praneesh <praneesh.p@oss.qualcomm.com>,
-	Sriram R <sriram.ramachandran@oss.qualcomm.com>,
-	Tamizh Chelvam Raja <tamizh.raja@oss.qualcomm.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	John Crispin <john@phrozen.org>,
-	Manikanta Pubbisetty <quic_mpubbise@quicinc.com>,
-	Pradeep Kumar Chitrapu <quic_pradeepc@quicinc.com>,
-	Venkateswara Naralasetty <quic_vnaralas@quicinc.com>,
-	Muna Sinada <quic_msinada@quicinc.com>,
-	Sowmiya Sree Elavalagan <quic_ssreeela@quicinc.com>,
-	Bhagavathi Perumal S <quic_bperumal@quicinc.com>,
-	Wen Gong <quic_wgong@quicinc.com>,
-	Balamurugan Selvarajan <quic_bselvara@quicinc.com>,
-	Jouni Malinen <quic_jouni@quicinc.com>,
-	Ramya Gnanasekar <quic_rgnanase@quicinc.com>,
-	Carl Huang <quic_cjhuang@quicinc.com>,
-	Maharaja Kennadyrajan <quic_mkenna@quicinc.com>,
-	Govindaraj Saminathan <quic_gsamin@quicinc.com>
-Subject: [PATCH ath-next v2 6/6] wifi: ath12k: clear RX_FLAG_8023 of the receive status for each MSDU
-Date: Sat, 28 Nov 2026 18:22:20 +0100
-Message-ID: <20261128172220.922376-7-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261128172220.922376-1-julius@bairaktaris.de>
-References: <20261128172220.922376-1-julius@bairaktaris.de>
+	syzbot <syzbot+6835d5c11145e4f77057@syzkaller.appspotmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Ingo Molnar <mingo@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>
+Subject: Re: [PATCH v3] sched: Reset cpumask if __migrate_task() failed for migration_cpu_stop()
+Date: Sat, 28 Nov 2026 18:24:30 +0100
+Message-Id: <20261128172430.69629-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20261126104049.GC49833@noisy.programming.kicks-ass.net>
+References: <20261120171658.Cf9qIU-Y@linutronix.de> <20261125172018.GD2668564@noisy.programming.kicks-ass.net> <20261125193735.qrxCdHTx@linutronix.de> <20261126104049.GC49833@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,51 +114,51 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Since commit c4aa897fe234 ("wifi: ath12k: Handle DP_RX_DECAP_TYPE_8023
-type in Rx path"), ath12k_dp_rx_h_undecap() sets RX_FLAG_8023 in the
-receive status that ath12k_wifi7_dp_rx_process_received_packets()
-keeps for all MSDUs of a REO reap. Before, ath12k_dp_rx_deliver_msdu()
-set it in the copy it hands to mac80211. Nothing clears it, so every
-MSDU after the first one delivered as 802.3 reaches mac80211 with
-RX_FLAG_8023, including those that carry an 802.11 header:
-ath12k_dp_rx_h_undecap() rebuilds one for EAPOL frames, for decrypted
-group-addressed frames and for frames from a 3-address peer with both
-DS bits set, and native Wi-Fi decap delivers one.
+On Thu, 26 Nov 2026 11:40:49 +0100, Peter Zijlstra wrote:
+>  		if (task_on_rq_queued(p)) {
+> +			int cpu = arg->dest_cpu;
+> +
+>  			update_rq_clock(rq);
+> -			rq = __migrate_task(rq, &rf, p, arg->dest_cpu);
+> +			if (!is_cpu_allowed(p, cpu))
+> +				cpu = select_fallback_rq(rq->cpu, p);
+> +
+> +			rq = move_queued_task(rq, &rf, p, cpu);
 
-mac80211 hands such a frame to __ieee80211_rx_handle_8023(), which
-drops it when the station has no fast-RX state, as before its 4-way
-handshake completes, and otherwise handles it as an Ethernet frame
-whose addresses and EtherType are bytes of the 802.11 header. An EAPOL
-frame that follows a data frame of any station in the same reap is lost
-this way, and so is a decrypted group-addressed frame.
+This deadlocks. 
 
-Clear RX_FLAG_8023 with the other per-MPDU flags in
-ath12k_wifi7_dp_rx_h_mpdu(), before ath12k_dp_rx_h_undecap() sets it.
+select_fallback_rq() can end up in set_cpus_allowed_force(), which takes
+rq->lock again. 
 
-Found by an LLM review (Claude) of the code.
+That's similar issue as af13e5e437dc ("sched: Fix the do_set_cpus_allowed()
+locking fix").
 
-Fixes: c4aa897fe234 ("wifi: ath12k: Handle DP_RX_DECAP_TYPE_8023 type in Rx path")
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
-v2: discovery line reworded.
+With your diff on tip/sched/core, IRQ/user affinity changes racing with CPU
+hotplug hang on both RT and !RT (arm64 KVM):
 
- drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+  WARNING: possible recursive locking detected
+  migration/0/21 is trying to acquire lock:
+  ffff00003fd7e620 (&rq->__lock){-...}-{2:2}, at: ___task_rq_lock+0x68/0x140
+  but task is already holding lock:
+  ffff00003fd7e620 (&rq->__lock){-...}-{2:2}, at: migration_cpu_stop+0xac/0x370
+   ___task_rq_lock+0x68/0x140
+   set_cpus_allowed_force+0x54/0x100
+   select_fallback_rq+0xf4/0x180
+   migration_cpu_stop+0x35c/0x370
 
-diff --git a/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c b/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c
-index e37353445749..b74ffcd94a87 100644
---- a/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c
-+++ b/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c
-@@ -417,7 +417,8 @@ static int ath12k_wifi7_dp_rx_h_mpdu(struct ath12k_pdev_dp *dp_pdev,
- 			     RX_FLAG_MMIC_STRIPPED |
- 			     RX_FLAG_MIC_STRIPPED |
- 			     RX_FLAG_ICV_STRIPPED |
--			     RX_FLAG_PN_VALIDATED);
-+			     RX_FLAG_PN_VALIDATED |
-+			     RX_FLAG_8023);
- 
- 	if (err_bitmap & HAL_RX_MPDU_ERR_FCS)
- 		rx_status->flag |= RX_FLAG_FAILED_FCS_CRC;
--- 
-2.53.0
+Dropping rq->lock around select_fallback_rq() and rechecking
+task_rq(p) == rq and task_on_rq_queued(p) before updating the clock
+gets the test through on both RT and !RT. 
 
+>  		if (task_rq(p) == rq && task_on_rq_queued(p))
+> -			rq = __migrate_task(rq, &rf, p, cpu);
+> +			rq = move_queued_task(rq, &rf, p, cpu);
+[...]
+> -			struct rq *dest_rq = __migrate_task(rq, &rf, p, cpu);
+> +			struct rq *dest_rq = move_queued_task(rq, &rf, p, cpu);
+
+Don't you still need the is_cpu_allowed() check here? Both push stoppers
+do select_fallback_rq() before taking rq->lock.
+
+Thanks,
+Karl
