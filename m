@@ -1,95 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795829095;
-	b=JyUVKpWurClUo2OAuBIB7AHGFKsxVKLkdjHAU8fWwxWRNwrH1T5EnDfI7yi8z3ZuUVRE
-	 m3fUd4goyr5flK4ec6AOwMwNx6ciszVZeve5IGzJ44cP+z6JUQlgMg4EE4cBWT6eytNRX
-	 +lyqHcqbxBnMUG01OIkmHmzBZ7yX4IenYKnLk393IBpguZICVAYgtJ9x2X2uQ1l5JyMXn
-	 Qwp1yfv2Nc/sr4qVBz6LS7ZcGQbzVljXXkZqtjGr8lcZ/thE5KKyt9hLHNGaF3U6WMqzM
-	 um1CqPQxd+ux2LWgTKt+Y0fwYUpcXGWfWn0IeyUhb+f/yziRUrAw479mE+vEICBYowQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795829095;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=OWNGxbponyKfeyRlTE7MEjwwreM5am00CUo8E20vsbk=;
-	b=3ZKOaV9fR0A+VTnAqsYH97qv65/y5xck0Etb7AYY6I/WQH0LbtVtK7KH52Q6r6E5pN9h
-	 ZUs/0Z2h48zCXG1q68tvR8XtHzBzrFfQzLQVAN/KwRHOWhyWI/9F/aaVkoNGixmEo1x+9
-	 CV+nYdk5Oanuy7wcmjrLGxN/pQXHK5eJNFv+M8thOUNFxNdoMFEHQgjCf0BDoDToFwSAO
-	 Wrc17A3fHwMOMfyAGQ710I2Lr9z/SDza8QFSkO/juv7+7nYsOrikVGLs/hOhn4rHlp20Q
-	 9/bX4ISZGDzmclqGoboGfOCY4RCwxHtsRC5hHGi9JPVGMQU2WNe3pNyyimzafc83XZg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ksQFYsod;
-	arc=none smtp.remote-ip=74.125.224.49
-Received: from mail-yx1-f49.google.com (mail-yx1-f49.google.com [74.125.224.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795829190;
+	b=qhEI44TMnEwu4EB8ZoLBJxiRSQBVNVNfP6uhNiltW92XYSEgsVtEAwnj4bWBvbQP6mgM
+	 VYLCqI7bhbnBp0H3vPmlAn9lxNL3OAX+KuqWujrFXUncgyRovhZu3ez+MAbj+UzB964lH
+	 kF/+1h5b2yjoEo7v9R798DMjah1pPD+nvpVX+LIdf435/O+VetDxuOI99UJ7t/iFBH+nh
+	 q1wiwnjto9yS2CCLEEZW/s42/V95s1S1zE1fdsVuhErkkde5CLJTtMvic1ivJPLlppVQp
+	 2CGTVEc5im8qKFmOiwSgyvwBBjrRe3EwMMaSBRoYf3YsmRw1MgVjHK1ld2aLulI2ZGA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795829190;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=OmT7hzdOIctTRNXQ+a0RQQtL3fnzQMZ5/L5lNB+m98I=;
+	b=jD/6/pXmrgEkbuk562zHnnB6Feg4fJpYKYyezeytDJuErPNp76CLUI4sJM8AieadQaj1
+	 o8GQiio446ZJ/GOKD7cVQ2kIhsHIoeGWm6yHFcDhaNCAmPFWaDPx6hiE7lM+C3nHP5Cw9
+	 Nzyctqe1IxSUV1ihOVBjWfS7dR9Ax2mARjVbkdlpbKdR98d9FvYKtthdwaXi4uE/UjXpe
+	 GW8IpJV9JX+s4iKlclUr+w3sItFgv8YvM2sGghg4WXiw4gL4rIM+qmRInJPwnbLY9KYZO
+	 NABR49Dk6K5HoFp8E6f2Poddh6l81iagpQtBPyX/MK5RA2fWgezToc7cCU6qSBZN/+Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ch9xj6Oy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA8D606A31E;
+	Sat, 28 Nov 2026 01:26:30 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ch9xj6Oy
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795829189;
+	b=DT+8OUJhfYj6Z01RbQ5pcR5o70gCc2ejCiw4/c9gytU75k3GRCxu5nS2Bo67x1G3OWbZ
+	 O6a+aeWwfDXdIVcY5rNGlOkcxVTXmNs92ao9Sg0FTPwUxINOZcI1fLZ78UYBSsESuzoq8
+	 yfoKgIuiQ34p0dPaBa4XwGQ/s4I1ku+cl9lnd9+6y51uMThAFnsb5mJjXHI7HKVpFmclS
+	 5TzSJVTegYQQMh+rWxO9iD5Gb7260scJBH2ZGxUrvHLFw9djgm562NFDDaIUw14k5RE16
+	 8K/o/sPJq75omYZuIai0nwnJTQkaUPOalES+MAtYPxAuQhaloRuYZHKkKnaM0vq6H1w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795829189;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=OmT7hzdOIctTRNXQ+a0RQQtL3fnzQMZ5/L5lNB+m98I=;
+	b=Sp4nQeW3Co0ntzSBqlKQR1I1TRY2GY1Bi90v5rkAxHbyy27F9QBTSc6sZc3BOnSUn13w
+	 +znuW6+OwcgNRtUcDf4iA7OhjQf01aCLiHyduKQ5zsOt3spT9WTjc92ucRiTRtvX4hKcZ
+	 gk0u30xMpozQLyrGOBFIFGgXxIoBD1ztH9FOjJZnpAkyWBEM6pPSm/jOYVCL/HZnBORWT
+	 2IbkIGtTtxybrKNaFg5pHlgQP3WZNtGgtDU8BEW9UrHW9+ZiyljwNh3+0LHw+gx478tmo
+	 KM1FrJT1veBiZ8w0sq1z2dS9zbzVsfHFhPGf8XE18VA5cxtgyBSquJPZXdZ0kQDxXxw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0EAE606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:24:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0EAE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ksQFYsod
-Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-67c58f18765so6634613d50.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:24:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795829094; x=1796433894; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OWNGxbponyKfeyRlTE7MEjwwreM5am00CUo8E20vsbk=;
-        b=ksQFYsodPDGdp7EnIkIthOcdhW3Ho6POpCgmWo06HcHx7CM2uDECQE6JLgFOtFX+uS
-         wwiNCleRKgX/0hRnp0SzYPzS0vEq7xewx5ThO3Nd4c+jc927eTCYOYV9i87wQ3s7QX9g
-         gM4oteXd7fQNqEZ4XqviJ7RFBjejJgM9Z85Rs6YeLXmlaquJawaGoZNglCJzagobxWXL
-         PNh6IzvM0AaX47sndHCfGkEGT06zcmJIk1HumtzWpSVgwl4qDlcHJpPcTfVgSiawlJCK
-         8nQ3kPQdEIAr4/VK0Y/pvLGwi/31bJjkTNaNezz3wQfoUfik/dcCkg50LN670OhAON0l
-         Ld3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795829094; x=1796433894;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OWNGxbponyKfeyRlTE7MEjwwreM5am00CUo8E20vsbk=;
-        b=CoTvPOIuhNOtOmlfGUfZ1ebWGTcWOBvft95Tgw62evhPROXVahiwNNXmkB9RZFmuaE
-         VT98VbLftwOtXm/maLHWcaT2OVwLV0KcxvF1SuwBaForG2vnOFlEB/kyYUG4EDa0ZsJC
-         X+cda8hKA2y/TXVvDZKTwVF0Zph4M5eLvg6mnD8YnT3sxWR1mDuYlre3YMssMp8/ypsu
-         KC5JqU7ydquaPef0vOQCzRyOmzg33jegCMs7f/totL68sjtoRchwnKgKc+1ty6zTDLVe
-         AkVjdy0hIIrt54BbaK53SSm0M0V1JlCVEHvRg5zCq/hyQXVuyrq0DUvLfjlC1lOn0e1Q
-         Wj5Q==
-X-Forwarded-Encrypted: i=1; AL+hErEuIFuAR1ig6TLwqyEsUJzNB7PZ0yeLCdoJ9hVqAVobexi8Y+O2D6uQxq6/FaTVlmjN73hcxicTW6Da/QY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/NvkeKa+A1retou6D6hv6loK6K2L3KKkmHBVAZv30056KiG3ay
-	qQGvHPU/onZYzL26vFuj4UD9XVsL96g0d88JDjAGpTQZldhKK9VuzsTycE7281DYFT4=
-X-Gm-Gg: AZFdTZcM6dWCoUuqUrGs9i6yl2TU1OB4QpTIauiFw60l+4UpKMEB4ZGuNCyY2eA9F5E
-	jbqpORTblsqVHGpdkhYoXRJwnFktVW8r3Jpj+QVLSkm7vZpx3yH1Th+mfe/4LVkAO9rSc5OOilv
-	fZV9MsOO85UfV5DpGIZIdCYx8/ot0XJtLjyRB1ZOTqDuQudnm4G9ZWBi7D6cH4desDKBKz0jUFk
-	5sebRjr/TG3Kq2nvLK+aQU4JFoCK5/mU3FpV5pMUcf9CsFHUHd27zZ5awZpSAaTLhS+RIbE2XqV
-	MssWS+2uJSKYxq8yk33SrWMsIQQj/NOKBZ0oEsmmPCB8kHL7yWAC89TseRLEgK4EkNo8OfkywRL
-	MUpGceLce8+PyGmcb8QGd7xMdUAJJlD44Hik9cSg4qCxaXnzZwDrNRBtoS32pxdis/FWpAekQim
-	/bJjETrmW/O4ZTjOYEwCfn0knBlw34lub+V1uoBW/jN8KU3vPf+DOXsq2ugSla6mDOlNmBAYdR+
-	TnqNY26t97BXEfsRmqFZ3SQyrxiPaggB8Mufw5ikejesap9lzIGZbrgQE77W+3UH/SxCDlVXNhD
-	L7Dpo0k9DHXmHd2MZZVEux9IBPd6G/WsQwEIN7E=
-X-Received: by 2002:a05:690e:4504:10b0:67d:c165:7f0c with SMTP id 956f58d0204a3-67df44555e5mr6440765d50.54.1795829093954;
-        Fri, 27 Nov 2026 17:24:53 -0800 (PST)
-Received: from WillzDenali.tail339aa4.ts.net ([2600:1702:7a80:3c5e::c81])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33105fesm11921499d50.7.2026.11.27.17.24.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 17:24:53 -0800 (PST)
-From: turbinebmw <turbine.bmw@gmail.com>
-To: Sebastian Reichel <sre@kernel.org>,
-	linux-pm@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Brandon Williams <turbine.bmw@gmail.com>,
-	Val Packett <val@packett.cool>,
-	Fenglin Wu <fenglin.wu@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: [PATCH] power: supply: qcom_battmgr: treat a start threshold of 0 as none
-Date: Fri, 27 Nov 2026 20:24:49 -0500
-Message-ID: <20261128012449.323479-1-turbine.bmw@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 460B31F00893;
+	Sat, 28 Nov 2026 01:26:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795829189;
+	bh=OmT7hzdOIctTRNXQ+a0RQQtL3fnzQMZ5/L5lNB+m98I=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=ch9xj6Oyf4WIZwBDfrS51ok4cfItzGCw1+wiNUgU4xXg6Z+/EWJtI+8YWFLevNUf/
+	 sekF2EyE5JM3n5mZOEGBYqBhGZwbNYg+ynCK0tD+3gRTKsfsK5GxxeSm20SACIly9S
+	 0VjqclJr4kbkmzS7RvXl4vhB1hitm0/AgCNmz63njgM+y+O1595URHm6xGwTmQSFqa
+	 MvMA/KZMC6P//5sPYuvyDndyNTekak1ayarSpKbXjlsUd3CDFE5EBr5ihso2JUYVFY
+	 eU74ySBJKB1JHEbaR3vKnqFdeF10MAJmKRIn47Eo0V58G/rEPGp3O5xg5ODZbfZxn4
+	 uXgsBZAY6EH7w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C7E7D4DEEF;
+	Sat, 28 Nov 2026 01:26:28 +0000 (UTC)
+From: Binoy Ravindran via B4 Relay <devnull+binoy.vt.edu@kernel.org>
+Date: Fri, 27 Nov 2026 20:26:09 -0500
+Subject: [PATCH] objtool/klp: Copy constant pool entries for local labels
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,109 +82,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-objtool-klp-cst-v1-1-dc19b08c8676@vt.edu>
+X-B4-Tracking: v=1; b=H4sIALAtCmsC/yXMTQqDMBBA4avIrB1I4h/tVcRFTMc6KkYysRTEu
+ zfW5bd47wChwCTwzA4I9GFhvyboPAM32vVNyK9kMMrUWpsGfT9F7xeclw2dRKwKa0pVNoOiB6R
+ qCzTw939su9uy9xO5eG3gPH8AF2gMcwAAAA==
+X-Change-ID: 20261127-objtool-klp-cst-53a24047f0e9
+To: Josh Poimboeuf <jpoimboe@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Song Liu <song@kernel.org>
+Cc: linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+ Binoy Ravindran <binoy@vt.edu>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795829188; l=3839;
+ i=binoy@vt.edu; s=20261123; h=from:subject:message-id;
+ bh=g6HRbPb1IGu2InqS4C2jJUK6JDCQL7R1Kycv7BvVqMg=;
+ b=S7QM5+ShXq94f+j5vazW2vbjBTc+Tw02491KJe6OG0xJF2Uqqmu9qme/pREbm6wCkIYrEwMvH
+ TM70xkRCUVFCaFFT39mWLC/CaAcbxAnoZZHflRaWUrLE/TcKRNLDWdy
+X-Developer-Key: i=binoy@vt.edu; a=ed25519;
+ pk=4cNdKPHP0InmhK/9bb7Tm2ZMUXUvLGfw1pmVt5b98fA=
+X-Endpoint-Received: by B4 Relay for binoy@vt.edu/20261123 with
+ auth_id=1622
+X-Original-From: Binoy Ravindran <binoy@vt.edu>
+Reply-To: binoy@vt.edu
+Content-Transfer-Encoding: 7bit
 
-From: Brandon Williams <turbine.bmw@gmail.com>
+From: Binoy Ravindran <binoy@vt.edu>
 
-UPower turns a charge limit off by writing 0 to
-charge_control_start_threshold and 100 to charge_control_end_threshold.
-Since commit 8809980fdc8a ("power: supply: qcom_battmgr: clamp charge
-control thresholds") the driver raises the 0 to
-CHARGE_CTRL_START_THR_MIN, so the firmware is told to charge to 100%
-but resume only below 50%. A battery that the limit had stopped at its
-end threshold, say 80%, then stays at "Not charging" until it drains
-below 50%, and turning the limit off appears to do nothing.
+The compiler refers to a constant in a .rodata.cst* pool through a local
+label such as .LC32. The label has no size. Since commit 51e1dfce24c8
+("objtool/klp: Don't correlate .rodata.cst* constant pool objects"),
+klp-diff clones such a label together with its data. But
+__clone_symbol() copies data only for a symbol with a nonzero length or
+for a section symbol. For a .LC label it copies nothing and places the
+label at the current end of the output section.
 
-Disabling charge control through the request's enable bit was tried
-and reverted, as the firmware did not behave as expected with it.
-Instead, take a start threshold of 0 to mean that there is none: keep
-the end threshold and use the smallest step, CHARGE_CTRL_DELTA_SOC, so
-that charging resumes as soon as the level drops below it. The start
-sent to the firmware stays within [50, 95], as the end threshold is at
-least 55. The start is remembered as 0, so a following end threshold
-write keeps the small step, whichever order userspace writes them in.
+The patched function then reads whatever ends up at that place when the
+module is linked. Building livepatches with klp-build for recent fixes
+on v7.4-rc2 (x86-64, GCC 12), three of 54 modules read the wrong 2-byte
+constant:
 
-Tested on a Microsoft Surface Pro 11 (X1E80100) with UPower 1.91.5: with
-the battery held at 80% on a 75-80 window, turning the limit off set
-95-100 and the battery charged at once; turning it back on restored
-75-80.
+  fib_table_insert()          .LC32  expected 0x0000, reads 0x6e00
+  ieee80211_rx_mgmt_beacon()  .LC68  expected 0x0000, reads 0x6e00
+  cfg80211_inform_bss_data()  .LC9   expected 0x1000, reads 0x0000
 
-Link: https://gitlab.freedesktop.org/upower/upower/-/issues/327
-Fixes: 8809980fdc8a ("power: supply: qcom_battmgr: clamp charge control thresholds")
-Cc: Val Packett <val@packett.cool>
-Cc: Fenglin Wu <fenglin.wu@oss.qualcomm.com>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In each case the bytes come from the end of an unrelated string in the
+module's .rodata. The modules load and patch without any warning. We
+confirmed this in a running kernel: with the first module loaded, the
+patched fib_table_insert() loads 0x6e00.
+
+A label in a SHF_MERGE constant pool names one entry of sh_entsize
+bytes. Copy that entry when the label has no size. With this change, all
+three modules hold the compiler's constants.
+
+Fixes: 51e1dfce24c8 ("objtool/klp: Don't correlate .rodata.cst* constant pool objects")
 Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Brandon Williams <turbine.bmw@gmail.com>
+Signed-off-by: Binoy Ravindran <binoy@vt.edu>
 ---
-Based on sre/linux-power-supply for-next. Hardware-tested as a backport
-to 7.3.6 (the same logic laid out with a goto, on top of a local change
-that returns the request status like ffce9bb777f2); a userspace harness
-running both versions' setters over 120000 random threshold writes gave
-identical firmware requests and sysfs values. Compile-tested with W=1.
+A small problem in __clone_symbol(): a .LC label in a .rodata.cst*
+pool has no size, so its constant is never copied into the livepatch
+module, and the patched function reads whatever bytes follow. Details
+and the three affected modules are in the patch.
 
-This keeps the 50% floor Fenglin explained in the thread on Val's series
-and does not use the enable bit, whose removal is 8e8856396b54.
+Tested on v7.4-rc2 (x86-64, GCC 12): with the fix, the three modules
+hold the compiler's constants, and three unaffected modules are
+unchanged. The patch applies to tip objtool/core and to mainline.
+---
+ tools/objtool/klp-diff.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
- drivers/power/supply/qcom_battmgr.c | 43 +++++++++++++++++++----------
- 1 file changed, 29 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/power/supply/qcom_battmgr.c b/drivers/power/supply/qcom_battmgr.c
-index 0789303..45bd1ff 100644
---- a/drivers/power/supply/qcom_battmgr.c
-+++ b/drivers/power/supply/qcom_battmgr.c
-@@ -762,21 +762,36 @@ static int qcom_battmgr_set_charge_start_threshold(struct qcom_battmgr *battmgr,
- 	u32 target_soc, delta_soc;
- 	int ret;
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index 95d0d86666d7..f8a638b29a26 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -923,6 +923,7 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
  
--	start_soc = clamp(start_soc, CHARGE_CTRL_START_THR_MIN, CHARGE_CTRL_START_THR_MAX);
--
--	/*
--	 * If the new start threshold is larger than the old end threshold,
--	 * move the end threshold one step (DELTA_SOC) after the new start
--	 * threshold.
--	 */
--	if (start_soc > battmgr->info.charge_ctrl_end) {
--		target_soc = start_soc + CHARGE_CTRL_DELTA_SOC;
--		target_soc = min_t(u32, target_soc, CHARGE_CTRL_END_THR_MAX);
--		delta_soc = target_soc - start_soc;
--		delta_soc = min_t(u32, delta_soc, CHARGE_CTRL_DELTA_SOC);
-+	if (start_soc <= 0) {
+ 	if (data_too && !is_undef_sym(patched_sym)) {
+ 		struct section *patched_sec = patched_sym->sec;
++		size_t len = patched_sym->len;
+ 
+ 		out_sec = find_section_by_name(elf, patched_sec->name);
+ 		if (!out_sec) {
+@@ -946,7 +947,17 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
+ 		if (!is_sec_sym(patched_sym))
+ 			offset = ALIGN(sec_size(out_sec), out_sec->sh.sh_addralign);
+ 
+-		if (patched_sym->len || is_sec_sym(patched_sym)) {
 +		/*
-+		 * A start threshold of 0 means there is none: charging resumes
-+		 * as soon as the level drops below the end threshold. Userspace
-+		 * writes it, with an end threshold of 100, to turn the limit
-+		 * off. Use the smallest step below the end threshold, which
-+		 * keeps the start within the firmware's range, and remember 0
-+		 * so that a following end threshold write keeps that step.
++		 * A local label in a constant pool (.rodata.cst*) has no size,
++		 * but it names one entry of sh_entsize bytes.  Copy that entry,
++		 * or the label ends up pointing at whatever data follows it.
 +		 */
-+		start_soc = 0;
-+		target_soc = battmgr->info.charge_ctrl_end ?: CHARGE_CTRL_END_THR_MAX;
-+		delta_soc = CHARGE_CTRL_DELTA_SOC;
- 	} else {
--		target_soc =  battmgr->info.charge_ctrl_end;
--		delta_soc = battmgr->info.charge_ctrl_end - start_soc;
-+		start_soc = clamp(start_soc, CHARGE_CTRL_START_THR_MIN,
-+				  CHARGE_CTRL_START_THR_MAX);
++		if (!len && !is_sec_sym(patched_sym) &&
++		    (patched_sec->sh.sh_flags & SHF_MERGE) &&
++		    !is_string_sec(patched_sec) && patched_sec->sh.sh_entsize)
++			len = patched_sec->sh.sh_entsize;
 +
-+		/*
-+		 * If the new start threshold is larger than the old end
-+		 * threshold, move the end threshold one step (DELTA_SOC)
-+		 * after the new start threshold.
-+		 */
-+		if (start_soc > battmgr->info.charge_ctrl_end) {
-+			target_soc = start_soc + CHARGE_CTRL_DELTA_SOC;
-+			target_soc = min_t(u32, target_soc, CHARGE_CTRL_END_THR_MAX);
-+			delta_soc = target_soc - start_soc;
-+			delta_soc = min_t(u32, delta_soc, CHARGE_CTRL_DELTA_SOC);
-+		} else {
-+			target_soc =  battmgr->info.charge_ctrl_end;
-+			delta_soc = battmgr->info.charge_ctrl_end - start_soc;
-+		}
- 	}
++		if (len || is_sec_sym(patched_sym)) {
+ 			void *data = NULL;
+ 			size_t size;
  
- 	mutex_lock(&battmgr->lock);
-base-commit: 4f9bf356cbfb8aa6e73b1d05e182445723a4bb49
--- 
-2.56.1
+@@ -957,7 +968,7 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
+ 			if (is_sec_sym(patched_sym))
+ 				size = sec_size(patched_sym->sec);
+ 			else
+-				size = patched_sym->len;
++				size = len;
+ 
+ 			if (!elf_add_data(elf, out_sec, data, size))
+ 				return NULL;
+
+---
+base-commit: b99a5337da3c847db216476d645b69acd714c3ba
+change-id: 20261127-objtool-klp-cst-53a24047f0e9
+
+Best regards,
+--  
+Binoy Ravindran <binoy@vt.edu>
+
 
