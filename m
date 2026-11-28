@@ -1,55 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795828648;
-	b=DOilVW+WQO8eMOPNfwFNqkkW6bp06Tk8WVUa3iQrm5JuYElAjsBnbBSBkmtBvf5mSjhd
-	 noPpahNHITgQm6PZInZ0if0rcrfBVGOjtUQ/tAg/SOJQQgkGlRiwWOnPvQfvAARgNsRun
-	 VAGi+sTN6XK++H2bGzlGMoGDWMXw50ysz3ZeP7wMxILeXrEB/soFoRuYB1vSEcfkiG1UG
-	 R2vwhxkx11hGfF5vJ3N0vz+oIPzWynMvCiKezGSu5eZmTCIc39h4YbcZGu5BxpA+lyE7L
-	 pax9JnMSp3Cgh1/zsKpCfcYfRMtP7mP0X/x++iuPECBfZzEBhIc6ftGLYAWitB2er8A==
+	t=1795828654;
+	b=rdCtigr8aU1lDsHS53PLaJNm8cFfCpD/Kfx9p7xrC1c3CQ1nem+rCsGFf2NrQYCTcK8D
+	 A8bNZ9vOOvTB1KrWBCENKrPGigUA0CWNvjWnM8k0XcHDYqe1bKUARJtvDTxCK599f1YfN
+	 mXRfGi2PQkWzV4UEARhuO38dKFDXMyy/J7hczhx7ZuH/BcBsVoi3yt4wDsR4MzE7Qi4Q2
+	 Ti05XrBBmi1CBakCCSnbcWX8kHtXQImR4WQ2AnxEzFz8pqLWXL/hHOJDlbvT42xYMpkTg
+	 GW/8yaSCh8kF8Fgs3PRsd/isuI196JsWMYTbJKn1g/suimWhp61mm+FR/n8uDImGUOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795828648;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=6SPUkkDnbGx0di3Iciwy/aQpzoJCxAXF+HCwj4dQ2nQ=;
-	b=yPWf5G2sJakihCm7ZU5TMZDb288n8FjGmwEnAj1mGJKOsWmxct+rlDAanxLxXa6qbvvs
-	 7hIU1k7aO3ltHyyW8WxGIF4UVW+OZlAabcxc8gv5QXMogTpiWZaL0DzN0Kusa489Ty1W0
-	 /T0fH+TVYrsHpFGIijs5S3adrR4iTEfNI31TZ+FvrBzKJEEiWX/72NTXv5uhVf3Qqr9PR
-	 r5Lale49lrIVYR/vulOkFxqDQfGMBxosIv4dt6crvKDTF8HIa+2wcsJozmyna6zKLCLb5
-	 HJLyIwz1M2jM3EFiDg5rGG7nk8ANMzooepZmgycybLkmWU5mEf9UUxIebhdamvEnU3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795828654;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OSBwzpdqGrkNuDnhZM4boZGZHKeJDG3XgxYt1ZiYd2g=;
+	b=Qxtm72THzojOmcjnzVdJ1p8nmCp0rqjBU79STSSB3u8OQ4fWQPHPmpd2JtC1wrFxAjlh
+	 HqGzehpYsFRtAGhTvGB40Ph331cepj+8uR+bi6wUj+b66BLXe4Cd9zfTVEZqFaJoDAvg5
+	 k43iNgeEWwHeldtsJQQ20oTo09PdgXc7+M6smDv7MbPNrDE9BJyDez8tEjxNd7bXzpPWZ
+	 /Xt6IdoR6hsTHtWyn1vJRfd1l8o9qWYV+YBBEP5n058G8Qo9ol027LTWXtYy6EthCV7zB
+	 NkKVOaCFF0vah0nSUOda9QYYJkobjSVRi05Xr9usN+F3JWX+m5Pqibx91zIbQvNvnbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QevbtlhX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YwFQFO9O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E394606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E83D606A31C;
+	Sat, 28 Nov 2026 01:17:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QevbtlhX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C33671F00899
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:17:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YwFQFO9O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8E11F0089B;
+	Sat, 28 Nov 2026 01:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795828647;
-	bh=6SPUkkDnbGx0di3Iciwy/aQpzoJCxAXF+HCwj4dQ2nQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=QevbtlhXPaFPCy2DKvXJNaYEq4+oZ7q0DYAAKtT9oQa6N06FdNKJxNZPy7R83xqpx
-	 y6Z87xtaAObr/la2oCKt6gXlusAdmrOsyqejsFN3jVp9xoxS61amcSg3/ueLSBnc+X
-	 aU+CnA+AKQGhjNd4xaF/P5amd4ezP0U9D8tKNRdCC7oWQMPlKLoXJ6/+nJLjYC/cN2
-	 Xo2cxu8V6aVRfWeHEtB54J3LO5MGXh09GKYgtqOgKvYRsc8kH0te+psOZ91PIDwntS
-	 lrqAC3sQjgROKpyfGgJzrZsZi7RRE8EgVZ36RsJmOaSGo2e+cj7KcTB7imIw1gb3CW
-	 nlW8BdzgrCSzw==
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c5126505cb3so1135781666b.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:17:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGpzgmJjrd4m7EcCBUJs9dxSlMF9aJyoFvfs2cWfuPel33GC7pJqt3db9efq2T0VGGf2K0mQw01tV+wQzQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Vm9KtwI9p3m+z1LfR4Ix1X9aJPG2ous2810mtEii+snDKGgBf
-	axu89nan9ieGCgtGJY4Xx58o78VzyvNqGeb+uWT0o1o4ZNq5RjdJ5+PM7Xwgz5rtie8130UdEtP
-	Ycc7lNpm5c2vQQfetiaBap6ybFEMtE7s=
-X-Received: by 2002:a17:907:934c:b0:c51:282b:5489 with SMTP id
- a640c23a62f3a-c513a4aea3bmr2092619266b.3.1795828646455; Fri, 27 Nov 2026
- 17:17:26 -0800 (PST)
+	s=k20260515; t=1795828654;
+	bh=OSBwzpdqGrkNuDnhZM4boZGZHKeJDG3XgxYt1ZiYd2g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YwFQFO9ORRWN227/l0GCnmRpWQK2NbB7lShlcN7s9QtxxMtBiY5L+V9/8GYTxgvzC
+	 UHigp8GPJoqdqmze5EQz1rPCz97pFahvKRDxLZSS6i9SxC823lGpxDbn4Rbeyh0Okt
+	 TR/QF7EdGsyb4iX9xEema999kED+0qHOXTSC/zd9W6SqwEk9t6Tq7kV9VRLpw/2ULX
+	 lZDU+LXHYelHhnbJYShr7VmPhRuzE46TyOGynMxiWc9nAwYPf08wj+7j5tMlEebMPw
+	 La/jbPw8aTHKVyNuWkmLIdCrY4HKAU0JGcs7rf3I0ZFJY3TUwn7hzwnRpX1wHag7fv
+	 vSZXRK6okGcuw==
+Date: Sat, 28 Nov 2026 01:17:27 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: robertijtsma@gmail.com, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] iio: light: add ams OSRAM TCS3430 XYZ and
+ ambient light sensor driver
+Message-ID: <20261128011727.297d2a27@jic23-hlaptop>
+In-Reply-To: <awnB1KT-oJQoPjOM@ashevche-desk.local>
+References: <20261127-iio-tcs3430-v3-0-e191a40a4ae9@gmail.com>
+	<20261127-iio-tcs3430-v3-2-e191a40a4ae9@gmail.com>
+	<awnB1KT-oJQoPjOM@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,45 +65,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261128000906.1677969-1-icb@fastmail.org>
-In-Reply-To: <20261128000906.1677969-1-icb@fastmail.org>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sat, 28 Nov 2026 10:17:11 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd8_QgT5sM0Uwg7DkKPoyKqBVaFmbCb8Ay13sUp3cBYY1Q@mail.gmail.com>
-X-Gm-Features: Aa3M54r2iLdu7Vku85h51LckhMl8uk9uQ3dQlA_gkNCPmaojH9-_QYon5N12iqM
-Message-ID: <CAKYAXd8_QgT5sM0Uwg7DkKPoyKqBVaFmbCb8Ay13sUp3cBYY1Q@mail.gmail.com>
-Subject: Re: [PATCH] ksmbd: don't take an existing file's attributes from an
- open request
-To: Ian Bridges <icb@fastmail.org>
-Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
-	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 28, 2026 at 9:09=E2=80=AFAM Ian Bridges <icb@fastmail.org> wrot=
-e:
->
-> When smb2_open() opens an existing file that has no other open handle,
-> it sets the cached attributes of the file from the FileAttributes field
-> of the request. MS-FSA uses that field only when a file is created or
-> overwritten. Any other open of an existing file ignores it.
->
-> The cached attributes are shared by all handles to the file. So the
-> client that first opens an existing file decides the attributes that
-> the other clients see while its handle is open. Stored DOS attributes
-> replace them only on a share that stores DOS attributes and only if
-> the file has them. If the DOS attributes are written while the handle
-> is open, the attributes from the request are stored and stay after the
-> last close. ksmbd also bases its own checks on the cached attributes.
->
-> Take the attributes from the request only for a new file. An open of an
-> existing file starts from the attributes that the inode implies, and
-> the stored DOS attributes are read as before. An overwrite still takes
-> the attributes from the request.
->
-> Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ian Bridges <icb@fastmail.org>
-Applied it to #ksmbd-for-next.
-Thanks!
+On Fri, 27 Nov 2026 19:45:56 +0200
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+
+> On Fri, Nov 27, 2026 at 09:12:50AM +0100, Robert Ijtsma via B4 Relay wrote:
+> > 
+> > Add an IIO driver for the ams OSRAM TCS3430 ambient light and CIE 1931
+> > XYZ tristimulus color sensor (found at I2C address 0x39 on devices such
+> > as the Microsoft Surface Pro X).
+> > 
+> > Unlike the older TAOS RGBC drivers (tcs3414, tcs3472) that use the 0x80
+> > COMMAND-bit SMBus protocol and RGBC channels, and unlike the banked
+> > MAZeT/JENCOLOR as73211 driver, the TCS3430 uses ams's direct-addressed
+> > 0x80..0xdd register map and exposes Z, Y, IR1, and X tristimulus channels.
+> > 
+> > The driver exposes:
+> > - Illuminance (photopic Y channel) with raw counts and lux scale
+> > - Modified intensity channels for X, Y, Z, and IR1
+> > - Selectable scale and integration time via the IIO GTS helper across
+> >   1x/4x/16x/64x/128x gain and 50.04/100.08/200.16/400.32 ms integration
+> >   time settings
+> > - Regulator management and system sleep suspend/resume support
+> > 
+> > Tested on Microsoft Surface Pro X SQ2 (SC8180X).  
+> 
+> 
+> There are a couple of nit-picks below, but overall LGTM, after addressing them
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> 
+> ...
+> 
+> > +config TCS3430
+> > +	tristate "ams OSRAM TCS3430 ambient light and CIE 1931 XYZ sensor"  
+> 
+> This doesn't scale, but okay, I don't expect this kind of compatible devices
+> appear in a volume, we may rephrase this later on.
+> 
+> > +	depends on I2C
+> > +	select IIO_GTS_HELPER
+> > +	select REGMAP_I2C
+> > +	help
+> > +	  If you say yes here you get support for the ams OSRAM TCS3430
+> > +	  ambient light and CIE 1931 XYZ tristimulus color sensor.  
+> 
+> Usually when it starts with more that a single vendor line of the devices
+> the list of them is better as it's easier to tweak later on:
+> 
+> 	  If you say yes here you get support for the following sensors:
+> 	  - ams OSRAM TCS3430 ambient light
+> 	  - CIE 1931 XYZ tristimulus color
+
+Agree with general statement and perhaps only know this because of
+a history with colour spaces: That second bit is a colour space in which
+the ams OSRAM sensor presents its data, not another sensor.
+
+Jonathan
