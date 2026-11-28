@@ -1,57 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795847801;
-	b=wsJ60HsFE8siFVMMKcvcLxrLJLYA/164bOxmdlN64oy+bzJWmXRdkEbC2Jg2YgvuKeiT
-	 nYiUg763GzUu7SWE5o5Sg2svpRlUtAJWNAlEbsOBrsrwRTDj/qGZD4xdEOQlWfjQT+3M3
-	 43Q61qu5VPtsjbdUaisdIcFo+GX+aKZBw0EdK45iIGYAH1b6E7nRcrcFm0Y7A0JmnsBQS
-	 a4Vygp5UQDaBrXc6sESoSw//qiWoy6yO6tVaJT4y5a5mWdvqMjoxcUXjghkokt73KbCdV
-	 eGbB2Pr9ts9K1pGNKW8pXinDy7nA8CId7zVsjyA2qROmO0GBKktVG4Hs40I6AYySHIw==
+	t=1795847943;
+	b=O5tmvUtTHIpVhl4bT8RLGHICp2/Dssf1KR2pYcY09Nrd5GP5TgvlvQPo0tlejBzvCRtA
+	 b2L5IevuN8Qpp9aFhsMYQwASUW0VKb5OzEHOJtGp64adKBwqBly8H8gfJ8fmyADZNeiR2
+	 TAi5M1zpTENp91gmqVjtd7gISpKCqn58LF9HX4JTuSRxJv6JOjvEIrLgzQKVQ3w8KJHwH
+	 dyC5Mze48Uz0xIpsvmLD94GupoIeuE/r7Tp6PToAx67fmIPPdmOx5kx9l4MNrRGLPvPJL
+	 Ms2nBYUNCU5a4IPOq42Ik1lnmOzv2NSRWepqf2HetK+W7hVJdseM3aREhxs7xRaFXsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795847801;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=n9roixnfIFYGSNY3LMoNE58r2H0x9JeIG09TUUKABSI=;
-	b=JNzce89DHCE1BPK7Y30bozXamt0BY0hXc3hMVfhGzRC121/gYZ78J/LtLJdLcNNsxJpI
-	 mYQryoczNgYNNdvz8UscVeOlr6Nv5+jAuGYJX9Xez0zgo60glYKSSZnxw8qBS0g2o//8H
-	 zuIfyJOws5wVfL4uXaXNh4DAqWbUQdT83EmpBZuKA7IALqu8vJxwIBX6vtsaQ5CiLaw1a
-	 RH0XIg4VaPAU7olMkATRChUpOiKJCbvvKuQ45kkwv8T+ADvQzH+gDvJC6LpQaadbkqORZ
-	 ehqroQSvSrrHhUMCRVGAf6HYyyX6Ler8HDCxCe6/4CGa3CcncLnWaE3SV8awPD189hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795847943;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=nUqNSCpFAuXqhx4v1WEMdxqMn1uV2jBGy3KoprDM6Os=;
+	b=odRU+iWB+ggsbNfQactBUbG0CSFqSpu95qNixzrNNT0yu1aulG4aB276vLTGO7j2BBK5
+	 Y2x4Q2PVvjlISJWQ5bPCLSXAavQiKpMXB6z+Hz/JzjE0S7wZ7YuWkvyfRHYizBwLM60wI
+	 VCU0EKwGPOkI500c4XBrPPnwwyw2wzf3itOl7bv7/8JoiqufVLMyrRDHrH1cL3qILT9zX
+	 KKFbH2adXIFyjrfYHg2eHsmvL824hYyPKruhqyFRzB6XE27IOM06yDn4v86VtldYfZfVv
+	 v6uQlMPuNX1YhzDaPc81kvBJgzhThgT1SsmsTh4MUJPJ3jlTmb6yx+dvd4Txo+ZAwZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=pbe93rMo;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=furiosa.ai;
+	spf=none smtp.mailfrom=furiosa.ai;
+	dkim=pass header.d=furiosa.ai header.i=@furiosa.ai header.a=rsa-sha256 header.s=google header.b=ag2ZvQxE;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC6C1606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:36:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC6C1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 685EF606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:39:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 685EF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=furiosa.ai
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=furiosa.ai
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=pbe93rMo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=n9
-	roixnfIFYGSNY3LMoNE58r2H0x9JeIG09TUUKABSI=; b=pbe93rMoYYlHSA8n9S
-	uee3LDCMVLphX9GkzTuTdf2zQxWKHNqJS580d+bSgYplBXEYbBaDU/0De+OSSUXJ
-	qbaetvBx9+TW7cGdGU6Gw67/jOCT8GpWMR3pTABvzYdu7HMTjI9wzXCW1HgCKEbU
-	+Pq4Q+INwbumpBLf3FKGz5b2g=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3X_Bjdgpr7k+nLg--.44267S2;
-	Sat, 28 Nov 2026 14:36:20 +0800 (CST)
-From: Xuewen Wang <wangxuewen_ky@163.com>
-To: akpm@linux-foundation.org,
-	urezki@gmail.com
-Cc: linux-mm@kvack.org,
+	dkim=pass (1024-bit key, unprotected) header.d=furiosa.ai header.i=@furiosa.ai header.a=rsa-sha256 header.s=google header.b=ag2ZvQxE
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8a05b210703so4127312b3a.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:39:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=furiosa.ai; s=google; t=1795847943; x=1796452743; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nUqNSCpFAuXqhx4v1WEMdxqMn1uV2jBGy3KoprDM6Os=;
+        b=ag2ZvQxEv+N3Ee2gn7HqZLHT8wK8+2s+WDG5HVDuvIivtPsFPsQXhTXf3GFwGlQ/8b
+         EhPhC2hjndeDJdRszK6/vzYtE38yK8T0nvME1plFcz55uq6UcUfdkWDM3ehzz42KeoCb
+         UdjlrP9jP2MFcK4JOAhAaar0UpLUteAxW7W0k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795847943; x=1796452743;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nUqNSCpFAuXqhx4v1WEMdxqMn1uV2jBGy3KoprDM6Os=;
+        b=bQW1e23v8ktg+lq8789V15PR/YksRXk/mlHA5oTsWhTZ+BCgAA2/WbXqPaMX65hXQM
+         r7etgpTz+sgi9HJtn0QzQvfoUvZ1pIr/KSplABrr5+lpYsRSHiO+pPe563RkVD/lh/0T
+         rJbf3LUYjV2Ewkh6RPrguXW6dAzVzzdv9wjAbL+FGxkVUNclyWjZRgwzYR1GWTTD6GIk
+         0lNWfRfpLoj/OCWqRUaZCoETFFdwLcH5PI0oLfdGB1dAFE9Cbg25DZGDQ9zLJREfkk4x
+         xWetcayohqzWRqmpiDb8hu8SwYSRoY8XLdD7r7SSti5G6qrQvUGncTvGBqgePznGpsD0
+         FVnw==
+X-Forwarded-Encrypted: i=1; AL+hErHn0XmMkhc8o73fD+cS+YednZn19DcWI/XJ4chMoDRbO+xcpVbTuw7czxhpugkIlQCk/6ycu4CktT+hwqk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+pm3NNvOVLjfJ72hKEhHmCKzHtjTO90MdKi6hiO+o3TQRM3YXX
+	QvD8jCPXF1XH7nZ6X96l46CYpqQp3YKAXraYJaUQtq0TmrPpwbcFRgZ+fqS7nOgxNFk=
+X-Gm-Gg: AZFdTZcTctyU6ZhLnOCuLcSoghxSm4C2+zF2mcnK5IScRhbEiofp68O54n2HYC144XY
+	FKTfexhMwvKDmY1Q+PG/ykrl6JjrT9FsqUVRxYBOX8A3l+FOIkw85aVy/9z/RCGE9QjIcE32POV
+	MQuyQqCmRiHVwfk/+V9L/V78plwSx7nc5NmrRsiTwUT6MNXy4p1LC/qUDHpwNmTCgD5DoH5AYOH
+	6aqLq+gvZFJGvHZt/0SQS0hF3dGtwRw1ivAJ8EJ6oTJaEF8QWilkkPNTgEugitvDHGiRD069tKP
+	HmmaKPPJPoRyC/zCJ6xc9z88vxUZTboKByy9I+DQkCSrPoOBHEZoSyYQeZgC5DUw36p+kbS4kxq
+	yfDQexEJfCkujvRCugkgcfRL/yi37ATb4kh7kb0ANOdpZMcdMgOF3s0DhE+QqHGmp65UCT8x3X/
+	TtzrGjGLab45HvieEi2zTxOM6TdYhbINh6ulkrBbT+sYgN+ZitSLPKkMitDRpWgEu1RM+sFtvhQ
+	/ZyoHnJy6ajfWriPQvpMDtWBHw1+LXb3NBbg4881E92a6N9hOxIOWhqyIcsqGJiWS1qbGoKPM/k
+	tb3JvVW4o+NGs/Mh1DEdJWRiBWjg9mc7PPRUw3417LF7U8lTDc8xcUhGI4tyU90LxU6seqdGPNn
+	GtpLUwVELnfNc
+X-Received: by 2002:a05:6a20:4314:b0:3e0:b1b2:2af9 with SMTP id adf61e73a8af0-4014c2573a7mr29687518637.60.1795847942770;
+        Fri, 27 Nov 2026 22:39:02 -0800 (PST)
+Received: from rock-5b-plus ([61.83.209.48])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077944bsm13939838b3a.2.2026.11.27.22.39.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 22:39:02 -0800 (PST)
+From: Sidong Yang <sidong.yang@furiosa.ai>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Oded Gabbay <ogabbay@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
+	Haoming Gao <Naixumogu@whut.edu.cn>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Xuewen Wang <wangxuewen@kylinos.cn>
-Subject: [PATCH] lib/test_vmalloc: check vrealloc page counts and data ranges
-Date: Sat, 28 Nov 2026 14:36:08 +0800
-Message-Id: <20261128063608.3434982-1-wangxuewen_ky@163.com>
-X-Mailer: git-send-email 2.25.1
+	Sidong Yang <sidong.yang@furiosa.ai>
+Subject: [PATCH 0/4] accel/rocket: Fix BO creation and prep_bo handling
+Date: Sat, 28 Nov 2026 15:38:40 +0900
+Message-ID: <20261128063844.1537615-1-sidong.yang@furiosa.ai>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,211 +99,31 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3X_Bjdgpr7k+nLg--.44267S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3GrWkXw1UGr18try7JrWUurg_yoWxJFWfpF
-	W3Jw1vyFWrJr1xXFZ3Krs2yw4akw4kKayUGrW3W34Ivw15JrnIkF93KFyFvryIyrWkuF1j
-	9r4qqF45Cw4DZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jeoGQUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzQQU-GsKdmTzFgAA33
 
-From: Xuewen Wang <wangxuewen@kylinos.cn>
+This series fixes four bugs in drivers/accel/rocket/rocket_gem.c, based
+on drm-misc-fixes:
 
-The vrealloc test currently checks only the first byte after each resize.
-It can pass even if shrinking retains all tail pages or a later byte in the
-preserved prefix is corrupted.
+1. Reject zero (post-PAGE_ALIGN) BO sizes in rocket_ioctl_create_bo() to
+   prevent a ZERO_SIZE_PTR dereference in sg_alloc_append_table_from_pages().
+2. Store iommu_map_sgtable() return values in ssize_t (avoiding int
+   truncation and leaked IOMMU mappings on >= 2 GiB allocations), size
+   the drm_mm node from gem_obj->size, and unmap short mappings on error.
+3. Skip dma_sync_sgtable_for_cpu() in rocket_ioctl_prep_bo() when the
+   fence wait fails.
+4. Wait on DMA_RESV_USAGE_READ in rocket_ioctl_prep_bo() so PREP_BO also
+   waits for in-flight jobs that published read fences on input BOs.
 
-Check the backing page count for the ordinary order-0 allocation path and
-validate the entire preserved prefix with an offset-dependent pattern. Add
-a non-page-aligned shrink and a grow beyond the pages retained after
-shrink.
+Sidong Yang (4):
+  accel/rocket: Reject zero-sized BO creation
+  accel/rocket: Fix iommu_map_sgtable() return handling in create_bo
+  accel/rocket: Skip CPU cache sync when prep_bo wait fails
+  accel/rocket: Wait for read fences in rocket_ioctl_prep_bo()
 
-Run the sequence both with GFP_KERNEL and with __GFP_ZERO used consistently
-from the initial allocation. In the latter case, also check that each newly
-exposed range is zero, including when growing within a retained page.
+ drivers/accel/rocket/rocket_gem.c | 43 +++++++++++++++++++++----------
+ 1 file changed, 29 insertions(+), 14 deletions(-)
 
-Export find_vm_area() under the existing CONFIG_TEST_VMALLOC_MODULE guard
-so the test can inspect backing page counts in modular builds as well.
 
-The additional resize operations and full-range data checks increase the
-work per iteration, so timings are not directly comparable with those
-from the original test. When running vrealloc_test alone, use a smaller
-test_loop_count, such as 32, to keep correctness runs short instead of
-using the default million iterations.
-
-Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
----
-Validation:
-- x86-64, 4 KiB pages: built-in one/two workers and module two workers 
-  passed, with three repeats of 32 loops per worker. Every loop runs
-  both GFP_KERNEL and consistently used __GFP_ZERO sequences.      
-- Private x86-64 mutants suppressed tail-page freeing, corrupted the
-  final copied byte, or skipped shrink-time zeroing. The enhanced test
-  rejected all three; the original first-byte-only test passed all three.
-  These were artificial defects, not discovered allocator bugs.    
-- arm64, 64 KiB pages: built-in one/two workers and module two workers
-  passed with the same repeats/loops. Guest userspace checked the actual
-  page size.
-- The same arm64 matrix passed with KASAN_GENERIC and KASAN_VMALLOC
-  enabled. test_vmalloc.o contained __asan_load/store references; full
-  serial logs contained no KASAN reports or kernel warnings/oopses.
-- With TEST_VMALLOC=n, find_vm_area has no export in vmalloc.o.
-
- lib/test_vmalloc.c | 104 ++++++++++++++++++++++++++++-----------------
- mm/vmalloc.c       |   1 +
- 2 files changed, 67 insertions(+), 38 deletions(-)
-
-diff --git a/lib/test_vmalloc.c b/lib/test_vmalloc.c
-index b23f85e8f8ca..420b4bd5bf2f 100644
---- a/lib/test_vmalloc.c
-+++ b/lib/test_vmalloc.c
-@@ -17,6 +17,7 @@
- #include <linux/rcupdate.h>
- #include <linux/srcu.h>
- #include <linux/slab.h>
-+#include <linux/string.h>
- 
- #define __param(type, name, init, msg)		\
- 	static type name = init;				\
-@@ -422,55 +423,71 @@ vm_map_ram_test(void)
- 	return nr_allocated != map_nr_pages;
- }
- 
--static int vrealloc_test(void)
-+static void vrealloc_fill(u8 *ptr, size_t size)
- {
--	void *ptr, *tmp;
--	int i;
--
--	for (i = 0; i < test_loop_count; i++) {
--		int err = -1;
-+	for (size_t i = 0; i < size; i++)
-+		ptr[i] = i % 251 + 1;
-+}
- 
--		ptr = vrealloc(NULL, PAGE_SIZE, GFP_KERNEL);
--		if (!ptr)
--			return -1;
-+static int vrealloc_check(const u8 *ptr, size_t size, size_t preserved,
-+			  gfp_t flags)
-+{
-+	struct vm_struct *vm = find_vm_area(ptr);
- 
--		*((__u8 *)ptr) = 'a';
-+	/* vrealloc() allocates order-0 pages, allowing tail pages to be freed. */
-+	if (!vm || vm->nr_pages != DIV_ROUND_UP(size, PAGE_SIZE)) {
-+		pr_err("vrealloc: unexpected page count for size %zu\n", size);
-+		return -1;
-+	}
- 
--		/* Grow: beyond allocated pages, triggers full realloc. */
--		tmp = vrealloc(ptr, 4 * PAGE_SIZE, GFP_KERNEL);
--		if (!tmp)
--			goto error;
--		ptr = tmp;
-+	for (size_t i = 0; i < preserved; i++) {
-+		if (ptr[i] != i % 251 + 1) {
-+			pr_err("vrealloc: data mismatch at offset %zu\n", i);
-+			return -1;
-+		}
-+	}
- 
--		if (*((__u8 *)ptr) != 'a')
--			goto error;
-+	if ((flags & __GFP_ZERO) &&
-+	    memchr_inv(ptr + preserved, 0, size - preserved)) {
-+		pr_err("vrealloc: nonzero bytes in newly exposed range\n");
-+		return -1;
-+	}
- 
--		/* Shrink: crosses page boundary, frees tail pages. */
--		tmp = vrealloc(ptr, PAGE_SIZE, GFP_KERNEL);
--		if (!tmp)
--			goto error;
--		ptr = tmp;
-+	return 0;
-+}
- 
--		if (*((__u8 *)ptr) != 'a')
--			goto error;
-+static int vrealloc_test_flags(gfp_t flags)
-+{
-+	static const size_t sizes[] = {
-+		PAGE_SIZE,
-+		4 * PAGE_SIZE, /* Grow beyond allocated pages. */
-+		PAGE_SIZE + 17, /* Shrink to a partial final page. */
-+		PAGE_SIZE, /* Free the remaining tail page. */
-+		PAGE_SIZE / 2, /* Shrink within the same page. */
-+		PAGE_SIZE, /* Grow within the allocated page. */
-+		4 * PAGE_SIZE, /* Grow beyond pages retained after shrink. */
-+	};
-+	int i;
- 
--		/* Shrink: within same page, no page freeing. */
--		tmp = vrealloc(ptr, PAGE_SIZE / 2, GFP_KERNEL);
--		if (!tmp)
--			goto error;
--		ptr = tmp;
-+	for (i = 0; i < test_loop_count; i++) {
-+		void *ptr = NULL, *tmp;
-+		size_t old_size = 0;
-+		int err = -1;
- 
--		if (*((__u8 *)ptr) != 'a')
--			goto error;
-+		for (size_t j = 0; j < ARRAY_SIZE(sizes); j++) {
-+			/* __GFP_ZERO must be used consistently, including at allocation. */
-+			tmp = vrealloc(ptr, sizes[j], flags);
-+			if (!tmp)
-+				goto error;
-+			ptr = tmp;
- 
--		/* Grow: within allocated page, in-place, no realloc. */
--		tmp = vrealloc(ptr, PAGE_SIZE, GFP_KERNEL);
--		if (!tmp)
--			goto error;
--		ptr = tmp;
-+			if (vrealloc_check(ptr, sizes[j], min(old_size, sizes[j]),
-+					   flags))
-+				goto error;
- 
--		if (*((__u8 *)ptr) != 'a')
--			goto error;
-+			vrealloc_fill(ptr, sizes[j]);
-+			old_size = sizes[j];
-+		}
- 
- 		err = 0;
- error:
-@@ -482,6 +499,17 @@ static int vrealloc_test(void)
- 	return 0;
- }
- 
-+static int vrealloc_test(void)
-+{
-+	int ret;
-+
-+	ret = vrealloc_test_flags(GFP_KERNEL);
-+	if (ret)
-+		return ret;
-+
-+	return vrealloc_test_flags(GFP_KERNEL | __GFP_ZERO);
-+}
-+
- struct test_case_desc {
- 	const char *test_name;
- 	int (*test_func)(void);
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index f7aa4686fe5b..a0ee9dc742de 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -4220,6 +4220,7 @@ void *__vmalloc_node_noprof(unsigned long size, unsigned long align,
-  */
- #ifdef CONFIG_TEST_VMALLOC_MODULE
- EXPORT_SYMBOL_GPL(__vmalloc_node_noprof);
-+EXPORT_SYMBOL_GPL(find_vm_area);
- #endif
- 
- void *__vmalloc_noprof(unsigned long size, gfp_t gfp_mask)
+base-commit: e950f467b8adbfb2f460d9b9454280cdbf597885
 -- 
-2.25.1
+2.53.0
 
