@@ -1,98 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858008;
-	b=A6sUYujfvvOScBTwYN6nLrkHDCi7yM/nwzEFjNhZNfLGCZYW7IZo2e6uamuY4ST0cl2p
-	 PuJiBljAIkkaQgl3QGsBHT5Xn2YTsCc0JwrjEvXzZvuA0JJkB3gsWf4EsONY1IhnHlkhz
-	 FvRIOxAutBIGNl32zEIMWFEZK8pYhEgzktGqS44lSmGP0Z7StALhc88FABPLsA5c0XwDX
-	 e6NVWGQd6cQJeNjFXgA03Grm7F9khJsrvJPpd14cH/Oy4obT9/F6C8hUoiJoEy3/c9mxA
-	 G0AA1Q2HusNHxUhktE8oMgVBKc8yZEhTt0Lrp+VsPKv/YNGSyE2Crwc7tZeQ9Z7XoOw==
+	t=1795858208;
+	b=Ryr8gKaJ2QH8ivjoSNgT4c0DxDar61HF2Zu5Q5TGOU/C+vjvTXO8GGBm1va8CF4GVnuw
+	 KQlTEBgF/7HG7pWXikwB5UqNSMpvZlfN2NxnvM/PSd5/EOUBPnvkLSdz7pBVoIyd9/Efx
+	 De8T6o/G2osmjxKTrLskXbouBJ+FwAmLnATwGY2psEsxA0sOZOuHT/ZD0Va6ZSYhJt3jG
+	 VAGr8wvP924zXYdnXREcUDOTeF/dyo8fwIFbImCK52NB7Db8YGj03OY+ruTxrtneACerL
+	 /KUhIF8BTk2dxW8Ccaoozyn5aABVhbY2Cvr4zguGblYz+BIHd40x3x7w9RWOMmC/viA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858008;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:User-Agent;
-	bh=FGlvqIex45DiqLn3rsPpN4duJ1MiIAw9VO0j2DhNuqs=;
-	b=kSSOqduNMrQ8K179zlRthiR77S5b2sIkXGctFx3OhNnrqhMa7EI1ZkQj5bQ7yU2gmK7+
-	 HT/XK5b7tBA1+Zk5ox5KrqI042xLd6srWl3OzoNcJZIzOemVZXtNsvUcy8LynQ0CFbeZa
-	 f3eiKvas34E5KS/bCm4lspaqvYRqn4McY81luc/tPPU443UbSW/nXR4u9rihM1XOEq0wD
-	 JeP3xo+mlUmnbJkH+bJYJAfCmbILTDvQ5GSqDC9hE7dFsTSfMUYJl0Qn9JWKJiD4g2K0Y
-	 peUd1doJu0Y8MrQGGixOeqoUnX6bnbM3wu3TJOya9uXJxyHllXYq+ckQXX261JxP59g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858208;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
+	b=Aw617Yr5kw1gT5Mf5uEooPGK13ZovaRx+PzJowJznmWplEwj97afNHBdg4QLgOueRQws
+	 U+Sg2Dxim+vh6HlwghOHZI0uGQkkpJx3BThrrYZ+r/nrji76yxqc8J3UZtIJxvEcDUwQV
+	 RHq37SAIbwthTlhuy8NOKMkLWLqf6Iqu5wKn35/qCS1UKel4UW0Hg/DBc2XavUsId5qQC
+	 RimDCWmyE1NWY0VFiu678ylJ0k0Gr3xV4NUaVzRBmIH7oYwTULG5OPzYTng/AF3m2btKf
+	 k14J+fCjQU/pifs7E9BnFBkk+mHz959FyVHSoyVwSsaGVLL07nqN/M+z3SrzU44YWXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrisdown.name;
-	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=HAJHm62J;
-	arc=none smtp.remote-ip=74.125.224.42
-Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7AAA606A6B8
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:26:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7AAA606A6B8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85BD7606A31F;
+	Sat, 28 Nov 2026 09:30:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=HAJHm62J
-Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-679a2b5fe87so8067283d50.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:26:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1795858007; x=1796462807; darn=vger.kernel.org;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FGlvqIex45DiqLn3rsPpN4duJ1MiIAw9VO0j2DhNuqs=;
-        b=HAJHm62JmBAlu2F4/yF7GuT15nWvDDE5mLSPRLD0O9KIUWqYXg7UvzIslafojr6GJc
-         EAv2HjGtfI+B4QF3UKOll41x404gBsziajeZAlV8ck/8coJxk/LGR30IdxFnKHL3hzqC
-         uwek4LxEIHZvtgHoxt+oeKiPNDRt8YM1bY5yg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795858007; x=1796462807;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FGlvqIex45DiqLn3rsPpN4duJ1MiIAw9VO0j2DhNuqs=;
-        b=N3OVKyewRKTjrAPzWSkLNs0tLrooPr5nmQGgn46IVocuc+dQekDzqvGGxyH+S7LACr
-         5ks4ARVtL9jseNagm1ZihMIxQQkVIKfOOFTlzHmBNLuLpmmXqEr4rCDTAD3/eoKh1/FR
-         P12trgVVwKSYk/vZu/d/2PavO0sOJEEW6tSBY+3/Q9dSH/YCP1ETkzw2PS5k0k/d2yBK
-         MWqvNU0COtAbY1HmX8bK+t76RdqqJB4McCFJ9D8X5nycXPNRL/UQSSZrTpv1RJ3MggK7
-         gS0uFQ7F3l0qjeSIe1KRjbVs0VvWlA7nhSVxdBe+K4McIUV2NQZS0mfyzyKGOvfBi15o
-         ehyQ==
-X-Forwarded-Encrypted: i=1; AL+hErHMfr86ajrwLJvaTlckq4TLNIVn30PPmBRGM30/KLvn+bfgQeSLSb69el6J2/N2icWQdLz8+zlIPyLx1Ok=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8wpgaxEVcTZFs4tXsZ0Q83IA4xzs/Gnz55WY6Gpt5mVQEfNU89
-	bxHz0AFTRhz8tZOGwV5IH1iU+JxpZiExnTf5dvAt5WojhT0tcXAW7X9kEIo5+lLben8=
-X-Gm-Gg: AZFdTZfFZyDn8Bb+rrZ4//8+sW1ru5kxgBQqMgux5WgLORD5M2PoPc/so9Z+4SgX8ch
-	c3KCRlhLrxBrUWGT4o49axgJ3fkDgFE2yHa2sN6uE8+P/C7YLcx45Uo77Sun/3dnuhWzi774uhQ
-	6Hm4wDCJlXWqV86ncXdvtRsXdHJKh7Z10MLo/gHS0R+fRfP08w1RYIxBdktsIb49mHYbU5NAnX7
-	VEFpCfXhXvoy7Q+kVWFO4iwkMSxdJM+K+WG4v/sDmpH6wlYqpilDMK5iTPnLgJqCtk2369zUnyc
-	41ldgVevTpsURXu0f9FDz1PheU9xEOBxxuiteF3TgMYXvUSh6D+hp24Y7/wyFMlTfpwlN0kwD5B
-	38V4yD0vzAO6Ynl0vp/2iSfKQtDQocKkYMiM/+DPQl1AEA5L18S/d4jJ+xPSeEPXCMTKJ8+4rk+
-	/5+Zh5C58pYbMK1GHmTggFqHBrduuarIc9TVRwdEvhJ5Q++NiL2CRV9eHVaPXLDB9f+sETS42wO
-	IlpUsnnRB35aYE/8Jt1OAuJ6k86LM05m3t/WL6RhyRaUATHCj/XDv/2/Lk4N1S/RxyqB2pdCuhV
-	JfhWhzDT16bqQvgLX20AUttPwQ8Te/EpanVt9vF9FpbxxkPGpfkvUfhP+XMSPRKTfEdn2kG2nKT
-	MGIDboTxfSSRB/KB0CxszJkjhR0kR8qdoDymBwmfJMnaKKsAh7VPB9eWu1hxJODjPSD7OwGkmLx
-	02BbXJU1+VFnyxPRK7ogL807EmlaAtrGc33xcPgxGudZA+k2K+EAtRqsd7XUqPyEpmJ2T0sASzU
-	deJBzUuc9sW/15ns2U3pbS0
-X-Received: by 2002:a05:690e:12c7:b0:679:2c7b:de5f with SMTP id 956f58d0204a3-67e314d4c18mr6074694d50.159.1795858006809;
-        Sat, 28 Nov 2026 01:26:46 -0800 (PST)
-Received: from [172.20.0.3] (c-73-207-185-9.hsd1.ga.comcast.net. [73.207.185.9])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202b09c6sm106779637b3.17.2026.11.28.01.26.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 01:26:45 -0800 (PST)
-Date: Sat, 28 Nov 2026 01:26:44 -0800
-From: Chris Down <chris@chrisdown.name>
-To: Christoph Hellwig <hch@lst.de>
-Cc: "Martin K. Petersen" <mkp@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH 2/2] scsi: sd: Fix data corruption in WRITE SAME(10)
-	discards
-In-Reply-To: <20261111164705.GC18355@lst.de>
-References: <cover.1794069087.git.chris@chrisdown.name>
-	<c58578f870580f92d1acd6cb73b59b7a7867d80b.1794069087.git.chris@chrisdown.name>
-	<20261111164705.GC18355@lst.de>
-Message-ID: <awqeVFzX-t35Vvs4@chrisdown.name>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F6D1F000C1;
+	Sat, 28 Nov 2026 09:30:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795858208;
+	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=etxzu4GTQ3UAhayP6IwZ0T6LF9L1qSUo19CaH3iTmZJVZH5ESTqVbkZN1Vz0PxMaS
+	 2wBVe5sdp5u2WvEf9kxs8tEk56YVDrE1bHB6B7n08bE1kHEGaXkVcOOfNC3jgQ/5xc
+	 yfWMDm82Vg9ytJwKzhgAMEWJAJ9yvfDP0HKRFbwM7NIBnN5AR2F7vjwVMXXKRaLlEv
+	 bgDLY941y3JoOtLsHp7FN6R/7AjhTau+ObJnq7euXJXEvjk/IdcVTmWgW5MtLvzOpV
+	 qWbKKk6p4XzCq9UtK4o5u9Vg97vYnsBAgEvvFJzjgCKtuc1cNRHKRLPN2UUPSxwih6
+	 Ae19c48Z5xojw==
+Subject:
+ Re: [PATCH net v5 1/4] ice: stop the service task before the PF is unloaded
+From: netdev-bot+sashiko@kernel.org
+To: poros@redhat.com
+Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
+ przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ aleksandr.loktionov@intel.com, horms@kernel.org,
+ michal.swiatkowski@linux.intel.com, grzegorz.nitka@intel.com,
+ pmenzel@molgen.mpg.de, wojciech.drewek@intel.com,
+ marcin.szycik@linux.intel.com, martyna.szapar-mudlaw@linux.intel.com,
+ ivecera@redhat.com, alice.michael@intel.com, jacob.e.keller@intel.com,
+ jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
+ aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
+ linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 09:30:06 +0000
+Message-ID: <179585820637.3135.16053674648760900756@kernel.org>
+In-Reply-To: <20261127085714.1207361-2-poros@redhat.com>
+References: <20261127085714.1207361-2-poros@redhat.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,46 +71,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-Hi Christoph,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Christoph Hellwig writes:
->Nah, that's not really how things work.  See my reply to patch 1
->for the suggested proper fix.
+Critical: 0 · High: 2 · Medium: 1 · Low: 0
 
-Sure, I'll do the same for writesame_10 and writesame_zero in v2.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Even with that, a discard can still reach sd_setup_write_same10_cmnd()
-with a count that doesn't fit, though.
+- [High] The patch moves the early ice_service_task_stop() only in
+  ice_remove().
+- [High] The patch handles the "last run re-arms the service timer after
+  the stop, and the timer fires after the PF is freed" race only in the…
+- [Medium] The early ice_service_task_stop() in ice_remove()
+  (ice_main.c:5390) does not stop the service work from being queued…
 
-One case is a discard that is already queued when the mode changes. sd
-sets provisioning_mode before it freezes the queue to commit the new
-limits, so that request is still sized for the old mode. For that one
-I'll set the mode with the queue frozen instead, as
-nvme_update_ns_info_block() does for its own state.
+--
 
-The other is that __bio_split_discard() doesn't split a discard at all
-when max_discard_sectors is zero or below the discard granularity. With
-scsi_debug, 512-byte blocks and an unmap granularity of 0x10000 blocks,
-a 64 MiB discard in writesame_10 mode goes out as a single WRITE
-SAME(10) with a count of zero. sd can avoid that one by disabling
-discard when the granularity is above its limit, as drbd does. But
-writing 0 to discard_max_bytes while a large discard is running also
-sends the rest of the bio to sd unsplit, and I don't see how sd can
-prevent that with its limits.
+ice: stop the service task before the PF is unloaded
 
-An LBA that doesn't fit can still get there as well. bio_check_eod()
-only checks a bio against the partition it was submitted to. If a disk
-shrinks to 2^32 blocks or fewer while a partition on it still ends
-above that, a discard to the end of that partition is sent as WRITE
-SAME(10) with its LBA truncated. sd_setup_read_write_cmnd() fails reads
-and writes there with "access beyond end of device", but discards and
-write zeroes have no such check.
+This patch moves ice_service_task_stop() and ice_aq_cancel_waiting_tasks()
+in ice_remove() back to right after ice_free_vfs(). The service task is then
+stopped before the aRFS filters, netdev, LAG and VSIs are freed. The stop
+in ice_deinit_dev() is kept so that it deletes a timer re-armed by the last
+run.
 
-Would you rather I fix those in the block layer, or have sd check the
-LBA and count before it builds the command?
+> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
+> index 47c6798c97e8f..6dede87b78944 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_main.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
+> @@ -5387,6 +5387,9 @@ static void ice_remove(struct pci_dev *pdev)
+>  		ice_free_vfs(pf);
+>  	}
+>  
+> +	ice_service_task_stop(pf);
+> +	ice_aq_cancel_waiting_tasks(pf);
+> +
 
-Chris
+[Severity: High]
+The same ordering problem seems to remain on the other paths that unload
+the PF. ice_devlink_reinit_down() in devlink/devlink.c does:
+
+	ice_unload(pf);
+	rtnl_lock();
+	ice_vsi_decfg(ice_get_main_vsi(pf));
+	rtnl_unlock();
+	ice_deinit_pf(pf);
+	ice_deinit_hw(&pf->hw);
+	ice_deinit_dev(pf);
+
+Nothing sets ICE_SERVICE_DIS before ice_deinit_dev(), so the service timer
+keeps queueing serv_task during this whole sequence:
+
+  - ice_unload()->ice_decfg_netdev() calls free_netdev(vsi->netdev).
+  - ice_deinit_pf() destroys sw_mutex, tc_mutex and lag_mutex, frees the
+    avail_txqs/avail_rxqs bitmaps and frees the misc IRQ.
+  - ice_deinit_hw() destroys the control queues.
+
+Can a run of ice_sync_fltr_subtask()->ice_vsi_sync_fltr() that has already
+read vsi->netdev keep using netdev->flags and netif_addr_lock_bh(netdev)
+after free_netdev()?
+
+A devlink dev reload with action driver_reinit can trigger this while a
+filter sync is pending, for example after a promisc or multicast change
+through ice_set_rx_mode().
+
+The probe error unwind in ice_probe() looks similar:
+
+unroll_load:
+	ice_unload(pf);
+unroll_init:
+	devl_unlock(priv_to_devlink(pf));
+	ice_deinit(pf);
+[ ... ]
+unroll_hw_init:
+	ice_deinit_hw(hw);
+	if (need_dev_deinit)
+		ice_deinit_dev(pf);
+
+When this unwind runs, ice_init() has already cleared ICE_SERVICE_DIS and
+armed serv_tmr. ice_load() has also queued serv_task through
+ice_service_task_restart().
+
+ice_deinit() only sets ICE_SERVICE_DIS, which does not wait for a running
+work item, and then ice_dealloc_vsis() frees pf->vsi. After that come
+ice_adapter_put() and ice_deinit_hw(), and only then the stop in
+ice_deinit_dev().
+
+Commit 8a37f9e2ff40, named in the Fixes: tag, is also the commit that moved
+ice_deinit_dev() after ice_deinit_hw() in this unwind. Should
+ice_devlink_reinit_down() and the probe unwind also stop the service task
+before they tear down the PF? Neither path seems to change later in the
+series.
+
+[Severity: Medium]
+Does a single ice_service_task_stop() here prevent serv_task from being
+queued again before ice_remove_arfs(), ice_unload() and ice_deinit() run?
+
+ice_service_task_schedule() tests ICE_SERVICE_DIS without a lock and only
+calls queue_work() afterwards:
+
+	if (!test_bit(ICE_SERVICE_DIS, pf->state) &&
+	    !test_and_set_bit(ICE_SERVICE_SCHED, pf->state) &&
+	    !test_bit(ICE_NEEDS_RESTART, pf->state))
+		queue_work(ice_wq, &pf->serv_task);
+
+Also, ice_service_task() does not check ICE_SERVICE_DIS when it starts.
+
+At this point the netdev is still registered and the misc IRQ is still
+live. That means ice_set_rx_mode(), ice_rx_flow_steer(), ice_misc_intr()
+and the VF fdir handlers can all still reach ice_service_task_schedule().
+
+One possible interleaving:
+
+CPU0 (ice_set_rx_mode)              CPU1 (ice_remove)
+set ICE_FLAG_FLTR_SYNC
+test_bit(ICE_SERVICE_DIS) == 0
+                                    ice_service_task_stop()
+                                      test_and_set_bit(ICE_SERVICE_DIS)
+                                      timer_delete_sync()
+                                      cancel_work_sync() /* idle */
+                                      clear_bit(ICE_SERVICE_SCHED)
+queue_work(ice_wq, &pf->serv_task)
+                                    ice_remove_arfs()
+                                    ice_unload()  /* free_netdev() */
+                                    ice_deinit()  /* ice_dealloc_vsis() */
+
+The worker would then run ice_sync_fltr_subtask(), ice_sync_arfs_fltrs()
+and the other subtasks against the state being freed. The second stop in
+ice_deinit_dev() only runs after the VSIs are already gone.
+
+The window is only a few instructions wide. Would a check of
+ICE_SERVICE_DIS at the start of ice_service_task(), or quiescing these
+scheduling sources first, be needed to close it?
+
+>  	if (!ice_is_safe_mode(pf))
+>  		ice_remove_arfs(pf);
+>  
+> @@ -5407,7 +5410,6 @@ static void ice_remove(struct pci_dev *pdev)
+>  	ice_deinit_hw(&pf->hw);
+>  
+>  	ice_deinit_dev(pf);
+> -	ice_aq_cancel_waiting_tasks(pf);
+>  	set_bit(ICE_DOWN, pf->state);
+>  }
+
+[Severity: High]
+The commit message says the stop in ice_deinit_dev() "stays and deletes a
+timer armed by the last run". The ordering inside ice_service_task_stop()
+has not changed, though:
+
+	ret = test_and_set_bit(ICE_SERVICE_DIS, pf->state);
+
+	if (pf->serv_tmr.function)
+		timer_delete_sync(&pf->serv_tmr);
+	if (pf->serv_task.func)
+		cancel_work_sync(&pf->serv_task);
+
+A work item that is running during the stop can re-arm the timer after
+timer_delete_sync():
+
+  - ice_service_task() calls mod_timer(&pf->serv_tmr, jiffies) at its tail
+    when a run was long or an *_EVENT_PENDING bit is set.
+  - ice_service_task_recovery_mode() always calls
+    mod_timer(&pf->serv_tmr, jiffies + msecs_to_jiffies(100)).
+
+Once that happens, ice_service_timer() keeps re-arming itself.
+
+Some paths still stop only once. The first is the recovery-mode branch
+of ice_remove():
+
+	if (ice_is_recovery_mode(&pf->hw)) {
+		ice_service_task_stop(pf);
+		scoped_guard(devl, priv_to_devlink(pf)) {
+			ice_deinit_devlink(pf);
+		}
+		return;
+	}
+
+After this, devres frees the PF (the devlink priv), and the recovery-mode
+work re-arms every 100ms. Can serv_tmr then fire on freed memory, or, after
+rmmod, on unloaded module text?
+
+The probe error unwind also calls ice_deinit_dev() only once before devres
+frees the PF.
+
+In ice_devlink_reinit_down(), the single stop in ice_deinit_dev() is
+followed by ice_devlink_reinit_up()->ice_init_dev()->
+ice_start_service_task(). That calls timer_setup(&pf->serv_tmr, ...) on a
+timer that may still be enqueued. Could this corrupt the timer wheel list
+once mod_timer() enqueues it again?
+
+Would it be better to fix this inside ice_service_task_stop()? One option
+is a second timer_delete_sync() after cancel_work_sync(). Another is to
+skip the tail mod_timer() calls when ICE_SERVICE_DIS is set. Either would
+avoid relying on a double stop at the call site.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
