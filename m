@@ -1,69 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.194
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795853258;
-	b=Se25HesyDLByFBMREwlX2b85FexORdQ96Oco761jxuYiS8axZFfXyyXu5J9ZYZYJ6rp5
-	 s7UPNUTLG+dc/kP0uSlWaknNZkzAJktGqBq2/xKRqMORDYVeUO+Pv+wFB59Ba8lz+SjFH
-	 K1CsSjRK42OXOzK47Vtwb9JHJycL1LnZhI26M44grXa88m78lqJPOVaIEHBIzzx/npF76
-	 MwWCuXq8THbXCOgOdP13caMwRihkB+gZA0Ocbs8OgTfbuREXVqz3/axCHIt71ryEnchDo
-	 opMMzExoYJXY4uCToeV4wjxre4ZsGzDDOEZ18WXbop3wX6w1mBJ0TUIVtV5nXMemfpQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795853258;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ZINrpTIDRyK96OE7tdSvNTd7yxguwovdSZsBhyWsQ4k=;
-	b=OkQrql3yiAKhlj4bl4Q0PA6S2q9XA4cYUAi3E0jI3hizsaHnhzae3VDxJDWzy5lYBrwY
-	 tL+RQTq04ZdSju81WvbaFP5kGSuKWF4MFpNufwXu1GyGXJmRXubZ6oF5+5qF3bd/cKom2
-	 b/hDE2Y3FnsnWaS9yy/IhQVJsL2P/jllXFsnuJEv1f4jRCUp1GuDwev4Orq2eXTZANi7l
-	 nMW585gFXkpAqSpGySmgy/vShUULpZsWP/AWGm2Xz6RQMiZFXJxUQCB/Zd4PK4sZExdpk
-	 nxCo18gjFWR5DtQ3oVNpRlr4FsQLgugH6Jc3yF9575RzNJTBSdX2JjZ7fFxxVpPrpuA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=pSlBbWg5;
-	arc=none smtp.remote-ip=115.124.28.194
-Received: from out28-194.mail.aliyun.com (out28-194.mail.aliyun.com [115.124.28.194])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795853393;
+	b=F5ATnkUNYrCwQeubLhNk9vS9iQ7Ih1PNG4WY+URMbKJKe+6sjkdM4QDPrOoD8nZtLWeg
+	 2UMyA4x2COom+F92fWQ8/nLZan7QqdjGv/6R8GyMcmtvq9T52p4O9nH5tRi26u8+2bfDw
+	 Tqr2EDiyJKuOSokAOvkDxhtCS65qFsIFhzctS/+hRCC/+vXsiE+CnSmVoLOtJeC9Lg92i
+	 OsSrwVdpNMVkn4LJ+5ziCp+NP/OAKFjpchVm2j0yd6Sa5LwXdjtGgJmk6AeGWMclz8XLQ
+	 dcwMspUzxbJUPHM9vcikKi5kjkaR8KTlduK6cgcjnSlEaUfsiziuVXixUv1pNVIdzYQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795853393;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=2ulowdNAh4XwLKfaFs7pTuNCELaY3qcxAbIhfl2cRjc=;
+	b=XKsrU0tHZRD8CjFJHa3O5OIK8uYen0PQ0zEdyQ7pCab901We/u9RiNVyTxO3l2fGho2Y
+	 WG6BDjX2am5Wcv0jFptL5DjUek6kT4Biis1MWIkDRKwPIhlHzKZ10zUv+VN5X//FlKx0f
+	 iJhM3c+a+GcmoLzjB/THwyfEQVRNQ/hDOcd0LKkVjWzBGx1iSDuk2wSnW4nZ4fpQhVvDE
+	 JJhS0aCZN+oMSHM1A7sYmwfiifSpZJrv6MSjuHoSGK5BjFqkiMuQNtK5j5nKlYUYtB66B
+	 kV/KFxhdYZv1ArZBBTjt4k8hKDrX6lPkCDezn6k+mDfh4gqrXbzz7FkybB/HbK1S15A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FDw5q33F;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.177
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com [209.85.208.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37381606A326;
-	Sat, 28 Nov 2026 08:07:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37381606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6102606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:09:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6102606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=pSlBbWg5
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795853247; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=ZINrpTIDRyK96OE7tdSvNTd7yxguwovdSZsBhyWsQ4k=;
-	b=pSlBbWg5ZSbdruUGoc+qgk6ns4Fwi0Na2OToSoJQqP6XmkTC3Dy5TAsR1vzOKA+4kUakTz+F8poSwk1K86CxXQWplOdLMkvUdOb8tNaVqTY0pGr31OBomthkBeCVEQ64q4W8kn+45HG6RKAnj+CnGR5zJvFHRnDfEIApJUSAEZg=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.00339496-0.00010848-0.996497;FP=16763931088865742014|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037026024;MF=liuc63@xiaopeng.com;NM=1;PH=DS;RN=15;RT=15;SR=0;TI=SMTPD_---.kC0FY4f_1795853245;
-Received: from localhost(mailfrom:liuc63@xiaopeng.com fp:SMTPD_---.kC0FY4f_1795853245 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Sat, 28 Nov 2026 16:07:26 +0800
-From: Liu Chao <liuc63@xiaopeng.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	khtsai@google.com,
-	fangxy@xiaopeng.com,
-	Randy Dunlap <rdunlap@infradead.org>,
-	dbrownell@users.sourceforge.net,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH v6 2/2] usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
-Date: Sat, 28 Nov 2026 16:07:15 +0800
-Message-ID: <20261128080722.1469508-3-liuc63@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261128080722.1469508-1-liuc63@xiaopeng.com>
-References: <20261128080722.1469508-1-liuc63@xiaopeng.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FDw5q33F
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ae85add512so74132531fa.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:09:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795853391; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VIqPB5x7mi+Ht4qgQL4FUSZVjwbvB19ILwBP+QY5/HImV3z5NM0E19vJvAHv3AKbB1
+         1kSOTuKi9IQu9PCed2HURiG2XRCd6tPnukaC32I4x1MoU/5idTdigPY/TTRFaTK1UYM2
+         vByWZd18gjUKLVhPr7f01v9tQuWvNUZZ8QjyGL4O9cfIyWGaZNTLlzSkNpJYiPjbkOLD
+         NDA8aCLod1g0C2YOIYmNmDPrIcr6biAd4sH6COirKZjKEVFTpWYgfcZJAwcs0SH9c2Eg
+         CJlZyb+LOy27a00XSVAnZ3OwzjZ5UV7+EMN7frMyhmJ5pP2XmNPyqGqD8v3X3s2zYFUJ
+         rHbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=2ulowdNAh4XwLKfaFs7pTuNCELaY3qcxAbIhfl2cRjc=;
+        fh=0Ik9IN3dcHnqGyCT+ia1yKMbBp9LIA0mMq2WI/bA4lc=;
+        b=pMu3T95iF1qxmYg34LU2ib+bjmZLEYziRi+E2DRQrIXlMO7s+YhLXkrX+CDDjJJVCP
+         gn7swuYgX8eFE6ZZdUDxxfCWxy/fUcsSGIvvZmm3CgNeEpaQPiU7mIFI989R4aprWx11
+         tzP35/j6ftX/qwr7ukniK7MKJ1hyPRSN+TGAr+zOpd3o92zFGXRcHRdFDHoo8QZll62+
+         szs6RFjceCuoBpyvRVj6khonwbix4r4fIXXNWN3sZM/ZqX3IY0wsOKvkW3Qg0grmrY/y
+         DyTbBn3kEWxNnPRn4E+LdYk/aAvqxXNnkUEOZVJsXeq+oEr071r4bfkDKWqNaQ7M47If
+         5Vhg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795853391; x=1796458191; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2ulowdNAh4XwLKfaFs7pTuNCELaY3qcxAbIhfl2cRjc=;
+        b=FDw5q33FY2EYV1s9fMLiJMZq1LsGa0ws5B2UKS7JALyQCipSORfGH6To+JE9oZ7YsI
+         LImqIQUDLokTZKcrsnpoE+wVKtvwcUvEKnWsVsP6XF9bREF97zqdaoRR8+hhOcp4t0pj
+         4AU/P9dUz/bxW1fR2K57H7rf4iU2TraIMKWeJVzCYuZaqCjxrSE0VvcocnUTY7EdPRps
+         KfASP4oFYn4K3sSKsBiZmxkZD6NSxSOrFA9InVAUabIVfInHrf4f5m7aQ4XLzBy8MRdo
+         sycnOqFovUc6KKyzb/IoxSLhrQ6OPlE9t6WwcxrMxN+A2e3hxoQEs6fpk6dBxHzaUuMg
+         Rodg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795853391; x=1796458191;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2ulowdNAh4XwLKfaFs7pTuNCELaY3qcxAbIhfl2cRjc=;
+        b=n0nayb4LBbnJCf2S2OilDwR8GbQOAhUFO0Vms2xa4MPyIIUVfkszEzZYLo/jUft5zL
+         MKh+J8Zn0UNgqB8ntDDZZQaCjprtfJYOGAquU/WmxZikL6rwFXbBQS6TnlBTknQMiHBC
+         lgXvK0esnhxXwcPS/4xAb2bAlN/XEPzbV3rotsz7TKV5yWDGfBhWPBYkMLPE9xiasNVX
+         yrxw9Zk1AmbMIyN0dQsRgmCF65hF29KgziRysCBoDSFUFh/LpxlZoRjf34u2xeP4pLDu
+         F+l2CYu2PDerPV1W8jyuE8vEFf4xVIdln16Jz0QitPIgAmIZSTP3uCEqjvxAj/1OL7FA
+         AC3A==
+X-Forwarded-Encrypted: i=1; AL+hErHJjRyM5VL0Z+LUw4pRSqxSEkKglbxJMWw/lwkxRaPNU+qDUzslBYzpMR/Fets94JZP7CqT9CcuMKzG+Gw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/trqXCcOqzeNsuZknMffXn8NEcD3iq8hpWOZDpcVnbtbQsOJb0
+	Iy7wrwUgTfGnEGN+YdnC7M+NM3WjUBRPBVkfk/o/CofGVrpT0H5eNLDDUaxHMCF4S4CwnL8LFrE
+	5gD1UYuGUQ/q/zqgeqH4qthehnvfZ148=
+X-Gm-Gg: AZFdTZeqT0uOsIZNzKFGpLb/t5yUSOi4qMXla3Vuj5xCDuhrC8BPkywaHJhTV9PzVud
+	CXDwA6Crz/uO9Ws/Skw0tctxV4AK1s830omOTf0oJ7MwIzqH+B+1/IAWBF03SHc2ZTJMR2p+Bgy
+	/5mA5UyXyZEA4gNXhA+GKMTBAWsYaXjSha1YLF0/0VvgMGveDgw4nXTHMyabTTAiAZdgX6HmxH3
+	5jQBS/04rc/eaenACtjo1KZu1ObTIbjd4IYxyYiLNuwBxUeq/elvrN5TtzhLY6kb5jRVsukE1mj
+	8UUFsAAowM9o/L2ueZDqxlJ5znllwa2zshil++b3vVMDgc0DcgnY512jVy309RutgFXzXlDlO6D
+	i17/Y+5y15IXNeeJlZD9y4sNfOtB9hzXeWrz9
+X-Received: by 2002:a05:6512:1315:b0:5c1:5b62:8bc8 with SMTP id
+ 2adb3069b0e04-5c1bc7daf87mr8455801e87.35.1795853390568; Sat, 28 Nov 2026
+ 00:09:50 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,298 +104,624 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
+ <CAKEwX=MLrDn55wmVKKba5=PcU+qFpkEbMmN2SjGTfTBiFKX8cw@mail.gmail.com>
+ <awXr6iHBR54wBB05@google.com> <CACpmpodH3UUDLEze8=5v8LWgKnZWQVrQBhzSGJFY-PwEYmHEzQ@mail.gmail.com>
+ <awYsDfYqrS2ldOTw@google.com> <CACpmpofsU3f=PVQF4moe6n=_qit1ZGyo4FMjyM-sVgumfyN0iw@mail.gmail.com>
+ <awZt7P_p-GNZ3A2i@google.com> <CACpmpod_87WY_PcOsNmPZvFzmJyBtCpyvvq1a_BqmZgGmO1e5A@mail.gmail.com>
+ <awcK9oNDbc1QFJr6@google.com> <CACpmpoenPZ_SqhxL70r8q09WBfrnqvPu3H+F8Tz3nVwO=rvUTw@mail.gmail.com>
+ <CAO9r8zP3Skc=X8+cxnV4V=CKaAqcndnAVniMvcfeOHVeSk4oAA@mail.gmail.com>
+In-Reply-To: <CAO9r8zP3Skc=X8+cxnV4V=CKaAqcndnAVniMvcfeOHVeSk4oAA@mail.gmail.com>
+From: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Date: Sat, 28 Nov 2026 00:09:37 -0800
+X-Gm-Features: Aa3M54r35m-gWbG0MnDGTb0eGIJGp46YnS80xudhrHl0F044wd57z5-qF-W55Eg
+Message-ID: <CACpmpofUGBENyQDO7FdMhx0H-NPhenySWjkQdHkh7OGyAg0e2Q@mail.gmail.com>
+Subject: Re: [PATCH v4 0/8] Batched zswap_store() framework with compression batching
+To: Yosry Ahmed <yosry@kernel.org>
+Cc: Nhat Pham <nphamcs@gmail.com>, hannes@cmpxchg.org, chengming.zhou@linux.dev, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
+	senozhatsky@chromium.org, 
+	"Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-get_ether_addr() walks the MAC address string with a fixed six iteration
-loop, calling hex_to_bin() twice per iteration, and never checks for the
-terminating NUL.  A short string therefore makes it read past the end of
-the buffer.  The dev_addr and host_addr module parameters of the legacy
-gadget drivers are copied into their own kmalloc'ed buffer by
-param_set_charp(), so the overrun crosses a slab boundary and KASAN
-reports it at insmod time:
+On Wed, Nov 25, 2026 at 11:46=E2=80=AFAM Yosry Ahmed <yosry@kernel.org> wro=
+te:
+>
+> On Wed, Nov 25, 2026 at 10:06=E2=80=AFAM Kanchana P. Sridhar
+> <kanchanapsridhar2026@gmail.com> wrote:
+> >
+> > On Wed, Nov 25, 2026 at 8:31=E2=80=AFAM Yosry Ahmed <yosry@kernel.org> =
+wrote:
+> > >
+> > > [..]
+> > > > > write_s would be calculated averaging the time in the ".. bytes /=
+ ..
+> > > > > usecs" lines, and free_s by averaging the time from the ".. usecs=
+ to free
+> > > > > memory" lines.
+> > > > >
+> > > > > In this run:
+> > > > > write_s =3D 37.31 s
+> > > > > free_s =3D 23.39 s
+> > > > >
+> > > > > With your patches, I got:
+> > > > > write_s =3D 37.03 s
+> > > > > free_s =3D 18.86 s
+> > > >
+> > > > I am not sure how useful it is to apply user-space gettimeofday()
+> > > > results that time many higher level C code API, as an indicator of
+> > > > zswap_store() performance.
+> > >
+> > > It is useful to see where the time is being spent, and it is consiste=
+nt
+> > > with the perf profiles.
+> > >
+> > > [..]
+> > > > > You can see that the cycles spent on zswap_store() are almost the=
+ same,
+> > > > > and the cycle reduction happens in zswap_invalidate().
+> > > >
+> > > > The cycles spent in zswap_store() should be normalized to the # of
+> > > > zswpout events that these CPU cycles represent, for this to be a
+> > > > reliable measure of latency improvement. There could be an increase=
+ in
+> > > > reclaimed folios for any number of reasons, all of which are not
+> > > > necessarily due to performance-improvement/degradation of
+> > > > zswap_store() itself. IOW, more work for less latency per unit of w=
+ork
+> > > > is not always indicative of a performance degradation in this case.
+> > > >
+> > > > A realistic scenario would be that with zswap_store() becoming more
+> > > > efficient, the 30 allocating threads cause more memory.high breache=
+s,
+> > > > that causes more zswpout..
+> > > > This would cause more CPU cycles in zswap_store(), but the fact
+> > > > remains that zswap_store() efficiency has improved due to batching.
+> > >
+> > > The zswpout number is almost identical: 45,796,107 vs 45,796,089.
+> >
+> > Can you also share these vmstat/zswap stats for this run (baseline and
+> > with patches):
+> >
+> >  pswpin
+> >  pswpout
+> >  thp_swpout
+> >  thp_swpout_fallback
+> >  zswpin
+> >  zswpout
+> >  zswpwb
+> >  pgmajfault
+> >  2048kB-alloc
+> >  2048kB-zswpout
+> >  2048kB-swpout
+> >  2048kB-swpout-fallback
+> >  zswap_pool_total_size
+> >  zswap_pool_limit_hit
+> >  zswap_written_back_pages
+>
+> These are the ones I have. I only enable 2M mTHP so I think most
+> 2048kB-* stats can be derived:
+>
+>                                base          p1-8
+>       pswpin                      0             0
+>       pswpout                     0             0
+>       thp_swpout                  0             0
+>       thp_swpout_fallback         0             0
+>       zswpin                    265           247
+>       zswpout            45,796,107    45,796,089
+>       zswpwb                      0             0
+>       pgmajfault              2,811         4,231
+>       thp_fault_alloc       153,600       153,600
+>
+> The increase in pgmajfault is unrelated, probably because I dropped
+> caches before runs and these are file page faults. The number of
+> swapins is ~the same. zswap_pool_limit_hit, zswap_written_back_pages,
+> and post-run zswap_pool_total_size are all 0 (consistent with
+> pswpout=3D0 and zswpwb=3D0).
 
-  # insmod g_ether.ko dev_addr=ab
+I ran some experiments today to measure the zswap_store() latency
+gains with PMD folios, baseline vs. zswap compress batching.
 
-  BUG: KASAN: slab-out-of-bounds in get_ether_addr+0x1ec/0x230
-  Read of size 1 at addr ffff888009f91f53 by task insmod/70
-  ...
-   get_ether_addr+0x1ec/0x230
-   gether_set_dev_addr+0x6b/0x180
-   eth_bind+0xfd/0x3b0 [g_ether]
-   composite_bind+0x1bb/0x7b0
-   gadget_bind_driver+0x229/0xb00
-  ...
-  Allocated by task 70:
-   __kmalloc_noprof+0x1d1/0x4a0
-   param_set_charp+0x4a/0x220
-   parse_args+0x267/0x5c0
-   load_module+0x4f6a/0x6600
-  ...
-  The buggy address is located 0 bytes to the right of
-   allocated 19-byte region [ffff888009f91f40, ffff888009f91f53)
+Summary of new data:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 
-Besides reading past the end of the string, the loop ignores what
-hex_to_bin() returns: it yields -1 for a character that is not a hex
-digit, and that value is shifted and OR'ed into dev_addr unchecked, so a
-malformed address can be accepted as a valid one and the interface comes
-up with an address that nobody asked for:
+1) Ran Unmodified Usemem and Usemem with Silesia for 10 iterations.
+2) Gathered zswap_store() bpftrace kernel latencies for each
+iteration, with the help of LLM generated scripts:
+   a) Each iteration reports Sys time along with cumulative
+zswap_store() latency for that iteration.
+   b) bpftrace aggegrates nsec spent in zswap_store() calls.
+   c) bpftrace uses lhist windows: Much better accuracy than log2 hist:
 
-  # insmod g_ether.ko dev_addr=aazz:cc:dd:ee:ff
-  # cat /sys/class/net/usb0/address
-  aa:ff:cc:dd:ee:ff
+        PMD folios lhist:
+        /* 10000 us - 25000 us in 15 us steps (1000 buckets, covers
+baseline & batched) */
+        @zswap_higher_order_folio_store_ns =3D lhist($lat, 10000000,
+25000000, 15000);
 
-The configfs dev_addr and host_addr attributes of the ECM, EEM, NCM,
-RNDIS and subset functions reach the same parser through
-gether_set_dev_addr() and gether_set_host_addr().  Their store handler
-passes the whole configfs buffer on, so an overrun there stays inside the
-same object and is never reported, but a malformed address is silently
-accepted all the same.
+        Order-0 folios lhist:
+        /* 0 - 500 us in 500 ns steps (1000 buckets) */
+        @zswap_order0_folio_store_ns      =3D lhist($lat, 0, 500000, 500);
 
-Replace the open coded loop with parse_mac_pton() for the delimited
-notations and hex2bin() for the raw one, and keep the existing
-eth_random_addr() fallback for everything both of them reject.
-parse_mac_pton() checks the minimum length and every digit before writing
-anything to dev_addr, and hex2bin() stops at the first character that is
-not a hex digit, which the NUL terminator is, so neither reads past the
-end of the string.
+3) Ran with/without zswap shrinker enabled.
 
-The notations that keep working are the byte pair ones, ':' and '.', in
-any mixture, and the separator-less "aabbccddeeff".  What stops working
-is the Cisco notation "aabb.ccdd.eeff" and irregular groupings such as
-"123456:789abc", which the old loop only accepted because it skipped a
-delimiter wherever it happened to find one.  Supporting them would need
-a parser per grouping, so such input is now rejected.
+Conclusions based on the results:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D
+1) Gains in zswap_store() latency are unambiguously established with
+zswap compress batching, both, for unmodified usemem and usemem
+reading Silesia.
 
-Neither of the two should be missed: they are historical notations that
-are rarely met these days, and the commit that introduced the loop never
-said that it accepted them.  That commit only explains that it resolves
-a FIXME by adding module parameters for stable addresses, so skipping a
-delimiter wherever one happens to turn up reads as a simplification of
-the parser rather than as support for non-standard formats.
+2) Gains in zswap_store() latency are seen without and with zswap
+shrinker enabled.
 
-How a rejected address is reported depends on the caller.  The configfs
-attributes of the ECM, EEM, NCM, RNDIS and subset functions go through
-gether_set_dev_addr() and gether_set_host_addr(), which return -EINVAL,
-so the store fails and the attribute keeps its previous value: writing
-"aabb.ccdd.eeff" to dev_addr used to succeed and now fails.  The legacy
-module parameters call the same two setters but silently ignore their
-error, so the interface keeps the random address that
-gether_setup_name_default() picked when it was created, with nothing in
-the log to say why the requested address was not used.  Make both
-setters warn when get_ether_addr() rejects an address the caller
-actually supplied, so that the user sees which address was rejected and
-that a random one is in use; the default case of no address given stays
-silent.  Also document the accepted formats in the configfs ABI files of
-all five functions.
+3) More significant zswap_store() latency gains are seen with the
+zswap shrinker:
 
-Select GENERIC_NET_UTILS so that parse_mac_pton() is built in.
+   Unmodified usemem:   Sys time -2.4%, zswap_store() total latency -1.10%
+   Usemem with Silesia: Sys time -4.11%, zswap_store() total latency -3.43%
 
-The loop is older than the git history.  It was introduced by the
-commit 331a2d82bcaf ("[PATCH] USB: ethernet/rndis gadget address params")
-from v2.6.7 in drivers/usb/gadget/ether.c, and commit 2b3d942c4878 ("usb
-ethernet gadget: split out network core") copied it into u_ether.c.
-That commit predates the git conversion and only resolves in the
-historic tree history.git, so the Fixes: tag points at the start of the
-official git era, commit 1da177e4c3f4 ("Linux-2.6.12-rc2"), and the
-commit that actually introduced the loop is named here in prose.
+4) With zswap shrinker, up to 4.10% fewer zswpout and up to 10.06%
+fewer zswap_written_back_pages are observed with the patch series wrt
+baseline.
 
-Link: https://lore.kernel.org/all/20261117090110.3263592-3-liuc63@xiaopeng.com/
-Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Liu Chao <liuc63@xiaopeng.com>
----
-v6: correct the commit message: the legacy module parameters do not go
-    through gether_setup_name() (it has no callers), they go through
-    gether_set_dev_addr() and gether_set_host_addr(), which return -EINVAL
-    and leave the random address picked at setup in place; as Andy
-    suggested, make both setters warn when get_ether_addr() rejects an
-    address the caller supplied, leaving the no-address default silent;
-    amend the five configfs ABI notes to say the raw notation
-    matches at the beginning of the input, trailing characters are ignored,
-    and the address must be unicast and not all-zero.
-v5: no driver code change.  Describe the configfs behaviour accurately
-    (a rejected address fails the store with -EINVAL and keeps the old
-    value), name all five functions that use the parser, document the
-    accepted formats in their configfs ABI files, restore a Fixes: tag
-    for 1da177e4c3f4 ("Linux-2.6.12-rc2") while keeping the real
-    introducing commit in prose, and say "minimum length" where v4 said
-    "length".
-v4: pick up Andy's Reviewed-by; name 331a2d82bcaf from v2.6.7 as the
-    commit that introduced the loop and note that it only resolves in
-    history.git; record that the notations being dropped are historical
-    and were never documented as supported.  No code change.
-v3: fall back to hex2bin() so that the separator-less notation keeps
-    working, as suggested by Andy; drop the Fixes tag, the loop predates
-    the git history.
-v2: rework on top of parse_mac_pton(), add the KASAN report and the
-    malformed address example, select GENERIC_NET_UTILS, drop Cc: stable
-    and the Reviewed-by.
-Link: https://lore.kernel.org/all/20261117090110.3263592-3-liuc63@xiaopeng.com/
+5) Without zswap shrinker, the usemem30 Silesia experiments show 38%
+fewer zswpout, 62% fewer PMD folio allocations and 49% fewer PMD THP
+zswpouts, with 0 pswpout/zswapwb/pool_limit_hit. This is indicative of
+the zswap_store() speed-up resulting in less memory pressure.
 
- .../ABI/testing/configfs-usb-gadget-ecm       |  9 +++++-
- .../ABI/testing/configfs-usb-gadget-eem       |  9 ++++++
- .../ABI/testing/configfs-usb-gadget-ncm       |  8 +++++
- .../ABI/testing/configfs-usb-gadget-rndis     |  9 ++++++
- .../ABI/testing/configfs-usb-gadget-subset    |  9 ++++++
- drivers/usb/gadget/Kconfig                    |  1 +
- drivers/usb/gadget/function/u_ether.c         | 30 +++++++++++--------
- 7 files changed, 62 insertions(+), 13 deletions(-)
+6) zswap_store() bpftrace avg, p50, p95, p99 latency distributions
+improve consistently for PMD folios.
 
-diff --git a/Documentation/ABI/testing/configfs-usb-gadget-ecm b/Documentation/ABI/testing/configfs-usb-gadget-ecm
-index 732101ca9d0b..77fec9086ced 100644
---- a/Documentation/ABI/testing/configfs-usb-gadget-ecm
-+++ b/Documentation/ABI/testing/configfs-usb-gadget-ecm
-@@ -17,4 +17,11 @@ Description:
- 			      - MAC address of device's end of this
- 				Ethernet over USB link
- 
--
-+		host_addr and dev_addr accept a MAC address as six byte
-+		pairs separated by ':' or '.', in any mixture
-+		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-+		hexadecimal digits with no separator (aabbccddeeff) at the
-+		beginning of the input.  Trailing characters are ignored.
-+		The address must be unicast and not all-zero.  Anything
-+		else is rejected: the write fails with EINVAL and the
-+		attribute keeps its previous value.
-diff --git a/Documentation/ABI/testing/configfs-usb-gadget-eem b/Documentation/ABI/testing/configfs-usb-gadget-eem
-index 178c3d5fb647..a690a629554f 100644
---- a/Documentation/ABI/testing/configfs-usb-gadget-eem
-+++ b/Documentation/ABI/testing/configfs-usb-gadget-eem
-@@ -14,3 +14,12 @@ Description:
- 		dev_addr	MAC address of device's end of this
- 				Ethernet over USB link
- 		==========	=============================================
-+
-+		host_addr and dev_addr accept a MAC address as six byte
-+		pairs separated by ':' or '.', in any mixture
-+		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-+		hexadecimal digits with no separator (aabbccddeeff) at the
-+		beginning of the input.  Trailing characters are ignored.
-+		The address must be unicast and not all-zero.  Anything
-+		else is rejected: the write fails with EINVAL and the
-+		attribute keeps its previous value.
-diff --git a/Documentation/ABI/testing/configfs-usb-gadget-ncm b/Documentation/ABI/testing/configfs-usb-gadget-ncm
-index 6fe723effc78..94891eafe81e 100644
---- a/Documentation/ABI/testing/configfs-usb-gadget-ncm
-+++ b/Documentation/ABI/testing/configfs-usb-gadget-ncm
-@@ -13,3 +13,11 @@ Description:
- 		dev_addr	- MAC address of device's end of this
- 				Ethernet over USB link
- 
-+		host_addr and dev_addr accept a MAC address as six byte
-+		pairs separated by ':' or '.', in any mixture
-+		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-+		hexadecimal digits with no separator (aabbccddeeff) at the
-+		beginning of the input.  Trailing characters are ignored.
-+		The address must be unicast and not all-zero.  Anything
-+		else is rejected: the write fails with EINVAL and the
-+		attribute keeps its previous value.
-diff --git a/Documentation/ABI/testing/configfs-usb-gadget-rndis b/Documentation/ABI/testing/configfs-usb-gadget-rndis
-index 9416eda7fe93..a6c2bd7916ef 100644
---- a/Documentation/ABI/testing/configfs-usb-gadget-rndis
-+++ b/Documentation/ABI/testing/configfs-usb-gadget-rndis
-@@ -17,3 +17,12 @@ Description:
- 		subclass	USB interface subclass, default is 06 (hex)
- 		protocol	USB interface protocol, default is 00 (hex)
- 		=========	=============================================
-+
-+		host_addr and dev_addr accept a MAC address as six byte
-+		pairs separated by ':' or '.', in any mixture
-+		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-+		hexadecimal digits with no separator (aabbccddeeff) at the
-+		beginning of the input.  Trailing characters are ignored.
-+		The address must be unicast and not all-zero.  Anything
-+		else is rejected: the write fails with EINVAL and the
-+		attribute keeps its previous value.
-diff --git a/Documentation/ABI/testing/configfs-usb-gadget-subset b/Documentation/ABI/testing/configfs-usb-gadget-subset
-index 0061b864351f..8a928b9ef531 100644
---- a/Documentation/ABI/testing/configfs-usb-gadget-subset
-+++ b/Documentation/ABI/testing/configfs-usb-gadget-subset
-@@ -14,3 +14,12 @@ Description:
- 		dev_addr	MAC address of device's end of this
- 				Ethernet over USB link
- 		==========	=============================================
-+
-+		host_addr and dev_addr accept a MAC address as six byte
-+		pairs separated by ':' or '.', in any mixture
-+		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-+		hexadecimal digits with no separator (aabbccddeeff) at the
-+		beginning of the input.  Trailing characters are ignored.
-+		The address must be unicast and not all-zero.  Anything
-+		else is rejected: the write fails with EINVAL and the
-+		attribute keeps its previous value.
-diff --git a/drivers/usb/gadget/Kconfig b/drivers/usb/gadget/Kconfig
-index 76521555e3c1..b83c42be686b 100644
---- a/drivers/usb/gadget/Kconfig
-+++ b/drivers/usb/gadget/Kconfig
-@@ -158,6 +158,7 @@ config USB_U_SERIAL
- 
- config USB_U_ETHER
- 	tristate
-+	select GENERIC_NET_UTILS
- 
- config USB_U_AUDIO
- 	tristate
-diff --git a/drivers/usb/gadget/function/u_ether.c b/drivers/usb/gadget/function/u_ether.c
-index 59d85d6a84a8..59bddadf975e 100644
---- a/drivers/usb/gadget/function/u_ether.c
-+++ b/drivers/usb/gadget/function/u_ether.c
-@@ -686,18 +686,16 @@ static int eth_stop(struct net_device *net)
- static int get_ether_addr(const char *str, u8 *dev_addr)
- {
- 	if (str) {
--		unsigned	i;
-+		bool valid;
- 
--		for (i = 0; i < 6; i++) {
--			unsigned char num;
-+		/* Try the delimited formats first */
-+		valid = parse_mac_pton(str, dev_addr, ".:");
-+		if (valid && is_valid_ether_addr(dev_addr))
-+			return 0;
- 
--			if ((*str == '.') || (*str == ':'))
--				str++;
--			num = hex_to_bin(*str++) << 4;
--			num |= hex_to_bin(*str++);
--			dev_addr [i] = num;
--		}
--		if (is_valid_ether_addr(dev_addr))
-+		/* Fall back to the raw format */
-+		valid = hex2bin(dev_addr, str, ETH_ALEN) == 0;
-+		if (valid && is_valid_ether_addr(dev_addr))
- 			return 0;
- 	}
- 	eth_random_addr(dev_addr);
-@@ -927,8 +925,12 @@ int gether_set_dev_addr(struct net_device *net, const char *dev_addr)
- 	u8 new_addr[ETH_ALEN];
- 
- 	dev = netdev_priv(net);
--	if (get_ether_addr(dev_addr, new_addr))
-+	if (get_ether_addr(dev_addr, new_addr)) {
-+		if (dev_addr)
-+			pr_warn("rejected device ethernet address %s, using random\n",
-+				dev_addr);
- 		return -EINVAL;
-+	}
- 	memcpy(dev->dev_mac, new_addr, ETH_ALEN);
- 	net->addr_assign_type = NET_ADDR_SET;
- 	return 0;
-@@ -957,8 +959,12 @@ int gether_set_host_addr(struct net_device *net, const char *host_addr)
- 	u8 new_addr[ETH_ALEN];
- 
- 	dev = netdev_priv(net);
--	if (get_ether_addr(host_addr, new_addr))
-+	if (get_ether_addr(host_addr, new_addr)) {
-+		if (host_addr)
-+			pr_warn("rejected host ethernet address %s, using random\n",
-+				host_addr);
- 		return -EINVAL;
-+	}
- 	memcpy(dev->host_mac, new_addr, ETH_ALEN);
- 	return 0;
- }
--- 
-2.50.1
 
+A) zswap_compressor =3D ZSTD, zswap_shrinker =3D N:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+ Unmodified Usemem (100% over-commit):
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+         usemem -w -O -b 5 -s 10 -n 30 10g
+         cgroup memory.high =3D 150G
+         zswap max_pool_percent =3D 20% (default)
+ --------------------------------------------------------------------------=
+------
+
+ Baseline:
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D
+ [+] Starting benchmark suite: 10 runs (Limit: 150G).
+ --------------------------------------------------------------------------=
+--
+ [Run 1/10] Sys Time: 2082.624s | zswap_store: 1279.346867s
+ [Run 2/10] Sys Time: 2076.123s | zswap_store: 1279.284415s
+ [Run 3/10] Sys Time: 2067.660s | zswap_store: 1279.446595s
+ [Run 4/10] Sys Time: 2087.806s | zswap_store: 1279.958761s
+ [Run 5/10] Sys Time: 2105.170s | zswap_store: 1278.988750s
+ [Run 6/10] Sys Time: 2059.407s | zswap_store: 1278.937106s
+ [Run 7/10] Sys Time: 2076.392s | zswap_store: 1279.162205s
+ [Run 8/10] Sys Time: 2078.407s | zswap_store: 1279.057718s
+ [Run 9/10] Sys Time: 2074.148s | zswap_store: 1279.366872s
+ [Run 10/10] Sys Time: 2045.885s | zswap_store: 1279.217773s
+ --------------------------------------------------------------------------=
+--
+
+ zswap_compress_batching:
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ [+] Starting benchmark suite: 10 runs (Limit: 150G).
+ --------------------------------------------------------------------------=
+--
+ [Run 1/10] Sys Time: 1980.633s | zswap_store: 1274.292791s
+ [Run 2/10] Sys Time: 2029.989s | zswap_store: 1274.619375s
+ [Run 3/10] Sys Time: 1983.237s | zswap_store: 1274.533935s
+ [Run 4/10] Sys Time: 2022.402s | zswap_store: 1274.328900s
+ [Run 5/10] Sys Time: 1989.381s | zswap_store: 1275.065320s
+ [Run 6/10] Sys Time: 1976.409s | zswap_store: 1274.698973s
+ [Run 7/10] Sys Time: 1984.453s | zswap_store: 1274.511715s
+ [Run 8/10] Sys Time: 1967.692s | zswap_store: 1274.588755s
+ [Run 9/10] Sys Time: 1984.806s | zswap_store: 1274.987864s
+ [Run 10/10] Sys Time: 1929.026s | zswap_store: 1274.268613s
+ --------------------------------------------------------------------------=
+--
+
+ --------------------------------------------------------------------------=
+------
+ Avg of 10 usemem30             baseline   zswap compress         Gain     =
+Gain
+         iterations                              batching       actual     =
+  %
+ --------------------------------------------------------------------------=
+------
+ Avg Sys time    (seconds)    2,075.3622     1,984.8028     -90.56 sec    -=
+4.36%
+ Avg Throughput  (KB/s)          248,769        249,663        894 KB/s    =
+0.36%
+ Avg zswap_store (seconds)    1,279.2767     1,274.5896    -4.6871 sec    -=
+0.37%
+ cumulative latency
+ from bpftrace
+
+ --------------------------------------------------------------------------=
+------
+ PMD folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                        894,463           894,462         -1
+ Avg (us)                  14,302.107        14,249.720    -52.387 us     -=
+0.37%
+ p50 (us)                  14,368.092        14,310.851    -57.241 us     -=
+0.40%
+ p95 (us)                  14,456.748        14,419.225    -37.523 us     -=
+0.26%
+ p99 (us)                  14,602.678        14,610.077      7.399 us      =
+0.05%
+
+ --------------------------------------------------------------------------=
+------
+ Order-0 folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                          3,516             3,532         16
+ Avg (us)                      17.591            17.877      0.286 us      =
+1.63%
+ p50 (us)                      14.797            15.197      0.400 us      =
+2.70%
+ p95 (us)                      29.124            29.628      0.504 us      =
+1.73%
+ p99 (us)                      57.710            65.340      7.630 us     1=
+3.22%
+
+ --------------------------------------------------------------------------=
+------
+ vmstats (includes 2 warm-up iterations)
+ --------------------------------------------------------------------------=
+------
+ pswpin                             0                 0          0
+ pswpout                            0                 0          0
+ zswpin                         3,754             3,844         90
+ zswpout                  549,561,421       549,560,490       -931
+ zswpwb                             0                 0          0
+ 2048kB-alloc               1,843,260         1,843,260          0
+ 2048kB-zswpout             1,073,354         1,073,352         -2
+ 2048kB-swpout                      0                 0          0
+ 2048kB-swpout-fallback             0                 0          0
+ zswap_pool_limit_hit               0                 0          0
+ zswap_written_back_pages           0                 0          0
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+ Usemem Silesia (100% over-commit):
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+         usemem -w --read-silesia -O -b 5 -s 10 -n 30 6g
+         cgroup memory.high =3D 90G
+         zswap max_pool_percent =3D 50%
+
+ Baseline:
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D
+ [+] Starting benchmark suite: 10 runs of Usemem with Silesia Dataset
+(Limit: 90G).
+ --------------------------------------------------------------------------=
+--
+ [Run 1/10] Sys Time: 3843.464s | zswap_store: 2277.627313s
+ [Run 2/10] Sys Time: 3836.637s | zswap_store: 2278.318722s
+ [Run 3/10] Sys Time: 3856.074s | zswap_store: 2278.190603s
+ [Run 4/10] Sys Time: 3823.647s | zswap_store: 2278.387886s
+ [Run 5/10] Sys Time: 3813.093s | zswap_store: 2278.740563s
+ [Run 6/10] Sys Time: 3788.743s | zswap_store: 2277.697021s
+ [Run 7/10] Sys Time: 3868.892s | zswap_store: 2277.858950s
+ [Run 8/10] Sys Time: 3797.672s | zswap_store: 2278.514745s
+ [Run 9/10] Sys Time: 3865.027s | zswap_store: 2279.041594s
+ [Run 10/10] Sys Time: 3789.124s | zswap_store: 2279.485606s
+ --------------------------------------------------------------------------=
+--
+
+ zswap_compress_batching:
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ [+] Starting benchmark suite: 10 runs (Limit: 90G).
+ --------------------------------------------------------------------------=
+--
+ [Run 1/10] Sys Time: 3852.547s | zswap_store: 2266.829664s
+ [Run 2/10] Sys Time: 3824.707s | zswap_store: 2267.232763s
+ [Run 3/10] Sys Time: 3839.655s | zswap_store: 2266.313908s
+ [Run 4/10] Sys Time: 3805.258s | zswap_store: 2265.486178s
+ [Run 5/10] Sys Time: 3775.986s | zswap_store: 2266.747005s
+ [Run 6/10] Sys Time: 3842.518s | zswap_store: 2266.647259s
+ [Run 7/10] Sys Time: 3837.615s | zswap_store: 2266.726275s
+ [Run 8/10] Sys Time: 3848.061s | zswap_store: 2266.902372s
+ [Run 9/10] Sys Time: 3831.397s | zswap_store: 2266.195312s
+ [Run 10/10] Sys Time: 3826.463s | zswap_store: 2267.386639s
+ --------------------------------------------------------------------------=
+--
+
+ --------------------------------------------------------------------------=
+------
+ Avg of 10 usemem30             baseline   zswap compress         Gain     =
+Gain
+         iterations                              batching       actual     =
+  %
+ --------------------------------------------------------------------------=
+------
+ Avg Sys time    (seconds)    3,828.2373     3,828.4207        0.18
+sec     0.00%
+ Avg Throughput  (KB/s)           61,506         61,383        -123
+KB/s   -0.20%
+ Avg zswap_store (seconds)    2,278.3863     2,266.6467    -11.7396
+sec    -0.52%
+ cumulative latency
+ from bpftrace
+
+ --------------------------------------------------------------------------=
+------
+ PMD folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                        922,600           922,601             1
+ Avg (us)                  16,035.212        15,816.040      -219.172
+us   -1.37%
+ p50 (us)                  16,916.945        16,682.504      -234.441
+us   -1.39%
+ p95 (us)                  20,518.592        20,134.788      -383.804
+us   -1.87%
+ p99 (us)                  20,866.739        20,474.772      -391.967
+us   -1.88%
+
+ --------------------------------------------------------------------------=
+------
+ Order-0 folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                    275,102,932       275,099,516        -3,416
+ Avg (us)                      29.043            29.351         0.308
+us    1.63%
+ p50 (us)                      28.975            29.273         0.298
+us    2.70%
+ p95 (us)                      31.528            31.841         0.313
+us    1.73%
+ p99 (us)                      33.273            33.523         0.250
+us   13.22%
+
+ --------------------------------------------------------------------------=
+------
+ vmstats (includes 2 warm-up iterations)
+ --------------------------------------------------------------------------=
+------
+ pswpin                             0                 0              0
+ pswpout                            0                 0              0
+ zswpin                   566,262,293       566,273,230         10,937
+ zswpout                1,446,525,371       896,978,740   -549,546,631
+   -37.99%
+ zswpwb                             0                 0              0
+ 2048kB-alloc               2,950,440         1,107,181     -1,843,259
+   -62.47%
+ 2048kB-zswpout             2,180,497         1,107,145     -1,073,352
+   -49.23%
+ 2048kB-swpout                      0                 0              0
+ 2048kB-swpout-fallback             0                 0              0
+ zswap_pool_limit_hit               0                 0              0
+ zswap_written_back_pages           0                 0              0
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+B) zswap_compressor =3D ZSTD, zswap_shrinker =3D Y:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+ Unmodified Usemem (100% over-commit):
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+         usemem -w -O -b 5 -s 10 -n 30 10g
+         cgroup memory.high =3D 150G
+         zswap max_pool_percent =3D 20% (default)
+ --------------------------------------------------------------------------=
+------
+ Avg of 10 usemem30             baseline   zswap compress         Gain     =
+Gain
+         iterations                              batching       actual     =
+  %
+ --------------------------------------------------------------------------=
+------
+ Avg Sys time    (seconds)    1,798.0412     1,754.8673      -43.17
+sec    -4.36%
+ Avg Throughput  (KB/s)           35,794         36,239         445
+KB/s    0.36%
+ Avg zswap_store (seconds)    1,243.6329     1,229.9446    -13.6883
+sec    -0.37%
+ cumulative latency
+ from bpftrace
+
+ --------------------------------------------------------------------------=
+------
+ PMD folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                        857,921         854,237        -3,684
+ Avg (us)                  14,495.816      14,398.087       -97.729 us
+    -0.67%
+ p50 (us)                  14,535.149      14,412.360      -122.789 us
+    -0.84%
+ p95 (us)                  15,012.265      14,923.469       -88.796 us
+    -0.59%
+ p99 (us)                  15,241.253      15,120.714      -120.539 us
+    -0.79%
+
+ --------------------------------------------------------------------------=
+------
+ Order-0 folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                          3,602           3,607             5
+ Avg (us)                      17.660          18.530         0.870 us
+     4.93%
+ p50 (us)                      14.939          14.801        -0.138 us
+    -0.92%
+ p95 (us)                      29.822          30.622         0.800 us
+     2.68%
+ p99 (us)                      58.990         182.465       123.475 us
+   209.32%
+
+ --------------------------------------------------------------------------=
+------
+ vmstats (includes 2 warm-up iterations)
+ --------------------------------------------------------------------------=
+------
+ pswpin                           2,325           2,215          -110
+ pswpout                     12,976,001      13,093,265       117,264
+ zswpin                           1,881           1,952            71
+ zswpout                    526,979,887     524,858,122    -2,121,765
+    -0.40%
+ zswpwb                      12,976,001      13,093,265       117,264
+ 2048kB-alloc                 1,843,259       1,843,258            -1
+     0.00%
+ 2048kB-zswpout               1,029,249       1,025,105        -4,144
+    -0.40%
+ 2048kB-swpout                        0               0             0
+ 2048kB-swpout-fallback               0               0             0
+ zswap_pool_limit_hit                 0               0             0
+ zswap_written_back_pages    10,852,812      10,656,928      -195,884
+    -1.80%
+ zswap_reject_reclaim_fail            2               0            -2
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+ Usemem Silesia (50% over-commit):
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+         usemem -w --read-silesia -O -b 5 -s 10 -n 30 3g
+         cgroup memory.high =3D 60G
+         zswap max_pool_percent =3D 50%
+ --------------------------------------------------------------------------=
+------
+ Avg of 10 usemem30             baseline   zswap compress         Gain     =
+Gain
+         iterations                              batching       actual     =
+  %
+ --------------------------------------------------------------------------=
+------
+ Avg Sys time    (seconds)    1,484.1499       1,423.1080     -61.04
+sec   -4.11%
+ Avg Throughput  (KB/s)           20,286           26,221      5,935
+KB/s  29.26%
+ Avg zswap_store (seconds)      931.9412         899.9983   -31.9429
+sec   -3.43%
+ cumulative latency
+ from bpftrace
+
+ --------------------------------------------------------------------------=
+------
+ PMD folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                        443,054           442,711          -343
+ Avg (us)                  16,133.793        15,843.956      -289.837
+us   -1.80%
+ p50 (us)                  16,995.086        16,690.560      -304.526
+us   -1.79%
+ p95 (us)                  20,599.966        20,175.044      -424.922
+us   -2.06%
+ p99 (us)                  20,985.086        20,519.836      -465.250
+us   -2.22%
+
+
+ --------------------------------------------------------------------------=
+------
+ Order-0 folios: zswap_store() latency distribution across 10 usemem30
+iterations
+ --------------------------------------------------------------------------=
+------
+ Calls                     72,463,111        65,014,011    -7,449,100
+ Avg (us)                      29.964            30.542         0.578
+us    1.63%
+ p50 (us)                      29.148            29.585         0.437
+us    2.70%
+ p95 (us)                      40.240            41.857         1.617
+us    1.73%
+ p99 (us)                      46.286            48.478         2.192
+us   13.22%
+
+ --------------------------------------------------------------------------=
+------
+ vmstats (includes 2 warm-up iterations)
+ --------------------------------------------------------------------------=
+------
+ pswpin                     16,738,539       15,222,068
+-1,516,471
+ pswpout                    17,397,394       15,573,879
+-1,823,515
+ zswpin                    255,766,769      253,289,826
+-2,476,943
+ zswpout                   364,661,348      349,709,030
+-14,952,318    -4.10%
+ zswpwb                     17,397,394       15,573,879
+-1,823,515
+ 2048kB-alloc                  554,218          554,266
+48     0.01%
+ 2048kB-zswpout                535,430          534,030
+-1,400    -0.26%
+ 2048kB-swpout                       0                0
+0
+ 2048kB-swpout-fallback              0                0
+0
+ zswap_pool_limit_hit                0                0
+0
+ zswap_written_back_page    14,180,330       12,753,257
+-1,427,073   -10.06%
+ zswap_reject_reclaim_fail           4                4
+0
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+ Measurement methodology notes:
+ ------------------------------
+ - The performance measurement scripts and grub options set the following:
+   - Fixing CPU frequency at 2.4GHz for all cores, disabling
+turbo_boost and power-saving C-states.
+   - Run 2 warm-up iterations before starting the 10 benchmarking
+iterations of usemem30.
+   - Reset Memory State before each iteration to reduce incidental
+page/slab cache noise:
+      echo 3 | sudo tee /proc/sys/vm/drop_caches
+
+Thanks,
+Kanchana
