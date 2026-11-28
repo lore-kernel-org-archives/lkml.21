@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795876078;
-	b=TyoObMMuNhB/aiVlpawNGoy4AG629oPiCVGV5vZNpY62CRIUSOZJLzGhBWGtBdR7MMO6
-	 D/s5A5SJfGPCV3ezA6+LHDSfprG2aVkscuXX7VqkCXAZ5AcAD/ZEm7bsa2+al6Q4TCL4/
-	 nxwzk4caaVyMgJm1fOXKoM+PMrp3fhLPkAqvx35vtqghmTfyGLLWenvCV0XheDWHrKLWL
-	 SAfom4mOIe8wtVWe6F+vrlNbfh/6oUh6KEPvUbrD5aXpBNp1z+HJ0LSegH1rR7M28qaPD
-	 KA/Oj+COvmlBBrgXf/ElHZ2MaLFjKseZfem6qfvDBOqrrvE4cciq7wEntQUNw9KR5Kg==
+	t=1795876083;
+	b=qK0tniNyiIqqmdoJQrrovxbzCkr2Tz8P7Tj/KCbiQ5BsmcLt+CAldR9hJ5D3XEHbQFE/
+	 qJ8DiUTFHnP0FlyZlS2plcRARLKwzvk7ajUHT5St8TanCNGxKpXXsyN7t6/6pyDnkzNkd
+	 BMVcbSI8voOMMiIrBcjgElwx5XPL5aZY8L8KfOtwpq02fzvDe6HlTbdxHwQntaLfRNusv
+	 cigeP3sASHymYGLF8oAg9rhtxCQl602fgTlezPG3qtUH2d/a5AJKB0gQr9zEfPahR3K8O
+	 NKI8HEa+jHwO4Wr0fOJi2kZ5ua6RU+o/DnSCMDcc/otS/iji4ZvVgNEgBk1smjSIEEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795876078;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795876083;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=hvp7TwQHCrNMIqm7jRQRWAQZXft95G4xN1Dkhbod8bI=;
-	b=S6JMoDOgqRU3flGPWqz9ki9T9pEnezLX1mhUCtLkxuiGZq4t4HsLcPLeRufR9S2GAu+2
-	 tEEi6M85YOZQKCQ7MYgRGltx5hL7bH/CnAvnFDWWYhAha0oJTI/jmtF85UsLCIJ+RTrks
-	 jL4l+mkFVeaMhoScu2ggsaNXdrydhoSgsqlpWK1wOaDCvmttmx2QnYl/GBBqSTsnWMuH+
-	 +0XN9qTaTOPYxUN0uMJqsAxaNMURjMcjBdgbT6EUvXUJqyrz1fSzDejJR08/piZOGhC0r
-	 /3+iEJGg6Vs6MKCC7evuMzJiyYwoEs0z2Ghs/yBfCyiT+aznQbB49ekU18kKNXyYN+A==
+	bh=d319DHQFJ1wXpyJqA1RTBzQQlLy8lj8BbdjFQGNIC74=;
+	b=26KLW2LCrS+wzXOlTKaGX2qbJ63Sfu+EDaQrTeD0IP8QobhFiw1EExt2IEdnOT6H6DV4
+	 1hCWf+2JiQpwkchoJWKpotRFUXHrq122LV+D6lluF3fjNGN4E7uwy9gsWTVe+FuWKu46j
+	 unbEeo3Ik7GKT4Lb3TZUigBeQhqP/NJKDzbVARFpDqkAVztJWhxxZdkYfFPO61Gk+p3TC
+	 ov4EridaksCMbDkn9W7PnpsNJ6Aiy7Pdl9l3hFbsacqDoAbyzFu2A22DC5M3AD8RRzGcl
+	 YVoHpnZO3TQA2lLqNmfV80tfiajpWjMJVBj5MnD8hrWl+pT3n8tOBgyU4/dIp9ytgJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YzNflN9x;
-	arc=none smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o9L90NVy;
+	arc=none smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C940606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:27:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C940606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8825B606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 14:28:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8825B606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YzNflN9x
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6ba12b00c76so9309855a12.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:27:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o9L90NVy
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b86fcbd647so13713262a12.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:28:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795876077; x=1796480877; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795876082; x=1796480882; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hvp7TwQHCrNMIqm7jRQRWAQZXft95G4xN1Dkhbod8bI=;
-        b=YzNflN9xxjMkoLx8oCHUhxYeI78BZR01+EJWRQTgigjHF74qZzkfQ0SXnWpiS9fZrw
-         YqdfB/I8fWK9mT5xE/YM/HqYU5rbT7YYmyMiMRF4QruYkehor5yPq4C7ifDs3Qhpw9Hl
-         0qtRB7Bd6hSM8Q3laHsVpzWEHp6SZoZyFntxTfQDAMQRhtIYxZiVT95QLNvMOdPihjIu
-         ZjSOrrkuGLx7GUvzEFb01c3HIDEc+of5MixiWv6LzidPmC+U3RiVGF5NbI89IGaUsoiB
-         sBWdNoMECXguXEuqvd6oDcCr8cKHvam+/pKigVhalTDW9OVPY75gn1PrpvIoEdj5N9RW
-         VUQA==
+        bh=d319DHQFJ1wXpyJqA1RTBzQQlLy8lj8BbdjFQGNIC74=;
+        b=o9L90NVyGOamVq9aHR4dHAiWMrWyy4OA/6ZiKXYlJNFk7zELLYCTMtQBduR7klXggc
+         USRRfI6LV+7wC0Cq9EzjR8lv0s9EikuekSyv9m5AiC05DFGWqi/92y3oRBe7d6aBrvbO
+         RLHrYJjYqtTYR4ota2idP1iom/qIEYcfXO+ehYCCEEy9bibMJCbP1C66qpA+MQhmQJFS
+         nPMVavRyhBiBjU2B8Drbhgt/Q8/smBXY/hGN4D1o670bJ3Tm0EayE37hNFaEh4pHxvcq
+         5aPKWUjB0yLrCIVWxZHvRH1eW0husPtUJuSJqLuBGqpEFmoT1dpltMkcUfKGY+Lw8WGb
+         bwxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795876077; x=1796480877;
+        d=1e100.net; s=20260707; t=1795876082; x=1796480882;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hvp7TwQHCrNMIqm7jRQRWAQZXft95G4xN1Dkhbod8bI=;
-        b=lbKnqiz2DVnsBj8we1Nnq2JXbYnqqDGXldQ2TjEK9tnlM30BKNzfYINQbAWEaXwBz9
-         yUm9uMX1PoFPPd6lIzQmLOrgdO0rQWYtzlGtXOvMco0OYWJNyy/Yxqo1ILD+zUk7flR8
-         QKlQa3rR3QuhaNVzRzxx2HSF0WJsslsUSf2iVyo8sbdF86Iy+/Os6+TGF6ROQS78G35m
-         BtNNx4CiCm8two7K5UIBv/XEkwM+iMIUqrrTQxpuzwVcn3eMKjclVj7CA6TEnc1zEDC3
-         2ZVYbBsGwCNzEs7N/6O1e+ilyrl4EY18faKHe78c9G6CV+eBXESu/9iGuI8M19gBoUxH
-         oziA==
-X-Forwarded-Encrypted: i=1; AL+hErHm/VLY8COzOnzApcqeST212i808nxeHlkzKw4PrVbs6X97dkcSknit+ngvk/uvVYe6tNDqZ1ocZ6jv4qQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8JnYV2ItrnufYs3OYXFuUqqEcxe6BY1lpHUCKTW07da1ejdVeL
-	C0vw6QyS7VVzq7PK4ZEJ6tcvpT/F5iRkzfQnTGeGNak6jaRg48rDch0x
-X-Gm-Gg: AZFdTZd4JTbz8kLQ1pIN9sMXJ0n826nzFXY3uzpiu3nPi+SuaRq73WDkVtfkM9MYLR2
-	1I0Hf9816FjWtNKHS2QcbxwTrOD0HjqknMRlR05TUkTp1Ek/eWhVqW/waAdUr8RJBOg5ZnuCghy
-	VQyweELUGl3a5eoOUk/Y9X9V6BM97biLUm/JzVJv2TofijtHI+nJgOi2IFRugju68pbyLlmVMTm
-	qxU1ln0N8LHZI753c/oVYzUzamrxZmj56lzLcwCvBOeHsXjG2TNAXi6SZKOX0Tplpd0BPqzj1UM
-	maeZyHXMvvNezDBigSTt6GgQCQB53o3H5GklfGJr3Cajwg7RCsghX9h8iF/wO4vpLw3o5uyN3HF
-	btfUON1Aq4zjGzu+zEXkga0znLlpX8xOq+HtmM8RCpXxXPvZN7QI+ViSBjFQA8Wu1M7n3xI6wL4
-	XlHmCNY8G+NDC4eij9j1i0jeCcJLelS6ghEY7O8CzQ1GvMT84t9Y8HTy2Cj3Ab4PNYqzZSomz4d
-	5+s2WGLpvB1hiHRh6AcdNoHWFhC110P1BddyXN3h5RopKybvdStrTWb3SW0bs96lAAOI1ZK46mR
-	j/QjkvjQUz/e/WXQZi65fIrv0iqMmRwUxqc6PnObF2FJCwmxBS5Uf3IKucep8JBiHbBiwnJ8ykq
-	9JS2JI5wDt3lRkHGj
-X-Received: by 2002:a05:6402:4416:b0:6ba:b24b:a25 with SMTP id 4fb4d7f45d1cf-6bab24b0fc3mr13921304a12.7.1795876076510;
-        Sat, 28 Nov 2026 06:27:56 -0800 (PST)
+        bh=d319DHQFJ1wXpyJqA1RTBzQQlLy8lj8BbdjFQGNIC74=;
+        b=KLvCr/IYtLwF/Hx5uQxEX7SH/fzUWmXd/+36a5bbfHF8AgsEc02QHJhZ8NcGeCVZ7d
+         oS39AVBmOBeJTuEX1gkrtMH0eplIB8xOzPtN/I2S9Q+UB5E9NjMQoyTPr4bj722jxSi2
+         3Ju4OrRyqAHcsRQ4rR2xDnERtC+VfJCbET1xEVjrNeLBAISD4tTIg7r1IFXndZFjuopW
+         oOiCO9Mi3ATA5a17Tm1VoJ0yKyn91YTOxaUY+oabVKLQxWtB7X9SLfK6XMnmPkGY2D8O
+         vsiXg46t8nYKR0RVLgid7Q/bGl2/aSphzjF4wFPt8J1zSe91xx0BNt8kvMhIyTizqWAe
+         ZThg==
+X-Forwarded-Encrypted: i=1; AL+hErESEvxBHNLNGjs98I91o6CWZ94Fa9ylEz7Bko9flxqjKYNVid7UVhaMp41UN0uXcHrmi7dFIynufuxOsFo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sonlcP/btclbsIn6klU2chEGeiX0PoZwUCkXY8v1YbI8dnC84
+	egWgFw5cBY1wsn6QFnQmE6El9wuGaxB5NVsuvekLnirWt8gVDJPzd4UP
+X-Gm-Gg: AZFdTZcO8AXGiP0dUnaxcIYwPTrnHXbirpeEBp3+diimd8Y1+OXc35fbbtfa70E96I7
+	6/U0ZY6KuXxzPIXUC21ZomCdESe/ZZY3XVr/oYQza19ZQtIUmLxmlDFggAG8U7m6Ige0/MlkSJo
+	iLHnwBMl+8mJp4PJO1pXAVnDxGhGkUogkoxdXPtae+DiAznqCsy+/wtZeYMuHm/Ea/TgDx+8Ti6
+	J70yIzNxaRn0mTd0YFhCtDWBfx9WNw7+waZyeeLvtci980rRjJF4LqL53G+u+c7/3lQ30Czqxhv
+	NNPY/yFFt/+nwsezMhQ1qLtC9qklDjkc4OXWH9FAD98XmkEzvLk4eh1ptsOh/hkxYTJgXQXhTnh
+	tx8SPzNdX5c9/ZxE0Co6RQ8+xqizTPvEPP9bTFXqJpeRvT4t6o3av2RHzSNCX1vMYOnU+AqVJcd
+	DgXb/HzVnukNZCHx03WsaqN1SNSihj6QY7+6recnKhrIPO/wvLLsc0ypOEXuUDYtG7sQuez/00m
+	geGCVkeXlWH96bqL1n+BJVvv6aSmGk1oUptClZfN2+N1j2iLSX+aWKoNevhoxgBSO9Cg/eZxoFa
+	2FdwdaG0zMZEzERwek4ysog7aFRlNdIZtAFd0H960yOR+JIJPQv5VC78zPqNNK9MoAtV4wbMWDV
+	Egk7Tk7vnW9I2Pkoe
+X-Received: by 2002:aa7:d152:0:b0:6b7:b151:fe60 with SMTP id 4fb4d7f45d1cf-6ba1f5a9159mr15402831a12.0.1795876081636;
+        Sat, 28 Nov 2026 06:28:01 -0800 (PST)
 Received: from kernel.. ([191.40.25.3])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e35ca6sm12448436a12.4.2026.11.28.06.27.52
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e35ca6sm12448436a12.4.2026.11.28.06.27.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 06:27:56 -0800 (PST)
+        Sat, 28 Nov 2026 06:28:01 -0800 (PST)
 From: Kunwu Chan <kunwu.chan@gmail.com>
 To: dave@stgolabs.net,
 	paulmck@kernel.org,
@@ -96,9 +96,9 @@ Cc: rostedt@goodmis.org,
 	rcu@vger.kernel.org,
 	Kunwu Chan <kunwu.chan@gmail.com>,
 	Kunwu Chan <chentao@kylinos.cn>
-Subject: [PATCH v3 3/7] rcutorture: Test duplicate call_rcu_tasks() callback enqueue
-Date: Sat, 28 Nov 2026 22:27:25 +0800
-Message-ID: <20261128142729.3756679-4-kunwu.chan@gmail.com>
+Subject: [PATCH v3 4/7] rcutorture: Add KASAN aux-stack self-test
+Date: Sat, 28 Nov 2026 22:27:26 +0800
+Message-ID: <20261128142729.3756679-5-kunwu.chan@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261128142729.3756679-1-kunwu.chan@gmail.com>
 References: <20261128142729.3756679-1-kunwu.chan@gmail.com>
@@ -113,27 +113,112 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Enable the existing duplicate-callback test for RCU Tasks by
-setting ->debug_objects.
+Add rcutorture.kasan_debug to queue and drain an empty callback,
+then free and read its rcu_head to trigger a KASAN report.
 
+Check "Last potentially related work creation:" for rcu_test_kasan()
+and the enqueue path. The intentional report makes kvm.sh exit 3
+(runtime errors), even if rcutorture prints SUCCESS.
+
+Suggested-by: Paul E. McKenney <paulmck@kernel.org>
 Suggested-by: Zqiang <qiang.zhang@linux.dev>
 Cc: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Kunwu Chan <chentao@kylinos.cn>
 ---
- kernel/rcu/rcutorture.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../admin-guide/kernel-parameters.txt         | 11 +++++
+ kernel/rcu/rcutorture.c                       | 44 +++++++++++++++++++
+ 2 files changed, 55 insertions(+)
 
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index a49523c52c759..6425e84194f76 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -6227,6 +6227,17 @@ Kernel parameters
+ 			accurately, from a timer handler.  Not all RCU
+ 			flavors take kindly to this sort of thing.
+ 
++	rcutorture.kasan_debug= [KNL]
++			Enable an intentional KASAN use-after-free test of
++			callback enqueue-stack recording. Requires
++			CONFIG_KASAN_GENERIC and a torture flavor with
++			callback and barrier operations. Inspect "Last
++			potentially related work creation" in the report
++			for the enqueue stack. Disabled by default.
++			Use a dedicated test run: the report taints the
++			kernel and suppresses later KASAN reports unless
++			kasan_multi_shot is enabled.
++
+ 	rcutorture.leakpointer= [KNL]
+ 			Leak an RCU-protected pointer out of the reader.
+ 			This can of course result in splats, and is
 diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
-index 1648e6369d809..8c264aaf1727a 100644
+index 8c264aaf1727a..f9cd90d54165a 100644
 --- a/kernel/rcu/rcutorture.c
 +++ b/kernel/rcu/rcutorture.c
-@@ -1327,6 +1327,7 @@ static struct rcu_torture_ops tasks_ops = {
- 	.get_gp_data	= rcu_tasks_get_gp_data,
- 	.irq_capable	= 1,
- 	.slow_gps	= 1,
-+	.debug_objects	= 1,
- 	.name		= "tasks"
- };
+@@ -113,6 +113,7 @@ torture_param(int, gp_poll_wi_exp, 128,
+ 		   "Wait interval for expedited polled grace periods, us (default 128 us)");
+ torture_param(bool, gp_sync, false, "Use synchronous GP wait primitives");
+ torture_param(int, irqreader, 1, "Allow RCU readers from irq handlers");
++torture_param(bool, kasan_debug, false, "Enable KASAN aux-stack call_rcu() testing");
+ torture_param(int, leakpointer, 0, "Leak pointer dereferences from readers");
+ torture_param(int, n_barrier_cbs, 0, "# of callbacks/kthreads for barrier testing");
+ torture_param(int, n_up_down, 32, "# of concurrent up/down hrtimer-based RCU readers");
+@@ -4809,6 +4810,46 @@ static void rcu_test_debug_objects(void)
+ 	kfree(rhp);
+ }
+ 
++/*
++ * Trigger a KASAN use-after-free report after draining a callback. Check
++ * "Last potentially related work creation" for the callback enqueue stack.
++ */
++static noinline void rcu_test_kasan(void)
++{
++	struct rcu_head *rhp;
++
++	if (!IS_ENABLED(CONFIG_KASAN_GENERIC)) {
++		pr_alert("%s: !CONFIG_KASAN_GENERIC, not testing KASAN aux stack call_%s()\n",
++			 KBUILD_MODNAME, cur_ops->name);
++		return;
++	}
++
++	if (!cur_ops->call || !cur_ops->cb_barrier) {
++		pr_alert("%s: %s has no callback/barrier ops, skipping KASAN test\n",
++			 KBUILD_MODNAME, cur_ops->name);
++		return;
++	}
++
++	rhp = kmalloc_obj(*rhp);
++	if (!rhp) {
++		pr_alert("%s: KASAN aux-stack test skipped: allocation failed\n", KBUILD_MODNAME);
++		return;
++	}
++
++	pr_alert("%s: WARN: KASAN aux-stack call_%s() test starting.\n",
++		 KBUILD_MODNAME, cur_ops->name);
++
++	/* Keep the rcu_head allocated until all callbacks have completed. */
++	cur_ops->call(rhp, rcu_torture_leak_cb);
++	cur_ops->cb_barrier();
++
++	kfree(rhp);
++	/* Intentional use-after-free to display the recorded enqueue stack. */
++	(void)READ_ONCE(*(u8 *)rhp);
++	pr_alert("%s: WARN: KASAN aux-stack call_%s() test complete.\n",
++		 KBUILD_MODNAME, cur_ops->name);
++}
++
+ static void rcutorture_sync(void)
+ {
+ 	static unsigned long n;
+@@ -5376,6 +5417,9 @@ rcu_torture_init(void)
+ 	if (object_debug)
+ 		rcu_test_debug_objects();
+ 
++	if (kasan_debug)
++		rcu_test_kasan();
++
+ 	if (cur_ops->gp_slow_register && !WARN_ON_ONCE(!cur_ops->gp_slow_unregister))
+ 		cur_ops->gp_slow_register(&rcu_fwd_cb_nodelay);
  
 -- 
 2.43.0
