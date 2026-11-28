@@ -1,64 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795850532;
-	b=ONk3dt93sTMl5jUNbbwlcDynQRrd1NYGkAz2KMRHJ/10RGkpwwxfTfo9Exi8L1OfXRlT
-	 xWgoZ2OLhUCGV0u375+sD3X745zk6voe9vjGByQESYCx54aoLOatp9vZrwUcVDTlcWvwP
-	 d7tkGufKmG9s+Xkpjpyoy8kXhHufalWmH1XHj153GLQHax7mqnSzhrxZX6NALtHPWt3c6
-	 tFRaol8JnjeLHYTmT2YysPXOB3Ybt7ACXTQ8tEfJvuK3DXb0grmWqDFcoLpqH8kUFcJYC
-	 QiRPb3sK+GOIFJ3V1ZejD+Z15Eq9s8Zkoh6kI6s6jNIaSc4g8AdQV26uWoJZ2HLe0mQ==
+	t=1795850549;
+	b=DU0RJUj1OCgl49OKGpiid37V4hKvRYJKQYvyx5qLh3JcLxB/y42p8I3sicebq3ER43ct
+	 bJ0C+gdhzYjZvW8VuVlOAlb41DyX4OaaztiJWfoXybfFesiZtpM7ajw6FwzcVaPVAYW8L
+	 Qn6EQShOZA3Hk5GUblBDZTmZLToECqVX1ufwjfJZhy7c0JWibkGX/gK+mLzPYa9dIccsH
+	 43fRoHqc7l2Y34EdXLM7YB8bN6zjhGdoFshmcyUkIHqcN/sXWN5vZjGDiWJWk1DHSOnBC
+	 XA9miOR4eikHgWVEIGmNqB9OakZtpReS+8dzHiiWAaZIxL8Nhbf0oBp/iNJxDZeg+HA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795850532;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=d71u1roGNrY5JRc0YE5Qm7fQmnT5P6fD9DXzBTVvZAQ=;
-	b=R+js7CJUI4PsHz8iRtJM0b44tyonAP+rYZ7Dgf6xc6rAyDrkp+GeslPXLvtzT7s9ZnZe
-	 GgJkhkJLNOQL6ugqSCCTjvydHTu/OiBTBBizFGLXw1J4KPYBfHsNhDcLGcos9Jtb6S8Yh
-	 lNvCaaVZ1ksqalSev5d0gF5B8lRIfak/QGRX0IMBV9NtWIzQ5RnKOyjmyvasglqdD3Wy9
-	 bOBI27dqjuXqOJ2wQ5dSnp9naURaCjPNi8gYXFdBTI5IRQplpNd5+8iKJK+vIiVPh409T
-	 GV/KK5lxZQDJnoxE7adghsivgs4Mw3CA2k6XGKjy928HUVTl8OkP1rwPkksd/9ZV6gQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795850549;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=E7BaQwHFvE2qtlxcKRVFeBFON9qvj8Rex8GDT8MBJvw=;
+	b=1Spqb0tQaJ/3q24Dh7NUv5QSfWQVu8NeFxyHiHWPp3kszvZ01VjzZlMU8RZZRW+IqddI
+	 3q/G+gLQODDxw1b834//gVuVeAtW4fd54SdJ/JTzvHcn07AOVxxLPY0fm0ANggmYiSFHR
+	 mn5EloL2X/Paq8REtpamWUWCcV7JmznzzqrPGcmoRJFc+4FvRcsn5oq6OQnxu5MCDfb06
+	 ksRm4jY9DpUYON8nPIN+F88VqfcxmE/hmNOLqweCY0lLCuuNriqyNssr9Ye8iHLsUD8xY
+	 0ir24x1mnys+dVE/mwOB4gfa9y0oSS+Txa9eag1rfXLwrXrSedtEQdcEzG9T31oC7cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KINfl53a;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HyVeavEc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C375F606A31C;
-	Sat, 28 Nov 2026 07:22:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3C24606A31C;
+	Sat, 28 Nov 2026 07:22:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KINfl53a
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E5011F00893;
-	Sat, 28 Nov 2026 07:22:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HyVeavEc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58F21F00897;
+	Sat, 28 Nov 2026 07:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795850532;
-	bh=d71u1roGNrY5JRc0YE5Qm7fQmnT5P6fD9DXzBTVvZAQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KINfl53aPvQoTcoexNTZYWkAwXZufPXqkiIYW1X/ySYWEgVVsBfuqkF5XEVIuMKD4
-	 SI5ZbnCZVxgF58AFmgOk/zFGy5DYa/67JP58TX38ADAYiYqkzWfuhr0jnVp+Opp6d7
-	 1BIh1LmHFHrzD6dn0VQJoQBcPNd7ynJe0BTNM/EzLMl4XiEFhOV4QgHhSAFxn1zbrK
-	 pOBuelbi42B4yt/yNSE2nxMQf/HgdKM5CksTx07szASivIvb/yQKHpTZGz10/J/6ZV
-	 DvReb5gn+ApwexelMcaTlCl1WS3bCoDD/sGI0xsAdyouJT7rqL4HTm0gE0iN1uoKsk
-	 F0KQLeG25iwhA==
-Subject: Re: [PATCH net v2 1/2] net/x25: don't call lock_sock() from softirq
- in x25_kill_by_neigh()
-From: netdev-bot+sashiko@kernel.org
-To: ms@dev.tdt.de
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, willemb@google.com, horms@kernel.org, linma@zju.edu.cn,
- duoming@zju.edu.cn, xiyuyang19@fudan.edu.cn, tanxin.ctf@gmail.com,
- linux-x25@vger.kernel.org, netdev@vger.kernel.org,
- ngocthang2710.1999@gmail.com, 847807867@qq.com, krystianmkaniewski@gmail.com,
- syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
- syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
- linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 07:22:11 +0000
-Message-ID: <179585053119.3135.1065383095936227619@kernel.org>
-In-Reply-To: <20261127-x25-kill-by-neigh-v2-1-c7cdcc9f1320@dev.tdt.de>
-References: <20261127-x25-kill-by-neigh-v2-1-c7cdcc9f1320@dev.tdt.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795850549;
+	bh=E7BaQwHFvE2qtlxcKRVFeBFON9qvj8Rex8GDT8MBJvw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HyVeavEc+f23hvBgSkePGRfaBBQ60HpTQKM2q/7ta4RAjR7uauxwPxYctUa5SxDSZ
+	 lvAfG3jVEVSJMDhqY4Zoxi8hdH5RjBVkQC3zFoEE+HXZS7Fj0ErB3aXdQXNGC+ggLY
+	 P0PO27DAAxzUDgCSkoB2HV9lQ9vKs/BGUEJTgiwjBfsOuIjI1KSJT2Wq5sP4kvjFml
+	 e0U03RyfwZI8H04uPfP5fJgWige6lkiPfGFtodNrq46otBF/FKcKlDRNxfLBMs67Vj
+	 aFPETN5RYVBVW4gmgZZS0QJtf/qxlhn67NL4CfjoRLH721J5q/vgr1+4sKSz7N1AWo
+	 Uq2cfF+LERrxw==
+Date: Fri, 27 Nov 2026 21:22:27 -1000
+Message-ID: <4f3afbc84c522f9477d62a35ad01d5a5@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Juri Lelli <juri.lelli@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, luca abeni <luca.abeni@santannapisa.it>, Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com, yuri.andriaccio@santannapisa.it
+Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
+In-Reply-To: <awmVSkc4T0AuFntw@jlelli-thinkpadt14gen4.remote.csb>
+References: <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
+ <20261119151416.33f90a64@linux.fritz.box>
+ <471bf8d446becabfca00041fb2a78067@kernel.org>
+ <20261120120659.2e902463@linux.fritz.box>
+ <6fef47e08a37079c08806b3c57994778@kernel.org>
+ <20261120212418.10221f2e@linux.fritz.box>
+ <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
+ <20261123084345.4e24e3ca@luca64>
+ <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
+ <20261127114828.GS49833@noisy.programming.kicks-ass.net>
+ <awmVSkc4T0AuFntw@jlelli-thinkpadt14gen4.remote.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,157 +67,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello, Juri.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+On Fri, Nov 27, 2026 at 03:35:54PM +0100, Juri Lelli wrote:
+...
+> Either the entry's bandwidth
+> stays claimed while its CPU is unreachable, so cpuset changes never
+> fail but that bandwidth sits unused, or it's released and claimed again
+> when the CPU becomes reachable, which means growing a cpuset can fail
+> because of the cpu controller. Tejun, Peter, does either work for both
+> of you?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+My preference is the former. I'd like to avoid intertwining the two
+controllers as much as possible, so an entry would keep its bandwidth
+claimed whatever cpuset says and a cpuset change wouldn't fail because
+of cpu.rt.max.
 
-- [Medium] net/x25/af_x25.c: the patch adds `!test_bit(X25_KILL_FLAG,
-  ...)` to __x25_find_socket().
-- [Medium] The X25_KILL_FLAG checks that the patch adds in x25_kick()
-  (net/x25/x25_out.c) and x25_write_internal() (net/x25/x25_subr.c) are…
+Cross-controller operations are possible and useful on cgroup2, e.g.
+between memcg and blkcg, but I think it's best to keep the interfaces
+as orthogonal as possible. Interlocking configurations across
+controllers gets too complicated and confusing in general, and
+especially so given how limited the failure information we can
+communicate to userspace is.
+
+Thanks.
 
 --
-
-net/x25: don't call lock_sock() from softirq in x25_kill_by_neigh()
-
-This patch stops x25_kill_by_neigh() from calling lock_sock() in softirq.
-It now takes the socket spinlock. A socket that is not owned by user is
-disconnected immediately. An owned socket is marked with X25_KILL_FLAG,
-and a new release_cb disconnects it later. Flagged sockets are also
-hidden from __x25_find_socket() and kept from transmitting in x25_kick()
-and x25_write_internal().
-
-> diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
-> index f45c9ec7d2c68..a5d3a86918a0f 100644
-> --- a/net/x25/af_x25.c
-> +++ b/net/x25/af_x25.c
-
-[ ... ]
-
-> @@ -311,7 +338,8 @@ static struct sock *__x25_find_socket(unsigned int lci, struct x25_neigh *nb)
->  	struct sock *s;
->  
->  	sk_for_each(s, &x25_list)
-> -		if (x25_sk(s)->lci == lci && x25_sk(s)->neighbour == nb) {
-> +		if (x25_sk(s)->lci == lci && x25_sk(s)->neighbour == nb &&
-> +		    !test_bit(X25_KILL_FLAG, &x25_sk(s)->flags)) {
->  			sock_hold(s);
->  			goto found;
->  		}
-
-[Severity: Medium]
-Does this change also affect x25_new_lci()? It uses the same lookup to
-pick a free LCI:
-
-net/x25/af_x25.c:x25_new_lci() {
-    ...
-	while ((sk = x25_find_socket(lci, nb)) != NULL) {
-		sock_put(sk);
-    ...
-}
-
-Since flagged sockets are now skipped, x25_connect() can give a new
-socket B an LCI L that a flagged socket A on the same neighbour still
-holds. Socket A is owned by user and is waiting for x25_release_cb().
-
-The comments above __x25_find_socket() ("Find a connected X.25 socket
-given my LCI and neighbour") and x25_new_lci() ("Find a unique LCI for a
-given device") also no longer describe what the code does.
-
-Most of the time A stays hidden. However, x25_release_cb() clears the
-flag before x25_disconnect() gets to x25->lci = 0:
-
-	if (test_and_clear_bit(X25_KILL_FLAG, &x25->flags) && x25->neighbour)
-		x25_disconnect(sk, ENETUNREACH, 0, 0);
-
-x25_disconnect() first runs x25_clear_queues() and x25_stop_timer(), and
-only then sets lci to 0. During that window, lockless lookups for (L, nb)
-can match A again.
-
-Could a concurrent x25_receive_data() in softirq pick A instead of B?
-
-x25_receive_data()
-  x25_find_socket(L, nb)   <- returns A if A is ahead of B in x25_list
-  bh_lock_sock(A)          <- spins until release_sock() finishes
-  x25_process_rx_frame(A)  <- A is in X25_STATE_0, returns 0, frame freed
-
-x25_insert_socket() adds at the head of x25_list, so A comes first if it
-was bound after B. If the owner locks A again first, the frame goes into
-A's backlog. The commit message says that should no longer happen.
-
-Either way, it looks like a frame for B's new call (for example CALL
-ACCEPTED or DATA) is lost.
-
-The commit message only covers LCI reuse by the peer. Peer-initiated
-calls are inserted at the head in x25_rx_call_request(), so they are
-found first. Local allocation through x25_new_lci() is not covered by
-that reasoning.
-
-[ ... ]
-
-> diff --git a/net/x25/x25_out.c b/net/x25/x25_out.c
-> index f8922b0e23a4f..f710d015fcc2f 100644
-> --- a/net/x25/x25_out.c
-> +++ b/net/x25/x25_out.c
-> @@ -140,7 +140,8 @@ void x25_kick(struct sock *sk)
->  	int modulus;
->  	struct x25_sock *x25 = x25_sk(sk);
->  
-> -	if (x25->state != X25_STATE_3)
-> +	if (x25->state != X25_STATE_3 ||
-> +	    test_bit(X25_KILL_FLAG, &x25->flags))
->  		return;
->  
->  	/*
-
-[Severity: Medium]
-Is this check enough to keep a flagged socket from transmitting?
-
-x25_kick() runs in owner context, for example from x25_sendmsg() under
-lock_sock(). That caller holds ownership but not sk_lock.slock.
-x25_kill_sock() sets the bit under bh_lock_sock() only and returns right
-away, so nothing orders the two.
-
-Consider a peer RESTART REQUEST arriving in X25_LINK_STATE_3:
-
-CPU0 (owner, x25_sendmsg())     CPU1 (softirq)
-x25_kick()
-  test_bit() == 0
-  enters transmit loop
-                                x25_link_control()
-                                  x25_kill_by_neigh()
-                                    x25_kill_sock()
-                                      sock_owned_by_user() -> true
-                                      set_bit(X25_KILL_FLAG)
-                                  x25_transmit_restart_confirmation()
-  x25_send_iframe()
-    x25_transmit_link()
-
-nb->state is still X25_LINK_STATE_3, so the I-frames for the old LCI go
-straight to the device. The bit is tested only once, before a loop that
-can send up to winsize_out frames.
-
-x25_write_internal() has the same check-once-then-send pattern. Its
-owner-context callers include x25_release() (X25_CLEAR_REQUEST),
-x25_ioctl(SIOCX25SENDCALLACCPT) (X25_CALL_ACCEPTED) and x25_connect().
-
-Can frames for the restarted call still go out after RESTART
-CONFIRMATION? That would contradict this part of the commit message:
-
-    The deferred
-    x25_disconnect() only changes local state, so the old call is gone on
-    the wire before the restart is answered, as it was before.
-
-If the LCI has already been reused, either by the peer or locally through
-x25_new_lci(), could those stale frames land on an unrelated call?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320%40dev.tdt.de
+tejun
