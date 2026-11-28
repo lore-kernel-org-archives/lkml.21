@@ -1,98 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795857717;
-	b=tZlQl6t/4UBJnX5j977IVVT/gw0hzYQZQVlo4Mw/FwOoVmoRbLRhnAKbbAqeOijReBGD
-	 aIdir7Dp/Tm0tfvEVULbLW3cW/wh3h26zlCn3Z0d22XYd6GhVtGJuS9/PVz0E7W4vv/MU
-	 k/tBKZjP5T/otVHS0A4Cl3iPENVOKXT19FChf4ra8U7Wb910mcvh9eGA7VYZfhKEGqVek
-	 oMm9gbxRyQH02WSYRM33GzWfL6FpfZPEDMwUtUssqgMHtzerr/XW/0UF+Q7dbA9NEac8J
-	 J1thfDMfoIVhYBFVQFxxD6QPcqfDHzFerXlHX8v1GvruZTiR5bf2R5M4h9pFFvTFgzw==
+	t=1795857720;
+	b=Q3rrlis9lWuHBfJPte8zVbmjVSQY8LkuCitepnCmZAKGyu/aaO1+3wnwbOxHcT4cO7Ew
+	 NZVVacH3uglu7kbmjC7L5hp/kybkh/OR96jde8souTtHZS3awj/lqqUjXBQdfCkSkXLWm
+	 +AOqDGxunz+LTUGMm0G50kcHXQ2NY87vHY+0wQo7ja/lBuqUWH+bk8xr9GixlsZuw4fwo
+	 YJwbVPwhZ/mtUGd00ShNSJxyRnZKPDca/hqXcaDh0eH/tXkAKd0No3e/Xtsjb9CMYCUKB
+	 ogVNz2UmbKSKKKyZbUCEWAWNL+FK9d8ljV98IkrAH3TTwy26RZebO9sursYqPd1j49Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795857717;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795857720;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:In-Reply-To:References:From:Subject:To:Cc:
+	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:
 	 MIME-Version:Content-Type:Content-Disposition:User-Agent;
-	bh=S/tHl+2/aELrbIwf0Ksau3tprNWFE1rPE6zNQAZmUkc=;
-	b=l1g/qqQOzQeRGJ8otWLTjHSFfv9ZaZcmK5UzHCfJsCuzSRxG2EoOQ9t5E9RSM+eNlSs2
-	 /6y5xXM904QSKI1IePkAC9My1R+16NjKWvD5W0qJTaVWfHQTjlOhsC2nOz1QPJxcpJLCP
-	 X5uXSiqaZJNT9chCj8hUUnAnTo6gAUaLHvN2jxmdT6RzHuqIwBz9U5HN7dOzuvLj8tq9p
-	 PahqKEybBUeZjByn1+SWPvp4YKOZxzNTkw2NpN54cETTMCQo65hShgxYdyNMaTUIKefXQ
-	 5H0k2yJ9L45MLkTGeS8s5m8o48qjUrHLXMPvC4+/xJ6ztZugjbocE6Qngh1iN3PNxcA==
+	bh=NrIoMTeuQSSKquJ/B8Dkq51X5h3zUX1txK3GWbjAlR8=;
+	b=MaAx4xVlXbejU9A0+zydOm4QmG1JOUER27DJfAl9e0BC+6RkTrX53w7MZUufMukNJ+m+
+	 OaQx2XYYuv6V7XQBcgdwXEoHmxmFXkhWj5yU8iszOEN8BPiHCCNQMD5ebaq5SUVb1GIsI
+	 Khnfoh+QVcHbDrq6AI+UbQ7RaWEdlMiYWsqsgU40i2lCCuGIFpWhyEtUPc7X2R7IQdTRe
+	 N3loZ8+zJ4KTUleelOfH0kCEscGnihnd4DhvR3M0hZ9L/O33q2/g2JJIgVuM0hpO6OhRc
+	 o6KdSPjWHB9YxHy5xf2P0aPtFoXnS4AKNGg7PLTWsOf0f8roPYy8yu05aauIqJiqKmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=chrisdown.name;
 	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=VMWs92Yg;
-	arc=none smtp.remote-ip=74.125.224.54
-Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
+	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=mQYL+8Rp;
+	arc=none smtp.remote-ip=209.85.128.180
+Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D230606A337
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:21:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D230606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A8FA606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:22:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A8FA606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=VMWs92Yg
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-67bee1f693bso6875146d50.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:21:56 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=mQYL+8Rp
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4b9ba815bso52090977b3.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:22:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1795857716; x=1796462516; darn=vger.kernel.org;
-        h=user-agent:content-disposition:content-type:mime-version:cc:to
-         :subject:from:references:in-reply-to:message-id:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=S/tHl+2/aELrbIwf0Ksau3tprNWFE1rPE6zNQAZmUkc=;
-        b=VMWs92YgLlFd/gtyY9CP5RuJ2c6iLZ6vYkKa0qJsrImBVWWU5tGnEOc34yTN8sc6Qh
-         340PMZDfqBZ3e+0uQ43u9ruGUQZUiQ94tPo4J1y3CmoBWklEmGi3kHI/D/J62/2D5NND
-         mSVr/PTv+VDP6CRtUTCwlp7wmXOnEdggEITQw=
+        d=chrisdown.name; s=google; t=1795857720; x=1796462520; darn=vger.kernel.org;
+        h=user-agent:content-disposition:content-type:mime-version:message-id
+         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NrIoMTeuQSSKquJ/B8Dkq51X5h3zUX1txK3GWbjAlR8=;
+        b=mQYL+8RpajkypVy7w945436BoLb0L4UiZjabKgY9mh+ZHdvfvgQYEpwIbAFMtN/iN0
+         BXYainwWNXumQkzQVyp0l7V8eebNglt78mK2/vLVl4cKDp2rkUPjj8D6Q+cxiCVkSO29
+         VspZ+M7XWgekPFc0WLc8LMZhrL5tAGgMtWEh4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795857716; x=1796462516;
-        h=user-agent:content-disposition:content-type:mime-version:cc:to
-         :subject:from:references:in-reply-to:message-id:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795857720; x=1796462520;
+        h=user-agent:content-disposition:content-type:mime-version:message-id
+         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=S/tHl+2/aELrbIwf0Ksau3tprNWFE1rPE6zNQAZmUkc=;
-        b=Tm5VwG+QrgLD2Z4UF7iJmZVlVUZiXY07PJYFRSVAyZUHcrWUv7Px7aQAwNvFYkcELT
-         N9GokgNlIlYWpGx89WI0nQgEOMNrD7aejRBwscM+CkR/SRNpFo5aFtJYubgYQypbyj6Y
-         VzxIq4W2K2caEuSG1E69UvlTNHfM1BbK0p6d2noTlb1F1BQi62pvogBwG2CXGspEP+35
-         mq5X3m3b9bnaP8ohTE4xgMGkoIS/g9NQFqnTG++J3iW59/Q5r3QUeQyQ0RpRUOGYwNSL
-         8X9Nq4RxTzcnEpEYLRsKA2XSACAFJy0Cvn8Mg836CDWCdjijuJewUht2ew9sa+1UrzRB
-         aPSA==
-X-Forwarded-Encrypted: i=1; AL+hErFnTfzwGlrAW2Zf7f4UhrqIVR0lmnqVLcQhwAMBsTNFLWoWYJDHcJ1SC3ZVOh/odcyv/fFvveyEVDj1h3E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yQmnrroGI/hcb19lDBC9cD0otB7JVn4FQWS2q6QpX59HQy6f6
-	OjoOYeYZ9TsRLj/psAb7GCml9pp8d24Iycc3isQtpUa/k245oD047LNk7x3dlBvjMsw=
-X-Gm-Gg: AZFdTZejNup8SzByksTbYyC1GQJPTP1KFZSAUK8C0DtR05L6p1czGSQwRjHj5I6gdkb
-	XY2ae83p4IUM158CqH/OtdaLpRmg8pXF5l/+sAymJEAUXW+lq/R1KAz+RKLLKAicNy3eTOMRdiD
-	8vitA59thEzfsgJT/vs7yamcFXahQ8z1zKucJCFuVOpdtQajW6IKLJA9WbxxtrPRl7y69ZXP/hF
-	pRANxGpC9wHeRyLZ5a3UhUNMQB+sIgdr3Gz32TL1+mtJUyTzD3K01Rbgw188D3H6SiPDhGhliXU
-	0xrdmoc4R407/fetOo6qF+qxJUzpxbqfuJwc0H4dcK1uX34xJXrq5peh/UGI8ANHZwk8jAJZxcz
-	q2SX4nY2TmgKlJ0DtLU2W7qe+R42BN5behoLE6l+K0tEGuPEiubo50Qx5gPljgKaoc2x24Z0J+G
-	uFW8no55g/DZyMVgsPtVR3+kQOI+qKwqm0X7/MLndWG8Smv5LllTclLTmn6Eu07t6lRFEbw1pR+
-	QSb0PCxWuEGoGzp4r1LF0wRcuexvNgB6TkeSYag+f+pZbJ8JX3fNH+XhjBTCTqBIUqt1Z7mDvJ/
-	+T6XeZ+fYVJyXBvC22WgouhX+eL3nQogeXyq4gLOHCyWyqu6ZYdeMgmZ+7BXIpHf+5qn5qvbajg
-	JJPkGfQHUkgHkxN0py0OR2Psz+kk/UaFf34rFvXtpKjGQ2vGAAX7wpDaO7OtVvxiRMkwNsG72cP
-	Sjt3kceqeN5V1k8viPPTksXXqq7RTmFCDj2r6942K6U6vN30G62+5Ck/YsGQeP58bNcXcMq1cGp
-	wWYrV69dug1k7nc0lUp5Tc=
-X-Received: by 2002:a05:690e:b8d:b0:679:cc49:55cb with SMTP id 956f58d0204a3-67df44b8ae6mr13485805d50.99.1795857715699;
-        Sat, 28 Nov 2026 01:21:55 -0800 (PST)
+        bh=NrIoMTeuQSSKquJ/B8Dkq51X5h3zUX1txK3GWbjAlR8=;
+        b=0IefgBoSiVZFG9jOEm1Epm3l7SWcpTLjflm8M0sBIU9uL0xudWNL3F2vfWhxCwd4zV
+         0JBpL1Rj/EKKNJ2nJ1LqwhnbFSz9znIugGAJxsUAGj+tdyO6Vt3YvJzwwh7gykFzS58y
+         BBpTpbgZQMiPU0aQBT+bdrfOUtKvTnvlmHbWrGIZIYZrZaOi6RRIRmLTSvho39IklRiu
+         9XsgYO/AvOtc8RaS3WArG3xwKxOssDtkfcE/yxKwajEMv2mjXbWzz9tkcXzBAn+bnNRX
+         BIuiG5qgTCBuYn2/HCJugsoAeF79MpXVbjD9o9OW46zBKK/aT+ekoTGp0MGqzr8l7QQH
+         rrUg==
+X-Forwarded-Encrypted: i=1; AL+hErHbBBGT6SuH3RPZBvxdaNDqkn3j1R1dJwZIo0DPDJNADXDdIvyMyJqgRwZmbpmGksEtZfmgeXUjN8xIwJM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ULGiWz+1yVNepvtKVuIqfQrgYq0DiIqmPfiocwE14M1be8MVm
+	GisCB1fQzDX/xbl3NdNhkU6S13WcchEdkHHjeXzf6x8AJOC0fmnIRu06oWhrohuQzPA=
+X-Gm-Gg: AZFdTZc1UBrBTuFUjLYZihqIlD4PUhgkDO+cfmEmUF6W43en944je5FRd6pMzGz7FP2
+	neDB86P/mvqlzo6mc7MEj6eF8tEY092E5QtwWw8tJNeK60xH+2RVYO70OVO+VYZ6wgo/dp6vn+s
+	U50yUd5BSuxLxBVEiIRZgsYHh0fDNDn2rwpeTSyKOPaojkNp2OtnmlyCu8M37J3Nwr6WkuLuelr
+	peFDze4xNNxBM/fBu/KBdLI2dvSRrjJH/PPwu1NpAev7M79u5pcDoV2oghrMNM50zm02Ar9ctO5
+	1R3XvLE8a/DtBuRQV90Z6bFrbkoUYo8vz/BmQA00SUPYzDzvcMMmTQcmSpzCG7vXS4D86x3tLg3
+	kqz1FQ65+WyoVwUedCe1qdgN66eYNs6NtrD0YhjqgMe7qVoceYH6Y2Tqb0bRL6GI3UrZNGdsjEd
+	gI2PwW7ArBj9Ri4KZLD/IFuzCeeBWqq2Xkni7bRsKlAZ4iKJcpOnAlXieymfchv+RHu2i5ZbSug
+	aJY/+9sbTxjEx1h08LczMdHJe93RK82zTv4VAwx0ZqgPl/jhQb+e3cIlr54tIKizs8YWfjfuwHa
+	QDNEF1FfIfIQC0meO98f2UCUMLvGzMCvLZoshMXBnvjACtq/dMzOj6F02Gxs/dPPq1mxIl750NC
+	426wzgiZ7BpwEmihxjtMfgQe2Fm5rQZx+EsSaBPau8caOIqW3I6xTtHrgQjkSH7aXR3N+JnJmn9
+	KUw5QQZgcuVx7uj/cvfDKvSS7RSc5EebFxWlKScTX3DUPDiBvDkP1C6316qPE5D8Ec5/IIuUpcP
+	t/8O/m1YRg2xy8D4LmFGqrS
+X-Received: by 2002:a05:690c:29a:b0:8b3:361f:5d77 with SMTP id 00721157ae682-8b5204a9ea2mr142715807b3.26.1795857719761;
+        Sat, 28 Nov 2026 01:21:59 -0800 (PST)
 Received: from [172.20.0.3] (c-73-207-185-9.hsd1.ga.comcast.net. [73.207.185.9])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33e01e1sm12359048d50.23.2026.11.28.01.21.54
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202fb08csm102460237b3.24.2026.11.28.01.21.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 01:21:55 -0800 (PST)
-Date: Sat, 28 Nov 2026 01:21:52 -0800
-Message-ID: <ea408fb02711a52bdd9aef4650c7079945a2bb71.1795835884.git.chris@chrisdown.name>
-In-Reply-To: <cover.1795835884.git.chris@chrisdown.name>
-References: <cover.1795835884.git.chris@chrisdown.name>
+        Sat, 28 Nov 2026 01:21:58 -0800 (PST)
+Date: Sat, 28 Nov 2026 01:21:55 -0800
 From: Chris Down <chris@chrisdown.name>
-Subject: [PATCH v2 2/2] kho: don't fail kho_init() when debugfs is disabled
-To: rppt@kernel.org,
-    pasha.tatashin@soleen.com,
-    pratyush@kernel.org
-Cc: graf@amazon.com,
-    kexec@lists.infradead.org,
-    linux-mm@kvack.org,
-    linux-kernel@vger.kernel.org,
-    kernel-team@meta.com
+To: Mike Rapoport <rppt@kernel.org>
+Cc: pasha.tatashin@soleen.com, pratyush@kernel.org, graf@amazon.com,
+	kexec@lists.infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH] kho: Don't release incoming bootmem areas when kho_init()
+	fails
+In-Reply-To: <avGb2Trm-C3_YC-7@kernel.org>
+References: <au_vQhHAcJbkryXN@chrisdown.name> <avGb2Trm-C3_YC-7@kernel.org>
+Message-ID: <awqdM6WBmcGak0UV@chrisdown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,151 +103,51 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-kho_init() fails if kho_debugfs_init() or kho_out_debugfs_init() can't
-create their debugfs entries, and a failed kho_init() turns KHO off.
-That made sense while KHO could only be finalised through debugfs, but
-commit 03d3963464a4 ("kho: make debugfs interface optional") made the
-debugfs interface optional, and these days KHO doesn't need any of its
-files to work.
+Hi Mike,
 
-This is a problem because debugfs can be disabled at boot with
-debugfs=off, or by default with CONFIG_DEBUG_FS_ALLOW_NONE, in which
-case every attempt to create a debugfs entry returns -EPERM. Given that
-CONFIG_KEXEC_HANDOVER_DEBUGFS defaults to y when KHO is built in, KHO
-and LUO can't be used at all on such a kernel. With kho=on liveupdate=on
-debugfs=off, /dev/liveupdate never appears and a kexec hands nothing
-over. kho_init() doesn't log why, so the only sign of it is the
-WARN_ON_ONCE() that LUO then trips in kho_radix_add_key().
+Mike Rapoport writes:
+>On Sat, Nov 07, 2026 at 07:40:50PM -0800, Chris Down wrote:
+>> kho_populate() adds the incoming bootmem areas without reserving
+>> them. memblock_free_all() then hands the remainder to the buddy
+>> allocator.
+>
+>This paragraph is confusing.
+>It reads like kho_populate() should have reserved bootmem areas, but it
+>didn't.
 
-So, let's carry on without the debugfs entries when they can't be
-created, as kho_in_debugfs_init() already does for the incoming FDT.
+Yeah, I can see how it reads that way. v2 will say who reserves the
+areas on each kind of boot instead.
 
-Two things then run without KHO's debugfs directories for the first
-time. kho_debugfs_blob_add() would fail and trip the WARN_ON_ONCE() in
-its callers, so let's make it do nothing when it has no directory to add
-the blob to. kho_in_debugfs_init() would log an error on every KHO boot,
-so let's make it return early when the kho directory doesn't exist.
+>> Unfortunately however, if kho_init() fails, err_free_bootmem
+>> currently frees every area with free_reserved_area(). This can free
+>> pages still backing early allocations or free buddy pages a second
+>> time.
+>
+>Is this an issue you hit in practice or it was reported by a code analysis?
 
-With this applied, test_kho and luo_kexec_simple both get their state
-back across a KHO kexec between two kernels booted with debugfs=off.
+Just from reading the code, same as the reservation failure one.
 
-Fixes: 03d3963464a4 ("kho: make debugfs interface optional")
-Signed-off-by: Chris Down <chris@chrisdown.name>
----
- kernel/liveupdate/kexec_handover.c          |  9 ++-------
- kernel/liveupdate/kexec_handover_debugfs.c  | 19 +++++++++++--------
- kernel/liveupdate/kexec_handover_internal.h |  8 ++++----
- 3 files changed, 17 insertions(+), 19 deletions(-)
+Actually, I did find an amusingly simple way to trigger it to
+demonstrate :-) With CONFIG_KEXEC_HANDOVER_DEBUGFS=y, kho_init() fails
+when debugfs is disabled, so a KHO kexec into a kernel with debugfs=off
+added to its command line is enough. From a quick check I did, the new
+kernel then crashes in free_pcppages_bulk() under free_reserved_area()
+and never gets to userspace. I'll add the trace to the v2 changelog.
 
-diff --git a/kernel/liveupdate/kexec_handover.c b/kernel/liveupdate/kexec_handover.c
-index 663dd22e7172..4cee37ad9426 100644
---- a/kernel/liveupdate/kexec_handover.c
-+++ b/kernel/liveupdate/kexec_handover.c
-@@ -1847,13 +1847,8 @@ static __init int kho_init(void)
- 		goto err_free_kho_radix_tree;
- 	}
- 
--	err = kho_debugfs_init();
--	if (err)
--		goto err_free_fdt;
--
--	err = kho_out_debugfs_init(&kho_out.dbg);
--	if (err)
--		goto err_free_fdt;
-+	kho_debugfs_init();
-+	kho_out_debugfs_init(&kho_out.dbg);
- 
- 	err = kho_out_fdt_setup();
- 	if (err)
-diff --git a/kernel/liveupdate/kexec_handover_debugfs.c b/kernel/liveupdate/kexec_handover_debugfs.c
-index 3a91c47ad7a6..cedfc955391a 100644
---- a/kernel/liveupdate/kexec_handover_debugfs.c
-+++ b/kernel/liveupdate/kexec_handover_debugfs.c
-@@ -59,6 +59,10 @@ int kho_debugfs_blob_add(struct kho_debugfs *dbg, const char *name,
- 	else
- 		dir = dbg->sub_fdt_dir;
- 
-+	/* The directories are NULL if they could not be created. */
-+	if (!dir)
-+		return 0;
-+
- 	return __kho_debugfs_blob_add(&dbg->fdt_list, dir, name, blob, size);
- }
- 
-@@ -101,6 +105,9 @@ __init void kho_in_debugfs_init(struct kho_debugfs *dbg, const void *fdt)
- 
- 	INIT_LIST_HEAD(&dbg->fdt_list);
- 
-+	if (IS_ERR(debugfs_root))
-+		return;
-+
- 	dir = debugfs_create_dir("in", debugfs_root);
- 	if (IS_ERR(dir)) {
- 		err = PTR_ERR(dir);
-@@ -129,7 +136,7 @@ err_out:
- 	}
- }
- 
--__init int kho_out_debugfs_init(struct kho_debugfs *dbg)
-+__init void kho_out_debugfs_init(struct kho_debugfs *dbg)
- {
- 	struct dentry *dir, *f, *sub_fdt_dir;
- 
-@@ -137,7 +144,7 @@ __init int kho_out_debugfs_init(struct kho_debugfs *dbg)
- 
- 	dir = debugfs_create_dir("out", debugfs_root);
- 	if (IS_ERR(dir))
--		return -ENOMEM;
-+		return;
- 
- 	sub_fdt_dir = debugfs_create_dir("sub_fdts", dir);
- 	if (IS_ERR(sub_fdt_dir))
-@@ -155,17 +162,13 @@ __init int kho_out_debugfs_init(struct kho_debugfs *dbg)
- 
- 	dbg->dir = dir;
- 	dbg->sub_fdt_dir = sub_fdt_dir;
--	return 0;
-+	return;
- 
- err_rmdir:
- 	debugfs_remove_recursive(dir);
--	return -ENOENT;
- }
- 
--__init int kho_debugfs_init(void)
-+__init void kho_debugfs_init(void)
- {
- 	debugfs_root = debugfs_create_dir("kho", NULL);
--	if (IS_ERR(debugfs_root))
--		return -ENOENT;
--	return 0;
- }
-diff --git a/kernel/liveupdate/kexec_handover_internal.h b/kernel/liveupdate/kexec_handover_internal.h
-index e9685e1ef6d7..424467a98da2 100644
---- a/kernel/liveupdate/kexec_handover_internal.h
-+++ b/kernel/liveupdate/kexec_handover_internal.h
-@@ -23,17 +23,17 @@ extern struct kho_bootmem *kho_bootmem;
- extern unsigned int kho_bootmem_cnt;
- 
- #ifdef CONFIG_KEXEC_HANDOVER_DEBUGFS
--int kho_debugfs_init(void);
-+void kho_debugfs_init(void);
- void kho_in_debugfs_init(struct kho_debugfs *dbg, const void *fdt);
--int kho_out_debugfs_init(struct kho_debugfs *dbg);
-+void kho_out_debugfs_init(struct kho_debugfs *dbg);
- int kho_debugfs_blob_add(struct kho_debugfs *dbg, const char *name,
- 			 const void *blob, size_t size, bool root);
- void kho_debugfs_blob_remove(struct kho_debugfs *dbg, void *blob);
- #else
--static inline int kho_debugfs_init(void) { return 0; }
-+static inline void kho_debugfs_init(void) { }
- static inline void kho_in_debugfs_init(struct kho_debugfs *dbg,
- 				       const void *fdt) { }
--static inline int kho_out_debugfs_init(struct kho_debugfs *dbg) { return 0; }
-+static inline void kho_out_debugfs_init(struct kho_debugfs *dbg) { }
- static inline int kho_debugfs_blob_add(struct kho_debugfs *dbg,
- 				       const char *name, const void *blob,
- 				       size_t size, bool root) { return 0; }
--- 
-2.56.1
+kho_init() shouldn't really fail just because debugfs is off, so let me
+fix that in v2 as well.
 
+>> +	if (!fdt) {
+>
+>I think using !is_kho_boot() makes this clearer.
+
+Agreed, will do in v2.
+
+Once the reservation failure v2 lets kho_mem_retrieve() fail and drop
+the handover, is_kho_boot() will be false even though the bootmem was
+inherited, so both this and the bootmem setup above it will have to
+check for that instead. I'll change both in that series.
+
+Thanks!
+
+Chris
