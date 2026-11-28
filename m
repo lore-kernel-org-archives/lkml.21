@@ -1,90 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858541;
-	b=BTvkcMvlDxHLslF4EWCksuydtJmSJIf7ZxUAjRBSPYvgoaSJBY4a2n1If8EZsh+rqg1G
-	 d7pDHWD5AaWZsCk/VGdbXesQw8QG9t21j8iOdKmfZH9njccft8PAkr8tvqAB9bdK5GkIs
-	 jk3haXzfsSpwfBf/ZxBbNzE+tk2EdgTK60zLWakO89AScPS5fAIr2V1xuFWCuSNeUg+ix
-	 Hfizi0nyIk7+JcBTafU8xjtM8i3TvMoa6QsnjB5wha+1/pqyrabLyWbn0p8aI7YqivDJb
-	 jm1I7t3v93jCZg5lPRZOcbNf8W37oTbO2KbkoYYY99oci0LXmJWimUOTQZemWB1uYWg==
+	t=1795858585;
+	b=N4bwSCuqwqpX7rirybIY2XT9zAjz/a3ZuAjHbti5r+WVlQu8wjGPjxhmILMZL6CqZXgr
+	 MziTukCiSTfTPfYjIdatTlR1gkOgI0x6jlq6QHU3S+JFadVLRR2XbPJyUDN/RB3ZuyjhO
+	 McukYiQPhBip7XM1EhjPBTY+Wrfeh7cfpwvIWKR6hXVBL+qhaO5WB17A7iJbBO2W0f2uB
+	 XL9P6BWTQSzFU61sxmIpsN1HU13A3vlWUyVXFX/epjeL0sKWG/uTX4DFPRgWIEyL3wJGZ
+	 HlZKmAErjBEc9p3i3P1gZIdPotA/Hbw12KuRpjxwl/pKF1IJIcEdiPFd4PUeM7rx7cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858541;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=T2jo7pM/6PDKnuisVriJGAxNf7QVeypBzzf9JQ7D540=;
-	b=PKfZ/n+NdRCyxP363UmeQCDrbLSzt/o9vkjkk1uOZUULeI6SpPDiIwxIvFJeKF1UhI9k
-	 19eqyRuYWOaUZ9sJLDsqILZCwwevS75fNQ3778wRGKaXhFVv6IoBEPhQKp3/AW1/JKo1F
-	 7CFeay+h3BxUzZ0CZCARfsQ8tulSQo4irPg73HUjPvykJuiHD+2q4Tr2lECCJTpNuo9u4
-	 TQ8cMlDXLqn6dD7xN74+jLKiiyC9kk/0yz1XKBqn0YxUE+y6TpOzcb+9Yhc24Q3C8wLGP
-	 kp/Jq9YW9X56cNvnhluhyV8MKUMhlvVryrjZDcWf2jeqesr4uanruvMs3/+5X++AQ9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858585;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=5JniJf8Ax7BNNR4S3q+B4C5imeatJRVSpHhz/GWQ5Q0=;
+	b=MePOSWnbU3fbikQLZO6FPztj+GTN+b+R+NJi9Znn1lfh1dLEBBKqcEtvXfIbM6dLzMVp
+	 /yY6+96ElXKYV9T7Zj5YtFvF+SGiSldkIut8ucGOMXAk2zGOJeDq0hFDuiwVwL/t6bcxh
+	 eKstZsa2OddvvHUxDCjIYdXUJpchKqWgrZvljl1kwg7qcUT0w/K72aKdN4fj7BGIw09hl
+	 BAQ7QsTvilbPT1kLkyhoWkBYtCNFvqk9apkwJa/ZnejhillELFMDmZ5CBVc8uNIH84XFm
+	 u9rBkcFqUIg0DIpV4eEfdi6AQmqR4C2fe6p6yyLtipu9xIwj7Q5ogcHZiypAXKtGxIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LdryvvZu;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CGVw6ZfB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95565606A326;
-	Sat, 28 Nov 2026 09:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95565606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9554B606A31C;
+	Sat, 28 Nov 2026 09:36:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LdryvvZu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795858539; x=1827394539;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=07w0okp0bbzLim5DmVtzpzZVh8uI3qagnYo0AvkQVWc=;
-  b=LdryvvZuQzPKmZ/98WxkmNiyICldqeDzc26ncxlEhlHCVgcrZ6Qj0JGl
-   F2De/PvBOxRndqw3VC+Y5hUqy4iW6EL9AWhtMFZF5XavzgZVt6PODQkhI
-   N3kacuFbIZ9ra5EjJyxb3+83XCGdLb/ZPEJiYCCIDUNPad5iASA8SjJh8
-   FYH2oSx7QTF7JnR+Ms/QJID0JwPUw/JJyQkO6lIpeaNXYhe2BV5uxMfB9
-   YegKXSJLuk3QfWfvgYQQ6sZLtcgjUXEEMSFhX4FX2salQxVn0RDSn96Iv
-   oGOYWjsyzrjKrqSWqH7mDH8I4MlWVWvGJXWjWXRTRmF/vWcgmtmeEwzN6
-   g==;
-X-CSE-ConnectionGUID: CKEtBg5GQdKdTSA3a0k9/Q==
-X-CSE-MsgGUID: MiFMN4+TSh6+15Pi04ENKw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4738040"
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="4738040"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 01:35:39 -0800
-X-CSE-ConnectionGUID: hGnbJ2ZiSgSwVdoz/Xcf7g==
-X-CSE-MsgGUID: +LUksoF1TZywYXT/SAzF2A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="13151248"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by fmviesa010.fm.intel.com with ESMTP; 28 Nov 2026 01:35:35 -0800
-Date: Sat, 28 Nov 2026 17:25:14 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "Gao, Chao" <chao.gao@intel.com>, "hpa@zytor.com" <hpa@zytor.com>,
-	"Xu, Yilun" <yilun.xu@intel.com>, "bp@alien8.de" <bp@alien8.de>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"Peng, Chao P" <chao.p.peng@intel.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"Tian, Kevin" <kevin.tian@intel.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>
-Subject: Re: [RFC PATCH 2/7] coco/tdx-host: Establish an SPDM session with
- the device
-Message-ID: <awqd+kqYabFX3xO7@yilunxu-OptiPlex-7050>
-References: <20261116111037.3478844-1-chao.gao@intel.com>
- <20261116111037.3478844-3-chao.gao@intel.com>
- <ac7befe5081a489172d87402e55355852a9e62ac.camel@intel.com>
- <awWKRJQ3_rIgxJVC@intel.com>
- <30852ad50fb3085de04145342aaf1caf145488fe.camel@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CGVw6ZfB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 643381F000C1;
+	Sat, 28 Nov 2026 09:36:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795858585;
+	bh=5JniJf8Ax7BNNR4S3q+B4C5imeatJRVSpHhz/GWQ5Q0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=CGVw6ZfBv+6FT53Y59tjpqNcX0JfKdKXv9Yd4CkX0T3aI3N/zEKZdP6tOHuKGD+fn
+	 P4fvObFNCcrO0XTqPfg36cSfvMp5YwNNB6qvOTmiXEAPozr95aLErcwveCn6hvRYhZ
+	 Xz1F+N/LOEiIM5XCH++Y7fE0KE4DyTl2aOSPEgr7BteS+piY2mwUzDF6P1yQu+5Mvg
+	 6+WTqa9hHX+tmBN6JYhiLlYlvxyxPG920QiMQ4tBOfVjjWATuMD/U6qjas3l3JM4nZ
+	 g+N0KxMaEqr7eoGeI4c1qy7n3mB5MmKScbvxcpbwrjQoVOeCoAAGBurqSMEpHPPout
+	 BeYnoISg2NCIA==
+Subject:
+ Re: [PATCH net 1/2] ipv4: route: fix use-after-free in ip_route_output_flow()
+From: netdev-bot+sashiko@kernel.org
+To: n0ps1edzz@gmail.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ kuniyu@amazon.com, steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, willemb@google.com, liuhangbin@gmail.com,
+ ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 09:36:23 +0000
+Message-ID: <179585858395.3135.17395458916030659399@kernel.org>
+In-Reply-To: <71e47f31ab9eac91c07bc3b9535c87ef3723b961.1795769101.git.n0ps1edzz@gmail.com>
+References: <71e47f31ab9eac91c07bc3b9535c87ef3723b961.1795769101.git.n0ps1edzz@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,61 +65,203 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <30852ad50fb3085de04145342aaf1caf145488fe.camel@intel.com>
 
-> > > > Pass the messages through two pages per device, one for each direction.
-> > > > One pair is enough because PCI/TSM serializes operations on a device.
-> > > 
-> > > This probably needs more explanation.
-> > 
-> > Several functions of a device may want to talk to the TDX module at
-> > the same time, and each of them may need SPDM message exchanges. But
-> > PCI/TSM serializes all operations on a device, so the pages are
-> > allocated once per device and not once per function.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Correct. But we don't have to mention "per function" serialization for
-now, this is for secure passthrough of the TDI. For link encryption, the
-connect/disconnect operations only targets the device (physical function 0).
+Critical: 0 · High: 2 · Medium: 0 · Low: 1
 
-Though this is not the answer to Rick's concern...
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> 
-> I mean there is a buffer for request and a separate buffer for the response.
-> Once the request is sent, why can't the same buffer be used to read back the
-> response? This may be a lack of understanding by me of DOE.
+- [High] The fix does not work as submitted, because the RCU grace period
+  it depends on is missing.
+- [High] The fix leaves the same use-after-free in the code that runs
+  right after it on the same UDP send path.
+- [Low] ipv4: route: Fixes trailer cites wrong commit for
+  ip_route_output_flow()
 
-I believe it is possible. The DOE protocol defines serialized
-request/response flow. And the pci_doe() code does so, the entire
-request payload must be sent before receiving any response payload.
+--
 
-I didn't try on real TDX module if tdh_spdm_connect/disconnect/mng can
-work with one buffer, but don't see reason why it can't.
+ipv4: route: fix use-after-free in ip_route_output_flow()
 
-> 
-> > 
-> > @Yilun, let me know if this understanding is wrong.
-> > 
+The patch changes how ip_route_output_flow() reads the output device. It
+now reads it through dst_dev_rcu() inside an RCU read-side critical
+section, not as a plain rt->dst.dev->ifindex load. The commit message
+says this depends on a separate fix that makes netdev_run_todo() wait
+for RCU readers after flushing routes.
 
-[...]
+> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+> index cd69242afab07..b16a9d05f2217 100644
+> --- a/net/ipv4/route.c
+> +++ b/net/ipv4/route.c
+> @@ -2982,7 +2982,9 @@ struct rtable *ip_route_output_flow(struct net *net, struct flowi4 *flp4,
+>  		return rt;
+>  
+>  	if (flp4->flowi4_proto) {
+> -		flp4->flowi4_oif = rt->dst.dev->ifindex;
+> +		rcu_read_lock();
+> +		flp4->flowi4_oif = dst_dev_rcu(&rt->dst)->ifindex;
+> +		rcu_read_unlock();
 
-> > > > +	ret = -ENOMEM;
-> > > > +	in_msg_page = alloc_page(GFP_KERNEL | __GFP_ZERO);
-> > > > +	if (!in_msg_page)
-> > > > +		return ret;
-> > > > +
-> > > > +	out_msg_page = alloc_page(GFP_KERNEL | __GFP_ZERO);
-> > > > +	if (!out_msg_page)
-> > > > +		goto out_free_in_msg;
-> > > 
-> > > Maybe dumb question, but why do we need two buffers for this? After we post the
-> > > request can't we just read it back the response to the same buffer? It doesn't
-> > > seem DOE code is setup for that though.
-> > 
-> > pci_doe() takes separate buffers for the request and the response, and
-> > so does TDH.SPDM.CONNECT.
-> > 
-> > > > +out_spdm_delete:
-> > > > +	tdx_spdm_delete(tlink);
-> > > 
+[Severity: Low]
+Is 95c47f9cf5e0 the right commit for the Fixes tag? When that commit
+landed, ip_route_output_flow() did not read rt->dst.dev at all.
+ip_route_output_key_hash_rcu() filled in the output interface with
+fl4->flowi4_oif = dev_out->ifindex, and ip_route_output_key_hash()
+still held rcu_read_lock() at that point.
+
+Commit 2fbc6e89b2f1 ("ipv4: Update exception handling for multipath
+routes via same device") removed that assignment. It came back in
+commit 874fb9e2ca94 ("ipv4: Restore flowi4_oif update before call to
+xfrm_lookup_route"). That commit added the flp4->flowi4_oif =
+rt->dst.dev->ifindex load to ip_route_output_flow(), which runs after
+__ip_route_output_key() has already dropped the RCU read lock. That is
+the line this patch changes.
+
+The Fixes tag decides which stable branches pick this up. Pointing at
+the 2017 commit could send the patch to trees where this line does not
+exist.
+
+Should the tag name 874fb9e2ca94 instead? If the teardown window also
+depends on ca6854799069 and f12d2907992d, should those be listed too?
+
+[Severity: High]
+Does this rcu_read_lock() section protect the old net_device in this
+tree? It only helps if the code that frees the device waits for a grace
+period after rt->dst.dev_rcu is switched to blackhole_netdev. I could
+not find such a wait.
+
+unregister_netdevice_many_notify() sets dev->dismantle before the
+NETDEV_UNREGISTER notifiers run. So rt_flush_dev(dev), called from
+fib_netdev_event(), returns early:
+
+net/ipv4/route.c:rt_flush_dev() {
+	if (dev && dev->dismantle)
+		return;
+	...
+}
+
+The flush that does the work happens later, in netdev_run_todo(), after
+its only rcu_barrier():
+
+net/core/dev.c:netdev_run_todo() {
+	...
+	/* Wait for rcu callbacks to finish before next phase */
+	if (!list_empty(&list))
+		rcu_barrier();
+	...
+	if (!list_empty(&list)) {
+		rt_flush_dev(NULL);
+		rt6_uncached_list_flush_dev(NULL);
+	}
+	...
+}
+
+rt_flush_dev(NULL) publishes blackhole_netdev and drops the old device
+reference right away:
+
+	rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
+	netdev_ref_replace(rt_dev, blackhole_netdev,
+			   &rt->dst.dev_tracker, GFP_ATOMIC);
+
+If that was the last extra reference, netdev_wait_allrefs_any() takes
+its fast path without any RCU wait:
+
+	list_for_each_entry(dev, list, todo_list)
+		if (netdev_refcnt_read(dev) == 1)
+			return dev;
+
+The device then reaches netdev_release() in net/core/net-sysfs.c, which
+frees it synchronously:
+
+	/* no need to wait for rcu grace period:
+	 * device is dead and about to be freed.
+	 */
+	kfree(rcu_access_pointer(dev->ifalias));
+	kvfree(dev);
+
+Wouldn't this interleaving still produce the KASAN report?
+
+CPU0                                  CPU1
+ip_route_output_flow()
+  rcu_read_lock()
+  dev = dst_dev_rcu(&rt->dst)
+                                      netdev_run_todo()
+                                        rt_flush_dev(NULL)
+                                        netdev_wait_allrefs_any()
+                                        ...
+                                        netdev_release()
+                                          kvfree(dev)
+  dev->ifindex   <-- freed
+  rcu_read_unlock()
+
+The commit message says:
+
+    This requires netdev_run_todo() to wait for RCU readers
+    after flushing routes; that fix is a prerequisite of this patch.
+
+That change does not seem to be in the tree or in this series, and the
+message gives no commit ID or link for it. The other patch in the
+series, "xfrm: fix use-after-free in xfrm_lookup_with_ifid()", only
+touches net/xfrm/xfrm_policy.c and relies on the same missing wait.
+
+Could the prerequisite be added to this series or named explicitly? One
+option is a synchronize_net() after the rt_flush_dev(NULL) /
+rt6_uncached_list_flush_dev(NULL) block and before
+netdev_wait_allrefs_any().
+
+About the Fixes tag: commit ca6854799069 ("ipv4: Batch rt_flush_dev() in
+netdev_run_todo().") and commit f12d2907992d ("ipv6: Batch
+rt6_uncached_list_flush_dev() in netdev_run_todo().") moved the flush
+into netdev_run_todo(), after the rcu_barrier(). Before that, it ran from
+the notifier, ahead of a synchronize_net(). Those commits look like the
+likely origin of the window, but the Fixes tag only names 95c47f9cf5e0.
+
+With Cc: stable and no dependency note, would a stable backport of this
+patch alone change anything?
+
+>  		rt = dst_rtable(xfrm_lookup_route(net, &rt->dst,
+>  						  flowi4_to_flowi(flp4),
+>  						  sk, 0));
+
+[Severity: High]
+If a referenced rtable does not keep rt->dst.dev alive, isn't the same
+race still open on this send path right after ip_route_output_flow()
+returns?
+
+udp_sendmsg() passes the same rt to ip_make_skb() without
+rcu_read_lock(). That path then reads the device through the plain
+pointer:
+
+udp_sendmsg()
+  ip_route_output_flow()
+  ip_make_skb()
+    ip_setup_cork()
+      cork->fragsize = ip_sk_use_pmtu(sk) ?
+		 dst4_mtu(&rt->dst) : READ_ONCE(rt->dst.dev->mtu);
+    __ip_append_data()
+      hh_len = LL_RESERVED_SPACE(rt->dst.dev);
+      ... rt->dst.dev->features ...
+
+__ip_append_data() also reads rt->dst.dev->features in several other
+places. raw_send_hdrinc() in net/ipv4/raw.c follows the same pattern:
+
+	if (length > rt->dst.dev->mtu) {
+	...
+	hlen = LL_RESERVED_SPACE(rt->dst.dev);
+	tlen = rt->dst.dev->needed_tailroom;
+
+These loads run after the ifindex read and are not inside any RCU
+section. Even with the prerequisite grace period in place, can the
+"UDP sends raced with dummy-device teardown" reproducer still reach a
+freed net_device here?
+
+Should these sites get the same RCU treatment? Or should teardown keep
+the device alive while dst references to it still exist?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795769101.git.n0ps1edzz%40gmail.com
