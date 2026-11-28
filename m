@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795865164;
-	b=iHGnqPb9YYXqdBgBLgwDV0Or0ZgHgoxO2lhLfQmPwtEjIxE6q9EdxCL7TRX4xHXEuw1v
-	 aQTzoUq81CGHbQmqNEq2Wn+OHBRadpsyLB5/3agBjExDm8Krlm4PcgeC5w3wK1ipH3iSW
-	 6DLyrrNYHdA8CvT+nlW11A4cauIB5tHUntZe3EgPIjBFy/QHIk82oBd7V6OG773ozPFlR
-	 NkhNs+RuhvHMdEiRVTzVdJuEJCDj7xu0do7hAohv9OlolBs9WidfIEPJ2z1b7QV7pE927
-	 SXRMlDV76EVzCAvmXadDIFa0lSYJ9YTbbXhp88eTeyFZfP6eAFs/P/6V4bcw+Ccan7A==
+	t=1795865166;
+	b=nU0hN3imaEToGPRqT/4jYYzPPHGXw0h0uALc0IrkYLMJOY9ioKsrqA67XVJ4lJxFsmPS
+	 gRsGJhv3ZB6BsIAvzJV8tTv+/zqkLO2L9hMfVQmYxSWdpe6yuFUIK5VVTkfbeR6JpcvXV
+	 EtlAjwwp7RVaQeNC9SNLKUmAKxHvID7JVlYrULdjrs4d0CIVltwk2/d6vdZzxQG1fY1RS
+	 TIECXLdPQwogIMny5nRXUylN4uOYSYzxw0KGbxQCmJ0R5vQeuS62sstiu+e95iKWOPMTA
+	 6tAWDR111UrlFvdsqoBUpDabbcY4MtypufbD9BRSSEcT8QLDsGCCX+uiSbHUMnKV3Dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795865164;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795865166;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=NHIBnVqdOtgtb+45LOjNsVPZ/ajhk+Np8JsuDoP7Jj4=;
-	b=SPXkNZKjce8pL4a9ZZL2tfp2AVUJ75uKX+mx6M3vzp97WkPii+GR85uLoxfv4erXLi0t
-	 rad2ymrfWFfb3vFunArIZla6AbXDHktbe8PG9n5lRjhFBo0YnpAwYz2XK20LILEogUP7h
-	 G0ufmgKx2pqfCVIq79HPsv2BYiDoDAZL8MVR9f+IWgigMAB1AkvGe0qZO2QOJr44JbR62
-	 tGu46aE3yRuAvtdss1FW2Z077l+ImJcxh1i6bnmLeCb2mjHnwAIeDEjUwi0go+PjpEend
-	 +M87oTnhcuEMl9sHnfyNEl83/qEKzVSaAS2KXsz73fb7pV0bfkDPFaKasTWIpfFnN9Q==
+	bh=1DFYlrDF3uE1lFPUw88GuZ1Rh3mCYC0EoZqEahQW3+M=;
+	b=RcqXkUyHi9OPOloE/vgCXwsiN6VCbghLd2j+ctEW1AXpDO3cOP76WZfDrZ1pvwzufYdM
+	 dZK72YUWMAkuYet7RM8sZqbYVcIZsQpUncgRcHxdgHkhjYYAPDzm7FcDPKqvPzufXLb4q
+	 0UGp5zOBJcQabflUEHpc/cEMlOkYqd6xsTrfircRSkPh7K4BiZ0kVebdt8Na9YBQ1j5b5
+	 VKNahh76QaYQdErQQbLxgrm8CsNaNcn8zM/SAgcgRhUtOmO/QcZ+jMl8xWn2wY669pFWi
+	 XkShFqP6SEEI1CjIGGu5FEKxPRljZ9hDL17PikAMhU6aHGdpF/TdVicCW64FPFxYNFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBKMORcH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U0bNoOAZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DBDA606A32E;
-	Sat, 28 Nov 2026 11:26:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E987E606A32F;
+	Sat, 28 Nov 2026 11:26:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBKMORcH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A0E1F00897;
-	Sat, 28 Nov 2026 11:26:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U0bNoOAZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB87A1F00893;
+	Sat, 28 Nov 2026 11:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795865164;
-	bh=NHIBnVqdOtgtb+45LOjNsVPZ/ajhk+Np8JsuDoP7Jj4=;
+	s=k20260515; t=1795865165;
+	bh=1DFYlrDF3uE1lFPUw88GuZ1Rh3mCYC0EoZqEahQW3+M=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aBKMORcHfZsGFcblUGmpBld6S/oOnHECinCX1RyhQzRu7p6XqBKIMX1yjgELEZQnW
-	 lA7W+g8Q7+cnqVtfY40/eFj/957wHO/5Aq3tq0UhPCNcBeXuJQH46YutiGOi4kT51W
-	 n+hpzhI+XMuw2mIZN5N1qFeyDufOLjDp3Z0rAqELv4zW79fTF3yMxBEIhXCVIJir1e
-	 fwAbNza9jrzeHg+KSlu2ZWPv19gGrBKIjuHQaCS1hKpTDJA+uHUpmLTgT0sb1D8vO4
-	 MeJbnW+LQA/m6jTvO49AvP//qHJLdKaZXS8D2GROA6A2HIIHhlfQIc9fFAhaBFbG8E
-	 AAVVJgIV4bLLA==
-Subject: Re: [PATCH net-next v10 3/8] net: bcmgenet: rename ENET_MAX_MTU_SIZE
- to ENET_MAX_FRAME_LEN
+	b=U0bNoOAZCYl9lpxXDqw2aRNoB1/iPwcgpq1m//3FgkSOrkL9k3+Qaz2+UbngKEhk3
+	 p/nb8c22NW3T+UFSqQMQozoDSR94kH2iids0cUrbPNsl2v33VeL1KZt7oRjqZwTCto
+	 fCPKadzrzH9VxxTD04wy2t8aY9juM2B9ofY2fIpJYuA/0D+V/zgwlwcjhIxiP/mHr4
+	 0VLF0DgwevSCscB9s3zyKRAAGi/E6Dlxmb+l48TbdWnAEk2SPdxiTUv3IlnsS+Dtkr
+	 OoevmMZ32NDO/z+6FPBOuL/78R8g7VyaNUTrvSTnCEnhR9f1zoemUponsYy+oD99UJ
+	 V701opvNlUfWg==
+Subject: Re: [PATCH net-next v10 4/8] net: bcmgenet: derive the receive buffer
+ length from the MTU
 From: netdev-bot+sashiko@kernel.org
 To: nb@tipi-net.de
 Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
@@ -50,10 +50,10 @@ Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
  f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com,
  justin.chen@broadcom.com
-Date: Sat, 28 Nov 2026 11:26:02 +0000
-Message-ID: <179586516296.3135.16116163120459465582@kernel.org>
-In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-3-749c7cc45d97@tipi-net.de>
-References: <20261127-nb-genet-mtu-nn-v2-v10-3-749c7cc45d97@tipi-net.de>
+Date: Sat, 28 Nov 2026 11:26:04 +0000
+Message-ID: <179586516438.3135.112504100191824754@kernel.org>
+In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-4-749c7cc45d97@tipi-net.de>
+References: <20261127-nb-genet-mtu-nn-v2-v10-4-749c7cc45d97@tipi-net.de>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,57 +73,134 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] In drivers/net/ethernet/broadcom/genet/bcmgenet.h, the commit
-  "net: bcmgenet: rename ENET_MAX_FRAME_LEN" deletes the old comment…
+- [Low] In drivers/net/ethernet/broadcom/genet/bcmgenet.c,
+  bcmgenet_set_mtu_regs() now writes RBUF_PKT_RDY_THLD (RBUF + 0x08)…
 
 --
 
-net: bcmgenet: rename ENET_MAX_MTU_SIZE to ENET_MAX_FRAME_LEN
+net: bcmgenet: derive the receive buffer length from the MTU
 
-This patch renames ENET_MAX_MTU_SIZE to ENET_MAX_FRAME_LEN because the
-value is a frame length, not an MTU. It updates the two users, init_umac()
-and bcmgenet_init_tx_ring(), and replaces the comment above the macro. No
-functional change is intended.
+This patch drops the fixed 2048 byte receive buffer length. The length is
+now derived from an MTU-based packet ready threshold, which the patch also
+programs into RBUF_PKT_RDY_THLD. UMAC_MAX_FRAME_LEN and the TDMA flow
+period are also derived from the MTU, with a floor at ETH_DATA_LEN.
 
-> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.h b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-> index 6ab3f73475550..afaccb7699336 100644
-> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-> @@ -28,12 +28,11 @@
->  /* which ring is descriptor based */
->  #define DESC_INDEX				16
+> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+> index 5c050331da690..15b7c8a525201 100644
+> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+
+[ ... ]
+
+> @@ -2653,6 +2677,41 @@ static void bcmgenet_link_intr_enable(struct bcmgenet_priv *priv)
+>  	bcmgenet_intrl2_0_writel(priv, int0_enable, INTRL2_CPU_MASK_CLEAR);
+>  }
 >  
-> -/* Body(1500) + EH_SIZE(14) + VLANTAG(4) + BRCMTAG(6) + FCS(4) = 1528.
-> - * 1536 is multiple of 256 bytes
-> - */
->  #define ENET_BRCM_TAG_LEN	6
->  #define ENET_PAD		8
-> -#define ENET_MAX_MTU_SIZE	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
+> +/* Receive threshold in register units. Covers the alignment bytes and the
+> + * frame, but not the status block, which the hardware adds on top.
+> + */
+> +static unsigned int bcmgenet_pkt_rdy_thld(unsigned int mtu)
+> +{
+> +	unsigned int len = GENET_RBUF_ALIGN + mtu + ETH_HLEN + VLAN_HLEN;
 > +
-> +/* Longest frame the MAC must accept for the default MTU */
-> +#define ENET_MAX_FRAME_LEN	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
->  				 ENET_BRCM_TAG_LEN + ETH_FCS_LEN + ENET_PAD)
+> +	len = round_up(len, ENET_THLD_BURST) / ENET_THLD_UNIT;
+> +
+> +	/* Keep the reset default for the common MTUs */
+> +	return clamp_t(unsigned int, len, ENET_THLD_DEFAULT,
+> +		       ENET_THLD_MAX_LEN / ENET_THLD_UNIT);
+> +}
+
+[ ... ]
+
+> +/* Call with the MAC disabled */
+> +static void bcmgenet_set_mtu_regs(struct bcmgenet_priv *priv, unsigned int mtu)
+> +{
+> +	u32 thld = bcmgenet_pkt_rdy_thld(mtu);
+> +
+> +	bcmgenet_umac_writel(priv, ENET_MAC_FRAME_LEN(mtu), UMAC_MAX_FRAME_LEN);
+> +
+> +	/* GENET v1 maps other registers at these offsets */
+> +	if (GENET_IS_V1(priv))
+> +		return;
+> +
+> +	bcmgenet_rbuf_writel(priv, thld, RBUF_PKT_RDY_THLD);
 
 [Severity: Low]
+The commit message treats this write as a no-op:
 
-This isn't a bug, but is the new comment accurate? The expression adds
-up to 1536:
+  "so the threshold comes out at 0x80, the value a v5 holds out of reset"
 
-    1500 + 14 + 4 + 6 + 4 + 8 (ENET_PAD) = 1536
+Before this patch the driver never wrote RBUF_PKT_RDY_THLD. Now every
+open and resume on v2, v3, v4 and v5 writes it, via
+init_umac()->bcmgenet_set_mtu_regs().
 
-The longest frame the MAC actually has to accept for the default MTU is
-1528. The extra 8 bytes come from ENET_PAD, which is not part of any frame.
+Is it known that v2-v4 match v5 here? That covers the reset value, the
+RBUF + 0x08 offset, the 8 bit field in 16 byte units and the 256 byte
+burst rule.
 
-The deleted comment was the only place that explained ENET_PAD, as
-rounding up to a 256-byte multiple. After this patch nothing explains it.
-The padded value is still written to UMAC_MAX_FRAME_LEN in init_umac(). It
-is also shifted into the TDMA flow period in bcmgenet_init_tx_ring(), which
-the new comment doesn't mention.
+The driver's own register map already shows that the RBUF block differs
+between revisions:
 
-The next patch in the series, "net: bcmgenet: derive the receive buffer
-length from the MTU", rewrites this comment to explain that ENET_PAD rounds
-1528 up to 1536, so the end of the series is fine. Could this patch keep
-the ENET_PAD explanation, so the comment is also correct at this commit?
+  #define RBUF_OVFL_CNT_V2		0x80
+  #define RBUF_OVFL_CNT_V3PLUS		0x94
+  ...
+  #define RBUF_ERR_CNT_V2			0x84
+  #define RBUF_ERR_CNT_V3PLUS		0x98
+
+Also, init_umac() writes RBUF_TBUF_SIZE_CTRL only on v3 and later.
+
+If something else lives at RBUF + 0x08 on v2, or the units differ, could
+RX frames end up split across descriptors? At this commit,
+bcmgenet_desc_rx() drops those:
+
+	if (unlikely(!(dma_flag & DMA_EOP) || !(dma_flag & DMA_SOP))) {
+		netif_err(priv, rx_status, dev,
+			  "dropping fragmented packet!\n");
+
+v1 skips the write, but bcmgenet_probe() still sizes rx_buf_len from the
+threshold formula on every revision:
+
+	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
+
+So on v1, the rule "A buffer has to hold everything the threshold lets
+the hardware deliver" depends on a threshold that is never programmed.
+
+The later patch "net: bcmgenet: split frames that end just past the
+transmit threshold" adds an unconditional TBUF_PKT_RDY_THLD write on the
+same revisions, with the same v5-only reasoning.
+
+Could the commit message state that the v2-v4 reset values and register
+semantics match v5? Alternatively, the write could be limited to
+revisions where it is known to change nothing.
+
+> +}
+> +
+>  static void init_umac(struct bcmgenet_priv *priv)
+
+[ ... ]
+
+> @@ -4156,6 +4216,7 @@ static int bcmgenet_probe(struct platform_device *pdev)
+>  	/* Mii wait queue */
+>  	init_waitqueue_head(&priv->wq);
+>  	bcmgenet_hfb_init(priv);
+> +	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
+>  	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.h b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
+> index afaccb7699336..b40e56872132c 100644
+> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.h
+> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
+
+[ ... ]
+
+> @@ -218,6 +226,8 @@ struct bcmgenet_rx_stats64 {
+>  #define  RBUF_ALIGN_2B			(1 << 1)
+>  #define  RBUF_BAD_DIS			(1 << 2)
+>  
+> +#define RBUF_PKT_RDY_THLD		0x08
+> +
 
 [ ... ]
 
