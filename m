@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795838116;
-	b=N5ay4Pxrh1yZDOKwywJ8hcEGMQKu+ieidgGMd0e5yYgZ2/bpfmsI1A5Kiy2GC1mQdxqb
-	 W/JXnI2ShMKi3ua8/KsV1CA0b63TP+09IqlZJ5eBGfa4SRWQddpyuEJJQbfMt6SZ+G70W
-	 e9Y7TpcBqgMzYi61NoIbZK0cdlVb44N3qbNhUdlb+55tQzLjzkjjZltuzSYNyGyBS+Q4n
-	 B26TLjHbELYmIxikrEXosEtXNTis8TR7TRcRO8riDRM8PrvujQ7M1ipfK622lTHpithxX
-	 h7tOfGucGYBEMLHmsF1Z87F2sNBEDFHHSHsc68C1F09V2MpEhCmGoRUnw/QyTdMOynQ==
+	t=1795838122;
+	b=Y5+5Xr1XFv6gju1fMskysdcc+o5ztvhRk10MiaTI/GeyLPS4U7YlXqTtdsBGiRRHT4jv
+	 7xBC6vH2U59fPX28Hv+7PvyCq4jk8e7a03zIp11SWYJu8ZuEL504Wc2GScz3VxO4yYnOf
+	 y394X0BcogXiC6g6NR4x/qY44HIUVxX+GP3i6UNBWKxTC1hL2PR0+Qx/fnuXVVa9uV94i
+	 14HPKy7H9IVd/9r/eddQDYjqi7Ckpr4oE9XFkxc4XJkVovM0UzEtfEeJniEs+2mOkrkaS
+	 Qh5x8Fk2o7pEBW4lbG6GeaN5kX7TbBwpaPFs4fTBceGwJWy11nOP5XDfck0gBshi9+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795838116;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795838122;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=6XmgtedqGjyGKnA3AERgrzaJirhR7SRXn+PnZk5B5a4=;
-	b=tViAQIB+X8sO/k7Zkt3u6VDdl1TSn2eDWbs0HFLS+Ip0BMSUV4STfRjWFz13fgFSwjVZ
-	 GGrq9sZ3Zk2o57ZpsY17b3ZBP/ACe/LxB1NS3qo4VGJqp6WFoSUicUEKvcSKslj/cDXV0
-	 s8GaOGh9E06Dd5+4ypiilgaslelCpkzspfz3jOZGZlk6zty+8P2ywKgZoNoXc/cIkot1z
-	 YFAkpW8IMYqprZnQwfaH7VqJPeZ31+qVPFeNn//Plrrazdjh2pm+ATUuSIZBspg2x7yEI
-	 Q18qAv5kQrJZClbvrSTgoELUqfMe8y451lEzQrTBrABoJQl1FP4xXkhVzsxZOuWp9Iw==
+	bh=enxt/986nFOJL/Kw5285Yz3R6sMYq7dFGHkTphEST5o=;
+	b=jrx8ukj/cb9pwiCDqgLCpZRIezfHiFCB8wlFyvlf2JVD6WYH6KliBIzpP3ExObzlHZ4u
+	 oxia5hBfF4EONwloPSTlnhG6iBjh9q4z4a6+fc5CTFCWqRZ7UwYHJTK+5sQXo+ODOYT83
+	 dTrw1CdUq6wTrwgxZNxH8TqnBW9syKS3qlhwwMY+/N9/rKi5SQtReJXwFOLRj3x13vib3
+	 JQ4ytg6loA03DD31UF6sk3RCIKVTQTcPaHe5giXw/C9MMyr8kvavGzLrsJdcuw70cll5z
+	 PkDzTv4uwdBsRyHhneWOWaGQIApBfnmJ4dkD0NKXlQvPq1g9HRZ0OvbEmjGwZ5vkENQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GqDNYQxV;
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uBlWkLK2;
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55C6F606A332
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:55:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55C6F606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87D79606A321
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:55:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87D79606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GqDNYQxV
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f0918f9e6cso26137215ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:55:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uBlWkLK2
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f037bc348dso68693945ad.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:55:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795838116; x=1796442916; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795838121; x=1796442921; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6XmgtedqGjyGKnA3AERgrzaJirhR7SRXn+PnZk5B5a4=;
-        b=GqDNYQxVdzmPk71SYW4P4fnCAOImoIcnS1MfGYCtTPcLljr6z9flP4o4ZjhCgjqkYo
-         F+OJsLbkypDiAtouP4r7JXfeb+qzBh7V3qodmbDEM3jgBJYoFsFGQB+0DmfEGxejWBQc
-         fZM1UMOJwNpeEVKuSWkMg8lRStrvULmsnb+djFUjWzJL+XjVaTqPxFnUy8FMqITnUj1I
-         iseRVKbUYLW/Ow52oRFUvea3VMBWIQu3o965QGtFzE+34KCdyCb/Dr6D7wFMg02iGmy/
-         veluhCk6NWcQs3d39CGFgUX/mZVuX6mbjQ7HimijheF1kUesEwbz+0AMao4pVSAtMhgb
-         mlow==
+        bh=enxt/986nFOJL/Kw5285Yz3R6sMYq7dFGHkTphEST5o=;
+        b=uBlWkLK2waP/TSyi4w4kaGHKIWiiFOGOwrqCs/uxDqONP5YWBZDqvVdRr3eFUy/zUE
+         zPQ3gR/OSMtJrWvrt/AxCXtnohJbmjUfHYkBsYxJFo3E8ZjdBlt6o2ezX7t3BT/7XVLS
+         D2zjik+AszPtgtXNxPkQF5HwyQa4K08lm9y9FLIqk68KnBWvusWbO5QsZ9XXmikVGCCh
+         IXRL1jti3zy9+Y52Ee38/msXCuZcjM67dHd8NcmJS1CVJcaQ6FQ3Kw2H8cz4THlyIylH
+         hzAoTSvCGwqccxQgBPtHVfRXLzXMBoPUumqxeRSc9NkGvfj4sQZ2paXDvJHVCsThjMzr
+         ILhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795838116; x=1796442916;
+        d=1e100.net; s=20260707; t=1795838121; x=1796442921;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6XmgtedqGjyGKnA3AERgrzaJirhR7SRXn+PnZk5B5a4=;
-        b=12apViU5yWofc4hlRsq69tWnMrKNDXhrZEz1W3v/hpzT5hN2c34QpaE5/G6CpTWPBw
-         0rfl7BXNCAKOvgiY2VsmA77Y0ekn2kc3oIIJ9Zu5Ok4cV4umrNkRZuGwoCBISqoD7gXn
-         xFVWOZs1FxXfjVOjUQ7bzwTaMN0NCD5dHeNWBpNDJGeUhEXljXpHUAAvx1/72u1bCtKw
-         bCe/w0NzuLMWPCQ6vVZR74XFcECTjnZRP6VAoU5j4vLP2xbRrcKw3GZPZF2MoQISaJBL
-         6tQKd+zzq4+iaNCjcw0BdIS91MMcMd8gAJTDf++Rn/sfpPtEeLQVSDKOjFk+7C4Nhsvq
-         ZXMA==
-X-Forwarded-Encrypted: i=1; AL+hErGy1G37p3H4ldcpJmCbLP0McgfUiF9goRIw15pQGm8WVYtAedcHc2Boe62fHqlWiprYOcZT5SzEH861QX0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9V6E/oHc6UqcrNEC2CeeldKpwSZzahs55wMKmrFdC0R1RTlDVl
-	IMxsgRThVL88cYgBY3P4Cj7q0JyrbmsJkP8+urzldBz7wcIH0LJLqYjm
-X-Gm-Gg: AZFdTZc+jKEMFc0aRI9avLs6/T05L7fHThdZOc/RaFKZg9HHnnrT/Hz2wIhWQ4xkCZl
-	6JgBEOPA4FSxjgV5AmXqO+yTXOC9JROQZgkgMv+NtG7RMPagX4QQNfw5Nz7esbYb11n7O9ZJyBb
-	v4VccyNemfsw9YZFqeCz7sxmJpGP7fspx7ZVGIBvQaMTAhhID/p6v0FYHq2NnBeOuVFKZvr3vsu
-	by/jTeC4qfcYjqfiwiYHRhVXYyYhcNd8XWqM4K+CmMTHSOj0AYlYAS1dC3jvQA5kW3btjvNwa17
-	4G8wG8l5XnUBx4DMnZ+8S+mocDZKHiosBXP3ExirtSc0Z5U4UHzr2WfJWRuUFGbJB4/Ti3sKms9
-	+HegtlqDSY7ENMHnJxNWiL61MM+6yVGp1baqnCQp1VtUlj0aJ3VKHh09BTmI3bAhrksCUwZfDTi
-	JbZ1eu8gCzPw6UbiOH1zOM6nX/aU13np5QgozQffXmr18NMzeGxBJ+iuL+VhafVAl9luJqG3ySd
-	XWaZMUQcyRMXcNjQ8gZ75s8U9sT8yGtelapODQ0kpcD+VY4BcvzwWfJDzEKG6hE7zyGhB4jynvD
-	tTcIp0wnFkFKe3WetB47oe4HYkgU3UCjjtuz7IVCmC9aHkzg
-X-Received: by 2002:a17:903:19e7:b0:2df:a4d8:57ad with SMTP id d9443c01a7336-2f03f271d6dmr235900075ad.72.1795838115727;
-        Fri, 27 Nov 2026 19:55:15 -0800 (PST)
+        bh=enxt/986nFOJL/Kw5285Yz3R6sMYq7dFGHkTphEST5o=;
+        b=pt5rRPucAUyOcGYNLEovRDGqu2sL2vFkWvOEmpRBFlZmF2+NwH6Sy4ECfaJFDnjFHw
+         XHJLSUR0QVrocq31lwX4++UN84entY97z1xz7ruiFPSHyVdixbA7nmX7iouuHY4iNn9Y
+         5toQLm4lexMePXscXH2hDBzwyPTApvDAU07YV8Lzh4Qi6u6eiZlOqrAnM9WUjxM+AlWX
+         us8Ua6V1YIRKT1Vb2cjnUzXcA3w0IA4CtAAoItJjL8yKtf5hMuYXekCuI1xOG8arOvQD
+         6SLmCcqSLbsEEvKd9YzpSqpmm+oYWfaDa4KZQ0eLMc0GxpI9fr0eOHuxFNtGbN+cpEEg
+         JwEw==
+X-Forwarded-Encrypted: i=1; AL+hErGLy0mxb8juxMlHSM5h0tqqXGnnRRqSdSXYt1h1XviITvNTp5uOHH9s2Q+11aPp540b8/FpgZMQokwO7wQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/0ZCcHkebQXH26Z37BOy/pwrSzTM18+l5OwHxwG68RfAdfe8+Y
+	cbu0EkfKFlC8obCF+BuOhQDMJywnHNfAu6rUjY0lx8bAXsMQem4QZrXZ
+X-Gm-Gg: AZFdTZfYKyiBCWWToK0qMUm3YpfH+XGD/1evoBX+oH+RMLtuDO8bvOS8YUs3muSCU6J
+	AIZ0MkEZtg935YpXIf3z48Y3ztrWqSm8xUZ0PJWhaflP1P0HDks1GDN7arc96XzKSO8o+BD4fqe
+	u/aZiUYANliXuSJLtX20KhIT/a+XR3NLSmixu6BLKiBXTCuAeLDHzimLToXAATpj4EKwxxu3bPn
+	SPS5MgNRp//QQwpFp3oQ1RZWL+MHHkuhhGwQf8OQTv1M6DLVQfIfc9oXLzFQruI3c1WtCkz5pjQ
+	3NNdfwK/TGMkzBbLTvdB6nd5dp127BbT5LaFqGQe/zIsxKpGqZigoTifCtDCoCjlWnTo537VAF2
+	UPXs4F2JYqPzE8JQS2JHf/KVXwROOl4o41xo5MW7q1nX66KMBhRtEQapGZwFESPphQ1fXi+o7y+
+	9cW5lRgTrWGGoDJeRGkaLmFGtSuRp0L5ii+cT6tjTZEwKXPQqTFciICE8G1nkGF39IklkZODttS
+	5BItuegktlRY39oUEqWdtRu5fSRWX3LULVs/rnICmJ2yERahIHGAOwu7xktoTEhwCsXEQZLlBXp
+	mzZKOVNtuDybP+boSyYhGd6mTLQ=
+X-Received: by 2002:a17:903:4586:b0:2f0:1f25:a4f1 with SMTP id d9443c01a7336-2f03f1cf6f1mr284743595ad.15.1795838120840;
+        Fri, 27 Nov 2026 19:55:20 -0800 (PST)
 Received: from debian.. ([192.227.246.212])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f099a4d875sm89190595ad.37.2026.11.27.19.55.12
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f099a4d875sm89190595ad.37.2026.11.27.19.55.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 19:55:15 -0800 (PST)
+        Fri, 27 Nov 2026 19:55:19 -0800 (PST)
 From: Harry Bit <idleassetsd@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -92,9 +92,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-kernel@vger.kernel.org,
 	Chen Baozi <chenbaozi@phytium.com.cn>,
 	Harry Bit <idleassetsd@gmail.com>
-Subject: [PATCH 2/3] dt-bindings: arm: cpus: add Phytium FTC310 and FTC664
-Date: Sat, 28 Nov 2026 11:55:03 +0800
-Message-ID: <20261128035504.760778-2-idleassetsd@gmail.com>
+Subject: [PATCH 3/3] perf: arm_pmuv3: add Phytium FTC310 and FTC664 PMU support
+Date: Sat, 28 Nov 2026 11:55:04 +0800
+Message-ID: <20261128035504.760778-3-idleassetsd@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261128035504.760778-1-idleassetsd@gmail.com>
 References: <20261128035504.760778-1-idleassetsd@gmail.com>
@@ -111,42 +111,38 @@ Content-Transfer-Encoding: 8bit
 
 From: Chen Baozi <chenbaozi@phytium.com.cn>
 
-Document the CPU and PMU compatible strings for Phytium FTC310 and
-FTC664 ARMv8 cores integrated in PE220x SoCs.
+Add PMUv3 device table entries and event mapping initializers for the
+Phytium FTC310 and FTC664 ARMv8 cores.
 
 Signed-off-by: Chen Baozi <chenbaozi@phytium.com.cn>
 Co-developed-by: Harry Bit <idleassetsd@gmail.com>
 Signed-off-by: Harry Bit <idleassetsd@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
- Documentation/devicetree/bindings/arm/pmu.yaml  | 2 ++
- 2 files changed, 4 insertions(+)
+ drivers/perf/arm_pmuv3.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index 96136b70da..658da1fdc4 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -206,6 +206,8 @@ properties:
-           - nvidia,tegra132-denver
-           - nvidia,tegra186-denver
-           - nvidia,tegra194-carmel
-+          - phytium,ftc310
-+          - phytium,ftc664
-           - qcom,krait
-           - qcom,kryo240
-           - qcom,kryo250
-diff --git a/Documentation/devicetree/bindings/arm/pmu.yaml b/Documentation/devicetree/bindings/arm/pmu.yaml
-index f47baaefcd..49976c889f 100644
---- a/Documentation/devicetree/bindings/arm/pmu.yaml
-+++ b/Documentation/devicetree/bindings/arm/pmu.yaml
-@@ -79,6 +79,8 @@ properties:
-           - cavium,thunder-pmu
-           - nvidia,denver-pmu
-           - nvidia,carmel-pmu
-+          - phytium,ftc310-pmu
-+          - phytium,ftc664-pmu
-           - qcom,krait-pmu
-           - qcom,scorpion-pmu
-           - qcom,scorpion-mp-pmu
+diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+index 03359e0783..42f043444c 100644
+--- a/drivers/perf/arm_pmuv3.c
++++ b/drivers/perf/arm_pmuv3.c
+@@ -1559,6 +1559,9 @@ PMUV3_INIT_SIMPLE(armv8_rainier)
+ PMUV3_INIT_SIMPLE(armv8_nvidia_carmel)
+ PMUV3_INIT_SIMPLE(armv8_nvidia_denver)
+ 
++PMUV3_INIT_SIMPLE(armv8_phytium_ftc310)
++PMUV3_INIT_SIMPLE(armv8_phytium_ftc664)
++
+ PMUV3_INIT_SIMPLE(armv8_samsung_mongoose)
+ 
+ PMUV3_INIT_MAP_EVENT(armv8_cortex_a35, armv8_a53_map_event)
+@@ -1613,6 +1616,8 @@ static const struct of_device_id armv8_pmu_of_device_ids[] = {
+ 	{.compatible = "cavium,thunder-pmu",	.data = armv8_cavium_thunder_pmu_init},
+ 	{.compatible = "brcm,vulcan-pmu",	.data = armv8_brcm_vulcan_pmu_init},
+ 	{.compatible = "nvidia,carmel-pmu",	.data = armv8_nvidia_carmel_pmu_init},
++	{.compatible = "phytium,ftc310-pmu",	.data = armv8_phytium_ftc310_pmu_init},
++	{.compatible = "phytium,ftc664-pmu",	.data = armv8_phytium_ftc664_pmu_init},
+ 	{.compatible = "nvidia,denver-pmu",	.data = armv8_nvidia_denver_pmu_init},
+ 	{.compatible = "samsung,mongoose-pmu",	.data = armv8_samsung_mongoose_pmu_init},
+ 	{},
 -- 
 2.47.3
