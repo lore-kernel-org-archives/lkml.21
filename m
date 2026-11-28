@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795883353;
-	b=20y80/dOwrG9ZcausDxuZ+YAhNY3LavJvQ7tHwK4C9NnivjHBOt+oBkT5bAuNByaMBoy
-	 MukJd5KMAqLLbKjmqWaK4YeTtp3hyy7L61aKDbFqJoEuFnwJi/nqVMKjwnuq5MfI8eBrS
-	 IxPcGm8qZ6k7p7DoZMXV0sy/5XsyczCJfff5YwrVqXhVrbWUUYXNCWZSd1vcfWoI/WStO
-	 yjXMN1gbAJ8XmTYR0pZqLv0yG4U6EKlNVD+Ogproq9IzPIiFVVbWNNFeJaZL/MdVBD/uX
-	 9cIUJvpQh2GeZpQvnK4XpDMrfAUlhwCUEPyoQL9glaVZo77X2ItzbxBipgmvHUqMFfQ==
+	t=1795883355;
+	b=tAm4iUt8NOTQctsHgf2fypMgzATLaQNxXP8Qi2X3GscVnEJeWr79AZjQWoLnsZGVu6yB
+	 HTskTtMTs8pXImKcoxKzTr+0mNhnJLS4CHbQRnksEAvz/V2MOMwZ/dMO13jy9HyRXiVUA
+	 DiFaQCEO9z9CQv7mN3EnI/QZTY+/KmjvFQNdEShYakoneiUn6zdRp4sq85fzTjYVGhIEL
+	 3iqBolwz1I/avfVGrzE7fz0mt26nQJ6aSM2ODR8ZbvSlVULR1zHtkzYlAzPEZ37qgVOlR
+	 lMa9g5AJqmhvrpXzzMBiRahehOcb7nsUX0yzDWO1gNoXxB+VLtO+WJ+YzG+WnrE5deQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795883353;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795883355;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=DluxFtlMNRoUKWvupun2bed9YDR+SDe6lRKDozU0OjU=;
-	b=rSDI56p4GV/QWe9GApFk6a07Ve1uvdL6wiZd9FQKHZtl9iK3wnh2tbMWmm2hGt+0z4Yf
-	 0jylrH1hPCMGuAHQBBK12r+OlBKq+vd+nQod4m+Nb2uY3iZAVaeMljkDpe+DZUDPQD8rt
-	 mDEsozIv0J1QFA3HIJd9es7gUR85K/IbeFFcIb1jTwjIRjrIrnoXKGakLMXF33mMCrlZS
-	 wJ0RYtwx5GwV1nJM1rFKz75v9cnrqT+cuBEiT60/8xkDExnNmxpRaSHNBrEZhAwJCqNTM
-	 CeSb92X6AsACngOskBxWyadDzZ6j/BE+eTCZ7fGx6pjdNxXXN97ATL9P0UI6WsLkalg==
+	bh=LFJzERN2VLt9fPmk1K7aSoPfto3qxkknuNn2tRoxvfc=;
+	b=mP6g6tzb6x0DaD1OvSeh58P3iadSbh3wrhyAFgk1Lg3iITlcAT8vs4hsl6IlMT200ofh
+	 EWXnZZBGhj4T472r5LpIZAKh7kxF3inJcC02yTT/erOvgmYjJ3jY/NS9PBVJLAOVdZq40
+	 caeucLUKuDoWcwqyGUa9Vy0IL0CHh/r8G3JZmyJLB/psRyFIg4JGf+2VcnecRA+y3emHO
+	 l4sv5YljVghHZ5vbcL6XnuRAEdoDOOHwzmCFbZszdO1GKxkrUpUF8HD7hS+2RAgMr2yds
+	 ROfAWRB55PRZU4fDWyShgiwV0+b6wDQd+5CehR15egiHSQUQMRElpUx0wQMO0i3VsPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oqqm3M+L;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZzuawVIE;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1381606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:29:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1381606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B82FD606A336
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:29:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B82FD606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oqqm3M+L
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso91197755e9.1
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:29:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZzuawVIE
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4b52fcb410dso3749295f8f.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:29:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795883351; x=1796488151; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795883353; x=1796488153; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DluxFtlMNRoUKWvupun2bed9YDR+SDe6lRKDozU0OjU=;
-        b=Oqqm3M+Llrq3Wc2FcuELBIJBZC5OCHQlv3rcHuD2AJ+b9eTfYrAvklUaFk9zeAuXMq
-         IsKimKGfp92qBrkVdDB8OBBs21tTl7i1hDRo1+A5tujmAhGIUSngevZNjGq0gIGWJ4hE
-         02A73hBJXYQgZ410aog16SlWlZOW4UmQ+F1DylMBtqMRQ2B0kktHJ2AnFRfM1NKc4gB/
-         MKkU8ZoB6TFHFnDkVUaLZFk00HXECVNYBtmxwq6RsqPrhFu4tteiMHNs8y7BU3viDslw
-         oLlOyg/sR3zQCB3HQ+XW/zS8gc5VOpx7SMetRhMx4ogK+YdNcFiFlq880QiwWr0JARtH
-         QBQQ==
+        bh=LFJzERN2VLt9fPmk1K7aSoPfto3qxkknuNn2tRoxvfc=;
+        b=ZzuawVIEqoOtwVKzR8+w8mszNFMHibEotHrq2aJaOnOn/Vj2bVZkt1pQvpwdcm7Odt
+         e6SbeUMavyPiQBhSabB50iGAK0pyC63vk9ydNPT0a/SHTaRqLznkLXb/UHeB7zyF53UD
+         0Jlt92nLqf0UhivRRLQoYEgWa3GTibamHVXrFo0jHaiosF4ZhAAuBU9J9r59xFceOWyr
+         AAWEAPGWRoL1VU4oL5FVbFVelgtiItKNF5SJmgkmgCvKc8wR6V5xDHK12H+Zk2zuIrpi
+         3XfYtxvnYINN5Fi7nKVf0rz0jP9saAXjy4OBYQQt7uI0XVj7LCY0yHMuxpwAeKvsU8KX
+         a4Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795883351; x=1796488151;
+        d=1e100.net; s=20260707; t=1795883353; x=1796488153;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DluxFtlMNRoUKWvupun2bed9YDR+SDe6lRKDozU0OjU=;
-        b=M/9jOKwohUNQC2ZHQAXwtHICP5kwF/ivCL/4Ujc/Vxb5Nkzmrql0hnxzaLWlr3UkAX
-         HpdtmF1eP4OeYUG0Hk0dIvik25A1djT/NO4yEnzE2b0ZXWd53hQzHK7mQDdkFVZPyP7l
-         9bZqigodY6qBbBl8i2ieBmK8cBDUH9g+4y5bDct6vcPMdxOVu+MyoWl5T+4O1Q9VNPwn
-         FaHe0jLT9EpaFoYHQITTvU4FMKzmUJGX9wrZ6UBa6agN8PklwPU8pPIaLLIuKp10ivJj
-         4q/K1CT5XiJlbayglkcK0aJVc3nCX0hafrhm23h0iFX6J1vaFf1dHinPuLQooD5OQV2s
-         e4dg==
-X-Forwarded-Encrypted: i=1; AL+hErFWNHMWA0cZSj7r9544qWYJR5D+TS74ek3ESkp/0AFVvdOV4P8fARuYeCBuVGiKf0f/TH8dABmurJ63PaM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9mS9owrN8ihILD6Yv9nL4b5gN40s/DGnyULNUqZHVwB4EoZlgf
-	ub19Pl61jaAWSoHDvffhLUdbvhWSbIo3FUTAX9l1AC1crlsYNQMYpROvMR3pQvQmsg0=
-X-Gm-Gg: AZFdTZfAfhtI3o21gzsTc4S0kPwIIt2f5Q+W7GQHvlXOfvfLBSem2PCJPQ9H7FlMrtS
-	rZiQt82da8zb1XOOW7s9YYAcGF0wotoeALr/Y/gxszC8xh7zLKKkNNTWfylMcN57AZjJLuZt+DO
-	P0+kQe2eYrlL1jL/xtj6cyH+OL1sla9B9p6Odra8N8+L+juknQEe96BNBQZgP69MejJOr6eWcUT
-	CRQV+VkS3woNr019KZTjC/3VhkVb5/J3z6n610Z0MBDkdV7wfwoJYxz9/E7kAwFJBFIODn1DD2t
-	5Ddlg+mlmIDCG82KUQIJjLwmUjt5Cnk9o9n89VgicLmB3P3SjRW0kRhUEA5XHpQvrRmMUTl/Yf6
-	faDjwvgxsbx0mx+AKDGjZcWDCz+A3CEY+Kb6q928n9gr1rVnMYMeXwLFcH+raDO3J1psjos/+kb
-	/y8YjtHFyb+VLIBNXJKTe7XbdA8apezZwLIVOi4aSptRV930z1Cxry88Xojh/YeavCvxtbn8VLP
-	71fVKXVNB61O189ERds5/QNyOrQC2LtUFoFh+ykYrGWajfwsQHUvjr/CJ12uPyOuhIf9w9xMfb1
-	+PmgQ2x4RemshpQ9o7QOQzaLEfTFQZXm99XNgq63CTSJhuZ35vMBOGysMwOpvCCrR9gWr5yCejv
-	TZxI5kj6Na7QfYhdt83c4dS8Y/wqhC/eJTb9eeDMJ2ra98A==
-X-Received: by 2002:a05:600c:4e02:b0:4bb:5d39:95fa with SMTP id 5b1f17b1804b1-4bb88811c82mr541316905e9.12.1795883351147;
-        Sat, 28 Nov 2026 08:29:11 -0800 (PST)
+        bh=LFJzERN2VLt9fPmk1K7aSoPfto3qxkknuNn2tRoxvfc=;
+        b=GX9XZkXIGC2nKW7HNQ3yKmhy5vMmvDnEWBZ6iThYXYmmln2muro5BpdO7ffywL37vU
+         BM5Riu43PMxGN6FGwJPb+DkuO4d9MF0tw/8GEWScLjfRvibEH8M/7eL7DMyENI5if89B
+         pHLDBpgaKdbrcDyfQHfDCAChvBTK0LxCMHU+cn0hc4pj06Cwwv4Wm7PI8c3b7Tpxq4kS
+         ULYX/AjKmv8o5TefreOLw7ykNgOd9Rbmdwc8hK6fDDG0s6pOkt/MAgjnLDxsoxiJgF2b
+         nfjXUxdLMK5KMcZQg6sAeTxmju2GvYx+D9r8ozvp1LucZyP47zkJwWnSCzvv4APeoqX/
+         MrCw==
+X-Forwarded-Encrypted: i=1; AL+hErENwndR5vFbI2qf27EVlG+WzhuhocTFrV1p0dy/VO+iAZlk2dni0fsGx1HObnQoDXqzGQU2XMgAl7U6WmM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DWkDN9UCw4yl3oDPA7scb5x3p1oFNpt7Ob8YxeCZ/oyTcM2QV
+	Q7W/RnUHD+5xw7XrmrnHN+oaKFeUkUOpHVg1+NIdGWYTQDx3uMbR0qmX
+X-Gm-Gg: AZFdTZfHEVsC5rSUC4hlCgMT87KVUtb/GphKstaLhHX7DFA+GhIImfxftdKhOdFLEIR
+	w95Huqsw3eGVx1zegyiq/biJJ8YsaQRGv7qQpvhGFJ6ftuIbrxm0vso5pxU2UYji5pGxnmN1JSF
+	C9UQ7GMqsf+Uz91TM5OmwBwx5oZBTocDcD2CuirTgkMcn1u1hEQbTMP3VmgqPOXoktxJorxWfJL
+	R/k/n61+KTpV5KKeHBECnfuaxd7JdQkZWnwWSpVGyB1b1Px1lmTJym04b/C8SjDh9EAXUL8so7H
+	o9+bnepmN3sKeBWmO4haLMPOZh5CEzF4bB/sJe5OHga01EVZOqbBpexHT7UaB9nB3Mr9gRndkEC
+	fzZ4umQbhzM+u19I+xtw5oxkwX90TD8Kqy3/UjM6KboqjRRIw/imSTJgDwWsBSfB+cVGESy8q4c
+	izAQn7A4KEeeCTnkN2XR1yY0PT/ugQl0rXETrZ9CfwnPu3WFyO7GLFnRKhWXlHmpFWsVgcCapmI
+	dnq10lhYtmd+BPlVd8omcOjYUHGlfNIrbAyYvytJFbCS6l9MUGWwM5UO4xaZXPgXO5A6AaSy/L2
+	OG6g8wUIltZ2SEYhEEj8RN1/gCVmQ+qh8OOWD8sLbKmJJ8KsLsxbqUg6pp5Zk2HV3zTPwk43TxG
+	Z+FeTwOjWZYQcUnDGz12uwJhsnAn2oJrdyg7TIf4RqlIieQ==
+X-Received: by 2002:a05:600c:154c:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb887c3428mr561273925e9.1.1795883353086;
+        Sat, 28 Nov 2026 08:29:13 -0800 (PST)
 Received: from romain-ThinkPad-P14s-Gen-5-AMD.tail433d9c.ts.net ([2001:861:39c2:e340:7966:a38c:a84a:d91c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399d52sm748927465e9.6.2026.11.28.08.29.10
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm781525525e9.10.2026.11.28.08.29.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 08:29:10 -0800 (PST)
+        Sat, 28 Nov 2026 08:29:12 -0800 (PST)
 From: Romain TISSERAND <romain.tisserand@gmail.com>
 To: Jonathan Cameron <jic23@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	David Lechner <dlechner@baylibre.com>,
+Cc: David Lechner <dlechner@baylibre.com>,
 	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
 	Andy Shevchenko <andy@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -93,12 +92,12 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	sashiko-reviews@lists.linux.dev
-Subject: Re: [PATCH 0/4] iio: adc: Add the Miyoo A30 and PocketGo S30 analog stick MCUs
-Date: Sat, 28 Nov 2026 17:29:09 +0100
-Message-ID: <20261128162909.2534617-1-romain.tisserand@gmail.com>
+Subject: Re: [PATCH 4/4] iio: adc: Add the PocketGo S30 analog stick MCU
+Date: Sat, 28 Nov 2026 17:29:11 +0100
+Message-ID: <20261128162911.2534778-1-romain.tisserand@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261128021144.67d1672f@jic23-hlaptop>
-References: <20261127012612.1589039-1-romain.tisserand@gmail.com> <awluLgvMt9BN1Aj8@ashevche-desk.local> <20261128021144.67d1672f@jic23-hlaptop>
+In-Reply-To: <20261128023333.5873929d@jic23-hlaptop>
+References: <20261127012612.1589039-1-romain.tisserand@gmail.com> <20261127012612.1589039-5-romain.tisserand@gmail.com> <20261128023333.5873929d@jic23-hlaptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,34 +109,25 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Andy, Jonathan,
+Hi Jonathan,
 
-On Sat, 28 Nov 2026, Jonathan Cameron wrote:
-> On Fri, 27 Nov 2026, Andy Shevchenko wrote:
-> > Why a brand new driver for each of the cases?
->
-> I'd also ask whether we expect to ever see these as useful other than
-> for the joystick function.  If not maybe going directly to input makes
-> more sense than using the adc joystick bridge?
+> I'd guess this is swapping ends of the pot to detect shorts or broken
+> connections? That has to be on consecutive samples.
 
-Two drivers because the two MCUs have nothing in common but the job:
-the A30 one is on a UART and pushes framed samples at 9600 baud on its
-own, the S30 one is an I2C slave that only answers a 4-byte read
-(value, complement, value, complement). Different bus, framing and
-flow (push vs poll); the shared part would be the two channel
-definitions.
+Most likely a transfer check: the MCU sends each value followed by its
+one's complement. They come from consecutive samples, as you say: they
+differ by a count or two at rest and more while the stick moves fast.
+The comment says so; I'll make it clearer in v2.
 
-And no, neither MCU does anything but the stick: no other inputs, no
-commands. I went through IIO + adc-joystick to follow what the other
-Linux handhelds do (Anbernic RGxx3: SARADC + adc-joystick), and to keep
-the axis ranges and inversion in the board DT. But since the readings
-are only ever a joystick, I'm fine with plain input drivers in
-drivers/input/joystick/, as qwiic-joystick and adafruit-seesaw do for
-their I2C sticks.
+> Does this actually happen?   It is fairly unusual for a recv to fail.
 
-So unless you see a reason to keep IIO, v2 will be two input drivers
-(bindings under input/, Cc Dmitry), with your and Sashiko's comments
-on the shared parts folded in.
+I have not seen a short read in testing; the retry exists for the
+complement mismatch. In v2 a short read will be a plain error, no
+retry.
+
+The rest (loop variables, state in iio_priv() instead of drvdata,
+named initializer) will be in v2, whichever subsystem it ends up in
+(see my answer on the cover letter).
 
 Thanks,
 Romain
