@@ -1,96 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795855452;
-	b=1fTLxTlrxnDmicpIHVhasTn9/jXIwN46wINV8ReeocG+ToY7DxfTDQ9/wwulgweulaVO
-	 QfW8bAduVruIIyb5EUW/lJOJPAVdqzhZ/Mh6TzRsxJfIDq7duBs2D1eSHp3LMt2dU+wYZ
-	 J5ryNMYF3QLP260ZCBwWwc4G7AVvWyD2FHekBl4v8yDleqWkYcu5jz/Ffi/QE4xrjVmNS
-	 8VVlPqAX1jNBx5gW/pJMlHf+cBG3dWkKMVjsY0CuWuT43vdbln3ZhgLPYrVKLBym/Gr67
-	 4D5d463Hgi2cFuPIIyZcVdw99sSsA3+hhdGawRyD+19lVW/0vdig/OF3tU1Ju4mPJUg==
+	t=1795855574;
+	b=LIpSgHfb3D6gPngVUZAwBMTy3RMzq0Jlt2ezgYJMg4We2ojMnEYgW2HtM6NfcakiiN3b
+	 G0x8hTluHFn00sWX+fcO8hckS/Y8ddfU6gvfKyygGkKua+X4BCZWaTXfAwXAsF+SWO8Ys
+	 U+3ppIfgdv6RSwpKQvGBYJdWSJ6XGp8RZ7JbcCb9982GPzfwQAWpL8tPu57duGB6Y/ojc
+	 g8WwUkSZBx1lQUL/rEacIqq7g1e6NHodIFJMUeHVSaMsM5Mztz/3Cyzh1vbwn+zGUBJMH
+	 TSHjVMBlxq7unJBl9nboDNmVK+eFPDPBXc7MsUwHmgWPJ7ys1zd8e7z7laTvw3P/0ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795855452;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=R7DBXtHhJX9+8G0Ygqha5RnkE/7tAuVrWeLxmIjqKHI=;
-	b=ga42o/ZdAB2RducwRxnc7D5uXPEhybDcDHcPDNv8YimfJkKU+wK2kpbc9ab7ltan7Ncs
-	 2T/evxGICDTYA1hxCmaY5C5u5mSW/DraAt8+z8rKTC27iJf7Hb1M3tz9uQhBfVRjKyJnY
-	 6G6YNiX2YsRFI19q7t/eL9S44XW9VLXOMQxQ1QDmJwv67xgna5SIOXhaiXcnL+2j8Gqxs
-	 hnpBwfmYW+VgBu/biT5kLY4A9liQ4fwOAopNvYPRpxLvIHC+5H3QKllnmreMhCOE8PCOR
-	 EbIQobd6Laxlh6S4tTw9CNNBcj54BDx2KuaSkzSFr8aXjj6nVjpZHP9LJoDGmwPkwSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795855574;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=dlTQWiAn3YLfcAJNd1Ndj/7+XyLCIy6l+m0g7G+VOgc=;
+	b=q6BU9cSbX3OY8He9qIeZbGaVZVqsHpSsuMopAwGzeOvZ0C68f40SM+gTspYQ32bFKwhu
+	 hlsGbJfjTGAEvmg3LTfZMhr9oWJ2oX6enE05J5yaZSFunTV/G/ApHBpYtHbc1o45PVmGL
+	 32CqPaD2r0JLuiGPUcYSk6BbAVayj4DHOSzjFWQ3x+QTkd4/AA/5d6lbOKcwIaaoALJff
+	 ufGMynGPnKY1tWENGh2VvMZABVyTADWWqeVIKsnEtXb2shhDGjF86N9yrxf/mC5Jqjir4
+	 S0dJlEbUieyPjx71MFOQ8ptC/2ib3JxyupAjoWfrsQzvIBJG0RsQIwl+Z9eyX4xwWzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nDp+MbZx;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=JBWha1op;
+	arc=none smtp.remote-ip=185.70.43.101
+Received: from mail-43101.protonmail.ch (mail-43101.protonmail.ch [185.70.43.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 574F8606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:44:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 574F8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4250606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:46:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4250606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nDp+MbZx
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bba5e17728so32710855e9.2
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:44:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795855451; x=1796460251; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=R7DBXtHhJX9+8G0Ygqha5RnkE/7tAuVrWeLxmIjqKHI=;
-        b=nDp+MbZxzyBPA3OK16p044cot0mU+YaEjrRAyhBNKeJASQwqt1IrDGga8FGczC1GQa
-         q0kt02xIL+jRSMjWf/2SlTYo9HHNGTbXIIwq/3CxnPLWtPzdEFAEc/68wx8OKvWX98jT
-         ri/H8wUwrdToly3ttVygTtmJz3m9Gk/WoMrinmWv6f2/Yh5tmcmfQr3r/NXpvSXVOpXu
-         7ksfvY2z1AtB7AOvvtuc8thFhgTdfeedGnY344uzPXFa4v58V8zgM6G/ScQPclszPbd2
-         EF6dhnBqsBsSpAupl/B7Hr/gZK3BvCzyfVLso+Ye9vYCRmjwVpxiX7u2rNyaVnl5KZHX
-         yIqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795855451; x=1796460251;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R7DBXtHhJX9+8G0Ygqha5RnkE/7tAuVrWeLxmIjqKHI=;
-        b=h0y8zJwqqvgt7KV947LfNchXaDDrbJCsf2aBToF7hY7BiD02IS9pzaTk64OYVhcqgX
-         7aEWsNRyeHOcZ9ZmGW0BkM823igIgvtD8pik3Y15HXMcg7FKm65BxpuJi3EFKd1SRkng
-         PqoLweZvgMqeheSLclLS4F1qCvABww/Bk1jzocxGwPeKsNZJXiZY06o6U6v1sRK6Bsuo
-         or5bOiFUnt4rSw6Eu69+RJj4aHgWUuiGSEswgtphVcbZvP9CtZCRYL+0MYxOs/iirzIw
-         qM46qaSzv2qZoOeOsw9yXCd1sjUGKfUzWL+xNVwwJZeOeiV7pwQgUikTYhLNgYkKx5m9
-         yPLw==
-X-Forwarded-Encrypted: i=1; AL+hErEdZniveKcOmFQtGTwUvtOkUdUubKMxi/AWKAHNGCP9vCzuEcKjYJXYxCUrMxTlTLRh2GoJIk7gAqqTx8U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/QMha73EQ+txrCWnLmFeCEY2UhFM8HdWorHDDdC+5viQNC25zT
-	WHfKWFVfzGw/kEwTesDE8fqUfi4KDGjjMCnDnWmU+5O3yER35O0jmmOj
-X-Gm-Gg: AZFdTZfHngZ0R/ImvtqfKhWHPzjXP0Yoyy0Kwe63OIOHZfCoJFJncQMThem2VOzxL7Y
-	TFrvhppfB3wqs5WZyeFPLKC/rw+i6iLpuAnVaj+gIWvNnO3zYa46TBjRw09tEMT2nIFJM6gn/CF
-	PZ2B+9sW54OoArdprgS2YWhCBmR5+xGukDteUNqtNMW/Xy52crEzUFChJ9mzfu4WBJHc2Afieyp
-	537zWoPany2EGb/xBX3jZ8IRL5S2bQ88coQOrHedbQZIuRMUul/tHdAUquGtPivQQ4SomB3WugJ
-	SdbzBsxp/WAZy4V2HR/wi8om08ItN9X1Clr8jkZROVHeUvkE+PF6s3t/gcwbPr0huQukSnCaeYr
-	Bx7/hPsBjG7Ydimv4avWIEvnck46PZvcGbcJ0hY/X1u+y3aknoypDoblJQLD32/vlJnTO57DBtz
-	9JeFRiij6dbJ0ikg3iAV8eGKhNzTVzZ1f/2R8nG4cWUvJ+BP3zUasmIUzlpT8KBBUQEexq6oYoz
-	U7h9hXWB0c6YhAu2vcVkFsTdgh0cRe5bEQx+/+tUPfE8bL0EWOmDRVjamlL/QZCdp54ZvgVZVZY
-	5CWnV0/8xaDeoDI0uZAWMHAfZiE9CZp+U+9+kkeYKqnGUwq+O5ZU8VJtu1Grce0Hp3PmAb1uXnd
-	dVGtvNbWcf53nT48wSgT+4iRMIbI06VrqfmwJgzyiDZ+7Bdzn5GdG8DAb71owa+B7
-X-Received: by 2002:a05:600c:4e0d:b0:4ab:e27d:e241 with SMTP id 5b1f17b1804b1-4bb88922c6amr500841285e9.15.1795855450415;
-        Sat, 28 Nov 2026 00:44:10 -0800 (PST)
-Received: from unknown748F3CBA5068 (dynamic-095-117-034-170.95.117.pool.telefonica.de. [95.117.34.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm775982895e9.7.2026.11.28.00.44.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 00:44:09 -0800 (PST)
-Date: Sat, 28 Nov 2026 09:43:39 +0100
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Guo Ren <guoren@kernel.org>, 
-	Andrey Konovalov <andreyknvl@gmail.com>, Alexander Potapenko <glider@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Always inline on_thread_stack()
-Message-ID: <awqSiWklSdnx6AAB@gmail.com>
-References: <20261012204211.3351-1-kmehltretter@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=JBWha1op
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795855571; x=1796114771;
+	bh=dlTQWiAn3YLfcAJNd1Ndj/7+XyLCIy6l+m0g7G+VOgc=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=JBWha1opf0l/UMQtG05kd5+uLBl7i8XYbDPD2Xk5frakEhZFu89uOyb9/4iYBoerV
+	 78wDGEFdBt5dg2Pf4NRZTUDJQuCP/u4IU3J69BMcy69Y6LIU/nNUiC5eRQ0ZM0iupN
+	 Y0QaCD0J63BalJac82DlcaE6p9RAF0047c7v8LK8QatYm6bVisHSTbivCQbkJS62f+
+	 wJF2Zf92y8o7HH0WwtUMISYvKgWiamd+AVx5mYlnF1bnWKs/94hSjEl78Zln1vHjY/
+	 04cKShjD04J0ziV/omBDy8Rv44TCmrHGCzfXv8hqzkPdENvJ90u7OG14rplAAzWGkq
+	 KUe5Rq4TkiN4g==
+Date: Sat, 28 Nov 2026 08:46:06 +0000
+To: Thorsten Blum <blum@kernel.org>
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH v3] crypto: atmel-ecc - fix missing ECDH public key validation
+Message-ID: <20261128084418.2057984-1-rc4d5a@protonmail.com>
+In-Reply-To: <awouRON5Mgq6pbhf@kernel.org>
+References: <20261125231745.1857056-1-rc4d5a@protonmail.com> <awouRON5Mgq6pbhf@kernel.org>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: 2e8a5ce05cd395c37284349127493ff8609cd3fa
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,22 +64,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261012204211.3351-1-kmehltretter@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 12, 2026 at 10:42:11PM +0100, Karl Mehltretter wrote:
-> Mark the helper __always_inline to keep it in noinstr do_irq(), following
-> commit 1894a4030582 ("x86: Always inline on_thread_stack() and
-> current_top_of_stack()"), which fixed the same out-of-line call from x86
-> noinstr code.
-> 
-> Fixes: 163e76cc6ef4 ("riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+atmel_ecdh_compute_shared_secret() passes the peer's ECDH public point
+to the ATECC508A/608A/608B secure element without validating it; only
+req->src_len is checked.
 
-Friendly ping on this patch. It has been reviewed by Jisheng Zhang.
+Add the same check to this driver's path, before the point reaches the
+I2C command, reusing ecc_is_pubkey_valid_partial().
 
-Thanks,
-Karl
+Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC d=
+river")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+---
+v3: Shortened the commit message, moving supporting detail below
+this line. No functional change.
+
+Both implementations register as crypto_kpp "ecdh-nist-p256"; this
+driver's higher cra_priority (300 vs. the generic implementation's
+100) is why it's selected instead whenever an Atmel/Microchip ECC
+device is bound, so the generic validation never runs for this
+driver.
+
+v2: Fixed the crypto/ecdh.c function names (ecdh_compute_value() is
+the registered callback; validation happens in
+crypto_ecdh_shared_secret()) and dropped the unsupported Bluetooth
+SMP reachability claim. (Thorsten Blum)
+
+This has not been tested on hardware. The ATECC608A-TFLXTLS datasheet
+(Microchip DS40002138A) describes the ECDH command (opcode 0x43)
+combining the stored private key with the input coordinates directly,
+with no on-curve or range check documented. Its "Public Key
+Validation Support" feature is the Verify command's
+Validate/ValidateExternal modes (AN8932), which validate a
+persistently stored key against a certificate chain at provisioning
+time, which is a different operation from validating the ephemeral
+peer public key given as live input here.
+
+Verified by applying this patch to an unmodified kernel tree and
+building drivers/crypto/atmel-ecc.o directly (make drivers/crypto/
+atmel-ecc.o), confirming it compiles cleanly with no new warnings or
+errors. The point validation reuses ecc_is_pubkey_valid_partial()
+unmodified. I traced net/bluetooth/ecdh_helper.c's
+compute_ecdh_secret() to confirm the src buffer it submits is
+big-endian X (32 bytes) || big-endian Y (32 bytes), the same layout
+ecdh_compute_value() expects and atmel_i2c_init_ecdh_cmd() already
+consumes directly.
+
+AI Disclosure: An AI assistant was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
+
+ drivers/crypto/atmel-ecc.c | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -19,7 +19,9 @@
+ #include <linux/slab.h>
+ #include <linux/workqueue.h>
+ #include <crypto/internal/kpp.h>
++#include <crypto/ecc_curve.h>
+ #include <crypto/ecdh.h>
++#include <crypto/internal/ecc.h>
+ #include <crypto/kpp.h>
+ #include "atmel-i2c.h"
+
+@@ -146,6 +148,34 @@ static int atmel_ecdh_generate_public_key(struct kpp_r=
+equest *req)
+ =09return 0;
+ }
+
++static int atmel_ecdh_peer_pubkey_valid(struct scatterlist *src,
++=09=09=09=09=09unsigned int src_len)
++{
++=09const struct ecc_curve *curve =3D ecc_get_curve(ECC_CURVE_NIST_P256);
++=09u8 pubkey_buf[ATMEL_ECC_PUBKEY_SIZE];
++=09u64 x[ECC_CURVE_NIST_P256_DIGITS], y[ECC_CURVE_NIST_P256_DIGITS];
++=09struct ecc_point pk;
++=09size_t copied;
++
++=09if (!curve)
++=09=09return -EINVAL;
++
++=09if (src_len !=3D ATMEL_ECC_PUBKEY_SIZE)
++=09=09return -EINVAL;
++
++=09copied =3D sg_copy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09   pubkey_buf, src_len);
++=09if (copied !=3D src_len)
++=09=09return -EINVAL;
++
++=09ecc_swap_digits(pubkey_buf, x, ECC_CURVE_NIST_P256_DIGITS);
++=09ecc_swap_digits(pubkey_buf + ATMEL_ECC_NIST_P256_N_SIZE, y,
++=09=09=09ECC_CURVE_NIST_P256_DIGITS);
++=09pk =3D ECC_POINT_INIT(x, y, ECC_CURVE_NIST_P256_DIGITS);
++
++=09return ecc_is_pubkey_valid_partial(curve, &pk);
++}
++
+ static int atmel_ecdh_compute_shared_secret(struct kpp_request *req)
+ {
+ =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
+@@ -166,6 +196,10 @@ static int atmel_ecdh_compute_shared_secret(struct kpp=
+_request *req)
+ =09if (req->src_len !=3D ATMEL_ECC_PUBKEY_SIZE)
+ =09=09return -EINVAL;
+
++=09ret =3D atmel_ecdh_peer_pubkey_valid(req->src, req->src_len);
++=09if (ret)
++=09=09return ret;
++
+ =09gfp =3D (req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP) ? GFP_KERNEL :
+ =09=09=09=09=09=09=09     GFP_ATOMIC;
+
+--
+2.51.2
+
