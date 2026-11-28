@@ -1,110 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795851902;
-	b=4dDPYOVHPTeK44OA6a1NYPVuEOCBnhyTcHzdtb755/swwF/dgi+4ajEQ35UmdIEE86ih
-	 ay/6QoQpxgz3tsiY8mSIywyTLYONNnk0OKCwls3E7Fi9ea6UQ1bYOlmBSu8ffuGJ+6M1G
-	 xGOuw7OGUFycROs/u16aMicAqMauGXpajpC/X0ZkKzkTZDrt7tdti8GC4oORzal/M5Nbw
-	 n4YWauBlkEnwp+bs8I2Og3qNSAfeMRegx9g8HpedUuMprulvz7FTu7+BjELzbiN7I8xp/
-	 qh8RIoWZhDsIagyHijX9KwjVtkY9eOwa8qKqAD0zMwAj+ZfRDgfEW/g924/LRdtVpmQ==
+	t=1795851924;
+	b=w+4uVhB5zoDf6YVqXczW5m0sKz1DgLljkAaxBEJMp5GugSjrkjHRF3kjWNM/vDj8iGZp
+	 5w9fxQmFB5jkp82nez1Lu7X5QHGC2kkoceWSKUOqmBzaz+sXaxS+F5XmMnqYmuPaqwswi
+	 fgdF8FUtw24uI5skMi7DfZby1EBA9Q7u6fcPuodOVoNcAJ71QKuXugvlWReDsuikvwwor
+	 Z1uMNmyebz+vNkmn/A9dIs1v9HY6lGGyYjqVTNTEDqvG9Bwmm9o+PKNRrGx9jTofB+Icf
+	 dAmuWsx4RS04vXqT7aRNT27n9vU5msafULhCp4gX8vEUW2W30qaRlLjje5Dr4muwrSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795851902;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=XSCbnCPHMeRDuEhGRMEEnnsMEwBvB/NgQ+oiTuIUzfA=;
-	b=rLwAwo+Tc3XfqfVHZ9EA4WlHawugdqCToFY/iVYaZ+OAuZC97qBaGc6heFX9FKftpeXV
-	 ociTSld6d4A/+y2dKubBNwAPQgJBt7NcGSOmla1g1V8m7LS9lYJ3IsbzvDyJNXG+kY367
-	 pWV2tb1dV1m+lsgwzE4cx1DYGuNkHrxfu7cWIH36FFlTBze343J//DkV99zpOV8ysE8vE
-	 tWIHYPWmBpcI6XXQJ697KIYFuQPuE6PgBDR21/7raZa1nSFU5lK+L7koqceaNgv9Asfb5
-	 y1QdF0OL0ZVyL5ujqLR/hPiYjZkHiezUuy953IrtyRXqQnKFJ48ruO8mmnxhr9nAing==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795851924;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=PvDPwRq8GAh/t3oB1kQXSCGMwADwrNJEuUFh0I6qC50=;
+	b=bjsxyRqUiBIBIpkbxrLzckWMOwLw9AcIKF0FgQWOBdDHRTXECK5V5ImsKYTTYvsqXke7
+	 q6FomiCQ3eOzvZ10N4lMb1Cr5ZSkGTAuQy3b5ByA772CeW6m+8JT3tz+sjwONSBABE1Mc
+	 rRGkgeLfMz1PUEBiMrszlNmkCoLJAaiKbpwykPZ26cQKj1DAwYqkDIT3CvpS85rf+g5/D
+	 umvhfY8eYcOdG3tWZadbIxnobn4KpfHUxIMjNSD3qD+uqA+5dZQoBsWuno5WNESR/7UH5
+	 RRLrCoqWTnBs641Y9IYRNanGp5H8lca0zIKpS7E8c0VhBKZz3Fjuy8ZvLj0JfnUCPcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eldbdYe8;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kAaKlk4d;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="estmKI2/";
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9660606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:45:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9660606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC84E606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:45:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC84E606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eldbdYe8;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kAaKlk4d
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AS4B2kU2224149
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:45:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=XSCbnCPHMeRDuEhGRMEEnn
-	sMEwBvB/NgQ+oiTuIUzfA=; b=eldbdYe87ZT5sW2D9rVnaA/lNs6LYmCYelUOqk
-	64KchP0loPaabylQZHnG4zYMduUD/IvKJo11KkerxzGeiOi7dmflBJKfzvvhnzkp
-	pGjx+baL3/tAmOpVxD4tcrfO3O9X1AoQQNOe/3g+F6AEoG0C8MVkbD0vZL7EQlGQ
-	6HjraZ4UqzX6EqV/SznhIMEqzgY4IpYe/F3MyjyZCCtBdP9bjC7j/ZBP7kcJwNfE
-	VRpOUyUQNbs6r8cGnY78x3VJukUlC72wQLIkcn9HQLAjpCxIsbtnRmFJQXfFSoW3
-	sIlvVMJzVuzfjXOUo+K/jGIl+RJR+gU5yKgd1go4K2eJrhTw==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j7manrrre-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:45:00 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3869865a304so5912823eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:45:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=estmKI2/
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-385c497bf94so9684624eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:45:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795851900; x=1796456700; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=XSCbnCPHMeRDuEhGRMEEnnsMEwBvB/NgQ+oiTuIUzfA=;
-        b=kAaKlk4duvZDiQHfGKRR3xbV7nFWcjd9/UBjnWJnrlbdJh8gmLbiS6iihyH9LA0Y93
-         C0Vibrri+rL05Jndb7/m2UCu2Dhl9ZkpTAinCxyP/rFSIauBrsumLS9zwfcWGkmtI0xx
-         17T2IXdpS9Xm/nueaWNf/sTrV6hIWnHwECjNp1TU//N7muXTrjVfP3JzETQ3tC2QTtrs
-         veP6sKXlEoUUu7XN4HmyQWYe2TYBHRx4EBkuExvePjWBVH/o1yQRUUMjmKKu10FK01yo
-         Kqaii/EqoREctOXarmWD9d3QsefDndayyOpw5wBHwwEk1IO8YYtmOZyhmV9zSn7fvPRA
-         qA0A==
+        d=gmail.com; s=20260707; t=1795851923; x=1796456723; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PvDPwRq8GAh/t3oB1kQXSCGMwADwrNJEuUFh0I6qC50=;
+        b=estmKI2/Je+0ZF5XWrFZEGp2YpgwykMpcxeX38GmVypCWFASEa9hoFypIvfmIJYSnw
+         6smocHz5iokydiXWZXuE7530lM7lqt75TOpc1ryPDmWroBlWxLILPzewYIdyKZweAYtE
+         KZy18phuqxMNPs82wDHzMR8QxKS7JBekWAYOuxovjgjmpZ3OU0CW0ctPxc4IYp66mLwv
+         rLcZo13JREPJv4Ws7fHpWIZJAsZyDeH52grgCePfwvZ3LZYsWZyNd0u6YmvBeTGoZYmX
+         PMczF4txpa4XBHkwCHvLrU+8mXw1YlzBNlhPr20Q/u00/7B0YEPEm65Af05nPxp/CoQt
+         f4IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795851900; x=1796456700;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=XSCbnCPHMeRDuEhGRMEEnnsMEwBvB/NgQ+oiTuIUzfA=;
-        b=Ye9yROcTmPZJTLVCyyMco0YV45N8Xc0gzN0Jkb0ycuz+Fs+mJmbS3b4E35lwnEkgmW
-         f51erbnlnuH0ScoTfCdX9t2m7FR9s88WOdp1ZwIQQfU8MhUxoNusexrwHRNM+Q7+JSeC
-         vTUl6YbadGkLKeJIiKSrRhsdQA9LKuoSEAzOS6C31wBW4Bnh1xGyqfECegyniL8e8Ohn
-         4l+DWdCdO/U2wMqR83QAlo6X6QZcFatlzmFLZrNCC1XY2iDgBXROo35cQXC2lsnu0ttK
-         4IWd/7zDlI8hLlcytfVxJC6M1158GdimVbFLVJQg0dkOy3W2qwcO8BhsKOZXCKGNdhwS
-         j6tQ==
-X-Forwarded-Encrypted: i=1; AL+hErEaZgu6i/r6IQhmGR3hmGnvBOWKmm9aHfo10NIVc56vaCjJZMfW4r5EfIgIjG/xbpzgj+8o8neSXpI6SDo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JlOSPm8SrLjrm1rdUNLhrykTaBHA8YoZ3gXEgPuVm+4UDl07W
-	Ih8K6N6yXEkJLsNpEuxZGWGWrhV8Cmb+hyOGQZIg9ZFfWjVj7C1f45CUudNgVE0El358JGlPm8y
-	aW2aiFpDoNE3BF+XJRTDHkzVYxzyjzYPNlnN1QIjLu9yZFs/cT5e0nnkr9WGOqOqtDeo=
-X-Gm-Gg: AZFdTZdoLsSHbDth/jNQrXienWn8XwKq6b3Mm19s8/TwYspnKoSP1lSr7pGCYShYbyG
-	zB62pw6ZUNb4qXp/9FVIJqbbAbBoc1t65wAY1Ocg7U36z2nEkHDWaOoVzY/e9C8fu+y56fMB+2o
-	6lsBKQvMZln1651obhbcnINIvV4Np6y6WqLMXXoILRoKHu6RHHFzfLZXxuMhyonYzvhgsBHktLm
-	/CVMnhzXz1ma8f3F4cqNc06vMiunT16wkKVfrboj+jJyItuWDgf9Ry2R/Mg9GoH1TMu7clnQuxY
-	Wbyv2flmdL+bFi9dRcBeTVdWYuZklLUk0YaB5V3qwOKmQDcIrEW7ChkjsJHW978Kk9r3/BALVBJ
-	HlB18hp19u8gtUtw6qij8Kr2ck13ZMBULj/hCiDd1m4ISfzEdXfBe2zizmMF+sCdDMBgchT4ja2
-	HxE4I=
-X-Received: by 2002:a05:7301:b02:b0:382:48a5:cd53 with SMTP id 5a478bee46e88-3857111f187mr28521334eec.31.1795851899613;
-        Fri, 27 Nov 2026 23:44:59 -0800 (PST)
-X-Received: by 2002:a05:7301:b02:b0:382:48a5:cd53 with SMTP id 5a478bee46e88-3857111f187mr28521308eec.31.1795851899073;
-        Fri, 27 Nov 2026 23:44:59 -0800 (PST)
-Received: from hu-gkanala-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm65140367eec.1.2026.11.27.23.44.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 23:44:58 -0800 (PST)
-From: Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
-Date: Sat, 28 Nov 2026 13:14:39 +0530
-Subject: [PATCH] soundwire: qcom: re-arm the controller interrupt after
- gating the clock
+        d=1e100.net; s=20260707; t=1795851923; x=1796456723;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PvDPwRq8GAh/t3oB1kQXSCGMwADwrNJEuUFh0I6qC50=;
+        b=BW5XD2laTt6CpXcVXzG8BZtYrIGL4b3mexPztZcFjfk/+cke/oD7djOrhI/K+7u0O0
+         RMDcnIigT30epMpATEVQbTS3OkjaVZp7D9cBcxmHvcYFHu2mq9mVSxcHzNAFxaOuc7fB
+         GcostBxptbDhCsWs8zWYEx01LPlnRcpdVyeq4+i3hTGwamdInKNtBR0k2QaqitS4Ci/p
+         HDq6iokUIkX9YQ4trO/FHQhItNqlNJtAVKaM/GIzFVTAFKe3+60qKd18VXp07v5MgKq2
+         PGS/Okgloaj5sNeO1VIVgAmHiXkQfmDH8TMRBmtieG9VuWRqZu9WGhu4Ehg7xf178dib
+         M7tw==
+X-Forwarded-Encrypted: i=1; AL+hErE/EQtIY/W52+kGpmCj0oK8aUSofwZG9ycSwafoC1yFSuwbu4pZb9gIi9Yv7b2Vok723j7WURECb8DgB1Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Dylg9B46pCtfl8h75cV/gtcHgUzNkttv/zDVMB2m67p5hNlMc
+	AZAy/Nb/Hn690F+iQGId2pyffMo/1i8PR8H9bOL7Ap225VZx4audkK15
+X-Gm-Gg: AZFdTZeOE3ZjUYFTwUfFoS4CvFOwaFT9MxyZzIzQjdrkrvzI2n/2TmBgkFNdnaORp6P
+	VD0ljXJQsy4weWQf65F7vqmBdLe1le9oI8PPk7XV3bT2KOioegQAQYzNF7MOuqcDh306turGPIJ
+	H6WpwXR5PxUDbJJg37l1IVh1CieDbX6yPgN1oXlXZG7B/mnGI+xUh89V0mLhpxxiBxTbRmGw98r
+	0xCitlfl6rXYKw38ExTx5GR4rAEXmAcRqfvQ3drSygAjfxVjO3bn+oc49vrjGCdZuB+6xibFrBO
+	nIXzRv2ujxZpgzFM3NFmFL1/INmcEC6h1C38SSlLtBVFw6e7bk4sQ+4yRfX9vB+H+VWTw2IysLy
+	KbBeeELy/xqZCpvsJknZJvoEBVCblWLDoHSbdmH0s4kOMvTwE9ySOybgLHCt0TymGsMoV7mBs0L
+	0ONWt8kt8A+sTJx9YqTkIwdu3khfoSxR4TLt6B2Bmoy3V+kW9IPUoxTlg6G87HAdd64NNxnpHuZ
+	hzZd27Pfn5qXZKxm2BYf0hF/VbJjkdAf+6SR/L3d2qp/Ao/aZNmeH0UjfVfAFTYlL2X8sXt1g57
+	0rzScqjkQ+01u8ImO32IpDKiX5mNuLLYY20vL77EX6gHmGga+GlyuQ6nz8sBr4G/tRGJ
+X-Received: by 2002:a05:7301:f02:b0:384:ce59:5e21 with SMTP id 5a478bee46e88-3856f6503d8mr25637676eec.32.1795851922626;
+        Fri, 27 Nov 2026 23:45:22 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm72104322eec.20.2026.11.27.23.45.15
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 27 Nov 2026 23:45:22 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: Chris Li <chrisl@kernel.org>
+Cc: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v5 06/19] mm/swap: serialize swap publication before removing swapon mutex
+Date: Sat, 28 Nov 2026 15:44:47 +0800
+Message-ID: <20261128074459.34838-1-lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <CACePvbUYHBD+To2CGe9b5_zWbYVrYU6Mv-pxzhXEgB7r1DJrdg@mail.gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com> <030796dcb2086484f87e2250d9cf9a04fccf54ab.1795439990.git.lianux.mm@gmail.com> <CACePvbUYHBD+To2CGe9b5_zWbYVrYU6Mv-pxzhXEgB7r1DJrdg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,116 +110,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-sdw-qcom-irq-v1-1-d053ac530faa@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAGaGCmsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyML3eKUct3C5Pxc3cyiQl0jA/PURANT4xQLSwsloJaCotS0zAqwcdG
- xEH5xaVJWanIJyAyl2loAHuTjtnAAAAA=
-X-Change-ID: 20261128-sdw-qcom-irq-207ea053d898
-To: Srinivas Kandagatla <srini@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Bard Liao <yung-chuan.liao@linux.intel.com>,
-        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-        Oleg Keri <okerixx@gmail.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Proofpoint-ORIG-GUID: s5ycImk6P_t34Qcu_Yd81Audnzqk--Vv
-X-Proofpoint-GUID: s5ycImk6P_t34Qcu_Yd81Audnzqk--Vv
-X-Authority-Analysis: v=2.4 cv=Qc/zLcbv c=1 sm=1 tr=0 ts=6b0a867c cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=QX-rXmrizRA3L83J75wA:9 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI4MDAzMCBTYWx0ZWRfX6bXJxL3tJiya
- v0QFE6JCw/6XeqxJhqMiJsAoM6x3jTsCCkXRn/sc3svxHyLIUt4m+p1j4t++oBNJ9e0uUpm1NBv
- XgZWYQL5OiigxR6o4ane0Xo6qBJY6i2ctN9fZsYJK/BmXcEsr3yc4dyeYmUtip5EEE8uRfi8vEh
- QQeaKK8bUPikuMEOQDcjm9eGBmrx5v6vA5A7WDTn3+o9roIst6Mry4aSGqkxmB1O+Q8bP6DIVxW
- FcdsZXdkEkk/iDU1a9eiI6eo0dgbhJlwhOhSYxugi38Ez6ITFM3IRQWeUhnn31eYIHu93QpEWyZ
- U89kA0H6xp06ajtuXVILLAwHmCYrS1cp7Hz+uCqGxuSAyJdryq1cZOXi4t+ANksFgnoBIHMrXc5
- ehNDn0DrPyoxdpTiEZcSZfS9q3igoeeumJ4do5W5UyG2NBYbpsiY9Sh/NidwwbeoI+Zut1cl7Di
- PuLeIhMz5ooJUkUXBvw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI4MDAzMCBTYWx0ZWRfX8ZRjJGqCVG71
- RYt8YDMCxy1oBrfRdHmTG9H15fcAD+rwrM70zS70fXQDRX5oQw9RcKaaeVl28jEmWyUDsRRkmrK
- efuJCMMQXLn4QwjWGcASXAVshS0t2eU=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-28_02,2026-11-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
- lowpriorityscore=0 malwarescore=0 spamscore=0 phishscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611280030
+Content-Transfer-Encoding: 8bit
 
-Commit 6c067677192f ("soundwire: qcom: disable the interrupt before
-gating the clock") correctly stopped the interrupt thread from racing
-with clk_disable_unprepare() in swrm_runtime_suspend(), but it also
-leaves the controller interrupt masked for the whole duration of clock
-stop, which breaks peripheral-initiated wake.
+On Thu, 26 Nov 2026 10:17:44 -0800 Chris Li <chrisl@kernel.org> wrote:
 
-The driver is otherwise set up to service peripheral alerts while the
-clock is stopped.  swrm_runtime_suspend() masks only MASTER_CLASH_DET
-out of ctrl->intr_mask before writing INTERRUPT_CPU_EN, deliberately
-leaving SLAVE_PEND_IRQ enabled, and qcom_swrm_irq_handler() brackets
-itself with clk_prepare_enable()/clk_disable_unprepare() so that it can
-run while the controller is runtime suspended.  From there
-sdw_handle_slave_alerts() takes a pm_runtime reference on the
-peripheral, which resumes the controller and restarts the bus clock
-before any register is read over the bus.
+> The current commit message describes what changed. This is the most
+> critical part of the locking change in this series; it deserves a
+> better description of why this new locking protocol is safe to use.
 
-With the interrupt masked at the interrupt controller for the whole
-idle window that chain never starts.  On glymur an SDCA jack insert or
-removal while the bus is idle is not reported at all: the alert stays
-latched in the codec until something else resumes the bus, such as the
-start of playback.  Platforms that do not describe a usable wake
-interrupt have nothing to fall back on.
+Before this patch, /proc/swaps held swapon_mutex from ->start() to
+->stop(). On swapon, the mutex covered publishing si->swap_file, while
+swap_device_enable() separately took the write side of swapon_rwsem.
 
-disable_irq() is the synchronous variant, so by the time it returns any
-in-flight handler has been flushed.  That is all the race needed: once
-the clock is gated, re-arming is safe because the handler enables the
-clock itself.  Re-arm at the end of swrm_runtime_suspend() and drop the
-now unbalanced enable_irq() from swrm_runtime_resume().
+With this patch, swapon sets swap_file, resurrects si->users and makes
+the device writable, in that order, in one writer section. /proc/swaps
+holds the read side across the walk and skips entries with no swap_file.
+On swapoff, the writer clears swap_file before the file is closed: a
+reader that saw the file finishes before the writer can clear it, and
+a later reader skips the entry.
 
-Fixes: 6c067677192f ("soundwire: qcom: disable the interrupt before gating the clock")
-Signed-off-by: Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
----
-The commit this fixes is currently only in linux-next and has not
-appeared in a release, so there is no stable backport to do.
----
- drivers/soundwire/qcom.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+That protects the proc reader, not all users or the whole teardown.
+Users that don't take the rwsem still rely on the live reference;
+swapoff kills it, waits for RCU and drains the references before
+dismantling their state. I'll spell out those two guarantees in the
+commit message.
 
-diff --git a/drivers/soundwire/qcom.c b/drivers/soundwire/qcom.c
-index a4cb62897192..05ef7bb2c5f7 100644
---- a/drivers/soundwire/qcom.c
-+++ b/drivers/soundwire/qcom.c
-@@ -1801,7 +1801,6 @@ static int __maybe_unused swrm_runtime_resume(struct device *dev)
- 	}
- 
- 	clk_prepare_enable(ctrl->hclk);
--	enable_irq(ctrl->irq);
- 
- 	if (ctrl->clock_stop_not_supported) {
- 		reinit_completion(&ctrl->enumeration);
-@@ -1893,6 +1892,8 @@ static int __maybe_unused swrm_runtime_suspend(struct device *dev)
- 
- 	usleep_range(300, 305);
- 
-+	enable_irq(ctrl->irq);
-+
- 	if (ctrl->wake_irq > 0) {
- 		if (irqd_irq_disabled(irq_get_irq_data(ctrl->wake_irq)))
- 			enable_irq(ctrl->wake_irq);
+> The function name can reflect that it is locked. Maybe
+> __swap_device_enable_locked()
 
----
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
-change-id: 20261128-sdw-qcom-irq-207ea053d898
+Great suggestion. I'll rename the helper to __swap_device_enable_locked()
+in the next revision.
 
-Best regards,
---  
-Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
-
+Thanks,
+Lian
