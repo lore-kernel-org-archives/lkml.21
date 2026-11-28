@@ -1,80 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795872458;
-	b=HE8/6JGo3LYSaGkTciS8mNJrUweNQe8AjijZY+sjD7OOeR7svp/n845o+VIz/rGwY+I/
-	 JetotlUQbVdd2sPKyjiDPQBXOuYuBYM3s3pbDMjJaCuOoy14z4o7o7A4NxbdSb+/pTgeS
-	 X5WOxJkg0q/l8dROLzfBuMBrPAS3jN0JGs3S7GEkZfYKscb4gYAc6mYNxMhlElT9YM0Li
-	 0V1DVKPnNSihammmU2kSzb6xTtqzdPnE+rgXNPcLkssGki7FBFc5xfBQSikXAly6+wgSN
-	 TLW1Yb0nYrIKvouUawyP+2XD63G2+CzCiFOzKNhFnBGlmh/7R+V8TIFpZERJyLlRQUg==
+	t=1795872563;
+	b=UDvlG3h+rCWMYQb4BpFloCb/y22cBGqtqLuVHCVed5yIsuxLUcq5Nf2GEW4R/QJiHkaj
+	 k5b/zqno03F28lRUXIe1Cp8PFtaly1cynHedIwDBXE846wokCP7A0aUHiTjMmvZxoLjCy
+	 OgvUJbvjJzM1wK3Do7h69MH8kLpU04S662l04WX2dozXqCS3ZF3UyepvyDAjiKH9O3En3
+	 y9HTf9K5c1SOMpmFIcFCzi/UcL8fJE2z9HaE37YW2sUMrXqVEMuKIpi/72H5oZsvOberf
+	 2kldydfwFWCIdWCqM/6j27S+uYVO6SMJIsgCzkyo/DZXfTYtRcEjAPWIoo7rX9CAOAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795872458;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=z/Mx7FrYRyjcMUQ7L/H2F9WrTTWfG8Nx8r2n762Dl3I=;
-	b=MYrVM/Lh/zG/L45A0opF+d314guuADfWfw5YlocolI8uniXltQ13sxA7blpUHo6Ravu8
-	 Skpl0nelZz6ui3vSkT3CnXbrzRw/QTyvPXYooinEo4qvXVNxWRjzJ0Mjut/DU+L9baCeq
-	 oOZiJh5E4ieG/1OCY6VlKMZBVzCP0ONRcan2iJTX7wfUZ4HEM7bpVMo/jK+Au1WrtADLh
-	 MTUTjC3om4EMRhQiXBTS6fJmHL0avIsPZlcIKj+KRZnhfZ1VO+pxZV3gyp1GHcnmhatqE
-	 eLsfsr8nMEktaotemGBPfanQZA3eOeewbv++z6tEHnbGkmuC9qEhFZd7qxXUSZi+DCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795872563;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=6guL6fsIdRWO7bBe/cAJj/bQPM005atUDvW459uHxcE=;
+	b=AHXFRfbrwlw57EecZDXpeT54wrdct5Wv30dfsJuSbIwnWWlup2A3Dir0gjExt81WXsvQ
+	 60i2fB0XChSthpxv7PGyXmhVoqtP235s9bey9IAEc0wrLnVWWbXTIwOIYeL5ZcntB3whI
+	 IgT/dNv+y1Zm8hw0+RwQg0F5ZOrLIf5kMWK1rAjUpiQSzXsdL8dBXCZr9f1MGwlH6PbvY
+	 7NHI6mbx+YNluOIR9LSJOfcpjKPbFLpU8za0kPCdODq2qQ6KnXRv4URgWPSJZhSYta4Oi
+	 Y4w4W8MzbFI/VV4wHCyWsx7kX3niizcP5T+BcHHR3l2t9iXA6pgfdNHPPiiBukKDx+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JoDOy79E;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=szelinsky.de;
+	spf=pass smtp.mailfrom=szelinsky.de;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=k37UkjoP;
+	arc=none smtp.remote-ip=85.214.127.56
+Received: from szelinsky.de (szelinsky.de [85.214.127.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70778606A31F;
-	Sat, 28 Nov 2026 13:27:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70778606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 961D9606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:29:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 961D9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JoDOy79E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795872458; x=1827408458;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YomhLU7Q+1ydoqrD0+PS6LLn+g7AH77gVzrh2Q31O8M=;
-  b=JoDOy79EuhI5A4wcHZditl1y+PKl6wV1NCPqdEeu2uCNFLulxUaczOre
-   kpTAks3uaxAGpS7/qKMzsMjF4FM4Xr9Vs69uYClM+wyOLo8/lTbzhJkVM
-   vufVFzCROAPmbsycFzgaMZsqauX6EhGyJxCyid5gL6Vd7ZI7PXMXdFhz5
-   6u1vuR5mB55dUhF2aOeupphJF6YhHlSw2X+MvV7HJ8mjeAjn6rPLmCwzD
-   /35U0oUcikKlRrsUgWkXhNbTIOWR1N4ovH8//nwLgVmrwSIFX2gpElYxe
-   zJIieZXHIxdr/w7gMtGHKEJC7g74Im6JBDVKlqkzpO/mpJxsfEheXlZ3d
-   A==;
-X-CSE-ConnectionGUID: 6jX/jZpoREKQ9UNAZ0G24A==
-X-CSE-MsgGUID: jB3/Uej2TPi1EXbor1HnMw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11980"; a="4765805"
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="4765805"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 05:27:37 -0800
-X-CSE-ConnectionGUID: wnprmHliRYeeQrE5ZQ9RVQ==
-X-CSE-MsgGUID: xlzUgupwT2qRFfp/6RsWAA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
-   d="scan'208";a="14595601"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by fmviesa013.fm.intel.com with ESMTP; 28 Nov 2026 05:27:34 -0800
-Date: Sat, 28 Nov 2026 21:17:11 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Chao Gao <chao.gao@intel.com>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-coco@lists.linux.dev, kvm@vger.kernel.org,
-	rick.p.edgecombe@intel.com, kevin.tian@intel.com,
-	yilun.xu@intel.com, chao.p.peng@intel.com, baolu.lu@linux.intel.com,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Kiryl Shutsemau <kas@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>
-Subject: Re: [RFC PATCH 5/7] coco/tdx-host: Configure an IDE stream
-Message-ID: <awrUV1hbcekti2ym@yilunxu-OptiPlex-7050>
-References: <20261116111037.3478844-1-chao.gao@intel.com>
- <20261116111037.3478844-6-chao.gao@intel.com>
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=k37UkjoP
+Received: from localhost (localhost [127.0.0.1])
+	by szelinsky.de (Postfix) with ESMTP id 0D8C8E838C3;
+	Sat, 28 Nov 2026 14:29:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
+	s=mail; t=1795872560;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6guL6fsIdRWO7bBe/cAJj/bQPM005atUDvW459uHxcE=;
+	b=k37UkjoP6oGnkWwg7I9D/5tYbP3vMm3gT85ACT1c8j3MavZO5WDN7ihK2QVUk6W0wjVmj/
+	A5krIHIGJB9nFjATYdpZYU9IMOH22eiWt5Na7NG+YJWVzZxUQostzpSV+3UuEd7S842WM3
+	ptFm9wKPSZa2RdQONHQYGdCSo6hEKoBzxlZLUoJQi9hBRC+jJ5axKCSsmvQ8H0RlCE55Lc
+	yz9Fy9K6LPuI+S9dy0oLdyk3pDfZyGwNaVlQUC0K77RYGvrvP19A8IIqngNQjIzs6QmZnG
+	ZQeDzXHyus8hRcsFouzNeURoJY2RKg8Oat9wcwjgpWK1Mohrv/fbpFtyUz5u1g==
+X-Virus-Scanned: Debian amavis at szelinsky.de
+Received: from szelinsky.de ([127.0.0.1])
+ by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
+ id mAZywzu7bxcY; Sat, 28 Nov 2026 14:29:19 +0100 (CET)
+Received: from p14sgen5.lan (unknown [86.103.60.175])
+	by szelinsky.de (Postfix) with ESMTPSA;
+	Sat, 28 Nov 2026 14:29:19 +0100 (CET)
+From: Carlo Szelinsky <github@szelinsky.de>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>
+Cc: linux-kernel@vger.kernel.org
+Subject: regulator: core: use-after-free of rdev->bdev when a probe fails
+Date: Sat, 28 Nov 2026 14:29:14 +0100
+Message-ID: <20261128132914.3954393-1-github@szelinsky.de>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,34 +72,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116111037.3478844-6-chao.gao@intel.com>
+Content-Transfer-Encoding: 8bit
 
-> +static int tdx_ide_stream_setup(struct tdx_tsm_link *tlink)
-> +{
-> +	struct pci_dev *pdev = tlink->pci.base_tsm.pdev;
-> +	struct pci_ide *ide;
-> +	int ret;
-> +
-> +	ide = pci_ide_stream_alloc(pdev);
-> +	if (!ide)
-> +		return -ENOMEM;
-> +
-> +	/* Configure IDE capability for RP & get stream_id */
-> +	ret = tdx_ide_stream_create(tlink, ide);
-> +	if (ret)
-> +		goto out_pci_ide_stream_free;
-> +
-> +	ide->stream_id = tlink->stream_id;
+Hi,
 
-Nits:
+since 304f5784e972 ("regulator: core: reresolve unresolved supplies
+when available"), unregistering a regulator that had an unresolved
+supply when it registered gives a "does not have a release() function"
+WARNING. If the unregister comes soon after the register, it is also a
+use-after-free. I see it on net-next f89726ffabef with PSE patches on
+top, none of which touch the regulator core. drivers/regulator/core.c
+is the same in mainline (7cd8495c0f16).
 
-Maybe we don't save stream_id in tlink, it can later be accessed by
-tlink->ide->stream_id.
+How it happens:
 
-And the function could be like:
+ 1. regulator_register() cannot resolve the supply, so it adds
+    rdev->bdev on regulator_bus. The only driver on that bus prefers
+    asynchronous probing, so device_add() queues
+    __device_attach_async_helper(), which holds a reference on the bdev.
+ 2. The driver's probe then fails, for example with -EPROBE_DEFER, and
+    devres calls regulator_unregister().
+ 3. device_unregister(&rdev->bdev) drops the bdev's references on its
+    parent rdev->dev, but the bdev is still alive through the async
+    helper. device_unregister(&rdev->dev) then frees rdev in
+    regulator_dev_release(), and the bdev is part of rdev.
+ 4. The async helper then reads the freed bdev, and its last
+    put_device() reaches device_release(), which WARNs because the bdev
+    has no release function. Without the async race, the WARNING comes
+    from regulator_unregister() itself. From the code, the bdev is
+    only removed in regulator_unregister(), so a regulator whose supply
+    was resolved later should WARN there too. I have not tested that.
 
-	ret = tdx_ide_stream_create(tlink, ide, &stream_id);
+So any driver that registers a regulator with an unresolved supply and
+then fails its probe can hit this. I hit it while testing a PSE
+controller patch: the PI regulators registered while their supply was
+not ready yet (not registered, or its device still probing), then the
+PSE driver deferred its probe. In QEMU (arm64, KASAN) one boot gave
+37 of these WARNINGs and this report:
 
-which aligns better with the comment "get stream_id".
+  BUG: KASAN: slab-use-after-free in __device_attach_async_helper+0x260/0x298
+  Read of size 8 at addr ffff00000535c4f8 by task kworker/u4:2/30
+  Call trace:
+   __device_attach_async_helper+0x260/0x298
+   async_run_entry_fn+0x80/0x264
+   process_one_work+0x850/0x1844
+   worker_thread+0x73c/0xca4
+  Allocated by task 1:
+   regulator_register+0x220/0x1d10
+   devm_regulator_register+0x58/0xbc
+   pse_controller_register+0xa84/0x1aa4
+  Freed by task 1:
+   kfree+0x1f0/0x4bc
+   regulator_dev_release+0x74/0x98
+   device_release+0xfc/0x204
+   kobject_put+0x138/0x234
+   device_unregister+0x20/0x2c
+   regulator_unregister+0x228/0x2e8
+   devm_rdev_release+0x24/0x40
+   ...
+   really_probe+0x3b4/0x59c
+
+  Device 'regulator.6.bdev' does not have a release() function, it is
+  broken and must be fixed. See Documentation/core-api/kobject.rst.
+  WARNING: drivers/base/core.c:2642 at device_release+0x184/0x204
+  Call trace:
+   device_release+0x184/0x204
+   kobject_put+0x138/0x234
+   device_unregister+0x20/0x2c
+   regulator_unregister+0x25c/0x2e8
+   devm_rdev_release+0x24/0x40
+   ...
+   really_probe+0x3b4/0x59c
+
+The reproducer is an out-of-tree test driver, so I have not seen it
+with an in-tree driver yet.
+
+One way to fix it would be to let the bdev hold a reference on
+rdev->dev: take it before device_add(&rdev->bdev) and drop it in a new
+release function for the bdev. Then rdev stays alive until the last
+bdev reference is gone. I have not written or tested that, so I leave
+the fix to you.
+
+I found and analysed this with help from an LLM assistant.
+
+Thanks,
+Carlo
