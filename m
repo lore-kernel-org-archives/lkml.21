@@ -1,95 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795857720;
-	b=Q3rrlis9lWuHBfJPte8zVbmjVSQY8LkuCitepnCmZAKGyu/aaO1+3wnwbOxHcT4cO7Ew
-	 NZVVacH3uglu7kbmjC7L5hp/kybkh/OR96jde8souTtHZS3awj/lqqUjXBQdfCkSkXLWm
-	 +AOqDGxunz+LTUGMm0G50kcHXQ2NY87vHY+0wQo7ja/lBuqUWH+bk8xr9GixlsZuw4fwo
-	 YJwbVPwhZ/mtUGd00ShNSJxyRnZKPDca/hqXcaDh0eH/tXkAKd0No3e/Xtsjb9CMYCUKB
-	 ogVNz2UmbKSKKKyZbUCEWAWNL+FK9d8ljV98IkrAH3TTwy26RZebO9sursYqPd1j49Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795857720;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:In-Reply-To:References:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:User-Agent;
-	bh=NrIoMTeuQSSKquJ/B8Dkq51X5h3zUX1txK3GWbjAlR8=;
-	b=MaAx4xVlXbejU9A0+zydOm4QmG1JOUER27DJfAl9e0BC+6RkTrX53w7MZUufMukNJ+m+
-	 OaQx2XYYuv6V7XQBcgdwXEoHmxmFXkhWj5yU8iszOEN8BPiHCCNQMD5ebaq5SUVb1GIsI
-	 Khnfoh+QVcHbDrq6AI+UbQ7RaWEdlMiYWsqsgU40i2lCCuGIFpWhyEtUPc7X2R7IQdTRe
-	 N3loZ8+zJ4KTUleelOfH0kCEscGnihnd4DhvR3M0hZ9L/O33q2/g2JJIgVuM0hpO6OhRc
-	 o6KdSPjWHB9YxHy5xf2P0aPtFoXnS4AKNGg7PLTWsOf0f8roPYy8yu05aauIqJiqKmA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrisdown.name;
-	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=mQYL+8Rp;
-	arc=none smtp.remote-ip=209.85.128.180
-Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795857729;
+	b=3ouaprsClNVlqlymQNXguWPj7fKG0uUNrOkIBvT/Hb8OQb82zkDXCBpdEeQsKV2wnCun
+	 Tk5TetkbGAWktBPhcqdt6JDf2LkiTqcdhKfRi4YeTt+TguGpWgYJTDhYszP6yC/atzkoB
+	 4+38agycZCSqCPABNzzUFfQ8u2nRmNEsM5Dey02/p85qJLtS5x7D4PERq0eRxjEN3gKtN
+	 iOM8rXXu6KfRx7EnRNF1+pHBM/jpEd/iz/IkFkxGlovEKFr5EmjYk/XBWD6KglivOi19u
+	 77uRj5tsKaafXvbRgVGx4tNrhb3hkwZVuWxGrUwa14rftCLMDN0wAdB/hT2DitzY6HA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795857729;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=wlckpMJ074/wY0TNt41XHzSk8RPHuKfXuoWeAZ7xaY0=;
+	b=0HXkgcC1xFRVzoiqV8s9J2EaQRDZgpDBLOpldzrpGTmKB7SuMYhEu40UzIs7z7Ho2D2S
+	 W6fEBgsQaQRMElwbCJq9dSepcV2+KaWs3hB1YUZ3QfcpGJ4WowbPi2dfEKIt3uGOTUHLx
+	 +GBDNqpWmRos0MujjsiDK85savCjXSAnnq54Lo3IzLaOkq7/IfiWOJV6t+NZtwKxMmJ4T
+	 AASu5Oxhf/pIq4glxKNr69cPTzQCzIVhYdrzT6NnF25PSEM95Tpg5PdErjQf+KYOA9ikF
+	 oldyUA8PALPxlFk0ihV5xH6BzAtwD5A3Ix/N1VZjcRryzB3TT0EpFqs9RV4c2jOdPBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redaril.me;
+	spf=pass smtp.mailfrom=redaril.me;
+	dkim=pass header.d=redaril.me header.i=@redaril.me header.a=rsa-sha256 header.s=zmail header.b=gZvnawq0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.18
+Received: from sender-op-o18.zoho.eu (sender-op-o18.zoho.eu [136.143.169.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A8FA606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:22:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A8FA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 814A1606A323;
+	Sat, 28 Nov 2026 09:22:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 814A1606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redaril.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redaril.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=mQYL+8Rp
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4b9ba815bso52090977b3.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:22:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1795857720; x=1796462520; darn=vger.kernel.org;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NrIoMTeuQSSKquJ/B8Dkq51X5h3zUX1txK3GWbjAlR8=;
-        b=mQYL+8RpajkypVy7w945436BoLb0L4UiZjabKgY9mh+ZHdvfvgQYEpwIbAFMtN/iN0
-         BXYainwWNXumQkzQVyp0l7V8eebNglt78mK2/vLVl4cKDp2rkUPjj8D6Q+cxiCVkSO29
-         VspZ+M7XWgekPFc0WLc8LMZhrL5tAGgMtWEh4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795857720; x=1796462520;
-        h=user-agent:content-disposition:content-type:mime-version:message-id
-         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NrIoMTeuQSSKquJ/B8Dkq51X5h3zUX1txK3GWbjAlR8=;
-        b=0IefgBoSiVZFG9jOEm1Epm3l7SWcpTLjflm8M0sBIU9uL0xudWNL3F2vfWhxCwd4zV
-         0JBpL1Rj/EKKNJ2nJ1LqwhnbFSz9znIugGAJxsUAGj+tdyO6Vt3YvJzwwh7gykFzS58y
-         BBpTpbgZQMiPU0aQBT+bdrfOUtKvTnvlmHbWrGIZIYZrZaOi6RRIRmLTSvho39IklRiu
-         9XsgYO/AvOtc8RaS3WArG3xwKxOssDtkfcE/yxKwajEMv2mjXbWzz9tkcXzBAn+bnNRX
-         BIuiG5qgTCBuYn2/HCJugsoAeF79MpXVbjD9o9OW46zBKK/aT+ekoTGp0MGqzr8l7QQH
-         rrUg==
-X-Forwarded-Encrypted: i=1; AL+hErHbBBGT6SuH3RPZBvxdaNDqkn3j1R1dJwZIo0DPDJNADXDdIvyMyJqgRwZmbpmGksEtZfmgeXUjN8xIwJM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ULGiWz+1yVNepvtKVuIqfQrgYq0DiIqmPfiocwE14M1be8MVm
-	GisCB1fQzDX/xbl3NdNhkU6S13WcchEdkHHjeXzf6x8AJOC0fmnIRu06oWhrohuQzPA=
-X-Gm-Gg: AZFdTZc1UBrBTuFUjLYZihqIlD4PUhgkDO+cfmEmUF6W43en944je5FRd6pMzGz7FP2
-	neDB86P/mvqlzo6mc7MEj6eF8tEY092E5QtwWw8tJNeK60xH+2RVYO70OVO+VYZ6wgo/dp6vn+s
-	U50yUd5BSuxLxBVEiIRZgsYHh0fDNDn2rwpeTSyKOPaojkNp2OtnmlyCu8M37J3Nwr6WkuLuelr
-	peFDze4xNNxBM/fBu/KBdLI2dvSRrjJH/PPwu1NpAev7M79u5pcDoV2oghrMNM50zm02Ar9ctO5
-	1R3XvLE8a/DtBuRQV90Z6bFrbkoUYo8vz/BmQA00SUPYzDzvcMMmTQcmSpzCG7vXS4D86x3tLg3
-	kqz1FQ65+WyoVwUedCe1qdgN66eYNs6NtrD0YhjqgMe7qVoceYH6Y2Tqb0bRL6GI3UrZNGdsjEd
-	gI2PwW7ArBj9Ri4KZLD/IFuzCeeBWqq2Xkni7bRsKlAZ4iKJcpOnAlXieymfchv+RHu2i5ZbSug
-	aJY/+9sbTxjEx1h08LczMdHJe93RK82zTv4VAwx0ZqgPl/jhQb+e3cIlr54tIKizs8YWfjfuwHa
-	QDNEF1FfIfIQC0meO98f2UCUMLvGzMCvLZoshMXBnvjACtq/dMzOj6F02Gxs/dPPq1mxIl750NC
-	426wzgiZ7BpwEmihxjtMfgQe2Fm5rQZx+EsSaBPau8caOIqW3I6xTtHrgQjkSH7aXR3N+JnJmn9
-	KUw5QQZgcuVx7uj/cvfDKvSS7RSc5EebFxWlKScTX3DUPDiBvDkP1C6316qPE5D8Ec5/IIuUpcP
-	t/8O/m1YRg2xy8D4LmFGqrS
-X-Received: by 2002:a05:690c:29a:b0:8b3:361f:5d77 with SMTP id 00721157ae682-8b5204a9ea2mr142715807b3.26.1795857719761;
-        Sat, 28 Nov 2026 01:21:59 -0800 (PST)
-Received: from [172.20.0.3] (c-73-207-185-9.hsd1.ga.comcast.net. [73.207.185.9])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202fb08csm102460237b3.24.2026.11.28.01.21.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 01:21:58 -0800 (PST)
-Date: Sat, 28 Nov 2026 01:21:55 -0800
-From: Chris Down <chris@chrisdown.name>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: pasha.tatashin@soleen.com, pratyush@kernel.org, graf@amazon.com,
-	kexec@lists.infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH] kho: Don't release incoming bootmem areas when kho_init()
-	fails
-In-Reply-To: <avGb2Trm-C3_YC-7@kernel.org>
-References: <au_vQhHAcJbkryXN@chrisdown.name> <avGb2Trm-C3_YC-7@kernel.org>
-Message-ID: <awqdM6WBmcGak0UV@chrisdown.name>
+	dkim=pass (1024-bit key) header.d=redaril.me header.i=@redaril.me header.a=rsa-sha256 header.s=zmail header.b=gZvnawq0
+ARC-Seal: i=1; a=rsa-sha256; t=1795857688; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=TrHrhQJMjSLKmgtcrGYeI8/hpod9FxQkl++KebPmUenmpVKOGxKhi5xfrGvuYEP2tlOXZu1131syz2sUOpknAnUUyUApx1cQMOmzBSlvpHvL+Mj8UBAFoswMprm69HFTM8QbnmO9tqrWzs+kQNXd1ROjJZeoPb7frXe9i2QxvKw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1795857688; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wlckpMJ074/wY0TNt41XHzSk8RPHuKfXuoWeAZ7xaY0=; 
+	b=fh86+1oTVSIirsHzrNQK+4U8mBUOtU6TZdeNG4xl3mtZp4tnBqFTGz0U+O8bWnUzf7eQ22DniQVzXIwXWfpg/d01git94hKsgAlR/fjj/GtMYjdwVp++Ahj+lABzfQhqdmDZi3eto49XZIDNq7ydq159PnudrPBKJbLz20bC4+c=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=redaril.me;
+	spf=pass  smtp.mailfrom=development@redaril.me;
+	dmarc=pass header.from=<development@redaril.me>
+DKIM-Signature: a=rsa-sha256; b=gZvnawq0Y8vfoCXRTSIQE9oKTGrgXth7zsKTkAXyNn9pIag8EP32d9sHrlbL+TJzoi+FCLy/bzpMz1UhJby8voQqaGgHZS2gTql5YfHzIcldQDiHb/SQSF8x9a5w+STenJQOayRn5rj2qB8Z2uxppvwE3IEVj37DnK0jOg4Zuas=; c=relaxed/relaxed; s=zmail; d=redaril.me; v=1; bh=wlckpMJ074/wY0TNt41XHzSk8RPHuKfXuoWeAZ7xaY0=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1795857686218484.3481136278716;
+	Sat, 28 Nov 2026 10:21:26 +0100 (CET)
+Message-ID: <bad51b29-1bf5-4603-ab63-bdcacc7ffd06@redaril.me>
+Date: Sat, 28 Nov 2026 10:21:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,55 +58,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] iio: afe: iio-rescale: Add platform IDs
+To: Jonathan Cameron <jic23@kernel.org>,
+ Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org>
+Cc: development@redaril.me, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Johan Hovold <johan@kernel.org>, Peter Rosin <peda@lysator.liu.se>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+References: <20261128-iio_rescale_platform_ids-v2-0-4c35f16c4f77@redaril.me>
+ <20261128-iio_rescale_platform_ids-v2-2-4c35f16c4f77@redaril.me>
+ <20261128003010.6b36fa7b@jic23-hlaptop>
+Content-Language: en-US
+From: Fabio Forni <development@redaril.me>
+In-Reply-To: <20261128003010.6b36fa7b@jic23-hlaptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Mike,
+On 28/11/26 01:30, Jonathan Cameron wrote:
+> On Sat, 28 Nov 2026 00:22:10 +0100
+> Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org> wrote:
+> 
+>> From: Fabio Forni <development@redaril.me>
+>>
+>> When a rescaler is dynamically instantiated and configured with swnode,
+>> device_get_match_data() will always set rescale->cfg to NULL, because
+>> device_get_match_data() is unimplemented for software nodes.
+>>
+>> Define a platform_device_id table (a replica of the of_device_id table)
+>> and call the platform_get_match_data() helper, to deal with both
+>> swnode-based and non-swnode-based instantiation methods.
+>>
+>> Signed-off-by: Fabio Forni <development@redaril.me>
+>> ---
+>>   drivers/iio/afe/iio-rescale.c | 18 +++++++++++++++++-
+>>   1 file changed, 17 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/iio/afe/iio-rescale.c b/drivers/iio/afe/iio-rescale.c
+>> index c01292a15a29..c268dbaaaea6 100644
+>> --- a/drivers/iio/afe/iio-rescale.c
+>> +++ b/drivers/iio/afe/iio-rescale.c
+>> @@ -518,6 +518,21 @@ static const struct of_device_id rescale_match[] = {
+>>   };
+>>   MODULE_DEVICE_TABLE(of, rescale_match);
+>>   
+>> +static const struct platform_device_id rescale_platform_ids[] = {
+>> +	{ .name = "current-sense-amplifier",
+>> +	  .driver_data = (kernel_ulong_t)&rescale_cfg[CURRENT_SENSE_AMPLIFIER] },
+> 	{
+> 		.name = ...
+> 		.driver_data = ...
+> 	}, {
+> 		.name = ...
+> Or
+> 	},
+> 	{
+> 
+> I don't mind on that bit, but use a few more lines to make it easier
+> to add additional fields in future and generally make it easier to read.
 
-Mike Rapoport writes:
->On Sat, Nov 07, 2026 at 07:40:50PM -0800, Chris Down wrote:
->> kho_populate() adds the incoming bootmem areas without reserving
->> them. memblock_free_all() then hands the remainder to the buddy
->> allocator.
->
->This paragraph is confusing.
->It reads like kho_populate() should have reserved bootmem areas, but it
->didn't.
+Will do, but to be honest I always have a hard time syncing with
+maintainers' own style. Why isn't clang-format style simply agreed upon and enforced?
+Automatic formatting would reduce cognitive effort, and chances to argue :)
+I think Go and the Black formatter for Python did the right job on that matter: one
+style, no questions.
 
-Yeah, I can see how it reads that way. v2 will say who reserves the
-areas on each kind of boot instead.
+>> +	{ .name = "current-sense-shunt",
+>> +	  .driver_data = (kernel_ulong_t)&rescale_cfg[CURRENT_SENSE_SHUNT] },
+>> +	{ .name = "voltage-divider",
+>> +	  .driver_data = (kernel_ulong_t)&rescale_cfg[VOLTAGE_DIVIDER] },
+>> +	{ .name = "temperature-sense-rtd",
+>> +	  .driver_data = (kernel_ulong_t)&rescale_cfg[TEMP_SENSE_RTD] },
+>> +	{ .name = "temperature-transducer",
+>> +	  .driver_data = (kernel_ulong_t)&rescale_cfg[TEMP_TRANSDUCER] },
+>> +	{ }
+>> +};
+>> +MODULE_DEVICE_TABLE(platform, rescale_platform_ids);
+>> +
+>>   static int rescale_probe(struct platform_device *pdev)
+>>   {
+>>   	struct device *dev = &pdev->dev;
+>> @@ -548,7 +563,7 @@ static int rescale_probe(struct platform_device *pdev)
+>>   
+>>   	rescale = iio_priv(indio_dev);
+>>   
+>> -	rescale->cfg = device_get_match_data(dev);
+>> +	rescale->cfg = platform_get_match_data(pdev);
+> 
+> Can we get a failure here?  Forcing a driver bind to a device not in the tables
+> tends to end up with NULL and it is common to just fail probe if that happens.
 
->> Unfortunately however, if kho_init() fails, err_free_bootmem
->> currently frees every area with free_reserved_area(). This can free
->> pages still backing early allocations or free buddy pages a second
->> time.
->
->Is this an issue you hit in practice or it was reported by a code analysis?
+No problem.
 
-Just from reading the code, same as the reservation failure one.
-
-Actually, I did find an amusingly simple way to trigger it to
-demonstrate :-) With CONFIG_KEXEC_HANDOVER_DEBUGFS=y, kho_init() fails
-when debugfs is disabled, so a KHO kexec into a kernel with debugfs=off
-added to its command line is enough. From a quick check I did, the new
-kernel then crashes in free_pcppages_bulk() under free_reserved_area()
-and never gets to userspace. I'll add the trace to the v2 changelog.
-
-kho_init() shouldn't really fail just because debugfs is off, so let me
-fix that in v2 as well.
-
->> +	if (!fdt) {
->
->I think using !is_kho_boot() makes this clearer.
-
-Agreed, will do in v2.
-
-Once the reservation failure v2 lets kho_mem_retrieve() fail and drop
-the handover, is_kho_boot() will be false even though the bootmem was
-inherited, so both this and the bootmem setup above it will have to
-check for that instead. I'll change both in that series.
-
-Thanks!
-
-Chris
