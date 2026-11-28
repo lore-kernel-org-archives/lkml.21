@@ -1,106 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795851924;
-	b=w+4uVhB5zoDf6YVqXczW5m0sKz1DgLljkAaxBEJMp5GugSjrkjHRF3kjWNM/vDj8iGZp
-	 5w9fxQmFB5jkp82nez1Lu7X5QHGC2kkoceWSKUOqmBzaz+sXaxS+F5XmMnqYmuPaqwswi
-	 fgdF8FUtw24uI5skMi7DfZby1EBA9Q7u6fcPuodOVoNcAJ71QKuXugvlWReDsuikvwwor
-	 Z1uMNmyebz+vNkmn/A9dIs1v9HY6lGGyYjqVTNTEDqvG9Bwmm9o+PKNRrGx9jTofB+Icf
-	 dAmuWsx4RS04vXqT7aRNT27n9vU5msafULhCp4gX8vEUW2W30qaRlLjje5Dr4muwrSA==
+	t=1795852096;
+	b=dNo5PUlxablYqKbaQZBGGSV7Mg1Gk4w6ge/ganZM3nLYcjhjIwrWWzdB527z+VR7MO6U
+	 jDdu0D1TiSnoJ0dRpd8FDP9n4XlXSjAdwGz2KXxLmobonNjA0rL3TLG0vfqvFs+SIjhmB
+	 jdEsn/6avNAp6oRlqBG78lgMtTowkNoG4yZFPQeXuXnT9b+j4gVpSFjFCnFlpm+Pm8yvQ
+	 CSw1kDf1tE+tw7E7lXXEpRSV8JmzZLR7EUN8xzDzReFk7cW6osn/m4njOLrKSTvGB2xll
+	 t2efbMkIjnjNHkfqYgdjI5WhtTCdrKk3zzavrs/K9vlgZxceyMj9kurlC6CYE3Vdaow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795851924;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=PvDPwRq8GAh/t3oB1kQXSCGMwADwrNJEuUFh0I6qC50=;
-	b=bjsxyRqUiBIBIpkbxrLzckWMOwLw9AcIKF0FgQWOBdDHRTXECK5V5ImsKYTTYvsqXke7
-	 q6FomiCQ3eOzvZ10N4lMb1Cr5ZSkGTAuQy3b5ByA772CeW6m+8JT3tz+sjwONSBABE1Mc
-	 rRGkgeLfMz1PUEBiMrszlNmkCoLJAaiKbpwykPZ26cQKj1DAwYqkDIT3CvpS85rf+g5/D
-	 umvhfY8eYcOdG3tWZadbIxnobn4KpfHUxIMjNSD3qD+uqA+5dZQoBsWuno5WNESR/7UH5
-	 RRLrCoqWTnBs641Y9IYRNanGp5H8lca0zIKpS7E8c0VhBKZz3Fjuy8ZvLj0JfnUCPcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795852096;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-MTK;
+	bh=f3IfMxJH9EfLRyluv8Rl5hEFiFddEUWp3vTjQtcJNxE=;
+	b=w6BoNz8HkI8KHH3WoyOJr4SHOrq0A7jc6n3zT7dD+Ygk+8K+Xr/kQbGXit1KHAuYI+1K
+	 Y+Y5JosT1G3dgiw2GxF9/3DyUEYP4WZlRyeIcRkBprsW+9FP6em4pAR+rlF0snDa2Rgu4
+	 YkLj6NX4omjOA907Oa1x6eDfunxhML58t3173Z8OP1itg9acuRkKewMzEg43LeEsGbLTQ
+	 HGxhp+ocmoXn8NQpVt6vvGG98rAphJCV2yEif+E6mnSGgxZa5YyXCzqcG3JVrLYKRqamQ
+	 g7kVLNiVv50JOplDE2wNLr7jbilRZmJkpKvkXVYUj2P9gqoKRg1Moveb/bC/uM6PIjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="estmKI2/";
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=m5xVUStN;
+	arc=none smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC84E606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:45:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC84E606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC353606A31C;
+	Sat, 28 Nov 2026 07:48:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC353606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=estmKI2/
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-385c497bf94so9684624eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:45:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795851923; x=1796456723; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PvDPwRq8GAh/t3oB1kQXSCGMwADwrNJEuUFh0I6qC50=;
-        b=estmKI2/Je+0ZF5XWrFZEGp2YpgwykMpcxeX38GmVypCWFASEa9hoFypIvfmIJYSnw
-         6smocHz5iokydiXWZXuE7530lM7lqt75TOpc1ryPDmWroBlWxLILPzewYIdyKZweAYtE
-         KZy18phuqxMNPs82wDHzMR8QxKS7JBekWAYOuxovjgjmpZ3OU0CW0ctPxc4IYp66mLwv
-         rLcZo13JREPJv4Ws7fHpWIZJAsZyDeH52grgCePfwvZ3LZYsWZyNd0u6YmvBeTGoZYmX
-         PMczF4txpa4XBHkwCHvLrU+8mXw1YlzBNlhPr20Q/u00/7B0YEPEm65Af05nPxp/CoQt
-         f4IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795851923; x=1796456723;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PvDPwRq8GAh/t3oB1kQXSCGMwADwrNJEuUFh0I6qC50=;
-        b=BW5XD2laTt6CpXcVXzG8BZtYrIGL4b3mexPztZcFjfk/+cke/oD7djOrhI/K+7u0O0
-         RMDcnIigT30epMpATEVQbTS3OkjaVZp7D9cBcxmHvcYFHu2mq9mVSxcHzNAFxaOuc7fB
-         GcostBxptbDhCsWs8zWYEx01LPlnRcpdVyeq4+i3hTGwamdInKNtBR0k2QaqitS4Ci/p
-         HDq6iokUIkX9YQ4trO/FHQhItNqlNJtAVKaM/GIzFVTAFKe3+60qKd18VXp07v5MgKq2
-         PGS/Okgloaj5sNeO1VIVgAmHiXkQfmDH8TMRBmtieG9VuWRqZu9WGhu4Ehg7xf178dib
-         M7tw==
-X-Forwarded-Encrypted: i=1; AL+hErE/EQtIY/W52+kGpmCj0oK8aUSofwZG9ycSwafoC1yFSuwbu4pZb9gIi9Yv7b2Vok723j7WURECb8DgB1Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Dylg9B46pCtfl8h75cV/gtcHgUzNkttv/zDVMB2m67p5hNlMc
-	AZAy/Nb/Hn690F+iQGId2pyffMo/1i8PR8H9bOL7Ap225VZx4audkK15
-X-Gm-Gg: AZFdTZeOE3ZjUYFTwUfFoS4CvFOwaFT9MxyZzIzQjdrkrvzI2n/2TmBgkFNdnaORp6P
-	VD0ljXJQsy4weWQf65F7vqmBdLe1le9oI8PPk7XV3bT2KOioegQAQYzNF7MOuqcDh306turGPIJ
-	H6WpwXR5PxUDbJJg37l1IVh1CieDbX6yPgN1oXlXZG7B/mnGI+xUh89V0mLhpxxiBxTbRmGw98r
-	0xCitlfl6rXYKw38ExTx5GR4rAEXmAcRqfvQ3drSygAjfxVjO3bn+oc49vrjGCdZuB+6xibFrBO
-	nIXzRv2ujxZpgzFM3NFmFL1/INmcEC6h1C38SSlLtBVFw6e7bk4sQ+4yRfX9vB+H+VWTw2IysLy
-	KbBeeELy/xqZCpvsJknZJvoEBVCblWLDoHSbdmH0s4kOMvTwE9ySOybgLHCt0TymGsMoV7mBs0L
-	0ONWt8kt8A+sTJx9YqTkIwdu3khfoSxR4TLt6B2Bmoy3V+kW9IPUoxTlg6G87HAdd64NNxnpHuZ
-	hzZd27Pfn5qXZKxm2BYf0hF/VbJjkdAf+6SR/L3d2qp/Ao/aZNmeH0UjfVfAFTYlL2X8sXt1g57
-	0rzScqjkQ+01u8ImO32IpDKiX5mNuLLYY20vL77EX6gHmGga+GlyuQ6nz8sBr4G/tRGJ
-X-Received: by 2002:a05:7301:f02:b0:384:ce59:5e21 with SMTP id 5a478bee46e88-3856f6503d8mr25637676eec.32.1795851922626;
-        Fri, 27 Nov 2026 23:45:22 -0800 (PST)
-Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm72104322eec.20.2026.11.27.23.45.15
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 23:45:22 -0800 (PST)
-From: Lian Wang <lianux.mm@gmail.com>
-To: Chris Li <chrisl@kernel.org>
-Cc: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Kairui Song <kasong@tencent.com>,
-	Jihan LIN <linjh22s@gmail.com>,
-	Kunwu Chan <kunwu.chan@linux.dev>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 06/19] mm/swap: serialize swap publication before removing swapon mutex
-Date: Sat, 28 Nov 2026 15:44:47 +0800
-Message-ID: <20261128074459.34838-1-lianux.mm@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CACePvbUYHBD+To2CGe9b5_zWbYVrYU6Mv-pxzhXEgB7r1DJrdg@mail.gmail.com>
-References: <cover.1795439990.git.lianux.mm@gmail.com> <030796dcb2086484f87e2250d9cf9a04fccf54ab.1795439990.git.lianux.mm@gmail.com> <CACePvbUYHBD+To2CGe9b5_zWbYVrYU6Mv-pxzhXEgB7r1DJrdg@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=m5xVUStN
+X-UUID: 0e52fd68eb0011f1b9cf3d4034dccee2-20261128
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=f3IfMxJH9EfLRyluv8Rl5hEFiFddEUWp3vTjQtcJNxE=;
+	b=m5xVUStNoLk5u3S9sXKBT6Ohz6DOs2rFGz/XXicGLNjjeb/okAOgtB6vcko1zSfOxbtFLYaCQ3uCJYiZsjkSo1nH72xUK9aDBJknbz1xvsG/Q37gueQsUOvY7kPqs0I+TuEoYfJrN+zV8wpxbNrwPRltfiyEszaSzAsXRYNTbCs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:45d90b38-4bc3-4303-b217-3b6571840aea,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:2dcd2c1a-ae4c-4a2b-b1c4-72e411efd0c9,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
+	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0e52fd68eb0011f1b9cf3d4034dccee2-20261128
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 344956269; Sat, 28 Nov 2026 15:48:09 +0800
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Sat, 28 Nov 2026 15:48:08 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.56 via Frontend Transport; Sat, 28 Nov 2026 15:48:07 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Ricardo Ribalda
+	<ribalda@chromium.org>, Kees Cook <kees@kernel.org>, Hans Verkuil
+	<hverkuil+cisco@kernel.org>, Fei Shao <fshao@chromium.org>, Haoxiang Li
+	<haoxiang_li2024@163.com>, Chen-Yu Tsai <wenst@chromium.org>, Laurent
+ Pinchart <laurent.pinchart+renesas@ideasonboard.com>, Tomasz Figa
+	<tfiga@chromium.org>, Philipp Zabel <p.zabel@pengutronix.de>, Benjamin
+ Gaignard <benjamin.gaignard@collabora.com>, Qianfeng Rong
+	<rongqianfeng@vivo.com>, Irui Wang <irui.wang@mediatek.com>, Jacopo Mondi
+	<jacopo.mondi@ideasonboard.com>, Fan Wu <fanwu01@zju.edu.cn>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: Sakari Ailus <sakari.ailus@linux.intel.com>
+Subject: [PATCH v10 03/14] media: mediatek: vcodec: add driver to support vcp encoder
+Date: Sat, 28 Nov 2026 15:47:49 +0800
+Message-ID: <20261128074800.3108429-4-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261128074800.3108429-1-kyrie.wu@mediatek.com>
+References: <20261128074800.3108429-1-kyrie.wu@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,35 +99,155 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 
-On Thu, 26 Nov 2026 10:17:44 -0800 Chris Li <chrisl@kernel.org> wrote:
+Encoder also need to call vcp interface to communicate with vcp,
+add driver to support encoder.
 
-> The current commit message describes what changed. This is the most
-> critical part of the locking change in this series; it deserves a
-> better description of why this new locking protocol is safe to use.
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+---
+ .../vcodec/common/mtk_vcodec_fw_vcp.c         | 52 ++++++++++++++++---
+ .../vcodec/common/mtk_vcodec_fw_vcp.h         |  1 +
+ .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  |  1 -
+ .../mediatek/vcodec/encoder/mtk_vcodec_enc.h  |  2 +
+ 4 files changed, 47 insertions(+), 9 deletions(-)
 
-Before this patch, /proc/swaps held swapon_mutex from ->start() to
-->stop(). On swapon, the mutex covered publishing si->swap_file, while
-swap_device_enable() separately took the write side of swapon_rwsem.
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+index 3b85ae0e6..5ec7a67b5 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+@@ -13,6 +13,8 @@
+ 
+ #include "../decoder/mtk_vcodec_dec_drv.h"
+ #include "../decoder/vdec_ipi_msg.h"
++#include "../encoder/mtk_vcodec_enc.h"
++#include "../encoder/mtk_vcodec_enc_drv.h"
+ #include "mtk_vcodec_fw_priv.h"
+ 
+ #define IPI_SEND_TIMEOUT_MS  100U
+@@ -223,8 +225,13 @@ static int mtk_vcodec_vcp_msg_ipi_send(struct mtk_vcodec_fw *fw, int id, void *b
+ 	}
+ 
+ 	mutex_lock(&vcp->ipi_mutex);
+-	feature_id = VDEC_FEATURE_ID;
+-	mailbox_id = IPI_OUT_VDEC_1;
++	if (fw->fw_use == ENCODER) {
++		feature_id = VENC_FEATURE_ID;
++		mailbox_id = IPI_OUT_VENC_0;
++	} else {
++		feature_id = VDEC_FEATURE_ID;
++		mailbox_id = IPI_OUT_VDEC_1;
++	}
+ 
+ 	timeout_jiffies = jiffies + msecs_to_jiffies(VCP_SYNC_TIMEOUT_MS);
+ 	while (!vcp_device->ops->vcp_is_ready(vcp_device, feature_id)) {
+@@ -348,7 +355,7 @@ static void mtk_vcodec_vcp_put_device(struct mtk_vcodec_fw *fw)
+ static int mtk_vcodec_vcp_load_firmware(struct mtk_vcodec_fw *fw)
+ {
+ 	struct mtk_vcp_device *vcp_device;
+-	int ret, feature_id, mem_id, mailbox_id, ipi_id;
++	int ret, feature_id, mem_id, mailbox_id;
+ 	int i;
+ 
+ 	if (fw->vcp->is_init_done) {
+@@ -363,10 +370,15 @@ static int mtk_vcodec_vcp_load_firmware(struct mtk_vcodec_fw *fw)
+ 
+ 	vcp_device = fw->vcp->vcp_device;
+ 
+-	feature_id = VDEC_FEATURE_ID;
+-	mem_id = VDEC_MEM_ID;
+-	mailbox_id = IPI_IN_VDEC_1;
+-	ipi_id = VCP_IPI_LAT_DECODER;
++	if (fw->fw_use == ENCODER) {
++		feature_id = VENC_FEATURE_ID;
++		mem_id = VENC_MEM_ID;
++		mailbox_id = IPI_IN_VENC_0;
++	} else {
++		feature_id = VDEC_FEATURE_ID;
++		mem_id = VDEC_MEM_ID;
++		mailbox_id = IPI_IN_VDEC_1;
++	}
+ 
+ 	ret = mtk_vcp_mbox_ipc_register(vcp_get_ipidev(vcp_device), mailbox_id,
+ 					mtk_vcodec_vcp_msg_ack_isr, fw, &fw->vcp->share_data);
+@@ -402,6 +414,26 @@ static int mtk_vcodec_vcp_load_firmware(struct mtk_vcodec_fw *fw)
+ 		mutex_init(&fw->vcp->ipi_desc[i].lock);
+ 	mutex_init(&fw->vcp->ipi_mutex);
+ 
++	if (fw->fw_use == ENCODER) {
++		init_waitqueue_head(&fw->vcp->msg_wq[VCP_IPI_ENCODER]);
++		fw->vcp->msg_thread =
++			kthread_run(mtk_vcodec_vcp_msg_process_thread, fw, "vcp_enc_msq_thread");
++		if (IS_ERR(fw->vcp->msg_thread)) {
++			ret = PTR_ERR(fw->vcp->msg_thread);
++			fw->vcp->msg_thread = NULL;
++			goto err_deregister_feature;
++		}
++
++		fw->vcp->vsi_addr = vcp_device->ops->get_mem_virt(vcp_device, mem_id);
++		fw->vcp->vsi_size = vcp_device->ops->get_mem_size(vcp_device, mem_id);
++		fw->vcp->iova_addr = vcp_device->ops->get_mem_iova(vcp_device, mem_id);
++
++		dev_dbg(&fw->pdev->dev, "enc vcp init done => va: %p size:0x%x iova:%pad.\n",
++			fw->vcp->vsi_addr, fw->vcp->vsi_size, &fw->vcp->iova_addr);
++
++		return 0;
++	}
++
+ 	init_waitqueue_head(&fw->vcp->msg_wq[VCP_IPI_LAT_DECODER]);
+ 	init_waitqueue_head(&fw->vcp->msg_wq[VCP_IPI_CORE_DECODER]);
+ 	fw->vcp->msg_thread =
+@@ -530,7 +562,11 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_vcp_init(void *priv, enum mtk_vcodec_fw_use
+ 	struct mtk_vcodec_fw *fw;
+ 	int i;
+ 
+-	if (fw_use == DECODER) {
++	if (fw_use == ENCODER) {
++		struct mtk_vcodec_enc_dev *enc_dev = priv;
++
++		plat_dev = enc_dev->plat_dev;
++	} else if (fw_use == DECODER) {
+ 		struct mtk_vcodec_dec_dev *dec_dev = priv;
+ 
+ 		plat_dev = dec_dev->plat_dev;
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.h
+index 83742096e..97ba642dc 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.h
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.h
+@@ -16,6 +16,7 @@ typedef void (*vcp_ipi_handler_t) (void *data, unsigned int len, void *priv);
+ 
+ /* enum mtk_vcp_ipi_index - index used to separate different hardware */
+ enum mtk_vcp_ipi_index {
++	VCP_IPI_ENCODER,
+ 	VCP_IPI_LAT_DECODER,
+ 	VCP_IPI_CORE_DECODER,
+ 	VCP_IPI_MAX,
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+index 0d4e94463..48cb5dded 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+@@ -26,7 +26,6 @@
+ 
+ #define MTK_DEFAULT_FRAMERATE_NUM 1001
+ #define MTK_DEFAULT_FRAMERATE_DENOM 30000
+-#define MTK_VENC_4K_CAPABILITY_ENABLE BIT(0)
+ 
+ static void mtk_venc_worker(struct work_struct *work);
+ 
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.h
+index 908d8179b..84156c102 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.h
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.h
+@@ -23,6 +23,8 @@
+ #define MTK_VENC_IRQ_STATUS_OFFSET	0x05C
+ #define MTK_VENC_IRQ_ACK_OFFSET	0x060
+ 
++#define MTK_VENC_4K_CAPABILITY_ENABLE BIT(0)
++
+ /**
+  * struct mtk_video_enc_buf - Private data related to each VB2 buffer.
+  * @m2m_buf:	M2M buffer
+-- 
+2.51.0.windows.2
 
-With this patch, swapon sets swap_file, resurrects si->users and makes
-the device writable, in that order, in one writer section. /proc/swaps
-holds the read side across the walk and skips entries with no swap_file.
-On swapoff, the writer clears swap_file before the file is closed: a
-reader that saw the file finishes before the writer can clear it, and
-a later reader skips the entry.
-
-That protects the proc reader, not all users or the whole teardown.
-Users that don't take the rwsem still rely on the live reference;
-swapoff kills it, waits for RCU and drains the references before
-dismantling their state. I'll spell out those two guarantees in the
-commit message.
-
-> The function name can reflect that it is locked. Maybe
-> __swap_device_enable_locked()
-
-Great suggestion. I'll rename the helper to __swap_device_enable_locked()
-in the next revision.
-
-Thanks,
-Lian
