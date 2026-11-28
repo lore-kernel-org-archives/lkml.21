@@ -1,103 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795883987;
-	b=RaLogWjqVb7+KFKHbtzB1di9OrJHBNAje0KPgodR9RHFAnj6SUsiKaSv0smp24zWAqcT
-	 4aCKU3m8396pFNOlz75gWdonUbv5fxJcDffmRtuyEZ02UVKyTJaAV2Pyzlgv3FTFZYMmc
-	 dxQJ+YUP+m2SwOotLOZwWke1rHTho/YX8Ueoy3vzUme7t9jkQ6QrQVpenUOFARKKj9GTA
-	 FxiZbD8JJeNlv14s094mymlEvS+JoYcinEpVNVxxPCt+5MCejzkRQ5luhZoZOq6yoIpkI
-	 qaDK4AZfIYH25GRF/bYcXPXzJOgcUxYeQ78ddIFlXrYNtaexbaHEaYo7B/wLWC20S7w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795883987;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=rYDwdnziixfCcL00TRHJMjwk+lek+bIV0vFyQaPerM4=;
-	b=FSSRSYVHRZ6oJUe3qRoGbNw4nvBgukhHmWFiJQVFjbTKqDb0nGhBD0SOokD/rGPHMn/J
-	 mWdXkcTJ0rNBW0MnnyaHub133B39iGGrjEyNW411RPiAOODOnPHl+hbW6ZRh0eZy5tnVu
-	 yiJUBIIqQbtvlSuZGZcu2IyFlR3MzxhStunnZVMT93rImcVE/pbcLsjrN3FyfXTGqvXme
-	 3mPIgcTC7n37ZRYtJtiS3u1Go8dFGj2Ouo5D3H9HNC72ta+/eb7oIjZ1RY8sNbdRjAprk
-	 n2QAi3r8HkmgPgura+mlx/oZ9XcpdD6VGBxr+yLz/6jeD3bR+3JEJMlAU8nIBSsS50A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=r2eWFo6P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.51
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010051.outbound.protection.outlook.com [52.101.85.51])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795883991;
+	b=s5X3Dsj0Z+G2O3P0D5wmolKcdYpkxIv46bHYNhqB3KPwBDEuSLnV343h0I1xMVSrBHYb
+	 biERHqaXrx5XpnC7kRDaKHmdwAtjEDljAl9RnJs3iuxkuInH647mslbssmerkw3GxBMvx
+	 ErDfJ5zDu9ITxIXjtlzS0KharUOOx5WcZxKxLtTmstCAz17xWTZRNp9jGGedGEDlsiFkx
+	 xvo0Q8M2BQQ6u+Gqqv5LCwXZ7QySnZFCiSeK5/r5SdKFgeDeLj4Po1saNAAn8I2O2TgtM
+	 ZsKPfJYsH9kmUEa/DN87+NTWGs/gwI01AmwMqIDZJjHW/FJ90pmDND4cgM84wo73rkA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795883991;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=imwxGAVPqjiGt3LMeZ6JHCKUgqOrEulTf5ZhM/xKTTA=;
+	b=IzhNNPWjbtTVoThpt6r6wyJwX7e8WyDEWAUqhtBtz1huoZfSqT9l6fGVxgLd8xIOEaKF
+	 lrkuSF7wh4iuZvp42YBeVF9WM7rLVDRZUmU0G/nIleySumA7pTSkIBNfNPZdRMzlyqfX0
+	 hLJxhti+gIDhYFHGJ4YWIzOcAhwpqaOliH1h4TTVVeKiw4dexNcXmOH9so3BCDX139GY9
+	 rnmUcIxIZzDs9lWYoo4AvxYysd/wCg1txWK2H81EKG2Cmp8D2vSfG+AShb0jmOYzOuC0f
+	 p9t9gwk6r81kH8+iZEsNtWXFQmKMkoq3y42ahWLnrF9qPihh+Aiz81EslMDItn49npw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZwXOUKPk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFF3C606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 16:39:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFF3C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30225606A321;
+	Sat, 28 Nov 2026 16:39:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=r2eWFo6P
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VpHWlcqSQrpVh36T5sRDzGL4GpzsjnDfjSO2AG7Dm1+DnaHKkNCM1AW4lFGQqVn0L+rNyki6cowpxGIxqjfM1Y2ftUkPDdaWIHWMyXHm2Q6+YgprgmDEFk2ODUM6cBjT+YpdOYipo5kgdPUoRPQC7jErkHAtVKzNXLQqoTsLVkRvqavpkDR5lItNTankppuX/9HemcHRmMId6lDq+vG8MGrgapQ4393AcJdegm9bmLcJMY9G41fZT+OnOK3JpbK4E+ff2tfa6HhclIC0+sZRZhS0sOPx6Vx8e4XEmxbDd6iWHFXGy2exu32zDkUpis1owFcFqxaVb62L155TPCUIXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rYDwdnziixfCcL00TRHJMjwk+lek+bIV0vFyQaPerM4=;
- b=tFUT6DuLYn6pKz7wee0WNc1eyHV8Ufa3VF9zeT3MKMoXw7cpvg3bnyBsP7b0wggM1Pm+5rOPEbuCCNrIunhU4GdTd7YD1poh/wiI3M7MYp7tUwHy/PGB4yVk7T6ClNMxpvqef6B+WUOs9+X5Tosrm8CPEeDIxHGWNAfHl+YkzGgdZtstd6XZcHjHAkptN4X1r/Z+w8S3HWxLDfwAB51QwTkA6SIPM66aRFyDVmmvWe7bvZAAo6pk5KxfjN/eKjKMAEGEuijMNVzaJkEnGx/JlowUKatMajeSLM95K79GKysEkaV9MmOZ0YQOkKYpolX7BhjIJTPSk/g1MHR0sdhmMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rYDwdnziixfCcL00TRHJMjwk+lek+bIV0vFyQaPerM4=;
- b=r2eWFo6P8JJrvl1Tn1CLboHJcCJUvH0yfEBMyfkgekq/baze3tf2qGCxBHe9/7PBtBwPTjGeRSASFzlTqks+EU7Ngsi3jDlPkqZaLBv9tRkKsyCShwsluvqHiYRyTODjWRDogTrrfL9yiGrX15NWjITy95OHO5vydPrgzIveIrKuU3wAgRfJufZZk4aRgj9B/pOI+oE0CqDJdACd1gVaEI8DiY+fskHTdg1+7YdSbWOvMMG2GMjbLDRcBY+fAAPb6GSxksOy4HzjK2cYfwZAoNJEvfDel/1U1RDZyqdjnW08T7OTP9hi4SQNJG9GatQ292DHULrGdyV/eDlhSasriw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
- by SJ1PR12MB6123.namprd12.prod.outlook.com (2603:10b6:a03:45a::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Sat, 28 Nov
- 2026 16:39:44 +0000
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f%4]) with mapi id 15.21.0662.007; Sat, 28 Nov 2026
- 16:39:43 +0000
-Date: Sat, 28 Nov 2026 17:39:33 +0100
-From: Andrea Righi <arighi@nvidia.com>
-To: Tejun Heo <tj@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	John Stultz <jstultz@google.com>, David Vernet <void@manifault.com>,
-	Changwoo Min <changwoo@igalia.com>, Tao Cui <cuitao@kylinos.cn>,
-	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] sched_ext: Make SCX_OPS_ENQ_BLOCKED a hierarchy-wide
- setting
-Message-ID: <awsDxUgf18EsXz9J@gpd4>
-References: <20261126111649.208476-1-arighi@nvidia.com>
- <20261126111649.208476-3-arighi@nvidia.com>
- <0e09857f3adcb5a83711458cd7d1b6f9@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0e09857f3adcb5a83711458cd7d1b6f9@kernel.org>
-X-ClientProxiedBy: MI1PEPF00000D6C.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::49c) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZwXOUKPk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF17B1F00899;
+	Sat, 28 Nov 2026 16:39:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795883990;
+	bh=imwxGAVPqjiGt3LMeZ6JHCKUgqOrEulTf5ZhM/xKTTA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ZwXOUKPksaS2rX6kspCOCvuIt7cKTgi+KJAZSLHSYmyKphE2OEcUE96l+uALP2W+d
+	 B+6jfPuPiBZMPPkqKLeUQq1WKrobqM34Vx9X801pSewcIPzctH5/R4T0pslnlFkWO0
+	 wzzkje3Icu244RwNHUAsWm9MFYjFHCbogpvHGAusF0sBSRXA+dt3Y7WYdevoW8ZhJ1
+	 lsQmdc+YjDzM1hzCRiiX0xkLnLlbJr7LVg2vIc7P3lxTCFy5H2TNXiEdSNhVVF3YQj
+	 KBmZE347y9iawznXvOWdJphogQ5DNPkrz+tEFjm9exV85Vbgqcuf3VMtJHD2p9qlxu
+	 jCMLsZ0Xlk+iA==
+Subject: Re: [PATCH net-next v12 2/5] net: mana: keep HWC queues until the PF
+ acknowledges teardown
+From: netdev-bot+sashiko@kernel.org
+To: weh@linux.microsoft.com
+Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
+ davem@davemloft.net, pabeni@redhat.com, edumazet@google.com,
+ andrew+netdev@lunn.ch, jgg@ziepe.ca, leon@kernel.org, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, shradhagupta@linux.microsoft.com,
+ horms@kernel.org, ernis@linux.microsoft.com, stephen@networkplumber.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gargaditya@linux.microsoft.com, kees+treewide@kernel.org, kees@kernel.org,
+ mawasthi@linux.microsoft.com, weh@microsoft.com, edumazet@kernel.org,
+ shacharr@microsoft.com
+Date: Sat, 28 Nov 2026 16:39:48 +0000
+Message-ID: <179588398847.3135.906138429587218178@kernel.org>
+In-Reply-To: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.2@linux.microsoft.com>
+References: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.2@linux.microsoft.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,89 +70,381 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|SJ1PR12MB6123:EE_
-X-MS-Office365-Filtering-Correlation-Id: df09b7ff-e55f-4880-2cad-08df4d6e3457
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|10067099003|56012099006|261026121527099003|261022105027099003|261022075727099003|261026140227099003|261028144727099003|22082099003|18002099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info:
-	Z1eEfgE/9esS5YNLIc3OqZYnVK48KDBG3g8VXP07M4yZ7OtQMpd5i/QSAanqoRCQv4p27vjWejoxzrGDTCAgk5EekySlULDODkmpl0NXrXTBvBBnFkoDAZykVtlKV5u4jiL5wuLGWDrA7P1xCtFYX0uM4SusfNhmT4Kl9yncbbynti8Gxaq9085LvSsCN8WkCMBrDW104aRRGbirosdK7MD6koy5WsMUdsTS0AHoWjWVtq9tWuCbQHO784iyo52qK5Af/5DMVx4CcGAJsQbG2vRb1JoMpI5iPpqzbw4Ns2mglZdf8N3mSw+nSvfuMMp/KituKhUCgBgjXRpXkQVDCFTXYCy+HPvMWdgJzHgDPKVWv7UvIuhc23vEHyuMh+5JN/LObiXUt/VUT3bykWczyUAqtwT/AOckfWr4np2hYS+XhMzS6roBvH9bS5WQTSOK0cxMAOUMwvXpuVjtENInw26uCj2xBYbIcE3SmoK4WFfQxSjAbKKkQB2uN46RYaf37+q/oBMafTyltis6Sz/uOXo/Of3Q25VyV479EmmrnHIlJiVOeNQ7dquOmRVQGyJZnRDancFFwyyyGCX7O2bpL76ipF2qVDnIE/7bFN6doJSRGCn/II0I5/j/ngqoZTZyxJiNnG/tOnnvpFuYAdfuO8XpkpRGZlJoDi3yI1YFzOQ=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(10067099003)(56012099006)(261026121527099003)(261022105027099003)(261022075727099003)(261026140227099003)(261028144727099003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?PYLY5uQ7/BDxcAtfhill3ix7aHxfdut3k2hDVmgT0erPtwEZfIa+dlqqVNiQ?=
- =?us-ascii?Q?ejhewtNfjPTxUghSRJ6Tbc/hkdGHamfO098WP0wj9SYww4nBGj2KPsKbG2rd?=
- =?us-ascii?Q?U1ZE/HWJjEkFBrZr7F4R+pLhZY4l/sm0bAWu1m0ZeE4kn/9NKMtHR5rJGZgW?=
- =?us-ascii?Q?3ZxveuLAZBnUpFLeRzRly8pLjpWMuvBW9oySZ9XWzM3UAiNSf9HrS/GQ0Hgo?=
- =?us-ascii?Q?EfdehKQ3o+chCJfqaEOTOTWAywxvqiXeZzLOI2loJ59eR9HwaN8NDOJDW++o?=
- =?us-ascii?Q?ZB48nWBNk5ll7EaIa0xtHTy0pQDm1mqbiKACEvvX7Sg5uKwOzIcrFt3fz9i5?=
- =?us-ascii?Q?TkSTkP4wufkgDPe3h32Pxvy1BkaoA4GiTicVPy+JbxZvGExl3WqmdNWR1xuh?=
- =?us-ascii?Q?8Ngz79SAPUnc1QN7SMtKAcwOLD7zk0zzdcZbAV9x5qAc7/lX9MJ62pRooKg5?=
- =?us-ascii?Q?1DKVox6a6aI3xVQZZFkWFUyeWKtKfYLaJ7tumDSgMNvxX/BbGhE6TfolHsPg?=
- =?us-ascii?Q?vtXabsCat8pHM3n8F3EUBNSD5zzN2Giqe7eS/FbyYwrgFdDUdKvHUN+AqIGc?=
- =?us-ascii?Q?v3bTS9XVvF6hYgZ0vZEvx4hetcP09OPgydovVBVcd7QQaIncX3Ocw1Rj2gOJ?=
- =?us-ascii?Q?s6ZpHN9oUtmDl48QmZyzuAvWre3IOzE5lpPEZ1VutwOAjelLiDk8Nc0n9+NL?=
- =?us-ascii?Q?QgvdvUhirkiaAs51CK6Z3iwZdL4ufib40RfweO2FYU0JOejqDXTi4Yd35/G7?=
- =?us-ascii?Q?SOFLI+0COsWMXO/+fSXiEScbB6lddwlVzUHTGtp8n+/wpz1hSetboYpVnHBP?=
- =?us-ascii?Q?Zl4e1OKCEjoSAb03bbZc5sfRJbYan00Ymxazqi5rFJJPVIRn1JVVIRO+xRV2?=
- =?us-ascii?Q?oFNYQZ9DyAC7yjTWA6zrSI4ZkEBwtdu01ah4JJCHK3fuE8MCsjP1CN+kXZVH?=
- =?us-ascii?Q?n+U0Xj89mGW5UOg+QEU64uuYUc12DGx2lkwGuiRXMeaK1vDhrWUakc6EP1G3?=
- =?us-ascii?Q?7ZtzvKjYEvYKMRqpnt4wnD/kcV86Rjxd4nAClQZtWePpCdTW7FKKPfBxeunB?=
- =?us-ascii?Q?B9pUzppMjvugdsN17IcGLoRIh8N+vYupNVabATS56MTts+Ute96kJ+1AHOMa?=
- =?us-ascii?Q?zcZZeEeoldt72yafB0u/PHrJV/IVCpidKItnNdYAFZ+HrfyXS2WXrLa91swT?=
- =?us-ascii?Q?DqPVTmwoZyZBjiv6SvEQV4HiYk1F6IDQas5D+ifkRkPoSmLIT0g2ij6bD2Rm?=
- =?us-ascii?Q?kmlZkwm5iFJW+9yo0ct0kcx+uEvYDE7uYoYHkmmEY8F4pxJo3V8nqvEHViaj?=
- =?us-ascii?Q?bNrqLYcS2FjcxnnqI3dV5bLTys/pjk+3DmjOpXdpXS4tW3CXg2Z2Da6Y72W2?=
- =?us-ascii?Q?9KMJIkaN387/t3QLU29Iqkws8rLHwKf/fE7rNYtmC53I8IZ2nIc+biVwe77o?=
- =?us-ascii?Q?ZFJulW2RZma1i0mfJkIhCdTOsLZfkop6cMFJNJsfaM6j2FZjc8bb6DpGTdwL?=
- =?us-ascii?Q?az1CWK+X4F18/Qca8t6m6JXJsH8X4wjy3Eeyd5+nn7vhixjqllCKrW6gQhwZ?=
- =?us-ascii?Q?0H9XfRgZF34UgPBeuUAq7EAI3OD3wqEnMzTiswKhc/EIicdUsjHCLiYSyOM1?=
- =?us-ascii?Q?s/jDiidEkQVjqEtjFLTCw3Z/g4TwGTYXxxe5xXXknefXMyF9usv4RjhP/kdS?=
- =?us-ascii?Q?rel7cSkZqGUNR9+mko3jDN4/qrBu6kkj6yNAZxpn08SsH+Uv?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: df09b7ff-e55f-4880-2cad-08df4d6e3457
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2026 16:39:43.5469
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n1aXB3vkCipy9waE83DLRUiyptjJ/zuEzzxR1RHIslPP7VJbnVhToEsNh00AQowsnZjnwTlToAO0wHAUQhhjUg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6123
 
-Hi Tejun,
+Thank you for your contribution! Sashiko AI review found 8 potential
+issue(s) to consider.
 
-On Fri, Nov 27, 2026 at 10:29:43AM -1000, Tejun Heo wrote:
-> Hello, Andrea.
-> 
-> On Thu, Nov 26, 2026 at 12:13:58PM +0100, Andrea Righi wrote:
-> > Mixing proxy donor admission within a hierarchy has no real use, so
-> > don't allow it: a sub-scheduler must match the root scheduler's
-> > SCX_OPS_ENQ_BLOCKED setting or it fails to load.
-> 
-> Does the match need to go both ways? If the root sets SCX_OPS_ENQ_BLOCKED,
-> proxy execution is on and every sub-sched needs the flag too. However, when
-> the root doesn't set it, I don't see why a sub-sched which sets it can't be
-> loaded. Proxy execution can just stay disabled.
+Critical: 0 · High: 0 · Medium: 5 · Low: 3
 
-Right, a sub-sched setting SCX_OPS_ENQ_BLOCKED under a root that doesn't
-is safe, it would just never see SCX_ENQ_BLOCKED. My concern is that
-it'd be silent: a sub-sched that opts in and implements donor handling
-would load fine and that code would never run, with no indication why.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Maybe we can accept it and pr_warn() that the flag is ignored?
+- [Medium] After this patch, a DESTROY_HWC that the PF does not
+  acknowledge leaves the NIC bound but permanently dead, and nothing in…
+- [Medium] The unbound-sibling veto on the FPGA path of
+  mana_serv_rescan() is too broad.
+- [Medium] On the FPGA path, mana_serv_rescan() now calls
+  pci_walk_bus(target->subordinate, mana_check_unbound, ...) while…
+- [Medium] The unbound-sibling check in mana_serv_rescan() is not atomic
+  with the bridge removal it is meant to guard.
+- [Medium] The patch treats every failed DESTROY_HWC as "the PF may still
+  DMA into these buffers", even when the function is gone.
+- [Low] The commit message does not describe several user-visible changes
+  to PCI service and recovery in gdma_pci.c and gdma_main.c: -…
+- [Low] The comment on the new prototype in include/net/mana/gdma.h says
+  mana_gd_fence_eq() "Remove[s] an EQ from interrupt dispatch without…
+- [Low] Two new functions mix scope-based cleanup with goto-based cleanup
+  labels, which include/linux/cleanup.h and the subsystem guide say not…
 
-> 
-> The root alone would then decide whether blocked donors are admitted, and
-> scx_allow_proxy_exec() can become a static key which is determined by the
-> root sched.
+--
 
-Agreed, I'll convert scx_allow_proxy_exec() to a static key set at root
-enable.
+net: mana: keep HWC queues until the PF acknowledges teardown
 
-Thanks,
--Andrea
+This patch serializes HWC setup and teardown over the shared memory
+channel. When DESTROY_HWC fails, it fences the HWC EQ and keeps the queues
+and their DMA memory instead of freeing them. It also changes how the
+cq_table is published and torn down, and changes PCI probe, resume and
+service recovery so that a function with a retained HWC is not probed
+again.
+
+> A failed PCI probe has no context left to retry the destroy. Do not
+> start another automatic probe that could lose another set of coherent
+> allocations. A failed resume can keep the binding and retry in place.
+
+[Severity: Low]
+The changelog doesn't mention several behaviour changes in gdma_pci.c and
+gdma_main.c:
+
+- mana_serv_fpga() is folded into mana_serv_rescan(). FPGA-reconfig
+  recovery is now skipped entirely when any MANA-ID function under the
+  upstream bridge has no driver bound.
+
+- The new global mana_rescan_task lets mana_gd_remove() veto the
+  pci_rescan_bus() that follows removal. When the veto fires, the removed
+  device is never re-enumerated. On the FPGA path that is the whole bridge
+  subtree.
+
+- Both service paths now take the device lock.
+
+- mana_gd_process_eqe() drops the WARN_ON_ONCE() checks for an
+  out-of-range cq_id and for a NULL cq. This applies to every CQ, not only
+  the HWC, so those EQEs are now silently discarded.
+
+Could the changelog describe these as well?
+
+> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_pci.c b/drivers/net/ethernet/microsoft/mana/gdma_pci.c
+> index 208dadbcf977c..cec2e548f36ea 100644
+> --- a/drivers/net/ethernet/microsoft/mana/gdma_pci.c
+> +++ b/drivers/net/ethernet/microsoft/mana/gdma_pci.c
+
+[ ... ]
+
+> +static int mana_check_unbound(struct pci_dev *pdev, void *data)
+> +{
+> +	bool *unbound = data;
+>  
+> -	pci_stop_and_remove_bus_device(pdev);
+> -	pci_rescan_bus(parent);
+> +	if (READ_ONCE(pdev->driver) ||
+> +	    !pci_match_id(mana_driver.id_table, pdev))
+> +		return 0;
+
+[Severity: Medium]
+Is this check atomic with the bridge removal it guards?
+mana_check_unbound() reads each sibling's pdev->driver while holding only
+pci_rescan_remove_lock and the serviced device's device lock. It does not
+hold the sibling's device lock.
+
+local_pci_probe() sets pdev->driver before calling ->probe() and clears it
+if the probe fails:
+
+drivers/pci/pci-driver.c:local_pci_probe() {
+    ...
+	pci_dev->driver = pci_drv;
+	rc = pci_drv->probe(pci_dev, ddi->id);
+    ...
+}
+
+Sysfs bind and async probing don't take pci_rescan_remove_lock. So a
+sibling that is still inside mana_gd_probe() looks bound to this walk.
+
+Suppose that probe then fails with a retained HWC and returns
+-ENOTRECOVERABLE. The sibling ends up unbound. When
+pci_stop_and_remove_bus_device(target) reaches it, there is no driver, so
+no ->remove() runs to clear mana_rescan_task. pci_rescan_bus() then
+probes the sibling again.
+
+Doesn't that start the extra automatic probe that the commit message says
+must be avoided? That probe could abandon another set of HWC coherent
+allocations.
+
+[ ... ]
+
+> -static void mana_serv_fpga(struct pci_dev *pdev)
+> +static void mana_serv_rescan(struct pci_dev *pdev,
+> +			     enum mana_rescan_reason reason)
+>  {
+> -	struct pci_bus *bus, *parent;
+> +	struct pci_dev *target = pdev;
+> +	struct pci_bus *parent;
+> +	bool unbound = false;
+>  
+>  	pci_lock_rescan_remove();
+> -
+> -	bus = pdev->bus;
+> -	if (!bus) {
+> -		dev_err(&pdev->dev, "MANA service: no bus\n");
+> +	if (!device_is_registered(&pdev->dev))
+>  		goto out;
+> +
+> +	scoped_guard(device, &pdev->dev) {
+> +		if (reason == MANA_RESCAN_PROBE) {
+> +			if (pdev->dev.driver)
+> +				goto out;
+
+[Severity: Low]
+This isn't a bug, but this function and mana_serv_reset() both mix
+guard()/scoped_guard() with goto-based cleanup labels.
+include/linux/cleanup.h asks to avoid that.
+
+Here pci_lock_rescan_remove() is taken by hand and the device lock is a
+scoped_guard. Three goto out exits leave the guard to reach
+pci_unlock_rescan_remove() at the label.
+
+In mana_serv_reset(), guard(device) is at function scope. Its out label
+runs clear_bit(GC_IN_SERVICE, &gc->flags), and the early return false and
+return true exits skip that label.
+
+Would it be clearer to convert each function to a single style? That would
+make it obvious which exits unlock and which clear GC_IN_SERVICE.
+
+> +		} else if (pdev->driver != &mana_driver) {
+> +			goto out;
+> +		} else if (reason == MANA_RESCAN_FPGA) {
+> +			struct gdma_context *gc = pci_get_drvdata(pdev);
+> +
+> +			/* An unbound sibling cannot veto the bridge rescan in
+> +			 * ->remove(). Its last probe may have lost HWC DMA.
+> +			 */
+> +			target = pci_upstream_bridge(pdev);
+> +			if (target)
+> +				pci_walk_bus(target->subordinate,
+> +					     mana_check_unbound, &unbound);
+
+[Severity: Medium]
+Can this deadlock against PCIe error recovery? pci_walk_bus() takes
+down_read(&pci_bus_sem) while scoped_guard(device, &pdev->dev) holds the
+MANA device lock.
+
+AER recovery takes the two locks in the opposite order:
+
+pcie_do_recovery()
+  pci_walk_bridge()
+    pci_walk_bus()                <- pci_bus_sem held for read
+      report_frozen_detected()
+        report_error_detected()
+          device_lock(&dev->dev)
+
+rwsem readers queue behind a waiting writer. Some pci_bus_sem writers
+don't take pci_rescan_remove_lock. One example is
+pci_register_host_bridge(), reached through pci_scan_root_bus_bridge()
+from create_root_hv_pci_bus() in pci-hyperv.c.
+
+With such a writer queued:
+
+AER thread:   holds pci_bus_sem (read), waits for the MANA device lock
+writer:       waits in down_write(&pci_bus_sem) for the AER reader
+MANA service: holds the device lock, waits in down_read() behind writer
+
+Lockdep won't report this, because device mutexes are novalidate. The old
+code never held a device lock across a bus walk.
+
+pci_rescan_remove_lock is already held at this point. Could the walk be
+done outside the device lock?
+
+> +			if (unbound) {
+> +				dev_err(&pdev->dev,
+> +					"Unbound MANA function, skipping bridge rescan\n");
+> +				clear_bit(GC_IN_SERVICE, &gc->flags);
+> +				goto out;
+> +			}
+
+[Severity: Medium]
+Is this veto broader than intended? mana_check_unbound() flags any MANA-ID
+function under the upstream bridge that has no driver. It can't tell a
+function whose probe lost HWC DMA from one that is unbound for other
+reasons, for example:
+
+- an administrator unbound it through sysfs
+- SR-IOV VFs that weren't autoprobed, or whose probe failed
+- a sibling whose probe failed with -ENOMEM or a DMA mask error
+- a sibling that failed with -ETIMEDOUT or -EPROTO and is waiting for the
+  delayed recovery re-probe
+
+pci_walk_bus() also descends into VF virtual buses, so PF hosts with
+unbound VFs can hit this.
+
+In each of these cases, a GDMA_EQE_HWC_FPGA_RECONFIG event on a bound
+function now logs, clears GC_IN_SERVICE and returns. mana_serv_fpga()
+always did the bridge remove, sleep and rescan here.
+
+Doesn't that leave the bound function with stale hardware state after the
+FPGA reconfiguration, with nothing retrying recovery?
+
+> +		}
+>  	}
+>  
+> -	parent = bus->parent;
+> -	if (!parent) {
+> +	if (!target || !target->bus) {
+>  		dev_err(&pdev->dev, "MANA service: no parent bus\n");
+>  		goto out;
+>  	}
+>  
+> -	pci_stop_and_remove_bus_device(bus->self);
+> +	parent = target->bus;
+> +	WRITE_ONCE(mana_rescan_task, current);
+> +	pci_stop_and_remove_bus_device(target);
+> +	if (!READ_ONCE(mana_rescan_task))
+> +		goto out;
+> +	WRITE_ONCE(mana_rescan_task, NULL);
+
+[ ... ]
+
+> @@ -682,11 +723,16 @@ static void mana_gd_remove(struct pci_dev *pdev)
+>  
+>  	mana_gd_cleanup(gc);
+>  
+> +	if (gc->hwc.driver_data && READ_ONCE(mana_rescan_task) == current) {
+> +		dev_err(gc->dev, "HWC teardown failed, skipping PCI rescan\n");
+> +		WRITE_ONCE(mana_rescan_task, NULL);
+> +	}
+> +
+>  	xa_destroy(&gc->irq_contexts);
+>  
+>  	pci_iounmap(pdev, gc->bar0_va);
+>  
+> -	vfree(gc);
+> +	mana_gd_free_context(gc);
+
+[Severity: Medium]
+What happens here when the function has been surprise removed, or is
+otherwise unreachable?
+
+Every SMC read returns 0xFFFFFFFF, and mana_smc_teardown_hwc() is called
+with reset_vf=false. mana_smc_poll_register() therefore spins for the
+whole poll window (20-40 seconds) before DESTROY fails.
+
+mana_gd_free_context() then calls mana_hwc_free_retained_channel(), which
+only frees the software wrappers:
+
+mana_hwc_free_retained_wq() {
+	...
+	kfree(wq->msg_buf);
+	kfree(wq->gdma_wq);
+	kfree(wq);
+}
+
+Doesn't that permanently leak the coherent DMA allocations for the
+EQ/CQ/RQ/SQ rings and the message buffers? A disconnected device can't
+DMA into them, but nothing checks pci_dev_is_disconnected() or
+pci_channel_offline() before deciding to keep them.
+
+On the FPGA_RECONFIG path, the same failure clears mana_rescan_task here.
+mana_serv_rescan() then takes this exit:
+
+	if (!READ_ONCE(mana_rescan_task))
+		goto out;
+
+That skips both the reconfiguration wait and pci_rescan_bus(). Would the
+reconfigured function, and every sibling under the removed bridge, then
+stay gone until a manual rescan or a reboot?
+
+[ ... ]
+
+> @@ -728,6 +774,10 @@ static int mana_gd_resume(struct pci_dev *pdev)
+>  
+>  cleanup_gd:
+>  	mana_gd_cleanup(gc);
+> +check_hwc:
+> +	/* Keep the binding and DMA handles for a later DESTROY retry. */
+> +	if (gc->hwc.driver_data)
+> +		return -ENOTRECOVERABLE;
+>  	return err;
+>  }
+
+[Severity: Medium]
+Is anything left to do the "retry in place"?
+
+Only a successful DESTROY response clears hwc->setup_active. Teardown
+passes reset_vf=false, so during a reset an all-ones aperture is treated
+as PF ownership until mana_smc_poll_register() times out.
+
+For a GDMA_EQE_HWC_RESET_REQUEST where DESTROY is not acknowledged:
+
+mana_serv_reset()
+  mana_gd_suspend()
+    mana_gd_cleanup()
+      mana_hwc_destroy_channel()   <- fails, fences HWC EQ, keeps hwc
+  msleep(10 s)
+  mana_gd_resume()
+    mana_gd_setup()
+      mana_hwc_create_channel()
+        mana_hwc_destroy_channel() <- single retry fails, -ETIMEDOUT
+      gc->bus_ops->remove_irqs()
+    check_hwc: return -ENOTRECOVERABLE
+
+mana_serv_reset() only escalates on these errors:
+
+	if (ret == -ETIMEDOUT || ret == -EPROTO) {
+
+so it just logs and clears GC_IN_SERVICE. Before this patch, this path
+went on to mana_serv_rescan() and re-enumerated the function.
+
+No IRQs are registered now, so no later RESET_REQUEST or FPGA_RECONFIG
+event can arrive. No work item or timer retries DESTROY either. Does the
+NIC then stay bound but dead until a PM cycle, a manual unbind or a
+reboot?
+
+The probe path is similar. The free_gc label in mana_gd_probe() turns
+-ETIMEDOUT/-EPROTO into -ENOTRECOVERABLE. So the delayed recovery work,
+which the comment below reserves for the case where "Hardware could be in
+recovery mode", is never scheduled.
+
+[ ... ]
+
+> diff --git a/include/net/mana/gdma.h b/include/net/mana/gdma.h
+> index bde68d6a99f01..2da086a3b8f72 100644
+> --- a/include/net/mana/gdma.h
+> +++ b/include/net/mana/gdma.h
+> @@ -600,6 +600,9 @@ int mana_gd_create_mana_wq_cq(struct gdma_dev *gd,
+>  
+>  void mana_gd_destroy_queue(struct gdma_context *gc, struct gdma_queue *queue);
+>  
+> +/* Remove an EQ from interrupt dispatch without freeing its queue memory. */
+> +void mana_gd_fence_eq(struct gdma_context *gc, struct gdma_queue *queue);
+
+[Severity: Low]
+This doesn't break anything today, but does the comment match what
+mana_gd_fence_eq() does? The function is just
+mana_gd_destroy_eq(gc, false, queue), and that does more than remove the
+EQ from dispatch:
+
+- It sets queue->eq.msix_index to INVALID_PCI_MSIX_INDEX. A later
+  mana_gd_destroy_queue() on the same EQ then returns early.
+
+- It calls mana_gd_disable_queue() when queue->eq.disable_needed is set.
+
+disable_needed is true for every EQ created through
+mana_gd_create_hw_eq(), which covers all the data-path EQs. Both current
+callers pass HWC EQs, where disable_needed is false, so the mismatch is
+latent for now. A future caller that relies on the comment would disable
+the hardware EQ without meaning to.
+
+Could the comment say what the helper actually does?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0%40linux.microsoft.com
