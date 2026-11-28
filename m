@@ -1,54 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795833096;
-	b=KqCi3keJbNjhC7OM/GxVKu+FcVF3SAt0gbbaGdQNqkAOZfClrp/FH0UIIRgOSlv/Y+V8
-	 RqVZpmXWk95XDZtY7QtQzx65Ikae/MU4cn8fYb0L3oKbLO9URj/x8cQEsRjHXzWAZZfSY
-	 hiuJ69bPakRAz4kBqttj/dDfX89u5HYZ+uC7FoDwUlifjZHZkjBTx0c6LLbI67XquWNF0
-	 rtcg4bCQyiR5bEeH+Hd5CJWHV4svdEBS+0+jJvUuClauLo3mit4decWaWjxvZARQwpU+9
-	 VNJ4EmtEkAReUIIxIL7PDXGY1bKClp7y/GJ6LXB8d0ej0BoYxgFw01+Dmyz0nNbpgLw==
+	t=1795833190;
+	b=jYSfMbnkihzlVjd2a4UiqehlUaWR/Yk81NeMZ7IF+OoxOOT6kVCJc17FjeJDKN9Egvpl
+	 VyWPRrC338ynAMN8nqDibKzoul3e5qVR/L7yNARTdQLWmmY8BMYXzX9RcQggwrOGi5cFb
+	 j9uI5D++bni1mg+hb7H8kfexumCd2dq8xojjNtlw8BsMqfx4UTIHHMy0+mypMJy45to2V
+	 igu7zmr1wB7h9PBlc6vLhIouj8MvzDHvwGAbBytwqSEf4JyyeUyNz00iIqPhqg9C2RJVn
+	 C97ysNxy8GmpUcVBJ7OledCwkezjdk02b1VevhqUN/ZBnTvmHYjRvC+ohz55q8Tatug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795833096;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=VtFNi8cB6WM7FpUP6o6VT1D+XWcmFi3d3WO/9cxQ8vA=;
-	b=1u7gy/I08cK/ITAhI3h0AYZx3Q7slumDTZY3HZx5OnC8e+oTqESoCpTPPPCdHn+Z7/i2
-	 yLwRfApHnGIzEhspSEjupGIlTSOuVG/kUZpS/lqM3kwchoGgCfQH4Sn9yasANMSLMU79b
-	 oE8lSmGgTn+6KAoZ6eR6hEbfqo2Ccq6aA4WkBTq3Cl9B3KmjaemJ66+2WPMdDNSkqjZO+
-	 5/eaMgO7L/LBuIo9uadpV873yr+Fai5+PQOLIorBjqczNf26lyPZz71bDostBJEJl5p/k
-	 16Nrf+lrXUAYyL9zWVKllXHWiM1pJ59ghJGiBePrnniDM+ut8OrMD+aJnWfqenCvWSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795833190;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=dZtUYIjpYRuYtYubv0Jwi31UC+Fx/anAY3sZfAURRWM=;
+	b=Ru9pQmR4p41y0xuds57Hg9mLWfGuuucVeFVdnthDqHxSVupgZeK92SmWDqy+1ndpf4my
+	 Akq7B97YlGRoeh5DWUpVXnDLrxaI7TNh1lZNXZ/N2AhR9oQTNvPrzoMtNTKUOfu8AKMJO
+	 UqwyhIwL/5jISgGAjoS7esW/1RrhEYJx7K+KH5b/7zS6o3sNqYNji0/JK+8WheHw8/KBe
+	 l54y/nSyBpgmNOUwGZ0H6qOwqQjXVg4GYeB1HjG+L4wsnrMkfhrc5PwrI0/Q18BvG5Ec+
+	 l92ol9cX+f5Z7+0ik3wr4zIvw5COkhuE2Hy3Xvh47OnsOTD+EndV6sGx6YD/NkzB4wA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YKwd3ZEp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c995K2yE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CEFF606A31C;
-	Sat, 28 Nov 2026 02:31:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93BCF606A31C;
+	Sat, 28 Nov 2026 02:33:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YKwd3ZEp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C06A1F00893;
-	Sat, 28 Nov 2026 02:31:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c995K2yE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833F21F00893;
+	Sat, 28 Nov 2026 02:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795833096;
-	bh=VtFNi8cB6WM7FpUP6o6VT1D+XWcmFi3d3WO/9cxQ8vA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YKwd3ZEpRbeT+6VpV/NDRoG5l4H9yNv/hSChadINerHYzo+ZvPAmezrpqsZlRcJfc
-	 fkizaDfxkgOVrUpdYUyI4UuDgsbJ4q1ibguBkOjDvQEGW7ghUrghzhITelsgHrrdRP
-	 +MVjtJ9B6Wp1BWcItbv1kZ1fDP8dp9FlVxefPXToMtf00FJd1EJvg46tN6XcWTX3Sl
-	 qB4IrwUnip/UzKlEdP7+yA/xBgdbWnZwncmAdTmwRgoDtbHDKN9DSpUdW+QeO0uX/X
-	 2XsolnTyViw8x6CWtVaTr4UYzdpwrJVgGwm56Bygjn8iEir1zYMkHCgdmxvqQh0MNy
-	 n+ouAs0fveUxQ==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Antoine Tenart <atenart@kernel.org>, mathieu.desnoyers@efficios.com, vmalik@redhat.com, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, "Uladzislau Rezki (Sony)" <urezki@gmail.com>
-Subject: Re: [PATCH] tracing/probes: fix race between probe execution and event unregistering
-Date: Sat, 28 Nov 2026 11:31:32 +0900
-Message-ID: <undine-1795833092601383688-d1e19625e907c2ec@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <20261127140616.20616c68@gandalf.local.home>
-References: <20261126132830.14992-1-atenart@kernel.org> <20261127140616.20616c68@gandalf.local.home>
+	s=k20260515; t=1795833190;
+	bh=dZtUYIjpYRuYtYubv0Jwi31UC+Fx/anAY3sZfAURRWM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=c995K2yEiIpJAEwJA7zHogV1tavP+UUaW1/U6rK+7ids96B431mvzdo7J09qsADqw
+	 +QHdlSnWL0vi3cHuLxctp7sUdi7t1j6Hiy0WSaKtJLfFfFERJ8AAxnMZiWXtY4snJ0
+	 0/I8BK+c6cY5/2+KaPQPeiYUOEGBuJsX1R8++uFpfJOsFwYHTJdPjLX2RCUW6F72Wq
+	 XRfELKjEBgcooaGryLyZnlbhU/dhp13TBOnlRoJu1NzHIgXgOsqaJH8F/tUNM/dP3Y
+	 lqv9AFbdXjE7cG8niQI/fkiDfsIo3Ft7a58nm0sO8DDI2CSZRZywLPYSihkvxtJZDR
+	 CKxhm480tfQdQ==
+Subject: Re: [PATCH ipsec-next v3 1/2] xfrm: add ARIA CBC and CTR support
+From: netdev-bot+sashiko@kernel.org
+To: his1415@pribit.com
+Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, sd@queasysnail.net, netdev@vger.kernel.org,
+ ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 02:33:09 +0000
+Message-ID: <179583318907.3135.10318607077166814978@kernel.org>
+In-Reply-To: <20261127020448.55891-2-his1415@pribit.com>
+References: <20261127020448.55891-2-his1415@pribit.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,117 +63,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
 
-On Fri, 27 Nov 2026 14:06:16 -0500, Steven Rostedt <rostedt@goodmis.org> wrote:
-> On Thu, 26 Nov 2026 14:28:30 +0100
-> Antoine Tenart <atenart@kernel.org> wrote:
-> 
-> > 
-> > Hi,
-> > 
-> > I found this while debugging another (downstream) issue, reusing the
-> > same reproducer on mainline. The reproducer registers/enables and
-> > disables/unregisters a kretprobe on a syscall in a loop while triggering
-> > it (I can share if you're interested). It should work with other probe
-> > types.
-> > 
-> > I'm not versed into the tracing subsystem so I went the safe way and
-> > reverted back to the previous behaviour. There might be something more
-> > clever to do.
-> 
-> I would hate having to put back the inline synchronize_rcu() as that has
-> noticeable impact on removing kprobes.
-> 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Agreed. This kfree_rcu() method seems better, because this is not only
-kprobes, but also other trace_probe based events have the same problem.
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-Thank you!
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> 
-> > 
-> > Thanks!
-> > Antoine
-> > 
-> >  kernel/trace/trace_probe.c | 8 +++++++-
-> >  1 file changed, 7 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/kernel/trace/trace_probe.c b/kernel/trace/trace_probe.c
-> > index cff55dcae36f..8addaf641431 100644
-> > --- a/kernel/trace/trace_probe.c
-> > +++ b/kernel/trace/trace_probe.c
-> > @@ -2841,7 +2841,13 @@ int trace_probe_remove_file(struct trace_probe *tp,
-> >  		return -ENOENT;
-> >  
-> >  	list_del_rcu(&link->list);
-> > -	kvfree_rcu_mightsleep(link);
-> > +
-> > +	/*
-> > +	 * Synchronize with probes being executed. This is not only for freeing
-> > +	 * link but also for related objects (e.g. link->file).
-> > +	 */
-> > +	synchronize_rcu();
-> > +	kvfree(link);
-> >  
-> >  	if (list_empty(&tp->event->files))
-> >  		trace_probe_clear_flag(tp, TP_FLAG_TRACE);
-> 
-> Would something like this work? I haven't fully tested it though:
-> 
-> diff --git a/kernel/trace/trace_probe.c b/kernel/trace/trace_probe.c
-> index cff55dcae36f..c249256dea80 100644
-> --- a/kernel/trace/trace_probe.c
-> +++ b/kernel/trace/trace_probe.c
-> @@ -2812,6 +2812,7 @@ int trace_probe_add_file(struct trace_probe *tp, struct trace_event_file *file)
->  		return -ENOMEM;
->  
->  	link->file = file;
-> +	event_file_get(file);
->  	INIT_LIST_HEAD(&link->list);
->  	list_add_tail_rcu(&link->list, &tp->event->files);
->  	trace_probe_set_flag(tp, TP_FLAG_TRACE);
-> @@ -2831,6 +2832,14 @@ struct event_file_link *trace_probe_get_file_link(struct trace_probe *tp,
->  	return NULL;
->  }
->  
-> +static void free_link_rcu(struct rcu_head *rcu)
+- [High] The new ealg_list entries for "cbc(aria)" and
+  "rfc3686(ctr(aria))" in net/xfrm/xfrm_algo.c have no .desc block, so…
+- [Low] This patch makes "rfc3686(ctr(aria))" selectable as an ESP
+  encryption algorithm, but crypto/testmgr.c's alg_test_descs[] has no…
+
+--
+
+xfrm: add ARIA CBC and CTR support
+
+This commit adds XFRM ealg_list descriptors for cbc(aria) and
+rfc3686(ctr(aria)), so ARIA can be selected as an ESP encryption
+algorithm. Neither entry is exposed through PF_KEY.
+
+> diff --git a/net/xfrm/xfrm_algo.c b/net/xfrm/xfrm_algo.c
+> index 70434495f23f5..98ef2c48982a2 100644
+> --- a/net/xfrm/xfrm_algo.c
+> +++ b/net/xfrm/xfrm_algo.c
+> @@ -512,6 +512,32 @@ static struct xfrm_algo_desc ealg_list[] = {
+>  		.sadb_alg_maxbits = 256
+>  	}
+>  },
 > +{
-> +	struct event_file_link *link = container_of(rcu, struct event_file_link, rcu);
+> +	.name = "cbc(aria)",
 > +
-> +	event_file_put(link->file);
-> +	kvfree(link);
-> +}
+> +	.uinfo = {
+> +		.encr = {
+> +			.geniv = "echainiv",
+> +			.blockbits = 128,
+> +			.defkeybits = 128,
+> +		}
+> +	},
 > +
->  int trace_probe_remove_file(struct trace_probe *tp,
->  			    struct trace_event_file *file)
->  {
-> @@ -2841,7 +2850,7 @@ int trace_probe_remove_file(struct trace_probe *tp,
->  		return -ENOENT;
->  
->  	list_del_rcu(&link->list);
-> -	kvfree_rcu_mightsleep(link);
-> +	call_rcu(&link->rcu, free_link_rcu);
->  
->  	if (list_empty(&tp->event->files))
->  		trace_probe_clear_flag(tp, TP_FLAG_TRACE);
-> diff --git a/kernel/trace/trace_probe.h b/kernel/trace/trace_probe.h
-> index d1fb3520700f..aecc9f24951d 100644
-> --- a/kernel/trace/trace_probe.h
-> +++ b/kernel/trace/trace_probe.h
-> @@ -281,6 +281,7 @@ struct trace_probe {
->  struct event_file_link {
->  	struct trace_event_file		*file;
->  	struct list_head		list;
-> +	struct rcu_head			rcu;
->  };
->  
->  static inline unsigned int trace_probe_load_flag(struct trace_probe *tp)
-> 
-> -- Steve
-> 
->
+> +	.pfkey_supported = 0,
+> +},
+
+[Severity: High]
+
+Neither this entry nor the rfc3686(ctr(aria)) entry below has a .desc
+block, so desc.sadb_alg_id is 0 (SADB_EALG_NONE). Before this patch,
+every ealg_list entry had a non-zero sadb_alg_id. Even ecb(cipher_null)
+uses SADB_EALG_NULL.
+
+attach_one_algo() in net/xfrm/xfrm_user.c copies that value into the
+state:
+
+    x->props.ealgo = algo->desc.sadb_alg_id;
+
+An ESP SA using either ARIA mode therefore ends up with props.ealgo == 0,
+x->ealg set and x->aead == NULL.
+
+Can this cause a NULL cipher to be programmed when the SA is offloaded
+to an nfp device? Here is the encryption switch in
+nfp_net_xfrm_add_state() in drivers/net/ethernet/netronome/nfp/crypto/ipsec.c:
+
+	switch (x->props.ealgo) {
+	case SADB_EALG_NONE:
+		...
+		if (x->aead && !strcmp(x->aead->alg_name, "rfc7539esp(chacha20,poly1305)")) {
+			...
+			break;
+		}
+		fallthrough;
+	case SADB_EALG_NULL:
+		cfg->ctrl_word.cimode = NFP_IPSEC_CIMODE_CBC;
+		cfg->ctrl_word.cipher = NFP_IPSEC_CIPHER_NULL;
+		break;
+
+x->aead is NULL here, so control falls through to SADB_EALG_NULL. Next,
+the if (x->ealg) block copies the ARIA key into cfg->ciph_key. The SA is
+sent to the NIC and the function returns success. xfrm_dev_state_add()
+does not check the algorithm itself.
+
+So an SA set up with something like "enc 'cbc(aria)' ... auth
+'hmac(sha256)' ... offload dev <nfp> dir out" would be accepted for
+crypto offload. The hardware would then apply a NULL cipher and send
+the ESP payloads in plaintext. Inbound ARIA-encrypted traffic would be
+passed up as if it had already been decrypted.
+
+Until now, only AH or the chacha20-poly1305 AEAD reached the
+SADB_EALG_NONE fallthrough in that driver. The follow-up "xfrm: add ARIA
+GCM support" adds only aead_list entries, so the issue remains at the
+end of the series.
+
+Should nfp_net_xfrm_add_state() reject SADB_EALG_NONE when x->ealg is
+set, or should these descriptors be identified some other way, so that
+the offload path does not treat them as NULL encryption?
+
+> +{
+> +	.name = "rfc3686(ctr(aria))",
+
+[Severity: Low]
+
+Is a testmgr entry missing for this construction? alg_test_descs[] in
+crypto/testmgr.c has entries for cbc(aria), ctr(aria), ecb(aria) and
+gcm(aria), but none for rfc3686(ctr(aria)). The rfc3686(ctr(aes)) mode
+that XFRM already exposes has one, using aes_ctr_rfc3686_tv_template.
+
+When ESP instantiates this transform, alg_test() takes the notest path
+and logs:
+
+    alg: No test for rfc3686(ctr(aria)) (...)
+
+As a result, no known-answer test covers the RFC3686 nonce/IV/counter
+block layout combined with ARIA. Could test vectors be added for it?
+
+> +
+> +	.uinfo = {
+> +		.encr = {
+> +			.geniv = "seqiv",
+> +			.blockbits = 128,
+> +			.defkeybits = 160, /* 128-bit key + 32-bit nonce */
+> +		}
+> +	},
+> +
+> +	.pfkey_supported = 0,
+> +},
+
+[ ... ]
 
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127020448.55891-1-his1415%40pribit.com
