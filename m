@@ -1,59 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795861519;
-	b=S9SaDjfTwVEqNEOtH0WZU+wSoyBWiK7GxwaQMm7auGZNDL8XyDap289YbipwUbuAyMk/
-	 FTzI+8bora7bfHfQC2UBBYdGhF0WO/lWEwjwvLU9N1TrCYWbUpkbTE/ZNkiNyQG3m4L27
-	 7aXfkgyG1nmyW2m0hKN5NIDrAEg3/LvCRIuSdf0yAAOoo/RDUaoYho1ASFjyDBf7FOCMj
-	 jQjfnK6nYeD9+Y4KIHqxF6NSHKqDAUrATRVCXJrNkrjqsK5Ket4Ei79bsW+/Q6mD4t8WD
-	 S7iSUn5HiJ7yniaA92qqKB2P0SHBNdRscUKLerSvVZNoh/XcQCxnWzn3BVam9QNggGw==
+	t=1795861689;
+	b=rlzk8qmJXuk3l/1XaMlfSlLlP5aRpeXc9YAz9rtxx+AvXebPshHUM+BN8Twt6cAm5XYr
+	 7/eyiQDWNby4PvyWGiDdHx6Jap43jBfz+YjMGcJVyk88t+pl/OaptAb2avW8ZC59vz8IT
+	 67/vuC2FLZ6CeD8tAxeG8Mha6caaHv4j8PzwmbeV53YJQHBhGM4v1vtAaxjl7+x7uyPOq
+	 KOs2zOMP2JoJQYH3nEe0tJSLoI8rPAAQlgmb3mMV9Za1hPTjpv3jf7Y6OTYWYwyVDWjUC
+	 JGP7RdJo/lwnbEBML4TM9mYigDvjWnJ2RW/zWnTtIm+HEuoG5Yw7zblaM18+k7F0fVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795861519;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=VY2l0xjOLwNl/vWxE6ifCQZY2eHn010i2nRNQ5w5xpI=;
-	b=VAB7ljtpZ+K8I8Lkiksi4Rr1xGbMevH/jdvqzqA+GZcsxPk6EK10beoZ1M8sB0abhu5C
-	 N72HMHiXbeCH3gKrNahh/0oeB+vKYJTBQFJda9Ufx4oV3qqbnYsM3m1GHnRe8Hr9JMGbD
-	 5O6PK2vqnY8QJ2Gw9J0fPQfL5h1PQxz4+kXEqHfLadAZsMvZZwGsABLIFQBdKJMidBIgK
-	 IWAaEbp5yhyRWE6hfb9u3W5fkSrHpEIQH4iR/ZSVeSGDxxIqpiXk5dzN+sYMtbRDzJWiV
-	 Z6eV/VN3jzZPgfGfV2zXn2eV69B+7eCPxRD8h8IbPrGdl2/tUnIu352XSIdNIIgjQMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795861689;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=9Lskh+N7JQvWM1QZ5Sr9CMmPwP72CT3UqVM90SLhC8k=;
+	b=yBc1V12efsWKAB9mvWQbnyIjrG3T9b5VeHiP0z1d3ImUiBFAjab7m/hbNDbxJRKV+tLD
+	 Pa6nG0ziVpq3seSPPV3SxLY4gPnZzKnW1l2IOkc6K11ViVYOgQDF8yIf1TObOIQw41n27
+	 cVbtajQEfYV7MabsVq/UTO3spFVx2wKtv3vvpp6JNbA1vefBelvMA4m3uLiaosGf1uNe/
+	 MsBW1X8Kq786zU9K+9ysPeIVJo2sy/SOvcWPIzgpsGc00boEj1wKZk8VTrExiKfo6IK4Y
+	 2Cj6zEHqMxrSEbwS3IImBOtiYF5gsBn/A295GsicBu9e8ktidyf9ejyj0itNDOg0r6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h8rHK1yG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cL2X3L7l;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F08B606A335;
-	Sat, 28 Nov 2026 10:25:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46AB1606A31C;
+	Sat, 28 Nov 2026 10:28:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h8rHK1yG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CA5A1F00898;
-	Sat, 28 Nov 2026 10:25:18 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cL2X3L7l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79F21F00897;
+	Sat, 28 Nov 2026 10:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795861519;
-	bh=VY2l0xjOLwNl/vWxE6ifCQZY2eHn010i2nRNQ5w5xpI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=h8rHK1yG0nyHTDjDvM8yINTzVnZLAFuuFgcm7S75VrO4x9fnsPc/NLbOka+bBAoyj
-	 jV/YegVw/b95b8UL8e4wZkP4gu3cUYK6aE3cJD2l3T7Z+IlPENDgRGpHoI3Kb+bizv
-	 Z6b7b01iK706e60+j1eJeYyLtXwSPOHyTaQBK+QRX4NIh+YPbpJLoPCeYcibF13Eis
-	 lvR4IHUaiCqWm57c+Fvi0L9GycM3w/ZxsyVbny9p/6zmrEydU53GZsGNdbQRSG0lUi
-	 StttZ74+OePphODfCPS/tCXH4tz+utLXn9Xj45Ceh5gdQBKc9sQo2H+FuMohsi2FfJ
-	 hWxwmO4igCAAw==
-Subject: Re: [PATCH net v3 2/2] wireguard: selftests: remove a peer under load
-From: netdev-bot+sashiko@kernel.org
-To: apasichnik9@gmail.com
-Cc: Jason@zx2c4.com, wireguard@lists.zx2c4.com, netdev@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 10:25:18 +0000
-Message-ID: <179586151812.3135.2067343848576373135@kernel.org>
-In-Reply-To: <20261127102243.49405-3-apasichnik9@gmail.com>
-References: <20261127102243.49405-3-apasichnik9@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795861688;
+	bh=9Lskh+N7JQvWM1QZ5Sr9CMmPwP72CT3UqVM90SLhC8k=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=cL2X3L7lNbnr6CCN3wycQ7lBD4D0QUrGFLYnKkWeFpFCi2ohet7l2y6F+B+7o47cC
+	 ZhG5JHdwZejbSpHHqqKzoBza+HyuJmbhTRvApnRcbcka5rLnEzHtk86rRaf7PwrnKu
+	 xw6T2wXwMxpw6CfNf2cdijFqJR6Mw2zjiHnLiJzkQB+mE1dWmiBuKMaR4im/KvjPgC
+	 yONscOLVeaJjIZGw5a2mSY5OV5qCOmN8aS77IEWxJy5rKnKeGxNkyKX5V60kp9Xe2k
+	 WNLoN/HQqLHE7JhBdT26jm6MLZfs0iK4P2FcVigb6mTnrEI8VhHJlSsEKd7xlegWvW
+	 JYeTqwNC6okbw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, peterz@infradead.org
+Cc: linux-kernel@vger.kernel.org, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, mingo@redhat.com, juri.lelli@redhat.com,
+ vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+ bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+ kprateek.nayak@amd.com, paulmck@kernel.org, boqun@kernel.org,
+ shuah@kernel.org, kees@kernel.org, viro@zeniv.linux.org.uk,
+ brauner@kernel.org, jack@suse.cz, oleg@redhat.com, bestswngs@gmail.com,
+ xmei5@asu.edu, xujiakai24@mails.ucas.ac.cn, linux-mm@kvack.org,
+ linux-fsdevel@vger.kernel.org, linux-kselftest@vger.kernel.org, Dominik
+ Maier <dmnk@google.com>
+Subject: Re: [PATCH 00/17] sched/mmcid: fixes for execve, mode switches and
+ affinity
+In-Reply-To: <cover.1794932121.git.mathieu.desnoyers@efficios.com>
+References: <cover.1794932121.git.mathieu.desnoyers@efficios.com>
+Date: Sat, 28 Nov 2026 11:28:05 +0100
+Message-ID: <87bj79s11m.ffs@fw13>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,82 +66,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Tue, Nov 17 2026 at 11:17, Mathieu Desnoyers wrote:
+> This series fixes six problems of the rseq concurrency IDs (mm_cid),
+> and adds selftests for them. I looked for cases the existing tests do
+> not reach:
+> - a thread count that goes up and down;
+> - exit, fork and a failed execve();
+> - affinity changes made by another process.
+>
+> The fixes come first, and all six are marked for stable:
+>
+>   1  Give a CID to a task that joins its mm while running. A failed
+>      execve() then no longer returns to user space with an mm_cid of
+>      0x80000000.
+>   2  Give no CID to io_uring and vhost workers, so that they do not
+>      take IDs from the threads of the process.
+>   3  Reset the stale per CPU state of an mm when its first user joins.
+>      A machine with two or three CPUs no longer locks up after a failed
+>      execve().
+>   4  Keep a running joiner inactive until the fixups are done, so that
+>      it cannot loop in mm_get_cid() while it holds mm_cid.mutex.
+>   5  Add the allowed CPUs of the first user to the mm when it joins.
+>      An affinity change by another task during execve() is then not
+>      lost. 
+>   6  Fix the use after free of the old mm in set_cpus_allowed_common().
 
-Low priority / nit picks for your consideration:
+#1, #3 and #4 are all caused by the fact that the exec()'ing task
+disables MM CID right at the beginning of exec(). But that can be
+completely avoided because the only requirement to deactivate it is when
+the task is about to switch to the new MM, i.e. after all other threads
+are torn down.
 
-- [Low] With the in-tree default VM configuration, the new loop in
-  tools/testing/selftests/wireguard/netns.sh (lines 210-222) will…
+So instead of adding duct tape and haywire in the MM CID core code we
+really should fix the underlying problem. See untested patch below.
 
---
+#6 is incomplete vs. exec() switching MMs because the new MM is visible
+before MMCID has been initialized on it. I look into that seperately.
 
-wireguard: selftests: remove a peer under load
+Thanks,
 
-This adds a loop to netns.sh that removes a peer ten times while a UDP
-flood is running, and re-adds it after each removal. The goal is to catch
-packets left on the per-peer receive queue that keep the peer alive. It
-also raises CONFIG_LOG_BUF_SHIFT to 21 in the qemu kernel.config so the
-created/destroyed object check sees the whole log.
+        tglx
+---
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -1171,6 +1171,21 @@ int begin_new_exec(struct linux_binprm *
+ 	 */
+ 	posixtimer_exec();
+ 
++	/*
++	 * Remove the task from the MM CID management which is associated to the
++	 * original MM. This is done here to avoid leaving and rejoining the MM
++	 * CID management _before_ all threads of the the process have been
++	 * terrminated.
++	 *
++	 * On success the task invokes sched_mm_cid_after_execve() in
++	 * bprm_execve().
++	 *
++	 * In case that the below fails, the task will not return to user space
++	 * because bprm->point_of_no_return is set so there is no point to bring
++	 * the task back into MM CID management.
++	 */
++	sched_mm_cid_before_execve(current);
++
+ 	/* see the comment in check_unsafe_exec() */
+ 	current->fs->in_exec = 0;
+ 
+@@ -1853,7 +1868,6 @@ static int bprm_execve(struct linux_binp
+ 	 */
+ 	check_unsafe_exec(bprm);
+ 	current->in_execve = 1;
+-	sched_mm_cid_before_execve(current);
+ 
+ 	sched_exec();
+ 
+@@ -1866,7 +1880,14 @@ static int bprm_execve(struct linux_binp
+ 	if (retval < 0)
+ 		goto out;
+ 
++	/*
++	 * Reactivating MM CID is only required for the success case. The
++	 * exec()'ing task deactivates MM CID after bprm->point_of_no_return has
++	 * been set true, so any failure after that point will prevent the task
++	 * from going back to user space.
++	 */
+ 	sched_mm_cid_after_execve(current);
++
+ 	rseq_execve(current);
+ 	/* execve succeeded */
+ 	current->in_execve = 0;
+@@ -1885,7 +1906,6 @@ static int bprm_execve(struct linux_binp
+ 	if (bprm->point_of_no_return && !fatal_signal_pending(current))
+ 		force_fatal_sig(SIGSEGV);
+ 
+-	sched_mm_cid_after_execve(current);
+ 	rseq_force_update();
+ 	current->in_execve = 0;
+ 
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -11166,7 +11166,7 @@ void sched_mm_cid_exit(struct task_struc
+ 	cancel_work_sync(&mm->mm_cid.work);
+ }
+ 
+-/* Deactivate MM CID allocation across execve() */
++/* Deactivate MM CID allocation across execve() switching MM */
+ void sched_mm_cid_before_execve(struct task_struct *t)
+ {
+ 	sched_mm_cid_exit(t);
 
-> diff --git a/tools/testing/selftests/wireguard/netns.sh b/tools/testing/selftests/wireguard/netns.sh
-> index a8f550aecb35d..8303802c02f27 100755
-> --- a/tools/testing/selftests/wireguard/netns.sh
-> +++ b/tools/testing/selftests/wireguard/netns.sh
-> @@ -207,6 +207,20 @@ n0 iptables -F INPUT
->  ip1 link set wg0 mtu $orig_mtu
->  ip2 link set wg0 mtu $orig_mtu
->  
-> +# Remove a peer while a UDP flood keeps its receive queue busy, then re-add it;
-> +# packets left on the per-peer queues would keep it from being destroyed,
-> +# which the created/destroyed check at the end catches.
-> +for ((i = 0; i < 10; ++i)); do
-
-[Severity: Low]
-Will this loop catch a regression of the rx_queue purge in the default
-selftest configuration?
-
-The qemu Makefile defaults to a 4-CPU guest:
-
-tools/testing/selftests/wireguard/qemu/Makefile:
-    NR_CPUS ?= 4
-    ...
-        -smp $(NR_CPUS) \
-    ...
-    printf 'CONFIG_NR_CPUS=$(NR_CPUS)\n...
-
-The commit message says that with four CPUs "the leak is hit much less
-often, so NR_CPUS=1 is the configuration that checks for it". The leak
-needs rx_queue to still hold more than one NAPI budget of packets at
-napi_disable(). With several CPUs, the decrypt workers and NAPI usually
-drain the queue first.
-
-Nothing in the tree records this. No Makefile target runs netns.sh with
-NR_CPUS=1. The comment above also says the leak is something "which the
-created/destroyed check at the end catches", with no mention of the
-single-CPU requirement.
-
-As a result, a plain "make -C tools/testing/selftests/wireguard/qemu" run,
-including in CI, would usually pass on a kernel where
-peer_remove_after_dead() no longer calls peer_purge_rx_queue().
-
-Could the comment or the qemu Makefile mention NR_CPUS=1? Alternatively,
-could a single-CPU run be added so the check is exercised by default?
-
-> +	n1 iperf3 -s -1 -B 192.168.241.1 &
-> +	pids=( $! ); waitiperf $netns1 $!
-> +	n2 iperf3 -Z -t 2 -b 0 -u -l 64 -P 4 -c 192.168.241.1 >/dev/null 2>&1 &
-> +	pids+=( $! ); sleep 1
-> +	n1 wg set wg0 peer "$pub2" remove
-> +	kill "${pids[@]}" 2>/dev/null || true; wait "${pids[@]}" || true
-> +	n1 wg set wg0 peer "$pub2" preshared-key <(echo "$psk") allowed-ips 192.168.241.2/32,fd00::2/128 endpoint 127.0.0.1:2
-> +	n1 ping -c 1 -W 1 192.168.241.2
-> +done
-> +
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127102243.49405-1-apasichnik9%40gmail.com
