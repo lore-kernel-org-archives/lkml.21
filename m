@@ -1,86 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.221
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795853972;
-	b=Wpds/1PrMm+KNvyA+lTAAHDzXl1/Wrj5wfNwz8TehDeZEnkLpqaI/aqL5lgYeHmEEtoX
-	 Pbkaz4hAV1maRUNvdvC/4eQSosKpnffRVoCcy+GI9tZ1hgLJk3C2OxMwD5yucEsg4fGc/
-	 rGDIEmWC+KDAMoWLSiDxF8KnZvXVLMWEi3ERDe5kKOK8vVoV08aOLEyrtr+fwQadhf0La
-	 EkyGXhIE0I9p1pbRXhThtJhtl+sFeZOnDRo++pNvxT1UbTPFYSC0I/NOM/rXpF5/Y4CXL
-	 0zLud/CR+jAAUZT9/AmD2n9OrdhuDEa0HWo/lhPJ9xIclRUESxfGKhNLWzMRl0OP5Dw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795853972;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=pwQQKjzpx2jY8Nn28JUzibuPtYLtnAE8dhSFzqvQDEE=;
-	b=LFposp0KkRYHFFAmPaov6j9coBsBbdWZKhyzbstJxMXbAgDgb9UuABQDpWmCZkoU0EsU
-	 D4vNKRfRBgCjv+D+nJmpbacve4O8PUvDPjW6Q/4ZrITZ9ckbnYYKAxgyORdr9wyMt1cPN
-	 H89xdQotXOnp8MuEFTR0/h/1+YCcjdT7gms/52aMAjgXn8MgVucnjaMVhDR6vNOBu1XGq
-	 HaxBoQ1Ta1Leb+N4ZnBVgSg7j2Y3PIXHbw7F2fkiX5WrADtQGe2+N5+rkmvd4oP29q459
-	 ASpCZrJsWgzywQGgnVAOv7rhIJGwIqY8+vzSo1rnjcCisZSjqUb8+Aa73fWKjOd9uAg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=cZ4+u6Jz;
-	arc=none smtp.remote-ip=203.205.221.221
-Received: from out203-205-221-221.mail.qq.com (out203-205-221-221.mail.qq.com [203.205.221.221])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795854481;
+	b=mI1nMomJrdz+RTm5ilvK/h3WtG29KgzXEqbvKcwHmApzHKnKgpKDOx4Ig/9vqVtgv0hc
+	 8gQPV0iU0daB0s4H+/iNHKIHwtzeTB8iMcfSQbF5r09bqmAFPAWBmBvxyJ+rwNalyIDab
+	 z2nwAh3UN1aamtAzp/YCrUV0etMnHxEdGfzxx/SO9E4FV6jGTlwHcC/vhqXkRvOD6klTQ
+	 0YRoP5kU33KKdUeFmcnOgvk1HPoJm/PAeFem7mS4LIJZgPfQXMVl4u1xdMIpJTl3udWJs
+	 r/NpMH6h4ESXm3zRsJnw05mB+LZtAm0k3GOOmQiSue7GbwrkwBBbUS8VqXSMfc6F5sg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795854481;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=eWOtYyvFjAz6pp2c8GfRiAyYtqMIExJFiM1D9vtmH+w=;
+	b=YL157frSrTcuVGr6xmrioatqAJiNcAYsuRc+m7qxqJvAzdGtoiSR+K+IWVx+Q0Bxbv6b
+	 /5+qAmRnoCp9+m02aQkE+sEpGGFoP6zGbC7MKVKzqq2Ocbbu+RO2tBgQLIqd2KWpE4hJC
+	 +nPJyz2t0F69jto/SuwygxdP4prrGGTYCclZFsDwF98vt1L4f8C+vKUbiWZzTP3/mtdS7
+	 Z6lJZ3udTE6Q/DktdywspjiVMWJf3DBDn8hFXR8/jZvgbicAXGTQgLdxq7dNMsiq/NvsV
+	 jegXlA7ju8JmvEB4ZUdLBa2qpobXotVghx5qo6JYXaj4MiubwiO7nmQJKFEgaMp5uIw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=aOKBJJL9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FD95606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:19:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FD95606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB7DC606A31C;
+	Sat, 28 Nov 2026 08:28:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB7DC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=cZ4+u6Jz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795853961; bh=pwQQKjzpx2jY8Nn28JUzibuPtYLtnAE8dhSFzqvQDEE=;
-	h=From:To:Cc:Subject:Date;
-	b=cZ4+u6JzESm4KvXt9ufmE9s6jI79fJtPvOCSIDqvGEW8QJW6woUCpU8Uk1HlMTs/2
-	 deNJe9YZPUBCGPreiIJK5PfMgy5/Icnx1NmGRKY9cU0yVrW3enVk3PxJuVHudxdP1d
-	 uoxFrvt66LqadI9bQLcfyQG8RUOPvgFA41Ys7ga8=
-Received: from DESKTOP-6LNKCJL.localdomain ([111.199.66.152])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id 4CB19228; Sat, 28 Nov 2026 16:19:11 +0800
-X-QQ-mid: xmsmtpt1795853951tfvwicj2s
-Message-ID: <tencent_0EE98A1C2110785434DE9692533FF737DD07@qq.com>
-X-QQ-XMAILINFO: Oe8iJ2SlZYdbx+3ASzNGTEGG4DyReHdvcZ3nTMPZ28KrcPjGEXlv7Eh0WDzWDK
-	 vYqJEg0JfhY1SVJ3TE08snY3hwSXWqDozn5h2zOBVkyX669wfek8JeT9WDaYIqH2F9pmHGbXEZfo
-	 /v47PGiSLb/DzRq1RTMK9urbh67YEI+kEx8fZl2tH0zWrHK7Ew6+XEbI1GdbAlD/Ky1X178sp76G
-	 RTIZpFcIAxt+Xu3GpVe/keqKW6H3kKicE6OBMlsbO/3BqDDZuUChhMjnnfJq0th1hcV1KfI4sr6+
-	 8SKx7kaiki5BMLWQdiNKVjKJOEUs/iRmbMrC1K7gblhICBrDEN1pGKMe0iitwZ5DBzhwp4XctuSX
-	 sD3cUcm+NvZd/lsd6FUg2n1JwI+OdGcPqceI/8/pQc3CRfs2Fe04jtb+aPsgsjusmH9RA/aHjCt/
-	 COfigsAJR04qRQmVI4G/znxPit0lzLWdyWF6e7dY4K0UVVwEyEvH4c22kzNVGUGMggYw1vorQXiw
-	 2jT5ytuZrHHf5sTpIHu+vuqb9Qopmg92Gu2ygxDpK+1Me6prKsipPtXAUUn7ip92zrHrs6mU0CdW
-	 jGaOW9KzEgxqi+59UFsnvX0PPZ7qWSDj3nAwvVzZ6fX2/5I2Jc3AJHdb2LVunyjm5GK4KZqbTqwb
-	 KY46KPVNt8mPc7aSUHPL2bY30bRwErcoeabM+Jk2O0kVk7GPv3FbGxLSCLLqu0agojSbmeSmFZ5X
-	 ACZoTmVo89CRYiPshxg5e/c2OlPPpFfOgXQFBzZPgpx5NSTaVUj7Z06d11w8PU+tRNPlLGk2klbL
-	 B/TEoBAtzprla4sASXFBqZMsnjQnKq9DGp7nFc0E+nZp84gYjg+41Uy1DXsExU3nvxirEnGZrKtF
-	 OM8tdqXKF0TSKSCYDJTuYSgwPyRiajmADXD3/8n2FBplXKxsq/26xldlsQwlE18dvXuyk5WQAm9S
-	 TPdE6pEfjaR6maQ/367GssaLj010OZtsRmvwGlGkfYZSX15NmS6EDexT95SbtjHPb3vqCP7oFTR7
-	 6JSY+iY76xMo30fjRgvgsHRGpWb9JxWhnlcyfJ9xXa6cpnc2Lu+IO8DR0Q5KlDQGBYhLDSiDnk95
-	 LpVvbmu+VaI7RJXb9YABnF5ZWKIJiJMjspBu66c9xYQGtCqBNLVTXHvJXoFw==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Jingyi Sun <1045704958@qq.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Shradha Gupta <shradhagupta@linux.microsoft.com>,
-	Thomas Huth <thuth@redhat.com>,
-	Sourabh Jain <sourabhjain@linux.ibm.com>,
-	Pingfan Liu <piliu@redhat.com>,
-	Jingyi Sun <1045704958@qq.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Anton Blanchard <anton@samba.org>
-Cc: kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] kexec: use phys_addr_t in generic crash_free_reserved_phys_range()
-Date: Sat, 28 Nov 2026 16:19:03 +0800
-X-OQ-MSGID: <20261128081908.391-1-1045704958@qq.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=aOKBJJL9
+ARC-Seal: i=1; a=rsa-sha256; t=1795854459; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lge2V1phD4GvM4gQNB8EGK7dF7ynTy2agpPqUcb1/lNKxUXH9y9xNedU/Pfi9zRYJKymsFWsPNkSHuAoFbpfUzWvC+16K7/VeUgdAw6DkglmBZeyegwdhgPtJR1Wh8cPKbaKHEoHmrmGER5YIIXMjJXOQ0ya+R9dgRFlGG5Ibkg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795854459; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eWOtYyvFjAz6pp2c8GfRiAyYtqMIExJFiM1D9vtmH+w=; 
+	b=dzTEpYfKssUTQtUU2BScP5VlOQwhmEApCQ1RBo4LRSkLQQe2rcAkVuWo2c9mwZeOMGNxnOuYDtpqAkXtHIrJnr40Gd60GTwgEo1WtWKeBroz0nTOpIny+dgTv+K4tgi2NKB3kYuUaseSw0oOV8tHfMiB49DF7AUKHu4LWQct9sU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=aOKBJJL9WEa0777gV9mFC04irkZOzoLx63WhnmTojZtyJW8wV69m2ULPbupODrLl9+NOLTLTrPyTgHI2xvBmKlzRp4UQyoqJkJ2U/6+KCrlis3VuXdqvrtRbZcS5y9bE2kmrk9ziTnhl3psZwudSY3+iFbqfUoRIDhYN469iZSs=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=eWOtYyvFjAz6pp2c8GfRiAyYtqMIExJFiM1D9vtmH+w=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795854456395164.46153556574347;
+	Sat, 28 Nov 2026 00:27:36 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Sat, 28 Nov 2026 09:27:07 +0100
+Subject: [PATCH] drm/sched: Sanitise wqueue_start/wqueue_stop/is_stopped
+ interleavings
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,57 +60,223 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261128-drm-sched-fini-race-v1-1-9803ee8aa8b4@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWNwQ6CMBBEf4Xs2Y22Jqj8iuHQbhdZk4J2izEh/
+ LtF9DYvmXkzg3ISVmiqGRK/RGUcCphdBdS74cYooTDYg62NsUcMKaJSzwE7GQSTI8YLmWDd2Xt
+ /qqEsH4k7eX+t13ZjnfydKa+qXyPxcyp3eauBd8pIY4ySm2o9iaK0/wfcfO2yfAC6GHh5sgAAA
+ A==
+X-Change-ID: 20261123-drm-sched-fini-race-9c1d2a8bbb76
+To: Boris Brezillon <boris.brezillon@collabora.com>, 
+ Matthew Brost <matthew.brost@intel.com>, Danilo Krummrich <dakr@kernel.org>, 
+ Philipp Stanner <phasta@kernel.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Luben Tuikov <luben.tuikov@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, stable@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.15.2
 
-The generic crash_free_reserved_phys_range() takes the range as
-unsigned long, but its only caller, __crash_shrink_memory(), passes
-resource_size_t values from crashk_res / crashk_low_res. On 32-bit
-architectures with a 64-bit phys_addr_t that do not provide their own
-helper (e.g. ARM with LPAE), a crash kernel region above 4GiB is then
-truncated to its low 32 bits when /sys/kernel/kexec_crash_size is
-shrunk: free_reserved_page() is called on unrelated low-memory pages,
-while the pages that were actually released from the reservation stay
-reserved forever.
+drm_sched_wqueue_stop() will WRITE_ONCE 1 to the sched's pause_submit
+member. This member is checked (with READ_ONCE) in every
+drm_sched_run_job_queue() and drm_sched_run_free_queue() invocation,
+which is how the two work items drm_sched_wqueue_stop() cancels would
+usually get re-armed.
 
-This was observed on QEMU (virt, cortex-a15, ARM_LPAE, 6G) with
-"mem=1G@0x40000000 mem=512M@0x140000000 crashkernel=64M@0x150000000":
-after "echo 0 > /sys/kernel/kexec_crash_size" the HighMem zone's
-managed page count stayed unchanged, while the low-memory zone grew by
-16384 pages (64MiB), i.e. the pages at 0x50000000-0x53ffffff were
-"freed" instead of 0x150000000-0x153ffffff. x86_64 with the same layout
-behaves correctly.
+However, this is of little consequence on SMP systems, where the effect
+of WRITE_ONCE is not guaranteed to be ordered with READ_ONCE calls on
+other CPUs. As a consequence, during drm_sched_fini(), a work item may
+become re-armed after its call to drm_sched_wqueue_stop(), and run into
+a sched->sched_rq that is now NULL, dereferencing a NULL pointer.
 
-Use phys_addr_t for the range and the loop variable, and PHYS_PFN() to
-derive the PFN.
+To fix this, add a pause_lock mutex which prevents queue starts and
+stops from interleaving. This lock also guarantees that the wqueue
+remains stopped during the drm_sched_fini() teardown.
 
-Fixes: c0bb9e45f3a7 ("kdump: Allow shrinking of kdump region to be overridden")
-Signed-off-by: Jingyi Sun <1045704958@qq.com>
+Additionally, use disable_work_sync during wqueue stopping to ensure
+that no previously stopped work item can be re-queued during the process
+of stopping the wqueue. work_tdr in drm_sched_fini() is also disabled
+rather than cancelled, so that no stray work timeouts can trigger
+anything of concern during teardown.
+
+Finally, use the smp stores/loads to set and read the pause_submit
+member, so that drm_sched_is_stopped() will observe the results of a
+start or stop operation in a properly ordered fashion, so that drivers
+which use this function don't need to worry about unexpected
+interleavings.
+
+The drm_sched_run_job_queue() and drm_sched_run_free_queue() functions
+consequently no longer need the (racey) drm_sched_is_stopped() check, as
+the work disabling achieves this in an atomic manner immune to TOCTOU
+bugs.
+
+Fixes: a6149f039369 ("drm/sched: Convert drm scheduler to use a work queue rather than kthread")
+Cc: stable@vger.kernel.org
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- include/linux/kexec.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+We've been told of a NULL pointer deref stack trace in
+drm_sched_run_job_work() on systems running panthor during teardown of a
+GPU context. The affected customer reported that by disabling the work
+items in drm_sched_fini(), rather than cancelling them through
+drm_sched_wqueue_stop(), the crash would go away. The reason was that a
+job could persist beyond the wqueue_stop, since they can be re-armed by
+one of the other work items being processed on a different CPU.
 
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index bac11e940e74..e21dcc316bf9 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -484,12 +484,12 @@ static inline phys_addr_t boot_phys_to_phys(unsigned long boot_phys)
- #endif
- 
- #ifndef crash_free_reserved_phys_range
--static inline void crash_free_reserved_phys_range(unsigned long begin, unsigned long end)
-+static inline void crash_free_reserved_phys_range(phys_addr_t begin, phys_addr_t end)
+Upon looking at the code I realised that drm_sched_wqueue_stop() was
+actually broken in several subtle ways that go beyond just changing
+which function of the workqueue APIs should be used.
+
+While I was tempted to get rid of drm_sched_is_stopped(), several
+drivers do use it. I think it's a potential TOCTOU footgun unless the
+driver itself makes sure that no start/stop is issued between the check
+and the code that is subsequently run to act on its result. But now it's
+at least sequentially consistent as well.
+---
+ drivers/gpu/drm/scheduler/sched_main.c | 52 +++++++++++++++++++++++++++-------
+ include/drm/gpu_scheduler.h            |  1 +
+ 2 files changed, 42 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/gpu/drm/scheduler/sched_main.c b/drivers/gpu/drm/scheduler/sched_main.c
+index 99252674e266..4662f024ad88 100644
+--- a/drivers/gpu/drm/scheduler/sched_main.c
++++ b/drivers/gpu/drm/scheduler/sched_main.c
+@@ -138,8 +138,7 @@ bool drm_sched_can_queue(struct drm_gpu_scheduler *sched,
+  */
+ static void drm_sched_run_job_queue(struct drm_gpu_scheduler *sched)
  {
--	unsigned long addr;
-+	phys_addr_t addr;
- 
- 	for (addr = begin; addr < end; addr += PAGE_SIZE)
--		free_reserved_page(boot_pfn_to_page(addr >> PAGE_SHIFT));
-+		free_reserved_page(boot_pfn_to_page(PHYS_PFN(addr)));
+-	if (!drm_sched_is_stopped(sched))
+-		queue_work(sched->submit_wq, &sched->work_run_job);
++	queue_work(sched->submit_wq, &sched->work_run_job);
  }
- #endif
+ 
+ /**
+@@ -148,8 +147,7 @@ static void drm_sched_run_job_queue(struct drm_gpu_scheduler *sched)
+  */
+ static void drm_sched_run_free_queue(struct drm_gpu_scheduler *sched)
+ {
+-	if (!drm_sched_is_stopped(sched))
+-		queue_work(sched->submit_wq, &sched->work_free_job);
++	queue_work(sched->submit_wq, &sched->work_free_job);
+ }
+ 
+ /**
+@@ -1153,6 +1151,7 @@ int drm_sched_init(struct drm_gpu_scheduler *sched, const struct drm_sched_init_
+ 	init_waitqueue_head(&sched->job_scheduled);
+ 	INIT_LIST_HEAD(&sched->pending_list);
+ 	spin_lock_init(&sched->job_list_lock);
++	mutex_init(&sched->pause_lock);
+ 	atomic_set(&sched->credit_count, 0);
+ 	INIT_DELAYED_WORK(&sched->work_tdr, drm_sched_job_timedout);
+ 	INIT_WORK(&sched->work_run_job, drm_sched_run_job_work);
+@@ -1190,6 +1189,20 @@ static void drm_sched_cancel_remaining_jobs(struct drm_gpu_scheduler *sched)
+ 	}
+ }
+ 
++static void drm_sched_wqueue_stop_locked(struct drm_gpu_scheduler *sched)
++{
++	lockdep_assert_held(&sched->pause_lock);
++
++	disable_work_sync(&sched->work_run_job);
++	disable_work_sync(&sched->work_free_job);
++
++	/*
++	 * Anything that observes pause_submit will also want to see the effects
++	 * of any of the previous memory operations.
++	 */
++	smp_store_release(&sched->pause_submit, true);
++}
++
+ /**
+  * drm_sched_fini - Destroy a gpu scheduler
+  *
+@@ -1212,13 +1225,15 @@ void drm_sched_fini(struct drm_gpu_scheduler *sched)
+ {
+ 	int i;
+ 
+-	drm_sched_wqueue_stop(sched);
++	/* Guarantee queue is paused for the entirety of the teardown */
++	guard(mutex)(&sched->pause_lock);
++	drm_sched_wqueue_stop_locked(sched);
+ 
+ 	/* Wakeup everyone stuck in drm_sched_entity_flush for this scheduler */
+ 	wake_up_all(&sched->job_scheduled);
+ 
+ 	/* Confirm no work left behind accessing device structures */
+-	cancel_delayed_work_sync(&sched->work_tdr);
++	disable_delayed_work_sync(&sched->work_tdr);
+ 
+ 	/* Avoid memory leaks if supported by the driver. */
+ 	if (sched->ops->cancel_job)
+@@ -1303,9 +1318,9 @@ EXPORT_SYMBOL(drm_sched_wqueue_ready);
+  */
+ void drm_sched_wqueue_stop(struct drm_gpu_scheduler *sched)
+ {
+-	WRITE_ONCE(sched->pause_submit, true);
+-	cancel_work_sync(&sched->work_run_job);
+-	cancel_work_sync(&sched->work_free_job);
++	guard(mutex)(&sched->pause_lock);
++
++	drm_sched_wqueue_stop_locked(sched);
+ }
+ EXPORT_SYMBOL(drm_sched_wqueue_stop);
+ 
+@@ -1320,9 +1335,19 @@ EXPORT_SYMBOL(drm_sched_wqueue_stop);
+  */
+ void drm_sched_wqueue_start(struct drm_gpu_scheduler *sched)
+ {
+-	WRITE_ONCE(sched->pause_submit, false);
++	guard(mutex)(&sched->pause_lock);
++
++	enable_work(&sched->work_run_job);
++	enable_work(&sched->work_free_job);
++
+ 	queue_work(sched->submit_wq, &sched->work_run_job);
+ 	queue_work(sched->submit_wq, &sched->work_free_job);
++
++	/*
++	 * Anything that observes pause_submit will also want to see the effects
++	 * of any of the previous memory operations.
++	 */
++	smp_store_release(&sched->pause_submit, false);
+ }
+ EXPORT_SYMBOL(drm_sched_wqueue_start);
+ 
+@@ -1334,7 +1359,12 @@ EXPORT_SYMBOL(drm_sched_wqueue_start);
+  */
+ bool drm_sched_is_stopped(struct drm_gpu_scheduler *sched)
+ {
+-	return READ_ONCE(sched->pause_submit);
++	/*
++	 * Ensure drm_sched_wqueue_{stop,start}() && drm_sched_is_stopped()
++	 * gives a consistent view to any observer that ensures no concurrent
++	 * starting or stopping operation is ongoing.
++	 */
++	return smp_load_acquire(&sched->pause_submit);
+ }
+ EXPORT_SYMBOL(drm_sched_is_stopped);
+ 
+diff --git a/include/drm/gpu_scheduler.h b/include/drm/gpu_scheduler.h
+index 3b0978fa8cf0..259960fd584a 100644
+--- a/include/drm/gpu_scheduler.h
++++ b/include/drm/gpu_scheduler.h
+@@ -627,6 +627,7 @@ struct drm_gpu_scheduler {
+ 	bool				free_guilty;
+ 	bool				pause_submit;
+ 	bool				own_submit_wq;
++	struct mutex			pause_lock;
+ 	struct device			*dev;
+ };
  
 
-base-commit: 7cd8495c0f16275c4f9abe1cef09a7b5fcd6d046
--- 
-2.43.0
+---
+base-commit: bf57105b00e32d37b666c029c8c6b8708391da20
+change-id: 20261123-drm-sched-fini-race-9c1d2a8bbb76
+
+Best regards,
+--  
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
