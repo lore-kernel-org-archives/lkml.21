@@ -1,102 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795872750;
-	b=gxdJwP7Jt+J1lnxYgSZI7btNCZfhAbbyw4E50T5bQn+czR0H1uHTyk/ARFGdJo/Tc/Hp
-	 ixNLLFFkFMwlP5F4Ln0ZjN/0MIbazef0z3/T/IM3v//YoouKja8MtYmkiulgv8U0n/EfJ
-	 TCilMWUr5vbuXi+osKoN2XtAdKPJqgmA0ZGF+EZC53aY6LKe8Hup2oDhDOwvJqTnae4U3
-	 StspHTA7UNNXFpZoZL+yakOMozXuWw38CiTu3jz4UcXPsbd5zJ9xEkYM+q8v0FRoN2SOI
-	 0gMAOydxj4IM5H5GTWTP4jhWUlbvLsR/k6M9wsG39muQ8IC0NZsN4Dfwi4QSjwPLG7w==
+	t=1795872865;
+	b=Hp/7TAlTgH01J3MiG00opuvYh6xYb7F5yc4c/rqT3gSMlP3+RfNmqbJlEbANyblLNktP
+	 EBzp/ZDSPZK+XR2CNnXBNg0jhn6wjIZWDv7Lh+kf4kDWln+lUd3MkbKepFztTak7hRrAY
+	 zE1qZwDoXg6O75jQxpf71p7snlFJGC5NmwAFJjB1+YtkahCFqQx9klJPFtbHae8COaHBm
+	 uEmVBVdHua1G37CtW5PCPNsDoXEjupQbjht7Bjz+ip+1Xf2uISqd4L8eetCHQaTa2pi6J
+	 Z4WpIo42zKZevxMCUmpQgnLm3G/YXhELDRzrMtw5rD9MSQJvNdWB6442BTx4rY7WRSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795872750;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=4V2a+V6fQG2NiQXAdRuUPTgWpRpo/WBcKKqghb1iDS8=;
-	b=eBqlJK+oJ3EuA2YhT0hRSAok+X5LtoY0BIdoV2YG8pEWFEasbpF/5MSpPwPzpXHZpyJy
-	 GM2I3N3/uJ3Nr3H/4n/XewbgSFTimjHmFm9Sk6LnpZS78t3aB9R886dox+DKASudLHOOC
-	 phz8uHMXTIgyu0+bzF24GkKUriJdywltg7lkFnErOR1mRO7pwQYh2iCLUg0eJ7BSB4NbK
-	 qAR4CgBOnbaGhtQATH6azHfLw7ljqvFx/GELVWRVLwYWypU1r1GzPJ10ayF9b47X7HbIu
-	 /QLgMFf4TG+MsnzimxHVRBUDrdyQa8Z5KDDbo9p3RRPMcSVLxyKZpEQ1MbyDYWn7oSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795872865;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
+	bh=ibyN4UPqhfd0UnYPvRCvg3lzGL9+KsQkfNnJq6GWEN4=;
+	b=R2xrez+rfWrIG05HgT3Jm7iOXxY/eA0E5KIFW/2TP5FJXEz2iWmm1dlahuybgE91gge3
+	 Ea7KmZaC6zZjUgThBXxamI/3JzKEMyZ0g8sBBePiQuZE9YRbtv+b9XqCAmJo8bTvIU0N6
+	 +PAMUtGcGibV+t0PdhXzvGsmt5jeFx6o9O3O3kT/Ujsmafvj2yiwL2n4a0VbVwJptdlCC
+	 gZO9HFzR9vsAfO5Xk594nYwmi53SWkej/gNRB2Vz4Ax4oXfl77Nf4DEo1dGVAEciVc+5Q
+	 +Q2C6OOb1I3SDOz0CvyfoU3JIiKBt45ouQZr6dswqo2Wn7fuZAJj7qI4ZDt3YiCKscg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TMFbXXy3;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mzfr.me;
+	spf=pass smtp.mailfrom=mzfr.me;
+	dkim=pass header.d=mzfr.me header.i=@mzfr.me header.a=rsa-sha256 header.s=protonmail2 header.b=R6gACOIr;
+	arc=none smtp.remote-ip=109.224.244.20
+Received: from mail-24420.protonmail.ch (mail-24420.protonmail.ch [109.224.244.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49475606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:32:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49475606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEE1B606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:34:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEE1B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mzfr.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mzfr.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TMFbXXy3
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so61164225e9.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 05:32:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795872748; x=1796477548; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4V2a+V6fQG2NiQXAdRuUPTgWpRpo/WBcKKqghb1iDS8=;
-        b=TMFbXXy3VkgZTK+h4ARTANj0bd2OJWcSuDzdl4CAQt389Lpai+AVfRc4XA/gYyacly
-         R879Dgv0XBK8CYbhAZ65Kc2El88wpAV7RM+wotXPg60QlWi7LV6TpyZIbr8Um0C23an6
-         u8TQHz1N77s+FngyeyQ1L9xezzYMnq3z1q5gZyPlEmGptbiiGxR+FxenDTbXlJBq90e9
-         mWsGq3acSFGPFShfLOaefOfjfSYazcTTWM+chxcEoBBQ9QljloO9eXgUQTZEX7eoBpeK
-         bbiItkLRT3BRPAdlFbxhWj+dtp56eg+NcFz0UNzFKiLv8c1LTAHMzmFtQU8SlAwAy5pU
-         W14w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795872748; x=1796477548;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4V2a+V6fQG2NiQXAdRuUPTgWpRpo/WBcKKqghb1iDS8=;
-        b=UgAPDuQW49dyeVYQp+NxLp01BX4E+BdTGd5HJJbtb5p5ptYhEGLaR4mn6NMBwcCuFX
-         /iI8NOq1NqBWyGJFNAZvTiRlJHU3jDibu3xu5ouTUP4ilhifnoZMS3u4Wdw0CkYDO35/
-         U//1f78O4Z0oYugDd0L/8SnBgM5gwgdwcR8gQuWwQi68RJAapzDpiAS1SPxxH5z9Qw9c
-         ElUA5GQ6OUTd8CN4AekUDzx/TEjZMSUCgNBBwQoriLtytstcDv4/YME2Zr29npZiYPol
-         rWhxP/1kidKNeDAu8VclcxsqGEJg7Fm5XvebYpA2Fn7fX2fkaXIR3TTdiZ/J29Hfvpcd
-         Uzww==
-X-Forwarded-Encrypted: i=1; AL+hErF8ovTJf94lYkNgalmAW3F8ntgmooAfUHAisdnYdPEDCZqJfYAu/Y6ivMhhc1gATPKlkMIflRxIXP7naF8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WzL1qdaNOZksl5/DCVs6sNE2ZYEcrkJ28+RttgEgd+nIApBSV
-	A7VAQRHY1IxeB1QEfNxgtqZnkETnWksDsu8hhzxbgUpw/F9obVGQMd4A
-X-Gm-Gg: AZFdTZcllvUJP+sYf2ozKN1bGoeKJkdQms1VBnkYl0iatntC9IAFEolCPnivwdRLzht
-	2hZqeOXt3tn18dEfGo31wi66SaLV7ImqI6VCQwjqx6NTLqEAz2GN6RC0aj/MK4yKLmHE7JXIN2L
-	CNvEuy5H673428m1VsE7OwHmFcnaTLjoTb8JLKiL5VeGnAVLtq1UtmjuzwoHkm1xI4BOMoTnuEa
-	Zy9TZ1We1EBhor9506nR7JekuNJV8icY6CH7dbsgzW3c11uVxkGowiJZQl7e+ctpKmphkKFWS9Q
-	DjnUMdE4jRofDQTISLr4g1U4+jymaGJ74WKLzIDSPJCyNBB9UyQcYgdecTdnUhPQVOo3IzqLMzp
-	hd7Zfmh9EnsvXygEpiyte00clkeNtuTJ6JnBVqv0iggKTb5/PMTWQ5AGBJK3uhn7iWOI81giI9f
-	XafR+qaffGGeBOdriGAtB5fZWRoPhPDFHk3OLY6SNNAYkPO9i0QfJA8Cl0b2TUG4T16Q7nTDLi2
-	f9JBEWbajMCe8wEYDLeucqZ564Y0ONlTJAuOVD9IoNZlCqFqBSkPuMy6C6w6Nv4y8Gty5tERGie
-	q8w+mzMu/Zp7REXHTM545uQRh7GfPBsSnh2RtiHfJ271Gg89ZOOMc0MZnCZbYodN65qI0z6UN4M
-	fkwZC0YnCXMCGJ/iT2FnMeWczA/P8EptApBt3
-X-Received: by 2002:a05:600c:1d2a:b0:4b7:6942:39bf with SMTP id 5b1f17b1804b1-4bb88814031mr666559775e9.28.1795872748317;
-        Sat, 28 Nov 2026 05:32:28 -0800 (PST)
-Received: from pc.tail250202.ts.net ([87.110.86.243])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm790112755e9.5.2026.11.28.05.32.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 05:32:26 -0800 (PST)
-Date: Sat, 28 Nov 2026 15:32:23 +0200
-From: Janis Edvarts Lacis <janislacis06@gmail.com>
-To: Antonio Quartulli <antonio@mandelbit.com>
-Cc: intel-wired-lan@lists.osuosl.org, 
-	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
-	Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>, Kurt Kanzenbach <kurt@linutronix.de>, 
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Heiner Kallweit <hkallweit1@gmail.com>, Joe Damato <joe@dama.to>, 
-	Sven Auhagen <sven.auhagen@voleatech.de>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org
-Subject: Re: [PATCH net v5 0/6] igb: fix runtime PM resume issues
-Message-ID: <5k4igk5etdbmaweimm5ams44kwe3vzcqjmnck6a2w2iyhsfsvd@ianca2g23kva>
-References: <20261124235723.1135808-1-antonio@mandelbit.com>
+	dkim=pass (2048-bit key, unprotected) header.d=mzfr.me header.i=@mzfr.me header.a=rsa-sha256 header.s=protonmail2 header.b=R6gACOIr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mzfr.me;
+	s=protonmail2; t=1795872861; x=1796132061;
+	bh=ibyN4UPqhfd0UnYPvRCvg3lzGL9+KsQkfNnJq6GWEN4=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=R6gACOIrIr0yb9YygS7zSIfS5kS1yC9ilAe4m4suhpHfKmN9UbK1Iz6aDNp61vcSn
+	 gvRviWYes/CLinEd/hqy4ALdBBiTYkgmVUVV2az0tDaEnaO0kCQTpnPp4uUo/ZYepk
+	 yxHOP9i3lnBDmkGrWGG4Ee5Ked9Txuxpsg1k5DV4fqVOsI9jr8zawxdlbBvE3jhk/N
+	 gpQil3CjOO7Obhv5X772DO2RaITPC6ORS1mkE9tYsVbD4RHPeBMkj6X9XpiJM2IIbV
+	 qPvG1qdBC2pdQ5+b41IturS0KUvcqWLRW2eN45N2kJk2tE4xVBjKejV8hP/ACRlNde
+	 nDGAjLtf4Futw==
+Date: Sat, 28 Nov 2026 13:34:14 +0000
+To: Jens Axboe <axboe@kernel.dk>, io-uring@vger.kernel.org
+From: Mehtab Zafar <hello@mzfr.me>
+Cc: Christian Brauner <brauner@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org
+Subject: [PATCH] io_uring/rw: complete partial writes from io-wq
+Message-ID: <20261128133400.62759-1-hello@mzfr.me>
+Feedback-ID: 37505322:user:proton
+X-Pm-Message-ID: b0f532564e3c66afd64b107f7752383ae92a0dc4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,89 +60,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261124235723.1135808-1-antonio@mandelbit.com>
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98"; charset=utf-8
 
-On 25 Nov 00:57, Antonio Quartulli wrote:
->igb can be runtime suspended when the link goes down (with
->power/control set to auto). Resuming it calls functions that need RTNL
->without holding it (patches 2 and 4), XDP and XSK changes race with a
->resume (patch 5), and devices that can't signal a wake-up are suspended
->anyway, so their port stays down when the link comes back (patch 6).
->
->Patch 1 fixes the XSK pool disable path when the device has fewer rings
->than the stack has queues: a NULL dereference with VFs (a single Tx
->queue on 82576), or after a fallback from MSI-X to MSI on resume. Patch
->3 keeps such queues while they still have an XSK pool, so that the pool
->can still be disabled.
->
->Tested with the 82576 emulated by QEMU, including, with test-only hooks,
->a runtime resume and a simulated system sleep (the suspend/resume
->callbacks called directly, as the test kernel has no CONFIG_SUSPEND)
->with the device forced to come back with MSI and a single queue.
->Patches 1 and 3 were tested with a zero-copy AF_XDP socket: closing it
->after enabling a VF oopses (queue 1, stock igb and v3) or warns and
->leaks (queue 2, v4), and warns after a resume forced to use MSI (v4);
->patch 5 by closing a socket and attaching an XDP program while runtime
->suspended. Not tested: real hardware and PME wake-up, a real system
->sleep, the MSI-X allocation failure itself, the window before the work
->item runs, SR-IOV with runtime PM, and a device that can wake up. Not
->run under KASAN.
->
->Sashiko also found two pre-existing issues in the XSK queue disable/
->enable paths (the Tx NAPI isn't stopped when Rx and Tx don't share a
->vector; a failed buffer reallocation leaves the queue half torn down);
->they will be fixed separately.
->
->igc has the same issues (see the notes); Joe Damato offered to test on
->igc, so its fix will be sent separately.
->
->Changes in v5:
->- new patch 3: keep the stack's Rx queues that still have an XSK pool
->  (Janis)
->- patch 4: cancel the work item before a suspend (Sashiko)
->- new patch 5: resume the device before changing XDP or XSK settings
->  (Sashiko)
->- patch 6: check pci_dev_run_wake() when scheduling the suspend
->  (Sashiko)
->
->Changes in v4:
->- patch 1: also handle queues with an Rx but no Tx ring, as with VFs:
->  tear down the Rx ring and skip only the Tx part (Sashiko); subject
->  changed from "don't disable rings ..." to "don't touch rings ..."
->
->Changes in v3:
->- new patch 1
->- patch 2: set the real queue counts on system sleep resume and from a
->  work item on runtime resume, and drop packets for queues the device
->  doesn't have until then (Janis, Sashiko)
->- patch 3 (now 4): link the NAPIs from the same work item
->
->Changes in v2:
->- patch 2 (v2 patch 1): keep setting the queue counts in __igb_open(),
->  only skipping them on resume (Sashiko)
->- mention the tested hardware in the commit messages
->
->v4: https://lore.kernel.org/netdev/20261120210134.133238-1-antonio@mandelbit.com/
->v3: https://lore.kernel.org/netdev/20261119140412.163202-1-antonio@mandelbit.com/
->v2: https://lore.kernel.org/netdev/20261116153041.3002666-1-antonio@mandelbit.com/
->v1: https://lore.kernel.org/netdev/20261113105835.3821433-1-antonio@mandelbit.com/
->
->Antonio Quartulli (6):
->  igb: don't touch rings that don't exist when disabling an XSK pool
->  igb: fix RTNL assertion when resuming from runtime suspend
->  igb: keep the stack's Rx queues that still have an XSK pool
->  igb: link queues to NAPIs under RTNL after runtime resume
->  igb: resume the device before changing XDP or XSK settings
->  igb: only allow runtime PM if the device can wake up
->
-> drivers/net/ethernet/intel/igb/igb.h      |   1 +
-> drivers/net/ethernet/intel/igb/igb_main.c | 144 +++++++++++++++++-----
-> drivers/net/ethernet/intel/igb/igb_xsk.c  |  37 ++++--
-> 3 files changed, 143 insertions(+), 39 deletions(-)
->
->-- 
->2.56.1
->
-Reviewed-by: Janis Edvarts Lacis <janislacis06@gmail.com>
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+From: Mehtab Zafar <hello@mzfr.me>
+To: Jens Axboe <axboe@kernel.dk>,
+	io-uring@vger.kernel.org
+Cc: Christian Brauner <brauner@kernel.org>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] io_uring/rw: complete partial writes from io-wq
+Date: Sat, 28 Nov 2026 21:34:00 +0800
+Message-ID: <20261128133400.62759-1-hello@mzfr.me>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+
+IORING_OP_WRITE with an offset of -1 uses and advances the current file
+position. A partial write is currently returned as -EAGAIN so the remainder
+can be retried from io-wq.
+
+That is only appropriate for the initial nonblocking attempt. If the
+partial write already happened in an io-wq worker, returning -EAGAIN ends
+the worker attempt, drops req->file, and reaches io_rw_fail(). The CQE is
+fixed up to report the successful bytes, but kiocb_done() never updates
+f_pos.
+
+Only punt partial writes from the nonblocking submission path. A partial
+write from a blocking worker then completes normally through kiocb_done(),
+which updates f_pos and performs the usual write completion accounting.
+
+Keep the last known-good position for a partial nonblocking write. If its
+later retry fails through a normal completion path, commit that saved
+position rather than trusting ki_pos from the failed write.
+
+This bug was found with AI assistance, which also helped
+prepare the fix, tests, a
+nd description.
+
+Fixes: 1939316bf988 ("io_uring: kiocb_done() should *not* trust ->ki_pos if ->{read,write}_iter() failed")
+Cc: stable@vger.kernel.org
+Signed-off-by: Mehtab Zafar <hello@mzfr.me>
+---
+Testing on x86_64 against axboe/for-next at e00ba7334fc2:
+- Three fresh KVM boots per kernel, using identical userspace binaries
+  and initramfs, with no guest disk or NIC.
+- Baseline: a 100-byte current-position write limited to 10 bytes returned
+  10 in the CQE but left f_pos at 0. Patched: CQE=10 and f_pos=10.
+- Wholly failed writes remained -EFBIG with f_pos=0; complete writes
+  remained successful with the expected position advance.
+- liburing fpos.t and read-write.t passed on the patched kernel.
+- A partial-read control returned 4096 bytes and advanced f_pos correctly
+  on both kernels; no analogous read-side regression was reproduced.
+- W=1 io_uring/rw.o and full bzImage builds passed. Strict checkpatch
+  reported no errors, warnings, or checks; git diff --check was 
+clean.
+
+ io_uring/rw.c | 43 +++++++++++++++++++++++++++++++++----------
+ io_uring/rw.h |  1 +
+ 2 files changed, 34 insertions(+), 10 deletions(-)
+
+diff --git a/io_uring/rw.c b/io_uring/rw.c
+index 3ecb842147a4..e658a9b2e1b4 100644
+--- a/io_uring/rw.c
++++ b/io_uring/rw.c
+@@ -200,6 +200,7 @@ static int io_rw_alloc_async(struct io_kiocb *req)
+ 	if (rw->vec.iovec)
+ 		io_req_set_flags(req, REQ_F_NEED_CLEANUP);
+ 	rw->bytes_done = 0;
++	rw->partial_pos = -1;
+ 	return 0;
+ }
+ 
+@@ -551,6 +552,24 @@ static void __io_complete_rw_common(struct io_kiocb *req, long res)
+ 	}
+ }
+ 
++static inline void io_save_partial_pos(struct io_kiocb *req,
++				       struct kiocb *kiocb)
++{
++	struct io_async_rw *io = req->async_data;
++
++	if (req->flags & REQ_F_CUR_POS)
++		io->partial_pos = kiocb->ki_pos;
++}
++
++static inline void io_commit_partial_pos(struct io_kiocb *req, long res)
++{
++	struct io_async_rw *io = req->async_data;
++
++	if (res < 0 && req_has_async_data(req) && io->bytes_
+done > 0 &&
++	    (req->flags & REQ_F_CUR_POS) && io->partial_pos >= 0)
++		req->file->f_pos = io->partial_pos;
++}
++
+ static inline int io_fixup_rw_res(struct io_kiocb *req, long res)
+ {
+ 	struct io_async_rw *io = req->async_data;
+@@ -590,6 +609,8 @@ static void io_complete_rw(struct kiocb *kiocb, long res)
+ 		io_req_end_write(req);
+ 
+ 	__io_complete_rw_common(req, res);
++	if (!(req->flags & REQ_F_REISSUE))
++		io_commit_partial_pos(req, res);
+ 	io_req_set_res(req, io_fixup_rw_res(req, res), 0);
+ 	req->io_task_work.func = io_req_rw_complete;
+ 	__io_req_task_work_add(req, IOU_F_TWQ_LAZY_WAKE);
+@@ -604,11 +625,14 @@ static void io_complete_rw_iopoll(struct kiocb *kiocb, long res)
+ 	if (kiocb->ki_flags & IOCB_WRITE)
+ 		io_req_end_write(req);
+ 
+-	if (res == -EAGAIN && io_rw_should_reissue(req))
++	if (res == -EAGAIN && io_rw_should_reissue(req)) {
+ 		io_req_set_flags(req, REQ_F_REISSUE | REQ_F_BL_NO_RECYCLE);
+-	else if (unlikely(final_res != req->cqe.res)) {
+-		req_se
+t_fail(req);
+-		req->cqe.res = final_res;
++	} else {
++		io_commit_partial_pos(req, res);
++		if (unlikely(final_res != req->cqe.res)) {
++			req_set_fail(req);
++			req->cqe.res = final_res;
++		}
+ 	}
+ 
+ 	/* order with io_iopoll_complete() checking ->iopoll_completed */
+@@ -1178,15 +1202,14 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
+ 		if (ret2 == -EAGAIN && (req->flags & REQ_F_IOPOLL))
+ 			goto ret_eagain;
+ 
+-		if (ret2 != req->cqe.res && ret2 >= 0 && need_complete_io(req)) {
++		if (force_nonblock && ret2 != req->cqe.res && ret2 >= 0 &&
++		    need_complete_io(req)) {
+ 			trace_io_uring_short_write(req->ctx, kiocb->ki_pos - ret2,
+ 						req->cqe.res, ret2);
+ 
+-			/* This is a partial write. The file pos has already been
+-			 * updated, setup the async struct to complete the request
+-			 * in the worker. Also update bytes_done to account for
+-			 * the bytes already written.
+-			 */
++			/* Save the last known-good position before retrying. */
+
++			if (ret2 > 0)
++				io_save_partial_pos(req, kiocb);
+ 			iov_iter_save_state(&io->iter, &io->iter_state);
+ 			io->bytes_done += ret2;
+ 
+diff --git a/io_uring/rw.h b/io_uring/rw.h
+index 1179506f929f..63c53cd21286 100644
+--- a/io_uring/rw.h
++++ b/io_uring/rw.h
+@@ -12,6 +12,7 @@ struct io_meta_state {
+ struct io_async_rw {
+ 	struct iou_vec			vec;
+ 	size_t				bytes_done;
++	loff_t				partial_pos;
+ 
+ 	struct_group(clear,
+ 		struct iov_iter			iter;
+-- 
+2.34.1
+
+
+--------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsCpBAEBCABdBYJrCthVCRBCkCzGpVLSJDUUAAAAAAAcABBzYWx0QG5vdGF0
+aW9ucy5vcGVucGdwanMub3JnpaIRLUsWCjUIE8wIkN6PshYhBJC8NTVod5IV
+Rdc7/kKQLMalUtIkAABdzggAhV0Vs4jx2eztN1HMrjJOQx5mbOvyn9YTYc0H
+ARUTSKm+oFWzG4h6f4xYf1yG+dPWAfWHV3IxFq04T4HLo2JcK0p9kxmvg28+
+UhA5cICObWSzVNjPfWtRynLlC0lzvqLgKgxVAxVDjNN0zpien+ZQcudIApGe
+GEwzdRqYL9d0nJJQVjIoreto4QeOeimACldP22WTpo4bO/oHj/R4wQDLhoiK
+SsTgSHLuto2CRFhtD6kGPT7bFQPw/EQROQpgUm4/ltdgy117DY7qvKJ+1Y38
+Czy3Pxno2eS1S3WhfLgQgEwaiPi46RHmI64NQeM73UPVSfxnOdVPxhV/iLlW
+BaH8aA==
+=Gsvd
+-----END PGP SIGNATURE-----
+
+
+--------e0fdfd6fa2f252007acc851e603bae5c0d63fee035d950ea92fbb55e82a6ce98--
+
