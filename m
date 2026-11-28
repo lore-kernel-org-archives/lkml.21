@@ -1,102 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795826445;
-	b=xwfxc9D0MBxs7kGVJQRaDG5N3Ne1C3Ifd6Vr64BihBqZF6PSb1P3SKOG/fN9Jw82vnxn
-	 s1byM5nx5lZciK5nGxKPnitLQDbgebHyNzcDgnmPeI+pXSVgi5UN+zWOyVxGDvYacsQ/+
-	 bBoVNmWepj1mlC6JSI7TMMXtJi7wJ+m9FbvHnmIco9YJ1dIkT2XeJF/lpMVkGof9pZ1UA
-	 bW25knmIy3FFi6iceZfGhjYkP2Dvec46HZLdKMzk47VSnYv8SQjWei2Ulbj6XgbRuYDgB
-	 Y0nyC5v34ARYA07NZ2CB9zSRCwPxpa+dO8eQpthf13q1iLIPq7S9UqNNsWZm9g2iG0w==
+	t=1795826504;
+	b=yMNLw5y4cR5jOw1Jae4lTKmmliG9bTByZRmcgLDIOz0CwhqNgeHdzpAjdXhbilpFaqCt
+	 Rq8sd+tXza4q6jX/AzQ2UUrSy5Z3x+8DKqJa/VoyWL5BuHIDcarcuBoGGp+jz2Dc/ixWL
+	 AenEoljN74JXSE/XwzmgM2KYaeHSKK53Q0zLlVVWt7MRXOIF5BF5CoPaIC3dBWXAq9Vb0
+	 /L63J4M5TB2N5AVAI8JwmwcniD1nZctEEoa5t1fOI1XYYZEufN1ubhu5RxKIHLpChnUqx
+	 kb4X5amVKNCmGEnu/zAmyTMmRvf4nX8ZpQ2rAT3Rnj3E0JCQEInowfDBqqSJjmoiFfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795826445;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=1LRXfi3ljPVCU2K/+RYwxqIvg9IS2N14/NgihSvM4BI=;
-	b=AoVcEvTaBR+o1O2vpJ0cCqAqsL54Qp5GAYyzBDsoSBrxxhO0uSFA7/4joIrucbREp0lv
-	 KnZJ2gSKmmTuWX9l/zSx40EOtyK1nM5RHdq0TrxRxLlXFkmlkBn12DAUbby7N8cHniIgO
-	 9pZNQZYKRVa76ccwfS1Gue9vxWvA7Uyoz9hZzDiMIeykT9wXeaTqdw94UmTY5dWnpVsXU
-	 Jr2FWNyyGLOH7jZA46AHTtQXBmRRvP3xtYSPPpnkqFK79DrlewNpDCc+YEaDNGj73A1NT
-	 Etd2N8ryvZJZ9e0/7f5yeHtUTCfHRnpXRlyfbTfjPFOJU2+hIF6t+3VoatEoskCG0qQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795826504;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=txZ40HwG5PBs2JaJtTTKqqOr9g+GgVI7bM74efqgyNM=;
+	b=yUyKMMjsV0jEHmkm4MpuYhkXU/u1ie3Sm+aOHUxwPgbopfCfqxTXroDYiJF7xQoZt2rW
+	 kBzuKY6cZTZr2w88gF5ahsAjl7iQBbY7sKwzJ/KemMbhfL0LP028KbJdIZXQFUWDHg8z9
+	 qwmnKhbFollaoUy1CmxZiprJkNjhGurnrRK72CQ7uFvIUP99N68C992Wzbdekd37F6g4L
+	 gE3H0DWmQrUSCS61vIiMfvP7rt+pPwYSnQfqcV1mW5OiOkH92sDTOBIK8jOJTxK0FJA/6
+	 rYtnnhuMA2SgmuGKUmNNUvgoJLljZ24V0wWsVvVtnCRh3yl4QTEIOdiLXyANnilyp3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=none smtp.mailfrom=stellman-greene.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QFKEqVF0;
-	arc=none smtp.remote-ip=209.85.222.175
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com [209.85.222.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZQMrUbQI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CDCC606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:40:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CDCC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=stellman-greene.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC014606A31C;
+	Sat, 28 Nov 2026 00:41:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QFKEqVF0
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-949680e6d83so775043285a.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 16:40:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795826444; x=1796431244; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1LRXfi3ljPVCU2K/+RYwxqIvg9IS2N14/NgihSvM4BI=;
-        b=QFKEqVF05ghIEVPIPyc5mGzdM/AHNZzToOiVkpnK4uGnc7Cq9CcalrS+lN0Q/joCgT
-         k188LM++SxBkJCI0/excufcskDgZnLPblnVbFeZlEfLTvT/6yGWt2WkfCpQe18lmXwhs
-         QFIjvLIRUKHZvznsLVa7ZdQ1fdr1q0w7gnnYg8Pem+MeUVazvJIUADsIPMbKK0KkVacN
-         /QjnWNttAepXfQIc9J9G5e0FXNbewYFUIKZTmkJbQI1r7/1pZzMOUnkCD0KV46JjH/z+
-         RVaA2YYYhLFFVXYvWhAoa7iQ9qJNk4n7jdlItR4dQlMemoUD3P5wqA/OUtH0FVK4cpHm
-         mbJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795826444; x=1796431244;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1LRXfi3ljPVCU2K/+RYwxqIvg9IS2N14/NgihSvM4BI=;
-        b=ppE/rRBinPz6FulGwoZTdyWD7kULN1YFPoxah5I/8pzbSzO+WCSJ8nKkFJOrYZN5l1
-         muBN5FCkl1u8Sgm6yU+GERBYTx7eNbbm627zhqvNdVu6Dr7zZEGMZE7T+yPCRTrnPNjt
-         I4tt1TJpjjnhZfYYwMoK65UY5q2+npvcKgAjHUEQCBCrLeu8lNzpT9xapYhytgfnnyy9
-         A5e+wLfGFUIn5XjNRnSY7cTHH4KCyzks4Mq46PxP4UGcKxkj8vYTUOTQG6vBSd5CDCF9
-         mUJlz2dDnzerSqgj+2tImgT5sOxVdeCmVN/ol2c3xE3nhANapOnQRD3EsGJW6xHcTXMj
-         /ONw==
-X-Forwarded-Encrypted: i=1; AL+hErGN3YqVj5st/RZBpshmV5iZxw5wkmUAYL2EfNQ/wFJgVg5tPg4wHMg5NUPQvvwvL/QnbyxpIVVbZLv92t4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9eIPCbJfIJl2zdxBZ/tMU6X8qT0xOVCR3hrbywZXDBsYuLmEEJ
-	O9QMbjOxtbmNYVp/RwaeJIpAWrDXkU/4TaTzh3OFY7rHwSMClQxLtDjObbYL7QfnQbI=
-X-Gm-Gg: AZFdTZcLHshSyc3tTPi0mHK/fSR1rv6HtOBM+cQwkg6kEl9NUgY5KOo35gRVECrINdx
-	RWotLSwxsiinSKcXrriSkpT99ZL26GZUuGp5y0ul85j+q6+2ycIr0DWazwOSiQcXM7wfGr0jhIu
-	Bl8fCZIiBpnD+jIM77q59HvpzryovE7yuK0z/8xDeG2r0jGhji9N/IaCHW+BPRtAhxHvMD+YP1p
-	UZ2EIGYP0QSslSUUR3tMU2CdQ4xr+3daN7jpV9UWsfmKaODFEsJ5MhW2SoSx3LygseeRhRuKSGR
-	4MjEU16qHH8BWbse+BCiMzKmCIGlfqGCAULvxokhCmzCd4fcRwv40ll6+EbQGyI/ySoQMCEX9k/
-	5bfnebEVWC9hv+LB/p95Vq1orDtut6+AOBLOWTWt2ytVJtdZ4yDLIBDSWvEITTYxLjkNYazNHs3
-	lwhudBBGaT1wjWz3Y3hZoBgtXd7g1WTfrx3dItmSMQK8DkymlzlNmA5B7ELJH/3fqN113f4FFY0
-	H8UglVCTtpEx81jfO+G8EBfSp2gtymuw2byUb0SNPGIThs/W+lX0jbZ0DX6p37rx2XhJCn2NhPz
-	winweG+SruW6QViw75krQchDX/363F40LliBzUUjknWhU2ioSXnp6soCgf7Mrn/6c8QBDu+a1vo
-	UnPMb8SNW
-X-Received: by 2002:a05:620a:2988:b0:93e:c12c:f11f with SMTP id af79cd13be357-949bab3a1edmr4751291085a.75.1795826444355;
-        Fri, 27 Nov 2026 16:40:44 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a4e3:fb15:aef5:60c7])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb38319asm1954823985a.16.2026.11.27.16.40.43
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 16:40:44 -0800 (PST)
-From: Andrew Stellman <bugs@stellman-greene.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] rxrpc: Reject unsecured calls to userspace services with a minimum level
-Date: Fri, 27 Nov 2026 19:40:36 -0500
-Message-ID: <20261128004036.50389-1-bugs@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <179582184048.3135.8278153392391816452@kernel.org>
-References: <20261126224137.55862-1-bugs@stellman-greene.com> <179582184048.3135.8278153392391816452@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZQMrUbQI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4DC1F000C1;
+	Sat, 28 Nov 2026 00:41:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795826503;
+	bh=txZ40HwG5PBs2JaJtTTKqqOr9g+GgVI7bM74efqgyNM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ZQMrUbQINs6zsEe+v2hZIPwrasMaaRVwJEjzp+1Ykm5Fow+ht7PqCykTyF0iaE4Cq
+	 uChBArCXJVnU1AAYn/VJBhfSgjedoxgMXRJ4dNpSYR3sjoiXI3sOCdB6YpXac1xDQw
+	 qqLyyfegWEDvvSqXEhFVjsS4bwLAltPceINTY/zvQSbW8+X1r08cBrQ1e1mt40teH7
+	 QZcB7zLVh806GNxv22UkeBfPLadiaxkXjGoDQhJJ2JrK7JPEfpKQaiYS3yHG40MWQn
+	 IvyccHCKthkSNNdUUvo3IBLrSz998jKDZ68h1tocZyhqwmbVaVft2Bj/5l/jorVDRr
+	 Dw+4yIEsd38gA==
+Date: Sat, 28 Nov 2026 00:41:39 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Patrick Fischer via B4 Relay
+ <devnull+admin.tsv-stahl-riesa.de@kernel.org>
+Cc: admin@tsv-stahl-riesa.de, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, David
+ Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Kevin Tsai
+ <ktsai@capellamicro.com>, Svyatoslav Ryhel <clamor95@gmail.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] iio: light: Add Capella CM3217 ambient light
+ sensor driver
+Message-ID: <20261128004139.4f4d3c36@jic23-hlaptop>
+In-Reply-To: <20261128-upstream-iio-cm3217-v4-2-fdab04f40bbc@tsv-stahl-riesa.de>
+References: <20261128-upstream-iio-cm3217-v4-0-fdab04f40bbc@tsv-stahl-riesa.de>
+	<20261128-upstream-iio-cm3217-v4-2-fdab04f40bbc@tsv-stahl-riesa.de>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,23 +67,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Thanks. The High and Medium points are fair.
+On Sat, 28 Nov 2026 00:38:57 +0100
+Patrick Fischer via B4 Relay <devnull+admin.tsv-stahl-riesa.de@kernel.org> wrote:
 
-High: I left rxkad and rxgk out and mentioned it below the ---. A v2
-can check the negotiated level against min_sec_level in
-rxkad_verify_response() and the rxgk verify path too.
+> From: Patrick Fischer <admin@tsv-stahl-riesa.de>
+> 
+> The CM3217 has no registers and no ID. Writing a byte to address 0x10
+> or 0x11 sets command byte 1 or 2, reading a byte from 0x10 or 0x11
+> returns the high or low byte of the 16-bit light count. The second
+> address always follows the first one. The binding lists both, but the
+> driver derives the second one from the first instead of reading it from
+> firmware, which also covers new_device.
+> 
+> Command byte 1 holds the shutdown bit and the IT_T field (1/2 T, 1 T,
+> 2 T or 4 T), command byte 2 the FD_IT field (800 ms down to 66 ms). The
+> count scales linearly with both. The driver exposes FD_IT as the
+> integration time and IT_T through the scale, so the scale list offers
+> four ranges for each integration time.
+> 
+> The datasheet is not public. The bit fields, the reserved bits that are
+> written as 1 and the startup setting of 2 T and 100 ms come from NVIDIA's
+> downstream drivers (drivers/staging/iio/light/cm3217.c in the 3.4 kernel
+> rel-tegranote-r8 and the 3.10 kernel
+> android-tegra-flounder-3.10-nougat-mr1.1). One value differs: the vendor
+> header defines 4 T as 4 << 2, which is outside the two-bit field. On a
+> Tegra Note 7 field value 3 gave four times the 1 T count, so the driver
+> uses that. For the resolution, Capella gives a range of 0.01875 to
+> 119156 lux. The driver takes 0.01875 lux per count at 4 T and 800 ms.
+> This matches both the upper end (65535 counts at 1/2 T and 66 ms) and
+> the 0.3 lux per count that the NVIDIA 3.4 driver uses at 2 T and 100 ms.
+> 
+> The sensor has no data-ready flag, and a new setting only takes effect
+> when the conversion in progress ends. A conversion takes IT_T times
+> FD_IT, up to 3.2 s. Leaving shutdown starts a new one at once, so the
+> driver passes through shutdown on every change and waits one conversion
+> period plus a margin before it reads the count. The timing was measured
+> on a Tegra Note 7.
+> 
+> Tool use: Claude Code wrote this driver from the downstream drivers and
+> from my measurements on the device.
 
-Medium: right, kAFS sets ENCRYPT on its CM socket, which also takes
-callbacks, so for kernel sockets the option only governs outgoing
-calls. A userspace program built the same way would have its incoming
-unsecured calls rejected by this patch.
+As before. Unless there is something really unusual about the tooling,
+push it below the ---
 
-David, which would you prefer: enforce the minimum on incoming calls
-for userspace service sockets (NONE, rxkad and rxgk, with its own abort
-reason, a Fixes: tag and a rxrpc.rst update), or document
-RXRPC_MIN_SECURITY_LEVEL as applying to outgoing calls only? I'll send
-a v2 either way.
+Otherwise, I nearly picked this up, but I won't for now as I'd like
+you to take one more look at the includes + good to leave some
+time for others to review before I apply and by conincidence you
+sent it just as I was starting reviewing today.
 
-pw-bot: cr
+Thanks
+
+Jonathan
+
+> 
+> Tested-by: Svyatoslav Ryhel <clamor95@gmail.com> # Tegratab P1988
+> Signed-off-by: Patrick Fischer <admin@tsv-stahl-riesa.de>
+> ---
+> Svyatoslav's Tested-by was given on v1. Since then there was no
+> functional change apart from how the driver gets the second address
+> (v1: fixed 0x11, v4: device address plus one, which gives the same
+> 0x11).
+
+> diff --git a/drivers/iio/light/cm3217.c b/drivers/iio/light/cm3217.c
+> new file mode 100644
+> index 000000000000..5edd4d21d08c
+> --- /dev/null
+> +++ b/drivers/iio/light/cm3217.c
+> @@ -0,0 +1,420 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Capella CM3217 ambient light sensor driver
+> + *
+> + * The CM3217 has no registers. It answers on two fixed I2C addresses:
+> + * writing a byte to 0x10 or 0x11 sets command byte 1 or 2, reading a byte
+> + * from 0x10 or 0x11 returns the MSB or LSB of the 16-bit light count.
+> + *
+> + * Copyright (C) 2026 Patrick Fischer <admin@tsv-stahl-riesa.de>
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/build_bug.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/delay.h>
+> +#include <linux/device.h>
+We tend to try and avoid including that 'grab bag' style header.
+
+There are  more specific appropriate includes such
+as dev_printk.h
+
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/ktime.h>
+> +#include <linux/mod_devicetable.h>
+
+That shouldn't be needed. It is now assumed to always come via
+the appropriate bus header.
+
+
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/pm.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/time64.h>
+> +#include <linux/types.h>
+> +#include <linux/units.h>
+> +
+> +#include <linux/iio/iio.h>
+> +
+> +#define CM3217_CMD1_RSVD	BIT(5)		/* reserved, set to 1 */
+> +#define CM3217_CMD1_IT_T	GENMASK(3, 2)	/* 1/2 T, 1 T, 2 T, 4 T */
+> +#define CM3217_CMD1_WDM		BIT(1)		/* set to 1 like the vendor driver */
+
+> +
+> +static int cm3217_read_avail(struct iio_dev *indio_dev,
+> +			     struct iio_chan_spec const *chan,
+> +			     const int **vals, int *type, int *length,
+> +			     long mask)
+> +{
+> +	struct cm3217_data *data = iio_priv(indio_dev);
+> +	unsigned int fd_it;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_SCALE:
+> +		scoped_guard(mutex, &data->lock)
+
+For this sort of case I prefer we just take the guard for a bit longer and add
+scope for the whole statement. It generally ends up more readable.
+i.e.
+	case IIO_CHAN_INFO_SCALE: {
+		guard(mutex)(&data->lock);
+
+		fd_it = FIELD_GET(CM3217_CMD2_FD_IT, data->cmd2);
+		*vals = (const int *)cm3217_scale_avail[fd_it];
+		*length = 2 * ARRAY_SIZE(cm3217_scale_avail[0]);
+		*type = IIO_VAL_INT_PLUS_NANO;
+
+		return IIO_AVAIL_LIST;
+	}
+> +			fd_it = FIELD_GET(CM3217_CMD2_FD_IT, data->cmd2);
+> +		*vals = (const int *)cm3217_scale_avail[fd_it];
+> +		*length = 2 * ARRAY_SIZE(cm3217_scale_avail[0]);
+> +		*type = IIO_VAL_INT_PLUS_NANO;
+> +		return IIO_AVAIL_LIST;
+> +	case IIO_CHAN_INFO_INT_TIME:
+> +		*vals = (const int *)cm3217_int_time_avail;
+> +		*length = 2 * ARRAY_SIZE(cm3217_int_time_avail);
+> +		*type = IIO_VAL_INT_PLUS_MICRO;
+> +		return IIO_AVAIL_LIST;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+
+
