@@ -1,88 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795886197;
-	b=v4bMNPjGxz1JO/35fYEDoNpL+GRsh9s2j2LnEw0EfWHmtFen25xq0Vd9AmVNs1HlZeRH
-	 3DJR7qSEJkELiF5EnxhSIbieKJEBK+yNLoHRO/kmpVdtIZJQCDVOToDNSsUvWtt6csB35
-	 svdbH2Ll7AAvhrAL5pjODhZQvX8UCtZMohvtZ9rwOxIxgGXgGqpZy+wqGTVJ0EDhCCFqT
-	 Tg2URBPrYyCYWnJsme0JE2oochFDJau8zs/2bF2tycAmnurmWhm+TNjnXMf9GPUe6SRtV
-	 srGw08LD2l2957V65qBRrlLn/LedN0sGHjqv8eUHTh/lmaSqT6dO4HgpVWyOEA/xt5Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886197;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=jNYMppZjg59SlB0crJWhtTM6xqZHIPZ/g2F/6Oot1Wc=;
-	b=B/bcQPAmRwOacZZznauewb/6jM3GrKyJ8OfzRpqkrFeSz1VxmCSdFnpvlQDlrXbSNP3u
-	 c+gUT0KQtM+KeH8Lm6/OtlndRAEJQAgyJ4JUl15QFIKwvJigyVkBubF99OopfoU+ZSvH6
-	 qz9T4zxf+M8l+8xSK9+9PHivyw5UKcLS6TAhuqgBGuNJrIa4xlUhkNX8tBSav1Cgxrlwa
-	 6nRpYFZWUmFK5sSdlayk+/mmlyEq2TDxsJobTtAY4CVJzZdTAurVaAWIN3RmPxbtBKuVs
-	 Lbp/CpYxeihFvK7XsTkkYQNIjNPy5Y7hn0aOoPlhh+F28Oh8K/qw7xZ/jJElqWsRE/w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="powU/vWO";
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.83
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795886464;
+	b=OLanOAmwA2OSzz1fZE+kEJrjCUU9kzYsWMgzG9XorXrffQWEAfeT5iekDxXGgqFYi3Ip
+	 JN1eIoVBAcGla8AkQWs2gWfQ9g3yZ7EkYsOG+TeKlD+TTJOi/s/dFiI/jB3P26hlQE5GQ
+	 /oqZTCdh7DBN95W6fq5gEBBCiwL1WmpSyeztlkqsu0Pt8qdpD9o7yTomNTOpMx3ay0u7E
+	 UPjIrK2+gZc75d2d8ygd3PSzLqQsoSGjwDWEPPGA0hJTjQzz7Hv3D8cpdhJVezdePkq6e
+	 w6yaj2SRkKpNS4k7wKVUrWFPtWeDQstULvjG0gNEUF572JguKOTlArBmvuy6N7UhEww==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886464;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=XpxyahFV3d+93JK8cVpIIpglKLBRlfOFBP2w8aaU0IA=;
+	b=DAHQR+exXdh9L5gGPCjyE/3WmVQl4EyNf8JWCXkOEd7fQvQmgSGqlNHA5ZuU7DvHf8Lo
+	 p8mGdtp935RAU04Bk5Pn7nt4MQMDCjF6m69ZvADqs1kP/vlIwxZV0km/BtVZSQIoL+Qn0
+	 pM9awvLYALzMH6kVTL4D6OF4MByP2Zvs/DRcLErbHY5jJL/z1jD5Ga2QbAl6gu84Pjl+g
+	 RR92r+81X8X8YOQAJpCZezlzZhzdl9HsO2IJIA7Afuyoaq8cT3wnyC9zeDgCfd5HyiqAw
+	 B1RG+Z0q8CIElpapy4T/fWXrfYhcyF4wYx1eIBY2nD+tslpIgDwPuiW2R1IKWyP4SAQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=goldelico.com;
+	spf=pass smtp.mailfrom=goldelico.com;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=GmqspCzr;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=unrvDRAm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.83
+Received: from mo4-p02-ob.smtp.rzone.de (mo4-p02-ob.smtp.rzone.de [85.215.255.83])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DFC8606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DFC8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF923606A323;
+	Sat, 28 Nov 2026 17:21:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF923606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=powU/vWO
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a358881793so4764783f8f.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795886195; x=1796490995; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jNYMppZjg59SlB0crJWhtTM6xqZHIPZ/g2F/6Oot1Wc=;
-        b=powU/vWOkwVis6mGpRrjwGKrNsgqlTKVlPb07gSGwanEmuaeV7CUp68phmpSEtUV9P
-         Av2tBnGEVgjRixC7EETpi3qAalgy3cNXp9tcguJefO6xIHSwbuwY7kMPz0oqMpb+wABS
-         GNls0EcCEGk6eVwfwfqY3PuINmVypN213Hg2ns4nSYdMmzpIwGsoQL7Yco/qytGyh2g7
-         DhrHm2lMG2KL/YKXRuti3wVMBv5YYuepucDflGrfa68GaMhtg9XbS9Z23h+YNMeZLPYn
-         pJvtTPvZkCRrdcBFvLX+OikClerWLofp2NCIfK+LNnv0rxoTExiqhwXGklf2sudcDxrd
-         NapA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795886195; x=1796490995;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jNYMppZjg59SlB0crJWhtTM6xqZHIPZ/g2F/6Oot1Wc=;
-        b=pLv52GRC2M1RoG6mRaZ42XXbKfn3yBHybN23SC6WPypWdQwfXmGBl07TQInfMXnpZJ
-         wFT5Rz8Ggcj/TvgDcH9uvZ7qez7hTsP41euVTW/2Yf3XeC/3txmX34hSw/lXM+0TgCaT
-         okja2JRezD3xmUetPGg+EbXhUPXITu4lppqLgGQLwKZgquERBkS/VuL7aRRIwpQPsZkR
-         CEqZ+MmFAqarrU0RwwgpQwBgV1Pce/6oWooMRxR8GGuFakPRY3+j1rWy/AHgPYTtBSwV
-         AWoi/ON4OsGrcIM9ieHG/a74fIfuG1n8/1BO+gJr/qrN4JeUFxzXD295sHdpkHlj1hVD
-         gt+g==
-X-Forwarded-Encrypted: i=1; AL+hErHR+Wc4ptE9Y1tFAJzPgxtZYKHojF67CRruej9SrlVJVB6xk85eaNJCvovNWfcqp33ANCG4Pi9Ycq310R0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+RDCZ2wQ5qKt2aIxY+RTVJaGIpN982JYNhtX2UNzWabiJd1qrd
-	6DuyrvrhsinZHjFwIMN039kAHfCIKcL1y3SqQO2MYlFueJzisT8kOh8y
-X-Gm-Gg: AZFdTZcvc7HPWdl+h+oA52BFmat9/kXWyCJD7iaR2uq9owz5J9sew38nfSvaO4AegyB
-	LB41n5KvB2MniIpNFSwNQRn31U0Mumfv5h0HKwCxhyCVctf1vOifnNVy2s99dyoG6W8lvVKnyJU
-	JybL2UEFo8u8HLaXTWzcewxyipX+B2Y3TflseK7wvhZ+YO5K9GhRtBWTmZLrJSMQq9muTXTer9+
-	Ob/r+IrvJGTNL683ZSp5KmT+5I7EbQ+SChgq3Vb+DEUrTbmpgu04Y2qr3O8Dhofbc0QAkl7oz02
-	vjHgo4/Hcd2IupZrJxR2aIfSDTwkfjeYyEUmh5ngPm6yQ0jnrgAY5xes5JjjkopZXXZ1f6nStqU
-	ZvU5IAq9cGOBZcaAc9M/B0EDsx3JC31SOWhVJ9/7UlCVJCBmeqdFhvXPkhVNQxbvoPOEkfKAfcd
-	g5u66z4HgRgdepKifnpLzxM6AgdIyXDIVgAE8Tyr3tt3Z0DtiYP8WdKjY9ak7x5PZSzwzI9gkef
-	TRwoYRQys3XeKOC6yK1W1bNniGXE3mMNCAB4scucTjqZYALibT8IVK3RnvN3QPznq9BbPXCHDdE
-	K9wZDadQmo1hzCWAA9q3y/hES3oFXRH+Qw5YqQ==
-X-Received: by 2002:a05:6000:40ca:b0:4a3:976e:27a2 with SMTP id ffacd0b85a97d-4abb5146238mr55058904f8f.34.1795886195360;
-        Sat, 28 Nov 2026 09:16:35 -0800 (PST)
-Received: from [10.56.169.198] ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.16.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 09:16:34 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-Date: Sat, 28 Nov 2026 18:15:25 +0100
-Subject: [PATCH 7/7] drm/vkms: add KUnit coverage for the 3D LUT and
- multiplier colorops
+	dkim=pass (2048-bit key, unprotected) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=GmqspCzr;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=unrvDRAm
+ARC-Seal: i=1; a=rsa-sha256; t=1795886447; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=WuyMtMzvDJW0S8h6Z1TfmXt5FoOOgXxGEt1tV3fvjQDlpB1it233aDI33fRsFEru8C
+    cMwGJxylbhUrPD3lPu6uKtwbihYe4f/eTVD0t5v0tKKpts4dWEyy/y8JQ25XJk3nrdQ7
+    526VpnWxEbRowdDzW5VfNFnEN9cPalvzw+pvDC5Cmt92ralff++xpren08FtFx8fZjhZ
+    jIogB1s+SdlI/f+0CIKM8ASeaVGyapLzopv5qWTGwHrvw7iegxNLJHS2G9Qh0Ju9El04
+    FfttaDCeT9fMKxAzP3kU714s36unKfQwYUF4dnTPwLKifi6hbS3tULLwLbBjrfaJqwQQ
+    TpPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795886447;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=XpxyahFV3d+93JK8cVpIIpglKLBRlfOFBP2w8aaU0IA=;
+    b=D2/9DxmB5DtboUxnAgLIsYeqPOnyRVDoThopB5GQ7WNjNXTIhmBg2SQgkQWc8hsDnB
+    TT52ro91LSB3LkdE6UKpLbMHL8l+g7DBJnysM5pMJmTx4m+iaZThbXIhStwgs2cHJYY8
+    y0vUd/NmgBZ1LmwCBKC3HeKLZDdmNf6Am7fgtatdQoA33hPtBG1+JWZjdmr4HyCYmq9G
+    tWFXk7c08pxyne4BND7BnksNntMHqhh1r1CGgjxWXpd21+DOz7/QTj1y0p1RyUFqE3p+
+    F63nY4Ihp7xGNSqgZBfVFrpbffmGxTkMRMgDQrDUjI6imeL6ZX6mnRJdDtvrOgtVQBZy
+    WdoQ==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795886447;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=XpxyahFV3d+93JK8cVpIIpglKLBRlfOFBP2w8aaU0IA=;
+    b=GmqspCzrA8VoS6TPc9rccOAH7Y+4JBJ5M/VAQwp1Gc4MVLEb4dNi9V+wUdy/etzIb7
+    oHEBNSXCIxychWQr+kylqxZ9dm6yAweXsxBU4zaDbMV110JigYZykxFujjH1//rtzfLq
+    TFkAI55IYwDZzhWs+FOLliWRy6clgdfg1JecQiMzfB74TxdsywnWHs/NE0GUPQY2uoz+
+    LmqCa7srHUsDJ3PlE5jS9XfwBPXe2QHaE7MiXSczkpamebMopF+xeYOlGo5GiHktmTqT
+    +vzw5I4QIB4cmo7MRwYyHFiqlPpqHelMD4R0FkZfG3goY8wm29e4nKmXdwUEc4BgvHd+
+    IpBQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795886447;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=XpxyahFV3d+93JK8cVpIIpglKLBRlfOFBP2w8aaU0IA=;
+    b=unrvDRAm39X+4yO3vAe/CARW2+wqjilDPX3fl4tmYkEm8SaFJD0j219qwv6MUEide3
+    lFc5yYrz9Arb4d8RJzBQ==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrQ3ZpZn8iNpUqkTkKmhC9364Jszk5ZnVOZOaxS"
+Received: from iMac.fritz.box
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Qb56a22ASHKlLut
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Sat, 28 Nov 2026 18:20:47 +0100 (CET)
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Paul Burton <paulburton@kernel.org>,
+	"H. Nikolaus Schaller" <hns@goldelico.com>,
+	=?UTF-8?q?=E5=91=A8=E7=90=B0=E6=9D=B0=2C=20Pengpeng=20Hou?= <pengpeng@iscas.ac.cn>, Takashi Iwai <tiwai@suse.de>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, David Heidelberg <david@ixit.cz>, Paul Boddie <paul@boddie.org.uk>, " Maciej W . Rozycki " <macro@orcam.me.uk>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	letux-kernel@openphoenux.org
+Subject: [PATCH v3 1/8] MIPS: Kconfig: Allow user selection of BUILTIN_DTB with description
+Date: Sat, 28 Nov 2026 18:20:38 +0100
+Message-ID: <d25c6e6e7852a6ba3146811643641ee1bd31d1df.1795886445.git.hns@goldelico.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795886445.git.hns@goldelico.com>
+References: <cover.1795886445.git.hns@goldelico.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,156 +110,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-colorop-v1-7-dd79919f822b@gmail.com>
-References: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
-In-Reply-To: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Alex Hung <alex.hung@amd.com>, 
- Robert Mader <robert.mader@collabora.com>, 
- Harry Wentland <harry.wentland@amd.com>, Simon Ser <contact@emersion.fr>, 
- Daniel Stone <daniels@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 
-The 3D LUT test uses a 2x2x2 identity LUT with inputs that reach all six
-tetrahedra, and checks that values outside [0, 1] saturate. The
-multiplier test covers gains of 1.0, 0.5, 2.0 and -0.5.
+Make CONFIG_BUILTIN_DTB visible in Kconfig by adding a prompt and a
+detailed help text.
 
-Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
+Previously, BUILTIN_DTB was a silent option forcefully selected by
+certain machine types (such as MACH_INGENIC) whenever appended DTB
+support was disabled. This prevented modern setups from turning off the
+built-in DTB fallback when the bootloader is fully capable of passing a
+dynamic DTB.
+
+By adding a prompt, users can now explicitly toggle this behavior. The
+added help text clarifies the distinction between MIPS_NO_APPENDED_DTB
+(which controls image appending) and BUILTIN_DTB (which controls the
+compiled-in fallback data and code path via get_fdt()), as well as its
+relationship to BUILTIN_DTB_NAME.
+
+Suggested-by: Paul Cercueil <paul@crapouillou.net>
+Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 ---
- drivers/gpu/drm/vkms/tests/vkms_color_test.c | 105 +++++++++++++++++++++++++++
- 1 file changed, 105 insertions(+)
 
-diff --git a/drivers/gpu/drm/vkms/tests/vkms_color_test.c b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
-index 0d68de6462d9..15f71a977ed9 100644
---- a/drivers/gpu/drm/vkms/tests/vkms_color_test.c
-+++ b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
-@@ -205,6 +205,108 @@ static void vkms_color_test_lut32_single_entry(struct kunit *test)
- 						     0xffff, LUT_RED));
- }
+Notes:
+    Changes in v3:
+    Simplify the help text without asserting a fixed DTB precedence.
+    
+    Help text and commit message generated by public Google AI.
+
+ arch/mips/Kconfig | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index dac3ec5120a34..749d8cc7855aa 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -2924,7 +2924,20 @@ config UHI_BOOT
+ 	bool
  
-+/*
-+ * A 2x2x2 identity LUT: every corner maps the axis index to the same
-+ * value, so any input has to come back unchanged. The entries are ordered
-+ * with red as the fastest moving index, as the uapi documents.
-+ */
-+static const struct drm_color_lut32 test_lut3d_identity[] = {
-+	{ 0x00000000, 0x00000000, 0x00000000, 0 },
-+	{ 0xffffffff, 0x00000000, 0x00000000, 0 },
-+	{ 0x00000000, 0xffffffff, 0x00000000, 0 },
-+	{ 0xffffffff, 0xffffffff, 0x00000000, 0 },
-+	{ 0x00000000, 0x00000000, 0xffffffff, 0 },
-+	{ 0xffffffff, 0x00000000, 0xffffffff, 0 },
-+	{ 0x00000000, 0xffffffff, 0xffffffff, 0 },
-+	{ 0xffffffff, 0xffffffff, 0xffffffff, 0 },
-+};
+ config BUILTIN_DTB
+-	bool
++	bool "Enable builtin DTB fallback support"
++	depends on USE_OF
++	help
++	  Enable support for a Device Tree Blob built into the kernel.
++	  The built-in DTB can be used when no suitable Device Tree is
++	  supplied by the boot firmware or by another supported mechanism.
 +
-+static void vkms_color_test_lut3d_identity(struct kunit *test)
-+{
-+	static const struct {
-+		u16 r, g, b;
-+	} cases[] = {
-+		{ 0x0000, 0x0000, 0x0000 },
-+		{ 0xffff, 0xffff, 0xffff },
-+		{ 0x8000, 0x8000, 0x8000 },
-+		{ 0xffff, 0x0000, 0x0000 },
-+		{ 0x0000, 0xffff, 0x0000 },
-+		{ 0x0000, 0x0000, 0xffff },
-+		{ 0x8000, 0x4000, 0x1000 },
-+		/* One input per tetrahedron the lists above do not reach. */
-+		{ 0x9000, 0x1000, 0x5000 },
-+		{ 0x5000, 0x1000, 0x9000 },
-+		{ 0x1000, 0x9000, 0x5000 },
-+		{ 0x1000, 0x5000, 0x9000 },
-+	};
++	  The DTB to embed is selected using BUILTIN_DTB_NAME. If no
++	  built-in DTB is needed, for example because the bootloader
++	  supplies one, this option can be disabled.
 +
-+	for (size_t i = 0; i < ARRAY_SIZE(cases); i++) {
-+		struct pixel_argb_s32 pixel = {
-+			.r = cases[i].r,
-+			.g = cases[i].g,
-+			.b = cases[i].b,
-+			.a = 0xffff,
-+		};
++	  This option is independent of the appended-DTB selection below.
 +
-+		apply_3dlut_to_pixel(&pixel, test_lut3d_identity, 2);
-+
-+		KUNIT_EXPECT_EQ(test, cases[i].r, pixel.r);
-+		KUNIT_EXPECT_EQ(test, cases[i].g, pixel.g);
-+		KUNIT_EXPECT_EQ(test, cases[i].b, pixel.b);
-+		KUNIT_EXPECT_EQ(test, 0xffff, pixel.a);
-+	}
-+}
-+
-+/* A value outside [0, 1] saturates at the LUT input instead of wrapping. */
-+static void vkms_color_test_lut3d_clamp(struct kunit *test)
-+{
-+	struct pixel_argb_s32 pixel = {
-+		.r = -1,
-+		.g = 0x10000,
-+		.b = 0xffff,
-+		.a = 0xffff,
-+	};
-+
-+	apply_3dlut_to_pixel(&pixel, test_lut3d_identity, 2);
-+
-+	KUNIT_EXPECT_EQ(test, 0x0000, pixel.r);
-+	KUNIT_EXPECT_EQ(test, 0xffff, pixel.g);
-+	KUNIT_EXPECT_EQ(test, 0xffff, pixel.b);
-+}
-+
-+static void vkms_color_test_multiplier(struct kunit *test)
-+{
-+	struct pixel_argb_s32 pixel;
-+
-+	/* 1.0 leaves the pixel unchanged. */
-+	pixel = (struct pixel_argb_s32){ .r = 0x8000, .g = 0x4000, .b = 0x2000 };
-+	apply_multiplier_to_pixel(&pixel, 1ULL << 32);
-+	KUNIT_EXPECT_EQ(test, 0x8000, pixel.r);
-+	KUNIT_EXPECT_EQ(test, 0x4000, pixel.g);
-+	KUNIT_EXPECT_EQ(test, 0x2000, pixel.b);
-+
-+	/* 0.5 halves every channel. */
-+	pixel = (struct pixel_argb_s32){ .r = 0x8000, .g = 0x4000, .b = 0x2000 };
-+	apply_multiplier_to_pixel(&pixel, 1ULL << 31);
-+	KUNIT_EXPECT_EQ(test, 0x4000, pixel.r);
-+	KUNIT_EXPECT_EQ(test, 0x2000, pixel.g);
-+	KUNIT_EXPECT_EQ(test, 0x1000, pixel.b);
-+
-+	/* 2.0 doubles every channel. */
-+	pixel = (struct pixel_argb_s32){ .r = 0x4000, .g = 0x2000, .b = 0x1000 };
-+	apply_multiplier_to_pixel(&pixel, 1ULL << 33);
-+	KUNIT_EXPECT_EQ(test, 0x8000, pixel.r);
-+	KUNIT_EXPECT_EQ(test, 0x4000, pixel.g);
-+	KUNIT_EXPECT_EQ(test, 0x2000, pixel.b);
-+
-+	/* A negative gain flips the sign; the composer clamps it at the end. */
-+	pixel = (struct pixel_argb_s32){ .r = 0x8000, .g = 0x4000, .b = 0x2000 };
-+	apply_multiplier_to_pixel(&pixel, (1ULL << 63) | (1ULL << 31));
-+	KUNIT_EXPECT_EQ(test, -0x4000, pixel.r);
-+	KUNIT_EXPECT_EQ(test, -0x2000, pixel.g);
-+	KUNIT_EXPECT_EQ(test, -0x1000, pixel.b);
-+}
-+
- static void vkms_color_srgb_inv_srgb(struct kunit *test)
- {
- 	u16 srgb, final;
-@@ -474,6 +576,9 @@ static struct kunit_case vkms_color_test_cases[] = {
- 	KUNIT_CASE(vkms_color_test_lut32_three_points),
- 	KUNIT_CASE(vkms_color_test_lut32_single_entry),
- 	KUNIT_CASE(vkms_color_test_lut32_descending),
-+	KUNIT_CASE(vkms_color_test_lut3d_identity),
-+	KUNIT_CASE(vkms_color_test_lut3d_clamp),
-+	KUNIT_CASE(vkms_color_test_multiplier),
- 	KUNIT_CASE(vkms_color_srgb_inv_srgb),
- 	KUNIT_CASE(vkms_color_ctm_3x4_50_desat),
- 	KUNIT_CASE(vkms_color_ctm_3x4_bt709),
-
++	  If unsure, say N.
+ 
+ choice
+ 	prompt "Kernel appended dtb support"
 -- 
-2.56.1
+2.56.0
 
