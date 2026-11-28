@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795859317;
-	b=f0Vq/f8cKa+tpxMDGzT5YXSU2GK0xvYV6iTL9Xp1iuxOQPW5F5CLUJHllWqV6qig6byx
-	 lxbW0JiNO49D6LCb8bJkw6IE0e1Kq7z2K3wlbaNluZqDut7eaG7f6IVe3/4SVRPLGLm8c
-	 076u+tV9iliUa/Qhgz3YTW2VO6k1FVzPknOjKHKnEx0SpArN2Rz5vli7gvhbykVHrFcZv
-	 vwvkMyhFmWzYJ9xXMwZ9akt8uDEwqsi+DmSCSvjGdfReBwtqgK3VZurzhzhsh6QKXELEK
-	 xtGTHS6dOID2FuEamkAPLhj3J/iaiVkz68lUWKV5BfvmOIN/tGMa+8o46LU7iLWZWEg==
+	t=1795859319;
+	b=s64nE01pn3zwsrIdcpIcUhBIvRrjbLS1Yq8dYSePraIo8Qs70QTIO6jzUom91NxGNdGC
+	 LHdpdzZzXbGegvcObRQ11+EYyi2SyIZ6TVTJXbBzJs0/F7Ac6dm1duHXBWJzHSWcwR8ib
+	 zB8rLgqABW2YyIQhrLA0VPegkPoi1r92TGnOYTRx829eP/T/fBDKW6GSmaFjJJVwkLAeK
+	 euosimBBRlbjhfEoYEPnLi5b3JV+RDAtV5OQo/zMrcpXlOqp3LB9/qRkidmpfmm9IhIZB
+	 UQ6K+ExqXicnUo5vg6YDcjU9X/tmi9oXknxyH+Q1FaDRtC1Hy+Ejssrg+0xMjcDzmPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795859317;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859319;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=RZs+hLB39RJoNYD8vJAf6edaYJxDfKubtPKj/+Sx+cY=;
-	b=XvT3kekulUAQL1K2EycXBBpyah70U5uKvVAAL9cS5pelUrM+WfmiUt6xfybEX10LEkVN
-	 oDZ7uu7m7dmWiAYVIAu+53ez/XCIaM/7fTTEhX6ySH+Od1kSe7qmqBqN39iDUMbRB9N5e
-	 zOJxQIe9HyoWz+yvpK5WmsC7e3hfKGq+sf4mROVyOZXVVUWKpBaa5ieO/2cgD44BKRKXS
-	 9d0ilAGmgisU5TcfG48h5P0O9+uyWGL+UIb1mSmSaUjrjspbKHZoWRmSG0ihc13bfabDo
-	 YNNCTJ4oiIknCx8vmUWdGsf9ijcDwQ1KjqexWXlhT3NuGH39gUQDdWljcLYMYJ8txJg==
+	bh=peDuo8KNEVBcdI8E+gPsxdnnPdvbQr+1LsXUi0LobRw=;
+	b=XQvM00YzQuQrEphrCuNYx/Z41yJBdgqvMzcicEPWCMciuWhj5rQsE9JfurOmAX1NRwVf
+	 dvrd6S9vmaRReD2VDEdqg/EhCxTgzy+klteOvlfgv46PHl6tME+v0nTk4yGReCYlJHeyW
+	 YTYMraOKi1zRxvI+e51PDBoWbdvtL1pmIkDLVXRGBfTF+PmwvBIEvR/G9y5VJ0lpvVpUh
+	 e+sT0RiQnRR+QEx4X92WgsUrCLF1leoJy0pCRnmQcuz3EjgSqctpDMrsohnCrCahe1N4t
+	 C3ymYWQB518hO87VIw6zn6wzh1lHcS3xtEG/y2zwrzBeDZRs5/4FjLgY4AQJvKU63gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K011nthr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kyt1oVfq;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3888606A31C;
-	Sat, 28 Nov 2026 09:48:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5507D606A33A;
+	Sat, 28 Nov 2026 09:48:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K011nthr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E60711F000C1;
-	Sat, 28 Nov 2026 09:48:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kyt1oVfq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A0411F00898;
+	Sat, 28 Nov 2026 09:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795859317;
-	bh=RZs+hLB39RJoNYD8vJAf6edaYJxDfKubtPKj/+Sx+cY=;
+	s=k20260515; t=1795859318;
+	bh=peDuo8KNEVBcdI8E+gPsxdnnPdvbQr+1LsXUi0LobRw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=K011nthr42Ejz0hTEP8cH2ToftWhnQiYQV9ud+pgvfrrueOqb18dPkleGKHOQPv4Z
-	 eobS/zgM3teU9+Sk5m9+GpXcpVgjJCyV1xloKtIku2bNa8C9LBqGU7EiMBnfhxCSKm
-	 vQUUczv1VukkXP74dYKM9BpyAqW7N6eWpX6vIKHv36QCSXx8imHb4DdDkFH7JxuIss
-	 TLYNnj1gCZyNTUoet+GHnDXEIZlCOqFfuXsvk9XIpaChAUiJfc7lBoES+ObJHWwyur
-	 U2HV0fc6ylTPAO1EUFgWrKnixK868OPws2nbFvsy2ymWrVJk1QSucVxRbB7LBCxWVX
-	 80jz41Istrv9w==
-Subject: Re: [PATCH net-next v3 03/12] amt: key relay tunnels on a union
- amt_addr endpoint
+	b=kyt1oVfqdcrBku58M+drPcFrcDS4rH2J1cyUz6qQ6MljhScytr46wvPEPoQlGhYRQ
+	 4WmcE9L7YCB199ERQ+VvM6FeH3DrUhFHXgII7+uR0BYGY8ez+BOuBEcQFEJ/PMJ5Y5
+	 W699euacYfjsFSup+6i+0s+8FQSoiBCv3jccX/JCrsQmbjbKvEP7YD4OOva6GLVnlF
+	 Hfm4+wcwwwKV0TnLWzjUUxDwPJN6t3b41CayGp91bmsU8VuBcsfCuco4L0jCADsqVz
+	 s8q9q2BJXkdDSbSMezgXT5KPOmIrp36X9jESzeZXZB34L5ARLr2pPTO5NNSrgiSHYc
+	 2HR94qqkqndGQ==
+Subject:
+ Re: [PATCH net-next v3 04/12] amt: send the Membership Query over IPv6
 From: netdev-bot+sashiko@kernel.org
 To: omar@blockcast.net
 Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
  horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org, willemb@google.com
-Date: Sat, 28 Nov 2026 09:48:36 +0000
-Message-ID: <179585931643.3135.2851219283955870732@kernel.org>
-In-Reply-To: <20261127094703.3025517-4-omar@blockcast.net>
-References: <20261127094703.3025517-4-omar@blockcast.net>
+Date: Sat, 28 Nov 2026 09:48:37 +0000
+Message-ID: <179585931782.3135.13213241218675519335@kernel.org>
+In-Reply-To: <20261127094703.3025517-5-omar@blockcast.net>
+References: <20261127094703.3025517-5-omar@blockcast.net>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,142 +71,100 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message misdescribes the pre-patch behaviour on an
-  IPv6 outer transport.
-- [Low] The commit message says both `amt_update_handler()` and
-  `amt_request_handler()` pass the outer-source snapshot "to…
-- [Low] The patch changes what the per-source tunnel cap counts.
+- [Low] The commit message of "amt: send the Membership Query over IPv6"
+  describes several things this patch does not do.
+- [Low] The comment above amt_send_igmp_gq() in drivers/net/amt.c still
+  says "The destination is passed by value rather than as a tunnel".
 
 --
 
-amt: key relay tunnels on a union amt_addr endpoint
+amt: send the Membership Query over IPv6
 
-This commit stores the relay tunnel endpoint as a union amt_addr instead
-of a __be32. It also adds the amt_outer_saddr(), amt_relay_mac() and
-amt_same_source() helpers. The per-source tunnel cap now counts IPv6
-sources per /64, and amt_v6() is still false for every device, so no
-functional change is intended.
+This moves the routing and transmit step of amt_send_membership_query()
+into a new amt_udp_xmit() helper. The helper sends over IPv4 or IPv6
+depending on the device's outer family. amt_send_igmp_gq() and
+amt_send_mld_gq() now take the gateway endpoint as a const union amt_addr
+pointer.
 
-> A relay keeps one struct amt_tunnel_list per gateway endpoint and finds
-> it by the gateway's IPv4 address, stored as __be32 ip4 and taken from
-> ip_hdr(skb)->saddr, together with its UDP source port. On an IPv6 outer
-> transport that reads the traffic class and flow label of the IPv6
-> header as an address, and the field cannot hold the gateway's address
-> anyway.
+> udp_tunnel_xmit_skb() scrubs the skb in iptunnel_xmit(),
+> but udp_tunnel6_xmit_skb() does not, so the IPv6 path calls
+> skb_scrub_packet() itself. Otherwise the conntrack entry and extensions
+> of the inner packet would stay on the outer one, which conntrack would
+> then pass as an already tracked flow.
 
-[Severity: Low]
-Is this description of the old read accurate?
+[ ... ]
 
-In struct iphdr, saddr starts at byte 12. In struct ipv6hdr, version,
-traffic class and flow label take bytes 0-3, payload_len bytes 4-5,
-nexthdr byte 6 and hop_limit byte 7. The source address then runs from
-byte 8 to byte 23.
-
-So ip_hdr(skb)->saddr on an IPv6 header reads bytes 12-15, which are
-s6_addr[4..7] of the IPv6 source address. It never reads the traffic
-class or the flow label.
-
-The conclusion is still correct, since a __be32 cannot hold an IPv6
-gateway address. Could the reason given in the message be corrected?
-
-> amt_outer_saddr() copies the outer source address of a received message
-> by value into a zeroed union amt_addr. amt_update_handler() takes that
-> snapshot before pskb_may_pull() and iptunnel_pull_header() can
-> reallocate the header; amt_request_handler() takes it after its only
-> pskb_may_pull() and pulls nothing more. Both pass it to
-> amt_tunnel_lookup(), amt_tunnel_get_or_create() and amt_update_tunnel().
+> The v6 argument keeps its meaning: it selects the inner protocol, IGMP
+> or MLD, which is independent of the outer family, so an IPv6 relay
+> queries for both. The relay's General Query, which amt_send_igmp_gq()
+> and amt_send_mld_gq() now send directly through
+> amt_send_membership_query(), takes the IPv6 path.
 
 [Severity: Low]
-Does amt_request_handler() actually call any of these helpers?
+A few parts of this commit message don't seem to match what the patch
+does.
 
-Only the Update path does:
+Is "now send directly" accurate? Before this patch, amt_send_igmp_gq()
+and amt_send_mld_gq() already called amt_send_membership_query()
+directly:
 
-amt_update_handler()->amt_update_tunnel()->amt_tunnel_get_or_create()
-    ->amt_tunnel_lookup()
+	if (amt_send_membership_query(amt, skb, daddr, dport, nonce, mac,
+				      false)) {
 
-amt_request_handler() walks the tunnel list itself instead:
+The only change to them here is the type of daddr, from __be32 to
+const union amt_addr *.
 
-    list_for_each_entry_rcu(tunnel, &amt->tunnel_list, list) {
-        if (!amt_same_source(amt, &tunnel->addr, &saddr) ||
-            READ_ONCE(tunnel->dead))
-            continue;
-        per_src++;
-        if (amt_addr_equal(&tunnel->addr, &saddr) &&
-            tunnel->source_port == udph->source)
-            have = true;
-    }
+On skb_scrub_packet() in amt_udp_xmit(): its only caller in this patch
+is amt_send_membership_query(). That skb is a query built locally by
+amt_build_igmp_gq() or amt_build_mld_gq(), and it has not passed a
+netfilter hook. Is there any inner conntrack to scrub yet? The scrub
+looks like it only matters for later callers of the helper in the
+series (multicast data and the Membership Update), and the message
+doesn't mention them.
 
-It then uses saddr for amt_relay_mac() and saddr.ip4 for
-amt_send_igmp_gq() and amt_send_mld_gq().
+Also, nothing sets amt->local_ipv6 at this commit. There is no
+assignment and no IFLA_AMT_LOCAL_IP6 handling in drivers/net/amt.c, so
+amt_v6() is always false and the IPv6 branch of amt_udp_xmit() can't
+run yet. The only change that takes effect is that the IPv4 route
+lookup now runs after the AMT header push.
 
-That loop is a separate copy of the matching in
-amt_tunnel_get_or_create(), and the two have to be kept in sync by hand.
-Could the message say that only amt_update_handler() passes the snapshot
-to these three helpers?
+Earlier patches in the series say that amt_v6() is still false for
+every device, so there is no functional change. Could this one say the
+same? The subject suggests IPv6 queries work as of this commit, which
+could mislead someone bisecting.
 
 > diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-> index 52ccaca08b5ec..83e666a023c12 100644
+> index 83e666a023c12..70be70ed5ce03 100644
 > --- a/drivers/net/amt.c
 > +++ b/drivers/net/amt.c
 
 [ ... ]
 
-> @@ -2728,20 +2777,22 @@ static bool amt_membership_query_handler(struct amt_dev *amt,
-
-[ ... ]
-
-> -/* Most tunnels one source address may hold: an eighth of the table, at
-> - * least one and at most AMT_MAX_TUNNELS_PER_SRC.
-> +/* Most tunnels one source (an IPv4 address or an IPv6 /64) may hold: an
-> + * eighth of the table, at least one and at most AMT_MAX_TUNNELS_PER_SRC.
+> @@ -1022,8 +1029,8 @@ static bool amt_send_membership_query(struct amt_dev *amt,
+>   * unauthenticated, so no tunnel state is created or changed for it - see
+>   * amt_request_handler().
 >   */
->  static u32 amt_max_tunnels_per_src(const struct amt_dev *amt)
+> -static void amt_send_igmp_gq(struct amt_dev *amt, __be32 daddr, __be16 dport,
+> -			     __be32 nonce, u64 mac)
+> +static void amt_send_igmp_gq(struct amt_dev *amt, const union amt_addr *daddr,
+> +			     __be16 dport, __be32 nonce, u64 mac)
 >  {
-> @@ -2759,7 +2810,7 @@ static u32 amt_max_tunnels_per_src(const struct amt_dev *amt)
->   * verified source address may hold.
->   */
->  static struct amt_tunnel_list *amt_tunnel_get_or_create(struct amt_dev *amt,
-> -							__be32 saddr,
-> +							union amt_addr *saddr,
->  							__be16 sport)
->  {
->  	struct amt_tunnel_list *tunnel;
-> @@ -2779,9 +2830,11 @@ static struct amt_tunnel_list *amt_tunnel_get_or_create(struct amt_dev *amt,
->  	 * against its address.
->  	 */
->  	list_for_each_entry(tunnel, &amt->tunnel_list, list) {
-> -		if (tunnel->ip4 != saddr || READ_ONCE(tunnel->dead))
-> +		if (!amt_same_source(amt, &tunnel->addr, saddr) ||
-> +		    READ_ONCE(tunnel->dead))
->  			continue;
+>  	struct sk_buff *skb;
+>  
 
 [Severity: Low]
-This isn't a bug, but the comment on amt_max_tunnels_per_src() now says
-the cap counts an IPv4 address or an IPv6 /64. Three other comments
-about the same cap still describe it as per-address.
+The first line of the comment above amt_send_igmp_gq(), just outside
+this hunk, still reads:
 
-The kernel-doc above amt_tunnel_get_or_create():
+/* The destination is passed by value rather than as a tunnel: a Request is
 
- * table, amt_max_tunnels_per_src(), additionally limits the tunnels one
- * verified source address may hold.
+Should this be updated? daddr is now a pointer to the caller's on-stack
+saddr in amt_request_handler().
 
-The comment above this loop:
-
-	 * a tunnel being freed neither stands in for its endpoint nor counts
-	 * against its address.
-
-And in include/net/amt.h:
-
-/* Upper bound of amt_max_tunnels_per_src(), the per-address tunnel cap */
-#define AMT_MAX_TUNNELS_PER_SRC 16
-
-amt_same_source() compares only the first AMT_SRC_PREFIX6_LEN bytes for
-IPv6, so two gateways at different addresses in the same /64 share one
-cap. None of these comments is updated later in the series either. At
-the series tip, the AMT_MAX_TUNNELS_PER_SRC comment and the
-amt_tunnel_get_or_create() kernel-doc still say per-address.
-
-Could these be updated to match the new definition of a source?
+This same patch rewrites the matching comment above
+amt_send_membership_query() to say "the nonce and the MAC by value, the
+endpoint as a pointer to the caller's copy", so the two comments now
+disagree. The stale wording is still there at the end of the series.
 
 [ ... ]
 
