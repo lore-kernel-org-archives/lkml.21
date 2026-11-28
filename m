@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795885540;
-	b=mcXeSpb4sfmK3Ls7xJZu675ZMlf6wWG8BClTQf8+YIm6FydeSRG9OAD0zFMk9xiXyqlv
-	 lM/PLJJu0n81uxAQwgh7ZUsBhSULYdpeV0lLpT1v4cP643IlaY2JgEb2FThybxbiYfe7/
-	 V/+XQxKNgCkhGmZ/v+OUmWCxs6KAUM/bE7+Mk1HWPiTM/yANAmGlmH7Nq1bLNcLovWp25
-	 RjwWIHov7W1cNhd/l7zThxCV22Ei7FCcJZa02Q6gMQ3YDESxQdo5Btdqk1elGzXtve06Q
-	 14cWOjU4yyOIhZoVLZ3t7Tt5RiiZ3l9yVReJSpg/EIXgJdX+FPgndef806K5O85vNBA==
+	t=1795885573;
+	b=KeWPLFMvyH6Rxl3poHFYib0eHFJjtnmsOx14AatIS9IYb+v51u65zp8tqyhEsF8px8bu
+	 zhmg2eNnSXP5ezr6HeHKiaP4UphFtntazq/dJeADoPMwUoQf+YzeYbnk6LCPjxJ1wo8/C
+	 Ll8ZPzAcirNE3meiY+4cVn1Q/tpzMZvrxhWPd9XXNMAlAFA9XrjQvLcH7tjsqIN+fju3q
+	 rag5g+ErGda/ACM4a+mxqBvKKxMfZLzKGn9sUs8lcp6wfrYlo97gXbj7ksEuVefgaDAwM
+	 Atf2ByPyMfNC1TS6ne2y0Q06OUOTR+q5wKHPh9KaBMZVWuPmd45Yf8g2oSauTx/jlpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795885540;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795885573;
 	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
 	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
 	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
 	 X-Spam-Checker-Version;
-	bh=3bYdss1ed8s9M0znVEnCKXW7uP24Gi2rVDF9qKwxSjc=;
-	b=0piXC6eraiIqN5PVLJZyA/2DDStkb6dV3fCe1nuzmtBwDYCGZWNExqdMazs+oZHeVYxX
-	 RGEYp6apsvL5WxuGVoUL7ZXB/2WG6bpx2/NV72W3Ui8kcxyXJNeHD95sSAe9plKXGO85v
-	 d+V1Z3GTxmN3xvrDx3Q2/7Kmaf8x01xUesdJ06HKo0fILgla6KghpgCeG4pT0MA+PxEEo
-	 kPTO7VbVMF3LTyvsQgmRR8dpWdEABOJOPIOQov1IDduqugIcQNTLyu7G6DP03pIfrBffN
-	 HbW/9rhslQFgo72ZYmo6A36nxoVN/mfgbeADvAcurpAPlE8Y94JT03Ou680RQvB4HZQ==
+	bh=IL+abS4drh2AObDh33qBlAYz3+fsSFXOg4eQrW6BQ48=;
+	b=MagfpF+lnIlDP59FrDPXi3Nm+LiD2iLgf42lU88NpOVzCkH0dRwaXmtwqmrzqqHIGVt/
+	 JwiLhfinM2rS0Fff5cj0CNLrpHtaIldRJUpJ9ak17Th9Xh00YuRTsTjmI0gSjSHZ7LFGv
+	 avJTD7/wSafxSlt1gbLiJg6cYDKmGEskVcH/w78wVVooGvwS3VBIemp4jkQ7XDc2IioSe
+	 2q+wDmWDl4Sm/qFXmI/+LAjnwjoKbeLwr7xVL0Mal0Ug0K1Aj85OXTcFBeXMEKYPcBXVu
+	 7ZAJtW0AvahBWCd0I+Rt27QWLPXxaS4YEi2ax04b5NPs8RibwL7vPNWRNS4P/RrjVjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.microsoft.com;
 	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=WJSalcbm;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RLqWNvtL;
 	arc=none smtp.remote-ip=13.77.154.182
 Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B9791606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:05:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9791606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 31166606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:06:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31166606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=WJSalcbm
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RLqWNvtL
 Received: from [192.168.1.10] (unknown [52.172.102.219])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 3876420B7166;
-	Sat, 28 Nov 2026 09:05:30 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3876420B7166
+	by linux.microsoft.com (Postfix) with ESMTPSA id 9764120B7166;
+	Sat, 28 Nov 2026 09:06:03 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9764120B7166
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795885532;
-	bh=3bYdss1ed8s9M0znVEnCKXW7uP24Gi2rVDF9qKwxSjc=;
+	s=default; t=1795885566;
+	bh=IL+abS4drh2AObDh33qBlAYz3+fsSFXOg4eQrW6BQ48=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WJSalcbmSk3eA5Cove7z2u1LFojqCxdYnyjycX8sUp7f/QOYlnZKxDsPewI1mPjlw
-	 jSYOifXHNNwJVVRWPlp1XIR3RthSovELv42l0AbZ7ymt4Ifk+RWM9PBZJzAYeNm/Md
-	 PI7qMqmBE8lxaaPY0JAevP/kFgGfqddkdhHxj0gQ=
-Message-ID: <d47482fa-f2bc-4ebb-97f6-fc305751d4da@linux.microsoft.com>
-Date: Sat, 28 Nov 2026 22:35:34 +0530
+	b=RLqWNvtLz6mS1BX6YDSCfNAV5whm+Ov7yv0NAWVmfzLA24y/hx/+V8RhbW/huLLM6
+	 OyYvqinv5K0glIcodmDC3nFkV76M1fDVnoM5GdxD0Sm9FOfubA2a0WvtztqKQxi1MV
+	 DfAcMj+n4w8JIJOjXF9ieNnxL5a4rGEiZwP2LYaI=
+Message-ID: <3a44999e-655b-409a-8806-cd434722ff45@linux.microsoft.com>
+Date: Sat, 28 Nov 2026 22:36:08 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,108 +54,88 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] soc: xilinx: Fix event manager CPU hotplug state
- cleanup
-To: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
-Cc: tgopinath@linux.microsoft.com, ssengar@linux.microsoft.com,
- michal.simek@amd.com, rajan.vaja@xilinx.com, tejas.patel@xilinx.com,
- abhyuday.godhasara@xilinx.com, gregkh@linuxfoundation.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- tglx@linutronix.de
+Subject: Re: [PATCH 1/2] mailbox: zynqmp-ipi: Fix CPU hotplug state cleanup
+To: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>,
+ "Pandey, Radhey Shyam" <radheys@amd.com>
+Cc: jassisinghbrar@gmail.com, michal.simek@amd.com, tanmay.shah@amd.com,
+ saeed.nowshadi@amd.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, ssengar@linux.microsoft.com,
+ tgopinath@linux.microsoft.com, tglx@linutronix.de
 References: <20261103062051.676519-1-ptsm@linux.microsoft.com>
- <20261103063515.679043-1-ptsm@linux.microsoft.com>
- <av1GyoUdnxMV_C2p@csail.mit.edu>
+ <15903ed0-d3bd-4cf9-a051-ec663411ae38@amd.com>
+ <av1DetqUhUGqdyu3@csail.mit.edu>
 Content-Language: en-US
 From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <av1GyoUdnxMV_C2p@csail.mit.edu>
+In-Reply-To: <av1DetqUhUGqdyu3@csail.mit.edu>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Srivatsa,
 
-On 18-11-2026 12:03, Srivatsa S. Bhat wrote:
-> On Mon, Nov 02, 2026 at 10:35:15PM -0800, Prasanna Kumar T S M wrote:
->> On driver removal, the event manager removes the CPUHP_AP_ONLINE_DYN
->> CPU hotplug state instead of the its actual state. This can leave the
->> event manager callbacks dangling. Use the actual CPU hotplug state
->> during driver removal.
+
+On 18-11-2026 11:49, Srivatsa S. Bhat wrote:
+> On Wed, Nov 04, 2026 at 11:23:33AM +0530, Pandey, Radhey Shyam wrote:
+>> On 11/3/2026 11:50 AM, Prasanna Kumar T S M wrote:
+>>> On driver removal, the CPUHP_AP_ONLINE_DYN CPU hotplug state is removed
+>>> instead of the its actual state. This can leave the mailbox driver
+>>> callbacks dangling. Use the actual CPU hotplug state during driver
+>>> removal.
+>>>
+>>> Hotplug registration failures are also ignored, allowing probe to
+>>> succeed without the callbacks needed to enable interrupts on CPUs
+>>> brought online later.
+>>>
+>>> Fixes: 6ffb1635341be ("mailbox: zynqmp: handle SGI for shared IPI")
 >>
->> Hotplug registration failures are also ignored, allowing probe to
->> succeed without the callbacks needed to enable event interrupts on
->> CPUs brought online later.
+> [...]
 >>
->> Fixes: c7fdb2404f66 ("drivers: soc: xilinx: add xilinx event management driver")
->> Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
->> ---
->>   drivers/soc/xilinx/xlnx_event_manager.c | 14 ++++++++++----
->>   1 file changed, 10 insertions(+), 4 deletions(-)
+>>> +			  xlnx_mbox_cpuhp_down);
+>>> +	if (pdata->hp_state < 0) {
+>>> +		irq_clear_status_flags(pdata->virq_sgi, IRQ_PER_CPU);
+>>> +		free_percpu_irq(pdata->virq_sgi, &per_cpu_pdata);
+>>> +		irq_dispose_mapping(pdata->virq_sgi);
+>>> +		return pdata->hp_state;
 >>
->> diff --git a/drivers/soc/xilinx/xlnx_event_manager.c b/drivers/soc/xilinx/xlnx_event_manager.c
->> index f733dc42b3b1..2d8bfeab4190 100644
->> --- a/drivers/soc/xilinx/xlnx_event_manager.c
->> +++ b/drivers/soc/xilinx/xlnx_event_manager.c
->> @@ -24,6 +24,7 @@ static DEFINE_PER_CPU_READ_MOSTLY(int, dummy_cpu_number);
->>   
->>   static int virq_sgi;
->>   static int event_manager_availability = -EACCES;
->> +static enum cpuhp_state hp_state;
->>   
->>   /* SGI number used for Event management driver */
->>   #define XLNX_EVENT_SGI_NUM	(15)
->> @@ -625,8 +626,6 @@ static int xlnx_event_init_sgi(struct platform_device *pdev)
->>   
->>   static void xlnx_event_cleanup_sgi(struct platform_device *pdev)
->>   {
->> -	cpuhp_remove_state(CPUHP_AP_ONLINE_DYN);
->> -
->>   	on_each_cpu(xlnx_disable_percpu_irq, NULL, 1);
->>   
->>   	irq_clear_status_flags(virq_sgi, IRQ_PER_CPU);
->> @@ -660,8 +659,13 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
->>   	}
->>   
->>   	/* Setup function for the CPU hot-plug cases */
->> -	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/event:starting",
->> -			  xlnx_event_cpuhp_start, xlnx_event_cpuhp_down);
->> +	hp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
->> +			"soc/event:starting", xlnx_event_cpuhp_start,
+>>   1. The new error path double-frees and then hits BUG().
+>> Please reconfirm.
+>>
+>> zynqmp_ipi_probe() sets pdata->irq_type before calling xlnx_mbox_init_sgi(),
+>> and its only error label runs
+>>    zynqmp_ipi_free_mboxes() → xlnx_mbox_cleanup_sgi() whenever irq_type ==
+>> IPI_IRQ_TYPE_SGI. So the new unwind runs, then the caller's unwind repeats
+>>    irq_clear_status_flags(), free_percpu_irq() and irq_dispose_mapping().
 > 
-> Let's change :starting to :online as per convention, as this is
-> associated with the ONLINE_DYN state.
+> Good catch!
 > 
-> Can we also edit the callback names for symmetry similar to the
-> suggestion for patch 1/2?
+>> Before any of that, cleanup calls cpuhp_remove_state(pdata->hp_state) with
+>> the negative errno still in the field, and _cpuhp_remove_state_cpuslocked()
+>> opens with BUG_ON(cpuhp_cb_check(state)), which rejects anything <=
+>> CPUHP_OFFLINE. A failed hotplug registration now panics instead of failing
+>> probe.
+>>
+> 
+> So, xlnx_mbox_init_sgi() should simply return an error upon CPU
+> hotplug registration failure and let the caller handle the cleanup;
+> and in xlnx_mbox_cleanup_sgi(), a check for pdata->hp_state > 0 should
+> be added like this:
+> 
+> if (pdata->hp_state > 0)
+> 	cpuhp_remove_state(pdata->hp_state);
+> 
+> I think that ought to fix both the issues pointed out above.
 
-I will incorporate these in v2.
+Sure, I will incorporate these in v2.
 
 > 
->> +			xlnx_event_cpuhp_down);
->> +	if (hp_state < 0) {
->> +		xlnx_event_cleanup_sgi(pdev);
->> +		return hp_state;
->> +	}
->>   
->>   	ret = zynqmp_pm_register_sgi(sgi_num, 0);
->>   	if (ret) {
->> @@ -670,6 +674,7 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
->>   		else
->>   			dev_err(&pdev->dev, "SGI %d registration failed, err %d\n", sgi_num, ret);
->>   
->> +		cpuhp_remove_state(hp_state);
->>   		xlnx_event_cleanup_sgi(pdev);
->>   		return ret;
->>   	}
->> @@ -704,6 +709,7 @@ static void xlnx_event_manager_remove(struct platform_device *pdev)
->>   	if (ret)
->>   		dev_err(&pdev->dev, "SGI unregistration over TF-A failed with %d\n", ret);
->>   
->> +	cpuhp_remove_state(hp_state);
->>   	xlnx_event_cleanup_sgi(pdev);
->>   
->>   	event_manager_availability = -EACCES;
-> 
-> It looks like this patch 2/2 doesn't have the kind of bugs in the
-> cleanup path that affected patch 1/2, so that's good.
+>>
+>>> +	}
+>>>    	return ret;
+>>>    }
+>>>    static void xlnx_mbox_cleanup_sgi(struct zynqmp_ipi_pdata *pdata)
+>>>    {
+>>> -	cpuhp_remove_state(CPUHP_AP_ONLINE_DYN);
+>>> +	cpuhp_remove_state(pdata->hp_state);
+>>>    	on_each_cpu(xlnx_disable_percpu_irq, NULL, 1);
+>>
 > 
 > Regards,
 > Srivatsa
