@@ -1,54 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795865070;
-	b=f7l1a1PMDIErlqYN9LlJ302jkMMRW/NrSTevWZU8FXFTf8GkHRALUgSNNhprukfUl+uN
-	 lBH9FdlgLrd9raqCr20Y+7Tu6P7fRHxoFwRux7SJbsisiRi2GgRJDFbrM+WceLHacboTW
-	 DGBfljf+J//fvnXn5W4oI2iiq1R49ssMqKCgi2FaUs8dHbw7PASgZeOcqkKYTqJk/vW7M
-	 OuTL34g4EIkJ1j+JGqogcu73/+cmKAXY7iF9bM6O0A+3vbqIHGEyCsmi1QdpgLu8/BIIw
-	 rzRaskM8BREp06NeHi9PvxzMFtyubMsU3U2GXHifW0HlIU0kzl6KtiqWBMbQr7uTZEA==
+	t=1795865164;
+	b=iHGnqPb9YYXqdBgBLgwDV0Or0ZgHgoxO2lhLfQmPwtEjIxE6q9EdxCL7TRX4xHXEuw1v
+	 aQTzoUq81CGHbQmqNEq2Wn+OHBRadpsyLB5/3agBjExDm8Krlm4PcgeC5w3wK1ipH3iSW
+	 6DLyrrNYHdA8CvT+nlW11A4cauIB5tHUntZe3EgPIjBFy/QHIk82oBd7V6OG773ozPFlR
+	 NkhNs+RuhvHMdEiRVTzVdJuEJCDj7xu0do7hAohv9OlolBs9WidfIEPJ2z1b7QV7pE927
+	 SXRMlDV76EVzCAvmXadDIFa0lSYJ9YTbbXhp88eTeyFZfP6eAFs/P/6V4bcw+Ccan7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795865070;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=+h5/awXFnlauk8YJ17E3YksXFQO3qqzzQrC62pPcVCc=;
-	b=ZOAkMzowF9e+4RxRc9y2hbhekBunMJJSFz6YomDhnNsMYmqfacINOqVWsHl8HiktZEpk
-	 jYIzVv7dnBGu5KdrpI0LJKUPPdKkY1mv3Cpo82o2VZWk1vvHggm3h0v56z7UCRQnFKeV0
-	 4ruZAKu7QJi/XUSiwDhnRyNMbmDeG6MakaPF8P0/CU0YU6IsrhLXpBwhG3o16seHncJeK
-	 1zQ5WbEeo91wH1bi2pqVy3ImqBzNHn44sImkJmnYTN30BbGGdGOaXvjVAhiSg8yzNbVO5
-	 YjDBY3uwebk/h94WtZHs/u75jmNRhL7dXHJmwywdsZPE5akcbarW5ML04b2Tut7fSZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795865164;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=NHIBnVqdOtgtb+45LOjNsVPZ/ajhk+Np8JsuDoP7Jj4=;
+	b=SPXkNZKjce8pL4a9ZZL2tfp2AVUJ75uKX+mx6M3vzp97WkPii+GR85uLoxfv4erXLi0t
+	 rad2ymrfWFfb3vFunArIZla6AbXDHktbe8PG9n5lRjhFBo0YnpAwYz2XK20LILEogUP7h
+	 G0ufmgKx2pqfCVIq79HPsv2BYiDoDAZL8MVR9f+IWgigMAB1AkvGe0qZO2QOJr44JbR62
+	 tGu46aE3yRuAvtdss1FW2Z077l+ImJcxh1i6bnmLeCb2mjHnwAIeDEjUwi0go+PjpEend
+	 +M87oTnhcuEMl9sHnfyNEl83/qEKzVSaAS2KXsz73fb7pV0bfkDPFaKasTWIpfFnN9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F0wuEydl;
-	arc=none smtp.remote-ip=91.218.175.42
-Received: from mta0.migadu.com (out-42.mta0.migadu.com [91.218.175.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBKMORcH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106FE606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:24:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 106FE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DBDA606A32E;
+	Sat, 28 Nov 2026 11:26:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F0wuEydl
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=aBqUvGu+5flnqx//crjHG1aH6jJBAfbOuF98bZjHEhE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795865066; v=1; x=1796469866;
- b=F0wuEydlpggHdD5Z/nsVS0jA6umqp2H0QM2NYN530x7wGXQtexwAWMHEJ0mtEl5PCo4WUqfh
- aFDMb6/vtN1Hsx5FH2h88Zhhs2t8AMdwoDg6pRHFpJYbQkEay6KRIiJ0TUHrL0L0e7wlEgIBiog
- 6MeSoIe63mUSaU09dq0Rhqvs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ea6ef8fdfe7c31ea;
-	Sat, 28 Nov 2026 11:24:26 +0000
-X-Mizu-Trace-ID: ea6ef8fdfe7c31ea
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <ff36b846-988f-4da1-bd12-f15b5fec87e3@linux.dev>
-Date: Sat, 28 Nov 2026 12:21:43 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBKMORcH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A0E1F00897;
+	Sat, 28 Nov 2026 11:26:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795865164;
+	bh=NHIBnVqdOtgtb+45LOjNsVPZ/ajhk+Np8JsuDoP7Jj4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aBKMORcHfZsGFcblUGmpBld6S/oOnHECinCX1RyhQzRu7p6XqBKIMX1yjgELEZQnW
+	 lA7W+g8Q7+cnqVtfY40/eFj/957wHO/5Aq3tq0UhPCNcBeXuJQH46YutiGOi4kT51W
+	 n+hpzhI+XMuw2mIZN5N1qFeyDufOLjDp3Z0rAqELv4zW79fTF3yMxBEIhXCVIJir1e
+	 fwAbNza9jrzeHg+KSlu2ZWPv19gGrBKIjuHQaCS1hKpTDJA+uHUpmLTgT0sb1D8vO4
+	 MeJbnW+LQA/m6jTvO49AvP//qHJLdKaZXS8D2GROA6A2HIIHhlfQIc9fFAhaBFbG8E
+	 AAVVJgIV4bLLA==
+Subject: Re: [PATCH net-next v10 3/8] net: bcmgenet: rename ENET_MAX_MTU_SIZE
+ to ENET_MAX_FRAME_LEN
+From: netdev-bot+sashiko@kernel.org
+To: nb@tipi-net.de
+Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com,
+ justin.chen@broadcom.com
+Date: Sat, 28 Nov 2026 11:26:02 +0000
+Message-ID: <179586516296.3135.16116163120459465582@kernel.org>
+In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-3-749c7cc45d97@tipi-net.de>
+References: <20261127-nb-genet-mtu-nn-v2-v10-3-749c7cc45d97@tipi-net.de>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,103 +66,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] soundwire: Suspend and resume asynchronously
-To: Paul Menzel <pmenzel@molgen.mpg.de>, Vinod Koul <vkoul@kernel.org>,
- Bard Liao <yung-chuan.liao@linux.intel.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261127150101.48880-1-pmenzel@molgen.mpg.de>
-Content-Language: en-US
-From: Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
-In-Reply-To: <20261127150101.48880-1-pmenzel@molgen.mpg.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-On 11/27/26 16:00, Paul Menzel wrote:
-> On system resume, the SoundWire devices are resumed synchronously, so the
-> codecs on different links wait for each other’s re-enumeration, and the
-> whole audio subtree waits for every synchronous device before it in
-> dpm_list. On a Dell XPS 9315 (Alder Lake, SOF, RT1316 on link 2, RT714 on
-> link 3), the four resume callbacks run one after the other, in one cycle:
-> 
->     soundwire_intel.link.2     2.2 ms
->     sdw:0:2:025d:1316:01      16.3 ms
->     soundwire_intel.link.3     2.2 ms
->     sdw:0:3:025d:0714:01       9.9 ms
-> 
-> Their span is 28.9 ms. With both patches, the callbacks overlap, and the
-> span drops to 17.1 ms (median of five s2idle cycles each, sleepgraph with
-> the device callback trace events). It is on the critical path of the resume
-> with the panel on, right behind SOF, which waits for i915 through its
-> device link.
-> 
-> Patch 1 marks the generic manager and peripheral devices, patch 2 the Intel
-> link devices. The SHIM registers are shared by the links; patch 2 explains
-> why the multi-link SYNC arm and SYNCGO sequence in intel_start_bus()
-> tolerates two links interleaving. It is the part I am least sure about, so
-> please check it. The second link’s power-up waits on shim_lock, so in 49 of
-> 50 traced cycles the start-up was serial anyway; in one cycle both links
-> were armed before the first SYNCGO, and the bus came up fine. If you
-> prefer, I can serialize intel_start_bus() across links instead; it takes
-> about 0.1 ms per link.
-> 
-> Not tested: AMD and Qualcomm managers, and peripherals of other codec
-> drivers. Patch 1 changes the ordering against synchronous devices that are
-> neither descendants nor device-link consumers of the peripherals. The
-> WCD93xx codecs have device links. The deferred resume work of the ASoC card
-> can now run while a codec still waits for its re-initialization; with the
-> RT1316 and RT715 SDCA drivers, its register writes then end up in the
-> regmap cache, which the codec syncs afterwards. I checked the other drivers
-> only by reading the code. Suspend is now asynchronous as well, which I did
-> not measure.
-> 
-> Tested on the Dell XPS 9315 with 7.4-rc4, these and unrelated resume
-> patches: 50 s2idle cycles, each followed by 1 s of playback to the RT1316
-> and 1 s of capture from the RT714 (non-zero samples), with no errors in the
-> log; also 30 resume stress cycles in an earlier run. The series is based on
-> soundwire/next and only compile-tested there (W=1).
-> 
-> The analysis, the patches and the messages were drafted with
-> claude-opus-5-5 (Claude Code), asked to cut the s2idle resume time of the
-> laptop, see Documentation/process/generated-content.rst.
-> 
-> Paul Menzel (2):
->   soundwire: Suspend and resume managers and peripherals asynchronously
->   soundwire: intel: Suspend and resume the links asynchronously
-> 
->  drivers/soundwire/intel_init.c | 3 +++
->  drivers/soundwire/master.c     | 3 +++
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-This is a very interesting patchset, thanks for posting this.
-I didn't know one could speed-up the suspend-resume time this way.
+Low priority / nit picks for your consideration:
 
-For managers, I think it's fine, at least on the Intel side I can't
-think of any dependencies, and you're correctly pointed out the mutual
-exclusion handled with the shim_lock.
+- [Low] In drivers/net/ethernet/broadcom/genet/bcmgenet.h, the commit
+  "net: bcmgenet: rename ENET_MAX_FRAME_LEN" deletes the old comment…
 
->  drivers/soundwire/slave.c      | 6 ++++++
-For peripherals, I would recommend more analysis/measurements - things
-are less clear.
+--
 
-Yes in theory all peripherals are independent, but the command/control
-channel used for reconfiguring the registers is *serial*. You can really
-only send one byte to one peripheral at a given time on the bus - and
-there's a msg_lock to that effect.
+net: bcmgenet: rename ENET_MAX_MTU_SIZE to ENET_MAX_FRAME_LEN
 
-If you resume multiple peripherals on the same link, the regmap_sync()
-may be less efficient with additional overhead due to the mutual exclusion.
+This patch renames ENET_MAX_MTU_SIZE to ENET_MAX_FRAME_LEN because the
+value is a frame length, not an MTU. It updates the two users, init_umac()
+and bcmgenet_init_tx_ring(), and replaces the comment above the macro. No
+functional change is intended.
 
-It's worse if the devices require firmware download with the BPT
-protocol, which is also typically more efficient if only one transfer
-takes place for a single resume. IOW serialization of the resume isn't
-necessarily a bad idea given the low-level limitations of the bus.
+> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.h b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
+> index 6ab3f73475550..afaccb7699336 100644
+> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.h
+> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
+> @@ -28,12 +28,11 @@
+>  /* which ring is descriptor based */
+>  #define DESC_INDEX				16
+>  
+> -/* Body(1500) + EH_SIZE(14) + VLANTAG(4) + BRCMTAG(6) + FCS(4) = 1528.
+> - * 1536 is multiple of 256 bytes
+> - */
+>  #define ENET_BRCM_TAG_LEN	6
+>  #define ENET_PAD		8
+> -#define ENET_MAX_MTU_SIZE	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
+> +
+> +/* Longest frame the MAC must accept for the default MTU */
+> +#define ENET_MAX_FRAME_LEN	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
+>  				 ENET_BRCM_TAG_LEN + ETH_FCS_LEN + ENET_PAD)
 
-The figures above show the resume time is about an order of magnitude
-longer for the peripheral than the manager, so additional data on the
-async resume of multiple peripherals on the same link would be very useful.
+[Severity: Low]
 
-Do you have access to a platform with multiple amps on the same link?
-If not Bard may have some in the Intel CI?
+This isn't a bug, but is the new comment accurate? The expression adds
+up to 1536:
 
-At any rate, I would isolate the change for the peripheral in a
-stand-alone patch to allow for easier tests/bisect.
+    1500 + 14 + 4 + 6 + 4 + 8 (ENET_PAD) = 1536
+
+The longest frame the MAC actually has to accept for the default MTU is
+1528. The extra 8 bytes come from ENET_PAD, which is not part of any frame.
+
+The deleted comment was the only place that explained ENET_PAD, as
+rounding up to a 256-byte multiple. After this patch nothing explains it.
+The padded value is still written to UMAC_MAX_FRAME_LEN in init_umac(). It
+is also shifted into the TDMA flow period in bcmgenet_init_tx_ring(), which
+the new comment doesn't mention.
+
+The next patch in the series, "net: bcmgenet: derive the receive buffer
+length from the MTU", rewrites this comment to explain that ENET_PAD rounds
+1528 up to 1536, so the end of the series is fine. Could this patch keep
+the ENET_PAD explanation, so the comment is also correct at this commit?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97%40tipi-net.de
