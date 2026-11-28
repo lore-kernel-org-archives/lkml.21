@@ -1,107 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.171.160.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795852641;
-	b=3/jFkXZ0KLZuc0OHFNuQKYdbBYWhJyUmaGLVlgzmgk/egHGFegi+8LncxXFGOX5v6QoC
-	 LVvhBpDPYl/MyhbMNfrMrCTqdEICVfCf1qRpGgmE64v46NxBaWCT10sgFSLb//XJw92KO
-	 XEBEtxebL/i2Bq0ZQPJAZqW9D/U0fgwkMy49RMGvSaJOhLbutSeRv0e21DP7W9a3Togkj
-	 F1BrzbZ50eiIUn51CulXKuKbMzh4dPghBiTzMhYjakfk2oXElfXJsyTTNzd/BtixjcSN5
-	 e1a/6Cit5FlbmrzIL/BRnGFktOkv31wE+jkT9DI6ulr2/ie+yXKUFAwgOt02u+IltLA==
+	t=1795852781;
+	b=ShPscVTbErgggoU4C79HFJKIIix6/EVBsAGG8qd2s6vIEwY9b/j6MZi5DnTfuYL0w1qA
+	 hvmksHdnB2hfyeLccBpN5Bgv5WnHNDevcCjGoyhkp+/HP8UbWiN1gZ7P2GLtX93t/lw3n
+	 JkziCyq0/PZ7NBfq6eRhSHiiNNGjXRSRJSY4SM1q09tELBqyqmJVmhArx9nX3bI5sg2+O
+	 W5omFA6zCFjx4zMLaovbryxOuLIOv1hiHLs+FSYcep3lMgJNv4BgAPUBupJZHBei3LHLZ
+	 KXhZtLbWavlHOB9G6jIFtvgdzxEd69ZZfgbAvr/PB4XUiIKAIfACocuqnSip+IJ0Cow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795852641;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=3YRc+oLAH9CSMjzqL5DaXtGZiCmjzwmhJmG8W8jBwCo=;
-	b=kwWRVJYINp2ZWfGiMiAmKbk3zhbxkVCNr/awsaoU7mFrr8FVBkgsvyGgg/b6dyVR/KZI
-	 0znOuKQ0Yck/ux7PCmFWUpjcaQPg2OrwkZSqxPrqqcNXy4/Bqp9xtytVpNPeysaWc1o9d
-	 5+TbNWElTZoL0lp2Rl0S0uZw+tL+ehHRVRNSvvSEYCJ7l0+0+wzl+4BNb8dUNSS+vY+mg
-	 1ztsIFstshRLNh1XBbaF4pdO/dLwyyBtXXy+LagHoKK6YKrYuAt/ZuXZREsQHBW2872Yl
-	 b0Geq5TOFLabp62r9CzovpmgF5zNw5s9kET+F1nzCakEN4MvwBpt0HaWxTtKpWefw7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795852781;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
+	 User-Agent:MIME-Version:Content-Type;
+	bh=+HZuVZZRdtJL/BcumFSc+IgHWRdR98eB19PT2Twps/U=;
+	b=R8SwivNyw4P8eKcBwW5My1lq5mxLR0IwSu76TRx30xyKbeU9RLLP8WlYIm4/0gEiR0OP
+	 wc6HQ64YhxzjR/XjVHYPsT2c++LGTekXGcElNIbn943YQqIWF8+Rm/bA7pdgihLSftt2s
+	 DyW9WQSxmCPy+xiOsXu8MFJCRE1mo+7hp7WeKlfEHCNTTLj0CNn0tSTYriVUox6PHxQW9
+	 CmkhCMK0cPIs4dR8dh9Qby+vG0yUIRNOXuYTfVsx6kXprxnMM9lyIt1AQchiSJdgcdeG4
+	 Of42PxS1LenwCNHKyX3j9sfHdmwKHYFpZeQ1ODv4BtYBzNtvZNd40cSSZQWVOoQy5pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mstEU8RA;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=mail.parknet.co.jp;
+	spf=pass smtp.mailfrom=parknet.co.jp;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=lmx2aQIZ;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=jwo7qFCJ;
+	arc=none smtp.remote-ip=210.171.160.6
+Received: from mail.parknet.co.jp (mail.parknet.co.jp [210.171.160.6])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FEE0606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:57:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FEE0606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFB0D606A31C;
+	Sat, 28 Nov 2026 07:59:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFB0D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.parknet.co.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=parknet.co.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mstEU8RA
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-3866a784546so12254749eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:57:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795852641; x=1796457441; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3YRc+oLAH9CSMjzqL5DaXtGZiCmjzwmhJmG8W8jBwCo=;
-        b=mstEU8RA5nPzUW+HtM/x3MO7+YviSGCI0+a7bsHHrwCV+zfsDccIDgwjXCUn+yrTwZ
-         WEmS+zV4K8REfZnNqJTAVeBVdNoe0rHLSP3QkNtQedI285RZ3E2ZbPPJZ+Canne5JHuG
-         CMx6pZE98ZFGVKEJJWy/fT0gj4Y104a3Q/wCaNL/yAz7cj/D8clAbY7NmHk8gwjD+l1U
-         yJaE0r/PAMebIwgr3daE1bHk5HDJP8z4SxrvAL9beQJkuamswrpKCwX2M5BoxyM9pDRa
-         WwDz7Oe6XlBnCIBv6Bxvw0U3us1innr8k8j63UuNKyCBzAw8Ht6s55P4dsVQ+/J92jDi
-         cGSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795852641; x=1796457441;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3YRc+oLAH9CSMjzqL5DaXtGZiCmjzwmhJmG8W8jBwCo=;
-        b=c29OZ3bS9zRa6/Ru5u7HZc0qWVO/87XwNR/hkZa6CtiXuaB26du+ll1AeioFFcxRik
-         B1Pg4OFgmrLC2xh2dGTw++pCY6uSlxR6DC0Ut5EyuzhJkVXnMGmhxj1tWjSWJP16hEQS
-         A/HW2QNuiex+oErVUw3+828qZYpwtsFHZZ0u+UrGDHsbOg7LzMF1/y+Y1G8Ilt0Be/dW
-         SAIh2jgfpFldvnzqRkVAporqaRiK1H4822EWfGRHzp/tpofOKtUuPH0Inp39TGqJueLA
-         vBlPLDGibH0fiGqoHPfp+hmocfibeR0z8QMpeDLzLPpk45DDxTXEz5iaVLN0qE1QQQqS
-         AKyQ==
-X-Forwarded-Encrypted: i=1; AL+hErE287nG9rcUg0KDDTfSlFnbOyFer2WJHdZPveuqbUtu6fjepfO/RG/1986nXDT5REQzobPRVYjJge/Lmfg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85sueDhj41vfxRy8OpH6LdGmixJ9pkEQijaAoO1FDJDr0yxnqW
-	/yDkwCNFZ0t/SAheVa/e4EmYGYpZJ7rJfKiBCsXb4SP+VBn+w7Cj5KJs
-X-Gm-Gg: AZFdTZeR+41lyfmqWIQTv4Nz3cIE4O3mfEU8rT5VN3P9GZA703BQVZoJCGxVz0RqWGz
-	86YbmOv6tpR3IYEPBLAv4uwFiqALGH1pr0q2w2sRSr/gKjmOSyVnvP8pvsmJhJ/tbwI7cp1S2v6
-	fn7qKR/GNKjO4dvg0TxYZZdB5QfS6pAcE/H5nITrgb1FZiQ0A/J/o5aJ4zMRBB3N6RNNPv5IYqx
-	TMZSWVg3SnuGOfy34nxBx5UZJCgh4Ut5Mq2pggB/3H7OK8ApvR8KAyDY5hj2NmOQXMnUZHQoQaC
-	eVljUWJzyr+Il0FPyM+XXkbjmC+EoYRosYnJzcFeZxXE195CxYjMCYA9bQJJ7/qLBgH/i3efHb4
-	p+VBwKZ2G9oOkBTltOH576+lZmdj7xP7v/d2J1DsCs0rmUnWsemE2ZGM3jiR+9IYWFYzy6hKBpo
-	1/r/1TpZxphJhtm7zJGsAJB3NCCVAT52p5HOtyZ6hCwQwnz3nYfYcFSQSTNR0SQRWQ3vpYo5XQX
-	rG2gTA6fSXlylSVGOWXjIsUNpB3PznhQjwWEDO4a1Gf6JRZiY0VMMSs5DDgJwnbEDUabv9d69Wy
-	dSevxS4muYxJZCDLdQgFCEwXZdEeRCn4HHdA2yrin56k/aGU8Xp68tOs2fFsuLbC9AbCTGuAFX1
-	/hsQPZarM0nkma44=
-X-Received: by 2002:a05:7300:1486:b0:383:6eb6:5730 with SMTP id 5a478bee46e88-38570e24c0fmr32195217eec.32.1795852640554;
-        Fri, 27 Nov 2026 23:57:20 -0800 (PST)
-Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm69117082eec.19.2026.11.27.23.57.14
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 23:57:20 -0800 (PST)
-From: Lian Wang <lianux.mm@gmail.com>
-To: Chris Li <chrisl@kernel.org>
-Cc: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Kairui Song <kasong@tencent.com>,
-	Jihan LIN <linjh22s@gmail.com>,
-	Kunwu Chan <kunwu.chan@linux.dev>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 07/19] mm/swap: consolidate swap inuse accounting helpers
-Date: Sat, 28 Nov 2026 15:56:52 +0800
-Message-ID: <20261128075703.36392-1-lianux.mm@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CACePvbXsmTWf6GNXi6W7HabdskuGRO8gfUtVgzmr03+oi20itQ@mail.gmail.com>
-References: <cover.1795439990.git.lianux.mm@gmail.com> <21e7cb1a16aed56568fa400f5385acd36513aa46.1795439990.git.lianux.mm@gmail.com> <CACePvbXsmTWf6GNXi6W7HabdskuGRO8gfUtVgzmr03+oi20itQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=lmx2aQIZ;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=jwo7qFCJ
+Received: from ibmpc.myhome.or.jp (server.parknet.ne.jp [210.171.168.39])
+	by mail.parknet.co.jp (Postfix) with ESMTPSA id DA25B20BD2A2;
+	Sat, 28 Nov 2026 16:49:38 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=parknet.co.jp;
+	s=20250114; t=1795852179;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+HZuVZZRdtJL/BcumFSc+IgHWRdR98eB19PT2Twps/U=;
+	b=lmx2aQIZKZxLTtmnYx0zgIIkYtGqlAEEW5u0SIZq4Yxv7l6lQC63W5EhWY7paHRxRuTjTi
+	TB9eFDK5ycsvnwImjLTPVWoInmtDw27/dx6p6XaaWDI3UDqqHLAIcrgGTpggI5BlEWO2v6
+	ItoIqC9vIs8KGuYk4MyamyxaiiskgwYLbfztvn4FbWLfqlL9UU/2Y6fXDa0vrQsJg6wJXN
+	Nd7X7R0K8sj4wOAgIvlDfwP7GpbYQIX9w/fL1AEcMrMuUYudgtBH9XpeTKi9YyHpuD0mMG
+	yN4cSQDRr2B4iZ5dOUYYWMieioCvpnpuQ+u7jkenlyW4Kb4u7sFEfZ/GAAJmgg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=parknet.co.jp;
+	s=20250114-ed25519; t=1795852179;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+HZuVZZRdtJL/BcumFSc+IgHWRdR98eB19PT2Twps/U=;
+	b=jwo7qFCJ5W8G9eLSiOfvJZftVd3bncJhpZ3t8mevl9WRoHz3O0pQe5AV43plVbdB6JapQc
+	6TIIYnCyFxLw27CQ==
+Received: from devron.myhome.or.jp (devron.myhome.or.jp [192.168.0.3])
+	by ibmpc.myhome.or.jp (Postfix) with ESMTPS id 6025DE0000E;
+	Sat, 28 Nov 2026 16:49:38 +0900 (JST)
+Received: by devron.myhome.or.jp (Postfix, from userid 1000)
+	id 56CA52200208; Sat, 28 Nov 2026 16:49:38 +0900 (JST)
+From: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-kernel@vger.kernel.org,  linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 1/4] fat: add fat_tmpfile()
+In-Reply-To: <20261126-work-fat-tmpfile-v1-1-3bca7b2dbc20@kernel.org>
+References: <20261126-work-fat-tmpfile-v1-0-3bca7b2dbc20@kernel.org>
+	<20261126-work-fat-tmpfile-v1-1-3bca7b2dbc20@kernel.org>
+Date: Sat, 28 Nov 2026 16:49:38 +0900
+Message-ID: <87ecc5qtt9.fsf@mail.parknet.co.jp>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,16 +80,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-On Thu, 26 Nov 2026 10:27:38 -0800 Chris Li <chrisl@kernel.org> wrote:
+Christian Brauner <brauner@kernel.org> writes:
 
-> Can you confirm this patch has no behavioral change? It is only about
-> manual inline and rename functions. If so, add that to the commit
-> message. It can help the reviewer.
+> FAT already knows how to deal with a file that is open but has no
+> directory entry. When an open file is unlinked fat_detach() resets
+> i_pos to 0. From then on __fat_write_inode() has nothing to write, the
+> data still goes to the file's cluster chain, and fat_evict_inode()
+> frees the chain when the last reference is put.
+>
+> An O_TMPFILE is a file that starts out in that state. So build the
+> inode like fat_build_inode() does, from a directory entry that only
+> exists in memory, but don't attach it. fat_build_inode() itself can't
+> be used for this. It would attach the inode at i_pos 0 and the next
+> O_TMPFILE would find it through fat_iget().
+>
+> The mode is ignored, just like in vfat_create() and msdos_create(). On
+> FAT it's derived from the mount options.
+>
+> Nothing uses fat_tmpfile() yet. vfat and msdos need a ->link() method
+> first and wire it up in the following patches.
+>
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> ---
+>  fs/fat/fat.h   |  2 ++
+>  fs/fat/inode.c | 31 +++++++++++++++++++++++++++++++
+>  2 files changed, 33 insertions(+)
+>
+> diff --git a/fs/fat/fat.h b/fs/fat/fat.h
+> index a8a3ca4f465bf..cc706d89d1b96 100644
+> --- a/fs/fat/fat.h
+> +++ b/fs/fat/fat.h
+> @@ -423,6 +423,8 @@ extern void fat_detach(struct inode *inode);
+>  extern struct inode *fat_iget(struct super_block *sb, loff_t i_pos);
+>  extern struct inode *fat_build_inode(struct super_block *sb,
+>  			struct msdos_dir_entry *de, loff_t i_pos);
+> +int fat_tmpfile(const struct mnt_idmap *idmap, struct inode *dir,
+> +		struct file *file, umode_t mode);
+>  extern int fat_fill_super(struct super_block *sb, struct fs_context *fc,
+>  			  void (*setup)(struct super_block *));
+>  extern int fat_fill_inode(struct inode *inode, struct msdos_dir_entry *de);
+> diff --git a/fs/fat/inode.c b/fs/fat/inode.c
+> index 642e690632d83..1481ef1a3efac 100644
+> --- a/fs/fat/inode.c
+> +++ b/fs/fat/inode.c
+> @@ -626,6 +626,37 @@ struct inode *fat_build_inode(struct super_block *sb,
+>  
+>  EXPORT_SYMBOL_GPL(fat_build_inode);
+>  
+> +/* Like an open file that got unlinked: no directory entry, i_pos is 0. */
+> +int fat_tmpfile(const struct mnt_idmap *idmap, struct inode *dir,
+> +		struct file *file, umode_t mode)
+> +{
 
-Thanks for the suggestion, Chris. I'll clarify this in the commit
-message for v6 so the patch is easier to review.
+[...]
 
-Thanks,
-Lian
+> +	inode = new_inode(sb);
+> +	if (!inode)
+> +		return -ENOMEM;
+> +	inode->i_ino = iunique(sb, MSDOS_ROOT_INO);
+> +	inode_set_iversion(inode, 1);
+> +	err = fat_fill_inode(inode, &de);
+> +	if (err) {
+> +		iput(inode);
+> +		return err;
+> +	}
+> +	insert_inode_hash(inode);
+
+This part is almost copy of fat_build_inode(). Maybe it is better to add
+as a new helper function to share with fat_build_inode().
+
+Thanks.
+
+> +	d_tmpfile(file, inode);
+> +	return finish_open_simple(file, 0);
+> +}
+> +EXPORT_SYMBOL_GPL(fat_tmpfile);
+-- 
+OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
