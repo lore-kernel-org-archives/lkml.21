@@ -1,54 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795836452;
-	b=NfOZRokpoC/SRML6yr6N+e3c9agaPUQh+S5A894RhwqkybVYSI6qnVb7aROU+HlwgmN9
-	 txZ5bBuZVrI4pGSH2VJFkr3kKtotDChq1/+rTee0X8/Z9KP1rqwIln8cR2FUWN9wpM5UP
-	 e8wnnH/YH/neuOueTfP9cW3inwJFMLOriIHny94P1BN6A0SnKbjMR8+7/XiQx6nu4Kc8j
-	 aJiXao0m3koAd2MCNB1tU/JIgeO2J6ze/UqsUxGe/UIYvO7qwZssV2XBzvdgJw2RKPzmt
-	 2YMDsmt4bsHXHCS0TrZiUjQ3i+jw9D4o+hLIJ1BaD4FIPAqm7Ic3siB63lYvN/dBGag==
+	t=1795837058;
+	b=kHR1U724Djk+YPGOojRwtLQSosnipuHnfchq8KUVeQaEMNZvLDniUPCS3fofbyovxHQl
+	 XubhpvGYpk9eaWC+HPMfm66YQIE/84rFg+jbhj8PvELsPx2eF72qjxYZHbo0Oa5iSQZaG
+	 HAVyRr/yhRD5UZXPvhvz7ISk8iGfTCkZFKdJGDFl9AC0aGzrSYlKcKadC0UtxLs3Np/nt
+	 JKRM5gNwrnWPBHYCgCqzbuIJi3GrfxwicCd6O3inJugIb24H/RUHlNG+ulGHTOqrNKpWU
+	 IJTu1CQVgoLeyfReGBZWi+w4tTB+zznjMNsbU2HghnvQimd2P7akDCyVDvtRppSC6TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795836452;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=V6yd2WiMQDnkgmWaLVy9/F+hOxiOeH3B2t22ru+0YjE=;
-	b=s8t5iWboWAJhwUkYVz82ZZ2g4VG+cCaBb3ulHNySKc97RqlYsRZSaKvNy095cbnlJPPf
-	 E244bUhhZRHwmvuyjZxVX5wto2F3SdzNDSjIjd+gyu5u3JL1L51mXXrWSxJhCNS03kUSc
-	 QqEclv903yWABSnsjAPAS9slE8lu76umI1EB6ldY+kg4J53WlMi5iVdaoO9xgZwKrW14X
-	 XMQqrGo8pxtsNdXF8xgUOEodd/DQoEqtlnpnJQUdHo0+eP2NPmdhE1OPMPlH0JnoCBQbF
-	 3D27mvNq1m+/zJ+jOBnVfoBT0W/VkT6bf/3QArJ3slyjANh433Z3tdpooutDDCVaxaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795837058;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8kVwYZ1mIBLHJGNNGwqW6ng8APu6uVBnAbfyiIE9tJs=;
+	b=t2OaYQYtRoxV623Zbe8ICmvaej5pSD3ulhheDqXXzOv/AWjTcL2RCdXyULw5nmksR1gv
+	 p2PzSltNty0MpxuWJd16IuyAjjiV22ykwgR73OqXEQQv4ZbCQmU19zMUQ0YQMrlaUmSlC
+	 4IgMAO1zT6FqyOfy1LohxZh9O3luVkR8uV3vg/7D5KJLaKjQgQWMzBaRtYDTFWJSMHhn0
+	 JsxfnWeV4kR85AVmeTB/BXNuR8hBGPGy+YtqKACOIBGy3mtTboFGOLMBic9KAQroRuXPN
+	 GGnM+LbbA3JdBlzHkoaraMkl/wEeJpjCa7S28T0bC97fQgP+pUjPKpkbM4NrulwJmNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=DYUo+wws;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BD61606A31E
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:27:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BD61606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4e778acdbc6so10037290b6e.3
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:27:31 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31017606A31E
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:37:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31017606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=DYUo+wws
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so3027972b3a.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 19:37:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795837056; x=1796441856; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8kVwYZ1mIBLHJGNNGwqW6ng8APu6uVBnAbfyiIE9tJs=;
+        b=DYUo+wwsdvZ2uBVBZOzEm5U5W9GPYaVG1B8lE1wMMB7M3GYkXY/ojl5G64dKGlD5tr
+         +q62VVyLgX2hgoJ5ZMiqd416cH3sn1HOGQznwFmVhzGhK8TRN0DxLf60ZTJD2CIYBGh3
+         Uq5Ey4kfu+SBCGCHCr+DVX4r/H76UKVF2MX/U=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795836451; x=1796441251;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=V6yd2WiMQDnkgmWaLVy9/F+hOxiOeH3B2t22ru+0YjE=;
-        b=yH9FpHyaEAnyW75OUh902aH3HiG9ApIDVQv1UL7lV04NFzGUaR+UO8517Q79JtEt2n
-         zfwLL2q9xvpvTGOvS8yHjmavgBgyk8nPqc73FrAcX/uiCE9XvuunpjMoA/lSyp9TgbW4
-         adIOU8GMgB0DIUTfHtPrkzPhX9158OMNkn3JIunDKSDYumN+02mka5H7HS31HWeXmVf4
-         Nm09zTrq33QchDxf3qMrfF3SGyYz0kDAMWU0WGaKdEB2ceHEO9ldhUAgLLmY73VYaHLk
-         U/kftiecLLD8pg719YJIdjqoCHgusyrBEQDVrSBb4J2TUQ4p8Ky5SkEvs5wWz84pew80
-         Luqw==
-X-Forwarded-Encrypted: i=1; AL+hErFLfdgDw+IElkiT5wJucEWQJ7cpDOG+P4d5/4jk+ace6YW3uZ4F/v0OWk1h/Vj0ID16hWb5mVxY5CYSssc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ocySihkL/33DLVFA1ep1/NvD7DcxokcYu+U+pcC33JcwzBIxW
-	cJT3zzl5QT4ereS7rQGr8gUOa5zD1CdR5WRXdFe6/dIvYdJnSXjnVWJ9EEAkFvbocQ0xHGkPbGW
-	MiyyEA184xPf+hnPQjFSMPLp9ET4kLZyAEDT9O6qelzLia38dC7XVzxPkKnk=
+        d=1e100.net; s=20260707; t=1795837056; x=1796441856;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8kVwYZ1mIBLHJGNNGwqW6ng8APu6uVBnAbfyiIE9tJs=;
+        b=BDmIPH5Hrom0SqBNC0PGraRH2NEYbBS0+Sd/S2UzVuZh+R7BKkRH23Bucc0h/o1UEX
+         VrJmHJ3bzRl/64jKqIEvf1huEz9/Izz5nobVmBcNDcHx0ubuFS3TRVxpu/VWOBpLzKxJ
+         fART1VUrf7mko7x/W0QKoKb2CUCgTwwuj9PCR8fvnTCQ0E+A0YjYtPiTupbfQi5GRrvK
+         iMM5ajsIF4SafB7PU+7i42LKNtUnc7aoCo7I0AVODdjked7caVZ0kcNXgTnM45l0NSq+
+         LqmDKhiVb5v+z9G5Lv3R2TfItqDtNjin0MWqkf2vr6ZULsQE1hlZefCgwO6+wilJUf0I
+         olwQ==
+X-Forwarded-Encrypted: i=1; AL+hErHMWLL99wq7sm29K5VkXcUlMBXi9Z7o0H757149nBHTSn5XIquI8EsLnVXCAkEUpt3PZfRDRt58h1PaGvk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8F4QcXb424gfJxI8eRxKXycc+PP6/tQbDvuMoRTbFuAsiv/pTR
+	c1NWYhmJXvjDPiyqvAlnPJY9pjO5pB4FRDJNdfBkqbbYvw+bvWh7/NTR3lnwpx1qQ0jcP9Hq02w
+	pmv/lkV9gbw==
+X-Gm-Gg: AZFdTZfGOn2YNj2l/D658U09pnDpb/cOnxlY7L4D2UDphBNweXMIvTUvZd55Ozg7CkV
+	mKRQsF6T00OSDmW2JPHr7sdWECVCYO3XJwztxPUAIO4Ny+ZDv3PTcn5K0EvboBIo7cQxAEW1yJT
+	XrZWw4pGWCajUGoMN6yOaRRtGAiWwBFnUnlP27yEz5iSoDoT93otoMH/iU0a6/fKAbsf85fVY+9
+	7ir1aFpFT06dcqMDnXxO4Cnfhj/pPT9K13FCoYGE2SIKM1ocbAgpjyPQJ0JgN3/EEaxrH0uMOs+
+	fyidZgwDFtRPfzC6y9YVR8nluamm7mA8T2GnhStEqtsyswI84otDcX8jz9IKj/XqDuGFOsjEjjA
+	CFdki2k9cQ+L5fCbWhul6MhpVDHOoEHIMA253OnBw7t/7WDf4lZxV7Cv3bxHB6kiY9KPIuVquVl
+	URiIoKvJ6l/AXVcbAacsaDvxVge3xX0zcH05ULy+TF2CiY0WR71jBRNyaza/svjv6c9OM1Vi9s4
+	kyvT3x2qBBWxnPV+m/jWkHzb2/SpvALKm0DzcFwlS4upX7YMWgAHU0eseeiRBSJarV8rf+WBZk/
+	HkPKXc5TBSPKG4PEasQ+KP44r9rySJeeLUFhx8HiuL0TiE2zFdDPRo/MkIR503g8b/VxJPS9xJV
+	gSZngpf+p5+tvmeQsTagrBT3QnvNXriIRzlc8naySoIcW15tHN2t3q9DlZ08TBXk3
+X-Received: by 2002:a05:6a00:f8e:b0:89f:d620:232 with SMTP id d2e1a72fcca58-8c87c864543mr23366688b3a.35.1795837056560;
+        Fri, 27 Nov 2026 19:37:36 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f83dsm13590256b3a.39.2026.11.27.19.37.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 19:37:36 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Allison Henderson <achender@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: [BUG] net/rds: use-after-free of the rdma_cm_id freed by connection shutdown
+Date: Sat, 28 Nov 2026 09:07:30 +0530
+Message-Id: <20261128033730.467831-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,207 +100,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1394:b0:510:7dc8:5ff7 with SMTP id
- 5614622812f47-57a0a40536cmr30024229b6e.19.1795836451226; Fri, 27 Nov 2026
- 19:27:31 -0800 (PST)
-Date: Fri, 27 Nov 2026 19:27:31 -0800
-In-Reply-To: <6b08920a.28411dd9.2968b4.000b.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b0a4a23.8ccee5ca.1045fd.0285.GAE@google.com>
-Subject: Re: [syzbot] [mm?] possible deadlock in ocfs2_evict_inode (3)
-From: syzbot <syzbot+00969d07ff718daa64c0@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, david@fromorbit.com, 
-	joseph.qi@linux.alibaba.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	muchun.song@linux.dev, qi.zheng@linux.dev, roman.gushchin@linux.dev, 
-	syzkaller-bugs@googlegroups.com, zzzccc427@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-syzbot has found a reproducer for the following issue on:
+Hi,
 
-HEAD commit:    822ba3a89c78 Merge tag 'arm64-fixes' of git://git.kernel.o..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=1126c1d9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=fbd0fc734eea62ed
-dashboard link: https://syzkaller.appspot.com/bug?extid=00969d07ff718daa64c0
-compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=1326c1d9580000
+rds_ib_conn_path_shutdown() frees the connection's rdma_cm_id and clears
+ic->i_cm_id only afterwards:
 
-The issue was bisected by AI to:
+  net/rds/ib_cm.c
+	rdma_destroy_id(ic->i_cm_id);
+	if (ic->rds_ibdev)
+		rds_ib_remove_conn(ic->rds_ibdev, conn);
+	ic->i_cm_id = NULL;
 
-commit f277230d002d03ed98b814b735f9d3d01b42020a
-Author: Cen Zhang <zzzccc427@gmail.com>
-Date:   Fri Oct 30 04:48:56 2026 +0000
+rds_ib_remove_conn() takes locks and can sleep, so ic->i_cm_id points at
+freed memory for a while.  Both FRMR paths read it with nothing excluding
+this teardown:
 
-    ocfs2: serialize inode journal access with shutdown
+  - rds_ib_get_mr(), from sendmsg()'s RDS_CMSG_RDMA_MAP handling, which
+    tests !ic->i_cm_id || !ic->i_cm_id->qp and then registers;
+  - rds_ib_unreg_frmr(), from the MR pool flush.
 
-reasoning:      https://syzkaller.appspot.com/ai_job?id=b27b6c0b-8dab-4c8c-85e0-28d030057ea0
+The NULL test in rds_ib_unreg_frmr() does not help: the pointer is not
+NULL, it is dangling.
 
-AI-generated root cause summary:
-ocfs2_journal_shutdown() holds down_write(&osb->journal_shutdown_sem) across
-jbd2_journal_destroy(), which invokes shrinker_free() and acquires the global
-shrinker_mutex. Because mm/shrinker.c acquires shrinker_mutex across GFP_KERNEL
-allocations (establishing shrinker_mutex -> fs_reclaim), while
-ocfs2_clear_inode() acquires down_read(&osb->journal_shutdown_sem) during inode
-eviction reachable from memory reclaim (fs_reclaim ->
-&osb->journal_shutdown_sem), lockdep detects a circular locking dependency
-(&osb->journal_shutdown_sem -> shrinker_mutex -> fs_reclaim ->
-&osb->journal_shutdown_sem).
+Reproduced on 7.4.0-rc1 (63fe746a609a) with KASAN, by closing a socket
+whose MR pool still holds segments while the connection is shutting down:
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=00969d07ff718daa64c0
+  BUG: KASAN: slab-use-after-free in rds_ib_unreg_frmr+0x119/0x860
+  Read of size 8 at addr ffff888022d67010 by task poc/9559
+   rds_ib_unreg_frmr+0x119/0x860
+   rds_ib_flush_mr_pool+0x685/0x9f0
+   rds_ib_flush_mrs+0x57/0xc0
+   rds_release+0xc9/0x220
+   __sock_release+0x65/0x160
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+00969d07ff718daa64c0@syzkaller.appspotmail.com
+  Allocated by task 37:
+   __rdma_create_id+0x48/0x4f0
+   __rdma_create_kernel_id+0x3c/0x80
+   rds_ib_conn_path_connect+0xfa/0x320
 
-The bisection result may be wrong.
-If you agree with it, please also add:
-Fixes: f277230d002d ("ocfs2: serialize inode journal access with shutdown")
+  Freed by task 9508:
+   kfree+0x1c7/0x660
+   rds_ib_conn_path_shutdown+0xc2b/0xd30
+   rds_conn_shutdown+0x3ca/0x940
 
-======================================================
-WARNING: possible circular locking dependency detected
-syzkaller #0 Not tainted
-------------------------------------------------------
-kswapd0/84 is trying to acquire lock:
-ffff8880434b82f8 (&osb->journal_shutdown_sem){++++}-{4:4}, at: ocfs2_clear_inode fs/ocfs2/inode.c:1326 [inline]
-ffff8880434b82f8 (&osb->journal_shutdown_sem){++++}-{4:4}, at: ocfs2_evict_inode+0x2dd8/0x43c0 fs/ocfs2/inode.c:1343
+The registration side reaches the same dangling pointer.  On 7.3.1 a
+fuzzer caught it posting a work request to the QP of a cm_id already
+destroyed, which rxe reports itself - WARN_ON_ONCE(!qp->valid), "qp has
+been destroyed" - before faulting on qp->state_lock:
 
-but task is already holding lock:
-ffffffff90297e80 (fs_reclaim){+.+.}-{0:0}, at: balance_pgdat mm/vmscan.c:7339 [inline]
-ffffffff90297e80 (fs_reclaim){+.+.}-{0:0}, at: kswapd+0xa53/0x3a20 mm/vmscan.c:7712
+  BUG: KASAN: slab-use-after-free in do_raw_spin_unlock+0x15/0xf0
+   rxe_post_send+0xfa0/0x1130
+   ib_post_send+0x9c/0xe0
+   rds_ib_post_reg_frmr+0x396/0x570   net/rds/ib_frmr.c:167
+   rds_ib_get_mr+0x26d/0x470
+   __rds_rdma_map+0x555/0x7d0
+   rds_cmsg_send+0x27c/0x3b0
+   rds_sendmsg+0xda0/0x16a0
+  freed by rds_ib_conn_path_shutdown -> rdma_destroy_qp -> ib_destroy_qp_user
 
-which lock already depends on the new lock.
+How reliably it reproduces.  The window is the span between the free and
+the clear, so hitting it needs a registration or a pool flush to land in
+it.  To make that dependable we inserted a 300 ms sleep there - debug
+only, not part of the patch - and then ran six processes registering
+memory regions on a connection being torn down repeatedly.  With the sleep
+the KASAN report above appears within a few minutes; without it, it is a
+fuzzer's odds, which is how it was first seen.
 
+One detail worth passing on, since it cost us several runs: an address is
+only in rds_ib_devices' list while a connection using it is up, so
+rds_ib_get_mr() returns -ENODEV for a socket whose connection has gone.
+A reproducer that tears connections down aggressively never reaches the
+FRMR code at all - 2096 of 2096 calls to __rds_rdma_map returned -ENODEV
+in one of our runs.  The connection has to be up when the registration
+starts.
 
-the existing dependency chain (in reverse order) is:
+A patch follows.  It clears ic->i_cm_id before destroying the cm_id, so a
+racing reader sees NULL instead of freed memory, and adds the pointer test
+to rds_ib_post_reg_frmr(), which was the one FRMR site dereferencing it
+without one.  With the patch applied - and the 300 ms sleep still in place
+- the same six processes produced no report over 14 teardowns and 17636
+registrations.
 
--> #2 (fs_reclaim){+.+.}-{0:0}:
-       __fs_reclaim_acquire mm/page_alloc.c:4388 [inline]
-       fs_reclaim_acquire+0x71/0x100 mm/page_alloc.c:4402
-       might_alloc include/linux/sched/mm.h:316 [inline]
-       slab_pre_alloc_hook mm/slub.c:4673 [inline]
-       slab_alloc_node mm/slub.c:5011 [inline]
-       __do_kmalloc_node mm/slub.c:5530 [inline]
-       __kvmalloc_node_noprof+0x134/0x820 mm/slub.c:7143
-       alloc_shrinker_info+0xe9/0x400 mm/shrinker.c:101
-       mem_cgroup_css_online+0x84/0x7b0 mm/memcontrol.c:4404
-       online_css+0xbf/0x310 kernel/cgroup/cgroup.c:5903
-       css_create kernel/cgroup/cgroup.c:5983 [inline]
-       cgroup_apply_control_enable+0x9ed/0xda0 kernel/cgroup/cgroup.c:3474
-       cgroup_mkdir+0x1220/0x14b0 kernel/cgroup/cgroup.c:6188
-       kernfs_iop_mkdir+0x213/0x360 fs/kernfs/dir.c:1304
-       vfs_mkdir+0x411/0x660 fs/namei.c:5428
-       filename_mkdirat+0x284/0x550 fs/namei.c:5461
-       __do_sys_mkdirat fs/namei.c:5482 [inline]
-       __se_sys_mkdirat+0x35/0x150 fs/namei.c:5479
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+It does not serialise the two sides: a reader that has already loaded a
+non-NULL pointer can still be preempted before using it.  Closing that
+needs the registration path to take the exclusion the other users of
+ic->i_cm_id have, which seemed a bigger change than we should propose
+uninvited.
 
--> #1 (shrinker_mutex){+.+.}-{4:4}:
-       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
-       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
-       shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
-       jbd2_journal_destroy+0x606/0x7e0 fs/jbd2/journal.c:2204
-       ocfs2_journal_shutdown+0x517/0xb40 fs/ocfs2/journal.c:1125
-       ocfs2_dismount_volume+0x3c9/0x860 fs/ocfs2/super.c:1874
-       generic_shutdown_super+0x140/0x2d0 fs/super.c:723
-       kill_block_super+0x44/0xa0 fs/super.c:1852
-       deactivate_locked_super+0xbe/0x110 fs/super.c:558
-       cleanup_mnt+0x204/0x2a0 fs/namespace.c:1396
-       task_work_run+0x1d9/0x260 kernel/task_work.c:233
-       resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
-       __exit_to_user_mode_loop kernel/entry/common.c:70 [inline]
-       exit_to_user_mode_loop+0x204/0x770 kernel/entry/common.c:101
-       __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
-       syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
-       syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
-       do_syscall_64+0x336/0x540 arch/x86/entry/syscall_64.c:107
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+The reproducer is fuzzer-derived and we are happy to send it on request.
 
--> #0 (&osb->journal_shutdown_sem){++++}-{4:4}:
-       check_prev_add kernel/locking/lockdep.c:3209 [inline]
-       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
-       validate_chain kernel/locking/lockdep.c:3952 [inline]
-       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
-       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
-       down_read+0x45/0x320 kernel/locking/rwsem.c:1574
-       ocfs2_clear_inode fs/ocfs2/inode.c:1326 [inline]
-       ocfs2_evict_inode+0x2dd8/0x43c0 fs/ocfs2/inode.c:1343
-       evict+0x6bf/0xc20 fs/inode.c:829
-       ocfs2_dentry_iput+0x24d/0x390 fs/ocfs2/dcache.c:407
-       dentry_kill+0x1b9/0x910 fs/dcache.c:857
-       shrink_kill fs/dcache.c:1317 [inline]
-       shrink_dentry_list+0x209/0x310 fs/dcache.c:1334
-       prune_dcache_sb+0x119/0x180 fs/dcache.c:1416
-       super_cache_scan+0x362/0x4a0 fs/super.c:225
-       do_shrink_slab+0x6d0/0x10d0 mm/shrinker.c:452
-       shrink_slab+0xea4/0x1210 mm/shrinker.c:683
-       shrink_one+0x396/0x10f0 mm/vmscan.c:5327
-       shrink_many mm/vmscan.c:5388 [inline]
-       lru_gen_shrink_node mm/vmscan.c:5466 [inline]
-       shrink_node+0x631e/0x6c50 mm/vmscan.c:6472
-       kswapd_shrink_node mm/vmscan.c:7265 [inline]
-       balance_pgdat mm/vmscan.c:7436 [inline]
-       kswapd+0x1ff4/0x3a20 mm/vmscan.c:7712
-       kthread+0x38b/0x480 kernel/kthread.c:436
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-other info that might help us debug this:
-
-Chain exists of:
-  &osb->journal_shutdown_sem --> shrinker_mutex --> fs_reclaim
-
- Possible unsafe locking scenario:
-
-       CPU0                    CPU1
-       ----                    ----
-  lock(fs_reclaim);
-                               lock(shrinker_mutex);
-                               lock(fs_reclaim);
-  rlock(&osb->journal_shutdown_sem);
-
- *** DEADLOCK ***
-
-locks held by kswapd0/84: 2, on CPU#0:
- #0: ffffffff90297e80 (fs_reclaim){+.+.}-{0:0}, at: balance_pgdat mm/vmscan.c:7339 [inline]
- #0: ffffffff90297e80 (fs_reclaim){+.+.}-{0:0}, at: kswapd+0xa53/0x3a20 mm/vmscan.c:7712
- #1: ffff888014a04100 (&type->s_umount_key#56){++++}-{4:4}, at: super_trylock_shared fs/super.c:642 [inline]
- #1: ffff888014a04100 (&type->s_umount_key#56){++++}-{4:4}, at: super_cache_scan+0x94/0x4a0 fs/super.c:200
-
-stack backtrace:
-CPU: 0 UID: 0 PID: 84 Comm: kswapd0 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-Call Trace:
- <TASK>
- dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
- print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
- check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
- check_prev_add kernel/locking/lockdep.c:3209 [inline]
- check_prevs_add kernel/locking/lockdep.c:3328 [inline]
- validate_chain kernel/locking/lockdep.c:3952 [inline]
- __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
- lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
- down_read+0x45/0x320 kernel/locking/rwsem.c:1574
- ocfs2_clear_inode fs/ocfs2/inode.c:1326 [inline]
- ocfs2_evict_inode+0x2dd8/0x43c0 fs/ocfs2/inode.c:1343
- evict+0x6bf/0xc20 fs/inode.c:829
- ocfs2_dentry_iput+0x24d/0x390 fs/ocfs2/dcache.c:407
- dentry_kill+0x1b9/0x910 fs/dcache.c:857
- shrink_kill fs/dcache.c:1317 [inline]
- shrink_dentry_list+0x209/0x310 fs/dcache.c:1334
- prune_dcache_sb+0x119/0x180 fs/dcache.c:1416
- super_cache_scan+0x362/0x4a0 fs/super.c:225
- do_shrink_slab+0x6d0/0x10d0 mm/shrinker.c:452
- shrink_slab+0xea4/0x1210 mm/shrinker.c:683
- shrink_one+0x396/0x10f0 mm/vmscan.c:5327
- shrink_many mm/vmscan.c:5388 [inline]
- lru_gen_shrink_node mm/vmscan.c:5466 [inline]
- shrink_node+0x631e/0x6c50 mm/vmscan.c:6472
- kswapd_shrink_node mm/vmscan.c:7265 [inline]
- balance_pgdat mm/vmscan.c:7436 [inline]
- kswapd+0x1ff4/0x3a20 mm/vmscan.c:7712
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
+Thanks,
+Piyus
