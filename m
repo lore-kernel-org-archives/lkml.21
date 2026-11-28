@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795871579;
-	b=EQHoE6Po4iurBZNHGxDPLGSGNMSZR0y+xfOYWoUbSdCNU5XXWQu/67i3zNpjb43axRWF
-	 0XK7xlA9DS6ZHAcgiuJvddKB6P8Om0YbK4wzdVZ2K8vCSFIlpvRj4x1RjkFKUuePhs9a7
-	 y4ZfC5kisn8JuKBnucHVdVrlFvwdvYJBTrdmLfcmHiIiHkN5CXM3cLf6ofQ/FxMu5l7c1
-	 edN3JnLrOb90g+5H+PYgac9EukGQn6oln44akEBJPxVuViYj3yNGplEtWjl4gBT1TssrS
-	 mlm7EA6EdfOSYkXEW88XWtBIXcXXXfXHojV0pHOwkO4vDSQQmxNaxiMXYJ+sCObmeoA==
+	t=1795871703;
+	b=JQ8S4ZWm6yRG+i7BvfhjHWHyHphvRK3xWEhcIsYJZDhj7CBvn1nByvqD7Yi8bcmpXU1V
+	 9aUexcA9pBsSFIR3Ttqo7UIiJk7PZFseM/51BuP1QIFagHtnE28XBiIbxZtpKtbMlYShA
+	 oTH155UTwTr+dTOq3meBObc+Mfqd6n/si6cfkQqDQjtyCy0Qhp/5wqNIJwEd7fcLFnEmI
+	 m1CaSy3OjLSamNo9skKpC/43Kg7KP59upmwFIgJmGsh6nH8MmmfSq7sxGnZMwa3PAUgHg
+	 xSNns7UPoEhEK7VScUwa8Dpmgv9o8TrplmqZwmfmBAFmxrTBfABhJ3/z8mJ88eSdLQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795871579;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=EuMmfwPrhg01/gGUn2eAx6rQThSCE6USbgpUdrv/CUc=;
-	b=4pg4VhnX/mHaXZLlsHMWy2+/vPPAsv2TWkZ9GPixZYErtvbY7OTI8KdRtS57kY8RUpuW
-	 Camh7xoyjpvc2ONo8qClniBXFQDzNQsuOyp7wC20sg768DT/EcKe3Ub2Yy+qIz8zlZlrX
-	 ijGIUJp1/cvTSW88arWvqK4OA/iYYInKqqLSOdM6x1zRygwm25HdnxWVn5sudah8mmxxQ
-	 cM5I/pxHMi7oi/qV/w75vpF/taUAb00SuvZvH0R8GsebffljD0n0cPNAUJt4dN256znr9
-	 y9bRV0iWkmHOLJRm+N/m88mOYFPFZcxXYbZStpXHtsAC8tlqifeQ+BzTHATYKeoKbnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795871703;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Cy/7D1A0Vq3wd5wE5jIiTq8zayfOAlBLfwbp7nPEwTw=;
+	b=HbmDnjaco7Om6sq+l5Afc34N9MQWnFawHdWSmcM7yDSbIUHX5lanopkU9KWUGgOLW6rs
+	 2Q8PCurREVGCn0mBN4vGw8HhkHcEq08PzGaJ10a4iOrk1K3x8N/wk3n/EWvB5yunt1+e2
+	 /7rWlgnxldP1Xxa6yPoBw9SzgTwUgqEIcBiywb7o1yDX2irvyjcf7fJfJ/fc5Uut03IDs
+	 wW5Q9STNrnxUZptofmRrNkg7mi2w9QJmDIndvBFlQ0xuUu4iTuXE/sPFHrHDx7x6OKwPC
+	 WACdz5nKnD8XjYy6y7IJLzEcwWAQFGtBYJk+a87g/Zu76EhiL3FcXOKahGrPbnV2LNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=wPqG32Ev;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xQG1G60E;
+	arc=none smtp.remote-ip=91.218.175.46
+Received: from mta0.migadu.com (out-46.mta0.migadu.com [91.218.175.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E303A606A31C;
-	Sat, 28 Nov 2026 13:12:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E303A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43E0B606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 13:15:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43E0B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=wPqG32Ev
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0029AA0044;
-	Sat, 28 Nov 2026 14:12:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795871576; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=EuMmfwPrhg01/gGUn2eAx6rQThSCE6USbgpUdrv/CUc=;
-	b=wPqG32EvSmlmKqZJq5N3fXtscHorVnet32RKI63WltddAunV9EDy3TrUgQWse2NYKRlR+a
-	35q+5RLWQO5cNQ5HY630fE1KAsByBeGfLUvyFjv0yo9IwZkakkQmmfryksAtxWEkXFNpXC
-	/nnLwygJqfrRo2c9GHDnpPe6wtSEgxxP+6s/7328JwmnSHVgaS8tTT4rP9wBuActWhucXf
-	oqf5X/XoZODAeQkuKQNNNpZMwKRecDuveA5N66yIQOAatacV+lzxCFQizP0vggfOU6G87J
-	Hd6ZyF6gDzdHSpFzOC+GVCBHG6ul3jZdoWyR/5O6rC6pFS87NEAUdjarML1tlA==
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xQG1G60E
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=o+t7kkoM0xPIxADQG4a8tq41KzztOQGyjcQhuoL7Dwo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795871698; v=1; x=1796476498;
+ b=xQG1G60EQQwhG98tmJmkPbR9IBrpvG+ERu5vzuawLEd/aMZll3Ml64cz6+MN+hjJS7/UjlXw
+ 4G6zXz+2u3DGLp/8dwdZJmdOolEMmSuL9ZDOdtdx8UwxHLx2QxSrEPBoUwywFc2xOXXMl0Bag4i
+ JGcjlvSvZcTbBVvu7hqAoZmU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 6661fb44f73b8ac2;
+	Sat, 28 Nov 2026 13:14:58 +0000
+X-Mizu-Trace-ID: 6661fb44f73b8ac2
+X-Migadu-Flow: FLOW_OUT
+Date: Sat, 28 Nov 2026 13:14:54 +0000
+From: Bradley Morgan <bradley.morgan@linux.dev>
+To: 958028483@qq.com
+CC: atomlin@atomlin.com, da.gomez@kernel.org, huangchao@kylinos.cn,
+ linux-kernel@vger.kernel.org, linux-modules@vger.kernel.org,
+ mcgrof@kernel.org, petr.pavlu@suse.com, samitolvanen@google.com
+Subject: Re: [PATCH] module: report why forced module loading is rejected
+In-Reply-To: <tencent_192A8A137B6CC69DDBF028C27205824BAC09@qq.com>
+Message-ID: <5F50ADBD-0DC8-4A40-9EA2-DD39FA51F7E8@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,78 +64,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sat, 28 Nov 2026 14:12:54 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, pierremarinleclercq88@gmail.com,
- dave.stevenson@raspberrypi.com, justin.chen@broadcom.com
-Subject: Re: [PATCH net-next v10 8/8] net: bcmgenet: reassemble jumbo frames
- from status block fragments
-In-Reply-To: <179586516852.3135.10254038893964145277@kernel.org>
-References: <20261127-nb-genet-mtu-nn-v2-v10-8-749c7cc45d97@tipi-net.de>
- <179586516852.3135.10254038893964145277@kernel.org>
-Message-ID: <c79e49d9dfe3e90603025a6d014cd224@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 28.11.2026 12:26, netdev-bot+sashiko@kernel.org wrote:
+On 27 November 2026 03:43:17 GMT, Chao Huang <958028483@qq.com> wrote:
+>From: Chao Huang <huangchao@kylinos.cn>
+>
+>When CONFIG_MODULE_FORCE_LOAD is disabled, try_to_force_load() returns
+>-ENOEXEC without logging why the module was rejected. For example, with
+>CONFIG_MODVERSIONS enabled, finit_module() with
+>MODULE_INIT_IGNORE_MODVERSIONS suppresses the version sections and causes
+>the module_layout version check to take this path. Users only see
+>"Invalid module format" from insmod, without a diagnostic in the kernel
+>log explaining the failure.
+>
+>Log the module name and the supplied reason, and state that
+>CONFIG_MODULE_FORCE_LOAD is not enabled before returning -ENOEXEC. This
+>also diagnoses the missing vermagic and exported-symbol version paths
+>that use the same helper.
+>
+>Fixes: 826e4506a0ac ("Make forced module loading optional")
 
-> [...]
+This is correct.
 
-> [Severity: Medium]
-> Can a split frame end with a descriptor that holds only its status
-> block plus DMA_EOP, with no payload?
+Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
 
-Not on a bcm2711. I tested both boundaries reachable with MTU 9000, 3582
-and 7166, 200 frames each. All bytes were delivered and I observed no 
-errors.
-EOP landed on the last descriptor that had data.
 
-> [...]
+>Signed-off-by: Chao Huang <huangchao@kylinos.cn>
+>---
+>Testing: rebuilt the x86_64 bzImage and modules with CONFIG_MODVERSIONS=y
+>and CONFIG_MODULE_FORCE_LOAD disabled, and booted the patched kernel with:
+>
+>  vng --run out/arch/x86/boot/bzImage --cpus 2 --memory 2G \
+>      --disable-microvm --verbose
+>
+>A matching test module loaded and unloaded successfully without flags.
+>finit_module() with MODULE_INIT_IGNORE_MODVERSIONS,
+>MODULE_INIT_IGNORE_VERMAGIC, or both flags failed with ENOEXEC and logged
+>the corresponding reason and disabled configuration option. 
+>
+> kernel/module/main.c | 2 ++
+> 1 file changed, 2 insertions(+)
+>
+>diff --git a/kernel/module/main.c b/kernel/module/main.c
+>index 34e0204ea37c..010b5d69e50c 100644
+>--- a/kernel/module/main.c
+>+++ b/kernel/module/main.c
+>@@ -1124,6 +1124,8 @@ int try_to_force_load(struct module *mod, const char *reason)
+> 	add_taint_module(mod, TAINT_FORCED_MODULE, LOCKDEP_NOW_UNRELIABLE);
+> 	return 0;
+> #else
 
-> [Severity: Medium]
-> For a reassembled frame, dma_flag at the deliver label holds the status
-> word of the final EOP descriptor. The stats code in bcmgenet_desc_rx()
-> then does:
-> 
-> 	if (dma_flag & DMA_RX_MULT)
-> 		u64_stats_inc(&stats->multicast);
-> 	else if (dma_flag & DMA_RX_BRDCAST)
-> 		u64_stats_inc(&stats->broadcast);
-> 
-> The commit message says the status blocks of a split frame differ
-> ("Only the last block holds the checksum of the whole frame"). It
-> doesn't say which block carries the DMA_RX_MULT and DMA_RX_BRDCAST
-> classification. The MAC already has that from the destination address
-> when it writes the SOP block.
-> 
-> If these flags are set only in the SOP status block, would jumbo
-> multicast and broadcast frames go uncounted in stats->multicast and
-> stats->broadcast?
+Suggestion:
 
-They do, but the SOP block has no flags either.
 
-The MAC just stops setting DMA_RX_BRDCAST and DMA_RX_MULT above 1518 
-bytes,
-same boundary at MTU 1500 as at 9000. So a full size VLAN tagged 
-broadcast
-frame is already miscounted today.
+/* CONFIG_MODULE_FORCE_LOAD is not
+ * enabled, let's just tell the user
+ * that it won't forcefully load
+ */
 
-I'd make this a separate fix for net, using skb->pkt_type instead.
+I'm aware that's very long, you can shorten down or decline suggestion.
 
-> Could the SOP descriptor's flags be saved when frag_head is set up and
-> used here instead?
-> 
->> 
->>  		/* Build SKB from the page - data starts at hard_start,
->>  		 * frame begins after RSB(64) + pad(2) = 66 bytes.
->>  		 */
-> 
-> [ ... ]
+>+	pr_err("%s: %s: CONFIG_MODULE_FORCE_LOAD is not enabled\n",
+>+	       mod->name, reason);
+> 	return -ENOEXEC;
+> #endif
+> }
+>
+>base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+>
+
+--- Thanks!
