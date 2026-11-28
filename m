@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795886165;
-	b=IpJQ5FtepC3MUa3ZWBoUBdcQdHX/hRTdKgXvIj0+oUAu0ZskRZ29Mw27iVx6MBeFJt0C
-	 gNnXBQ3vWjYv+Ck2Dm+tzAsczPJ6P7sQAQ25qrBZPnAUcpy9bSuAFkjb/2IxMBM0p9ptw
-	 Bem2Zl8t5jkkEgPD/DjsodKQKES51SByyPfVtzhjZVDifErDyR9ZXCdJmfChjLk9l+Eq/
-	 KQwALkINm3H9KE/qJKTuU70ZacIiwGWGN1FQ378eIw9yF+Er7ykJSl4pu2ZHVjGCl2CBy
-	 etK1+lDm43wDwRbV2YOdFHaYoXcanWPhOHCXFKdZlizjsENmiwtDL/MC0RKNMfkM8qw==
+	t=1795886172;
+	b=naZc5S1AndLv3LwiL6yRJjVrGaNm8OOM7tAFEIonFyhdjGivvxnRrX+L3+DiulDpAAtz
+	 QurZfPLCF1bt9KthtHJG7OqhaVPj2sYzQtfsfJcJIOgyUvrR4z3OBMFR/pQXhHJ8tOOiJ
+	 sCqnDNAhsWPpLHOkuSID5x0Fk0AzlBAU6rgYmpOuwfHcQkMuwb9B0NUM+S6/xxMUsolZi
+	 DgbqDPrIYrqjOvnniMGiL13zswyTTORnaIE2XkYvrOOTTdxEwPzCt6hfjEqmoO9u0ZJsf
+	 PEOgdG5PWfihkWcRyrc4oyBrvjQm2LqKJVIhhNB1TdLiw1qEgsFFG8lw96iHMGjAGgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795886165;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886172;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=JpwD/zNGpA8B8BOz7lns8OOdv6N1YRfQD7xfZgcILa4=;
-	b=qCNWuUBSy0p7yzZSEnQHhgcFRCHVdwJwgVskWxG5mhGNkXdiZJz64CHa2QtpnlQmT0HH
-	 rRsLtgutWcB7Wl2fHNqu2aHB8i8kO63YERstHWEVol55Bf3CrzX/PgcgksxuZqbZ6dEMA
-	 U/74LzqtJ7Y95g/Wnef9MfNngBr/17epw6JWTMWFCDI6Rp5Qzx5FObV1459B3Dyx/xYuf
-	 S+EJT/CElYbS4PfjueTEINznKmZVd8O5fcn0JKwp143MIE5IBQJsLg0fF04vPGztNxhHm
-	 r5cO4tMCGAQfs23qBOpg75wuzryR3c6AhDiOz+EO9//nirsMYY6frZst4u6KPNagtUQ==
+	bh=2ZxV2xEqsnONcYdp4yXmDN2ul3Nqgcm2H/bI+3LUGKI=;
+	b=WcbMRQk+0LP2SnHio6Hft8dD1Y3GMz1n6b0KQWslGEDfdbonQBZJRbeJXoETBzI0Mzfy
+	 yjmiLWQj7y8+rzhSjxrjmgCyFqzzdHMSL2HI8DUfjWrN4c18WcTxZvp2iizHsODDZRYeb
+	 BnaGbtN0bVfdamTL4RMyUogVRX4BH35av/+fcTSm9x2U9mTqWqFc3AmMFiIZRy7Yp1TdR
+	 vj00lzhY8EQCR1H6JlcZbQCdc3YBsvts5rhtwVaWM31fC7jrD+mQ2D2wHrRicVOoUosSx
+	 fr5D8j4edjUK280bcUmmVGTBVyzntBXZCJIM6LX5nStAIMkCxil0B3OiU8ovOgit5jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EgcdTAI3;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qJSJQt65;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C450606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C450606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26A66606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 17:16:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26A66606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EgcdTAI3
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so4949081f8f.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qJSJQt65
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48dee593f18so8585476f8f.3
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:16:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795886163; x=1796490963; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795886170; x=1796490970; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JpwD/zNGpA8B8BOz7lns8OOdv6N1YRfQD7xfZgcILa4=;
-        b=EgcdTAI3tl8bgO3wPoRmX8sPNN+AI+qvebinLYb88M8ajGYFmUQJc8W5FiQNHHb8AB
-         f/0gXuYN5tP4j8uFlPkDF62hUhEXYZQyEOcYA6BOLp+fDI8ntDP2G72hnCahHZ/4iNXi
-         N2gUTm0d7hJs6fEqYMzYGhqbQghUsrkoSDolikw38jDr7rdtLPxrXDFDIxJJBgzgOeX8
-         gljgAmLGb+j3dgf6Lhbp6PM56QeO3uF8DtECfj7SrngPSeeihbySsh2sXna2pwc1mcoF
-         Sy+86C95MUU5VUx0t7BBbNGyEmzfsxgQjnNxnm/H9tZFCb4M/D8Ni40lMGqkSp4tqk26
-         x4cQ==
+        bh=2ZxV2xEqsnONcYdp4yXmDN2ul3Nqgcm2H/bI+3LUGKI=;
+        b=qJSJQt65ypXLlIkf4licjrHP/889ZJY5nm8wL54KmrOzEnpjhcvHfxabfbL772mqjP
+         A6z1L88zwEqqn0xQ2bDuljM7ffV0DvyxaSqmJPlQ8fQgkonFszvbw0GiP+i37nvkfOiQ
+         xND5zgKQ+obwr58KmDBod5pRoSNyzKpvUp0wgnL8Cihh1t9y0tcZO85vu5h7igu08oms
+         H1SF1Obkkcc5f3m++p4XS0QNW0R8W7q8OwwozTNDCIuSsJJr9eRRkOqtXrMBDFgNs+a1
+         EXGgIblUBXzhzh4gjnvMV+qYtY4Op4wJH2h/58rGPKHgnHa5bFL6roA39yvzRwvwajXj
+         hPZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795886163; x=1796490963;
+        d=1e100.net; s=20260707; t=1795886170; x=1796490970;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JpwD/zNGpA8B8BOz7lns8OOdv6N1YRfQD7xfZgcILa4=;
-        b=Z9wD65hoDx0zVitaaxmnZ5nxKXpEa28wZUhTdZL29e3iiQsHJF2ebhcoHGqN1ANrAI
-         5UQiYy0x0jCqdjqFinMf7CS5dBOPLdVIS6tzAqpWKxsc7Aejy0dsBjEpUgHESnRFzGnF
-         +TdHAw1w04hb2QyptyXY+MRXq7h1PqqXxmi+7FYnPntvI2IkGpYhjjHyI5qljTcdVFKH
-         r54g3V8QLe1HV+E55jyw6saSHyotFx2S6hjaV3j+OR44XRWOKrgCe5ii4Y4fIychuRD2
-         Qya8sNzriLWihQhkRXU/JUGTrw3M8OCNhcHR4H5EhRf/ywuGckJJKSaXFTScjT4PrlYz
-         kLYA==
-X-Forwarded-Encrypted: i=1; AL+hErEPyDgxFkYOd9+DETFHTpPTDH0NZykmsOMkWKpx9PBbXfGt6sNrLk53nwQ8s+AhrdozYtSq7nzzCyT1QDk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3m8l06WVa/5UG4RWuN7byuPwYKs1TvnZbimk69ITTMXjAaLT9
-	+c6zQ8Z13qoxFMXghocC0Gg9UnxBSNaFVJqckDfMM1KZoM57vL5nQa7K
-X-Gm-Gg: AZFdTZfE278u0NOw1iINZvCoRrpFcN1HkQiwoGLmPKv0XWq5pCnOiy8Yt2oOiom63Ib
-	TAqtHMID7Q2moVswt0MVZLeCTCOTSFBU3oUJpuXi4ZgUyru3U5N696os97e4GOyUa9056eT3CW3
-	j1kb4jRlwwFGtEwEhTBCJ9SkCJJm+3+yGX9bFOmX4xASkVgedyIr6/vPqRylWe6dqVISAn9y3Vy
-	PUFsprJb7S6d08Q3mPgovMdzSMYaJfxwUemDl6OvkLhPQwt42OPB07irN7UMHp+jlaLCPIzA0kr
-	BR1QL23iubx4gvS4bnf4o7HzvogZezP+u3727weAkCz1eXOI0jHweZwHck39x9BGqeel38VNegg
-	W0iMbR/HF+LOalkod/osvqzheLtSgzhrvSbXG5Q/PXcwZvB9kZTag6DmAMUsT7ntyi6kedMBY6q
-	HvzcediYiS/8r67YZuxWXOc+LWTgwt16gYQbL+E7JcxDDsYiZBZmw2tholaSchQ28qWWdrsaOar
-	VNvmb6JJx/Bqi46sHTvDy3wTW9y6iikuDhjwztvkEhLyEpUdeiBtxavmGX16iGXP5lvEzeMAgT8
-	B7vF0bFoscbTup9nZ8bFpdM4FDOSyxqcUZ0qjA==
-X-Received: by 2002:a05:600c:c09b:b0:4bb:665f:7e52 with SMTP id 5b1f17b1804b1-4bb8880995dmr427638195e9.10.1795886162787;
-        Sat, 28 Nov 2026 09:16:02 -0800 (PST)
+        bh=2ZxV2xEqsnONcYdp4yXmDN2ul3Nqgcm2H/bI+3LUGKI=;
+        b=gQz5hHHiFnf6FtCp+6nBNYZd2eKNFaBRngkQBvf9fF+ROCFgpPrVxx251VuN33Igqm
+         UYpoI9yTou+VMqzFn1ErsAOh1I+8zH0tez/uyoOtlFfIdqYWc1yoORb0gpWdqdxqjNk+
+         N7wEjaMOtZpRZf4MRTei4+lF/0jG4NoRKPVi4upXWahU+sQvaKFNhqcnKgO97XOI3Due
+         lHgQzGg70ZjyjOMiLjRmSJNfAa7q/Wgamn9VqsgXzISW3KVYeDu/1/PLdrpJen/mzEAD
+         Z7jileBo0L5OLnahoVa6T7pl7RaChuid3IV4NIWYOOQ8u+Z5oshUitxSTn+rtl+7rJ2k
+         dBhQ==
+X-Forwarded-Encrypted: i=1; AL+hErGZWcO+/dONh2SLv7jXx0hNWxHGo2Uhi8+RPuAGJC8PkZbb63vLk0hPUPPi/TAtzaRJ5y3QLe5OROzTWTE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8us0fSGmLaXdjgqBAblW9tGqOeZbC+ozmxqD85+p/rzZoaEATj
+	ag1V0/bxDxYjBhi0vezpKFo9/KrmdHozW0tY4WogdrspZzety3fYp4Zf
+X-Gm-Gg: AZFdTZdr7C8/Gj8fu5OzpjsfG3y/aPdwTVDIWOX+vkle6P69cq1NHR9n60BzPM/WuFU
+	rtEkNTV+drNRzEDkJ96+EQVF0GKZETmtREU0B555++jIZFuFBwlSoDnOJZHPjbk4mAmjkJsImUF
+	knppQaq+eVZn7hwV8uOqM+nu72ApZDGqRnTgWCqKpzOhn85YLXy34KmK58i3L9s1zb8vid7TN92
+	56a8oYCRmJEYRZ29rDI72lG1toYLbJOPzfRi0aYfPFQ/E0mBFQ9kM+PvRt4LXfueFXwaCqe7+YJ
+	fZyQrOjcJ6S6ugDiMbx6eOwGwUuE59yi5mFP0Qnk70yoK3L/hbJyXZubVSIb5LDP2mc0sXHSHSd
+	F8NuouRDGTtD0hcu7E61p+5B7VH6iIAqH1emc2V0C1zBwW9SYiwZ7pXJdNrEhg78F0SPodtslDt
+	xLzRqscWnWx3EeECOvcsFiy2h14y31c0KH7X9hErcRH3PRkVNPMlOV7SJffOAieMwyHjg/uEga3
+	8CAMgbZJ/8dhx/GjX103MC8RugRsQVasY/ox+5ASDiroExJ7IpScf88ZOM9z6OWp8qLqVK2TrOx
+	Fzh/mk2ltC7lJBrcIXrsJNdjDG2URPAQV0PBmA==
+X-Received: by 2002:a5d:5888:0:b0:48e:60ed:b012 with SMTP id ffacd0b85a97d-4abb514607bmr54403429f8f.57.1795886170353;
+        Sat, 28 Nov 2026 09:16:10 -0800 (PST)
 Received: from [10.56.169.198] ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.15.55
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm45654229f8f.46.2026.11.28.09.16.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 09:16:02 -0800 (PST)
+        Sat, 28 Nov 2026 09:16:09 -0800 (PST)
 From: Oarora Etimis <oaroraetimis@gmail.com>
-Date: Sat, 28 Nov 2026 18:15:21 +0100
-Subject: [PATCH 3/7] drm/vkms: use the colorop states of the state being
- composed
+Date: Sat, 28 Nov 2026 18:15:22 +0100
+Subject: [PATCH 4/7] drm/vkms: add a programmable 1D LUT colorop
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +93,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261128-colorop-v1-3-dd79919f822b@gmail.com>
+Message-Id: <20261128-colorop-v1-4-dd79919f822b@gmail.com>
 References: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 In-Reply-To: <20261128-colorop-v1-0-dd79919f822b@gmail.com>
 To: Louis Chauvet <louis.chauvet@bootlin.com>, 
@@ -109,346 +108,307 @@ To: Louis Chauvet <louis.chauvet@bootlin.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 
-The composer runs asynchronously and reads drm_colorop::state, which a
-later commit can replace and free. If that commit writes a value the
-colorop already has, core leaves the plane and its CRTC out, so nothing
-flushes the composer first and the worker is left holding a pointer to
-the freed state.
+The two curve stages apply a curve built into the driver, so userspace
+can pick one but cannot supply a table.
 
-Record the values the composer needs in vkms_plane_state from
-atomic_flush(), together with a reference of the LUT blob, and read only
-that copy.
+Add a 1D LUT colorop with 256 entries and linear interpolation, and look
+the entries up in the composer from the blob it carries. The values are
+U0.32 and are scaled to the 16-bit range the composer works in.
 
-Fixes: c1e578bd08da ("drm/vkms: Add enumerated 1D curve colorop")
+Add KUnit coverage for the interpolation, including a table that
+decreases.
+
+The existing colorops and their order are unchanged.
 
 Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
 ---
- drivers/gpu/drm/vkms/vkms_colorop.c  |  4 +-
- drivers/gpu/drm/vkms/vkms_composer.c | 92 +++++++++++++++++++-----------------
- drivers/gpu/drm/vkms/vkms_crtc.c     | 43 ++++++++++++++++-
- drivers/gpu/drm/vkms/vkms_drv.h      | 56 ++++++++++++++++++++++
- drivers/gpu/drm/vkms/vkms_plane.c    |  2 +
- 5 files changed, 149 insertions(+), 48 deletions(-)
+ drivers/gpu/drm/vkms/tests/vkms_color_test.c | 89 ++++++++++++++++++++++++++++
+ drivers/gpu/drm/vkms/vkms_colorop.c          | 19 ++++++
+ drivers/gpu/drm/vkms/vkms_composer.c         | 80 +++++++++++++++++++++++++
+ drivers/gpu/drm/vkms/vkms_composer.h         |  2 +
+ drivers/gpu/drm/vkms/vkms_drv.h              |  3 +
+ 5 files changed, 193 insertions(+)
 
-diff --git a/drivers/gpu/drm/vkms/vkms_colorop.c b/drivers/gpu/drm/vkms/vkms_colorop.c
-index ed557a1c6a05..01b1ed2a5991 100644
---- a/drivers/gpu/drm/vkms/vkms_colorop.c
-+++ b/drivers/gpu/drm/vkms/vkms_colorop.c
-@@ -24,11 +24,9 @@ static const struct drm_colorop_funcs vkms_colorop_funcs = {
- 	.destroy = drm_colorop_destroy,
- };
- 
--#define MAX_COLOR_PIPELINE_OPS 5
--
- static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_prop_enum_list *list)
- {
--	struct drm_colorop *ops[MAX_COLOR_PIPELINE_OPS];
-+	struct drm_colorop *ops[VKMS_MAX_COLOROPS];
- 	struct drm_device *dev = plane->dev;
- 	int ret;
- 	int i = 0, j = 0;
-diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-index 7a6a7875520c..2cd909bc8adc 100644
---- a/drivers/gpu/drm/vkms/vkms_composer.c
-+++ b/drivers/gpu/drm/vkms/vkms_composer.c
-@@ -247,39 +247,48 @@ VISIBLE_IF_KUNIT void apply_3x4_matrix(struct pixel_argb_s32 *pixel,
- }
- EXPORT_SYMBOL_IF_KUNIT(apply_3x4_matrix);
- 
--static void apply_colorop(struct pixel_argb_s32 *pixel, struct drm_colorop *colorop)
-+static void apply_1d_curve(struct pixel_argb_s32 *pixel,
-+			   const struct vkms_colorop_state *state)
- {
--	struct drm_colorop_state *colorop_state = colorop->state;
--	struct drm_device *dev = colorop->dev;
--
--	if (colorop->type == DRM_COLOROP_1D_CURVE) {
--		switch (colorop_state->curve_1d_type) {
--		case DRM_COLOROP_1D_CURVE_SRGB_INV_EOTF:
--			pixel->r = apply_lut_to_channel_value(&srgb_inv_eotf, pixel->r, LUT_RED);
--			pixel->g = apply_lut_to_channel_value(&srgb_inv_eotf, pixel->g, LUT_GREEN);
--			pixel->b = apply_lut_to_channel_value(&srgb_inv_eotf, pixel->b, LUT_BLUE);
--			break;
--		case DRM_COLOROP_1D_CURVE_SRGB_EOTF:
--			pixel->r = apply_lut_to_channel_value(&srgb_eotf, pixel->r, LUT_RED);
--			pixel->g = apply_lut_to_channel_value(&srgb_eotf, pixel->g, LUT_GREEN);
--			pixel->b = apply_lut_to_channel_value(&srgb_eotf, pixel->b, LUT_BLUE);
--			break;
--		default:
--			drm_WARN_ONCE(dev, true,
--				      "unknown colorop 1D curve type %d\n",
--				      colorop_state->curve_1d_type);
--			break;
--		}
--	} else if (colorop->type == DRM_COLOROP_CTM_3X4) {
--		if (colorop_state->data)
--			apply_3x4_matrix(pixel,
--					 (struct drm_color_ctm_3x4 *)colorop_state->data->data);
--	} else if (colorop->type == DRM_COLOROP_FIXED_MATRIX) {
--		/*
--		 * Fixed Matrix is a no-op here. YUV-to-RGB conversion
--		 * is handled at format read time via the
--		 * conversion_matrix set in vkms_plane_atomic_update().
--		 */
-+	struct drm_device *dev = state->colorop->dev;
-+
-+	switch (state->curve_1d_type) {
-+	case DRM_COLOROP_1D_CURVE_SRGB_INV_EOTF:
-+		pixel->r = apply_lut_to_channel_value(&srgb_inv_eotf, pixel->r, LUT_RED);
-+		pixel->g = apply_lut_to_channel_value(&srgb_inv_eotf, pixel->g, LUT_GREEN);
-+		pixel->b = apply_lut_to_channel_value(&srgb_inv_eotf, pixel->b, LUT_BLUE);
-+		break;
-+	case DRM_COLOROP_1D_CURVE_SRGB_EOTF:
-+		pixel->r = apply_lut_to_channel_value(&srgb_eotf, pixel->r, LUT_RED);
-+		pixel->g = apply_lut_to_channel_value(&srgb_eotf, pixel->g, LUT_GREEN);
-+		pixel->b = apply_lut_to_channel_value(&srgb_eotf, pixel->b, LUT_BLUE);
-+		break;
-+	default:
-+		drm_WARN_ONCE(dev, true, "unknown colorop 1D curve type %d\n",
-+			      state->curve_1d_type);
-+		break;
-+	}
-+}
-+
-+static void apply_colorop(struct pixel_argb_s32 *pixel,
-+			  const struct vkms_colorop_state *state)
-+{
-+	const struct drm_colorop *colorop = state->colorop;
-+
-+	switch (colorop->type) {
-+	case DRM_COLOROP_1D_CURVE:
-+		apply_1d_curve(pixel, state);
-+		break;
-+	case DRM_COLOROP_CTM_3X4:
-+		if (state->data)
-+			apply_3x4_matrix(pixel, (struct drm_color_ctm_3x4 *)state->data->data);
-+		break;
-+	case DRM_COLOROP_FIXED_MATRIX:
-+		break;
-+	default:
-+		drm_WARN_ONCE(colorop->dev, true, "unknown colorop type %d\n",
-+			      colorop->type);
-+		break;
+diff --git a/drivers/gpu/drm/vkms/tests/vkms_color_test.c b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
+index c3c61037cb71..0d68de6462d9 100644
+--- a/drivers/gpu/drm/vkms/tests/vkms_color_test.c
++++ b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
+@@ -120,6 +120,91 @@ static void vkms_color_test_linear(struct kunit *test)
  	}
  }
  
-@@ -289,8 +298,6 @@ static void pre_blend_color_transform(const struct vkms_plane_state *plane_state
- 	struct pixel_argb_s32 pixel;
++/*
++ * A two-entry LUT that maps 0 to 0 and 1.0 to 1.0 is the identity, so every
++ * input has to come back unchanged, including the ones between the entries.
++ */
++static const struct drm_color_lut32 test_lut32_identity[] = {
++	{ 0x00000000, 0x00000000, 0x00000000, 0 },
++	{ 0xffffffff, 0xffffffff, 0xffffffff, 0 },
++};
++
++static void vkms_color_test_lut32_identity(struct kunit *test)
++{
++	static const u16 inputs[] = { 0x0000, 0x4000, 0x8000, 0xc000, 0xffff };
++
++	for (size_t i = 0; i < ARRAY_SIZE(inputs); i++)
++		KUNIT_EXPECT_EQ(test, inputs[i],
++				apply_lut32_to_channel_value(test_lut32_identity,
++							     ARRAY_SIZE(test_lut32_identity),
++							     inputs[i], LUT_RED));
++}
++
++/*
++ * Three entries at 0, 0.5 and 1.0. The values tested here fall exactly on
++ * the entries or halfway between two of them, so the expected output is
++ * exact.
++ */
++static const struct drm_color_lut32 test_lut32_three_points[] = {
++	{ 0x00000000, 0x00000000, 0x00000000, 0 },
++	{ 0x80000000, 0x80000000, 0x80000000, 0 },
++	{ 0xffffffff, 0xffffffff, 0xffffffff, 0 },
++};
++
++static void vkms_color_test_lut32_three_points(struct kunit *test)
++{
++	static const struct {
++		u16 input;
++		u16 expected;
++	} cases[] = {
++		{ 0x0000, 0x0000 },
++		{ 0x4000, 0x4000 },
++		{ 0x8000, 0x8000 },
++		{ 0xc000, 0xc000 },
++		{ 0xffff, 0xffff },
++	};
++
++	for (size_t i = 0; i < ARRAY_SIZE(cases); i++)
++		KUNIT_EXPECT_EQ(test, cases[i].expected,
++				apply_lut32_to_channel_value(test_lut32_three_points,
++							     ARRAY_SIZE(test_lut32_three_points),
++							     cases[i].input, LUT_RED));
++}
++
++/* A single-entry LUT returns that entry for every input. */
++static const struct drm_color_lut32 test_lut32_single[] = {
++	{ 0x12345678, 0x12345678, 0x12345678, 0 },
++};
++
++/* A decreasing table must round the same way an increasing one does. */
++static const struct drm_color_lut32 test_lut32_descending[] = {
++	{ 0xffffffff, 0xffffffff, 0xffffffff, 0 },
++	{ 0x00000000, 0x00000000, 0x00000000, 0 },
++};
++
++static void vkms_color_test_lut32_descending(struct kunit *test)
++{
++	KUNIT_EXPECT_EQ(test, 0xffff,
++			apply_lut32_to_channel_value(test_lut32_descending, 2,
++						     0x0000, LUT_RED));
++	KUNIT_EXPECT_EQ(test, 0x7fff,
++			apply_lut32_to_channel_value(test_lut32_descending, 2,
++						     0x8000, LUT_RED));
++	KUNIT_EXPECT_EQ(test, 0x0000,
++			apply_lut32_to_channel_value(test_lut32_descending, 2,
++						     0xffff, LUT_RED));
++}
++
++static void vkms_color_test_lut32_single_entry(struct kunit *test)
++{
++	KUNIT_EXPECT_EQ(test, 0x1234,
++			apply_lut32_to_channel_value(test_lut32_single, 1,
++						     0x0000, LUT_RED));
++	KUNIT_EXPECT_EQ(test, 0x1234,
++			apply_lut32_to_channel_value(test_lut32_single, 1,
++						     0xffff, LUT_RED));
++}
++
+ static void vkms_color_srgb_inv_srgb(struct kunit *test)
+ {
+ 	u16 srgb, final;
+@@ -385,6 +470,10 @@ static struct kunit_case vkms_color_test_cases[] = {
+ 	KUNIT_CASE(vkms_color_test_get_uniform_lut_index),
+ 	KUNIT_CASE(vkms_color_test_lerp),
+ 	KUNIT_CASE(vkms_color_test_linear),
++	KUNIT_CASE(vkms_color_test_lut32_identity),
++	KUNIT_CASE(vkms_color_test_lut32_three_points),
++	KUNIT_CASE(vkms_color_test_lut32_single_entry),
++	KUNIT_CASE(vkms_color_test_lut32_descending),
+ 	KUNIT_CASE(vkms_color_srgb_inv_srgb),
+ 	KUNIT_CASE(vkms_color_ctm_3x4_50_desat),
+ 	KUNIT_CASE(vkms_color_ctm_3x4_bt709),
+diff --git a/drivers/gpu/drm/vkms/vkms_colorop.c b/drivers/gpu/drm/vkms/vkms_colorop.c
+index 01b1ed2a5991..584305b0abfd 100644
+--- a/drivers/gpu/drm/vkms/vkms_colorop.c
++++ b/drivers/gpu/drm/vkms/vkms_colorop.c
+@@ -119,6 +119,25 @@ static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_pr
  
- 	for (size_t x = 0; x < output_buffer->n_pixels; x++) {
--		struct drm_colorop *colorop = plane_state->base.base.color_pipeline;
--
- 		/*
- 		 * Some operations, such as applying a BT709 encoding matrix,
- 		 * followed by a decoding matrix, require that we preserve
-@@ -306,18 +313,15 @@ static void pre_blend_color_transform(const struct vkms_plane_state *plane_state
- 		pixel.g = output_buffer->pixels[x].g;
- 		pixel.b = output_buffer->pixels[x].b;
+ 	drm_colorop_set_next_property(ops[i - 1], ops[i]);
  
--		while (colorop) {
--			struct drm_colorop_state *colorop_state;
--
--			colorop_state = colorop->state;
--
--			if (!colorop_state)
--				return;
-+		for (size_t i = 0; i < ARRAY_SIZE(plane_state->colorop_states); i++) {
-+			const struct vkms_colorop_state *state;
++	i++;
++
++	/* 6th op: 1D LUT */
++	ops[i] = kzalloc_obj(*ops[i]);
++	if (!ops[i]) {
++		drm_err(dev, "KMS: Failed to allocate colorop\n");
++		ret = -ENOMEM;
++		goto cleanup;
++	}
++
++	ret = drm_plane_colorop_curve_1d_lut_init(dev, ops[i], plane, &vkms_colorop_funcs,
++						  VKMS_LUT1D_SIZE,
++						  DRM_COLOROP_LUT1D_INTERPOLATION_LINEAR,
++						  DRM_COLOROP_FLAG_ALLOW_BYPASS);
++	if (ret)
++		goto cleanup;
++
++	drm_colorop_set_next_property(ops[i - 1], ops[i]);
++
+ 	list->name = kasprintf(GFP_KERNEL, "Color Pipeline %d", ops[0]->base.id);
  
--			if (!colorop_state->bypass)
--				apply_colorop(&pixel, colorop);
-+			state = &plane_state->colorop_states[i];
-+			if (!state->colorop)
-+				break;
+ 	return 0;
+diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
+index 2cd909bc8adc..e00d1d0b2f2d 100644
+--- a/drivers/gpu/drm/vkms/vkms_composer.c
++++ b/drivers/gpu/drm/vkms/vkms_composer.c
+@@ -1,10 +1,13 @@
+ // SPDX-License-Identifier: GPL-2.0+
  
--			colorop = colorop->next;
-+			if (!state->bypass)
-+				apply_colorop(&pixel, state);
- 		}
++#include <linux/bits.h>
+ #include <linux/crc32.h>
++#include <linux/limits.h>
  
- 		/* clamp values */
-diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
-index 7d18178d5320..e7ea487187bc 100644
---- a/drivers/gpu/drm/vkms/vkms_crtc.c
-+++ b/drivers/gpu/drm/vkms/vkms_crtc.c
-@@ -5,6 +5,7 @@
  #include <drm/drm_atomic.h>
  #include <drm/drm_atomic_helper.h>
  #include <drm/drm_blend.h>
-+#include <drm/drm_colorop.h>
- #include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -186,11 +187,43 @@ static void vkms_crtc_atomic_begin(struct drm_crtc *crtc,
- 	spin_lock_irq(&vkms_output->lock);
++#include <drm/drm_color_mgmt.h>
+ #include <drm/drm_colorop.h>
+ #include <drm/drm_fourcc.h>
+ #include <drm/drm_fixed.h>
+@@ -198,6 +201,61 @@ VISIBLE_IF_KUNIT u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut
  }
+ EXPORT_SYMBOL_IF_KUNIT(apply_lut_to_channel_value);
  
-+static void vkms_plane_colorops_update(struct vkms_plane_state *plane_state,
-+				       struct drm_atomic_commit *commit)
++static u16 lut32_channel_value(const struct drm_color_lut32 *entry,
++			       enum lut_channel channel)
 +{
-+	struct drm_colorop *colorop;
-+	size_t slot = 0;
-+
-+	/*
-+	 * The plane state is freshly allocated for this commit, so its
-+	 * colorop_states array is zero and holds nothing to release.
-+	 */
-+	for (colorop = plane_state->base.base.color_pipeline;
-+	     colorop && slot < ARRAY_SIZE(plane_state->colorop_states);
-+	     colorop = colorop->next) {
-+		struct drm_colorop_state *colorop_state;
-+		struct vkms_colorop_state *state;
-+
-+		colorop_state = drm_atomic_get_new_colorop_state(commit, colorop);
-+		if (!colorop_state)
-+			break;
-+
-+		state = &plane_state->colorop_states[slot++];
-+		state->colorop = colorop;
-+		state->bypass = colorop_state->bypass;
-+		state->curve_1d_type = colorop_state->curve_1d_type;
-+		state->multiplier = colorop_state->multiplier;
-+
-+		if (colorop_state->data)
-+			state->data = drm_property_blob_get(colorop_state->data);
++	switch (channel) {
++	case LUT_RED:
++		return drm_color_lut32_extract(entry->red, BITS_PER_TYPE(u16));
++	case LUT_GREEN:
++		return drm_color_lut32_extract(entry->green, BITS_PER_TYPE(u16));
++	case LUT_BLUE:
++		return drm_color_lut32_extract(entry->blue, BITS_PER_TYPE(u16));
++	case LUT_RESERVED:
++		break;
 +	}
++
++	return 0;
 +}
 +
- static void vkms_crtc_atomic_flush(struct drm_crtc *crtc,
- 				   struct drm_atomic_commit *state)
- 	__releases(&vkms_output->lock)
- {
- 	struct vkms_output *vkms_output = drm_crtc_to_vkms_output(crtc);
-+	struct vkms_crtc_state *crtc_state = to_vkms_crtc_state(crtc->state);
- 
- 	if (crtc->state->event) {
- 		spin_lock(&crtc->dev->event_lock);
-@@ -205,7 +238,15 @@ static void vkms_crtc_atomic_flush(struct drm_crtc *crtc,
- 		crtc->state->event = NULL;
- 	}
- 
--	vkms_output->composer_state = to_vkms_crtc_state(crtc->state);
-+	/*
-+	 * Capture the color operations of this commit: drm_colorop::state is
-+	 * the current value of the colorop, not the one this frame was built
-+	 * from, and the composer runs asynchronously, so it must not read it.
-+	 */
-+	for (size_t i = 0; i < crtc_state->num_active_planes; i++)
-+		vkms_plane_colorops_update(crtc_state->active_planes[i], state);
++/*
++ * Apply a uniformly spaced 1D LUT to one channel, interpolating linearly
++ * between the two entries around the input value.
++ */
++VISIBLE_IF_KUNIT u16 apply_lut32_to_channel_value(const struct drm_color_lut32 *lut,
++						  u32 lut_size, u16 channel_value,
++						  enum lut_channel channel)
++{
++	u64 position;
++	u32 index, fraction;
++	s64 delta, result;
++	u16 floor_value, ceil_value;
 +
-+	vkms_output->composer_state = crtc_state;
++	if (!lut_size)
++		return channel_value;
++
++	if (lut_size == 1)
++		return lut32_channel_value(&lut[0], channel);
++
++	position = (u64)channel_value * (lut_size - 1);
++	index = position / U16_MAX;
++
++	if (index >= lut_size - 1)
++		return lut32_channel_value(&lut[lut_size - 1], channel);
++
++	fraction = position - (u64)index * U16_MAX;
++
++	floor_value = lut32_channel_value(&lut[index], channel);
++	ceil_value = lut32_channel_value(&lut[index + 1], channel);
++
++	delta = (s64)ceil_value - (s64)floor_value;
++	result = (s64)floor_value +
++		 DIV_ROUND_CLOSEST(delta * fraction, (s64)U16_MAX);
++
++	return (u16)clamp(result, 0LL, (s64)U16_MAX);
++}
++EXPORT_SYMBOL_IF_KUNIT(apply_lut32_to_channel_value);
++
  
- 	spin_unlock_irq(&vkms_output->lock);
+ static void apply_lut(const struct vkms_crtc_state *crtc_state, struct line_buffer *output_buffer)
+ {
+@@ -270,6 +328,25 @@ static void apply_1d_curve(struct pixel_argb_s32 *pixel,
+ 	}
  }
+ 
++static void apply_1d_lut(struct pixel_argb_s32 *pixel,
++			 const struct vkms_colorop_state *state)
++{
++	const struct drm_colorop *colorop = state->colorop;
++	const struct drm_color_lut32 *lut;
++
++	if (!state->data)
++		return;
++
++	lut = state->data->data;
++
++	pixel->r = apply_lut32_to_channel_value(lut, colorop->size,
++						clamp_val(pixel->r, 0, 0xffff), LUT_RED);
++	pixel->g = apply_lut32_to_channel_value(lut, colorop->size,
++						clamp_val(pixel->g, 0, 0xffff), LUT_GREEN);
++	pixel->b = apply_lut32_to_channel_value(lut, colorop->size,
++						clamp_val(pixel->b, 0, 0xffff), LUT_BLUE);
++}
++
+ static void apply_colorop(struct pixel_argb_s32 *pixel,
+ 			  const struct vkms_colorop_state *state)
+ {
+@@ -283,6 +360,9 @@ static void apply_colorop(struct pixel_argb_s32 *pixel,
+ 		if (state->data)
+ 			apply_3x4_matrix(pixel, (struct drm_color_ctm_3x4 *)state->data->data);
+ 		break;
++	case DRM_COLOROP_1D_LUT:
++		apply_1d_lut(pixel, state);
++		break;
+ 	case DRM_COLOROP_FIXED_MATRIX:
+ 		break;
+ 	default:
+diff --git a/drivers/gpu/drm/vkms/vkms_composer.h b/drivers/gpu/drm/vkms/vkms_composer.h
+index fa003af12f85..6da85efc5524 100644
+--- a/drivers/gpu/drm/vkms/vkms_composer.h
++++ b/drivers/gpu/drm/vkms/vkms_composer.h
+@@ -22,6 +22,8 @@ u16 lerp_u16(u16 a, u16 b, s64 t);
+ s64 get_uniform_lut_index(const struct vkms_color_lut *lut, u16 channel_value);
+ u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut, u16 channel_value,
+ 			       enum lut_channel channel);
++u16 apply_lut32_to_channel_value(const struct drm_color_lut32 *lut, u32 lut_size,
++				 u16 channel_value, enum lut_channel channel);
+ void apply_3x4_matrix(struct pixel_argb_s32 *pixel, const struct drm_color_ctm_3x4 *matrix);
+ #endif
+ 
 diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
-index b7eb7033fb4b..1c5205aa6e0c 100644
+index 1c5205aa6e0c..05fba864cf36 100644
 --- a/drivers/gpu/drm/vkms/vkms_drv.h
 +++ b/drivers/gpu/drm/vkms/vkms_drv.h
-@@ -6,6 +6,7 @@
- #include <linux/hrtimer.h>
+@@ -35,6 +35,9 @@
  
- #include <drm/drm.h>
-+#include <drm/drm_colorop.h>
- #include <drm/drm_framebuffer.h>
- #include <drm/drm_gem.h>
- #include <drm/drm_gem_atomic_helper.h>
-@@ -25,6 +26,13 @@
- 
- #define NUM_OVERLAY_PLANES 8
- 
-+/*
-+ * Number of color operations in a plane's color pipeline. Must match the
-+ * number of colorops that vkms_initialize_color_pipeline() creates, with
-+ * room for the ones that follow.
-+ */
-+#define VKMS_MAX_COLOROPS 10
-+
  #define VKMS_GAMMA_LUT_SIZE 256
  
- /**
-@@ -139,6 +147,44 @@ struct conversion_matrix {
- 	int y_offset;
- };
- 
-+/**
-+ * struct vkms_colorop_state - colorop state recorded at commit time
-+ * @colorop: the color operation these states belong to
-+ * @data: LUT blob, with a reference held by this state
-+ * @multiplier: gain of a DRM_COLOROP_MULTIPLIER
-+ * @curve_1d_type: curve of a DRM_COLOROP_1D_CURVE
-+ * @bypass: whether the operation is bypassed
-+ *
-+ * The composer must not read drm_colorop::state: that is the current value
-+ * of the colorop, not the one the frame is built from, and the worker runs
-+ * asynchronously. Writing the value a colorop property already has does not
-+ * count as a change, so core leaves the plane out of that commit and the
-+ * replaced state can be freed while a published frame still refers to it.
-+ * Copy the states the composer needs instead.
-+ */
-+struct vkms_colorop_state {
-+	const struct drm_colorop *colorop;
-+	struct drm_property_blob *data;
-+	u64 multiplier;
-+	enum drm_colorop_curve_1d_type curve_1d_type;
-+	bool bypass;
-+};
-+
-+/**
-+ * vkms_colorop_state_release - drop what a state holds
-+ * @state: the state to clear
-+ *
-+ * The blob reference is the only thing a state owns. Clearing a state
-+ * without dropping it leaks that reference, so every place that discards
-+ * one goes through here.
-+ */
-+static inline void
-+vkms_colorop_state_release(struct vkms_colorop_state *state)
-+{
-+	drm_property_blob_put(state->data);
-+	memset(state, 0, sizeof(*state));
-+}
++/* Entries in the 1D LUT colorop of a plane's color pipeline. */
++#define VKMS_LUT1D_SIZE 256
 +
  /**
-  * struct vkms_plane_state - Driver specific plane state
-  * @base: base plane state
-@@ -146,14 +192,24 @@ struct conversion_matrix {
-  * @pixel_read_line: function to read a pixel line in this plane. The creator of a
-  *		     struct vkms_plane_state must ensure that this pointer is valid
-  * @conversion_matrix: matrix used for yuv formats to convert to rgb
-+ * @colorop_states: the color operations of this plane's pipeline, with the state
-+ *	      the composer needs, recorded when this state was committed
-  */
- struct vkms_plane_state {
- 	struct drm_shadow_plane_state base;
- 	struct vkms_frame_info frame_info;
- 	pixel_read_line_t pixel_read_line;
- 	struct conversion_matrix conversion_matrix;
-+	struct vkms_colorop_state colorop_states[VKMS_MAX_COLOROPS];
- };
- 
-+static inline void
-+vkms_plane_colorops_release(struct vkms_plane_state *plane_state)
-+{
-+	for (size_t i = 0; i < ARRAY_SIZE(plane_state->colorop_states); i++)
-+		vkms_colorop_state_release(&plane_state->colorop_states[i]);
-+}
-+
- struct vkms_plane {
- 	struct drm_plane base;
- };
-diff --git a/drivers/gpu/drm/vkms/vkms_plane.c b/drivers/gpu/drm/vkms/vkms_plane.c
-index fd3d34dcf0fe..b05475b0f5d4 100644
---- a/drivers/gpu/drm/vkms/vkms_plane.c
-+++ b/drivers/gpu/drm/vkms/vkms_plane.c
-@@ -79,6 +79,8 @@ static void vkms_plane_destroy_state(struct drm_plane *plane,
- 			drm_framebuffer_put(vkms_state->frame_info.fb);
- 	}
- 
-+	vkms_plane_colorops_release(vkms_state);
-+
- 	__drm_gem_destroy_shadow_plane_state(&vkms_state->base);
- 	kfree(vkms_state);
- }
+  * struct vkms_frame_info - Structure to store the state of a frame
+  *
 
 -- 
 2.56.1
