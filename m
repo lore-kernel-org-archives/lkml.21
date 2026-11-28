@@ -1,90 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795859436;
-	b=z+LoduCrWG52l9NShrwcepwk6vRaS0dC5Mo82cQEaS0KdG0paHzpLPNiGISLeu2sOgDc
-	 NR6p5lLHXtPz8Z77qM44OT2iHrqwFn0p0XKhGhYdSS0w2kcpOmDMkZa1J2m9R4VMyYM0Y
-	 YlOKrFiJop1eJ2qMqATWSQa4G/J3dwZf90BgjhMlqD7UPjGPOZCjptKHX9h21D05r0+3Z
-	 qAX9TGCaqf5uEj5RI3DRWLQ4DszpXWCQwvWogA9XKGmG7M5dwii6dfnXHgTVNKZ6oCMB6
-	 Seg3JsEGik22n4JH79zupFPAhn0IXn05P82bYT4+TABcseiNnCHHkrSQOemMGPMFdAQ==
+	t=1795859578;
+	b=QKRhom9x57JdFVBdt/HLKT5XViBECkbBFh6F7M3FV0PsoDyYLdNHRIc6acXN/aDd9sN3
+	 qSaeuYzT6obN/XdQr7yaN9paQBz6yNxad4Lcc8K9lLyCRn8CEsGqwBj5j6dd3ZnNdlPEu
+	 nojUXICX1Wv2onPR16IlJ7bmvthNf9S/YQZxmdTVSz1yoOZtdtlofEbyK0URNX5QrBP+9
+	 DZeiW3RNnQV9KLEzGl6fk/WDAazCE4GwOzTn9KoUZkiEWcOlIcZw+T6vCBkd5oFssrRz7
+	 BE7cn5mi0uqw4K2uk6uUxB7FIwVstFZg3Op6VAEU1D1t3QturlLdAbLGdrKy5z7x5Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795859436;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-MTK;
-	bh=MjkoJnpst7G6VGEXYYTLIfIiWtWhE+3drC8cmCbx6v8=;
-	b=rL0MNMUrAIFTgox3Ickx36xnw5yMKP0hFn9NceZfI3lzZBP3+RNLSKA350rGMLNOXvWF
-	 MylDLAPnr10nJhhlGzT4RVGxSx4bIqWO48tbV2FaJkKKBaD2ssGh+cPMwXiLUDdLGHxV0
-	 3tCBr1GTuL5hNnWag0H/Uy2KhyA2Z10YcZoo5EODuko4ra+EK55acsXRAb9w8C+5+tByP
-	 870bqc1X9d5K/bTxnPP1TC5BalFH/jaDSlQ/RIVlabKURJdRpSkfJBJPSKHN2k4eoQN5W
-	 QVBx6xKI6RiVf/cZhvEeyNJ7ei1ynAMVhRCQPvPwkE2G72Wx7pRiXZlkkS6DJJfwfKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859578;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ZrDq8tmdXzrkRgk1EoLyp7UlG92pPquVxMGIdXH3Fx0=;
+	b=JwgfcS4ryqjjROjlkiubqDk5ugDt3B8tRv1wJVxlr2RISek1XsHaDMznudfkQ0mFIjA0
+	 txbAr/W4DkJcIwCcu5/LUd2lSoUjKivqMnem6/aL77XvcmO4SEuCXCt2G7k47zlkIer4C
+	 Oe1z2M+kicdMblzRpNSPh4NWxBqbNBp6M5WzTCvzFtVmm2ayCLAuvHprbUvGIgM1L8WXq
+	 W4yz83HAcvVAW9CZvnHBlh/lkqzM0rHVXltP9V9JViGlaWibGoJKZnkTU2vESLzrtWw47
+	 KIcCvCZK3zf525+rCa1gMeTUrktgD2C34Z5AsXTZa+fbruIwlSGfQGoAIKsII1iPU+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=bW+wySt9;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=wkennington.com;
+	spf=none smtp.mailfrom=wkennington.com;
+	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JpZPCOLK;
+	arc=none smtp.remote-ip=209.85.216.41
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99E5F606A331;
-	Sat, 28 Nov 2026 09:50:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99E5F606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C1D1606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:52:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C1D1606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=bW+wySt9
-X-UUID: 254a4af6eb1111f1a7aecdb2598be72c-20261128
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=MjkoJnpst7G6VGEXYYTLIfIiWtWhE+3drC8cmCbx6v8=;
-	b=bW+wySt9hJtxKKR4+R35hYUMXGDsQBwAJFPzRZ+9rwzYjfsdk0IZXxxrtmyMv7mOz8kbqjj7Jifr4arqt4df0G+ze/6yWL3kccuLwdkn74eV8r8xK4YgJCEYgzoFfljgxY97GEsMOiSq2umTtbLIe1R7QsCwXLnpBGHyBoNH3vQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:40324342-c108-4855-b9b1-ec0c141d5dfc,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:6a16e766-4b51-4c95-bb1b-80ac6aad9c96,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 254a4af6eb1111f1a7aecdb2598be72c-20261128
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 670687160; Sat, 28 Nov 2026 17:50:29 +0800
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sat, 28 Nov 2026 17:50:28 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Sat, 28 Nov 2026 17:50:27 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v13 09/10] dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
-Date: Sat, 28 Nov 2026 17:50:13 +0800
-Message-ID: <20261128095014.3128536-10-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261128095014.3128536-1-kyrie.wu@mediatek.com>
-References: <20261128095014.3128536-1-kyrie.wu@mediatek.com>
+	dkim=pass (2048-bit key, unprotected) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JpZPCOLK
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b5489c6b26so340506a91.2
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:52:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795859576; x=1796464376; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZrDq8tmdXzrkRgk1EoLyp7UlG92pPquVxMGIdXH3Fx0=;
+        b=JpZPCOLKihjhC54iE80DsTFiWB0WOiroTCP6RaP0QY4f/sGWw2No+kxvLzlw6ooiAC
+         w2ZD7DxxHugKlTtihaWxpDg1p65PNSNh76epTkMBymL6Pa+qwbek+33VsL435MOgzNjq
+         c3M3xi9+eThTvwrS+bQvMF6UOAhvH1DYtRqSDVzY9zm/LEG4KHmfU5NQZ84bfraAjyTX
+         GluHRNILBBXLELdcCq9Uu+D9UYExHkL1czsoqgBWk18pyb3m9v3J66vPgzt4CX3BTiNv
+         89Bwk792vHSHl0gfh8iKN9sJnlB6ccsBzK0GyzIuk8SEgKknSLz7IOtwy2RYe2e2JdxX
+         OG6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795859576; x=1796464376;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZrDq8tmdXzrkRgk1EoLyp7UlG92pPquVxMGIdXH3Fx0=;
+        b=pa8iKB8CCseyNrI2Hj4YXVZFiOcCJABj/yrpQ2b3phW/bAM32ketIEbHhdL6Qs0M2b
+         rayxjGrojFCDkmEhl4v6gTOmNCQxl7Z+uQRsa5OahFtQ+y+NDnzhh7FMfTpsd0t9FZnj
+         LBLvt1eoo6Co98bo3us4BUs7pnRLIzGFi7yjzxMq8ko4ujxkQ8fhH2rajDnsXA6V35LP
+         j+ZfIID8neGBH0MKFPuruRlPiBA3af+ZKWND+/J+qQI5x2u0dl/NWHOPEf9UFDKbUWhh
+         m/4ltMRGf2k1CRFIfxyIvo6hThNIowp0F7n/MW9DSVJfFTUWU52THuO2AZF6L6d4B90c
+         r7xg==
+X-Forwarded-Encrypted: i=1; AL+hErEyzvGwC/s4UNNlX6EP7EGfXdDoDPvZrz3Z9cN1Zb3cC8omzl9UycUHoxZadM/gWwoKrDCwNlqCQZPEYrw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IKoWT4fNxLRc8BKAdUMOdOiY/SxlQ+jmQhqVKRTnDoYHaT1gT
+	WdgbzuQOk2GYks0bkEM0e1QKPTggq1ybiH/0kwDxdWm3sdzRxqsArCo5rzroQOJ5Ujo=
+X-Gm-Gg: AZFdTZdsUAUTV5DmJVMn68qyUw7Bqefm4JbB5hYGAlVqEfrZSUIqsTp7NwXd69qSg9s
+	2/gsJCUxm2Bubg9MXdB/+YloOsNjLFcj6e0TP8UuDEJc8A90a+RKGRl1fPNSVkJDNPFr5mAZfzZ
+	jQTg91lPELNFFJ+/lo/J/Msz4svBNKDi1tK3VhrqSGZ/Y10rasdWxx2eihrr6wy/DaHJq8/sEVC
+	QfIeFu15cC3iaBGsn6Sq7xnwI686KS+UUN1zq9EXeuEDKaPmurot1aBuA80tqsWUwMnYbBu4kaE
+	qGOB9rJnpKIBdaV1D64GFiBuTD9M+ihLYapdAcp25lEsCSDAXhh0EhKcbm4UAMWwVf7s9vtW8Kd
+	C6gcr5QiSkgs595YLCD+xSmQslweVDi+1ODC6QdfS60bCpz1cgNQoYA9abSxrNuj3CBqbhyUdgF
+	5/SqBYDLimi1ONvSNU0KuXpsLeqHB3rLxIUA6s3NnF8fBnvum65pJfKps2GjfBz3kJhhuT/GATc
+	Y11M9sAgsUr0+yMJvHXA5L9TW/8UBqeMwCjib8Uf5Fm+yJfDBvdS6UISbbXo2S8GDH92zzTCy2y
+	H4g9XDt+UMUes7RefoRuo/9HZ5uQQNdu2w8EjGclhIJ/o0RvRxp/42eU4qfe00HobgYOuT2x3dt
+	7l92FgBKcCMlSjeYDtHvfe0OQoClxaeMWQjw=
+X-Received: by 2002:a17:90b:2f8f:b0:3b3:b0f4:1bf7 with SMTP id 98e67ed59e1d1-3b41c8d460emr27534660a91.23.1795859576339;
+        Sat, 28 Nov 2026 01:52:56 -0800 (PST)
+Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b495035339sm29481748a91.0.2026.11.28.01.52.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 01:52:56 -0800 (PST)
+From: "William A. Kennington III" <william@wkennington.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Patrick Venture <venture@google.com>,
+	Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	openbmc@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"William A. Kennington III" <william@wkennington.com>
+Subject: [PATCH v3] ARM: npcm: Add CPU hotplug callbacks for kexec support
+Date: Sat, 28 Nov 2026 09:52:54 +0000
+Message-ID: <20261128095254.358131-1-william@wkennington.com>
+X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,44 +105,252 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 
-Add MT8189 encoder compatible string to distinguish former ICs
-MTK's. Compared with MT8196, the maximum resolution of MT8189
-encoder is only 4K, and the fps is only 30, which cannot reach
-the highest parameter of MT8196: level6.2, 8K@60fps.
-Compared with MT8188, the level can only support 5.1, which is less
-than 5.2 of MT8188. But the maximum bitrate is 100Mbps, which is twice
-that of MT8188. And MT8189 could support NBM mode.
+kexec_load() fails with -EINVAL on NPCM7xx because the platform does not
+provide the CPU hotplug callbacks that machine_kexec_prepare() requires
+on SMP systems. Add them.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+The NPCM7xx cannot reset or power down a single core, so hand an offlined
+core back to the boot ROM instead of leaving it in a WFI loop in kernel
+text. The dying core switches to a static stack, takes the identity
+mapping, disables caches and branch prediction, flushes L1, leaves
+coherency, turns the MMU off and jumps to the reset vector in the ROM.
+The ROM then parks it as it does after a real reset, overwriting SCRPAD
+and waiting in WFE for npcm7xx_smp_boot_secondary(). The core can
+therefore be brought back online, and it no longer executes from RAM that
+a kexec'd kernel is free to overwrite.
+
+cpu_kill() waits for the ROM to overwrite the kernel entry point left in
+SCRPAD before reporting the core dead.
+
+Map the GCR once in smp_prepare_cpus() since it is now also needed after
+init.
+
+Signed-off-by: William A. Kennington III <william@wkennington.com>
 ---
- .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml      | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v3:
+- Park offlined secondary cores back in the boot ROM reset vector instead of a
+  WFI loop in kernel text so cores can be re-onlined and do not execute from
+  RAM across kexec.
+- Poll GCR SCRPAD in cpu_kill() until the ROM overwrites the kernel entry
+  point, and map GCR once in smp_prepare_cpus().
+- Drop Tomer's Reviewed-by due to the implementation rewrite.
+- Link to v2: https://lore.kernel.org/r/20231102101009.15104-1-william@wkennington.com
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-index 820cd8da4..4cb5b8fbb 100644
---- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-@@ -22,6 +22,7 @@ properties:
-               - mediatek,mt8173-vcodec-enc
-               - mediatek,mt8183-vcodec-enc
-               - mediatek,mt8188-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
-               - mediatek,mt8196-vcodec-enc
-@@ -105,6 +106,7 @@ allOf:
-             enum:
-               - mediatek,mt8183-vcodec-enc
-               - mediatek,mt8188-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
+Changes in v2:
+- Fix NPCM7xx/NPCN8xx typo in the commit message.
+
+ arch/arm/mach-npcm/headsmp.S |  38 ++++++++++++
+ arch/arm/mach-npcm/platsmp.c | 109 ++++++++++++++++++++++++++++-------
+ 2 files changed, 127 insertions(+), 20 deletions(-)
+
+diff --git a/arch/arm/mach-npcm/headsmp.S b/arch/arm/mach-npcm/headsmp.S
+index 84d2b6daaf0b..1718b70b7e1d 100644
+--- a/arch/arm/mach-npcm/headsmp.S
++++ b/arch/arm/mach-npcm/headsmp.S
+@@ -5,6 +5,7 @@
+ #include <linux/linkage.h>
+ #include <linux/init.h>
+ #include <asm/assembler.h>
++#include <asm/cp15.h>
  
--- 
-2.51.0.windows.2
-
+ .arch armv7-a
+ 
+@@ -17,3 +18,40 @@ ENTRY(npcm7xx_secondary_startup)
+ 
+ 	b	secondary_startup
+ ENDPROC(npcm7xx_secondary_startup)
++
++#ifdef CONFIG_HOTPLUG_CPU
++/*
++ * void npcm7xx_cpu_park(unsigned long phys_reset, unsigned long rom_addr)
++ *
++ * Exit cache coherency and jump back to the boot ROM reset vector via
++ * cpu_reset() in the identity mapping.  Must be called after
++ * setup_mm_for_reboot() with IRQs and FIQs disabled, and must not access
++ * memory or the stack once SCTLR.C is cleared.
++ */
++ENTRY(npcm7xx_cpu_park)
++	mov	r7, r0
++	mov	r8, r1
++
++	mrc	p15, 0, r0, c1, c0, 0
++	bic	r0, r0, #(CR_I | CR_Z)
++	bic	r0, r0, #(CR_C | CR_A)
++	mcr	p15, 0, r0, c1, c0, 0
++	isb
++
++	bl	v7_flush_dcache_louis
++
++	mrc	p15, 0, r0, c1, c0, 1
++	bic	r0, r0, #(1 << 6)		@ clear ACTLR.SMP
++	mcr	p15, 0, r0, c1, c0, 1
++
++	mov	r0, #0
++	mcr	p15, 0, r0, c7, c5, 0		@ ICIALLU
++	mcr	p15, 0, r0, c7, c5, 6		@ BPIALL
++	dsb
++	isb
++
++	mov	r0, r8
++	mov	r1, #0
++	bx	r7
++ENDPROC(npcm7xx_cpu_park)
++#endif
+diff --git a/arch/arm/mach-npcm/platsmp.c b/arch/arm/mach-npcm/platsmp.c
+index 4c1fc9983746..6055d44075ac 100644
+--- a/arch/arm/mach-npcm/platsmp.c
++++ b/arch/arm/mach-npcm/platsmp.c
+@@ -7,37 +7,35 @@
+ #include <linux/delay.h>
+ #include <linux/smp.h>
+ #include <linux/io.h>
++#include <linux/iopoll.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <asm/cacheflush.h>
++#include <asm/idmap.h>
++#include <asm/irqflags.h>
++#include <asm/proc-fns.h>
+ #include <asm/smp.h>
+ #include <asm/smp_plat.h>
+ #include <asm/smp_scu.h>
+ 
+ #define NPCM7XX_SCRPAD_REG 0x13c
+ 
++/* The boot ROM is mapped at the high vectors and holds the reset vector. */
++#define NPCM7XX_ROM_RESET_VECTOR 0xffff0000
++
+ extern void npcm7xx_secondary_startup(void);
++#ifdef CONFIG_HOTPLUG_CPU
++extern void __noreturn npcm7xx_cpu_park(unsigned long phys_reset,
++					unsigned long rom_addr);
++#endif
++
++static void __iomem *gcr_base;
+ 
+ static int npcm7xx_smp_boot_secondary(unsigned int cpu,
+ 				      struct task_struct *idle)
+ {
+-	struct device_node *gcr_np;
+-	void __iomem *gcr_base;
+-	int ret = 0;
+-
+-	gcr_np = of_find_compatible_node(NULL, NULL, "nuvoton,npcm750-gcr");
+-	if (!gcr_np) {
+-		pr_err("no gcr device node\n");
+-		ret = -ENODEV;
+-		goto out;
+-	}
+-	gcr_base = of_iomap(gcr_np, 0);
+-	of_node_put(gcr_np);
+-	if (!gcr_base) {
+-		pr_err("could not iomap gcr");
+-		ret = -ENOMEM;
+-		goto out;
+-	}
++	if (!gcr_base)
++		return -ENODEV;
+ 
+ 	/* give boot ROM kernel start address. */
+ 	iowrite32(__pa_symbol(npcm7xx_secondary_startup), gcr_base +
+@@ -45,13 +43,12 @@ static int npcm7xx_smp_boot_secondary(unsigned int cpu,
+ 	/* make sure the previous write is seen by all observers. */
+ 	dsb_sev();
+ 
+-	iounmap(gcr_base);
+-out:
+-	return ret;
++	return 0;
+ }
+ 
+ static void __init npcm7xx_smp_prepare_cpus(unsigned int max_cpus)
+ {
++	struct device_node *gcr_np;
+ 	struct device_node *scu_np;
+ 	void __iomem *scu_base;
+ 
+@@ -70,11 +67,83 @@ static void __init npcm7xx_smp_prepare_cpus(unsigned int max_cpus)
+ 	scu_enable(scu_base);
+ 
+ 	iounmap(scu_base);
++
++	gcr_np = of_find_compatible_node(NULL, NULL, "nuvoton,npcm750-gcr");
++	if (!gcr_np) {
++		pr_err("no gcr device node\n");
++		return;
++	}
++	gcr_base = of_iomap(gcr_np, 0);
++	of_node_put(gcr_np);
++	if (!gcr_base)
++		pr_err("could not iomap gcr\n");
++}
++
++#ifdef CONFIG_HOTPLUG_CPU
++/*
++ * The dying CPU moves to this stack before it takes the identity mapping,
++ * because its vmapped idle stack is not guaranteed to be mapped there. One
++ * stack is enough: CPU hotplug is serialised and npcm7xx_cpu_kill() waits
++ * for the CPU to leave the kernel.
++ */
++static u64 npcm7xx_cpu_die_stack[64];
++
++/*
++ * The SoC cannot reset or power down a single core, so hand the core back
++ * to the boot ROM instead. Entered through the reset vector with the MMU
++ * and caches off, the ROM parks a secondary core the same way it does
++ * after a real reset: it overwrites SCRPAD and waits in WFE for
++ * npcm7xx_smp_boot_secondary(). The core no longer executes from RAM.
++ */
++static void __noreturn npcm7xx_cpu_reset(void)
++{
++	unsigned long phys_reset = virt_to_idmap(cpu_reset);
++
++	setup_mm_for_reboot();
++	npcm7xx_cpu_park(phys_reset, NPCM7XX_ROM_RESET_VECTOR);
++}
++
++static void npcm7xx_cpu_die(unsigned int cpu)
++{
++	u64 *stack = npcm7xx_cpu_die_stack +
++		     ARRAY_SIZE(npcm7xx_cpu_die_stack);
++
++	local_fiq_disable();
++
++	asm volatile("mov\tsp, %0\n\t"
++		     "mov\tfp, #0\n\t"
++		     "bx\t%1"
++		     :
++		     : "r" (stack), "r" (npcm7xx_cpu_reset)
++		     : "memory");
++
++	unreachable();
++}
++
++static int npcm7xx_cpu_kill(unsigned int cpu)
++{
++	u32 val;
++
++	if (!gcr_base)
++		return 0;
++
++	/*
++	 * The boot ROM overwrites the kernel entry point left in SCRPAD once
++	 * the core is parked, so wait for that before declaring it dead.
++	 */
++	return !readl_poll_timeout(gcr_base + NPCM7XX_SCRPAD_REG, val,
++				   val != __pa_symbol(npcm7xx_secondary_startup),
++				   100, 100 * USEC_PER_MSEC);
+ }
++#endif
+ 
+ static struct smp_operations npcm7xx_smp_ops __initdata = {
+ 	.smp_prepare_cpus = npcm7xx_smp_prepare_cpus,
+ 	.smp_boot_secondary = npcm7xx_smp_boot_secondary,
++#ifdef CONFIG_HOTPLUG_CPU
++	.cpu_die = npcm7xx_cpu_die,
++	.cpu_kill = npcm7xx_cpu_kill,
++#endif
+ };
+ 
+ CPU_METHOD_OF_DECLARE(npcm7xx_smp, "nuvoton,npcm750-smp", &npcm7xx_smp_ops);
