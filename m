@@ -1,76 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.171.160.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795852266;
-	b=JoSPQtrKin/jm7/ppqxjkl0/Si29FArF/CPpldN/L22JLwgnhYO09YhRv02ezVIrwS0g
-	 OeUegsO/WmH32Sg8x3m9P7BbYso0A6NpeiGj5ffSz+PxBmvuSld3sp0WYrRNlLGTjcEh3
-	 G1xvkM7N1zeeLRN6lnfD4t8gPcKR3i/8jqkxuN37zjUY2YW8Ev031pYSMNvFKMB7f4Q38
-	 x9H2B1jnm/zMb+ObMLb9Kjed4gyEEuoUY0Hupx/UgVYR8tyW6jlesFmTK+1o7wUAfPjvY
-	 bPphAhURrQE6dEVnWzTEkLginj/XMP9ka94tR1HkiQu1mma7I2n8TwOEaOhfuhzjA8Q==
+	t=1795852358;
+	b=GFwVsMIJ31X6EaZN5iRhXaCtmcDnTdufHgxZC6r4jBZJtGx3W7grmYOP7899lniTkRIK
+	 VqyZQhm2vsm7ytI51/wB5KcVUn0PDcYquX0eDcl6aL+EbfIiEJDy8osQGs/ezwoRzJFvG
+	 6AaxOyMQgHh+Ncv+UFBtHE8Wk9m084CXPWPQi61g5IjeVLfHYDd+ECjMOD7YNG+Vro/HL
+	 RZ3ceGWcGGA6+tzScf2LRriDP1qXP7P+FepZA+3GBUJ97nA7IEmry6bOSoxY8qBjB24v8
+	 E/HbGggghA1lVBtv1uksP3P9hc+LMmazcPDpfj1NswMBHg+QkS2I8JTbnt7Y4Zp6ToA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795852266;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
-	 User-Agent:MIME-Version:Content-Type;
-	bh=98031xNii7Sl8gn1ue6ZuB2M2pAzYOkrCW/79fWX61c=;
-	b=VaCtVvVQvXxuzV6gC/eituUQJw+l80yqB3ENmiFGH0qCjGQBo7treJIKswOkS8mLA+fo
-	 peNGrSUjYNpOrWevPd6I8zfIoI1v+ewr4P8zV3ToNCdRSMQxg9oO3mXlimHiD+J3M9c1j
-	 Z3eP9hjkne2W174Gy2p89562xT6U1UqpUtEOBLuTpJ1240TBNn7GCvIW9atgoBu13tDlX
-	 YTUmZB0omGEmWk9mGkZsL1DVLPHDnxw3SpObiBjl13ueWe/wQkpyoWeAZ6nbO0KywQoqx
-	 xJLnPT0iYzo00jzGxlfl65pHsALpLlh6zg2FFaFK3Lfon6Mn5jTxWZVJkma7X34BjsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795852358;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ZPuz0aqvMOYLLk2Z9FL7zt4DuCqrFJ7GN1kkziqWaY8=;
+	b=lPphRH88kDALsFijt1s2YCAomubWhyHhbo5pCvAbezEcvhw5rm7FNly+9cfT6SZ+LYAi
+	 5vnCW0YdxOUYQjCLn9druaNBYnjYDXypUBxoqxiflsiTeLWBfBmorUW0iVtmNLqKB4azg
+	 G2WpTJwstf5xmtEzmnEiV+SzVfjPer6Lm1LLvWXXRpDl8ynpWy6UVqYDw4ElFbvVOXkT3
+	 L0oaUTSKttl3xObutn+B8snfZbnC/h0JS5oJzOYKN4biZQr/0M/w/ZtP6sOYMq2Dfm7FX
+	 zN3aPpuJ6d6N0K7R50aepWUhrBHoC/H8ucGzYZNyYOEJWxyb8NnsOWpfRW0qQDfY6Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.parknet.co.jp;
-	spf=pass smtp.mailfrom=parknet.co.jp;
-	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=WjqSyvQ3;
-	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=AR7jz+8F;
-	arc=none smtp.remote-ip=210.171.160.6
-Received: from mail.parknet.co.jp (mail.parknet.co.jp [210.171.160.6])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BbyezwKj;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B4F2606A31C;
-	Sat, 28 Nov 2026 07:51:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B4F2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.parknet.co.jp
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=parknet.co.jp
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEEE7606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 07:52:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEEE7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=WjqSyvQ3;
-	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=AR7jz+8F
-Received: from ibmpc.myhome.or.jp (server.parknet.ne.jp [210.171.168.39])
-	by mail.parknet.co.jp (Postfix) with ESMTPSA id B280B20BD2A0;
-	Sat, 28 Nov 2026 16:50:56 +0900 (JST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=parknet.co.jp;
-	s=20250114; t=1795852256;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=98031xNii7Sl8gn1ue6ZuB2M2pAzYOkrCW/79fWX61c=;
-	b=WjqSyvQ3uqs/M0wppCJ9gWFDBAZDxACvOXZ84U1WTBMMQStM0tzj9pNZQV4QY3MWXp8qyf
-	QiYiSimjYrwfIeF+oj1cj1NxbVP9xzL6ksVOUBeLeW+jBXjdLIUVP0Up3UEHvWkdtrDwR4
-	RctbaO5bTFxKhnypPCOTyVGrMwTxwnMc7pBQWhvN6Mf44SxNGG3xdm5Q+0+fovQUbOwcRK
-	S78LJydQykYgmqzvGvGIv0+dDphVVn2p+EwAb0BZRiEyL3Vax6SjUV/M0cE12pdNfWkEPP
-	VFmFpS1BaghmTAcgDiCsCYxFBWEqOvkin+ULuK9xgDWGAt5gdp0D9nVZY+zAHA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=parknet.co.jp;
-	s=20250114-ed25519; t=1795852256;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=98031xNii7Sl8gn1ue6ZuB2M2pAzYOkrCW/79fWX61c=;
-	b=AR7jz+8FVqlYNYzH4xiy+sUvLhw1i1U9z6egzVFtP2w8e9tL05OvifTOXZV+BW2KwoTx8w
-	N4QOdMnhckRbm1BQ==
-Received: from devron.myhome.or.jp (devron.myhome.or.jp [192.168.0.3])
-	by ibmpc.myhome.or.jp (Postfix) with ESMTPS id 3EAB4E002C5;
-	Sat, 28 Nov 2026 16:50:56 +0900 (JST)
-Received: by devron.myhome.or.jp (Postfix, from userid 1000)
-	id 327992200208; Sat, 28 Nov 2026 16:50:56 +0900 (JST)
-From: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
-To: Christian Brauner <brauner@kernel.org>
-Cc: linux-kernel@vger.kernel.org,  linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 2/4] fat: support O_TMPFILE on vfat
-In-Reply-To: <20261126-work-fat-tmpfile-v1-2-3bca7b2dbc20@kernel.org>
-References: <20261126-work-fat-tmpfile-v1-0-3bca7b2dbc20@kernel.org>
-	<20261126-work-fat-tmpfile-v1-2-3bca7b2dbc20@kernel.org>
-Date: Sat, 28 Nov 2026 16:50:56 +0900
-Message-ID: <87a4mtqtr3.fsf@mail.parknet.co.jp>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BbyezwKj
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4a5024b3c28so5573632f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 23:52:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795852356; x=1796457156; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZPuz0aqvMOYLLk2Z9FL7zt4DuCqrFJ7GN1kkziqWaY8=;
+        b=BbyezwKjKHetbW0yBPvFepOzP6bRLylD0c8hEytcXsT7aDXr4hsXJ5qz+slXLtNaCh
+         jas3uiMCeNQx/f82HM2LwjLcL8KOWoBL0MhxrH7b/hVRK+tzcn8cF0pLSDSpSMr70lke
+         NsTuUOAGpfSkM/osGxk7ldgXq/uFjLPPU6W6+SaPcRnRvoCQ8tY2z4KkjYDb8i/ha1q2
+         bRIO03gnb/DBJ+REmac3oQ7+qDxmiB3HxOPPczqKvml/EWrvXpruSdQn0bxnOnRoBFK8
+         dQpi1sKfYWvA7ovl70n1AS9MlWiqh3mIiZO3bhItwH0bJB8UVqus/t9AXjxlVwiQ/73a
+         xodQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795852356; x=1796457156;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZPuz0aqvMOYLLk2Z9FL7zt4DuCqrFJ7GN1kkziqWaY8=;
+        b=sC+GILiySPnEfPqKJZw/NYNRLmlPKPg/tqR6fMAEYtWYZszDhjRiQMbCozHL37GLW4
+         CIZjBkbabmKmi2PTyKbFLolh/3lFbNoYSCMBrkJppATVICpWu8xnC4S9bg9ZSAYEAwCk
+         g/zoG7H66DIUVzWnfOL3Kt55Wu6rtkPGTq+QoKREON8lWxqa8V0WMMRHsn91g0bv+mgg
+         lPLh7wSHHXhmHR/03OX19PLHgRf1tm09WlcTpLqcF/XxVVPLaXnfheY8El3kTZbjn3JG
+         36uZnW8sVQZ1aA6s4n7pDy7sd7FK303Ij4tEMe3y6fOd06CHqwQIluQ28uyYw6yu8AJb
+         FfVg==
+X-Forwarded-Encrypted: i=1; AL+hErFLR0pW8UvJPFfsyodQl/8mIYvTy+QPT0koJ/1x4rBXdaK5TIdFOoHY3cQfSyk6yd6Cch9E5oVFb4nxoyw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8M7ylG2cf8o5vJ/6MuRHC8j5Sc6/CWMGLYqpELyHekgY2IFHZk
+	aqnPz6GChnFRstPTO7H5mJI1Vy5VWaarwpYwKzM6T4EPOkw/H/Ka5qqg
+X-Gm-Gg: AZFdTZd9bfa8BTzx/imp9ZLdV4NVpEKujPkSmsDUphCpn9JxNWKO3fMF9t1+7MnowMp
+	1MShmXUH/qMby4MNVSzSjVp4XjGpSoODYBUQ23+pJxySakQBdhrdMxawUwrF0LwhciEQ+Z3Zrca
+	AGPOjoxtoa4xUslH7aFkpQPjFC12Pev6kwtKkN6EPtwEiozpM609AD7ddbLW9eMl5ti7/MWA/OE
+	Hk0TNIklri+n4BoTGJp26Nt+vGG8YEzYfDQZQ+GvNdbORJ/EKxaGKGX2qefvh6BLoAf6CUsKJWY
+	X3eXLVwQnHp7FpDoBYLNLMfqIyCX5nUFfSN0r5t7bHqJbRoz5n5C0VJ2buLmvuOBV1fdx60lrwk
+	qYPPN2pvEXcU9CorfIJa9pmF4kQKw6RGPX49ixpvTYRpNsWrS7TaoA0OMfbzqQRjgSjemIkvLkW
+	ige0tb0RVuBBADwOpktekFYAshbTIp8meLbdEupmQVAf9e1O7LDyC1GchUyo7y9jR8xB87SJgYD
+	eTvhRHOv1h4A40vFBqY8AhfzxSZXZLAuTWJZfDlMmCJ3gUBugxAgjv131WRQFZUI7m6OwjLdHwQ
+	CYzMCplr+7XWeIzwZpA5tnIy2UFMHM1xyU/Kq3ZZiljC0E5qTenvDohel0vxMM2AGNbHGEPVGBk
+	bpuxCmgc/djUR
+X-Received: by 2002:a05:600c:828e:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb88785898mr559271445e9.0.1795852355939;
+        Fri, 27 Nov 2026 23:52:35 -0800 (PST)
+Received: from wlqmpek ([109.245.169.95])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm538208405e9.4.2026.11.27.23.52.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 23:52:35 -0800 (PST)
+From: =?UTF-8?q?Milo=C5=A1=20Vlku?= <vlku.milos.fun@gmail.com>
+To: ilpo.jarvinen@linux.intel.com,
+	hansg@kernel.org
+Cc: platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	qby140326@gmail.com,
+	ilya.gladyshev@linux.dev,
+	uselessfire@gmail.com,
+	=?UTF-8?q?Milo=C5=A1=20Vlku?= <vlku.milos.fun@gmail.com>
+Subject: [PATCH] platform/x86: bitland-mifs-wmi: Add Xiaomi Redmi Book Pro 14 2024
+Date: Sat, 28 Nov 2026 08:49:12 +0100
+Message-ID: <20261128074912.20008-1-vlku.milos.fun@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,80 +101,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Christian Brauner <brauner@kernel.org> writes:
+The Redmi Book Pro 14 2024 (board TM2307) uses the same WMAA method
+(SSDT with OEM Table ID XMCC1806) as the Redmi Book Pro 16 2024 (TM2309)
+and stores the WMI_FN_SYSTEM_PER_MODE value directly in the EC register
+QFAN. NTDP in the DSDT maps it onto the DPTF variable ODV1:
 
-> Currently, vfat doesn't implement ->link() since FAT has no hard links
-> and link(2) fails with EPERM. But O_TMPFILE is only half a feature
-> without linkat(). Worse, implementing just ->tmpfile() would break
-> userspace that works fine right now. systemd's
-> open_tmpfile_linkable_at() only falls back to a named temporary file if
-> opening with O_TMPFILE fails. If the open succeeds link_tmpfile_at()
-> calls linkat() and gives up if that fails. bootctl writes loader.conf,
-> entries.srel and the boot loader binaries to the ESP like that.
->
-> So add a ->link() that only gives an O_TMPFILE its first name.
-> vfs_link() refuses to link an inode without links unless it is
-> I_LINKABLE and it checks that under the inode lock. So an inode without
-> links that makes it into vfat_link() is an O_TMPFILE that may be
-> linked. Everything else still gets EPERM.
->
-> Linking does what vfat_rename() does for a new name: add the directory
-> entry, attach the inode at its position and let the inode write fill in
-> the start cluster and the size.
->
-> If the system crashes while an O_TMPFILE is open its clusters stay
-> allocated but no directory entry refers to them. The same thing happens
-> to an open file that was unlinked. fsck.fat finds them as lost
-> clusters, with -a it saves them to FSCKnnnn.REC files. ext2, minix and
-> udf implement O_TMPFILE without orphan handling as well.
->
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> ---
->  fs/fat/namei_vfat.c | 46 ++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 46 insertions(+)
->
-> diff --git a/fs/fat/namei_vfat.c b/fs/fat/namei_vfat.c
-> index 791f2d7b85092..31b4a293c0493 100644
-> --- a/fs/fat/namei_vfat.c
-> +++ b/fs/fat/namei_vfat.c
-> @@ -938,6 +938,50 @@ static void vfat_update_dir_metadata(struct inode *dir, struct timespec64 *ts)
->  		(void)sync_inode_metadata(dir, 1);
->  }
->  
-> +static int vfat_link(struct dentry *old_dentry, struct inode *dir,
-> +		     struct dentry *dentry)
-> +{
-> +	struct inode *inode = d_inode(old_dentry);
-> +	struct super_block *sb = dir->i_sb;
-> +	struct fat_slot_info sinfo;
-> +	struct timespec64 ts;
-> +	int err, err2;
-> +
-> +	/* No hard links on FAT, only give an O_TMPFILE its first name. */
-> +	if (inode->i_nlink)
-> +		return -EPERM;
-> +
-> +	mutex_lock(&MSDOS_SB(sb)->s_lock);
-> +
-> +	ts = current_time(dir);
-> +	err = vfat_add_entry(dir, &dentry->d_name, 0, 0, &ts, &sinfo);
-> +	if (err)
-> +		goto out;
-> +	inode_inc_iversion(dir);
-> +
-> +	fat_attach(inode, sinfo.i_pos);
-> +	err = vfat_sync_ipos(dir, inode);
+  QFAN  mode        ODV1
+  1     balanced    0
+  2     quiet       2
+  3     Turbo       1
+  4     full speed  4
 
-Please add "FIXME: this sync should be done within vfat_add_entry()"
+Map these as low-power 2, balanced 1, performance 3 and max-power 4.
+Fn+K only cycles 1 -> 3 -> 2 and never offers full speed, and
+power-profiles-daemon maps its "performance" profile to platform_profile
+"performance", so full speed is exposed as max-power and is only used
+when chosen explicitly.
 
-Thanks.
+GET returns QFAN for 1..4 and 0 for anything else, for example a 0 left
+by the default mapping, so read 0 back as balanced. Writing 0 is not
+useful: from the same 80 C start at the same power, the package cooled
+by 15.2 C in 150 s at QFAN 0 against 29.5 C at QFAN 1 (n=4 each, no
+overlap).
 
-> +	if (err)
-> +		goto out_detach;
-> +	brelse(sinfo.bh);
+The firmware also accepts Turbo on battery (QFAN 3 sticks with no
+charger connected), so add a battery entry for it. WMI_FN_SYSTEM_AC_TYPE
+is not implemented on this firmware, so skip the AC type check as for
+the other Xiaomi models.
 
-[...]
+Values measured on BIOS RMAMT4B0P0B0B (bios_release and
+ec_firmware_release 1.11).
+
+This change was prepared with an AI coding assistant (Claude, by
+Anthropic), which read the ACPI tables and driver code and drafted the
+patch. The values and behaviour were measured on the hardware by the
+submitter.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Signed-off-by: Miloš Vlku <vlku.milos.fun@gmail.com>
+---
+
+Notes:
+    Tested on the TM2307 on top of pdx86 for-next (61c0dac952b9), built for
+    7.3.6 for the hardware test: all four profiles apply and read back as
+    expected on AC and on battery, a stale QFAN of 0 reads back as balanced,
+    and power-profiles-daemon's power-saver/balanced/performance map to
+    QFAN 2/1/3. Builds cleanly in-tree with W=1.
+    
+    Anton: when we compared tables in October, the TM2309 matched these on
+    every point, so the same entry should fit with a second DMI match on
+    board_name TM2309. Happy to add it here if you can test it, or for you
+    to send it on top.
+
+ drivers/platform/x86/bitland-mifs-wmi.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+diff --git a/drivers/platform/x86/bitland-mifs-wmi.c b/drivers/platform/x86/bitland-mifs-wmi.c
+index f71c93aff..9bf705d4e 100644
+--- a/drivers/platform/x86/bitland-mifs-wmi.c
++++ b/drivers/platform/x86/bitland-mifs-wmi.c
+@@ -139,6 +139,22 @@ static const struct bitland_mifs_quirks tm2135_quirks = {
+ 	.skip_ac_type_check = true,
+ };
+ 
++/* GET reports 0 for an out-of-range QFAN value; treat it as balanced. */
++static const struct bitland_profile_entry tm2307_profile_entries[] = {
++	{ PLATFORM_PROFILE_LOW_POWER,	0x02 },
++	{ PLATFORM_PROFILE_BALANCED,	0x01 },
++	{ PLATFORM_PROFILE_BALANCED,	0x00, .no_set = true },
++	{ PLATFORM_PROFILE_PERFORMANCE,	0x03 },
++	{ PLATFORM_PROFILE_PERFORMANCE,	0x03, .battery = true },
++	{ PLATFORM_PROFILE_MAX_POWER,	0x04 },
++};
++
++static const struct bitland_mifs_quirks tm2307_quirks = {
++	.profile_entries = tm2307_profile_entries,
++	.num_profile_entries = ARRAY_SIZE(tm2307_profile_entries),
++	.skip_ac_type_check = true,
++};
++
+ static const struct bitland_profile_entry tm2424_profile_entries[] = {
+ 	{ PLATFORM_PROFILE_LOW_POWER,   0x02 },
+ 	{ PLATFORM_PROFILE_LOW_POWER,   0x0a, true },
+@@ -169,6 +185,13 @@ static const struct dmi_system_id bitland_mifs_dmi_table[] = {
+ 		},
+ 		.driver_data = (void *)&tm2135_quirks,
+ 	},
++	{
++		.matches = {
++			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "XIAOMI"),
++			DMI_EXACT_MATCH(DMI_BOARD_NAME, "TM2307"),
++		},
++		.driver_data = (void *)&tm2307_quirks,
++	},
+ 	{
+ 		.matches = {
+ 			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "XIAOMI"),
 -- 
-OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+2.56.1
+
