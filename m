@@ -1,94 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795863973;
-	b=h++5HID6bVAagoiQURwXVKqe1OY3K2FGoZ2FQoyyRh/bUFqgEtCnuwcEm8qU8S496xOv
-	 tuT7L2EHMTBywOMkg5UdKjm8T8ZHOig+9cYTZjZlvQp4q35QIbyOqdCjjqgIxRYO3pg0U
-	 grGanH4njaaLmvNjLE14XRwELmXAJDNkPHBMLNMjOWMvc16gMEqnsC4ZIJ0enMwr9FbFr
-	 pH5c3ZEbcdDG1oFZHQ0xPp7N9qKhcH/qz1ZZQ69LhcqJjDoXpS5J8yf/RAoRdrpy2R7q7
-	 iinBn9wfEMYCVYOBO7Biy83nonTEfQo4gn0VWk8Lhdba+8Cgkl56R9+rjeFWu7Ox4bw==
+	t=1795863978;
+	b=F4tB4mL4qEe/dwpC5qvv5f2wmaAIJjWF+d043dpAym6x7LXD9ikN8GhIArp8YKbHxKe3
+	 tN9Jz/SiqxtYwql0FmB/KzJntVC0hW17+FeuzvqNWDDVzscrbKyDwgYWhGXiIycxt6QCJ
+	 Lb7jiF68W5/S8C1HSqjJGMAsucckbyCTPggBhFSYDp5dpVzKUkg3YwqU5cNfWBtsckw/+
+	 2bjQSotALCpB8D/l6lWIgdJpIgddWKn/hdK2jlBvW4sGl1koanvCVskF9fm5yqJZGvPI3
+	 n+r/Jide9eRR55DF1LTeD6kIa2yFUdnFsy4o5XBq4CmcuN2lcn5KfqnsmNhEBPYhXjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795863973;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795863978;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=/lYnzqsbRzqdQw+FLS0AWp8+ipjJZfsZ/0h18RICSEA=;
-	b=H5bJVmMMMBeHhTtC8e04dxfhCdeezcgj0EItqHe0aSzmetco+1YhcJgFnGt85SJs1SAW
-	 3S1cyUzKR4w2tSKL0xFGNQV6cFdT1l0JrybIIu8uLGqwmedzjaFAR+uIL5W3EB8QL3TVo
-	 thwNy5ahZukY7ptcKomzVNTxgyXYaKHiQbfLWzpaSGj8ZpfXvw4+X4kwuQiqHXe3D7mm9
-	 Y4O+Vj09TSoKHHUiol8MBTQo3zSDb113ZAnBztA9yl3nV+pRsAfmK0hlTwFZ/G7d+b0Ss
-	 s9CPZXw8/RMwM4P/9vEkq8a3tPGZUCfayeM52RtT+QbeQTkNsZ1TMfKjQt5bILZMkOw==
+	bh=ezN6dpWTDZkj1sKNDSS+kFdA4nYR7uGcxRXk/sDauFw=;
+	b=ECtsXgmMivmLmcLO+UPb+68f8JxMzteGovMkllCDb0exHZmAdHsNYfhPtoWrw2WpPSZF
+	 bBsvxp9y43Nnwt4Or5wDJItM24HSWh0rbbzHPTmYS2MxtpM3utv/1f0JhujwFHtjUNqPR
+	 2gbgBs0gniVDYP73VvBQopZ6GfbdVTxmwLODH44Pgley4Vpu/IjTPZ4OjkJui+RbyhMv4
+	 Na15JhvCit21eEhc7mEaXyDNDKBURfWHYLcViMrApZ1TKeVN6KVoQOmeAkilwmel5Gqez
+	 +OVxN7ZsEzPWg87pK5o4ygUiJpiho/yOPZqgpmAu+mKnLZUCzYcc/a3i/sijEyIFd7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lJPP0FUh;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FTrr4t9G;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E322B606A323
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:06:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E322B606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4504C606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 11:06:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4504C606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lJPP0FUh
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-386cf1041cdso6581342eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:06:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FTrr4t9G
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-385d8a00598so14228304eec.1
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 03:06:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795863972; x=1796468772; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795863977; x=1796468777; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/lYnzqsbRzqdQw+FLS0AWp8+ipjJZfsZ/0h18RICSEA=;
-        b=lJPP0FUh+aCSQ+r+h2HdavGGky3SMi9aeLMbcvFe44PrNiRp9ntz9abk+Do5Q1wu8P
-         26SKlrUG10XjT2TMsLeHkKYzBrYCC92K2/qYHf1NyQfKALBEviD95Xcao0Ps1slgXnIU
-         3hLzJvuhDF+FjFJgZzQUhVYjOggXDMjekm6DHx87lokpEn7NNK6D7o7m/5bwySJX8r0e
-         Jdu4CLnaZaWxtI5BRTm2j8fsO5JX3jwr9CN9C24/pTr5+lVTWd84lk5IRPVZgbH/zrGh
-         NZsDclD+myzZ7GwzhKA1HZlffDJXNRsEGzANQbmuiCU+RqiwAI+ExztOA2bim5ic8VHS
-         SZ2g==
+        bh=ezN6dpWTDZkj1sKNDSS+kFdA4nYR7uGcxRXk/sDauFw=;
+        b=FTrr4t9GodIYYjtqXL7b/1FJ7dHbYkxLKi+TNs9QxX3oQWcFVKODI14v71gf6DSvZ3
+         LAz4eZs1vWYLLf41OAEJVFOtsPzdH7zELwNWMUcs9gZJzIHZZ0i5tgSeq8JeSrdgsxKw
+         PGS/9t0JHQESKMtdH8YF1V5MuXa5j8AZFBX2CVjNLqd0Dadajhm6EGrVzslpWmEldevT
+         dzELwYQ7kgDfvpJhNCRTZ9xXJIAushtjsl6W0n8hqljS5h9ZFPgySG+trXRdVkLSMro8
+         B2psgd7ZZeGeuD3eklh5pKSZKtiINIU/BPckiODRLKQJJ7ERbrIlWMF/APQ7wuF+j8eF
+         X+Hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795863972; x=1796468772;
+        d=1e100.net; s=20260707; t=1795863977; x=1796468777;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/lYnzqsbRzqdQw+FLS0AWp8+ipjJZfsZ/0h18RICSEA=;
-        b=QoRpDeJ6DOHUOfVT9sLtKRl2utJxEptzOv+OP9zT5I6GLqJLSmxwxPd+Bi0/Z7mYVI
-         MV2kCOhU4pk/zMhBm11Cmm6hkVIt+/bY4tusEjmuhAq5/8IiXXIG1mChsWJQfPS/ZtvD
-         z9QfNw5RoZ8tnSm/Kf2c7AjdmKld4LCT/R53jyZHshz71p/sVBpiKm1Wz4Z5BWJuPXH2
-         NcWDhxG3MaqkmzC0XyIJlgppy+w399Z9B9uYO7rUoSQquvXnP6vzvsuufgm70ZKkuzFc
-         yJbTzWWJcO5VH1gTIUcfFH4MYO1YV6D6ZUIKhR41lxgIjyKelF7itP3kvXEJkXZWdYWc
-         FBjQ==
-X-Forwarded-Encrypted: i=1; AL+hErE94j97GHo5LhzsnMgFEY+9YqygY+jDK6lHXDqOZXTeJj4fQ368yJ6gXoFta1cVgs05mdfDSlVPHAtPOuo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8UMLogcf+9QV/EIko2xLZPtxmHEe64iaNaULblxmHUDEgsBpWA
-	HNGs5l0p5o27f2nFXNaAXJFtQZWQd7Cp8sIW/UFVJi9yGWkugOLqyJgx
-X-Gm-Gg: AZFdTZftlKyTlHSt3x+0q4TcsnSU9UQqqYns37ZwNdNx5lEV8MVB0hJb9ksF+jEzd81
-	uK8WvNxejxA+mQB59bGsz7U1aMEANtszI6xM1hQLlG2YfiMneizf3kqQKRaVijl3vspSxJ5HwDk
-	j7WzzTEdWMLZbS6tmOZwBfforNsAmszT85JkNfgxqmqAiJqcuv3S0XWPkLEu4m4lr3wdf1LzvDb
-	At8AK675bkIZO4169+L4xWhCWYGgTxayrjIKdZJFuPgiV0zjTOOWJhIZsazJAzPm3aRqm08hevK
-	ZqbypqfWot55BBOIgxoe9Jr8KVH6WGuIuvR8qFSXaYthtshTViYz7plNaCBk6o3Ewyy/J3CMT2K
-	vj2BKHyxx+XTo7YlQBHud0XAS99grg1msU10jRtBPuL/MOC+9p857U7ATCLiPnv2DtFg8GGbXc3
-	WCTcEGQuABacB2uK3ZsCVXx8I1LlbSVxqNEq0d68hPf20i9YKiwTd9m4BMI3TUulswWvZY0+rFb
-	Ptjfya+T5S1j+lSNG5pLWEPyY4P2ntprDOWW212t+5/Sm/42bBsbyILHQB9Z/xi4LkXE76lppe3
-	M5nDslZTx7I9Jvu208Sz/uhmu7qz2L64D/r/D27eNa5VAOv2bjnG/7s0AF9WJmPWbwUzchoJJzW
-	gVSbnh09N4XjU5TUhFNEBHCx6OVhQQ5iJY8RuWmV5+vRhl4FCyFYY7ODaZnCq8M57+FgDpZ5d5p
-	C2dIMGlhZORuGlsAmbV3p9ePCaBr8mtDQYq36XtPDQGJPQ8g==
-X-Received: by 2002:a05:7300:7c08:b0:384:3123:a0cb with SMTP id 5a478bee46e88-3856ff5b880mr42031310eec.27.1795863971908;
-        Sat, 28 Nov 2026 03:06:11 -0800 (PST)
+        bh=ezN6dpWTDZkj1sKNDSS+kFdA4nYR7uGcxRXk/sDauFw=;
+        b=HzAdpGPnJ4kE8TCgsL4OZ5paYoKm8tPipf1CXa0x0MqKDl23+Sh/DtLLAXdRapCSDE
+         A+kMcmy55D4+JX/xEBLI4nXa1tWUbvxWlMBaWxX1D9DAcbfU3IUMLP9TqucW20gh9zaK
+         hsfvrFaNGNNiiBZf3CWDVE7IrJY50YxozsKCb8vLmLRVtXUaByFNx2kxvfdqlX3IoOtL
+         ncdW14N3aD9srRgSSXcP+5mNgh+eAiklAJ2qlyqNPE2nFosY1nnPWUV4db2DISMy7KAi
+         O5bA+Be0EpmSBxVi6h8TU0QFX2681Ym/i8yLfLn4XvmcFoVLF62rf8SkltYgWz2fcL2h
+         0AnQ==
+X-Forwarded-Encrypted: i=1; AL+hErFVCytAcsXhfrYsSW476vCVJRCnpOVKyo8BY/pEcfIuWfBacHV7cP1JhDhlMhe29LKDN9kgtoa4J/tfry8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QWj4e5o/pPyAHE2AYrwZlyGXoJbAjfYb+/bzcoWIo1yImPON4
+	zF7FRPqcJG9QEV1mAtJqfrlqtl2KWovNOEod2RoN1nXd+rgVOjRvzDBK
+X-Gm-Gg: AZFdTZd6+fNwa+s0S0FIt84ZKga9j/8bU/KzY8qH5yTuLJPMyrll/impmx7LnHhQAFZ
+	tp1RMjT9Ot2GXSwgu4t9s0ISsAw+1lfhnKsciagn1MyJRli1MgWwLhvAFed32TlsOIvITaG6emX
+	uyPUOsqZMMd8Th6txmacpJbcXHbrn/CUU/WWraX+MHFGVNTvLummAGbrHjMcLXwC0SgKKrc3iyg
+	Q0Z8shDmITC/HZ0onZ0LvRaMDBcAGwqDgha3YC9B5FpdC3rwxYq8BSoqbp9VxvurniEcEFGJ+GD
+	xyavhMp+DrI+gDcxv4yJT2G6QZpyvphAC8EEZAEz96jDunwNMplrGm42/QtrfC5MA4M4VieNtq1
+	C2JA8QPpRraufy+XyM9RUuHnjCv/8H/4WRDgnThMY9+hrS6VoXxwp6S7Q1EXZ6coR7UlVpxBajl
+	aK2BkE8b7WQK5mXsQV0/+y8SuiwZt262p+Tra7gx076hJZxdErVR4FZjaQNEqvBQyUL43/CD62F
+	INAaKTsvLnaKnzKsNb5Pjwh1do0WSTja/OGGYKhtoaPSfD2qXb9kn1xWBjJPa6kYQZwoD0IaV5E
+	OIx24EX46GI7BAkgnZVOn8xQW4CqiG/2IhaZHgj2Orm1pZbc3pqdR8UVC+5/CPsYn4NKXDZdwWv
+	1LBkjAObNFJft4fN7O6OjaRFg5oQd292PhmpHXCAsTJusKnPSGT8exBzb4WAYVcW0bdaIMxIkWu
+	FoH5Xv6rlFS4KbaxrthdHkOkz4UukFRUWmqo5QtI3ZFnH76A==
+X-Received: by 2002:a05:7300:51f6:b0:384:7b4c:8564 with SMTP id 5a478bee46e88-3857131a749mr30457862eec.41.1795863977351;
+        Sat, 28 Nov 2026 03:06:17 -0800 (PST)
 Received: from spark-da2e.tail8e743c.ts.net ([211.105.22.106])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm40958970eec.17.2026.11.28.03.06.09
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm40958970eec.17.2026.11.28.03.06.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 03:06:11 -0800 (PST)
+        Sat, 28 Nov 2026 03:06:16 -0800 (PST)
 From: Jinmo Yang <jinmo44.yang@gmail.com>
-To: David Rheinsberg <david@readahead.eu>,
+To: Ping Cheng <ping.cheng@wacom.com>,
+	Jason Gerecke <jason.gerecke@wacom.com>,
 	Jiri Kosina <jikos@kernel.org>,
 	Benjamin Tissoires <bentiss@kernel.org>
 Cc: Jinmo Yang <jinmo44.yang@gmail.com>,
 	linux-input@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: HID: uhid: NULL outq entry reached with head != tail
-Date: Sat, 28 Nov 2026 11:04:04 +0000
-Message-ID: <20261128110415.772810-2-jinmo44.yang@gmail.com>
+Subject: HID: wacom: LED callbacks race with led.groups teardown
+Date: Sat, 28 Nov 2026 11:04:05 +0000
+Message-ID: <20261128110415.772810-3-jinmo44.yang@gmail.com>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -102,64 +103,60 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
 Found by coverage-guided fuzzing of the HID subsystem through /dev/uhid.
-No patch is attached; the exact failing interleaving is not yet captured, and
-I am reporting the observed queue invariant and locking mismatch for owner
-review.
+No patch is attached; I am reporting the lifetime issue first and can test
+candidate fixes against the existing KASAN setup.
 
 Kernel: mainline 7.2.0-g66498c75b4f8 (arm64, KASAN)
-File:   drivers/hid/uhid.c
-Impact: NULL pointer read; kernel panic
-Repro:  syzkaller race; independently observed on a Pixel 9 Pro
+File:   drivers/hid/wacom_sys.c
+Impact: NULL pointer dereference; denial of service
+Repro:  syzkaller; independently reproduced with linux-next Wacom sources
 
 ## Report
 
-KASAN reported a NULL source read in uhid_char_read():
+  Unable to handle kernel paging request at virtual address dfff800000000000
+  KASAN: null-ptr-deref in range [0x0-0x7]
+  Workqueue: leds set_brightness_delayed
+   wacom_led_control
+   wacom_led_brightness_set
+   __led_set_brightness_blocking
+   set_brightness_delayed_set_brightness
+   set_brightness_delayed
 
-  BUG: KASAN: null-ptr-deref in uhid_char_read
-  Read of size 4380 at address 0x0
-
-On a Pixel 9 Pro, hardened usercopy caught the same condition:
-
-  usercopy: Kernel memory exposure attempt detected from null address
-            (offset 0, size 4380)!
-  kernel BUG at mm/usercopy.c
-   usercopy_abort
-   __check_object_size
-   uhid_char_read
-   vfs_read
-
-4380 is sizeof(struct uhid_event) on that kernel.
+The same fault reproduced after replacing the Wacom sources with the
+linux-next versions; only line numbers changed.
 
 ## Analysis
 
-uhid_char_read() first decides the queue is nonempty and later copies the
-tail entry:
+wacom_led_control() checks the shared pointer and uses it later:
 
-  len = min(count, sizeof(**uhid->outq));
-  if (copy_to_user(buffer, uhid->outq[uhid->tail], len))
-          ...
+  if (!wacom->led.groups)
+          return -ENOTSUPP;
+  ...
+  int led = wacom->led.groups[0].select | 0x4;
 
-The reports prove that uhid->outq[uhid->tail] was NULL while the head/tail
-state allowed the read to proceed.  The trigger churns output-event
-generation and reads while repeatedly creating and destroying uhid devices.
+The devres teardown action can clear it between those operations:
 
-uhid_queue() publishes the slot and head under qlock.  The consumer updates
-tail under qlock, but uhid_char_read() tests head against tail and
-dereferences outq[tail] without holding qlock; it holds devlock instead.
-Queue producers do not take devlock, so that mutex does not make the
-slot/head publication atomic to the reader.  On arm64, the observed state is
-consistent with the reader seeing the new head before the corresponding slot
-value.
+  static void wacom_led_groups_release(void *data)
+  {
+          struct wacom *wacom = data;
 
-I have not captured that precise load/store interleaving, so I am not claiming
-more than the demonstrated NULL slot plus the source-level locking mismatch.
+          wacom->led.groups = NULL;
+          wacom->led.count = 0;
+  }
 
-The original KASAN report carried only the warning taint and no preceding
-memory-corruption report.  The independent hardened-usercopy panic on a
-shipping-derived kernel also reaches uhid_char_read directly.
+The reader is an LED-core work item and teardown does not take the lock used
+by several LED callbacks.  Consequently neither the initial NULL check nor
+the callback-side mutex keeps the array alive.  Other callbacks also access
+the same state, including __wacom_led_brightness_get() and the sysfs show
+and store methods, some without a NULL check.
+
+This is the same lifetime pattern as the Wacom battery race, but it involves
+a separate resource, teardown action, and callback family.  Rechecking or
+reordering a pointer assignment does not close the load/use race; teardown
+must be serialized with all LED callbacks that use the array.
 
 ## Upstream status
 
 Rechecked against mainline, linux-next, HID maintainer branches, and lore
-through 2026-11-28.  The invariant violation remains unpatched and I found no
-matching submission.
+through 2026-11-28.  The defect remains unpatched and I found no matching
+submission.
