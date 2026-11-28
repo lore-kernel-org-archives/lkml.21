@@ -1,50 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795863202;
-	b=e7T3+thqhmJzc96u1rSyutR36wdsjTPPQJeO1eK+H75Ek36Ozv9zfWpOdpq//BZ/Flss
-	 uSd4HFqOBvJSIpAKKVX+WBvIH8xBjK2Zg9c5ejWzWehJ6mR7UzHu6XPBH3FL1wsQcnVVt
-	 HuE8D2a0dTiyrgyA4+EayEU2vokUTX7F0nzXk6iprGf7zNCdugvIwF/H+NGi/5ZtVo0XQ
-	 f8efxJVYnfWN7CCR3yG+IfZpmz73n4IwTlT69jCXzW7gf7/deTxv+bMuABgvvqmIbrRfE
-	 YiFJG1JnA8EXsrA8cfEGCly0PePZ3gPTTk2HzQ5gzbi9hGs3IvexsIW3ZHlDNOT4SxQ==
+	t=1795863250;
+	b=a5x3SgYAB4ZRdPeu7Blg6NChYmtOPv7Pe9HXYfBf8LgOkyDmofXFH51YnUMd8w/cC/Bb
+	 kah+NO4YnxrnvsOngvmJEPhXCkqOQIZ0gwECn745TeiPO2unQfPVXXJGWZeELlJc22Ynb
+	 kjzvjgbFkgSVNw29ZdBHBHPsKmm1KtSw9cyLBClOY3WMVeh+whTrJZae8/U3nbEZQ8KV9
+	 mx3T/EFYKcNiNncERZ8klneooj/SVf3yhJLVMVMZXEYsB25czMLXcYwC/fN75QHKadeFj
+	 VBW0e3btih/0pDMGk5+O/k7qEG8GellGdHdoClYz7URbsoAHCskjQVXyrNX7pSOISAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795863202;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=I+W5pq2zEyPF+Kki2L6wnw7jury0+PummLni9fMdtPw=;
-	b=dCzXX9vzbgPCAooEgmK0cJzYTamCeU20xZz7vbbdNovwNlC5SqjN6zPclCGXIFdZOl9p
-	 WAQW4Xew+XYoETf2+Ygk+n+kBT9D3F2tjJEv01QsgB1gN/2iXKZkNK+Cu9aJfxt4xt6GF
-	 SuWI5g8LOjTcUyVptDMXI04eeuJ8/VVql8wfdhbYhmDX1cfVOJOQwyX1yNYV1r8P8oa3J
-	 q7j8NppJKQFMLCFYHa0OCadPdeaW5ed9BBGSuDF8lZ4wupRpq9wGRwBYP+oW70deLsIvb
-	 T2kwtUyTk95sqjhgVOmx0uDKSiwmMyNdRp8lAmXncFFUEwhgztizg3NcEayALTsTP/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795863250;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
+	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
+	 In-Reply-To:References;
+	bh=kZJI92WSfPAdotPDRuAUvGN+lTnidbW9hfZq2rnUQB4=;
+	b=cqpiBBzDpSrplu/EO79O+68F8HVI6o+yiTJs4AmoIOWq4rDDtv6nkKlzcL9KT/VpVirr
+	 6HIqhSAdllke78uCB/Odv8/5eHrew4TiWGFVAPnsJ0sgwY2A78QncZOV3umc9Tn1XP2b9
+	 Tt8nI1h+NAPOk69AXgfID03/AC16EzouurI+W4jhcDQMGVcMojGVcWt4UqAcx2ql2t7PY
+	 XVnNuqBmbLkzmuMVYICJR/KEzjPPchYeQtMbwyEwCmJ043utAheQ5yhgdTzWgY4lhpGVn
+	 kpIHb5nWxT4ybyaifk+lDduzp7OQjhuCGBGxI15oq/hUg+a3pOA4pHchIxcpSb/9r7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z714TFqB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=feuoK0r4;
+	arc=none smtp.remote-ip=95.215.58.134
+Received: from mta1.migadu.com (out-134.mta1.migadu.com [95.215.58.134])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C9B4606A31C
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:53:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AD18606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:54:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AD18606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z714TFqB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F6281F00893;
-	Sat, 28 Nov 2026 10:53:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795863201;
-	bh=I+W5pq2zEyPF+Kki2L6wnw7jury0+PummLni9fMdtPw=;
-	h=Date:From:To:Cc:Subject;
-	b=Z714TFqBLKHhIEooTiFGHmpFiU1lkgdiDiSGQRosPGevrWw8Idf4aPbroYfunSKSl
-	 V2a+bgC2OW9Fna6I9bK/TI/9rDgP2+Tr+T4UP6dnTFR7gvBVSRKGDOiueKetSdons5
-	 Sm4014qx80is7shA0MSMWFddLjfYuswrHXE0bJQqZrduNo1OJ+JFc2dIZuBOLMENNK
-	 ir6Brq9hyoGgplBX+jg9y6PeQBwexGm26uRPMcaD3WzUmDQ/sE+4IeclmzvAB1cpof
-	 RItEKd17qg5zxNOT+AJIdWK0IJBeOAe3VilkCwUt8B159MjgR1K3vXLN84DybChfH9
-	 dYKqD0fIbJirg==
-Date: Sat, 28 Nov 2026 16:23:13 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: LKML <linux-kernel@vger.kernel.org>
-Subject: [GIT PULL]: Soundwire fixes for v7.4
-Message-ID: <awqymSy1eNN5UMNH@parshuram>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=feuoK0r4
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=iWwi2lH1Uju0BaXSu2zavvIXtR7UQypN1YDZdfaKdnY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795863247; v=1; x=1796468047;
+ b=feuoK0r4nyDaNzAoDFwdsvWlb3Trh0WnkrcgykBsgksMgQW4S0MXim5Mc5F2imH3PQzUkOq4
+ sjUUq93ecgzdsAi0CGSjJwZdN9MyMFfxjzVhuQNLr26m6wA0sBd91VZv4bZXvBfp2d9+CIWSRks
+ UOKXkf1BGI1z5NimX9nIoR+8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 09dfd558ac3bb54b;
+	Sat, 28 Nov 2026 10:54:07 +0000
+X-Mizu-Trace-ID: 09dfd558ac3bb54b
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,68 +56,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pcbj2yN2i5fPwZDG"
-Content-Disposition: inline
-
-
---pcbj2yN2i5fPwZDG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Date: Sat, 28 Nov 2026 10:54:06 +0000
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
+From: "Luka Gejak" <luka.gejak@linux.dev>
+Message-ID: <64d36bd0ecc9447b616a4c8b55db121ea37b8f47@linux.dev>
+TLS-Required: No
+Subject: Re: [PATCH rtw-next v4 6/7] wifi: rtw88: 88xxa: correct
+ carrier-frequency offset
+To: "Jie Feng" <hjf3108@gmail.com>
+Cc: "Ping-Ke Shih" <pkshih@realtek.com>, linux-wireless@vger.kernel.org,
+ linux-kernel@vger.kernel.org, "Bitterblue Smith"
+ <rtl8821cerfe2@gmail.com>
+In-Reply-To: <CABOQOSXgnFkSyL4hN9zDpq8iU24CFyS_yBS84Ts5QPzq9ntaxg@mail.gmail.com>
+References: <20261115114336.1739863-1-hjf3108@gmail.com>
+ <20261115114336.1739863-7-hjf3108@gmail.com>
+ <8ADDD0B3-609F-4E66-925E-997B11112E4C@linux.dev>
+ <CABOQOSXgnFkSyL4hN9zDpq8iU24CFyS_yBS84Ts5QPzq9ntaxg@mail.gmail.com>
 
+November 27, 2026 at 6:37 PM, "Jie Feng" <hjf3108@gmail.com> wrote:
 
-Hi Linus,
+>=20
+>=20Hi Luka,
+>=20
+>=20On Sun, 15 Nov 2026 at 21:20, Luka Gejak <luka.gejak@linux.dev> wrote=
+:
+>=20
+>=20>=20
+>=20> Hi Jie Feng,
+> >=20
+>=20>  Thanks for the patch. One comment below.
+> >=20
+>=20>  On November 15, 2026 12:43:32 PM GMT+01:00, Ho Jie Feng <hjf3108@g=
+mail.com>
+> >  wrote:
+> >=20
+>=20>  diff --git a/drivers/net/wireless/realtek/rtw88/rtw88xxa.c b/drive=
+rs/net/wireless/realtek/rtw88/rtw88xxa.c
+> >  --- a/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
+> >  +++ b/drivers/net/wireless/realtek/rtw88/rtw88xxa.c
+> >=20
+>=20>  [ ... ]
+> >=20
+>=20>  @@ -1632,6 +1637,17 @@ void rtw88xxa_query_phy_status(struct rtw_d=
+ev *rtwdev, u8 *phy_status,
+> >=20
+>=20>  [ ... ]
+> >=20
+>=20>  + rtw_phy_parsing_cfo(rtwdev, pkt_stat);
+> >=20
+>=20>  [ ... ]
+> >=20
+>=20>  @@ -2020,6 +2036,21 @@ void rtw88xxa_phy_pwrtrack(struct rtw_dev *=
+rtwdev,
+> >=20
+>=20>  [ ... ]
+> >=20
+>=20>  + crystal_cap =3D rtw_phy_cfo_xcap_track(rtwdev, RTW_XCAP_MASK, bt=
+_hold);
+> >  + if (crystal_cap =3D=3D cfo->crystal_cap)
+> >  + return;
+> >  +
+> >  + cfo->crystal_cap =3D crystal_cap;
+> >  + rtw88xxa_set_crystal_cap(rtwdev, crystal_cap);
+> >=20
+>=20>  Could the shared helper discard the samples while sta_cnt !=3D 1? =
+In AP
+> >  mode, frames from both clients match the interface BSSID, so these n=
+ew
+> >  calls keep adding their CFO samples. But rtw_phy_cfo_xcap_track() re=
+turns
+> >  through rtw_phy_cfo_tracking_reset() before clearing the sums or cou=
+nts.
+> >=20
+>=20If there are multiple clients, an argument can be made that correctin=
+g
+> the frequency so that it minimizes the frequency difference between
+> the AP and the clients can improve performance. Taking the average of
+> all the client offsets for the frames received might be good enough,
+> since it gives an estimate of which client needs more attention and
+> correct towards it. However, I feel like in this case, CFO tracking
+> should be the responsibility of the client instead of the AP, since it
+> can get all the devices to agree on the frequency.
+>=20
 
-Please pull to receive single soundwire subsystem fix for 7.4.
+Makes=20sense.
 
-The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
+> >=20
+>=20> So if I read it right, when one client leaves, the first adjustment=
+ still
+> >  includes samples from that client. For example, on each reporting pa=
+th,
+> >  a +12 sample from the remaining client and a -48 sample from the oth=
+er,
+> >  followed by another +12, give an average of -20 kHz. The remaining c=
+lient
+> >  alone gives +30 kHz, so the first correction goes the wrong way.
+> >=20
+>=20That does happen, although it might not be a big problem since as it
+> gets more samples the CFO tracking should converge to the correct
+> value.
+>=20
+>=20>=20
+>=20> This was already present on 8822c, and this patch makes it reachabl=
+e on
+> >  88xxa too. I think the fix belongs in rtw_phy_cfo_xcap_track(), befo=
+re
+> >  these new callers start using it. Could the sums and counts be reset
+> >  there when there is no single peer to track?
+> >=20
+>=20Since this bug is pre-existing and not specific to 88xxa, I think it
+> should be sent in as a separate patch?
+>=20
 
-  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
+Yes.
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/vkoul/soundwire.git tags/so=
-undwire-7.4-fixes
-
-for you to fetch changes up to 6c067677192f054bbfa815caf04f536bb8dcdee2:
-
-  soundwire: qcom: disable the interrupt before gating the clock (2026-11-0=
-2 12:37:12 +0530)
-
-----------------------------------------------------------------
-soundwire fixes for 7.4
-
- - single qualcomm driver fix for disable the interrupt before clock
-   gating
-
-----------------------------------------------------------------
-Oleg Keri (1):
-      soundwire: qcom: disable the interrupt before gating the clock
-
- drivers/soundwire/qcom.c | 2 ++
- 1 file changed, 2 insertions(+)
---=20
-~Vinod
-
---pcbj2yN2i5fPwZDG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE+vs47OPLdNbVcHzyfBQHDyUjg0cFAmsKspkACgkQfBQHDyUj
-g0erQw//b0PaJHIzq/ea/+Vr/VmtIwBgLkX9gR8IDjpwKm1vxPH9D+2t/SfMLcA3
-VkSuGRusJOebGTKk80DV708DXKLu+PL1vsJMMgtU125iil/Ya0ETJOnU9TliE++r
-xs2ihoMoASfpbN3pCkHSK9l3ec2tiyfMOI4RC/BA0qBTl7nS6cBGIwjYPbh9TWvz
-DalmKoJe+al3TWechYhhD63dFCsF6ouvPXjIWr7YpLDMvBxTz+OPXj4LGrC8ak14
-BS/sCm5cMVetZT87DpU7Luqx0cXvgXgeZFEdM6w/0eICQncOJDUOSiGKmnsAegqL
-4zmFsqS+Xcqoi3dXgKPao6sRb7PXziRYwQeRfsxqbAId1IBs+xGM4DhxWZKjkwtc
-eSIgjOpxL102aQIxY4koxA5H0grmav1sue6DDq+r9CUjRGNUFCPpoEMcfF4o5eni
-3LRyqB7XopZMpBFUrXE4PgYLk+va7Jg1yC+DxW2kCz9qgMsHpln/l03TRmJSalzA
-dzNSGwOLXm9toBsvR2Wm/jvOvrX6ihKbKMAxJllx4mRYTIdIdyIdwB5qO+WYoRu6
-C+ZWhjxuFSOdM+Jd7G2FAO+K8zkOpo0gbkAgYno61crxyHls2m95SIBVLEWTLgJy
-r6DRFqu1FIhwCRmgNJk3a0RVLzO2wEM6TyhlYvoCH+NsyzYlMgQ=
-=1bOW
------END PGP SIGNATURE-----
-
---pcbj2yN2i5fPwZDG--
+>=20>=20
+>=20> Best regards,
+> >  Luka Gejak
+> >
+>
