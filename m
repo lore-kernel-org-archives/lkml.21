@@ -1,69 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795853256;
-	b=Vv+BP7/G2K+xR4BbWNyapSm4+GBkR0o6EA5EkJX/kYOwGFAOyojyzmOmPiuFOm52ZN8M
-	 AlyW89RzAO8Rmf/Dy1QzylkXWvTpO57H5uFJPqdDwU/MxMJBBCkW1SOe7nf0OSxPtPAiJ
-	 3Ed+QnR297rDECdO8P6RZerY66LNLDblebYX+kGwiV9y+m+TKPBTZtgIyyxFH9U6lAkrV
-	 fkDav0kc/M1yMMFDcVin3pcgAxSl9H39iGdJ6hZfmWcGYS+6NsJxIuubaQcN25t9M7GXs
-	 eZQXdWqtSFhPp5/lxiBKenU1jY56/cR/X4Eep6l63EVHHSYtX8zlHXtrj5ym/ceA8Jg==
+	t=1795853262;
+	b=SouNad3XMUiAiRwFT4YkTnOSn0BikoucwIknJOTD3gVK8PXxt6yqCRjgD8JbMcrxkwH4
+	 W30VBNzRx07h1Njs0vasE2K9d+YPRpkitMn5bVeoYRLuFozzeBjuJGt3M4FUvvuiupHMz
+	 lqiOt4mQWSudFj+GkQ+IM+cHhug31i8yx/jOLhojTY4NkPoCjXBTlihUAceHmlq0Wvqvn
+	 ur4cWYNnKz7zEbwI1zWEdAUrgO0+/em7Lb4+m/+vtc86lKkvPcx3p3dhBIoElrGB68hxl
+	 A7FDgh/aWAchxbm7Ik+bYsT7PDLcacVRjflqXrlulOxSk5BphEEBFP6xHEx3oh2mPBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795853256;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3pyHOCd7l2P6yeKjjzPj2V6+w4++yAlBV9wM0KG0J/o=;
-	b=e7AJNvwXC0V57aUC1ZmqoGv9FLQ9gQssdsgPH2IWcaA2uxPGYDrfWYhinoaETwtgL4o+
-	 Up92tWboE+FkGbw+EhKWQ7CrRHYjzQPjusvLtz1io+UVFm+yaYryq9eMFKE3vw34LyOEn
-	 VjPY33+f/2foxC3ZXPmbvefCZOsh5PuNijtAt4rgEnlovRZuihkic+czAGVfBaKn5vhoz
-	 r3vW7VpdUydvF+u1QCLqSG4qpuVCaLD4nc00O1tJXkFN98LZGkUvjzQvxWEu0svSJVptO
-	 NTlnph2SSiUIOAGL6qew+sez+OHpCAPkUUA0A+VAlyN7opvu6e0b1Gq+/i4Ve2fZLdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795853262;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=weWIpAhr3amneDG34J839D6yvW6FBK43ztqdqUfv7tA=;
+	b=fNOwhi7b5fvWT69JHK7c4uLxNST1oRnvqNsv4USnGfqMS8NBZDymWbD9RznXtqPWZVFX
+	 xr/YPktUShiUWLz/VwzF04htkj95rd0AjwoXpDa81nVrMyKsTzcJAQGXwBgHeAbXc0yq2
+	 JFRdWD5jxTto65zeEowD4wqF93XdsScMyfxVZYzQ6r5u+gXsMQ0Cj7HK5mdVUixnf8BmJ
+	 A03Qnn7SIOq1l2l9I1aHP1RAi2Q8vw0bu6j520GXr9PdSdo6qKhUDDKoqBTrcVmn1Z6vz
+	 a52vjvlFai3wG4QA6V48e2udHgD6HkP2lAhWSltpdunaBCgkQqqax/flkOIEuh6YM4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=fdQx6029;
-	arc=none smtp.remote-ip=115.124.28.5
-Received: from out28-5.mail.aliyun.com (out28-5.mail.aliyun.com [115.124.28.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="S/7QQlrj";
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C103606A31F;
-	Sat, 28 Nov 2026 08:07:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C103606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 038AA606A33B
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 08:07:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 038AA606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=fdQx6029
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795853246; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=3pyHOCd7l2P6yeKjjzPj2V6+w4++yAlBV9wM0KG0J/o=;
-	b=fdQx6029wblSVeTGs2ly8dQm1uy+iYApJjqhpsdcMTeajYsloaBAaOIrS1t/SAzSyL2aesbFXXC+RBQe3tMclr9pz2NLbEsienzz3dtA1ECebnr0qw3GWA1tJN+SJtgZzlFKggT5ai2FAkSiXCjXzZw52+WRufyTd4vf6cCBHKI=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00415204-3.12034e-05-0.995817;FP=18041251421778642104|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045139068;MF=liuc63@xiaopeng.com;NM=1;PH=DS;RN=15;RT=15;SR=0;TI=SMTPD_---.kC0FY3m_1795853244;
-Received: from localhost(mailfrom:liuc63@xiaopeng.com fp:SMTPD_---.kC0FY3m_1795853244 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Sat, 28 Nov 2026 16:07:24 +0800
-From: Liu Chao <liuc63@xiaopeng.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	khtsai@google.com,
-	fangxy@xiaopeng.com,
-	Randy Dunlap <rdunlap@infradead.org>,
-	dbrownell@users.sourceforge.net,
-	linux-usb@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S/7QQlrj
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-38644aedba1so13969688eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 00:07:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795853261; x=1796458061; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=weWIpAhr3amneDG34J839D6yvW6FBK43ztqdqUfv7tA=;
+        b=S/7QQlrjf5c+5GLkeifjfXwL26EyvWZYxdMbgQAZraUOuwo3rZPLQGc2TTFzqW8P8q
+         FeQjTWQ/6J87HVBvIzXd0s9n7Z4S8OOrLWuKfaBpV2e/vhpH5mmh1jDAxSa2TH8qqKzi
+         mLnWx0CY4iblEE7hXDN/GXO2GmtTxUM23yfvC1adq04yY/qeaLw1eDUDddyVNWlBgvkd
+         +eG7AhDglYXjgU4erTgJVNoEv7QX52CstCCtf99+I6Vd5A2QGLMcdJrinHHsQDJy8MvD
+         kOIWXJCi4ewGZoEKqbmn/eTWPXCKetV9l/4uQYbqeAdknxfo4ujoW6P4zRPmd008obEN
+         qZ0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795853261; x=1796458061;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=weWIpAhr3amneDG34J839D6yvW6FBK43ztqdqUfv7tA=;
+        b=2xBZcmj5kwWjoPUQnQc+Z5qlzqIOaPytbHknkD+sthsl3gTqJfNcyRi4gPrfDE/UY7
+         VRw7uuX6vh7Hb23/sfxmpgsYp/B3MsSHwqUelWkauVzcNLwy5fg4+ivWHg9sOYir1Han
+         CPtr+XRO4lh883Jmy7Ag01QBwSbZxOBMebVNTyJAkL+3KJ/jt7QiLvoUH9VRMC8fbWxF
+         XI/seAWkfmEe3KrFI2sb1lj8ZuKA4Bh719tl5ne97QYd1i8Cl3edjawYhI0Xk7NFW6hz
+         rQ+iUAG5MvK0SazLYMudJb+/ztKfe7xe/KnODIBbKOMy4b3l9N0Anj6UQxuOiOXV7qBD
+         N1Cw==
+X-Forwarded-Encrypted: i=1; AL+hErEa/CR4yguUXHxPlXHusc+RwHgPybX47u+1OLkjncFtiPXcDc7tiAgnetrj5icZpEF2a8JhFRFB5+JrwPM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99p5j9U1KYxQ8JWrhMLWXW3nC19ex/hUziUlDsCgA0orKVLHeH
+	8TGNC/u90aWBoHy8SdydSBSCN7kJ8ee5XDgmpCiuWN4Wia7bFknukISupCvMczVqkwY=
+X-Gm-Gg: AZFdTZewThdx7qHI1N9QtVPztbPyl8URNA0DjwCdVbLppAvQFQ2YSDP/qFa1qOktNh2
+	dO1jH3/nyN0Z10lcTpSjGAXzcR1gpGTSW/KzJc68bdyEykYDW38TGB+9G8JI2vPG13GOhH6J580
+	q/3x58ANW2LoEGBVXu+7K+QhuqBp4+E1+eoKiRH3XtS+yS0oByAA0E+mc8MnmG87f/yUTbLoFCC
+	rzRtKJ+yHq7vJMbhR23c4V6KEIMjjwMRzXNKTzMYNqXV2iMPU20x2UgEJ3Iz8JZn71Omp5gDKkL
+	x+Wf+/vij0rnyyyEqzfFjmvOUx8sNcfh5S4Ave1blblyCshFY5MfXyMoH5x68Bvqj3ZPyWQL0qh
+	eg3zSRVgPK65qC/u5chN0+USsczgFGpqAzjFa1D8nAL6VtPAwL1wv6kfkajYKbWAZf1jySfCS0m
+	+/d4aJj09aZzah5oEWGVdvE03TkraWfjztLC5orZIXpfKYtrD5r7U6Xu/xN5nM3N/a9cqZpteNu
+	Od8lBhYRLmHntqMboZ1mXuOEzXHgZniY3Q7ykDX4LEsbUm0PGnjEQ40sQb6kKaubADJI3KuitmP
+	OkWz2l6+6efOuaVWfpcQpJvAbg3RklczP112rFqgjE8VF3rZWNgQ8PibqX8eMtPcIpYp
+X-Received: by 2002:a05:7022:3f07:b0:19a:8e3e:530e with SMTP id a92af1059eb24-1b5568650c0mr28575922c88.8.1795853261129;
+        Sat, 28 Nov 2026 00:07:41 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm62581012c88.8.2026.11.28.00.07.35
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 28 Nov 2026 00:07:40 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: Chris Li <chrisl@kernel.org>
+Cc: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH v6 1/2] lib/net_utils: allow mac_pton() to take a custom delimiter
-Date: Sat, 28 Nov 2026 16:07:14 +0800
-Message-ID: <20261128080722.1469508-2-liuc63@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261128080722.1469508-1-liuc63@xiaopeng.com>
-References: <20261128080722.1469508-1-liuc63@xiaopeng.com>
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v5 09/19] mm/swap: avoid direct reclaim when populating swap cluster metadata
+Date: Sat, 28 Nov 2026 16:07:10 +0800
+Message-ID: <20261128080723.37536-1-lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <CACePvbVr7A91ya6P9Sbx9s+V6cVqba-avHCBnJDViKW2f805zg@mail.gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com> <e920cffdb3a65905dbcf51fa3520785a8c49fcb4.1795439990.git.lianux.mm@gmail.com> <CACePvbVr7A91ya6P9Sbx9s+V6cVqba-avHCBnJDViKW2f805zg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,93 +112,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-mac_pton() hardcodes ':' as the only accepted separator, which pushes
-callers that need a different notation to open-code their own parser.
+On Thu, 26 Nov 2026 10:34:19 -0800 Chris Li <chrisl@kernel.org> wrote:
 
-Split the body out into parse_mac_pton() taking the set of accepted
-delimiters as a string, and turn mac_pton() into a static inline wrapper
-passing ":" so that every existing caller keeps its current behaviour.
-The strnlen() guard still runs before any delimiter is inspected, so
-strchr() is never handed a NUL character.
+> gfp is assigned and used only once here. You might just as well make it a const:
 
-No functional change intended.
+Great suggestion, Chris. I'll make gfp const in the next revision.
+Thanks for the review!
 
-Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Liu Chao <liuc63@xiaopeng.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
----
-v6: no change.
-v5: reword the parse_mac_pton() kernel-doc to say @s must be at least
-    MAC_ADDR_STR_LEN characters long and that only the first
-    MAC_ADDR_STR_LEN characters are checked, the rest ignored.  No code
-    change.
-v4: no change.
-v3: pick up Andy's Reviewed-by, no code change.
-v2: new patch, split out of the u_ether fix at Andy's suggestion.
-Link: https://lore.kernel.org/all/20261117090110.3263592-2-liuc63@xiaopeng.com/
-
- include/linux/hex.h |  7 ++++++-
- lib/net_utils.c     | 19 ++++++++++++++++---
- 2 files changed, 22 insertions(+), 4 deletions(-)
-
-diff --git a/include/linux/hex.h b/include/linux/hex.h
-index 2618382e5b0c..408825478cda 100644
---- a/include/linux/hex.h
-+++ b/include/linux/hex.h
-@@ -30,6 +30,11 @@ extern int hex_to_bin(unsigned char ch);
- extern int __must_check hex2bin(u8 *dst, const char *src, size_t count);
- extern char *bin2hex(char *dst, const void *src, size_t count);
- 
--bool mac_pton(const char *s, u8 *mac);
-+bool parse_mac_pton(const char *s, u8 *mac, const char *delim);
-+
-+static inline bool mac_pton(const char *s, u8 *mac)
-+{
-+	return parse_mac_pton(s, mac, ":");
-+}
- 
- #endif
-diff --git a/lib/net_utils.c b/lib/net_utils.c
-index 215cda672fee..fd76b9ab3f24 100644
---- a/lib/net_utils.c
-+++ b/lib/net_utils.c
-@@ -5,7 +5,20 @@
- #include <linux/export.h>
- #include <linux/hex.h>
- 
--bool mac_pton(const char *s, u8 *mac)
-+/**
-+ * parse_mac_pton - convert a MAC address string using a custom delimiter
-+ * @s: string to be parsed
-+ * @mac: buffer to store the result, left untouched if @s is malformed
-+ * @delim: characters accepted as a separator between the byte pairs
-+ *
-+ * @s must be at least MAC_ADDR_STR_LEN characters long and use a character
-+ * from @delim at every separator position, e.g. "aa.bb:cc.dd:ee.ff" with
-+ * ".:".  Only the first MAC_ADDR_STR_LEN characters are checked; anything
-+ * after them is ignored.
-+ *
-+ * Return: true on success, false if @s is malformed.
-+ */
-+bool parse_mac_pton(const char *s, u8 *mac, const char *delim)
- {
- 	int i;
- 
-@@ -16,7 +29,7 @@ bool mac_pton(const char *s, u8 *mac)
- 	for (i = 0; i < ETH_ALEN; i++) {
- 		if (!isxdigit(s[i * 3]) || !isxdigit(s[i * 3 + 1]))
- 			return false;
--		if (i != ETH_ALEN - 1 && s[i * 3 + 2] != ':')
-+		if (i != ETH_ALEN - 1 && !strchr(delim, s[i * 3 + 2]))
- 			return false;
- 	}
- 	for (i = 0; i < ETH_ALEN; i++) {
-@@ -24,4 +37,4 @@ bool mac_pton(const char *s, u8 *mac)
- 	}
- 	return true;
- }
--EXPORT_SYMBOL(mac_pton);
-+EXPORT_SYMBOL(parse_mac_pton);
--- 
-2.50.1
-
+Lian
