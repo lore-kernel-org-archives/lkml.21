@@ -1,48 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.113
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795846784;
-	b=OCVnIbXyezKv7peLxoO76w7b8bZN5XqXc6d9DqGoGMZjmU1BBrRIGfXslvtJcYBM78nI
-	 KXUSvezgGIvqV11oR51iafu37y0oqcaHfjscr6fPGT3j3hz/0JeUEUA+09+YIEFsFn8DR
-	 w7nFCCM5AhRK2tUszYz9DxL7SuZ4bP72c0vrcI4tu5TL0HEH/eEwT2yAlrlxdlzBdvGMO
-	 NxTuk7jXP1fNuNFSKm1Hjjkg0DBGEU+9Fsb3SgqLYpuFQ8P4vB//pn/j7uYt+oiV1MyKv
-	 82J1RbMo6QaOPNp3gdm0J4ycez1YUaN5seFxibVgtvzX+yAkXqKy9KonVpNmBBLvZGw==
+	t=1795846826;
+	b=vn9u3SKu1NWQcYcW9KuVIPVVzsNCWaW2wsMQO68IXmSy/D39NN0QgO0vk4P2Gaegtz+i
+	 Ye9YmgoF0drBh+hqxTmmhJig0+TCjL4v4jgvZDNHACEm55Heo9mSobR26dsb9YMdi3RaK
+	 eeDXCJ/BDLHtBIaolmNihDL2l5bOTuCQpCg/fSYezxBam/qRYEIk7O4DCKgeq/EdmORMF
+	 Cs9T60w32LkoaFLzifvVb/USVC9jRXYYBD2s/UXQC3HIA8By0bF6pwj3AoFAWIbbDB32H
+	 G1YWwU9wZyMFw8iQ6gMgXxIXN0t6t5/wfYbMZcq3rupFF+VxIjW8HZ96xrD/jUsrqHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795846784;
-	h=DMARC-Filter:X-Pm-Submission-Id:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=612l9hGtZR6jYCnlr2HjmvnUPOcGnYBIaLlGvgaiX7o=;
-	b=jcRwDJfcZ6TOBenNMV76oDXOS/xlGIxW3tDsrlDhnApUIzXFsHbm01pcXPjaO+l4r+Wy
-	 hyry763Uevoe+YqRje/zj4NX5yEOkqvAn1/NHld6NLLvJdhObKqBPwPdszB+8bjzYmMWJ
-	 by5BW+Jl04quSAxQsvdC7LVPm5mnXgMFErlP9ihvqNHSUNu/aYCGV6ECgJNhiU91Fc3iv
-	 sP8ZgoGiVdcyaw8Qijskyr6dKO5KzEz7vm1dzZ/t5ybxqSzED5xNOhITjz0pOJN4WyDEF
-	 AaG0VVl7qcTbhv4ThmSpdCZ5Vc2f+6uLgIOVwWaa3AxC6AcGy8YvPLB6/xZ6vVbId5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795846826;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=2hMGbCM5tB70FBdwb9zAs1NZJOT/JT/9Od6CekBUEzc=;
+	b=mE1WuYQKmDlRBtDm3xgQtHmwZNJegu5zFQScTIOlWLjfCZx6h7e2lTFEqhDxy9/40Egt
+	 2OG+/f+WHGfNVGdb4FwgCEe/WrYiGw86qYtNoHsm3woq5G36564paElYVZTQaegE3YFC6
+	 3Qq3Kkgc3Qs2GPCfiZiRGD+8trxz72IMSyABUgJH5DCCK6hfOEHthwI0V6aPRV3+IX4Ys
+	 hygldy5ET+LrwzpstTW3rm1NW5TWBtYdj0nwVXVhcfFUCH8Ff0dkwJbFEFk+KpzWoyBfu
+	 mjeE4uwkozx9dWCgcZzJeZN/HpfYm1+JWTfJaIjfdSWFtHxD2MdHiqCyP2k8Eth/05A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=phorex.org;
-	spf=pass smtp.mailfrom=phorex.org;
-	arc=none smtp.remote-ip=79.135.106.113
-Received: from mail-106113.protonmail.ch (mail-106113.protonmail.ch [79.135.106.113])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Prak9o+R;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26EB0606A31C;
-	Sat, 28 Nov 2026 06:19:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26EB0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=phorex.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phorex.org
-X-Pm-Submission-Id: 4jc0Vx6l1dz2ScQ9
-From: Luke Macken <luke@phorex.org>
-To: kbusch@kernel.org,
-	axboe@kernel.dk,
-	hch@lst.de,
-	sagi@grimberg.me
-Cc: linux-nvme@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Luke Macken <luke@phorex.org>
-Subject: [PATCH] nvme-pci: add NVME_QUIRK_DMAPOOL_ALIGN_512 for UMIS AM6B0
-Date: Fri, 27 Nov 2026 23:19:28 -0700
-Message-ID: <20261128061928.337587-1-luke@phorex.org>
-X-Mailer: git-send-email 2.43.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0E86606A31F
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 06:20:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0E86606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Prak9o+R
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso4125378a91.0
+        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 22:20:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795846825; x=1796451625; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2hMGbCM5tB70FBdwb9zAs1NZJOT/JT/9Od6CekBUEzc=;
+        b=Prak9o+RMwLOyAisXlGs9WAiPIXX6RSG2RFdsICD7cJpTtubAiSuZz1Vksg4WpjDc8
+         BRWsJaaPbG7XoLe92Mv+C/BXf8THgs0uJ0uZpMFeYYhUHMm2p7WO+1mbddZvAj1uVVJ3
+         SP8VWqY8VwZKpE0PqKNsQpvxDLHd6PXX1bq77qBbAzFGACnrS4/+biDTl57BCbmMSdNI
+         mkohNqR4Mh0GoyX+Z+O1XVXXk+1QZxEPIcjWEvf7aXM3MyLwFuWYndrx5Ty9MFquX0y6
+         0/BlJHEo615HqfrTEsJvEwTRL7sjxW1TPCqsWclVlmktRoBMt8foNPajsfbDGUDqn2/o
+         n0AA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795846825; x=1796451625;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2hMGbCM5tB70FBdwb9zAs1NZJOT/JT/9Od6CekBUEzc=;
+        b=K+5YgTAjv/G6mH5QBrqsa11CR7Q1zkV32XDDt+vD4ZzpTcyThruhv3msq7Ax6Ww+hx
+         xPwkis4aTM7y7G2UWHJoWR45KDqhEH9T24oqGazrbE7ynX2xV1YegKJcQt/AIKZq/RC6
+         bJlYcVn1a/T8wNvthc4s3pmEPa9YtjA8knnCxBPfs7rRQeQ/2/A4bY8V8mndYGWTG9Gj
+         fB26M1AAStyCw3bqTmcfAW8UAgx/0wILee1P0X6p2gWix7TAuJbTiXYKuKHXMpdaqt5b
+         kTXw5b+pjC2VDwV+ncef6zB5dosOtRJ/CuQre8RLmedtchCbjZHTpWJFzvbHcPdWVfKu
+         HyFw==
+X-Forwarded-Encrypted: i=1; AL+hErFwVzrBG4psLJe492UUbszfmw+dCkEW49Pa0IfqT9VUcBIOGfzYgMBNWf0ljmyKEy2RweED40Ze+gtN9V0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Hjcx3G6qDf3M29Pt6Ir1W7/4MkBC0qPcqzByh409ZwCM9WEKl
+	FP5YVi/PqV5me1JRuYVt4/nIDAocSxQe/3SO/QrhYoGq4wwzT9iHSJSy
+X-Gm-Gg: AZFdTZcUohvPePSMmlwQHnVv5dLQNjwNLaHKy5Z/MqWuipWBNeR6fmN+FbSeLTY4lDB
+	THVWj/1MpWEUgE/bMtA4Mhr4hWrQtIFxPUEvo2OLNalrk6kG8wOtH1jEJuTZVnSICSS5jLr9nwF
+	f3HxJf/gG1p0PVWvqRlCxHiWse9/8bpEwAzrmy6En3fWaViJeAFgXb3WAXBWxThsQ5yRhbx+a8c
+	ku4IlL/0mbF4sAJkLGXXCIg6UdYuE2acyd2Z8SgU71gAj/DV2jEd0xeXs1yHdw4BSc7SMwbLxqj
+	DH3gttPGRltwQXTO2g/fJNe18TLSjqNdBJp2EEyTkW7g9pMiIjm+t5c5YXlZ55gaL/VkHvKF71M
+	YLUkRAY6fPtCUephgXrztfjUZZTIfGhyHK4SwK4Bb/dqx0J3wWzGW7rZBwElbggOfNaKuhYQ70r
+	gq5BF5TVHrkIGdu4GFjtDobQ1Ni+6DPjfR7JFDAiPxhLjrjQJREjSpWGM8aOJTOICupjoSuosVY
+	L0lIoA4rRJ2XLAggy98g64xdx6Q1otveWPzFirnh+S/qO1gF/dAt/LY9qvBhA2eNC4gx5SpkdfX
+	jf1VR1vEwFYZfHS6rSEzBlQtUYP7+CGzGNlGmnSXee2RaSWmYeULoGWzrdRfGpyc
+X-Received: by 2002:a17:90b:5350:b0:3b3:b414:9aaf with SMTP id 98e67ed59e1d1-3b41c93b4admr17215431a91.27.1795846825015;
+        Fri, 27 Nov 2026 22:20:25 -0800 (PST)
+Received: from cps-manycore-1 ([147.46.174.222])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b48b41928esm32008126a91.9.2026.11.27.22.20.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 22:20:24 -0800 (PST)
+From: Sechang Lim <rhkrqnwk98@gmail.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <jfern@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Uladzislau Rezki <urezki@gmail.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Bradley Morgan <bradley.morgan@linux.dev>,
+	rcu@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4] rcu: Mark rcu_read_unlock_special() notrace
+Date: Sat, 28 Nov 2026 06:19:26 +0000
+Message-ID: <20261128061955.174288-1-rhkrqnwk98@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,107 +110,73 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A Lenovo ThinkPad T14s Gen 7 (arm64, arm-smmu-v3) with a UMIS AM6B0 SSD
-(1cc4:6b04, model RPJTJ1T24MMW1QDQ, firmware 1.0Q06B0) hangs under
-write load. One or two CPUs stop taking interrupts. With
-irqchip.gicv3_pseudo_nmi=1 on the command line, they do not respond to
-the backtrace NMI either:
+The BPF trampoline takes and drops the RCU read lock itself. When the
+outermost rcu_read_unlock() finds ->rcu_read_unlock_special.s set, it
+calls rcu_read_unlock_special(). If an fentry program is attached to
+rcu_read_unlock_special(), the unlock on the trampoline exit path still
+sees .s set and calls rcu_read_unlock_special() again, which recurses
+until the stack overflows:
 
-  After 10 seconds, these CPUS still haven't responded to the NMI: 2,8
+  BUG: TASK stack guard page was hit at ffffc90001657ff8
+  ...
+   bpf_trampoline_6442575622+0x5e/0xac
+   rcu_read_unlock_special+0x5/0x490
+   __rcu_read_unlock+0x9c/0x120
+   rcu_read_unlock_migrate+0x93/0x220
+   bpf_trampoline_6442575622+0x5e/0xac
+   rcu_read_unlock_special+0x5/0x490
+   ...
 
-On writes, the drive accesses the page after a PRP list that ends at a
-page boundary, and the machine hangs if that page is not mapped in the
-IOMMU. Commit c64d9b2c1f4f ("nvme-pci: add NVME_QUIRK_DMAPOOL_ALIGN_512
-for KIOXIA XG10d") describes the same access, but there the IOMMU
-faults and the controller is reset. Here no fault is logged and the
-controller is not reset; why the CPUs stop instead is not known.
+With fexit it recurses even earlier, from percpu_ref_get() in
+__bpf_tramp_enter(), which takes and drops the RCU read lock before the
+program runs.
 
-The drive has no SGL support, so a request that spans 33 pages (4 KiB
-each) gets a PRP list of 32 entries. That fills a 256 byte small pool
-block completely, so in the last block of a dmapool page the list ends
-at the page boundary. The hang starts with commit 2e8e30b3cf9f ("Revert
-"nvme-pci: clamp max_hw_sectors based on DMA optimized limitation"").
-Before that commit, requests behind an IOMMU were limited to 128 KiB on
-kernels with 4 KiB pages. A page aligned 128 KiB request spans 32 pages
-and gets 31 list entries, one short of a full block; only an unaligned
-request could fill one.
+Mark rcu_read_unlock_special() notrace. rcu_unlock_needs_exp_handling()
+also runs with .s set, so mark it notrace too.
 
-A debug patch that puts every 32 entry list at the end of a page shows
-that the next page matters. If it is mapped, writes complete and the
-data is written correctly. If it is not mapped, reads complete, but the
-first write with a 32 entry list hangs the machine.
-
-Use 512 byte aligned small pool blocks for this controller, so that a
-32 entry list no longer ends at a page boundary.
-
-Tested with 32 dd processes doing 132 KiB O_DIRECT writes in parallel:
-with the quirk they complete; without it they hang the machine.
-
-Assisted-by: LLM
-Signed-off-by: Luke Macken <luke@phorex.org>
+Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
 ---
-Tested on v7.4-rc4 plus the out-of-tree patches this laptop still needs
-(none in block, nvme, iommu or dma code). All v7.4-rc4 kernels below
-share that base and one config; they differ only in this patch, the
-debug patch or a revert of commit 2e8e30b3cf9f.
+v4:
+- Go back to notrace as in v1
+- Also mark rcu_unlock_needs_exp_handling() notrace (Alexei)
 
-The hang was traced to commit 2e8e30b3cf9f with a workload that unpacks
-container images. It ran 20 times without a hang on linux-next 20261019
-and hung the machine in the sixth run on 20261020, the first to contain
-that commit. On v7.4-rc4, it hung the machine in the first run on one
-boot and in the second on another; with the commit reverted, it ran 30
-times without a hang.
+v3: https://lore.kernel.org/bpf/20261125055359.2715140-1-rhkrqnwk98@gmail.com/
+v2: https://lore.kernel.org/bpf/20261125040106.2200628-1-rhkrqnwk98@gmail.com/
+v1: https://lore.kernel.org/rcu/20261124185659.1370644-1-rhkrqnwk98@gmail.com/
 
-Reproducer, on ext4 on dm-crypt on the drive:
+ kernel/rcu/tree_plugin.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-  for i in $(seq 32); do
-          dd if=/dev/zero of=w$i bs=132k count=300 oflag=direct &
-  done; wait
+diff --git a/kernel/rcu/tree_plugin.h b/kernel/rcu/tree_plugin.h
+index 3500e4874833..9c1b227f5fa0 100644
+--- a/kernel/rcu/tree_plugin.h
++++ b/kernel/rcu/tree_plugin.h
+@@ -689,10 +689,10 @@ static void rcu_preempt_deferred_qs_handler(struct irq_work *iwp)
+  *
+  * Returns true if expedited processing of the rcu_read_unlock() is needed.
+  */
+-static bool rcu_unlock_needs_exp_handling(struct task_struct *t,
+-				      struct rcu_data *rdp,
+-				      struct rcu_node *rnp,
+-				      bool irqs_were_disabled)
++static notrace bool rcu_unlock_needs_exp_handling(struct task_struct *t,
++						  struct rcu_data *rdp,
++						  struct rcu_node *rnp,
++						  bool irqs_were_disabled)
+ {
+ 	/*
+ 	 * Check if this task is blocking an expedited grace period. If the
+@@ -746,7 +746,7 @@ static bool rcu_unlock_needs_exp_handling(struct task_struct *t,
+  * notify RCU core processing or task having blocked during the RCU
+  * read-side critical section.
+  */
+-static void rcu_read_unlock_special(struct task_struct *t)
++static notrace void rcu_read_unlock_special(struct task_struct *t)
+ {
+ 	unsigned long flags;
+ 	bool irqs_were_disabled;
 
-With the quirk, the loop completed five times, and also five times each
-with 1, 2, 4, 8, 16 and 64 parallel dd processes instead of 32. Without
-the quirk, the loop as shown hung the machine on its first run.
-
-The debug patch (I can send it) makes nvme_pci_setup_data_prp() put
-every 32 entry list into a separate two page buffer. A list at the end
-of the buffer's first page has the second page after it. For a list in
-the second page, the patch first checks in the IOMMU page table that
-nothing is mapped after the buffer. Results for dd writing or reading
-in 132 KiB O_DIRECT requests ("-" = not run):
-
-  list ends                      next page    writing    reading
-  at a page end                  mapped       complete   -
-  at a page end                  not mapped   hang       complete
-  256 bytes before a page end    not mapped   complete   -
-
-With the list at a page end and the next page not mapped, a single dd
-was enough: its first write with a 32 entry list hung the machine in
-each of three boots. With the list 256 bytes before a page end, the
-closest the quirk allows, more than 20000 such writes completed.
-
-Only this one drive was tested, and only with the IOMMU enabled.
-
-This patch, the analysis, the debug patch and the test scripts were
-produced with Claude.
-
- drivers/nvme/host/pci.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-index 987ce5f536d6..b11360052c0d 100644
---- a/drivers/nvme/host/pci.c
-+++ b/drivers/nvme/host/pci.c
-@@ -4448,6 +4448,8 @@ static const struct pci_device_id nvme_id_table[] = {
- 		.driver_data = NVME_QUIRK_DISABLE_WRITE_ZEROES, },
- 	{ PCI_DEVICE(0x1cc4, 0x6302),   /* UMIS RPJTJ256MGE1QDY 256G */
- 		.driver_data = NVME_QUIRK_DISABLE_WRITE_ZEROES, },
-+	{ PCI_DEVICE(0x1cc4, 0x6b04),   /* UMIS AM6B0 */
-+		.driver_data = NVME_QUIRK_DMAPOOL_ALIGN_512, },
- 	{ PCI_DEVICE(0x2646, 0x2262),   /* KINGSTON SKC2000 NVMe SSD */
- 		.driver_data = NVME_QUIRK_NO_DEEPEST_PS, },
- 	{ PCI_DEVICE(0x2646, 0x2263),   /* KINGSTON A2000 NVMe SSD  */
-
-base-commit: 08be423d20e892e2606172cf69015d34ac170786
+base-commit: 2348d158c7fcc2c9557b2fb550ee841c62942fbd
 -- 
-2.43.0
+2.56.1
 
