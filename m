@@ -1,100 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795862288;
-	b=Ic3DMPdPqV5aYhOnjdJtXWdaCTk6N2vaP+lVJqchbiIalVQsIJUk/UYFK08QvoQElSU6
-	 4QkOXcoeOuEGFEEJK5FqXw6H+QeJ6YdHVdUFKZrKwiBsX9M2ZGkEYmZy/VLh9+A12PBi1
-	 5JYiNiDFiipMpbW6fRJa4O+y9UIHFIlR0e5KF1ZuvnNs4nA40urGosap/8ZTFRF8PLmZ4
-	 qmQg+FrYSPTv4q67tW7YisTLF/aIeUCIl7EIZo2H96aldPnzC3mA63zQ3nUeiJ2xgnyWe
-	 HPeAN0cksXoQtwGp9/3rPOy+E/9R0CV+JqpTfpIdyX/rOaTRgD70vJ+vZzd+jADAMow==
+	t=1795862598;
+	b=bXKotbbGjxaUae2VRKscbrh7gWnYCDulr+du+VoqYjikNwqldvOshPBxBCIM436QkwR3
+	 Rzj4hTsqfW/apXchk91l3BRojg/mECM4vOkHEBmqtLMr57EX1EtKvZ1tLFQH5+Ezf0f8s
+	 e9czsXpJoaTz32O/7ewcI00qhhsnjEscP/2I7oluKpH1vswn5Eii9LyL02j2cN9AqQbkN
+	 Dz4vKvmJcH2OtjxNRjm1aJ8Rn7Ihp+2IfdbmYZaW9LPcnVygNji7lS9E3blaX8h26mUes
+	 hOZhJwOzbQ6BXEAZcvNzdLB7m74vOLgFaL9WXRfg8ZiDBW7fiYllaAWfvDQiMtq/n0A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795862288;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lwyHdZrIt37fPawafrGp2eMQQXYbv+RrBkeaiIqXtM8=;
-	b=iUg0lVcRw7Q2aWlXkyKluAlCtYEPLUA9RJpfYTZMPH642PGLSlLhVBw7Jwi/SHDgUhxX
-	 wIE9h4GAzxHoE/JAS1IL87UhSQ58q2FfO9/qhWLwL9eMEMiINJ2jPbpiVK/bkdeKvYgyW
-	 L6gFHoDGLSjELncDdHSCZQQKziPkv8FXXV05KC45zepWl2vhEFEp8z86EuSzCzZMBb951
-	 9Lk78pOBHF4grBWwPgEa2N4LA9jf0KfuXtDipUrg4TDv1ZPTS20TFE/+QsAYYlxdB3Sk+
-	 t76tDphneYFxzqC7Gf3eSX369aU5N7AJ0TkGTWiUiuEiuM8OTx8pa8B0LZfBrYRvVbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795862598;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=C/lDYdob55bvE2W1KWRZ+VQ0Cq5U4MER2MlFG2+HZaU=;
+	b=2q45OfJ6mNXXM4QbHc10eGzKVrxYhjO4YZDLijcf3zWItwLu2xqxcPO7sDWKECbjVi0h
+	 MVusOBZON3/3JIw3VHKzHN2MWP01CLJMuXSeDqZvtrc6PgY1HwKMWvdMdyxSk8iXm/W+u
+	 kYwkyivh0TgnakMItPNFMrM4SD8y+H69md+ENeapWdTYeo8ZCQ3Y+p8AHqC7HdRcJjDw0
+	 r/V7hUKOIIuxKjUHWHx1XE+6RErWzmlJaQ+owlysauqVn4EErMgWBrFfOYTzJ3gXI2V9N
+	 JaiZ932ZTZ+4FB78tO4D5uN/yCCHTEyigzLFWsv49A420Nfv7/NozPgZpYf079iOzqQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vDwvR9BB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
-Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oCwQvpO+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D540606A323;
+	Sat, 28 Nov 2026 10:43:17 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oCwQvpO+
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795862597;
+	b=XS8VZ6d+g8GdFl79IzXH/eaa20LDsNfrxpAKtHp2sH6+82uNtI8uWHzONaKju0UIca2r
+	 DVzszJjvQIZxeEw7S/kYMEGEn9JpBGBhPRdchnHen20PLtoJQGb/ZUqFGfCC04ubqIow6
+	 h6vnSJ9dan7U+FPn2RfduT3zUhNEocMrqp+tbXYSzqaA+wQzGS//RjSvfrjCMwLUi1FlQ
+	 dbmM9Pckv/G1DOqJxRmSnPuUHigNsn/VvDsU9uy99kczZJ3BMBTATPvrKsAzJoloqpPkT
+	 hI01yAOuPh42KNBsEVLfc3krCId53UPC6E+apG0Z4xYH8N+IyrK+2PlZIe/0GnWWv/A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795862597;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=C/lDYdob55bvE2W1KWRZ+VQ0Cq5U4MER2MlFG2+HZaU=;
+	b=wgBueiGtEiwxL8OkrKU1gAcF0e6ImT4UiF1w2zw9kR6u2J6kKd9LXqZZckuEYDV7IQXZ
+	 exgtBFMQpPS/U0ZLEDNL12ksMTt7Hf27E87nvYEgxaphJOx3ApHNbpgZbbTNqEYaARVCU
+	 WVsJA1ieg4KqDr+uDHMi9dRXMurEvjX1f+VDMjWam/XxbBZpa3SCaSCbYSC8Vdlk0SmqD
+	 LPYK8zOpzucJTHj/R1jI9XazmIDddZ5LQMnm83RLSh/SSinbOctYoUm8EwOEtIcAyvwex
+	 iugTxcA7vBq5x0BO0UZO43Lhdw8qZ5I/XZIZ74G/QW3ZQ5W/T90s89jGnjUyEepj1pg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA52F606A321
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 10:38:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA52F606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vDwvR9BB
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b10d24345dso80244117b3.3
-        for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 02:38:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795862287; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Y3KTJxFNZNkDSG77fKm4PWB4V37WRRDZp6dhTsrdRucg6qg0AnWfGAAtcBfntI7aXT
-         glhL7QELNtUHqGevbx2VuZwXoWjR0JYtZyvf+tGJC+gZFpcz8qos+SNHNAxWhBMndj3a
-         sdL2Iqvn2wU6EtrdwdiHrON7KiD23lbkakKsybPjgZft5sLMeXhcfz/j24QjpXJUX3Rj
-         Ui9EVbTfhYQXbjVE/PhV+ntcOuUJsOgapq4VV6jO7teD+PGfSWtpTXtowI8UYBZShoua
-         CL8S5XcvpFvZsnqaKUr9aMm8nti1hiYzu9vU/jVTETyn5FjXIEi8ufRDyAm5esRY+esV
-         ePcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lwyHdZrIt37fPawafrGp2eMQQXYbv+RrBkeaiIqXtM8=;
-        fh=awv9rhvg2wwurognii0Yq6j1dORN+34bRapv31aScGw=;
-        b=gO2+ahUcm2yvixZRVxK9P0b547wloV3+gxm0GbQIJxWw+fWy7+ZjHxTji37wCaEkfx
-         8PPcbe46q+uHviaVRSTrh/48JLGyLACG0adweLcoKCOyC67L2QJbODbni9RI0JOFcIZA
-         jmRohxzHSxDfkexuOOTR2GYvtgdXqMC9oH/iLd1Azx6JYN7WFhwuLUBMPCavLarUj+e0
-         nZtd3xBhbN8J65G+tpoNwTf6yjX4Wo2N4JbgOSJMF/WvwTnQdPok5fdoqGglwF+rfA3t
-         Qu8c3qUOUnfplZXxH6OukksZaGhjrNrMYZ2NsNcesDVldefOcygibJCZJBuAbhMpqyWz
-         do6g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795862287; x=1796467087; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lwyHdZrIt37fPawafrGp2eMQQXYbv+RrBkeaiIqXtM8=;
-        b=vDwvR9BBdpjQ3G8joaGDJRaUV5jS124HvjZGLj7uHk8NKri2VFFDC2exXnj6FYJlXC
-         goC8qD9we1ivYYYQjQ7BoUbbJnOWTkoEsSFiEI4kxV2O8GjTTkV2IOr5PADmXWcIFKAz
-         zbn8LsXtyYafRkO07aOMoORp3uxZU8xyDtOFRR07M6RVWLWasiJSah2QVcE0YMNkZJAS
-         nDgAaqySwgTVCmjf6oGYMBdlMlJTFl7dYR+cv4LXk4Zqz97/7qRnb/dGKYK06bxJdmj8
-         mFLAlw+EVv3mhauzIJb35S35NLzOmfjRcj9igT8N7+ujAqdntfnf6xIOOkCfcOUBFN9q
-         U//w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795862287; x=1796467087;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lwyHdZrIt37fPawafrGp2eMQQXYbv+RrBkeaiIqXtM8=;
-        b=pI+s7VTJwrC8DWAV9on7oTQD7EgC4IwnkDHkG0Jc9lt2R041ZuYSzAEZXk3PuBUJbT
-         cuNFVUpxz/QwShX6UvyLsnp52sqXF9xY/o7YZRkTKJ5D6diIGZgH6CQwpPzhidHG7Pk0
-         oZ5ghqD9YnT4WrBdycOQage/2CGxWjp8i3zjWXuWqQDkHMA5xgQ0Ntgfei+VaZBIT2WT
-         SHSqImXEOuL0S5lXEc8Xjzxsdp8tP5/1nwGKhtOKcuZFpKEeHqXl71Hp0scbUjQuKJzn
-         qjG6MNnXGTVxoTDyHui6E8Tm3FYgyb+wLsuSV23bOImuWryhZ2IMJsn9HnyDrrdb2WOZ
-         K8aQ==
-X-Forwarded-Encrypted: i=1; AL+hErGRI8hC4CZy8ChdILMK8A8dq8VAZCh/rRJl7YuhAPjjmCqNMGbjCLpeurvkA6RL8Tjp0+g23HZf13R9kfc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WTgEhO2fF4hRspv/TiRIoyOUE0Di0xPkhWsW6h3IWug61X7pI
-	S/7fgA8FA652SQPurJCteSOcRy4cpU2cdeUhW+Mw7S+XRvE/GhcU1+Gc2MKKI7peyC/lxNI3AMs
-	PGq7776kxAhcU8DLrffd5T8g14PtqIeg=
-X-Gm-Gg: AZFdTZfres+DBOVebk5XB+yyuALpHZkcZ/DnezX9KjB5Sg57ofcg3I8Qf1EJFXBZNb5
-	9TYhUq1MM6vw6uHZHEbRlS4+xPT+eCwE/lNvpvlJy0PI8flUJveJWNpYw6Z1Wv3iCdG4hx2iJlr
-	UZgaaR/W1lHMirjlXzAtjCnRTOEZVBRTGyifJS0y96chkkTmozyjYbEni5Ejsb/ibstnczfZZp7
-	QZGrJP2rs1bxOSeAjwh2Ur4pHuuMolNwRbQGT5wYdNUGRdknFgwtyhsej2h5589MBfddAcgMxq+
-	ewUaMv+j0+sRb2XJAYttkeaibfywKXW9ntXBHuyZWwbKEoiBxX7iO5nLtTJCUcWUYKk2vaZddVv
-	Ljoq/yjqBw/ojI7ZZ+dBsIo0eJoxn3P7S2ydQ7Pw=
-X-Received: by 2002:a05:690c:7348:b0:8b4:cba5:fd6c with SMTP id
- 00721157ae682-8b52044065amr126739297b3.22.1795862286628; Sat, 28 Nov 2026
- 02:38:06 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 505351F00893;
+	Sat, 28 Nov 2026 10:43:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795862597;
+	bh=C/lDYdob55bvE2W1KWRZ+VQ0Cq5U4MER2MlFG2+HZaU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=oCwQvpO+R0Ox4yDvstczvmJ7fEF/jSwmyA+UkzcPak1LwtGJSDTCxqBLypfRXj/vV
+	 SmvE5XnLDf/XfNg1vWr+M0xQrzHprMbyD4DU+7a5P+knSThTd9E2gAUi6HbRIs7ew5
+	 HvexWF+zvCYivoA+09jKVhtNF1r9yOVfGSHLskYKPnL29FsELQax4kR/USSb9Ot67i
+	 2wym6JBisDZgahtTxyTHKJRBMEKJ1MMolbVueTqSty6Ha731Bk7u1olASARFt4I9fv
+	 cwXCB+LymP8bOlE06/K3Jqz0Lgi8KR2W6xOW0pArbreLdFrFGIIXdim8FwBsPnT3Q/
+	 iv7hW/Q4Y8Hdg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D5F754E065;
+	Sat, 28 Nov 2026 10:43:13 +0000 (UTC)
+From: Fabio Forni via B4 Relay <devnull+development.redaril.me@kernel.org>
+Date: Sat, 28 Nov 2026 11:43:10 +0100
+Subject: [PATCH v5 1/3] mux: Avoid use-after-free of args.np in mux_get()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,61 +82,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261127080132.266236-1-congnt264@gmail.com> <20261128030319.3205806-1-maguicai@kylinos.cn>
-In-Reply-To: <20261128030319.3205806-1-maguicai@kylinos.cn>
-From: =?UTF-8?B?Tmd1eeG7hW4gQ8O0bmc=?= <congnt264@gmail.com>
-Date: Sat, 28 Nov 2026 17:37:55 +0700
-X-Gm-Features: Aa3M54oYapQM524laP5MxH1c1g8R2EyRuvG3jfItLB1ggZgI1yiJdWq_mT0z3GU
-Message-ID: <CAJpJ=Gs5hzFGeR_qmrtfL94LCWWo5HCUhkHewMG285gR98ZyHg@mail.gmail.com>
-Subject: Re: [PATCH] apparmor: return 0 from unpack_tag_headers() on success
-To: Guicai Ma <maguicai@kylinos.cn>
-Cc: John Johansen <john.johansen@canonical.com>, 
-	Georgia Garcia <georgia.garcia@canonical.com>, apparmor@lists.ubuntu.com, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261128-mux_fwnode-v5-1-6689b52f3800@redaril.me>
+References: <20261128-mux_fwnode-v5-0-6689b52f3800@redaril.me>
+In-Reply-To: <20261128-mux_fwnode-v5-0-6689b52f3800@redaril.me>
+To: Peter Rosin <peda@lysator.liu.se>, Linus Walleij <linusw@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jonathan Cameron <jic23@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ xu.yang_2@nxp.com, 
+ =?utf-8?q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>, 
+ Fabio Forni <development@redaril.me>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2845;
+ i=development@redaril.me; h=from:subject:message-id;
+ bh=mSUN2XB7AO+i+Tb9poHmPGuTkK3zEgmaJX/InXRWrf0=;
+ b=owGbwMvMwCXWeKho1tqFWemMp9WSGLK5Njg8PJej87AkzO15y+mIWVcnbzOZeqZfNqX0yoqQI
+ hPrFpFzHaUsDGJcDLJiiiz/nYw2dZuZGN3ql6iFmcPKBDKEgYtTACay6Aojw2ye1Zv5TZkvvIuY
+ 8Np+h3C5V2luy7Gf2486vLsjzarLwsTI8MT9wsc9f2b27I7Itrk6oYVFcPGnhN2vbzwOrDHp3p6
+ 7mRcA
+X-Developer-Key: i=development@redaril.me; a=openpgp;
+ fpr=FF4232B28B363432DA8F187D81C2729AADA16A67
+X-Endpoint-Received: by B4 Relay for development@redaril.me/default with
+ auth_id=1033
+X-Original-From: Fabio Forni <development@redaril.me>
+Reply-To: development@redaril.me
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 28, 2026 at 10:03=E2=80=AFAM Guicai Ma <maguicai@kylinos.cn> wr=
-ote:
->
-> On Fri, Nov 27, 2026 at 03:01:32PM +0700, Cong Nguyen wrote:
-> > unpack_tag_headers() returns int, where 0 means success and a negative
-> > errno means failure, like unpack_strs_table() and unpack_tagsets() whic=
-h
-> > unpack_tags() calls next to it. On success it returns true, which is 1.
-> >
-> > unpack_tags() tests the result with "if (error)", so a successfully
-> > unpacked "hdrs" array is treated as a failure: unpack_tags() destroys t=
-he
-> > tags, rewinds e->pos and returns 1. Its caller, unpack_pdb(), only chec=
-ks
-> > for "< 0", so it continues without the tags.
-> >
-> > Return 0 on success.
-> >
-> > Fixes: 3d28e2397af7 ("apparmor: add support loading per permission tagg=
-ing")
-> > Signed-off-by: Cong Nguyen <congnt264@gmail.com>
->
-> Looks good. Because unpack_tags() rewinds e->pos to the start of "tags"
-> before returning 1, unpack_pdb() leaves that section unconsumed and the
-> profile fails to unpack (-EPROTO) rather than continuing without tags.
-> Since tagged profiles cannot be loaded at all since 3d28e2397af7, this
-> probably wants Cc: stable@vger.kernel.org.
-Hi Guicai,
+From: Fabio Forni <development@redaril.me>
 
-Thanks for the review and the test. Agreed, the profile fails to load
-with -EPROTO,
-and this wants stable@vger.kernel.org. Adding stable to Cc.
+of_node_put(args.np) was called right after
+of_find_mux_chip_by_node(), but it was too early because the error
+handling code below would pass args.np to dev_err().
+Let's move all freeing functions to the bottom of mux_get() to avoid
+use-after-free bugs.
 
-Thanks, Cong
->
-> Tested on mainline (f4585067150b) on arm64/KVM with KASAN and
-> CONFIG_SECURITY_APPARMOR_KUNIT_TEST=3Dy: the existing 30
-> apparmor_policy_unpack tests pass, and a local KUnit test passing a
-> minimal profile with a "tags" section to aa_unpack() fails with -EPROTO
-> ("failed to unpack end of profile") before this patch and passes after.
->
-> Reviewed-by: Guicai Ma <maguicai@kylinos.cn>
-> Tested-by: Guicai Ma <maguicai@kylinos.cn>
+Signed-off-by: Fabio Forni <development@redaril.me>
+Suggested-by: Alvin Šipraga <alvin.sipraga@analog.com>
+Fixes: a3b02a9c6591 ("mux: minimal mux subsystem")
+---
+ drivers/mux/core.c | 30 +++++++++++++++++++++---------
+ 1 file changed, 21 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/mux/core.c b/drivers/mux/core.c
+index 5083e3d19606..6ca40d73ea0e 100644
+--- a/drivers/mux/core.c
++++ b/drivers/mux/core.c
+@@ -535,6 +535,9 @@ static struct mux_chip *of_find_mux_chip_by_node(struct device_node *np)
+  * @optional: Whether to return NULL and silence errors when mux doesn't exist.
+  * @node: the device nodes, use dev->of_node if it is NULL.
+  *
++ * When a mux-control is found, it is the caller's responsibility to call
++ * mux_control_put() on it when it is no longer needed.
++ *
+  * Return: Pointer to the mux-control on success, an ERR_PTR with a negative
+  * errno on error, or NULL if optional is true and mux doesn't exist.
+  */
+@@ -584,9 +587,10 @@ static struct mux_control *mux_get(struct device *dev, const char *mux_name,
+ 	}
+ 
+ 	mux_chip = of_find_mux_chip_by_node(args.np);
+-	of_node_put(args.np);
+-	if (!mux_chip)
+-		return ERR_PTR(-EPROBE_DEFER);
++	if (!mux_chip) {
++		ret = -EPROBE_DEFER;
++		goto end;
++	}
+ 
+ 	controller = 0;
+ 	if (state) {
+@@ -594,8 +598,8 @@ static struct mux_control *mux_get(struct device *dev, const char *mux_name,
+ 		    (args.args_count < 2 && mux_chip->controllers > 1)) {
+ 			dev_err(dev, "%pOF: wrong #mux-state-cells for %pOF\n",
+ 				np, args.np);
+-			put_device(&mux_chip->dev);
+-			return ERR_PTR(-EINVAL);
++			ret = -EINVAL;
++			goto end;
+ 		}
+ 
+ 		if (args.args_count == 2) {
+@@ -610,8 +614,8 @@ static struct mux_control *mux_get(struct device *dev, const char *mux_name,
+ 		    (!args.args_count && mux_chip->controllers > 1)) {
+ 			dev_err(dev, "%pOF: wrong #mux-control-cells for %pOF\n",
+ 				np, args.np);
+-			put_device(&mux_chip->dev);
+-			return ERR_PTR(-EINVAL);
++			ret = -EINVAL;
++			goto end;
+ 		}
+ 
+ 		if (args.args_count)
+@@ -621,8 +625,16 @@ static struct mux_control *mux_get(struct device *dev, const char *mux_name,
+ 	if (controller >= mux_chip->controllers) {
+ 		dev_err(dev, "%pOF: bad mux controller %u specified in %pOF\n",
+ 			np, controller, args.np);
+-		put_device(&mux_chip->dev);
+-		return ERR_PTR(-EINVAL);
++		ret = -EINVAL;
++		goto end;
++	}
++
++end:
++	of_node_put(args.np);
++	if (ret < 0) {
++		if (mux_chip)
++			put_device(&mux_chip->dev);
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	return &mux_chip->mux[controller];
+
+-- 
+2.56.1
+
+
