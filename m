@@ -1,67 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795885645;
-	b=17myOgh3CyPCE00gkDo8BWIZASxUNhXzKfe6SHoe35hb+PJrN4DcSlXrVd5f8toXhbet
-	 U/h6TnFzcS0I6i55vQxbTZ1RS5BRawGlX0aneVsZoV8l3WKi4860xn6SZv9P59PpHi9Nv
-	 ftL6c1VQbQuhiX8s4rFn/xjYg8hlRNTsN0l8/K4871Ni84twXEGxplgE32gE08OjU0ju3
-	 Rz4vgvX7QGGu2wl0G8kWIJwJxje7ESYZS8d7ZmCliXnV+0OD7bc4xfOttDQQNJpniWBrd
-	 P3/crJ3huQge4yJsVzF5S01VNgUerUsbXG2ldHlwvkBb0ovvEe6ad2cdr3MgMBACljg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795885645;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=QCe2redy+XxR/or6UNphwy5IpNUEjHY5f4syZF+JSJc=;
-	b=IZ2SIL9m8w8cmcgjrxie/untA/mESMYsExhe39VcR+iakHZJULzbHpCt8E9IAxvzsTvk
-	 cORjQDdnwiZ4ZUCAgK0Q6EzZ46gjAWem5x8AYOvtbASra37QKpZ/NwLe59n19Fuqv2/Tf
-	 iwh+VJx/wFZmib/VD3sPbwDrP26Hu6yWXJ3BMnzcuWzT8/9xOMu2w7xCE1LXOdYz5rUKq
-	 l2aO4LsiiBzFQU2Q2y3QXgoXRSOHVbq/xcJ1juYSJlQYLRGd0inMJLJTCJgd/naswP+LU
-	 vll5vLP/ddbC5ctjRZCV6/jjIQvTQ1YBNh03GQiTTgMMpNHIOss8iasdVa33rtDh++g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=IKwvi4NS;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795886127;
+	b=NBORbKw//KYRHfWAhocmbXSO3IA9qg5iXWmm6je5KQtizPSDBAMvO4jPvL78Y5eL6ACp
+	 CGAO1qQOb4aXyZ5TbPOMhROO6U1gYHqy2ymI1ghte/aRufWq7PkDNKpoztlth4sSM1XuO
+	 F7yVurk7i5LPknKRYmb8Ti29Hk6vZCTWdY+4igJxVeyWaFQdZBTMKjTXQ3Lg1bB/NtgML
+	 yZ65a94qgh7hW9tjyXJuZrWHhWPqL6lsas7paom8ZGDKyNxUBNUBH0vjIeeDUjXD0e53y
+	 jSEUZCLBAS1lCxtb/4F+WoffZVXjqS8dIsjLXKkAIYnoC7PW1cr8oOXCcvcZ630ABaQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795886127;
+	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
+	bh=mxLdkY6vzsVozs32pWOO6o78TSdG6gnBKlks6tfg/FI=;
+	b=Ifd1+2LXEcEQL2QQkWLYc6oBm3oOC+EgIYhUUhW+7PClXWynxhz7XzpVhvD3NPB2k4N/
+	 hTVpwKWus3AWMnovC9LOnxYkaVQFTQAqgBcQ95D2nBkQ3SGQMB1NcXygBIW2Wn38z4kuW
+	 oC51BZr67UKII1OKx2XBWjdxJLuSWQDdC9OEC8sDZAfguRQOvnNWZKjFPqNmFvFjIaVRW
+	 9YLdaM2myozQm97wdcsdqlkqqdIAQFv3DqcwxTuPTGHlX5EriwxtYpMWY9L0tVdoiW5E8
+	 cEunsLOQVzEgKJmQ2i9JVeBf4JgtId6BkTjSlaWX1HibCyrqMlzFGgUNOPZpOHfhLuw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pigmoral.tech;
+	spf=pass smtp.mailfrom=pigmoral.tech;
+	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=n3Rb+4u3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99FDE606A31C;
-	Sat, 28 Nov 2026 17:07:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99FDE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF5ED606A31C;
+	Sat, 28 Nov 2026 17:15:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF5ED606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=IKwvi4NS
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=QCe2redy+XxR/or6UNphwy5IpNUEjHY5f4syZF+JSJc=; b=IKwvi4NSAuEc1vnveUrvIra7jO
-	w9YZAhRMwgXN4MWNq+aYouYY9K1a37Q+OQJW/iieCeThUq4pe/w25PhtNKhG/46V/TYyHOAm0U8tV
-	OrYFDMG/AJY2gH1xbvadvFBk9XPsjMLBxRPtS9jMRJCdZ+tdGA+yXJM/fFFZnuIYXTwk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xXLtA-0020li-L3; Sat, 28 Nov 2026 18:07:04 +0100
-Date: Sat, 28 Nov 2026 18:07:04 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
-	Eric Dumazet <edumazet@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Breno Leitao <leitao@debian.org>, matttbe@kernel.org,
-	thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net v2] selftests: drv-net: pause: ensure the link
- partner sees the link when probed
-Message-ID: <8c278a5e-588f-4b8e-a89b-2dfcafef2e64@lunn.ch>
-References: <20261128101725.17398-1-maxime.chevallier@bootlin.com>
+	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=n3Rb+4u3
+ARC-Seal: i=1; a=rsa-sha256; t=1795886097; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NC2klko8jRLoHNet+utc/pJ7VOTIikmUThVKPCUUuw6VYSVBbkSoD2U8+g6yycJG7U/kJJle6/fxSJgDeZkYL9/dGA2IswgWPyx5F9qC0WSUPX/pz3EE27Kw4l6p2vX2bH42F76mGTurJKHFzcEDTTbJcj6GAVw8Wfe6+cMjWzY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795886097; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=mxLdkY6vzsVozs32pWOO6o78TSdG6gnBKlks6tfg/FI=; 
+	b=CdzcEpIsN5Wcwn1sL9gd/2PaWYgHaN9KfgWfk+oeQMgptXJFLomRR//ae8XWfXuqAo+gHsaJN98HKoH5YIQhHL5zPgygoigurKV0COuZQgdS/iYhrWpR7MsxG1a2gWRwbNRAVc26FXIFxHCohT8PInGztY2RrYa8AlTLiufl9e0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: a=rsa-sha256; b=n3Rb+4u3lNvXBbhrd3qnrekDgZyf9P/MtXD68fbi3LkmFsf3lo9Gd08NARHFbxSdjFDdMG8kQKzEOlR5kBxPzIBJv0F28l1s1P+z8ZxMT7S8d9wwshrqL6PIocf+YQdtv35Bf29709IE8kmsSTGVDDnt9ZH2Rm1lbgJObUof+fk=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=mxLdkY6vzsVozs32pWOO6o78TSdG6gnBKlks6tfg/FI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795886094973517.1431723157222;
+	Sat, 28 Nov 2026 09:14:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,23 +55,144 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261128101725.17398-1-maxime.chevallier@bootlin.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 29 Nov 2026 01:14:37 +0800
+Message-Id: <DN70HEN4EFL9.RHMQ0H4T77RG@pigmoral.tech>
+Cc: <spacemit@lists.linux.dev>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, "Chunyan Zhang" <zhang.lyra@gmail.com>,
+ "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH V2] riscv: dts: spacemit: k3: add USB3 port A (DRD)
+ nodes
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Chunyan Zhang" <chunyan.zhang@linux.spacemit.com>, "Yixun Lan"
+ <dlan@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
+X-Mailer: aerc 0.22.0
+References: <20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com>
+In-Reply-To: <20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com>
+X-ZohoMailClient: External
 
-> This has been found while running the stmmac kernel selftest suite
-> between an imx8mp + ksz9131 PHY and a Intel i350-T4 card, the
-> renegotiation happened too fast to reliably see it on the intel card
-> side.
+Hi Chunyan,
 
-The logic of the patch makes sense. So i've no problems with the patch
-itself.
+Thanks for your work, but I found an issue when testing this patch...
 
-I'm just curious about not being able to see it. Autoneg, at 1G, take
-a little over 1 second. So if you can poll at 0.5s intervals, you
-should see it. Is ssh to this machine really slow? Or is the Intel
-i350-T4 driver doing something odd? Slow at reporting the down? Fast a
-reporting the up?
+On Thu Nov 5, 2026 at 6:31 PM CST, Chunyan Zhang wrote:
+> Describe the DWC3 controller and its USB 2.0 PHY for USB3 port A
+> of the K3 SoC.
+>
+> Only the U2 lane is described: Port A's SuperSpeed PHY has no driver
+> yet, so the port runs at high-speed (maximum-speed =3D "high-speed").
+>
+> On the K3 Pico-ITX, Port A is a Type-C connector behind a FUSB301 CC
+> controller, which is not described yet. Nothing configures the
+> FUSB301, so the port relies on its power-on CC mode. Enable Port A
+> with dr_mode =3D "peripheral"; it is device-only until the CC
+> controller is described.
 
-	Andrew
+In my testing, this patch alone does not make the USB gadget work unless
+I manually run the following command after the kernel has booted:
+
+  devmem2 0xcad30040 w 0xA4080401
+
+0xCAD30040 is a register in Port A's USB3 PHY. It seems that even when
+using only USB2, the USB3 PHY registers still need to be configured,
+so USB3 PHY driver support appears to be needed first for the gadget
+to work properly.
+
+>
+> Signed-off-by: Chunyan Zhang <chunyan.zhang@linux.spacemit.com>
+> ---
+> Changes in v2:
+> - Rebase onto v7.4-rc1.
+> - Move phys/phy-names to the board dts, matching usb3b/c/d.
+> - Add snps,dis_u3_susphy_quirk and snps,parkmode-disable-ss-quirk.
+> - Note in the commit message that Port A is a Type-C port behind a
+>   FUSB301 and is device-only until the CC controller is described.
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 12 ++++++++
+>  arch/riscv/boot/dts/spacemit/k3.dtsi         | 29 ++++++++++++++++++++
+>  2 files changed, 41 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/bo=
+ot/dts/spacemit/k3-pico-itx.dts
+> index dda420900aa2..d0fbed23ccca 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -337,6 +337,18 @@ &usb2_phy {
+>  	status =3D "okay";
+>  };
+> =20
+> +&usb3a {
+> +	phys =3D <&usb3a_u2phy>;
+> +	phy-names =3D "usb2-phy";
+> +	maximum-speed =3D "high-speed";
+> +	dr_mode =3D "peripheral";
+> +	status =3D "okay";
+> +};
+> +
+> +&usb3a_u2phy {
+> +	status =3D "okay";
+> +};
+> +
+>  &usb3b {
+>  	phys =3D <&usb3b_u2phy>;
+>  	phy-names =3D "usb2-phy";
+> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/s=
+pacemit/k3.dtsi
+> index e89d2cc5ca8c..2d2569cfe676 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> @@ -687,6 +687,35 @@ gmac2_axi_setup: stmmac-axi-config {
+>  			};
+>  		};
+> =20
+> +		usb3a: usb@cad00000 {
+> +			compatible =3D "spacemit,k3-dwc3";
+> +			reg =3D <0x0 0xcad00000 0x0 0x10000>;
+> +			interrupts =3D <118 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-parent =3D <&saplic>;
+> +			clocks =3D <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
+> +			clock-names =3D "usbdrd30";
+> +			resets =3D <&syscon_apmu RESET_APMU_USB3_A_AHB>,
+> +				 <&syscon_apmu RESET_APMU_USB3_A_VCC>,
+> +				 <&syscon_apmu RESET_APMU_USB3_A_PHY>;
+> +			reset-names =3D "ahb", "vcc", "phy";
+
+I also tried booting through the BootROM's USB download mode (fastboot,
+with USB worked as a gadget), so that the BootROM would initialize the
+PHY registers needed for USB gadget operation. However, I found that
+asserting RESET_APMU_USB3_A_AHB during the kernel driver's probe resets
+the PHY register state, losing the configuration left by the BootROM.
+
+Am I missing something? How did you test this?
+
+Best regards,
+Junhui Liu
+
+> +			phy_type =3D "utmi";
+> +			snps,dis_enblslpm_quirk;
+> +			snps,dis_u2_susphy_quirk;
+> +			snps,dis_u3_susphy_quirk;
+> +			snps,dis-del-phy-power-chg-quirk;
+> +			snps,dis-tx-ipgap-linecheck-quirk;
+> +			snps,parkmode-disable-ss-quirk;
+> +			status =3D "disabled";
+> +		};
+> +
+> +		usb3a_u2phy: phy@cad20000 {
+> +			compatible =3D "spacemit,k3-usb2-phy";
+> +			reg =3D <0x0 0xcad20000 0x0 0x200>;
+> +			clocks =3D <&syscon_apmu CLK_APMU_USB3_PORTA_BUS>;
+> +			#phy-cells =3D <0>;
+> +			status =3D "disabled";
+> +		};
+> +
+>  		pdma: dma-controller@d4000000 {
+>  			compatible =3D "spacemit,k3-pdma";
+>  			reg =3D <0x0 0xd4000000 0x0 0x4000>;
+
