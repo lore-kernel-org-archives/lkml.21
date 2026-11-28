@@ -1,77 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795861060;
-	b=POWyKOiGbEwS9YOnEOh3kcR+FONHfLsd+me7obnbjl0qEBS1N1rNnfUDarCcfgbK6n4C
-	 8LwcvK1O3ybh0dkk2n2QYhpFfdVP3Awk4EWQzEicDjHbCFkNcCLUZMi7fpkH3rvDvve6n
-	 V57ZSTQ+3/eNZk5KA7ZGxteNrC39jWFUpwdjt8RmGUL4l0D4K0zMH3QumauwU2nzgebSP
-	 c4Vrru/2aNTegisY6idG+cLqiPXkq04T1RHVvmHO7KOeVvsdNw+lbg8MtIV1+6e0H1BEM
-	 BignbnTj4CfMohH2tPg8MCiN48qZH63IDAtNaKrNa6jJ/+YUv9dEaURa/VO0ilJxcIg==
+	t=1795861395;
+	b=wT+iyQ3YFgkzz9MhVZdwaZPKrXDPqKLQ0FZcSPqqriMc9rgD0e35uUtFCDfKuRLlfMWD
+	 u8K2Yc1S/Mfk0Le1NPKh8+dH8sEDqiZLyC2O4smnx0V+9zOft0oEsnfmnWW0ujD77QyZZ
+	 NSrHxv5rP5tXPZ+WhhKJ/Zq5p17s+BTOA3obU8bVD2a2zL40iJH/+8sE0F3Z5qcMWlfCY
+	 U4uFFF1V0FTLV485r4pjkTlaPSZ9jrYXQ6zW+s3Eww7B56MIJBZHYKgUiaUVP5DQ0bnZn
+	 DdOF9h0u78vFHsOAHLeexQqSRmJ1bNEtEOAc28ekbc2aA4yzE7J9cLkA1znd/bD/pOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795861060;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=PlNJtfQJO2+ddsgoMnwmoYZ6WgTRRQQ5xgP2X5wVeT4=;
-	b=N4sWVY1k0nJAsKrIXqrxKhmTH7FVVh9zYfs2oQqqQ0EWUpmc59u0OP6nJ/4cRiK8RMuD
-	 cqGpdKFbmPUV6RcBeYH3gNsPMD2D6mzwEoJOqdf8y/u+jTHL49F/ysO03A/YrIbmjgNlk
-	 HLEYonxwEJxakVILGhl/Ug84N8g4mIH2I7T8aBZ5APW3hAh3VAe8u7wfgdn4e2MklUI9G
-	 owdPdwr0UeePIjqvb3LiVUlH1E1zTFJ5LtAOuIm2eoHI3yQGpvjt3EtDX6SW69x4yYImP
-	 aVYC45DwWn87W15ba0eImFOqzZtrJl5lHnxSAroPKnysE4SDuGEs2BDmvIob0yRcxjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795861395;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=/w6InKM/6AK1arBrGsZ1kaO6gqY5Udi31FAyUNrk+/M=;
+	b=hKedCQsLMotr1MjP2ttzCrCnHhPt2woY2XOAZRoAzsIbid+++fpYqgczCvoBRxMvKmQ6
+	 RRFsNAU7QZBiRtm4c/QisCMz8rQ7v+P7/Gw34p7g/w2J2otC+Oyk5feV7nvEfXDx7/FZQ
+	 PLhZ7ZbsirmPtr9e2ILMnNeb8xuKvRnABahOS0v7V6mWxP5NHTPsbo3UiJhPKg51FSCl6
+	 T37q2rtgRAWquQZsmM0toNH/ozbAHEjnBe6bMUPvy+ndoaQ/0GA1RRmx9KpcUElhR4LKI
+	 pBW1NetjZWQze27ZXS+hZ6LN49JA3nkL2IMZRq7MlzlEcchie8pQC53NEdChWA27k9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VgShlheu;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oKZ8GsfO;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02261606A31C;
-	Sat, 28 Nov 2026 10:17:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02261606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C3613606A31C;
+	Sat, 28 Nov 2026 10:23:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VgShlheu
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CC0F34E417BE;
-	Sat, 28 Nov 2026 10:17:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 83AB8604C0;
-	Sat, 28 Nov 2026 10:17:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6B33F11E91158;
-	Sat, 28 Nov 2026 11:17:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795861054; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=PlNJtfQJO2+ddsgoMnwmoYZ6WgTRRQQ5xgP2X5wVeT4=;
-	b=VgShlheuODqYx7kLiLqJesuy1J8Fg8VMhzLpo2d6lFs6XjdpNv/FU42ybcVk5OoaFaEIet
-	p1v9nxJtrxVJg8pZeHNWiRbFMa/8BUqBAvkvrBJChOAwwLpQTjdw25E+WSpAc4NgxDTakX
-	ULL7EvABQIssUhfHqIHCgSFmxj9w5wrLMuxn4W0+I4KP3hQhgusamhGSwBbtDiBLlwkZzC
-	Br3ydusaT6O+DmIpQsirupSRcPA8JBkskeMDPwJ5HEgAccZ6apK+fXIxNumThVJtT9PtvD
-	hRXJV1M+xEeKqkX/kcB4CHYtk/alYbwkrdymNBSVljGrZrR9KgsIUKr/PYeyjA==
-From: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oKZ8GsfO
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id CEFD21F00893;
+	Sat, 28 Nov 2026 10:23:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795861395;
+	bh=/w6InKM/6AK1arBrGsZ1kaO6gqY5Udi31FAyUNrk+/M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oKZ8GsfOCAkHPFr43+N+AhGdika2Q7dZn247Ftm32nCQRflhvf4S1WmMXDqDqrgOe
+	 2wKKfREKtuyz635yhoy4XUw49dNWtnJfB+c4TzkCrxVsxgrthbTv42UHolW+jXtj9R
+	 kR+AyWcY5Ak18V78nGgzL7CCtv/4nIKGlBSMdiKusta7mBCnKqpfHVGZ7CwrOUgzIi
+	 avQvBzIH9EigzVfu1TuT8ZQxSNeRurBSPFb/acjP/mmgqhd2cQQNh5+5PkU5XjLZy1
+	 zOXQArvAJLhyWCEj6wNrHOD7PUjSbNgwoSLrySlEWM+xNg7dNsobAC8RohBhyzdfdB
+	 hY1vs1/DgMmuw==
+Date: Sat, 28 Nov 2026 12:23:11 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Guicai Ma <maguicai@kylinos.cn>
+Cc: keyrings@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
 	Shuah Khan <skhan@linuxfoundation.org>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Breno Leitao <leitao@debian.org>,
-	matttbe@kernel.org
-Cc: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net v2] selftests: drv-net: pause: ensure the link partner sees the link when probed
-Date: Sat, 28 Nov 2026 11:17:24 +0100
-Message-ID: <20261128101725.17398-1-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.56.1
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, Jann Horn <jannh@google.com>
+Subject: Re: [PATCH v4 2/2] KEYS: Reject keyring creation with overridden
+ credentials
+Message-ID: <awqrj3Hhb5UVQZMa@kernel.org>
+References: <20261127121433.2400766-1-jarkko@kernel.org>
+ <20261127121433.2400766-2-jarkko@kernel.org>
+ <20261128021108.3171324-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,77 +65,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261128021108.3171324-1-maguicai@kylinos.cn>
 
-When probing for the kselftest remote in the Pause test, we try to
-detect if it is directly connected to the DUT, or if it's reached
-through switches.
+On Fri, Nov 27, 2026 at 09:11:08PM -0500, Guicai Ma wrote:
+> On Fri, Nov 27, 2026 at 02:14:32PM +0200, Jarkko Sakkinen wrote:
+> > If the current task is running with overridden credentials calling
+> > commit_creds() is forbidden and triggers a BUG_ON().
+> > 
+> > Reject keyring creation with -EPERM when credentials are overridden.
+> 
+> Tested on the same arm64/KVM KASAN/lockdep setup on top of patch 1/2.
+> Under override_creds(), lookup_user_key() with KEY_LOOKUP_CREATE now
+> returns -EPERM for KEY_SPEC_{SESSION,PROCESS,THREAD,USER}_KEYRING
+> without hitting commit_creds().
+> 
+> Reviewed-by: Guicai Ma <maguicai@kylinos.cn>
+> Tested-by: Guicai Ma <maguicai@kylinos.cn>
 
-For that, we trigger a renegotiation on the DUT, and check if the link
-flaps on the remote end. The current implementation may hit a race
-condition if the link flap happens so fast that we don't see it when
-checking on the remote.
+Thanks a bunch!
 
-Let's rework the logic by measuring the number of link state changes on
-the remote, then triggering the renegotiation, then re-checking on the
-remote if the link change counter has changed, or changes within the
-timeout window.
-
-While at it, do a small refactor to store the "get the link change
-counter" command into at dedicated variable that we re-use afterwards.
-
-This has been found while running the stmmac kernel selftest suite
-between an imx8mp + ksz9131 PHY and a Intel i350-T4 card, the
-renegotiation happened too fast to reliably see it on the intel card
-side.
-
-Fixes: 8f897f26ef34 ("selftests: drv-net: pause: Validate the pause autonegotiation with a partner")
-Signed-off-by: Maxime Chevallier (Netdev Foundation) <maxime.chevallier@bootlin.com>
----
- tools/testing/selftests/drivers/net/hw/pause.py | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
-
-diff --git a/tools/testing/selftests/drivers/net/hw/pause.py b/tools/testing/selftests/drivers/net/hw/pause.py
-index ca4a55e59c30..5d7518f33e83 100755
---- a/tools/testing/selftests/drivers/net/hw/pause.py
-+++ b/tools/testing/selftests/drivers/net/hw/pause.py
-@@ -8,6 +8,7 @@ Driver-related behavior tests for Pause-based Flow Control.
- import errno
- import json
- import os
-+import time
- 
- from lib.py import KsftFailEx, KsftNamedVariant, KsftSkipEx
- from lib.py import NetDrvEpEnv
-@@ -99,8 +100,8 @@ def controllable_lp(cfg):
-     if controllable is not None:
-         return controllable
- 
--    before = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
--                     host=cfg.remote).stdout)
-+    carrier_changes_cmd = f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes"
-+    before = int(cmd(carrier_changes_cmd, host=cfg.remote).stdout)
- 
-     ret, _ = ethtool_ret(f"-r {cfg.ifname}", is_get=False)
-     if ret != 0:
-@@ -108,8 +109,14 @@ def controllable_lp(cfg):
- 
-     wait_for_aneg(cfg, link_drop=True)
- 
--    cfg.lp_controllable = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
--                                  host=cfg.remote).stdout) > before
-+    link_changed = False
-+    end = time.monotonic() + 5
-+    while not link_changed and time.monotonic() < end:
-+        time.sleep(0.1)
-+        after = int(cmd(carrier_changes_cmd, host=cfg.remote).stdout)
-+        link_changed = after > before
-+
-+    cfg.lp_controllable = link_changed
-     return cfg.lp_controllable
- 
- def require_controllable_lp(cfg):
--- 
-2.56.1
-
+Br, Jarkko
