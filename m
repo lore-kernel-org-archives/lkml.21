@@ -1,100 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795830680;
-	b=3YNN85F8X0mLKEt7TTIh+zuNpqcjGrRTxZpL4f1ZEAgiUKomrrVT8/jEKPrLruluxewM
-	 25U1TlotjySzjoYgSN5flpwhXAMM5MJRVhfLXyIXtvD5cTdrSexNSilWX8woHMPfJq3u7
-	 hTujM4YZiPlu8dmMPTlI+5JUzl6//6mlljQPtuBgAX1A4K21YdIgUbDXioHOsM9gXarDE
-	 QmwnzGXMj+AayTEfo6hsvseqTkZSJWDIni8wpioveVqJLYclQ7h93PT1scm4DYuWOGk0D
-	 hy5qzwSdPUIsxQJBfbQHESKF4sCuL7pDvFdF92wieuqlWR7Pz749OOOniLOQs+jgN9g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795830680;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=M+kv6M/MroHXNub3A7PdHe23Ap2KXe5JLqM78W2xjvU=;
-	b=I5K/d1I0OruWpBohxY7/7Y8Aa1Cb6KNxKnehuRy7yjZsjKvb6O3PcTindoNu02MzBOkB
-	 rqa26Zaf4krYFe6akAE8G5Bbpe3ZVqBuWuMZDRbsgtEI7S/81PmrSxUD/3XgHCcpc4sHY
-	 pPw7KfbbWndyvbZylk5MOQdBl/joohY4jMQVLT9mIVL2oHAYhdQvmjd4q5Mk6ZT2dy+Cn
-	 JU8iShqzAHXE70w8V54dcLJbhjMO2o58S7msD5KJNw8vO8XrNtE2K3oIiekMf4q0gLQrC
-	 m3fIex1gP6PmOQcE7obsAWnGTkJ4Wzf94MOR80BOK+Lv/3MYkxdQdCVFjFwuxCPZF3Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XLosXPN4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795830770;
+	b=gt++WVNZ0lC2XldrlXNzqV9T8zyUXE4Lzetf2MdlA2eu4XYQrULza+gwHP122ylNbzxi
+	 BpNz/owkWD7Rr/SuC2jvStIS52mbNx43gCQLDtCqd4xlx5SYKDQEL65jcH0GVSPVrz1zV
+	 0+AlsBbt2I+D1mFetaLlu24RNA49v9eKgna2Ss1ksiL0S73tBlPYmX1HJmRXtIPezyIuE
+	 uFZGAyc7UwPtzpz38VvyuQg8jQHvBppCHmsKK5VzOBb6XsP0Lx6R/brJkiHHjE89iI6hC
+	 BbmNwdTmjCTCXRTRE/rJQxm6F1oZO3U/mJAscSLnztt8ST4MEaluIANub6u7yQAhY1A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795830770;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Date:From:To:cc:Subject:Message-ID:
+	 MIME-Version:Content-Type;
+	bh=ItpSYm3LDNGOHmZ8RzVdWkrksC2W3PRAR2OvtqthQhA=;
+	b=MI3XLBYziPYGKaEjEeiJeTwuuB2fsOgGe7qHeG2TlbWiNtmNhuCStAJMS1WWTnvwWdOq
+	 OYn7WfrtgMr4Fuaj0+IbUd8rorw0dWey+gNDBmTOxjxlxqE9ZaK9frK1yVpYTMDj45+qk
+	 hEi3SzlKtxt0B47SAVUumvFDDyIXj6l5uwzq8NMoGtHcXZ3sux62dGkXTICdfBu/KNRI0
+	 3nCYvEl3P8+WC43JYJ5SjnZ9KmreizQ9T1cawOXMLwVtbT0pYugUHcxut555LSe5vpSFB
+	 rUtr51QtGZVpGCaxiHFpVmmNHajoelVG/x+G1vKgqDM9p6fhG7Dh5s0TGci9TKoUJyw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=inria.fr;
+	spf=pass smtp.mailfrom=inria.fr;
+	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=UY19EKkZ;
+	arc=none smtp.remote-ip=192.134.164.83
+Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 833A0606A329
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:51:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 833A0606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2350B606A31C
+	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 01:52:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2350B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XLosXPN4
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so1088801866b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 27 Nov 2026 17:51:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795830679; cv=none;
-        d=google.com; s=arc-20260327;
-        b=clIx5Yd6H3gpC4J0TAZHn+KdnPIFYWTD78OG8STEuvaxAxmF4KmDaP+C6htnrVD9co
-         WTFSqk6OejNjrMuqQJgSKewcssZrhFpk85UPI/9Da4MXNnnukKjI1rSAXhWDNNH1d897
-         mZdKZdHNIGZ0hT3J7nAy7GGv/JC+YX0Oa2/eMS4q8PDAwWyBRaGXRySzULI7jj62dP3S
-         +xJ1Srv4gWW7GJPgrq3Weks5LyYxNWTOdYc3DpDK2XhnfSYirOtHg3jyI6xqMRgGXw8S
-         IdKGddsWH6y9l1NnfztoCrTMPPYCT5eybSnkXJ2JIjRGfkKknSLnl4ztDLo6/c0WCDJ4
-         LxIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=M+kv6M/MroHXNub3A7PdHe23Ap2KXe5JLqM78W2xjvU=;
-        fh=gmdVhh8NcH5SIrZFbduX6DNIWCUi5Uf/oP32CgSPJY8=;
-        b=Pugd9jsv60Xjo9HKD9YKNHlvVcQsuv3SoGnCpl73DxOO3ctzni1GUJ8Oh/jLmyD+E8
-         G65xGKUBg19HuvqaNjircdi6/sN7R0xO1VYPPiswp7vh+aJrd8wBSx7q6AwY3ZOJ/yvA
-         UwHEPlJCNpYKghG0evon53bCrhmQqZMSy5EvHUz1GGlvRUTXw+WplN6EGSAX5v7uhSdG
-         pIRYZmcEunhMvC/eORs/3v1XXo4/ATvtEvLR3vrq4aLBeFvtB5xQvE+betrlNHkKoleU
-         MTPiupxbSNJzoFd14n8q6SepX0+14vKCNxmbOEuSVSWjzDqw0CT90ImovJQoDuRJQXwn
-         F5kw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=UY19EKkZ
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795830679; x=1796435479; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=M+kv6M/MroHXNub3A7PdHe23Ap2KXe5JLqM78W2xjvU=;
-        b=XLosXPN4XY1X7SNdxkqBL+OmW6RyoS3KUKiJGN6VkhP3L0yhHIWAe9gfCGB7c23JLd
-         lHNLLgTgGaPV+ANwny7auVJWhylTPy7tn8Qbd1QmlxO7gDNExEWgSGEhy30NAozJQ+8+
-         +xKv07hbVc2PMmC0nQwONM+Snu/fB4CVx2Zu1RVG2ABrNV3bydSS40OT+TsJEZK+JELi
-         MFuPTs18dGi6k3X7RKL9C6rS6PY4lyASR9cQGoX1ApSJvF/sCt8fWc54v5qN8Mgd+424
-         mRGAbRe9QyqlYYy8UZHrD36MAiba/qdVjAz2hG+uSVag6rBQPtZrBpUV+D6X33j1iq7k
-         51pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795830679; x=1796435479;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=M+kv6M/MroHXNub3A7PdHe23Ap2KXe5JLqM78W2xjvU=;
-        b=G0zVCqJurPu8QsegvdCF5V8YJvnezPyZsmXK7hsAKiYhWX2IV0ixO0EBDdYj+wxPJR
-         cPxWeDWQ2x6l8vkiTLwWs2ioioFUlHj9IHBSWZpuKRiOBWYv9pbK2pmcJiqto/2egVOJ
-         MYyuj3n4sc1CXf5TTjg2/l+5MJJjfauvnvJXUJLz/iYKEKsSW27ekuuX/q5dXWDf0zuQ
-         tur9rluMHUefAQ68LsYfMTF5wEXgEDi/+SgRiqGTgUyC7TENYd3sUOAdsI68l4h8OQ4I
-         P3VnthDUxb2thnnoIdI9tnlV4h/ZyEGyBH/ZXt9HFzXdZZQHQdedmNqqFv77MU6p5LhC
-         ukqQ==
-X-Forwarded-Encrypted: i=1; AL+hErGcbVX5i21HCHHGh4zbHLTD+L+k9ugR3w6hekM36UvXyw/fbNpCLjWJvAxrOYJIYK+WhzqiHeuIVxNCGyQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9K2sfr8JKgRyucp55jIIWM40LhR4oUS6yKoRa8/oTPY+Hha/26
-	pwREW/7Wp6xoevHganjYVImnkLkmnTIfvZ2ZFoDL33YiXg+TfP1Jy0gylrQWcO7Qk8yjiIiq9mA
-	AthxSOeDS8b107tv4cu+cCKr8IJCEr6w=
-X-Gm-Gg: AZFdTZdGcCzDkHAbMQ1eVX5lvzozHyDtgtfJ3iW1bvMENw1oyQXJ7pMrJ0RerWUEvaq
-	j5UgGtVv2/SC9hBSbp+XWFNc9lFRWEUorfmFUuV30OvkHKYTIuNdB0wyAuafhYfUM/AA6jmmhfl
-	4RJSa8nOdRodz612ZArvfElt6EYVRt91XwT4k6GnFwgxnSsDNEQ9iqrIJWUEeCSsEjAD/05mun8
-	7D00eQLqEDZZoiG9+MadGIRZY3IOdvhq41RDhn8P65tA9TxHTZi/RwU4i1IvQRxY63wHn3A1lwj
-	6dvHthsD25xd6/hfeX+E+RjLs2anfiDLJqVbkr4coCtyEv0nm3I32viFtJQLhu+QW9xgVjCf94b
-	5frKQJEnczh1tPe/sreH4A41nCPlwct2NKlms
-X-Received: by 2002:a17:906:fa82:b0:c50:4b6e:329 with SMTP id
- a640c23a62f3a-c513a5eaea2mr1724212966b.15.1795830678877; Fri, 27 Nov 2026
- 17:51:18 -0800 (PST)
+  d=inria.fr; s=dc;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=ItpSYm3LDNGOHmZ8RzVdWkrksC2W3PRAR2OvtqthQhA=;
+  b=UY19EKkZ04ohjEbpq6JV0FXh/qH4XfSOFYoaZ4uO6ZSbQKQ9jlfA1jZA
+   yNEsEbdqrTmmF64eM/tEEat3HjXNT84oIu8s0m6LRScrS1+k8Eb+GkqyW
+   2wk+fUDNfiVvVhSQbhU5OEiXE9nuXUglFPfHZbFq81FJHwwwnB+e3MamC
+   c=;
+X-CSE-ConnectionGUID: g6jwhO/ASQK1UZYxJUF+Og==
+X-CSE-MsgGUID: xiSce6qcTLeajENAtDcr/g==
+Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=julia.lawall@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
+X-IronPort-AV: E=Sophos;i="6.27,237,1787004000"; 
+   d="scan'208";a="307803380"
+Received: from 122.11.163-183.unknown.starhub.net.sg (HELO hadrien) ([122.11.163.183])
+  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 02:52:40 +0100
+Date: Sat, 28 Nov 2026 09:52:35 +0800 (+08)
+From: Julia Lawall <julia.lawall@inria.fr>
+To: Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>, 
+    Alex Deucher <alexander.deucher@amd.com>
+cc: linux-kernel@vger.kernel.org, oe-kbuild-all@lists.linux.dev
+Subject: drivers/gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c:343:21-22: WARNING
+ opportunity for min() (fwd)
+Message-ID: <64fec5eb-9ac3-344-5cb4-37a39a48e64@inria.fr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,53 +64,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <awOQDOel_72Xwjm7@kernel.org> <20261127214103.542291-1-safinaskar@gmail.com>
- <awn-ioAuksHNV-Rc@kernel.org> <awn_Y7oI4ckfsjSv@kernel.org>
- <awoHex4LVst2JwkO@kernel.org> <awoO9R7YF_5_6dHA@kernel.org>
-In-Reply-To: <awoO9R7YF_5_6dHA@kernel.org>
-From: Askar Safin <safinaskar@gmail.com>
-Date: Sat, 28 Nov 2026 04:50:42 +0300
-X-Gm-Features: Aa3M54pCi2p8qLdocdLXd3OCMkn8g_j_UUSVEEax8LAEOxwj1oFmxFAoHI8_4lc
-Message-ID: <CAPnZJGBnFyrmr88OsYkMwtLiR93z4g0NAuoMurcnhcYFXz51jg@mail.gmail.com>
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: aleksa@amutable.com, alex@amutable.com, alexei.starovoitov@gmail.com, 
-	arnd@arndb.de, bpf@vger.kernel.org, brauner@kernel.org, 
-	containers@lists.linux.dev, corbet@lwn.net, dhowells@redhat.com, 
-	ebiggers@kernel.org, giuseppe@scrivano.org, hughd@google.com, jack@suse.cz, 
-	jlayton@kernel.org, josef@toxicpanda.com, kees@kernel.org, kpsingh@kernel.org, 
-	lennart@poettering.net, linux-api@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
-	luto@amacapital.net, neal@gompa.dev, oleg@redhat.com, paul@paul-moore.com, 
-	ptikhomirov@virtuozzo.com, sergeh@kernel.org, skhan@linuxfoundation.org, 
-	viro@zeniv.linux.org.uk, zygmunt.krynicki@canonical.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
 
-On Sat, Nov 28, 2026 at 2:15=E2=80=AFAM Jarkko Sakkinen <jarkko@kernel.org>=
- wrote:
-> thinking more sequencing than data structures. I.e. I have a game where
-> I need to end up to process creation without embryonic state, and add
-> just enough weight to kernel to support that outcome, and that leads
-> to ~2K'ish LOC of extra kernel complexity.
 
-So you don't have embryonic state? I don't like this.
 
-Let's assume the following situation. Userland's PID 1 is already running.
-Our container manager attempts to spawn yet another process into userland.
-As well as I understand, it should do clone3 with CLONE_INTO_USERLAND,
-and then execve.
-This creates time hole when there is process, which already runs inside
-userland (i. e. its PID namespace and other namespaces), but runs
-container manager's binary and have container manager's mm.
-This invites for bugs. Other processes, which already run inside userland,
-may somehow take advantage of this.
-For example, see section "CVE-2019-5736 Is a Very Very Very Bad
-Privilege Escalation to Host Root"
-of https://brauner.io/2019/02/12/privileged-containers.html .
-So, here I like embryos.
+---------- Forwarded message ----------
+Date: Sat, 28 Nov 2026 02:24:38 +0100
+From: kernel test robot <lkp@intel.com>
+To: oe-kbuild@lists.linux.dev
+Cc: lkp@intel.com, Julia Lawall <julia.lawall@inria.fr>
+Subject: drivers/gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c:343:21-22: WARNING
+    opportunity for min()
 
---=20
-Askar Safin
+BCC: lkp@intel.com
+CC: oe-kbuild-all@lists.linux.dev
+CC: linux-kernel@vger.kernel.org
+TO: "Pierre-Eric Pelloux-Prayer" <pierre-eric.pelloux-prayer@amd.com>
+CC: Alex Deucher <alexander.deucher@amd.com>
+
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   f4585067150b85e33f60876149a6e742928da75e
+commit: 4bbba79a7f1d0c7296bf8c935d65a9ff633f6917 drm/amdgpu: move devcoredump generation to a worker
+date:   9 months ago
+:::::: branch date: 5 hours ago
+:::::: commit date: 9 months ago
+config: arm64-randconfig-r2100-20261126 (https://download.01.org/0day-ci/archive/20261128/20261128022015.2gG87g2J-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project a2bea097c8bf336f31f45e88e96f20d88e37ff5a)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: 4bbba79a7f1d ("drm/amdgpu: move devcoredump generation to a worker")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Julia Lawall <julia.lawall@inria.fr>
+| Closes: https://lore.kernel.org/r/20261128022015.2gG87g2J-lkp@intel.com/
+
+cocci warnings: (new ones prefixed by >>)
+>> drivers/gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c:343:21-22: WARNING opportunity for min()
+
+vim +343 drivers/gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c
+
+9022f01b970933 Sunil Khatri               2024-03-21  326
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  327  static ssize_t
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  328  amdgpu_devcoredump_read(char *buffer, loff_t offset, size_t count,
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  329  			void *data, size_t datalen)
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  330  {
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  331  	struct amdgpu_coredump_info *coredump = data;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  332  	ssize_t byte_copied;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  333
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  334  	if (!coredump)
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  335  		return -ENODEV;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  336
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  337  	if (!coredump->formatted)
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  338  		return -ENODEV;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  339
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  340  	if (offset >= coredump->formatted_size)
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  341  		return 0;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  342
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21 @343  	byte_copied = count < coredump->formatted_size - offset ? count :
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  344  		coredump->formatted_size - offset;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  345  	memcpy(buffer, coredump->formatted + offset, byte_copied);
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  346
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  347  	return byte_copied;
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  348  }
+4bbba79a7f1d0c Pierre-Eric Pelloux-Prayer 2025-02-21  349
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
