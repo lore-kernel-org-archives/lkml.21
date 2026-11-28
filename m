@@ -1,115 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858535;
-	b=V1uLzdEM9HuPCtWNskrZicn5n3/X1X0CEb5Ijb0/aK4ez/il6QO08yzhO03LB/EcmzBk
-	 Xq9+0K4gyIiEXClccYF3v8Pm+U7EfmQwcgtiMUGgcLPDRdml9H7J2Cx7axFwpOQdPk13b
-	 lolb49cU01XdIH5xiutnDFApXKcD2kCkY3z0dxsiPavs34ngz65aIfCIpiVP4w2xVSBM9
-	 bv7mCvmaFIF+BpPRjpkDtqgMn97F00Ae8Z1H2W9pKiw+kPQEVywBZWotU0YgmPb+Qt/oG
-	 lEpihMCERZdAwi8S0PvzpcM8ppqTYYwzs6/axFQOZ6AFsnwbIREKIJw4KMjc+ajV/4w==
+	t=1795858541;
+	b=BTvkcMvlDxHLslF4EWCksuydtJmSJIf7ZxUAjRBSPYvgoaSJBY4a2n1If8EZsh+rqg1G
+	 d7pDHWD5AaWZsCk/VGdbXesQw8QG9t21j8iOdKmfZH9njccft8PAkr8tvqAB9bdK5GkIs
+	 jk3haXzfsSpwfBf/ZxBbNzE+tk2EdgTK60zLWakO89AScPS5fAIr2V1xuFWCuSNeUg+ix
+	 Hfizi0nyIk7+JcBTafU8xjtM8i3TvMoa6QsnjB5wha+1/pqyrabLyWbn0p8aI7YqivDJb
+	 jm1I7t3v93jCZg5lPRZOcbNf8W37oTbO2KbkoYYY99oci0LXmJWimUOTQZemWB1uYWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858535;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zicrRBvId4YvApKpJm48X0ZTwOkVDAdh8E0wrt9dEMg=;
-	b=cnd+hR5oyRPEVHu8FIppjmh1naNu7Nv8AVCX/NnHD0diQTSIOX3x4jNq4x4xxsDeBXad
-	 /9Q2KLXv4XZerFJDQho0cDRmSc3Vd/qRtUNXUQS9+GpRRJlF++1ttOh+Wl3mvmbexMIkm
-	 bVoMmnhWG6QBYd3CpUFgLgbdbGq2IYHjytI4PJ3cRs+W3Ij960o5/6/P5JsGmqK6YeV5f
-	 9SzRrGlpTrZqFe6bTLSpfSgz9Jh3830UyD07boZX/A1jN0LCQtTLrXx1GwgDK2NT1FlwT
-	 oejBvD47Eylql8veo4d52InBxjg7r43+vJnLvRtnVgG5Rdeoe/36ecKByo7T0wAfVqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858541;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=T2jo7pM/6PDKnuisVriJGAxNf7QVeypBzzf9JQ7D540=;
+	b=PKfZ/n+NdRCyxP363UmeQCDrbLSzt/o9vkjkk1uOZUULeI6SpPDiIwxIvFJeKF1UhI9k
+	 19eqyRuYWOaUZ9sJLDsqILZCwwevS75fNQ3778wRGKaXhFVv6IoBEPhQKp3/AW1/JKo1F
+	 7CFeay+h3BxUzZ0CZCARfsQ8tulSQo4irPg73HUjPvykJuiHD+2q4Tr2lECCJTpNuo9u4
+	 TQ8cMlDXLqn6dD7xN74+jLKiiyC9kk/0yz1XKBqn0YxUE+y6TpOzcb+9Yhc24Q3C8wLGP
+	 kp/Jq9YW9X56cNvnhluhyV8MKUMhlvVryrjZDcWf2jeqesr4uanruvMs3/+5X++AQ9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pobox.com;
-	spf=pass smtp.mailfrom=pobox.com;
-	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=RmL6cBI2;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tx31jsWF;
-	arc=none smtp.remote-ip=202.12.124.156
-Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LdryvvZu;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91206606A31F
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 09:35:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91206606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95565606A326;
+	Sat, 28 Nov 2026 09:35:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95565606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=RmL6cBI2;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tx31jsWF
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 03B367A055B
-	for <linux-kernel@vger.kernel.org>; Sat, 28 Nov 2026 04:35:33 -0500 (EST)
-Received: from phl-frontend-01 ([10.202.2.160])
-  by phl-compute-06.internal (MEProxy); Sat, 28 Nov 2026 04:35:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795858533;
-	 x=1795944933; bh=zicrRBvId4YvApKpJm48X0ZTwOkVDAdh8E0wrt9dEMg=; b=
-	RmL6cBI2He6Co4g89wDHUOeavPsLzAgAFAvFSnh7pdsbPkLCcrpAihTkuTDCK+n3
-	un9fm5VNsGnCyH6MsS76w5KzdhXuXM1kAF1kcdLhGYBJkHXCoyPQShsTVE7WEALO
-	sCShVZv0Ee5i+XTL0hkBap256Q/YikyluFxMj88t6ECyXCQZUwEm9AfEc0C9BvEu
-	Gq61osyj0DJK+iA4n9FOVHwVeFRnhzGwGhGvuxtVmiUrfs16hTkZ+Ad5hHYgvKFj
-	IYYOE3ZBXGGTKPgWcR1k9XzbNncbgTHHKY9tre6l22wD50Z1dd4EHbO5SQsnFObJ
-	FwXb2VCTgky1thCoeVpN+g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795858533; x=
-	1795944933; bh=zicrRBvId4YvApKpJm48X0ZTwOkVDAdh8E0wrt9dEMg=; b=t
-	x31jsWFMsoUo5dwgDYNCw0zekt3Qem1ueANY36yvulvO3dHHVMfPHqnhdby6F7gD
-	8bJ14kf2GqdLfpicgm5fhCYoJDiVsTekqYEIUp5AFZ9cxOBFhP+L7MKSDFvX+7jv
-	mju2fLdm3J+TrCBls98fz3psuXSfM7OKFptzWDVg5eUp9QWcnwd99sG2TSEEtwbD
-	rIZTj8kKm2tmBsZ6ygU8VHZsJps1ha5vlvsCogiYfL2gt1RyNXZQSY+Ifmw8uaxo
-	/9nEYodeyOD2ESxwxeqs0+klQkWLi6P+sAnO1PA5ncSrLuB/BiVZcNvymXB+Osu3
-	d1Eq4zsE2Aig6CPd1io7g==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=pobox.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795858533; d=pobox.com;
-	mf=PGJhcnJ5bkBwb2JveC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:aAcegpiP8i9jk6Rnz8YlaY0mJwRVANp14ZQZiQDE2PczUDR
-	LYm4EN+Ux4Cr1yeKdkxdrJmNSw5ZUUYqb2tGD83gecwo/Y+tq+uMYYykGn4yCMOu
-	4J0WArTrDlJSh7gKpDE+wKhHjlgNZHLDX4P541NC5iQpHBvuI23mNYqHjs5O3MAs
-	oeRjQjy18BbPMjYKpJWScHy0+cDAnKpNqVoZRkCBxMyTIY/0WuK3BGbynVl8+MqI
-	KQMAvk9FRjtxAaglAvHcNswRp3iKPm1xb+0jfM49lzofEY3QguWb0AzpGk93gkUW
-	K08gUil0ZWBFnoJ9NhTh3jx+hT7PN7Xte5EOtkg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:014xzjofYLyKTC2FEPI6l3AJteYL+UWlSylf2/3rwnU=:+TuYX39J9MK5GgWXhfX/MUZpw+eI50zC8N8dm6MRU0w=;
-X-ME-Sender: <xms:ZKAKawiU7OLMAGLs0nyYtpHMFDbYXnwkF80_85K_7S9BlVSWIhWgRw>
-    <xme:ZKAKa06GHW-LUIvF5AmE73L5KbB6FBEad7Ga33rWgVXbt-JRHUVrL4RKeM_5HNUnf
-    bJm4mqg4ivOL4pWNHyj1VfIA2QGNdbF2iamPKfXH0qhiwvPo4o_QBTs>
-X-ME-Received: <xmr:ZKAKazkqOFOPeNu63yp0SpkR64bsUrl7bxWY7zmS8eABuMF01GGiIaPGgi5XE5uS-UOnYKRAZiyDxilit9bo1pXZdMIkL-zX>
-X-ME-Proxy-Cause: dmFkZTGMV3CUim2foI4ZzGFCcoTLNyXZ5phHEtfa29Af+kPYAcEX6mgKV460NgQY1JflaC
-    AdpzyxlAuM5K3J55EGFMpNp6mHJ5kC6agKoTrbpgF/pjYbyTL9qOILlmwDpNPS4PD7Fpcs
-    mA6CY3h5GhMbYdN3rt9hRLhyOc8PDEoff6FDl2EUZo1aTv72qNhd7rZtQ4Catg08VxkU8L
-    +bvS+W5mWk1nyTDoW82JYyLmjmBX48vAWUhYmN8tLWr0KkRCG945CQXre26LhAMybC1bPJ
-    LYexQqWt5MBIr5lu90NdCW2Y+JOJuHKN1DKgP1MXy76ZutknLgeqkHHo1TrqDwEUyA6aZl
-    wfT132sjzOHmDrEaj318nLw5TKhCQykQUZaYXKbrFDH6ok0nQGH5igHCZjLEvXPqNOf9ti
-    eUtgrI/+4r/m/RGZq/iIo/CCTNPLAIyJoptC0/yEh8gmFhF/jL0n+HvK2vRRzsLdZ0P4I2
-    OadUnGxDTuWTFXMfMgzgubP8tPrXHbuYYZX8pJ6ToZbuHV3wXeeTCNlr1M4tgBLVVjUF5B
-    YuB2fLEj0pjfrQJINkF7MmIAfqmOAwBW7fhXW3cAe3Cf2J8kL5JtHpNJfdcW1pQQsJLdon
-    6E9P2sWwn9ZOl3CFkqQr6pDBV6XdIOgd8L3Du+Sm9UgiQ7RIJB3xK4ZS947w
-X-ME-Proxy: <xmx:ZKAKa1Ma2JKdUMLE4lVrPKonrMIpuqugEmKjxX0_XGFE0qC6LDgfoA>
-    <xmx:ZKAKa1qAmWc1BlYHiylL0cBc6nq31z-BxTZdiBosUAdwmlI5nBkn8g>
-    <xmx:ZKAKa-sYACVBfoEPYTZw1-_sN9nsFEAKJWOrvAWgXONmt3pUUVCu5w>
-    <xmx:ZKAKa57f26Pcu9cUYWVdw9MAKFr41nuPk-FVODp58Qc7vspI6NlUSg>
-    <xmx:ZaAKa_1UyzaRavElIPs_71OTGqCi4aIDQibHm9EGw_zRas8urBR4Xq-h>
-Feedback-ID: i6289494f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 28 Nov 2026 04:35:30 -0500 (EST)
-Message-ID: <aa7d8770-787e-44c7-a3fc-20ebc3db8af2@pobox.com>
-Date: Sat, 28 Nov 2026 01:35:28 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LdryvvZu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795858539; x=1827394539;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=07w0okp0bbzLim5DmVtzpzZVh8uI3qagnYo0AvkQVWc=;
+  b=LdryvvZuQzPKmZ/98WxkmNiyICldqeDzc26ncxlEhlHCVgcrZ6Qj0JGl
+   F2De/PvBOxRndqw3VC+Y5hUqy4iW6EL9AWhtMFZF5XavzgZVt6PODQkhI
+   N3kacuFbIZ9ra5EjJyxb3+83XCGdLb/ZPEJiYCCIDUNPad5iASA8SjJh8
+   FYH2oSx7QTF7JnR+Ms/QJID0JwPUw/JJyQkO6lIpeaNXYhe2BV5uxMfB9
+   YegKXSJLuk3QfWfvgYQQ6sZLtcgjUXEEMSFhX4FX2salQxVn0RDSn96Iv
+   oGOYWjsyzrjKrqSWqH7mDH8I4MlWVWvGJXWjWXRTRmF/vWcgmtmeEwzN6
+   g==;
+X-CSE-ConnectionGUID: CKEtBg5GQdKdTSA3a0k9/Q==
+X-CSE-MsgGUID: MiFMN4+TSh6+15Pi04ENKw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4738040"
+X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
+   d="scan'208";a="4738040"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2026 01:35:39 -0800
+X-CSE-ConnectionGUID: hGnbJ2ZiSgSwVdoz/Xcf7g==
+X-CSE-MsgGUID: +LUksoF1TZywYXT/SAzF2A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,238,1787036400"; 
+   d="scan'208";a="13151248"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa010.fm.intel.com with ESMTP; 28 Nov 2026 01:35:35 -0800
+Date: Sat, 28 Nov 2026 17:25:14 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "Gao, Chao" <chao.gao@intel.com>, "hpa@zytor.com" <hpa@zytor.com>,
+	"Xu, Yilun" <yilun.xu@intel.com>, "bp@alien8.de" <bp@alien8.de>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"Peng, Chao P" <chao.p.peng@intel.com>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+	"Tian, Kevin" <kevin.tian@intel.com>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"kas@kernel.org" <kas@kernel.org>
+Subject: Re: [RFC PATCH 2/7] coco/tdx-host: Establish an SPDM session with
+ the device
+Message-ID: <awqd+kqYabFX3xO7@yilunxu-OptiPlex-7050>
+References: <20261116111037.3478844-1-chao.gao@intel.com>
+ <20261116111037.3478844-3-chao.gao@intel.com>
+ <ac7befe5081a489172d87402e55355852a9e62ac.camel@intel.com>
+ <awWKRJQ3_rIgxJVC@intel.com>
+ <30852ad50fb3085de04145342aaf1caf145488fe.camel@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,47 +94,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5.15 000/318] 5.15.227-rc2 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261127052515.841545444@linuxfoundation.org>
-Content-Language: en-US
-From: "Barry K. Nathan" <barryn@pobox.com>
-In-Reply-To: <20261127052515.841545444@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <30852ad50fb3085de04145342aaf1caf145488fe.camel@intel.com>
 
-On 11/26/26 9:25 PM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 5.15.227 release.
-> There are 318 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Sun, 29 Nov 2026 05:24:50 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.227-rc2.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
+> > > > Pass the messages through two pages per device, one for each direction.
+> > > > One pair is enough because PCI/TSM serializes operations on a device.
+> > > 
+> > > This probably needs more explanation.
+> > 
+> > Several functions of a device may want to talk to the TDX module at
+> > the same time, and each of them may need SPDM message exchanges. But
+> > PCI/TSM serializes all operations on a device, so the pages are
+> > allocated once per device and not once per function.
 
-Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). (Also briefly
-boot-tested on an Apple MacBook Air 2017.)  Working well, no regressions
-observed.
+Correct. But we don't have to mention "per function" serialization for
+now, this is for secure passthrough of the TDI. For link encryption, the
+connect/disconnect operations only targets the device (physical function 0).
 
-Tested-by: Barry K. Nathan <barryn@pobox.com>
+Though this is not the answer to Rick's concern...
 
--- 
--Barry K. Nathan  <barryn@pobox.com>
+> 
+> I mean there is a buffer for request and a separate buffer for the response.
+> Once the request is sent, why can't the same buffer be used to read back the
+> response? This may be a lack of understanding by me of DOE.
+
+I believe it is possible. The DOE protocol defines serialized
+request/response flow. And the pci_doe() code does so, the entire
+request payload must be sent before receiving any response payload.
+
+I didn't try on real TDX module if tdh_spdm_connect/disconnect/mng can
+work with one buffer, but don't see reason why it can't.
+
+> 
+> > 
+> > @Yilun, let me know if this understanding is wrong.
+> > 
+
+[...]
+
+> > > > +	ret = -ENOMEM;
+> > > > +	in_msg_page = alloc_page(GFP_KERNEL | __GFP_ZERO);
+> > > > +	if (!in_msg_page)
+> > > > +		return ret;
+> > > > +
+> > > > +	out_msg_page = alloc_page(GFP_KERNEL | __GFP_ZERO);
+> > > > +	if (!out_msg_page)
+> > > > +		goto out_free_in_msg;
+> > > 
+> > > Maybe dumb question, but why do we need two buffers for this? After we post the
+> > > request can't we just read it back the response to the same buffer? It doesn't
+> > > seem DOE code is setup for that though.
+> > 
+> > pci_doe() takes separate buffers for the request and the response, and
+> > so does TDH.SPDM.CONNECT.
+> > 
+> > > > +out_spdm_delete:
+> > > > +	tdx_spdm_delete(tlink);
+> > > 
